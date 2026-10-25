@@ -9,7 +9,7 @@ C and F.
 ## Executive summary
 
 The harness reads both ends where blindspot 31 said it must: 24 of the 78
-rows read the endpoint from the host, and the endpoint's own `cat` refuses a
+rows read the endpoint from the host (24, after the seat's reclassifications), and the endpoint's own `cat` refuses a
 missing object on all three backends run (rc 1). Every tool that can fail on
 the host was seen to fail on a constructed input. But five things a PASS
 from it does not say:
@@ -26,8 +26,11 @@ from it does not say:
 5. **That its endpoint is the one named.** `cloud-test-backend` accepts
    `--backend` after the subcommand in silence and answers for WebDAV, rc 0.
 
-Ten rows judge by the device's own report, three of them as round trips
-through its own restore.
+Eight rows judge by the device's own report, three of them as round trips
+through its own restore. The seat's refutation then found defects of a
+different order (§ Second opinion): one cell that cannot complete (KILL1),
+checks that pass on the inputs meant to fail them, and a step whose refusal
+deletes the library it refused to touch.
 
 ## Acceptance-criteria scorecard
 
@@ -40,7 +43,7 @@ through its own restore.
 | 5 | `reviewed-at`/`fixed-at`; no `tools/` file outside the nine changed | the read is on `8ebaf8daad` (diff empty); no file under `tools/` changed | 01 § Scope; `git status` |
 | 6 | 01 § Scope with § 2's block and the history | done | 01 § Scope |
 | 7 | 02 § Coverage, 9 rows | done: the awk prints 9 | 02 § Coverage |
-| 8 | 02 § Assertion shapes | done: 79 rows (34 + 44 + `CONTRACT`), generator rc 0, no delta; the device-report class listed (10) | 02 § Assertion shapes |
+| 8 | 02 § Assertion shapes | done: 79 rows (34 + 44 + `CONTRACT`), generator rc 0, no delta; the device-report class listed (8, after the seat) | 02 § Assertion shapes |
 | 9 | 02 § The runs | done for stage A; nothing left running | 02 § The runs |
 | 10 | 02 § The guest cycle | waiting for the window on #660 | -- |
 | 11 | 02 § Positives, one row per tool | done: 7 fire, 2 `none` with why | 02 § Positives |
@@ -92,7 +95,19 @@ the harness drives (T16's, T17's).
 | F-12 | `cloud-test-backend ls` swallows every error (`|| true`, lines 629-633) and `backend_files()` ignores its exit (line 1838), so a listing that failed is an empty one; two rows judge absence on such a listing alone and PASS on it: `run_steps.27` ("an unselected system was not uploaded") and KILL4 ("uploaded no invalid archive") | Q3 | § Proofs | tool-run |
 | F-13 | no tool among the nine proves a mixed installation under D-CLOUD-175's `/pixelelated` default (a device updated in place keeping its folder beside a fresh install, one cloud); D-CLOUD-158's gate was met on 2026-10-05 for the retired `/Rasteratops` default by `cloud-pair-migration`, now retired. **The coordinator ruled on #660 at 05:22 UTC: the proof is owed, as Backlog #1055 (the coordinator's)**; this slice defers the gap there | Q6 | 01 § The retired tool; `tools/archaeology mixed-installation` | history |
 | F-14 | `tools/cloud-connections-test:37` holds a credential-shaped fixture literal at rest (a quoted value assigned to a password-named variable); T10's widened `SECRET_PATTERNS` (#935, `feature/m6-tooling-guards-657`) matches it, so once that lands the pre-commit refuses the next commit that touches the line, and the packet carried it redacted. `engineering-practices.md` § Guards must fail closed: a fixture a secret scanner would match is assembled at run time | Q2 | 02 § Proofs; `second-opinions/packet-manifest.json` `redactions` | tool-run |
-| F-11 | six fixed waits stand in for an event (lines 4915, 5294, 6692, 6910, 7496, 7500); the other 1-5 s sleeps are poll intervals or deliberate mtime separation | Q3 | below, Q3 | tree |
+| F-15 | KILL1 cannot complete: `webdav` is never assigned in `fx_kill1` and is read at line 6846 (the only assignments are locals at 5506 and 7091), so it raises a `NameError` the runners do not catch; and its preservation predicate counts a deleted cloud file as `absent`, never `TORN` (6815-6825), so deleting every copy passes "every file is v1 or whole v2" (G-30, G-35) | Q3 | 04 § Second opinion | tree |
+| F-16 | CONTRACT's copy arm reports `dry-run: push ... conflicts [...] ...` on every dry run (4739), and the guard is `"conflict" in dry["out"].lower()` (4844), so "the dry-run guard fired" and "reported in a parseable form" PASS with an empty conflict list (G-31) | Q3 | 04 § Second opinion | tree |
+| F-17 | verdict accounting: `prepare_device.1`'s equipment `check()` result is discarded (314), so a printed FAIL does not fail the run; the seat adds that an unknown or unsatisfiable `--only` ends PASSED and skipped KILL cells are not counted (G-32) | Q3 | 04 § Second opinion | tree |
+| F-18 | step 25 PASSes on an empty probe: when `es_systems.cfg` is not found the `grep -oP` reads nothing and `orphans` is empty (1484-1494); it is also a text search of backuptool's source, so a comment can satisfy it (G-33) | Q3 | 04 § Second opinion | tree |
+| F-19 | CAP13's warning check: `grep -c ... \|\| echo 0` yields `0\n0` on a log with no match, which is neither `""` nor `"0"`, so "the warning logged" PASSes with no warning (4452-4453); `Kill.count_in()` already avoids this trap (G-34) | Q3 | 04 § Second opinion | tree |
+| F-20 | step 8's refusal deletes what it refused: an occupied `/storage/roms/vectrex` raises `Fail` (915-916), and `restore_device`'s `finally` then runs `rm -rf /storage/roms/vectrex` whenever `--real-roms` is off (7784-7785); against a device with a real Vectrex library, the run deletes it; LINK and KILL resets remove it without ownership too (G-44) | Q3 | 04 § Second opinion | tree |
+| F-21 | the SFTP backend is not a jail: `internal-sftp -d ${DATA}` (396-397) sets a starting directory, no `ChrootDirectory` exists, and the client key placed on every guest authenticates as the host's own user (`SFTP_USER=$(id -un)`), reachable from a guest at 10.0.2.2; a guest process holding the key reaches whatever that host user can read (G-42) | Q2 | 04 § Second opinion | tree |
+| F-22 | credential serialization fails open: the WebDAV/SMB/FTP stanzas fall back to the clear QA password if `rclone obscure` fails (742, 752, 762); the seat adds that the first S3 host-config write precedes its chmod and that `reset` can print "endpoint is empty" over ignored removal errors and surviving S3 objects (593-626) (G-40, G-43) | Q2 | 04 § Second opinion | tree |
+| F-23 | A15 plants plain bytes named `.tar.gz` (`dev.write(..., b"this run's archive")`, ~2851), which the harness's own header (145-148) says `cloud_backup` lists and refuses since 2026-09-10; A15 fails before the behaviour it names (G-46) | Q3 | 04 § Second opinion | tree |
+| F-24 | KILL5 plants three own archives and expects `own[1:] + [archive]` after retry (7094, 7151) whatever `CLOUD_BACKUP_KEEP` is, while its message claims the configured keep (G-47) | Q3 | 04 § Second opinion | tree |
+| F-25 | `cloud-census` is not read-only: it runs `cloud_device_id` on the device (line 76), a helper that can heal and rewrite identity state, and sources the device's configuration (G-48) | Q6 | 04 § Second opinion | tree |
+| F-26 | the seat's further leads, accepted on its citations and not re-read in this session: kill-point witnesses that write `landed` without a kill (G-36), timing windows treated as orderings (G-37), a vocabulary gate that accepts any permitted sentence and step 29 accepting any non-0/69 code (G-38; step 29's predicate re-read), the litter scan's limits (G-39), endpoint health by PID and port only (G-41), cleanup failures outside the verdict (G-45), the connections shutdown test's 50 ms timer (G-49), the explicit-empty-key Wi-Fi case needing no connect (G-50), the stamp test never asserting exit status (G-51), and the integrity verifier following symlinked ancestors (G-53) | Q3 | 04 § Second opinion | tree |
+| F-11 | fixed waits stand in for an event at lines 4915, 6692, 7455 (1.5 s, found by the seat), 7496 and 7500; 6910 is a bounded negative-observation window and 5294 a poll interval inside a deadline loop (the first reader was wrong about both, G-26); the other 1-5 s sleeps are poll intervals or deliberate mtime separation | Q3 | below, Q3 | tree |
 
 ## Finding Verification (Phase 4.5)
 
@@ -114,10 +129,75 @@ Each finding re-read against its artifact at the hash, after it was written:
 
 ## Second opinion (Phase 4.6)
 
-**Pending: stage C.** One seat, `gpt` (`openai/gpt-6-astra`, `max`), through
-the local Facilitator, after the packet is scanned. `review-plan.json`, the
-probe, the refutation and their provenance land under `second-opinions/`,
-and each item is graded here with the artifact that decided it.
+**One seat, Independent depth, as planned** (`second-opinions/review-plan.json`).
+
+- **The probe,** 05:25:06-05:25:15 UTC: served `openai/gpt-6-astra` by OpenAI at `max`. Verification, effort and provider all PASS.
+- **The refutation,** 05:25:26-05:38:50 UTC, attempt 1 of 4, `finish=stop`:
+  - 34,948 bytes of output, from 220,427 prompt and 36,583 completion tokens (28,431 reasoning), 803,757 ms, 0 retries;
+  - served `openai/gpt-6-astra` by OpenAI, effort `max`; verification PASS (semantic, `provider_response`), effort PASS, provider PASS (`response_provider_field`);
+  - `facilitator_version` `council-facilitator@1.14.1-pixelelated.2`.
+- **The output was scanned before it was read:** `forbidden-terms-check --stdin` 0 hits, and `SECRET_PATTERNS` 0 lines under all three sets.
+- **The packet:** `gpt-brief.md`, 746,882 bytes, sha256 `e4cda5bc...`, with one redaction (F-14).
+
+**Grading: 53 items.**
+- **Re-read in this session at their lines:** G-1, G-3, G-6, G-7, G-8, G-11, G-19, G-26, G-30 to G-35 (G-32's equipment half), G-38 (step 29), G-40, G-42, G-43, G-44, G-46, G-47, G-48 and G-52.
+- **Accepted on the seat's citation and marked so:** the rest.
+- **Result:** 9 confirmed, 18 narrowed and accepted, 1 refutation accepted (G-8), 25 new. **Of the new, 13 are verified defects** (F-15 to F-25); the rest are leads, collected as F-26.
+- **The first reader's errors the seat found, all accepted:**
+  - eight `(reviewed)` overrides claimed, six shown (G-1);
+  - A3, `prepare_device.2` and step 30 misclassed (G-6, G-7), and KILL1 and step 32 misclassed the other way (G-8);
+  - "the suite skips nothing" (G-19: KILL1 prints SKIP, and the suite has SKIP lines);
+  - line 5294 called a fixed wait (G-26);
+  - "19 rejection cases" (G-52: 17 rejection checks, one valid-packet check, one raw-semantics check).
+
+| G | The seat | Graded | Decided by |
+| --- | --- | --- | --- |
+| G-1 | narrowed: six rows marked, not eight; the rule mixes setup and outcome reads | accepted | the rendered table at stage B: six `(reviewed)` |
+| G-2 | confirmed steps 3/4/6; step 5's restore half and A2 have device-side verdicts | accepted | read at 766-774, 2034-2041 |
+| G-3 | narrowed: 7, 9, 10, 13, A15 and A5 read via the device's rclone; A5's 0 is wrong | accepted; A5 counted by hand | 2393-2394 (a concatenated reader string) |
+| G-4 | confirmed 15, 16, LINK4, KILL2, LINK1 | confirmed | -- |
+| G-5 | narrowed: 12, 21, 26, A12, CAP4 certify sampled local facts; KILL3's title is stale | accepted (KILL3 on the citation) | -- |
+| G-6 | A3 synthetic; `prepare_device.2` synthetic setup | accepted, reclassified | 2063 vs 2073-2078; 318-383 |
+| G-7 | step 30 a planted readback | accepted, reclassified | 1675-1692 |
+| G-8 | refuted: KILL1 and step 32 read both ends; KILL4 conditional | accepted, reclassified | 6811-6825; `litter_scan` 6129-6153 |
+| G-9 | narrowed claims of 18, 19, 22, A11 | accepted | -- |
+| G-10 | A5 and RETENTION cannot establish their outcomes; CONTRACT is not a caller | accepted | 1771, 2388, 2433 |
+| G-11 | confirmed: RETENTION's 2451 and 2453 vacuous | confirmed | 2451, 2453 |
+| G-12 | confirmed: `cloud-pair-migration` refuses on the checkout's file | confirmed | 58-63 |
+| G-13 | step 24 proves a stubbed empty route, not a link loss; 69 is current | accepted | 1460-1478 |
+| G-14, G-15 | retire the migration journey but port the mixed-installation skeleton | accepted, carried to #1055 (F-13) | -- |
+| G-16 to G-18 | F-01 to F-03 narrowed or confirmed; `ls --backend s3` takes `--backend` as a path | accepted | -- |
+| G-19 | F-04 narrowed: capability handling does skip (KILL1); one protocol per run is useful qualification | accepted; F-04 corrected | KILL1's SKIP at 6820-6825 |
+| G-20 | F-05: the four figures are different units | accepted | -- |
+| G-21 | F-06: a history claim, not a permanent guard | accepted | -- |
+| G-22 | F-07: the port sweep is the non-container branch only; `vm-qa` not in the packet | accepted (`vm-qa` read by the first reader, 03 § 3.5) | 565-590 |
+| G-23 | F-08: `paths:` not in the packet | accepted (read by the first reader, `rclone-cloud-sync.md` lines 3-14) | -- |
+| G-24 | F-09: the versions are environment facts; the connections tests compare bytes and modes too | accepted | -- |
+| G-25 | F-10 confirmed | confirmed | -- |
+| G-26 | F-11: 5294 is a poll; 6910 a negative window; 7455 missed | accepted; F-11 corrected | 5288-5294, 6903-6913, 7453-7458 |
+| G-27, G-28 | F-12 confirmed, with more instances: `backend_sizes()`, A9, CONTRACT item 2, KILL1, LINK2/3/5/6, step 32 | accepted; F-12 widened | 1836-1849 |
+| G-29 | F-13 supported by the code | accepted | -- |
+| G-30 | new: KILL1's `NameError` at 6846 | **confirmed, F-15** | 6840-6847; `grep -n 'webdav ='`: 5506, 7091 only |
+| G-31 | new: CONTRACT's guard always fires | **confirmed, F-16** | 4739, 4844 |
+| G-32 | new: verdict accounting | **confirmed in part, F-17** | 313-316 (the equipment half) |
+| G-33 | new: step 25 vacuous | **confirmed, F-18** | 1484-1494 |
+| G-34 | new: CAP13's double zero | **confirmed, F-19** | 4452-4453 |
+| G-35 | new: KILL1's absent predicate | **confirmed, F-15** | 6815-6825 |
+| G-36, G-37 | new: kill witnesses; timing windows | accepted as leads, F-26 | -- |
+| G-38 | new: the vocabulary gate; step 29 accepts any non-0/69 | accepted; step 29 confirmed | 1665 |
+| G-39 | new: the litter scan's limits | accepted as a lead, F-26 | -- |
+| G-40 | new: `reset` certifies empty over errors | **confirmed, F-22** | 593-626 |
+| G-41 | new: endpoint health by PID and port | accepted as a lead, F-26 | -- |
+| G-42 | new: the SFTP key reaches the host user's files | **confirmed, F-21** | 396-397; `SFTP_USER` at 137-139 |
+| G-43 | new: clear-password fallback | **confirmed, F-22** | 742, 752, 762 |
+| G-44 | new: step 8's refusal deletes the refused library | **confirmed, F-20** | 912-918, 612-618, 7784-7785 |
+| G-45 | new: cleanup outside the verdict | accepted as a lead, F-26 | -- |
+| G-46 | new: A15's plain-text archive | **confirmed, F-23** | 2850-2852, 145-148 |
+| G-47 | new: KILL5's keep of three | **confirmed, F-24** | 7094, 7151 |
+| G-48 | new: census runs `cloud_device_id` | **confirmed, F-25** | `cloud-census:76` |
+| G-49 to G-51 | new: three small tests' blind spots | accepted as leads, F-26 | -- |
+| G-52 | narrowed: 17 rejection checks, not 19 | **confirmed; 02 corrected** | 16 `PASS ... rejected` lines plus the corrupt-PNG case in the stage-A output |
+| G-53 | new: the verifier follows symlinked ancestors | accepted as a lead, F-26 | -- |
 
 ## Renovation face
 
@@ -145,13 +225,13 @@ port.
 
 | Oracle | Rows | Of which |
 | --- | ---: | --- |
-| both ends (the host reads the endpoint) | **24** | steps 2, 5, 8, 17, 18, 19, 22, 23, 27, 30; cells A1, A2, A3, A8, A9, A11, A14, RETENTION, LINK2, LINK3, LINK5, LINK6, KILL4, KILL5 |
-| a synthetic input (planted, then the device's reaction read) | **44** | the other steps that plant (1, 7, 9-11, 13-16, 20, 24, 26, 28, 29, 31) and the cells A12, A15, CAP1-14, LINK1, LINK4, LINK7, KILL1-3, KILL10-13, KILL15, KILL16, KILL18 |
-| the device's own report | **10** | `run_steps.3`, `.4` and `.6` (round trips), `.12`, `.21`, `.25` and `.32`, `prepare_device.1` and `.2`, A5 |
+| both ends (the host reads the endpoint) | **24** | steps 2, 5, 8, 17, 18, 19, 22, 23, 27, 32; cells A1, A2, A8, A9, A11, A14, RETENTION, LINK2, LINK3, LINK5, LINK6, KILL1, KILL4 (conditional), KILL5 |
+| a synthetic input (planted, then the device's reaction read) | **46** | the other steps that plant (1, 7, 9-11, 13-16, 20, 24, 26, 28, 29, 31) and the cells A12, A15, CAP1-14, LINK1, LINK4, LINK7, KILL1-3, KILL10-13, KILL15, KILL16, KILL18 |
+| the device's own report | **8** | `run_steps.3`, `.4` and `.6` (round trips), `.12`, `.21`, `.25`, `prepare_device.1`, A5 (after the seat: A3, `prepare_device.2` and step 30 moved to synthetic, KILL1 and step 32 to both ends) |
 
 `CONTRACT`, outside the 78, reads both ends.
 
-**`caps()` marks; it never skips. But it marks almost nothing.** The two
+**`caps()` marks, and in KILL1 it skips (the seat's G-19 corrects the first cut, which said it never skips). But it marks almost nothing.** The two
 rows that read it mark by changing the expectation, not by skipping: A14
 expects a null `remote_hash` on a hashless backend, and KILL1 accepts an
 in-place commit where the endpoint is not atomic. No step of the
@@ -254,6 +334,6 @@ These are proposals for the coordinator; this lane edits no rule.
 ## Quality self-check
 
 - Every finding cites a file:line at `8ebaf8daad` or a run in 02, and was re-read after it was written (Phase 4.5).
-- The oracle counts come from the generator and the renderer, which can be re-run, and are not typed: 24 + 44 + 10 = 78.
+- The oracle counts come from the generator and the renderer, which can be re-run, and are not typed: 24 + 46 + 8 = 78 after the seat.
 - The recorded-verdict column cites ledger rows and never summarises them: an early cut read PASS or FAIL off a row's free text and was withdrawn.
 - **Not done yet:** the guest cycle, the seat, the punch list and the `bug` issues. Each is named in the scorecard with its stage.

@@ -21,8 +21,14 @@ OVERRIDES = {
     "LINK1": ("synthetic", "the seed is checked at the endpoint (backend_sizes); the cut's verdict is the device's receiving side"),
     "A5": ("device report", "the reader is device b's own rclone (lsf, cat); FAILS by construction: APPLY calls cloud_reconcile, which has never existed (line 1771)"),
     "RETENTION": (None, "FAILS by construction (cloud_reconcile, line 2433); when nothing ran, its head-unchanged and device-copy checks PASS vacuously"),
-    "prepare_device.2": (None, "setup: points the device at the QA endpoint; its one check is the device's active remote"),
+    "prepare_device.2": ("synthetic", "setup: writes the QA stanza and selection, then checks the active name; certifies neither connectivity nor a transfer (the seat, G-6)"),
+    "A3": ("synthetic", "the endpoint hash at 2063 checks the second folder's setup; every outcome check (2073-2078) is local (the seat, G-6)"),
+    "run_steps.30": ("synthetic", "the harness writes README.txt itself and reads that same path back; a no-op seeder passes (the seat, G-7)"),
+    "KILL1": ("both ends", "its cloud fingerprints are host ls/cat (6811-6825); but it cannot complete: `webdav` is undefined at 6846 (NameError, G-30), and an absent file is not counted torn (G-35)"),
+    "run_steps.32": ("both ends", "litter_scan() reads the endpoint (6129-6153) (the seat, G-8)"),
+    "KILL4": (None, "conditional: run alone it is prepared locally and skips the upload half; with an endpoint it reads both ends; its invalid-upload check is absence-only (F-12, G-8)"),
 }
+DEVICE_REMOTE_OVERRIDE = {"A5": 2}   # the reader is a concatenated string (2393-2394): lsf and cat (the seat, G-3)
 CONTRACT = {"id": "CONTRACT", "line": 4617, "end": 5128, "claim": "#9's transport contract under the reconciler (--transport copy,bisync)",
             "checks": 16, "device_remote_reads": 3, "caps_keys": [], "oracle_rule": "both ends",
             "note": "not a registry cell: --list prints it beside PAIR; the Transport class reads the endpoint by cloud_sha (8) and backend_files/bytes (3)"}
@@ -79,7 +85,7 @@ def main():
         caps = ", ".join(r.get("caps_keys") or []) or "not read"
         claim = r["claim"].strip("'\"").replace("|", "\\|")
         out.append("| `%s` | %d-%d | %s | %s%s | %d | %d | %s | %s | %s | tree |" % (
-            rid, r["line"], r["end"], claim[:150], o, reviewed, r.get("device_remote_reads", 0),
+            rid, r["line"], r["end"], claim[:150], o, reviewed, DEVICE_REMOTE_OVERRIDE.get(rid, r.get("device_remote_reads", 0)),
             r["checks"], caps, verdict, note.replace("|", "\\|")))
     print("\n".join(out))
     print()

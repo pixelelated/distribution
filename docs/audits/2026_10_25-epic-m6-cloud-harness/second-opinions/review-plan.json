@@ -28,7 +28,7 @@
           "output": "gpt-probe.md"
         }
       ],
-      "status": "pending: probe and refutation not yet run"
+      "status": "complete: probe PASS 05:25:06-05:25:15Z and refutation PASS 05:25:26-05:38:50Z on the first attempt (served openai/gpt-6-astra by OpenAI, effort max, 28431 reasoning tokens, outcome success, finish stop); full packet with one redaction; 53 items graded in 04 \u00a7 Second opinion"
     }
   ],
   "packets": {
@@ -40,5 +40,6 @@
       "content": "the ask (the brief's four questions first: the assertion-shape table's one-end rows, the two missing scripts, the no-network step's synthetic input, the retired tool), 02, 03 and 04 whole, rclone-cloud-sync.md's two testing sections and blindspot 31's entry from this tree, the nine files at 8ebaf8daad line-numbered (594,115 bytes)",
       "scan": "forbidden-terms-check --stdin 0 hits; SECRET_PATTERNS 0 lines under this branch's and the primary checkout's sets; T10's widened set (#935) matched 1 line, tools/cloud-connections-test:37's synthetic fixture value, redacted in the body (packet-manifest.json 'redactions'), then 0 lines under all three"
     }
-  }
+  },
+  "facilitator_version": "council-facilitator@1.14.1-pixelelated.2"
 }

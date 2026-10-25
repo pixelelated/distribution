@@ -40,7 +40,7 @@ each refused `cat` of a missing object with rc 1 and left nothing running.
   promise *"nothing is skipped in silence"* holds there because nothing is
   marked or skipped at all. Every backend runs the same 34 steps, and the
   backend's capabilities never change what a step asserts.
-- **Ten rows judge by the device's own report,** three of them round trips
+- **Eight rows judge by the device's own report** (ten before the seat's reclassifications), three of them round trips
   through the device's own restore, and four more read the remote through
   the device's rclone. Each certifies the code under test by that code's
   own output.
