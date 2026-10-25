@@ -40,19 +40,11 @@
 
 ## Current focus
 
-**Paused at stage D** (brief § 8; updated 2026-10-25, 03:21 UTC).
-- **The audit issue:** #1046, a sub-issue of #692, with 15 checkboxes, each naming its outcome by number. `box-check` 0 fail.
-- **The outcomes** (the coordinator's 03:19 answer, option (a)):
-  - Backlog #1044 (the fork side): PL-04, PL-05's rule half, PL-06, PL-10, PL-12, PL-13, PL-15.
-  - Backlog #1045 (the export refresh): PL-01, PL-02, PL-05's export half, PL-07, PL-09, PL-14.
-  - #1043: PL-03.
-  - Designs at `474c434fa4`: PL-08, PL-11.
-- **The lint:** pre-issue PASS, resolution PASS, `--issue 1046` PASS.
-- **After the pause:**
-  - No stage E: the lane changes no member, and no item is a lane fix.
-  - Stage F: re-run the counts and the lint at the tip; write `fixed-at` (the tip) and `reviewed-at` `32a34393dd` into #692's body.
-  - Stage G: the retro at `docs/retros/2026-10-25-m6-tooling-council.md`, posted on #692. Time to play: nothing. What the next export must carry: #1045's list.
-  - Stage H: the hand-back comment.
+**Stages F and G complete; stage H (the hand-back) next** (updated 2026-10-25, 03:25 UTC).
+- **`reviewed-at` `32a34393dd`, `fixed-at` `e1fa041488`**: both on #692's body, read back.
+- **Stage F** (`stage-f/counts.txt`, `stage-f/runs.txt`): the counts, the lint (pre-issue, resolution and `--issue 1046`) and the runs on both trees equal stage A's.
+- **The retro:** `docs/retros/2026-10-25-m6-tooling-council.md`, posted on #692.
+- **#1046:** 15 items at outcomes (#1043, #1044, #1045, two designs). `box-check` 0 fail.
 - **Running for this lane:** nothing.
 
 ## Next commands
