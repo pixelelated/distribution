@@ -25,7 +25,8 @@
 - **S3:** `1911fee4df` #1061, `bf2832ce5b` #1081; and `cee4bf481d`, #1059's follow-up under the 06:33 ruling (nothing checked exits 3).
 - **The plan is approved (coordinator, 06:37 UTC):** rows 0-7 as posted, plus **step 5b**: `--only A5,RETENTION --second-port 10022`, with device b being **guest a itself**. 02 § The guest cycle must record that b was guest a. About 32 minutes in all, under the 45-minute bound. **Nothing boots before the grant**, which comes on #660 as its own comment at M7's FINAL RETURN; START and RETURN are posted on #660.
 - **The positives are kept on the branch** (06:45 ask): `docs/audits/2026_10_25-epic-m6-cloud-harness/stage-e/`, with nine drivers (`pos<bug>/drive.py <tool> unfixed|fixed`, writing only under `$TMPDIR`, one verdict line last), `shim1068/build.sh` and a README table of all 17 positives. All 18 driver runs met their expectations; the pre-issue lint PASSes.
-- **Idle** until the grant; the idle post is on #660.
+- **Retention, ruled (coordinator, 06:52 UTC): nothing is removed before RETURN.** After RETURN, the cycle's compact record goes on the branch first: the vm-qa report, the verdict lines, the named frames, the image identity and the times. Then **remove all of `/workspace/tmp/m6-t13/`, the guest disk included**, recording D-INFRA-022 in 00: the paths retired, their size, and `df` before and after. The acceptance re-run clones its own copy of the old code.
+- **Idle** until the grant; the idle posts are on #660.
 - **After the cycle:** 02 § The guest cycle; the six Open items to Resolved; the default (resolution) lint; then stages F, G (the retro) and H.
 
 ## Next commands
