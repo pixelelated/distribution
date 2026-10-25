@@ -1,0 +1,7 @@
+8ebaf8daad:packages/rust/cbindgen/package.mk:4:PKG_NAME="cbindgen"
+8ebaf8daad:packages/rust/cbindgen/package.mk:9:PKG_URL="https://github.com/mozilla/cbindgen/archive/v${PKG_VERSION}.tar.gz"
+8ebaf8daad:packages/rust/cbindgen/package.mk:26:    cp -a ${PKG_BUILD}/.${RUST_HOST}/target/${RUST_HOST}/release/cbindgen ${TOOLCHAIN}/bin/
+8ebaf8daad:projects/ROCKNIX/packages/rust/cbindgen/package.mk:5:PKG_NAME="cbindgen"
+8ebaf8daad:projects/ROCKNIX/packages/rust/cbindgen/package.mk:9:PKG_SITE="https://github.com/mozilla/cbindgen"
+8ebaf8daad:projects/ROCKNIX/packages/rust/cbindgen/package.mk:10:PKG_URL="https://github.com/mozilla/cbindgen/archive/v${PKG_VERSION}.tar.gz"
+8ebaf8daad:projects/ROCKNIX/packages/rust/cbindgen/package.mk:27:    cp -a ${PKG_BUILD}/.${RUST_HOST}/target/${RUST_HOST}/release/cbindgen ${TOOLCHAIN}/bin/

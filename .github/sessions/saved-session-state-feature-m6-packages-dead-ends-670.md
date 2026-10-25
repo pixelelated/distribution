@@ -16,13 +16,11 @@
 
 ## Current focus
 
-**Stage A complete; stage B next** (updated 2026-10-25, 04:21 UTC).
-- **`reviewed-at`:** `27b015c901`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-generic-packages-dead-ends/`. It holds `00`, `01` (§ Scope), `stage-a/` and `tools/t23-tables.py`, the generator that asserts 1,604, 727 and 731.
-- **Scope:** 1,604 / 95,892 / 1,601 + 3 / 1,565 + 39 / 727 / 260, as the brief says. 731 units, 4 with the recipe outside the set.
-- **Plans:** 593 / 605 / 235 / 672 / 238 on the host. The header has 611 for H700-aarch64; the six are its bootloader chain (`xmlstarlet` absent, `SUBDEVICES` empty).
-- **Dispositions:** 603 dead upstream, 94 shadowed and live, 7 shadowed with the override dead too, 21 unshipped, 5 reached after all, 1 fork-own dead (`cbindgen`).
-- **Every plan run uses the curl shim** (`PATH=/workspace/tmp/m6-t23/shim:$PATH`). Loading `mesa-reusable` calls `curl`; the first five runs (04:12:13-16) reached the network once each, which is recorded in `00` and the friction log.
-- **`pkgcheck`:** the brief's path arguments match nothing (exit 0). The corrected sweep found 4 FAIL in 3 recipes; T6's leads are false positives.
+**Stage B complete; stage C next** (`05` drafted, the pre-issue lint; then the three bugs and the audit issue at stage D, and the pause). Updated 2026-10-25, 04:27 UTC.
+- **`reviewed-at`:** `27b015c901`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-generic-packages-dead-ends/`. It holds `00` to `04`, `second-opinions/review-plan.json`, `stage-a/`, `stage-b/` and `tools/t23-tables.py`.
+- **The tables:** 731 reachability rows and 1,604 coverage rows, generated. Dispositions: 603 / 94 / 21 / 7 / 5 / 1.
+- **The findings** (`04`): F-01 the inventory's `PKG_DEPENDS_UNPACK` gap (a bug); F-02 `pkgcheck`'s silent pass (a bug); F-03 `mesa-reusable:15`'s `curl` (a bug); F-04 the host plan without `xmlstarlet` (a lead); F-05 `cbindgen` dead (a proposed removal); F-06 `installer` (an edit to a dead copy); F-07 ROCKNIX `spirv-headers` reached; F-08 the brief's moved figures (recorded).
+- **Every plan run uses the curl shim.** No plan was run at stage B.
 - **Running for this lane:** nothing.
 
 ## Next commands

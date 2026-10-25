@@ -72,3 +72,18 @@
   - **T6's two leads are judged false positives:** `jre.zulu:12` reads `PKG_SHORTDESC`, set at `:11`, and `mesa-reusable:14` reads `PKG_SOURCE_NAME`, set at `:13`. The two `wireplumber` duplicate-function FAILs are #657's parser false positive.
 - **Dispositions at stage A** (sum 731): 603 dead, upstream-carried; 94 shadowed copy, override live (`installer` among them); 7 shadowed copy, override dead too; 21 unshipped; 5 reached after all; 1 fork-own, dead (`projects/ROCKNIX/packages/rust/cbindgen`).
 - **Nothing written** under `/tmp`, `/workspace/repos/rocknix*`, `packages/`, `projects/` or `tools/`. No build, no compiler, no guest, no source fetch, no provider call.
+
+## [Stage B] 04:21 (after the stage-A commit) to 04:27 UTC — the tables, the disagreements, Q1 to Q7
+
+- **The coordinator's answer (04:23 UTC on #670):** file the `pkgcheck` bug at stage D (D-QA-051 rule 6), and a second bug for `mesa-reusable:15`'s parse-time `curl`. The brief's *nothing is fetched* and its `pkgcheck` form are corrected at `0a5676ea5d`; criterion 11 is rewritten (the five unshimmed runs named). T6's two leads are false positives on this evidence.
+- **The tables:** `tools/t23-tables.py <tree> reach` and `coverage` write `02`'s § Reachability (731 rows) and § Coverage (1,604 rows), and the `awk` counts print 731 and 1604. The dispositions sum to 731 units, 1,604 files and 95,892 lines.
+- **`upstream/next`** (the local ref, fetched 2026-10-22): 14 of the 1,604 rows differ there, 3 of them fork-own. The 11 upstream-carried are 8 deleted upstream after the base and 3 modified, as the brief says (`stage-b/upstream-diff.txt`).
+  - The three rust snapshots among the 8 are reached today: the fork's ROCKNIX `rust` override unpacks them.
+  - Upstream deleted that override too, so its generic `packages/rust/rust:11` unpacks the generic snapshots. The next merge drops the fork's copies without a conflict.
+- **`cbindgen`:** `git grep -n cbindgen 8ebaf8daad -- packages projects` gives 7 lines, all inside its own two directories (`stage-b/cbindgen-grep.txt`). It is not on `upstream/next`.
+- **Written:**
+  - `02`: Phase 2, § The split, § Reachability, § Disagreements, § Coverage, § The runs, § Proofs;
+  - `03`: § 3.5 seams;
+  - `04`: eight findings, Q1 to Q7, Q6 summing to 731, Q1's paragraph ending in the recommendation and *the decision is the maintainer's*;
+  - `second-opinions/review-plan.json`: local, `reviewers: []`, D-WORKFLOW-184.
+- **No plan run at stage B,** so no network. Nothing changed under `packages/`, `projects/` or `tools/`.
