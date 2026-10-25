@@ -405,6 +405,15 @@ check() { # <0|nonzero> ok-text bad-text
         case "${FAIL_SECTIONS}" in *" ${SECTION} "*) ;; *) FAIL_SECTIONS="${FAIL_SECTIONS}${SECTION} " ;; esac; fi
 }
 section() { SECTION="$1"; SECTION_NA=""; echo "  $1. $2"; }
+# The witness (#1026): a runner binds <dir>/witness at /witness and starts the
+# script through 'bash -c ": > /witness/started; exec bash ..."', so a check
+# that asserts only a non-zero exit and an absence can also require that the
+# sandbox started and the script ran -- a bwrap that cannot start, or a
+# missing applet, also exits non-zero and writes nothing. A shim marks the
+# guarded step it reaches the same way. witnessed <dir> [step...]
+WITNESS_EXEC=': > /witness/started; exec bash "$0" "$@"'
+witness_reset() { mkdir -p "$1/witness"; rm -f "$1/witness"/*; }
+witnessed() { local d="$1" w; shift; [ -e "${d}/witness/started" ] || return 1; for w in "$@"; do [ -e "${d}/witness/${w}" ] || return 1; done; }
 # driver_verdicts <out> <rc> <name> <expected id>... (#1032): a Python driver's
 # verdicts count only when it exited 0 and printed exactly the expected IDs
 # (the text before each verdict's first colon), once each. Replaying whatever
@@ -778,13 +787,14 @@ for i in 1 2 3; do echo "file${i}" > "${ST}/.config/test/f${i}"; done
 bt() { # <verb...>; stdout+stderr to $OUT, rc in $RC (137 when the group was killed)
     # In a subshell so the shell's own "Killed" notice for the dying group
     # does not land in the test's output.
+    witness_reset "${B}"
     RC=$( ( setsid -w bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr \
         --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
         --ro-bind /etc /etc --ro-bind "${B}/profile" /etc/profile \
         --bind "${ST}" /storage --ro-bind "${B}/shim" /shim --ro-bind "${B}/repo" /repo \
-        --ro-bind "${B}/nbin" /nbin "${B_BB[@]}" \
+        --ro-bind "${B}/nbin" /nbin "${B_BB[@]}" --bind "${B}/witness" /witness \
         --dev /dev --proc /proc --tmpfs /tmp \
-        bash /repo/backuptool "$@" > "${OUT}" 2>&1; echo $? ) 2>/dev/null )
+        bash -c "${WITNESS_EXEC}" /repo/backuptool "$@" > "${OUT}" 2>&1; echo $? ) 2>/dev/null )
 }
 # The probe (#1029): inside the same sandbox, through the same profile, each
 # applet resolves to /nbin and answers with the copy's banner -- what a host
@@ -822,6 +832,7 @@ cat > "${B}/shim/tar" <<'EOS'
 out=""; prev=""
 for a in "$@"; do [ "${prev}" = "-czf" ] && out="${a}"; prev="${a}"; done
 if [ -n "${out}" ]; then
+    : > /witness/tar-kill    # the guarded step: the archive's write (#1026)
     head -c 1048576 /dev/zero > "${out}"
     kill -9 -- "-$(cut -d' ' -f5 /proc/self/stat)"
     sleep 5
@@ -835,7 +846,7 @@ sleep 1
 bt backup; rck=${RC}
 roots=$(ls "${ST}/roms/backup"/*.tar.gz 2>/dev/null)
 partials=$(ls "${ST}/roms/backup"/*.partial 2>/dev/null)
-[ "${rck}" -ne 0 ]; check $? "the run died (rc ${rck})" "the run exited 0 through a tar that killed the group"
+witnessed "${B}" tar-kill && [ "${rck}" -ne 0 ]; check $? "the run died (rc ${rck}) at the archive's write" "the run exited 0 through a tar that killed the group, or never reached it (started: $([ -e "${B}/witness/started" ] && echo yes || echo no), tar reached: $([ -e "${B}/witness/tar-kill" ] && echo yes || echo no))"
 [ "${roots}" = "${second}" ]; check $? "the previous archive is still the only *.tar.gz at the root" "root *.tar.gz: '$(echo "${roots}" | tr '\n' ' ')' -- expected only $(basename "${second}")"
 [ -n "${partials}" ] && [ "$(echo "${partials}" | wc -l)" -eq 1 ]; check $? "a .partial sits beside it ($(basename "${partials:-none}"))" "partials at the root: '$(echo "${partials}" | tr '\n' ' ')' -- the truncated archive was written under the final name"
 [ "$(ls "${ST}/roms/backup/archive"/*.tar.gz 2>/dev/null | wc -l)" -eq 1 ]; check $? "archive/ is unchanged (still one archive)" "archive/ holds $(ls "${ST}/roms/backup/archive" 2>/dev/null | wc -l) file(s): rotation ran before the new archive existed"
@@ -849,6 +860,7 @@ cat > "${B}/shim/tar" <<'EOS'
 #!/bin/bash
 T=/usr/bin/tar; [ -x /nbin/tar ] && T=/nbin/tar
 if [ "$1" = "-xzf" ] && [[ "$2" != */archive/* ]] && [ "$3" = "-C" ] && [ "$4" = "/" ]; then
+    : > /witness/tar-restore    # the guarded step: the restore's extraction (#1026)
     "${T}" "$@"
     echo garbage > /storage/.config/test/f2
     exit 1
@@ -857,7 +869,7 @@ exec "${T}" "$@"
 EOS
 chmod +x "${B}/shim/tar"
 bt restore; rcr=${RC}
-[ "${rcr}" -ne 0 ]; check $? "a restore whose extraction fails exits non-zero" "rc 0 from a failed extraction"
+witnessed "${B}" tar-restore && [ "${rcr}" -ne 0 ]; check $? "a restore whose extraction fails exits non-zero" "rc ${rcr} from a failed extraction, or the extraction was never reached (started: $([ -e "${B}/witness/started" ] && echo yes || echo no), extraction reached: $([ -e "${B}/witness/tar-restore" ] && echo yes || echo no))"
 [ "$(cat "${ST}/.config/test/f1")" = "changed" ] && [ "$(cat "${ST}/.config/test/f2")" = "file2" ]; check $? "and the pre-restore state was put back (f1 'changed', f2 'file2')" "f1='$(cat "${ST}/.config/test/f1")' f2='$(cat "${ST}/.config/test/f2")' -- the tree is half the archive, half the old state"
 ls "${ST}/roms/backup/archive"/*PRE_RESTORE* >/dev/null 2>&1; check $? "the snapshot is in archive/ as *PRE_RESTORE*" "no PRE_RESTORE snapshot in archive/: $(ls "${ST}/roms/backup/archive" 2>/dev/null | tr '\n' ' ')"
 grep -q 'YOUR SETTINGS ARE UNCHANGED' "${OUT}"; check $? "and the screen says the settings are unchanged" "screen: $(grep -v '^logger' "${OUT}" | tail -2 | tr '\n' '|')"
@@ -4921,21 +4933,22 @@ EOR
 chmod +x "${C1}/shim"/*
 CONF1="${C1}/storage/.config/cloud_sync.conf"
 c1() { # <args...>: cloud_setup in the sandbox; output to C1/out, rc in RC
+    witness_reset "${C1}"
     RC=$( ( bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr \
         --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
         --ro-bind /etc /etc --ro-bind "${C1}/profile" /etc/profile "${CSBB[@]}" \
         --ro-bind "${C1}/shim" /shim --ro-bind "${C1}/repo" /repo --${C1RO:+ro-}bind "${C1}/storage" /storage \
-        --dev /dev --proc /proc --tmpfs /tmp --tmpfs /var --dir /var/log \
-        bash /repo/cloud_setup "$@" > "${C1}/out" 2>&1; echo $? ) 2>/dev/null )
+        --bind "${C1}/witness" /witness --dev /dev --proc /proc --tmpfs /tmp --tmpfs /var --dir /var/log \
+        bash -c "${WITNESS_EXEC}" /repo/cloud_setup "$@" > "${C1}/out" 2>&1; echo $? ) 2>/dev/null )
 }
 conf1() { grep -E '^(SAVES|SETTINGS|CONTENT)_REMOTE=' "${CONF1}" | tr '\n' ' '; }
 src_of "${RCLONE_REL}/cloud_sync.conf" "${CONF1}"; cp "${CONF1}" "${C1}/conf.before"
 if [ "${VALIDATOR_AVAILABLE}" -eq 0 ]; then
 c1 --set-saves-remote /GAMES
-[ "${RC}" -ne 0 ] && cmp -s "${CONF1}" "${C1}/conf.before"; check $? "a one-level saves folder (/GAMES) is refused and the config is left as it was (rc ${RC})" "rc ${RC}; the config now reads: $(conf1)-- the settings and content folders nested inside the saves folder a mirror deletes in (PL-015)"
+witnessed "${C1}" && [ "${RC}" -ne 0 ] && cmp -s "${CONF1}" "${C1}/conf.before"; check $? "a one-level saves folder (/GAMES) is refused and the config is left as it was (rc ${RC})" "rc ${RC}; the config now reads: $(conf1)-- the settings and content folders nested inside the saves folder a mirror deletes in (PL-015)"
 grep -q '/GAMES/Saves' "${C1}/out" && ! grep -qi 'error' "${C1}/out"; check $? "and says why, in words, with the folder to use instead (/GAMES/Saves): $(head -1 "${C1}/out")" "said: '$(tr '\n' ' ' < "${C1}/out" | cut -c1-160)'"
 c1 --check-syncpath /GAMES
-[ "${RC}" -ne 0 ] && grep -q '/GAMES/Saves' "${C1}/out"; check $? "--check-syncpath refuses it too, where the folder is typed" "--check-syncpath /GAMES: rc ${RC}; said '$(tr '\n' ' ' < "${C1}/out" | cut -c1-120)'"
+witnessed "${C1}" && [ "${RC}" -ne 0 ] && grep -q '/GAMES/Saves' "${C1}/out"; check $? "--check-syncpath refuses it too, where the folder is typed" "--check-syncpath /GAMES: rc ${RC}; said '$(tr '\n' ' ' < "${C1}/out" | cut -c1-120)'"
 c1 --set-saves-remote Mine/Saves/
 [ "${RC}" -eq 0 ] && [ "$(conf1)" = 'SAVES_REMOTE="/Mine/Saves" SETTINGS_REMOTE="/Mine/Backups" CONTENT_REMOTE="/Mine/Content" ' ]; check $? "a two-level folder (Mine/Saves/) is stored with its settings and content folders beside it" "rc ${RC}; config: $(conf1); said: $(head -1 "${C1}/out")"
 c1 --set-saves-remote /a/b/Saves
@@ -4949,10 +4962,10 @@ src_of "${RCLONE_REL}/cloud_sync.conf" "${CONF1}"; cp "${CONF1}" "${C1}/conf.bef
 for alias in /Mine/Backups /Mine/Content /Mine/backups; do
     cp "${C1}/conf.before" "${CONF1}"
     c1 --set-saves-remote "${alias}"
-    [ "${RC}" -ne 0 ] && cmp -s "${CONF1}" "${C1}/conf.before" && grep -qx 'Try /Mine/Saves.' "${C1}/out"; check $? "a saves folder that would share a folder with its own siblings (${alias}) is refused, config untouched: $(head -1 "${C1}/out")" "${alias}: rc ${RC}; config: $(conf1); said: $(tr '\n' ' ' < "${C1}/out" | cut -c1-140) -- two tiers alias one folder (G-C-01)"
+    witnessed "${C1}" && [ "${RC}" -ne 0 ] && cmp -s "${CONF1}" "${C1}/conf.before" && grep -qx 'Try /Mine/Saves.' "${C1}/out"; check $? "a saves folder that would share a folder with its own siblings (${alias}) is refused, config untouched: $(head -1 "${C1}/out")" "${alias}: rc ${RC}; config: $(conf1); said: $(tr '\n' ' ' < "${C1}/out" | cut -c1-140) -- two tiers alias one folder (G-C-01)"
 done
 c1 --check-syncpath /Mine/Content
-[ "${RC}" -ne 0 ] && grep -qx 'Try /Mine/Saves.' "${C1}/out"; check $? "--check-syncpath refuses /Mine/Content too" "--check-syncpath /Mine/Content: rc ${RC}; said '$(tr '\n' ' ' < "${C1}/out" | cut -c1-120)' (G-C-01)"
+witnessed "${C1}" && [ "${RC}" -ne 0 ] && grep -qx 'Try /Mine/Saves.' "${C1}/out"; check $? "--check-syncpath refuses /Mine/Content too" "--check-syncpath /Mine/Content: rc ${RC}; said '$(tr '\n' ' ' < "${C1}/out" | cut -c1-120)' (G-C-01)"
 c1 --set-saves-remote /Mine/Saves
 [ "${RC}" -eq 0 ] && [ "$(conf1)" = 'SAVES_REMOTE="/Mine/Saves" SETTINGS_REMOTE="/Mine/Backups" CONTENT_REMOTE="/Mine/Content" ' ]; check $? "while /Mine/Saves still derives /Mine/Backups and /Mine/Content beside it" "rc ${RC}; config: $(conf1)"
 
@@ -4991,7 +5004,7 @@ cp "${CONF1}" "${C1}/conf.before"
 BAD_CONTENT_ROOT=(); [ "${VALIDATOR_AVAILABLE}" -eq 1 ] || BAD_CONTENT_ROOT=(/)
 for bad in "${BAD_CONTENT_ROOT[@]}" '/a/../b' '/a/./b' '/a//b' '/quote"' '/$HOME' '/`id`' $'/two\nlines' $'/trailing\n' $'/tab\tname'; do
     c1 --set-content-remote "${bad}"
-    [ "${RC}" -ne 0 ] && cmp -s "${CONF1}" "${C1}/conf.before"; check $? "--set-content-remote refuses '${bad}' and leaves the config as it was (rc ${RC})" "rc ${RC}; said '$(tr '\n' ' ' < "${C1}/out" | cut -c1-120)'"
+    witnessed "${C1}" && [ "${RC}" -ne 0 ] && cmp -s "${CONF1}" "${C1}/conf.before"; check $? "--set-content-remote refuses '${bad}' and leaves the config as it was (rc ${RC})" "rc ${RC}; said '$(tr '\n' ' ' < "${C1}/out" | cut -c1-120)'"
 done
 for good in '/MyGames' '/My Games' '/Games..old' "/Kid's Games"; do
     c1 --set-content-remote "${good}"
@@ -5017,7 +5030,7 @@ c1 --set-saves-remote '/a|b/Saves'
     else cmp -s <(grep -v '^SAVES_REMOTE=' "${CONF1}") <(grep -v '^SAVES_REMOTE=' "${CS}/src/cloud_sync.conf"); fi; }; check $? "a folder with | (/a|b/Saves) round-trips too" "rc ${RC}; config: $(conf1); said: $(head -1 "${C1}/out")"
 cp "${CONF1}" "${C1}/conf.before"; rm -f "${C1}/storage/ran"
 c1 --set-saves-remote '/x$(touch /storage/ran)/Saves'
-[ "${RC}" -ne 0 ] && cmp -s "${CONF1}" "${C1}/conf.before" && grep -qE "can't (contain|be used)" "${C1}/out"; check $? "a name that would run as a command when the config is sourced is refused, config untouched: $(head -1 "${C1}/out")" "rc ${RC}; config: $(conf1); said: $(head -1 "${C1}/out")"
+witnessed "${C1}" && [ "${RC}" -ne 0 ] && cmp -s "${CONF1}" "${C1}/conf.before" && grep -qE "can't (contain|be used)" "${C1}/out"; check $? "a name that would run as a command when the config is sourced is refused, config untouched: $(head -1 "${C1}/out")" "rc ${RC}; config: $(conf1); said: $(head -1 "${C1}/out")"
 c1 --info
 [ ! -e "${C1}/storage/ran" ]; check $? "and nothing ran" "a command in the folder name ran when --info sourced the config"
 # A config an earlier build wrote with such a value: --info runs nothing in
@@ -5040,9 +5053,9 @@ done
 rm -f "${C1}/storage/ran"
 src_of "${RCLONE_REL}/cloud_sync.conf" "${CONF1}"; cp "${CONF1}" "${C1}/conf.before"
 C1RO=1 c1 --set-saves-remote /Other/Saves
-[ "${RC}" -ne 0 ] && ! grep -q '^OK' "${C1}/out" && cmp -s "${CONF1}" "${C1}/conf.before"; check $? "a config that cannot be written is a failure, not OK (rc ${RC})" "read-only /storage: rc ${RC}; said '$(tr '\n' ' ' < "${C1}/out" | cut -c1-120)' -- the write failed and OK was printed (PL-051)"
+witnessed "${C1}" && [ "${RC}" -ne 0 ] && ! grep -q '^OK' "${C1}/out" && cmp -s "${CONF1}" "${C1}/conf.before"; check $? "a config that cannot be written is a failure, not OK (rc ${RC})" "read-only /storage: rc ${RC}; said '$(tr '\n' ' ' < "${C1}/out" | cut -c1-120)' -- the write failed and OK was printed (PL-051)"
 C1RO=1 c1 --use-content-root
-[ "${RC}" -ne 0 ] && ! grep -q '^OK' "${C1}/out"; check $? "and --use-content-root likewise (rc ${RC})" "read-only /storage: rc ${RC}; said '$(tr '\n' ' ' < "${C1}/out" | cut -c1-120)'"
+witnessed "${C1}" && [ "${RC}" -ne 0 ] && ! grep -q '^OK' "${C1}/out"; check $? "and --use-content-root likewise (rc ${RC})" "read-only /storage: rc ${RC}; said '$(tr '\n' ' ' < "${C1}/out" | cut -c1-120)'"
 # G-C-07 (gpt): and says so in its own words only. The redirection that
 # failed came before the one that silenced stderr, so the shell printed its
 # own diagnostic -- a line number, the temp file's path, "Read-only file
@@ -5077,14 +5090,14 @@ REFUSAL_PATHS=(/GAMES /Mine/Backups)
 [ "${VALIDATOR_AVAILABLE}" -eq 0 ] || REFUSAL_PATHS=(/ /Mine//Saves)
 for p1 in "${REFUSAL_PATHS[@]}"; do
     c1 --check-syncpath "${p1}"
-    [ "${RC}" -ne 0 ] && grep -q '^Your cloud folder' "${C1}/out" && ! grep -qi 'saves folder' "${C1}/out"; check $? "the refusal of ${p1} calls it the cloud folder, as the interface's row does" "${p1} refused as: $(head -1 "${C1}/out") (G-C-03 claude)"
+    witnessed "${C1}" && [ "${RC}" -ne 0 ] && grep -q '^Your cloud folder' "${C1}/out" && ! grep -qi 'saves folder' "${C1}/out"; check $? "the refusal of ${p1} calls it the cloud folder, as the interface's row does" "${p1} refused as: $(head -1 "${C1}/out") (G-C-03 claude)"
 done
 # G-C-04 (gpt, the audit of stream C): a config path that is a directory is
 # not a config. conf_set read it as absent and `mv -f` put the new file
 # INSIDE it, then said OK; the artifact is what says whether it worked.
 rm -f "${CONF1}"; mkdir "${CONF1}"
 c1 --set-saves-remote /Other/Saves
-[ "${RC}" -ne 0 ] && ! grep -q '^OK' "${C1}/out" && [ -d "${CONF1}" ] && [ -z "$(ls -A "${CONF1}")" ]; check $? "a config path that is a directory is a failure, not OK, and nothing is left inside it (rc ${RC})" "config path a directory: rc ${RC}; said '$(tr '\n' ' ' < "${C1}/out" | cut -c1-100)'; inside it: $(ls -A "${CONF1}" | tr '\n' ' ') (G-C-04)"
+witnessed "${C1}" && [ "${RC}" -ne 0 ] && ! grep -q '^OK' "${C1}/out" && [ -d "${CONF1}" ] && [ -z "$(ls -A "${CONF1}")" ]; check $? "a config path that is a directory is a failure, not OK, and nothing is left inside it (rc ${RC})" "config path a directory: rc ${RC}; said '$(tr '\n' ' ' < "${C1}/out" | cut -c1-100)'; inside it: $(ls -A "${CONF1}" | tr '\n' ' ') (G-C-04)"
 rm -rf "${CONF1}"; src_of "${RCLONE_REL}/cloud_sync.conf" "${CONF1}"
 c1 --use-content-root
 [ "${RC}" -eq 0 ] && grep -qx 'CONTENT_REMOTE=""' "${CONF1}" && [ "$(grep -c '^CONTENT_REMOTE=' "${CONF1}")" -eq 1 ]; check $? "--use-content-root writes CONTENT_REMOTE=\"\" once" "rc ${RC}; $(grep '^CONTENT_REMOTE=' "${CONF1}" | tr '\n' ' ')"
@@ -8148,12 +8161,13 @@ echo "shipped seed" > "${P7U}/test/seed"
 printf 'system.hostname=@DEVICENAME@\n' > "${P7U}/system/configs/system.cfg"
 P7OUT="${P7}/out"; P7X=()
 p7bt() { # <verb...>: backuptool whole; stdout+stderr to $P7OUT, rc in $RC
+    witness_reset "${P7}"
     RC=$( ( setsid -w bwrap --die-with-parent --tmpfs / "${P7UB[@]}" --ro-bind "${P7U}" /usr/config "${P7BB[@]}" \
         --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
         --ro-bind /etc /etc --ro-bind "${P7}/profile" /etc/profile \
         --bind "${P7S}" /storage --ro-bind "${P7}/shim" /p7shim --ro-bind "${P7}/bb" /p7bb --ro-bind "${P7}/repo" /repo \
-        "${P7X[@]}" --dev /dev --proc /proc --tmpfs /tmp --chdir /storage/.p7cwd \
-        bash /repo/backuptool "$@" > "${P7OUT}" 2>&1; echo $? ) 2>/dev/null )
+        "${P7X[@]}" --bind "${P7}/witness" /witness --dev /dev --proc /proc --tmpfs /tmp --chdir /storage/.p7cwd \
+        bash -c "${WITNESS_EXEC}" /repo/backuptool "$@" > "${P7OUT}" 2>&1; echo $? ) 2>/dev/null )
 }
 p7reset() { # a device with a system.cfg carrying a Wi-Fi key and the given backuptool.conf body (none when empty)
     chmod -R u+rwX "${P7S}" 2>/dev/null; rm -rf "${P7S}"
@@ -8222,7 +8236,7 @@ p7reset '  /storage/.config/test/*
   /storage/.config/locked'
 mkdir -p "${P7S}/.config/locked/inner"; echo x > "${P7S}/.config/locked/inner/a.cfg"; chmod 000 "${P7S}/.config/locked/inner"
 p7bt backup
-[ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ] && [ "$(p7why)" = "THE BACKUP COULDN'T FINISH WHILE GATHERING YOUR SETTINGS" ]; check $? "#307 PL-004: a location find cannot read ends the backup with nothing written (rc ${RC}, why: $(p7why))" "#307 PL-004: rc ${RC}; archives: $(p7arc | wc -l); why: '$(p7why)' -- find's error went to /dev/null and a short archive was announced"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ] && [ "$(p7why)" = "THE BACKUP COULDN'T FINISH WHILE GATHERING YOUR SETTINGS" ]; check $? "#307 PL-004: a location find cannot read ends the backup with nothing written (rc ${RC}, why: $(p7why))" "#307 PL-004: rc ${RC}; archives: $(p7arc | wc -l); why: '$(p7why)' -- find's error went to /dev/null and a short archive was announced"
 chmod 755 "${P7S}/.config/locked/inner"
 # The collector that drops a file and says nothing: the staged tree is counted
 # against the list it was given, and the archive against the tree.
@@ -8238,7 +8252,7 @@ exec /p7bb/tar "$@"
 EOS
 chmod +x "${P7}/shim/tar"
 p7bt backup
-[ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ]; check $? "#307 PL-004: a collector that silently leaves a file out is caught by the member count (rc ${RC}, nothing written)" "#307 PL-004: rc ${RC}; archive lists: $(p7list | tr '\n' '|') -- a short archive was written and announced"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ]; check $? "#307 PL-004: a collector that silently leaves a file out is caught by the member count (rc ${RC}, nothing written)" "#307 PL-004: rc ${RC}; archive lists: $(p7list | tr '\n' '|') -- a short archive was written and announced"
 rm -f "${P7}/shim/tar"
 # == PL-036: the legacy inspection keeps a member name whole
 p7reset '  /storage/.config/test/*'
@@ -8260,7 +8274,7 @@ exec /p7bb/sed "$@"
 EOS
 chmod +x "${P7}/shim/sed"
 p7bt backup
-[ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ]; check $? "#307 PL-036: a sanitiser that dies part-way ends the backup with nothing written (rc ${RC})" "#307 PL-036: rc ${RC}; archive: $(p7list | tr '\n' '|'); system.cfg in it: $(tar -xzOf "$(p7arc | tail -1)" storage/.config/system/configs/system.cfg 2>/dev/null | tr '\n' '|') -- the half copy was archived as the file"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ]; check $? "#307 PL-036: a sanitiser that dies part-way ends the backup with nothing written (rc ${RC})" "#307 PL-036: rc ${RC}; archive: $(p7list | tr '\n' '|'); system.cfg in it: $(tar -xzOf "$(p7arc | tail -1)" storage/.config/system/configs/system.cfg 2>/dev/null | tr '\n' '|') -- the half copy was archived as the file"
 rm -f "${P7}/shim/sed"
 
 # == PL-035: a location spelled with /. is the same location; an empty list is the standard one
@@ -8279,7 +8293,7 @@ p7reset '  /storage/.config/test/*
   /flash/x'
 echo boot > "${P7}/flash/x"; P7X=(--bind "${P7}/flash" /flash)
 p7bt backup
-[ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ] && [ "$(p7why)" = "YOUR OWN BACKUP LIST NAMES A FOLDER A BACKUP CAN'T CARRY" ]; check $? "#307 PL-038: /flash/x in LOCATIONS ends the backup with the refusal (rc ${RC}, why: $(p7why))" "#307 PL-038: rc ${RC}; archives: $(p7arc | wc -l); why: '$(p7why)' -- it was staged and silently left out of the archive"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ] && [ "$(p7why)" = "YOUR OWN BACKUP LIST NAMES A FOLDER A BACKUP CAN'T CARRY" ]; check $? "#307 PL-038: /flash/x in LOCATIONS ends the backup with the refusal (rc ${RC}, why: $(p7why))" "#307 PL-038: rc ${RC}; archives: $(p7arc | wc -l); why: '$(p7why)' -- it was staged and silently left out of the archive"
 P7X=()
 
 # == PL-008: the backup folder never goes into a backup, whatever the selection
@@ -8302,14 +8316,14 @@ p7reset '  /storage/.config/test/*'
 echo LIVE > "${P7S}/.config/test/f1"; echo locked > "${P7S}/.config/test/locked.cfg"; chmod 000 "${P7S}/.config/test/locked.cfg"
 p7tar 2026_01_01-000000-ROCKNIX_SETTINGS.tar.gz "storage/.config/test/f1=ARCHIVE" "storage/.config/test/locked.cfg=ARCHIVE LOCKED"
 p7bt restore --no-restart
-[ "${RC}" -ne 0 ] && [ "$(cat "${P7S}/.config/test/f1")" = "LIVE" ] && [ "$(p7why)" = "COULDN'T KEEP A COPY OF YOUR CURRENT SETTINGS" ]; check $? "#307 PL-009: a copy that cannot be taken (an unreadable file) ends the restore before anything is written (rc ${RC})" "#307 PL-009: rc ${RC}; f1='$(cat "${P7S}/.config/test/f1")'; why: '$(p7why)' -- the failed copy read as an empty device and the restore went on with no way back"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ "$(cat "${P7S}/.config/test/f1")" = "LIVE" ] && [ "$(p7why)" = "COULDN'T KEEP A COPY OF YOUR CURRENT SETTINGS" ]; check $? "#307 PL-009: a copy that cannot be taken (an unreadable file) ends the restore before anything is written (rc ${RC})" "#307 PL-009: rc ${RC}; f1='$(cat "${P7S}/.config/test/f1")'; why: '$(p7why)' -- the failed copy read as an empty device and the restore went on with no way back"
 chmod 644 "${P7S}/.config/test/locked.cfg"
 
 # == #308 4-backup-restore claude F-BR-17: nothing to back up is its own answer
 p7reset '  /storage/.config/test/seed'
 cp "${P7U}/test/seed" "${P7S}/.config/test/seed"
 p7bt backup
-[ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ] && [ "$(p7why)" = "THERE'S NOTHING TO BACK UP YET" ] && ! grep -q 'TRY AGAIN' "${P7OUT}"; check $? "#308 4-backup-restore claude F-BR-17: a selection that is all the image's own says there is nothing to back up yet, without TRY AGAIN (why: $(p7why))" "#308 F-BR-17: rc ${RC}; why '$(p7why)'; screen: $(p7screen)"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ] && [ "$(p7why)" = "THERE'S NOTHING TO BACK UP YET" ] && ! grep -q 'TRY AGAIN' "${P7OUT}"; check $? "#308 4-backup-restore claude F-BR-17: a selection that is all the image's own says there is nothing to back up yet, without TRY AGAIN (why: $(p7why))" "#308 F-BR-17: rc ${RC}; why '$(p7why)'; screen: $(p7screen)"
 
 # == #308 4-backup-restore gpt F-BR-19: a selection of only sanitised files is a backup
 p7reset '  /storage/.config/system/configs/system.cfg'
@@ -8321,7 +8335,7 @@ p7reset '  /storage/.config/test/*'
 p7bt backup; p7first=$(p7arc)
 printf 'name = probe\npass = QA-SECRET-PASS\n' > "${P7S}/.config/test/leaky.conf"
 p7bt backup
-[ "${RC}" -ne 0 ] && [ "$(p7why)" = "A SIGN-IN WAS FOUND IN THE BACKUP" ] && [ "$(p7arc)" = "${p7first}" ] && absent_in "${p7first}" QA-SECRET && [ -z "$(ls "${P7S}/roms/backup"/*.partial 2>/dev/null)" ] && grep -q 'logger -t backuptool .*1 line' "${P7OUT}"; check $? "#307 PL-005: a pass = line in the selection ends the backup (rc ${RC}, why: $(p7why)); the last archive is the only one, unchanged, no partial left, the log counts one line" "#307 PL-005: rc ${RC}; why '$(p7why)'; archives: $(p7arc | xargs -n1 basename 2>/dev/null | tr '\n' ' '); secret in an archive: $(for a in $(p7arc); do tar -xzOf "$a" 2>/dev/null | grep -c QA-SECRET; done | tr '\n' ' ')"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ "$(p7why)" = "A SIGN-IN WAS FOUND IN THE BACKUP" ] && [ "$(p7arc)" = "${p7first}" ] && absent_in "${p7first}" QA-SECRET && [ -z "$(ls "${P7S}/roms/backup"/*.partial 2>/dev/null)" ] && grep -q 'logger -t backuptool .*1 line' "${P7OUT}"; check $? "#307 PL-005: a pass = line in the selection ends the backup (rc ${RC}, why: $(p7why)); the last archive is the only one, unchanged, no partial left, the log counts one line" "#307 PL-005: rc ${RC}; why '$(p7why)'; archives: $(p7arc | xargs -n1 basename 2>/dev/null | tr '\n' ' '); secret in an archive: $(for a in $(p7arc); do tar -xzOf "$a" 2>/dev/null | grep -c QA-SECRET; done | tr '\n' ' ')"
 
 # == PL-006: the scan reads the key word in any case, and the shapes the push guard knows
 p7sign() { # <file under test/> <content>: a backup of a selection holding it; FAILs with the item named when it is not refused
@@ -8347,7 +8361,7 @@ mkdir -p "${P7S}/.config/other"; echo ORIGINAL > "${P7S}/.config/other/x.cfg"
 p7tar 2026_01_01-000000-ROCKNIX_SETTINGS.tar.gz "storage/.config/test/f1=ARCHIVE" "storage/.config/other/x.cfg=FROM ARCHIVE" "storage/.config/other/new.cfg=NEW"
 p7failtar
 p7bt restore --no-restart
-[ "${RC}" -ne 0 ] && [ "$(cat "${P7S}/.config/other/x.cfg")" = "ORIGINAL" ] && [ "$(cat "${P7S}/.config/test/f1")" = "file1" ] && [ ! -e "${P7S}/.config/other/new.cfg" ] && grep -q 'YOUR SETTINGS ARE UNCHANGED' "${P7OUT}"; check $? "#307 PL-007: a restore cut part-way puts back a member outside the device's own list (other/x.cfg ORIGINAL), removes one it created (other/new.cfg), and says unchanged truthfully" "#307 PL-007: rc ${RC}; x.cfg='$(cat "${P7S}/.config/other/x.cfg")' f1='$(cat "${P7S}/.config/test/f1")' new.cfg: $([ -e "${P7S}/.config/other/new.cfg" ] && echo left || echo gone); screen: $(p7screen)"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ "$(cat "${P7S}/.config/other/x.cfg")" = "ORIGINAL" ] && [ "$(cat "${P7S}/.config/test/f1")" = "file1" ] && [ ! -e "${P7S}/.config/other/new.cfg" ] && grep -q 'YOUR SETTINGS ARE UNCHANGED' "${P7OUT}"; check $? "#307 PL-007: a restore cut part-way puts back a member outside the device's own list (other/x.cfg ORIGINAL), removes one it created (other/new.cfg), and says unchanged truthfully" "#307 PL-007: rc ${RC}; x.cfg='$(cat "${P7S}/.config/other/x.cfg")' f1='$(cat "${P7S}/.config/test/f1")' new.cfg: $([ -e "${P7S}/.config/other/new.cfg" ] && echo left || echo gone); screen: $(p7screen)"
 grep -qxF '+/storage/.config/other/new.cfg' "${P7S}/.p7-marker-seen" 2>/dev/null; check $? "#307 PL-007: and the mark the boot reads names the file the restore would create, for the boot's own revert" "#307 PL-007: the mark at extraction: '$(tr '\n' '|' < "${P7S}/.p7-marker-seen" 2>/dev/null)'"
 rm -f "${P7}/shim/tar"
 
@@ -8376,7 +8390,7 @@ p7reset '  /storage/.config/test/*'
 echo LIVE > "${P7S}/.config/test/f1"; mkdir -p "${P7S}/.config/.restore-in-progress.tmp"
 p7tar 2026_01_01-000000-ROCKNIX_SETTINGS.tar.gz "storage/.config/test/f1=ARCHIVE"
 p7bt restore --no-restart
-[ "${RC}" -ne 0 ] && [ "$(cat "${P7S}/.config/test/f1")" = "LIVE" ] && ! grep -q 'systemctl reboot' "${P7OUT}" && [ "$(p7why)" = "COULDN'T KEEP A COPY OF YOUR CURRENT SETTINGS" ]; check $? "#307 PL-039: an unwritable restore mark ends the restore before the extraction and the restart (rc ${RC})" "#307 PL-039: rc ${RC}; f1='$(cat "${P7S}/.config/test/f1")'; why: '$(p7why)' -- the extraction ran with no mark for the boot to finish"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ "$(cat "${P7S}/.config/test/f1")" = "LIVE" ] && ! grep -q 'systemctl reboot' "${P7OUT}" && [ "$(p7why)" = "COULDN'T KEEP A COPY OF YOUR CURRENT SETTINGS" ]; check $? "#307 PL-039: an unwritable restore mark ends the restore before the extraction and the restart (rc ${RC})" "#307 PL-039: rc ${RC}; f1='$(cat "${P7S}/.config/test/f1")'; why: '$(p7why)' -- the extraction ran with no mark for the boot to finish"
 
 # == PL-010: a restore never takes the device's cloud sign-in or its cloud name
 p7reset '  /storage/.config/test/*'
@@ -8422,7 +8436,7 @@ p7reset '  /storage/.config/test/*'
 sleep 0.5
 p7bt backup
 wait "${P7HOLD}" 2>/dev/null
-[ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ] && [ "$(p7why)" = "A SETTINGS BACKUP OR RESTORE IS ALREADY RUNNING" ]; check $? "#307 PL-077 / #308 F-BR-15: a backup while another holds the backup folder's lock is refused (why: $(p7why))" "#307 PL-077: rc ${RC}; archives $(p7arc | wc -l); why '$(p7why)' -- two writers shared one stamp and one .partial"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ] && [ "$(p7why)" = "A SETTINGS BACKUP OR RESTORE IS ALREADY RUNNING" ]; check $? "#307 PL-077 / #308 F-BR-15: a backup while another holds the backup folder's lock is refused (why: $(p7why))" "#307 PL-077: rc ${RC}; archives $(p7arc | wc -l); why '$(p7why)' -- two writers shared one stamp and one .partial"
 p7reset '  /storage/.config/test/*'
 cat > "${P7}/shim/date" <<'EOS'
 #!/bin/bash
@@ -8446,7 +8460,7 @@ for i in 1 2 3; do cp /dev/null "${P7S}/roms/backup/archive/2099_01_0${i}-000000
 p7tar 2026_01_01-000000-ROCKNIX_SETTINGS.tar.gz "storage/.config/test/f1=ARCHIVE"
 p7failtar
 p7bt restore --no-restart
-[ "${RC}" -ne 0 ] && [ "$(cat "${P7S}/.config/test/f1")" = "file1" ] && grep -q 'YOUR SETTINGS ARE UNCHANGED' "${P7OUT}"; check $? "#308 claude F-BR-08 / gpt F-BR-15: with the clock behind three archives' dates the fresh copy survives the trim and the cut restore is undone" "#308 F-BR-08: rc ${RC}; f1='$(cat "${P7S}/.config/test/f1")'; screen: $(p7screen)"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ "$(cat "${P7S}/.config/test/f1")" = "file1" ] && grep -q 'YOUR SETTINGS ARE UNCHANGED' "${P7OUT}"; check $? "#308 claude F-BR-08 / gpt F-BR-15: with the clock behind three archives' dates the fresh copy survives the trim and the cut restore is undone" "#308 F-BR-08: rc ${RC}; f1='$(cat "${P7S}/.config/test/f1")'; screen: $(p7screen)"
 rm -f "${P7}/shim/tar"
 
 # == #308 4-backup-restore claude F-BR-07: an upstream-era ARCHIVED_*.zip at the root is rotated, not uploaded for ever
@@ -8572,7 +8586,7 @@ exec /p7bb/find "$@"
 EOS
 chmod +x "${P7}/shim/find"
 p7bt backup
-[ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ]; check $? "#307 audit G-B-03 (gpt) / G-B-10 (claude): a credential scan whose walk fails refuses the backup (rc ${RC}, nothing written)" "#307 audit G-B-03: rc ${RC}; archives $(p7arc | wc -l) -- the scan read nothing and called it clean"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ]; check $? "#307 audit G-B-03 (gpt) / G-B-10 (claude): a credential scan whose walk fails refuses the backup (rc ${RC}, nothing written)" "#307 audit G-B-03: rc ${RC}; archives $(p7arc | wc -l) -- the scan read nothing and called it clean"
 rm -f "${P7}/shim/find"
 p7reset '  /storage/.config/test/*'
 echo 'name = x' > "${P7S}/.config/test/noscan.cfg"
@@ -8584,7 +8598,7 @@ exec /usr/bin/grep "$@"
 EOS
 chmod +x "${P7}/shim/grep"
 p7bt backup
-[ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ]; check $? "#307 audit G-B-03 (gpt) / G-B-10 (claude): a file the scan cannot read refuses the backup (rc ${RC})" "#307 audit G-B-03: rc ${RC}; archives $(p7arc | wc -l) -- the unread file was passed over"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ]; check $? "#307 audit G-B-03 (gpt) / G-B-10 (claude): a file the scan cannot read refuses the backup (rc ${RC})" "#307 audit G-B-03: rc ${RC}; archives $(p7arc | wc -l) -- the unread file was passed over"
 rm -f "${P7}/shim/grep"
 
 # == AUD gpt G-B-02 (#307 audit of the fixes): a listing that fails is a failed check, whatever it printed
@@ -8597,12 +8611,12 @@ exec /p7bb/tar "$@"
 EOS
 chmod +x "${P7}/shim/tar"
 p7bt backup
-[ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ]; check $? "#307 audit G-B-02 (gpt): an archive whose listing prints every member and then fails is not named (rc ${RC})" "#307 audit G-B-02: rc ${RC}; archives $(p7arc | wc -l) -- the count matched and tar's failure was not read"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ]; check $? "#307 audit G-B-02 (gpt): an archive whose listing prints every member and then fails is not named (rc ${RC})" "#307 audit G-B-02: rc ${RC}; archives $(p7arc | wc -l) -- the count matched and tar's failure was not read"
 p7reset '  /storage/.config/test/*'
 echo LIVE > "${P7S}/.config/test/f1"
 p7tar 2026_01_01-000000-ROCKNIX_SETTINGS.tar.gz "storage/.config/test/f1=ARCHIVE"
 p7bt restore --no-restart
-[ "${RC}" -ne 0 ] && [ "$(cat "${P7S}/.config/test/f1")" = "LIVE" ] && [ "$(p7why)" = "COULDN'T KEEP A COPY OF YOUR CURRENT SETTINGS" ]; check $? "#307 audit G-B-02 (gpt): a pre-restore copy whose listing fails ends the restore before anything is written" "#307 audit G-B-02: rc ${RC}; f1='$(cat "${P7S}/.config/test/f1")'; why '$(p7why)'"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ "$(cat "${P7S}/.config/test/f1")" = "LIVE" ] && [ "$(p7why)" = "COULDN'T KEEP A COPY OF YOUR CURRENT SETTINGS" ]; check $? "#307 audit G-B-02 (gpt): a pre-restore copy whose listing fails ends the restore before anything is written" "#307 audit G-B-02: rc ${RC}; f1='$(cat "${P7S}/.config/test/f1")'; why '$(p7why)'"
 rm -f "${P7}/shim/tar"
 
 # == AUD gpt G-B-01 (#307 audit of the fixes): a member listing that fails is not "nothing to protect"
@@ -8622,7 +8636,7 @@ exec /p7bb/tar "$@"
 EOS
 chmod +x "${P7}/shim/tar"
 p7bt restore --no-restart
-[ "${RC}" -ne 0 ] && [ "$(cat "${P7S}/.config/test/f2")" = "LIVE2" ] && [ "$(cat "${P7S}/.config/test/f1")" = "LIVE1" ]; check $? "#307 audit G-B-01 (gpt): a member listing that fails after the archive checked whole ends the restore before anything is written (why: $(p7why))" "#307 audit G-B-01: rc ${RC}; f1='$(cat "${P7S}/.config/test/f1")' f2='$(cat "${P7S}/.config/test/f2")' -- the partial listing was taken as the whole"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ "$(cat "${P7S}/.config/test/f2")" = "LIVE2" ] && [ "$(cat "${P7S}/.config/test/f1")" = "LIVE1" ]; check $? "#307 audit G-B-01 (gpt): a member listing that fails after the archive checked whole ends the restore before anything is written (why: $(p7why))" "#307 audit G-B-01: rc ${RC}; f1='$(cat "${P7S}/.config/test/f1")' f2='$(cat "${P7S}/.config/test/f2")' -- the partial listing was taken as the whole"
 rm -f "${P7}/shim/tar" "${P7S}/.p7-tzf"
 
 # == AUD gpt G-B-04 (#307 audit of the fixes): an exclusion that cannot be applied is a failed collection
@@ -8636,7 +8650,7 @@ exec /p7bb/awk "$@"
 EOS
 chmod +x "${P7}/shim/awk"
 p7bt backup
-[ "${RC}" -ne 0 ] && [ "$(p7arc | wc -l)" -eq 1 ] && absent_listed "$(p7arc | tail -1)" '^storage/roms/backup/'; check $? "#307 audit G-B-04 (gpt): when the backup folder cannot be filtered out, nothing is written (rc ${RC})" "#307 audit G-B-04: rc ${RC}; archives $(p7arc | wc -l); members under the backup folder: $(for a in $(p7arc); do tar -tzf "$a" 2>/dev/null; done | grep -c '^storage/roms/backup/')"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ "$(p7arc | wc -l)" -eq 1 ] && absent_listed "$(p7arc | tail -1)" '^storage/roms/backup/'; check $? "#307 audit G-B-04 (gpt): when the backup folder cannot be filtered out, nothing is written (rc ${RC})" "#307 audit G-B-04: rc ${RC}; archives $(p7arc | wc -l); members under the backup folder: $(for a in $(p7arc); do tar -tzf "$a" 2>/dev/null; done | grep -c '^storage/roms/backup/')"
 rm -f "${P7}/shim/awk"
 
 # == AUD claude G-B-12 (#307 audit of the fixes): core dumps and evidence bundles never go into a backup
@@ -8659,7 +8673,7 @@ p7tar 2026_01_01-000000-ROCKNIX_SETTINGS.tar.gz "storage/.config/test/f1=previou
 echo old > "${P7S}/roms/backup/ARCHIVED_ROCKNIX_BACKUP-20-01-01_00_00_00.zip"
 mkdir -p "${P7S}/roms/backup/archive"; echo blocker > "${P7S}/roms/backup/archive/upstream-era"
 p7bt backup
-[ "${RC}" -ne 0 ] && [ "$(p7arc | xargs -rn1 basename)" = "2026_01_01-000000-ROCKNIX_SETTINGS.tar.gz" ]; check $? "#307 audit G-B-06 (gpt): an upstream-era zip that cannot be moved off the root ends the backup before anything is written (rc ${RC}), so the chain uploads nothing" "#307 audit G-B-06: rc ${RC}; root archives: $(p7arc | xargs -rn1 basename | tr '\n' ' ') -- a new backup was made and the credential-era zip stayed where the upload reads"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ "$(p7arc | xargs -rn1 basename)" = "2026_01_01-000000-ROCKNIX_SETTINGS.tar.gz" ]; check $? "#307 audit G-B-06 (gpt): an upstream-era zip that cannot be moved off the root ends the backup before anything is written (rc ${RC}), so the chain uploads nothing" "#307 audit G-B-06: rc ${RC}; root archives: $(p7arc | xargs -rn1 basename | tr '\n' ' ') -- a new backup was made and the credential-era zip stayed where the upload reads"
 
 # == AUD claude G-B-02 (#307 audit of the fixes; gpt G-B-09): a conf that still says BACKUPFOLDER is read
 p7reset '  /storage/.config/test/*'
@@ -8678,7 +8692,7 @@ exec /p7bb/chmod "$@"
 EOS
 chmod +x "${P7}/shim/chmod"
 p7bt backup
-[ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ]; check $? "#307 audit G-B-13 (gpt): a sanitised copy whose original mode cannot be given to it ends the backup (rc ${RC})" "#307 audit G-B-13: rc ${RC}; archives $(p7arc | wc -l); system.cfg in it: $(tar -tvzf "$(p7arc | tail -1)" 2>/dev/null | awk '/system.cfg$/{print $1}')"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ]; check $? "#307 audit G-B-13 (gpt): a sanitised copy whose original mode cannot be given to it ends the backup (rc ${RC})" "#307 audit G-B-13: rc ${RC}; archives $(p7arc | wc -l); system.cfg in it: $(tar -tvzf "$(p7arc | tail -1)" 2>/dev/null | awk '/system.cfg$/{print $1}')"
 rm -f "${P7}/shim/chmod"
 
 # == AUD gpt G-B-16 (#307 audit of the fixes): no tool's own error reaches the screen, from the seed reset or a sanitiser
@@ -8695,7 +8709,7 @@ EOS
 chmod +x "${P7}/shim/cp"
 p7bt restore --no-restart
 rm -f "${P7}/shim/cp"
-[ "${RC}" -ne 0 ] && ! grep -vE '^logger |^>>> ' "${P7OUT}" | grep -q '^cp:'; check $? "#307 audit G-B-16 (gpt): a seed reset that fails is undone and its cp error goes to the log, not the screen (rc ${RC})" "#307 audit G-B-16: rc ${RC}; the screen shows: $(grep -vE '^logger |^>>> ' "${P7OUT}" | grep '^cp:' | head -1)"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && ! grep -vE '^logger |^>>> ' "${P7OUT}" | grep -q '^cp:'; check $? "#307 audit G-B-16 (gpt): a seed reset that fails is undone and its cp error goes to the log, not the screen (rc ${RC})" "#307 audit G-B-16: rc ${RC}; the screen shows: $(grep -vE '^logger |^>>> ' "${P7OUT}" | grep '^cp:' | head -1)"
 p7reset '  /storage/.config/system/configs/system.cfg
   /storage/.config/test/*'
 cat > "${P7}/shim/sed" <<'EOS'
@@ -8706,7 +8720,7 @@ EOS
 chmod +x "${P7}/shim/sed"
 p7bt backup
 rm -f "${P7}/shim/sed"
-[ "${RC}" -ne 0 ] && ! grep -vE '^logger |^>>> ' "${P7OUT}" | grep -q '^sed:'; check $? "#307 audit G-B-16 (gpt): a sanitiser's own error goes to the log, not the screen" "#307 audit G-B-16: the screen shows: $(grep -vE '^logger |^>>> ' "${P7OUT}" | grep '^sed:' | head -1)"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && ! grep -vE '^logger |^>>> ' "${P7OUT}" | grep -q '^sed:'; check $? "#307 audit G-B-16 (gpt): a sanitiser's own error goes to the log, not the screen" "#307 audit G-B-16: the screen shows: $(grep -vE '^logger |^>>> ' "${P7OUT}" | grep '^sed:' | head -1)"
 
 # == AUD claude G-B-09 (#307 audit of the fixes): a file the archive holds is restored from it, whatever a seed list says
 p7reset '  /storage/.config/test/*'
@@ -8720,7 +8734,7 @@ p7reset '  /storage/.config/test/*'
 echo LIVE > "${P7S}/.config/test/f1"; mkdir -p "${P7S}/.config/.restore-in-progress"
 p7tar 2026_01_01-000000-ROCKNIX_SETTINGS.tar.gz "storage/.config/test/f1=ARCHIVE"
 p7bt restore --no-restart
-[ "${RC}" -ne 0 ] && [ "$(cat "${P7S}/.config/test/f1")" = "LIVE" ] && [ "$(p7why)" = "COULDN'T KEEP A COPY OF YOUR CURRENT SETTINGS" ] && [ -z "$(ls -A "${P7S}/.config/.restore-in-progress")" ]; check $? "#307 audit G-B-08 (claude): with a folder where the mark goes, the image's mv -fT refuses to move the mark into it and the restore stops before the extraction" "#307 audit G-B-08: rc ${RC}; f1='$(cat "${P7S}/.config/test/f1")'; why '$(p7why)'; the folder holds: $(ls -A "${P7S}/.config/.restore-in-progress" | tr '\n' ' ')"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ "$(cat "${P7S}/.config/test/f1")" = "LIVE" ] && [ "$(p7why)" = "COULDN'T KEEP A COPY OF YOUR CURRENT SETTINGS" ] && [ -z "$(ls -A "${P7S}/.config/.restore-in-progress")" ]; check $? "#307 audit G-B-08 (claude): with a folder where the mark goes, the image's mv -fT refuses to move the mark into it and the restore stops before the extraction" "#307 audit G-B-08: rc ${RC}; f1='$(cat "${P7S}/.config/test/f1")'; why '$(p7why)'; the folder holds: $(ls -A "${P7S}/.config/.restore-in-progress" | tr '\n' ' ')"
 rmdir "${P7S}/.config/.restore-in-progress" 2>/dev/null
 
 # y2. wifictl whole, against an nmcli that answers as the target's does
@@ -9345,16 +9359,17 @@ sa_script() { # <fixture> <script...>: the scripts under test into its /repo (wo
 SA_EXTRA=()
 sa_run() { # <fixture> <script> [args...]: the script whole, in the sandbox; stdout+stderr to ${d}/out, rc in RC, seconds in DT
     local d="$1" s="$2" t0; shift 2
+    witness_reset "${d}"; SA_LAST="${d}"
     t0=$(date +%s)
     RC=$( ( cd "${d}/storage" && setsid -w timeout 180 bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr ${SA_EXTRA[@]+"${SA_EXTRA[@]}"} "${SA_BB[@]}" \
         --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
         --ro-bind /etc /etc --ro-bind "${SA}/profile" /etc/profile \
         --bind "${d}/storage" /storage --bind "${d}/cloud" /cloud --bind "${d}/ctl" /ctl \
         --ro-bind "${SA}/shim" /shim --ro-bind "${SA}/nbin" /nbin --ro-bind "${SA}/rclone.real" /sa/rclone.real \
-        --ro-bind "${d}/repo" /repo --bind "${d}/log" /var/log --bind "${d}/varrun" /var/run \
+        --ro-bind "${d}/repo" /repo --bind "${d}/log" /var/log --bind "${d}/varrun" /var/run --bind "${d}/witness" /witness \
         --dev /dev --proc /proc --tmpfs /tmp --chdir "${SA_CWD:-/storage}" \
         --setenv PATH "/shim:/nbin:/usr/bin:/bin" --setenv HOME /storage \
-        bash "/repo/${s}" "$@" > "${d}/out" 2>&1; echo $? ) 2>/dev/null )
+        bash -c "${WITNESS_EXEC}" "/repo/${s}" "$@" > "${d}/out" 2>&1; echo $? ) 2>/dev/null )
     DT=$(( $(date +%s) - t0 ))
 }
 sa_tail() { sed 's/\x1b\[[0-9;]*m//g' "$1/out" | grep -v '^\s*$' | tail -${2:-4} | tr '\n' '|' | cut -c1-240; }
@@ -9417,7 +9432,7 @@ sa_run "${M0}" cloud_content_restore --scan
 cp "${M0}/storage/.config/cloud_sync.conf" "${M0}/conf-before"
 printf '%s\t%s\n' '^lsf ' 5 > "${M0}/ctl/fail"
 sa_run "${M0}" cloud_setup --content-location
-[ "${RC}" -ne 0 ] && grep -qx STATE=unreadable "${M0}/out" && cmp -s "${M0}/conf-before" "${M0}/storage/.config/cloud_sync.conf"; check $? "#467: a refused listing stays unreadable and preserves the selection" "rc ${RC}; $(sa_tail "${M0}")"
+witnessed "${SA_LAST}" && [ "${RC}" -ne 0 ] && grep -qx STATE=unreadable "${M0}/out" && cmp -s "${M0}/conf-before" "${M0}/storage/.config/cloud_sync.conf"; check $? "#467: a refused listing stays unreadable and preserves the selection" "rc ${RC}; $(sa_tail "${M0}")"
 : > "${M0}/ctl/fail"
 else
     printf 'SAVESPATH="/storage/roms"\nSAVES_REMOTE="/pixelelated/Saves"\nSETTINGS_REMOTE="/pixelelated/Backups"\nCONTENT_REMOTE=""\n' > "${M0}/storage/.config/cloud_sync.conf"
@@ -9505,7 +9520,7 @@ m_seed
 sa_run "${M}" cloud_content_restore --match
 sa_run "${M}" cloud_content_restore --match --apply
 sa_run "${M}" cloud_content_restore --match --apply
-[ "${RC}" -ne 0 ] && [ ! -e "${MPLAN}" ]; check $? "a plan is spent by the apply that used it: a second apply is refused (rc ${RC})" "second apply rc ${RC}; plan: $([ -e "${MPLAN}" ] && echo still there || echo gone)"
+witnessed "${SA_LAST}" && [ "${RC}" -ne 0 ] && [ ! -e "${MPLAN}" ]; check $? "a plan is spent by the apply that used it: a second apply is refused (rc ${RC})" "second apply rc ${RC}; plan: $([ -e "${MPLAN}" ] && echo still there || echo gone)"
 
 # A2. PL-012 (#307, F-CS-02 claude = F-CS-13 gpt): --all -- the journey's
 #     first restore -- brings BIOS down with the systems, one unit each, so
@@ -9532,7 +9547,7 @@ grep -q '^>>> unit bios|' "${AL}/out" && grep -q '^>>> unit gb|' "${AL}/out" && 
 al_seed
 printf '%s\t%s\n' '^lsf( --dirs-only)? qa:/pixelelated/Content/ROMs/ ' 5 > "${AL}/ctl/fail"
 sa_run "${AL}" cloud_content_restore --all
-[ "${RC}" -ne 0 ] && [ -z "$(find "${AL}/storage/roms" -type f 2>/dev/null | head -1)" ] && grep -q '^>>> why ' "${AL}/out"; check $? "a ROMs listing that fails (5) restores nothing and ends non-zero with a why (rc ${RC})" "rc ${RC}; on the device: $(cd "${AL}/storage/roms" && find . -type f | head -3 | tr '\n' ' '); out: $(sa_tail "${AL}")"
+witnessed "${SA_LAST}" && [ "${RC}" -ne 0 ] && [ -z "$(find "${AL}/storage/roms" -type f 2>/dev/null | head -1)" ] && grep -q '^>>> why ' "${AL}/out"; check $? "a ROMs listing that fails (5) restores nothing and ends non-zero with a why (rc ${RC})" "rc ${RC}; on the device: $(cd "${AL}/storage/roms" && find . -type f | head -3 | tr '\n' ' '); out: $(sa_tail "${AL}")"
 rm -rf "${AL}/cloud"/*; mkdir -p "${AL}/cloud/pixelelated/Content"; : > "${AL}/ctl/fail"
 sa_run "${AL}" cloud_content_restore --all
 [ "${RC}" -eq 0 ] && grep -qi "nothing to restore" "${AL}/out"; check $? "a cloud with no ROMs and no BIOS yet is nothing to restore, not a failure (rc ${RC})" "rc ${RC}; out: $(sa_tail "${AL}")"
@@ -9790,7 +9805,7 @@ sa_run "${MG}" cloud_migrate_layout --apply
 mg_seed
 printf '%s\t%s\n' '^copy qa:/GAMES/Content ' 5 > "${MG}/ctl/fail"
 sa_run "${MG}" cloud_migrate_layout --apply
-[ "${RC}" -ne 0 ] && [ "$(mg_ptr CONTENT_REMOTE)" = "/GAMES/Content" ]; check $? "PL-071: a content move that fails ends the run non-zero, with CONTENT_REMOTE where it was (rc ${RC})" "rc ${RC}; CONTENT_REMOTE '$(mg_ptr CONTENT_REMOTE)'; out: $(sa_tail "${MG}") -- main said Done. over migrate_content's failure (F-CS-18)"
+witnessed "${SA_LAST}" && [ "${RC}" -ne 0 ] && [ "$(mg_ptr CONTENT_REMOTE)" = "/GAMES/Content" ]; check $? "PL-071: a content move that fails ends the run non-zero, with CONTENT_REMOTE where it was (rc ${RC})" "rc ${RC}; CONTENT_REMOTE '$(mg_ptr CONTENT_REMOTE)'; out: $(sa_tail "${MG}") -- main said Done. over migrate_content's failure (F-CS-18)"
 
 # #308 claude F-CS-23: bounded calls, the transfer lock, a content check on
 # a hashless remote, and the exclusion pattern reaching rclone unexpanded.
@@ -9850,12 +9865,12 @@ cp "${OV}/storage/roms/backup/2026_09_28-120000-QA-ROCKNIX_SETTINGS.tar.gz" "${O
 printf '%s\t%s\n' '^copyto ' 5 > "${OV}/ctl/fail"
 sa_run "${OV}" cloud_backup --yes
 ov_stamp=$(awk '{print $2}' "${OV}/storage/.cache/cloud_sync/last-backup" 2>/dev/null)
-[ "${RC}" -ne 0 ] && [ "${RC}" -ne 9 ] && sa_outcome "${OV}" | grep -q "^Couldn't finish" && [ "${ov_stamp}" != 0 ] && [ "${ov_stamp}" != 9 ]; check $? "cloud_backup: saves 9 and the archive's upload failing (5) end Couldn't finish, exit ${RC}, stamp ${ov_stamp:-none}" "exit ${RC}, stamp '${ov_stamp:-none}', outcome '$(sa_outcome "${OV}")' -- [ overall -eq 0 ] skipped the settings phase when the saves returned 9 (F-CS-12 gpt, F-CS-16 claude)"
+witnessed "${SA_LAST}" && [ "${RC}" -ne 0 ] && [ "${RC}" -ne 9 ] && sa_outcome "${OV}" | grep -q "^Couldn't finish" && [ "${ov_stamp}" != 0 ] && [ "${ov_stamp}" != 9 ]; check $? "cloud_backup: saves 9 and the archive's upload failing (5) end Couldn't finish, exit ${RC}, stamp ${ov_stamp:-none}" "exit ${RC}, stamp '${ov_stamp:-none}', outcome '$(sa_outcome "${OV}")' -- [ overall -eq 0 ] skipped the settings phase when the saves returned 9 (F-CS-12 gpt, F-CS-16 claude)"
 grep -q 'nothing needed moving' "${OV}/log/cloud_sync.log"; check $? "and the saves phase did return 9 (the case is the one it names)" "the saves phase never reported 9; log: $(grep -i 'saves:' "${OV}/log/cloud_sync.log" | tail -1)"
 rm -f "${OV}/storage/roms/backup"/*.tar.gz
 sa_run "${OV}" cloud_restore --yes
 ov_stamp=$(awk '{print $2}' "${OV}/storage/.cache/cloud_sync/last-restore" 2>/dev/null)
-[ "${RC}" -ne 0 ] && [ "${RC}" -ne 9 ] && sa_outcome "${OV}" | grep -q "^Couldn't finish" && [ "${ov_stamp}" != 0 ] && [ "${ov_stamp}" != 9 ]; check $? "cloud_restore: saves 9 and the archive's download failing (5) end Couldn't finish, exit ${RC}, stamp ${ov_stamp:-none}" "exit ${RC}, stamp '${ov_stamp:-none}', outcome '$(sa_outcome "${OV}")'"
+witnessed "${SA_LAST}" && [ "${RC}" -ne 0 ] && [ "${RC}" -ne 9 ] && sa_outcome "${OV}" | grep -q "^Couldn't finish" && [ "${ov_stamp}" != 0 ] && [ "${ov_stamp}" != 9 ]; check $? "cloud_restore: saves 9 and the archive's download failing (5) end Couldn't finish, exit ${RC}, stamp ${ov_stamp:-none}" "exit ${RC}, stamp '${ov_stamp:-none}', outcome '$(sa_outcome "${OV}")'"
 
 # A7. PL-030 (#307, F-ES-03 gpt; the script's half -- the C++ quoting is
 #     stream E2's): --set-systems takes system folder names and nothing
@@ -9871,7 +9886,7 @@ sa_run "${SS}" cloud_content_restore --set-systems 'gb nes pc-88 mame2003_plus 3
 for bad in 'gb a$(touch /tmp/x)b' 'gb `id`' 'nes *' 'gb ..' 'gb -rf' 'gb a"b' "gb a;b"; do
     printf 'gb\n' > "${SSEL}"
     SA_CWD=/storage sa_run "${SS}" cloud_content_restore --set-systems "${bad}"
-    [ "${RC}" -ne 0 ] && [ "$(cat "${SSEL}")" = "gb" ]; check $? "refused whole, selection unchanged: --set-systems '${bad}' (rc ${RC})" "rc ${RC}; selection now: $(tr '\n' ' ' < "${SSEL}") -- a name that is not a system folder's was written into the selection (F-ES-03)"
+    witnessed "${SA_LAST}" && [ "${RC}" -ne 0 ] && [ "$(cat "${SSEL}")" = "gb" ]; check $? "refused whole, selection unchanged: --set-systems '${bad}' (rc ${RC})" "rc ${RC}; selection now: $(tr '\n' ' ' < "${SSEL}") -- a name that is not a system folder's was written into the selection (F-ES-03)"
 done
 grep -qi "system" "${SS}/out" && ! grep -q '>>> ' "${SS}/out"; check $? "and the refusal says what it wanted, in a sentence" "out: $(sa_tail "${SS}")"
 
@@ -9966,13 +9981,13 @@ echo '<gameList/>' > "${GL}/cloud/pixelelated/Content/ROMs/nes/gamelist.xml"
 printf '%s\t%s\n' '^copy .*--update' 5 > "${GL}/ctl/fail"
 sa_run "${GL}" cloud_content_restore --with-media nes
 gl_stamp=$(awk '{print $2}' "${GL}/storage/.cache/cloud_sync/last-content-restore" 2>/dev/null)
-[ "${RC}" -ne 0 ] && [ "${gl_stamp}" != 0 ] && grep -q '^>>> why ' "${GL}/out" && grep -q "^Couldn't finish restoring nes" "${GL}/out"; check $? "cloud_content_restore: the game-list pass failing (5) ends the unit Couldn't finish, exit ${RC}, stamp ${gl_stamp:-none}" "exit ${RC}, stamp '${gl_stamp:-none}'; out: $(sa_tail "${GL}") -- the game list's result was discarded with || true (F-CS-11)"
+witnessed "${SA_LAST}" && [ "${RC}" -ne 0 ] && [ "${gl_stamp}" != 0 ] && grep -q '^>>> why ' "${GL}/out" && grep -q "^Couldn't finish restoring nes" "${GL}/out"; check $? "cloud_content_restore: the game-list pass failing (5) ends the unit Couldn't finish, exit ${RC}, stamp ${gl_stamp:-none}" "exit ${RC}, stamp '${gl_stamp:-none}'; out: $(sa_tail "${GL}") -- the game list's result was discarded with || true (F-CS-11)"
 [ -f "${GL}/storage/roms/nes/N.nes" ]; check $? "and the pass before it still moved the ROM" "the ROM did not come down -- the case would pass for the wrong reason"
 echo '<gameList><game/></gameList>' > "${GL}/storage/roms/nes/gamelist.xml"
 mkdir -p "${GL}/storage/.config/emulationstation"; printf '<system><path>/storage/roms/nes</path></system>\n' > "${GL}/storage/.config/emulationstation/es_systems.cfg"
 sa_run "${GL}" cloud_content_backup --with-media nes
 gl_stamp=$(awk '{print $2}' "${GL}/storage/.cache/cloud_sync/last-content-backup" 2>/dev/null)
-[ "${RC}" -ne 0 ] && [ "${gl_stamp}" != 0 ] && grep -q "^Couldn't finish backing up nes" "${GL}/out"; check $? "cloud_content_backup: the same, exit ${RC}, stamp ${gl_stamp:-none}" "exit ${RC}, stamp '${gl_stamp:-none}'; out: $(sa_tail "${GL}")"
+witnessed "${SA_LAST}" && [ "${RC}" -ne 0 ] && [ "${gl_stamp}" != 0 ] && grep -q "^Couldn't finish backing up nes" "${GL}/out"; check $? "cloud_content_backup: the same, exit ${RC}, stamp ${gl_stamp:-none}" "exit ${RC}, stamp '${gl_stamp:-none}'; out: $(sa_tail "${GL}")"
 : > "${GL}/ctl/fail"
 sa_run "${GL}" cloud_content_backup --with-media nes
 [ "${RC}" -eq 0 ] && grep -q '^Backed up nes\.' "${GL}/out"; check $? "and with the pass working the same backup completes (rc ${RC})" "rc ${RC}; out: $(sa_tail "${GL}")"
@@ -10030,7 +10045,7 @@ sa_run "${BS}" cloud_content_restore --selected
 rm -rf "${BS}/storage/roms"/* "${BS}/cloud/pixelelated/Content/BIOS"
 : > "${BS}/storage/.cache/cloud_sync/content-systems"
 sa_run "${BS}" cloud_content_restore --selected
-[ "${RC}" -ne 0 ] && grep -q "haven't picked any systems" "${BS}/out"; check $? "with no system picked and no BIOS in the cloud there is still nothing to do, and it says so (rc ${RC})" "rc ${RC}; out: $(sa_tail "${BS}")"
+witnessed "${SA_LAST}" && [ "${RC}" -ne 0 ] && grep -q "haven't picked any systems" "${BS}/out"; check $? "with no system picked and no BIOS in the cloud there is still nothing to do, and it says so (rc ${RC})" "rc ${RC}; out: $(sa_tail "${BS}")"
 
 # A12. #308 claude F-CS-04: cloud_restore keeps cloud_backup's shape -- no
 #      console pauses under --yes, the remote read from rclone.conf, the
@@ -10290,7 +10305,7 @@ echo s > "${SR}/storage/roms/gb/A.srm"; rm -f "${SR}/storage/.cache/cloud_sync/s
 printf '%s\t%s\n' '^copy .* /storage/roms/ qa:' 7 > "${SR}/ctl/fail"
 sa_run "${SR}" cloud_backup --yes --saves-only
 : > "${SR}/ctl/fail"
-[ "${RC}" -ne 0 ] && [ ! -e "${SR}/storage/.cache/cloud_sync/saves-root" ]; check $? "a saves backup whose transfer failed (7) records no card (rc ${RC})" "saves-root after a failed transfer: $(cat "${SR}/storage/.cache/cloud_sync/saves-root" 2>/dev/null) -- a failed first run established the card as if it had succeeded"
+witnessed "${SA_LAST}" && [ "${RC}" -ne 0 ] && [ ! -e "${SR}/storage/.cache/cloud_sync/saves-root" ]; check $? "a saves backup whose transfer failed (7) records no card (rc ${RC})" "saves-root after a failed transfer: $(cat "${SR}/storage/.cache/cloud_sync/saves-root" 2>/dev/null) -- a failed first run established the card as if it had succeeded"
 sa_run "${SR}" cloud_backup --yes --saves-only
 [ "${RC}" -eq 0 ] && [ -s "${SR}/storage/.cache/cloud_sync/saves-root" ]; check $? "and the next run that moves the saves records it (rc ${RC})" "saves-root: $(cat "${SR}/storage/.cache/cloud_sync/saves-root" 2>/dev/null)"
 
@@ -10424,7 +10439,7 @@ printf '%s\t%s\n' '^copy ' 10 > "${CE}/ctl/hang"
 sa_run "${CE}" cloud_backup --yes --automatic --saves-only
 : > "${CE}/ctl/hang"
 ce_after=$(awk '/^copy /{c=1; next} c' "${CE}/ctl/argv" | grep -c .)
-[ "${RC}" -ne 0 ] && [ "${ce_after}" -eq 0 ]; check $? "after the ceiling ends the saves copy, no further rclone call is started (${ce_after} after it, rc ${RC}, ${DT}s)" "${ce_after} call(s) after the copy the ceiling ended: $(awk '/^copy /{c=1; next} c' "${CE}/ctl/argv" | cut -c1-50 | tr '\n' '|') -- each was given a second more"
+witnessed "${SA_LAST}" && [ "${RC}" -ne 0 ] && [ "${ce_after}" -eq 0 ]; check $? "after the ceiling ends the saves copy, no further rclone call is started (${ce_after} after it, rc ${RC}, ${DT}s)" "${ce_after} call(s) after the copy the ceiling ended: $(awk '/^copy /{c=1; next} c' "${CE}/ctl/argv" | cut -c1-50 | tr '\n' '|') -- each was given a second more"
 grep -qx ">>> why THE CLOUD TOOK TOO LONG - IT'LL TRY AGAIN NEXT TIME" "${CE}/out"; check $? "and the why is the ceiling's own, not a probe's guess at the network" "why: $(grep '^>>> why' "${CE}/out" | head -1)"
 
 # A30. The seats' claude F-CS-13 (Medium; in no stream's brief, in this
@@ -10914,7 +10929,7 @@ sa_run "${OF}" cloud_restore --yes --saves-only
 sed -i 's|--filter-from /storage/my-rules.txt|--filter-from /storage/.config/cloud_sync-rules.txt|' "${OF}/storage/.config/cloud_sync.conf"
 echo s > "${OF}/storage/roms/saves/game2.srm"
 sa_run "${OF}" cloud_backup --yes --saves-only
-[ "${RC}" -ne 0 ] && [ ! -e "${OF}/cloud/pixelelated/Saves/saves/game2.srm" ]; check $? "the device's own allowlist without its catch-all is still refused (rc ${RC})" "rc ${RC}; game2.srm $([ -e "${OF}/cloud/pixelelated/Saves/saves/game2.srm" ] && echo SENT || echo home)"
+witnessed "${SA_LAST}" && [ "${RC}" -ne 0 ] && [ ! -e "${OF}/cloud/pixelelated/Saves/saves/game2.srm" ]; check $? "the device's own allowlist without its catch-all is still refused (rc ${RC})" "rc ${RC}; game2.srm $([ -e "${OF}/cloud/pixelelated/Saves/saves/game2.srm" ] && echo SENT || echo home)"
 
 # A35. vm-qa run 68's round-trip, step "content transfers honour the
 #      system selection": the tool ran `--match --apply` with no `--match`
@@ -10927,7 +10942,7 @@ sa_run "${OF}" cloud_backup --yes --saves-only
 echo "    A35. an apply with no check behind it says the check is missing; checked first, every chosen system is an item"
 m_seed
 sa_run "${M}" cloud_content_restore --match --apply
-[ "${RC}" -ne 0 ] && [ -f "${M}/storage/roms/gb/B.gb" ] && grep -qx '>>> why CHECK WHAT WOULD CHANGE FIRST' "${M}/out" && ! grep -q 'SOMETHING CHANGED' "${M}/out"; check $? "--match --apply with no preview removes nothing and says to check first, not that something changed (rc ${RC})" "rc ${RC}; why: $(grep '^>>> why' "${M}/out" | tr '\n' '|'); B.gb $([ -f "${M}/storage/roms/gb/B.gb" ] && echo kept || echo gone)"
+witnessed "${SA_LAST}" && [ "${RC}" -ne 0 ] && [ -f "${M}/storage/roms/gb/B.gb" ] && grep -qx '>>> why CHECK WHAT WOULD CHANGE FIRST' "${M}/out" && ! grep -q 'SOMETHING CHANGED' "${M}/out"; check $? "--match --apply with no preview removes nothing and says to check first, not that something changed (rc ${RC})" "rc ${RC}; why: $(grep '^>>> why' "${M}/out" | tr '\n' '|'); B.gb $([ -f "${M}/storage/roms/gb/B.gb" ] && echo kept || echo gone)"
 # The round-trip's own sequence, checked first: a system present on both
 # sides and one that exists nowhere (its plan is none) are both announced.
 m_seed
@@ -10987,7 +11002,7 @@ mg_seed
 rm -rf "${MG}/cloud/GAMES/savefiles"; mkdir -p "${MG}/cloud/GAMES/savefiles/gb"; echo s > "${MG}/cloud/GAMES/savefiles/gb/S1.srm"
 printf '%s\t%s\n' '^copy qa:/GAMES qa:/pixelelated/Saves' 'echo newer >> /cloud/GAMES/savefiles/gb/S1.srm' > "${MG}/ctl/post"
 sa_run "${MG}" cloud_migrate_layout --apply
-[ "${RC}" -ne 0 ] && ! grep -q 'Both folders are as they were' "${MG}/out" && grep -qF "nothing was removed from the old folder" "${MG}/out"; check $? "a check that failed says nothing was removed from the old folder, not that both are as they were (rc ${RC})" "rc ${RC}; out: $(sa_tail "${MG}" 5)"
+witnessed "${SA_LAST}" && [ "${RC}" -ne 0 ] && ! grep -q 'Both folders are as they were' "${MG}/out" && grep -qF "nothing was removed from the old folder" "${MG}/out"; check $? "a check that failed says nothing was removed from the old folder, not that both are as they were (rc ${RC})" "rc ${RC}; out: $(sa_tail "${MG}" 5)"
 mg_seed
 sa_run "${MG}" cloud_migrate_layout --apply
 [ "${RC}" -eq 0 ] && ! grep -qE 'for (SAVES|SETTINGS|CONTENT)_REMOTE' "${MG}/out" && grep -qF 'Now using /pixelelated/Saves for your saves.' "${MG}/out"; check $? "a tier that moved is named in words, not by its config key (rc ${RC})" "rc ${RC}; lines: $(grep 'Now using' "${MG}/out" | tr '\n' '|')"
@@ -11035,7 +11050,7 @@ cg_run 'CONTENT_REMOTE="/pixelelated/Content"
 CONTENT_REMOTE="/Old/Content"'
 [ "${RC}" -eq 0 ] && [ -f "${CG}/cloud/pixelelated/Content/ROMs/nes/N.nes" ] && [ ! -e "${CG}/cloud/Old" ]; check $? "of two CONTENT_REMOTE lines the first counts, as the duplicate cleanup keeps it (rc ${RC})" "rc ${RC}; cloud: $(cd "${CG}/cloud" && find . -type f | tr '\n' ' ')"
 cg_run 'CONTENT_REMOTE="/pixelelated/Content" ; echo'
-[ "${RC}" -ne 0 ] && [ -z "$(cd "${CG}/cloud" && find . -type f)" ] && grep -qx ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ" "${CG}/out"; check $? "a CONTENT_REMOTE line it cannot read as plain text is refused, not read as the root (rc ${RC})" "rc ${RC}; cloud: $(cd "${CG}/cloud" && find . -type f | tr '\n' ' '); why: $(grep '^>>> why' "${CG}/out")"
+witnessed "${SA_LAST}" && [ "${RC}" -ne 0 ] && [ -z "$(cd "${CG}/cloud" && find . -type f)" ] && grep -qx ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ" "${CG}/out"; check $? "a CONTENT_REMOTE line it cannot read as plain text is refused, not read as the root (rc ${RC})" "rc ${RC}; cloud: $(cd "${CG}/cloud" && find . -type f | tr '\n' ' '); why: $(grep '^>>> why' "${CG}/out")"
 
 # A40. The audit of the fixes (#307 follow-up 2; seats/A-gpt.md G-A-07 and
 #      seats/A-claude.md G-A-03, Medium): --all read its ROMs listing
@@ -11058,10 +11073,10 @@ af_run() { # <CONTENT_REMOTE> <where nes sits in the cloud> <the listing to fail
 if [ "${SA_SCOPED}" -eq 0 ]; then
 af_run /pixelelated/Content /pixelelated/Content/nes '^lsf --dirs-only qa:/pixelelated/Content/ '
 af_stamp=$(awk '{print $2}' "${AF}/storage/.cache/cloud_sync/last-content-restore" 2>/dev/null)
-[ "${RC}" -ne 0 ] && [ "${af_stamp:-none}" != 0 ] && ! grep -q '^Nothing to restore' "${AF}/out" && grep -q '^>>> why ' "${AF}/out"; check $? "--all on the flat layout whose root listing fails (5) ends Couldn't finish, not Nothing to restore (rc ${RC}, stamp ${af_stamp:-none})" "rc ${RC}, stamp ${af_stamp:-none}; out: $(sa_tail "${AF}")"
+witnessed "${SA_LAST}" && [ "${RC}" -ne 0 ] && [ "${af_stamp:-none}" != 0 ] && ! grep -q '^Nothing to restore' "${AF}/out" && grep -q '^>>> why ' "${AF}/out"; check $? "--all on the flat layout whose root listing fails (5) ends Couldn't finish, not Nothing to restore (rc ${RC}, stamp ${af_stamp:-none})" "rc ${RC}, stamp ${af_stamp:-none}; out: $(sa_tail "${AF}")"
 af_run /pixelelated/Content /nes '^lsf --dirs-only qa: '
 af_stamp=$(awk '{print $2}' "${AF}/storage/.cache/cloud_sync/last-content-restore" 2>/dev/null)
-[ "${RC}" -ne 0 ] && [ "${af_stamp:-none}" != 0 ] && ! grep -q '^Nothing to restore' "${AF}/out"; check $? "--all whose legacy root listing fails (5) ends Couldn't finish too (rc ${RC}, stamp ${af_stamp:-none})" "rc ${RC}, stamp ${af_stamp:-none}; out: $(sa_tail "${AF}")"
+witnessed "${SA_LAST}" && [ "${RC}" -ne 0 ] && [ "${af_stamp:-none}" != 0 ] && ! grep -q '^Nothing to restore' "${AF}/out"; check $? "--all whose legacy root listing fails (5) ends Couldn't finish too (rc ${RC}, stamp ${af_stamp:-none})" "rc ${RC}, stamp ${af_stamp:-none}; out: $(sa_tail "${AF}")"
 af_run /pixelelated/Content /pixelelated/Content/nes '^never$'
 [ "${RC}" -eq 0 ] && [ -f "${AF}/storage/roms/nes/N.nes" ]; check $? "and with nothing failing the flat layout's nes comes down (rc ${RC})" "rc ${RC}; out: $(sa_tail "${AF}")"
 else
@@ -11606,12 +11621,13 @@ EOR
 chmod +x "${CF1}/shim"/*
 CFCONF="${CF1}/storage/.config/cloud_sync.conf"
 cf1() { # <args...>: cloud_setup in the sandbox; output to CF1/out, rc in RC
+    witness_reset "${CF1}"
     RC=$( ( bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr \
         --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
         --ro-bind /etc /etc --ro-bind "${CF1}/profile" /etc/profile "${CFBB[@]}" \
         --ro-bind "${CF1}/shim" /shim --ro-bind "${CF1}/repo" /repo --bind "${CF1}/storage" /storage \
-        --dev /dev --proc /proc --tmpfs /tmp --tmpfs /var --dir /var/log \
-        bash /repo/cloud_setup "$@" > "${CF1}/out" 2>&1; echo $? ) 2>/dev/null )
+        --bind "${CF1}/witness" /witness --dev /dev --proc /proc --tmpfs /tmp --tmpfs /var --dir /var/log \
+        bash -c "${WITNESS_EXEC}" /repo/cloud_setup "$@" > "${CF1}/out" 2>&1; echo $? ) 2>/dev/null )
 }
 cfconf() { grep -E '^(SAVES|SETTINGS|CONTENT)_REMOTE=' "${CFCONF}" | tr '\n' ' '; }
 cfsaid() { tr '\n' ' ' < "${CF1}/out" | cut -c1-180; }
@@ -11625,11 +11641,11 @@ for remote in yes no; do
     if [ "${remote}" = no ]; then : > "${CF1}/storage/no-remote"; else rm -f "${CF1}/storage/no-remote"; fi
     cp "${CF1}/conf.before" "${CFCONF}"
     cf1 --set-saves-remote /Mine/Backups/.
-    [ "${RC}" -ne 0 ] && cmp -s "${CFCONF}" "${CF1}/conf.before" && grep -qx "Try ${CF_CANON_BACKUPS}." "${CF1}/out"; check $? "PL-009: the seat's /Mine/Backups/. is refused (a remote configured: ${remote}), the config untouched, with the folder to use: $(head -1 "${CF1}/out")" "PL-009 (a remote configured: ${remote}): --set-saves-remote /Mine/Backups/. rc ${RC}; config: $(cfconf)-- the settings and content folders inside the saves folder; said: $(cfsaid)"
+    witnessed "${CF1}" && [ "${RC}" -ne 0 ] && cmp -s "${CFCONF}" "${CF1}/conf.before" && grep -qx "Try ${CF_CANON_BACKUPS}." "${CF1}/out"; check $? "PL-009: the seat's /Mine/Backups/. is refused (a remote configured: ${remote}), the config untouched, with the folder to use: $(head -1 "${CF1}/out")" "PL-009 (a remote configured: ${remote}): --set-saves-remote /Mine/Backups/. rc ${RC}; config: $(cfconf)-- the settings and content folders inside the saves folder; said: $(cfsaid)"
 done
 rm -f "${CF1}/storage/no-remote"
 cf1 --check-syncpath /Mine/Backups/.
-[ "${RC}" -ne 0 ] && grep -qx "Try ${CF_CANON_BACKUPS}." "${CF1}/out"; check $? "PL-009: --check-syncpath refuses it too, where the folder is typed" "PL-009: --check-syncpath /Mine/Backups/.: rc ${RC}; said: $(cfsaid)"
+witnessed "${CF1}" && [ "${RC}" -ne 0 ] && grep -qx "Try ${CF_CANON_BACKUPS}." "${CF1}/out"; check $? "PL-009: --check-syncpath refuses it too, where the folder is typed" "PL-009: --check-syncpath /Mine/Backups/.: rc ${RC}; said: $(cfsaid)"
 for pair in '/Mine/./Saves|/Mine/Saves' '/Mine//Saves|/Mine/Saves' '/Mine/Saves/..|/Mine/Saves' '/a/b/../Content|/a/Saves'; do
     p="${pair%%|*}"; want="${pair#*|}"
     if [ "${VALIDATOR_AVAILABLE}" -eq 1 ]; then
@@ -11637,11 +11653,11 @@ for pair in '/Mine/./Saves|/Mine/Saves' '/Mine//Saves|/Mine/Saves' '/Mine/Saves/
     fi
     cp "${CF1}/conf.before" "${CFCONF}"
     cf1 --set-saves-remote "${p}"
-    [ "${RC}" -ne 0 ] && cmp -s "${CFCONF}" "${CF1}/conf.before" && grep -qx "Try ${want}." "${CF1}/out"; check $? "PL-009: ${p} is refused, the folder offered ${want}" "PL-009: --set-saves-remote ${p}: rc ${RC}; config: $(cfconf); said: $(cfsaid)"
+    witnessed "${CF1}" && [ "${RC}" -ne 0 ] && cmp -s "${CFCONF}" "${CF1}/conf.before" && grep -qx "Try ${want}." "${CF1}/out"; check $? "PL-009: ${p} is refused, the folder offered ${want}" "PL-009: --set-saves-remote ${p}: rc ${RC}; config: $(cfconf); said: $(cfsaid)"
 done
 cp "${CF1}/conf.before" "${CFCONF}"
 cf1 --set-saves-remote /.
-[ "${RC}" -ne 0 ] && cmp -s "${CFCONF}" "${CF1}/conf.before" && grep -qx "Your cloud folder can't be empty." "${CF1}/out"; check $? "PL-009: /. names no folder at all, and is refused as empty" "PL-009: --set-saves-remote /.: rc ${RC}; config: $(cfconf); said: $(cfsaid)"
+witnessed "${CF1}" && [ "${RC}" -ne 0 ] && cmp -s "${CFCONF}" "${CF1}/conf.before" && grep -qx "Your cloud folder can't be empty." "${CF1}/out"; check $? "PL-009: /. names no folder at all, and is refused as empty" "PL-009: --set-saves-remote /.: rc ${RC}; config: $(cfconf); said: $(cfsaid)"
 # (a control) a part that only starts with a dot is a folder's name.
 for p in /Mine/.hidden/Saves /Mine/..x/Saves; do
     cp "${CF1}/conf.before" "${CFCONF}"
@@ -11692,9 +11708,9 @@ cf1 --info
 grep -qx 'SAVES_REMOTE=' "${CF1}/out"; check $? "gpt G2-C-01: --info names no folder for it, rather than /Mine/'My" "gpt G2-C-01: --info said $(grep '^SAVES_REMOTE=' "${CF1}/out") -- a folder no script would use"
 : > "${CF1}/storage/rclone-calls"
 cf1 --seed-folders "${SEED_ARGS[@]}"
-[ "${RC}" -ne 0 ] && ! grep -q '^mkdir' "${CF1}/storage/rclone-calls" && ! grep -q '^OK ' "${CF1}/out"; check $? "gpt G2-C-01: --seed-folders writes nothing to the cloud on a folder it cannot read (rc ${RC}): $(head -1 "${CF1}/out")" "gpt G2-C-01: --seed-folders rc ${RC}; rclone mkdir calls: $(grep '^mkdir' "${CF1}/storage/rclone-calls" | head -2 | tr '\n' '|'); said: $(cfsaid)"
+witnessed "${CF1}" && [ "${RC}" -ne 0 ] && ! grep -q '^mkdir' "${CF1}/storage/rclone-calls" && ! grep -q '^OK ' "${CF1}/out"; check $? "gpt G2-C-01: --seed-folders writes nothing to the cloud on a folder it cannot read (rc ${RC}): $(head -1 "${CF1}/out")" "gpt G2-C-01: --seed-folders rc ${RC}; rclone mkdir calls: $(grep '^mkdir' "${CF1}/storage/rclone-calls" | head -2 | tr '\n' '|'); said: $(cfsaid)"
 cf1 --check-syncpath
-[ "${RC}" -ne 0 ] && grep -q "couldn't be read" "${CF1}/out"; check $? "gpt G2-C-01: --check-syncpath of the stored folder says the settings couldn't be read (rc ${RC})" "gpt G2-C-01: --check-syncpath rc ${RC}; said: $(cfsaid)"
+witnessed "${CF1}" && [ "${RC}" -ne 0 ] && grep -q "couldn't be read" "${CF1}/out"; check $? "gpt G2-C-01: --check-syncpath of the stored folder says the settings couldn't be read (rc ${RC})" "gpt G2-C-01: --check-syncpath rc ${RC}; said: $(cfsaid)"
 # And the two text readers agree form by form: the same value, or both
 # refuse (exit 2).
 cf_forms=""
@@ -12997,17 +13013,18 @@ EOS
 chmod +x "${SA2}/shim"/*
 sa2_run() { # sa_run, with /shim2 first on PATH (and in the profile the scripts source)
     local d="$1" s="$2" t0; shift 2
+    witness_reset "${d}"; SA_LAST="${d}"
     t0=$(date +%s)
     RC=$( ( cd "${d}/storage" && setsid -w timeout 180 bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr ${SA_EXTRA[@]+"${SA_EXTRA[@]}"} "${SA_BB[@]}" \
         --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
         --ro-bind /etc /etc --ro-bind "${SA2}/profile" /etc/profile \
         --bind "${d}/storage" /storage --bind "${d}/cloud" /cloud --bind "${d}/ctl" /ctl \
         --ro-bind "${SA2}/shim" /shim2 --ro-bind "${SA}/shim" /shim --ro-bind "${SA}/nbin" /nbin --ro-bind "${SA}/rclone.real" /sa/rclone.real \
-        --ro-bind "${d}/repo" /repo --bind "${d}/log" /var/log --bind "${d}/varrun" /var/run \
+        --ro-bind "${d}/repo" /repo --bind "${d}/log" /var/log --bind "${d}/varrun" /var/run --bind "${d}/witness" /witness \
         ${SA2_EXTRA[@]+"${SA2_EXTRA[@]}"} \
         --dev /dev --proc /proc --tmpfs /tmp --chdir "${SA_CWD:-/storage}" \
         --setenv PATH "/shim2:/shim:/nbin:/usr/bin:/bin" --setenv HOME /storage \
-        bash "/repo/${s}" "$@" > "${d}/out" 2>&1; echo $? ) 2>/dev/null )
+        bash -c "${WITNESS_EXEC}" "/repo/${s}" "$@" > "${d}/out" 2>&1; echo $? ) 2>/dev/null )
     DT=$(( $(date +%s) - t0 ))
 }
 # SA2_EXTRA: bwrap arguments after the fixture's binds -- a folder of it
@@ -13485,7 +13502,7 @@ hc_hold() { # <seconds>: a holder of the commit lock, its pid in HC_HOLDER
 hc_seed; hc_hold 40
 hc_exit
 kill "${HC_HOLDER}" 2>/dev/null; wait "${HC_HOLDER}" 2>/dev/null
-[ "${RC}" -ne 0 ] && [ "${DT}" -le 15 ] && [ ! -e "${HCM}" ] && grep -q 'lock-busy' "${HC}/storage/.cache/cloud_sync/capture-failures" 2>/dev/null; check $? "PL-034: a capture blocked on the commit lock gives up in ${DT}s -- far under the interface's 120 -- and commits nothing (rc ${RC})" "PL-034: blocked on the lock: rc ${RC} after ${DT}s; manifest $([ -e "${HCM}" ] && echo WRITTEN || echo none); failures: $(tail -1 "${HC}/storage/.cache/cloud_sync/capture-failures" 2>/dev/null)"
+witnessed "${SA_LAST}" && [ "${RC}" -ne 0 ] && [ "${DT}" -le 15 ] && [ ! -e "${HCM}" ] && grep -q 'lock-busy' "${HC}/storage/.cache/cloud_sync/capture-failures" 2>/dev/null; check $? "PL-034: a capture blocked on the commit lock gives up in ${DT}s -- far under the interface's 120 -- and commits nothing (rc ${RC})" "PL-034: blocked on the lock: rc ${RC} after ${DT}s; manifest $([ -e "${HCM}" ] && echo WRITTEN || echo none); failures: $(tail -1 "${HC}/storage/.cache/cloud_sync/capture-failures" 2>/dev/null)"
 hc_seed
 SA2_EXTRA=(--ro-bind "${HC}/storage/roms" /storage/roms)
 hc_exit
@@ -13496,7 +13513,7 @@ SA2_EXTRA=(--setenv CLOUD_CAPTURE_EXIT_BOUND 6)
 hc_exit
 SA2_EXTRA=()
 kill "${HC_HOLDER}" 2>/dev/null; wait "${HC_HOLDER}" 2>/dev/null
-[ "${RC}" -ne 0 ] && [ ! -e "${HCM}" ] && grep -q 'too-slow' "${HC}/storage/.cache/cloud_sync/capture-failures" 2>/dev/null; check $? "PL-034: past its bound when it gets the lock (6 s here, the holder's 8), an exit capture commits nothing and says so (rc ${RC}, ${DT}s)" "PL-034: past the bound: rc ${RC} after ${DT}s; manifest $([ -e "${HCM}" ] && echo WRITTEN || echo none); failures: $(tail -1 "${HC}/storage/.cache/cloud_sync/capture-failures" 2>/dev/null)"
+witnessed "${SA_LAST}" && [ "${RC}" -ne 0 ] && [ ! -e "${HCM}" ] && grep -q 'too-slow' "${HC}/storage/.cache/cloud_sync/capture-failures" 2>/dev/null; check $? "PL-034: past its bound when it gets the lock (6 s here, the holder's 8), an exit capture commits nothing and says so (rc ${RC}, ${DT}s)" "PL-034: past the bound: rc ${RC} after ${DT}s; manifest $([ -e "${HCM}" ] && echo WRITTEN || echo none); failures: $(tail -1 "${HC}/storage/.cache/cloud_sync/capture-failures" 2>/dev/null)"
 hc_seed; hc_hold 8
 hc_exit
 kill "${HC_HOLDER}" 2>/dev/null; wait "${HC_HOLDER}" 2>/dev/null
@@ -13605,11 +13622,11 @@ p7bt restore --no-restart
 [ "${RC}" -eq 0 ] && [ "$(cat "${P7S}/.config/test/f1")" = "ARCHIVE" ] && grep -q 'nothing on this device for the restore to replace' "${P7OUT}"; check $? "audit of the fix round PL-006: a selection with nothing on the device yet is still 'no copy needed' (4), and the restore runs" "PL-006 (empty selection): rc ${RC}; f1='$(cat "${P7S}/.config/test/f1" 2>/dev/null)'; screen: $(p7zscreen | tr '\n' '|' | cut -c1-160)"
 p7reset '  /storage/.config/test/*'
 p7zmk fail 1 backup
-[ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ] && [ -n "$(p7why)" ] && ! p7zscreen | grep -qiE 'mktemp|no such file|No space'; check $? "audit of the fix round PL-006: a backup whose file list cannot be made writes nothing and says so in the player's words" "PL-006 (backup): rc ${RC}; archives $(p7arc | wc -l); why '$(p7why)'; screen: $(p7zscreen | tr '\n' '|' | cut -c1-160)"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ] && [ -n "$(p7why)" ] && ! p7zscreen | grep -qiE 'mktemp|no such file|No space'; check $? "audit of the fix round PL-006: a backup whose file list cannot be made writes nothing and says so in the player's words" "PL-006 (backup): rc ${RC}; archives $(p7arc | wc -l); why '$(p7why)'; screen: $(p7zscreen | tr '\n' '|' | cut -c1-160)"
 p7reset '  /storage/.config/system/configs/system.cfg
   /storage/.config/test/*'
 p7zmk ro 2 backup
-[ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ] && [ "$(p7why)" = "THE BACKUP COULDN'T FINISH WHILE GATHERING YOUR SETTINGS" ] && grep -q 'held back could not be written whole' "${P7OUT}"; check $? "audit of the fix round PL-006: a backup whose held-back list cannot be written (system.cfg would go whole) is a collection that failed, said as one" "PL-006 (held back): rc ${RC}; archives $(p7arc | wc -l); why '$(p7why)'"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ -z "$(p7arc)" ] && [ "$(p7why)" = "THE BACKUP COULDN'T FINISH WHILE GATHERING YOUR SETTINGS" ] && grep -q 'held back could not be written whole' "${P7OUT}"; check $? "audit of the fix round PL-006: a backup whose held-back list cannot be written (system.cfg would go whole) is a collection that failed, said as one" "PL-006 (held back): rc ${RC}; archives $(p7arc | wc -l); why '$(p7why)'"
 
 # == PL-007: an archive never writes the restore's own mark or its copy
 # The clock stopped, so the copy's name is known; a tar that extracts for real
@@ -13749,12 +13766,12 @@ if [ -n "${BB}" ] && [ "${BB_KIND}" != host ]; then
     echo LIVE > "${P7S}/.config/test/f1"
     p7zipm 20260101000000-ROCKNIX_BACKUP.zip storage/.config/test/f1 "storage/.config/test/f1|stored|STORED-ORIGINAL-CONTENT" "storage/.config/test/d.cfg|deflated|${P7ZLONG}"
     p7bt restore --no-restart
-    [ "${RC}" -ne 0 ] && [ "$(p7why)" = "THIS DEVICE'S SETTINGS BACKUP IS DAMAGED" ] && [ "$(cat "${P7S}/.config/test/f1")" = "LIVE" ] && [ ! -e "${P7S}/.config/test/d.cfg" ] && [ -z "$(ls "${P7S}/roms/backup/archive"/*PRE_RESTORE* 2>/dev/null)" ]; check $? "audit of the fix round PL-022: a legacy zip whose STORED member's bytes do not match its listed CRC is refused as damaged before anything is written" "PL-022 (stored, damaged): rc ${RC}; why '$(p7why)'; f1 '$(head -c 30 "${P7S}/.config/test/f1")'; d.cfg $([ -e "${P7S}/.config/test/d.cfg" ] && echo written || echo absent) -- the corrupted bytes were restored as settings"
+    witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ "$(p7why)" = "THIS DEVICE'S SETTINGS BACKUP IS DAMAGED" ] && [ "$(cat "${P7S}/.config/test/f1")" = "LIVE" ] && [ ! -e "${P7S}/.config/test/d.cfg" ] && [ -z "$(ls "${P7S}/roms/backup/archive"/*PRE_RESTORE* 2>/dev/null)" ]; check $? "audit of the fix round PL-022: a legacy zip whose STORED member's bytes do not match its listed CRC is refused as damaged before anything is written" "PL-022 (stored, damaged): rc ${RC}; why '$(p7why)'; f1 '$(head -c 30 "${P7S}/.config/test/f1")'; d.cfg $([ -e "${P7S}/.config/test/d.cfg" ] && echo written || echo absent) -- the corrupted bytes were restored as settings"
     p7reset '  /storage/.config/test/*'
     echo LIVE > "${P7S}/.config/test/f1"
     p7zipm 20260101000000-ROCKNIX_BACKUP.zip storage/.config/test/d.cfg "storage/.config/test/f1|stored|STORED-ORIGINAL-CONTENT" "storage/.config/test/d.cfg|deflated|${P7ZLONG}"
     p7bt restore --no-restart
-    [ "${RC}" -ne 0 ] && [ "$(p7why)" = "THIS DEVICE'S SETTINGS BACKUP IS DAMAGED" ] && [ "$(cat "${P7S}/.config/test/f1")" = "LIVE" ]; check $? "audit of the fix round PL-022: a legacy zip with a damaged DEFLATED member is refused as damaged" "PL-022 (deflated, damaged): rc ${RC}; why '$(p7why)'; f1 '$(head -c 30 "${P7S}/.config/test/f1")'"
+    witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ "$(p7why)" = "THIS DEVICE'S SETTINGS BACKUP IS DAMAGED" ] && [ "$(cat "${P7S}/.config/test/f1")" = "LIVE" ]; check $? "audit of the fix round PL-022: a legacy zip with a damaged DEFLATED member is refused as damaged" "PL-022 (deflated, damaged): rc ${RC}; why '$(p7why)'; f1 '$(head -c 30 "${P7S}/.config/test/f1")'"
     p7reset '  /storage/.config/test/*'
     echo LIVE > "${P7S}/.config/test/f1"
     p7zipm 20260101000000-ROCKNIX_BACKUP.zip - "storage/.config/test/f1|stored|STORED-ORIGINAL-CONTENT" "storage/.config/test/my [x] *file?.cfg|stored|BRACKETS" "storage/.config/test/d.cfg|deflated|${P7ZLONG}" "storage/.config/test/empty.cfg|stored|"
@@ -13832,7 +13849,7 @@ exec /p7bb/tar "$@"
 EOS
 chmod +x "${P7}/shim/tar"
 p7bt restore --no-restart; rm -f "${P7}/shim/tar"
-[ "${RC}" -ne 0 ] && [ "$(cat "${P7S}/.config/emulationstation/es_settings.cfg")" = "EDITED" ] && [ -n "$(p7why)" ] && ! p7zscreen | grep -q 'tar:'; check $? "audit of the fix round G2-B-09 (gpt): a seed list that cannot be read ends the restore before it writes -- never a restore that says it finished with the defaults not put back" "G2-B-09: rc ${RC}; es_settings.cfg '$(head -c 30 "${P7S}/.config/emulationstation/es_settings.cfg")'; why '$(p7why)'; screen: $(p7zscreen | tr '\n' '|' | cut -c1-160)"
+witnessed "${P7}" && [ "${RC}" -ne 0 ] && [ "$(cat "${P7S}/.config/emulationstation/es_settings.cfg")" = "EDITED" ] && [ -n "$(p7why)" ] && ! p7zscreen | grep -q 'tar:'; check $? "audit of the fix round G2-B-09 (gpt): a seed list that cannot be read ends the restore before it writes -- never a restore that says it finished with the defaults not put back" "G2-B-09: rc ${RC}; es_settings.cfg '$(head -c 30 "${P7S}/.config/emulationstation/es_settings.cfg")'; why '$(p7why)'; screen: $(p7zscreen | tr '\n' '|' | cut -c1-160)"
 
 # == G2-B-11 (gpt): the Wi-Fi pair is written as one, or not at all
 # The real writer first: set_settings writes several keys in one rename.
