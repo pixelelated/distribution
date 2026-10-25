@@ -290,6 +290,30 @@ The audit issue is #1073, a sub-issue of #660. One item per finding of `04` afte
 - **Acceptance:** the dispositions in 04 § Q6: keep `cloud-connections-test`, `cloud-input-test`, `cloud-capture-stamp-test`, `cloud-save-integrity-test` and `cloud-save-integrity`; the wiring into `vm-qa` is T12's file, deferred to #1080, the coordinator's Backlog
 - **Tracked:** #1080
 
+## PL-25: cloud-round-trip: KILL1 fails a drained WebDAV re-run (124) that LINK skips, and its after-re-run failure does not name what the file became
+- **Severity:** Medium
+- **Category:** Correctness
+- **Question:** Q3
+- **Source Finding:** G-2 (the first guest cycle)
+- **Owner area:** the cloud test harness
+- **Where:** `04-analysis.md` § Q3 (found on the guest cycles); `02-forward-audit.md` § The guest cycle; `stage-e/cycle/f-kill1.out`
+- **Can this be done on the VM?** Yes. The judge is shown on the host with `fx_kill1` driven through a stub link (`stage-e/pos1092`). KILL1 on one QA guest against the throttled QA WebDAV endpoint is the proof, and it reads 1a's after-re-run state
+- **Already written:** #1092's *Already written:* line
+- **Acceptance:** the criteria of #1092
+- **Tracked:** #1092
+
+## PL-26: cloud-round-trip: A15's two log checks look for cloud_restore wording removed by f864baac02
+- **Severity:** Medium
+- **Category:** Correctness
+- **Question:** Q3
+- **Source Finding:** G-3 (the first guest cycle)
+- **Owner area:** the cloud test harness
+- **Where:** `04-analysis.md` § Q3 (found on the guest cycles); `stage-e/cycle/f-a15.out`, `u-a15.out`
+- **Can this be done on the VM?** Yes. The checks are shown on the host against the tree's selector and `cloud_restore`'s own lines (`stage-e/pos1093`). A15 on one QA guest is the proof
+- **Already written:** #1093's *Already written:* line
+- **Acceptance:** the criteria of #1093
+- **Tracked:** #1093
+
 ## Index
 
 ```yaml
@@ -462,11 +486,25 @@ punch_index:
   source_finding: "04 § Q6"
   tracked: "#1080"
   outcome: "deferred"
+- id: PL-25
+  severity: Medium
+  category: Correctness
+  question: Q3
+  source_finding: "G-2"
+  tracked: "#1092"
+  outcome: "open"
+- id: PL-26
+  severity: Medium
+  category: Correctness
+  question: Q3
+  source_finding: "G-3"
+  tracked: "#1093"
+  outcome: "open"
 ```
 
 ## Phase 7 resolution gate
 
-After the guest cycle (#660: START 07:52, RETURN 08:10 UTC; the record `stage-e/cycle/`, `02` § The guest cycle). A bug closes when its fix reaches `next` (no closing keyword); the six whose guest criterion waits are Open until the cycle's lines are in 02 § The guest cycle. The non-bug items carry the coordinator's dispositions (#660, 05:22 and 05:52 UTC).
+After the guest cycle (#660: START 07:52, RETURN 08:10 UTC; the record `stage-e/cycle/`, `02` § The guest cycle). A bug closes when its fix reaches `next` (no closing keyword); a bug whose guest criterion waits is Open until a window's lines are in 02 (§ The guest cycle, § The second window). PL-25 and PL-26 were found on the first cycle and fixed at stage F. The non-bug items carry the coordinator's dispositions (#660, 05:22 and 05:52 UTC).
 
 | Item | Outcome | Tracked |
 | --- | --- | --- |
@@ -494,3 +532,5 @@ After the guest cycle (#660: START 07:52, RETURN 08:10 UTC; the record `stage-e/
 | PL-22 | Resolved | `bf2832ce5b` (#1081) |
 | PL-23 | Deferred | #1079 |
 | PL-24 | Deferred | #1080 |
+| PL-25 | Open | fixed in `3a653eaec4` (#1092). The host positive `stage-e/pos1092` gives A SKIP, B FAIL, C FAIL, and D's after-line names `TORN (n bytes)`; unfixed, all three FAIL. LINK's judgement is unchanged over 72 input combinations. The guest criterion waits for a window: KILL1 on one QA guest, which also reads 1a's after-re-run state |
+| PL-26 | Open | fixed in `07c37ec2ed` (#1093). The host positive `stage-e/pos1093` has both checks passing the shipped lines (selector: `previous`, then `current`) and failing the pre-`f864baac02` wording; unfixed, the reverse. The guest criterion waits for a window: A15 on one QA guest |

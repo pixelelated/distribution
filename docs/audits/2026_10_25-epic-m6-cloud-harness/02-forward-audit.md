@@ -418,6 +418,25 @@ An earlier probe, with no settle after the write, listed nothing on the fixed to
 
 **After S3** (at `cee4bf481d`): `tools/cloud-connections-test` -> `Ran 26 tests in 1.846s` / `OK`; `git diff --stat e1d51b3a04 cee4bf481d -- tools` names only `cloud-connections-test`, `cloud-census`, `cloud-round-trip` and `cloud-test-backend`.
 
+### #1093 (stage F): A15's log checks read cloud_restore's words since `f864baac02`
+
+The cause: `f864baac02` (#383, 2026-10-02) replaced the two lines A15 wanted (`... own cloud folder (<id>)`, `... the shared constant (#86) ...`) with `Restoring settings from <path> (<kind> device folder)` (`cloud_restore:2071`) and, for the previous tier, `Using backups from a folder this device may have shared with another of the same model, ...` (`:2073`, WARN, written to the log like every `log_message`). The fix is `07c37ec2ed`: `restore_folder_logged(tail, folder, kind)` and `RESTORE_SHARED_WARN`. `stage-e/pos1093` runs the tree's `select_settings_archives` over A15's layout on a local remote with the image's 1.75.2 (`old folder only -> previous GENERIC-X64-15ca-ee5013fc56; with its own -> current GENERIC-X64-15ca35b6b4`). It renders the script's own lines now and at `f864baac02^`, then evaluates each check as written in the tool under test:
+- fixed: both pass the shipped lines and fail the old wording;
+- unfixed: the reverse;
+- crossed: `UNEXPECTED`.
+
+### #1092 (stage F): KILL1 judges a drained WebDAV re-run as LINK does
+
+The fix is `3a653eaec4`. `rerun_drained()` is LINK's D-CLOUD-128 judgement (WebDAV, rc 124, the wrapper's stall line, no lock, the last per-file line at 100%), now in one place. LINK's result is unchanged over all 72 combinations of its inputs. KILL1, on a drained re-run, waits for the endpoint to let go, skips only the exit check, and still compares the cloud. That comparison names each file's state through `kill1_states()`. `stage-e/pos1092` runs the tool's own `fx_kill1` through a stub link:
+- A, the drained face: SKIP;
+- B, a 124 without the stall line: FAIL;
+- C, the same on S3: FAIL;
+- D, drained but one file torn: `FAIL ... {'savestates/kill1-2.state': 'TORN (1048576 bytes)'}`.
+
+Unfixed, A, B and C all FAIL, and D's line names only the file. **1a on the first cycle is not explained:** after the kill, `kill1-2` was whole v2, and after the 124 re-run it was not. The re-run's output and the endpoint's log were not retained, so the next guest run's message is the reading.
+
+**All twelve stage-E and stage-F positives** were rerun at `3a653eaec4` against the fixed tree, and each printed its `fixed-expectation-met` line.
+
 ## The guest cycle
 
 **The window:** granted by the coordinator on #660 at 07:50 UTC (its own comment, after the M7 lane's FINAL RETURN), with a 45-minute bound.

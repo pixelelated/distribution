@@ -16,7 +16,7 @@
 
 ## Current focus
 
-**Both guest windows are done.** The second (08:19-08:23 UTC, a pair; START 08:20 on #660, RETURN on #660) passed the SFTP suite 108/0/0 on the fixed endpoint (`7a71af7671`, #1067's cache fix), and A5/RETENTION across two guests SKIP on the fixed tree with the vacuous PASS lines on the unfixed one (#1057). Record: `stage-e/cycle2/`, 02 § The second window. #1057 and #1067 have every checkbox ticked; 05 reads 16 resolved, 8 deferred, 0 open; both lints PASS. **Next: the retention step** (held until this RETURN), then stage F (G-2 KILL1's 124 branch, G-3 A15's needle, as fixes with positives), G, H.
+**Stage F's host half is done; a third window is asked for on #660.** Both guest windows ran: the second was 08:19-08:23 UTC with a pair (SFTP 108/0/0 on `7a71af7671`, #1067; A5/RETENTION across two guests, #1057), record `stage-e/cycle2/`. Retention is done (00, 08:25: `/workspace/tmp/m6-t13/` retired, 4,418 MiB). Stage F filed #1092 (G-2) and #1093 (G-3) and fixed them in `3a653eaec4` and `07c37ec2ed`, with positives `stage-e/pos1092` and `pos1093`; all twelve positives were rerun green. 05 has PL-25 and PL-26 **Open**: the resolution lint FAILs on exactly those two until a guest runs KILL1 (throttled WebDAV) and A15. **Next:** the window, if granted (one guest, about 10 minutes, KILL1 and A15 on the fixed tree), then 05 to Resolved, the resolution lint, the retention of the new scratch, stage G (the retro), stage H.
 
 - **Guest criteria met:** #1062 (KILL1 to its verdict), #1064 (128 ES paths), #1065 (CAP13 present PASS / absent FAIL, after `a70b4889a3` corrected the needle in-window), #1069 (A15 to its verdict, the backup lands), #1070 (KILL5 at keep 3 and 2). #1057 met in the second window.
 - **Found by the cycle, for stage F:**
@@ -24,8 +24,8 @@
   - G-2: KILL1's re-run exits 124 under the 200k throttle; there is no `drained` branch like LINK's.
   - G-3: A15's two log-wording checks fail on both trees.
 - **05:** 16 Resolved (PL-01 and PL-11 in the second window), 8 Deferred; pre-issue and resolution lints PASS.
-- **Retention (06:52 ruling) is held until the second RETURN** (08:12 ruling). Then remove all of `/workspace/tmp/m6-t13/` with the D-INFRA-022 record in 00 (paths, size, df before and after).
-- Then stage F: KILL1's 124 branch (G-2) and A15's needle (G-3) as fixes with positives (08:12 ruling); G-1..G-3 into 04/05, G (the retro, posted on #660), H (the hand-back).
+- **Retention:** done at 08:25 (00). Stage F's new scratch `/workspace/tmp/m6-t13/` is removed at the hand-back. Then remove all of `/workspace/tmp/m6-t13/` with the D-INFRA-022 record in 00 (paths, size, df before and after).
+- Stage F: G-2 is #1092 and G-3 is #1093, fixed on the host; G-1..G-4 are in 04 § Q3, G (the retro, posted on #660), H (the hand-back).
 
 ## Next commands
 

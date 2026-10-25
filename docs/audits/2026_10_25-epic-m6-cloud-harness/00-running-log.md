@@ -243,3 +243,10 @@ The image for the guest-cycle request, read only: `pixelelated-GENERIC_X64.x86_6
 - **Kept (inputs, not this slice's):** the M6 image under `/workspace/artifacts/m6-t3-20261024/` (2,122,289,964 B) and the donor rclone under `/workspace/artifacts/m6-donor/1a0266484423/`.
 - **Stage F's scratch:** a new `/workspace/tmp/m6-t13/` holding only host drivers' `$TMPDIR` output, removed at the hand-back.
 
+## 2026-10-25 08:27-08:45 UTC -- stage F: G-2 and G-3 fixed on the host
+
+- Filed #1092 (G-2, KILL1's drained re-run) and #1093 (G-3, A15's needles) before the fixes, as `bug` under M6 with code traces.
+- `07c37ec2ed` (#1093) and `3a653eaec4` (#1092); positives `stage-e/pos1093`, `stage-e/pos1092`, both ways and crossed; LINK's judgement checked unchanged over 72 combinations; all twelve positives rerun at `3a653eaec4`.
+- 04 § Q3 carries G-1..G-4; 05 adds PL-25 and PL-26, Open until a guest runs KILL1 and A15. The resolution lint FAILs on exactly those two, which is the true state; pre-issue PASS.
+- Stage F's scratch is a new `/workspace/tmp/m6-t13/` (`tmp/`, the `c66b325ece` copy of the tool, the issue bodies).
+

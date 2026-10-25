@@ -33,6 +33,8 @@ ISO="CLOUD_QA_STATE=$TMPDIR/state CLOUD_QA_NAME=rocknix-cloud-qa-m6t13 CLOUD_QA_
 | #1069 | `pos1069/drive.py` | `... unfixed` -> `pos1069: unfixed-expectation-met (tar -tzf rc 2)` | `... fixed` -> `pos1069: fixed-expectation-met (tar -tzf rc 0)` |
 | #1070 | `pos1070/drive.py` | `... unfixed` -> `pos1070: unfixed-expectation-met (correct fails, hard-coded-3 passes)` | `... fixed` -> `pos1070: fixed-expectation-met (correct passes, hard-coded-3 fails)` |
 
+| #1092 (stage F) | `pos1092/drive.py`: the tool's own `fx_kill1` through a stub link, four re-run faces | `... <the tool at c66b325ece> unfixed` -> `pos1092: unfixed-expectation-met (A FAIL, B FAIL, C FAIL; D's after-line names the state: False)` | `... $F/cloud-round-trip fixed` -> `pos1092: fixed-expectation-met (A SKIP, B FAIL, C FAIL; D's after-line names the state: True)` |
+| #1093 (stage F) | `pos1093/drive.py`: this tree's `select_settings_archives` over A15's layout on a local remote, with the image's rclone (`$T13_CLIENT`); `cloud_restore`'s lines now and at `f864baac02^` | `... <the tool at c66b325ece> unfixed` -> `pos1093: unfixed-expectation-met (shipped fail, old wording passes)` | `... $F/cloud-round-trip fixed` -> `pos1093: fixed-expectation-met (shipped pass, old wording fails)` |
 The `...` stands for `python3 -I -B $S/pos<bug>/drive.py <tool>/cloud-round-trip`, the same form as the #1066 row.
 
 ## Shell-run positives
@@ -50,5 +52,6 @@ The `...` stands for `python3 -I -B $S/pos<bug>/drive.py <tool>/cloud-round-trip
 
 ## What only a guest shows
 
-The guest halves of #1057, #1062, #1064, #1065, #1069 and #1070 run in the
-one cycle on #660, and their lines go in `02` § The guest cycle.
+The guest halves of #1057, #1062, #1064, #1065, #1069 and #1070 ran in the
+first cycle and the second window on #660 (`02` § The guest cycle, § The
+second window). #1092's and #1093's wait for a window.

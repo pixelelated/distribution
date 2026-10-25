@@ -272,6 +272,12 @@ does in its output.
 
   The six are leads, not defects: none was seen to fail.
 
+- **Found on the guest cycles** (02 § The guest cycle, § The second window). Stage E's fixes let three cells run further than any recorded run had. Each finding below is a `bug` with a fix and a host positive:
+  - **G-1, the SFTP endpoint's directory cache** (#1067, PL-11). `rclone serve sftp`'s five-minute cache hid fixtures put after start. The content tier read an empty or missing cloud (7 FAILs). Fixed in `7a71af7671`; the SFTP suite then passed 108/0/0.
+  - **G-2, KILL1's re-run under the throttle** (#1092, PL-25). A 124 that LINK has skipped since D-CLOUD-128 failed KILL1, and the after-re-run failure named files, not what they held. 1b was the drained face. 1a left one file not v2, which the record cannot read. Fixed in `3a653eaec4`, which adds LINK's judgement (`rerun_drained`) and per-file states.
+  - **G-3, A15's needles** (#1093, PL-26). Both log checks looked for `cloud_restore` wording that `f864baac02` (#383, 2026-10-02) replaced, so they failed on every image since. Fixed in `07c37ec2ed`.
+  - **G-4, CAP13's needle**, the same shape as G-3 (#1065, PL-09), was fixed in-window (`a70b4889a3`).
+
 ### Q4 Currency
 
 | Dependency | Pin | Resolved on 2026-10-25 | Source |
