@@ -154,3 +154,10 @@
 - **The file's positives after the commit, 07:56:39:** all six cases met on both sides, and the fixed expectations UNEXPECTED on the unfixed file. `bash -n` passes.
 - **Every positive, re-run at `0c32b2bac6`** (`stage-e/run-all.sh`, 07:57:36 to 07:57:49): `run-all: 47 rows, 0 unexpected, 0 could not run`, rc 0. A QEMU process was running throughout (`pgrep` 1 before and after): pid 705918, started 07:51:38, T13's guest cycle (`/workspace/tmp/m6-t13/vm-pair/`, announced on the host file at 07:53). It was read with `ps` and `/proc/<pid>/cmdline`, not touched; this lane started no guest.
 - **The stage-E diff:** `git diff --stat 499628a049 0c32b2bac6 -- packages projects tools` touches exactly six files, the brief's: `bootloader/install`, `bootloader/release`, `devices/GENERIC_X64/options`, `devices/GENERIC_X64/vm/generic-x64-vm`, `dtb_overlay` and `40-usb_modeswitch.rules`.
+
+## [Stages F to H] 07:59 to 08:03 UTC — the re-verification, the retro, the checkers
+
+- **F, 07:59:27:** the brief's § 2 block at the tip prints its six lines unchanged (paths 58, lines 10,418; read 14 / 1,820 / 1,421; tier 11 / 46 / 1; reach 49 / 9; GENERIC_X64 fork-own 1,217). `git diff --stat 8ebaf8daad 2103f0271d -- <the 58>` is empty. `git diff --stat 2103f0271d 499628a049 -- packages projects tools` is empty (stages A to D). Stage E changed exactly six files, `114 insertions(+), 76 deletions(-)`. Coverage rows: 58. `fixed-at` `0c32b2bac6` and `reviewed-at` `2103f0271d` were written into #658's body and read back.
+- **G:** `docs/retros/2026-10-25-m6-device-generic-x64-and-kernel.md`, posted on #658. It says what the slice did to the two time-to-play numbers (nothing) and what T27, T28 and T25 inherit, with four Instruction-Recommendations for the coordinator.
+- **H, 08:00:29:** `tools/register-check` rc 0 (681 IDs); `tools/work-log-index --check` rc 0 (current); `tools/rules-check --quiet` rc 0; `tools/forbidden-terms-check` rc 0 (`0 hits in 133494 tracked files`); `.githooks/hooks-test` rc 0 (`PASS`). The coordinator re-runs them after its hand-back merge.
+- **A work-log entry** for the stage-E session, with the index regenerated.
