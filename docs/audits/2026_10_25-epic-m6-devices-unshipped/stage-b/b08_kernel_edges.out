@@ -1,0 +1,27 @@
+if [[ "${TARGET_ARCH}" =~ i*86|x86_64 ]]; then
+  PKG_DEPENDS_TARGET+=" elfutils:host pciutils"
+  PKG_DEPENDS_UNPACK+=" intel-ucode kernel-firmware"
+fi
+if [ "${DEVICE}" = "RK3326" -o "${DEVICE}" = "RK3566" ]; then
+  PKG_DEPENDS_UNPACK+=" generic-dsi"
+elif [ "${DEVICE}" = "SM8250" -o "${DEVICE}" = "H700" -o "${DEVICE}" = "SM8650" -o "${DEVICE}" = "SM8750" ]; then
+  PKG_DEPENDS_UNPACK+=" kernel-firmware"
+
+  if [ "${DEVICE}" = "RK3326" -o "${DEVICE}" = "RK3566" -o "${DEVICE}" = "RK3576" ]; then
+    cp -v $(get_pkg_directory generic-dsi)/sources/panel-generic-dsi.c ${PKG_BUILD}/drivers/gpu/drm/panel/
+    echo "obj-y" += panel-generic-dsi.o >> ${PKG_BUILD}/drivers/gpu/drm/panel/Makefile
+      cp -a $(get_build_dir kernel-firmware)/.copied-firmware/{amdgpu,amd-ucode,i915,radeon,e100,rtl_nic} ${PKG_BUILD}/external-firmware
+
+    cp -a $(get_build_dir intel-ucode)/intel-ucode ${PKG_BUILD}/external-firmware
+
+    FW_LIST="$(find ${PKG_BUILD}/external-firmware \( -type f -o -type l \) \( -iname '*.bin' -o -iname '*.fw' -o -path '*/intel-ucode/*' \) | sed 's|.*external-firmware/||' | sort | xargs)"
+
+    # cache project/device folder for packages
+    if [ -n "${DEVICE}" ]; then
+      find "${ROOT}/projects/${PROJECT}/devices/${DEVICE}/packages" -type f -name package.mk 2>/dev/null | sed "s#/package\.mk\$#${_ANCHOR}#" >> "${temp_local}"
+    fi
+
+    # cache project folder for packages
+    find "${ROOT}/projects/${PROJECT}/packages" -type f -name package.mk 2>/dev/null | sed "s#/package\.mk\$#${_ANCHOR}#" >> "${temp_local}"
+
+    # cache packages folder

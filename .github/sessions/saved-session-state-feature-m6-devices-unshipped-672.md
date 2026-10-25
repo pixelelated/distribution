@@ -16,10 +16,16 @@
 
 ## Current focus
 
-**Stage A complete; stage B next** (updated 2026-10-25, 09:42 UTC).
-- **`reviewed-at`:** `b27889bce2`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-devices-unshipped/`, with `00`, `01` (§ Scope) and `stage-a/` (the runner, 17 outputs, `runs.tsv`, `paths.txt`, `rows.tsv`).
-- **Every brief figure reproduced:** 397 / 49,555; 216 / 181; 396 / 1; 25 units; 12 targets; 39 M; 65; 1,424,530 bytes; the control 28 rows. One delta: RPi's `image:349` is a substring.
-- **Next (stage B):** the tables generator under the audit folder's `tools/` (the coverage of 397 and the units of 25), then § The targets (12), § The projects (9), § The pins (10), § The device trees (53), § Mechanical checks, § Positives, `03`, `04` Q1 to Q7.
+**Stage B complete; stage C next** (updated 2026-10-25, 10:03 UTC).
+- **`reviewed-at`:** `b27889bce2`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-devices-unshipped/`, with `00` to `04`, `stage-a/`, `stage-b/` and `tools/t25-tables.py` (`write` / `check <file>` regenerates every table in `02` and `04`).
+- **Findings:**
+  - F-01 (Low; the lead): the kernel's unpack edges; 4 `intel-ucode` rows misread; `generic-dsi`'s targets incomplete.
+  - F-02: the #346 class, 203 rows.
+  - F-03: the first widening, held.
+  - F-04: the fork-own dead copy.
+  - F-05: the drift, 39 rows / 226 files; the S922X loader.
+- **Counts:** dead 203, reached after all 2, shadowed 9, unshipped 183. 14 proofs. The coverage grep prints 397.
+- **Next (stage C):** `second-opinions/review-plan.json` (Local); `05-punch-list.md` with PL-01 to PL-05, Open; `tools/lint-audit-artifacts <folder> --phase pre-issue`. Then stage D: the audit issue as a sub-issue of #672, and the pause.
 - **Running for this lane:** nothing.
 
 ## Next commands

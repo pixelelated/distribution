@@ -1,0 +1,55 @@
+| Tree | Target | Kind | Lines | Local includes | `model` (`.dts`) / family (`.dtsi`) | First root `compatible` (`.dts`) / includers (`.dtsi`) | `rocknix-dt-id` |
+| --- | --- | --- | ---: | --- | --- | --- | --- |
+| `retrogame_joypad_s2_f1.dtsi` | RK3326 | .dtsi | 122 | none | family: retrogame | included by: `rk3326-batlexp-g350.dts`, `rk3326-odroid-go2-v11.dts`, `rk3326-powkiddy-rgb10.dts`, `rk3326-powkiddy-rgb10x.dts` | n/a |
+| `rk3326-anbernic-rg351m.dts` | RK3326 | .dts | 86 | `rk3326-odroid-go.dtsi`, `rk3326-panel-elida-kd35t133.dtsi` | "Anbernic RG351M" | `anbernic,rg351m` | none |
+| `rk3326-anbernic-rg351v.dts` | RK3326 | .dts | 145 | `rk3326-odroid-go.dtsi` | "Anbernic RG351V" | `anbernic,rg351v` | none |
+| `rk3326-batlexp-g350.dts` | RK3326 | .dts | 163 | `rk3326-gameconsole-r3xs.dtsi`, `retrogame_joypad_s2_f1.dtsi` | "BatleXP G350" | `batlexp,g350` | none |
+| `rk3326-device-group-r36.dtsi` | RK3326 | .dtsi | 7 | none | family: rk3326 | included by: `rk3326-gameconsole-r33s.dts`, `rk3326-gameconsole-r36s.dts`, `rk3326-powkiddy-rgb10x.dts` | n/a |
+| `rk3326-gameconsole-eeclone.dts` | RK3326 | .dts | 955 | `rk3326.dtsi` | "Generic EE clone" | `gameconsole,eeclone` | none |
+| `rk3326-gameconsole-r33s.dts` | RK3326 | .dts | 129 | `rk3326-gameconsole-r3xs.dtsi`, `rk3326-device-group-r36.dtsi` | "Game Console R33S" | `gameconsole,r33s` | none |
+| `rk3326-gameconsole-r36s.dts` | RK3326 | .dts | 207 | `rk3326-gameconsole-r3xs.dtsi`, `rk3326-device-group-r36.dtsi` | "Game Console R36S" | `gameconsole,r35s` | none |
+| `rk3326-gameconsole-r3xs.dtsi` | RK3326 | .dtsi | 558 | `rk3326.dtsi` | family: rk3326 | included by: `rk3326-batlexp-g350.dts`, `rk3326-gameconsole-r33s.dts`, `rk3326-gameconsole-r36s.dts` | n/a |
+| `rk3326-gameforce-chi.dts` | RK3326 | .dts | 811 | `rk3326.dtsi` | "GameForce Chi" | `gameforce,chi` | none |
+| `rk3326-magicx-xu-mini-m.dts` | RK3326 | .dts | 109 | `rk3326-magicx-xu10.dts` | "MagicX XU Mini M" | `magicx,xu-mini-m` | none |
+| `rk3326-magicx-xu10.dts` | RK3326 | .dts | 868 | `rk3326.dtsi` | "MagicX XU10" | `magicx,xu10` | none |
+| `rk3326-odroid-go.dtsi` | RK3326 | .dtsi | 564 | `rk3326.dtsi` | family: rk3326 | included by: `rk3326-anbernic-rg351m.dts`, `rk3326-anbernic-rg351v.dts`, `rk3326-odroid-go2-v11.dts`, `rk3326-odroid-go2.dts`, `rk3326-odroid-go3.dts`, `rk3326-powkiddy-rgb10.dts`, `rk3326-powkiddy-rgb10x.dts`, `rk3326-powkiddy-rgb20s.dts` | n/a |
+| `rk3326-odroid-go2-v11.dts` | RK3326 | .dts | 237 | `rk3326-odroid-go.dtsi`, `retrogame_joypad_s2_f1.dtsi`, `rk3326-panel-elida-kd35t133.dtsi` | "ODROID-GO Advance Black Edition" | `hardkernel,rk3326-odroid-go2-v11` | none |
+| `rk3326-odroid-go2.dts` | RK3326 | .dts | 235 | `rk3326-odroid-go.dtsi`, `rk3326-panel-elida-kd35t133.dtsi` | "ODROID-GO Advance" | `hardkernel,rk3326-odroid-go2` | none |
+| `rk3326-odroid-go3.dts` | RK3326 | .dts | 290 | `rk3326-odroid-go.dtsi` | "ODROID-GO Super" | `hardkernel,rk3326-odroid-go3` | none |
+| `rk3326-panel-elida-kd35t133.dtsi` | RK3326 | .dtsi | 41 | none | family: rk3326 | included by: `rk3326-anbernic-rg351m.dts`, `rk3326-odroid-go2-v11.dts`, `rk3326-odroid-go2.dts`, `rk3326-powkiddy-rgb10.dts` | n/a |
+| `rk3326-powkiddy-rgb10.dts` | RK3326 | .dts | 212 | `rk3326-odroid-go.dtsi`, `retrogame_joypad_s2_f1.dtsi`, `rk3326-panel-elida-kd35t133.dtsi` | "Powkiddy RGB10" | `powkiddy,rk3326-rgb10` | none |
+| `rk3326-powkiddy-rgb10x.dts` | RK3326 | .dts | 226 | `rk3326-odroid-go.dtsi`, `retrogame_joypad_s2_f1.dtsi`, `rk3326-device-group-r36.dtsi` | "Powkiddy RGB10X" | `powkiddy,rk3326-rgb10x` | none |
+| `rk3326-powkiddy-rgb20s.dts` | RK3326 | .dts | 379 | `rk3326-odroid-go.dtsi` | "Powkiddy RGB20S" | `powkiddy,rgb20s` | none |
+| `rk3326.dtsi` | RK3326 | .dtsi | 79 | `px30.dtsi` | family: rk3326.dtsi | included by: `rk3326-common-handheld.dts`, `rk3326-gameconsole-eeclone.dts`, `rk3326-gameconsole-r3xs.dtsi`, `rk3326-gameforce-chi.dts`, `rk3326-magicx-xu10.dts`, `rk3326-odroid-go.dtsi`, `rk3326s-gkd-pixel2.dts` | n/a |
+| `rk3326s-gkd-pixel2.dts` | RK3326 | .dts | 985 | `rk3326.dtsi` | "GameKiddy GKD Pixel2" | `gamekiddy,gkd-pixel2` | none |
+| `rk3326-odroid-go2-emmc.dtsi` | RK3326 | .dtsi | 28 | none | family: rk3326 | included by: none in the slice | n/a |
+| `rk3326-odroid-go2-uart5.dtsi` | RK3326 | .dtsi | 12 | none | family: rk3326 | included by: none in the slice | n/a |
+| `rk3326-common-handheld.dts` | RK3326 | .dts | 397 | `rk3326.dtsi` | "Generic RK3326 Handheld" | `generic,rk3326-handheld` | none |
+| `rk3399-anbernic-rg552.dts` | RK3399 | .dts | 1349 | `rk3399.dtsi` | "Anbernic RG552" | `anbernic,rg552` | none |
+| `rk3566-powkiddy-rk2023.dtsi` | RK3566 | .dtsi | 933 | `rk3566.dtsi` | family: rk3566 | included by: none in the slice | n/a |
+| `rk3568-anbernic-rg-ds-plus.dts` | RK3566 | .dts | 1347 | `rk3568.dtsi` | "Anbernic RG DS Plus" | `anbernic,rg-ds-plus` | none |
+| `rk3568-anbernic-rg-ds.dts` | RK3566 | .dts | 1296 | `rk3568.dtsi` | "Anbernic RG DS" | `anbernic,rg-ds` | none |
+| `rk3576-anbernic-rg-vita-pro.dts` | RK3576 | .dts | 1465 | `rk3576.dtsi` | "Anbernic RG Vita Pro" | `anbernic,rg-vita-pro` | none |
+| `sm4450-anbernic-rg55g1.dts` | SM4450 | .dts | 3257 | `sm4450.dtsi`, `pmk8350.dtsi`, `pm7250b.dtsi` | "Anbernic RG 55G1" | `anbernic,rg55g1` | none |
+| `sm4450-retroid-pocket-classic-revq.dts` | SM4450 | .dts | 3030 | `sm4450.dtsi`, `pmk8350.dtsi`, `pm7250b.dtsi` | "Retroid Pocket Classic Rev Q" | `retroid,pocket-classic` | none |
+| `sm6115-mangmi-air-x-base.dtsi` | SM6115 | .dtsi | 1863 | `sm6115.dtsi`, `pm6125.dtsi` | family: sm6115 | included by: `sm6115-mangmi-air-x-mq65.dts`, `sm6115-mangmi-air-x-mq66.dts`, `sm6115-mangmi-air-x-mq66b.dts` | n/a |
+| `sm6115-mangmi-air-x-mq65.dts` | SM6115 | .dts | 17 | `sm6115-mangmi-air-x-base.dtsi` | "MANGMI Air X MQ65" | `mangmi,sm6115-air-x-mq65` | none |
+| `sm6115-mangmi-air-x-mq66.dts` | SM6115 | .dts | 37 | `sm6115-mangmi-air-x-base.dtsi` | "MANGMI Air X MQ66" | `mangmi,sm6115-air-x-mq66` | none |
+| `sm6115-mangmi-air-x-mq66b.dts` | SM6115 | .dts | 17 | `sm6115-mangmi-air-x-base.dtsi` | "MANGMI Air X MQ66B" | `mangmi,sm6115-air-x-mq66b` | none |
+| `sm8250-ayn-thorlite.dts` | SM8250 | .dts | 1845 | `sm8250.dtsi`, `pm8150.dtsi`, `pm8150b.dtsi`, `pm8150l.dtsi`, `sm8250-pwm-fan-cooling.dtsi` | "AYN Thor Lite" | `ayn,thor-lite` | none |
+| `sm8250-mangmi-air-y-pro.dts` | SM8250 | .dts | 1404 | `sm8250.dtsi`, `pm8150.dtsi`, `pm8150b.dtsi`, `pm8150l.dtsi` | "MANGMI Air Y Pro" | `mangmi,air-y-pro` | none |
+| `sm8250-mangmi-pocket-max.dts` | SM8250 | .dts | 1404 | `sm8250.dtsi`, `pm8150.dtsi`, `pm8150b.dtsi`, `pm8150l.dtsi`, `sm8250-pwm-fan-cooling.dtsi` | "MANGMI Pocket Max" | `mangmi,pocket-max` | none |
+| `sm8250-pwm-fan-cooling.dtsi` | SM8250 | .dtsi | 77 | none | family: sm8250 | included by: `sm8250-ayn-thorlite.dts`, `sm8250-mangmi-pocket-max.dts`, `sm8250-retroidpocket-common.dtsi` | n/a |
+| `sm8250-retroidpocket-common.dtsi` | SM8250 | .dtsi | 1517 | `sm8250.dtsi`, `pm8150.dtsi`, `pm8150b.dtsi`, `pm8150l.dtsi`, `sm8250-pwm-fan-cooling.dtsi` | family: sm8250 | included by: `sm8250-retroidpocket-rp5.dts`, `sm8250-retroidpocket-rpmini.dts` | n/a |
+| `sm8250-retroidpocket-flip2-visionox.dts` | SM8250 | .dts | 29 | `sm8250-retroidpocket-flip2.dts` | "Retroid Pocket Flip2 Visionox" | `vtdr6130,rpflip2` | none |
+| `sm8250-retroidpocket-flip2.dts` | SM8250 | .dts | 47 | `sm8250-retroidpocket-rp5.dts` | "Retroid Pocket Flip2" | `retroidpocket,rpflip2` | none |
+| `sm8250-retroidpocket-rp5-visionox.dts` | SM8250 | .dts | 26 | `sm8250-retroidpocket-rp5.dts` | "Retroid Pocket 5 Visionox" | `vtdr6130,rp5` | none |
+| `sm8250-retroidpocket-rp5.dts` | SM8250 | .dts | 100 | `sm8250-retroidpocket-common.dtsi` | "Retroid Pocket 5" | `retroidpocket,rp5` | none |
+| `sm8250-retroidpocket-rpmini.dts` | SM8250 | .dts | 98 | `sm8250-retroidpocket-common.dtsi` | "Retroid Pocket Mini" | `retroidpocket,rpmini` | none |
+| `sm8250-retroidpocket-rpminiv2.dts` | SM8250 | .dts | 26 | `sm8250-retroidpocket-rpmini.dts` | "Retroid Pocket Mini V2" | `retroidpocket,rpminiv2` | none |
+| `sm8650-ayaneo-common.dtsi` | SM8650 | .dtsi | 1674 | `sm8650.dtsi`, `pm8550.dtsi`, `pm8550b.dtsi`, `pm8550ve.dtsi`, `pm8550vs.dtsi`, `pmk8550.dtsi` | family: sm8650 | included by: `sm8650-ayaneo-ps2.dts`, `sm8650-konkr-pf.dts` | n/a |
+| `sm8650-ayaneo-ps2.dts` | SM8650 | .dts | 111 | `sm8650-ayaneo-common.dtsi` | "AYANEO Pocket S2" | `ayaneo,pocket-s2` | none |
+| `sm8650-konkr-pf.dts` | SM8650 | .dts | 89 | `sm8650-ayaneo-common.dtsi` | "KONKR Pocket FIT" | `konkr,pocket-fit` | none |
+| `cq8725s-ayn-common.dtsi` | SM8750 | .dtsi | 1471 | `sm8750.dtsi`, `pm8550.dtsi`, `pm8550ve.dtsi`, `pmih0108.dtsi`, `pmk8550.dtsi`, `sm8750-pmics.dtsi` | family: cq8725s | included by: `cq8725s-ayn-odin3.dts` | n/a |
+| `cq8725s-ayn-odin3.dts` | SM8750 | .dts | 352 | `cq8725s-ayn-common.dtsi` | "AYN Odin 3" | `ayn,odin3` | none |
+| `sm8750-konkr-pf-elite.dts` | SM8750 | .dts | 1711 | `sm8750.dtsi`, `pm8550.dtsi`, `pm8550ve.dtsi`, `pmih0108.dtsi`, `pmk8550.dtsi`, `sm8750-pmics.dtsi` | "KONKR Pocket FIT Elite" | `konkr,pocket-fit-elite` | none |

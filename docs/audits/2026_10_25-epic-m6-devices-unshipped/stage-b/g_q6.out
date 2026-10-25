@@ -1,0 +1,27 @@
+| Unit | Paths | Disposition (D-WORKFLOW-209's words; ×n where the unit's rows differ) | `Already written:` |
+| --- | ---: | --- | --- |
+| `projects/ROCKNIX/devices/AMD64` | 15 | unshipped: target AMD64, in world no ×13; unshipped: target AMD64, in world no (through the kernel's unpack edge, F-01) ×2 | no fork edit |
+| `projects/ROCKNIX/devices/RK3326` | 37 | unshipped: first widening, held (D-WORKFLOW-185) | no fork edit |
+| `projects/ROCKNIX/devices/RK3399` | 4 | unshipped: target RK3399, in world yes | no fork edit |
+| `projects/ROCKNIX/devices/RK3566` | 16 | unshipped: first widening, held (D-WORKFLOW-185) | no fork edit |
+| `projects/ROCKNIX/devices/RK3576` | 6 | unshipped: target RK3576, in world yes | no fork edit |
+| `projects/ROCKNIX/devices/RK3588` | 3 | unshipped: target RK3588, in world yes | no fork edit |
+| `projects/ROCKNIX/devices/S922X` | 4 | unshipped: target S922X, in world yes | no fork edit |
+| `projects/ROCKNIX/devices/SM4450` | 18 | unshipped: target SM4450, in world no | no fork edit |
+| `projects/ROCKNIX/devices/SM6115` | 16 | unshipped: target SM6115, in world no | no fork edit |
+| `projects/ROCKNIX/devices/SM8250` | 28 | unshipped: target SM8250, in world yes | no fork edit |
+| `projects/ROCKNIX/devices/SM8650` | 8 | unshipped: target SM8650, in world yes | no fork edit |
+| `projects/ROCKNIX/devices/SM8750` | 14 | unshipped: target SM8750, in world yes | no fork edit |
+| `projects/ROCKNIX/packages/{linux-drivers,linux-firmware}` | 15 | unshipped: target RK3588, in world yes ×5; unshipped: target RK3326, RK3566, RK3576, in world yes (RK3326, RK3566 the first widening, held) ×3; unshipped: target RK3326, RK3566, RK3576, S922X, in world yes (RK3326, RK3566 the first widening, held) ×2; unshipped: target S922X, in world yes ×1; unshipped: target SM8650, in world yes ×1; dead, upstream-carried (#346's class) ×1; unshipped: target RK3399, in world yes ×1; unshipped: first widening, held (D-WORKFLOW-185) ×1 | no fork edit |
+| `projects/ARM` | 4 | dead, upstream-carried (#346's class) | no fork edit |
+| `projects/Allwinner` | 24 | dead, upstream-carried (#346's class) | no fork edit |
+| `projects/Amlogic` | 19 | dead, upstream-carried (#346's class) | no fork edit |
+| `projects/Generic` | 19 | dead, upstream-carried (#346's class) | no fork edit |
+| `projects/NXP` | 25 | dead, upstream-carried (#346's class) | no fork edit |
+| `projects/Qualcomm` | 7 | dead, upstream-carried (#346's class) ×6; shadowed copy, override projects/ROCKNIX/packages/tools/mkbootimg, override reached ×1 | no fork edit |
+| `projects/RPi` | 28 | dead, upstream-carried (#346's class) | no fork edit |
+| `projects/Rockchip` | 35 | dead, upstream-carried (#346's class) | no fork edit |
+| `projects/Samsung` | 12 | dead, upstream-carried (#346's class) | no fork edit |
+| `packages/linux` | 4 | shadowed copy, override projects/ROCKNIX/packages/linux, override reached ×3; shadowed copy, override projects/ROCKNIX/packages/linux, override reached; fork-own edit in a shadowed dead copy; Already written: nothing inherited ×1 | Already written: nothing inherited (the generic recipe built for no target) |
+| `packages/linux-driver-addons` | 14 | dead, upstream-carried (#346's class) | no fork edit |
+| `packages/linux-firmware` | 22 | dead, upstream-carried (#346's class) ×16; shadowed copy, override projects/ROCKNIX/packages/linux-firmware/kernel-firmware, override reached ×3; reached by the test image (GENERIC_X64) through the kernel's unpack edge: not dead (F-01) ×2; shadowed copy, override projects/ROCKNIX/packages/linux-firmware/iwlwifi-firmware, override unshipped ×1 | no fork edit |

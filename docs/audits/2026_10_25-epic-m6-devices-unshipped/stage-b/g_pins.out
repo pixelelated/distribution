@@ -1,0 +1,14 @@
+| Unit | At `8ebaf8daad` | At `651150fc88` | Set by (`git log -1 -S`) | Author's current release |
+| --- | --- | --- | --- | --- |
+| `RK3326 u-boot` | `v2025.10`, sha256 `5414ee86562a...` | the same file | ad79cc1b50 2025-11-15 Danil Zagoskin | CANNOT (no network) |
+| `RK3326 u-boot-legacy` | `2492a3e467e332e2350d987234ce6123700b3392`, sha256 `d8b358f20394...` | the same pin; the file differs | d2b00cd91a 2025-12-05 Danil Zagoskin | CANNOT (no network) |
+| `RK3399 u-boot` | `2025.10`, sha256 `b4f032848e56...` | the same file | 799514729e 2025-11-11 rocknix | CANNOT (no network) |
+| `RK3566 u-boot` | `1.0`, no `PKG_SHA256` | the same file | 9f1fab30f6 2025-07-13 ROCKNIX Team | n/a (no source: `PKG_URL=""`) |
+| `RK3566 u-boot-Generic` | `v2026.01`, sha256 `03bb43c58d23...` | the same file | 95d1ec60d2 2026-01-08 sydarn | CANNOT (no network) |
+| `RK3566 u-boot-Specific` | `v2026.01`, sha256 `03bb43c58d23...` | the same file | 95d1ec60d2 2026-01-08 sydarn | CANNOT (no network) |
+| `RK3576 u-boot` | `88dc2788777babfd6322fa655df549a019aa1e69`, sha256 `c9858cd5fdc0...` | the same file | ed8ab09e5c 2026-04-19 sydarn | CANNOT (no network) |
+| `RK3588 u-boot` | `e99376f7dd01e310a0874459a1fe7535be431f43`, sha256 `045519a0eb54...` | the same pin; the file differs | 9f1fab30f6 2025-07-13 ROCKNIX Team | CANNOT (no network) |
+| `S922X amlogic-boot-fip` | `e96b6a694380ff07d5a9e4be644ffe254bd18512`, sha256 `2cc06bc7d564...` | the same file | 9f1fab30f6 2025-07-13 ROCKNIX Team | CANNOT (no network) |
+| `S922X u-boot` | `b91540f886e8655a1547532eb0077e83a7b431d7`, sha256 `5cecb72e2392...` | `v2026.10`, sha256 `f943a88389c8...` | a01eb88a1e 2026-08-23 John Williams | CANNOT (no network) |
+| `rkbin` (cited by path, outside the slice: `projects/ROCKNIX/packages/tools/rkbin/package.mk`) | `7c35e21a8529...`, `74213af1e952...` (2 branches of a device case) | the same file | not owned here | not owned here |
+| `qcom-abl` (cited by path, outside the slice: `projects/ROCKNIX/packages/tools/qcom-abl/package.mk`) | `1.0` | the same file | not owned here | not owned here |

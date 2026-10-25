@@ -1,0 +1,14 @@
+| Target | Target line | In `world` | Arches | `BOOTLOADER` (options line) | `UBOOT_FIRMWARE` | `GRAPHIC_DRIVERS` | Trees (`.dts` + `.dtsi`) | Conf header; kernel recipe's version | Patches (T43's) | Fork edits (non-merge) | Files differing at `651150fc88` | Upstream since 2026-06-01; newest |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| AMD64 | `Makefile:44` | no | x86_64 | 23 `syslinux` | none | 49 `radeonsi` | 0 + 0 | `Linux/x86 7.1.2`; recipe `7.1.2` | 3 | 0 | 0 | 7; 2d81b5f8ae 2026-09-03 |
+| RK3326 | `Makefile:68` | yes | arm + aarch64 | 34 `u-boot` | 37 `rkbin` | 41 `mali panfrost` | 17 + 8 | `Linux/arm64 7.1.2`; recipe `7.1.2` | 24 | 0 | 17 | 45; dcafa74090 2026-10-22 |
+| RK3399 | `Makefile:73` | yes | arm + aarch64 | 34 `u-boot` | 37 `rkbin atf` | 42 `panfrost` | 1 + 0 | `Linux/arm64 6.18.49`; recipe `6.18.49` | 9 | 0 | 1 | 12; dcafa74090 2026-10-22 |
+| RK3566 | `Makefile:63` | yes | arm + aarch64 | 34 `u-boot` | 37 `rkbin` | 41 `mali panfrost` | 2 + 1 | `Linux/arm64 7.0.2`; recipe `7.0.2` | 40 | 0 | 32 | 40; 6548f97964 2026-10-22 |
+| RK3576 | `Makefile:53` | yes | arm + aarch64 | 34 `u-boot` | 37 `rkbin` | 41 `mali panfrost` | 1 + 0 | `Linux/arm64 7.0.2`; recipe `7.0.2` | 23 | 0 | 10 | 20; dcafa74090 2026-10-22 |
+| RK3588 | `Makefile:48` | yes | arm + aarch64 | 34 `u-boot` | 37 `rkbin` | 41 `mali panfrost` | 0 + 0 | `Linux/arm64 6.1.75`; recipe `b8e62bed74766b6c8c423a767b35495e78b64caf` | 17 | 0 | 2 | 6; 5f56cd5150 2026-10-04 |
+| S922X | `Makefile:58` | yes | arm + aarch64 | 34 `u-boot` | 37 `amlogic-boot-fip` | 41 `panfrost` | 0 + 0 | `Linux/arm64 6.18.49`; recipe `6.18.49` | 45 | 0 | 65 | 58; b48d63c445 2026-10-23 |
+| SM4450 | `Makefile:83` | no | arm + aarch64 | 35 `qcom-abl` | none | 38 `freedreno` | 2 + 0 | `Linux/arm64 7.2.0`; recipe `7.2` | 44 | 0 | 18 | 37; 651150fc88 2026-10-24 |
+| SM6115 | `Makefile:88` | no | arm + aarch64 | 34 `qcom-abl` | none | 37 `freedreno` | 3 + 1 | `Linux/arm64 7.2.0`; recipe `7.2` | 46 | 0 | 59 | 55; 651150fc88 2026-10-24 |
+| SM8250 | `Makefile:93` | yes | arm + aarch64 | 34 `qcom-abl` | none | 37 `freedreno` | 9 + 2 | `Linux/arm64 7.2.0`; recipe `7.2` | 36 | 0 | 15 | 79; 651150fc88 2026-10-24 |
+| SM8650 | `Makefile:103` | yes | aarch64 | 24 `qcom-abl` | none | 27 `freedreno` | 2 + 1 | `Linux/arm64 7.2.0`; recipe `7.2` | 20 | 0 | 3 | 41; 651150fc88 2026-10-24 |
+| SM8750 | `Makefile:107` | yes | aarch64 | 24 `qcom-abl` | none | 27 `freedreno` | 2 + 1 | `Linux/arm64 7.2.0`; recipe `7.2` | 58 | 0 | 4 | 91; 651150fc88 2026-10-24 |

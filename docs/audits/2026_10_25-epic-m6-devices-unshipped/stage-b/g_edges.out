@@ -1,0 +1,47 @@
+| Recipe name | Copies in the slice | Edges from outside | From a shipped or test file | First reached edges | Which copy the edge resolves to |
+| --- | ---: | ---: | ---: | --- | --- |
+| `RTL8188FU-firmware` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `RTW88` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `amlogic-boot-fip` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `ap6256-firmware` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `ap6611s-firmware` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `ayn-platform` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `brcmfmac_sdio-firmware` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `brcmfmac_sdio-firmware-imx` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `brcmfmac_sdio-firmware-rpi` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `chipone_tddi` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `crazycat` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `digital_devices` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `dmidecode` | 1 | 1 | 1 | `projects/ROCKNIX/packages/virtual/image/package.mk:73` | x86_64 only (`virtual/image/package.mk:73`): AMD64 resolves its device copy, GENERIC_X64 the generic `packages/sysutils/dmidecode` |
+| `dtbocfg` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `dvb-firmware` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `dvb-latest` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `ectool` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `esp8089-firmware` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `firmware-dragonboard` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `firmware-imx` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `g610-mali-csffw` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `generic-dsi` | 1 | 1 | 1 | `projects/ROCKNIX/packages/linux/package.mk:82` | RK3326 and RK3566 unpack (`:81-82`); RK3326, RK3566 and RK3576 compile its source (`:108-111`); no shipped device: F-01's second instance |
+| `ibt-firmware` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `intel-ucode` | 2 | 2 | 2 | `projects/ROCKNIX/packages/linux/package.mk:71`, `projects/ROCKNIX/packages/linux/package.mk:202` | x86_64 unpack (`:69-72`) and copy (`:202`): AMD64 resolves its device copy, GENERIC_X64 the generic copy, which the inventory calls unreached: F-01 |
+| `iwlwifi-firmware` | 2 | 0 | 0 | none | no edge from a shipped or test file |
+| `kernel-firmware` | 1 | 31 | 31 | `projects/ROCKNIX/packages/linux/package.mk:71`, `projects/ROCKNIX/packages/linux/package.mk:84`, `projects/ROCKNIX/packages/linux/package.mk:200` ... | resolves to the override `projects/ROCKNIX/packages/linux-firmware/kernel-firmware` (local first); the generic copy stays shadowed |
+| `linux` | 1 | 20 | 7 | `packages/devel/binutils/package.mk:12`, `packages/network/wireguard-tools/package.mk:10`, `projects/ROCKNIX/packages/devel/glibc/package.mk:11` ... | resolves to the override `projects/ROCKNIX/packages/linux` (local first); the generic copy stays shadowed |
+| `mali-bifrost` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `media_tree` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `media_tree_cc` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `misc-firmware` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `mkbootimg` | 1 | 1 | 1 | `projects/ROCKNIX/packages/linux/package.mk:19` | `SM*` only (`linux/package.mk:19`): resolves to `projects/ROCKNIX/packages/tools/mkbootimg`; `projects/Qualcomm` is never on the search path (no target sets `PROJECT=Qualcomm`) |
+| `pciutils` | 1 | 6 | 3 | `packages/sysutils/ryzenadj/package.mk:12`, `projects/ROCKNIX/packages/linux/package.mk:70`, `projects/ROCKNIX/packages/sysutils/busybox/package.mk:31` | x86_64 only (`linux/package.mk:69-70`): AMD64 resolves its device copy, GENERIC_X64 the generic `packages/sysutils/pciutils` |
+| `pd-mapper` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `qrtr` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `rmtfs` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `rtl8723bs_bt` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `ryzenadj` | 1 | 1 | 1 | `projects/ROCKNIX/packages/virtual/image/package.mk:73` | x86_64 only (`virtual/image/package.mk:73`): AMD64 resolves its device copy, GENERIC_X64 the generic `packages/sysutils/ryzenadj` |
+| `ryzensmu` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `tqftpserv` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `u-boot` | 6 | 1 | 0 | none | no edge from a shipped or test file |
+| `u-boot-Generic` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `u-boot-Specific` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `u-boot-legacy` | 1 | 0 | 0 | none | no edge from a shipped or test file |
+| `wlan-firmware` | 1 | 0 | 0 | none | no edge from a shipped or test file |
