@@ -93,3 +93,8 @@
   - Every item carries `question:` and is open until the coordinator's answers on #687.
 - **The 14 hand-made rows' classes** (checked for PL-04's sentence): all are dead rows, in classes c, d and e2.
 - **`tools/lint-audit-artifacts docs/audits/2026_10_25-epic-m6-patches-dead --phase pre-issue`:** `PASS pre-issue artifacts`.
+
+## 05:38 UTC — bug #1056 filed (the inventory's symlink gap)
+
+- **#1056:** `tools/renovation-inventory` does not resolve a symlinked `patches` directory (label `bug`, milestone M6). `box-check --issue 1056`: 0 fail. It goes beside #1049, and the fix is T10's set.
+- **Class (c)'s bug waits** for the coordinator's answer on #687: one bug or two.

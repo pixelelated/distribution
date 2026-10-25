@@ -30,7 +30,7 @@
 - **Can this be done on the VM?** Yes, on the host: the patch's bytes at `8ebaf8daad`, `scripts/unpack` read, `get_pkg_directory` under `config/options` (no request), `git ls-tree`, or a constructed tree; no guest, no device, no build, no plan, no network (brief § 5) (a constructed tree whose override's `patches` is a symlink to a generic directory)
 - **Already written:** what was written: `inventory.json` at `eb4763e3cc` marks the four `reach: unreached`, and T40's membership read it; the fixed tool regenerates the inventory
 - **Acceptance:** a constructed tree with an override whose `patches` symlinks to a generic directory reads the generic patches reached in the tool's output (unreached today); the regenerated inventory marks gcc's three and cmake's one reached
-- **Bug issue:** filed at stage D
+- **Bug issue:** #1056
 
 ## PL-03: 68 shadowed LibreELEC patches the live ROCKNIX overrides build without (31 overrides: bluez 8, ffmpeg 7, glibc 7, busybox 6, systemd 4, ...); 18 of them the override carries in another form, 50 with no counterpart
 
@@ -106,7 +106,7 @@ punch_index:
   question: Q3
   source_finding: "F-02"
   owner_area: "`tools/renovation-inventory` (`selected_patch_dirs`, the patch-row reach)"
-  tracked: "bug issue filed at stage D"
+  tracked: "#1056"
   outcome: open
 - id: PL-03
   severity: Low
