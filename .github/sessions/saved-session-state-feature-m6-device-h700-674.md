@@ -16,7 +16,7 @@
 
 ## Current focus
 
-**Handed back; idle** (updated 2026-10-25, 08:50 UTC). Stages A to H are complete. `reviewed-at` is `ed7fd0ea50` and `fixed-at` `22c4838f24`; the audit is #1096 and the bug #1095 (fixed in S1). The retro is posted; the checkers pass. After acceptance: `audit-completion.json` from the closed #1096 (T5's writer in `tools/`), the lint with `--issue 1096`, this pointer set idle, and `/workspace/tmp/m6-t27/` removed. Nothing is running.
+**Accepted and closed out; idle** (updated 2026-10-25, 08:55 UTC). The coordinator accepted at `78579255e4` (08:53 UTC, #674). #1096 is closed 14/14, with `audit-completion.json` written from its readback; the lint `PASS` in the default phase and with `--issue 1096`. `/workspace/tmp/m6-t27/` is removed. #1095 stays open until its fix reaches `next`. The coordinator merges this branch in its turn (after T11's). Nothing is running for this lane.
 - **`reviewed-at`:** `ed7fd0ea50`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-device-h700/`, with `00`, `01` (§ Scope) and `stage-a/` (the runner, its 16 outputs and `runs.tsv`).
 - **Scope:** 28 / 12,901; read 8 / 327 / fork-own 0; tier 27 / 1; reach 28. The 15 trees are read too.
 - **The configuration:** 8,129 lines, `Linux/arm64 7.2.0`, 12 / 13 against `651150fc88`'s copy. The fork's `cbf75c0b06` alone since `c445081a59`; upstream's four since.

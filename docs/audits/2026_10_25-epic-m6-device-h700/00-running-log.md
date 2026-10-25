@@ -92,3 +92,10 @@
 - **G:** `docs/retros/2026-10-25-m6-device-h700.md`, posted on #674: what the slice did to the two time-to-play numbers (nothing), and what T28 and T25 inherit.
 - **H, 08:46:41:** `register-check` rc 0 (681 IDs); `work-log-index --check` rc 0; `rules-check --quiet` rc 0; `forbidden-terms-check` rc 0 (`0 hits in 133470 tracked files`); `.githooks/hooks-test` rc 0 (`PASS`).
 - **A work-log entry** for #674, with the index regenerated.
+
+## [Close-out] 08:53 to 08:55 UTC — accepted; the completion marker
+
+- **Accepted** by the coordinator (08:53 UTC, #674) at the merged tip `78579255e4`: my `0459859b84` plus the coordinator's `161effca8f`, fast-forwarded here. #1096 is closed 14 of 14; #674 is at 16 of 17.
+- **The marker:** `tools/write-completion.py` (T5's writer, with this folder and issue 1096) at 08:54:47 printed `#1096 closed/completed, 14 ticked, 0 open; completed_at 2026-10-25T08:54:48Z`. It wrote `tracker-final-readback.json`, `tracker-completion.json` and `audit-completion.json`, scanned (`forbidden-terms-check --stdin` 0 hits, `SECRET_PATTERNS` 0 lines).
+- **The lint:** `tools/lint-audit-artifacts <folder>` `PASS`; with `--issue 1096` `PASS`.
+- **Then:** the pointer set idle, `/workspace/tmp/m6-t27/` removed, and the close-out comment posted on #674 with the final tip.
