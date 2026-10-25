@@ -26,6 +26,7 @@ section() { awk -v a="$2" -v b="$3" 'index($0, a) == 1 {f = 1; next} index($0, b
 extract() { # <bug> <out>
     case "$1" in
         1037) section "$2" "  S3F. " "  aa. " ;;
+        1037-ack) section "$2" "  S3F. " "  aa. " | command grep -E 'ack for token|rc=|marker' ;;
         1027) section "$2" "  v. " "  w. " ;;
         1034) section "$2" "  b. " "  c. " | command grep -i 'wifi key' ;;
         1036) { section "$2" "  q. " "  r. "; command grep -E '^    (PASS|FAIL)  .*(each compiled|does not compile|mode 100755|modes:)' "$2"; } ;;
@@ -34,7 +35,7 @@ extract() { # <bug> <out>
         1031) command grep -E '^    (PASS|FAIL)  .*(F-PB-21|gpt G-D-03: )' "$2" ;;
     esac
 }
-unfixed_of() { case "$1" in 1037) echo 5429e27e72 ;; 1027) echo 60066e21f8 ;; 1034) echo 32ba775765 ;; 1036|1036-gate|1036-frag) echo 65bdd1a717 ;; 1031) echo 812d09e3af ;; esac; }
+unfixed_of() { case "$1" in 1037|1037-ack) echo 5429e27e72 ;; 1027) echo 60066e21f8 ;; 1034) echo 32ba775765 ;; 1036|1036-gate|1036-frag) echo 65bdd1a717 ;; 1031) echo 812d09e3af ;; esac; }
 # qcut <harness file> <out file>: the harness, section q and the verdict (1036-frag)
 qcut() {
     local f="$1" a q r v
