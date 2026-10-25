@@ -870,8 +870,7 @@ budget, 6 used). What version 2 corrects, each at the place it lands:
    the SUMS comparison 41/9/2 against 36/14/2. Version 1's stage-A stop ("a
    branch that differs from `8ebaf8daad` on a member") fired by construction,
    and its empty-diff checkbox could not be ticked. Version 2 keeps the read at
-   the hash, tables the delta as § Provenance rows (with the missing register
-   row as a lead: no row names #636, #638 or the local Facilitator), scopes the
+   the hash, tables the delta as § Provenance rows (with the missing register row as a lead: no row names #636, #638 or the local Facilitator; the branch's `IMPORTED-FROM.md` records both in two sections and `docs/qa-logs/2026-10-22-review-filter-636/` holds #636's evidence), scopes the
    stop and the checkbox to "other than those ten files", and runs the
    toolchain's checks on both trees (a clone at the hash, never `git archive`).
    The four Independent slices' provenance records were written by the branch's
