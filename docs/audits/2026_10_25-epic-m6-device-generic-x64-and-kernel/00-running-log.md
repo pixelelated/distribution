@@ -161,3 +161,10 @@
 - **G:** `docs/retros/2026-10-25-m6-device-generic-x64-and-kernel.md`, posted on #658. It says what the slice did to the two time-to-play numbers (nothing) and what T27, T28 and T25 inherit, with four Instruction-Recommendations for the coordinator.
 - **H, 08:00:29:** `tools/register-check` rc 0 (681 IDs); `tools/work-log-index --check` rc 0 (current); `tools/rules-check --quiet` rc 0; `tools/forbidden-terms-check` rc 0 (`0 hits in 133494 tracked files`); `.githooks/hooks-test` rc 0 (`PASS`). The coordinator re-runs them after its hand-back merge.
 - **A work-log entry** for the stage-E session, with the index regenerated.
+
+## [Close-out] 08:07 to 08:08 UTC — accepted; the completion marker
+
+- **Accepted** by the coordinator (08:07 UTC, #658) at the merged tip `47672fe4a0`: my `871c5a6bc0` plus the coordinator's `cc8b6cf2a3`, merged and pushed by the coordinator, and fast-forwarded here. #1091 is ticked 14/14 and closed. #1087 to #1090 are ticked and stay open until `next`.
+- **The marker:** `tools/write-completion.py` (T5's writer, with this folder and issue 1091) at 08:07:57 printed `#1091 closed/completed, 14 ticked, 0 open; completed_at 2026-10-25T08:07:58Z`. It wrote `tracker-final-readback.json`, `tracker-completion.json` and `audit-completion.json`, scanned before commit (`forbidden-terms-check --stdin` 0 hits, `SECRET_PATTERNS` 0 lines).
+- **The lint:** `tools/lint-audit-artifacts <folder>` `PASS`; with `--issue 1091` `PASS`. `tools/ceremony-check` reads the audit via #1091's marker.
+- **Then:** the pointer set idle, `/workspace/tmp/m6-t11/` removed (the unfixed clone, the runner, the copies, the posts), and the close-out comment posted on #658 with the final tip.

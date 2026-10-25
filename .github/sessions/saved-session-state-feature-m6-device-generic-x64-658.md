@@ -16,14 +16,14 @@
 
 ## Current focus
 
-**Handed back; idle** (updated 2026-10-25, 08:03 UTC). Stages A to H are complete on `feature/m6-device-generic-x64-658`. The hand-back comment on #658 names the tip and each artifact by path. `reviewed-at` is `2103f0271d` and `fixed-at` `0c32b2bac6`; the audit issue is #1091 and the bugs #1086 to #1090. The retro is posted. The checkers pass (register, work-log index, rules, forbidden terms, hooks-test). After acceptance: `audit-completion.json` from the closed #1091 (`tools/write-completion.py`, as in T5's close-out), the lint with `--issue 1091` in the default phase, this pointer set idle, and `/workspace/tmp/m6-t11/` removed. Nothing is running for this lane.
+**Accepted and closed out; idle** (updated 2026-10-25, 08:08 UTC). The coordinator accepted at `47672fe4a0` (08:07 UTC, #658). #1091 is closed 14/14, with `audit-completion.json` written from its readback. The lint `PASS` in the default phase and with `--issue 1091`. `/workspace/tmp/m6-t11/` is removed. #1087 to #1090 stay open until their fixes reach `next`; #1086 is T10's. The coordinator merges this branch in its turn (after T40's, before T9's). Nothing is running for this lane; the next dispatch is T27.
 - **`reviewed-at`:** `2103f0271d`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-device-generic-x64-and-kernel/`, with `00` to `04`, `stage-a/`, `stage-b/` (the 28 runs, the runner, `cfgclass.py`, `coverage.py`) and `second-opinions/review-plan.json` (planned).
 - **The launcher:** the coordinator accepted the resolution at 06:47 UTC (#658): `tools/vm-pair` by full path through `VM_TOOL`; the brief's *by basename* an erratum.
 - **`02`:** 58 coverage rows; § The configuration with the gap measured on the M7 root's built `.config` (read-only; sha256 `e769f2e5...`; the conf unchanged at the M7 head): 18 changed values, 97 set options gone, 137 new, the fork's 10 kept; § The boot files; § The launcher with the design deferred; § The runs (r01 to r28); F-01 to F-10; P1 to P18.
 - **Findings:** F-01 Medium (the guest installs all of linux-firmware: 6,158 files, 2.88 GB; no `config/kernel-firmware.dat`); F-02 Low (1,254 firmware files embedded in the guest's kernel); F-03 `install`'s header; F-04 the configuration's provenance (not a bug; the regeneration packet); F-05/F-06 `install`'s unread copy and four unreached branches; F-07 the UTM text; F-08 the inventory's over-reported reach; F-09 the version-case merge seam; F-10 `options` and the conf silent on their origin. **No `bug` proven.**
 - **The lint, pre-issue:** every stage-B section ok; 5 failures, all stage C's (`05`, the seat's provenance).
 - **No guest, build, plan, fetch or council call so far.** The one seat comes at stage C.
-- **Running for this lane:** nothing.
+- **Running for this lane:** nothing (idle).
 
 ## Next commands
 
