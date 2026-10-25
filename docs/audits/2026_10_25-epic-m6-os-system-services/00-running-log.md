@@ -140,3 +140,19 @@ Each run's output is in `.qa-scratch/t22/runs/NN-*.out`, with its exit and wall 
 - `05`: every item has its outcome: 12 `deferred:#585`, 2 `deferred:#346`, `#344`, `#740`, 2 `#1104`, `#669` (the rule edit), the three bugs `deferred:#110x` until their streams' commits, and six `resolved # #669` (recorded designs). Also written: the #585 block (twelve lines, ready to paste) and the #346 root-surfaces sentence.
 - #1103: all 28 checkboxes ticked (outcomes recorded); `box-check` reads 0 fail.
 - `lint-audit-artifacts`: `PASS pre-issue artifacts` and `PASS` (resolution).
+
+## 2026-10-25 10:30-10:38 UTC -- stage E: S3 and S1
+
+- **S3** (`095-cloud-ssh`, #1107): the case `stage-e/s3/drive.sh` was written first, and the tree before the fix read `UNEXPECTED` as `fixed`. The fix is `9145b90fac`: the whole value judged, one journal line per refusal. The case then gained two boots of the whole quirk, for the bug's second criterion.
+- **S1** (`scripts/init`, #1105 and #1106): the case `stage-e/s1/drive.sh` was written first.
+  - **Fixture slips, each found by reading the fixture's own output before trusting a verdict:**
+    - the driver's `set -u` reached `init`'s functions;
+    - a returning `reboot` stub;
+    - the host's `md5sum` (uutils) rejects `-s`, so the case now runs under **the initramfs busybox**, copied from the M7 build root into scratch (a read: nothing runs there), sha256 `4ce43643...`;
+    - this busybox has no `--install` and its ash no `command` builtin, so a `command dd` stub exited 127 and the unfixed file printed `Update complete` over it;
+    - the path rewrite missed `/storage;`;
+    - a case with no calls had no `calls` file.
+  - **The fix,** in two commits as the brief asks, PL-03 first because PL-02 uses its keep mode: `ffd1e34dbd` (`do_cleanup keep <why>`; the six normal-start rejections keep `/storage` and the update as `.rejected`) and `6cfe1fdba1` (checked writes; a staged pair committed only when whole, when `/flash` has room; `update_failed`; boot files' failure named; `dd` operands quoted). Both pass `busybox sh -n` and `bash -n`. The committed file is byte-identical to the tested one.
+  - #1106's criterion asks for all six rejection paths, so cases f to j were added after the first passing run (netboot, missing target, missing source, incompatible, no room). An `exit 9` in the verdict, which would have ended a crossed run silently, became a helper returning a status.
+- `run-all.sh` against the stage-D export (`git archive 0f7ece71e8`) and the fixed tree: **`run-all: PASS (8 of 8)`**.
+- `05`: PL-02 `resolved # 6cfe1fdba1`, PL-03 `resolved # ffd1e34dbd` (the guest's after a fix-pending-image row), PL-28 `resolved # 9145b90fac`. Both lints PASS.

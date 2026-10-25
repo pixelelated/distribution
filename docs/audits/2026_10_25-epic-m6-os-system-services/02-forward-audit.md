@@ -691,6 +691,71 @@ The coordinator granted it on #669 at **10:13 UTC** (one guest, 15 minutes from 
 - **PL-05** turns out to be fixed on the M7 line (`6101242e14`).
 - **PL-02** was not exercised, and the M7 line changes nothing in `scripts/init` (`git show --stat 6101242e14`: `input_sense` only).
 
+## The streams' positives
+
+Stage E is run under `docs/reviews/briefs/t22-streams.md` (`a6e7a12ad6`). S2 and S4 were struck at the second window's RETURN. Each case is kept under `stage-e/` (README, `run-all.sh`). Each is run on the host against the file at the stage-D tip `0f7ece71e8` (`git archive` into scratch) and against the fixed file, and crossed. **The guest's *after* for S1 needs an image built from the fix:** that is a fix-pending-image row the coordinator proves at the first image after the merge. The second window's case 4 is the *before*.
+
+### S1, `scripts/init` (#1105, #1106): `ffd1e34dbd` (PL-03) then `6cfe1fdba1` (PL-02)
+
+The case runs `init`'s own functions under **the initramfs busybox**: a copy of the M7 build root's `busybox-1.36.1/.x86_64-rocknix-linux-gnu-init/busybox`, sha256 `4ce43643...`. That is the shell and the applets `/init` really has. Two facts made that necessary, and both shaped the fix:
+- the host's `md5sum` (uutils) rejects busybox's `-s`;
+- this busybox's ash has no `command` builtin. A stub calling `command dd` exited 127, and the unfixed `update_file` printed `Update complete` over it with nothing written: the defect in miniature, though not the case.
+
+Paths are moved into scratch, and every host-touching command is stubbed (`reboot`, `do_reboot`, `poweroff`, `mount`, `umount`, `losetup`, `mountpoint`, `sync`, `avfsd`). `dd`, `tar` and `md5sum` are the applets.
+
+Unfixed, at the stage-D file:
+```
+a: kernel=torn system=new complete=1 failed_named=0 umount_storage=1 staged=gone rejected=no rc=0
+b: kernel=new system=torn complete=1 failed_named=0 umount_storage=1 staged=gone rejected=no rc=0
+c: kernel=new system=new complete=1 failed_named=0 umount_storage=1 staged=gone rejected=no rc=0
+d: kernel=old system=old complete=0 failed_named=0 umount_storage=1 staged=gone rejected=no rc=0
+e: kernel=torn system=new complete=1 failed_named=0 umount_storage=1 staged=gone rejected=no rc=0
+f: kernel=old system=old complete=0 failed_named=0 umount_storage=1 staged=gone rejected=no rc=0
+g: kernel=absent system=old complete=0 failed_named=0 umount_storage=1 staged=gone rejected=no rc=0
+h: kernel=old system=old complete=0 failed_named=0 umount_storage=1 staged=gone rejected=no rc=0
+i: kernel=old system=old complete=0 failed_named=0 umount_storage=1 staged=gone rejected=no rc=0
+j: kernel=old system=old complete=0 failed_named=0 umount_storage=1 staged=gone rejected=no rc=0
+s1: unfixed-expectation-met (a failed write still says Update complete and leaves a torn file; each of the six rejections unmounts /storage and deletes the update)
+```
+Fixed:
+```
+a: kernel=old system=old complete=0 failed_named=1 umount_storage=0 staged=gone rejected=yes rc=0
+b: kernel=old system=old complete=0 failed_named=1 umount_storage=0 staged=gone rejected=yes rc=0
+c: kernel=new system=new complete=1 failed_named=0 umount_storage=1 staged=gone rejected=no rc=0
+d: kernel=old system=old complete=0 failed_named=0 umount_storage=0 staged=gone rejected=yes rc=0
+e: kernel=torn system=old complete=0 failed_named=1 umount_storage=0 staged=gone rejected=yes rc=0
+f: kernel=old system=old complete=0 failed_named=0 umount_storage=0 staged=gone rejected=yes rc=0
+g: kernel=absent system=old complete=0 failed_named=0 umount_storage=0 staged=gone rejected=yes rc=0
+h: kernel=old system=old complete=0 failed_named=0 umount_storage=0 staged=gone rejected=yes rc=0
+i: kernel=old system=old complete=0 failed_named=0 umount_storage=0 staged=gone rejected=yes rc=0
+j: kernel=old system=old complete=0 failed_named=0 umount_storage=0 staged=gone rejected=yes rc=0
+s1: fixed-expectation-met (a failed write is named and leaves the previous pair; success unchanged; each of the six rejections keeps /storage and the update as .rejected)
+```
+- **a, b:** `Update complete` after a torn file, against the step named with both files `old`.
+- **c:** success unchanged.
+- **e:** with no room for a second copy, the in-place write is named, and the file is torn as before. The message says a reinstall may be needed.
+- **d, f to j:** each of the six rejections unmounts `/storage` and deletes the update, against `/storage` kept and the update kept as `.rejected` with its reason.
+
+**What a FAIL would mean:** a failed write that still reaches `Update complete`, a torn file under the final name when there was room, or a rejection that unmounts `/storage`.
+
+### S3, `095-cloud-ssh` (#1107): `9145b90fac`
+
+The port block runs over six fw_cfg values, then two boots of the whole quirk with `/storage` and fw_cfg in scratch. Unfixed, `12x34` is kept as `1234` and the wrong command stays. Fixed, `1234` (with or without a newline) is accepted; `12x34`, `70000`, `0` and an empty value are refused, each with one journal line naming the value; and the command the stage-D quirk wrote from `12x34` is removed on the next boot through its record (`:72-74`). The quirk's `#!/bin/sh` is bash on the image, so bash runs the case.
+
+### `run-all.sh`, against the stage-D export and the fixed tree
+
+```
+s1/drive.sh unfixed  s1: unfixed-expectation-met (a failed write still says Update complete and leaves a torn file; each of the six rejections unmounts /storage and deletes the update)
+s1/drive.sh fixed    s1: fixed-expectation-met (a failed write is named and leaves the previous pair; success unchanged; each of the six rejections keeps /storage and the update as .rejected)
+s1/drive.sh unfixed  s1: UNEXPECTED (unfixed)
+s1/drive.sh fixed    s1: UNEXPECTED (fixed)
+s3/drive.sh unfixed  s3: unfixed-expectation-met (12x34 kept as 1234; the wrong command stays)
+s3/drive.sh fixed    s3: fixed-expectation-met (1234 accepted; 12x34, 70000, 0 and empty refused; the earlier wrong command removed)
+s3/drive.sh unfixed  s3: UNEXPECTED (unfixed: 1234 [1234], 12x34 [], 70000 [], empty [], 0 [], two boots [(removed)])
+s3/drive.sh fixed    s3: UNEXPECTED (fixed: 1234 [1234], 12x34 [1234], 70000 [], empty [], 0 [], two boots [ssh -L 53682:localhost:53682 -p 1234 root@127.0.0.1])
+run-all: PASS (8 of 8)
+```
+
 ## Proofs
 
 The leads stage B carries to the analysis (`04`). Each has the line that shows it, its state at `651150fc88` and its `proved:` cell. The bug decisions are stage D's, after the seats.

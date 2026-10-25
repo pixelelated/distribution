@@ -384,14 +384,14 @@ punch_index:
   question: Q3
   source_finding: "G-02"
   tracked: "#1105"
-  outcome: deferred:#1105
+  outcome: resolved # `6cfe1fdba1`
 - id: PL-03
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "G-04 (Argon's extension)"
   tracked: "#1106"
-  outcome: deferred:#1106
+  outcome: resolved # `ffd1e34dbd`
 - id: PL-04
   severity: Medium
   category: Security
@@ -566,7 +566,7 @@ punch_index:
   question: Q3
   source_finding: "G-33"
   tracked: "#1107"
-  outcome: deferred:#1107
+  outcome: resolved # `9145b90fac`
 ```
 
 ## Phase 7 resolution gate
@@ -576,8 +576,8 @@ The coordinator's ruling on #669 (10:13 UTC, PL-01 and PL-05 at 10:25 UTC). A bu
 | Item | Outcome | Tracked |
 | --- | --- | --- |
 | PL-01 | Deferred | #585: a Low (the window: udevil refuses every btrfs medium, `guest-cycle-2/c1b-btrfs.txt`); the line below |
-| PL-02 | Deferred | #1105 (`bug`); its fix in stream S1 |
-| PL-03 | Deferred | #1106 (`bug`, proven on the guest, `guest-cycle-2/c4*.txt`); its fix in stream S1 |
+| PL-02 | Resolved | `6cfe1fdba1` (#1105, stream S1; `stage-e/s1` a, b, c, e) |
+| PL-03 | Resolved | `ffd1e34dbd` (#1106, stream S1; `stage-e/s1` d, f to j; the guest's after is a fix-pending-image row on #1106: the coordinator proves it at the first image built after the merge) |
 | PL-04 | Deferred | #346: settled by the next base merge (`f2379f83b7`); the guest's state recorded (`guest-cycle-2/c2-debugshell.txt`); the unit joins the root-surfaces list below |
 | PL-05 | Deferred | #344: fixed on the M7 line by `6101242e14`, which reaches `next` with M7's integration (the window: `guest-cycle-2/c3*`) |
 | PL-06 | Deferred | #585: the line below |
@@ -602,4 +602,4 @@ The coordinator's ruling on #669 (10:13 UTC, PL-01 and PL-05 at 10:25 UTC). A bu
 | PL-25 | Deferred | #585: the line below |
 | PL-26 | Deferred | #585: the line below |
 | PL-27 | Deferred | #585: the line below |
-| PL-28 | Deferred | #1107 (`bug`); its fix in stream S3 |
+| PL-28 | Resolved | `9145b90fac` (#1107, stream S3; `stage-e/s3`) |
