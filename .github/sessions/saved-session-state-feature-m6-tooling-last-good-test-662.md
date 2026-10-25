@@ -43,9 +43,14 @@
    banners, exits, wall times and counts, the five `--old` recipes' exits --
    before reading a section.
 
-## Current focus
+## Current focus (00:24 UTC update)
 
-Not started. The first commit on this branch is the running log's header,
+**Stage A, the runs under way.** Dispatched on #662 at 00:21 UTC; the first commands passed (stacked on P1, the rules differ from `next` in exactly the dispatch's eight paths, the file at the hash with 14238 lines and 1167697 bytes, census 0).
+- **Running:** `docs/audits/2026_10_25-epic-m6-tooling-last-good-test/tools/t15-stage-a.sh`, one sequential background job started at 00:23:16 UTC. It runs the image's busybox (`QA_SYSTEM_ROOT` on the `069fc2704421` root), then the host's, then the twelve `--old` recipes. Each run starts through `vm-qa:158`'s launcher (`SIGINT ignored=0` on the first). The outputs go to `.qa-scratch/t15/run-*.out` and `old-*.out`, and the summary to `/workspace/tmp/m6-t15/stage-a.txt`. Its exit is delivered by the harness to the session; if the session is gone, read the summary file, and the `runner rc` line is the job's end.
+- **Written:** `00-running-log.md` (header and stage A so far), `01-research-notes.md` § Scope (the inventory row, 408 commits, the 34 sections), and the day's work-log entry.
+- **Next:** each run's exit, wall time and counts into `00` and `02` § The runs, then the image/host diff, then the sections read for Q6 and Q3.
+
+Not started before 00:22 UTC. The first commit on this branch is the running log's header,
 `01-research-notes.md` § Scope, this pointer updated, and the day's
 work-log entry headed `#662` (prose through a quoted heredoc or the Write
 tool). `.qa-scratch/` is gitignored and `git status --short` is read before
