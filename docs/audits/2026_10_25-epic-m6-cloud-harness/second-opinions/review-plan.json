@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "depth": "independent",
+  "scope": "epic",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "anthropic/claude-opus-5-5",
+    "lab": "anthropic",
+    "identity_source": "the coordinator's dispatch on #660 (2026-10-25T04:58:01Z: 'the T1 session (m6-t1-os-launch, Opus 5.5 at high effort)') and the session's own model metadata (claude-opus-5-5)"
+  },
+  "reviewers": [
+    {
+      "member": "gpt",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "max",
+      "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
+      "allow_fallbacks": false,
+      "calls": [
+        {
+          "phase": "refutation",
+          "output": "gpt-audit.md"
+        }
+      ],
+      "probes": [
+        {
+          "phase": "probe",
+          "output": "gpt-probe.md"
+        }
+      ],
+      "status": "pending: probe and refutation not yet run"
+    }
+  ],
+  "packets": {
+    "gpt": {
+      "file": "gpt-brief.md",
+      "bytes": 746882,
+      "sha256": "e4cda5bc459519faa0d0f93b82014a6014f701f1025088541bf71630c61d2af2",
+      "manifest": "packet-manifest.json",
+      "content": "the ask (the brief's four questions first: the assertion-shape table's one-end rows, the two missing scripts, the no-network step's synthetic input, the retired tool), 02, 03 and 04 whole, rclone-cloud-sync.md's two testing sections and blindspot 31's entry from this tree, the nine files at 8ebaf8daad line-numbered (594,115 bytes)",
+      "scan": "forbidden-terms-check --stdin 0 hits; SECRET_PATTERNS 0 lines under this branch's and the primary checkout's sets; T10's widened set (#935) matched 1 line, tools/cloud-connections-test:37's synthetic fixture value, redacted in the body (packet-manifest.json 'redactions'), then 0 lines under all three"
+    }
+  }
+}

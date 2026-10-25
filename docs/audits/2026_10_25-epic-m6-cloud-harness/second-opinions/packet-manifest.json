@@ -1,0 +1,122 @@
+{
+  "sources": [
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-cloud-harness/02-forward-audit.md",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "fb630b6a11c4ecce7013ea446a713c23e4980ff44c57dc7b7e75385e885dbb77",
+      "bytes": 40096
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-cloud-harness/03-retrospective.md",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "4007193edf2cd05eba38528a73d1c5164ebd0845939a869f4b00c74571ab8563",
+      "bytes": 5390
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-cloud-harness/04-analysis.md",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "04c37ff0b717e6c2a1c5e03e80592a2291ee6746affd57dc43b500990a72cad6",
+      "bytes": 21348
+    },
+    {
+      "path": "rclone-cloud-sync.md \u00a7 Testing it without a cloud account (this tree; under #909)",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "9ddf2f669e89d77e6d848ef167c3153b97a7e22228da8a9d83a4a26afb8b0dec",
+      "bytes": 731
+    },
+    {
+      "path": "rclone-cloud-sync.md \u00a7 Five backends, and what each one alone can tell you (this tree; under #909)",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "2b41f9f26e9c7be146fe9cb5a0c92782839f11fa54786f7b39dcac69c938efa0",
+      "bytes": 8382
+    },
+    {
+      "path": "docs/blindspot-register.md entry 31",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "26c87a5cea08375d9782ec17ad26d7eb5a0d1abf83a7598763928314c7aba290",
+      "bytes": 1362
+    },
+    {
+      "path": "tools/cloud-round-trip",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "9fe3545b19c62cffd016b298a9d25f04c145caed495dca0a29b04d955deb78c3",
+      "bytes": 473280
+    },
+    {
+      "path": "tools/cloud-test-backend",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "72a7f78f091b972f79a5efb0f1e2b98955c62a19073d97ee87cbf51b6ec139cd",
+      "bytes": 41384
+    },
+    {
+      "path": "tools/cloud-capture-stamp-test",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "31c8267840db7337359d3933c91798c06d7ee361410c8d86b7a2843ef13953c7",
+      "bytes": 7002
+    },
+    {
+      "path": "tools/cloud-census",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "819c70bd71b0697b99ca81bf7334d06abace7653548477ed185a0b403dcde650",
+      "bytes": 14368
+    },
+    {
+      "path": "tools/cloud-connections-test",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "fa501521974598ed385e78da52fc08d4b975f39d176e2d3e3ffe88fd12a78dcd",
+      "bytes": 15068
+    },
+    {
+      "path": "tools/cloud-input-test",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "a996ba7bbe375fa9799f35061efe30b4584a4d9ba1954fd111d5e547b6892d8d",
+      "bytes": 7917
+    },
+    {
+      "path": "tools/cloud-pair-migration",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "92a0cbeaaf9dfa3e4d59d74bc5c58723e9c9eaed2dc778a79d0316339794075c",
+      "bytes": 19690
+    },
+    {
+      "path": "tools/cloud-save-integrity",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "d0514e1dd887b867b011209bac15283f9cbb862d40297a1c6cac9cfee050fce5",
+      "bytes": 9697
+    },
+    {
+      "path": "tools/cloud-save-integrity-test",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "1f31fdbcca9bd85e62b2f20dfa769cff0d3ddd0827179acd10590407ab21c46f",
+      "bytes": 5709
+    }
+  ],
+  "built_by": "docs/audits/2026_10_25-epic-m6-cloud-harness/tools/t13-packet.py",
+  "redactions": [
+    {
+      "path": "tools/cloud-connections-test",
+      "line": 37,
+      "why": "matches T10's widened SECRET_PATTERNS (#935); a synthetic fixture value, not a credential"
+    }
+  ],
+  "packet_body_sha256": "a52d230fcc6dc2492262db39e2b5a665f01204cf763cee859241c673a3a06c5b",
+  "packet_body_bytes": 743735,
+  "files_9": 9,
+  "files_9_bytes": 594115,
+  "context_sections": 3
+}

@@ -71,7 +71,7 @@ The image for the guest-cycle request, read only: `pixelelated-GENERIC_X64.x86_6
 
 - 05:07: the coordinator's answer on #660 (stage A stands; the window asked of M7; go on to stage B). 05:1x: the pass-through check posted (https://github.com/pixelelated/distribution/issues/660#issuecomment-6393759361). `vm-qa` passes `CLOUD_QA_STATE`, `CLOUD_QA_PORT` and `CLOUD_QA_NAME` through, never downs the backend, and defaults `VM_PAIR_DIR`/`VM_QEMU_RUNTIME_DIR` to `/tmp`, both to be set under `/workspace/tmp/m6-t13/` in the window. `vm-stop` refuses a process not on its own qcow2. Guest a's SSH port 10022 is fixed.
 - The generator `tools/t13-shapes.py` was refined (host runs of the tool, `Pair.cloud_sha`, `Link.exercise`'s receiving side, the device's own rclone reads, the planted conditions) and still asserts 34 + 44 with no delta. `tools/t13-render.py` renders 02 § Assertion shapes: 79 rows (78 + `CONTRACT`), by oracle **24 both ends, 44 synthetic input, 10 the device's report**, with eight rows overridden by hand, each with its reason. An early cut read PASS or FAIL off the ledger rows' free text; it was withdrawn for citing the rows by date and line.
-- 05:2x: positives on the host, all in scratch trees under `/workspace/tmp/m6-t13/pos/` (the worktree untouched):
+- 05:12-05:13 (the outputs' mtimes): positives on the host, all in scratch trees under `/workspace/tmp/m6-t13/pos/` (the worktree untouched):
   - `cloud-round-trip` on refused SSH port 1: rc 2, `FAIL  no shell over ssh`.
   - `cloud-connections-test` with the line-147 guard defeated: rc 1, 1 FAIL of 26.
   - `cloud-input-test` with a no-op `wifictl`: rc 1, 6 FAIL. The negative control ERRORed on `git show` in a non-checkout (exit 128), the environment's.
@@ -81,3 +81,36 @@ The image for the guest-cycle request, read only: `pixelelated-GENERIC_X64.x86_6
 - `tools/archaeology mixed-installation` (read only): the D-CLOUD-158 gate was met on 2026-10-05, before D-CLOUD-175 retired the migration.
 - Written: 02 § Coverage (9), § Assertion shapes (79), § Positives (9), § Proofs; 03 whole; 04 to its renovation face, with § Second opinion pending stage C. The pre-issue lint was run once to learn its contract: 14 failures, all owed by stage C (05, `review-plan.json`, and the 04 sections now written).
 - No guest, no handheld, no hosted account, no `cloud-census` run, no `tools/council/run` call, no write under `/tmp` or `/workspace/repos/rocknix*`.
+
+## 2026-10-25 05:21 UTC -- stage C begun; a rule broken, recorded
+
+- **A breach of the slice's rule:** `tools/council/run --help` was run **without** `COUNCIL_ENV_FILE=/nonexistent`, at about 05:2x UTC, to read its subcommands.
+  - **What that call did, read from the script** (`tools/council/run` lines 21-28, 47-49), not from the key file: it sourced `~/.config/council/env` into its own process (the file is readable and mode 600). `--help` matched no subcommand, so it printed its header lines 3-18 to stderr and exited 2.
+  - **What it did not do:** make a provider call. No key value appeared in the output, which was the header comments alone, and nothing was written.
+  - **What it breaks:** the brief's "every other `tools/council/run` call with `COUNCIL_ENV_FILE=/nonexistent`", and so #660's criterion 12, which 00 has to show unbroken. This entry is that record. It goes on #660 with the stage-C checkpoint, and a friction line is written (`issue: #660`).
+  - **From here,** every `tools/council/run` call but the one Phase 4.6 invoke carries `COUNCIL_ENV_FILE=/nonexistent`.
+- 05:22: the coordinator's answers on #660. The mixed-installation proof under D-CLOUD-175 is owed as Backlog #1055 (the coordinator's); `cloud-pair-migration` stays retired, its removal deferred to #1055, recorded as F-13. The guest window is held behind M7's full build (05:12 clause) and comes at its FINAL RETURN.
+- **The Facilitator, keyless:**
+  - `npm install --prefix tools/council`: rc 0, 2 s. It warned that `esbuild`'s install script was not run, as in earlier slices.
+  - `COUNCIL_ENV_FILE=/nonexistent tools/council/run verify-pins`: `OK - verifier pins match current files and every re-pin is accountable.`
+  - `COUNCIL_ENV_FILE=/nonexistent tools/council/run test`: rc 0, 28 s, 39/39, 127/127 and 19/19, 0 failing.
+  - `COUNCIL_ENV_FILE=/nonexistent tools/council/run invoke --help`: usage only.
+- **The packet** (`tools/t13-packet.py`, manifest `second-opinions/packet-manifest.json`) has 15 sources:
+  - the nine at `8ebaf8daad`, **594,115 bytes** as the brief says;
+  - the three context sections from this tree;
+  - `02`, `03` and `04` whole.
+
+  The body is 743,735 bytes. `gpt-brief.md` is the ask plus the body, **746,882 bytes, sha256 `e4cda5bc459519faa0d0f93b82014a6014f701f1025088541bf71630c61d2af2`**.
+- **The packet's scan, before it was sent:**
+  - `tools/forbidden-terms-check --stdin`: `0 hits on stdin`.
+  - `SECRET_PATTERNS` (sourced, `/usr/bin/grep -a -c -E`): 0 lines under this branch's and the primary checkout's sets. **T10's widened set (`feature/m6-tooling-guards-657`, #935) matched 1 line:** `tools/cloud-connections-test:37`, a synthetic fixture value, not a credential.
+  - **Redacted in the body** (the manifest's `redactions`); the source's sha256 is the original file's. The builder assembles the target value at run time, so it is not at rest. Rescanned: 0 lines under all three sets.
+  - The line itself is a finding (F-14): a credential-shaped fixture literal at rest that T10's widened pre-commit will refuse on its next edit.
+- **The probe**, 05:25:06-05:25:15 UTC, `tools/council/run invoke --member gpt --provider openrouter --prompt-file second-opinions/gpt-probe-prompt.md --output second-opinions/gpt-probe.md` (sources the key: the first of the two Phase 4.6 calls):
+  - Served `openai/gpt-6-astra` by `OpenAI`, effort `max`, 291 reasoning tokens, outcome success, 9,348 ms, 0 retries.
+  - Verification PASS (semantic, identity source `provider_response`); effort PASS; provider PASS (`response_provider_field`).
+  - `facilitator_version` `council-facilitator@1.14.1-pixelelated.2`. The reply: `READY unknown`.
+- **The refutation** (the second Phase 4.6 call) began at 05:25 UTC with `--per-attempt-timeout-ms 3600000 --total-timeout-ms 10800000`, logging to `/workspace/tmp/m6-t13/audit.log`.
+  - **What watches it:** the harness background task that runs it (`bkeysfam7`), which notifies this session when it ends.
+  - **Its silent mode:** a hung seat is ended only by those timeouts.
+  - **A failed seat is a hold.** A seat cut by its output ceiling re-runs on a trimmed packet (D-WORKFLOW-195).

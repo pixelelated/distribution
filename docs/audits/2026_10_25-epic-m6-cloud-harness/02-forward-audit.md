@@ -224,7 +224,7 @@ line in the guest cycle.
 
 ## Positives
 
-One row per tool: the input constructed to make it FAIL, the command, and the FAIL observed. Run on the host, 2026-10-25 05:2x UTC. The sabotaged copies live in scratch trees under `/workspace/tmp/m6-t13/pos/`; the worktree is unchanged (`git status` shows no file under `tools/` or `projects/`).
+One row per tool: the input constructed to make it FAIL, the command, and the FAIL observed. Run on the host, 2026-10-25 05:12-05:13 UTC (the outputs' mtimes). The sabotaged copies live in scratch trees under `/workspace/tmp/m6-t13/pos/`; the worktree is unchanged (`git status` shows no file under `tools/` or `projects/`).
 
 | Tool | Constructed input | Command | FAIL observed | proved: |
 | --- | --- | --- | --- | --- |
