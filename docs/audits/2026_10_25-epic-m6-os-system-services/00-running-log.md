@@ -156,3 +156,17 @@ Each run's output is in `.qa-scratch/t22/runs/NN-*.out`, with its exit and wall 
   - #1106's criterion asks for all six rejection paths, so cases f to j were added after the first passing run (netboot, missing target, missing source, incompatible, no room). An `exit 9` in the verdict, which would have ended a crossed run silently, became a helper returning a status.
 - `run-all.sh` against the stage-D export (`git archive 0f7ece71e8`) and the fixed tree: **`run-all: PASS (8 of 8)`**.
 - `05`: PL-02 `resolved # 6cfe1fdba1`, PL-03 `resolved # ffd1e34dbd` (the guest's after a fix-pending-image row), PL-28 `resolved # 9145b90fac`. Both lints PASS.
+
+## 2026-10-25 10:41 UTC -- the initramfs busybox's provenance (the coordinator's 10:41 line)
+
+S1's case runs under a copy of the image's initramfs busybox. Where it came from, all read by plain file reads; no process was started in that worktree:
+- **The build root, at the copy:** `/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64`. The file is `build/busybox-1.36.1/.x86_64-rocknix-linux-gnu-init/busybox`: 335,568 bytes, mtime 2026-10-05 03:37:22 UTC, reporting `BusyBox v1.36.1 (2026-10-05 03:37:08 UTC) multi-call binary`.
+- **The root's head:** the worktree's `.git` points at `/workspace/repos/rocknix/.git/worktrees/m7-pixelelated-replacement20`, whose `HEAD` is `ref: refs/heads/build/m7-pixelelated-replacement20` at **`1a026648442321609b2288c2c9c06803817f9df2`**.
+- **The copy:** `cp` to `/workspace/tmp/m6-t22/tmp/bb/busybox` at **2026-10-25T10:32:33Z** (the copy's mtime), sha256 **`4ce43643f300b585233e4723aaa3380d79d3b2bbe7a4ffaa540888041dbc13a6`**.
+- **Its state:** it is in M6's scratch only. `lsof` shows no descriptor held on it, and none on the source. It is run only by `stage-e/s1/drive.sh` through `T22_BUSYBOX`. It goes with the scratch at the hand-back; M6 keeps its own copy for the acceptance re-run.
+
+## 2026-10-25 10:45 UTC -- stage H: the scratch retired; #669's header; the hand-back
+
+- **The scratch was retired** (D-INFRA-022): all of `/workspace/tmp/m6-t22/` (`artifacts`, `cycle`, `cycle.env`, `cycle2`, `run`, `tmp`, with the busybox copy, the stage-D export and the case scratch), 134,881,395 bytes. Nothing in it was open; every file was this user's; qemu 0. Both guest disks had already gone (00, 09:17 and 10:24). df: 1634983305216 bytes available before, 1634975244288 after.
+- **#669's header:** `reviewed-at: 0f7ece71e8` (`git diff --stat 8ebaf8daad 0f7ece71e8 -- <the 422>` empty; `git diff --stat 4a48d388c4 0f7ece71e8 -- packages projects tools` empty) and `fixed-at: 6cfe1fdba1`. Since the stage-D tip only the two stream files changed under `packages/`, `projects/` and `tools/`.
+- **The checkers on the branch:** `register-check` rc 0 (681 IDs), `work-log-index --check` current, `rules-check --quiet` rc 0, `forbidden-terms-check` 0 hits, `.githooks/hooks-test` PASS. `lint-audit-artifacts` passes in both phases.

@@ -16,20 +16,15 @@
 
 ## Current focus
 
-**Stage E is done; stages G and H next.**
-- **S3:** `9145b90fac` (#1107).
-- **S1:** `ffd1e34dbd` (#1106), then `6cfe1fdba1` (#1105).
-- **The cases** are under `stage-e/`. `run-all.sh` against the stage-D export and the fixed tree reads 8 of 8. S1 runs under the initramfs busybox (`T22_BUSYBOX`, a copy from the M7 build root, sha256 `4ce43643...`).
-- **`05`:** PL-02, PL-03 and PL-28 resolved at their commits; both lints PASS.
-- **The bugs:** #1105 and #1107 fully ticked. #1106 has two open guest criteria, fix-pending-image rows the coordinator proves at the first image after the merge.
+**Handed back; idle.** Stages A to H are done.
+- **Records:** `00` to `05`, `second-opinions/` (two seats), `guest-cycle/` and `guest-cycle-2/`, `stage-e/` (`run-all.sh` 8 of 8), and the retro at `docs/retros/2026-10-25-m6-os-system-services.md`.
+- **#669's header:** `reviewed-at: 0f7ece71e8`, `fixed-at: 6cfe1fdba1`.
+- **The bugs:** #1105 and #1107 fully ticked. #1106 has two fix-pending-image criteria, which the coordinator proves at the first image after the merge.
+- **#1103** reads 28 of 28.
+- **Checks:** both lints and the five checkers PASS.
+- **Scratch:** retired.
 
-**Next:**
-- the retro, `docs/retros/2026-10-25-m6-os-system-services.md`, posted on #669. Its scoped audit asks of each fix whether its positive exercised the job the fix could break.
-- `fixed-at` on #669;
-- `t22-accept.sh`;
-- the hand-back.
-
-Nothing is running.
+**Waiting on the coordinator:** acceptance, the hand-back merge, then the prompt for `audit-completion.json` and the full lint. Nothing is running.
 
 ## Next commands
 
