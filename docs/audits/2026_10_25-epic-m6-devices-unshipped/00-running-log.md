@@ -70,3 +70,11 @@
 - **The lint:** `tools/lint-audit-artifacts docs/audits/2026_10_25-epic-m6-devices-unshipped --phase pre-issue` → `PASS pre-issue artifacts (does not certify resolution)`, with the line `review-plan: local at epic tier under D-WORKFLOW-184 (...)`. Re-run after T27's leads were folded in: `PASS`.
 - **`tools/forbidden-terms-check`:** rc 0 over the tree.
 - **The generated files:** `check` same on `02` and `04`.
+
+## [Stage D] 10:09 UTC — the audit issue, and the pause
+
+- **#1102:** *Audit: M6 T25 the devices the fork does not ship and the other projects -- 5 findings (0 critical, 0 high, 0 medium, 1 low, 4 info)*.
+  - Labels `audit` and `punch-list`; milestone `M6: Codebase renovation`.
+  - Attached as a sub-issue of #672 (REST id 6023277637; readback lists it under #672).
+  - `tools/box-check --issue 1102`: 5 open checkboxes, 0 fail.
+- **The pause:** the punch list posted on #672, asking for the coordinator's dispositions. No stream is expected: nothing here changes.

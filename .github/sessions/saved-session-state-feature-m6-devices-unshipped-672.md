@@ -16,16 +16,18 @@
 
 ## Current focus
 
-**Stage B complete; stage C next** (updated 2026-10-25, 10:03 UTC).
-- **`reviewed-at`:** `b27889bce2`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-devices-unshipped/`, with `00` to `04`, `stage-a/`, `stage-b/` and `tools/t25-tables.py` (`write` / `check <file>` regenerates every table in `02` and `04`).
-- **Findings:**
-  - F-01 (Low; the lead): the kernel's unpack edges; 4 `intel-ucode` rows misread; `generic-dsi`'s targets incomplete.
-  - F-02: the #346 class, 203 rows.
-  - F-03: the first widening, held.
-  - F-04: the fork-own dead copy.
-  - F-05: the drift, 39 rows / 226 files; the S922X loader.
-- **Counts:** dead 203, reached after all 2, shadowed 9, unshipped 183. 14 proofs. The coverage grep prints 397.
-- **Next (stage C):** `second-opinions/review-plan.json` (Local); `05-punch-list.md` with PL-01 to PL-05, Open; `tools/lint-audit-artifacts <folder> --phase pre-issue`. Then stage D: the audit issue as a sub-issue of #672, and the pause.
+**Stage D paused for the coordinator's dispositions** (updated 2026-10-25, 10:09 UTC).
+- **`reviewed-at`:** `b27889bce2`. **The audit:** `docs/audits/2026_10_25-epic-m6-devices-unshipped/` (`00` to `05`, `stage-a/`, `stage-b/`, `tools/t25-tables.py`, `second-opinions/review-plan.json`). **The audit issue:** #1102, under #672.
+- **Items:**
+  - PL-01 (Low): the inventory misses the kernel's unpack edges; a lead.
+  - PL-02: the #346 class proposal.
+  - PL-03: the first widening, held.
+  - PL-04: the fork-own dead copy.
+  - PL-05: the drift, the S922X loader and the atf seam via RK3399.
+- **The lint:** pre-issue `PASS`.
+- **Next:** read the coordinator's dispositions on #672.
+  - Record each outcome in `05`'s index and its Phase 7 table, citing the post.
+  - Run the resolution lint (`--issue 1102`), then stage F (re-verification appended to `02`), stage G (the retro) and stage H (the checkers and the hand-back).
 - **Running for this lane:** nothing.
 
 ## Next commands

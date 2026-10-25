@@ -1,6 +1,6 @@
 # Punch list — M6.P2 T25, the devices the fork does not ship and the other projects (#672)
 
-**Local depth** (plan § 6c, D-WORKFLOW-184): no reviewer; Phase 4.5 is in `04`. Five items, no `bug`:
+**Local depth** (plan § 6c, D-WORKFLOW-184): no reviewer; Phase 4.5 is in `04`. Five items, no `bug`. The audit issue is #1102 (a sub-issue of #672):
 - **PL-01** (Low) is the one finding that changes the record: the inventory's reach misses the kernel's unpack edges. A lead for the coordinator.
 - **PL-02** is the #346 class proposal, one `Renovation` item whose outcome names the coordinator's post.
 - **PL-03** is the first widening, held.
