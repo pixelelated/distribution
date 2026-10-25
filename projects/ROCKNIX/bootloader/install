@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: GPL-2.0
 # Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)
 
-# Portable bootloader installer for ROCKNIX
-# Handles different bootloader types based on BOOTLOADER variable
+# The image step's bootloader installer, sourced by scripts/image:280
+# for the three loaders the devices use; any other BOOTLOADER is refused.
 
 echo "install: building ROCKNIX bootloader for ${DEVICE} (${BOOTLOADER}) ..."
 
@@ -25,26 +25,6 @@ case "${BOOTLOADER}" in
     cp -av "${INSTALL}/usr/share/syslinux"/* "${INSTALL}/usr/share/bootloader/" || exit 1
     ;;
     
-  grub)
-    echo "install: installing grub bootloader files"
-    if [ -d "${INSTALL}/usr/share/grub" ]; then
-      echo "install: copying grub files to bootloader location"
-      cp -av "${INSTALL}/usr/share/grub"/* "${INSTALL}/usr/share/bootloader/"
-    else
-      echo "install: warning - grub files not found"
-    fi
-    ;;
-    
-  systemd-boot)
-    echo "install: installing systemd-boot bootloader files"
-    if [ -d "${INSTALL}/usr/lib/systemd/boot/efi" ]; then
-      echo "install: copying systemd-boot files to bootloader location"
-      cp -av "${INSTALL}/usr/lib/systemd/boot/efi"/* "${INSTALL}/usr/share/bootloader/"
-    else
-      echo "install: warning - systemd-boot files not found"
-    fi
-    ;;
-    
   u-boot)
     echo "install: u-boot bootloader should be handled by device-specific bootloader scripts"
     echo "install: skipping generic bootloader installation for u-boot"
@@ -63,20 +43,12 @@ case "${BOOTLOADER}" in
     echo "install: skipping generic bootloader installation for ${BOOTLOADER}"
     ;;
     
-  "")
-    echo "install: no bootloader specified (BOOTLOADER variable empty)"
-    echo "install: skipping bootloader installation"
-    ;;
-    
   *)
-    echo "install: unknown bootloader type: ${BOOTLOADER}"
-    echo "install: attempting to copy from ${INSTALL}/usr/share/${BOOTLOADER}"
-    if [ -d "${INSTALL}/usr/share/${BOOTLOADER}" ]; then
-      echo "install: copying ${BOOTLOADER} files to bootloader location"
-      cp -av "${INSTALL}/usr/share/${BOOTLOADER}"/* "${INSTALL}/usr/share/bootloader/"
-    else
-      echo "install: warning - ${BOOTLOADER} files not found in ${INSTALL}/usr/share/${BOOTLOADER}"
-    fi
+    # The devices set syslinux, u-boot or qcom-abl (projects/ROCKNIX/devices/*/options);
+    # any other value has no branch here, so refuse it rather than copy
+    # nothing and report success (#658, PL-06).
+    echo "install: error - unknown BOOTLOADER '${BOOTLOADER}': this script handles syslinux, u-boot and qcom-abl|arm-efi" >&2
+    exit 1
     ;;
 esac
 
