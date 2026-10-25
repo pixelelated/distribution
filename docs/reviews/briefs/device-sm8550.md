@@ -520,3 +520,15 @@ configuration, the trees, the history and the delta held. The corrections:
     still names `qcom-abl` once.
 15. `scripts/mkimage`'s `DISK_SIZE` is `:21-23`; mkbootimg's sha came with
     `e0a68c95bd`; where `docs/reviews/*` and the briefs live is said in § 1.
+
+## Errata (written at acceptance, 2026-10-25)
+
+Found by the lane's run and recorded here so the next device brief does not inherit them (D-WORKFLOW-189: the brief is the coordinator's).
+
+- (stage A, 10:34) The brief's § 2 configuration-distance pairs are written "removed / added" with the numbers in the other order from what its own § 5 command prints (`grep -c '^<'` first is the lines only in this configuration): r08 prints `SM8650 41/36` where the text says 36 / 41, all five the same way. The counts agree; the text's order follows the command at acceptance.
+- (stage B, 10:43) `filesystem/usr/share/inputplumber/devices/02-ayn-controller.yaml:44` matches `Retroid Pocket Nova`, so two InputPlumber files serve the Nova, and its include chain (`rp6.dts`, `ayn-common.dtsi`) is the shipped unit's; the brief's "every one AYANEO's or AYN's, none the Nova's" and "the other thirteen `.dts` and both `.dtsi` are carried by placement" overstate: 13 trees and 7 input files are carried by placement.
+- (stage B, 10:43) `gamepadcalibration`'s recipe differs at `651150fc88` in SM6115's branch only (the brief's "identical" holds for SM8550's pin, not the file).
+- (stage B, 10:43) The brief's `install:50-60` is `projects/ROCKNIX/bootloader/install:50-61`.
+- (stage B, 10:43) A fact for #1099, not an erratum: upstream's loader entry is `virtual/arm-efi/package.mk:17`, `${DISTRONAME,,}.conf` -- `pixelelated.conf` on the fork, with `boot=LABEL=ROCKNIX`.
+- (stage G, 11:15, the retro's three proposals, housed by the coordinator) a device brief reads a file's device by its match rule, not its name (`02-ayn-controller.yaml` is the Nova's); a brief that cites a short path names the file (`install` exists twice: `projects/ROCKNIX/bootloader/install` here); the two shipped devices' updaters now share a contract (a failed step ends non-zero, names the step, writes no hint: #1095, #1109) -- carried into #1099's merge requirement and into any third device's brief; no rule edit.
+- (stage H, 11:18, an erratum for the futro, not the brief) the devices futro's T28 kickoff addendum says the trees carry "no msm-id"; six `.dts` carry `qcom,msm-id`, and the Nova inherits RP6's (`stage-c/rereads/c04_g32_ids.out`). The brief's own words ("no `rocknix-dt-id`"; "how the ABL selects the Nova's tree from the fourteen appended is a Q7 design question") stand.
