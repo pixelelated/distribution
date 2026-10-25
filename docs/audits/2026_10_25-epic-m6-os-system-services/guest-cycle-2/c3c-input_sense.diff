@@ -1,0 +1,12 @@
+290,293d289
+<   ### Re-scanning must start from an empty list, otherwise every retry and
+<   ### every hotplug reload appends duplicates of what is already there.
+<   INPUT_DEVICES=()
+< 
+294a291,296
+>     ### Each attempt describes the devices present in that scan only.
+>     INPUT_DEVICES=()
+>     FOUNDKEYS=false
+>     FOUNDJOY=false
+>     FOUNDTOUCH=false
+> 

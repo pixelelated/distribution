@@ -1,0 +1,17 @@
+# 10:15:14 guest a: for t in mkfs.btrfs mkfs.vfat losetup udevil; do printf "%s: %s\n" $t "$(command -v $t || echo none)"; done; cd /storage; rm -f t22-btrfs.img t22-vfat.img; truncate -s 128M t22-btrfs.img; truncate -s 32M t22-vfat.img; mkfs.btrfs -q -f t22-btrfs.img >/dev/null 2>&1; echo "mkfs.btrfs rc=$?"; mkfs.vfat t22-vfat.img >/dev/null 2>&1; echo "mkfs.vfat rc=$?"; LB=$(losetup -f --show t22-btrfs.img); LV=$(losetup -f --show t22-vfat.img); echo "loops: btrfs=$LB vfat=$LV"; for L in $LB $LV; do echo "--- systemctl start udevil-mount@$L.service"; systemctl start "udevil-mount@$L.service"; echo "start rc=$?; active=$(systemctl is-active udevil-mount@$L.service)"; journalctl -b -u "udevil-mount@$L.service" --no-pager -o cat | tail -4; echo "/proc/mounts for $L:"; grep "^$L " /proc/mounts || echo "  (not mounted)"; done; echo "--- udevil --mount direct, btrfs:"; udevil --umount $LB >/dev/null 2>&1; udevil --mount $LB 2>&1 | tail -3; echo "rc=$?"; grep "^$LB " /proc/mounts || echo "  (not mounted)"
+mkfs.btrfs: none
+mkfs.vfat: /usr/sbin/mkfs.vfat
+losetup: /usr/sbin/losetup
+udevil: /usr/bin/udevil
+sh: line 1: truncate: command not found
+sh: line 1: truncate: command not found
+mkfs.btrfs rc=127
+mkfs.vfat rc=1
+losetup: t22-btrfs.img: failed to set up loop device: No such file or directory
+loops: btrfs= vfat=
+--- udevil --mount direct, btrfs:
+losetup: t22-vfat.img: failed to set up loop device: No such file or directory
+udevil: error 38: mount requires DEVICE argument
+rc=0
+  (not mounted)
+# rc=0

@@ -1,0 +1,10 @@
+# 10:15:47 guest a: echo "is-active: $(systemctl is-active debug-shell.service) is-enabled: $(systemctl is-enabled debug-shell.service 2>&1)"; systemctl show -p TTYPath -p ExecStart -p FragmentPath debug-shell.service | sed "s/ ; .*//"; ls -l /usr/lib/systemd/system/*.wants/debug-shell.service 2>&1; echo "--- processes on its tty:"; T=$(systemctl show -P TTYPath debug-shell.service); for p in /proc/[0-9]*; do [ "$(readlink $p/fd/0 2>/dev/null)" = "$T" ] && echo "pid=${p#/proc/} uid=$(awk "/^Uid:/{print \$2}" $p/status) comm=$(cat $p/comm)"; done; grep -o "systemd.debug[_-]shell[^ ]*" /proc/cmdline || echo "cmdline: no systemd.debug_shell"
+is-active: active is-enabled: disabled
+ExecStart={ path=/bin/sh
+TTYPath=/dev/tty9
+FragmentPath=/usr/lib/systemd/system/debug-shell.service
+lrwxrwxrwx    1 root     root            22 Oct 22 20:02 /usr/lib/systemd/system/sysinit.target.wants/debug-shell.service -> ../debug-shell.service
+--- processes on its tty:
+pid=223 uid=0 comm=sh
+cmdline: no systemd.debug_shell
+# rc=0

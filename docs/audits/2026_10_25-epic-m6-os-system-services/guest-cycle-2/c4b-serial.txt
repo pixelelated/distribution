@@ -1,0 +1,30 @@
+# 10:19:55 guest a over serial
+boot id: a0fc5234-16c1-4abc-b004-8b3dc9d8b62c
+--- /proc/mounts for /storage and /flash:
+/dev/vda1 /flash vfat ro,noatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro 0 0
+--- /storage contents: 
+--- systemctl is-system-running: degraded
+--- failed units:
+● tmp-assets.mount               loaded failed failed Assets directory
+● tmp-cores.mount                loaded failed failed Cores directory
+● tmp-database.mount             loaded failed failed Database directory
+● tmp-joypads.mount              loaded failed failed Joypad configs directory
+● tmp-overlays.mount             loaded failed failed Overlays directory
+● tmp-shaders.mount              loaded failed failed Shaders directory RetroArch
+● avahi-defaults.service         loaded failed failed Avahi defaults
+● iwd.service                    loaded failed failed Wireless service
+--- storage.mount: inactive
+2026-10-25T10:18:07+00:00 ROCKNIX kernel: Command line: BOOT_IMAGE=/KERNEL boot=LABEL=ROCKNIX disk=LABEL=STORAGE portable quiet console=ttyS0,115200 console=tty0
+2026-10-25T10:18:07+00:00 ROCKNIX kernel: e820: update [mem 0x00000000-0x00000fff] System RAM ==> device reserved
+2026-10-25T10:18:07+00:00 ROCKNIX kernel: Kernel command line: root=/dev/sda1 init=/sbin/init usbcore.autosuspend=-1 BOOT_IMAGE=/KERNEL boot=LABEL=ROCKNIX disk=LABEL=STORAGE portable quiet console=ttyS0,115200 console=tty0
+2026-10-25T10:18:07+00:00 ROCKNIX kernel: Unknown kernel command line parameters "portable boot=LABEL=ROCKNIX disk=LABEL=STORAGE", will be passed to user space.
+2026-10-25T10:18:07+00:00 ROCKNIX kernel: usbcore: registered new interface driver usb-storage
+2026-10-25T10:18:07+00:00 ROCKNIX kernel:     disk=LABEL=STORAGE
+2026-10-25T10:18:07+00:00 ROCKNIX unknown: Checking disk(s):  LABEL=ROCKNIX LABEL=STORAGE
+2026-10-25T10:18:07+00:00 ROCKNIX fsck: STORAGE: clean, 3977/196608 files, 99000/3144699 blocks
+2026-10-25T10:18:07+00:00 ROCKNIX systemd[1]: Starting storage-log.service...
+2026-10-25T10:18:07+00:00 ROCKNIX systemd[1]: Starting systemd-hwdb-update.service...
+2026-10-25T10:18:07+00:00 ROCKNIX systemd[1]: storage-log.service: Main process exited, code=exited, status=1/FAILURE
+2026-10-25T10:18:07+00:00 ROCKNIX systemd[1]: storage-log.service: Failed with result 'exit-code'.
+grep: write error: Broken pipe
+# rc=0

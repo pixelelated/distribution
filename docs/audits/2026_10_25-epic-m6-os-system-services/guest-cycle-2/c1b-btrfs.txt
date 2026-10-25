@@ -1,0 +1,23 @@
+# 10:15:34 guest a: cd /storage; dd if=/dev/zero of=t22-vfat.img bs=1M count=32 2>/dev/null; mkfs.vfat t22-vfat.img >/dev/null 2>&1; echo "mkfs.vfat rc=$?"; LB=$(losetup -f --show t22-btrfs.img); LV=$(losetup -f --show t22-vfat.img); echo "loops: btrfs=$LB vfat=$LV"; echo "blkid: $(blkid $LB | sed "s/UUID=[^ ]*//g") | $(blkid $LV | sed "s/UUID=[^ ]*//g")"; for L in $LB $LV; do echo "--- systemctl start udevil-mount@$L.service"; systemctl start "udevil-mount@$L.service"; echo "start rc=$?; active=$(systemctl is-active udevil-mount@$L.service)"; journalctl -b -u "udevil-mount@$L.service" --no-pager -o cat | grep -v -E "^(Starting|Finished|Started)" | tail -4; echo "/proc/mounts for $L:"; grep "^$L " /proc/mounts || echo "  (not mounted)"; done; echo "--- udevil --mount $LB direct:"; udevil --mount $LB 2>&1 | tail -3; echo "--- after:"; grep "^$LB " /proc/mounts || echo "  (not mounted)"
+mkfs.vfat rc=0
+loops: btrfs=/dev/loop1 vfat=/dev/loop2
+blkid: /dev/loop1:  UUID_SUB="3c5061d4-01cc-4f3f-8543-195280d572ac" BLOCK_SIZE="4096" TYPE="btrfs" | /dev/loop2: SEC_TYPE="msdos"  BLOCK_SIZE="512" TYPE="vfat"
+--- systemctl start udevil-mount@/dev/loop1.service
+Invalid unit name "udevil-mount@/dev/loop1.service" escaped as "udevil-mount@-dev-loop1.service" (maybe you should use systemd-escape?).
+Invalid unit name "udevil-mount@/dev/loop1.service" escaped as "udevil-mount@-dev-loop1.service" (maybe you should use systemd-escape?).
+start rc=0; active=active
+udevil: denied 90: option 'compress=zstd:3' is not an allowed option
+/proc/mounts for /dev/loop1:
+  (not mounted)
+--- systemctl start udevil-mount@/dev/loop2.service
+Invalid unit name "udevil-mount@/dev/loop2.service" escaped as "udevil-mount@-dev-loop2.service" (maybe you should use systemd-escape?).
+Invalid unit name "udevil-mount@/dev/loop2.service" escaped as "udevil-mount@-dev-loop2.service" (maybe you should use systemd-escape?).
+start rc=0; active=active
+Mounted /dev/loop2 at /media/loop2-6C6E-E930
+/proc/mounts for /dev/loop2:
+/dev/loop2 /var/media/loop2-6C6E-E930 vfat rw,nosuid,nodev,noexec,noatime,fmask=0133,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro 0 0
+--- udevil --mount /dev/loop1 direct:
+udevil: denied 90: option 'compress=zstd:3' is not an allowed option
+--- after:
+  (not mounted)
+# rc=0

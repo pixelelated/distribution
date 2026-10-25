@@ -115,3 +115,20 @@ Each run's output is in `.qa-scratch/t22/runs/NN-*.out`, with its exit and wall 
 - **Stage D:** `05` holds 28 items (5 Medium, 23 Low). Each item proposes its owner: #346 for upstream-carried lines, #740, a design sentence, *settled by the next base merge*, or a fork `bug` for G-33 (the fork's own). `lint-audit-artifacts --phase pre-issue`: `PASS pre-issue artifacts`.
 - Four Mediums owe a VM proof (PL-01 btrfs, PL-03 the rejected update, PL-04 `debug-shell`, PL-05 the reader count), and so does G-33 (on the host first).
 - **The audit issue** is #1103 (`Audit: M6 T22 the OS's system services and platform quirks -- 28 findings (0 critical, 0 high)`, labels `audit`, `punch-list`, M6), attached as a sub-issue of #669, with 28 checkboxes: `box-check --issue 1103` reads 0 fail.
+
+## 2026-10-25 10:13-10:24 UTC -- the second window (granted 10:13 on #669)
+
+- **Ruling read:**
+  - bugs for PL-02, PL-03 and PL-05;
+  - PL-01 decided by the window; PL-04 settled by the merge;
+  - PL-28 a fork bug;
+  - eleven Lows to #585 as lines in `05`;
+  - PL-08 to #346, PL-10 to #740, PL-16 and PL-17 to #1104;
+  - PL-20 the coordinator's rule edit; the rest recorded.
+- Census: qemu 0, 10022 free. **START 10:14:56** (posted). The guest was stopped at 10:23:46 by owned pid; the leftover check reads 0; the record is `guest-cycle-2/`. `02` § The second window has the four cases.
+- Writes on the disposable disk: two loop images, a staged `.tar`, and three reboots (the second, a backgrounded `reboot` over serial, did not happen; the boot id was unchanged; `systemctl reboot` in the foreground did).
+- **PL-01:** udevil refuses btrfs (`denied 90: option 'compress=zstd:3' is not an allowed option`); the vfat control mounts with `nosuid,nodev,noexec`.
+- **PL-04:** `debug-shell.service` active, a root `sh` on tty9.
+- **PL-05: not reproduced.** The image's `input_sense` carries the fix (`6101242e14`, on the M7 line; read by diffing the installed file against the tree and by running the installed `get_devices` alone: `entries=3 after 5s`).
+- **PL-03 proven:** no `/storage` after the rejection; the next boot whole.
+- **The guest disk was retired** (D-INFRA-022): `/workspace/tmp/m6-t22/vm-pair/` (`vm-a.qcow2` 2,477,391,872 B, sha256 `83cfd747cb1baa95d37f844bd83838ed3da16c7e68380fc89a517af4be2eb29f`), 2,477,933,032 bytes in all. df: 1,635,229,728,768 bytes available before, 1637699203072 after, a measured 2469474304 bytes. The hash is provenance only.

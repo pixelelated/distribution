@@ -673,6 +673,24 @@ The window was granted on #669 at **09:12 UTC** (the coordinator's comment; one 
 | s5 autostart | five plants in `/storage/.config/autostart/`, one reboot | marker `10-marker uid=0`, `40 uid=0 args=[]`, `40 uid=0 args=[split]`; journal `line 76: .../20-noexec: Permission denied`, `.../30-dir: Is a directory`; order: platform quirks, device quirks (`QEMU Standard PC (Q35 + ICH9, 2009)`), `common/*`, then the custom hooks | guest |
 | s6 cron, udevil | cron files; `udevil.conf`, the unit, the rule | no cron unit, no crontab directory; `default_options_btrfs = compress=zstd:3`; `/usr/lib/samba/samba-autoshare: No such file or directory`; the rule acts on USB-storage `sd*` and `sr*` | guest |
 
+## The second window
+
+The coordinator granted it on #669 at **10:13 UTC** (one guest, 15 minutes from START, four cases). The image is the same, BUILD_ID `069fc270442134fe771258418adf4e666e0473fb`. **START 10:14:56** (posted on #669). **Stopped 10:23:46** by `tools/vm-pair down` (`owned QEMU exited (pid 992351)`). The leftover check reads 0 on every line. Every output is in `guest-cycle-2/`.
+
+| Case | What ran | The lines | Verdict | proved |
+| --- | --- | --- | --- | --- |
+| 1, PL-01 | A btrfs image made on the host (the guest has no `mkfs.btrfs` and no `truncate`) and a vfat image made on the guest, each on a loop device. Each was mounted through the medium's own unit, `systemctl start udevil-mount@<dev>.service`, then btrfs again by `udevil --mount` | btrfs: `udevil: denied 90: option 'compress=zstd:3' is not an allowed option`, not mounted, **the unit `active`**. vfat: `/var/media/loop2-... vfat rw,nosuid,nodev,noexec,noatime,fmask=0133,dmask=0022,...` | **udevil refuses every btrfs medium** (G-44): F-04's missing `nosuid,noexec,nodev` never applies. A btrfs medium cannot be mounted. The unit reading `active` after the refusal is G-30, shown | guest |
+| 2, PL-04 | `debug-shell.service`'s state | `is-active: active`; `TTYPath=/dev/tty9`; `sysinit.target.wants/debug-shell.service -> ../debug-shell.service`; `pid=223 uid=0 comm=sh` on tty9; no `systemd.debug_shell` on the command line | **G-13 is proven:** an unauthenticated root shell on tty9 on every boot | guest |
+| 3, PL-05 | the `evtest` readers by device; then the installed `get_devices` run alone, under the script's options | one reader each for `event0`, `event1` and `event2` (the three key devices); `entries=3 after 5s` (six passes) | **Not reproduced on the image.** The image's `input_sense` differs from the read tree's (`c3c-input_sense.diff`): it empties the list and the found-flags on each attempt, inside the loop. That is the M7 line's `6101242e14` (*m7: integrate reviewed frontend and installer repairs*, 2026-10-18), not in `8ebaf8daad` or upstream. G-23 stands at the read tree and is fixed on the M7 line | guest |
+| 4, PL-03 | A `.tar` staged in `/storage/.update` with a 1 KB `KERNEL` and `SYSTEM` and wrong md5 files, named so the branding test passes. One reboot, then a read over serial (SSH's key is on `/storage`) | `/proc/mounts`: `/flash` only, **no `/storage`**; `/storage` empty; `systemctl is-system-running`: `degraded`; `storage-log.service: Failed`, with iwd, Avahi defaults and six `tmp-*.mount` failed; `sshd` inactive. The next boot (`systemctl reboot` over serial): `/dev/vda2 /storage ext4 rw,noatime`, `.update: []`, `running` | **G-04 is proven:** a rejected update boots once without `/storage`, every service that needs it failing, and deletes the staged update. The next boot is whole | guest |
+
+**What the window changes:**
+- **PL-01** is decided: udevil refuses the mount, so it is recorded as a Low on #585 (a filesystem the configuration cannot mount), with G-30's unit state.
+- **PL-04's** state is recorded until the next base merge.
+- **PL-03** is proven, and its `Already written:` line is now shown rather than argued.
+- **PL-05** turns out to be fixed on the M7 line (`6101242e14`).
+- **PL-02** was not exercised, and the M7 line changes nothing in `scripts/init` (`git show --stat 6101242e14`: `input_sense` only).
+
 ## Proofs
 
 The leads stage B carries to the analysis (`04`). Each has the line that shows it, its state at `651150fc88` and its `proved:` cell. The bug decisions are stage D's, after the seats.

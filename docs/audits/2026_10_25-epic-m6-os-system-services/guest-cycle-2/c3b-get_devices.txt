@@ -1,0 +1,6 @@
+# 10:16:20 guest a: the installed input_sense's get_devices, run alone
+function at 283-333; set line: 11:set -o pipefail
+entries=3 after 5s: /dev/input/event0 /dev/input/event1 /dev/input/event2
+under set -euo pipefail: entries=3
+that shell exit=0
+# rc=0

@@ -1,0 +1,14 @@
+# 10:17:12 guest a: . /etc/os-release; echo "NAME=$NAME ID=$ID"; ls /flash | tr "\n" " "; echo; K=$(ls /flash | grep -v -E "^(SYSTEM|.*\.md5|.*\.cfg|.*\.dtb|EFI|boot|syslinux.*|.*\.txt|.*\.ini|.*\.sh)$" | head -1); echo "kernel name guess: $K"; [ -f /flash/KERNEL ] && K=KERNEL; W=/storage/t22-build/pixelelated-t22/target; mkdir -p $W; head -c 1024 /dev/urandom > $W/$K; head -c 1024 /dev/urandom > $W/SYSTEM; echo "00000000000000000000000000000000  target/$K" > $W/$K.md5; echo "00000000000000000000000000000000  target/SYSTEM" > $W/SYSTEM.md5; mkdir -p /storage/.update; rm -f /storage/.update/.nocheck /storage/.update/.nocompat; T="/storage/.update/${ID}-pixelelated-ROCKNIX-GENERIC_X64.x86_64-t22-badmd5.tar"; (cd /storage/t22-build && tar -cf "$T" pixelelated-t22); rm -rf /storage/t22-build; ls -l /storage/.update/; tar -tf "$T"; echo "mounts before: $(grep -c " /storage " /proc/mounts) storage mount(s); boot id $(cat /proc/sys/kernel/random/boot_id)"
+NAME= ID=
+EFI KERNEL KERNEL.md5 SYSTEM SYSTEM.md5 fs-resize.log ldlinux.c32 ldlinux.sys syslinux.cfg 
+kernel name guess: KERNEL
+total 8
+-rw-r--r--    1 root     root          7168 Oct 25 06:17 -pixelelated-ROCKNIX-GENERIC_X64.x86_64-t22-badmd5.tar
+pixelelated-t22/
+pixelelated-t22/target/
+pixelelated-t22/target/SYSTEM.md5
+pixelelated-t22/target/SYSTEM
+pixelelated-t22/target/KERNEL.md5
+pixelelated-t22/target/KERNEL
+mounts before: 1 storage mount(s); boot id 33e1efc0-7bda-47b6-a846-92f858245944
+# rc=0

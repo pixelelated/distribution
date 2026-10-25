@@ -1,0 +1,13 @@
+# 10:15:48 guest a: echo "--- input devices:"; for d in /dev/input/event*; do printf "%s %s\n" $d "$(udevadm info $d | grep -o -E "ID_INPUT_(KEY|JOYSTICK|TOUCHSCREEN|MOUSE|KEYBOARD)=1" | tr "\n" " ")"; done; echo "--- evtest readers by device:"; for p in /proc/[0-9]*; do [ "$(cat $p/comm 2>/dev/null)" = evtest ] && tr "\0" " " < $p/cmdline && echo; done | sort | uniq -c; echo "--- input_sense processes: $(for p in /proc/[0-9]*; do [ "$(cat $p/comm 2>/dev/null)" = input_sense ] && echo x; done | wc -l)"
+--- input devices:
+/dev/input/event0 ID_INPUT_KEY=*** 
+/dev/input/event1 ID_INPUT_KEY=*** ID_INPUT_KEYBOARD=1 
+/dev/input/event2 ID_INPUT_KEY=*** ID_INPUT_KEYBOARD=1 
+/dev/input/event3 ID_INPUT_MOUSE=1 
+/dev/input/event4 ID_INPUT_MOUSE=1 
+--- evtest readers by device:
+      1 evtest /dev/input/event0 
+      1 evtest /dev/input/event1 
+      1 evtest /dev/input/event2 
+--- input_sense processes: 6
+# rc=0
