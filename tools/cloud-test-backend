@@ -25,7 +25,7 @@
 #
 #   webdav  :9010  rclone serve webdav        no hashes, NO MODTIMES
 #   s3      :9012  MinIO in a container       MD5 hashes, modtimes, atomic PUT
-#   sftp    :9013  an unprivileged sshd       no hashes (no shell), modtimes
+#   sftp    :9013  rclone serve sftp          no hashes (no shell), modtimes
 #   smb     :9014  Samba in a container       no hashes, modtimes
 #   ftp     :9015  pyftpdlib in a venv        no hashes, modtimes
 #
@@ -146,7 +146,10 @@ SMB_IMAGE="${CLOUD_QA_SMB_IMAGE:-dperson/samba:latest}"
 # --- SFTP -------------------------------------------------------------------
 SFTP_KEY="${CONFDIR}/qa-sftp-key"
 SFTP_HOSTKEY="${CONFDIR}/hostkey"
-SFTP_USER="${CLOUD_QA_SFTP_USER:-$(id -un)}"
+# A QA identity, never the host's login: the endpoint is rclone's own SFTP
+# server rooted at the data directory, so the key a guest carries opens that
+# directory and nothing else on this host (#1067).
+SFTP_USER="${CLOUD_QA_SFTP_USER:-rocknix-qa}"
 
 # --- FTP --------------------------------------------------------------------
 # Passive data connections need their own ports, and they are inside the
@@ -380,32 +383,18 @@ throttle_down() {
   rm -f "${PIDFILE}" "${S3_API_PORT_FILE}"
 }
 
-write_sshd_config() {
-  # An sshd of our own, run as this user on a high port: no root, no PAM, no
-  # system configuration touched, and it goes away with `down`. Key auth only
-  # -- a password would need PAM and therefore root.
+write_sftp_keys() {
+  # The endpoint is `rclone serve sftp` rooted at ${DATA} (#1067). It used to
+  # be an sshd of our own with internal-sftp, which an ordinary user cannot
+  # chroot: `-d` only set the starting directory, the key authenticated as
+  # this host's own login, and a guest holding it could read whatever that
+  # login can. rclone serves the one directory under its own key check, runs
+  # as this user without a system account behind the login, and needs no
+  # root. Key auth only, as before.
   [ -f "${SFTP_HOSTKEY}" ] || ssh-keygen -q -t ed25519 -N '' -f "${SFTP_HOSTKEY}" -C rocknix-qa-host
   [ -f "${SFTP_KEY}" ]     || ssh-keygen -q -t ed25519 -N '' -f "${SFTP_KEY}" -C rocknix-qa
   cp "${SFTP_KEY}.pub" "${CONFDIR}/authorized_keys"
   chmod 600 "${CONFDIR}/authorized_keys" "${SFTP_HOSTKEY}" "${SFTP_KEY}"
-  cat > "${CONFDIR}/sshd_config" <<EOF
-Port ${PORT}
-ListenAddress ${BIND}
-HostKey ${SFTP_HOSTKEY}
-PidFile ${PIDFILE}
-AuthorizedKeysFile ${CONFDIR}/authorized_keys
-AllowUsers ${SFTP_USER}
-PasswordAuthentication no
-KbdInteractiveAuthentication no
-UsePAM no
-PermitRootLogin no
-StrictModes no
-PrintMotd no
-X11Forwarding no
-AllowTcpForwarding no
-Subsystem sftp internal-sftp -d ${DATA}
-ForceCommand internal-sftp -d ${DATA}
-EOF
 }
 
 case "${1:-}" in
@@ -510,25 +499,24 @@ case "${1:-}" in
         ;;
 
       sftp)
-        need ssh-keygen
-        command -v sshd >/dev/null 2>&1 || [ -x /usr/sbin/sshd ] || {
-          echo "error: sshd is required (looked in PATH and /usr/sbin)" >&2; exit 1; }
-        SSHD=$(command -v sshd 2>/dev/null || echo /usr/sbin/sshd)
+        need ssh-keygen; need rclone
         if pid_running; then
           echo "up: sftp already serving ${DATA} on port ${PORT}"; exit 0
         fi
-        write_sshd_config
-        "${SSHD}" -f "${CONFDIR}/sshd_config" -E "${LOGFILE}"
+        write_sftp_keys
+        nohup rclone serve sftp "${DATA}" --addr "${BIND}:${PORT}" \
+          --key "${SFTP_HOSTKEY}" --authorized-keys "${CONFDIR}/authorized_keys" \
+          > "${LOGFILE}" 2>&1 &
+        echo $! > "${PIDFILE}"
         wait_port 30 || { echo "error: sftp did not come up; see ${LOGFILE}" >&2; exit 1; }
         # Prove a login, not just a socket: a guard that cannot run has not
-        # passed, and an sshd that binds but rejects every key looks
+        # passed, and a server that binds but rejects every key looks
         # identical from outside.
         echo ls | sftp -q -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
               -o LogLevel=ERROR -o BatchMode=yes -i "${SFTP_KEY}" -P "${PORT}" \
               "${SFTP_USER}@127.0.0.1" >/dev/null 2>&1 || {
           echo "error: sftp is listening but the QA key cannot log in; see ${LOGFILE}" >&2; exit 1; }
         echo "up: sftp serving ${DATA} at ${SFTP_USER}@127.0.0.1:${PORT} (guest: ${GUEST_HOST}:${PORT})"
-        echo "note: this sshd cannot chroot unprivileged, so the remotes are absolute: $("$0" saves-remote)"
         exit 0
         ;;
 
@@ -726,7 +714,7 @@ EOF
         # key_pem rather than key_file: the harness writes one file onto the
         # guest (rclone.conf) and nothing else, so the key has to travel
         # inside the stanza. shell_type/disable_hashcheck stop rclone probing
-        # for a shell it will never get -- this sshd runs internal-sftp and
+        # for a shell it will never get -- the endpoint serves SFTP and
         # nothing else, which is exactly why SFTP is the hash-less row of the
         # matrix.
         [ -f "${SFTP_KEY}" ] || { echo "error: no QA key yet; run 'up' first" >&2; exit 1; }
@@ -778,13 +766,13 @@ EOF
   endpoint-prefix)
     # What to strip from a remote path to address this endpoint directly with
     # ls/cat/put. Empty where the remote root is the data directory; the
-    # bucket on S3, the share on SMB, and the absolute path on SFTP, where an
-    # unprivileged sshd cannot chroot. A caller that hard-codes "the first
-    # component is the bucket" is right on S3 and wrong on three others.
+    # bucket on S3 and the share on SMB. SFTP is rooted at the data directory
+    # since #1067 (it was the absolute path while an unprivileged sshd served
+    # it). A caller that hard-codes "the first component is the bucket" is
+    # right on S3 and wrong on the others.
     case "${BACKEND}" in
       s3)   echo "/${S3_BUCKET}" ;;
       smb)  echo "/${SMB_SHARE}" ;;
-      sftp) echo "${DATA}" ;;
       *)    echo "" ;;
     esac
     ;;
@@ -813,8 +801,8 @@ EOF
     # just a folder. On a bucket- or share-based one the first component is the
     # bucket or share, and it has to be a legal name - lowercase, 3-63 chars for
     # S3 - so the shipped "/GAMES" is rejected outright (issue #38). rclone will
-    # create the bucket itself once the name is valid. On SFTP every path is
-    # absolute, because an sshd running as an ordinary user cannot chroot.
+    # create the bucket itself once the name is valid. SFTP is rooted at the
+    # data directory, like WebDAV (#1067).
     echo "$("$0" --backend "${BACKEND}" endpoint-prefix)$("$0" shipped-default SAVES_REMOTE)"
     ;;
 
