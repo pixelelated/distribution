@@ -16,7 +16,7 @@
 
 ## Current focus
 
-**Stage F is done, all three guest windows included.** In the third window (08:35-08:41 UTC, one guest), KILL1 gave 22/0/0 at 200k and A15 gave 38/0/0, both at `3a653eaec4`, record `stage-e/cycle3/`. #1092 and #1093 have every checkbox ticked; 05 reads 18 resolved, 8 deferred, 0 open; **both lints PASS**. The drained SKIP branch has been seen on the host only, and the first cycle's 1a did not recur (keep an eye on, #1092). **Next:** retire stage F's scratch (`/workspace/tmp/m6-t13/`) with the record in 00, then stage G (the retro at `docs/retros/2026-10-25-m6-cloud-harness.md`, posted on #660), then stage H (the hand-back, and `audit-completion.json` when prompted).
+**Stages A to G are done; stage H (the hand-back) is next.** All three guest windows ran (record: `stage-e/cycle/`, `cycle2/`, `cycle3/`). 05 reads 18 resolved, 8 deferred, 0 open, and both lints PASS. Stage F's scratch is retired (00, 08:44); nothing of the slice remains under `/workspace/tmp/`. The retro is `docs/retros/2026-10-25-m6-cloud-harness.md`, posted on #660. **Next:** the hand-back comment on #660 per brief § 10 (the tip; each artifact by path; `reviewed-at` `8a2518fa44`, `fixed-at` `3a653eaec4`), then idle. `audit-completion.json` and the full lint follow when the coordinator prompts after acceptance.
 
 - **Guest criteria met:** #1062 (KILL1 to its verdict), #1064 (128 ES paths), #1065 (CAP13 present PASS / absent FAIL, after `a70b4889a3` corrected the needle in-window), #1069 (A15 to its verdict, the backup lands), #1070 (KILL5 at keep 3 and 2). #1057 met in the second window.
 - **Found by the cycle, for stage F:**

@@ -255,3 +255,12 @@ The image for the guest-cycle request, read only: `pixelelated-GENERIC_X64.x86_6
 - The isolation environment was recreated under `/workspace/tmp/m6-t13/` (retired at 08:25). One guest was booted; START was posted at 08:35. KILL1 at 200k gave 22/0/0; it did not meet the drained face, and 1a did not recur. A15 gave 38/0/0. The guest was stopped by owned pid at 08:40:44, the backend brought down, and the leftover check came back clean. Record: `stage-e/cycle3/`, 02 § The third window.
 - #1092's and #1093's guest checkboxes are ticked, and their issues have no open checkboxes left. 05 has PL-25 and PL-26 Resolved: 18 resolved, 8 deferred, 0 open.
 
+## 2026-10-25 08:44 UTC -- stage F's scratch retired (D-INFRA-022)
+
+- **Retired:** all of `/workspace/tmp/m6-t13/` as recreated for stage F and the third window, 2,319,731,839 bytes. Its top level was: artifacts b1092.md b1093.md b660.md c1092.md c1093.md ckF.md cycle.env cycle3 g1092.md g1093.md g2.md g3.md return3.md run state tmp u1093 vm-pair.
+- **The guest disk:** `vm-pair/vm-a.qcow2`, 2,318,598,144 B, sha256 `dd5a1c190bc4719fe19e244dbbd9d8b39d14a26af71f8f3ef4e232c8bbae6836`. The hash is provenance; it makes no claim that the file still exists.
+- **Checked before removal:** nothing was open or used as a cwd; every file was this user's; qemu 0; the third window's leftover check was clean. The issue-comment drafts in the tree had all been posted.
+- **Released by:** the third RETURN on #660, with the compact record on the branch (`stage-e/cycle3/`).
+- **df on /workspace:** 1,657,831,952,384 bytes available before, 1,660,151,803,904 after, a measured recovery of 2,319,851,520 bytes (2,212 MiB). Before and after were read about a minute apart on a shared volume.
+- **Kept:** the M6 image and the donor rclone under `/workspace/artifacts/`. Nothing of this slice remains under `/workspace/tmp/`.
+
