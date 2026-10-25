@@ -203,3 +203,11 @@ The image for the guest-cycle request, read only: `pixelelated-GENERIC_X64.x86_6
   - `reviewed-at` is `8a2518fa44` (the stage-D tip, rulings applied); `git diff --stat 8ebaf8daad 8a2518fa44 -- <the nine>` is empty.
   - `fixed-at` is `cee4bf481d`; `git diff --stat e1d51b3a04 cee4bf481d -- tools | grep -v tools/cloud-` gives no file line. Four of the nine changed: `cloud-census`, `cloud-connections-test`, `cloud-round-trip` and `cloud-test-backend`.
 - No guest; nothing under `/tmp` or `/workspace/repos/rocknix*`.
+
+## 2026-10-25 06:45-06:51 UTC -- the positives' drivers kept on the branch (the coordinator's 06:45 ask)
+
+- `stage-e/` has nine drivers (#1066, #1060's harness half, #1062, #1063, #1057, #1059, #1064, #1069, #1070), `common.py`, `shim1068/build.sh` and `README.md`.
+- Each driver was rewritten from its scratch version to the ask: the tool's path and `unfixed|fixed` as arguments, writes only under `$TMPDIR`, one verdict line last, exit 0 on the expectation met.
+- **Run both ways:** all nine meet the unfixed expectation on the clone at `8a2518fa44` and the fixed one on this tree. A wrong expectation prints `UNEXPECTED` (pos1066 run `fixed`-tree/`unfixed`).
+- **The README's shell rows were run as written,** with each backend down after. Each printed what its row says (#1058 rc 0/2; #1068 rc 0 with the clear value and 664 / rc 1 and 600; #1060 rc 0 empty / rc 1; #1061 1/0; #1065 `0 0`; #1081 1/0).
+- `lint-audit-artifacts --phase pre-issue`: PASS. No change under `tools/`.

@@ -262,6 +262,12 @@ One row per tool: the input constructed to make it FAIL, the command, and the FA
 
 ## The streams' positives
 
+**Kept on the branch (the coordinator's ask on #660, 06:45 UTC):** every positive below can be re-run from `stage-e/` in this folder. The README there (`stage-e/README.md`) has a table with one row per positive: the driver or the shell command for the unfixed clone (`tools/` at `8a2518fa44`) and for the fixed tree, and the line each prints.
+- **The drivers:** `stage-e/pos1066`, `pos1060`, `pos1062`, `pos1063`, `pos1057`, `pos1059`, `pos1064`, `pos1069` and `pos1070` (`drive.py` each, sharing `stage-e/common.py`). Each takes the tool's path and `unfixed|fixed`, writes only under `$TMPDIR`, and prints one verdict line last: `pos<bug>: unfixed-expectation-met | fixed-expectation-met | UNEXPECTED ...`.
+- **The #1068 shims** are built by `stage-e/shim1068/build.sh <dir under $TMPDIR>`.
+- **All eighteen runs** (nine drivers in both states) met their expectation on 2026-10-25 at `cee4bf481d`. The README's shell rows were run as written.
+- The scratch versions under `/workspace/tmp/m6-t13/pos*/`, which the lines below were first produced with, are superseded by these.
+
 Stage E (the brief `docs/reviews/briefs/t13-streams.md` at `44fdec1e16`). Each bug's case is run first against the unfixed file (a shared clone at `8a2518fa44`, `/workspace/tmp/m6-t13/unfixed`, `tools/` checked out), then against the fix. Backends always run under the isolation environment; every case is taken down after, and the leftover check is in `00`. `proved:` tool-run for each.
 
 ### #1058 (S1): `--backend` after the subcommand
