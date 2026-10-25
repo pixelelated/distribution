@@ -16,7 +16,7 @@
 
 ## Current focus
 
-**Handed back; idle.** Stages A to H are done. The hand-back comment on #660 names the tip and each artifact by path. `reviewed-at` is `8a2518fa44`, `fixed-at` is `3a653eaec4`. The 17 bugs and #1073 have 0 open checkboxes, with evidence quoted on each issue (30 of them ticked at 08:50-08:58 after `box-check` found them open; the retro and #660 carry the correction). Both lints and the five pre-merge checks PASS. **Waiting on the coordinator:** acceptance, the hand-back merge, then the prompt for `audit-completion.json` and the full lint. Nothing is running, and nothing of the slice is under `/workspace/tmp/`.
+**T13 is closed out; the lane is idle.** It was accepted at `a7a5bb94aa` (09:01 UTC), and #1073 is closed as completed at 26 of 26. `docs/audits/2026_10_25-epic-m6-cloud-harness/audit-completion.json` and the receipts under `checks/phase7-closure/` are written. The lint with `--issue 1073` passes, and `ceremony-check` reads the marker with nothing overdue. The close-out tip is posted on #660. **Next:** T22's dispatch from the coordinator. Nothing of T13 is running or under `/workspace/tmp/`.
 
 - **Guest criteria met:** #1062 (KILL1 to its verdict), #1064 (128 ES paths), #1065 (CAP13 present PASS / absent FAIL, after `a70b4889a3` corrected the needle in-window), #1069 (A15 to its verdict, the backup lands), #1070 (KILL5 at keep 3 and 2). #1057 met in the second window.
 - **Found by the cycle, for stage F:**

@@ -271,3 +271,10 @@ The image for the guest-cycle request, read only: `pixelelated-GENERIC_X64.x86_6
 - A lead, named on #1060 and not claimed: the direct `put`s at `cloud-round-trip:1740-1820` do not check their exit.
 - The retro carries a correction paragraph, the correction is posted on #660, and a friction line was added.
 - The hand-back scratch `/workspace/tmp/m6-t13h/` (the `8ebaf8daad` export, shims and evidence drafts, 4,077,126 bytes, all posted) was removed at 09:00. Nothing of the slice remains under `/workspace/tmp/`.
+
+## 2026-10-25 09:01-09:04 UTC -- close-out (the coordinator's 09:01 acceptance at `a7a5bb94aa`)
+
+- #1073 was read back closed as completed at 09:01:31Z, 26 ticked and 0 open (`checks/phase7-closure/1073-readback.json`). `tools/lint-audit-artifacts <this folder> --issue 1073 --repo pixelelated/distribution` printed `PASS` (`resolution-lint.*`).
+- `tracker-states.json` holds the state, close reason, body sha256 and checkbox counts of #1073, the 17 fixed bugs (open, fixed, 0 open checkboxes, awaiting `next`) and the 8 deferred issues. `tracker-completion.json` is PASS, verified 09:02:33.297837Z.
+- `audit-completion.json` (schema 1, issue 1073, `completed_at` equal to the receipt) binds `02`, `04`, `05` and the four receipts by sha256. `ceremony-check`'s own validator accepts it, and the full report reads `audit ... via #1073` and `nothing overdue` (`ceremony.stdout`).
+
