@@ -16,16 +16,30 @@
       "effort": "max",
       "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
       "allow_fallbacks": false,
-      "calls": [{"phase": "refutation", "output": "gpt-audit.md"}],
-      "probes": [{"phase": "probe", "output": "gpt-probe.md"}],
-      "status": "planned: the probe, then one refutation pass, at stage C"
+      "calls": [
+        {
+          "phase": "refutation",
+          "output": "gpt-audit.md"
+        }
+      ],
+      "probes": [
+        {
+          "phase": "probe",
+          "output": "gpt-probe.md"
+        }
+      ],
+      "status": "complete: probe PASS 08:20:02-08:20:15Z and refutation PASS 08:20:30-08:31:51Z on the first attempt (served openai/gpt-6-astra by OpenAI, effort max, 25137 reasoning tokens, outcome success, finish stop); packet scanned 0 hits, 4 lines masked, no redaction; 36 items graded in 04 \u00a7 Second opinion"
     }
   ],
   "packets": {
     "gpt": {
       "file": "gpt-brief.md",
+      "bytes": 133289,
+      "sha256": "a36741bf74103e16ed73644a61147404f0d1836607a8faae1ea926198566c740",
       "manifest": "packet-manifest.json",
-      "content": "planned: the ask, 02, 03 and 04 whole, the context sections, the 8 read files (masked), the defconfigs, kernel-firmware.dat, the 15 DTS and the configuration's diff against upstream's copy"
+      "content": "the ask, 02/03/04 whole, five context sections, the 26 slice files that are not the configuration or the .disabled patch, the configuration's header and its diff against upstream's copy, the .disabled patch's first 12 lines, and 12 excerpts; every source passed the masking sed's rule",
+      "scan": "forbidden-terms-check --stdin 0 hits; SECRET_PATTERNS 0 lines under three sets, each shown to fire on a run-time fake line; 4 lines masked; no redaction"
     }
-  }
+  },
+  "facilitator_version": "council-facilitator@1.14.1-pixelelated.2"
 }
