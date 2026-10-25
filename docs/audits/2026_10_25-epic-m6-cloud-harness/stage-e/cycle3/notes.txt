@@ -1,0 +1,6 @@
+T13 third window (granted 08:34 UTC on #660; one guest, 15-minute bound)
+- booted 08:34:56 UTC: tools/vm-pair reimage a <M6 image>, BUILD_ID 069fc270442134fe771258418adf4e666e0473fb, :10022; qemu 0 -> 1
+- START on #660 (issuecomment-6395469990)
+- KILL1 on the tools at 3a653eaec4, QA WebDAV on 9080 with --bwlimit 200k (read off the server's cmdline): rc 0, 22 passed, 0 failed, 0 skipped, 247 s (f-kill1.out). Both re-runs exited 0 with whole v2: the drained face did not occur on this run, so the SKIP branch has been seen on the host only (stage-e/pos1092); the first cycle's 1a (the cut file not v2 after the re-run) did not recur
+- A15 on the same tools and endpoint: rc 0, 38 passed, 0 failed, 0 skipped (f-a15.out); the lines the two checks read, from guest a's /var/log/cloud_sync.log through the credential filter: guest-a-restore-lines.txt
+- guest stopped by vm-pair down (owned pid) at 08:40:44 UTC; webdav down; leftover check clean (leftover.txt)

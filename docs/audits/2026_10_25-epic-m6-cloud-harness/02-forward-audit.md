@@ -488,3 +488,13 @@ Unfixed, A, B and C all FAIL, and D's line names only the file. **1a on the firs
 | A5, RETENTION across a and b over WebDAV (#1057) | `8a2518fa44`: rc 1, `FAIL no record.json ever appeared ... (apply said: "setsid: can't execute 'cloud_reconcile' ...")` with `PASS the head is unchanged` and `PASS the device's copy was not replaced before the loser was verified` under it | rc 0: `SKIP A5: cloud_reconcile is not on this image ...` and `SKIP RETENTION: ...`; no PASS line from inside either cell; `11 passed, 0 failed, 2 skipped` (setup and the per-guest no-litter checks) | **#1057 met** | guest (`cycle2/u-a5-retention.out`, `f-a5-retention.out`) |
 
 G-1's `rclone exit 5` was not reproduced and is not in either cycle's retained record. The first cycle's G-1 text quoted it from the guest log read in-window, and that log was not kept. G-2 and G-3 are not exercised here; they are stage F's.
+
+## The third window
+
+**The window:** granted by the coordinator on #660 at 08:34 UTC, one guest with a 15-minute bound. START was posted on #660 at 08:35. Guest a booted at 08:35 with `tools/vm-pair reimage a` from M6's image (BUILD_ID `069fc270442134fe771258418adf4e666e0473fb`). It was stopped at 08:40:44 by `tools/vm-pair down` (`owned QEMU exited`). WebDAV was down, and the leftover check read zero on every line (`stage-e/cycle3/leftover.txt`).
+
+| Step | Fixed (`3a653eaec4`) | Verdict | Where |
+| --- | --- | --- | --- |
+| KILL1, QA WebDAV `--bwlimit 200k` (read off the server's cmdline) | rc 0, `22 passed, 0 failed, 0 skipped`, 247 s. 1a cut `kill1-3`, 1b cut `kill1-2`; both re-runs exit 0 and leave whole v2 | **#1092 met**, with two limits. The drained face did not occur, so its SKIP branch is proven on the host only (`pos1092`). The first cycle's 1a did not recur, and that is a keep-an-eye-on on #1092. The re-runs' output is kept this time | guest (`cycle3/f-kill1.out`, `cycle3/dump-kill1/`) |
+| A15, the same endpoint | rc 0, `38 passed, 0 failed, 0 skipped`; `PASS and the log names the folder it took and why`, `PASS and says it restored from the device's own folder` | **#1093 met**; the lines read are the image's own (`... (previous device folder)`, the WARN, `... (current device folder)`) | guest (`cycle3/f-a15.out`, `guest-a-restore-lines.txt`) |
+

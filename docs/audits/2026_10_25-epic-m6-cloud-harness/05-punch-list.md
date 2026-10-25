@@ -492,14 +492,14 @@ punch_index:
   question: Q3
   source_finding: "G-2"
   tracked: "#1092"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-26
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "G-3"
   tracked: "#1093"
-  outcome: "open"
+  outcome: "resolved"
 ```
 
 ## Phase 7 resolution gate
@@ -532,5 +532,5 @@ After the guest cycle (#660: START 07:52, RETURN 08:10 UTC; the record `stage-e/
 | PL-22 | Resolved | `bf2832ce5b` (#1081) |
 | PL-23 | Deferred | #1079 |
 | PL-24 | Deferred | #1080 |
-| PL-25 | Open | fixed in `3a653eaec4` (#1092). The host positive `stage-e/pos1092` gives A SKIP, B FAIL, C FAIL, and D's after-line names `TORN (n bytes)`; unfixed, all three FAIL. LINK's judgement is unchanged over 72 input combinations. The guest criterion waits for a window: KILL1 on one QA guest, which also reads 1a's after-re-run state |
-| PL-26 | Open | fixed in `07c37ec2ed` (#1093). The host positive `stage-e/pos1093` has both checks passing the shipped lines (selector: `previous`, then `current`) and failing the pre-`f864baac02` wording; unfixed, the reverse. The guest criterion waits for a window: A15 on one QA guest |
+| PL-25 | Resolved | fixed in `3a653eaec4` (#1092). Host: `stage-e/pos1092` gives A SKIP, B FAIL, C FAIL, and D names `TORN (n bytes)`; unfixed, all three FAIL. LINK is unchanged over 72 combinations. Guest, third window (`stage-e/cycle3/`): KILL1 to its verdict at 200k, 22/0/0; both re-runs exited 0 with whole v2. The drained SKIP branch was seen on the host only, and the first cycle's 1a did not recur; it is a keep-an-eye-on on #1092. All #1092 checkboxes ticked |
+| PL-26 | Resolved | fixed in `07c37ec2ed` (#1093). Host: `stage-e/pos1093` (shipped pass, old wording fails; unfixed, the reverse). Guest, third window: A15 38/0/0, both checks PASS on the image's own lines (`cycle3/guest-a-restore-lines.txt`). All #1093 checkboxes ticked |

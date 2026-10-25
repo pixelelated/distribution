@@ -250,3 +250,8 @@ The image for the guest-cycle request, read only: `pixelelated-GENERIC_X64.x86_6
 - 04 § Q3 carries G-1..G-4; 05 adds PL-25 and PL-26, Open until a guest runs KILL1 and A15. The resolution lint FAILs on exactly those two, which is the true state; pre-issue PASS.
 - Stage F's scratch is a new `/workspace/tmp/m6-t13/` (`tmp/`, the `c66b325ece` copy of the tool, the issue bodies).
 
+## 2026-10-25 08:34-08:42 UTC -- the third window (granted 08:34 on #660)
+
+- The isolation environment was recreated under `/workspace/tmp/m6-t13/` (retired at 08:25). One guest was booted; START was posted at 08:35. KILL1 at 200k gave 22/0/0; it did not meet the drained face, and 1a did not recur. A15 gave 38/0/0. The guest was stopped by owned pid at 08:40:44, the backend brought down, and the leftover check came back clean. Record: `stage-e/cycle3/`, 02 § The third window.
+- #1092's and #1093's guest checkboxes are ticked, and their issues have no open checkboxes left. 05 has PL-25 and PL-26 Resolved: 18 resolved, 8 deferred, 0 open.
+
