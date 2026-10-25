@@ -78,3 +78,13 @@
   - Attached as a sub-issue of #672 (REST id 6023277637; readback lists it under #672).
   - `tools/box-check --issue 1102`: 5 open checkboxes, 0 fail.
 - **The pause:** the punch list posted on #672, asking for the coordinator's dispositions. No stream is expected: nothing here changes.
+
+## [Stage E-F] 10:12 to 10:14 UTC — the dispositions recorded; no stream; the re-derivations at the tip
+
+- **The dispositions** (coordinator, #672, issuecomment-6396356786, 10:12:11 UTC):
+  - PL-01 deferred to #1101, a new Backlog issue, because its direction is opposite to #1086's;
+  - PL-02 deferred to #346, posted by the coordinator at 10:12:12 UTC with `05` § PL-02's text;
+  - PL-03, PL-04 and PL-05 resolved as records. A deferral needs an owning issue, and the merge has none yet.
+  - **No stream:** `fixed-at` is the hand-back commit.
+- **`05`:** each item's note, the index (`deferred:#1101`, `deferred:#346`, `resolved` ×3) and the Phase 7 table. **The resolution lint:** `PASS`, and `PASS` with `--issue 1102`.
+- **Stage F:** `stage-f/runs.sh`, 12 steps from 10:13:28 UTC, all exit 0; results in `02` § Stage F.

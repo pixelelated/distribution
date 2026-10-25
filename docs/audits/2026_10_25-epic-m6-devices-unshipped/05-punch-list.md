@@ -29,7 +29,7 @@ Nothing in this list deletes, moves or edits a file under `packages/` or `projec
 - **Can this be done on the VM?** Yes, for the payload: T11's guest kernel already shows the 153 entries. The reach verdict itself is a tree read.
 - **Already written:** nothing: the inventory is regenerated, not migrated, and no image changes.
 - **Acceptance:** the coordinator files or names the issue that owns the shape (#1086 or a new one), and that issue cites `02` F-01's four rows and `generic-dsi`'s two missing targets; this table's dispositions read `reached after all` and `unshipped: target AMD64` for the four (`tools/t25-tables.py counts` prints `dead 203 reached after all 2 shadowed 9 unshipped 183 total 397`).
-- **Disposition note:** open
+- **Disposition note:** deferred:#1101, the coordinator's Backlog for the inventory's unpack-edge shape, its own issue because the direction is opposite to #1086's ([issuecomment-6396356786](https://github.com/pixelelated/distribution/issues/672#issuecomment-6396356786), 10:12:11 UTC). This table's *reached after all* and `unshipped` dispositions stand; the dead class is 203.
 
 ## PL-02: 203 dead upstream-carried rows, put to the maintainer as one class (the #346 proposal)
 
@@ -57,7 +57,7 @@ Nothing in this list deletes, moves or edits a file under `packages/` or `projec
 - **Can this be done on the VM?** No: these are files no image carries; the tree and the record show it (brief § 5).
 - **Already written:** nothing: no configuration builds them and no image carries them.
 - **Acceptance:** #346 carries the coordinator's post with these counts (203 rows; 5,471 lines; 301,712 bytes; 172 / 14 / 16 / 1) and a link to `04` § Q6; `git diff --diff-filter=DR --name-only 8ebaf8daad <fixed-at> -- projects packages` is empty.
-- **Disposition note:** open
+- **Disposition note:** deferred:#346, posted by the coordinator with § PL-02's text as written, beside T23's and T40's halves of the class decision ([issuecomment-6396356942](https://github.com/pixelelated/distribution/issues/346#issuecomment-6396356942), 10:12:12 UTC; disposition [issuecomment-6396356786](https://github.com/pixelelated/distribution/issues/672#issuecomment-6396356786), 10:12:11 UTC). The lane posted nothing on #346.
 
 ## PL-03: RK3566 and RK3326, the first widening, held
 
@@ -77,7 +77,7 @@ Nothing in this list deletes, moves or edits a file under `packages/` or `projec
 - **Can this be done on the VM?** No: a disposition of a target, read from the tree and the decision register.
 - **Already written:** nothing: no fork edit in either directory.
 - **Acceptance:** `04` § Q6's RK3566 and RK3326 rows read `unshipped: first widening, held (D-WORKFLOW-185)`; `git diff --stat 8ebaf8daad <fixed-at> -- projects/ROCKNIX/devices/RK3566 projects/ROCKNIX/devices/RK3326` is empty.
-- **Disposition note:** open
+- **Disposition note:** resolved as a record at `fixed-at` (the hand-back commit; the record stands at `0eeee75595`, where `git diff --stat 8ebaf8daad 0eeee75595 -- projects/ROCKNIX/devices/RK3566 projects/ROCKNIX/devices/RK3326` is empty). D-WORKFLOW-185; no change ([issuecomment-6396356786](https://github.com/pixelelated/distribution/issues/672#issuecomment-6396356786), 10:12:11 UTC).
 
 ## PL-04: `packages/linux/package.mk`, a fork edit in a shadowed dead copy
 
@@ -95,7 +95,7 @@ Nothing in this list deletes, moves or edits a file under `packages/` or `projec
 - **Can this be done on the VM?** No: a recipe no target resolves; the tree shows it.
 - **Already written:** nothing inherited: the generic recipe built for no target.
 - **Acceptance:** `04` § Q6's `packages/linux` row carries `fork-own edit in a shadowed dead copy; Already written: nothing inherited`; `git diff 8ebaf8daad <fixed-at> -- packages/linux/package.mk` is empty.
-- **Disposition note:** open
+- **Disposition note:** resolved as a record at `fixed-at` (the record stands at `0eeee75595`; `git diff 8ebaf8daad 0eeee75595 -- packages/linux/package.mk` is empty). The generic copy's removal is upstream-carried, #346's class, not proposed here ([issuecomment-6396356786](https://github.com/pixelelated/distribution/issues/672#issuecomment-6396356786), 10:12:11 UTC).
 
 ## PL-05: 39 rows drifted and 226 files across the targets; S922X's loader moves to mainline upstream
 
@@ -115,7 +115,7 @@ Nothing in this list deletes, moves or edits a file under `packages/` or `projec
 - **Can this be done on the VM?** No: an unshipped target's recipes, read from the tree; no image carries them.
 - **Already written:** nothing: no image builds these targets.
 - **Acceptance:** the coordinator names the merge that carries `651150fc88` (or later) into `next`; after it, `git diff --stat 651150fc88 next -- projects/ROCKNIX/devices/S922X/packages projects/ROCKNIX/packages/tools/atf/package.mk` is empty.
-- **Disposition note:** open
+- **Disposition note:** resolved as a record at `fixed-at`: the drift is stated against `651150fc88` by name, and the coordinator carries it into the merge notes (S922X's mainline u-boot with `amlogic-boot-fip`'s FIP; RK3399's `atf` seam beside T27's PL-02; the Qualcomm boot path's merge questions are #1099). A deferral needs an owning issue and the merge has none yet ([issuecomment-6396356786](https://github.com/pixelelated/distribution/issues/672#issuecomment-6396356786), 10:12:11 UTC).
 
 ## Machine-readable index
 
@@ -126,44 +126,48 @@ punch_index:
   category: Renovation
   question: Q6
   source_finding: "F-01"
+  tracked: "#1101"
   owner_area: "fork-own tool, outside the slice: `tools/renovation-inventory` (P1's)"
-  outcome: "open"
+  outcome: "deferred:#1101"
 - id: PL-02
   severity: Info
   category: Renovation
   question: Q6
   source_finding: "F-02"
+  tracked: "#346"
   owner_area: "upstream's: the nine LibreELEC projects, the DVB addons, the unbuilt firmware, `dtbocfg`"
-  outcome: "open"
+  outcome: "deferred:#346"
 - id: PL-03
   severity: Info
   category: Renovation
   question: Q6
   source_finding: "F-03"
   owner_area: "the shipped-device set (D-WORKFLOW-185)"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-04
   severity: Info
   category: Renovation
   question: Q6
   source_finding: "F-04"
   owner_area: "fork-own line in a dead upstream copy (`packages/linux/package.mk:132`)"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-05
   severity: Info
   category: Renovation
   question: Q4
   source_finding: "F-05"
   owner_area: "upstream's, via the next base merge"
-  outcome: "open"
+  outcome: "resolved"
 ```
 
 ## Phase 7 resolution gate
 
+The coordinator's stage-D dispositions (#672, [issuecomment-6396356786](https://github.com/pixelelated/distribution/issues/672#issuecomment-6396356786), 10:12:11 UTC): no stream, so `fixed-at` is the hand-back commit. Each was read back from the tracker at stage F.
+
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | the coordinator's disposition at the stage-D pause |
-| PL-02 | Open | the coordinator's disposition at the stage-D pause |
-| PL-03 | Open | the coordinator's disposition at the stage-D pause |
-| PL-04 | Open | the coordinator's disposition at the stage-D pause |
-| PL-05 | Open | the coordinator's disposition at the stage-D pause |
+| PL-01 | **Deferred** | deferred:#1101 (*Backlog: the inventory's reach misses the kernel recipe's unpack edges*, open). It cites `intel-ucode` reached for GENERIC_X64 through `config/functions:789-798` and `generic-dsi` compiled for RK3576. `tools/t25-tables.py counts` prints `dead 203 reached after all 2 shadowed 9 unshipped 183 total 397` |
+| PL-02 | **Deferred** | deferred:#346, the coordinator's post ([issuecomment-6396356942](https://github.com/pixelelated/distribution/issues/346#issuecomment-6396356942), 10:12:12 UTC) with `05` § PL-02's counts (203 rows; 5,471 lines; 301,712 bytes; 172 / 14 / 16 / 1). `git diff --diff-filter=DR --name-only 8ebaf8daad 0eeee75595 -- projects packages` prints nothing |
+| PL-03 | **Resolved** | recorded at `0eeee75595`, carried to `fixed-at`: `04` § Q6's RK3566 and RK3326 rows read `unshipped: first widening, held (D-WORKFLOW-185)`; their directories' diff from `8ebaf8daad` is empty |
+| PL-04 | **Resolved** | recorded at `0eeee75595`, carried to `fixed-at`: `04` § Q6's `packages/linux` row carries `fork-own edit in a shadowed dead copy; Already written: nothing inherited`; `git diff 8ebaf8daad 0eeee75595 -- packages/linux/package.mk` is empty |
+| PL-05 | **Resolved** | recorded at `0eeee75595`, carried to `fixed-at`: `02` F-05 and § The pins state the drift against `651150fc88` by name. The coordinator carries it into the merge notes, and the Qualcomm boot path's questions are #1099 |

@@ -388,6 +388,25 @@ Every proof is a `PROOF:` line of `00-running-log.md` with the same number. Its 
 | The edge sweep (`edges`) | a new edge from a shipped or test file the script does not name |
 | `check` | a hand edit inside a generated block |
 
+## Stage F: the re-derivations at the tip (10:13:28 to 10:13:45 UTC)
+
+`stage-f/runs.sh`, 12 steps, all exit 0, at the tip `0eeee75595` (with `05`'s outcomes uncommitted, the one changed file):
+
+| Step | Result |
+| --- | --- |
+| f02 the block | unchanged: `paths 397 lines 49555 {'unreached': 216, 'unshipped': 181} {'upstream-carried': 396, 'fork-own': 1}`, `units 25`, `shadowed 9` |
+| f03 branch vs hash | `[]` |
+| f04 the removal rule | `git diff --stat 8ebaf8daad HEAD -- packages projects tools/pkgcheck` and `git diff --stat b27889bce2 HEAD -- packages projects tools` both empty |
+| f05, f06 the generated files | `check` same on `02` and `04` |
+| f07 counts | `dead 203 reached after all 2 shadowed 9 unshipped 183 total 397` |
+| f08 the greps | coverage 397; 14 proofs and 14 proof lines |
+| f09 provenance | `1 M packages/linux/package.mk` against the base; 39 M against `651150fc88` |
+| f10 the control | `78:H700:`, `98:SM8550:` |
+| f11 the tracker | #1101 open (PL-01's owner); the #346 post at 10:12:12Z carries 203, 5,471 and 301,712; #1102 open with `audit`, `punch-list` and M6, and listed under #672 |
+| f12 the lint | `tools/lint-audit-artifacts <folder> --issue 1102` → `PASS` |
+
+Every verdict above stands at the tip. Each of the five outcomes in `05` cites its post.
+
 ## Coverage: one row per path (397)
 
 *Reach* is the inventory's column at `2174265e9c` (generated at `eb4763e3cc`). *Reach read* names what decided it; *Disposition* is the verdict in D-WORKFLOW-209's words, and `04` § Q6 carries it per unit. The `proved` column is the row's evidence kind.
