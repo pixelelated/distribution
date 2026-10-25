@@ -1,0 +1,4 @@
+if [ -f "/usr/lib/autostart/quirks/devices/${QUIRK_DEVICE}/bin/ledcontrol" ]; then
+  exec "/usr/lib/autostart/quirks/devices/${QUIRK_DEVICE}/bin/ledcontrol" $*
+elif [ -f "/usr/lib/autostart/quirks/platforms/${HW_DEVICE}/bin/ledcontrol" ]; then
+  exec "/usr/lib/autostart/quirks/platforms/${HW_DEVICE}/bin/ledcontrol" $*

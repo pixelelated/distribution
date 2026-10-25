@@ -1,0 +1,3 @@
+1:if [ -d "/usr/lib/autostart/quirks/devices/${QUIRK_DEVICE}" ]
+5:  for script in "/usr/lib/autostart/quirks/devices/${QUIRK_DEVICE}"/*
+8:    if [ -f "${script}" ]

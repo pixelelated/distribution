@@ -1,0 +1,6 @@
+  cp -r ${PKG_DIR}/devices/* ${INSTALL}/usr/lib/autostart/quirks/devices
+  if [ -d "${PKG_DIR}/platforms/${DEVICE}" ]
+  then
+    cp -r ${PKG_DIR}/platforms/* ${INSTALL}/usr/lib/autostart/quirks/platforms
+  fi
+  chmod -R 0755 ${INSTALL}/usr/lib/autostart/quirks

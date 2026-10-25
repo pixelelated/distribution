@@ -16,12 +16,15 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope (the block of brief § 2 with its output and
-the § 5 runs' figures), this pointer updated, and the day's work-log entry
-headed `#676` (prose through a quoted heredoc or the Write tool).
-`.qa-scratch/` is gitignored and `git status --short` is read before every
-`git add -A`. No network is used except the seat's two keyed invokes.
+**Stage A complete; stage B next** (updated 2026-10-25, 11:50 UTC).
+- **`reviewed-at`:** `5ee0dfefcf`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-os-device-quirks/`, with `00`, `01` (§ Scope) and `stage-a/` (22 runs, all rc 0).
+- **Deltas from the brief:** 26 distinct boards, not 28; P1's 15 tools files in the first command's diff.
+- **Next (stage B):**
+  - the generator under the audit folder's `tools/`: the 88 entries asserting 333 / 88 / 65 / 23, and coverage 333;
+  - § The selection, § The tiers, § The fork-own five, § The shape, § The upstream delta, § The runs;
+  - tier B read line by line;
+  - `03` and `04`.
+- **Running for this lane:** nothing.
 
 ## Next commands
 

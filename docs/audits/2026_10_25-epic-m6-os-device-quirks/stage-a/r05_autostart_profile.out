@@ -1,0 +1,7 @@
+if [ -e "/sys/firmware/devicetree/base/model" ]
+then
+  export QUIRK_DEVICE="$(strings /sys/firmware/devicetree/base/model)"
+else
+  export QUIRK_DEVICE="$(strings /sys/class/dmi/id/sys_vendor) $(strings /sys/class/dmi/id/product_name)"
+fi
+export QUIRK_DEVICE="$(echo ${QUIRK_DEVICE} | sed -e "s#[/]#-#g")"

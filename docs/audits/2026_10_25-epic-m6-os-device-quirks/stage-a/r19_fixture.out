@@ -1,0 +1,5 @@
+68
+16:source = repo/'projects/ROCKNIX/packages/hardware/quirks/devices/Retroid Pocket Nova/bin'
+32:sleep() { cat "$LED_PATH"/multi-*/leds/*/brightness >> "$QA_ROOT/sleep-brightness"; QA_SLEEP_COUN
+38:        text=text.replace('LED_PATH="/sys/devices/platform/"','LED_PATH="${LED_PATH:-/sys/devices
+41:    env=dict(os.environ, LED_PATH=str(led), QA_ROOT=str(root), QA_SETTINGS=str(settings), BATTERY

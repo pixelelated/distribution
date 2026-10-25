@@ -1,0 +1,58 @@
+# Running log — M6.P2 T29, the per-handheld quirks (#676)
+
+- **Executor:** Opus 5.5 (`claude-opus-5-5`) at high effort, the T5 session (`m6-t5-build-engine`), after T28's close-out.
+- **Brief:** `docs/reviews/briefs/os-device-quirks.md`, version 2 (`feefe8fd13`). **Dispatch:** the coordinator's comment on #676, 11:47 UTC on 2026-10-25 (issuecomment-6397234711).
+- **Depth:** Independent, with one seat (GPT-6 Astra at `max`) over a trimmed, scanned packet (D-WORKFLOW-195).
+  - **Exactly one keyed `tools/council/run invoke` pair:** the probe and the refutation, at stage C.
+  - Every other `tools/council/run` call runs with `COUNCIL_ENV_FILE=/nonexistent`.
+- **`reviewed-at`:** `5ee0dfefcf`, the dispatch tip. The read is of `8ebaf8daad`'s bytes: the branch-vs-hash diff over the 333 is empty (r03, path-safe with `xargs -0`), and so is `git diff --stat 8ebaf8daad HEAD -- packages projects`. Upstream is read at `651150fc88` and the base at `c445081a59`, locally. No fetch.
+- **Can this be done on the VM? Yes, on the host, with no network.**
+  - Every read and count runs on the build host at `8ebaf8daad`, with `651150fc88` read locally.
+  - A `bin/` helper's behaviour is proven with `tools/nova-led-test`'s fixture shape (sysfs under a scratch root), never on the Nova.
+  - The VM's two files' control flow is T22's guest record, cited.
+  - A boot-only behaviour the lane names can ask for one window on #676. **No guest is planned.** Nothing runs on a person's device (D-QA-015).
+- **What never runs here:** a build, a compiler, a plan generation, a fetch, a network read of any upstream, a guest outside a window granted on #676, a command against a handheld, an M7 build root read, a keyed `tools/council/run` call beyond the seat's two, or a change under `packages/`, `projects/` or `tools/` at stages A to D.
+- **Counts are taken unfiltered.** The credential filter drops lines carrying `user` or `key`; only a quoted line goes through the mask.
+- **The host:** the host file's last line at 11:48 is the coordinator's 10:24 UTC *T22 SECOND GUEST WINDOW RETURN ... M6 runs no guest now*. Census: qemu live 0; `/tmp` inodes 41 %.
+- **Scratch:** `TMPDIR=/workspace/tmp/m6-t29/tmp`, `.qa-scratch/t29/`; copies in `stage-a/`.
+- **Proofs:** each proof in `02`'s § Proofs has one numbered proof line here, in its stage.
+
+## [Stage A] 11:48:01 to 11:50 UTC — the first commands, the block, the runs
+
+- **The first commands** (brief § 1), 11:48:01:
+  - the status is clean (0);
+  - the tip is `5ee0dfefcf`, on `453e25a000` and `feefe8fd13`;
+  - stacked on `8ebaf8daad` and on P1's `2174265e9c`;
+  - `651150fc88` is present; T22's `02` is reachable (994 table rows); `register-check` ok.
+  - **Delta:** `git diff --stat 8ebaf8daad HEAD -- packages projects tools` is not empty but `15 files changed, 2130 insertions(+), 8 deletions(-)`. All 15 are P1's own files under `tools/` (`renovation-inventory` and the lint's renovation fixtures, `9966dbcd12` to `61d1d016eb`, #641). Under `packages projects` the diff is empty, so the 333 are untouched.
+- **The runs:** `stage-a/runs.sh`, 22 steps, each with its exit and wall time (`stage-a/runs.tsv`). **All exit 0.**
+  - The brief's three Python blocks are copied verbatim (`scope.sh`, `tiers.sh`, `shape.sh`).
+  - r21 and r22 are the lane's additions: the four `model` strings patch `0154` carries, and the board count.
+- **The block** (r01, r02):
+  - `paths 333 lines 10175 {'shipped': 333} {'upstream-carried': 328, 'fork-own': 5}`;
+  - `{'symlink': 48, 'shell': 266, 'none': 12, 'other': 7}`;
+  - `read 266 9327 fork-own 5` (the brief's "fork-own 389" is lines; the block prints the five paths);
+  - `entries 88 of which top-level symlinks 23`; `paths.txt` 333, `entries.tsv` 88.
+- r03 `[]`. r04: 88 entries, 23 top-level symlinks, 48 symlinks in all.
+- **The selection lines** (r05 to r08): `002-autostart:6-12`, `autostart:31-43` (its `-f` at the window's line 8), `package.mk:15-20`, and the wrapper's `exec ... $*`.
+- **The boards** (r09 to r11, r21, r22):
+  - 28 `model =` lines in all: 24 in the fork trees and 4 in patch `0154`'s context. One is the `AYN-Thor` sub-node, and `Anbernic RG34XX-SP` appears twice.
+  - **26 distinct boards: 15 HAS, 11 NONE.** NONE are RG28XX, RG34XX, RG34XX-SP, RG35XX Pro, RG-SP, AYANEO Pocket S 1K, AYN Odin 2 Mini, and `0154`'s RG35XX 2024, H, Plus and SP.
+  - **`Anbernic RG35XX SP` and `Anbernic RG-SP`, the two owned H700 units, select no device entry.** The QEMU DMI pair HAS.
+  - **Delta:** the brief's "29 `model =` strings ... of the 28 boards" counts lines (28) and boards wrongly. Its loop read only the trees, so the four `0154` strings were added as r21.
+- r12 **the tiers:** `A (6, 396, 5)`, `B (70, 2885, 5)`, `rest 263`.
+- **History:**
+  - r13, over the 333: 6 fork commits since the base; since June 28 non-merge, 6 the fork's.
+  - r14, over the directory: 9; 32, 9 the fork's.
+- **The delta:**
+  - r15: `16 A 3 D 12 M`, 18 commits pending, 12 without merges.
+  - r16: `AYN Thor/040-panel_calibration` and `Retroid Pocket 6/040-panel_calibration`.
+- **The shape** (r17):
+  - modes `120000 48, 100755 214, 100644 71`, 285 blobs;
+  - shebangs `#!/bin/sh` 256, `#!/bin/bash` 10, 266 shell files;
+  - over the blobs: `/storage` 156, `DEVICE_` 104, `/etc/profile` 89, `set_setting` 46, `/sys` writers 32, guard 1;
+  - over the shell: 145, 101, 89, 46, 32, 1.
+- r18: `050-game-configs` 16, `050-game_configs` 12. r19: `tools/nova-led-test` 68 lines, naming the Nova's `bin` (`:16`). r20: `[]` against the dispatch tip.
+- **Nothing of the never-run list ran.**
+- PROOF: P1, the membership: r01, r02, r04.
+- PROOF: P2, the history and the delta: r13 to r16.
