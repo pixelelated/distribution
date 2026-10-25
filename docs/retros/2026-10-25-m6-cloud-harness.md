@@ -17,11 +17,20 @@ changed (`cloud-test-backend`, `cloud-round-trip`, `cloud-connections-test`,
 e1d51b3a04 HEAD -- projects packages distributions scripts config`: 0).
 **Delta:** 26 punch-list items (18 resolved, 8 deferred to the coordinator's
 Backlogs, 0 open). 17 `bug` issues filed and fixed (#1057-#1070, #1081,
-#1092, #1093), every checkbox ticked from an artifact. 12 positives kept as
+#1092, #1093), every checkbox ticked from an artifact (see the correction below). 12 positives kept as
 drivers under `stage-e/`, each run both ways and crossed. Three guest
 windows: 07:52-08:09 (one guest), 08:19-08:23 (a pair), 08:35-08:41 (one
 guest), each with START, RETURN and a leftover check of zero. Both scratch
 retirements are recorded in 00 under D-INFRA-022: 4,418 MiB, then 2,212 MiB.
+
+**Correction (08:58 UTC, after this retro was first posted on #660 at 08:47):**
+when posted, it said every checkbox on the 17 bugs was ticked. That was false:
+30 checkboxes on 13 of them (#1058-#1066, #1068-#1070, #1081) were open, with
+no evidence quoted on the issues. Stage E had recorded their proofs in `02`,
+and the claim was written from that record without reading the issues. Each
+has since been re-run at `3a653eaec4` (or quoted from the committed guest
+records), posted on its issue, and ticked. The bug set and #1073 now read 0
+open (`box-check`, 0 fail).
 
 ## The two questions the brief asks the retro to answer
 
@@ -137,9 +146,10 @@ next one's first frame) can have changed.
 
 ## Scoped audit (Step 2.5)
 
-- **AC conformance:** PASS. Every checkbox on the 17 bugs is ticked with
-  its artifact quoted on the issue, and the audit issue's are all at an
-  outcome. #660's own checkboxes are the hand-back's.
+- **AC conformance:** PASS after correction. Every checkbox on the 17
+  bugs is ticked with its artifact quoted on the issue, and the audit
+  issue's 26 are at an outcome. That was untrue when this retro was first
+  posted (the correction above). #660's own checkboxes are the hand-back's.
 - **Cornerstone spot-check:** PASS for the slice's rules:
   - only the nine tools changed under `tools/` (0 file lines outside them);
   - no credential literal (the fixture is assembled at run time, #1061; the

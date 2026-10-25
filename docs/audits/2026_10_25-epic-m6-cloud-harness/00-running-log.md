@@ -264,3 +264,10 @@ The image for the guest-cycle request, read only: `pixelelated-GENERIC_X64.x86_6
 - **df on /workspace:** 1,657,831,952,384 bytes available before, 1,660,151,803,904 after, a measured recovery of 2,319,851,520 bytes (2,212 MiB). Before and after were read about a minute apart on a shared volume.
 - **Kept:** the M6 image and the donor rclone under `/workspace/artifacts/`. Nothing of this slice remains under `/workspace/tmp/`.
 
+## 2026-10-25 08:50-08:58 UTC -- hand-back prep: 30 open checkboxes found and ticked from evidence; the retro corrected
+
+- `tools/box-check` on the bug set read 30 open checkboxes on 13 bugs (#1058-#1066, #1068-#1070, #1081). Their proofs were in 02 from stage E but had never been quoted on the issues, so the retro's claim (posted 08:47) was false. I re-ran each case at `3a653eaec4` against `git archive 8ebaf8daad` under a scratch `/workspace/tmp/m6-t13h/`, quoted the guest lines from `stage-e/cycle*/`, posted one comment per issue, and ticked. The bug set and #1073 now read 0 open, 0 fail.
+- New in the record: `stage-e/pos1081-ast.py` (the AST read of `cloud-census`'s constants) and #1068's absent-rclone stand-in (exit 127) beside the README's shim. The unfixed `pass =` line was compared with the clear default without printing either.
+- A lead, named on #1060 and not claimed: the direct `put`s at `cloud-round-trip:1740-1820` do not check their exit.
+- The retro carries a correction paragraph, the correction is posted on #660, and a friction line was added.
+- The hand-back scratch `/workspace/tmp/m6-t13h/` (the `8ebaf8daad` export, shims and evidence drafts, 4,077,126 bytes, all posted) was removed at 09:00. Nothing of the slice remains under `/workspace/tmp/`.
