@@ -24,3 +24,16 @@
 - **The runner:** `tools/t15-stage-a.sh` in this folder runs the brief's § 5 block in its order: the image's busybox, the host's, then the twelve `--old` recipes under the image's. Every run starts through `vm-qa:158`'s `python3 -c` launcher (SIGINT and SIGPIPE to default, then exec). It is one background job, its exit delivered to the session by the harness.
 - **The root:** `QA_SYSTEM_ROOT=/workspace/repos/rocknix.worktrees/m7-signin-build-20261022-07/build.pixelelated-GENERIC_X64.x86_64/image/system`, read only: `BusyBox v1.36.1 (2026-10-05 03:37:19 UTC)`, BUILD_ID `"069fc270442134fe771258418adf4e666e0473fb"` (its `etc/os-release`).
 - **The image run's first output line:** `signals: SigIgn=0000000001000004 SIGINT ignored=0 SIGPIPE ignored=0`. Its banner: `sed/mv/cp/tr/head/wc/cut/awk: BusyBox v1.36.1 (2026-10-05 03:37:19 UTC) multi-call binary. -- a copy of /workspace/repos/rocknix.worktrees/m7-signin-build-20261022-07/...`.
+
+### [Stage A] 00:35 UTC — run 1 back: the image's busybox passes; the coordinator's ten sorted
+
+- **The coordinator's rulings on #662:** 00:27, keep 34 section rows for Coverage and Q6, plus a sub-group table under Q6; 00:33, that table covers every group carrying verdicts: `x`'s `F1.`/`C.`/`D.`, `y`'s `y1`-`y4`, `A.`, `F1r.` and `CF.`, and `z`'s `S315.` and `S3F.`. `y1` to `y4` are comment headings (`:7799`, `:8397`, `:8607`, `:8684`), never echoed, so a run's output cannot name them; their verdicts are mapped by line range.
+- **Run 1, the image's busybox** (`QA_SYSTEM_ROOT` on `m7-signin-build-20261022-07`): **rc 0, 517 s, 1,313 PASS, 0 FAIL, 0 SKIP**, last line `PASSED`.
+  - First line: `signals: SigIgn=0000000001000004 SIGINT ignored=0 SIGPIPE ignored=0`.
+  - Banner: `... BusyBox v1.36.1 (2026-10-05 03:37:19 UTC) multi-call binary. -- a copy of /workspace/repos/rocknix.worktrees/m7-signin-build-20261022-07/...`.
+  - Before `PASSED`: `1 HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS`, the fourth verdict word, exiting 0.
+- **The coordinator's ten image-run FAILs are the fixture's, not the tree's.**
+  - The coordinator ran the same bytes from `/workspace/tmp/m6-coordinator/t15-hash/tree`, an export with **no `.git`** (read only: its `run-image.out` lines 428-431, 524-525 and 1150-1156). This lane's run is from the worktree, `.git` present, and all ten pass.
+  - **The mechanism:** the `F1.` and `F1r.` fixtures read earlier builds' quirks from git (`F1_PREV=417dcd8610` `:3200`, `73b20caf86`) through `f1_tree_at` (`:3274`): `git -C "${ROOT}" ls-tree ... 2>/dev/null | while ...; do git show ... || { ...; exit 2; }; done`. Without `.git` the `ls-tree` fails silently: stderr is dropped, and a pipeline's first stage has no `pipefail`. The loop never runs, and its `exit 2` is in the pipeline's subshell, so it could not end the run anyway.
+  - The `C.` group's repair fixture reads `git show 417dcd8610:.../mupen64plus.cfg > spliced.cfg 2>/dev/null` (`:4271`) the same way.
+  - **What caught them:** each fixture came up empty, and the file's own vacuity detectors fired (*the fixture proves nothing*, *the downgrade wrote 0 file(s)*, *the repair changed: 'nothing'*). The guard held downstream, while the read itself fails open: a Q2 item.
