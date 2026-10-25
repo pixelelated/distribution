@@ -143,6 +143,56 @@
 #      without -state_file the appendconfig is today's, byte for byte.
 #   w. cheevos_armsx2.sh writes one Token line to secrets.ini however often it
 #      runs, and gives a secrets.ini without the section its header once (#170).
+#   x. the launcher's incremental-save modes, the password's handoff and the
+#      core keeper's cut/whole note (#209, #198, #247); its groups F1. (the
+#      GENERIC_X64 boot quirks), C. (the cloud sign-in broker and setup) and
+#      D. (the offline-achievements service) are the #307 audit's streams.
+#   y. audit #307/#308, stream B: backuptool, wifictl, the settings writer and
+#      lock, factoryreset, chksysconfig, rocknix-evidence, rocknix-corekeep,
+#      runemu and automount; its group A. runs the cloud scripts against the
+#      root's rclone, and F1r., CF. and the fix groups after it are the audit of
+#      the fix round's streams.
+#   z. the audit of the fix round, stream B, and the audit of the fixes
+#      (S315., S3F.): the conf read as text, redactions, the restore's lists,
+#      the roms mount, a zip's stored members.
+#   aa. cloud_migrate_layout --state, --keep and --follow (#353).
+#   ab. cloud_scan's opening and content scans (#350).
+#   ac. the Retroid Pocket Nova's ledcontrol (#332).
+#   ad. a backup does not make a missing earlier-default saves folder (#363).
+#   ae. the cloud folder state table and archive contracts (#365, #383),
+#      through rasteratops-cloud-layout-test.
+#   af. content inactivity across provider retries (#401).
+#   ag. settings writers keep private file modes (#421), through
+#      settings-modes-test.
+#   ah. the melonDS update keeps settings and adds missing hotkeys (#526),
+#      through melonds-upgrade-test.
+#
+# Each section's positive -- the input that shows it can fail (#1039): a
+# recipe below, a case the section constructs, or none, said so. A section
+# whose script a ref predates is NOT APPLICABLE there by name (#1023).
+#   a 1d1503180d, c15050c897      b 1d1503180d; the dying tar shims
+#   c 1d1503180d                  d 1d1503180d; a killing mv
+#   e 1d1503180d                  f 1d1503180d; a planted leaky.conf
+#   g 1d1503180d (#1035)          h 8707919349
+#   i 1d1503180d (#1035)          j 1d1503180d
+#   k 1d1503180d, 53f390b1e9, 34aca64afd; a grep shim
+#   l 1d1503180d, 53f390b1e9      m 1d1503180d, 53f390b1e9
+#   n 8707919349                  o 8707919349
+#   p 34aca64afd, 51e2acece6, cee1656c33
+#   q 717bc04449                  r 28a80357ed, cee1656c33
+#   s 28a80357ed; an emptied helper
+#   t cee1656c33, 3387cf5da0, 70b6c70ca7 (the ref's client, #1024)
+#   u 655f103cc5                  v 655f103cc5
+#   w none
+#   x 417dcd8610 (named in F1., C. and D.)
+#   y 417dcd8610 (A.), f3d19dc8fb (F1r. and the fix groups), a06539d8ec
+#   z f3d19dc8fb, 320d2b2bea (S315.), 286759eb6d (S3F.)
+#   aa none runnable here     ab none: cloud_scan is absent at every ref above
+#   ac none                   ad none
+#   ae, ag, ah: none here; each child tool carries its own
+#   af none
+# Under --old, rclone at every ref above is older than any root here (1.75.0
+# or 1.75.1), so stream A is unverified at each; busybox matches (1.36.1).
 #
 # The chksysconfig and 001-functions functions are lifted out of the files
 # under test and run in a fresh bash against temp paths, as wait-lock-test
@@ -260,7 +310,11 @@ refuses (exit 2) rather than judge the scripts with the host's tools.
   --host-diagnostic  Run on the host's tools anyway: every result line is
                   marked HOST and the run ends NOT DEVICE EVIDENCE: exit 1
                   when a case failed, else 3; never 0 (D-QA-063).
-  --old           Test BASE_REF (default 1d1503180d), for failing controls.
+  --old           Test BASE_REF (default 1d1503180d), for failing controls:
+                  the verdict lists the header's promises that fired; a
+                  section whose script the ref predates is N/A by name; a
+                  root tool not at the ref's version is unverified. Exit 1
+                  on a FAIL, else 3 when anything did not run as evidence.
   --cloud-layout  Run only the layout suite; remaining options go to it.
   -h, --help      Show this help without creating fixtures or running tests.
 Run in the foreground; the full suite requires a usable SIGINT handler.
@@ -283,10 +337,13 @@ esac
 # with SIGINT set to SIG_IGN, every sandboxed script inherits it across exec,
 # and bash cannot trap a signal ignored at entry: the scan-cancel checks then
 # see the run complete with rc 0, twice on 2026-09-25, while the same file
-# passed in the foreground and on the guest. Start it in the foreground or
-# with `setsid -f`, which forks without a shell job.
+# passed in the foreground and on the guest. Start it in the foreground, or
+# through a launcher that resets SIGINT to SIG_DFL before exec -- vm-qa's
+# python launcher (vm-qa:158) does. `setsid -f` avoids a shell job's SIG_IGN
+# only from a parent that has not ignored SIGINT already; it cannot reset one
+# (#1039).
 if [ $(( 0x$(awk '/^SigIgn/{print $2}' /proc/self/status) & 2 )) -ne 0 ]; then
-    echo "last-good-scripts-test: SIGINT is ignored in this process (started as a shell background job?); the cancel checks cannot run -- start it in the foreground or with setsid -f" >&2
+    echo "last-good-scripts-test: SIGINT is ignored in this process (started as a shell background job?); the cancel checks cannot run -- start it in the foreground, or through a launcher that resets SIGINT to its default before exec (as vm-qa's does); setsid cannot reset an ignored SIGINT" >&2
     exit 2
 fi
 
