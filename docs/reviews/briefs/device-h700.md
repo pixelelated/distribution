@@ -7,7 +7,7 @@ area: devices
 kind: currency
 lens: cost against value
 depth: Independent
-version: 2
+version: 3
 written: 2026-10-25
 author: the M6 coordinator (Fable 5.1, D-WORKFLOW-189)
 read_refs:
@@ -442,6 +442,8 @@ As T11's brief § 8, with #674 for #658 and the 28 for the 58; **and
 anything against a handheld never runs** -- a device checkbox is a
 `device-facts.md` row, and a fact the rows lack is an open item to test
 (`bugs-are-agent-first.md`), never a run on the RG35XX SP or the RG SP.
+
+**What never runs in this slice:** anything against a handheld (the RG35XX SP and the RG SP are a person's: a device fact is a `docs/releases/device-facts.md` row, and a fact the rows lack is an open item to test, never a run on a unit); a guest (the GENERIC_X64 guest cannot be an H700; none is planned); a build, a compiler, a plan generation, a fetch of any kind; any other `tools/council/run` call without `COUNCIL_ENV_FILE=/nonexistent` (`--help` included); an edit to any of the 28 or to anything under `packages/`, `projects/` or `tools/` at stages A to D; a push to any branch but the lane's own; `fork-worktree sync|remove|repair`; an edit to a rule, `CLAUDE.md`, `AGENTS.md`, a decided register row or `.github/sessions/saved-session-state-next.md`; a write under `/workspace/repos/rocknix*` or `/tmp` (use `/workspace/tmp/m6-t27/`); a credential-shaped literal written anywhere; `--no-verify`; bare `git stash`; `git worktree remove --force` or `rm -rf` on a worktree or a bare variable path.
 
 ## 9. Ceremonies owed
 

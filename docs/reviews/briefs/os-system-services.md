@@ -7,7 +7,7 @@ area: os-scripts-and-launch
 kind: read
 lens: security, brittleness
 depth: Extended
-version: 2
+version: 3
 written: 2026-10-25
 author: the M6 coordinator (Fable 5.1, D-WORKFLOW-189)
 read_refs:
@@ -462,6 +462,8 @@ As T11's brief § 8, with #669 for #658 and the 422 for the 58; **a failed
 or unavailable seat is a named blocker at Phase 4.6, and `--member gemini`
 is never called in Argon's place**; a guest boots only in the granted
 window; nothing against a handheld.
+
+**What never runs in this slice:** anything against a handheld; a guest outside the one window the coordinator grants on #669 (after the M7 lane's FINAL RETURN and T13's cycle); a third `tools/council/run invoke` beyond the two seats, or `--member gemini` in Argon's place; a build, a compiler, a plan generation, a fetch of any kind; any other `tools/council/run` call without `COUNCIL_ENV_FILE=/nonexistent` (`--help` included); an edit to any of the 422 or to anything under `packages/`, `projects/` or `tools/` at stages A to D; a push to any branch but the lane's own; `fork-worktree sync|remove|repair`; an edit to a rule, `CLAUDE.md`, `AGENTS.md`, a decided register row or `.github/sessions/saved-session-state-next.md`; a write under `/workspace/repos/rocknix*` or `/tmp` (use `/workspace/tmp/m6-t22/`); a credential-shaped literal written anywhere; `--no-verify`; bare `git stash`; `git worktree remove --force` or `rm -rf` on a worktree or a bare variable path.
 
 ## 9. Ceremonies owed
 
