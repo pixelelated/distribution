@@ -2,11 +2,7 @@
 
 - **`reviewed-at`:** `2103f0271d`. The 58 are read at `8ebaf8daad`'s bytes (`git diff --stat 8ebaf8daad 2103f0271d -- <the 58>` is empty). Upstream is `651150fc88`, read locally.
 - **Can this be done on the VM? Yes -- on the host, with no network.** Every read, diff, log and branch read runs on the build host at `8ebaf8daad`. The guest whose boot and harness T12 (#659) recorded is the device read here; no guest cycle was needed. No handheld.
-- **Built artefacts read, not made.** Two facts came from the M7 lane's existing GENERIC_X64 build root (`/workspace/repos/rocknix.worktrees/m7-signin-generic-build-20261025-01`), read-only:
-  - the built kernel configuration (`build/linux-7.1.2/.config`, sha256 `e769f2e5fe2ebe9d...`, byte-equal to the `m7-pixelelated-replacement20` root's and to the three `docs/qa-logs/2026-10-14-*/kernel-7.1.2.config`);
-  - the installed firmware tree.
-
-  The M7 head `bcc866f1f3` carries the committed configuration unchanged (`git diff --quiet 8ebaf8daad HEAD -- <conf>`, rc 0). Copies went to `/workspace/tmp/m6-t11/cfg/`; nothing was written in that tree.
+- **Built artefacts read, not made** (accepted as evidence by the coordinator, 07:10 UTC on #658: the recipe-only statement is primary, and the measurement is its corroboration). Three facts were read, read-only, from the M7 lane's existing GENERIC_X64 build roots: the built kernel configuration, the installed firmware tree, and the bzImage's size. Their provenance is § The configuration's *Provenance of the corroboration*. Nothing was written in those trees and no process was started there.
 - **The runs** are `/workspace/tmp/m6-t11/runner/runs.sh`, 28 steps with exit and wall time (§ The runs). Their outputs are copied to `stage-b/`.
 
 ## Phase 2 — #658's checklist at stage B
@@ -127,7 +123,11 @@ One row per path of the 58, in the inventory's order. *Reach* is the inventory's
 315:    yes "" | kernel_make oldconfig > /dev/null   # the default: every new 7.1 symbol takes its default
 ```
 
-So the committed file is the input to a configuration it does not record. **Stated from the recipe, the gap is every symbol 6.15.6 did not have** (`listnewconfig`'s list). Nothing was built. The M7 build root already holds the result of exactly this step on the same input, so the gap is also measured (r24; `diff` lines and option names):
+So the committed file is the input to a configuration it does not record.
+
+**The gap, stated from the recipe (the primary statement).** Every Kconfig symbol 7.1.2 has and 6.15.6 did not is answered with its default, unseen (`listnewconfig`'s list, `:306`, then `yes "" | ... oldconfig`, `:315`). Every symbol 6.15.6 had and 7.1.2 dropped disappears from the result. The four forced values and the firmware list replace whatever the file says. So the file cannot be read as the guest's configuration for any option 7.1 added, renamed or re-defaulted, nor for `CONFIG_SWAP`, `CONFIG_CIFS`, `CONFIG_DEFAULT_HOSTNAME`, `CONFIG_INITRAMFS_SOURCE` or `CONFIG_EXTRA_FIRMWARE`. Nothing was built for this statement.
+
+**The corroboration, measured.** An existing M7 build root holds the output of exactly this step on the same input (provenance below), so the statement's prediction can be checked (r24; `diff` lines and option names):
 
 | Built (7.1.2) against committed (6.15.6) | Count |
 | --- | ---: |
@@ -142,6 +142,28 @@ The 18 changed values, by cause:
 - **The recipe forces them:** `CONFIG_SWAP y -> n` (`SWAP_SUPPORT="no"`, `options:86`); `CONFIG_CIFS y -> n` (no `SAMBA_SUPPORT`); `CONFIG_DEFAULT_HOSTNAME`; `CONFIG_INITRAMFS_SOURCE`; `CONFIG_EXTRA_FIRMWARE` (1,254 entries: amdgpu 675, radeon 247, intel-ucode 153, i915 130, rtl_nic 40, amd-ucode 6, e100 3).
 - **The toolchain:** `CC_VERSION_TEXT`, `GCC_VERSION`, `AS_VERSION`, `LD_VERSION`, `RUSTC_VERSION`, `RUSTC_LLVM_VERSION`.
 - **7.1's `oldconfig` defaults:** `PREEMPT n -> y` (the committed file says `CONFIG_PREEMPT_VOLUNTARY=y` at `:126`; the built file has `CONFIG_PREEMPT=y` at `:134` and no voluntary option), `PGTABLE_LEVELS 4 -> 5`, `INT340X_THERMAL n -> m`, `NLS_UCS2_UTILS y -> m`, `CRYPTO_LIB_CURVE25519_GENERIC m -> y`, and `BOOTPARAM_HUNG_TASK_PANIC` / `BOOTPARAM_SOFTLOCKUP_PANIC` from a boolean to an integer `0`.
+
+**Provenance of the corroboration** (copies under `/workspace/tmp/m6-t11/cfg/`; a copy's time is its file's mtime, a run's time is its start in `runs.tsv`):
+
+| Item | Source (read-only) | Its time | Read at (UTC) | Copy and sha256 |
+| --- | --- | --- | --- | --- |
+| Root A | `/workspace/repos/rocknix.worktrees/m7-signin-generic-build-20261025-01`, branch `build/m7-signin-generic-20261025-01`, head `bcc866f1f3143b3040947777f5e9098cecdaf8b4`; root `build.pixelelated-GENERIC_X64.x86_64` | — | ad-hoc reads between 06:48 and 06:56:11 (not timed one by one) | — |
+| Root B | `/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20`, branch `build/m7-pixelelated-replacement20`, head `1a026648442321609b2288c2c9c06803817f9df2`; the same root name | — | ad-hoc reads between 06:48 and 06:56:11 (not timed one by one) | — |
+| A's built `.config` | `A/build/linux-7.1.2/.config` | mtime 2026-10-14 21:52:32 | 06:52:01 (copy); 06:56:12 (r24) | `built-a.config`, `e769f2e5fe2ebe9d489d04c77fc4a397071df06ef77f19c5ecaf68dad6e1be82` |
+| B's built `.config` | `B/build/linux-7.1.2/.config` | mtime 2026-10-05 03:37:29 | 06:52:01 (copy); 07:10:54 (sha256 re-read) | `built-b.config`, the same sha256 |
+| The committed file | `git show 8ebaf8daad:<conf>` | — | 06:52:01 | `ours.conf`, `7ec3d2b40528370d110ab133122a877f5a9a9f53e18e84d103afe8a4aad72ef7` |
+| The Generic conf | `git show 8ebaf8daad:projects/Generic/linux/linux.x86_64.conf` | — | 07:02:47 | `generic.conf`, `d31df3f1d3cd47d9ad167619a08d9a07fd148c6312afce2e85619e9f09b6748f` |
+| The class output | `cfgclass.py` over the two copies | — | 06:52:12 | `classes.out`, `600521bf1e13cbec1d8406d0ab5b0dc8ec69d5333585c57f2870f0c98b6540c7` |
+| A's installed firmware | `A/install_pkg/kernel-firmware-20260309/usr/lib/kernel-overlays/base/lib/firmware` | dir mtime 2026-10-25 05:58:48 | ad-hoc reads between 06:48 and 06:56:11 (not timed one by one); 06:56:12 (r25) | not copied: counted in place (6,158 files, 2,876,913,748 bytes) |
+| A's bzImage and embedded firmware | `A/build/linux-7.1.2/arch/x86/boot/bzImage`; `A/build/linux-7.1.2/external-firmware` | 2026-10-14 21:53:56; 21:52:29 | ad-hoc reads between 06:48 and 06:56:11 (not timed one by one); 06:56:12 (r26); 07:10:54 (stat) | not copied: `stat` and `du` in place |
+
+**The transfer argument** (why a root built elsewhere measures this tree's file):
+1. Each root's head carries the committed configuration byte for byte: `git -C <root's worktree> diff --stat 8ebaf8daad HEAD -- projects/ROCKNIX/devices/GENERIC_X64/linux/linux.x86_64.conf` prints nothing, and `--quiet` exits 0, for both A and B (07:10).
+2. The file's last commit in both heads' history is `cbf75c0b06` (2026-09-10), before either `.config` was written (2026-10-05 and 2026-10-14).
+3. Two roots built nine days apart from different heads produced byte-equal configurations.
+4. The recipe lines that shape the output (`:36-37`, `:154-207`, `:306-316`) are the ones read at `8ebaf8daad`. The toolchain values that differ are the build's, and are named as such.
+
+What the argument does not cover: a root's `.config` reflects that build's recipe, so a later recipe change would make the measurement stale. The primary statement does not depend on it.
 
 **Does the file mislead a behaviour claim?** One proof read it as the guest's configuration: `docs/qa-logs/2026-10-11-usb-revision/guest02/run.py:15` asserts `# CONFIG_USB_GADGET is not set` in `frozen-linux.config`, which is byte-equal to the committed file (sha256 `7ec3d2b40528370d...`). The claim holds: the built file says the same (`:6249`), and the run's own guest probe found no `/sys/kernel/config/usb_gadget`. The 2026-10-14 proxy proofs used the built file. No other claim reads the file (r24; the `git grep` for the preemption model in `docs`, `.claude`, `tools` and the device). **So the gap is a provenance defect, not a bug** (F-04).
 
@@ -230,7 +252,7 @@ The 18 changed values, by cause:
 | P2 | The Generic conf is the nearest base | r02 | tool-run |
 | P3 | The fork's 13 lines | r06, r07 | history |
 | P4 | The build runs a silent `oldconfig` over a 6.15.6 file at 7.1.2 | r03, r04, r05; `package.mk:154-174`, `:306-316` | tree |
-| P5 | The built configuration's differences, and the fork's 10 settings kept | r24 on the M7 root's `.config` (sha256 `e769f2e5...`, two roots equal; the conf unchanged at the M7 head) | tool-run |
+| P5 | The built configuration's differences, and the fork's 10 settings kept (corroboration of P4) | r24 on root A's `.config`; § The configuration's provenance table and transfer argument | tool-run |
 | P6 | The one proof that read the committed file holds | `usb-revision/guest02/run.py:15-16`; `guest-gadget-presence.json`; both configs' `USB_GADGET` | tree |
 | P7 | `install` is fork-only and shadows nothing | r12; the `git ls-tree` of every `install`/`release`; `config/functions:1188-1195` | tree |
 | P8 | `install`'s branches per device | r11, r13 | tree |

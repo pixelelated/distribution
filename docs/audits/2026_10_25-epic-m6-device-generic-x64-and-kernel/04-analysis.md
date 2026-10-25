@@ -89,7 +89,7 @@ Each finding re-read at its lines after `02` was written:
 **(a) The configuration, in three parts** (`02` § The configuration).
 1. **The nearest candidate** is `projects/Generic/linux/linux.x86_64.conf`, 659 lines removed and 351 added. The AMD64 conf (7,671 / 2,980) is not a base.
 2. **The fork's own edits since `73b20caf86`** are 13 lines: `1cd0093d67` (`FW_CFG_SYSFS`, for the advertised ssh port) and `cbf75c0b06` (watchdog and pstore).
-3. **The built-versus-committed gap.** The recipe copies the 6.15.6 file and forces four values, then runs `listnewconfig` (`:306`) and `yes "" | kernel_make oldconfig` (`:315`) at 7.1.2. Measured on the M7 root's built file:
+3. **The built-versus-committed gap.** **Stated from the recipe (primary):** the recipe copies the 6.15.6 file and forces four values, then runs `listnewconfig` (`:306`) and `yes "" | kernel_make oldconfig` (`:315`) at 7.1.2. So every symbol 7.1 added takes its default unseen, every dropped one vanishes, and the forced values override the file. **Corroborated** on an M7 root's built file (provenance and transfer argument in `02` § The configuration; accepted by the coordinator, 07:10 UTC):
    - 335 / 641 `diff` lines;
    - 18 changed values: five forced by the recipe, six from the toolchain, seven from 7.1's defaults, including `PREEMPT_VOLUNTARY` -> `PREEMPT` and `PGTABLE_LEVELS` 4 -> 5;
    - 97 set options gone and 137 set options new;
@@ -193,7 +193,7 @@ Proposals for the coordinator, not edits:
 ## Quality self-check
 
 - Every figure in `02` comes from a run with its exit and wall time (r01 to r28), and every finding is re-read at its lines (§ Finding Verification).
-- **Two claims rest on another lane's build root:** the built configuration and the firmware tree. Their provenance (the conf equal at the M7 head, two roots byte-equal) is in `02`'s header. Nothing was written there.
+- **Three facts rest on another lane's build roots:** the built configuration, the firmware tree and the bzImage's size. The coordinator accepted them as evidence at 07:10 UTC, with the recipe-only statement primary. Their provenance is in `02` § The configuration: both roots' identity and head, each read's time, each copy's sha256, and the transfer argument with its `git diff`. Nothing was written there.
 - **Three line ranges were wrong in the first draft of `02`** and were corrected before commit: `:197-207`, `scripts/image:272-289`, and the shipped `init:432`.
 - **Q5's first draft said the configuration adds the four GPU drivers.** The option diff showed they are the Generic conf's (inherited, `=y` in both), and that the Generic file's 7.1.2 header makes part of the 659 / 351 version drift; corrected before commit.
 - **What would change the verdicts:**
