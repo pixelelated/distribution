@@ -16,7 +16,7 @@
 
 ## Current focus
 
-**The guest cycle is done** (START 07:52:28, guest stopped 08:09:21, RETURN 08:10 UTC on #660: https://github.com/pixelelated/distribution/issues/660#issuecomment-6395248697). The record is at `a5522b8eb8`+: `stage-e/cycle/` and 02 § The guest cycle. **Waiting for the coordinator's call on #1067's SFTP regression:** (a) fix forward, pinning down the exit 5 with the image's own rclone, then a ~6-minute SFTP-only window; or (b) revert `94c050ed5a` and keep #1067 open.
+**#1067's SFTP regression is fixed forward on the host** (the coordinator's 08:12 ruling (a) on #660). The cause is `rclone serve`'s five-minute directory cache, on 1.60.1 and 1.75.2 alike. Fixed in `7a71af7671` (`--dir-cache-time 1s`; `settle_cache` covers sftp); the positive is `stage-e/pos1067cache/run.sh`; the write-up is 02 § #1067, follow-up. No revert. **Next: the second window** (granted at 08:12, after the host proof): a guest pair, 25 minutes, the SFTP suite on the fixed endpoint (keep the guest's content log: G-1's `exit 5` is not in the retained record), then A5/RETENTION with two guests (#1057). Post START and RETURN on #660, stop the guests by pidfile, down the backends, run the leftover check, commit the record. The first cycle: START 07:52:28, RETURN 08:10 (https://github.com/pixelelated/distribution/issues/660#issuecomment-6395248697).
 
 - **Guest criteria met:** #1062 (KILL1 to its verdict), #1064 (128 ES paths), #1065 (CAP13 present PASS / absent FAIL, after `a70b4889a3` corrected the needle in-window), #1069 (A15 to its verdict, the backup lands), #1070 (KILL5 at keep 3 and 2). **Not met:** #1057 (5b refused by the #91 guard; needs two guests).
 - **Found by the cycle, for stage F:**
@@ -24,8 +24,8 @@
   - G-2: KILL1's re-run exits 124 under the 200k throttle; there is no `drained` branch like LINK's.
   - G-3: A15's two log-wording checks fail on both trees.
 - **05:** PL-06, 08, 09, 13 and 14 Resolved; PL-01 and PL-11 Open; pre-issue lint PASS.
-- **Retention (06:52 ruling) is held,** as said on RETURN, until the #1067 answer: option (a) may need the clone and the state. Then remove all of `/workspace/tmp/m6-t13/` with the D-INFRA-022 record in 00 (paths, size, df before and after).
-- Then stage F (G-1 to G-3 into 04/05 and the bugs as the coordinator rules), G (the retro, posted on #660), H (the hand-back).
+- **Retention (06:52 ruling) is held until the second RETURN** (08:12 ruling). Then remove all of `/workspace/tmp/m6-t13/` with the D-INFRA-022 record in 00 (paths, size, df before and after).
+- Then stage F: KILL1's 124 branch (G-2) and A15's needle (G-3) as fixes with positives (08:12 ruling); G-1..G-3 into 04/05, G (the retro, posted on #660), H (the hand-back).
 
 ## Next commands
 

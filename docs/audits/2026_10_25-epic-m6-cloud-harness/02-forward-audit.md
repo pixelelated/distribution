@@ -396,6 +396,23 @@ rclone answers its built-in `md5sum`, `sha1sum` and `df` itself, executing nothi
 ### #1081 (S3): the census reads the stored id and runs no device script
 - unfixed (`8a2518fa44`): `grep -c cloud_device_id tools/cloud-census` -> **1** (line 76, `echo device=$(cloud_device_id 2>/dev/null)`); an AST read of the file's string constants for any script under `projects/ROCKNIX/packages/network/rclone/sources/` invoked -> **`['cloud_device_id']`**
 - fixed: `grep -c` -> **0**; line 79 reads `echo device=$(cat /storage/.config/cloud_sync-device-id 2>/dev/null || echo unset)` (the file `cloud_device_id:54` names and `write_id` at `:288` writes, one line, the same id the script prints); the AST read -> **none**; the header's "the device's own scripts are not run" is now true and stays. The census was not run against anything.
+### #1067, follow-up under the coordinator's ruling (#660, 08:12 UTC): the endpoint's directory cache (G-1)
+
+The cause is `rclone serve`'s directory cache, not the rclone version. Its default is five minutes. A fixture put into DATA after the server had started (its own login check lists `/`) stayed hidden, and the content tier's scan, `lsf -R --files-only --format sp --separator '|' qa-cloud:/CONTENT/ROMs/`, answered `directory not found` (rc 3). The script reads rc 3 as an empty cloud. The host diagnosis (08:13 UTC, the M6 donor's 1.75.2 as the client throughout):
+
+| Server | Fixtures present at start | Fixtures written after start, default cache | Written after start, `--dir-cache-time 1s` |
+| --- | --- | --- | --- |
+| host rclone 1.60.1 | rc 0, both listed | rc 3 | rc 0 |
+| donor rclone 1.75.2 | rc 0, both listed | rc 3 | rc 0 |
+
+Fixed in `7a71af7671`: the endpoint serves with `--dir-cache-time 1s`, as WebDAV does, and `settle_cache` now waits for sftp too, so `put`, `reset` and `seed-content` settle on both. The positive is `stage-e/pos1067cache/run.sh`:
+
+- the tool at `22099cb7f9`: `scan rc=3, files listed 0 of 2`, unfixed expectation met;
+- the tool at `7a71af7671`: `scan rc=0, files listed 2 of 2`, fixed expectation met;
+- the crossed run (old tool, `fixed`): `UNEXPECTED`, exit 1.
+
+An earlier probe, with no settle after the write, listed nothing on the fixed tool either; that was the 1 s window, and the driver goes through `put` so it settles as the harness does. No `CLOUD_QA_RCLONE` was added: the version is not the cause. **Not yet shown:** G-1 quotes `rclone exit 5` from the guest's log, and the retained cycle record does not carry that line. The seven failures it does carry all read the cloud side as missing or empty. The second window's SFTP suite is the proof, and it keeps the guest's content log.
+
 ### #1059, follow-up under the coordinator's ruling (#660, 06:33 UTC, D-QA-063): nothing checked exits 3
 - `main()`'s final return, evaluated from the AST at the follow-up: a run whose verdict line reads `NOTHING CHECKED -- backend webdav (hash=none modtime=no commit=partial bucket=no): 0 passed, 0 failed, 1 skipped` -> **exit 3** (was 2 at `e71d077882`); a pass -> 0; a failure -> 1; the usage error (`--only NO-SUCH-CELL`) stays **rc 2**; `--list` 45
 

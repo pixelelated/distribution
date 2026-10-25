@@ -217,3 +217,11 @@ The image for the guest-cycle request, read only: `pixelelated-GENERIC_X64.x86_6
 - START 07:52:28 UTC (qemu 1), guest a booted alone with `tools/vm-pair reimage a` from M6's copy of the image, BUILD_ID `069fc270442134fe771258418adf4e666e0473fb`; the controls from the clone, the fixed cells, 5b, the suite over WebDAV and SFTP, and an unfixed SFTP suite as the comparison; the guest stopped by its pidfile at 08:09:21; the backends down; the leftover check clean (`stage-e/cycle/leftover.txt`); RETURN on #660 at 08:10. Nothing written on the host file.
 - In-window: `a70b4889a3` (#1065, CAP13's needle to the image's words). My slip: the clone was `tools/` only, the first KILL1 control stopped at planting; the rclone sources checked out into the clone and the control re-run.
 - Lines and findings: 02 § The guest cycle. 05 updated (PL-06/08/09/13/14 Resolved; PL-01, PL-11 Open). Retention held pending the #1067 answer (said on RETURN).
+
+## 2026-10-25 08:12-08:20 UTC -- #1067's SFTP regression, fixed forward on the host (the 08:12 ruling)
+
+- Host only, no guest. The diag endpoint was under `/workspace/tmp/m6-t13/diag-state` on 9083; servers on 9086/9087 for the version comparison; every listener down after each run (`ss`: 0 on 9083/9086/9087).
+- The cause is `rclone serve sftp`'s five-minute directory cache, on 1.60.1 and 1.75.2 alike (02 § #1067, follow-up). Fixed in `7a71af7671` (`--dir-cache-time 1s`; `settle_cache` covers sftp). Positive: `stage-e/pos1067cache/run.sh`, both ways and crossed.
+- My slip: the first proof wrote fixtures and listed within the 1 s window, so it read rc 3 on the fixed tool too. Rerun with the tool's own settle; the driver goes through `put`.
+- No revert of `94c050ed5a`. Its confinement stands, and the 09:15 bound was met at 08:16.
+
