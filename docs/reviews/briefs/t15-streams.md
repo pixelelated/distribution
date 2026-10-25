@@ -330,3 +330,26 @@ checkboxes read back ticked by name, and merges the branch in its turn
 (after T14's, before T4's and T45's); the `vm-qa` `scripts` row's words
 (T12's) and the rules' sentences (#1007) are the coordinator's at the
 merge.
+
+## Root change, 2026-10-25 05:41 UTC (the coordinator's)
+
+Every "the M7 root" above -- the `069fc2704421` root's `image/system` that
+stage A and the S1 runs judged with -- reads, for every run from 05:30 UTC,
+as M6's retained donor `/workspace/artifacts/m6-donor/1a0266484423/image/system`:
+the busybox (`79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346`, BusyBox v1.36.1 built 2026-10-05 03:37:19 UTC, 574456
+bytes, with its 146 applet links), `usr/bin/rclone` v1.75.2 (`ed887da83d3e2c07ff8acc60cb5b56dbe7bb4d73cc445b6ff71988f164c0558a`) and
+`etc/os-release` (`f537766379be27c18708a87bae0495170f83b7fc966a69f5c1c5d84480f0d31d`; BUILD_ID `1a026648442321609b2288c2c9c06803817f9df2`),
+each a byte-equal copy (`cmp`) read once at 05:38 from
+`m7-pixelelated-replacement20`'s GENERIC_X64 root while no process referenced
+it; `RECORD.txt` and `SHA256SUMS` two levels up. The M7 lane renamed the
+`069fc2704421` root to `m7-signin-generic-build-20261025-01` at about 05:33
+for its `bcc866f1` rebuild, which replaces that `image/system`; T15 had
+stopped its five shells and the run in flight at 05:30 under the 05:22 grant
+(#662, 05:32), and the runs it recorded before then stand under
+`069fc2704421`. The busybox's identity with the old file is argued from its
+version string, build time and size (the old file is gone, so no `cmp`),
+never claimed. No M6 run sets `QA_SYSTEM_ROOT` under
+`/workspace/repos/rocknix.worktrees/` again; the coordinator's acceptance run
+A uses the same donor. The artifact's owning issue is #662; it is retired,
+with a work-log line naming the path and the hashes, when no open M6 slice or
+acceptance script names it (D-INFRA-022).
