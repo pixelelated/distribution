@@ -1,7 +1,7 @@
 # Session pointer: M6.P2 T45, the council toolchain and runner (#692)
 
 > **Seeded:** 2026-10-25 by the coordinator (Fable 5.1, lane `m6-coordinator`, D-WORKFLOW-189); the executor updates this file **at every checkpoint** (#1014)
-> **Branch:** `feature/m6-tooling-council-692`, stacked on `feature/m6-p1-survey-641` at `2174265e9c` (which carries the P0 branch); the coordinator's tips merged in (`dc81388432` at `337bf46ede`, then `b2caa5ee28` at `e2fdca688b`)
+> **Branch:** `feature/m6-tooling-council-692`, stacked on `feature/m6-p1-survey-641` at `2174265e9c` (which carries the P0 branch); the coordinator's tips merged in (`dc81388432` at `337bf46ede`, then `b2caa5ee28` at `e2fdca688b`, `fe43e15058` at `e787bc6939`)
 > **Worktree:** `/workspace/repos/pixelelated/distribution.worktrees/m6-tooling-council-692`; the T5, T6, T7, T8, T9 and T12 worktrees beside it (`m6-build-engine-652`, `m6-build-engine-upstream-tools-653`, `m6-generic-packages-reached-654`, `m6-image-packages-655`, `m6-tooling-build-supervision-656`, `m6-tooling-vm-harness-659`) are this session's earlier slices, accepted and idle: read only, until their merges
 > **Primary checkout:** `/workspace/repos/pixelelated/distribution` on `next` (D-INFRA-025); the legacy `/workspace/repos/rocknix` and every `rocknix.worktrees/*` are the M7 lane's: read only, no process started there; `/home/max/Development/scaffold` is a scaffold checkout older than the export: read only
 > **Repository:** `pixelelated/distribution`; every `gh` call carries `--repo pixelelated/distribution`
