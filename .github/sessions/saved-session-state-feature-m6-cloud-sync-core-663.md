@@ -5,7 +5,7 @@
 > **Worktree:** `/workspace/repos/pixelelated/distribution.worktrees/m6-cloud-sync-core-663`; the earlier worktrees of its session beside it, read with `git show`, never checked out again
 > **Primary checkout:** `/workspace/repos/pixelelated/distribution` on `next` (D-INFRA-025); the legacy `/workspace/repos/rocknix` and every `rocknix.worktrees/*` are the M7 lane's: read only, no process started there, no path of theirs named in a run, **no M7 build root read** (`m7-signin-sm8550-build-20261025-01` is a name, never a path opened)
 > **Repository:** `pixelelated/distribution`; every `gh` call carries `--repo pixelelated/distribution`
-> **Executor:** Opus 5.5 at high effort, the session the dispatch comment on #663 names (`__SESSION__`)
+> **Executor:** Opus 5.5 at high effort, the session the dispatch comment on #663 names (`m6-t1-os-launch`)
 > **Epic:** #1047 (the cloud area: T13 accepted and closed out, this slice, then T17); the renovation epic #339; the milestone M6 (D-WORKFLOW-190)
 > **Depth:** Extended -- **two seats, GPT-6 Astra at `max` then Gemini 4 Argon at `high`** over a trimmed, scanned packet (D-WORKFLOW-195), a probe then one refutation each, as T22's stage C; `review-plan.json` records depth `extended`, two reviewers; **exactly four keyed invokes**, every other `tools/council/run` call with `COUNCIL_ENV_FILE=/nonexistent`
 > **The lens:** security, brittleness and new functionality over the fork's own 14 files (8,316 lines; two copy-twins and the capture are 6,538 of the 7,827 read lines) -- Q3 leads; T13's 79-row assertion table is the oracle (24 both ends, 46 synthetic, 8 device report); the three stamp families, the one `flock`, exits 69 and 75, the 90 s bound; D-CLOUD-076 superseded by 109/130; #909's drift in the rule
