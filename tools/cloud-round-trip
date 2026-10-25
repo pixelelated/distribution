@@ -5275,6 +5275,16 @@ def last_file_percent(out):
     return int(found[-1]) if found else -1
 
 
+def rerun_drained(webdav, rc, locked, since, out):
+    """A re-run the stall ceiling ended while the throttled QA WebDAV server
+    was still draining a body QEMU's slirp had already taken whole: rc 124,
+    the wrapper's `made no progress ... reporting 124` line, no lock, and the
+    last per-file line at 100% (D-CLOUD-128; Link.exercise has the case).
+    WebDAV only. LINK and KILL1 both judge their re-runs by it (#1092)."""
+    return (webdav and rc == 124 and not locked
+            and LINK_STALL_ENDED.search(since) is not None and last_file_percent(out) == 100)
+
+
 def backend_throttled():
     """Whether the endpoint runs with --bwlimit. Read off the server's own
     command line (its pid is beside its data directory), not off an
@@ -5719,8 +5729,7 @@ class Link:
         # same way, the 12 MiB re-run passed there by the margin of a smaller
         # buffer, and a 124 there is a FAIL to look at, not a face to learn.
         # KILL5's 6 MiB archive drains inside the ceiling and is unaffected.
-        drained = (webdav and rc2 == 124 and not locked
-                   and LINK_STALL_ENDED.search(since) is not None and last_file_percent(out2) == 100)
+        drained = rerun_drained(webdav, rc2, locked, since, out2)
         archive_whole = receiving and all(got.get(r) == src for r, src in sources.items())
         telling = [l for l in out2.splitlines() if re.search(r"ERROR|WARN|Failed|failed|exit", l)]
         last = (telling or out2.strip().splitlines() or ["no output"])[-1].strip()[:160]
@@ -6943,6 +6952,18 @@ def contract_guard(dry):
     return bool(dry["conflicts"])
 
 
+def kill1_states(got, v1, v2):
+    """{rel: state} for KILL1's files on the receiving side: v1, v2, absent,
+    or TORN with the bytes there. One reading for after the kill and after
+    the re-run, so a failure says what each file became (#1092)."""
+    states = {}
+    for rel in v1:
+        g = got.get(rel)
+        states[rel] = ("absent" if g is None else "v1" if g == (len(v1[rel]), sha(v1[rel]))
+                       else "v2" if g == (len(v2[rel]), sha(v2[rel])) else f"TORN ({g[0]} bytes)")
+    return states
+
+
 def kill1_bad(states):
     """KILL1's preservation predicate: the files that are neither v1 nor a
     whole v2. A file the cloud no longer has is a failure on every backend
@@ -6997,11 +7018,7 @@ def fx_kill1(L):
         got = L.settle(("cloud", epath(L.saves_remote)))
         partials = sorted(r for r in got if ".partial" in r)
         f += not check(not partials, f"{variant}: no *.partial in the cloud", f"{variant}: partial files in the cloud: {partials}")
-        states = {}
-        for rel in v1:
-            g = got.get(rel)
-            states[rel] = ("absent" if g is None else "v1" if g == (len(v1[rel]), sha(v1[rel]))
-                           else "v2" if g == (len(v2[rel]), sha(v2[rel])) else f"TORN ({g[0]} bytes)")
+        states = kill1_states(got, v1, v2)
         bad = kill1_bad(states)
         torn = {r: s for r, s in bad.items() if s.startswith("TORN")}
         if torn and inplace and len(torn) == len(bad):
@@ -7028,16 +7045,32 @@ def fx_kill1(L):
         mark = log_mark(L.dev)
         rc2, out2 = run_rc(L.dev, "cloud_backup --yes --saves-only")
         L.keep(f"KILL{variant}", out2)
+        since = log_since(L.dev, mark)
+        locked = webdav and rc2 != 0 and "423 Locked" in since
+        # LINK's drained face (Link.exercise, D-CLOUD-128): the stall ceiling
+        # ended a re-run whose body slirp had already taken; the server goes
+        # on draining it. Wait for the server to let go before comparing, and
+        # skip only the exit check -- the whole-v2 comparison below still
+        # judges what the drain left (#1092: on the first guest cycle 1b was
+        # this face, whole v2 after a 124, and 1a was not).
+        drained = rerun_drained(webdav, rc2, locked, since, out2)
+        if drained:
+            L.endpoint_quiet()
         got2 = L.settle(("cloud", epath(L.saves_remote)))
-        whole = all(got2.get(r) == (len(v2[r]), sha(v2[r])) for r in v2)
-        locked = webdav and rc2 != 0 and "423 Locked" in log_since(L.dev, mark)
+        states2 = kill1_states(got2, v1, v2)
+        whole = all(st == "v2" for st in states2.values())
         if locked and whole:
             skip("the re-run met the QA WebDAV server's stale-PUT lock (423 Locked) on the cut file's name; "
                   "everything is v2 in the cloud regardless. Assert idempotency on MinIO/S3.")
+        elif drained:
+            skip(f"{variant}: the re-run was ended by the stall ceiling with rclone's counter at 100% -- QEMU's user-mode "
+                  "stack took the body at once and the throttled QA WebDAV server drained it past the ceiling (D-CLOUD-128); "
+                  "the fixture, not the script. Whether the drain landed v2 is judged below. Asserted on MinIO (--backend s3).")
         else:
             f += not check(rc2 == 0, f"{variant}: a plain re-run exits 0", f"{variant}: the re-run exits {rc2}")
         f += not check(whole, f"{variant}: after the re-run the cloud holds whole v2 of all {len(v2)} files",
-                       f"{variant}: after the re-run the cloud does not hold v2 of: {[r for r in v2 if got2.get(r) != (len(v2[r]), sha(v2[r]))]}")
+                       f"{variant}: after the re-run the cloud does not hold v2 of every file: "
+                       f"{ {r: st for r, st in states2.items() if st != 'v2'} } (all: {states2})")
         f += assert_message(out2, rc2, L.args.vocabulary, label=f"{variant} re-run: ")
     return f
 
