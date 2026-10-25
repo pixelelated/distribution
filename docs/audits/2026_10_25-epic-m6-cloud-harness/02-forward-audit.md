@@ -326,3 +326,59 @@ leftover: ss 0 docker 0 rclone-serve 0 minio 0
 - the S1 confinement probes above.
 
 rclone answers its built-in `md5sum`, `sha1sum` and `df` itself, executing nothing on the host. `df` printed the backing filesystem's figures, which is stated on #1067.
+
+### #1066 (S2, High): the cleanup never removes what the run did not create
+- driver `/workspace/tmp/m6-t13/pos1066/drive.py`: the tool loaded as a module, a stub device whose `/storage` and `/tmp` live under a scratch root (one regex pass maps only a path start; the first cut's two plain replaces rewrote the root's own `/tmp/` and aimed `rm -rf` at nothing -- the driver's bug, caught by tracing its commands), `backend()` a no-op; an occupied `/storage/roms/vectrex` seeded, then `restore_device`
+- unfixed (`8a2518fa44`): the cleanup ran `rm -rf <root>/storage/roms/vectrex <root>/storage/roms/vectrex-unselected` -> the occupied library **DELETED**
+- fixed: `content_root()` -> `refusal: /storage/roms/vectrex holds files (.../a-real-game.vec ...); refusing to use it as a fixture, and leaving it as found`; the cleanup -> `keep  /storage/roms/vectrex: this run did not create it, so it does not remove it`; the library **STILL THERE**
+- control, fixed: `vectrex` absent at the start -> claimed, the run's own fixture written, the cleanup **REMOVED** it
+- `grep -n 'rm -rf.*/storage/roms' tools/cloud-round-trip` at the fix: no line; every removal under `/storage/roms` (step 8, steps 15/16, step 27's `-unselected`, step 28's `definitely-not-a-system`, the LINK and KILL resets, `restore_device`) goes through `rm_owned`
+### #1060, harness half (S2): an absence is judged only on a listing that happened
+- driver `/workspace/tmp/m6-t13/pos1060/drive.py`: the tool loaded as a module with `BACKEND` pointed at S1's fixed `cloud-test-backend` and `CLOUD_QA_STATE` a directory that does not exist
+- unfixed (`8a2518fa44`): `backend_files('ROMs')` -> `[]`, `backend_sizes('ROMs')` -> `{}`: step 27's "an unselected system was not uploaded" would read **PASS**; `backend('ls')` -> `CalledProcessError` (not a `Fail`: the runners do not catch it)
+- fixed: all three -> `Fail: could not list the endpoint at 'ROMs' (exit 1: error: no endpoint state at <missing-state>/data; 'up' first); an absence on it would prove nothing` (and `backend('ls')`'s own `Fail` with the tool's line); the only direct `ls` call left is `backend_listing`, so A9, CONTRACT item 2, KILL1, the LINK cells and step 32's litter scan (the seat's G-28) read through it
+- also: `epath()`/`rpath()`'s docstrings now say SFTP is rooted at its data directory (#1067)
+### #1062 (S2): KILL1 reaches its verdict, and a deleted cloud file fails it
+- driver `/workspace/tmp/m6-t13/pos1062/drive.py`: (1) the names `fx_kill1` reads that neither it, its parameters, module scope nor the builtins assign (module scope only -- the driver's first cut counted `Link.exercise`'s and `fx_kill5`'s local `webdav` as module-level and read "none"); (2) the preservation predicate over `{a: absent, b: v1, c: v2}` (unfixed: the inline `torn = {...}` evaluated from the AST; fixed: `kill1_bad()`)
+- unfixed (`8a2518fa44`): unassigned reads `['webdav']` (the `NameError` at its re-run); the predicate fails **none** -> "every file in the cloud is v1 or whole v2" would read **PASS** with a file gone
+- fixed: unassigned reads **none** (`webdav` assigned as KILL5 does); the predicate fails `{'saves/a.state': 'absent'}` -> **FAIL**; controls: all v1/v2 -> none, one torn -> that file; the in-place SKIP now applies only when every failing file is torn
+- **guest half pending the window:** KILL1 run to its verdict on a QA guest
+### #1063 (S2): CONTRACT's dry-run guard fires on a reported conflict, not on a word
+- driver `/workspace/tmp/m6-t13/pos1063/drive.py`: the guard over a copy-arm dry run with no conflict (`out` = `dry-run: push ['saves/x.srm'] fetch [] conflicts [] questions []`, `conflicts` = `[]`) and over one with a conflict (unfixed: the `guard = ...` expression evaluated from the AST; fixed: `contract_guard()`)
+- unfixed (`8a2518fa44`): no conflict found -> the guard **FIRES** (the banner's word); one conflict -> FIRES
+- fixed: no conflict found -> the guard **does not fire**; one conflict -> FIRES (the structured list; bisync's list is built only from conflict lines, so the same test serves both arms)
+### #1057 (S2): a cell whose script the image lacks is one SKIP, never a FAIL with PASS lines under it
+- driver `/workspace/tmp/m6-t13/pos1057/drive.py`: `fx_retention` and `fx_a5` against a stub pair (device without `cloud_reconcile`; the endpoint read stubbed to what `both_changed` left; sleeps instant)
+- unfixed (`8a2518fa44`): RETENTION -> `FAIL  no record.json ever appeared ...` then **`PASS  the head is unchanged`** and **`PASS  the device's copy was not replaced ...`** (vacuous), failures 1; A5 -> `FAIL  NO RECORD IN THE STORE ... (apply exit 127)`
+- fixed: RETENTION -> `SKIP  RETENTION: cloud_reconcile is not on this image -- the wizard's apply step from a shell is the open decision D-CLOUD-051, and the cell waits for it (#1057)`, failures 0; A5 -> the same SKIP for A5; both in `SKIPPED`, the one list `main()`'s note and #1059's verdict read
+- control, fixed, the script present and no record appearing: RETENTION -> only its FAIL, no PASS under it (the two checks are gated on the kill point)
+- **guest half pending the window:** A5 and RETENTION on the QA image read as SKIP
+### #1059 (S2, with PL-15): the verdict says what was checked, against which backend, and refuses what cannot run
+- unfixed (`8a2518fa44`): `--only NO-SUCH-CELL --host root@127.0.0.1 --port 1 --identity /nonexistent` -> `FAIL  no shell over ssh`, rc 2, **the unknown name never named**; driver `/workspace/tmp/m6-t13/pos1059/drive.py`: `prepare_device` on a stub with ssh and no cloud scripts -> the equipment FAIL printed **and setup went on to its next step**; the last line after one SKIP and no failure (the unfixed `print` expression, evaluated) -> `PASSED (one cell could not run)` -- no counts, no backend
+- fixed: `--only NO-SUCH-CELL` -> `error: --only names no fixture: NO-SUCH-CELL (tools/cloud-round-trip --list)`, **rc 2**, before any device; `--only A1` without `--second-port` -> `error: --only names two-device fixtures (A1); pass --second-port for the VM pair's guest b`, rc 2; the equipment check -> `Fail: the device lacks rclone or the cloud scripts (command -v found: nothing)`, setup stops; the last line -> `PASSED -- backend webdav (hash=none modtime=no commit=partial bucket=no): 1 passed, 0 failed, 1 skipped`; a run with nothing checked -> `NOTHING CHECKED -- ...`, exit 2
+- the 14 ad-hoc `SKIP` prints now go through `skip()` (16 calls with #1057's two), so every skip is counted; the driver's first cut stubbed `backend()` for its last part and printed `backend  ()` -- the driver's, corrected; and a dead-device rc read as 0 was the measurement (`PIPESTATUS` after a command substitution), re-measured rc 2
+### #1064 (S2): step 25 fails when its probe reads no ES path
+- driver `/workspace/tmp/m6-t13/pos1064/drive.py`: the probe run on the host, where neither `es_systems.cfg` path exists (asserted), so it reads nothing (unfixed: the command taken from the AST and its `.split()`; fixed: `es_path_orphans()`)
+- unfixed (`8a2518fa44`): orphans `[]` -> step 25 (`not orphans`) would read **PASS** with nothing compared
+- fixed: `paths read: 0; orphans: []` -> step 25 reads **FAIL** (`the probe read no ES path at all ...`); the PASS line now prints the count read
+- control, fixed: a stub with a planted `es_systems.cfg` of three paths and a fake `backuptool` naming one -> `(3, ['/storage/.config/bar'])`, the ROMs path skipped (the stub's first cut rewrote the `case` pattern inside the command and listed the ROMs path as an orphan -- the stub's, corrected to rewrite only the config's path)
+- **guest half pending the window:** the count read on the QA image, in step 25's PASS line
+### #1065 (S2): CAP13's warning check reads this call's log and tells absent from zero
+- the shell fragment on the host over a log without the warning: `grep -c 'outside the saves folder' <log> 2>/dev/null || echo 0` -> `0\n0` (od: `0 \n 0`); the unfixed predicate `warned not in ("", "0")` on it -> **PASS** with no warning logged; the fixed predicate (the warning's presence in this call's part of the log, `log_mark`/`log_since`) on the same text -> **FAIL**
+- **the sweep** (`grep -n 'grep -c.*|| echo 0' tools/cloud-round-trip`, at `8a2518fa44`), each hit with its cell and its disposition:
+  - `:1115` (step 10, `warned`): read as `warned.isdigit() and int(warned) > 0`; `0\n0` is not a digit, so an absent warning FAILs -- the safe direction; **named, harmless, unchanged**
+  - `:1132`, `:1135` (step 10, `before_warn`/`after_warn`): compared with each other only; two absent counts are `0\n0` == `0\n0` -- equal, as two zeros would be; **named, harmless, unchanged**
+  - `:4592` (CAP13): the defect; **fixed** here
+- **guest half pending the window:** CAP13 on a QA guest with the warning present (PASS) and absent (FAIL)
+### #1069 (S2): A15 uploads an archive cloud_backup accepts
+- driver `/workspace/tmp/m6-t13/pos1069/drive.py`: A15's upload fixture (the `dev.write(... upload ...)` argument, from the AST) written out and listed with `tar -tzf`, the check `cloud_backup` applies before sending
+- unfixed (`8a2518fa44`): `b"this run's archive"` -> 18 bytes; `tar -tzf` **rc 2**: `gzip: stdin: not in gzip format` (cloud_backup refuses it, so A15 failed before the behaviour it names)
+- fixed: `_settings_archive('a15')` (the helper the other fixtures use since 2026-09-10) -> 141 bytes; `tar -tzf` **rc 0**: `storage/.config/qa-suite/settings.cfg`
+- **guest half pending the window:** A15 run to its verdict on a QA guest
+### #1070 (S2): KILL5 expects what CLOUD_BACKUP_KEEP says
+- driver `/workspace/tmp/m6-t13/pos1070/drive.py`: at `CLOUD_BACKUP_KEEP=2`, two retention results -- a correct one keeping the newest 2, and one hard-coded to 3 -- against KILL5's expectation (unfixed: `sorted(own[1:] + [archive])` over the three planted; fixed: `kill5_names(label, osn, keep)`)
+- unfixed (`8a2518fa44`): the correct retention -> **FAIL**; the hard-coded 3 -> **PASS**
+- fixed: the correct retention -> **PASS**; the hard-coded 3 -> **FAIL**; KILL5 now plants `keep` own archives (so the run's upload makes `keep + 1` and retention trims exactly one), and its "all planted archives are still there" count is `len(own) + 2` where it read a literal 5 (found while fixing; the docstring's "three own" and "all five" corrected with it)
+- **guest half pending the window:** KILL5 on a QA guest at the default keep and at `CLOUD_BACKUP_KEEP=2`
+
+**After S2** (at `77e7b16193`): `tools/cloud-round-trip --list` prints 45 cells; the dead-device case (`--host root@127.0.0.1 --port 1 --identity /nonexistent/qa-key`) exits **2** with `error: no shell over ssh on root@127.0.0.1 port 1`; no listener on 9010-9099, no QA container.

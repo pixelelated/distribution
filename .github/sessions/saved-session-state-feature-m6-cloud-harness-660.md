@@ -16,12 +16,13 @@
 
 ## Current focus
 
-**Stage E: S1 done (06:1x UTC, `cloud-test-backend`, 4 commits `0cceb65207` #1058, `94c050ed5a` #1067, `91267b0dda` #1068, `7345a65e9d` #1060's backend half); the S1 checkpoint is posted on #660; S2 (`cloud-round-trip`) next. The brief: `docs/reviews/briefs/t13-streams.md` at `44fdec1e16` (on `feature/m6-renovation-plan-346`; never merged here).**
+**Stage E: S1 and S2 done (06:5x UTC); the S2 checkpoint is posted on #660; S3 (#1061, #1081) next. The guest window is still held behind M7's full build.**
 
-- The unfixed copy for positives: `/workspace/tmp/m6-t13/unfixed` (a shared clone, `tools/` at `8a2518fa44`). The positives log: `/workspace/tmp/m6-t13/streams-positives.md`, copied into 02 § The streams' positives at each stream's end.
-- **S2's order:** #1066, #1060 (harness half: pair every absence check with a successful listing; also fix the `epath()`/`rpath()` docstrings now that SFTP's prefix is empty), #1062, #1063, #1057, #1059 (with PL-15's capabilities), #1064, #1065 (with the `grep -c ... || echo 0` sweep listed in 02), #1069, #1070. One commit per bug, positive first, against a copy at `8a2518fa44` or an extracted function. After S2: `--list` 45 cells and the dead-device case rc 2.
-- **S3:** #1061 (T10's patterns via `git show feature/m6-tooling-guards-657:.githooks/secret-patterns`, never merged), #1081.
-- **The guest cycle:** its plan is posted on #660 before the grant (controls on the unfixed clone, then the fixed cells, then the suite over WebDAV and SFTP; under 45 minutes). The window opens only on the coordinator's grant.
+- **S1** (`cloud-test-backend`): `0cceb65207` #1058, `94c050ed5a` #1067 (its second criterion rewritten under the coordinator's 06:17 ruling and ticked, evidence on #1067), `91267b0dda` #1068, `7345a65e9d` #1060 (backend half).
+- **S2** (`cloud-round-trip`): `7f0e527800` #1066, `1e28ba8f94` #1060 (harness half), `332bda1515` #1062, `539622b9d7` #1063, `09ca086062` #1057, `e71d077882` #1059, `bde357126c` #1064, `f7482f9684` #1065, `0c538b1f74` #1069, `77e7b16193` #1070. Post-S2: `--list` 45; the dead-device case rc 2.
+- **Positives** are in 02 § The streams' positives (drivers under `/workspace/tmp/m6-t13/pos*/`; the unfixed clone `/workspace/tmp/m6-t13/unfixed`).
+- **Guest halves owed by the held cycle:** #1057 (A5/RETENTION SKIP), #1062 (KILL1 to its verdict), #1064 (step 25's count), #1065 (CAP13 present/absent), #1069 (A15 to its verdict), #1070 (KILL5 at the default keep and at 2). The plan goes on #660 before the grant: controls from the unfixed clone, the fixed cells, then the suite over WebDAV and SFTP; under 45 minutes; `VM_PAIR_DIR`/`VM_QEMU_RUNTIME_DIR` under `/workspace/tmp/m6-t13/`; 10022 free and qemu 0 checked at START.
+- **S3 next:** #1061 (T10's patterns via `git show feature/m6-tooling-guards-657:.githooks/secret-patterns`; the value assembled at run time; 26 tests still OK), #1081 (`cloud-census` reads the stored id file; `grep -c cloud_device_id` 0, or the one mention is the header's sentence).
 
 ## Next commands
 

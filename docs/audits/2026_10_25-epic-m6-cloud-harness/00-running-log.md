@@ -156,3 +156,33 @@ The image for the guest-cycle request, read only: `pixelelated-GENERIC_X64.x86_6
 - **Leftover check after every case and every commit:** `ss` 0 on 9010-9099, 0 `rocknix-cloud-qa*` containers, 0 `rclone serve`, 0 `minio server`, 0 sshd on `m6-t13`.
 - **A lead for S2:** `cloud-round-trip`'s `epath()` and `rpath()` docstrings describe SFTP's old absolute-path prefix; they are S2's file.
 - Nothing under `tools/` but `cloud-test-backend`; no guest; nothing under `/tmp` or `/workspace/repos/rocknix*`.
+
+## 2026-10-25 06:17-06:32 UTC -- #1067's ruling applied; stage E, S2 (`cloud-round-trip`) done
+
+- **06:17, the coordinator's ruling on #1067's second criterion.** I edited the checkbox to the ruled text and ticked it from the S1 runs plus two refusals, run at 06:2x with the endpoint up under isolation:
+  - the host's own keys, by ssh's defaults and by `~/.ssh/id_ed25519_devboxes` alone: `Permission denied (password,publickey)`, rc 255;
+  - exec requests (`id`, `sh -c true`): `"…" not implemented`, rc 1;
+  - stated, not hidden: rclone's built-in `md5sum`/`df` answer, with `df` giving disk figures.
+
+  The evidence is on #1067 (issuecomment-6394310968); `box-check --issue 1067` reports 0 fail. The rewrite is noted in 05 PL-11 and in 02.
+- **S2, one commit per bug in the brief's order, each with its host positive first** (against the shared clone at `8a2518fa44` or an extracted function; the lines are in 02 § The streams' positives):
+  - `7f0e527800` #1066: ownership. Every removal under `/storage/roms` goes through `rm_owned`; an occupied `vectrex` is a refusal left as found.
+  - `1e28ba8f94` #1060's harness half: `backend_listing` and a `Fail`-raising `backend()`; the `epath`/`rpath` docstrings follow #1067.
+  - `332bda1515` #1062: KILL1 assigns `webdav`; `kill1_bad()` fails a file that is gone.
+  - `539622b9d7` #1063: `contract_guard()` reads the structured list.
+  - `09ca086062` #1057: A5 and RETENTION are one SKIP each without `cloud_reconcile`; RETENTION's two checks are gated on the kill point; `skip()` and `SKIPPED` are one definition.
+  - `e71d077882` #1059: `verdict_line()` with backend, capabilities and counts; `NOTHING CHECKED` exits 2; an unknown or unsatisfiable `--only` exits 2; the equipment check stops the setup; the 14 ad-hoc SKIP prints go through `skip()`.
+  - `bde357126c` #1064: `es_path_orphans()` and a floor of one path read.
+  - `f7482f9684` #1065: CAP13 reads its own log part; the `grep -c ... || echo 0` sweep is listed in 02.
+  - `0c538b1f74` #1069: A15's upload is a real archive.
+  - `77e7b16193` #1070: `kill5_names()`; KILL5's literal 5 became `len(own) + 2`.
+- **Slips of my own, caught and corrected before any commit** (each is named in 02 where it touched a positive):
+  - the #1066 stub mapped `/tmp/` twice;
+  - the #1062 AST driver counted function-local names as module scope;
+  - #1059's first conversion rewrote `skip()`'s own print into a recursion;
+  - #1059's driver stubbed `backend()` for its verdict part;
+  - a dead-device rc of 0 was read from `PIPESTATUS` after a command substitution;
+  - the #1064 control's stub rewrote the `case` pattern;
+  - `py_compile` twice left a `tools/__pycache__` (gitignored, removed; syntax checks then went through `ast.parse`).
+- **Post-S2:** `--list` 45 cells; the dead-device case rc 2; no listener on 9010-9099; no QA container.
+- No guest; nothing under `tools/` but `cloud-test-backend` and `cloud-round-trip`; nothing under `/tmp` or `/workspace/repos/rocknix*`.
