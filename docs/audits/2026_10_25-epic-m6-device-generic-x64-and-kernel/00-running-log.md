@@ -96,3 +96,17 @@
 - **The corrections from the seat:** `02`, `03` and `04` corrected per `04` § Second opinion. Among them: the recipe's edits (G-1), `any.dat` (G-4), the launcher's extra devices (G-5), F-01's scope (G-6), F-02's mixed payload (G-7), the `grub` branch's consequence (G-12), F-09 to a broken build (G-24), and the ancestry claim withdrawn (G-25). Four findings added, F-11 to F-14, and P19 and P20. The coverage generator was resynced: still 58 rows.
 - **`05`:** PL-01 to PL-14, all Open, with the `punch_index`. `tools/lint-audit-artifacts <folder> --phase pre-issue`: `PASS pre-issue artifacts (does not certify resolution)`, at 07:30:11.
 - **Stage C ends 07:30 UTC.** No guest, build, compiler, plan generation, fetch or handheld. The `tools/council/run` calls were two keyed (the probe and the refutation) and three keyless (`COUNCIL_ENV_FILE=/nonexistent`: `invoke --help` rc 127 before the copy, `verify-pins`, `invoke --help`). Nothing was written under `/tmp`, `/workspace/repos/rocknix*`, another lane's worktree, `packages/` or `projects/`. Under `tools/`, only the gitignored `tools/council/node_modules` was written, and nothing tracked changed.
+
+## [Stage D] 07:35 to 07:38 UTC — the bugs, the audit issue, the outcomes; the pause
+
+- **The coordinator's dispositions** (07:34 UTC, #658): five bugs for the lane; PL-06 removed in stage-E stream S1 (the coordinator's decision on fork-own dead code); PL-07 to #1085, PL-01 to #1083, PL-04 to #1084 (Backlogs the coordinator filed); PL-02, PL-05 and PL-09 recorded; PL-03 and PL-10 resolved in the stream.
+- **The bugs**, bodies in `/workspace/tmp/m6-t11/posts/`, scanned before filing (`forbidden-terms-check --stdin` 0 hits; `SECRET_PATTERNS` 0 lines), each with a code trace, an `Already written:` line and a host fixture as its VM line. Label `bug`, milestone M6. `tools/box-check --issue N`: 0 fail on each.
+  - #1086 (PL-08, the inventory, `2174265e9c:tools/renovation-inventory:465-468`, `:474-476`): 2 checkboxes;
+  - #1087 (PL-11, the modeswitch rule's line 7): 2 checkboxes;
+  - #1088 (PL-12, `dtb_overlay`): 3 checkboxes;
+  - #1089 (PL-13, the launcher): 2 checkboxes;
+  - #1090 (PL-14, `install` and `release`, a sibling of #827): 3 checkboxes.
+- **`05`:** every item at its Phase 7 outcome: 11 Deferred (to #1083, #1084, #1085, the five bugs, and #658's stream for PL-03, PL-06 and PL-10) and 3 Resolved as recorded at `b501bdad67` (PL-02, PL-05, PL-09). `tracked:` and `outcome:` are in the `punch_index`; the five bug items carry `Bug issue:`. `tools/lint-audit-artifacts <folder>` (resolution phase): `PASS`.
+- **The audit issue:** #1091, labels `audit` and `punch-list`, milestone M6, a sub-issue of #658 (`gh api .../658/sub_issues` lists `[1091]`): 14 checkboxes, `box-check` 0 fail. `tools/lint-audit-artifacts <folder> --issue 1091`: `PASS`.
+- **The removal rule at the stage-D tip:** `git diff --stat 2103f0271d HEAD -- packages projects tools` is empty.
+- **The pause:** the stage-E stream brief is the coordinator's (S1 `install` and `release`; S2 the launcher; S3 the udev rule and `options`; S4 `dtb_overlay`). No guest, build, compiler, plan generation, fetch, handheld or `tools/council/run` call at stage D.

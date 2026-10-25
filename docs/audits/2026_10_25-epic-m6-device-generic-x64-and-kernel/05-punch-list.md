@@ -1,6 +1,6 @@
 # Punch List — M6.P2 T11, the GENERIC_X64 VM device, the kernel recipe and the boot files (#658)
 
-**Independent depth:** one seat, GPT-6 Astra at `max`, its 36 items graded in `04` § Second opinion. Every `where` is at `8ebaf8daad`, unchanged at the dispatch tip `2103f0271d`. The lane removes nothing and edits no file under `packages/`, `projects/` or `tools/` (D-WORKFLOW-209). **No `bug` is proven.** The candidates the coordinator may file as bugs are marked. Every item stays Open until stage D.
+**Independent depth:** one seat, GPT-6 Astra at `max`, its 36 items graded in `04` § Second opinion. Every `where` is at `8ebaf8daad`, unchanged at the dispatch tip `2103f0271d`. The lane removes nothing and edits no file under `packages/`, `projects/` or `tools/` (D-WORKFLOW-209). No defect behaves wrongly on a shipped device's normal path. The coordinator's dispositions (07:34 UTC, #658) made five items `bug`s, filed by the lane: #1086, #1087, #1088, #1089 and #1090.
 
 The VM line, common to every item: **Can this be done on the VM? Yes, on the host:** reads at `8ebaf8daad`, local diffs, the M7 root's artefacts read-only (accepted 07:10 UTC, #658), and one `mtools` fixture under `/workspace/tmp/m6-t11/`. No guest, no device, no build, no plan, no network. Where an item's acceptance needs an image, that is said.
 
@@ -76,7 +76,7 @@ The VM line, common to every item: **Can this be done on the VM? Yes, on the hos
 - **Question:** Q6
 - **Source:** F-06 (G-12, G-21)
 - **Owner area:** `projects/ROCKNIX/bootloader/install` (fork-own)
-- **What:** Proposed for the coordinator's decision, removals none. `""` is unreachable by construction (`scripts/image:272`). If reached, `grub` would warn and report success, and the grub package's own staging would stay.
+- **What:** **The coordinator's decision (07:34 UTC, #658): they go.** The fork-own dead code is not under D-WORKFLOW-209's class decision. The stage-E stream S1 replaces the four with one refusal naming an unknown `BOOTLOADER`, in the same commit as PL-14's fix. `""` is unreachable by construction (`scripts/image:272`). If reached, `grub` would warn and report success, and the grub package's own staging would stay.
 - **Where:** `install:25-43`, `:63-77`; `projects/ROCKNIX/packages/tools/grub/package.mk:77-84`
 - **Evidence:** `02` r11, r13; P8
 - **Already written:** nothing: unreached code writes nothing.
@@ -98,7 +98,7 @@ The VM line, common to every item: **Can this be done on the VM? Yes, on the hos
 ## PL-08: `tools/renovation-inventory` reads `bootloader/rkhelper` and six overlay sources as reached by shipped devices that never read or compile them
 
 - **Severity:** Low
-- **Category:** Bug candidate
+- **Category:** Bug
 - **Question:** Q6
 - **Source:** F-08 (G-23)
 - **Owner area:** `tools/renovation-inventory`'s reach (T10's set, beside #1049 and #1056)
@@ -107,6 +107,7 @@ The VM line, common to every item: **Can this be done on the VM? Yes, on the hos
 - **Evidence:** `02` r14; P11
 - **Already written:** `inventory.json` at `2174265e9c` marks them `shipped`; the fixed tool regenerates it.
 - **Acceptance:** a constructed tree with a `find_file_path`-read file used by one device's recipe reads reached only by that device (shipped by all today).
+- **Bug issue:** #1086
 
 ## PL-09: A merge of `next` must keep GENERIC_X64 in the override's version case: upstream's case has none and no default, and the override sources no generic recipe
 
@@ -137,7 +138,7 @@ The VM line, common to every item: **Can this be done on the VM? Yes, on the hos
 ## PL-11: The bfq udev rule writes a scheduler on partitions, fixed upstream; the modeswitch `eject` fires on non-block children
 
 - **Severity:** Low
-- **Category:** Bug candidate
+- **Category:** Bug
 - **Question:** Q3
 - **Source:** F-11 (G-35, G-36)
 - **Owner area:** `projects/ROCKNIX/packages/linux/udev.d/` (upstream-carried)
@@ -146,11 +147,12 @@ The VM line, common to every item: **Can this be done on the VM? Yes, on the hos
 - **Evidence:** `04` § Second opinion G-35, G-36; r09 (upstream modified the bfq rule)
 - **Already written:** nothing persistent: udev writes attributes at runtime; a fixed rule needs no migration.
 - **Acceptance:** after the merge, `git show HEAD:projects/ROCKNIX/packages/linux/udev.d/10-bfq-sched.rules` carries the disk-only match.
+- **Bug issue:** #1087
 
 ## PL-12: `dtb_overlay` reports success over a failed boot-file update, cannot clear a specialization with no installed overlay, and leaves `$3` unquoted
 
 - **Severity:** Low
-- **Category:** Bug candidate
+- **Category:** Bug
 - **Question:** Q3
 - **Source:** F-12 (G-33, G-34)
 - **Owner area:** `projects/ROCKNIX/packages/kernel-drivers/device-tree-overlays/sources/dtb_overlay` (upstream-carried; installed on H700)
@@ -159,11 +161,12 @@ The VM line, common to every item: **Can this be done on the VM? Yes, on the hos
 - **Evidence:** `02` § Stage C re-reads; `04` § Second opinion
 - **Already written:** a device where the update failed carries the setting without the boot line; the fix re-writes the line on the next `set`.
 - **Acceptance:** under a fixture whose remount fails, `dtb_overlay set <spec> <overlay>` exits non-zero (0 today), and `set <spec> None` with no installed overlay exits 0 (1 today).
+- **Bug issue:** #1088
 
 ## PL-13: The launcher follows a symlink at its PID-file path (default `/tmp/rocknix-qemu.pid`), and its stale-socket clearing is not atomic
 
 - **Severity:** Low
-- **Category:** Hardening
+- **Category:** Bug
 - **Question:** Q3
 - **Source:** F-13 (G-31, G-32)
 - **Owner area:** `projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm` (fork-own)
@@ -172,11 +175,12 @@ The VM line, common to every item: **Can this be done on the VM? Yes, on the hos
 - **Evidence:** `02` § Stage C re-reads
 - **Already written:** nothing on a device; a QA host's PID files, rewritten every start.
 - **Acceptance:** with a symlink at the PID-file path, `generic-x64-vm run --headless ... --pidfile <link>` refuses before QEMU starts (`qemu-args` prints the resolved path today).
+- **Bug issue:** #1089
 
 ## PL-14: `install` and `release` mask a failure: a missing syslinux source warns then reports *completed*, and `release`'s `cp` is unchecked by a caller without `set -e`
 
 - **Severity:** Low
-- **Category:** Hardening
+- **Category:** Bug
 - **Question:** Q3
 - **Source:** F-14 (G-27, G-10)
 - **Owner area:** `projects/ROCKNIX/bootloader/install`, `release`; `scripts/image:272-289`
@@ -185,6 +189,7 @@ The VM line, common to every item: **Can this be done on the VM? Yes, on the hos
 - **Evidence:** `04` § Second opinion G-27
 - **Already written:** nothing: an image built over a failure would show it in the build log; no device state.
 - **Acceptance:** a fixture with no `/usr/share/syslinux` makes the image step exit non-zero (0 today).
+- **Bug issue:** #1090
 
 ## Machine-readable index
 
@@ -196,115 +201,131 @@ punch_index:
   question: Q5
   source_finding: "F-01"
   owner_area: "`projects/ROCKNIX/devices/GENERIC_X64/` (a new `config/kernel-firmware.dat`); `kernel-firmware`'s stamp (T5's E6)"
-  outcome: "open"
+  tracked: "#1083"
+  outcome: "deferred"
 - id: PL-02
   severity: Low
   category: Renovation
   question: Q5
   source_finding: "F-02"
   owner_area: "`projects/ROCKNIX/packages/linux/package.mk:197-207`; the guest's configuration"
-  outcome: "open"
+  tracked: "`b501bdad67`"
+  outcome: "resolved"
 - id: PL-03
   severity: Low
   category: Standards
   question: Q2
   source_finding: "F-03"
   owner_area: "`projects/ROCKNIX/bootloader/install`"
-  outcome: "open"
+  tracked: "#658 stream S1"
+  outcome: "deferred"
 - id: PL-04
   severity: Low
   category: Renovation
   question: Q1
   source_finding: "F-04"
   owner_area: "`projects/ROCKNIX/devices/GENERIC_X64/linux/linux.x86_64.conf`; a GENERIC_X64 build root (the coordinator places it); T27 (#674) inherits the shape"
-  outcome: "open"
+  tracked: "#1084"
+  outcome: "deferred"
 - id: PL-05
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "F-05"
   owner_area: "`projects/ROCKNIX/bootloader/install`, `release`"
-  outcome: "open"
+  tracked: "`b501bdad67`"
+  outcome: "resolved"
 - id: PL-06
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "F-06"
   owner_area: "`projects/ROCKNIX/bootloader/install`"
-  outcome: "open"
+  tracked: "#658 stream S1"
+  outcome: "deferred"
 - id: PL-07
   severity: Low
   category: Documentation
   question: Q7
   source_finding: "F-07"
   owner_area: "`projects/ROCKNIX/devices/GENERIC_X64/vm/` README, UTM text, `utm`"
-  outcome: "open"
+  tracked: "#1085"
+  outcome: "deferred"
 - id: PL-08
   severity: Low
-  category: Bug candidate
+  category: Bug
   question: Q6
   source_finding: "F-08"
   owner_area: "`tools/renovation-inventory`'s reach"
-  outcome: "open"
+  tracked: "#1086"
+  outcome: "deferred"
 - id: PL-09
   severity: Low
   category: Renovation
   question: Q4
   source_finding: "F-09"
   owner_area: "T25 (#672), T28 (#675); the merge of `next`"
-  outcome: "open"
+  tracked: "`b501bdad67`"
+  outcome: "resolved"
 - id: PL-10
   severity: Low
   category: Documentation
   question: Q7
   source_finding: "F-10"
   owner_area: "`projects/ROCKNIX/devices/GENERIC_X64/options`; the configuration"
-  outcome: "open"
+  tracked: "#658 stream S3"
+  outcome: "deferred"
 - id: PL-11
   severity: Low
-  category: Bug candidate
+  category: Bug
   question: Q3
   source_finding: "F-11"
   owner_area: "`projects/ROCKNIX/packages/linux/udev.d/`"
-  outcome: "open"
+  tracked: "#1087"
+  outcome: "deferred"
 - id: PL-12
   severity: Low
-  category: Bug candidate
+  category: Bug
   question: Q3
   source_finding: "F-12"
   owner_area: "`device-tree-overlays/sources/dtb_overlay`"
-  outcome: "open"
+  tracked: "#1088"
+  outcome: "deferred"
 - id: PL-13
   severity: Low
-  category: Hardening
+  category: Bug
   question: Q3
   source_finding: "F-13"
   owner_area: "`projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm`"
-  outcome: "open"
+  tracked: "#1089"
+  outcome: "deferred"
 - id: PL-14
   severity: Low
-  category: Hardening
+  category: Bug
   question: Q3
   source_finding: "F-14"
   owner_area: "`projects/ROCKNIX/bootloader/install`, `release`; `scripts/image`"
-  outcome: "open"
+  tracked: "#1090"
+  outcome: "deferred"
 ```
 
 ## Phase 7 resolution gate
 
+The coordinator's dispositions, 07:34 UTC on #658.
+
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | stage D: the coordinator's disposition (a stream after T5's E6, or a Backlog) |
-| PL-02 | Open | stage D: a design with T27's configuration shape; the class question on #346 |
-| PL-03 | Open | stage D: a stream or Backlog |
-| PL-04 | Open | stage D: the regeneration packet, placed by the coordinator; the configuration shape to T27 (#674) |
-| PL-05 | Open | stage D: a design, to T28 (#675) |
-| PL-06 | Open | stage D: the coordinator's decision |
-| PL-07 | Open | stage D: the coordinator's decision |
-| PL-08 | Open | stage D: a bug beside #1049 and #1056, or recorded |
-| PL-09 | Open | stage D: carried into T25's (#672) and T28's (#675) briefs |
-| PL-10 | Open | stage D: with PL-04 and a stream |
-| PL-11 | Open | stage D: the bfq half with the next merge (T25); the modeswitch half recorded |
-| PL-12 | Open | stage D: a bug or a Backlog, the coordinator's call |
-| PL-13 | Open | stage D: a stream or Backlog |
-| PL-14 | Open | stage D: a stream beside #827 |
+| PL-01 | **Deferred** | #1083, a Backlog the coordinator filed: the guest's `kernel-firmware.dat`, written once T5's E6 is on `next`; its proof needs a build |
+| PL-02 | **Resolved** | recorded at `b501bdad67` (`02` F-02, `04` § Q5): the upstream x86 block and the Generic conf's built-in drivers are inputs to #1084's regeneration |
+| PL-03 | **Deferred** | the coordinator's stage-E stream S1 (#658): `install`'s header line and its `:51-58` comment; resolved at the stream's commit |
+| PL-04 | **Deferred** | #1084, a Backlog the coordinator filed: the regeneration packet, from a build root; T27 (#674) inherits the configuration shape |
+| PL-05 | **Resolved** | recorded at `b501bdad67` (`02` F-05, `04` § Q6); the coordinator carries it into T28's brief (#675) |
+| PL-06 | **Deferred** | the coordinator's decision, removal: stage-E stream S1 (#658) replaces the four branches with one refusal, with PL-14's fix; resolved at the stream's commit |
+| PL-07 | **Deferred** | #1085, a Backlog the coordinator filed: the README's `rclone config` steps are documentation drift against the native wizard (as #42 for the site); D-QA-053 and D-QA-054 already settle the guest's purpose |
+| PL-08 | **Deferred** | bug #1086, filed by the lane (box-check 0 fail); the fix is T10's set (#657), beside #1049 and #1056 |
+| PL-09 | **Resolved** | recorded at `b501bdad67` (`02` F-09); the coordinator carries it into T25's brief (#672) and the merge notes |
+| PL-10 | **Deferred** | the coordinator's stage-E stream S3 (#658): one comment in `options` on why `syslinux`; the configuration's provenance line only if #1084 has not landed first |
+| PL-11 | **Deferred** | bug #1087 (the modeswitch half), filed by the lane (box-check 0 fail), stream S3; the bfq half is settled by the next base merge (`651150fc88` carries the fix) |
+| PL-12 | **Deferred** | bug #1088, filed by the lane (box-check 0 fail), stream S4 |
+| PL-13 | **Deferred** | bug #1089, filed by the lane (box-check 0 fail), stream S2 |
+| PL-14 | **Deferred** | bug #1090, filed by the lane (box-check 0 fail), stream S1; a sibling of #827 |
