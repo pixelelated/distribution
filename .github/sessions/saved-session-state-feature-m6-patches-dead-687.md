@@ -16,12 +16,12 @@
 
 ## Current focus
 
-**Stage A complete; stage B next** (updated 2026-10-25, 05:32 UTC).
-- **`reviewed-at`:** `b8cde6f305`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-patches-dead/`. It holds `00`, `01` (§ Scope), `stage-a/` and `tools/t40-tables.py`, the generator that asserts 778, 317,908, 760 and 18.
-- **The classes:** 277 / 234 / 5 / 234 / 28, as the brief says. (e) splits 6 + 16 + 2 + 4; gcc's three and cmake's one are reached after all through symlinks.
-- **Headers:** 746 / 14. **Deleted upstream:** 6. **Churn:** 102 (99 LibreELEC, 3 ROCKNIX); 0 fork-authored.
-- **The shadowed 74:** 2 duplicates, 4 symlink-applied, 68 (12 re-offset, 6 with the context moved, 50 with no counterpart).
-- **No network, no plan generation.** The `curl` shim logged 0 calls.
+**Stage B complete; stage C next** (`05` drafted, the pre-issue lint; then the two bugs and the audit issue at stage D, and the pause). Updated 2026-10-25, 05:36 UTC.
+- **`reviewed-at`:** `b8cde6f305`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-patches-dead/`, with `00` to `04`, the review plan, `stage-a/` and `tools/t40-tables.py`.
+- **The tables:** 778 provenance rows, 778 coverage rows, the shadowed 74. Dispositions sum to 778.
+- **The findings** (`04`): F-01 class (c) (a bug); F-02 the inventory's symlink gap (a bug); F-03 the 68 for T41/T42; F-04 the 14 hand-made; F-05 the class decision (#346, #1048); F-06 the brief's moved figure.
+- **The open question on #687 (stage A):** one bug for class (c), or two.
+- **No network, no plan generation.**
 - **Running for this lane:** nothing.
 
 ## Next commands

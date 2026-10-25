@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "depth": "local",
+  "scope": "epic",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "anthropic/claude-opus-5-5",
+    "lab": "anthropic",
+    "identity_source": "the coordinator's dispatch on #687 (2026-10-25T05:25:58Z: 'The T5 session (m6-t5-build-engine, Opus 5.5 at high effort)') and the session's own model metadata (claude-opus-5-5); session c649553c-8086-4db7-ad9c-248c7e41ff95"
+  },
+  "reviewers": [],
+  "tier_exception": "D-WORKFLOW-184",
+  "reason": "the lint and the counts are the check: T40 is a provenance table at Local depth (slices.json k 40, depth_reason 'a provenance table'; plan section 6c), and tools/council/run invoke is never run in this slice",
+  "written_before_first_call": "2026-10-25",
+  "status": "complete: no reviewer seat by design; no provider call was made, so no *.provenance.json exists in this folder"
+}

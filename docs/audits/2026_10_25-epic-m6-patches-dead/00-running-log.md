@@ -64,3 +64,20 @@
   - The brief's *68 LibreELEC changes the override builds without* is 50 by these tests; the 18 are named in `02`.
 - **The generator's first symlink test compared the target with the unit directory, not `unit/patches`,** and called `gcc` and `cmake` dead. It was corrected and re-run before any figure was used.
 - **Nothing written** under `/tmp`, `/workspace/repos/rocknix*`, another lane's worktree, `packages/`, `projects/` or `tools/`. No build, compiler, guest, plan generation or network.
+
+## [Stage B] 05:32 (after the stage-A commit) to 05:36 UTC — the tables, the x86_64 trace, the symlinks, the shadowed 74, Q1 to Q7
+
+- **The tables:** `tools/t40-tables.py <tree> provenance`, `coverage` and `shadowed` write `02`'s § Provenance (778 rows), § Coverage (778) and § The shadowed 74 (74), and the `awk` counts print 778, 778 and 74. The dispositions sum to 778 rows and 317,908 lines.
+- **The x86_64 trace:**
+  - vitaquake2-lr's `x86_64` patch differs from its `aarch64` one in one hunk (four lines). `pre_make_target` (`package.mk:19-25`) passes `platform=` only on aarch64. The x86_64 patch has sat unapplied since `9f1fab30f6` (2025-07-13).
+  - `cpugov.patch` (`40fce2a089`) calls `get_available_cpu_governors` inside `getAvailableGpuGovernors` in both arms.
+  - `PATCH_ARCH="x86"` dates from `711b5fc4c3` (2014-05-24). No recipe has `patches/x86/`; the arch-named directories are 11 `aarch64`, 2 `arm` and 5 `x86_64`.
+- **The symlink gap, read in the tool:** `selected_patch_dirs` (`:382-401`) normalizes with `os.path.normpath` (`:397`), which does not follow a link. A patch row's reach is `reached_pdir.get(<its directory>)` (`:461-462`), so gcc's and cmake's generic directories are never in the set.
+- **The shadowed 74:** the generator now reports three match tiers. 2 strict duplicates; of the 68, 12 re-offset, 6 with the context moved, 50 with no counterpart. Each match was checked to have changed lines and an override file of the same name. The ad-hoc changed-lines count of 23 earlier at stage A is not used.
+- **`04`'s Q4 table** was checked against the generator's rows after writing: 31 overrides, 68 leads, 18 carried in another form. One label was corrected (*19 overrides with one each*, not 20).
+- **Written:**
+  - `02`: Phase 2, § Classes, § The x86_64 five, § The symlinked four, § The shadowed 74, § Provenance, § Coverage, § The runs, § Proofs;
+  - `03`: § 3.5 seams;
+  - `04`: six findings, Q1 to Q7, Q6 summing to 778, Q1's paragraph ending *the decision is the maintainer's*, Q4's 68 by override;
+  - `second-opinions/review-plan.json`: local, `reviewers: []`, D-WORKFLOW-184.
+- **No network, no plan generation, nothing changed** under `packages/`, `projects/` or `tools/`.
