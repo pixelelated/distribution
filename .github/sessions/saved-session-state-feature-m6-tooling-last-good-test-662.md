@@ -43,7 +43,7 @@
    banners, exits, wall times and counts, the five `--old` recipes' exits --
    before reading a section.
 
-## Current focus (08:10 UTC update)
+## Current focus (11:02 UTC update)
 
 **Stage E: every bug's code is in (tip `5d1f67ca0b`); the evidence runs are going on M6's donor** (`QA_SYSTEM_ROOT=/workspace/artifacts/m6-donor/1a0266484423/image/system`; no M6 run names an M7 root).
 - **S1:** `3037ce6b8c`, `7cb11eb379`, `4e5b6c6103`, `3da816ce24` (with #1030).
@@ -59,9 +59,9 @@
 - **Queued after the second queue:** a waiter (harness task `bko8f22st`) on `QUEUE2 END`, then `docs/audits/2026_10_25-epic-m6-tooling-last-good-test/stage-e/run-positives.sh <worktree> 5d1f67ca0b`. That is S3's constructed positives: the `alter-*.sh` recipes on throwaway clones under `/workspace/tmp/m6-t15/s3/<bug>/`, the unfixed and fixed harness each, the clones removed after (the coordinator, 06:05).
 - **Recorded since:** #1026's positive (no sandbox can start: 23 of 64 witnessed checks PASS unfixed, 0 fixed) and #1028's (the probe sees the caller's environment and host interfaces unfixed, none and `lo` fixed), both in `02`. `7987e9cc9f` witnessed the remaining six runners (71 of 71; the coordinator's 06:17 (b)).
 - **The chain, serial, each piece starting when the last writes its end line to `queue.log`:**
-  1. the twelve `--old` recipes: the first five done at `5d1f67ca0b` (each a verdict, every promise fired); `717bc04449` and `51e2acece6` aborted there with no verdict (an N/A section's leftover code under `set -u`, fixed at `e430d61cfa`, #1023). The rest run in the **third queue** (`/workspace/tmp/m6-t15/s3/queue3.sh`, PID 1223367, harness task `bu4xql2qu`) at `e430d61cfa`: `717bc04449 51e2acece6 cee1656c33 28a80357ed 3387cf5da0 655f103cc5 70b6c70ca7`. It ends with `QUEUE2 END`. Post on #662 only on a departure, and once with the table at the end (the coordinator's 06:57 (b));
+  1. **the twelve: done.** Each reached a verdict, exit 1, every promise fired: five at `5d1f67ca0b`, seven at `e430d61cfa` (the table is in `02` § S2 and on #662 at 10:58). One departure, `70b6c70ca7`'s `012` checks: fixed at `d3f7843050` (`t`'s predicates through `driver_verdicts`), with `2dc1746de8` (a FAIL per missing verdict, proposed as (b) on #662; revert if the coordinator says (a));
   2. `stage-e/run-positives.sh` (waiter task `bko8f22st`, on `QUEUE2 END`);
-  3. `/workspace/tmp/m6-t15/s3/closeout-queue.sh` (waiter task `btr4s8ben`, on `POSITIVES END`): a fake-`bwrap` run at the branch's tip for `7987e9cc9f`'s eight checks, then the final full run, at the tip read when it starts.
+  3. `/workspace/tmp/m6-t15/s3/closeout-queue.sh` (waiter task `btr4s8ben`, on `POSITIVES END`), at the branch tip read when it starts: the fake-`bwrap` run (`7987e9cc9f`'s eight checks), the `t` cut under `--old 70b6c70ca7` (#1024's `012` FAILs by name), then the final full run.
 - **It honours a `PAUSE T15` directive** at each boundary. If the session is gone, read `queue.log`; a START with no END means in flight or died, so check its PID.
 - **Done and recorded:** root-tip at `a286e5b49f` (rc 3, 1,312 / 0 / 0 / 2 CANNOT); #1021's shallow-clone positives (`02`); #1023's `1d1503180d` and `34aca64afd`.
 - **Answered (06:05):** altered throwaway copies yes, as committed recipes (`stage-e/`, `c388b07f78`); the twelve at the final tip only.
