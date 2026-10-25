@@ -585,3 +585,14 @@ The constructed input is a sandbox that cannot start: a `bwrap` first on PATH th
 | sandboxes that start (the judging run) | fixed, root-final | rc 3, 1,315 / 0 / 0 / 2 CANNOT: every witnessed check passes on the real scripts | proved: tool-run |
 
 The other 41 witnessed checks failed even on the unfixed file under the broken sandbox, because of another conjunct, such as a missing why line. `7987e9cc9f` gave the witness to the remaining eight checks under `nb`, `ev`, `c2`, `p7w`, `p7ev` and `cf3`: 71 of 71. Their positive is the fake-`bwrap` run at the final tip, in the close-out.
+
+### S5, #1028: sa_run clears its environment and unshares the network
+
+The probe is a cut copy: the harness, stream A's setup through `sa_tail`, then a script run through `sa_run` that prints what reached it, with the caller exporting `RCLONE_CONFIG=/probe/rclone.conf`, `RCLONE_CONFIG_QA_TYPE=webdav`, `BASH_ENV=/dev/null` and a function (`export -f lgst_probe_fn`). The interfaces are read from the sandbox's `/proc/net/dev`. Unfixed is `b729628ad6`, fixed `5d1f67ca0b`; both on the donor root, and both ran in about a second.
+
+| Case | File | Result | Proved |
+| --- | --- | --- | --- |
+| the caller's environment and network (the positive) | unfixed | rc 1: `probe saw: RCLONE_CONFIG=/probe/rclone.conf;RCLONE_CONFIG_QA_TYPE=webdav;BASH_ENV=/dev/null;FN=function;IF=lo <the host's interfaces: its ethernet and Wi-Fi, a VPN and the container bridges>`, then `FAIL  #1028: the sandbox received: ...` | proved: tool-run |
+| the same | fixed | rc 0: `probe saw: RCLONE_CONFIG=unset;RCLONE_CONFIG_QA_TYPE=unset;BASH_ENV=unset;FN=unset;IF=lo ;`, then `PASS  #1028: the sandbox received none of the caller's RCLONE_*, BASH_ENV or exported functions, and has loopback only` | proved: tool-run |
+
+**The exceptions:** none. The 179 call sites were searched for a variable passed in front of the call (only `SA_CWD`, which `sa_run` reads itself), and the harness for an export reaching them (none). `SA2_EXTRA`'s `--setenv CLOUD_CAPTURE_EXIT_BOUND` comes after `--clearenv`. root-final at `5d1f67ca0b` (rc 3, 1,315 / 0 / 0 / 2 CANNOT) shows that no case needed the host network or an inherited variable.
