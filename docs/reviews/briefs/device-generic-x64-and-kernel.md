@@ -7,7 +7,7 @@ area: devices
 kind: read
 lens: cost against value
 depth: Independent
-version: 1
+version: 2
 written: 2026-10-25
 author: the M6 coordinator (Fable 5.1, D-WORKFLOW-189)
 read_refs:
@@ -29,7 +29,7 @@ read_refs:
   project bootloader serve every device; its fork-written kernel
   configuration (7,754 lines) is read here as a diff against its base
   (plan § 2); the test image (D-WORKFLOW-185), read with the harness that
-  boots it under D-WORKFLOW-186* -- **two of those words are corrected
+  boots it under D-WORKFLOW-186 [...]* -- **two of those words are corrected
   below**: the 989 does not reproduce, and the configuration has no base).
   **Epic:** #1082 (the devices: T11 first, then T27, T28, T25; its futro
   `docs/futros/2026-10-25-m6-devices.md`). **Milestone:** M6; its body
@@ -39,9 +39,15 @@ read_refs:
   branch, F-16; its F-17/#836 moved `kernel-firmware`'s `PKG_NEED_UNPACK`;
   `scripts/image:280` runs `bootloader/install` and `scripts/mkimage:225-263`
   sources `bootloader/mkimage`); **T12** (#659, the VM harness under
-  `tools/`: it read `tools/generic-x64-vm`, `vm-serial`, `vm-qa` and the
-  rest -- **not** `projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm`,
-  which is this slice's, 817 lines of Python); **T40** (#687: class (a), the
+  `tools/`: `vm-serial`, `vm-qa`, `vm-visual-qa`, `vm-pair` and the rest,
+  which call the guest's launcher **by basename** -- `generic-x64-vm run
+  --headless` at `tools/vm-serial:8`, `tools/cloud-round-trip:504/513/607`,
+  `tools/cloud-test-backend:8`; `tools/last-good-scripts-test:3400-3414`
+  names its path. There is **no `tools/generic-x64-vm`**: the launcher is
+  `projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm`, 817 lines of
+  Python, **this slice's**, and #659's body names only
+  `generic-x64-vm-testing.md`, so what T12 read of the launcher is a
+  question for its `02`, not a fact); **T40** (#687: class (a), the
   277 generic kernel patches dead because `get_pkg_directory linux` resolves
   to the override on every device, and § The x86_64 five, where
   EmulationStation's `cpugov.patch` is reached by GENERIC_X64 and never
@@ -161,7 +167,7 @@ git show 2174265e9c:docs/reviews/inventory.json | python3 -I -c '
 import json,sys,re,collections
 inv=json.load(sys.stdin); cols=inv["columns"]; rows=[dict(zip(cols,r)) for r in inv["rows"]]
 def rx(g):
-    g=re.sub(r"\{([^}]*)\}", lambda m: "(?:"+"|".join(map(re.escape,m.group(1).split(",")))+")", g)
+    g=re.sub(r"\{([^}]*)\}", lambda m: "(?:"+"|".join(m.group(1).split(","))+")", g)   # the loop below escapes each character once
     out=""; i=0
     while i<len(g):
         if g.startswith("**/",i): out+="(?:.*/)?"; i+=3
@@ -180,12 +186,16 @@ print("read",len(read_),sum(r["lines"] or 0 for r in read_),"fork-own read",sum(
 print("tier",dict(collections.Counter(r["tier"] for r in t)),"reach",dict(collections.Counter(r["reach"] for r in t)))
 print("GENERIC_X64 fork-own lines",sum(r["lines"] or 0 for r in t if r["path"].startswith("projects/ROCKNIX/devices/GENERIC_X64/") and r["tier"]=="fork-own"))
 import os; os.makedirs(".qa-scratch/t11", exist_ok=True)
-open(".qa-scratch/t11/paths.txt","w").write("".join(r["path"]+"\n" for r in sorted(t,key=lambda r:r["path"])))'
+open(".qa-scratch/t11/paths.txt","w").write("".join(r["path"]+"\n" for r in sorted(t,key=lambda r:r["path"])))
+print("written", len(t), ".qa-scratch/t11/paths.txt")'
 # paths 58 lines 10418
 # read 14 1820 fork-own read 1421
 # tier {'fork-own': 11, 'upstream-carried': 46, 'vendor-carried': 1} reach {'shipped': 49, 'test': 9}
 # GENERIC_X64 fork-own lines 1217
+# written 58 .qa-scratch/t11/paths.txt
 ```
+
+(Version 1's block printed 57 paths: its `{a,b}` alternation was escaped twice, so `config.xml` never matched, and it never wrote `paths.txt`; the stranger's proof caught both.)
 
 A different count is a delta to record with the command, not a reason to
 stop. **The order's "989 fork-own lines" is an erratum**: GENERIC_X64's
@@ -197,10 +207,13 @@ fork-own rows sum to 1,217 lines over 8 paths (`vm/generic-x64-vm` 817,
 
 **By directory group** (paths / lines): `devices/GENERIC_X64` 9 / 8,971
 (the configuration 7,754; the eight above); `packages/linux` 6 / 460 (the
-override recipe `package.mk` 432, upstream-carried, `overlap: true`, 20
-patches, 49 commits since June of which 2 fork's; `sysctl.d/qdisc.conf`;
+override recipe `package.mk` 432, **fork-own** in the inventory with `overlap:
+true` -- it is upstream's file the fork touched once, `3d7c075f63`, and the
+tier rule marks it so; 20 patches; 42 commits on the file since June, 2 of
+them the fork's (`3d7c075f63`, `dc948f59aa`), 50 on the directory; `sysctl.d/qdisc.conf`;
 `udev.d/10-bfq-sched.rules`; three more); `packages/kernel-drivers` 9 /
-357; `packages/linux-firmware` 26 / 143 (lists, mostly one line);
+357; `packages/linux-firmware` 26 / 143 (lists; 22 of the 26 rows carry no
+line count, `lines: null`, and the 143 are the other four's: 93, 25, 24, 1);
 `packages/linux-drivers/rocknix-joypad/package.mk` 1 / 25;
 `bootloader/install` 80 (fork-own), `mkimage` 113, `release` 5, `rkhelper`
 60; `config.xml` 154 (26 upstream commits since June, 0 fork);
@@ -222,8 +235,9 @@ since the adding commit's parent `cb50b45f6e`): 7,671 / 2,980, not a base;
 LibreELEC's `projects/Generic/linux/linux.x86_64.conf` (8,062 lines,
 7.1.2): 659 / 351, the nearest. The adding commit `73b20caf86` (2026-06-30,
 "Re-derived from origin/x64-build-fix", Copilot co-authored) names none;
-the fork's own edits since are 13 lines (`cbf75c0b06`: `FW_CFG_SYSFS`,
-`WATCHDOG` and `I6300ESB`, `PSTORE`). The slice does not build: it states
+the fork's own edits since are 13 lines in two commits (`1cd0093d67`,
+2026-07-26, `FW_CFG_SYSFS`, 2 lines; `cbf75c0b06`, 2026-09-10, `WATCHDOG`
+x3, `I6300ESB_WDT`, `PSTORE` x5, 11 lines). The slice does not build: it states
 the three parts (§ 4 Q1) and proposes the regeneration as a packet.
 
 **The project's boot files are four scripts.** `bootloader/install` is
@@ -232,10 +246,16 @@ absent at `651150fc88` (added by `73b20caf86`, last `7178f1b1f3`
 runs it through `find_file_path bootloader/install`; its `syslinux` branch
 is the one GENERIC_X64 and AMD64 take (`BOOTLOADER="syslinux"`,
 `devices/GENERIC_X64/options:27`), its `u-boot` and `qcom-abl|arm-efi`
-branches echo, its `grub` branch tracks a path upstream deletes
-(`e6da8dad2b`). `mkimage` differs from upstream by 24 lines, is sourced by
-`scripts/mkimage:225-263`, and T5's E1 edited its lines 82 and 110 on T5's
-branch (F-16; that branch merges before this one). `rkhelper` (60 lines) is
+branches echo **by design** -- H700 (`BOOTLOADER="u-boot"`) and SM8550
+(`qcom-abl`) both land there, and `install:51-58` says the loader is written
+at image time by `mkimage_abl` (`7178f1b1f3`), so the echo is not a missing
+loader; its `grub` branch tracks a path upstream deletes (`e6da8dad2b`); it
+also has a `systemd-boot` branch (line 35) and a default `*)` (line 68) that
+attempts a copy, which no shipped device reaches. `mkimage` differs from upstream by 24 lines (7 added, 17 removed), is
+sourced by `scripts/mkimage:225-263`, and T5's E1 changes 15 of its lines on
+T5's branch (`feature/m6-build-engine-652`, tip `52e6794ba7`: every `mcopy`
+gains `>"${SAVE_ERROR}" 2>&1 || show_error`; F-16; that branch merges
+before this one). `release` (5 lines) is run by `scripts/image:285`. `rkhelper` (60 lines) is
 `reach: shipped` by placement; whether any shipped device reads it is § 4
 Q6's question.
 
@@ -251,11 +271,13 @@ mkimage, `cafbb1657d` Qualcomm to Boot Loader Spec) land after the merge
 base `c445081a59`.
 
 **History since 2026-06-01 at `8ebaf8daad`:** 110 non-merge commits on the
-58; **40 fork-authored** (Max Engel 36 on `devices/GENERIC_X64`, last
-`d6e8390c93` 2026-10-05; blitterbot 3: `3d7c075f63` on the override recipe
-and two more; `rasterabot` 1: `98e1a30362`, `machine-info`) and 70
-upstream (config.xml 26, linux 47, kernel-drivers 2, linux-firmware 7,
-linux-drivers 5, options 1). **Three fork identities**: a count by author
+58; **40 fork-authored** (Max Engel 36: 34 on `devices/GENERIC_X64`,
+`7178f1b1f3` on `install`, `dc948f59aa` on the override recipe; blitterbot
+3: `3d7c075f63` on the override recipe, `d6e8390c93` 2026-10-05 and
+`bed8e2bb1e` on the device; `rasterabot` 1: `98e1a30362`, `machine-info`)
+and 70 upstream (by group, with overlap: `packages/linux` 40, `config.xml`
+26, `linux-firmware` 7, `linux-drivers` 5, `bootloader` 4, `kernel-drivers`
+2, `options` 1; 70 after de-duplication). **Three fork identities**: a count by author
 that forgets `rasterabot` prints 39.
 
 **What the slice's globs do not take, so it does not read them:** the
@@ -308,10 +330,12 @@ proof in `02` (a `proved:` cell: `tree`, `history`, `tool-run`, `fixture`,
   the built-versus-committed gap (what `listnewconfig` would answer at
   7.1.2, stated from the recipe, **not built**: the slice names the
   regeneration as a packet, an open item, and says what a reviewer would
-  compare after it). (b) `vm/generic-x64-vm` (817 lines) against
-  `tools/generic-x64-vm` and `tools/vm-*` (T12's): which calls which, what
-  is duplicated, what the device directory should carry and what `tools/`
-  should (a design, deferred to the coordinator; no edit).
+  compare after it). (b) `vm/generic-x64-vm` (817 lines) against the
+  `tools/vm-*` that call it by basename (how the name resolves: `PATH`, a
+  symlink, an install step -- read `generic-x64-vm-testing.md` and the
+  callers' lines), what the callers assume of its flags, what the device
+  directory should carry and what `tools/` should (a design, deferred to the
+  coordinator; no edit).
 - **Q2 Standards -- the headers and the marks.** `bootloader/install` is
   the fork's file under an upstream copyright header (`fork-workflow.md`:
   preserve upstream credits and add a ROCKNIX line -- here the reverse
@@ -327,10 +351,13 @@ proof in `02` (a `proved:` cell: `tree`, `history`, `tool-run`, `fixture`,
   misled by (the 13 fork lines and the 6.15-to-7.1 options), and file it as
   a `bug` with its trace only if the file misleads a behaviour claim
   (`Already written:` the images built from it, nothing on a device).
-  `install`'s echo branches: a device whose `BOOTLOADER` lands there gets
-  no loader and no error -- is any shipped device's `BOOTLOADER` one of
-  them (`grep -n BOOTLOADER projects/ROCKNIX/devices/*/options`)? If yes,
-  a `bug`; if no, a dead end (Q6). T40's `cpugov.patch` is #1072's, cite.
+  `install`'s echo branches are the design for H700 and SM8550 (the image
+  step writes their loaders, `install:51-58`): not a bug. The questions are
+  whether `install` says so where a reader lands (its header; Q2), and
+  whether its `systemd-boot` and default `*)` branches are reached by any
+  device at all (`grep -n BOOTLOADER projects/ROCKNIX/devices/*/options`
+  for the shipped three and the rest): unreached ones are dead ends (Q6),
+  a reached one whose copy would fail is a `bug` with its trace. T40's `cpugov.patch` is #1072's, cite.
 - **Q4 Package currency.** The override recipe's kernel versions per device
   (`package.mk:36-40` at `8ebaf8daad` and at `651150fc88`, the
   `c803640655` bump), the GENERIC_X64 kernel 7.1.2 against the kernel's
@@ -397,7 +424,7 @@ grep -c -E ' (Max Engel|blitterbot|rasterabot)$' "$TMPDIR/hist.txt"; grep -v -c 
 # the upstream delta (expect 7 M, 11 D; the D are fork-only files)
 tr '\n' '\0' < .qa-scratch/t11/paths.txt | xargs -0 git diff --name-status 8ebaf8daad 651150fc88 -- | awk '{print $1}' | sort | uniq -c
 # the boot files: who runs them (expect scripts/image:280 install; scripts/mkimage sources mkimage)
-grep -n -E 'bootloader/(install|mkimage|release|rkhelper)' scripts/image scripts/mkimage scripts/* config/* 2>/dev/null | cut -c1-120
+grep -n -E 'bootloader/(install|mkimage|release|rkhelper)' scripts/image scripts/mkimage scripts/* config/* 2>/dev/null | cut -c1-120   # image:280 install, image:285 release, mkimage:225-263
 git show 8ebaf8daad:projects/ROCKNIX/bootloader/install | grep -n -E '^\s*[a-z|-]+\)|echo' | cut -c1-100
 git cat-file -e 651150fc88:projects/ROCKNIX/bootloader/install 2>/dev/null && echo upstream-has-install || echo fork-only-install
 grep -rn -E '^\s*BOOTLOADER=' projects/ROCKNIX/devices/*/options | cut -c1-100
@@ -406,9 +433,9 @@ grep -rn rkhelper scripts/ projects/ packages/ tools/ 2>/dev/null | grep -v '^pr
 git log --format='%h %ad %an %s' --date=short 8ebaf8daad -- packages/linux/package.mk | head -5
 # the launcher, read, not run (python; no guest)
 python3 -I -c 'import ast,sys; t=ast.parse(open(sys.argv[1]).read()); print(len([n for n in ast.walk(t) if isinstance(n,ast.FunctionDef)]),"functions")' projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm
-grep -n -E 'generic-x64-vm|devices/GENERIC_X64/vm' tools/generic-x64-vm tools/vm-serial tools/vm-qa tools/vm-visual-qa 2>/dev/null | cut -c1-120 | head
-# the removal rule's own check (expect empty)
-git diff --stat 8ebaf8daad HEAD -- packages projects tools | tail -1
+grep -rn -E 'generic-x64-vm' tools/ .claude/rules/generic-x64-vm-testing.md | grep -v '^tools/.*:#' | cut -c1-120 | head -12   # the callers by basename; no tools/generic-x64-vm exists
+# the removal rule's own check against the dispatch tip (expect empty; against 8ebaf8daad, tools/ shows P1's own 15 files)
+git diff --stat <dispatch tip> HEAD -- packages projects tools | tail -1
 ```
 
 ## 6. Outputs
@@ -445,8 +472,8 @@ from the artifacts, never from the hand-back's words.
 - [ ] `01-research-notes.md` § Scope records § 2's block with its output (58 paths, 10,418 lines; read 14 / 1,820 / fork-own 1,421; tier 11 / 46 / 1; reach 49 / 9; GENERIC_X64 fork-own 1,217, the order's 989 named as an erratum), the configuration's two candidates with their removed/added counts, the history (110; 40 fork with the three identities; 70 upstream) and the upstream delta (7 M, 11 D fork-only), or each delta with its command.
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | grep -c -E '^\| `'`` prints `58`.
 - [ ] `02-forward-audit.md` § The configuration states the three parts: the nearest candidate (`projects/Generic/linux/linux.x86_64.conf`) with its counts and the AMD64 conf named as not a base; the fork's own edits since `73b20caf86` quoted with their hashes; the built-versus-committed gap stated from the recipe's `listnewconfig`/`oldconfig` lines (quoted) without a build, with the regeneration named as a packet (an open item, not a bug, unless a behaviour claim reads the file).
-- [ ] `02-forward-audit.md` § The boot files has one row per script (`install`, `mkimage`, `release`, `rkhelper`): who runs it (`scripts/image:280`, `scripts/mkimage:225-263`, or nobody, with the `grep` quoted), which branch does work for which shipped device (`BOOTLOADER=` per device quoted), its upstream status at `651150fc88` (fork-only, modified, unchanged) and its disposition; `install`'s header finding (a fork-authored file under an upstream copyright line) with its line.
-- [ ] `02-forward-audit.md` § The launcher states, with lines, whether `vm/generic-x64-vm` and `tools/generic-x64-vm` call each other, what is duplicated between them, and a design sentence (deferred to the coordinator) for what the device directory should carry.
+- [ ] `02-forward-audit.md` § The boot files has one row per script (`install`, `mkimage`, `release`, `rkhelper`): who runs it (`scripts/image:280` for `install`, `:285` for `release`, `scripts/mkimage:225-263` for `mkimage`, or nobody -- `rkhelper` is read by seven Rockchip u-boot recipes and no shipped device -- with the `grep` quoted), which branch does work for which shipped device (`BOOTLOADER=` per device quoted), its upstream status at `651150fc88` (fork-only, modified, unchanged) and its disposition; `install`'s header finding (a fork-authored file under an upstream copyright line) with its line.
+- [ ] `02-forward-audit.md` § The launcher states, with lines, how the `tools/vm-*` callers reach `vm/generic-x64-vm` by its basename (the resolution, from the rule file and the callers' lines), which of its flags they depend on, and a design sentence (deferred to the coordinator) for what the device directory should carry and what `tools/` should.
 - [ ] `02-forward-audit.md` § The runs records every § 5 command with exit, wall time, the figure and *a FAIL would mean ...*; a run that cannot be made is `CANNOT` with its reason, never a pass.
 - [ ] `00-running-log.md` shows no guest, no build, no compiler, no plan generation, no fetch (`git fetch` appears only in negations), no handheld, no `tools/council/run invoke` but the one Phase 4.6 call, every other `tools/council/run` call with `COUNCIL_ENV_FILE=/nonexistent`, and no write under `/workspace/repos/rocknix*`, another lane's worktree or `/tmp`.
 - [ ] `04-analysis.md` § Q1 carries the configuration's three parts and the launcher design; § Q2 the three header/mark findings with their lines and the generic recipe's `git log` answer; § Q3 the bug decision for the `oldconfig` gap and for `install`'s echo branches with the `BOOTLOADER=` evidence; § Q6 a disposition per unit, removals none; § Second opinion grades every seat item (confirmed, narrowed, refuted, new), the decisive ones re-read at their lines.
