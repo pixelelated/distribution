@@ -22,7 +22,7 @@
 - Stage A results: the four bare tests rc 0 (26, 9, 14, 24 checks); the stamp test's positive rc 1 (8 FAIL); `cloud-pair-migration` rc 2; WebDAV/SFTP/S3 up, ls, `cat` of a missing object rc 1 each, down, nothing left; `--list` 45 cells (44 registry + `CONTRACT`); AST: 46 `step()` (32 `run_steps`, 2 `prepare_device`), 460 `check()`, 38 sleeps, 59 `raise Fail`.
 - **Backends run isolated**: `CLOUD_QA_STATE=/workspace/tmp/m6-t13/state`, ports 9080 (webdav) / 9083 (sftp) / 9082 (s3, upstream 9092), `CLOUD_QA_NAME=rocknix-cloud-qa-m6t13` -- because `down` kills any listener on its port and the M7 lane runs guests here. `--backend` goes **before** the subcommand (after it, it is silently ignored: a stage-B lead).
 - The pointer's lens line above says "46 steps and 42 cells" (version 1); the body and brief v2 say 32 + 2 steps and 44 cells, which stage A's AST confirms (plus `CONTRACT` in `--list`).
-- Waiting on: the coordinator's guest window on #660 (asked: one guest, image `...20261022T235948Z.g069fc2704421...img.gz`, BUILD_ID `069fc27044`, the single-device suite over WebDAV then SFTP, CAP1-14, about 30 minutes).
+- Waiting on: the coordinator's guest window on #660 (asked at 05:0x UTC, https://github.com/pixelelated/distribution/issues/660#issuecomment-6393734808: one guest, image `...20261022T235948Z.g069fc2704421...img.gz`, BUILD_ID `069fc27044`, the single-device suite over WebDAV then SFTP, CAP1-14, about 30 minutes).
 - Next: stage B -- `cloud-round-trip` read for § Assertion shapes (a generator under the audit folder's `tools/`, asserting 34 steps + 44 cells against the AST), § Coverage (9 rows), § Positives, `03`; then stage C's seat.
 
 ## Next commands
