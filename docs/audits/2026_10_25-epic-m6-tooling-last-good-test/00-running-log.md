@@ -176,3 +176,15 @@
   - **Its first refusal check:** the fixed file from the worktree with `QA_SYSTEM_ROOT` unset gives **rc 2 in 39 ms**, `CANNOT -- no candidate image's busybox ... (found: /usr/bin/busybox). Set QA_SYSTEM_ROOT=<a build root>/image/system, or run with --host-diagnostic ...`.
   - **Two slips of mine before it parsed:** a pattern that missed (nothing was written), and an apostrophe inside a `${...:-...}` word, which bash reads as a quote even within double quotes (`bash -n` caught it).
 - **`/workspace/tmp/m6-t15/tmp/tsx-1000`** was left there at 02:24 by the Facilitator's `tsx`, run with that `TMPDIR` exported. It is not the suite's.
+
+## [Stage E] 03:09 UTC — S1: #1018 fixed, with its positives
+
+- **D-QA-063 (the coordinator, 02:42 UTC on #662, `d54b754da3`):** under `--host-diagnostic` the run exits 1 when any case failed and 3 only when none did, never 0. Every line is marked, and the verdict says NOT DEVICE EVIDENCE either way. The fix, `--help`, the refusal message and the header comment all say this. My first cut ended with exit 3 regardless, per the brief's sentence that D-QA-063 corrects.
+- **The runs, one at a time** (the table is `02` § The streams' positives):
+  - unfixed, from the export, no root: rc 1, 994 / 319, nothing naming the host;
+  - fixed refusal: rc 2 in 26 ms;
+  - fixed `--host-diagnostic`: rc 1, 994 / 319, all 1,313 lines `HOST:`;
+  - the two cut-copy positives: rc 3 with no failing case, rc 1 with one injected;
+  - fixed under the M7 root: **rc 0, 1,313 / 0 / 0**, with the verdict naming `source: root, BUILD_ID 069fc2704421...`.
+- **The suite under the root after #1018: 1,313 / 0 / 0**, equal to the baseline. Neither the fix nor the G-B-15 probes' new source condition changed any verdict under a root.
+- **The brief's "329" is 319** for a clone with history. The ten are #1021's export case.

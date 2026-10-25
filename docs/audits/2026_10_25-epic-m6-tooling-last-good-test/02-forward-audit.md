@@ -450,3 +450,20 @@ Every check whose verdict differs between run 1 (the image's BusyBox 1.36.1) and
 | P3 | all 319 host-busybox flips are the busybox's: `bbhost` 319 with the image's rclone, `rchost` 0 with the host's | proved: tool-run |
 | P4 | none of the twelve `--old` recipes reaches a verdict: two refs dead, ten stopped at `s` or `x` | proved: tool-run |
 | P5 | `70b6c70ca7`'s promised `012` FAILs do not fire: its `t` stops at the patches, with 0 lines naming `012` | proved: tool-run |
+
+## The streams' positives
+
+Each stream's case, run against the unfixed file (the stage-D export, a `git clone --shared` detached at `2eface0727`, history present) or a copy of the file with its other sections cut, and against the fixed one. Fallback runs have `QA_SYSTEM_ROOT` unset on purpose. Judging runs set it on the `069fc2704421` M7 root's `image/system`. Every run starts with SIGINT and SIGPIPE at their defaults (`signals: SigIgn=0000000001000004 SIGINT ignored=0 SIGPIPE ignored=0`) and `TMPDIR` under `/workspace/tmp/m6-t15/`. The outputs are in `/workspace/tmp/m6-t15/s1/`.
+
+### S1, #1018: no silent host tools
+
+| Case | File | Result | Proved |
+| --- | --- | --- | --- |
+| no root, no flag (the positive) | unfixed, export | rc 1 in 675 s, 994 PASS / 319 FAIL. The verdict is `319 CHECK(S) FAILED, 0 SKIPPED` and names no tool source. The banner reads `a copy of /usr/bin/busybox` (the host's 1.37.0), and line 270 still says `the sed in use (the image's busybox)` | proved: tool-run |
+| no root, no flag | fixed, worktree | rc 2 in 26 ms: `CANNOT -- no candidate image's busybox: QA_SYSTEM_ROOT is unset and no build root's image/system/usr/bin/busybox is beside ... (found: /usr/bin/busybox). Set QA_SYSTEM_ROOT=<a build root>/image/system, or run with --host-diagnostic ... (marked, not device evidence: exit 1 on a failing case, else 3).` | proved: tool-run |
+| no root, `--host-diagnostic`, full suite | fixed, worktree | rc 1 in 676 s (D-QA-063's 1 branch), 994 PASS / 319 FAIL. All 1,313 result lines are marked `HOST:` and none is unmarked. The verdict: `tools: busybox /usr/bin/busybox -- BusyBox v1.37.0 (Ubuntu 1:1.37.0-7ubuntu1) multi-call binary.; source: host`, then `NOT DEVICE EVIDENCE -- --host-diagnostic: 319 CHECK(S) FAILED, 0 SKIPPED under the host's tools, not the candidate's` | proved: tool-run |
+| no root, `--host-diagnostic`, no failing case | fixed, cut to the harness, `a` and the verdict (`lgst-cut3`, `LAST_GOOD_SOURCE_ROOT` = the worktree) | rc 3 (D-QA-063's 3 branch), 13 PASS / 0 FAIL, all marked. `NOT DEVICE EVIDENCE -- --host-diagnostic: 0 CHECK(S) FAILED, 0 SKIPPED ...`. It never exits 0 | proved: tool-run |
+| no root, `--host-diagnostic`, one injected failing case | fixed, cut as above plus `false; check $? ...` (`lgst-cut1`) | rc 1, 13 PASS / 1 FAIL, `FAIL  HOST: S1 injected: the deliberately failing case failed, as built`. The verdict is still marked: `NOT DEVICE EVIDENCE -- --host-diagnostic: 1 CHECK(S) FAILED, 0 SKIPPED ...` | proved: tool-run |
+| the M7 root (the judging run) | fixed, worktree | rc 0 in 517 s, 1,313 PASS / 0 FAIL / 0 SKIP, 0 lines marked `HOST:`. `tools: busybox .../m7-signin-build-20261022-07/.../image/system/usr/bin/busybox -- BusyBox v1.36.1 (2026-10-05 03:37:19 UTC) multi-call binary.; source: root, BUILD_ID 069fc270442134fe771258418adf4e666e0473fb`, then `PASSED`. The two G-B-15 probes now name the source: `(root, BUILD_ID 069fc2704421...)` | proved: tool-run |
+
+**A correction to the stream brief:** its *"the unfixed file ... prints `329 CHECK(S) FAILED`"* is 319. The other ten are the history dependency (P2, #1021), which a clone with `.git` does not trigger. Ten fewer failures, same cause.

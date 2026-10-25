@@ -231,14 +231,32 @@
 # holds the wrong one until avahi and the image are rebuilt. It is a true
 # statement about that image and is left to fail rather than softened.
 #
-# Exit 0 when every check passes, 1 otherwise, 2 when it cannot run.
+# Exit 0 when every check passes, 1 otherwise, 2 when it cannot run, 3 when
+# it ran and could not qualify (a SKIP, or --host-diagnostic).
+#
+# --host-diagnostic (#1018): without QA_SYSTEM_ROOT or a build root beside the
+# checkout there is no candidate busybox, and the run refuses (exit 2). With
+# this flag it runs on the host's tools instead, marks every result line
+# HOST, and ends NOT DEVICE EVIDENCE: exit 1 when any case failed under the
+# host's tools, 3 only when none did, never 0 (D-QA-063: one exit lattice for
+# every fork suite, 1 over 3 over 0, as T14's --unverified-busybox).
+HOST_DIAG=0
+if [ "${1:-}" = "--host-diagnostic" ]; then
+    HOST_DIAG=1; shift
+    [ "${1:-}" != "--cloud-layout" ] || { echo "--host-diagnostic does not apply to --cloud-layout" >&2; exit 2; }
+fi
 # Dispatch before signal checks or fixture creation: help must never run tests.
 case "${1:-}" in
   -h|--help)
-    [ "$#" -eq 1 ] || { echo "usage: last-good-scripts-test [--old | --cloud-layout [options]]" >&2; exit 2; }
+    [ "$#" -eq 1 ] || { echo "usage: last-good-scripts-test [--host-diagnostic] [--old] | --cloud-layout [options]" >&2; exit 2; }
     cat <<'USAGE'
-Usage: tools/last-good-scripts-test [--old | --cloud-layout [options]]
-Run the host script regression suite with the image's busybox.
+Usage: tools/last-good-scripts-test [--host-diagnostic] [--old] | --cloud-layout [options]
+Run the host script regression suite with a candidate image's busybox:
+QA_SYSTEM_ROOT's, or a build root's beside this checkout. With neither it
+refuses (exit 2) rather than judge the scripts with the host's tools.
+  --host-diagnostic  Run on the host's tools anyway: every result line is
+                  marked HOST and the run ends NOT DEVICE EVIDENCE: exit 1
+                  when a case failed, else 3; never 0 (D-QA-063).
   --old           Test BASE_REF (default 1d1503180d), for failing controls.
   --cloud-layout  Run only the layout suite; remaining options go to it.
   -h, --help      Show this help without creating fixtures or running tests.
@@ -296,10 +314,11 @@ unset TMPDIR
 FAIL=0
 SKIPPED=0
 NOT_APPLICABLE=0
+HOST_MARK=""; [ "${HOST_DIAG}" -eq 1 ] && HOST_MARK="HOST: "
 # skip <text>: a check that did not run is counted, never folded into PASSED
 # (audit of the fix round PL-023): the verdict says how many, and exits 3
 # when nothing failed but something was skipped -- vm-qa reads 3 as SKIP.
-skip() { SKIPPED=$((SKIPPED + 1)); echo "    SKIP  $*"; }
+skip() { SKIPPED=$((SKIPPED + 1)); echo "    SKIP  ${HOST_MARK}$*"; }
 # The signal dispositions this run inherited (PL-025): vm-qa's wrapper resets
 # SIGINT and SIGPIPE before exec; SigIgn bit 1 is SIGINT, bit 12 SIGPIPE. Read
 # from /proc/$$ -- the first cut read /proc/self inside $( ), which is awk's own
@@ -307,7 +326,7 @@ skip() { SKIPPED=$((SKIPPED + 1)); echo "    SKIP  $*"; }
 sigign="$(awk '/^SigIgn:/{print $2}' "/proc/$$/status")"   # $$ is this script, not the awk
 echo "signals: SigIgn=${sigign} SIGINT ignored=$(( (16#${sigign} >> 1) & 1 )) SIGPIPE ignored=$(( (16#${sigign} >> 12) & 1 ))"
 check() { # <0|nonzero> ok-text bad-text
-    if [ "$1" -eq 0 ]; then echo "    PASS  $2"; else echo "    FAIL  $3"; FAIL=$((FAIL + 1)); fi
+    if [ "$1" -eq 0 ]; then echo "    PASS  ${HOST_MARK}$2"; else echo "    FAIL  ${HOST_MARK}$3"; FAIL=$((FAIL + 1)); fi
 }
 
 # One file under test: the working tree's copy, or the base commit's under
@@ -400,6 +419,21 @@ image_tool_source() {
     command -v "${name}" || true
 }
 BB_SRC=$(image_tool_source busybox sed --help) || exit 2
+# Whose busybox (#1018): QA_SYSTEM_ROOT's, a build root's (its path ends
+# image/system/usr/bin/busybox), or the host's -- found by command -v at the
+# fallback, or none at all. The host's judges the host, not the scripts, so
+# the run refuses unless --host-diagnostic asked for exactly that.
+BB_KIND=host
+if [ -n "${QA_SYSTEM_ROOT:-}" ]; then BB_KIND=root
+else case "${BB_SRC}" in */image/system/usr/bin/busybox) BB_KIND=build ;; esac; fi
+if [ "${BB_KIND}" = host ] && [ "${HOST_DIAG}" -ne 1 ]; then
+    echo "last-good-scripts-test: CANNOT -- no candidate image's busybox: QA_SYSTEM_ROOT is unset and no build root's image/system/usr/bin/busybox is beside ${ROOT} (found: ${BB_SRC:-no busybox at all}). Set QA_SYSTEM_ROOT=<a build root>/image/system, or run with --host-diagnostic to see the host's tools (marked, not device evidence: exit 1 on a failing case, else 3)." >&2
+    exit 2
+fi
+BB_ID=""
+if [ "${BB_KIND}" != host ]; then
+    BB_ID="$(sed -n 's/^BUILD_ID=//p' "${BB_SRC%/usr/bin/busybox}/etc/os-release" 2>/dev/null | tail -1 | tr -d '"')"
+fi
 # The copy, not the build root's file. Every image step deletes image/system
 # and re-installs every package (scripts/image), so a build running beside the
 # harness pulls the busybox every sandbox here bind-mounts out from under it:
@@ -417,6 +451,7 @@ if [ -n "${BB_SRC}" ]; then
     cp "${BB_SRC}" "${TMP}/busybox" || { echo "    FAIL  cannot copy ${BB_SRC} into the run (a build's image step?)"; exit 2; }
     BB_HOST="${TMP}/busybox"; BB="/lgst/busybox"
 fi
+BB_BANNER="$([ -n "${BB_HOST}" ] && "${BB_HOST}" 2>&1 | head -1)"
 mkdir -p "${TMP}/bbin"
 if [ -n "${BB}" ]; then
     for a in sed mv cp tr head wc cut awk stat chmod cat; do printf '#!/bin/sh\n[ -x %s ] && exec %s %s "$@"\nexec %s %s "$@"\n' "${BB}" "${BB}" "${a}" "${BB_HOST}" "${a}" > "${TMP}/bbin/${a}"; chmod +x "${TMP}/bbin/${a}"; done
@@ -8774,9 +8809,13 @@ p7evreset() {
 p7evarcs() { ls "${P7ES}/.cache/log/evidence"/*-evidence.tar.gz 2>/dev/null; }
 # The sandbox's find, tar, flock and date are the image's (gpt G-B-15).
 if [ -n "${BB}" ]; then
-    printf 'for a in find tar flock date mktemp; do if "$a" --help 2>&1 | head -1 | grep -q BusyBox; then echo "IMG:$a"; else echo "HOST:$a"; fi; done\n' > "${P7E}/repo/p7probe"
+    # Each applet's banner must be the copy's, and the copy a candidate's
+    # (#1018): the word BusyBox alone passed the host's 1.37.0.
+    printf 'b=%s\nfor a in find tar flock date mktemp; do if [ "$("$a" --help 2>&1 | head -1)" = "$b" ]; then echo "IMG:$a"; else echo "HOST:$a"; fi; done\n' "$(printf '%q' "${BB_BANNER}")" > "${P7E}/repo/p7probe"
     P7EVSCRIPT=p7probe p7ev
-    [ "$(grep -c '^IMG:' "${P7E}/out")" -eq 5 ]; check $? "#307 audit G-B-15 (gpt): the evidence collector runs under the image's find, tar, flock, date, and mktemp" "#307 audit G-B-15: $(tr '\n' ' ' < "${P7E}/out")"
+    [ "${BB_KIND}" != host ] && [ "$(grep -c '^IMG:' "${P7E}/out")" -eq 5 ]; check $? "#307 audit G-B-15 (gpt): the evidence collector runs under the candidate's find, tar, flock, date, and mktemp (${BB_KIND}${BB_ID:+, BUILD_ID ${BB_ID}})" "#307 audit G-B-15: busybox source ${BB_KIND}; $(tr '\n' ' ' < "${P7E}/out")"
+else
+    skip "#307 audit G-B-15: no busybox to probe (the host's GNU tools under --host-diagnostic)"
 fi
 p7evreset; touch "${P7ES}/.p7-mv-fails"
 p7ev collect
@@ -8807,8 +8846,8 @@ p7ck() { # <stdin producer> <exe> <epoch> [env...]: the keeper under the image's
     P7NOTE="$(cat "${P7C}"/storage/.cache/log/cores/core.*."${when}".4242.txt 2>/dev/null)"
 }
 if [ -n "${BB}" ]; then
-    p7ck 'for a in head flock find mkdir mv rm df date; do if "$a" --help 2>&1 | head -1 | grep -q BusyBox; then echo "IMG:$a" >&2; else echo "HOST:$a" >&2; fi; done' probe 1
-    [ "$(grep -c '^IMG:' "${P7C}/out")" -eq 8 ]; check $? "#307 audit G-B-15 (gpt): the core keeper runs under the image's head, flock, find, mkdir, mv, rm, df, and date" "#307 audit G-B-15: $(grep -E '^(IMG|HOST):' "${P7C}/out" | tr '\n' ' ')"
+    p7ck "b=$(printf '%q' "${BB_BANNER}")"'; for a in head flock find mkdir mv rm df date; do if [ "$("$a" --help 2>&1 | head -1)" = "$b" ]; then echo "IMG:$a" >&2; else echo "HOST:$a" >&2; fi; done' probe 1
+    [ "${BB_KIND}" != host ] && [ "$(grep -c '^IMG:' "${P7C}/out")" -eq 8 ]; check $? "#307 audit G-B-15 (gpt): the core keeper runs under the candidate's head, flock, find, mkdir, mv, rm, df, and date (${BB_KIND}${BB_ID:+, BUILD_ID ${BB_ID}})" "#307 audit G-B-15: $(grep -E '^(IMG|HOST):' "${P7C}/out" | tr '\n' ' ')"
 fi
 rm -f "${P7C}/storage/.config/keep-core-dumps"
 p7consumed=$(python3 - "${P7C}" "$(printf '%q ' bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 --ro-bind /etc /etc --bind "${P7C}/storage" /storage --ro-bind "${P7C}/shim" /shim --ro-bind "${P7C}/repo" /repo "${P7MBB[@]}" --ro-bind "${P7M}/bb" /p7mbb --dev /dev --proc /proc --tmpfs /tmp --tmpfs /var --setenv PATH /shim:/p7mbb:/usr/bin:/bin bash /repo/rocknix-corekeep retroarch 1 1 11 '!usr!bin!retroarch')" <<'EOS'
@@ -14233,6 +14272,15 @@ TMPDIR="${TMP}" python3 "${HARNESS_ROOT}/tools/melonds-upgrade-test" --post-upda
 check $? "#526: preserved configuration and atomic hotkey additions" "#526: melonDS update regression (details above)"
 
 if [ "${NOT_APPLICABLE}" -ne 0 ]; then echo "${NOT_APPLICABLE} HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS"; fi
+# Whose tools judged the scripts, in the verdict and not only the banner (#1018).
+echo "tools: busybox ${BB_SRC:-none, so the GNU tools of the host}${BB_BANNER:+ -- ${BB_BANNER}}; source: ${BB_KIND}${BB_ID:+, BUILD_ID ${BB_ID}}"
+if [ "${HOST_DIAG}" -eq 1 ]; then
+    # D-QA-063: 1 over 3 over 0 -- a failure under the host's applets is still
+    # a failure; 3 says only that nothing failed; a host run is never 0.
+    echo "NOT DEVICE EVIDENCE -- --host-diagnostic: ${FAIL} CHECK(S) FAILED, ${SKIPPED} SKIPPED under the host's tools, not the candidate's"
+    [ "${FAIL}" -eq 0 ] && exit 3
+    exit 1
+fi
 if [ "${FAIL}" -eq 0 ] && [ "${SKIPPED}" -eq 0 ]; then echo "PASSED"; exit 0
 elif [ "${FAIL}" -eq 0 ]; then echo "PASSED, ${SKIPPED} SKIPPED -- a check that did not run has not passed"; exit 3
 else echo "${FAIL} CHECK(S) FAILED, ${SKIPPED} SKIPPED"; exit 1; fi
