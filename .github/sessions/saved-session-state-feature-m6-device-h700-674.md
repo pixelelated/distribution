@@ -16,7 +16,7 @@
 
 ## Current focus
 
-**Stage C complete; stage D next, after the coordinator's dispositions** (updated 2026-10-25, 08:37 UTC): the seat PASS (36 items graded; G-28 and G-29 refuted); F-12 to F-14 added; `05` PL-01 to PL-14 all Open; the lint PASS pre-issue.
+**Stage D complete; S1 next** (updated 2026-10-25, 08:42 UTC): bug #1095 filed (box-check 0 fail); the audit issue #1096 under #674 (14 checkboxes, box-check 0 fail); `05` at the outcomes (9 Resolved, 5 Deferred); the lint PASS in the resolution phase and with `--issue 1096`; pointers on #672, #44 and #669. Next: S1 under `docs/reviews/briefs/t27-streams.md` at `64e56a3136` (`update.sh`: every step checked, `dtb.img` by temp-and-rename; the fixture under `stage-e/s1/`), then stages F to H.
 - **`reviewed-at`:** `ed7fd0ea50`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-device-h700/`, with `00`, `01` (§ Scope) and `stage-a/` (the runner, its 16 outputs and `runs.tsv`).
 - **Scope:** 28 / 12,901; read 8 / 327 / fork-own 0; tier 27 / 1; reach 28. The 15 trees are read too.
 - **The configuration:** 8,129 lines, `Linux/arm64 7.2.0`, 12 / 13 against `651150fc88`'s copy. The fork's `cbf75c0b06` alone since `c445081a59`; upstream's four since.

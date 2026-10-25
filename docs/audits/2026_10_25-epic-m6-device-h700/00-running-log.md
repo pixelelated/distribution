@@ -67,3 +67,13 @@
 - **Graded** (`04` § Second opinion): 17 confirmed, 13 narrowed, 4 new, 2 refuted (G-28 by the image's `sh` being bash; G-29 by the built stubs). F-12 (`update.sh`'s masking, a candidate bug), F-13 (the serial debug shell, a policy question) and F-14 (a miscased compatible) were added; F-01, F-02, F-03, F-04 and F-05 were corrected; P15 to P18 added.
 - **`05`:** PL-01 to PL-14, all Open. `tools/lint-audit-artifacts <folder> --phase pre-issue`: `PASS pre-issue artifacts (does not certify resolution)`.
 - **Stage C ends 08:37 UTC.** No guest, build, compiler, plan generation, fetch or handheld command. The `tools/council/run` calls were two keyed (the probe and the refutation) and one keyless (`COUNCIL_ENV_FILE=/nonexistent ... verify-pins`). Under `tools/`, only the gitignored `tools/council/node_modules` was written.
+
+## [Stage D] 08:40 to 08:42 UTC — the bug, the pointers, the audit issue, the outcomes; the pause
+
+- **The coordinator's dispositions** (08:39 UTC, #674): PL-12 a bug, its fix stage E's one stream (`docs/reviews/briefs/t27-streams.md` at `64e56a3136`); PL-13 → #346; PL-03 → Backlog #1094; PL-02 and PL-14 → one pointing comment on #672; PL-04 → #44 with a pointing comment; the rest recorded.
+- **The bug:** #1095, label `bug`, milestone M6. Its body was scanned before filing (`forbidden-terms-check --stdin` 0 hits; `SECRET_PATTERNS` 0 lines). It carries the code trace, the `Already written:` line as drafted, and the host fixture as its VM line. `box-check` 0 fail, 4 checkboxes.
+- **The pointers:** #672 (PL-02's atf seam and PL-14's `rg40xx-V`), #44 (PL-04's fresh-card `dtb.img`), and #669 (`init`'s *Boot Files Updated.* line, naming #1095 and the stream). No edit to `init`.
+- **`05`:** every item at its outcome: 9 Resolved (recorded at `6d0e0892e4`) and 5 Deferred (#1094, #44, #1095, #346, #672). `tracked:` and `outcome:` are in the `punch_index`; PL-12 carries `Bug issue: #1095`. The lint (resolution phase): `PASS`.
+- **The audit issue:** #1096, labels `audit` and `punch-list`, milestone M6, a sub-issue of #674 (`.../674/sub_issues` lists `[1096]`): 14 checkboxes, `box-check` 0 fail. The lint with `--issue 1096`: `PASS`.
+- **The removal rule at the stage-D tip:** `git diff --stat ed7fd0ea50 HEAD -- packages projects tools` is empty.
+- **The pause:** the hand-back of stages A to D on #674; then S1 under the stream brief. No guest, build, compiler, plan generation, fetch, handheld command or `tools/council/run` call at stage D.

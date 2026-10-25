@@ -1,6 +1,6 @@
 # Punch List — M6.P2 T27, the H700 device (RG35XX SP, RG SP) (#674)
 
-**Independent depth:** one seat, GPT-6 Astra at `max`, its 36 items graded in `04` § Second opinion. Every `where` is at `8ebaf8daad` (unchanged at the dispatch tip `ed7fd0ea50`). The lane changes none of the 28 and nothing under `packages/`, `projects/` or `tools/` (D-WORKFLOW-209). **No `bug` is proven;** PL-12 is a candidate the coordinator dispositions. Every item stays Open until stage D.
+**Independent depth:** one seat, GPT-6 Astra at `max`, its 36 items graded in `04` § Second opinion. Every `where` is at `8ebaf8daad` (unchanged at the dispatch tip `ed7fd0ea50`). The lane changes none of the 28 and nothing under `packages/`, `projects/` or `tools/` (D-WORKFLOW-209). No defect behaves wrongly on a unit's normal path. The coordinator's dispositions (08:39 UTC, #674) made PL-12 a `bug`, filed by the lane as #1095, with its fix in stage-E stream S1.
 
 The VM line, common to every item: **Can this be done on the VM? Yes, on the host:** reads at `8ebaf8daad`, local diffs, and two read-only reads of the M7 lane's H700 build root (`02` § Stage C re-reads). No guest, no build, no network, **nothing on a handheld**. A device fact is a `device-facts.md` row (L15, L16, L29) or an open item to test.
 
@@ -139,7 +139,7 @@ The VM line, common to every item: **Can this be done on the VM? Yes, on the hos
 ## PL-12: `update.sh` masks its failures and overwrites `dtb.img` in place; `init` reports success regardless
 
 - **Severity:** Low
-- **Category:** Bug candidate
+- **Category:** Bug
 - **Question:** Q3
 - **Source:** F-12
 - **Owner area:** `bootloader/update.sh:19-63`; `init:427-440` (upstream-carried)
@@ -147,6 +147,7 @@ The VM line, common to every item: **Can this be done on the VM? Yes, on the hos
 - **Evidence:** `02` F-12; G-26, G-27, G-9
 - **Already written:** a card whose update failed keeps what the failed copy left; a re-run update re-writes the tree and the loader
 - **Acceptance:** under a fixture whose `cp` to `/flash` fails, `update.sh` exits non-zero and leaves `dtb.img` as it was (exit 0 and a truncated `dtb.img` today)
+- **Bug issue:** #1095
 
 ## PL-13: Every H700 image's command line carries `systemd.debug_shell=ttyS0`, a root shell on the serial port
 
@@ -182,115 +183,131 @@ punch_index:
   question: Q4
   source_finding: "F-01"
   owner_area: "the H700 recipes; atf; the kernel"
-  outcome: "open"
+  tracked: "`6d0e0892e4`"
+  outcome: "resolved"
 - id: PL-02
   severity: Low
   category: Renovation
   question: Q4
   source_finding: "F-02"
   owner_area: "`projects/ROCKNIX/packages/tools/atf/package.mk:16-28`; the merge of `next` (T25, #672)"
-  outcome: "open"
+  tracked: "`6d0e0892e4`"
+  outcome: "resolved"
 - id: PL-03
   severity: Low
   category: Standards
   question: Q2
   source_finding: "F-03"
   owner_area: "`.claude/rules/device-builds.md:22-23` (the coordinator's); `options:9-17`"
-  outcome: "open"
+  tracked: "#1094"
+  outcome: "deferred"
 - id: PL-04
   severity: Low
   category: Renovation
   question: Q1
   source_finding: "F-04"
   owner_area: "`bootloader/mkimage:45-50`, `:88`; `update.sh:26-32`; #44"
-  outcome: "open"
+  tracked: "#44"
+  outcome: "deferred"
 - id: PL-05
   severity: Low
   category: Renovation
   question: Q5
   source_finding: "F-05"
   owner_area: "`config/kernel-firmware.dat`; `linux/package.mk:223-244`"
-  outcome: "open"
+  tracked: "`6d0e0892e4`"
+  outcome: "resolved"
 - id: PL-06
   severity: Info
   category: Renovation
   question: Q6
   source_finding: "F-06"
   owner_area: "`patches/linux/0203-...patch.disabled`"
-  outcome: "open"
+  tracked: "`6d0e0892e4`"
+  outcome: "resolved"
 - id: PL-07
   severity: Info
   category: Renovation
   question: Q6
   source_finding: "F-07"
   owner_area: "`linux/dts/allwinner/` (13)"
-  outcome: "open"
+  tracked: "`6d0e0892e4`"
+  outcome: "resolved"
 - id: PL-08
   severity: Info
   category: Renovation
   question: Q6
   source_finding: "F-08"
   owner_area: "`filesystem/usr/lib/udev/rules.d/80-clock.rules`"
-  outcome: "open"
+  tracked: "`6d0e0892e4`"
+  outcome: "resolved"
 - id: PL-09
   severity: Low
   category: Documentation
   question: Q7
   source_finding: "F-09"
   owner_area: "`options:77-84`; the device directory"
-  outcome: "open"
+  tracked: "`6d0e0892e4`"
+  outcome: "resolved"
 - id: PL-10
   severity: Info
   category: Renovation
   question: Q1
   source_finding: "F-10"
   owner_area: "`packages/u-boot-DDR3`, `u-boot-DDR4`"
-  outcome: "open"
+  tracked: "`6d0e0892e4`"
+  outcome: "resolved"
 - id: PL-11
   severity: Info
   category: Documentation
   question: Q7
   source_finding: "F-11"
   owner_area: "the brief (the coordinator's); T11's `02`"
-  outcome: "open"
+  tracked: "`6d0e0892e4`"
+  outcome: "resolved"
 - id: PL-12
   severity: Low
-  category: Bug candidate
+  category: Bug
   question: Q3
   source_finding: "F-12"
   owner_area: "`bootloader/update.sh:19-63`; `init:427-440` (upstream-carried)"
-  outcome: "open"
+  tracked: "#1095"
+  outcome: "deferred"
 - id: PL-13
   severity: Low
   category: Policy
   question: Q2
   source_finding: "F-13"
   owner_area: "`options:31` (and six other devices)"
-  outcome: "open"
+  tracked: "#346"
+  outcome: "deferred"
 - id: PL-14
   severity: Info
   category: Standards
   question: Q2
   source_finding: "F-14"
   owner_area: "`linux/dts/allwinner/sun50i-h700-anbernic-rg40xx-v.dts:10`"
-  outcome: "open"
+  tracked: "#672"
+  outcome: "deferred"
 ```
 
 ## Phase 7 resolution gate
 
+The coordinator's dispositions, 08:39 UTC on #674.
+
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | stage D: the coordinator's disposition |
-| PL-02 | Open | stage D: the coordinator's disposition |
-| PL-03 | Open | stage D: the coordinator's disposition |
-| PL-04 | Open | stage D: the coordinator's disposition |
-| PL-05 | Open | stage D: the coordinator's disposition |
-| PL-06 | Open | stage D: the coordinator's disposition |
-| PL-07 | Open | stage D: the coordinator's disposition |
-| PL-08 | Open | stage D: the coordinator's disposition |
-| PL-09 | Open | stage D: the coordinator's disposition |
-| PL-10 | Open | stage D: the coordinator's disposition |
-| PL-11 | Open | stage D: the coordinator's disposition |
-| PL-12 | Open | stage D: the coordinator's disposition |
-| PL-13 | Open | stage D: the coordinator's disposition |
-| PL-14 | Open | stage D: the coordinator's disposition |
+| PL-01 | **Resolved** | recorded at `6d0e0892e4` (`02` § The pins): the pins current with upstream's version pins; the authors' releases `CANNOT (no network)`; `tools/fork-package-freshness` named as the RC's check |
+| PL-02 | **Resolved** | recorded at `6d0e0892e4` (`02` § The pins); the coordinator carries it into the merge notes and T25's brief; pointing comment on #672 |
+| PL-03 | **Deferred** | #1094, a Backlog the coordinator filed: the table's notes separate the aarch64 flags, the arm FPU and the observed capability; the crypto extension an open item to test |
+| PL-04 | **Deferred** | #44 (D-WORKFLOW-033, parked until after the RC), with a pointing comment there naming `02` § The loader and the tree |
+| PL-05 | **Resolved** | recorded at `6d0e0892e4` (`02` F-05): coupled, not duplicated; #836 cited for the stamp, not re-filed |
+| PL-06 | **Resolved** | recorded at `6d0e0892e4`: disabled at birth, upstream's; its removal is #346's class decision |
+| PL-07 | **Resolved** | recorded at `6d0e0892e4`: carried by placement (D-WORKFLOW-185); T25's brief names the 13 |
+| PL-08 | **Resolved** | recorded at `6d0e0892e4`: settled by the next base merge (`899193e5af`) |
+| PL-09 | **Resolved** | recorded at `6d0e0892e4` as a design: one comment in `options` and one place joining unit, memory, loader and tree, a lead for the coordinator |
+| PL-10 | **Resolved** | recorded at `6d0e0892e4` as a design: one parameterised recipe, deferred to the coordinator; no edit |
+| PL-11 | **Resolved** | recorded at `6d0e0892e4`: both errata the coordinator's, written into the brief at acceptance |
+| PL-12 | **Deferred** | bug #1095, filed by the lane (box-check 0 fail); fixed in stage-E stream S1 (`t27-streams.md` at `64e56a3136`); `init`'s line pointed to T22's #669 |
+| PL-13 | **Deferred** | #346, the maintainer's: the coordinator put it there beside T22's root-shell findings; the lane writes nothing on #346 |
+| PL-14 | **Deferred** | #672, a lead for T25, in the pointing comment with PL-02's |
