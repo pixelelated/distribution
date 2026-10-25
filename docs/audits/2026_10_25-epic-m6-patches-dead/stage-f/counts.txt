@@ -1,0 +1,22 @@
+stage F at 5806a939b0, 2026-10-25 05:47:43 UTC
+scope: paths 778 lines 317908
+generator stats identical to stage B's
+class a: 277 rows, 92389 lines;class b: 234 rows, 160488 lines;class c: 5 rows, 99 lines;class d: 234 rows, 63795 lines;class e1: 6 rows, 153 lines;class e2: 22 rows, 984 lines;class (e) total 28;
+GENERIC_X64:x86_64 linux -> projects/ROCKNIX/packages/linux
+H700:aarch64 linux -> projects/ROCKNIX/packages/linux
+SM8550:aarch64 linux -> projects/ROCKNIX/packages/linux
+H700:arm linux -> projects/ROCKNIX/packages/linux
+SM8550:arm linux -> projects/ROCKNIX/packages/linux
+curl calls: 0
+Coverage rows: 778
+Provenance rows: 778
+shadowed rows: 74
+packages/projects/tools vs dispatch tip: []; packages/projects vs 8ebaf8daad: []
+provenance files: 0
+lint pre-issue: PASS pre-issue artifacts (does not certify resolution)
+lint resolution: PASS
+lint --issue 1074: PASS
+box-check 1056: box-check: 1 issue(s), 2 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+box-check 1071: box-check: 1 issue(s), 2 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+box-check 1072: box-check: 1 issue(s), 2 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+box-check 1074: box-check: 1 issue(s), 6 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against

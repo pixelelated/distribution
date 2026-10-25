@@ -115,3 +115,13 @@
 - **The audit issue:** **#1074**, a sub-issue of #687, with 6 checkboxes, each naming its outcome. `box-check` 0 fail.
 - **The lint:** pre-issue PASS, resolution PASS, `--issue 1074` PASS.
 - **No stage E:** the lane changes no member.
+
+## [Stage F] 05:47 to 05:47 UTC — the counts, linux, the tables and the lint at the tip
+
+- **At `5806a939b0`** (`stage-f/counts.txt`):
+  - scope: 778 / 317,908;
+  - the generator's statistics are identical to stage B's (277 / 234 / 5 / 234 / 6 + 22);
+  - `get_pkg_directory linux` resolves to the ROCKNIX override on all five configs, with 0 `curl` calls;
+  - 778 coverage rows, 778 provenance rows and 74 shadowed rows;
+  - the diffs against the dispatch tip and against `8ebaf8daad` are empty; 0 provenance files.
+- **The lint:** pre-issue, resolution and `--issue 1074` each print `PASS`. `box-check` gives 0 fail on #1056, #1071, #1072 and #1074.
