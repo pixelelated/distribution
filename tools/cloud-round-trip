@@ -374,6 +374,26 @@ def verdict_line(failures, note=""):
             f"{CHECKS['failed']} failed, {len(SKIPPED)} skipped{note}")
 
 
+def es_path_orphans(dev):
+    """(how many ES system paths the probe read, the ones outside
+    /storage/roms that backuptool does not name). The count is the floor:
+    with no es_systems.cfg the probe read nothing and its empty orphan list
+    passed step 25 (#1064)."""
+    out = dev.run(
+        "C=$(ls /storage/.config/emulationstation/es_systems.cfg "
+        "/usr/config/emulationstation/es_systems.cfg 2>/dev/null | head -1); "
+        "B=$(command -v backuptool); "
+        "P=$([ -n \"$C\" ] && grep -oP '(?<=<path>)[^<]+' \"$C\" | sort -u); "
+        "echo \"READ $(printf '%s\\n' \"$P\" | grep -c .)\"; "
+        "printf '%s\\n' \"$P\" | while read -r p; do "
+        "  [ -n \"$p\" ] || continue; "
+        "  case \"$p\" in /storage/roms/*) continue ;; esac; "
+        "  grep -qF \"$p\" \"$B\" || echo \"ORPHAN $p\"; "
+        "done", check=False)
+    read = next((int(l.split()[1]) for l in out.splitlines() if l.startswith("READ ") and l.split()[1].isdigit()), 0)
+    return read, [l[7:] for l in out.splitlines() if l.startswith("ORPHAN ")]
+
+
 def lacks(dev, script):
     """True when the image under test does not ship `script`."""
     return not dev.run(f"command -v {shlex.quote(script)} || true", check=False).strip()
@@ -1594,17 +1614,13 @@ echo "${saw:-0}/${all:-0}"
     # The complement of the rule above: a path in NO tier is silent data loss
     # on restore. Four were found this way (gmu/playlists, idtech, modules,
     # scummvm/games) after a ScummVM player would have lost their entries.
-    orphans = dev.run(
-        "C=$(ls /storage/.config/emulationstation/es_systems.cfg "
-        "/usr/config/emulationstation/es_systems.cfg 2>/dev/null | head -1); "
-        "B=$(command -v backuptool); "
-        "grep -oP '(?<=<path>)[^<]+' \"$C\" | sort -u | while read -r p; do "
-        "  case \"$p\" in /storage/roms/*) continue ;; esac; "
-        "  grep -qF \"$p\" \"$B\" || echo \"$p\"; "
-        "done").split()
-    failures += not check(not orphans,
-                          "every ES path outside /storage/roms is in the settings backup",
-                          f"carried by no tier: {' '.join(orphans)}")
+    # A probe that read no path passed this step with nothing compared
+    # (#1064), so the count it read is asserted and printed.
+    read, orphans = es_path_orphans(dev)
+    failures += not check(read > 0 and not orphans,
+                          f"every ES path outside /storage/roms is in the settings backup ({read} ES paths read)",
+                          f"carried by no tier: {' '.join(orphans)}" if orphans else
+                          "the probe read no ES path at all (no es_systems.cfg, or nothing in it): nothing was compared")
 
     # --- archive format -----------------------------------------------------
     step("the settings archive is a tar archive named for this device, and every reader finds it")
