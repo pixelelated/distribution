@@ -35,3 +35,21 @@ time comes from `date -u`.
 - **Membership** (brief § 2's block, as written): `paths 14 lines 8316 {'shipped': 14} {'fork-own': 14}`; languages shell 9, recipe 1, text 1, other 2, config 1; `read 10 7827 fork-own 10`; the rclone directory 25 rows / 16,518 lines, of which T17's 11 / 8,202. `.qa-scratch/t16/paths.txt`: 14. **The inventory tool's own `slice_of`** (imported from `tools/renovation-inventory`, `load_slices` over `docs/reviews/slices.json`; no plan generated, nothing written): 14 paths, 8,316 lines, the same list as the block's. No delta.
 - **The § 5 runs** (r1-r26), each with its exit and wall time in `.qa-scratch/t16/runs.txt`, run as one script file (`bash /workspace/tmp/m6-t16/runs.sh`). All 26 exited 0, each under 0.3 s. Every figure is the brief's except the deltas named in `01` § Scope (the stamp grep's `cloud_sync_helper` and `102-cloud-saves` hits). The figures and their *a FAIL would mean* go to `02` § The runs at stage B.
 - **Friction (11:36):** the first form of the runner (`bash -c "$*"`) was held at a permission prompt and auto-denied, because one read's grep pattern held the text `rm `; **no command of it ran**. The coordinator's 11:37 UTC message: keep `rm` out of composite scripts. The runner was rewritten as a file with the pattern `r[m] ` and run; the friction line is in `docs/friction-log.md` with `issue: #663`.
+
+## 2026-10-25 11:40-11:50 UTC -- stage B: 02 written
+
+- **The stage-A acceptance** came pasted from the coordinator (11:4x UTC): go on with stage B, then ask for the window with its plan.
+- **Read whole at `8ebaf8daad`** (`git show` copies in `/workspace/tmp/m6-t16/src/`):
+  - `cloud_backup`;
+  - `cloud_restore`: its 8 own functions and the 5 shared ones that differ, as diffs. The 34 identical shared bodies were read once in `cloud_backup` (`/workspace/tmp/m6-t16/fnbody.py` compares the bodies);
+  - `cloud_capture`: 1-1110 and 1585-1704 line by line; 1110-1585 for its writes, removals, jq calls and exits;
+  - the six small scripts, the four configuration files and `package.mk`.
+- **Generated:** `tools/t16-oracle.py` (79 rows in; 25 / 46 / 8; 56 rows run one of the nine; no delta) and `tools/t16-functions.py` (45 + 47 + 40 = 132; 39 shared, 34 identical; 3 unrowed, all uncalled; no delta).
+- **One host fixture** (`/workspace/tmp/m6-t16/fx/`, 11:46): `conf_valid` lifted from `cloud_backup` passes an empty and a commented `SAVESPATH`, which the `sed` reader of `cloud_saves_root`/`cloud_capture` reads as nothing.
+- **Deltas to the brief:**
+  - `last-restore` exists (a built name, `cloud_restore:724`);
+  - `cloud_sync_helper`'s stamp names are a one-shot rename;
+  - `102-cloud-saves`'s is a comment.
+- **Twelve leads** listed in `02` § Leads, for stage C and the window.
+- **Errata of my own, corrected before the commit:** six line numbers in the first draft of `02`'s leads were written from a comment-free listing, not the file; each was re-read with `grep -n` and corrected.
+- No guest, no fetch, no seat call so far.
