@@ -205,3 +205,23 @@
   - **fixed full suite under the M7 root: rc 0 in 522 s, 1,313 / 0 / 0**, both provenance lines.
 - **The `--old` consequence:** every positive ref pins rclone 1.75.1 and every GENERIC_X64 root here carries 1.75.2, so no `--old` run reaches a verdict on this host. Put to the coordinator with the checkpoint, since S2 proves #1022/#1023 with `--old` runs.
 - **Coordinator, 03:16:** D-WORKFLOW-206/207 are reserved for the M7 lane; a row from this slice takes D-WORKFLOW-208+, D-QA-064 or D-INFRA-032. None is planned.
+
+## [Stage E] 03:55 UTC — S1: #1029 and #1038 fixed; the 03:34 `--old` ruling
+
+- **The coordinator's 03:34 ruling on `--old` (#662): option (2), made precise per tool.**
+  - Under `--old` only, each tool borrowed from the root (rclone, busybox) is read against the ref's recipe. A match is evidence.
+  - A mismatch is named on the banner and the `tools:` line, and the sections that tool judges count as unverified: stream A for rclone, every section for busybox.
+  - The exit follows D-QA-063.
+  - Outside `--old`, the 03:11 CANNOT stands.
+  - Option (3), a root of a 1.75.1 ref, goes into `04` as what would turn those 3s into 0s.
+  - This lands in S2, with #1022/#1023.
+- **#1029:** section `b` binds the busybox and 28 applet wrappers, and a probe in the sandbox checks each one. **#1038:** PL-022 runs only on a root's or build's busybox; otherwise it is a counted SKIP. Table: `02` § S1, #1029 and #1038.
+- **The runs:**
+  - the probe with `b`'s old sandbox: rc 1, 0 of 28 (the positive);
+  - with the binding: rc 0, 28 of 28;
+  - unfixed host run's PL-022: PASS "the image's" on the host's 1.37.0 (the positive);
+  - fixed `--host-diagnostic`: rc 1, 985 / 325 / 1 SKIP;
+  - **fixed under the M7 root: rc 0, 1,314 / 0 / 0.**
+- **My count slip:** I first estimated that PL-022's block was 5 checks. It is 4, and the line-by-line diff of the two host runs reconciles exactly (`02`).
+- **The host run's new FAILs in `b`** are backuptool's lock with no `flock` applet: section `b` now judges the busybox it is given, as the other flock-using sections already did. Not a script bug; the host's busybox lacks the applet.
+- **Coordinator, 03:43:** D-WORKFLOW-206 to 208 are the M7 lane's; a row from this slice takes D-WORKFLOW-209+, D-QA-064 or D-INFRA-032.
