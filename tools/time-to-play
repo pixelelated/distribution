@@ -778,9 +778,11 @@ def measure_exit(g, fr, tag, rest_ref, relaunch=False, budget=150.0,
         # thumb answers, and so does this cell: A once, half a second after
         # the relaunch went -- from this thread, which owns the monitor
         # socket -- so the number measured is still exit to the next first
-        # frame, the one press included. With no sync in flight the launch
-        # has gone ahead and the A lands in the game, harmlessly.
-        if (relaunch and marks["relaunched"] is not None and marks["answered"] is None
+        # frame, the one press included. A sent input is not proof that a
+        # question was visible or answered. Once the next emulator has been
+        # observed, do not send this answer into the game (#1012).
+        if (relaunch and marks["ra2"] is None
+                and marks["relaunched"] is not None and marks["answered"] is None
                 and time.monotonic() - marks["relaunched"] >= 0.5):
             fr.mon.sendkey("x")
             marks["answered"] = time.monotonic()
@@ -793,12 +795,13 @@ def measure_exit(g, fr, tag, rest_ref, relaunch=False, budget=150.0,
     stop.set()
     if th is not None:
         th.join(timeout=8)
-    # A game-to-game repeat ends at the next game's first frame, while the
-    # sync it stopped is still writing its stamp: wait for it, bounded (#967),
-    # since the row is judged with the stamp that says what the launch did.
+    # A game-to-game repeat may reach the next frame before a sync writes
+    # its outcome. Wait for a new stamp, bounded (#967); its absence does
+    # not prove that STOP IT AND PLAY was selected (#1012).
     wait_until = time.monotonic() + (30 if relaunch else 0)
     while marks["stamp"] is None and ssh_poll:
         after = g.stamp("exit")
+        result["stamp_readback_after"] = after
         if after and after != before:
             marks["stamp"] = time.monotonic()
             result["stamp_after"] = after
@@ -811,7 +814,7 @@ def measure_exit(g, fr, tag, rest_ref, relaunch=False, budget=150.0,
         "t_sync_stamp": None if marks["stamp"] is None else round(marks["stamp"] - t0, 3),
         "t_card_gone": None if card_gone is None else round(card_gone - t0, 3),
         "t_relaunch_sent": None if marks["relaunched"] is None else round(marks["relaunched"] - t0, 3),
-        "t_question_answered": None if marks["answered"] is None else round(marks["answered"] - t0, 3),
+        "t_answer_input_sent": None if marks["answered"] is None else round(marks["answered"] - t0, 3),
         "t_retroarch2_seen": None if marks["ra2"] is None else round(marks["ra2"] - t0, 3),
         "t_second_game_frame": None if game2 is None else round(game2 - t0, 3),
         "frames": series,
@@ -1691,15 +1694,15 @@ def render(r):
         for x in G:
             t = x.get("stamp", {}).get("token", "?")
             toks[t] = toks.get(t, 0) + 1
-        lines.append("## Game to game, with the exit sync in flight\n")
+        lines.append("## Game to game, on immediate relaunch\n")
         lines.append(md_table(
             ["from execute_kill to", "median / mean / max", "n"],
             [["the emulator gone", fmt(stats([x["t_emulator_gone"] for x in G])), len(G)],
              ["the relaunch sent", fmt(stats([x["t_relaunch_sent"] for x in G])), len(G)],
-             ["the question answered (STOP IT AND PLAY, D-CLOUD-130)", fmt(stats([x.get("t_question_answered") for x in G])), len(G)],
+             ["answer input sent (dialog not verified)", fmt(stats([x.get("t_answer_input_sent", x.get("t_question_answered")) for x in G])), len(G)],
              ["**the next game's first frame**", "**%s**" % fmt(stats([x["t_second_game_frame"] for x in G])), len(G)],
              ["the exit sync's stamp", fmt(stats([x["t_sync_stamp"] for x in G])), len(G)]]))
-        lines.append("What the launch did to the sync, from the stamp's token: %s.\n"
+        lines.append("Observed new exit-sync stamp token(s): %s.\n"
                      % ", ".join("`%s` x%d" % (k, v) for k, v in toks.items()))
     if S:
         rows = []
