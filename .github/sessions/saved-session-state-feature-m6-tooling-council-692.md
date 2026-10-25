@@ -40,16 +40,16 @@
 
 ## Current focus
 
-**Handed back; idle** (2026-10-25, 03:25 UTC). The hand-back comment on #692 names the tip and every artifact.
-- **Commits:** `reviewed-at` `32a34393dd`, `fixed-at` `e1fa041488` (both on #692's body); the hand-back tip is in the comment.
-- **The audit:** `docs/audits/2026_10_25-epic-m6-tooling-council/`. The lint passes in the pre-issue and resolution phases and with `--issue 1046`. #1046's 15 items are at outcomes (#1043, #1044, #1045, two designs).
-- **The retro:** `docs/retros/2026-10-25-m6-tooling-council.md`, posted on #692.
-- **The checkers:** `register-check`, `work-log-index --check`, `rules-check --quiet` and `hooks-test` rc 0. `forbidden-terms-check` is the coordinator's: it reads the list this slice may not read.
-- **Running for this lane:** nothing. The clone at the hash (`/workspace/tmp/m6-t45/at-hash`) and `tools/council/node_modules` (gitignored) remain for the coordinator's re-run, or for removal.
+**Idle (2026-10-25, 03:35 UTC): T45 accepted by the coordinator on #692 at 03:34 UTC (`bbb5f28824` stands); #1046 closed as completed.**
+- **The marker:** `docs/audits/2026_10_25-epic-m6-tooling-council/audit-completion.json`, written from #1046's closed readback (completed 03:34:35 UTC). `tools/ceremony-check`'s validator accepts it. `tools/lint-audit-artifacts` prints `PASS` with `--issue 1046` and in the default phase.
+- **Commits:** `reviewed-at` `32a34393dd`, `fixed-at` `e1fa041488` (in #692's body); the coordinator's merge `cd08f82d07`.
+- **The leads** live in Backlog #1044 (the fork side) and #1045 (the export's next refresh); the seal keys in #1043. All three are the coordinator's.
+- **Removed after this commit:** `/workspace/tmp/m6-t45` (the clone at the hash, the scratch, the drafts) and this worktree's `tools/council/node_modules` and `package-lock.json`, all gitignored.
+- **Running for this lane:** nothing. **The lane waits for nothing:** the merge to `next` is the coordinator's, after T15's and before T4's.
 
 ## Next commands
 
-None. The lane waits for the coordinator's acceptance; after it: `audit-completion.json` from #1046's closed readback, and the full lint.
+None. The lane is idle.
 
 ## Merge notes
 

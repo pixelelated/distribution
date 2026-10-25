@@ -167,3 +167,10 @@
 - **`tools/forbidden-terms-check` was not run here:** it reads `~/.config/rocknix/forbidden-terms`, which brief § 8 forbids this slice to read. It is the coordinator's at acceptance, after the hand-back merge, as criterion 16 orders.
 - **The retro** is posted on #692. **`reviewed-at` `32a34393dd` and `fixed-at` `e1fa041488`** are on #692's body.
 - **The lane is idle** after the hand-back comment.
+
+## [Close-out] 03:35 UTC — accepted; #1046 closed; audit-completion.json; the full lint PASS
+
+- **The coordinator accepted T45 on #692 at 03:34 UTC** (`bbb5f28824` stands), merged its branch into this worktree at `cd08f82d07` and closed #1046 as completed, with its fifteen checkboxes ticked.
+- **The marker:** `audit-completion.json`, written by `tools/write-completion.py` (T12's writer, adapted for #1046) from #1046's closed readback: completed `2026-10-25T03:34:35Z`, 15 ticked, 0 open. Beside it are `tracker-final-readback.json` and `tracker-completion.json`. `tools/ceremony-check`'s `completed_audit_marker()` accepts it (loaded with no bytecode written).
+- **The lint:** `--issue 1046` prints `PASS`; the default resolution phase prints `PASS`.
+- **No member changed through the merge:** `git log --format=%h 32a34393dd..HEAD -- <the 52>` is empty.
