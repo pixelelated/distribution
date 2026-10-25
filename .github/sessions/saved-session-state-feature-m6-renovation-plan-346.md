@@ -73,6 +73,8 @@ today:** `.githooks/pre-commit` refuses a conflict marker (#696).
 
 **#1043 (2026-10-25 03:03-03:07 UTC):** T45 found two council seal keys committed under `research/council-runs/*/verification/seal-key.local` on public `next` since September (contents never read). Filed #1043; removed on this branch at `0fa5a20c5f`; M7 told on the host file (it may carry the two-file `git rm` if it pushes `next` first); the maintainer asked on #346 whether history is rewritten (theirs) or the two runs' records declare the seals void (proposed). Open on #1043: the guard pattern for the shape with its constructed positive (`.githooks/secret-patterns`, `.githooks/hooks-test`), the two runs' records, the blindspot entry, the register row from the maintainer's answer. T45's stage-A question (criterion 9's lint target) answered 03:03: the four `research/council-runs/*` directories; the brief and the body corrected at `2672582a01`.
 
+**03:12-03:19 UTC (2026-10-25):** M7's build window granted from 03:12 with no start expiry (GENERIC_X64 then H700 builds, the GENERIC smoke, SM8550 after; M6 runs no guest, compiler or build during it). M7's selective-integration request for #825/#887/#889 answered on the host file at 03:15 (`fac139dd43`, `c60cdddf8b`, `828472eb59`, each one commit on `8ebaf8daad` on its pushed `fix/m6-*` branch). **Register: D-WORKFLOW-206 and 207 are M7's; M6 uses 208 and up** (lanes told). T45 stage B done at `474c434fa4` with fifteen leads and no bug; Backlogs #1044 (fork side) and #1045 (the export refresh) filed for them; the lane is at stage D. T15 at S1 done (#1018 `3037ce6b8c`), #1020 in progress with shape (a).
+
 ## Next commands
 
 ```bash
