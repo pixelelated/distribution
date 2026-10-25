@@ -1,0 +1,37 @@
+# 09:14:17 guest a: for u in led-poweroff volume-fixup rocknix-autostart cron-defaults cron fs-resize proc-sys-fs-binfmt_misc var-log var shell show-version storage-log powerstate batteryledstatus fancontrol headphones input video debugconfig machine-id network-base systemd-timesyncd-setup usercache userconfig fstrim; do for s in service timer mount target; do f=/usr/lib/systemd/system/$u.$s; [ -e $f ] || continue; r=$(systemctl show -P User $u.$s); g=$(systemctl show -P Group $u.$s); printf "%s.%s file=yes enabled=%s active=%s runs-as=%s group=%s\n" $u $s "$(systemctl is-enabled $u.$s 2>&1)" "$(systemctl is-active $u.$s 2>&1)" "${r:-root}" "${g:-root}"; done; done; for x in fs-resize.target textmode.target udevil-mount@.service; do printf "%s file=%s enabled=%s\n" $x "$([ -e /usr/lib/systemd/system/$x ] && echo yes || echo no)" "$(systemctl is-enabled $x 2>&1)"; done; echo "--- missing unit files:"; for u in volume-fixup.service; do [ -e /usr/lib/systemd/system/$u ] || echo "$u not installed"; done; echo "--- wants symlinks naming the five:"; ls -l /usr/lib/systemd/system/*.wants/ /etc/systemd/system/*.wants/ 2>/dev/null | grep -E "video|headphones|input\.|fancontrol|batteryled" || echo none; echo "--- DEVICE_* the five depend on:"; . /etc/profile >/dev/null 2>&1; echo "HAS_FAN=$DEVICE_HAS_FAN FAKE_JACKSENSE=$DEVICE_FAKE_JACKSENSE HAS_HDMI=$DEVICE_HAS_HDMI BATTERY_LED_STATUS=$DEVICE_BATTERY_LED_STATUS"; echo "--- video_sense:"; ls -l /usr/bin/video_sense 2>&1
+led-poweroff.service file=yes enabled=disabled active=active runs-as=root group=root
+volume-fixup.service file=yes enabled=disabled active=inactive runs-as=root group=root
+rocknix-autostart.service file=yes enabled=disabled active=active runs-as=root group=root
+fs-resize.service file=yes enabled=static active=inactive runs-as=root group=root
+fs-resize.target file=yes enabled=static active=inactive runs-as=root group=root
+proc-sys-fs-binfmt_misc.mount file=yes enabled=disabled active=active runs-as=root group=root
+var-log.mount file=yes enabled=static active=active runs-as=root group=root
+var.mount file=yes enabled=disabled active=active runs-as=root group=root
+shell.service file=yes enabled=disabled active=inactive runs-as=root group=root
+show-version.service file=yes enabled=disabled active=active runs-as=root group=root
+storage-log.service file=yes enabled=static active=active runs-as=root group=root
+powerstate.service file=yes enabled=disabled active=active runs-as=root group=root
+batteryledstatus.service file=yes enabled=disabled active=inactive runs-as=root group=root
+fancontrol.service file=yes enabled=disabled active=inactive runs-as=root group=root
+headphones.service file=yes enabled=disabled active=inactive runs-as=root group=root
+input.service file=yes enabled=disabled active=active runs-as=root group=root
+video.service file=yes enabled=disabled active=active runs-as=root group=root
+debugconfig.service file=yes enabled=disabled active=inactive runs-as=root group=root
+machine-id.service file=yes enabled=disabled active=active runs-as=root group=root
+network-base.service file=yes enabled=disabled active=active runs-as=root group=root
+systemd-timesyncd-setup.service file=yes enabled=disabled active=active runs-as=root group=root
+usercache.service file=yes enabled=disabled active=active runs-as=root group=root
+userconfig.service file=yes enabled=disabled active=active runs-as=root group=root
+fstrim.service file=yes enabled=static active=inactive runs-as=root group=root
+fstrim.timer file=yes enabled=disabled active=inactive runs-as=root group=root
+fs-resize.target file=yes enabled=static
+textmode.target file=yes enabled=static
+udevil-mount@.service file=yes enabled=static
+--- missing unit files:
+--- wants symlinks naming the five:
+none
+--- DEVICE_* the five depend on:
+HAS_FAN= FAKE_JACKSENSE=false HAS_HDMI=true BATTERY_LED_STATUS=false
+--- video_sense:
+-rwxr-xr-x    1 root     root           612 Oct 22 20:02 /usr/bin/video_sense
+# rc=0

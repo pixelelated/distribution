@@ -1,0 +1,20 @@
+# 09:14:40 guest a: for d in /usr/lib/systemd/system/*.wants /etc/systemd/system/*.wants; do [ -d "$d" ] || continue; for l in "$d"/*; do n=$(basename "$l"); case "$n" in led-poweroff*|volume-fixup*|rocknix-autostart*|cron*|fs-resize*|proc-sys-fs-binfmt*|var-log.mount|var.mount|shell.service|show-version*|storage-log*|powerstate*|batteryled*|fancontrol*|headphones*|input.service|video.service|debugconfig*|machine-id*|network-base*|systemd-timesyncd-setup*|usercache*|userconfig*|udevil-mount*|fstrim*) echo "$(basename $d) -> $n";; esac; done; done | sort; echo "--- default target: $(systemctl get-default)"; echo "--- journal of 098-deviceutils starts:"; journalctl -b --no-pager -o short-iso 2>/dev/null | grep -E "Started (Video|Input|Headphone|Fan|Battery)|video.service|input.service" | head -8
+basic.target.wants -> show-version.service
+local-fs.target.wants -> proc-sys-fs-binfmt_misc.mount
+local-fs.target.wants -> var.mount
+multi-user.target.wants -> led-poweroff.service
+multi-user.target.wants -> powerstate.service
+network.target.wants -> network-base.service
+rocknix.target.wants -> rocknix-autostart.service
+sysinit.target.wants -> debugconfig.service
+sysinit.target.wants -> machine-id.service
+sysinit.target.wants -> proc-sys-fs-binfmt_misc.automount
+sysinit.target.wants -> systemd-timesyncd-setup.service
+sysinit.target.wants -> usercache.service
+sysinit.target.wants -> userconfig.service
+textmode.target.wants -> shell.service
+--- default target: rocknix.target
+--- journal of 098-deviceutils starts:
+2026-10-25T05:13:32-04:00 GENERIC-X64-15ca systemd[1]: Started input.service.
+2026-10-25T05:13:32-04:00 GENERIC-X64-15ca systemd[1]: Started video.service.
+# rc=0

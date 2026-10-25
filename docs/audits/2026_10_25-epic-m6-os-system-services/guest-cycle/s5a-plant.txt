@@ -1,0 +1,12 @@
+# 09:14:57 guest a: A=/storage/.config/autostart; echo "before: $(ls -la $A 2>&1 | wc -l) lines; exists=$([ -d $A ] && echo yes || echo no)"; mkdir -p $A; rm -f /storage/t22-marker.txt; printf "#!/bin/sh\necho \"\$(basename \$0) uid=\$(id -u) args=[\$*]\" >> /storage/t22-marker.txt\n" > "$A/10-marker"; cp "$A/10-marker" "$A/40"; cp "$A/10-marker" "$A/40 split"; printf "echo 20-noexec-ran >> /storage/t22-marker.txt\n" > "$A/20-noexec"; mkdir -p "$A/30-dir"; chmod 755 "$A/10-marker" "$A/40" "$A/40 split"; chmod 644 "$A/20-noexec"; ls -la "$A"; echo "boot id before: $(cat /proc/sys/kernel/random/boot_id)"
+before: 1 lines; exists=no
+total 28
+drwxr-xr-x    3 root     root          4096 Oct 25 05:14 .
+drwxr-xr-x   46 root     root          4096 Oct 25 05:14 ..
+-rwxr-xr-x    1 root     root            82 Oct 25 05:14 10-marker
+-rw-r--r--    1 root     root            46 Oct 25 05:14 20-noexec
+drwxr-xr-x    2 root     root          4096 Oct 25 05:14 30-dir
+-rwxr-xr-x    1 root     root            82 Oct 25 05:14 40
+-rwxr-xr-x    1 root     root            82 Oct 25 05:14 40 split
+boot id before: 6d0c5b10-9f9d-4fca-8daf-2ec03b1ae47b
+# rc=0

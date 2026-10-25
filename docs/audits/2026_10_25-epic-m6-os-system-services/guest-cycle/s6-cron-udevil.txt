@@ -1,0 +1,66 @@
+# 09:15:55 guest a: echo "--- cron units:"; ls -l /usr/lib/systemd/system/cron*.service 2>&1; echo "crond: $(pidof crond || echo none)"; stat -c "%n %F mode=%a uid=%u" /storage/.cache/cron /storage/.cache/cron/crontabs 2>&1; echo "--- udevil:"; ls -l /usr/bin/udevil 2>&1; stat -c "%n mode=%a uid=%u" /usr/bin/udevil 2>&1; systemctl cat udevil-mount@.service 2>&1 | grep -v "^#" | grep -v "^$"; grep -h -E "udevil|SYSTEMD_WANTS" /usr/lib/udev/rules.d/*.rules 2>/dev/null | head -5; echo "--- udevil.conf effective (no comments):"; grep -v -E "^\s*(#|$)" /etc/udevil/udevil.conf 2>/dev/null | head -40; echo "--- samba-autoshare: $(command -v samba-autoshare || echo none)"; echo "--- sshd/samba state: sshd=$(systemctl is-active sshd 2>&1) smbd=$(systemctl is-active smbd 2>&1 | head -1)"
+--- cron units:
+ls: /usr/lib/systemd/system/cron*.service: No such file or directory
+crond: none
+stat: can't stat '/storage/.cache/cron': No such file or directory
+stat: can't stat '/storage/.cache/cron/crontabs': No such file or directory
+--- udevil:
+-rwxr-xr-x    1 root     root        109888 Oct  4 00:50 /usr/bin/udevil
+/usr/bin/udevil mode=755 uid=0
+[Unit]
+Description=Udevil mount service
+After=rocknix-automount.service
+[Service]
+Type=oneshot
+ExecStart=-/usr/bin/udevil --mount %I
+ExecStop=-/usr/bin/udevil --umount %I
+ExecStartPost=-/usr/lib/samba/samba-autoshare
+ExecStopPost=-/usr/lib/samba/samba-autoshare
+RemainAfterExit=yes
+ACTION=="add", PROGRAM="/usr/bin/sh -c '/usr/bin/grep -E ^/dev/%k\  /proc/mounts || true'", RESULT=="", RUN+="/usr/bin/systemctl restart udevil-mount@/dev/%k.service"
+ACTION=="remove", RUN+="/usr/bin/systemctl stop udevil-mount@/dev/%k.service"
+ACTION=="add|change", RUN+="/usr/bin/systemctl restart udevil-mount@/dev/%k.service"
+DRIVER=="i915", ENV{xorg_driver}="i915", TAG+="systemd", ENV{SYSTEMD_WANTS}+="xorg-configure@i915.service"
+DRIVER=="amdgpu", ENV{xorg_driver}="amdgpu", TAG+="systemd", ENV{SYSTEMD_WANTS}+="xorg-configure@amdgpu.service"
+--- udevil.conf effective (no comments):
+log_keep_days = 10
+allowed_types = $KNOWN_FILESYSTEMS, hfsplus, hfs, btrfs
+allowed_users = *
+allowed_groups = *
+allowed_media_dirs = /media, /var/media, /run/media/$USER
+allowed_devices = /dev/*
+allowed_internal_devices = /dev/sd*
+forbidden_devices = /dev/disk/by-path/*ufshc*
+allowed_networks = *
+forbidden_networks =
+allowed_files = *
+forbidden_files =
+default_options           = nosuid, noexec, nodev, noatime
+default_options_file      = nosuid, noexec, nodev, noatime, uid=$UID, gid=$GID, ro
+default_options_iso9660   = nosuid, noexec, nodev, noatime, uid=$UID, gid=$GID, ro, utf8
+default_options_udf       = nosuid, noexec, nodev, noatime, uid=$UID, gid=$GID
+default_options_vfat      = nosuid, noexec, nodev, noatime, fmask=0133, dmask=0022, uid=$UID, gid=$GID, utf8
+default_options_exfat     = nosuid, noexec, nodev, noatime
+default_options_msdos     = nosuid, noexec, nodev, noatime, fmask=0133, dmask=0022, uid=$UID, gid=$GID
+default_options_umsdos    = nosuid, noexec, nodev, noatime, fmask=0133, dmask=0022, uid=$UID, gid=$GID
+default_options_ntfs      = nosuid, noexec, nodev, noatime, fmask=0133, uid=$UID, gid=$GID
+default_options_cifs      = nosuid, noexec, nodev, uid=$UID, gid=$GID
+default_options_smbfs     = nosuid, noexec, nodev, uid=$UID, gid=$GID
+default_options_sshfs     = nosuid, noexec, nodev, noatime, uid=$UID, gid=$GID, nonempty, allow_other
+default_options_curlftpfs = nosuid, noexec, nodev, noatime, uid=$UID, gid=$GID, nonempty, allow_other
+default_options_ftpfs     = nosuid, noexec, nodev, noatime, uid=$UID, gid=$GID
+default_options_davfs     = nosuid, noexec, nodev, uid=$UID, gid=$GID
+default_options_tmpfs     = nosuid, noexec, nodev, noatime, uid=$UID, gid=$GID
+default_options_ramfs     = nosuid, noexec, nodev, noatime, uid=$UID, gid=$GID
+default_options_btrfs     = compress=zstd:3
+allowed_options           = nosuid, noexec, nodev, noatime, big_writes, fmask=0133, dmask=0022, uid=$UID, gid=$GID, ro, rw, sync, flush, iocharset=*, utf8, remount
+allowed_options_nfs       = nosuid, noexec, nodev, noatime, ro, rw, sync, remount, port=*, rsize=*, wsize=*, hard, proto=*, timeo=*, retrans=*
+allowed_options_cifs      = nosuid, noexec, nodev, ro, rw, remount, port=*, user=*** username=*, pass=*, password=*** guest, domain=*, uid=$UID, gid=$GID, credentials=*
+allowed_options_smbfs     = nosuid, noexec, nodev, ro, rw, remount, port=*, user=*** username=*, pass=*, password=*** guest, domain=*, uid=$UID, gid=$GID, credentials=*
+allowed_options_sshfs     = nosuid, noexec, nodev, noatime, ro, rw, uid=$UID, gid=$GID, nonempty, allow_other, idmap=user, BatchMode=yes, port=*
+allowed_options_curlftpfs = nosuid, noexec, nodev, noatime, ro, rw, uid=$UID, gid=$GID, nonempty, allow_other, user=***
+allowed_options_ftpfs     = nosuid, noexec, nodev, noatime, ro, rw, port=*, user=*** pass=*, ip=*, root=*, uid=$UID, gid=$GID
+allowed_options_exfat     = nosuid, noexec, nodev, noatime, ro, rw, uid=$UID, gid=$GID
+--- samba-autoshare: none
+--- sshd/samba state: sshd=active smbd=active
+# rc=0

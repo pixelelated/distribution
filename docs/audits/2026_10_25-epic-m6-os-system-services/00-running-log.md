@@ -55,3 +55,11 @@ Each run's output is in `.qa-scratch/t22/runs/NN-*.out`, with its exit and wall 
 - **Routes** (`17`): 7 and 4. **The removal rule** (`18`): `git diff --stat 4a48d388c4 HEAD -- packages projects tools` is empty.
 - **The fork-own 24** and the **30 config files** (4,487 lines; the three busybox configurations 1,224 + 1,224 + 1,200 = 3,648) are listed in `01` § Scope (`21`).
 - **The pre-commit scan refused the first commit** of `01`: one upstream file name under `gptfdisk/patches/` (patch 0001) contains a key-shaped substring. The line in `01` was reworded to a placeholder with the command that shows the name, not exempted (`fork-workflow.md`). The raw run output under `.qa-scratch/` keeps the name and is gitignored.
+
+## 2026-10-25 09:12-09:17 UTC -- the guest window (granted 09:12 on #669)
+
+- Granted at 09:12 (one guest, 30 minutes from START, the seven steps; T13's conditions). Census before the boot: qemu 0, 10022 free; the host file's last line is the grant.
+- **START 09:13:41** (posted on #669). Guest a was booted with `tools/vm-pair reimage a` from M6's image (`...g069fc2704421...img.gz`, BUILD_ID `069fc270442134fe771258418adf4e666e0473fb`), under `/workspace/tmp/m6-t22/`.
+- Every read went through the masking `sed`. Identities print as `runs-as=` and as uids from `/proc`, so the mask cannot hide a figure. One masked token, `passwd:***` in step 4's applet line, is the mask matching an applet name; its value (`applet=1`, the link) is in the same line.
+- **The only write was step 5,** on the disposable disk: five plants in `/storage/.config/autostart/` (an executable marker, a copy named `40`, one named `40 split`, a mode-644 file, a directory) and one reboot over SSH. The boot id moved from `6d0c5b10-...` to `ed740e10-...`.
+- **Stopped 09:16:25** by `tools/vm-pair down` (`owned QEMU exited (pid 3339623)`). The leftover check reads 0 on every line. The record is every output, in `guest-cycle/` (`s1` to `s6b`, `boot.out`, `down.out`, `leftover.txt`). What it shows goes to `02` § The guest cycle.

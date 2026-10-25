@@ -1,0 +1,16 @@
+# 09:14:17 guest a: cat /etc/os-release | grep -E "^(BUILD_ID|HW_DEVICE|NAME)="; echo "--- /usr/config/ssh, /usr/config/iwd"; ls -ld /usr/config/ssh /usr/config/iwd 2>&1; ls -l /usr/config/ssh 2>&1 | wc -l; echo "--- configure.log lines: $(wc -l < /var/log/configure.log 2>/dev/null)"; echo "--- /storage/.ssh /storage/.configured"; stat -c "%n %F mode=%a birth=%w mtime=%y" /storage/.ssh /storage/.configured /storage/.cache/iwd 2>&1; echo "--- journal userconfig"; journalctl -b -u userconfig --no-pager -o short-iso 2>&1 | tail -8
+BUILD_ID="069fc270442134fe771258418adf4e666e0473fb"
+HW_DEVICE="GENERIC_X64"
+--- /usr/config/ssh, /usr/config/iwd
+ls: /usr/config/ssh: No such file or directory
+ls: /usr/config/iwd: No such file or directory
+1
+--- configure.log lines: 0
+--- /storage/.ssh /storage/.configured
+/storage/.ssh directory mode=700 birth=w mtime=2026-10-25 05:13:39.926666668 -0400
+/storage/.configured regular empty file mode=644 birth=w mtime=2026-10-25 05:13:28.476666668 -0400
+/storage/.cache/iwd directory mode=755 birth=w mtime=2026-10-25 05:13:26.370133362 -0400
+--- journal userconfig
+2026-10-25T05:13:25-04:00 ROCKNIX systemd[1]: Starting userconfig.service...
+2026-10-25T05:13:30-04:00 ROCKNIX systemd[1]: Finished userconfig.service.
+# rc=0

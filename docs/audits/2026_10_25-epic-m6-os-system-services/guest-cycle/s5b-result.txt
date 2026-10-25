@@ -1,0 +1,111 @@
+# 09:15:35 guest a: echo "boot id: $(cat /proc/sys/kernel/random/boot_id); autostart: $(systemctl is-active rocknix-autostart)"; echo "--- marker:"; cat /storage/t22-marker.txt 2>&1; echo "--- boot.log, the Run lines in order:"; grep -n "Autostart: Run" /var/log/boot.log | sed "s/^[^ ]* //; s/.*Autostart: //"; echo "--- boot.log tail:"; tail -5 /var/log/boot.log; echo "--- journal of rocknix-autostart (stderr lands here):"; journalctl -b -u rocknix-autostart --no-pager -o short-iso | grep -v -E "Started|Starting" | tail -15
+boot id: ed740e10-3b42-49d5-abdf-a056de1d301c; autostart: active
+--- marker:
+10-marker uid=0 args=[]
+40 uid=0 args=[]
+40 uid=0 args=[split]
+--- boot.log, the Run lines in order:
+Run GENERIC_X64 quirks.
+Run /usr/lib/autostart/quirks/platforms/GENERIC_X64/090-ui_service
+Run /usr/lib/autostart/quirks/platforms/GENERIC_X64/091-ui_shader
+Run /usr/lib/autostart/quirks/platforms/GENERIC_X64/092-retroarch-surface
+Run /usr/lib/autostart/quirks/platforms/GENERIC_X64/095-cloud-ssh
+Run /usr/lib/autostart/quirks/platforms/GENERIC_X64/097-retired-rescue-masks
+Run QEMU Standard PC (Q35 + ICH9, 2009) quirks.
+Run /usr/lib/autostart/quirks/devices/QEMU Standard PC (Q35 + ICH9, 2009)/001-device_config
+Run /usr/lib/autostart/quirks/devices/QEMU Standard PC (Q35 + ICH9, 2009)/091-retired-vm-fixes
+Run /usr/lib/autostart/common/001-controller
+Run /usr/lib/autostart/common/001-emulationstation
+Run /usr/lib/autostart/common/001-setup
+Run /usr/lib/autostart/common/001-sync-modules
+Run /usr/lib/autostart/common/002-device-switch
+Run /usr/lib/autostart/common/003-logging
+Run /usr/lib/autostart/common/003-upgrade
+Run /usr/lib/autostart/common/006-display
+Run /usr/lib/autostart/common/007-rootpw
+Run /usr/lib/autostart/common/008-perfmode
+Run /usr/lib/autostart/common/009-bluetooth
+Run /usr/lib/autostart/common/009-sleepmode
+Run /usr/lib/autostart/common/010-moonlight
+Run /usr/lib/autostart/common/010-pico8
+Run /usr/lib/autostart/common/010-uimode
+Run /usr/lib/autostart/common/020-configs
+Run /usr/lib/autostart/common/020-rumble
+Run /usr/lib/autostart/common/020-set_audio_latency
+Run /usr/lib/autostart/common/050-audio
+Run /usr/lib/autostart/common/055-hdmi-check
+Run /usr/lib/autostart/common/080-dual_screen_mode
+Run /usr/lib/autostart/common/080-network
+Run /usr/lib/autostart/common/081-usbgadget
+Run /usr/lib/autostart/common/095-turbo-mode
+Run /usr/lib/autostart/common/098-deviceutils
+Run /usr/lib/autostart/common/099-networkservices
+Run /usr/lib/autostart/common/102-cloud-saves
+Run /usr/lib/autostart/common/111-sway-init
+Run /usr/lib/autostart/common/999-export
+Run GENERIC_X64 quirks.
+Run /usr/lib/autostart/quirks/platforms/GENERIC_X64/090-ui_service
+Run /usr/lib/autostart/quirks/platforms/GENERIC_X64/091-ui_shader
+Run /usr/lib/autostart/quirks/platforms/GENERIC_X64/092-retroarch-surface
+Run /usr/lib/autostart/quirks/platforms/GENERIC_X64/095-cloud-ssh
+Run /usr/lib/autostart/quirks/platforms/GENERIC_X64/097-retired-rescue-masks
+Run QEMU Standard PC (Q35 + ICH9, 2009) quirks.
+Run /usr/lib/autostart/quirks/devices/QEMU Standard PC (Q35 + ICH9, 2009)/001-device_config
+Run /usr/lib/autostart/quirks/devices/QEMU Standard PC (Q35 + ICH9, 2009)/091-retired-vm-fixes
+Run /usr/lib/autostart/common/001-controller
+Run /usr/lib/autostart/common/001-emulationstation
+Run /usr/lib/autostart/common/001-setup
+Run /usr/lib/autostart/common/001-sync-modules
+Run /usr/lib/autostart/common/002-device-switch
+Run /usr/lib/autostart/common/003-logging
+Run /usr/lib/autostart/common/003-upgrade
+Run /usr/lib/autostart/common/006-display
+Run /usr/lib/autostart/common/007-rootpw
+Run /usr/lib/autostart/common/008-perfmode
+Run /usr/lib/autostart/common/009-bluetooth
+Run /usr/lib/autostart/common/009-sleepmode
+Run /usr/lib/autostart/common/010-moonlight
+Run /usr/lib/autostart/common/010-pico8
+Run /usr/lib/autostart/common/010-uimode
+Run /usr/lib/autostart/common/020-configs
+Run /usr/lib/autostart/common/020-rumble
+Run /usr/lib/autostart/common/020-set_audio_latency
+Run /usr/lib/autostart/common/050-audio
+Run /usr/lib/autostart/common/055-hdmi-check
+Run /usr/lib/autostart/common/080-dual_screen_mode
+Run /usr/lib/autostart/common/080-network
+Run /usr/lib/autostart/common/081-usbgadget
+Run /usr/lib/autostart/common/095-turbo-mode
+Run /usr/lib/autostart/common/098-deviceutils
+Run /usr/lib/autostart/common/099-networkservices
+Run /usr/lib/autostart/common/102-cloud-saves
+Run /usr/lib/autostart/common/111-sway-init
+Run /usr/lib/autostart/common/999-export
+Run /storage/.config/autostart/10-marker
+Run /storage/.config/autostart/20-noexec
+Run /storage/.config/autostart/30-dir
+Run /storage/.config/autostart/40
+Run /storage/.config/autostart/40 split
+--- boot.log tail:
+Sun Oct 25 05:15:11 EDT 2026: Autostart: Run /storage/.config/autostart/20-noexec
+Sun Oct 25 05:15:11 EDT 2026: Autostart: Run /storage/.config/autostart/30-dir
+Sun Oct 25 05:15:11 EDT 2026: Autostart: Run /storage/.config/autostart/40
+Sun Oct 25 05:15:11 EDT 2026: Autostart: Run /storage/.config/autostart/40 split
+Sun Oct 25 05:15:11 EDT 2026: Autostart: Startup complete...
+--- journal of rocknix-autostart (stderr lands here):
+2026-10-25T05:15:10-04:00 GENERIC-X64-15ca bash[769]: /usr/bin/mkcontroller: line 56: /tmp/97993529-dbc7-4384-b15e-106f5806ab69: No such file or directory
+2026-10-25T05:15:10-04:00 GENERIC-X64-15ca bash[841]: rm: can't remove '/tmp/97993529-dbc7-4384-b15e-106f5806ab69': No such file or directory
+2026-10-25T05:15:10-04:00 GENERIC-X64-15ca bash[859]: ERROR: No backlight devices found in /sys/class/backlight/.
+2026-10-25T05:15:11-04:00 GENERIC-X64-15ca bash[921]: /usr/lib/autostart/common/008-perfmode: line 8: /etc/profile.d/099-freqfunctions: No such file or directory
+2026-10-25T05:15:11-04:00 GENERIC-X64-15ca bash[960]: cp: can't stat '/usr/share/weston/kiosk.ini': No such file or directory
+2026-10-25T05:15:11-04:00 GENERIC-X64-15ca bash[964]: sed: /storage/.config/weston.ini: No such file or directory
+2026-10-25T05:15:11-04:00 GENERIC-X64-15ca bash[1000]: Invalid card number '0'.
+2026-10-25T05:15:11-04:00 GENERIC-X64-15ca bash[1023]: /usr/lib/autostart/common/050-audio: line 50: /usr/sbin/quantum: No such file or directory
+2026-10-25T05:15:11-04:00 GENERIC-X64-15ca bash[1079]: mkdir: can't create directory '/sys/kernel/config/usb_gadget/cdc': No such file or directory
+2026-10-25T05:15:11-04:00 GENERIC-X64-15ca bash[1083]: /usr/lib/autostart/common/095-turbo-mode: line 16: /sys/devices/system/cpu/cpufreq/boost: Permission denied
+2026-10-25T05:15:11-04:00 GENERIC-X64-15ca bash[1327]: hexdump: /sys/class/drm/card0-DP-1/edid: No such file or directory
+2026-10-25T05:15:11-04:00 GENERIC-X64-15ca bash[1339]: /usr/bin/autostart: line 76: /storage/.config/autostart/20-noexec: Permission denied
+2026-10-25T05:15:11-04:00 GENERIC-X64-15ca bash[1341]: /usr/bin/autostart: line 76: /storage/.config/autostart/30-dir: Is a directory
+2026-10-25T05:15:11-04:00 GENERIC-X64-15ca bash[1357]: rm: can't remove '/var/lock/start.games': No such file or directory
+2026-10-25T05:15:11-04:00 GENERIC-X64-15ca systemd[1]: Finished rocknix-autostart.service.
+# rc=0

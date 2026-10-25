@@ -1,0 +1,13 @@
+# 09:14:18 guest a: b=$(readlink -f /bin/busybox); ls -l $b; stat -c "%n mode=%a owner_uid=%u" $b; busybox | head -1; for a in su login passwd httpd nc udhcpd; do printf "%s: applet=%s link=%s\n" $a "$(busybox --list | grep -c -x $a)" "$(command -v $a 2>/dev/null || echo none) -> $(readlink -f $(command -v $a 2>/dev/null) 2>/dev/null)"; done; echo "--- setuid files on /bin /usr/bin /sbin /usr/sbin:"; find /bin /usr/bin /sbin /usr/sbin -xdev -perm -4000 -type f 2>/dev/null | head
+-rwsr-xr-x    1 root     root        574456 Oct  4 23:37 /usr/bin/busybox
+/usr/bin/busybox mode=4755 owner_uid=0
+BusyBox v1.36.1 (2026-10-05 03:37:19 UTC) multi-call binary.
+su: applet=1 link=/usr/bin/su -> /usr/bin/busybox
+login: applet=1 link=/usr/bin/login -> /usr/bin/busybox
+passwd:*** applet=1 link=/usr/bin/passwd -> /usr/bin/busybox
+httpd: applet=1 link=/usr/sbin/httpd -> /usr/bin/busybox
+nc: applet=1 link=/usr/bin/nc -> /usr/bin/busybox
+udhcpd: applet=1 link=/usr/sbin/udhcpd -> /usr/bin/busybox
+--- setuid files on /bin /usr/bin /sbin /usr/sbin:
+/usr/bin/busybox
+# rc=0

@@ -1,0 +1,18 @@
+# 09:14:17 guest a: for p in /proc/[0-9]*; do c=$(cat $p/comm 2>/dev/null) || continue; u=$(awk "/^Uid:/{print \$2}" $p/status 2>/dev/null); a=$(tr "\0" " " < $p/cmdline 2>/dev/null | cut -c1-90); case "$c$a" in *sense*|*fancontrol*|*battery_led*|*crond*|*udevil*|*powerstate*|*sh*|*getty*|*autostart*) echo "pid=${p#/proc/} uid=$u comm=$c args=$a";; esac; done | grep -v -E "args=$|sshd|ssh " | head -40
+pid=1263 uid=0 comm=input_sense args=/bin/bash /usr/bin/input_sense 
+pid=1280 uid=0 comm=video_sense args=/bin/bash /usr/bin/video_sense 
+pid=1524 uid=0 comm=sway.sh args=/bin/sh /usr/bin/sway.sh 
+pid=1577 uid=0 comm=start_es.sh args=/bin/bash /usr/bin/start_es.sh 
+pid=1702 uid=0 comm=emulationstatio args=emulationstation --log-path /var/log --no-splash 
+pid=1897 uid=0 comm=input_sense args=/bin/bash /usr/bin/input_sense 
+pid=1899 uid=0 comm=input_sense args=/bin/bash /usr/bin/input_sense 
+pid=1900 uid=0 comm=input_sense args=/bin/bash /usr/bin/input_sense 
+pid=1901 uid=0 comm=input_sense args=/bin/bash /usr/bin/input_sense 
+pid=1902 uid=0 comm=input_sense args=/bin/bash /usr/bin/input_sense 
+pid=223 uid=0 comm=sh args=/bin/sh 
+pid=2278 uid=0 comm=sh args=sh -c for p in /proc/[0-9]*; do c=$(cat $p/comm 2>/dev/null) || continue; u=$(awk "/^Uid:/
+pid=2279 uid=0 comm=sh args=sh -c for p in /proc/[0-9]*; do c=$(cat $p/comm 2>/dev/null) || continue; u=$(awk "/^Uid:/
+pid=366 uid=0 comm=sh args=/bin/sh 
+pid=372 uid=0 comm=rocknix-touchsc args=/bin/bash /usr/bin/rocknix-touchscreen-keyboard 
+pid=538 uid=0 comm=powerstate args=/bin/bash /usr/bin/powerstate 
+# rc=0

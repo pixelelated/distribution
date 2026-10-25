@@ -1,0 +1,26 @@
+# 09:14:18 guest a: systemctl cat shell.service 2>&1 | grep -v "^#"; echo "--- active: $(systemctl is-active shell.service) enabled: $(systemctl is-enabled shell.service)"; echo "--- tty1 processes:"; for p in /proc/[0-9]*; do t=$(readlink $p/fd/0 2>/dev/null); [ "$t" = /dev/tty1 ] && echo "pid=${p#/proc/} uid=$(awk "/^Uid:/{print \$2}" $p/status) comm=$(cat $p/comm)"; done
+[Unit]
+Description=Textmode Shell
+After=multi-user.target
+
+[Service]
+Environment=TTY=1
+WorkingDirectory=/storage
+ExecStartPre=/bin/sh -c 'echo -en "\033[?25h"'
+ExecStart=/bin/sh -c 'clear; lsb_release; . /etc/profile; exec /bin/sh'
+
+Restart=always
+RestartSec=0
+StandardInput=tty
+TTYPath=/dev/tty1
+TTYReset=yes
+TTYVHangup=yes
+KillMode=process
+IgnoreSIGPIPE=no
+KillSignal=SIGHUP
+
+[Install]
+WantedBy=textmode.target
+--- active: inactive enabled: disabled
+--- tty1 processes:
+# rc=1
