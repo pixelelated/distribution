@@ -125,3 +125,14 @@
   - 778 coverage rows, 778 provenance rows and 74 shadowed rows;
   - the diffs against the dispatch tip and against `8ebaf8daad` are empty; 0 provenance files.
 - **The lint:** pre-issue, resolution and `--issue 1074` each print `PASS`. `box-check` gives 0 fail on #1056, #1071, #1072 and #1074.
+
+## [Stage H] 05:48 UTC — the checkers; the hand-back
+
+- **The checkers on the branch:**
+  - `tools/register-check` rc 0;
+  - `tools/work-log-index --check` rc 0;
+  - `tools/rules-check --quiet` rc 0;
+  - `.githooks/hooks-test` rc 0, with its stand-in wordlist and `TMPDIR` under `/workspace/tmp/m6-t40/tmp`.
+- **`tools/forbidden-terms-check`** reads a list this lane does not read; it is the coordinator's at acceptance (criterion 16).
+- **The retro** is posted on #687. **`reviewed-at` `b8cde6f305` and `fixed-at` `9c3fa25cfb`** are on #687's body.
+- **The lane is idle** after the hand-back comment.

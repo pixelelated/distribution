@@ -16,24 +16,18 @@
 
 ## Current focus
 
-**Stages F and G complete; stage H (the hand-back) next** (updated 2026-10-25, 05:48 UTC).
-- **`reviewed-at` `b8cde6f305`, `fixed-at` `9c3fa25cfb`**: both on #687's body, read back.
-- **Stage F** (`stage-f/counts.txt`): unchanged at the tip; the lint passes in three forms; `box-check` 0 fail on #1056, #1071, #1072 and #1074.
+**Handed back; idle** (2026-10-25, 05:48 UTC). The hand-back comment on #687 names the tip and every artifact.
+- **Commits:** `reviewed-at` `b8cde6f305`, `fixed-at` `9c3fa25cfb` (both on #687's body).
+- **The audit:** `docs/audits/2026_10_25-epic-m6-patches-dead/`. The lint passes in the pre-issue and resolution phases and with `--issue 1074`. #1074's 6 items are at outcomes.
+- **The bugs** #1056, #1071 and #1072 are filed by the lane. Pointing comments are on #689 and #688.
 - **The retro:** `docs/retros/2026-10-25-m6-patches-dead.md`, posted on #687.
+- **The checkers:** `register-check`, `work-log-index --check`, `rules-check --quiet` and `hooks-test` rc 0. `forbidden-terms-check` is the coordinator's.
+- **Left for the coordinator's re-run:** `/workspace/tmp/m6-t40` (the `curl` shim, the caches, the scratch).
 - **Running for this lane:** nothing.
 
 ## Next commands
 
-```bash
-D=/workspace/repos/pixelelated/distribution.worktrees/m6-patches-dead-687
-cd "$D" && git fetch origin && git fetch upstream --no-tags
-git merge-base --is-ancestor 2174265e9c HEAD && echo stacked-on-P1
-git diff --stat next -- .claude CLAUDE.md AGENTS.md tools/lint-audit-artifacts   # exactly the dispatch's paths
-test -f docs/reviews/inventory.json && echo inventory
-tail -3 /tmp/m7-m6-host-coordination-20261023.txt | cut -c1-200; pgrep -x qemu-system-x86 -r R,S,D,T | wc -l
-git show 8ebaf8daad:Makefile | grep -o 'PROJECT=[A-Za-z0-9_]*' | sort | uniq -c   # 27 PROJECT=ROCKNIX
-sed -n '1,140p' docs/reviews/briefs/generic-packages-dead-ends.md
-```
+None. The lane waits for the coordinator's acceptance; after it: `audit-completion.json` from #1074's closed readback, and the full lint.
 
 ## Merge notes
 
