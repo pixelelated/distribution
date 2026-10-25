@@ -317,3 +317,12 @@ caps: hash=md5 modtime=yes commit=atomic bucket=yes
 down: down rc=0
 leftover: ss 0 docker 0 rclone-serve 0 minio 0
 ```
+
+**#1067's second checkbox, rewritten** under the coordinator's ruling on #660 (06:17 UTC): it asked "does not authenticate as the host's own login user", a property sshd has and `rclone serve sftp` does not model. The checkbox now reads the QA key as the only accepted credential, confinement to the data directory under any user name, and no shell and no host account. It is ticked from these runs (06:2x UTC, at `94c050ed5a`, the evidence on #1067):
+- ssh's defaults with the host login: `Permission denied (password,publickey)`, rc 255;
+- the host's `~/.ssh/id_ed25519_devboxes` alone: `Permission denied (password,publickey)`, rc 255;
+- an exec of `id`: `"id" not implemented`, rc 1;
+- an exec of `sh -c true`: `"sh -c true" not implemented`, rc 1;
+- the S1 confinement probes above.
+
+rclone answers its built-in `md5sum`, `sha1sum` and `df` itself, executing nothing on the host. `df` printed the backing filesystem's figures, which is stated on #1067.

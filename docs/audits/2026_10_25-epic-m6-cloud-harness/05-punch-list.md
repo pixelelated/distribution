@@ -131,7 +131,7 @@ The audit issue is #1073, a sub-issue of #660. One item per finding of `04` afte
 - **Where:** `04-analysis.md` § Findings and § Second opinion (F-21, G-42; file:line at `8ebaf8daad`)
 - **Can this be done on the VM?** No: the tool and its constructed case run on the build host; no guest is needed
 - **Already written:** #1067's *Already written:* line
-- **Acceptance:** the criteria of #1067
+- **Acceptance:** the criteria of #1067; its second checkbox was rewritten under the coordinator's ruling on #660 (06:17 UTC) to what the artifact proves -- the QA key is the only credential accepted, a QA-key login under any user name is confined to the data directory and reaches no shell and no host account -- and ticked from the evidence on #1067 (issuecomment-6394310968)
 - **Tracked:** #1067
 
 ## PL-12: cloud-test-backend: connection stanzas fall back to the clear password when rclone obscure fails
