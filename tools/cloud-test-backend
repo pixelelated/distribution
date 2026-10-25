@@ -204,9 +204,10 @@ container_of() {
 fs_backed() { [ "${BACKEND}" != "s3" ]; }
 
 # A listing cached by the server outlives a fixture written behind its back.
-# rclone serve webdav is the only one of the five that caches (1 s, set at
-# start); the rest read the directory on every request. One place to ask.
-settle_cache() { [ "${BACKEND}" = "webdav" ] && sleep 1.5 || true; }
+# The two endpoints that are `rclone serve` cache (webdav, and sftp since
+# #1067), each at 1 s set at start; the rest read the directory on every
+# request. One place to ask.
+settle_cache() { case "${BACKEND}" in webdav|sftp) sleep 1.5 ;; esac; }
 
 wait_port() {   # wait_port <seconds> -- the listener is up
   local n="${1}"
@@ -506,7 +507,13 @@ case "${1:-}" in
           echo "up: sftp already serving ${DATA} on port ${PORT}"; exit 0
         fi
         write_sftp_keys
+        # --dir-cache-time 1s, as webdav: rclone serve's five-minute default
+        # hid every fixture seeded into DATA after the server had started or
+        # listed it, and the content tier's scan read "directory not found"
+        # (rc 3) on the guest. Both 1.60.1 and 1.75.2 do it; the version was
+        # not the cause (#1067, the 2026-10-25 host diagnosis).
         nohup rclone serve sftp "${DATA}" --addr "${BIND}:${PORT}" \
+          --dir-cache-time 1s \
           --key "${SFTP_HOSTKEY}" --authorized-keys "${CONFDIR}/authorized_keys" \
           > "${LOGFILE}" 2>&1 &
         echo $! > "${PIDFILE}"
