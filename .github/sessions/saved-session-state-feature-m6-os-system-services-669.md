@@ -16,19 +16,12 @@
 
 ## Current focus
 
-**At the stage-D pause (posted on #669).** Stages A to D are done:
-- **The guest window** ran 09:13-09:16; its record is in `guest-cycle/` and its disk is retired.
-- **`02`** holds the 422 reachability and coverage rows, the 29 units, busybox, the delta, the runs and the proofs.
-- **`03` and `04`** are complete, with both seats graded in `04` § Second opinion:
-  - Astra, `openai/gpt-6-astra` by OpenAI, 34 items;
-  - Argon, `google/gemini-4-argon` by Google, 12 items.
-- **`05`** holds 28 items (5 Medium, 23 Low), each with a proposed owner. The audit issue is **#1103**, and the pre-issue lint PASSes.
-
-**Waiting on the coordinator's ruling:**
-- the owners of the 28 items (#346 for upstream-carried code, #740, designs, the next base merge, a fork bug for G-33);
-- a second guest window for the four Medium VM proofs (PL-01, PL-03, PL-04, PL-05).
-
-Nothing changes under `packages/`, `projects/` or `tools/`. Nothing is running.
+**Stage E: streams S1 and S3** under `docs/reviews/briefs/t22-streams.md` (`a6e7a12ad6`); S2 and S4 are struck.
+- **What is behind:** stages A to D, two guest windows (records `guest-cycle/`, `guest-cycle-2/`; both disks retired), both seats graded, `05`'s 28 outcomes, #1103 at 28 of 28, both lints PASS.
+- **The bugs:** #1105 (PL-02) and #1106 (PL-03), whose fixes are S1 in `scripts/init`; #1107 (PL-28), whose fix is S3 in `095-cloud-ssh`.
+- **Each stream:** the case first, under `stage-e/<s>/` (a driver taking the file and `unfixed|fixed`, run against the stage-D tip `0f7ece71e8` and the fixed tree), then the fix, then `02` § The streams' positives and the bug's checkboxes.
+- **Then:** stages F to H (the retro at `docs/retros/2026-10-25-m6-os-system-services.md`; the hand-back with `t22-accept.sh`).
+- Nothing is running.
 
 ## Next commands
 

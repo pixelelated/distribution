@@ -132,3 +132,11 @@ Each run's output is in `.qa-scratch/t22/runs/NN-*.out`, with its exit and wall 
 - **PL-05: not reproduced.** The image's `input_sense` carries the fix (`6101242e14`, on the M7 line; read by diffing the installed file against the tree and by running the installed `get_devices` alone: `entries=3 after 5s`).
 - **PL-03 proven:** no `/storage` after the rejection; the next boot whole.
 - **The guest disk was retired** (D-INFRA-022): `/workspace/tmp/m6-t22/vm-pair/` (`vm-a.qcow2` 2,477,391,872 B, sha256 `83cfd747cb1baa95d37f844bd83838ed3da16c7e68380fc89a517af4be2eb29f`), 2,477,933,032 bytes in all. df: 1,635,229,728,768 bytes available before, 1637699203072 after, a measured 2469474304 bytes. The hash is provenance only.
+
+## 2026-10-25 10:24-10:27 UTC -- stage D's outcomes; the bugs; the stage-E pause
+
+- The bugs were filed with code traces, `Already written:` lines and VM lines: **#1105** (PL-02), **#1106** (PL-03, proven on the guest) and **#1107** (PL-28, the fork's own); `box-check` reads 0 fail on each. PL-10's comment is on #740 (issuecomment-6396488186).
+- The coordinator's 10:25 ruling: PL-01 recorded as a Low on #585 (S4 struck); PL-05 deferred to #344 with `6101242e14` (S2 struck). The stream brief is `docs/reviews/briefs/t22-streams.md` at `a6e7a12ad6` (S1 `scripts/init`, S3 `095-cloud-ssh`), read with `git show`.
+- `05`: every item has its outcome: 12 `deferred:#585`, 2 `deferred:#346`, `#344`, `#740`, 2 `#1104`, `#669` (the rule edit), the three bugs `deferred:#110x` until their streams' commits, and six `resolved # #669` (recorded designs). Also written: the #585 block (twelve lines, ready to paste) and the #346 root-surfaces sentence.
+- #1103: all 28 checkboxes ticked (outcomes recorded); `box-check` reads 0 fail.
+- `lint-audit-artifacts`: `PASS pre-issue artifacts` and `PASS` (resolution).

@@ -1,6 +1,6 @@
 # Punch list (Phases 5 and 6) — M6.P2 T22, the OS's system services and platform quirks (#669)
 
-The audit issue is #1103, a sub-issue of #669. There is one item per finding of `04` after both seats' grading (`04` § Second opinion), with the severities graded there. The seats' 46 items are grouped by file under the item that owns them. Every confirmed line but G-33's is in the merge base and in upstream's tree at `651150fc88`, so it is upstream-carried, and its class decision is the maintainer's on #346 (D-WORKFLOW-209). Each item's **Proposed** line is this lane's proposal for the coordinator's stage-D ruling; the audit issue carries one checkbox per item.
+The audit issue is #1103, a sub-issue of #669. There is one item per finding of `04` after both seats' grading (`04` § Second opinion), with the severities graded there. The seats' 46 items are grouped by file under the item that owns them. Every confirmed line but G-33's is in the merge base and in upstream's tree at `651150fc88`, so it is upstream-carried, and its class decision is the maintainer's on #346 (D-WORKFLOW-209). Each item's **Proposed** line was this lane's proposal; the coordinator's ruling (#669, 10:13 and 10:25 UTC) is in § Phase 7 resolution gate. The audit issue #1103 carries one checkbox per item.
 
 ## PL-01: udevil mounts a btrfs medium without nosuid,noexec,nodev, against its own file's rule, or refuses it (the option is not allowed)
 - **Severity:** Medium
@@ -338,6 +338,35 @@ The audit issue is #1103, a sub-issue of #669. There is one item per finding of 
 - **Acceptance:** the owner's criteria once ruled; for a VM proof named above, its line quoted on the owning issue
 - **Proposed:** a fork `bug` (the fork's own code)
 
+## For #585: one line each (the coordinator posts them at acceptance)
+
+```
+- PL-01 (T22, #669) projects/ROCKNIX/packages/sysutils/udevil/config/udevil.conf:233,245 -- default_options_btrfs = compress=zstd:3 is not in allowed_options, so udevil refuses every btrfs medium ("denied 90: option 'compress=zstd:3' is not an allowed option") while the unit reads active; fix: give btrfs nosuid,noexec,nodev,noatime defaults and allow what they use (allowed_options_btrfs), or drop btrfs from allowed_types; evidence: guest-cycle-2/c1b-btrfs.txt (vfat control mounts nosuid,nodev,noexec).
+- PL-06 (T22) sysutils/autostart/sources/autostart:50-53,73-76 -- the common and custom loops run ${script} unguarded and unquoted: an empty directory runs the literal glob, a directory or a mode-644 file errors, and a hook named "40 split" runs "40" with the argument "split"; fix: [ -f "${script}" ] && [ -x "${script}" ] && "${script}" (as :23-25 do), plus 2>&1 order at :25,40,53,65,76,88,89,91,94 (>>${BOOTLOG} 2>&1), and collect the backgrounded UI start (:91); evidence: guest-cycle/s5b-result.txt.
+- PL-07 (T22) sysutils/busybox/config/profile:19-21 -- . ${CONFIG} sources /storage/.config/profile.d/* unquoted, so a name with a space sources another file with arguments; fix: . "${CONFIG}" (one quoted expansion); evidence: the line (the hook itself is a design).
+- PL-09 (T22) sysutils/udevil/system.d/udevil-mount@.service:7,9-10; sysutils/util-linux/system.d/fstrim.service:6-7 -- ExecStart=- hides a refused mount and RemainAfterExit leaves the unit active; ExecStartPost calls /usr/lib/samba/samba-autoshare, absent when SAMBA_SUPPORT=no; fstrim's failure is ignored and its stamp written anyway; fix: drop the - on the mount, guard the samba lines by existence (ExecStartPost=-/bin/sh -c '[ -x ... ] && ...' or ConditionPathExists), stamp only on success; evidence: guest-cycle-2/c1b-btrfs.txt, guest-cycle/s6b-udevil-rule.txt.
+- PL-18 (T22) hardware/quirks/package.mk:16-18; sysutils/system-utils/package.mk:27-34 -- neither recipe says that every platform ships to every image (selected at boot by HW_DEVICE) or that device files install for ${DEVICE} only; fix: a comment in each; evidence: 02 § The reachability table.
+- PL-21 (T22) sysutils/busybox/scripts/init:298-331,349,872-889,1083-1129,403 -- update acceptance sources the update's os-release and runs its canupdate.sh before acceptance; an empty arch skips both compat checks; a bare KERNEL/SYSTEM pair is refused and deleted; the space check credits the old SYSTEM but writes the kernel first; ls|head and unquoted dd operands; fix: quote the operands and test the bare pair at :883; the rest are notes for the update path's owner; evidence: 04 § Second opinion (G-01, G-05, G-06, G-07, G-34).
+- PL-22 (T22) sysutils/busybox/scripts/init:205,143-174,618,623-633,652-654 -- mount_nbd uses /dev/nbd${NBD_DEV}S (the unset NBD_DEV, not NBD_DEVS); the iSCSI loop never resets option; read's status is tested twice at :618 (the second $? is the first test's); fsck result 4 after -y reboots and 16+ continues; fix: ${NBD_DEVS}; option=""; save $? once; evidence: 04 § Second opinion (G-08 to G-11).
+- PL-23 (T22) sysutils/systemd/scripts/userconfig-setup:17-66,76-77,80-83,24-27 -- .configured is touched without checking the copies before it; the ld.so stamp is written whatever ldconfig returned; the locale copy is done when its directory exists; QUIRK_DEVICE is empty there (dead today: no device has a config/); fix: write each stamp only on success; evidence: 04 § Second opinion (G-14, G-15, G-16, G-35).
+- PL-24 (T22) sysutils/autostart/sources/autostart:93-94; sysutils/autostart/system.d/rocknix-autostart.service; sysutils/systemd/system.d/usercache.service:5, userconfig.service:5 -- a setting (system.cpugovernor) is run as a command; a hook that never returns holds off the interface (Type=oneshot, no TimeoutStartSec); Before= names automount.service and autostart.service, which do not exist; fix: case on the governor names, a TimeoutStartSec, the real unit names; evidence: 04 § Second opinion (G-17, G-18, G-45).
+- PL-25 (T22) sysutils/powerstate/system.d/powerstate.service (EnvironmentFile=/etc/profile); sysutils/powerstate/sources/powerstate.sh:19-20,59-61,71 -- EnvironmentFile reads KEY=VALUE lines, not the profile's shell; the threshold setting is evaluated as arithmetic; an empty AC_STATUS (no battery) never selects a mode; no head -n1 for two batteries; the >97% branch runs ledcontrol every 2 s while charging; fix: drop the EnvironmentFile, validate the threshold as digits, head -n1, move the elif; evidence: 04 § Second opinion (G-21, G-22, G-36, G-37).
+- PL-26 (T22) sysutils/system-utils/sources/scripts/input_sense:105-106,151-163,216-224,302-311,360,364-371,512-536 -- the two disconnect patterns are identical and a reload restarts no reader; the hat handlers never see an event (the grep passes EV_KEY and EV_SW only); the volume repeat survives a disconnect; actions block the loop; a wall-clock debounce; killall ${TO_KILL} unquoted with no --; the if/elif counts a composite device as keys only; fix: per line in 04 § Second opinion; evidence: G-24 to G-29, G-43.
+- PL-27 (T22) sysutils/systemd/package.mk:222-224,258-276,295,322; sysutils/busybox/package.mk:184; sysutils/systemd/scripts/network-base-setup:111-114 -- sed -i ... || echo never falls back (sed succeeds without a match); /etc/hosts dangles without hosts.conf and never names the hostname; two nobody entries with different shells, systemd-network with /bin/sh; fix: grep -q before sed, write 127.0.0.1 and the hostname, one nobody with /bin/false; evidence: 04 § Second opinion (G-32, G-41, G-46; G-40 is a design).
+```
+
+## For #346: the root-surfaces list's sentence (the coordinator posts it)
+
+The images give root without authentication to anyone holding the device:
+- **a console on a `textmode` boot** (`shell.service`, `scripts/init:1215-1216`);
+- **a console on any initramfs error** (`init:86-99`);
+- **`debug-shell.service` on tty9 on every boot** in the read tree (`systemd/package.mk:332`, proven on the guest; upstream's `f2379f83b7` settles it at the next base merge);
+- **a USB mass-storage export of every card with Vol- held at boot**, or `recovery` on the command line (`init:537-592`);
+- **busybox installed setuid root** with `su`, `login`, `passwd` and `httpd`+CGI enabled and no caller in the tree (`busybox/package.mk:177,209`; `busybox-target.conf:30,549,554,556,888,894`);
+- **every service and hook running as root**, with no unit naming a user (29 units; the hook directories `/storage/.config/autostart/` and `/storage/.config/profile.d/`).
+
+Each is a design for a single-user handheld in its owner's hand. Which of them the maintainer keeps is the policy question.
+
 ## Index
 
 ```yaml
@@ -347,230 +376,230 @@ punch_index:
   category: Security
   question: Q3
   source_finding: "F-04, G-44, L-05"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#585"
+  outcome: deferred:#585
 - id: PL-02
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "G-02"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#1105"
+  outcome: deferred:#1105
 - id: PL-03
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "G-04 (Argon's extension)"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#1106"
+  outcome: deferred:#1106
 - id: PL-04
   severity: Medium
   category: Security
   question: Q3
   source_finding: "G-13"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#346"
+  outcome: deferred:#346
 - id: PL-05
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "G-23, G-43 (1)"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#344"
+  outcome: deferred:#344
 - id: PL-06
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-01, G-19, G-20, G-42, L-01"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#585"
+  outcome: deferred:#585
 - id: PL-07
   severity: Low
   category: Standards
   question: Q2
   source_finding: "F-02, L-02"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#585"
+  outcome: deferred:#585
 - id: PL-08
   severity: Low
   category: Security
   question: Q5
   source_finding: "F-03, L-04"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#346"
+  outcome: deferred:#346
 - id: PL-09
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-05, G-30, G-31, L-06"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#585"
+  outcome: deferred:#585
 - id: PL-10
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-06, L-07"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#740"
+  outcome: deferred:#740
 - id: PL-11
   severity: Low
   category: Security
   question: Q3
   source_finding: "F-07, G-12, G-38, G-39, L-03"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#669"
+  outcome: resolved # #669
 - id: PL-12
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-08, L-10"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#669"
+  outcome: resolved # #669
 - id: PL-13
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "F-09, L-08"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#669"
+  outcome: resolved # #669
 - id: PL-14
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "F-10"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#669"
+  outcome: resolved # #669
 - id: PL-15
   severity: Low
   category: Renovation
   question: Q4
   source_finding: "F-11"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#669"
+  outcome: resolved # #669
 - id: PL-16
   severity: Low
   category: Renovation
   question: Q1
   source_finding: "F-12"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#1104"
+  outcome: deferred:#1104
 - id: PL-17
   severity: Low
   category: Renovation
   question: Q1
   source_finding: "F-13"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#1104"
+  outcome: deferred:#1104
 - id: PL-18
   severity: Low
   category: Renovation
   question: Q7
   source_finding: "F-14"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#585"
+  outcome: deferred:#585
 - id: PL-19
   severity: Low
   category: Standards
   question: Q2
   source_finding: "F-15"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#669"
+  outcome: resolved # #669
 - id: PL-20
   severity: Low
   category: Standards
   question: Q2
   source_finding: "F-16, L-15"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#669"
+  outcome: deferred:#669
 - id: PL-21
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-01, G-03, G-05, G-06, G-07, G-34"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#585"
+  outcome: deferred:#585
 - id: PL-22
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-08, G-09, G-10, G-11"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#585"
+  outcome: deferred:#585
 - id: PL-23
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-14, G-15, G-16, G-35"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#585"
+  outcome: deferred:#585
 - id: PL-24
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-17, G-18, G-45"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#585"
+  outcome: deferred:#585
 - id: PL-25
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-21, G-22, G-36, G-37"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#585"
+  outcome: deferred:#585
 - id: PL-26
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-24, G-25, G-26, G-27, G-28, G-29, G-43 (2, 3)"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#585"
+  outcome: deferred:#585
 - id: PL-27
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-32, G-40, G-41, G-46"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#585"
+  outcome: deferred:#585
 - id: PL-28
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-33"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#1107"
+  outcome: deferred:#1107
 ```
 
 ## Phase 7 resolution gate
 
-Stage D: every item is open until the coordinator rules its owner at the stage-D pause on #669. Each one's proposal is its last field.
+The coordinator's ruling on #669 (10:13 UTC, PL-01 and PL-05 at 10:25 UTC). A bug's item is Deferred to its issue until its stream's commit, then Resolved with it.
 
 | Item | Outcome | Tracked |
 | --- | --- | --- |
-| PL-01 | Open | proposed: #346 (upstream-carried, `c288a47e62`), with the VM proof |
-| PL-02 | Open | proposed: #346 (upstream-carried) |
-| PL-03 | Open | proposed: #346 (upstream-carried), with the VM proof |
-| PL-04 | Open | proposed: settled by the next base merge (`f2379f83b7`); the VM proof records it until then |
-| PL-05 | Open | proposed: #346 (upstream-carried, `dc5f51ad72`), with the VM proof |
-| PL-06 | Open | proposed: #346 (upstream-carried) |
-| PL-07 | Open | proposed: #346 (upstream-carried); the hook itself recorded as a design |
-| PL-08 | Open | proposed: #346 (a hardening question; the pin itself is #997's) |
-| PL-09 | Open | proposed: #346 (upstream-carried) |
-| PL-10 | Open | proposed: #740 (a comment naming the second site) |
-| PL-11 | Open | proposed: design: LibreELEC's recovery and console paths for a device in the owner's hand; recorded, no change |
-| PL-12 | Open | proposed: design for resize, volatile-log and debug; the reset and restore markers settled by the next base merge (`a98a3066f5`) |
-| PL-13 | Open | proposed: design: carried, off by option |
-| PL-14 | Open | proposed: design: carried by placement (D-WORKFLOW-185) |
-| PL-15 | Open | proposed: settled by the next base merge; the busybox pin #997 |
-| PL-16 | Open | proposed: design, deferred to the coordinator before the next base merge (D-INFRA-011/012/013) |
-| PL-17 | Open | proposed: design, deferred to the coordinator before the next base merge |
-| PL-18 | Open | proposed: #346 (comments in upstream-carried recipes); `02`'s tables are the record meanwhile |
-| PL-19 | Open | proposed: design: a single-user handheld |
-| PL-20 | Open | proposed: an Instruction File Recommendation to the coordinator (`generic-x64-vm-testing.md`) |
-| PL-21 | Open | proposed: #346 (upstream-carried); G-03 a design (no A/B) |
-| PL-22 | Open | proposed: #346 (upstream-carried) |
-| PL-23 | Open | proposed: #346 (upstream-carried) |
-| PL-24 | Open | proposed: #346 (upstream-carried) |
-| PL-25 | Open | proposed: #346 (upstream-carried) |
-| PL-26 | Open | proposed: #346 (upstream-carried) |
-| PL-27 | Open | proposed: #346 (upstream-carried); G-40 a design |
-| PL-28 | Open | proposed: a fork `bug` (the fork's own code) |
+| PL-01 | Deferred | #585: a Low (the window: udevil refuses every btrfs medium, `guest-cycle-2/c1b-btrfs.txt`); the line below |
+| PL-02 | Deferred | #1105 (`bug`); its fix in stream S1 |
+| PL-03 | Deferred | #1106 (`bug`, proven on the guest, `guest-cycle-2/c4*.txt`); its fix in stream S1 |
+| PL-04 | Deferred | #346: settled by the next base merge (`f2379f83b7`); the guest's state recorded (`guest-cycle-2/c2-debugshell.txt`); the unit joins the root-surfaces list below |
+| PL-05 | Deferred | #344: fixed on the M7 line by `6101242e14`, which reaches `next` with M7's integration (the window: `guest-cycle-2/c3*`) |
+| PL-06 | Deferred | #585: the line below |
+| PL-07 | Deferred | #585: the line below |
+| PL-08 | Deferred | #346: a hardening policy the coordinator posts (the pin is #997's) |
+| PL-09 | Deferred | #585: the line below |
+| PL-10 | Deferred | #740: the second site named (issuecomment-6396488186) |
+| PL-11 | Resolved | #669 (recorded as a design under the 10:13 ruling; its four paths join the root-surfaces list below) |
+| PL-12 | Resolved | #669 (recorded: a design for resize, volatile-log and debug; the reset and restore markers settled by the next base merge, `a98a3066f5`) |
+| PL-13 | Resolved | #669 (recorded: carried, off by option) |
+| PL-14 | Resolved | #669 (recorded: carried by placement, D-WORKFLOW-185) |
+| PL-15 | Resolved | #669 (recorded: settled by the next base merge; the busybox pin #997's) |
+| PL-16 | Deferred | #1104 (the coordinator's Backlog; the design sentence in `02` § The upstream delta) |
+| PL-17 | Deferred | #1104 (as PL-16) |
+| PL-18 | Deferred | #585: the line below |
+| PL-19 | Resolved | #669 (recorded: a single-user handheld; joins the root-surfaces list below) |
+| PL-20 | Deferred | #669: the coordinator's edit of `generic-x64-vm-testing.md` at acceptance |
+| PL-21 | Deferred | #585: the line below |
+| PL-22 | Deferred | #585: the line below |
+| PL-23 | Deferred | #585: the line below |
+| PL-24 | Deferred | #585: the line below |
+| PL-25 | Deferred | #585: the line below |
+| PL-26 | Deferred | #585: the line below |
+| PL-27 | Deferred | #585: the line below |
+| PL-28 | Deferred | #1107 (`bug`); its fix in stream S3 |
