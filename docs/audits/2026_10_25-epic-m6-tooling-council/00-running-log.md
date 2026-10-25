@@ -141,3 +141,18 @@
   - the stage-B comment's leads count read *Thirteen*; the list has twelve (edited at 03:20:38 UTC, with a note);
   - its F-05 row (03:18:37, above).
 - **Paused at stage D**, per brief § 8.
+
+## [Stage F] 03:22 to 03:24 UTC — the counts, the runs and the lint at the tip (no stage E: the coordinator, 03:22 UTC)
+
+- **The counts at `8e32c0e6e3`** (`stage-f/counts.txt`):
+  - SUMS: 41/9/2 at the hash, 36/14/2 at the tip.
+  - Pins: 27 at the hash, 30 at the tip.
+  - Members against the hash: exactly `0ceb2994c5` and `033eb7ed23`, `10 files changed, 356 insertions(+), 28 deletions(-)`.
+  - Members since the dispatch tip: 0.
+  - Coverage rows: 52. Provenance files in `second-opinions/`: 0.
+- **The lint:** `--phase pre-issue`, the default resolution phase and `--issue 1046` each print `PASS`. `box-check --issue 1046`: 0 fail.
+- **The runs on both trees** (`stage-f/runs.txt`; keyless as before):
+  - `npm install` rc 0, resolving `tsx@4.23.15` and `@aws-sdk/client-bedrock-runtime@3.1156.0`;
+  - `verify-pins`, `drift` and offline `efforts` rc 0 (8 and 7 seats);
+  - `test` rc 0: 39/127/19 at the tip, 39/109/19 at the hash.
+  - The same as stage A.
