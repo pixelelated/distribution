@@ -2670,6 +2670,20 @@ A15_ASIDE = "/tmp/qa-a15-aside"      # the device's own manifest working copies,
 A15_MACVLAN = "qa0mv"                # type 1, no device link: only the sysfs tests refuse it
 
 
+# cloud_restore's line for the folder its settings came from, as f864baac02
+# (#383) words it: `Restoring settings from <remote path> (<kind> device
+# folder)`, the kind being select_settings_archives' current, legacy,
+# previous or flat (rasteratops-settings-archive). A15 looked for the words
+# before that commit -- "own cloud folder (...)" and "shared constant" --
+# and could not pass on any image since (#1093).
+RESTORE_SHARED_WARN = "may have shared with another of the same model"
+
+
+def restore_folder_logged(tail, folder, kind):
+    return re.search(rf"Restoring settings from \S*/{re.escape(folder)} \({re.escape(kind)} device folder\)",
+                     tail) is not None
+
+
 def fx_a15(dev, root, remote, settings):
     """A15 (#86): the seed is a MAC or nothing.
 
@@ -2965,7 +2979,7 @@ fi
         f += not check(old_archive in local,
                        f"cloud_restore found the archive under {poisoned} (the hostname shape) through the --previous tier (exit {rc})",
                        f"restore brought back {local or 'nothing'} (exit {rc})")
-        f += not check(poisoned in tail and "shared constant" in tail,
+        f += not check(restore_folder_logged(tail, poisoned, "previous") and RESTORE_SHARED_WARN in tail,
                        "and the log names the folder it took and why",
                        f"the log did not name the folder: {tail.strip()[-300:]!r}")
         own_archive = f"2026_01_02-000000-{label}-{osn}_SETTINGS.tar.gz"
@@ -2978,7 +2992,7 @@ fi
         f += not check(own_archive in local and old_archive not in local,
                        "with an archive in its own folder, restore takes that one before the old folder's",
                        f"restore brought back {local or 'nothing'}")
-        f += not check(f"own cloud folder ({expected})" in tail,
+        f += not check(restore_folder_logged(tail, expected, "current"),
                        "and says it restored from the device's own folder",
                        f"the log did not: {tail.strip()[-300:]!r}")
         keep_raw = dev.run(f"grep -m1 '^CLOUD_BACKUP_KEEP=' {CONF} 2>/dev/null | cut -d= -f2 | tr -d '\"' || true").strip()
