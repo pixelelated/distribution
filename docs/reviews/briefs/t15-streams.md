@@ -80,8 +80,7 @@ download is a FAIL, one SKIP or a silent omission depending on the section
   (`QA_SYSTEM_ROOT=<root>/image/system`, or a build root beside the
   checkout) -- **unless `--host-diagnostic` was given**, in which case the
   run proceeds on the host's tools with every result line marked `HOST`,
-  and ends with a verdict that says NOT DEVICE EVIDENCE and exits 3 (D-QA-061's
-  SKIP word: it ran and could not qualify); the verdict's final lines name
+  and ends with a verdict that says NOT DEVICE EVIDENCE and exits **3 when no case failed, 1 when any case failed** (D-QA-063, the lattice every fork suite shares: a FAIL is never hidden behind the marked verdict; this sentence read `exits 3` until 02:42 UTC, when the lane asked on #662 whether to match T14's `--unverified-busybox` split -- it does); the verdict's final lines name
   the busybox's path, version and the root's BUILD_ID (from its
   `etc/os-release`) and the rclone's path and version; the G-B-15 probes
   check that provenance, not the word BusyBox; stream A's rclone is taken
@@ -98,9 +97,7 @@ download is a FAIL, one SKIP or a silent omission depending on the section
 - **The test first** (in `02` § The streams' positives): from a worktree
   with no build root and `QA_SYSTEM_ROOT` unset, the unfixed file runs
   and prints `329 CHECK(S) FAILED` naming no applet set (the positive);
-  the fixed one exits 2 at once with the message, and with
-  `--host-diagnostic` exits 3 with every line marked and the verdict NOT
-  DEVICE EVIDENCE; a constructed root whose `rclone` is the host's
+  the fixed one exits 2 at once with the message, and with `--host-diagnostic` exits 3 (or 1 when a case failed under the host's tools) with every line marked and the verdict NOT DEVICE EVIDENCE; a constructed root whose `rclone` is the host's
   1.60.1 (the lane's `rchost` root) is refused or marked by stream A
   (unfixed: 1,313/0, the positive); a constructed root whose busybox
   lacks an applet section `b` needs shows `b` reaching it (unfixed: host
@@ -119,7 +116,7 @@ download is a FAIL, one SKIP or a silent omission depending on the section
 - **Acceptance (#1018, #1019, #1020, #1029, #1038):** the cases named with
   their positives; the full suite under `QA_SYSTEM_ROOT` on the M7 root
   at the stream's tip: its verdict, counts and provenance lines quoted.
-- **Commits:** `last-good-scripts-test: no silent host tools -- refuse without a root, or --host-diagnostic marked and exit 3; the verdict names the provenance (#1018)`,
+- **Commits:** `last-good-scripts-test: no silent host tools -- refuse without a root, or --host-diagnostic marked, exit 1 on a failing case else 3; the verdict names the provenance (#1018)`,
   `last-good-scripts-test: stream A's rclone from the root, its version asserted (#1020)`,
   `last-good-scripts-test: section b binds the busybox copy; the PL-022 case needs verified provenance (#1029, #1038)`,
   `last-good-scripts-test: ag and ah carry --busybox-from or --unverified-busybox; a child's 2 and 3 reach the verdict (#1019)`.
@@ -297,8 +294,7 @@ download is a FAIL, one SKIP or a silent omission depending on the section
   counted as a pass; its fragile gate (G-05) is in #1036 (S3).
 - **The 15-row sub-group table** stands (the lane's question 2).
 - **For the maintainer, on #346 (the coordinator posts at this pause):**
-  the `--host-diagnostic` contract (a run on the host's tools is marked
-  and exits 3, never a bare PASSED) as the shape every host-side suite in
+  the `--host-diagnostic` contract (a run on the host's tools is marked and exits 3, or 1 when a case failed, never a bare PASSED -- D-QA-063) as the shape every host-side suite in
   the fork follows from here -- a register row if it is contested.
 
 ## Order and hand-back
@@ -328,8 +324,7 @@ by `AUDIT_ISSUE=1040 $S/t15-accept.sh <tip> <coordinator tip>` on an export
 **made from a clone of the lane's branch** (the inventory block, the file at
 the hash against the dispatch tip, `--help`/`--nosuch`, the two call sites'
 flags, one run of the fixed suite with `QA_SYSTEM_ROOT` on the M7 root and
-one without it -- the refusal -- and one with `--host-diagnostic` -- the
-marked exit 3 -- each started through the launcher, `register-check` and
+one without it -- the refusal -- and one with `--host-diagnostic` -- the marked exit 3, or 1 on a failing case -- each started through the launcher, `register-check` and
 `rules-check` on a simulated merge), reads every stream's diff and
 positives, ticks #662 and #1040 from the artifacts, closes #1040 when its
 checkboxes read back ticked by name, and merges the branch in its turn
