@@ -4,7 +4,7 @@ Every bug's case from stage E, as a command the acceptance re-run can repeat
 from this branch. Each one fails on the unfixed tool and passes on the fixed
 tool.
 
-- **The unfixed tool** is `tools/` at **`8a2518fa44`**: a shared clone, `git clone --no-checkout --shared <this worktree> <U>; git -C <U> checkout 8a2518fa44 -- tools`.
+- **The unfixed tool** is `tools/` at **`8a2518fa44`**: a shared clone, `git clone --no-checkout --shared <this worktree> <U>; git -C <U> checkout 8a2518fa44 -- tools projects/ROCKNIX/packages/network/rclone/sources` (the rclone sources too: `cloud-test-backend shipped-default` reads `cloud_sync.conf.defaults` beside the tools, and a `tools/`-only clone reads an empty default -- found on the guest cycle).
 - **The fixed tool** is this branch's `tools/` at `fixed-at` (`cee4bf481d` or later).
 - **The drivers** take the tool's path first and `unfixed|fixed` second. They write only under `$TMPDIR`, print one verdict line last (`pos<bug>: unfixed-expectation-met | fixed-expectation-met | UNEXPECTED ...`), and exit 0 when that expectation is met.
 - **The shell-run positives** use the isolation environment, with every backend brought down after its run.

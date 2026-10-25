@@ -1,0 +1,36 @@
+
+=== device reachable and equipped
+    PASS  ssh works
+    PASS  rclone and cloud scripts present
+
+=== point the device at the QA bucket
+    PASS  active remote is 'qa-cloud', which is what the scripts will use
+    scratch tree /storage/cloud-qa (pass --real-roms to use /storage/roms)
+    SAVES_REMOTE /pixelelated/Saves on the webdav endpoint
+
+=== the KILL cells: a writer killed at every step, the power cut, one record at rest (#105, D-CLOUD-078)
+    device GENERIC-X64-15ca35b6b4 (GENERIC-X64); endpoint 10.0.2.2:9080 throttled; serial yes; monitor yes
+
+=== KILL5 -- settings upload killed mid-copyto: marker, retention and device.json untouched; the re-run trims only this device's
+    PASS  SIGKILL mid-copyto of '2026_02_01-000000-GENE…elated_SETTINGS.tar.gz': the group was gone in 0.01s
+    PASS  settings-backup.uploaded is byte-identical (the upload was never confirmed)
+    PASS  all 4 planted archives are still in the folder (retention did not run)
+    PASS  device.json is unchanged
+    PASS  last-settings-backup unchanged (1792914975 1 THIS_DEVICE'S_SETTINGS_BACKUP_IS_DAMAGED)
+          waited 20s for the endpoint to let go of the cut PUT
+          outputs kept: /tmp/qa-link-KILL5/ on the guest
+    PASS  a plain re-run exits 0
+    PASS  the marker now says <hash of the archives> <dest> (f1c5641ef324... qa-cloud:/pixelelated/Backups/GENERIC-X64-15ca35b6b4)
+    PASS  this device's archives trimmed to CLOUD_BACKUP_KEEP=2, oldest first (['2026_01_03-000000-GENERIC-X64-pixelelated_SETTINGS.tar.gz', '2026_02_01-000000-GENERIC-X64-pixelelated_SETTINGS.tar.gz'])
+    PASS  another device's archive and the unlabelled one were left alone
+    PASS  exactly one device.json
+    PASS  the archive is whole in the cloud
+    PASS  re-run: no developer words on the 60 card-visible line(s) or the outcome line ('Completed.')
+    PASS  re-run: the outcome line is one of the three outcome words ('Completed.')
+    PASS  KILL5: one record each, no litter: system.cfg 226 keys, record .backup; es_settings.cfg 0 keys; 2 last-* stamps, 0 capture line(s), 0 manifest; 1 archive at root, 0 in archive/; saves tree clean of *.partial/*.tmp; cloud 5 settings file(s)
+    (KILL5 took 56s)
+
+=== clean up root@127.0.0.1 port 10022
+    scratch tree and bucket emptied; the device's own remote, paths and settings-backup setting restored
+
+PASSED -- backend webdav (hash=none modtime=no commit=partial bucket=no): 17 passed, 0 failed, 0 skipped

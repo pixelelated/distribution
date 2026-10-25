@@ -1,0 +1,8 @@
+leftover at 08:09:21 UTC:
+  qemu: 0
+  ss -ltn 9010-9099: 0
+  ss 10022: 0
+  docker ps -a rocknix-cloud-qa*: 0
+  pgrep sshd (m6-t13 config): 0
+  pgrep rclone serve: 0
+  pgrep minio server: 0

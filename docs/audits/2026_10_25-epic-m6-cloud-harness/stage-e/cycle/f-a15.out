@@ -1,0 +1,61 @@
+
+=== device reachable and equipped
+    PASS  ssh works
+    PASS  rclone and cloud scripts present
+
+=== point the device at the QA bucket
+    PASS  active remote is 'qa-cloud', which is what the scripts will use
+    scratch tree /storage/cloud-qa (pass --real-roms to use /storage/roms)
+    SAVES_REMOTE /pixelelated/Saves on the webdav endpoint
+
+=== A15 -- the seed is a MAC or nothing: sit0 and a macvlan are refused, a poisoned id heals once, the working copy and the next backup follow it, its old folder stays restorable
+    under test: /usr/bin/cloud_device_id
+    -- (a) the guard: sit0 yields nothing, eth0 yields a MAC
+    PASS  sit0 is present (modprobe sit)
+    PASS  the old pipeline turns `ethtool -P sit0` into 'notset' -- the string both handhelds hashed
+          sit0: type 776, no-device; eth0: type 1, device
+    PASS  permanent_address yields nothing for sit0 (exit 1)
+    PASS  the script's own usable_interfaces lists ['eth0'] with sit0 present
+    PASS  permanent_address yields eth0's permanent address, 52:54:00:52:4e:58
+    PASS  the script derives the poisoned constant as ee5013fc56
+    PASS  qa0mv (a macvlan on eth0) is type 1 with no device link: no name pattern catches it, only the sysfs tests can
+    PASS  usable_interfaces omits qa0mv and keeps eth0: ['eth0']
+    PASS  with qa0mv sorting first, permanent_address still yields eth0's address (valid_mac refuses its 'not set')
+    -- (b) a poisoned stored id heals once
+    PASS  GENERIC-X64-15ca-ee5013fc56 healed to GENERIC-X64-15ca35b6b4
+    PASS  the id file holds the healed id
+    PASS  the .previous file holds the old id once
+    PASS  the healed hash 15ca35b6b4 is the one this guest generated before the change (GENERIC-X64-15ca35b6b4): the recipe is unchanged
+    PASS  --legacy is GENERIC-X64-15ca-15ca35b6b4: the hostname and the same hash
+    PASS  the cloud-sync log records old -> new under the cloud_device_id tag
+    PASS  and so does the journal (logger -t cloud_device_id), in a line this run wrote
+    PASS  --previous lists ['GENERIC-X64-15ca-ee5013fc56', 'GENERIC-X64-ee5013fc56']: the recorded id, then <label>-ee5013fc56; <hostname>-ee5013fc56 is the recorded one
+    PASS  with the hostname A15HOST, --previous adds A15HOST-ee5013fc56 last
+    -- (b) cloud_capture --full carries the working copy to the healed id
+    PASS  cloud_capture --full adopted manifest-GENERIC-X64-15ca-ee5013fc56.json as manifest-GENERIC-X64-15ca35b6b4.json and said so (exit 0)
+    PASS  a second --full adopts nothing more (the current name exists)
+    -- (c) the old folder stays restorable; backup and retention never touch it
+    PASS  cloud_restore found the archive under GENERIC-X64-15ca-ee5013fc56 (the hostname shape) through the --previous tier (exit 0)
+    FAIL  the log did not name the folder: '-25 04:04:26] [INFO] [cloud_restore] Completed.\n[2026-10-25 04:04:26] [INFO] [cloud_restore] Log file: /var/log/cloud_sync.log\n[2026-10-25 04:04:26] [INFO] [cloud_restore] ====================================\n[2026-10-25 04:04:26] [INFO] [cloud_restore] Script completed in 2 seconds with exit code 0'
+    PASS  with an archive in its own folder, restore takes that one before the old folder's
+    FAIL  the log did not: '-25 04:04:28] [INFO] [cloud_restore] Completed.\n[2026-10-25 04:04:28] [INFO] [cloud_restore] Log file: /var/log/cloud_sync.log\n[2026-10-25 04:04:28] [INFO] [cloud_restore] ====================================\n[2026-10-25 04:04:28] [INFO] [cloud_restore] Script completed in 2 seconds with exit code 0'
+    PASS  with the marker saying this archive was already sent (an old build's marker, from the old folder), the backup still landed in the healed folder GENERIC-X64-15ca35b6b4 (exit 0)
+    PASS  and wrote the healed folder's device.json
+    PASS  the marker now records where as well as what: 19eccbea85a3b25573b1fac79fef8222 qa-cloud:/pixelelated/Backups/GENERIC-X64-15ca35b6b4
+    PASS  and the run after that has nothing to send, and sends nothing
+    PASS  nothing was written to or removed from GENERIC-X64-15ca-ee5013fc56: it still holds its 6 archives
+    -- (d) a healthy stored id is left alone
+    PASS  a second run returns the healed id and rewrites nothing (the id file and .previous keep their mtimes)
+    PASS  a healthy id that does not match this hardware is returned unchanged and not rewritten (the module-swap case)
+    -- (e) no adapter, no healing
+    PASS  with the interface list narrowed to sit0 the poisoned id is returned unchanged (exit 0)
+    PASS  and nothing was written: the id file keeps its mtime, no .previous, no log line
+    -- (f) without sit0 the guessed names are not offered
+    PASS  with no sit0 (hostname A15HOST), --previous lists ['GENERIC-X64-15ca-ee5013fc56']: the recorded id only -- a device that never had a sit0 could not have hashed 'notset'
+    put back: id GENERIC-X64-15ca35b6b4 (as before), .previous absent, marker absent, sit0 absent (was absent), qa0mv gone, hostname GENERIC-X64-15ca
+    PASS  A15: one record each, no litter: system.cfg 226 keys, record .backup; es_settings.cfg 0 keys; 2 last-* stamps, 0 capture line(s), 0 manifest; 0 archive at root, 0 in archive/; saves tree clean of *.partial/*.tmp; cloud 0 settings file(s)
+
+=== clean up root@127.0.0.1 port 10022
+    scratch tree and bucket emptied; the device's own remote, paths and settings-backup setting restored
+
+2 CHECK(S) FAILED -- backend webdav (hash=none modtime=no commit=partial bucket=no): 36 passed, 2 failed, 0 skipped

@@ -1,0 +1,22 @@
+
+=== device reachable and equipped (local: no cloud)
+    PASS  ssh works
+    PASS  jq and the sibling helpers present
+    PASS  cloud_capture resolves (staged by hand under --path-prefix)
+
+=== point the device's saves root at the scratch tree
+    scratch tree /storage/cloud-qa; SAVESPATH point at it for the run; no remote is touched
+
+=== CAP13 -- --retire --unlink is the manager's deletion as one unit: row, then files, SIGTERM ignored; a path outside the saves folder is refused the rm
+    PASS  (a) the retired row carries state2's sha and its entry is gone
+    PASS  (a) the state and its thumbnail are gone from disk
+    PASS  (b) a slot with no entry: the row carries the live hash and the file goes
+    PASS  (c) --unlink without --retire is refused (2) and removes nothing
+    PASS  (d) a SIGTERM as the run starts is ignored: it finishes, the row is written, the file goes
+    PASS  (e) a path outside the saves folder is refused the row and the rm (exit 1, the warning logged); the sibling that is this unit's is retired and removed
+    PASS  CAP13: one record each, no litter: system.cfg 226 keys, record .backup; es_settings.cfg 0 keys; 0 last-* stamps, 3 capture line(s), 1 manifest; saves tree clean of *.partial/*.tmp
+
+=== clean up root@127.0.0.1 port 10022
+    scratch tree removed and the saves root put back; no remote or bucket was touched
+
+PASSED -- backend webdav (hash=none modtime=no commit=partial bucket=no): 10 passed, 0 failed, 0 skipped

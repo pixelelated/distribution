@@ -1,0 +1,5 @@
+
+=== the two devices are two devices, not one id twice (#91)
+    FAIL  a is GENERIC-X64-15ca35b6b4, b is GENERIC-X64-15ca35b6b4 -- one id, or none, between two devices (#91)
+
+error: refusing the two-device fixtures: both guests carry the MAC 52:54:00:52:4e:58: this pair predates vm-pair giving guest b its own address; re-create it with `tools/vm-pair up <img.gz>` (clearing b's stored id alone re-derives the same one) (#91)

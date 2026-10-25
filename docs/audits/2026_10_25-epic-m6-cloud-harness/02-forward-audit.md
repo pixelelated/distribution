@@ -400,3 +400,41 @@ rclone answers its built-in `md5sum`, `sha1sum` and `df` itself, executing nothi
 - `main()`'s final return, evaluated from the AST at the follow-up: a run whose verdict line reads `NOTHING CHECKED -- backend webdav (hash=none modtime=no commit=partial bucket=no): 0 passed, 0 failed, 1 skipped` -> **exit 3** (was 2 at `e71d077882`); a pass -> 0; a failure -> 1; the usage error (`--only NO-SUCH-CELL`) stays **rc 2**; `--list` 45
 
 **After S3** (at `cee4bf481d`): `tools/cloud-connections-test` -> `Ran 26 tests in 1.846s` / `OK`; `git diff --stat e1d51b3a04 cee4bf481d -- tools` names only `cloud-connections-test`, `cloud-census`, `cloud-round-trip` and `cloud-test-backend`.
+
+## The guest cycle
+
+**The window:** granted by the coordinator on #660 at 07:50 UTC (its own comment, after the M7 lane's FINAL RETURN), with a 45-minute bound.
+- **START:** 07:52:28 UTC, with `pgrep -x qemu-system-x86 -r R,S,D,T | wc -l` reading 1 (#660).
+- **The guest stopped:** 08:09:21 UTC, about 17 minutes in.
+
+**The image:** M6's own copy, `/workspace/artifacts/m6-t3-20261024/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261022T235948Z.g069fc2704421-from-ROCKNIX.img.gz` (sha256 prefix `6b4c3079bdee2f47`). Its `/etc/os-release` reads BUILD_ID **`069fc270442134fe771258418adf4e666e0473fb`**, as its `.identity.json` does (copied to `stage-e/cycle/image.identity.json`).
+
+**One guest:**
+- **Booted** with `tools/vm-pair reimage a <image>`: 43 s, answering over SSH on :10022. `vm-pair up` would have started two guests, and `vm-qa` ran with `--skip-up`.
+- **Isolation:** `VM_PAIR_DIR=/workspace/tmp/m6-t13/vm-pair`, `VM_QEMU_RUNTIME_DIR=/workspace/tmp/m6-t13/run`, `ROCKNIX_ARTIFACTS=/workspace/tmp/m6-t13/artifacts`; backends on `CLOUD_QA_STATE=/workspace/tmp/m6-t13/state` (WebDAV :9080, throttled to 200k for KILL1 and KILL5; SFTP :9083).
+
+**The record:** `stage-e/cycle/`.
+- every cell's output: `u-*.out` (the clone at `8a2518fa44`) and `f-*.out` (this branch);
+- `vm-qa-webdav/` and `vm-qa-sftp/` (each `vm-qa` report and its `round-trip.log`; the round-trip suite takes no frames, so their `walks/` were empty);
+- `boot.out`, `down.out` and `leftover.txt`;
+- `notes.txt`.
+
+| Cell | Unfixed (`8a2518fa44`) | Fixed (this branch) | The bug's guest criterion | proved: |
+| --- | --- | --- | --- | --- |
+| KILL1 (#1062) | `NameError: name 'webdav' is not defined`, rc 1 (`u-kill1.out`) | reached its verdict: `3 CHECK(S) FAILED -- backend webdav (...): 21 passed, 3 failed, 0 skipped`. Both variants' re-runs after the kill exit **124** under the 200k throttle, and 1a's cloud lacks v2 of `savestates/kill1-2.state`: new, below (`f-kill1.out`) | **met:** KILL1 runs to its verdict | guest |
+| CAP13 (#1065) | warning present: PASS. Warning absent (`/var/log/cloud_sync.log` a symlink to `/dev/null` for the run, a named synthetic input, the log restored after): **PASS, wrongly** (`u-cap13-*.out`) | at `f7482f9684` **both FAILED**: the image's `cloud_capture` writes `<path> is not a path under the saves folder <root>; not recorded`, and "outside the saves folder" appears nowhere in it, so the old check had passed only through `0\n0`. Fixed in-window by `a70b4889a3` (#1065). Then present -> `PASSED -- ... 10 passed, 0 failed`; absent -> `1 CHECK(S) FAILED`, `the warning in this call's log: absent` | **met:** present PASS, absent FAIL | guest |
+| A15 (#1069) | `6 CHECK(S) FAILED` (32 passed), among them `the backup did not land in GENERIC-X64-15ca35b6b4 (exit 1)` and `no device.json` (`u-a15.out`) | `2 CHECK(S) FAILED -- backend webdav (...): 36 passed, 2 failed`. The backup lands. The two left (`the log did not name the folder`, `the log did not: ...`) were there unfixed too: a separate finding, below (`f-a15.out`) | **met:** A15 runs to its verdict, and #1069's failures are gone | guest |
+| KILL5 (#1070) | keep 3 (the image's default): PASSED (`u-kill5.out`) | keep 3: `PASSED -- ... 17 passed`; `CLOUD_BACKUP_KEEP=2` set on the guest for the run and restored after: `PASSED -- ... 17 passed`, with `all 4 planted archives are still in the folder` (`f-kill5-keep*.out`) | **met:** passes at the default keep and at 2 | guest |
+| step 5b, A5 and RETENTION (#1057), with **device b being guest a itself** (`--second-port 10022`) | not run | **refused before either cell:** `a is GENERIC-X64-15ca35b6b4, b is GENERIC-X64-15ca35b6b4 -- one id, or none, between two devices (#91)` and `error: refusing the two-device fixtures: both guests carry the MAC 52:54:00:52:4e:58 ...`, rc 2 (`f-5b.out`). The harness's own #91 guard stops a pair that agrees with itself; it was not bypassed | **not met:** needs two guests; the host positive (`stage-e/pos1057`) stands | guest |
+| the suite over WebDAV (#1059, #1064) | -- | `PASSED -- backend webdav (hash=none modtime=no commit=partial bucket=no): 108 passed, 0 failed, 0 skipped`; step 25: `every ES path outside /storage/roms is in the settings backup (128 ES paths read)`; `vm-qa` row `round-trip PASS 84s` | **met:** #1064's count read on the image (128); #1059's line on a guest | guest |
+| the suite over SFTP | the unfixed harness over the **old** sshd endpoint: `PASSED`, rc 0, 67 s (`u-suite-sftp.out`) | `7 CHECK(S) FAILED -- backend sftp (hash=none modtime=yes commit=partial bucket=no): 101 passed, 7 failed, 0 skipped`, all in the content tier (the BIOS absent after `--all`; scans reading the cloud side as 0; one apply exiting 1). The guest's log: `cloud_content_restore scan: the cloud could not be read (rclone exit 5)` (`vm-qa-sftp/`) | **a regression of #1067's endpoint**, below | guest |
+
+**Found by the cycle** (each goes to stage F and 05):
+- **G-1. #1067's `rclone serve sftp` endpoint breaks the content tier over SFTP.** The same guest passes the whole suite over the old sshd endpoint and fails 7 content checks over the new one. #1067's confinement is real (02 § The streams' positives), but its fix as made is not a working endpoint for the content tier. The rclone call that fails has not been pinned down. The device's rclone (1.75.2) talks to the host's `serve sftp` (1.60.1), and the scan's listing returns exit 5.
+- **G-2. KILL1's re-run exits 124 under the 200k throttle,** where LINK's `exercise` has a `drained` branch for a 124 on WebDAV. KILL1 reached this only now: every run since `931a413457` stopped at the `NameError`.
+- **G-3. A15's two log-wording checks** (`the log did not name the folder` and `the log did not: ...`) fail both unfixed and fixed. That is likely a stale needle like CAP13's, not yet read.
+- **G-4. CAP13's needle was stale** (found and fixed in-window, `a70b4889a3`).
+
+**The teardown:** `tools/vm-pair down` gave `down: owned QEMU exited (pid 705918)`, the stop by pidfile through `vm-stop`. `--backend webdav down` and `--backend sftp down` both printed `down`. The leftover check at 08:09:21 UTC (`stage-e/cycle/leftover.txt`): qemu 0; `ss -ltn` 0 on 9010-9099 and 0 on 10022; `docker ps -a` 0 `rocknix-cloud-qa*`; 0 sshd on the `m6-t13` config; 0 `rclone serve`; 0 `minio server`.
+
+**My own slip, recorded:** the clone held `tools/` only, so the unfixed backend's `shipped-default` read no defaults file and the first KILL1 control stopped at planting (`put <stage> ''`). I checked out `projects/ROCKNIX/packages/network/rclone/sources` at `8a2518fa44` into the clone and re-ran the control; the first output was overwritten by the re-run. `stage-e/README.md`'s clone command is corrected below.
