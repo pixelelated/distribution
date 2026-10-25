@@ -184,3 +184,17 @@ Not checked by the proof, and left to the lane's stage A: the generator's
 own counts, the headers' tags and series positions, T23's join at the
 lane's tree.
 
+
+## Errata, after T40's acceptance (2026-10-25)
+
+- The futro's *68 LibreELEC changes the override builds without* is 50
+  with no counterpart plus 18 the override carries in another form (T40's
+  `02` § The shadowed 74). T42's brief inherits the 50 by override.
+- The symlinked `patches` directories (gcc's, cmake's) are the inventory's
+  second gap, filed as #1056 beside #1049; T41's and T42's reach columns are
+  read with that gap in mind until the tool is fixed.
+- Class (c) became two bugs, one per unit (#1071, #1072), and the M7 lane's
+  GENERIC build01 failed the same day on a source manifest that had applied
+  the dormant `cpugov.patch` -- the class (c) fact reached it through the
+  host file within minutes, which is what the area futro's "a dead patch
+  that is a live bug" paragraph was for.

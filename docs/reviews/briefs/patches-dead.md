@@ -432,3 +432,23 @@ closes #687 when every row is proven.
 (#1054) carries this slice's kickoff, and a stranger's proof of this brief
 is run by a reader with no context before dispatch; version 2 records what
 each found.
+
+## Errata, 2026-10-25 (the coordinator's, at acceptance)
+
+- **§ 2's "68 the override builds without" is 50 + 18.** Of the 68 shadowed
+  non-duplicates, 18 are carried by the override in another form (12
+  re-offset, 6 with their context moved) and 50 have no counterpart; the 50
+  are T42's leads (#689, all by non-kernel overrides; #688 has none). The
+  lane's `02` § The shadowed 74 is the record (PL-06, recorded).
+- **§ 1's first commands name a `git fetch` that § 5 forbids.** *No network
+  at all* is the rule; the lane did not fetch and read local refs
+  (`upstream/next` at `651150fc88`). A brief's first commands never carry a
+  fetch where its evidence floor says no network.
+- **The runs' "PATCH_ARCH would be" column** is `${TARGET_PATCH_ARCH:-${TARGET_ARCH}}`
+  in `unpack`; the lane's `stage-a/linux.out` read `aarch64` for the two
+  `arm` configs and the coordinator's re-run `arm`. No class depends on it
+  (class (c) is x86_64's); the five `get_pkg_directory linux` answers, which
+  the criterion names, agreed.
+- **Accepted at `e863379cec`** (the lane's `29b3f478e5` with the coordinator's
+  `737a726224`), closed out at `bf3409ea18`; the re-run's report is
+  `/workspace/tmp/m6-coordinator/accept-t40.out`.
