@@ -7,7 +7,7 @@ area: generic-packages
 kind: table
 lens: reachability
 depth: Local
-version: 1
+version: 2
 written: 2026-10-25
 author: the M6 coordinator (Fable 5.1, D-WORKFLOW-189)
 read_refs:
@@ -17,8 +17,7 @@ read_refs:
 
 # T23: the generic packages no image builds (a reachability table)
 
-**Version 1, 2026-10-25, by the coordinator.** A brief for a lane that has
-never seen this project, in the shape of T45's
+**Version 2, 2026-10-25, by the coordinator**, after the stranger's proof of version 1 (a read-only reader with no context, 55 rows: 38 verified, 3 wrong, 12 partial, 2 uncheckable; the corrections are marked **(v2)** where they land and listed in the area futro's errata). Version 1 was written the same day. A brief for a lane that has never seen this project, in the shape of T45's
 (`docs/reviews/briefs/tooling-council.md`) and T7's
 (`docs/reviews/briefs/generic-packages-reached.md`, the same area): a
 **table slice at Local depth**. No reviewer seat; no fix streams, because
@@ -52,10 +51,7 @@ precedes dispatch, and version 2 records what it found.
   rows say which ROCKNIX override is live where this slice's row is a
   shadowed copy; **T6's lead on #670** (two global-scope reads in unreached
   recipes, `packages/addons/tools/jre.zulu/package.mk:12` and
-  `packages/graphics/mesa-reusable/package.mk:14`); **T10** (#657), which
-  reviewed `tools/renovation-inventory`, the tool whose `reach` column is
-  this slice's first command (D-WORKFLOW-204: `tools/renovation-status`
-  reads the same column); **D-WORKFLOW-185/186/187** (the shipped set is
+  `packages/graphics/mesa-reusable/package.mk:14`); **T10** (#657), which reviewed `tools/renovation-inventory`, the tool whose `reach` column is this slice's first command (D-WORKFLOW-204 is the sibling `tools/renovation-status`'s seven slice states, read from `reviewed-at:`/`fixed-at:` and the issue, not from the reach column -- v2); **D-WORKFLOW-185/186/187** (the shipped set is
   H700 and SM8550, GENERIC_X64 the test image; the renovation gates no
   release); **D-WORKFLOW-198/199** (the base merge keeps three ROCKNIX
   overrides upstream deleted, `spirv-headers` among them -- one of this
@@ -70,10 +66,7 @@ precedes dispatch, and version 2 records what it found.
   `bug` issue for a defect it proves (D-WORKFLOW-187) -- here, most likely,
   a defect in `tools/renovation-inventory`'s reach (§ 2).
 - **The removal rule, which this brief decides (D-WORKFLOW-209).** The lane
-  **removes nothing and edits no recipe.** Of the 1,604 rows, 1,601 are
-  upstream-carried (byte-identical to `upstream/next`; the fork tracks that
-  branch and every `git merge upstream/next` would carry a deletion forward
-  as a modify/delete conflict, D-WORKFLOW-198's class), and the futro for
+  **removes nothing and edits no recipe.** Of the 1,604 rows, 1,601 are upstream-carried -- the inventory's tier, meaning *not touched by the fork since the merge-base* (`last_fork_commit` none), not *identical to `upstream/next` today*: 11 of them differ from `upstream/next`, all under `projects/ROCKNIX/packages/`, 8 **deleted upstream after the base** (`debug/strace`, the three `rust/*-snapshot`s, `tools/grub`'s three files, `tools/qemu`) and 3 modified there (`graphics/libmali`, `graphics/vulkan-wsi-layer`, `virtual/arm-efi`) -- v2. The fork tracks that branch; deleting a file upstream still carries makes a modify/delete conflict at every merge (D-WORKFLOW-198's class), while a file upstream has already deleted costs nothing to drop here, which is the distinction Q1 prices. and the futro for
   this area already holds T7 to *deletes nothing upstream carries*. So the
   table's deliverable is a **disposition per unit**, one of six:
   `dead, upstream-carried` (recorded; the removal of the class is **one
@@ -113,9 +106,7 @@ precedes dispatch, and version 2 records what it found.
   holds a flexible component-qualification window granted at 03:43 (one
   compiler or one guest at a time, M7's); **this slice runs no guest, no
   build and no compiler.** Its one tool with a cost is `tools/viewplan`,
-  which generates a device's build plan from the recipes in Python in
-  seconds (`Packages loaded : 1435`, GENERIC_X64) -- plan generation, not a
-  build. Nothing here touches the sources cache or a build root. Register: the three IDs from 206 to 208 in the workflow series are the M7 lane's (reserved, unpublished until its rows land); a row this slice forces takes **D-WORKFLOW-209 or higher** (D-WORKFLOW-209 itself is the removal rule above, the coordinator's, written at dispatch); D-QA-064 and
+  which generates a device's build plan from the recipes in Python in about a second (`Packages loaded : 1435`, GENERIC_X64; the proof timed five runs at 0 to 1 s -- v2) -- plan generation, not a build. Nothing here touches the sources cache or a build root. Register: the three IDs from 206 to 208 in the workflow series are the M7 lane's (reserved, unpublished until its rows land); a row this slice forces takes **D-WORKFLOW-209 or higher** (D-WORKFLOW-209 itself is the removal rule above, the coordinator's, written at dispatch); D-QA-064 and
   D-INFRA-032 are the next free in their areas.
 
 First commands:
@@ -180,7 +171,7 @@ builds. The largest units by lines: `packages/addons/service/snapserver`
 36,749 (26 files; `snapweb/3rd-party` alone is one 34,569-line file),
 `packages/sysutils/busybox` 5,440 (45 files, **shadowed**: the ROCKNIX
 override `projects/ROCKNIX/packages/sysutils/busybox` is the live one),
-`packages/security/openssl` 2,972 (3, shadowed), `tvheadend43` 1,852,
+`packages/security/openssl` 2,972 (3 files, shadowed; its recipe is outside the set, reach `shipped` -- one of the four units of the paragraph above -- v2), `tvheadend43` 1,852,
 `sundtek-mediatv` 1,765, `packages/sysutils/systemd` 1,686 (38, shadowed).
 
 **Shadowed.** The inventory's `shadowed_by` column is set on **260 rows in
@@ -188,45 +179,23 @@ override `projects/ROCKNIX/packages/sysutils/busybox` is the live one),
 hash is the figure, and the table states it). It names the override
 directory a plan resolves the package name to (`get_pkg_directory`), e.g.
 `packages/addons/addon-depends/go` -> `projects/ROCKNIX/packages/lang/go`.
-**Unshipped:** 39 rows in 21 units, buildable only by RK3326, RK3566, RK3576,
-RK3588 or S922X -- devices the fork does not ship (T25's, #672). **Fork-own,
-three rows:** `packages/tools/installer/package.mk` (upstream has it; the
-fork's `459feac81e` of 2026-07-01 dropped its grub dependency for
-GENERIC_X64 -- and **`installer` is in the GENERIC_X64 plan** the
-coordinator generated, so which directory that plan resolves it to decides
-whether this row is a shadowed copy or reached after all);
-`projects/ROCKNIX/packages/graphics/spirv-headers/package.mk` (kept at the
-base merge by D-WORKFLOW-199; see the class below); and
-`projects/ROCKNIX/packages/rust/cbindgen/package.mk` (named by nothing at
-`8ebaf8daad` outside its own directory -- `git grep -n cbindgen 8ebaf8daad --
-packages projects` -- and not on `upstream/next`: the one row that may be
-simply dead and the fork's to remove).
+**Unshipped:** 39 rows in 21 units, buildable only by devices the fork does not ship -- AMD64, RK3326, RK3399, RK3566, RK3576, RK3588 and S922X among their `buildable_by` entries (v2; version 1 listed five) -- T25's set (#672). **Fork-own,
+three rows:** `packages/tools/installer/package.mk` (upstream has it; the fork's `459feac81e` of 2026-07-01 dropped its grub dependency for GENERIC_X64 -- **and the row is a shadowed copy with its override live, decidable from the hash**: its `shadowed_by` names `projects/ROCKNIX/packages/tools/installer`, that override's row is reach `test`, `get_pkg_directory installer` resolves to it, and `installer` is in the GENERIC_X64 plan the coordinator generated; so the fork once edited a dead copy -- v2, version 1 left it open);
+`projects/ROCKNIX/packages/graphics/spirv-headers/package.mk` (kept at the base merge by D-WORKFLOW-199; see the class below); and `projects/ROCKNIX/packages/rust/cbindgen/package.mk` (named by nothing at `8ebaf8daad` outside its own directory -- `git grep -n cbindgen 8ebaf8daad -- packages projects` -- and not on `upstream/next`: the one row that may be simply dead and the fork's to remove). **Each of those two has a generic twin in the set** (`packages/graphics/spirv-headers`, `packages/rust/cbindgen`, upstream-carried, no `shadowed_by`): `get_pkg_directory` resolves both names to the overrides, so the generic copies are shadowed copies the inventory does not mark, because it marks a copy only when a plan *builds* the name. **Eleven such basename pairs sit in the set unmarked** (strace, connman, the three rust snapshots, grub, qemu, rkbin, weston, spirv-headers, cbindgen -- v2); the table resolves every pair with `get_pkg_directory`, not only the column's marks, and gives the generic copy the disposition *shadowed copy, override dead too* or *override live* as the override's own row says.
 
-**The coordinator's re-derivation, 2026-10-25, on its own tree** (the lane
-repeats it on its branch at stage A; the recipes under `packages/` are
-byte-identical to upstream and unchanged since the base, so the tree does not
-matter for them): `tools/viewplan image` for `GENERIC_X64/x86_64`, `H700/aarch64` and `SM8550/aarch64` -- the three images the renovation reads (D-WORKFLOW-185) -- lists **593, 605 and 672 distinct package names (union 688)** on its `build`/`install` lines. The inventory itself ran **26 configs** (every device and arch the Makefile builds, each with its root: `image` for aarch64 and x86_64, `arm` for the 32-bit half) **inside the pinned build container** (its header's `plan_runner`, `mode: container`), and its `shipped`/`test`/`unshipped` split reads from that set: the shipped and test devices' five configs (`H700-arm`, `H700-aarch64`, `SM8550-arm`, `SM8550-aarch64`, `GENERIC_X64-x86_64`) decide `unreached` against the rest. The lane regenerates those five on the host, records the header's per-config package counts beside its own (611 for `H700-aarch64`, 672 for `SM8550-aarch64`, 593 for `GENERIC_X64-x86_64` in the header; the coordinator's host runs gave 605, 672 and 593, so the H700 plan differs by six names between the container and the host -- a disagreement to name, not to resolve in silence), and reads the other 21 configs' names from the header rather than regenerating them unless a row needs it. **84 of the 727 recipes carry a
-name some plan builds, and every one of the 84 is a shadowed copy**: the plan
-builds the override. **32 shadowed units carry a name no plan builds**: the
-override is dead too, so both copies are (a disposition of its own). And
+**The coordinator's re-derivation, 2026-10-25, on its own tree** (the lane repeats it on its branch at stage A; this slice's upstream-carried rows under `packages/` are unchanged since the base, so the tree does not matter for them -- the fork changed 21 files under `packages/` since the base, one of them this slice's `installer` row -- v2): `tools/viewplan image` for `GENERIC_X64/x86_64`, `H700/aarch64` and `SM8550/aarch64` -- the three images the renovation reads (D-WORKFLOW-185) -- lists **593, 605 and 672 distinct package names (union 688)** on its `build`/`install` lines. The inventory itself ran **26 configs** (every device and arch the Makefile builds, each with its root: `image` for aarch64 and x86_64, `arm` for the 32-bit half) **inside the pinned build container** (its header's `plan_runner`, `mode: container`), and its `shipped`/`test`/`unshipped` split reads from that set: the shipped and test devices' five configs (`H700-arm`, `H700-aarch64`, `SM8550-arm`, `SM8550-aarch64`, `GENERIC_X64-x86_64`) decide `unreached` against the rest. The lane regenerates those five on the host, records the header's per-config package counts beside its own (611 for `H700-aarch64`, 672 for `SM8550-aarch64`, 593 for `GENERIC_X64-x86_64` in the header; the coordinator's host runs gave 605, 672 and 593, so the H700 plan differs by six names between the container and the host -- a disagreement to name, not to resolve in silence), and reads the other 21 configs' names from the header rather than regenerating them unless a row needs it. **84 of the 727 recipes carry a name some plan builds, and every one of the 84 is a shadowed copy**: the plan builds the override. **Five shadowed units carry a name no plan builds** (`swig`, `amlogic-boot-fip`, `atf`, `rkbin`, `weston`; 9 rows), and for three of them (`amlogic-boot-fip`, `rkbin`, `weston`) the override's own row is unreached or unshipped too, so both copies are dead (a disposition of its own) -- v2: version 1 said 32, a count made with the coordinator's first, regex-based unit grouping, which the proof could reproduce by no method. And
 **one class the inventory's reach does not follow:
 `PKG_DEPENDS_UNPACK`.** `tools/renovation-inventory`'s `compute_reach`
 follows each plan's packages and the recipes a recipe sources with
 `. ${ROOT}/packages/...` (its `SOURCED` regex), not `PKG_DEPENDS_UNPACK`.
-`packages/graphics/spirv-tools/package.mk:16`,
-`packages/graphics/vulkan/glslang/package.mk:17` and
-`packages/lang/llvm/package.mk:46` -- all three in all three plans -- name
-`spirv-headers` there and unpack its tarball
-(`${SOURCES}/spirv-headers/spirv-headers-$(get_pkg_version spirv-headers).tar.gz`),
+the ROCKNIX overrides the plans build -- `projects/ROCKNIX/packages/graphics/spirv-tools/package.mk:18`, `projects/ROCKNIX/packages/graphics/glslang/package.mk:18` and `projects/ROCKNIX/packages/lang/llvm/package.mk:17` (the last inside an `if` on the graphics drivers, `iris` among them) -- name `spirv-headers` there and unpack its tarball (`${SOURCES}/spirv-headers/spirv-headers-$(get_pkg_version spirv-headers).tar.gz`); version 1 cited the generic copies' lines (`packages/graphics/spirv-tools:16`, `.../vulkan/glslang:17`, `packages/lang/llvm:46`), which are rows of this slice that nothing builds -- the very confusion the table exists to catch (v2). The overrides are in all three plans, so
 so **`projects/ROCKNIX/packages/graphics/spirv-headers` is fetched and
-unpacked for every image while the inventory says `unreached`.** 24 of this
-slice's recipes are named by some recipe's `PKG_DEPENDS_UNPACK`; a named
+unpacked for every image while the inventory says `unreached`.** 24 of this slice's recipes are named directly by some recipe's `PKG_DEPENDS_UNPACK` (the namer grep must take indented declarations inside `if` blocks: `^\s*PKG_DEPENDS_UNPACK=`, 40 lines at the hash, not the 38 of an anchored `^` -- v2); a named
 unit is reached when its namer is reached (spirv-headers is; tsdecrypt's,
 hyperion's and kodi's dependants are named by recipes that are themselves in
 this set). The table computes the closure; the tool's gap is a **finding
 against `tools/renovation-inventory`** (T10's set) and a `bug` the lane
-files, because D-WORKFLOW-204's status and every later slice's membership
-read that column.
+files, because every later slice's membership reads that column.
 
 **What is not here, and where it is:** the patch directories of these
 packages (T40's table, which records them as removed-by-T23 only if a removal
@@ -275,12 +244,7 @@ lens and the table as the answer:
   costs the fork (95,892 lines the inventory, the rules check, the guards
   and every later slice carry; the time a reader spends finding out a
   recipe is dead) against what removing it would cost (a deletion of
-  upstream's files is a modify/delete at every `upstream/next` merge; the
-  evidence for the rate: `git log --oneline c445081a59..upstream/next --
-  packages | wc -l` is **0** -- upstream has not touched `packages/` since
-  the base, and LibreELEC master reaches it only through ROCKNIX's merges of
-  LibreELEC, 453 such merges in upstream's history), written as one
-  paragraph the coordinator carries to #346 with the table's counts. The
+  upstream's files is a modify/delete at every `upstream/next` merge; the evidence for the rate, per group: `git log --oneline c445081a59..upstream/next -- packages | wc -l` is **0** -- upstream has not touched `packages/` since the base, and LibreELEC master reaches it only through ROCKNIX's merges of LibreELEC (the last on `upstream/next` is `d43d166b7a`, 2026-08-12, per the area futro) -- while the dead set's `projects/ROCKNIX` rows **have** moved upstream since the base, eight of them deleted there (the cheap direction: a file upstream has dropped costs nothing to drop here) -- v2), written as one paragraph the coordinator carries to #346 with the table's counts. The
   lane recommends; the maintainer decides; nothing is removed here.
 - **Q7 Clarity and structure:** the shape of the dead set (Kodi and its
   addons as the bulk; the shadowed copies that mirror an override; the
@@ -350,8 +314,7 @@ git diff --stat 8ebaf8daad HEAD -- packages projects | tail -1      # empty
 git log --oneline c445081a59..upstream/next -- packages | wc -l      # 0
 ```
 
-**The table's generator** is the lane's, under `stage-b/` in the audit
-folder (as T45's `provenance.py` and T7's `t7-tables.py`): it reads
+**The table's generator** is the lane's, under `stage-b/` or `tools/` in the audit folder (as T45's `stage-b/provenance.py` and T7's `tools/t7-tables.py` -- v2): it reads
 `inventory.json` with § 2's filter, assigns every file to its nearest recipe
 ancestor, reads the three plan files and the `PKG_DEPENDS_UNPACK` closure,
 and asserts the counts (1,604 files, 727 recipes, 731 units) so that a
@@ -390,16 +353,16 @@ hand-back's words.
 - [ ] `tools/lint-audit-artifacts docs/audits/<date>-epic-m6-generic-packages-dead-ends/` prints `PASS` (its default `resolution` phase, at close; before stage D the same command with `--phase pre-issue` prints `PASS pre-issue artifacts`), the renovation face included.
 - [ ] `second-opinions/review-plan.json` records `depth: local`, `reviewers: []` and the sentence *the lint and the counts are the check*; no `*.provenance.json` from a provider call exists in the folder (`ls second-opinions/ | grep -c provenance` is 0).
 - [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue (the coordinator's decision issue for a proposed removal, the tool's bug, or a Backlog the coordinator files), or recorded as a design with its sentence; `tools/box-check --issue <N>` 0 fail; the ticked and open counts read back by name.
-- [ ] `reviewed-at:` and `fixed-at:` above carry the lane's commits; nothing under `packages/` or `projects/` changes on this branch: `git diff --stat 8ebaf8daad <fixed-at> -- packages projects` is empty and `git diff --diff-filter=DR --name-only 8ebaf8daad <fixed-at> -- packages projects` is empty (D-WORKFLOW-209).
+- [ ] `reviewed-at:` and `fixed-at:` above carry the lane's commits; nothing under `packages/`, `projects/` or `tools/` changes on this branch by the lane: `git diff --stat <dispatch tip> <fixed-at> -- packages projects tools` is empty and `git diff --diff-filter=DR --name-only <dispatch tip> <fixed-at> -- packages projects` is empty (D-WORKFLOW-209; the dispatch tip is the one the dispatch comment names -- the base is the lane's own start, since the P1 tip it stands on adds 15 files under `tools/` relative to `8ebaf8daad`, v2); against `8ebaf8daad`, `packages/` and `projects/` are unchanged at the dispatch tip (the coordinator's check) and the lane states the same.
 - [ ] `01-research-notes.md` § Scope records § 2's block with its output (1,604 paths, 95,892 lines; 1,601 upstream-carried and 3 fork-own; 1,565 unreached and 39 unshipped; 727 recipes; 260 shadowed rows), the 731 units and the 4 whose recipe is outside the set, and the five plans' `Packages loaded` lines and distinct-name counts beside the header's.
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | grep -c -E '^\| `'`` prints `1604`.
-- [ ] `02-forward-audit.md` § Reachability carries exactly 731 rows (``awk '/^## Reachability/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | grep -c -E '^\| `'`` prints `731`), each with the § 6 columns and one of § 1's six dispositions; the shadowed split (the coordinator's 84 plan-named, all shadowed; 32 shadowed with no plan naming either copy) is reproduced or its delta stated with the command; every unit named by a reached recipe's `PKG_DEPENDS_UNPACK` is listed as reached after all (`spirv-headers` among them) and `installer`'s resolved directory is named.
+- [ ] `02-forward-audit.md` § Reachability carries exactly 731 rows (``awk '/^## Reachability/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | grep -c -E '^\| `'`` prints `731`), each with the § 6 columns and one of § 1's six dispositions; the shadowed split (the coordinator's 84 plan-named, all shadowed; 5 shadowed units with no plan naming the name, 3 of whose overrides are dead too) is reproduced or its delta stated with the command; the eleven unmarked basename pairs are resolved with `get_pkg_directory` and dispositioned; every unit named by a reached recipe's `PKG_DEPENDS_UNPACK` (the indented grep, the closure through the overrides the plans build) is listed as reached after all (`spirv-headers` among them) and `installer`'s row reads *shadowed copy, override live*.
 - [ ] `02-forward-audit.md` § Disagreements lists every unit where the inventory's `reach` and the lane's plans differ, both quoted; each is a finding on the punch list and, where the tool is wrong, a `bug` on `tools/renovation-inventory` with a constructed case (a recipe reached only through `PKG_DEPENDS_UNPACK`, read as `unreached`), filed with its VM line and passing `tools/box-check --issue N`.
 - [ ] `02-forward-audit.md` § The runs records the five `viewplan` runs (exit, wall time, `Packages loaded`, distinct names, each beside the inventory header's count for the same config), the `get_pkg_directory` reads for the shadowed sample, the `pkgcheck` sweep's counts over the 727 recipes, and T6's two leads judged, each with *a FAIL would mean ...*; a run that cannot be made is `CANNOT` with its reason, never a pass.
 - [ ] `00-running-log.md` shows no build, no guest, no compiler, no `tools/council/run invoke`, no fetch (`get_archive`, `scripts/get`) and no write under `/workspace/repos/rocknix*` or `/tmp`.
 - [ ] `04-analysis.md` § Q6 carries the dispositions by class with counts summing to 731, and § Q1 the cost-against-value paragraph for the maintainer (the lines carried, upstream's 0 commits on `packages/` since the base, LibreELEC's route in, the merge cost of a deletion), ending in the lane's recommendation and the sentence that the decision is the maintainer's.
 - [ ] `05-punch-list.md` carries one item per fork-own row (`installer`, `spirv-headers`, `cbindgen`) with its reachability verdict, and for a dead one a proposed removal with `Already written:`, outcome `deferred` to the coordinator; no removal is made.
-- [ ] Every proof in `02-forward-audit.md` carries a `proved:` cell reading `tree`, `history`, `tool-run`, `fixture` or `design`; every punch item carries `question:`; every `bug` passes `tools/box-check --issue N`; no file under `tools/` is changed on this branch (`git diff --stat 8ebaf8daad <tip> -- tools` empty: the tool's fix is T10's set).
+- [ ] Every proof in `02-forward-audit.md` carries a `proved:` cell reading `tree`, `history`, `tool-run`, `fixture` or `design`; every punch item carries `question:`; every `bug` passes `tools/box-check --issue N`; no file under `tools/` is changed by the lane (`git diff --stat <dispatch tip> <tip> -- tools` empty: the tool's fix is T10's set; v2 -- the base is the dispatch tip).
 - [ ] The retro exists at `docs/retros/<date>-m6-generic-packages-dead-ends.md`, is posted on #670, says what the slice did to the two time-to-play numbers (nothing) and what the #346 decision needs from the table.
 - [ ] `tools/register-check`, `tools/work-log-index --check`, `tools/rules-check --quiet`, `tools/forbidden-terms-check` and `.githooks/hooks-test` pass on the branch before its merge (after the coordinator's hand-back merge).
 
@@ -407,8 +370,7 @@ hand-back's words.
 
 Stop only on: every item of § 7 that is this lane's ticked and the branch
 pushed (the hand-back); **the stage-D pause**; an explicit maintainer pause
-on #670; a blocker named on #670 with what is needed; a branch that differs
-from `8ebaf8daad` under `packages/` or `projects/` at stage A; or an
+on #670; a blocker named on #670 with what is needed; a branch that differs from the dispatch tip under `packages/`, `projects/` or `tools/` at stage A (v2); or an
 execution limit, stated as such with the running log current. A checkpoint
 is not a stop; a differing count is a delta; `next` moving is drift. An idle
 session says it is idle on #670, **does not end a turn on a post that asks
@@ -458,10 +420,7 @@ The coordinator accepts by reading, in this order, without re-reviewing:
 #670's checkboxes against their artifacts; the lint's `PASS` line; the
 review plan (local, no reviewer, no provenance file); the audit issue's
 checkboxes all at an outcome; the coverage table's row count (1,604) and the
-reachability table's (731) against § 2; **re-running on an export of the tip under `/workspace/tmp`: the inventory block, the five plans regenerated and
-the lane's generator run on them (the 84/32 split and the
-`PKG_DEPENDS_UNPACK` closure recomputed), the empty diffs under `packages/`,
-`projects/` and `tools/`;** `register-check` and `rules-check` on a
+reachability table's (731) against § 2; **re-running on an export of the tip under `/workspace/tmp`: the inventory block, the five plans regenerated and the lane's generator run on them (the 84/5 split and the `PKG_DEPENDS_UNPACK` closure recomputed), the empty diffs under `packages/`, `projects/` and `tools/` against the dispatch tip;** `register-check` and `rules-check` on a
 simulated merge with the coordinator's tip (the ledgers united; the archive
 carrying `projects/`); the retro's answers. The lane posts one hand-back
 comment naming the tip and each artifact by path, writes `reviewed-at:` and
