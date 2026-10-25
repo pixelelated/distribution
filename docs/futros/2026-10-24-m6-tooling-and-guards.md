@@ -838,3 +838,74 @@ source named; A5 § 8 forbids a refresh, a re-pin, an edit to any member
 and any provider call by name; A6 § 9 checks the `node_modules` ignore
 before the first install; A7 § 6 asks the retro what the next export must
 carry.
+
+### Erratum to T15's brief from the lane's stage A (2026-10-25, 00:35 UTC)
+
+The coordinator's image-busybox run at the hash reported 10 FAILs in `x`
+and `y`; the lane's run from its worktree reported 0 (1,313 PASS, rc 0, 517
+s). The ten were the coordinator's fixture: the export under
+`/workspace/tmp/m6-coordinator/t15-hash/tree` was a fresh `git init` with
+one commit and no history, and three fixtures (`F1.`, `F1r.`, `C.`) read
+earlier builds' files from git (`f1_tree_at`, `:3274`; `:4271`), silently --
+`2>/dev/null`, no `pipefail`, an `exit 2` inside a pipeline's subshell that
+cannot end the run -- so each came up empty and the suite's vacuity
+detectors fired ten checks downstream. The brief's § 2 is corrected to the
+tree's figure, and the fail-open read is a stage-D `bug` of the file (the
+coordinator's ruling on #662). The lesson for the briefs: an export used
+to run a suite carries the history the suite reads, or the brief says it
+does not -- the T15 export was made with `git archive`, which carries none.
+
+### Errata from the stranger's proof of T45's brief (version 2, 2026-10-25)
+
+A read-only reader with no context checked 48 rows of version 1 against the
+hashes it named (35 verified, 4 wrong, 6 partial, 1 uncheckable; 8 API calls'
+budget, 6 used). What version 2 corrects, each at the place it lands:
+
+1. **The lane's tree is not the hash's on ten members.** The coordinator's
+   branch (merged into every lane worktree) carries `0ceb2994c5` and
+   `033eb7ed23` (2026-10-22, #636/#638: an Argon audit route, a content-filter
+   stop, three new pins on `scripts/lib/council-staged-*`), via the merge
+   `18747fbc52`; `FACILITATOR_VERSION` reads `council-facilitator@1.14.0` at
+   `8ebaf8daad` and `1.14.1-pixelelated.2` on the branch; 27 pins against 30;
+   the SUMS comparison 41/9/2 against 36/14/2. Version 1's stage-A stop ("a
+   branch that differs from `8ebaf8daad` on a member") fired by construction,
+   and its empty-diff checkbox could not be ticked. Version 2 keeps the read at
+   the hash, tables the delta as § Provenance rows (with the missing register
+   row as a lead: no row names #636, #638 or the local Facilitator), scopes the
+   stop and the checkbox to "other than those ten files", and runs the
+   toolchain's checks on both trees (a clone at the hash, never `git archive`).
+   The four Independent slices' provenance records were written by the branch's
+   Facilitator, not the export's bytes; the brief now says so.
+2. **Five fork commits on the 52, not eight.** Version 1 counted
+   `tools/council/`'s own log (six commits, two of which touch none of the 52).
+   By § 7's own command the figure is 5; `tools/council/package.json`'s last
+   fork commit is `b3e5c92559`, and 48 members' is `5f1b343d25`, not "every
+   other".
+3. **A seat-efforts refresh needs the key.** `lint-council-seat-efforts.ts
+   --refresh` sends `Authorization: Bearer $OPENROUTER_API_KEY` and fails
+   `refresh_no_key` without it; there is no public-list mode and no `--help`.
+   Version 1 listed "OpenRouter's public models list" among the slice's
+   read-only network uses; version 2 forbids `--refresh`, runs the offline
+   validation, and records that a fresh reading was not taken.
+4. **The `__tests__` pair differ by IMPORTED-FROM item 3** (ten fixture
+   literals built at run time) and the sweep, not by the Forge assertions,
+   which item 1 changes inside `council-toolchain.node-test.mjs` alone.
+5. **"The rules' front matter" is a relocation row**, not an adaptation with a
+   re-pin.
+6. **The env-file guard is one-sided**: `run` refuses a readable file at a mode
+   other than 600 and skips an absent one silently. Version 2 makes every
+   `tools/council/run` call carry `COUNCIL_ENV_FILE=/nonexistent` so the
+   wrapper never sources the key for a table, and names the one-sidedness as a
+   Q2 row.
+7. Smaller: `numpy<2.4` carries `python_version < "3.13"`; "39 cases" is the
+   export commit's claim (grep gives 37/34/19 top-level `test(`); the seats'
+   slugs live in `council-invoke.ts:1404-1481`, not in `council-roster.ts`;
+   `run test` needs a type-stripping Node (host `v24.21.0`); "no lockfile" is
+   `.gitignore:67`'s policy; the pins file's field is `schema_version`; the
+   scaffold checkout lacks the export's object entirely.
+
+Not checked by the proof, and left to the lane's stage A: the npm install,
+`verify-pins`, `drift`, `efforts`, `test` and `lint` runs; the diffs of the
+differing files against the export's bytes (only hashes exist on this host);
+the tracker bodies.
+
