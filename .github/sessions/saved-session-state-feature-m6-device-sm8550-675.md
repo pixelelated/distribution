@@ -16,11 +16,12 @@
 
 ## Current focus
 
-**Stage C: the refutation is running** (started 10:46:53 UTC).
-- **The packet:** `second-opinions/gpt-brief.md`, 72 sources, scanned 0 hits.
-- **The probe:** PASS.
-- **The refutation:** a harness background task in this session. It writes `second-opinions/gpt-audit.md`, with its exit code in `/workspace/tmp/m6-t28/refutation.rc`. **If the session dies, read the rc file and the log; do not re-run the keyed call** (the seat has exactly two).
-- **Next:** grade the seat's items in `04` § Second opinion; `05`; the pre-issue lint; the stage-C checkpoint. Then stage D.
+**Stage C complete; stage D next** (updated 2026-10-25, 11:05 UTC).
+- **The seat:** PASS (probe and refutation, the only keyed calls); 32 items graded in `04` § Second opinion.
+- **`05`:** PL-01 (Medium, a candidate bug: `update.sh` masks `updateabl`'s failure) to PL-09 (Low, the touchscreen pinctrl), all Open.
+- **The lint:** pre-issue `PASS`.
+- **Next (stage D):** the audit issue as a sub-issue of #675; the pause with the punch list posted on #675, asking for dispositions (PL-01 and PL-09 especially).
+- **Running for this lane:** nothing.
 
 ## Next commands
 
@@ -60,5 +61,6 @@ host's swap, another lane's worktree, or a guest.
 
 ## Checkpoints
 
+- Stage C: 11:05 UTC (the commit below)
 - Stage B: 10:43 UTC (the commit below)
 - Stage A: 10:33 UTC (the commit below)

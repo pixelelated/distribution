@@ -1,0 +1,66 @@
+&i2c_hub_3 {
+	clock-frequency = <400000>;
+	status = "okay";
+	touchscreen@38 {
+		compatible = "focaltech,ft5426";
+		reg = <0x38>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		interrupt-parent = <&tlmm>;
+		interrupts = <15 IRQ_TYPE_EDGE_FALLING>;
+		reset-gpios = <&tlmm 14 GPIO_ACTIVE_LOW>;
+
+		vcc-supply = <&ts_avdd_3v0>;
+		iovcc-supply = <&ts_vddio_1v8>;
+
+		pinctrl-0 = <&ts_p_rst_default &ts_p_int_default>;
+		pinctrl-1 = <&ts_p_rst_sleep &ts_p_int_sleep>;
+		pinctrl-names = "default", "sleep";
+
+		touchscreen-size-x = <1080>;
+		touchscreen-size-y = <1920>;
+3:	ts_p_rst_default: ts-p-rst-default-state {
+4:		pins = "gpio24";
+10:	ts_p_rst_sleep: ts-p-rst-sleep-state {
+11:		pins = "gpio24";
+17:	ts_p_int_default: ts-p-int-default-state {
+18:		pins = "gpio25";
+24:	ts_p_int_sleep: ts-p-int-sleep-state {
+25:		pins = "gpio25";
+31:	ts_s_rst_default: ts-s-rst-default-state {
+32:		pins = "gpio14";
+38:	ts_s_rst_sleep: ts-s-rst-sleep-state {
+39:		pins = "gpio14";
+45:	ts_s_int_default: ts-s-int-default-state {
+46:		pins = "gpio15";
+52:	ts_s_int_sleep: ts-s-int-sleep-state {
+53:		pins = "gpio15";
+60:		oe-n-pins {
+61:			pins = "gpio140";
+		#size-cells = <0>;
+
+		interrupt-parent = <&tlmm>;
+		interrupts = <15 IRQ_TYPE_EDGE_FALLING>;
+
+		reset-gpios = <&tlmm 14 GPIO_ACTIVE_LOW>;
+
+		vcc-supply = <&vdd_ts_3v0>;
+		iovcc-supply = <&vdd_ts_1v8>;
+
+		pinctrl-0 = <&ts_s_rst_default &ts_s_int_default>;
+		pinctrl-1 = <&ts_s_rst_sleep &ts_s_int_sleep>;
+		pinctrl-names = "default", "sleep";
+
+		touchscreen-size-x = <1080>;
+		/delete-property/ rotation;
+	};
+};
+
+&i2c_hub_3 {
+	touchscreen@38 {
+		touchscreen-size-x = <1280>;
+		touchscreen-size-y = <960>;
+		/delete-property/ touchscreen-inverted-y;
+	};
+};

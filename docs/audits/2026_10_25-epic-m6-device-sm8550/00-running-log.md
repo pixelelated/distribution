@@ -105,3 +105,23 @@
   - Provenance: verification `PASS`, `observed: openai/gpt-6-astra`, `model_identity_source: provider_response`; `council-facilitator@1.14.1-pixelelated.2`.
   - The reply text is `READY unknown`: the model's own claim, which the provider's identity overrides.
 - **The refutation**, started 10:46:53 UTC (keyed; **the second and last call**), runs as a harness background task. It writes `second-opinions/gpt-audit.md` and `/workspace/tmp/m6-t28/refutation.rc`; the task notifies this session when it ends.
+- **The refutation** returned at 10:58:08 UTC, rc 0:
+  - `attempt=1/4 http=200 model=openai/gpt-6-astra providers=["OpenAI"] effort=max reasoning=26619 finish=stop outcome=success`;
+  - verification, effort and provider `PASS`; `council-facilitator@1.14.1-pixelelated.2`;
+  - 32 items. **That was the last `tools/council/run invoke`.**
+- **Re-reads at their lines:** `stage-c/rereads/rereads.sh`, c01 to c07, all rc 0:
+  - the configuration diff's positions (`25d24`, `2728a2728`);
+  - the `regulatory.db` embed and SM8550's `CFG80211=y`;
+  - the touchscreen's GPIOs against `ts_p_*` / `ts_s_*`;
+  - every tree's board-id and msm-id;
+  - `init:341-368` (the device check) and `:427-440` (the export and the ignored exit);
+  - the cached `rocknix-abl` archives' `abl_signed-SM8550.elf` sizes, all 258,048 bytes, aligned, and the 1.2 archive's sha256 against the recipe. The download cache was listed with `tar -t` and hashed, not extracted, fetched or written;
+  - the distribution labels.
+- **Graded** (`04` § Second opinion): 15 confirmed, 10 narrowings accepted, 2 new accepted, 3 accepted in part, 2 refuted in part (G-27 by `init`; G-28 by the ELFs' alignment).
+  - F-04 is regraded Medium, a candidate bug (T27's #1095 shape).
+  - F-09 is new: the touchscreen pinctrl.
+  - F-01, F-02, F-03, F-05 and F-07 are narrowed or corrected; F-03's "embeds none" is corrected (`regulatory.db` is embedded).
+- **`05`:** PL-01 to PL-09, all Open. `tools/lint-audit-artifacts <folder> --phase pre-issue`: `PASS pre-issue artifacts (does not certify resolution)`.
+- **Stage C ends 11:04 UTC.** No guest, build, compiler, plan generation, fetch or handheld command. The `tools/council/run` calls were two keyed (the probe and the refutation) and two keyless (`--help`, `verify-pins`, both with `COUNCIL_ENV_FILE=/nonexistent`).
+- PROOF: P15, the seat: both provenance files, verification, effort and provider `PASS`.
+- PROOF: P16, the seat's claims re-read: `stage-c/rereads/` c01 to c07.

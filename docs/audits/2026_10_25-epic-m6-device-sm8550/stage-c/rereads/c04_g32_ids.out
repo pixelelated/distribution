@@ -1,0 +1,17 @@
+qcs8550-ayaneo-pocket-common.dtsi: 
+qcs8550-ayaneo-pocketace.dts:  qcom,board-id = <0x1000b 0x01>;  qcom,msm-id = <0x258 0x20000>, <0x259 0x20000>;  rocknix-u-boot-dt-id = "u-boot-pocket-ace"; 
+qcs8550-ayaneo-pocketdmg.dts:  qcom,board-id = <0x1000b 0x01>;  qcom,msm-id = <0x258 0x20000>, <0x259 0x20000>;  rocknix-u-boot-dt-id = "u-boot-pocket-dmg"; 
+qcs8550-ayaneo-pocketds.dts:  qcom,board-id = <0x1000b 0x01>;  qcom,msm-id = <0x258 0x20000>, <0x259 0x20000>;  rocknix-u-boot-dt-id = "u-boot-pocket-ds"; 
+qcs8550-ayaneo-pocketevo.dts:  qcom,board-id = <0x1000b 0x01>;  qcom,msm-id = <0x258 0x20000>, <0x259 0x20000>;  rocknix-u-boot-dt-id = "u-boot-pocket-evo"; 
+qcs8550-ayaneo-pockets1k.dts: 
+qcs8550-ayaneo-pockets2k.dts: 
+qcs8550-ayaneo-pocketsmini.dts:  qcom,board-id = <0x1000b 0x01>;  qcom,msm-id = <0x258 0x20000>, <0x259 0x20000>; 
+qcs8550-ayn-common.dtsi:  rocknix-u-boot-dt-id = "u-boot-odin2"; 
+qcs8550-ayn-odin2.dts:  qcom,msm-id = <603 0x20000>;  qcom,board-id = <0x1001f 0>; 
+qcs8550-ayn-odin2mini.dts:  qcom,msm-id = <603 0x20000>;  qcom,board-id = <0x1001f 0>; 
+qcs8550-ayn-odin2portal.dts:  qcom,msm-id = <603 0x20000>;  qcom,board-id = <0x1001f 0>; 
+qcs8550-ayn-thor.dts:  qcom,msm-id = <603 0x20000>;  qcom,board-id = <0x1001f 0>; 
+qcs8550-retroidpocket-rp6-top-dpad.dts: 
+qcs8550-retroidpocket-rp6.dts:  qcom,board-id = <0x1001f 0x00>;  qcom,msm-id = <0x25b 0x20000>; 
+qcs8550-retroidpocket-rpnova.dts: 
+the Nova's panel is 1280x960

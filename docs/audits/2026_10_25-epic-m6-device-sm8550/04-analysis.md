@@ -5,15 +5,22 @@
 - **What it read.** 29 paths, 28,053 lines and 1,570,286 bytes of `projects/ROCKNIX/devices/SM8550/`, at `8ebaf8daad`, all upstream's and all shipped on the Nova. No fork author has touched the directory since the base.
 - **One file is 89 % of the bytes and 73.4 % of the lines:** a patch disabled at birth.
 - **The lead answer (Q4): the Nova's whole boot path is superseded upstream.** Upstream replaced it between 2026-10-01 and 10-24, with `cafbb1657d`'s Boot Loader Spec at the core: `rocknix-abl` absent, `mkbootimg` deleted, `openabl` 1.2, dtbs under `dtbs/`, and a loader entry named from `DISTRONAME`. Every unit is *settled by the next base merge*, and what that merge must answer is #1099's.
-- **The pins:** two differ (`extra-firmware`, `inputplumber`), two are absent (`rocknix-abl`, `mkbootimg`), and three are identical. The configuration is 7 / 7 against upstream's copy, all toolchain stamps and two flips, with 0 fork lines.
-- **Q3 has one reading and no bug.** SM8550's six firmware entries are installed as files, never embedded in the kernel as SM8250, SM8650 and SM8750's are. The unit reaches an active frontend (device facts L17, L18), so this is a divergence, observed working.
-- **Q7: the directory does not say how its device boots.** The tree is one of fourteen appended, the selection is undeclared, and no runbook section exists (#1100).
+- **The pins:** two differ (`extra-firmware`, `inputplumber`), two are absent (`rocknix-abl`, `mkbootimg`), and four are identical pins. The configuration is 7 / 7 against upstream's copy: toolchain stamps, two independent option changes, and `RAID6_PQ_BENCHMARK`, a behaviour change. 0 fork lines.
+- **Q3: no proven `bug`, and two candidates for the coordinator.**
+  - F-04 (Medium): `update.sh` ignores `updateabl`'s failure and reports the update done, and upstream's replacement keeps that shape over files the BLS boot reads. T27's #1095 shape.
+  - F-09 (Low, found by the seat): the Nova's touchscreen selects pinctrl for gpio24/25 while using gpio14/15. Its effect is unobserved.
+  - F-03, a packaging divergence: none of the six firmware entries is embedded, unlike SM8250, SM8650 and SM8750 (the kernel embeds only `regulatory.db`). Its runtime effect is observed only narrowly (L17, L18).
+- **Q7: the directory does not say how its device boots.** The tree is one of fourteen appended. Seven share the Nova's board-id and msm-id, so the selection is the ABL's and written nowhere; on the device the Nova's tree is chosen (D-WORKFLOW-114's 1280x960 panel). No runbook section exists (#1100).
 - **Four corrections to the brief:**
   - two InputPlumber files serve the Nova (`02-ayn-controller.yaml:44` matches its model line);
   - the Nova's include chain is part of the shipped unit;
   - r08's pairs are reversed;
   - `gamepadcalibration`'s file differs upstream in SM6115's branch.
-- **Eight findings: 2 Low, 6 Info. No `bug`, and nothing proposes a removal.**
+- **Nine findings: 1 Medium, 2 Low, 6 Info. No `bug` filed: F-04's disposition is the coordinator's. Nothing proposes a removal.**
+- **The seat** (GPT-6 Astra at `max`, PASS): 32 items graded below.
+  - 15 confirmed; 10 narrowings accepted; 2 new items accepted; 3 accepted in part.
+  - 2 refuted in part by re-reads: G-27, the wrong-family case `init` refuses; G-28, the ELFs' alignment.
+  - Its corrections changed F-01, F-02, F-03, F-04, F-05 and F-07, and added F-09.
 - **Nothing ran on the Nova; no guest, no build, no fetch.**
 
 ## Acceptance-criteria scorecard
@@ -24,7 +31,7 @@
 | --- | --- | --- |
 | 1 | `00` and `01` to `05` | met at stage C |
 | 2 | the lint `PASS` | pre-issue at stage C; resolution waits for stage H |
-| 3 | `review-plan.json` independent, one reviewer; provenance on probe and refutation; the manifest with sha256s and 0 hits | stage C (`second-opinions/`) |
+| 3 | `review-plan.json` independent, one reviewer; provenance on probe and refutation; the manifest with sha256s and 0 hits | met: `second-opinions/` (both provenance files PASS, `council-facilitator@1.14.1-pixelelated.2`; 72 sources; scan 0 hits) |
 | 4 | every punch item at a Phase 7 outcome; `box-check` 0 fail | waits: stage D onward |
 | 5 | `reviewed-at:` and `fixed-at:`; the 29 at `8ebaf8daad`'s bytes; nothing under `packages/`, `projects/` or `tools/` at A to D | the diffs are empty now (r03, r31); the header lines wait for stage H |
 | 6 | `01` § Scope | met (`18f6d0b228`) |
@@ -34,9 +41,9 @@
 | 10 | § The loader and the tree, with the lines quoted, the device facts and upstream's commits with #1099 | met |
 | 11 | § The device trees, 16 rows plus the `.disabled` row | met (generated) |
 | 12 | § The runs, every § 5 command with exit, wall time, figure and *a FAIL would mean* | met (generated, 31 rows) |
-| 13 | `00` shows no guest, build, handheld command, M7 read or extra keyed call | met through stage B; stage C adds the two keyed calls only |
-| 14 | `04` § Q4, Q3, Q6, Q7 and § Second opinion | Q1 to Q7 met; § Second opinion at stage C |
-| 15 | every proof's cell; every punch item's `question:`; every `bug` passes `box-check` | 14 proofs at stage B (15 with the seat's); `05` at stage C; no `bug` |
+| 13 | `00` shows no guest, build, handheld command, M7 read or extra keyed call | met: two keyed calls (probe, refutation); `--help` and `verify-pins` keyless |
+| 14 | `04` § Q4, Q3, Q6, Q7 and § Second opinion | met |
+| 15 | every proof's cell; every punch item's `question:`; every `bug` passes `box-check` | 16 proofs; `05` at stage C; no `bug` filed |
 | 16 | the retro | waits: stage G |
 | 17 | the five checkers | waits: stage H |
 
@@ -45,7 +52,9 @@
 | Risk | Likelihood | Impact | Note |
 | --- | --- | --- | --- |
 | The base merge brings BLS onto the Nova without both ABL slots' state and the entry's identity read first | Medium | High | #1099 owns it; the merge notes carry it (F-01) |
-| A person flashes a truncated `/flash/rocknix_abl` ELF left by a failed update copy | Low | High | unchecked `update.sh:22`; `updateabl` does not read it; README's manual path only (F-04) |
+| A failed `updateabl` is reported as a finished update; after the merge, the same shape could leave the old ABL with no Android image | Low | High | F-04, Medium, a candidate bug: the coordinator's call (a #1095-like stream or #1099) |
+| A person flashes a truncated `/flash/rocknix_abl` ELF left by a failed update copy | Low | High | unchecked `update.sh:22`; README's manual path only (F-04) |
+| The Nova's touchscreen interrupt pin runs without its intended bias | Low | Medium | F-09; effect unobserved; upstream's tree |
 | A bad ELF reaches both ABL slots at once | Low | High | T1's `updateabl:72-73`; L19 is the keep-an-eye-on; a design note for T1 |
 | A model rename silently drops the Nova's quirks and InputPlumber layout | Low | Medium | both key on `"Retroid Pocket Nova"`; unchanged at `651150fc88` (`03` § 3.5) |
 | SM8550's GPU firmware is absent from the root filesystem | Low | High | the list dies on a missing pattern at build (`kernel-firmware/package.mk:57`); observed working (F-03) |
@@ -62,7 +71,53 @@
 
 ## Second opinion
 
-*Written at stage C (the seat's probe and refutation).*
+**Independent, one seat: GPT-6 Astra (`openai/gpt-6-astra`) at `max`**, through the Facilitator on OpenRouter, pinned to OpenAI, `allow_fallbacks: false` (`review-plan.json`).
+- **The packet:** `gpt-brief.md`, 72 sources, 377,172 bytes, sha256 `90fdaca720aa5fa8...`, scanned 0 hits (`packet-manifest.json`).
+- **The probe:** 10:46:28 to 10:46:38 UTC, `PASS`.
+- **The refutation:** 10:46:53 to 10:58:08 UTC, attempt 1/4, `http=200`, 26,619 reasoning tokens, `finish=stop outcome=success`. Verification, effort and provider `PASS`; `council-facilitator@1.14.1-pixelelated.2`.
+- **Exactly two keyed calls** were made in this slice. Each item is graded against a re-read (`stage-c/rereads/rereads.sh`, c01 to c07), with the seat's words quoted.
+
+| Item | The seat's label and words | Grade, and what changed |
+| --- | --- | --- |
+| G-1 | confirmed: *"four unchanged pins, not three"* | **confirmed**: my count was wrong; F-02 and the summary say four identical pins |
+| G-2 | confirmed: `rocknix-abl` absent, `mkbootimg` deleted | **confirmed** |
+| G-3 | confirmed: two pins differ; InputPlumber's *"packaging contract"* changes | **confirmed**, the packaging note added to Q4 |
+| G-4 | narrowed: *"the selected boot route is superseded, not literally every unit or defect"* | **narrowed, accepted**: F-01 now says the source moves with the merge; the fourteen-tree list and the unchecked updater survive |
+| G-5 | confirmed: *"the BLS filename is an identity-sensitive seam"* | **confirmed**; `disk=LABEL=STORAGE` added (c07) |
+| G-6 | new: *"the merge must establish a coherent migration, not just names and slot contents"* | **accepted**: the four migration questions are named in F-01 for #1099 |
+| G-7 | narrowed: *"`INPUT_POLLDEV` is not a compiler-capability line and is not replaced by `CC_HAS_COUNTED_BY_PTR`"* | **narrowed, accepted**: c01 shows `25d24` and `2728a2728`; § The configuration corrected |
+| G-8 | confirmed: *"the RAID6 change is behavioural, not a toolchain stamp"* | **confirmed**: § The configuration and Q4 say so |
+| G-9 | narrowed: *"fourteen targets are requested; exactly fourteen appended artifacts are not guaranteed"* | **narrowed, accepted**: a warm tree's stale `.dtb` would be appended; § The loader says so |
+| G-10 | confirmed: only `mkimage_abl` | **confirmed** |
+| G-11 | narrowed: the guards *"do not establish that the declared family matches the physical handheld ... or make the parent honor a failure"* | **narrowed in part**: the parent's failure is F-04's. The family check is `init:341-368`'s (c05), outside the packet |
+| G-12 | confirmed: the card copy is a manual-flash input | **confirmed** |
+| G-13 | narrowed: *"'observed working' has a much smaller scope"* | **narrowed, accepted**: F-03 quotes L18's own disclaimer |
+| G-14 | confirmed: *"a documented early, cached firmware failure exists -- cfg80211"* | **confirmed** (c02): F-03's "embeds none" corrected to none of the six `.dat` entries, with `regulatory.db` embedded |
+| G-15 | confirmed: the two InputPlumber files serve the Nova | **confirmed**; its `ds5` / `ds5-edge` comment note is the seat's, not re-read |
+| G-16 | confirmed: RP6 and AYN common are Nova dependencies | **confirmed**, with its caveat that the other trees are still built |
+| G-17 | narrowed: *"not universally unreachable"*; the hwdb rule *"could match an attached device named `AYANEO DEVICE*`"* | **narrowed, accepted** in F-07 |
+| G-18 | narrowed F-01 | **accepted** (with G-4, G-6) |
+| G-19 | confirmed F-02 | **confirmed** |
+| G-20 | narrowed F-03 | **accepted** |
+| G-21 | refuted F-04's *"not a bug"* | **accepted in part**: F-04 is regraded Medium, a candidate bug. *"destructive continuation"* is narrowed, because the removed `/flash/boot` and `/flash/EFI` are not read by the `qcom-abl` boot |
+| G-22 | narrowed F-05: *"the shown BLS entry ... names a kernel and options, but no `devicetree`"* | **narrowed, accepted**: the first draft's "makes the tree explicit" withdrawn |
+| G-23 | confirmed F-06 | **confirmed** |
+| G-24 | narrowed F-07 | **accepted** |
+| G-25 | confirmed F-08 | **confirmed** |
+| G-26 | new: *"the root updater can report success after critical failure"* | **accepted**, merged into F-04, with `init:427-440`'s *"Boot Files Updated."* |
+| G-27 | new: *"the hand-off trusts image identity, not hardware identity"*; *"no such caller is supplied"* | **refuted in part** (c05): `init:341-368` cancels an update whose `HW_DEVICE` is incompatible with the running system's, and `init:430-431` exports `SYSTEM_ROOT`. The residue, image identity rather than hardware probing, is T1's and `init`'s design, noted |
+| G-28 | new: hashes `ceil(ELF_SIZE/ss)` sectors against `ELF_SIZE` bytes, *"a conditional correctness defect"* | **refuted for the shipped payloads** (c06): every cached `abl_signed-SM8550.elf` is 258,048 bytes, aligned to 512 and 4,096, and the 1.2 archive matches the recipe's sha256. Latent for a future ELF: a lead for T1 (`updateabl`) |
+| G-29 | narrowed: no undefined label demonstrated | **agreed**; no finding |
+| G-30 | new: *"the Nova inherits a touchscreen pinctrl mismatch"* | **confirmed** (c03): new F-09, Low, effect unobserved |
+| G-31 | new: the ` gpt` argument is *"a boot-policy difference rather than a toolchain stamp"* | **accepted**: named in F-01 for the merge |
+| G-32 | new: *"the available identifiers do not uniquely select the Nova"* | **confirmed** (c04): seven trees share the board-id and msm-id. F-05 strengthened; the device selects the Nova's tree in practice (D-WORKFLOW-114's 1280x960 panel) |
+
+**Tally (32, each once):**
+- **15 confirmed:** G-1, 2, 3, 5, 8, 10, 12, 14, 15, 16, 19, 23, 25, and the new G-30 and G-32.
+- **10 narrowings accepted:** G-4, 7, 9, 13, 17, 18, 20, 22, 24, 29.
+- **2 new items accepted:** G-6, G-31.
+- **3 accepted in part:** G-11, G-21, G-26.
+- **2 refuted in part by re-reads:** G-27 (`init:341-368`), G-28 (the ELFs' alignment).
 
 ## Finding Verification
 
@@ -78,6 +133,7 @@ Each finding re-derived from the tree after it was written (Phase 4.5):
 | F-06 | r05; `scripts/unpack:150-159` | confirmed |
 | F-07 | `02-ayn-controller.yaml:44`; `rpnova.dts:8,11`; `rp6.dts`'s include; the 13 trees' models | confirmed, with the correction |
 | F-08 | `git grep rocknix-u-boot` (one branch, five inert properties); `config.xml:130`; `functions:384-400`; upstream's `bootloader/mkimage` (0 mentions) and `config.xml:134` | confirmed |
+| F-09 | c03: `rp6.dts`'s `touchscreen@38` GPIOs 14/15 against `ts_p_*` = gpio24/25 in `ayn-common.dtsi`; Thor uses `ts_s_*`; `rpnova.dts:22-27` overrides size and inversion only | confirmed (found by the seat) |
 
 Narrowings made while writing:
 - The brief's `install:50-60` was first read as `scripts/install`. It is `projects/ROCKNIX/bootloader/install:50-61`.
@@ -105,13 +161,18 @@ Narrowings made while writing:
 
 ### Q3 Bugs
 
-**None.** The one reading is F-03, quoted from both sides:
+**No `bug` filed; two candidates for the coordinator.**
+- **F-04 (Medium):** `update.sh:25` ignores `updateabl`'s exit (1 on a missing ELF, partitions or sector size, `updateabl:24-40`). `:27-37` carry on and write `UPDATE`, and `init:427-440` prints *"Boot Files Updated."* whatever happened. Upstream keeps the shape over the BLS files. T27's #1095 shape: a stream or a #1099 requirement, the coordinator's call.
+- **F-09 (Low):** the Nova's touchscreen pinctrl names gpio24/25 for gpio14/15 pins, in an upstream tree. Its effect is unobserved.
+
+F-03, quoted from both sides:
 - **The list:** `config/kernel-firmware.dat` lists six entries, installed by `kernel-firmware/package.mk:39-70` into the image's firmware directory.
 - **The embed:** the kernel recipe embeds firmware only for `"SM8250" -o "H700" -o "SM8650" -o "SM8750"` (`:83`), in the blocks at `:208-277`. No line names SM8550 outside the version case, at either hash.
-- **Observed working:** all four confs build `DRM_MSM=y` with an empty `EXTRA_FIRMWARE`, and the unit reaches an active frontend (L17, L18).
+- **The one embed SM8550 does get:** `regulatory.db` and its `.p7s`, for `CONFIG_CFG80211=y` (`:93-97`, `:293-302`), because a built-in `cfg80211` asks during kernel init and caches the failure (the seat's G-14).
+- **Observed only narrowly:** all four confs build `DRM_MSM=y`, and the unit reaches an active frontend (L17, L18; L18 disclaims a rendering proof).
 - **#836** is the stamp issue for this `.dat`, cited.
 
-`update.sh`'s hand-off makes `updateabl` write nothing it should not: the ELF and the device come from the same new tree, and the missing cases refuse (F-04). **Nothing ran on the Nova.**
+**The hand-off.** `update.sh` hands `updateabl` the new tree's ELF and family. `init:341-368` refuses an incompatible update first, and the cached ELFs are sector-aligned (G-27, G-28 refuted in part). What is wrong is the report, not the payload (F-04). **Nothing ran on the Nova.**
 
 ### Q4 Package currency
 
@@ -125,9 +186,19 @@ Narrowings made while writing:
   - `inputplumber` **differs** (`v0.79.0` prebuilt to `0.82.0` from source);
   - `gamepadcalibration`: the same pin, the file differing only for SM6115.
   - The authors' releases are `CANNOT (no network)`; `tools/fork-package-freshness` is the RC's check.
-- **The configuration:** 7 / 7 against upstream's copy (toolchain stamps, `CC_HAS_COUNTED_BY_PTR` / `INPUT_POLLDEV`, `RAID6_PQ_BENCHMARK`), 0 fork lines, upstream's four commits. T41's row.
+- **The configuration:** 7 / 7 against upstream's copy, 0 fork lines, upstream's four commits. T41's row.
+  - toolchain stamps ×5 pairs;
+  - `CC_HAS_COUNTED_BY_PTR` added and `INPUT_POLLDEV` dropped, independently;
+  - `RAID6_PQ_BENCHMARK` off upstream, a behaviour change at kernel init.
 - **The trees:** the Nova's chain is unchanged at `651150fc88`. The panel and RP6 patches are T41's.
-- **The path as a whole: *settled by the next base merge***, every unit of the `qcom-abl` boot path, with **#1099** cited for what the merge must answer (both ABL slots, `pixelelated.conf`).
+- **The path as a whole:** the `qcom-abl` boot path's source moves with the next base merge. **#1099** owns what the merge must answer:
+  - both ABL slots;
+  - `pixelelated.conf`;
+  - a coherent first boot with `rocknix_abl` left beside `openabl`;
+  - failure handling (F-04);
+  - DTB selection (no `devicetree` in the entry);
+  - the ` gpt` argument.
+  - Narrowed by the seat's G-4 and G-6.
 
 ### Q5 Efficiency
 
@@ -160,9 +231,9 @@ One disposition per unit (the coverage table carries each row's):
 
 **No: a reader cannot tell from the directory how the Nova boots** (F-05).
 - **Which ELF, and from where:** `rocknix_abl` reaches `/flash` and both ABL slots through `rocknix-abl`'s recipe, `update.sh` and T1's `updateabl`, outside the directory.
-- **Which tree:** one of fourteen appended to one `kernel.gz` by the kernel recipe. No tree declares a dt-id, and the ABL's selection is written nowhere.
+- **Which tree:** one of fourteen appended to one `kernel.gz` by the kernel recipe. No tree declares a dt-id, and seven share the Nova's `qcom,board-id` and `qcom,msm-id`, so an identifier match cannot pick it. On the device the Nova's tree is selected (D-WORKFLOW-114's 1280x960 panel), by the ABL's rule, written nowhere.
 - **Where it is written down:** only `rocknix-abl/sources/README:1-6`, an Android-side manual flash. **#1100** owns the missing runbook section.
-- Upstream's BLS change makes the tree explicit (`dtbs/`) and the entry readable, after the merge.
+- Upstream's BLS change moves the dtbs under `dtbs/`, but its entry names no `devicetree`, so the selection stays implicit after the merge (the seat's G-22).
 - **The `vm-first` answer for every device fact:** the seven rows named, nothing new asked of the unit.
 
 ## Instruction File Recommendations

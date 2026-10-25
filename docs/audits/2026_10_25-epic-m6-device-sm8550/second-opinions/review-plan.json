@@ -28,7 +28,7 @@
           "output": "gpt-probe.md"
         }
       ],
-      "status": "planned: probe then refutation, the only two keyed calls (D-WORKFLOW-195)"
+      "status": "complete: probe PASS 10:46:28-10:46:38Z and refutation PASS 10:46:53-10:58:08Z on the first attempt (served openai/gpt-6-astra by OpenAI, effort max, 26619 reasoning tokens, outcome success, finish stop); packet scanned 0 hits, 2 lines masked, no redaction; 32 items graded in 04 \u00a7 Second opinion"
     }
   ],
   "packets": {
@@ -41,5 +41,6 @@
       "scan": "forbidden-terms-check --stdin 0 hits; SECRET_PATTERNS 0 lines under three sets, each shown to fire on a run-time fake line; 2 lines masked (the brief's key=lambda); no redaction"
     }
   },
-  "written_before_first_call": "2026-10-25T10:46Z"
+  "written_before_first_call": "2026-10-25T10:46Z",
+  "facilitator_version": "council-facilitator@1.14.1-pixelelated.2"
 }

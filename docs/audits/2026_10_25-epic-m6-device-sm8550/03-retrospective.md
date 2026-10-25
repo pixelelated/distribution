@@ -6,7 +6,7 @@ Phase 3 over a currency slice. The 29 are upstream's, untouched by the fork sinc
 
 - **The directory is half the picture.** It holds the Nova's options, its updater, its firmware list and its trees, but none of the recipes that pin what boots it. `qcom-abl`, `rocknix-abl`, `mkbootimg`, the kernel, `extra-firmware`, `kernel-firmware`, `inputplumber` and `gamepadcalibration` all live under `projects/ROCKNIX/packages/`. The boot path runs through the kernel recipe's `qcom-abl` branch, `scripts/mkimage`, `projects/ROCKNIX/bootloader/mkimage`, `distributions/ROCKNIX/config/functions` and T1's `updateabl`. That is why the Q7 answer is *no* (`02` F-05): the directory does not say how its device boots.
 - **One boot image carries fourteen boards.** `config.xml`'s list becomes make targets (`functions:226-231`), and the recipe's glob appends every built dtb to one `kernel.gz` (`:392-396`). The Nova is one board among AYANEO's and AYN's, and the selection is the ABL's, declared nowhere in the tree.
-- **The guard sits where the write happens.** `update.sh` calls `updateabl` unconditionally. `updateabl` refuses a foreign device, a missing ELF and missing partitions, and writes only on a checksum difference. Read together they are safe for the ELF. The card's `/flash/rocknix_abl/` copy is unchecked, and is read only by a person following the README (`02` F-04).
+- **The guard sits where the write happens.** `update.sh` calls `updateabl` unconditionally. `updateabl` refuses a foreign device, a missing ELF and missing partitions, and writes only on a checksum difference. Read together, the payload is guarded: `init:341-368` refuses an incompatible update first, and the cached ELFs are sector-aligned. **The report is not guarded.** `updateabl`'s failure is ignored by `update.sh`, and `update.sh`'s by `init`, which says *"Boot Files Updated."* (`02` F-04, Medium, after the seat's G-21). The card's `/flash/rocknix_abl/` copy is unchecked, and is read only by a person following the README.
 
 ## 3.2 Project conformance
 
@@ -29,7 +29,7 @@ Two of the brief's citations needed their files named:
 
 ## 3.4 Platform conformance
 
-As behaviour, this is the Nova's, and observed only through device facts L17 to L20, L27, L28 and L31. As record, the slice's firmware list installs files that the runtime loads, and the unit reaches an active frontend (L17, L18). The firmware path is observed working, though it differs from its siblings (`02` F-03).
+As behaviour, this is the Nova's, and observed only through device facts L17 to L20, L27, L28 and L31. As record, the slice's firmware list installs files for the runtime to load, and the unit reaches an active frontend (L17, L18). That is one observation on `bc9dfe8141`, which L18 says is not a rendering proof. So F-03 records a packaging divergence, not a proven firmware path (`02` F-03, narrowed by the seat's G-13). The touchscreen's pinctrl mismatch (F-09) is likewise a source fact with no observation either way.
 
 ## 3.5 Cross-system interaction audit
 
@@ -55,7 +55,9 @@ As behaviour, this is the Nova's, and observed only through device facts L17 to 
 
 - **The shared state:** `$SYSTEM_ROOT`, `os-release`'s `HW_DEVICE`, and the two partitions.
 - **The hand-off holds** (`02` § The loader and the tree): the ELF and the device come from the same new tree, and `updateabl` refuses the three missing cases.
-- **One design note for T1, not a defect here:** both slots receive the same ELF in one run (`:72-73`), so a bad ELF reaches both, and the A/B pair gives no fallback. L19 (*Nova shutdown and bootloader recovery*) is the keep-an-eye-on that would show it.
+- **Design notes for T1, not defects here:**
+  - both slots receive the same ELF in one run (`:72-73`), so a bad ELF reaches both, and the A/B pair gives no fallback; L19 (*Nova shutdown and bootloader recovery*) is the keep-an-eye-on that would show it;
+  - the compare hashes whole sectors against the ELF's own bytes (`:44-57`), so an unaligned ELF would never match. Every cached `abl_signed-SM8550.elf` is 258,048 bytes, aligned, so this is latent (the seat's G-28, `stage-c/rereads/rereads.sh` c06).
 
 ### Interaction: T5's stamp (#836) x `config/kernel-firmware.dat`
 

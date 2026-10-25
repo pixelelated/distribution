@@ -82,8 +82,8 @@ T41's row, read here for the shape, as T27 read H700's (r06 to r10):
 - **Against upstream's own copy at `651150fc88`: 7 removed, 7 added**, all upstream's. Every line is attributed:
   - the compiler stamps: `CC_VERSION_TEXT` and `GCC_VERSION` (gcc 16.2.0 upstream, 15.2.0 ours);
   - the Rust toolchain: `RUSTC_VERSION`, `RUSTC_LLVM_VERSION` and `RUSTC_LLVM_MAJOR_VERSION`;
-  - `CC_HAS_COUNTED_BY_PTR=y` upstream, against our `# CONFIG_INPUT_POLLDEV is not set`, a compiler-capability line the new toolchain adds;
-  - `RAID6_PQ_BENCHMARK`, off upstream (`5f56cd5150`, *skip the RAID6 algorithm benchmark at boot*) and on in ours.
+  - **two independent changes, at different lines** (corrected after the seat's G-7: the first draft paired them, reading the diff's filtered `<` / `>` lines): upstream adds `CC_HAS_COUNTED_BY_PTR=y`, a compiler-capability line (`2728a2728`), and drops the already-disabled `# CONFIG_INPUT_POLLDEV is not set` (`25d24`);
+  - `RAID6_PQ_BENCHMARK`, off upstream (`5f56cd5150`, *skip the RAID6 algorithm benchmark at boot*) and on in ours. **A behaviour change, not a stamp** (the seat's G-8): it removes the RAID6 algorithm benchmark from kernel init.
 - **History:** 0 fork non-merge commits since the base (r09). Upstream's four since: `dcafa74090` 10-22, `6fbefc45c6` 10-18, `5f56cd5150` 10-04, `c0980b2b71` 10-02, the same four as H700's.
 - **Distance from the other Qualcomm configurations** at `8ebaf8daad` (r08, `^<` / `^>` against each): SM8650 41/36, SM8750 81/105, SM6115 228/133, SM4450 229/189, SM8250 371/204. That is a Q5 fact for the coordinator, not a proposal.
 
@@ -96,7 +96,7 @@ How the Nova gets its loader and its tree at `8ebaf8daad`. Nothing here ran on t
 2. `options:28` sets `KERNEL_MAKE_EXTRACMD=" $(get_kernel_make_extracmd)"`. That function (`distributions/ROCKNIX/config/functions:226-231`) turns `config.xml`'s `<SM8550 ... dtb_prefix="qcom">` entries (`config.xml:130-145`) into make targets: `qcom/<file>.dtb` for each of **the fourteen `.dts`, the Nova's included** (r20).
 3. The kernel recipe's `qcom-abl` branch (`projects/ROCKNIX/packages/linux/package.mk:387-404`):
    - gzips the Image into `.image/kernel.gz`;
-   - then `for dtb in "arch/${TARGET_KERNEL_ARCH}/boot/dts/"**/*.dtb; do ... cat "$dtb" >> "${INSTALL}/.image/kernel.gz"` (`:392-396`), **appending every dtb in the build tree** (the fourteen the make targets built);
+   - then `for dtb in "arch/${TARGET_KERNEL_ARCH}/boot/dts/"**/*.dtb; do ... cat "$dtb" >> "${INSTALL}/.image/kernel.gz"` (`:392-396`), **appending every dtb in the build tree**. On a clean tree that is the fourteen the make targets built. On a warm tree a stale `.dtb` would be appended too, in glob order, not `config.xml`'s (the seat's G-9);
    - adds a dummy ramdisk, and runs `python3 "${TOOLCHAIN}/mkbootimg/mkbootimg.py"` into `.image/Image` (r18). `mkbootimg` is the host tool from `tools/mkbootimg`, `:19` for `SM*`.
 4. `scripts/mkimage:257-266` is the `qcom-abl` branch. It sources `projects/ROCKNIX/bootloader/mkimage`, whose `mkimage_all` (`distributions/ROCKNIX/config/functions:384-400`) runs only the steps `mkimage_options` lists. For SM8550 that is `abl`, so only `mkimage_abl` runs (`bootloader/mkimage:108-111`, `mcopy "${RELEASE_DIR}/3rdparty/bootloader/rocknix_abl" ::`).
 5. **Two SM8550-naming branches never run for SM8550.**
@@ -120,7 +120,9 @@ How the Nova gets its loader and its tree at `8ebaf8daad`. Nothing here ran on t
 - **Observed:** device fact L17 (*SM8550 boot on the Retroid Pocket Nova*, `device-facts.md:17`) records both ABL slots written on the 2026-10-12 update, and L19 (*Nova shutdown and bootloader recovery*, `:19`) is a keep-an-eye-on.
 - **The SD copy is a manual-flash input.** `/flash/rocknix_abl` is what `rocknix-abl/sources/README:1-6` tells a person to copy to Android storage and flash with `flash_abl.sh`. `updateabl` never reads it.
 
-**The tree.** The Nova's tree is one of fourteen dtbs appended to one `kernel.gz`. **No tree carries a `rocknix-dt-id`** (r24), and nothing in the directory, `config.xml` or the recipes says how the ABL picks the Nova's dtb from the fourteen. Device fact L17 records only that it boots (F-05).
+**The tree.** The Nova's tree is one of fourteen dtbs appended to one `kernel.gz`. **No tree carries a `rocknix-dt-id`** (r24), and nothing in the directory, `config.xml` or the recipes says how the ABL picks the Nova's dtb from the fourteen.
+- **Its Qualcomm identifiers are not unique** (the seat's G-32, re-read at stage C). The Nova inherits RP6's `qcom,board-id = <0x1001f 0x00>` and `qcom,msm-id = <0x25b 0x20000>` (`rp6.dts`). Odin 2, Odin 2 Mini, Odin 2 Portal and Thor carry `<603 0x20000>` (603 = `0x25b`) and the same board-id, and TOP-DPAD inherits RP6's. So seven of the fourteen share them. Only the Nova's `compatible` (`retroidpocket,rpnova`) and `model` distinguish it.
+- **On the device:** D-WORKFLOW-114 records the Nova's panel read as 1280x960. Only the Nova's tree selects that panel (`il97680a,rpnova`, `rpnova.dts:17`); RP6's touchscreen is 1080x1920. So the ABL does pick the Nova's tree in practice, by a rule written nowhere in this tree (F-05).
 
 **Upstream's replacement, 2026-10-01 to 10-24** (r29, 18 commits):
 - `0340192729` (10-01) adds ` gpt` to `EXTRA_CMDLINE`.
@@ -167,19 +169,26 @@ How the Nova gets its loader and its tree at `8ebaf8daad`. Nothing here ran on t
 - **The merge brings all of it unchanged.** The fork has never edited the directory since the base, and has one checksum line in `rocknix-abl`, which the merge deletes.
 - **What that merge must answer is #1099:**
   - both ABL slots' `Already written:` (L17 records both written with `rocknix-abl`'s ELF);
-  - the loader entry `upstream's virtual/arm-efi` writes as `${DISTRONAME,,}.conf`, which becomes `pixelelated.conf` on the fork, against D-WORKFLOW-123's RC2 identifiers.
-- **Disposition:** deferred to #1099. Nothing is changed here.
+  - the loader entry `upstream's virtual/arm-efi` writes as `${DISTRONAME,,}.conf`, which becomes `pixelelated.conf` on the fork (with `boot=LABEL=ROCKNIX disk=LABEL=STORAGE`), against D-WORKFLOW-123's RC2 identifiers.
+- **Narrowed by the seat (G-4, G-6, G-18, G-31).** Importing upstream's files does not by itself establish:
+  - a coherent first boot across the Android-image-to-BLS move, where the old `/flash/rocknix_abl` stays beside `openabl` because upstream's `update.sh` removes nothing;
+  - failure handling: upstream's `update.sh` still ignores its copies' and `updateabl`'s results (F-04);
+  - recovery after both slots change;
+  - DTB selection: the BLS entry names no `devicetree`.
+  - Also, the ` gpt` argument upstream adds to `EXTRA_CMDLINE` (`0340192729`) is a boot-policy change to explain, not a stamp.
+- **Survives the merge:** the fourteen-tree list and the `qcom-abl` meta recipe survive, now unused. "Settled by the next base merge" therefore means *the source moves with the merge*. The migration questions are #1099's.
+- **Disposition:** deferred to #1099, with these questions named for it. Nothing is changed here.
 
 ### F-02 (Q4; Info; Renovation): two pins differ, two are absent upstream, one override lags its generic recipe
 
 - **Differ upstream:** `extra-firmware` (`88b363e67d...` to `925dfb5efb...`) and `inputplumber` (prebuilt `v0.79.0` to source-built `0.82.0`).
 - **Absent upstream:** `rocknix-abl` (replaced by `openabl` 1.2) and `mkbootimg` (deleted by `cafbb1657d`).
-- **Identical:** `qcom-abl`, the kernel `7.2` and `kernel-firmware` `20260309`. `gamepadcalibration`'s pin is identical, and its file differs only in SM6115's branch.
+- **Identical pins: four**, `qcom-abl`, the kernel `7.2`, `kernel-firmware` `20260309` and `gamepadcalibration`. `gamepadcalibration`'s file differs only in SM6115's branch (the seat's G-1: the first draft counted three).
 - **The fork identity on `rocknix-abl`'s checksum** (`9aa7affee9`) mirrors upstream's `15123b2951`.
 - **The ROCKNIX `kernel-firmware` override is `20260309`** against the generic recipe's `20260622`: outside the slice, cited for its owner.
 - **Disposition:** the merge settles the first four; the authors' releases are `CANNOT (no network)`.
 
-### F-03 (Q3; Info): the SM8550 firmware list is installed as files, never embedded in the kernel, unlike its three Qualcomm siblings; observed working
+### F-03 (Q3; Info): none of the SM8550 firmware list is embedded in the kernel, unlike its three Qualcomm siblings; a packaging divergence, its runtime effect observed only narrowly
 
 - **The list.** `config/kernel-firmware.dat` lists six entries: `rtl_nic/rtl8153a-4.fw`, `qca/hmtbtfw20.tlv`, `qca/hmtnv20.*`, `qcom/sm8550/a740_zap.mbn`, `qcom/a740_sqe.fw` and `qcom/gmu_gen70200.bin`.
   - `projects/ROCKNIX/packages/linux-firmware/kernel-firmware/package.mk:39-70` reads it with `find_file_path config/kernel-firmware.dat` and copies each entry into the image's firmware directory. It dies on a missing pattern (`:57`).
@@ -187,25 +196,33 @@ How the Nova gets its loader and its tree at `8ebaf8daad`. Nothing here ran on t
   - `:83`: `elif [ "${DEVICE}" = "SM8250" -o "${DEVICE}" = "H700" -o "${DEVICE}" = "SM8650" -o "${DEVICE}" = "SM8750" ]; then` `PKG_DEPENDS_UNPACK+=" kernel-firmware"`.
   - `:208-277` holds the `TARGET_ARCH = aarch64 -a DEVICE = SM8250 / SM8650 / SM8750` blocks that fill `CONFIG_EXTRA_FIRMWARE`.
   - **No line names SM8550** except the version case, at both hashes.
+  - **Corrected by the seat's G-14:** the kernel does embed one thing on SM8550, `regulatory.db` and its `.p7s`, for every device with `CONFIG_CFG80211=y` (`:93-97`, `:293-302`; SM8550's conf sets `=y`). The recipe documents why: a built-in `cfg80211` requests it during kernel init, before `/usr/lib/firmware` is populated, and caches the `-ENOENT`. That is an early-request failure class, avoided by embedding. So "the kernel embeds none" was wrong; it embeds none of **the six `.dat` entries**.
 - **All four Qualcomm confs build `CONFIG_DRM_MSM=y` with `CONFIG_EXTRA_FIRMWARE=""`.** The three siblings get theirs filled at build time; SM8550's GPU firmware (`a740_*`, `gmu_gen70200`) loads from the root filesystem at runtime.
-- **Observed working:** device facts L17 and L18 (*Nova frontend readiness after #529*, `device-facts.md:18`) record an active frontend on the unit.
-- **Not a bug: a divergence.** The coordinator may ask whether SM8550 should match its siblings; this slice proposes nothing. #836 (a device-level file that `find_file_path` reads is outside the package stamp) is the stamp issue for this `.dat`: cited, not re-filed.
+- **Observed only narrowly** (the seat's G-13): L17 and L18 (*Nova frontend readiness after #529*, `device-facts.md:18`) record an active frontend on `bc9dfe8141`. L18 itself says it is *"one observation, not a measured failure rate or rendering proof"*. No path here shows whether `msm` asks for `a740_*` or `gmu_gen70200` before the root filesystem is mounted, or whether it retries.
+- **A divergence, not a proven bug.** The coordinator may ask whether SM8550 should match its siblings; this slice proposes nothing. #836 (a device-level file that `find_file_path` reads is outside the package stamp) is the stamp issue for this `.dat`: cited, not re-filed.
 - **Already written:** nothing, since no fix is proposed.
 
-### F-04 (Q1; Low; Renovation): `update.sh` checks none of its steps, computes a disk it never uses, and keeps a cleanup marked for removal
+### F-04 (Q1, Q3; Medium; a candidate bug for the coordinator): `update.sh` ignores `updateabl`'s failure and reports the update done; upstream's replacement keeps that shape over files the new boot path reads
 
 - **The unchecked steps.** `:17`'s remount, `:22`'s copy and the two `rm -rf` are unchecked, and `:10-14`'s `BOOT_DISK` is unused. This is T27's #1095 shape: an updater that reports nothing when it fails.
-- **Why it is not a bug here.** The loader write that matters is `updateabl`'s, which takes its ELF from `$SYSTEM_ROOT` and refuses a missing ELF, a foreign device and missing partitions. A failed copy can leave only a truncated `/flash/rocknix_abl/` on the card, the input to the README's manual flash procedure. `updateabl` and the boot never read it. **Q3: not a bug.** It is a latent hazard for a person following `rocknix-abl/sources/README`.
-- **Upstream.** `update.sh` at `651150fc88` (43 lines) keeps the same unchecked shape for its `dtbs`, `loader` and `openabl` copies.
-- **Disposition:** settled by the next base merge (#1099) for the path; the unchecked-copy shape is the coordinator's to weigh beside #1095.
-- **Already written:** nothing, since no fix is proposed.
+- **The first draft said "not a bug". The seat refuted that (G-21, G-26), and the re-read agrees in part:**
+  - `updateabl` exits 1 on a missing ELF or missing partitions (`updateabl:24-36`), and on a failed sector-size read (`:40`). `update.sh:25` ignores the exit; `:27-37` carry on and write `UPDATE` to `/storage/.boot.hint`. `init` (`busybox/scripts/init:427-440`) ignores `update.sh`'s exit and prints *"Boot Files Updated."*. **A failed loader update is reported as done.**
+  - The two `rm -rf` remove `/flash/boot` and `/flash/EFI`, which the `qcom-abl` boot does not read (`mkimage_dtb`, the only writer of `boot`, never runs for SM8550). So the seat's *destructive continuation* is narrowed: what is lost is the report, not a boot file.
+  - A failed copy leaves only a truncated `/flash/rocknix_abl/`, read by the README's manual flash (G-12).
+- **What the guard does cover** (`updateabl:9-36`, `:64-67`): the image's declared family, an existing ELF, both partitions, and a checksum skip. It reads the ELF and the family from the same new tree, and `init` exports `SYSTEM_ROOT=/update` (`init:430-431`).
+  - The seat's wrong-family case (G-27) is refused earlier: `init:341-368` compares the running system's `HW_DEVICE` with the update's and cancels an incompatible update.
+  - The seat's unaligned-ELF case (G-28) does not arise for any cached payload. Every `abl_signed-SM8550.elf` from 1.1.7 to 1.2 is 258,048 bytes, 504 × 512 and 63 × 4,096. The 1.2 archive in the download cache matches the recipe's sha256. It is latent for a future ELF, and `updateabl` is T1's file: a lead for T1.
+- **Why it matters at the merge.** Upstream's `update.sh` (43 lines at `651150fc88`) keeps the same unchecked shape, now over `dtbs/` and `loader/` copies that the BLS boot reads automatically, and over the hand-off that installs `openabl`. A silently failed `updateabl` after the merge would leave the old `rocknix-abl` in both slots with no Android boot image, because `mkbootimg` is gone. That would be a unit that does not boot, reported as updated.
+- **The shape is T27's #1095** (H700's `update.sh`, fixed by a stream). Proposed: **a candidate bug, the coordinator's call:** a #1095-like stream for the current file, or a requirement on #1099's merge. Nothing is changed at stages A to D.
+- **Already written** (for whichever fix is chosen): a device that took an update whose `updateabl` failed has the previous ABL in both slots and `UPDATE` in `.boot.hint`. Nothing records the failure, so the fix cannot tell those devices apart; it can only make the next update re-check, which `updateabl`'s checksum compare already does.
 
 ### F-05 (Q7; Low; Renovation): a reader cannot tell from the directory how the Nova boots, and no runbook section exists (#1100)
 
 - **Which tree.** The Nova's dtb is one of fourteen appended to one `kernel.gz`. No tree declares a `rocknix-dt-id`, and nothing in the directory, `config.xml` or the recipes says how the ABL picks a dtb.
 - **Which ELF and where it comes from.** `rocknix_abl` reaches `/flash` and both ABL slots through three recipes outside the directory and T1's `updateabl`.
 - **The written procedure** is `rocknix-abl/sources/README:1-6`, an Android-side manual flash. **No runbook section exists for the SM8550** (Backlog #1100).
-- **Upstream's BLS change** (F-01) makes the tree explicit, under `dtbs/`, and the entry readable.
+- **The identifiers do not settle it** (the seat's G-32): seven of the fourteen trees share the Nova's board-id and msm-id. On the device the Nova's tree is selected (D-WORKFLOW-114's 1280x960 panel), but the rule is the ABL's and written nowhere.
+- **Upstream's BLS change** (F-01) moves the dtbs under `dtbs/` and makes the entry readable. **It does not make the tree explicit**: the entry names a kernel and options, but no `devicetree` (the seat's G-22, correcting the first draft).
 - **Disposition:** deferred to #1100, beside #1099. No question is asked of the unit.
 
 ### F-06 (Q2, Q6; Info; Renovation): the `.disabled` patch is 73.4 % of the slice and never applied
@@ -219,6 +236,9 @@ How the Nova gets its loader and its tree at `8ebaf8daad`. Nothing here ran on t
 - **What they are:** the trees for AYANEO's Pocket ACE, DMG, DS, EVO, S 1K, S 2K and S Mini; AYN's Odin 2, Odin 2 Mini, Odin 2 Portal and Thor; the Retroid Pocket 6 TOP-DPAD; and the AYANEO common `.dtsi`. Seven AYANEO and AYN input files sit beside them.
 - **Shipped unit, by the brief's correction:** the Nova's chain (`rpnova.dts`, `rp6.dts`, `ayn-common.dtsi`) and the two InputPlumber files that match its model line.
 - **Elsewhere:** `HW_CPU="Snapdragon 8 Gen2"` against upstream's `"Snapdragon 8 Gen 2"` (`471a2711ce`) is settled by the merge. `device-builds.md:25`'s Nova row mixes the two builds' CPU and FPU flags (#1094, cited).
+- **Narrowed by the seat (G-16, G-17, G-24):**
+  - the other trees are not in the Nova's dtb, but they are still built into every SM8550 boot image;
+  - `10-ayaneo.hwdb` matches an attached input device named `AYANEO DEVICE*`, not a board model, so it could apply on a Nova with such a device attached.
 - **Disposition:** carried by placement (D-WORKFLOW-185); no removal.
 
 ### F-08 (Q1, Q6; Info; Renovation): two SM8550-naming branches of `bootloader/mkimage` never run for SM8550
@@ -227,6 +247,15 @@ How the Nova gets its loader and its tree at `8ebaf8daad`. Nothing here ran on t
 - **Their leftover:** five trees still carry an inert `rocknix-u-boot-dt-id` (the four AYANEO Pocket boards and `ayn-common.dtsi`).
 - **Upstream:** it drops the first branch and adds `dtb` to the options (`config.xml:134`), so the second branch runs after the merge.
 - **Disposition:** settled by the next base merge (#1099).
+
+### F-09 (Q3; Low; an upstream candidate; found by the seat's G-30): the Nova's touchscreen selects pinctrl states for gpio24/25 while its reset and interrupt are gpio14/15
+
+- **The mismatch.** `qcs8550-retroidpocket-rp6.dts`'s `touchscreen@38` (`focaltech,ft5426`) on `i2c_hub_3` declares `interrupts = <15 IRQ_TYPE_EDGE_FALLING>` and `reset-gpios = <&tlmm 14 GPIO_ACTIVE_LOW>`. But it selects `pinctrl-0 = <&ts_p_rst_default &ts_p_int_default>`, and `qcs8550-ayn-common.dtsi` defines those as `pins = "gpio24"` and `"gpio25"`.
+  - The same `.dtsi` defines `ts_s_*` for `gpio14` and `gpio15`, and Thor's secondary touchscreen, with the same GPIOs, uses `ts_s_*` (`qcs8550-ayn-thor.dts`).
+  - The Nova's tree (`rpnova.dts:22-27`) overrides only the size (1280x960) and an inversion, so it inherits the mismatch.
+- **Effect: unobserved.** The pin states set function and bias. The driver still requests its GPIOs by number, so the touchscreen may work with default bias on gpio14/15, while gpio24/25 are configured for nothing. No record observes the Nova's touchscreen working or failing.
+- **Disposition: the coordinator's.** It is an upstream-carried tree of the shipped unit, unchanged at `651150fc88`: an upstream contribution candidate (D-WORKFLOW-164; submissions deferred by D-WORKFLOW-165), or an open item to test, since the effect needs the unit. Nothing is changed here.
+- **Already written:** nothing; a tree is rebuilt into every image.
 
 ## Proofs
 
@@ -248,6 +277,8 @@ Every proof is a numbered proof line of `00-running-log.md`. Its cell reads `tre
 | P12 | Upstream's replacement and the loader entry's name | r29; `arm-efi/package.mk:13-23` and `update.sh` at `651150fc88`; `distributions/ROCKNIX/options:17,202` | proved: history |
 | P13 | The Nova's physical facts | `device-facts.md:17-20,27,28,31` at `2174265e9c` (identical at `8ebaf8daad`), quoted by their Fact cells | proved: design |
 | P14 | The tables regenerated | `tools/t28-tables.py`; `check` exits 0 | proved: tool-run |
+| P15 | The seat: the probe and the refutation, served `openai/gpt-6-astra` by OpenAI, effort `max` | `second-opinions/gpt-probe.md.provenance.json`, `gpt-audit.md.provenance.json`: verification, effort and provider `PASS` | proved: tool-run |
+| P16 | The seat's claims, re-read: the diff's positions, the regdb embed, the touch pinctrl, the board-ids, `init`'s device check and export, the cached ELF sizes and the 1.2 archive's sha256 | `stage-c/rereads/rereads.sh` outputs | proved: tree |
 
 ## Positives
 
