@@ -7,7 +7,7 @@ HOST = "Yes, on the host: the patch's bytes at `8ebaf8daad`, `scripts/unpack` re
 NOTHING = "nothing inherited: a patch no image applies has written nothing on a device or in a cloud; the tree is the only place it exists"
 
 I = [
- dict(f="F-01", t="Five `patches/x86_64` files under live ROCKNIX recipes are never selected (`scripts/unpack:127-128` sets `PATCH_ARCH=x86`): vitaquake2-lr's four, whose recipe passes `platform=` only on aarch64, and EmulationStation's `cpugov.patch`, whose `getAvailableGpuGovernors` calls `get_available_cpu_governors`", sev="Medium", cat="Bug", q="Q3", bug=True,
+ dict(f="F-01", tracked="#1071 (vitaquake2-lr), #1072 (EmulationStation)", t="Five `patches/x86_64` files under live ROCKNIX recipes are never selected (`scripts/unpack:127-128` sets `PATCH_ARCH=x86`): vitaquake2-lr's four, whose recipe passes `platform=` only on aarch64, and EmulationStation's `cpugov.patch`, whose `getAvailableGpuGovernors` calls `get_available_cpu_governors`", sev="Medium", cat="Bug", q="Q3", bug=True,
   area="`projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr` (four patch directories and `package.mk`), `projects/ROCKNIX/packages/ui/emulationstation/patches/x86_64/cpugov.patch`", what="Rename each `patches/x86_64` to `patches/x86`; give vitaquake2-lr's `pre_make_target` an x86_64 branch passing `platform=${DEVICE}` (the x86 patch's `@DEVICE@`); correct `cpugov.patch`'s GPU call to `get_available_gpu_governors` in both arms. A packet after the maintainer's word; the lane edits no patch or recipe (D-WORKFLOW-209).",
   where="`scripts/unpack:127-128`, `:150-159`, `:196`; `vitaquake2-lr/package.mk:19-25`; `cpugov.patch:17-24`", ev="`02` § The x86_64 five", vm=HOST + " (the trace; that the renamed ES patch applies and runs is the next image's open item, D-QA-051; vitaquake2-lr's needs an AMD64 build nobody makes)",
   aw="nothing on a device: the five patches have never applied, so no image carries their effect; `40fce2a089` (2026-08-20) and `9f1fab30f6` (2025-07-13) put them in the tree only",
@@ -17,8 +17,8 @@ I = [
   where="`tools/renovation-inventory:382-401` (`:397` `os.path.normpath`), `:461-462`", ev="`02` § The symlinked four; `git ls-tree` mode `120000` on `projects/ROCKNIX/packages/{lang/gcc,devel/cmake}/patches`", vm=HOST + " (a constructed tree whose override's `patches` is a symlink to a generic directory)",
   aw="what was written: `inventory.json` at `eb4763e3cc` marks the four `reach: unreached`, and T40's membership read it; the fixed tool regenerates the inventory",
   acc="a constructed tree with an override whose `patches` symlinks to a generic directory reads the generic patches reached in the tool's output (unreached today); the regenerated inventory marks gcc's three and cmake's one reached"),
- dict(f="F-03", t="68 shadowed LibreELEC patches the live ROCKNIX overrides build without (31 overrides: bluez 8, ffmpeg 7, glibc 7, busybox 6, systemd 4, ...); 18 of them the override carries in another form, 50 with no counterpart", sev="Low", cat="Renovation", q="Q4",
-  area="the ROCKNIX overrides in `02` § The shadowed 74", what="Each is a lead for T42's row on that override (T41's for a kernel package): whether the override should carry the change. Not answered here; none is a removal.",
+ dict(f="F-03", t="The 68 shadowed non-kernel patches that are not strict duplicates: 50 LibreELEC changes the live ROCKNIX overrides build without (26 overrides: glibc 7, ffmpeg 7, bluez 7, systemd 3, ...), and 18 the override carries in another form (12 re-offset, 6 with the context moved)", sev="Low", cat="Renovation", q="Q4",
+  area="the ROCKNIX overrides in `02` § The shadowed 74", what="The 50 are leads: an override of the kernel or its configurations to T41 (#688), every other override to T42 (#689). None of the 26 is a kernel override, so all 50 go to #689 and #688 gets none. The 18 are recorded in the table, not leads. Not answered here; none is a removal.",
   where="`02` § The shadowed 74 (each row's subject and tier)", ev="the generator's three tests", vm=HOST, aw=NOTHING,
   acc="each override's row in T41's or T42's table names these patches and answers whether the change is carried"),
  dict(f="F-04", t="14 patches are hand-made diffs with no `From:` or `Subject:` (12 ROCKNIX's, 2 LibreELEC's), so they cannot say what they are for", sev="Low", cat="Renovation", q="Q2",
@@ -35,7 +35,15 @@ I = [
   acc="a design: recorded with its sentence in the Phase 7 table"),
 ]
 
-P7 = {}
+# Phase 7, at stage D (2026-10-25): the coordinator's dispositions on #687 at 05:44 UTC.
+P7 = {
+  "PL-01": ("Deferred", "two bugs, one per unit, filed by the lane: #1071 (vitaquake2-lr's four; owning area the emulators, #798) and #1072 (EmulationStation's `cpugov.patch`; owning area #700); no fix on this branch"),
+  "PL-02": ("Deferred", "bug #1056, filed by the lane; the inventory tool's fix, beside #1049 (T10's set)"),
+  "PL-03": ("Deferred", "the 50 leads to #689 (T42), by override: glibc 7, ffmpeg 7, bluez 7, systemd 3, openssh 2, samba 2, util-linux 2, sway 2, and 18 overrides with one each; #688 (T41) gets none (no kernel override among them); a pointing comment on each; the 18 carried in another form are recorded in `02`, not leads"),
+  "PL-04": ("Resolved", "recorded at `b1c39c49d4` (`02` § Provenance, `04` § Q2): a provenance fact; none of the 14 is reached, so there is no lead and no bug"),
+  "PL-05": ("Deferred", "#346: the coordinator posts the class decision there at acceptance beside T23's (#1048), with this table's counts; the lane writes nothing on #346"),
+  "PL-06": ("Resolved", "recorded at `b1c39c49d4` (`02` § The shadowed 74); the coordinator writes the erratum into the brief at acceptance"),
+}
 
 def main():
   out = ["# Punch List — M6.P2 T40, the patches and kernel configurations no plan applies", "",
