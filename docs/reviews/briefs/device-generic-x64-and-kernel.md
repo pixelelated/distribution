@@ -559,3 +559,30 @@ T9's), and closes #658 when every row is proven.
 (#1082) carries this slice's kickoff, and a stranger's proof of this brief
 is run by a reader with no context before dispatch; version 2 records what
 each found.
+
+## Errata, 2026-10-25 (the coordinator's, at acceptance)
+
+- **"The `tools/vm-*` call the launcher by basename" (§ 1, § 4 Q1(b), § 5,
+  criterion 10) was the stranger's proof's grep over comments and help
+  strings.** The one tool that runs `vm/generic-x64-vm` is `tools/vm-pair`,
+  by full path through `VM_TOOL` (`:36`, `:74`), as the rule's `VM_TOOL=`
+  lines do; nothing resolves the basename. The lane recorded the resolution
+  as found (06:47 ruling); § The launcher reads that way.
+- **The `options` comment the stream brief suggested ("a BIOS guest; the
+  image step's `install` copies it") was wrong**: `vm/profile.json` boots
+  UEFI, `scripts/mkimage` writes both the BIOS and UEFI loaders (`:89`,
+  `:179-180`), and `install`'s copy is not what boots (F-05). The lane
+  wrote the true sentence at `22c227d41c`.
+- The seat writes `declared_model`, `attempts` and `final` into its
+  provenance, no `.run.log` and no flat `served_model` key; the acceptance
+  scripts read `final.verification` and the last attempt (`$S/prov-read.py`).
+- **A merge of `next` must keep GENERIC_X64 in the override's version case**
+  (F-09): upstream's case has none and no default, and the override sources
+  no generic recipe, so a merge that takes upstream's case leaves
+  GENERIC_X64 with no `PKG_VERSION` -- a broken build, not another version.
+  Carried into the coordinator's merge notes and T25's and T28's briefs.
+- Accepted at `47672fe4a0` (the lane's `871c5a6bc0` with the coordinator's
+  `cc8b6cf2a3`); the re-run's reports are
+  `/workspace/tmp/m6-coordinator/accept-t11.out` (stages A to D at
+  `499628a049`) and `accept-t11-final.out` (the merged tip and
+  `stage-e/run-all.sh`: 47 rows, 0 unexpected).
