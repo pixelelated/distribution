@@ -95,8 +95,7 @@ download is a FAIL, one SKIP or a silent omission depending on the section
   helper carries a child's 2 as CANNOT and 3 as unverified (each counted
   and named in the verdict), 0 as PASS, else FAIL.
 - **The test first** (in `02` § The streams' positives): from a worktree
-  with no build root and `QA_SYSTEM_ROOT` unset, the unfixed file runs
-  and prints `329 CHECK(S) FAILED` naming no applet set (the positive);
+  with no build root and `QA_SYSTEM_ROOT` unset, the unfixed file runs and prints `319 CHECK(S) FAILED` naming no applet set (the positive; the coordinator's `329` was read from a history-less export, ten of them the false FAILs of the 00:35 erratum -- the lane's clone with history gives 319, 03:01 UTC);
   the fixed one exits 2 at once with the message, and with `--host-diagnostic` exits 3 (or 1 when a case failed under the host's tools) with every line marked and the verdict NOT DEVICE EVIDENCE; a constructed root whose `rclone` is the host's
   1.60.1 (the lane's `rchost` root) is refused or marked by stream A
   (unfixed: 1,313/0, the positive); a constructed root whose busybox
