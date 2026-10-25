@@ -16,12 +16,12 @@
 
 ## Current focus
 
-**Handed back; idle until the coordinator's acceptance** (updated 2026-10-25, 11:16 UTC).
-- **`reviewed-at`:** `458e2bfda1`. **`fixed-at`:** `237f2bc438` (S1, #1109).
-- **The audit issue:** #1108. PL-01 resolved; PL-02 deferred to #1099, PL-05 to #1100, PL-09 to #585 (the coordinator posts the line at acceptance); the rest recorded.
-- **The retro:** posted on #675.
-- **After acceptance:** write `audit-completion.json` with T5's writer (`A`, `ISSUE=1108`), copied into the audit folder's `tools/`, once #1108 is closed.
-- **Running for this lane:** nothing.
+**Idle: T28 accepted and closed out** (updated 2026-10-25, 11:24 UTC).
+- **Accepted** at `d6a4e08fda`; `reviewed-at` `458e2bfda1`, `fixed-at` `237f2bc438`.
+- **#1108** closed completed, 9 of 9; `audit-completion.json` written from its closed readback; the lint `PASS` with `--issue 1108`.
+- **#675:** 16 of 17. The checkers line waits for the merge into `next`, which is the coordinator's.
+- **#1109** (the bug) is fixed on this branch; its closure follows the merge. The #585 line is the coordinator's post.
+- **Nothing runs for this lane.** The worktree stays idle until `tools/fork-worktree remove` at retirement. T29 comes to this session next.
 
 ## Next commands
 
