@@ -43,15 +43,16 @@
    banners, exits, wall times and counts, the five `--old` recipes' exits --
    before reading a section.
 
-## Current focus (01:40 UTC update)
+## Current focus (01:59 UTC update)
 
-**Stage A complete (fourteen runs, two attribution runs, the timed run); writing 01 and 02, then the section reads.** Dispatched on #662 at 00:21 UTC; the first commands passed (stacked on P1, the rules differ from `next` in exactly the dispatch's eight paths, the file at the hash with 14238 lines and 1167697 bytes, census 0).
+**Stage B done (03, 04: F-01 to F-21, Q6's 34 rows + 15 groups). Next: stage C, the seat.** Dispatched on #662 at 00:21 UTC; the first commands passed (stacked on P1, the rules differ from `next` in exactly the dispatch's eight paths, the file at the hash with 14238 lines and 1167697 bytes, census 0).
 - **Running:** `docs/audits/2026_10_25-epic-m6-tooling-last-good-test/tools/t15-stage-a.sh`, one sequential background job started at 00:23:16 UTC. It runs the image's busybox (`QA_SYSTEM_ROOT` on the `069fc2704421` root), then the host's, then the twelve `--old` recipes. Each run starts through `vm-qa:158`'s launcher (`SIGINT ignored=0` on the first). The outputs go to `.qa-scratch/t15/run-*.out` and `old-*.out`, and the summary to `/workspace/tmp/m6-t15/stage-a.txt`. Its exit is delivered by the harness to the session; if the session is gone, read the summary file, and the `runner rc` line is the job's end.
 - **Written:** `00-running-log.md` (header and stage A so far), `01-research-notes.md` § Scope (the inventory row, 408 commits, the 34 sections), and the day's work-log entry.
 - **The coordinator's 00:27 ruling (#662):** keep 34 section rows for Coverage and Q6, plus a sub-group table under Q6. The lane found eight capitalised groups, not five (`x`: F1, C, D; `y`: A, F1r, CF; `z`: S315, S3F) and asked whether `x`'s three join the table (00:3x post). All eight are drafted until the coordinator answers.
 - **Run 1 (the image's busybox):** rc 0, 517 s, 1313/0/0. The coordinator's ten image-run FAILs were sorted as the fixture's git-history dependency (an export without `.git`), and put to the coordinator as bug or design (the post at the time above). The sub-group table covers twelve groups (00:33 ruling).
 - **Runs back:** run 2 (host) rc 1, 677 s, 994/319/0: 319 flips, `flock` (150 "applet not found") and the host's rclone 1.60.1-DEV. The twelve `--old` recipes all exit 2: two dead refs (`0f7785e6ed`, `d79281066c`), and ten stopped by `src_of` at `s` or `x`. `70b6c70ca7`'s `t` fires on patch failures, not its `012` checks. Put to the coordinator: three bugs, or (2) design.
 - **Attribution:** `bbhost` 994/319 and `rchost` 1313/0, so all 319 flips are the busybox's and rclone 1.60.1 changes no verdict. Q5: `y` 248 s, `x` 82, `n` 42, `af` 34, `t` 34 of 515. Nothing is running.
+- **Stage B (`c4a7e98509`):** three read-only agents' leads were re-derived where marked. Open with the coordinator: the `--old` question (three bugs, or the exit 2 as design).
 - **Next:** each run's exit, wall time and counts into `00` and `02` § The runs, then the image/host diff, then the sections read for Q6 and Q3.
 
 Not started before 00:22 UTC. The first commit on this branch is the running log's header,

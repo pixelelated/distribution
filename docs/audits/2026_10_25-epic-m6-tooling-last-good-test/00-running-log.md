@@ -89,3 +89,13 @@
 
 - **Correction of mine:** `f1_tree_at` is at **`:3205-3215`**: the `ls-tree ... 2>/dev/null` at `:3208`, the `exit 2` inside the pipeline at `:3209`. `:3274` is inside `f1_pass` (`:3273`). The 00:3x entry above and the 00:35 post on #662 said `:3274`. The line was wrong; the finding (the fail-open history read, ruled a bug at 00:36) is unchanged. Found by the section-`x` read agent and re-derived by `grep -n '^f1_tree_at()'`.
 - **The section reads:** three read-only agents, `a`-`w` with `aa`-`ah`, `x`, and `y`-`z`, read their spans for Q6's columns and Q3. Each lead is re-derived from the lines before it enters `04`. Two have reported.
+
+## [Stage B] 01:59 UTC — 03 and 04 written (`c4a7e98509`)
+
+- **The three read-only agents reported:** `a`-`w` with `aa`-`ah`, `x`, and `y`-`z`. Their leads are kept in scratch notes. Those marked *re-derived* in `04` were read from their lines by the lane: `:3051`, `:13826`, `:1842`, `:548`, `:845-851`, `:6488-6492`, `:6762-6765`, `:4279-4283`, `:8581-8584` and `:13421-13424`, plus `f1_tree_at`'s place.
+- **`04`:** findings F-01 to F-21 (2 High, 10 Medium, 9 Low), each with its line; § 4.5 by artifact; the renovation face Q1 to Q7.
+  - **Q6:** the 34-row brittleness table, and **15** sub-group rows. The coordinator's 00:33 list named twelve, and the `y`-`z` read found three more comment-headed groups that carry verdicts: D-fix `:12094`, F2-20..24 `:12344` and A-fix `:12605`, included under the same ruling.
+  - **The split proposal**, as a lead.
+- **`03`:** § 3.1 to § 3.5, the seams. One claim was corrected before the commit: #1015 had already suspected host tools (its title), so it did not read the FAILs as the tree's.
+- **Two counts of mine corrected before the commit:** sections `x` to `ah` hold **933** checks, not 948 (`02` and `04`); stream A makes 143 `sa_run` calls, and 145 is all of `y`'s.
+- **The S3F canaries** write to the host's `/tmp/s3f-*` only if their guard fails. No `/tmp/s3f-*` exists after this lane's runs (`ls`).
