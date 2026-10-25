@@ -43,9 +43,9 @@
    banners, exits, wall times and counts, the five `--old` recipes' exits --
    before reading a section.
 
-## Current focus (02:03 UTC update)
+## Current focus (02:30 UTC update)
 
-**Stage C: the seat's refutation running (started 02:02:52Z, log `/workspace/tmp/m6-t15/audit.log`, the harness delivering its end).** Dispatched on #662 at 00:21 UTC; the first commands passed (stacked on P1, the rules differ from `next` in exactly the dispatch's eight paths, the file at the hash with 14238 lines and 1167697 bytes, census 0).
+**The stage-D pause: waiting for the coordinator's stream briefs (`docs/reviews/briefs/t15-streams.md`).** Dispatched on #662 at 00:21 UTC; the first commands passed (stacked on P1, the rules differ from `next` in exactly the dispatch's eight paths, the file at the hash with 14238 lines and 1167697 bytes, census 0).
 - **Running:** `docs/audits/2026_10_25-epic-m6-tooling-last-good-test/tools/t15-stage-a.sh`, one sequential background job started at 00:23:16 UTC. It runs the image's busybox (`QA_SYSTEM_ROOT` on the `069fc2704421` root), then the host's, then the twelve `--old` recipes. Each run starts through `vm-qa:158`'s launcher (`SIGINT ignored=0` on the first). The outputs go to `.qa-scratch/t15/run-*.out` and `old-*.out`, and the summary to `/workspace/tmp/m6-t15/stage-a.txt`. Its exit is delivered by the harness to the session; if the session is gone, read the summary file, and the `runner rc` line is the job's end.
 - **Written:** `00-running-log.md` (header and stage A so far), `01-research-notes.md` § Scope (the inventory row, 408 commits, the 34 sections), and the day's work-log entry.
 - **The coordinator's 00:27 ruling (#662):** keep 34 section rows for Coverage and Q6, plus a sub-group table under Q6. The lane found eight capitalised groups, not five (`x`: F1, C, D; `y`: A, F1r, CF; `z`: S315, S3F) and asked whether `x`'s three join the table (00:3x post). All eight are drafted until the coordinator answers.
@@ -54,6 +54,7 @@
 - **Attribution:** `bbhost` 994/319 and `rchost` 1313/0, so all 319 flips are the busybox's and rclone 1.60.1 changes no verdict. Q5: `y` 248 s, `x` 82, `n` 42, `af` 34, `t` 34 of 515. Nothing is running.
 - **Stage B (`c4a7e98509`):** three read-only agents' leads were re-derived where marked. Open with the coordinator: the `--old` question (three bugs, or the exit 2 as design).
 - **Stage C (`4851698b02`):** the packet (13 excerpts, scanned, `:8004` not carried) and the probe PASS. When the refutation lands: grade every item in `04` § Second opinion, run the lint with `--phase pre-issue`, then stage D (`05`, the audit issue, the bugs).
+- **Stages C and D:** the seat PASS (two calls); 21 findings graded (7 confirmed, 13 narrowed, F-08 withdrawn) and G-01 to G-10 accepted. `05`: 24 items, 22 bugs (#1018 to #1039), the audit issue #1040 (a sub-issue of #662). The lint PASS pre-issue. No `tools/` change.
 - **Next:** each run's exit, wall time and counts into `00` and `02` § The runs, then the image/host diff, then the sections read for Q6 and Q3.
 
 Not started before 00:22 UTC. The first commit on this branch is the running log's header,
