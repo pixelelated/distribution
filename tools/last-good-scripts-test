@@ -405,6 +405,16 @@ check() { # <0|nonzero> ok-text bad-text
         case "${FAIL_SECTIONS}" in *" ${SECTION} "*) ;; *) FAIL_SECTIONS="${FAIL_SECTIONS}${SECTION} " ;; esac; fi
 }
 section() { SECTION="$1"; SECTION_NA=""; echo "  $1. $2"; }
+# driver_verdicts <out> <rc> <name> <expected id>... (#1032): a Python driver's
+# verdicts count only when it exited 0 and printed exactly the expected IDs
+# (the text before each verdict's first colon), once each. Replaying whatever
+# lines it printed let a crash after the first PASS drop the rest unseen.
+driver_verdicts() {
+    local out="$1" rc="$2" name="$3" want got; shift 3
+    want="$(printf '%s\n' "$@" | sort | tr '\n' '|')"
+    got="$(sed -n -E 's/^(PASS|FAIL) ([^:]*):.*/\2/p' "${out}" | sort | tr '\n' '|')"
+    [ "${rc}" -eq 0 ] && [ "${got}" = "${want}" ]; check $? "stream D's ${name} driver exited 0 with its $# verdicts ($(grep -c '^PASS' "${out}") PASS / $(grep -c '^FAIL' "${out}") FAIL)" "stream D's ${name} driver: rc ${rc}, verdict IDs |${got}| against |${want}|: $(tail -3 "${out}" | tr '\n' '|' | cut -c1-200)"
+}
 # An absence read from an archive, failing closed (#1034): tar's own status is
 # required, the content lands in an owned file, and grep's no-match status
 # must be exactly 1. `! tar ... | grep -q` turned an unreadable archive or a
@@ -7663,7 +7673,8 @@ got = {n: helper.damaged(f"/Badge/d13-verify-{n}.png") for n in ("good", "traili
 verdict(got["trailing"] is None, "F-RA-13 --verify: a cached PNG with bytes after its IEND is whole, never deleted", f"damaged() said {got['trailing']!r}")
 verdict(got["good"] is None and got["bad-idat"] is not None and got["bad-crc"] is not None, "F-RA-12 --verify: a cached PNG whose image data or a chunk's CRC is damaged is found; a whole one is not", f"damaged(): {got}")
 EOS
-grep -q '^\(PASS\|FAIL\) ' "${DD}/d13b.out"; check $? "stream D's d13b predicates ran ($(grep -c '^PASS' "${DD}/d13b.out") PASS / $(grep -c '^FAIL' "${DD}/d13b.out") FAIL)" "stream D's d13b predicates printed no verdicts: $(tail -5 "${DD}/d13b.out" | tr '\n' '|' | cut -c1-300)"
+d13b_rc=$?
+driver_verdicts "${DD}/d13b.out" "${d13b_rc}" d13b "F-RA-13 patch 013" "F-RA-13 --verify" "F-RA-12 --verify"
 while IFS= read -r line; do
     case "${line}" in
         PASS\ *) check 0 "#308 ${line#PASS }" "" ;;
@@ -7738,7 +7749,8 @@ finally:
     socket._socket.getaddrinfo = real; urllib.request.urlopen = saved_global_urlopen
     network.reset_retroachievements_reachability_for_tests()
 EOS
-grep -q '^\(PASS\|FAIL\) ' "${DD}/d13c.out"; check $? "stream D's d13c predicates ran ($(grep -c '^PASS' "${DD}/d13c.out") PASS / $(grep -c '^FAIL' "${DD}/d13c.out") FAIL)" "stream D's d13c predicates printed no verdicts: $(tail -5 "${DD}/d13c.out" | tr '\n' '|' | cut -c1-300)"
+d13c_rc=$?
+driver_verdicts "${DD}/d13c.out" "${d13c_rc}" d13c "F-RA-20 patch 015" "F-RA-11 patch 015"
 while IFS= read -r line; do
     case "${line}" in
         PASS\ *) check 0 "#308 ${line#PASS }" "" ;;
