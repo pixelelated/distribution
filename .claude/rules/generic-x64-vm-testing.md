@@ -1403,3 +1403,16 @@ cleanup helper is archived in
 `docs/qa-logs/2026-10-13-es-trim-comparison/fixtures/clear-owned-mounts.py`; it
 accepts only that disposable guest's named paths, not arbitrary live-device
 mounts. Never replay its retired owner.
+
+## `systemctl is-enabled` reads `disabled` for every unit the image links itself
+
+The image enables its units at build time by linking them under
+`/usr/lib/systemd/system/*.wants` (`enable_service` in the recipes), not
+through `/etc/systemd/system`, and `systemctl is-enabled <unit>` answers
+`disabled` for every one of them -- on 2026-10-25 for all 29 units of the
+OS layer, including the ones plainly running (T22, #669, PL-20). The
+evidence of enablement on a guest is the `.wants` link
+(`ls -l /usr/lib/systemd/system/*.wants/ | grep <unit>`) or
+`systemctl show -p UnitFileState,ActiveState,WantedBy <unit>`, never
+`is-enabled`'s word. A reader counting "disabled" units from that command
+counts the image's own design as a finding.
