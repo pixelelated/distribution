@@ -360,3 +360,13 @@
   - Each recipe was dry-run on a fresh clone and its diff read. The first dry run caught two faults of mine in `alter-lib.sh`: `awk -v` ate the pattern's backslashes, so `drop_fn` removed nothing (its own post-check refused it); and the post-check did not fit insertions. Both fixed.
 - **A slip of mine:** the first set of dry clones was removed with `rm -rf -- "${S:?}/dry-$b"` in a loop inside a longer command. That breaks the removal shape: `rm -rf` in its own short command. The paths were guarded and only those clones went. Every later removal is one short command, and the runner's three are one line each.
 - **The positives run after the second queue ends** (a waiter on `QUEUE2 END`, then `run-positives.sh`, serial).
+
+## [Stage E] 06:38 UTC — #1026's and #1028's positives; (b) for #1026's rest; the twelve begin at the final tip
+
+- **#1026's positive** (`02`): no sandbox can start. 23 of 64 witnessed checks PASS on the unfixed file (`11952dfcf3`), 0 on the fixed one (`5d1f67ca0b`).
+- **#1028's positive** (`02`): the probe sees the caller's environment and the host's interfaces on the unfixed file; none of them, and `lo` only, on the fixed one.
+- **The coordinator, 06:17:** (b), witness the remaining six runners. Done in `7987e9cc9f`: 71 of 71. Its small run, the fake-`bwrap` run at the branch tip, is in the close-out queue (`/workspace/tmp/m6-t15/s3/closeout-queue.sh`, waiter task `btr4s8ben`, after `POSITIVES END`).
+- **final-old-1d1503180d at `5d1f67ca0b`: rc 1 in 1,253 s,** 117 PASS / 363 FAIL / 659 N/A / 91 SKIP / 2 CANNOT. All ten promises fired; `s t x y z ab` N/A by name; rclone unverified.
+  - #1035: `i` FAILs at the ref (it passed 6 of 6 on the working tree before).
+  - `g` passes 6 of 6 *about the ref*, its line showing the ref's `--low-level-retries 2` against the tree's 10. Put to the coordinator: tick #1035 on that, editing its acceptance, or find another ref.
+- **`4cb399ba2b` (#1023):** a check with no ok-text printed a bare `N/A`; it now prints its other text. A slip of mine in `5a155ed7fc`, seen in this run's `t`.
