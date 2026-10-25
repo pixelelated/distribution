@@ -162,3 +162,17 @@
 - **The audit issue: #1040,** `Audit: M6 T15 the last-good scripts test -- 24 findings (0 critical, 2 high)`, labels `audit` and `punch-list`, milestone M6, **a sub-issue of #662** (read back). 24 checkboxes; `box-check --issue 1040` 0 fail.
 - **No file under `tools/` was changed by this lane:** `git diff --stat 60d7f6a5b2 HEAD -- tools/` (since the dispatch tip) is empty. **A correction of mine:** I first wrote that `git diff --stat 8ebaf8daad HEAD -- tools/` is empty without running it. It prints 15 files, all inherited from the branch's base: P1's `renovation-inventory`, `renovation-drift` and `renovation-status`; the coordinator's `lint-audit-artifacts`, `register-check` and the lint fixtures (the dispatch lists `tools/lint-audit-artifacts` among its paths). Criterion 16's command reads that inherited diff; the lane's own is the one since `60d7f6a5b2`.
 - **The stage-D pause** is posted on #662: the stream briefs are the coordinator's.
+
+## [Stage E] 02:40 UTC — the stage-E dispatch; S1 begun
+
+- **The coordinator's stage-E dispatch (02:36 UTC on #662):** the stream briefs are `docs/reviews/briefs/t15-streams.md` at `d717bac312`, read with `git show`, not merged; a copy is at `/workspace/tmp/m6-t15/t15-streams.md`.
+  - **The two questions:** PL-06 takes the seat's three distinctions, and Q6 keeps 15 rows.
+  - **The streams:** six, serial, with S1 first.
+  - **The positives** come from a clone or a detached worktree, never `git archive`.
+- **#1023's acceptance** was rewritten to the three distinctions under that ruling. `box-check --issue 1023`: 4 open checkboxes, 0 fail.
+- **The stage-D export:** `git clone --shared --no-checkout` of the repository, checked out detached at `2eface0727`, at `/workspace/tmp/m6-t15/stageD`. It is not shallow, `417dcd8610` resolves, the file is at the hash, and no build root is beside it.
+- **S1's first positive is running there:** the unfixed file with `QA_SYSTEM_ROOT` unset on purpose, its output in `/workspace/tmp/m6-t15/s1/unfixed-fallback.out`. The harness delivers its end.
+- **#1018's fix, in the working tree:** `--host-diagnostic`; `BB_KIND` (root, build or host); refusal with exit 2 without a candidate; `HOST: ` on every result line under the flag; the G-B-15 probes judging the banner against the copy's and the source; the verdict's `tools:` line; `NOT DEVICE EVIDENCE` with exit 3.
+  - **Its first refusal check:** the fixed file from the worktree with `QA_SYSTEM_ROOT` unset gives **rc 2 in 39 ms**, `CANNOT -- no candidate image's busybox ... (found: /usr/bin/busybox). Set QA_SYSTEM_ROOT=<a build root>/image/system, or run with --host-diagnostic ...`.
+  - **Two slips of mine before it parsed:** a pattern that missed (nothing was written), and an apostrophe inside a `${...:-...}` word, which bash reads as a quote even within double quotes (`bash -n` caught it).
+- **`/workspace/tmp/m6-t15/tmp/tsx-1000`** was left there at 02:24 by the Facilitator's `tsx`, run with that `TMPDIR` exported. It is not the suite's.
