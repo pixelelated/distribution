@@ -2988,7 +2988,9 @@ fi
         old_before = sorted(listing(old_folder))
         upload = f"2026_02_01-000000-{label}-{osn}_SETTINGS.tar.gz"
         dev.run(f"rm -f {shlex.quote(broot)}/*.tar.gz {shlex.quote(broot)}/*.zip", check=False)
-        dev.write(f"{broot}/{upload}", b"this run's archive")
+        # A real archive: cloud_backup lists one (tar -tzf) before it sends it
+        # and refuses plain bytes, so A15 never reached its behaviour (#1069).
+        dev.write(f"{broot}/{upload}", _settings_archive("a15"))
         # The regression: the archive has not changed since it was last sent,
         # and the marker says so -- the bare hash an old build wrote after
         # uploading to the OLD folder. A game-exit backup on the new build
