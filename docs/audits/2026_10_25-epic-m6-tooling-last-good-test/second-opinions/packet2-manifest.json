@@ -1,0 +1,120 @@
+{
+  "built_by": "t15-packet2.py",
+  "file": "tools/last-good-scripts-test",
+  "ref": "8ebaf8daad",
+  "excerpts": [
+    {
+      "label": "F-08: x/C's applicability gate",
+      "from": 4540,
+      "to": 4565,
+      "sha256": "4a0bc4f35e17377c76ccabd7ac5c7ba9bd44beb53a7370bf62a0e88ad6946143"
+    },
+    {
+      "label": "F-08: aa's head",
+      "from": 13723,
+      "to": 13740,
+      "sha256": "e8f60781c62be2c167cc29af54ca4299caeaf31f8cda1aab9a0f988875c38ebb"
+    },
+    {
+      "label": "F-08: aa's tail",
+      "from": 13890,
+      "to": 13912,
+      "sha256": "8a759c4cb2fca3d7610dd5591179d848acb07dec6b835ba024a89eebe050ff52"
+    },
+    {
+      "label": "F-09: x/F2",
+      "from": 3990,
+      "to": 4015,
+      "sha256": "34c22fa4efbcc84f0400ab68031449763d5108ba51e6bb849ca4166df082096d"
+    },
+    {
+      "label": "F-09: x/F2",
+      "from": 4290,
+      "to": 4310,
+      "sha256": "7a1df6c92c512f93abf2b98439dc8afb84672490ba40924c9050b9674b2d3e9d"
+    },
+    {
+      "label": "F-09: x/C",
+      "from": 6475,
+      "to": 6495,
+      "sha256": "d5b63c718e403e9315787ae1024562a076664ab83ab4f604bc5b8cf33149e82d"
+    },
+    {
+      "label": "F-09: x/D (DT_OK and its guarded branches)",
+      "from": 6635,
+      "to": 7795,
+      "sha256": "b1ae0d1c095fcc84b5d0ac9eb8ae4cf1c3a3df4332d5328521672a7d9255390f"
+    },
+    {
+      "label": "F-09: y/A",
+      "from": 10120,
+      "to": 10365,
+      "sha256": "cc9c1d00e9a3bfee33138c75d7ac30594c37aea02ce2cd0f4fac3a93c3ebe0b3"
+    },
+    {
+      "label": "F-09: y/F1r",
+      "from": 11170,
+      "to": 11205,
+      "sha256": "3c44f5575d456b490bb9dacee9ca760e6bb6baa7180de6d64b38c6c49db653f7"
+    },
+    {
+      "label": "F-17: g to i",
+      "from": 839,
+      "to": 933,
+      "sha256": "ff5b74e07450a9b7506219a91fb4dc7f566f6246b60acf35fa7710cb48c40c23"
+    },
+    {
+      "label": "F-17: t",
+      "from": 2410,
+      "to": 2445,
+      "sha256": "cbb5cf79ff8fc24b3a2cb2eecfef187012bb51984b3934f4696a298f0a81b21a"
+    },
+    {
+      "label": "F-17: x/C7",
+      "from": 6495,
+      "to": 6525,
+      "sha256": "82dfd89514074d5df3620f858ec74668112bb56bd5758dd021371233149373b0"
+    },
+    {
+      "label": "F-19: z/S3F",
+      "from": 13665,
+      "to": 13722,
+      "sha256": "88c2d488d2c2a336d5267ee80b2614e79cfa3901995220f6e39f136602bbede6"
+    },
+    {
+      "label": "F-21: z",
+      "from": 13390,
+      "to": 13430,
+      "sha256": "fb2a73da2e9dd0c8ef2ffb25382b162cbcc3e717ae1a75b0fc1f70e76281c963"
+    }
+  ],
+  "external": [
+    {
+      "path": "tools/settings-modes-test",
+      "ref": "8ebaf8daad",
+      "sha256": "fc4d166e627474171b648046082a740c062c58cfdfa2fb51ae545ba8f3ef6356",
+      "bytes": 5130
+    },
+    {
+      "path": "tools/settings-modes-test",
+      "ref": "7c1d729b57",
+      "sha256": "606e00074a8b776b88034c72a1261070b7bfb5511c3bf0654ae4f2b780308182",
+      "bytes": 7757
+    },
+    {
+      "path": "tools/melonds-upgrade-test",
+      "ref": "8ebaf8daad",
+      "sha256": "06ff1fb86bbb98bd75f2994a05076b50dbe5dcf6e02be2d26830436614f42112",
+      "bytes": 7111
+    },
+    {
+      "path": "tools/melonds-upgrade-test",
+      "ref": "7c1d729b57",
+      "sha256": "8566cd230f20af0c181f805c6bd3c6194deb9982e098a0f7fcdd097799e7e6a0",
+      "bytes": 10242
+    }
+  ],
+  "body_sha256": "bf353d9176968d5310047f809996c2f4c9c556d6362ed76acf7468107aeeebc6",
+  "body_bytes": 202315,
+  "excerpt_lines": 1839
+}

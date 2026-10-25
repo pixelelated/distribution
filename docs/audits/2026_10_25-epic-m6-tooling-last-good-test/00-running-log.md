@@ -117,3 +117,21 @@
 - **The refutation** started at 02:02:52Z with `--per-attempt-timeout-ms 3600000 --total-timeout-ms 10800000`, logging to `/workspace/tmp/m6-t15/audit.log`.
   - **What watches it:** the harness background task running it, which delivers its end.
   - **Its silent mode:** a hung seat is ended only by those timeouts. The failed-seat rule holds: hold, diagnose, one same-slug retry on a transient cause.
+
+## [Stage C] 02:17 UTC — the seat's first reply; the second packet it asked for
+
+- **The refutation returned** (`/workspace/tmp/m6-t15/audit.log`): 02:02:52Z to 02:15:31Z, attempt 1 of 4, `finish=stop`, 16,359 bytes of content (the file is 16,578), 759,660 ms, 0 retries.
+  - **Served:** `openai/gpt-6-astra` by OpenAI at `max` (33,590 reasoning tokens); verification, effort and provider PASS (`gpt-audit.md.provenance.json`).
+  - **Scanned before it was read:** `forbidden-terms-check --stdin` 0 hits, and 0 credential-pattern lines under the three sets.
+- **What it said, in outline:**
+  - its five answers;
+  - F-01 to F-21 graded: 5 confirmed, 10 confirmed with narrowing, 1 refuted (F-08), and 5 *cannot tell from the packet* (F-07, F-09, F-17, F-19, F-21);
+  - four new findings, G-01 to G-04;
+  - two corrections to the first reader's Q3: `:3329` does not pass on an empty `F1_WROTE` (the here-string makes one empty line, so `F1_LEFT` is non-empty and the check FAILs), and `:3053`'s `sa` statuses are all in the `&&` chain, so only `:3061-3062` drops one.
+  - Under `## Sections I need`, it asked for 14 ranges and the two callee tools.
+- **Re-derived by the lane at their lines** (`sed -n`): the two corrections (`:3326-3329`, `:3053`, `:3061-3062`), both right, and G-01 (`:522`, `:536-541`), G-02 (`:14224` `${ROOT}` against `:14231` `${HARNESS_ROOT}`), G-03 (`:1781-1789`, `find` in `${ROOT}`) and G-04 (`:8854-8860`, ordering by `sleep 1`), all four confirmed.
+- **The second packet** (`tools/t15-packet2.py`, `second-opinions/packet2-manifest.json`):
+  - **What it carries:** the 14 ranges the seat named (1,839 lines) at `8ebaf8daad`; `settings-modes-test` and `melonds-upgrade-test` whole at `8ebaf8daad` and at T14's `7c1d729b57`; the seat's first reply; and the first packet whole.
+  - **Size:** `gpt-brief2.md` is 479,112 bytes.
+  - **Scanned before it was sent:** 0 hits; 0 credential lines under the three sets; `:8004` not carried.
+  - **Sent** at 02:16:37Z, with the same timeouts. The harness background task delivers its end.
