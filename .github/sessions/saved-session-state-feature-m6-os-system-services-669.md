@@ -16,11 +16,7 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope, this pointer updated, and the day's
-work-log entry headed `#669` (prose through a quoted heredoc or the Write
-tool). `.qa-scratch/` is gitignored and `git status --short` is read before
-every `git add -A`. No network is used at all.
+**Stage A is done (2026-10-25 09:20 UTC); the guest cycle's plan is posted on #669 for the grant.** Every figure in the brief reproduces (`00-running-log.md`; `01-research-notes.md` § Scope). One delta: the brief's unit loop masks `User=` with its credential `sed`, so it was rerun unmasked: 0 of 29 units name a user. The raw outputs are in `.qa-scratch/t22/runs/` (gitignored; re-made by the commands in `01`). **Next:** stage B, the reads -- the reachability table (422, *installed on* / *runs on*), the units (29), busybox's callers, the upstream delta per M file, the coverage table -- into `02`. The guest boots only after the coordinator grants it on #669, and the window's record keeps every output it reads (T13's retro, proposal 2). Nothing is running.
 
 ## Next commands
 

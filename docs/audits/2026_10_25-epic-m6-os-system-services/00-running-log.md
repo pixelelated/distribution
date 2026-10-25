@@ -1,0 +1,57 @@
+# T22 running log: the OS's system services and platform quirks (#669)
+
+The flight recorder for M6.P2 T22 (`os-system-services`), brief
+`docs/reviews/briefs/os-system-services.md` at `cc8b6cf2a3` (version 3),
+dispatched on #669 at 2026-10-25 09:05 UTC. Newest entries are last. Every
+time comes from `date -u`.
+
+## Header
+
+| Field | Value |
+| --- | --- |
+| Executor | the T1 session (`m6-t1-os-launch`), **Opus 5.5** (`claude-opus-5-5`), **high** effort |
+| Depth | **Extended**: two reviewers at Phase 4.6, through the local Facilitator: `gpt` (`openai/gpt-6-astra`, `max`) and `gemini-argon` (`google/gemini-4-argon`, `high`); each runs a probe, then one refutation over a trimmed packet (D-WORKFLOW-195). If a seat cannot run, that is a named blocker on #669, never `--member gemini` |
+| `reviewed-at` | the 422 read at **`8ebaf8daad`**'s bytes; at the dispatch tip `4a48d388c4` nothing under `packages/` or `projects/` differs from it (the coordinator's check) |
+| Upstream compared | **`651150fc88`** (upstream `next`, already in the repository; never fetched); merge base `c445081a59` |
+| Worktree / branch | `/workspace/repos/pixelelated/distribution.worktrees/m6-os-system-services-669`, `feature/m6-os-system-services-669`, stacked on `feature/m6-p1-survey-641` at `2174265e9c`; dispatch tip `4a48d388c4` |
+| Rules | `next`'s, except the eight paths the dispatch lists; `git diff --stat next -- .claude CLAUDE.md AGENTS.md tools/lint-audit-artifacts` gives 9 files (those eight plus `tools/lint-audit-artifacts`, which the command names), 142+ 11- |
+| Scratch | `TMPDIR=/workspace/tmp/m6-t22/tmp`; `.qa-scratch/t22/` (gitignored) |
+| VM question | **Can this be done on the VM? Yes, for the units and the GENERIC_X64 quirks.** One GENERIC_X64 guest, under 30 minutes, only in the window the coordinator grants on #669. **No, for the rest:** the H700 and SM8550 platform quirks, `QUIRK_DEVICE`'s device-tree branch, `sleep.d/` and `volume-fixup.service` are read line by line and point at `docs/releases/device-facts.md` or become an open item to test. Nothing runs on a handheld. |
+
+## 2026-10-25 09:05 UTC -- dispatch read, first commands
+
+- #669's body (18 criteria), its dispatch comment, the brief (read whole at `cc8b6cf2a3`) and the seeded pointer were read.
+- First commands (brief § 1), in the worktree only, **no fetch**:
+  - branch `feature/m6-os-system-services-669`; stacked on P1 (`merge-base --is-ancestor 2174265e9c HEAD`); `docs/reviews/inventory.json` present;
+  - `651150fc88` resolves locally;
+  - `grep -c gemini-argon`: `scripts/council-invoke.ts:7`, `tools/lint-audit-artifacts:4` (two non-zero counts, so both seats' routes are in the tree);
+  - `tools/rules-check --quiet`: rc 0; `tools/register-check`: `681 IDs, each once; every citation in the live documents names a row`;
+  - `git status --short`: clean; the branch tracks `origin/feature/m6-os-system-services-669` (pushed by the coordinator).
+- **Host file, last line:** `== M6 coordinator — 08:42 UTC: T13 THIRD WINDOW RETURN (the lane's post on #660); census qemu 0, listeners on 9010-9099 and 10022: 0. M6 runs no guest now. No device operation.`
+- **Census:** `pgrep -x qemu-system-x86 -r R,S,D,T`: **0**; compilers: **0**; `df -i /tmp`: 41% (nothing is exported under `/tmp`).
+
+## 2026-10-25 09:06-09:20 UTC -- stage A: the § 5 runs
+
+Each run's output is in `.qa-scratch/t22/runs/NN-*.out`, with its exit and wall time. The figures and their *a FAIL would mean* go into `02` § The runs at stage B. The summary:
+
+- **Membership** (`01-membership`): `paths 422 lines 16604`; `read 10898 fork-own read 3002 fork-own paths 24`; tier 398 / 24; reach 422; written 422. All as the brief says.
+- **Selection:**
+  - `system-utils/package.mk:27-36` installs `sources/devices/${DEVICE}/*` and `sources/autostart/${DEVICE}`; `:14-15` installs `autostart/common` on every build.
+  - `quirks/package.mk:15` copies every `devices/*`; `:16-18` copies every `platforms/*` when `platforms/${DEVICE}` exists.
+  - The 264 platform files split H700 22 + SM8550 24 + GENERIC_X64 5 = 51 shipped and 213 that run nowhere shipped.
+  - The `system-utils` device rows not installed by any shipped image: AMD64 3, RK3399 3, RK3566 1, S922X 1 = 8. `video_sense` exists for GENERIC_X64 and RK3399 only.
+  - `/usr/bin/autostart` (97 lines) selects at `:16-28` (`HW_DEVICE`) and `:31-43` (`QUIRK_DEVICE`, set at `002-autostart:8-12`), and runs `/storage/.config/autostart/*` from `:71`.
+- **Units** (`09`, `10`, `10b`): 29.
+  - **Delta in the brief's own command:** its masking `sed` (`user[=:]`, case-insensitive) also matches `User=`, so `10` printed `User=***` for all 29 and hid the count. A run that masks its own figure cannot pass.
+  - Rerun with the mask applied to the `ExecStart` text only (`10b`): **0 of 29** carry `User=`, `Group=` or `DynamicUser=`, so all run as root.
+- **Enablement** (`20`):
+  - Who enables what: `shell.service` (`busybox/package.mk:187`, override), `cron`/`cron-defaults` (`:196`, `:200`), `userconfig.service` (`systemd/package.mk:326`), `udevil-mount@.service` (generic `udevil/package.mk:40`), `rocknix-autostart.service` (`rocknix/package.mk:85`), `powerstate.service` (`powerstate/package.mk:20`).
+  - No `enable_service` names `video`, `headphones`, `input`, `fancontrol` or `batteryledstatus`; what enables them is stage B's question.
+- **busybox** (`11`, `12`): `PKG_VERSION="1.36.1"` (`:7`); `PKG_URL="http://busybox.net/..."` (`:11`, plain http); `CONFIG_FEATURE_SUID=y` `:30`, `LOGIN` `:549`, `PASSWD` `:554`, `SU` `:556`, `HTTPD` `:888`, `FEATURE_HTTPD_CGI` `:894`, `NC` `:950`, `UDHCPD` `:1010`. All at the brief's lines.
+- **History** (`13`, with the explicit midnight cutoff `--since='2026-06-01T00:00:00Z'`): **87** non-merge commits; **33** the fork's; **54** upstream's.
+- **Upstream delta** (`14`, `15`, `19`):
+  - **44 M, 20 D**; under the globs **42 A and 2 R** (the R are `busybox-10-...MS_BIND` R056 and `util-linux-02-enable-blkdiscard` R073).
+  - The 20 D split **9 / 2 / 9**: 9 absent at the merge base (the five GENERIC_X64 quirks, `hang-policy.conf`, `GENERIC_X64/video_sense`, `20-watchdog.conf`, the pstore drop-in); 2 upstream removed (`99-coredump.conf` by `8bce25b3b7`, `sysctl.d/rocknix.conf` by `54acd9556f`); 9 deleted (RK3576 `99-idle-only` `a98a3066f5`, the four SM6115 sleep hooks `6ac52e0c04`, `file` and `i2c-tools` `6103571f67`, `99-rocknix-networking.conf` `54acd9556f`, `80-clock.rules` `899193e5af`).
+- **Routes** (`17`): 7 and 4. **The removal rule** (`18`): `git diff --stat 4a48d388c4 HEAD -- packages projects tools` is empty.
+- **The fork-own 24** and the **30 config files** (4,487 lines; the three busybox configurations 1,224 + 1,224 + 1,200 = 3,648) are listed in `01` § Scope (`21`).
+- **The pre-commit scan refused the first commit** of `01`: one upstream file name under `gptfdisk/patches/` (patch 0001) contains a key-shaped substring. The line in `01` was reworded to a placeholder with the command that shows the name, not exempted (`fork-workflow.md`). The raw run output under `.qa-scratch/` keeps the name and is gitignored.
