@@ -16,18 +16,16 @@
 
 ## Current focus
 
-**Handed back; idle** (2026-10-25, 05:48 UTC). The hand-back comment on #687 names the tip and every artifact.
-- **Commits:** `reviewed-at` `b8cde6f305`, `fixed-at` `9c3fa25cfb` (both on #687's body).
-- **The audit:** `docs/audits/2026_10_25-epic-m6-patches-dead/`. The lint passes in the pre-issue and resolution phases and with `--issue 1074`. #1074's 6 items are at outcomes.
-- **The bugs** #1056, #1071 and #1072 are filed by the lane. Pointing comments are on #689 and #688.
-- **The retro:** `docs/retros/2026-10-25-m6-patches-dead.md`, posted on #687.
-- **The checkers:** `register-check`, `work-log-index --check`, `rules-check --quiet` and `hooks-test` rc 0. `forbidden-terms-check` is the coordinator's.
-- **Left for the coordinator's re-run:** `/workspace/tmp/m6-t40` (the `curl` shim, the caches, the scratch).
+**Idle (2026-10-25, 05:57 UTC): T40 accepted by the coordinator on #687 at 05:56 UTC at the merged tip `e863379cec`; #1074 closed as completed.**
+- **The marker:** `docs/audits/2026_10_25-epic-m6-patches-dead/audit-completion.json`, from #1074's closed readback (completed 05:57:17 UTC). The validator accepts it. The lint prints `PASS` with `--issue 1074` and in the default phase.
+- **Commits:** `reviewed-at` `b8cde6f305`, `fixed-at` `9c3fa25cfb`; the merged tip `e863379cec`.
+- **Open elsewhere, not this lane's:** bugs #1056, #1071 and #1072 (filed by the lane); the 50 leads on #689; the class decision on #346 (the coordinator's).
+- **Removed after this commit:** `/workspace/tmp/m6-t40`.
 - **Running for this lane:** nothing.
 
 ## Next commands
 
-None. The lane waits for the coordinator's acceptance; after it: `audit-completion.json` from #1074's closed readback, and the full lint.
+None. The lane is idle; the next slice comes with its own brief.
 
 ## Merge notes
 

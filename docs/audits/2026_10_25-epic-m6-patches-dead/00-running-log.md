@@ -136,3 +136,11 @@
 - **`tools/forbidden-terms-check`** reads a list this lane does not read; it is the coordinator's at acceptance (criterion 16).
 - **The retro** is posted on #687. **`reviewed-at` `b8cde6f305` and `fixed-at` `9c3fa25cfb`** are on #687's body.
 - **The lane is idle** after the hand-back comment.
+
+## [Close-out] 05:57 UTC — accepted; #1074 closed; audit-completion.json; the full lint PASS
+
+- **The coordinator accepted T40 on #687 at 05:56 UTC** at the merged tip `e863379cec` (this lane's `29b3f478e5` plus the coordinator's `737a726224`), and closed #1074 as completed with its six checkboxes ticked.
+- **The marker:** `audit-completion.json`, written by `tools/write-completion.py` (the T23 writer, adapted for #1074) from #1074's closed readback: completed `2026-10-25T05:57:17Z`, 6 ticked, 0 open. `tracker-final-readback.json` and `tracker-completion.json` sit beside it. `tools/ceremony-check`'s `completed_audit_marker()` accepts it.
+- **The lint:** `--issue 1074` prints `PASS`, and the default phase prints `PASS`.
+- **Nothing under `packages/`, `projects/` or `tools/` changed through the merge.**
+- **`/workspace/tmp/m6-t40` is removed after this commit.**
