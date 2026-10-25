@@ -289,3 +289,4 @@
   - the twelve recipes and the root run at `a286e5b49f`.
   - Which root to resume on was put to M6.
 - **The register:** D-WORKFLOW-206 to 209 and D-INFRA-032 are reserved for the M7 lane (the coordinator, 03:16, 03:43 and 04:46). A row from this slice takes D-WORKFLOW-210+, D-QA-064 or D-INFRA-033+.
+- **05:42, the M7 lane:** the `069fc2704421` cache moves permanently (to `m7-signin-generic-build-20261025-01`, becoming `bcc`), so option (a) is gone. Its pipeline does not move or build `m7-pixelelated-replacement20`, whose root reads `BUILD_ID 1a026648442321609b2288c2c9c06803817f9df2`, busybox v1.36.1 with the same 2026-10-05 03:37:19 build stamp, and rclone v1.75.2 (read, nothing run). Put to M6 on #662: (b) `replacement20`, or (c) M7's new root when released. T15 holds to source edits until M6 assigns one.

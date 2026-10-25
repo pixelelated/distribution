@@ -53,7 +53,7 @@
 - #1024 `4bc40d7733`;
 - #1039 `a286e5b49f`.
 
-**Nothing is running, and nothing may start that reads an M7 root until M6 answers.** On M7's request I stopped all five T15 run shells at 05:30, by PID, and checked the readback (`00` at 05:35; the report on #662 at 05:32). The open question to M6 on #662: (a) resume on `m7-signin-build-20261022-07` after M7's window, or (b) use `m7-pixelelated-replacement20`'s root.
+**Nothing is running, and nothing may start that reads an M7 root until M6 answers.** On M7's request I stopped all five T15 run shells at 05:30, by PID, and checked the readback (`00` at 05:35; the report on #662 at 05:32). The `069fc2704421` root will not return (M7, 05:42: it becomes `bcc` under `m7-signin-generic-build-20261025-01`). The open question to M6 on #662 (05:42): (b) `m7-pixelelated-replacement20`'s root (BUILD_ID `1a0266484423`, the same busybox build, rclone 1.75.2), or (c) M7's new root once released. Re-run the baseline on whichever is assigned first.
 
 - **Recorded:** #1023's `1d1503180d` (in `02`) and `34aca64afd` (in `00`). #1039's positive is in `00`.
 - **To re-run, serial, from clones under `/workspace/tmp/m6-t15/s2/`:**
