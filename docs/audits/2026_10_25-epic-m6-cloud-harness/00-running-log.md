@@ -114,3 +114,20 @@ The image for the guest-cycle request, read only: `pixelelated-GENERIC_X64.x86_6
   - **What watches it:** the harness background task that runs it (`bkeysfam7`), which notifies this session when it ends.
   - **Its silent mode:** a hung seat is ended only by those timeouts.
   - **A failed seat is a hold.** A seat cut by its output ceiling re-runs on a trimmed packet (D-WORKFLOW-195).
+
+## 2026-10-25 05:38-05:47 UTC -- stage C's seat graded; stage D: the bugs, the audit issue, the pause
+
+- **The refutation returned** at 05:38:50 UTC (background task `bkeysfam7`, rc 0): attempt 1 of 4, `finish=stop`, 34,948 bytes; 220,427 prompt and 36,583 completion tokens (28,431 reasoning); 803,757 ms, 0 retries. Served `openai/gpt-6-astra` by OpenAI at `max`; verification (semantic, `provider_response`), effort and provider PASS; Facilitator `council-facilitator@1.14.1-pixelelated.2`.
+- **Scanned before it was read:** `forbidden-terms-check --stdin` 0 hits; `SECRET_PATTERNS` 0 lines under all three sets.
+- **Graded in 04 § Second opinion:** 53 items. Re-read at their lines in this session: G-1, G-3, G-6 to G-8, G-11, G-19, G-26, G-30 to G-35, G-38 (step 29), G-40, G-42 to G-44, G-46 to G-48 and G-52; the rest accepted on the seat's citations and marked so.
+  - **13 new defects verified** (F-15 to F-25), among them KILL1's `NameError` (6846), CONTRACT's always-true guard (4739, 4844), step 8's refusal deleting the refused `/storage/roms/vectrex` (915-916, 7784-7785), and the SFTP endpoint's guest key reaching the host user's files (396-397).
+  - **The first reader's errors accepted:** six overrides shown where eight were claimed; A3, `prepare_device.2`, step 30, KILL1 and step 32 reclassified; "skips nothing"; line 5294; 17 rejection checks, not 19.
+  - **The table re-rendered:** 24 both ends, 46 synthetic, 8 the device's report.
+- **Stage D:**
+  - 14 `bug` issues filed, **#1057 to #1070** (milestone M6), each `tools/box-check --issue N` 0 fail (28 open checkboxes in all).
+  - 05 written with 24 PL items, `punch_index` and the Phase 7 gate (every item Open); `tools/lint-audit-artifacts ... --phase pre-issue`: `PASS pre-issue artifacts`.
+  - **The audit issue #1073**, `Audit: M6 T13 the cloud test harness -- 24 findings (0 critical, 2 high)`, labels `audit` and `punch-list`, milestone M6, a sub-issue of #660 (`POST .../issues/660/sub_issues`).
+  - **Two slips on the way, both corrected in place:**
+    - #1073 was first filed with one checkbox (a greedy parse that swallowed the items), then edited to 24.
+    - Its PL-22 named a handheld and failed `box-check`; it was reworded to the code fact (`tools/cloud-census:76`). `box-check --issue 1073` now reports 24 open and 0 fail.
+- No guest, no handheld, no hosted account, no `cloud-census` run. The `tools/council/run` calls were the probe and the refutation, plus the keyless ones and the 05:2x breach recorded above. Nothing was written under `/tmp` or `/workspace/repos/rocknix*`.

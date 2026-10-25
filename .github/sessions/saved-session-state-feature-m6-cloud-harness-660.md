@@ -16,13 +16,12 @@
 
 ## Current focus
 
-**Stage C under way (05:25 UTC): the seat's refutation is running; the probe PASSed. Stage-B checkpoint: https://github.com/pixelelated/distribution/issues/660#issuecomment-6393859599 (answered 05:22: the mixed-installation proof is Backlog #1055, F-13). The guest window is held behind M7's full build; its grant comes on #660 at M7's FINAL RETURN.**
+**At the stage-D pause (05:5x UTC): the stage-D checkpoint is posted on #660; waiting for the coordinator's stage-E stream brief and dispositions. The guest window is still held behind M7's full build.**
 
-- The seat: `tools/council/run invoke --member gpt --provider openrouter --prompt-file second-opinions/gpt-brief.md --output second-opinions/gpt-audit.md --per-attempt-timeout-ms 3600000 --total-timeout-ms 10800000`, log `/workspace/tmp/m6-t13/audit.log`, started 05:25 UTC as the session's background task. **If this session is gone, check `audit.log` and `gpt-audit.md.provenance.json` before re-running anything; never start a second seat while one runs.**
-- The packet: `second-opinions/gpt-brief.md` (746,882 bytes, sha256 `e4cda5bc...`), `packet-manifest.json` (15 sources, the nine 594,115 bytes, 1 redaction: `cloud-connections-test:37`'s fixture value under T10's widened pattern). Scan: forbidden 0; SECRET_PATTERNS 0 under all three sets after the redaction. Built by `tools/t13-packet.py`.
-- The probe: `second-opinions/gpt-probe.md` plus provenance, PASS (openai/gpt-6-astra, OpenAI, max), Facilitator `council-facilitator@1.14.1-pixelelated.2`.
-- **A rule broken and recorded** (00, 05:21 entry; friction line): `tools/council/run --help` ran once without `COUNCIL_ENV_FILE=/nonexistent` and sourced the key into a process that made no call. To report on #660 with the stage-C/D post.
-- When the seat returns: scan `gpt-audit.md` (forbidden, SECRET_PATTERNS) before reading it; grade G-1.. in 04 § Second opinion; update `review-plan.json`'s status; write 05 (PL- items, `punch_index`, Phase 7 gate); `lint-audit-artifacts --phase pre-issue`. Then stage D: the `bug` issues (F-01/F-02, F-03, F-05, F-12, F-14 as candidates), the audit issue (labels `audit`, `punch-list`, milestone M6, a sub-issue of #660), then the stage-D pause on #660.
+- Done: stages A-D. The folder holds 00-05 and `second-opinions/` (review plan, packet, probe and refutation with provenance, all PASS); the pre-issue lint PASSes. The seat's 53 items are graded in 04 (F-15..F-26 new). The table: 79 rows, 24/46/8.
+- Filed: bugs **#1057-#1070** (box-check 0 fail each) and the audit issue **#1073** (24 checkboxes, a sub-issue of #660, box-check 0 fail). PL-16 goes to #1055, PL-18 to #909, PL-15 rides on #1059; PL-17, 19, 20, 21, 23 and 24 wait for Backlogs the coordinator files; PL-22 waits for a disposition.
+- A rule broken once and recorded (00 05:21; friction line): `tools/council/run --help` without `COUNCIL_ENV_FILE=/nonexistent`. Reported on #660 in the stage-D post.
+- Next, on the coordinator's word: stage E, one stream per bug or per the brief's grouping, editing only the nine; then F (the guest cycle when granted; 05's Phase 7 outcomes; the resolution lint), G (the retro), the hand-back.
 
 ## Next commands
 
