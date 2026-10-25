@@ -641,3 +641,16 @@ Every recipe in the header, run once on the donor root (`QA_SYSTEM_ROOT=/workspa
   - `t` builds the ref's own client: `the client at 64d03d3063 with 11 patch(es) applied in order, each compiled`. At stage A, five patches failed to apply to today's client.
   - **But the `012` checks did not print.** The predicates driver raised after five FAIL lines (PL-01, PL-25: the old client lacks `cache_keys.last_played`), and its "predicates ran" check passed on those five. That is #1032's shape in a driver #1032 did not name. It is fixed at `d3f7843050`: `driver_verdicts` with the driver's 14 success-path IDs, so the missing `012` checks FAIL by name.
   - Its run under `--old 70b6c70ca7` at the tip is in the close-out.
+
+### #1024 and #1032: a driver's missing verdict is a FAIL of its own (`2dc1746de8`, the coordinator's 10:54 (b))
+
+`driver_verdicts` keeps its overall check (exit 0 and the full set of IDs). Each ID the driver never printed is also a counted FAIL of its own: `<driver>: <id> did not run (the driver ended rc N after M verdict line(s))`. The proofs below run on constructed driver output with the fixed file's `check` and `driver_verdicts`.
+
+| Case | Result | Proved |
+| --- | --- | --- |
+| `t`'s predicates: the five lines `70b6c70ca7` printed (PL-01 twice, PL-25 three times), then a traceback, rc 1 | **12 FAILs by name**, one per missing verdict: `010 / #190 store-only`, `011 / #194 login header`, the **five `012 / #199` checks** (image hit; image miss, offline; image miss, online; image miss, store-only; the store-only header in another client's capitalisation), `013 / #213 validator (G-01)`, `PL-02 eviction`, `PL-12 upload`, `PL-23 credentials`, `PL-33 badges`. Then the overall FAIL: 13 counted. The header's prose says four `012` checks; the driver's success path carries five `012` IDs (read with `ast`, each present at the tip) | proved: tool-run |
+| `t`'s predicates whole: the 14 IDs, rc 0 | one PASS: `section t's predicates driver exited 0 with its 14 verdicts`; 0 FAIL | proved: tool-run |
+| `d13b` whole: its three IDs, rc 0 | one PASS: `stream D's d13b driver exited 0 with its 3 verdicts (3 PASS / 0 FAIL)`; **0 FAIL**, no per-ID line | proved: tool-run |
+| `d13b` after its first verdict, then a traceback, rc 1 | `FAIL  stream D's d13b: F-RA-13 --verify did not run (...)`, `FAIL  stream D's d13b: F-RA-12 --verify did not run (...)`, then the overall FAIL: 3 counted | proved: tool-run |
+
+The run of `t` under `--old 70b6c70ca7` at the branch tip is in the close-out queue.
