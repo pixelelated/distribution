@@ -217,8 +217,8 @@ punch_index:
   question: Q2
   source_finding: "F-03"
   owner_area: "`projects/ROCKNIX/bootloader/install`"
-  tracked: "#658 stream S1"
-  outcome: "deferred"
+  tracked: "`f56cbd1c69`"
+  outcome: "resolved"
 - id: PL-04
   severity: Low
   category: Renovation
@@ -241,8 +241,8 @@ punch_index:
   question: Q6
   source_finding: "F-06"
   owner_area: "`projects/ROCKNIX/bootloader/install`"
-  tracked: "#658 stream S1"
-  outcome: "deferred"
+  tracked: "`6e63150105`"
+  outcome: "resolved"
 - id: PL-07
   severity: Low
   category: Documentation
@@ -317,10 +317,10 @@ The coordinator's dispositions, 07:34 UTC on #658.
 | --- | --- | --- |
 | PL-01 | **Deferred** | #1083, a Backlog the coordinator filed: the guest's `kernel-firmware.dat`, written once T5's E6 is on `next`; its proof needs a build |
 | PL-02 | **Resolved** | recorded at `b501bdad67` (`02` F-02, `04` § Q5): the upstream x86 block and the Generic conf's built-in drivers are inputs to #1084's regeneration |
-| PL-03 | **Deferred** | the coordinator's stage-E stream S1 (#658): `install`'s header line and its `:51-58` comment; resolved at the stream's commit |
+| PL-03 | **Resolved** | `f56cbd1c69` (stream S1): `install`'s line 2 now reads `# Copyright (C) 2026-present pixelelated (https://github.com/pixelelated)`, and the `qcom-abl\|arm-efi` comment says what stages the loaders (`02` § The streams' positives) |
 | PL-04 | **Deferred** | #1084, a Backlog the coordinator filed: the regeneration packet, from a build root; T27 (#674) inherits the configuration shape |
 | PL-05 | **Resolved** | recorded at `b501bdad67` (`02` F-05, `04` § Q6); the coordinator carries it into T28's brief (#675) |
-| PL-06 | **Deferred** | the coordinator's decision, removal: stage-E stream S1 (#658) replaces the four branches with one refusal, with PL-14's fix; resolved at the stream's commit |
+| PL-06 | **Resolved** | `6e63150105` (stream S1): the four branches replaced by one refusal; `grub` refused (rc 1, the value named), the 15 devices' values kept (`bootloaders.sh`), the kept branches still completing (`kept-loaders.sh`) |
 | PL-07 | **Deferred** | #1085, a Backlog the coordinator filed: the README's `rclone config` steps are documentation drift against the native wizard (as #42 for the site); D-QA-053 and D-QA-054 already settle the guest's purpose |
 | PL-08 | **Deferred** | bug #1086, filed by the lane (box-check 0 fail); the fix is T10's set (#657), beside #1049 and #1056 |
 | PL-09 | **Resolved** | recorded at `b501bdad67` (`02` F-09); the coordinator carries it into T25's brief (#672) and the merge notes |
@@ -328,4 +328,4 @@ The coordinator's dispositions, 07:34 UTC on #658.
 | PL-11 | **Deferred** | bug #1087 (the modeswitch half), filed by the lane (box-check 0 fail), stream S3; the bfq half is settled by the next base merge (`651150fc88` carries the fix) |
 | PL-12 | **Deferred** | bug #1088, filed by the lane (box-check 0 fail), stream S4 |
 | PL-13 | **Deferred** | bug #1089, filed by the lane (box-check 0 fail), stream S2 |
-| PL-14 | **Deferred** | bug #1090, filed by the lane (box-check 0 fail), stream S1; a sibling of #827 |
+| PL-14 | **Deferred** | bug #1090, filed by the lane (box-check 0 fail); fixed in stream S1 at `7b8608e7a3`, positives in `02` § The streams' positives; the bug stays open until the fix reaches `next` |

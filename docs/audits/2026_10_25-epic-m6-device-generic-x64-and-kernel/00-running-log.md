@@ -110,3 +110,16 @@
 - **The audit issue:** #1091, labels `audit` and `punch-list`, milestone M6, a sub-issue of #658 (`gh api .../658/sub_issues` lists `[1091]`): 14 checkboxes, `box-check` 0 fail. `tools/lint-audit-artifacts <folder> --issue 1091`: `PASS`.
 - **The removal rule at the stage-D tip:** `git diff --stat 2103f0271d HEAD -- packages projects tools` is empty.
 - **The pause:** the stage-E stream brief is the coordinator's (S1 `install` and `release`; S2 the launcher; S3 the udev rule and `options`; S4 `dtb_overlay`). No guest, build, compiler, plan generation, fetch, handheld or `tools/council/run` call at stage D.
+
+## [Stage E, S1] 07:41 to 07:47 UTC — `bootloader/install` and `release` (#1090, PL-06, PL-03)
+
+- **The brief:** `46df9643d3:docs/reviews/briefs/t11-streams.md` (the coordinator's, read with `git show`, not merged). Review depth per stream: Local. The `BOOTLOADER=` grep question was answered yes.
+- **The unfixed side:** `/workspace/tmp/m6-t11/unfixed`, a shared clone (`git clone --no-checkout --shared`) with the seven stream files checked out at `499628a049`, byte-equal to the branch at that tip.
+- **Before the fix:** every `rocknix`-staged device carries `bootloader/update.sh` (14) and GENERIC_X64 has `install`'s syslinux copy, so a checked `release` breaks no device (`projects/ROCKNIX/packages/rocknix/package.mk:52-57`).
+- **The test first** (`stage-e/s1/`): `install-case.sh` (missing-syslinux, grub, present-syslinux), `release-case.sh` (unwritable, empty, normal), `kept-loaders.sh` and `bootloaders.sh`.
+  - **Unfixed, 07:43:49:** every unfixed expectation met, and every fixed expectation UNEXPECTED.
+  - **A driver correction:** `release-case` first required the sourced status to be 0. It is `cp`'s 1, which `scripts/image` ignores. The driver now judges whether the step carries on, and #1090's second checkbox was reworded in the body to match, with a comment.
+- **The commits:** `7b8608e7a3` (#1090: `exit` on a missing source or a failed copy, in both files); `6e63150105` (PL-06: one refusal for any other `BOOTLOADER`); `f56cbd1c69` (PL-03: the header and the `qcom-abl` comment).
+- **The file's positives, re-run after the last commit, 07:45:48:** missing-syslinux `fixed-expectation-met (rc=1 ...)`; grub `fixed-expectation-met (rc=1 ...)`; present-syslinux `fixed-expectation-met (rc=0 ...)`; `kept-loaders: fixed-expectation-met`; release unwritable and empty `fixed-expectation-met (rc=1 ...)`; normal `fixed-expectation-met (rc=0 ...)`; `bootloaders: every value kept (15 devices at HEAD)`. `bash -n` passes on both files.
+- **Recorded:** `02` § The streams' positives § S1; `stage-e/README.md`; `05` PL-03 and PL-06 Resolved at `f56cbd1c69` and `6e63150105`, PL-14 still Deferred to #1090 with the fix commit named. The lint (resolution phase) passes. #1090 has a comment with the evidence, and `box-check` gives 0 fail.
+- **The diff against the stage-D tip:** `git diff --stat 499628a049 HEAD -- packages projects tools` touches exactly `projects/ROCKNIX/bootloader/install` and `release`. No guest, build or device.

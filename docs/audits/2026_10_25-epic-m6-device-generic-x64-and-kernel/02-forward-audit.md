@@ -229,6 +229,28 @@ What the argument does not cover: a root's `.config` reflects that build's recip
 | r27 | `release`'s glob sources | 0 | 0.01 s | H700, SM8550 and GENERIC_X64 each stage files | a shipped device with none: `release`'s `cp` fails there |
 | r28 | readers of the syslinux files | 1 | 0.01 s | the installer reads `/usr/share/syslinux`; `mkimage` the toolchain's; GENERIC_X64 has 0 `bootloader/` files | (rc 1 is `grep -c` printing 0, the expected answer) a reader of `/usr/share/bootloader` on the guest: F-05 falls |
 
+## The streams' positives
+
+Stage E, under the coordinator's stream brief (`46df9643d3:docs/reviews/briefs/t11-streams.md`). Every case is in `stage-e/` with its command and the line it prints (`stage-e/README.md`). The unfixed side is a shared clone at `499628a049`.
+
+### S1: `bootloader/install` and `bootloader/release` (#1090, PL-06, PL-03)
+
+Commits: `7b8608e7a3` (#1090), `6e63150105` (PL-06), `f56cbd1c69` (PL-03). All cases were run at 07:43:49 (unfixed) and 07:44:29 to 07:45:48 UTC (fixed, after each commit's edit).
+
+| Case | Unfixed (`499628a049`) | Fixed (`f56cbd1c69`) |
+| --- | --- | --- |
+| `install`, `BOOTLOADER=syslinux`, no syslinux source | `rc=0 returned=yes completed=yes`: a warning, then *installation completed* | `rc=1 returned=no completed=no named=yes`: `install: error - syslinux files not found in .../usr/share/syslinux (syslinux:target was not installed)` |
+| `release`, unwritable destination | `rc=0 carried-on=yes sourced-rc=1`: cp's `Permission denied`, and the step goes on | `rc=1 carried-on=no`: the step stops |
+| `release`, empty staging | `rc=0 carried-on=yes sourced-rc=1`: cp's `cannot stat '.../usr/share/bootloader/*'`, and the step goes on | `rc=1 carried-on=no` |
+| `install`, `BOOTLOADER=grub` | `rc=0 completed=yes copied=yes`: the copy from `usr/share/grub` and *completed* | `rc=1 copied=no`: `install: error - unknown BOOTLOADER 'grub': this script handles syslinux, u-boot and qcom-abl\|arm-efi` |
+| Every device's `BOOTLOADER=` (`git grep` over `projects/ROCKNIX/devices/*/options`) | 15 devices at `499628a049`, every value kept | `bootloaders: every value kept (15 devices at HEAD)`: syslinux 2, u-boot 7, qcom-abl 6 |
+| Control: syslinux files present | `rc=0`, copied, *completed* | the same |
+| Control: `release` with files and a writable destination | `rc=0`, copied | the same |
+| Control: `u-boot`, `qcom-abl`, `arm-efi` | each `rc=0` with *completed* | the same |
+| PL-03: `sed -n 2p install` | `# Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)` | `# Copyright (C) 2026-present pixelelated (https://github.com/pixelelated)` |
+
+**Every ROCKNIX device stages something under `usr/share/bootloader`,** so the checked `release` breaks no image that works today. The 14 devices with a `bootloader/update.sh` get it from the `rocknix` package (`projects/ROCKNIX/packages/rocknix/package.mk:52-57`); GENERIC_X64 gets `install`'s syslinux copy. `bash -n` passes on both files after each commit.
+
 ## Findings
 
 | ID | Q | Severity | Category | Where | What |
