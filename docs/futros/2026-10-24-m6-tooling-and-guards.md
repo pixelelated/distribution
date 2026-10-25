@@ -838,3 +838,19 @@ source named; A5 § 8 forbids a refresh, a re-pin, an edit to any member
 and any provider call by name; A6 § 9 checks the `node_modules` ignore
 before the first install; A7 § 6 asks the retro what the next export must
 carry.
+
+### Erratum to T15's brief from the lane's stage A (2026-10-25, 00:35 UTC)
+
+The coordinator's image-busybox run at the hash reported 10 FAILs in `x`
+and `y`; the lane's run from its worktree reported 0 (1,313 PASS, rc 0, 517
+s). The ten were the coordinator's fixture: the export under
+`/workspace/tmp/m6-coordinator/t15-hash/tree` was a fresh `git init` with
+one commit and no history, and three fixtures (`F1.`, `F1r.`, `C.`) read
+earlier builds' files from git (`f1_tree_at`, `:3274`; `:4271`), silently --
+`2>/dev/null`, no `pipefail`, an `exit 2` inside a pipeline's subshell that
+cannot end the run -- so each came up empty and the suite's vacuity
+detectors fired ten checks downstream. The brief's § 2 is corrected to the
+tree's figure, and the fail-open read is a stage-D `bug` of the file (the
+coordinator's ruling on #662). The lesson for the briefs: an export used
+to run a suite carries the history the suite reads, or the brief says it
+does not -- the T15 export was made with `git archive`, which carries none.
