@@ -1,0 +1,135 @@
+{
+  "built_by": "docs/audits/2026_10_25-epic-m6-tooling-last-good-test/tools/t15-packet.py",
+  "file": "tools/last-good-scripts-test",
+  "ref": "8ebaf8daad",
+  "file_sha256": "b8495055873e4ce506fa0a5c72ed62bbfe97f3dab5823d161078742400f75066",
+  "file_bytes": 1167697,
+  "file_lines": 14238,
+  "excerpts": [
+    {
+      "label": "the harness: header, dispatch, check/skip/src_of, image_tool_source, the busybox copy",
+      "from": 1,
+      "to": 430,
+      "sha256": "e529b079473750ad012fb1b5c0364166383cd66a0b113a605c778a48bbed42fe"
+    },
+    {
+      "label": "a",
+      "from": 429,
+      "to": 517,
+      "sha256": "29eafae1a36ceae9166ea8f44193e881f79131723e19e523f9d69c9c7dd21e7d"
+    },
+    {
+      "label": "b",
+      "from": 518,
+      "to": 606,
+      "sha256": "e15860f3879d7807aeed3719241cf659c06d3b4a85ab857ef13bc405fad4c991"
+    },
+    {
+      "label": "q",
+      "from": 1752,
+      "to": 1859,
+      "sha256": "64b69ff5111206a4dcc7fe224795e84c5707c8c40bbdc6d67ca51cee3e59f7e9"
+    },
+    {
+      "label": "t: the client, its patches and the compile message",
+      "from": 2033,
+      "to": 2100,
+      "sha256": "7baa1fbda2a8dc9d9458def2141a524dffb39ffe2f89b6122588be5f166ecca8"
+    },
+    {
+      "label": "t: the verdict reading",
+      "from": 2840,
+      "to": 2856,
+      "sha256": "110d5fede75418eeb77f4efd15d4d73c8d13a456a4a09212285da332a1cb2c29"
+    },
+    {
+      "label": "v",
+      "from": 2991,
+      "to": 3066,
+      "sha256": "09a9280b3887db956537474676ba7d61a9b25f3548f6297d9505c3e8636f0580"
+    },
+    {
+      "label": "x/F1.: the history helpers and the first F1 checks",
+      "from": 3198,
+      "to": 3330,
+      "sha256": "04617188c4fa36dd1f3b41c9a74c02f6fd3f3024f28366eaa4d364519febc2f0"
+    },
+    {
+      "label": "x/F2: the mupen64plus repair read from 417dcd8610",
+      "from": 4255,
+      "to": 4290,
+      "sha256": "05bc5509486eeb91451297e1fbbf53db424b5c08ca44fed7f8a6c3e1f0e52e82"
+    },
+    {
+      "label": "y4",
+      "from": 8684,
+      "to": 8905,
+      "sha256": "9ceabe8fcf3a7986ba484e3f18004e25a69700f391cf0731b7cb503573ebc689"
+    },
+    {
+      "label": "y/A.: stream A's rclone, shims, nbin wrappers and the sandbox helpers",
+      "from": 8895,
+      "to": 9032,
+      "sha256": "8c6fccb09917179d71219335cded99300680b147d9ccf98962c7fa6e35fcacce"
+    },
+    {
+      "label": "aa: the two-argument check",
+      "from": 13818,
+      "to": 13832,
+      "sha256": "c336385f447f2db82a50f06061ffb4a575f528b2d8ccc5f8bd5f1678e766a2ad"
+    },
+    {
+      "label": "the call sites (ae, af, ag, ah) and the verdict",
+      "from": 14177,
+      "to": 14239,
+      "sha256": "9b2b13fc1f34282f10e6c8e64827936ddd2c9329f7271c1e6fc5452cbb8e9727"
+    }
+  ],
+  "sources": [
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-tooling-last-good-test/02-forward-audit.md",
+      "ref": "worktree",
+      "sha256": "76c7d68fa17307e4d298ef6059ce575cdd1d40e377e8877ed69e1bdb464d5769",
+      "bytes": 64038
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-tooling-last-good-test/03-retrospective.md",
+      "ref": "worktree",
+      "sha256": "6e38def799623f1bb8ce55561e5f8d5c428b03ebad8d7ab04cf1fc6e431ff456",
+      "bytes": 5561
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-tooling-last-good-test/04-analysis.md",
+      "ref": "worktree",
+      "sha256": "c6865c648005782e835048d5c54638e4394764078b4b3009f0a3878667869c45",
+      "bytes": 37010
+    },
+    {
+      "path": "engineering-practices.md \u00a7 Guards must fail closed (next)",
+      "ref": "next",
+      "sha256": "d5d6714de3c4cd09783250d937bf990107abe44f3d03024f4173bf154adce380",
+      "bytes": 8518
+    },
+    {
+      "path": "upgrade-and-install.md \u00a7 Verify on a device, not on the host (next)",
+      "ref": "next",
+      "sha256": "f165d9b184549651d3182fc2d6ec4868125f8f2fdc8de60a78bfbd4cb3a255c1",
+      "bytes": 2005
+    }
+  ],
+  "packet_body_sha256": "18ddde411b52286bdfbc51e85fa0ef0b21d181cb771ee95d48cfab3ee855792e",
+  "packet_body_bytes": 255869,
+  "excerpt_lines": 1484,
+  "brief": {
+    "file": "gpt-brief.md",
+    "bytes": 258790,
+    "sha256": "e0940e387dd33cfc05841543f97d1567fd4335389ddfe192b3a1433f2e058c7c",
+    "ask_then": "packet-body.md"
+  },
+  "scan": {
+    "forbidden_terms_check": "0 hits on stdin",
+    "secret_patterns": "0 lines under three pattern sets (this branch's .githooks/secret-patterns, the primary checkout's, T10's at feature/m6-tooling-guards-657), each sourced as guard_load does and compiling; each seen to fire on a constructed credential-shaped line (1, 1, 1)",
+    "fixture_literal_8004": "not carried: :8004 lies outside every excerpt (#962); no redaction needed",
+    "redactions": 0
+  }
+}

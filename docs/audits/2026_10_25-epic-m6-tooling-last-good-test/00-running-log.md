@@ -99,3 +99,21 @@
 - **`03`:** § 3.1 to § 3.5, the seams. One claim was corrected before the commit: #1015 had already suspected host tools (its title), so it did not read the FAILs as the tree's.
 - **Two counts of mine corrected before the commit:** sections `x` to `ah` hold **933** checks, not 948 (`02` and `04`); stream A makes 143 `sa_run` calls, and 145 is all of `y`'s.
 - **The S3F canaries** write to the host's `/tmp/s3f-*` only if their guard fails. No `/tmp/s3f-*` exists after this lane's runs (`ls`).
+
+## [Stage C] 02:03 UTC — the seat: the Facilitator, the packet, its scan, the probe, the refutation started
+
+- `npm install --prefix tools/council`: rc 0 (it warned that install scripts were not run). `tools/council/run verify-pins`: `OK - verifier pins match current files and every re-pin is accountable.` `tools/council/run test`: rc 0, with 39/39, 127/127 and 19/19 passing and 0 failing. `run` sources `~/.config/council/env` itself; the file was not read here.
+- **The packet** (`tools/t15-packet.py`, the manifest `second-opinions/packet-manifest.json`), built from excerpts because the file is 1,167,697 bytes (its sha256 is in the manifest):
+  - the section index and the groups;
+  - **13 excerpts, 1,484 lines**, each line-numbered at `8ebaf8daad` and hashed: the harness `:1-430`, `a`, `b`, `q`, `t`'s patch block and verdict reading, `v`, the `F1.` history helpers `:3198-3330`, the `:4255-4290` repair, `y4`, stream A's setup and sandbox helpers `:8895-9032`, `aa`'s two-argument check, and the call sites and verdict `:14177-14239`;
+  - `02`, `03` and `04` whole;
+  - `engineering-practices.md` § Guards must fail closed and `upgrade-and-install.md` § Verify on a device, from `next`.
+  - **Sizes:** the body is 255,869 bytes. `gpt-brief.md`, the ask plus the body, is 258790 bytes, sha256 `e0940e387dd33cfc05841543f97d1567fd4335389ddfe192b3a1433f2e058c7c`. The ask puts the brief's five questions first and offers a second packet: the seat names the sections it needs under `## Sections I need`.
+- **The packet's scan, before it was sent:**
+  - `tools/forbidden-terms-check --stdin`: `0 hits on stdin`.
+  - **A slip of mine:** my first credential scan used `grep -E -f .githooks/secret-patterns`, which errors (`Unmatched (`, line 6), because that file is a shell assignment, not a pattern list. Its "0" proved nothing, and was discarded. The rescan sources each file as `guard_load` does, checks that the pattern compiles, and greps with it. Result: **0 lines under three pattern sets** (this branch's, the primary checkout's, and T10's at `feature/m6-tooling-guards-657`). **Each was seen to fire** on a credential-shaped line built at run time on stdin (1, 1, 1).
+  - **The `:8004` fixture literal (#962)** is not carried: it lies outside every excerpt, so no redaction was needed.
+- **The probe**, 02:02:31 to 02:02:39Z, `--member gpt --provider openrouter`: served `openai/gpt-6-astra` by `OpenAI`, effort `max` (297 reasoning tokens). Verification PASS, effort PASS (`reasoning_tokens`), provider PASS (`response_provider_field`). The reply was `READY unknown`.
+- **The refutation** started at 02:02:52Z with `--per-attempt-timeout-ms 3600000 --total-timeout-ms 10800000`, logging to `/workspace/tmp/m6-t15/audit.log`.
+  - **What watches it:** the harness background task running it, which delivers its end.
+  - **Its silent mode:** a hung seat is ended only by those timeouts. The failed-seat rule holds: hold, diagnose, one same-slug retry on a transient cause.

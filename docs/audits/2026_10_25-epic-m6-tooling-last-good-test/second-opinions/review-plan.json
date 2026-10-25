@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "depth": "independent",
+  "scope": "epic",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "anthropic/claude-opus-5-5",
+    "lab": "anthropic",
+    "identity_source": "the coordinator's dispatch on #662 (2026-10-25T00:21:28Z: 'the T3 session (m6-t3-emulators), Opus 5.5 at high effort') and the session's own model metadata (claude-opus-5-5)"
+  },
+  "reviewers": [
+    {
+      "member": "gpt",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "max",
+      "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
+      "allow_fallbacks": false,
+      "calls": [ { "phase": "refutation", "output": "gpt-audit.md" } ],
+      "probes": [ { "phase": "probe", "output": "gpt-probe.md" } ],
+      "status": "pending"
+    }
+  ],
+  "packets": {
+    "gpt": {
+      "file": "gpt-brief.md",
+      "bytes": 258790,
+      "sha256": "e0940e387dd33cfc05841543f97d1567fd4335389ddfe192b3a1433f2e058c7c",
+      "manifest": "packet-manifest.json",
+      "content": "the ask (the busybox fallback and its banner, the sandbox's network, check $? after compound tests, the --old controls' standing, the split), the section index and the groups, 13 excerpts of tools/last-good-scripts-test at 8ebaf8daad line-numbered (1484 lines: the harness, a, b, q, t's patch block and verdict reading, v, the F1 history helpers, the :4271 repair, y4, stream A's setup and sandbox helpers, aa's two-argument check, the call sites and the verdict), 02/03/04 whole, the two rule sections from next",
+      "scan": "forbidden-terms-check --stdin 0 hits; SECRET_PATTERNS 0 lines under three pattern sets, each seen to fire on a constructed line; :8004 not carried; no redaction"
+    }
+  }
+}
