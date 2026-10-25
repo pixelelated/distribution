@@ -1890,14 +1890,15 @@ if [ -n "${BB}" ]; then
     NBB=(--ro-bind "${N}/nbin" /nbin --ro-bind "${BB_HOST}" "${BB}")
 fi
 nb() { # cloud_backup --yes --system-only, whole; stdout+stderr to $OUT, rc in $RC, wall seconds in $DT
+    witness_reset "${N}"   # #1026
     local t0; t0=$(date +%s)
     RC=$( ( setsid -w timeout 120 bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr "${NBB[@]}" \
         --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
         --ro-bind /etc /etc --bind "${NS}" /storage --ro-bind "${N}/shim" /shim --ro-bind "${N}/repo" /repo \
         --bind "${N}/run" /run --bind "${N}/log" /var/log --bind "${N}/varrun" /var/run \
-        --dev /dev --proc /proc --tmpfs /tmp \
+        --bind "${N}/witness" /witness --dev /dev --proc /proc --tmpfs /tmp \
         --setenv PATH "/shim:/nbin:/usr/bin:/bin" \
-        bash /repo/cloud_backup --yes --system-only > "${OUT}" 2>&1; echo $? ) 2>/dev/null )
+        bash -c "${WITNESS_EXEC}" /repo/cloud_backup --yes --system-only > "${OUT}" 2>&1; echo $? ) 2>/dev/null )
     DT=$(( $(date +%s) - t0 ))
 }
 # The last prose line of a run, as tools/cloud-round-trip reads it: colour
@@ -1909,7 +1910,7 @@ OUT="${N}/out"; STAMP="${NS}/.cache/cloud_sync/last-settings-backup"; NLOG="${N}
 rm -f "${N}/run/hang" "${N}/run/crawl" "${STAMP}" "${NS}/.cache/cloud_sync/settings-backup.uploaded"; : > "${NLOG}"
 touch "${N}/run/hang"
 nb
-[ "${RC}" -ne 0 ]; check $? "a transfer that stops making progress ends the run non-zero (rc ${RC}, ${DT}s)" "rc 0 after ${DT}s: the run waited the stall out and reported success (#153)"
+witnessed "${N}" && [ "${RC}" -ne 0 ]; check $? "a transfer that stops making progress ends the run non-zero (rc ${RC}, ${DT}s)" "rc 0 after ${DT}s: the run waited the stall out and reported success (#153)"
 [ "${DT}" -le 24 ]; check $? "and within the ceiling and a margin (9 s + 15; took ${DT}s)" "took ${DT}s against a 9 s ceiling"
 stamp_n="$(cat "${STAMP}" 2>/dev/null)"
 [ -z "${stamp_n}" ] || [ "$(echo "${stamp_n}" | awk '{print $2}')" != "0" ]; check $? "last-settings-backup records no success (${stamp_n:-no stamp})" "last-settings-backup says '${stamp_n}' for a run that was ended"
@@ -2409,12 +2410,13 @@ SETC=(--tmpfs /etc); for e in /etc/ld.so.cache /etc/alternatives /etc/passwd /et
 SBB=(); SPATH="/shim:/usr/bin:/bin"
 if [ -n "${BB}" ]; then SBB=(--ro-bind "${TMP}/bbin" /bbin --ro-bind "${BB_HOST}" "${BB}"); SPATH="/shim:/bbin:/usr/bin:/bin"; fi
 ev() { # <verb>: rc in $RC, output in $S/out/run
+    witness_reset "${S}"   # #1026
     RC=$( ( bwrap --die-with-parent --tmpfs / --tmpfs /usr "${USR_BINDS[@]}" "${SBB[@]}" \
         --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
         "${SETC[@]}" --ro-bind "${S}/etc/os-release" /etc/os-release --ro-bind "${S}/etc/001-functions" /etc/profile.d/001-functions \
         --bind "${SS}" /storage --bind "${SS}/.cache/log" /var/log --ro-bind "${S}/repo" /repo --ro-bind "${S}/shim" /shim \
-        --dev /dev --proc /proc --tmpfs /tmp --setenv PATH "${SPATH}" \
-        bash /repo/rocknix-evidence "$@" > "${S}/out/run" 2>&1; echo $? ) 2>/dev/null )
+        --bind "${S}/witness" /witness --dev /dev --proc /proc --tmpfs /tmp --setenv PATH "${SPATH}" \
+        bash -c "${WITNESS_EXEC}" /repo/rocknix-evidence "$@" > "${S}/out/run" 2>&1; echo $? ) 2>/dev/null )
 }
 EVD="${SS}/.cache/log/evidence"
 ev snapshot
@@ -2440,7 +2442,7 @@ ev snapshot
 NARCH_BEFORE=$(ls "${EVD}"/*-evidence.tar.gz 2>/dev/null | wc -l); sleep 1
 ev collect
 NARCH_AFTER=$(ls "${EVD}"/*-evidence.tar.gz 2>/dev/null | wc -l)
-[ "${RC}" -ne 0 ] && [ "${NARCH_AFTER}" -eq "${NARCH_BEFORE}" ] && grep -q 'nothing collected' "${S}/out/run"; check $? "without the helper, collect refuses (rc ${RC}), writes no archive and says why: $(grep -o "Couldn't load the credential filter[^.]*" "${S}/out/run" | head -1)" "rc ${RC}; archives before ${NARCH_BEFORE}, after ${NARCH_AFTER}; output: $(tr '\n' '|' < "${S}/out/run" | cut -c1-200) -- collect went ahead with no filter (#176)"
+witnessed "${S}" && [ "${RC}" -ne 0 ] && [ "${NARCH_AFTER}" -eq "${NARCH_BEFORE}" ] && grep -q 'nothing collected' "${S}/out/run"; check $? "without the helper, collect refuses (rc ${RC}), writes no archive and says why: $(grep -o "Couldn't load the credential filter[^.]*" "${S}/out/run" | head -1)" "rc ${RC}; archives before ${NARCH_BEFORE}, after ${NARCH_AFTER}; output: $(tr '\n' '|' < "${S}/out/run" | cut -c1-200) -- collect went ahead with no filter (#176)"
 [ -z "$(ls -d "${EVD}"/*-evidence 2>/dev/null)" ]; check $? "and leaves no half-built directory behind" "left: $(ls -d "${EVD}"/*-evidence 2>/dev/null | tr '\n' ' ')"
 
 # ---------------------------------------------------------------- t.
@@ -5310,13 +5312,14 @@ chmod +x "${C2}/shim"/*
 printf 'export PATH=%s\n' "${CSPATH}" > "${C2}/profile"
 CONF2="${C2}/storage/.config/cloud_sync.conf"
 c2() { # <args...>: cloud_setup against the cloud in C2/cloud; output to C2/out, rc in RC
+    witness_reset "${C2}"   # #1026
     RC=$( ( bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr \
         --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
         --ro-bind /etc /etc --ro-bind "${C2}/profile" /etc/profile "${CSBB[@]}" \
         --ro-bind "${C2}/shim" /shim --ro-bind "${C1}/repo" /repo --bind "${C2}/storage" /storage \
         --bind "${C2}/cloud" /cloud --bind "${C2}/rec" /rec --ro-bind "${C2}/run" /run \
-        --dev /dev --proc /proc --tmpfs /tmp --tmpfs /var --dir /var/log --dir /var/run \
-        bash /repo/cloud_setup "$@" > "${C2}/out" 2>&1; echo $? ) 2>/dev/null )
+        --bind "${C2}/witness" /witness --dev /dev --proc /proc --tmpfs /tmp --tmpfs /var --dir /var/log --dir /var/run \
+        bash -c "${WITNESS_EXEC}" /repo/cloud_setup "$@" > "${C2}/out" 2>&1; echo $? ) 2>/dev/null )
 }
 c2reset() { # <path|bucket> [fail]: an empty cloud, the shipped config
     rm -rf "${C2}/cloud"/* "${C2}/rec/argv" "${C2}/rec/seeded" "${C2}/rec/readback-failed"
@@ -5337,7 +5340,7 @@ c2 --seed-folders "${SEED_ARGS[@]}"
 # PL-047: the listing fails, the upload would work.
 echo 1 > "${C2}/run/fail-lsf"
 c2 --seed-folders "${SEED_ARGS[@]}"
-[ "${RC}" -ne 0 ] && [ "$(cat "${C2}/cloud/pixelelated/Saves/README.txt")" = "mine" ]; check $? "a listing that fails does not overwrite the owner's README" "the owner's README now reads: $(head -1 "${C2}/cloud/pixelelated/Saves/README.txt") -- a failed probe was taken as 'absent' and the note was replaced (PL-047)"
+witnessed "${C2}" && [ "${RC}" -ne 0 ] && [ "$(cat "${C2}/cloud/pixelelated/Saves/README.txt")" = "mine" ]; check $? "a listing that fails does not overwrite the owner's README" "the owner's README now reads: $(head -1 "${C2}/cloud/pixelelated/Saves/README.txt") -- a failed probe was taken as 'absent' and the note was replaced (PL-047)"
 c2reset path fail
 c2 --seed-folders "${SEED_ARGS[@]}"
 [ -z "$(readmes)" ]; check $? "and on a fresh cloud whose listings fail, nothing is written" "READMEs written with every listing failing: $(readmes)(PL-047)"
@@ -8978,12 +8981,13 @@ EOS
 chmod +x "${P7W}/shim"/*
 P7WBB=(); if [ -n "${BB}" ]; then P7WBB=(--ro-bind "${TMP}/bbin" /bbin --ro-bind "${BB_HOST}" "${BB}"); fi
 p7w() { # <verb> [name]: wifictl whole; stdout to $P7W/out, rc in $RC
+    witness_reset "${P7W}"   # #1026
     RC=$( ( bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr "${P7WBB[@]}" \
         --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
         --ro-bind /etc /etc --ro-bind "${P7W}/profile" /etc/profile \
         --ro-bind "${P7W}/shim" /shim --ro-bind "${P7W}/repo" /repo --bind "${P7W}/run" /run \
-        --dir /sys/class/net/wlan0 --dir /sys/class/net/wlan1 --dev /dev --proc /proc --tmpfs /tmp \
-        bash /repo/wifictl "$@" > "${P7W}/out" 2> "${P7W}/err"; echo $? ) 2>/dev/null )
+        --dir /sys/class/net/wlan0 --dir /sys/class/net/wlan1 --bind "${P7W}/witness" /witness --dev /dev --proc /proc --tmpfs /tmp \
+        bash -c "${WITNESS_EXEC}" /repo/wifictl "$@" > "${P7W}/out" 2> "${P7W}/err"; echo $? ) 2>/dev/null )
 }
 p7wset() { # <profile rows, one per argument, fields separated by |>: the table, fresh settings and records
     printf '%s\n' "$@" > "${P7W}/run/profiles"
@@ -9043,7 +9047,7 @@ p7w forget "$(printf 'a\tb')"
 p7wset 'Home|802-11-wireless|wlan0|Home|home-key-1' 'Cafe|802-11-wireless|-|Cafe|cafe-key-1'
 printf 'wifi.ssid=Home\nwifi.key=home-key-1\n' > "${P7W}/run/settings"; touch "${P7W}/run/set-fails"
 p7w forget "Home"
-[ "${RC}" -ne 0 ] && [ ! -s "${P7W}/out" ] && grep -q '^Home|' "${P7W}/run/profiles" && [ "$(p7wssid)" = "Home" ] && [ "$(p7wkey)" = "home-key-1" ]; check $? "#307 audit G-B-11 (gpt): when the settings naming the network cannot be cleared, forget refuses before deleting the profile (rc ${RC})" "#307 audit G-B-11: rc ${RC}; printed '$(tr '\n' '|' < "${P7W}/out")'; profile Home: $(grep -c '^Home|' "${P7W}/run/profiles"); wifi.ssid '$(p7wssid)' -- forgotten was said and the settings kept the network"
+witnessed "${P7W}" && [ "${RC}" -ne 0 ] && [ ! -s "${P7W}/out" ] && grep -q '^Home|' "${P7W}/run/profiles" && [ "$(p7wssid)" = "Home" ] && [ "$(p7wkey)" = "home-key-1" ]; check $? "#307 audit G-B-11 (gpt): when the settings naming the network cannot be cleared, forget refuses before deleting the profile (rc ${RC})" "#307 audit G-B-11: rc ${RC}; printed '$(tr '\n' '|' < "${P7W}/out")'; profile Home: $(grep -c '^Home|' "${P7W}/run/profiles"); wifi.ssid '$(p7wssid)' -- forgotten was said and the settings kept the network"
 p7wset 'Home|802-11-wireless|wlan0|Home Wi-Fi|home-key-1'
 printf 'wifi.ssid=Home Wi-Fi\nwifi.key=home-key-1\n' > "${P7W}/run/settings"; touch "${P7W}/run/ssid-fails"
 p7w forget "Home"
@@ -9222,7 +9226,7 @@ RC=$( ( bwrap --die-with-parent --tmpfs / --tmpfs /usr "${P7USR[@]}" --ro-bind "
     --dev /dev --proc /proc --tmpfs /tmp --setenv PATH /shim:/bbin:/usr/bin:/bin \
     bash /repo/factoryreset retroarch-full > "${P7R}/out" 2>&1; echo $? ) 2>/dev/null )
 chmod 755 "${P7R}/storage/.config/retroarch/stuck"
-[ "${RC}" -ne 0 ] && [ ! -e "${P7R}/storage/.config/retroarch/retroarch" ] && [ "$(tail -1 "${P7R}/out" | sed 's/\x1b\[[0-9;]*m//g')" = "THE DEFAULT SETTINGS COULDN'T BE PUT BACK." ]; check $? "#307 PL-044: a retroarch folder that cannot be removed ends the reset (rc ${RC}) with the sentence, and the defaults are not copied inside it" "#307 PL-044: rc ${RC}; nested copy: $([ -e "${P7R}/storage/.config/retroarch/retroarch" ] && echo yes || echo no); last line: '$(tail -1 "${P7R}/out")'"
+witnessed "${P7W}" && [ "${RC}" -ne 0 ] && [ ! -e "${P7R}/storage/.config/retroarch/retroarch" ] && [ "$(tail -1 "${P7R}/out" | sed 's/\x1b\[[0-9;]*m//g')" = "THE DEFAULT SETTINGS COULDN'T BE PUT BACK." ]; check $? "#307 PL-044: a retroarch folder that cannot be removed ends the reset (rc ${RC}) with the sentence, and the defaults are not copied inside it" "#307 PL-044: rc ${RC}; nested copy: $([ -e "${P7R}/storage/.config/retroarch/retroarch" ] && echo yes || echo no); last line: '$(tail -1 "${P7R}/out")'"
 
 # == PL-046: a file the filter could not replace is not archived raw
 P7E="${P7M}/ev"; P7ES="${P7E}/storage"; mkdir -p "${P7ES}/.cache/log" "${P7ES}/.cache/cloud_sync" "${P7E}/repo" "${P7E}/shim" "${P7E}/etc"
@@ -9236,13 +9240,14 @@ printf '#!/bin/bash\n[ -e /storage/.p7-mv-fails ] && case "$*" in *exec.log.reda
 printf '#!/bin/bash\n[ -e /storage/.p7-rm-fails ] && case "$*" in *"/logs/exec.log"*) echo "rm: I/O error" >&2; exit 1 ;; esac\n[ -x /p7mbb/rm ] && exec /p7mbb/rm "$@"\nexec /usr/bin/rm "$@"\n' > "${P7E}/shim/rm"
 chmod +x "${P7E}/shim"/*
 p7ev() { # <verb>: rocknix-evidence whole; output in $P7E/out, rc in $RC
+    witness_reset "${P7E}"   # #1026
     RC=$( ( bwrap --die-with-parent --tmpfs / --tmpfs /usr "${P7USR[@]}" \
         --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
         "${P7ETC[@]}" --ro-bind "${P7E}/etc/os-release" /etc/os-release --ro-bind "${P7E}/etc/001-functions" /etc/profile.d/001-functions \
         --bind "${P7ES}" /storage --bind "${P7ES}/.cache/log" /var/log --ro-bind "${P7E}/repo" /repo --ro-bind "${P7E}/shim" /shim \
         --ro-bind "${P7M}/bb" /p7mbb "${P7MBB[@]}" \
-        --dev /dev --proc /proc --tmpfs /tmp --tmpfs /run --setenv PATH "/shim:/p7mbb:/usr/bin:/bin" \
-        bash "/repo/${P7EVSCRIPT:-rocknix-evidence}" "$@" > "${P7E}/out" 2>&1; echo $? ) 2>/dev/null )
+        --bind "${P7E}/witness" /witness --dev /dev --proc /proc --tmpfs /tmp --tmpfs /run --setenv PATH "/shim:/p7mbb:/usr/bin:/bin" \
+        bash -c "${WITNESS_EXEC}" "/repo/${P7EVSCRIPT:-rocknix-evidence}" "$@" > "${P7E}/out" 2>&1; echo $? ) 2>/dev/null )
 }
 p7evreset() {
     rm -rf "${P7ES}/.cache/log/evidence"; rm -f "${P7ES}"/.p7-*
@@ -9265,7 +9270,7 @@ p7a=$(p7evarcs | head -1)
 [ -n "${p7a}" ] && absent_in "${p7a}" QA-EV-PLANT && tar -xzOf "${p7a}" --wildcards '*/summary.txt' 2>/dev/null | grep -q '1 left out'; check $? "#307 PL-046: exec.log, whose filtered copy could not be moved into place, is left out -- not archived raw -- and the summary counts it left out" "#307 PL-046: rc ${RC}; archive: ${p7a:-none}; plant in it: $(tar -xzOf "${p7a}" 2>/dev/null | grep -c QA-EV-PLANT); summary: $(tar -xzOf "${p7a}" --wildcards '*/summary.txt' 2>/dev/null | grep 'credential filter:' | tail -1)"
 p7evreset; touch "${P7ES}/.p7-mv-fails" "${P7ES}/.p7-rm-fails"
 p7ev collect
-[ "${RC}" -ne 0 ] && [ -z "$(p7evarcs)" ]; check $? "#307 PL-046: when the raw file can be neither replaced nor removed, no archive is written (rc ${RC})" "#307 PL-046: rc ${RC}; archives: $(p7evarcs | wc -l)"
+witnessed "${P7E}" && [ "${RC}" -ne 0 ] && [ -z "$(p7evarcs)" ]; check $? "#307 PL-046: when the raw file can be neither replaced nor removed, no archive is written (rc ${RC})" "#307 PL-046: rc ${RC}; archives: $(p7evarcs | wc -l)"
 
 # == PL-077 (evidence half): two collections in one second keep two archives
 p7evreset
@@ -11574,7 +11579,7 @@ EOS
 chmod +x "${P7E}/shim/find"
 p7ev collect
 rm -f "${P7E}/shim/find"
-[ "${RC}" -ne 0 ] && [ -z "$(p7evarcs)" ]; check $? "#307 audit G-B-07 (gpt): a filter whose file list cannot be made whole writes no archive (rc ${RC})" "#307 audit G-B-07: rc ${RC}; archives: $(p7evarcs | wc -l); plant in one: $(for a in $(p7evarcs); do tar -xzOf "$a" 2>/dev/null; done | grep -c QA-EV-PLANT)"
+witnessed "${P7E}" && [ "${RC}" -ne 0 ] && [ -z "$(p7evarcs)" ]; check $? "#307 audit G-B-07 (gpt): a filter whose file list cannot be made whole writes no archive (rc ${RC})" "#307 audit G-B-07: rc ${RC}; archives: $(p7evarcs | wc -l); plant in one: $(for a in $(p7evarcs); do tar -xzOf "$a" 2>/dev/null; done | grep -c QA-EV-PLANT)"
 p7evreset; mkdir -p "${P7ES}/.cache/log/evidence/.collect.p7dead/x-evidence/logs"; echo raw > "${P7ES}/.cache/log/evidence/.collect.p7dead/x-evidence/logs/exec.log"
 p7ev collect
 [ "${RC}" -eq 0 ] && [ ! -e "${P7ES}/.cache/log/evidence/.collect.p7dead" ]; check $? "#307 audit G-B-15 (claude): a collection killed before its filter leaves pieces the next collection clears" "#307 audit G-B-15: rc ${RC}; left: $(ls -A "${P7ES}/.cache/log/evidence" | tr '\n' ' ')"
@@ -11925,12 +11930,13 @@ CF3="${CF}/3"; mkdir -p "${CF3}/repo" "${CF3}/fn"
 sed -n '/^function redact_credentials() {/,/^}/p' "${FN}" > "${CF3}/fn/with"
 printf '# no credential filter here\n' > "${CF3}/fn/without"
 cf3() { # <functions file>: the scrub in its sandbox; output to CF3/out, rc in RC
+    witness_reset "${CF3}"   # #1026
     RC=$( ( bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr \
         --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
         --ro-bind /etc /etc --tmpfs /etc/profile.d --ro-bind "$1" /etc/profile.d/001-functions "${CFBB[@]}" \
         --ro-bind "${CF3}/repo" /repo --bind "${CF3}/storage" /storage \
-        --dev /dev --proc /proc --tmpfs /tmp --tmpfs /var --dir /var/log \
-        env PATH="${CFPATH}" bash /repo/cloud_log_scrub > "${CF3}/out" 2>&1; echo $? ) 2>/dev/null )
+        --bind "${CF3}/witness" /witness --dev /dev --proc /proc --tmpfs /tmp --tmpfs /var --dir /var/log \
+        env PATH="${CFPATH}" bash -c "${WITNESS_EXEC}" /repo/cloud_log_scrub > "${CF3}/out" 2>&1; echo $? ) 2>/dev/null )
 }
 CFP="PLANT"; cfv() { printf '%s%s%s' "${CFP}" "$1" "$2"; }   # a planted value: PLANT<name><n>
 CFL="${CF3}/storage/.cache/log"
@@ -12027,7 +12033,7 @@ cf_bad=$(cf3_same_es)
 [ "${RC}" -eq 0 ] && [ -z "${cf_bad}" ] && [ "$(cf3_left | wc -w)" -eq 10 ] && [ "$(head -1 "${CFSTAMP}")" = "scrubbed=1790000000 files=3 lines=6" ] && grep -qE '^es_log_scrubbed=[0-9]+ files=2 lines=3$' "${CFSTAMP}"; check $? "PL-014 (the interface's log): a device whose stamp has only the cloud log's line gets its es_log files scrubbed, the cloud log not read again, and the second line added" "PL-014 (the interface's log): first-version stamp: rc ${RC}; es files not as they should be: ${cf_bad:-none}; planted values left in cloud_sync.log*: $(cf3_left | wc -w) of 10; stamp: '$(tr '\n' '|' < "${CFSTAMP}" 2>/dev/null)'"
 cf3_plant; cf3 "${CF3}/fn/without"
 cf_bad=$(cf3_same)
-[ "${RC}" -ne 0 ] && [ ! -e "${CFSTAMP}" ] && [ -n "${cf_bad}" ] && cmp -s "${CFL}/boot.log" "${CF3}/want/boot.log" && [ "$(cf3_left | wc -w)" -eq 10 ]; check $? "PL-014 (a control, the fix's own guard): without its credential filter it fails closed -- nothing rewritten, no stamp, so the next boot tries again (rc ${RC})" "PL-014: filter missing: rc ${RC}; stamp: $([ -e "${CFSTAMP}" ] && echo written || echo none); left: $(cf3_left)"
+witnessed "${CF3}" && [ "${RC}" -ne 0 ] && [ ! -e "${CFSTAMP}" ] && [ -n "${cf_bad}" ] && cmp -s "${CFL}/boot.log" "${CF3}/want/boot.log" && [ "$(cf3_left | wc -w)" -eq 10 ]; check $? "PL-014 (a control, the fix's own guard): without its credential filter it fails closed -- nothing rewritten, no stamp, so the next boot tries again (rc ${RC})" "PL-014: filter missing: rc ${RC}; stamp: $([ -e "${CFSTAMP}" ] && echo written || echo none); left: $(cf3_left)"
 rm -rf "${CF3}/storage"; mkdir -p "${CF3}/storage/.cache"
 cf3 "${CF3}/fn/with"
 [ "${RC}" -eq 0 ] && [ -s "${CFSTAMP}" ] && [ ! -e "${CFL}" ]; check $? "PL-014: a clean install -- no log folder -- is recorded as done and nothing is made" "PL-014: clean install: rc ${RC}; stamp: '$(cat "${CFSTAMP}" 2>/dev/null)'; log folder: $([ -e "${CFL}" ] && echo made || echo none)"
