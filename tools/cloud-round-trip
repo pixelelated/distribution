@@ -4901,7 +4901,7 @@ def run_contract(p, kind, args):
         p.a.write(p.path(rel), v["HA"])
         touch_offset(p.a, p.path(rel), 3600)
         dry = t.run(p.a, dry=True)
-        guard = "conflict" in dry["out"].lower() or bool(dry["conflicts"])
+        guard = contract_guard(dry)
         # A reconciler refuses the wet run when the guard fires (item 2); the
         # wet run is made only when it does not, so the outcome is recorded.
         r = dry if guard else t.run(p.a)
@@ -6826,6 +6826,14 @@ def finder_cmd(script):
 
 
 # -- the cells --------------------------------------------------------------------------
+
+def contract_guard(dry):
+    """CONTRACT's dry-run guard: a conflict the transport reported in its
+    structured list. The copy arm's banner prints `conflicts [...]` on every
+    dry run and bisync prints "Checking potential conflicts..." on every run,
+    so the word in the output fired the guard with no conflict found (#1063)."""
+    return bool(dry["conflicts"])
+
 
 def kill1_bad(states):
     """KILL1's preservation predicate: the files that are neither v1 nor a
