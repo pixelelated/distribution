@@ -375,3 +375,4 @@
 - **06:57, the coordinator:** (b) for the twelve. Post only on a departure from a run's promise, and once with the twelve-recipe table when the twelfth ends; keep `queue.log` and `00` current after every run.
 - **07:18, final-old-c15050c897:** rc 1 in 1,283 s, 137 / 343 / 659 N/A / 91 SKIP / 2 CANNOT. Promised `a`, fired; `s t x y z ab` N/A; rclone unverified. Load 9.9 at its end (M7's build). No departure.
 - **07:37, final-old-8707919349:** rc 1 in 1,156 s, 214 / 284 / 641 N/A / 91 SKIP / 2 CANNOT. Promised `h n o`, all fired; `t x y z ab` N/A; rclone unverified. No departure.
+- **07:57, final-old-34aca64afd:** rc 1 in 1,217 s, 232 / 266 / 641 N/A / 91 SKIP / 2 CANNOT. Promised `k p`, both fired; `t x y z ab` N/A; rclone unverified. The census shows `qemu=1` at its end: a guest that is not T15's, which runs none. No departure.
