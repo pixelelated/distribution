@@ -178,15 +178,17 @@ def socket_answers(path):
 
 
 def stale_socket(path):
-    """Whether a start may clear path for a socket QEMU binds: True for a
-    socket nobody listens on (a previous QEMU's), False for nothing there.
-    A symlink, a file that is not a socket -- a disk image given as
-    --monitor -- or a socket a running guest still listens on is refused
-    (ValueError) and left as it is."""
+    """Whether a start may clear path for a socket QEMU binds: the socket's
+    identity (st_dev, st_ino) when nobody listens on it (a previous QEMU's),
+    False for nothing there. A symlink, a file that is not a socket -- a disk
+    image given as --monitor -- or a socket a running guest still listens on
+    is refused (ValueError) and left as it is. The identity lets the clear
+    remove only the socket this check judged (#1089)."""
     try:
-        mode = os.lstat(path).st_mode
+        st = os.lstat(path)
     except FileNotFoundError:
         return False
+    mode = st.st_mode
     if stat.S_ISLNK(mode):
         raise ValueError(f"{path} is a symlink; refusing to remove what it points at")
     if not stat.S_ISSOCK(mode):
@@ -199,7 +201,43 @@ def stale_socket(path):
                 "guest, or give this one another --monitor/--serial"
             )
         time.sleep(0.25)
-    return True
+    return (st.st_dev, st.st_ino)
+
+
+def clear_stale_socket(path, identity):
+    """Remove path only if it is still the socket stale_socket judged and
+    still nobody answers: a second launcher that bound a live socket there
+    since the check keeps it, and this start is refused instead (#1089)."""
+    try:
+        st = os.lstat(path)
+    except FileNotFoundError:
+        return
+    if (st.st_dev, st.st_ino) != identity or not stat.S_ISSOCK(st.st_mode) or socket_answers(path):
+        raise ValueError(
+            f"{path} changed after it was checked (another start bound it?); "
+            "refusing to remove it -- give this guest another --monitor/--serial"
+        )
+    os.unlink(path)
+
+
+def pidfile_path(args):
+    """The PID-file path QEMU writes, absolute but not resolved: a symlink
+    there is refused rather than followed to whatever it names, and so is a
+    file that is not a regular one or does not hold a PID (#1089)."""
+    path = Path(os.path.abspath(args.pidfile))
+    try:
+        st = os.lstat(path)
+    except FileNotFoundError:
+        return path
+    if stat.S_ISLNK(st.st_mode):
+        raise ValueError(f"{path} is a symlink; refusing to let QEMU write its PID through it")
+    if not stat.S_ISREG(st.st_mode):
+        raise ValueError(f"{path} exists and is not a regular file; refusing to use it as the PID file")
+    with path.open("rb") as stream:
+        held = stream.read(64).strip()
+    if held and not held.isdigit():
+        raise ValueError(f"{path} exists and does not hold a PID; refusing to overwrite it")
+    return path
 
 
 def prepare_run(profile, args):
@@ -210,9 +248,13 @@ def prepare_run(profile, args):
     never calls this -- it prints, and touches nothing."""
     vars_path, monitor, serial = run_paths(args)
     _, vars_template = find_ovmf_pair(args.ovmf_code, args.ovmf_vars_template)
-    stale = [sock for sock in (monitor, serial) if sock is not None and stale_socket(sock)]
-    for sock in stale:
-        sock.unlink(missing_ok=True)
+    stale = []
+    for sock in (monitor, serial):
+        identity = stale_socket(sock) if sock is not None else False
+        if identity:
+            stale.append((sock, identity))
+    for sock, identity in stale:
+        clear_stale_socket(sock, identity)
     if not vars_path.exists():
         shutil.copyfile(vars_template, vars_path)
 
@@ -295,7 +337,13 @@ def qemu_command(profile, args):
             display_arg = "none"
         vnc_args = ["-vnc", f"127.0.0.1:{args.vnc}"]
         serial_arg = f"unix:{qemu_opt(serial)},server,nowait"
-        pidfile_args = ["-pidfile", str(Path(args.pidfile).resolve())]
+        pidfile = pidfile_path(args)
+        if len({str(monitor), str(serial), str(pidfile)}) != 3:
+            raise ValueError(
+                f"--monitor, --serial and --pidfile must be three different paths: "
+                f"{monitor}, {serial}, {pidfile}"
+            )
+        pidfile_args = ["-pidfile", str(pidfile)]
         for sock in (monitor, serial):
             if len(str(sock).encode()) > 107:
                 raise ValueError(f"unix socket path too long to bind (>107 bytes): {sock}")
