@@ -46,14 +46,19 @@ def check_review_plan(d, milestone, bad, ok):
         require(primary['lab'] not in ('unknown', ''), 'primary model lab is unknown')
         if primary['model'] != 'unknown':
             require(primary['model'].split('/', 1)[0] == primary['lab'], 'primary model and lab disagree')
+        # D-WORKFLOW-184 (#810): a renovation slice whose plan § 6c row says
+        # Local writes an epic-tier folder; it says so in the plan file.
+        tier_exception = bool(depth == 'local' and '-issue-' not in d.name
+                              and plan.get('tier_exception') == 'D-WORKFLOW-184'
+                              and isinstance(plan.get('reason'), str) and plan['reason'].strip())
         if depth == 'local':
-            require('-issue-' in d.name, 'local-only cannot satisfy Epic/Milestone')
+            require('-issue-' in d.name or tier_exception, 'local-only cannot satisfy Epic/Milestone')
         labs, members, outputs = ({primary['lab']}, set(), set())
         for reviewer in reviewers:
             member, model, lab = (reviewer[k] for k in ('member', 'model', 'lab'))
-            require(member in ('claude', 'gpt', 'gemini', 'kimi', 'muse'), 'reviewer is not an installed active member')
+            require(member in ('claude', 'gpt', 'gemini', 'gemini-argon', 'kimi', 'muse'), 'reviewer is not an installed active member')
             require(member not in members and lab not in labs, 'reviewers must be from distinct labs')
-            member_labs = {'claude': 'anthropic', 'gpt': 'openai', 'gemini': 'google',
+            member_labs = {'claude': 'anthropic', 'gpt': 'openai', 'gemini': 'google', 'gemini-argon': 'google',
                            'kimi': 'moonshotai', 'muse': 'meta'}
             require(member_labs[member] == lab, 'reviewer member and lab disagree')
             require(isinstance(model, str) and model.startswith(lab + '/'), 'reviewer model and lab disagree')
@@ -88,16 +93,24 @@ def check_review_plan(d, milestone, bad, ok):
                         'served model differs from review plan')
                 effort = final['effort_verification']
                 require(effort['result'] == 'PASS' and effort['declared'] == reviewer['effort'], 'effort differs from plan or did not verify')
-                if member == 'gpt':
+                if member == 'gemini-argon':
+                    require(model == 'google/gemini-4-argon' and reviewer['effort'] == 'high',
+                            'Argon audit route differs from its installed model/effort')
+                if member in ('gpt', 'gemini-argon'):
                     provider = final['provider_verification']
-                    require(provider['result'] == 'PASS', 'GPT provider pin did not verify')
-                    require(provider['observed_providers'] == ['OpenAI'], 'GPT served outside its OpenAI provider pin')
+                    require(provider['result'] == 'PASS', 'reviewer provider pin did not verify')
+                    expected_provider = 'OpenAI' if member == 'gpt' else 'Google'
+                    require(provider['observed_providers'] == [expected_provider],
+                            'reviewer served outside its installed provider pin')
                 content = output.read_bytes()
                 require(content.strip(), 'empty reviewer output')
                 digest = hashlib.sha256(content).hexdigest()
-                require(receipt['output_file_sha256'] == digest == final['file_artifact_sha256'],
-                        'review output digest differs')
+                require(final['file_artifact_sha256'] == digest, 'review output digest differs')
+                if 'output_file_sha256' in receipt:
+                    require(receipt['output_file_sha256'] == digest, 'legacy output digest differs')
         ok(f'review plan: {depth}, {1 + count} model perspectives, {len(outputs)} verified external calls')
+        if tier_exception:
+            ok(f"review-plan: local at epic tier under D-WORKFLOW-184 ({plan['reason'].strip()})")
     except (OSError, ValueError, KeyError, TypeError, AttributeError, AssertionError) as e:
         bad(f"second-opinions/review-plan.json or its call evidence is invalid: {e or 'contract mismatch'}")
 
