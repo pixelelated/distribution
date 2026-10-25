@@ -3298,7 +3298,11 @@ if grep -q '^#State file' "${U}/repo/setsettings.sh"; then
     sa 0 "" 3 "${USTATES}/${TENNIS}.state3"; is "${DIR}state_slot = \"3\"|savestate_auto_load = \"false\"|savestate_auto_save = \"false\"|" " -e 3"; check $? "a numbered slot with AUTO SAVE/LOAD off: \" -e 3\" still, both auto settings off -- the slot loads, nothing is written at quit" "$(got)"
     sa 1 1 "" "${USTATES}/${TENNIS}.state.auto"; is "${DIR}state_slot = \"-1\"|savestate_auto_load = \"true\"|savestate_auto_save = \"true\"|" ""; check $? "the AUTO SAVE tile (-autosave 1, the .auto file, no slot): auto-load and auto-save on, no state_slot, nothing on stdout" "$(got)"
     sa 0 "" "" "${USTATES}/${TENNIS}.state.auto"; is "${DIR}state_slot = \"-1\"|savestate_auto_load = \"true\"|savestate_auto_save = \"false\"|" ""; check $? "a .auto file with AUTO SAVE/LOAD off: the file alone turns auto-load on (Batocera's rule), the exit auto save stays off" "$(got)"
-    sa 1 1 2 ""; is "${DIR}state_slot = \"2\"|savestate_auto_load = \"true\"|savestate_auto_save = \"true\"|" "" && sa 0 "" "" ""; is "${DIR}savestate_auto_load = \"false\"|savestate_auto_save = \"false\"|" "" && sa 1 0 2 ""; is "${DIR}state_slot = \"2\"|savestate_auto_load = \"false\"|savestate_auto_save = \"false\"|" ""; check $? "without a state file (the fallback's -autosave 1 -state_slot 2; nothing; -autosave 0 -state_slot 2): today's appendconfig lines byte for byte and nothing on stdout" "$(got)"
+    # Three runs, three checks (#1027): joined by ';' only the last 'is' was
+    # read, and it could match what an earlier run had left.
+    sa 1 1 2 ""; is "${DIR}state_slot = \"2\"|savestate_auto_load = \"true\"|savestate_auto_save = \"true\"|" ""; check $? "without a state file, the fallback's -autosave 1 -state_slot 2: today's appendconfig lines byte for byte and nothing on stdout" "$(got)"
+    sa 0 "" "" ""; is "${DIR}savestate_auto_load = \"false\"|savestate_auto_save = \"false\"|" ""; check $? "without a state file, nothing at all: today's appendconfig lines byte for byte and nothing on stdout" "$(got)"
+    sa 1 0 2 ""; is "${DIR}state_slot = \"2\"|savestate_auto_load = \"false\"|savestate_auto_save = \"false\"|" ""; check $? "without a state file, the fallback's -autosave 0 -state_slot 2: today's appendconfig lines byte for byte and nothing on stdout" "$(got)"
     sa 1 0 "" ""; is "${DIR}savestate_auto_load = \"false\"|savestate_auto_save = \"false\"|" ""; check $? "START NEW GAME (-autosave 0 alone): both off, no state_slot, no -e" "$(got)"
     sa 1 "" "" "${USTATES}/${TENNIS}.state3" && [ "$(cat "${U}/sa.out")" = "" ] && sa 1 "" -1 "${USTATES}/${TENNIS}.state3" && [ "$(cat "${U}/sa.out")" = "" ] && sa 1 "" "3; rm -rf x" "${USTATES}/${TENNIS}.state3" && [ "$(cat "${U}/sa.out")" = "" ]; check $? "a slot that is not a number (none, -1, \"3; rm -rf x\") gets no -e: the fragment is eval'd inside RetroArch's command line" "stdout: [$(cat "${U}/sa.out")]"
     SPLICE='RUNTHIS=$(echo ${RUNTHIS} | sed "s|--config|${EXTRAOPTS} --config|")'
@@ -3308,8 +3312,10 @@ if grep -q '^#State file' "${U}/repo/setsettings.sh"; then
     # The fragment carries its leading space, like --host's, so the splice leaves two before it; eval collapses them.
     [[ "$(printf '%s' "${RUNTHIS}" | tr -s ' ')" == *'_libretro.so -e 3 --config ${RETROARCH_TEMP_CONFIG}'* ]]; check $? "spliced, the RetroArch command reads ... _libretro.so -e 3 --config ..." "RUNTHIS: ${RUNTHIS}"
     RUNTHIS='${EMUPERF} /usr/bin/${RABIN} -L /tmp/cores/${CORE}_libretro.so --config ${RETROARCH_TEMP_CONFIG} --appendconfig ${RETROARCH_APPEND_CONFIG} "${ROMNAME}"'
-    sa 1 1 2 ""; EXTRAOPTS=$(cat "${U}/sa.out"); eval "${SPLICE}"
-    [[ "${RUNTHIS}" != *" -e "* ]] && [[ "${RUNTHIS}" == *'_libretro.so'*'--config ${RETROARCH_TEMP_CONFIG}'* ]]; check $? "and without a state file no -e is spliced" "RUNTHIS: ${RUNTHIS}"
+    # set_autosave must have run and written its lines before the absence of
+    # -e means anything (#1027): a failed run prints nothing, which passed.
+    sa 1 1 2 ""; sa_rc=$?; EXTRAOPTS=$(cat "${U}/sa.out"); eval "${SPLICE}"
+    [ "${sa_rc}" -eq 0 ] && is "${DIR}state_slot = \"2\"|savestate_auto_load = \"true\"|savestate_auto_save = \"true\"|" "" && [[ "${RUNTHIS}" != *" -e "* ]] && [[ "${RUNTHIS}" == *'_libretro.so'*'--config ${RETROARCH_TEMP_CONFIG}'* ]]; check $? "and without a state file no -e is spliced" "set_autosave rc ${sa_rc}; $(got); RUNTHIS: ${RUNTHIS}"
 else
     check 1 "" "setsettings.sh has no --state_file= parser and set_autosave knows no state file (#196)"
 fi
