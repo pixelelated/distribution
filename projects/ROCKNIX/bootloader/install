@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0
-# Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)
+# Copyright (C) 2026-present pixelelated (https://github.com/pixelelated)
 
 # The image step's bootloader installer, sourced by scripts/image:280
 # for the three loaders the devices use; any other BOOTLOADER is refused.
@@ -31,14 +31,12 @@ case "${BOOTLOADER}" in
     ;;
     
   qcom-abl|arm-efi)
-    # Written into the boot partition at image time, not staged into the
-    # filesystem here: scripts/mkimage generates the config for both, and
-    # projects/ROCKNIX/bootloader/mkimage's mkimage_abl() mcopies the
-    # rocknix_abl binary in. There is nothing under /usr/share for this
-    # script to copy, which is why the generic fallback below reported
-    # every Qualcomm build as an unknown bootloader with missing files --
-    # two warnings, on five targets, for a step that had already been
-    # done correctly somewhere else.
+    # Nothing to copy here: the device's own packages stage these loaders
+    # under /usr/share/bootloader (rocknix-abl's rocknix_abl/; for arm-efi,
+    # the kernel's device trees and the grub package's EFI/BOOT), scripts/mkimage generates the boot
+    # configuration, and projects/ROCKNIX/bootloader/mkimage's mkimage_abl()
+    # copies rocknix_abl onto the boot partition at image time. release then
+    # carries the staged files into the release directory.
     echo "install: ${BOOTLOADER} is written into the boot partition at image time"
     echo "install: skipping generic bootloader installation for ${BOOTLOADER}"
     ;;
