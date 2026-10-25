@@ -109,6 +109,8 @@ today:** `.githooks/pre-commit` refuses a conflict marker (#696).
 
 **10:2x UTC (2026-10-25):** **T25 accepted** at `68dc79793f` (report `accept-t25.out`; #672 13 of 14, #1102 closed 5 of 5; errata `418203399c`; close-out prompted to the T5 session, then idle for T28). T22's second window running since 10:14 (mirror armed); on its RETURN: the ruling on PL-01, the stream brief `t22-streams.md` (`7c64407e62`) posted, the lane's bugs, stage E. T28's proof pending → version 2 → worktree `m6-device-sm8550-675` (cut from `2174265e9c`, merge, pointer `$S/t28-pointer.md`), body (17 criteria), dispatch (`$S/t28-dispatch.md`) to the first idle session (T5, idle since T25's close-out at `9b9be6a948`).
 
+**10:3x UTC (2026-10-25):** **T28 (#675) dispatched 10:31** to the T5 session: worktree `/workspace/repos/pixelelated/distribution.worktrees/m6-device-sm8550-675`, branch `feature/m6-device-sm8550-675`, lane tip `458e2bfda1` (P1's `2174265e9c` with the coordinator's `5f4430f676` merged at `4beb95adf6`), brief v2 `5f4430f676` (Independent, one seat; no guest); acceptance via `$S/t28-accept.sh` (rewritten from T27's with SM8550's figures; `AUDIT_ISSUE`, `DISPATCH_TIP=458e2bfda1`). T22 at stage E (S3 then S1 under `t22-streams.md` `a6e7a12ad6`; bugs #1105-#1107; `05` holds the 12 #585 lines and the #346 root-surfaces sentence for the coordinator to post at acceptance; PL-20's rule edit in `generic-x64-vm-testing.md` at acceptance). Pending the maintainer on #346: the dead-code class (three halves), the serial debug shell, busybox's setuid applets, the root-surfaces list. T15's queue still running in the T3 session.
+
 ## Next commands
 
 ```bash
