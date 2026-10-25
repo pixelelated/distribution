@@ -522,15 +522,15 @@ time) and the line that decides it. Summary, as the generator printed it:
 - **The pin:** 1.36.1 (`busybox/package.mk:7`), fetched over **plain http** (`:11`). Upstream at `651150fc88`: **1.38.0 over https**, with seven patches: six A (`0001`-`0006`, `0006-prevent-root-weak-passwd` among them) and one R (`busybox-10-...MS_BIND` -> `0010`, R056), renames of the override's own `busybox-0X-*.patch`. The generic LibreELEC recipe's 1.38.0 is shadowed (#997, T14's).
 - **On the image:** `/usr/bin/busybox`, **mode 4755, owner root**, the only setuid file in `/bin /usr/bin /sbin /usr/sbin` (guest s4). The mode is set at `busybox/package.mk:177` (the fakeroot script) and `:209`. `CONFIG_FEATURE_SUID=y` (`:30`) makes busybox drop or keep privilege per applet.
 
-| Applet | Config line | On the image (guest s4) | Caller in the tree (`22`) |
-| --- | --- | --- | --- |
-| `su` | `CONFIG_SU=y` `:556` | applet, `/usr/bin/su` | **none** |
-| `login` | `CONFIG_LOGIN=y` `:549` | applet, `/usr/bin/login` | **none** (six prose hits) |
-| `passwd` | `CONFIG_PASSWD=y` `:554` | applet, `/usr/bin/passwd` | **none** (one `smb.conf` setting) |
-| `httpd` + CGI | `:888`, `:894` | applet, `/usr/sbin/httpd`; `/etc/httpd.conf` and `/usr/www` installed (`package.mk:143`, `:162-166`) | **none** |
-| `nc` | `:950` | applet | 3: `easyrpg.sh:53`, `freej2me.sh:24` (connectivity probes), `rocknix-fake-suspend:53` |
-| `udhcpd` | `:1010` | applet | 1: `usbgadget:238` |
-| `evtest` | (the fork's applet, `sources/console-tools/evtest.c`) | in the initramfs busybox | `scripts/init:528` |
+| Applet | Config line | On the image (guest s4) | Caller in the tree (`22`) | proved |
+| --- | --- | --- | --- | --- |
+| `su` | `CONFIG_SU=y` `:556` | applet, `/usr/bin/su` | **none** | guest (s4); tree (`22`) |
+| `login` | `CONFIG_LOGIN=y` `:549` | applet, `/usr/bin/login` | **none** (six prose hits) | guest (s4); tree (`22`) |
+| `passwd` | `CONFIG_PASSWD=y` `:554` | applet, `/usr/bin/passwd` | **none** (one `smb.conf` setting) | guest (s4); tree (`22`) |
+| `httpd` + CGI | `:888`, `:894` | applet, `/usr/sbin/httpd`; `/etc/httpd.conf` and `/usr/www` installed (`package.mk:143`, `:162-166`) | **none** | guest (s4); tree (`22`) |
+| `nc` | `:950` | applet | 3: `easyrpg.sh:53`, `freej2me.sh:24` (connectivity probes), `rocknix-fake-suspend:53` | guest (s4); tree (`22`) |
+| `udhcpd` | `:1010` | applet | 1: `usbgadget:238` | guest (s4); tree (`22`) |
+| `evtest` | (the fork's applet, `sources/console-tools/evtest.c`) | in the initramfs busybox | `scripts/init:528` | tree |
 
 ## The upstream delta
 
@@ -679,7 +679,7 @@ The leads stage B carries to the analysis (`04`). Each has the line that shows i
 
 | # | Lead | The line(s) | At `651150fc88` | proved |
 | --- | --- | --- | --- | --- |
-| L-01 | The custom autostart loop runs `/storage/.config/autostart/*` as root with no `-f` test and `${script}` unquoted: a non-executable file or a directory errors into the journal, and a name with a space runs a different file with an argument | `autostart:71-77`; guest s5 | stands | guest |
+| L-01 | The custom autostart loop runs `/storage/.config/autostart/*` as root with no `-f` test and `${script}` unquoted: a non-executable file or a directory errors into the journal, and a name with a space runs a different file with an argument. The `common` loop (`:50-53`) has the same shape over the image's own files; the platform, device and `HW_DEVICE` loops test `-f` and quote | `autostart:71-77` (`:76`); guest s5 | stands | guest |
 | L-02 | `/etc/profile` sources `/storage/.config/profile.d/*` into every root service that loads it (`rocknix-autostart`, `powerstate`, `network-base-setup`, the five sensing scripts); guarded by `-f`, `. ${CONFIG}` unquoted | `busybox/config/profile:13-23` | stands | tree |
 | L-03 | `shell.service`: an unauthenticated root shell on tty1, only when booted with `textmode` on the kernel command line; no register row (`tools/archaeology shell.service tty1`: nothing in the register, blindspots, logs or rules) | `shell.service`; `scripts/init:1215-1216`; guest s3 | same | guest |
 | L-04 | busybox is setuid root with `su`, `login`, `passwd` and `httpd`+CGI enabled and linked, and nothing in the tree calls them | `busybox/package.mk:177,209`; `busybox-target.conf:30,549,554,556,888,894`; `22`; guest s4 | the flags are unchanged; the pin moves to 1.38.0 | guest |

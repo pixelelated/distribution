@@ -1,0 +1,506 @@
+{
+  "sources": [
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-os-system-services/02-forward-audit.md",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "45699e483d197111c03f3d7f3284a7cc54b0f25fa8532fe1391569ba53d05307",
+      "bytes": 143477
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-os-system-services/03-retrospective.md",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "af5e096a742dc158275afdb04f3bea632cc26590bd8834ef7f38e65edcedca6b",
+      "bytes": 7405
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-os-system-services/04-analysis.md",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "a579005d203005fdfbcd9aba887db537b7a688deca7b79864c0cf4c1de54ede0",
+      "bytes": 15441
+    },
+    {
+      "path": "docs/reviews/order.md \u00a7 T22",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "1806e69641599bf2db268326211fb634cff209f24a0f7833728ba36d0cd63124",
+      "bytes": 1513
+    },
+    {
+      "path": "the brief \u00a7 2 Scope",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "3213245fb2aae4be2b0d205eeba835f173b7412c424f96ae0b1b226475ae65e0",
+      "bytes": 9630
+    },
+    {
+      "path": "the brief \u00a7 4 The questions",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "432248c8c35d49480e8b61f17d7ad0d4ad825cfdfd8a777b498b6cf8e1d47a31",
+      "bytes": 3066
+    },
+    {
+      "path": "docs/decision-register.md: the rows the brief names (D-CLOUD-064, D-CLOUD-072, D-CLOUD-078, D-CLOUD-079, D-CLOUD-080, D-CLOUD-082, D-CLOUD-147, D-INFRA-011, D-INFRA-012, D-INFRA-013, D-NET-001, D-NET-002, D-NET-003, D-NET-004, D-NET-005, D-NET-006, D-NET-009, D-QA-042, D-QA-053, D-QA-063, D-SYS-002, D-SYS-003, D-SYS-006, D-SYS-008, D-SYS-009, D-UI-121, D-WORKFLOW-083, D-WORKFLOW-184, D-WORKFLOW-195, D-WORKFLOW-209)",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "0781b90c2375dde93fe7fd217d7854d23a06fdf1af521c2bc760ed9e9b883364",
+      "bytes": 30276
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/autostart/sources/autostart",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "7f8671aa1bb9239a193f84e667d55e169f983bcb015d98c345b60d0b80a77639",
+      "bytes": 2168
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/autostart/profile.d/002-autostart",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "14baa179ae2f905017f324b466d2f08aefc0a27ab4ee36131378407e2f343cbf",
+      "bytes": 443
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/systemd/scripts/userconfig-setup",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "4c7b210984988bf1faea69f01f68b3c527a1650424b4e6e408c534f13fe9eab0",
+      "bytes": 3742
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/system-utils/package.mk",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "64ee8173dedf8302a1d939e7c299b1eb8a2ee1731d4cee638ce54845c9a28a8e",
+      "bytes": 1589
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/package.mk",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "b2d761837e5abfe86cad4848289d893c0966eaca99e3018523b78bf6ca6b7167",
+      "bytes": 809
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/busybox/package.mk",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "a4e1e75fad75a785e773f3aa05556026014ccf95cd2fef50a572ccf80a9a87b5",
+      "bytes": 7870
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/busybox/scripts/init",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "7db8933435437d0c392131eb852d5e61e5fc810f6ad07f1e67622ee9cb26dfa1",
+      "bytes": 39738
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/busybox/config/profile",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "66019fab58aab9b05c1288afb399efd9d20a93504b3955718cb5282965455757",
+      "bytes": 556
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/system-utils/sources/autostart/common/098-deviceutils",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "5e125daf6216ec729aff59648eaac2389fd10d2512c72cd07c4393f19a9116c5",
+      "bytes": 867
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/system.d/led-poweroff.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "ca9b0db4b36f1b24b4f1bffbd91ab7de57c13e8b7f90fdd185182dd654fe1fb1",
+      "bytes": 220
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/system.d/volume-fixup.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "66714321a127a83125a8c8afdb7b0dae7ace4ed952caf9abc6a414560e0d84a1",
+      "bytes": 247
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/autostart/system.d/rocknix-autostart.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "944ab66f9cd7c23664e23c18ec7ac78226928f4c295bd7507ccc18e97e130507",
+      "bytes": 327
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/busybox/system.d.opt/cron-defaults.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "8c87216ce68d008fbec3fcf88df6001d6b948ba1f568de9a42c7c330f63719e1",
+      "bytes": 301
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/busybox/system.d.opt/cron.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "f038960c5c9934597daa1f1a4b9d3ae38eb52765ed0d4be473a9e492f20bc682",
+      "bytes": 317
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/busybox/system.d/fs-resize.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "2cc5d8c6ba6c5acf32671e6c821e8775104dfd969037939228c3c950fa703f38",
+      "bytes": 179
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/busybox/system.d/fs-resize.target",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "c2c1b96de42ca55aeeadc4d10a1ae0768132aeb2fc84a7db0e6dac373387c126",
+      "bytes": 104
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/busybox/system.d/proc-sys-fs-binfmt_misc.mount",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "d943983b5989e9519960a6f35a619c4cde0672f492ff13359dce6853faf2e022",
+      "bytes": 713
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/busybox/system.d/shell.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "f0e494011d4602af8d068358f7872e7fa70aab8cda27889adbaebd7b86f7293a",
+      "bytes": 436
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/busybox/system.d/show-version.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "51aaff2bed8db734c0d0e1fe02edbcaffe17bd47addb54498131b3b20ff36f84",
+      "bytes": 223
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/busybox/system.d/storage-log.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "13e8f81bea5aad98ba1a55bbcb6c3802c815fdf1d93dcd418a4bf35818fd8650",
+      "bytes": 449
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/busybox/system.d/textmode.target",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "b6bbad2431b14b5cfbfb6cc0a9a23f4a7741a8bf56ef77fdf98463a15b55d3e4",
+      "bytes": 120
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/busybox/system.d/var-log.mount",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "fd09b5b22117b4aba84f699ba6a31ee9f1f0b90fb03eacc351300cf7b35cd2ed",
+      "bytes": 1031
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/busybox/system.d/var.mount",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "4ff08e30615ffd1e0062f546cd4685bfa82194d13549e9cf76873bbfe966f477",
+      "bytes": 572
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/powerstate/system.d/powerstate.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "270634e6c161b3b9e2eb905b8877d48678f6cb99f9e849310b95c4d3807d0b22",
+      "bytes": 692
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/system-utils/system.d/batteryledstatus.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "fcdc071c11e291142581abe3b5711912acd9958868ae80e6577e5eae4a1314ec",
+      "bytes": 240
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/system-utils/system.d/fancontrol.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "0e9dfd354ba53a879d5e54f9ecf962f9d2fee8fbd17464b049774fa61f2dbd44",
+      "bytes": 192
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/system-utils/system.d/headphones.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "109d4a89c71ad3d1f9fab4aac624033cca7a8f4f8360fd5048314b15bf9ff21b",
+      "bytes": 209
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/system-utils/system.d/input.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "bbaea766e04304101760c26f064884a9b9d2cc9dc7fc2364a619c7006a3dc5be",
+      "bytes": 246
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/system-utils/system.d/video.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "86aa346e27231e3935f1b29decea5e54d948fbce32016c02837abc432e488926",
+      "bytes": 178
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/systemd/system.d/debugconfig.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "991b4c422f22babfa4953e7cadc86666baf6a15f7d407c0076d19b711d7ea7b8",
+      "bytes": 339
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/systemd/system.d/machine-id.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "d7d555f1795dee3912ad394e89cf70bd18d60715cc6992500e758a157e5b026c",
+      "bytes": 291
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/systemd/system.d/network-base.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "bf5c6bfa4dce795f50f33eb9882cfcbe578192fbd6629b6fb698eb63b1cb5989",
+      "bytes": 849
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/systemd/system.d/systemd-timesyncd-setup.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "39ff7f6bbdb641c8752d0b25664868d7751497386c76f5d7542062e1a11202a5",
+      "bytes": 255
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/systemd/system.d/usercache.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "5901f4857f1b97094968c955317119a839d5e5438a78c3548f8a39b114a0fa56",
+      "bytes": 257
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/systemd/system.d/userconfig.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "4455eb99885c77c183560240bf2549d04353732c772c93e0f92dd184780bd6ef",
+      "bytes": 298
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/udevil/system.d/udevil-mount@.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "b02218fc985117c4504a34b98569fb0d5a5415d3b87032f2b71809f6b646f82e",
+      "bytes": 283
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/util-linux/system.d/fstrim.service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "4e6d222fe0d5676fc2d245e88f0897206ace670617fe4b3e702fb72cf24b3975",
+      "bytes": 201
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/util-linux/system.d/fstrim.timer",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "c88de7ebbac1571a2809e931f7f397ec2ed6ec775a392a8f1fb53f884dcf153c",
+      "bytes": 145
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/platforms/GENERIC_X64/090-ui_service",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "9337589b7d3b9d0a6f0ae811ed0483db642e9be6b499859276795088338bb55a",
+      "bytes": 252
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/platforms/GENERIC_X64/091-ui_shader",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "44afdf176f592407204b56c4f28e7385a3647c051b7c9f9ebf509a2867fbdffc",
+      "bytes": 220
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/platforms/GENERIC_X64/092-retroarch-surface",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "c8f64e7aaedeaef11612c9180a6801dc87ecacdb1df286322f70815679c3510f",
+      "bytes": 5256
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/platforms/GENERIC_X64/095-cloud-ssh",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "8cd505ec15a2d6645739aa542b3161ac9f99216c897e6c2dbb7155bd609a293c",
+      "bytes": 3182
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/platforms/GENERIC_X64/097-retired-rescue-masks",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "2196c4d218f319b3aeb8b2b8127196ffcdf6f0d0c1ef914865643abb27c1298e",
+      "bytes": 2139
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/profile.d/999-export",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "3708af2b1786d8899854cf28fbb182ca634363cbb5d70c9e047ea5c4f9794541",
+      "bytes": 1636
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/busybox/sysctl.d/99-coredump.conf",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "2d500e11dcbb779d6890af05235310541f3ebb6e5b27f44a0720270516b148ac",
+      "bytes": 290
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/busybox/sysctl.d/hang-policy.conf",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "0b74556c60efa32a70d8745e97ee841cbfae388469b90958a3cc8f20ba15c84a",
+      "bytes": 927
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/nvtop/package.mk",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "51a779246063cc51007fb3179dd7db541873cd760a2205dbead7cfc2cea81eb4",
+      "bytes": 1597
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/powerstate/sources/powerstate.sh",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "97a7833a40107cefe93736337aba619160c917566541e88ed1f468bcdc48d174",
+      "bytes": 2762
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/system-utils/sources/devices/GENERIC_X64/video_sense",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "7f0b4dcda87c4c4920c080f2487ad3bf45e7706f4e49bf2eb68921cf5e8256d3",
+      "bytes": 612
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/system-utils/sources/scripts/input_sense",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "94dbf59c9fbda1a6a3723caa2321aeabb3ad6fee4fd7132f82c62161cc4e094d",
+      "bytes": 20698
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/systemd/config/sysctl.d/rocknix.conf",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "f0e957edaa0f6da319cf7b1052eadf330aaf93f30f69513c722ba111ab7b994b",
+      "bytes": 72
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/systemd/config/system.conf.d/20-watchdog.conf",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "67cf6e8f38f8bc2b3b8d6a192625718a782ce2e6b65042282e04ae4a9d4c83cf",
+      "bytes": 820
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/systemd/package.mk",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "06aad226fd1e6ac5bd55f7cde48d8925d5f1f9a557ada41779ce8aac0053e5db",
+      "bytes": 14449
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/systemd/scripts/network-base-setup",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "b2460284fb7af22bd2dc7f37c49dfd5b86041cfa757c52699a3d55b1d6d13328",
+      "bytes": 7234
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/systemd/system.d/systemd-pstore.service.d/rocknix.conf",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "70f8a6fbc8fdb94af1522babbacb7d6768f387be2e44ab45c2061c25cf291d85",
+      "bytes": 454
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/systemd/tmpfiles.d/z_01_rocknix.conf",
+      "ref": "8ebaf8daad",
+      "kind": "file under review",
+      "sha256": "308b22df0aaefe15a1b361529ed557f9b40c8d1a5268bef37662ac4421e14d01",
+      "bytes": 680
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/busybox/config/busybox-target.conf",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "lines": [
+        [
+          28,
+          32
+        ],
+        [
+          547,
+          558
+        ],
+        [
+          886,
+          896
+        ],
+        [
+          948,
+          952
+        ],
+        [
+          1008,
+          1012
+        ]
+      ],
+      "sha256": "0d10a6490bf549447ecf9c97058c9e1314dce773b22fce6ed80c02befcbbc38f",
+      "bytes": 33612
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/udevil/config/udevil.conf",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "lines": [
+        [
+          200,
+          245
+        ]
+      ],
+      "sha256": "35fe84dcbd8afaf0b748b5d9d1b8f8288d4b1ec9f2fecec88c963371af476aa1",
+      "bytes": 18138
+    }
+  ],
+  "built_by": "docs/audits/2026_10_25-epic-m6-os-system-services/tools/t22-packet.py",
+  "added_beyond_the_brief_list": [
+    "projects/ROCKNIX/packages/sysutils/busybox/config/profile",
+    "projects/ROCKNIX/packages/sysutils/system-utils/sources/autostart/common/098-deviceutils",
+    "projects/ROCKNIX/packages/sysutils/udevil/config/udevil.conf (lines 200-245)"
+  ],
+  "redactions": [],
+  "register_rows_missing": [],
+  "packet_body_sha256": "7e39fdafadcf7cc32b43a85dd8d89b145d089b25a3494ae49022985c9b214e51",
+  "packet_body_bytes": 379978,
+  "files_whole": 56,
+  "excerpts": 2,
+  "scan": {
+    "forbidden_terms_check_stdin": "0 hits (rc 0)",
+    "pre_commit_secret_patterns": "0 lines (.githooks/secret-patterns)",
+    "t10_widened_secret_patterns": "0 lines (git show feature/m6-tooling-guards-657:.githooks/secret-patterns)",
+    "scanned": "2026-10-25, the packet body before any brief was written",
+    "result": "clean; no redaction needed"
+  }
+}
