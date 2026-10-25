@@ -1,11 +1,9 @@
 # Brief: M6.P2 T28, the SM8550 device (Retroid Pocket Nova) (#675)
 
-**Version 1, 2026-10-25, the coordinator's** (D-WORKFLOW-189). Written from a
-read-only research digest taken at `2174265e9c` (P1's tip; for these paths
+**Version 2, 2026-10-25, the coordinator's** (D-WORKFLOW-189; version 1 the same day, corrected by a stranger's proof -- fifteen corrections, listed at the end). Written from a read-only research digest taken at `2174265e9c` (P1's tip; for these paths
 the same bytes as `next` at `8ebaf8daad` and as the `20261001` base
 `c445081a59`: the directory is identical at all three) and from T27's brief,
-the model device slice. A stranger's proof runs before dispatch; version 2
-records what it found. Every number below was pasted from a command's
+the model device slice. The stranger's proof of version 1 ran before dispatch (ten commands, from the scratch clone); this version records what it found. Every number below was pasted from a command's
 output at the hash named beside it; the lane re-derives each one and writes
 the delta where it differs.
 
@@ -47,9 +45,7 @@ the delta where it differs.
   for an upstream-carried unit** (D-WORKFLOW-209).
 - **One worktree, one session.** Branch `feature/m6-device-sm8550-675` at
   `/workspace/repos/pixelelated/distribution.worktrees/m6-device-sm8550-675`,
-  created by the coordinator, **stacked on `feature/m6-p1-survey-641` at
-  `2174265e9c`** with the coordinator's tip merged in (D-WORKFLOW-209, the
-  device briefs and T27's errata live only there) and the lane's pointer
+  created by the coordinator, **stacked on `feature/m6-p1-survey-641` at `2174265e9c`** (`docs/reviews/{order.md,slices.json,inventory.json,status.md}` are there and on no other branch) with the coordinator's tip merged in (D-WORKFLOW-209, the device briefs, the devices futro and T27's errata live only there) and the lane's pointer
   seeded; the two hashes are in the dispatch comment on #675. Until that
   comment exists the pointer is not seeded, the first command's `cat`
   fails, and nothing starts. The session is whichever of the T1 and T3
@@ -141,13 +137,13 @@ cited by path.
 | Unit | Recipe (outside the slice) | At `8ebaf8daad` | At `651150fc88` | Set by |
 | --- | --- | --- | --- | --- |
 | `qcom-abl` (`options:34 BOOTLOADER="qcom-abl"`) | `projects/ROCKNIX/packages/tools/qcom-abl/package.mk` (11 lines, a meta recipe) | `PKG_VERSION="1.0"`, `PKG_URL=""`, no sha | identical | `7a656ea09d` 2026-01-29 |
-| `rocknix-abl` (`options:66 ADDITIONAL_PACKAGES`) | `projects/ROCKNIX/packages/tools/rocknix-abl/package.mk` (18 lines) | `1.2`, sha `64034fb076ea...4cff7`, `github.com/ROCKNIX/abl/releases/download/v1.2/`; installs `usr/share/bootloader/rocknix_abl/abl_signed-${DEVICE}.elf` | **absent** -- replaced by `openabl` 1.2 (`71d8932b33` 2026-10-14) | `b354bfe6d6` 2026-09-30 |
+| `rocknix-abl` (`options:66 ADDITIONAL_PACKAGES`) | `projects/ROCKNIX/packages/tools/rocknix-abl/package.mk` (18 lines) | `1.2`, sha `64034fb076ea...4cff7`, `github.com/ROCKNIX/abl/releases/download/v1.2/`; installs `usr/share/bootloader/rocknix_abl/abl_signed-${DEVICE}.elf` | **absent** -- replaced by `openabl` (`1.0` at `71d8932b33` 2026-10-14, `1.1` at `a5d0dd4d57`, `1.2` at `73ffb8ee37` 2026-10-24) | the version by `b354bfe6d6` 2026-09-30; **the sha by the fork's `9aa7affee9`** (blitterbot, 2026-10-15, #600, mirroring upstream's `15123b2951`) -- a fork identity on one pin recipe, outside the slice |
 | the kernel | `projects/ROCKNIX/packages/linux/package.mk:29-35` (`H700|SM4450|SM6115|SM8250|SM8550|SM8650|SM8750)`) | `7.2`, sha `f9fef3d14c0d...402b3` | identical | the case line's commit |
-| `mkbootimg` (the fork's host tool, `package.mk:19` for `SM*`) | `projects/ROCKNIX/packages/tools/mkbootimg/package.mk` | `d2bb0af5ba6d3198a3e99529c97eda1be0b5a093`, sha `418bb875...` | **deleted** (`cafbb1657d`) | `7a656ea09d` |
+| `mkbootimg` (the fork's host tool, `package.mk:19` for `SM*`) | `projects/ROCKNIX/packages/tools/mkbootimg/package.mk` | `d2bb0af5ba6d3198a3e99529c97eda1be0b5a093`, sha `418bb875...` | **deleted** (`cafbb1657d`) | `7a656ea09d` (the sha by `e0a68c95bd`) |
 | `extra-firmware` (`options:63 FIRMWARE`) | `projects/ROCKNIX/packages/linux-firmware/extra-firmware/package.mk` (`:20 "SM8550") cp -a SM8550/*`) | `88b363e67d4f730feb2c3124724d26dfaa88ce76` | `925dfb5efbe5d6c3ca654f81e3e1f367f8492777` (**differs**) | `675c364c6d` 2026-09-13 |
 | `kernel-firmware` (the ROCKNIX override) | `projects/ROCKNIX/packages/linux-firmware/kernel-firmware/package.mk` | `20260309` | identical (the generic `packages/linux-firmware/kernel-firmware` is `20260622` at both: the override is three months behind -- cite, outside the slice) | (the lane reads) |
-| `inputplumber` (`options:66`) | its recipe | `v0.79.0`, a prebuilt tarball | `0.82.0`, built from source (**differs**) | (the lane reads) |
-| `gamepadcalibration` (`options:66`) | its recipe | `2077e7af7e...` | identical | (the lane reads) |
+| `inputplumber` (`options:66`) | `projects/ROCKNIX/packages/tools/inputplumber/package.mk` | `v0.79.0`, a prebuilt tarball | `0.82.0`, built from source (**differs**) | (the lane reads) |
+| `gamepadcalibration` (`options:66`) | `projects/ROCKNIX/packages/tools/gamepadcalibration/package.mk` | `2077e7af7e...` | identical | (the lane reads) |
 
 `CANNOT (no network)` for every author's current release: that check is
 `tools/fork-package-freshness`'s at the RC (D-WORKFLOW-024) and is named,
@@ -162,23 +158,15 @@ versions, `CC_HAS_COUNTED_BY_PTR=y` against `# INPUT_POLLDEV is not set`,
 upstream's four since (`dcafa74090` 10-22, `6fbefc45c6` 10-18,
 `5f56cd5150` 10-04, `c0980b2b71` 10-02 -- the same four as H700's); added
 whole by `9f1fab30f6` (2025-07-13, +8,154); tier `vendor-carried`, no
-*fork-written* note. Its distance from the other Qualcomm configurations
-at `8ebaf8daad` (removed / added): SM8650 35 / 41, SM8750 104 / 81,
-SM6115 132 / 228, SM4450 188 / 229, SM8250 203 / 369 -- a Q5 fact, not a
-proposal.
+*fork-written* note. Its distance from the other Qualcomm configurations at `8ebaf8daad` (`diff <(git show 8ebaf8daad:<this conf>) <(git show 8ebaf8daad:<other conf>) | grep -c '^<'` and `'^>'`: removed / added): SM8650 36 / 41, SM8750 105 / 81, SM6115 133 / 228, SM4450 189 / 229, SM8250 204 / 371 -- a Q5 fact, not a proposal. (The T41 rows' lines sum to 29,508 in the inventory against 29,507 by `wc -l`: one patch without a trailing newline.)
 
-**The loader and the tree (the boot path at `8ebaf8daad`).** The kernel
-recipe's `qcom-abl` branch (`projects/ROCKNIX/packages/linux/package.mk:385-401`)
-gzips the Image, **appends every built dtb into `kernel.gz`** (`:389-393`),
+**The loader and the tree (the boot path at `8ebaf8daad`).** The kernel recipe's `qcom-abl` branch (`projects/ROCKNIX/packages/linux/package.mk:387-404`, the body `:389-403`) gzips the Image, **appends every built dtb into `kernel.gz`** (`:392-396`),
 adds a dummy ramdisk and runs `mkbootimg.py` with the LABEL command line
-into `.image/Image`; `scripts/mkimage:257-266` is the `qcom-abl` branch
-(T27's erratum: `:22-26` computes `DISK_SIZE`), sourcing
+into `.image/Image`; `scripts/mkimage:257-266` is the `qcom-abl` branch (T27's erratum: `:21-23` computes `DISK_SIZE`), sourcing
 `projects/ROCKNIX/bootloader/mkimage`, whose `mkimage_all`
 (`distributions/ROCKNIX/config/functions:384-400`) runs the `config.xml`
 steps -- for SM8550 **only `mkimage_abl`** (`bootloader/mkimage:108-111`,
-which mcopies `rocknix_abl`); the `mkimage_uboot` branch naming *"SM8750,
-SM8650 & SM8550"* (`bootloader/mkimage:22-26`, `rocknix-u-boot.img`) has
-no producer and is gone upstream. `config.xml:130-145` (`<SM8550
+which mcopies `rocknix_abl`); the `mkimage_uboot` branch naming *"SM8750, SM8650 & SM8550"* (`bootloader/mkimage:22-26`, `rocknix-u-boot.img`) has no producer and is gone upstream; `mkimage_dtb()`'s `SM8550|...)` case (`bootloader/mkimage:81-83`, copying `3rdparty/bootloader/boot`) is a second SM8550-naming branch for Q1 and Q6 to read. `config.xml:130-145` (`<SM8550
 mkimage_options="abl" dtb_prefix="qcom">`) lists **14 `<file>` entries =
 all fourteen `.dts`, the Nova's included**; no tree carries a
 `rocknix-dt-id`, and how the ABL selects the Nova's tree from the fourteen
@@ -192,14 +180,7 @@ lines, T1's) finds `abl_a` and `abl_b` by PARTLABEL, compares sha256 and
 `dd`s the ELF into both slots when either differs (`:64-73`; device fact
 L17 recorded both slots written on 2026-10-12); `:27-31` removes
 `/flash/boot` and `/flash/EFI` (*"REMOVE IN THE FUTURE"*); `:37` writes
-`.boot.hint`. **Upstream replaced this path on 2026-10-22** (`cafbb1657d`
-Boot Loader Spec entries, `BOOTLOADER="arm-efi"`, `mkimage_options="abl,bls,dtb"`,
-dtbs under `usr/share/bootloader/dtbs`, the kernel recipe without
-mkbootimg, `scripts/mkimage` without its branch; `71d8932b33` openabl;
-`7842b3b429` `update.sh` 43 lines; `471a2711ce`; `0340192729`): every
-unit of the path above is *settled by the next base merge*, and that
-merge's `Already written:` and identity seam (`loader/entries/${DISTRONAME,,}.conf`)
-are **Backlog #1099**, the coordinator's -- cited, not re-filed.
+`.boot.hint`. **Upstream replaced this path between 2026-10-01 and 2026-10-24** (18 commits on the directory, `scripts/mkimage`, `rocknix-abl` and `openabl` in `8ebaf8daad..651150fc88`: `0340192729` 10-01 adds ` gpt` to the command line; `71d8932b33` 10-14 openabl `1.0`; `cafbb1657d` 10-22 Boot Loader Spec entries, `BOOTLOADER="arm-efi"`, `mkimage_options="abl,bls,dtb"`, dtbs under `usr/share/bootloader/dtbs`, the kernel recipe without mkbootimg, `update.sh` +12; `7842b3b429` `update.sh` -6, to 43 lines; `471a2711ce`; `73ffb8ee37` 10-24 openabl `1.2`; `scripts/mkimage` at `651150fc88` still carries one `qcom-abl` mention): every unit of the path above is *settled by the next base merge*, and that merge's `Already written:` and identity seam (the loader entry upstream's `virtual/arm-efi` recipe writes -- `packages/virtual/arm-efi/package.mk` at `651150fc88`, its post_install read and the entry's name quoted by the lane; it is in no file under `scripts/`, `projects/ROCKNIX/bootloader/` or the kernel recipe) are **Backlog #1099**, the coordinator's -- cited, not re-filed.
 
 **The device trees (16).** The Nova: `model = "Retroid Pocket Nova"`,
 `compatible = "retroidpocket,rpnova", "qcom,qcs8550", "qcom,sm8550"`,
@@ -214,22 +195,13 @@ by placement* (D-WORKFLOW-185), built into every SM8550 boot image.
 --since='2026-06-01T00:00:00Z' 8ebaf8daad -- $(cat paths)`: **24
 non-merge commits (27 with merges), fork 0, upstream 24**; over the whole
 directory 54 / 63, fork 0 (a bare `--since=2026-06-01` printed 52: T27's
-erratum, reproduced). `git log 651150fc88..8ebaf8daad -- projects/ROCKNIX/devices/SM8550`
-is **empty**: no fork author has touched the directory, ever since the
-base. The upstream delta over the 29: **2 M** (`update.sh` and `options`,
+erratum, reproduced). `git log --no-merges 651150fc88..8ebaf8daad -- projects/ROCKNIX/devices/SM8550` is **empty** (without `--no-merges` it lists the fork's two upstream merges, `7bd7f31312` and `7650de7dd6`): no fork author has touched the directory since the base. The upstream delta over the 29: **2 M** (`update.sh` and `options`,
 +20 / -14); over the directory 4 M + 2 A (the conf, patch 0104, and two
-new panel-calibration patches 0508/0509, +451 / -22). `Makefile:39,42,98-101`
-(in `world`, `arm` then `aarch64`); `config/options:28-30` defaults
-`DEVICE="SM8550"`. **The fork's only SM8550 code is outside the slice**:
+new panel-calibration patches 0508/0509, +451 / -22). `Makefile:39,42,98-101` (in `world`, `arm` then `aarch64`); `config/options:31` defaults `DEVICE="SM8550"` (`:28-30` are a blank, a comment and the `if`). **The fork's only SM8550 code is outside the slice**:
 `quirks/devices/Retroid Pocket Nova/bin/{analog_sticks_ledcontrol,battery_led_status,ledcontrol}`
 (45 / 135 / 83 lines, #332's), T29's rows.
 
-**Device facts** (`docs/releases/device-facts.md`, cited, never re-asked;
-D-QA-015): L17 (the Nova's boot after the 2026-10-12 update, both ABL
-slots), L18 (frontend readiness after #529), L19 (shutdown and bootloader
-recovery, #558, keep an eye on), L20 (Tailscale after restart), L27 (the
-Nova), L28 (the sign-in window's pad, #331: InputPlumber hides the AYN
-Odin2 Gamepad node), L31 (the stick LEDs, #332, an open item to test). No
+**Device facts** (`docs/releases/device-facts.md` at `2174265e9c`, cited by the Fact cell and the line at that hash, never re-asked; D-QA-015; the table has no ID column, so a row is named by its Fact cell): line 17 (the Nova's boot after the 2026-10-12 update, both ABL slots written), 18 (frontend readiness after #529), 19 (shutdown and bootloader recovery, #558, keep an eye on), 20 (Tailscale after restart), 27 (the Nova), 28 (the sign-in window's pad, #331: InputPlumber hides the AYN Odin2 Gamepad node), 31 (the stick LEDs, #332, an open item to test). The lane quotes each Fact cell beside the line. No
 runbook section exists for the SM8550 (**Backlog #1100**); the only
 written flash procedure is `rocknix-abl/sources/README:1-6`.
 
@@ -316,9 +288,7 @@ proof in `02` (a `proved:` cell: `tree`, `history`, `tool-run`, `fixture`,
   ELF, a wrong `${DEVICE}`), and its `Already written:` names L17's two
   slots. The `kernel-firmware.dat` list (6 entries: `rtl_nic/rtl8153a-4.fw`,
   `qca/hmtbtfw20.tlv`, `qca/hmtnv20.*`, `qcom/sm8550/a740_zap.mbn`,
-  `qcom/a740_sqe.fw`, `qcom/gmu_gen70200.bin`) against the kernel recipe's
-  embed blocks, which name sm8250, sm8650 and sm8750 and **not SM8550**
-  (`:218-245` by the research's grep): a finding with both quoted; cite
+  `qcom/a740_sqe.fw`, `qcom/gmu_gen70200.bin`) against the kernel recipe's embed blocks (`:83` the condition naming SM8250, H700, SM8650 and SM8750; `:208-277` the blocks), which name **no SM8550**: a finding with both quoted; cite
   #836 for the stamp; nothing re-filed there. **Nothing runs on the Nova**
   (D-QA-015, D-QA-027).
 - **Q5 Efficiency.** The slice's bytes and lines by unit (the one patch
@@ -364,10 +334,7 @@ findings and the dispositions; its probe comes first.
 
 **What never runs in this slice:** a build, a compiler, a plan generation,
 a guest, a fetch, a network read of any upstream or author, a command
-against the Nova or any handheld, a read of an M7 build root, a
-`tools/council/run` call with the key beyond the one seat's probe and
-refutation, and a change to any file under `packages/`, `projects/` or
-`tools/` at stages A to D.
+against the Nova or any handheld, a read of an M7 build root, a `tools/council/run` call with the key beyond the one seat's probe and refutation, and a change to any file under `packages/`, `projects/` or `tools/` at stages A to D. (A `grep -c` that prints the expected 0 exits 1: the running log's exit column says so where it happens.)
 
 **The runs, with what the coordinator read** (the lane runs each at stage
 A and records the exit, the wall time and the summary line; `TMPDIR` under
@@ -385,31 +352,36 @@ git show 8ebaf8daad:projects/ROCKNIX/devices/SM8550/patches/linux/0053-add-hynit
 C=projects/ROCKNIX/devices/SM8550/linux/linux.aarch64.conf
 git show "8ebaf8daad:$C" | sed -n '3p'; git show "8ebaf8daad:$C" | wc -l
 git show "651150fc88:$C" > "$TMPDIR/up.conf"; git show "8ebaf8daad:$C" > "$TMPDIR/ours.conf"; echo "removed=$(diff "$TMPDIR/up.conf" "$TMPDIR/ours.conf" | grep -c '^<') added=$(diff "$TMPDIR/up.conf" "$TMPDIR/ours.conf" | grep -c '^>')"
+for d in SM8650 SM8750 SM6115 SM4450 SM8250; do O=projects/ROCKNIX/devices/$d/linux/linux.aarch64.conf; printf '%s %s/%s ' "$d" "$(diff <(git show "8ebaf8daad:$C") <(git show "8ebaf8daad:$O") | grep -c '^<')" "$(diff <(git show "8ebaf8daad:$C") <(git show "8ebaf8daad:$O") | grep -c '^>')"; done; echo   # 36/41 105/81 133/228 189/229 204/371
 git log --no-merges --format='%h %ad %an %s' --date=short c445081a59..8ebaf8daad -- "$C" | wc -l      # 0
 git log --format='%h %ad %an %s' --date=short 8ebaf8daad..651150fc88 -- "$C" | cut -c1-100            # upstream's four
-git show 8ebaf8daad:projects/ROCKNIX/packages/linux/package.mk | sed -n '29,35p' | grep -n -E 'SM8550|PKG_VERSION' | cut -c1-120   # 7.2
-# the pins at both hashes (expect: qcom-abl 1.0 twice; rocknix-abl 1.2 then absent; the kernel 7.2 twice; mkbootimg then absent; extra-firmware differs)
-for p in tools/qcom-abl tools/rocknix-abl tools/mkbootimg linux-firmware/extra-firmware linux-firmware/kernel-firmware; do for h in 8ebaf8daad 651150fc88; do printf '%s %s: %s\n' "$p" "$h" "$(git show "$h:projects/ROCKNIX/packages/$p/package.mk" 2>/dev/null | grep -E '^PKG_(VERSION|SHA256|URL)=' | tr '\n' ' ' | cut -c1-200 || echo absent)"; done; done | sed -E 's/((token|key|passw[a-z]*|psk|user)[=:])[^ ]*/\1***/Ig'
-git show 651150fc88:projects/ROCKNIX/packages/tools/openabl/package.mk | grep -E '^PKG_(VERSION|URL)=' | cut -c1-160   # the replacement upstream
-# the loader and the tree (expect update.sh:12 BOOT_DISK unused; :19-23 rocknix_abl; :25 updateabl; :27-31 rm; mkimage:257-266 the branch; bootloader/mkimage:108-111 abl, :22-26 the dead u-boot branch; config.xml 14 files)
+git show 8ebaf8daad:projects/ROCKNIX/packages/linux/package.mk | sed -n '29,35p' | grep -n -E 'SM8550|PKG_VERSION' | cut -c1-120   # 7.2 (grep -n numbers are relative to the window)
+git show 651150fc88:projects/ROCKNIX/packages/linux/package.mk | grep -n -E 'SM8550\)|PKG_VERSION="7' | head -3 | cut -c1-120   # the case at :35 there; the version unchanged
+# the pins at both hashes (expect: qcom-abl 1.0 twice; rocknix-abl 1.2 then absent; mkbootimg then absent; extra-firmware differs; kernel-firmware 20260309 twice; inputplumber v0.79.0 then 0.82.0; gamepadcalibration identical)
+for p in tools/qcom-abl tools/rocknix-abl tools/mkbootimg linux-firmware/extra-firmware linux-firmware/kernel-firmware tools/inputplumber tools/gamepadcalibration; do for h in 8ebaf8daad 651150fc88; do f="projects/ROCKNIX/packages/$p/package.mk"; if git cat-file -e "$h:$f" 2>/dev/null; then printf '%s %s: %s\n' "$p" "$h" "$(git show "$h:$f" | grep -E '^PKG_(VERSION|SHA256|URL)=' | tr '\n' ' ' | cut -c1-200)"; else printf '%s %s: absent\n' "$p" "$h"; fi; done; done | sed -E 's/((token|key|passw[a-z]*|psk|user)[=:])[^ ]*/\1***/Ig'
+git log --format='%h %ad %an %s' --date=short -3 -- projects/ROCKNIX/packages/tools/rocknix-abl/package.mk | cut -c1-120   # 9aa7affee9 (the fork, 2026-10-15) and b354bfe6d6
+git show 651150fc88:projects/ROCKNIX/packages/tools/openabl/package.mk | grep -E '^PKG_(VERSION|URL)=' | cut -c1-160   # the replacement upstream, 1.2 at 73ffb8ee37
+git log --format='%h %ad %s' --date=short 8ebaf8daad..651150fc88 -- projects/ROCKNIX/packages/tools/openabl | cut -c1-100   # 1.0 71d8932b33, 1.1 a5d0dd4d57, 1.2 73ffb8ee37
+# the loader and the tree (expect update.sh:12 BOOT_DISK unused; :19-23 rocknix_abl; :25 updateabl; :27-31 rm; mkimage:257-266 the branch; bootloader/mkimage:108-111 abl, :22-26 the dead u-boot branch, :81-83 mkimage_dtb's SM8550 case; config.xml 14 files)
 git show 8ebaf8daad:projects/ROCKNIX/devices/SM8550/bootloader/update.sh | grep -n -E 'BOOT_DISK|rocknix_abl|updateabl|rm -rf|boot.hint' | cut -c1-120
 git show 8ebaf8daad:scripts/mkimage | grep -n -E 'qcom-abl' | cut -c1-120
 git show 8ebaf8daad:projects/ROCKNIX/bootloader/mkimage | grep -n -E 'SM8550|rocknix_abl|rocknix-u-boot' | cut -c1-120
-git show 8ebaf8daad:projects/ROCKNIX/packages/linux/package.mk | sed -n '380,402p' | grep -n -E 'dtb|mkbootimg|kernel.gz' | cut -c1-120
+git show 8ebaf8daad:projects/ROCKNIX/packages/linux/package.mk | sed -n '387,404p' | grep -n -E 'dtb|mkbootimg|kernel.gz' | cut -c1-120   # the branch :387-404; grep -n numbers are relative to the window
+git show 8ebaf8daad:projects/ROCKNIX/packages/linux/package.mk | sed -n '83p;208,277p' | grep -n -E 'SM8|H700|EXTRA_FIRMWARE|firmware' | head -12 | cut -c1-120   # the embed blocks: no SM8550
 git show 8ebaf8daad:projects/ROCKNIX/config.xml | sed -n '130,145p' | grep -c '<file>'                      # 14
-git show 8ebaf8daad:projects/ROCKNIX/packages/rocknix/sources/scripts/updateabl | grep -n -E 'PARTLABEL|sha256|dd ' | cut -c1-120   # T1's file, read for the hand-off only
+git show 8ebaf8daad:projects/ROCKNIX/packages/rocknix/sources/scripts/updateabl | sed -n '60,75p' | cut -c1-120   # T1's file, read for the hand-off only: the compare and the two dd
 # the DTS (expect 16; the Nova's model and compatible; no rocknix-dt-id anywhere)
 git ls-tree -r --name-only 8ebaf8daad -- projects/ROCKNIX/devices/SM8550/linux/dts | wc -l
 git show 8ebaf8daad:projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-retroidpocket-rpnova.dts | grep -n -E '#include|model|compatible' | cut -c1-100
-for f in $(git ls-tree -r --name-only 8ebaf8daad -- projects/ROCKNIX/devices/SM8550/linux/dts); do git show "8ebaf8daad:$f" | grep -c 'rocknix-dt-id'; done | sort | uniq -c   # 16 x 0
+for f in $(git ls-tree -r --name-only 8ebaf8daad -- projects/ROCKNIX/devices/SM8550/linux/dts); do git show "8ebaf8daad:$f" | grep -c 'rocknix-dt-id' || true; done | sort | uniq -c   # 16 x 0 (grep -c exits 1 on 0; the || true keeps the loop's exit 0)
 # the history with the three identities (expect 24 non-merge; fork 0) and the upstream delta (expect 2 M over the 29; 4 M 2 A over the directory)
 tr '\n' '\0' < .qa-scratch/t28/paths.txt | xargs -0 git log --no-merges --format='%h %an' --since='2026-06-01T00:00:00Z' 8ebaf8daad -- | tee "$TMPDIR/hist.txt" | wc -l; grep -c -E ' (Max Engel|blitterbot|rasterabot)$' "$TMPDIR/hist.txt"
-git log --format=%h 651150fc88..8ebaf8daad -- projects/ROCKNIX/devices/SM8550 | wc -l                   # 0
+git log --no-merges --format=%h 651150fc88..8ebaf8daad -- projects/ROCKNIX/devices/SM8550 | wc -l      # 0 (without --no-merges: 2, the fork's upstream merges)
 tr '\n' '\0' < .qa-scratch/t28/paths.txt | xargs -0 git diff --name-status 8ebaf8daad 651150fc88 -- | cut -c1-120
 git diff --name-status 8ebaf8daad 651150fc88 -- projects/ROCKNIX/devices/SM8550 | cut -c1-120
-git log --format='%h %ad %s' --date=short 8ebaf8daad..651150fc88 -- projects/ROCKNIX/devices/SM8550 scripts/mkimage projects/ROCKNIX/packages/tools/rocknix-abl projects/ROCKNIX/packages/tools/openabl | cut -c1-110   # the 2026-10-22 boot change
+git log --format='%h %ad %s' --date=short 8ebaf8daad..651150fc88 -- projects/ROCKNIX/devices/SM8550 scripts/mkimage projects/ROCKNIX/packages/tools/rocknix-abl projects/ROCKNIX/packages/tools/openabl | cut -c1-110   # 18 commits, 10-01 to 10-24; the boot change among them
 # the Makefile and the default device (expect in world; arm then aarch64; config/options:28-30)
-grep -n -E '^SM8550:|SM8550' Makefile | head -5 | cut -c1-100; sed -n '28,30p' config/options
+grep -n -E '^SM8550:|SM8550' Makefile | head -5 | cut -c1-100; sed -n '28,31p' config/options   # :31 the default DEVICE
 # the removal rule's own check against the dispatch tip (expect empty)
 git diff --stat <dispatch tip> HEAD -- packages projects tools | tail -1
 ```
@@ -446,9 +418,9 @@ from the artifacts, never from the hand-back's words.
 - [ ] `reviewed-at:` and `fixed-at:` in the checklist's header carry the lane's commits; the read is on `8ebaf8daad`'s bytes for the 29 (`git diff --stat 8ebaf8daad <reviewed-at> -- $(cat .qa-scratch/t28/paths.txt)` empty) and nothing under `packages/`, `projects/` or `tools/` changes at stages A to D (`git diff --stat <dispatch tip> <stage-D tip> -- packages projects tools` empty).
 - [ ] `01-research-notes.md` § Scope records § 2's block with its output (29 paths, 28,053 lines; read 2 files / 118 lines / 0 fork-own; upstream-carried 29; shipped 29; the whole directory 85 rows, 56 of them T41's), the 16 DTS named as read though not counted, the `.disabled` patch's 20,593 lines, the configuration's diff against `651150fc88`'s copy (7 / 7) with 0 fork lines, the history (24 non-merge, fork 0), the upstream delta (2 M over the 29; 4 M 2 A over the directory) and the 2026-10-22 boot change's commits by hash.
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | grep -c -E '^\| `'`` prints `29`.
-- [ ] `02-forward-audit.md` § The pins has one row per pinned unit (`qcom-abl`, `rocknix-abl`, the kernel, `mkbootimg`, `extra-firmware`, `kernel-firmware`, `inputplumber`, `gamepadcalibration`: 8): the pin at `8ebaf8daad`, at `651150fc88` (identical / differs / absent / deleted, with upstream's replacement named where one exists), its setting commit, and `CANNOT (no network)` for the author's current release with `tools/fork-package-freshness` named as the RC's check.
+- [ ] `02-forward-audit.md` § The pins has one row per pinned unit (`qcom-abl`, `rocknix-abl`, the kernel, `mkbootimg`, `extra-firmware`, `kernel-firmware`, `inputplumber`, `gamepadcalibration`: 8, each recipe by path): the pin at `8ebaf8daad`, at `651150fc88` (identical / differs / absent / deleted, with upstream's replacement and its three versions named where one exists), its setting commits (the version's and the sha's where they differ: `rocknix-abl`'s sha is the fork's `9aa7affee9`), and `CANNOT (no network)` for the author's current release with `tools/fork-package-freshness` named as the RC's check.
 - [ ] `02-forward-audit.md` § The configuration states the diff against upstream's own copy (7 removed / 7 added, each line attributed), 0 fork lines since the base, upstream's four commits, the header's `7.2.0` beside the recipe's `7.2`, and that the row is T41's, read here for the shape.
-- [ ] `02-forward-audit.md` § The loader and the tree states, with the kernel recipe's, `scripts/mkimage`'s, `bootloader/mkimage`'s and `update.sh`'s lines quoted, how the Nova gets its ELF (`rocknix_abl`, `updateabl`'s two slots -- T1's file cited by line) and its tree (fourteen appended, the selection undeclared), citing device fact L17 for the observed boot and L19 for the recovery, and names upstream's 2026-10-22 change by commit with #1099 as its owner; no command against the Nova.
+- [ ] `02-forward-audit.md` § The loader and the tree states, with the kernel recipe's, `scripts/mkimage`'s, `bootloader/mkimage`'s (both SM8550 branches) and `update.sh`'s lines quoted, how the Nova gets its ELF (`rocknix_abl`, `updateabl`'s two slots -- T1's file cited by line) and its tree (fourteen appended, the selection undeclared), citing the device-facts rows for the observed boot and the recovery by their Fact cells and lines, and names upstream's October boot change by its commits (`0340192729` to `73ffb8ee37`) with #1099 as its owner; no command against the Nova.
 - [ ] `02-forward-audit.md` § The device trees has one row per DTS or DTSI (16): the board, the `#include` target, the `model` line (none for a `.dtsi`), and *shipped unit* (the Nova) or *carried by placement*; the `.disabled` patch's row says *disabled at birth, upstream's, 20,593 lines, never applied* with `scripts/unpack:143-159` cited.
 - [ ] `02-forward-audit.md` § The runs records every § 5 command with exit, wall time, the figure and *a FAIL would mean ...*; a run that cannot be made is `CANNOT` with its reason, never a pass.
 - [ ] `00-running-log.md` shows no guest, no build, no compiler, no plan generation, no fetch, **no command against a handheld** (`ssh`, `device-act`, `scp` to a unit: 0 hits, or every hit a negation), no M7 build root read, no `tools/council/run invoke` but the one seat's probe and refutation, every other `tools/council/run` call with `COUNCIL_ENV_FILE=/nonexistent` (`--help` included), and the VM line.
@@ -513,3 +485,38 @@ regenerates the ledgers, and closes #675 when every row is proven.
 (#1082) carries a T28 kickoff addendum written with this version, and a
 stranger's proof of this brief is run by a reader with no context before
 dispatch; version 2 records what each found.
+
+## Version 2: what the stranger's proof found (2026-10-25)
+
+Ten commands from the scratch clone at `2174265e9c`; the membership, the
+configuration, the trees, the history and the delta held. The corrections:
+
+1. `git log 651150fc88..8ebaf8daad -- <dir>` lists the fork's two upstream
+   merges; only `--no-merges` is empty. The prose and the run say so.
+2. The pins loop's `|| echo absent` could never fire (a pipeline's exit is
+   its last stage's); it tests `git cat-file -e` first now, and carries the
+   kernel, `inputplumber` and `gamepadcalibration` entries by path.
+3. `rocknix-abl`'s sha was set by the fork's `9aa7affee9` (2026-10-15,
+   #600), a fork identity on a pin recipe; openabl went 1.0, 1.1, 1.2 in
+   three upstream commits, 1.2 on 2026-10-24.
+4. The kernel recipe's `qcom-abl` branch is `:387-404` (the dtb loop
+   `:392-396`); the embed-block evidence is `:83` and `:208-277`.
+5. `config/options:31` carries the default `DEVICE`, not `:28-30`.
+6. The Qualcomm configuration distances were one off each (36/41, 105/81,
+   133/228, 189/229, 204/371), now with their command.
+7. The T41 rows' line sum differs by one between the inventory and `wc -l`.
+8. Upstream's boot change spans 2026-10-01 to 10-24 (18 commits), not one
+   day; `update.sh`'s 43 lines are +12 then -6.
+9. The two tool recipes and the kernel at `651150fc88` have § 5 commands.
+10. A `grep -c` that prints the expected 0 exits 1; the running log's exit
+    column says so.
+11. `updateabl`'s compare is read as a line window, not a pattern.
+12. Device-facts rows are named by their Fact cells and lines at the hash
+    (the table has no ID column).
+13. `bootloader/mkimage:81-83`, a second SM8550-naming branch, is in the
+    read.
+14. The loader entry upstream writes is in `virtual/arm-efi`, not under
+    `scripts/` or the bootloader directory; `scripts/mkimage` upstream
+    still names `qcom-abl` once.
+15. `scripts/mkimage`'s `DISK_SIZE` is `:21-23`; mkbootimg's sha came with
+    `e0a68c95bd`; where `docs/reviews/*` and the briefs live is said in § 1.
