@@ -502,6 +502,13 @@ justification.
 4. If a failure surfaced during the phase (not just during landing)
    that the new harness _would have caught had it covered that
    rule_, that is a FAIL.
+5. For each fix that landed with a positive, ask: **did the positive
+   exercise the thing the fix could break -- the job the changed code
+   does, not only the property the fix added?** A security fix to a
+   storage endpoint whose positive proved confinement and never put a
+   file after start and listed it (#1067, T13, 2026-10-25: the fix
+   regressed the content tier it secured, and a guest cycle found it)
+   is the shape. A positive that proves the property alone is PARTIAL.
 
 **Verdict options:** PASS / PARTIAL / FAIL / SKIP. PARTIAL if the
 harness covers most of the encountered failures but missed one;
