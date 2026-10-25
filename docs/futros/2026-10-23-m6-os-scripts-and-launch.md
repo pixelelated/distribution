@@ -421,3 +421,47 @@ digest behind it was taken read-only at `2174265e9c` (lead, not evidence).
   glob, the inventory hash noted; the worktree cut from `2174265e9c` with
   the coordinator's tip merged; the body rewritten with the sixteen
   criteria and the VM line; the dispatch to the first idle session.
+
+### T29 errata (2026-10-25, after the stranger's proof of version 1)
+
+The proof ran ten commands from the scratch clone at `2174265e9c`; the
+membership, the tiers, the selection, the fork-own five, the upstream
+delta and every cited path held. What it corrected, and what this
+addendum had wrong:
+
+- **The tree-wide shape block could not run.** It read paths with
+  `awk '{print $4}'`, which cuts every quirk path at its first space, so
+  the § 2 figures had not come from it. Version 2 carries a path-safe
+  tally (`git ls-tree -r -z`, `cat-file -p`), and every figure names its
+  population: `#!/bin/sh` 256 (not 257), `/storage` 156 of 285 blobs or
+  145 of 266 shell, `DEVICE_*` 104 or 101. The addendum's "one guard in
+  the tree" holds only when the pattern admits a quote: the x55's
+  `040-hdmi` writes `[ -f "/sys/..."`, and the proof's unquoted pattern
+  found none.
+- **The history figures were the directory's, not the slice's.** Over the
+  333 paths the fork's commits since the base are 6 (9 over the
+  directory, three of them on QEMU quirks since deleted) and 28 / 6 since
+  June (32 / 9 / 23 over the directory). Version 2 runs both.
+- **Checkbox 5 could not fail**: `$(cat paths.txt)` word-splits every
+  spaced path; it is the `xargs -0` form now.
+- `rocknix-info:8-10` has its own DMI fallback; "no DMI" was wrong.
+- The 18 pending upstream commits are 12 without merges; the rest of the
+  tree is 51 directories (not 50) and 21 aliases; tier B is 14
+  directories and 2 aliases.
+- The HAS / NONE read covers all 28 board `model` strings of the two
+  shipped trees (nine more NONEs: RG28XX, RG34XX, RG34XX-SP, RG35XX
+  Pro / H / Plus / 2024, Pocket S 1K, Odin 2 Mini), with
+  `qcs8550-ayn-thor.dts:358`'s sub-node set apart.
+- The third known unknown above (both `050-game*configs` spellings on
+  one board) is moot: no directory has both; it is a naming
+  inconsistency for Q7.
+- #676 was retitled and re-parented before dispatch, not at it; its body
+  was still P1's generated one (five checkboxes, a guest-proof VM line)
+  and is rewritten at dispatch.
+- The shared-file examples are completed (the DMG's and EVO's
+  `bin/achievements` → the Odin 2's; Pocket DS's two → the ACE's; RG DS
+  Plus → RG DS's `bin/`, `sleep.d/` and four files); the twelve AYANEO
+  aliases include `AYA NEO AYA NEO Founder`.
+- Not verified by the proof, and said so in version 2: #695's cell (the
+  coordinator corrected it), the inventory's `eb4763e3cc`, T22's 225 and
+  G-35.
