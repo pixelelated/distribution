@@ -182,13 +182,13 @@
 #                                             # (the folder travelled) and p
 #                                             # FAILS whole: the tree before
 #                                             # #165 has no raofflineproxy-ctl
-#     BASE_REF=0f7785e6ed tools/last-good-scripts-test --old
+#     BASE_REF=717bc04449 tools/last-good-scripts-test --old
 #                                             # q FAILS: the boot pass before
 #                                             # #166 removed raofflineproxy.conf
 #                                             # through 007-syncthing (and
 #                                             # smb.conf through 004-tailscaled,
 #                                             # at every BASE_REF: upstream's leak)
-#     BASE_REF=d79281066c tools/last-good-scripts-test --old
+#     BASE_REF=51e2acece6 tools/last-good-scripts-test --old
 #                                             # p's pending and flushed checks
 #                                             # FAIL: the ctl before #173 has
 #                                             # neither verb (usage, exit 2)
@@ -358,8 +358,8 @@ old_promises() {
         c15050c897*) echo a ;;
         8707919349*) echo h n o ;;
         34aca64afd*) echo k p ;;
-        0f7785e6ed*) echo q ;;
-        d79281066c*) echo p ;;
+        717bc04449*) echo q ;;   # 1a5c066623^ (#166); the header named 0f7785e6ed, which no repository holds (#1022)
+        51e2acece6*) echo p ;;   # 67a89cb623^ (#173); it named d79281066c, likewise
         cee1656c33*) echo p r t ;;
         28a80357ed*) echo r s ;;
         3387cf5da0*) echo t ;;
