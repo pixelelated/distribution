@@ -1,0 +1,43 @@
+== docs/qa-logs/2026-10-22-review-filter-636: 13 files, SUMS 12 lines
+README.md: OK
+baseline-initial.log.gz: OK
+candidate-initial.log.gz: OK
+candidate-sse-fixture.log.gz: OK
+effort-tests.log.gz: OK
+efforts.log.gz: OK
+log-identities.json: OK
+original-response-replay.json: OK
+pins-final.log.gz: OK
+routing-final.log.gz: OK
+source-identities.json: OK
+toolchain-final.log.gz: OK
+  baseline-initial.log.gz: ℹ tests 10 ℹ pass 1 ℹ fail 9 
+  candidate-initial.log.gz: ℹ tests 119 ℹ pass 114 ℹ fail 5 
+  candidate-sse-fixture.log.gz: ℹ tests 119 ℹ pass 118 ℹ fail 1 
+  efforts.log.gz: 
+  effort-tests.log.gz: ℹ tests 19 ℹ pass 19 ℹ fail 0 
+  pins-final.log.gz: 
+  routing-final.log.gz: ℹ tests 119 ℹ pass 119 ℹ fail 0 
+  toolchain-final.log.gz: ℹ tests 39 ℹ pass 39 ℹ fail 0 
+== docs/qa-logs/2026-10-22-argon-audit-route-638: 14 files, SUMS 13 lines
+README.md: OK
+effort-tests-final.log.gz: OK
+efforts.log.gz: OK
+endpoints.json: OK
+logs.json: OK
+models.json: OK
+pins.log.gz: OK
+routing-final.log.gz: OK
+source-identities.json: OK
+tests-final.log.gz: OK
+tests-final02.log.gz: OK
+tests-final03.log.gz: OK
+tests.log.gz: OK
+  efforts.log.gz: 
+  effort-tests-final.log.gz: ℹ tests 19 ℹ pass 19 ℹ fail 0 
+  pins.log.gz: 
+  routing-final.log.gz: ℹ tests 127 ℹ pass 127 ℹ fail 0 
+  tests-final02.log.gz: ℹ tests 39 ℹ pass 38 ℹ fail 1 
+  tests-final03.log.gz: ℹ tests 39 ℹ pass 39 ℹ fail 0 ℹ tests 127 ℹ pass 127 ℹ fail 0 ℹ tests 19 ℹ pass 18 ℹ fail 1 
+  tests-final.log.gz: ℹ tests 39 ℹ pass 37 ℹ fail 2 
+  tests.log.gz: ℹ tests 39 ℹ pass 37 ℹ fail 2 

@@ -1,0 +1,52 @@
+council-seat-efforts.json :: L:council-roster.ts T:lint-council-seat-efforts.node-test.ts K:council/references/member-roster.md K:council/references/model-verification.md L:verifier-pins.ts S:lint-council-seat-efforts.ts S:council-toolchain.node-test.mjs S:cou
+scripts/__tests__/council-invoke-routing.node-test.ts :: T:lint-council-seat-efforts.node-test.ts tools/council/run K:council/references/model-verification.md K:council/references/pipeline.md K:council/COUNCIL-BUNDLE.md 
+scripts/__tests__/lint-council-seat-efforts.node-test.ts :: S:lint-council-seat-efforts.ts tools/council/run K:council/COUNCIL-BUNDLE.md 
+scripts/build-council-prompt.ts :: S:check-stale-blob-drift.ts S:council-toolchain.node-test.mjs tools/council/run L:verifier-pins.ts K:council/references/pipeline.md 
+scripts/check-stale-blob-drift.ts :: S:council-toolchain.node-test.mjs L:verifier-pins.ts tools/council/run R:council-substrate-integrity.md 
+scripts/council-count-mistral.mjs :: (none beyond the pins, manifest and enumerations)
+scripts/council-invoke.ts :: S:lint-council-run.ts S:verify-chain.ts S:council-run-start.ts L:verifier-pins.ts L:council-staged-controller.ts S:council-toolchain.node-test.mjs L:council-staged-derived-readings.ts L:council-roster.ts L:council-staged-readings.t
+scripts/council-run-start.ts :: L:verifier-pins.ts tools/council/run S:council-toolchain.node-test.mjs K:council/COUNCIL-BUNDLE.md K:council/IMPORTED-FROM.md K:council/references/pipeline.md K:council/references/model-verification.md 
+scripts/council-run-summary.ts :: S:council-toolchain.node-test.mjs L:verifier-pins.ts tools/council/run K:council/references/pipeline.md K:council/references/output-conventions.md 
+scripts/council-stage-attempt.mjs :: (none beyond the pins, manifest and enumerations)
+scripts/council-stage-controller.mjs :: (none beyond the pins, manifest and enumerations)
+scripts/council-stage-readings.mjs :: (none beyond the pins, manifest and enumerations)
+scripts/council-stage-sources.mjs :: S:council-stage-attempt.mjs S:council-stage-controller.mjs S:council-stage-readings.mjs L:council-staged-derived-runtime.ts L:council-staged-invocation.ts L:council-staged-controller.ts S:council-invoke.ts 
+scripts/council-toolchain.node-test.mjs :: K:council/IMPORTED-FROM.md K:council/references/pipeline.md K:council/COUNCIL-BUNDLE.md tools/council/run 
+scripts/forge-write-status.mjs :: L:verifier-pins.ts K:council/COUNCIL-BUNDLE.md K:council/IMPORTED-FROM.md 
+scripts/lib/council-mistral-counter.mjs :: S:council-count-mistral.mjs 
+scripts/lib/council-mistral-requirements.txt :: K:council/IMPORTED-FROM.md 
+scripts/lib/council-mistral-tokenizer.py :: S:setup-council-mistral-tokenizer.mjs L:council-mistral-counter.mjs 
+scripts/lib/council-roster.ts :: S:lint-council-run.ts S:verify-chain.ts S:check-stale-blob-drift.ts S:verify-seals.ts S:council-run-start.ts S:build-council-prompt.ts S:council-run-summary.ts S:council-toolchain.node-test.mjs S:lint-council-seat-efforts.ts L:
+scripts/lib/council-run-preflight.ts :: L:verifier-pins.ts S:council-invoke.ts 
+scripts/lib/council-staged-attempt-store.mjs :: S:council-stage-attempt.mjs L:council-staged-derived-runtime.ts L:council-staged-readings.ts L:council-staged-controller.ts L:council-staged-invocation.ts 
+scripts/lib/council-staged-controller-store.mjs :: L:council-staged-controller.ts L:council-staged-readings.ts L:council-staged-derived-store.mjs L:council-staged-attempt-store.mjs L:council-staged-derived-runtime.ts 
+scripts/lib/council-staged-controller.ts :: S:council-stage-controller.mjs L:council-staged-readings.ts L:council-staged-controller-store.mjs L:council-staged-derived-contract.mjs L:council-staged-attempt-store.mjs L:council-staged-derived-runtime.ts S:council
+scripts/lib/council-staged-derived-contract.mjs :: L:council-staged-pins.mjs L:council-staged-controller.ts L:council-staged-derived-readings.ts L:council-staged-derived-runtime.ts L:council-staged-derived-store.mjs L:council-staged-invocation.ts L:council-sta
+scripts/lib/council-staged-derived-readings.ts :: L:council-staged-derived-runtime.ts 
+scripts/lib/council-staged-derived-runtime.ts :: L:council-staged-controller.ts L:council-staged-invocation.ts 
+scripts/lib/council-staged-derived-store.mjs :: L:council-staged-derived-runtime.ts 
+scripts/lib/council-staged-invocation.ts :: S:council-stage-attempt.mjs S:council-stage-controller.mjs L:council-staged-controller.ts L:council-staged-derived-runtime.ts S:council-invoke.ts 
+scripts/lib/council-staged-note-counter.mjs :: S:council-stage-readings.mjs L:council-staged-derived-readings.ts L:council-staged-readings.ts L:council-staged-derived-runtime.ts 
+scripts/lib/council-staged-notes.mjs :: L:council-staged-derived-readings.ts L:council-staged-readings.ts 
+scripts/lib/council-staged-pins.mjs :: L:council-staged-note-counter.mjs L:council-staged-derived-runtime.ts L:council-staged-controller.ts L:council-staged-invocation.ts 
+scripts/lib/council-staged-reading-store.mjs :: L:council-staged-derived-store.mjs L:council-staged-readings.ts 
+scripts/lib/council-staged-readings.ts :: S:council-stage-readings.mjs L:council-staged-derived-readings.ts 
+scripts/lib/council-staged-request.ts :: S:council-stage-sources.mjs L:council-staged-controller.ts L:council-staged-derived-readings.ts L:council-staged-invocation.ts L:council-staged-readings.ts L:council-staged-derived-runtime.ts 
+scripts/lib/council-staged-rereads.mjs :: L:council-staged-derived-contract.mjs 
+scripts/lib/council-staged-sources.mjs :: S:council-stage-sources.mjs L:council-staged-controller.ts L:council-staged-pins.mjs L:council-staged-note-counter.mjs L:council-staged-derived-contract.mjs L:council-staged-store.mjs L:council-staged-controller-store.
+scripts/lib/council-staged-store.mjs :: S:council-stage-sources.mjs L:council-staged-derived-store.mjs L:council-staged-attempt-store.mjs L:council-staged-controller-store.mjs L:council-staged-readings.ts L:council-staged-derived-runtime.ts L:council-staged-in
+scripts/lib/council-verification.ts :: S:check-stale-blob-drift.ts S:lint-council-run.ts S:verify-chain.ts S:build-council-prompt.ts S:verify-seals.ts S:council-run-start.ts L:council-run-preflight.ts S:council-toolchain.node-test.mjs L:verifier-pins.ts R:coun
+scripts/lib/verifier-pins.ts :: S:check-stale-blob-drift.ts S:verify-pins.ts S:council-toolchain.node-test.mjs L:council-roster.ts L:council-run-preflight.ts S:council-run-start.ts S:lint-council-seat-efforts.ts K:council/references/model-verification.md L:cou
+scripts/lint-council-run.ts :: S:verify-seals.ts S:write-step-seal.ts S:build-council-prompt.ts L:council-run-preflight.ts S:council-toolchain.node-test.mjs S:council-run-summary.ts L:verifier-pins.ts tools/council/run K:council/SKILL.md K:council/COUNCIL-BUND
+scripts/lint-council-seat-efforts.ts :: S:council-toolchain.node-test.mjs L:verifier-pins.ts T:lint-council-seat-efforts.node-test.ts S:council-invoke.ts K:council/references/member-roster.md tools/council/run R:council-substrate-integrity.md K:council/referen
+scripts/owner-queue-lint.mjs :: S:forge-write-status.mjs L:verifier-pins.ts K:council/IMPORTED-FROM.md K:council/COUNCIL-BUNDLE.md 
+scripts/setup-council-mistral-tokenizer.mjs :: (none beyond the pins, manifest and enumerations)
+scripts/verify-chain.ts :: S:write-step-seal.ts S:council-run-summary.ts S:build-council-prompt.ts L:council-run-preflight.ts L:verifier-pins.ts S:council-toolchain.node-test.mjs tools/council/run K:council/COUNCIL-BUNDLE.md K:council/references/pipeline.md K:
+scripts/verify-pins.ts :: tools/council/run S:council-toolchain.node-test.mjs L:verifier-pins.ts K:council/COUNCIL-BUNDLE.md R:council-substrate-integrity.md K:council/references/pipeline.md K:council/references/model-verification.md K:council/IMPORTED-FROM.md
+scripts/verify-seals.ts :: S:write-step-seal.ts L:council-run-preflight.ts S:build-council-prompt.ts S:council-run-summary.ts S:council-toolchain.node-test.mjs L:verifier-pins.ts tools/council/run K:council/COUNCIL-BUNDLE.md K:council/references/pipeline.md K:
+scripts/write-step-seal.ts :: S:check-stale-blob-drift.ts L:verifier-pins.ts S:council-toolchain.node-test.mjs tools/council/run K:council/references/output-conventions.md K:council/references/pipeline.md 
+seed/corpus/banner.mjs :: L:verifier-pins.ts K:council/COUNCIL-BUNDLE.md R:player-language.md 
+seed/corpus/manifest.json :: S:council-stage-sources.mjs S:council-stage-attempt.mjs S:verify-chain.ts S:lint-council-run.ts S:write-step-seal.ts S:verify-seals.ts S:council-run-start.ts S:build-council-prompt.ts L:council-staged-controller.ts L:council-staged
+tools/council/package.json :: S:pkgjson S:create_docker_package S:clean S:unpack S:pkgbuilder.py S:update_packages S:install S:build_distro S:get_archive S:genbuildplan.py S:checkdeps S:create_addon S:get_file S:autoreconf S:extract S:build L:council-staged-pi
+tools/council/run :: S:test-audit-review.py S:council-stage-sources.mjs S:council-stage-attempt.mjs S:council-stage-controller.mjs S:lint-council-run.ts S:build_compat S:verify-chain.ts S:install S:council-stage-readings.mjs S:pkgbuild S:pkgbuilder.py S:write-
+verifier-pins.json :: S:council-run-start.ts S:check-stale-blob-drift.ts S:lint-council-seat-efforts.ts L:council-run-preflight.ts S:council-toolchain.node-test.mjs S:verify-pins.ts L:verifier-pins.ts L:council-roster.ts L:council-verification.ts R:council-sub

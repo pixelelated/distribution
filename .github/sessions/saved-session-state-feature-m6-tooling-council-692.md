@@ -40,24 +40,15 @@
 
 ## Current focus
 
-**Stage A complete; stage B next** (updated 2026-10-25, 03:00 UTC).
-- **`reviewed-at`:** `32a34393dd`, the dispatch tip. The read is `8ebaf8daad`'s bytes for the 52 (`stage-a/paths.txt`).
-- **The audit folder:** `docs/audits/2026_10_25-epic-m6-tooling-council/`. It holds `00-running-log.md` (stage A), `01-research-notes.md` (§ Scope) and `stage-a/`, with every run's output.
-- **The SUMS counts:** 50 listed, 41 / 9 / 2 at the hash and 36 / 14 / 2 on the branch, as the brief says. Pins: 27 at the hash, 30 on the branch. The Facilitator: `1.14.0` at the hash, `1.14.1-pixelelated.2` on the branch.
-- **The runs** (both trees, keyless through `env -u FIREFLIES_API_KEY COUNCIL_ENV_FILE=/nonexistent`):
-  - `npm install`, `verify-pins`, `drift`, offline `efforts` and `test` all rc 0;
-  - tests 39/109/19 at the hash and 39/127/19 on the branch.
-- **Lint:** all four `research/council-runs/` runs fail on both trees.
-- **Clone at the hash:** `/workspace/tmp/m6-t45/at-hash`; `node_modules` are installed in both trees.
-- **Running for this lane:** nothing.
-- **Stage-B leads to read:**
-  - the lint failures against scaffold#944 (`IMPORTED-FROM.md:34`);
-  - routing 127 against the commits' claimed 119;
-  - the seat-efforts `refreshed_at`, unchanged though the branch re-pinned the file;
-  - esbuild's postinstall skipped under npm 11's `allowScripts`;
-  - the `run test` wrapper stops at the first failing file (`set -e`);
-  - the evidence folder `docs/qa-logs/2026-10-22-review-filter-636/` `SHA256SUMS` check;
-  - the missing register row for the local fork, the coordinator's lead to #346.
+**Stage B complete; stage C next** (the punch list drafted and the lint run with `--phase pre-issue`, then the stage-D audit issue and the pause). Updated 2026-10-25, 03:15 UTC.
+- **`reviewed-at`:** `32a34393dd`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-tooling-council/`. It holds `00`, `01`, `02`, `03`, `04`, `second-opinions/review-plan.json`, `stage-a/` and `stage-b/`.
+- **The findings** (`04` § Finding Verification): F-01 to F-15, none a proven bug.
+  - Leads for the coordinator or the export's owner: F-01, F-02, F-04, F-05, F-06, F-07, F-09, F-10, F-12, F-13, F-14, F-15.
+  - Designs: F-08, F-11.
+  - F-03 (the seal keys) is deferred to the coordinator's #1043, with no bug filed.
+- **The lint verdicts:** read in `02` § The runs.
+- **The coordinator's answers:** the four `research/council-runs/*` runs are criterion 9's (the brief corrected at `2672582a01`); the seal keys are #1043.
+- **Running for this lane:** nothing. The clone at the hash is back at `8ebaf8daad8eaac6…`.
 
 ## Next commands
 

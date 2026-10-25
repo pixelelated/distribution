@@ -1,0 +1,10 @@
+| T9 | gpt-audit | openai/gpt-6-astra PASS | max PASS | OpenAI PASS | 80367 / 51800 | 1200 s | 3.59458 | 1.14.1-pixelelated.2 |
+| T9 | gpt-probe | openai/gpt-6-astra PASS | max PASS | OpenAI PASS | 28 / 310 | 10 s | 0.01578 | 1.14.1-pixelelated.2 |
+| T10 | gemini-argon-audit | google/gemini-4-argon PASS | high PASS | Google PASS | 165358 / 47632 | 478 s | 0.807036 | 1.14.1-pixelelated.2 |
+| T10 | gemini-argon-probe | google/gemini-4-argon PASS | high PASS | Google PASS | 70 / 252 | 5 s | 0.00266 | 1.14.1-pixelelated.2 |
+| T10 | gpt-audit | openai/gpt-6-astra PASS | max PASS | OpenAI PASS | 146966 / 90082 | 2211 s | 6.3411675 | 1.14.1-pixelelated.2 |
+| T10 | gpt-probe | openai/gpt-6-astra PASS | max PASS | OpenAI PASS | 28 / 276 | 8 s | 0.01408 | 1.14.1-pixelelated.2 |
+| T12 | gpt-audit | openai/gpt-6-astra PASS | max PASS | OpenAI PASS | 221398 / 52369 | 2067 s | 2.839875 | 1.14.1-pixelelated.2 |
+| T12 | gpt-probe | openai/gpt-6-astra PASS | max PASS | OpenAI PASS | 28 / 357 | 9 s | 0.01813 | 1.14.1-pixelelated.2 |
+| T14 | gpt-audit | openai/gpt-6-astra PASS | max PASS | OpenAI PASS | 146499 / 61214 | 1501 s | 4.89193 | 1.14.1-pixelelated.2 |
+| T14 | gpt-probe | openai/gpt-6-astra PASS | max PASS | OpenAI PASS | 28 / 238 | 9 s | 0.01218 | 1.14.1-pixelelated.2 |

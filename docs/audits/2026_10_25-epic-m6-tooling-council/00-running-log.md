@@ -88,3 +88,25 @@
   - Claude and GPT meet `adversarial-council.md`'s floor (`:77-78`).
   - The branch adds `AUDIT_OPENROUTER_SEATS` with one seat outside the five: `gemini-argon`, `google/gemini-4-argon` at `high`, pinned to `google-vertex/global`.
 - **Nothing written** under `/tmp`, `/workspace/repos/rocknix*` or `/home/max/Development/scaffold*`; no member file edited; no guest; no build.
+
+## [Stage B] 03:00 (after the stage-A commit) to 03:15 UTC — provenance, reconciliation, the lint verdicts, the record, Q1 to Q7
+
+- **The coordinator's answers (03:03 and 03:06 UTC on #692):**
+  - the four `research/council-runs/*` directories are the recorded runs criterion 9 means (the brief corrected at `2672582a01`);
+  - the seal keys are the coordinator's #1043 (removed on its branch at `0fa5a20c5f`); this lane files no bug for them.
+- **The export's bytes** for the 9 differing members are in no commit: every commit holding each path was hashed against the SUMS (`git log --all`, up to 40 per path), and none matched. Each is reconciled by reading (`02` § Reconciliation).
+- **The lint, by discovery** (`tools/council/run lint` with no argument, keyless, both trees; `stage-b/lint-default-*.out`):
+  - rc 1 on each tree;
+  - the 09-05/11 runs are *historical inventory only*;
+  - the 09-30 runs fail `council_roster_invalid` on the branch and `genesis_binding_mismatch` at the hash.
+- **The 09-30 runs at their own commit.** The clone `/workspace/tmp/m6-t45/at-hash` was checked out at `4fa6e04948` (r2's close-out; pins `4088e315…`, Facilitator `1.14.0`), then returned to `8ebaf8daad8eaac6…` (read back). No `npm install` was made for it; the clone's existing `tools/council/node_modules` served.
+  - r2: rc 0, *OK - 1 run(s)*.
+  - r1 full: rc 1, `output_missing`/`seal_missing` (halted after Step 1, its README).
+  - r1 `--at-step step1`: rc 0.
+- **A reading withdrawn.** My 03:03 comment on #692 called the lint inconsistent with `verify-chain`/`verify-seals` on historical runs. It is not: the lint's discovery path handles them (`lint-council-run.ts:47-66`). The comment was edited at 03:05 UTC, and the edit first carried a typed time (03:12), replaced by the command's 03:05 the same minute.
+- **The seal keys:** `git ls-files` and `git ls-tree -r next` list two `seal-key.local` files. Their names were read; their contents never.
+- **The record:** the ten seat provenance records of T9, T10, T12 and T14, read from each slice's own `m6-*` audit folder (`stage-b/seat-records.md`). All ten pass identity, effort and provider; all name `1.14.1-pixelelated.2`; $18.54 in all. A first read took the wrong folders (an older audit's files) and was discarded.
+- **Both evidence folders' `SHA256SUMS`:** 12 of 12 and 13 of 13 OK (`stage-b/evidence-sums.txt`).
+- **Written:** `02` (Phase 2, § Provenance 52 rows, § Reconciliation, § Coverage 52 rows, § The runs, § Proofs), `03` (§ 3.5 seams), `04` (Q1 to Q7, the currency and dead-end tables, 15 findings), and `second-opinions/review-plan.json` (local, `reviewers: []`, tier exception D-WORKFLOW-184).
+  - The generators `stage-b/provenance.py` and `stage-b/coverage.py` write the two tables' rows.
+- **Nothing written** under `/tmp` or the forbidden trees; no member changed (`git log --format=%h 32a34393dd..HEAD -- <the 52>` empty); no provider call; no `--refresh`.
