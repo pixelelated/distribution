@@ -23,6 +23,8 @@
 - **Positives** are in 02 § The streams' positives (drivers under `/workspace/tmp/m6-t13/pos*/`; the unfixed clone `/workspace/tmp/m6-t13/unfixed`).
 - **Guest halves owed by the held cycle:** #1057 (A5/RETENTION SKIP), #1062 (KILL1 to its verdict), #1064 (step 25's count), #1065 (CAP13 present/absent), #1069 (A15 to its verdict), #1070 (KILL5 at the default keep and at 2). The plan goes on #660 before the grant: controls from the unfixed clone, the fixed cells, then the suite over WebDAV and SFTP; under 45 minutes; `VM_PAIR_DIR`/`VM_QEMU_RUNTIME_DIR` under `/workspace/tmp/m6-t13/`; 10022 free and qemu 0 checked at START.
 - **S3:** `1911fee4df` #1061, `bf2832ce5b` #1081; and `cee4bf481d`, #1059's follow-up under the 06:33 ruling (nothing checked exits 3).
+- **The plan is approved (coordinator, 06:37 UTC):** rows 0-7 as posted, plus **step 5b**: `--only A5,RETENTION --second-port 10022`, with device b being **guest a itself**. 02 § The guest cycle must record that b was guest a. About 32 minutes in all, under the 45-minute bound. **Nothing boots before the grant**, which comes on #660 as its own comment at M7's FINAL RETURN; START and RETURN are posted on #660.
+- **Idle (06:4x UTC)** until the grant; the idle post is on #660.
 - **After the cycle:** 02 § The guest cycle; the six Open items to Resolved; the default (resolution) lint; then stages F, G (the retro) and H.
 
 ## Next commands
