@@ -172,7 +172,9 @@ s3_host_conf() {
   # A config file rather than an on-the-fly connection string: rclone's
   # connection-string parser splits on ':' and mangles an endpoint URL,
   # failing with "dial tcp: lookup http" on versions many distros ship.
-  cat > "${S3_CONF}" <<EOF
+  # Created private (umask 077), not made private after: chmod alone left it
+  # readable for the moment between the write and the chmod (#1068).
+  ( umask 077 && cat > "${S3_CONF}" ) <<EOF
 [qa-host]
 type = s3
 provider = Minio
@@ -696,6 +698,15 @@ case "${1:-}" in
 
   rclone-conf)
     # What goes in /storage/.config/rclone/rclone.conf on the device.
+    # The password-based stanzas carry only rclone obscure's output. Until
+    # #1068 a failed obscure fell back to the clear password in the stanza;
+    # now no stanza is written and the tool says why.
+    case "${BACKEND}" in
+      webdav|smb|ftp)
+        OBSCURED=$(rclone obscure "${PASS}" 2>/dev/null) && [ -n "${OBSCURED}" ] || {
+          echo "error: rclone obscure failed; no stanza written (a clear password never goes in one)" >&2; exit 1; }
+        ;;
+    esac
     case "${BACKEND}" in
       s3)
         cat <<EOF
@@ -737,7 +748,7 @@ type = smb
 host = ${GUEST_HOST}
 port = ${PORT}
 user = ${USER_NAME}
-pass = $(rclone obscure "${PASS}" 2>/dev/null || echo "${PASS}")
+pass = ${OBSCURED}
 EOF
         ;;
       ftp)
@@ -747,7 +758,7 @@ type = ftp
 host = ${GUEST_HOST}
 port = ${PORT}
 user = ${USER_NAME}
-pass = $(rclone obscure "${PASS}" 2>/dev/null || echo "${PASS}")
+pass = ${OBSCURED}
 EOF
         ;;
       *)
@@ -757,7 +768,7 @@ type = webdav
 url = http://${GUEST_HOST}:${PORT}
 vendor = other
 user = ${USER_NAME}
-pass = $(rclone obscure "${PASS}" 2>/dev/null || echo "${PASS}")
+pass = ${OBSCURED}
 EOF
         ;;
     esac
