@@ -125,3 +125,11 @@
 - **Stage C ends 11:04 UTC.** No guest, build, compiler, plan generation, fetch or handheld command. The `tools/council/run` calls were two keyed (the probe and the refutation) and two keyless (`--help`, `verify-pins`, both with `COUNCIL_ENV_FILE=/nonexistent`).
 - PROOF: P15, the seat: both provenance files, verification, effort and provider `PASS`.
 - PROOF: P16, the seat's claims re-read: `stage-c/rereads/` c01 to c07.
+
+## [Stage D] 11:05 UTC — the audit issue, and the pause
+
+- **#1108:** *Audit: M6 T28 the SM8550 device -- 9 findings (0 critical, 0 high, 1 medium, 2 low, 6 info)*.
+  - Labels `audit` and `punch-list`; milestone `M6: Codebase renovation`.
+  - Attached as a sub-issue of #675; readback lists it under #675.
+  - Its body was scanned before filing (`forbidden-terms-check --stdin` 0 hits). `tools/box-check --issue 1108`: 9 open checkboxes, 0 fail.
+- **The pause:** the punch list posted on #675, asking for the coordinator's dispositions, PL-01 and PL-09 especially. No `tools/council/run` call, guest, build or handheld command at stage D.

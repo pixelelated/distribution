@@ -1,6 +1,6 @@
 # Punch list — M6.P2 T28, the SM8550 device (Retroid Pocket Nova) (#675)
 
-**Independent depth** (one seat, GPT-6 Astra at `max`; `04` § Second opinion).
+**Independent depth** (one seat, GPT-6 Astra at `max`; `04` § Second opinion). The audit issue is #1108 (a sub-issue of #675).
 - **Nine items:** 1 Medium, 2 Low, 6 Info. **No `bug` filed:** PL-01 and PL-09 are candidates whose disposition is the coordinator's at the stage-D pause.
 - **Nothing** in this list changes a file under `packages/`, `projects/` or `tools/` at stages A to D, and no item proposes a removal of an upstream-carried unit (D-WORKFLOW-209).
 - **Nothing ran on the Nova.**

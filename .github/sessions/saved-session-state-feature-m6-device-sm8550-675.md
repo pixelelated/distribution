@@ -16,11 +16,9 @@
 
 ## Current focus
 
-**Stage C complete; stage D next** (updated 2026-10-25, 11:05 UTC).
-- **The seat:** PASS (probe and refutation, the only keyed calls); 32 items graded in `04` § Second opinion.
-- **`05`:** PL-01 (Medium, a candidate bug: `update.sh` masks `updateabl`'s failure) to PL-09 (Low, the touchscreen pinctrl), all Open.
-- **The lint:** pre-issue `PASS`.
-- **Next (stage D):** the audit issue as a sub-issue of #675; the pause with the punch list posted on #675, asking for dispositions (PL-01 and PL-09 especially).
+**Stage D paused for the coordinator's dispositions** (updated 2026-10-25, 11:05 UTC).
+- **The audit issue:** #1108, under #675, 9 items. The lint: pre-issue `PASS`.
+- **Next:** read the dispositions on #675. If PL-01 becomes a `bug` with a stream, run that stream under its brief (T27's S1 shape: a `bwrap` host fixture of `update.sh` with a failing `updateabl` stub, test first). Then record the outcomes in `05`, the resolution lint `--issue 1108`, stage F, the retro and the hand-back.
 - **Running for this lane:** nothing.
 
 ## Next commands
@@ -61,6 +59,7 @@ host's swap, another lane's worktree, or a guest.
 
 ## Checkpoints
 
+- Stage D: 11:05 UTC (the commit below)
 - Stage C: 11:05 UTC (the commit below)
 - Stage B: 10:43 UTC (the commit below)
 - Stage A: 10:33 UTC (the commit below)
