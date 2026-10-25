@@ -16,18 +16,16 @@
 
 ## Current focus
 
-**Handed back; idle** (2026-10-25, 04:35 UTC). The hand-back comment on #670 names the tip and every artifact.
-- **Commits:** `reviewed-at` `27b015c901`, `fixed-at` `ea19c27dee` (both on #670's body).
-- **The audit:** `docs/audits/2026_10_25-epic-m6-generic-packages-dead-ends/`. The lint passes in the pre-issue and resolution phases and with `--issue 1052`. #1052's 9 items are at outcomes.
-- **The bugs** #1049, #1050 and #1051 are filed by the lane; the decision issue #1048 and Backlog #1053 are the coordinator's.
-- **The retro:** `docs/retros/2026-10-25-m6-generic-packages-dead-ends.md`, posted on #670.
-- **The checkers:** `register-check`, `work-log-index --check`, `rules-check --quiet` and `hooks-test` rc 0. `forbidden-terms-check` is the coordinator's.
-- **Left for the coordinator's re-run:** `/workspace/tmp/m6-t23` (the `curl` shim, the plan build caches, the scratch). Remove it after acceptance, or ask.
-- **Running for this lane:** nothing.
+**Idle (2026-10-25, 04:41 UTC): T23 accepted by the coordinator on #670 at 04:40 UTC (`12374c733d` stands); #1052 closed as completed.**
+- **The marker:** `docs/audits/2026_10_25-epic-m6-generic-packages-dead-ends/audit-completion.json`, written from #1052's closed readback (completed 04:40:48 UTC). `tools/ceremony-check`'s validator accepts it. `tools/lint-audit-artifacts` prints `PASS` with `--issue 1052` and in the default phase.
+- **Commits:** `reviewed-at` `27b015c901`, `fixed-at` `ea19c27dee` (in #670's body); the coordinator's merge `44fc2fe436`.
+- **Open elsewhere, not this lane's:** bugs #1049, #1050 and #1051 (the lane filed them; the fixes are packets the coordinator routes); the decision issue #1048 and the class decision on #346; Backlog #1053.
+- **Removed after this commit:** `/workspace/tmp/m6-t23`.
+- **Running for this lane:** nothing. **The lane waits for nothing:** the merge to `next` is the coordinator's, after T8's and before T9's.
 
 ## Next commands
 
-None. The lane waits for the coordinator's acceptance; after it: `audit-completion.json` from #1052's closed readback, and the full lint.
+None. The lane is idle.
 
 ## Merge notes
 

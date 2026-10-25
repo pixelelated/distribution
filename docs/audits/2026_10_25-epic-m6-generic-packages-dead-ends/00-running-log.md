@@ -135,3 +135,11 @@
 - **`tools/forbidden-terms-check` was not run here:** it reads `~/.config/rocknix/forbidden-terms`, a list this lane does not read. It is the coordinator's at acceptance, as criterion 16 orders.
 - **The retro** is posted on #670. **`reviewed-at` `27b015c901` and `fixed-at` `ea19c27dee`** are on #670's body.
 - **The lane is idle** after the hand-back comment.
+
+## [Close-out] 04:41 UTC — accepted; #1052 closed; audit-completion.json; the full lint PASS
+
+- **The coordinator accepted T23 on #670 at 04:40 UTC** (`12374c733d` stands), merged its branch into this worktree at `44fc2fe436` and closed #1052 as completed, with its nine checkboxes ticked.
+- **The marker:** `audit-completion.json`, written by `tools/write-completion.py` (the T12/T45 writer, adapted for #1052) from #1052's closed readback: completed `2026-10-25T04:40:48Z`, 9 ticked, 0 open. Beside it are `tracker-final-readback.json` and `tracker-completion.json`. `tools/ceremony-check`'s `completed_audit_marker()` accepts it (no bytecode written).
+- **The lint:** `--issue 1052` prints `PASS`; the default resolution phase prints `PASS`.
+- **Nothing under `packages/`, `projects/` or `tools/` changed through the merge:** `git diff --stat 27b015c901 HEAD -- packages projects tools` is empty.
+- **`/workspace/tmp/m6-t23` is removed after this commit:** the `curl` shim (its copy is in `stage-a/shim/`), the plan caches and the scratch.
