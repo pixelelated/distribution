@@ -406,3 +406,9 @@
   - `PASS  the client at c7ebd1b6e7 with 19 patch(es) applied in order, each compiled:   File "t15_1036_broken.py", line 1ok`, the compiler's complaint inside the PASS;
   - `PASS  ... the four scripts under sources/ are mode 100755` with one a symlink (120000) in the index.
   - Its one FAIL is the toggle-off case, whose marker stays because the alteration disabled the pass's `rm`.
+- **11:56, pos-1036-fixed: each predicate FAILs, saying why:**
+  - `FAIL  rc 1; output: tocon Starting services...|`: the pass's own status;
+  - `FAIL  smb.conf is gone after the pass, or the pass never rewrote it: ... markers left: raofflineproxy.conf smb.conf`, and the same for `raofflineproxy.conf`: present, and never rewritten;
+  - `FAIL  a patch did not apply, or the patched client does not compile (py_compile rc 1:   File "t15_1036_broken.py", line 1|    def (:|)`;
+  - `FAIL  #308 claude F-RA-17: modes: ... raofflineproxy-refresh=120000`.
+  - Every one of them PASSed on the unfixed file. The clones were removed.
