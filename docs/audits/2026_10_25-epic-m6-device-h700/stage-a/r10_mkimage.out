@@ -1,0 +1,13 @@
+7:  if [ -f "${RELEASE_DIR}/3rdparty/bootloader/${SUBDEVICE}_uboot.bin" ]; then
+9:    echo "image: writing ${SUBDEVICE}_uboot.bin to $(basename "${DISK}")..."
+10:    dd if="${RELEASE_DIR}/3rdparty/bootloader/${SUBDEVICE}_uboot.bin" of="${DISK}" bs=512 seek=64 conv=sync,noerror,n
+18:  elif [ -f "${RELEASE_DIR}/3rdparty/bootloader/H700_${SUBDEVICE}_u-boot-sunxi-with-spl.bin" ]; then
+21:    dd if="${RELEASE_DIR}/3rdparty/bootloader/H700_${SUBDEVICE}_u-boot-sunxi-with-spl.bin" of="${DISK}" bs=1K seek=8 
+26:    mcopy -s -o "${RELEASE_DIR}/3rdparty/bootloader/device_trees" ::
+28:    echo "ERROR no u-boot file found for ${SUBDEVICE}"
+64:  if [ -f "${RELEASE_DIR}/3rdparty/bootloader/${SUBDEVICE}_boot.scr" ]; then
+65:    echo "image: copying ${SUBDEVICE}_boot.scr..."
+66:    mcopy "${RELEASE_DIR}/3rdparty/bootloader/${SUBDEVICE}_boot.scr" ::/boot.scr
+68:    echo "cannot find ${RELEASE_DIR}/3rdparty/bootloader/${SUBDEVICE}_boot.scr"
+77:      mcopy "${RELEASE_DIR}/3rdparty/bootloader/device_trees/"*.dtb ::
+88:      mcopy -s "${RELEASE_DIR}/3rdparty/bootloader/device_trees" ::

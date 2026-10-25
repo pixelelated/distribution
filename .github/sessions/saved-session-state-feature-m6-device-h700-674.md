@@ -16,11 +16,17 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope, this pointer updated, and the day's
-work-log entry headed `#674` (prose through a quoted heredoc or the Write
-tool). `.qa-scratch/` is gitignored and `git status --short` is read before
-every `git add -A`. No network is used at all.
+**Stage A complete; stage B next** (updated 2026-10-25, 08:11 UTC).
+- **`reviewed-at`:** `ed7fd0ea50`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-device-h700/`, with `00`, `01` (§ Scope) and `stage-a/` (the runner, its 16 outputs and `runs.tsv`).
+- **Scope:** 28 / 12,901; read 8 / 327 / fork-own 0; tier 27 / 1; reach 28. The 15 trees are read too.
+- **The configuration:** 8,129 lines, `Linux/arm64 7.2.0`, 12 / 13 against `651150fc88`'s copy. The fork's `cbf75c0b06` alone since `c445081a59`; upstream's four since.
+- **The pins, unchanged at both hashes:** u-boot-DDR3/DDR4 `v2026.01`, the suspend stub `712653d11230`, the wrapper `1.0`. The defconfigs differ in 20 lines.
+- **The loader and the tree:** `update.sh:30-31` writes `dtb.img`, `:36-40` reads `vdd-dram`, `:55` `dd`s the loader. `mkimage` never names `dtb.img`.
+- **The trees:** 15; 13 include mainline, 2 a fork sibling.
+- **History:** 29 / 1 / 28 with an explicit midnight cutoff. The bare `--since` printed 28 / 1 / 27 at 08:10 (`efae8a5653`, 08:07:03Z); a friction line is written. **Upstream:** 1 D / 2 M.
+- **Every recipe read passes the masking `sed`;** `h700-suspend-stub/package.mk:43` is never quoted raw.
+- **No guest, build, plan, fetch, handheld or council call so far.** The one seat comes at stage C.
+- **Running for this lane:** nothing.
 
 ## Next commands
 
