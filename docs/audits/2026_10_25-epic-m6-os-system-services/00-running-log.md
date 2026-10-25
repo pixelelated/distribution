@@ -170,3 +170,13 @@ S1's case runs under a copy of the image's initramfs busybox. Where it came from
 - **The scratch was retired** (D-INFRA-022): all of `/workspace/tmp/m6-t22/` (`artifacts`, `cycle`, `cycle.env`, `cycle2`, `run`, `tmp`, with the busybox copy, the stage-D export and the case scratch), 134,881,395 bytes. Nothing in it was open; every file was this user's; qemu 0. Both guest disks had already gone (00, 09:17 and 10:24). df: 1634983305216 bytes available before, 1634975244288 after.
 - **#669's header:** `reviewed-at: 0f7ece71e8` (`git diff --stat 8ebaf8daad 0f7ece71e8 -- <the 422>` empty; `git diff --stat 4a48d388c4 0f7ece71e8 -- packages projects tools` empty) and `fixed-at: 6cfe1fdba1`. Since the stage-D tip only the two stream files changed under `packages/`, `projects/` and `tools/`.
 - **The checkers on the branch:** `register-check` rc 0 (681 IDs), `work-log-index --check` current, `rules-check --quiet` rc 0, `forbidden-terms-check` 0 hits, `.githooks/hooks-test` PASS. `lint-audit-artifacts` passes in both phases.
+
+## 2026-10-25 10:50-10:52 UTC -- close-out (the coordinator's 10:50 acceptance at `8a4d5eb5b2`)
+
+- #1103 read back closed as completed at 10:50:32Z, 28 ticked and 0 open (`checks/phase7-closure/1103-readback.json`). `tools/lint-audit-artifacts <this folder> --issue 1103 --repo pixelelated/distribution` printed `PASS` (`resolution-lint.*`).
+- `tracker-states.json` holds the state, close reason, body sha256 and checkbox counts of #1103 and every issue `05` tracks:
+  - #344, #346, #585, #669, #740 and #1104;
+  - #1105, #1106 and #1107, the three bugs, open with their fixes on this branch: #1106 with its two fix-pending-image criteria, the other two with 0 open checkboxes.
+- `tracker-completion.json` is PASS, verified 10:51:05.789295Z.
+- `audit-completion.json` (schema 1, issue 1103, `completed_at` equal to the receipt) binds `02`, `04`, `05` and the four receipts by sha256. `ceremony-check`'s own validator accepts it, and the full report is in `ceremony.stdout`.
+- `/workspace/tmp/m6-t22/` was already gone (removed at stage H, 00); `ls` confirms.

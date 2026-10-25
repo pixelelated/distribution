@@ -16,15 +16,14 @@
 
 ## Current focus
 
-**Handed back; idle.** Stages A to H are done.
-- **Records:** `00` to `05`, `second-opinions/` (two seats), `guest-cycle/` and `guest-cycle-2/`, `stage-e/` (`run-all.sh` 8 of 8), and the retro at `docs/retros/2026-10-25-m6-os-system-services.md`.
-- **#669's header:** `reviewed-at: 0f7ece71e8`, `fixed-at: 6cfe1fdba1`.
-- **The bugs:** #1105 and #1107 fully ticked. #1106 has two fix-pending-image criteria, which the coordinator proves at the first image after the merge.
-- **#1103** reads 28 of 28.
-- **Checks:** both lints and the five checkers PASS.
-- **Scratch:** retired.
+**T22 is closed out; the lane is idle.**
+- **Accepted** at `8a4d5eb5b2` (10:50 UTC). #1103 is closed at 28 of 28, and #669 reads 17 of 18.
+- **Written:** `docs/audits/2026_10_25-epic-m6-os-system-services/audit-completion.json` and its receipts under `checks/phase7-closure/`. The lint with `--issue 1103` passes, and `ceremony-check`'s validator accepts the marker.
+- **Posted:** the close-out tip, on #669.
+- **Open:** #1106's two fix-pending-image criteria, which wait for an image built after the merge.
+- **Scratch:** `/workspace/tmp/m6-t22/` removed.
 
-**Waiting on the coordinator:** acceptance, the hand-back merge, then the prompt for `audit-completion.json` and the full lint. Nothing is running.
+Nothing is running. **Next:** whatever the coordinator dispatches.
 
 ## Next commands
 
