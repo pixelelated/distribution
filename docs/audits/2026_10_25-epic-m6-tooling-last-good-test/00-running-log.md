@@ -390,3 +390,6 @@
 - **09:41, final2-old-28a80357ed at `e430d61cfa`:** rc 1 in 1,372 s, 271 / 311 / 755 N/A / 0 SKIP / 2 CANNOT. Promised `r s`, both fired; `t x y z ab` N/A (750). No departure.
 - **10:04, final2-old-3387cf5da0 at `e430d61cfa`:** rc 1 in 1,384 s, 331 / 278 / 733 N/A / 0 SKIP / 2 CANNOT. Promised `t`, fired; `x y z ab` N/A (729). No departure.
 - **10:27, final2-old-655f103cc5 at `e430d61cfa`:** rc 1 in 1,378 s, 339 / 270 / 733 N/A / 0 SKIP / 2 CANNOT. Promised `u v`, both fired; `x y z ab` N/A (729). No departure.
+- **10:27-10:50, final2-old-655f103cc5 and final2-old-70b6c70ca7 at `e430d61cfa`:** each rc 1, promises fired (`u v`; `t`). The third queue ended at 10:50:03 (`QUEUE2 END`), and the positives runner started at 10:50:15 (PID 2383711).
+- **A departure in `70b6c70ca7`** (#1024): `t` builds the ref's own client (11 patches, each compiled), but its predicates driver raised after five FAILs, and the `012` checks never printed while "predicates ran" passed. Fixed at `d3f7843050` (#1032: `driver_verdicts` with the driver's 14 IDs, read with `ast`; checked on constructed output). The `t` cut under `--old 70b6c70ca7` at the tip is added to the close-out.
+- **The twelve-recipe table** is in `02` § S2.

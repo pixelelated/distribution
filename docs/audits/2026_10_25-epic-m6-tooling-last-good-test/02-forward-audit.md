@@ -608,3 +608,36 @@ The probe is a cut copy: the harness, stream A's setup through `sa_tail`, then a
 | the same | fixed | rc 0: `probe saw: RCLONE_CONFIG=unset;RCLONE_CONFIG_QA_TYPE=unset;BASH_ENV=unset;FN=unset;IF=lo ;`, then `PASS  #1028: the sandbox received none of the caller's RCLONE_*, BASH_ENV or exported functions, and has loopback only` | proved: tool-run |
 
 **The exceptions:** none. The 179 call sites were searched for a variable passed in front of the call (only `SA_CWD`, which `sa_run` reads itself), and the harness for an export reaching them (none). `SA2_EXTRA`'s `--setenv CLOUD_CAPTURE_EXIT_BOUND` comes after `--clearenv`. root-final at `5d1f67ca0b` (rc 3, 1,315 / 0 / 0 / 2 CANNOT) shows that no case needed the host network or an inherited variable.
+
+### S2, the twelve `--old` recipes at the final tip (#1022, #1023, #1024)
+
+Every recipe in the header, run once on the donor root (`QA_SYSTEM_ROOT=/workspace/artifacts/m6-donor/1a0266484423/image/system`), one at a time, from a clone:
+- the first five at `5d1f67ca0b`, where each reached its verdict;
+- the other seven at `e430d61cfa`. #1023's abort fix came after `717bc04449` and `51e2acece6` ended at `5d1f67ca0b` with no verdict (above), and the coordinator ruled at 08:05 (a).
+
+"Before" is the same recipe in stage A, on the unfixed file. Every recipe now reaches a verdict, exit 1, and every promise in the header fires.
+
+| Recipe | Before (stage A, the unfixed file) | At | rc | PASS / FAIL / N/A / SKIP / CANNOT | Promised, and what fired | Sections N/A | Proved |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `1d1503180d` | `cannot read projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-evidence at 1d1503180d` | `5d1f67ca0b` | 1 (1253 s) | 117 / 363 / 659 / 91 / 2 | promised: a b c d e f j k l m; fired: a b c d e f j k l m; did not fire: none | s t x y z ab | proved: tool-run |
+| `53f390b1e9` | `cannot read projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-corekeep at 53f390b1e9` | `5d1f67ca0b` | 1 (1152 s) | 178 / 320 / 641 / 91 / 2 | promised: k l m; fired: k l m; did not fire: none | t x y z ab | proved: tool-run |
+| `c15050c897` | `cannot read projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-evidence at c15050c897` | `5d1f67ca0b` | 1 (1283 s) | 137 / 343 / 659 / 91 / 2 | promised: a; fired: a; did not fire: none | s t x y z ab | proved: tool-run |
+| `8707919349` | `cannot read projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-corekeep at 8707919349` | `5d1f67ca0b` | 1 (1156 s) | 214 / 284 / 641 / 91 / 2 | promised: h n o; fired: h n o; did not fire: none | t x y z ab | proved: tool-run |
+| `34aca64afd` | `cannot read projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-corekeep at 34aca64afd` | `5d1f67ca0b` | 1 (1217 s) | 232 / 266 / 641 / 91 / 2 | promised: k p; fired: k p; did not fire: none | t x y z ab | proved: tool-run |
+| `717bc04449` | `(the header named 0f7785e6ed) cannot read projects/ROCKNIX/packages/rocknix/sources/scripts/chksysconfig at 0f7785e6ed` | `e430d61cfa` | 1 (1373 s) | 255 / 327 / 755 / 0 / 2 | promised: q; fired: q; did not fire: none | t x y z ab | proved: tool-run |
+| `51e2acece6` | `(the header named d79281066c) cannot read projects/ROCKNIX/packages/rocknix/sources/scripts/chksysconfig at d79281066c` | `e430d61cfa` | 1 (1371 s) | 260 / 322 / 755 / 0 / 2 | promised: p; fired: p; did not fire: none | t x y z ab | proved: tool-run |
+| `cee1656c33` | `cannot read projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-corekeep at cee1656c33` | `e430d61cfa` | 1 (1412 s) | 311 / 298 / 732 / 0 / 2 | promised: p r t; fired: p r t; did not fire: none | x y z ab | proved: tool-run |
+| `28a80357ed` | `cannot read projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-corekeep at 28a80357ed` | `e430d61cfa` | 1 (1372 s) | 271 / 311 / 755 / 0 / 2 | promised: r s; fired: r s; did not fire: none | t x y z ab | proved: tool-run |
+| `3387cf5da0` | `cannot read projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-corekeep at 3387cf5da0` | `e430d61cfa` | 1 (1384 s) | 331 / 278 / 733 / 0 / 2 | promised: t; fired: t; did not fire: none | x y z ab | proved: tool-run |
+| `655f103cc5` | `cannot read projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-corekeep at 655f103cc5` | `e430d61cfa` | 1 (1378 s) | 339 / 270 / 733 / 0 / 2 | promised: u v; fired: u v; did not fire: none | x y z ab | proved: tool-run |
+| `70b6c70ca7` | `cannot read projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-corekeep at 70b6c70ca7` | `e430d61cfa` | 1 (1377 s) | 369 / 260 / 733 / 0 / 2 | promised: t; fired: t; did not fire: none | x y z ab | proved: tool-run |
+
+- **The SKIP column** reads 91 at `5d1f67ca0b` and 0 at `e430d61cfa`, with the N/A column correspondingly higher. These are the same checks, not run either way. At `e430d61cfa`, `set -u` is lifted for an N/A section's leftover code, so section `t`'s leftover code defines the client, and section D's blocks print their checks N/A inside the N/A section, rather than SKIP for a client that never appeared. Neither is ever PASS.
+- **rclone is unverified at every ref**: the root's v1.75.2 against the recipes' v1.75.0. Busybox matches at every ref (1.36.1). This is the coordinator's 03:34 ruling.
+- **#1022:**
+  - `717bc04449`'s `q` FAILs as promised: `raofflineproxy.conf is gone after the pass ... 007-syncthing inherited CONF from 006-raofflineproxy`.
+  - `51e2acece6`'s `p` FAILs as promised: the ctl answers its usage, `{enable|disable|start|stop|status}`, and exit 2 to the `pending` and `flushed` verbs.
+- **#1024, `70b6c70ca7`:**
+  - `t` builds the ref's own client: `the client at 64d03d3063 with 11 patch(es) applied in order, each compiled`. At stage A, five patches failed to apply to today's client.
+  - **But the `012` checks did not print.** The predicates driver raised after five FAIL lines (PL-01, PL-25: the old client lacks `cache_keys.last_played`), and its "predicates ran" check passed on those five. That is #1032's shape in a driver #1032 did not name. It is fixed at `d3f7843050`: `driver_verdicts` with the driver's 14 success-path IDs, so the missing `012` checks FAIL by name.
+  - Its run under `--old 70b6c70ca7` at the tip is in the close-out.
