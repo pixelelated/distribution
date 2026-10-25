@@ -1,0 +1,15 @@
+8ebaf8daad:projects/ROCKNIX/devices/H700/packages/u-boot/package.mk:28:  mkdir -p $INSTALL/usr/share/bootloader
+8ebaf8daad:projects/ROCKNIX/devices/H700/packages/u-boot/package.mk:34:    cp -av ${PKG_UBOOTBIN} $INSTALL/usr/share/bootloader/H700_${PKG_S
+8ebaf8daad:projects/ROCKNIX/packages/linux/package.mk:411:    mkdir -p ${INSTALL}/usr/share/bootloader/boot/grub
+8ebaf8daad:projects/ROCKNIX/packages/linux/package.mk:414:          cp -v ${dtb} ${INSTALL}/usr/share/bootloader/boot/grub
+8ebaf8daad:projects/ROCKNIX/packages/linux/package.mk:420:    mkdir -p ${INSTALL}/usr/share/bootloader
+8ebaf8daad:projects/ROCKNIX/packages/linux/package.mk:424:          mkdir -p ${INSTALL}/usr/share/bootloader/device_trees
+8ebaf8daad:projects/ROCKNIX/packages/linux/package.mk:425:          cp -v ${dtb} ${INSTALL}/usr/share/bootloader/device_trees
+8ebaf8daad:projects/ROCKNIX/packages/linux/package.mk:427:          cp -v ${dtb} ${INSTALL}/usr/share/bootloader
+8ebaf8daad:projects/ROCKNIX/packages/rocknix/package.mk:52:  mkdir -p $INSTALL/usr/share/bootloader
+8ebaf8daad:projects/ROCKNIX/packages/rocknix/package.mk:57:    cp -av ${FOUND_PATH} ${INSTALL}/usr/share/bootloader
+8ebaf8daad:projects/ROCKNIX/packages/tools/rocknix-abl/package.mk:13:  mkdir -p ${INSTALL}/usr/share/bootloader/rocknix_abl
+8ebaf8daad:projects/ROCKNIX/packages/tools/rocknix-abl/package.mk:14:    cp -a ${PKG_BUILD}/abl_signed-${DEVICE}.elf ${INSTALL}/usr/share/bo
+8ebaf8daad:projects/ROCKNIX/packages/tools/rocknix-abl/package.mk:15:    cp -a ${PKG_DIR}/sources/* ${INSTALL}/usr/share/bootloader/rocknix_
+8ebaf8daad:projects/ROCKNIX/packages/tools/rocknix-abl/package.mk:16:    mv ${INSTALL}/usr/share/bootloader/rocknix_abl/flash_abl.sh.templat
+8ebaf8daad:projects/ROCKNIX/packages/tools/rocknix-abl/package.mk:17:    sed -i "s/%DEVICE%/${DEVICE}/g" ${INSTALL}/usr/share/bootloader/roc

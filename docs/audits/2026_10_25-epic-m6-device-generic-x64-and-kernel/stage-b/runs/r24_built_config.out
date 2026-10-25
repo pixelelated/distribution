@@ -1,0 +1,34 @@
+2026-10-14 21:52:32.564492625 +0000 242297
+# Linux/x86 7.1.2 Kernel Configuration
+m7 head bcc866f1f3 2026-10-25 04:32:17 +0000
+conf equal at m7 head
+removed=335 added=641
+options ours 6205 built 6380
+changed 18
+gone 189 set 97
+new 364 set 137
+  CHG CONFIG_AS_VERSION 24400 -> 20285426
+  CHG CONFIG_BOOTPARAM_HUNG_TASK_PANIC n -> 0
+  CHG CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC n -> 0
+  CHG CONFIG_CC_VERSION_TEXT "x86_64-libreelec-linux-gnu-gcc-15.1.0 (GCC) 15.1.0" -> "x86_64-rocknix-linux-gnu-gcc-15.2.0 (GCC) 15.2.0"
+  CHG CONFIG_CIFS y -> n
+  CHG CONFIG_CRYPTO_LIB_CURVE25519_GENERIC m -> y
+  CHG CONFIG_DEFAULT_HOSTNAME "@DISTRONAME@" -> "ROCKNIX"
+  CHG CONFIG_EXTRA_FIRMWARE "" -> 1254 entries {'amdgpu': 675, 'radeon': 247, 'intel-ucode': 153, 'i915': 130, 'rtl_nic': 40, 'amd-ucode': 6, 'e100': 3}
+  CHG CONFIG_GCC_VERSION 150100 -> 150200
+  CHG CONFIG_INITRAMFS_SOURCE "@INITRAMFS_SOURCE@" -> (a build path)
+  CHG CONFIG_INT340X_THERMAL n -> m
+  CHG CONFIG_LD_VERSION 24400 -> 20285426
+  CHG CONFIG_NLS_UCS2_UTILS y -> m
+  CHG CONFIG_PGTABLE_LEVELS 4 -> 5
+  CHG CONFIG_PREEMPT n -> y
+  CHG CONFIG_RUSTC_LLVM_VERSION 0 -> 220108
+  CHG CONFIG_RUSTC_VERSION 0 -> 109401
+  CHG CONFIG_SWAP y -> n
+fork settings kept in the build 10 of 10
+  CONFIG_PREEMPT_VOLUNTARY ours y built absent
+  CONFIG_PREEMPT ours n built y
+  CONFIG_DRM_AMDGPU ours y built y
+  CONFIG_DRM_RADEON ours y built y
+  CONFIG_DRM_I915 ours y built y
+  CONFIG_DRM_VIRTIO_GPU ours y built y

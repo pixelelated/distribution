@@ -53,3 +53,21 @@
   - **The callers reach it by path, not by basename.** `tools/vm-pair:36` sets `VM_TOOL="$ROOT/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm"` and `:74` runs `"$VM_TOOL" run --headless --daemonize ...`. The rule's `VM_TOOL=` lines (`generic-x64-vm-testing.md:83`, `:107`) do the same. `tools/last-good-scripts-test:3406-3571` uses the full path in its fixture.
   - The basename appears only in comments and help text: `tools/vm-serial:8`, `tools/cloud-test-backend:8`, and `tools/cloud-round-trip:504/513/607` (help strings). This is a delta from the brief's *call it by basename*.
 - **Nothing written** under `/tmp`, `/workspace/repos/rocknix*`, another lane's worktree, `packages/`, `projects/` or `tools/`. No guest, build, compiler, plan generation, fetch or `tools/council/run` call.
+
+## [Stage B] 06:48 to 07:04 UTC — Phase 1 and 2, the runs, `02`, `03`, `04`, the review plan
+
+- **The coordinator's answer** (06:47 UTC, #658): § The launcher records the resolution as found, `tools/vm-pair` by full path through `VM_TOOL`; the brief's *by basename* is an erratum for acceptance.
+- **The runs:** `/workspace/tmp/m6-t11/runner/runs.sh`, 28 read-only steps started at 06:56:11 UTC, each with its exit and wall time. All exit 0 but r28, whose exit 1 is `grep -c` printing the expected 0. Copied to `stage-b/runs/`, with the runner, `cfgclass.py` and `coverage.py`.
+- **Read beyond the 58:** `scripts/image`, `scripts/mkimage`, `config/functions`, `packages/virtual/image`, the `syslinux`, `installer`, `grub`, `rocknix-abl` and `rocknix` recipes, every device's options and firmware list, `tools/vm-pair`, the inventory's tier rule, the 2026-10-11 usb-revision proof. Cross-slice records read with `git show`: T5's F-16/F-17 and E6, T40's x86_64 five, T12's harness rows.
+- **Read from the M7 lane's build root, read-only** (`/workspace/repos/rocknix.worktrees/m7-signin-generic-build-20261025-01`):
+  - the built kernel `.config` (sha256 `e769f2e5fe2ebe9d...`, equal to `m7-pixelelated-replacement20`'s; the M7 head `bcc866f1f3` carries the committed conf unchanged);
+  - the installed firmware tree (6,158 files, 2,876,913,748 bytes);
+  - the bzImage's size and the embedded firmware's source.
+
+  Copies went to `/workspace/tmp/m6-t11/cfg/`. Nothing was written in that tree, and no process there was touched.
+- **Corrections before commit:**
+  - three line ranges in `02` (`:197-207`, `scripts/image:272-289`, the shipped `init:432`);
+  - Q5's claim that ours adds the GPU drivers (the Generic conf has them; the Generic file's 7.1.2 header makes part of the 659 / 351 drift);
+  - `03`'s *five* overlay sources, which are six.
+- **Findings:** F-01 (Medium) to F-10; no `bug` proven. The one proof that read the committed configuration (`usb-revision/guest02/run.py:15`) holds in the built file.
+- **Nothing written** under `/tmp`, `/workspace/repos/rocknix*`, another lane's worktree, `packages/`, `projects/` or `tools/`. No guest, build, compiler, plan generation, fetch or `tools/council/run` call.

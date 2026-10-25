@@ -1,0 +1,29 @@
+8ebaf8daad:.claude/rules/generic-x64-vm-testing.md:79:`projects/ROCKNIX/devices/GENERIC_X64/vm/profile.json`. The adjacent `generic-x64-vm` 
+8ebaf8daad:.claude/rules/generic-x64-vm-testing.md:83:VM_TOOL=projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm
+8ebaf8daad:.claude/rules/generic-x64-vm-testing.md:107:VM_TOOL=projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm
+8ebaf8daad:.claude/rules/generic-x64-vm-testing.md:165:permanent MAC, and `generic-x64-vm` gives every guest the profile's fixed
+8ebaf8daad:.claude/rules/generic-x64-vm-testing.md:298:- **`generic-x64-vm --headless` puts the guest on hardware GL through
+8ebaf8daad:tools/cloud-round-trip:4:Drives a ROCKNIX device over SSH - a VM from generic-x64-vm, or real hardware
+8ebaf8daad:tools/cloud-round-trip:504:                    help="the guest's serial console socket, from generic-x64-vm run --headless (defau
+8ebaf8daad:tools/cloud-round-trip:513:                    help="QEMU's monitor socket, from generic-x64-vm run --headless (default: %(defaul
+8ebaf8daad:tools/cloud-round-trip:607:                               "a guest from `generic-x64-vm run --headless` has one, a handheld has n
+8ebaf8daad:tools/cloud-test-backend:8:# started by generic-x64-vm reaches every one of them at 10.0.2.2 (QEMU
+8ebaf8daad:tools/last-good-scripts-test:3400:# F1f. The launcher, projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm,
+8ebaf8daad:tools/last-good-scripts-test:3406:for f in generic-x64-vm profile.json utm-bundle-readme.txt; do src_of "projects/ROCKNIX/devices
+8ebaf8daad:tools/last-good-scripts-test:3407:chmod +x "${F1V}/vm/generic-x64-vm"
+8ebaf8daad:tools/last-good-scripts-test:3414:        python3 "${F1V}/vm/generic-x64-vm" "$@" > "${F1V}/out" 2>&1
+8ebaf8daad:tools/last-good-scripts-test:3519:        python3 "${F1V}/probe.py" "${F1V}/vm/generic-x64-vm" "${1}" "${F1V}/disk.qcow2" "${F1V}
+8ebaf8daad:tools/last-good-scripts-test:3561:mkdir -p "${F1V}/vm-noreadme"; cp "${F1V}/vm/generic-x64-vm" "${F1V}/vm/profile.json" "${F1V}/v
+8ebaf8daad:tools/last-good-scripts-test:3564:    python3 "${F1V}/vm-noreadme/generic-x64-vm" utm "${F1V}/disk.qcow2" --output "${F1V}/broken
+8ebaf8daad:tools/last-good-scripts-test:3571:    bash -c 'umask 077; exec python3 "$1" utm "$2" --output "$3"' _ "${F1V}/vm/generic-x64-vm" 
+8ebaf8daad:tools/last-good-scripts-test:4249:# F2-5. #308 7-generic-x64-vm claude F-VM-09: GENERIC_X64's mupen64plus.cfg
+8ebaf8daad:tools/ra-offline-test:51:# (generic-x64-vm-testing.md) with the account name masked: exec.log carries
+8ebaf8daad:tools/ra-offline-test:134:# and any line shaped like a value is dropped (generic-x64-vm-testing.md).
+8ebaf8daad:tools/time-to-play:127:# full path, so -x never matches it (generic-x64-vm-testing.md). The bracket
+8ebaf8daad:tools/time-to-play:368:    frame for half a minute afterwards (generic-x64-vm-testing.md), which
+8ebaf8daad:tools/vm-pair:17:# Guest a keeps generic-x64-vm's defaults (SSH 10022, monitor and serial at
+8ebaf8daad:tools/vm-pair:36:VM_TOOL="$ROOT/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm"
+8ebaf8daad:tools/vm-qa:108:  # The 640x480 guest beside the pair (generic-x64-vm-testing.md § Frame at
+8ebaf8daad:tools/vm-serial:8:# ttyS0. With `generic-x64-vm run --headless` that console is a unix socket
+8ebaf8daad:tools/vm-upgrade-rehearsal:19:# booked to the build (2026-09-20, generic-x64-vm-testing.md).
+8ebaf8daad:tools/vm-walks/README.md:141:What the keys mean is in `.claude/rules/generic-x64-vm-testing.md`

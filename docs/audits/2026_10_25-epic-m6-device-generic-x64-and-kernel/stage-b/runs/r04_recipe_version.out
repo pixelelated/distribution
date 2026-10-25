@@ -1,0 +1,7 @@
+1:    PKG_VERSION="7.2"
+3:    PKG_URL="https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+7:  RK3326|AMD64|GENERIC_X64)
+8:    PKG_VERSION="7.1.2"
+10:    PKG_URL="https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+14:    PKG_VERSION="7.0.2"
+16:    PKG_URL="https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz"

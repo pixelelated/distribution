@@ -1,0 +1,14 @@
+8ebaf8daad:scripts/image:280:    if find_file_path bootloader/install ${BOOTLOADER_DIR}/install; then
+8ebaf8daad:scripts/image:285:    if find_file_path bootloader/release ${BOOTLOADER_DIR}/release; then
+8ebaf8daad:scripts/mkimage:225:  if [ -f "${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/bootloader/mkimage" ]; then
+8ebaf8daad:scripts/mkimage:226:    . "${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/bootloader/mkimage"
+8ebaf8daad:scripts/mkimage:227:  elif [ -f "${PROJECT_DIR}/${PROJECT}/bootloader/mkimage" ]; then
+8ebaf8daad:scripts/mkimage:228:    . "${PROJECT_DIR}/${PROJECT}/bootloader/mkimage"
+8ebaf8daad:scripts/mkimage:242:  if [ -f "${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/bootloader/mkimage" ]; then
+8ebaf8daad:scripts/mkimage:243:    . "${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/bootloader/mkimage"
+8ebaf8daad:scripts/mkimage:244:  elif [ -f "${PROJECT_DIR}/${PROJECT}/bootloader/mkimage" ]; then
+8ebaf8daad:scripts/mkimage:245:    . "${PROJECT_DIR}/${PROJECT}/bootloader/mkimage"
+8ebaf8daad:scripts/mkimage:260:  if [ -f "${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/bootloader/mkimage" ]; then
+8ebaf8daad:scripts/mkimage:261:    . "${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/bootloader/mkimage"
+8ebaf8daad:scripts/mkimage:262:  elif [ -f "${PROJECT_DIR}/${PROJECT}/bootloader/mkimage" ]; then
+8ebaf8daad:scripts/mkimage:263:    . "${PROJECT_DIR}/${PROJECT}/bootloader/mkimage"

@@ -16,13 +16,12 @@
 
 ## Current focus
 
-**Stage A complete; stage B next** (updated 2026-10-25, 06:46 UTC).
-- **`reviewed-at`:** `2103f0271d`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-device-generic-x64-and-kernel/`, with `00`, `01` (§ Scope) and `stage-a/`.
-- **Scope:** 58 / 10,418; read 14 / 1,820 / 1,421; tier 11 / 46 / 1; reach 49 / 9; GENERIC_X64 fork-own 1,217 (the order's 989 an erratum).
-- **The configuration:** 659 / 351 against the Generic conf, 7,671 / 2,980 against AMD64. The header says 6.15.6; the recipe builds 7.1.2; `listnewconfig` is at `:306` and `oldconfig` at `:309` and `:315`.
-- **History:** 110 / 40 / 70. **Upstream:** 7 M / 11 D.
-- **The boot files:** `install` (`scripts/image:280`, fork-only, ROCKNIX header), `release` (`:285`), `mkimage` (`scripts/mkimage:225-263`), `rkhelper` (Rockchip u-boot only).
-- **The launcher:** invoked by full path (`tools/vm-pair:36/74`); the basename is only in comments and help text. This delta was put to the coordinator on #658.
+**Stage B complete; stage C next** (updated 2026-10-25, 07:04 UTC).
+- **`reviewed-at`:** `2103f0271d`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-device-generic-x64-and-kernel/`, with `00` to `04`, `stage-a/`, `stage-b/` (the 28 runs, the runner, `cfgclass.py`, `coverage.py`) and `second-opinions/review-plan.json` (planned).
+- **The launcher:** the coordinator accepted the resolution at 06:47 UTC (#658): `tools/vm-pair` by full path through `VM_TOOL`; the brief's *by basename* an erratum.
+- **`02`:** 58 coverage rows; § The configuration with the gap measured on the M7 root's built `.config` (read-only; sha256 `e769f2e5...`; the conf unchanged at the M7 head): 18 changed values, 97 set options gone, 137 new, the fork's 10 kept; § The boot files; § The launcher with the design deferred; § The runs (r01 to r28); F-01 to F-10; P1 to P18.
+- **Findings:** F-01 Medium (the guest installs all of linux-firmware: 6,158 files, 2.88 GB; no `config/kernel-firmware.dat`); F-02 Low (1,254 firmware files embedded in the guest's kernel); F-03 `install`'s header; F-04 the configuration's provenance (not a bug; the regeneration packet); F-05/F-06 `install`'s unread copy and four unreached branches; F-07 the UTM text; F-08 the inventory's over-reported reach; F-09 the version-case merge seam; F-10 `options` and the conf silent on their origin. **No `bug` proven.**
+- **The lint, pre-issue:** every stage-B section ok; 5 failures, all stage C's (`05`, the seat's provenance).
 - **No guest, build, plan, fetch or council call so far.** The one seat comes at stage C.
 - **Running for this lane:** nothing.
 
@@ -37,6 +36,8 @@ test -f docs/reviews/inventory.json && echo inventory
 tail -3 /tmp/m7-m6-host-coordination-20261023.txt | cut -c1-200; pgrep -x qemu-system-x86 -r R,S,D,T | wc -l
 git rev-parse --verify 651150fc88^{commit} >/dev/null && echo upstream-next-is-here   # read locally, never fetched
 sed -n '1,160p' docs/reviews/briefs/device-generic-x64-and-kernel.md
+A=docs/audits/2026_10_25-epic-m6-device-generic-x64-and-kernel
+tools/lint-audit-artifacts "$A" --phase pre-issue | tail -8   # stage C: the packet, its scan and manifest, the probe, the refutation, 04 § Second opinion, 05
 ```
 
 ## Merge notes

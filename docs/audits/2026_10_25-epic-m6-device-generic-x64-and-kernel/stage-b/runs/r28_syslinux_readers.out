@@ -1,0 +1,8 @@
+8ebaf8daad:packages/tools/installer/scripts/installer:198:      cat /usr/share/syslinux/gptmbr.bin > $INSTALL_DEVICE
+8ebaf8daad:packages/tools/installer/scripts/installer:200:      cat /usr/share/syslinux/mbr.bin > $INSTALL_DEVICE
+8ebaf8daad:packages/tools/installer/scripts/installer:293:    cp /usr/share/syslinux/bootx64.efi $TMPDIR/part1/EFI/BOOT
+8ebaf8daad:packages/tools/installer/scripts/installer:294:    cp /usr/share/syslinux/ldlinux.e64 $TMPDIR/part1/EFI/BOOT
+8ebaf8daad:scripts/mkimage:89:  dd bs=440 count=1 conv=fsync,notrunc if="${TOOLCHAIN}/share/syslinux/gptmbr.bin" of="${DISK}" >"${SAVE_ERROR
+8ebaf8daad:scripts/mkimage:179:  mcopy "${TOOLCHAIN}/share/syslinux/bootx64.efi" ::/EFI/BOOT >"${SAVE_ERROR}" 2>&1 || show_error
+8ebaf8daad:scripts/mkimage:180:  mcopy "${TOOLCHAIN}/share/syslinux/ldlinux.e64" ::/EFI/BOOT >"${SAVE_ERROR}" 2>&1 || show_error
+0

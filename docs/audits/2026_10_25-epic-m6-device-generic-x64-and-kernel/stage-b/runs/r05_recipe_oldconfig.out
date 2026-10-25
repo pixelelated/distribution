@@ -1,0 +1,3 @@
+306:  kernel_make listnewconfig
+309:    kernel_make oldconfig
+315:    yes "" | kernel_make oldconfig > /dev/null
