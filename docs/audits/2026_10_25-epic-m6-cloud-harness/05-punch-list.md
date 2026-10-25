@@ -307,28 +307,28 @@ punch_index:
   question: Q3
   source_finding: "F-03, G-18"
   tracked: "#1058"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-03
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-05, F-17, G-20, G-32"
   tracked: "#1059"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-04
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-12, F-22, G-27, G-28, G-40"
   tracked: "#1060"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-05
   severity: Low
   category: Hygiene
   question: Q2
   source_finding: "F-14"
   tracked: "#1061"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-06
   severity: Medium
   category: Correctness
@@ -342,7 +342,7 @@ punch_index:
   question: Q3
   source_finding: "F-16, G-31"
   tracked: "#1063"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-08
   severity: Low
   category: Correctness
@@ -363,21 +363,21 @@ punch_index:
   question: Q3
   source_finding: "F-20, G-44"
   tracked: "#1066"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-11
   severity: High
   category: Security
   question: Q2
   source_finding: "F-21, G-42"
   tracked: "#1067"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-12
   severity: Low
   category: Security
   question: Q2
   source_finding: "F-22, G-43"
   tracked: "#1068"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-13
   severity: Medium
   category: Correctness
@@ -398,99 +398,99 @@ punch_index:
   question: Q2
   source_finding: "F-04, G-19"
   tracked: "#1059"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-16
   severity: Medium
   category: Renovation
   question: Q6
   source_finding: "F-06, F-13, G-12, G-14, G-15, G-21, G-29"
   tracked: "#1055"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-17
   severity: Medium
   category: Brittleness
   question: Q1
   source_finding: "F-07, G-22"
   tracked: "#1075"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-18
   severity: Low
   category: Documentation
   question: Q7
   source_finding: "F-08, G-23"
   tracked: "#909"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-19
   severity: Low
   category: Standards
   question: Q2
   source_finding: "F-09, G-24"
   tracked: "#1076"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-20
   severity: Low
   category: Currency
   question: Q4
   source_finding: "F-10, G-25"
   tracked: "#1077"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-21
   severity: Low
   category: Brittleness
   question: Q3
   source_finding: "F-11, G-26, G-37"
   tracked: "#1078"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-22
   severity: Medium
   category: Correctness
   question: Q6
   source_finding: "F-25, G-48"
   tracked: "#1081"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-23
   severity: Low
   category: Brittleness
   question: Q3
   source_finding: "F-26, G-36, G-37, G-38, G-39, G-41, G-45, G-49, G-50, G-51, G-53"
   tracked: "#1079"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-24
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "04 § Q6"
   tracked: "#1080"
-  outcome: "open"
+  outcome: "deferred"
 ```
 
 ## Phase 7 resolution gate
 
-At the pre-issue phase (stage D): every item is open. The bugs close when their stage-E fixes reach `next` (no closing keyword); the other items take the coordinator's dispositions at the stage-D pause.
+At stage E's end (S1, S2, S3 done; the guest cycle held behind the M7 lane's build). A bug closes when its fix reaches `next` (no closing keyword); the six whose guest criterion waits are Open until the cycle's lines are in 02 § The guest cycle. The non-bug items carry the coordinator's dispositions (#660, 05:22 and 05:52 UTC).
 
 | Item | Outcome | Tracked |
 | --- | --- | --- |
-| PL-01 | Open | #1057 |
-| PL-02 | Open | #1058 |
-| PL-03 | Open | #1059 |
-| PL-04 | Open | #1060 |
-| PL-05 | Open | #1061 |
-| PL-06 | Open | #1062 |
-| PL-07 | Open | #1063 |
-| PL-08 | Open | #1064 |
-| PL-09 | Open | #1065 |
-| PL-10 | Open | #1066 |
-| PL-11 | Open | #1067 |
-| PL-12 | Open | #1068 |
-| PL-13 | Open | #1069 |
-| PL-14 | Open | #1070 |
-| PL-15 | Open | #1059 |
-| PL-16 | Open | #1055 |
-| PL-17 | Open | #1075 |
-| PL-18 | Open | #909 |
-| PL-19 | Open | #1076 |
-| PL-20 | Open | #1077 |
-| PL-21 | Open | #1078 |
-| PL-22 | Open | #1081 |
-| PL-23 | Open | #1079 |
-| PL-24 | Open | #1080 |
+| PL-01 | Open | fixed in `09ca086062` (#1057); its guest criterion (A5 and RETENTION read as SKIP on the QA image) pending the window |
+| PL-02 | Resolved | `0cceb65207` (#1058) |
+| PL-03 | Resolved | `e71d077882`, `cee4bf481d` (#1059: the verdict line, the refusals, the equipment stop; nothing checked exits 3 under the 06:33 UTC ruling) |
+| PL-04 | Resolved | `7345a65e9d` (backend half), `1e28ba8f94` (harness half) (#1060) |
+| PL-05 | Resolved | `1911fee4df` (#1061) |
+| PL-06 | Open | fixed in `332bda1515` (#1062); its guest criterion (KILL1 to its verdict on a QA guest) pending the window |
+| PL-07 | Resolved | `539622b9d7` (#1063) |
+| PL-08 | Open | fixed in `bde357126c` (#1064); its guest criterion (the count read on the QA image) pending the window |
+| PL-09 | Open | fixed in `f7482f9684` (#1065); its guest criterion (CAP13 present and absent on a QA guest) pending the window |
+| PL-10 | Resolved | `7f0e527800` (#1066) |
+| PL-11 | Resolved | `94c050ed5a` (#1067; its second criterion rewritten under the 06:17 UTC ruling and ticked from the evidence on #1067) |
+| PL-12 | Resolved | `91267b0dda` (#1068) |
+| PL-13 | Open | fixed in `0c538b1f74` (#1069); its guest criterion (A15 to its verdict on a QA guest) pending the window |
+| PL-14 | Open | fixed in `77e7b16193` (#1070); its guest criterion (KILL5 at the default keep and at 2 on a QA guest) pending the window |
+| PL-15 | Resolved | `e71d077882` (#1059: the backend's capabilities on the verdict line) |
+| PL-16 | Deferred | #1055, the coordinator's mixed-installation Backlog (05:22 UTC ruling); the tool stays retired |
+| PL-17 | Deferred | #1075 |
+| PL-18 | Deferred | #909 (the stale sentence); the rule's `paths:` is the coordinator's rule-edit packet |
+| PL-19 | Deferred | #1076 |
+| PL-20 | Deferred | #1077 |
+| PL-21 | Deferred | #1078 |
+| PL-22 | Resolved | `bf2832ce5b` (#1081) |
+| PL-23 | Deferred | #1079 |
+| PL-24 | Deferred | #1080 |

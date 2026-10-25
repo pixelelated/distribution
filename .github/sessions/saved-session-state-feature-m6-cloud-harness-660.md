@@ -16,13 +16,14 @@
 
 ## Current focus
 
-**Stage E: S1 and S2 done (06:5x UTC); the S2 checkpoint is posted on #660; S3 (#1061, #1081) next. The guest window is still held behind M7's full build.**
+**Stage E done (S1, S2, S3; `fixed-at` `cee4bf481d`, `reviewed-at` `8a2518fa44`, both written into #660's body). The streams' hand-back and the guest-cycle plan are posted on #660, waiting for the coordinator's grant (M7's full build first). 05's gate: 10 Resolved, 6 Open (guest pending), 8 Deferred; pre-issue lint PASS.**
 
 - **S1** (`cloud-test-backend`): `0cceb65207` #1058, `94c050ed5a` #1067 (its second criterion rewritten under the coordinator's 06:17 ruling and ticked, evidence on #1067), `91267b0dda` #1068, `7345a65e9d` #1060 (backend half).
 - **S2** (`cloud-round-trip`): `7f0e527800` #1066, `1e28ba8f94` #1060 (harness half), `332bda1515` #1062, `539622b9d7` #1063, `09ca086062` #1057, `e71d077882` #1059, `bde357126c` #1064, `f7482f9684` #1065, `0c538b1f74` #1069, `77e7b16193` #1070. Post-S2: `--list` 45; the dead-device case rc 2.
 - **Positives** are in 02 § The streams' positives (drivers under `/workspace/tmp/m6-t13/pos*/`; the unfixed clone `/workspace/tmp/m6-t13/unfixed`).
 - **Guest halves owed by the held cycle:** #1057 (A5/RETENTION SKIP), #1062 (KILL1 to its verdict), #1064 (step 25's count), #1065 (CAP13 present/absent), #1069 (A15 to its verdict), #1070 (KILL5 at the default keep and at 2). The plan goes on #660 before the grant: controls from the unfixed clone, the fixed cells, then the suite over WebDAV and SFTP; under 45 minutes; `VM_PAIR_DIR`/`VM_QEMU_RUNTIME_DIR` under `/workspace/tmp/m6-t13/`; 10022 free and qemu 0 checked at START.
-- **S3 next:** #1061 (T10's patterns via `git show feature/m6-tooling-guards-657:.githooks/secret-patterns`; the value assembled at run time; 26 tests still OK), #1081 (`cloud-census` reads the stored id file; `grep -c cloud_device_id` 0, or the one mention is the header's sentence).
+- **S3:** `1911fee4df` #1061, `bf2832ce5b` #1081; and `cee4bf481d`, #1059's follow-up under the 06:33 ruling (nothing checked exits 3).
+- **After the cycle:** 02 § The guest cycle; the six Open items to Resolved; the default (resolution) lint; then stages F, G (the retro) and H.
 
 ## Next commands
 

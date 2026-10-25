@@ -186,3 +186,20 @@ The image for the guest-cycle request, read only: `pixelelated-GENERIC_X64.x86_6
   - `py_compile` twice left a `tools/__pycache__` (gitignored, removed; syntax checks then went through `ast.parse`).
 - **Post-S2:** `--list` 45 cells; the dead-device case rc 2; no listener on 9010-9099; no QA container.
 - No guest; nothing under `tools/` but `cloud-test-backend` and `cloud-round-trip`; nothing under `/tmp` or `/workspace/repos/rocknix*`.
+
+## 2026-10-25 06:5x-06:35 UTC -- stage E, S3 done; nothing-checked exits 3; 05's outcomes; reviewed-at and fixed-at
+
+- **S3:**
+  - `1911fee4df` #1061: the fixture value is assembled at run time. T10's patterns (`git show`, never merged) match 1 line unfixed and 0 fixed, and the test still runs 26 OK.
+  - `bf2832ce5b` #1081: the census reads the stored id file. `grep -c cloud_device_id` gives 1 unfixed and 0 fixed; an AST read of the string constants finds `['cloud_device_id']` unfixed and none fixed. The census was not run.
+- **06:33, the coordinator's ruling** (#660, D-QA-063): nothing checked exits 3, and 2 stays the usage error. `cee4bf481d` is #1059's follow-up: `main()`'s return, evaluated from the AST, gives 3 for nothing checked, 0 for a pass and 1 for a failure, and the unknown `--only` is still rc 2.
+- 05's Phase 7 gate and `punch_index` are at their outcomes:
+  - Resolved, with commits: PL-02, 03, 04, 05, 07, 10, 11, 12, 15 and 22;
+  - Open, fixed with the guest criterion pending: PL-01, 06, 08, 09, 13 and 14;
+  - Deferred: PL-16 (#1055), PL-17 (#1075), PL-18 (#909), PL-19 to 21 (#1076-#1078), PL-23 (#1079) and PL-24 (#1080).
+
+  `tools/lint-audit-artifacts ... --phase pre-issue`: `PASS pre-issue artifacts`.
+- **Criterion 5:**
+  - `reviewed-at` is `8a2518fa44` (the stage-D tip, rulings applied); `git diff --stat 8ebaf8daad 8a2518fa44 -- <the nine>` is empty.
+  - `fixed-at` is `cee4bf481d`; `git diff --stat e1d51b3a04 cee4bf481d -- tools | grep -v tools/cloud-` gives no file line. Four of the nine changed: `cloud-census`, `cloud-connections-test`, `cloud-round-trip` and `cloud-test-backend`.
+- No guest; nothing under `/tmp` or `/workspace/repos/rocknix*`.

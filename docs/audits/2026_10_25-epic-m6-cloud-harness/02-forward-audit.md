@@ -382,3 +382,15 @@ rclone answers its built-in `md5sum`, `sha1sum` and `df` itself, executing nothi
 - **guest half pending the window:** KILL5 on a QA guest at the default keep and at `CLOUD_BACKUP_KEEP=2`
 
 **After S2** (at `77e7b16193`): `tools/cloud-round-trip --list` prints 45 cells; the dead-device case (`--host root@127.0.0.1 --port 1 --identity /nonexistent/qa-key`) exits **2** with `error: no shell over ssh on root@127.0.0.1 port 1`; no listener on 9010-9099, no QA container.
+
+### #1061 (S3): the fixture value is assembled at run time
+- T10's widened patterns read with `git show feature/m6-tooling-guards-657:.githooks/secret-patterns` into `/workspace/tmp/m6-t13/secret-patterns.t10` (`cmp` equal; never merged), sourced as the hooks source them, `/usr/bin/grep -a -c -E "$SECRET_PATTERNS"`
+- unfixed (`8a2518fa44`): `tools/cloud-connections-test` -> **1** line (line 37's assignment)
+- fixed: **0** lines under T10's set and this branch's; the value is `'-'.join(('qa', 'only', 'fixture', 'pass' + 'word'))`, byte-equal to the old literal (checked); `tools/cloud-connections-test` -> `Ran 26 tests in 1.867s` / `OK`
+### #1081 (S3): the census reads the stored id and runs no device script
+- unfixed (`8a2518fa44`): `grep -c cloud_device_id tools/cloud-census` -> **1** (line 76, `echo device=$(cloud_device_id 2>/dev/null)`); an AST read of the file's string constants for any script under `projects/ROCKNIX/packages/network/rclone/sources/` invoked -> **`['cloud_device_id']`**
+- fixed: `grep -c` -> **0**; line 79 reads `echo device=$(cat /storage/.config/cloud_sync-device-id 2>/dev/null || echo unset)` (the file `cloud_device_id:54` names and `write_id` at `:288` writes, one line, the same id the script prints); the AST read -> **none**; the header's "the device's own scripts are not run" is now true and stays. The census was not run against anything.
+### #1059, follow-up under the coordinator's ruling (#660, 06:33 UTC, D-QA-063): nothing checked exits 3
+- `main()`'s final return, evaluated from the AST at the follow-up: a run whose verdict line reads `NOTHING CHECKED -- backend webdav (hash=none modtime=no commit=partial bucket=no): 0 passed, 0 failed, 1 skipped` -> **exit 3** (was 2 at `e71d077882`); a pass -> 0; a failure -> 1; the usage error (`--only NO-SUCH-CELL`) stays **rc 2**; `--list` 45
+
+**After S3** (at `cee4bf481d`): `tools/cloud-connections-test` -> `Ran 26 tests in 1.846s` / `OK`; `git diff --stat e1d51b3a04 cee4bf481d -- tools` names only `cloud-connections-test`, `cloud-census`, `cloud-round-trip` and `cloud-test-backend`.
