@@ -43,3 +43,12 @@ The driver is `s2/launcher-case.py`, run as `python3 -I -B $S/s2/launcher-case.p
 | control | `pidfile-regular` | `... unfixed-expectation-met (rc=0 prints-path=yes ...)` | `... fixed-expectation-met (rc=0 prints-path=yes ...)` |
 | control | `socket-dead` | `... unfixed-expectation-met (raised=no path-present=no ...)` | the same, `fixed-expectation-met` |
 | control | `socket-symlink`, `socket-notsock`, `socket-live` | each `unfixed-expectation-met (raised=yes path-present=yes ...)` | each `fixed-expectation-met (raised=yes path-present=yes ...)` |
+
+## S3: the modeswitch rule and `options` (#1087, PL-10)
+
+| Item | Driver | Unfixed: command, then the line it prints | Fixed: command, then the line it prints |
+| --- | --- | --- | --- |
+| #1087 | `s3/modeswitch-case.sh` | `bash $S/s3/modeswitch-case.sh $U/projects/ROCKNIX/packages/linux/udev.d/40-usb_modeswitch.rules unfixed` -> `modeswitch-case: unfixed-expectation-met (verify-rc=0 usb1=eject 1-0:1.0=eject)` | `bash $S/s3/modeswitch-case.sh projects/ROCKNIX/packages/linux/udev.d/40-usb_modeswitch.rules fixed` -> `modeswitch-case: fixed-expectation-met (verify-rc=0 usb1=none 1-0:1.0=none)` |
+| PL-10 | `s3/options-comment.sh` | `bash $S/s3/options-comment.sh $U/projects/ROCKNIX/devices/GENERIC_X64/options unfixed` -> `options-comment: unfixed-expectation-met (why-named=no)` | `bash $S/s3/options-comment.sh projects/ROCKNIX/devices/GENERIC_X64/options fixed` -> `options-comment: fixed-expectation-met (why-named=yes)` |
+
+`modeswitch-case` needs `udevadm` (udev 259 here) and the host's USB root hub `usb1` (`1d6b:0002`) with its interface `1-0:1.0`. It runs udev's matcher (`udevadm test`, which simulates and runs no `RUN` program) over a copy of the rule with line 7's IDs, and only those, swapped for the hub's. That is a synthetic input, named. The host has no `0cf3:20ff` dongle, no `umockdev` and no USB block device, so the fixed rule's firing on a block child is not shown.

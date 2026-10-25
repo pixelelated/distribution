@@ -266,6 +266,18 @@ Commit: `594acf48bc`. The cases ran at 07:48:48 (unfixed) and 07:50:20 UTC (fixe
 
 **What else the change touches.** `tools/vm-pair` (`grep -n VM_TOOL`: `:36`, `:74`) passes three distinct paths per guest (`:63-64`), and QEMU writes its PID files as digits, so `vm-pair`'s starts pass the new checks. The launcher on `next` is unchanged since `8ebaf8daad`. `tools/last-good-scripts-test`'s F1f section exercises the launcher too, but it was **not** run: the suite compiles host helpers (`:290-292`), which the stream brief rules out. The refusal controls above cover what F1f checks of the socket paths. `stale_socket` still returns a truthy value for a stale socket, so a caller testing its truth is unaffected. **What remains:** a window of microseconds between the identity recheck and the `unlink`, and between the PID-file check and QEMU's own open of it. The fix narrows the race; it does not lock.
 
+### S3: the modeswitch rule and `options` (#1087, PL-10)
+
+Commits: `5934e9616c` (#1087) and `22c227d41c` (PL-10). The cases ran at 07:53:09 (unfixed) and 07:53:23 UTC (fixed).
+
+| Case | Unfixed (`499628a049`) | Fixed |
+| --- | --- | --- |
+| `udevadm test --action=add` over `usb1` and `1-0:1.0`, line 7's IDs swapped for the hub's `1d6b:0002` (udev 259) | `eject` queued for both: `Set command: /usr/bin/eject '/dev/usb1'`, `... '/dev/1-0:1.0'` | queued for neither (`usb1=none 1-0:1.0=none`) |
+| `udevadm verify --no-style` on the rule file | `Success: 1` | `Success: 1` |
+| `grep -n -B1 'BOOTLOADER=' options` | `26-  # Additional bootloader settings` / `27:    BOOTLOADER="syslinux"` | `26-  # syslinux: scripts/mkimage writes its BIOS and UEFI loaders, and vm/profile.json boots UEFI` / `27:    BOOTLOADER="syslinux"` |
+
+**What this proves, and what it does not.** The positive uses udev's own matcher on real non-block events, with a substituted identity: the hub's IDs in place of the dongle's. The host has no `0cf3:20ff` dongle, no `umockdev` and no USB block device, so the fixed rule's firing on a real block child is not shown. #1087's first checkbox was reworded in its body to say exactly that, with a comment. **A note on the brief's suggested comment:** it called the guest "a BIOS guest" whose loader `install` copies. The profile boots UEFI (`vm/profile.json` `firmware.type`), `scripts/mkimage` writes both loaders (`:89`, `:179-180`), and `install`'s copy is not what boots (F-05). The comment says that instead.
+
 ## Findings
 
 | ID | Q | Severity | Category | Where | What |

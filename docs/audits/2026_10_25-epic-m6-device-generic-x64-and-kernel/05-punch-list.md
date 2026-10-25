@@ -273,8 +273,8 @@ punch_index:
   question: Q7
   source_finding: "F-10"
   owner_area: "`projects/ROCKNIX/devices/GENERIC_X64/options`; the configuration"
-  tracked: "#658 stream S3"
-  outcome: "deferred"
+  tracked: "`22c227d41c`"
+  outcome: "resolved"
 - id: PL-11
   severity: Low
   category: Bug
@@ -324,8 +324,8 @@ The coordinator's dispositions, 07:34 UTC on #658.
 | PL-07 | **Deferred** | #1085, a Backlog the coordinator filed: the README's `rclone config` steps are documentation drift against the native wizard (as #42 for the site); D-QA-053 and D-QA-054 already settle the guest's purpose |
 | PL-08 | **Deferred** | bug #1086, filed by the lane (box-check 0 fail); the fix is T10's set (#657), beside #1049 and #1056 |
 | PL-09 | **Resolved** | recorded at `b501bdad67` (`02` F-09); the coordinator carries it into T25's brief (#672) and the merge notes |
-| PL-10 | **Deferred** | the coordinator's stage-E stream S3 (#658): one comment in `options` on why `syslinux`; the configuration's provenance line only if #1084 has not landed first |
-| PL-11 | **Deferred** | bug #1087 (the modeswitch half), filed by the lane (box-check 0 fail), stream S3; the bfq half is settled by the next base merge (`651150fc88` carries the fix) |
+| PL-10 | **Resolved** | `22c227d41c` (stream S3): `options:26` reads `# syslinux: scripts/mkimage writes its BIOS and UEFI loaders, and vm/profile.json boots UEFI`; the configuration's provenance line waits for #1084's regeneration, which rewrites that file |
+| PL-11 | **Deferred** | bug #1087 (the modeswitch half), filed by the lane (box-check 0 fail); fixed in stream S3 at `5934e9616c`, its block-child firing open (no USB block device on the host); the bfq half is settled by the next base merge (`651150fc88` carries the fix) |
 | PL-12 | **Deferred** | bug #1088, filed by the lane (box-check 0 fail), stream S4 |
 | PL-13 | **Deferred** | bug #1089, filed by the lane (box-check 0 fail); fixed in stream S2 at `594acf48bc`, positives in `02` § The streams' positives; the bug stays open until the fix reaches `next` |
 | PL-14 | **Deferred** | bug #1090, filed by the lane (box-check 0 fail); fixed in stream S1 at `7b8608e7a3`, positives in `02` § The streams' positives; the bug stays open until the fix reaches `next` |

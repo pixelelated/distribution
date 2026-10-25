@@ -132,3 +132,13 @@
 - **The file's positives, re-run after the commit, 07:50:20:** all eight cases `fixed-expectation-met`, and the three refusal controls `unfixed-expectation-met` on the unfixed file. `pgrep -x qemu-system-x86`: 0 before and after. The file parses (`ast.parse`).
 - **Not run:** `tools/last-good-scripts-test` (it compiles host helpers; the brief rules out a compiler). Its socket checks are covered by the refusal controls.
 - **Recorded:** `02` § The streams' positives § S2, `stage-e/README.md`, and `05` PL-13 with the fix commit. #1089 has a comment with the evidence. No guest, build or device.
+
+## [Stage E, S3] 07:52 to 07:54 UTC — the modeswitch rule and `options` (#1087, PL-10)
+
+- **What the host has for the positive:** udev 259 and `udevadm test --extra-rules-dir`. It has no `umockdev`, no `0cf3:20ff` dongle and no USB block device. A trial at 07:52:24 showed `udevadm test` works unprivileged and runs no `RUN` program (its own banner says so).
+- **The test first** (`stage-e/s3/`): `modeswitch-case.sh` runs udev's matcher over the host's root hub `usb1` and its interface `1-0:1.0`, with a copy of the rule whose line-7 IDs are swapped for `1d6b:0002` (a named synthetic input). `options-comment.sh` reads the comment above `BOOTLOADER=`. Unfixed, 07:53:09: `modeswitch-case: unfixed-expectation-met (verify-rc=0 usb1=eject 1-0:1.0=eject)` and `options-comment: unfixed-expectation-met (why-named=no)`. Both fixed expectations were UNEXPECTED on the unfixed files.
+- **The commits:** `5934e9616c` (#1087: `SUBSYSTEM=="block"` added to line 7; upstream's file, a contained fix said in the commit); `22c227d41c` (PL-10: one comment line).
+- **The files' positives after the commits, 07:53:23:** `modeswitch-case: fixed-expectation-met (verify-rc=0 usb1=none 1-0:1.0=none)`; `options-comment: fixed-expectation-met (why-named=yes)`. `udevadm verify` passes, and `bash -n options` passes.
+- **The brief's suggested comment was not used as written:** it said "a BIOS guest; the image step's `install` copies it". The profile boots UEFI and `mkimage` writes both loaders, so the comment says that.
+- **#1087's first checkbox was reworded in its body** to the substitute that ran, with the block child's firing left open (`vm-first.md`), and a comment carries the evidence. `box-check`: 0 fail.
+- **Recorded:** `02` § S3, `stage-e/README.md`, `05` PL-10 Resolved and PL-11 with its fix commit. No guest, build or device.
