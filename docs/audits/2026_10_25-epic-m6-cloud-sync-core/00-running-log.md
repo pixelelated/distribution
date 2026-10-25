@@ -28,7 +28,7 @@ time comes from `date -u`.
   - `tools/register-check`: `681 IDs, each once; every citation in the live documents names a row`; `D-WORKFLOW-209` is in the register; `tools/rules-check --quiet`: rc 0;
   - `grep -c gemini-argon`: `scripts/council-invoke.ts:7`, `tools/lint-audit-artifacts:4`.
 - **Host file, last line:** `== M6 coordinator — 10:24 UTC: T22 SECOND GUEST WINDOW RETURN (the lane's post on #669); census qemu live 0, listeners on 9010-9099 and 10022: 0. M6 runs no guest now.`
-- **Census (11:33 UTC):** `pgrep -x qemu-system-x86_64`: **0**; compilers (`pgrep -f -c 'cc1(plus)?$'`): **0**; `df -h /workspace`: 1.5T free (58%); `df -i /workspace`: 24%. (`pgrep -x qemu-system-x86`, the pointer's spelling, also read 0; the brief's `-x` name is 15 characters short of the process's, which pgrep warns of.)
+- **Census (11:33 UTC):** `pgrep -x qemu-system-x86` (the pointer's spelling, the 15-character `comm` a QEMU guest carries): **0**; compilers (`pgrep -f -c 'cc1(plus)?$'`): **0**; `df -h /workspace`: 1.5T free (58%); `df -i /workspace`: 24%. **Corrected 11:51:** this line first gave `pgrep -x qemu-system-x86_64` as the census and called the pointer's name the short one. It is the other way round: pgrep matches `-x` against the 15-character `comm`, so `qemu-system-x86_64` can never match and reads 0 whatever runs (pgrep printed that warning). Only the pointer's spelling counted; it read 0 at 11:33, and the census is re-taken by `comm` and by command line at 11:51 (below).
 
 ## 2026-10-25 11:34-11:37 UTC -- stage A: the membership and the § 5 runs
 
@@ -53,3 +53,4 @@ time comes from `date -u`.
 - **Twelve leads** listed in `02` § Leads, for stage C and the window.
 - **Errata of my own, corrected before the commit:** six line numbers in the first draft of `02`'s leads were written from a comment-free listing, not the file; each was re-read with `grep -n` and corrected.
 - No guest, no fetch, no seat call so far.
+- **Census re-taken (11:51 UTC):** by `comm`, 0 processes whose name starts `qemu`. `pgrep -f '^qemu-system|/qemu-system'` read 2: both were the checking shell itself, whose argv carries the pattern (`ps -eo comm` lists none). Compilers: 0. Docker: 22 containers, every one another project's `postgres` (`gh-wt-*`, `groundhog_*`), none of M6's.
