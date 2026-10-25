@@ -1,8 +1,137 @@
 # T13 forward audit: the cloud test harness (#660)
 
 Phase 2 over #660's checklist, the nine tools at `8ebaf8daad`'s bytes. Stage A
-wrote § The runs; § Coverage, § Assertion shapes, § Positives and § Proofs
-follow at stage B, and § The guest cycle in the window granted on #660.
+wrote § The runs; stage B § Coverage, § Assertion shapes, § Positives and
+§ Proofs; § The guest cycle is written in the window granted on #660.
+
+## Coverage
+
+One row per path. *Oracle* is what decides the tool's PASS; *caller* is
+who runs it (`grep -n` of `tools/vm-qa`, the other eight, and `.github/`).
+
+| Path | Lines | Subject | Oracle | Caller | Positive (§ Positives) | proved: |
+| --- | ---: | --- | --- | --- | --- | --- |
+| `tools/cloud-round-trip` | 7,808 | the cloud scripts on a guest, over SSH, against a QA endpoint | 24 rows read both ends, 10 the device's report, 44 a planted input (§ Assertion shapes) | `vm-qa` `round-trip` (single-device suite) and `link` (LINK1-7); the other registries by hand | refused SSH port: rc 2, `FAIL  no shell over ssh` | tool-run |
+| `tools/cloud-test-backend` | 920 | five local endpoints and a dead port | it is the endpoint; `cat` checks existence first | `vm-qa`, `cloud-round-trip` | `cat no/such/object`: rc 1 on WebDAV, SFTP and S3 | tool-run |
+| `tools/cloud-connections-test` | 307 | `cloud_connections` (staged connection transactions) | the module itself, under the **host's** rclone | nobody | the duplicate-name refusal defeated: `FAIL: test_duplicate_keeps_old_bytes`, rc 1 | fixture |
+| `tools/cloud-census` | 306 | a handheld's `/storage` and logs over SSH | reading only | nobody | none: a handheld-only tool, never run (D-QA-015) | design |
+| `tools/cloud-pair-migration` | 243 | two guests across `cloud_migrate_layout` | -- | nobody | none: exits 2 before anything on every tree after `e6645cb5ea` | tool-run |
+| `tools/cloud-save-integrity` | 219 | manifests and save containers (D-CLOUD-181) | its sibling test's synthetic corruption, and rclone's Dropbox hash | nobody | its test's 19 rejection cases (stage A, `PASS total=24`) | tool-run |
+| `tools/cloud-input-test` | 132 | `wifictl` under shims, `cloud_oauth` under `node` | the scripts themselves under **host** bash and coreutils | nobody | a `wifictl` that exits 0 doing nothing: 6 `FAIL`, rc 1; its own negative control (old `cloud_oauth`) | fixture |
+| `tools/cloud-capture-stamp-test` | 116 | `cloud_capture`'s `finish()`, lifted by `sed` | its documented control (`f451252587`), under **host** bash | nobody (CAP12 mirrors it on a guest) | `f451252587`'s `cloud_capture`: rc 1, 8 FAIL | tool-run |
+| `tools/cloud-save-integrity-test` | 114 | `cloud-save-integrity` | a second implementation: rclone's `hashsum Dropbox` | nobody | the provider-hash comparison defeated: rc 1, `FAIL changed payload rejected` | fixture |
+
+## Assertion shapes
+
+One row per `step()` of the single-device suite (`run_steps`, 32, and `prepare_device`, 2) and per registry cell (PAIR 10 with `RETENTION`, SOLO 1, CAP 14, LINK 7, KILL 12: 44), plus `CONTRACT`. The table is generated, never typed:
+
+```bash
+git show 8ebaf8daad:tools/cloud-round-trip > /workspace/tmp/m6-t13/cloud-round-trip.8ebaf8daad
+python3 -I -B docs/audits/2026_10_25-epic-m6-cloud-harness/tools/t13-shapes.py /workspace/tmp/m6-t13/cloud-round-trip.8ebaf8daad --json .qa-scratch/t13/shapes.json
+#   {"steps": 34, "cells": 44, "rows": 78, "by_oracle_rule": {"both ends": 25, "device report": 11, "synthetic": 42}, "deltas": []}   rc 0
+python3 -I -B docs/audits/2026_10_25-epic-m6-cloud-harness/tools/t13-render.py .qa-scratch/t13/shapes.json docs/vm-qa-log.md
+```
+
+- **The generator asserts the counts against the AST and the registry literals.** It checks 32 + 2 `step()` calls in their two functions and 10/1/14/7/12 entries in the five registries, and exits 1, naming the delta, on another revision. At the hash there is **no delta**.
+- **`CONTRACT`** is the one difference from the coordinator's figures. `--list` prints it as a 45th line, but it is not a registry cell: it is #9's transport contract, run with `--only CONTRACT` or `--transport`. It has a row of its own, marked, so the count below is **79** = 78 + `CONTRACT`.
+- **The oracle column's rule, in this precedence:**
+  1. *Both ends*: the row reads the endpoint from the host, by `backend('ls')`/`backend('cat')`, a host run of the tool, `Pair.cloud_sha` (a host `cat`), or a `Link.exercise` whose receiving side is `("cloud", …)`.
+  2. *Synthetic input*: otherwise, the row plants its condition (a stub on `PATH`, a held lock, a kill, a link or power cut, a put at the endpoint, a config edited under the scripts) and reads the device's reaction.
+  3. *The device's report*: otherwise, the device's own exit, output, log, stamp or files, including a round trip through its own restore.
+- **The lane's review overrode eight rows,** each marked `(reviewed)` with its reason in the Note column.
+- **`caps()` column:** the keys the row's code reads.
+- **Recorded verdict:** the newest `docs/vm-qa-log.md` row naming the cell or its registry's range, cited by date and line and never summarised. The 34 steps share the suite's one verified line.
+- **Device-rclone reads:** the device's own `rclone lsf`/`cat`/... of the remote. That reads the other end, but through the client under test.
+
+| Row | Lines | Claim | Oracle | Device-rclone reads | `check()` | `caps()` | Recorded verdict | Note | proved: |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- | --- |
+| `run_steps.1` | 625-631 | plant fixtures | synthetic | 0 | 1 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.2` | 632-671 | saves back up to the cloud | both ends | 0 | 3 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.3` | 672-707 | a second backup replaces several saves at once | device report (reviewed) | 0 | 2 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) | a round trip: the device's own restore reads the second backup back; no host read of the endpoint | tree |
+| `run_steps.4` | 708-721 | saves restore from the cloud | device report (reviewed) | 0 | 2 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) | a round trip: local copies removed, the device's own restore, bytes compared on the device | tree |
+| `run_steps.5` | 722-787 | the settings archive round-trips | both ends | 0 | 6 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.6` | 788-814 | a changed archive of the same size still reaches the cloud | device report (reviewed) | 0 | 1 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) | a round trip through the device's own settings backup and restore | tree |
+| `run_steps.7` | 815-910 | retention removes only archives carrying this device's name, and restore prefers them | synthetic | 1 | 8 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.8` | 911-945 | ROMs and BIOS back up a system directory | both ends | 0 | 2 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.9` | 946-967 | a user's own rule sits above the catch-all and keeps its file off the cloud | synthetic | 1 | 3 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.10` | 968-1008 | an edited RCLONEOPTS without --filter-from still keeps the allowlist | synthetic | 2 | 5 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.11` | 1009-1069 | the transfer lock is free the moment a run returns, and no child of a run can hold it | synthetic | 0 | 2 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.12` | 1070-1099 | a settings-only backup with nothing on the device to send is skipped, and says so once | device report | 0 | 3 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.13` | 1100-1140 | folder choices are independent; discovery preserves those choices | synthetic | 1 | 5 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.14` | 1141-1200 | a cloud with no saves folder yet is empty, not broken; a wrong root still fails | synthetic | 0 | 5 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.15` | 1201-1234 | ROMs and BIOS restore it | synthetic | 0 | 2 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.16` | 1235-1266 | --all restores every system and BIOS, each a unit of its own | synthetic | 0 | 4 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.17` | 1267-1286 | a save file inside a system directory does not reach the ROMs and BIOS tier | both ends | 0 | 2 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.18` | 1287-1317 | a sync-conflict artifact is carried by no tier, in either direction | both ends | 0 | 4 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.19` | 1318-1362 | gamelist.xml moves with game content, newest-first, in its own pass | both ends | 0 | 5 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.20` | 1363-1389 | a second cloud sync while one runs is refused, exits 75, and stamps nothing | synthetic | 0 | 8 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.21` | 1390-1406 | a --recent sync with nothing changed leaves the remote alone | device report | 0 | 4 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.22` | 1407-1419 | a --recent sync after one save is written pushes that file | both ends | 0 | 2 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.23` | 1420-1459 | a changed save of the same size still reaches the cloud (#315) | both ends | 0 | 2 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.24` | 1460-1479 | with no network the exit sync returns 69 at once and stamps nothing | synthetic | 0 | 7 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.25` | 1480-1496 | every EmulationStation system path is carried by exactly one tier | device report | 0 | 1 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.26` | 1497-1551 | the settings archive is a tar archive named for this device, and every reader finds it | synthetic | 0 | 5 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.27` | 1552-1596 | content transfers honour the system selection | both ends | 0 | 5 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.28` | 1597-1644 | a system this device cannot run is marked unsupported | synthetic | 0 | 4 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.29` | 1645-1673 | a scan the cloud refused exits with rclone's code and lists nothing | synthetic (reviewed) | 0 | 3 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) | the dead-port stanza is planted (backend dead-conf); the scan's exit and rows are the device's | tree |
+| `run_steps.30` | 1674-1693 | seeding is idempotent and never clobbers an existing note | both ends | 0 | 3 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.31` | 1694-1713 | an older config's keys are carried across (D-UI-022, A12) | synthetic | 0 | 1 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `run_steps.32` | 1714-1716 | one last-known-good of every record, and no writer's litter, after the suite | device report | 0 | 1 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `prepare_device.1` | 309-317 | f'device {which}reachable and equipped | device report | 0 | 2 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) |  | tree |
+| `prepare_device.2` | 318-383 | f'point device {which}at the QA bucket' if which else 'point the device at the QA bucket | device report | 0 | 1 | not read | the suite's: 2026-10-06, `WebDAV/SFTP/MinIO-S3 round trips each106 PASS/0FAIL/0SKIP` (`vm-qa-log.md:175`); the 2026-10-08 work log's 108 (`2026_10_08-work_log.md:111`) | setup: points the device at the QA endpoint; its one check is the device's active remote | tree |
+| `A1` | 1972-1999 | both changed after a first pass: every writer, this device's copy newer and older | both ends | 0 | 2 | not read | named 2026-09-07 (`vm-qa-log.md:39`; 1 row(s)) |  | tree |
+| `A2` | 2002-2043 | a failed push retried; an equal-size, equal-mtime change after a first pass | both ends | 0 | 3 | not read | none recorded |  | tree |
+| `A3` | 2046-2082 | CHANGE CLOUD FOLDER to a folder holding different saves | both ends | 0 | 4 | not read | named 2026-09-07 (`vm-qa-log.md:39`; 1 row(s)) |  | tree |
+| `A8` | 2085-2144 | a torn N64 pair: interrupted after one member, held, then cleared | both ends | 0 | 4 | not read | none recorded |  | tree |
+| `A9` | 2147-2252 | delete and renumber; a retired hash put back; rm; an unmounted, empty, or empty-cloud root | both ends | 0 | 19 | not read | named 2026-09-07 (`vm-qa-log.md:39`; 1 row(s)) |  | tree |
+| `A11` | 2255-2277 | a cloned device id refuses to publish | both ends | 0 | 2 | not read | none recorded |  | tree |
+| `A12` | 2280-2318 | a legacy RESTOREPATH unlike BACKUPPATH: migrated, warned, nothing touched | synthetic | 0 | 9 | not read | none recorded |  | tree |
+| `A14` | 2321-2377 | the manifest step: under savestates/.rocknix/, sha256, remote_hash per backend, one tier | both ends | 0 | 5 | hash | named 2026-09-07 (`vm-qa-log.md:39`; 1 row(s)) |  | tree |
+| `A5` | 2380-2417 | the discarded-saves reader, from the second device | device report (reviewed) | 0 | 3 | not read | none recorded | the reader is device b's own rclone (lsf, cat); FAILS by construction: APPLY calls cloud_reconcile, which has never existed (line 1771) | tree |
+| `RETENTION` | 2420-2455 | the retention ordering: killed after the loser is stored, before the winner replaces | both ends | 0 | 4 | not read | none recorded | FAILS by construction (cloud_reconcile, line 2433); when nothing ran, its head-unchanged and device-copy checks PASS vacuously | tree |
+| `A15` | 2530-2990 | the seed is a MAC or nothing: sit0 and a macvlan are refused, a poisoned id heals once, the working copy and the next backup follow it, its old folder | synthetic | 1 | 36 | not read | none recorded |  | tree |
+| `CAP1` | 3243-3333 | capture on every exit: lock held, no route, no rclone, nothing written into the tree | synthetic | 0 | 19 | not read | named 2026-09-17 (`vm-qa-log.md:102`; 3 row(s)) |  | tree |
+| `CAP2` | 3336-3372 | the recorded core is the argument, never a default | synthetic | 0 | 6 | not read | named 2026-09-17 (`vm-qa-log.md:102`; 2 row(s)) |  | tree |
+| `CAP3` | 3375-3449 | the seal is an independent copy; a hard link fails; the seal guard fires | synthetic | 0 | 8 | not read | named 2026-09-17 (`vm-qa-log.md:102`; 2 row(s)) |  | tree |
+| `CAP4` | 3452-3518 | nothing changed, nothing rewritten -- in all three modes (I8) | synthetic | 0 | 7 | not read | named 2026-09-17 (`vm-qa-log.md:102`; 2 row(s)) |  | tree |
+| `CAP5` | 3521-3556 | core_build is the pin for the core's package; unmapped is unknown | synthetic | 0 | 9 | not read | named 2026-09-17 (`vm-qa-log.md:102`; 2 row(s)) |  | tree |
+| `CAP6` | 3607-3678 | a unit is what the emulator writes: members, decoys, subfolders, and both N64 layouts | synthetic | 0 | 11 | not read | named 2026-09-17 (`vm-qa-log.md:102`; 2 row(s)) |  | tree |
+| `CAP7` | 3681-3877 | a renumber is a move, a deletion is a retired record, and nothing is invented | synthetic | 0 | 29 | not read | named 2026-09-17 (`vm-qa-log.md:102`; 2 row(s)) |  | tree |
+| `CAP8` | 3880-3966 | nothing is stamped that this session did not write; the A2 shape; --full's limits | synthetic | 0 | 12 | not read | named 2026-09-17 (`vm-qa-log.md:102`; 2 row(s)) |  | tree |
+| `CAP9` | 3969-4113 | the error policy is the one written down, and the un-provable is not faked | synthetic | 0 | 19 | not read | named 2026-09-17 (`vm-qa-log.md:102`; 2 row(s)) |  | tree |
+| `CAP10` | 4154-4245 | the card context informs, it never silently refuses -- and a flip discards | synthetic | 0 | 12 | not read | named 2026-09-17 (`vm-qa-log.md:102`; 3 row(s)) |  | tree |
+| `CAP11` | 4248-4314 | two writers of one manifest: the loser re-runs once and a first version is not lost | synthetic | 0 | 6 | not read | named 2026-09-17 (`vm-qa-log.md:102`; 2 row(s)) |  | tree |
+| `CAP12` | 4317-4388 | last-capture keeps one line per mode: an exit survives the boot pass; the old one-line stamp is read | synthetic | 0 | 9 | not read | named 2026-09-17 (`vm-qa-log.md:102`; 3 row(s)) |  | tree |
+| `CAP13` | 4391-4457 | --retire --unlink is the manager's deletion as one unit: row, then files, SIGTERM ignored; a path outside the saves folder is refused the rm | synthetic | 0 | 6 | not read | named 2026-09-24 (`vm-qa-log.md:127`; 4 row(s)) |  | tree |
+| `CAP14` | 4460-4524 | --adopt records the copy the manager made: the source's version at the new path, or unknown provenance | synthetic | 0 | 7 | not read | named 2026-09-24 (`vm-qa-log.md:127`; 4 row(s)) |  | tree |
+| `LINK1` | 5609-5619 | saves restore (the startup sync's command), link cut during the compare | synthetic (reviewed) | 0 | 0 | not read | named 2026-09-10 (`vm-qa-log.md:48`; 3 row(s)) | the seed is checked at the endpoint (backend_sizes); the cut's verdict is the device's receiving side; its checks are Link.exercise's, shared by every LINK cell | tree |
+| `LINK2` | 5622-5627 | saves backup, link cut during the transfer | both ends | 0 | 0 | not read | named 2026-09-10 (`vm-qa-log.md:48`; 3 row(s)) | its checks are Link.exercise's, shared by every LINK cell | tree |
+| `LINK3` | 5630-5636 | ROMs and BIOS backup, link cut during the transfer | both ends | 0 | 0 | not read | named 2026-09-10 (`vm-qa-log.md:48`; 3 row(s)) | its checks are Link.exercise's, shared by every LINK cell | tree |
+| `LINK4` | 5639-5645 | ROMs and BIOS restore, link cut during the transfer | synthetic | 0 | 0 | not read | named 2026-09-10 (`vm-qa-log.md:48`; 3 row(s)) | its checks are Link.exercise's, shared by every LINK cell | tree |
+| `LINK5` | 5648-5679 | settings archive upload (backuptool backup; cloud_backup --system-only), link cut mid-upload | both ends | 0 | 0 | not read | named 2026-09-13 (`vm-qa-log.md:80`; 6 row(s)) | its checks are Link.exercise's, shared by every LINK cell | tree |
+| `LINK6` | 5682-5690 | the exit sync (cloud_backup --yes --saves-only --recent), link cut during the transfer | both ends | 0 | 0 | not read | named 2026-09-10 (`vm-qa-log.md:48`; 3 row(s)) | its checks are Link.exercise's, shared by every LINK cell | tree |
+| `LINK7` | 5693-5717 | the picker scan (cloud_content_restore --scan), link cut mid-scan | synthetic | 0 | 0 | not read | named 2026-09-10 (`vm-qa-log.md:48`; 4 row(s)) | its checks are Link.exercise's, shared by every LINK cell | tree |
+| `KILL1` | 6771-6855 | saves backup killed mid-transfer, SIGKILL then SIGTERM: cloud holds v1 or whole v2, stamp never 0, lock released, re-run completes | synthetic | 0 | 13 | commit | named 2026-09-10 (`vm-qa-log.md:48`; 3 row(s)) |  | tree |
+| `KILL2` | 6858-6956 | saves restore stopped mid-download by ES's TERM-then-KILL (D-CLOUD-076): the game's save stands, *.partial litter, re-run keeps the previous version | synthetic | 0 | 15 | not read | named 2026-09-10 (`vm-qa-log.md:47`; 2 row(s)) |  | tree |
+| `KILL3` | 6975-7019 | backuptool backup killed mid-rotation: the previous archive is still what both readers find | synthetic | 0 | 10 | not read | named 2026-09-10 (`vm-qa-log.md:48`; 3 row(s)) |  | tree |
+| `KILL4` | 7021-7070 | backuptool backup killed mid-tar: no truncated archive under a final name, nothing invalid uploaded | both ends | 0 | 9 | not read | named 2026-09-10 (`vm-qa-log.md:47`; 2 row(s)) |  | tree |
+| `KILL5` | 7073-7159 | settings upload killed mid-copyto: marker, retention and device.json untouched; the re-run trims only this device's | both ends | 0 | 16 | not read | named 2026-09-10 (`vm-qa-log.md:47`; 2 row(s)) |  | tree |
+| `KILL10` | 7162-7202 | set_setting killed mid-sed: the value stands, the temp is litter, the stale lock clears | synthetic | 0 | 5 | not read | named 2026-09-10 (`vm-qa-log.md:47`; 2 row(s)) |  | tree |
+| `KILL11` | 7205-7235 | set_setting killed between delete and add: the previous value is not lost | synthetic | 0 | 3 | not read | named 2026-09-10 (`vm-qa-log.md:47`; 2 row(s)) |  | tree |
+| `KILL12` | 7251-7352 | chksysconfig at boot with an empty, truncated, valid or binary system.cfg (power cut), and the clean-shutdown record | synthetic | 0 | 5 | not read | named 2026-09-10 (`vm-qa-log.md:47`; 2 row(s)) |  | tree |
+| `KILL13` | 7375-7512 | es_settings.cfg and system.cfg power-cut through ES's own writers (arm A), and planted torn files at boot (arm B) | synthetic | 0 | 5 | not read | named 2026-09-10 (`vm-qa-log.md:48`; 3 row(s)) |  | tree |
+| `KILL15` | 7515-7540 | an empty saves-root record refuses instead of reading as none | synthetic | 0 | 7 | not read | named 2026-09-10 (`vm-qa-log.md:47`; 2 row(s)) |  | tree |
+| `KILL16` | 7543-7577 | content-systems: a kill before the write keeps the selection; an empty file is legal, so the writer must verify | synthetic | 0 | 3 | not read | named 2026-09-10 (`vm-qa-log.md:47`; 2 row(s)) |  | tree |
+| `KILL18` | 7580-7659 | backuptool restore killed mid-extract: the tree is half restored and the pre-restore state kept nowhere | synthetic | 0 | 10 | not read | named 2026-09-10 (`vm-qa-log.md:47`; 2 row(s)) |  | tree |
+| `CONTRACT` | 4617-5128 | #9's transport contract under the reconciler (--transport copy,bisync) | both ends | 3 | 16 | not read | none recorded | not a registry cell: --list prints it beside PAIR; the Transport class reads the endpoint by cloud_sha (8) and backend_files/bytes (3) | tree |
+
+Rows: 78 (34 steps + 44 cells) + `CONTRACT` = 79. By oracle over the 78: both ends 24, device report 10, synthetic 44.
+
+**The class whose oracle is the device's own report: 10 rows.** `run_steps.3`, `.4` and `.6` are round trips through the device's own restore. `run_steps.12`, `.21`, `.25` and `.32` read the device's summary, log, ES paths and records. `prepare_device.1` and `.2` are setup. `A5` is device b's own rclone, and fails by construction. None of these reads the endpoint from the host: a PASS on them certifies what the device says, through the code under test. Four more rows read the remote with the device's own rclone and are classed by their other evidence: `run_steps.7`, `.9`, `.10` and `.13` (both device-rclone and planted), plus `A15` and `CONTRACT`.
+
+**`caps()` marks nothing in the single-device suite.** It is read at three call sites in the file: twice in A14's helper (`hash`, lines 2369-2373) and once in KILL1 (`commit`, line 6786). None of the 34 steps reads it, so the suite runs the same assertions on every backend and marks no step, which is a Q2 finding (04). The tool's header line 21, *"nothing is skipped in silence"*, is true of the suite only because nothing is skipped at all.
+
+**No recorded verdict: 8 rows.** `A2`, `A8`, `A11`, `A12`, `A5`, `RETENTION`, `A15` and `CONTRACT` have no `docs/vm-qa-log.md` row naming them. A5 and RETENTION could not pass on any tree since the fixtures were written: `APPLY` (line 1771) calls `cloud_reconcile`, and `git log --all --diff-filter=A -- '*cloud_reconcile'` is empty.
 
 ## The runs
 
@@ -92,3 +221,34 @@ cell line is indented two spaces; the count is `grep -c -E '^  [A-Z]'`.
 A FAIL here would mean the four agree, and they do not. Which one a PASS line
 certifies is stage B's question (Q7), answered from the tool's own summary
 line in the guest cycle.
+
+## Positives
+
+One row per tool: the input constructed to make it FAIL, the command, and the FAIL observed. Run on the host, 2026-10-25 05:2x UTC. The sabotaged copies live in scratch trees under `/workspace/tmp/m6-t13/pos/`; the worktree is unchanged (`git status` shows no file under `tools/` or `projects/`).
+
+| Tool | Constructed input | Command | FAIL observed | proved: |
+| --- | --- | --- | --- | --- |
+| `cloud-round-trip` | a device that does not answer: SSH port 1 (refused), no key | `CLOUD_QA_STATE=/workspace/tmp/m6-t13/state tools/cloud-round-trip --host root@127.0.0.1 --port 1 --identity /nonexistent/qa-key` | rc 2 in 0.1 s: `FAIL  no shell over ssh`, then `error: no shell over ssh on root@127.0.0.1 port 1`; nothing left listening on 9010-9099. A step's own FAIL against a working guest waits for the window (§ The guest cycle). | tool-run |
+| `cloud-test-backend` | an object that is not there | `--backend <b> cat no/such/object` (§ The runs) | rc 1 on WebDAV, SFTP and S3; S3's is the existence check of lines 650-653 | tool-run |
+| `cloud-connections-test` | `cloud_connections.py` line 147's duplicate-name refusal defeated (`if False and replace != exists:`) in a scratch copy of the sources | `cd /workspace/tmp/m6-t13/pos/conn && python3 -I -B tools/cloud-connections-test` | rc 1: `FAIL: test_duplicate_keeps_old_bytes`, `FAILED (failures=1)` of 26: exactly the one case that names the guard | fixture |
+| `cloud-census` | none | -- | none: it reads a handheld over SSH (`--host root@192.168.1.81`) and is never run in this slice (D-QA-015); it asserts nothing, so it has no FAIL to construct | design |
+| `cloud-pair-migration` | none | -- | none: it refuses with rc 2 before any input on every tree after `e6645cb5ea` (lines 58-63), so no input reaches a check | tool-run |
+| `cloud-save-integrity` | its sibling test's corrupt, truncated, unsafe and changed packets | `tools/cloud-save-integrity-test --rclone /usr/bin/rclone` (§ The runs) | each of the 19 rejection cases is the verifier refusing a constructed bad input (`PASS ... rejected` = the verifier's FAIL path taken) | tool-run |
+| `cloud-input-test` | a `wifictl` that does nothing and exits 0, in a scratch tree | `cd /workspace/tmp/m6-t13/pos/input && python3 -I -B tools/cloud-input-test` | rc 1, 6 `FAIL:`: all six `Wifi` cases. The three `Phone` cases run the unchanged `cloud_oauth` under `node`; two pass. Its own negative control `test_original_source_negative_control` ERRORed **because of the scratch tree, not the sabotage**: it runs `git show a1b0c65165:...` with `cwd=ROOT`, and the scratch tree is no checkout (exit 128). In the worktree that control passes (stage A, 9 OK). | fixture |
+| `cloud-capture-stamp-test` | `cloud_capture` before its fix, `f451252587` | `tools/cloud-capture-stamp-test $TMPDIR/old-cloud_capture` (§ The runs) | rc 1: 8 FAIL, `8 CHECK(S) FAILED` | tool-run |
+| `cloud-save-integrity-test` | `cloud-save-integrity` line 186's provider-hash comparison defeated (`require(True, ...)`) in a scratch copy | `cd /workspace/tmp/m6-t13/pos/integ && python3 -I -B tools/cloud-save-integrity-test --rclone /usr/bin/rclone` | rc 1: `FAIL changed payload rejected`. The test stops at its first FAIL, so the later cases did not run. | fixture |
+
+## Proofs
+
+| Claim | Evidence | proved: |
+| --- | --- | --- |
+| The nine are read at `8ebaf8daad`'s bytes | `git diff --stat 8ebaf8daad e1d51b3a04 -- $(cat .qa-scratch/t13/paths.txt)` empty; `cmp` of `git show 8ebaf8daad:tools/cloud-round-trip` with the worktree's: equal | tree |
+| 34 steps and 44 cells, no delta | `t13-shapes.py` rc 0, `"deltas": []` | tree |
+| `cloud_reconcile` was never added; A5 and RETENTION cannot pass | `git log --all --oneline --diff-filter=A -- '*cloud_reconcile'` empty; `APPLY` at line 1771; used at 2388 and 2433 | history |
+| `cloud_migrate_layout` was deleted by `e6645cb5ea`; `cloud-pair-migration` refuses on its absence | `git log --diff-filter=D`; the stage-A run rc 2 | tool-run |
+| `--backend` after the subcommand is ignored, rc 0 | `port --backend sftp` prints 9010; `--backend sftp port` prints 9013 | tool-run |
+| `caps()` marks no step of the single-device suite | its three call sites, lines 2369-2373 (A14's helper) and 6786 (KILL1); `t13-shapes.py`'s `caps_keys` empty for all 34 steps | tree |
+| The four descriptions disagree | `vm-qa:36` (27), the AST (32 steps, 460 checks), `vm-qa-log.md:175` (106), `2026_10_08-work_log.md:111` (108) | tree |
+| The rule's no-network sentence is stale | `rclone-cloud-sync.md:375` says "exit-4 timing"; the tool asserts `rc == "69"` at 1469 (#909) | tree |
+| The endpoint's `ls` reports a missing path as empty, rc 0; `run_steps.27`'s and KILL4's absence checks PASS on it | `CLOUD_QA_STATE=/workspace/tmp/m6-t13/no-such-state tools/cloud-test-backend --backend webdav ls`: rc 0, 0 bytes (SFTP the same); lines 629-633, 1567, 1838, 7054-7056 | tool-run |
+| RETENTION's two last checks pass when nothing ran | lines 2451 and 2453: with `cloud_reconcile` absent the head and the device's copy are untouched, so both `check()` calls are true | tree |

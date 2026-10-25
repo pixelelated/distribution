@@ -16,14 +16,12 @@
 
 ## Current focus
 
-**Stage A done (2026-10-25 05:0x UTC), host only; the checkpoint and the guest-window request posted on #660; stage B (reading) under way while the window waits.**
+**Stage B done (05:20 UTC); the stage-B checkpoint is posted on #660 with one question; stage C (the seat) is next; the guest window is still not granted.**
 
-- Folder: `docs/audits/2026_10_25-epic-m6-cloud-harness/` with `00-running-log.md` (header, first commands, the isolation note, the stage-A runs), `01-research-notes.md` (§ Scope: the membership block, 108 commits, churn, the two missing scripts, the retired tool, the vendored copy) and `02-forward-audit.md` (§ The runs only so far).
-- Stage A results: the four bare tests rc 0 (26, 9, 14, 24 checks); the stamp test's positive rc 1 (8 FAIL); `cloud-pair-migration` rc 2; WebDAV/SFTP/S3 up, ls, `cat` of a missing object rc 1 each, down, nothing left; `--list` 45 cells (44 registry + `CONTRACT`); AST: 46 `step()` (32 `run_steps`, 2 `prepare_device`), 460 `check()`, 38 sleeps, 59 `raise Fail`.
-- **Backends run isolated**: `CLOUD_QA_STATE=/workspace/tmp/m6-t13/state`, ports 9080 (webdav) / 9083 (sftp) / 9082 (s3, upstream 9092), `CLOUD_QA_NAME=rocknix-cloud-qa-m6t13` -- because `down` kills any listener on its port and the M7 lane runs guests here. `--backend` goes **before** the subcommand (after it, it is silently ignored: a stage-B lead).
-- The pointer's lens line above says "46 steps and 42 cells" (version 1); the body and brief v2 say 32 + 2 steps and 44 cells, which stage A's AST confirms (plus `CONTRACT` in `--list`).
-- Waiting on: the coordinator's guest window on #660 (asked at 05:0x UTC, https://github.com/pixelelated/distribution/issues/660#issuecomment-6393734808: one guest, image `...20261022T235948Z.g069fc2704421...img.gz`, BUILD_ID `069fc27044`, the single-device suite over WebDAV then SFTP, CAP1-14, about 30 minutes).
-- Stage B begun (05:07 UTC): `tools/t13-shapes.py` in the audit folder asserts 34 steps + 44 cells (rc 0, no delta; 78 rows, oracle by rule: both ends 28, device report 19, synthetic 31, to be reviewed by hand). `caps()` is read only in A14 (hash) and KILL1 (commit). Next: review the 78 rows for § Assertion shapes, § Coverage (9 rows), § Positives, `03`; then stage C's seat.
+- Folder `docs/audits/2026_10_25-epic-m6-cloud-harness/`: 00 (header, stage A, stage B), 01 § Scope, 02 (§ Coverage 9, § Assertion shapes 79, § The runs, § Positives 9, § Proofs), 03 whole, 04 (summary, scorecard, risk, boundary, F-01..F-12 with Phase 4.5, Q1-Q7, recommendations, self-check; § Second opinion pending), and `tools/t13-shapes.py` + `tools/t13-render.py` (regenerate the table: commands in 02 § Assertion shapes).
+- Findings for stage D's `bug` issues: F-01 (`cloud_reconcile`, A5 and RETENTION), F-02 (RETENTION's vacuous PASS), F-03 (`--backend` after the subcommand), F-05 (bare `PASSED`), F-12 (`ls` reports missing as empty; step 27 and KILL4). The rest are design or leads (F-04, F-07..F-11).
+- The window plan: `CLOUD_QA_STATE=/workspace/tmp/m6-t13/state`, `CLOUD_QA_PORT` 9080/9083, `VM_PAIR_DIR=/workspace/tmp/m6-t13/vm-pair`, `VM_QEMU_RUNTIME_DIR=/workspace/tmp/m6-t13/run`; check that 10022 is free and qemu 0 before START; `vm-qa` does not down the backend, so `--backend <b> down` after each suite; START/RETURN posted on #660; inside 30 minutes.
+- Next (stage C): `npm install --prefix tools/council`; `COUNCIL_ENV_FILE=/nonexistent tools/council/run verify-pins` and `... test`; build the packet (the nine + three context sections), scan it (`forbidden-terms-check --stdin`, pre-commit patterns), `review-plan.json`, probe, refutation; then 05 and the pre-issue lint.
 
 ## Next commands
 

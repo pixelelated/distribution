@@ -11,13 +11,25 @@ directly, one level). Per row: the check() count, the endpoint reads
 (backend(...) calls by subcommand, epath()), the device commands (.run(),
 .run_ok()), the synthetic-input markers, and the caps() keys read.
 
-The oracle column here is a first cut by rule, not a verdict:
-  both ends     -- the span reads the endpoint (backend cat/ls/lsjson/...,
-                   or an rclone listing/cat of the endpoint by epath)
-  synthetic     -- the span plants its input (a stub on PATH, a fake ip, a
-                   planted file) and reads the device's reaction
-  device report -- everything else: the device's own output, stamp or file
-The lane reviews every row by hand in 02 § Assertion shapes.
+The oracle column is a rule, with this precedence, and the lane reviews every
+row by hand in 02 § Assertion shapes:
+  both ends     -- the span reads the endpoint from the host: backend('ls'),
+                   backend('cat'), ... or a host run of the tool
+                   ([BACKEND, 'cat', ...]); epath() alone is not a read
+  synthetic     -- otherwise, the span plants its condition (a stub on PATH,
+                   a held lock, a kill, a link or power cut, a put at the
+                   endpoint, a config edited under the scripts) and reads
+                   the device's reaction
+  device report -- otherwise: the device's own exit code, output, log, stamp
+                   or file, including a round trip through its own restore
+Two method calls the one-level fold cannot reach are read by name: a
+Pair's .cloud_sha(...) is backend_bytes(), a host cat of the endpoint; a
+Link's (or Kill's) .exercise(key, cmd, marker, receiving, ...) reads its
+receiving side from the host when that is ("cloud", ...) and from the device
+when it is ("device", ...), and its condition is always a link cut.
+A separate count, device_remote_reads, is the device's own rclone listing or
+reading the remote (rclone lsf/ls/lsl/lsjson/cat/check/size on the guest):
+it reads the other end, but through the client under test.
 
 It asserts the counts it was written against (32 + 2 steps, 44 cells:
 PAIR 10, SOLO 1, CAP 14, LINK 7, KILL 12) and exits 1 on a delta, printing
@@ -34,9 +46,12 @@ EXPECT_CELLS = {"PAIR_FIXTURES": 10, "SOLO_FIXTURES": 1, "CAPTURE_FIXTURES": 14,
 ENDPOINT_SUBCOMMANDS = {"cat", "ls", "lsjson", "lsf", "path", "put", "reset",
                         "seed-content", "seed-device", "caps", "endpoint-prefix",
                         "saves-remote", "shipped-default", "rclone-conf"}
-ENDPOINT_READS = {"cat", "ls", "lsjson", "lsf", "path"}
+ENDPOINT_READS = {"cat", "ls", "lsjson", "lsf", "path", "exercise:cloud"}
 SYNTHETIC_HINTS = ("stub", "PATH=", "fake", "plant", "/sbin/ip", "printf '#!/bin/sh",
-                   "chmod +x", "truncate", "dd if=", ": >", "poison")
+                   "chmod +x", "truncate", "dd if=", ": >", "poison", "flock",
+                   "kill", "sendkey", "rclone copyto", "rclone purge", "sed -i")
+import re
+DEVICE_REMOTE_READ = re.compile(r"rclone (lsf|ls|lsl|lsjson|lsd|cat|check|size|md5sum|sha1sum|hashsum)\b")
 
 
 def call_name(node):
@@ -62,7 +77,7 @@ def measure(nodes, fns, depth=1, seen=None):
     functions called directly are folded in once (depth 1), so a helper that
     reads the endpoint counts."""
     seen = set() if seen is None else seen
-    m = {"checks": 0, "endpoint": {}, "epath": 0, "device_runs": 0,
+    m = {"checks": 0, "endpoint": {}, "epath": 0, "device_runs": 0, "device_remote_reads": 0,
          "caps_keys": set(), "synthetic": set(), "helpers": set()}
     for n in nodes:
         if True:
@@ -75,8 +90,28 @@ def measure(nodes, fns, depth=1, seen=None):
                     m["endpoint"][sub] = m["endpoint"].get(sub, 0) + 1
                 elif name == "epath":
                     m["epath"] += 1
+                elif name == "cloud_sha" and isinstance(n.func, ast.Attribute):
+                    m["endpoint"]["cat"] = m["endpoint"].get("cat", 0) + 1
+                elif name == "exercise" and isinstance(n.func, ast.Attribute):
+                    recv = n.args[3] if len(n.args) > 3 else next((k.value for k in n.keywords if k.arg == "receiving"), None)
+                    side = recv.elts[0].value if isinstance(recv, ast.Tuple) and recv.elts and isinstance(recv.elts[0], ast.Constant) else "?"
+                    m["endpoint"]["exercise:" + side] = m["endpoint"].get("exercise:" + side, 0) + 1
+                    m["synthetic"].add("link cut")
                 elif name in ("run", "run_ok", "sh", "ssh") and isinstance(n.func, ast.Attribute):
                     m["device_runs"] += 1
+                    a0 = n.args[0] if n.args else None
+                    if isinstance(a0, (ast.Constant, ast.JoinedStr)) and DEVICE_REMOTE_READ.search(ast.unparse(a0)):
+                        m["device_remote_reads"] += 1
+                # a host run of the backend tool: [BACKEND, '<sub>', ...]
+                for a in n.args:
+                    if isinstance(a, ast.List) and len(a.elts) >= 2 and isinstance(a.elts[0], ast.Name) \
+                            and a.elts[0].id == "BACKEND" and isinstance(a.elts[1], ast.Constant):
+                        sub = a.elts[1].value
+                        m["endpoint"][sub] = m["endpoint"].get(sub, 0) + 1
+                if name == "backend" or any(isinstance(a, ast.List) and a.elts and isinstance(a.elts[0], ast.Name)
+                                            and a.elts[0].id == "BACKEND" for a in n.args):
+                    if "put" in m["endpoint"]:
+                        m["synthetic"].add("put at the endpoint")
                 if isinstance(n.func, ast.Name) and n.func.id in fns and n.func.id not in seen and depth > 0:
                     seen.add(n.func.id)
                     m["helpers"].add(n.func.id)
@@ -86,6 +121,7 @@ def measure(nodes, fns, depth=1, seen=None):
                         m["endpoint"][k] = m["endpoint"].get(k, 0) + v
                     m["epath"] += sub["epath"]
                     m["device_runs"] += sub["device_runs"]
+                    m["device_remote_reads"] += sub["device_remote_reads"]
                     m["caps_keys"] |= sub["caps_keys"]
                     m["synthetic"] |= sub["synthetic"]
             if isinstance(n, ast.Subscript) and isinstance(n.value, ast.Call) and call_name(n.value) == "caps":
@@ -104,7 +140,7 @@ def measure(nodes, fns, depth=1, seen=None):
 
 
 def oracle(m):
-    if any(k in ENDPOINT_READS for k in m["endpoint"]) or m["epath"]:
+    if any(k in ENDPOINT_READS for k in m["endpoint"]):
         return "both ends"
     if m["synthetic"]:
         return "synthetic"
@@ -115,6 +151,7 @@ def row(kind, ident, line, end, claim, m):
     return {"kind": kind, "id": ident, "line": line, "end": end, "claim": claim,
             "checks": m["checks"], "endpoint": dict(sorted(m["endpoint"].items())),
             "epath": m["epath"], "device_runs": m["device_runs"],
+            "device_remote_reads": m["device_remote_reads"],
             "caps_keys": sorted(m["caps_keys"]), "synthetic": sorted(m["synthetic"]),
             "helpers": sorted(m["helpers"]), "oracle_rule": oracle(m)}
 
@@ -167,8 +204,8 @@ def main():
             json.dump({"source": path, "summary": summary, "rows": rows}, fh, indent=1)
     print(json.dumps(summary))
     for r in rows:
-        print("%-22s %5d-%-5d checks=%-3d endpoint=%s epath=%d caps=%s synth=%s rule=%s | %s" % (
-            r["id"], r["line"], r["end"], r["checks"], r["endpoint"], r["epath"],
+        print("%-22s %5d-%-5d checks=%-3d endpoint=%s devremote=%d caps=%s synth=%s rule=%s | %s" % (
+            r["id"], r["line"], r["end"], r["checks"], r["endpoint"], r["device_remote_reads"],
             ",".join(r["caps_keys"]) or "-", ",".join(r["synthetic"]) or "-", r["oracle_rule"],
             r["claim"][:70]))
     return 1 if deltas else 0

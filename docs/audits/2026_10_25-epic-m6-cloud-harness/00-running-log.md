@@ -66,3 +66,18 @@ The image for the guest-cycle request, read only: `pixelelated-GENERIC_X64.x86_6
 - `tools/t13-shapes.py` (in this folder, not the repo's `tools/`) is written. It is run as `python3 -I -B tools/t13-shapes.py /workspace/tmp/m6-t13/cloud-round-trip.8ebaf8daad --json .qa-scratch/t13/shapes.json`, against `git show 8ebaf8daad:tools/cloud-round-trip` (`cmp` equal to the worktree's). Result: rc 0, `{"steps": 34, "cells": 44, "rows": 78, "by_oracle_rule": {"both ends": 28, "device report": 19, "synthetic": 31}, "deltas": []}`. Its oracle column is a rule-based first cut, to be reviewed row by row.
 - **Q2 lead:** `caps()` is read at three call sites. Two are in A14's helper (`hash`, lines 2369-2373) and one is in KILL1 (`commit`, line 6786). No step of the single-device suite reads it.
 - **Q7 lead:** the suite's 34 step spans hold 114 `check()` calls; the cells' spans hold 352 (one helper level). The ledger's 106 and the work log's 108 are runtime counts, which loops and branches make differ from the static count.
+
+## 2026-10-25 05:07-05:20 UTC -- stage B (reading; no guest)
+
+- 05:07: the coordinator's answer on #660 (stage A stands; the window asked of M7; go on to stage B). 05:1x: the pass-through check posted (https://github.com/pixelelated/distribution/issues/660#issuecomment-6393759361). `vm-qa` passes `CLOUD_QA_STATE`, `CLOUD_QA_PORT` and `CLOUD_QA_NAME` through, never downs the backend, and defaults `VM_PAIR_DIR`/`VM_QEMU_RUNTIME_DIR` to `/tmp`, both to be set under `/workspace/tmp/m6-t13/` in the window. `vm-stop` refuses a process not on its own qcow2. Guest a's SSH port 10022 is fixed.
+- The generator `tools/t13-shapes.py` was refined (host runs of the tool, `Pair.cloud_sha`, `Link.exercise`'s receiving side, the device's own rclone reads, the planted conditions) and still asserts 34 + 44 with no delta. `tools/t13-render.py` renders 02 § Assertion shapes: 79 rows (78 + `CONTRACT`), by oracle **24 both ends, 44 synthetic input, 10 the device's report**, with eight rows overridden by hand, each with its reason. An early cut read PASS or FAIL off the ledger rows' free text; it was withdrawn for citing the rows by date and line.
+- 05:2x: positives on the host, all in scratch trees under `/workspace/tmp/m6-t13/pos/` (the worktree untouched):
+  - `cloud-round-trip` on refused SSH port 1: rc 2, `FAIL  no shell over ssh`.
+  - `cloud-connections-test` with the line-147 guard defeated: rc 1, 1 FAIL of 26.
+  - `cloud-input-test` with a no-op `wifictl`: rc 1, 6 FAIL. The negative control ERRORed on `git show` in a non-checkout (exit 128), the environment's.
+  - `cloud-save-integrity-test` with the provider-hash compare defeated: rc 1, `FAIL changed payload rejected`.
+  - The backend's `ls` on a state directory that does not exist: rc 0, 0 bytes (F-12).
+- Read for Q4 only, never brought up: pyftpdlib 2.2.0 in the default state's venv; the image's rclone `PKG_VERSION="1.75.2"`.
+- `tools/archaeology mixed-installation` (read only): the D-CLOUD-158 gate was met on 2026-10-05, before D-CLOUD-175 retired the migration.
+- Written: 02 § Coverage (9), § Assertion shapes (79), § Positives (9), § Proofs; 03 whole; 04 to its renovation face, with § Second opinion pending stage C. The pre-issue lint was run once to learn its contract: 14 failures, all owed by stage C (05, `review-plan.json`, and the 04 sections now written).
+- No guest, no handheld, no hosted account, no `cloud-census` run, no `tools/council/run` call, no write under `/tmp` or `/workspace/repos/rocknix*`.
