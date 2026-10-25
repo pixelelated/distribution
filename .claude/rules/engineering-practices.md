@@ -448,6 +448,14 @@ So:
 An assertion that cannot fail is not evidence. Ask what input would produce a
 FAIL; if you cannot name one, the check proves nothing.
 
+**Capture `rc=$?` on its own line, directly after the command (2026-10-25,
+#692).** The shell expands a word left to right, so `echo "$(tail -1 out)
+rc=$?"` reports the substitution's exit, not the command's, and a FAIL reads
+as `rc=0`. Three misreads in one day across two lanes (T14's and T45's stage
+A and B, friction 2026-10-25 02:59 UTC) met the P1 retro's trigger. So:
+`cmd; rc=$?` on the next line, then the echo that uses it; never `$?` after a
+`$(...)` in the same word, and never in a pipeline's last stage.
+
 **A fixture for a secret scanner is built at run time, never written as a
 literal (2026-09-28, #307).** `tools/last-good-scripts-test`'s cases for the
 credential scan and the redaction feed values that look like a private key,
