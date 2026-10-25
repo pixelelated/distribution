@@ -1,0 +1,11 @@
+update-case updateabl-fail: unfixed-expectation-met (rc=0 hint=yes boot-and-EFI=removed updateabl-runs=1 copied-same=yes named=no)
+update-case updateabl-fail: fixed-expectation-met (rc=1 hint=no boot-and-EFI=kept updateabl-runs=1 copied-same=yes named=yes)
+update-case updateabl-slow-fail: unfixed-expectation-met (rc=0 hint=yes boot-and-EFI=removed updateabl-runs=1 copied-same=yes named=no)
+update-case updateabl-slow-fail: fixed-expectation-met (rc=1 hint=no boot-and-EFI=kept updateabl-runs=1 copied-same=yes named=yes)
+update-case copy-fail: unfixed-expectation-met (rc=0 hint=yes boot-and-EFI=removed updateabl-runs=1 copied-same=no named=no)
+update-case copy-fail: fixed-expectation-met (rc=1 hint=no boot-and-EFI=kept updateabl-runs=0 copied-same=no named=yes)
+update-case success: unfixed-expectation-met (rc=0 hint=yes boot-and-EFI=removed updateabl-runs=1 copied-same=yes named=no)
+update-case success: fixed-expectation-met (rc=0 hint=yes boot-and-EFI=removed updateabl-runs=1 copied-same=yes named=no)
+success-console: identical on both sides (1 lines)
+run-all: 9 rows, 0 unexpected, 0 could not run
+rc=0

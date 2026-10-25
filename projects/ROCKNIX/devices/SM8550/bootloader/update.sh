@@ -13,6 +13,15 @@ if [ -z "$BOOT_DISK" ]; then
   esac
 fi
 
+# a failed step is reported and the update is not marked done: nothing is
+# removed and no boot hint is written after it
+fail() {
+  echo "update.sh: $1; the update is not marked done" >&2
+  sync
+  mount -o remount,ro $BOOT_ROOT
+  exit 1
+}
+
 # mount $BOOT_ROOT rw
 mount -o remount,rw $BOOT_ROOT
 
@@ -20,9 +29,13 @@ if [ -d "$SYSTEM_ROOT/usr/share/bootloader/rocknix_abl" ]; then
   mkdir -p $BOOT_ROOT/rocknix_abl
   echo "Updating ROCKNIX ABL on SD..."
   cp $SYSTEM_ROOT/usr/share/bootloader/rocknix_abl/* $BOOT_ROOT/rocknix_abl
+  rc=$?
+  [ "$rc" -eq 0 ] || fail "copying the ABL to $BOOT_ROOT/rocknix_abl failed (rc $rc)"
 fi
 
 $SYSTEM_ROOT/usr/bin/updateabl
+rc=$?
+[ "$rc" -eq 0 ] || fail "updateabl failed (rc $rc)"
 
 ### REMOVE IN THE FUTURE ###
 # cleanup old boot files

@@ -1,0 +1,4 @@
+  | out: Updating ROCKNIX ABL on SD...
+  | err: update.sh: updateabl failed (rc 1); the update is not marked done
+update-case updateabl-fail: fixed-expectation-met (rc=1 hint=no boot-and-EFI=kept updateabl-runs=1 copied-same=yes named=yes)
+rc=0
