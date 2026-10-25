@@ -31,13 +31,18 @@ RECORD="/storage/.config/.cloud_setup_ssh.generated"
 rm -f /storage/.config/cloud_setup_url
 
 # A port is one to five digits, 1 to 65535; anything else on fw_cfg is no
-# port at all, never a shortened one.
+# port at all, never a shortened one. The whole value is judged: deleting
+# the non-digits kept 12x34 as port 1234 (#1107). Only line ends are
+# dropped, since the value may arrive with one.
 PORT=""
 if [ -r "${FWCFG}" ]; then
-  RAW=$(tr -cd '0-9' < "${FWCFG}")
-  case "${#RAW}" in
-    1|2|3|4|5) [ "${RAW}" -ge 1 ] && [ "${RAW}" -le 65535 ] && PORT="${RAW}" ;;
+  RAW=$(tr -d '\r\n' < "${FWCFG}")
+  case "${RAW}" in
+    ''|*[!0-9]*) ;;
+    ?|??|???|????|?????) [ "${RAW}" -ge 1 ] && [ "${RAW}" -le 65535 ] && PORT="${RAW}" ;;
   esac
+  [ -n "${RAW}" ] && [ -z "${PORT}" ] && \
+    logger -t 095-cloud-ssh "fw_cfg cloud_ssh_port '${RAW}' is not a port (a whole number, 1 to 65535); no command written"
 fi
 # The -L tunnel carries rclone's provider sign-in page (guest port 53682)
 # to the browser of the machine running SSH - see rclone.org/remote_setup.
