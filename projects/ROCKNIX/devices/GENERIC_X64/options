@@ -23,7 +23,7 @@
   # Kernel target
     KERNEL_TARGET="bzImage"
 
-  # Additional bootloader settings
+  # syslinux: scripts/mkimage writes its BIOS and UEFI loaders, and vm/profile.json boots UEFI
     BOOTLOADER="syslinux"
 
   # Graphics drivers for x86_64.
