@@ -59,3 +59,31 @@
 - **Nothing of the never-run list ran.**
 - PROOF: P1, the membership: r01, r02, r04.
 - PROOF: P2, the history and the delta: r25 to r29.
+
+## [Stage B] 10:34 to 10:43 UTC — the sections, the generator, the corrections
+
+- **The reads:** `stage-b/reads.sh`, 21 steps from `stage-b/runs.tsv`'s first start, all rc 0. b01 to b20 are the sources behind `02`'s sections; `g_check` is the generator's `check` and `counts`.
+- **The generator:** `tools/t28-tables.py` writes § The runs (31 rows, each with *a FAIL would mean*), § The pins (8), § The device trees (16 + the `.disabled` row) and § Coverage (29). Each section asserts its count, and `check` exits 1 on drift. `counts`: carried by placement 20, disabled 1, shipped 3, shipped unit 5, total 29.
+- **Corrections to the brief, recorded in `02` § Deltas:**
+  - two InputPlumber files serve the Nova (`02-ayn-controller.yaml:44` `value: Retroid Pocket Nova`);
+  - the Nova's include chain is part of the shipped unit;
+  - r08's pair order;
+  - `gamepadcalibration`'s file differs upstream in SM6115's branch only (`48b98a02d7`).
+- **Citations corrected before commit:**
+  - the brief's `install:50-60` is `projects/ROCKNIX/bootloader/install:50-61`, not `scripts/install`;
+  - `kernel-firmware`'s die line is `:57` within `:39-70`.
+- **Upstream's loader entry:** `virtual/arm-efi/package.mk:13-23` at `651150fc88` writes `${DISTRONAME,,}.conf`. On the fork that is `pixelelated.conf`, with `boot=LABEL=ROCKNIX`: #1099's seam, cited.
+- **Findings:** eight, 2 Low (F-04, F-05) and 6 Info. No `bug`.
+- **Nothing of the never-run list ran.** No council call yet: the seat is stage C's.
+- PROOF: P3, the branch and the removal rule: r03, r31.
+- PROOF: P4, the configuration: r06 to r10.
+- PROOF: P5, the pins: r11 to r14, `g_check`.
+- PROOF: P6, the build side of the boot path: r16 to r18, r20, b07, b08, b09, b10.
+- PROOF: P7, the update side: r15, r21, b04, b05.
+- PROOF: P8, the embed reading: r19, b01, b02, b03.
+- PROOF: P9, the trees: r22 to r24.
+- PROOF: P10, the Nova's input files: b13.
+- PROOF: P11, the two branches that never run: b09, b07.
+- PROOF: P12, upstream's replacement and the entry's name: r29, b11, b12.
+- PROOF: P13, the device facts: b19.
+- PROOF: P14, the tables regenerated: `g_check`.

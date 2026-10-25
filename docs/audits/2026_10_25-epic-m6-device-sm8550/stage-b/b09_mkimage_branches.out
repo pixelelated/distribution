@@ -1,0 +1,21 @@
+  elif [ -f "${RELEASE_DIR}/3rdparty/bootloader/rocknix-u-boot.img" ]; then
+    # SM8750, SM8650 & SM8550
+    echo "image: copying rocknix u-boot files..."
+    mcopy -o "${RELEASE_DIR}/3rdparty/bootloader/rocknix-u-boot.img" ::
+    mcopy -s -o "${RELEASE_DIR}/3rdparty/bootloader/device_trees" ::
+    SM8550|SM8650|SM8750|SM8250|SM6115|SM4450)
+      mcopy -s -o "${RELEASE_DIR}/3rdparty/bootloader/boot" ::
+      ;;
+mkimage_abl() {
+  echo "image: copying ROCKNIX ABL..."
+  mcopy "${RELEASE_DIR}/3rdparty/bootloader/rocknix_abl" ::
+}
+8ebaf8daad:projects/ROCKNIX/bootloader/mkimage:22:  elif [ -f "${RELEASE_DIR}/3rdparty/bootloader/rocknix-u-boot.img" ]; then
+8ebaf8daad:projects/ROCKNIX/bootloader/mkimage:25:    mcopy -o "${RELEASE_DIR}/3rdparty/bootloader/rocknix-u-boot.img" ::
+8ebaf8daad:projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayaneo-pocketace.dts:16:	rocknix-u-boot-dt-id = "u-boot-pocket-ace";
+8ebaf8daad:projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayaneo-pocketdmg.dts:15:	rocknix-u-boot-dt-id = "u-boot-pocket-dmg";
+8ebaf8daad:projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayaneo-pocketds.dts:16:	rocknix-u-boot-dt-id = "u-boot-pocket-ds";
+8ebaf8daad:projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayaneo-pocketevo.dts:16:	rocknix-u-boot-dt-id = "u-boot-pocket-evo";
+8ebaf8daad:projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayn-common.dtsi:30:	rocknix-u-boot-dt-id = "u-boot-odin2";
+upstream bootloader/mkimage rocknix-u-boot: 0
+upstream properties: 5

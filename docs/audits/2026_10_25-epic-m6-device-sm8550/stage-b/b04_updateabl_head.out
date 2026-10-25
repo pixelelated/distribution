@@ -1,0 +1,30 @@
+. $SYSTEM_ROOT/etc/os-release
+
+case "$HW_DEVICE" in
+  SM4450|SM6115|SM8250|SM8550|SM8650|SM8750)
+    ;;
+  *)
+    echo "This script is not compatible with this device!"
+    exit 1
+    ;;
+esac
+
+# ---- Paths ----
+ELF="$SYSTEM_ROOT/usr/share/bootloader/rocknix_abl/abl_signed-${HW_DEVICE}.elf"
+TMP_ABL_A="/tmp/current_abl_a.bin"
+TMP_ABL_B="/tmp/current_abl_b.bin"
+
+# ---- Sanity checks ----
+if [ ! -f "${ELF}" ]; then
+  echo "Error: ABL update not found"
+  exit 1
+fi
+
+$SYSTEM_ROOT/usr/sbin/partprobe
+
+ABL_A="$($SYSTEM_ROOT/usr/sbin/blkid -t PARTLABEL=abl_a -o device)"
+ABL_B="$($SYSTEM_ROOT/usr/sbin/blkid -t PARTLABEL=abl_b -o device)"
+if [ ! -b "${ABL_A}" ] || [ ! -b "${ABL_B}" ]; then
+  echo "Error: ABL partitions not found"
+  exit 1
+fi

@@ -16,13 +16,15 @@
 
 ## Current focus
 
-**Stage A complete; stage B next** (updated 2026-10-25, 10:33 UTC).
-- **`reviewed-at`:** `458e2bfda1`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-device-sm8550/`, with `00`, `01` (§ Scope) and `stage-a/` (31 runs, all rc 0).
-- **Every brief figure reproduced,** except one delta: the configuration-distance pairs print reversed (r08).
-- **Next (stage B):**
-  - `02`: coverage 29, § The pins 8, § The configuration, § The loader and the tree, § The device trees 16, § The runs (exit, wall, figure, *a FAIL would mean*), findings and proofs;
-  - `03` and `04`.
-- **Then stage C:** the packet (trimmed and scanned, with its manifest), `review-plan.json` (independent, one seat), the probe and the refutation, and the pre-issue lint.
+**Stage B complete; stage C next** (updated 2026-10-25, 10:43 UTC).
+- **`reviewed-at`:** `458e2bfda1`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-device-sm8550/`, with `00` to `04`, `stage-a/` (31 runs), `stage-b/` (21 reads) and `tools/t28-tables.py`.
+- **Findings:** eight, F-04 and F-05 Low, the rest Info, no `bug`.
+- **Corrections to the brief:** the Nova's two InputPlumber files and its include chain; r08's pair order; `gamepadcalibration`; `install:50-60`.
+- **Next (stage C):**
+  - the packet: trimmed, scanned with `forbidden-terms-check --stdin`, the pre-commit patterns and T10's widened set, with a sha256 manifest;
+  - `review-plan.json` (independent, gpt, `openai/gpt-6-astra`, `max`);
+  - the probe, then the refutation: the only keyed calls;
+  - `04` § Second opinion; `05`; the pre-issue lint.
 - **Running for this lane:** nothing.
 
 ## Next commands
@@ -63,4 +65,5 @@ host's swap, another lane's worktree, or a guest.
 
 ## Checkpoints
 
+- Stage B: 10:43 UTC (the commit below)
 - Stage A: 10:33 UTC (the commit below)

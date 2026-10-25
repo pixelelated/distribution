@@ -1,0 +1,6 @@
+8ebaf8daad:projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-info:8:  export QUIRK_DEVICE="$(tr -d '\0' </sys/firmware/devicetree/base/model 2>/dev/null
+8ebaf8daad:projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-info:10:  export QUIRK_DEVICE="$(tr -d '\0' </sys/class/dmi/id/sys_vendor 2>/dev/null) $(tr
+8ebaf8daad:projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-info:12:export QUIRK_DEVICE="$(echo ${QUIRK_DEVICE} | sed -e "s#[/]#-#g")"
+8ebaf8daad:projects/ROCKNIX/packages/sysutils/autostart/profile.d/002-autostart:8:  export QUIRK_DEVICE="$(strings /sys/firmware/devicetree/base/model)"
+8ebaf8daad:projects/ROCKNIX/packages/sysutils/autostart/profile.d/002-autostart:10:  export QUIRK_DEVICE="$(strings /sys/class/dmi/id/sys_vendor) $(strings /sys
+8ebaf8daad:projects/ROCKNIX/packages/sysutils/autostart/profile.d/002-autostart:12:export QUIRK_DEVICE="$(echo ${QUIRK_DEVICE} | sed -e "s#[/]#-#g")"

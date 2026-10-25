@@ -1,0 +1,10 @@
+    for i in ${PKG_DIR}/patches/*.patch \
+      ${PKG_DIR}/patches/${PATCH_ARCH}/*.patch \
+      ${PATCH_DIRS_PKG} \
+      ${PKG_DIR}/patches/${PKG_VERSION}/*.patch \
+      ${PKG_DIR}/patches/${PKG_VERSION}/${PATCH_ARCH}/*.patch \
+      ${PROJECT_DIR}/${PROJECT}/patches/${PKG_NAME}/*.patch \
+      ${PROJECT_DIR}/${PROJECT}/patches/${PKG_NAME}/${PATCH_ARCH}/*.patch \
+      ${PATCH_DIRS_PRJ} \
+      ${PROJECT_DIR}/${PROJECT}/patches/${PKG_NAME}/${PKG_VERSION}/*.patch \
+      ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/patches/${PKG_NAME}/*.patch; do

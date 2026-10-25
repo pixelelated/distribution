@@ -1,0 +1,15 @@
+diff --git a/projects/ROCKNIX/packages/tools/gamepadcalibration/package.mk b/projects/ROCKNIX/packages/tools/gamepadcalibration/package.mk
+index d3d5edcbd3..9ca7ef9be6 100644
+--- a/projects/ROCKNIX/packages/tools/gamepadcalibration/package.mk
++++ b/projects/ROCKNIX/packages/tools/gamepadcalibration/package.mk
+@@ -27,7 +27,8 @@ makeinstall_target() {
+       sed -i 's|/sys/module/retroid/parameters|/sys/module/rsinput/parameters|g' ${INSTALL}/usr/local/share/gpcal/Klib/RPocket.py
+       ;;
+     SM6115)
+-      sed -i 's|/sys/module/retroid/parameters|/sys/module/mangmi/parameters|g' ${INSTALL}/usr/local/share/gpcal/Klib/RPocket.py
++      sed -i 's|^PARAMETERS_DIR_PATH=.*|import os\nPARAMETERS_DIR_PATH = "/sys/module/mangmi/parameters" if os.path.exists("/sys/module/mangmi/parameters") else "/sys/module/rsinput/parameters"|' \
++        ${INSTALL}/usr/local/share/gpcal/Klib/RPocket.py
+       ;;
+   esac
+ 
+48b98a02d7 2026-09-27 sm6115: initial Retroid Pocket Duo Lite support

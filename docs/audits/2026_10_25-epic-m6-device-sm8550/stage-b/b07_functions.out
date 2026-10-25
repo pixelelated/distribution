@@ -1,0 +1,24 @@
+get_kernel_make_extracmd() {
+  local DTB_PREFIX
+  DTB_PREFIX=$(xmlstarlet sel -t -v "//rocknix/${DEVICE}/@dtb_prefix" "${CONFIGXML}" 2>/dev/null)
+  DTB_PREFIX="${DTB_PREFIX}/"
+  xmlstarlet sel -t -m "//rocknix/${DEVICE}//file" -o "${DTB_PREFIX}" -v "." -o ".dtb " "${CONFIGXML}" 2>/dev/null
+}
+mkimage_all() {
+  local OPTIONS_LIST=""
+
+  if [[ -n "${SUBDEVICE}" ]]; then
+    OPTIONS_LIST=$(xmlstarlet sel -t -v "//rocknix/${DEVICE}/${SUBDEVICE}/@mkimage_options" "${CONFIGXML}" 2>/dev/null)
+  fi
+
+  if [[ -z "${OPTIONS_LIST}" ]]; then
+    OPTIONS_LIST=$(xmlstarlet sel -t -v "//rocknix/${DEVICE}/@mkimage_options" "${CONFIGXML}" 2>/dev/null)
+  fi
+
+  for step in $(echo "${OPTIONS_LIST}" | tr ',' ' '); do
+    local func_name="mkimage_${step}"
+
+    "${func_name}"
+  done
+}
+    KERNEL_MAKE_EXTRACMD=" $(get_kernel_make_extracmd)"

@@ -1,0 +1,37 @@
+     1	#!/bin/sh
+     2	# SPDX-License-Identifier: GPL-2.0
+     3	# Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)
+     4	
+     5	[ -z "$SYSTEM_ROOT" ] && SYSTEM_ROOT=""
+     6	[ -z "$BOOT_ROOT" ] && BOOT_ROOT="/flash"
+     7	[ -z "$BOOT_PART" ] && BOOT_PART=$(df "$BOOT_ROOT" | tail -1 | awk {' print $1 '})
+     8	
+     9	# identify the boot device
+    10	if [ -z "$BOOT_DISK" ]; then
+    11	  case $BOOT_PART in
+    12	    /dev/mmcblk*) BOOT_DISK=$(echo $BOOT_PART | sed -e "s,p[0-9]*,,g");;
+    13	  esac
+    14	fi
+    15	
+    16	# mount $BOOT_ROOT rw
+    17	mount -o remount,rw $BOOT_ROOT
+    18	
+    19	if [ -d "$SYSTEM_ROOT/usr/share/bootloader/rocknix_abl" ]; then
+    20	  mkdir -p $BOOT_ROOT/rocknix_abl
+    21	  echo "Updating ROCKNIX ABL on SD..."
+    22	  cp $SYSTEM_ROOT/usr/share/bootloader/rocknix_abl/* $BOOT_ROOT/rocknix_abl
+    23	fi
+    24	
+    25	$SYSTEM_ROOT/usr/bin/updateabl
+    26	
+    27	### REMOVE IN THE FUTURE ###
+    28	# cleanup old boot files
+    29	[ -d "$BOOT_ROOT/boot" ] && rm -rf "$BOOT_ROOT/boot"
+    30	[ -d "$BOOT_ROOT/EFI" ] && rm -rf "$BOOT_ROOT/EFI"
+    31	# end
+    32	
+    33	# mount $BOOT_ROOT ro
+    34	sync
+    35	mount -o remount,ro $BOOT_ROOT
+    36	
+    37	echo "UPDATE" > /storage/.boot.hint
