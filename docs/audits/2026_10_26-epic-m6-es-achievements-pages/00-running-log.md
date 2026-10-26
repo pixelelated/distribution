@@ -47,3 +47,13 @@
 - **A lead withdrawn before it was written:** `rvz_hash.cpp:87`'s shift `18` is Dolphin's documented oddity ("NB: 18, not 16"), not a slip. The fixture above is the proof.
 - **`02`:** Coverage holds 25 rows, by the brief's own command. It also carries the credentials' paths, the pages, the contract, the reader, the hasher, the library, the runs, the positives and what T21 and T26 inherit. The guest cycle is pending the window.
 - **Nothing of the never-run list ran.** No guest, no fetch, no keyed call. The ES worktree is unchanged (R18).
+
+## [Window] 17:34 to 17:57 UTC — the guest cycle
+
+- **Granted** on #667 at 17:34 UTC. START 17:36:17 and RETURN 17:57:04 were posted with their censuses and mirrored in the host file; the bound was 18:36:17. The guest ran from M6's copy on a fresh disk at 640x480, ssh by a key of the lane's own.
+- **What ran:** the eight steps of the request, recorded in `02` § The guest cycle. The one live sign-in used the QA account through `tools/qa-accounts`, never printed and never the owner's. The #1154 probe used dummy credentials only. `tools/ra-ui-test` is CANNOT in this window: four EN attempts, three failing closed on the tool's own preconditions, two of them states I had made.
+- **The image's ES is M7's composition over the pin.** It carries the pin's literal and pages the pin does not have, so the page frames are M7's. This was found at step 4's first frame, not at step 1. Checking one identity literal answered "contains the pin", not "is the pin".
+- **Two errors of mine.**
+  - A kill by pattern: `pgrep -x sleep | head -1` hit `video_sense`'s `sleep 3600` (`g02b`), against the PID-only rule. It was voided in the record.
+  - A first `openssl req` under `set -e` with its output silenced stopped without a word. The image has no `openssl.cnf`; nothing had changed.
+- **Closed:** `vm-stop` rc 0; the disk retired with path, size and sha; the account's four keys emptied on the guest before the stop. No image build, no fetch, no handheld, no M7 root or worktree.

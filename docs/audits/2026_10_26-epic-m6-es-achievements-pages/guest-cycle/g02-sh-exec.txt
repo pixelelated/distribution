@@ -1,0 +1,12 @@
+== step 2, /bin/sh and exec (17:37:11Z)
+/usr/bin/bash
+lrwxrwxrwx    1 root     root             4 Oct 22 20:02 [1;36m/bin/sh[m -> [1;32mbash[m
+[1] 2003
+popen-like child pid 2003 comm: sh args: sh -c sleep 7 2>/dev/null 
+    358       1 sh
+   2003     358 sh
+   2005    2003 sleep
+--- a killed child read through the shell: 
+rc of sh -c killing itself: 137
+[2] 2042
+rc when the exec-ed command is KILLed: 0

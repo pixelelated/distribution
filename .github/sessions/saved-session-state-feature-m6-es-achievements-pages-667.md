@@ -17,14 +17,16 @@
 
 ## Current focus
 
-**Stage B done; the guest window is asked for on #667 and waits for the coordinator's grant.**
+**The guest window is done (17:36 to 17:57 UTC, RETURN posted); stage C next.**
 
-- **`02`:** Coverage holds 25 rows. It records L-01 to L-25 with their lines, and six host positives under `stage-b/positives/`. The guest cycle's rows are pending.
-- **Next:**
-  - on the grant, the window per the plan in the request comment;
-  - then `02` § The guest cycle;
-  - then stage C: the packet trimmed and scanned, the two seats, four keyed invokes, the pre-issue lint.
-- **If the window is refused or deferred:** stage C may proceed on the host evidence, with the guest rows marked pending.
+- **`02` § The guest cycle is written.** On the guest, L-01, L-13 and L-20 are proved, and L-06 is downgraded (bash forks). The page frames are of M7's ES, a composition over the pin. `ra-ui-test` is CANNOT in this window.
+- **`03-retrospective.md` is drafted.**
+- **Next, stage C:**
+  - `04-analysis.md` as the first reader's;
+  - the packet from T18's `stage-c/packet.py`, adapted, then trimmed and scanned three ways;
+  - Astra at `max` (a probe, then the refutation), then Argon at `high` over the same packet plus the grades;
+  - exactly four keyed invokes;
+  - the pre-issue lint.
 
 ## Next commands
 
@@ -62,4 +64,5 @@ worktree, or a guest outside the one granted window.
 
 ## Checkpoints
 
+- Window, 17:57 UTC: RETURN posted; the disk retired.
 - Stage A, 17:30 UTC: distribution `10d00488fb`, ES at the pin `16dbac5211` (unchanged).

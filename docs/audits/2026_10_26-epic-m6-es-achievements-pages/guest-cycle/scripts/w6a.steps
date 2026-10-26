@@ -1,0 +1,32 @@
+key ret
+wait-for-change 30 1
+settle
+key down
+wait-for-change 30 1
+settle
+key x
+wait-for-change 30 1
+settle
+key down
+wait-for-change 30 1
+key down
+wait-for-change 30 1
+settle
+key x
+wait-for-change 30 1
+settle
+key down
+wait-for-change 5 1
+key down
+wait-for-change 5 1
+key down
+wait-for-change 5 1
+key down
+wait-for-change 5 1
+key down
+wait-for-change 5 1
+settle
+key x
+wait-for-change 30 1
+settle 3
+shot offline-page-ready-file-7

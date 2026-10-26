@@ -1,0 +1,5 @@
+== step 2b, after the void test (17:38:03Z)
+emulationstation up
+Oct 26 13:36:37 ROCKNIX kernel: signal: max sigframe size: 1360
+Oct 26 13:37:20 GENERIC-X64-15ca video_sense[1279]: /usr/bin/video_sense: line 20:  1374 Killed                     sleep 3600
+NOTE: the last line of g02 (rc 0) is void: the KILL went to the oldest sleep on the guest, not the child under test, which then ran its full 30 s. This guest is disposable; nothing of the owner's runs on it.

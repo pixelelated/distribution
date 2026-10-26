@@ -3,7 +3,7 @@
 - **reviewed-at:** `ae3c013cac` (the distribution); **reviewed-at-es:** `16dbac5211eea7e70db7394372033be2be7df829` (the pin), the 25 read at the pin's bytes (R18 empty).
 - **The ctl side:** `projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl` at `8ebaf8daad` (2,455 lines, the same bytes at `ae3c013cac`), with T19's stage-E changes read from T19's `02` § What T20 inherits at `d8c02be1c9`.
 - **Leads** are numbered L-01 to L-27. Each is read at its lines; it is a defect only where a `proved:` cell says so, and is put to the questions in `04`.
-- **`proved:` values:** `tree` (read at the pin), `history`, `tool-run`, `fixture` (a host program built from the pin's own lines, under `stage-b/positives/`), `guest` (pending the window), `design` (a stated trade, not a defect).
+- **`proved:` values:** `tree` (read at the pin), `history`, `tool-run`, `fixture` (a host program built from the pin's own lines, under `stage-b/positives/`), `guest` (read in the window of 17:36 to 17:57 UTC, `guest-cycle/`), `design` (a stated trade, not a defect).
 
 ## Coverage
 
@@ -118,7 +118,7 @@ Both ends of every ctl verb EmulationStation runs. The ctl is read at `8ebaf8daa
   - **S9:** a name holding non-UTF-8 bytes reaches the page as those bytes. `TextFit::fitOneLine` cuts on characters; the guest shows what the font draws.
 - **L-06, `WEXITSTATUS` without `WIFEXITED` (`ApiSystem.cpp:2290`).** **proved: fixture** (`stage-b/positives/reader.out`). When the process `popen` waits on dies by `SIGKILL` after printing `hardcore=0`, the reader returns rc 0 with that last line. So a top-up killed by a signal reads as COMPLETED, and an `enable` killed after its last line reads as on.
   - A `sh -c` child killed inside the shell reads 137 instead, because the host's `/bin/sh` is `dash` and did not exec it.
-  - Whether the image's `/bin/sh` execs the ctl, so that the ctl *is* that process, is the guest's question.
+  - **On the image the ctl is not that process** (`guest-cycle/g02`): bash forks for a command with a redirection, so a ctl killed by a signal reads 128+N, not 0. The gap is real in the reader and reaches a page only through a wrapping shell that itself dies by a signal.
   - `OfflineScanJob::run` checks `WIFEXITED` (`:156-157`) and leaves -1, so the scan page is not affected.
 - **L-05, the 1,024-byte buffer and the last line (`ApiSystem.cpp:2278-2288`).** **proved: fixture.**
   - A 1,500-byte line yields 2 lines: its first 1,023 bytes are dropped (the fragment has no newline, so `getline(...).good()` is false), the 476-byte tail passes as a line, then the next line.
@@ -216,7 +216,32 @@ Each of the brief's § 5 commands at stage A. The output is in `stage-b/runs.out
 
 ## The guest cycle
 
-Pending the window asked for on #667 at the end of stage B. The plan and its bound are in that comment. This section is filled from the window's record under `guest-cycle/`.
+- **The grant and the posts:** the coordinator's grant on #667 at 17:34 UTC. **START 17:36:17 UTC, RETURN 17:57:04 UTC**, both posted on #667 with the census as their first line (START: qemu 1, :8080 0, compilers 0; RETURN: qemu 0, :8080 0, compilers 0), and both mirrored in the host file. The bound was 18:36:17. The record is `guest-cycle/` (`g01` to `g09`, the frames under `frames/w1` to `frames/w7`, the steps and the probe under `scripts/`).
+- **The image** (`g01`): `/workspace/artifacts/m6-t2-20261023/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261022T235948Z.g069fc2704421-from-ROCKNIX.img.gz`, `.sha256` OK. It ran on a fresh 16 GB disk of the lane's own, at 640x480 (`fbset`: `640 480`). Read from the guest:
+  - `VERSION="0.0.1-dev+20261022T235948Z.g069fc2704421"`, `BUILD_ID="069fc270442134fe771258418adf4e666e0473fb"`, `BUILD_BRANCH="build/m7-signin-20261022-07"`.
+  - **The identity literal** `wifi picker: stopping scan worker`, added by the pin's own commit `16dbac521` and absent from its parent, is in the installed `emulationstation` (1).
+  - **But the installed ES is M7's composition on top of the pin, not the pin's bytes.** Its offline page carries `CHECK AGAIN`, `Current setting: on.` and "Pending achievements stay on this device…", none of which is in `16dbac5211`'s tree (`git grep`: 0). The installed ctl is M7's (`2fcd5f290ac2`, against `8ebaf8daad`'s `47391a3bbcaa`), as T19 found.
+  - So every page frame below is of M7's pages. A row of the pin's that M7 left alone reads the same, and the rows below say which. proved: guest.
+- **L-06, `/bin/sh`** (`g02`): `/bin/sh` is `bash`, and it **forks** for `sh -c "cmd 2>/dev/null"` (the `sh` is the parent of the `sleep`, not replaced by it). A ctl killed by a signal therefore reaches `pclose` as 128+N, read 137, as on the host. On this image the gap needs the wrapping shell itself to die by a signal. The last line of `g02` is void: my kill by pattern hit `video_sense`'s `sleep 3600` (`g02b`). proved: guest.
+- **The modes** (`g03`, M7's `enable` and a scan through the installed ctl): every file under `/storage/.config/raofflineproxy/` is **`644 root`**, `proxy.sqlite3` (with the session's row) and its `-wal` and `-shm` included; the folder is `755`; `system.cfg` is **`600`**; the scan lock is `644`. These are T19's figures again. proved: guest.
+- **The live sign-in** (`g04a`, `g04b`): the QA RetroAchievements account was carried in by `tools/qa-accounts` (never printed; never the owner's, D-QA-015/016). The token was empty before the reboot and set after, written by the network watcher's sign-in. The frames: the main menu with its RETROACHIEVEMENTS entry (`w3/01`); the account page online (`w4/01`, `RETROACHIEVEMENTS - <name>` with the name painted out by `tools/png-blackout`, `Softcore points: 3`); a game's page online (`w3/02`, `w3/03`, 28 achievements, one unlocked on 2026-10-06); and the settings page (`w5`, the USERNAME value painted out). proved: guest.
+- **L-20 on the guest** (`g05`): with `CheevosCheckIndexesAtStart` on and the link cut on the monitor (`set_link net0 off`), ES's restart ran the startup hasher, and `es_log.txt` reads `HttpReq::onError (3) : Could not resolve hostname`, then **`Game Hash failed : std::exception`**. The domain error's sentence is gone; the non-silent dialog shows the same `what()` (`slice.out`). proved: guest.
+- **L-13 on the guest** (`g06`, `w6`): with offline achievements on and the last scan `COMPLETED` with `note NO_GAMES`:
+  - a ready file of `7\n` (2 bytes, one game ready) makes the SCAN row say `LAST 10/26/2026 13:48 - COMPLETED · NO GAMES TO SCAN YET`;
+  - `7\n12\n` (5 bytes) makes it say `… · 2 GAMES READY FOR OFFLINE PLAY`, updated by the 1 s refresher;
+  - the file was then removed, as it was before. proved: guest.
+- **The scan's walk** (`w7`): the confirmation reads `SCAN GAMES FOR OFFLINE ACHIEVEMENTS?` with the paragraph of `GuiRetroAchievementsSettings.cpp:345`, YES / NO. The page reads `SCANNING GAMES FOR OFFLINE ACHIEVEMENTS`, `COMPLETED`, `NO GAMES TO SCAN YET`, `ADD GAMES, THEN SCAN AGAIN.`, `ELAPSED 0:00`, `PRESS ANY BUTTON TO CLOSE`, and its help bar `CLOSE`, every string as `GuiOfflineScan.cpp:304-352` writes it. proved: guest.
+- **L-01, #1154's unfixed half** (`g07`, `scripts/tls-probe.py`): with **dummy** credentials (the QA values replaced first; token and key emptied), a self-signed certificate for `retroachievements.org`, and `/etc/hosts` pointing that name at the guest's loopback:
+  - a CA-checking `curl` got no answer (http `000`);
+  - ES's sign-in reached the listener **1 s after ES started**: `GET /dorequest.php?r=login&u=<masked>&p=<masked> host=retroachievements.org`, the values masked by the listener before it wrote anything;
+  - the listener was stopped by its PID and `/etc/hosts` restored (through `/run/rocknix/hosts`; `cp` refuses the link).
+  - proved: guest.
+- **`tools/ra-ui-test`: `CANNOT in this window`** (`g08`): four EN attempts under fresh `watch-build-submit --record-only` owners.
+  - The first three failed closed on the tool's own preconditions, two of them states I had made: a configured account; an output directory that existed; a store from step 3 it does not own.
+  - The fourth failed at its installed-identity census, after three PASS lines.
+  - FR was not attempted. The cards stay T2's and T18's proofs.
+- **An observation for M7, not this slice:** M7's `disable` exited 75 twice, its lock naming pid 5719 with no such process alive (`g08-ra-ui-pre.txt`).
+- **The close** (`g09`, `retired.txt`): the account's four keys read empty; `vm-stop` rc 0 (pid 1705349); `t20.qcow2`, 2,311,585,792 bytes, sha256 `9c6dcda1af98d912746ebd02220cca3fa232df418170891b89f016c3c1c17e37`, retired; the leftover check found qemu 0, :8080 0, compilers 0.
 
 ## Positives
 
@@ -228,10 +253,10 @@ Pending the window asked for on #667 at the end of stage B. The plan and its bou
 | L-07 | `>>> done 3\|0\|unknown\|0`; `ready=unknown` in a top-up stamp | `num.cpp` (verbatim `num`); `StampProbe.cpp` built with the generated unit build | `num("unknown") = 0`; `ready=0` | fixture |
 | L-13 | `cached_game_ids.txt` holding `7\n` | `readall.cpp` (`readAllText` verbatim) | `[]`: no game ready where one is | fixture |
 | L-25 | ES's padding against Dolphin's, unaligned | `lfg.cpp`, its control | 0 of 4,000 mismatched; the control 4,000 of 4,000 | fixture |
-| L-01 | the self-signed endpoint for #1154's unfixed half | guest | pending the window | guest |
-| L-06 | whether the image's `/bin/sh` execs the ctl | guest (`readlink -f /bin/sh` and a `ps` under a running top-up) | pending | guest |
-| L-20 | INDEX GAMES with the link down | guest | pending | guest |
-| L-13 | `readyCount` with a one-id export | guest (the row's line) | pending | guest |
+| L-01 | the self-signed endpoint for #1154's unfixed half | guest (`g07`) | the sign-in's `r=login&u=…&p=…` reached a certificate no CA signed; `curl` refused it | guest |
+| L-06 | whether the image's `/bin/sh` execs the ctl | guest (`g02`) | bash forks: the signal reads 128+N, so L-06 needs the shell itself to be killed | guest |
+| L-20 | the startup hasher with the link cut | guest (`g05`) | `Game Hash failed : std::exception` | guest |
+| L-13 | the SCAN row with a one-id export | guest (`g06`, `w6`) | `NO GAMES TO SCAN YET`; with two ids, `2 GAMES READY` | guest |
 
 ## What T21 and T26 inherit
 

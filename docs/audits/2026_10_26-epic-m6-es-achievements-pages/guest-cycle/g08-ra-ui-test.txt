@@ -1,0 +1,6 @@
+== step 8, tools/ra-ui-test: CANNOT in this window (17:56:55Z)
+-- ra-ui-en: wrapper rc 1; 1 PASS; last: RuntimeError: no configured real account
+-- ra-ui-en-2: wrapper rc 1; 0 PASS; last: FileExistsError: [Errno 17] File exists: '/workspace/tmp/m6-t20/ra-ui/en'
+-- ra-ui-en-3: wrapper rc 1; 4 PASS; last: 
+-- ra-ui-en-4: wrapper rc 1; 3 PASS; last: 
+Runs 1-3 failed closed on the tool's own preconditions: a configured account, an existing output directory, and a store it does not own (left by step 3). Run 4 failed at the installed identity census, after three PASS lines. The FR run was not attempted. The time box ended.

@@ -1,0 +1,19 @@
+key down
+wait-for-change 5 1
+key down
+wait-for-change 5 1
+settle
+shot scan-row-focused
+key x
+wait-for-change 30 1
+settle
+shot scan-confirmation
+key x
+wait-for-change 30 1
+shot scan-page-running
+settle 4
+shot scan-page-outcome
+key z
+wait-for-change 30 1
+settle
+shot after-close

@@ -1,0 +1,22 @@
+== step 3, enable through the installed ctl, then the modes (17:48:17Z)
+hardcore=0
+enable rc 0
+scan rc 0
+>>> doing listing
+>>> note NO_GAMES
+>>> done 0|0|0|0
+-- the modes
+drwxr-xr-x    2 root     root          4096 Oct 26 13:48 .
+drwxr-xr-x   46 root     root          4096 Oct 26 13:48 ..
+-rw-r--r--    1 root     root            94 Oct 26 13:48 last-scan
+-rw-r--r--    1 root     root            21 Oct 26 13:48 online_state.json
+-rw-r--r--    1 root     root          4096 Oct 26 13:48 proxy.sqlite3
+-rw-r--r--    1 root     root         32768 Oct 26 13:48 proxy.sqlite3-shm
+-rw-r--r--    1 root     root         57712 Oct 26 13:48 proxy.sqlite3-wal
+-rw-r--r--    1 root     root           177 Oct 26 13:48 scan.log
+-rw-r--r--    1 root     root           319 Oct 26 13:48 service.log
+-rw-r--r--    1 root     root             5 Oct 26 13:48 service.pid
+-rw-r--r--    1 root     root           113 Oct 26 13:48 service_status.json
+600 root /storage/.config/system/configs/system.cfg
+644 root /var/run/raofflineproxy-scan.lock
+-rw-------    1 root     root             0 Oct 26 13:48 raofflineproxy.conf

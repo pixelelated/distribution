@@ -1,0 +1,16 @@
+== step 7, L-01 / #1154's unfixed half, dummy credentials only (17:52:44Z); the first attempt stopped at openssl req: no /etc/ssl/openssl.cnf on the image, nothing changed
+openssl rc 0; cert: issuer=CN=retroachievements.org subject=CN=retroachievements.org 
+the QA values replaced by dummies (username t20probe, password t20dummy; token and key emptied)
+listener on :443: 1
+a CA-checking client (curl) against it: http 000 rc 0
+essway started 13:52:46
+-- requests that reached the self-signed listener:
+13:52:47 GET /dorequest.php?r=login&u=<masked>&p=<masked> host=retroachievements.org
+  File "/usr/lib/python3.14/ssl.py", line 1138, in read
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+168:2026-10-26 13:52:46	[5664]	ERROR	HttpReq::onError (3) : Could not connect to server
+listener pid 5527: python3 /storage/t20-tls-probe.py /storage/t20tls/c.pem /storage/t20tls/k.pem /storage/t20tls/requests.log 
+listener on :443 after: 0
+hosts entries for retroachievements.org: 1
+hosts restored through its target: retroachievements.org entries 0

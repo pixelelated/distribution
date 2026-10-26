@@ -1,0 +1,8 @@
+== step 4a, the QA sign-in (17:41:13Z)
+set on :10022: global.retroachievements=1 global.retroachievements.username global.retroachievements.password global.retroachievements.key (read by the interface at its next start: reboot the guest)
+qa-accounts rc 0
+global.retroachievements=1
+username: set
+password: set
+token: empty
+key: set
