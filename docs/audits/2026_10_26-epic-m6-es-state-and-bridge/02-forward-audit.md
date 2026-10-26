@@ -37,9 +37,9 @@ Each lead is in one of the brief's four families. Each is read at its lines and 
 
 | Lead | Q | Family | What | Where | proved |
 | --- | --- | --- | --- | --- | --- |
-| L-01 | Q1 | a command built from a player's string | A ROM's file name reaches `sh` inside double quotes, which leave `$`, backticks and `\` live. The scraper reaches this for every `.7z` up to 128 MB (`ScreenScraper.cpp:306-308` → `getMD5`), as root. | `ApiSystem.cpp:1527-1528`, `:1578-1579`, `:1659-1660`; poppler at `:2509`, `:2593` | tree; the window's `$(...)` ROM and `ls /usr/bin/7z*` owed |
+| L-01 | Q1 | a command built from a player's string | A ROM's file name reaches `sh` inside double quotes, which leave `$`, backticks and `\` live. The scraper reaches this for a `.7z` up to 128 MB (`ScreenScraper.cpp:306-308` → `getMD5`), as root, unless the game has a name override, an existing MD5 above 1 MiB, or an empty file, or its system is one of the seven arcade-class platforms `SystemData.cpp:2315-2325` exempts (Astra SO-2). | `ApiSystem.cpp:1527-1528`, `:1578-1579`, `:1659-1660`; poppler at `:2509`, `:2593` | tree; the window's `$(...)` ROM and `ls /usr/bin/7z*` owed |
 | L-02 | Q2 | a credential's sink | `header_callback` builds a `std::string` from curl's header buffer as if it ended in a NUL; curl's does not. | `HttpReq.cpp:583` | fixture: `stage-b/positives/lifted.out`, ASan heap-buffer-overflow, READ of size 15 from a 14-byte buffer |
-| L-03 | Q4 | a state write that can lose the record | A download removes the file it will replace before a byte arrives. With `ScrapeOverWrite` on by default (`Settings.cpp:198`), a re-scrape whose download fails (404 and I/O errors ignored, `Scraper.cpp:631-635`) leaves the game with no art where it had some. | `HttpReq.cpp:344`, `:328` | tree; the window's 404 from the #1154 endpoint owed |
+| L-03 | Q4 | a state write that can lose the record | A download removes the file it will replace before a byte arrives. With `ScrapeOverWrite` on (`Settings.cpp:198`) **and** the scrape page's overwrite flag set, which the default filter GAMES MISSING ANY MEDIA clears (`Scraper.cpp:400`, `GuiScraperStart.cpp:99`, `Settings.cpp:224`; Astra SO-6), a re-scrape under ALL GAMES or MISSING ALL MEDIA whose download fails (404 and I/O errors ignored, `Scraper.cpp:631-635`) leaves the game with no art where it had some. | `HttpReq.cpp:344`, `:328` | tree; the window's 404 from the #1154 endpoint owed |
 | L-04 | Q2 | a check whose failure reads as success | One caller's `status()` writes every request's `mStatus` under `mMutex` (`:416-521`), while each request's own thread reads its `mStatus` without it (`:395`, `:640-643`): a data race. | `HttpReq.cpp:395`, `:416-521` | tree; a ThreadSanitizer run needs curl, CANNOT on this host |
 | L-05 | Q2 | a credential's sink | For 400 to 503, the server's body goes verbatim into `es_log.txt` at LogError; with #1154 that body is anyone's on the path. | `HttpReq.cpp:439-473`, `:562` | tree (the brief's lead, read) |
 | L-06 | Q2 | a credential's sink | #1154 cited: `VERIFYPEER` 0 on every request, `VERIFYHOST` 0 on the client-certificate path. The fix's design question goes to the pause. | `HttpReq.cpp:192`, `:200` | tree (cited, not re-found) |
@@ -56,12 +56,12 @@ Each lead is in one of the brief's four families. Each is read at its lines and 
 | L-17 | Q6 | a check whose failure reads as success | `executeEnumerationScript` discards the exit: a script that fails or is killed returns the lines it printed, as success. That is `getBiosInformations`, at launch with CHECK BIOS AT LAUNCH on (`Settings.cpp:207`). | `ApiSystem.cpp:2251` | fixture: `lifted.out` enum |
 | L-18 | Q6 | a check whose failure reads as success | Eleven `WEXITSTATUS` reads without `WIFEXITED`: a child killed by a signal reads as exit 0, with its lines. `joinWifiNetwork` then reads `joined` from them (`:714-718`). | `ApiSystem.cpp:234` ... `:2291`, `:2319` | fixture: `lifted.out` script; T20's `reader.out` for the legacy executor |
 | L-19 | Q6 | — | `cloud_oauth close`'s result is ignored. | `ApiSystem.cpp:593` | tree |
-| L-21 | Q3 | a credential's sink | `system.cfg` and its `.backup` are 0645 on the image, and so is the seed it is copied from: world-readable, with the execute bit for others. `wifi.key` is in it, readable by any user. `AtomicFile::writeText` keeps a replaced file's mode (`AtomicFileUtil.cpp:127-147`) and the shell's `prepare_settings_temp` keeps the live file's and the record's shared bits, so neither ever narrows it. Git records the seed as `100644` at `8ebaf8daad` and no recipe `chmod`s it; the installed seed also differs in content (`g01-image-vs-tree.txt`), so a build step rewrites it, and that step's mode is the 0645. Which step is not traced here. | the image's `/usr/config/system/configs/system.cfg` | guest: `g02-modes.txt`, `g03-argv.txt` |
+| L-21 | Q3 | a credential's sink | `system.cfg` and its `.backup` are 0645 on the image, and so is the seed it is copied from: world-readable, with the execute bit for others. `wifi.key` is in it, readable by any user. `AtomicFile::writeText` keeps a replaced file's mode (`AtomicFileUtil.cpp:127-147`). The shell's `prepare_settings_temp` keeps the shared bits of the live file and the record, less the umask (`001-functions:385-404`): under the image's umask the 0645 survives (Astra SO-16 withdrew the universal form). Git records the seed as `100644` at `8ebaf8daad` and no recipe `chmod`s it; the installed seed also differs in content (`g01-image-vs-tree.txt`), so a build step rewrites it, and that step's mode is the 0645. Which step is not traced here. | the image's `/usr/config/system/configs/system.cfg` | guest: `g02-modes.txt`, `g03-argv.txt` |
 | L-22 | Q6 | a check whose failure reads as success | `wifictl` exits 0 when it has no Wi-Fi device (`:55-56`, T1's file). `ApiSystem::enableWifi` reads that as a connect (`:627-637`, `system() == 0`), and the page then saves `wifi.ssid` and `wifi.key` and says CONNECTED (`GuiWifi.cpp:385-395`). A handheld whose Wi-Fi driver did not load says it joined. | `wifictl:55-56`; `ApiSystem.cpp:627-637`; `GuiWifi.cpp:385-395` | guest: the connect exited 0 with no adapter (`g03-argv.txt`); the page's half is tree |
 | L-20 | Q7 | — | 82 of the 143 command rows name a script the distribution does not ship at `8ebaf8daad` (§ The commands' last column). A table, recorded as written (D-WORKFLOW-209's shape). | § The commands | tool-run |
 
 **Read and closed at stage B:**
-- **`file://` from a server's media URL:** the transfer leaves curl a response code of 0. `status()` takes that to `REQ_IO_ERROR` (`HttpReq.cpp:435-473`), and the destructor removes the `.tmp` the bytes reached (`:377-378`). So a local file's text reaches only a transient temporary. Proved by tree; the window confirms it with one URL.
+- **`file://` from a server's media URL:** the transfer leaves curl a response code of 0. `status()` takes that to `REQ_IO_ERROR` (`HttpReq.cpp:435-473`), and the destructor removes the `.tmp` the bytes reached (`:377-378`). So a local file's text reaches only a transient temporary. Proved by tree. The window's confirmation (G6(c)) was not run and is `CANNOT` for the slice. A memory-mode request's bytes still reach `getContent()` before the error (Astra SO-7); no memory-mode request in these files takes a server-supplied URL.
 - **The server's `format` and `Content-Type` as a path:** `getSaveAsPath` appends them (`Scraper.cpp:779-812`, `:646-676`), but `getGenericPath` does not resolve `..` (`FileSystemUtil.cpp:642-668`). A kernel lookup through `<stem>-image.` fails, since no such directory exists. Proved by tree.
 - **The Bluetooth and storage arguments:** they are joined bare (`ApiSystem.cpp:800-816`, `:984`), but each is the first token of a script's own output, a MAC address or a storage id (`GuiBluetoothDevices.cpp:131-137`, `GuiMenu.cpp:3130-3151`). Safe by shape, not by quoting. Proved by tree.
 - **`maskSecrets`' `--key`:** excluded on purpose, so `batocera-hotkeys --key` keeps its key name (`StringUtil.cpp:788`; `80f52e500`, #177). Proved by history.
@@ -71,12 +71,50 @@ Each lead is in one of the brief's four families. Each is read at its lines and 
 
   Proved by fixture.
 
+## Corrections and new leads from the seats
+
+**From GPT-6 Astra** (`second-opinions/astra-audit.md`, graded in `stage-c/astra-grades.md`).
+
+**Corrected in place above:**
+- L-01's reach (SO-2) and L-03's, which is not the default (SO-6);
+- the `file://` closure's wording (SO-7);
+- the credentials' log rows: no API URL is logged (SO-14);
+- the restored username on screen (SO-14), and the `env` argv sink (SO-12);
+- L-21's universal claim (SO-16);
+- the readers' duplicate and carriage-return rows (SO-22).
+
+**The storage closure:** right in outcome and wrong in reason. The row stores the whole line (`GuiMenu.cpp:3127`), but `rocknix-config storage` prints nothing at `8ebaf8daad` (`:271-273`), so nothing reaches `setStorage` (SO-3).
+
+**New leads:**
+
+| Lead | Q | Family | What | Where | proved |
+| --- | --- | --- | --- | --- | --- |
+| L-23 | Q4 | a state write that can lose the record | **Clearing the HOSTNAME row loses every setting.** The row saves an empty value unchecked; `applyChanges` removes the line from the file and the record; the next boot's `chksysconfig verify` finds both without the sentinel and reseeds the image's defaults; the interface's next start records them over the player's record (SO-23). | `GuiSettings.cpp` `addInputTextConfigRow`'s `updateVal`; `GuiMenu.cpp:9929`; `SystemConf.cpp:386-396`; `chksysconfig:57-62`, `:278-303` | fixture: `stage-c/positives/hostname-empty.out` (the pin's `SystemConf`; `8ebaf8daad`'s `chksysconfig`, the host's `grep` standing in for the image's) |
+| L-24 | Q2 | a check whose failure reads as success | `CURLINFO_RESPONSE_CODE` is read into an `int`; curl writes a `long`, eight bytes into four, on every completed transfer (SO-50). | `HttpReq.cpp:432-433` | tree |
+| L-25 | Q3 | a credential's sink | A saved network's key is argv of `env` during `set_settings` (SO-12). The writer is T1's. | `001-functions:600-602`; `wifictl:460` | tree |
+| L-26 | Q5 | a check whose failure reads as success | A reload keeps keys the file no longer holds: after an open network's join writes `wifi.key=`, the previous network's key stays in the interface's memory (SO-24). | `SystemConf.cpp:73-80`, `:148-179` | tree |
+| L-27 | Q4 | a state write that can lose the record | A cut live file newer than its record is merged and saved whole without a record write, and the next load records it over the whole record, the cut keys gone (SO-52). | `AtomicFileUtil.cpp:343-361`, `:522-539`; `SystemConf.cpp:336-339` | tree |
+| L-28 | Q2 | a check whose failure reads as success | A download is called successful without a whole artifact: `fflush` and `fclose` unchecked, `renameFile` true for an absent source, and one `.tmp` shared by requests for one path (SO-51). | `HttpReq.cpp:326-344`, `:361-368`, `:477-506`; `FileSystemUtil.cpp:1448-1463` | tree |
+| L-29 | Q4 | a state write that can lose the record | The interface's start removes `system.cfg.backup.tmp`, which `chksysconfig backup` writes (SO-19). | `SystemConf.cpp:203-210`; `chksysconfig:67-70` | tree |
+| L-30 | Q4, Q5 | a state write that can lose the record | `Settings`: a failed record write is not retried; any well-formed XML is taken as settings and becomes the record; the recovery copy takes the record's mode and the recording the live file's (SO-20, SO-21, SO-53). | `Settings.cpp:533-534`, `:566-632` | tree |
+| L-31 | Q6 | a check whose failure reads as success | A failed `7zr` extraction hands `md5sum` empty input, and its digest is stored as the game's; invalid user-info XML reads as one thread (SO-54). | `ApiSystem.cpp:1527-1530`; `ScreenScraper.cpp:1075-1089` | tree |
+| L-32 | Q5 | a check whose failure reads as success | The player is told RESTORED when the write-back failed or the lock was busy (SO-55). | `SystemConf.cpp:221-265`; `Settings.cpp:615-619`; `main.cpp:1041-1042` | tree |
+| L-33 | Q6 | a check whose failure reads as success | `wifictl saved` with no device is an empty success to both readers; the Bluetooth bulk delete ignores its result (SO-26). | `ApiSystem.cpp:687-705`; `GuiWifi.cpp:548-569`; `GuiBluetoothDevices.cpp:117-121` | tree |
+
+**Design notes for #1154's question at the pause:**
+- the 429 retry rebuilds the request without its options, so a media-only exception would be lost (SO-9);
+- certificate failures read as `YOU'RE NOT ONLINE` (SO-10);
+- `VERIFYHOST` 0 rides with client certificates (SO-10).
+
+**Wording:** the directory `fsync`'s failure is discarded, so "the rename itself survives a power cut" is best effort (SO-57). A five-second lock budget is not a frame bound (SO-58).
+
 ## The credentials' paths
 
 One row per credential kind per sink it can reach. Read at the lines named; values are never printed, names and lines only.
 
 | Credential | Sink | At | Mask there | proved |
 | --- | --- | --- | --- | --- |
+| The Wi-Fi key | argv, during a saved network's join | `set_settings` passes `SV<n>=<value>` as arguments to `env` (`001-functions:600-602`), so `join_wifi`'s key (`wifictl:460`) is in `env`'s argv while `awk` runs (Astra SO-12, L-25) | none | tree |
 | The Wi-Fi key | argv | `ApiSystem.cpp:635-637` → `system()` `:2328`: `sh -c`, `timeout 150`, `wifictl connect`; then `connect_wifi`'s `nmcli -w 90 device wifi connect "${SSID}" password "${PSK}"` (`wifictl:177`) | none on argv | tree; guest: 3 processes carried the key in their command lines (`guest-cycle/g03-argv.txt`) |
 | The netplay network's fixed key | argv and the keyfile | `create_adhoc`'s and `connect_adhoc_client`'s `802-11-wireless-security.psk "${PSK}"` (`wifictl:195`, `:209`): the sink the brief's pattern missed. They run only when `wifi.adhoc.enabled` is 1 (`:502-511`), where `PSK` is replaced by a fixed value (`:63-66`), so the player's key does not reach them. | none | tree |
 | The Wi-Fi key | a file and its mode | `system.cfg` `wifi.key`, written by the page (`GuiWifi.cpp:392-394`) and by `join_wifi`'s `set_settings wifi.ssid ... wifi.key "${psk}"` (`wifictl:460`). The mode is the live file's, or 0644 when ES makes the file new (`AtomicFileUtil.cpp:115`). On the image, **`system.cfg`, its `.backup` and the shipped seed are 0645** (L-21). NetworkManager's own keyfile is 0600. | none at rest | tree; guest (`g02-modes.txt`, `g03-argv.txt`) |
@@ -87,13 +125,13 @@ One row per credential kind per sink it can reach. Read at the lines named; valu
 | The scraper's developer pair, compiled | the binary | `SCREENSCRAPER_DEV_LOGIN` returned verbatim (`ScreenScraper.cpp:36-37`), D-WORKFLOW-166's allowed case. Which identity is compiled is the window's to read by name, never printed. | n/a | tree |
 | The scraper's developer pair, runtime | a file and its mode | `ScreenScraperDevId`, `ScreenScraperDevPass` in `es_settings.cfg` (`:39-43`), 0644 when new | none at rest | tree |
 | Both developer pairs | a query | `devid=..&devpassword=..` at the head of every API URL (`:859-871`, `:885-888`, `:1030-1031`) | n/a (in the URL) | tree |
-| Both developer pairs | a log | `Scraper.cpp:524` logs the URL through `maskSecrets` at LogDebug: `devpassword` masked, `devid` not | partial | tree |
+| Both developer pairs | a log | no line in these files logs an API URL. `Scraper.cpp:524` logs the *media* download URL through `maskSecrets` at LogDebug, which carries the pair only if the server put it there (corrected by Astra SO-14). | n/a | tree |
 | Both developer pairs | the unverified peer | `api.screenscraper.fr` over https, with `VERIFYPEER` 0 (`HttpReq.cpp:192`, #1154) | none | tree; the window's #1154 positive owed |
 | The player's ScreenScraper account | a file and its mode | `ScreenScraperUser`, `ScreenScraperPass` in `es_settings.cfg` (`storeInSettings=true`, `GuiScraperStart.cpp:413-420`, `GuiMenu.cpp:8371`, `:8374`), 0644 when new; a kill's leftover temporary too (L-09) | none at rest | tree, fixture |
 | The player's ScreenScraper account | a query | `&ssid=&sspassword=` when both are set (`ScreenScraper.cpp:874-878`, `:890-894`) | n/a | tree |
-| The player's ScreenScraper account | a log | `Scraper.cpp:524` masks `sspassword` and leaves `ssid=<username>`; `screenScraperFailureMessage` logs the server's body (`ScreenScraper.cpp:980`), as does `HttpReq::onError` for 400-503 (L-05) | partial | tree |
+| The player's ScreenScraper account | a log | no API URL is logged (Astra SO-14); `screenScraperFailureMessage` logs the server's body (`ScreenScraper.cpp:980`), as does `HttpReq::onError` for 400-503 (L-05) | n/a; the body unmasked | tree |
 | The player's ScreenScraper account | the unverified peer | as the pair (#1154) | none | tree |
-| The player's ScreenScraper account | the screen | the rows are masked (`addInputTextConfigRow(..., true)`) | masked | tree |
+| The player's ScreenScraper account | the screen | the password rows are masked (`addInputTextConfigRow(..., true)`); the restored account's row shows the username in its label (`GuiMenu.cpp:8365`, Astra SO-14) | the password masked, the username not | tree |
 | The RetroAchievements password and web API key (T20's) | a query, the unverified peer | through `HttpReq` (T20's `02` § The credentials' paths, cited) | as T20 found | tree (cited) |
 | The root password's default | the screen | `getRootPassword` returns `root.password`, or the literal `linux` (`ApiSystem.cpp:1029-1037`), shown on a row (`GuiMenu.cpp:3209`, T26's) | none | tree |
 | The root password | a log | `setrootpass` is a `maskSecrets` word (`StringUtil.cpp:753-762`) | masked | tree |
@@ -378,9 +416,9 @@ Rows: AtomicFile 41 (9 writes), writeAllText 25 (16 sysfs), shell 10.
 | | an empty key | `:465` | skipped | tree |
 | | an empty value | `:465` | **dropped; `get` answers the table's default** (L-15) | fixture U1 |
 | | a byte-order mark | none | kept in the first key, which then reads as its default; the shell's `grep '^system\.hostname='` misses it too | tree |
-| | a duplicate | `:466` | the last wins | tree |
+| | a duplicate | `:466` | the last *nonempty* value wins (Astra SO-22) | tree |
 | | a comment | `:461` | `#` or `;` at column 0 only; ` #k=v` is a key with a space | tree |
-| | a carriage return | none | kept in the value: `1\r` is not `1`, so `getBool` reads false | tree |
+| | a carriage return | none | kept in the value: `getBool(k, false)` reads `1\r` as false and `getBool(k, true)` reads `0\r` as true (Astra SO-22) | tree |
 | | a file under three bytes | `readText` reads its own fd (`:195-256`) | read whole: the `readAllText` trap (`es-code-traps.md`) does not reach it | tree |
 | | a missing file | `chooseConfig` → `Missing` (`:395`) | `Unable to open`, the table's defaults (`SystemConf.cpp:277-282`) | tree |
 | `chooseConfig`'s ladder | live whole; a cut prefix of a whole `.tmp`; a cut prefix of a whole record; a whole record; a whole `.tmp`; damaged; missing | `:291-396` | `AtomicFileTests` 24 cases (22 lines name `chooseConfig`), `SystemConfTests` 10 against real files, all passing at the pin (`stage-a/unit-pin.txt`) | tool-run |

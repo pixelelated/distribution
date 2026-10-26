@@ -1,0 +1,18 @@
+== 0 before
+   before: system.cfg 4 keys; system.hostname line present; qa.marker present
+   before: system.cfg.backup 4 keys; system.hostname line present; qa.marker present
+== 1 the interface saves system.hostname as empty (the pin's SystemConf): rc 0
+   after the save: system.cfg 3 keys; system.hostname line ABSENT; qa.marker present
+   after the save: system.cfg.backup 3 keys; system.hostname line ABSENT; qa.marker present
+   the interface's next start (a fresh SystemConf load): value=[player]
+   after that start: system.cfg 3 keys; system.hostname line ABSENT; qa.marker present
+   after that start: system.cfg.backup 3 keys; system.hostname line ABSENT; qa.marker present
+   (substitute: the host's /usr/bin/grep stands in for grep, which the donor's busybox lacks)
+== 2 the next boot's chksysconfig verify (8ebaf8daad, unrewritten): rc 0
+   said: /usr/bin/chksysconfig.real: line 324: rsync: command not found
+   after chksysconfig: system.cfg 221 keys; system.hostname line present; qa.marker ABSENT
+   after chksysconfig: system.cfg.backup 3 keys; system.hostname line ABSENT; qa.marker present
+== 3 the interface's next start after that boot (the pin's SystemConf load)
+   value=[]
+   after that start: system.cfg 221 keys; system.hostname line present; qa.marker ABSENT
+   after that start: system.cfg.backup 221 keys; system.hostname line present; qa.marker ABSENT
