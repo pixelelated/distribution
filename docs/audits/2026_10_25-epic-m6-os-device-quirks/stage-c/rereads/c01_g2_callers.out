@@ -1,0 +1,24 @@
+hardware/quirks/devices/AYANEO AIR Plus/bin/ledcontrol:384:      ledcontrol ${COLOR}
+hardware/quirks/devices/AYANEO AIR/bin/ledcontrol:177:      ledcontrol ${COLOR} ${LEDBRIGHTNESS}
+hardware/quirks/devices/AYANEO AIR/bin/ledcontrol:196:      ledcontrol ${COLOR} ${LEDBRIGHTNESS}
+hardware/quirks/devices/AYANEO AYANEO 2S/bin/ledcontrol:177:      ledcontrol ${COLOR} ${LEDBRIGHTNESS}
+hardware/quirks/devices/AYANEO AYANEO 2S/bin/ledcontrol:196:      ledcontrol ${COLOR} ${LEDBRIGHTNESS}
+hardware/quirks/devices/AYANEO Pocket EVO/bin/ledcontrol:101:    /usr/bin/analog_sticks_ledcontrol ${LEDS_CONFIG}
+hardware/quirks/devices/AYANEO Pocket S2/bin/ledcontrol:31:    /usr/bin/analog_sticks_ledcontrol ${LEDS_CONFIG}
+hardware/quirks/devices/AYN Odin 2 Portal/bin/ledcontrol:27:    /usr/bin/analog_sticks_ledcontrol ${LEDS_CONFIG}
+hardware/quirks/devices/AYN Odin 2/bin/achievements:100:/usr/bin/analog_sticks_ledcontrol ${LEDS_CONFIG}
+hardware/quirks/devices/AYN Thor/bin/ledcontrol:27:    /usr/bin/analog_sticks_ledcontrol ${LEDS_CONFIG}
+hardware/quirks/devices/Anbernic RG CubeXX/bin/achievements:100:/usr/bin/analog_sticks_ledcontrol ${LEDS_CONFIG}
+hardware/quirks/devices/Anbernic RG Vita Pro/500-analog_leds:13:/usr/bin/ledcontrol ${LED_COLOR}
+hardware/quirks/devices/Anbernic RG Vita Pro/bin/achievements:40:/usr/bin/ledcontrol "${LED_COLOR}"
+hardware/quirks/devices/Anbernic RG Vita Pro/bin/ledcontrol:60:    /usr/bin/analog_sticks_ledcontrol ${LEDS_CONFIG}
+hardware/quirks/devices/KONKR Pocket FIT Elite/bin/ledcontrol:21:    /usr/bin/analog_sticks_ledcontrol ${LEDS_CONFIG}
+hardware/quirks/devices/MANGMI Pocket Max/bin/ledcontrol:68:      /usr/bin/analog_sticks_ledcontrol ${LEDS_CONFIG}
+hardware/quirks/devices/MANGMI Pocket Max/bin/ledcontrol:83:    /usr/bin/analog_sticks_ledcontrol ${LEDS_CONFIG}
+hardware/quirks/devices/Retroid Pocket 6/bin/ledcontrol:27:    /usr/bin/analog_sticks_ledcontrol ${LEDS_CONFIG}
+hardware/quirks/devices/Retroid Pocket Nova/bin/ledcontrol:58:    /usr/bin/analog_sticks_ledcontrol ${LEDS_CONFIG}
+hardware/quirks/devices/ayn Loki Max/bin/ledcontrol:186:      ledcontrol ${COLOR}
+if [ -f "/usr/lib/autostart/quirks/devices/${QUIRK_DEVICE}/bin/ledcontrol" ]; then
+  exec "/usr/lib/autostart/quirks/devices/${QUIRK_DEVICE}/bin/ledcontrol" $*
+elif [ -f "/usr/lib/autostart/quirks/platforms/${HW_DEVICE}/bin/ledcontrol" ]; then
+  exec "/usr/lib/autostart/quirks/platforms/${HW_DEVICE}/bin/ledcontrol" $*

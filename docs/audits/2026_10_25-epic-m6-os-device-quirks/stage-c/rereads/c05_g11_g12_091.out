@@ -1,0 +1,19 @@
+AGAIN=no; [ -e "${STAMP}" ] && AGAIN=yes
+GONE=""
+while read -r f sum; do
+  if [ "${AGAIN}" = no ]; then
+    [ -e "${C}/${f}" ] || continue
+  else
+    [ -f "${C}/${f}" ] && [ ! -L "${C}/${f}" ] || continue
+    h="$(sha256sum < "${C}/${f}")"
+    [ "${h%% *}" = "${sum}" ] || continue
+  fi
+  rm -f "${C}/${f}"
+  [ -e "${C}/${f}" ] || GONE="${GONE} ${f}"
+while read -r f sum; do
+  [ -e "${C}/${f}" ] && exit 0
+done <<EOF
+${WRITTEN}
+EOF
+mkdir -p "${STAMP%/*}" && echo "the files the retired QEMU quirks left in ${C} were taken back" > "${STAMP}"
+dangling: -e false

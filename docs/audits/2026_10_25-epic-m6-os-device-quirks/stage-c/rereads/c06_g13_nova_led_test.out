@@ -1,0 +1,6 @@
+    for side in 'lr':
+        for n in range(1,5):
+            d=led/f'multi-led{side}{n}/leds/rgb:{side}{n}'; d.mkdir(parents=True); dirs.append(d)
+            (d/'brightness').write_text('0\n'); (d/'multi_intensity').write_text('0 0 0\n')
+    set_setting('analogsticks.led','200 255 0 0 0 0 255'); run('rgb')
+    check('explicit custom RGB tuple preserved',values('brightness')==['200']*8 and values('multi_intensity')==['255 0 0']*4+['0 0 255']*4)

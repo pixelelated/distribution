@@ -20,9 +20,9 @@ Phase 3 over a currency slice read under brittleness. 328 of the 333 are upstrea
 - **`upgrade-and-install.md`: `Already written:`.**
   - Every-boot heredocs mean what a device already has is rewritten at the next boot. So a fix to a flag file needs no migration.
   - A fix to the `050-game-configs` `sed -i` (F-03) cannot give back a player's audio driver that every earlier boot reverted.
-  - The VM's `091-retired-vm-fixes` is this rule applied well: hash-bound take-backs of what earlier builds wrote, a stamp last.
+  - The VM's `091-retired-vm-fixes` applies the rule only once its stamp exists. Its first pass removes a listed file by name, whatever it holds, and a dangling link survives the stamp (`02` F-12, the seat's G-11 and G-12). The first draft called it *"applied well"*.
 - **`engineering-practices.md` § A name is not a behaviour.** `touchcontrol` (a name that reads like a directory) and the `050-game*configs` spellings are the cases. The brief's *"`rocknix-info` has no `/` → `-` sed"* was a claim the file contradicts (`02` Delta 3).
-- **`bugs-are-agent-first.md` rule 6.** F-01's fix is contained and fork-own, and its proof is a host fixture, so it can be a `bug`; the coordinator decides against #332. F-03 and F-04 are upstream's behaviour on boards the fork does not own: #585 lines.
+- **`bugs-are-agent-first.md` rule 6.** F-01's and F-11's fixes are contained and fork-own, and their proof is a host fixture, so they are a `bug` (the coordinator's ruling for F-01, 05:0x UTC). F-03, F-04 and the upstream copies of both battery defects are upstream's behaviour on boards the shipped images support. They are per-unit dispositions (D-WORKFLOW-209) and #585 lines, not bugs filed one per copy. The first draft's *"boards the fork does not own"* was the wrong reason (the seat's G-40).
 
 ## 3.3 Spec fidelity
 
@@ -45,8 +45,9 @@ As behaviour, the Nova's helpers are proven on a host fixture (`tools/t29-batter
 - **The shared state:** the argument list.
   - `system-utils/sources/scripts/ledcontrol:15` `exec`s the device's helper with `$*`, unquoted.
   - The callers pass a fixed word (`off`, `rgb`, `battery`, `brightness max`) or `analogsticks.led`'s seven numbers, which the helpers then re-split (`ledcontrol:58`, `analog_sticks_ledcontrol ${LEDS_CONFIG}`).
-- **The interaction.** Word-splitting is what makes the seven numbers seven arguments, so `$*` is load-bearing here, not an accident. A value with a space or a glob character would split or expand. None of the shipped callers passes one.
-- **The two files' owners:** the wrapper is T22's (#669), the helpers this slice's. Neither side quotes, and neither needs to for the values in use.
+- **The interaction, corrected by the seat (G-2).** The first draft called `$*` load-bearing for the seven numbers. It is not: the caller splits `${LEDS_CONFIG}` already, and `"$@"` in the wrapper would pass the same seven arguments. The unquoted `$*` adds a second round of splitting and pathname expansion.
+  - Of the 22 caller lines (`stage-c/rereads/c01`), only RG Vita Pro's `achievements:40` quotes its single word. None passes a value with a space or a glob character today.
+- **The two files' owners:** the wrapper is T22's (#669), the helpers this slice's. `"$@"` is a lead for the wrapper's owner (PL-13), not a change here.
 
 ### Interaction: the next base merge x the 31 paths
 

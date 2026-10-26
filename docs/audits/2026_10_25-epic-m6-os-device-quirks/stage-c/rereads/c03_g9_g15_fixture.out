@@ -1,0 +1,11 @@
+unset: led.color=unset caps=75 rc=0 brightness=['255'] multi_intensity=['0 255 0'] lit=yes
+rgb: led.color=rgb caps=75 rc=0 brightness=['0'] multi_intensity=['0 0 0'] lit=no
+battery: led.color=battery caps=75 rc=0 brightness=['255'] multi_intensity=['0 255 0'] lit=yes
+critical-recovery: led.color=battery caps=15>10>15 rc=0 brightness=['0'] multi_intensity=['0 0 0'] lit=no
+t29-battery-unset: unfixed-expectation-met (unset lit=yes, rgb lit=no, battery lit=yes, critical-recovery lit=no)
+--- the unfixed Nova file against the fixed expectation:
+t29-battery-unset: UNEXPECTED on fixed: unset, critical-recovery
+--- RP6, --redirect-paths:
+t29-battery-unset: unfixed-expectation-met (unset lit=yes, rgb lit=no, battery lit=yes, critical-recovery lit=no)
+--- RP6 as the packet showed it (no redirect):
+summary: unset lit=no, rgb lit=no, battery lit=no, critical-recovery lit=no

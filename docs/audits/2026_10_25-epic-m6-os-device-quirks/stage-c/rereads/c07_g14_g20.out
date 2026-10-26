@@ -1,0 +1,30 @@
+  rgb)
+    # analogsticks.led is the seven numbers the stick-colour page writes
+    # (brightness, right r g b, left r g b). A device that never set it
+    # used to hand the helper nothing, which printed its usage and lit
+    # nothing -- the maintainer's "a first adjustment turns them off"
+    # (fork #332). With nothing set, white at the chosen brightness.
+    LEDS_CONFIG=$(get_setting analogsticks.led)
+    if [ -z "${LEDS_CONFIG}" ]; then
+      B=$(brightness_value "$(get_setting led.brightness)")
+      LEDS_CONFIG="${B} 255 255 255 255 255 255"
+    fi
+    /usr/bin/analog_sticks_ledcontrol ${LEDS_CONFIG}
+    set_setting led.color ${1}
+  ;;
+  brightness)
+    # LED BRIGHTNESS (max|mid|min): the case the row called and nothing
+    # answered (fork #332). Written to the eight LEDs whatever the colour
+    # case, and remembered for the next rgb with no colour set.
+    led_brightness_all "$(brightness_value "${2}")"
+    set_setting led.brightness ${2}
+CHEEVOS_LED=$(get_setting "global.retroachievements.leds")
+if [ ! -n "${CHEEVOS_LED}" ]; then
+  set_setting "global.retroachievements.leds" "0"
+fi
+
+if [ "${CHEEVOS_LED}" == "1" ]; then
+  if [ -f "/usr/lib/autostart/quirks/devices/${QUIRK_DEVICE}/bin/achievements" ]; then
+    "/usr/lib/autostart/quirks/devices/${QUIRK_DEVICE}/bin/achievements" $* &
+  elif [ -f "/usr/lib/autostart/quirks/platforms/${HW_DEVICE}/bin/achievements" ]; then
+    "/usr/lib/autostart/quirks/platforms/${HW_DEVICE}/bin/achievements" $* &

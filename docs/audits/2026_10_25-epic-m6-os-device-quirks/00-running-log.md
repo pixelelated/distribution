@@ -96,4 +96,19 @@
 - **The plan:** `second-opinions/review-plan.json`, independent, one reviewer (`gpt`, `openai/gpt-6-astra`, `max`, pinned to OpenAI), written before the first call.
 - **The runner:** `tools/council/node_modules` was copied from the T28 worktree (gitignored; the tracked `tools/council` is identical). `COUNCIL_ENV_FILE=/nonexistent tools/council/run verify-pins`: `OK`.
 - **The probe**, 04:57:41 to 04:57:52 (keyed; **the first of the seat's two calls**): `http=200 model=openai/gpt-6-astra providers=["OpenAI"] effort=max finish=stop outcome=success`. Verification, effort and provider `PASS`; `council-facilitator@1.14.1-pixelelated.2`.
-- **The refutation**, started 04:57:57 UTC (keyed; **the second and last call**), runs as a harness background task. It writes `second-opinions/gpt-audit.md` and `/workspace/tmp/m6-t29/refutation.rc`.
+- **The refutation**, 04:57:57 to 05:11:15 UTC (keyed; **the second and last call**), run as a harness background task: rc 0, `http=200 model=openai/gpt-6-astra providers=["OpenAI"] effort=max reasoning=26416 outcome=success`. Verification, effort and provider `PASS`. `second-opinions/gpt-audit.md`: **40 items, G-1 to G-40** (9 confirmed, 18 narrowed, 4 refuted, 9 new).
+- **The re-reads** (05:14:58 UTC): `stage-c/rereads/rereads.sh`, c01 to c09, all rc 0. Every item was accepted.
+  - **The seat's corrections:**
+    - the unit is not enabled, and `098-deviceutils` starts it (G-6);
+    - `091`'s first pass removes by name, so the first draft's *"no defect"* was wrong (G-11, G-12);
+    - `$*` is not load-bearing (G-2);
+    - 13 flags, not 14 (G-10);
+    - the channel example (G-13);
+    - the header lines (G-25);
+    - the reach counted by name, 15 (G-38).
+  - **Two new findings:** F-11 (G-15, fixture-proven) and F-12 (G-11, G-12).
+- **The fixture** was rewritten after a Read: `--expect unfixed|fixed` (exit 1 on a crossed case), `--redirect-paths` for upstream's hard-coded paths, and a `critical-recovery` case. On the Nova's file, `unfixed` is met and `fixed` reports `UNEXPECTED on fixed: unset, critical-recovery`. RP6 with the rewrite meets `unfixed`; without it every case is unlit (G-9). This is the guard-fires positive for the tool.
+- **`05`:** 14 items, 5 Low and 9 Info, all `Open`. PL-01 is the bug to file at stage D.
+- **Nothing of the never-run list ran.** Two keyed calls in all; no guest, build, fetch or M7 read. `git diff --stat 5ee0dfefcf HEAD -- packages projects tools` is still empty.
+- PROOF: P15, the seat's two calls: the two provenance files, `PASS`.
+- PROOF: P16, the seat's claims re-read and the two battery defects re-proven: `stage-c/rereads/` c01 to c09.
