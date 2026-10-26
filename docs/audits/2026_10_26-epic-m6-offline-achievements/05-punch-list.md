@@ -2,7 +2,7 @@
 
 **Extended depth** (two seats: GPT-6 Astra at `max`, then Gemini 4 Argon at `high`; `04` § Second opinion). The audit issue is opened at stage D as a sub-issue of #666, after the coordinator's dispositions.
 
-- **8 `bug`s proposed, all Low** (PL-01 to PL-08), each with its trace, `Already written:` line and VM line; the rest Info. Nothing is Medium or above.
+- **Nine `bug`s filed at the stage-D ruling (#666, 13:48 UTC), all Low**: #1157 to #1165 (PL-01 to PL-09; PL-04 with PL-21, PL-06 with PL-23, PL-08 with PL-16's classifier); the streams are `docs/reviews/briefs/t19-streams.md` at `6064579a3f`; the audit issue is #1156. Originally 8 proposed (PL-01 to PL-08), each with its trace, `Already written:` line and VM line; the rest Info. Nothing is Medium or above.
 - **Nothing** in this list changes a file under `packages/`, `projects/` or `tools/` at stages A to D; a fix lands only under a stream brief at the stage-D pause. Removals: none.
 - **One guest window**, 12:43:49 to 12:53:37 UTC, two boots; the image's scripts are M7's, so the tree's four ran from `/storage/t19/bin/` (`02` § The guest cycle, labelled as ruled). **Nothing ran on a person's device or account.**
 - **A lead outside the slice:** the image's M7 client fails 4 of 18 native cases (`guest-cycle/b1-08-*`), posted by the coordinator on #1111.
@@ -25,7 +25,7 @@
 - **Can this be done on the VM?** Yes: the guest's probe (the link cut on the monitor, key names only) is the before and the after.
 - **Already written:** tokens already served over loopback cannot be recalled; `proxy.sqlite3` keeps the `login2` rows of every account ever signed in. The fix changes what the port answers, not the rows; nothing to migrate, and a stale account's row is refused rather than purged (A-22, R-19).
 - **Acceptance:** with the link cut, a `login2` naming the account and presenting no credential gets no `Token` (the probe's key names), and one presenting the configured token or password still gets the cached body; a request with a foreign `Host` or an `Origin` is refused
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** a `bug`, #1157, filed at the stage-D ruling (#666, 13:48 UTC); stream S1 (D-RA-050)
 
 ## PL-02: the readiness check takes a foreign listener on `0.0.0.0:8080`, and the launch check does not (a `bug` proposed)
 
@@ -43,7 +43,7 @@
 - **Can this be done on the VM?** Yes: the guest's stand-in listener, then `enable` itself.
 - **Already written:** a device where the race happened holds `offlineproxy=1`, `hardcore=0` and the marker while the service failed; the boot pass retries the service. The fix reconciles nothing written; the next `enable` or `disable` rewrites the three (A-24, R-21).
 - **Acceptance:** with a stand-in on `0.0.0.0:8080` and the service stopped, `listening` exits 1 and `enable` fails with the device as it was; with the service up, both exit 0
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** a `bug`, #1159, filed at the stage-D ruling (#666, 13:48 UTC); stream S3
 
 ## PL-03: `disable` stops the service under a scan or top-up it could not see or could not stop (a `bug` proposed)
 
@@ -60,7 +60,7 @@
 - **Can this be done on the VM?** Yes: the guest's stand-in holder.
 - **Already written:** `/var/run` is tmpfs, so a lock path left wrong clears at reboot; a helper's partial cache work stays and the next run resumes it. Nothing to migrate (A-27, R-24).
 - **Acceptance:** with a holder alive and the lock unopenable, `disable` exits non-zero with the service and the toggle as they were, or stops the holder first; a helper does not hold the lock after its ctl has gone
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** a `bug`, #1160, filed at the stage-D ruling (#666, 13:48 UTC); stream S4
 
 ## PL-04: a stamp that could not be written is not seen (a `bug` proposed)
 
@@ -76,7 +76,7 @@
 - **Can this be done on the VM?** Yes: on the host, the script's function run against a fixture, as `tools/t19-listing-fixture.py` does for F-17, or on a guest window; the window's record (`02` § The guest cycle) is the before.
 - **Already written:** devices may hold an older `last-scan` and a stray `last-scan.tmp`; the next good write replaces the first, and the fix removes the second. Nothing to migrate.
 - **Acceptance:** with the stamp path made a directory, or the write failing, the run exits non-zero and says so; with a normal write the stamp is the new line
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** a `bug`, #1161 (with PL-21), filed at the stage-D ruling (#666, 13:48 UTC); stream S5
 
 ## PL-05: a top-up mark dated ahead of the clock silences the link-return top-up (a `bug` proposed)
 
@@ -92,7 +92,7 @@
 - **Can this be done on the VM?** Yes: `touch -d` on the guest, no clock change needed.
 - **Already written:** devices whose clock ran ahead may hold a future-dated mark; the fix treats a mark ahead of now as absent, so those heal at the next link (R-27).
 - **Acceptance:** with the mark a day ahead and a game played, the top-up runs; with the mark two hours back, the half-hour gate holds as before
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** a `bug`, #1162, filed at the stage-D ruling (#666, 13:48 UTC); stream S6
 
 ## PL-06: work skipped or unread reads as a clean run (a `bug` proposed)
 
@@ -108,7 +108,7 @@
 - **Can this be done on the VM?** Yes: on the host, the script's function run against a fixture, as `tools/t19-listing-fixture.py` does for F-17, or on a guest window; the window's record (`02` § The guest cycle) is the before.
 - **Already written:** no record holds a wrong count from this; a run that skipped work wrote no stamp. Nothing inherited.
 - **Acceptance:** a pass that exits 0 without a valid result, a skipped pass and a missing helper each end the run with a why
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** a `bug`, #1163 (with PL-23), filed at the stage-D ruling (#666, 13:48 UTC); stream S7
 
 ## PL-07: an unknown count reads as a number (a `bug` proposed)
 
@@ -125,7 +125,7 @@
 - **Can this be done on the VM?** Yes: the guest's export made a directory.
 - **Already written:** stamps may carry `ready=0` from a failed read; the next scan or top-up overwrites them. Nothing to migrate (R-28).
 - **Acceptance:** with the export unreadable, `ready` says it cannot tell (exit 2, nothing on stdout) and no stamp records a count it did not read
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** a `bug`, #1164, filed at the stage-D ruling (#666, 13:48 UTC); stream S8
 
 ## PL-08: one pathname the job list cannot carry fails or mangles the whole listing (a `bug` proposed)
 
@@ -142,11 +142,11 @@
 - **Can this be done on the VM?** Yes: `tools/t19-listing-fixture.py` on the host is the before; the guest's 0xff name too.
 - **Already written:** the trigger is the player's own file, which an update does not rename; a `last-scan` with `why=LIBRARY_UNREADABLE` clears on the next good scan. No file is renamed and no cache cleared (A-38).
 - **Acceptance:** `tools/t19-listing-fixture.py` lists the library with the 0xff name and the newline name and caches the rest (exit 1 on the fix: the defect no longer reproduces), or reports the one entry and goes on
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** a `bug`, #1165 (with PL-16's classifier), filed at the stage-D ruling (#666, 13:48 UTC); stream S9
 
-## PL-09: the unit runs as root with no hardening, and every file it writes is world-readable
+## PL-09: the unit runs as root with no hardening, and every file it writes is world-readable (a `bug`, ruled)
 
-- **Severity:** Info
+- **Severity:** Low
 - **Category:** Security
 - **Question:** Q2
 - **Source Finding:** F-04, F-25
@@ -158,7 +158,7 @@
 - **Can this be done on the VM?** Yes: `systemctl show` and `stat` on the guest.
 - **Already written:** existing files keep their modes; a `UMask=` changes only new ones, so a hardening stream carries a non-destructive mode pass (A-46).
 - **Acceptance:** recorded as the design question for the coordinator; a hardening stream, if one is ruled, ends with the service's directives and the files' modes read from a guest
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** a `bug`, Low, #1158, filed at the stage-D ruling (#666, 13:48 UTC); stream S2 (D-RA-049); the full sandboxing Backlog #1155
 
 ## PL-10: the username on argv at four sites
 
@@ -173,7 +173,7 @@
 - **Can this be done on the VM?** Yes: on the host, the script's function run against a fixture, as `tools/t19-listing-fixture.py` does for F-17, or on a guest window; the window's record (`02` § The guest cycle) is the before.
 - **Already written:** nothing persisted.
 - **Acceptance:** recorded as written, or the environment at all five sites
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** recorded as written: the account name is public; the listing's environment rule stays
 
 ## PL-11: the listing writes the store through the client's `Storage()`
 
@@ -188,7 +188,7 @@
 - **Can this be done on the VM?** Yes: on the host, the script's function run against a fixture, as `tools/t19-listing-fixture.py` does for F-17, or on a guest window; the window's record (`02` § The guest cycle) is the before.
 - **Already written:** nothing beyond the schema the service writes anyway.
 - **Acceptance:** recorded as written, or the listing reads through `mode=ro`
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** recorded as written: the schema the service writes anyway; Argon's "never closed" refuted at ctl :1564
 
 ## PL-12: writer hygiene: the verify cursor, the log's rotation, the fifo
 
@@ -203,7 +203,7 @@
 - **Can this be done on the VM?** Yes: on the host, the script's function run against a fixture, as `tools/t19-listing-fixture.py` does for F-17, or on a guest window; the window's record (`02` § The guest cycle) is the before.
 - **Already written:** a large `scan.log` rotates at the next `slog`; nothing to migrate.
 - **Acceptance:** recorded as written, or each writer temp-and-renamed and the log bounded
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** recorded as written: the cursor regenerable, the log rotating at the next `slog`; `02` names the fifo's directory
 
 ## PL-13: the scan's missing deadline against the interface's staleness bound
 
@@ -218,7 +218,7 @@
 - **Can this be done on the VM?** Yes: a slow listing on a guest with the page open.
 - **Already written:** nothing persisted.
 - **Acceptance:** recorded as the design; the staleness contract handed to T20 (#667)
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** handed to T20 (#667): the staleness contract in `02` § What T20 inherits
 
 ## PL-14: patch 013 and 015's inputs without a bound, and 013's validator
 
@@ -233,7 +233,7 @@
 - **Can this be done on the VM?** Yes: on the host, the script's function run against a fixture, as `tools/t19-listing-fixture.py` does for F-17, or on a guest window; the window's record (`02` § The guest cycle) is the before.
 - **Already written:** cached images published before 013 stay until a `--verify` pass; nothing to migrate.
 - **Acceptance:** recorded as written, or a bounded inflate and a structural check, each with a case
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** recorded as written: the badge CDN's images; the lookup threads bounded by the lookups
 
 ## PL-15: upstream's POST path paces nothing after a 429, and the usage report takes any account's row
 
@@ -249,7 +249,7 @@
 - **Can this be done on the VM?** Yes: a loopback stand-in for the server answering 429.
 - **Already written:** nothing persisted.
 - **Acceptance:** two #585 lines written in the lane's shape (the target, the current-source comparison, the minimal patch); never sent (D-WORKFLOW-165)
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** deferred to #585: two lines in `02` § The patches; the coordinator posts them
 
 ## PL-16: usage exits and the jobs' classifier
 
@@ -265,7 +265,7 @@
 - **Can this be done on the VM?** Yes: on the host, the script's function run against a fixture, as `tools/t19-listing-fixture.py` does for F-17, or on a guest window; the window's record (`02` § The guest cycle) is the before.
 - **Already written:** nothing persisted.
 - **Acceptance:** recorded as written, or one usage code and a classifier that reads the reason field
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** the classifier fixed with PL-08 (#1165, stream S9); the usage exits recorded as written
 
 ## PL-17: the refresh helper's protocol and cost
 
@@ -280,7 +280,7 @@
 - **Can this be done on the VM?** Yes: on the host, the script's function run against a fixture, as `tools/t19-listing-fixture.py` does for F-17, or on a guest window; the window's record (`02` § The guest cycle) is the before.
 - **Already written:** nothing persisted.
 - **Acceptance:** handed to T20 (#667) for the row #224 would add
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** handed to T20 (#667), with #224's row
 
 ## PL-18: a reader row for a token gone, and a comment naming a function as a verb
 
@@ -295,7 +295,7 @@
 - **Can this be done on the VM?** Yes: on the host, the script's function run against a fixture, as `tools/t19-listing-fixture.py` does for F-17, or on a guest window; the window's record (`02` § The guest cycle) is the before.
 - **Already written:** nothing persisted.
 - **Acceptance:** handed to T20 (#667), as the coordinator said at 12:41
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** handed to T20 (#667)
 
 ## PL-19: the recipe's comment, the siblings' provenance, 020 and 021's headers, and the drafts owed
 
@@ -311,7 +311,7 @@
 - **Can this be done on the VM?** Yes: on the host, the script's function run against a fixture, as `tools/t19-listing-fixture.py` does for F-17, or on a guest window; the window's record (`02` § The guest cycle) is the before.
 - **Already written:** nothing persisted.
 - **Acceptance:** the comment corrected, or the #585 lines written in `02` § The patches
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** stream S10 (documentation, no bug); the missing drafts and stale bases a #585 line in `02` § The patches
 
 ## PL-20: what the harness proves
 
@@ -326,7 +326,7 @@
 - **Can this be done on the VM?** Yes: the integration build's installed-native run against the tree's service (`pending-image`).
 - **Already written:** nothing persisted.
 - **Acceptance:** recorded as written
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** recorded as written; the installed-native run on the built image is the integration's owed item
 
 ## PL-21: a rollback not read back, and the pending marker lost on a failed restore
 
@@ -342,7 +342,7 @@
 - **Can this be done on the VM?** Yes: on the host, the script's function run against a fixture, as `tools/t19-listing-fixture.py` does for F-17, or on a guest window; the window's record (`02` § The guest cycle) is the before.
 - **Already written:** a device where a rollback failed holds the settings the forward step wrote; the next `enable` or `disable` rewrites them.
 - **Acceptance:** recorded as written, or each undo read back and the aside kept on a failed restore
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** fixed with PL-04 (#1161, stream S5)
 
 ## PL-22: the request path's malformed inputs and the redaction's reach
 
@@ -358,7 +358,7 @@
 - **Can this be done on the VM?** Yes: on the host, the script's function run against a fixture, as `tools/t19-listing-fixture.py` does for F-17, or on a guest window; the window's record (`02` § The guest cycle) is the before.
 - **Already written:** the service's log may hold such lines; nothing to migrate.
 - **Acceptance:** #585 lines written in the lane's shape
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** deferred to #585: two lines in `02` § The patches; the coordinator posts them
 
 ## PL-23: a damaged image that cannot be removed counts as present
 
@@ -373,7 +373,7 @@
 - **Can this be done on the VM?** Yes: on the host, the script's function run against a fixture, as `tools/t19-listing-fixture.py` does for F-17, or on a guest window; the window's record (`02` § The guest cycle) is the before.
 - **Already written:** a damaged file may stay in the cache; the next pass that can remove it fetches it again.
 - **Acceptance:** recorded as written, or a failed removal counted as an image not saved
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** fixed with PL-06 (#1163, stream S7)
 
 ## Phase 7 resolution gate
 
@@ -381,29 +381,29 @@ Every item is open until stage F; each row then takes its outcome. The dispositi
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | at the stage-D pause; proposed: a `bug`, Low |
-| PL-02 | Open | at the stage-D pause; proposed: a `bug`, Low |
-| PL-03 | Open | at the stage-D pause; proposed: a `bug`, Low |
-| PL-04 | Open | at the stage-D pause; proposed: a `bug`, Low |
-| PL-05 | Open | at the stage-D pause; proposed: a `bug`, Low |
-| PL-06 | Open | at the stage-D pause; proposed: a `bug`, Low |
-| PL-07 | Open | at the stage-D pause; proposed: a `bug`, Low |
-| PL-08 | Open | at the stage-D pause; proposed: a `bug`, Low |
-| PL-09 | Open | at the stage-D pause; proposed: Info |
-| PL-10 | Open | at the stage-D pause; proposed: Info |
-| PL-11 | Open | at the stage-D pause; proposed: Info |
-| PL-12 | Open | at the stage-D pause; proposed: Info |
-| PL-13 | Open | at the stage-D pause; proposed: Info |
-| PL-14 | Open | at the stage-D pause; proposed: Info |
-| PL-15 | Open | at the stage-D pause; proposed: Info |
-| PL-16 | Open | at the stage-D pause; proposed: Info |
-| PL-17 | Open | at the stage-D pause; proposed: Info |
-| PL-18 | Open | at the stage-D pause; proposed: Info |
-| PL-19 | Open | at the stage-D pause; proposed: Info |
-| PL-20 | Open | at the stage-D pause; proposed: Info |
-| PL-21 | Open | at the stage-D pause; proposed: Info |
-| PL-22 | Open | at the stage-D pause; proposed: Info |
-| PL-23 | Open | at the stage-D pause; proposed: Info |
+| PL-01 | Open | at the stage-D pause; disposition: a `bug`, #1157, filed at the stage-D ruling (#666, 13:48 UTC); stream S1 (D-RA-050) |
+| PL-02 | Open | at the stage-D pause; disposition: a `bug`, #1159, filed at the stage-D ruling (#666, 13:48 UTC); stream S3 |
+| PL-03 | Open | at the stage-D pause; disposition: a `bug`, #1160, filed at the stage-D ruling (#666, 13:48 UTC); stream S4 |
+| PL-04 | Open | at the stage-D pause; disposition: a `bug`, #1161 (with PL-21), filed at the stage-D ruling (#666, 13:48 UTC); stream S5 |
+| PL-05 | Open | at the stage-D pause; disposition: a `bug`, #1162, filed at the stage-D ruling (#666, 13:48 UTC); stream S6 |
+| PL-06 | Open | at the stage-D pause; disposition: a `bug`, #1163 (with PL-23), filed at the stage-D ruling (#666, 13:48 UTC); stream S7 |
+| PL-07 | Open | at the stage-D pause; disposition: a `bug`, #1164, filed at the stage-D ruling (#666, 13:48 UTC); stream S8 |
+| PL-08 | Open | at the stage-D pause; disposition: a `bug`, #1165 (with PL-16's classifier), filed at the stage-D ruling (#666, 13:48 UTC); stream S9 |
+| PL-09 | Open | at the stage-D pause; disposition: a `bug`, Low, #1158, filed at the stage-D ruling (#666, 13:48 UTC); stream S2 (D-RA-049); the full sandboxing Backlog #1155 |
+| PL-10 | Open | at the stage-D pause; disposition: recorded as written: the account name is public; the listing's environment rule stays |
+| PL-11 | Open | at the stage-D pause; disposition: recorded as written: the schema the service writes anyway; Argon's "never closed" refuted at ctl :1564 |
+| PL-12 | Open | at the stage-D pause; disposition: recorded as written: the cursor regenerable, the log rotating at the next `slog`; `02` names the fifo's directory |
+| PL-13 | Open | at the stage-D pause; disposition: handed to T20 (#667): the staleness contract in `02` § What T20 inherits |
+| PL-14 | Open | at the stage-D pause; disposition: recorded as written: the badge CDN's images; the lookup threads bounded by the lookups |
+| PL-15 | Open | at the stage-D pause; disposition: deferred to #585: two lines in `02` § The patches; the coordinator posts them |
+| PL-16 | Open | at the stage-D pause; disposition: the classifier fixed with PL-08 (#1165, stream S9); the usage exits recorded as written |
+| PL-17 | Open | at the stage-D pause; disposition: handed to T20 (#667), with #224's row |
+| PL-18 | Open | at the stage-D pause; disposition: handed to T20 (#667) |
+| PL-19 | Open | at the stage-D pause; disposition: stream S10 (documentation, no bug); the missing drafts and stale bases a #585 line in `02` § The patches |
+| PL-20 | Open | at the stage-D pause; disposition: recorded as written; the installed-native run on the built image is the integration's owed item |
+| PL-21 | Open | at the stage-D pause; disposition: fixed with PL-04 (#1161, stream S5) |
+| PL-22 | Open | at the stage-D pause; disposition: deferred to #585: two lines in `02` § The patches; the coordinator posts them |
+| PL-23 | Open | at the stage-D pause; disposition: fixed with PL-06 (#1163, stream S7) |
 
 ## Machine-readable index
 
@@ -458,7 +458,7 @@ punch_index:
   source_finding: "F-17, F-29, F-41"
   outcome: "open"
 - id: PL-09
-  severity: "Info"
+  severity: "Low"
   category: Security
   question: Q2
   source_finding: "F-04, F-25"
