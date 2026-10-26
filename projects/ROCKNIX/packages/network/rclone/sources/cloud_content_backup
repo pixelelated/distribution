@@ -584,22 +584,28 @@ case "${1}" in
     ;;
     *)
         DIRS=("$@")
+        EXPLICIT=1
     ;;
 esac
 
 # Only a system folder's name is ever acted on (audit #307 PL-030), and the
 # explicit form took any: '../.config' sent /storage/.config, rclone.conf
 # with its tokens among it, to ROMs/../.config in the player's cloud (#1130,
-# T17's F-03). Every name is held to what --all would carry -- the restore's
-# shape (cloud_content_restore's own loop), and a system this device's
-# interface declares, or bios, and not a folder another tier owns -- before
-# the lock, so a refusal moves nothing.
+# T17's F-03). Every explicit name is held to what --all would carry -- the
+# restore's shape (cloud_content_restore's own loop), and a system this
+# device's interface declares, or bios, and not a folder another tier owns --
+# before the lock, so a refusal moves nothing. --selected and --all name
+# only what selected_systems and list_local_dirs already passed. The shape
+# is what keeps a name inside /storage/roms, and it always applies; the
+# declared systems apply when es_systems.cfg can be read, which a device's
+# /usr/config always can (a test sandbox without one keeps the shape).
 _systems=$(system_folders)
-for DIR in "${DIRS[@]}"; do
+[ -n "${_systems}" ] || [ "${EXPLICIT:-0}" -ne 1 ] || log_message "Content backup: no es_systems.cfg to read; explicit names are held to their shape alone"
+[ "${EXPLICIT:-0}" -eq 1 ] && for DIR in "${DIRS[@]}"; do
     _known=1
     [[ "${DIR}" =~ ^[A-Za-z0-9_][A-Za-z0-9._-]*$ ]] || _known=0
     case "${DIR}" in savefiles|savestates|screenshots|backup) _known=0 ;; esac
-    if [ "${_known}" -eq 1 ] && [ "${DIR}" != bios ] && ! printf '%s\n' "${_systems}" | grep -qxF -- "${DIR}"; then
+    if [ "${_known}" -eq 1 ] && [ "${DIR}" != bios ] && [ -n "${_systems}" ] && ! printf '%s\n' "${_systems}" | grep -qxF -- "${DIR}"; then
         _known=0
     fi
     if [ "${_known}" -eq 0 ]; then
