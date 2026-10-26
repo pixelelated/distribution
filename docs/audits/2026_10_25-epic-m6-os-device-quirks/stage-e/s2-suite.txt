@@ -1,0 +1,27 @@
+$ TMPDIR=/workspace/tmp/m6-t29/lgst QA_SYSTEM_ROOT=/workspace/artifacts/m6-donor/1a0266484423/image/system tools/last-good-scripts-test
+tree: 39851da3e8 plus S2's uncommitted fix (the 091 in s2-after.txt's diff)
+ran: 2026-10-26 05:34:23 to 05:42:59 UTC; exit 0
+PASS lines: 1378; FAIL lines: 0; full output sha256 353fee7cffbb3b605b0d068f15cab47e84f6a34f2a38f637950392ae4bc754da, 1517 lines (kept in scratch)
+--- F1b (#307 PL-019), lines 428-433:
+    PASS  the earlier builds' pass wrote 20 file(s) into /storage the fixture can take back (the fixture holds what a guest holds)
+    PASS  one boot of the tree under test takes back every one of them
+    PASS  and the owner's own files beside them stay, a mask of their own and a drop-in under a name no retired quirk wrote included (the audit's G-F1-09)
+    PASS  and the boot that takes them back says so on the journal
+    PASS  and a second boot changes no file's bytes and says nothing
+    PASS  a mask of emergency.target the owner makes after the take-back survives the next boot
+--- F1r-b (G2-F1-01/02):
+    PASS  G2-F1-02's premise (control): under the old quirks an owner's edit of 20-x64-fd-improvements.conf, and emergency.target unmasked by hand, are both undone at the next boot
+    PASS  the downgrade to the prev old quirks writes the 16 files and the four masks again (the fixture holds what a guest holds)
+    PASS  G2-F1-01: after a downgrade to the prev old quirks and back, the first boot takes back every file they wrote again, and says so on the journal
+    PASS  G2-F1-01: and by the boot after it the four masks are gone too, and both take-backs are stamped again
+    PASS  and a boot after that changes nothing and says nothing
+    PASS  the downgrade to the first old quirks writes the 16 files and the four masks again (the fixture holds what a guest holds)
+    PASS  G2-F1-01: after a downgrade to the first old quirks and back, the first boot takes back every file they wrote again, and says so on the journal
+    PASS  G2-F1-01: and by the boot after it the four masks are gone too, and both take-backs are stamped again
+    PASS  and a boot after that changes nothing and says nothing
+    PASS  G2-F1-01 (control): after the take-back, an owner's file under a retired name and a mask of their own stay, silently, boot after boot
+    PASS  G2-F1-01: a boot that takes the masks and stamps, and finds the old files too, takes both and keeps the fresh stamp
+--- the last 3 lines:
+    PASS  #526: preserved configuration and atomic hotkey additions
+1 HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS
+PASSED

@@ -1,0 +1,30 @@
+run: 2026-10-26T05:33:07Z
+tree: 39851da3e8 (091 as at 8ebaf8daad: same)
+$ t29-takeback.py --expect fixed
+shell: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox sh (BusyBox v1.36.1 (2026-10-05 03:37:19 UTC) multi-call binary.); sha256 79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346
+file: projects/ROCKNIX/packages/hardware/quirks/devices/QEMU Standard PC (Q35 + ICH9, 2009)/091-retired-vm-fixes
+known content 73b20caf86: sha256 037fe40d87be53412a5f62d7907951c88e0d419ebd215440367fd502445a7eb1 (in WRITTEN)
+known content 8bb74015e6: sha256 4263be9dd4644fe760a3240abf1121e30545b9bb83338d89ae33f8be3d5568a7 (in WRITTEN)
+a edited: rc=0 removed stamp=yes stderr='091-retired-vm-fixes: removed what the retired QEMU quirks left in <scratch>/a/storage/.config: tmpfiles.d/10-generic-x64-jour'
+b1 known-73b: rc=0 removed stamp=yes stderr='091-retired-vm-fixes: removed what the retired QEMU quirks left in <scratch>/b1/storage/.config: tmpfiles.d/30-x64-mount-point'
+b2 known-8bb: rc=0 removed stamp=yes stderr='091-retired-vm-fixes: removed what the retired QEMU quirks left in <scratch>/b2/storage/.config: tmpfiles.d/30-x64-mount-point'
+c stamped: rc=0 kept stamp=yes stderr=''
+d dangling: rc=0 kept stamp=yes stderr=''
+e empty: rc=0 nothing placed stamp=yes stderr=''
+f live-link: rc=0 removed stamp=yes stderr='091-retired-vm-fixes: removed what the retired QEMU quirks left in <scratch>/f/storage/.config: tmpfiles.d/10-generic-x64-jour'
+t29-takeback: UNEXPECTED on fixed: a edited, d dangling, f live-link
+exit 1
+$ t29-takeback.py --expect unfixed
+shell: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox sh (BusyBox v1.36.1 (2026-10-05 03:37:19 UTC) multi-call binary.); sha256 79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346
+file: projects/ROCKNIX/packages/hardware/quirks/devices/QEMU Standard PC (Q35 + ICH9, 2009)/091-retired-vm-fixes
+known content 73b20caf86: sha256 037fe40d87be53412a5f62d7907951c88e0d419ebd215440367fd502445a7eb1 (in WRITTEN)
+known content 8bb74015e6: sha256 4263be9dd4644fe760a3240abf1121e30545b9bb83338d89ae33f8be3d5568a7 (in WRITTEN)
+a edited: rc=0 removed stamp=yes stderr='091-retired-vm-fixes: removed what the retired QEMU quirks left in <scratch>/a/storage/.config: tmpfiles.d/10-generic-x64-jour'
+b1 known-73b: rc=0 removed stamp=yes stderr='091-retired-vm-fixes: removed what the retired QEMU quirks left in <scratch>/b1/storage/.config: tmpfiles.d/30-x64-mount-point'
+b2 known-8bb: rc=0 removed stamp=yes stderr='091-retired-vm-fixes: removed what the retired QEMU quirks left in <scratch>/b2/storage/.config: tmpfiles.d/30-x64-mount-point'
+c stamped: rc=0 kept stamp=yes stderr=''
+d dangling: rc=0 kept stamp=yes stderr=''
+e empty: rc=0 nothing placed stamp=yes stderr=''
+f live-link: rc=0 removed stamp=yes stderr='091-retired-vm-fixes: removed what the retired QEMU quirks left in <scratch>/f/storage/.config: tmpfiles.d/10-generic-x64-jour'
+t29-takeback: unfixed-expectation-met
+exit 0

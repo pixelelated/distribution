@@ -22,10 +22,13 @@
 # (73b20caf86, and 8bb74015e6, which changed only the mount-points rule).
 # Nothing else in those directories is touched.
 #
-# Until STAMP exists, every file at those paths is theirs: the old quirks
-# rewrote each one at every boot (cat <<EOF >), so no other content outlived
-# their next boot. Each is taken back by name, the take-back says on the
-# journal what it removed, and STAMP is written once they are all gone.
+# Until STAMP exists, a file at one of those paths is taken back when its
+# bytes are exactly what an old quirk wrote there (they rewrote each one at
+# every boot, cat <<EOF >), and so is a dangling link at the name. Anything
+# else -- a file edited after the last old boot, a link to somebody's own
+# file -- is kept, and STAMP waits until it is gone (#1124). The take-back
+# says on the journal what it removed, and STAMP is written once they are
+# all gone.
 #
 # From then on a file under one of these names is somebody's -- unless its
 # bytes are exactly what an old quirk wrote there. That is an earlier build's
@@ -62,7 +65,15 @@ AGAIN=no; [ -e "${STAMP}" ] && AGAIN=yes
 GONE=""
 while read -r f sum; do
   if [ "${AGAIN}" = no ]; then
-    [ -e "${C}/${f}" ] || continue
+    # Only what an old quirk wrote, or a dangling link at its name (which
+    # -e calls absent, so it would outlive the stamp); anything else is kept.
+    if [ -L "${C}/${f}" ] && [ ! -e "${C}/${f}" ]; then
+      :
+    else
+      [ -f "${C}/${f}" ] && [ ! -L "${C}/${f}" ] || continue
+      h="$(sha256sum < "${C}/${f}")"
+      [ "${h%% *}" = "${sum}" ] || continue
+    fi
   else
     [ -f "${C}/${f}" ] && [ ! -L "${C}/${f}" ] || continue
     h="$(sha256sum < "${C}/${f}")"
