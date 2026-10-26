@@ -11,7 +11,7 @@ What the read found, in the brief's four families:
 - **A check whose failure reads as success.** The scan lock that cannot be opened reads as nothing running (F-06); a stamp that could not be written is not seen (F-07); an unreadable ready count prints 0 (F-16); one undecodable ROM name fails the whole listing, reproduced on the host (F-17).
 - **A bound that is not enforced.** The scan has none, by design (F-11); the top-up's played check trusts the mark's mtime (F-12); the IDAT inflate and the lookup threads are unbounded (F-13); `http_post` marks no 429 pause (F-14, upstream).
 
-Six are proposed as Low `bug`s (F-01, F-03, F-06, F-07, F-16, F-17); nineteen are Info. Five of the six fell on the guest as read (F-01, F-03, F-06, F-16, F-17), and F-17 on the host too; F-12 fell as well. Nothing is Medium or above: the port is loopback with a peer check, the device is single-user and root, and no finding was shown to lose an award or a save in what was read (narrowed at stage C, Astra's A-55: the queue's and the flush's whole behaviour is not read here). After Astra's grades, F-12 and F-15 are proposed Low as well, and ten findings are new (F-26 to F-35).
+Six are proposed as Low `bug`s (F-01, F-03, F-06, F-07, F-16, F-17); nineteen are Info. Five of the six fell on the guest as read (F-01, F-03, F-06, F-16, F-17), and F-17 on the host too; F-12 fell as well. Nothing is Medium or above: the port is loopback with a peer check, the device is single-user and root, and no finding was shown to lose an award or a save in what was read (narrowed at stage C, Astra's A-55: the queue's and the flush's whole behaviour is not read here). After Astra's grades, F-12 and F-15 are proposed Low as well, and ten findings are new from Astra (F-26 to F-35), six more from Argon (F-36 to F-41), all Info.
 
 ## Acceptance-criteria scorecard
 
@@ -46,8 +46,8 @@ The brief's § 7 against this folder at stage C's start:
 | High | 0 | |
 | Medium | 0 | |
 | Low | 8 | F-01, F-03, F-06, F-07, F-12, F-15, F-16, F-17 |
-| Info | 27 | F-02, F-04, F-05, F-08 to F-11, F-13, F-14, F-18 to F-35 |
-| **Total** | **35** | |
+| Info | 33 | F-02, F-04, F-05, F-08 to F-11, F-13, F-14, F-18 to F-41 |
+| **Total** | **41** | |
 
 The Low six share one shape: a state the device can be in -- a link down, a second listener, a full card, a lock or export that cannot be opened, a file name from an archive -- where the code's answer is wrong and nothing says so.
 
@@ -91,7 +91,44 @@ Eighteen, all absent from the pin and applying at fuzz 0: eleven fixes, six feat
 
 ## Second opinion
 
-Phase 4.6 at Extended depth, two seats over one trimmed, scanned packet: GPT-6 Astra at `max`, then Gemini 4 Argon at `high` with the lane's grades of Astra. Not run yet; this section takes the plan, the provenance and every item's grade at stage C.
+Phase 4.6 at **Extended** depth: two seats from two other labs, each a probe and one refutation, over one trimmed and scanned packet, through the council's Facilitator on OpenRouter. **Exactly four keyed invokes** (`/workspace/tmp/m6-t19/keyed-calls.txt`); every other `tools/council/run` call ran with `COUNCIL_ENV_FILE=/nonexistent` (`verify-pins`: OK). The runtime came from `npm install --offline`.
+
+### The packet and the plan
+
+- **`second-opinions/review-plan.json`**, written at 13:01 UTC before the first call: depth `extended`; `gpt` `openai/gpt-6-astra` at `max`, `allow_fallbacks: false`; `gemini-argon` `google/gemini-4-argon` at `high`.
+- **`second-opinions/packet.md`:** 340,476 bytes, 51 sections, built by `stage-c/packet.py` (T18's builder adapted), trimmed from 407 KB (D-WORKFLOW-195; the builder's docstring says what moved). The ctl went in as excerpts of every line the analyses cite, the cited set checked against the ranges before the build.
+- **The three-way scan** (`second-opinions/manifest.json`): `forbidden-terms-check --stdin` 0 hits in 50 sections; `SECRET_PATTERNS` 0 lines, proven to fire on a run-time fake line; 30 lines masked; 772 credential-word hits, each classed, 48 read at their lines and dispositioned by name; **0 values, 0 review**. Argon's brief is the packet with R and the grades of Astra appended (347,782 bytes); the grades passed the same scans.
+
+### The calls and their provenance (read directly: `stage-c/provenance-read.txt`)
+
+| Call | Window (UTC) | Served | Verification | Attempts, finish |
+| --- | --- | --- | --- | --- |
+| Astra's probe | 13:01:36 to 13:01:48 | `openai/gpt-6-astra` by OpenAI | PASS (effort max) | 1, stop |
+| Astra's refutation | 13:02:05 to 13:24:03 | `openai/gpt-6-astra` by OpenAI | PASS (effort max, 35,837 reasoning tokens) | 1, stop |
+| Argon's probe | 13:26:06 to 13:26:14 | `google/gemini-4-argon` by Google | PASS (effort high) | 1, stop |
+| Argon's refutation | 13:26:22 to 13:34:47 | `google/gemini-4-argon` by Google | PASS (effort high, 28,973 reasoning tokens) | 1, stop |
+
+`facilitator_version` `council-facilitator@1.14.1-pixelelated.2` on all four; each output's sha256 matches its provenance's record.
+
+### GPT-6 Astra (`gpt`, `openai/gpt-6-astra`, `max`): 55 items, graded
+
+`stage-c/astra-grades.md`: **51 accepted, 1 in part, 3 plausible, 0 rejected.** What changed the analysis:
+- **the peer check the first reader missed** (`proxy_service.py:290-292`, A-2), which narrows F-02 to a conditional browser reach;
+- F-03 and F-05 narrowed (A-6, A-5);
+- `TOPUP_TIMEOUT` a soft deadline (A-18);
+- `do_disable` ignoring `stop_running_run`'s status (A-8), which moves F-06's fix;
+- F-12 and F-15 proposed Low;
+- ten new findings, F-26 to F-35.
+
+### Gemini 4 Argon (`gemini-argon`, `google/gemini-4-argon`, `high`): 39 items, graded
+
+`stage-c/argon-grades.md`: **35 accepted, 2 in part, 2 plausible, 0 rejected.** What changed the analysis:
+- **R-6 restores F-03's toggle-on path as plausible against A-6**: `Type=simple` with `ExecStartPost` looking right after the fork. F-03 stays Low;
+- F-24, F-26, F-29, F-34 and F-35 widened;
+- six new findings, F-36 to F-41: the request path's unhandled malformed inputs, `usage_report` bypassing patch 007, the inherited lock descriptor, the refresh's quadratic read, and the `I` job's fall-through;
+- **one of Argon's claims refuted at its line:** `list_jobs` does close its `Storage` (ctl :1564).
+
+**What the two seats agree on:** F-01 (Low, the cached token served without a credential), F-06, F-07, F-16 and F-17 as Low; F-12 and F-15 up to Low; F-11 as the design; nothing above Low.
 
 ## Finding Verification
 

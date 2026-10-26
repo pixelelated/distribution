@@ -1,0 +1,21 @@
+take_lock() {
+    local VERB="$1" WAIT="${2:-0}" START="${3:-0}"
+    exec 9<>"${SCAN_LOCK}" || fail "cannot open ${SCAN_LOCK}"
+    until flock -n 9; do
+        if [ "${WAIT}" -eq 0 ] || [ "$(time_left "${START}")" -le 10 ]; then
+    LIST="$(mktemp /tmp/raofflineproxy-scan.XXXXXX)" || fail "cannot create the list"
+    # Everything of the run's goes when the run does, however it ends.
+    trap 'rm -f "${LIST}" "${JOBS_FIFO:-}" "${READY_BEFORE:-}" "${READY_AFTER:-}" "${SCAN_CURSOR}.next" "${RUNNING}" "${RUNNING}.tmp"; [ -n "${CLIENT:-}" ] && kill "${CLIENT}" 2>/dev/null' EXIT
+
+cancelled() {
+    local READY MADE=""
+    READY="$(count_ready)"
+    if [ -n "${READY_BEFORE:-}" ] && READY_AFTER="$(mktemp /tmp/raofflineproxy-ready.XXXXXX 2>/dev/null)" && ready_games_into "${READY_AFTER}"; then
+        MADE="$(games_made_ready "${READY_BEFORE}" "${READY_AFTER}")"
+    fi
+    tell "why CANCELLED"
+    write_stamp 130 "${1}" "${R_CACHED:-0}" "${R_SKIPPED:-0}" "${READY}" 0 "${R_INDEXED:-0}" "${R_ERRORS:-0}" CANCELLED "${MADE}"
+    slog "${1} cancelled by the player: cached=${R_CACHED:-0} skipped=${R_SKIPPED:-0} errors=${R_ERRORS:-0} ready=${READY}"
+    say "${1}: cancelled"
+    exit 130
+}

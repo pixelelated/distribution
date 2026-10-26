@@ -17,19 +17,12 @@
 
 ## Current focus
 
-**Stage C in progress (13:05 UTC).**
+**At the stage-D pause (13:45 UTC).**
 
-- **Done:**
-  - **Stage B:** `02` (coverage 27; the writers generated, 77 rows; 25 findings), `03`, `04`.
-  - **The window:** START 12:43:49, RETURN 12:53:37. The image's scripts are M7's, so the tree's four ran from `/storage/t19/bin/`; the verdicts are labelled as the coordinator ruled at 12:55. Six positives fall; consent 30; native 18 run, 4 failed on M7's client (M7's to name); `ra-offline-test` CANNOT (D-RA-006). Both disks retired.
-  - **The packet:** 340 KB, scan clean.
-  - **Keyed call 1** (Astra's probe): success.
-- **Running:** keyed call 2, Astra's refutation. The background job writes `/workspace/tmp/m6-t19/call2.rc`; output `second-opinions/astra-audit.md`.
-- **Next:**
-  - grade Astra's items, each re-read at its lines (`stage-c/astra-grades.md`);
-  - Argon's brief = the packet with R plus the grades; keyed calls 3 and 4;
-  - `stage-c/provenance-read.py`;
-  - `04` § Second opinion, `05`, the pre-issue lint, and the stage-D pause on #666.
+- **Done:** stage C; the four keyed calls are spent (all PASS). `05` holds 23 items, eight proposed Low `bug`s; the pre-issue lint passes.
+- **Waiting on:** the coordinator's dispositions on #666.
+- **Then:** the audit issue (a sub-issue of #666) and the bugs it rules, each with its trace, `Already written:` line and VM line; any stream under the coordinator's brief; stages F to H.
+- **No keyed call remains.**
 
 ## Next commands
 
@@ -67,3 +60,4 @@ another lane's worktree, or a guest outside the one granted window.
 
 - Stage A, 2026-10-26 12:25 UTC: tip (this commit) on `7de4ece06d`; figures equal to the brief's but R8 (cache-indexed has no `>>> ` token).
 - Stage B and the window, 2026-10-26 13:05 UTC: tip `3f51094560`; 25 findings; six positives fall; the image's scripts M7's (ruled 12:55).
+- Stage C, 2026-10-26 13:45 UTC: four keyed calls PASS; 94 items graded; 41 findings; `05` 23 items; pre-issue lint PASS.

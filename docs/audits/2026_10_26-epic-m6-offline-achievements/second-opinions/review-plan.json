@@ -16,9 +16,21 @@
       "effort": "max",
       "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
       "allow_fallbacks": false,
-      "probes": [{"phase": "probe", "prompt": "probe-prompt.md", "output": "astra-probe.md"}],
-      "calls": [{"phase": "refutation", "prompt": "astra-brief.md", "output": "astra-audit.md"}],
-      "status": "planned"
+      "probes": [
+        {
+          "phase": "probe",
+          "prompt": "probe-prompt.md",
+          "output": "astra-probe.md"
+        }
+      ],
+      "calls": [
+        {
+          "phase": "refutation",
+          "prompt": "astra-brief.md",
+          "output": "astra-audit.md"
+        }
+      ],
+      "status": "complete: the probe 13:01:36 to 13:01:48 UTC and the refutation 13:02:05 to 13:24:03 UTC, both PASS, served openai/gpt-6-astra by OpenAI, one attempt each; 55 items graded in 04 \u00a7 Second opinion (51 accepted, 1 in part, 3 plausible, 0 rejected)"
     },
     {
       "member": "gemini-argon",
@@ -26,9 +38,21 @@
       "lab": "google",
       "effort": "high",
       "provider": "openrouter (the installed recipe)",
-      "probes": [{"phase": "probe", "prompt": "probe-prompt.md", "output": "argon-probe.md"}],
-      "calls": [{"phase": "refutation", "prompt": "argon-brief.md", "output": "argon-audit.md"}],
-      "status": "planned"
+      "probes": [
+        {
+          "phase": "probe",
+          "prompt": "probe-prompt.md",
+          "output": "argon-probe.md"
+        }
+      ],
+      "calls": [
+        {
+          "phase": "refutation",
+          "prompt": "argon-brief.md",
+          "output": "argon-audit.md"
+        }
+      ],
+      "status": "complete: the probe 13:26:06 to 13:26:14 UTC and the refutation 13:26:22 to 13:34:47 UTC, both PASS, served google/gemini-4-argon by Google, one attempt each; 39 items graded in 04 \u00a7 Second opinion (35 accepted, 2 in part, 2 plausible, 0 rejected)"
     }
   ],
   "keyed_calls": "exactly four: Astra's probe and refutation, then Argon's probe and refutation; every other tools/council/run call with COUNCIL_ENV_FILE=/nonexistent",
@@ -39,11 +63,14 @@
     "sha256": "f9d630329b2d14a3eeafd2206130b0010aedb546df2281159ef107a2be3cca4a",
     "manifest": "manifest.json",
     "builder": "../stage-c/packet.py",
-    "content": "the ask; 02, 03 and 04 whole; the order's § T19; the three helpers, the unit and the daemon file whole and line-numbered; patches 001, 007, 008, 011 and 013 whole; the ctl, the recipe and the image helper as line-numbered excerpts of every cited line and the functions the four families turn on; the patched upstream's proxy_service.py, auth.py, network.py, storage.py, utils.py, log_uploader.py, usage_report.py, config.py and es_export.py, and EmulationStation's CloudText.cpp, as excerpts of every cited line with 8 lines of context",
+    "content": "the ask; 02, 03 and 04 whole; the order's \u00a7 T19; the three helpers, the unit and the daemon file whole and line-numbered; patches 001, 007, 008, 011 and 013 whole; the ctl, the recipe and the image helper as line-numbered excerpts of every cited line and the functions the four families turn on; the patched upstream's proxy_service.py, auth.py, network.py, storage.py, utils.py, log_uploader.py, usage_report.py, config.py and es_export.py, and EmulationStation's CloudText.cpp, as excerpts of every cited line with 8 lines of context",
     "trim": "D-WORKFLOW-195: 407 KB at the first build, 372 KB, then 340 KB (the builder's docstring says what moved)",
     "scan": "forbidden-terms-check --stdin 0 hits in 50 sections; SECRET_PATTERNS 0 lines, proven to fire on a run-time fake line; 30 lines masked; 772 credential-word hits, each classed, 48 read at their lines and dispositioned by name in packet.py; 0 values; 0 review",
     "per_seat": "astra-brief.md is packet.md with {PREFIX} as A; argon-brief.md is packet.md with {PREFIX} as R and the lane's grades of Astra appended",
-    "astra_brief_sha256": "a24d2f83a939d19d13b66b63b46974e97bee55bc8cb940e129ecb5e51a0b2fba"
+    "astra_brief_sha256": "a24d2f83a939d19d13b66b63b46974e97bee55bc8cb940e129ecb5e51a0b2fba",
+    "argon_brief_bytes": 347782
   },
-  "written_before_first_call": "2026-10-26T13:01Z"
+  "written_before_first_call": "2026-10-26T13:01Z",
+  "keyed_calls_made": "four, as planned: 13:01:36, 13:02:05, 13:26:06, 13:26:22 UTC",
+  "provenance_read": "../stage-c/provenance-read.txt: all four verification=PASS, served model and provider the seat's, output sha256 matching, facilitator_version council-facilitator@1.14.1-pixelelated.2"
 }

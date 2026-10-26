@@ -1,0 +1,20 @@
+def _report(storage: Storage, now_ms: int) -> bool:
+    config_data = load_config()
+    url = report_url(config_data)
+    if not url or usage_stats.load_consent(config_data) is not True:
+        return False
+    with _report_lock() as acquired:
+        if not acquired or not is_report_due(usage_stats.last_reported_at(), now_ms):
+            return False
+        credentials = storage.load_login_credentials()
+        if credentials is None:
+            return False
+        counters = usage_stats.reportable(usage_stats.snapshot())
+        payload = build_payload(
+            credentials["user"],
+            log_uploader.device_metadata(),
+            os.environ.get(BUILD_ENV, "release"),
+            load_gauges(storage, now_ms),
+            counters,
+        )
+        if not _send(payload, url):

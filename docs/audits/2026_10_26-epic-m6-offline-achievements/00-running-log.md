@@ -76,3 +76,30 @@
 - **Retired (D-INFRA-022):** both disks, with their path, size and sha in `guest-cycle/retired.txt` (boot1 2,312,372,224 B `ddb5a7f6...`; boot2 2,310,471,680 B `e4731d56...`), removed with their firmware vars and the run's QA key.
 - **The RetroAchievements server** was reached by the QA account's sign-in, the scan and the top-up the plan named, and by `ra-offline-test`'s API read at its step 2. The owner's account was never named or used.
 - **The ctl on the host:** the ctl ran only on the guest (the tree's copy) and in the suite's `bwrap`.
+
+## [Stage C, the seats] 12:58 to 13:45 UTC — the packet, four keyed calls, 94 items graded, the pre-issue lint
+
+- **The runtime:** `npm install --offline` in `tools/council/` (`esbuild`'s install script left unapproved, as T18's); `COUNCIL_ENV_FILE=/nonexistent tools/council/run verify-pins`: `OK`.
+- **The packet** (`stage-c/packet.py`, T18's builder adapted): 340,476 bytes, 51 sections, trimmed from 407 KB and then 372 KB before any seat saw it (D-WORKFLOW-195). The three-way scan: 0 forbidden terms; 0 secret-pattern lines, proven on a fake; 0 review; 48 hits read at their lines and dispositioned by name.
+- **`review-plan.json`** was written at 13:01 UTC, before the first call.
+- **The four keyed calls, and no others** (`/workspace/tmp/m6-t19/keyed-calls.txt`; the refutations ran with `--max-retries 1 --per-attempt-timeout-ms 1800000 --total-timeout-ms 2400000`):
+  1. Astra's probe, 13:01:36 to 13:01:48 UTC.
+  2. Astra's refutation, 13:02:05 to 13:24:03 UTC: 55 items.
+  3. Argon's probe, 13:26:06 to 13:26:14 UTC.
+  4. Argon's refutation, 13:26:22 to 13:34:47 UTC: 39 items.
+  - Each took one attempt and ended `finish=stop`.
+- **The provenance, read directly** (`stage-c/provenance-read.txt`): all four `verification=PASS`, served model and provider the seat's, the output hashes matching, `facilitator_version council-facilitator@1.14.1-pixelelated.2`.
+- **The grades** (`stage-c/astra-grades.md`, `argon-grades.md`, the re-reads in `stage-c/rereads/`):
+  - Astra: 51 accepted, 1 in part, 3 plausible, 0 rejected.
+  - Argon: 35 accepted, 2 in part, 2 plausible, 0 rejected.
+- **The first reader's claims the seats refuted or narrowed**, each corrected in `02`, `03` and `04`, saying so:
+  - the loopback peer check missed (`proxy_service.py:290-292`, A-2), which narrows F-02;
+  - F-03 narrowed by A-6, then made plausible again by R-6;
+  - F-05's rule is the listing's (A-5);
+  - `TOPUP_TIMEOUT` is a soft deadline (A-18);
+  - `03`'s "undoes every step" (A-47).
+  - **One of Argon's claims refuted at its line:** `list_jobs` does close its `Storage` (ctl :1564).
+- **New findings:** F-26 to F-35 from Astra, F-36 to F-41 from Argon.
+- **`05`:** 23 items covering all 41 findings: eight `bug`s proposed, all Low (PL-01 to PL-08); fifteen Info.
+- **The lint:** `tools/lint-audit-artifacts docs/audits/2026_10_26-epic-m6-offline-achievements --phase pre-issue`: `PASS pre-issue artifacts (does not certify resolution)`.
+- **Nothing of the never-run list ran.** No keyed call beyond the four. No guest outside the window.
