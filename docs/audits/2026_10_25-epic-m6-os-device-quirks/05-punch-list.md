@@ -1,8 +1,8 @@
 # Punch list — M6.P2 T29, the per-handheld quirks (#676)
 
-**Independent depth** (one seat, GPT-6 Astra at `max`; `04` § Second opinion). The audit issue is opened at stage D, a sub-issue of #676.
+**Independent depth** (one seat, GPT-6 Astra at `max`; `04` § Second opinion). The audit issue is #1121 (a sub-issue of #676).
 - **Fourteen items:** 5 Low, 9 Info.
-- **One `bug` to file at stage D**, PL-01 (the coordinator's ruling). PL-02 is proposed for the same bug, and PL-03 is a candidate. Both are the coordinator's at the stage-D pause.
+- **One `bug` filed, #1120**, for PL-01 (the coordinator's ruling). PL-02 is filed in it as its own section, and the coordinator may split it out. PL-03 is a candidate. Both are the coordinator's at the stage-D pause.
 - **Nothing** in this list changes a file under `packages/`, `projects/` or `tools/` at stages A to D, and no item proposes a removal of an upstream-carried unit (D-WORKFLOW-209).
 - **Nothing ran on a unit, and no guest ran.**
 
@@ -24,6 +24,7 @@
 - **Can this be done on the VM?** Yes, on the host: `tools/t29-battery-unset.py --expect unfixed` meets its expectation on the file at `8ebaf8daad`, and a fixed file must pass `--expect fixed`. What the LEDs look like is device fact line 31.
 - **Already written:** nothing persisted. The helper reads `led.color` and writes only sysfs, never `set_setting`, so a Nova that booted with it unset has nothing of the helper's on `/storage` to migrate.
 - **Acceptance:** the bug's fixture case (`unset` unlit, `rgb` unlit, `battery` lit) passes on the fixed file and fails on the unfixed one
+- **Bug issue:** #1120
 - **Disposition note:** open
 
 ## PL-02: after a critical-battery blink, the Nova's LEDs stay off when the charge returns to the earlier bucket
@@ -43,6 +44,7 @@
 - **Can this be done on the VM?** Yes, on the host: the fixture's `critical-recovery` case reads `lit=no` unfixed and must read `lit=yes` fixed
 - **Already written:** nothing persisted (sysfs only)
 - **Acceptance:** the coordinator's disposition: the same `bug` as PL-01 with the `critical-recovery` case, or a bug of its own
+- **Bug issue:** #1120 (its own section and criterion)
 - **Disposition note:** open
 
 ## PL-03: the VM's take-back removes a listed file by name before its stamp exists (a candidate)
@@ -322,7 +324,7 @@ punch_index:
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | the bug filed at stage D |
+| PL-01 | Open | #1120, the bug filed at stage D |
 | PL-02 | Open | the coordinator's disposition at the stage-D pause |
 | PL-03 | Open | the coordinator's disposition at the stage-D pause |
 | PL-04 | Open | the coordinator's disposition at the stage-D pause |

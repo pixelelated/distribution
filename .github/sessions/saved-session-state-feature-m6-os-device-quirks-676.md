@@ -16,10 +16,10 @@
 
 ## Current focus
 
-**Stage C: the refutation is running** (started 2026-10-26 04:57:57 UTC).
-- **The packet:** `second-opinions/gpt-brief.md`, 53 sources, scanned 0 hits. **The probe:** PASS.
-- **The refutation:** a harness background task in this session. It writes `second-opinions/gpt-audit.md`, with its exit code in `/workspace/tmp/m6-t29/refutation.rc`. **If the session dies, read the rc file and the log; do not re-run the keyed call.**
-- **Next:** re-read and grade every seat item in `04` § Second opinion; `05`; the pre-issue lint; the stage-C checkpoint; then stage D.
+**Stage D: paused on #676 for the coordinator's dispositions.**
+- **Stage C** is done: the seat PASS, 40 items graded, `05` with 14 items, and the pre-issue lint PASS. **Both keyed calls are spent; there is no further keyed call in this slice.**
+- **Filed:** bug #1120 (F-01 and F-11, the Nova's battery helper) and audit #1121, a sub-issue of #676.
+- **Next, on the dispositions:** stage E's stream(s) per the coordinator's brief, test first with `t29-battery-unset.py --expect`; then F, G and H.
 
 ## Next commands
 
@@ -59,4 +59,7 @@ host's swap, another lane's worktree, or a guest.
 
 ## Checkpoints
 
-- (none yet; the executor appends one line per stage: the stage, the tip, the time)
+- Stage A: `e8dcd0ace5`, 2026-10-25 11:5x UTC.
+- Stage B: `c5e473d264`, 2026-10-26 04:5x UTC.
+- Stage C: `2831c85a8f`, 2026-10-26 05:21 UTC.
+- Stage D: this commit, 2026-10-26 05:25 UTC (#1120, #1121).

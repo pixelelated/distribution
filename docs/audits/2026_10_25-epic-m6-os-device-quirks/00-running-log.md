@@ -112,3 +112,12 @@
 - **Nothing of the never-run list ran.** Two keyed calls in all; no guest, build, fetch or M7 read. `git diff --stat 5ee0dfefcf HEAD -- packages projects tools` is still empty.
 - PROOF: P15, the seat's two calls: the two provenance files, `PASS`.
 - PROOF: P16, the seat's claims re-read and the two battery defects re-proven: `stage-c/rereads/` c01 to c09.
+- **Committed** at `2831c85a8f` (05:2x UTC) and pushed.
+
+## [Stage D] 2026-10-26 05:22 to 05:25 UTC — the bug, the audit issue, the pause
+
+- **#1120** (`bug`, M6): F-01 and F-11 in the Nova's `bin/battery_led_status`, each with its own section and criterion. It carries the code trace, `Already written:` (nothing persisted: the helper never calls `set_setting`) and the fixture as its VM line. D-UI-121 is cited.
+  - `tools/nova-led-test` was read before its criterion was written: `run('battery')` sets `led.color=battery` before the restart, so the fix leaves it passing.
+  - `box-check --issue 1120`: 3 open checkboxes, 0 fail.
+- **#1121** (`audit`, `punch-list`, M6), 14 items, attached as a sub-issue of #676. `box-check --issue 1121`: the first run failed PL-07, which named devices with no physical fact; the item was reworded by file, then 14 open, 0 fail.
+- **Paused** on #676 for the coordinator's dispositions (PL-02 to PL-14).
