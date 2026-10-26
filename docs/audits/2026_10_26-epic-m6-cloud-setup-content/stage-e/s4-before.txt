@@ -1,0 +1,18 @@
+$ t17-option-key-fixture.py --expect unfixed  (cloud_connections.py and cloud_remote = 8ebaf8daad's bytes: yes; rclone: the donor's 1.75.2; host Python 3.14.4; 07:52:52Z)
+sources: projects/ROCKNIX/packages/network/rclone/sources
+control: save() saved; rclone.conf holds the section; outside conf absent; flag.log absent; staging left []
+config: save() refused: The connection could not be verified. Your settings were not changed.; rclone.conf absent; outside conf holds the section; flag.log absent; staging left []
+dash-key:*** save() saved; rclone.conf holds the section; outside conf absent; flag.log exists; staging left []
+sigkill: staging seen before the kill: yes; left after SIGKILL: ['.connection-036jfpug']
+sweep: save() saved; left beside rclone.conf: ['.active-connection-old', '.connection-old', '.keep-me', '.rclone.conf-old']
+t17-option-key-fixture: unfixed-expectation-met
+exit 0
+$ t17-option-key-fixture.py --expect fixed  (cloud_connections.py and cloud_remote = 8ebaf8daad's bytes: yes; rclone: the donor's 1.75.2; host Python 3.14.4; 07:52:52Z)
+sources: projects/ROCKNIX/packages/network/rclone/sources
+control: save() saved; rclone.conf holds the section; outside conf absent; flag.log absent; staging left []
+config: save() refused: The connection could not be verified. Your settings were not changed.; rclone.conf absent; outside conf holds the section; flag.log absent; staging left []
+dash-key:*** save() saved; rclone.conf holds the section; outside conf absent; flag.log exists; staging left []
+sigkill: staging seen before the kill: yes; left after SIGKILL: ['.connection-80d8627k']
+sweep: save() saved; left beside rclone.conf: ['.active-connection-old', '.connection-old', '.keep-me', '.rclone.conf-old']
+t17-option-key-fixture: UNEXPECTED on fixed: config=(False, False, True, False), dash-key=*** True, False, True), sweep=(True, ['.active-connection-old', '.connection-old', '.rclone.conf-old'], True)
+exit 1

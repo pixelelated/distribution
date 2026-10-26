@@ -1,0 +1,74 @@
+$ t17-option-key-fixture.py --expect fixed  (the fixed cloud_connections.py; the donor's rclone 1.75.2; 07:53:25Z)
+sources: projects/ROCKNIX/packages/network/rclone/sources
+control: save() saved; rclone.conf holds the section; outside conf absent; flag.log absent; staging left []
+config: save() refused: A setting for this connection can't be used. Your settings were not changed.; rclone.conf absent; outside conf absent; flag.log absent; staging left []
+dash-key:*** save() refused: A setting for this connection can't be used. Your settings were not changed.; rclone.conf absent; outside conf absent; flag.log absent; staging left []
+sigkill: staging seen before the kill: yes; left after SIGKILL: ['.connection-xo1t17vh']
+sweep: save() saved; left beside rclone.conf: ['.keep-me']
+t17-option-key-fixture: fixed-expectation-met
+exit 0
+$ t17-option-key-fixture.py --expect unfixed --sources <8ebaf8daad's cloud_connections.py and cloud_remote, extracted to scratch>  (07:53:25Z)
+sources: /workspace/tmp/m6-t17/e/orig
+control: save() saved; rclone.conf holds the section; outside conf absent; flag.log absent; staging left []
+config: save() refused: The connection could not be verified. Your settings were not changed.; rclone.conf absent; outside conf holds the section; flag.log absent; staging left []
+dash-key:*** save() saved; rclone.conf holds the section; outside conf absent; flag.log exists; staging left []
+sigkill: staging seen before the kill: yes; left after SIGKILL: ['.connection-uaw4wloy']
+sweep: save() saved; left beside rclone.conf: ['.active-connection-old', '.connection-old', '.keep-me', '.rclone.conf-old']
+t17-option-key-fixture: unfixed-expectation-met
+exit 0
+$ PYTHONPYCACHEPREFIX=<scratch> python3 -m py_compile cloud_connections.py cloud_remote
+exit 0
+$ tools/cloud-connections-test  (regression; it hard-codes the host's rclone, rclone v1.60.1-DEV; 07:53:25Z)
+Ran 26 tests in 1.911s
+
+OK
+exit 0
+$ git diff 8ebaf8daad -- cloud_connections.py
+diff --git a/projects/ROCKNIX/packages/network/rclone/sources/cloud_connections.py b/projects/ROCKNIX/packages/network/rclone/sources/cloud_connections.py
+index 0cd27fa91d..73968382a7 100644
+--- a/projects/ROCKNIX/packages/network/rclone/sources/cloud_connections.py
++++ b/projects/ROCKNIX/packages/network/rclone/sources/cloud_connections.py
+@@ -13,6 +13,7 @@ import fcntl
+ import os
+ from pathlib import Path
+ import re
++import shutil
+ import subprocess
+ import tempfile
+ 
+@@ -137,10 +138,35 @@ def run(args):
+     return result.stdout
+ 
+ 
++# A setting's key is an rclone option name. Joined as key=*** into rclone's
++# arguments, a key shaped like a flag was a flag: --config=<path> wrote the new
++# connection, secret and all, to <path>, and --log-file= was honoured too
++# (#1131, T17's F-20, found by both seats). Option names are lowercase words.
++OPTION_KEY = re.compile(r'[a-z0-9_]+')
++
++
++def sweep_staging():
++    """An earlier save or remove killed before its cleanup (SIGKILL, power)
++    left its private copy, with the old or new credentials, beside rclone.conf,
++    and nothing removed it (#1131, T17's F-06). Called under the lock, which
++    every writer of these names holds, so none of them is in use."""
++    if not CONFIG.parent.is_dir():
++        return
++    prefixes = ('.' + CONFIG.name + '-', '.' + ACTIVE.name + '-')
++    for entry in CONFIG.parent.iterdir():
++        if entry.name.startswith('.connection-') and entry.is_dir() and not entry.is_symlink():
++            shutil.rmtree(entry, ignore_errors=True)
++        elif entry.name.startswith(prefixes) and (entry.is_file() or entry.is_symlink()):
++            entry.unlink(missing_ok=True)
++
++
+ def save(name, backend, settings, replace=False, publish=None, check_current=None):
+     if not name or name != name.strip() or any(c in name for c in ':[]\r\n\t') or name.startswith('-'):
+         raise Refused('Give the connection a name without colons or brackets.')
++    if any(not OPTION_KEY.fullmatch(key) for key, _ in settings):
++        raise Refused("A setting for this connection can't be used. Your settings were not changed.")
+     with locked():
++        sweep_staging()
+         existed = CONFIG.exists()
+         original, config = read_config()
+         exists = config.has_section(name)

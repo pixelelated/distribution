@@ -13,6 +13,7 @@ import fcntl
 import os
 from pathlib import Path
 import re
+import shutil
 import subprocess
 import tempfile
 
@@ -137,10 +138,35 @@ def run(args):
     return result.stdout
 
 
+# A setting's key is an rclone option name. Joined as key=value into rclone's
+# arguments, a key shaped like a flag was a flag: --config=<path> wrote the new
+# connection, secret and all, to <path>, and --log-file= was honoured too
+# (#1131, T17's F-20, found by both seats). Option names are lowercase words.
+OPTION_KEY = re.compile(r'[a-z0-9_]+')
+
+
+def sweep_staging():
+    """An earlier save or remove killed before its cleanup (SIGKILL, power)
+    left its private copy, with the old or new credentials, beside rclone.conf,
+    and nothing removed it (#1131, T17's F-06). Called under the lock, which
+    every writer of these names holds, so none of them is in use."""
+    if not CONFIG.parent.is_dir():
+        return
+    prefixes = ('.' + CONFIG.name + '-', '.' + ACTIVE.name + '-')
+    for entry in CONFIG.parent.iterdir():
+        if entry.name.startswith('.connection-') and entry.is_dir() and not entry.is_symlink():
+            shutil.rmtree(entry, ignore_errors=True)
+        elif entry.name.startswith(prefixes) and (entry.is_file() or entry.is_symlink()):
+            entry.unlink(missing_ok=True)
+
+
 def save(name, backend, settings, replace=False, publish=None, check_current=None):
     if not name or name != name.strip() or any(c in name for c in ':[]\r\n\t') or name.startswith('-'):
         raise Refused('Give the connection a name without colons or brackets.')
+    if any(not OPTION_KEY.fullmatch(key) for key, _ in settings):
+        raise Refused("A setting for this connection can't be used. Your settings were not changed.")
     with locked():
+        sweep_staging()
         existed = CONFIG.exists()
         original, config = read_config()
         exists = config.has_section(name)
