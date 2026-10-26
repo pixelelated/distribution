@@ -1,0 +1,15 @@
+# S1 (#1170), for the integration build's window (fix-walk-pending-image):
+# the silent lookups-alone run at startup, with the fixed hasher.
+# 1. On the guest: a game with a cheevosHash and no cheevosId in its gamelist
+#    (the QA homebrew ROM after one INDEX GAMES, its id removed by hand),
+#    CheevosCheckIndexesAtStart on, CheevosLookupOnlyLast emptied in
+#    es_settings.cfg; reboot.
+# 2. Read: `journalctl -b -u essway` shows no crash backtrace; es_log.txt
+#    carries the lookup's "id N for [gb] ..." line; the gamelist recovery file
+#    holds the id; CheevosLookupOnlyLast is now set.
+# 3. Press INDEX GAMES while the startup run is in flight: the "GAME HASHING IS
+#    RUNNING" dialog, YES; the run ends and the interface stays up.
+wake
+dismiss-dialogs
+settle
+shot carousel-after-startup-run

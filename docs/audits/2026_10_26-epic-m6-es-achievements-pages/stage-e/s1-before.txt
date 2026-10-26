@@ -1,0 +1,39 @@
+== S1 before (18:52:03Z): ThreadedHasher.cpp at the pin (16dbac5211; the file unchanged: yes)
+g++: g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+$ g++ -std=c++17 -pthread  -g -fno-omit-frame-pointer -fsanitize=address,undefined  -fsanitize=address,undefined -I /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/hasher-fakes -I /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/fakes -I /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/external <5 sources> -o hasher-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/main.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/HasherTests.cpp
+    /workspace/tmp/m6-t20/build/hasher-before/under-test/ThreadedHasher.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/src/CheevosIndex.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-core/src/utils/StringUtil.cpp
+built hasher-tests
+RUN hasher-tests: rc 1; 
+==2273959==ERROR: AddressSanitizer: heap-use-after-free on address 0x6ea3837e0164 at pc 0x571f02fefd36 bp 0x7fffe5411120 sp 0x7fffe5411110
+SUMMARY: AddressSanitizer: heap-use-after-free /workspace/tmp/m6-t20/build/hasher-before/under-test/ThreadedHasher.cpp:383 in ThreadedHasher::start(Window*, ThreadedHasher::HasherType, bool, bool, std::set<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >*)
+builder rc 1
+-- the sanitizer's report (first lines):
+==2273959==ERROR: AddressSanitizer: heap-use-after-free on address 0x6ea3837e0164 at pc 0x571f02fefd36 bp 0x7fffe5411120 sp 0x7fffe5411110
+    #0 0x571f02fefd35 in ThreadedHasher::start(Window*, ThreadedHasher::HasherType, bool, bool, std::set<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >*) /workspace/tmp/m6-t20/build/hasher-before/under-test/ThreadedHasher.cpp:383
+    #1 0x571f02fb1f84 in DOCTEST_ANON_FUNC_2 /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/HasherTests.cpp:161
+    #1 0x571f02fecf8a in ThreadedHasher::run() /workspace/tmp/m6-t20/build/hasher-before/under-test/ThreadedHasher.cpp:262
+    #2 0x571f03026eca in void std::__invoke_impl<void, void (ThreadedHasher::*)(), ThreadedHasher*>(std::__invoke_memfun_deref, void (ThreadedHasher::*&&)(), ThreadedHasher*&&) /usr/include/c++/15/bits/invoke.h:76
+    #3 0x571f03026bde in std::__invoke_result<void (ThreadedHasher::*)(), ThreadedHasher*>::type std::__invoke<void (ThreadedHasher::*)(), ThreadedHasher*>(void (ThreadedHasher::*&&)(), ThreadedHasher*&&) /usr/include/c++/15/bits/invoke.h:98
+    #4 0x571f03026909 in void std::thread::_Invoker<std::tuple<void (ThreadedHasher::*)(), ThreadedHasher*> >::_M_invoke<0ul, 1ul>(std::_Index_tuple<0ul, 1ul>) /usr/include/c++/15/bits/std_thread.h:303
+    #5 0x571f0302673b in std::thread::_Invoker<std::tuple<void (ThreadedHasher::*)(), ThreadedHasher*> >::operator()() /usr/include/c++/15/bits/std_thread.h:310
+    #6 0x571f0302651b in std::thread::_State_impl<std::thread::_Invoker<std::tuple<void (ThreadedHasher::*)(), ThreadedHasher*> > >::_M_run() /usr/include/c++/15/bits/std_thread.h:255
+    #1 0x571f02fef939 in ThreadedHasher::start(Window*, ThreadedHasher::HasherType, bool, bool, std::set<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >*) /workspace/tmp/m6-t20/build/hasher-before/under-test/ThreadedHasher.cpp:375
+    #2 0x571f02fb1f84 in DOCTEST_ANON_FUNC_2 /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/HasherTests.cpp:161
+    #2 0x571f02ffbcef in std::thread::thread<void (ThreadedHasher::*)(), ThreadedHasher*, void>(void (ThreadedHasher::*&&)(), ThreadedHasher*&&) /usr/include/c++/15/bits/std_thread.h:175
+    #3 0x571f02fe8b5b in ThreadedHasher::ThreadedHasher(Window*, ThreadedHasher::HasherType, std::queue<FileData*, std::deque<FileData*, std::allocator<FileData*> > >, std::vector<FileData*, std::allocator<FileData*> > const&, bool) /workspace/tmp/m6-t20/build/hasher-before/under-test/ThreadedHasher.cpp:139
+    #4 0x571f02fef9db in ThreadedHasher::start(Window*, ThreadedHasher::HasherType, bool, bool, std::set<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >*) /workspace/tmp/m6-t20/build/hasher-before/under-test/ThreadedHasher.cpp:375
+    #5 0x571f02fb1f84 in DOCTEST_ANON_FUNC_2 /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/HasherTests.cpp:161
+SUMMARY: AddressSanitizer: heap-use-after-free /workspace/tmp/m6-t20/build/hasher-before/under-test/ThreadedHasher.cpp:383 in ThreadedHasher::start(Window*, ThreadedHasher::HasherType, bool, bool, std::set<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >*)
+
+== S1 before, the other two cases (18:53:55Z): the pin's binary with the first case excluded
+rc 1
+[doctest] test cases: 2 | 2 passed | 0 failed | 1 skipped
+[doctest] assertions: 7 | 7 passed | 0 failed |
+==2285207==ERROR: LeakSanitizer: detected memory leaks
+Direct leak of 192 byte(s) in 24 object(s) allocated from:
+Direct leak of 96 byte(s) in 12 object(s) allocated from:
+SUMMARY: AddressSanitizer: 288 byte(s) leaked in 36 allocation(s).

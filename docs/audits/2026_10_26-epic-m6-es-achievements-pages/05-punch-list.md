@@ -428,7 +428,7 @@ Every item is open until the coordinator's stage-D ruling and stage F.
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
+| PL-01 | Resolved | Resolved in `698040b5c` (ES, S1) under #1170: one owner for the hasher's lifetime; `hasher-tests` heap-use-after-free before, 3 of 3 clean after (`stage-e/s1-*.txt`); the startup walk owed (`stage-e/walks/s1-startup-lookups.steps`) |
 | PL-02 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-03 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-04 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
@@ -463,7 +463,7 @@ punch_index:
   category: Correctness
   question: Q3
   source_finding: "L-21, L-22, L-26 (threads)"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-02
   severity: "Medium"
   category: Security

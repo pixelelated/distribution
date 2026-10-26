@@ -258,6 +258,14 @@ Each of the brief's § 5 commands at stage A. The output is in `stage-b/runs.out
 | L-20 | the startup hasher with the link cut | guest (`g05`) | `Game Hash failed : std::exception` | guest |
 | L-13 | the SCAN row with a one-id export | guest (`g06`, `w6`) | `NO GAMES TO SCAN YET`; with two ids, `2 GAMES READY` | guest |
 
+## The streams
+
+One row per stage-E stream (`docs/reviews/briefs/t20-streams.md` at `60c1dc2db3`), on the ES branch `feature/m6-es-achievements-pages-667` unless the row says otherwise. Each stream's checks are in `stage-e/sN-checks.txt` (`tools/t20-stream-checks.sh`): the four unit binaries, the app targets under the sanitizers, the non-ASCII comment grep, the host syntax check (`CANNOT` with the missing header), and `es-untranslated`.
+
+| Stream | Bug | Positive before | Commit | Positive after | Already written | proved: |
+| --- | --- | --- | --- | --- | --- | --- |
+| S1 | #1170 (PL-01, High) | `tests/app-unit/hasher-tests`, the shipped `ThreadedHasher.cpp` against doubles under ASan and UBSan: heap-use-after-free at `start()` (`:383`) on the short-queue schedule; 36 thread objects leaked by the other two cases (`stage-e/s1-before.txt`) | `698040b5c` | 3 of 3 cases, 0 sanitizer reports, no leak (`stage-e/s1-after.txt`); the silent startup run's walk `stage-e/walks/s1-startup-lookups.steps` | kept; the next run reconciles; nothing migrated | fix-unit-test; the startup run fix-walk-pending-image |
+
 ## Corrections and new leads from the seats
 
 The stage-B text above is left as it was read; each change here names the seat's item that made it, and was re-read at its lines (`stage-c/astra-grades.md`).

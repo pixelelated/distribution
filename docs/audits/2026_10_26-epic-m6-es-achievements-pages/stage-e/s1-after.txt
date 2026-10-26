@@ -1,0 +1,18 @@
+== S1 after (18:53:41Z): ThreadedHasher.{h,cpp} as changed on the ES branch's working tree
+g++: g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+$ g++ -std=c++17 -pthread  -g -fno-omit-frame-pointer -fsanitize=address,undefined  -fsanitize=address,undefined -I /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/hasher-fakes -I /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/fakes -I /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/external <5 sources> -o hasher-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/main.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/HasherTests.cpp
+    /workspace/tmp/m6-t20/build/hasher-after/under-test/ThreadedHasher.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/src/CheevosIndex.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-core/src/utils/StringUtil.cpp
+built hasher-tests
+RUN hasher-tests: rc 0; [doctest] test cases: 3 | 3 passed | 0 failed | 0 skipped [doctest] assertions: 12 | 12 passed | 0 failed | 
+builder rc 0
+-- the sanitizers (none expected):
+0
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+[doctest] test cases:  3 |  3 passed | 0 failed | 0 skipped
+[doctest] assertions: 12 | 12 passed | 0 failed |
+[doctest] Status: SUCCESS!
