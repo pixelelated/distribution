@@ -1,0 +1,6 @@
+== tools/t19-writers.py at 8ebaf8daad (12:33:34Z): rc 0, rows=77 expected=77 targets=24 rev=8ebaf8daad
+== the drift control: at 87d9969bbb (2026-09-19, the refresh helper's first revision; all five files present)
+rc 1; rows=49 expected=77 targets=24 rev=87d9969bbb DRIFT
+t19-writers: targets no hit uses: the ready-set file `$1` (`/tmp/raofflineproxy-ready.*`); `scan-cursor` (and `.next`, `.next.tmp`); `/tmp/raofflineproxy-ready.*`; `index-pending` (and `.tmp`, `.ack.$$`); `/var/run/raofflineproxy-index-pending.lock`; `image_cache/absent` (and `.tmp`)
+t19-writers: rows 49, expected 77
+== not controls: 7afa9efcfc and its parent, which change none of the 77 (rc 0); 4a0b094022, which lacks the refresh helper (rc 2, cannot run, not a pass)
