@@ -643,3 +643,96 @@ these of its sentences, and version 2 carries the corrections:
   five in-place writers meets 27 `writeAllText` sites, sixteen of them
   sysfs writes in `ApiSystem.cpp`, which the brief now carries as `sysfs`
   rows so the generated count does not read as drift.
+
+### T26 kickoff addendum (written with the brief's version 1, 2026-10-26)
+
+**The plan, in the order's words:** T26 is *EmulationStation's main menu
+(GuiMenu)*, lens new functionality and brittleness, Independent: *one
+file, 11,883 lines, the largest fork-own unit, where every fork page is
+reached from*. Two files, both in ROCKNIX's base and rewritten by the fork
+(5,124 insertions over 225 commits; 156 function definitions at the pin
+against 60). The brief is `docs/reviews/briefs/es-guimenu.md`; the closing
+evidence the order names is `tools/es-menu-map-check`.
+
+**Assumptions the plan leans on and does not state:**
+
+- *That the wizard's lifetimes are the risk.* They were (blindspot 4, the
+  2026-09-05 crash); at the pin every one of the sixteen transitions hands
+  the new page on, and nine Python harnesses compile the callbacks on the
+  host. The risk has moved to the reads and the threads: a cached `exists`
+  on the sign-in's QR path, a cache-backed `isRegularFile` under a comment
+  that says "uncached", and synchronous script starts on the interface
+  thread with no bound, several per page build.
+- *That a page saves what its rows change.* A page with only
+  `addInputTextConfigRow` rows never writes a file by itself
+  (`GuiSettings::save` returns with no save functions); six such pages
+  persist only through fork-added `onFinalize` saves.
+- *That a credential row guards its value.* Five do not: an untouched
+  editor under `system.security.enabled=1` returns empty and the empty
+  value deletes the line; only DEVICE PASSWORD guards.
+- *That a key a row writes is read by something.* Thirty-three are read
+  by nothing under `projects/ROCKNIX/packages`; `global.videofilters`
+  against the scripts' `videofilter`, `led.colour` against `led.color`.
+- *That a settings page changes nothing until the player does.* Three
+  pages write a store at open.
+- *That the map and the code agree.* The check passes (0 missing) while
+  D-UI-046's name and the map's `:405` heading differ, and 86 of the
+  map's row labels match no `_("")` literal -- prose or drift, to be read.
+- *That the taller pages are #540's.* The wizard's 0.75-height pages are
+  unpositioned and fit by arithmetic (0.15 + 0.75 = 0.90).
+- *That the host builds nothing of this file.* `g++ -fsyntax-only` cannot
+  (SDL), but the nine harnesses extract and compile its functions: the
+  host floor is real and every pure lead has a proof of choice.
+- *That the main menu's build is off the launch path.* START builds the
+  menu; a page close saves both stores before a launch; the synchronous
+  starts run when a page opens -- the retro's time-to-play line is
+  conditional on which page, named.
+
+**Known unknowns:** which of the 33 unread keys' rows are ever built on a
+ROCKNIX image (gated by `isScriptingSupported`, `#if BATOCERA`, a config
+file); what `setrootpass` does with an empty argument (T1's file);
+whether the `GetShOutput` byte drop ever reaches a `cloud_remote` error
+sentence in practice; whether `qrencode` is on the image; which of the
+map's 86 unmatched labels are prose; whether the two identical-looking Wi-Fi verdict composers (`:10084-10090`,
+`:8320-8332`) are meant to differ; how the fork's saved-networks design
+(D-UI-118) and upstream's `cada856d8` refactor of the same rows are to be
+reconciled at the next merge -- the integration's question, recorded by
+the lane in § The merge debt.
+
+**Patterns:** T18's shape (the same lane kind, the stage-D pause, `02`'s
+generated sections, the nine harnesses it assigned here); T21's rows
+rule (`addSwitch`'s bool; the stores' writers) now read from the rows'
+side; blindspot 23 (two consolidations in this file dropped properties
+only the removed copy had) -- the duplicates table records before any
+stream removes; blindspot 57 (a fix that covered fewer sites than its
+issue named: the three `setrootpass` callers, all quoted now); the
+replaced-mechanism archetype -- the wizard's folder step (D-CLOUD-170/171)
+against the retired migration (D-CLOUD-175/178/179): what the pin still
+builds there is Q2's.
+
+**What we could be missing (the simulation):** a lane that fixes the
+credential rows in `GuiSettings.cpp` -- another interface slice's file;
+the guard goes in this file's row callbacks or the ruling at the pause
+says which. A lane that reads `global.videofilters` as a typo and renames
+the key -- a device's `system.cfg` holds the old key: `Already written:`
+read both. A lane that treats the 33 unread keys as dead and removes rows
+-- D-WORKFLOW-209's shape: the table removes nothing. A lane that proves
+the QR-path lead on a device -- never; the guest with `/tmp` remounted. A
+lane that trims the packet by deleting upstream regions without saying so
+in the manifest -- the manifest names every trimmed region. A lane that
+rewrites `cloudSetupPresent` to position the 0.75 pages and moves the
+buttons off the 640x480 panel -- the frames at both sizes before and
+after, per locale. A lane that runs `git status` in `qa-integration` --
+another lane's tree. A lane that measures the main menu's build and
+reports "nothing" -- the number, with the page named.
+
+**Adjustments before execution:** carried into the brief: the nine
+harnesses as the host floor with their expected lines from the
+coordinator's own run; the credential rows and the six unsaved pages as
+Q2's leads with the file-ownership question named for the pause; the
+cached reads as Q4 with the constructed positive; the synchronous starts
+as Q3 with the time-to-play line; the unread keys as a table with a frame
+or `gated: never built` each; D-UI-046's drift as a checkbox; the menu
+map's update rule in the same commit as any row change. Owed before
+dispatch: the stranger's proof of version 1, version 2 with its
+corrections, this futro's errata section, the kit.
