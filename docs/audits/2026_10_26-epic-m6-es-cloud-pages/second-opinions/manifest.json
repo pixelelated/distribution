@@ -1,0 +1,1575 @@
+{
+ "schema": "t18-packet-manifest/1",
+ "pin": "16dbac5211eea7e70db7394372033be2be7df829",
+ "sources": [
+  {
+   "section": 0,
+   "title": "ask",
+   "path": "docs/audits/2026_10_26-epic-m6-es-cloud-pages/stage-c/ask.md",
+   "ref": "worktree",
+   "kind": "ask",
+   "sha256": "9da669ce5b9bee63ad702c8bb4ac307b4f38975e1e27b2be75a1d885b2cc6595",
+   "bytes": 5640
+  },
+  {
+   "section": 2,
+   "title": "The first reader's 02-forward-audit.md (whole)",
+   "path": "docs/audits/2026_10_26-epic-m6-es-cloud-pages/02-forward-audit.md",
+   "ref": "worktree",
+   "kind": "first reader",
+   "sha256": "294163cb62aaf219a8af6c4165c6b93a77808b73048e27bdd2af100f52d422d5",
+   "bytes": 62869,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 3,
+   "title": "The first reader's 03-retrospective.md (whole)",
+   "path": "docs/audits/2026_10_26-epic-m6-es-cloud-pages/03-retrospective.md",
+   "ref": "worktree",
+   "kind": "first reader",
+   "sha256": "03521406f6118d4f9e1cb06957bf9f62533841b17092e74ea7bd4bc7eb92e808",
+   "bytes": 9602,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 4,
+   "title": "The first reader's 04-analysis.md (whole)",
+   "path": "docs/audits/2026_10_26-epic-m6-es-cloud-pages/04-analysis.md",
+   "ref": "worktree",
+   "kind": "first reader",
+   "sha256": "43e7ffc10322ccdc9ec8c59af0c954f8873a42dc462315c6c0067423fd41521f",
+   "bytes": 21494,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 5,
+   "title": "Context 1: docs/reviews/order.md \u00a7 T18",
+   "path": "docs/reviews/order.md \u00a7 T18",
+   "ref": "2174265e9c",
+   "kind": "context",
+   "sha256": "d59bfa22a08b36ecc66d348cce1a72e9f5f88e341802ac05b8a560acfde7e323",
+   "bytes": 1304,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 6,
+   "title": "Context 2: the brief's \u00a7 4",
+   "path": "docs/reviews/briefs/es-cloud-pages.md \u00a7 4",
+   "ref": "99515f83ad",
+   "kind": "context",
+   "sha256": "e3d538ec0e9b9ec762f6b5ec065f8a42cf5549d1c1a2cd6f434013f0272a2a62",
+   "bytes": 6140,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 7,
+   "title": "Context 3: the register rows",
+   "path": "docs/decision-register.md rows D-UI-028, D-UI-030, D-UI-031, D-UI-035, D-UI-078, D-UI-117, D-CLOUD-077, D-CLOUD-109, D-CLOUD-119, D-CLOUD-129, D-CLOUD-130, D-CLOUD-175",
+   "ref": "worktree",
+   "kind": "context",
+   "sha256": "32e5c4e5e714a2c54052bbdcaee565e46f7313ae45b3a991f33d8c0fc31eb0ed",
+   "bytes": 12114,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 8,
+   "title": "es-app/src/CloudTransferJob.cpp @ 16dbac5211 (whole, 751 lines)",
+   "path": "es-app/src/CloudTransferJob.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "c0a06eb42c5ac58948ece3a23e57c28a00ff3f66e2a4fd0177b699feea7a4f86",
+   "bytes": 36241,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 9,
+   "title": "es-app/src/ThreadedCloudSync.cpp @ 16dbac5211 (whole, 949 lines)",
+   "path": "es-app/src/ThreadedCloudSync.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "98109b1aecb742916b67dd9e2e6db87e04f28b8e88c23e13c95d92a0553dd781",
+   "bytes": 49937,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 10,
+   "title": "es-app/src/guis/GuiCloudTransfer.cpp @ 16dbac5211 (whole, 1077 lines)",
+   "path": "es-app/src/guis/GuiCloudTransfer.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "2ab68b9b21aa431554c233996dcbdd75bd77e5773188e935100e2f66a960ee27",
+   "bytes": 57371,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 11,
+   "title": "es-app/src/CloudText.h @ 16dbac5211: lines 1-38 (excerpt of 589)",
+   "path": "es-app/src/CloudText.h:1-38",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d43f991eeb13d856fc5f5369e2fa26d7d6efc9654fec2475206b0ef09ce43689",
+   "bytes": 1918,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 12,
+   "title": "es-app/src/CloudText.h @ 16dbac5211: lines 70-118 (excerpt of 589)",
+   "path": "es-app/src/CloudText.h:70-118",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "82e873e975c9b6c5b4e3d84df4341a310b5cb4521024655106fc09c656787cb7",
+   "bytes": 2338,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 13,
+   "title": "es-app/src/CloudText.h @ 16dbac5211: lines 152-228 (excerpt of 589)",
+   "path": "es-app/src/CloudText.h:152-228",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "0ba98929129b06224258fd198bad4adc9cbeca009b0fae826d36bf833feb59f7",
+   "bytes": 4957,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 14,
+   "title": "es-app/src/CloudText.h @ 16dbac5211: lines 519-535 (excerpt of 589)",
+   "path": "es-app/src/CloudText.h:519-535",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "a9e9a0794fa5bf4f2c65d5e64780edfbe2557ff8bd3e84c60bfcab846c688f66",
+   "bytes": 1012,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 15,
+   "title": "es-app/src/CloudText.cpp @ 16dbac5211: lines 142-243 (excerpt of 1409)",
+   "path": "es-app/src/CloudText.cpp:142-243",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "93b7cbfa260165ec2b4b6c5930e83e398b29e5c266f2b640d5b47342d5dd9d3a",
+   "bytes": 4679,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 16,
+   "title": "es-app/src/CloudText.cpp @ 16dbac5211: lines 290-306 (excerpt of 1409)",
+   "path": "es-app/src/CloudText.cpp:290-306",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e34986cb12557ad33526c17fd0d61932b8de1fb2c641d3545841e5f74c02a769",
+   "bytes": 1159,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 17,
+   "title": "es-app/src/CloudText.cpp @ 16dbac5211: lines 397-493 (excerpt of 1409)",
+   "path": "es-app/src/CloudText.cpp:397-493",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "4f4da87d61c38153cb5cbb304a32187f90b5d20c4f3094c750f724a6405679e3",
+   "bytes": 6239,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 18,
+   "title": "es-app/src/CloudText.cpp @ 16dbac5211: lines 547-653 (excerpt of 1409)",
+   "path": "es-app/src/CloudText.cpp:547-653",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "75a647b03411c48868903b807d4aeb746b32ae482191359f228cb6ee4b49b260",
+   "bytes": 4778,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 19,
+   "title": "es-app/src/CloudText.cpp @ 16dbac5211: lines 797-888 (excerpt of 1409)",
+   "path": "es-app/src/CloudText.cpp:797-888",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e173e5488107d30fb460950963a488694b3691ead60bc5d840fc382b0638fc6f",
+   "bytes": 3434,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 20,
+   "title": "es-app/src/CloudText.cpp @ 16dbac5211: lines 1092-1116 (excerpt of 1409)",
+   "path": "es-app/src/CloudText.cpp:1092-1116",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "66053b256b75201b75d13f354a232bce215a10e9b6180daf78df62a3a0f19f38",
+   "bytes": 1175,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 21,
+   "title": "es-app/src/CloudText.cpp @ 16dbac5211: lines 1379-1395 (excerpt of 1409)",
+   "path": "es-app/src/CloudText.cpp:1379-1395",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "01c58d1f9287745af78df0a96cfe5b06d6d9681ecd1c12024e2742b93d51bc65",
+   "bytes": 783,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 22,
+   "title": "es-app/src/CloudTransferJob.h @ 16dbac5211: lines 9-68 (excerpt of 217)",
+   "path": "es-app/src/CloudTransferJob.h:9-68",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "82db8d6ec7c4974878d65606d4fd4bac2f234ba7e14f6c4f8e3f31e5bbdadd96",
+   "bytes": 3794,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 23,
+   "title": "es-app/src/CloudTransferJob.h @ 16dbac5211: lines 143-159 (excerpt of 217)",
+   "path": "es-app/src/CloudTransferJob.h:143-159",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "2fb19673d2c0d4b851b96dcbdf25aba4555fcbaf4d4438f0ea79d357130ee436",
+   "bytes": 1090,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 24,
+   "title": "es-app/src/CloudTransferJob.h @ 16dbac5211: lines 191-217 (excerpt of 217)",
+   "path": "es-app/src/CloudTransferJob.h:191-217",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "935727b44f8568c307b09c611f09a057f20f925eabf74862dd5e500da87788bd",
+   "bytes": 1293,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 25,
+   "title": "es-app/src/ThreadedCloudSync.h @ 16dbac5211: lines 6-28 (excerpt of 201)",
+   "path": "es-app/src/ThreadedCloudSync.h:6-28",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e9bc35299be60499d15b36a1db1096073a9b6b7b025a3bb7a62b66af42776d9e",
+   "bytes": 1151,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 26,
+   "title": "es-app/src/ThreadedCloudSync.h @ 16dbac5211: lines 52-143 (excerpt of 201)",
+   "path": "es-app/src/ThreadedCloudSync.h:52-143",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "7270e6b5319245269bc433bfeee425244df3a80e689076266303df3c55afe93b",
+   "bytes": 5917,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 27,
+   "title": "es-app/src/ThreadedCloudSync.h @ 16dbac5211: lines 182-201 (excerpt of 201)",
+   "path": "es-app/src/ThreadedCloudSync.h:182-201",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "1a62765eaa2b5e972df99a7242d619558e38d8bbe9154ea7e7d5f96c3a1e19ed",
+   "bytes": 1011,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 28,
+   "title": "es-app/src/guis/GuiCloudTransfer.h @ 16dbac5211: lines 6-53 (excerpt of 236)",
+   "path": "es-app/src/guis/GuiCloudTransfer.h:6-53",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "1a127a9bfea81b6a152cce05f0697f549dea226abcca078836f14ada702d3c56",
+   "bytes": 2963,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 29,
+   "title": "es-app/src/guis/GuiCloudTransfer.h @ 16dbac5211: lines 56-108 (excerpt of 236)",
+   "path": "es-app/src/guis/GuiCloudTransfer.h:56-108",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "a64d9784b7285f28302b189088f442817b86e0b5c9de2cb04247c274469dbe8c",
+   "bytes": 3646,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 30,
+   "title": "es-app/src/guis/GuiCloudTransfer.h @ 16dbac5211: lines 142-191 (excerpt of 236)",
+   "path": "es-app/src/guis/GuiCloudTransfer.h:142-191",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "ed6db0f705dda2ea0ff72d5493dade12838b5da2b59f214363b39f723195aa3d",
+   "bytes": 3312,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 31,
+   "title": "es-app/tests/unit/CloudTextTests.cpp @ 16dbac5211: lines 624-729 (excerpt of 1784)",
+   "path": "es-app/tests/unit/CloudTextTests.cpp:624-729",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e8a95aa7c8ab631c9dd22c4ad6c01699aa3a0140458c767599333452d2933613",
+   "bytes": 8909,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 32,
+   "title": "es-app/tests/unit/CloudTextTests.cpp @ 16dbac5211: lines 851-886 (excerpt of 1784)",
+   "path": "es-app/tests/unit/CloudTextTests.cpp:851-886",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "b5ff306244d86ffd13e9c3c5b8a67126e1ab8afed9656bd86ccf8f0232ac5104",
+   "bytes": 1544,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 33,
+   "title": "es-app/tests/unit/CloudTextTests.cpp @ 16dbac5211: lines 899-945 (excerpt of 1784)",
+   "path": "es-app/tests/unit/CloudTextTests.cpp:899-945",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "cb714ead259cc9979cdde3bfdb4b23b61ff865f21f1e30d81892e4768121f671",
+   "bytes": 2151,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 34,
+   "title": "es-app/src/FileData.cpp @ 16dbac5211: lines 977-1038 (excerpt of 2680)",
+   "path": "es-app/src/FileData.cpp:977-1038",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "151c53b943e7f2bbc41742185788898c24ed8728905fffcd7d96dc3569244dad",
+   "bytes": 3573,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 35,
+   "title": "es-app/src/guis/GuiMenu.cpp @ 16dbac5211: lines 4998-5014 (excerpt of 11747)",
+   "path": "es-app/src/guis/GuiMenu.cpp:4998-5014",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "2ce1ee9df4256b7f6dad1ebe231b617071d4d1a6f80ea9eea083ff46035e8afe",
+   "bytes": 1019,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 36,
+   "title": "es-app/src/guis/GuiMenu.cpp @ 16dbac5211: lines 5030-5108 (excerpt of 11747)",
+   "path": "es-app/src/guis/GuiMenu.cpp:5030-5108",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "7d52ffe4acd54712a1a9b2f6b18d91835dc0e15bb3d59277ce08e7eaca79347b",
+   "bytes": 5041,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 37,
+   "title": "es-app/src/guis/GuiMenu.cpp @ 16dbac5211: lines 5117-5133 (excerpt of 11747)",
+   "path": "es-app/src/guis/GuiMenu.cpp:5117-5133",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "89d008f1f02195b0463b563cade24982c1bed7838fae37c39636759f328f2b18",
+   "bytes": 1283,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 38,
+   "title": "es-app/src/guis/GuiMenu.cpp @ 16dbac5211: lines 6132-6149 (excerpt of 11747)",
+   "path": "es-app/src/guis/GuiMenu.cpp:6132-6149",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "6873bbc7ef2e7b281feafb8c2f2ffc87e451e083f2fc3999789e5f990520ec77",
+   "bytes": 1567,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  }
+ ],
+ "scan": {
+  "forbidden": [],
+  "secret_patterns": [],
+  "mask": [],
+  "words": [
+   {
+    "section": 2,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 33,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 44,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 44,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 48,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 50,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 51,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 87,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 88,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 163,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 195,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 198,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 225,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 226,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 227,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 228,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 229,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 272,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 276,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 276,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 280,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 280,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 280,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 295,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 316,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 318,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 318,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 334,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 335,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 338,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 339,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 354,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 354,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 357,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 366,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 366,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 383,
+    "word": "pass",
+    "class": "dispositioned",
+    "disposition": "prose: T2's report quoted, `Not a pass: the exit sync had no cloud to reach`"
+   },
+   {
+    "section": 2,
+    "line": 386,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 408,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 414,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 429,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 430,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 437,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 440,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 441,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 446,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 448,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 452,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 452,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 453,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 454,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 455,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 456,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 18,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 67,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 93,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 93,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 93,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 14,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 48,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 51,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 58,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 71,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 82,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 104,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 126,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 127,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 143,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 147,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 180,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 192,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 193,
+    "word": "pin",
+    "class": "placeholder"
+   },
+   {
+    "section": 4,
+    "line": 193,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 203,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 217,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 221,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 232,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 9,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 5,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 42,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 50,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 52,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 60,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 62,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 1,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 1,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 3,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 5,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 5,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 7,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 11,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 11,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 13,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 13,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 15,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 21,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 23,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 229,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 236,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 383,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 706,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 708,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 709,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 738,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 740,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 102,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 103,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 119,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 121,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 121,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 123,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: whyForToken compares a stamp's outcome token with a word (`token == \"folder-missing\"`)"
+   },
+   {
+    "section": 9,
+    "line": 124,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: whyForToken compares a stamp's outcome token with a word"
+   },
+   {
+    "section": 9,
+    "line": 125,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: whyForToken compares a stamp's outcome token with a word"
+   },
+   {
+    "section": 9,
+    "line": 126,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: whyForToken compares a stamp's outcome token with a word"
+   },
+   {
+    "section": 9,
+    "line": 127,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: whyForToken compares a stamp's outcome token with a word"
+   },
+   {
+    "section": 9,
+    "line": 147,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 237,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 479,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 504,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 513,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 517,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 9,
+    "line": 522,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 9,
+    "line": 527,
+    "word": "token",
+    "class": "expression"
+   },
+   {
+    "section": 9,
+    "line": 532,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 9,
+    "line": 537,
+    "word": "token",
+    "class": "expression"
+   },
+   {
+    "section": 9,
+    "line": 542,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 9,
+    "line": 547,
+    "word": "token",
+    "class": "expression"
+   },
+   {
+    "section": 9,
+    "line": 552,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 9,
+    "line": 552,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 566,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 570,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 582,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 867,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 870,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 873,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 882,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 889,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 910,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 914,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 915,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 920,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 924,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 925,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 930,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 945,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 571,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 708,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 843,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 1072,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 10,
+    "line": 1073,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 35,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 12,
+    "line": 35,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 12,
+    "line": 39,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: `bool knownToken = false;`, a member's initial value"
+   },
+   {
+    "section": 12,
+    "line": 39,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 12,
+    "line": 42,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 12,
+    "line": 44,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 12,
+    "line": 44,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 12,
+    "line": 46,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 13,
+    "line": 1,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 13,
+    "line": 8,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 13,
+    "line": 29,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 15,
+    "line": 9,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 15,
+    "line": 9,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 15,
+    "line": 11,
+    "word": "token",
+    "class": "expression"
+   },
+   {
+    "section": 15,
+    "line": 14,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 15,
+    "line": 14,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 15,
+    "line": 14,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 15,
+    "line": 71,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 15,
+    "line": 75,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 15,
+    "line": 101,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 16,
+    "line": 2,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 16,
+    "line": 3,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 17,
+    "line": 60,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 20,
+    "line": 21,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 24,
+    "line": 4,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 24,
+    "line": 5,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 24,
+    "line": 6,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 22,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 45,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 46,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 52,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 55,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 59,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 65,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 70,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 71,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 71,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 75,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 75,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 79,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 80,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 25,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 36,
+    "line": 19,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 36,
+    "line": 20,
+    "word": "pass",
+    "class": "word"
+   }
+  ]
+ },
+ "summary": {
+  "forbidden_terms_check": "0 section(s) with hits of 37; proven to run on a clean line",
+  "secret_patterns": "0 line(s); proven to fire on a run-time fake line",
+  "mask": "0 line(s) masked; classes []",
+  "words": "194 credential-word hit(s); classes {\"dispositioned\": 7, \"expression\": 4, \"identifier-or-word\": 6, \"placeholder\": 1, \"word\": 176}",
+  "review": 0
+ },
+ "packet": {
+  "file": "packet.md",
+  "bytes": 347592,
+  "sha256": "e92cc4dc234409ac4efb375f318e7e15acbb6e8a30784c67c20cb13c640a246e"
+ }
+}

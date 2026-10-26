@@ -117,6 +117,7 @@ DISPOSITIONS = {
     ("es-app/src/ThreadedCloudSync.cpp", 126): "code: whyForToken compares a stamp's outcome token with a word",
     ("es-app/src/ThreadedCloudSync.cpp", 127): "code: whyForToken compares a stamp's outcome token with a word",
     ("es-app/src/CloudText.h", 108): "code: `bool knownToken = false;`, a member's initial value",
+    ("docs/audits/2026_10_26-epic-m6-es-cloud-pages/02-forward-audit.md", 383): "prose: T2's report quoted, `Not a pass: the exit sync had no cloud to reach`",
 }
 
 

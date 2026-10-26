@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "depth": "extended",
+  "scope": "epic",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "anthropic/claude-opus-5-5",
+    "lab": "anthropic",
+    "identity_source": "the coordinator's T18 dispatch on #665 (to the T5 session, m6-t5-build-engine) and the session's own model metadata (claude-opus-5-5)"
+  },
+  "reviewers": [
+    {
+      "member": "gpt",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "max",
+      "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
+      "allow_fallbacks": false,
+      "probes": [
+        {
+          "phase": "probe",
+          "prompt": "probe-prompt.md",
+          "output": "astra-probe.md"
+        }
+      ],
+      "calls": [
+        {
+          "phase": "refutation",
+          "prompt": "astra-brief.md",
+          "output": "astra-audit.md"
+        }
+      ],
+      "status": "planned"
+    },
+    {
+      "member": "gemini-argon",
+      "model": "google/gemini-4-argon",
+      "lab": "google",
+      "effort": "high",
+      "provider": "openrouter (the installed recipe)",
+      "probes": [
+        {
+          "phase": "probe",
+          "prompt": "probe-prompt.md",
+          "output": "argon-probe.md"
+        }
+      ],
+      "calls": [
+        {
+          "phase": "refutation",
+          "prompt": "argon-brief.md",
+          "output": "argon-audit.md"
+        }
+      ],
+      "status": "planned"
+    }
+  ],
+  "keyed_calls": "exactly four: Astra's probe and refutation, then Argon's probe and refutation; every other tools/council/run call with COUNCIL_ENV_FILE=/nonexistent",
+  "invoke_options": "--max-retries 1 --per-attempt-timeout-ms 1800000 --total-timeout-ms 2400000 (the default 360000 per attempt is shorter than T17's 19-minute Astra refutation)",
+  "packet": {
+    "file": "packet.md",
+    "bytes": 347592,
+    "sha256": "e92cc4dc234409ac4efb375f318e7e15acbb6e8a30784c67c20cb13c640a246e",
+    "manifest": "manifest.json",
+    "builder": "../stage-c/packet.py",
+    "content": "the ask; 02, 03 and 04 whole; three context sections (order \u00a7 T18, the brief's \u00a7 4, twelve register rows); CloudTransferJob.cpp, ThreadedCloudSync.cpp and GuiCloudTransfer.cpp whole and line-numbered; their three headers, CloudText.h, CloudText.cpp, CloudTextTests.cpp and the callers FileData.cpp and GuiMenu.cpp as line-numbered excerpts of every cited line with 8 lines of context",
+    "trim": "D-WORKFLOW-195: 364 KB at the first build, 337 KB with the headers as excerpts and the rows narrowed, 348 KB with the window's results in 02; the page as an excerpt saved 11 KB and was not taken",
+    "scan": "forbidden-terms-check --stdin 0 hits in 37 sections; SECRET_PATTERNS 0 lines, proven to fire on a run-time fake line; 0 lines masked; 194 credential-word hits, each classed, 7 read by shape and dispositioned by name in packet.py; 0 values",
+    "per_seat": "astra-brief.md is packet.md with {PREFIX} as A; argon-brief.md is packet.md with {PREFIX} as R and the lane's grades of Astra appended",
+    "astra_brief_sha256": "35162b44ace092452996e83a3a9ff0737d0693bb582b1d9c5d452722cf0b3ca7"
+  },
+  "written_before_first_call": "2026-10-26T10:26Z"
+}
