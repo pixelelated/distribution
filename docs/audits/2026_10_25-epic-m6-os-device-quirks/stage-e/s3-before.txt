@@ -1,0 +1,22 @@
+run: 2026-10-26T05:57:50Z
+tree: c316d43a5b; the rehearsal at that commit, unchanged since 8ebaf8daad: same
+$ t29-rehearsal-seed.py --rev HEAD --expect new
+rehearsal: HEAD; 091: working tree
+shell: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox sh; sha256 79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346
+seed tmpfiles.d/20-x64-fd-improvements.conf: sha256 c6f7ebe151893edcaddbadec43a868c6554ab4466af5f7f7831657c5b21c0e8d NOT in WRITTEN
+seed sysctl.d/10-generic-x64.conf: sha256 c6f7ebe151893edcaddbadec43a868c6554ab4466af5f7f7831657c5b21c0e8d NOT in WRITTEN
+seed modules-load.d/x64-virtual-modules.conf: sha256 c6f7ebe151893edcaddbadec43a868c6554ab4466af5f7f7831657c5b21c0e8d NOT in WRITTEN
+seed profile.d/091-generic-x64-services: sha256 c6f7ebe151893edcaddbadec43a868c6554ab4466af5f7f7831657c5b21c0e8d NOT in WRITTEN
+fixed 091 over the seed: rc=0 the four kept=4 removed=0 fifth=none seeded
+t29-rehearsal-seed: UNEXPECTED on new: got (0, 4, None) want (4, 0, True)
+exit 1
+$ t29-rehearsal-seed.py --rev HEAD --expect old
+rehearsal: HEAD; 091: working tree
+shell: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox sh; sha256 79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346
+seed tmpfiles.d/20-x64-fd-improvements.conf: sha256 c6f7ebe151893edcaddbadec43a868c6554ab4466af5f7f7831657c5b21c0e8d NOT in WRITTEN
+seed sysctl.d/10-generic-x64.conf: sha256 c6f7ebe151893edcaddbadec43a868c6554ab4466af5f7f7831657c5b21c0e8d NOT in WRITTEN
+seed modules-load.d/x64-virtual-modules.conf: sha256 c6f7ebe151893edcaddbadec43a868c6554ab4466af5f7f7831657c5b21c0e8d NOT in WRITTEN
+seed profile.d/091-generic-x64-services: sha256 c6f7ebe151893edcaddbadec43a868c6554ab4466af5f7f7831657c5b21c0e8d NOT in WRITTEN
+fixed 091 over the seed: rc=0 the four kept=4 removed=0 fifth=none seeded
+t29-rehearsal-seed: old-expectation-met
+exit 0

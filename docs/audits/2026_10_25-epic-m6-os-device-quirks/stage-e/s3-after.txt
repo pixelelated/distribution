@@ -1,0 +1,159 @@
+run: 2026-10-26T05:58:06Z
+tree: c316d43a5b plus S3's uncommitted rehearsal change below
+$ t29-rehearsal-seed.py --expect new   (the working tree's rehearsal)
+rehearsal: working tree; 091: working tree
+shell: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox sh; sha256 79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346
+seed tmpfiles.d/20-x64-fd-improvements.conf: sha256 96ab18a16991032a444fea138361bc36d71ec562f3857e7cdc7107a832e2451e in WRITTEN
+seed sysctl.d/10-generic-x64.conf: sha256 417118a7c1716634f9403959f7c989b7f5e944692c2d08f8d80ffa379899d00a in WRITTEN
+seed modules-load.d/x64-virtual-modules.conf: sha256 15d6d1aec8bdf77dc37d6af0a2ce536e92ee2971d4eba8c45beae6631eff4741 in WRITTEN
+seed profile.d/091-generic-x64-services: sha256 24846d015f9bfc222814d4b9a2c29e449c0aff199f5f2e3a5aebd1614f70f4d9 in WRITTEN
+fixed 091 over the seed: rc=0 the four kept=0 removed=4 fifth=kept
+t29-rehearsal-seed: new-expectation-met
+exit 0
+$ t29-rehearsal-seed.py --expect old   (the working tree's rehearsal)
+rehearsal: working tree; 091: working tree
+shell: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox sh; sha256 79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346
+seed tmpfiles.d/20-x64-fd-improvements.conf: sha256 96ab18a16991032a444fea138361bc36d71ec562f3857e7cdc7107a832e2451e in WRITTEN
+seed sysctl.d/10-generic-x64.conf: sha256 417118a7c1716634f9403959f7c989b7f5e944692c2d08f8d80ffa379899d00a in WRITTEN
+seed modules-load.d/x64-virtual-modules.conf: sha256 15d6d1aec8bdf77dc37d6af0a2ce536e92ee2971d4eba8c45beae6631eff4741 in WRITTEN
+seed profile.d/091-generic-x64-services: sha256 24846d015f9bfc222814d4b9a2c29e449c0aff199f5f2e3a5aebd1614f70f4d9 in WRITTEN
+fixed 091 over the seed: rc=0 the four kept=0 removed=4 fifth=kept
+t29-rehearsal-seed: UNEXPECTED on old: got (4, 0, True) want (0, 4, None)
+exit 1
+$ the rehearsal's own seed check (its lines from retired_body() to the WRITTEN check), on the host, against the tree's 091
+PASS the four seed bodies are what an old quirk wrote: each sha256 is in 091's WRITTEN (#1125)
+exit 0
+$ the same, against a copy of 091 with sysctl.d/10-generic-x64.conf's hash altered (the guard must fire)
+FAIL the four seed bodies are what an old quirk wrote: each sha256 is in 091's WRITTEN (#1125): got '3' want '4'
+exit 1
+$ bash -n tools/vm-upgrade-rehearsal
+exit 0
+$ git diff 8ebaf8daad -- tools/vm-upgrade-rehearsal
+diff --git a/tools/vm-upgrade-rehearsal b/tools/vm-upgrade-rehearsal
+index ebee17ad19..c7a51b336e 100755
+--- a/tools/vm-upgrade-rehearsal
++++ b/tools/vm-upgrade-rehearsal
+@@ -100,19 +100,104 @@ say "seed what the retired GENERIC_X64 quirks left in /storage (#307 PL-019)"
+ # Until 2026-09 the QEMU quirks 091-101 wrote these through the image's links
+ # into /storage, and 097-disable-rescue-completely masked emergency.target
+ # into /storage/.config/system.d; a guest that ran them keeps them across an
+-# update. The new image's 091-retired-vm-fixes and 097-retired-rescue-masks
+-# take them back by name until their stamps under /storage/.cache are
+-# written; after that, only a file with an old quirk's own bytes (a
+-# downgrade and back, which tools/last-good-scripts-test's F1r-b runs).
+-# The fixture writes them itself, and removes those stamps, so the check does
+-# not depend on which quirks the previous image carried -- a guest that ran
+-# the old quirks has no stamp -- and beside them a file of the owner's own,
+-# which must stay.
+-RETIRED=".config/tmpfiles.d/20-x64-fd-improvements.conf .config/sysctl.d/10-generic-x64.conf .config/modules-load.d/x64-virtual-modules.conf .config/profile.d/091-generic-x64-services"
+-ssha "cd /storage && rm -f .cache/retired-vm-fixes .cache/retired-rescue-masks && for f in $RETIRED; do mkdir -p \$(dirname \$f); echo '# seeded by vm-upgrade-rehearsal (#307 PL-019)' > \$f; done
++# update. The new image's 091-retired-vm-fixes takes back a file at one of
++# its names only when its bytes are exactly what an old quirk wrote there
++# (#1124), and 097-retired-rescue-masks the masks, until their stamps under
++# /storage/.cache are written; after that, a file with an old quirk's own
++# bytes again (a downgrade and back, which tools/last-good-scripts-test's
++# F1r-b runs). The fixture writes them itself, with those bytes, and removes
++# those stamps, so the check does not depend on which quirks the previous
++# image carried -- a guest that ran the old quirks has no stamp. Beside them:
++# a fifth of 091's names holding the owner's own bytes, and a file of the
++# owner's under a name no old quirk wrote; both must stay (#1125).
++#
++# The bytes, from the retired quirks at 73b20caf86 (8bb74015e6 wrote the
++# same four): 098-dbus-fd-improvements:106-118,
++# 095-kernel-early-boot-fixes:48-53, 101-virtualization-fixes:256-273 and
++# 091-systemd-fixes:98-106. Each is checked against the tree's 091 WRITTEN
++# table before it is seeded, so a change to the table fails the seed, not
++# the check after the update.
++retired_body() {
++  case $1 in
++    tmpfiles.d/20-x64-fd-improvements.conf) cat <<'EOF'
++# Enhanced directory setup for fd management
++d /var/log/journal 0755 root systemd-journal - -
++d /run/log/journal 0755 root systemd-journal - -
++d /run/dbus 0755 messagebus messagebus - -
++d /run/systemd/ask-password 0755 root root - -
++d /run/systemd/seats 0755 root root - -
++d /run/systemd/sessions 0755 root root - -
++d /run/systemd/users 0755 root root - -
++d /run/systemd/inhibit 0755 root root - -
++d /run/systemd/shutdown 0755 root root - -
++
++# Socket files with proper permissions
++f /run/dbus/system_bus_socket 0666 messagebus messagebus - -
++EOF
++      ;;
++    sysctl.d/10-generic-x64.conf) cat <<'EOF'
++# GENERIC_X64 system tuning
++vm.swappiness=10
++vm.dirty_ratio=15
++vm.dirty_background_ratio=5
++kernel.pid_max=32768
++fs.file-max=65536
++EOF
++      ;;
++    modules-load.d/x64-virtual-modules.conf) cat <<'EOF'
++# Virtual environment modules for x64 systems
++
++# NBD (Network Block Device) support
++nbd
++
++# VirtIO modules for QEMU/KVM
++virtio
++virtio_pci
++virtio_blk
++virtio_net
++virtio_scsi
++virtio_console
++virtio_balloon
++
++# Virtual graphics
++virtio_gpu
++qxl
++bochs_drm
++EOF
++      ;;
++    profile.d/091-generic-x64-services) cat <<'EOF'
++# GENERIC_X64 service configuration
++# Ensure proper service startup order for desktop environment
++
++# Desktop environment needs D-Bus early
++SYSTEM_SERVICE_DEPS="dbus.service"
++
++# UI service dependency order
++UI_SERVICE_AFTER="dbus.service systemd-logind.service"
++UI_SERVICE_WANTS="dbus.service"
++EOF
++      ;;
++  esac
++}
++TAKEBACK="projects/ROCKNIX/packages/hardware/quirks/devices/QEMU Standard PC (Q35 + ICH9, 2009)/091-retired-vm-fixes"
++RETIRED_NAMES="tmpfiles.d/20-x64-fd-improvements.conf sysctl.d/10-generic-x64.conf modules-load.d/x64-virtual-modules.conf profile.d/091-generic-x64-services"
++RETIRED=$(for n in $RETIRED_NAMES; do printf '.config/%s ' "$n"; done)
++OWNED=.config/udev.rules.d/90-x64-virtual-devices.conf   # one of 091's names, the owner's bytes
++OWNED_BYTES="# the owner's own udev rules (vm-upgrade-rehearsal, #1125)"
++SEEDSUMS=""; INTABLE=0
++for n in $RETIRED_NAMES; do
++  h=$(retired_body "$n" | sha256sum | cut -c1-64)
++  SEEDSUMS="${SEEDSUMS}${h}  .config/${n} "
++  sed -n '/^WRITTEN="/,/"$/{s/^WRITTEN="//;s/"$//;p}' "$TAKEBACK" | grep -qxF "$n $h" && INTABLE=$((INTABLE + 1))
++done
++check "the four seed bodies are what an old quirk wrote: each sha256 is in 091's WRITTEN (#1125)" "$INTABLE" "4"
++ssha "cd /storage && rm -f .cache/retired-vm-fixes .cache/retired-rescue-masks && for f in $RETIRED $OWNED; do mkdir -p \$(dirname \$f); done" >>"$LOG" 2>&1
++for n in $RETIRED_NAMES; do retired_body "$n" | ssha "cat > /storage/.config/$n" >>"$LOG" 2>&1; done
++ssha "cd /storage && printf '%s\n' \"$OWNED_BYTES\" > $OWNED
+ mkdir -p .config/system.d && ln -sfn /dev/null .config/system.d/emergency.target
+ echo '# the owner'\''s own (vm-upgrade-rehearsal)' > .config/tmpfiles.d/50-rehearsal-owner.conf; sync" >>"$LOG" 2>&1
+-check "retired quirk files seeded before the update" "$(ssha "cd /storage && ls $RETIRED .config/tmpfiles.d/50-rehearsal-owner.conf 2>/dev/null | wc -l; readlink .config/system.d/emergency.target" | tr '\n' ' ')" "5 /dev/null "
++check "retired quirk files seeded before the update, with the old quirks' bytes" "$(ssha "cd /storage && sha256sum $RETIRED" | tr '\n' ' ')" "$SEEDSUMS"
++check "and the owner's files and the mask seeded beside them" "$(ssha "cd /storage && ls $OWNED .config/tmpfiles.d/50-rehearsal-owner.conf 2>/dev/null | wc -l; readlink .config/system.d/emergency.target" | tr '\n' ' ')" "2 /dev/null "
+ 
+ say "seed a RetroArch cfg an owner changed, on a vulkan-era cfg (#307 PL-034, #308 claude F-VM-11)"
+ # The fullscreen size set by hand must survive the update and the new
+@@ -155,6 +240,7 @@ check "backup archive kept" "$(ssha 'ls /storage/roms/backup/ 2>/dev/null | wc -
+ check "update queue empty" "$(ssha 'ls /storage/.update | wc -l')" "0"
+ check "retired quirk files taken back after the update (#307 PL-019)" "$(ssha "cd /storage && ls $RETIRED 2>/dev/null | wc -l; [ -L .config/system.d/emergency.target ] && echo masked || echo unmasked" | tr '\n' ' ')" "0 unmasked "
+ check "and the owner's file beside them kept" "$(ssha 'cat /storage/.config/tmpfiles.d/50-rehearsal-owner.conf')" "# the owner's own (vm-upgrade-rehearsal)"
++check "and the owner's bytes under one of 091's names kept (#1124, #1125)" "$(ssha "cat /storage/$OWNED")" "$OWNED_BYTES"
+ check "RetroArch fullscreen size set by hand kept, driver moved to gl (#307 PL-034, #308 claude F-VM-11)" "$(ssha "grep -E '^(video_fullscreen_x|video_fullscreen_y|video_driver) = ' $RACFG | sort | tr '\n' ' '")" 'video_driver = "gl" video_fullscreen_x = "1024" video_fullscreen_y = "768" '
+ # --- release checks: assertions about one release's defects, not about the
+ # upgrade path. Each names its issue; drop it when the issue's cause is gone
