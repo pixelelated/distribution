@@ -137,6 +137,8 @@ today:** `.githooks/pre-commit` refuses a conflict marker (#696).
 
 **06:1x-06:44 UTC (2026-10-26):** T17's stage A (`64ff2f519f`) and stage B (`59b0cb19db`) accepted on #664: three candidate bugs (F-01 the PIN spent by favicon requests; **F-02 `RCLONE_NET_OPTS` reaching the deleting sync unfiltered -- the twins' strip missing from the content restore**; F-03 unchecked explicit names in the content backup), F-04 refuted; Backlog **#1127** under #1047 for the two tool drifts; errata in `$S/t17-errata.md`. **The window plan is in scope**; its START waits for M7's guest RETURN only (the queue restated on the host file: M7, then T17, then T16's re-grant when the T1 session can run). The lane is in stage C (two seats); at its stage-D pause rule the bugs (F-02's severity against the seats), write `t17-streams.md` if streams follow. Still the owner's: the T16 stop (#1118), the T1/T3 accounts.
 
+**07:3x-07:39 UTC (2026-10-26):** T17 at its stage-D pause (`3a7fdb0ec2`; four seat calls PASS; 22 items) **ruled**: six bugs (PL-01+14, PL-02 Medium, PL-03 Medium, PL-04+08, PL-06's `--set-systems`, PL-05's sentence), six streams under `docs/reviews/briefs/t17-streams.md` at `f59f7cbbc1`; **D-CLOUD-185** (the rclone option allowlist, every reader; the seam posted on #663 for T16's twins); #664's checkbox 3 reworded (direct provenance read). The lane files the bugs and the audit issue, runs S1 to S6, hands back. At acceptance: `AUDIT_ISSUE=<n> BUGS="<six>" DISPATCH_TIP=f3803436b8 $S/t17-accept.sh <merged tip> <co tip>`; the errata in `$S/t17-errata.md` (add: the checkbox-3 reader, the window sequencing); PL-21's line to #909 and PL-05's pair to #665 (posted now). The window: M7's guest RETURN first.
+
 ## Next commands
 
 ```bash
