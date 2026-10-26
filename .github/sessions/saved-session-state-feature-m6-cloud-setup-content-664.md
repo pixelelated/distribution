@@ -16,20 +16,16 @@
 
 ## Current focus
 
-**Stage C done; the stage-D pause is posted on #664** (07:31 UTC).
-- **`00` to `05` written, and the pre-issue lint PASS.**
-  - `02` carries 23 findings and 19 proofs; `tools/t17-tables.py check` same (32 writers, 28 secret rows).
-  - `05` carries 22 items, 4 of them `bug` candidates (PL-01 to PL-04), all `Open`.
-- **The two seats:**
-  - Astra, 50 items; Argon, 49. Four keyed invokes, all PASS.
-  - Every item was re-read (`stage-c/rereads/`) and graded in `04` § Second opinion.
-- **F-20, new:** found by both seats independently, and confirmed by `tools/t17-option-key-fixture.py`. An option-shaped key passes to rclone as a flag, and `--config=` writes a connection outside `rclone/`.
-- **The window waits for M7's guest RETURN** on the host file, and no longer for T16 (the coordinator, 06:5x UTC). F-02's flag goes into the guest's conf only, and F-03 runs against the QA backend only.
+**Stage E done; the hand-back is posted on #664; the lane is idle** (08:11 UTC).
+- **Stage D:** six bugs (#1128 to #1133) and the audit issue #1134, a sub-issue of #664.
+- **Stage E:** six streams, `59a5a8860e` to `3e95bf18f4`; the record is `7fae1f6da8`.
+  - `reviewed-at: f3803436b8` and `fixed-at: 3e95bf18f4` are in #664's body.
+  - Every bug criterion is ticked from its stage-E record, but #1133's first: the table at the ES pin holds neither sentence, so it is put to the coordinator.
+- **The guest window ran** 07:59:26 to 08:06:04 UTC, with RETURN posted. The disk is retired (`00`), and `/workspace/tmp/m6-t17/cloud-qa/` (138 bytes) is kept until acceptance.
+- **New:** F-24 / PL-23 (Low), from PL-18's full restore, for the coordinator's ruling.
+- **`tools/register-check`** fails on the four D-CLOUD-185 citations until the coordinator's branch is merged here.
 
-**Next:** stage D, after the coordinator rules at the pause:
-- the bugs for PL-01 to PL-04, each with its trace, `Already written:` and VM line, then `box-check`;
-- the audit issue, a sub-issue of #664;
-- the dispositions of PL-05 to PL-22.
+**Next:** the coordinator's acceptance; then stage G (the retro), `audit-completion.json` and the full lint, as the coordinator prompts.
 
 ## Next commands
 
