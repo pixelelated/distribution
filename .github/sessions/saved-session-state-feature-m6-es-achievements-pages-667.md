@@ -67,4 +67,4 @@ worktree, or a guest outside the one granted window.
 
 ## Checkpoints
 
-- Stage A, 17:30 UTC: distribution `<A-commit>`, ES at the pin `16dbac5211` (unchanged).
+- Stage A, 17:30 UTC: distribution `10d00488fb`, ES at the pin `16dbac5211` (unchanged).
