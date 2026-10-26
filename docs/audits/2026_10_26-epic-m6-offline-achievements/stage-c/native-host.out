@@ -1,0 +1,23 @@
+test_neogeo_set_hashes_by_filename (linux.tests.test_linux_rom_hashing.ArcadeZipTests.test_neogeo_set_hashes_by_filename) ... skipped 'libraproxy_rchash not available (set RAOFFLINEPROXY_RCHASH_LIB)'
+test_single_file_archive_of_unenumerated_system_uses_content (linux.tests.test_linux_rom_hashing.ArcadeZipTests.test_single_file_archive_of_unenumerated_system_uses_content) ... skipped 'libraproxy_rchash not available (set RAOFFLINEPROXY_RCHASH_LIB)'
+test_zipped_mega_drive_and_master_system_hash_by_content (linux.tests.test_linux_rom_hashing.ArcadeZipTests.test_zipped_mega_drive_and_master_system_hash_by_content) ... skipped 'libraproxy_rchash not available (set RAOFFLINEPROXY_RCHASH_LIB)'
+test_zipped_single_console_rom_hashes_by_content (linux.tests.test_linux_rom_hashing.ArcadeZipTests.test_zipped_single_console_rom_hashes_by_content) ... skipped 'libraproxy_rchash not available (set RAOFFLINEPROXY_RCHASH_LIB)'
+test_candidates_are_ordered_and_deduped (linux.tests.test_linux_rom_hashing.CartridgeHashingTests.test_candidates_are_ordered_and_deduped) ... skipped 'libraproxy_rchash not available (set RAOFFLINEPROXY_RCHASH_LIB)'
+test_game_boy_hashes_whole_file (linux.tests.test_linux_rom_hashing.CartridgeHashingTests.test_game_boy_hashes_whole_file) ... skipped 'libraproxy_rchash not available (set RAOFFLINEPROXY_RCHASH_LIB)'
+test_nes_hash_skips_16_byte_header (linux.tests.test_linux_rom_hashing.CartridgeHashingTests.test_nes_hash_skips_16_byte_header) ... skipped 'libraproxy_rchash not available (set RAOFFLINEPROXY_RCHASH_LIB)'
+test_snes_hash_skips_512_byte_copier_header (linux.tests.test_linux_rom_hashing.CartridgeHashingTests.test_snes_hash_skips_512_byte_copier_header) ... skipped 'libraproxy_rchash not available (set RAOFFLINEPROXY_RCHASH_LIB)'
+test_unknown_extension_falls_back_to_whole_file_md5 (linux.tests.test_linux_rom_hashing.CartridgeHashingTests.test_unknown_extension_falls_back_to_whole_file_md5) ... skipped 'libraproxy_rchash not available (set RAOFFLINEPROXY_RCHASH_LIB)'
+test_includes_bare_sonames_for_ld_library_path (linux.tests.test_linux_rom_hashing.LibraryDiscoveryTests.test_includes_bare_sonames_for_ld_library_path) ... ok
+test_searches_bundle_lib_two_levels_up (linux.tests.test_linux_rom_hashing.LibraryDiscoveryTests.test_searches_bundle_lib_two_levels_up) ... ok
+test_arcade_set_hashes_by_filename (linux.tests.test_linux_rom_hashing.SevenZipTests.test_arcade_set_hashes_by_filename) ... skipped 'libraproxy_rchash not available (set RAOFFLINEPROXY_RCHASH_LIB)'
+test_list_entries_reads_names (linux.tests.test_linux_rom_hashing.SevenZipTests.test_list_entries_reads_names) ... skipped 'libraproxy_rchash not available (set RAOFFLINEPROXY_RCHASH_LIB)'
+test_multiple_console_roms_are_rejected (linux.tests.test_linux_rom_hashing.SevenZipTests.test_multiple_console_roms_are_rejected) ... skipped 'libraproxy_rchash not available (set RAOFFLINEPROXY_RCHASH_LIB)'
+test_single_console_rom_hashes_by_content (linux.tests.test_linux_rom_hashing.SevenZipTests.test_single_console_rom_hashes_by_content) ... skipped 'libraproxy_rchash not available (set RAOFFLINEPROXY_RCHASH_LIB)'
+test_single_file_of_unenumerated_system_uses_content (linux.tests.test_linux_rom_hashing.SevenZipTests.test_single_file_of_unenumerated_system_uses_content) ... skipped 'libraproxy_rchash not available (set RAOFFLINEPROXY_RCHASH_LIB)'
+test_unreadable_archive_yields_no_entries (linux.tests.test_linux_rom_hashing.SevenZipTests.test_unreadable_archive_yields_no_entries) ... skipped 'libraproxy_rchash not available (set RAOFFLINEPROXY_RCHASH_LIB)'
+test_includes_common_formats (linux.tests.test_linux_rom_hashing.SupportedExtensionsTests.test_includes_common_formats) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.012s
+
+OK (skipped=15)
