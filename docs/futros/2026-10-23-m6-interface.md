@@ -408,3 +408,21 @@ addendum above had wrong:
   base; nine small line-number slips; `tests/app-unit/**` is 19 files.
 - The stream prediction stands at two; a third candidate -- a toolchain
   that is not there -- is infrastructure, not a stream.
+
+### Errata from T18's acceptance (2026-10-26)
+
+- **"Streams predicted: two" was six.** The two predicted (the why table's
+  missing sentence, the header comments) landed as S1; four more the seats
+  and the lane found: the stamp's unchecked write (S2), the words (S3), the
+  card's wrapper (S4), a stop or cancel against an ending run (S5), the
+  job's why handling (S6). The addendum's simulation stopped at the text
+  and the comments; it did not walk the lifetimes, where three of the four
+  came from.
+- The window ran at 1280x800 until relaunched: the harness had no
+  resolution option (#1141), which no futro here asked.
+- Three of the eight files cannot be compiled on the host (SDL headers), so
+  the compile proof of three streams is the integration build's; the
+  futro's known unknown (1) resolved that way, as version 2 of the brief
+  said.
+- Eight bugs, all Low; the audit #1153; `renovation-drift` reads `re-open`
+  until the pin moves, which is the integration's step, not the slice's.

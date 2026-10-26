@@ -730,3 +730,60 @@ the tools, the walks and the decision IDs held. The corrections:
     127 D-UI rows on the coordinator's branch (42 of 108 at the P1 tip named
     a surface).
 13. The build-root loop no longer picks the first shallow root.
+
+## Errata at acceptance (2026-10-26)
+
+What the lane found that version 2 had wrong or did not foresee, recorded
+here rather than edited into the sections above:
+
+- **The declaration count is a dialect's:** 44 under GNU `grep -E` (what a
+  script gets), 47 under `grep -P` and the interactive shell's `grep`, a
+  ugrep function; GNU takes `\s` inside `[...]` literally and misses
+  `CloudText.h:187`, `:529`, `:546`. 47 ruled, both recorded; the practice
+  (a brief's count comes from `/usr/bin/grep`) in the plan § 6b (#1138,
+  stage A).
+- **The `exists(` control's ranking** is `GuiMenu.cpp` 35, `Win32ApiSystem.cpp`
+  31, `Scraper.cpp` 25; the brief named `ApiSystem.cpp` 23 second (stage A).
+- **`es-menu-map-check` and `es-untranslated` take `--es-src <tree>`**, not a
+  positional tree (stage A).
+- **rapidjson for the unit tests** was a 35-header copy under M7's prep
+  directory, read with each header's sha256 matched to that prep's
+  `inputs.json` (35 of 35), no build root read -- the brief's "named copy
+  with provenance" form; `jobs-tests` was built the same way on the
+  coordinator's word at stage B (stage A, B).
+- **The window's identity literal** was `FOLDERS ALREADY CREATED WILL STAY.
+  YOU CAN TRY AGAIN LATER.` (ES `1272b3405`, absent from the merge base);
+  the pin's last commit adds no `_( )` line, as version 2 said.
+- **The window ran at 1280x800 until relaunched at 640x480:** `vm-pair` has
+  no resolution option, and the transfer walk's `key up` at
+  `run-transfer-frames.steps:21` is eaten at that size (#1141, the lane's
+  Backlog under #903); five walks passed; F-08's and F-09's before-frames
+  were `CANNOT`, so S3's before is the integration build's walk. The exit
+  sync's stamp measured 1.58 s median with the cloud up, inside
+  D-CLOUD-119; the interface's 0.56 s and game-to-game 1.01 s report.
+- **The futro's addendum predicted two streams; six landed** (PL-03+08,
+  PL-01, the words, PL-04+19, PL-18, PL-20+22), eight bugs #1145 to #1152
+  all Low, the audit #1153 (9 low, 14 info). PL-19's glued line did not
+  fall with the donor's rclone 1.75.2 (Withdrawn).
+- **The stream brief's S1 first case named the console's long `fail` text**
+  (`backuptool:1496`); the `>>> why` a reader receives is the short
+  sentence at `:1495`, and S1's row is the short one (the lane's
+  correction at stage D).
+- **Three of the eight files do not compile on the host** (`SDL_joystick.h`
+  absent): `ThreadedCloudSync.cpp`, `CloudTransferJob.cpp`,
+  `GuiCloudTransfer.cpp` are `CANNOT` for the syntax check, their compile
+  proof the integration build's, as § 5 allows; S5's card cases are proven
+  at the decision functions (`CloudText::stopEndedRun`, `followUpsAllowed`)
+  and by source guard, with the card's behaviour owed to the integration
+  build's guest (#1150's first criterion).
+- **The streams reached beyond the brief twice:** S6 also covers the
+  composed run's part that ended 69 without a word (`GuiMenu.cpp:5006`,
+  the control on #1143), and S4 put the card's commands inside braces,
+  every one parsing under `sh -n`.
+- **`tools/renovation-drift --pretend es-cloud-pages=33ad2e3cee,es=d55235d4b`
+  reads `re-open`** until the pin moves: 10 files, 459 lines, the streams'
+  own diff on the slice's paths. The integration owes the pin, `strings`
+  for S1's and S3's words, the frames from `stage-e/walks/` (moved under
+  `tools/vm-walks/`; the match's dialog needs a match slow enough to press
+  back during, #1141), the card's restart proof (#1148) and the three SDL
+  files' compile.

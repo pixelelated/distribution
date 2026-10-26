@@ -228,3 +228,12 @@ A build, a compiler beyond `g++ -fsyntax-only` and the generated test
 build, a guest, a fetch, a keyed council call, anything on a unit, a change
 under the distribution's `packages/`, `projects/` or `tools/`, a change in
 the ES worktree outside the files each stream names, a move of the pin.
+
+**Erratum at acceptance (2026-10-26).** S1's first case named D-UI-117's long
+sentence, which is `backuptool`'s console `fail` text at `:1496`; the `>>> why`
+a reader receives is the short sentence at `:1495`, `THIS BACKUP HOLDS FILES A
+RESTORE CAN'T PUT BACK`, and S1's row is that one (the lane's correction at
+stage D, `1a1828a8b`). PL-19's fixture did not reproduce the glued line with
+the donor's rclone 1.75.2, so S4 fixed only the wrapper (Withdrawn, as the
+brief allowed). S6 also covered the composed run's part that ended 69 without
+a word (`GuiMenu.cpp:5006`), beyond the brief.
