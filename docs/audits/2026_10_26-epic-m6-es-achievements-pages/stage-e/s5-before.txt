@@ -1,0 +1,23 @@
+== S5 before (19:21:41Z): OfflineScanJob.cpp, CloudText.cpp, ProxyCards.cpp and OfflineAchievements.cpp as at S4's tip (unchanged: yes); the three readers lifted as the pin reads
+unit rc 1
+TEST CASE:  CloudText: a stamp's ready=unknown is not 0 (#1174)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/CloudTextTests.cpp:1790: ERROR: CHECK( s.ready < 0 ) is NOT correct!
+TEST CASE:  OfflineAchievementsText: a summary of nothing but malformed lines is not ok (#1174)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/OfflineAchievementsTextTests.cpp:402: ERROR: CHECK_FALSE( bad.ok ) is NOT correct!
+TEST CASE:  OfflineAchievementsText: a ready file that is missing or unreadable is unknown, not 0 (#1174)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/OfflineAchievementsTextTests.cpp:418: ERROR: CHECK_FALSE( OfflineAchievementsText::readReadyIds(false, "").known ) is NOT correct!
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/OfflineAchievementsTextTests.cpp:419: ERROR: CHECK_FALSE( OfflineAchievementsText::readReadyIds(true, "garbage\n").known ) is NOT correct!
+TEST CASE:  OfflineAchievementsText: a pending list the ctl could not read is unknown, not none (#1174)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/OfflineAchievementsTextTests.cpp:429: ERROR: CHECK_FALSE( OfflineAchievementsText::readPendingIds(2, "").known ) is NOT correct!
+[doctest] test cases:  4 |  0 passed | 4 failed | 191 skipped
+[doctest] assertions: 18 | 13 passed | 5 failed |
+jobs-tests rc 1
+TEST CASE:  scan job: a done line with an unknown ready count keeps it unknown (#1174)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/JobsTests.cpp:332: ERROR: CHECK( job->state().ready == -1 ) is NOT correct!
+[doctest] test cases: 1 | 0 passed | 1 failed | 9 skipped
+[doctest] assertions: 4 | 3 passed | 1 failed |
+proxycards-tests rc 1
+TEST CASE:  top-up: ready=unknown beside a number of new games claims no count (#1174)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/ProxyCardsTests.cpp:617: ERROR: CHECK( card->action.empty() ) is NOT correct!
+[doctest] test cases: 1 | 0 passed | 1 failed | 11 skipped
+[doctest] assertions: 3 | 2 passed | 1 failed |

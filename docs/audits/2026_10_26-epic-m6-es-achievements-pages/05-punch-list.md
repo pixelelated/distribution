@@ -432,7 +432,7 @@ Every item is open until the coordinator's stage-D ruling and stage F.
 | PL-02 | Resolved | Resolved in `d3137f992` (ES, S2) under #1171: the credential in a POST body as the vendored client sends it, and `httpsRedirectsOnly` for it; the unit FAIL before, PASS after (`stage-e/s2-*.txt`); the listener walk owed; the transport's verification stays #1154's |
 | PL-03 | Resolved | Resolved in `ad2989aa5` (ES, S3) under #1172: the pid taken once and above 1, a later line ignored and logged; `jobs-tests` FAIL before, PASS after (`stage-e/s3-*.txt`); the CR-named ROM's walk owed |
 | PL-04 | Resolved | Resolved in `f85061f14` (ES, S4) under #1173: the page reads the toggle back from the ctl's status after any exit; the LED callback weak; `AppWindow::post` (`stage-e/s4-*.txt`); the stub-ctl walk owed |
-| PL-05 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
+| PL-05 | Resolved | Resolved in `274a71add` (ES, S5) under #1174: unknown kept unknown at both readers and the card; the three readers carry validity (`stage-e/s5-*.txt`) |
 | PL-06 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-07 | Deferred | Deferred: #300, as ruled at the stage-D ruling (#667, 18:45 UTC) |
 | PL-08 | Deferred | Deferred: #668 (T21), with `stage-b/positives/reader.cpp`, as ruled at the stage-D ruling (#667, 18:45 UTC) |
@@ -442,7 +442,7 @@ Every item is open until the coordinator's stage-D ruling and stage F.
 | PL-12 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-13 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-14 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
-| PL-15 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
+| PL-15 | Resolved | Resolved in `274a71add` (ES, S5) under #1174: unknown kept unknown at both readers and the card; the three readers carry validity (`stage-e/s5-*.txt`) |
 | PL-16 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-17 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-18 | Resolved | Resolved in `f85061f14` (ES, S4) under #1173: the page reads the toggle back from the ctl's status after any exit; the LED callback weak; `AppWindow::post` (`stage-e/s4-*.txt`); the stub-ctl walk owed |
@@ -487,7 +487,7 @@ punch_index:
   category: Correctness
   question: Q3
   source_finding: "L-07"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-06
   severity: "Medium"
   category: Performance
@@ -547,7 +547,7 @@ punch_index:
   category: Correctness
   question: Q3
   source_finding: "L-27"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-16
   severity: "Low"
   category: Correctness
