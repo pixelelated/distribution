@@ -426,3 +426,68 @@ addendum above had wrong:
   said.
 - Eight bugs, all Low; the audit #1153; `renovation-drift` reads `re-open`
   until the pin moves, which is the integration's step, not the slice's.
+
+### T20 kickoff addendum (written with the brief's version 1, 2026-10-26)
+
+**The plan, in the order's words:** T20 is *EmulationStation's
+RetroAchievements and offline pages*, lens security and new functionality,
+Extended: *the account pages and the offline scan, which drive the proxy;
+with the fork-touched files of ES's vendored libcheevos, read as a diff
+against their imported version*. 25 paths, 7,485 lines; 17 of them exist
+in ROCKNIX's master and are rewritten by the fork, eight are new. The brief
+is `docs/reviews/briefs/es-achievements-pages.md`.
+
+**Assumptions the plan leans on and does not state:**
+
+- *That the credential's exposure is on these pages.* The sharpest sink
+  is one file over: `HttpReq.cpp:192` never verifies the TLS peer, so the
+  password and the web API key the pages send travel unverified -- found
+  by the research, filed as #1154 before the lane exists, owned at the
+  stage-D pause (T20's stream or T21's).
+- *That the ctl's contract is read as one.* `ask()` keeps the last line
+  and `WEXITSTATUS` without `WIFEXITED`; the scan job's reader checks it.
+  Two readers of one protocol, disagreeing on a killed child.
+- *That "the vendored library's fork edits" can be diffed against their
+  import.* rcheevos 12.2.1's tarball is not in the cache; the proxy's
+  12.5.0 is, and the fork's `hash_disc.c` fixes are absent from it.
+- *That three hashers hash alike.* Nothing at the pin proves the three RVZ
+  readers agree on a padded region at a non-aligned offset; no synthetic
+  RVZ exists.
+- *That the pages have a frame baseline.* The one RetroAchievements walk is
+  in no suite list; `frame-diff` has never compared these pages.
+- *That the menu map describes the scan page.* Its `:595` describes the
+  design D-UI-078 reversed, and the page's title is absent.
+- *That the host builds the tests.* It does not (#1137); the generated
+  `g++` command does, and the pages and the hasher include SDL.
+
+**Known unknowns:** whether any launch script reads the two switches the
+page keeps on `es_settings.cfg`; who reads `Settings.cpp:420`'s
+`.hardcore`; `readAllText`'s two-byte trap at the pin; whether the image's
+RetroArch carries `cheevos_rvz.c`; T19's inheritance table (lands during
+this slice).
+
+**Patterns:** T18's shape (the same lane, the same host floor, the same
+two-worktree dispatch; its six streams where two were predicted -- the
+lifetimes were where the surprise came from, and this slice has a reader,
+a hasher and a detached thread of its own); blindspot 46 (names read as
+behaviour in this subsystem: the brief names the digests' leads as leads);
+blindspot 64 (confirmed in the hasher's code by the research).
+
+**What we could be missing (the simulation):** a lane that files the
+unverified peer again (the brief cites #1154); a lane that treats the
+ctl's `>>> ` tokens as `say()`'s (they are `tell()`'s); a lane that
+spends the QA account's achievements on the sign-in (one live sign-in,
+last, spends nothing); a lane that builds a synthetic RVZ by fetching a
+tool (a `CANNOT` and the coordinator's harness Backlog instead); a lane
+that fixes `ask()` in `ApiSystem.cpp` (T21's file) without a ruling.
+Pre-mortem: a month on, a player's password read on a hotel's Wi-Fi
+(#1154's fix did not land before the candidate); a top-up killed by the
+OOM reader read as COMPLETED on the card.
+
+**Adjustments before execution:** carried into the brief: #1154 cited not
+re-found; the four families; the window at 640x480 with the self-signed
+endpoint positive; the generated test build; the menu map's correction
+with any row touched. **Streams predicted: three** -- `ask()`'s
+`WIFEXITED` and the unmapped exits (where the coordinator rules the file),
+the `summary` line cap, and the menu map's drift with the page's entries;
+#1154's stream is a fourth if ruled this lane's.
