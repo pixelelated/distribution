@@ -1,17 +1,10 @@
 # Review brief: M6.P2 T19, the offline achievements proxy (#666)
 
-**Version 1, 2026-10-26, the coordinator's** (D-WORKFLOW-189). Written from a
-research digest of four read-only passes (`$S/t19-r1-sources.md`,
-`t19-r2-patches.md`, `t19-r3-record.md`, `t19-r4-neighbours.md`), the order's
-§ T19, the slice record, and the eighteen patches' commit history; the
-figures below were produced at the hashes they name. A stranger's proof runs
-before dispatch; version 2 records what it found
-(`docs/reviews/plan-for-the-plan.md` § 6b).
+**Version 2, 2026-10-26, the coordinator's** (D-WORKFLOW-189; version 1 the same hour, corrected by a stranger's proof -- thirteen corrections, listed at the end). Written from four read-only research digests (the coordinator's scratch files, not in any tree; every figure they gave is reproduced by a command below), the order's § T19, the slice record, and the eighteen patches' commit history; the figures were produced at the hashes they name with `/usr/bin/grep`, never the shell's function (#1138). The stranger's proof of version 1 ran before dispatch from the scratch clone at `2174265e9c` (ten commands); this version records what it found (`docs/reviews/plan-for-the-plan.md` § 6b).
 
 ## 1. Identity
 
-- **Issue:** #666 `M6.P2 E<epic>/T19: offline-achievements: the offline
-  achievements proxy`, slice `offline-achievements` (`k: 19`) in
+- **Issue:** #666 `M6.P2 E1139/T19: offline-achievements: the offline achievements proxy`, slice `offline-achievements` (`k: 19`) in
   `docs/reviews/slices.json`, nineteenth in `docs/reviews/order.md` (its
   § T19 paths line: *"27 paths, 5,369 lines, 3,656 read, of which 3,656
   fork-own; 1,703 patch and config lines; reach shipped 27"*; its `why`:
@@ -20,22 +13,12 @@ before dispatch; version 2 records what it found
   patches to the upstream proxy are read here, not in the patch tables
   (pass 6)"*; kind read; lens security, new functionality; depth Extended,
   *"a network listener and an account credential (plan § 6c)"*).
-  **Epic:** the offline-achievements area has no epic yet; the coordinator
-  files it at dispatch, as #807 was filed for T4 (its futro written with
-  this version, carrying a T19 kickoff addendum), re-parents #666 under it
-  and retitles `E<epic>/T19`. T20 (#667, the RetroAchievements pages in
-  EmulationStation) is the area's ES half and follows under #700.
+  **Epic:** #1139 (offline achievements: this slice, then T20 #667, the RetroAchievements pages in EmulationStation, under the interface epic #700), filed 2026-10-26 with its futro `docs/futros/2026-10-26-m6-offline-achievements.md` posted on it; #666 re-parented and retitled.
   **Milestone:** M6. **Predecessors:** #346, #641, **T2 #649**
   (`ProxyCards`, `JourneyTiers`: the cards at the link's return and the
   launch's question over the proxy's send -- the ES end of this slice's
   stamps; its audit `docs/audits/2026_10_23-epic-m6-es-launch-path/` on `feature/m6-es-launch-path-649`: PL-013 (the running game's pointer read at `ProxyCards.cpp:269`, `:410`, `:416`, `:479`) and PL-022 (`ProxyCards.cpp:244-270`, the top-up card after the screen stopped being free)),
-  **T1 #648** (the launch scripts that call the ctl at game start and exit;
-  `runemu.sh`'s `ra_lifecycle_*` admission and the proxy's `exec 199>&-` at its line 335 are the proxy's seam in the launcher, T1's stream brief `t1-streams.md:100-102`; PL-004 of its audit, `docs/audits/2026_10_23-epic-m6-os-launch-control-state/`, is the `retroachievements.hardcore` override), **T22 #669** (the systemd units read under
-  the Extended recipe: the proxy's unit is read here, its hardening against
-  T22's table), **T17 #664** (`backuptool` holds `/storage/.config/raofflineproxy/`
-  back as DEVICEONLYDIRS and the five token-only emulator files as
-  RATOKENFILES: what this slice's state looks like in a settings backup is
-  settled there), **T15 #662** (`tools/last-good-scripts-test`: blindspot 43's cases r and s plant a `cheevos_password` value in `exec.log`; whether any case runs the ctl is a stage-A read, `grep -c -w raofflineproxy tools/last-good-scripts-test`, recorded whatever it says), **T10 #657** (the pre-commit pattern a fixture must
+  **T1 #648** (the launch scripts that route RetroArch to the port at game start: `setsettings.sh:532-545`; `runemu.sh:335` at `8ebaf8daad` writes `cheevos_custom_host = "http://127.0.0.1:4874"` -- the lowerdeck proxy on dual-screen devices, not this proxy's port; the `ra_lifecycle_*` admission and `exec 199>&-` seam are T1's stream insertions on `feature/m6-os-launch-control-state-648`, absent from `8ebaf8daad`; PL-004 of its audit, `docs/audits/2026_10_23-epic-m6-os-launch-control-state/` on that branch, is the `retroachievements.hardcore` override), **T22 #669** (the systemd units read under the Extended recipe, `docs/audits/2026_10_25-epic-m6-os-system-services/02-forward-audit.md` on `feature/m6-os-system-services-669`: the proxy's unit is read here, its directives against the per-unit rows that audit gives -- the lane names the section it finds them in), **T17 #664** (`docs/reviews/briefs/cloud-setup-content.md`, the closest sibling: a listener with a credential; `backuptool` holds `/storage/.config/raofflineproxy/` back as DEVICEONLYDIRS `:723-726` and the token files and settings as RATOKENFILES `:698-703` and RATOKENSETTINGS `:705-709`: what this slice's state looks like in a settings backup is settled there), **T15 #662** (`tools/last-good-scripts-test`: blindspot 43's cases r and s plant a `cheevos_password` value in `exec.log`; its proxy cases name the marker, the lock and the stamps around its lines 1006-1065, 1599-1668 and 2147-2315 and setsettings' `cheevos_custom_host` at 1893-1898; whether any case runs the ctl itself is a stage-A read, recorded whatever it says), **T10 #657** (the pre-commit pattern a fixture must
   not trip, #1061), **T45 #692** (the council runner the seats go through).
   **Beside it:** T18 in the T5 session (the cloud pages in ES; no shared
   path); the host is free since M7's RETURN of 09:12 UTC on
@@ -92,17 +75,14 @@ git log --oneline -3; git merge-base --is-ancestor 8ebaf8daad HEAD && echo stack
 git diff --stat 8ebaf8daad HEAD -- packages projects | tail -1                    # empty: the read is of next's bytes
 git diff --stat 8ebaf8daad HEAD -- tools | tail -1                                # P1's own files under tools/, nothing else
 git rev-parse --verify 651150fc88^{commit} >/dev/null && echo upstream-next-is-here   # read locally, never fetched
-git show feature/m6-es-launch-path-649:docs/audits/2026_10_23-epic-m6-es-launch-path/05-punch-list.md | grep -c '^## PL-'   # T2's punch list is reachable (its PL-013 and PL-022 are the cards' side of this slice's stamps)
+git show feature/m6-es-launch-path-649:docs/audits/2026_10_23-epic-m6-es-launch-path/05-punch-list.md | /usr/bin/grep -c '^## PL-'   # T2's punch list is reachable (its PL-013 and PL-022 are the cards' side of this slice's stamps)
 tools/register-check >/dev/null && echo register-ok
 tail -n 3 /tmp/m7-m6-host-coordination-20261023.txt | cut -c1-200                # who holds the host: no guest before a grant on #666
 ```
 
 ## 2. Scope
 
-**The membership, by the block that defines it** (run from the worktree;
-the inventory and `slices.json` are on the P1 branch beneath it; the
-slice's `select` has two entries, the area's own files and the
-patches-and-configs rows under the proxy's package globs):
+**The membership, by the block that defines it** (run from the lane's worktree, which is stacked on the P1 branch `feature/m6-p1-survey-641` at `2174265e9c` and so holds `docs/reviews/{inventory.json,slices.json,order.md,areas.json}` -- the coordinator's branch alone does not; the coordinator ran it on a clone at that commit; the slice's `select` has two entries, the area's own files and the patches-and-configs rows under the proxy's package globs):
 
 ```bash
 python3 -I - <<'PY'
@@ -148,11 +128,11 @@ the inventory's at `2174265e9c`):
 
 | File | Lines | Language | What it is |
 | --- | ---: | --- | --- |
-| `projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl` | 2,455 | shell | the control script: `#!/bin/bash`, no `set -` by design (`:268-270`), no `pipefail`, 55 functions (`:371-2196`), exit constants `EX_USAGE=64`, `EX_UNAVAILABLE=69`, `EX_TEMPFAIL=75`, `EX_NOPERM=77`, `EX_CONFIG=78` (`:316-320`), the bounds `PROBE_TRIES=9`, `PROBE_INTERVAL=10`, `STOP_WAIT=10`, `ERRORS_IN_A_ROW=3`, `TOPUP_INTERVAL=1800`, `TOPUP_TIMEOUT=900` (`:325-337`), `IMAGE_PASS_SECONDS=300` (`:1849`); drives the unit (`systemctl` 6 sites), the three python helpers under `timeout`, the scan (`:1969-2110`), the top-up (`:2200-2300`), the stamps the cards read, the toggle and hardcore keys in `system.cfg` (8 `set_setting` sites); six embedded `python3 -c`/heredoc blocks read the store read-only (`mode=ro` at every `sqlite3.connect`) |
+| `projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl` | 2,455 | shell | the control script: `#!/bin/bash`, no `set -` by design (`:268-270`), no `pipefail`, 55 functions (`:371-2196`), exit constants `EX_USAGE=64`, `EX_UNAVAILABLE=69`, `EX_TEMPFAIL=75`, `EX_NOPERM=77`, `EX_CONFIG=78` (`:316-320`), the bounds `PROBE_TRIES=9`, `PROBE_INTERVAL=10`, `STOP_WAIT=10`, `ERRORS_IN_A_ROW=3`, `TOPUP_INTERVAL=1800`, `TOPUP_TIMEOUT=900` (`:325-337`), `IMAGE_PASS_SECONDS=300` (`:1849`); drives the unit (`systemctl` on 6 non-comment code lines, 9 by word), the three python helpers under `timeout`, the scan (`:1969-2110`), the top-up (`:2200-2300`), the stamps the cards read, the toggle and hardcore keys in `system.cfg` (`set_setting` on 8 code lines); the embedded `python3 -c`/heredoc blocks (six by the digest's count of block starts, seven by word) read the store read-only (`mode=ro` at every `sqlite3.connect`); its exits are 1 at `:378`, `:1991`, `:2413`, `:2425`, 2 at `:560`, `:565`, `:639`, `:2453`, 3 at `:762`, `:1843`, 130 at `:1821`, 143 at `:1797`, 0 at `:2016`, `:2227`, `:2237`, `:2430` |
 | `.../sources/raofflineproxy-cache-images` | 497 | python | the badge cache pass: `--seconds 300`, the verify pass at most half, 4 workers, `as_completed` with a timeout, 404/410 recorded `absent` with a 24 h recheck (`write_absent` temp + `os.replace`), `PNG_FLOOR 68`, patch 013's `png_problem` (every chunk's CRC to IEND, the IDAT inflated) before the rename and under `--verify`; `verify-cursor` written directly (`:169-177`), the one stamp here without temp-and-rename |
 | `.../sources/raofflineproxy-refresh` | 232 | python | the hourly refresh pass the ctl runs under `timeout 960` with `--seconds 900`: `cached_games`, `row_ages`, `drop_startsession`; three failures in a row stop it (`why REPEATED_FAILURES`); its `note()` prints to **stdout** (`:50-51`), on the same stream as the `>>> ` protocol |
 | `.../sources/raofflineproxy-cache-indexed` | 222 | python | the index-fed preparation: `_counting_http_get`, a 30 s sleep per 50 jobs, `RAOFFLINEPROXY_IMAGE_WAIT` 120 s, the client's rate-limit pause honoured; the username reaches it by `RA_SCAN_USER` in the environment (`ctl:1265`) |
-| `.../package.mk` | 157 | recipe | the upstream pin `c7ebd1b6e777f3751ff0ecdf8aba54045844e00d` (`misantronic/RAOfflineProxy`), `PKG_SHA256 88eef31a...`, depends `Python3 bash busybox coreutils grep systemd raofflineproxy-rcheevos raofflineproxy-libchdr`; installs the module to site-packages as `.pyc` only, the four scripts 0755 to `/usr/bin`, `libraproxy_rchash.so` 0644 to `/usr/lib`, enables the unit; its header comment (line 6) says *"The 16 patches apply at fuzz 0"* while 18 patch files ship; GPL-3.0-only |
+| `.../package.mk` | 157 | recipe | the upstream pin `c7ebd1b6e777f3751ff0ecdf8aba54045844e00d` (`misantronic/RAOfflineProxy`), `PKG_SHA256 88eef31a...` (the cached tarball `raofflineproxy-c7ebd1b6e777f3751ff0ecdf8aba54045844e00d.tar.gz`, one of fourteen in the cache directory), depends `Python3 bash busybox coreutils grep systemd raofflineproxy-rcheevos raofflineproxy-libchdr`; installs the module to site-packages as `.pyc` only, the four scripts 0755 to `/usr/bin`, `libraproxy_rchash.so` 0644 to `/usr/lib`, enables the unit; its header comment (line 6) says *"The 16 patches apply at fuzz 0"* while 18 patch files ship; GPL-3.0-only |
 | `.../system.d/raofflineproxy.service` | 46 | systemd | the unit: `ExecStart=/usr/bin/python3 -m raofflineproxy.main run-service` (`:33`), `ExecStartPost=/usr/bin/raofflineproxy-ctl listening --wait 30` (`:40`), `ConditionPathExists=/storage/.cache/services/raofflineproxy.conf` (`:7`), `After=network.target network-base.service rocknix-sysconfig.service`, `Before=emustation.service essway.service`, `Restart=on-failure`, `RestartSec=5`, `TimeoutStopSec=15`, a start limit of 5 in 300 s; **no `User=`, no `Protect*`, `Private*`, `NoNewPrivileges`, `CapabilityBoundingSet`, `Memory*`, `CPU*` or `UMask=`** -- the proxy runs as root with the unit's defaults |
 | `.../daemons/006-raofflineproxy` | 10 | none | sets `STATE`, `SVC`, `CONF` and `DAEMONS` for the shared `099-networkservices` pass, which rewrites the marker and starts or stops the unit from `system.cfg`'s `global.retroachievements.offlineproxy` at boot (the marker is not in a settings backup; the toggle is) |
 | `.../raofflineproxy-libchdr/package.mk` | 24 | recipe | pins libchdr `607694ca0812edfc9cc2030c64634fc2393668de` (BSD-3); its comment cites a proxy commit (`3036478f`) older than the parent's pin |
@@ -166,11 +146,7 @@ queues awards earned offline and flushes them when the link returns, and
 caches game data and badges. The fork ships it as a package with eighteen
 patches, a systemd unit, and four fork-own scripts: the ctl, which is the
 OS's and the interface's one door to it, and three python helpers the ctl
-runs under `timeout`. The service's own code (`proxy_service.py`,
-`state.py`, `es_export.py`, `log_uploader.py`, `config.py`) is **not in the
-tree**: it is read from the download cache's tarball, whose sha256 is the
-recipe's `PKG_SHA256`, as the pin's bytes with the patches applied by hand
-(§ 5), never fetched.
+runs under `timeout`. The service's own code (`proxy_service.py`, `state.py`, `es_export.py`, `log_uploader.py`, `config.py`) is **not in the tree**: it is read from the download cache's tarball **named by the pin** -- `/workspace/cache/rocknix-sources/raofflineproxy/raofflineproxy-c7ebd1b6e777f3751ff0ecdf8aba54045844e00d.tar.gz`, sha256 equal to `PKG_SHA256`; the directory holds fourteen tarballs of other revisions, and the first by name is a 2026-09-25 tree, not the pin -- as the pin's bytes with the patches applied by hand (§ 5), never fetched.
 
 **The listener** (the sources digest § 2). The bind is the client's
 `proxy_host` default, `127.0.0.1` (`config.py:367` in the tarball), AF_INET
@@ -258,21 +234,9 @@ every line as JSON), `pending-ids` (`:275`), `account` (`:286`, `score=
 softcore=`), `topup [--after-index]` (`:318`, the exit only; 143 and 130
 read as stopped at `ProxyCards.cpp:291-294`), `index-offline` (`:325`), and
 `stopRun` (`:339-358`: SIGTERM to the flock's holder proved by
-`/proc/<pid>/fd` inode); `GuiRetroAchievementsSettings.cpp:322` runs the
-literal `raofflineproxy-ctl scan` on the scan page (its `>>> ` lines read
-by `OfflineScanJob`), `:479` `enable|disable` requiring a `hardcore=` last
-line, and `:154` names a `have_account` verb that is **not in the ctl's
-dispatch** (`:2434-2450`). **Those files are T20's (#667) and T2's;** this
+`/proc/<pid>/fd` inode); `GuiRetroAchievementsSettings.cpp:322` runs the literal `raofflineproxy-ctl scan` on the scan page (its `>>> ` lines read by `OfflineScanJob`), `:479` `enable|disable` requiring a `hardcore=` last line; a comment at `:154` names `have_account`, which is the ctl's **internal function** (`:1119`, called at `:1170`) and not a verb in the dispatch (`:2434-2450`) -- the page implements the test itself from SystemConf, so the drift is a comment's wording, T20's to tidy. **Those files are T20's (#667) and T2's;** this
 slice reads the producer side of that contract -- every `>>> ` token, every
-stamp's shape, every last line -- and records what T20 inherits. On the OS
-side at `8ebaf8daad`, five files outside the three packages name the proxy:
-`setsettings.sh:532-545` (routing per launch, fail-closed: `cheevos_custom_host
-= 127.0.0.1:8080` only when the toggle is 1, hardcore reads 0 and the port
-answers), `cheevos_ppsspp.sh:94-98, 125-129`, `cheevos_dolphin.sh:19,
-139-144`, `backuptool` (RATOKENFILES `:698-703`, RATOKENSETTINGS `:704-709`,
-DEVICEONLYDIRS `:723-726`: the proxy's folder is never in a settings backup)
-and `001-functions:113`; `runemu.sh:335` is a second writer of
-`cheevos_custom_host` on dual-screen devices (T1's). RetroArch's
+stamp's shape, every last line -- and records what T20 inherits. On the OS side at `8ebaf8daad`, five files outside the three packages name the proxy by word (`git grep -w raofflineproxy`): `setsettings.sh:532-545` (routing per launch, fail-closed: `cheevos_custom_host = 127.0.0.1:8080` only when the toggle is 1, hardcore reads 0 and the port answers), `cheevos_ppsspp.sh:94-98, 125-129`, `backuptool` (RATOKENFILES `:698-703`, RATOKENSETTINGS `:705-709`, DEVICEONLYDIRS `:723-726`: the proxy's folder is never in a settings backup), `001-functions:113` and `packages/virtual/network/package.mk:13` (which ships it); `cheevos_dolphin.sh:19, 139-144` names only the port; `runemu.sh:335` writes `cheevos_custom_host` for the lowerdeck proxy on 4874 on dual-screen devices (T1's), a second writer of the key, not of this port; RetroArch's `0013-cheevos-offline-proxy-toast.patch:6` names the address too (T3's). RetroArch's
 `0012-cheevos-cmd.patch` hands an achievement's title and description to
 `system()` as root (T3's #825, PL-032); **with the toggle on those strings
 come from this proxy's store**, which is this slice's side of that finding.
@@ -293,10 +257,7 @@ T30's PL-009, PL-010, PL-020, PL-021, PL-034, PL-037, PL-039
 `ra-offline-test` and `qa-accounts` (`feature/m6-tooling-vm-harness-659`);
 T1's PL-004 and `runemu.sh`'s seam; T17's DEVICEONLYDIRS row; and the
 proxy's own epic audit `docs/audits/2026_09_14-epic-offline-retroachievements/`
-(#186): PL-13, PL-18, PL-25. **Not found before, and this slice's:** the
-listener's binding and the unit's hardening, the consent and upload path's
-endpoint and default, the ctl's embedded SQL, the writers' modes, the
-username on argv, the bounds that are not enforced.
+(#186): PL-13, PL-18, PL-25. **Not found before, and this slice's:** the listener's binding and the unit's hardening, the consent and upload path's endpoint and default, the ctl's embedded SQL, the writers' modes, the username on argv, the bounds that are not enforced. (The branches above are named once here for every citation below: T2 `feature/m6-es-launch-path-649`, T1 `feature/m6-os-launch-control-state-648`, T3 `feature/m6-emulators-libretro-650`, T30 `feature/m6-emulators-standalone-677`, T12 `feature/m6-tooling-vm-harness-659`, T22 `feature/m6-os-system-services-669`, T17 `feature/m6-cloud-setup-content-664`; each audit folder is `docs/audits/<date>-epic-m6-<slice>/` on its branch, read with `git show origin/<branch>:<path>` after no fetch -- the clone the lane is cut from already holds them.)
 
 ## 3. Read first
 
@@ -315,8 +276,7 @@ cloud baseline, D-QA-058), `device-builds.md` (around 533,
 upstream (D-WORKFLOW-164, -165), `upgrade-and-install.md` § Every fix
 answers what was already written, `issue-tracking.md` § Ticking.
 
-`docs/decision-register.md`: the fifty `D-RA-*` rows (001 to 048; 015 never
-issued; **open: D-RA-006**, the spent achievement and a second QA account,
+`docs/decision-register.md`: the 48 `D-RA-*` rows (001 to 048, 015 present as a *never issued* row; **open: D-RA-006**, the spent achievement and a second QA account,
 and **D-RA-026**, the sets export in the backup, #219) and the rows that
 name the proxy from other areas: D-WORKFLOW-018, -020, -029, -138, -165;
 D-INFRA-011; D-UI-053, -054, -056, -077, -079, -092, -095, -096, -101 to
@@ -415,11 +375,7 @@ each is read at its lines before it is called anything.
   only from the record -- no fetch).
 - **Q6 What a failure reads as.** `count_ready` printing `0` for an
   unreadable export (`:888-897`, against `cannot_tell` elsewhere); the
-  `tail -n 1` without `pipefail` at `:893`; one non-UTF-8 ROM name failing
-  the whole listing as `LIBRARY_UNREADABLE` (`:1672-1674`); two usage exit
-  codes (`:2452-2453` against `EX_USAGE`); the refresh's `note()` on stdout
-  (`:50-51`) on the protocol's stream; the listing's `:2372-2380` fallback;
-  `have_account` named by the page and absent from the dispatch.
+  `tail -n 1` without `pipefail` at `:893`; one non-UTF-8 ROM name failing the whole listing (the strict `write_text` at `:1672-1674`, read as `why LIBRARY_UNREADABLE` at `:1989` and `:2316`); two usage exit codes (`:2452-2453` against `EX_USAGE`); the refresh's `note()` on stdout (`:50-51`) on the protocol's stream; the listing's `:2372-2380` fallback; the page's comment naming `have_account` as if a verb (a function at `:1119`).
 - **Q7 The protocol the interface reads.** Every `>>> ` token the three
   producers emit (the sources digest § 4's table) against what
   `CloudText.h:441-451`, `:473`, `:508`, `:560`, `:581` and
@@ -442,9 +398,7 @@ each is read at its lines before it is called anything.
 
 1. **Can this be done on the VM? Yes -- the host first, then one guest
    window granted on #666.** Every read, count and table runs on the host
-   at `8ebaf8daad`'s bytes. The proxy's upstream source is read from the
-   download cache's tarball (`/workspace/cache/rocknix-sources/raofflineproxy/`,
-   sha256 equal to `PKG_SHA256`), unpacked under `/workspace/tmp/m6-t19/`
+   at `8ebaf8daad`'s bytes. The proxy's upstream source is read from the download cache's tarball **named by the pin**, `/workspace/cache/rocknix-sources/raofflineproxy/raofflineproxy-c7ebd1b6e777f3751ff0ecdf8aba54045844e00d.tar.gz` (sha256 equal to `PKG_SHA256`; thirteen other revisions sit beside it), unpacked under `/workspace/tmp/m6-t19/`
    with the eighteen patches applied by GNU `patch -p1 --fuzz=0` in the
    recipe's order -- an unpack and a patch, not a build; the result and
    every hunk's exit recorded. `tools/raofflineproxy-integration-test
@@ -494,8 +448,7 @@ each is read at its lines before it is called anything.
      <BUILD_ID>`, its output kept.
    The window's record is `02` § The guest cycle; the host file carries the
    mirrors; the lane never names an M7 root.
-3. **What T20 inherits** is written, not tested here: the protocol table
-   (Q7), the `have_account` drift, the stamps' shapes, the strings.
+3. **What T20 inherits** is written, not tested here: the protocol table (Q7), the page comment's `have_account` wording, the stamps' shapes, the strings. (`069fc2704421` names the image file's build, not a git object in this repository; the guest reads its `BUILD_ID` and the M6 copy's `.sha256` is checked first.)
 4. **A fix lands only under a stream brief** at the stage-D pause, in the
    fork's files or on a patch's `+` side; a stream that changes the ctl
    runs `tools/last-good-scripts-test` before its commit; a fixture
@@ -512,11 +465,11 @@ export LC_ALL=C; C=8ebaf8daad; P=projects/ROCKNIX/packages/network/raofflineprox
 D=$(pwd); export TMPDIR=/workspace/tmp/m6-t19/tmp; mkdir -p "$TMPDIR"; df -i /workspace | tail -n 1
 # the membership's bytes at the read commit (expect 27 paths, 5369 lines; the per-file lines equal to the block's)
 tr '\n' '\0' < .qa-scratch/t19/paths.txt | xargs -0 -I{} sh -c 'printf "%6d %s\n" "$(git show '"$C"':{} | wc -l)" "{}"' | awk '{s+=$1} END{print NR" paths "s" lines"}'
-# the ctl's shape (expect: no set lines; no pipefail; 55 functions; the five EX_ constants at 316-320; exit 1 at 378,1991,2413,2425; exit 2 at 565,2453; 130 at 1821; 143 at 1797)
+# the ctl's shape (expect: no set lines; no pipefail; 55 functions; the five EX_ constants at 316-320; exit 1 at 378,1991,2413,2425; exit 2 at 560,565,639,2453; exit 3 at 762,1843; 130 at 1821; 143 at 1797; 0 at 2016,2227,2237,2430)
 git show $C:$P/sources/raofflineproxy-ctl | $G -n -E '^\s*set -' | wc -l; git show $C:$P/sources/raofflineproxy-ctl | $G -c pipefail; git show $C:$P/sources/raofflineproxy-ctl | $G -c -E '^[a-z_]+\(\)'; git show $C:$P/sources/raofflineproxy-ctl | $G -n -E '^EX_[A-Z]+=' ; git show $C:$P/sources/raofflineproxy-ctl | $G -n -o -E '\bexit [0-9]+'
 # the unit (expect ExecStart :33, ExecStartPost :40, ConditionPathExists :7; hardening directives 0)
 git show $C:$P/system.d/raofflineproxy.service | $G -n -E '^(ExecStart|ExecStartPost|ConditionPathExists|Restart|RestartSec|TimeoutStopSec|User|Group)='; git show $C:$P/system.d/raofflineproxy.service | $G -c -E '^(Protect|Private|NoNewPrivileges|CapabilityBoundingSet|Memory|CPU|Tasks|DynamicUser|IPAddress|RestrictAddressFamilies|SystemCallFilter|ReadWritePaths|ReadOnlyPaths|UMask)'
-# the port, everywhere outside the package (expect setsettings.sh:538, cheevos_ppsspp.sh:97, cheevos_dolphin.sh:142, and cloud_oauth's 8080 lines; nothing else names the address)
+# the port, everywhere outside the package (expect setsettings.sh:538, cheevos_ppsspp.sh:97, cheevos_dolphin.sh:142 and RetroArch's 0013-cheevos-offline-proxy-toast.patch:6 for the address; cloud_oauth names 8080 at 857, 2333, 2553, 2681)
 git grep -n -E '127\.0\.0\.1:8080' $C -- packages projects ":!$P" | sed "s/^$C://" | cut -c1-120; git grep -n -E '\b8080\b' $C -- projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth | sed "s/^$C://" | cut -c1-100
 # the credential's keys and sites (expect the three keys at 311-313; argv sites 616, 647, 764, 1029; the env site 1265; no umask/chmod/chown)
 git show $C:$P/sources/raofflineproxy-ctl | $G -n -E 'USER_KEY|TOKEN_KEY|PASSWORD_KEY|RA_SCAN_USER' | $G -v -E '^[0-9]+:\s*#' | cut -c1-110; git show $C:$P/sources/raofflineproxy-ctl | $G -c -E 'umask|chmod|chown'
@@ -524,24 +477,24 @@ git show $C:$P/sources/raofflineproxy-ctl | $G -n -E 'USER_KEY|TOKEN_KEY|PASSWOR
 git show $C:$P/sources/raofflineproxy-ctl | $G -n -E 'mv -f|touch |> *"\$\{?(SCAN_STAMP|RUNNING|INDEX_PENDING|TOPUP_MARK|FLUSH_STAMP)' | cut -c1-120
 # the helpers' writes (expect verify-cursor a direct write_text :169-177; absent via .tmp + os.replace :195-203; refresh's note to stdout :50-51)
 for f in raofflineproxy-cache-images raofflineproxy-refresh raofflineproxy-cache-indexed; do echo "== $f"; git show $C:$P/sources/$f | $G -n -E 'write_text|os\.replace|rename\(|sys\.stdout|print\(' | cut -c1-110 | head -n 12; done
-# the protocol tokens per producer (expect the sources digest's table: ctl why TOGGLE_OFF/NO_ACCOUNT/CANCELLED/NO_NETWORK/LIBRARY_UNREADABLE..., refresh why STORE_UNREADABLE/NO_ACCOUNT/REPEATED_FAILURES, cache-images why STORE_UNREADABLE/NO_ACCOUNT)
-for f in raofflineproxy-ctl raofflineproxy-refresh raofflineproxy-cache-images raofflineproxy-cache-indexed; do printf '%s: ' "$f"; git show $C:$P/sources/$f | $G -o -E '>>> (why|note|doing|done|total|game|cached|refresh|verified|errors) [A-Z_]*' | sort -u | wc -l; done
+# the protocol tokens per producer: the ctl emits through say() with literals such as say "why TOGGLE_OFF" (:836), the helpers through tell()/f">>> {text}", so the token is counted without its >>> prefix (expect non-zero for all four, the ctl's the largest; the list, not the count, is the table in 02: TOGGLE_OFF, NO_ACCOUNT, CANCELLED, NO_NETWORK, LIBRARY_UNREADABLE, NO_GAMES, NOTHING_NEW, LIMIT_REACHED, TRUNCATED in the ctl; STORE_UNREADABLE, NO_ACCOUNT, NOTHING_DUE, LEFT, REPEATED_FAILURES in the refresh; STORE_UNREADABLE, NO_ACCOUNT, VERIFY_COMPLETE... in cache-images)
+for f in raofflineproxy-ctl raofflineproxy-refresh raofflineproxy-cache-images raofflineproxy-cache-indexed; do printf '%s: ' "$f"; git show $C:$P/sources/$f | $G -o -E '"(why|note|doing|done|total|game|cached|refresh|verified|errors) [A-Z_]{2,}' | sort -u | wc -l; done
 # the deletions (expect one rm -rf in the ctl at 1141 and two in package.mk at 120,123; no find -delete)
 git show $C:$P/sources/raofflineproxy-ctl | $G -n -E 'rm -rf|find .*-delete|(^|[^a-z])(: *>)' | cut -c1-100; git show $C:$P/package.mk | $G -n -E 'rm -rf|rm -f' | cut -c1-100
 # the patches (expect 18 files; the recipe's comment "16 patches" at line 6; the two sibling pins; the ctl's header note equal to the recipe's pin)
 git ls-tree -r --name-only $C -- $P/patches | wc -l; git show $C:$P/package.mk | $G -n -i 'patches' | head -n 3 | cut -c1-120; git show $C:$P/package.mk | $G -n -E '^PKG_(VERSION|SHA256)='; for s in rcheevos libchdr; do git show $C:projects/ROCKNIX/packages/network/raofflineproxy-$s/package.mk | $G -n -E '^PKG_VERSION='; done; git show $C:$P/sources/raofflineproxy-ctl | $G -n -E '^# package\.mk pins' | cut -c1-100
 tools/rc-preflight --only proxy-schema --tree "$D" 2>&1 | tail -n 2
-# the tarball (expect the file; sha256 equal to PKG_SHA256; every patch's first + line absent from the unpacked pin)
-T=$(ls /workspace/cache/rocknix-sources/raofflineproxy/*.tar.gz 2>/dev/null | head -n 1); echo "tarball ${T:-none}"; [ -n "$T" ] && sha256sum "$T" | cut -c1-16
-# the neighbours (expect 5 OS files outside the three packages; ES 11 files at the pin, OfflineAchievements.cpp 9, GuiRetroAchievementsSettings.cpp 8)
+# the tarball, NAMED BY THE PIN (the directory holds fourteen; the first by name is a 2026-09-25 tree) (expect the file; its sha256 equal to PKG_SHA256's first 16 hex; every patch's first + line absent from the unpacked pin)
+PIN=$(git show $C:$P/package.mk | sed -n -E 's/^PKG_VERSION="([0-9a-f]{40})".*/\1/p'); T=/workspace/cache/rocknix-sources/raofflineproxy/raofflineproxy-$PIN.tar.gz; ls /workspace/cache/rocknix-sources/raofflineproxy/ | wc -l; [ -f "$T" ] && sha256sum "$T" | cut -c1-16 || echo "CANNOT: $T absent"; git show $C:$P/package.mk | sed -n -E 's/^PKG_SHA256="([0-9a-f]{16}).*/\1/p'
+# the neighbours (expect 5 OS files by word outside the three packages: cheevos_ppsspp.sh, 001-functions, backuptool, setsettings.sh, packages/virtual/network/package.mk; ES 11 files at the pin, OfflineAchievements.cpp 9, GuiRetroAchievementsSettings.cpp 8)
 git grep -c -w raofflineproxy $C -- packages projects ":!$P" ":!projects/ROCKNIX/packages/network/raofflineproxy-rcheevos" ":!projects/ROCKNIX/packages/network/raofflineproxy-libchdr" | sed "s/^$C://"; git -C /home/max/Development/emulationstation-next.worktrees/qa-integration grep -c -w raofflineproxy 16dbac5211 -- es-app/src es-core/src | sed 's/^16dbac5211://' | sort -t: -k2 -n -r | head -n 11
-# the ES dispatch drift (expect have_account named at GuiRetroAchievementsSettings.cpp:154 and absent from the ctl's case list)
-git -C /home/max/Development/emulationstation-next.worktrees/qa-integration grep -n have_account 16dbac5211 -- es-app/src | sed 's/^16dbac5211://' | cut -c1-100; git show $C:$P/sources/raofflineproxy-ctl | sed -n '2434,2450p' | $G -c 'have_account'
+# the page comment's have_account (expect the comment at GuiRetroAchievementsSettings.cpp:154; the ctl's function at :1119 called at :1170; 0 in the dispatch's case list 2434-2450)
+git -C /home/max/Development/emulationstation-next.worktrees/qa-integration grep -n have_account 16dbac5211 -- es-app/src | sed 's/^16dbac5211://' | cut -c1-100; git show $C:$P/sources/raofflineproxy-ctl | $G -n 'have_account' | cut -c1-80; git show $C:$P/sources/raofflineproxy-ctl | sed -n '2434,2450p' | $G -c 'have_account'
 # the tools' readiness on the host (expect --help exit 0 for the two python tools; the suite's proxy cases counted; qa-accounts refusing without a port)
 for t in raofflineproxy-integration-test raofflineproxy-installed-native-test raofflineproxy-consent-test; do printf '%s: ' "$t"; tools/$t --help >/dev/null 2>&1; echo "rc=$?"; done; $G -c -w raofflineproxy tools/last-good-scripts-test; tools/qa-accounts 2>&1 | head -n 2 | cut -c1-100
 # the syntax under the host's interpreters (expect bash -n 0; py_compile 0 x3; the versions recorded)
 bash --version | head -n 1; git show $C:$P/sources/raofflineproxy-ctl > "$TMPDIR/ctl"; bash -n "$TMPDIR/ctl"; echo "bash -n rc=$?"; python3 --version; for f in raofflineproxy-refresh raofflineproxy-cache-images raofflineproxy-cache-indexed; do git show $C:$P/sources/$f > "$TMPDIR/$f"; python3 -I -m py_compile "$TMPDIR/$f"; echo "$f py_compile rc=$?"; done
-# the removal check from the dispatch tip (expect empty: nothing under packages/ projects/ tools/ changed at stages A to D)
+# the removal check from the dispatch tip -- <dispatch tip> is the lane tip the dispatch comment on #666 names; the lane substitutes it (expect empty: nothing under packages/ projects/ tools/ changed at stages A to D)
 git diff --stat <dispatch tip> HEAD -- packages projects tools | tail -n 1
 ```
 
@@ -587,7 +540,7 @@ from the artifacts, never from the hand-back's words.
 - [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue (a `bug`, a Backlog the coordinator files, #585, #168, T20's #667 by number, an M7 issue by number), or recorded as written with its reason; `tools/box-check --issue <audit issue>` prints 0 fail.
 - [ ] `reviewed-at:` and `fixed-at:` in the checklist's header carry the lane's commits; the read is on `8ebaf8daad`'s bytes for the 27 (``tr '\n' '\0' < .qa-scratch/t19/paths.txt | xargs -0 git diff --stat 8ebaf8daad <reviewed-at> --`` empty) and nothing under `packages/`, `projects/` or `tools/` changed at stages A to D (`git diff --stat <dispatch tip> <stage-D tip> -- packages projects tools` empty).
 - [ ] `01-research-notes.md` § Scope records § 2's block with its output (27 paths, 5,369 lines; fork-own 9, vendor-carried 18; shipped 27; patch-and-config rows 18, 1,703 lines -- or the deltas beside them) and the per-file line table at `8ebaf8daad`.
-- [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | grep -c -E '^\| `'`` prints `27`.
+- [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | /usr/bin/grep -c -E '^\| `'`` prints `27`.
 - [ ] `02-forward-audit.md` § The listener states the bind and port with their lines, who can reach the port and what it answers without identity, the unit's hardening directive by directive against T22's table of the other units, the readiness check's accepted forms, and the user the service runs as read from the guest (`systemctl show`, `ps`).
 - [ ] `02-forward-audit.md` § The credential's paths has one row per credential kind (the account's password, its web API key, the session token in the `login2` row, the username, the per-emulator token files) per sink it can reach (argv and `/proc/<pid>/cmdline`, the journal, `scan.log`, stderr, the upload bundle, the port's query strings, the packet, the screen), with the mask at that sink or `none`, each at its line.
 - [ ] `02-forward-audit.md` § The writers is generated by a script under the audit folder's `tools/` from `grep -n` over the four scripts and the unit at `8ebaf8daad` (the generator asserts its row count and exits 1 on drift), one row per writing statement: the file, the mode it ends with (none set: the writer's umask, read on the guest), temp-and-rename or direct, the lock held, the reader.
@@ -597,7 +550,7 @@ from the artifacts, never from the hand-back's words.
 - [ ] `02-forward-audit.md` § The guest cycle records the window the coordinator granted on #666 (the comment's time; the START and RETURN posts with their first-line contract and censuses), the image by file name and BUILD_ID read from the guest, the installed-versus-tree hashes of the four scripts, the unit and the daemon file, the module's installed set against the tarball's, the listener's user and bind as read, every stamp's mode as written, the four constructed positives each with what fell, `raofflineproxy-installed-native-test`'s count, `raofflineproxy-consent-test`'s output from the no-NIC boot, and `ra-offline-test`'s result with the QA account or its `CANNOT in this window` with the record's 2026-10-06 run cited; the disk retired with path, size and sha; the leftover check.
 - [ ] `00-running-log.md` shows no build, no compiler, no plan generation, no fetch (the council runtime from `npm install --offline`; the upstream source from the cache's tarball), no handheld, the owner's RetroAchievements account never named or used, no hosted account but the QA one, no M7 root or worktree, guests only inside the granted window, the proxy never started on the host, four keyed invokes and every other council call keyless (`grep -c` lines for each in `00`'s own closing census).
 - [ ] `04-analysis.md` § Q1 to Q8 are answered at their lines; § Q3/Q6-class bugs state each decision with its trace, its `Already written:` line and its VM line, in the four families; every `bug` passes `tools/box-check --issue N`; every #585 line owed is written in `02` § The patches in the shape the lane writes.
-- [ ] Every proof in `02-forward-audit.md` carries a `proved:` cell reading `tree`, `history`, `tool-run`, `fixture`, `guest` or `design`; every punch item carries `question:`; `02` § What T20 inherits lists the protocol table, the `have_account` drift, the stamps' shapes and the strings with their lines on both sides.
+- [ ] Every proof in `02-forward-audit.md` carries a `proved:` cell reading `tree`, `history`, `tool-run`, `fixture`, `guest` or `design`; every punch item carries `question:`; `02` § What T20 inherits lists the protocol table, the page comment's `have_account` wording, the stamps' shapes and the strings with their lines on both sides.
 - [ ] The retro exists at `docs/retros/<date>-m6-offline-achievements.md`, is posted on #666, says what the slice did to the two time-to-play numbers (the port probe at launch and the cards at exit named with their bounds; cited from `docs/vm-qa-log.md`), and what T20 inherits.
 - [ ] `tools/register-check`, `tools/work-log-index --check`, `tools/rules-check --quiet`, `tools/forbidden-terms-check` and `.githooks/hooks-test` pass on the branch before its merge (after the coordinator's hand-back merge).
 
@@ -626,10 +579,7 @@ a turn on a post that asks nothing**.
 - The mini-retro at stage G, posted on #666, Instruction-Recommendations
   mode; its *adjustments* are proposals for the coordinator; its scoped
   audit runs check 7's step 5 where a fix landed.
-- A register row the same session for any decision the slice forces (none
-  expected); D-CLOUD-185 is the highest Decided row on the coordinator's
-  branch (D-WORKFLOW-188 on the P1 branch only; the merge unites them); a
-  row this slice forces takes an ID the coordinator assigns on #666.
+- A register row the same session for any decision the slice forces (none expected); D-WORKFLOW-209 is the highest Decided row on the coordinator's branch and D-CLOUD-185 the highest cloud row (D-WORKFLOW-188 on the P1 branch only; the merge unites them); a row this slice forces takes an ID the coordinator assigns on #666.
 - `tools/ceremony-check --gate` before every push; never `--no-verify`; a
   merge with conflicts is checked for markers; the ledgers united by whole
   entries; **a commit names its paths**; anything temporary under
@@ -679,3 +629,56 @@ names with a QA account, if one exists -- § 5 says), the proxy started on
 the host (it runs only on the guest), a guest before a grant on #666, M7's
 roots or worktrees, a change outside the 27 files and the audit folder
 except under a stream brief.
+
+## Version 2: what the stranger's proof found (2026-10-26)
+
+Ten commands from the scratch clone at `2174265e9c`. The membership block
+reproduced exactly; every per-file line count, every ctl line number the
+brief states, the unit's lines and its zero hardening directives, the
+recipe's pin, sha and comments, the patches' provenance, the
+EmulationStation counts and lines, the tools' behaviour, every decision
+ID, blindspot, branch, audit folder and punch item held. The corrections:
+
+1. **The runs block's tarball line picked the wrong file.** `ls | head -n 1`
+   over fourteen cached tarballs returns a 2026-09-25 revision; the pin's
+   is `raofflineproxy-c7ebd1b6e777f3751ff0ecdf8aba54045844e00d.tar.gz` (sha
+   `88eef31a...` = `PKG_SHA256`). R12 and § 5's unpack now name it by
+   `PKG_VERSION`; a lane following version 1 would have patched the wrong
+   tree.
+2. The five OS files that name the proxy by word are `cheevos_ppsspp.sh`,
+   `001-functions`, `backuptool`, `setsettings.sh` and
+   `packages/virtual/network/package.mk:13`; `cheevos_dolphin.sh` names
+   only the port.
+3. `have_account` is the ctl's internal function (`:1119`, called `:1170`);
+   the page's `:154` is a comment naming it. No verb is missing; the drift
+   is a comment's wording, T20's.
+4. R8's `>>> (why|...)` regex matched nothing in three of four producers:
+   the ctl emits through `say()` with `"why TOGGLE_OFF"` literals and the
+   refresh prints `f">>> {text}"`; the token is now counted without its
+   prefix.
+5. D-WORKFLOW-209 is the highest Decided row on the coordinator's branch;
+   D-CLOUD-185 the highest cloud row.
+6. 48 `D-RA` rows (001 to 048), 015 present as *never issued*, not fifty.
+7. `runemu.sh`'s `ra_lifecycle_*` and `exec 199>&-` are T1's stream
+   insertions on its branch, absent from `8ebaf8daad`, whose line 335
+   writes `cheevos_custom_host` for the lowerdeck proxy on 4874.
+8. RetroArch's `0013-cheevos-offline-proxy-toast.patch:6` names the
+   address; `cloud_oauth` names 8080 at 857, 2333, 2553 and 2681.
+9. The ctl's exits: 2 also at `:560` and `:639`; 3 at `:762` and `:1843`.
+10. `systemctl` 6, `set_setting` 8 and *six* python blocks are counts of
+    non-comment code lines (9, 9 and 7 by word); the rule is stated.
+11. The membership block's inputs are on the P1 branch only; the brief says
+    so and names the stacked worktree.
+12. `<dispatch tip>` is named as the hash the dispatch comment gives; two
+    bare `grep`s are `/usr/bin/grep`.
+13. Minor: RATOKENSETTINGS starts at `:705`; `:1672-1674` is the listing's
+    `write_text` and the why is at `:1989`/`:2316`; the audit folders are
+    cited with their branches once in § 2.
+
+What a stranger could not do from version 1 alone, now said: the digests
+are the coordinator's scratch files (every figure is reproduced by a
+command here); the membership block needs the stacked worktree; "T17's
+brief" and "T22's table" are named files; `069fc2704421` is the image
+file's build name, not a git object; the GitHub issue list is read at
+stage A, not from the tree; the draft-to-patch mapping is the lane's
+table, not a grep.

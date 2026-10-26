@@ -185,3 +185,33 @@ written with the brief's version 1.
 
 The five questions above are T19's; T20's addendum is written with its own
 brief under #700's futro, where the interface's lane reads it.
+
+### Errata from the stranger's proof of T19's brief (version 2, 2026-10-26)
+
+Ten commands from the scratch clone at `2174265e9c`; the membership,
+every line number, the unit's zero hardening directives, the patches'
+provenance, the tools and every cited ID, branch and folder held. What
+the proof corrected, and what § 1 above had assumed:
+
+- **The first assumption was right to be an assumption, and version 1's
+  command still got it wrong:** the tarball is in the cache -- as one of
+  fourteen revisions, and the brief's `ls | head -n 1` would have handed
+  the lane a 2026-09-25 tree to patch. Version 2 names the file by
+  `PKG_VERSION`. A path to a cache of many revisions is read by the pin,
+  never by sort order.
+- The `have_account` "drift" is a page comment naming the ctl's internal
+  function (`:1119`), not a missing verb; T20 tidies a comment. The
+  "unknown known" of § 3 (blindspot 46: a name read as a behaviour) was
+  the brief's own, caught by the proof.
+- The OS neighbours by word are five with `packages/virtual/network/package.mk`
+  and without `cheevos_dolphin.sh` (port only); `runemu.sh:335` writes the
+  lowerdeck proxy's port, not this one; the `ra_lifecycle` seam is on T1's
+  branch, not at the read commit.
+- The ctl's protocol tokens are emitted through `say()`/`tell()` without a
+  literal `>>> ` in the source, so a count must drop the prefix; the exit
+  codes are 1/2/3/130/143/0 at the lines the brief now lists; 48 `D-RA`
+  rows, not fifty; D-WORKFLOW-209 the highest Decided row.
+- What a stranger could not do from the brief alone -- find the digests,
+  run the membership block off the P1 branch, name "T17's brief" or
+  "T22's table", treat `069fc2704421` as a git object -- is now said in
+  the text. The stream prediction stands at two.
