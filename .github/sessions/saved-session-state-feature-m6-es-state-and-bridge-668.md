@@ -17,19 +17,15 @@
 
 ## Current focus
 
-**Stage A done (2026-10-26 21:00 UTC); stage B next.**
+**Stage B done (2026-10-26 21:20 UTC); the guest window is requested on #668 and not yet granted.**
 
-- **Stage A:**
-  - the first commands, § 2's block and § 5's runs all at the brief's figures, with two deltas from its comments (`wifictl`'s 195/209 outside the pattern; 25 `writeAllText` call sites of 27 lines);
-  - the unit tests built at the pin by `tools/t21-build-tests.sh` (221 cases, the eight files 80), with rapidjson from the recipe's own tarball and four patches;
-  - `tests/wifi-profile-lifetime.py` PASS;
-  - T20's PL-08 fixture and S2's `HttpReqOptions` field read by `git show`.
-- **Records:** `00` at `reviewed-at` `4844a773ca` beside the pin; `01` § Scope.
-- **Next, stage B:**
-  - read the 14 whole, and § 3's remaining rules, map lines, blindspots and audits;
-  - write `02` with its sections, the generators for § The commands and § The writers asserting their counts, and the host positives (the kill-the-writer fixture for both stores and the shell writers, the seed-before-the-record case);
-  - then the window request on #668 with its plan and its bound.
-- **What runs here:** nothing. Scratch is `/workspace/tmp/m6-t21/` (`rj/`, `build/pin/`, `stageA/`).
+- **Stage B:**
+  - the 14 read whole at the pin;
+  - `02` with Coverage (14), twenty leads L-01 to L-20, and the two generated sections (`tools/t21-commands.py` 143 rows; `tools/t21-writers.py` 41, 25 and 10);
+  - the host positives under `stage-b/positives/`: kill-writer, shell-writers, state-units, lifted.
+- **Next, on a grant:** the window's steps G1 to G8 as the request lists them, recorded under `guest-cycle/`, the START and RETURN posts, and the disk retired.
+- **Then stage C:** the packet trimmed and scanned, the plan, the two seats, the pre-issue lint.
+- **What runs here:** nothing. Scratch is `/workspace/tmp/m6-t21/`.
 
 ## Next commands
 
@@ -67,5 +63,6 @@ another lane's worktree, or a guest outside the one granted window.
 
 ## Checkpoints
 
+- Stage B, 21:20 UTC: distribution `5722daf7e5`; ES at the pin, unchanged; the window requested.
 - Stage A, 21:00 UTC: distribution `4844a773ca` + stage A's commit; ES at the pin `16dbac5211` (unchanged).
 - (none yet; the executor appends one line per stage: the stage, both tips, the time)
