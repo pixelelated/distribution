@@ -1,0 +1,12 @@
+# S9's suite (#666, #1165), under the 14:33 and 15:50 rulings (D-WORKFLOW-211) (2026-10-26T16:27:16Z)
+tools/last-good-scripts-test, QA_SYSTEM_ROOT=/workspace/artifacts/m6-donor/1a0266484423/image/system; host bash 5.3.9, host python 3.14.4
+
+S7 + S8 + S9's scripts with the suite's old stand-in helper (a trial worktree): 1265 PASS; 48 CHECK(S) FAILED, 0 SKIPPED
+  -- section t's stand-in read the NUL-separated job file as one job and printed the old line shape; run_jobs' reconciliation counted the rest as failed
+
+## the fixture completed: the stand-in speaks S9's protocol (:2169-2231)
+entries NUL-separated in, '<KIND> <i>/<n><TAB><reason><TAB><label>' out, its job log one job a line; no assertion changed
+the same trial with the stand-in completed: 1313 PASS; PASSED
+S9 in the tree: 1313 PASS; PASSED
+
+not run on the scripts before S9: the completed stand-in speaks the protocol S9 introduces, which the ctl before S9 does not write; S9's positive is its own fixture (stage-e/s9-before.txt, s9-after.txt)

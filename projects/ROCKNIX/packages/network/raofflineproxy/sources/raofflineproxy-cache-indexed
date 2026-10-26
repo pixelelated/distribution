@@ -138,6 +138,20 @@ def cache_indexed(game_id: int, hash_value: str, path: Path, credentials: dict,
     return title or f"Game {game_id}"
 
 
+def one_line(text: str) -> str:
+    """A field the ctl reads as one line: bytes that are not UTF-8 shown as
+    U+FFFD, every control character (a tab, a newline) as '?'."""
+    text = text.encode("utf-8", "surrogateescape").decode("utf-8", "replace")
+    return "".join("?" if ord(c) < 32 or ord(c) == 127 else c for c in text)
+
+
+def report(kind: str, index: int, total: int, reason: str, label: str) -> None:
+    """A job's line for the ctl's run_jobs: "<KIND> <i>/<n><TAB><reason><TAB>
+    <label>". The ctl classifies by the kind and the reason field alone, so
+    a file name can say nothing about how its job went (pixelelated#1165)."""
+    print(f"{kind} {index}/{total}\t{one_line(reason)}\t{one_line(label)}", flush=True)
+
+
 def main() -> int:
     if len(sys.argv) != 2:
         print("usage: raofflineproxy-cache-indexed <jobs-file>", file=sys.stderr)
@@ -145,19 +159,26 @@ def main() -> int:
     configure_logging()
     config_data = load_config()
 
-    jobs: list[tuple[str, int, str, Path]] = []
-    for raw in Path(sys.argv[1]).read_text(encoding="utf-8").splitlines():
-        if not raw.strip():
+    # One entry a job, NUL-separated and in surrogateescape, as the ctl's
+    # list_jobs writes them: a pathname holds any byte but NUL (fork
+    # pixelelated#1165). An entry not understood keeps its place, so the
+    # numbers on the lines below stay the ctl's, and is reported as failed.
+    jobs: list[tuple[str, int, str, Path] | None] = []
+    for raw in Path(sys.argv[1]).read_bytes().split(b"\0"):
+        text = raw.decode("utf-8", "surrogateescape")
+        if not text.strip():
             continue
-        fields = raw.split("\t", 3)
+        fields = text.split("\t", 3)
         if len(fields) != 4 or fields[0] not in ("I", "H"):
-            note(f"job line not understood, skipped: {raw[:80]}")
+            note(f"job not understood: {one_line(text[:80])}")
+            jobs.append(None)
             continue
         kind, game_id, hash_value, path = fields
         try:
             jobs.append((kind, int(game_id) if game_id else 0, hash_value.strip(), Path(path)))
         except ValueError:
-            note(f"job line not understood, skipped: {raw[:80]}")
+            note(f"job not understood: {one_line(text[:80])}")
+            jobs.append(None)
     if not jobs:
         print("DONE cached=0 failed=0 indexed=0", flush=True)
         return 0
@@ -171,45 +192,56 @@ def main() -> int:
         # else a sign-in from the password). None is the client's own
         # "login required", said on every line as cache-roms says it.
         credentials = resolve_credentials(storage, config_data, self_user_agent())
-        for index, (kind, game_id, hash_value, path) in enumerate(jobs, start=1):
+        for index, job in enumerate(jobs, start=1):
+            if job is None:
+                failed += 1
+                report("FAIL", index, total, "job not understood", "")
+                continue
+            kind, game_id, hash_value, path = job
             apply_scan_batch_cooldown(index - 1)
             label = path.name
             ASKED.clear()
             if credentials is None:
                 failed += 1
-                print(f"FAIL {index}/{total} {label}: RetroAchievements login required", flush=True)
+                report("FAIL", index, total, "RetroAchievements login required", label)
                 continue
-            if kind == "I" and game_id > 0 and hash_value:
+            # An index job with no id or hash is a job file the ctl did not
+            # write; it is refused, never hashed in its stead (#1165, F-41).
+            if kind == "I" and (game_id <= 0 or not hash_value):
+                failed += 1
+                report("FAIL", index, total, "an index job with no game id or hash; refused, not hashed", label)
+                continue
+            if kind == "I":
                 try:
                     title = cache_indexed(game_id, hash_value, path, credentials, storage, config_data)
                 except Exception as error:
                     failed += 1
-                    print(f"FAIL {index}/{total} {label}: {error}", flush=True)
-                    note(f"indexed {index}/{total} {label}: game {game_id} could not be cached; asked {','.join(ASKED) or 'nothing'}")
+                    report("FAIL", index, total, str(error), label)
+                    note(f"indexed {index}/{total} {one_line(label)}: game {game_id} could not be cached; asked {','.join(ASKED) or 'nothing'}")
                     continue
                 cached += 1
                 indexed += 1
-                print(f"OK {index}/{total} {label}", flush=True)
-                note(f"indexed {index}/{total} {label}: game {game_id} '{title}' cached from the index, hash reused, not hashed; asked {','.join(ASKED) or 'nothing'}")
+                report("OK", index, total, "", label)
+                note(f"indexed {index}/{total} {one_line(label)}: game {game_id} '{title}' cached from the index, hash reused, not hashed; asked {','.join(ASKED) or 'nothing'}")
                 continue
 
             if not path.is_file():
                 failed += 1
-                print(f"FAIL {index}/{total} {label}: not found", flush=True)
+                report("FAIL", index, total, "not found", label)
                 continue
             try:
                 result = add_rom_to_cache(path, storage, config_data, budgeted=False)
             except Exception as error:
                 failed += 1
-                print(f"FAIL {index}/{total} {label}: {error}", flush=True)
+                report("FAIL", index, total, str(error), label)
                 continue
             if result.success and not result.queued:
                 cached += 1
-                print(f"OK {index}/{total} {label}", flush=True)
+                report("OK", index, total, "", label)
             else:
                 failed += 1
-                print(f"FAIL {index}/{total} {label}: {result.message}", flush=True)
-            note(f"hashed {index}/{total} {label}: no index entry, the ROM was hashed and looked up; asked {','.join(ASKED) or 'nothing'}")
+                report("FAIL", index, total, str(result.message), label)
+            note(f"hashed {index}/{total} {one_line(label)}: no index entry, the ROM was hashed and looked up; asked {','.join(ASKED) or 'nothing'}")
     finally:
         storage.close()
 

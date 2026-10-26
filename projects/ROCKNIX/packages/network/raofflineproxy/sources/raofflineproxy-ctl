@@ -1833,9 +1833,12 @@ if mode == "all":
 
 hash_jobs = walked
 
-lines = [f"I\t{indexed_jobs[p][0]}\t{indexed_jobs[p][1]}\t{p}\n" for p in by_history(list(indexed_jobs))]
-lines += [f"H\t\t\t{p}\n" for p in by_history(hash_jobs)]
-out.write_text("".join(lines), encoding="utf-8")
+# One entry a job, NUL-separated, written with surrogateescape: a pathname
+# holds any byte but NUL, and a newline in one or a byte that is not UTF-8
+# split a job or failed the whole listing (#1165, T19 F-17/F-29).
+lines = [f"I\t{indexed_jobs[p][0]}\t{indexed_jobs[p][1]}\t{p}\0" for p in by_history(list(indexed_jobs))]
+lines += [f"H\t\t\t{p}\0" for p in by_history(hash_jobs)]
+out.write_bytes("".join(lines).encode("utf-8", "surrogateescape"))
 found = indexed_seen + len(walked) + walked_cached
 new = len(lines)
 print(f"found={found} new={new} cached={found - new} indexed={len(indexed_jobs)} hashing={len(hash_jobs)} truncated={truncated} cursor_saved={cursor_saved}")
@@ -1868,7 +1871,8 @@ esac
 run_jobs() {
     local MODE="$1" LIST="$2" TOTAL="$3" BUDGET="${4:-0}"
     local -a PATHS
-    mapfile -t PATHS < "${LIST}"
+    # NUL-separated, as list_jobs writes them (#1165).
+    mapfile -d '' -t PATHS < "${LIST}"
     JOBS_FIFO="$(mktemp -u /tmp/raofflineproxy-scan-out.XXXXXX)"
     mkfifo "${JOBS_FIFO}" || fail "cannot create ${JOBS_FIFO}"
     if [ "${BUDGET}" -gt 0 ]; then
@@ -1880,23 +1884,32 @@ run_jobs() {
     exec 8< "${JOBS_FIFO}"
 
     R_CACHED=0; R_SKIPPED=0; R_ERRORS=0; R_LIMIT=0; R_WHY=""; R_STOPPED=0; R_INDEXED=0; R_DONE=0
-    local IN_A_ROW=0 line index name
+    local IN_A_ROW=0 line index name kind reason i
+    local -a REPORTED=()
     if [ "${TOTAL}" -gt 0 ]; then
-        name="${PATHS[0]##*/}"
+        name="${PATHS[0]##*/}"; name="${name//[[:cntrl:]]/_}"
         mark_running " index=1 total=${TOTAL} name=${name//[[:space:]]/_}"
         [ "${MODE}" = page ] && tell "game 1|${TOTAL}|${name%.*}"
     fi
     while IFS= read -r line <&8; do
         slog "client: ${line}"
-        case "${line}" in
-            OK\ *)
+        # The helper's line is "<KIND> <i>/<n><TAB><reason><TAB><label>"; it
+        # is classified by its kind and its reason field, never by the label,
+        # a file name a player chose (#1165, T19 F-24: a name holding "Hash
+        # failed" turned failures into skips).
+        kind="${line%% *}"
+        reason=""
+        case "${line}" in *$'\t'*) reason="${line#*$'\t'}"; reason="${reason%%$'\t'*}" ;; esac
+        case "${kind}" in
+            OK)
                 R_CACHED=$((R_CACHED + 1)); IN_A_ROW=0 ;;
-            DONE\ *)
+            DONE)
                 # The helper's verdict on the games: whatever the process does
                 # afterwards (badge downloads outliving the bound, fork #188) is
                 # not the run's outcome.
                 R_INDEXED="$(count_of "${line}" indexed)"; R_DONE=1
                 continue ;;
+            FAIL) case "${reason}" in
             *"Cache limit reached"*)
                 # The client says it will cache no more (no ROCKNIX client
                 # does since patch 004; kept for one that says so): every
@@ -1906,7 +1919,7 @@ run_jobs() {
                 slog "run: the client reports its cache limit; stopping"
                 kill "${CLIENT}" 2>/dev/null
                 break ;;
-            *"No RetroAchievements match"*|*"Hash failed"*|*": not found")
+            *"No RetroAchievements match"*|*"Hash failed"*|"not found")
                 # Not a game RetroAchievements knows, or not a file it can
                 # read: the proxy's docs skip these silently, and so does
                 # the page -- counted here for the log and the stamp.
@@ -1916,7 +1929,7 @@ run_jobs() {
                 R_WHY=SIGN_IN_REFUSED; R_STOPPED=1
                 kill "${CLIENT}" 2>/dev/null
                 break ;;
-            FAIL\ *)
+            *)
                 # A lookup or a fetch that did not come back: the link, the
                 # server, a 429. A run of them is the scan asking a question
                 # nobody is answering.
@@ -1926,14 +1939,16 @@ run_jobs() {
                     kill "${CLIENT}" 2>/dev/null
                     break
                 fi ;;
+            esac ;;
             *)
                 continue ;;
         esac
         # The helper finished game i (1-based); what it is on now is i+1.
         index="${line#* }"; index="${index%%/*}"
         case "${index}" in ''|*[!0-9]*) index=0 ;; esac
+        [ "${index}" -gt 0 ] && REPORTED[${index}]=1
         if [ "${index}" -gt 0 ] && [ "${index}" -lt "${TOTAL}" ]; then
-            name="${PATHS[${index}]##*/}"
+            name="${PATHS[${index}]##*/}"; name="${name//[[:cntrl:]]/_}"
             mark_running " index=$((index + 1)) total=${TOTAL} name=${name//[[:space:]]/_}"
         fi
         [ "${MODE}" = page ] || continue
@@ -1948,6 +1963,16 @@ run_jobs() {
     unset CLIENT
     rm -f "${JOBS_FIFO}"; JOBS_FIFO=""
     unmark_running
+    # DONE against the jobs planned: one the helper never reported is one
+    # that did not happen, counted as failed with its path (#1165).
+    if [ "${R_DONE}" -eq 1 ]; then
+        for (( i = 1; i <= TOTAL; i++ )); do
+            [ -n "${REPORTED[${i}]:-}" ] && continue
+            R_ERRORS=$((R_ERRORS + 1))
+            name="${PATHS[$((i - 1))]#*$'\t'*$'\t'*$'\t'}"
+            slog "run: job ${i} of ${TOTAL} (${name//[[:cntrl:]]/_}) was not reported by the helper; counted as failed"
+        done
+    fi
     if [ "${R_DONE}" -eq 1 ] && [ "${R_CLIENT_RC}" -ne 0 ]; then
         slog "run: the helper had reported DONE and ended with rc ${R_CLIENT_RC} afterwards (badge downloads cut short) -- not the run's verdict (#188)"
     fi

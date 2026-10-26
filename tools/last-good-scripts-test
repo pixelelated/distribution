@@ -2166,7 +2166,10 @@ EOS
 # come back), login (sign-in refused), slow N (N virtual seconds, or the
 # budget and a timeout), wait N (N real seconds), cancel (the interface's
 # SIGINT to the ctl, then wait to be ended), die -- and ok when there is no
-# line. It records its pid, its jobs and its start and end.
+# line. It records its pid, its jobs and its start and end. Since #1165 it
+# speaks the job protocol the ctl does: entries NUL-separated in, and
+# "<KIND> <i>/<n><TAB><reason><TAB><label>" out (its job log stays one job
+# a line, for the checks below that read it).
 cat > "${T}/repo/raofflineproxy-cache-indexed" <<'EOS'
 import os, signal, sys, time
 from pathlib import Path
@@ -2181,7 +2184,7 @@ user = ""
 for line in Path("/storage/.config/system/configs/system.cfg").read_text().splitlines():
     if line.startswith("global.retroachievements.username="): user = cache_keys.normalize_user(line.split("=", 1)[1])
 plan = (run / "helper-plan").read_text().splitlines() if (run / "helper-plan").exists() else []
-jobs = [l for l in Path(sys.argv[1]).read_text().splitlines() if l.strip()]
+jobs = [e.decode("utf-8", "surrogateescape") for e in Path(sys.argv[1]).read_bytes().split(b"\0") if e.strip()]
 with (run / "helper-jobs.log").open("a") as log: log.write("".join(j + "\n" for j in jobs))
 storage = Storage(); cached = failed = indexed = 0; total = len(jobs)
 def say(text): print(text, flush=True)
@@ -2192,9 +2195,9 @@ for i, raw in enumerate(jobs, start=1):
     if running.exists():
         with (run / "running-seen").open("a") as f: f.write(running.read_text())
     step = plan[i - 1].split() if i - 1 < len(plan) and plan[i - 1].strip() else ["ok"]
-    if step[0] == "skip": failed += 1; say(f"FAIL {i}/{total} {label}: No RetroAchievements match"); continue
-    if step[0] == "fail": failed += 1; say(f"FAIL {i}/{total} {label}: patch request failed: HTTP Error 429: Too Many Requests"); continue
-    if step[0] == "login": failed += 1; say(f"FAIL {i}/{total} {label}: RetroAchievements login required"); continue
+    if step[0] == "skip": failed += 1; say(f"FAIL {i}/{total}\tNo RetroAchievements match\t{label}"); continue
+    if step[0] == "fail": failed += 1; say(f"FAIL {i}/{total}\tpatch request failed: HTTP Error 429: Too Many Requests\t{label}"); continue
+    if step[0] == "login": failed += 1; say(f"FAIL {i}/{total}\tRetroAchievements login required\t{label}"); continue
     if step[0] == "die": sys.exit(3)
     if step[0] == "wait": time.sleep(float(step[1]))
     if step[0] == "cancel":
@@ -2212,7 +2215,7 @@ for i, raw in enumerate(jobs, start=1):
     storage.upsert_cache(cache_keys.patch(game_id, user), '{"Success":true,"PatchData":{"ID":%d,"Title":"G%d"}}' % (game_id, game_id), source_rom_path=normalize_cached_rom_path(path))
     storage.upsert_cache(cache_keys.unlocks(game_id, user), '{"Success":true,"UserUnlocks":[]}')
     storage.upsert_cache(cache_keys.achievementsets(hash_value, user), '{"Success":true,"GameId":%d,"Sets":[]}' % game_id)
-    cached += 1; indexed += 1 if kind == "I" else 0; say(f"OK {i}/{total} {label}")
+    cached += 1; indexed += 1 if kind == "I" else 0; say(f"OK {i}/{total}\t\t{label}")
 storage.close()
 with (run / "helper-times").open("a") as f: f.write(f"end {now()}\n")
 say(f"DONE cached={cached} failed={failed} indexed={indexed}")

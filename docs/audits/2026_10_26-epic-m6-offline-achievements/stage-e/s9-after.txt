@@ -1,0 +1,29 @@
+# S9 after (#666, #1165): the ctl and cache-indexed in the tree, 2026-10-26T16:18:08Z
+ctl sha256 c8e6cf4292f7f5d8; cache-indexed sha256 a5578659824dce16
+
+## --expect fixed
+host python 3.14.4 (image recipe 3.14.7); bwrap --clearenv --unshare-net; ctl /workspace/repos/pixelelated/distribution.worktrees/m6-offline-achievements-666/projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl; helper /workspace/repos/pixelelated/distribution.worktrees/m6-offline-achievements-666/projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-indexed
+A. a name with 0xff: listing rc=0; found=2 new=2 cached=0 indexed=0 hashing=2 truncated=0 cursor_saved=1
+B. a name with a newline: 2 files, 2 job entries (NUL-separated)
+C. an index job with no id: rc=0; first line 'FAIL 1/1\tan index job with no game id or hash; refused, not hashed\tgood.nes'; hashed in its stead: no
+D. 'Hash failed.nes' whose lookup fails: cached=0 skipped=0 errors=1 why= done=1; the helper said '2026-10-26 16:18:09 client: FAIL 1/1\tpatch request failed: <urlopen error [Errno -3] Temporary failure in name resolution>\tHash failed.nes'
+expect fixed: A fixed, B fixed, C fixed, D fixed -- as expected
+rc 0
+
+## --expect unfixed
+host python 3.14.4 (image recipe 3.14.7); bwrap --clearenv --unshare-net; ctl /workspace/repos/pixelelated/distribution.worktrees/m6-offline-achievements-666/projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl; helper /workspace/repos/pixelelated/distribution.worktrees/m6-offline-achievements-666/projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-indexed
+A. a name with 0xff: listing rc=0; found=2 new=2 cached=0 indexed=0 hashing=2 truncated=0 cursor_saved=1
+B. a name with a newline: 2 files, 2 job entries (NUL-separated)
+C. an index job with no id: rc=0; first line 'FAIL 1/1\tan index job with no game id or hash; refused, not hashed\tgood.nes'; hashed in its stead: no
+D. 'Hash failed.nes' whose lookup fails: cached=0 skipped=0 errors=1 why= done=1; the helper said '2026-10-26 16:18:09 client: FAIL 1/1\tpatch request failed: <urlopen error [Errno -3] Temporary failure in name resolution>\tHash failed.nes'
+expect unfixed: A fixed, B fixed, C fixed, D fixed -- NOT as expected
+rc 1
+
+bash -n of the ctl: ok; cache-indexed parses: ok
+stage B's form unchanged: python3 -I -B tools/t19-listing-fixture.py <tree> <scratch> [<rev>]
+
+## stage B's form, against 8ebaf8daad: tools/t19-listing-fixture.py <tree> /workspace/tmp/m6-t19/s9/stage-b-form
+decodable: rc=0; found=1 new=1 cached=0 indexed=0 hashing=1 truncated=0 cursor_saved=1
+undecodable: rc=1; UnicodeEncodeError: 'utf-8' codec can't encode character '\udcff' in position 67: surrogates not allowed
+the defect as read: REPRODUCED
+rc 0

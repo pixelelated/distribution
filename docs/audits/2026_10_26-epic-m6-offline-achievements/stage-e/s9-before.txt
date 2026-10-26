@@ -1,0 +1,20 @@
+# S9 before (#666, #1165): the ctl and cache-indexed at 72f0f3e3dd (S8's tip), 2026-10-26T16:18:07Z
+commands: tools/t19-listing-fixture.py <the pin + 001..022> <scratch> --ctl <ctl> --helper <cache-indexed> --expect unfixed|fixed
+
+## --expect unfixed
+host python 3.14.4 (image recipe 3.14.7); bwrap --clearenv --unshare-net; ctl /workspace/tmp/m6-t19/s9/ctl-unfixed; helper /workspace/tmp/m6-t19/s9/ci-unfixed
+A. a name with 0xff: listing rc=1; UnicodeEncodeError: 'utf-8' codec can't encode character '\udcff' in position 48: surrogates not allowed
+B. a name with a newline: 2 files, 3 job entries (newline-separated)
+C. an index job with no id: rc=0; first line 'FAIL 1/1 good.nes: Hash failed: unsupported or unreadable ROM'; hashed in its stead: yes
+D. 'Hash failed.nes' whose lookup fails: cached=0 skipped=1 errors=0 why= done=1; the helper said '2026-10-26 16:18:07 client: FAIL 1/1 Hash failed.nes: patch request failed: <urlopen error [Errno -3] Temporary failure in name resolution>'
+expect unfixed: A unfixed, B unfixed, C unfixed, D unfixed -- as expected
+rc 0
+
+## --expect fixed
+host python 3.14.4 (image recipe 3.14.7); bwrap --clearenv --unshare-net; ctl /workspace/tmp/m6-t19/s9/ctl-unfixed; helper /workspace/tmp/m6-t19/s9/ci-unfixed
+A. a name with 0xff: listing rc=1; UnicodeEncodeError: 'utf-8' codec can't encode character '\udcff' in position 48: surrogates not allowed
+B. a name with a newline: 2 files, 3 job entries (newline-separated)
+C. an index job with no id: rc=0; first line 'FAIL 1/1 good.nes: Hash failed: unsupported or unreadable ROM'; hashed in its stead: yes
+D. 'Hash failed.nes' whose lookup fails: cached=0 skipped=1 errors=0 why= done=1; the helper said '2026-10-26 16:18:08 client: FAIL 1/1 Hash failed.nes: patch request failed: <urlopen error [Errno -3] Temporary failure in name resolution>'
+expect fixed: A unfixed, B unfixed, C unfixed, D unfixed -- NOT as expected
+rc 1
