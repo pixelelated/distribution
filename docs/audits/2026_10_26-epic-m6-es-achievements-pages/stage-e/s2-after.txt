@@ -1,0 +1,20 @@
+== S2 after (19:06:08Z): the builder sends the vendored client's POST, https-only
+[doctest] test cases: 2 | 2 passed | 0 failed | 185 skipped
+[doctest] assertions: 5 | 5 passed | 0 failed |
+-- RetroAchievements.cpp's sign-in after (the request line):
+163:	if (req.status() == HttpReq::REQ_401_FORBIDDEN || req.status() == HttpReq::REQ_403_BADLOGIN)
+478:	return req.status() != HttpReq::REQ_401_FORBIDDEN && req.status() != HttpReq::REQ_403_BADLOGIN;
+1040:		const auto signIn = RetroAchievementsText::signInRequest(username, password,
+1042:		options.dataToPost = signIn.body;
+1043:		options.httpsRedirectsOnly = signIn.httpsRedirectsOnly;
+1049:		else if (request.status() == HttpReq::REQ_401_FORBIDDEN || request.status() == HttpReq::REQ_403_BADLOGIN)
+-- HttpReq.cpp's redirect protocols after:
+232:	const bool httpsOnly = options != nullptr && options->httpsRedirectsOnly;
+233:	const char* redirProtocols = httpsOnly ? "https" : "http,https";
+234:	const long redirMask = httpsOnly ? (long) CURLPROTO_HTTPS : (long) (CURLPROTO_HTTP | CURLPROTO_HTTPS);
+240:		err = curl_easy_setopt(mHandle, CURLOPT_REDIR_PROTOCOLS_STR, redirProtocols);
+242:		err = curl_easy_setopt(mHandle, CURLOPT_REDIR_PROTOCOLS, redirMask);
+244:	err = curl_easy_setopt(mHandle, CURLOPT_REDIR_PROTOCOLS_STR, redirProtocols);
+245:	(void) redirMask;
+247:	err = curl_easy_setopt(mHandle, CURLOPT_REDIR_PROTOCOLS, redirMask);
+-- what reading cannot prove here: that the image's curl honours CURLOPT_REDIR_PROTOCOLS_STR 'https' for a POST; the listener walk is fix-walk-pending-image (stage-e/walks/s2-signin-listener.steps)

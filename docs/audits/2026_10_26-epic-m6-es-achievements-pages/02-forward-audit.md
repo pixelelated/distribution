@@ -265,6 +265,7 @@ One row per stage-E stream (`docs/reviews/briefs/t20-streams.md` at `60c1dc2db3`
 | Stream | Bug | Positive before | Commit | Positive after | Already written | proved: |
 | --- | --- | --- | --- | --- | --- | --- |
 | S1 | #1170 (PL-01, High) | `tests/app-unit/hasher-tests`, the shipped `ThreadedHasher.cpp` against doubles under ASan and UBSan: heap-use-after-free at `start()` (`:383`) on the short-queue schedule; 36 thread objects leaked by the other two cases (`stage-e/s1-before.txt`) | `698040b5c` | 3 of 3 cases, 0 sanitizer reports, no leak (`stage-e/s1-after.txt`); the silent startup run's walk `stage-e/walks/s1-startup-lookups.steps` | kept; the next run reconciles; nothing migrated | fix-unit-test; the startup run fix-walk-pending-image |
+| S2 | #1171 (PL-02, Medium) | the vendored client's login read at `rc_api_user.c:27-39` (POST, `r=login2`, `u`/`p` in the body); the request lifted as the pin builds it fails 5 of 5 (`stage-e/s2-before.txt`) | `d3137f992` | 2 of 2 pass; one `HttpReqOptions` field, `httpsRedirectsOnly` (T21's file, the brief's one field); a 401/403 JSON refusal read as the answer (`stage-e/s2-after.txt`); the listener walk `stage-e/walks/s2-signin-listener.steps` | passwords already sent in a query cannot be recalled; `system.cfg` as before; nothing migrated | fix-unit-test; the listener fix-walk-pending-image |
 
 ## Corrections and new leads from the seats
 

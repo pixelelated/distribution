@@ -1,0 +1,16 @@
+== S2 before (19:01:17Z): the sign-in request lifted as RetroAchievements.cpp:1037 builds it at the pin (RetroAchievementsText.h's first form)
+-- the pin's line:
+HttpReq request("https://retroachievements.org/dorequest.php?r=login&u=" + HttpReq::urlEncode(username) + "&p=" + HttpReq::urlEncode(password), &options);
+unit build rc 1
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/RetroAchievementsTextTests.cpp:35: ERROR: CHECK( request.url == "https://retroachievements.org/dorequest.php" ) is NOT correct!
+  values: CHECK( https://retroachievements.org/dorequest.php?r=login&u=t20probe&p=p%26ss%20word == https://retroachievements.org/dorequest.php )
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/RetroAchievementsTextTests.cpp:36: ERROR: CHECK( request.url.find("p=") == std::string::npos ) is NOT correct!
+  values: CHECK( 63 == 18446744073709551615 )
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/RetroAchievementsTextTests.cpp:37: ERROR: CHECK( request.url.find("u=") == std::string::npos ) is NOT correct!
+  values: CHECK( 52 == 18446744073709551615 )
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/RetroAchievementsTextTests.cpp:38: ERROR: CHECK( request.body == "r=login2&u=t20probe&p=p%26ss%20word" ) is NOT correct!
+  values: CHECK(  == r=login2&u=t20probe&p=p%26ss%20word )
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/RetroAchievementsTextTests.cpp:44: ERROR: CHECK( request.httpsRedirectsOnly ) is NOT correct!
+  values: CHECK( false )
+[doctest] test cases: 2 | 0 passed | 2 failed | 185 skipped
+[doctest] assertions: 5 | 0 passed | 5 failed |

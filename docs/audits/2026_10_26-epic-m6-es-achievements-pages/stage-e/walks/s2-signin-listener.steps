@@ -1,0 +1,14 @@
+# S2 (#1171), for the integration build's window (fix-walk-pending-image):
+# the window's step 7 again (guest-cycle/scripts/tls-probe.py), on the image
+# with S2 in it. Dummy credentials only: the QA values replaced first.
+# 1. The self-signed listener on the guest's loopback, /etc/hosts pointing
+#    retroachievements.org at it (through /run/rocknix/hosts), token and key
+#    emptied, username t20probe and password t20dummy set; restart essway.
+# 2. Read the listener's log: a request line, if any, carries no `p=` and no
+#    `u=` in its path (the probe masks values; the after shows `POST
+#    /dorequest.php` with the path alone). The probe as written logs GET only:
+#    give it a do_POST that logs the path and the body's key names, never
+#    their values, before this walk.
+# 3. A listener answering 302 to an http:// URL: the sign-in does not follow it
+#    (the listener on :80 records nothing).
+# 4. Stop the listener by its PID; restore /etc/hosts through its target.
