@@ -1,14 +1,12 @@
 # Brief: M6.P2 T18, EmulationStation's cloud pages, cards and text, with their unit tests (#665)
 
-**Version 1, 2026-10-26, the coordinator's** (D-WORKFLOW-189). Written from a
+**Version 2, 2026-10-26, the coordinator's** (D-WORKFLOW-189; version 1 the same hour, corrected by a stranger's proof -- thirteen corrections, listed at the end). Written from a
 read-only research digest (sixteen commands over the EmulationStation
 checkout at the pin and the distribution's scratch clone at `2174265e9c`,
 every figure with its command and population), T2's brief
 (`es-launch-path.md`, the model for an ES slice), T16's and T17's briefs (the
 scripts' side of the seam) and the interface futro
-(`docs/futros/2026-10-23-m6-interface.md`). A stranger's proof runs before
-dispatch; version 2 records what it found (`docs/reviews/plan-for-the-plan.md`
-§ 6b). The lens is **brittleness and new functionality**; the depth reason is
+(`docs/futros/2026-10-23-m6-interface.md`). The stranger's proof of version 1 ran before dispatch (eight commands from the scratch clone and the `qa-integration` checkout); this version records what it found (`docs/reviews/plan-for-the-plan.md` § 6b). The lens is **brittleness and new functionality**; the depth reason is
 that `ThreadedCloudSync` and `CloudTransferJob` are on the plan's state list:
 they are the cloud sync's EmulationStation half, the card and the page every
 player sees a sync through.
@@ -166,21 +164,14 @@ records ES paths as `tree: "es"` (1,114 rows); the membership is `tree ==
 **What the `GuiCloud*` glob reaches, and what it does not.** It selects
 **only `GuiCloudTransfer.{cpp,h}`**. The setup wizard, the scan launch, the
 connections and folder pages and the three cloud rows live in
-`es-app/src/guis/GuiMenu.cpp` (7 `new GuiCloudTransfer` sites, 3
-`ThreadedCloudSync::start` sites, seventy-odd script invocations), which is
-**T26's**; `main.cpp:666-691` (the startup sync), `FileData.cpp:1310` (the
-launch's question), `ProxyCards.cpp:34/118` and `JourneyTiers.h:142-151` are
-T2's and the achievements slice's. **None of the eight sources invokes a
+`es-app/src/guis/GuiMenu.cpp` (7 `new GuiCloudTransfer` sites, 3 `ThreadedCloudSync::start` sites, 50 lines naming `/usr/bin/cloud_`), which is **T26's**; `main.cpp:666-691` (the startup sync), `FileData.cpp:1310` (the exit sync's `ThreadedCloudSync::start`; the launch's question over a running card, job or control is `:993-1006`, `:1010-1020` and `:1028-1055`), `ProxyCards.cpp:118` (its `:34` is the `EXIT_SYNC` constant) and `JourneyTiers.h:142-151` (which composes the restore commands) are T2's and the achievements slice's. **None of the eight sources invokes a
 script by path**: `mCommand` is composed by the callers and handed in. So
 this slice reads the card, the job, the page and the text as a library
 whose callers are elsewhere, and names each caller's slice for what it hands
 over.
 
 **Read as context, not membership (the coordinator's answer to the digest's
-membership question):** the ES repository's top-level `tests/app-unit/**`
-(10 files, among them `ProxyCardsTests.cpp`, `JourneyTiersTests.cpp`,
-`TextFitTests.cpp` and `fakes/ThreadedCloudSync.h`, a fake of this slice's
-class) and the Python harnesses under `tests/` that name this slice's
+membership question):** the ES repository's top-level `tests/app-unit/**` (19 files under the glob: 10 at the top, among them `ProxyCardsTests.cpp`, `JourneyTiersTests.cpp` and `TextFitTests.cpp`, and 9 fakes, among them `fakes/ThreadedCloudSync.h`, a fake of this slice's class) and the Python harnesses under `tests/` that name this slice's
 subjects (`cloud-oauth-lifetime.py`, `cloud-sync-last-run.py`,
 `maintenance-why.py`, `cloud-set-systems-quoting.py`, `cloud-gated-row.py`,
 `cloud-folder-reopen.py`, `cloud-content-selection.py`, `cloud-oauth-await.py`).
@@ -194,11 +185,11 @@ functions by declaration regex for `CloudText.h`):
 | File | Lines | What it is |
 | --- | ---: | --- |
 | `es-app/tests/unit/CloudTextTests.cpp` | 1,784 | 70 `TEST_CASE`s, 711 checks: every declared `CloudText` function |
-| `es-app/src/CloudText.cpp` | 1,409 | the pure string code (40 declared functions in the header): `whySentences` (39 rows, 38 unique), `localizedWhy` / `isKnownWhy` (`:469-485`), `classifyProtocolLine` (`:561-616`: `>>> pid`, `doing`, `why`, `offer`, `tier`, `unit`, `removed`), the stamp map (`:186-189`), exit 75 (`:1386`), `outcomeCandidates`, `chooseThatFits`, `liveLine`, `cleanLine` |
-| `es-app/src/guis/GuiCloudTransfer.cpp` | 1,077 | the fourth-tier page (D-UI-078): BACK is CANCEL while cancellable with per-kind confirm text, OK is TRY AGAIN; `delete this` at `:207` and `:328`; `postToUiThread([page, alive]...)` at `:1070`; every line fitted by `font->sizeText` against `mLineWidth` (`:585-1022`); `t->setSize(w, 0)` at `:74`; 67 `_( )` strings; constructed 7 times in `GuiMenu.cpp` and once in `main.cpp` |
+| `es-app/src/CloudText.cpp` | 1,409 | the pure string code (47 declarations in the header by the § 5 regex): `whySentences` (`:414-467`, 38 rows, 38 unique), `localizedWhy` / `isKnownWhy` (`:469-484`; `cleanLine` from `:485`), `classifyProtocolLine` (`:561-616`: `>>> pid`, `doing`, `why`, `offer`, `tier`, `unit`, `removed`), the stamp map (`:186-189`), exit 75 (`:1386`), `outcomeCandidates`, `chooseThatFits`, `liveLine`, `cleanLine` |
+| `es-app/src/guis/GuiCloudTransfer.cpp` | 1,077 | the fourth-tier page (D-UI-078): BACK is CANCEL while cancellable with per-kind confirm text, OK is TRY AGAIN; `delete this` at `:207` and `:328`; `postToUiThread([page, alive]...)` at `:1070`; every line fitted by `font->sizeText` against `mLineWidth` (`:585-1022`); `t->setSize(w, 0)` at `:74`; 67 unique `_( )` strings (80 occurrences); constructed 7 times in `GuiMenu.cpp` and once in `main.cpp` |
 | `es-app/tests/unit/AtomicFileTests.cpp` | 1,090 | 24 cases / 130 checks: `AtomicFileUtil` against real files (context: T2's and the state slice's subject) |
-| `es-app/src/ThreadedCloudSync.cpp` | 949 | the automatic sync's card: `createAsyncNotificationComponent(true)` (`:46`), origins None / Startup / Exit / Manual, `whyForCode` (`:80-98`), the `popen("setsid sh -c ...")` at `:208` **without** the `trap '' PIPE` the job has, `cancelForLaunch` (`:784-862`: SIGTERM then SIGKILL at 1.5 s of a 2 s budget, a 20 ms spin), the 1.5 s / 5 s linger (`:731`), `ProxyCards::afterSync` at `:755`, the stamps `last-sync-<startup|exit|manual>` written tmp + `std::rename` (`:892-949`) and read by `stat` inode and mtime; 50 `_( )` strings; the thread detached (`:56`, PL-069) |
-| `es-app/src/CloudTransferJob.cpp` | 751 | the page's worker: one shared job at a time (`sMutex`), `popen("setsid sh -c '{ trap '' PIPE; ... }'")` at `:637-638`, parses `Transferred:` / `Checks:` / ` * name:` and the glued block, 0 and 9 success, 130 stopped, `requestStop` SIGTERM / SIGKILL to the group (`:100-161`) |
+| `es-app/src/ThreadedCloudSync.cpp` | 949 | the automatic sync's card: `createAsyncNotificationComponent(true)` (`:46`), origins None / Startup / Exit / Manual, `whyForCode` (`:80-98`), the the wrapper at `:206-208` (`setsid sh -c`, `popen` at `:208`) **without** the `trap '' PIPE` the job has, `cancelForLaunch` (`:784-862`: SIGTERM then SIGKILL at 1.5 s of a 2 s budget, a 20 ms spin), the 1.5 s / 5 s linger (`:731`) and its own `delete this` at `:757`, `ProxyCards::afterSync` at `:755`, the stamps `last-sync-<startup|exit|manual>` written tmp + `std::rename` (`:892-949`) and read by `stat` inode and mtime; 50 unique `_( )` strings (58 occurrences); the thread detached (`:56`, PL-069) |
+| `es-app/src/CloudTransferJob.cpp` | 751 | the page's worker: one shared job at a time (`sMutex`), the wrapper at `:636-638` (`setsid sh -c` `:636`, `trap '' PIPE` `:637`, `popen` `:638`), parses `Transferred:` / `Checks:` / ` * name:` and the glued block, 0 and 9 success, 130 stopped, `stopForLaunch` `:87`, `requestStop` defined `:139` (called `:100`, `:121`), the signal to the group `:161` |
 | `es-app/src/CloudText.h` | 589 | the declarations and the long comments that are the contract |
 | `es-app/tests/unit/SystemConfTests.cpp` | 506 | 10 cases / 76 checks (context: the settings writer, the state slice) |
 | `es-app/tests/unit/WifiTextTests.cpp` | 352 | 19 / 136 (context: the Wi-Fi rows) |
@@ -206,7 +197,7 @@ functions by declaration regex for `CloudText.h`):
 | `es-app/tests/unit/MaskSecretsTests.cpp` | 242 | 12 / 85: the credential mask (its fixtures are run-time built or they are findings) |
 | `es-app/src/guis/GuiCloudTransfer.h` | 236 | the page's class and its comment |
 | `es-app/src/CloudTransferJob.h` | 217 | the job's members: `mUnitLabel`, `mDoing`, `mChecking`, the atomics `mPid`, `mStoppedForGame`, `mStoppedByPlayer`, `mStopSignal`, `mSignalSent` |
-| `es-app/src/ThreadedCloudSync.h` | 201 | the card's class; its comment at `:93-98` still quotes the rule's older why words |
+| `es-app/src/ThreadedCloudSync.h` | 201 | the card's class; its comment at `:93-98` still quotes the rule's older why words (`WASN'T FOUND`, `REFUSED`) |
 | `es-app/tests/unit/SaveStateJobQueueTests.cpp` | 170 | 10 / 66 (context) |
 | `es-app/tests/unit/CaptureRotationTextTests.cpp` | 164 | 8 / 71 (context) |
 | `es-app/tests/unit/CMakeLists.txt` | 159 | four binaries with the host compiler; rapidjson required, fails closed; `-DES_BUILD_TESTS=ON` off by default so the image build never sees it |
@@ -245,28 +236,16 @@ is the pin's bytes.
 **The seam with the scripts (T16, T17), from this side.** The eight sources
 run no script; they parse what the callers' commands print. What ES knows:
 the protocol markers above; the exits `0` and `9` as success, `130` as
-stopped, `75` as the lock (`CloudText.cpp:1386`), and `whyForCode`'s map
-(`ThreadedCloudSync.cpp:84-93`: 3/4 `COULDN'T FIND YOUR CLOUD FOLDER`, 5 and
+stopped, `75` as the lock (`CloudText.cpp:1386`), and `whyForCode`'s map (`ThreadedCloudSync.cpp:80-98`, the cases at `:84-94`: 3/4 `COULDN'T FIND YOUR CLOUD FOLDER`, 5 and
 124 `YOUR CLOUD STOPPED ANSWERING`, 7/8 `YOUR CLOUD WOULDN'T TAKE THE
 FILES`, 69 `YOU'RE NOT ONLINE`, 75 `A SYNC IS ALREADY RUNNING`, 130 `IT WAS
 STOPPED`, NoFolder `YOUR CLOUD FOLDER ISN'T SET UP YET`, default `SOMETHING
 WENT WRONG`); the stamps it writes (`last-sync-<origin>`, one line, the why
 as printable ASCII) and reads (`readStamps` by `stat`, `CloudText.cpp:186-189`
-maps each script to its stamp names). **The why table against the scripts**
-(the digest's command 14, both sides at their pins): 37 literal script
-sentences, 38 ES sentences (39 rows, one duplicate), **32 in both**; the
-table lacks `ANOTHER CLOUD SYNC IS RUNNING` (`cloud_setup:797`, which T17's
-S6 changes to `A SYNC IS ALREADY RUNNING` -- the table lacks that too, since
-`A SYNC IS ALREADY RUNNING` is `whyForCode`'s word and the card's SKIPPED
-string, not a `whySentences` row), `THIS BACKUP HOLDS FILES A RESTORE CAN'T
-PUT BACK` (`backuptool:1495`, D-UI-117's proposed words) and one sentence
-the digest's credential filter withheld (the lane re-derives it); six table
-rows no script prints as a literal (`CHOOSE A CONNECTION BEFORE USING CLOUD
+maps each script to its stamp names). **The why table against the scripts** (the proof's re-count, both sides at their pins, `LC_ALL=C`): **38 ES rows at `CloudText.cpp:414-467`, 38 unique, no duplicate; 34 literal script sentences at `8ebaf8daad`; 32 in both; 2 the table lacks; 6 the scripts never print as a literal.** The table lacks `ANOTHER CLOUD SYNC IS RUNNING` (`cloud_setup:797`, which T17's S6 changes to `A SYNC IS ALREADY RUNNING` -- the table lacks that too, since `A SYNC IS ALREADY RUNNING` is `whyForCode`'s word and the card's SKIPPED string, not a `whySentences` row) and `THIS BACKUP HOLDS FILES A RESTORE CAN'T PUT BACK` (`backuptool:1495`, D-UI-117's proposed words); six table rows no script prints as a literal (`CHOOSE A CONNECTION BEFORE USING CLOUD
 TOOLS`, `IT WAS STOPPED`, `SOME FILES DIDN'T FINISH`, `THE CLOUD TOOK TOO
 LONG - IT'LL TRY AGAIN NEXT TIME`, `YOU WENT OFFLINE PART-WAY THROUGH`,
-`YOUR CLOUD SYNC SETTINGS COULDN'T BE SAVED` -- some built from variables by
-the eight `say_why "$var"` emitters the digest's population missed); and
-**three wordings for exit 75** across ES, `cloud_setup` and `cloud_scan`.
+`YOUR CLOUD SYNC SETTINGS COULDN'T BE SAVED` -- some built from variables by the **17 `say_why "$..."` / `why "$..."` emitter lines** (`cloud_backup` 5, `cloud_restore` 4, `cloud_content_backup` 1, `cloud_content_restore` 5, `cloud_scan` 2, most `say_why "$(why_for ...)"`), which the lane expands); and **three wordings for exit 75** across ES, `cloud_setup` and `cloud_scan`.
 **The fallback map's drift is in the rule and the header, not the code:**
 `ThreadedCloudSync.cpp:84-86` and `cloud_scan:123-125` agree on the shipped
 words; `es-player-text.md` § Outcome vocabulary and `ThreadedCloudSync.h:94-96`'s
@@ -275,8 +254,7 @@ rule's claim that the six are "duplicated verbatim" on both sides is false
 of the shipped six. The rule's half is #909's (the coordinator posts the
 line); the header comment is this slice's.
 
-**The decisions that bind these surfaces** (every one a Decided row; 42 of
-the 108 D-UI rows name a card, a page, a wizard or an outcome): **D-UI-022**
+**The decisions that bind these surfaces** (every one a Decided row; the digest found 42 of the 108 D-UI rows at the P1 tip naming a card, a page, a wizard or an outcome; the coordinator's register holds 127 D-UI rows, to D-UI-127): **D-UI-022**
 (the vocabulary), **023** (two lines per row), **028** and **030** (the
 outcome words: `COMPLETED`, `COULDN'T FINISH - <why>`, `SKIPPED - <reason>`;
 no middle word), **035** (candidates longest first, the last fits any
@@ -352,10 +330,7 @@ in `02` (a `proved:` cell: `tree`, `history`, `fixture`, `unit-test`,
 Q3 and Q2 lead and Q6 is small:
 
 - **Q3 Bugs -- the lead question, in three families.** **(a) The protocol
-  under a pipe.** Every line the job and the card read comes through
-  `popen` from a `setsid sh -c` wrapper: the job's wrapper sets `trap ''
-  PIPE` (`CloudTransferJob.cpp:637`) and the card's does not
-  (`ThreadedCloudSync.cpp:207`) -- what happens to each when ES closes the
+  under a pipe.** Every line the job and the card read comes through `popen` from a `setsid sh -c` wrapper: the job's wrapper sets `trap '' PIPE` (`CloudTransferJob.cpp:636-638`) and the card's does not (`ThreadedCloudSync.cpp:206-208`) -- what happens to each when ES closes the
   pipe early (a cancel, a quit)? `classifyProtocolLine` knows seven
   markers: what does a `>>>` line it does not know become -- a why, a
   live line, nothing (blindspot 22)? The rclone parsing (`CloudTransferJob.cpp:475-531`):
@@ -363,10 +338,7 @@ Q3 and Q2 lead and Q6 is small:
   shortening (`es-code-traps.md` § What rclone's piped progress actually
   looks like) -- each with a fixture line through the real parser
   (`CloudTextTests.cpp` has cases; name which trap each covers and which
-  has none). **(b) Lifetimes and threads.** The job outlives the page by
-  design (`CloudTransferJob.h`'s comment); the page `delete this` at `:207`
-  and `:328` and posts `[page, alive]` at `:1070`; the card detaches its
-  thread (`:56`) and deletes itself after a linger (`:731`); `cancelForLaunch`
+  has none). **(b) Lifetimes and threads.** The job outlives the page by design (`CloudTransferJob.h`'s comment); the page `delete this` at `:207` and `:328` and posts `[page, alive]` at `:1070`; the card detaches its thread (`:56`) and deletes itself (`:757`) after a linger (`:731`); `cancelForLaunch`
   (`:784-862`) spins at 20 ms under `sInstanceLock` with a 2 s budget and
   SIGKILLs at 1.5 s -- against D-CLOUD-119's 3 s exit budget and
   D-CLOUD-109's bounded wait, is the budget the right one, and what does
@@ -447,16 +419,27 @@ the dispositions; each seat's probe comes first.
    is the author's claim (blindspot 31) -- the header comment at
    `ThreadedCloudSync.h:94-96` is the case in point. **A fixture is built at
    run time, never a secret-shaped literal at rest** (#1061).
-3. **The bench is the host first, then one guest.** **Can this be done on
-   the VM? Yes** -- the host for every read, the unit tests (`es-app/tests/unit`
-   builds four binaries with the host compiler and no toolchain; rapidjson
-   from an M6 GENERIC_X64 build root's `build/rapidjson-*/include`) and the
-   syntax check (`tools/es-syntax-check` with `ES_BUILD_ROOT` set to an M6
-   root that holds an `emulationstation-*` build directory -- five M6
-   worktrees hold a `build.pixelelated-GENERIC_X64.x86_64`; whether any
-   holds the ES build directory is **not verified** and is a § 5 run: a
-   `CANNOT` with the tool's exit-2 line is the honest answer if none does,
-   and the fix's compile check then waits for the integration build);
+3. **The bench is the host first, then one guest -- and the host has no
+   toolchain.** **Can this be done on the VM? Yes** -- the host for every
+   read; **the unit tests built with the host's `g++` by a command the lane
+   generates from `es-app/tests/unit/CMakeLists.txt`** (the proof found no
+   `cmake` on this host, no rapidjson copy and no toolchain or
+   `emulationstation-*` build directory under any of the five M6
+   `build.pixelelated-GENERIC_X64.x86_64` directories, which are shallow;
+   doctest is vendored under `external/doctest`; rapidjson is header-only
+   and absent from the ES tree -- the lane names a copy by path with each
+   header's sha256 and provenance, as a read, or builds the binary without
+   the sources that need it and **says which cases are therefore not run**;
+   a silent smaller binary is the failure `CMakeLists.txt`'s header
+   forbids); **`tools/es-syntax-check` cannot run on this host** (exit 2,
+   `no ninja ... on PATH`, with `ES_BUILD_ROOT` set to an M6 directory --
+   **set it always, never empty: its default is the legacy M7 root, which
+   this lane may not name**), so a fix to a GUI file has no compile proof
+   here: its syntax is checked by `g++ -fsyntax-only -std=c++17` over the
+   file with the ES include roots where the file's includes allow (the pure
+   files), recorded `CANNOT` with the missing header named where they do
+   not (SDL, freetype), and its compile proof is the integration build's,
+   stated so beside the fix (`fix-walk-pending-image`);
    **the GENERIC_X64 guest runs the pin's binary at 640x480** with
    `tools/cloud-test-backend`'s WebDAV as the cloud (D-QA-058), the eight
    cloud walks, `tools/vm-visual-qa` for frames, `tools/frame-diff` against
@@ -470,10 +453,11 @@ the dispositions; each seat's probe comes first.
    path, size and sha in `00`). **The window's first step identifies the
    installed EmulationStation against the pin**: the image's `BUILD_ID`
    from `/etc/os-release`, the distribution commit it names, that commit's
-   `package.mk` `PKG_VERSION`, and a string the pin's last commit added
-   found in `/usr/bin/emulationstation` by `strings`; a difference is
-   written beside every guest verdict (the image is the M7 candidate
-   `069fc2704421`, built from `next` at its own commit). **Nothing on a
+   `package.mk` `PKG_VERSION`, and a `_( )` literal of the 30 that the merge
+   base lacks (chosen at stage A, named in `00`; the pin's last commit adds
+   no string under `es-app/src`) found in `/usr/bin/emulationstation` by
+   `strings`; a difference is written beside every guest verdict (the image
+   is the M7 candidate `069fc2704421`, built from `next` at its own commit). **Nothing on a
    person's device or cloud** (D-QA-015). `tools/council/run invoke` runs
    four times with the key.
 4. **What result would have produced a FAIL** is asked of every PASS, in
@@ -483,12 +467,17 @@ the dispositions; each seat's probe comes first.
 5. **A fix on the ES branch is proven twice before it is called fixed**
    (T2's `proved:` values): `fix-unit-test` where the code is pure (a case
    added to `CloudTextTests.cpp` or `tests/app-unit/` that fails before and
-   passes after, run on the host), `fix-walk-pending-image` where it draws
-   (the walk written and the frame owed to the integration build that
-   carries the moved pin: the `pin-binary` frame of the unfixed behaviour
-   from the window is the before). `tools/es-syntax-check` passes on every
-   edited `.cpp` (`es-native-ui.md` § Before the pin moves, blindspot 49),
-   and `grep -nP '^\s*//.*[^\x00-\x7F]'` is clean on every touched file.
+   passes after, built and run on the host by the generated `g++` command),
+   `fix-walk-pending-image` where it draws (the walk written and the frame
+   owed to the integration build that carries the moved pin: the
+   `pin-binary` frame of the unfixed behaviour from the window is the
+   before). On every edited `.cpp`: `tools/es-syntax-check` where a
+   toolchain exists, else the host `g++ -fsyntax-only` pass or its `CANNOT`
+   with the missing header named (`es-native-ui.md` § Before the pin moves,
+   blindspot 49: the compile that catches a brace is then the integration
+   build's, and the coordinator runs the integration build's ES package
+   before the pin lands on `next`), and `grep -nP '^\s*//.*[^\x00-\x7F]'`
+   clean on every touched file.
 
 **What never runs in this slice:** a build, a compiler beyond the host
 compiler for `es-app/tests/unit` and `tools/es-syntax-check`'s syntax-only
@@ -517,22 +506,24 @@ git -C "$W" merge-base upstream/master "$PIN"; git -C "$W" rev-list --count upst
 grep -c '^es-app/src/' .qa-scratch/t18/paths.txt; grep '^es-app/src/' .qa-scratch/t18/paths.txt | while IFS= read -r p; do git -C "$W" show "$PIN:$p" | wc -l; done | awk '{s+=$1} END {print s}'
 grep '^es-app/tests/' .qa-scratch/t18/paths.txt | grep '\.cpp$' | while IFS= read -r p; do printf '%s %s %s\n' "$(git -C "$W" show "$PIN:$p" | grep -c 'TEST_CASE(')" "$(git -C "$W" show "$PIN:$p" | grep -c -E 'CHECK[A-Z_]*\(')" "$p"; done | awk '{c+=$1; k+=$2; n++} END {print "TEST_CASE", c, "checks", k, "files", n}'
 git -C "$W" show "$PIN:es-app/tests/unit/CloudTextTests.cpp" | grep -c 'TEST_CASE('
-# the declared CloudText functions and who calls each (expect 40 declared; the uncalled, by name, are Q6's)
+# the declared CloudText functions and who calls each (expect 47 declaration lines by this regex; the uncalled, by name, are Q6's)
 git -C "$W" show "$PIN:es-app/src/CloudText.h" | grep -n -E '^\s+[A-Za-z_:<>,\s]+ [A-Za-z_]+\(.*\);' | wc -l
 # the protocol markers and the exits (expect pid/doing/why/offer/tier/unit/removed at CloudText.cpp:561-616; 75 at :1386; 0 and 9 at CloudTransferJob.cpp:302 and GuiCloudTransfer.cpp:289/:440; whyForCode :80-98)
 git -C "$W" show "$PIN:es-app/src/CloudText.cpp" | grep -n -E 'rfind\(">>> [a-z]+ ", 0\)' | cut -c1-80; git -C "$W" show "$PIN:es-app/src/CloudText.cpp" | grep -n 'exitCode == 75'
 git -C "$W" show "$PIN:es-app/src/ThreadedCloudSync.cpp" | sed -n '80,98p'
-# the two popen wrappers (expect the job's with trap '' PIPE at :637, the card's without at :207)
+# the two popen wrappers (expect the job's setsid :636, trap '' PIPE :637, popen :638; the card's setsid :206, popen :208, no trap)
 git -C "$W" grep -n -E 'setsid sh -c|trap .. PIPE' "$PIN" -- es-app/src/CloudTransferJob.cpp es-app/src/ThreadedCloudSync.cpp | sed "s/^$PIN://"
-# the stamps (expect STAMP_DIR :892; readStamps :894; the writer :919-949 tmp + rename; the map CloudText.cpp:186-189; exists( 0 in the eight)
-git -C "$W" show "$PIN:es-app/src/ThreadedCloudSync.cpp" | grep -n -E 'STAMP_DIR|readStamps|std::rename|writeAllText' | cut -c1-100; git -C "$W" grep -c -E 'FileSystem::exists\(' "$PIN" -- $(grep '^es-app/src/' .qa-scratch/t18/paths.txt | sed "s|^|$PIN:|" | sed "s|^$PIN:||") 2>/dev/null | sed "s/^$PIN://" ; echo "(no line = 0)"
-# lifetimes and bounds (expect delete this :207 :328; postToUiThread :335 :1070; detach :56 and CloudTransferJob.cpp:65; linger :731; SIGKILL :859; 20 ms :862)
+# the stamps (expect STAMP_DIR :892; readStamps :894; the writer :919-949 tmp + rename; the map CloudText.cpp:186-189; exists( 0 in the eight, with the control over all of es-app/src printing GuiMenu.cpp 35 and ApiSystem.cpp 23 -- so a 0 is a 0 and not a failed grep)
+git -C "$W" show "$PIN:es-app/src/ThreadedCloudSync.cpp" | grep -n -E 'STAMP_DIR|readStamps|std::rename|writeAllText' | cut -c1-100
+git -C "$W" grep -c -E 'FileSystem::exists\(' "$PIN" -- $(grep '^es-app/src/' .qa-scratch/t18/paths.txt) | sed "s/^$PIN://"; echo "(no line above = 0 in the eight)"; git -C "$W" grep -c -E 'FileSystem::exists\(' "$PIN" -- es-app/src | sed "s/^$PIN://" | sort -t: -k2 -n -r | head -n 3
+# lifetimes and bounds (expect delete this GuiCloudTransfer :207 :328 and ThreadedCloudSync :757; postToUiThread :335 :1070; detach :56 and CloudTransferJob.cpp:65; linger :731; SIGKILL :859 and CloudTransferJob.cpp:100; 20 ms :862)
 git -C "$W" grep -n -E 'delete this|postToUiThread|\.detach\(\)|sleep_for|SIGKILL' "$PIN" -- es-app/src/guis/GuiCloudTransfer.cpp es-app/src/ThreadedCloudSync.cpp es-app/src/CloudTransferJob.cpp | sed "s/^$PIN://" | cut -c1-120
-# the why table against the scripts (expect 38 unique ES sentences from 39 rows; 37 script sentences; 32 shared; the lacked ones named; the eight variable emitters listed)
-git -C "$W" show "$PIN:es-app/src/CloudText.cpp" | awk '/whySentences/{p=1} p' | grep -o -E '"[A-Z][A-Z0-9 ,.'"'"'?!-]+"' | sort -u | wc -l
-git grep -h -o -E '>>> why [A-Z][A-Z0-9 ,.'"'"'?!-]+|say_why "[A-Z][^"]+"|\bwhy "[A-Z][^"]+"' 8ebaf8daad -- projects/ROCKNIX/packages/network/rclone/sources projects/ROCKNIX/packages/rocknix/sources/scripts projects/ROCKNIX/packages/network/raofflineproxy/sources | sed -E 's/^(>>> why |say_why "|why ")//; s/"$//' | sort -u | wc -l
-git grep -n -E 'say_why "\$|why "\$' 8ebaf8daad -- projects/ROCKNIX/packages/network/rclone/sources projects/ROCKNIX/packages/rocknix/sources/scripts | sed 's/^8ebaf8daad://' | cut -c1-100
-# the strings (expect 220 _( ) in the eight; 50 the card's, 67 the page's; BACKUP only as a noun; 0 WIFI; 0 lists without the serial comma)
+# the why table against the scripts (expect 38 ES rows at CloudText.cpp:414-467, 38 unique; 34 literal script sentences at 8ebaf8daad; 32 shared, 2 script-only, 6 ES-only; 17 variable emitter lines)
+export LC_ALL=C; git -C "$W" show "$PIN:es-app/src/CloudText.cpp" | sed -n '414,467p' | grep -c '{ "'; git -C "$W" show "$PIN:es-app/src/CloudText.cpp" | sed -n '414,467p' | grep -o -E '\{ "[A-Z][^"]+"' | sed 's/^{ "//; s/"$//' | sort -u | tee "$TMPDIR/why-es.txt" | wc -l
+git grep -h -o -E '>>> why [A-Z][A-Z0-9 ,.'"'"'?!-]+|say_why "[A-Z][^"]+"|\bwhy "[A-Z][^"]+"' 8ebaf8daad -- projects/ROCKNIX/packages/network/rclone/sources projects/ROCKNIX/packages/rocknix/sources/scripts projects/ROCKNIX/packages/network/raofflineproxy/sources | sed -E 's/^(>>> why |say_why "|why ")//; s/"$//' | sort -u | tee "$TMPDIR/why-scripts.txt" | wc -l
+comm -12 "$TMPDIR/why-es.txt" "$TMPDIR/why-scripts.txt" | wc -l; comm -13 "$TMPDIR/why-es.txt" "$TMPDIR/why-scripts.txt"; comm -23 "$TMPDIR/why-es.txt" "$TMPDIR/why-scripts.txt" | wc -l
+git grep -n -E 'say_why "\$|why "\$' 8ebaf8daad -- projects/ROCKNIX/packages/network/rclone/sources projects/ROCKNIX/packages/rocknix/sources/scripts | sed 's/^8ebaf8daad://' | tee "$TMPDIR/why-vars.txt" | wc -l; cut -d: -f1 "$TMPDIR/why-vars.txt" | sort | uniq -c
+# the strings (expect 220 _( ) occurrences in the eight; the card's 58 occurrences / 50 unique, the page's 80 / 67; BACKUP only as a noun; 0 WIFI; 0 lists without the serial comma)
 git -C "$W" grep -o -h -E '_\("[^"]*"\)' "$PIN" -- es-app/src/CloudText.cpp es-app/src/CloudText.h es-app/src/CloudTransferJob.cpp es-app/src/CloudTransferJob.h es-app/src/guis/GuiCloudTransfer.cpp es-app/src/guis/GuiCloudTransfer.h es-app/src/ThreadedCloudSync.cpp es-app/src/ThreadedCloudSync.h | wc -l
 # the xgettext trap (expect 0 non-ASCII // comment lines in the 30; the non-ASCII lines of GuiCloudTransfer.cpp (9) and CloudTransferJob.{cpp,h} (1 each) read and classed)
 while IFS= read -r p; do n=$(git -C "$W" show "$PIN:$p" | grep -c -P '^\s*//.*[^\x00-\x7F]'); [ "$n" -gt 0 ] && echo "$n $p"; done < .qa-scratch/t18/paths.txt; echo "(no line = 0 comment lines)"
@@ -540,13 +531,16 @@ for f in es-app/src/guis/GuiCloudTransfer.cpp es-app/src/CloudTransferJob.cpp es
 # the history with the three identities (expect 181 non-merge; 170 / 9 / 2; 2026-07-25 .. 2026-10-11)
 tr '\n' '\0' < .qa-scratch/t18/paths.txt | xargs -0 git -C "$W" log --no-merges --format='%h %an' bccd71570.."$PIN" -- | tee "$TMPDIR/hist.txt" | wc -l; cut -d' ' -f2- "$TMPDIR/hist.txt" | sort | uniq -c | sort -rn
 tr '\n' '\0' < .qa-scratch/t18/paths.txt | xargs -0 git -C "$W" log --no-merges --format=%ad --date=short bccd71570.."$PIN" -- | sort | sed -n '1p;$p'
-# the callers outside the eight (expect GuiMenu.cpp 7 GuiCloudTransfer + 3 start; main.cpp 1 + 1; FileData.cpp :1310; ProxyCards.cpp :34/:118; JourneyTiers.h)
+# the callers outside the eight (expect GuiMenu.cpp 7 new GuiCloudTransfer + 3 start; main.cpp 1 + 1; FileData.cpp :1310 the exit sync's start and :1010-1018 the job; ProxyCards.cpp :118; JourneyTiers.h composes commands and prints no match here)
 git -C "$W" grep -n -E 'new GuiCloudTransfer|ThreadedCloudSync::start|CloudTransferJob::' "$PIN" -- es-app/src | sed "s/^$PIN://" | grep -v -E '^es-app/src/(guis/GuiCloudTransfer|ThreadedCloudSync|CloudTransferJob|CloudText)\.' | cut -c1-110
-# the unit tests built and run on the host (expect configure PASS with rapidjson named from an M6 build root; es-unit-tests PASS with its case count; CANNOT with the configure's words if no rapidjson copy exists)
-B=$(ls -d /workspace/repos/pixelelated/distribution.worktrees/*/build.pixelelated-GENERIC_X64.x86_64 2>/dev/null | head -1); R=$(ls -d "$B"/build/rapidjson-*/include 2>/dev/null | head -1); echo "root $B rapidjson ${R:-none}"
-[ -n "$R" ] && cmake -S "$W/es-app/tests/unit" -B "$TMPDIR/build-tests" -DCMAKE_CXX_COMPILER=/usr/bin/g++ -DRAPIDJSON_INCLUDE_DIR="$R" >/dev/null && cmake --build "$TMPDIR/build-tests" --target es-unit-tests >/dev/null && "$TMPDIR/build-tests/es-unit-tests" 2>&1 | tail -n 3 || echo "CANNOT: $( [ -n "$R" ] && echo 'the build or the run failed, see above' || echo 'no rapidjson copy under an M6 GENERIC_X64 build root')"
-# the syntax check's readiness (expect PASS on an unchanged file, or the tool's exit-2 line naming what is missing)
-for b in /workspace/repos/pixelelated/distribution.worktrees/*/build.pixelelated-GENERIC_X64.x86_64; do ls -d "$b"/build/emulationstation-* 2>/dev/null; done | head -n 3; ES_BUILD_ROOT="$B" tools/es-syntax-check --tree "$W" es-app/src/CloudText.cpp 2>&1 | tail -n 2
+# the host's toolchain (expect: no cmake, no ninja, g++ present; no M6 build root holds build/emulationstation-* or build/rapidjson-*/include; the proof found rapidjson copies only under /tmp/pix642-host-controls-prep-*/inputs/include, M7's, a read with provenance if used)
+command -v cmake ninja g++ | sed 's/^/present: /'; for b in /workspace/repos/pixelelated/distribution.worktrees/*/build.pixelelated-GENERIC_X64.x86_64; do printf '%s: es-build %s rapidjson %s ninja %s\n' "$(basename "$(dirname "$b")")" "$(ls -d "$b"/build/emulationstation-* 2>/dev/null | wc -l)" "$(ls -d "$b"/build/rapidjson-*/include 2>/dev/null | wc -l)" "$(ls "$b"/toolchain/bin/ninja 2>/dev/null | wc -l)"; done
+# the unit tests, built with the host's g++ by a command generated from CMakeLists.txt (expect the generated source list recorded; es-unit-tests PASS with its case count, or CANNOT naming the sources left out and the cases not run; rapidjson's copy named by path and sha256 if used)
+git -C "$W" show "$PIN:es-app/tests/unit/CMakeLists.txt" | grep -n -E 'add_executable|target_sources|target_include_directories|RAPIDJSON|doctest' | cut -c1-120 | head -n 30
+echo "the lane's tools/t18-build-tests.sh generates the g++ line from that list, names every -I, and records the binary's own summary line"
+# the syntax check (expect exit 2 with its 'no ninja' line on this host; ES_BUILD_ROOT always set -- /nonexistent when no M6 root serves -- never empty, since its default is the legacy M7 root)
+ES_BUILD_ROOT=/nonexistent tools/es-syntax-check --tree "$W" es-app/src/CloudText.cpp 2>&1 | tail -n 2; echo "rc=$?"
+g++ -std=c++17 -fsyntax-only -I "$W/es-app/src" -I "$W/es-core/src" "$W/es-app/src/CloudText.cpp" 2>&1 | tail -n 2; echo "host syntax rc=$? (a missing header names what the host lacks)"
 # the French coverage of the eight (expect tools/es-untranslated's count for these files, recorded; the why table's 38 rows against the catalog)
 tools/es-untranslated --help 2>&1 | head -n 3; tools/es-untranslated "$W" 2>&1 | grep -E 'CloudText|CloudTransferJob|GuiCloudTransfer|ThreadedCloudSync|^[0-9]+ ' | head -n 12
 # the menu map's cloud screens and the walks (expect § Cloud (our subtree) at :231; 8 cloud walks; es-menu-map-check's verdict for the pin)
@@ -602,15 +596,15 @@ from the artifacts, never from the hand-back's words.
 - [ ] `01-research-notes.md` § Scope records § 2's block with its output (30 paths, 11,193 lines; read 29 / 11,116; fork-own 30; shipped 30; sources 8 / 5,429 and tests 22 / 5,764; 0 in the merge base; 725 ahead of `upstream/master`, 0 behind -- or the deltas beside them), the context read (the `tests/app-unit/` files and the harnesses named), the history (181 non-merge, 170 / 9 / 2, 2026-07-25 to 2026-10-11) and the callers outside the eight with their lines.
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | grep -c -E '^\| `'`` prints `30`; and a `## Context read` table with one row per file read as context.
 - [ ] `02-forward-audit.md` § The protocol is generated by a script under the audit folder's `tools/` (asserting its row counts, exiting 1 on drift) with one row per `>>>` marker (`pid`, `doing`, `why`, `offer`, `tier`, `unit`, `removed`) and per mapped exit (0, 9, 3/4, 5, 124, 7/8, 69, 75, 130, NoFolder, default): the scripts or caller that print it (file:line at `8ebaf8daad` or in `es-app/src` at the pin), the reader that parses it (`CloudTransferJob::handleLine` or `ThreadedCloudSync::run`, by line), and what the player sees.
-- [ ] `02-forward-audit.md` § The why table is generated from the ES rows and the scripts' emitters (38 unique rows from 39; 37 literal script sentences plus the eight variable emitters re-derived; 32 shared -- or the counts the generator asserts), naming every sentence one side lacks, the three wordings for exit 75, and the fallback map's six words against the code, the scripts and the rule, with the rule's half marked #909's and the header comment's drift marked this slice's.
-- [ ] `02-forward-audit.md` § The lifetimes has one row per `delete this`, `detach()`, linger, lock and signal in the eight files (`GuiCloudTransfer.cpp:207`, `:328`, `:335`, `:1070`; `ThreadedCloudSync.cpp:56`, `:731`, `:784-862`; `CloudTransferJob.cpp:65`, `:100-161`), each with what holds a pointer or a reference across it and the test that covers it or `untested`.
+- [ ] `02-forward-audit.md` § The why table is generated from the ES rows and the scripts' emitters (38 rows, 38 unique; 34 literal script sentences plus the 17 variable emitter lines expanded; 32 shared, 2 script-only, 6 ES-only -- or the counts the generator asserts), naming every sentence one side lacks, the three wordings for exit 75, and the fallback map's six words against the code, the scripts and the rule, with the rule's half marked #909's and the header comment's drift marked this slice's.
+- [ ] `02-forward-audit.md` § The lifetimes has one row per `delete this`, `detach()`, linger, lock and signal in the eight files (`GuiCloudTransfer.cpp:207`, `:328`, `:335`, `:1070`; `ThreadedCloudSync.cpp:56`, `:731`, `:757`, `:784-862`; `CloudTransferJob.cpp:65`, `:87`, `:100`, `:121`, `:139-161`), each with what holds a pointer or a reference across it and the test that covers it or `untested`.
 - [ ] `02-forward-audit.md` § The strings states the 220 `_( )` strings of the eight files read against `es-player-text.md` and `es-ui-style-guide.md`, each failure by file:line, the fit of every `outcomeCandidates` and `chooseThatFits` list at 640x480 from a frame or the fonts, and the non-ASCII lines of `GuiCloudTransfer.cpp` and `CloudTransferJob.{cpp,h}` classed (literal or comment near `_( )`).
-- [ ] `02-forward-audit.md` § The tests states `es-unit-tests` built on the host (the rapidjson copy named by path) and run with its summary line (221 cases, or the count the binary prints) and PASS, or `CANNOT` with the configure's or build's last lines; and one row per test file with its subject and the trap of `es-code-traps.md` it covers or `none`.
-- [ ] `02-forward-audit.md` § The runs records every § 5 command with exit, wall time, the figure and *a FAIL would mean ...*; a run that cannot be made is `CANNOT` with its reason, never a pass; `tools/es-syntax-check`'s readiness (PASS on an unchanged file with the root named, or its exit-2 line) is one of them.
-- [ ] `02-forward-audit.md` § The guest cycle records the window the coordinator granted on #665 (the comment's time, its place in the host file's queue), the image by file name and `BUILD_ID`, **the installed EmulationStation identified against the pin before any verdict** (the build commit's `PKG_VERSION`; a pin-only string found by `strings`) with every verdict a difference touches named, the eight cloud walks' frames at 640x480 with their strings read back, the card during a sync against the QA WebDAV and the page's live line, `tools/time-to-play --vm`'s row or `CANNOT`, and the leftover check; or, if no window is granted before the hand-back, `CANNOT` with the host file's state and each guest proof named as moved or open.
+- [ ] `02-forward-audit.md` § The tests states `es-unit-tests` built on the host by the generated `g++` command (`tools/t18-build-tests.sh`, its source list and every `-I` recorded; the rapidjson copy, if used, named by path with each header's sha256) and run with its summary line (221 cases, or the count the binary prints) and PASS, or built without the rapidjson-dependent sources with the cases not run named, or `CANNOT` with the compiler's last lines; and one row per test file with its subject and the trap of `es-code-traps.md` it covers or `none`.
+- [ ] `02-forward-audit.md` § The runs records every § 5 command with exit, wall time, the figure and *a FAIL would mean ...*; a run that cannot be made is `CANNOT` with its reason, never a pass; `tools/es-syntax-check`'s exit-2 line with `ES_BUILD_ROOT` set (never empty) and the host `g++ -fsyntax-only` result on `CloudText.cpp` are among them.
+- [ ] `02-forward-audit.md` § The guest cycle records the window the coordinator granted on #665 (the comment's time, its place in the host file's queue), the image by file name and `BUILD_ID`, **the installed EmulationStation identified against the pin before any verdict** (the build commit's `PKG_VERSION`; a `_( )` literal of the 30 absent from the merge base, named in `00`, found by `strings`) with every verdict a difference touches named, the eight cloud walks' frames at 640x480 with their strings read back, the card during a sync against the QA WebDAV and the page's live line, `tools/time-to-play --vm`'s row or `CANNOT`, and the leftover check; or, if no window is granted before the hand-back, `CANNOT` with the host file's state and each guest proof named as moved or open.
 - [ ] `00-running-log.md` shows no build, no compiler beyond the host compiler for `es-app/tests/unit` and `tools/es-syntax-check`, no plan generation, no fetch (the council runtime from `npm install --offline`), no handheld, no hosted or offsite account, no M7 build root or `m7-*` ES worktree read, no checkout or write in another ES worktree, guests only inside the granted window, exactly four `tools/council/run invoke` calls with the key and every other `tools/council/run` call with `COUNCIL_ENV_FILE=/nonexistent`, and no credential-shaped literal written to any file.
 - [ ] `04-analysis.md` § Q3 states each bug decision with its trace, its `Already written:` line and its VM line in the three families (the protocol under a pipe; lifetimes and threads; the words), and names the `proved:` each fix would need (`fix-unit-test` or `fix-walk-pending-image`); § Q2 the rules' checklist; § Q4 M7's commits beyond the pin by number and T17's S5 and S6; § Q5 the two time-to-play numbers measured or cited and the 2 s budget against D-CLOUD-119; § Q6 every uncalled `CloudText` function and unproduced marker, removals none; § Q7 points at the two generated tables.
-- [ ] Every proof in `02-forward-audit.md` carries a `proved:` cell reading `tree`, `history`, `fixture`, `unit-test`, `pin-binary`, `fix-unit-test`, `fix-walk-pending-image` or `design`; every punch item carries `question:`; every `bug` passes `tools/box-check --issue N` and carries its `Already written:` line; every fix on the ES branch has `tools/es-syntax-check` PASS and a clean non-ASCII comment grep recorded beside its commit.
+- [ ] Every proof in `02-forward-audit.md` carries a `proved:` cell reading `tree`, `history`, `fixture`, `unit-test`, `pin-binary`, `fix-unit-test`, `fix-walk-pending-image` or `design`; every punch item carries `question:`; every `bug` passes `tools/box-check --issue N` and carries its `Already written:` line; every fix on the ES branch has, recorded beside its commit, `tools/es-syntax-check` PASS where a toolchain exists or else the host `g++ -fsyntax-only` pass or its `CANNOT` with the missing header named (its compile proof then the integration build's), and a clean non-ASCII comment grep.
 - [ ] The retro exists at `docs/retros/<date>-m6-es-cloud-pages.md`, is posted on #665, says what the slice did to the two time-to-play numbers (measured on the guest or cited, with the exit sync's budget against D-CLOUD-119's 3 s), and what T26 inherits.
 - [ ] `tools/register-check`, `tools/work-log-index --check`, `tools/rules-check --quiet`, `tools/forbidden-terms-check` and `.githooks/hooks-test` pass on the distribution branch, and the ES fork's `.githooks/pre-push-test` on the ES branch, before their merges (after the coordinator's hand-back merge).
 
@@ -619,10 +613,9 @@ from the artifacts, never from the hand-back's words.
 Stop only on: every item of § 7 that is this lane's ticked and both
 branches pushed (the hand-back); the stage-D pause; an explicit maintainer
 pause on #665; a blocker named on #665 (a seat that fails its provenance
-gate twice, a packet scan hit that is a value, two commands that disagree, a
-block whose output differs from § 2's beyond the deltas it records, the
-unit tests failing to build on the host with no rapidjson copy anywhere
-M6 holds); the ES worktree not at the pin at stage A, or the distribution
+gate twice, a packet scan hit that is a value, two commands that disagree, a block whose output differs from § 2's beyond the deltas it records; **not**
+the host's missing toolchain, which § 5 names and the generated `g++` build
+and the `CANNOT` forms absorb); the ES worktree not at the pin at stage A, or the distribution
 branch not stacked on `2174265e9c`; or an execution limit, stated as such
 with the running log current. A checkpoint is not a stop. An idle session
 says it is idle on #665, **and does not end a turn on a post that asks
@@ -693,3 +686,47 @@ futro (#700) takes a T18 kickoff addendum written with this version
 and the why table's missing rows), and a stranger's proof of this brief is
 run by a reader with no context before dispatch; version 2 records what each
 found.
+
+## Version 2: what the stranger's proof found (2026-10-26)
+
+Eight commands from the scratch clone and the `qa-integration` checkout at
+the pin; the membership block ran exactly as written, every per-file line
+count, the history, the test counts, the markers, the fallback map's words,
+the tools, the walks and the decision IDs held. The corrections:
+
+1. **The host has no toolchain, and version 1's floor would have stopped the
+   lane at stage A** (#1137, the Backlog for an M6 build root). No `cmake` on the host; none of the five M6
+   `build.pixelelated-GENERIC_X64.x86_64` directories holds a toolchain, a
+   rapidjson copy or an `emulationstation-*` build directory;
+   `tools/es-syntax-check` exits 2 (`no ninja`), and an empty
+   `ES_BUILD_ROOT` falls back to the legacy M7 root. The floor now says: the
+   unit tests are built with the host's `g++` by a command the lane
+   generates from `CMakeLists.txt` (rapidjson by a named copy with
+   provenance, or the dependent cases named as not run); a GUI fix's
+   compile proof is the integration build's; `ES_BUILD_ROOT` is always
+   set; § 8 no longer stops on it; checkboxes 12 and 17 take the `CANNOT`
+   forms.
+2. `whySentences` has 38 rows and 38 unique sentences, no duplicate
+   (`CloudText.cpp:414-467`); the `awk` that read it never stopped.
+3. 34 literal script sentences, not 37; 32 shared, 2 script-only, 6
+   ES-only; no third "withheld" sentence; `comm` under `LC_ALL=C`.
+4. 17 variable emitter lines, not eight; the population stated.
+5. The header's declaration regex yields 47 lines, not 40.
+6. The `_( )` figures name their populations: 220 occurrences; 50 unique /
+   58 occurrences (the card), 67 / 80 (the page).
+7. `FileData.cpp:1310` is the exit sync's start, not the launch's question
+   (`:993-1006`, `:1010-1020`, `:1028-1055`).
+8. The pin's last commit adds no `_( )` line; the window's identity step
+   uses a literal of the 30 absent from the merge base, chosen at stage A.
+9. Line numbers: the job wrapper `:636-638`, the card's `:206-208`, the
+   card's own `delete this` `:757`, `stopForLaunch` `:87`, `requestStop`
+   defined `:139`, `whyForCode`'s default `:94`, `cleanLine` from `:485`.
+10. The callers' expectation no longer names `ProxyCards.cpp:34` (a
+    constant) or a `JourneyTiers.h` match the regex cannot print.
+11. The `exists(` grep gained its control over all of `es-app/src`, so a 0
+    is a 0.
+12. Populations: `tests/app-unit/**` is 19 files (10 top-level, 9 fakes);
+    `GuiMenu.cpp` names `/usr/bin/cloud_` on 50 lines; the register holds
+    127 D-UI rows on the coordinator's branch (42 of 108 at the P1 tip named
+    a surface).
+13. The build-root loop no longer picks the first shallow root.

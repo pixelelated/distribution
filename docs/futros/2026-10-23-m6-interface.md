@@ -379,3 +379,32 @@ retro reads it back.
   from the pin, both by the coordinator; the body rewritten with the
   nineteen criteria and the VM line; the dispatch to the first idle
   session, with the window's place in the host file's queue stated.
+
+### Errata from the stranger's proof of T18's brief (version 2, 2026-10-26)
+
+Eight commands from the scratch clone and the `qa-integration` checkout at
+the pin; the membership, every line count, the history, the test counts,
+the markers and the tools held. What the proof corrected, and what the
+addendum above had wrong:
+
+- **Known unknown (1) is answered, and the answer stops version 1's floor:**
+  the host has no `cmake` or `ninja`, and none of M6's five
+  `build.pixelelated-GENERIC_X64.x86_64` directories holds a toolchain, a
+  rapidjson copy or an EmulationStation build directory; the only roots
+  that do are M7's, which M6 may not name. Version 2 builds the unit tests
+  with the host's `g++` by a command generated from `CMakeLists.txt`,
+  defers a GUI fix's compile proof to the integration build, keeps
+  `ES_BUILD_ROOT` always set (its default is the legacy M7 root), and
+  drops the stop; **#1137** files the gap under #903.
+- **Known unknown (2) is closed:** 34 literal script sentences, not 37; 32
+  shared, 2 the table lacks, 6 the scripts never print; no third withheld
+  sentence; the variable emitters are 17 lines, not eight.
+- The why table has 38 rows and 38 unique sentences, no duplicate; the
+  header's declaration regex yields 47 lines; the `_( )` figures name
+  their populations (220 occurrences; 50 unique / 58 for the card, 67 / 80
+  for the page); `FileData.cpp:1310` is the exit sync's start, not the
+  launch's question; the pin's last commit adds no `_( )` line, so the
+  window's identity string is a literal of the 30 absent from the merge
+  base; nine small line-number slips; `tests/app-unit/**` is 19 files.
+- The stream prediction stands at two; a third candidate -- a toolchain
+  that is not there -- is infrastructure, not a stream.
