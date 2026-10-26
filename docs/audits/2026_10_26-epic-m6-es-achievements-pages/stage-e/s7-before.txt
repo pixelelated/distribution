@@ -1,0 +1,15 @@
+== S7 before (19:38:52Z): ProxyCards.cpp and CloudText.cpp as at S6's tip (unchanged: yes)
+unit rc 1
+TEST CASE:  CloudText: the ctl's two newer why tokens have their own words (#1176)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/CloudTextTests.cpp:1797: ERROR: CHECK( CloudText::scanWhy("STAMP_UNWRITABLE") != CloudText::scanWhy("SOMETHING_WENT_WRONG") ) is NOT correct!
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/CloudTextTests.cpp:1798: ERROR: CHECK( CloudText::scanWhy("RESULT_UNREADABLE") != CloudText::scanWhy("SOMETHING_WENT_WRONG") ) is NOT correct!
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/CloudTextTests.cpp:1799: ERROR: CHECK( CloudText::topUpWhy("STAMP_UNWRITABLE") != CloudText::topUpWhy("SOMETHING_WENT_WRONG") ) is NOT correct!
+[doctest] test cases: 1 | 0 passed | 1 failed | 198 skipped
+[doctest] assertions: 4 | 1 passed | 3 failed |
+proxycards-tests rc 1
+TEST CASE:  top-up: a scan's running file is not a top-up in flight (#1176)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/ProxyCardsTests.cpp:628: ERROR: CHECK_FALSE( ProxyCards::topUpRunning() ) is NOT correct!
+TEST CASE:  top-up: a run refused while a scan runs takes neither the scan's progress nor its stamp (#1176)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/ProxyCardsTests.cpp:647: ERROR: CHECK( cardsNow().empty() ) is NOT correct!
+[doctest] test cases: 2 | 0 passed | 2 failed | 12 skipped
+[doctest] assertions: 2 | 0 passed | 2 failed |

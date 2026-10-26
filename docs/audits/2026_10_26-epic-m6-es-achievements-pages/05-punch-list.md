@@ -439,7 +439,7 @@ Every item is open until the coordinator's stage-D ruling and stage F.
 | PL-09 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-10 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-11 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
-| PL-12 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
+| PL-12 | Resolved | Resolved in `d7a30f0c6` (ES, S7) under #1176: the card takes only its own run, `topUpRunning()` from the run, the two rows with French (`stage-e/s7-*.txt`); `NO_GAMES_FOUND` recorded |
 | PL-13 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-14 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-15 | Resolved | Resolved in `274a71add` (ES, S5) under #1174: unknown kept unknown at both readers and the card; the three readers carry validity (`stage-e/s5-*.txt`) |
@@ -529,7 +529,7 @@ punch_index:
   category: Correctness
   question: Q3
   source_finding: "L-08, PL-13's page half (T19)"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-13
   severity: "Low"
   category: Correctness
