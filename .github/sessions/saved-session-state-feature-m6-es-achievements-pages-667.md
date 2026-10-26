@@ -17,15 +17,11 @@
 
 ## Current focus
 
-**The stage-D pause: the audit issue #1167 is open; the punch list is posted on #667 and waits for the coordinator's dispositions.**
-
-- **Stage C:** four keyed calls, all PASS; Astra's 55 and Argon's 25 items graded; `05` has 25 items (PL-01 High; PL-02 to PL-07 Medium; ten bugs proposed); the pre-issue lint PASS.
-- **Next, on the ruling:**
-  - the bugs filed by the coordinator;
-  - the stream brief for stage E, on the ES branch only: fixes proven twice, `es-syntax-check` or the host `g++` CANNOT, the unit tests, the non-ASCII comment grep;
-  - then F (05's Phase 7), G (the retro), H (the hand-back).
-
-**The host (coordinator, 18:19 UTC):** M7 holds it (a native GuiMenu relink, then one qualification guest) until its RETURN line in the host file. No guest from T20 until the coordinator says the host is free. Stage-E fixture compiles are single-threaded `g++` runs of seconds, and every guest-only check stays `fix-walk-pending-image`.
+**Idle (2026-10-26 20:40 UTC): T20 accepted by the coordinator on #667 at the merged distribution tip `8d1b076e51` and the ES tip `5c0ddaaee`; the audit closed.**
+- **Status:** #1167 closed as completed. `docs/audits/2026_10_26-epic-m6-es-achievements-pages/audit-completion.json` was written from its closed readback (completed 20:39:13 UTC) and is accepted by `tools/ceremony-check`'s validator. `tools/lint-audit-artifacts` on the folder prints `PASS` with `--issue 1167` and in its default phase.
+- **Commits (in #667's body):** `reviewed-at` `d3b1adc2e4`, `reviewed-at-es` `16dbac5211`, `fixed-at` `780827c5ba`, `fixed-at-es` `5c0ddaaee`.
+- **Work done:** streams S1 to S11 on the ES branch (`698040b5c` to `5c0ddaaee`, bugs #1170 to #1180) and S12 on this branch (`087bafdb98`); the retro at `docs/retros/2026-10-26-m6-es-achievements-pages.md`. The eleven bugs stay open until the pin moves on `next`.
+- **What the lane waits for:** nothing. The coordinator's: the merge to `next` with the pin moved to `5c0ddaaee` in the same integration commit, the eight walks under `stage-e/walks/` at the integration build's window, and the integration build's `time-to-play`. Scratch `/workspace/tmp/m6-t20/` is retired. Nothing runs in this lane: no guest, no compiler, no watched run, no waiter.
 
 ## Next commands
 
@@ -63,6 +59,9 @@ worktree, or a guest outside the one granted window.
 
 ## Checkpoints
 
+- Close-out, 20:40 UTC: `audit-completion.json`; both lints PASS; scratch retired; idle.
+- Hand-back, 20:32 UTC: distribution `780827c5ba`, ES `5c0ddaaee`; accepted 20:38 at `8d1b076e51`.
+- Stage E, 18:45 to 20:25 UTC: S1 to S12; F and G at 20:25 and 20:29.
 - Stage D, 18:38 UTC: #1167 opened; the pause.
 - Stage C, 18:40 UTC: four keyed calls; 05; the pre-issue lint PASS.
 - Window, 17:57 UTC: RETURN posted; the disk retired.
