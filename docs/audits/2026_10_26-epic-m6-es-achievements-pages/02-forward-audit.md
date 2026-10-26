@@ -258,6 +258,35 @@ Each of the brief's § 5 commands at stage A. The output is in `stage-b/runs.out
 | L-20 | the startup hasher with the link cut | guest (`g05`) | `Game Hash failed : std::exception` | guest |
 | L-13 | the SCAN row with a one-id export | guest (`g06`, `w6`) | `NO GAMES TO SCAN YET`; with two ids, `2 GAMES READY` | guest |
 
+## Corrections and new leads from the seats
+
+The stage-B text above is left as it was read; each change here names the seat's item that made it, and was re-read at its lines (`stage-c/astra-grades.md`).
+
+- **L-01** (A-2): `VERIFYHOST 0` is set only in the client-certificate branch (`HttpReq.cpp:194-201`). `VERIFYPEER 0` alone admits a self-signed certificate for the right name, which is what the guest showed (`g07`). The redirect to `http` is a downgrade path; whether it would carry the query depends on the redirect's target.
+- **L-03 narrowed** (A-4): `tokenOrError` reaches the dialog at `GuiRetroAchievementsSettings.cpp:784` only when `refused` is true (`:782-786`): the server's JSON `Error`, or the empty-account sentence, which is translated. curl's message, `Unable to parse response` and `Unknown error` lead to the reconnect dialog. The account page's `ra.error` (`GuiRetroAchievements.cpp:44`) and the hasher's `e.what()` remain.
+- **L-04 corrected** (A-1, A-27, A-49):
+  - The `User-Agent` carries the URL-encoded `z=` user, and only when an API login exists (`RetroAchievements.cpp:178-185`). It rides the sign-in and the hash library requests as well as the API's.
+  - Two sinks were missing: the username's own editable row (`:610`), and the ctl's Python argv (`raofflineproxy-ctl:616`, `:647`, `:788`), where the account name is an argument.
+- **§ The contract, `scan`** (A-9): 77 and 78 are not always refused before the page. TRY AGAIN restarts the ctl without the gates (`GuiOfflineScan.cpp:122-127`), so they can reach the page, which reads COULDN'T FINISH with the ctl's why.
+- **L-07 narrowed** (A-10): with `added=unknown` the card says no count (`ProxyCards.cpp:368`). The defect is `ready=unknown` beside a numeric `added`.
+- **L-09 widened to the pin** (A-8): `do_disable` writes the toggle off first (`:523-524`), then can `fail` at the hardcore restore, the record's clearing or the marker (`:538-544`). That exits 1 with the toggle off on disk while the page reverts its switch to on: a pin-era path, before T19's S5.
+- **L-10 raised to Medium** (A-11): at `8ebaf8daad` the `game` line carries the ROM's basename unreplaced (`:1723`, `:1778`), and the scan reader ends a line at `\r` (`OfflineScanJob.cpp:143`). A ROM whose name holds a CR followed by `>>> pid 1` plants a second pid line, and a later CANCEL sends `kill(-1, SIGINT)` as root. ext4 `/storage/roms` admits such a name. proved: tree.
+- **L-14 reframed** (A-19): the defect is the silently contradictory state (hardcore on with a casual-only feature on), and `disable` restoring a preference made obsolete since (`:529-540`), not the second writer as such.
+- **L-19** (A-42): there is no total bound for a transfer that keeps moving. Medium, and #300's.
+- **L-20 lowered to Low** (A-43): the HTTP cause stays in the earlier `onError` lines (`g05`); the screen's and the summary line's `std::exception` remain.
+- **L-21 widened** (A-12, A-13):
+  - the race needs at least one recognized hash;
+  - the constructor pushes each `std::thread*` after creating it (`ThreadedHasher.cpp:138-139`), so the last worker can `delete this` before the final `push_back`;
+  - `stop()` writes through an unretained pointer (`:403-411`).
+- **L-22** (A-45): the `mExit` race is active (`stop()` writes it, the workers read it).
+- **L-23's wording** (A-46): `mCheevosIndexed` means a library came and the queue was not empty (`:107`), not that a game was identified.
+- **New leads:**
+  - **L-26** (A-50): the hasher's `std::thread*` are never joined, detached or deleted (`:138`, `:258-265`). The LED switch's callback captures its own `shared_ptr` (`GuiRetroAchievementsSettings.cpp:688`). The toggle's thread posts through a raw `Window*` (`:484`), where the scan job uses `AppWindow::post`. Low. proved: tree.
+  - **L-27** (A-51): readers that turn incomplete into empty. `storeSummary` returns `ok` after skipping every malformed line (`OfflineAchievements.cpp:252-263`); a missing or unreadable ready file reads 0 (`:152-165`); an unreadable `pending-ids` answer reads "none" (`:271-279`). Low. proved: tree.
+  - **L-28** (A-52): `Success: true` with no `Token` returns true with an empty token, and the caller stores it (`RetroAchievements.cpp:1052-1056`; `GuiRetroAchievementsSettings.cpp:776-777`). Members are read without type checks. Low; Medium beside #1154. proved: tree.
+  - **L-29** (A-53): a stopped hasher still toasts `INDEXING COMPLETED` (`ThreadedHasher.cpp:146`). `cancel()` marks the job cancelled before the signal and ignores its failure, and refuses a second CANCEL (`OfflineScanJob.cpp:65-80`), so an undelivered cancel has no way out. Low. proved: tree.
+- **PL-13's page half** (A-54): `topUpRunning()` trusts the progress file as liveness, and a top-up reads another run's stamp by its time alone.
+
 ## What T21 and T26 inherit
 
 - **`ask()`'s reader.** `ApiSystem::executeScriptLegacy` (`ApiSystem.cpp:2262-2293`) and its siblings (`:234`, `:270`, `:293`, `:329`, `:354`, `:397`, `:415`, `:440`, `:469`, every one `WEXITSTATUS` without `WIFEXITED`) are T21's. The users this slice found are `OfflineAchievements.cpp:51-57`, `:250`, `:275` and `GuiRetroAchievementsSettings.cpp:479`.

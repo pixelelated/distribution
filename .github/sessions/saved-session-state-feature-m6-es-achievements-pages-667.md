@@ -28,6 +28,8 @@
   - exactly four keyed invokes;
   - the pre-issue lint.
 
+**The host (coordinator, 18:19 UTC):** M7 holds it (a native GuiMenu relink, then one qualification guest) until its RETURN line in the host file. No guest from T20 until the coordinator says the host is free. Stage-E fixture compiles are single-threaded `g++` runs of seconds, and every guest-only check stays `fix-walk-pending-image`.
+
 ## Next commands
 
 ```bash
