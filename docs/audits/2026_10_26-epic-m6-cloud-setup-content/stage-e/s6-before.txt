@@ -1,0 +1,9 @@
+$ the why at cloud_setup:797 against the interface's table at the ES pin 16dbac5211 (stage-b/es-why-sentences.txt, read from the ES checkout as a read only)  (07:55:12Z)
+        exec 9>/var/run/cloud_sync.lock || exit 1
+        if ! flock -n 9; then
+            echo ">>> why ANOTHER CLOUD SYNC IS RUNNING"
+            exit 75
+        fi
+sentence: ANOTHER CLOUD SYNC IS RUNNING
+in the table: no
+the rule's word "A SYNC IS ALREADY RUNNING" in the table: no

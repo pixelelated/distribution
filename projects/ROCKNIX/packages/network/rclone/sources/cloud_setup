@@ -794,7 +794,7 @@ case "$1" in
         # The brace body closes fd9 in children, as the transfer scripts do.
         exec 9>/var/run/cloud_sync.lock || exit 1
         if ! flock -n 9; then
-            echo ">>> why ANOTHER CLOUD SYNC IS RUNNING"
+            echo ">>> why A SYNC IS ALREADY RUNNING"
             exit 75
         fi
         {

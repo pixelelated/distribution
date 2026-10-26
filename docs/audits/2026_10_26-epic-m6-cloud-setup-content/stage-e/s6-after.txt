@@ -1,0 +1,30 @@
+$ the why at cloud_setup:797 after the change  (07:55:51Z)
+            echo ">>> why A SYNC IS ALREADY RUNNING"
+sentence: A SYNC IS ALREADY RUNNING
+in CloudText::whySentences at the pin (stage-b/es-why-sentences.txt): no -- neither the old sentence nor the rule's word is a whySentences row, so localizedWhy (CloudText.cpp:469-475) returns it as written
+where the rule's word is at the pin (ES checkout HEAD 16dbac521, status 0 lines; read only):
+es-app/src/ThreadedCloudSync.cpp:92:		case CloudExit::LockHeld:  return _("A SYNC IS ALREADY RUNNING");
+es-app/src/ThreadedCloudSync.cpp:536:		outcome = _("SKIPPED - A SYNC IS ALREADY RUNNING");
+es-app/src/ThreadedCloudSync.cpp:781:	window->pushGui(new GuiMsgBox(window, _("A SYNC IS ALREADY RUNNING.")));
+es-app/src/CloudText.cpp:411:		: _("SKIPPED - A SYNC IS ALREADY RUNNING");
+its French in the catalog: msgstr "UNE SYNCHRONISATION EST DÉJÀ EN COURS"
+$ bash -n cloud_setup
+exit 0
+$ tools/vocabulary-check --es <the ES checkout at the pin>
+  allowed  es-app/src/guis/GuiBackupStart.cpp: BACKUP USER DATA  -- upstream batocera GuiBackupStart, hidden on ROCKNIX (no ApiSystem::BACKUP); its msgid keys translations
+vocabulary-check: 165 string(s) with back up / backup, save state or Wi-Fi judged, 0 wrong
+exit 0
+$ git diff 8ebaf8daad -- cloud_setup
+diff --git a/projects/ROCKNIX/packages/network/rclone/sources/cloud_setup b/projects/ROCKNIX/packages/network/rclone/sources/cloud_setup
+index e7a94ac80e..8bd8acf7f1 100755
+--- a/projects/ROCKNIX/packages/network/rclone/sources/cloud_setup
++++ b/projects/ROCKNIX/packages/network/rclone/sources/cloud_setup
+@@ -794,7 +794,7 @@ case "$1" in
+         # The brace body closes fd9 in children, as the transfer scripts do.
+         exec 9>/var/run/cloud_sync.lock || exit 1
+         if ! flock -n 9; then
+-            echo ">>> why ANOTHER CLOUD SYNC IS RUNNING"
++            echo ">>> why A SYNC IS ALREADY RUNNING"
+             exit 75
+         fi
+         {
