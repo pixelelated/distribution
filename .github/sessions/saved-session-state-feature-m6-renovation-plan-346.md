@@ -125,6 +125,8 @@ today:** `.githooks/pre-commit` refuses a conflict marker (#696).
 
 **04:5x-05:0x UTC (2026-10-26):** T29's stage B accepted on #676 (`c5e473d264`; F-01 the Nova's unquoted battery-LED test, the lane's bug at stage D; the two deltas in `$S/t29-errata.md`); the lane is in stage C with the seat's refutation running (`/workspace/tmp/m6-t29/refutation.rc`). **#1119** filed under #695 for the `030-analog_leds:7` lead (T22's area, closed out). M7 runs its native checks (#1111/#1116 posts at 04:54), no guest yet; the T16 stop waits on the owner (#1118). T17's research subagent relaunched 04:5x (`$S/t17-research.md`).
 
+**05:1x-05:4x UTC (2026-10-26):** T17's research digest in (`$S/t17-research.md`; the order's "all fork-own" corrected: `backuptool` is the fork's rewrite of upstream's 68-line script) and **T17's brief, version 1, at `4aedca2d78`** (`docs/reviews/briefs/cloud-setup-content.md`, 738 lines, 17 criteria, Extended, the security lens; the cloud futro's T17 addendum beside it). The stranger's proof runs as a subagent (cap 10, `$S/t17-proof.md`); version 2 and the errata follow; the dispatch waits for an idle lane session (T5 is on T29's stage C; T1 and T3 at the weekly limit) and its guest window for M7's RETURN and T16's re-granted window. Monitors re-armed 05:4x.
+
 ## Next commands
 
 ```bash
