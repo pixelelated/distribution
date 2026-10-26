@@ -437,13 +437,13 @@ Every item is open until the coordinator's stage-D ruling and stage F.
 | PL-07 | Deferred | Deferred: #300, as ruled at the stage-D ruling (#667, 18:45 UTC) |
 | PL-08 | Deferred | Deferred: #668 (T21), with `stage-b/positives/reader.cpp`, as ruled at the stage-D ruling (#667, 18:45 UTC) |
 | PL-09 | Resolved | Resolved in `d9afa5c7c` (ES, S8) under #1177: `file.clear()` before `seekg(0)`; `es-file-tests` FAIL before, PASS after (`stage-e/s8-*.txt`); the row's walk owed; the #585 line in `02` |
-| PL-10 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
-| PL-11 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
+| PL-10 | Resolved | Resolved in `61d7152b0` (ES, S9) under #1178 (and PL-16's cancel in `ad2989aa5`, S3, #1172): `throw;`, the player's words on every failure surface with French, a stopped run and an empty library said as they are (`stage-e/s9-*.txt`); the frames owed |
+| PL-11 | Resolved | Resolved in `61d7152b0` (ES, S9) under #1178 (and PL-16's cancel in `ad2989aa5`, S3, #1172): `throw;`, the player's words on every failure surface with French, a stopped run and an empty library said as they are (`stage-e/s9-*.txt`); the frames owed |
 | PL-12 | Resolved | Resolved in `d7a30f0c6` (ES, S7) under #1176: the card takes only its own run, `topUpRunning()` from the run, the two rows with French (`stage-e/s7-*.txt`); `NO_GAMES_FOUND` recorded |
 | PL-13 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-14 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-15 | Resolved | Resolved in `274a71add` (ES, S5) under #1174: unknown kept unknown at both readers and the card; the three readers carry validity (`stage-e/s5-*.txt`) |
-| PL-16 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
+| PL-16 | Resolved | Resolved in `61d7152b0` (ES, S9) under #1178 (and PL-16's cancel in `ad2989aa5`, S3, #1172): `throw;`, the player's words on every failure surface with French, a stopped run and an empty library said as they are (`stage-e/s9-*.txt`); the frames owed |
 | PL-17 | Resolved | Resolved in `2d8a0a135` (ES, S6) under #1175: the sign-in off the interface thread with a 15 s total and a 10 s stall, its answer tied to the account; a scan never carries another account's token (`stage-e/s6-*.txt`); the stalling-listener walk owed |
 | PL-18 | Resolved | Resolved in `f85061f14` (ES, S4) under #1173: the page reads the toggle back from the ctl's status after any exit; the LED callback weak; `AppWindow::post` (`stage-e/s4-*.txt`); the stub-ctl walk owed |
 | PL-19 | Withdrawn | Withdrawn: recorded as written at the stage-D ruling (#667, 18:45 UTC); the `:173` comment fixed in `2d8a0a135` (ES, S6, #1175) |
@@ -517,13 +517,13 @@ punch_index:
   category: Correctness
   question: Q3
   source_finding: "L-20"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-11
   severity: "Low"
   category: Standards
   question: Q2
   source_finding: "L-03, L-32"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-12
   severity: "Low"
   category: Correctness
@@ -553,7 +553,7 @@ punch_index:
   category: Correctness
   question: Q3
   source_finding: "L-29, L-30"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-17
   severity: "Low"
   category: Correctness

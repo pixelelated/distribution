@@ -1,0 +1,15 @@
+# S9 (#1178), for the integration build's window (fix-walk-pending-image):
+# each failure surface at 640x480, EN and FR (SYSTEM SETTINGS > LANGUAGE).
+# 1. The link cut on the monitor; GAME SETTINGS > RETROACHIEVEMENTS SETTINGS >
+#    INDEX GAMES with a game to hash: COULDN'T GET RETROACHIEVEMENTS' LIST OF
+#    GAMES. / TRY AGAIN WHEN YOU'RE ONLINE.; es_log.txt keeps the cause after
+#    "Game Hash failed :".
+# 2. The account page (main menu RETROACHIEVEMENTS) with the link cut and the
+#    toggle off: COULDN'T REACH RETROACHIEVEMENTS. -- no AN ERROR OCCURRED, no
+#    curl text.
+# 3. A refusing listener (the window's tls-probe.py answering
+#    {"Success":false,"Error":"..."}), dummy credentials: the dialog says
+#    RETROACHIEVEMENTS DIDN'T ACCEPT YOUR SIGN-IN. and the advice, no server
+#    text; es_log.txt carries "the sign-in was refused".
+# 4. INDEX GAMES, then YES on GAME HASHING IS RUNNING... stop: the toast says
+#    INDEXING STOPPED.

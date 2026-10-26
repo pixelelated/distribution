@@ -1,0 +1,32 @@
+== S9 before (20:02:02Z): ThreadedHasher.cpp and the pages as at S8's tip (unchanged: yes); the three dialog texts lifted as the pin composed them
+unit rc 1
+TEST CASE:  RetroAchievements: a failure dialog that already says what happened carries no AN ERROR OCCURRED (#1178)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/RetroAchievementsTextTests.cpp:70: ERROR: CHECK( RetroAchievementsText::errorBoxText("AN ERROR OCCURRED", "THE SENTENCE.") == "THE SENTENCE." ) is NOT correct!
+  values: CHECK( AN ERROR OCCURRED
+TEST CASE:  RetroAchievements: the sign-in's refusal never shows the service's own words (#1178)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/RetroAchievementsTextTests.cpp:77: ERROR: CHECK( text.find("Invalid") == std::string::npos ) is NOT correct!
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/RetroAchievementsTextTests.cpp:78: ERROR: CHECK( text == "DIDN'T ACCEPT.\n\nCHECK, THEN TRY AGAIN." ) is NOT correct!
+TEST CASE:  RetroAchievements: an API failure says it in the player's words, not curl's (#1178)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/RetroAchievementsTextTests.cpp:84: ERROR: CHECK( text == "COULDN'T REACH." ) is NOT correct!
+[doctest] test cases: 3 | 0 passed | 3 failed | 199 skipped
+[doctest] assertions: 6 | 2 passed | 4 failed |
+hasher-tests rc 1
+TEST CASE:  hasher: a library fetch that fails keeps its cause in the log and says it in the player's words (#1178)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/HasherTests.cpp:259: ERROR: CHECK( dialogs()[0] != "std::exception" ) is NOT correct!
+  values: CHECK( std::exception != std::exception )
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/HasherTests.cpp:260: ERROR: CHECK( dialogs()[0].find("RETROACHIEVEMENTS") != std::string::npos ) is NOT correct!
+  values: CHECK( 18446744073709551615 != 18446744073709551615 )
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/HasherTests.cpp:261: ERROR: CHECK( loggedText("Could not resolve hostname") ) is NOT correct!
+  values: CHECK( false )
+TEST CASE:  hasher: an empty library says it could not be read, not NO GAMES FIT THAT CRITERIA (#1178)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/HasherTests.cpp:271: ERROR: CHECK( dialogs()[0] != "NO GAMES FIT THAT CRITERIA." ) is NOT correct!
+  values: CHECK( NO GAMES FIT THAT CRITERIA. != NO GAMES FIT THAT CRITERIA. )
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/HasherTests.cpp:272: ERROR: CHECK( dialogs()[0].find("RETROACHIEVEMENTS") != std::string::npos ) is NOT correct!
+  values: CHECK( 18446744073709551615 != 18446744073709551615 )
+TEST CASE:  hasher: a run the player stopped is not called completed (#1178)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/HasherTests.cpp:288: ERROR: CHECK( toasts()[0].find("COMPLETED") == std::string::npos ) is NOT correct!
+  values: CHECK( 13 == 18446744073709551615 )
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/tests/app-unit/HasherTests.cpp:289: ERROR: CHECK( toasts()[0].find("STOPPED") != std::string::npos ) is NOT correct!
+  values: CHECK( 18446744073709551615 != 18446744073709551615 )
+[doctest] test cases:  3 | 0 passed | 3 failed | 3 skipped
+[doctest] assertions: 12 | 5 passed | 7 failed |
