@@ -1,0 +1,30 @@
+# S2 before (#666, #1158): the ctl and the unit at 8ebaf8daad (= the tree's before S2), 2026-10-26T14:37:37Z
+command: tools/t19-s2-modes.sh <ctl at 8ebaf8daad> <unit at 8ebaf8daad> /workspace/tmp/m6-t19/s2/before
+also: grep -c '^UMask=' on the unit at 8ebaf8daad: 0
+
+host bash 5.3.9(1)-release (the tree pins bash 5.3); applets from BusyBox v1.36.1 (a copy of /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox, the image's); host python 3.14.4 (image recipe 3.14.7)
+  seeded: .config/raofflineproxy 755 d;.config/raofflineproxy/dlink-out 777 l;.config/raofflineproxy/images 755 d;.config/raofflineproxy/images/a.png 644 f;.config/raofflineproxy/last-scan 644 f;.config/raofflineproxy/link-out 777 l;.config/raofflineproxy/proxy.sqlite3 644 f;.config/raofflineproxy/scan.log 644 f;elsewhere 775 d;elsewhere/dir 755 d;elsewhere/target 644 f;
+  1. private-modes on the unfixed build's folder
+     rc 2; stderr: Usage: raofflineproxy-ctl {enable|disable|start|stop|status|pending|pending-ids|account|summary|flushed|scan|topup [--after-index]|index-offline|images [--verify]|refresh [--all|--game <id>]|listening [--wait <seconds>]|ready}|
+    FAIL  private-modes exits 0 -- rc 2
+    FAIL  the folder is 700 -- 755
+    FAIL  every regular file under it is 600, the subfolder's included --  proxy.sqlite3=644 last-scan=644 scan.log=644 images/a.png=644
+    PASS  the symlinks' targets outside the folder are untouched (the control): file 644, folder 755
+    PASS  nothing is removed and the symlinks stay as they were
+  2. a second run
+    FAIL  a second run changes nothing and exits 0 -- rc 2; 
+  3. a file it cannot chmod (bind-mounted read-only over itself: EROFS)
+     rc 2; stderr: Usage: raofflineproxy-ctl {enable|disable|start|stop|status|pending|pending-ids|account|summary|flushed|scan|topup [--after-index]|index-offline|images [--verify]|refresh [--all|--game <id>]|listening [--wait <seconds>]|ready}|
+    FAIL  the failure is reported, naming the file, and the exit is non-zero -- rc 2
+    FAIL  and the files it could change are changed -- other.db 644
+  4. enable, from the unfixed build's modes
+     rc 0; stdout: hardcore=0|; stderr: logger -t raofflineproxy-ctl offline RetroAchievements on: hardcore was 0, now 0; raofflineproxy.service active|
+    PASS  enable succeeds and starts the service
+    FAIL  enable leaves the folder 700 and its files 600 -- folder 755, store 644
+    FAIL  a file the ctl creates takes umask 077: the marker is 600 -- marker 664
+     observed, not a check: system.cfg after enable's set_setting is 644 (was 644; prepare_settings_temp never relaxes the caller's umask, #421)
+  5. the unit
+    FAIL  the unit carries UMask=0077 -- grep -c: 0
+    FAIL  the unit runs private-modes as ExecStartPre (a failure logged, not fatal) -- grep -c: 0
+t19-s2-modes: 10 FAIL
+rc 1

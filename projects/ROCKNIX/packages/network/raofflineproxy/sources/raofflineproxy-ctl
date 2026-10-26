@@ -24,6 +24,12 @@
 #            will not go back keeps the record for the next disable (#308
 #            F-RA-18).
 #   start    systemctl start; the marker must already be there.
+#   private-modes  the proxy's folder 0700 and every regular file under it
+#            0600, following no symlink and removing nothing; idempotent.
+#            Each file it cannot change is said, and the exit is 1 when any
+#            could not be (#1158). enable runs it after its writes
+#            and the unit runs it before every start, so a folder an earlier
+#            build wrote 644 is made private on the first of them.
 #   stop     systemctl stop.
 #   status   enabled=, marker=, service=, hardcore= on stdout; exit 0 when the
 #            toggle is on, 1 when off.
@@ -269,6 +275,10 @@
 # positional parameters they were not given; every value this script relies
 # on is read back and tested below instead.
 . /etc/profile
+# What this script and every helper it starts write is root's alone: the
+# store beside them holds the session token (#1158). After the
+# profile, which may set its own.
+umask 077
 
 MARKER_DIR="/storage/.cache/services"
 MARKER="${MARKER_DIR}/raofflineproxy.conf"
@@ -478,8 +488,46 @@ do_enable() {
     [ "$(setting "${KEY}")" = "1" ] || enable_undo "${KEY} did not take"
     [ -e "${MARKER}" ] || enable_undo "${MARKER} is gone"
 
+    # What an earlier build wrote is made private now, not only at the next
+    # start; a file that cannot be changed is said and does not undo the
+    # toggle -- it was readable before this enable too.
+    private_modes || say "enable: some of the proxy's files could not be made private; the next start tries again"
+
     say "offline RetroAchievements on: hardcore was $(setting "${HARDCORE_WAS_KEY}"), now 0; ${UNIT} $(service_state)"
     echo "hardcore=0"
+}
+
+# The proxy's folder 0700 and every regular file under it 0600 (#1158).
+# find without -L follows no symlink and -type f takes none; only what is not
+# 0600 already is changed, so a second run changes nothing. Nothing is
+# removed. The list goes through a file so a find that could not read
+# everything is a failure, not a shorter list. 0 when everything is private,
+# 1 when anything could not be made so (each one said).
+private_modes() {
+    local RC=0 F LIST
+    [ -e "${PROXY_DIR}" ] || return 0
+    if [ -L "${PROXY_DIR}" ] || [ ! -d "${PROXY_DIR}" ]; then
+        say "private-modes: ${PROXY_DIR} is not a folder; left as it is"
+        return 1
+    fi
+    if [ "$(stat -c %a "${PROXY_DIR}" 2>/dev/null)" != "700" ]; then
+        chmod 700 "${PROXY_DIR}" || { say "private-modes: cannot make ${PROXY_DIR} 700"; RC=1; }
+    fi
+    LIST="$(mktemp)" || { say "private-modes: no temporary file for the list"; return 1; }
+    if ! find "${PROXY_DIR}" -type f ! -perm 600 -print0 > "${LIST}"; then
+        say "private-modes: could not list everything under ${PROXY_DIR}"
+        RC=1
+    fi
+    while IFS= read -r -d '' F; do
+        chmod 600 "${F}" || { say "private-modes: cannot make ${F} 600"; RC=1; }
+    done < "${LIST}"
+    rm -f "${LIST}"
+    return "${RC}"
+}
+
+do_private_modes() {
+    private_modes
+    exit $?
 }
 
 # A scan or top-up the interface started is no child of this process; its
@@ -2436,6 +2484,7 @@ case "${1:-}" in
     start)   do_start ;;
     stop)    do_stop ;;
     status)  do_status ;;
+    private-modes) do_private_modes ;;
     pending) do_pending ;;
     pending-ids) do_pending_ids ;;
     account) do_account ;;
@@ -2449,7 +2498,7 @@ case "${1:-}" in
     images)  do_images "${2:-}" ;;
     refresh) do_refresh "${2:-}" "${3:-}" ;;
     *)
-        echo "Usage: raofflineproxy-ctl {enable|disable|start|stop|status|pending|pending-ids|account|summary|flushed|scan|topup [--after-index]|index-offline|images [--verify]|refresh [--all|--game <id>]|listening [--wait <seconds>]|ready}" >&2
+        echo "Usage: raofflineproxy-ctl {enable|disable|start|stop|status|private-modes|pending|pending-ids|account|summary|flushed|scan|topup [--after-index]|index-offline|images [--verify]|refresh [--all|--game <id>]|listening [--wait <seconds>]|ready}" >&2
         exit 2
     ;;
 esac

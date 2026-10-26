@@ -1,0 +1,36 @@
+# S2 after (#666, #1158): the ctl and the unit in the tree, 2026-10-26T14:48:02Z
+ctl sha256 5fe878248717c5dc; unit sha256 a109875fe4d07797
+command: tools/t19-s2-modes.sh <tree's ctl> <tree's unit> /workspace/tmp/m6-t19/s2/after
+the unit: UMask=0077;ExecStartPre=-/usr/bin/raofflineproxy-ctl private-modes
+
+host bash 5.3.9(1)-release (the tree pins bash 5.3); applets from BusyBox v1.36.1 (a copy of /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox, the image's); host python 3.14.4 (image recipe 3.14.7)
+  seeded: .config/raofflineproxy 755 d;.config/raofflineproxy/dlink-out 777 l;.config/raofflineproxy/images 755 d;.config/raofflineproxy/images/a.png 644 f;.config/raofflineproxy/last-scan 644 f;.config/raofflineproxy/link-out 777 l;.config/raofflineproxy/proxy.sqlite3 644 f;.config/raofflineproxy/scan.log 644 f;elsewhere 775 d;elsewhere/dir 755 d;elsewhere/target 644 f;
+  1. private-modes on the unfixed build's folder
+     rc 0; stderr: 
+    PASS  private-modes exits 0
+    PASS  the folder is 700
+    PASS  every regular file under it is 600, the subfolder's included
+    PASS  the symlinks' targets outside the folder are untouched (the control): file 644, folder 755
+    PASS  nothing is removed and the symlinks stay as they were
+  2. a second run
+    PASS  a second run changes nothing and exits 0
+  3. a file it cannot chmod (bind-mounted read-only over itself: EROFS)
+     rc 1; stderr: chmod: /storage/.config/raofflineproxy/locked.db: Read-only file system|logger -t raofflineproxy-ctl private-modes: cannot make /storage/.config/raofflineproxy/locked.db 600|
+    PASS  the failure is reported, naming the file, and the exit is non-zero
+    PASS  and the files it could change are changed
+  4. enable, from the unfixed build's modes
+     rc 0; stdout: hardcore=0|; stderr: logger -t raofflineproxy-ctl offline RetroAchievements on: hardcore was 0, now 0; raofflineproxy.service active|
+    PASS  enable succeeds and starts the service
+    PASS  enable leaves the folder 700 and its files 600
+    PASS  a file the ctl creates takes umask 077: the marker is 600
+     observed, not a check: system.cfg after enable's set_setting is 600 (was 644; prepare_settings_temp never relaxes the caller's umask, #421)
+  5. the unit
+    PASS  the unit carries UMask=0077
+    PASS  the unit runs private-modes as ExecStartPre (a failure logged, not fatal)
+t19-s2-modes: 0 FAIL
+rc 0
+
+bash -n of the ctl: ok
+
+## tools/last-good-scripts-test (QA_SYSTEM_ROOT the retained donor), S1 + S2 with S1's 011 check carried over: 1313 PASS; PASSED. S2 reverses no check. That run's ctl and unit differed from these bytes only in four comments (D-RA-049 now cited as #1158, since the row is not in this branch's register until hand-back); the run at the S2 commit is in stage-e/s3-suite.txt's first line.
+the service's effective umask on the image: fix-walk-pending-image

@@ -30,6 +30,12 @@ Environment=HOME=/storage
 Environment=XDG_CONFIG_HOME=/storage/.config
 # Measured upstream on a 103 MB device: 32 -> 19 MB RSS.
 Environment=MALLOC_ARENA_MAX=2
+# Everything the service writes -- the store with the session token among it
+# -- is its own: no other account reads it (#1158). The pass before
+# the start makes what an earlier build wrote 644 private too (idempotent; a
+# file it cannot change is logged, and the start goes on, as it did before).
+UMask=0077
+ExecStartPre=-/usr/bin/raofflineproxy-ctl private-modes
 ExecStart=/usr/bin/python3 -m raofflineproxy.main run-service
 # Started means listening: Type=simple counts the service up the moment its
 # process forks, seconds before Python has bound the port on a handheld, and
