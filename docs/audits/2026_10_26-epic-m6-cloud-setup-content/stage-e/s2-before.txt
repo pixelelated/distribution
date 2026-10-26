@@ -1,0 +1,20 @@
+$ t17-content-fixture.py --only match --expect unfixed --real-rclone <donor 1.75.2, sha256 ed887da8...>  (the three content scripts = 8ebaf8daad's bytes: yes; applets: donor busybox 1.36.1; host bash 5.3.9(1)-release, Python 3.14.4; 07:45:30Z)
+sources: projects/ROCKNIX/packages/network/rclone/sources; applets: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox
+match-netopts: preview rc 0, plan ['snes|sync|1|5']; apply rc 0; deleting syncs 1, --max-delete ['1']; --delete-excluded on the deleting sync: yes
+match-control: preview rc 0, plan ['snes|sync|1|5']; apply rc 0; deleting syncs 1, --max-delete ['1']; --delete-excluded on the deleting sync: no
+real rclone: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/rclone rclone v1.75.2
+match-netopts-real: preview rc 0, plan ['snes|sync|2|48']; apply rc 0; left on the device in roms/snes: ['a.zip']; the save a.srm kept: NO; deleting sync: --timeout 5s yes, --delete-excluded carried; drop logged: none
+match-include-real: preview rc 0, plan ['snes|sync|2|48']; apply rc 0; left on the device in roms/snes: ['a.zip']; the save a.srm kept: NO; deleting sync: --timeout 5s yes, --include carried; drop logged: none
+match-control-real: preview rc 0, plan ['snes|sync|1|28']; apply rc 0; left on the device in roms/snes: ['a.srm', 'a.zip']; the save a.srm kept: yes; deleting sync: --timeout 5s no, no flag not carried; drop logged: none
+t17-content-fixture: unfixed-expectation-met
+exit 0
+$ t17-content-fixture.py --only match --expect fixed --real-rclone <donor 1.75.2, sha256 ed887da8...>  (the three content scripts = 8ebaf8daad's bytes: yes; applets: donor busybox 1.36.1; host bash 5.3.9(1)-release, Python 3.14.4; 07:45:34Z)
+sources: projects/ROCKNIX/packages/network/rclone/sources; applets: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox
+match-netopts: preview rc 0, plan ['snes|sync|1|5']; apply rc 0; deleting syncs 1, --max-delete ['1']; --delete-excluded on the deleting sync: yes
+match-control: preview rc 0, plan ['snes|sync|1|5']; apply rc 0; deleting syncs 1, --max-delete ['1']; --delete-excluded on the deleting sync: no
+real rclone: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/rclone rclone v1.75.2
+match-netopts-real: preview rc 0, plan ['snes|sync|2|48']; apply rc 0; left on the device in roms/snes: ['a.zip']; the save a.srm kept: NO; deleting sync: --timeout 5s yes, --delete-excluded carried; drop logged: none
+match-include-real: preview rc 0, plan ['snes|sync|2|48']; apply rc 0; left on the device in roms/snes: ['a.zip']; the save a.srm kept: NO; deleting sync: --timeout 5s yes, --include carried; drop logged: none
+match-control-real: preview rc 0, plan ['snes|sync|1|28']; apply rc 0; left on the device in roms/snes: ['a.srm', 'a.zip']; the save a.srm kept: yes; deleting sync: --timeout 5s no, no flag not carried; drop logged: none
+t17-content-fixture: UNEXPECTED on fixed: match-netopts=(0, 0, 1, True), match-netopts-real=(False, False), match-include-real=(False, False), match-netopts-real:argv=(True, True), match-include-real:argv=(True, True), match-netopts-real:log=none, match-include-real:log=none
+exit 1

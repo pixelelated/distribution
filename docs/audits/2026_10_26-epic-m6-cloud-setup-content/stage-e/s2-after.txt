@@ -1,0 +1,147 @@
+$ t17-content-fixture.py --only match --expect fixed --real-rclone <donor 1.75.2>  (the fixed scripts in the worktree; 07:46:38Z)
+sources: projects/ROCKNIX/packages/network/rclone/sources; applets: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox
+match-netopts: preview rc 0, plan ['snes|sync|1|5']; apply rc 0; deleting syncs 1, --max-delete ['1']; --delete-excluded on the deleting sync: no
+match-control: preview rc 0, plan ['snes|sync|1|5']; apply rc 0; deleting syncs 1, --max-delete ['1']; --delete-excluded on the deleting sync: no
+real rclone: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/rclone rclone v1.75.2
+match-netopts-real: preview rc 0, plan ['snes|sync|1|28']; apply rc 0; left on the device in roms/snes: ['a.srm', 'a.zip']; the save a.srm kept: yes; deleting sync: --timeout 5s yes, --delete-excluded not carried; drop logged: named ([INFO] [cloud_content_restore] RCLONE_NET_OPTS: left out, not on the allowlist (D-CLOUD-185): --delete-excluded)
+match-include-real: preview rc 0, plan ['snes|sync|1|28']; apply rc 0; left on the device in roms/snes: ['a.srm', 'a.zip']; the save a.srm kept: yes; deleting sync: --timeout 5s yes, --include not carried; drop logged: named ([INFO] [cloud_content_restore] RCLONE_NET_OPTS: left out, not on the allowlist (D-CLOUD-185): --include)
+match-control-real: preview rc 0, plan ['snes|sync|1|28']; apply rc 0; left on the device in roms/snes: ['a.srm', 'a.zip']; the save a.srm kept: yes; deleting sync: --timeout 5s no, no flag not carried; drop logged: none
+t17-content-fixture: fixed-expectation-met
+exit 0
+$ t17-content-fixture.py --only match --expect unfixed --real-rclone <donor 1.75.2> --sources <8ebaf8daad's three, extracted to scratch>  (07:46:43Z)
+sources: /workspace/tmp/m6-t17/e/orig; applets: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox
+match-netopts: preview rc 0, plan ['snes|sync|1|5']; apply rc 0; deleting syncs 1, --max-delete ['1']; --delete-excluded on the deleting sync: yes
+match-control: preview rc 0, plan ['snes|sync|1|5']; apply rc 0; deleting syncs 1, --max-delete ['1']; --delete-excluded on the deleting sync: no
+real rclone: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/rclone rclone v1.75.2
+match-netopts-real: preview rc 0, plan ['snes|sync|2|48']; apply rc 0; left on the device in roms/snes: ['a.zip']; the save a.srm kept: NO; deleting sync: --timeout 5s yes, --delete-excluded carried; drop logged: none
+match-include-real: preview rc 0, plan ['snes|sync|2|48']; apply rc 0; left on the device in roms/snes: ['a.zip']; the save a.srm kept: NO; deleting sync: --timeout 5s yes, --include carried; drop logged: none
+match-control-real: preview rc 0, plan ['snes|sync|1|28']; apply rc 0; left on the device in roms/snes: ['a.srm', 'a.zip']; the save a.srm kept: yes; deleting sync: --timeout 5s no, no flag not carried; drop logged: none
+t17-content-fixture: unfixed-expectation-met
+exit 0
+$ bash -n cloud_content_restore
+exit 0
+$ bash -n cloud_content_backup
+exit 0
+$ bash -n cloud_content_transfer
+exit 0
+$ git diff 8ebaf8daad -- the three
+diff --git a/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup b/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup
+index 1d0efb932d..174963c6ac 100755
+--- a/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup
++++ b/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup
+@@ -229,9 +229,11 @@ ROOT="${REMOTENAME}${CONTENT_REMOTE:+${CONTENT_REMOTE}/}"
+ RCLONE_NET_OPTS_FALLBACK="--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1"
+ _net_opts=$(echo "${RCLONE_NET_OPTS:-}" | tr '\n\\' '  ' | tr -s ' ' | sed 's/^ //; s/ $//')
+ [ -n "${_net_opts}" ] || _net_opts="${RCLONE_NET_OPTS_FALLBACK}"
+-read -r -a RCLONE_NET_OPTS_ARRAY <<< "${_net_opts}"
+ # Installed beside this script, also when the host fixtures copy it.
+ . "$(dirname "${BASH_SOURCE[0]}")/cloud_content_transfer" || exit 1
++# Through the allowlist, never split whole into rclone's arguments
++# (D-CLOUD-185, #1129).
++content_net_opts "${_net_opts}" "${RCLONE_NET_OPTS_FALLBACK}"
+ # A probe is a single listing that exists to answer quickly: one attempt,
+ # tighter than the transfers (the same values the saves scripts probe with).
+ readonly -a RCLONE_PROBE_OPTS=(--contimeout 10s --timeout 20s --low-level-retries 1 --retries 1)
+diff --git a/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore b/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore
+index 1c35fb4852..19daad6f45 100755
+--- a/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore
++++ b/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore
+@@ -276,9 +276,11 @@ ROOT="${REMOTENAME}${CONTENT_REMOTE:+${CONTENT_REMOTE%/}/}"
+ RCLONE_NET_OPTS_FALLBACK="--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1"
+ _net_opts=$(echo "${RCLONE_NET_OPTS:-}" | tr '\n\\' '  ' | tr -s ' ' | sed 's/^ //; s/ $//')
+ [ -n "${_net_opts}" ] || _net_opts="${RCLONE_NET_OPTS_FALLBACK}"
+-read -r -a RCLONE_NET_OPTS_ARRAY <<< "${_net_opts}"
+ # Installed beside this script, also when the host fixtures copy it.
+ . "$(dirname "${BASH_SOURCE[0]}")/cloud_content_transfer" || exit 1
++# Through the allowlist, never split whole into rclone's arguments
++# (D-CLOUD-185, #1129).
++content_net_opts "${_net_opts}" "${RCLONE_NET_OPTS_FALLBACK}"
+ # A probe is a single listing that exists to answer quickly: one attempt,
+ # tighter than the transfers (the same values the saves scripts probe with).
+ readonly -a RCLONE_PROBE_OPTS=(--contimeout 10s --timeout 20s --low-level-retries 1 --retries 1)
+diff --git a/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_transfer b/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_transfer
+index 6efaf26e4f..fe149493ef 100644
+--- a/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_transfer
++++ b/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_transfer
+@@ -62,6 +62,54 @@ advance_mark() {
+     return "${grew}"
+ }
+ 
++# RCLONE_NET_OPTS_ARRAY from <the conf's value>, through an allowlist
++# (D-CLOUD-185, #1129). The value is a player-editable string, and it was
++# split whole into every transfer, the match's deleting sync among them:
++# --delete-excluded there deleted the saves beside the ROMs, and so did an
++# --include ahead of the save excludes (T17's F-02, Argon's R-9). Only the
++# bound's flags pass, each with a value of its own kind -- a duration in the
++# shape idle_timeout_seconds reads, a count, a rate -- as `--flag value` or
++# `--flag=value`. Anything else is left out, and one log line names what by
++# the flag's name alone, never a value. Nothing left means the shipped bound
++# (<fallback>), as an empty line always has.
++content_net_opts() {
++    local words w flag val ok dropped="" i=0
++    read -r -a words <<< "$1"
++    RCLONE_NET_OPTS_ARRAY=()
++    while [ "${i}" -lt "${#words[@]}" ]; do
++        w="${words[${i}]}"; i=$((i + 1))
++        case "${w}" in
++            --*=*) flag="${w%%=*}"; val="${w#*=}" ;;
++            --*)   flag="${w}"; val="" ;;
++            *)     dropped="${dropped} (a word that is not a flag)"; continue ;;
++        esac
++        case "${flag}" in
++            --contimeout|--timeout|--low-level-retries|--retries|--bwlimit)
++                if [ "${w}" = "${flag}" ] && [ "${i}" -lt "${#words[@]}" ] && [ "${words[${i}]#--}" = "${words[${i}]}" ]; then
++                    val="${words[${i}]}"; i=$((i + 1))
++                fi ;;
++            *)
++                dropped="${dropped} $(printf '%s' "${flag}" | tr -c 'A-Za-z0-9-' '?' | cut -c1-40)"
++                continue ;;
++        esac
++        case "${flag}" in
++            --contimeout|--timeout)          [[ "${val}" =~ ^[0-9]+(ms|s|m|h)?$ ]] ;;
++            --low-level-retries|--retries)   [[ "${val}" =~ ^[0-9]{1,3}$ ]] ;;
++            --bwlimit)                       [[ "${val}" =~ ^(off|[0-9]+(\.[0-9]+)?[KkMmGg]?(:[0-9]+(\.[0-9]+)?[KkMmGg]?)?)$ ]] ;;
++        esac
++        ok=$?
++        if [ "${ok}" -eq 0 ]; then
++            RCLONE_NET_OPTS_ARRAY+=("${flag}" "${val}")
++        else
++            dropped="${dropped} ${flag} (its value is not a ${flag#--} value)"
++        fi
++    done
++    [ -z "${dropped}" ] || log_message "RCLONE_NET_OPTS: left out, not on the allowlist (D-CLOUD-185):${dropped}"
++    if [ "${#RCLONE_NET_OPTS_ARRAY[@]}" -eq 0 ]; then
++        read -r -a RCLONE_NET_OPTS_ARRAY <<< "$2"
++    fi
++}
++
+ idle_timeout_seconds() {
+     local v="" prev="" a
+     for a in "$@"; do
+$ content_net_opts, sourced from the fixed cloud_content_transfer, over edge cases (host bash; log_message to stdout; 07:46:58Z)
+  [--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1] -> [--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1]
+  [--timeout=5s --retries=2 --bwlimit 1M] -> [--timeout 5s --retries 2 --bwlimit 1M]
+  [--bwlimit 1M:100k --timeout 2m] -> [--bwlimit 1M:100k --timeout 2m]
+    log: RCLONE_NET_OPTS: left out, not on the allowlist (D-CLOUD-185): --timeout (its value is not a timeout value)
+  [--timeout] -> [--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1]
+    log: RCLONE_NET_OPTS: left out, not on the allowlist (D-CLOUD-185): --timeout (its value is not a timeout value)
+  [--timeout --retries 1] -> [--retries 1]
+    log: RCLONE_NET_OPTS: left out, not on the allowlist (D-CLOUD-185): --timeout (its value is not a timeout value) --retries (its value is not a retries value)
+  [--timeout abc --retries 9999] -> [--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1]
+    log: RCLONE_NET_OPTS: left out, not on the allowlist (D-CLOUD-185): --config (a word that is not a flag)
+  [--config /x/y.conf --timeout 5s] -> [--timeout 5s]
+    log: RCLONE_NET_OPTS: left out, not on the allowlist (D-CLOUD-185): --delete-excluded
+  [--delete-excluded] -> [--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1]
+  [] -> [--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1]
+    log: RCLONE_NET_OPTS: left out, not on the allowlist (D-CLOUD-185): --max-delete --backup-dir
+  [--max-delete=999 --backup-dir=/x] -> [--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1]
+exit 0
+$ tools/pixelelated-content-scope-test --source-root . --rclone <donor 1.75.2>  (regression on the fixed scripts; 07:47:18Z)
+      2 FAIL
+     19 PASS
+FAIL system-traversal-refused [Errno 2] No such file or directory: '/workspace/tmp/m6-t17/e/tools/t4b/system-traversal-refused/ctl/argv'
+FAIL content-pointer-traversal-refused [Errno 2] No such file or directory: '/workspace/tmp/m6-t17/e/tools/t4b/content-pointer-traversal-refused/ctl/argv'
+$ tools/pixelelated-save-layout-test --source-root . --rclone <donor> --busybox <donor>  (07:47:25Z)
+     39 PASS
+      1 save-layout:
+exit 0

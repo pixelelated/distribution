@@ -4,6 +4,7 @@ from cloud_sync.conf.
 
     python3 -I -B docs/audits/2026_10_26-epic-m6-cloud-setup-content/tools/t17-content-fixture.py \
         [--sources <dir holding the scripts>] [--busybox <busybox>] [--expect unfixed|fixed]
+        [--real-rclone <rclone>] [--only backup|match]
 
 The real cloud_content_backup, cloud_content_restore and cloud_content_transfer
 run under bash with the M6 donor's busybox applets first on PATH. Their
@@ -27,10 +28,19 @@ Cases:
                     scratch root -- the cloud holds snes/a.zip; the device
                     holds a.zip, b.zip (not in the cloud) and a.srm (a save
                     beside the ROM). Which files does the apply delete?
+  match-include-real (stage E, S2; Argon's R-9): RCLONE_NET_OPTS carrying
+                    --include=* ahead of the save excludes, no
+                    --delete-excluded. rclone warns that the order of
+                    --include and --exclude is indeterminate, and goes on.
+  For the -real cases (stage E, S2) the deleting sync's argv is read: does the
+  allowed --timeout 5s reach it (the control), does the offending flag, and
+  does cloud_sync.log name a dropped flag by its name alone?
 
 --expect unfixed asserts what the files at 8ebaf8daad do; --expect fixed what
 a fix must do (the traversal refused before any rclone call; the deleting
-sync never carries --delete-excluded). Writes only under a temporary directory.
+sync never carries --delete-excluded, the save is kept in both -real cases,
+--timeout 5s still arrives, and the log names what it dropped). --only runs one
+group (backup for S3, match for S2). Writes only under a temporary directory.
 """
 from pathlib import Path
 import argparse, os, re, subprocess, sys, tempfile
@@ -41,6 +51,7 @@ ap.add_argument("--busybox", type=Path,
                 default=Path("/workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox"))
 ap.add_argument("--expect", choices=["unfixed", "fixed"])
 ap.add_argument("--real-rclone", type=Path, help="a real rclone for the -real cases (M6's donor copy)")
+ap.add_argument("--only", choices=["backup", "match"])
 a = ap.parse_args()
 BB = a.busybox.resolve()
 print(f"sources: {a.sources}; applets: {BB}")
@@ -123,7 +134,8 @@ def run(scripts, env, *args):
 
 
 res = {}
-for name, dirs in (("backup-traversal", ["../.config"]), ("backup-control", ["snes"])):
+NETOPTS = "--contimeout 15s --timeout 5s --low-level-retries 10 --retries 1"
+for name, dirs in (() if a.only == "match" else (("backup-traversal", ["../.config"]), ("backup-control", ["snes"]))):
     t, root, scripts, env = make(None)
     r = run(scripts, env, "cloud_content_backup", *dirs)
     copies = [c for c in calls(root) if "copy" in c]
@@ -134,8 +146,7 @@ for name, dirs in (("backup-traversal", ["../.config"]), ("backup-control", ["sn
     print(f"{name}: rc {r.returncode}; rclone copy calls {len(copies)}; sources {shown}; "
           f"a source outside /storage/roms: {'yes' if outside else 'no'}")
 
-for name, netopts in (("match-netopts", "--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1 --delete-excluded"),
-                      ("match-control", None)):
+for name, netopts in (() if a.only == "backup" else (("match-netopts", NETOPTS + " --delete-excluded"), ("match-control", None))):
     t, root, scripts, env = make(netopts)
     p = run(scripts, env, "cloud_content_restore", "--match")
     plan = (root / "storage/.cache/cloud_sync/content-match-plan")
@@ -148,10 +159,11 @@ for name, netopts in (("match-netopts", "--contimeout 15s --timeout 30s --low-le
     print(f"{name}: preview rc {p.returncode}, plan {planned}; apply rc {ap_.returncode}; deleting syncs {len(deleting)}, "
           f"--max-delete {maxdel}; --delete-excluded on the deleting sync: {'yes' if flag else 'no'}")
 
-if a.real_rclone:
+if a.real_rclone and a.only != "backup":
     print(f"real rclone: {a.real_rclone} {subprocess.run([str(a.real_rclone), 'version'], capture_output=True, text=True).stdout.splitlines()[0]}")
-    for name, netopts in (("match-netopts-real", "--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1 --delete-excluded"),
-                          ("match-control-real", None)):
+    for name, netopts, bad in (("match-netopts-real", NETOPTS + " --delete-excluded", "--delete-excluded"),
+                               ("match-include-real", NETOPTS + " --include=*", "--include"),
+                               ("match-control-real", None, None)):
         t, root, scripts, env = make(netopts, real=a.real_rclone.resolve())
         p = run(scripts, env, "cloud_content_restore", "--match")
         plan = (root / "storage/.cache/cloud_sync/content-match-plan")
@@ -159,15 +171,33 @@ if a.real_rclone:
         ap_ = run(scripts, env, "cloud_content_restore", "--match", "--apply")
         left = sorted(x.name for x in (root / "storage/roms/snes").iterdir()) if (root / "storage/roms/snes").exists() else []
         res[name] = ("a.srm" in left, "b.zip" in left)
+        deleting = [c for c in calls(root) if "sync" in c and "--dry-run" not in c]
+        timeout = any("--timeout" in c and c[c.index("--timeout") + 1] == "5s" for c in deleting)
+        carried = bool(bad) and any(x == bad or x.startswith(bad + "=") for c in deleting for x in c)
+        logf = root / "var/log/cloud_sync.log"
+        log = logf.read_text() if logf.exists() else ""
+        dropped = [l for l in log.splitlines() if "RCLONE_NET_OPTS" in l and "allowlist" in l]
+        named = "none" if not dropped else ("named" if bad and bad in dropped[0] and (bad + "=") not in dropped[0] else "other")
+        if netopts is not None:
+            res[name + ":argv"] = (timeout, carried)
+            res[name + ":log"] = named
         print(f"{name}: preview rc {p.returncode}, plan {planned}; apply rc {ap_.returncode}; "
-              f"left on the device in roms/snes: {left}; the save a.srm kept: {'yes' if 'a.srm' in left else 'NO'}")
+              f"left on the device in roms/snes: {left}; the save a.srm kept: {'yes' if 'a.srm' in left else 'NO'}; "
+              f"deleting sync: --timeout 5s {'yes' if timeout else 'no'}, {bad or 'no flag'} {'carried' if carried else 'not carried'}; "
+              f"drop logged: {named}" + (f" ({dropped[0].split(']', 1)[-1].strip()[:140]})" if dropped else ""))
 
 want = {"unfixed": {"backup-traversal": (0, True, True), "backup-control": (0, True, False),
                     "match-netopts": (0, 0, 1, True), "match-control": (0, 0, 1, False),
-                    "match-netopts-real": (False, False), "match-control-real": (True, False)},
+                    "match-netopts-real": (False, False), "match-control-real": (True, False),
+                    "match-include-real": (False, False),
+                    "match-netopts-real:argv": (True, True), "match-include-real:argv": (True, True),
+                    "match-netopts-real:log": "none", "match-include-real:log": "none"},
         "fixed": {"backup-traversal": "refused", "backup-control": (0, True, False),
                   "match-netopts": "no-flag", "match-control": (0, 0, 1, False),
-                  "match-netopts-real": (True, False), "match-control-real": (True, False)}}
+                  "match-netopts-real": (True, False), "match-control-real": (True, False),
+                  "match-include-real": (True, False),
+                  "match-netopts-real:argv": (True, False), "match-include-real:argv": (True, False),
+                  "match-netopts-real:log": "named", "match-include-real:log": "named"}}
 if a.expect:
     w = want[a.expect]; bad = []
     for k, v in w.items():

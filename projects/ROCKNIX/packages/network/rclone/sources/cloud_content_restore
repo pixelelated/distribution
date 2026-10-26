@@ -276,9 +276,11 @@ ROOT="${REMOTENAME}${CONTENT_REMOTE:+${CONTENT_REMOTE%/}/}"
 RCLONE_NET_OPTS_FALLBACK="--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1"
 _net_opts=$(echo "${RCLONE_NET_OPTS:-}" | tr '\n\\' '  ' | tr -s ' ' | sed 's/^ //; s/ $//')
 [ -n "${_net_opts}" ] || _net_opts="${RCLONE_NET_OPTS_FALLBACK}"
-read -r -a RCLONE_NET_OPTS_ARRAY <<< "${_net_opts}"
 # Installed beside this script, also when the host fixtures copy it.
 . "$(dirname "${BASH_SOURCE[0]}")/cloud_content_transfer" || exit 1
+# Through the allowlist, never split whole into rclone's arguments
+# (D-CLOUD-185, #1129).
+content_net_opts "${_net_opts}" "${RCLONE_NET_OPTS_FALLBACK}"
 # A probe is a single listing that exists to answer quickly: one attempt,
 # tighter than the transfers (the same values the saves scripts probe with).
 readonly -a RCLONE_PROBE_OPTS=(--contimeout 10s --timeout 20s --low-level-retries 1 --retries 1)
