@@ -32,9 +32,9 @@
 | # | Criterion | State |
 | --- | --- | --- |
 | 1 | `00` and `01` to `05` | met at stage C |
-| 2 | the lint `PASS` | pre-issue at stage C; resolution at the close |
+| 2 | the lint `PASS` | met: the default `resolution` phase prints `PASS` at the close (from `8592f91054`) |
 | 3 | the plan, two reviewers, provenance, the manifest's scans | stage C |
-| 4 | every punch item at a Phase 7 outcome | waits: stage D onward |
+| 4 | every punch item at a Phase 7 outcome | met: 23 rows, 21 Resolved (10 with their fixing commits, PL-18 and PL-23 by S7 among them; 11 recorded at `3a7fdb0ec2`) and 2 Deferred (#1127, #909), read back at 09:11:37 UTC |
 | 5 | `reviewed-at:` and `fixed-at:`; the 14 at `8ebaf8daad`'s bytes; nothing changed at A to D | the diffs are empty (r39, r40); the header lines wait for the hand-back |
 | 6 | `01` § Scope | met (`64ff2f519f`), with four deltas |
 | 7 | coverage, 14 rows | met |
@@ -46,8 +46,8 @@
 | 13 | `00`'s never-run list, four keyed invokes | met through stage B; the four at stage C |
 | 14 | `04` § Q3, Q2, Q4, Q6, Q7 | met |
 | 15 | every proof's cell; every punch item's `question:`; every `bug` `box-check` | 27 `proved:` cells and 27 `PROOF:` lines; 23 items with `question:`; six bugs at 0 fail |
-| 16 | the retro | waits: stage G |
-| 17 | the five checkers | waits: the hand-back |
+| 16 | the retro | met: `docs/retros/2026-10-26-m6-cloud-setup-content.md`, posted on #664 |
+| 17 | the five checkers | met at the close, after the coordinator's merge `8592f91054` (`00`'s close-out entry) |
 
 ## Risk assessment
 

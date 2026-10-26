@@ -31,7 +31,7 @@
 - **Can this be done on the VM?** Yes, on the host now: `tools/t17-pin-fixture.py --expect unfixed` is met at `8ebaf8daad`, and a fixed file must meet `--expect fixed`. The guest repeats it against the installed serve. How often a real phone asks for icons is an open item to test (A-12).
 - **Already written:** nothing persisted. The counter lives in the serve's memory, and a new serve starts at 0.
 - **Acceptance:** the fixture's ten-icon cases answer 200 for the right PIN on the fixed file and 403 on the unfixed one; ten real wrong PINs still lock out (the control)
-- **Disposition note:** open -- the stage-D ruling: a `bug`, #1128 (Low; stage-E stream S1), with PL-14 folded in as its second criterion (the coordinator, 07:5x UTC)
+- **Disposition note:** **Resolved** -- `59a5a8860e`, S1 under `t17-streams.md` (before `stage-e/s1-before.txt`, after `stage-e/s1-after.txt`); bug #1128, its criteria ticked, open until on `next`; the guest met `--expect unfixed` on the installed file
 
 ## PL-02: a flag in `RCLONE_NET_OPTS` reaches the match's deleting `sync`, and `--delete-excluded` there deletes saves (a `bug`, #1129)
 
@@ -52,7 +52,7 @@
   - One that already applied has lost saves the fix cannot bring back.
   - The fixed reader refuses an unknown flag at the next run, or lets the shipped bound stand in. Either way the value on the card is read and not migrated.
 - **Acceptance:** the fixture's real-rclone case keeps `a.srm` on the fixed file and loses it on the unfixed one; the fixed scripts refuse, or drop with a log line, every flag outside the allowlist
-- **Disposition note:** open -- the stage-D ruling: a `bug`, #1129 (**Medium**, the coordinator's ruling, as both seats proposed; stream S2), under D-CLOUD-185. T16's twins (`cloud_restore:1406-1411`, `cloud_backup:1367-1371`) are routed to #663
+- **Disposition note:** **Resolved** -- `1def91bdfc`, S2 under D-CLOUD-185 (`stage-e/s2-*.txt`, both cases with the donor's rclone); bug #1129, its criteria ticked; T16's twins routed to #663 by the coordinator; the guest proved the loss on the real paths (`guest-cycle/f02.out`)
 
 ## PL-03: `cloud_content_backup` uploads any path it is named, `/storage/.config` among it (a `bug`, #1130)
 
@@ -70,7 +70,7 @@
 - **Can this be done on the VM?** Yes. On the host now: the fixture's `backup-traversal` case. On the guest: against the QA backend only, its data directory listed before and after, and what the backup carried removed (the coordinator's condition). That run shows what rclone does with the `..` on the backend.
 - **Already written:** nothing on the device. A cloud that already received such an upload keeps it. The fix calls for inspecting it and, where `rclone.conf` went up, rotating the credential, never an automatic deletion (A-28).
 - **Acceptance:** the fixture's `../.config` case refuses with no rclone call on the fixed file and copies on the unfixed one; `snes` still copies (the control)
-- **Disposition note:** open -- the stage-D ruling: a `bug`, #1130 (**Medium**, the coordinator's ruling; stream S3)
+- **Disposition note:** **Resolved** -- `f8feb15bb4`, S3, corrected at `c3e260861b` (explicit names only; `last-good-scripts-test` PASSED; `stage-e/s3-*.txt`); bug #1130, its criteria ticked; the guest proved the upload on the real path (`guest-cycle/f03.out`)
 
 ## PL-04: an option-shaped key reaches rclone as a flag, and `--config=` writes the new connection outside `rclone/` (a `bug`, #1131; found by both seats)
 
@@ -86,7 +86,7 @@
 - **Can this be done on the VM?** Yes, on the host now: `tools/t17-option-key-fixture.py` (the outside file written, the save refused). The fixed `save()` refuses before staging and writes nothing. The guest repeats it under the image's rclone.
 - **Already written:** nothing a shipped caller wrote. The interface passes the provider's own option names. A file an option-shaped key created holds a connection the fix cannot find.
 - **Acceptance:** the fixture's `config` and `dash-key` cases refuse with no outside file on the fixed file, and the control still saves
-- **Disposition note:** open -- the stage-D ruling: a `bug`, #1131 (Low; stream S4), with PL-08's sweep folded in
+- **Disposition note:** **Resolved** -- `0ffe7cd94f`, S4 (`stage-e/s4-*.txt`); bug #1131, its criteria ticked
 
 ## PL-05: two `>>> why` sentences the interface's table does not know
 
@@ -100,7 +100,7 @@
 - **Can this be done on the VM?** Yes: the why lines against the table at the pin (`stage-b/why-lines.txt`). What screen shows them is the ES slice's walk.
 - **Already written:** nothing persisted (a printed line)
 - **Acceptance:** the coordinator's disposition: the script's word changed to the rule's and the table given its pair (ES slice), or recorded
-- **Disposition note:** open -- the stage-D ruling: a `bug` for `cloud_setup:797` only, #1133 (Low; stream S6). `backuptool:1495`'s sentence stays as D-UI-117's proposed words, and its French pair is routed to T18 (#665) by the coordinator
+- **Disposition note:** **Resolved** -- `3e95bf18f4`, S6 for `cloud_setup:797` (`stage-e/s6-*.txt`); bug #1133, its first criterion reworded by the ruling [issuecomment-6411280450](https://github.com/pixelelated/distribution/issues/664#issuecomment-6411280450) and ticked; `backuptool:1495`'s French pair and the why table's pairs are T18's, #665
 
 ## PL-06: writes judged by their exit status, or not at all
 
@@ -119,7 +119,7 @@
 - **Can this be done on the VM?** Yes, on the host: a full-card fixture (a size-capped tmpfs or a fake `printf`) over the real `--set-systems`
 - **Already written:** a selection file already cut short is read as written; the fix cannot tell it from a choice
 - **Acceptance:** the coordinator's disposition: a `bug` for the selection write with that fixture, or recorded
-- **Disposition note:** open -- the stage-D ruling: a `bug` for `--set-systems` only, #1132 (Low; stream S5); the other three hardenings recorded as written
+- **Disposition note:** **Resolved** -- `1d8271a1f3`, S5 for `--set-systems` (`stage-e/s5-*.txt`); bug #1132, its criteria ticked; the other three hardenings recorded at `3a7fdb0ec2` (`02` F-10)
 
 ## PL-07: more fail-open shapes (found by the seats)
 
@@ -138,7 +138,7 @@
 - **Can this be done on the VM?** Yes, on the host: each with its failure constructed (an unwritable `/tmp`, an rclone killed without a word, a full `OUT`)
 - **Already written:** nothing persisted beyond a scan result the next scan rewrites
 - **Acceptance:** the coordinator's disposition
-- **Disposition note:** open -- the stage-D ruling: recorded as written
+- **Disposition note:** **Resolved** -- recorded at `3a7fdb0ec2` (`02` F-21), the stage-D ruling
 
 ## PL-08: a kill mid-save leaves credentials staged beside `rclone.conf`, and nothing sweeps them
 
@@ -152,7 +152,7 @@
 - **Can this be done on the VM?** Yes, on the host: kill `save()` at each step and list the directory
 - **Already written:** any device cut mid-sign-in holds such a directory today; a sweep under the lock at the start of `save()` removes it
 - **Acceptance:** the coordinator's disposition
-- **Disposition note:** open -- the stage-D ruling: folded into #1131 (stream S4)
+- **Disposition note:** **Resolved** -- `0ffe7cd94f`, S4's sweep (`stage-e/s4-after.txt`); in #1131
 
 ## PL-09: what reaches a screen and the log
 
@@ -171,7 +171,7 @@
 - **Can this be done on the VM?** Yes: the setup page's frame on the guest with a refused folder
 - **Already written:** log lines already written stay until rotation
 - **Acceptance:** the coordinator's disposition; the setup page's words are the ES slice's
-- **Disposition note:** open -- the stage-D ruling: recorded as written
+- **Disposition note:** **Resolved** -- recorded at `3a7fdb0ec2` (`02` F-07); the setup page's words are the ES slice's
 
 ## PL-10: secrets on argv, and a sign-in state file readable by any user
 
@@ -188,7 +188,7 @@
 - **Can this be done on the VM?** Yes: `/proc/<pid>/cmdline` and the file's mode on the guest
 - **Already written:** nothing proposed
 - **Acceptance:** recorded as a design note
-- **Disposition note:** open -- the stage-D ruling: recorded as written
+- **Disposition note:** **Resolved** -- recorded at `3a7fdb0ec2` (`02` F-05), a design note
 
 ## PL-11: `cloud_remote` logs a connection's name before `save()` checks it, and the scrubber's allowlist drift (found by the seats)
 
@@ -202,7 +202,7 @@
 - **Can this be done on the VM?** Yes, on the host: `cloud_remote create $'a\nb' local` with the log redirected
 - **Already written:** log lines already written stay until rotation
 - **Acceptance:** the coordinator's disposition
-- **Disposition note:** open -- the stage-D ruling: recorded as written
+- **Disposition note:** **Resolved** -- recorded at `3a7fdb0ec2` (`02` F-22)
 
 ## PL-12: what the `pkill -f` patterns reach
 
@@ -216,7 +216,7 @@
 - **Can this be done on the VM?** Yes, on the guest: a `sleep` named to match, then `cloud_setup --free-auth-port`
 - **Already written:** nothing persisted
 - **Acceptance:** the coordinator's disposition
-- **Disposition note:** open -- the stage-D ruling: recorded as written
+- **Disposition note:** **Resolved** -- recorded at `3a7fdb0ec2` (`02` F-23)
 
 ## PL-13: the match's smaller edges
 
@@ -233,7 +233,7 @@
 - **Can this be done on the VM?** Yes, on the host
 - **Already written:** a plan already on a device is read as written
 - **Acceptance:** recorded
-- **Disposition note:** open -- the stage-D ruling: recorded as written
+- **Disposition note:** **Resolved** -- recorded at `3a7fdb0ec2` (`02` F-08)
 
 ## PL-14: the paste flow renders rclone's words as HTML
 
@@ -247,7 +247,7 @@
 - **Can this be done on the VM?** Yes, on the host: the handler with `browser_stack_available` false and a failure reason holding markup
 - **Already written:** nothing persisted
 - **Acceptance:** recorded, or escaped with the same fixture
-- **Disposition note:** open -- the stage-D ruling: folded into #1128 as its second criterion (stream S1)
+- **Disposition note:** **Resolved** -- `59a5a8860e`, S1's escape (`stage-e/s1-after.txt`, `paste-html: escaped`); in #1128
 
 ## PL-15: the device id's hash hides the MAC from a glance, not from a search
 
@@ -261,7 +261,7 @@
 - **Can this be done on the VM?** No: a design read
 - **Already written:** every device's id is already in its cloud folder's name; changing the recipe is a second identity change, never silent (A-36)
 - **Acceptance:** recorded as a design note
-- **Disposition note:** open -- the stage-D ruling: recorded as written
+- **Disposition note:** **Resolved** -- recorded at `3a7fdb0ec2` (`02` F-11), a design note
 
 ## PL-16: the sign-in window
 
@@ -278,7 +278,7 @@
 - **Can this be done on the VM?** Yes: the window on the guest with the variable set
 - **Already written:** a `window.log` already holding keys stays until the next session truncates it
 - **Acceptance:** recorded
-- **Disposition note:** open -- the stage-D ruling: recorded as written
+- **Disposition note:** **Resolved** -- recorded at `3a7fdb0ec2` (`02` F-12)
 
 ## PL-17: the tools that exercise these files
 
@@ -294,7 +294,7 @@
 - **Can this be done on the VM?** Yes, on the host: the tools' own runs
 - **Already written:** nothing persisted
 - **Acceptance:** deferred to #1127 and #1117
-- **Disposition note:** open -- the stage-D ruling: deferred to #1127 and #1117
+- **Disposition note:** **Deferred** -- deferred:#1127 (the two tool defects, the coordinator's Backlog under #1047) and #1117 (the validator's `rclone` from `PATH`, M7's)
 
 ## PL-18: archive member types the name check does not inspect
 
@@ -312,7 +312,7 @@
 - **Already written:** an archive already in a cloud is read by the same check
 - **Acceptance:** the guest's restore of each type leaves nothing outside `/storage` and reverts
 - **The guest window** (`guest-cycle/pl18.out`): nothing was written outside, but a standalone symlink to `/var/tmp` **was restored** (rc 0), and a link with a child failed with **its revert failing** (the mark and a directory left). This is PL-23.
-- **Disposition note:** open -- the stage-D ruling: the guest window's proof if it comes before the hand-back, else an open item to test
+- **Disposition note:** **Resolved** -- the guest window's full restore (`guest-cycle/pl18.out`) found F-24, the coordinator's `bug` #1136, fixed by S7 `479cd96c24` (`stage-e/s7-*.txt`)
 
 ## PL-19: the connection model's two asymmetries, and `cloud_oauth`'s seams
 
@@ -330,7 +330,7 @@
 - **Can this be done on the VM?** No: a design read
 - **Already written:** a device with one remote and no `active-connection` keeps working through the legacy fallback
 - **Acceptance:** recorded as a proposal
-- **Disposition note:** open -- the stage-D ruling: recorded as written
+- **Disposition note:** **Resolved** -- recorded at `3a7fdb0ec2` (`02` F-15; `04` Q1), a proposal
 
 ## PL-20: dead ends, kept
 
@@ -348,7 +348,7 @@
 - **Can this be done on the VM?** No: a design read
 - **Already written:** legacy zip archives on devices are why the path stays
 - **Acceptance:** recorded in `04` Q6
-- **Disposition note:** open -- the stage-D ruling: recorded as written
+- **Disposition note:** **Resolved** -- recorded at `3a7fdb0ec2` (`02` F-16; `04` Q6); removals none
 
 ## PL-21: the rule names no writer of `rclone.conf`
 
@@ -362,7 +362,7 @@
 - **Can this be done on the VM?** No: a documentation read
 - **Already written:** nothing persisted
 - **Acceptance:** deferred to #909
-- **Disposition note:** open -- the stage-D ruling: deferred to #909 (the coordinator posts the line at acceptance)
+- **Disposition note:** **Deferred** -- deferred:#909, the line the coordinator posts at acceptance
 
 ## PL-22: bounds and currency, recorded
 
@@ -381,7 +381,7 @@
 - **Can this be done on the VM?** Yes: the guest's timings for the menus that call them
 - **Already written:** nothing persisted
 - **Acceptance:** recorded in `04` Q4 and Q5
-- **Disposition note:** open -- the stage-D ruling: recorded as written
+- **Disposition note:** **Resolved** -- recorded at `3a7fdb0ec2` (`02` F-18, F-19; `04` Q4, Q5)
 
 ## PL-23: `backuptool restore` plants a symlink an archive carries, and a revert that meets a restored-into directory fails (a `bug`, #1136; found in the guest window)
 
@@ -398,35 +398,37 @@
 - **Can this be done on the VM?** Yes. It was, in the window. A host fixture of `foreign_member` with member types, plus the full restore on the guest, is the bug's VM line.
 - **Already written:** a device that restored such an archive holds the link, and a fix to the check cannot see it; a device with the mark left keeps it until the next boot's verify (T1's `chksysconfig`)
 - **Acceptance:** the coordinator's ruling: a `bug` with that fixture (types other than regular files and directories refused before extraction; the revert of a restored-into directory), or recorded
-- **Disposition note:** open -- the coordinator's ruling at the hand-back: a `bug`, Low, #1136, stream S7 (`8e6c990a1f`); fixed by `479cd96c24`
+- **Disposition note:** **Resolved** -- `479cd96c24`, S7 under `t17-streams.md` at `8e6c990a1f` (`stage-e/s7-*.txt`; `last-good-scripts-test` PASSED); bug #1136, its criteria ticked
 
 ## Phase 7 resolution gate
 
+The coordinator's dispositions at the stage-D pause (#664, 07:5x UTC) and at the hand-back ([issuecomment-6411280450](https://github.com/pixelelated/distribution/issues/664#issuecomment-6411280450) and the second reading, 09:1x UTC), each read back from the tracker at stage F (09:11:37 UTC: #1127, #1117, #909, #665, #663, #1128 to #1133 and #1136 open; #1134 open).
+
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | the stage-D ruling: a `bug`, #1128 (Low; stage-E stream S1), with PL-14 folded in as its second criterion (the coordinator, 07:5x UTC); fixed by S1 `59a5a8860e`, its before and after in `02` § The streams (stage E); the guest ran the unfixed file (§ The guest cycle) |
-| PL-02 | Open | the stage-D ruling: a `bug`, #1129 (**Medium**, the coordinator's ruling, as both seats proposed; stream S2), under D-CLOUD-185. T16's twins (`cloud_restore:1406-1411`, `cloud_backup:1367-1371`) are routed to #663; fixed by S2 `1def91bdfc`, its before and after in `02` § The streams (stage E); the guest ran the unfixed file (§ The guest cycle) |
-| PL-03 | Open | the stage-D ruling: a `bug`, #1130 (**Medium**, the coordinator's ruling; stream S3); fixed by S3 `f8feb15bb4`, its before and after in `02` § The streams (stage E); the guest ran the unfixed file (§ The guest cycle); S3 corrected by `c3e260861b` (explicit names only; `last-good-scripts-test` PASSED) |
-| PL-04 | Open | the stage-D ruling: a `bug`, #1131 (Low; stream S4), with PL-08's sweep folded in; fixed by S4 `0ffe7cd94f`, its before and after in `02` § The streams (stage E); the guest ran the unfixed file (§ The guest cycle) |
-| PL-05 | Open | the stage-D ruling: a `bug` for `cloud_setup:797` only, #1133 (Low; stream S6). `backuptool:1495`'s sentence stays as D-UI-117's proposed words, and its French pair is routed to T18 (#665) by the coordinator; fixed by S6 `3e95bf18f4`, its before and after in `02` § The streams (stage E); the guest ran the unfixed file (§ The guest cycle) |
-| PL-06 | Open | the stage-D ruling: a `bug` for `--set-systems` only, #1132 (Low; stream S5); the other three hardenings recorded as written; fixed by S5 `1d8271a1f3`, its before and after in `02` § The streams (stage E); the guest ran the unfixed file (§ The guest cycle) |
-| PL-07 | Open | the stage-D ruling: recorded as written |
-| PL-08 | Open | the stage-D ruling: folded into #1131 (stream S4); fixed by S4 `0ffe7cd94f`, its before and after in `02` § The streams (stage E); the guest ran the unfixed file (§ The guest cycle) |
-| PL-09 | Open | the stage-D ruling: recorded as written |
-| PL-10 | Open | the stage-D ruling: recorded as written |
-| PL-11 | Open | the stage-D ruling: recorded as written |
-| PL-12 | Open | the stage-D ruling: recorded as written |
-| PL-13 | Open | the stage-D ruling: recorded as written |
-| PL-14 | Open | the stage-D ruling: folded into #1128 as its second criterion (stream S1); fixed by S1 `59a5a8860e`, its before and after in `02` § The streams (stage E); the guest ran the unfixed file (§ The guest cycle) |
-| PL-15 | Open | the stage-D ruling: recorded as written |
-| PL-16 | Open | the stage-D ruling: recorded as written |
-| PL-17 | Open | the stage-D ruling: deferred to #1127 and #1117 |
-| PL-18 | Open | run in the guest window, `guest-cycle/pl18.out`: a link with a child refused but its revert failed; a standalone link restored; a hard link refused cleanly. Hence PL-23 |
-| PL-19 | Open | the stage-D ruling: recorded as written |
-| PL-20 | Open | the stage-D ruling: recorded as written |
-| PL-21 | Open | the stage-D ruling: deferred to #909 (the coordinator posts the line at acceptance) |
-| PL-23 | Open | a `bug`, #1136; fixed by S7 `479cd96c24`, its before and after in `02` § The streams |
-| PL-22 | Open | the stage-D ruling: recorded as written |
+| PL-01 | **Resolved** | `59a5a8860e`, S1 under `t17-streams.md` (before `stage-e/s1-before.txt`, after `stage-e/s1-after.txt`); bug #1128, its criteria ticked, open until on `next`; the guest met `--expect unfixed` on the installed file |
+| PL-02 | **Resolved** | `1def91bdfc`, S2 under D-CLOUD-185 (`stage-e/s2-*.txt`, both cases with the donor's rclone); bug #1129, its criteria ticked; T16's twins routed to #663 by the coordinator; the guest proved the loss on the real paths (`guest-cycle/f02.out`) |
+| PL-03 | **Resolved** | `f8feb15bb4`, S3, corrected at `c3e260861b` (explicit names only; `last-good-scripts-test` PASSED; `stage-e/s3-*.txt`); bug #1130, its criteria ticked; the guest proved the upload on the real path (`guest-cycle/f03.out`) |
+| PL-04 | **Resolved** | `0ffe7cd94f`, S4 (`stage-e/s4-*.txt`); bug #1131, its criteria ticked |
+| PL-05 | **Resolved** | `3e95bf18f4`, S6 for `cloud_setup:797` (`stage-e/s6-*.txt`); bug #1133, its first criterion reworded by the ruling [issuecomment-6411280450](https://github.com/pixelelated/distribution/issues/664#issuecomment-6411280450) and ticked; `backuptool:1495`'s French pair and the why table's pairs are T18's, #665 |
+| PL-06 | **Resolved** | `1d8271a1f3`, S5 for `--set-systems` (`stage-e/s5-*.txt`); bug #1132, its criteria ticked; the other three hardenings recorded at `3a7fdb0ec2` (`02` F-10) |
+| PL-07 | **Resolved** | recorded at `3a7fdb0ec2` (`02` F-21), the stage-D ruling |
+| PL-08 | **Resolved** | `0ffe7cd94f`, S4's sweep (`stage-e/s4-after.txt`); in #1131 |
+| PL-09 | **Resolved** | recorded at `3a7fdb0ec2` (`02` F-07); the setup page's words are the ES slice's |
+| PL-10 | **Resolved** | recorded at `3a7fdb0ec2` (`02` F-05), a design note |
+| PL-11 | **Resolved** | recorded at `3a7fdb0ec2` (`02` F-22) |
+| PL-12 | **Resolved** | recorded at `3a7fdb0ec2` (`02` F-23) |
+| PL-13 | **Resolved** | recorded at `3a7fdb0ec2` (`02` F-08) |
+| PL-14 | **Resolved** | `59a5a8860e`, S1's escape (`stage-e/s1-after.txt`, `paste-html: escaped`); in #1128 |
+| PL-15 | **Resolved** | recorded at `3a7fdb0ec2` (`02` F-11), a design note |
+| PL-16 | **Resolved** | recorded at `3a7fdb0ec2` (`02` F-12) |
+| PL-17 | **Deferred** | deferred:#1127 (the two tool defects, the coordinator's Backlog under #1047) and #1117 (the validator's `rclone` from `PATH`, M7's) |
+| PL-18 | **Resolved** | the guest window's full restore (`guest-cycle/pl18.out`) found F-24, the coordinator's `bug` #1136, fixed by S7 `479cd96c24` (`stage-e/s7-*.txt`) |
+| PL-19 | **Resolved** | recorded at `3a7fdb0ec2` (`02` F-15; `04` Q1), a proposal |
+| PL-20 | **Resolved** | recorded at `3a7fdb0ec2` (`02` F-16; `04` Q6); removals none |
+| PL-21 | **Deferred** | deferred:#909, the line the coordinator posts at acceptance |
+| PL-22 | **Resolved** | recorded at `3a7fdb0ec2` (`02` F-18, F-19; `04` Q4, Q5) |
+| PL-23 | **Resolved** | `479cd96c24`, S7 under `t17-streams.md` at `8e6c990a1f` (`stage-e/s7-*.txt`; `last-good-scripts-test` PASSED); bug #1136, its criteria ticked |
 
 ## Machine-readable index
 
@@ -437,137 +439,137 @@ punch_index:
   category: Correctness
   question: Q3
   source_finding: "F-01, F-09"
-  outcome: "open"
+  outcome: "resolved (59a5a8860e)"
 - id: PL-02
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-02"
-  outcome: "open"
+  outcome: "resolved (1def91bdfc)"
 - id: PL-03
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-03"
-  outcome: "open"
+  outcome: "resolved (c3e260861b)"
 - id: PL-04
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-20"
-  outcome: "open"
+  outcome: "resolved (0ffe7cd94f)"
 - id: PL-05
   severity: Low
   category: Standards
   question: Q2
   source_finding: "F-14"
-  outcome: "open"
+  outcome: "resolved (3e95bf18f4)"
 - id: PL-06
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-10"
-  outcome: "open"
+  outcome: "resolved (1d8271a1f3)"
 - id: PL-07
   severity: Info
   category: Correctness
   question: Q3
   source_finding: "F-21"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-08
   severity: Info
   category: Correctness
   question: Q3
   source_finding: "F-06"
-  outcome: "open"
+  outcome: "resolved (0ffe7cd94f)"
 - id: PL-09
   severity: Info
   category: Standards
   question: Q2
   source_finding: "F-07"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-10
   severity: Info
   category: Design
   question: Q3
   source_finding: "F-05"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-11
   severity: Info
   category: Correctness
   question: Q3
   source_finding: "F-22"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-12
   severity: Info
   category: Correctness
   question: Q3
   source_finding: "F-23"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-13
   severity: Info
   category: Correctness
   question: Q3
   source_finding: "F-08"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-14
   severity: Info
   category: Correctness
   question: Q3
   source_finding: "F-09"
-  outcome: "open"
+  outcome: "resolved (59a5a8860e)"
 - id: PL-15
   severity: Info
   category: Design
   question: Q3
   source_finding: "F-11"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-16
   severity: Info
   category: Design
   question: Q3
   source_finding: "F-12"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-17
   severity: Info
   category: Currency
   question: Q4
   source_finding: "F-13"
-  outcome: "open"
+  outcome: "deferred:#1127"
 - id: PL-18
   severity: Info
   category: Design
   question: Q3
   source_finding: "F-04"
-  outcome: "open"
+  outcome: "resolved (479cd96c24)"
 - id: PL-19
   severity: Info
   category: Design
   question: Q1
   source_finding: "F-15"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-20
   severity: Info
   category: Renovation
   question: Q6
   source_finding: "F-16"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-21
   severity: Info
   category: Documentation
   question: Q7
   source_finding: "F-17"
-  outcome: "open"
+  outcome: "deferred:#909"
 - id: PL-22
   severity: Info
   category: Efficiency
   question: Q5
   source_finding: "F-18, F-19"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-23
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-24"
-  outcome: "open"
+  outcome: "resolved (479cd96c24)"
 ```
