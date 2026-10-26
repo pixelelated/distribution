@@ -436,7 +436,7 @@ Every item is open until the coordinator's stage-D ruling and stage F.
 | PL-06 | Resolved | Resolved in `2d8a0a135` (ES, S6) under #1175: the sign-in off the interface thread with a 15 s total and a 10 s stall, its answer tied to the account; a scan never carries another account's token (`stage-e/s6-*.txt`); the stalling-listener walk owed |
 | PL-07 | Deferred | Deferred: #300, as ruled at the stage-D ruling (#667, 18:45 UTC) |
 | PL-08 | Deferred | Deferred: #668 (T21), with `stage-b/positives/reader.cpp`, as ruled at the stage-D ruling (#667, 18:45 UTC) |
-| PL-09 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
+| PL-09 | Resolved | Resolved in `d9afa5c7c` (ES, S8) under #1177: `file.clear()` before `seekg(0)`; `es-file-tests` FAIL before, PASS after (`stage-e/s8-*.txt`); the row's walk owed; the #585 line in `02` |
 | PL-10 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-11 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-12 | Resolved | Resolved in `d7a30f0c6` (ES, S7) under #1176: the card takes only its own run, `topUpRunning()` from the run, the two rows with French (`stage-e/s7-*.txt`); `NO_GAMES_FOUND` recorded |
@@ -511,7 +511,7 @@ punch_index:
   category: Correctness
   question: Q3
   source_finding: "L-13"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-10
   severity: "Low"
   category: Correctness

@@ -43,15 +43,19 @@ for tgt in "$@"; do
   [ "${rc}" -eq 0 ] || FAIL=1
 done
 
-echo "== 3. the non-ASCII comment grep"
+echo "== 3. the non-ASCII comment grep (the lines this stream adds: the diff's + lines, untracked files whole)"
 mapfile -t CHANGED < <(cd "${ES}" && { git diff --name-only HEAD; git ls-files --others --exclude-standard; } | sort -u)
 printf '  changed: %s\n' "${CHANGED[@]}"
 hits=0
 for f in "${CHANGED[@]}"; do
   [ -f "${ES}/${f}" ] || continue
   case "${f}" in *.cpp|*.h|*.c) ;; *) continue ;; esac
-  n=$(grep -c -P '^\s*//.*[^\x00-\x7F]' "${ES}/${f}")
-  [ "${n}" -gt 0 ] && { echo "  NON-ASCII comment: ${f} (${n})"; hits=$((hits + n)); }
+  if (cd "${ES}" && git ls-files --error-unmatch "${f}" >/dev/null 2>&1); then
+    n=$(cd "${ES}" && git diff -U0 HEAD -- "${f}" | grep -E '^\+' | grep -v -E '^\+\+\+' | sed 's/^+//' | grep -c -P '^\s*//.*[^\x00-\x7F]')
+  else
+    n=$(grep -c -P '^\s*//.*[^\x00-\x7F]' "${ES}/${f}")
+  fi
+  [ "${n}" -gt 0 ] && { echo "  NON-ASCII comment added: ${f} (${n})"; hits=$((hits + n)); }
 done
 echo "  ${hits} line(s)"
 [ "${hits}" -eq 0 ] || FAIL=1

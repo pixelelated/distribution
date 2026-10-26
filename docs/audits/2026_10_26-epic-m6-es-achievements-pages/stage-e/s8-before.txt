@@ -1,0 +1,14 @@
+== S8 before (19:49:42Z): FileSystemUtil.cpp at the pin (unchanged: yes), es-file-tests with the new cases
+unit build rc 1
+TEST CASE:  FileSystem: readAllText reads a file under three bytes whole (#1177)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/FileSystemReadTests.cpp:48: ERROR: CHECK( Utils::FileSystem::readAllText(path) == bytes ) is NOT correct!
+  values: CHECK(  == 7 )
+  logged: bytes: 1
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/FileSystemReadTests.cpp:48: ERROR: CHECK( Utils::FileSystem::readAllText(path) == bytes ) is NOT correct!
+  values: CHECK(  == 7
+  logged: bytes: 2
+TEST CASE:  FileSystem: readAllLines reads a two-byte file's line (#1177)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/FileSystemReadTests.cpp:67: FATAL ERROR: REQUIRE( lines.size() == 1 ) is NOT correct!
+  values: REQUIRE( 0 == 1 )
+[doctest] test cases:  3 |  1 passed | 2 failed | 24 skipped
+[doctest] assertions: 24 | 21 passed | 3 failed |

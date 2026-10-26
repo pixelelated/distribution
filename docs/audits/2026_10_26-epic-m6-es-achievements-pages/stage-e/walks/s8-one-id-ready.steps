@@ -1,0 +1,8 @@
+# S8 (#1177), for the integration build's window (fix-walk-pending-image):
+# the window's step 6 again, on the image with S8 in it.
+# 1. Offline achievements on, a completed scan stamped; cached_game_ids.txt
+#    set to `7\n` (two bytes) on the guest.
+# 2. OFFLINE ACHIEVEMENTS (BETA): the SCAN row reads "... · 1 GAME READY FOR
+#    OFFLINE PLAY" (it read NO GAMES TO SCAN YET on 069fc2704421, guest-cycle/
+#    frames/w6/01-offline-page-ready-file-7.png).
+# 3. Remove the file again.
