@@ -319,6 +319,23 @@ sections (§ 7).
 the renovation face is added to its checks in P1 so a slice without the seven
 questions answered fails the lint rather than a reader's attention.
 
+**The stream practice (added 2026-10-26 from T17's second hand-back, #664).**
+A stage-E stream that changes a script `tools/last-good-scripts-test` covers
+runs that suite before its commit and names the run in `02` § The streams;
+a stream that changes an EmulationStation source runs the unit tests and
+the syntax check the slice's brief names, or records their `CANNOT`. T17's
+S3 narrowed a check too far and the suite found it only at S7
+(`c3e260861b` put it right); the suite before the commit would have found
+it at S3. Every stream brief carries the line. Two more from the same
+hand-back, for a stream that proves a fix with a host fixture: a fixture that
+rewrites a script's absolute paths asserts, before it runs, that its scratch
+root lies outside every prefix it rewrites (T17's cost two guest re-runs),
+and the better shape rewrites nothing -- the real script in an unprivileged
+sandbox with `/storage` on scratch; and a host sandbox starts from an empty
+environment (`bwrap --clearenv`), since #549's lesson about `TMPDIR` holds at
+every execution boundary, not only Docker's. Every stream brief carries
+those two lines when a fixture is in its plan.
+
 **The brief practice that grew in P2 (added 2026-10-26 from the coordinator's
 retro, `docs/retros/2026-10-26-m6-coordinator.md`).** Before any dispatch: a
 **stranger's proof** -- a reader with no context, at most ten commands, from a
@@ -335,7 +352,10 @@ a verb's name in a comment. At acceptance the lane's deltas become an **errata
 section** appended to the brief, never edited into its sections: the brief is
 the record of what was asked. Every version-1 brief of P2 needed its proof
 (twelve to seventeen corrections each), and twice the proof refuted the
-premise the lens was built on.
+premise the lens was built on. A claim about another repository's table -- a `whySentences` row, a
+catalog's entry, a menu map's line -- names the read that shows it at that
+repository's pin, as the membership block does for this one; T17's S6 was
+briefed on a row the table did not hold (#1133's criterion was reworded).
 
 ### 6c. Review depth per slice
 
