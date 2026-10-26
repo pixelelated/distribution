@@ -3,7 +3,7 @@
 **Completed:** 2026-10-26.
 **Scope:** the T18 slice audit, stages A to F, `docs/audits/2026_10_26-epic-m6-es-cloud-pages/` (#1153), and its six fix streams on the ES branch `feature/m6-es-cloud-pages-665` (`16dbac5211..d55235d4b`).
 **Delta:**
-- 23 punch items: 9 Resolved, 10 Deferred, 4 Withdrawn.
+- 23 punch items: 10 Resolved, 9 Deferred, 4 Withdrawn (corrected at close-out from a miscount of 9 and 10).
 - 8 Low bugs (#1145 to #1152), 4 with every criterion ticked.
 - `es-unit-tests` 187 → 189 cases; `es-file-tests` 24 → 27; `jobs-tests` 6 → 10.
 - Three host fixtures under the audit's `tools/`.

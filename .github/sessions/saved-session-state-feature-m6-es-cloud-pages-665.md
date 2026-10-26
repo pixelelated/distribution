@@ -17,13 +17,12 @@
 
 ## Current focus
 
-**Stage C done (11:09 UTC); at the stage-D pause.**
-
-- **The seats:** the four keyed calls are made, all PASS. Astra gave 42 items and Argon 45, and every item is graded in `04` § Second opinion.
-- **`05`** has 23 items, seven of them proposed `bug`s.
-- **The lint:** `--phase pre-issue` PASS.
-- **What waits:** the coordinator's dispositions on #665. Then the audit issue (a sub-issue of #665) and the bugs it rules, then the streams under its brief, which land on the ES branch only.
-- **No keyed call remains;** a new one needs a ruling.
+**Idle (2026-10-26 12:06 UTC): T18 accepted by the coordinator on #665 (12:04 UTC); the audit closed.**
+- **Accepted tips:** the distribution at `33ad2e3cee`, merged with the coordinator's `89eeebe01d` at `147fe1e4bb`; the EmulationStation branch `feature/m6-es-cloud-pages-665` at **`d55235d4b`**, which stays there.
+- **Status:** #1153 closed as completed (23 of 23). `docs/audits/2026_10_26-epic-m6-es-cloud-pages/audit-completion.json` was written by the folder's `tools/write-completion.py` from #1153's closed readback (completed 12:05:01 UTC) and is accepted by `tools/ceremony-check`'s validator; `tools/lint-audit-artifacts --issue 1153` prints `PASS`.
+- **Commits:** `reviewed-at` `cbf6d7ef83` (pin `16dbac5211`), `fixed-at` `33ad2e3cee`, `fixed-at-es` `d55235d4b` (in #665's body).
+- **Work done:** streams S1 to S6 on the ES branch. The bugs #1145 to #1152 stay open until their fixes are on `next` with the pin moved; #1150's first criterion is accepted as proven at the decision functions and stays open for the guest proof.
+- **What the lane waits for:** nothing. The integration is the coordinator's: the pin to `d55235d4b` in the same commit as the branch, the ES package built first, `strings` for S1's and S3's words, the walks moved under `tools/vm-walks/` with their frames (#1141), the card's restart proof (#1148), the three SDL files' compile; `renovation-drift` reads `re-open` until then. Nothing runs in this lane: no guest, no compiler, no watched run, no waiter; `/workspace/tmp/m6-t18/` is retired.
 
 ## Next commands
 

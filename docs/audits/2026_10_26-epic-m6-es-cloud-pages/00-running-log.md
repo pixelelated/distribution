@@ -204,7 +204,7 @@ Each stream's before and after are under `stage-e/`, with its row in `02` § The
 
 ## [Stage F] 11:48 to 11:53 UTC — the outcomes
 
-- **`05`'s 23 rows:** 9 Resolved, 10 Deferred, 4 Withdrawn. "Withdrawn" is "recorded as written" under the ruling, and PL-19, whose fixture did not fall. `tools/lint-audit-artifacts docs/audits/2026_10_26-epic-m6-es-cloud-pages --issue 1153`: `PASS`.
+- **`05`'s 23 rows:** 10 Resolved, 9 Deferred, 4 Withdrawn (corrected at close-out: this line first said 9 and 10, a miscount; the coordinator's acceptance counted the table). "Withdrawn" is "recorded as written" under the ruling, and PL-19, whose fixture did not fall. `tools/lint-audit-artifacts docs/audits/2026_10_26-epic-m6-es-cloud-pages --issue 1153`: `PASS`.
 - **#1153:** 18 of 23 ticked. PL-02, PL-04, PL-05, PL-07 and PL-18 wait on their bugs' open criteria:
   - `strings` on the image and the walks' frames are the integration build's (#1146, #1148, #1149);
   - #1150's card cases are proven at the decision function and by source guard only, put to the coordinator on #1150.
