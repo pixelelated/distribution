@@ -18,7 +18,11 @@
   - **Both seats propose Medium for F-02 and F-03** (A-27, A-28, R-47). The coordinator rules.
 - **One candidate refuted by fixture:** F-04. A symlink member passes `backuptool`'s name check, and the image's busybox `tar` refuses it.
 - **Info and design notes:** secrets on argv and a 0644 state file holding the PIN (F-05); staged credentials a kill leaves behind (F-06); rclone's words and the root password on a screen (F-07); the match's and the listener's smaller edges (F-08, F-09); unchecked or unlocked writes (F-10); a reversible device-id hash (F-11); the window (F-12); the tools' drift (F-13); two why sentences the interface cannot translate (F-14).
-- **Twenty-three findings:** 5 Low (F-01, F-02, F-03, F-14, F-20), 18 Info, Design or Renovation. F-20 to F-23 came from the first seat (§ Second opinion), and the seat proposes raising F-10's selection write to Low. **Removals: none.** **No guest yet; nothing on a person's device or cloud.**
+- **Twenty-three findings:** 5 Low (F-01, F-02, F-03, F-14, F-20), 18 Info, Design or Renovation. F-20 to F-23 came from the first seat (§ Second opinion), and the seat proposes raising F-10's selection write to Low. **Removals: none.** **Nothing on a person's device or cloud.**
+- **Stage E and the guest window.**
+  - Six streams fixed #1128 to #1133 (`02` § The streams).
+  - The window (07:59:26 to 08:06:04 UTC) proved F-02 and F-03 on the guest's real paths against the QA backend. With F-03, 3,418 files of `/storage/.config`, `rclone.conf` among them, reached the cloud.
+  - PL-18's full restore found **F-24**: a standalone symlink an archive carries is restored, and a revert can fail and leave the mark. It is a Low candidate for the coordinator (`05` PL-23).
 
 ## Acceptance-criteria scorecard
 
@@ -37,10 +41,10 @@
 | 9 | § The secrets' paths, the scrubber's families with *writes it today* | met (28 rows, three families) |
 | 10 | § The deletions, the two deleting statements and the refusals | met |
 | 11 | § The runs | met (40 generated rows, and the host tools) |
-| 12 | § The guest cycle | waits: the window asked for on #664 after stage B |
+| 12 | § The guest cycle | run 07:59:26 to 08:06:04 UTC (`guest-cycle/`); five of the checkbox's named proofs were not run in the window and are put to the coordinator (`02` § The guest cycle) |
 | 13 | `00`'s never-run list, four keyed invokes | met through stage B; the four at stage C |
 | 14 | `04` § Q3, Q2, Q4, Q6, Q7 | met |
-| 15 | every proof's cell; every punch item's `question:`; every `bug` `box-check` | 17 proofs at stage B; `05` at stage C; bugs at stage D |
+| 15 | every proof's cell; every punch item's `question:`; every `bug` `box-check` | 27 `proved:` cells and 27 `PROOF:` lines; 23 items with `question:`; six bugs at 0 fail |
 | 16 | the retro | waits: stage G |
 | 17 | the five checkers | waits: the hand-back |
 

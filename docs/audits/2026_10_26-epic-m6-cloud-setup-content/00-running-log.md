@@ -149,3 +149,43 @@
 - **The audit issue:** #1134, *Audit: M6 T17 cloud setup, sign-in, connections and settings backups -- 22 findings (0 critical, 0 high, 2 medium, 4 low, 16 info)*, labelled `audit` and `punch-list` on M6, attached as a sub-issue of #664. `box-check`: 22 open, 0 fail.
 - **`05`:** every item's disposition note and its Phase 7 row carry the ruling; PL-02 and PL-03 are Medium and PL-06 Low. `tools/lint-audit-artifacts --phase pre-issue`: PASS. `tools/register-check`: PASS.
 - **Nothing under `packages/`, `projects/` or `tools/` changed at stages A to D:** `git diff --stat f3803436b8 HEAD -- packages projects tools` is empty.
+
+## [Stage E] 2026-10-26 07:41 UTC onward (after the stage-D tip `045cc316ea`) — six streams, the guest window, the disk retired
+
+- **The streams**, under `docs/reviews/briefs/t17-streams.md` at `f59f7cbbc1` (read whole), one commit each, each fixture failing on the unfixed file before the fix landed (`02` § The streams):
+  - S1 `59a5a8860e` (#1128);
+  - S2 `1def91bdfc` (#1129);
+  - S3 `f8feb15bb4` (#1130);
+  - S4 `0ffe7cd94f` (#1131);
+  - S5 `1d8271a1f3` (#1132);
+  - S6 `3e95bf18f4` (#1133).
+- **The tools, named:** the donor's rclone 1.75.2 at `/workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/rclone`, sha256 `ed887da83d3e2c07ff8acc60cb5b56dbe7bb4d73cc445b6ff71988f164c0558a`, matching the donor's `SHA256SUMS` (its `RECORD.txt` names the version, not the hash); the donor's busybox 1.36.1 (`79e7b20d…`); host Python 3.14.4 and GNU bash 5.3.9. Each fixture's command is at the head of its `stage-e/s<N>-*.txt`.
+- **Fixtures added or extended:**
+  - `tools/t17-pin-fixture.py` (`paste-html`);
+  - `tools/t17-content-fixture.py` (`match-include-real`, `backup-unknown`, the argv and log checks, `--only`);
+  - `tools/t17-option-key-fixture.py` (`--sources`, `--expect`, `sigkill`, `sweep`);
+  - `tools/t17-selection-fixture.py` (new). Its `ulimit -f 1` with SIGXFSZ ignored is a file-size limit standing in for a full card.
+- **`tools/register-check` fails on exactly four lines from S2 on:** the code comments citing D-CLOUD-185, a row on the coordinator's branch at `f59f7cbbc1`, which only the coordinator merges here. I did not chain the check into S2's commit, so the commit went in with the failure known only afterwards. From S3 on, each commit was preceded by the check showing no other failure.
+- **S6's premise did not hold:** neither `ANOTHER CLOUD SYNC IS RUNNING` nor the rule's `A SYNC IS ALREADY RUNNING` is a `whySentences` row at the pin. #1133's first criterion is put to the coordinator.
+- **The guest window** (granted 07:5x UTC; START 07:59:26, RETURN 08:06:04, both posted on #664 with census 0):
+  - `guest-cycle/run.sh`, its stages' outputs whole and masked, and `pl18.out`.
+  - The image's `.sha256` OK; `BUILD_ID=069fc27044…`.
+  - 12 installed files hashed: 11 same, `cloud_oauth` different (M7's sign-in build), with no hunk in F-01's or F-09's lines.
+  - Five fixtures met `--expect unfixed` under the image's python, busybox and rclone. **F-02 and F-03 were proved on the real paths against the QA backend**, under the stage-B conditions: the conf put back `cmp`-identical, and the 3,418-file upload listed before and after, then removed.
+  - PL-18 through a full restore gave **F-24**.
+  - My setup errors: two scratch roots the fixture's own path rewrite caught. Recorded in `guest-cycle/fixtures.out`.
+  - I typed START wrong in the RETURN comment (07:59:20); corrected from `/workspace/tmp/m6-t17/start-time`, with the correction stated in the comment.
+- **Not run in the window, put to the coordinator:** the match's refusal, `backuptool`'s exit 5, `atomic()`'s mode, `tools/signin-memory`; and the phone page, `CANNOT`.
+- **Retired, D-INFRA-022:** no stream's guest proof is owed; the guest runs the unfixed image by design.
+  - The disk: `/workspace/tmp/m6-t17/vm-pair/vm-a.qcow2`, 2,312,699,904 bytes, sha256 `efe34c1bea85faae7e0e5f99b663d4e94cf1c5b77683c1dd503d8c214f5d836b`, removed with its directory (`vm-pair/`, 2,313,241,064 bytes in all), recovering about 2.3 GB.
+  - The backend's state (`cloud-qa/`, 138 bytes after the upload's removal) is kept until the hand-back, then retired with the scratch.
+  - The hash is provenance: it makes no claim that the file still exists.
+- **Nothing ran on a handheld, a person's cloud or a hosted account. No build, no fetch, no keyed council call.**
+- PROOF: P20, the six streams' before and after: `stage-e/`.
+- PROOF: P21, the guest window: `guest-cycle/`.
+- PROOF: S1's row in `02` § The streams: `stage-e/s1-*.txt`.
+- PROOF: S2's row: `stage-e/s2-*.txt`.
+- PROOF: S3's row: `stage-e/s3-*.txt`.
+- PROOF: S4's row: `stage-e/s4-*.txt`.
+- PROOF: S5's row: `stage-e/s5-*.txt`.
+- PROOF: S6's row: `stage-e/s6-*.txt`.

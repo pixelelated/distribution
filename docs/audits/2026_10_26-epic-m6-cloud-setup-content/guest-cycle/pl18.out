@@ -1,0 +1,14 @@
+$ (guest) PL-18: three hand-made archives through the installed backuptool restore --no-restart  (08:05:34Z)
+case symlink-with-child: restore rc 1; last lines: >>> why THE RESTORE COULDN'T FINISH [31mTHE RESTORE COULDN'T FINISH, AND SOME OF YOUR SETTINGS COULDN'T BE PUT BACK. TRY THE RESTORE AGAIN.[0m 
+  outside1 exists: no; outside2 exists: no; h-target now: outside target, before
+  in /storage/.config: drwxr-xr-x /storage/.config/t17-escape;
+  restore mark left: yes
+case standalone-symlink: restore rc 0; last lines: [32mRESTORING SETTINGS...[0m [32mSETTINGS RESTORED. WI-FI AND ACCOUNT PASSWORDS ARE NOT PART OF A BACKUP AND MUST BE ENTERED AGAIN.[0m 
+  outside1 exists: no; outside2 exists: no; h-target now: outside target, before
+  in /storage/.config: drwxr-xr-x /storage/.config/t17-escape;lrwxrwxrwx /var/tmp/t17/outside2;
+  restore mark left: no
+case hardlink-then-file: restore rc 1; last lines: >>> why THE RESTORE COULDN'T FINISH [31mTHE RESTORE COULDN'T FINISH. DON'T WORRY - YOUR SETTINGS ARE UNCHANGED. TRY AGAIN.[0m 
+  outside1 exists: no; outside2 exists: no; h-target now: outside target, before
+  in /storage/.config: drwxr-xr-x /storage/.config/t17-escape;lrwxrwxrwx /var/tmp/t17/outside2;
+  restore mark left: no
+exit 0

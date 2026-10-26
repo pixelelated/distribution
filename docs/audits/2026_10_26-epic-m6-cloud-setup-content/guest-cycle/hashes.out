@@ -1,0 +1,864 @@
+$ the installed files against git show 8ebaf8daad:<path>  (08:00:18Z)
+same      /usr/bin/cloud_connections.py  9dc33c49c5f4348af3e7c10ba1353975bec9ace232625f4bc73bcc9471001599
+same      /usr/bin/cloud_content_backup  f64fc05c6bc60243957ff7792059c8561b44a19c86aa44329cec1c56ac4cab47
+same      /usr/bin/cloud_content_restore  02aea2266cbf34a9aaa0fc11a8428e9f1aee8d58eaf731b31cda519820b2a527
+same      /usr/bin/cloud_content_transfer  fe292268d9029c2b950a093f6902b5cbe8afb3d57cb47187251cf90c3d85a1a3
+same      /usr/bin/cloud_device_id  8f4a4cd1cf3cd0a08777b38b371b83ac3cf1e78d0fda3a9542785533d124a130
+same      /usr/bin/cloud_folder_validate  c6eb5c3efc8c62df1c3f4f321ccff1bf9033305c83b53e6667a846d9305fd173
+same      /usr/bin/cloud_log_scrub  5c156d8d43b39172fa71b80a3e47156f46bca0965dcae890ec70f02596f8f126
+DIFFERENT /usr/bin/cloud_oauth  installed 43e74f07e4965f3162027978669a85069064235b0bb162121dea5b211667e157  tree 95c626f8df07faef522683a857e48e31f85a58c6f738bcde24707574dc24d293
+    126c126
+    <             ('id=clear>Clear', 'id=clear>Vider'),
+    ---
+    >             ('id=clear>Clear handheld field', 'id=clear>Vider le champ sur la console'),
+    697,701c697,699
+    < /* Five buttons on a phone's 350 px share the row from a basis of nothing
+    <    (flex:1 1 0) and may shrink below their words (min-width:0, which flex
+    <    items refuse by default); width:auto undoes the block rule's 100%, which
+    <    as a basis put every button on a row of its own. Show sat off the right
+    <    edge of an iPhone's screen (fork #330). */
+    ---
+    > /* Short keys share the row from a basis of nothing (flex:1 1 0).
+    >    min-width:0 and width:auto keep Show inside a narrow phone (fork #330).
+    >    The longer Clear label has its own full-width row below (#626). */
+    704c702
+    < /* Let the short French key symbols leave room for Vider and Voir/Cacher. */
+    ---
+    > /* Let the short French key symbols leave room for Voir/Cacher. */
+    891c889
+    <     def __init__(self, url, host):
+    ---
+    >     def __init__(self, url, host, started, deadline, attempt, launch_until, ticket):
+    894a893,895
+    >         from raofflineproxy.browser_client import BrowserLease
+    >         self.lease = BrowserLease(started, deadline, attempt, launch_until, ticket)
+    >         self.started, self.deadline, self.attempt = started, deadline, attempt
+    900a902,906
+    >         self.input_revoked = threading.Event()
+    >         self.generation = self.lease.request['generation']
+    >         self.clear_lock = threading.Lock()
+    >         self.clear_path = state_path("clear-" + secrets.token_hex(16))
+    >         self.clear_document_path = self.clear_path + "-document"
+    903c909
+    <         return self.proc is not None and self.proc.poll() is None
+    ---
+    >         return self.lease is not None and self.lease.is_running()
+    922a929,930
+    >         env["CLOUD_SIGNIN_CLEAR_FILE"] = self.clear_path
+    >         env["CLOUD_SIGNIN_CLEAR_DOCUMENT_FILE"] = self.clear_document_path
+    936,941c944,960
+    <         self.proc = subprocess.Popen(
+    <             [SIGNIN_WINDOW, self.url, registrable_domain(self.host),
+    <              "--exit-hint", exit_hint()]
+    <             + (["--no-auto-keyboard"]
+    <                if os.path.exists(state_path("phone-keyboard")) else []),
+    <             env=env, stdout=self.log_file, stderr=subprocess.STDOUT)
+    ---
+    >         from raofflineproxy.lifecycle import AdmissionError
+    >         from raofflineproxy.browser_contract import BrowserContractError
+    >         try:
+    >             launched = self.lease.start(
+    >                 [SIGNIN_WINDOW, self.url, registrable_domain(self.host),
+    >                  "--exit-hint", exit_hint()]
+    >                 + (["--no-auto-keyboard"]
+    >                    if os.path.exists(state_path("phone-keyboard")) else []),
+    >                 env, self.log_file)
+    >         except (AdmissionError, BrowserContractError, OSError, ValueError,
+    >                 KeyError, TypeError, subprocess.TimeoutExpired):
+    >             launched = False
+    >         if not launched:
+    >             # Same token remains recoverable if submission/start was ambiguous.
+    >             # No direct helper launch bypasses unresolved proxy recovery.
+    >             self.stop()
+    >             return False
+    948a968,1045
+    > 
+    >     def clear_document(self):
+    >         """Only a nonsecret document token, never a provider field or URL."""
+    >         if not self.is_running():
+    >             return ""
+    >         try:
+    >             with open(self.clear_document_path, encoding="ascii") as handle:
+    >                 token = handle.read(33)
+    >             return token if re.fullmatch(r"[0-9a-f]{32}", token) else ""
+    >         except (OSError, UnicodeError):
+    >             return ""
+    > 
+    >     def clear_field(self, keyboard, page, clear_until, document):
+    >         """One bounded result-only request; never receive a provider value."""
+    >         if not re.fullmatch(r"[0-9a-f]{32}", document or ""):
+    >             return "refused"
+    >         if not re.fullmatch(r"[0-9a-f]{8}", page or ""):
+    >             return "refused"
+    >         if not re.fullmatch(r"[0-9]{1,16}", clear_until or ""):
+    >             return "refused"
+    >         issued_deadline = int(clear_until) / 1000000
+    >         now = time.monotonic()
+    >         if not now < issued_deadline <= now + 5.0:
+    >             return "stale"
+    >         if not self.clear_lock.acquire(blocking=False):
+    >             return "refused"
+    >         fd = None
+    >         identity = None
+    >         try:
+    >             if not self.is_running() or os.path.exists(state_path("signed-in")):
+    >                 return "refused"
+    >             if document != self.clear_document():
+    >                 return "stale"
+    >             nonce = secrets.token_hex(16)
+    >             fd = os.open(self.clear_path, os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW
+    >                          | os.O_CLOEXEC | os.O_RDWR, 0o600)
+    >             identity = os.fstat(fd)
+    >             deadline = min(issued_deadline, time.monotonic() + 2.5)
+    >             if deadline <= time.monotonic():
+    >                 return "stale"
+    >             record = "request %s %s %d %d %s\n" % (
+    >                 nonce, page, int((time.time() + deadline - time.monotonic()) * 1000),
+    >                 int(deadline * 1000000), document)
+    >             os.write(fd, record.encode("ascii"))
+    >             if not keyboard.press("f5"):
+    >                 return "unknown"
+    >             # The helper writes only a fixed result enum to this same inode.
+    >             # A late callback can write an unlinked old inode, never a new request.
+    >             while time.monotonic() < deadline + 0.5:
+    >                 if not self.is_running():
+    >                     return "unknown"
+    >                 try:
+    >                     fcntl.flock(fd, fcntl.LOCK_SH | fcntl.LOCK_NB)
+    >                     try:
+    >                         result = os.pread(fd, 160, 0).decode("ascii").split()
+    >                     finally:
+    >                         fcntl.flock(fd, fcntl.LOCK_UN)
+    >                 except BlockingIOError:
+    >                     result = []
+    >                 if len(result) == 3 and result[:2] == ["result", nonce]:
+    >                     return result[2] if result[2] in (
+    >                         "cleared", "not-editable", "stale", "refused", "unknown") else "unknown"
+    >                 time.sleep(0.025)
+    >             return "unknown"
+    >         except (OSError, UnicodeError):
+    >             return "unknown"
+    >         finally:
+    >             if fd is not None:
+    >                 try:
+    >                     current = os.stat(self.clear_path, follow_symlinks=False)
+    >                     if identity and (current.st_dev, current.st_ino) == (
+    >                             identity.st_dev, identity.st_ino):
+    >                         os.unlink(self.clear_path)
+    >                 except OSError:
+    >                     pass
+    >                 os.close(fd)
+    >             self.clear_lock.release()
+    > 
+    975,976c1072,1073
+    <         if self.proc and self.proc.poll() is None:
+    <             self.proc.terminate()
+    ---
+    >         closed = True
+    >         if self.lease is not None:
+    978,981c1075,1086
+    <                 self.proc.wait(timeout=5)
+    <             except subprocess.TimeoutExpired:
+    <                 self.proc.kill()
+    <         self.proc = None
+    ---
+    >                 closed = self.lease.close()
+    >             except (OSError, ValueError, RuntimeError, KeyError, TypeError,
+    >                     subprocess.TimeoutExpired):
+    >                 closed = False
+    >         # Keep the generation handle on unknown close. Independent recovery
+    >         # owns cleanup; a replacement browser cannot bypass its active owner.
+    >         if closed:
+    >             self.proc = None
+    >         try:
+    >             os.unlink(self.clear_document_path)
+    >         except OSError:
+    >             pass
+    987a1093
+    >         return closed
+    1029a1136
+    > <div id=clear-result class=note role=status aria-live=polite hidden></div>
+    1034d1140
+    < <button type=button class=minor id=clear>Clear</button>
+    1037c1143
+    < 
+    ---
+    > <button type=button class=minor id=clear>Clear handheld field</button>
+    1081a1188,1192
+    >     clearing: "Clearing the focused field on your handheld…",
+    >     clearSent: "Field cleared on your handheld.",
+    >     clearStale: "Nothing cleared. The request expired or the page changed. Check the field on your handheld, then try Clear again.",
+    >     clearRefused: "Nothing cleared. Focus an editable field on your handheld, then try again.",
+    >     clearUnknown: "Clear was not confirmed. Check the field on your handheld before typing again.",
+    1096a1208,1212
+    >     clearing: "Effacement du champ sélectionné sur votre console…",
+    >     clearSent: "Le champ a été vidé sur votre console.",
+    >     clearStale: "Rien n’a été effacé. La demande a expiré ou la page a changé. Vérifiez le champ sur votre console, puis réessayez.",
+    >     clearRefused: "Rien n’a été effacé. Sélectionnez un champ modifiable sur votre console, puis réessayez.",
+    >     clearUnknown: "L’effacement n’a pas été confirmé. Vérifiez le champ sur votre console avant de saisir à nouveau.",
+    1170a1287
+    >   var generation = "";
+    1172a1290,1292
+    >   var clearPending = false;
+    >   var clearUntil = "";
+    >   var clearDocument = "";
+    1176a1297
+    >     var targetGeneration = generation;
+    1177a1299
+    >       if (!targetGeneration || targetGeneration !== generation) return;
+    1181c1303
+    <         body: body + "&pin=" + encodeURIComponent(pin)
+    ---
+    >         body: body + "&generation=" + encodeURIComponent(targetGeneration) + "&pin=" + encodeURIComponent(pin)
+    1220a1343
+    >     if (clearPending && named !== "escape") return;
+    1267a1391
+    >     if (clearPending) return;
+    1290,1293c1414,1489
+    <   // Local only: the handheld has moved to another field and this box still
+    <   // holds what went into the last one.
+    <   document.getElementById("clear").addEventListener("click", function () {
+    <     box.value = ""; sent = ""; dropped = []; warnSay(); box.focus();
+    ---
+    >   // The phone is not a mirror of the field. Ask the helper to check the
+    >   // current editable focus and acknowledge one clear; no field text returns.
+    >   var clearButton = document.getElementById("clear");
+    >   var clearResult = document.getElementById("clear-result");
+    >   function clearSay(message) { clearResult.textContent = message; clearResult.hidden = false; }
+    >   function clearBusy(busy) {
+    >     clearPending = busy;
+    >     box.readOnly = busy;
+    >     clearButton.disabled = busy;
+    >     Array.prototype.forEach.call(document.querySelectorAll("[data-key]"), function (b) {
+    >       b.disabled = busy;
+    >     });
+    >   }
+    >   clearButton.addEventListener("click", function () {
+    >     if (clearPending) return;
+    >     if (!winUp || !page || !clearUntil || !clearDocument || typeof AbortController !== "function") {
+    >       clearSay(phoneMessages.clearRefused); return;
+    >     }
+    >     var targetPage = page;
+    >     var targetGeneration = generation;
+    >     var targetDeadline = clearUntil;
+    >     var targetDocument = clearDocument;
+    >     clearBusy(true);
+    >     tracking = false;
+    >     pad.classList.remove("live");
+    >     clearSay(phoneMessages.clearing);
+    >     // Bound only this action. Prior input stays ordered, including when a
+    >     // prior request itself is slow. Expired queued clears are never posted.
+    >     // The server-issued deadline predates this click, so an aborted POST
+    >     // arriving late is also stale on the handheld, regardless of clock skew.
+    >     var controller = new AbortController(), expired = false, timer;
+    >     var timeout = new Promise(function (resolve) {
+    >       timer = setTimeout(function () {
+    >         expired = true;
+    >         controller.abort();
+    >         resolve("unknown");
+    >       }, 5000);
+    >     });
+    >     pendingMove = null;
+    >     var prior = queue;
+    >     var operation = prior.then(function () {
+    >       if (expired) return "unknown";
+    >       if (!targetGeneration || targetGeneration !== generation) return "stale";
+    >       return fetch("/" + pin, {
+    >         method: "POST", signal: controller.signal,
+    >         headers: {"Content-Type": "application/x-www-form-urlencoded"},
+    >         body: "clear=1&page=" + encodeURIComponent(targetPage)
+    >             + "&until=" + encodeURIComponent(targetDeadline)
+    >             + "&document=" + encodeURIComponent(targetDocument)
+    >             + "&generation=" + encodeURIComponent(targetGeneration) + "&pin=" + encodeURIComponent(pin)
+    >       }).then(function (r) {
+    >         if (!r || !r.ok) throw new Error("clear response");
+    >         return r.text();
+    >       }).catch(function () { return "unknown"; });
+    >     });
+    >     var handled = Promise.race([operation, timeout]).then(function (result) {
+    >       clearTimeout(timer);
+    >       if (targetGeneration !== generation) return;
+    >       if (result === "cleared") {
+    >         if (page === targetPage && clearDocument === targetDocument) { box.value = ""; sent = ""; dropped = []; warnSay(); }
+    >         clearSay(phoneMessages.clearSent);
+    >       } else if (result === "stale") {
+    >         clearSay(phoneMessages.clearStale);
+    >       } else if (/^(not-editable|refused)$/.test(result)) {
+    >         clearSay(phoneMessages.clearRefused);
+    >       } else {
+    >         throw new Error("clear unconfirmed");
+    >       }
+    >     }).catch(function () {
+    >       if (targetGeneration !== generation) return;
+    >       // Forget local keystroke history after an uncertain result. It cannot
+    >       // stand in for the field's contents, and must not be replayed.
+    >       box.value = ""; sent = ""; dropped = []; warnSay();
+    >       clearSay(phoneMessages.clearUnknown);
+    >     }).then(function () { clearBusy(false); box.focus(); });
+    >     queue = prior.then(function () { return handled; });
+    1327c1523,1524
+    <     if (pendingMove) {
+    ---
+    >     if (!winUp || !generation) return;
+    >     if (pendingMove && pendingMove.generation === generation) {
+    1331c1528
+    <     var batch = {x: dx, y: dy};
+    ---
+    >     var batch = {x: dx, y: dy, generation: generation};
+    1334a1532
+    >       if (batch.generation !== generation) return;
+    1338c1536
+    <         body: "move=" + batch.x + "," + batch.y + "&pin=" + encodeURIComponent(pin)
+    ---
+    >         body: "move=" + batch.x + "," + batch.y + "&generation=" + encodeURIComponent(batch.generation) + "&pin=" + encodeURIComponent(pin)
+    1342a1541
+    >     if (clearPending || !winUp) { e.preventDefault(); return; }
+    1389c1588,1591
+    <         return r.text();
+    ---
+    >         var until = r.headers.get("X-Cloud-Clear-Until") || "";
+    >         var documentToken = r.headers.get("X-Cloud-Clear-Document") || "";
+    >         var browserGeneration = r.headers.get("X-Cloud-Browser-Generation") || "";
+    >         return r.text().then(function (text) { return {text: text, until: until, documentToken:*** documentToken, generation: browserGeneration}; });
+    1391c1593,1596
+    <       .then(function (t) {
+    ---
+    >       .then(function (reply) {
+    >         var t = reply.text;
+    >         clearUntil = /^[0-9]{1,16}$/.test(reply.until) ? reply.until : "";
+    >         clearDocument = /^[0-9a-f]{32}$/.test(reply.documentToken) ? reply.documentToken : "";
+    1402a1608,1618
+    >         if ((isUp && !/^[0-9a-f]{32}$/.test(reply.generation)) || (!isUp && reply.generation)) {
+    >           throw new Error("invalid browser generation");
+    >         }
+    >         if (generation !== reply.generation) {
+    >           // Retire old queued input and text once. Text deliberately entered
+    >           // before the first window (or after closure) may still be delivered.
+    >           if (generation) { box.value = ""; sent = ""; dropped = []; warnSay(); }
+    >           generation = reply.generation;
+    >           page = null; ready = false; pendingMove = null; tracking = false;
+    >           pad.classList.remove("live");
+    >         }
+    1433c1649
+    <         if (opened) { sent = ""; deliver(box.value); }
+    ---
+    >         if (opened && !clearPending) { sent = ""; deliver(box.value); }
+    1446c1662,1668
+    <   poll();
+    ---
+    >   // Let the document finish before starting the recurring connection probe.
+    >   // This does not cancel or wait for keyboard, pointer, or sign-in requests.
+    >   if (document.readyState === "complete") {
+    >     setTimeout(poll, 0);
+    >   } else {
+    >     window.addEventListener("load", function () { setTimeout(poll, 0); }, {once: true});
+    >   }
+    1488c1710
+    <               "f1": 59, "f2": 60, "f3": 61, "f4": 62}
+    ---
+    >               "f1": 59, "f2": 60, "f3": 61, "f4": 62, "f5": 63}
+    1680c1902
+    <     def type_text(self, text):
+    ---
+    >     def type_text(self, text, active=None):
+    1682c1904
+    <         if not self.open():
+    ---
+    >         if (active is not None and not active()) or not self.open():
+    1685a1908,1911
+    >             # A paste must stop between characters when its window closes.
+    >             # Complete each key-up; never leave a modifier held on cancellation.
+    >             if active is not None and not active():
+    >                 break
+    1694c1920
+    <     def press(self, name):
+    ---
+    >     def press(self, name, active=None):
+    1696c1922,1924
+    <         if code is None or not self.open():
+    ---
+    >         if code is None or (active is not None and not active()) or not self.open():
+    >             return False
+    >         if active is not None and not active():
+    1884a2113,2155
+    > def signin_window_state(proc_root="/proc"):
+    >     """Read-only process observation for info; unknown never means closed."""
+    >     uncertain = False
+    >     try:
+    >         entries = os.listdir(proc_root)
+    >     except OSError:
+    >         return "unknown"
+    >     for entry in entries:
+    >         if not entry.isdigit():
+    >             continue
+    >         directory = os.path.join(proc_root, entry)
+    >         try:
+    >             # Stat records for unrelated processes do not describe our window.
+    >             # In particular early kernel threads can have starttime zero.
+    >             with open(os.path.join(directory, "cmdline"), "rb") as handle:
+    >                 command = handle.read().split(b"\0", 1)[0]
+    >             if command != os.fsencode(SIGNIN_WINDOW):
+    >                 continue
+    >             with open(os.path.join(directory, "stat")) as handle:
+    >                 before = handle.read()
+    >             with open(os.path.join(directory, "cmdline"), "rb") as handle:
+    >                 confirmed = handle.read().split(b"\0", 1)[0]
+    >             with open(os.path.join(directory, "stat")) as handle:
+    >                 after = handle.read()
+    >             # comm may contain spaces and parentheses; starttime is field 22.
+    >             first = before[before.rindex(")") + 2:].split()
+    >             last = after[after.rindex(")") + 2:].split()
+    >             if (confirmed != command
+    >                     or before.split(" ", 1)[0] != entry or after.split(" ", 1)[0] != entry
+    >                     or int(first[19]) <= 0 or first[19] != last[19]):
+    >                 uncertain = True
+    >                 continue
+    >             if last[0] not in ("Z", "X"):
+    >                 return "running"
+    >         except OSError as exc:
+    >             # A process disappearing during enumeration is normal.
+    >             if exc.errno not in (errno.ENOENT, errno.ESRCH):
+    >                 uncertain = True
+    >         except (ValueError, IndexError):
+    >             uncertain = True
+    >     return "unknown" if uncertain else "closed"
+    > 
+    > 
+    2043a2315,2325
+    > class BrowserKeyboard:
+    >     """Gamepad/Clear input uses the same generation gate as phone requests."""
+    >     def __init__(self, holder, generation):
+    >         self.holder, self.generation = holder, generation
+    > 
+    >     def press(self, name):
+    >         with self.holder.input_for(self.generation) as browser:
+    >             return bool(browser and self.holder.keyboard.press(
+    >                 name, active=lambda: self.holder.input_alive(browser)))
+    > 
+    > 
+    2061a2344,2346
+    >         # One original monotonic deadline, including authorize and quiescence.
+    >         self.started = time.monotonic()
+    >         self.deadline = self.started + timeout
+    2066c2351,2355
+    <         self.lock = threading.Lock()
+    ---
+    >         self.lock = threading.RLock()
+    >         # Input never holds the browser-operation lock. Close publishes its
+    >         # revocation before waiting for either lock, so a long paste can stop.
+    >         self.input_lock = threading.RLock()
+    >         self.browser_lock = threading.RLock()
+    2068a2358
+    >         self.pending_browser = None
+    2105a2396
+    >         self.stop_browser()
+    2107d2397
+    <             self.stop_browser()
+    2129c2419,2420
+    <         gamepad, self.gamepad = self.gamepad, None
+    ---
+    >         with self.lock:
+    >             gamepad, self.gamepad = self.gamepad, None
+    2138c2429
+    <     def start_browser(self):
+    ---
+    >     def start_browser(self, launch_until=None, ticket=None):
+    2139a2431,2434
+    >         with self.browser_lock:
+    >             return self._start_browser(launch_until, ticket)
+    > 
+    >     def _start_browser(self, launch_until, ticket):
+    2142c2437,2439
+    <         self.stop_browser()
+    ---
+    >         session = self.session
+    >         if not self.stop_browser():
+    >             return False
+    2144,2145c2441,2445
+    <         browser = BrowserSession(self.session.provider, host)
+    <         if not browser.start():
+    ---
+    >         launch_until = min(self.deadline, time.monotonic() + 20) if launch_until is None else launch_until
+    >         try:
+    >             browser = BrowserSession(self.session.provider, host, self.started,
+    >                                      self.deadline, self.attempt, launch_until, ticket)
+    >         except (OSError, ValueError, RuntimeError, KeyError, TypeError):
+    2146a2447,2448
+    >         # Keep the pending handle cancellable without admitting phone input
+    >         # before the helper is running and its keyboard/pointer are ready.
+    2148,2157c2450,2481
+    <             self.browser = browser
+    < 
+    <         # The handheld's own controls, and with them a way back out. Without
+    <         # this the page is on the screen, cannot be driven from the device,
+    <         # and cannot be closed -- which strands the handheld in a browser.
+    <         self.keyboard.open()
+    <         self.mouse.open()
+    <         self.gamepad = GamepadBridge(self.keyboard, self.stop_browser,
+    <                                      alive=browser.is_running)
+    <         self.gamepad.start()
+    ---
+    >             cancelled = (self.session is not session or session.superseded
+    >                          or time.monotonic() >= self.deadline)
+    >             if not cancelled:
+    >                 self.pending_browser = browser
+    >         if cancelled:
+    >             browser.stop()
+    >             return False
+    >         if not browser.start():
+    >             self.stop_browser(browser)
+    >             return False
+    >         with self.input_lock:
+    >             self.keyboard.open()
+    >             self.mouse.open()
+    >             with self.lock:
+    >                 cancelled = (self.pending_browser is not browser or browser.lease.cancelled.is_set()
+    >                              or browser.input_revoked.is_set() or self.session is not session
+    >                              or session.superseded or time.monotonic() >= self.deadline
+    >                              or not browser.is_running())
+    >                 if not cancelled:
+    >                     # Publish only after input setup. An old pad callback must
+    >                     # never close a replacement window or its input devices.
+    >                     self.pending_browser = None
+    >                     self.browser = browser
+    >                     self.gamepad = GamepadBridge(BrowserKeyboard(self, browser.generation),
+    >                         lambda: self.request_browser_close(browser), alive=browser.is_running)
+    >                     self.gamepad.start()
+    >             if cancelled:
+    >                 self.keyboard.close()
+    >                 self.mouse.close()
+    >         if cancelled:
+    >             self.stop_browser(browser)
+    >             return False
+    2186,2194c2510,2574
+    <     def stop_browser(self):
+    <         gamepad, self.gamepad = self.gamepad, None
+    <         if gamepad:
+    <             gamepad.stop()
+    <         browser, self.browser = self.browser, None
+    <         if browser:
+    <             browser.stop()
+    <         self.keyboard.close()
+    <         self.mouse.close()
+    ---
+    >     @staticmethod
+    >     def input_alive(browser):
+    >         return not browser.input_revoked.is_set() and browser.is_running()
+    > 
+    >     @contextlib.contextmanager
+    >     def input_for(self, generation=None):
+    >         # Lock order is input -> holder. No path waits for input, a pad join,
+    >         # or a browser stop while holding the holder lock.
+    >         with self.input_lock:
+    >             with self.lock:
+    >                 browser = self.browser
+    >             if (browser is not None and self.input_alive(browser)
+    >                     and (generation is None or (isinstance(generation, str)
+    >                          and re.fullmatch(r"[0-9a-f]{32}", generation)
+    >                          and secrets.compare_digest(generation, browser.generation)))):
+    >                 yield browser
+    >             else:
+    >                 yield None
+    > 
+    >     def request_browser_close(self, browser):
+    >         # The pad reader must release EVIOCGRAB before a closer joins it.
+    >         # It requests cleanup from the broker poll instead of waiting for the
+    >         # operation lock that a concurrent closer may already hold.
+    >         with self.lock:
+    >             if self.browser is browser or self.pending_browser is browser:
+    >                 browser.input_revoked.set()
+    >                 browser.lease.cancelled.set()
+    > 
+    >     def reap_browser(self):
+    >         # Also runs without a gamepad and after signed_in releases its watcher.
+    >         with self.lock:
+    >             browser = self.browser
+    >         if browser is not None and not self.input_alive(browser):
+    >             self.stop_browser(browser)
+    > 
+    >     def stop_browser(self, expected=None):
+    >         with self.lock:
+    >             browser, pending = self.browser, self.pending_browser
+    >             if expected is not None and expected is not browser and expected is not pending:
+    >                 return True
+    >             gamepad, self.gamepad = self.gamepad, None
+    >             for target in (browser, pending):
+    >                 if target is not None:
+    >                     target.input_revoked.set()
+    >                     target.lease.cancelled.set()
+    >         # Serialize cursor restoration and handle cleanup with replacement
+    >         # startup. Revocation above still interrupts a pending start/paste.
+    >         with self.browser_lock:
+    >             with self.input_lock:
+    >                 with self.lock:
+    >                     owns_input = ((browser is not None and self.browser is browser)
+    >                                   or (pending is not None and self.pending_browser is pending))
+    >                 if owns_input:
+    >                     self.keyboard.close()
+    >                     self.mouse.close()
+    >             if gamepad:
+    >                 gamepad.stop()
+    >             closed = browser.stop() if browser else True
+    >             pending_closed = pending.stop() if pending and pending is not browser else True
+    >             with self.lock:
+    >                 if closed and self.browser is browser:
+    >                     self.browser = None
+    >                 if pending_closed and self.pending_browser is pending:
+    >                     self.pending_browser = None
+    >             return closed and pending_closed
+    2377,2383c2757,2765
+    <                 if not holder.browser:
+    <                     body = b"waiting"
+    <                 elif os.path.exists(state_path("field")) \
+    <                         or os.path.exists(state_path("signed-in")):
+    <                     body = ("open " + token).strip().encode()
+    <                 else:
+    <                     body = ("loading " + token).strip().encode()
+    ---
+    >                 with holder.input_for() as browser:
+    >                     generation = browser.generation if browser else ""
+    >                     document = browser.clear_document() if browser else ""
+    >                     if browser is None:
+    >                         body = b"waiting"
+    >                     elif os.path.exists(state_path("field")) or os.path.exists(state_path("signed-in")):
+    >                         body = ("open " + token).strip().encode()
+    >                     else:
+    >                         body = ("loading " + token).strip().encode()
+    2385a2768,2771
+    >                 self.send_header("Cache-Control", "no-store")
+    >                 self.send_header("X-Cloud-Browser-Generation", generation)
+    >                 self.send_header("X-Cloud-Clear-Until", str(int((time.monotonic() + 5) * 1000000)))
+    >                 self.send_header("X-Cloud-Clear-Document", document)
+    2411,2433c2797,2813
+    <             if fields.get("move") or fields.get("click") or fields.get("wheel"):
+    <                 if not holder.browser:
+    <                     self.send_response(409)
+    <                     self.send_header("Content-Length", "0")
+    <                     self.end_headers()
+    <                     return
+    <                 moved = fields.get("move", [""])[0]
+    <                 if moved:
+    <                     try:
+    <                         dx, dy = (int(float(v)) for v in moved.split(",", 1))
+    <                     except ValueError:
+    <                         dx = dy = 0
+    <                     holder.mouse.move(dx, dy)
+    <                 wheel = fields.get("wheel", [""])[0]
+    <                 if wheel:
+    <                     try:
+    <                         holder.mouse.scroll(int(float(wheel)))
+    <                     except ValueError:
+    <                         pass
+    <                 if fields.get("click"):
+    <                     holder.mouse.click()
+    <                 self.send_response(204)
+    <                 self.send_header("Content-Length", "0")
+    ---
+    >             generation = fields.get("generation", [""])
+    >             generation = generation[0] if len(generation) == 1 else ""
+    >             if fields.get("clear"):
+    >                 result = "refused"
+    >                 with holder.input_for(generation) as browser:
+    >                     if (fields.get("clear") == ["1"] and len(fields.get("page", [])) == 1
+    >                             and len(fields.get("until", [])) == 1
+    >                             and len(fields.get("document", [])) == 1
+    >                             and set(fields).issubset({"clear", "page", "until", "document", "pin", "generation"})
+    >                             and browser):
+    >                         result = browser.clear_field(BrowserKeyboard(holder, generation),
+    >                             fields["page"][0], fields["until"][0], fields["document"][0])
+    >                 body = result.encode("ascii")
+    >                 self.send_response(200)
+    >                 self.send_header("Content-Type", "text/plain; charset=utf-8")
+    >                 self.send_header("Cache-Control", "no-store")
+    >                 self.send_header("Content-Length", str(len(body)))
+    2434a2815
+    >                 self.wfile.write(body)
+    2437,2450c2818,2845
+    <             if fields.get("type") or fields.get("key"):
+    <                 if not holder.browser:
+    <                     # 409 rather than a rendered page: the keyboard posts by
+    <                     # fetch and throwing HTML at it would replace nothing and
+    <                     # tell nobody. Its own poll is what reports this state.
+    <                     self.send_response(409)
+    <                     self.send_header("Content-Length", "0")
+    <                     self.end_headers()
+    <                     return
+    <                 text = fields.get("type", [""])[0]
+    <                 named = fields.get("key", [""])[0]
+    <                 sent = holder.keyboard.type_text(text) if text else 0
+    <                 if named:
+    <                     holder.keyboard.press(named)
+    ---
+    >             if any(fields.get(name) for name in ("move", "click", "wheel", "type", "key")):
+    >                 with holder.input_for(generation) as browser:
+    >                     if browser is None:
+    >                         self.send_response(409)
+    >                         self.send_header("Content-Length", "0")
+    >                         self.end_headers()
+    >                         return
+    >                     active = lambda: holder.input_alive(browser)
+    >                     moved = fields.get("move", [""])[0]
+    >                     if moved and active():
+    >                         try:
+    >                             dx, dy = (int(float(v)) for v in moved.split(",", 1))
+    >                             holder.mouse.move(dx, dy)
+    >                         except (ValueError, OverflowError):
+    >                             pass
+    >                     wheel = fields.get("wheel", [""])[0]
+    >                     if wheel and active():
+    >                         try:
+    >                             holder.mouse.scroll(int(float(wheel)))
+    >                         except (ValueError, OverflowError):
+    >                             pass
+    >                     if fields.get("click") and active():
+    >                         holder.mouse.click()
+    >                     text = fields.get("type", [""])[0]
+    >                     named = fields.get("key", [""])[0]
+    >                     sent = holder.keyboard.type_text(text, active=active) if text else 0
+    >                     if named:
+    >                         holder.keyboard.press(named, active=active)
+    2454,2457c2849,2853
+    <                 # Counts only: what was typed may be a password.
+    <                 log("typed %d characters%s%s" % (
+    <                     sent, " + " + named if named else "",
+    <                     ", %d not on the keyboard" % (len(text) - sent) if len(text) > sent else ""))
+    ---
+    >                 if text or named:
+    >                     # Counts only: what was typed may be a password.
+    >                     log("typed %d characters%s%s" % (
+    >                         sent, " + " + named if named else "",
+    >                         ", %d not on the keyboard" % (len(text) - sent) if len(text) > sent else ""))
+    2618,2619c3014,3016
+    <         deadline = time.time() + timeout
+    <         while time.time() < deadline:
+    ---
+    >         deadline = holder.deadline
+    >         while time.monotonic() < deadline:
+    >             holder.reap_browser()
+    2631c3028,3034
+    <                 if holder.start_browser():
+    ---
+    >                 request = read_state()
+    >                 launch_until = request.get("browser_launch_until")
+    >                 if (request.get("attempt") == holder.attempt
+    >                         and type(launch_until) in (int, float)
+    >                         and 0 < launch_until - time.monotonic() <= 20
+    >                         and holder.start_browser(min(holder.deadline, launch_until),
+    >                                                  request.get("browser_open_ticket"))):
+    2648c3051
+    <     timer = threading.Timer(timeout, shutdown)
+    ---
+    >     timer = threading.Timer(max(0, holder.deadline - time.monotonic()), shutdown)
+    2714a3118,3141
+    >         deadline = time.monotonic() + 20
+    >         # Publish one nonsecret generation before the flag. A separate close
+    >         # can cancel it before the broker thread constructs/submits its lease.
+    >         from raofflineproxy.browser_client import publish_open, close_ticket, launch_status
+    >         attempt = read_state().get("attempt")
+    >         try:
+    >             ticket = publish_open(attempt, deadline)
+    >         except (OSError, ValueError, RuntimeError, KeyError, TypeError,
+    >                 subprocess.TimeoutExpired):
+    >             return 1
+    >         with _state_locked():
+    >             request = read_state()
+    >             current_attempt = request.get("attempt") == attempt
+    >             if current_attempt:
+    >                 request["browser_launch_until"] = deadline
+    >                 request["browser_open_ticket"] = ticket
+    >                 _write_whole(request)
+    >         if not current_attempt:
+    >             try:
+    >                 close_ticket(ticket)
+    >             except (OSError, ValueError, RuntimeError, KeyError, TypeError,
+    >                     subprocess.TimeoutExpired):
+    >                 pass
+    >             return 1
+    2721,2723c3148,3150
+    <         deadline = time.time() + 20
+    <         while time.time() < deadline:
+    <             if signin_window_running():
+    ---
+    >         while time.monotonic() < deadline:
+    >             status = launch_status(ticket, deadline)
+    >             if status == "running":
+    2725c3152,3155
+    <             time.sleep(0.2)
+    ---
+    >             if status in ("cancelled", "failed", "replaced"):
+    >                 log("sign-in window launch ended: " + status)
+    >                 return 1
+    >             time.sleep(min(0.2, max(0, deadline - time.monotonic())))
+    2751,2791c3181,3190
+    <         # Asked for once the caller is drawing again, so there is something
+    <         # behind the window when it goes.
+    <         os.makedirs(STATE_DIR, exist_ok=True)
+    <         open(state_path("close-browser"), "w").close()
+    <         deadline = time.time() + 10
+    <         while time.time() < deadline and signin_window_running():
+    <             time.sleep(0.2)
+    < 
+    <         # The serve process is what normally takes the window away, and it may
+    <         # not be there to do it -- it times out on its own, and a sign-in that
+    <         # finished near that deadline leaves the window with nobody to close
+    <         # it. That is a fullscreen page reading "Finishing up" sitting on top
+    <         # of an EmulationStation that has already come back, escapable only by
+    <         # a button combination. Close it here rather than depending on
+    <         # somebody else being alive.
+    <         if signin_window_running():
+    <             log("sign-in window outlived its server; closing it directly")
+    <             for signum in (signal.SIGTERM, signal.SIGKILL):
+    <                 for entry in os.listdir("/proc"):
+    <                     if not entry.isdigit():
+    <                         continue
+    <                     try:
+    <                         with open("/proc/%s/cmdline" % entry, "rb") as handle:
+    <                             argv = handle.read().split(b"\0")
+    <                     except OSError:
+    <                         continue
+    <                     if argv and argv[0].decode("utf-8", "replace") == SIGNIN_WINDOW:
+    <                         try:
+    <                             os.kill(int(entry), signum)
+    <                         except OSError:
+    <                             pass
+    <                 for _ in range(15):
+    <                     if not signin_window_running():
+    <                         break
+    <                     time.sleep(0.2)
+    <                 if not signin_window_running():
+    <                     break
+    <             # The serve that set the pointer's hide timeout to never is not
+    <             # there to set it back (#308 claude F-RS-19).
+    <             BrowserSession._cursor_timeout(1000)
+    < 
+    ---
+    >         # Capture the attempt once. The publication lock cancels its exact
+    >         # ticket even before submission; unknown never triggers a global kill.
+    >         from raofflineproxy.browser_client import close_attempt
+    >         attempt = read_state().get("attempt")
+    >         try:
+    >             closed = close_attempt(attempt, seconds=10)
+    >         except (OSError, ValueError, RuntimeError, KeyError, TypeError,
+    >                 subprocess.TimeoutExpired):
+    >             closed = False
+    >         BrowserSession._cursor_timeout(1000)
+    2794,2797c3193,3194
+    <             time.sleep(0.1)
+    <         # Honest about the outcome: a window still standing means the screen
+    <         # is not handed back, whatever the caller does next.
+    <         return 0 if not signin_window_running() else 1
+    ---
+    >             time.sleep(.1)
+    >         return 0 if closed and pad_is_free() else 1
+    2807a3205
+    >         state["browser"] = signin_window_state()
+    2809c3207
+    <                     "on_device", "exit_hint"):
+    ---
+    >                     "on_device", "exit_hint", "browser"):
+same      /usr/bin/cloud_remote  de7745dc213a184f45318397b78f8d0ba8fd848a33d8cbd40ee4969bd5764a3e
+same      /usr/bin/cloud_scan  50831183787ee5a668af4951554134a81c84df9af6403dc29de7130933df0658
+same      /usr/bin/cloud_setup  3400f44e83fec234c0d76683218bedb8dc1c5bdfb229c6aeb9a98c342803fbac
+same      /usr/bin/backuptool  cd5c7b1b7c75efc295ef3004cf0c26f4b0b176d02ff162a770a83d6f69e2e277
+installed and hashed: 12 (11 same, 1 different)
+not installed as source: projects/ROCKNIX/packages/network/rclone/sources/../../cloud-signin-window/sources/cloud-signin-window.c and its package.mk (the binary /usr/bin/cloud-signin-window, compiled; listed in up.out)

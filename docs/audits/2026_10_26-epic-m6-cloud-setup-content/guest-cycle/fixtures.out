@@ -1,0 +1,89 @@
+$ the fixtures copied to the guest's /storage/t17  (08:00:41Z)
+$ (guest) python3 -I -B t17-pin-fixture.py --file /usr/bin/cloud_oauth --expect unfixed  (08:00:42Z)
+file: /usr/bin/cloud_oauth
+favicon: 10 requests before, statuses ['200', '403'], attempts spent 10; then GET /<the right pin> -> 403
+touch-icons: 10 requests before, statuses ['200', '403'], attempts spent 10; then GET /<the right pin> -> 403
+control: 9 requests before, statuses ['200'], attempts spent 9; then GET /<the right pin> -> 200
+wrong-pins: 10 requests before, statuses ['200', '403'], attempts spent 10; then GET /<the right pin> -> 403
+non-ascii: POST pin=%C3%A9 -> dropped:RemoteDisconnected; handler raised: yes: TypeError: comparing strings with non-ASCII characters is not supported; attempts spent 0
+paste-html: POST code with the right PIN -> 200; rclone's words on the page: raw
+t17-pin-fixture: unfixed-expectation-met
+exit 0
+$ (guest) python3 -I -B t17-option-key-fixture.py --sources /usr/bin --rclone /usr/bin/rclone --expect unfixed  (08:00:45Z)
+sources: /usr/bin
+control: save() saved; rclone.conf holds the section; outside conf absent; flag.log absent; staging left []
+config: save() refused: The connection could not be verified. Your settings were not changed.; rclone.conf absent; outside conf holds the section; flag.log absent; staging left []
+dash-key:*** save() saved; rclone.conf holds the section; outside conf absent; flag.log exists; staging left []
+sigkill: staging seen before the kill: yes; left after SIGKILL: ['.connection-g0vdrez2']
+sweep: save() saved; left beside rclone.conf: ['.active-connection-old', '.connection-old', '.keep-me', '.rclone.conf-old']
+t17-option-key-fixture: unfixed-expectation-met
+exit 0
+$ (guest) python3 -I -B t17-selection-fixture.py --sources /usr/bin --busybox /usr/bin/busybox --expect unfixed  (08:00:46Z)
+sources: /usr/bin; applets: /usr/bin/busybox
+full-card: rc 0; OK 103 selected; the selection now: partial (103 of 300 names); temp left: none; set-systems log lines: 0
+control: rc 0; OK 300 selected; the selection now: all; temp left: none; set-systems log lines: 0
+t17-selection-fixture: unfixed-expectation-met
+exit 0
+$ (guest) python3 -I -B t17-content-fixture.py --sources /usr/bin --busybox /usr/bin/busybox --real-rclone /usr/bin/rclone --expect unfixed  (08:00:46Z)
+sources: /usr/bin; applets: /usr/bin/busybox
+backup-traversal: rc 75; rclone copy calls 0; sources []; a source outside /storage/roms: no
+backup-control: rc 75; rclone copy calls 0; sources []; a source outside /storage/roms: no
+backup-unknown: rc 75; rclone copy calls 0; sources []; a source outside /storage/roms: no
+match-netopts: preview rc 0, plan ['snes|sync|1|5']; apply rc 75; deleting syncs 0, --max-delete []; --delete-excluded on the deleting sync: no
+match-control: preview rc 0, plan ['snes|sync|1|5']; apply rc 75; deleting syncs 0, --max-delete []; --delete-excluded on the deleting sync: no
+real rclone: /usr/bin/rclone rclone v1.75.2
+match-netopts-real: preview rc 0, plan ['snes|sync|2|48']; apply rc 75; left on the device in roms/snes: ['a.srm', 'a.zip', 'b.zip']; the save a.srm kept: yes; deleting sync: --timeout 5s no, --delete-excluded not carried; drop logged: none
+match-include-real: preview rc 0, plan ['snes|sync|2|48']; apply rc 75; left on the device in roms/snes: ['a.srm', 'a.zip', 'b.zip']; the save a.srm kept: yes; deleting sync: --timeout 5s no, --include not carried; drop logged: none
+match-control-real: preview rc 0, plan ['snes|sync|1|28']; apply rc 75; left on the device in roms/snes: ['a.srm', 'a.zip', 'b.zip']; the save a.srm kept: yes; deleting sync: --timeout 5s no, no flag not carried; drop logged: none
+t17-content-fixture: UNEXPECTED on unfixed: backup-traversal=(75, False, False), backup-control=(75, False, False), backup-unknown=(75, False, False), match-netopts=(0, 75, 0, False), match-control=(0, 75, 0, False), match-netopts-real=(True, True), match-control-real=(True, True), match-include-real=(True, True), match-netopts-real:argv=(False, False), match-include-real:argv=(False, False)
+exit 1
+$ (guest) python3 -I -B t17-archive-fixture.py --file /usr/bin/backuptool --busybox /usr/bin/busybox  (08:00:56Z)
+file: /usr/bin/backuptool; foreign_member() lines 551-558
+tar and awk: /usr/bin/busybox (busybox applets first on PATH)
+escape: members ['storage/.config/escape', 'storage/.config/escape/note.txt']; foreign_member -> rc 1, accepted (no foreign member); busybox tar -xzf -C root -> rc 1 (tar: can't create symlink 'storage/.config/escape' to '/storage/t17/tmp/t17-archive-_fbcx5r1/outside); a file landed outside the root: no
+control: members ['outside-control.txt']; foreign_member -> rc 0, refused (a member a restore can't put back) first: outside-control.txt; busybox tar -xzf -C root -> rc 0 (tar: removing leading 'storage/../' from member names); a file landed outside the root: no
+escape: storage/.config/escape in the root is not a symlink
+exit 0
+--- re-run: the first content run's scratch root sat under /storage/t17, so the fixture's own /storage/ rewrite rewrote its root twice and the lock path named a missing directory (flock: Bad file descriptor, read as the lock held, rc 75). My setup, not a finding. TMPDIR on the guest's /tmp (08:01:42Z):
+$ (guest) TMPDIR=/tmp/t17 python3 -I -B t17-selection-fixture.py --sources /usr/bin --busybox /usr/bin/busybox --expect unfixed  (08:01:42Z)
+sources: /usr/bin; applets: /usr/bin/busybox
+full-card: rc 1; no OK line; the selection now: old; temp left: none; set-systems log lines: 0
+control: rc 1; no OK line; the selection now: old; temp left: none; set-systems log lines: 0
+t17-selection-fixture: UNEXPECTED on unfixed: full-card=('old', False, False), control=('old', False, False)
+exit 1
+$ (guest) TMPDIR=/tmp/t17 python3 -I -B t17-content-fixture.py --sources /usr/bin --busybox /usr/bin/busybox --real-rclone /usr/bin/rclone --expect unfixed  (08:01:42Z)
+sources: /usr/bin; applets: /usr/bin/busybox
+backup-traversal: printed ">>> why YOUR CLOUD STORAGE ISN'T SET UP YET"
+backup-traversal: rc 1; rclone copy calls 0; sources []; a source outside /storage/roms: no
+backup-control: printed ">>> why YOUR CLOUD STORAGE ISN'T SET UP YET"
+backup-control: rc 1; rclone copy calls 0; sources []; a source outside /storage/roms: no
+backup-unknown: printed ">>> why YOUR CLOUD STORAGE ISN'T SET UP YET"
+backup-unknown: rc 1; rclone copy calls 0; sources []; a source outside /storage/roms: no
+match-netopts: preview rc 1, plan []; apply rc 1; deleting syncs 0, --max-delete []; --delete-excluded on the deleting sync: no
+match-control: preview rc 1, plan []; apply rc 1; deleting syncs 0, --max-delete []; --delete-excluded on the deleting sync: no
+real rclone: /usr/bin/rclone rclone v1.75.2
+match-netopts-real: preview rc 1, plan []; apply rc 1; left on the device in roms/snes: ['a.srm', 'a.zip', 'b.zip']; the save a.srm kept: yes; deleting sync: --timeout 5s no, --delete-excluded not carried; drop logged: none
+match-include-real: preview rc 1, plan []; apply rc 1; left on the device in roms/snes: ['a.srm', 'a.zip', 'b.zip']; the save a.srm kept: yes; deleting sync: --timeout 5s no, --include not carried; drop logged: none
+match-control-real: preview rc 1, plan []; apply rc 1; left on the device in roms/snes: ['a.srm', 'a.zip', 'b.zip']; the save a.srm kept: yes; deleting sync: --timeout 5s no, no flag not carried; drop logged: none
+t17-content-fixture: UNEXPECTED on unfixed: backup-traversal=(1, False, False), backup-control=(1, False, False), backup-unknown=(1, False, False), match-netopts=(1, 1, 0, False), match-control=(1, 1, 0, False), match-netopts-real=(True, True), match-control-real=(True, True), match-include-real=(True, True), match-netopts-real:argv=(False, False), match-include-real:argv=(False, False)
+exit 1
+--- second re-run: a root under /tmp/t17 is rewritten by the fixture's own bare-/tmp/ rule too (the stub cloud_remote's path broken: YOUR CLOUD STORAGE ISN'T SET UP YET). My setup again. TMPDIR=/var/tmp/t17, whose /tmp/ follows a word character and is left alone (08:02:07Z):
+$ (guest) TMPDIR=/var/tmp/t17 python3 -I -B t17-selection-fixture.py --sources /usr/bin --busybox /usr/bin/busybox --expect unfixed  (08:02:07Z)
+sources: /usr/bin; applets: /usr/bin/busybox
+full-card: rc 0; OK 103 selected; the selection now: partial (103 of 300 names); temp left: none; set-systems log lines: 0
+control: rc 0; OK 300 selected; the selection now: all; temp left: none; set-systems log lines: 0
+t17-selection-fixture: unfixed-expectation-met
+exit 0
+$ (guest) TMPDIR=/var/tmp/t17 python3 -I -B t17-content-fixture.py --sources /usr/bin --busybox /usr/bin/busybox --real-rclone /usr/bin/rclone --expect unfixed  (08:02:07Z)
+sources: /usr/bin; applets: /usr/bin/busybox
+backup-traversal: rc 0; rclone copy calls 1; sources ['<root>/storage/roms/../.config']; a source outside /storage/roms: yes
+backup-control: rc 0; rclone copy calls 1; sources ['<root>/storage/roms/snes']; a source outside /storage/roms: no
+backup-unknown: rc 0; rclone copy calls 1; sources ['<root>/storage/roms/ps2']; a source outside /storage/roms: no
+match-netopts: preview rc 0, plan ['snes|sync|1|5']; apply rc 0; deleting syncs 1, --max-delete ['1']; --delete-excluded on the deleting sync: yes
+match-control: preview rc 0, plan ['snes|sync|1|5']; apply rc 0; deleting syncs 1, --max-delete ['1']; --delete-excluded on the deleting sync: no
+real rclone: /usr/bin/rclone rclone v1.75.2
+match-netopts-real: preview rc 0, plan ['snes|sync|2|48']; apply rc 0; left on the device in roms/snes: ['a.zip']; the save a.srm kept: NO; deleting sync: --timeout 5s yes, --delete-excluded carried; drop logged: none
+match-include-real: preview rc 0, plan ['snes|sync|2|48']; apply rc 0; left on the device in roms/snes: ['a.zip']; the save a.srm kept: NO; deleting sync: --timeout 5s yes, --include carried; drop logged: none
+match-control-real: preview rc 0, plan ['snes|sync|1|28']; apply rc 0; left on the device in roms/snes: ['a.srm', 'a.zip']; the save a.srm kept: yes; deleting sync: --timeout 5s no, no flag not carried; drop logged: none
+t17-content-fixture: unfixed-expectation-met
+exit 0

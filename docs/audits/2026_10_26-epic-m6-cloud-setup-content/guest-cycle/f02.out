@@ -1,0 +1,55 @@
+$ the cloud side: <root>/ROMs/snes/a.zip at the QA backend  (08:02:20Z)
+put: pixelelated/Content
+exit 0
+$ the guest's connection: seed-device's configuration lines only (the stanza piped, never printed)
+OK qa-cloud:
+exit 0
+files already in roms/snes: 0
+base conf: a121977066ce805e
+OK 1 selected
+$ (guest) case control  (08:02:22Z)
+RCLONE_NET_OPTS line: 1, carries the flag: 1
+preview rc 0
+plan: snes|sync|1|20 
+apply rc 0
+left in roms/snes: a.srm a.zip 
+conf put back: identical
+exit 0
+    apply: >>> unit snes|1|1
+    apply: Matching snes to the cloud...
+    apply: Transferred:   	          0 B / 0 B, -, 0 B/s, ETA -
+    apply: Checks:                 2 / 2, 100%, Listed 3
+    apply: Deleted:                1 (files), 0 (dirs), 20 B (freed)
+    apply: Elapsed time:         0.0s
+    apply: >>> removed 1|20|snes:1:20
+$ (guest) case delete-excluded  (08:02:23Z)
+RCLONE_NET_OPTS line: 1, carries the flag: 2
+preview rc 0
+plan: snes|sync|2|27 
+apply rc 0
+left in roms/snes: a.zip 
+conf put back: identical
+exit 0
+    apply: >>> unit snes|1|1
+    apply: Matching snes to the cloud...
+    apply: Transferred:   	          0 B / 0 B, -, 0 B/s, ETA -
+    apply: Checks:                 3 / 3, 100%, Listed 4
+    apply: Deleted:                2 (files), 0 (dirs), 27 B (freed)
+    apply: Elapsed time:         0.0s
+    apply: >>> removed 2|20|snes:2:20
+$ (guest) case include  (08:02:25Z)
+RCLONE_NET_OPTS line: 1, carries the flag: 2
+preview rc 0
+plan: snes|sync|2|27 
+apply rc 0
+left in roms/snes: a.zip 
+conf put back: identical
+exit 0
+    apply: >>> unit snes|1|1
+    apply: Matching snes to the cloud...
+    apply: 2026/10/26 04:02:26 ERROR : Using --filter is recommended instead of both --include and --exclude as the order they are parsed in is indeterminate
+    apply: Transferred:   	          0 B / 0 B, -, 0 B/s, ETA -
+    apply: Checks:                 3 / 3, 100%, Listed 4
+    apply: Deleted:                2 (files), 0 (dirs), 27 B (freed)
+    apply: Elapsed time:         0.0s
+    apply: >>> removed 2|20|snes:2:20
