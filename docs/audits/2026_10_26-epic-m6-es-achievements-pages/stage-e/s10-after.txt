@@ -1,0 +1,10 @@
+== S10 after (20:14:17Z)
+[doctest] test cases: 1 | 1 passed | 0 failed | 202 skipped
+[doctest] assertions: 3 | 3 passed | 0 failed |
+-- the page (read): the row dimmed with its reason, a press put back while locked, the child writes SystemConf before the row
+534:					// SystemConf first: the HARDCORE MODE row's lock reads it, and a
+541:						row->setDimmed(outcome.switchOn);
+677:	const bool hardcoreLocked = RetroAchievementsText::hardcoreLocked(offlineCtl,
+679:	auto hardcore = addSwitch(_("HARDCORE MODE"), hardcoreLocked ? _("Can't change while OFFLINE ACHIEVEMENTS (BETA) is on.")
+681:	hardcore->setDimmed(hardcoreLocked);
+690:			if (!RetroAchievementsText::hardcoreLocked(offlineCtl, conf->getBool("global.retroachievements.offlineproxy")))

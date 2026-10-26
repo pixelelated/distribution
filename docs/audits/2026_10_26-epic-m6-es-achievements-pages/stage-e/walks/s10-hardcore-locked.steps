@@ -1,0 +1,13 @@
+# S10 (#1179, D-RA-052), for the integration build's window
+# (fix-walk-pending-image): HARDCORE MODE while offline achievements are on.
+# 1. Offline achievements on (OFFLINE ACHIEVEMENTS (BETA)), back to
+#    RETROACHIEVEMENTS SETTINGS. Frame at 640x480, EN and FR: HARDCORE MODE
+#    dimmed, its line "Can't change while OFFLINE ACHIEVEMENTS (BETA) is on." /
+#    "Non modifiable tant que SUCCES HORS LIGNE (BETA) est active." on one line.
+# 2. Press OK on HARDCORE MODE: the switch stays as it was; close the page;
+#    get_setting global.retroachievements.hardcore unchanged.
+# 3. Turn offline achievements off from the page below, without leaving the
+#    parent: the row undims and shows the hardcore value the ctl restored; a
+#    press now changes it.
+# 4. A device holding both keys on (set by hand on the guest): the row shows
+#    ON, dimmed; nothing on the page rewrites either key.

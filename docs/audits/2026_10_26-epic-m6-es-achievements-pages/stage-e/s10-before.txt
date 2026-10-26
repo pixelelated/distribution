@@ -1,0 +1,6 @@
+== S10 before (20:09:16Z): the HARDCORE MODE row's gate lifted as the page built it at the pin (GuiRetroAchievementsSettings.cpp:621 at 16dbac5211: addSwitch, never gated)
+unit build rc 1
+TEST CASE:  RetroAchievements: HARDCORE MODE is locked while offline achievements are on (#1179)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/RetroAchievementsTextTests.cpp:90: ERROR: CHECK( RetroAchievementsText::hardcoreLocked(true, true) ) is NOT correct!
+[doctest] test cases: 1 | 0 passed | 1 failed | 202 skipped
+[doctest] assertions: 3 | 2 passed | 1 failed |
