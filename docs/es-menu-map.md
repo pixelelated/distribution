@@ -580,7 +580,10 @@ disappearance was not reproduced. Those historical defect frames stay unchanged.
 `GAME SETTINGS > RETROACHIEVEMENTS SETTINGS > OPTIONS` carries one row of the
 fork's under HARDCORE MODE: OFFLINE ACHIEVEMENTS (BETA) / `Casual achievements
 only.` with an arrow (D-RA-003, D-UI-053), shown only where
-`/usr/bin/raofflineproxy-ctl` exists. Its page (as built for the eighth candidate,
+`/usr/bin/raofflineproxy-ctl` exists. While the feature is on, HARDCORE MODE
+above it is dimmed, not hidden, with `Can't change while OFFLINE ACHIEVEMENTS
+(BETA) is on.` under it, and a press is put back (#1179, the coordinator's
+ruling on #667). Its page (as built for the eighth candidate,
 2026-09-14, #165/#173/#179/#184/#189; D-RA-002..005, D-RA-010, D-RA-012, D-RA-013,
 D-UI-054):
 
@@ -592,11 +595,13 @@ flowchart TD
     TURNON -->|TURN ON, online| SCANNOW[SCAN GAMES FOR OFFLINE ACHIEVEMENTS NOW?<br/>the scan's sentence<br/>SCAN NOW . LATER]
     TURNON -->|TURN ON, no address| NOTONLINE[YOU'RE NOT ONLINE. SCAN GAMES FOR OFFLINE ACHIEVEMENTS WHEN YOU'RE CONNECTED...<br/>OK]
     PAGE --> I1[one block, after the two options and a half-line gap: EARN CASUAL ACHIEVEMENTS WITHOUT A CONNECTION. THEY ARE SENT WHEN YOU'RE BACK ONLINE. CASUAL ACHIEVEMENTS ONLY, SO TURNING IT ON TURNS HARDCORE MODE OFF. '!RA!' IN A GAME'S CORNER MEANS AN ACHIEVEMENT HASN'T REACHED RETROACHIEVEMENTS YET. NEW GAMES ARE ADDED THE NEXT TIME YOU'RE CONNECTED.]
-    PAGE --> SCAN[SCAN GAMES FOR OFFLINE ACHIEVEMENTS<br/><i>NOT SCANNED YET . N GAMES READY FOR OFFLINE PLAY</i><br/><i>LAST date - COMPLETED or COULDN'T FINISH . N GAMES READY FOR OFFLINE PLAY</i><br/><i>WHEN YOU CAME ONLINE - outcome . N GAMES READY ...</i><br/><i>SCANNING... - GAME i OF n . N GAMES READY (a scan left running with B, PL-07)</i><br/><i>SAVING GAMES FOR OFFLINE PLAY... - GAME i OF n . N GAMES READY (a top-up the ctl runs, #189; refreshed once a second)</i>]
+    PAGE --> SCAN[SCAN GAMES FOR OFFLINE ACHIEVEMENTS<br/><i>NOT SCANNED YET . N GAMES READY FOR OFFLINE PLAY</i><br/><i>LAST date - COMPLETED or COULDN'T FINISH . N GAMES READY FOR OFFLINE PLAY</i><br/><i>WHEN YOU CAME ONLINE - outcome . N GAMES READY ...</i><br/><i>SAVING GAMES FOR OFFLINE PLAY... - GAME i OF n . N GAMES READY (a top-up the ctl runs, #189; refreshed once a second)</i><br/><i>no count where the export cannot be read (#1174); a scan never shows here: its page is sat in (D-UI-078)</i>]
     SCAN -.->|switch off| DIM1[dimmed: TURN ON OFFLINE ACHIEVEMENTS FIRST.]
     SCAN -.->|no address| DIM2[dimmed: YOU'RE NOT ONLINE.]
     SCAN --> CONFIRM[SCAN GAMES FOR OFFLINE ACHIEVEMENTS?<br/>what it does and costs; last time's why<br/>YES . NO]
-    CONFIRM --> XFER[GuiOfflineScan<br/>full screen; GAME i OF n, the game, counts so far, spinner, elapsed;<br/>outcome and N GAMES READY FOR OFFLINE PLAY; stays until dismissed]
+    CONFIRM --> XFER{{SCANNING GAMES FOR OFFLINE ACHIEVEMENTS<br/>GuiOfflineScan, full screen, sat in (D-UI-078):<br/>LOOKING THROUGH YOUR GAMES... / SCANNING... ; GAME i OF n; the game; GAMES WITH ACHIEVEMENTS ADDED: n; spinner; ELAPSED m:ss; THIS CAN TAKE A WHILE.}}
+    XFER -->|back while it runs| CANCEL[CANCEL THE SCAN?<br/>GAMES ALREADY SAVED STAY SAVED. THE NEXT SCAN CARRIES ON FROM THERE.<br/>YES . NO]
+    XFER -->|finished| DONE[COMPLETED / SKIPPED - reason / COULDN'T FINISH;<br/>N GAMES READY FOR OFFLINE PLAY or NO GAMES TO SCAN YET; the why; a note; ELAPSED;<br/>TRY AGAIN on OK when it did not complete, CLOSE on back; PRESS ANY BUTTON TO CLOSE when it did]
 ```
 
 The row's line and the page's last screen read the same two files the ctl
@@ -608,7 +613,10 @@ many games a fetch failed for, and such a run ends rc 1 with
 WRONG until it learns the word, audit #186 PL-24) and `cached_game_ids.txt`
 (one id per line: the count). Exit 69 and 75 from `raofflineproxy-ctl scan` read
 SKIPPED - YOU'RE NOT ONLINE / SKIPPED - A SCAN IS ALREADY RUNNING; 77 and 78
-(no account, switch off) COULDN'T FINISH with the reason on line 4. The
+(no account, switch off) COULDN'T FINISH with the reason on line 4 -- the row's
+gates refuse them first, but TRY AGAIN restarts the ctl without the gates.
+`why=STAMP_UNWRITABLE` and `why=RESULT_UNREADABLE` read THE RESULT COULDN'T BE
+SAVED / READ (#1176). The
 automatic top-up (`raofflineproxy-ctl topup`, run by `NetworkThread` when the
 device comes online, bounded to one attempt per half hour) had no surface of
 its own until 2026-09-26 (#293, D-UI-095): now a card while it has work --
