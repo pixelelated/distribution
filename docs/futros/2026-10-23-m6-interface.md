@@ -326,3 +326,85 @@ Done in the same change as this futro, or named with its owner:
 
 Nothing else is needed before stage A. The stranger's proof of version 1
 runs beside this futro; what it finds is answered in version 2 with these.
+
+### T18 kickoff addendum (written with the brief's version 1, 2026-10-26)
+
+The brief is `docs/reviews/briefs/es-cloud-pages.md`; the slice is #665
+(`es-cloud-pages`, Extended, the brittleness and new-functionality lens;
+30 paths of the EmulationStation fork at the pin `16dbac5211`, 11,193 lines,
+every one the fork's own by origin). Written during T17's stage E, with the
+host in M7's and M6's explicit queue; the dispatch waits for an idle lane
+session and the window for its turn in the queue. **Streams predicted:
+two** (the header comment at `ThreadedCloudSync.h:94-96` quoting the rule's
+older why words; the why table's missing rows), stated as a number so the
+retro reads it back.
+
+- **Assumptions named.** The `GuiCloud*` glob reaches only the transfer
+  page; the wizard, the scan launch and the connections pages are
+  `GuiMenu.cpp`'s (T26) and the eight sources invoke no script by path --
+  the slice reads a library whose callers are elsewhere. The shipped
+  fallback map agrees with the scripts and it is the rule and the header
+  comment that drifted (#909's half and this slice's). The ES repository's
+  top-level `tests/app-unit/` and the Python harnesses are read as
+  context, not membership (no re-cut). A fix reaches an image only through
+  the pin, which the coordinator moves at integration.
+- **Known unknowns.** (1) Whether any M6 GENERIC_X64 build root holds an
+  `emulationstation-*` build directory for `tools/es-syntax-check` and a
+  rapidjson copy for `es-unit-tests` (a § 5 run; `CANNOT` with the tool's
+  words if none); (2) the one why sentence the digest's credential filter
+  withheld and the eight variable-built `say_why "$var"` sentences (the
+  lane re-derives); (3) whether the image the guest boots carries the pin's
+  binary (the window's first step identifies it); (4) what `classifyProtocolLine`
+  makes of a `>>>` line it does not know; (5) whether a conflict wizard
+  exists in any ES source at the pin.
+- **Patterns.** T2's two-worktree shape and its `proved:` values
+  (`pin-binary`, `fix-unit-test`, `fix-walk-pending-image`); T16's and
+  T17's generated tables with asserted counts; T17's packet trimmed before
+  any seat; the stranger's proof (every version-1 brief needed it);
+  #1061's lesson for test fixtures (`MaskSecretsTests.cpp` is the file to
+  read first); the removal shape; the window's post contract and
+  bound-plus-grace stop (`engineering-practices.md`, after #1135).
+- **What could be missed.** A reader filing the header comment's older
+  words as the code's defect (the code matches the scripts); a reader
+  reading M7's `m7-*` ES worktrees for what the pin lacks (cited by number
+  only); a reader taking a frame without reading its string back; a reader
+  taking `es-unit-tests` PASS without the configure's rapidjson path named
+  (the build fails closed, but a stale binary does not); a reader asking a
+  unit for anything (nothing runs on a handheld); a reader bumping the pin
+  (the coordinator's); a reader writing the walks' frames as proven before
+  the integration build carries the moved pin.
+- **Before execution.** The stranger's proof of version 1; #665 retitled
+  `E700/T18` and re-parented under #700; the distribution worktree cut from
+  `2174265e9c` with the coordinator's tip merged and the ES worktree cut
+  from the pin, both by the coordinator; the body rewritten with the
+  nineteen criteria and the VM line; the dispatch to the first idle
+  session, with the window's place in the host file's queue stated.
+
+### Errata from the stranger's proof of T18's brief (version 2, 2026-10-26)
+
+Eight commands from the scratch clone and the `qa-integration` checkout at
+the pin; the membership, every line count, the history, the test counts,
+the markers and the tools held. What the proof corrected, and what the
+addendum above had wrong:
+
+- **Known unknown (1) is answered, and the answer stops version 1's floor:**
+  the host has no `cmake` or `ninja`, and none of M6's five
+  `build.pixelelated-GENERIC_X64.x86_64` directories holds a toolchain, a
+  rapidjson copy or an EmulationStation build directory; the only roots
+  that do are M7's, which M6 may not name. Version 2 builds the unit tests
+  with the host's `g++` by a command generated from `CMakeLists.txt`,
+  defers a GUI fix's compile proof to the integration build, keeps
+  `ES_BUILD_ROOT` always set (its default is the legacy M7 root), and
+  drops the stop; **#1137** files the gap under #903.
+- **Known unknown (2) is closed:** 34 literal script sentences, not 37; 32
+  shared, 2 the table lacks, 6 the scripts never print; no third withheld
+  sentence; the variable emitters are 17 lines, not eight.
+- The why table has 38 rows and 38 unique sentences, no duplicate; the
+  header's declaration regex yields 47 lines; the `_( )` figures name
+  their populations (220 occurrences; 50 unique / 58 for the card, 67 / 80
+  for the page); `FileData.cpp:1310` is the exit sync's start, not the
+  launch's question; the pin's last commit adds no `_( )` line, so the
+  window's identity string is a literal of the 30 absent from the merge
+  base; nine small line-number slips; `tests/app-unit/**` is 19 files.
+- The stream prediction stands at two; a third candidate -- a toolchain
+  that is not there -- is infrastructure, not a stream.
