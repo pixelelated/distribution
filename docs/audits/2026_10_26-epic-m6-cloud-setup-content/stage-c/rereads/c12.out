@@ -1,0 +1,19 @@
+198:if ! RCLONE_NET_OPTS=$(conf_get RCLONE_NET_OPTS); then
+199:    log_message "RCLONE_NET_OPTS was not read (${RCLONE_NET_OPTS}); the shipped bound stands in"
+200:    RCLONE_NET_OPTS=""
+219:# The bound on every rclone command below that opens a socket: RCLONE_NET_OPTS
+229:RCLONE_NET_OPTS_FALLBACK="--contimeout 15s --timeout 30s --low-level-retries 10 --retries 1"
+230:_net_opts=$(echo "${RCLONE_NET_OPTS:-}" | tr '\n\\' '  ' | tr -s ' ' | sed 's/^ //; s/ $//')
+231:[ -n "${_net_opts}" ] || _net_opts="${RCLONE_NET_OPTS_FALLBACK}"
+232:read -r -a RCLONE_NET_OPTS_ARRAY <<< "${_net_opts}"
+753:    bounded_content_rclone copy "${SRC}" "${TARGET}" "${RCLONE_NET_OPTS_ARRAY[@]}" \
+766:        bounded_content_rclone copy "${SRC}" "${TARGET}" "${RCLONE_NET_OPTS_ARRAY[@]}" \
+124:    command rclone "${args[@]}" > "${dir}/fifo" &
+143:        log_message "rclone $1 made no progress for ${ceiling}s; reporting 124"
+cloud_content_backup:753:    bounded_content_rclone copy "${SRC}" "${TARGET}" "${RCLONE_NET_OPTS_ARRAY[@]}" \
+cloud_content_backup:766:        bounded_content_rclone copy "${SRC}" "${TARGET}" "${RCLONE_NET_OPTS_ARRAY[@]}" \
+cloud_content_restore:750:        out=$(bounded_content_rclone sync "${src}" "${local_dir}" "${RCLONE_NET_OPTS_ARRAY[@]}" \
+cloud_content_restore:1046:                    bounded_content_rclone sync "$(remote_for "${sys}")" "${DEST}/${sys}" "${RCLONE_NET_OPTS_ARRAY[@]}" \
+cloud_content_restore:1538:    bounded_content_rclone copy "${SRC}" "${TARGET}" "${RCLONE_NET_OPTS_ARRAY[@]}" \
+cloud_content_restore:1551:        bounded_content_rclone copy "${SRC}" "${TARGET}" "${RCLONE_NET_OPTS_ARRAY[@]}" \
+cloud_content_transfer:85:bounded_content_rclone() (

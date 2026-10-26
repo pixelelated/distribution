@@ -16,17 +16,20 @@
 
 ## Current focus
 
-**Stage B done; the guest window asked for on #664; stage C next** (06:41 UTC).
-- **`02` is written:** 19 findings, 17 proofs, and the generated tables (`tools/t17-tables.py check` same).
-- **The candidate bugs:** F-01 (the PIN lockout by icon requests), F-02 (`RCLONE_NET_OPTS` into the deleting sync; a save deleted with the real rclone), F-03 (`cloud_content_backup`'s unchecked names). F-04 was refuted by fixture.
-- **The window waits** for M7's guest RETURN on the host file and T16's re-granted window. Its plan is on #664.
+**Stage C done; the stage-D pause is posted on #664** (07:31 UTC).
+- **`00` to `05` written, and the pre-issue lint PASS.**
+  - `02` carries 23 findings and 19 proofs; `tools/t17-tables.py check` same (32 writers, 28 secret rows).
+  - `05` carries 22 items, 4 of them `bug` candidates (PL-01 to PL-04), all `Open`.
+- **The two seats:**
+  - Astra, 50 items; Argon, 49. Four keyed invokes, all PASS.
+  - Every item was re-read (`stage-c/rereads/`) and graded in `04` § Second opinion.
+- **F-20, new:** found by both seats independently, and confirmed by `tools/t17-option-key-fixture.py`. An option-shaped key passes to rclone as a flag, and `--config=` writes a connection outside `rclone/`.
+- **The window waits for M7's guest RETURN** on the host file, and no longer for T16 (the coordinator, 06:5x UTC). F-02's flag goes into the guest's conf only, and F-03 runs against the QA backend only.
 
-**Next:** stage C:
-- `03` and `04`;
-- the packet (trimmed) and its three-way scan, with every hit dispositioned;
-- `review-plan.json` (extended, two seats);
-- the Astra probe and refutation, then the Argon probe and refutation: **four keyed invokes in all**;
-- the grading; `05`; the pre-issue lint.
+**Next:** stage D, after the coordinator rules at the pause:
+- the bugs for PL-01 to PL-04, each with its trace, `Already written:` and VM line, then `box-check`;
+- the audit issue, a sub-issue of #664;
+- the dispositions of PL-05 to PL-22.
 
 ## Next commands
 

@@ -1,0 +1,142 @@
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_connections.py:40-135
+   40          try:
+   41              result = subprocess.run([RCLONE, '--config', str(path), 'config', 'dump'],
+   42                                      capture_output=True, text=True, timeout=8)
+   43              if result.returncode:
+   44                  raise ValueError()
+   45              data = json.loads(result.stdout)
+   46              parser = configparser.RawConfigParser(interpolation=None)
+   47              parser.optionxform = str
+   48              parser.read_dict(data)
+   49          except (ValueError, configparser.Error, subprocess.TimeoutExpired):
+   50              raise Refused('Cloud connection settings could not be read.')
+   51      return raw, parser
+   52  
+   53  
+   54  def active(config=None):
+   55      if config is None:
+   56          _, config = read_config()
+   57      if ACTIVE.exists():
+   58          value = ACTIVE.read_text().removesuffix('\n')
+   59          if value and not config.has_section(value):
+   60              raise Refused('The selected connection is missing. Choose a connection first.')
+   61          return value
+   62      return next(iter(sorted(config.sections())), '')
+   63  
+   64  
+   65  def selection_reason():
+   66      """Safe player-facing reason when no usable selected account was resolved."""
+   67      _, config = read_config()
+   68      return ("CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS." if config.sections()
+   69              else "YOUR CLOUD STORAGE ISN'T SET UP YET")
+   70  
+   71  
+   72  def atomic(path, data):
+   73      path.parent.mkdir(parents=True, exist_ok=True)
+   74      fd, name = tempfile.mkstemp(prefix='.' + path.name + '-', dir=path.parent)
+   75      try:
+   76          with os.fdopen(fd, 'wb') as handle:
+   77              handle.write(data)
+   78              handle.flush()
+   79              os.fsync(handle.fileno())
+   80          os.replace(name, path)
+   81          directory = os.open(path.parent, os.O_RDONLY | os.O_DIRECTORY)
+   82          try:
+   83              os.fsync(directory)
+   84          finally:
+   85              os.close(directory)
+   86      finally:
+   87          if os.path.exists(name):
+   88              os.unlink(name)
+   89  
+   90  
+   91  def restore_selection(previous, written):
+   92      # Only undo our write; never clobber an outside settings writer.
+   93      if written is None or not ACTIVE.exists() or ACTIVE.read_bytes() != written:
+   94          return
+   95      if previous is not None:
+   96          atomic(ACTIVE, previous)
+   97      else:
+   98          ACTIVE.unlink()
+   99          directory = os.open(ACTIVE.parent, os.O_RDONLY | os.O_DIRECTORY)
+  100          try:
+  101              os.fsync(directory)
+  102          finally:
+  103              os.close(directory)
+  104  
+  105  
+  106  @contextlib.contextmanager
+  107  def locked():
+  108      LOCK.parent.mkdir(parents=True, exist_ok=True)
+  109      with LOCK.open('a') as handle:
+  110          try:
+  111              fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+  112          except BlockingIOError:
+  113              raise Refused('A cloud operation is running. Wait for it to finish, then try again.')
+  114          yield
+  115  
+  116  
+  117  def require_manual():
+  118      # Same literal keys as ES. Read text, never execute system.cfg.
+  119      values = {}
+  120      if SYSTEM.exists():
+  121          for line in SYSTEM.read_text().splitlines():
+  122              key, sep, value = line.partition('=')
+  123              if sep:
+  124                  values[key.strip()] = value.strip()
+  125      if any(values.get(k) == '1' for k in ('cloudsaves.startup', 'cloudsaves.gameexit')):
+  126          raise Refused('Turn off both automatic save sync options before changing this connection.')
+  127  
+  128  
+  129  def run(args):
+  130      try:
+  131          result = subprocess.run([RCLONE] + args, capture_output=True, text=True, timeout=40)
+  132      except subprocess.TimeoutExpired:
+  133          raise Refused('The connection stopped answering. Your settings were not changed.')
+  134      if result.returncode:
+  135          # Never forward provider diagnostics: they may contain credentials.
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_connections.py:215-258
+  215      return name
+  216  
+  217  
+  218  def select(name):
+  219      with locked():
+  220          require_manual()
+  221          _, config = read_config()
+  222          if not config.has_section(name):
+  223              raise Refused('This connection no longer exists.')
+  224          atomic(ACTIVE, (name + '\n').encode())
+  225  
+  226  
+  227  def remove(name):
+  228      with locked():
+  229          require_manual()
+  230          original, config = read_config()
+  231          if not config.has_section(name):
+  232              raise Refused('This connection no longer exists.')
+  233          # Removing a wrapper's underlying connection would break the wrapper.
+  234          for other in config.sections():
+  235              if other != name and any(re.search(r'(?<![\w.-])' + re.escape(name) + ':', v) for _, v in config.items(other)):
+  236                  raise Refused('Another connection uses this one. Change that connection first.')
+  237          selected = active(config)
+  238          with tempfile.TemporaryDirectory(prefix='.connection-', dir=CONFIG.parent) as directory:
+  239              staged = Path(directory) / 'rclone.conf'
+  240              staged.write_bytes(original)
+  241              staged.chmod(0o600)
+  242              run(['--config', str(staged), 'config', 'delete', name])
+  243              updated, result = read_config(staged)
+  244              if result.has_section(name):
+  245                  raise Refused('The connection settings could not be changed safely.')
+  246          if CONFIG.read_bytes() != original:
+  247              raise Refused('Cloud settings changed. Open this page again.')
+  248          # Empty selection is a tombstone: never silently use another account.
+  249          previous_selection = ACTIVE.read_bytes() if ACTIVE.exists() else None
+  250          written_selection = (('' if selected == name else selected) + '\n').encode()
+  251          try:
+  252              atomic(ACTIVE, written_selection)
+  253              atomic(CONFIG, updated)
+  254          except Exception:
+  255              if CONFIG.exists() and CONFIG.read_bytes() == updated:
+  256                  atomic(CONFIG, original)
+  257              restore_selection(previous_selection, written_selection)
+  258              raise

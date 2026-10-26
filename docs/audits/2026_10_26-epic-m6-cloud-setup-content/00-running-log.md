@@ -86,3 +86,46 @@
 - PROOF: P15, `tools/vocabulary-check` at the ES pin: `stage-b/vocabulary-check.txt`.
 - PROOF: P16, the why sentences against the interface's table: `stage-b/why-lines.txt`, `stage-b/es-why-sentences.txt`.
 - PROOF: P17, the tables regenerated: `check` same.
+
+## [Stage C] 2026-10-26 06:41 UTC onward (after the stage-B pointer `59b0cb19db`) — 03, 04, the packet, the two seats, 05
+
+- **Stage B accepted** (the coordinator, 06:5x UTC).
+  - The two tool problems are #1127 (Backlog under #1047), cited in `02` and `05`.
+  - The guest plan is in scope with F-01 to F-04, on two conditions. F-02's flag goes into the guest's conf only, over the seeded synthetic root, and the conf is put back. F-03 runs against the QA backend only, its data directory listed before and after.
+  - The window's start waits for M7's guest RETURN only, no longer for T16's re-grant.
+- **`03` and `04` written** before the packet.
+- **The packet** (`stage-c/packet.py`; `second-opinions/packet.md`, 294,779 bytes, sha256 `4e95aaff…`; `second-opinions/manifest.json`):
+  - The first build was 437,469 bytes, the size at which Argon failed on T30, so it was trimmed before any seat read it (D-WORKFLOW-195): four of the 14 whole, the other ten as line-numbered excerpts of every cited line with eight lines of context, the fixtures as their docstrings, and the brief's § 4 only.
+  - **The three-way scan:** `forbidden-terms-check --stdin` found 0 hits in 94 sections and on the whole file. `SECRET_PATTERNS` found 0 lines, proven to fire on a run-time fake line. The mask changed 20 lines, and 343 credential-word hits were classed.
+  - 16 hits, read by shape only (length and edge characters, never the text), were dispositioned by name in `packet.py`: prose naming keys, code, and the fixtures' synthetic percent-encoded PIN. **No value.**
+  - The first scan stopped the build on 22 unreviewed hits, which is what it is for.
+- **The plan:** `second-opinions/review-plan.json`, extended, two reviewers, written 06:50Z, before the first call.
+- **The runner:** `COUNCIL_ENV_FILE=/nonexistent tools/council/run verify-pins`: `OK`. The runtime is from stage A's `npm install --offline`.
+- **The four keyed calls, and no others:**
+  1. Astra's probe, 06:51:29 to 06:51:46 UTC: PASS, `openai/gpt-6-astra` by OpenAI.
+  2. Astra's refutation, 06:52:05 to 07:11:33 UTC, as a harness background task: rc 0, PASS, one attempt, `finish=stop`; 50 items, A-1 to A-50.
+  3. Argon's probe, 07:18:19 to 07:18:31 UTC: PASS, `google/gemini-4-argon` by Google.
+  4. Argon's refutation, 07:18:36 to 07:27:05 UTC, as a background task: rc 0, PASS, one attempt, `finish=stop`; 49 items, R-1 to R-49.
+  - Argon's brief was the packet plus the lane's grades of Astra (302,486 bytes).
+  - **`tools/council/run summary` and `verify-seals`** were run with `COUNCIL_ENV_FILE=/nonexistent` and refused: there is no `council-run-manifest.json`, because these are audit invokes, not a council run. The provenance was read directly instead (`stage-c/provenance-read.txt`): all four `verification=PASS`, served model and provider the seat's, one attempt, each output's sha256 matching.
+  - The files carry `facilitator_version` (`council-facilitator@1.14.1-pixelelated.2`), not a `facilitator` block. Checkbox 3 names both; that is put to the coordinator.
+- **The re-reads** (`stage-c/rereads/rereads.sh`, `c01` to `c12`, `c14`, `c15`, all rc 0): every seat item was re-read at its lines at `8ebaf8daad`, through the mask.
+- **One fixture added:** `tools/t17-option-key-fixture.py` (`c13`, 07:13:39 UTC), the product's own split and `save()` with the donor's rclone over a local backend. `--config=<path>` writes the new connection into `<path>` and the save refuses; `--log-file=` is honoured; the control saves. **F-20, found by both seats independently.**
+- **What the seats changed:**
+  - **New findings:** F-20 (Low, a `bug` candidate), F-21, F-22 and F-23 (Info).
+  - **Corrected first-draft claims:**
+    - F-05: the `lsd` argv carries no secret.
+    - F-07: nothing masks rclone's ERROR text. A-4 refuted *"the URL, not its secret"*.
+    - F-10: a partial selection is installed.
+    - F-12: any value of `CLOUD_SIGNIN_DEBUG` turns it on.
+    - F-18: the scrubber runs at boot.
+    - The writers table: the `phone-keyboard` marker added (32 rows), and the scan modes relabelled *by construction*.
+    - The secrets table: the phone keyboard carries a sign-in page password, a sixth kind.
+    - The plan's order: read, then spent.
+    - `03` § 3.1: `select()` is a third writer.
+  - **Two of the lane's grades of Astra reversed by Argon:** A-49 and A-23 are Info hardenings in F-10.
+  - **Both seats propose Medium for F-02 and F-03.** The coordinator rules.
+- **`05`:** 22 items, 4 of them `bug` candidates (PL-01 to PL-04), all `Open`.
+- **Nothing of the never-run list ran.** No guest, and no build. `git diff --stat f3803436b8 HEAD -- packages projects tools` is empty. The one new rclone run was the donor's, over a local backend in scratch.
+- PROOF: P18, every seat item re-read at its lines: `stage-c/rereads/`.
+- PROOF: P19, an option-shaped key honoured as an rclone flag: `stage-c/rereads/c13_option_key.out`.

@@ -197,10 +197,11 @@ W = [
     ("OAuth `session.json`", "oauth", r"os\.replace\(tmp, path\)", 1, "0644 observed (holds the PIN, the URL with it, the provider link)", "`threading.Lock` + flock on `session.lock`", "temp `<path>.<pid>.tmp` + `os.replace`", "`write_state`, `write_owned`, `reset_state`, `_fail_owned`"),
     ("OAuth `session.lock`", "oauth", r'os\.open\(state_path\("session\.lock"\)', 1, "0600 observed", "--", "`O_CREAT` 0600", "`_state_locked()`"),
     ("OAuth markers", "oauth", r'open\(state_path\("(signed-in|open-browser|close-browser)"\), "w"\)', 3, "0644 observed", "none", "empty file", "`signed_in()`, `open`, `close`"),
+    ("OAuth marker `phone-keyboard` (stage C, A-20)", "oauth", r'^\s+open\(marker, "w"\)\.close\(\)', 1, "0644 by construction (the same `open`)", "none", "empty file", "`open --phone`"),
     ("OAuth `window.log`", "oauth", r'self\.log_file = open\(self\.log_path, "w"\)', 1, "by construction (umask: 0644)", "none", "truncate; the window's stdout and stderr", "`BrowserSession.start()`"),
     ("OAuth page and field records", "window", r"g_file_set_contents\(", 2, "by construction (0666 & ~umask)", "none", "GLib's temp + rename", "the window's load (never a 127.0.0.1/localhost address, `:660-671`) and its field probe"),
-    ("scan results", "scan", r'> "\$\{OUT\}/(scan|systems|state|started|archives|content-location)"', 6, "0644 observed (a `>` write)", "`/var/run/cloud_scan.lock` (flock)", "in place, after `rm -f` of the old set", "`cloud_scan`, `--content`, `--folder`"),
-    ("scan results", "scan", r'\} > "\$\{OUT\}/settings"', 1, "0644 observed", "flock", "in place", "`cloud_scan`"),
+    ("scan results", "scan", r'> "\$\{OUT\}/(scan|systems|state|started|archives|content-location)"', 6, "0644 by construction: the fixture observed a scan-style `>` write, not these statements (stage C, A-21)", "`/var/run/cloud_scan.lock` (flock)", "in place, after `rm -f` of the old set", "`cloud_scan`, `--content`, `--folder`"),
+    ("scan results", "scan", r'\} > "\$\{OUT\}/settings"', 1, "0644 by construction (as above)", "flock", "in place", "`cloud_scan`"),
     ("scan completion", "scan", r'mv -f "\$\{tmp\}" "\$\{OUT\}/\$\{stamp\}"', 1, "by construction (umask: 0644)", "flock", "temp + `mv -f`, after the context re-check", "`write_completion`"),
     ("scrubber record `log-scrubbed`", "scrub", r'mv -f "\$\{STAMP\}\.tmp" "\$\{STAMP\}"', 1, "by construction (umask: 0644)", "none (once per boot, before the writers)", "temp + `mv -f`, other lines kept", "`record()`"),
     ("rewritten logs", "scrub", r'elif ! mv -f "\$\{tmp\}" "\$\{f\}"', 1, "the new file's (umask), not the old one's", "none", "temp `.scrub.$$` + `mv -f`, line-count parity first", "`scrub()`"),
@@ -229,7 +230,8 @@ def writers():
                f"its write is {cite('remote', r'connections\.save\(name', 1)}. "
                f"The interface's connection pages reach `connections.save` by running `cloud_remote create`/`update` (ES, read by name only).")
     rows = len(W)
-    assert rows == 31, rows
+    # 31 at stage B; 32 since stage C added `cloud_oauth:2708`'s `phone-keyboard` marker (Astra's A-20).
+    assert rows == 32, rows
     return "\n".join(out)
 
 
@@ -258,9 +260,9 @@ S = [
     ("typed WebDAV/SFTP secret", "file: `rclone.conf`", ("connections", r"args \+= \['--non-interactive', '--obscure'\]", 1), "obscured by rclone (reversible), 0600", "--"),
     ("typed WebDAV/SFTP secret", "`/var/log/cloud_sync.log`", ("remote", r'log\("rclone %s failed \(%d\)" % \(verb, proc\.returncode\)\)', 1), "verb and code only", "scrubber family F1 covers earlier builds"),
     ("typed WebDAV/SFTP secret", "stderr", ("remote", r'expected key=value, got: %s', 1), "**none** for a malformed pair", "Info: a pair with no `=`"),
-    ("typed WebDAV/SFTP secret", "the phone keyboard (LAN)", ("oauth", r'log\("typed %d characters%s%s"', 1), "the log counts characters only; the LAN carries them plain (the page says so)", "masked box on the phone (`type=password`)"),
-    ("typed WebDAV/SFTP secret", "the per-session log (`window.log`)", ("window", r'g_message\("key %s \(%u\)"', 1), "only under `CLOUD_SIGNIN_DEBUG`, which nothing sets", "Info (F-12)"),
-    ("typed WebDAV/SFTP secret", "a screen (`cloud_setup`'s rclone stderr)", ("setup", r'probe=\$\(rclone lsd "\$\{remote\}\$\{path\}"', 1), "**none**: two lines of rclone's ERROR text shown", "F-07; rclone's error carries the remote's URL, not its secret"),
+    ("sign-in page password", "the phone keyboard (LAN; stage C, R-2: the page the window shows, not a WebDAV/SFTP form)", ("oauth", r'log\("typed %d characters%s%s"', 1), "the log counts characters only; the LAN carries them plain (the page says so)", "masked box on the phone (`type=password`)"),
+    ("sign-in page password", "the per-session log (`window.log`)", ("window", r'g_message\("key %s \(%u\)"', 1), "only under `CLOUD_SIGNIN_DEBUG`, which nothing sets; any value turns it on (A-37, R-32)", "Info (F-12)"),
+    ("typed WebDAV/SFTP secret", "a screen (`cloud_setup`'s rclone stderr)", ("setup", r'probe=\$\(rclone lsd "\$\{remote\}\$\{path\}"', 1), "**none**: two lines of rclone's ERROR text shown", "F-07; nothing masks rclone's ERROR text, so a URL holding a secret would show (stage C, A-4)"),
     ("device id", "file: `cloud_sync-device-id`", ("device_id", r'> "\$\{ID_FILE\}\.tmp\.\$\$"', 1), "0644 observed", "held back from every archive"),
     ("device id", "cloud folder names, logs, stdout", ("device_id", r'printf .%s\|%s. "\$\{1\}" "\$\{DEVICE:-unknown\}" \| md5sum \| cut -c1-10', 1), "an unsalted md5 of the MAC, cut to 40 bits", "**recoverable by brute force** within an OUI (F-11)"),
     ("the root password", "a screen (the console setup flow)", ("setup", r'ROOTPASS=\$\(get_setting root\.password\)', 1), "**none**: shown in the clear", "the legacy SSH flow; `--info` prints `PASSWORD_SET` only (`:618`)"),
@@ -274,7 +276,8 @@ def secrets():
         where = cite(*anc) if anc else "no line reaches it"
         out.append(f"| {kind} | {sink} | {where} | {mask} | {note} |")
         kinds[kind] += 1
-    assert set(kinds) == {"provider token", "OAuth code", "pin", "typed WebDAV/SFTP secret", "device id", "the root password"}, kinds
+    # "sign-in page password" since stage C (Argon's R-2): the phone keyboard types into the sign-in window.
+    assert set(kinds) == {"provider token", "OAuth code", "pin", "typed WebDAV/SFTP secret", "sign-in page password", "device id", "the root password"}, kinds
     assert len(S) == 28, len(S)
     out += ["", "**The scrubber's three families** (`cloud_log_scrub:78-121`), the shapes earlier builds wrote, and whether a writer in the 14 writes each today:", "",
             "| Family | Shape | Rule | Writes it today |", "| --- | --- | --- | --- |",

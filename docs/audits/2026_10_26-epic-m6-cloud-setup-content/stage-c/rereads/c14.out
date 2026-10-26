@@ -1,0 +1,141 @@
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth:440-452
+  440              if ok:
+  441                  log("sign-in completed on the device")
+  442                  if self.on_signed_in:
+  443                      try:
+  444                          self.on_signed_in()
+  445                      except Exception as exc:      # never take the thread down
+  446                          log("post-sign-in step failed: %s" % exc)
+  447              else:
+  448                  log("could not finish the sign-in: %s" % detail)
+  449                  # Only while this attempt still speaks for the state: a
+  450                  # restart may have replaced it while its remote was being
+  451                  # created (G-C-02 gpt).
+  452                  if not self.superseded:
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_log_scrub:60-125
+   60  
+   61  recorded() { grep -q "^$1=" "${STAMP}" 2>/dev/null; }
+   62  recorded scrubbed && recorded es_log_scrubbed && exit 0
+   63  set -o pipefail
+   64  
+   65  # The filter or nothing: without it a password in a line this script has no
+   66  # rule for would be kept and the log recorded as clean.
+   67  . /etc/profile.d/001-functions 2>/dev/null
+   68  if ! type redact_credentials >/dev/null 2>&1; then
+   69      echo "cloud_log_scrub: redact_credentials is not in /etc/profile.d/001-functions; nothing was scrubbed, and the next boot tries again"
+   70      exit 1
+   71  fi
+   72  
+   73  # The shapes earlier builds wrote to the cloud log, by the script that wrote
+   74  # them. The cloud_remote rule for "config" verbs and the one for the others
+   75  # are kept apart so neither reads this build's own "rclone config create
+   76  # failed (1)" as an old line: that has no argument between the verb and
+   77  # "failed".
+   78  SCRUB_SED='
+   79  /\[cloud_remote\] rclone config /{
+   80  s/^(.*\[cloud_remote\] rclone config [a-z]+) [^ ]+( .*)? failed \(([0-9-]+)\)(: .*)?$/\1 failed (\3)/
+   81  # A record cut before its "failed (...)" suffix (the log truncated mid-line) is
+   82  # masked key by key:*** a quoted value is masked whole, spaces and all, and one cut
+   83  # inside its quotes is masked to the end of the line -- the unquoted rule alone
+   84  # stopped at the first space and left a quoted value'"'"'s tail readable (the audit
+   85  # of the fixes, gpt G3-D-09).
+   86  s/ ([A-Za-z0-9_.-]+)="[^"]*"/ \1=<redacted>/g
+   87  s/ ([A-Za-z0-9_.-]+)='"'"'[^'"'"']*'"'"'/ \1=<redacted>/g
+   88  s/ ([A-Za-z0-9_.-]+)="[^"]*$/ \1=<redacted>/
+   89  s/ ([A-Za-z0-9_.-]+)='"'"'[^'"'"']*$/ \1=<redacted>/
+   90  s/ ([A-Za-z0-9_.-]+)=[^ ]*/ \1=<redacted>/g
+   91  }
+   92  /\[cloud_remote\] rclone config /!s/^(.*\[cloud_remote\] rclone [a-z]+) [^ ]+( .*)? failed \(([0-9-]+)\)(: .*)?$/\1 failed (\3)/
+   93  /\[cloud_oauth\] could not finish the sign-in: /{
+   94  /sign-in: (a remote called .* already exists|signed in, but the remote did not respond|rclone rejected the token|The sign-in worked, but it couldn.t be saved on your handheld\.|The sign-in worked, but your handheld.s cloud settings couldn.t be read\.|That sign-in was closed before it finished\.)$/!s/(could not finish the sign-in: ).*$/\1<redacted>/
+   95  }
+   96  '
+   97  
+   98  # The interface's record starts "%F %T<TAB>" (Log::stream, since ES
+   99  # e478a1eda); a line that does not is the rest of the record before it.
+  100  # Each line goes out with the newline that ended the one before it, and the
+  101  # last one's only when the file had it (nl): a log cut off mid-line -- the
+  102  # interface killed as it wrote -- keeps its shape, as sed keeps it for the
+  103  # cloud log.
+  104  ES_AWK='
+  105  function out(s) { if (NR > 1) printf "\n"; printf "%s", s }
+  106  /^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\t/ { inrec = 0 }
+  107  inrec {
+  108      if ($0 != "" && $0 !~ /^OK=[A-Za-z0-9_.-]*$/) $0 = "<redacted>"
+  109      out($0); next
+  110  }
+  111  {
+  112      i = index($0, "cloud_remote create: ")
+  113      if (i) {
+  114          inrec = 1
+  115          rest = substr($0, i + 21)
+  116          if (rest != "" && rest !~ /^OK=[A-Za-z0-9_.-]*$/) $0 = substr($0, 1, i + 20) "<redacted>"
+  117      }
+  118      out($0)
+  119  }
+  120  END { if (NR > 0 && nl) printf "\n" }
+  121  '
+  122  
+  123  lines_in() { awk 'END { print NR }' "$1"; }
+  124  
+  125  first_pass() { # <file> <cloud|es>
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_log_scrub:160-190
+  160  
+  161  # family <cloud|es> <file...>: scrub every regular file named; sets FILES and
+  162  # LINES, and returns non-zero if any could not be rewritten.
+  163  family() {
+  164      local kind="$1" f n bad=0; shift
+  165      FILES=0 LINES=0
+  166      for f in "$@"; do
+  167          [ -f "${f}" ] && [ ! -L "${f}" ] || continue
+  168          case "${f}" in *.scrub.*) continue ;; esac
+  169          if n=$(scrub "${f}" "${kind}"); then
+  170              FILES=$((FILES + 1)); LINES=$((LINES + n))
+  171          else
+  172              bad=1
+  173              echo "cloud_log_scrub: ${f##*/} could not be rewritten; it is as it was, and the next boot tries again"
+  174          fi
+  175      done
+  176      return "${bad}"
+  177  }
+  178  
+  179  # record <key> <files> <lines>: the family's line in the stamp, the lines
+  180  # already there kept, through a temp and a rename.
+  181  record() {
+  182      mkdir -p "${STAMP%/*}" \
+  183          && { grep -v "^$1=" "${STAMP}" 2>/dev/null
+  184               printf '%s=%s files=%s lines=%s\n' "$1" "$(date +%s)" "$2" "$3"; } > "${STAMP}.tmp" \
+  185          && mv -f "${STAMP}.tmp" "${STAMP}" \
+  186          || { rm -f "${STAMP}.tmp"; echo "cloud_log_scrub: the record of the scrub could not be written; the next boot runs it again"; return 1; }
+  187  }
+  188  
+  189  failed=0
+  190  if ! recorded scrubbed; then
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth:2700-2716
+ 2700          # the address and scan the code.
+ 2701          os.makedirs(STATE_DIR, exist_ok=True)
+ 2702  
+ 2703          # Which keyboard the player chose. Raising the on-screen one for
+ 2704          # somebody who asked to type on their phone covers the form they are
+ 2705          # reading with a keyboard they did not ask for.
+ 2706          marker = state_path("phone-keyboard")
+ 2707          if "--phone" in argv:
+ 2708              open(marker, "w").close()
+ 2709          elif os.path.exists(marker):
+ 2710              try:
+ 2711                  os.unlink(marker)
+ 2712              except OSError:
+ 2713                  pass
+ 2714  
+ 2715          open(state_path("open-browser"), "w").close()
+ 2716  
+== projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c:528-536
+  528   * there is no way to tell "sway never delivered it" from "the page had
+  529   * nothing focused". */
+  530  static gboolean on_key(GtkWidget *widget, GdkEventKey *event, gpointer data)
+  531  {
+  532      if (g_getenv("CLOUD_SIGNIN_DEBUG"))
+  533          g_message("key %s (%u)", event->string && *event->string ? event->string : "?",
+  534                    event->keyval);
+  535  
+  536      /* A way out, always. The handheld's buttons are not a keyboard -- sway

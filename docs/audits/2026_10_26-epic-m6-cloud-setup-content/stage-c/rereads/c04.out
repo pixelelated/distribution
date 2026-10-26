@@ -1,0 +1,64 @@
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_scan:300-362
+  300      --content) shift; scan_content "$@" ;;
+  301      --folder)
+  302          # The step reads state alone; the opening scan's other files are
+  303          # left as they were, and are rewritten by the next opening scan.
+  304          prepare
+  305          rm -f "${OUT}"/state "${OUT}"/done
+  306          read_folder
+  307          log "scan: folder done ($(sed -n 's/^STATE=//p' "${OUT}/state"))"
+  308          exit 0 ;;
+  309      "") ;;
+  310      *) echo "usage: cloud_scan [--content [--with-media|--media-only] | --folder]" >&2; exit 2 ;;
+  311  esac
+  312  
+  313  prepare
+  314  rm -f "${OUT}"/state "${OUT}"/archives "${OUT}"/settings "${OUT}"/content-location "${OUT}"/root-dirs "${OUT}"/done
+  315  date +%s > "${OUT}/started"
+  316  read_folder
+  317  
+  318  # 2. The settings archives, by the device that wrote each (the label in the
+  319  #    name, cloud_restore's rule): this device's newest first, else the newest
+  320  #    overall, else none -- the row is offered or dimmed from this (D-CLOUD-162).
+  321  echo ">>> unit SETTINGS BACKUPS||"
+  322  echo ">>> doing scan"
+  323  settings_remote=$(conf_get SETTINGS_REMOTE) || { why "YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"; exit 1; }
+  324  settings_remote="${settings_remote%/}"
+  325  # Use the restore reader's directory priority, including inherited device IDs.
+  326  archive_tool=$(sibling rasteratops-settings-archive)
+  327  [ -r "${archive_tool}" ] || { why "SOMETHING WENT WRONG"; exit 1; }
+  328  . "${archive_tool}"
+  329  select_settings_archives "${REMOTE}${settings_remote}" "$(sibling cloud_device_id)"; rc=$?
+  330  stop_on "${rc}" "archives listing"
+  331  listing="${SETTINGS_ARCHIVE_LISTING}"
+  332  printf '%s\n' "${listing}" | sed '/^$/d' > "${OUT}/archives"
+  333  label=$(device_label); osn=$(os_name); mine=""; newest=""
+  334  if [ -n "${label}" ]; then
+  335      mine=$(grep -E "^[0-9]{4}_[0-9]{2}_[0-9]{2}-[0-9]{6}-${label}-(${osn}|ROCKNIX|RASTERATOPS)_SETTINGS\.tar\.gz$" "${OUT}/archives" | sort | tail -1)
+  336  fi
+  337  newest=$(grep -E '^[0-9]{4}_[0-9]{2}_[0-9]{2}-[0-9]{6}-' "${OUT}/archives" | sort | tail -1)
+  338  {
+  339      echo "SOURCE=${SETTINGS_ARCHIVE_SOURCE}"
+  340      echo "LABEL=${label}"
+  341      echo "MINE=${mine}"
+  342      echo "NEWEST=${newest}"
+  343      echo "COUNT=$(grep -c . "${OUT}/archives")"
+  344  } > "${OUT}/settings"
+  345  
+  346  # 3. Availability at the explicitly selected library. Account-root browsing
+  347  # and discovery of another library are not part of a transfer preview.
+  348  echo ">>> unit GAME CONTENT||"
+  349  echo ">>> doing scan"
+  350  "$(sibling cloud_setup)" --content-location > "${OUT}/content-location" 2>/dev/null; rc=$?
+  351  stop_on "${rc}" "--content-location" "${OUT}/content-location"
+  352  
+  353  write_completion done opening || exit 1
+  354  log "scan: done ($(grep -c . "${OUT}/archives") archives, $(sed -n 's/^STATE=//p' "${OUT}/state"), content $(sed -n 's/^STATE=//p' "${OUT}/content-location"))"
+  355  exit 0
+  356  
+  357  }
+  358  # The lock protects shared cache files. The function runs with the descriptor
+  359  # closed; children cannot retain a stale lock after this owner exits.
+  360  exec 8>/var/run/cloud_scan.lock || exit 1
+  361  flock -n 8 || { why "ANOTHER CLOUD CHECK IS RUNNING"; exit 75; }
+  362  scan_main "$@" 8>&-

@@ -1,0 +1,74 @@
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:488-560
+  488      #
+  489      # Only what rclone says went wrong, never its listing. This used to read
+  490      # stdout as well, so a folder that already existed and held anything --
+  491      # a saves folder with savestates/ in it, which is every folder somebody
+  492      # would type on a second device -- was refused as "your provider would
+  493      # not accept this folder", with the folder's own contents quoted as the
+  494      # reason (found by the A3 fixture on the VM pair, 2026-09-06).
+  495      probe=$(rclone lsd "${remote}${path}" "${RCLONE_LIST_OPTS[@]}" --log-level ERROR 2>&1 >/dev/null | head -2)
+  496      case "${probe}" in
+  497          # A folder that does not exist yet is fine - it gets created on use.
+  498          *"not found"*|*NoSuchBucket*|"") return 0 ;;
+  499      esac
+  500      # The same folder, on a server whose "missing" rclone relays as a plain
+  501      # error rather than "not found" (#142). On a path-based cloud a folder
+  502      # its parent lacks is a folder not created yet, whatever the words. On
+  503      # a bucket the first component is a bucket name the provider judges,
+  504      # and the provider's own answer stands -- the parent rule would read
+  505      # InvalidBucketName as "not there yet" and store the name it rejected.
+  506      #
+  507      # Which kind this remote is, rclone says in JSON, and the answer has to
+  508      # be one of the two before anything rests on it. A `backend features`
+  509      # that fails or prints neither is "unknown", and unknown takes the
+  510      # provider's refusal at face value: the parent walk runs only on a
+  511      # remote known to be path-based. Until #151 PL-14 a failed call read as
+  512      # "not bucket-based" -- a grep over empty output -- and the walk ran,
+  513      # so the one guard against storing a rejected bucket name fell open
+  514      # exactly when rclone could not be asked.
+  515      local features bucket_based=unknown
+  516      if features=$(rclone backend features "${remote}" 2>/dev/null); then
+  517          case "${features}" in
+  518              *'"BucketBased": true'*)  bucket_based=yes ;;
+  519              *'"BucketBased": false'*) bucket_based=no ;;
+  520          esac
+  521      fi
+  522      if [ "${bucket_based}" = no ] && absent_not_broken "${remote}${path}"; then
+  523          return 0
+  524      fi
+  525  
+  526      # Something is wrong. If the remote is bucket-based, name the reason the
+  527      # message will not: the first path component is a bucket, not a folder.
+  528      if [ "${bucket_based}" = yes ]; then
+  529          bucket="${path#/}"; bucket="${bucket%%/*}"
+  530          echo "Your provider wouldn't accept \"${bucket}\"."
+  531          echo
+  532          echo "This provider keeps things in buckets, so the first part of the"
+  533          echo "folder is a bucket name, not a folder - and bucket names have"
+  534          echo "rules that folders do not. They are also shared with everyone"
+  535          echo "else using the provider, not private to your account."
+  536          echo
+  537          echo "  ${probe}"
+  538          echo
+  539          echo "Try something like /pixelelated-saves-yourname/Saves instead."
+  540      else
+  541          echo "Your provider wouldn't accept this folder:"
+  542          echo
+  543          echo "  ${probe}"
+  544      fi
+  545      return 1
+  546  }
+  547  
+  548  validation_context() {
+  549      folder_values >/dev/null || return 2
+  550      local remotes config_file config_id
+  551      REMOTE=$("$(dirname "${BASH_SOURCE[0]}")/cloud_remote" active 2>/dev/null) || return 2
+  552      [ -n "${REMOTE}" ] || return 2
+  553      config_file=$(timeout 3 rclone config file 2>/dev/null | tail -1)
+  554      [ -f "${config_file}" ] && [ -r "${config_file}" ] || return 2
+  555      # Only a digest leaves this scope; never print credential/config bytes.
+  556      config_id=$( set -o pipefail; { printf '%s\0' "${REMOTE}" "${SAVES}" "${BACKUPS}" "${CONTENT}";
+  557          sha256sum "${config_file}" || exit 1
+  558          if [ -f "${SYNC_CONF}" ]; then sha256sum "${SYNC_CONF}" || exit 1; fi
+  559          if [ -f /storage/.config/rclone/active-connection ]; then
+  560              sha256sum /storage/.config/rclone/active-connection || exit 1

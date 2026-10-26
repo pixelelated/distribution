@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "depth": "extended",
+  "scope": "epic",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "anthropic/claude-opus-5-5",
+    "lab": "anthropic",
+    "identity_source": "the coordinator's T17 dispatch on #664 (to the T5 session, m6-t5-build-engine) and the session's own model metadata (claude-opus-5-5)"
+  },
+  "reviewers": [
+    {
+      "member": "gpt",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "max",
+      "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
+      "allow_fallbacks": false,
+      "probes": [
+        {
+          "phase": "probe",
+          "prompt": "probe-prompt.md",
+          "output": "astra-probe.md"
+        }
+      ],
+      "calls": [
+        {
+          "phase": "refutation",
+          "prompt": "astra-brief.md",
+          "output": "astra-audit.md"
+        }
+      ],
+      "status": "complete: the probe 06:51:29 to 06:51:46 UTC and the refutation 06:52:05 to 07:11:33 UTC, both PASS, served openai/gpt-6-astra by OpenAI; 50 items graded in 04 § Second opinion"
+    },
+    {
+      "member": "gemini-argon",
+      "model": "google/gemini-4-argon",
+      "lab": "google",
+      "effort": "high",
+      "provider": "openrouter (the installed recipe)",
+      "probes": [
+        {
+          "phase": "probe",
+          "prompt": "probe-prompt.md",
+          "output": "argon-probe.md"
+        }
+      ],
+      "calls": [
+        {
+          "phase": "refutation",
+          "prompt": "argon-brief.md",
+          "output": "argon-audit.md"
+        }
+      ],
+      "status": "complete: the probe 07:18:19 to 07:18:31 UTC and the refutation 07:18:36 to 07:27:05 UTC, both PASS, served google/gemini-4-argon by Google; 49 items graded in 04 § Second opinion (argon-brief.md: the packet with the lane's grades of Astra, 302,486 bytes)"
+    }
+  ],
+  "keyed_calls": "exactly four: Astra's probe and refutation, then Argon's probe and refutation; every other tools/council/run call with COUNCIL_ENV_FILE=/nonexistent",
+  "packet": {
+    "file": "packet.md",
+    "bytes": 294779,
+    "sha256": "4e95aaffce1ca3cae39adfdaf4e14143b49aebd6efa0b880664c5c599b5e0168",
+    "manifest": "manifest.json",
+    "builder": "../stage-c/packet.py",
+    "content": "the ask; 02, 03 and 04 whole; four context sections (order § T17, the brief's § 4, nine register rows, the interface's why table); four of the 14 whole and line-numbered (package.mk, cloud_connections.py, cloud_remote, cloud_content_transfer); the other ten as line-numbered excerpts of every cited line with 8 lines of context; the four fixtures' docstrings and outputs",
+    "scan": "forbidden-terms-check --stdin 0 hits in 94 sections and on the whole packet; SECRET_PATTERNS 0 lines, proven to fire on a run-time fake line; 20 lines masked and 343 credential-word hits, each classed, 16 read by shape and dispositioned by name in packet.py; 0 values",
+    "per_seat": "astra-brief.md is packet.md with {PREFIX} as A; argon-brief.md is packet.md with {PREFIX} as R and the lane's grades of Astra appended",
+    "argon_brief_sha256": "192b5d83d1761e87cd76885292e6a564920db929120edbc110049fb340d96a4b",
+    "astra_brief_sha256": "82028e84213d013690ecaf89b5b4f3848686453317376352fb03a2a23c2327d5"
+  },
+  "written_before_first_call": "2026-10-26T06:50Z",
+  "keyed_calls_made": "four, as planned: 06:51:29, 06:52:05, 07:18:19, 07:18:36 UTC"
+}

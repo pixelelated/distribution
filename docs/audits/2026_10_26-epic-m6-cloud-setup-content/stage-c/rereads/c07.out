@@ -1,0 +1,106 @@
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth:470-495
+  470              if self.attempt is not None and existing.get("attempt") != self.attempt:
+  471                  return False
+  472              if self.gen is not None and existing.get("session") != self.gen:
+  473                  return False
+  474              if existing.get("status") not in from_status:
+  475                  return False
+  476              existing.update(status="failed", error=error)
+  477              _write_whole(existing)
+  478              return True
+  479  
+  480      def failure_reason(self):
+  481          """Why the attempt died, in words a player can act on."""
+  482          said = self.rclone_says
+  483          if "expired" in said or "invalid_grant" in said:
+  484              return ("That address had already expired — they are only good "
+  485                      "for a couple of minutes.")
+  486          if said:
+  487              return "The provider refused it: %s" % said[:160]
+  488          return "The provider did not accept that address."
+  489  
+  490      def submit(self, pasted):
+  491          """Replay the provider's redirect to rclone's waiting server.
+  492  
+  493          Accepts the whole failed URL or just the code, because the player is
+  494          copying from a phone's address bar on a page that did not load, and
+  495          which of the two they manage to grab is not something to be strict
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth:2265-2310
+ 2265              self.send_response(status)
+ 2266              self.send_header("Content-Type", "text/html; charset=utf-8")
+ 2267              self.send_header("Content-Length", str(len(encoded)))
+ 2268              self.end_headers()
+ 2269              self.wfile.write(encoded)
+ 2270  
+ 2271          def _render(self, message=""):
+ 2272              # A phone is a keyboard for the page on the handheld, and nothing
+ 2273              # else. It used to be offered the whole sign-in -- a link to the
+ 2274              # provider and a box to paste the redirect back into -- which is
+ 2275              # what a tester did on scanning the QR, because it was there. That
+ 2276              # flow only ever existed because the handheld could not show the
+ 2277              # page itself; where it can, offering both is offering a wrong
+ 2278              # turn.
+ 2279              if browser_stack_available():
+ 2280                  self._send(phone_page(holder.name, holder.pin))
+ 2281                  return
+ 2282  
+ 2283              self._send(PAGE % {
+ 2284                  "style": STYLE,
+ 2285                  "name": holder.name,
+ 2286                  "provider": holder.session.provider if holder.session else "",
+ 2287                  "pin": holder.pin,
+ 2288                  "message": message,
+ 2289                  "here": "",
+ 2290              })
+ 2291  
+ 2292          def _render_pin(self, message="", supplied=""):
+ 2293              self._send(PIN_PAGE % {
+ 2294                  "style": STYLE,
+ 2295                  "message": message,
+ 2296                  # Pre-fills the box. Every caller passes nothing: a wrong PIN
+ 2297                  # is not echoed back, so a guess learns nothing from the page
+ 2298                  # (#308 claude F-RS-14: this said a mistyped digit was
+ 2299                  # carried back).
+ 2300                  "pin": supplied,
+ 2301              })
+ 2302  
+ 2303          def _render_done(self, remote):
+ 2304              self._send(DONE_PAGE % {
+ 2305                  "style": STYLE, "name": holder.name, "remote": remote,
+ 2306              })
+ 2307  
+ 2308          def _gate(self, pin):
+ 2309              """True when the request may proceed; renders the refusal if not."""
+ 2310              if holder.pin_exhausted():
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth:2440-2470
+ 2440                      # fetch and throwing HTML at it would replace nothing and
+ 2441                      # tell nobody. Its own poll is what reports this state.
+ 2442                      self.send_response(409)
+ 2443                      self.send_header("Content-Length", "0")
+ 2444                      self.end_headers()
+ 2445                      return
+ 2446                  text = fields.get("type", [""])[0]
+ 2447                  named = fields.get("key", [""])[0]
+ 2448                  sent = holder.keyboard.type_text(text) if text else 0
+ 2449                  if named:
+ 2450                      holder.keyboard.press(named)
+ 2451                  self.send_response(204)
+ 2452                  self.send_header("Content-Length", "0")
+ 2453                  self.end_headers()
+ 2454                  # Counts only: what was typed may be a password.
+ 2455                  log("typed %d characters%s%s" % (
+ 2456                      sent, " + " + named if named else "",
+ 2457                      ", %d not on the keyboard" % (len(text) - sent) if len(text) > sent else ""))
+ 2458                  return
+ 2459  
+ 2460              if fields.get("restart"):
+ 2461                  ok, error = holder.start()
+ 2462                  # Waiting only from the starting the new attempt began with:
+ 2463                  # its rclone may already have died, and its collector said
+ 2464                  # so, before this line ran (PL-032, gpt G2-C-02).
+ 2465                  if ok and write_owned(holder.attempt, owner=holder.session.gen,
+ 2466                                        from_status=("starting",),
+ 2467                                        status="waiting",
+ 2468                                        provider=holder.session.provider):
+ 2469                      self._render('<div class=ok>Ready for another go. '
+ 2470                                   'Sign in below.</div>')

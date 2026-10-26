@@ -1,0 +1,61 @@
+== projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c:525-540
+  525  /* Instrumentation, kept deliberately. Keystrokes arriving from the phone go
+  526   * uinput -> kernel -> libinput -> sway -> here, and when they stopped landing
+  527   * every hop but the last could be proven individually. Without this line
+  528   * there is no way to tell "sway never delivered it" from "the page had
+  529   * nothing focused". */
+  530  static gboolean on_key(GtkWidget *widget, GdkEventKey *event, gpointer data)
+  531  {
+  532      if (g_getenv("CLOUD_SIGNIN_DEBUG"))
+  533          g_message("key %s (%u)", event->string && *event->string ? event->string : "?",
+  534                    event->keyval);
+  535  
+  536      /* A way out, always. The handheld's buttons are not a keyboard -- sway
+  537       * reports the gamepad as a tablet_pad -- so without something mapping
+  538       * them, this window covers the screen, cannot be driven from the device
+  539       * and cannot be closed. Escape is what the phone's "Close page" sends,
+  540       * and a keyboard plugged in; the pad's Select + Start ends the window
+== projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c:845-870
+  845       * without one.
+  846       *
+  847       * Not frame_name: an iframe with no name attribute reports NULL exactly
+  848       * as the main frame does, so that test refused the captcha anyway and
+  849       * the form stayed unusable.
+  850       */
+  851      if (!webkit_navigation_action_is_user_gesture(action))
+  852          return FALSE;
+  853  
+  854      const char *host = g_uri_get_host(parsed);
+  855      if (!host_permitted(host)) {
+  856          g_message("refused navigation to host %s", host ? host : "(none)");
+  857          webkit_policy_decision_ignore(decision);
+  858          return TRUE;
+  859      }
+  860      return FALSE;
+  861  }
+  862  
+  863  /* OAuth providers can open a related window and send a result to opener.
+  864   * Keep that relationship, but show only one authentication surface at a time
+  865   * in the existing window. No extra tabs, address bar, or general browsing. */
+  866  static void on_auth_close(WebKitWebView *view, gpointer data)
+  867  {
+  868      Osk *osk = data;
+  869      GtkWidget *stack = g_object_get_data(G_OBJECT(view), "stack");
+  870      WebKitWebView *parent = g_object_get_data(G_OBJECT(view), "auth-parent");
+390:    /* A reply from the covered parent must not change the popup's caret. */
+838:     * worth refusing. Subframes and resources load freely; the ephemeral
+874:    g_object_set_data(G_OBJECT(stack), "auth-popup", NULL);
+898:    if (!stack || g_object_get_data(G_OBJECT(stack), "auth-popup") || !parsed)
+905:    GtkWidget *popup = webkit_web_view_new_with_related_view(view);
+906:    webkit_web_view_set_settings(WEBKIT_WEB_VIEW(popup), webkit_web_view_get_settings(view));
+907:    g_object_set_data(G_OBJECT(popup), "stack", stack);
+908:    g_object_set_data(G_OBJECT(popup), "auth-parent", view);
+909:    g_object_set_data(G_OBJECT(stack), "auth-popup", popup);
+910:    g_signal_connect(popup, "decide-policy", G_CALLBACK(on_decide_policy), NULL);
+911:    g_signal_connect(popup, "load-changed", G_CALLBACK(on_load_changed), data);
+912:    g_signal_connect(popup, "ready-to-show", G_CALLBACK(on_auth_ready), data);
+913:    g_signal_connect(popup, "close", G_CALLBACK(on_auth_close), data);
+914:    gtk_stack_add_named(GTK_STACK(stack), popup, "auth-popup");
+915:    return popup;
+964:        webkit_web_context_new_ephemeral();
+978:    g_signal_connect(view, "create", G_CALLBACK(on_auth_create), &osk);

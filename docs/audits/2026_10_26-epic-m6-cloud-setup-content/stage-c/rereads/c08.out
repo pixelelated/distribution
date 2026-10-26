@@ -1,0 +1,76 @@
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth:2300-2330
+ 2300                  "pin": supplied,
+ 2301              })
+ 2302  
+ 2303          def _render_done(self, remote):
+ 2304              self._send(DONE_PAGE % {
+ 2305                  "style": STYLE, "name": holder.name, "remote": remote,
+ 2306              })
+ 2307  
+ 2308          def _gate(self, pin):
+ 2309              """True when the request may proceed; renders the refusal if not."""
+ 2310              if holder.pin_exhausted():
+ 2311                  self.send_error(403, "Too many wrong PINs. Start again on "
+ 2312                                       "the handheld.")
+ 2313                  return False
+ 2314              if holder.authorised(pin):
+ 2315                  return True
+ 2316              # No PIN at all is somebody typing the bare address, which is the
+ 2317              # documented fallback -- ask, do not refuse. A wrong one is either
+ 2318              # a typo or a guess, and both are answered the same way so neither
+ 2319              # learns anything the other does not.
+ 2320              if not pin:
+ 2321                  self._render_pin()
+ 2322              elif holder.pin_failed():
+ 2323                  self.send_error(403, "Too many wrong PINs. Start again on "
+ 2324                                       "the handheld.")
+ 2325              else:
+ 2326                  self._render_pin('<div class=err>That PIN did not match.</div>',
+ 2327                                   supplied="")
+ 2328              return False
+ 2329  
+ 2330          def _supplied(self):
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth:2395-2420
+ 2395              try:
+ 2396                  length = int(self.headers.get("Content-Length", 0))
+ 2397              except ValueError:
+ 2398                  length = -1
+ 2399              if length < 0 or length > MAX_BODY:
+ 2400                  self.send_response(413 if length > MAX_BODY else 400)
+ 2401                  self.send_header("Content-Length", "0")
+ 2402                  self.send_header("Connection", "close")
+ 2403                  self.end_headers()
+ 2404                  self.close_connection = True
+ 2405                  return
+ 2406              fields = urllib.parse.parse_qs(
+ 2407                  self.rfile.read(length).decode("utf-8", "replace"))
+ 2408              if not self._gate(fields.get("pin", [""])[0] or self._supplied()):
+ 2409                  return
+ 2410  
+ 2411              if fields.get("move") or fields.get("click") or fields.get("wheel"):
+ 2412                  if not holder.browser:
+ 2413                      self.send_response(409)
+ 2414                      self.send_header("Content-Length", "0")
+ 2415                      self.end_headers()
+ 2416                      return
+ 2417                  moved = fields.get("move", [""])[0]
+ 2418                  if moved:
+ 2419                      try:
+ 2420                          dx, dy = (int(float(v)) for v in moved.split(",", 1))
+179:        fd = os.open(state_path("session.lock"), os.O_RDWR | os.O_CREAT, 0o600)
+653:     text-align:center;font-weight:600;text-decoration:none;margin:.5rem 0}
+664:       border:0;background:#4af;color:#000;font-weight:600;width:100%}
+2210:# PIN is checked. The body was read whole, whatever Content-Length said, on
+2216:REQUEST_TIMEOUT = 15
+2217:MAX_CONNECTIONS = 16
+2227:        self.slots = threading.BoundedSemaphore(MAX_CONNECTIONS)
+2258:        timeout = REQUEST_TIMEOUT
+2267:            self.send_header("Content-Length", str(len(encoded)))
+2386:                self.send_header("Content-Length", str(len(body)))
+2396:                length = int(self.headers.get("Content-Length", 0))
+2401:                self.send_header("Content-Length", "0")
+2414:                    self.send_header("Content-Length", "0")
+2433:                self.send_header("Content-Length", "0")
+2443:                    self.send_header("Content-Length", "0")
+2452:                self.send_header("Content-Length", "0")
+2681:        name, label, port, timeout = None, None, 8080, 600

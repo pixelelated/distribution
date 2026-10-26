@@ -1,0 +1,82 @@
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_log_scrub:186-206
+  186          || { rm -f "${STAMP}.tmp"; echo "cloud_log_scrub: the record of the scrub could not be written; the next boot runs it again"; return 1; }
+  187  }
+  188  
+  189  failed=0
+  190  if ! recorded scrubbed; then
+  191      if family cloud "${LOG_DIR}"/cloud_sync.log "${LOG_DIR}"/cloud_sync.log.*; then
+  192          record scrubbed "${FILES}" "${LINES}" || failed=1
+  193          [ "${LINES}" -eq 0 ] || echo "cloud_log_scrub: ${LINES} line(s) in ${FILES} cloud log file(s) had credentials an earlier build wrote; masked"
+  194      else
+  195          failed=1
+  196      fi
+  197  fi
+  198  if ! recorded es_log_scrubbed; then
+  199      if family es "${LOG_DIR}"/es_log*.txt; then
+  200          record es_log_scrubbed "${FILES}" "${LINES}" || failed=1
+  201          [ "${LINES}" -eq 0 ] || echo "cloud_log_scrub: ${LINES} line(s) in ${FILES} interface log file(s) had cloud credentials an earlier build wrote; masked"
+  202      else
+  203          failed=1
+  204      fi
+  205  fi
+  206  exit "${failed}"
+2260:        def log_message(self, *args):
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_scan:250-282
+  250  while [ $# -gt 0 ]; do
+  251      case "$1" in
+  252          --run-id) [ -z "${RUN_ID}" ] && [ $# -ge 2 ] || exit 2; RUN_ID="$2"; shift 2 ;;
+  253          --content|--folder|--with-media|--media-only) ARGS+=("$1"); shift ;;
+  254          *) echo "Unknown scan option" >&2; exit 2 ;;
+  255      esac
+  256  done
+  257  RUN_ID="${RUN_ID:-$(date +%s)-$$}"
+  258  [[ "${RUN_ID}" =~ ^[A-Za-z0-9_.-]{1,96}$ ]] || exit 2
+  259  set -- "${ARGS[@]}"
+  260  CONFIG_ID=$(context_id) || exit 1
+  261  
+  262  # --content: the listing the systems page is built from, in the classes
+  263  # the player ticked (cloud_content_restore --scan's own flags), and the
+  264  # systems this device syncs. One item; the page's row 3 says it is
+  265  # comparing.
+  266  scan_content() {
+  267      local label="ROMS AND BIOS" rc
+  268      case " $* " in
+  269          *" --with-media "*) label="ROMS, BIOS, AND GAME CONTENT" ;;
+  270          *" --media-only "*) label="GAME CONTENT" ;;
+  271      esac
+  272      prepare
+  273      rm -f "${OUT}"/scan "${OUT}"/scan.err "${OUT}"/systems "${OUT}"/content-done
+  274      echo ">>> unit ${label}||"
+  275      echo ">>> doing compare"
+  276      "$(sibling cloud_content_restore)" --scan "$@" > "${OUT}/scan" 2> "${OUT}/scan.err"; rc=$?
+  277      [ "${rc}" -eq 0 ] || log "scan: --scan $* exited ${rc}: $(head -1 "${OUT}/scan.err" 2>/dev/null)"
+  278      stop_on "${rc}" "--scan"
+  279      "$(sibling cloud_content_restore)" --systems > "${OUT}/systems" 2>/dev/null; rc=$?
+  280      stop_on "${rc}" "--systems"
+  281      mode=$(content_mode "$@") || exit 2
+  282      write_completion content-done "${mode}" || exit 1
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_device_id:262-280
+  262  # appears unless something loads it. A device with no sit0 could not have
+  263  # hashed "notset", and every ROCKNIX image ships the hostname ROCKNIX, so
+  264  # listing <hostname>-ee5013fc56 there would send a fresh RG351M to the
+  265  # RG35XX SP's archives before the root tier. The trade, accepted: a healed
+  266  # device reflashed onto a later build that switched sit to a module loses
+  267  # these two guessed names (its .previous went with the card too) and falls
+  268  # to the root tier, whose message lists what the cloud holds.
+  269  previous_ids() {
+  270      local poisoned
+  271      poisoned=$(poisoned_hash)
+  272      {
+  273          [ -r "${PREVIOUS_FILE}" ] && tr -cd 'A-Za-z0-9_.\n-' < "${PREVIOUS_FILE}"
+  274          echo
+  275          if [ -e /sys/class/net/sit0 ]; then
+  276              echo "$(device_label)-${poisoned}"
+  277              echo "$(host_label)-${poisoned}"
+  278          fi
+  279      } | grep -v '^$' | awk '!seen[$0]++'
+  280  }
+    local SENT STAGED LISTED
+    SENT=$(wc -l < "${SENDLIST}")
+    STAGED=$(find "${STAGING}" -type f | wc -l)
+    rm -f "${FILELIST}" "${SECRETLIST}" "${SENDLIST}"
+    if [ "${STAGED}" -ne $((SENT + SANITISED)) ]

@@ -1,0 +1,113 @@
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_remote:255-270
+  255  
+  256  
+  257  def cmd_create(name, backend_type, settings, replace=False):
+  258      providers = load_providers()
+  259      if backend_type not in {p.get("Name") for p in providers}:
+  260          raise connections.Refused("Unknown provider.")
+  261      if not replace and backend_type in ("s3", "gcs", "azureblob") and not any(k == "directory_markers" for k, _ in settings):
+  262          settings.append(("directory_markers", "true"))
+  263      log("updating remote " + name if replace else "creating remote " + name)
+  264      connections.save(name, backend_type, settings, replace=replace)
+  265      print("OK=%s" % name)
+  266      return 0
+  267  
+  268  
+  269  def usage():
+  270      sys.stderr.write(
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_remote:318-345
+  318          return 1
+  319  
+  320      if command in ("select", "remove") and len(argv) == 3:
+  321          (connections.select if command == "select" else connections.remove)(argv[2])
+  322          print("OK=" + argv[2])
+  323          return 0
+  324  
+  325      if command in ("create", "update"):
+  326          if len(argv) < 4:
+  327              return usage()
+  328          settings = []
+  329          for pair in argv[4:]:
+  330              if "=" not in pair:
+  331                  sys.stderr.write("expected key=*** got: %s\n" % pair)
+  332                  return 1
+  333              key, value = pair.split("=", 1)
+  334              settings.append((key, value))
+  335          return cmd_create(argv[2], argv[3], settings, replace=(command == "update"))
+  336  
+  337      return usage()
+  338  
+  339  
+  340  if __name__ == "__main__":
+  341      try:
+  342          sys.exit(main(sys.argv))
+  343      except (connections.Refused, OSError) as exc:
+  344          sys.stderr.write(str(exc) + "\n" if isinstance(exc, connections.Refused) else "Cloud settings could not be read or saved.\n")
+  345          sys.exit(2)
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_connections.py:135-200
+  135          # Never forward provider diagnostics: they may contain credentials.
+  136          raise Refused('The connection could not be verified. Your settings were not changed.')
+  137      return result.stdout
+  138  
+  139  
+  140  def save(name, backend, settings, replace=False, publish=None, check_current=None):
+  141      if not name or name != name.strip() or any(c in name for c in ':[]\r\n\t') or name.startswith('-'):
+  142          raise Refused('Give the connection a name without colons or brackets.')
+  143      with locked():
+  144          existed = CONFIG.exists()
+  145          original, config = read_config()
+  146          exists = config.has_section(name)
+  147          if replace != exists:
+  148              raise Refused('Choose a different connection name.' if exists else 'This connection no longer exists.')
+  149          if replace:
+  150              require_manual()
+  151              if config.get(name, 'type', fallback='') != backend:
+  152                  raise Refused('The connection provider changed. Open its settings again.')
+  153          selected = active(config)
+  154          previous_selection = ACTIVE.read_bytes() if ACTIVE.exists() else None
+  155          written_selection = None
+  156          CONFIG.parent.mkdir(parents=True, exist_ok=True)
+  157          with tempfile.TemporaryDirectory(prefix='.connection-', dir=CONFIG.parent) as directory:
+  158              staged = Path(directory) / 'rclone.conf'
+  159              staged.write_bytes(original)
+  160              staged.chmod(0o600)
+  161              args = ['--config', str(staged), 'config', 'update' if replace else 'create', name]
+  162              if not replace:
+  163                  args.append(backend)
+  164              args.extend('%s=%s' % pair for pair in settings)
+  165              args += ['--non-interactive', '--obscure']
+  166              if check_current:
+  167                  check_current()
+  168              out = run(args)
+  169              import json
+  170              try:
+  171                  answer = json.loads(out or '{}')
+  172              except ValueError:
+  173                  answer = {}
+  174              if isinstance(answer, dict) and answer.get('State'):
+  175                  raise Refused('This provider needs additional setup. Use a computer to finish connecting it.')
+  176              # Each subprocess is bounded. Cancellation between stages avoids
+  177              # starting another full wait and lets private staging be cleaned.
+  178              if check_current:
+  179                  check_current()
+  180              run(['--config', str(staged), 'lsd', name + ':', '--contimeout', '10s', '--timeout', '20s', '--low-level-retries', '1', '--retries', '1'])
+  181              if check_current:
+  182                  check_current()
+  183              updated, result = read_config(staged)
+  184              if not result.has_section(name):
+  185                  raise Refused('The connection was not saved.')
+  186  
+  187              def commit():
+  188                  nonlocal written_selection
+  189                  # Refuse an outside writer instead of overwriting its update.
+  190                  current = CONFIG.read_bytes() if CONFIG.exists() else b''
+  191                  if current != original:
+  192                      raise Refused('Cloud settings changed during sign-in. Try again.')
+  193                  # Pin the old selection BEFORE making another name visible.
+  194                  # On a first connection the legacy fallback selects only it.
+  195                  if not ACTIVE.exists() and config.sections():
+  196                      written_selection = (selected + '\n').encode()
+  197                      atomic(ACTIVE, written_selection)
+  198                  atomic(CONFIG, updated)
+  199  
+  200              try:

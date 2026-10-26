@@ -1,0 +1,86 @@
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:1265-1300
+ 1265          # whether one side has what the other has. Fields 7 and 8 are what a
+ 1266          # copy in that direction would send; fields 5 and 6 count the same
+ 1267          # set. The game list is in the totals and never in the comparison
+ 1268          # (below). They arrived 2026-09-08; the first six keep their position
+ 1269          # and type, so a page built against six still reads this line.
+ 1270          SUP=$(supported_systems)
+ 1271          TMP=$(mktemp -d /tmp/cloud-scan.XXXXXX); trap 'rm -rf "${TMP}"' EXIT
+ 1272          rclone lsf -R --files-only --format "sp" --separator "|" "${ROOT}ROMs/" "${RCLONE_LIST_OPTS[@]}" > "${TMP}/cloud.raw" 2>/dev/null
+ 1273          scan_rc=$?
+ 1274          if [ "${scan_rc}" -ne 0 ] && [ -s "${TMP}/cloud.raw" ]; then
+ 1275              echo "Couldn't finish reading your cloud. Try again." >&2
+ 1276              exit 5
+ 1277          fi
+ 1278          cloud_content_filter < "${TMP}/cloud.raw" > "${TMP}/cloud"
+ 1279          # A code other than 3 from a folder that is simply not there yet
+ 1280          # (a server whose "missing" rclone does not map to "not found",
+ 1281          # #142) is an empty cloud, not one that could not be read.
+ 1282          if [ "${scan_rc}" -ne 0 ] && [ "${scan_rc}" -ne 3 ] && absent_not_broken "${ROOT}ROMs/"; then
+ 1283              log_message "scan: ROMs is not there yet (rclone exit ${scan_rc}; its nearest listable parent lacks it)"
+ 1284              scan_rc=3
+ 1285          fi
+ 1286          # BIOS is the ROMs tier's, never game content's: under --media-only it
+ 1287          # is not listed, so the union does not carry a line the page would
+ 1288          # skip and the log would puzzle over (3608 cloud BIOS files "not on
+ 1289          # this device" under game content alone, RG35XX SP, 2026-09-06).
+ 1290          if [ "${MEDIA_MODE}" != only ]; then
+ 1291              rclone lsf -R --files-only --format "sp" --separator "|" "${ROOT}BIOS/" "${RCLONE_LIST_OPTS[@]}" > "${TMP}/bios.raw" 2>/dev/null
+ 1292              bios_rc=$?
+ 1293              if [ "${bios_rc}" -ne 0 ] && [ -s "${TMP}/bios.raw" ]; then
+ 1294                  echo "Couldn't finish reading your cloud. Try again." >&2
+ 1295                  exit 5
+ 1296              fi
+ 1297              grep -v '^[0-9]*|README\.txt$' "${TMP}/bios.raw" | sed 's/|/|bios\//' >> "${TMP}/cloud"
+ 1298              if [ "${bios_rc}" -ne 0 ] && [ "${bios_rc}" -ne 3 ] && absent_not_broken "${ROOT}BIOS/"; then
+ 1299                  log_message "scan: BIOS is not there yet (rclone exit ${bios_rc}; its nearest listable parent lacks it)"
+ 1300                  bios_rc=3
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:1395-1420
+ 1395                  log_message "set-systems: refused, not a system folder name: ${_n}"
+ 1396                  exit 1
+ 1397              fi
+ 1398          done
+ 1399          mkdir -p "$(dirname "${SELECTION}")" 2>/dev/null
+ 1400          # An empty selection is a real answer ("none"), distinct from never
+ 1401          # having chosen; the file exists either way. Which is exactly why it
+ 1402          # is written whole or not at all: a kill mid-write left an empty
+ 1403          # file, and an empty file is a different valid choice -- every later
+ 1404          # --selected then said no systems were selected (D-CLOUD-078, #105).
+ 1405          { [ ${#local_names[@]} -eq 0 ] || printf '%s\n' "${local_names[@]}"; } > "${SELECTION}.tmp.$$" 2>/dev/null
+ 1406          mv -f "${SELECTION}.tmp.$$" "${SELECTION}" 2>/dev/null || rm -f "${SELECTION}.tmp.$$"
+ 1407          echo "OK $(selected_systems | wc -l) selected"
+ 1408          exit 0
+ 1409      ;;
+ 1410      --selected)
+ 1411          mapfile -t DIRS < <(selected_systems)
+ 1412          # BIOS is not a system and is no longer a pick (maintainer, 2026-09-06):
+ 1413          # it comes with the tier whenever the cloud has it. The tier's own
+ 1414          # switch already says ROMS AND BIOS; nothing runs without them. A
+ 1415          # "bios" line in the selection -- the placeholder the interface wrote
+ 1416          # so that BIOS alone was not refused -- is the same thing: remote_for
+ 1417          # sends it to BIOS/, one unit, never to a system folder under ROMs/.
+ 1418          if [ "${MEDIA_MODE}" != only ] && exists_remote "${ROOT}BIOS" && ! printf '%s\n' "${DIRS[@]}" | grep -qx bios; then
+ 1419              DIRS+=("bios")
+ 1420          fi
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:430-450
+  430  # never report absence there, and every caller that branched on it took the
+  431  # "exists" path unconditionally.
+  432  #
+  433  # A listing can report absence. Two questions, because a directory can be real
+  434  # without holding files: does it contain anything, or does its parent list it
+  435  # (which is what an --s3-directory-markers marker object produces)?
+  436  exists_remote() {
+  437      [ -n "$(rclone lsf "$1" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null | head -1)" ] && return 0
+  438      local parent name
+  439      parent="${1%/}"; name="${parent##*/}"; parent="${parent%/*}"
+  440      [ -n "${name}" ] || return 1
+  441      rclone lsf --dirs-only "${parent}/" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null | grep -qx "${name}/"
+  442  }
+  443  
+  444  # Is this remote path missing, rather than unreadable? rclone answers "not
+  445  # found" (exit 3) when the server's reply is the one it maps to that, and a
+  446  # plain error (exit 1) when the words differ: an FTP server that answers a
+  447  # missing folder with 501 "No such directory." where the standard reply is
+  448  # 550 makes every "is it there yet?" branch read as "the cloud is broken"
+  449  # (#142, from the #133 matrix). The parent settles it, whatever the words:
+  450  # walk up until a level lists. A level that lists and lacks the next name is

@@ -1,0 +1,95 @@
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup:700-760
+  700  if ! content_context_current; then
+  701      echo ">>> why SOMETHING CHANGED SINCE YOU CHECKED"
+  702      echo "Your cloud settings changed. Start this operation again."
+  703      exit 1
+  704  fi
+  705  UNIT_N=${#DIRS[@]}; UNIT_I=0
+  706  for DIR in "${DIRS[@]}"; do
+  707      set_system_save_excludes "${DIR}"
+  708      # Local -> remote. This script uploads; cloud_content_restore is the one
+  709      # that brings content back down.
+  710      SRC="${DEST}/${DIR}"
+  711      TARGET="$(remote_for "${DIR}")"
+  712      UNIT_I=$((UNIT_I + 1))
+  713      log_message "Content backup: ${SRC} -> ${TARGET}"
+  714      # The marker the transfer page reads: what is being copied, and which of
+  715      # how many. Restore has emitted it since D-UI-024; backup never did, so
+  716      # the page kept the previous script's last label -- SETTINGS BACKUP --
+  717      # through every system it uploaded (maintainer, 2026-09-06).
+  718      echo ">>> unit ${DIR:-everything}|${UNIT_I}|${UNIT_N}"
+  719      echo "Backing up ${DIR:-everything} to the cloud..."
+  720      # --progress is what puts the stats on stdout. With only --log-file they
+  721      # go to the log and the caller sees nothing -- which is why the progress
+  722      # card sat at "0 B / 0 B, -, 0 B/s" through a restore that was in fact
+  723      # copying Mega Drive ROMs the whole time. The saves path has always passed
+  724      # it; these two never did.
+  725      #
+  726      # And NOT --stats-one-line: that collapses the display to a totals line,
+  727      # losing the per-file block. A transfer of a thousand small BIOS files
+  728      # spends minutes between percentage changes, and the only thing that says
+  729      # it is alive rather than stuck is the name of the file it is on right
+  730      # now. --stats 1s keeps that moving.
+  731      #
+  732      # No --progress-terminal-width: the flag does not exist on every rclone we
+  733      # ship against (the saves scripts test for it with "rclone help | grep"
+  734      # before using it), and an unknown flag is a usage error that transfers
+  735      # nothing. rclone pads the file name out to a guessed width; the reader
+  736      # trims it, so the flag bought nothing worth a version check.
+  737      #
+  738      # The folder first, on its own. rclone creates a missing destination as
+  739      # part of a copy, but only after listing it, and a server that answers a
+  740      # missing folder with an error rather than "not found" (an FTP server's
+  741      # 501 where the standard reply is 550) fails that listing. Under
+  742      # --retries 1 that one attempt is the whole run: reported as failed,
+  743      # with files that may or may not have landed (#142, from the #133
+  744      # matrix: 2 of 3). mkdir is one round trip, idempotent, and on a bucket
+  745      # under directory markers it writes the marker the folder's parent then
+  746      # lists (D-CLOUD-120). Its own failure is left to the copy to report.
+  747      rclone mkdir "${TARGET}" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null
+  748      UNIT_LOG0=$(log_offset)
+  749      # The setup's note at a unit's root (BIOS/README.txt, cloud_setup
+  750      # --seed-folders) is not content, and neither side counts it (#308 gpt
+  751      # F-CS-30): it came down into /storage/roms/bios and read ever after as a
+  752      # file this device has and the cloud does not.
+  753      bounded_content_rclone copy "${SRC}" "${TARGET}" "${RCLONE_NET_OPTS_ARRAY[@]}" \
+  754          "${SAVE_EXCLUDES[@]}" "${SYSTEM_SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${MEDIA_EXCLUDES[@]}" \
+  755          --exclude "gamelist.xml" --exclude "**/gamelist.xml" --exclude "/README.txt" \
+  756          --progress --stats 1s \
+  757          --log-file "${LOG_FILE}" --log-level INFO
+  758      RC=$?
+  759  
+  760      # The game list: newest wins, rather than whoever ran last. Game content
+== projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup:570-600
+  570      ;;
+  571      --all)
+  572          mapfile -t DIRS < <(list_local_dirs)
+  573          if [ ${#DIRS[@]} -eq 0 ]; then
+  574              echo "Nothing to back up: there are no ROMs or BIOS files on this device."
+  575              record_outcome content-backup 0
+  576              exit 0
+  577          fi
+  578      ;;
+  579      "")
+  580          echo "Usage: ${SCRIPT_NAME} --list | --list-sizes | --all | <dir> [<dir>...]" >&2
+  581          exit 1
+  582      ;;
+  583      *)
+  584          DIRS=("$@")
+  585      ;;
+  586  esac
+  587  
+  588  # Another sync client's unresolved dispute is not our content.
+  589  #
+  590  # Dropbox and Nextcloud rename the losing side of a concurrent write to
+  591  # "X (Someone's conflicted copy 2026-09-03)"; Syncthing appends
+  592  # ".sync-conflict-<date>". Carrying those onto a handheld doubles the storage
+  593  # for no benefit -- the player cannot resolve a conflict from a games menu --
+  594  # and it makes the artifacts immortal: a device that downloaded them uploads
+  595  # them again on the next backup, so deleting them in the cloud looks like the
+  596  # provider putting them back. That happened here, to 271 directories of BIOS
+  597  # (2026-09-04).
+  598  #
+  599  # Resolution belongs on the computer where both sides can be seen. We decline
+  600  # to move them in either direction, which is also the only way a cleanup on
+484:remote_for() {
