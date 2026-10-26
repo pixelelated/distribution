@@ -180,3 +180,42 @@ by the coordinator.
 A build, a compiler, a guest outside the granted window, a fetch, a keyed
 council call, anything on a unit or a person's cloud, a change outside the
 six files named and the audit folder, a change to T16's twins.
+
+## S7 -- `backuptool`: member types the name check does not inspect (F-24, PL-23; added at the hand-back, 2026-10-26 08:2x UTC)
+
+Found by the lane in its guest window through a full `backuptool restore` of
+hand-made archives: a standalone symlink member (to `/var/tmp`) was restored
+with rc 0; a symlink with a child failed and **its revert failed too**, leaving
+a directory and `.restore-in-progress`; a hard link and then a file failed
+cleanly. A `bug`, Low (the archive must be hand-made; the interface restores
+its own), the lane's to file, fork-own.
+
+File: `projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool` (the
+member check `:551-558`, `foreign_member()`, and the revert).
+
+1. **Positive before:** `tools/t17-archive-fixture.py` (the shape of the
+   guest run) over hand-made archives of each member type -- a standalone
+   symlink, a symlink with a child, a hard link, a device node, a regular
+   file, a directory -- through `backuptool restore` on the host under the
+   image's busybox `tar` from the donor: the standalone symlink restored,
+   the symlink-with-child's revert leaving a directory and the marker.
+   `stage-e/s7-before.txt`.
+2. **The fix:** `foreign_member()` refuses every member type other than a
+   regular file or a directory, before extraction, by `tar -tvf`'s type
+   column (`l`, `h`, `c`, `b`, `p`, `s`), with the refusal in the player's
+   words and the restore reverting to the previous settings; and the
+   revert's handling of a restored-into directory read and made whole: a
+   directory where the live tree had a file is removed before the previous
+   file is put back, so `.restore-in-progress` never survives a revert.
+3. **Positive after:** every foreign member refused with nothing written
+   outside `/storage` and nothing left in the live tree; the regular file
+   and the directory still restore (the control); a forced mid-restore
+   failure's revert leaves no directory and no marker. `stage-e/s7-after.txt`.
+4. **`Already written:`** an archive already in a cloud is read by the same
+   check at its next restore and refused if it holds a foreign member --
+   the player is told which (the restore's why line) and the previous
+   settings stand; nothing persisted on a device beyond what an earlier
+   restore left, which the fix does not touch.
+5. **Commit:** `backuptool: refuse archive members that are not files or
+   directories, and make the revert whole over a restored-into directory
+   (Refs #664, #<S7 bug>)`.
