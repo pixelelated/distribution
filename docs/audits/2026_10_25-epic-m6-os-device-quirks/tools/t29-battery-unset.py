@@ -3,7 +3,7 @@
 and after a critical-battery blink.
 
     python3 -I -B docs/audits/2026_10_25-epic-m6-os-device-quirks/tools/t29-battery-unset.py \
-        [--file <battery_led_status>] [--redirect-paths] [--expect unfixed|fixed]
+        [--file <battery_led_status>] [--redirect-paths] [--expect unfixed|fixed] [--bash <bash>]
 
 On an SM8550 image, `platforms/SM8550/030-led-control:7` sets
 DEVICE_BATTERY_LED_STATUS="true" and `system-utils/sources/autostart/common/
@@ -23,18 +23,24 @@ Cases:
 --redirect-paths rewrites a helper that hard-codes LED_PATH="/sys/devices/platform/"
 and /sys/class/power_supply/battery/ (upstream's copies) to the fixture's paths.
 --expect unfixed asserts what the file at 8ebaf8daad does; --expect fixed what
-a fixed file must do. Without --expect it prints and exits 0. Writes only under
+a fixed file must do. Without --expect it prints and exits 0. --bash names the
+bash that runs the helper (default: the first on PATH); the first line printed
+names it with its version. Writes only under
 a temporary directory. Nothing runs on a unit.
 """
 from pathlib import Path
-import argparse, os, subprocess, sys, tempfile
+import argparse, os, shutil, subprocess, sys, tempfile
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--file", type=Path,
                 default=Path("projects/ROCKNIX/packages/hardware/quirks/devices/Retroid Pocket Nova/bin/battery_led_status"))
 ap.add_argument("--redirect-paths", action="store_true")
 ap.add_argument("--expect", choices=["unfixed", "fixed"])
+ap.add_argument("--bash", default="bash")
 a = ap.parse_args()
+BASH = shutil.which(a.bash) or sys.exit(f"t29-battery-unset: no bash at {a.bash}")
+print(f"bash: {os.path.realpath(BASH)} " + subprocess.run([BASH, "--version"], capture_output=True, text=True).stdout.splitlines()[0])
+print(f"file: {a.file}")
 src = a.file.read_text()
 if a.redirect_paths:
     src = src.replace('LED_PATH="/sys/devices/platform/"', 'LED_PATH="${LED_PATH:-/sys/devices/platform/}"')
@@ -71,7 +77,7 @@ with tempfile.TemporaryDirectory(prefix="t29-battery-", dir=os.environ.get("TMPD
         body = src.replace(". /etc/profile.d/001-functions", f'. "{prof}"').replace(". /etc/profile", f'. "{prof}"')
         script = root / "battery_led_status"; script.write_text(body)
         env = dict(os.environ, LED_PATH=str(led), BATTERY_PATH=str(bat), QA_SETTINGS=str(settings), QA_ROOT=str(root))
-        r = subprocess.run(["bash", str(script)], env=env, capture_output=True, text=True, timeout=30)
+        r = subprocess.run([BASH, str(script)], env=env, capture_output=True, text=True, timeout=30)
         b = sorted({(d / "brightness").read_text().strip() for d in dirs})
         m = sorted({(d / "multi_intensity").read_text().strip() for d in dirs})
         lit = b != ["0"]

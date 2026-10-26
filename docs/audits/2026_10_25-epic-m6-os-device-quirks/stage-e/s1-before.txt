@@ -1,0 +1,20 @@
+run: 2026-10-26T05:31:15Z
+tree: ce2af0ca7c
+$ t29-battery-unset.py --expect fixed
+bash: /usr/bin/bash GNU bash, version 5.3.9(1)-release (x86_64-pc-linux-gnu)
+file: projects/ROCKNIX/packages/hardware/quirks/devices/Retroid Pocket Nova/bin/battery_led_status
+unset: led.color=unset caps=75 rc=0 brightness=['255'] multi_intensity=['0 255 0'] lit=yes
+rgb: led.color=rgb caps=75 rc=0 brightness=['0'] multi_intensity=['0 0 0'] lit=no
+battery: led.color=battery caps=75 rc=0 brightness=['255'] multi_intensity=['0 255 0'] lit=yes
+critical-recovery: led.color=battery caps=15>10>15 rc=0 brightness=['0'] multi_intensity=['0 0 0'] lit=no
+t29-battery-unset: UNEXPECTED on fixed: unset, critical-recovery
+exit 1
+$ t29-battery-unset.py --expect unfixed
+bash: /usr/bin/bash GNU bash, version 5.3.9(1)-release (x86_64-pc-linux-gnu)
+file: projects/ROCKNIX/packages/hardware/quirks/devices/Retroid Pocket Nova/bin/battery_led_status
+unset: led.color=unset caps=75 rc=0 brightness=['255'] multi_intensity=['0 255 0'] lit=yes
+rgb: led.color=rgb caps=75 rc=0 brightness=['0'] multi_intensity=['0 0 0'] lit=no
+battery: led.color=battery caps=75 rc=0 brightness=['255'] multi_intensity=['0 255 0'] lit=yes
+critical-recovery: led.color=battery caps=15>10>15 rc=0 brightness=['0'] multi_intensity=['0 0 0'] lit=no
+t29-battery-unset: unfixed-expectation-met (unset lit=yes, rgb lit=no, battery lit=yes, critical-recovery lit=no)
+exit 0

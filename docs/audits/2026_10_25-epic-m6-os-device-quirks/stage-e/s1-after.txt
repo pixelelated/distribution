@@ -1,0 +1,51 @@
+run: 2026-10-26T05:31:35Z
+tree: ce2af0ca7c plus the uncommitted fix below
+$ t29-battery-unset.py --expect fixed
+bash: /usr/bin/bash GNU bash, version 5.3.9(1)-release (x86_64-pc-linux-gnu)
+file: projects/ROCKNIX/packages/hardware/quirks/devices/Retroid Pocket Nova/bin/battery_led_status
+unset: led.color=unset caps=75 rc=0 brightness=['0'] multi_intensity=['0 0 0'] lit=no
+rgb: led.color=rgb caps=75 rc=0 brightness=['0'] multi_intensity=['0 0 0'] lit=no
+battery: led.color=battery caps=75 rc=0 brightness=['255'] multi_intensity=['0 255 0'] lit=yes
+critical-recovery: led.color=battery caps=15>10>15 rc=0 brightness=['255'] multi_intensity=['0 0 255'] lit=yes
+t29-battery-unset: fixed-expectation-met (unset lit=no, rgb lit=no, battery lit=yes, critical-recovery lit=yes)
+exit 0
+$ t29-battery-unset.py --expect unfixed
+bash: /usr/bin/bash GNU bash, version 5.3.9(1)-release (x86_64-pc-linux-gnu)
+file: projects/ROCKNIX/packages/hardware/quirks/devices/Retroid Pocket Nova/bin/battery_led_status
+unset: led.color=unset caps=75 rc=0 brightness=['0'] multi_intensity=['0 0 0'] lit=no
+rgb: led.color=rgb caps=75 rc=0 brightness=['0'] multi_intensity=['0 0 0'] lit=no
+battery: led.color=battery caps=75 rc=0 brightness=['255'] multi_intensity=['0 255 0'] lit=yes
+critical-recovery: led.color=battery caps=15>10>15 rc=0 brightness=['255'] multi_intensity=['0 0 255'] lit=yes
+t29-battery-unset: UNEXPECTED on unfixed: unset, critical-recovery
+exit 1
+$ bash -n (host /usr/bin/bash 5.3.9(1)-release)
+exit 0
+$ tools/nova-led-test
+PASS battery 98% Charging: saved min and expected color
+PASS battery 5% Discharging: saved min and expected color
+PASS critical battery: five min-brightness/on and zero/off pairs
+14 PASS, 0 FAIL
+exit 0
+$ git diff 8ebaf8daad -- <file>
+diff --git a/projects/ROCKNIX/packages/hardware/quirks/devices/Retroid Pocket Nova/bin/battery_led_status b/projects/ROCKNIX/packages/hardware/quirks/devices/Retroid Pocket Nova/bin/battery_led_status
+index acf8f6bb0a..0b38364b30 100644
+--- a/projects/ROCKNIX/packages/hardware/quirks/devices/Retroid Pocket Nova/bin/battery_led_status	
++++ b/projects/ROCKNIX/packages/hardware/quirks/devices/Retroid Pocket Nova/bin/battery_led_status	
+@@ -70,7 +70,7 @@ PREV_BATCAP="null"
+ while true
+   do
+   BAT_LED_STATE=$(get_setting led.color)
+-  if [ ! ${BAT_LED_STATE} == "battery" ]; then
++  if [ ! "${BAT_LED_STATE}" == "battery" ]; then
+     break
+   else
+     # Keep the selected level across color changes and low-battery blinks.
+@@ -84,6 +84,8 @@ while true
+       if [ ${STAT} == "Discharging" ]; then
+         if (( ${CAP} <= 10 ))
+           then
++            # The blink ends off: forget the bucket so the next pass repaints.
++            PREV_BATCAP="critical"
+             for ctr in $(seq 1 1 5)
+           do
+             bat_led_red
