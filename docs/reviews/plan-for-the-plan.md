@@ -319,6 +319,15 @@ sections (§ 7).
 the renovation face is added to its checks in P1 so a slice without the seven
 questions answered fails the lint rather than a reader's attention.
 
+**The stream practice (added 2026-10-26 from T17's second hand-back, #664).**
+A stage-E stream that changes a script `tools/last-good-scripts-test` covers
+runs that suite before its commit and names the run in `02` § The streams;
+a stream that changes an EmulationStation source runs the unit tests and
+the syntax check the slice's brief names, or records their `CANNOT`. T17's
+S3 narrowed a check too far and the suite found it only at S7
+(`c3e260861b` put it right); the suite before the commit would have found
+it at S3. Every stream brief carries the line.
+
 **The brief practice that grew in P2 (added 2026-10-26 from the coordinator's
 retro, `docs/retros/2026-10-26-m6-coordinator.md`).** Before any dispatch: a
 **stranger's proof** -- a reader with no context, at most ten commands, from a
