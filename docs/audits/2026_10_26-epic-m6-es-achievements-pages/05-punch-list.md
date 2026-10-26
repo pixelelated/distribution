@@ -430,7 +430,7 @@ Every item is open until the coordinator's stage-D ruling and stage F.
 | --- | --- | --- |
 | PL-01 | Resolved | Resolved in `698040b5c` (ES, S1) under #1170: one owner for the hasher's lifetime; `hasher-tests` heap-use-after-free before, 3 of 3 clean after (`stage-e/s1-*.txt`); the startup walk owed (`stage-e/walks/s1-startup-lookups.steps`) |
 | PL-02 | Resolved | Resolved in `d3137f992` (ES, S2) under #1171: the credential in a POST body as the vendored client sends it, and `httpsRedirectsOnly` for it; the unit FAIL before, PASS after (`stage-e/s2-*.txt`); the listener walk owed; the transport's verification stays #1154's |
-| PL-03 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
+| PL-03 | Resolved | Resolved in `ad2989aa5` (ES, S3) under #1172: the pid taken once and above 1, a later line ignored and logged; `jobs-tests` FAIL before, PASS after (`stage-e/s3-*.txt`); the CR-named ROM's walk owed |
 | PL-04 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-05 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-06 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
@@ -475,7 +475,7 @@ punch_index:
   category: Security
   question: Q3
   source_finding: "L-10"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-04
   severity: "Medium"
   category: Correctness

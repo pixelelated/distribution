@@ -1,0 +1,11 @@
+# S3 (#1172), for the integration build's window (fix-walk-pending-image):
+# a ROM whose name holds a carriage return and ">>> pid 1", then CANCEL.
+# 1. On the guest: `printf 'x' > "/storage/roms/gb/$(printf 'a\r>>> pid 1').gb"`
+#    beside the QA homebrew ROM; offline achievements on, signed in.
+# 2. Start SCAN GAMES FOR OFFLINE ACHIEVEMENTS, YES; while it runs, back,
+#    CANCEL THE SCAN? YES.
+# 3. Read: es_log.txt has "a later pid line (1) was ignored" (or, with T19's S9
+#    integrated, no such line because the ctl replaced the CR); the scan ends
+#    SKIPPED - YOU CANCELLED IT; `systemctl is-active essway` active; the
+#    journal shows no other unit stopped by SIGINT.
+# 4. Remove the planted ROM.
