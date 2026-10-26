@@ -8,3 +8,9 @@ s3-match-cancel = to-manage-cloud-storage s3-match-cancel | cloud_content_restor
 # the second run's done page reads NOTHING NEW - YOUR CLOUD ALREADY HAD IT ALL or, where that
 # does not fit the line, NOTHING NEW TO BACK UP
 s3-nothing-new = to-manage-cloud-storage back-up-page tick-roms continue-to-systems run-transfer
+#
+# S4 (#1148): the card's stamp when the interface restarts mid-sync. Not a step file: a
+# guest proof, owed to the integration build. With SYNC SAVES DURING STARTUP on and the QA
+# WebDAV seeded with a payload large enough to take ten seconds, restart essway while the
+# startup card shows TRANSFERRING; afterwards /storage/.cache/cloud_sync/last-restore and
+# last-backup are newer than the restart (the old wrapper left them as the run before).

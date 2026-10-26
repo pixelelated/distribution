@@ -1,0 +1,28 @@
+== S4 after (11:35:26Z): the fix in the working tree, before its commit
+ es-app/src/CloudTransferJob.cpp  |  6 ++++--
+ es-app/src/ThreadedCloudSync.cpp | 10 +++++++++-
+ 2 files changed, 13 insertions(+), 3 deletions(-)
+-- the fixture on the fixed wrappers
+rev WORKTREE; the shell: /usr/bin/dash; setsid: /usr/bin/setsid
+the card's wrapper: '{ trap \'\' PIPE; echo ">>> pid $$"; CMD ; }'
+the job's wrapper:  '{ trap \'\' PIPE; echo ">>> pid $$"; CMD ; }'
+card late   : the script's stamp WRITTEN
+card at-once: the script's stamp WRITTEN
+job  late   : the script's stamp WRITTEN
+job  at-once: the script's stamp WRITTEN
+fixed-expectation-met
+exit 0
+-- every command the card is started with, through the fixed wrapper, under sh -n (dash on the host)
+syntax ok  FileData.cpp:1310 and ProxyCards.cpp:34 (the exit sync)
+syntax ok  GuiMenu.cpp:6140 (the manual sync)
+syntax ok  GuiMenu.cpp:6147 and :6152 (manual back up, restore)
+syntax ok  main.cpp:665 (the startup sync, read from the source)
+RUN es-unit-tests: rc 0; [doctest] test cases: 187 | 187 passed | 0 failed | 0 skipped [doctest] assertions: 4881 | 4881 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 26 | 26 passed | 0 failed | 0 skipped [doctest] assertions: 3408 | 3408 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN jobs-tests: rc 0; [doctest] test cases: 6 | 6 passed | 0 failed | 0 skipped [doctest] assertions: 28 | 28 passed | 0 failed | 
+-- host g++ -fsyntax-only es-app/src/ThreadedCloudSync.cpp: rc 1 (fatal error: SDL_joystick.h: No such file)
+-- host g++ -fsyntax-only es-app/src/CloudTransferJob.cpp: rc 1 (fatal error: SDL_joystick.h: No such file)
+-- non-ASCII comment lines in the touched files: 0
+-- PL-19: not fixed; its fixture did not fall (stage-e/s4-before.txt)

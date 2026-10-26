@@ -1,0 +1,13 @@
+== S4 before (11:36:41Z): the pin's wrappers (16dbac5211), and PL-19's glued line with the donor's rclone 1.75.2 (/workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/rclone, sha256 ed887da83d3e2c07ff8acc60cb5b56dbe7bb4d73cc445b6ff71988f164c0558a), local folders only
+rev 16dbac5211; the shell: /usr/bin/dash; setsid: /usr/bin/setsid
+the card's wrapper: 'echo ">>> pid $$"; CMD'
+the job's wrapper:  'echo ">>> pid $$"; { trap \'\' PIPE; CMD ; }'
+card late   : the script's stamp not written
+card at-once: the script's stamp not written
+job  late   : the script's stamp WRITTEN
+job  at-once: the script's stamp not written
+unfixed-expectation-met
+glued: 2359 bytes of output; the marker at byte 2346; the byte before it b'\n'; the 60 before: b'sferred:           40 / 40, 100%\nElapsed time:         5.0s\n'
+glued: the marker starts a line: PL-19 does not fall
+exit 0
+-- the host's sh is dash; the device's is busybox ash: SIGPIPE's default action (terminate) is the same, and the trap syntax is POSIX
