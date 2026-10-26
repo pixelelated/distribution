@@ -1,0 +1,10 @@
+# T18 S3, S4, S5, S6: the lines for tools/vm-walks/suite.txt that the
+# integration build's walks owe (fix-walk-pending-image). The coordinator
+# moves them into tools/ at integration; none is under tools/ here.
+#
+# S3 (#1146): the match's CANCEL confirmation (needs a slow match; see the steps file's header)
+s3-match-cancel = to-manage-cloud-storage s3-match-cancel | cloud_content_restore --set-systems "gb snes"
+# S3 (#1149): a back up with nothing new, framed on its done page at 640x480: run-transfer twice,
+# the second run's done page reads NOTHING NEW - YOUR CLOUD ALREADY HAD IT ALL or, where that
+# does not fit the line, NOTHING NEW TO BACK UP
+s3-nothing-new = to-manage-cloud-storage back-up-page tick-roms continue-to-systems run-transfer

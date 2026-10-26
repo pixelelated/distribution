@@ -1,0 +1,29 @@
+== S3 before (11:29:57Z): GuiCloudTransfer.cpp as at the pin (unchanged by S1 and S2's code), the guard case added to AtomicFileTests.cpp only
+ M es-app/tests/unit/AtomicFileTests.cpp
+lines of GuiCloudTransfer.cpp changed since the pin: 0
+RUN es-unit-tests: rc 0; [doctest] test cases: 187 | 187 passed | 0 failed | 0 skipped [doctest] assertions: 4881 | 4881 passed | 0 failed | 
+RUN es-file-tests: rc 1; [doctest] test cases: 26 | 25 passed | 1 failed | 0 skipped [doctest] assertions: 3408 | 3396 passed | 12 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/AtomicFileTests.cpp:874: ERROR: CHECK( cpp.find("CANCEL THIS MATCH?\\n\\nWHAT'S ALREADY BEEN REMOVED STAYS REMOVED. CHECK WHAT WOULD CHANGE AGAIN TO FINISH.") != std::string::npos ) is NOT correct!
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/AtomicFileTests.cpp:875: ERROR: CHECK( cpp.find("NOTHING NEW TO RESTORE") != std::string::npos ) is NOT correct!
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/AtomicFileTests.cpp:876: ERROR: CHECK( cpp.find("NOTHING NEW TO BACK UP") != std::string::npos ) is NOT correct!
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/AtomicFileTests.cpp:880: ERROR: CHECK( cpp.find(gone) == std::string::npos ) is NOT correct!
+  logged: 0x56158b16f6e9
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/AtomicFileTests.cpp:880: ERROR: CHECK( cpp.find(gone) == std::string::npos ) is NOT correct!
+  logged: 0x56158b16f6f4
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/AtomicFileTests.cpp:880: ERROR: CHECK( cpp.find(gone) == std::string::npos ) is NOT correct!
+  logged: 0x56158b16f6fc
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/AtomicFileTests.cpp:880: ERROR: CHECK( cpp.find(gone) == std::string::npos ) is NOT correct!
+  logged: 0x56158b16f706
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/AtomicFileTests.cpp:886: ERROR: CHECK( cpp.find(unfitted) == std::string::npos ) is NOT correct!
+  logged: 0x56158b16f715
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/AtomicFileTests.cpp:886: ERROR: CHECK( cpp.find(unfitted) == std::string::npos ) is NOT correct!
+  logged: 0x56158b16f730
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/AtomicFileTests.cpp:886: ERROR: CHECK( cpp.find(unfitted) == std::string::npos ) is NOT correct!
+  logged: 0x56158b16f750
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/AtomicFileTests.cpp:886: ERROR: CHECK( cpp.find(unfitted) == std::string::npos ) is NOT correct!
+  logged: 0x56158b16f76f
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/AtomicFileTests.cpp:886: ERROR: CHECK( cpp.find(unfitted) == std::string::npos ) is NOT correct!
+  logged: 0x56158b16f790
+-- the dialog's before-frame: CANNOT in T18's window (a match ended at 0:00; 02 § The guest cycle), owed to the integration build's walk (#1141)

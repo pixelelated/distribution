@@ -1,0 +1,15 @@
+== S3 after (11:32:13Z): the fix in the working tree, before its commit
+ es-app/src/guis/GuiCloudTransfer.cpp            | 29 ++++++++++++-------
+ es-app/tests/unit/AtomicFileTests.cpp           | 38 +++++++++++++++++++++++++
+ locale/lang/fr/LC_MESSAGES/emulationstation2.po | 27 +++++++++++-------
+ 3 files changed, 74 insertions(+), 20 deletions(-)
+RUN es-unit-tests: rc 0; [doctest] test cases: 187 | 187 passed | 0 failed | 0 skipped [doctest] assertions: 4881 | 4881 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 26 | 26 passed | 0 failed | 0 skipped [doctest] assertions: 3408 | 3408 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN jobs-tests: rc 0; [doctest] test cases: 6 | 6 passed | 0 failed | 0 skipped [doctest] assertions: 28 | 28 passed | 0 failed | 
+-- host g++ -fsyntax-only GuiCloudTransfer.cpp: rc 1 (fatal error: SDL_joystick.h: No such file)
+-- non-ASCII comment lines in the touched files: 0
+-- es-untranslated: rc 0; lines naming the eight: 0
+-- the catalog: msgfmt is not on the host (command -v msgfmt: none); the build's msgmerge/msgfmt is the integration build's
+-- the frames: walks under stage-e/walks/ (s3-match-cancel.steps, suite-lines.txt), owed to the integration build (fix-walk-pending-image)

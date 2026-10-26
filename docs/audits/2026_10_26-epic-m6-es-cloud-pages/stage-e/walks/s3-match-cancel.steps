@@ -1,0 +1,38 @@
+# T18 S3 (#1146): the CANCEL confirmation over a running match, framed at 640x480.
+# Start: the CLOUD hub, focus on BACK UP TO THE CLOUD (to-manage-cloud-storage's end).
+# Needs a match long enough to press back during: T18's window showed one
+# ending at ELAPSED 0:00 on the suite's two-system fixture, so this walk
+# wants a fixture whose match removes enough files to run a second or more
+# (#1141 carries the 640x480 harness). The integration build owes the frame.
+# Start: the CLOUD hub, focus on BACK UP TO THE CLOUD (where
+# to-manage-cloud-storage.steps leaves it). End: the transfer page after a
+# match, finished, waiting for any button.
+# MATCH THIS DEVICE TO THE CLOUD is the third row of BACKUP AND RESTORE. A
+# opens the compare (COMPARING YOUR ROMS AND BIOS FILES WITH THE CLOUD), a
+# network round trip per selected system; the confirmation follows. Needs
+# the seed fixture (cloud-test-backend seed-content + seed-device) so the
+# device holds ROMs the cloud does not -- gb entirely, snes/deviceonly.sfc --
+# and the preview has something to list. YES is the first button.
+#
+# Neither A press is re-sent: both start network work, and the settle after
+# each is what waits for it rather than a guess at how long it takes.
+key down
+wait-for-change
+key down
+wait-for-change
+settle
+shot cloud-hub-match-row
+key x
+wait-for-change 25 0
+settle 40
+shot match-confirm
+key x
+wait-for-change 25 0
+key z
+wait-for-change 15 0
+settle 5
+shot s3-match-cancel-dialog
+key z
+wait-for-change 25 0
+settle 60
+shot s3-after-no
