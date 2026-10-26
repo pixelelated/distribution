@@ -63,6 +63,10 @@
   - Results, 221 cases and 0 failed: `es-unit-tests` 185 cases / 4,795 assertions; `es-file-tests` 24 / 3,389; `es-conf-tests` 10 / 119; `es-file-tests-win32` 2 / 14.
   - **rapidjson** is a copy of 35 headers at `/workspace/tmp/m6-t18/rapidjson`. They were taken from `/tmp/pix642-host-controls-prep-20261022-01/inputs/include`, M7's prep, read only. Every header matches that prep's recorded sha256 in its `inputs.json` (35 of 35; `document.h` `a8c29c92…`). Its `provenance.json` names the source as the sign-in build root's toolchain sysroot `usr/include/rapidjson`, which this lane did not read.
   - The binaries are in `/workspace/tmp/m6-t18/build-stage-a`.
+  - **The copy's record** (the coordinator's 09:44 read on #665: the brief's "named copy with provenance, as a read" form):
+    - source directory `/tmp/pix642-host-controls-prep-20261022-01/inputs/include/rapidjson`;
+    - `inputs.json` sha256 `a5ecb96872d773427397204e663bbbdd60dcf67d957f4f365d9e8216e98fe473` (read 09:44:58 UTC);
+    - **no build root was read**, M6's or M7's: the sysroot the prep names is cited from its `provenance.json`, never opened.
 - **The syntax check:** `ES_BUILD_ROOT=/nonexistent tools/es-syntax-check --tree <W> es-app/src/CloudText.cpp` exits 2, *"no build root at /nonexistent"*. The host's `g++ -std=c++17 -fsyntax-only` over `CloudText.cpp` exits 0.
 - **The window's identity literal**, chosen now (r26 and a `git log -S`): **`FOLDERS ALREADY CREATED WILL STAY. YOU CAN TRY AGAIN LATER.`**, a `_( )` literal of `GuiCloudTransfer.cpp`. It is absent from the merge base's `es-app` and `es-core`, and was added by `1272b3405` on 2026-10-08, the latest of the candidates.
 - **The context read, named** (§ 2; read at stage B): `tests/app-unit/`, 19 files (10 at the top, 9 fakes, `fakes/ThreadedCloudSync.h` among them), and the eight Python harnesses under `tests/`, 986 lines.
@@ -73,3 +77,37 @@
 - PROOF: P4, the callers outside the eight: r17.
 - PROOF: P5, the unit tests built and run: r20.
 - PROOF: P6, the branch and the removal rule: r25.
+
+## [Stage B] 09:44 to 09:59 UTC — the eight read, the two tables generated, `02`
+
+- **The coordinator's stage-A read** (09:44 UTC, #665): 47 is the count, with r07 recording both; the three corrections go to the brief's errata at acceptance; the rapidjson copy's record went into § Stage A above.
+- **Read:**
+  - the eight sources whole, in the brief's order;
+  - `CloudTextTests.cpp` against the functions it calls, and the other 21 test files for subject, fixtures and the eight's functions;
+  - the context: `tests/app-unit/`, 19 files, which is at the **top of the ES repository**, not `es-app/tests/` as `01` first said (corrected in this commit), and the eight harnesses;
+  - the callers' lines where they decide what reaches the eight: `FileData.cpp:960-1030`, `GuiMenu.cpp:5038-5100` and `:7036-7046`, `main.cpp`'s producers;
+  - `es-core/src/utils/FileSystemUtil.cpp:1429-1446` and `AtomicFileUtil.h`, for the stamp writer.
+- **Two generators** under `tools/`, run at 09:55:28 and 09:55:29 UTC, both exit 0; outputs in `stage-b/`:
+  - `t18-protocol-table.py`: 18 rows;
+  - `t18-why-table.py`: eight counts, the fallback map and the eight wordings for 75.
+  - Each was run against upstream's `651150fc88` and **exits 1**, naming its counts: the guard fires.
+- **A check that could not fail, caught by its control:** the first fixture scan read `.githooks/secret-patterns` with `grep -f`. The file is a shell assignment, and the control line gave 0. Re-run with the hook's own form (`. .githooks/secret-patterns; grep -E -e "$SECRET_PATTERNS"`): the control 1, and the 22 test files 0.
+- **`02-forward-audit.md`:**
+  - § Coverage, 30 rows (the brief's `awk` prints 30);
+  - § Context read, 21 rows covering the 19 files and the eight harnesses;
+  - § The protocol and § The why table, generated and inserted between markers;
+  - § The surfaces, § The lifetimes (13 rows), § The strings (219 strings: r14's 220th is a comment at `CloudText.h:527`), § The tests (22 rows), § The runs (26);
+  - § The guest cycle: `CANNOT` until the window;
+  - § Findings index (F-01 to F-19, and one lead outside the slice), § Positives, § Proofs (P1 to P16).
+- **Not run, by the brief's compiler scope:** `tests/app-unit`'s `jobs-tests`, the only test of the job's stop races (F-19), is asked about on #665. The harnesses' subjects are `GuiMenu.cpp`'s, T26's.
+- **Nothing of the never-run list ran.** No compiler ran at this stage. The ES worktree is at the pin, clean. No guest was started.
+- PROOF: P7, the protocol table generated, 18 rows asserted.
+- PROOF: P8, the protocol generator exits 1 against `651150fc88`.
+- PROOF: P9, the why generator exits 1 against `651150fc88`.
+- PROOF: P10, the why table generated, eight counts and the fallback map asserted.
+- PROOF: P11, no secret-shaped literal in the 22 test files (0; control 1).
+- PROOF: P12, `nextTime`, `isKnownWhy` and `isKnownUnitLabel` have no caller outside `CloudText.cpp`.
+- PROOF: P13, `setFailedNote` and `setDismissedAction` have no caller; `cancellable` is never passed.
+- PROOF: P14, `doing copy`/`verify`/`remove` and `DISCARDED SAVES` have no producer.
+- PROOF: P15, `cancelForLaunch` runs on the interface thread.
+- PROOF: P16, `writeStamp` renames an unchecked write.

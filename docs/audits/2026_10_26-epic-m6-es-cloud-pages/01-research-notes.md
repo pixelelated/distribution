@@ -65,7 +65,7 @@ The sources are entered from four files outside the slice (r17):
 
 Named at stage A, read at stage B (brief § 2):
 
-- **`es-app/tests/app-unit/`**, 19 files at the pin: `AppWindowTests.cpp`, `BookkeeperTests.cpp`, `CMakeLists.txt`, `FolderMergeTests.cpp`, `JobsTests.cpp`, `JourneyTiersTests.cpp`, `ProxyCardsTests.cpp`, `RunLockTests.cpp`, `TextFitTests.cpp`, `main.cpp`, and nine fakes (`ApiSystem.h`, `FileData.h`, `LocaleES.h`, `Log.h`, `SystemConf.h`, `ThreadedCloudSync.h`, `Window.h`, `components/AsyncNotificationComponent.h`, `utils/FileSystemUtil.h`). Not in the inventory's T18 rows; the fake `ThreadedCloudSync.h` is where a test of a caller stands in for the eight.
+- **`tests/app-unit/`** (at the top of the ES repository, not under `es-app/tests/`), 19 files at the pin: `AppWindowTests.cpp`, `BookkeeperTests.cpp`, `CMakeLists.txt`, `FolderMergeTests.cpp`, `JobsTests.cpp`, `JourneyTiersTests.cpp`, `ProxyCardsTests.cpp`, `RunLockTests.cpp`, `TextFitTests.cpp`, `main.cpp`, and nine fakes (`ApiSystem.h`, `FileData.h`, `LocaleES.h`, `Log.h`, `SystemConf.h`, `ThreadedCloudSync.h`, `Window.h`, `components/AsyncNotificationComponent.h`, `utils/FileSystemUtil.h`). Not in the inventory's T18 rows; the fake `ThreadedCloudSync.h` is where a test of a caller stands in for the eight.
 - **The eight Python harnesses** under `tests/`, 986 lines: `cloud-oauth-lifetime.py` 184, `cloud-sync-last-run.py` 82, `maintenance-why.py` 72, `cloud-set-systems-quoting.py` 99, `cloud-gated-row.py` 125, `cloud-folder-reopen.py` 51, `cloud-content-selection.py` 272, `cloud-oauth-await.py` 101.
 
 ### The unit tests' build
