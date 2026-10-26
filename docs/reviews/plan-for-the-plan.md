@@ -332,8 +332,10 @@ with what it asserted before and after, each a recorded positive, the whole
 suite passing after with its count named (D-WORKFLOW-210: T29's S3 for
 `vm-upgrade-rehearsal`, T19's S1 and S3 for the scripts suite); and a fixture that relied on the defect -- a
 stand-in absent where the image always has one -- is completed in the same
-commit, no assertion changed (D-WORKFLOW-211, T19's S7). Every stream brief
-carries the line. Two more from the same
+commit, no assertion changed (D-WORKFLOW-211, T19's S7). A source a stream changes cites its bug
+number, never a register row the brief ruled: the row reaches the lane's
+branch at hand-back, and `register-check` fails closed on a citation with
+no row (T19's retro). Every stream brief carries the line. Two more from the same
 hand-back, for a stream that proves a fix with a host fixture: a fixture that
 rewrites a script's absolute paths asserts, before it runs, that its scratch
 root lies outside every prefix it rewrites (T17's cost two guest re-runs),

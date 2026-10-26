@@ -446,3 +446,47 @@ its own fixture. The sentence above that calls it the reversed check
 quoted the lane's earlier reading; the record is the lane's commit, `02`
 and `stage-e/s7-suite.txt`. S9's stand-in helper follows the new job
 protocol in S9's commit, the same kind of completion.
+
+## S1b: the upgrade path keeps the offline login until the first online launch records a hash (ruled 2026-10-26 16:42 UTC; D-RA-051)
+
+Found by the lane at stage G (its retro of 16:41): RetroArch holds the
+session token only in memory and signs in with the password on every
+start, so with 022 as landed a device that updates and plays offline before
+any online launch has no recorded hash and its offline login is refused
+until one online launch -- the feature's own use case broken on the
+upgrade path. D-RA-050 promised *read both*; the token alone does not
+honour it. So **S1b amends 022**: while the store holds no recorded hash
+for the configured account, a `login2` naming that account and presenting
+a password is answered from the cache as the unfixed code did (the old
+exposure, loopback-only, bounded to the first online login), and the ctl's
+log says once that the hash is unrecorded; the first successful online
+`login2` with `p=` records the hash, after which S1's rule holds in full.
+Unchanged: a request naming another account, with no credential, with a
+foreign `Host` or any `Origin` is refused; a recorded hash is compared.
+
+1. **The positive, before (022 as landed):** a store row with no hash and
+   a `login2` with the account's `p=` is refused. `stage-e/s1b-before.txt`.
+2. **The fix** in the same patch file (022 regenerated, its test extended
+   with the no-hash case and the recorded-then-wrong case).
+3. **The positive, after:** the no-hash `p=` answered with the cached body;
+   a recorded hash with a wrong `p=` still refused; the no-credential,
+   foreign-`Host` and `Origin` cases still refused; the suite 1313 PASS;
+   upstream's own tests as before. `stage-e/s1b-after.txt`.
+4. **`Already written:`** every device the unfixed build served has no
+   recorded hash: it keeps its offline login as before until its next
+   online launch, which records one. Nothing migrated; the old row shape
+   honoured (D-RA-050's *read both*, now true).
+5. **Commit:** `raofflineproxy: the offline login keeps answering a
+   password until an online launch records its hash (Refs #666, #1157)`;
+   #1157's `Already written:` line and criteria updated by the lane; the
+   #585 line for 022 says the same.
+
+**The retro's three proposals, ruled:** (1) a stream brief that touches a
+covered script says up front how the suite is treated -- adopted; plan
+§ 6b carries D-WORKFLOW-210/211 since this afternoon and every stream brief
+carries the line. (2) Sources cite their bug numbers; a register row a brief
+rules reaches the lane's branch at hand-back, so a source that cited the
+row would fail `register-check` there -- adopted as the rule in plan § 6b:
+*a source cites the bug, the docs cite the row*. (3) `set -o pipefail` in
+every check chain a lane writes -- one friction line; a second makes it a
+hook question (recorded in the friction log's line).
