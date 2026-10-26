@@ -1,0 +1,5456 @@
+{
+ "schema": "t19-packet-manifest/1",
+ "pin": "8ebaf8daad",
+ "sources": [
+  {
+   "section": 0,
+   "title": "ask",
+   "path": "docs/audits/2026_10_26-epic-m6-offline-achievements/stage-c/ask.md",
+   "ref": "worktree",
+   "kind": "ask",
+   "sha256": "7228b265e61144f003b049428377075e4d3547f6b04f73dd829f1153a7b4f750",
+   "bytes": 6038
+  },
+  {
+   "section": 2,
+   "title": "The first reader's 02-forward-audit.md (whole)",
+   "path": "docs/audits/2026_10_26-epic-m6-offline-achievements/02-forward-audit.md",
+   "ref": "worktree",
+   "kind": "first reader",
+   "sha256": "7a9b5b59ffda474cf859d606a7660bd44238d5380ebd173fd9e1a51f7cf5b4d6",
+   "bytes": 67103,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 3,
+   "title": "The first reader's 03-retrospective.md (whole)",
+   "path": "docs/audits/2026_10_26-epic-m6-offline-achievements/03-retrospective.md",
+   "ref": "worktree",
+   "kind": "first reader",
+   "sha256": "e906a2b36b1bc879f0bb353aec2d9d3ba8222ea711b0fc78af7600964b182cc8",
+   "bytes": 5722,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 4,
+   "title": "The first reader's 04-analysis.md (whole)",
+   "path": "docs/audits/2026_10_26-epic-m6-offline-achievements/04-analysis.md",
+   "ref": "worktree",
+   "kind": "first reader",
+   "sha256": "e343dd28a6b8f1ef22b5c6f63f69a5f9a9771b51a159c2abb632e70ce0c2cca5",
+   "bytes": 11681,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 5,
+   "title": "Context 1: docs/reviews/order.md \u00a7 T19",
+   "path": "docs/reviews/order.md \u00a7 T19",
+   "ref": "2174265e9c",
+   "kind": "context",
+   "sha256": "8fadea729eebe5a025311bc331af151ce4cd71913151c20189716e361285efdd",
+   "bytes": 1077,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 6,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-refresh @ 8ebaf8daad (whole, 232 lines)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-refresh",
+   "ref": "8ebaf8daad",
+   "kind": "slice file (whole)",
+   "sha256": "76b0778e94cc2798292f90a06d4760592ef071e7422eaee358d44fda1433587f",
+   "bytes": 11798,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 7,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-indexed @ 8ebaf8daad (whole, 222 lines)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-indexed",
+   "ref": "8ebaf8daad",
+   "kind": "slice file (whole)",
+   "sha256": "f99f4590c5cffa9d829902ad0b3af2888661ff9d8aad4a29f7a0821d8276692c",
+   "bytes": 11546,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 8,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/system.d/raofflineproxy.service @ 8ebaf8daad (whole, 46 lines)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/system.d/raofflineproxy.service",
+   "ref": "8ebaf8daad",
+   "kind": "slice file (whole)",
+   "sha256": "3a6e7bf990f41b1a839f4e12890f31f58c5acd3cb8af75967dd47a09e8545609",
+   "bytes": 2685,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 9,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/daemons/006-raofflineproxy @ 8ebaf8daad (whole, 10 lines)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/daemons/006-raofflineproxy",
+   "ref": "8ebaf8daad",
+   "kind": "slice file (whole)",
+   "sha256": "1428849258ef39f2a0dcee97a2c02d51a7ba5afaaf17d8655166d3619296563d",
+   "bytes": 624,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 10,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/patches/001-dorequest-4xx-passthrough.patch @ 8ebaf8daad (whole)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/001-dorequest-4xx-passthrough.patch",
+   "ref": "8ebaf8daad",
+   "kind": "patch (whole)",
+   "sha256": "e322a8dd83354185fb3a774fe5d1adabebfcd199a06e18c40c255dffe9197239",
+   "bytes": 3097,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 11,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/patches/007-cached-sign-in-of-the-configured-account.patch @ 8ebaf8daad (whole)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/007-cached-sign-in-of-the-configured-account.patch",
+   "ref": "8ebaf8daad",
+   "kind": "patch (whole)",
+   "sha256": "b9d19e0c138d6c273252ee8ee58f028f96c6687d9e996d613418b96e2625baef",
+   "bytes": 3696,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 12,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/patches/008-log-upload-opt-in.patch @ 8ebaf8daad (whole)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/008-log-upload-opt-in.patch",
+   "ref": "8ebaf8daad",
+   "kind": "patch (whole)",
+   "sha256": "e8d80fab8eabad8d0b4b40113e1e9c01a50fa72c33e35e5a2ac5bd1dedfef53c",
+   "bytes": 6685,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 13,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/patches/011-offline-login-header.patch @ 8ebaf8daad (whole)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/011-offline-login-header.patch",
+   "ref": "8ebaf8daad",
+   "kind": "patch (whole)",
+   "sha256": "09670dcaa8f7b74ffd0b0e01a4103880157955ed8e902b0918d65c02e2977154",
+   "bytes": 5151,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 14,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/patches/013-validate-a-cached-image-before-publishing-it.patch @ 8ebaf8daad (whole)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/013-validate-a-cached-image-before-publishing-it.patch",
+   "ref": "8ebaf8daad",
+   "kind": "patch (whole)",
+   "sha256": "b7e16f2ab9c97f550deeaf55a21a315b83f432a5f1c90d04b15bca8a728d7003",
+   "bytes": 7272,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 15,
+   "title": "linux/raofflineproxy/proxy_service.py @ c7ebd1b6e7+18: lines 260-348 (excerpt of 1506)",
+   "path": "linux/raofflineproxy/proxy_service.py:260-348",
+   "ref": "c7ebd1b6e7+18",
+   "kind": "excerpt",
+   "sha256": "c4c4a58a689a3150253e97c38a5a267f7fa648b5919d5a8fe5e29f375af4b367",
+   "bytes": 3978,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 16,
+   "title": "linux/raofflineproxy/proxy_service.py @ c7ebd1b6e7+18: lines 432-518 (excerpt of 1506)",
+   "path": "linux/raofflineproxy/proxy_service.py:432-518",
+   "ref": "c7ebd1b6e7+18",
+   "kind": "excerpt",
+   "sha256": "7ea0f5296d4fec470c67958e5fa36aecbae54599691637b23e215b2718810ce9",
+   "bytes": 4837,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 17,
+   "title": "linux/raofflineproxy/proxy_service.py @ c7ebd1b6e7+18: lines 1397-1448 (excerpt of 1506)",
+   "path": "linux/raofflineproxy/proxy_service.py:1397-1448",
+   "ref": "c7ebd1b6e7+18",
+   "kind": "excerpt",
+   "sha256": "47f61307be6f7e6ce8ad105c2329abfec44b9363c1492a41fed339f8bc756d1e",
+   "bytes": 2451,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 18,
+   "title": "linux/raofflineproxy/proxy_service.py @ c7ebd1b6e7+18: lines 1452-1506 (excerpt of 1506)",
+   "path": "linux/raofflineproxy/proxy_service.py:1452-1506",
+   "ref": "c7ebd1b6e7+18",
+   "kind": "excerpt",
+   "sha256": "cc0a3fb18e5ddf20b9feec8b9669be834dc34ad8ff7ed6a9835e00d5806f17dd",
+   "bytes": 2127,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 19,
+   "title": "linux/raofflineproxy/auth.py @ c7ebd1b6e7+18: lines 1-143 (excerpt of 143)",
+   "path": "linux/raofflineproxy/auth.py:1-143",
+   "ref": "c7ebd1b6e7+18",
+   "kind": "excerpt",
+   "sha256": "fdf3fd93148c7a33df2a325e60444d906fbc5aeaf7e78c79636977c49f362bab",
+   "bytes": 6022,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 20,
+   "title": "linux/raofflineproxy/network.py @ c7ebd1b6e7+18: lines 12-48 (excerpt of 610)",
+   "path": "linux/raofflineproxy/network.py:12-48",
+   "ref": "c7ebd1b6e7+18",
+   "kind": "excerpt",
+   "sha256": "38298143b89252b8b01971045d630360972b8d9e210f6ea548ba782d51624c8d",
+   "bytes": 1722,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 21,
+   "title": "linux/raofflineproxy/network.py @ c7ebd1b6e7+18: lines 247-428 (excerpt of 610)",
+   "path": "linux/raofflineproxy/network.py:247-428",
+   "ref": "c7ebd1b6e7+18",
+   "kind": "excerpt",
+   "sha256": "b84d792ee434e34e0ab8c78844127dc4fb6edc986fb638f3d8a1e21ed00c4c6a",
+   "bytes": 9131,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 22,
+   "title": "linux/raofflineproxy/network.py @ c7ebd1b6e7+18: lines 508-588 (excerpt of 610)",
+   "path": "linux/raofflineproxy/network.py:508-588",
+   "ref": "c7ebd1b6e7+18",
+   "kind": "excerpt",
+   "sha256": "25d5543f4b57e383cad1d46da14457f00420997fa993f54c6668481ed8e0a15c",
+   "bytes": 3153,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 23,
+   "title": "linux/raofflineproxy/storage.py @ c7ebd1b6e7+18: lines 62-168 (excerpt of 1161)",
+   "path": "linux/raofflineproxy/storage.py:62-168",
+   "ref": "c7ebd1b6e7+18",
+   "kind": "excerpt",
+   "sha256": "ae22d2c67089cc6aef9cab788f062362cae24146b763d499bc91e4f19ad6a1a5",
+   "bytes": 5091,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 24,
+   "title": "linux/raofflineproxy/utils.py @ c7ebd1b6e7+18: lines 92-132 (excerpt of 132)",
+   "path": "linux/raofflineproxy/utils.py:92-132",
+   "ref": "c7ebd1b6e7+18",
+   "kind": "excerpt",
+   "sha256": "32ae285d587e3e019a82c4727143e8dd9b3395bfba7b40b0503f68c0a929e307",
+   "bytes": 1790,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 25,
+   "title": "linux/raofflineproxy/log_uploader.py @ c7ebd1b6e7+18: lines 1-38 (excerpt of 380)",
+   "path": "linux/raofflineproxy/log_uploader.py:1-38",
+   "ref": "c7ebd1b6e7+18",
+   "kind": "excerpt",
+   "sha256": "2054e965a483521e20f9596c0d41f65c1ab850202c69c4d4aed19c6627aa65fa",
+   "bytes": 2107,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 26,
+   "title": "linux/raofflineproxy/log_uploader.py @ c7ebd1b6e7+18: lines 52-138 (excerpt of 380)",
+   "path": "linux/raofflineproxy/log_uploader.py:52-138",
+   "ref": "c7ebd1b6e7+18",
+   "kind": "excerpt",
+   "sha256": "25719260f7b6726ef1372296fb9cab0b01d4eb5600f1de1e1b2d6569d4ecc00c",
+   "bytes": 4170,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 27,
+   "title": "linux/raofflineproxy/log_uploader.py @ c7ebd1b6e7+18: lines 346-380 (excerpt of 380)",
+   "path": "linux/raofflineproxy/log_uploader.py:346-380",
+   "ref": "c7ebd1b6e7+18",
+   "kind": "excerpt",
+   "sha256": "6e44e7e4f0dafd91e0cf9027a1ea2d54080729edee57631c9b373b946c4855a6",
+   "bytes": 1849,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 28,
+   "title": "linux/raofflineproxy/usage_report.py @ c7ebd1b6e7+18: lines 12-68 (excerpt of 201)",
+   "path": "linux/raofflineproxy/usage_report.py:12-68",
+   "ref": "c7ebd1b6e7+18",
+   "kind": "excerpt",
+   "sha256": "ec633912fc4ca7b8c779ad63d6e642913a90be4b3aea7ae76baa6106dd2e7917",
+   "bytes": 2627,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 29,
+   "title": "linux/raofflineproxy/usage_report.py @ c7ebd1b6e7+18: lines 142-201 (excerpt of 201)",
+   "path": "linux/raofflineproxy/usage_report.py:142-201",
+   "ref": "c7ebd1b6e7+18",
+   "kind": "excerpt",
+   "sha256": "2a04b861697c8423415fa092d811446bb8155d4c3a97656ba5ecc73419c9c9d8",
+   "bytes": 2585,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 30,
+   "title": "linux/raofflineproxy/config.py @ c7ebd1b6e7+18: lines 360-385 (excerpt of 539)",
+   "path": "linux/raofflineproxy/config.py:360-385",
+   "ref": "c7ebd1b6e7+18",
+   "kind": "excerpt",
+   "sha256": "3ceff0d2e94f4109dd6bae4a0d61726505d80a5c22d449d0f24fd1a3cc1545e7",
+   "bytes": 957,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 31,
+   "title": "linux/raofflineproxy/es_export.py @ c7ebd1b6e7+18: lines 50-69 (excerpt of 69)",
+   "path": "linux/raofflineproxy/es_export.py:50-69",
+   "ref": "c7ebd1b6e7+18",
+   "kind": "excerpt",
+   "sha256": "dff78a3d168abb767fd2c8d16b71e9a8b1861450ddf9c9b44f3910b78d386b76",
+   "bytes": 805,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 32,
+   "title": "es-app/src/CloudText.cpp @ 16dbac5211: lines 1014-1072 (excerpt of 1409)",
+   "path": "es-app/src/CloudText.cpp:1014-1072",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "224937bbfb124c14fec52929194846c502bf1011830bf95b5b91887736cbf31a",
+   "bytes": 2957,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 33,
+   "title": "es-app/src/CloudText.cpp @ 16dbac5211: lines 1178-1283 (excerpt of 1409)",
+   "path": "es-app/src/CloudText.cpp:1178-1283",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "5d08a3adbf8712e96b19012cedcccf045d73c18a14adefe94a37b813df82380e",
+   "bytes": 3881,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 34,
+   "title": "es-app/src/CloudText.cpp @ 16dbac5211: lines 1297-1343 (excerpt of 1409)",
+   "path": "es-app/src/CloudText.cpp:1297-1343",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "20c71d646da528bfa450b1bbc3abf0d736d2b278dd549720dd91abf626db14e5",
+   "bytes": 1521,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 35,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-images @ 8ebaf8daad: lines 1-38 (excerpt of 497)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-images:1-38",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "d42ff4ee847dd641dca76b8d1fb436f0cab9a4207f63fb6e2f4c702d05d9aa33",
+   "bytes": 2472,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 36,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-images @ 8ebaf8daad: lines 126-220 (excerpt of 497)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-images:126-220",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "86747b1df849e4a164c27f494886898bb421953c01b119009bd8e73c88aae31b",
+   "bytes": 4243,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 37,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-images @ 8ebaf8daad: lines 263-328 (excerpt of 497)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-images:263-328",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "0b0ce49ccbbd7900c4ab509b8f9ebe96ce713df3f22f1480f4cc19c044131534",
+   "bytes": 2733,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 38,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-images @ 8ebaf8daad: lines 333-349 (excerpt of 497)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-images:333-349",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "513258e7a086ef9e41ca88e59e7302bc6c7c3d1be64500097e4f32cc601e7077",
+   "bytes": 908,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 39,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-images @ 8ebaf8daad: lines 387-488 (excerpt of 497)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-images:387-488",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "75f20b57727b9d79dd8502dd9fde81086c3569f949709466ccf1a96749cb150f",
+   "bytes": 5626,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 40,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/package.mk @ 8ebaf8daad: lines 1-41 (excerpt of 157)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/package.mk:1-41",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "d9307065c30afa96d003282320a5da32d0e297ecce932af9a267a3ee09dcc4b6",
+   "bytes": 3076,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 41,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/package.mk @ 8ebaf8daad: lines 108-157 (excerpt of 157)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/package.mk:108-157",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "26d5d56bff96f244760ee7dced53ed610e63a9409ef5c587f942cf73d09d1b70",
+   "bytes": 2745,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 42,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl @ 8ebaf8daad: lines 1-48 (excerpt of 2455)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:1-48",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "28502878ac175c021b6a74d9f8e356beb1fec665bac2efe8d3646532bab4c190",
+   "bytes": 3400,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 43,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl @ 8ebaf8daad: lines 247-388 (excerpt of 2455)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:247-388",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "a9fb5e7529aba9aa0dc8afbec84f3fa98470ba29529d272672d4dd6cc633fc8e",
+   "bytes": 7780,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 44,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl @ 8ebaf8daad: lines 397-578 (excerpt of 2455)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:397-578",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "692592d2242166e615af57f919c5550e78138181ef1dd9d5768ff82b55b8f31b",
+   "bytes": 9020,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 45,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl @ 8ebaf8daad: lines 582-668 (excerpt of 2455)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:582-668",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "7631d40b9ed8c6ad0dac6ba3eebe029d41fcfa6a6fb8dc3e89b60062e08936fd",
+   "bytes": 4731,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 46,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl @ 8ebaf8daad: lines 746-1043 (excerpt of 2455)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:746-1043",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "c38e71e13fa38e330679140da172309c6b5d7ceb283663c0cea0f71376d14b29",
+   "bytes": 15174,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 47,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl @ 8ebaf8daad: lines 1052-1308 (excerpt of 2455)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:1052-1308",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "1a2f8ef819e883da3422b715f1edcd8c51e68beff21233bf33f8a2fc16c5bccc",
+   "bytes": 14778,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 48,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl @ 8ebaf8daad: lines 1402-1448 (excerpt of 2455)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:1402-1448",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "8d6f43dcecd99ceb8d44d624bbbf1557d120a9b453c2964b8b628e053a43c2fc",
+   "bytes": 2183,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 49,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl @ 8ebaf8daad: lines 1579-1600 (excerpt of 2455)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:1579-1600",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "58b66533953baaa2ca76a49e47839bb9b06ddea418f71dd13abe7d9d1300014d",
+   "bytes": 1004,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 50,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl @ 8ebaf8daad: lines 1652-2128 (excerpt of 2455)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:1652-2128",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "7cfb5a9f5918411eed96a52aecf30ce4a3922fc27b92cb0e9cc32a473b9874ce",
+   "bytes": 27549,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 51,
+   "title": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl @ 8ebaf8daad: lines 2131-2455 (excerpt of 2455)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:2131-2455",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "5ae541caaa7a64eb8fc18a1a0416854075d22aa417a92a597a89c3cb5a209874",
+   "bytes": 19335,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  }
+ ],
+ "scan": {
+  "forbidden": [],
+  "secret_patterns": [],
+  "mask": [
+   {
+    "section": 2,
+    "line": 46,
+    "classes": [
+     "review",
+     "review"
+    ],
+    "disposition": "prose: the unit directive `User=` named in the first reader's text"
+   },
+   {
+    "section": 2,
+    "line": 273,
+    "classes": [
+     "review"
+    ],
+    "disposition": "prose: the unit directive `User=` named in the first reader's text"
+   },
+   {
+    "section": 2,
+    "line": 322,
+    "classes": [
+     "review"
+    ],
+    "disposition": "prose: the unit directive `User=` named in the first reader's text"
+   },
+   {
+    "section": 11,
+    "line": 50,
+    "classes": [
+     "empty"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 11,
+    "line": 64,
+    "classes": [
+     "empty"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 11,
+    "line": 75,
+    "classes": [
+     "empty"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 15,
+    "line": 45,
+    "classes": [
+     "empty"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 16,
+    "line": 7,
+    "classes": [
+     "empty"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 16,
+    "line": 67,
+    "classes": [
+     "empty"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 19,
+    "line": 69,
+    "classes": [
+     "empty"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 19,
+    "line": 86,
+    "classes": [
+     "empty"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 19,
+    "line": 97,
+    "classes": [
+     "empty"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 19,
+    "line": 105,
+    "classes": [
+     "empty"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 19,
+    "line": 138,
+    "classes": [
+     "empty"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 19,
+    "line": 139,
+    "classes": [
+     "review"
+    ],
+    "disposition": "code: a log format string `user=%s` and its argument"
+   },
+   {
+    "section": 31,
+    "line": 3,
+    "classes": [
+     "empty"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 33,
+    "line": 13,
+    "classes": [
+     "identifier-or-word"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 33,
+    "line": 106,
+    "classes": [
+     "identifier-or-word"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 43,
+    "line": 30,
+    "classes": [
+     "identifier-or-word"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 43,
+    "line": 31,
+    "classes": [
+     "identifier-or-word"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 43,
+    "line": 32,
+    "classes": [
+     "identifier-or-word"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 43,
+    "line": 65,
+    "classes": [
+     "identifier-or-word"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 43,
+    "line": 66,
+    "classes": [
+     "identifier-or-word"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 43,
+    "line": 67,
+    "classes": [
+     "identifier-or-word"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 45,
+    "line": 64,
+    "classes": [
+     "expansion"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 46,
+    "line": 14,
+    "classes": [
+     "expansion"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 46,
+    "line": 271,
+    "classes": [
+     "empty"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 47,
+    "line": 214,
+    "classes": [
+     "expansion"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 51,
+    "line": 148,
+    "classes": [
+     "empty-string"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 51,
+    "line": 170,
+    "classes": [
+     "expansion"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   }
+  ],
+  "words": [
+   {
+    "section": 2,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 12,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 13,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 39,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 42,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 42,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 43,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 43,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 43,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 43,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 43,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 45,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 46,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 2,
+    "line": 46,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 2,
+    "line": 46,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 55,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 56,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 56,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 57,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 58,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 59,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 60,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 60,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 61,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 61,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 61,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 62,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 63,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 63,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 64,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 65,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 65,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 66,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 66,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 67,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 67,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 68,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 68,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 68,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 69,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 69,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 71,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 99,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 100,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 119,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 120,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 123,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 123,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 145,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 149,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 150,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 151,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 152,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 153,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 154,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 155,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 163,
+    "word": "pin",
+    "class": "dispositioned",
+    "disposition": "prose: `at the pin:` followed by the public tarball's sha256 (= PKG_SHA256)"
+   },
+   {
+    "section": 2,
+    "line": 163,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 163,
+    "word": "pin",
+    "class": "dispositioned",
+    "disposition": "prose: `at the pin:` followed by the public tarball's sha256 (= PKG_SHA256)"
+   },
+   {
+    "section": 2,
+    "line": 163,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 163,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 165,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 167,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 167,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 168,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 171,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 171,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 172,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 173,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 174,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 178,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 179,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 181,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 182,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 194,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 194,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 195,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 197,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 198,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 203,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 210,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 221,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 221,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 224,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 227,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 227,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 228,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 228,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 234,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 234,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 235,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 236,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 247,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 249,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 251,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 252,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 253,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 256,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 256,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 258,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 258,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 266,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 270,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 270,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 270,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 273,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 2,
+    "line": 274,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 280,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 284,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 288,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 291,
+    "word": "pin",
+    "class": "dispositioned",
+    "disposition": "prose: `older than the pin:` followed by words"
+   },
+   {
+    "section": 2,
+    "line": 294,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 297,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 306,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 308,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 309,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 309,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 309,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 309,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 320,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 322,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 322,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 2,
+    "line": 323,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 323,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 323,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 329,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 329,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 329,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 329,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 329,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 329,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 329,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 329,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 330,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 331,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 332,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 332,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 333,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 339,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 343,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 343,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 343,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 344,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 15,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 15,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 15,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 15,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 29,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 34,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 43,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 5,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 5,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 9,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 9,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 9,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 9,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 9,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 14,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 29,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 56,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 57,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 62,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 66,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 66,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 66,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 66,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 74,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 78,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 78,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 78,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 78,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 78,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 78,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 82,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 86,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 86,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 90,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 90,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 112,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 133,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 4,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 4,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 9,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 17,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 19,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 23,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 38,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 42,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 42,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 55,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 56,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 56,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 59,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 6,
+    "line": 60,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 60,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 61,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 61,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 61,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 73,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 75,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 75,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 76,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 77,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 88,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 91,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 92,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 92,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 95,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 96,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 108,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 130,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 135,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 6,
+    "line": 135,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 135,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 143,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 144,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 174,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 184,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 25,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 33,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 43,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 49,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 49,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 57,
+    "word": "user",
+    "class": "dispositioned",
+    "disposition": "code: the type annotation `user_agent: str`"
+   },
+   {
+    "section": 7,
+    "line": 59,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 101,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 102,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 7,
+    "line": 102,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 102,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 112,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 122,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 125,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 7,
+    "line": 125,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 125,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 126,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 130,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 170,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 171,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 173,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 5,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 46,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 1,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 14,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 17,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 19,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 37,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 43,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 56,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 3,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 5,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 6,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 6,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 7,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 12,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 13,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 13,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 14,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 16,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 26,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 27,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 27,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 30,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 30,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 37,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 42,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 43,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 45,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 45,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 47,
+    "word": "user",
+    "class": "empty-string"
+   },
+   {
+    "section": 11,
+    "line": 48,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 49,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 11,
+    "line": 49,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 49,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 49,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 49,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 50,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 11,
+    "line": 51,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 54,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 54,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 57,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 58,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 59,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 59,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 64,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 11,
+    "line": 66,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 66,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 73,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 11,
+    "line": 73,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 74,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 11,
+    "line": 74,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 75,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 75,
+    "word": "token",
+    "class": "masked"
+   },
+   {
+    "section": 11,
+    "line": 77,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 77,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 77,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 77,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 80,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 81,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 11,
+    "line": 81,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 11,
+    "line": 82,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 11,
+    "line": 82,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 12,
+    "line": 21,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 12,
+    "line": 49,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 12,
+    "line": 63,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 13,
+    "line": 44,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 14,
+    "line": 9,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 14,
+    "line": 20,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 14,
+    "line": 31,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 14,
+    "line": 44,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 14,
+    "line": 45,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 14,
+    "line": 54,
+    "word": "user",
+    "class": "dispositioned",
+    "disposition": "code: the type annotation `user_agent: str`"
+   },
+   {
+    "section": 14,
+    "line": 57,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 14,
+    "line": 67,
+    "word": "user",
+    "class": "dispositioned",
+    "disposition": "code: the type annotation `user_agent: str`"
+   },
+   {
+    "section": 15,
+    "line": 1,
+    "word": "user",
+    "class": "dispositioned",
+    "disposition": "code: the type annotation `user_agent: str | None`"
+   },
+   {
+    "section": 15,
+    "line": 4,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 15,
+    "line": 4,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 15,
+    "line": 45,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 15,
+    "line": 45,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 15,
+    "line": 59,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 15,
+    "line": 60,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 15,
+    "line": 76,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 16,
+    "line": 6,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 16,
+    "line": 7,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 16,
+    "line": 8,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 16,
+    "line": 33,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 16,
+    "line": 34,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 16,
+    "line": 34,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 16,
+    "line": 36,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 16,
+    "line": 66,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 16,
+    "line": 67,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 16,
+    "line": 70,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 16,
+    "line": 70,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 17,
+    "line": 8,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 17,
+    "line": 10,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 17,
+    "line": 10,
+    "word": "key",
+    "class": "empty"
+   },
+   {
+    "section": 17,
+    "line": 11,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 17,
+    "line": 11,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 17,
+    "line": 11,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 17,
+    "line": 19,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 18,
+    "line": 21,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 18,
+    "line": 21,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 6,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 8,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 16,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 17,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 18,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 19,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 23,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 31,
+    "word": "user",
+    "class": "dispositioned",
+    "disposition": "code: the parameter `user_agent: str = FALLBACK_USER_AGENT`"
+   },
+   {
+    "section": 19,
+    "line": 31,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 37,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 37,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 42,
+    "word": "token",
+    "class": "expression"
+   },
+   {
+    "section": 19,
+    "line": 43,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 44,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 45,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 47,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 48,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 48,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 53,
+    "word": "pass",
+    "class": "expression"
+   },
+   {
+    "section": 19,
+    "line": 54,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 55,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 56,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 61,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 62,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 64,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 64,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 66,
+    "word": "user",
+    "class": "empty-string"
+   },
+   {
+    "section": 19,
+    "line": 67,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 68,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 19,
+    "line": 68,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 68,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 68,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 68,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 69,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 19,
+    "line": 70,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 73,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 73,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 76,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 77,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 78,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 78,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 86,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 19,
+    "line": 88,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 88,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 95,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 19,
+    "line": 95,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 96,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 19,
+    "line": 96,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 97,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 97,
+    "word": "token",
+    "class": "masked"
+   },
+   {
+    "section": 19,
+    "line": 99,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 99,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 99,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 99,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 102,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 103,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 19,
+    "line": 103,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 104,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 19,
+    "line": 104,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 105,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 105,
+    "word": "token",
+    "class": "masked"
+   },
+   {
+    "section": 19,
+    "line": 108,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 108,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 108,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 108,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 109,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 109,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 110,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 110,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 110,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 110,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 113,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 117,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 19,
+    "line": 123,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 124,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 129,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 129,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 129,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 136,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 19,
+    "line": 136,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 136,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 137,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 19,
+    "line": 137,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 138,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 138,
+    "word": "token",
+    "class": "masked"
+   },
+   {
+    "section": 19,
+    "line": 139,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 19,
+    "line": 139,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 142,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 142,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 143,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 143,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 143,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 143,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 20,
+    "line": 6,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 20,
+    "line": 7,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 20,
+    "line": 10,
+    "word": "key",
+    "class": "expression"
+   },
+   {
+    "section": 20,
+    "line": 10,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 20,
+    "line": 10,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 21,
+    "line": 88,
+    "word": "user",
+    "class": "dispositioned",
+    "disposition": "code: the type annotation `user_agent: str | None`"
+   },
+   {
+    "section": 21,
+    "line": 97,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 21,
+    "line": 97,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 21,
+    "line": 97,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 21,
+    "line": 97,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 21,
+    "line": 121,
+    "word": "user",
+    "class": "dispositioned",
+    "disposition": "code: the type annotation `user_agent: str`"
+   },
+   {
+    "section": 21,
+    "line": 136,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 21,
+    "line": 136,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 22,
+    "line": 78,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 22,
+    "line": 78,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 2,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 3,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 4,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 5,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 6,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 7,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 8,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 9,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 57,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 58,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 65,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 69,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 80,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 80,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 88,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 23,
+    "line": 88,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 90,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 92,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: an SQL trigger `cacheKey = new.cacheKey`"
+   },
+   {
+    "section": 23,
+    "line": 92,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 92,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 23,
+    "line": 92,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 24,
+    "line": 17,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 24,
+    "line": 19,
+    "word": "secret",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 24,
+    "line": 22,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 24,
+    "line": 23,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 24,
+    "line": 24,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 24,
+    "line": 28,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 24,
+    "line": 31,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 24,
+    "line": 31,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 24,
+    "line": 31,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 24,
+    "line": 31,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 14,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 1,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 1,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 12,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 34,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 49,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 50,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 52,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 59,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 28,
+    "line": 6,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 28,
+    "line": 17,
+    "word": "key",
+    "class": "expression"
+   },
+   {
+    "section": 28,
+    "line": 32,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 28,
+    "line": 36,
+    "word": "user",
+    "class": "dispositioned",
+    "disposition": "code: the parameter `username: str`"
+   },
+   {
+    "section": 28,
+    "line": 38,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 28,
+    "line": 38,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 28,
+    "line": 39,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 29,
+    "line": 49,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 1,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 31,
+    "line": 3,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 31,
+    "line": 4,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 4,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 5,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 5,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 5,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 15,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 32,
+    "line": 9,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 32,
+    "line": 11,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: scanWhy/topUpWhy compare a why token with a word (`token == \"...\"`)"
+   },
+   {
+    "section": 32,
+    "line": 13,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: scanWhy/topUpWhy compare a why token with a word (`token == \"...\"`)"
+   },
+   {
+    "section": 32,
+    "line": 15,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: scanWhy/topUpWhy compare a why token with a word (`token == \"...\"`)"
+   },
+   {
+    "section": 32,
+    "line": 17,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: scanWhy/topUpWhy compare a why token with a word (`token == \"...\"`)"
+   },
+   {
+    "section": 32,
+    "line": 19,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: scanWhy/topUpWhy compare a why token with a word (`token == \"...\"`)"
+   },
+   {
+    "section": 32,
+    "line": 21,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: scanWhy/topUpWhy compare a why token with a word (`token == \"...\"`)"
+   },
+   {
+    "section": 32,
+    "line": 23,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: scanWhy/topUpWhy compare a why token with a word (`token == \"...\"`)"
+   },
+   {
+    "section": 32,
+    "line": 28,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: scanWhy/topUpWhy compare a why token with a word (`token == \"...\"`)"
+   },
+   {
+    "section": 32,
+    "line": 30,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 32,
+    "line": 31,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 32,
+    "line": 34,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: scanWhy/topUpWhy compare a why token with a word (`token == \"...\"`)"
+   },
+   {
+    "section": 32,
+    "line": 39,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: scanWhy/topUpWhy compare a why token with a word (`token == \"...\"`)"
+   },
+   {
+    "section": 32,
+    "line": 44,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 32,
+    "line": 46,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: scanWhy/topUpWhy compare a why token with a word (`token == \"...\"`)"
+   },
+   {
+    "section": 32,
+    "line": 48,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: scanWhy/topUpWhy compare a why token with a word (`token == \"...\"`)"
+   },
+   {
+    "section": 32,
+    "line": 50,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 13,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 33,
+    "line": 50,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 33,
+    "line": 52,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the stamp parsers compare a field's key with a word (`key == \"...\"`)"
+   },
+   {
+    "section": 33,
+    "line": 54,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 56,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: the stamp parsers compare a field's key with a word (`key == \"...\"`)"
+   },
+   {
+    "section": 33,
+    "line": 59,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 33,
+    "line": 60,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 64,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the stamp parsers compare a field's key with a word (`key == \"...\"`)"
+   },
+   {
+    "section": 33,
+    "line": 66,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 67,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 68,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: the stamp parsers compare a field's key with a word (`key == \"...\"`)"
+   },
+   {
+    "section": 33,
+    "line": 71,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 33,
+    "line": 72,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 78,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the stamp parsers compare a field's key with a word (`key == \"...\"`)"
+   },
+   {
+    "section": 33,
+    "line": 86,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the stamp parsers compare a field's key with a word (`key == \"...\"`)"
+   },
+   {
+    "section": 33,
+    "line": 87,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the stamp parsers compare a field's key with a word (`key == \"...\"`)"
+   },
+   {
+    "section": 33,
+    "line": 88,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the stamp parsers compare a field's key with a word (`key == \"...\"`)"
+   },
+   {
+    "section": 33,
+    "line": 89,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the stamp parsers compare a field's key with a word (`key == \"...\"`)"
+   },
+   {
+    "section": 33,
+    "line": 90,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the stamp parsers compare a field's key with a word (`key == \"...\"`)"
+   },
+   {
+    "section": 33,
+    "line": 91,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the stamp parsers compare a field's key with a word (`key == \"...\"`)"
+   },
+   {
+    "section": 33,
+    "line": 92,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the stamp parsers compare a field's key with a word (`key == \"...\"`)"
+   },
+   {
+    "section": 33,
+    "line": 93,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the stamp parsers compare a field's key with a word (`key == \"...\"`)"
+   },
+   {
+    "section": 33,
+    "line": 106,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 34,
+    "line": 14,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 34,
+    "line": 16,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the stamp parsers compare a field's key with a word (`key == \"...\"`)"
+   },
+   {
+    "section": 34,
+    "line": 18,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the stamp parsers compare a field's key with a word (`key == \"...\"`)"
+   },
+   {
+    "section": 34,
+    "line": 27,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the stamp parsers compare a field's key with a word (`key == \"...\"`)"
+   },
+   {
+    "section": 34,
+    "line": 27,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the stamp parsers compare a field's key with a word (`key == \"...\"`)"
+   },
+   {
+    "section": 34,
+    "line": 32,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the stamp parsers compare a field's key with a word (`key == \"...\"`)"
+   },
+   {
+    "section": 35,
+    "line": 36,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 36,
+    "line": 12,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 36,
+    "line": 18,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 36,
+    "line": 90,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 37,
+    "line": 31,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 37,
+    "line": 36,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 37,
+    "line": 40,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 37,
+    "line": 40,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 37,
+    "line": 40,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 39,
+    "line": 7,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 39,
+    "line": 24,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 39,
+    "line": 45,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 39,
+    "line": 53,
+    "word": "key",
+    "class": "empty"
+   },
+   {
+    "section": 39,
+    "line": 64,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 39,
+    "line": 86,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 39,
+    "line": 87,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 39,
+    "line": 101,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 43,
+    "line": 3,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 43,
+    "line": 5,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 43,
+    "line": 5,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 43,
+    "line": 6,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 43,
+    "line": 6,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 43,
+    "line": 6,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 43,
+    "line": 7,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 43,
+    "line": 11,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 43,
+    "line": 12,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 43,
+    "line": 30,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 43,
+    "line": 31,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 43,
+    "line": 32,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 43,
+    "line": 53,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 43,
+    "line": 63,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 43,
+    "line": 63,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 43,
+    "line": 65,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 43,
+    "line": 65,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 43,
+    "line": 66,
+    "word": "token",
+    "class": "masked"
+   },
+   {
+    "section": 43,
+    "line": 66,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 43,
+    "line": 67,
+    "word": "pass",
+    "class": "masked"
+   },
+   {
+    "section": 43,
+    "line": 67,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 43,
+    "line": 76,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 22,
+    "word": "key",
+    "class": "expression"
+   },
+   {
+    "section": 44,
+    "line": 22,
+    "word": "key",
+    "class": "small-number"
+   },
+   {
+    "section": 44,
+    "line": 31,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 36,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 36,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 36,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 37,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 38,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 45,
+    "word": "key",
+    "class": "expansion"
+   },
+   {
+    "section": 44,
+    "line": 45,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 46,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 72,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 73,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 75,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 75,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 77,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 79,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 79,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 80,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 81,
+    "word": "key",
+    "class": "small-number"
+   },
+   {
+    "section": 44,
+    "line": 82,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 82,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 85,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 127,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 128,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 128,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 139,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 141,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 142,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 142,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 143,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 144,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 144,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 150,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 155,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 159,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 164,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 173,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 13,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 24,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 45,
+    "line": 33,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 33,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 35,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 35,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 60,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 63,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 64,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 45,
+    "line": 64,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 64,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 65,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 66,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 69,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 46,
+    "line": 6,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 6,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 6,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 6,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 7,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 10,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 13,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 14,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 46,
+    "line": 14,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 14,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 15,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 23,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: an SQL `cacheKey = ?` placeholder"
+   },
+   {
+    "section": 46,
+    "line": 32,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 32,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 43,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 118,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 176,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 177,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 221,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 236,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 46,
+    "line": 265,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 265,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 265,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 265,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 266,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 268,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 271,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 46,
+    "line": 276,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: an SQL `cacheKey = ?` placeholder"
+   },
+   {
+    "section": 46,
+    "line": 276,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 284,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 284,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 4,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 5,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 18,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 18,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 19,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 20,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 65,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 66,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 66,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 69,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 69,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 70,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 70,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 70,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 70,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 83,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 114,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 151,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 188,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 189,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 189,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 194,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 199,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 214,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 47,
+    "line": 214,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 214,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 218,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 229,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 47,
+    "line": 229,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 229,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 229,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 239,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 240,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 243,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 48,
+    "line": 22,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 48,
+    "line": 22,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 48,
+    "line": 23,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 48,
+    "line": 23,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 48,
+    "line": 24,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 48,
+    "line": 24,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 48,
+    "line": 32,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 49,
+    "line": 16,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 49,
+    "line": 20,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 5,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 6,
+    "word": "pass",
+    "class": "dispositioned",
+    "disposition": "code: the walk's boolean `passed`"
+   },
+   {
+    "section": 50,
+    "line": 6,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 151,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 184,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 188,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 198,
+    "word": "pass",
+    "class": "expansion"
+   },
+   {
+    "section": 50,
+    "line": 198,
+    "word": "pass",
+    "class": "dispositioned",
+    "disposition": "code: the name IMAGE_PASS_SECONDS and its default expansion"
+   },
+   {
+    "section": 50,
+    "line": 200,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 201,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 204,
+    "word": "pass",
+    "class": "dispositioned",
+    "disposition": "comment: `no pass:` followed by words"
+   },
+   {
+    "section": 50,
+    "line": 206,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 207,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 209,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 212,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 222,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 222,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 230,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 231,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 236,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 264,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 264,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 272,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 372,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 374,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 375,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 375,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 412,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 415,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 419,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 419,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 420,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 470,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 474,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 477,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 51,
+    "line": 30,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 51,
+    "line": 39,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 51,
+    "line": 72,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 51,
+    "line": 113,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 51,
+    "line": 140,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 51,
+    "line": 148,
+    "word": "token",
+    "class": "masked"
+   },
+   {
+    "section": 51,
+    "line": 152,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 51,
+    "line": 158,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 51,
+    "line": 170,
+    "word": "token",
+    "class": "masked"
+   },
+   {
+    "section": 51,
+    "line": 181,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 51,
+    "line": 185,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 51,
+    "line": 206,
+    "word": "pass",
+    "class": "dispositioned",
+    "disposition": "code: a log line `pass: cached=${...}`"
+   },
+   {
+    "section": 51,
+    "line": 210,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 51,
+    "line": 217,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 51,
+    "line": 225,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 51,
+    "line": 259,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 51,
+    "line": 267,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 51,
+    "line": 269,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 51,
+    "line": 274,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 51,
+    "line": 289,
+    "word": "pass",
+    "class": "word"
+   }
+  ]
+ },
+ "summary": {
+  "forbidden_terms_check": "0 section(s) with hits of 50; proven to run on a clean line",
+  "secret_patterns": "0 line(s); proven to fire on a run-time fake line",
+  "mask": "30 line(s) masked; classes [\"empty\", \"empty-string\", \"expansion\", \"identifier-or-word\", \"review\"]",
+  "words": "772 credential-word hit(s); classes {\"dispositioned\": 48, \"empty\": 2, \"empty-string\": 2, \"expansion\": 2, \"expression\": 5, \"identifier-or-word\": 35, \"masked\": 34, \"small-number\": 2, \"word\": 642}",
+  "review": 0
+ },
+ "packet": {
+  "file": "packet.md",
+  "bytes": 340476,
+  "sha256": "f9d630329b2d14a3eeafd2206130b0010aedb546df2281159ef107a2be3cca4a"
+ }
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "depth": "extended",
+  "scope": "epic",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "anthropic/claude-opus-5-5",
+    "lab": "anthropic",
+    "identity_source": "the coordinator's T19 dispatch on #666 (to the T5 session, m6-t5-build-engine) and the session's own model metadata (claude-opus-5-5)"
+  },
+  "reviewers": [
+    {
+      "member": "gpt",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "max",
+      "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
+      "allow_fallbacks": false,
+      "probes": [{"phase": "probe", "prompt": "probe-prompt.md", "output": "astra-probe.md"}],
+      "calls": [{"phase": "refutation", "prompt": "astra-brief.md", "output": "astra-audit.md"}],
+      "status": "planned"
+    },
+    {
+      "member": "gemini-argon",
+      "model": "google/gemini-4-argon",
+      "lab": "google",
+      "effort": "high",
+      "provider": "openrouter (the installed recipe)",
+      "probes": [{"phase": "probe", "prompt": "probe-prompt.md", "output": "argon-probe.md"}],
+      "calls": [{"phase": "refutation", "prompt": "argon-brief.md", "output": "argon-audit.md"}],
+      "status": "planned"
+    }
+  ],
+  "keyed_calls": "exactly four: Astra's probe and refutation, then Argon's probe and refutation; every other tools/council/run call with COUNCIL_ENV_FILE=/nonexistent",
+  "invoke_options": "probes with the defaults; refutations --max-retries 1 --per-attempt-timeout-ms 1800000 --total-timeout-ms 2400000 (as T18's)",
+  "packet": {
+    "file": "packet.md",
+    "bytes": 340476,
+    "sha256": "f9d630329b2d14a3eeafd2206130b0010aedb546df2281159ef107a2be3cca4a",
+    "manifest": "manifest.json",
+    "builder": "../stage-c/packet.py",
+    "content": "the ask; 02, 03 and 04 whole; the order's § T19; the three helpers, the unit and the daemon file whole and line-numbered; patches 001, 007, 008, 011 and 013 whole; the ctl, the recipe and the image helper as line-numbered excerpts of every cited line and the functions the four families turn on; the patched upstream's proxy_service.py, auth.py, network.py, storage.py, utils.py, log_uploader.py, usage_report.py, config.py and es_export.py, and EmulationStation's CloudText.cpp, as excerpts of every cited line with 8 lines of context",
+    "trim": "D-WORKFLOW-195: 407 KB at the first build, 372 KB, then 340 KB (the builder's docstring says what moved)",
+    "scan": "forbidden-terms-check --stdin 0 hits in 50 sections; SECRET_PATTERNS 0 lines, proven to fire on a run-time fake line; 30 lines masked; 772 credential-word hits, each classed, 48 read at their lines and dispositioned by name in packet.py; 0 values; 0 review",
+    "per_seat": "astra-brief.md is packet.md with {PREFIX} as A; argon-brief.md is packet.md with {PREFIX} as R and the lane's grades of Astra appended",
+    "astra_brief_sha256": "a24d2f83a939d19d13b66b63b46974e97bee55bc8cb940e129ecb5e51a0b2fba"
+  },
+  "written_before_first_call": "2026-10-26T13:01Z"
+}
