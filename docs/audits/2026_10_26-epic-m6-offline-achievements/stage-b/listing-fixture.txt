@@ -1,0 +1,5 @@
+== tools/t19-listing-fixture.py (12:36:51Z) at 8ebaf8daad, host python 3.14.4 (the image's is 3.10), the patched pin
+decodable: rc=0; found=1 new=1 cached=0 indexed=0 hashing=1 truncated=0 cursor_saved=1
+undecodable: rc=1; UnicodeEncodeError: 'utf-8' codec can't encode character '\udcff' in position 59: surrogates not allowed
+the defect as read: REPRODUCED
+exit 0

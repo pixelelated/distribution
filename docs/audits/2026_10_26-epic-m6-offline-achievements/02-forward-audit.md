@@ -1,0 +1,279 @@
+# Forward audit: M6.P2 T19, the offline achievements proxy (#666)
+
+Read at `8ebaf8daad` (`reviewed-at` `7de4ece06d`, the read equal to it on the 27); the upstream proxy at its pin `c7ebd1b6e7` from the cache's tarball, patched 18 of 18 at fuzz 0 (`stage-a/unpack.txt`). Every row carries `proved:`: `tree` (read at its lines), `history`, `tool-run` (a command's output under `stage-a/` or `stage-b/`), `fixture`, `guest` (the window, owed) or `design`.
+
+## Coverage
+
+| Path | Lines | Read | Feeds | proved |
+| --- | ---: | --- | --- | --- |
+| `projects/ROCKNIX/packages/network/raofflineproxy-libchdr/package.mk` | 24 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (the sibling pins), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy-rcheevos/package.mk` | 23 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (the sibling pins), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/daemons/006-raofflineproxy` | 10 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The listener (the marker's second writer), Q1 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/package.mk` | 157 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (the pin, the comment, the install), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/patches/001-dorequest-4xx-passthrough.patch` | 64 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (its row), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/patches/002-no-synthetic-casual-only-achievement.patch` | 61 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (its row), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/patches/003-flush-stamp.patch` | 80 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (its row), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/patches/004-no-cap-on-cached-games.patch` | 79 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (its row), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/patches/005-keep-the-refresh-thread-alive.patch` | 156 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (its row), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/patches/007-cached-sign-in-of-the-configured-account.patch` | 82 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (its row), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/patches/008-log-upload-opt-in.patch` | 144 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (its row), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/patches/009-unique-image-temp-names.patch` | 36 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (its row), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/patches/010-store-only-header.patch` | 39 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (its row), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/patches/011-offline-login-header.patch` | 125 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (its row), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/patches/012-offline-image-miss.patch` | 144 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (its row), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/patches/013-validate-a-cached-image-before-publishing-it.patch` | 151 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (its row), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/patches/015-bounded-name-lookup.patch` | 285 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (its row), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/patches/016-say-what-became-of-a-download.patch` | 66 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (its row), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/patches/018-pixelelated-platform-identity.patch` | 58 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (its row), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/patches/019-consent-cache-initial-observation.patch` | 81 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (its row), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/patches/020-rvz-padding-preserve-partial-word.patch` | 22 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (its row), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/patches/021-flush-reconnect-during-startup.patch` | 30 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The patches (its row), Q5 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-images` | 497 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The writers, § The bounds, § What T20 inherits, Q3, Q4 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-indexed` | 222 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The credential's paths, § The bounds, Q2, Q4 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl` | 2455 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The listener, § The credential's paths, § The writers, § The bounds, § What T20 inherits, Q1 to Q8 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-refresh` | 232 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The credential's paths, § The bounds, § What T20 inherits, Q2, Q4, Q7 | tree |
+| `projects/ROCKNIX/packages/network/raofflineproxy/system.d/raofflineproxy.service` | 46 | whole, at `8ebaf8daad` (stage B, `stage-b/reading-notes.md`) | § The listener (the unit, directive by directive), Q1 | tree |
+
+## The listener
+
+- **The bind:** `proxy_host` from the client's `config.json`, default `127.0.0.1` (`config.py:376-377` in the patched pin); the port 8080 (`config.py:368`). AF_INET only: `ThreadingTCPServer` keeps `TCPServer`'s address family (`proxy_service.py:268`), `allow_reuse_address = True` (`:269`). proved: tree.
+- **Who can reach it:** any process on the device; nothing off it (a loopback bind). On ROCKNIX the interface, the emulators and every service run as root, so the port adds no reach for a local process, which could read `system.cfg` directly. Two non-local reaches remain: a web page shown on the device (the cloud sign-in window's WebKit, T17's) by DNS rebinding, since the service checks neither `Host` nor `Origin` (none in `proxy_service.py`) and sends no CORS header; and an emulator core running untrusted content. proved: tree.
+- **What it answers without identity:**
+  - `dorequest.php?r=patch|achievementsets|unlocks&u=<user>` from the store, and `/Badge/`, `/Images/`, `/UserPic/` from the image cache, to any client;
+  - **a `login`/`login2` request naming the user, while upstream cannot be reached, is answered with the cached sign-in body** (`handle_offline_login`, `proxy_service.py:491-505`): no password or token is compared, and the body is the row `auth.load_cached_login_for` reads `Token` from (`auth.py`, patch 007). So the account's session token is served to any local client that names the (public) account while the device is offline (Q1, Q2; `04`);
+  - `X-RA-Store-Only: 1` (patches 010, 012) selects the store whoever sends it: behaviour, not identity.
+  proved: tree; the guest reads the login answer's keys, never its values.
+- **The unit, directive by directive** (`system.d/raofflineproxy.service`; T22's table of the other units is `docs/audits/2026_10_25-epic-m6-os-system-services/02-forward-audit.md` on `feature/m6-os-system-services-669`, compared at stage C): `ConditionPathExists` :7 (the marker); `After=network.target network-base.service rocknix-sysconfig.service` :11; `Before=emustation.service essway.service` :16; `StartLimitIntervalSec=300` :23, `StartLimitBurst=5` :24; `Type=simple` :27; `Environment=` RAOFFLINEPROXY_CONFIG_DIR, HOME, XDG_CONFIG_HOME, MALLOC_ARENA_MAX=2 :28-32; `ExecStart` :33; `ExecStartPost=... listening --wait 30` :40; `Restart=on-failure` :41, `RestartSec=5` :42, `TimeoutStopSec=15` :43. **No `User=`, `Group=`, `DynamicUser=`, `Protect*`, `Private*`, `NoNewPrivileges`, `CapabilityBoundingSet`, `RestrictAddressFamilies`, `IPAddress*`, `SystemCallFilter`, `ReadWritePaths`, `Memory*`, `CPU*`, `Tasks*` or `UMask=`** (R3: 0). The service runs as root with the unit's defaults. proved: tree, tool-run; the user read from `ps` on the guest is owed.
+- **The readiness check:** `port_listening` (ctl, `do_listening` above it) accepts any LISTEN at `0100007F:1F90`, `00000000:1F90` or the v4-mapped `...FFFF00000100007F:1F90` in `/proc/net/tcp{,6}`, whoever owns it. `ExecStartPost` and `enable` both rest on it, so a foreign listener on `0.0.0.0:8080` satisfies the start and the enable (Q1; the guest's first constructed positive). proved: tree.
+- **The port shared:** `cloud_oauth`'s serve takes 8080 too (`:2553`'s comment, T17's), and the suite's case at output line 647 holds that the serve still comes up on the LAN address with the proxy on 127.0.0.1. proved: tree, tool-run.
+- **The marker's two writers:** `enable`/`disable` (ctl :450, :436, :453, :527) and `099-networkservices` at boot from `daemons/006`'s `STATE`. proved: tree.
+
+## The credential's paths
+
+| Credential | Sink | Mask at that sink | Line | proved |
+| --- | --- | --- | --- | --- |
+| the username | argv, `/proc/<pid>/cmdline` | none | ctl :616 (`pending-ids`), :647 (`summary`), :764 (`account`), :1029 (`ready_games_into`); the file's own rule at :1244-1246 and :1265 (the environment) | tree |
+| the username | the environment (`RA_SCAN_USER`) | none (`/proc/<pid>/environ`, root-readable) | ctl :1265, :1280 | tree |
+| the username | the upload bundle | none: *"the bundle ... carries the account name"* (patch 008's description) | `log_uploader.py` | tree |
+| the username | the usage report | salted SHA-256 (`client_id`) | `usage_report.py:47-50`; sent only with consent `is True` (`:180`) | tree |
+| the username | the port's query strings (`u=`) | none (a public name) | the emulators; EmulationStation `RetroAchievements.cpp:301`, `:315`, `:338` (T20's) | tree |
+| the password | `system.cfg` | none (plain text, T17's and #102's) | the client reads it itself: `load_rocknix_system_password_credentials` (`auth.py`, `config.py`) | tree |
+| the password | argv, logs | not read into a variable by the ctl (presence only, ctl :1120-1121); the service's request log redacts `p=` (`redact_query_tokens`, `utils.py:110-116`; `redact_form_tokens` :119-124) | tree |
+| the session token | `system.cfg` | none (plain text) | read for presence only by the ctl (:1121) | tree |
+| the session token | the store's `login2::<user>` row | none (the store is plain SQLite) | read by `do_account` (ctl :767-787), which prints `score= softcore=` only (:787, checked :795-798) | tree |
+| the session token | **the port** | **none: the offline login answers with the cached body** | `proxy_service.py:491-505` | tree |
+| the session token | the service's log | `t=` redacted in request lines (`utils.py:110`); a body is logged through `redact_form_tokens` (`proxy_service.py` request handler) | tree |
+| the session token | the upload bundle | `t=`, `p=` by `redact_query_tokens`; the quarantined store by `_SENSITIVE_CACHE_ENTRY` (`log_uploader.py:83-95`) | tree |
+| the session token, the password | `scan.log` (the helpers' `FAIL ... {error}` lines, ctl `slog`) | none, and none needed so far: the client's exceptions read name no credential; the one URL-bearing message is `image_cache.py:276`, a media-host URL | `cache-indexed:187`, `:204`; `refresh:126`, `:132`, `:219` (stdout) | tree; the guest's scan.log read by count is owed |
+| the web API key | none here | the proxy and the ctl use none (`REDACTED_QUERY_KEYS` has no `y`, `network.py:22`); `ra-candidate-games`' `RA_QA_WEBKEY` is T12's | tree |
+| the per-emulator token files | not this slice's | T30's PL-009, PL-010, PL-020, PL-021; `backuptool` RATOKENFILES (T17's) | tree |
+| all of the above | the packet | the stage-C scan, every hit dispositioned (`second-opinions/`) | design |
+| all of the above | the screen | the ctl prints tokens and counts only; the pages are T20's | tree |
+
+## The writers
+
+Generated by `tools/t19-writers.py` at `8ebaf8daad` (rc 0, 77 rows; its drift control at `87d9969bbb` exits 1 with 49: `stage-b/writers-runs.txt`). The mode column says what the tree says; the guest reads each mode back.
+
+| Line | Function | File | Writes by | Mode | Lock held | Reader | proved |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `raofflineproxy-ctl:422` | `put_back` | `system.cfg` (`global.retroachievements.offlineproxy`, `.hardcore`, `.offlineproxy.hardcore_was`) | `set_setting` from `/etc/profile`, each value read back before the next | the writer's umask (none set) | none | `setsettings.sh`, `cheevos_ppsspp.sh`, `daemons/006` at boot, EmulationStation's SystemConf | tree |
+| `raofflineproxy-ctl:434` | `enable_undo` | `system.cfg` (`global.retroachievements.offlineproxy`, `.hardcore`, `.offlineproxy.hardcore_was`) | `set_setting` from `/etc/profile`, each value read back before the next | the writer's umask (none set) | none | `setsettings.sh`, `cheevos_ppsspp.sh`, `daemons/006` at boot, EmulationStation's SystemConf | tree |
+| `raofflineproxy-ctl:436` | `enable_undo` | `/storage/.cache/services/raofflineproxy.conf` (the marker) | direct (`touch`, `rm -f`) | the writer's umask (none set) | none | the unit's `ConditionPathExists`; `099-networkservices` rewrites it at boot | tree |
+| `raofflineproxy-ctl:449` | `do_enable` | `/storage/.cache/services/` | `mkdir -p` | the writer's umask (none set) | none | the unit's `ConditionPathExists` | tree |
+| `raofflineproxy-ctl:450` | `do_enable` | `/storage/.cache/services/raofflineproxy.conf` (the marker) | direct (`touch`, `rm -f`) | the writer's umask (none set) | none | the unit's `ConditionPathExists`; `099-networkservices` rewrites it at boot | tree |
+| `raofflineproxy-ctl:453` | `do_enable` | `/storage/.cache/services/raofflineproxy.conf` (the marker) | direct (`touch`, `rm -f`) | the writer's umask (none set) | none | the unit's `ConditionPathExists`; `099-networkservices` rewrites it at boot | tree |
+| `raofflineproxy-ctl:469` | `do_enable` | `system.cfg` (`global.retroachievements.offlineproxy`, `.hardcore`, `.offlineproxy.hardcore_was`) | `set_setting` from `/etc/profile`, each value read back before the next | the writer's umask (none set) | none | `setsettings.sh`, `cheevos_ppsspp.sh`, `daemons/006` at boot, EmulationStation's SystemConf | tree |
+| `raofflineproxy-ctl:473` | `do_enable` | `system.cfg` (`global.retroachievements.offlineproxy`, `.hardcore`, `.offlineproxy.hardcore_was`) | `set_setting` from `/etc/profile`, each value read back before the next | the writer's umask (none set) | none | `setsettings.sh`, `cheevos_ppsspp.sh`, `daemons/006` at boot, EmulationStation's SystemConf | tree |
+| `raofflineproxy-ctl:476` | `do_enable` | `system.cfg` (`global.retroachievements.offlineproxy`, `.hardcore`, `.offlineproxy.hardcore_was`) | `set_setting` from `/etc/profile`, each value read back before the next | the writer's umask (none set) | none | `setsettings.sh`, `cheevos_ppsspp.sh`, `daemons/006` at boot, EmulationStation's SystemConf | tree |
+| `raofflineproxy-ctl:492` | `stop_running_run` | `/var/run/raofflineproxy-scan.lock` | opened read-write without truncating (created if absent); the holder's pid written at offset 0 | the writer's umask (none set) | none | `stop_running_run`, `RunLock::holder` in EmulationStation | tree |
+| `raofflineproxy-ctl:523` | `do_disable` | `system.cfg` (`global.retroachievements.offlineproxy`, `.hardcore`, `.offlineproxy.hardcore_was`) | `set_setting` from `/etc/profile`, each value read back before the next | the writer's umask (none set) | none | `setsettings.sh`, `cheevos_ppsspp.sh`, `daemons/006` at boot, EmulationStation's SystemConf | tree |
+| `raofflineproxy-ctl:527` | `do_disable` | `/storage/.cache/services/raofflineproxy.conf` (the marker) | direct (`touch`, `rm -f`) | the writer's umask (none set) | none | the unit's `ConditionPathExists`; `099-networkservices` rewrites it at boot | tree |
+| `raofflineproxy-ctl:537` | `do_disable` | `system.cfg` (`global.retroachievements.offlineproxy`, `.hardcore`, `.offlineproxy.hardcore_was`) | `set_setting` from `/etc/profile`, each value read back before the next | the writer's umask (none set) | none | `setsettings.sh`, `cheevos_ppsspp.sh`, `daemons/006` at boot, EmulationStation's SystemConf | tree |
+| `raofflineproxy-ctl:539` | `do_disable` | `system.cfg` (`global.retroachievements.offlineproxy`, `.hardcore`, `.offlineproxy.hardcore_was`) | `set_setting` from `/etc/profile`, each value read back before the next | the writer's umask (none set) | none | `setsettings.sh`, `cheevos_ppsspp.sh`, `daemons/006` at boot, EmulationStation's SystemConf | tree |
+| `raofflineproxy-ctl:812` | `do_flushed` | `last-flush` (the service's, patch 003) | taken by rename to `.$$`, read, removed | the writer's umask (none set) | none | the ctl's `flushed`, for `OfflineAchievements.cpp:119` | tree |
+| `raofflineproxy-ctl:814` | `do_flushed` | `last-flush` (the service's, patch 003) | taken by rename to `.$$`, read, removed | the writer's umask (none set) | none | the ctl's `flushed`, for `OfflineAchievements.cpp:119` | tree |
+| `raofflineproxy-ctl:828` | `mark_running` | `running` | temp + rename (`mark_running`); removed at the end and by `take_lock` | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | EmulationStation (a run it did not start, bound 900 s) | tree |
+| `raofflineproxy-ctl:829` | `mark_running` | `running` | temp + rename (`mark_running`); removed at the end and by `take_lock` | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | EmulationStation (a run it did not start, bound 900 s) | tree |
+| `raofflineproxy-ctl:831` | `unmark_running` | `running` | temp + rename (`mark_running`); removed at the end and by `take_lock` | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | EmulationStation (a run it did not start, bound 900 s) | tree |
+| `raofflineproxy-ctl:842` | `slog` | `/storage/.config/raofflineproxy/` | `mkdir -p` | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | the service, the helpers, the ctl | tree |
+| `raofflineproxy-ctl:844` | `slog` | `scan.log` (and `scan.log.1`) | append; rotated once past 1,048,576 B in `slog` only -- the helpers' stderr appends bypass the check | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | a person, over a shell | tree |
+| `raofflineproxy-ctl:846` | `slog` | `scan.log` (and `scan.log.1`) | append; rotated once past 1,048,576 B in `slog` only -- the helpers' stderr appends bypass the check | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | a person, over a shell | tree |
+| `raofflineproxy-ctl:977` | `ready_games_into` | the ready-set file `$1` (`/tmp/raofflineproxy-ready.*`) | direct (truncate, then the python's stdout) | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `games_made_ready` | tree |
+| `raofflineproxy-ctl:1029` | `ready_games_into` | the ready-set file `$1` (`/tmp/raofflineproxy-ready.*`) | direct (truncate, then the python's stdout) | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `games_made_ready` | tree |
+| `raofflineproxy-ctl:1093` | `write_stamp` | `/storage/.config/raofflineproxy/` | `mkdir -p` | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | the service, the helpers, the ctl | tree |
+| `raofflineproxy-ctl:1094` | `write_stamp` | `last-scan` | temp + rename (`write_stamp`); its status ignored by every caller | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `CloudText::parseScanStamp` | tree |
+| `raofflineproxy-ctl:1107` | `commit_cursor` | `scan-cursor` (and `.next`, `.next.tmp`) | temp + `os.replace` (python), then `mv -f` with a read-back (`commit_cursor`) | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | the next listing | tree |
+| `raofflineproxy-ctl:1108` | `commit_cursor` | `scan-cursor` (and `.next`, `.next.tmp`) | temp + `os.replace` (python), then `mv -f` with a read-back (`commit_cursor`) | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | the next listing | tree |
+| `raofflineproxy-ctl:1112` | `commit_cursor` | `scan-cursor` (and `.next`, `.next.tmp`) | temp + `os.replace` (python), then `mv -f` with a read-back (`commit_cursor`) | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | the next listing | tree |
+| `raofflineproxy-ctl:1137` | `is_online` | `/tmp/raofflineproxy-probe.*` (the probe's own `online_state.json`) | `mktemp -d`, removed by `rm -rf` | the writer's umask (none set) | none | `is_online` | tree |
+| `raofflineproxy-ctl:1141` | `is_online` | `/tmp/raofflineproxy-probe.*` (the probe's own `online_state.json`) | `mktemp -d`, removed by `rm -rf` | the writer's umask (none set) | none | `is_online` | tree |
+| `raofflineproxy-ctl:1190` | `take_lock` | `/var/run/raofflineproxy-scan.lock` | opened read-write without truncating (created if absent); the holder's pid written at offset 0 | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `stop_running_run`, `RunLock::holder` in EmulationStation | tree |
+| `raofflineproxy-ctl:1198` | `take_lock` | `/var/run/raofflineproxy-scan.lock` | opened read-write without truncating (created if absent); the holder's pid written at offset 0 | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `stop_running_run`, `RunLock::holder` in EmulationStation | tree |
+| `raofflineproxy-ctl:1204` | `take_lock` | `running` | temp + rename (`mark_running`); removed at the end and by `take_lock` | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | EmulationStation (a run it did not start, bound 900 s) | tree |
+| `raofflineproxy-ctl:1587` | `list_jobs` | `scan-cursor` (and `.next`, `.next.tmp`) | temp + `os.replace` (python), then `mv -f` with a read-back (`commit_cursor`) | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | the next listing | tree |
+| `raofflineproxy-ctl:1588` | `list_jobs` | `scan-cursor` (and `.next`, `.next.tmp`) | temp + `os.replace` (python), then `mv -f` with a read-back (`commit_cursor`) | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | the next listing | tree |
+| `raofflineproxy-ctl:1592` | `list_jobs` | `scan-cursor` (and `.next`, `.next.tmp`) | temp + `os.replace` (python), then `mv -f` with a read-back (`commit_cursor`) | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | the next listing | tree |
+| `raofflineproxy-ctl:1674` | `list_jobs` | the job list (`$1` of `list_jobs`, `/tmp/raofflineproxy-{scan,topup}.*`) | direct, strict UTF-8 | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `raofflineproxy-cache-indexed` | tree |
+| `raofflineproxy-ctl:1708` | `run_jobs` | `/tmp/raofflineproxy-scan-out.*` (a fifo) | `mktemp -u` then `mkfifo` (a name, then the object) | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `run_jobs`, fd 8 | tree |
+| `raofflineproxy-ctl:1709` | `run_jobs` | `/tmp/raofflineproxy-scan-out.*` (a fifo) | `mktemp -u` then `mkfifo` (a name, then the object) | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `run_jobs`, fd 8 | tree |
+| `raofflineproxy-ctl:1711` | `run_jobs` | `scan.log` (and `scan.log.1`) | append; rotated once past 1,048,576 B in `slog` only -- the helpers' stderr appends bypass the check | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | a person, over a shell | tree |
+| `raofflineproxy-ctl:1713` | `run_jobs` | `scan.log` (and `scan.log.1`) | append; rotated once past 1,048,576 B in `slog` only -- the helpers' stderr appends bypass the check | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | a person, over a shell | tree |
+| `raofflineproxy-ctl:1785` | `run_jobs` | `/tmp/raofflineproxy-scan-out.*` (a fifo) | `mktemp -u` then `mkfifo` (a name, then the object) | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `run_jobs`, fd 8 | tree |
+| `raofflineproxy-ctl:1814` | `cancelled` | `/tmp/raofflineproxy-ready.*` | `mktemp`; removed at the end and by the EXIT trap | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `games_made_ready` | tree |
+| `raofflineproxy-ctl:1876` | `run_image_pass` | `scan.log` (and `scan.log.1`) | append; rotated once past 1,048,576 B in `slog` only -- the helpers' stderr appends bypass the check | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | a person, over a shell | tree |
+| `raofflineproxy-ctl:1971` | `do_scan` | `/storage/.config/raofflineproxy/` | `mkdir -p` | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | the service, the helpers, the ctl | tree |
+| `raofflineproxy-ctl:1979` | `do_scan` | `/tmp/raofflineproxy-{scan,topup}.*` (the job list) | `mktemp`; removed by the EXIT trap | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `raofflineproxy-cache-indexed` | tree |
+| `raofflineproxy-ctl:1981` | `do_scan` | the run's temporaries (the job list, the fifo, the ready sets, `scan-cursor.next`, `running`) | the EXIT trap's `rm -f` | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | (cleanup: nothing reads them after) | tree |
+| `raofflineproxy-ctl:2036` | `do_scan` | `/tmp/raofflineproxy-ready.*` | `mktemp`; removed at the end and by the EXIT trap | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `games_made_ready` | tree |
+| `raofflineproxy-ctl:2041` | `do_scan` | `/tmp/raofflineproxy-ready.*` | `mktemp`; removed at the end and by the EXIT trap | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `games_made_ready` | tree |
+| `raofflineproxy-ctl:2042` | `do_scan` | `/tmp/raofflineproxy-ready.*` | `mktemp`; removed at the end and by the EXIT trap | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `games_made_ready` | tree |
+| `raofflineproxy-ctl:2095` | `do_scan` | `scan-cursor` (and `.next`, `.next.tmp`) | temp + `os.replace` (python), then `mv -f` with a read-back (`commit_cursor`) | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | the next listing | tree |
+| `raofflineproxy-ctl:2139` | `pending_lock` | `/var/run/raofflineproxy-index-pending.lock` | opened read-write (created if absent) | the writer's umask (none set) | the index-pending lock (fd 6), best effort | `pending_lock` | tree |
+| `raofflineproxy-ctl:2154` | `write_index_pending` | `index-pending` (and `.tmp`, `.ack.$$`) | temp + rename; acknowledged by rename aside | the writer's umask (none set) | the index-pending lock (fd 6), best effort | `do_topup` | tree |
+| `raofflineproxy-ctl:2155` | `write_index_pending` | `index-pending` (and `.tmp`, `.ack.$$`) | temp + rename; acknowledged by rename aside | the writer's umask (none set) | the index-pending lock (fd 6), best effort | `do_topup` | tree |
+| `raofflineproxy-ctl:2172` | `ack_index_pending` | `index-pending` (and `.tmp`, `.ack.$$`) | temp + rename; acknowledged by rename aside | the writer's umask (none set) | the index-pending lock (fd 6), best effort | `do_topup` | tree |
+| `raofflineproxy-ctl:2174` | `ack_index_pending` | `index-pending` (and `.tmp`, `.ack.$$`) | temp + rename; acknowledged by rename aside | the writer's umask (none set) | the index-pending lock (fd 6), best effort | `do_topup` | tree |
+| `raofflineproxy-ctl:2176` | `ack_index_pending` | `index-pending` (and `.tmp`, `.ack.$$`) | temp + rename; acknowledged by rename aside | the writer's umask (none set) | the index-pending lock (fd 6), best effort | `do_topup` | tree |
+| `raofflineproxy-ctl:2177` | `ack_index_pending` | `index-pending` (and `.tmp`, `.ack.$$`) | temp + rename; acknowledged by rename aside | the writer's umask (none set) | the index-pending lock (fd 6), best effort | `do_topup` | tree |
+| `raofflineproxy-ctl:2185` | `do_index_offline` | `/storage/.config/raofflineproxy/` | `mkdir -p` | the writer's umask (none set) | none | the service, the helpers, the ctl | tree |
+| `raofflineproxy-ctl:2208` | `do_topup` | `/storage/.config/raofflineproxy/` | `mkdir -p` | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | the service, the helpers, the ctl | tree |
+| `raofflineproxy-ctl:2264` | `do_topup` | `last-topup-attempt` | direct (`touch`, unguarded) | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `do_topup`'s half-hour gate and its `-nt` played check | tree |
+| `raofflineproxy-ctl:2267` | `do_topup` | `/tmp/raofflineproxy-{scan,topup}.*` (the job list) | `mktemp`; removed by the EXIT trap | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `raofflineproxy-cache-indexed` | tree |
+| `raofflineproxy-ctl:2268` | `do_topup` | the run's temporaries (the job list, the fifo, the ready sets, `scan-cursor.next`, `running`) | the EXIT trap's `rm -f` | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | (cleanup: nothing reads them after) | tree |
+| `raofflineproxy-ctl:2271` | `do_topup` | `/tmp/raofflineproxy-ready.*` | `mktemp`; removed at the end and by the EXIT trap | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `games_made_ready` | tree |
+| `raofflineproxy-ctl:2364` | `do_topup` | `/tmp/raofflineproxy-topup-sc.*` | `mktemp`, stdout of `run-smart-cache`; removed | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `do_topup` (its last `"type":"result"` line) | tree |
+| `raofflineproxy-ctl:2366` | `do_topup` | `scan.log` (and `scan.log.1`) | append; rotated once past 1,048,576 B in `slog` only -- the helpers' stderr appends bypass the check | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | a person, over a shell | tree |
+| `raofflineproxy-ctl:2373` | `do_topup` | `/tmp/raofflineproxy-topup-sc.*` | `mktemp`, stdout of `run-smart-cache`; removed | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `do_topup` (its last `"type":"result"` line) | tree |
+| `raofflineproxy-ctl:2401` | `do_topup` | `/tmp/raofflineproxy-ready.*` | `mktemp`; removed at the end and by the EXIT trap | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `games_made_ready` | tree |
+| `raofflineproxy-ctl:2402` | `do_topup` | `/tmp/raofflineproxy-ready.*` | `mktemp`; removed at the end and by the EXIT trap | the writer's umask (none set) | the scan lock (fd 9, `take_lock`) | `games_made_ready` | tree |
+| `raofflineproxy-cache-images:171` | `write_cursor` | `image_cache/verify-cursor` | direct `write_text` -- the one stamp here without temp and rename | the writer's umask (none set) | the caller's: the scan lock when the ctl runs it; none by hand | the next `--verify` pass | tree |
+| `raofflineproxy-cache-images:173` | `write_cursor` | `image_cache/verify-cursor` | direct `write_text` -- the one stamp here without temp and rename | the writer's umask (none set) | the caller's: the scan lock when the ctl runs it; none by hand | the next `--verify` pass | tree |
+| `raofflineproxy-cache-images:175` | `write_cursor` | `image_cache/verify-cursor` | direct `write_text` -- the one stamp here without temp and rename | the writer's umask (none set) | the caller's: the scan lock when the ctl runs it; none by hand | the next `--verify` pass | tree |
+| `raofflineproxy-cache-images:198` | `write_absent` | `image_cache/absent` (and `.tmp`) | temp + `os.replace` | the writer's umask (none set) | the caller's: the scan lock when the ctl runs it; none by hand | the next image pass | tree |
+| `raofflineproxy-cache-images:200` | `write_absent` | `image_cache/absent` (and `.tmp`) | temp + `os.replace` | the writer's umask (none set) | the caller's: the scan lock when the ctl runs it; none by hand | the next image pass | tree |
+| `raofflineproxy-cache-images:201` | `write_absent` | `image_cache/absent` (and `.tmp`) | temp + `os.replace` | the writer's umask (none set) | the caller's: the scan lock when the ctl runs it; none by hand | the next image pass | tree |
+| `raofflineproxy-cache-images:341` | `main` | a damaged cached image under `image_cache/static/` | unlink | the writer's umask (none set) | the caller's: the scan lock when the ctl runs it; none by hand | the fetch that follows in the same pass | tree |
+
+rows=77 expected=77 targets=24 rev=8ebaf8daad
+
+Beyond the four scripts: the service writes the store (`Storage`), the image cache (patches 009, 013), `last-flush` (patch 003), `cached_game_ids.txt` (`es_export.py:58-69`, a fixed `.tmp` and `os.replace`), `online_state.json` and its own log; and **`list_jobs` opens the store through the client's `Storage()` (ctl's listing), whose `_initialize_sqlite` sets `journal_mode=WAL` and runs `CREATE ... IF NOT EXISTS` (`storage.py:106-151`)**: the ctl's own `sqlite3.connect`s are `mode=ro`, but its listing can write the store's schema and its WAL files (Q3, Info). proved: tree.
+
+## The patches
+
+The tarball at the pin: sha256 `88eef31acfa4104b20258bd5cea514ade30e6cdf35767ffc958009851d61898b` = `PKG_SHA256` (R12). The recipe's comment at `package.mk:6` says *"The16 patches apply at fuzz0"*; 18 ship. The count was 16 at `7afa9efcfc`, the previous pin's recipe, before 020 and 021 (`f9b7ce3dfb`, 2026-10-14) (R10, `stage-a/unpack.txt`). The ctl's header note names the pin: `rc-preflight --only proxy-schema` `PASS` (R11), a comment check, *"runtime schema proof remains separate"*. The siblings name older proxy commits (`5866cd9b`, `3036478f`) as the source of their submodule pins; a tarball carries no gitlinks, so whether `c7ebd1b6e7` still names those commits is not checkable from the cache (Q5; the record's `docs/qa-logs/2026-10-03-proxy-refresh/coupled-pins.tsv` is cited at stage C). Every draft's base is older than the pin.
+
+| Patch | Upstream file and function | Kind | At the pin | Added, last change | Draft under `docs/upstream/raofflineproxy/` | The #585 line owed | proved |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `001-dorequest-4xx-passthrough` | `proxy_service.py` `is_passthrough_client_error`, the online path | `fix` | absent: applies at fuzz 0, rc 0 (`stage-a/unpack.txt`) | `43b4a62909` 2026-09-13; `a0f60255ab` 2026-10-11 | `client-errors/` (base `879b158995`) | the draft rebased onto `c7ebd1b6e7`; and a separate line for upstream's `network.http_post`, which marks no pause on a 429 (`network.py:549-563` against `http_get`'s `:408-409`): with 001 the 429 now reaches the emulator, and nothing in the proxy paces the next POST | tree, tool-run |
+| `002-no-synthetic-casual-only-achievement` | `rom_cache.py` `filter_warning_achievement_definitions` | `fix` | absent: applies at fuzz 0, rc 0 (`stage-a/unpack.txt`) | `51e2acece6` 2026-09-14; `409250ebce` 2026-10-03 | `warning-sets/` (`879b158995`) | rebase onto the pin; the Android `filterWarningAchievementDefinitions` gap named beside it | tree, tool-run |
+| `003-flush-stamp` | `flusher.py` `write_flush_stamp` | `feature` | absent: applies at fuzz 0, rc 0 (`stage-a/unpack.txt`) | `67a89cb623` 2026-09-14; `a2586374b7` 2026-10-05 | none | an interface to agree first (the contribution map: *agree interface with upstream*) | tree, tool-run |
+| `004-no-cap-on-cached-games` | `rom_browser.py` `add_rom_to_cache(budgeted=False)`, `_drain` | `feature` | absent: applies at fuzz 0, rc 0 (`stage-a/unpack.txt`) | `451a8b1021` 2026-09-14; `9f170ee741` 2026-10-11 | none | an API and policy discussion first (the contribution map) | tree, tool-run |
+| `005-keep-the-refresh-thread-alive` | `proxy_service.py` `PeriodicRefresh.run`/`run_pass`/`refresh_games` | `fix` | absent: applies at fuzz 0, rc 0 (`stage-a/unpack.txt`) | `ce1dbcc986` 2026-09-25; `a0f60255ab` 2026-10-11 | `refresh-resilience/` (`879b158995`) | rebase onto the pin | tree, tool-run |
+| `007-cached-sign-in-of-the-configured-account` | `auth.py` `resolve_credentials`, `load_cached_login_for` | `fix` | absent: applies at fuzz 0, rc 0 (`stage-a/unpack.txt`) | `be3db49acb` 2026-09-14; `409250ebce` 2026-10-03 | `configured-login/` (`879b158995`) | rebase onto the pin; and the offline login's answer (`proxy_service.py:491-505`, below) | tree, tool-run |
+| `008-log-upload-opt-in` | `config.py` `log_upload_enabled`; `proxy_service.py` `retry_storage_corruption_report` | `feature` | absent: applies at fuzz 0, rc 0 (`stage-a/unpack.txt`) | `12484e492c` 2026-09-14; `a2586374b7` 2026-10-05 | `log-consent/` (`879b158995`) | rebase onto the pin; the default is the project's to decide | tree, tool-run |
+| `009-unique-image-temp-names` | `image_cache.py` `download_static_image` | `fix` | absent: applies at fuzz 0, rc 0 (`stage-a/unpack.txt`) | `109ad8706f` 2026-09-14; `409250ebce` 2026-10-03 | `image-publication/` (`bdcd229b45`) | rebase onto the pin | tree, tool-run |
+| `010-store-only-header` | `proxy_service.py` `process_proxy_request` | `feature` | absent: applies at fuzz 0, rc 0 (`stage-a/unpack.txt`) | `9d4f496c7a` 2026-09-15; `409250ebce` 2026-10-03 | none | a store-only contract to coordinate | tree, tool-run |
+| `011-offline-login-header` | `proxy_service.py` `response_head`, `handle_offline_login` | `feature` | absent: applies at fuzz 0, rc 0 (`stage-a/unpack.txt`) | `fb0a42268d` 2026-09-15; `a0f60255ab` 2026-10-11 | none | a provenance header to coordinate | tree, tool-run |
+| `012-offline-image-miss` | `proxy_service.py` static assets, `store_only_requested` | `fix` | absent: applies at fuzz 0, rc 0 (`stage-a/unpack.txt`) | `e29827cccc` 2026-09-15; `a0f60255ab` 2026-10-11 | none | depends on 010's contract | tree, tool-run |
+| `013-validate-a-cached-image-before-publishing-it` | `image_cache.py` `png_problem`, `_checked_image_body` | `fix` | absent: applies at fuzz 0, rc 0 (`stage-a/unpack.txt`) | `2e1df9d4dc` 2026-09-18; `409250ebce` 2026-10-03 | `image-completeness/` (`879b158995`) | rebase onto the pin; with a bound on the inflate (`zlib.decompress(idat)` has none) | tree, tool-run |
+| `015-bounded-name-lookup` | `network.py` `resolve_host_bounded`, `getaddrinfo` memory; `proxy_service.py` forwarder | `fix` | absent: applies at fuzz 0, rc 0 (`stage-a/unpack.txt`) | `f2f23da875` 2026-09-22; `409250ebce` 2026-10-03 | `bounded-dns/` (`879b158995`) | rebase onto the pin; the uncapped lookup threads named | tree, tool-run |
+| `016-say-what-became-of-a-download` | `image_cache.py` `download_static_image` return value | `feature` | absent: applies at fuzz 0, rc 0 (`stage-a/unpack.txt`) | `fa9af93285` 2026-09-28; `409250ebce` 2026-10-03 | none | an outcome API to coordinate with callers | tree, tool-run |
+| `018-pixelelated-platform-identity` | `config.py` `running_on_rocknix` | `identity` | absent: applies at fuzz 0, rc 0 (`stage-a/unpack.txt`) | `cf511ce79b` 2026-10-05; `cf511ce79b` 2026-10-05 | `pixelelated-identity/` (`7252fc7813`) | rebase onto the pin | tree, tool-run |
+| `019-consent-cache-initial-observation` | `usage_stats.py` `_consented` | `fix` | absent: applies at fuzz 0, rc 0 (`stage-a/unpack.txt`) | `e4276a6743` 2026-10-06; `e4276a6743` 2026-10-06 | `early-consent/` (`b09d604eca`) | rebase onto the pin | tree, tool-run |
+| `020-rvz-padding-preserve-partial-word` | `rvz_datasource.py` lagged-Fibonacci padding | `fix` | absent: applies at fuzz 0, rc 0 (`stage-a/unpack.txt`) | `f9b7ce3dfb` 2026-10-14; `f9b7ce3dfb` 2026-10-14 | none | a draft owed (no header; `f9b7ce3dfb` cites #583, #584, #588) | tree, tool-run |
+| `021-flush-reconnect-during-startup` | `proxy_service.py` `ConnectivityMonitor.run`, `run_proxy_service` | `fix` | absent: applies at fuzz 0, rc 0 (`stage-a/unpack.txt`) | `f9b7ce3dfb` 2026-10-14; `f9b7ce3dfb` 2026-10-14 | none | a draft owed (no header; `f9b7ce3dfb`) | tree, tool-run |
+
+## The bounds
+
+| Bound | Value | Enforced by | proved |
+| --- | --- | --- | --- |
+| `PROBE_TRIES`, `PROBE_INTERVAL` | 9 × 10 s | the top-up's probe loop, inside its deadline (ctl, `do_topup`) | tree |
+| `STOP_WAIT` | 10 s | `stop_running_run`'s wait for the lock | tree |
+| `ERRORS_IN_A_ROW` | 3 | `run_jobs`' `IN_A_ROW` | tree |
+| `TOPUP_INTERVAL` | 1,800 s | the mark's age, `stat %Y` against `date +%s`; a negative age is not a skip | tree |
+| `TOPUP_TIMEOUT` | 900 s | `time_left` from `START`: the lock wait, the probes, the listing (`timeout`), the jobs (`timeout`), the recently played pass (`timeout`), the image pass | tree |
+| the top-up's played check | `-nt` | `history_path`'s newest of three files against `last-topup-attempt`: mtime against mtime, no clock read; **a mark touched while the clock ran ahead holds every later history file "not newer" until wall time passes it** (Q4) | tree; a guest positive (the mark dated ahead with `touch -d`) owed |
+| the top-up mark | -- | **written unguarded** (`touch`, ctl :2264): a failed touch is not seen, and the half hour is not counted | tree |
+| the scan | **none** | the scan's listing and jobs run with budget 0 (no `timeout`); its comment says so (*"The scan has no deadline of its own"*); only the image pass is bounded | tree |
+| `IMAGE_PASS_SECONDS` | 300 s | `timeout` on the helper and `--seconds` inside it; verify at most half (`cache-images:309`); `as_completed(timeout=)` (`:417`); `os._exit` past it (`:468-476`) | tree |
+| the refresh | 900 s + 60 | `timeout` in `do_refresh`; the helper's `--seconds` between games (`refresh:166`); 3 in a row (`:220`) | tree |
+| `RAOFFLINEPROXY_IMAGE_WAIT` | 120 s | `wait_for_badges`' join (`cache-indexed:82-95`, `:217`) | tree |
+| the batch cooldown | 30 s per 50 | `apply_scan_batch_cooldown` (`cache-indexed:71-79`) | tree |
+| the 429 pause | the client's | `rate_limit` on GET (`network.py:408-409`); **not on POST** (`network.py:549-563`); a persisted pause stops patch 004's drain | tree |
+| `scan.log` | 1,048,576 B, once | `slog`'s check only; the helpers' stderr appends (`2>>`) bypass it | tree |
+| the IDAT inflate | **none** | `png_problem`'s `zlib.decompress(idat)` (patch 013) with no `max_length`; `_fetch_image` reads the body unbounded | tree |
+| the lookup threads | 3 s each, **uncapped in number** | `resolve_host_bounded` (patch 015): one daemon thread per attempt, abandoned at 3 s, alive until glibc gives up (about 20 s) | tree |
+| the unit's start | 30 s + 5, 5 in 300 s | `ExecStartPost`'s `--wait 30`, `RestartSec`, `StartLimit*` | tree |
+| `TimeoutStopSec` | 15 s | systemd | tree |
+| `count_ready` on failure | **0** | the export unreadable, or the client's count failing behind `tail -n 1` with no `pipefail`, reads 0 (Q6) | tree |
+
+**A kill told from a result:** the recently played pass's exit decides its why (124 `TOOK_TOO_LONG`, any other non-zero `RETROACHIEVEMENTS_STOPPED_ANSWERING`); a result line that is missing or unparseable with exit 0 reads `0 0 0`, nothing cached (ctl, the `read -r SC SS SL` with `|| echo "0 0 0"`). So a kill is told apart; an unreadable result is not (Q4).
+
+## The runs
+
+| Run | Command | Exit | Wall | Figure | A FAIL would mean | proved |
+| --- | --- | ---: | ---: | --- | --- | --- |
+| R0 | `df -i /workspace` | 0 | 0.01 s | 25 % inodes used | no room for the scratch | tool-run |
+| R1 | the 27's bytes at `8ebaf8daad` | 0 | 0.06 s | 27 paths, 5,369 lines | the branch differs from the read commit | tool-run |
+| R2 | the ctl's shape | 0 | 0.01 s | 0 `set -`, 0 `pipefail`, 55 functions, `EX_` 316-320, the exits listed (and eleven `exit` words in comments) | the brief's line numbers are not the tree's | tool-run |
+| R3 | the unit | 1 (the final `grep -c` counting 0) | 0.01 s | the six directives at their lines; hardening 0 | a directive moved or one was added | tool-run |
+| R4 | the port outside the package | 0 | 0.13 s | 5 sites with the address, `cloud_oauth` 4 | a new route to the port | tool-run |
+| R5 | the credential's keys and sites | 1 (`umask` count 0) | 0.01 s | keys 311-313; argv 616, 647/645, 764/759, 1029; env 1265 | a site moved or was added | tool-run |
+| R6 | the stamps' writers | 0 | 0.01 s | the writers at their lines | a writer moved | tool-run |
+| R7 | the helpers' writes | 0 | 0.01 s | verify-cursor direct :173; absent :200-201; refresh's `note()` :51 | as R6 | tool-run |
+| R8 | the protocol tokens | 0 | 0.01 s | ctl 9, refresh 5, cache-images 8, **cache-indexed 0** (its protocol is `OK`/`FAIL`/`DONE`) | a producer gained or lost its protocol | tool-run |
+| R9 | the deletions | 0 | 0.01 s | ctl :977, :1141; recipe :120, :123, :124 | a new deletion | tool-run |
+| R10 | the patches and pins | 0 | 0.01 s | 18; *"The16 patches"*; pins; header :242 | the recipe moved | tool-run |
+| R11 | `tools/rc-preflight --only proxy-schema` | 0 | 0.04 s | `PASS` | the header note no longer names the pin | tool-run |
+| R12 | the tarball by the pin | 0 | 0.01 s | 14 tarballs; sha prefix equal | the cache lacks the pin, or its bytes changed | tool-run |
+| R13 | the neighbours | 0 | 0.12 s | 5 OS files, 11 ES files | a new consumer | tool-run |
+| R14 | `have_account` | 1 (dispatch count 0) | 0.02 s | the comment :154; the function :1119, :1170; 0 in 2434-2450 | a verb was added, or the comment moved | tool-run |
+| R15 | the tools' readiness | 0 | 0.15 s | `--help` 0 ×3; 187 mentions; `qa-accounts` refuses without a port | a tool cannot run | tool-run |
+| R16 | the syntax | 0 | 0.10 s | `bash -n` 0 (5.3.9); `py_compile` 0 ×3 (3.14.4) | a script does not parse | tool-run |
+| R17 | the removal check from `7de4ece06d` | 0 | 0.01 s | empty | the lane changed a product path | tool-run |
+| unpack | the pin's tarball, 18 patches, `-p1 --fuzz=0` | 0 | -- | 18 of 18, 75 hunks, 0 rejects | a patch does not apply to its pin | tool-run |
+| integration | `tools/raofflineproxy-integration-test --source <pin> --predecessor-source <879b158995 + its 16>` | 0 | 8 s | 12 OK | the preparation helper or the upgrade reopen regressed | tool-run |
+| suite | `QA_SYSTEM_ROOT=<donor> tools/last-good-scripts-test` | 0 | 523 s | 1,379 PASS, 0 FAIL; the proxy cases in `stage-a/last-good-scripts-test.txt`; **it runs the ctl itself, in `bwrap`** | a case regressed | tool-run |
+| writers | `tools/t19-writers.py` | 0 | -- | 77 rows; control 49 and exit 1 at `87d9969bbb` | the writers' set changed | tool-run |
+
+**The ctl never ran on the host outside the suite's sandbox; the proxy never ran on the host.** `00` records both.
+
+## What T20 inherits
+
+Written, not tested here.
+
+**The protocol** (`>>> ` lines; the producers at `8ebaf8daad`, the readers at `16dbac5211`):
+
+| Producer | Tokens (line) | Reader |
+| --- | --- | --- |
+| ctl `scan` | `doing listing` :1986; `total` :2018; `game i\|n\|name` :1723, :1778; `cached c\|s` :1776; `note NO_GAMES` :2012, `NOTHING_NEW` :2020, `LIMIT_REACHED` :2096, `TRUNCATED` :2100; `errors n` :2101; `why <TOKEN>` :1167, :1172, :1817, :1989, :2029, :2102; `done c\|s\|ready\|limit` :2015, :2106 | `OfflineScanJob` (the scan page), `CloudText::classifyProtocolLine` |
+| ctl `topup` | none on stdout (`refuse_unless_ready topup >/dev/null`); the stamp only | `CloudText::parseScanStamp` (`CloudText.cpp:1186`) |
+| ctl `images`, `refresh` | `why NO_NETWORK` :1897 and the helpers' own | **no reader at the pin** (no interface caller of either verb) |
+| `raofflineproxy-refresh` | `doing refresh` :122; `total` :157; `refresh i\|n` :215; `note NOTHING_DUE` :152, `LEFT n` :169; `why STORE_UNREADABLE` :127, `NO_ACCOUNT` :133, `REPEATED_FAILURES` :222; `done a\|b` :153, :170, :223, :227 -- **b is `failed` at :227 and `left` at :170 and :223**; `note()` lines on the same stdout :50-51 | none at the pin (#224's row would be) |
+| `raofflineproxy-cache-images` | `doing images` :284; `total` :379; `image i\|n` :433; `verified c\|n` :347, :356; `note VERIFY_COMPLETE` :358, `VERIFY_LEFT n` :362, `ABSENT n` :376, `NOTHING_MISSING` :381; `why STORE_UNREADABLE` :289, `NO_ACCOUNT` :296, `SOME_IMAGES_NOT_SAVED` :460, `CANCELLED` :495; `done f\|left` :382, :461 | the ctl sends it to `scan.log` under `run_image_pass`; none on screen |
+| `raofflineproxy-cache-indexed` | none: `OK i/n`, `FAIL i/n label: why`, `DONE cached= failed= indexed=` (:162-216) | the ctl's `run_jobs` |
+
+**The ctl's why tokens against `CloudText::scanWhy`** (`CloudText.cpp:1022-1055`) and `topUpWhy` (`:1057-1064`): the ctl emits TOGGLE_OFF, NO_ACCOUNT, SIGN_IN_REFUSED, RETROACHIEVEMENTS_STOPPED_ANSWERING, LIBRARY_UNREADABLE, TOOK_TOO_LONG, SOME_GAMES_NOT_SAVED, SOME_IMAGES_NOT_SAVED, CANCELLED, SOMETHING_WENT_WRONG, NO_NETWORK. `scanWhy` has a row for each but SOMETHING_WENT_WRONG and NO_NETWORK, which fall to its last line, `SOMETHING WENT WRONG` (the same words for the first; NO_NETWORK reaches no page). **`scanWhy` has a row for `NO_GAMES_FOUND`, which no producer emits** (the ctl says `note NO_GAMES`, fork #329): a reader row for a token gone.
+
+**The stamps' shapes:** `last-scan` -- `<epoch> <rc> <scan|topup> cached= skipped= ready= limit= indexed= errors= added=[ truncated=1][ why=][ note=]` (ctl `write_stamp`; read by `parseScanStamp`, `CloudText.cpp:1186-1270`, which passes over unknown keys and a non-numeric `added`); `last-flush` -- `<epoch> <flushed>` (patch 003; taken by the ctl's `flushed`, `OfflineAchievements.cpp:119`); `running` -- `route=<scan|topup|images|refresh> at=<epoch>[ index= total= name=]` (ctl `mark_running`; read at `CloudText.cpp:1312-1330`); `index-pending` -- `<epoch> <pid> <random>` (the ctl's alone). The exit codes the pages act on: 0, 1, 2 (usage at `:2453` and every `cannot_tell`; `listening` and `refresh` use 64 for usage), 69, 75, 77, 78, 130, 143.
+
+**The page comment's wording:** `GuiRetroAchievementsSettings.cpp:154` names `raofflineproxy-ctl have_account` as if a verb; it is the ctl's function (:1119, called :1170), not in the dispatch (:2434-2450).
+
+**The consent setting's name:** `usage_stats_consent` (with `usage_stats_consent_version`) in the client's `config.json` (patch 019; `usage_report.py:180`); `upload_logs` (JSON `true` only) for the automatic log upload (patch 008).
+
+## Positives
+
+The constructed positives, each recorded as it falls (the guest's are owed to the window):
+
+| Lead | Positive | Where | Expect on `8ebaf8daad` | proved |
+| --- | --- | --- | --- | --- |
+| a foreign listener satisfies readiness | a listener on `0.0.0.0:8080` with the service stopped; `raofflineproxy-ctl listening` | guest | exit 0 | guest (owed) |
+| the scan lock that cannot be opened reads as nothing running | the lock path made a directory (root bypasses a mode), a run started, `disable` | guest | `disable` proceeds and stops the service | guest (owed) |
+| an unreadable export reads 0 | the export made a directory; `ready` | guest | `0` | guest (owed) |
+| one undecodable ROM name fails the listing | a ROM named with a byte invalid in UTF-8 | host (`tools/t19-listing-fixture.py`: the listing's python from the ctl at `8ebaf8daad`, unchanged, against the patched pin with a scratch store) and guest | the listing exits non-zero; the scan's why `LIBRARY_UNREADABLE` | fixture: **reproduced** (`stage-b/listing-fixture.txt`: the decodable library rc 0, `found=1`; one name with 0xff, rc 1, `UnicodeEncodeError ... surrogates not allowed` at the job file's strict write); guest (owed) |
+| the offline login serves the token | `curl` `dorequest.php?r=login2&u=<the QA user>` with the link down | guest | a 200 whose body has a `Token` key (counted, never printed) | guest (owed) |
+| a mark ahead of the clock silences the top-up | `last-topup-attempt` dated ahead (`touch -d`), a game played, `topup` | guest | skipped, `scan.log` *"no game played since the last attempt"* | guest (owed) |
+
+## The guest cycle
+
+Not run. The window's plan and bound are posted on #666 at stage B's end; nothing runs before the grant.
