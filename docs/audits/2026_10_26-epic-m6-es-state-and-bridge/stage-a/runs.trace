@@ -1,0 +1,231 @@
++ export LC_ALL=C
++ LC_ALL=C
++ W=/home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668
++ PIN=16dbac5211eea7e70db7394372033be2be7df829
++ G=/usr/bin/grep
++ C=8ebaf8daad
+++ pwd
++ D=/workspace/repos/pixelelated/distribution.worktrees/m6-es-state-and-bridge-668
++ export TMPDIR=/workspace/tmp/m6-t21/tmp
++ TMPDIR=/workspace/tmp/m6-t21/tmp
++ mkdir -p /workspace/tmp/m6-t21/tmp
++ df -i /workspace
++ tail -n 1
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 rev-parse HEAD
++ wc -l
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 status --short
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 merge-base bccd715707 HEAD
++ cut -c1-10
+++ cat .qa-scratch/t21/paths.txt
++ tail -n 1
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 diff --stat bccd715707 16dbac5211eea7e70db7394372033be2be7df829 -- es-app/src/ApiSystem.cpp es-app/src/ApiSystem.h es-app/src/guis/GuiWifi.cpp es-app/src/guis/GuiWifi.h es-app/src/scrapers/ScreenScraper.cpp es-app/src/scrapers/ScreenScraper.h es-core/src/HttpReq.cpp es-core/src/HttpReq.h es-core/src/Settings.cpp es-core/src/Settings.h es-core/src/SystemConf.cpp es-core/src/SystemConf.h es-core/src/utils/AtomicFileUtil.cpp es-core/src/utils/AtomicFileUtil.h
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 grep -n -E 'WEXITSTATUS|WIFEXITED' 16dbac5211eea7e70db7394372033be2be7df829 -- es-app/src/ApiSystem.cpp
++ cut -c1-110
++ sed 's/^16dbac5211eea7e70db7394372033be2be7df829://'
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 grep -n -E '\bsystem\(|popen\(|pclose\(' 16dbac5211eea7e70db7394372033be2be7df829 -- es-app/src/ApiSystem.cpp
++ cut -c1-100
++ sed 's/^16dbac5211eea7e70db7394372033be2be7df829://'
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 grep -c shellQuote 16dbac5211eea7e70db7394372033be2be7df829 -- es-app/src/ApiSystem.cpp
++ sed 's/^16dbac5211eea7e70db7394372033be2be7df829://'
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 grep -n -E 'shellQuote|getSevenZipCommand|7z|pdftoppm|pdfinfo' 16dbac5211eea7e70db7394372033be2be7df829 -- es-app/src/ApiSystem.cpp
++ sed 's/^16dbac5211eea7e70db7394372033be2be7df829://'
++ cut -c1-110
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 show 16dbac5211eea7e70db7394372033be2be7df829:es-app/src/ApiSystem.cpp
++ sed -n 631,634p
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 grep -c -E 'batocera-[a-z-]+' 16dbac5211eea7e70db7394372033be2be7df829 -- es-app/src/ApiSystem.cpp
++ sed 's/^16dbac5211eea7e70db7394372033be2be7df829://'
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 grep -o -h -E 'batocera-[a-z-]+' 16dbac5211eea7e70db7394372033be2be7df829 -- es-app/src/ApiSystem.cpp
++ sort -u
++ wc -l
++ for s in wifictl rocknix-bluetooth rocknix-config cloud_oauth set-audio keyboardToPads rocknix-sync rocknix-resolution
++ printf '%s: ' wifictl
++ git ls-tree -r --name-only 8ebaf8daad -- projects/ROCKNIX/packages
++ /usr/bin/grep -c -E '(^|/)wifictl$'
++ for s in wifictl rocknix-bluetooth rocknix-config cloud_oauth set-audio keyboardToPads rocknix-sync rocknix-resolution
++ printf '%s: ' rocknix-bluetooth
++ /usr/bin/grep -c -E '(^|/)rocknix-bluetooth$'
++ git ls-tree -r --name-only 8ebaf8daad -- projects/ROCKNIX/packages
++ for s in wifictl rocknix-bluetooth rocknix-config cloud_oauth set-audio keyboardToPads rocknix-sync rocknix-resolution
++ printf '%s: ' rocknix-config
++ git ls-tree -r --name-only 8ebaf8daad -- projects/ROCKNIX/packages
++ /usr/bin/grep -c -E '(^|/)rocknix-config$'
++ for s in wifictl rocknix-bluetooth rocknix-config cloud_oauth set-audio keyboardToPads rocknix-sync rocknix-resolution
++ printf '%s: ' cloud_oauth
++ git ls-tree -r --name-only 8ebaf8daad -- projects/ROCKNIX/packages
++ /usr/bin/grep -c -E '(^|/)cloud_oauth$'
++ for s in wifictl rocknix-bluetooth rocknix-config cloud_oauth set-audio keyboardToPads rocknix-sync rocknix-resolution
++ printf '%s: ' set-audio
++ /usr/bin/grep -c -E '(^|/)set-audio$'
++ git ls-tree -r --name-only 8ebaf8daad -- projects/ROCKNIX/packages
++ for s in wifictl rocknix-bluetooth rocknix-config cloud_oauth set-audio keyboardToPads rocknix-sync rocknix-resolution
++ printf '%s: ' keyboardToPads
++ /usr/bin/grep -c -E '(^|/)keyboardToPads$'
++ git ls-tree -r --name-only 8ebaf8daad -- projects/ROCKNIX/packages
++ for s in wifictl rocknix-bluetooth rocknix-config cloud_oauth set-audio keyboardToPads rocknix-sync rocknix-resolution
++ printf '%s: ' rocknix-sync
++ git ls-tree -r --name-only 8ebaf8daad -- projects/ROCKNIX/packages
++ /usr/bin/grep -c -E '(^|/)rocknix-sync$'
++ for s in wifictl rocknix-bluetooth rocknix-config cloud_oauth set-audio keyboardToPads rocknix-sync rocknix-resolution
++ printf '%s: ' rocknix-resolution
++ /usr/bin/grep -c -E '(^|/)rocknix-resolution$'
++ git ls-tree -r --name-only 8ebaf8daad -- projects/ROCKNIX/packages
++ git show 8ebaf8daad:projects/ROCKNIX/packages/compress/p7zip/package.mk
++ cut -c1-100
++ /usr/bin/grep -n -E 'make_target|all3|7z'
++ sed 's/^16dbac5211eea7e70db7394372033be2be7df829://'
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 grep -n maskSecrets 16dbac5211eea7e70db7394372033be2be7df829 -- es-app/src/ApiSystem.cpp es-core/src/utils/StringUtil.cpp
++ cut -c1-100
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 show 16dbac5211eea7e70db7394372033be2be7df829:es-core/src/utils/StringUtil.cpp
++ sed -n '513p;764,784p'
++ /usr/bin/grep -n -E 'password|wifictl|--'
++ cut -c1-110
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 grep -n -E 'curl_multi_init|curl_easy_setopt' 16dbac5211eea7e70db7394372033be2be7df829 -- es-core/src/HttpReq.cpp
++ sed 's/^16dbac5211eea7e70db7394372033be2be7df829://'
++ cut -c1-110
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 grep -n -E 'timeout|stallTimeout|connectTimeout' 16dbac5211eea7e70db7394372033be2be7df829 -- es-core/src/HttpReq.h
++ sed 's/^16dbac5211eea7e70db7394372033be2be7df829://'
++ cut -c1-100
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 grep -n -E 'devid|devpassword|ssid=|sspassword|ScreenScraperDevId|ScreenScraperDevPass|ScreenScraperUser|ScreenScraperPass|maskSecrets' 16dbac5211eea7e70db7394372033be2be7df829 -- es-app/src/scrapers/ScreenScraper.cpp es-app/src/scrapers/Scraper.cpp es-app/src/guis/GuiScraperStart.cpp es-app/src/guis/GuiMenu.cpp
++ sed 's/^16dbac5211eea7e70db7394372033be2be7df829://'
++ cut -d: -f1,2
++ sort
++ uniq -c
++ sort -k2
++ head -n 30
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 grep -n GuiTextEditPopup 16dbac5211eea7e70db7394372033be2be7df829 -- es-app/src/guis/GuiWifi.cpp
++ sed 's/^16dbac5211eea7e70db7394372033be2be7df829://'
++ cut -c1-110
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 grep -n wifictl 16dbac5211eea7e70db7394372033be2be7df829 -- es-app/src/ApiSystem.cpp
++ sed 's/^16dbac5211eea7e70db7394372033be2be7df829://'
++ /usr/bin/grep -v timeout
++ cut -c1-110
++ WF=projects/ROCKNIX/packages/rocknix/sources/scripts/wifictl
++ git show 8ebaf8daad:projects/ROCKNIX/packages/rocknix/sources/scripts/wifictl
++ wc -l
++ git show 8ebaf8daad:projects/ROCKNIX/packages/rocknix/sources/scripts/wifictl
++ /usr/bin/grep -n -E 'nmcli|password|set_settings'
++ cut -d: -f1
++ tr '\n' ' '
++ echo
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 grep -n -E 'AtomicFile::|writeAllText\(' 16dbac5211eea7e70db7394372033be2be7df829 -- es-core/src/Settings.cpp es-core/src/SystemConf.cpp es-app/src es-core/src
++ cut -c1-100
++ sed 's/^16dbac5211eea7e70db7394372033be2be7df829://'
+++ git ls-tree -r --name-only 8ebaf8daad
+++ /usr/bin/grep -E '(^|/)001-functions$'
+++ head -n 1
++ FN=projects/ROCKNIX/packages/rocknix/profile.d/001-functions
++ echo '001-functions: projects/ROCKNIX/packages/rocknix/profile.d/001-functions'
++ git show 8ebaf8daad:projects/ROCKNIX/packages/rocknix/profile.d/001-functions
++ /usr/bin/grep -n -E 'fsync|flock|wait_lock|mv -f|/usr/config'
++ cut -c1-100
++ head -n 20
++ git show 8ebaf8daad:projects/ROCKNIX/packages/rocknix/profile.d/001-functions
++ cut -c1-110
++ sed -n 540,543p
++ git show 8ebaf8daad:projects/ROCKNIX/packages/rocknix/sources/post-update
++ /usr/bin/grep -n -E 'sed -i'
++ cut -c1-100
+++ git ls-tree -r --name-only 8ebaf8daad -- projects/ROCKNIX/packages/rocknix
+++ /usr/bin/grep -E '(^|/)chksysconfig$'
+++ head -n 1
++ CS=projects/ROCKNIX/packages/rocknix/sources/scripts/chksysconfig
++ echo 'chksysconfig: projects/ROCKNIX/packages/rocknix/sources/scripts/chksysconfig'
++ /usr/bin/grep -c -E 'flock|wait_lock'
++ git show 8ebaf8daad:projects/ROCKNIX/packages/rocknix/sources/scripts/chksysconfig
++ rc=1
++ echo 'chksysconfig lock lines: rc=1 (1 = none)'
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 grep -n -E 'parseKeyValues|chooseConfig|loadFile|wasRecovered' 16dbac5211eea7e70db7394372033be2be7df829 -- es-core/src/utils/AtomicFileUtil.cpp es-core/src/Settings.cpp es-core/src/SystemConf.cpp es-app/src/main.cpp
++ cut -c1-100
++ sed 's/^16dbac5211eea7e70db7394372033be2be7df829://'
++ for f in AtomicFileTests AtomicFileWin32Tests SystemConfTests MaskSecretsTests WifiTextTests CommandLineTests LaunchCommandTests LogPolicyTests
++ printf '%s: ' AtomicFileTests
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 show 16dbac5211eea7e70db7394372033be2be7df829:es-app/tests/unit/AtomicFileTests.cpp
++ /usr/bin/grep -c TEST_CASE
++ for f in AtomicFileTests AtomicFileWin32Tests SystemConfTests MaskSecretsTests WifiTextTests CommandLineTests LaunchCommandTests LogPolicyTests
++ printf '%s: ' AtomicFileWin32Tests
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 show 16dbac5211eea7e70db7394372033be2be7df829:es-app/tests/unit/AtomicFileWin32Tests.cpp
++ /usr/bin/grep -c TEST_CASE
++ for f in AtomicFileTests AtomicFileWin32Tests SystemConfTests MaskSecretsTests WifiTextTests CommandLineTests LaunchCommandTests LogPolicyTests
++ printf '%s: ' SystemConfTests
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 show 16dbac5211eea7e70db7394372033be2be7df829:es-app/tests/unit/SystemConfTests.cpp
++ /usr/bin/grep -c TEST_CASE
++ for f in AtomicFileTests AtomicFileWin32Tests SystemConfTests MaskSecretsTests WifiTextTests CommandLineTests LaunchCommandTests LogPolicyTests
++ printf '%s: ' MaskSecretsTests
++ /usr/bin/grep -c TEST_CASE
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 show 16dbac5211eea7e70db7394372033be2be7df829:es-app/tests/unit/MaskSecretsTests.cpp
++ for f in AtomicFileTests AtomicFileWin32Tests SystemConfTests MaskSecretsTests WifiTextTests CommandLineTests LaunchCommandTests LogPolicyTests
++ printf '%s: ' WifiTextTests
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 show 16dbac5211eea7e70db7394372033be2be7df829:es-app/tests/unit/WifiTextTests.cpp
++ /usr/bin/grep -c TEST_CASE
++ for f in AtomicFileTests AtomicFileWin32Tests SystemConfTests MaskSecretsTests WifiTextTests CommandLineTests LaunchCommandTests LogPolicyTests
++ printf '%s: ' CommandLineTests
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 show 16dbac5211eea7e70db7394372033be2be7df829:es-app/tests/unit/CommandLineTests.cpp
++ /usr/bin/grep -c TEST_CASE
++ for f in AtomicFileTests AtomicFileWin32Tests SystemConfTests MaskSecretsTests WifiTextTests CommandLineTests LaunchCommandTests LogPolicyTests
++ printf '%s: ' LaunchCommandTests
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 show 16dbac5211eea7e70db7394372033be2be7df829:es-app/tests/unit/LaunchCommandTests.cpp
++ /usr/bin/grep -c TEST_CASE
++ for f in AtomicFileTests AtomicFileWin32Tests SystemConfTests MaskSecretsTests WifiTextTests CommandLineTests LaunchCommandTests LogPolicyTests
++ printf '%s: ' LogPolicyTests
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 show 16dbac5211eea7e70db7394372033be2be7df829:es-app/tests/unit/LogPolicyTests.cpp
++ /usr/bin/grep -c TEST_CASE
++ wc -l
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 ls-tree --name-only 16dbac5211eea7e70db7394372033be2be7df829 -- es-app/tests/unit/SettingsTests.cpp
++ echo 'the lane'\''s tools/t21-build-tests.sh (from T18'\''s) generates the g++ lines, names every -I, and records each binary'\''s summary line'
++ for t in settings-modes-test last-good-scripts-test cloud-input-test
+++ tools/settings-modes-test --help
++ out=$'usage: settings-modes-test [-h] --profile PROFILE --chksysconfig CHKSYSCONFIG\n                           --busybox BUSYBOX --output OUTPUT\n\noptions:\n  -h, --help            show this help message and exit\n  --profile PROFILE\n  --chksysconfig CHKSYSCONFIG\n  --busybox BUSYBOX\n  --output OUTPUT'
++ rc=0
++ echo 'settings-modes-test --help rc=0'
++ for t in settings-modes-test last-good-scripts-test cloud-input-test
+++ tools/last-good-scripts-test --help
++ out=$'Usage: tools/last-good-scripts-test [--old | --cloud-layout [options]]\nRun the host script regression suite with the image\'s busybox.\n  --old           Test BASE_REF (default 1d1503180d), for failing controls.\n  --cloud-layout  Run only the layout suite; remaining options go to it.\n  -h, --help      Show this help without creating fixtures or running tests.\nRun in the foreground; the full suite requires a usable SIGINT handler.\nQA_SYSTEM_ROOT names the candidate\'s image/system directory for BusyBox and\nrclone. An unusable explicit input is an error, never a fallback to another build.\nLAST_GOOD_SOURCE_ROOT selects a separate source checkout without replacing this\nharness. Historical --old still reads BASE_REF from that checkout.'
++ rc=0
++ echo 'last-good-scripts-test --help rc=0'
++ for t in settings-modes-test last-good-scripts-test cloud-input-test
+++ tools/cloud-input-test --help
++ out=$'usage: cloud-input-test [-h] [-v] [-q] [--locals] [--durations N] [-f] [-c]\n                        [-b] [-k TESTNAMEPATTERNS]\n                        [tests ...]\n\npositional arguments:\n  tests                a list of any number of test modules, classes and test\n                       methods.\n\noptions:\n  -h, --help           show this help message and exit\n  -v, --verbose        Verbose output\n  -q, --quiet          Quiet output\n  --locals             Show local variables in tracebacks\n  --durations N        Show the N slowest test cases (N=0 for all)\n  -f, --failfast       Stop on first fail or error\n  -c, --catch          Catch Ctrl-C and display results so far\n  -b, --buffer         Buffer stdout and stderr during tests\n  -k TESTNAMEPATTERNS  Only run tests which match the given substring\n\nExamples:\n  cloud-input-test                           - run default set of tests\n  cloud-input-test MyTestSuite               - run suite \'MyTestSuite\'\n  cloud-input-test MyTestCase.testSomething  - run MyTestCase.testSomething\n  cloud-input-test MyTestCase                - run all \'test*\' test methods\n                                       in MyTestCase'
++ rc=0
++ echo 'cloud-input-test --help rc=0'
+++ tools/vm-upgrade-rehearsal --help
++ out='tools/vm-upgrade-rehearsal: line 25: 2: new update tar'
++ rc=1
+++ head -n 1
+++ printf %s 'tools/vm-upgrade-rehearsal: line 25: 2: new update tar'
+++ cut -c1-60
++ echo 'vm-upgrade-rehearsal --help rc=1 (tools/vm-upgrade-rehearsal: line 25: 2: new update tar)'
+++ ES_BUILD_ROOT=/nonexistent
+++ tools/es-syntax-check --tree /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 es-core/src/utils/AtomicFileUtil.cpp
++ out='es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)'
++ rc=2
++ tail -n 1
++ printf '%s\n' 'es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)'
++ echo 'es-syntax-check rc=2'
++ for f in es-core/src/utils/AtomicFileUtil.cpp es-core/src/SystemConf.cpp es-app/src/ApiSystem.cpp
+++ g++ -std=c++17 -fsyntax-only -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/external /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/AtomicFileUtil.cpp
++ out=
++ rc=0
+++ cut -c1-90
+++ printf '%s\n' ''
+++ /usr/bin/grep -m1 -E 'fatal error|error:'
++ printf '%s: %s rc=%s\n' es-core/src/utils/AtomicFileUtil.cpp '' 0
++ for f in es-core/src/utils/AtomicFileUtil.cpp es-core/src/SystemConf.cpp es-app/src/ApiSystem.cpp
+++ g++ -std=c++17 -fsyntax-only -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/external /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/SystemConf.cpp
++ out=$'/home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/SystemConf.cpp:17:10: fatal error: SDL_timer.h: No such file or directory\n   17 | #include <SDL_timer.h>\n      |          ^~~~~~~~~~~~~\ncompilation terminated.'
++ rc=1
+++ printf '%s\n' $'/home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/SystemConf.cpp:17:10: fatal error: SDL_timer.h: No such file or directory\n   17 | #include <SDL_timer.h>\n      |          ^~~~~~~~~~~~~\ncompilation terminated.'
+++ /usr/bin/grep -m1 -E 'fatal error|error:'
+++ cut -c1-90
++ printf '%s: %s rc=%s\n' es-core/src/SystemConf.cpp /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/s 1
++ for f in es-core/src/utils/AtomicFileUtil.cpp es-core/src/SystemConf.cpp es-app/src/ApiSystem.cpp
+++ g++ -std=c++17 -fsyntax-only -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/external /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/ApiSystem.cpp
++ out=$'In file included from /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/Window.h:6,\n                 from /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/ApiSystem.h:6,\n                 from /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/ApiSystem.cpp:1:\n/home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/InputConfig.h:6:10: fatal error: SDL_joystick.h: No such file or directory\n    6 | #include <SDL_joystick.h>\n      |          ^~~~~~~~~~~~~~~~\ncompilation terminated.'
++ rc=1
+++ /usr/bin/grep -m1 -E 'fatal error|error:'
+++ cut -c1-90
+++ printf '%s\n' $'In file included from /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/Window.h:6,\n                 from /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/ApiSystem.h:6,\n                 from /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/ApiSystem.cpp:1:\n/home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/InputConfig.h:6:10: fatal error: SDL_joystick.h: No such file or directory\n    6 | #include <SDL_joystick.h>\n      |          ^~~~~~~~~~~~~~~~\ncompilation terminated.'
++ printf '%s: %s rc=%s\n' es-app/src/ApiSystem.cpp /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/s 1
++ tail -n 1
++ git diff --stat 4844a773ca HEAD -- packages projects tools
++ git -C /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668 diff --stat 16dbac5211eea7e70db7394372033be2be7df829 HEAD
++ tail -n 1

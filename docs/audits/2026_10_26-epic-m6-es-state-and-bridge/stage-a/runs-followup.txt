@@ -1,0 +1,53 @@
+-- writers: AtomicFile:: lines, writeAllText( lines (expect 41, 27)
+41
+27
+25
+-- wifictl at 8ebaf8daad: lines 175-212 and 458-462, the pattern's hits
+3:    "${NMCLI}" -w 90 device wifi connect "${SSID}" password "${PSK}" ifname "${WIFI_DEV}" >/dev/nu
+4:    "${NMCLI}" connection modify "${SSID}" wifi-sec.psk-flags 0 >/dev/null 2>&1 || true
+20:    802-11-wireless-security.key-mgmt wpa-psk \
+21:    802-11-wireless-security.psk "${PSK}" \
+34:    802-11-wireless-security.key-mgmt wpa-psk \
+35:    802-11-wireless-security.psk "${PSK}" \
+39:    if [ -z "${psk}" ] && [ -n "${keyed}" ]; then
+40:      logger -t wifictl "joined ${name}; its key did not come back from NetworkManager, so the Wi
+41:    elif ! set_settings wifi.ssid "${ssid}" wifi.key "${psk}"; then
+42:      # One write for the pair (set_settings): a second write failing after
+43:      # the first left this network's SSID with the last network's key, and
+-- where does 'nmcli ... password' sit (any case)
+16:###     wifictl command [ssid] [psk]
+31:###                               wifi.key when they name it; exit 1, nothing printed, when it is
+36:###                               profile is active and moves wifi.ssid / wifi.key onto it; exit 1,
+60:PSK="${3-$(get_setting wifi.key 2>/dev/null)}"
+65:  PSK="deadbeef"
+135:# An unsaved open network never borrows wifi.key or deletes a saved profile.
+170:  # connect stores the key in the profile explicitly (psk-flags 0), so a
+172:  if [ -z "${PSK}" ] && "${NMCLI}" -w 30 connection up id "${SSID}" ifname "${WIFI_DEV}" >/dev/null 2>&1; 
+176:  if [ -n "${PSK}" ]; then
+177:    "${NMCLI}" -w 90 device wifi connect "${SSID}" password "${PSK}" ifname "${WIFI_DEV}" >/dev/null 2>&1 
+178:    "${NMCLI}" connection modify "${SSID}" wifi-sec.psk-flags 0 >/dev/null 2>&1 || true
+194:    802-11-wireless-security.key-mgmt wpa-psk \
+195:    802-11-wireless-security.psk "${PSK}" \
+208:    802-11-wireless-security.key-mgmt wpa-psk \
+209:    802-11-wireless-security.psk "${PSK}" \
+354:# wrote), wifi.ssid and wifi.key are removed -- otherwise the paths that
+382:    key=$(get_setting wifi.key 2>/dev/null)
+383:    if ! set_settings wifi.ssid default wifi.key default; then
+388:    if [ "${clear}" -eq 1 ] && ! set_settings wifi.ssid "${named}" wifi.key "${key}"; then
+389:      logger -t wifictl "forget ${name}: its profile could not be deleted, and the Wi-Fi settings cleared 
+404:# wifi.key setting, which held the last key typed, for some other network
+407:# then the settings wifi.ssid and wifi.key follow the profile, so the paths
+421:  local name="${1}" rows state psk
+438:  # stored as wifi.key -- so --escape no (#307 PL-003). Its status is read
+440:  # and writing its empty answer over wifi.key cleared the key of a network
+452:  if psk=$("${NMCLI}" --escape no -s -g 802-11-wireless-security.psk connection show id "${name}" 2>/dev/n
+455:    if [ -z "${psk}" ]; then
+458:    if [ -z "${psk}" ] && [ -n "${keyed}" ]; then
+460:    elif ! set_settings wifi.ssid "${ssid}" wifi.key "${psk}"; then
+-- the host g++ first error lines
+es-core/src/SystemConf.cpp rc=1: es-core/src/SystemConf.cpp:17:10: fatal error: SDL_timer.h: No such file or directory
+es-app/src/ApiSystem.cpp rc=1: es-core/src/InputConfig.h:6:10: fatal error: SDL_joystick.h: No such file or directory
+es-core/src/Settings.cpp rc=1: es-core/src/Settings.cpp:7:10: fatal error: pugixml/src/pugixml.hpp: No such file or directory
+es-core/src/HttpReq.cpp rc=1: es-core/src/HttpReq.h:5:10: fatal error: curl/curl.h: No such file or directory
+es-app/src/guis/GuiWifi.cpp rc=1: es-core/src/InputConfig.h:6:10: fatal error: SDL_joystick.h: No such file or directory
+es-app/src/scrapers/ScreenScraper.cpp rc=1: es-core/src/HttpReq.h:5:10: fatal error: curl/curl.h: No such file or directory

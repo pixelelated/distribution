@@ -1,0 +1,68 @@
+# Running log — M6.P2 T21, EmulationStation's state primitives and its bridge to the OS (#668)
+
+- **Executor:** Opus 5.5 at high effort, the session `m6-t5-build-engine` (the dispatch comment on #668, 20:49 UTC, patched in place at 20:50 UTC).
+- **Depth:** Extended -- two seats, GPT-6 Astra at `max`, then Gemini 4 Argon at `high`.
+- **The brief:** `docs/reviews/briefs/es-state-and-bridge.md` at `2f1d006461` (version 2), byte-equal to the tree's copy (`git diff --quiet 2f1d006461 HEAD -- <brief>`).
+- **reviewed-at:** `4844a773ca`, the distribution worktree's HEAD at dispatch, which is the lane tip the dispatch names.
+- **reviewed-at-es:** the pin `16dbac5211eea7e70db7394372033be2be7df829`. The ES worktree `feature/m6-es-state-and-bridge-668` is at the pin and clean.
+- **Can this be done on the VM?** Yes. The host goes first: every read, count and table, and the unit tests built by the generated `g++` commands. Then comes one guest window, asked for on #668 after stage B and granted in the shared host file's queue. It uses one boot of the M6 copy at 640x480, and the QA ScreenScraper account only, never the owner's (D-QA-015/016). Nothing runs on a handheld.
+- **The rules followed:**
+  - The session loaded them from the T5 worktree (`m6-build-engine-652`). This worktree's `.claude`, `CLAUDE.md` and `AGENTS.md` differ from local `next`; they carry the coordinator's branch, merged here, including T20's two rule edits at `a3f28a19fb`.
+  - Four rule files differ from the loaded copies: `device-builds.md`, `engineering-practices.md`, `es-code-traps.md` and `generic-x64-vm-testing.md`. The lane's copies of the first three are read at stage A:
+    - a bubblewrap sandbox starts with `--clearenv`;
+    - a figure is produced by a command at the hash it is about;
+    - a granted window names what stops the guest at its bound;
+    - `rc=$?` goes on its own line;
+    - a stream's non-ASCII grep judges the lines it added.
+
+    `generic-x64-vm-testing.md` is read at stage B, for the window.
+- **The coordinator's correction (20:50 UTC), read:** the highest decided rows are D-WORKFLOW-211, D-RA-051 and D-RA-052, and the compiler census reads 0. The register agrees: those three are Decided rows; D-NET-013, D-UI-120 and D-WORKFLOW-080 are in the open table.
+
+## [Stage A] 20:49 to 21:00 UTC — the first commands, the block, the runs, the build, the errata
+
+- **The host at dispatch:** `/tmp/m7-m6-host-coordination-20261023.txt` (620 lines) ends with M7's RETURN at 18:49:07 UTC (UI04 PASS; UI02 and UI03 retained as failed) and the coordinator's acknowledgement. There is no later M7 line. The census at 20:54:42 UTC: qemu live 0, compilers 0, load 0.42. Swap is full (7 of 7 GiB) with 40 GiB of RAM available; the window request names it.
+- **The first commands (§ 1),** all as the brief expects:
+  - the worktree clean (0), stacked on `8ebaf8daad`, no change under `packages` or `projects` since it, and `651150fc88` present locally;
+  - the ES worktree at the pin, 0 changes, merge base `bccd715707`;
+  - T18's punch list reachable (23 items), and `register-check` passing.
+- **The membership block (§ 2),** every figure as the brief states (`stage-a/membership.txt`):
+  - `selects 1 paths 14 lines 9249`, all shipped and all fork-own;
+  - `c++` 7, `c-header` 7;
+  - `wc -l` 9,249, and 12 paths in the merge base;
+  - no difference between the worktree and the pin on the 14.
+- **The runs (§ 5),** the brief's block extracted verbatim into `stage-a/runs.sh` with the dispatch tip `4844a773ca` for its placeholder, run under `bash -x` (`stage-a/runs.txt`, `runs.trace`; rc 0, under one second of wall time; every `git grep` reads the pin's objects). Two deltas from the brief's comments, neither a disagreement between commands:
+  - **The shipped `wifictl`:** the pattern `nmcli|password|set_settings` prints `10 18 113 177 270 302 372 383 388 437 460 461`. The brief expects 195 and 209 among them. Those two lines do carry the key, as `802-11-wireless-security.psk "${PSK}"`, but the case-sensitive pattern cannot match them (the binary is `"${NMCLI}"`, and the lines say `psk`). The four lines that put the key on a command line or into the store are 177, 195, 209 and 460 (`stage-a/runs-followup.txt`).
+  - **`writeAllText(`:** 27 lines, of which two are the function's definition and declaration (`FileSystemUtil.cpp:1429`, `.h:71`). The call sites are **25**, sixteen of them `ApiSystem.cpp`'s sysfs writes. The writers' generator will carry 25 rows and name the two it leaves out.
+  - **Everything else holds:**
+    - the 14's delta, 2,510 insertions and 181 deletions;
+    - the exit reads (20 lines, 15 `WEXITSTATUS` with the shims at 45-46, 11 without `WIFEXITED`), and `shellQuote` 13;
+    - the `batocera-` lines 105 with 36 names, the eight scripts' presence, and the p7zip recipe's `all3` and `bin/7z*`;
+    - `maskSecrets` at 2235, 2265, 2297 and 2325;
+    - the client's options and defaults, the scraper's lines, the Wi-Fi popups at 295/297/365/367, and the `wifictl` calls without a bound at 642, 767, 771 and 775;
+    - the writers' 41 `AtomicFile::` lines, the shell writers' lines, and `chksysconfig`'s 0 lock lines;
+    - the readers' lines, the eight test files' 80 cases with no `SettingsTests.cpp`, and the host tools' `--help`;
+    - `es-syntax-check` rc 2, and an empty removal check.
+- **The host `g++ -fsyntax-only`:** `AtomicFileUtil.cpp` **PASS** (rc 0). The rest are CANNOT, with the missing header named:
+
+  | File | Missing header | Through |
+  | --- | --- | --- |
+  | `SystemConf.cpp` | `SDL_timer.h` | `:17` |
+  | `ApiSystem.cpp`, `GuiWifi.cpp` | `SDL_joystick.h` | `InputConfig.h:6` |
+  | `Settings.cpp` | `pugixml/src/pugixml.hpp` | `:7` |
+  | `HttpReq.cpp`, `ScreenScraper.cpp` | `curl/curl.h` | `HttpReq.h:5` |
+- **The unit tests, built by the generated commands:**
+  - **The script:** `tools/t21-build-tests.sh` is T20's `t20-build-tests.sh` at `ffb6b686cb` (itself T18's) with its name and header renamed, 10 changed lines.
+  - **rapidjson** (the erratum's provenance): the distribution's own `rapidjson-1.1.0.tar.gz` from the download cache. Its sha256 `bf7ced29…` equals the recipe's `PKG_SHA256`; the recipe's four patches apply in order (each rc 0), into `/workspace/tmp/m6-t21/rj/`. The patched `document.h` is `a8c29c92…`, the bytes T20 recorded and T18's copy had (`stage-a/rapidjson.txt`). No M7 prep directory was read.
+  - **At the pin:** `es-unit-tests` 185 of 185, `es-file-tests` 24, `es-conf-tests` 10, `es-file-tests-win32` 2, all passing with g++ 15.2.0 in 41 s, 221 cases in all.
+  - **The eight files as run** (doctest's `--count -sf`): `AtomicFileTests` 24 and `AtomicFileWin32Tests` 2 (in the file binaries), `SystemConfTests` 10 (in `es-conf-tests`), `MaskSecretsTests` 12, `WifiTextTests` 19, `CommandLineTests` 2, `LaunchCommandTests` 8, `LogPolicyTests` 3: **80** (`stage-a/unit-pin.txt`).
+- **The errata's harness:** the ES repository's `tests/wifi-profile-lifetime.py` extracts `GuiWifi::chooseProfile` and builds it under AddressSanitizer in a temporary directory. At the pin it prints `PASS profile-choice callback survives page deletion`, rc 0, and leaves the ES tree clean (`stage-a/wifi-profile-lifetime.txt`).
+- **The errata's inheritance from T20, read by `git show` and never merged:**
+  - PL-08's fixture `stage-b/positives/reader.cpp` and its `reader.out` at distribution `ffb6b686cb`. A child killed under `popen` reads as rc 0, a 1,500-byte line comes back as two, and a last line without a newline is dropped. It is Q6's positive to reuse.
+  - S2's `HttpReqOptions::httpsRedirectsOnly` at ES `5c0ddaaee`: one `bool`, false by default, choosing `"https"` over `"http,https"` for the redirect protocols at `HttpReq.cpp:227-249`. It is the one change the pin's bytes will show in this slice's files after T20 lands.
+- **Read at stage A:**
+  - the brief whole, and the dispatch comment with its errata and the 20:50 correction;
+  - the 16 issues the brief names, by title, state and closing date only (`01` § The issues); their bodies are read at stage B, where a question needs them;
+  - the register rows D-SYS-001 to 014, D-NET-001 to 016, D-CLOUD-078/079 and D-WORKFLOW-166;
+  - each file's history since the merge base, and the callers' counts (`01`);
+  - the lane's three changed rules.
+- **Nothing of the never-run list ran:** no build of an image, no fetch, no guest, no keyed call, no M7 root, worktree or prep directory. The ES worktree is at the pin, its diff empty, and the distribution's `packages`, `projects` and `tools` are unchanged since `4844a773ca`.

@@ -1,0 +1,340 @@
+/dev/nvme0n1   244195328 60556937 183638391   25% /workspace
+16dbac5211eea7e70db7394372033be2be7df829
+0
+bccd715707
+ 14 files changed, 2510 insertions(+), 181 deletions(-)
+es-app/src/ApiSystem.cpp:45:#define WIFEXITED(x) x
+es-app/src/ApiSystem.cpp:46:#define WEXITSTATUS(x) x
+es-app/src/ApiSystem.cpp:234:	int exitCode = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:270:	int exitCode = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:293:	int exitCode = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:329:	int exitCode = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:354:  int res = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:397:	int exitCode = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:415:	int res = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:440:	int res = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:469:	int res = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:526:	// WIFEXITED returns a nonzero value if the child process terminated normally wi
+es-app/src/ApiSystem.cpp:528:	if (WIFEXITED(exitCode))
+es-app/src/ApiSystem.cpp:529:		exitCode = WEXITSTATUS(exitCode);
+es-app/src/ApiSystem.cpp:585:	if (WIFEXITED(exitCode))
+es-app/src/ApiSystem.cpp:586:		exitCode = WEXITSTATUS(exitCode);
+es-app/src/ApiSystem.cpp:607:	if (WIFEXITED(exitCode))
+es-app/src/ApiSystem.cpp:608:		exitCode = WEXITSTATUS(exitCode);
+es-app/src/ApiSystem.cpp:2291:	int exitCode = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:2319:	int exitCode = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:218:	FILE *pipe = popen(updatecommand.c_str(), "r");
+es-app/src/ApiSystem.cpp:234:	int exitCode = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:250:	FILE* pipe = popen(updatecommand.c_str(), "r");
+es-app/src/ApiSystem.cpp:270:	int exitCode = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:279:	FILE *pipe = popen(updatecommand.c_str(), "r");
+es-app/src/ApiSystem.cpp:293:	int exitCode = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:308:	FILE* pipe = popen("rocknix-scraper", "r");
+es-app/src/ApiSystem.cpp:329:	int exitCode = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:350:  FILE *pipe = popen("batocera-upgrade-torrent --is-file-ready-to-updat
+es-app/src/ApiSystem.cpp:354:  int res = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:381:	FILE *pipe = popen(updatecommand.c_str(), "r");
+es-app/src/ApiSystem.cpp:397:	int exitCode = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:411:	FILE *pipe = popen("batocera-upgrade --check-media-upgrade", "r");
+es-app/src/ApiSystem.cpp:415:	int res = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:429:	FILE *pipe = popen("batocera-architecture-compatibility", "r");
+es-app/src/ApiSystem.cpp:440:	int res = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:458:	FILE *pipe = popen("rocknix-update check", "r");
+es-app/src/ApiSystem.cpp:469:	int res = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:511:  system("batocera-controlcenter");
+es-app/src/ApiSystem.cpp:524:	int exitCode = system(command.c_str());
+es-app/src/ApiSystem.cpp:573:	if (system(open) != 0)
+es-app/src/ApiSystem.cpp:584:	int exitCode = system("/usr/bin/cloud_oauth wait");
+es-app/src/ApiSystem.cpp:593:	system("/usr/bin/cloud_oauth close");
+es-app/src/ApiSystem.cpp:606:	int exitCode = system(command.c_str());
+es-app/src/ApiSystem.cpp:942:	FILE *pipe = popen(oss.str().c_str(), "r");
+es-app/src/ApiSystem.cpp:950:		pclose(pipe);
+es-app/src/ApiSystem.cpp:1109:	FILE *pipe = popen(oss.str().c_str(), "r");
+es-app/src/ApiSystem.cpp:1118:		pclose(pipe);
+es-app/src/ApiSystem.cpp:1132:	int exitcode = system(oss.str().c_str());
+es-app/src/ApiSystem.cpp:1160:	FILE *pipe = popen(oss.str().c_str(), "r");
+es-app/src/ApiSystem.cpp:1169:		pclose(pipe);
+es-app/src/ApiSystem.cpp:1183:	int exitcode = system(oss.str().c_str());
+es-app/src/ApiSystem.cpp:2239:	FILE *pipe = popen(command.c_str(), "r");
+es-app/src/ApiSystem.cpp:2251:	pclose(pipe);
+es-app/src/ApiSystem.cpp:2269:	FILE *pipe = popen(command.c_str(), "r");
+es-app/src/ApiSystem.cpp:2291:	int exitCode = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:2300:	FILE *pipe = popen(command.c_str(), "r");
+es-app/src/ApiSystem.cpp:2319:	int exitCode = WEXITSTATUS(pclose(pipe));
+es-app/src/ApiSystem.cpp:2328:	if (system(command.c_str()) == 0)
+es-app/src/ApiSystem.cpp:13
+es-app/src/ApiSystem.cpp:635:	return executeScript("timeout 150 wifictl connect " + Utils::String::shellQuote(
+es-app/src/ApiSystem.cpp:636:			     " " + Utils::String::shellQuote(key) +
+es-app/src/ApiSystem.cpp:637:			     " " + Utils::String::shellQuote(country));
+es-app/src/ApiSystem.cpp:642:	return executeScript("wifictl enable " + Utils::String::shellQuote(ssid) +
+es-app/src/ApiSystem.cpp:643:			     " " + Utils::String::shellQuote(key));
+es-app/src/ApiSystem.cpp:651:	auto answer = executeScript("timeout 15 wifictl security " + Utils::String::shel
+es-app/src/ApiSystem.cpp:660:	return executeScript("timeout 120 wifictl connect-open " + Utils::String::shellQ
+es-app/src/ApiSystem.cpp:672:// shellQuote, as enableWifi's do: they are the player's and carry anything.
+es-app/src/ApiSystem.cpp:710:// name is the player's and carries anything: shellQuote.
+es-app/src/ApiSystem.cpp:714:	auto result = executeScript("timeout 120 wifictl join " + Utils::String::shellQu
+es-app/src/ApiSystem.cpp:728:	auto result = executeScript("timeout 30 wifictl forget " + Utils::String::shellQ
+es-app/src/ApiSystem.cpp:771:	return executeScript("wifictl forget_saved " + Utils::String::shellQuote(ssid));
+es-app/src/ApiSystem.cpp:775:	return executeScript("wifictl connect_saved " + Utils::String::shellQuote(ssid))
+es-app/src/ApiSystem.cpp:1496:	// 7za x -so test.7z | md5sum
+es-app/src/ApiSystem.cpp:1525:	if (fromZipContents && ext == ".7z")
+es-app/src/ApiSystem.cpp:1527:		auto cmd = getSevenZipCommand() + " x -so \"" + fileName + "\" | md5sum";
+es-app/src/ApiSystem.cpp:1538:	if (fromZipContents && ext == ".7z")
+es-app/src/ApiSystem.cpp:1573:	if (ext == ".7z" && fromZipContents)
+es-app/src/ApiSystem.cpp:1575:		LOG(LogDebug) << "getCRC32 is using 7z";
+es-app/src/ApiSystem.cpp:1578:		auto cmd = getSevenZipCommand() + " l -slt \"" + fileName + "\"";
+es-app/src/ApiSystem.cpp:1657:	LOG(LogDebug) << "unzipFile is using 7z";
+es-app/src/ApiSystem.cpp:1659:	std::string cmd = getSevenZipCommand() + " x \"" + Utils::FileSystem::getPrefer
+es-app/src/ApiSystem.cpp:2370:		executables.push_back("7zr");
+es-app/src/ApiSystem.cpp:2373:		executables.push_back("pdftoppm");
+es-app/src/ApiSystem.cpp:2374:		executables.push_back("pdfinfo");
+es-app/src/ApiSystem.cpp:2509:	auto lines = executeEnumerationScript("pdfinfo \"" + fileName + "\"");
+es-app/src/ApiSystem.cpp:2591:	executeEnumerationScript("pdftoppm -r "+ squality + page +" \"" + fileName + "\
+es-app/src/ApiSystem.cpp:2593:	executeEnumerationScript("pdftoppm -jpeg -r "+ squality +" -cropbox" + page + "
+	// executeScript() runs the command through a shell, so the SSID and the
+	// passphrase have to be quoted as literals. Double quotes are not enough:
+	// they still let the shell expand $, ` and \, which silently corrupts any
+	// passphrase containing them (and lets a crafted SSID run commands).
+es-app/src/ApiSystem.cpp:105
+36
+wifictl: 1
+rocknix-bluetooth: 1
+rocknix-config: 1
+cloud_oauth: 1
+set-audio: 0
+keyboardToPads: 0
+rocknix-sync: 0
+rocknix-resolution: 0
+4:PKG_NAME="p7zip"
+8:PKG_SITE="http://p7zip.sourceforge.net/"
+9:PKG_URL="http://downloads.sourceforge.net/project/p7zip/p7zip/${PKG_VERSION}/p7zip_${PKG_VERSION}_
+12:PKG_LONGDESC="p7zip is a port of 7za.exe for POSIX systems like Unix."
+22:  make CXX=${CXX} CC=${CC} -C ${PKG_BUILD}/.${HOST_NAME} 7za
+27:    cp ${PKG_BUILD}/.${HOST_NAME}/bin/7za ${TOOLCHAIN}/bin
+36:make_target() {
+37:  make CXX=${CXX} CC=${CC} -C ${PKG_BUILD}/.${TARGET_NAME} all3
+43:    cp -p ${PKG_BUILD}/.${TARGET_NAME}/bin/7z* ${INSTALL}/usr/bin
+es-app/src/ApiSystem.cpp:2235:	LOG(LogDebug) << "ApiSystem::executeEnumerationScript -> " << Utils::
+es-app/src/ApiSystem.cpp:2265:	const std::string shown = Utils::String::maskSecrets(command);
+es-app/src/ApiSystem.cpp:2297:	const std::string shown = Utils::String::maskSecrets(command);
+es-app/src/ApiSystem.cpp:2325:	const std::string shown = Utils::String::maskSecrets(command);
+es-core/src/utils/StringUtil.cpp:446:		// ----------------------------------------------------------
+es-core/src/utils/StringUtil.cpp:715:		std::string maskSecrets(const std::string& _string)
+es-core/src/utils/StringUtil.cpp:803:		} // maskSecrets
+1:			static const char* const words[] = { "password", "pass", "token", "key", "secret", "psk", "pin" };
+2:					if (word == "wifictl")
+es-core/src/HttpReq.cpp:21:CURLM* HttpReq::s_multi_handle = curl_multi_init();
+es-core/src/HttpReq.cpp:147:	CURLcode err = curl_easy_setopt(mHandle, CURLOPT_URL, url.c_str());
+es-core/src/HttpReq.cpp:156:	err = curl_easy_setopt(mHandle, CURLOPT_BUFFERSIZE, 102400L); // Batocera - 100kB
+es-core/src/HttpReq.cpp:167:		curl_easy_setopt(mHandle, CURLOPT_POST, 1L);
+es-core/src/HttpReq.cpp:168:		curl_easy_setopt(mHandle, CURLOPT_POSTFIELDSIZE, options->dataToPost.length());
+es-core/src/HttpReq.cpp:169:		curl_easy_setopt(mHandle, CURLOPT_COPYPOSTFIELDS, options->dataToPost.c_str());
+es-core/src/HttpReq.cpp:179:		curl_easy_setopt(mHandle, CURLOPT_HTTPHEADER, hs);
+es-core/src/HttpReq.cpp:183:	err = curl_easy_setopt(mHandle, CURLOPT_FOLLOWLOCATION, 1L);
+es-core/src/HttpReq.cpp:192:	curl_easy_setopt(mHandle, CURLOPT_SSL_VERIFYPEER, 0L);
+es-core/src/HttpReq.cpp:196:		// curl_easy_setopt(mHandle, CURLOPT_VERBOSE, 1L);
+es-core/src/HttpReq.cpp:197:		curl_easy_setopt(mHandle, CURLOPT_SSLCERT, options->clientCert.c_str());
+es-core/src/HttpReq.cpp:198:		curl_easy_setopt(mHandle, CURLOPT_SSLCERTTYPE, "PEM");
+es-core/src/HttpReq.cpp:199:		curl_easy_setopt(mHandle, CURLOPT_SSLKEY, options->clientKey.c_str());
+es-core/src/HttpReq.cpp:200:		curl_easy_setopt(mHandle, CURLOPT_SSL_VERIFYHOST, 0L);
+es-core/src/HttpReq.cpp:204:	err = curl_easy_setopt(mHandle, CURLOPT_CONNECTTIMEOUT_MS, options != nullptr ? o
+es-core/src/HttpReq.cpp:206:		err = curl_easy_setopt(mHandle, CURLOPT_TIMEOUT_MS, options->timeout);
+es-core/src/HttpReq.cpp:211:		err = curl_easy_setopt(mHandle, CURLOPT_LOW_SPEED_LIMIT, 1L);
+es-core/src/HttpReq.cpp:213:		err = curl_easy_setopt(mHandle, CURLOPT_LOW_SPEED_TIME, options->stallTimeout);
+es-core/src/HttpReq.cpp:222:	err = curl_easy_setopt(mHandle, CURLOPT_MAXREDIRS, 2L);
+es-core/src/HttpReq.cpp:236:		err = curl_easy_setopt(mHandle, CURLOPT_REDIR_PROTOCOLS_STR, "http,https");
+es-core/src/HttpReq.cpp:238:		err = curl_easy_setopt(mHandle, CURLOPT_REDIR_PROTOCOLS, CURLPROTO_HTTP | CURLPR
+es-core/src/HttpReq.cpp:240:	err = curl_easy_setopt(mHandle, CURLOPT_REDIR_PROTOCOLS_STR, "http,https");	
+es-core/src/HttpReq.cpp:242:	err = curl_easy_setopt(mHandle, CURLOPT_REDIR_PROTOCOLS, CURLPROTO_HTTP | CURLPRO
+es-core/src/HttpReq.cpp:253:	err = curl_easy_setopt(mHandle, CURLOPT_WRITEFUNCTION, &HttpReq::write_content);
+es-core/src/HttpReq.cpp:262:	err = curl_easy_setopt(mHandle, CURLOPT_WRITEDATA, this);
+es-core/src/HttpReq.cpp:274:		err = curl_easy_setopt(mHandle, CURLOPT_USERAGENT, userAgent.c_str());
+es-core/src/HttpReq.cpp:287:		curl_easy_setopt(mHandle, CURLOPT_COOKIEFILE, cookiesFile.c_str());
+es-core/src/HttpReq.cpp:288:		curl_easy_setopt(mHandle, CURLOPT_COOKIEJAR, cookiesFile.c_str());
+es-core/src/HttpReq.cpp:291:	curl_easy_setopt(mHandle, CURLOPT_HEADERFUNCTION, &HttpReq::header_callback);
+es-core/src/HttpReq.cpp:292:	curl_easy_setopt(mHandle, CURLOPT_HEADERDATA, this);
+es-core/src/HttpReq.cpp:315:				curl_easy_setopt(mHandle, CURLOPT_PROXY, proxyServer.c_str());
+es-core/src/HttpReq.cpp:316:				curl_easy_setopt(mHandle, CURLOPT_PROXYTYPE, CURLPROXY_HTTP);
+es-core/src/HttpReq.h:52:		connectTimeout = 10000L;
+es-core/src/HttpReq.h:53:		timeout = 0L;
+es-core/src/HttpReq.h:54:		stallTimeout = 0L;
+es-core/src/HttpReq.h:62:		connectTimeout = 10000L;
+es-core/src/HttpReq.h:63:		timeout = 0L;
+es-core/src/HttpReq.h:64:		stallTimeout = 0L;
+es-core/src/HttpReq.h:74:	long connectTimeout;
+es-core/src/HttpReq.h:78:	long timeout;
+es-core/src/HttpReq.h:86:	long stallTimeout;
+      1 es-app/src/guis/GuiMenu.cpp:7414
+      1 es-app/src/guis/GuiMenu.cpp:8342
+      1 es-app/src/guis/GuiMenu.cpp:8367
+      1 es-app/src/guis/GuiMenu.cpp:8371
+      1 es-app/src/guis/GuiMenu.cpp:8374
+      1 es-app/src/guis/GuiScraperStart.cpp:413
+      1 es-app/src/guis/GuiScraperStart.cpp:414
+      1 es-app/src/guis/GuiScraperStart.cpp:419
+      1 es-app/src/guis/GuiScraperStart.cpp:420
+      1 es-app/src/scrapers/Scraper.cpp:524
+      1 es-app/src/scrapers/ScreenScraper.cpp:1058
+      1 es-app/src/scrapers/ScreenScraper.cpp:39
+      1 es-app/src/scrapers/ScreenScraper.cpp:40
+      1 es-app/src/scrapers/ScreenScraper.cpp:43
+      1 es-app/src/scrapers/ScreenScraper.cpp:49
+      1 es-app/src/scrapers/ScreenScraper.cpp:874
+      1 es-app/src/scrapers/ScreenScraper.cpp:875
+      1 es-app/src/scrapers/ScreenScraper.cpp:878
+      1 es-app/src/scrapers/ScreenScraper.cpp:890
+      1 es-app/src/scrapers/ScreenScraper.cpp:891
+      1 es-app/src/scrapers/ScreenScraper.cpp:894
+      1 es-app/src/scrapers/ScreenScraper.cpp:930
+      1 es-app/src/scrapers/ScreenScraper.cpp:934
+es-app/src/guis/GuiWifi.cpp:6:#include "guis/GuiTextEditPopup.h"
+es-app/src/guis/GuiWifi.cpp:7:#include "guis/GuiTextEditPopupKeyboard.h"
+es-app/src/guis/GuiWifi.cpp:295:		mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, mTitle, "", onName, f
+es-app/src/guis/GuiWifi.cpp:297:		mWindow->pushGui(new GuiTextEditPopup(mWindow, mTitle, "", onName, false));
+es-app/src/guis/GuiWifi.cpp:365:		mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("WI-FI KEY"), "", o
+es-app/src/guis/GuiWifi.cpp:367:		mWindow->pushGui(new GuiTextEditPopup(mWindow, _("WI-FI KEY"), "", onKey, fa
+es-app/src/ApiSystem.cpp:621:	// caller is a menu callback. wifictl connect waits up to 90 s for the
+es-app/src/ApiSystem.cpp:642:	return executeScript("wifictl enable " + Utils::String::shellQuote(ssid) +
+es-app/src/ApiSystem.cpp:708:// NetworkManager holds, through wifictl join -- bounded past the 90 s
+es-app/src/ApiSystem.cpp:767:	return executeEnumerationScript("wifictl list_saved");
+es-app/src/ApiSystem.cpp:771:	return executeScript("wifictl forget_saved " + Utils::String::shellQuote(ssid));
+es-app/src/ApiSystem.cpp:775:	return executeScript("wifictl connect_saved " + Utils::String::shellQuote(ssid))
+es-app/src/ApiSystem.cpp:2224:	// Both are rescans: wifictl list waits for the adapter (up to 5 s), asks
+es-app/src/ApiSystem.cpp:2308:	// loop, and a command that printed nothing -- wifictl current with no
+es-app/src/ApiSystem.cpp:2352:		executables.push_back("wifictl");
+557
+10 18 113 177 270 302 372 383 388 437 460 461 
+es-app/src/ApiSystem.cpp:1017:		Utils::FileSystem::writeAllText("/sys/class/leds/blue:power/brightne
+es-app/src/ApiSystem.cpp:1020:	Utils::FileSystem::writeAllText("/sys/class/leds/blue:power/brightnes
+es-app/src/ApiSystem.cpp:1718:	Utils::FileSystem::writeAllText(bd.path, content);
+es-app/src/ApiSystem.cpp:1796:					Utils::FileSystem::writeAllText(trigger_path, "none\n");
+es-app/src/ApiSystem.cpp:1936:					Utils::FileSystem::writeAllText(path, std::to_string(brightnessVa
+es-app/src/ApiSystem.cpp:1948:						Utils::FileSystem::writeAllText(intensityPath, content);
+es-app/src/ApiSystem.cpp:1955:			Utils::FileSystem::writeAllText(LED_COLOUR_NAME, content);
+es-app/src/ApiSystem.cpp:1970:		for(const auto& file : r_files) Utils::FileSystem::writeAllText(file
+es-app/src/ApiSystem.cpp:1971:		for(const auto& file : g_files) Utils::FileSystem::writeAllText(file
+es-app/src/ApiSystem.cpp:1972:		for(const auto& file : b_files) Utils::FileSystem::writeAllText(file
+es-app/src/ApiSystem.cpp:2104:                Utils::FileSystem::writeAllText(leftBrightPath, std::t
+es-app/src/ApiSystem.cpp:2107:                Utils::FileSystem::writeAllText(rightBrightPath, std::
+es-app/src/ApiSystem.cpp:2128:                    Utils::FileSystem::writeAllText(path, std::to_stri
+es-app/src/ApiSystem.cpp:2130:                    Utils::FileSystem::writeAllText(path, std::to_stri
+es-app/src/ApiSystem.cpp:2132:                    Utils::FileSystem::writeAllText(path, std::to_stri
+es-app/src/ApiSystem.cpp:2141:        Utils::FileSystem::writeAllText(LED_BRIGHTNESS_VALUE, std::to_
+es-app/src/CaptureRotation.cpp:175:		Utils::FileSystem::writeAllText(path, CaptureRotationText::reco
+es-app/src/FileData.cpp:2213:	Utils::FileSystem::writeAllText(p2kPath, p2k);
+es-app/src/KeyboardMapping.cpp:426:			Utils::FileSystem::writeAllText(path, data);
+es-app/src/KeyboardMapping.cpp:429:		Utils::FileSystem::writeAllText(fileName, data);
+es-app/src/SaveStateBookkeeper.cpp:64:	// Asked through Utils::AtomicFile::isFlockHeld, the check th
+es-app/src/SaveStateBookkeeper.cpp:71:		if (!Utils::AtomicFile::isFlockHeld(CLOUD_SYNC_LOCK_PATH))
+es-app/src/SaveStateBookkeeper.cpp:85:			if (!Utils::AtomicFile::isFlockHeld(CLOUD_SYNC_LOCK_PATH))
+es-app/src/ThreadedCloudSync.cpp:944:	Utils::FileSystem::writeAllText(tmp,
+es-app/src/Win32ApiSystem.cpp:979:	Utils::FileSystem::writeAllText(file, "ok");
+es-app/src/guis/GuiKeyboardLayout.cpp:164:	Utils::FileSystem::writeAllText(newPath, svg);
+es-app/src/guis/GuiMenu.cpp:5066:							[&record](const std::string& text) { return Utils::AtomicFil
+es-app/src/guis/GuiMenu.cpp:11587:		Utils::FileSystem::writeAllText(fileName, fileData);
+es-app/src/guis/GuiSaveState.cpp:33:	if (Utils::AtomicFile::isFlockHeld("/var/run/cloud_sync.lock") 
+es-app/src/services/HttpApi.cpp:258:		Utils::FileSystem::writeAllText(path, mediaBytes);
+es-core/src/Settings.cpp:524:	if (!Utils::AtomicFile::writeText(path, writer.out))
+es-core/src/Settings.cpp:533:	if (!Utils::AtomicFile::writeText(path + ".backup", writer.out, Utils:
+es-core/src/Settings.cpp:617:		if (!Utils::AtomicFile::copy(backup, path))
+es-core/src/Settings.cpp:626:		const std::string live = Utils::AtomicFile::readText(path, &ok);
+es-core/src/Settings.cpp:629:		const int mode = Utils::AtomicFile::modeOf(path, 0644);
+es-core/src/Settings.cpp:630:		if (ok && (live != Utils::AtomicFile::readText(backup) || Utils::Atom
+es-core/src/Settings.cpp:631:			&& !Utils::AtomicFile::writeText(backup, live, mode))
+es-core/src/SystemConf.cpp:75:	// The same reading as ever (Utils::AtomicFile::parseKeyValues), kept
+es-core/src/SystemConf.cpp:77:	mOnDisk = Utils::AtomicFile::parseKeyValues(text);
+es-core/src/SystemConf.cpp:91:	Utils::AtomicFile::PidLock lock(sLockPath);
+es-core/src/SystemConf.cpp:94:	const auto current = Utils::AtomicFile::chooseConfig(mSystemConfFile)
+es-core/src/SystemConf.cpp:96:		(!current.record && current.source != Utils::AtomicFile::LoadedConfi
+es-core/src/SystemConf.cpp:108:	if (Utils::AtomicFile::readText(backup) == text && Utils::AtomicFile
+es-core/src/SystemConf.cpp:110:	if (!Utils::AtomicFile::writeText(backup, text, mode))
+es-core/src/SystemConf.cpp:120:// Utils::AtomicFile::chooseConfig's call; the writes and the words a
+es-core/src/SystemConf.cpp:128:	std::map<std::string, Utils::AtomicFile::PendingChange> pending;
+es-core/src/SystemConf.cpp:133:			Utils::AtomicFile::PendingChange change;
+es-core/src/SystemConf.cpp:173:	const auto kept = Utils::AtomicFile::pendingAfterReload(pending, mOn
+es-core/src/SystemConf.cpp:217:	Utils::AtomicFile::RecoveryWrite wrote = Utils::AtomicFile::Recovery
+es-core/src/SystemConf.cpp:218:	const Utils::AtomicFile::LoadedConfig chosen = Utils::AtomicFile::lo
+es-core/src/SystemConf.cpp:223:		if (wrote == Utils::AtomicFile::RecoveryWrite::WriteFailed)
+es-core/src/SystemConf.cpp:225:		else if (wrote == Utils::AtomicFile::RecoveryWrite::LockBusy)
+es-core/src/SystemConf.cpp:232:	case Utils::AtomicFile::LoadedConfig::Source::Live:
+es-core/src/SystemConf.cpp:243:	case Utils::AtomicFile::LoadedConfig::Source::Temporary:
+es-core/src/SystemConf.cpp:248:		if (wrote != Utils::AtomicFile::RecoveryWrite::LockBusy)
+es-core/src/SystemConf.cpp:253:	case Utils::AtomicFile::LoadedConfig::Source::Backup:
+es-core/src/SystemConf.cpp:262:		if (wrote != Utils::AtomicFile::RecoveryWrite::LockBusy)
+es-core/src/SystemConf.cpp:267:	case Utils::AtomicFile::LoadedConfig::Source::Damaged:
+es-core/src/SystemConf.cpp:277:	case Utils::AtomicFile::LoadedConfig::Source::Missing:
+es-core/src/SystemConf.cpp:304:	const Utils::AtomicFile::LockedSave saved = Utils::AtomicFile::saveU
+es-core/src/SystemConf.cpp:309:	case Utils::AtomicFile::LockedSave::LockBusy:
+es-core/src/SystemConf.cpp:312:	case Utils::AtomicFile::LockedSave::Unreadable:
+es-core/src/SystemConf.cpp:315:	case Utils::AtomicFile::LockedSave::WriteFailed:
+es-core/src/SystemConf.cpp:320:	case Utils::AtomicFile::LockedSave::Written:
+es-core/src/SystemConf.cpp:328:	mOnDisk = Utils::AtomicFile::parseKeyValues(out);
+es-core/src/SystemConf.h:21:	// G-E1-03, Utils::AtomicFile::pendingAfterReload): the Wi-Fi picker's
+es-core/src/utils/FileSystemUtil.cpp:1429:		void writeAllText(const std::string& fileName, const std
+es-core/src/utils/FileSystemUtil.h:71:		void		writeAllText(const std::string& fileName, const std::s
+001-functions: projects/ROCKNIX/packages/rocknix/profile.d/001-functions
+179:function wait_lock_say() {
+182:    logger -t wait_lock "${*}"
+184:    echo "wait_lock: ${*}" >&2
+202:#   Reaped once, under flock on <lock>.reap -- the lock the interface's
+208:#   the second finds the lock changed and leaves it. Without flock (a
+214:#   folder that is missing, a read-only /tmp -- wait_lock says so and
+233:function wait_lock() {
+266:        wait_lock_say "cannot create ${J_CONF_LOCK} (its folder missing or not writable); not wa
+305:            wait_lock_say "still waiting on ${J_CONF_LOCK}: held by live pid ${holder} for ${hel
+316:        if command -v flock >/dev/null 2>&1; then flock -x 9 || exit 0; fi
+326:      wait_lock_say "removed stale lock ${J_CONF_LOCK} held by pid ${holder:-<none>}"
+334:        wait_lock_say "cannot remove stale lock ${J_CONF_LOCK} held by pid ${holder:-<none>} (it
+435:     && mv -f "${J_CONF}.tmp" "${J_CONF}"
+449:  wait_lock || return 1
+467:         && mv -f "${J_CONF}.tmp" "${J_CONF}"
+482:  wait_lock || return 1
+498:    mv -f "${J_CONF}.tmp" "${J_CONF}" || rc=1
+542:    cp -f /usr/config/system/configs/system.cfg /storage/.config/system/configs/system.cfg
+555:      wait_lock || return 1
+595:    cp -f /usr/config/system/configs/system.cfg /storage/.config/system/configs/system.cfg
+  if [ ! -e "/storage/.config/system/configs/system.cfg" ]
+  then
+    cp -f /usr/config/system/configs/system.cfg /storage/.config/system/configs/system.cfg
+  fi
+101:    sed -i '/^vm\.laptop_mode=/d' "${f}"
+160:    sed -i '$ a\system.batteryplus.enabled=1' /storage/.config/system/configs/system.cfg
+202:sed -i "/system.suspend.dpms/d" /storage/.config/system/configs/system.cfg
+chksysconfig: projects/ROCKNIX/packages/rocknix/sources/scripts/chksysconfig
+0
+chksysconfig lock lines: rc=1 (1 = none)
+es-app/src/main.cpp:1036:	// place (Settings::loadFile, SystemConf::loadSystemConf; D-CLOUD-079).
+es-app/src/main.cpp:1041:	if (Settings::wasRecovered() || SystemConf::wasRecovered())
+es-core/src/Settings.cpp:119:	loadFile();
+es-core/src/Settings.cpp:549:void Settings::loadFile()
+es-core/src/SystemConf.cpp:75:	// The same reading as ever (Utils::AtomicFile::parseKeyValues), kept
+es-core/src/SystemConf.cpp:77:	mOnDisk = Utils::AtomicFile::parseKeyValues(text);
+es-core/src/SystemConf.cpp:94:	const auto current = Utils::AtomicFile::chooseConfig(mSystemConfFile)
+es-core/src/SystemConf.cpp:102:	// on disk shares (chooseConfig, G-E1-05): the live file may be the 
+es-core/src/SystemConf.cpp:120:// Utils::AtomicFile::chooseConfig's call; the writes and the words a
+es-core/src/SystemConf.cpp:328:	mOnDisk = Utils::AtomicFile::parseKeyValues(out);
+es-core/src/utils/AtomicFileUtil.cpp:291:		LoadedConfig chooseConfig(const std::string& path)
+es-core/src/utils/AtomicFileUtil.cpp:410:			LoadedConfig chosen = chooseConfig(path);
+es-core/src/utils/AtomicFileUtil.cpp:424:			chosen = chooseConfig(path);
+es-core/src/utils/AtomicFileUtil.cpp:453:		std::map<std::string, std::string> parseKeyValues(const s
+es-core/src/utils/AtomicFileUtil.cpp:515:			// load asks, and where chooseConfig names the recovery 
+es-core/src/utils/AtomicFileUtil.cpp:527:				const LoadedConfig chosen = chooseConfig(path);
+AtomicFileTests: 24
+AtomicFileWin32Tests: 2
+SystemConfTests: 10
+MaskSecretsTests: 12
+WifiTextTests: 19
+CommandLineTests: 2
+LaunchCommandTests: 8
+LogPolicyTests: 3
+0
+the lane's tools/t21-build-tests.sh (from T18's) generates the g++ lines, names every -I, and records each binary's summary line
+settings-modes-test --help rc=0
+last-good-scripts-test --help rc=0
+cloud-input-test --help rc=0
+vm-upgrade-rehearsal --help rc=1 (tools/vm-upgrade-rehearsal: line 25: 2: new update tar)
+es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)
+es-syntax-check rc=2
+es-core/src/utils/AtomicFileUtil.cpp:  rc=0
+es-core/src/SystemConf.cpp: /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/s rc=1
+es-app/src/ApiSystem.cpp: /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/s rc=1

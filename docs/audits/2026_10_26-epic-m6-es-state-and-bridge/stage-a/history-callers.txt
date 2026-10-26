@@ -1,0 +1,25 @@
+| File | Lines at the pin | In the merge base | Insertions/deletions since it | Commits since it | Last commit |
+| --- | ---: | --- | --- | ---: | --- |
+| `es-app/src/ApiSystem.cpp` | 3519 | yes | 214/33 | 19 | f7b71db0a 2026-10-13 cloud: return freed renderer heap before sign-in wait |
+| `es-app/src/ApiSystem.h` | 490 | yes | 37/1 | 11 | c8dc72cf9 2026-10-11 emulationstation: manage cloud connections and network recovery |
+| `es-app/src/guis/GuiWifi.cpp` | 607 | yes | 552/62 | 14 | 16dbac521 2026-10-15 GuiWifi: cancel scan worker on normal frontend exit |
+| `es-app/src/guis/GuiWifi.h` | 93 | yes | 76/14 | 9 | 16dbac521 2026-10-15 GuiWifi: cancel scan worker on normal frontend exit |
+| `es-app/src/scrapers/ScreenScraper.cpp` | 1092 | yes | 120/7 | 8 | 3178b832b 2026-10-14 ScreenScraper: match rejected access guidance to credential source |
+| `es-app/src/scrapers/ScreenScraper.h` | 104 | yes | 6/1 | 1 | c0f6fb58f 2026-09-05 scrapers: ScreenScraper developer pair entered on the device (SCREENS |
+| `es-core/src/HttpReq.cpp` | 644 | yes | 9/0 | 2 | 9202ebed5 2026-09-27 hasher: the library fetch ends when it stalls; an offline index says  |
+| `es-core/src/HttpReq.h` | 180 | yes | 16/0 | 2 | 9202ebed5 2026-09-27 hasher: the library fetch ends when it stalls; an offline index says  |
+| `es-core/src/Settings.cpp` | 723 | yes | 97/9 | 7 | d242000a5 2026-10-13 GuiMenu: explain offline preparation before updating game lists |
+| `es-core/src/Settings.h` | 165 | yes | 7/0 | 1 | b0e417df3 2026-09-10 Settings, SystemConf: write through a temporary and keep the last kno |
+| `es-core/src/SystemConf.cpp` | 494 | yes | 275/52 | 15 | 39f888354 2026-10-03 settings: revalidate last-good records under the lock (#320) |
+| `es-core/src/SystemConf.h` | 94 | yes | 57/2 | 8 | 812bc2f75 2026-09-29 SystemConf: a damaged reading keeps the pending changes |
+| `es-core/src/utils/AtomicFileUtil.cpp` | 829 | no | 829/0 | 16 | ee6147aec 2026-09-28 AtomicFileUtil: a recovery is written back under the settings lock |
+| `es-core/src/utils/AtomicFileUtil.h` | 215 | no | 215/0 | 15 | ee6147aec 2026-09-28 AtomicFileUtil: a recovery is written back under the settings lock |
+
+-- callers at the pin (git grep -c, files and lines)
+ApiSystem::getInstance\(\)->: 293 lines in 41 files
+Settings::getInstance\(\)->: 882 lines in 77 files
+SystemConf::getInstance\(\)->: 635 lines in 38 files
+HttpReq\b: 167 lines in 27 files
+AtomicFile::: 41 lines in 6 files
+ScreenScraper: 65 lines in 9 files
+GuiWifi: 32 lines in 4 files

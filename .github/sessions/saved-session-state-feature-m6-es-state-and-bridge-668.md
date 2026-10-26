@@ -17,15 +17,19 @@
 
 ## Current focus
 
-Not started. The first commit on the distribution branch is the running
-log's header (the model, the effort, `reviewed-at` the distribution HEAD with
-the pin beside it, the host file's last lines, the census),
-`01-research-notes.md` § Scope (the block of brief § 2 with its output and
-the § 5 runs' figures), this pointer updated, and the day's work-log entry
-headed `#668` (prose through a quoted heredoc or the Write tool). The ES
-worktree stays at the pin until stage E. `.qa-scratch/` is gitignored and
-`git status --short` is read before every `git add -A`. No network is used
-except the seats' four keyed invokes.
+**Stage A done (2026-10-26 21:00 UTC); stage B next.**
+
+- **Stage A:**
+  - the first commands, § 2's block and § 5's runs all at the brief's figures, with two deltas from its comments (`wifictl`'s 195/209 outside the pattern; 25 `writeAllText` call sites of 27 lines);
+  - the unit tests built at the pin by `tools/t21-build-tests.sh` (221 cases, the eight files 80), with rapidjson from the recipe's own tarball and four patches;
+  - `tests/wifi-profile-lifetime.py` PASS;
+  - T20's PL-08 fixture and S2's `HttpReqOptions` field read by `git show`.
+- **Records:** `00` at `reviewed-at` `4844a773ca` beside the pin; `01` § Scope.
+- **Next, stage B:**
+  - read the 14 whole, and § 3's remaining rules, map lines, blindspots and audits;
+  - write `02` with its sections, the generators for § The commands and § The writers asserting their counts, and the host positives (the kill-the-writer fixture for both stores and the shell writers, the seed-before-the-record case);
+  - then the window request on #668 with its plan and its bound.
+- **What runs here:** nothing. Scratch is `/workspace/tmp/m6-t21/` (`rj/`, `build/pin/`, `stageA/`).
 
 ## Next commands
 
@@ -63,4 +67,5 @@ another lane's worktree, or a guest outside the one granted window.
 
 ## Checkpoints
 
+- Stage A, 21:00 UTC: distribution `4844a773ca` + stage A's commit; ES at the pin `16dbac5211` (unchanged).
 - (none yet; the executor appends one line per stage: the stage, both tips, the time)

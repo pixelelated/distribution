@@ -1,0 +1,20 @@
+selects 1 paths 14 lines 9249 {'shipped': 14} {'fork-own': 14}
+{'c++': 7, 'c-header': 7}
+3519 c++ fork-own es-app/src/ApiSystem.cpp
+490 c-header fork-own es-app/src/ApiSystem.h
+607 c++ fork-own es-app/src/guis/GuiWifi.cpp
+93 c-header fork-own es-app/src/guis/GuiWifi.h
+1092 c++ fork-own es-app/src/scrapers/ScreenScraper.cpp
+104 c-header fork-own es-app/src/scrapers/ScreenScraper.h
+644 c++ fork-own es-core/src/HttpReq.cpp
+180 c-header fork-own es-core/src/HttpReq.h
+723 c++ fork-own es-core/src/Settings.cpp
+165 c-header fork-own es-core/src/Settings.h
+494 c++ fork-own es-core/src/SystemConf.cpp
+94 c-header fork-own es-core/src/SystemConf.h
+829 c++ fork-own es-core/src/utils/AtomicFileUtil.cpp
+215 c-header fork-own es-core/src/utils/AtomicFileUtil.h
+14 .qa-scratch/t21/paths.txt
+wc -l lines 9249
+12
+-- the 14 at the pin against the worktree (expect empty)
