@@ -1,0 +1,25 @@
+# S6 after (#666, #1162): the ctl in the tree, 2026-10-26T15:29:19Z
+ctl sha256 eaf9f965cdc2acd3
+command: tools/t19-s6-topup-mark.sh <tree's ctl> /workspace/tmp/m6-t19/s6/after
+reading of the brief's control: "the mark two hours back, the half-hour gate holds" cannot hold as written (two hours is past the half hour); case 2 is the played check's control at two hours back, case 3 the half-hour gate's at ten minutes
+
+host bash 5.3.9(1)-release (the tree pins bash 5.3); applets from BusyBox v1.36.1 (a copy of /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox, the image's); host python 3.14.4 (image recipe 3.14.7)
+  1. the mark a day ahead of the clock, a game played now
+     mark 2026-10-27T15:29:19Z, history 2026-10-26T15:29:19Z, now 2026-10-26T15:29:19Z
+     rc 69; scan.log: 2026-10-26 15:29:19 topup: the last attempt's mark is dated ahead of the clock; removed, as no mark|2026-10-26 15:29:20 topup refused: offline by the proxy's probe (9 probes); not counted as an attempt|; mark now: absent
+    PASS  the run goes past the gates to the probe (here offline: exit 69)
+    PASS  it is not skipped as 'no game played'
+    PASS  and the mark dated ahead is said
+  2. the mark two hours back, the history older than it (the control)
+     rc 0; scan.log: 2026-10-26 15:29:20 topup: no game played since the last attempt (/storage/history.lpl is not newer than the mark); nothing to look for, skipped|
+    PASS  no game played since the mark: skipped, rc 0
+  3. the mark ten minutes back (the control)
+     rc 0; scan.log: 
+    PASS  the half-hour gate holds: rc 0 before the probe, nothing logged
+t19-s6-topup-mark: 0 FAIL
+rc 0
+
+bash -n of the ctl: ok
+the mark's touch is checked (say on failure); no fixture case: a touch that fails here would need the whole pass behind it -- read, not run
+
+## tools/last-good-scripts-test (QA_SYSTEM_ROOT the retained donor) on S6: 1313 PASS; PASSED. S6 reverses no check.

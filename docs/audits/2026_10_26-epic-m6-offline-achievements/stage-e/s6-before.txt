@@ -1,0 +1,18 @@
+# S6 before (#666, #1162): the ctl at 44120e2e17 (S5's tip), 2026-10-26T15:29:19Z
+command: tools/t19-s6-topup-mark.sh <ctl at 44120e2e17> /workspace/tmp/m6-t19/s6/before
+
+host bash 5.3.9(1)-release (the tree pins bash 5.3); applets from BusyBox v1.36.1 (a copy of /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox, the image's); host python 3.14.4 (image recipe 3.14.7)
+  1. the mark a day ahead of the clock, a game played now
+     mark 2026-10-27T15:29:19Z, history 2026-10-26T15:29:19Z, now 2026-10-26T15:29:19Z
+     rc 0; scan.log: 2026-10-26 15:29:19 topup: no game played since the last attempt (/storage/history.lpl is not newer than the mark); nothing to look for, skipped|; mark now: 2026-10-27T15:29:19Z
+    FAIL  the run goes past the gates to the probe (here offline: exit 69) -- rc 0
+    FAIL  it is not skipped as 'no game played' -- no game played since the last attempt (/storage/history.lpl is not newer than the mark); nothing to look for, skipped
+    FAIL  and the mark dated ahead is said -- scan.log: 2026-10-26 15:29:19 topup: no game played since the last attempt (/storage/history.lpl is not newer than the mark); nothing to look for, skipped|
+  2. the mark two hours back, the history older than it (the control)
+     rc 0; scan.log: 2026-10-26 15:29:19 topup: no game played since the last attempt (/storage/history.lpl is not newer than the mark); nothing to look for, skipped|
+    PASS  no game played since the mark: skipped, rc 0
+  3. the mark ten minutes back (the control)
+     rc 0; scan.log: 
+    PASS  the half-hour gate holds: rc 0 before the probe, nothing logged
+t19-s6-topup-mark: 3 FAIL
+rc 1

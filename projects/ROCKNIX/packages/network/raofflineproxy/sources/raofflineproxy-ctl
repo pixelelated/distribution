@@ -2375,6 +2375,14 @@ do_topup() {
     # attempt left behind (#307 PL-055, below) waits out the half hour like
     # any other run, so a link that flaps does not turn it into a request
     # storm.
+    # A mark dated ahead of the clock -- touched while the clock ran ahead,
+    # before the network set it -- held every later play "not newer" until
+    # the clock caught up, and the top-up said no game was played (#1162,
+    # T19 F-12). It is no mark: removed, and said.
+    if [ -e "${TOPUP_MARK}" ] && [ "$(stat -c %Y "${TOPUP_MARK}" 2>/dev/null || echo 0)" -gt "$(date +%s)" ]; then
+        slog "topup: the last attempt's mark is dated ahead of the clock; removed, as no mark"
+        rm -f "${TOPUP_MARK}"
+    fi
     local PENDING_DUE=0
     if [ -e "${INDEX_PENDING}" ] && { [ ! -e "${TOPUP_MARK}" ] || [ "${INDEX_PENDING}" -nt "${TOPUP_MARK}" ]; }; then
         PENDING_DUE=1
@@ -2419,7 +2427,9 @@ do_topup() {
         fi
         exit ${EX_UNAVAILABLE}
     fi
-    touch "${TOPUP_MARK}"
+    # Without the mark the half hour does not hold, and the next link event
+    # tries again; that is said rather than assumed (#1162).
+    touch "${TOPUP_MARK}" || say "topup: the attempt's mark ${TOPUP_MARK} could not be written; the next link may try again inside the half hour"
 
     local LIST
     LIST="$(mktemp /tmp/raofflineproxy-topup.XXXXXX)" || fail "cannot create the list"
