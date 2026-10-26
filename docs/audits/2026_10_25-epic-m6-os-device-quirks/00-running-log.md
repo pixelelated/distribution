@@ -85,3 +85,15 @@
 - PROOF: P12, the delta's 31 paths and 18 commits: `delta`, b13.
 - PROOF: P13, `rocknix-info`'s derivation: b14.
 - PROOF: P14, the tables regenerated: `check` 0.
+
+## [Stage C] 2026-10-26 04:57 UTC onward — the packet, its scan, the seat
+
+- **The packet** (`stage-c/packet.py`, from `stage-c/ask.md`), `second-opinions/gpt-brief.md`: 53 sources, 178,989 bytes, sha256 `cd419005518031bc...`. Built 04:57:11 UTC.
+  - **Contents:** the ask; `02` whole but for its 333-row coverage table, trimmed to a note (D-WORKFLOW-195); `03` and `04` whole; four context sections (the order's § T29, the brief's § 2 and § 4, 8 register rows, device facts L14, L16, L27 and L31).
+  - **Line-numbered:** tier B's symlinks and its 26 distinct blobs, each with the paths that share it; the fixture and its output; 16 excerpts (the selection lines, the wrappers, the unit, `platforms/H700`'s three files and `bin/ledcontrol`, `call_achievements_hooks.sh`, `rocknix-info`, `backuptool:278-310`, `powerstate.sh`, the x55's guard, Odin 3's `050-game-configs`).
+  - **Masking:** 1 line masked, the brief's `key=lambda`.
+- **The scan** (04:57:19): `forbidden-terms-check --stdin` 0 hits. `SECRET_PATTERNS`: 0 lines under the three sets, each matching a run-time fake line. Recorded in `packet-manifest.json`.
+- **The plan:** `second-opinions/review-plan.json`, independent, one reviewer (`gpt`, `openai/gpt-6-astra`, `max`, pinned to OpenAI), written before the first call.
+- **The runner:** `tools/council/node_modules` was copied from the T28 worktree (gitignored; the tracked `tools/council` is identical). `COUNCIL_ENV_FILE=/nonexistent tools/council/run verify-pins`: `OK`.
+- **The probe**, 04:57:41 to 04:57:52 (keyed; **the first of the seat's two calls**): `http=200 model=openai/gpt-6-astra providers=["OpenAI"] effort=max finish=stop outcome=success`. Verification, effort and provider `PASS`; `council-facilitator@1.14.1-pixelelated.2`.
+- **The refutation**, started 04:57:57 UTC (keyed; **the second and last call**), runs as a harness background task. It writes `second-opinions/gpt-audit.md` and `/workspace/tmp/m6-t29/refutation.rc`.

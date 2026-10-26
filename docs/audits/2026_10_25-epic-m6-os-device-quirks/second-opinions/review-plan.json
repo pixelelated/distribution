@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "depth": "independent",
+  "scope": "epic",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "anthropic/claude-opus-5-5",
+    "lab": "anthropic",
+    "identity_source": "the coordinator's dispatch on #676 (2026-10-25T11:47:01Z: 'to the T5 session (m6-t5-build-engine)'), the resume prompt of 2026-10-26 04:5x UTC, and the session's own model metadata (claude-opus-5-5)"
+  },
+  "reviewers": [
+    {
+      "member": "gpt",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "max",
+      "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
+      "allow_fallbacks": false,
+      "calls": [
+        {
+          "phase": "refutation",
+          "output": "gpt-audit.md"
+        }
+      ],
+      "probes": [
+        {
+          "phase": "probe",
+          "output": "gpt-probe.md"
+        }
+      ],
+      "status": "planned: probe then refutation, the only two keyed calls (D-WORKFLOW-195)"
+    }
+  ],
+  "packets": {
+    "gpt": {
+      "file": "gpt-brief.md",
+      "bytes": 178989,
+      "sha256": "cd419005518031bcae127bf2e155fcbf6404970f9fa175a7145cbcf7eecf2f9f",
+      "manifest": "packet-manifest.json",
+      "content": "the ask; 02 whole but for its 333-row coverage table (trimmed to a note), 03 and 04 whole; four context sections; tier B's symlinks and its 26 distinct blobs line-numbered with their sharers; the fixture and its output; 16 excerpts",
+      "scan": "forbidden-terms-check --stdin 0 hits; SECRET_PATTERNS 0 lines under three sets, each shown to fire on a run-time fake line; 1 line masked (the brief's key=lambda); no redaction"
+    }
+  },
+  "written_before_first_call": "2026-10-26T04:57Z"
+}

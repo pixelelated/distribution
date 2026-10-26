@@ -1,0 +1,403 @@
+{
+  "sources": [
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-os-device-quirks/stage-c/ask.md",
+      "ref": "worktree",
+      "kind": "ask",
+      "sha256": "afc87a94246516c3d62495a7e0050c8466d0509ba1188c3275e3920ae497cdbe",
+      "bytes": 3606
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-os-device-quirks/02-forward-audit.md (coverage trimmed)",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "e3cbe10ab9c16e6f2b2f09415090fbf3d6fbca91e85532e067d57ad606ec2a5e",
+      "bytes": 51744
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-os-device-quirks/03-retrospective.md",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "659f6321d4427e0cb6c5b3a781cf4f4bcfbecb57fbee6b306732ef9dd370f463",
+      "bytes": 6759
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-os-device-quirks/04-analysis.md",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "9c00443486151e097bb715eaec1ced76375e7ca739e509de78e6e248c73e2fb5",
+      "bytes": 12661
+    },
+    {
+      "path": "docs/reviews/order.md \u00a7 T29",
+      "ref": "2174265e9c",
+      "kind": "context",
+      "sha256": "ddba093af1eb51db103b3d9c68b51feacacacc437dd8291ea9e318ba47d6a026",
+      "bytes": 989
+    },
+    {
+      "path": "docs/reviews/briefs/os-device-quirks.md \u00a7 2 and \u00a7 4",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "ad3e0f7fa30def4a7fc964ab177b722ce72a29771d33d401511039392031d216",
+      "bytes": 15766
+    },
+    {
+      "path": "docs/decision-register.md rows D-WORKFLOW-185, D-WORKFLOW-187, D-WORKFLOW-195, D-WORKFLOW-209, D-UI-121, D-QA-015, D-QA-027, D-QA-053",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "9b367eaa8fe8894d585cccd3f7217fe60396ca2b9d6d4a206c363334b92b6167",
+      "bytes": 9620
+    },
+    {
+      "path": "docs/releases/device-facts.md rows 14, 16, 27, 31",
+      "ref": "2174265e9c",
+      "kind": "context",
+      "sha256": "9ff398221e577be92796482fedd1ad82bbb4b834ce23fc42bc820f6663d51ad1",
+      "bytes": 1965
+    },
+    {
+      "path": "tier B symlinks",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "26ab15b5449d57e7c146bafb5bf4353b2dbbb0730f122dce06bf7ba91dd3117b",
+      "bytes": 2023
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/AYANEO Pocket ACE/001-device_config",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "f0ba35c141bd9170e712edf7921293931ee13324d95ff8e6fa0e381a392f55fb",
+      "bytes": 224
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/AYANEO Pocket ACE/020-set-xbox-gamepad",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "9df25a8d6a4f519dff2f75c48642447fa05634890e03dfc5813bde194a4e869b",
+      "bytes": 520
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/AYANEO Pocket ACE/400-set_gpu_overclock",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "0b2d0ffda5f5a076608b0b741344f553426f93f5a48b388b568ac009917af519",
+      "bytes": 699
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/AYANEO Pocket ACE/bin/battery_led_status",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "8ce7475e4b1013d7d53f965b0b58b1e486b33e97deae6af747e7696f8eacc127",
+      "bytes": 2795
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/AYANEO Pocket ACE/bin/ledcontrol",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "07f2d8039bc8258ac1c1125ac609ef5a6591ca75b2b4873d0ded9172acfb0cf7",
+      "bytes": 2313
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/AYANEO Pocket DMG/bin/analog_sticks_ledcontrol",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "739c48066f51cfa8c5e86f2f9bed388bbade115d22d815148ca5ab73413584b8",
+      "bytes": 1703
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/AYANEO Pocket EVO/bin/battery_led_status",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "0f95c083560c3e396844ec9f275184e8e600afb4607636055a717548a59c1660",
+      "bytes": 3057
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/AYANEO Pocket EVO/bin/ledcontrol",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "ec5093b045bf283f9fa90b5f6377cbaba117378f9d05c0d0282316e91d0074f7",
+      "bytes": 2911
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/AYANEO Pocket S 2K/050-game-configs",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "b1f26012f6174fdc4a31d68d93ba4b3e76aafc03676f623270427e24569ea0f5",
+      "bytes": 395
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/AYN Odin 2 Portal/bin/analog_sticks_ledcontrol",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "9b9243fda8cc65ba795e83a2fbfda1f2781b1ee0b3e65e7592b64e333573cf1c",
+      "bytes": 1256
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/AYN Odin 2 Portal/bin/battery_led_status",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "555bbe082137279cf2e80d4eb9ae531a3179a78ecd145e1119c8e676debe662d",
+      "bytes": 4366
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/AYN Odin 2 Portal/bin/ledcontrol",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "2239ab102d54873278e9fb6234376af2984e332c53d0214a4d0ec7c204f5c6ad",
+      "bytes": 1099
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/AYN Odin 2/009-commander-cfg",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "9e9263ddc2a9ca9793fb49a0e81fb77b63a9e711441e2b6c3f9c4b6a0f40354f",
+      "bytes": 275
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/AYN Odin 2/bin/analog_sticks_ledcontrol",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "7961f3c8dd61ae8a06ca6c12e846485f13b91a8517683d102fcd58f6afe16f06",
+      "bytes": 1302
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/AYN Odin 2/bin/battery_led_status",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "56498f1ba40ed361e9bfb7c4b0317fdb254b72a1aae77f659f9962b82a1aa353",
+      "bytes": 2367
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/AYN Thor/050-game-configs",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "9079762ab1b0993a0a6daac47a9c316b98e4a10b4956873df6c48ad10af776d8",
+      "bytes": 830
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/AYN Thor/bin/battery_led_status",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "82dcf3d291d6bf79318f7c1168da270bef88f0b48d69c3c8669ef663979ee4e3",
+      "bytes": 4940
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/AYN Thor/touchcontrol",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "44319ff23d655f71bd9e6486f8b4d983c68666f895ab753fa9614fc10869b2f9",
+      "bytes": 798
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/Anbernic RG CubeXX/bin/achievements",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "2fda0e95ef321e464d0c78dd425b842e081f81bff83cdc8f3f55a7bc01af503a",
+      "bytes": 2948
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/Anbernic RG40XX V/bin/analog_sticks_ledcontrol",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "d1ac9ff08596e121e6bff29cbc8f9f97236b62af3b68e23aa616d2907a91beaf",
+      "bytes": 1857
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/QEMU Standard PC (Q35 + ICH9, 2009)/001-device_config",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "42085197bac659d24e8928a61b16e101570e3347cf0a52ea05a872fdd956c38d",
+      "bytes": 941
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/QEMU Standard PC (Q35 + ICH9, 2009)/091-retired-vm-fixes",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "4d12a8336fc304fb25fd0e1f197c7ee693f386c94a9fcf007f08fc875e1ab5e2",
+      "bytes": 6051
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/Retroid Pocket Nova/010-analog_sticks_led_control",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "eb146cd439c5a9e3081edad500863fccc2e4101f37468199c6e915f281a698d2",
+      "bytes": 245
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/Retroid Pocket Nova/bin/analog_sticks_ledcontrol",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "967ec4882fa2b0975c2a83887a2215db3c89288a806fca21d556f362d5ccaf7c",
+      "bytes": 1269
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/Retroid Pocket Nova/bin/battery_led_status",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "ad6da5c6f8fa7a644ae125ed185a710c0ca9a7bb8d04b4af444cec56165bcea0",
+      "bytes": 4802
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/Retroid Pocket Nova/bin/ledcontrol",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "ed66db708360232957116672aaabca348a79ebed1524551679ae27d1a6b356dc",
+      "bytes": 2751
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-os-device-quirks/tools/t29-battery-unset.py",
+      "ref": "worktree",
+      "kind": "fixture",
+      "sha256": "f31fa41a47dc8eab914185d6c7f519f8021157c3978d12e106c3d9363c2190f3",
+      "bytes": 3269
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-os-device-quirks/stage-b/b04_fixture.out",
+      "ref": "worktree",
+      "kind": "fixture",
+      "sha256": "e32630e6128fe8e54cd5cffbd5415224f7fe64af880a06962bd4795367901c38",
+      "bytes": 596
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/autostart/profile.d/002-autostart:1-12",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "5d20680df73dcd3ce8f9ae34e4173473b59453348ad392cb70adc3327bd655bb",
+      "bytes": 491
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/autostart/sources/autostart:20-60",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "9c1d5e2d081d64ccc421af68caf71a1d6130311ab18ed1606619e665bb2b5bbf",
+      "bytes": 1090
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/package.mk:1-25",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "9a4f23111c4beb22f0e51a64ba82a542e5788bf3d5219c66a4ab1c002e8ec6c7",
+      "bytes": 855
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/system-utils/sources/scripts/ledcontrol:1-18",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "07a055939bca2f60c8cfd33d75723cd72f02d8cd0b6c9dd063bc87854082f6eb",
+      "bytes": 734
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/system-utils/sources/scripts/battery_led_status:1-18",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "6ab35f00a80ec4d03357bd9e77d0d624c3afd48d3245b8c60eeb7815fd9790d5",
+      "bytes": 753
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/system-utils/system.d/batteryledstatus.service:1-12",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "d62aa203f48e50fd6db2f1bc1e098c5205d93cc33ac0892e77e8cc9b07fca301",
+      "bytes": 288
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/platforms/H700/001-device_config:1-8",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "506f1a037c3e4bee09987bbe18119f35f68ba18f18455582b36bd3dc74c667d1",
+      "bytes": 296
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/platforms/H700/010-led_control:1-9",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "30a60e19f974fb032d73ae6baab1a1d2b47496a8ac0611b89c8d3d7bbbc272b3",
+      "bytes": 290
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/platforms/H700/030-analog_leds:1-13",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "363da03b0a7d9feefd909909a17e612b86594054b8678e48b05fd00aa80f93e4",
+      "bytes": 396
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/platforms/H700/bin/ledcontrol:1-68",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "a2f94e39a936c24e3df46e6a09585259e770e6dd9eaf03c8aa2797a4a6fbbd6b",
+      "bytes": 1299
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/libretro/retroarch/scripts/call_achievements_hooks.sh:1-19",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "7c8aae84cd345716a72788c9ef05db80b7062be45bcf74b7ecc3c20748edecf6",
+      "bytes": 767
+    },
+    {
+      "path": "projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-info:1-15",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "a95d168770a96cc4cc679ee6484f6cd8e84440a9d2327f388cdd6be5dfd05650",
+      "bytes": 505
+    },
+    {
+      "path": "projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool:278-310",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "9b14f930f38cf36131e9bb317558e1f4c50d240ba85b185b2e03feed2fa2fca4",
+      "bytes": 1833
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/powerstate/sources/powerstate.sh:1-20",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "31a789a2a793d8193f60e1eea14cb69924bb71b1dd0fa741621d5b414e968ff4",
+      "bytes": 642
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/Powkiddy x55/040-hdmi:1-20",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "ccf60a23690d94cb4bbcd457c1f808da25ba849ec28b0bd35bbab9e49ce18c59",
+      "bytes": 578
+    },
+    {
+      "path": "projects/ROCKNIX/packages/hardware/quirks/devices/AYN Odin 3/050-game-configs:1-7",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "b1f26012f6174fdc4a31d68d93ba4b3e76aafc03676f623270427e24569ea0f5",
+      "bytes": 395
+    }
+  ],
+  "masked_lines": 1,
+  "packet": {
+    "file": "gpt-brief.md",
+    "bytes": 178989,
+    "sha256": "cd419005518031bcae127bf2e155fcbf6404970f9fa175a7145cbcf7eecf2f9f"
+  },
+  "scan": {
+    "forbidden_terms_check_stdin": "0 hits on stdin (rc 0), 04:57:19 UTC 2026-10-26",
+    "secret_patterns": [
+      {
+        "set": ".githooks/secret-patterns (this branch)",
+        "sha256_12": "57fd72093984",
+        "lines": 0
+      },
+      {
+        "set": "the primary checkout's .githooks/secret-patterns",
+        "sha256_12": "57fd72093984",
+        "lines": 0
+      },
+      {
+        "set": "T10's widened set, git show feature/m6-tooling-guards-657:.githooks/secret-patterns",
+        "sha256_12": "7295e68fd978",
+        "lines": 0
+      }
+    ],
+    "positive_control": "each set matched a devpassword= line assembled at run time (printf pieces), 1 of 1",
+    "masking": "every source passed the masking sed's rule; 1 line masked, `key=lambda` in the brief's own \u00a7 2 block (Context 2); no redaction"
+  }
+}

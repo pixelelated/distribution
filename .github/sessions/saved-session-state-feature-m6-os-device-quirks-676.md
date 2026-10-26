@@ -16,18 +16,10 @@
 
 ## Current focus
 
-**Stage B complete; stage C next** (updated 2026-10-26, 04:55 UTC).
-- **`reviewed-at`:** `5ee0dfefcf`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-os-device-quirks/`, with `00` to `04`, `stage-a/` (22 runs), `stage-b/` (16 reads), `tools/t29-tables.py` and `tools/t29-battery-unset.py`.
-- **Findings:** ten.
-  - F-01 (Low, a candidate bug in the fork-own Nova `battery_led_status`: unset `led.color` lights the sticks at every boot, fixture-proven);
-  - F-02 (the owned H700 units need no device entry);
-  - F-03 (`050-game-configs` reverts RetroArch's audio at every boot);
-  - F-04 (#332's shapes on four tier-B boards);
-  - F-05 (two `led.brightness` dialects);
-  - F-06 to F-10 Info.
-- **The host:** handed to M7 for a bounded window (2026-10-26 04:47). This lane does host-only reads and Python; the seat's two calls are network only.
-- **Next (stage C):** the packet (trimmed and scanned, with its manifest), `review-plan.json`, the probe and the refutation, `04` § Second opinion, `05`, the pre-issue lint; then stage D.
-- **Running for this lane:** nothing.
+**Stage C: the refutation is running** (started 2026-10-26 04:57:57 UTC).
+- **The packet:** `second-opinions/gpt-brief.md`, 53 sources, scanned 0 hits. **The probe:** PASS.
+- **The refutation:** a harness background task in this session. It writes `second-opinions/gpt-audit.md`, with its exit code in `/workspace/tmp/m6-t29/refutation.rc`. **If the session dies, read the rc file and the log; do not re-run the keyed call.**
+- **Next:** re-read and grade every seat item in `04` § Second opinion; `05`; the pre-issue lint; the stage-C checkpoint; then stage D.
 
 ## Next commands
 
