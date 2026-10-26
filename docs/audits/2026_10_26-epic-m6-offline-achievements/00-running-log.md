@@ -167,3 +167,13 @@
 - **The one guest window:** 12:43:49 to 12:53:37 UTC. Both disks were retired, recorded in `guest-cycle/retired.txt`.
 - **The ctl and the proxy on the host:** the proxy's service ran on the host only at stage E, inside `bwrap --clearenv --unshare-net`, as S1's stream brief directs (`tools/t19-s1-service.py`), and in the suite's own D36 case. The ctl ran on the host only at stage E, inside the stream fixtures' sandboxes and the suite's. Before stage E neither ran on the host.
 - **Under `packages/`, `projects/` and `tools/`:** nothing changed at stages A to D (`git diff --stat 7de4ece06d 715f39a0fd -- packages projects tools` is empty). At stage E: the package's own files under `projects/ROCKNIX/packages/network/raofflineproxy/` (patch 022 new; the ctl, `cache-images` and `cache-indexed`; the unit; `package.mk`'s comment; 020's and 021's headers), and `tools/last-good-scripts-test` as ruled.
+
+## [Close-out] 17:05 UTC — accepted at `c0af666edf`; the completion marker; the temporaries retired
+
+- **Accepted:** on #666 at the merged tip `c0af666edf`; #1156 closed as completed.
+- **The marker:** `tools/write-completion.py` (T18's, adapted) read #1156 back closed and completed, 24 ticked, 0 open. It wrote `tracker-final-readback.json`, `tracker-completion.json` and `audit-completion.json` (`completed_at` 2026-10-26T17:05:43Z).
+- **The lints:** `tools/lint-audit-artifacts <folder> --issue 1156` and the default phase both PASS. `tools/ceremony-check` reads the audit's last completion from this marker.
+- **Retired (D-INFRA-022):**
+  - the three scratch worktrees `wt-check`, `wt-check2` and `wt-check3`, through `tools/fork-worktree remove`, their trial edits discarded first (each was a copy of what the branch carries);
+  - then `/workspace/tmp/m6-t19/` itself: 130 MB of scratch, the unpacked pin trees and the suite logs, whose counts are in `stage-e/`.
+  - `git worktree list` shows none of them.

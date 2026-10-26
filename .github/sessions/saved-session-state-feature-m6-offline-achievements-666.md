@@ -17,21 +17,13 @@
 
 ## Current focus
 
-**Idle at the hand-back (stage H).** The tip is posted on #666, with `reviewed-at` and `fixed-at` in its body.
+**Closed out.** T19 was accepted on #666 at `c0af666edf`, and #1156 is closed. `audit-completion.json` is written, and both lints PASS (`--issue 1156` and the default phase). `/workspace/tmp/m6-t19/` and its three scratch worktrees are retired.
 
-- **Done:**
-  - stages A to G;
-  - ten streams plus #1166, one commit each, from `57c5e8c4ec` to `49f3dc8679`;
-  - S1b (`392e4b33c8`, D-RA-051), amending 022 for the upgrade path;
-  - #1156 with 24 items at their outcomes, 0 fail;
-  - the default-phase lint PASS;
-  - the retro, posted on #666;
-  - the stream brief merged at hand-back (`fa34aa38a6`, then `89d3075e20` for S1b).
-- **Waiting on:** the coordinator's acceptance (brief § 10). After it, `audit-completion.json` and the lint `--issue 1156`, when prompted.
-- **Owed to the integration, not this lane:**
-  - every `fix-walk-pending-image` named in `02` § The streams;
+- **Nothing in flight here.** The session moves to T20 (#667).
+- **The integration owes:**
+  - every `fix-walk-pending-image` in `02` § The streams;
   - the installed-native run against the tree's service.
-- **Temporaries:** under `/workspace/tmp/m6-t19/` -- scratch, plus three detached worktrees, `wt-check` to `wt-check3`. They are retired after acceptance with `tools/fork-worktree remove` and the removal shape.
+- **The coordinator owes:** posting the #585 lines in `02` § The patches.
 
 ## Next commands
 
