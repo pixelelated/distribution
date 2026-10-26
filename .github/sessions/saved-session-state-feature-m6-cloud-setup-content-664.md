@@ -16,13 +16,13 @@
 
 ## Current focus
 
-**Stages F to H done; the third hand-back is posted on #664; the lane is idle** (09:17 UTC).
-- `05`: 21 Resolved and 2 Deferred. The default-phase lint `PASS`.
-- The retro is posted. The five checkers are green on the branch after the coordinator's merge `8592f91054`.
-- `reviewed-at: f3803436b8`, `fixed-at: 479cd96c24`.
-- `/workspace/tmp/m6-t17/` is kept until acceptance.
-
-**Next:** the coordinator's acceptance (`AUDIT_ISSUE=1134`); then `audit-completion.json` and the full lint, as prompted.
+**Idle: T17 accepted and closed out** (09:25 UTC). The coordinator accepted at the merged tip `a8de42ffbc` (09:24 UTC; its `3eef27e4b9` merged with the third hand-back `2e9b7cf038`) and closed #1134 at 09:24:21 UTC (23 of 23 ticked).
+- **The close-out:**
+  - `audit-completion.json`, written by T5's writer adapted for #1134 (`tools/write-completion.py`) from #1134's closed readback.
+  - The full lint `--issue 1134` (the audit issue) `PASS`. `--issue 664` is not the punch list's issue: it carries the brief's 17 criteria, not the 23 items.
+  - `/workspace/tmp/m6-t17/` removed. Its record and the two retired disks' lines stand in `00`.
+- **Open until `next`:** #1128 to #1133 and #1136; #1127 (Backlog); the ES-side items on #665; T16's twins on #663.
+- **The branch waits for the integration.** Nothing else changes here.
 
 ## Next commands
 
