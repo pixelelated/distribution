@@ -385,3 +385,20 @@ So, for every stream whose ruling a suite check contradicts:
 
 The rule "nothing under `tools/`" above stands for everything but the
 checks a ruling reverses in the suite that covers the script being fixed.
+
+## S5 also carries F-42 / #1166: the lock's redirect that silences stderr (ruled 2026-10-26 15:15 UTC)
+
+Found by the lane at S4 (its post of 15:14): `pending_lock` opens its lock
+with `exec 6<>"${PENDING_LOCK}" 2>/dev/null`, and an `exec` with no command
+applies the redirect to the shell, so from the first `pending_lock` to the
+end of the run the ctl's stderr is `/dev/null`, `fail`'s line included
+(the journal through `say` is unaffected; reproduced on bash 5.3.9). The
+lane filed it as #1166 (Low). The fix is one line in a function S5 already
+touches, so **S5 carries it**: `{ exec 6<>"${PENDING_LOCK}"; } 2>/dev/null
+|| return 1`, with its own positive recorded in `stage-e/s5-before.txt` and
+`s5-after.txt` (a `fail` after `pending_lock` reaches stderr: FAIL before,
+PASS after), its own row in `02` § The streams and a PL-24 row in `05`
+(Phase 7: resolved at S5's commit), the audit issue's checkbox added by the
+lane; `Already written:` nothing persisted -- stderr only. S5's commit
+message names both bugs: `Refs #666, #1161, #1166`. Had the line sat
+outside S5's function it would have waited for the pause; the rule stands.
