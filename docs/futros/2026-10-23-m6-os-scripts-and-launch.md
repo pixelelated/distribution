@@ -465,3 +465,20 @@ addendum had wrong:
 - Not verified by the proof, and said so in version 2: #695's cell (the
   coordinator corrected it), the inventory's `eb4763e3cc`, T22's 225 and
   G-35.
+
+### T29 errata at acceptance (2026-10-26)
+
+- The board count is 26 (15 HAS, 11 NONE), not 28; `AYN Thor/touchcontrol`
+  is a file; `rocknix-info:12` converts `/` to `-` (the errata section of
+  version 2 was itself wrong on that point).
+- The addendum expected no stream; the slice landed three: the Nova's
+  battery LED helper (#1120, fork-own), the VM take-back's first pass
+  (#1124, fork-own; ruled a bug over the lane's "record" because a take-back
+  that removes by name whatever a file holds is the shape
+  `upgrade-and-install.md` forbids), and the upgrade rehearsal's seed
+  (#1125, a fork-only tool outside the membership, which the second fix
+  exposed and which gates the next candidate's step 3).
+- The stream brief named a donor bash that does not exist; the host's bash
+  5.3.9 stood in, named. A brief names a binary only after `ls` has seen it.
+- Three leads filed under #695 by the coordinator: #1119, #1122, #1123, and
+  #1126 for the LED presets (#332 being closed).

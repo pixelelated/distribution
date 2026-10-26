@@ -546,3 +546,28 @@ The corrections:
     differs in its copyright line.
 12. Unverified by the proof, stated as such: #695's cell (corrected by the
     coordinator), the inventory's `eb4763e3cc`, T22's 225 and G-35.
+
+## Errata at acceptance (2026-10-26)
+
+What the lane found that this brief had wrong, recorded here rather than
+edited into the sections above (the brief is the record of what was asked):
+
+- **26 distinct boards, not 28.** The proof's count of `model =` lines kept
+  the duplicate `Anbernic RG34XX-SP` and did not read patch `0154`'s four
+  context lines (RG35XX 2024, H, Plus and SP). The lane's table: 26 boards,
+  15 HAS, 11 NONE, the NONE list this brief's eleven (stage A, 11:50 on the
+  25th).
+- **`AYN Thor/touchcontrol` is a file** the autostart loop runs, not a
+  directory entry (stage B).
+- **`rocknix-info:12` does convert `/` to `-`.** Version 2's item 4 said the
+  sed was absent; the proof was right about the DMI fallback only (stage B).
+- **The first command's `tools/` difference against `8ebaf8daad` is P1's 15
+  files**, as it is for every slice stacked on `2174265e9c`; the removal
+  criterion's check runs from the dispatch tip (stage A).
+- **The stream brief named a donor bash that does not exist**
+  (`t29-streams.md`; the donor holds busybox and rclone only). S1's verdict
+  was accepted under the host's bash 5.3.9, named in its output.
+- **Three streams, not none expected.** The slice found two fork-own bugs
+  (#1120 the Nova's battery LED helper; #1124 the VM take-back's unbounded
+  first pass) and one in a fork-only tool outside the membership (#1125,
+  the upgrade rehearsal's seed), each fixed under `t29-streams.md`.
