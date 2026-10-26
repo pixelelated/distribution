@@ -68,7 +68,13 @@ breaks the image build while `g++ -fsyntax-only` passes it (2026-09-08,
 `b44a715a9`: eight comment lines in `GuiCloudTransfer.cpp`). String
 literals may carry `·`; comments may not. Write `.`, `--`, `->`, `...`.
 Before bumping the ES pin, run `grep -nP '^\s*//.*[^\x00-\x7F]'` over the
-files you touched; a real image build is the only check that runs xgettext.
+files you touched; a real image build is the only check that runs xgettext. The grep over a whole touched file also
+flags upstream's own non-ASCII comments (three em dashes in
+`FileSystemUtil.cpp` at the pin did, T20's S8), so the check a stream runs
+before its commit judges the lines it added -- `git diff -U0 HEAD -- <file>`,
+its `+` lines, then the same pattern -- and the whole-file grep stays the
+image build's question; a hit in an upstream line is recorded, not fixed
+in the stream.
 
 ## The help bar offers a direction only where it moves something
 

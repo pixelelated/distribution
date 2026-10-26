@@ -1180,6 +1180,18 @@ and return, queue/stamp/log outcomes, frames and actual cleanup. Review the
 sending, success, refusal/retry, dismissed and empty-repeat frames directly.
 English/French at 640×480 and 1280×960 are the current matrix (#465).
 
+**In a lane's guest window it runs first, on the clean guest** (T20, #667,
+2026-10-26): it fails closed on the state other steps leave behind -- a
+configured account, an output directory, a store it does not own -- so a
+window that runs the probe and a walk before it reads `CANNOT` on the
+tool's own preconditions, which is what T20's did. And the image's
+EmulationStation identity is read by **two literals**, one the pin added and
+one the composition on top of it added: a step that names only the pin's
+literal proves "contains", and T20's guest carried the pin's literal while
+being M7's composition on top of it, seen only by reading the page. The
+walk's baseline, the two-literal step and the tool's guide are Backlog
+#1169.
+
 The ordinary award runner must reload shell-written toggles before launch and
 capture reconnect as well as game exit. Game exit deliberately has no award
 card (D-RA-030); a carousel frame there does not establish a product defect.
