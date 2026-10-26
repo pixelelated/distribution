@@ -1,0 +1,27 @@
+== H: the checkers before the hand-back, 20:29:21Z, on the distribution branch's working tree
+-- tools/register-check
+register-check: 687 IDs, each once; every citation in the live documents names a row
+rc 0
+-- tools/work-log-index --check
+work-log index: current
+rc 0
+-- tools/rules-check --quiet
+rc 0
+-- tools/forbidden-terms-check
+forbidden-terms-check: 0 hits in 133585 tracked files
+rc 0
+-- .githooks/hooks-test
+  ok    a tip this clone does not have: refused
+PASS
+rc 0
+-- tools/lint-audit-artifacts docs/audits/2026_10_26-epic-m6-es-achievements-pages --issue 1167
+rc 0
+PASS
+-- tools/box-check --issue 1167
+rc 0
+box-check: 1 issue(s), 0 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+-- the ES fork's .githooks/pre-push-test at 5c0ddaaee
+rc 0
+PASS
+-- nothing under packages/ projects/ tools/ since the dispatch tip ae3c013cac:
+0
