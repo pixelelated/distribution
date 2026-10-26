@@ -1,0 +1,29 @@
+== S2 after (11:27:50Z): the fix in the working tree, before its commit
+ es-app/src/ThreadedCloudSync.cpp         | 46 ++++++++++++++++++++------------
+ es-app/src/ThreadedCloudSync.h           |  4 ++-
+ es-app/tests/unit/AtomicFileTests.cpp    | 32 ++++++++++++++++++++++
+ tests/app-unit/JobsTests.cpp             |  2 +-
+ tests/app-unit/ProxyCardsTests.cpp       |  3 ++-
+ tests/app-unit/fakes/ThreadedCloudSync.h |  2 +-
+ 6 files changed, 68 insertions(+), 21 deletions(-)
+-- the behavioural fixture on the fixed file
+rev WORKTREE: writeStamp returns bool; uses Utils::AtomicFile: yes
+$ g++ -std=c++17 -pthread -I es-core/src stamp-fixture.cpp AtomicFileUtil.cpp StringUtil.cpp
+full-disk: previous stamp kept; writer reported false
+stale-tmp: the stamp is the new line
+normal: whole
+cases failing as #1145 says: 0
+fixed-expectation-met
+exit 0
+-- and on the pin's file, still unfixed
+unfixed-expectation-met
+-- the unit binaries and jobs-tests
+RUN es-unit-tests: rc 0; [doctest] test cases: 187 | 187 passed | 0 failed | 0 skipped [doctest] assertions: 4881 | 4881 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 25 | 25 passed | 0 failed | 0 skipped [doctest] assertions: 3395 | 3395 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN jobs-tests: rc 0; [doctest] test cases: 6 | 6 passed | 0 failed | 0 skipped [doctest] assertions: 28 | 28 passed | 0 failed | 
+-- host g++ -std=c++17 -fsyntax-only
+ThreadedCloudSync.cpp: rc 1 (fatal error: SDL_joystick.h: No such file)
+-- non-ASCII comment lines in the touched files: 0
+-- not built here: proxycards-tests (its double's return type changed from void to bool with return true; the brief's suite is es-unit-tests and jobs-tests)

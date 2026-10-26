@@ -1,0 +1,17 @@
+== S2 before (11:26:26Z): the pin's writer (ES 1a1828a8b = S1; ThreadedCloudSync.cpp's writer unchanged since the pin), the new guard case added to AtomicFileTests.cpp only
+ M es-app/tests/unit/AtomicFileTests.cpp
+-- the behavioural fixture on the pin's file
+rev 16dbac5211: writeStamp returns void; uses Utils::AtomicFile: no
+$ g++ -std=c++17 -pthread -I es-core/src stamp-fixture.cpp AtomicFileUtil.cpp StringUtil.cpp
+full-disk: previous stamp REPLACED by 0 byte(s); writer reported nothing (void)
+stale-tmp: the stamp is THE STALE TEMPORARY
+normal: whole
+cases failing as #1145 says: 2
+unfixed-expectation-met
+exit 0
+-- the unit binaries with the guard case
+RUN es-unit-tests: rc 0; [doctest] test cases: 187 | 187 passed | 0 failed | 0 skipped [doctest] assertions: 4881 | 4881 passed | 0 failed | 
+RUN es-file-tests: rc 1; [doctest] test cases: 25 | 24 passed | 1 failed | 0 skipped [doctest] assertions: 3391 | 3390 passed | 1 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/AtomicFileTests.cpp:843: FATAL ERROR: REQUIRE( at != std::string::npos ) is NOT correct!
