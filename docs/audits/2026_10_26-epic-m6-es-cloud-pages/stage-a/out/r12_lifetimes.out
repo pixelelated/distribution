@@ -1,0 +1,26 @@
+es-app/src/CloudTransferJob.cpp:65:	std::thread([job] { job->run(); }).detach();
+es-app/src/CloudTransferJob.cpp:100:		job->requestStop(hard ? SIGKILL : SIGTERM);
+es-app/src/CloudTransferJob.cpp:103:	LOG(LogInfo) << "CloudTransferJob: stopped for a game (" << (hard ? "SIGKILL" : "SIGTERM") <<
+es-app/src/CloudTransferJob.cpp:121:		job->requestStop(SIGTERM);
+es-app/src/CloudTransferJob.cpp:124:	LOG(LogInfo) << "CloudTransferJob: cancelled by the player (SIGTERM, group " << pid
+es-app/src/CloudTransferJob.cpp:137:// A SIGKILL replaces a SIGTERM that has not got through; nothing replaces
+es-app/src/CloudTransferJob.cpp:138:// a SIGKILL.
+es-app/src/CloudTransferJob.cpp:141:	if (sig == SIGKILL)
+es-app/src/CloudTransferJob.cpp:142:		mStopSignal = SIGKILL;
+es-app/src/CloudTransferJob.cpp:161:	::kill(-pid, sig);
+es-app/src/CloudTransferJob.cpp:697:	// Stopped for a game, or by the player (D-UI-078): SIGTERM shows up as
+es-app/src/ThreadedCloudSync.cpp:51:	// Detached: run() ends with `delete this`, so nothing is left to join
+es-app/src/ThreadedCloudSync.cpp:56:	std::thread(&ThreadedCloudSync::run, this).detach();
+es-app/src/ThreadedCloudSync.cpp:451:	// A cancelled run ends by SIGTERM, which pclose reports as a signal or,
+es-app/src/ThreadedCloudSync.cpp:731:		std::this_thread::sleep_for(std::chrono::milliseconds(lingerShort ? 1500 : 5000));
+es-app/src/ThreadedCloudSync.cpp:757:	delete this;
+es-app/src/ThreadedCloudSync.cpp:817:			::kill(-pid, SIGTERM);
+es-app/src/ThreadedCloudSync.cpp:830:	// budget; at one and a half the group is sent SIGKILL, for an rclone
+es-app/src/ThreadedCloudSync.cpp:831:	// that is slow to act on SIGTERM. Past the budget the answer is no, and
+es-app/src/ThreadedCloudSync.cpp:849:					::kill(-pid, SIGTERM);
+es-app/src/ThreadedCloudSync.cpp:859:			::kill(-pid, SIGKILL);
+es-app/src/ThreadedCloudSync.cpp:862:		std::this_thread::sleep_for(std::chrono::milliseconds(20));
+es-app/src/guis/GuiCloudTransfer.cpp:207:	delete this;
+es-app/src/guis/GuiCloudTransfer.cpp:328:	delete this;
+es-app/src/guis/GuiCloudTransfer.cpp:335:		window->postToUiThread([] { SystemData::rescanChangedFolders(); });
+es-app/src/guis/GuiCloudTransfer.cpp:1070:		mWindow->postToUiThread([page, alive]

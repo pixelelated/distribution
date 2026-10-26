@@ -17,29 +17,28 @@
 
 ## Current focus
 
-Not started. The first commit on the distribution branch is the running
-log's header (the model, the effort, `reviewed-at` the distribution HEAD with
-the pin beside it, the host file's last lines, the census),
-`01-research-notes.md` § Scope (the block of brief § 2 with its output and
-the § 5 runs' figures), this pointer updated, and the day's work-log entry
-headed `#665` (prose through a quoted heredoc or the Write tool). The ES
-worktree stays at the pin until stage E. `.qa-scratch/` is gitignored and
-`git status --short` is read before every `git add -A`. No network is used
-except the seats' four keyed invokes.
+**Stage A done (2026-10-26, 09:31 to 09:42 UTC); stage B next.** `00` has
+the header and § Stage A (the host at 09:31:00, the 26 runs all exit 0, the
+two deltas, P1 to P6); `01` § Scope has the block, the history, the callers,
+the context read named, the unit tests' build (221 cases, 0 failed). The
+unit tests build with `tools/t18-build-tests.sh` (no cmake on the host) over
+the rapidjson copy at `/workspace/tmp/m6-t18/rapidjson` (35 of 35 sha256
+matching M7's prep's `inputs.json`). **The grep caveat:** the interactive
+Bash tool's `grep` is ugrep; scripts get GNU grep; `\s` in a bracket differs
+(r07: 44 under GNU `-E`, 47 under `-P`); `command grep` interactively; #1138.
+The window's identity literal: `FOLDERS ALREADY CREATED WILL STAY. YOU CAN
+TRY AGAIN LATER.` (`1272b3405`). The ES worktree is at the pin, clean.
 
 ## Next commands
 
 ```bash
 D=/workspace/repos/pixelelated/distribution.worktrees/m6-es-cloud-pages-665
-cd "$D"   # no fetch of any kind: 651150fc88 and c445081a59 are already in the repository
-git merge-base --is-ancestor 2174265e9c HEAD && echo stacked-on-P1
-git diff --stat 8ebaf8daad HEAD -- packages projects | tail -1                     # empty
-test -f docs/reviews/inventory.json && echo inventory
-grep -c 'D-CLOUD-185' docs/decision-register.md                                    # 1 or more: the coordinator's tip is merged
 W=/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665
-git -C "$W" rev-parse HEAD; git -C "$W" status --short | wc -l                      # the pin; 0
-tail -n 6 /tmp/m7-m6-host-coordination-20261023.txt | cut -c1-200; pgrep -x qemu-system-x86 -r R,S,D,T | wc -l
-sed -n '1,170p' docs/reviews/briefs/es-cloud-pages.md
+A=docs/audits/2026_10_26-epic-m6-es-cloud-pages
+cd "$D"; git -C "$W" rev-parse HEAD; git -C "$W" status --short | wc -l   # the pin; 0
+sed -n '1,400p' /workspace/tmp/m6-t18/brief.md                           # § 3 and § 4: what 02 must hold
+# stage B: read the eight and the 22 at the pin (git -C "$W" show 16dbac5211:<path>), then 02's sections
+RAPIDJSON_INCLUDE_DIR=/workspace/tmp/m6-t18/rapidjson bash $A/tools/t18-build-tests.sh "$W" /workspace/tmp/m6-t18/build-b
 ```
 
 ## Merge notes
@@ -63,4 +62,4 @@ worktree, or a guest outside the one granted window.
 
 ## Checkpoints
 
-- (none yet; the executor appends one line per stage: the stage, both tips, the time)
+- Stage A: 09:41 UTC, distribution on `cbf6d7ef83` + the stage-A commit, ES at the pin `16dbac5211`; 26 runs exit 0, 221 unit cases pass, two deltas (r07 44/47, r11 control order); next stage B

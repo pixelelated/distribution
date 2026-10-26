@@ -1,0 +1,21 @@
+es-app/src/FileData.cpp:1010:	if (const std::shared_ptr<CloudTransferJob> transfer = CloudTransferJob::current(); transf
+es-app/src/FileData.cpp:1017:				CloudTransferJob::stopForLaunch(false);
+es-app/src/FileData.cpp:1018:				launchWhenGone(window, this, options, [] { return CloudTransferJob::running(); }, [] { 
+es-app/src/FileData.cpp:1310:				ThreadedCloudSync::start(window, "/usr/bin/cloud_backup --yes --saves-only --recent --a
+es-app/src/ProxyCards.cpp:118:		ThreadedCloudSync::start(window, EXIT_SYNC, _("SYNC SAVES"), _("SYNCING SAVES TO THE CLO
+es-app/src/guis/GuiMenu.cpp:5082:					auto page = new GuiCloudTransfer(window, cmd, _("RESTORING SETTINGS FROM THE CLOUD
+es-app/src/guis/GuiMenu.cpp:5157:		w->pushGui(new GuiCloudTransfer(w, cmd, title, items, itemsAfterContent));
+es-app/src/guis/GuiMenu.cpp:5229:	auto page = new GuiCloudTransfer(window, "/usr/bin/cloud_scan --content --run-id "
+es-app/src/guis/GuiMenu.cpp:5260:	auto page = new GuiCloudTransfer(window, "/usr/bin/cloud_scan --run-id " + cloudShellQ
+es-app/src/guis/GuiMenu.cpp:5383:				window->pushGui(new GuiCloudTransfer(window,
+es-app/src/guis/GuiMenu.cpp:5391:// (CloudTransferJob::current). Built for a page that could be left with
+es-app/src/guis/GuiMenu.cpp:5487:	const std::shared_ptr<CloudTransferJob> job = CloudTransferJob::current();
+es-app/src/guis/GuiMenu.cpp:5544:		if (const std::shared_ptr<CloudTransferJob> job = CloudTransferJob::current())
+es-app/src/guis/GuiMenu.cpp:5546:			window->pushGui(new GuiCloudTransfer(window, job));
+es-app/src/guis/GuiMenu.cpp:6139:				ThreadedCloudSync::start(window,
+es-app/src/guis/GuiMenu.cpp:6147:				[window] { ThreadedCloudSync::start(window, "/usr/bin/cloud_backup --yes --saves-on
+es-app/src/guis/GuiMenu.cpp:6152:				[window] { ThreadedCloudSync::start(window, "/usr/bin/cloud_restore --yes --saves-o
+es-app/src/guis/GuiMenu.cpp:7041:				auto page = new GuiCloudTransfer(window, "/usr/bin/cloud_setup --seed-folders "
+es-app/src/main.cpp:691:	ThreadedCloudSync::start(window, command, _("SYNC SAVES"), _("SYNCING SAVES AT STARTUP"),
+es-app/src/main.cpp:1027:			window.pushGui(new GuiCloudTransfer(&window, cmd, _("RESTORING FROM THE CLOUD"), items, item
+GuiMenu.cpp lines naming /usr/bin/cloud_: 50

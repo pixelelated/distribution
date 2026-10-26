@@ -1,0 +1,15 @@
+(no line = 0 comment lines)
+9 es-app/src/guis/GuiCloudTransfer.cpp
+676:	rep(", ", " · ");
+682:	static const std::string SEP = " · ";
+760:				removed += " · " + sizeLabel(job.mRemovedBytes);
+795:					summary += (summary.empty() ? "" : " · ") + sizeLabel((unsigned long) job.mRunBytes);
+845:				detail += (detail.empty() ? "" : "  ·  ") + names + (names.empty() ? "" : " - ") + CloudText::localizedWhy(g.first);
+957:			const std::string progress = job.mFileProgress.empty() ? "" : " · " + prettyRclone(job.mFileProgress);
+959:				? " · " + std::string(_("AND")) + " " + std::to_string(job.mFilesThisBlock - 1) + " " + std::string(_("MORE FILES")) : "";
+992:				const std::string named = doing + " · " + job.mChecking;
+1045:				totals += " · " + job.mFilesTotals.substr(pct + 2);
+1 es-app/src/CloudTransferJob.cpp
+347:					d += " · " + CloudText::sizeLabel((unsigned long) sys.bytes);
+1 es-app/src/CloudTransferJob.h
+151:	std::vector<std::string> mRemovedDetail;   // "SNES 12 FILES · 300 MB", per system

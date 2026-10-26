@@ -1,0 +1,27 @@
+181
+    170 Max Engel
+      9 blitterbot
+      2 rasterabot
+2026-07-25
+2026-10-11
+      2 2026-07
+    166 2026-09
+     13 2026-10
+--- the newest ten
+c8dc72cf9 2026-10-11 emulationstation: manage cloud connections and network recovery
+1d76b3da7 2026-10-08 cloud setup: explain refused folder paths (#524)
+1d5397fda 2026-10-08 cloud: translate folder check failures and name scan contention
+baeea2a8c 2026-10-08 cloud setup: preserve bounded JSON across pipe reads
+1272b3405 2026-10-08 cloud setup: check selected folders without moving libraries
+300f97d28 2026-10-07 cloud: replace migration with manual folder setup
+8beab9090 2026-10-06 cloud: fit recovery reasons and French edit guidance
+bab4df649 2026-10-06 cloud: handle root content and preserve migration failure reasons
+39f888354 2026-10-03 settings: revalidate last-good records under the lock (#320)
+e108699ea 2026-10-01 cloud: the cloud folder step at the end of cloud setup and at boot (fork #363)
+--- per file (top 6)
+56 es-app/src/ThreadedCloudSync.cpp
+47 es-app/src/guis/GuiCloudTransfer.cpp
+39 es-app/src/CloudText.cpp
+37 es-app/tests/unit/CloudTextTests.cpp
+35 es-app/src/CloudText.h
+24 es-app/src/guis/GuiCloudTransfer.h

@@ -1,0 +1,5 @@
+es-app/src/CloudTransferJob.cpp:636:	const std::string wrapped = "setsid sh -c "
+es-app/src/CloudTransferJob.cpp:637:		+ Utils::String::shellQuote("echo \">>> pid $$\"; { trap '' PIPE; " + mCommand + " ; }") + " 2>&1";
+es-app/src/CloudTransferJob.cpp:638:	FILE* pipe = popen(wrapped.c_str(), "r");
+es-app/src/ThreadedCloudSync.cpp:206:	const std::string wrapped = "setsid sh -c "
+es-app/src/ThreadedCloudSync.cpp:208:	FILE* pipe = popen(wrapped.c_str(), "r");

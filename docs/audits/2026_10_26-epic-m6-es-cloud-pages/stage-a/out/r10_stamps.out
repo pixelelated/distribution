@@ -1,0 +1,25 @@
+39:	mStampsBefore = readStamps(mCommand);
+510:		offlineWhy = CloudText::offlinePartWayWhy(readStamps(mCommand), mStampsBefore);
+892:static const std::string STAMP_DIR = "/storage/.cache/cloud_sync/";
+894:std::vector<CloudText::StampText> ThreadedCloudSync::readStamps(const std::string& command)
+899:		const std::string path = STAMP_DIR + name;
+912:	for (auto& name : CloudText::stampsToRestamp(readStamps(command), runStarted))
+914:		writeStamp(STAMP_DIR + name, CloudExit::Stopped, token, "");
+922:	for (auto& name : CloudText::stampsToRestamp(readStamps(command), runStarted, &before))
+924:		writeStamp(STAMP_DIR + name, CloudExit::Stopped, token, "");
+944:	Utils::FileSystem::writeAllText(tmp,
+947:	if (std::rename(tmp.c_str(), path.c_str()) != 0)
+--- CloudText.cpp:180-192
+// command line's. The table used to map cloud_backup to last-backup alone,
+// and a stopped settings part left its trap's 130 under the settings row.
+std::vector<std::string> scriptStampNames(const std::string& command)
+{
+	struct Part { const char* script; std::vector<const char*> stamps; };
+	static const std::vector<Part> PARTS = {
+		{ "cloud_content_backup",  { "last-content-backup" } },
+		{ "cloud_content_restore", { "last-content-restore", "last-content-match" } },
+		{ "cloud_restore",         { "last-restore", "last-settings-restore" } },
+		{ "cloud_backup",          { "last-backup", "last-settings-backup" } },
+	};
+	std::vector<std::string> names;
+	for (const Part& part : PARTS)

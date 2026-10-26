@@ -1,0 +1,15 @@
+36:add_executable(es-unit-tests
+69:# a copy: -DRAPIDJSON_INCLUDE_DIR=<build root>/build/rapidjson-*/include. A
+72:find_path(RAPIDJSON_INCLUDE_DIR rapidjson/document.h)
+73:if(NOT RAPIDJSON_INCLUDE_DIR)
+74:	message(FATAL_ERROR "rapidjson/document.h was not found; pass -DRAPIDJSON_INCLUDE_DIR=<dir holding rapidjson/>")
+77:target_include_directories(es-unit-tests PRIVATE
+81:	${RAPIDJSON_INCLUDE_DIR}
+96:add_executable(es-file-tests
+100:target_include_directories(es-file-tests PRIVATE
+120:add_executable(es-conf-tests
+125:target_include_directories(es-conf-tests PRIVATE
+142:add_library(atomicfile-win32-branch OBJECT ${ES_ROOT}/es-core/src/utils/AtomicFileUtil.cpp)
+144:target_include_directories(atomicfile-win32-branch PRIVATE ${ES_ROOT}/es-core/src)
+146:add_executable(es-file-tests-win32
+150:target_include_directories(es-file-tests-win32 PRIVATE

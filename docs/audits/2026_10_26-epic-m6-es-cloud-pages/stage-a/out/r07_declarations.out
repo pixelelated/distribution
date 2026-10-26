@@ -1,0 +1,6 @@
+grep -E (GNU) 44
+grep -P (GNU) 47
+--- the three -E misses
+> 187:	std::vector<std::pair<std::string, std::string>> whySentences();
+> 529:	std::vector<std::pair<std::string, std::string>> unitLabels();
+> 546:	std::map<std::string, std::string> parseKeyValues(const std::string& text);

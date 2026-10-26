@@ -1,0 +1,32 @@
+561:	if (clean.rfind(">>> pid ", 0) == 0)
+566:	else if (clean.rfind(">>> doing ", 0) == 0)
+571:	else if (clean.rfind(">>> why ", 0) == 0)
+581:	else if (clean.rfind(">>> offer ", 0) == 0)
+589:	else if (clean.rfind(">>> tier ", 0) == 0)
+604:	else if (clean.rfind(">>> unit ", 0) == 0)
+616:	else if (clean.rfind(">>> removed ", 0) == 0)
+1386:	if (exitCode == 75)
+--- whyForCode
+std::string ThreadedCloudSync::whyForCode(int rc)
+{
+	switch (rc)
+	{
+		case 3: case 4: return _("COULDN'T FIND YOUR CLOUD FOLDER");
+		case 5: case 124: return _("YOUR CLOUD STOPPED ANSWERING");
+		case 7: case 8: return _("YOUR CLOUD WOULDN'T TAKE THE FILES");
+		case CloudExit::Stopped:   return _("IT WAS STOPPED");
+		// The sentinels, for a part that exited one beside a part that did
+		// not (the transfer page's line 4): the same words the SKIPPED
+		// outcome uses, so one code is never called two things.
+		case CloudExit::NoNetwork: return _("YOU'RE NOT ONLINE");
+		case CloudExit::LockHeld:  return _("A SYNC IS ALREADY RUNNING");
+		case CloudExit::NoFolder:  return _("YOUR CLOUD FOLDER ISN'T SET UP YET");
+		default:        return _("SOMETHING WENT WRONG");
+	}
+}
+
+// The short forms of a why sentence, for a panel the whole one does not fit
+--- 0 and 9
+			const bool ok = t.rc == 0 || t.rc == 9;
+		if (t.rc == 0 || t.rc == 9)
+		const bool ok = t.rc == 0 || t.rc == 9;
