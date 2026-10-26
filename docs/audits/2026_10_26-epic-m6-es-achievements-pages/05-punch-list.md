@@ -431,7 +431,7 @@ Every item is open until the coordinator's stage-D ruling and stage F.
 | PL-01 | Resolved | Resolved in `698040b5c` (ES, S1) under #1170: one owner for the hasher's lifetime; `hasher-tests` heap-use-after-free before, 3 of 3 clean after (`stage-e/s1-*.txt`); the startup walk owed (`stage-e/walks/s1-startup-lookups.steps`) |
 | PL-02 | Resolved | Resolved in `d3137f992` (ES, S2) under #1171: the credential in a POST body as the vendored client sends it, and `httpsRedirectsOnly` for it; the unit FAIL before, PASS after (`stage-e/s2-*.txt`); the listener walk owed; the transport's verification stays #1154's |
 | PL-03 | Resolved | Resolved in `ad2989aa5` (ES, S3) under #1172: the pid taken once and above 1, a later line ignored and logged; `jobs-tests` FAIL before, PASS after (`stage-e/s3-*.txt`); the CR-named ROM's walk owed |
-| PL-04 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
+| PL-04 | Resolved | Resolved in `f85061f14` (ES, S4) under #1173: the page reads the toggle back from the ctl's status after any exit; the LED callback weak; `AppWindow::post` (`stage-e/s4-*.txt`); the stub-ctl walk owed |
 | PL-05 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-06 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-07 | Deferred | Deferred: #300, as ruled at the stage-D ruling (#667, 18:45 UTC) |
@@ -445,12 +445,12 @@ Every item is open until the coordinator's stage-D ruling and stage F.
 | PL-15 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-16 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-17 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
-| PL-18 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
+| PL-18 | Resolved | Resolved in `f85061f14` (ES, S4) under #1173: the page reads the toggle back from the ctl's status after any exit; the LED callback weak; `AppWindow::post` (`stage-e/s4-*.txt`); the stub-ctl walk owed |
 | PL-19 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-20 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-21 | Deferred | Deferred: #585, the four lines in `02` § The library, as ruled at the stage-D ruling (#667, 18:45 UTC) |
 | PL-22 | Deferred | Deferred: Backlogs #1168 and #1169 (under #903), filed at the stage-D ruling (#667, 18:45 UTC) |
-| PL-23 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
+| PL-23 | Withdrawn | Withdrawn: recorded as written at the stage-D ruling (#667, 18:45 UTC; D-WORKFLOW-209); the `:154` comment fixed in `f85061f14` (ES, S4, #1173) |
 | PL-24 | Withdrawn | Withdrawn: recorded as written at the stage-D ruling (#667, 18:45 UTC) |
 | PL-25 | Deferred | Deferred: routed to #668 (T21), #673 (T26) and #1111 (M7), as ruled at the stage-D ruling (#667, 18:45 UTC) |
 
@@ -481,7 +481,7 @@ punch_index:
   category: Correctness
   question: Q3
   source_finding: "L-09"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-05
   severity: "Medium"
   category: Correctness
@@ -565,7 +565,7 @@ punch_index:
   category: Correctness
   question: Q7
   source_finding: "L-26"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-19
   severity: "Low"
   category: Security
@@ -595,7 +595,7 @@ punch_index:
   category: Dead code
   question: Q6
   source_finding: "L-08, L-22"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-24
   severity: "Info"
   category: Standards

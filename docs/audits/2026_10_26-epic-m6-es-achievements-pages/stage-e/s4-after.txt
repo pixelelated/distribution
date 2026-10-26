@@ -1,0 +1,10 @@
+== S4 after (19:19:06Z): toggleOutcome reads the file; the page asks status after any exit
+[doctest] test cases:  4 |  4 passed | 0 failed | 187 skipped
+[doctest] assertions: 17 | 17 passed | 0 failed |
+-- the page (read): status after any exit, AppWindow::post, the LED callback weak, the :154 comment
+156:// The ctl's own test (its have_account function, which the scan and the
+488:			ApiSystem::executeScriptLegacy("/usr/bin/raofflineproxy-ctl status 2>/dev/null",
+499:			AppWindow::post(window, [window, on, outcome, offlineWeak, hardcoreRow, indexRow, infoRow, setQuietly, scanRow, pending]
+709:                std::weak_ptr<SwitchComponent> ledWeak = cheevos_led_enabled;
+710:                cheevos_led_enabled->setOnChangedCallback([ledWeak] {
+711:                        if (auto led = ledWeak.lock())

@@ -1,0 +1,8 @@
+== S4 before (19:13:58Z): the page's decision lifted as GuiRetroAchievementsSettings.cpp:481-501 makes it at the pin (toggleOutcome's first form)
+unit build rc 1
+TEST CASE:  OfflineAchievementsText: after a disable that failed with the toggle off, the page says off (#1173)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/OfflineAchievementsTextTests.cpp:370: ERROR: CHECK_FALSE( o.switchOn ) is NOT correct!
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/OfflineAchievementsTextTests.cpp:371: ERROR: CHECK( o.hardcoreOn ) is NOT correct!
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/OfflineAchievementsTextTests.cpp:372: ERROR: CHECK( o.mirror ) is NOT correct!
+[doctest] test cases:  4 |  3 passed | 1 failed | 187 skipped
+[doctest] assertions: 17 | 14 passed | 3 failed |

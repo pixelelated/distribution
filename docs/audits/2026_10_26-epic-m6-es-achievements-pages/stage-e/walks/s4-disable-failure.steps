@@ -1,0 +1,12 @@
+# S4 (#1173), for the integration build's window (fix-walk-pending-image):
+# a disable that fails after writing the toggle off, and one that fails before.
+# 1. On the guest: a stub at /storage/t20/ctl-stub that, for `disable`, runs
+#    `set_setting global.retroachievements.offlineproxy 0` and exits 1, and
+#    passes every other verb to /usr/bin/raofflineproxy-ctl; bind-mount it
+#    over /usr/bin/raofflineproxy-ctl (`mount --bind`), offline achievements on.
+# 2. OFFLINE ACHIEVEMENTS (BETA): turn the switch off. Frame: the dialog
+#    OFFLINE ACHIEVEMENTS COULDN'T BE TURNED OFF., then the switch OFF and the
+#    SCAN row TURN ON OFFLINE ACHIEVEMENTS FIRST.; es_log.txt: "disable exited 1;
+#    the page shows the toggle off as system.cfg holds it".
+# 3. The stub changed to exit 1 before any write: the switch back ON.
+# 4. Unmount the stub.
