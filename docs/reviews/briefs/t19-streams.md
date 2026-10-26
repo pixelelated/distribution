@@ -344,3 +344,44 @@ A build, a guest, a fetch, a keyed council call, anything on a unit or an
 account, a change to `setsettings.sh` or any interface file, a change to an
 upstream line outside a patch, a change outside the package's files and the
 audit folder.
+
+## The suite encodes the old behaviour: the stream's commit updates the checks its ruling reverses (ruled 2026-10-26 14:33 UTC)
+
+Found by the lane at S1: `tools/last-good-scripts-test` (T15's, #662,
+accepted; the fork's scripts suite that runs the real ctl in `bwrap` with
+shims) **asserts the defects these streams fix** -- one check expects the
+offline login to hand out a token with no credential (S1's PL-01), and the
+checks at `:7257-7263` treat a listener on `0.0.0.0:8080` as the proxy
+listening (S3's PL-02). The rules above say the suite passes before a ctl
+commit and that nothing changes under `tools/`; read together over a suite
+that encodes the defect, they would make the suite a guard against the fix.
+T29's S3 is the precedent (`t29-streams.md` § S3: a fork-only tool under
+`tools/` that encoded the old behaviour changed at stage E under the brief).
+
+So, for every stream whose ruling a suite check contradicts:
+
+1. **The stream's commit updates exactly the checks its ruling reverses**
+   -- no other line of the suite -- and each updated check is named in the
+   commit message and in `02` § The streams with its line, what it asserted
+   before, and what it asserts after. A check the ruling reverses becomes
+   the stream's positive where it can: it **fails against the unfixed
+   script and passes against the fixed one**, both runs recorded
+   (`stage-e/sN-suite.txt`: the suite's PASS/FAIL counts before the fix,
+   with the check failing on the fixed script; after, with the check
+   passing and the count whole).
+2. **The suite's whole run passes after each such commit** (the count
+   named: 1313 before S1, or the lane's figure), and the run is recorded
+   as the stream practice says.
+3. **A check that is merely incidental** (it happens to exercise the old
+   path without asserting it) is not changed; a check that cannot be made
+   to pass without a change outside the stream's ruling stops the stream
+   and is a question on #666.
+4. **The acceptance** reads `git diff --stat <dispatch tip> <tip> --
+   tools` and expects exactly `tools/last-good-scripts-test` with the
+   named hunks; any other path under `tools/` is a finding. `02` § The
+   streams carries the list of updated checks; `05`'s PL-20 (what the
+   harness proves) takes a line: the suite asserted the two defects until
+   stage E.
+
+The rule "nothing under `tools/`" above stands for everything but the
+checks a ruling reverses in the suite that covers the script being fixed.
