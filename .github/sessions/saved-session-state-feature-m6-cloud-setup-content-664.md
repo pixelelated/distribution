@@ -16,15 +16,13 @@
 
 ## Current focus
 
-**The second hand-back is posted on #664; the lane is idle** (09:08 UTC).
-- **Seven streams:** S1 to S6, then S7 `479cd96c24` (#1136), with S3 corrected by `c3e260861b`.
-  - `reviewed-at: f3803436b8` and `fixed-at: 479cd96c24` are in #664's body.
-  - All seven bugs are ticked, at 0 fail. The audit #1134 has 23 items.
-- **Two guest windows:** 07:59:26 to 08:06:04 and 08:18:14 to 08:21:22 UTC, both disks retired (`00`). `/workspace/tmp/m6-t17/` is kept until acceptance.
-- **`tools/last-good-scripts-test`** (`QA_SYSTEM_ROOT` the donor) PASSED on the tree.
-- **`tools/register-check`** fails on the four D-CLOUD-185 citations until the coordinator's hand-back merge.
+**Stages F to H done; the third hand-back is posted on #664; the lane is idle** (09:17 UTC).
+- `05`: 21 Resolved and 2 Deferred. The default-phase lint `PASS`.
+- The retro is posted. The five checkers are green on the branch after the coordinator's merge `8592f91054`.
+- `reviewed-at: f3803436b8`, `fixed-at: 479cd96c24`.
+- `/workspace/tmp/m6-t17/` is kept until acceptance.
 
-**Next:** the coordinator's acceptance (`AUDIT_ISSUE=1134`); then stage G (the retro), `audit-completion.json` and the full lint, as prompted.
+**Next:** the coordinator's acceptance (`AUDIT_ISSUE=1134`); then `audit-completion.json` and the full lint, as prompted.
 
 ## Next commands
 

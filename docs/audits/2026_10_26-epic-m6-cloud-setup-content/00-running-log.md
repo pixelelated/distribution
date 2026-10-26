@@ -214,3 +214,19 @@
 - **Typed times corrected before commit:** RETURN `08:21:3x` (it is 08:21:22, from the comment), and the suite's `08:3x-09:0x` (now its output file's time, 09:04:19Z).
 - PROOF: P22, the second window: `guest-cycle/w2-*.out`.
 - PROOF: S7's row in `02` § The streams: `stage-e/s7-*.txt`.
+
+## [Stages F to H] 2026-10-26 09:17 UTC — the outcomes, the retro, the checkers, from the coordinator's merge `8592f91054`
+
+- **The coordinator's reading of the second hand-back** (09:1x UTC):
+  - `964795e9b4` merged here at `8592f91054`, and the worktree fast-forwarded to it; `register-check` passes there;
+  - stages F to H owed before acceptance;
+  - yes to the suite rule, now in `docs/reviews/plan-for-the-plan.md` § 6b.
+- **Stage F:** `05`'s 23 rows at their outcomes, read back from the tracker at 09:11:37 UTC (#1127, #1117, #909, #665, #663, #1128 to #1133, #1136 and #1134 open).
+  - **21 Resolved:** 10 with their fixing commits, PL-18 and PL-23 by S7 among them; 11 recorded at `3a7fdb0ec2`.
+  - **2 Deferred:** #1127 (with #1117) and #909.
+  - The index's outcomes match. `tools/lint-audit-artifacts` in its default phase: **`PASS`**.
+- **Stage G:** the retro at `docs/retros/2026-10-26-m6-cloud-setup-content.md` (`022254810d`), posted on #664 (issuecomment-6412393587).
+  - Its futro check was first written from memory and corrected before commit against the addendum's text (`:255-301`).
+  - So was `04`'s count of Resolved rows, 19 before the count showed 21.
+- **Stage H, the five checkers at 09:14:31 UTC on `022254810d`:** `register-check` rc 0 (682 IDs); `work-log-index --check` rc 0; `rules-check --quiet` rc 0; `forbidden-terms-check` rc 0 (0 hits in 133,581 tracked files); `.githooks/hooks-test` rc 0 (`PASS`).
+- `reviewed-at: f3803436b8` and `fixed-at: 479cd96c24`, read back from #664's body for the hand-back.
