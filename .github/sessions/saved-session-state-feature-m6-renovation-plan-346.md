@@ -143,6 +143,8 @@ today:** `.githooks/pre-commit` refuses a conflict marker (#696).
 
 **07:4x-07:54 UTC (2026-10-26):** M7's guest window ran 07:49-07:51 and RETURNed; **T17's window granted 07:5x on #664** (the `m6-t2-20261023` copy; 30 minutes from START; T13's conditions; the F-02/F-03 conditions), mirror job running (`$S/t17-mirror-seen.ids`); after T17's RETURN the host is free and **M7 asks on the shared log for its UI/archive qualification window; M6 grants explicitly** (the 07:53 block says so). T16's re-grant behind both when the T1 session can run. The lane (T5) is in stage E with six streams and the window at its choosing; then the hand-back and `$S/t17-accept.sh`.
 
+**07:5x-08:08 UTC (2026-10-26):** T17's window ran 07:59:26-08:06:04 and RETURNed clean (verified; the disk retired by the lane). **The mirror job missed both posts** (its regex wanted `**START` first; the lane wrote `**T17 guest window: START`): the blocks were written by hand at 08:08, the job stopped, **#1135** filed under #903 for a mirror tool with a post contract, a self-test and a named silent-failure exit, a friction line added. **For the next window: match `(START|RETURN)` anywhere in the post's first line, and read the mirror's output within a minute of the lane's post.** The host is free (the 08:08 block); M7 asks on the shared log for its UI/archive window and M6 grants explicitly; T16's re-grant behind it. T17 is in stage E; its hand-back follows.
+
 ## Next commands
 
 ```bash
