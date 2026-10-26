@@ -1,6 +1,6 @@
 # Punch list — M6.P2 T20, EmulationStation's RetroAchievements and offline pages (#667)
 
-**Extended depth:** two seats, GPT-6 Astra at `max`, then Gemini 4 Argon at `high` (`04` § Second opinion). The audit issue is opened at stage D as a sub-issue of #667.
+**Extended depth:** two seats, GPT-6 Astra at `max`, then Gemini 4 Argon at `high` (`04` § Second opinion). The audit issue is #1167, a sub-issue of #667, opened at stage D.
 
 - **Proposed `bug`s,** each with its trace, `Already written:` line and VM line: PL-01 (High); PL-02 to PL-06 (Medium); PL-09, PL-10, PL-12 and PL-14 (Low). The coordinator files them at the stage-D ruling.
 - **Nothing in this list changes a file** under the distribution's `packages/`, `projects/` or `tools/`, or an ES file, at stages A to D. Removals: none; every dead end is a proposal.

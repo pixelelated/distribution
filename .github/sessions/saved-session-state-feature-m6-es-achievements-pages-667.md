@@ -17,16 +17,13 @@
 
 ## Current focus
 
-**The guest window is done (17:36 to 17:57 UTC, RETURN posted); stage C next.**
+**The stage-D pause: the audit issue #1167 is open; the punch list is posted on #667 and waits for the coordinator's dispositions.**
 
-- **`02` § The guest cycle is written.** On the guest, L-01, L-13 and L-20 are proved, and L-06 is downgraded (bash forks). The page frames are of M7's ES, a composition over the pin. `ra-ui-test` is CANNOT in this window.
-- **`03-retrospective.md` is drafted.**
-- **Next, stage C:**
-  - `04-analysis.md` as the first reader's;
-  - the packet from T18's `stage-c/packet.py`, adapted, then trimmed and scanned three ways;
-  - Astra at `max` (a probe, then the refutation), then Argon at `high` over the same packet plus the grades;
-  - exactly four keyed invokes;
-  - the pre-issue lint.
+- **Stage C:** four keyed calls, all PASS; Astra's 55 and Argon's 25 items graded; `05` has 25 items (PL-01 High; PL-02 to PL-07 Medium; ten bugs proposed); the pre-issue lint PASS.
+- **Next, on the ruling:**
+  - the bugs filed by the coordinator;
+  - the stream brief for stage E, on the ES branch only: fixes proven twice, `es-syntax-check` or the host `g++` CANNOT, the unit tests, the non-ASCII comment grep;
+  - then F (05's Phase 7), G (the retro), H (the hand-back).
 
 **The host (coordinator, 18:19 UTC):** M7 holds it (a native GuiMenu relink, then one qualification guest) until its RETURN line in the host file. No guest from T20 until the coordinator says the host is free. Stage-E fixture compiles are single-threaded `g++` runs of seconds, and every guest-only check stays `fix-walk-pending-image`.
 
@@ -66,5 +63,7 @@ worktree, or a guest outside the one granted window.
 
 ## Checkpoints
 
+- Stage D, 18:38 UTC: #1167 opened; the pause.
+- Stage C, 18:40 UTC: four keyed calls; 05; the pre-issue lint PASS.
 - Window, 17:57 UTC: RETURN posted; the disk retired.
 - Stage A, 17:30 UTC: distribution `10d00488fb`, ES at the pin `16dbac5211` (unchanged).

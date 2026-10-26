@@ -73,3 +73,9 @@
 - **`05`:** 25 items, PL-01 High; PL-02 to PL-07 Medium. Ten are proposed as `bug`s.
 - **`tools/lint-audit-artifacts --phase pre-issue`:** `PASS pre-issue artifacts (does not certify resolution)`.
 - **The host:** M7 has held it since 18:19 UTC (the coordinator's comment); nothing here needed it.
+
+## [Stage D] 18:38 UTC — the audit issue and the pause
+
+- **#1167**, `Audit: M6 T20 EmulationStation's RetroAchievements and offline pages -- 25 findings (0 critical, 1 high, 6 medium, 15 low, 3 info)`, labels `audit` and `punch-list`, milestone M6, is a sub-issue of #667 (read back: #667's sub-issues are `1167`).
+- **Checks:** `tools/box-check --issue 1167`: 25 open checkboxes, 0 fail. `tools/lint-audit-artifacts … --phase pre-issue --issue 1167`: `PASS pre-issue artifacts (does not certify resolution)`.
+- **The pause:** the punch list is posted on #667 for the coordinator's dispositions and any stream brief. Nothing in the ES worktree or under `packages/`, `projects/` or `tools/` has changed (R18).
