@@ -1,0 +1,32 @@
+# S8 after (#666, #1164): the ctl in the tree, 2026-10-26T16:08:28Z
+ctl sha256 277c0752fd89fbfd
+command: tools/t19-s8-counts.sh <tree's ctl> <the pin + 001..022's linux/> /workspace/tmp/m6-t19/s8/after
+
+host bash 5.3.9(1)-release (the tree pins bash 5.3); applets from BusyBox v1.36.1 (a copy of /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox, the image's); host python 3.14.4 (image recipe 3.14.7)
+  1. ready, the export a folder
+     rc 2; stdout ''; stderr raofflineproxy-ctl: ready: the count of games ready could not be read (/storage/.config/raofflineproxy/cached_game_ids.txt, or the client's count)|
+    PASS  cannot tell: exit 2, nothing on stdout
+  2. ready, no export, the client failing after a numeric line
+     rc 2; stdout ''; stderr raofflineproxy-ctl: ready: the count of games ready could not be read (/storage/.config/raofflineproxy/cached_game_ids.txt, or the client's count)|
+    PASS  cannot tell: exit 2, nothing on stdout
+  3. ready, a readable export of three ids (the control)
+     rc 0; stdout '3|'; stderr 
+    PASS  3, exit 0
+  4. account, the login2 row []
+     rc 2; stdout ''; stderr raofflineproxy-ctl: the proxy's store at /storage/.config/raofflineproxy/proxy.sqlite3 could not be read|
+    PASS  a row that is not an object is not 'no points': cannot tell
+  5. account, Score true
+     rc 2; stdout ''; stderr raofflineproxy-ctl: the proxy's store at /storage/.config/raofflineproxy/proxy.sqlite3 could not be read|
+    PASS  a boolean is not a score: cannot tell
+  6. account, numbers (the control)
+     rc 0; stdout 'score=10 softcore=5|'; stderr 
+    PASS  score=10 softcore=5
+  7. scan with nothing to scan, the export a folder: the stamp's ready=
+     rc 0; stamp 1793030908 0 scan cached=0 skipped=0 ready=unknown limit=0 indexed=0 errors=0 added=0 note=NO_GAMES
+    PASS  the stamp records no count it did not read (ready=unknown)
+t19-s8-counts: 0 FAIL
+rc 0
+
+bash -n of the ctl: ok
+
+## tools/last-good-scripts-test (QA_SYSTEM_ROOT the retained donor) on S8: 1313 PASS; PASSED. S8 reverses no check.

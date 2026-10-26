@@ -860,11 +860,19 @@ except Exception:
 # The row the proxy writes from a token (auth.cache_token_credentials) has no
 # Score: nothing is cached about the points, and an absent number is never
 # printed as 0.
-if not isinstance(body, dict) or body.get("Score") is None or body.get("SoftcoreScore") is None:
+# A row that is not an object is not "no points" but a row that cannot be
+# read, and a score is a number -- int(True) was 1 (#1164).
+if not isinstance(body, dict):
+    sys.exit(3)
+if body.get("Score") is None or body.get("SoftcoreScore") is None:
     sys.exit(1)
+def number(value):
+    if isinstance(value, bool) or not isinstance(value, (int, float)) or value != int(value):
+        raise ValueError(value)
+    return int(value)
 try:
-    score = int(body["Score"])
-    softcore = int(body["SoftcoreScore"])
+    score = number(body["Score"])
+    softcore = number(body["SoftcoreScore"])
 except Exception:
     sys.exit(3)
 print("score=%d softcore=%d" % (score, softcore))
@@ -968,19 +976,29 @@ history_path() {
     printf '%s\n' "${NEWEST:-${BUILTIN}}"
 }
 
+# Exit 2 and nothing on stdout when the count cannot be read -- an export
+# that is not a readable file, a client that failed or answered no number --
+# never a 0 or a number a failed client left behind (#1164). No store and no
+# export is 0: nothing has been cached.
 count_ready() {
-    local N=""
-    if [ -s "${READY_FILE}" ]; then
-        N="$(grep -c -E '^[0-9]+$' "${READY_FILE}" 2>/dev/null)"
+    local N="" RC=0
+    if [ -e "${READY_FILE}" ] && { [ ! -f "${READY_FILE}" ] || [ ! -r "${READY_FILE}" ]; }; then
+        return 2
+    elif [ -s "${READY_FILE}" ]; then
+        N="$(grep -c -E '^[0-9]+$' "${READY_FILE}" 2>/dev/null)" || RC=$?
+        [ "${RC}" -le 1 ] || return 2
     elif [ -e "${QUEUE}" ]; then
-        N="$(${PROXY_PY} cached-games-count 2>/dev/null | tail -n 1)"
+        N="$(${PROXY_PY} cached-games-count 2>/dev/null)" || return 2
+        N="$(printf '%s\n' "${N}" | tail -n 1)"
+    else
+        N=0
     fi
-    case "${N}" in ''|*[!0-9]*) N=0 ;; esac
+    case "${N}" in ''|*[!0-9]*) return 2 ;; esac
     echo "${N}"
 }
 
 do_ready() {
-    count_ready
+    count_ready || cannot_tell "ready: the count of games ready could not be read (${READY_FILE}, or the client's count)"
 }
 
 # listening [--wait N] (#308 F-RA-26): the unit was Type=simple, so
@@ -1956,7 +1974,7 @@ stopped() {
 # (PL-031).
 cancelled() {
     local READY MADE=""
-    READY="$(count_ready)"
+    READY="$(count_ready || echo unknown)"
     if [ -n "${READY_BEFORE:-}" ] && READY_AFTER="$(mktemp /tmp/raofflineproxy-ready.XXXXXX 2>/dev/null)" && ready_games_into "${READY_AFTER}"; then
         MADE="$(games_made_ready "${READY_BEFORE}" "${READY_AFTER}")"
     fi
@@ -2134,7 +2152,7 @@ do_scan() {
     if ! COUNTS="$(list_jobs "${LIST}" all 0 2>>"${SCAN_LOG}")"; then
         slog "scan: the library could not be listed"
         tell "why LIBRARY_UNREADABLE"
-        stamp 1 scan 0 0 "$(count_ready)" 0 0 0 LIBRARY_UNREADABLE
+        stamp 1 scan 0 0 "$(count_ready || echo unknown)" 0 0 0 LIBRARY_UNREADABLE
         exit 1
     fi
     local FOUND NEW TRUNC
@@ -2154,7 +2172,7 @@ do_scan() {
         # maintainer's reading was that "there was just nothing to scan").
         # rc 0 and no why; the note tells the page and the stamp what there
         # was to say, and the row reads NO GAMES TO SCAN YET.
-        READY="$(count_ready)"
+        READY="$(count_ready || echo unknown)"
         slog "scan done: no games found under ${ROMS_ROOT}, ready=${READY}"
         tell "note NO_GAMES"
         commit_cursor || slog "scan: an old cursor could not be removed; the next walk starts from the top all the same"
@@ -2171,7 +2189,7 @@ do_scan() {
         # and pressing SCAN again is how a player asks for them (#307
         # PL-060). The same pass, the same verdict.
         run_image_pass scan "${IMAGE_PASS_SECONDS}"
-        READY="$(count_ready)"
+        READY="$(count_ready || echo unknown)"
         local RC0=0 WHY0="${R_IMAGES_WHY}"
         [ -n "${WHY0}" ] && { RC0=1; tell "why ${WHY0}"; }
         slog "scan done: nothing new, ready=${READY}${WHY0:+ why=${WHY0}}"
@@ -2183,7 +2201,7 @@ do_scan() {
     READY_BEFORE="$(mktemp /tmp/raofflineproxy-ready.XXXXXX 2>/dev/null)" && { ready_games_into "${READY_BEFORE}" || { rm -f "${READY_BEFORE}"; READY_BEFORE=""; }; }
     run_jobs page "${LIST}" "${NEW}" 0
 
-    READY="$(count_ready)"
+    READY="$(count_ready || echo unknown)"
     local ADDED=""
     READY_AFTER="$(mktemp /tmp/raofflineproxy-ready.XXXXXX 2>/dev/null)" && ready_games_into "${READY_AFTER}" && ADDED="$(games_made_ready "${READY_BEFORE}" "${READY_AFTER}")"
     rm -f "${READY_BEFORE}" "${READY_AFTER}"; READY_BEFORE=""; READY_AFTER=""
@@ -2574,7 +2592,7 @@ print(int(r.get("cached", 0)), int(r.get("skipped", 0)), 1 if r.get("limit_reach
     # had one of its own.
     [ -z "${WHY}" ] && [ -n "${LIST_WHY}" ] && WHY="${LIST_WHY}"
     local READY MADE
-    READY="$(count_ready)"
+    READY="$(count_ready || echo unknown)"
     # added=: the games the two passes made ready for this account, from the
     # store before and after (#308 F-RA-10, F-RA-15); unknown when the store
     # could not be read, never the passes' cache operations in its place

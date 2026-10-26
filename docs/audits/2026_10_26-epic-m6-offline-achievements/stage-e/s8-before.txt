@@ -1,0 +1,27 @@
+# S8 before (#666, #1164): the ctl at 54ab8c6c10 (S7's tip), 2026-10-26T16:08:27Z
+command: tools/t19-s8-counts.sh <ctl at 54ab8c6c10> <the pin + 001..022's linux/> /workspace/tmp/m6-t19/s8/before
+
+host bash 5.3.9(1)-release (the tree pins bash 5.3); applets from BusyBox v1.36.1 (a copy of /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox, the image's); host python 3.14.4 (image recipe 3.14.7)
+  1. ready, the export a folder
+     rc 0; stdout '0|'; stderr 
+    FAIL  cannot tell: exit 2, nothing on stdout -- rc 0, stdout '0'
+  2. ready, no export, the client failing after a numeric line
+     rc 0; stdout '5|'; stderr 
+    FAIL  cannot tell: exit 2, nothing on stdout -- rc 0, stdout '5'
+  3. ready, a readable export of three ids (the control)
+     rc 0; stdout '3|'; stderr 
+    PASS  3, exit 0
+  4. account, the login2 row []
+     rc 1; stdout ''; stderr 
+    FAIL  a row that is not an object is not 'no points': cannot tell -- rc 1
+  5. account, Score true
+     rc 0; stdout 'score=1 softcore=5|'; stderr 
+    FAIL  a boolean is not a score: cannot tell -- rc 0, stdout 'score=1 softcore=5'
+  6. account, numbers (the control)
+     rc 0; stdout 'score=10 softcore=5|'; stderr 
+    PASS  score=10 softcore=5
+  7. scan with nothing to scan, the export a folder: the stamp's ready=
+     rc 0; stamp 1793030908 0 scan cached=0 skipped=0 ready=0 limit=0 indexed=0 errors=0 added=0 note=NO_GAMES
+    FAIL  the stamp records no count it did not read (ready=unknown) -- 1793030908 0 scan cached=0 skipped=0 ready=0 limit=0 indexed=0 errors=0 added=0 note=NO_GAMES
+t19-s8-counts: 5 FAIL
+rc 1
