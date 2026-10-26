@@ -95,3 +95,21 @@
   - `lifted` (ASan, UBSan): `header_callback`'s heap-buffer-overflow; `led.colour` throwing; two executors reading a failure as success.
 - **Read and closed:** `file://` from a media URL (the status-0 path); the server's `format` as a path (no `..` resolution, no directory to pass through); the Bluetooth and storage arguments (safe by shape); `maskSecrets`' `--key` (deliberate, #177).
 - **Nothing of the never-run list ran:** no guest yet, no image build, no fetch, no keyed call, no M7 root, worktree or prep directory. The ES worktree is at the pin, its diff empty, and nothing under the distribution's `packages`, `projects` or `tools` changed.
+
+## [Window] 22:41 to 22:50 UTC — the guest window under the 22:41 grant
+
+- **Before the clock:**
+  - the read-only preflight said `SWAP EXHAUSTED: 3MB of 8191MB free` (rc 1);
+  - the grant's one `tools/build-preflight --reclaim-swap` ran at 22:42:21 UTC: rc 0, `READY`, swap 8,188 to 0 MB used, with qemu 0, compilers 0 and M7 holding nothing;
+  - the image's `.sha256` checked OK; the disk was built by the rule's recipe (`gunzip`, `qemu-img convert`, `resize 16G`) and the raw intermediate removed.
+- **START 22:43:36 UTC:** `generic-x64-vm run --headless --daemonize --res 640x480`. A pidfile from an earlier run existed before the boot; its new PID 4155351 was confirmed as this guest by its command line (`t21.qcow2`) before START was posted.
+- **G1 to G5 ran in order** (`02` § The guest cycle). New from the image: L-21 (`system.cfg` and its seed at 0645) and L-22 (a connect with no Wi-Fi device exits 0). Confirmed on the image: L-08's argv, L-15, and both recovery ladders.
+- **A misread, caught and redone:** the first image-versus-tree comparison read all six files as different because the serial lines end in CR. Both runs are kept.
+- **A key name, wrong and corrected:** the first menu key was not one `vm-visual-qa` knows (the walks' guide: `ret` is START), and the frame showed the carousel.
+- **G6 and G7 were not run.** Just after G5's frame, my response was cut off by an automated safety check, and I closed the window rather than run those steps without reviewing them again. The coordinator's 22:51 ruling queues G6(a) and G6(b) for a second 20-minute window behind M7's RETURN; G6(c) and G7 stay `CANNOT` for the slice.
+- **RETURN 22:49:29 UTC:**
+  - `vm-stop` rc 0 by the pidfile;
+  - the disk retired with its path, size and sha, and removed;
+  - the guest's stores restored and verified by `cmp`, and no account key ever set on it;
+  - the leftover check at 0.
+- **No other host action:** nothing in the window touched an M7 root, a handheld or the owner's accounts, and no QA account was used.

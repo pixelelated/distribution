@@ -44,7 +44,7 @@ Each lead is in one of the brief's four families. Each is read at its lines and 
 | L-05 | Q2 | a credential's sink | For 400 to 503, the server's body goes verbatim into `es_log.txt` at LogError; with #1154 that body is anyone's on the path. | `HttpReq.cpp:439-473`, `:562` | tree (the brief's lead, read) |
 | L-06 | Q2 | a credential's sink | #1154 cited: `VERIFYPEER` 0 on every request, `VERIFYHOST` 0 on the client-certificate path. The fix's design question goes to the pause. | `HttpReq.cpp:192`, `:200` | tree (cited, not re-found) |
 | L-07 | Q2 | — | `customHeaders`' `curl_slist` is never freed. | `HttpReq.cpp:174-179` | tree |
-| L-08 | Q3 | a credential's sink | The Wi-Fi key is argv of `sh`, `timeout` and `wifictl` for up to 150 s, then of `nmcli` for up to 90 s (`wifictl:177`). `rocknix-evidence`'s state page keeps `top -b -n 1` (`:71`), whose command column could carry it. `:642`, the brief's unbounded `enable <ssid> <key>`, is in the `#if WIN32` branch and not built on ROCKNIX. | `ApiSystem.cpp:635-637`, `:2328` | tree; the window's masked count of `/proc/*/cmdline` and of `top`'s lines owed |
+| L-08 | Q3 | a credential's sink | (Guest: 3 processes carried it; `g03-argv.txt`.) The Wi-Fi key is argv of `sh`, `timeout` and `wifictl` for up to 150 s, then of `nmcli` for up to 90 s (`wifictl:177`). `rocknix-evidence`'s state page keeps `top -b -n 1` (`:71`), whose command column could carry it. `:642`, the brief's unbounded `enable <ssid> <key>`, is in the `#if WIN32` branch and not built on ROCKNIX. | `ApiSystem.cpp:635-637`, `:2328` | tree; the window's masked count of `/proc/*/cmdline` and of `top`'s lines owed |
 | L-09 | Q3, Q4 | a credential's sink | A writer killed between its temporary's create and its rename leaves `path`.tmp.<pid>.<n>, which nothing sweeps. Since PL-063 the sweeps remove only the old shared names (`Settings.cpp:557-558`, `SystemConf.cpp:210`). For `es_settings.cfg` the leftover takes the live file's mode with the scraper's account inside. The settings archive takes the stores by exact name (`backuptool:283-292`), so the leftovers stay on the card. | `AtomicFileUtil.cpp:50-64`, `:115` | fixture: `stage-b/positives/kill-writer.out`, 42 of 99 kill points |
 | L-10 | Q4 | a state write that can lose the record | With `system.cfg` absent, `set_setting` copies the image's seed before the lock and without the record (T1's file). The interface's next load then records the seeded file over the record, so the player's keys go from both files. | `001-functions:540-543`, `:595` at `8ebaf8daad`; `SystemConf.cpp:232-238`, `AtomicFileUtil.cpp:352-361` | fixture: `stage-b/positives/shell-writers.out` S1 |
 | L-11 | Q4 | a state write that can lose the record | `applyChanges` writes `key + val`, so a value with a line end becomes two lines and a second key. No player or network path that sets one was found at the pin (`TextEditComponent.cpp:176-185`; `HttpApi.cpp` writes neither store). | `SystemConf.cpp:386-406`, `:414-419` | fixture: `stage-b/positives/state-units.out` U2 |
@@ -56,6 +56,8 @@ Each lead is in one of the brief's four families. Each is read at its lines and 
 | L-17 | Q6 | a check whose failure reads as success | `executeEnumerationScript` discards the exit: a script that fails or is killed returns the lines it printed, as success. That is `getBiosInformations`, at launch with CHECK BIOS AT LAUNCH on (`Settings.cpp:207`). | `ApiSystem.cpp:2251` | fixture: `lifted.out` enum |
 | L-18 | Q6 | a check whose failure reads as success | Eleven `WEXITSTATUS` reads without `WIFEXITED`: a child killed by a signal reads as exit 0, with its lines. `joinWifiNetwork` then reads `joined` from them (`:714-718`). | `ApiSystem.cpp:234` ... `:2291`, `:2319` | fixture: `lifted.out` script; T20's `reader.out` for the legacy executor |
 | L-19 | Q6 | — | `cloud_oauth close`'s result is ignored. | `ApiSystem.cpp:593` | tree |
+| L-21 | Q3 | a credential's sink | `system.cfg` and its `.backup` are 0645 on the image, and so is the seed it is copied from: world-readable, with the execute bit for others. `wifi.key` is in it, readable by any user. `AtomicFile::writeText` keeps a replaced file's mode (`AtomicFileUtil.cpp:127-147`) and the shell's `prepare_settings_temp` keeps the live file's and the record's shared bits, so neither ever narrows it. Git records the seed as `100644` at `8ebaf8daad` and no recipe `chmod`s it; the installed seed also differs in content (`g01-image-vs-tree.txt`), so a build step rewrites it, and that step's mode is the 0645. Which step is not traced here. | the image's `/usr/config/system/configs/system.cfg` | guest: `g02-modes.txt`, `g03-argv.txt` |
+| L-22 | Q6 | a check whose failure reads as success | `wifictl` exits 0 when it has no Wi-Fi device (`:55-56`, T1's file). `ApiSystem::enableWifi` reads that as a connect (`:627-637`, `system() == 0`), and the page then saves `wifi.ssid` and `wifi.key` and says CONNECTED (`GuiWifi.cpp:385-395`). A handheld whose Wi-Fi driver did not load says it joined. | `wifictl:55-56`; `ApiSystem.cpp:627-637`; `GuiWifi.cpp:385-395` | guest: the connect exited 0 with no adapter (`g03-argv.txt`); the page's half is tree |
 | L-20 | Q7 | — | 82 of the 143 command rows name a script the distribution does not ship at `8ebaf8daad` (§ The commands' last column). A table, recorded as written (D-WORKFLOW-209's shape). | § The commands | tool-run |
 
 **Read and closed at stage B:**
@@ -75,10 +77,11 @@ One row per credential kind per sink it can reach. Read at the lines named; valu
 
 | Credential | Sink | At | Mask there | proved |
 | --- | --- | --- | --- | --- |
-| The Wi-Fi key | argv | `ApiSystem.cpp:635-637` → `system()` `:2328`: `sh -c`, `timeout 150`, `wifictl connect`; then `nmcli ... password "${PSK}"` (`wifictl:177`), and `802-11-wireless-security.psk` (`:195`, `:209`) | none on argv | tree; the window's masked count |
-| The Wi-Fi key | a file and its mode | `system.cfg` `wifi.key`, written by the page (`GuiWifi.cpp:392-394`) and by `wifictl join` (`:460`, `set_settings`). The mode is the live file's, or 0644 when ES makes the file new (`AtomicFileUtil.cpp:115`). The NetworkManager keyfile's mode is not yet read. | none at rest | tree; the window reads both modes |
+| The Wi-Fi key | argv | `ApiSystem.cpp:635-637` → `system()` `:2328`: `sh -c`, `timeout 150`, `wifictl connect`; then `connect_wifi`'s `nmcli -w 90 device wifi connect "${SSID}" password "${PSK}"` (`wifictl:177`) | none on argv | tree; guest: 3 processes carried the key in their command lines (`guest-cycle/g03-argv.txt`) |
+| The netplay network's fixed key | argv and the keyfile | `create_adhoc`'s and `connect_adhoc_client`'s `802-11-wireless-security.psk "${PSK}"` (`wifictl:195`, `:209`): the sink the brief's pattern missed. They run only when `wifi.adhoc.enabled` is 1 (`:502-511`), where `PSK` is replaced by a fixed value (`:63-66`), so the player's key does not reach them. | none | tree |
+| The Wi-Fi key | a file and its mode | `system.cfg` `wifi.key`, written by the page (`GuiWifi.cpp:392-394`) and by `join_wifi`'s `set_settings wifi.ssid ... wifi.key "${psk}"` (`wifictl:460`). The mode is the live file's, or 0644 when ES makes the file new (`AtomicFileUtil.cpp:115`). On the image, **`system.cfg`, its `.backup` and the shipped seed are 0645** (L-21). NetworkManager's own keyfile is 0600. | none at rest | tree; guest (`g02-modes.txt`, `g03-argv.txt`) |
 | The Wi-Fi key | a log | the command line through `maskSecrets` (`ApiSystem.cpp:2325`; the `wifictl` rule `StringUtil.cpp:764-784`). The child's stdout inherits ES's, which is the journal. | masked (the command line); what `wifictl` prints is unread | tree |
-| The Wi-Fi key | the evidence page | `rocknix-evidence:71`'s `top -b -n 1`, every five minutes (D-SYS-005) | none | tree; the window's count owed |
+| The Wi-Fi key | the evidence page | `rocknix-evidence:71`'s `top -b -n 1`, every five minutes (D-SYS-005) | none | tree; guest: 0 of `top`'s 25 lines carried it at the sampled moment, with no adapter; on a device the key lives up to 90 s in `nmcli`'s argv, which the guest cannot show |
 | The Wi-Fi key | the screen | the WI-FI KEY popup, typed in the clear (`GuiWifi.cpp:365`, `:367`). Neither popup class takes a password mode (`GuiTextEditPopup.h:15-16`, `GuiTextEditPopupKeyboard.h:13-14`). | none | tree |
 | The Wi-Fi key | the packet and the archive | `system.cfg` in the settings archive (`backuptool:286`; its SECRETLIST is T17's, cited) | backuptool's | tree (cited) |
 | The scraper's developer pair, compiled | the binary | `SCREENSCRAPER_DEV_LOGIN` returned verbatim (`ScreenScraper.cpp:36-37`), D-WORKFLOW-166's allowed case. Which identity is compiled is the window's to read by name, never printed. | n/a | tree |
@@ -493,7 +496,40 @@ Each ran single-threaded, in seconds.
 
 ## The guest cycle
 
-Not yet held. The request goes to #668 at stage B's end, with its plan and its bound.
+- **The grant and the posts:** granted on #668 at 22:41 UTC, late (the coordinator's session was down from about 21:05 to 22:39; the host was free). START at 22:43:36 UTC and RETURN at 22:49:29 UTC were each posted on #668 with the census as the first line, and mirrored in the host file.
+  - START census: qemu 1 (this guest), compilers 0, :8080 0.
+  - RETURN census: qemu 0, compilers 0, :8080 0, :10022 0.
+  - The bound was 23:28:36 UTC; the window used six minutes.
+- **The swap reclaim, run once before the guest** (`tools/build-preflight --reclaim-swap`, 22:42:21 UTC): rc 0, `READY`, swap from 8,188 to 0 MB used (`guest/reclaim.txt` in the scratch, quoted in START). At the leftover check, with no guest running, swap was back to 2,498 MB used: the host's, not this window's.
+- **The image** (`g01-identity.txt`): `pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261022T235948Z.g069fc2704421-from-ROCKNIX.img.gz`, `.sha256` OK. It ran on a fresh 16 GB qcow2 of the lane's own, at 640x480 (`fbset` `640 480`).
+  - `BUILD_ID="069fc270442134fe771258418adf4e666e0473fb"`, `BUILD_BRANCH="build/m7-signin-20261022-07"`.
+  - **The installed EmulationStation by two literals:** the pin's `wifi picker: stopping scan worker` (1) and M7's composition's `Pending achievements stay` (1). It is M7's composition over the pin, so every frame and verdict below is the image's.
+  - **The six OS files against `8ebaf8daad`** (`g01-image-vs-tree.txt`): `001-functions`, `chksysconfig`, `wifictl`, `rocknix-evidence` and `post-update` are byte-identical. The seed `system.cfg` differs (`195c35fd…` installed, `bd6fdc41…` at `8ebaf8daad`); S1's finding is the copy's order, not the seed's contents. The first comparison read every file as different because the serial lines end in CR; it was redone with them stripped, and both runs are kept.
+  - `7z`, `7za`, `7zr`, `pdfinfo` and `pdftoppm` are in `/usr/bin`: the `7zr` question is answered, and L-01's `7z` and poppler rows are live code. curl 8.21.0 lists `file`; the CA bundle links are present (`/etc/ssl/certs/ca-certificates.crt`). `/storage` is ext4 `rw,noatime`, so ext4's default `auto_da_alloc` applies to the shell's rename over an existing file. `/bin/sh` is bash.
+- **G2, the modes** (`g02-modes.txt`):
+  - `system.cfg` and `.backup` 645;
+  - `es_settings.cfg` and `.backup` 644;
+  - the cookie jar `/storage/.emulationstation/tmp/cookies.txt` 644, 131 bytes, present at boot;
+  - no leftover temporaries beside the stores;
+  - NetworkManager's keyfile directory `/storage/.config/NetworkManager/system-connections` (`NetworkManager.conf:19`), 755. A keyfile its own writer made with a dummy key was 600; it was removed, and is not the page's join.
+
+  proved: guest.
+- **G3, the key on argv** (`g03-argv.txt`): the page's command shape, `sh -c "timeout 150 wifictl connect '<dummy>' '<dummy key>' 'US'"`, the key made on the guest and never printed.
+  - The first sample counted **3** processes whose cmdline carried the key.
+  - `top -b -n 1 | head -25` carried it on 0 lines.
+  - The connect exited **0** with no adapter (`eth0` and `lo` only): L-22.
+
+  proved: guest.
+- **G4, the recovery ladder** (`g04a-system-cfg.txt`, `g04b-es-settings.txt`, `frames/g04a-*.png`, `frames/g04b-*.png`):
+  - **`system.cfg`** was cut to 2,523 of 5,047 bytes mid-line, with its record's mtime. The interface chose the record and wrote it back; the live file equals the original, and `es_log.txt` carries the warning.
+  - **`es_settings.cfg`** was emptied beside its record. The interface loaded the record and copied it back; the live file equals the original. This is the ladder with no unit test.
+  - Both times the player read `YOUR SETTINGS FILE WAS DAMAGED. THE LAST GOOD COPY WAS RESTORED.` once, at 640x480.
+
+  proved: guest.
+- **G5, L-15** (`g05-hostname.txt`, `frames/g05-network-settings.png`): `set_setting system.hostname default` wrote `system.hostname=`, and NETWORK SETTINGS > HOSTNAME read **BATOCERA**. proved: guest.
+- **G4 and G5's originals** were restored and verified by `cmp`, and the aside copies removed (`g45-restore.txt`, `g08-close.txt`).
+- **G6 and G7: not run; `CANNOT in this window`.** The reason: just after G5's frame, the session's response was cut off by an automated safety check, and I closed the window rather than run the scraper-and-listener step or the live sign-in without reviewing them again. By the coordinator's 22:51 ruling, G6(a) and G6(b) are queued for a second 20-minute window behind M7's RETURN; G6(c) and G7 stay `CANNOT` for the slice. Until then, L-01, L-03 and #1154's scraper half rest on their stage-B evidence (tree, and `lifted.out` where it applies).
+- **The close** (`g08-close.txt`, `retired.txt`): 0 ScreenScraper account keys in `es_settings.cfg`; `vm-stop` rc 0 (pid 4155351 gone). The disk `/workspace/tmp/m6-t21/guest/t21.qcow2`, 2,309,423,104 bytes, sha256 `592c453a0aaf0a7a014412c7403b1d139631835465022f83e2c17766842e0a81`, is retired and absent. The leftover check found qemu, compilers, :8080, :10022 and both sockets at 0.
 
 ## Corrections to the brief, by command
 

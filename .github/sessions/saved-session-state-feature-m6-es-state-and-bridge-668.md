@@ -17,14 +17,11 @@
 
 ## Current focus
 
-**Stage B done (2026-10-26 21:20 UTC); the guest window is requested on #668 and not yet granted.**
+**The first window is closed (22:43:36 to 22:49:29 UTC); stage C next, by the coordinator's 22:51 ruling.**
 
-- **Stage B:**
-  - the 14 read whole at the pin;
-  - `02` with Coverage (14), twenty leads L-01 to L-20, and the two generated sections (`tools/t21-commands.py` 143 rows; `tools/t21-writers.py` 41, 25 and 10);
-  - the host positives under `stage-b/positives/`: kill-writer, shell-writers, state-units, lifted.
-- **Next, on a grant:** the window's steps G1 to G8 as the request lists them, recorded under `guest-cycle/`, the START and RETURN posts, and the disk retired.
-- **Then stage C:** the packet trimmed and scanned, the plan, the two seats, the pre-issue lint.
+- **The window:** G1 to G5 stand as the image's verdicts, recorded in `02` § The guest cycle and `guest-cycle/`, with the new leads L-21 and L-22. G6 and G7 were not run; the reason is in `02`.
+- **A second 20-minute window** for G6(a) and G6(b) is queued behind M7's RETURN; the coordinator says when the host is free. G6(c) and G7 stay `CANNOT` for the slice.
+- **Next, stage C:** the packet trimmed and scanned, `review-plan.json`, GPT-6 Astra then Gemini 4 Argon (four keyed invokes), the grades, `03` to `05`, the pre-issue lint.
 - **What runs here:** nothing. Scratch is `/workspace/tmp/m6-t21/`.
 
 ## Next commands
@@ -63,6 +60,7 @@ another lane's worktree, or a guest outside the one granted window.
 
 ## Checkpoints
 
+- Window, 22:43:36 to 22:49:29 UTC: G1 to G5; the disk retired; RETURN acknowledged at 22:51.
 - Stage B, 21:20 UTC: distribution `5722daf7e5`; ES at the pin, unchanged; the window requested.
 - Stage A, 21:00 UTC: distribution `4844a773ca` + stage A's commit; ES at the pin `16dbac5211` (unchanged).
 - (none yet; the executor appends one line per stage: the stage, both tips, the time)

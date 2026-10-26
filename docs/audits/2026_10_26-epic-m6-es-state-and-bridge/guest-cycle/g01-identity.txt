@@ -1,0 +1,36 @@
+== G1 identity (22:44:24Z)
+ 18:44:24 up 0 min,  load average: 0.52, 0.12, 0.04
+/dev/vda2                11.9G    173.7M     11.8G   1% /storage
+OS_NAME="pixelelated"
+VERSION="0.0.1-dev+20261022T235948Z.g069fc2704421"
+BUILD_ID="069fc270442134fe771258418adf4e666e0473fb"
+BUILD_BRANCH="build/m7-signin-20261022-07"
+	geometry 640 480 640 480 32
+-- the installed EmulationStation, by two literals
+pin literal (wifi picker: stopping scan worker): 1
+M7 composition literal (Pending achievements stay): 1
+25155163fd7970f7
+-- the six OS files, hashed (compared with 8ebaf8daad on the host)
+2a67891c9a3090ddae78d4b729ce7b8f5c41d853e0975b4ce0203df7789e4ab5 /etc/profile.d/001-functions
+e18d619783d9bbcdd23f1f8aaf2da0786ec162195cc35e1dc3a3ffc4afa04c8e /usr/bin/chksysconfig
+c89ed28a50e4be78468fcee25dcfd68e0b1c67af25657c3d0ba9318c7576a48c /usr/bin/wifictl
+a9ae19e92cd11d859e6a81b3b82e7fb34a01bce6e525ac962cda76899c30c346 /usr/bin/rocknix-evidence
+1e53fe8ca04f84265eaf43fe40c5cc1f2ec45c2bc1fdd13ea835ffb39d2ecdae /usr/share/post-update
+195c35fd4437f1125d8066964ec7d75dae3fb37032cbe8710757fdfabc7d3a02 /usr/config/system/configs/system.cfg
+-- the 7zr question and poppler
+-rwxr-xr-x    1 root     root        471352 Oct  4 00:35 [1;32m/usr/bin/7z[m
+-rwxr-xr-x    1 root     root       2258152 Oct  4 00:35 [1;32m/usr/bin/7z.so[m
+-rwxr-xr-x    1 root     root        367664 Oct  4 00:35 [1;32m/usr/bin/7zCon.sfx[m
+-rwxr-xr-x    1 root     root       1151352 Oct  4 00:35 [1;32m/usr/bin/7za[m
+-rwxr-xr-x    1 root     root        770336 Oct  4 00:35 [1;32m/usr/bin/7zr[m
+-rwxr-xr-x    1 root     root         64384 Oct  4 00:48 [1;32m/usr/bin/pdfinfo[m
+-rwxr-xr-x    1 root     root         31112 Oct  4 00:48 [1;32m/usr/bin/pdftoppm[m
+-- the CA bundle and curl
+lrwxrwxrwx    1 root     root            23 Oct  4 00:35 /etc/pki/tls/certs/ca-bundle.crt -> /run/rocknix/cacert.pem
+lrwxrwxrwx    1 root     root            19 Oct  4 00:35 /etc/ssl/certs/ca-certificates.crt -> /etc/ssl/cacert.pem
+curl 8.21.0 (Linux) libcurl/8.21.0 OpenSSL/3.6.3 zlib/1.3.2 libidn2/2.3.8 nghttp2/1.70.0
+Protocols: file ftp ftps http https ipfs ipns rtsp ws wss
+-- /storage's filesystem and options
+/dev/vda2 /storage ext4 rw,noatime 0 0
+-- /bin/sh
+lrwxrwxrwx    1 root     root             4 Oct 22 20:02 [1;36m/bin/sh[m -> [1;32mbash[m

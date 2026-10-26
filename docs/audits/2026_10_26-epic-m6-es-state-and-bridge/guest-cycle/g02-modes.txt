@@ -1,0 +1,20 @@
+== G2 modes (22:45:03Z)
+645 root:root 5047 bytes /storage/.config/system/configs/system.cfg
+645 root:root 5047 bytes /storage/.config/system/configs/system.cfg.backup
+644 root:root 41 bytes /storage/.emulationstation/es_settings.cfg
+644 root:root 41 bytes /storage/.emulationstation/es_settings.cfg.backup
+644 root:root 131 bytes /storage/.emulationstation/tmp/cookies.txt
+drwxr-xr-x    2 root     root          4096 Oct 26 18:44 [1;34m/storage/.config/system/configs[m
+lrwxrwxrwx    1 root     root            33 Oct 26 18:44 [1;36m/storage/.emulationstation[m -> [1;34m/storage/.config/emulationstation[m
+-- leftover temporaries beside the stores now
+0
+-- NetworkManager: the keyfile directory, and a keyfile its own writer makes (a dummy key, not the page's join)
+5:plugins=keyfile
+18:[keyfile]
+19:path=/storage/.config/NetworkManager/system-connections
+drwxr-xr-x    2 root     root          4096 Oct 26 18:43 [1;34m/storage/.config/NetworkManager/system-connections[m
+nmcli add rc 0
+600 root:root /storage/.config/NetworkManager/system-connections/T21-dummy.nmconnection
+keyfiles carrying a psk line: 1
+nmcli delete rc 0
+T21-dummy keyfiles left: 0
