@@ -1,0 +1,17 @@
+== S6 before (11:43:29Z): the code at S5 (29d500db9; the tier and end handling unchanged since the pin), with the test plumbing only -- CloudTransferJob::failedItems() (a locked copy of line 4's items) and the fake stamp's text -- and the two cases
+ M es-app/src/CloudTransferJob.cpp
+ M es-app/src/CloudTransferJob.h
+ M tests/app-unit/JobsTests.cpp
+RUN jobs-tests: rc 1; [doctest] test cases: 9 | 7 passed | 2 failed | 0 skipped [doctest] assertions: 39 | 37 passed | 2 failed | 
+TEST CASE:  transfer job: a part's early why is its own, not the previous part's unit (#1151)
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/tests/app-unit/JobsTests.cpp:212: ERROR: CHECK( failed[0].label == "SAVES" ) is NOT correct!
+  values: CHECK( NES == SAVES )
+TEST CASE:  transfer job: a run the network cut part-way says so on line 4 (#1152)
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/tests/app-unit/JobsTests.cpp:234: FATAL ERROR: REQUIRE( failed.size() == 1 ) is NOT correct!
+  values: REQUIRE( 0 == 1 )
+
+-- the composed-run case (11:45:53Z), written after the untiered fix: the transfer page's run reports each part on a tier line (GuiMenu.cpp:5006), so line 4 for a cut content part came from the tier's code; run against the untiered fix alone:
+RUN jobs-tests: rc 1; [doctest] test cases: 10 | 9 passed | 1 failed | 0 skipped [doctest] assertions: 51 | 50 passed | 1 failed | 
+TEST CASE:  transfer job: a composed run's part the network cut part-way says so on line 4 (#1152)
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/tests/app-unit/JobsTests.cpp:265: ERROR: CHECK( failed[0].why == (twoParts ? "SOMETHING WENT WRONG" : "YOU WENT OFFLINE PART
+  values: CHECK( SOMETHING WENT WRONG == 0x57fc875f60c0 )

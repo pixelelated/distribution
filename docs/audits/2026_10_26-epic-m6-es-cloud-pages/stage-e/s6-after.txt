@@ -1,0 +1,13 @@
+== S6 after (11:46:30Z): the fix in the working tree, before its commit (the untiered and the composed run)
+ es-app/src/CloudTransferJob.cpp | 40 ++++++++++++++++++++-
+ es-app/src/CloudTransferJob.h   |  5 +++
+ tests/app-unit/JobsTests.cpp    | 77 ++++++++++++++++++++++++++++++++++++++++-
+ 3 files changed, 120 insertions(+), 2 deletions(-)
+RUN es-unit-tests: rc 0; [doctest] test cases: 189 | 189 passed | 0 failed | 0 skipped [doctest] assertions: 4899 | 4899 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 27 | 27 passed | 0 failed | 0 skipped [doctest] assertions: 3415 | 3415 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN jobs-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 51 | 51 passed | 0 failed | 
+-- host g++ -fsyntax-only es-app/src/CloudTransferJob.cpp: rc 1 fatal error: SDL_joystick.h: No such file
+-- non-ASCII comment lines in the touched files: 0
+-- named, not covered: a composed run with two parts that ended 69 without a word keeps the code's phrase for both (the stamp cannot say which it speaks for; the case's control holds it); one reader per part is #1143's
