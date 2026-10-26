@@ -1,13 +1,10 @@
 # Review brief: M6.P2 T20, EmulationStation's RetroAchievements and offline pages (#667)
 
-**Version 1, 2026-10-26, the coordinator's** (D-WORKFLOW-189). Written from
-four read-only research digests (the coordinator's scratch files, not in any
+**Version 2, 2026-10-26, the coordinator's** (D-WORKFLOW-189; version 1 the same hour, corrected by a stranger's proof -- eleven corrections, listed at the end). Written from four read-only research digests (the coordinator's scratch files, not in any
 tree; every figure they gave is reproduced by a command below), the order's
 § T20, the slice record, T18's and T19's briefs and what their lanes found
 on these files; the figures were produced at the hashes they name with
-`/usr/bin/grep`, never the shell's function (#1138). A stranger's proof runs
-before dispatch; version 2 records what it found
-(`docs/reviews/plan-for-the-plan.md` § 6b).
+`/usr/bin/grep`, never the shell's function (#1138). The stranger's proof of version 1 ran before dispatch from the scratch clone at `2174265e9c` (nine commands, the ES pin read by hash only); this version records what it found (`docs/reviews/plan-for-the-plan.md` § 6b).
 
 ## 1. Identity
 
@@ -169,7 +166,7 @@ with `W` the `qa-integration` checkout at the pin): `selects 2 paths 25
 lines 7485 {'shipped': 25} {'fork-own': 24, 'upstream-carried': 1}`;
 languages `c++ 10, c-header 10, c 2, cmake 1, markdown 1, other 1`; `read 23
 7427` (unread: `LICENSE.rvz-padding`, `RVZ-NOTICES.md`); `fork-own 24 7474`
-(the order's 7,416 counts the 23 read rows); `libcheevos rows 9 2556`. The merge-base line's count is **17**: the eight account files and `ThreadedHasher.cpp/.h` are ROCKNIX's files rewritten by the fork (`GuiRetroAchievementsSettings.cpp` +704/-11, `RetroAchievements.cpp` +404/-28, the hasher 259 → 415 lines), the seven libcheevos files that exist at the base are the fork's edits inside the vendored library (526 insertions, 15 deletions over the nine, the whole directory's delta), and `OfflineAchievements.*`, `OfflineScanJob.*`, `GuiOfflineScan.*` and `rvz_hash.*` with the two notices are new; the inventory's `fork-own` is by the fork's share of the commits, and the read of a rewritten file is its diff against the base plus the lines the diff does not reach.
+(the order's 7,416 counts the 23 read rows); `libcheevos rows 9 2556`. The merge-base line's count is **15**: the eight account files and `ThreadedHasher.cpp/.h` are ROCKNIX's files rewritten by the fork (`GuiRetroAchievementsSettings.cpp` +704/-11, `RetroAchievements.cpp` +404/-28, the hasher 259 → 415 lines), five libcheevos files exist at the base and carry the fork's edits inside the vendored library (`CMakeLists.txt`, `cheevos.cpp`, `cheevos.h`, `md5.c`, `hash_disc.c`; 526 insertions, 15 deletions over the nine, the whole directory's delta), and ten are new: `OfflineAchievements.*`, `OfflineScanJob.*`, `GuiOfflineScan.*`, `rvz_hash.*` and the two notices; the inventory's `fork-own` is by the fork's share of the commits, and the read of a rewritten file is its diff against the base plus the lines the diff does not reach.
 
 **The files, read whole, in this order** (lines at the pin):
 
@@ -179,11 +176,11 @@ languages `c++ 10, c-header 10, c 2, cmake 1, markdown 1, other 1`; `read 23
 | `es-app/src/guis/GuiRetroAchievementsSettings.cpp` / `.h` | 808 / 11 (upstream-carried) | RETROACHIEVEMENTS SETTINGS (`:596-808`, 21 rows: the username unmasked `:610`, the password masked `:611`, the web API key masked `:616` under `#ifndef CHEEVOS_DEV_LOGIN`; two switches on `es_settings.cfg`, `RetroachievementsMenuitem` `:695` and `CheevosCheckIndexesAtStart` `:712`, the rest SystemConf; PROGRESS TRACKER hand-built; LED NOTIFICATIONS written at once) and OFFLINE ACHIEVEMENTS (BETA) (`:408-593`: the switch → `raofflineproxy-ctl enable|disable 2>/dev/null` on a detached thread, ok iff exit 0 and the last line starts `hardcore=` `:479-501`; the scan row's seven line variants and `raofflineproxy-ctl scan` at `:322` after `saveSystemConf()` `:321`; the comment naming `have_account` `:154`); the server's JSON `Error` shown verbatim `:784`; a runtime msgid `:671`; one `exists(` `:633` on the ctl's path, cached |
 | `es-app/src/guis/GuiRetroAchievements.cpp` / `.h` | 471 / 54 | the account summary page (the player's games and progress from the web API; the offline summary from the ctl's `summary`); curl's error text at `:44` |
 | `es-app/src/guis/GuiGameAchievements.cpp` / `.h` | 352 / 35 | one game's achievements page; curl's error text at `:42` |
-| `es-app/src/OfflineAchievements.cpp` / `.h` | 353 / 148 | the ctl's one door from ES: `ask(verb)` `:51-57` keeps the last non-empty stdout line and `WEXITSTATUS(pclose())` **without `WIFEXITED`** (`ApiSystem.cpp:2278-2291`), so a ctl killed by an untrapped signal reads as exit 0; the verbs `pending` `:108`, `flushed` `:119`, `summary` `:250` (every line; a line over 1,023 bytes is split by `fgets` and its game dropped), `pending-ids` `:275`, `account` `:286`, `topup [--after-index]` `:318`, `index-offline` `:325`; the runtime paths `:26-41`, every ctl- or service-written file read uncached (`:127`, `:136`, `:147`, `:156`, `:192`), `online_state.json` missing or unparseable read as online by design (`:192-196`); `stopRun` `:339-358` proves the lock's holder by flock, cmdline and `/proc/<pid>/fd` dev/ino, then SIGTERM, 10 x 50 ms |
+| `es-app/src/OfflineAchievements.cpp` / `.h` | 353 / 148 | the ctl's one door from ES: `ask(verb)` `:51-57` keeps the last non-empty stdout line and `WEXITSTATUS(pclose())` **without `WIFEXITED`** (`ApiSystem.cpp:2278-2291`), so a ctl killed by an untrapped signal reads as exit 0; the verbs `pending` `:108`, `flushed` `:119`, `summary` `:250` (every line; a line over 1,023 bytes is split by `fgets` and its game dropped), `pending-ids` `:275`, `account` `:286`, `topup [--after-index]` `:318`, `index-offline` `:325`; the runtime paths `:26-41`, every ctl- or service-written file read uncached (`:127`, `:136`, `:147`, `:156`, `:192`), `online_state.json` missing or unparseable read as online by design (`:192-196`); `stopRun` `:330-353` (the file ends at 353) proves the lock's holder by flock, cmdline and `/proc/<pid>/fd` dev/ino, then SIGTERM, 10 x 50 ms; a second cached `exists(` of the ctl's path at `:98` |
 | `es-app/src/OfflineScanJob.cpp` / `.h` | 273 / 100 | the scan page's reader: a 1,024-byte cap (`:145`), `\r` and `\n` split, `cleanLine` shared with the card; `>>> pid` accepted from any line, any count, any n ≥ 1, and CANCEL signals the group `-n` as root (`>>> pid 1` would be `kill(-1, SIGINT)`; T18's reader has the same shape at `CloudTransferJob.cpp:272-278`, recorded latent there); unknown markers dropped without `changed()`; `run` checks `WIFEXITED` (`:156-157`) where `ask()` does not; the outcome per exit (0, 130, 69, 75 read as A SCAN IS ALREADY RUNNING when a top-up holds the lock, 77, 78, 1, -1, 143 from `disable` read as COULDN'T FINISH / SOMETHING WENT WRONG with no note); a detached thread holds the job, `sCurrent` keeps the last run for the session |
 | `es-app/src/guis/GuiOfflineScan.cpp` / `.h` | 382 / 93 | the scan page, a fourth-tier page (D-UI-078) honoured: full screen, dimmed under, BACK → the cancel dialog only while running (YES then NO, NO null), the help bar drawn early; after a run that did not complete any button but OK closes it, a direction included; seven `TextComponent`s refreshed every frame and, with no `done` line, `cached_game_ids.txt` read every frame (`:299`) |
-| `es-app/src/ThreadedHasher.cpp` / `.h` | 415 / 76 | upstream's hasher (259/59 lines at the base) rewritten: the constructor fetches the hash library **on the interface thread in all four callers** (`SystemData.cpp:1134`, `NetworkThread.cpp:251` via `postToUiThread`, `GuiMenu.cpp:1214`, `GuiRetroAchievementsSettings.cpp:800`), `stallTimeout` 30 s on the two requests; the after-index top-up (`--after-index`, `:152`) runs from the destructor on a worker thread only when `mCheevosIndexed` -- offline the queue is emptied and the path never reaches it (blindspot 64 in code); a race between `start()` `:375-392` and `run()` `:257-263` for a short lookup-only queue; `throw e;` at `:117` loses the library's message; `GuiMsgBox(window, e.what())` at `:399` outside `_( )`; `pause()`/`resume()` with no caller |
-| `external/libcheevos/CMakeLists.txt` | 245 | `add_library(libcheevos STATIC ...)` with `-DRC_DISABLE_LUA`, the CHD/7zip/FLAC set, `-DHAVE_LROUND`; `ENABLE_RVZ_HASH` defaults to `${ROCKNIX}` (on for every device build), zstd or Boost missing is a `FATAL_ERROR`; it also compiles a stale rcheevos 10.7.0 generation (`src/rcheevos/rc_version.h`, `compat.c`, `rc_libretro.c`) beside the vendored 12.2.1 -- upstream-carried, outside this slice, **T44's**; `es-unit-tests` does not link it |
+| `es-app/src/ThreadedHasher.cpp` / `.h` | 415 / 76 | upstream's hasher (259/59 lines at the base) rewritten: the constructor fetches the hash library **on the interface thread at every call site** -- `ThreadedHasher::start(` at `SystemData.cpp:1134`, `GuiMenu.cpp:1214`, `GuiRetroAchievementsSettings.cpp:800`, `GuiHashStart.cpp:85`, `GuiNetPlaySettings.cpp:59`, and `NetworkThread.cpp:251` through `postToUiThread` -- `stallTimeout` 30 s on the two requests; the after-index top-up (`--after-index`, `:152`) runs from the destructor on a worker thread only when `mCheevosIndexed` -- offline the queue is emptied and the path never reaches it (blindspot 64 in code); a race between `start()` `:375-392` and `run()` `:257-263` for a short lookup-only queue; `throw e;` at `:117` loses the library's message; `GuiMsgBox(window, e.what())` at `:399` outside `_( )`; `pause()`/`resume()` with no caller |
+| `external/libcheevos/CMakeLists.txt` | 245 | `add_library(libcheevos STATIC ...)` with `-DRC_DISABLE_LUA`, the CHD/7zip/FLAC set, `-DHAVE_LROUND`; `ENABLE_RVZ_HASH` defaults to `${ROCKNIX}` (on for every device build), zstd or Boost missing is a `FATAL_ERROR`; it also compiles a stale rcheevos 10.7.0 generation (`external/libcheevos/rcheevos/src/rcheevos/rc_version.h`, `compat.c`, `rc_libretro.c`) beside the vendored 12.2.1 (`external/libcheevos/rcheevos/src/rc_version.h`) -- upstream-carried, outside this slice, **T44's**; `es-unit-tests` does not link it |
 | `external/libcheevos/cheevos.cpp` / `.h` | 193 / 8 | the `.rvz` + GameCube dispatch and `gameCubeRvzHashEnabled()` (`1a4a2f12c`, `5a86caea9`); the hash path `ThreadedHasher` → `FileData::checkCheevosHash` → `RetroAchievements::getCheevosHashFromFile` (a zero sentinel on failure) → `generateHashFromFile` → `generateGameCubeRvzHash` (its own iterator and file reader, `rc_hash_generate(..., RC_CONSOLE_GAMECUBE, ...)`) |
 | `external/libcheevos/rvz_hash.cpp` / `.h`, `LICENSE.rvz-padding`, `RVZ-NOTICES.md` | 389 / 7, 29, 29 | the bounded GameCube RVZ reader (`1a4a2f12c`, 2026-10-13): a byte-indexed lagged-Fibonacci padding generator (`:66-98`; 521 words, the `<<23 ^ >>9 ^ [i-1]` seeding, four initial advances, the 32-tap advance, byte shifts 24/18/8/0) attributed to bodgit/rvz at `bc439051cbed` under BSD-3, the notices installed by the ES recipe to `/usr/share/licenses/emulationstation/`; **this copy never had the defect** the proxy's Python twin (`rvz_datasource.py:655-671`) received patch 020 for a day later; RetroArch's GPL `cheevos_rvz.c` is a third, byte-granular copy kept as a reference under `docs/qa-logs/` and copied from nowhere by the README's word |
 | `external/libcheevos/rcheevos/src/rhash/hash_disc.c` | 1,352 | the fork's +26/-14 inside rcheevos 12.2.1's disc hashing: every `rc_file_read` in `rc_hash_nintendo_disc_partition` and `rc_hash_gamecube` checked, the header-size sum widened to `uint64_t`, two `rc_file_close` calls that double-closed on `malloc` failure removed; **absent from upstream's 12.5.0** (the proxy's cached rcheevos; 140 changed lines there, none in the GameCube region) -- a #585 candidate for rcheevos; `dol_offsets`/`dol_sizes` still trusted as seek and length (now a failure, not a stale buffer) |
@@ -197,10 +194,7 @@ query at `RetroAchievements.cpp:1037`. The token: set at `:777` and
 `NetworkThread.cpp:268`, cleared at `:767`, `:780`, `:796`. The web API
 key: a masked row (`:616`), `y=` on every page request. All four at rest in
 clear text in `system.cfg` (T21's `SystemConf`; `backuptool` strips the
-`.key=`, `.password=` and `.token=` lines from the archive, T17's). No
-credential reaches a `LOG(` (nine in the client, two in the page,
-enumerated) or a command line; `Utils::String::maskSecrets` exists and is
-used only by `ApiSystem.cpp`. **Every request goes through `HttpReq`, whose
+`.key=`, `.password=` and `.token=` lines from the archive, T17's). No credential reaches a `LOG(` (nine in the client, two in the page, enumerated; two of them carry the word *token* in prose at `:761` and `:792`, no value) or a command line; `Utils::String::maskSecrets` is used in ten files -- this slice's `OfflineScanJob.cpp:165` among them, and `FileData.cpp:1090` -- and not by the account client. **Every request goes through `HttpReq`, whose
 `es-core/src/HttpReq.cpp:192` sets `CURLOPT_SSL_VERIFYPEER` to 0** (upstream
 batocera's 2021 line for the scrapers, carried by ROCKNIX): the password
 and the key travel to an unverified peer. That is **#1154** (bug, Medium,
@@ -211,8 +205,7 @@ T21's (`HttpReq` is `es-state-and-bridge`'s file) is ruled at the stage-D
 pause.
 
 **The contract with the ctl** (the offline digest § 1; the other end is
-T19's, read at `8ebaf8daad`). The ctl's `>>> ` protocol is `tell()`
-(`raofflineproxy-ctl:835-837`, 20 call sites); its `say()` (`:371-373`) is
+T19's, read at `8ebaf8daad`). The ctl's `>>> ` protocol is `tell()` (`raofflineproxy-ctl:835-837`, 21 call sites); its `say()` (`:371-373`) is
 `logger`, syslog only -- T19's brief says `say()` where it means `tell()`,
 an erratum for T19 at acceptance, not this slice's. The four `ask()` verbs'
 shapes match their parsers (`CloudText::parsePendingCount`,
@@ -294,13 +287,9 @@ in): `.claude/rules/es-native-ui.md` § Core patterns (the credential row
 `:107-113`), § The cards at the link's return (`:144-173`, D-UI-101/109), §
 the four surface tiers (`:205-212`: the scan page is the fourth tier,
 D-UI-078), § One floating surface at a time (`:214-222`, D-UI-093), § A
-fourth-tier page is sat in, with CANCEL (`:225-250`), § Anything automatic
-that moves data is shown while it runs (`:254-272`, D-UI-095/096), § A
-layout must not be computed from what it last produced (`:323-340`, the
-SCAN GAMES row, blindspot 44); `es-player-text.md` § Conventions (`:79-137`:
+fourth-tier page is sat in, with CANCEL (`:225-250`), § Anything automatic that moves data is shown while it runs (`:255-272`, D-UI-095/096), § A layout must not be computed from what it last produced (`:324-340`, the SCAN GAMES row, blindspot 44); `es-player-text.md` § Conventions (`:79-137`:
 the RETROACHIEVEMENTS card's words, D-UI-096/101-109; the index-offline
-card D-UI-106) and § Outcome vocabulary (`:253-292`); `es-ui-style-guide.md`
-§ Dim, don't hide (`:91-96`) and § Gating (`:273`); `es-code-traps.md` §
+card D-UI-106) and § Outcome vocabulary (`:253-292`); `es-ui-style-guide.md` § Dim, don't hide (`:133`; `:91-96` is the `multiLine` trap) and § Gating (`:273`); `es-code-traps.md` §
 Three things a font is not (`:121-125`, the cache), § A pooled connection
 (`:218-244`, the hasher's fetch on the interface thread, #299/#300), § A
 file under three bytes; `generic-x64-vm-testing.md` (`:326-334` the hasher
@@ -308,7 +297,7 @@ and `/isIdle`; `:495-500` the RETROACHIEVEMENTS row's conditions; `:754-760`
 the filter and `Invalid user/password combination`; `:890-895`
 `--ra-offline` opt-in; `:1044-1090` the games with sets and `ra-offline-test`;
 `:1150-1161` a settings change from the shell; `:1169-1186` `ra-ui-test`;
-`:1246-1300` `frame-diff`); `least-surprise.md` and `time-to-play.md` (which
+`:1246-1300` `frame-diff` -- the ranges hold on the coordinator's branch, which the lane's worktree carries after the merge; the P1 copy differs); `least-surprise.md` and `time-to-play.md` (which
 name none of these pages, and bind them anyway); `bugs-are-agent-first.md`
 rule 6; `engineering-practices.md` § Consider contributing (D-WORKFLOW-164/165).
 
@@ -331,8 +320,7 @@ proof), and 22, 39, 75 as always.
 
 **The tests at the pin** (the record digest § 3): `OfflineAchievementsTextTests.cpp`
 15 cases, `CheevosIndexTests.cpp` 6, `CheevosRetryTests.cpp` 7,
-`OfflineProxyUrlTests.cpp` 4, `CloudTextTests.cpp`'s 9 RetroAchievements
-cases of 70, `ProxyCardsTests.cpp` 11, `JobsTests.cpp`'s one scan-job case,
+`OfflineProxyUrlTests.cpp` 4, `CloudTextTests.cpp`'s RetroAchievements cases among its 70 (five `TEST_CASE` lines by word; nine by the digest's wider count), `tests/app-unit/ProxyCardsTests.cpp` 11, `tests/app-unit/JobsTests.cpp`'s one scan-job case,
 `tests/hasher-offline-index.py`. Every function of `OfflineAchievementsText.h`,
 `CheevosIndex.h`, `CheevosRetry.h` and `CloudText.h`'s RetroAchievements
 block is named by a test. **No test:** `RetroAchievements.cpp` (1,072 lines:
@@ -354,10 +342,7 @@ top-up packets of 2026-10-14 with no frames. `to-manage-cloud-storage.steps:7-8`
 assumes no sign-in (signed in, the main menu opens on its RETROACHIEVEMENTS
 row first).
 
-**The French:** 222 `_("` occurrences, 177 unique literals across the pages
-and `ProxyCards.cpp`, 177 of 177 present and translated in the catalog at
-the pin (2,189 msgids, 0 empty, 0 fuzzy); run-time-composed strings not
-counted (`tools/es-untranslated` is the check).
+**The French:** 222 `_("` occurrences across the pages and `ProxyCards.cpp` (192 lines by `git grep -c`, which omits two files at 0), 157 to 177 unique literals by method (a one-line regex against the digest's 40-character prefix match -- the lane states its own), every one present and translated in the catalog at the pin (2,206 `msgid` lines less the header, 3 obsolete beside, 0 empty, 0 fuzzy); `tools/es-untranslated --es-src <W> --upstream bccd715707` reads 0 fork strings untranslated (706 of 706 at the pin); run-time-composed strings not counted.
 
 **The record of the proxy's and the pages' proofs:** the proxy's epic audit
 (#186); `docs/qa-logs/2026-10-06-ra-award/` and `2026-10-06-ra-ui/`;
@@ -403,10 +388,7 @@ anything.
   modes as the ctl writes them (T19's finding: no `umask` anywhere -- read
   from the guest); `exists(` second arguments (all `false` for the ctl's
   files; the one cached read right).
-- **Q4 The pages.** Every row's builder, store and save mechanism against
-  `es-ui-style-guide.md` (two switches on `es_settings.cfg` where the
-  launch scripts read SystemConf -- which scripts read
-  `RetroachievementsMenuitem` and `CheevosCheckIndexesAtStart`?); HARDCORE
+- **Q4 The pages.** Every row's builder, store and save mechanism against `es-ui-style-guide.md` (two switches on `es_settings.cfg`: the proof's grep finds no file under `projects/` or `packages/` reading `RetroachievementsMenuitem` or `CheevosCheckIndexesAtStart` at `fbdcbde7d9`, so the store is right for both and the lane confirms it at its lines); HARDCORE
   MODE with two writers (the page and the ctl's `enable` line) and nothing
   holding it while the proxy is on; `Settings.cpp:420`'s same-named
   `.hardcore` default and who reads it; the dialogs' button order (all
@@ -463,11 +445,7 @@ anything.
    (copied into this audit folder's `tools/`, its source list recorded;
    rapidjson by a named copy with provenance, or the dependent cases named
    as not run); `tools/es-syntax-check` records its exit-2 line with
-   `ES_BUILD_ROOT` set, never empty; the pages and the hasher include SDL
-   and are `CANNOT` for the host's `g++ -fsyntax-only` (as T18's three
-   were), their compile proof the integration build's; `RetroAchievements.cpp`
-   and `OfflineAchievements.cpp` are tried the same way and recorded as they
-   fall. `tools/es-menu-map-check --es-src <W>` and `tools/es-untranslated
+   `ES_BUILD_ROOT` set, never empty; the pages and the hasher include SDL and are `CANNOT` for the host's `g++ -fsyntax-only` (as T18's three were), `RetroAchievements.cpp` falls on `curl/curl.h` (the host has no curl headers), and their compile proof is the integration build's; `OfflineAchievements.cpp` is tried the same way and recorded as it falls. `tools/es-menu-map-check --es-src <W>` and `tools/es-untranslated
    --es-src <W>` run on the host. **A new unit case is the proof of choice
    for every pure lead** (the exit mapping, the line cap, the two-byte
    file, the parsers). The libcheevos diffs are read against the base and,
@@ -514,35 +492,35 @@ ES worktree, `PIN` the pin; counts by `/usr/bin/grep` (#1138):
 ```bash
 export LC_ALL=C; W=/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667; PIN=16dbac5211eea7e70db7394372033be2be7df829; G=/usr/bin/grep
 D=$(pwd); export TMPDIR=/workspace/tmp/m6-t20/tmp; mkdir -p "$TMPDIR"; df -i /workspace | tail -n 1
-# the ES worktree at the pin, clean; the merge base (expect the pin; 0; bccd715707)
+# the ES worktree at the pin, clean; the merge base (expect the pin; 0; bccd715707; the membership block's merge-base count 15)
 git -C "$W" rev-parse HEAD; git -C "$W" status --short | wc -l; git -C "$W" merge-base bccd715707 HEAD | cut -c1-10
-# the credentials' sinks (expect the four keys at GuiRetroAchievementsSettings.cpp 610, 611, 616; z= and y= at RetroAchievements.cpp 149, 195, 521, 634, 757; p= at 1037; User-Agent 181-183; u= to the proxy at 301, 315, 338; VERIFYPEER 0 at HttpReq.cpp:192 and VERIFYHOST 0 at :200, #1154)
+# the credentials' sinks (expect the four keys at GuiRetroAchievementsSettings.cpp 610, 611, 616; the query parameters z= y= p= u= built at RetroAchievements.cpp 149, 195, 521, 634, 757 (z, y), 1037 (p, concatenated) and 301, 315, 338 (u, opening a literal) -- the grep below catches the quoted forms, the lane reads the rest at those lines; the user agent at 181-183 is the variable userAgent; VERIFYPEER 0 at HttpReq.cpp:192 and VERIFYHOST 0 at :200, #1154)
 git -C "$W" grep -n -E 'global\.retroachievements\.(username|password|token|key)' "$PIN" -- es-app/src/guis/GuiRetroAchievementsSettings.cpp | sed "s/^$PIN://" | cut -c1-110
-git -C "$W" grep -n -E '[?&](z|y|p|u)=' "$PIN" -- es-app/src/RetroAchievements.cpp | sed "s/^$PIN://" | cut -c1-120; git -C "$W" grep -n -E 'User-Agent' "$PIN" -- es-app/src/RetroAchievements.cpp | sed "s/^$PIN://" | cut -c1-100
+git -C "$W" grep -n -E '["?&](z|y|p|u)=' "$PIN" -- es-app/src/RetroAchievements.cpp | sed "s/^$PIN://" | cut -c1-120; git -C "$W" grep -n -i -E 'user-?agent' "$PIN" -- es-app/src/RetroAchievements.cpp | sed "s/^$PIN://" | cut -c1-100
 git -C "$W" grep -n -E 'SSL_VERIFY(PEER|HOST)' "$PIN" -- es-core/src/HttpReq.cpp | sed "s/^$PIN://"
-# no credential in a LOG( line (expect 0 LOG( lines naming a password, token or key value in the two files; maskSecrets used in ApiSystem.cpp only)
+# no credential in a LOG( line (expect 2 LOG( lines carrying the word token in prose, :761 and :792, no value; maskSecrets in ten files, OfflineScanJob.cpp:165 among them, none in RetroAchievements.cpp)
 git -C "$W" grep -n -E 'LOG\(' "$PIN" -- es-app/src/RetroAchievements.cpp es-app/src/guis/GuiRetroAchievementsSettings.cpp | sed "s/^$PIN://" | $G -i -E 'passw|token|key' | wc -l; git -C "$W" grep -c 'maskSecrets' "$PIN" -- es-app/src es-core/src | sed "s/^$PIN://"
 # the ctl calls and the reader (expect scan :322 after saveSystemConf :321; enable|disable :479; the have_account comment :154; ask() :51-57; WEXITSTATUS without WIFEXITED at ApiSystem.cpp:2278-2291; OfflineScanJob::run with WIFEXITED :156-157; the 1024 cap :145)
 git -C "$W" grep -n -E 'raofflineproxy-ctl|have_account' "$PIN" -- es-app/src/guis/GuiRetroAchievementsSettings.cpp es-app/src/OfflineAchievements.cpp | sed "s/^$PIN://" | cut -c1-120
 git -C "$W" show "$PIN:es-app/src/ApiSystem.cpp" | sed -n '2278,2291p' | $G -n -E 'WEXITSTATUS|WIFEXITED|pclose'; git -C "$W" show "$PIN:es-app/src/OfflineScanJob.cpp" | $G -n -E 'WIFEXITED|WEXITSTATUS|1024|>>> pid' | cut -c1-110
-# the exists( cache (expect one cached read at GuiRetroAchievementsSettings.cpp:633 on the ctl's path; every ctl file read with false in OfflineAchievements.cpp)
+# the exists( cache (expect two cached reads of the ctl's own path, GuiRetroAchievementsSettings.cpp:633 and OfflineAchievements.cpp:98; every ctl-written file read with false in OfflineAchievements.cpp)
 git -C "$W" grep -n -E 'FileSystem::exists\(' "$PIN" -- es-app/src/OfflineAchievements.cpp es-app/src/guis/GuiRetroAchievementsSettings.cpp es-app/src/OfflineScanJob.cpp es-app/src/ThreadedHasher.cpp es-app/src/RetroAchievements.cpp | sed "s/^$PIN://" | cut -c1-120
-# the network client's bounds (expect the login request with no timeout; page requests 15 s / 10 s; the hash library stallTimeout 30 s; the hasher constructed in four callers)
-git -C "$W" grep -n -E 'stallTimeout|\.timeout|connectTimeout' "$PIN" -- es-app/src/RetroAchievements.cpp es-app/src/ThreadedHasher.cpp | sed "s/^$PIN://" | cut -c1-110; git -C "$W" grep -n -E 'new ThreadedHasher|ThreadedHasher\(' "$PIN" -- es-app/src | sed "s/^$PIN://" | cut -c1-110
-# the strings (expect 222 _( ) occurrences in the eight sources and ProxyCards.cpp; es-untranslated 0; the texts outside _( ): e.what() at ThreadedHasher.cpp:399, curl's error text at RetroAchievements.cpp:165)
-git -C "$W" grep -c '_("' "$PIN" -- es-app/src/RetroAchievements.cpp es-app/src/OfflineAchievements.cpp es-app/src/OfflineScanJob.cpp es-app/src/ThreadedHasher.cpp es-app/src/guis/GuiRetroAchievements.cpp es-app/src/guis/GuiRetroAchievementsSettings.cpp es-app/src/guis/GuiGameAchievements.cpp es-app/src/guis/GuiOfflineScan.cpp es-app/src/ProxyCards.cpp | sed "s/^$PIN://"; tools/es-untranslated --es-src "$W" 2>&1 | tail -n 2
-# the menu map (expect es-menu-map-check 0 missing; the :595 line naming PL-07; the scan page's title absent from the map)
-tools/es-menu-map-check --es-src "$W" 2>&1 | tail -n 1; $G -n -E 'PL-07|left running' docs/es-menu-map.md | cut -c1-120; $G -c -i -E 'SCANNING|OFFLINE SCAN' docs/es-menu-map.md
+# the network client's bounds (expect the login request with no timeout; page requests 15 s / 10 s; the hash library stallTimeout 30 s; ThreadedHasher::start( at five direct call sites -- SystemData.cpp:1134, GuiMenu.cpp:1214, GuiRetroAchievementsSettings.cpp:800, GuiHashStart.cpp:85, GuiNetPlaySettings.cpp:59 -- and NetworkThread.cpp:251 through postToUiThread)
+git -C "$W" grep -n -E 'stallTimeout|\.timeout|connectTimeout' "$PIN" -- es-app/src/RetroAchievements.cpp es-app/src/ThreadedHasher.cpp | sed "s/^$PIN://" | cut -c1-110; git -C "$W" grep -n -E 'ThreadedHasher::start\(' "$PIN" -- es-app/src | sed "s/^$PIN://" | cut -c1-110
+# the strings (expect 222 _( ) occurrences by -o over the eight sources and ProxyCards.cpp, 192 lines by -c with two files at 0 omitted; es-untranslated 0 untranslated of 706 at the pin; the texts outside _( ): e.what() at ThreadedHasher.cpp:399, curl's error text at RetroAchievements.cpp:165)
+F8="es-app/src/RetroAchievements.cpp es-app/src/OfflineAchievements.cpp es-app/src/OfflineScanJob.cpp es-app/src/ThreadedHasher.cpp es-app/src/guis/GuiRetroAchievements.cpp es-app/src/guis/GuiRetroAchievementsSettings.cpp es-app/src/guis/GuiGameAchievements.cpp es-app/src/guis/GuiOfflineScan.cpp es-app/src/ProxyCards.cpp"; git -C "$W" grep -o '_("' "$PIN" -- $F8 | wc -l; git -C "$W" grep -c '_("' "$PIN" -- $F8 | sed "s/^$PIN://"; tools/es-untranslated --es-src "$W" --upstream bccd715707 2>&1 | $G -i -E 'untranslated|of ' | tail -n 1
+# the menu map (expect es-menu-map-check 0 missing -- it reads the ES checkout's git objects, so the worktree, not an extract; the :595 line naming PL-07; the scan page's full title absent from the map, 0)
+tools/es-menu-map-check --es-src "$W" 2>&1 | tail -n 1; $G -n -E 'PL-07|left running' docs/es-menu-map.md | cut -c1-120; $G -c 'SCANNING GAMES FOR OFFLINE ACHIEVEMENTS' docs/es-menu-map.md
 # the walks and the baseline (expect one RA walk, 36 lines; 0 lines naming it in suite.txt, claims.txt, masks.txt; ra-ui-test --help exit 0)
 wc -l tools/vm-walks/m7-retro-achievements.steps; $G -c -i -E 'retro|achiev|offline' tools/vm-walks/suite.txt tools/vm-walks/claims.txt tools/vm-walks/masks.txt; tools/ra-ui-test --help >/dev/null 2>&1; echo "ra-ui-test --help rc=$?"
 # the library's delta (expect the whole directory's diff base..pin equal to the nine rows, 526 insertions 15 deletions; rcheevos 12.2.1 in rc_version.h and a stale 10.7.0 beside it)
 git -C "$W" diff --stat bccd715707 "$PIN" -- external/libcheevos | tail -n 1; git -C "$W" grep -n -E 'RCHEEVOS_VERSION_(MAJOR|MINOR|PATCH)' "$PIN" -- external/libcheevos | sed "s/^$PIN://" | cut -c1-100
-# the tests at the pin (expect 15, 6, 7, 4 cases; CloudTextTests' RA cases; the unit tests built by the generated command: the summary lines or CANNOT with the sources left out)
-for f in OfflineAchievementsTextTests CheevosIndexTests CheevosRetryTests OfflineProxyUrlTests; do printf '%s: ' "$f"; git -C "$W" show "$PIN:es-app/tests/unit/$f.cpp" | $G -c 'TEST_CASE'; done; git -C "$W" show "$PIN:es-app/tests/unit/CloudTextTests.cpp" | $G -c -i -E 'retroachievements|offline'
+# the tests at the pin (expect 15, 6, 7, 4 cases; CloudTextTests 70 cases, 5 TEST_CASE lines naming RetroAchievements by word; the unit tests built by the generated command: the summary lines or CANNOT with the sources left out)
+for f in OfflineAchievementsTextTests CheevosIndexTests CheevosRetryTests OfflineProxyUrlTests; do printf '%s: ' "$f"; git -C "$W" show "$PIN:es-app/tests/unit/$f.cpp" | $G -c 'TEST_CASE'; done; git -C "$W" show "$PIN:es-app/tests/unit/CloudTextTests.cpp" | $G -c 'TEST_CASE'; git -C "$W" show "$PIN:es-app/tests/unit/CloudTextTests.cpp" | $G -c -i -E 'TEST_CASE.*(retroachievements|achievement)'
 echo "the lane's tools/t20-build-tests.sh (from T18's) generates the g++ lines from both CMakeLists, names every -I, and records each binary's summary line"
-# the syntax check (expect exit 2 on this host with ES_BUILD_ROOT set, never empty) and the host g++ on three files (expect CANNOT naming SDL for the pages and the hasher; the pure files as they fall)
-ES_BUILD_ROOT=/nonexistent tools/es-syntax-check --tree "$W" es-app/src/OfflineAchievements.cpp 2>&1 | tail -n 1; echo "rc=$?"
-for f in es-app/src/OfflineAchievements.cpp es-app/src/RetroAchievements.cpp es-app/src/guis/GuiOfflineScan.cpp; do printf '%s: ' "$f"; g++ -std=c++17 -fsyntax-only -I "$W/es-app/src" -I "$W/es-core/src" -I "$W/external" "$W/$f" 2>&1 | tail -n 1 | cut -c1-100; echo "rc=${PIPESTATUS[0]}"; done
+# the syntax check (expect exit 2 on this host with ES_BUILD_ROOT set, never empty; rc captured on its own line, never after a pipe) and the host g++ on three files (expect the first error line: SDL for the scan page, curl/curl.h for RetroAchievements.cpp, OfflineAchievements.cpp as it falls)
+out=$(ES_BUILD_ROOT=/nonexistent tools/es-syntax-check --tree "$W" es-app/src/OfflineAchievements.cpp 2>&1); rc=$?; printf '%s\n' "$out" | tail -n 1; echo "es-syntax-check rc=$rc"
+for f in es-app/src/OfflineAchievements.cpp es-app/src/RetroAchievements.cpp es-app/src/guis/GuiOfflineScan.cpp; do out=$(g++ -std=c++17 -fsyntax-only -I "$W/es-app/src" -I "$W/es-core/src" -I "$W/external" "$W/$f" 2>&1); rc=$?; printf '%s: %s rc=%s\n' "$f" "$(printf '%s\n' "$out" | $G -m1 -E 'fatal error|error:' | cut -c1-90)" "$rc"; done
 # the removal check from the dispatch tip -- <dispatch tip> is the lane tip the dispatch comment on #667 names (expect empty: nothing under packages/ projects/ tools/ changed at stages A to D) and the ES diff against the pin (expect empty before stage E)
 git diff --stat <dispatch tip> HEAD -- packages projects tools | tail -n 1; git -C "$W" diff --stat "$PIN" HEAD | tail -n 1
 ```
@@ -589,7 +567,7 @@ from the artifacts, never from the hand-back's words.
 - [ ] `second-opinions/review-plan.json` records `depth: extended` and two reviewers (`gpt`, `openai/gpt-6-astra`, `max`; `gemini-argon`, `google/gemini-4-argon`, `high`); each seat's probe and refutation have a `.provenance.json` beside them whose served model is the seat's, whose verification is PASS and whose `facilitator_version` is named (read directly); `packet-manifest.json` carries the three-way scan with every hit dispositioned by name; the running log shows exactly four keyed invokes.
 - [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue (a `bug`, a Backlog the coordinator files, #1154, #585, #668, #673, #691, an M7 issue by number), withdrawn or recorded as written with its reason; `tools/box-check --issue <audit issue>` prints 0 fail.
 - [ ] `reviewed-at:`, `reviewed-at-es:`, `fixed-at:` and `fixed-at-es:` in the checklist's header carry the lane's commits; the ES read is on the pin's bytes for the 25 (`git -C <W> diff --stat 16dbac5211 <reviewed-at-es> -- $(cat .qa-scratch/t20/paths.txt)` empty before stage E) and nothing under the distribution's `packages/`, `projects/` or `tools/` changed at any stage.
-- [ ] `01-research-notes.md` § Scope records § 2's block with its output (25 paths, 7,485 lines; read 23 / 7,427; fork-own 24; libcheevos 9 / 2,556; 17 in the merge base -- or the deltas beside them) and the per-file line table at the pin.
+- [ ] `01-research-notes.md` § Scope records § 2's block with its output (25 paths, 7,485 lines; read 23 / 7,427; fork-own 24; libcheevos 9 / 2,556; 15 in the merge base -- or the deltas beside them) and the per-file line table at the pin.
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | /usr/bin/grep -c -E '^\| `'`` prints `25`.
 - [ ] `02-forward-audit.md` § The credentials' paths has one row per credential kind (the username, the password, the token, the web API key) per sink it can reach (a setting store at rest, a query string, a header, the unverified peer #1154, a log, a shell command, the screen, the packet), each at its line, with the mask at that sink or `none`.
 - [ ] `02-forward-audit.md` § The pages has one row per page and dialog (title, rows, builders, gates, stores, save mechanism, the strings' count, the dialog's button order), and states the two `es_settings.cfg` switches with what reads them.
@@ -688,3 +666,54 @@ owner's RetroAchievements account or any hosted account but the QA one
 grant on #667, M7's roots, worktrees or prep directories, a change outside
 the 25 files and the audit folder except under a stream brief, a move of
 the pin.
+
+## Version 2: what the stranger's proof found (2026-10-26)
+
+Nine commands from the scratch clone at `2174265e9c`, the ES pin read by
+hash only (the two tools that need a checkout ran on a `git archive`
+extract given the object store as an alternate). Every per-file line count,
+the membership's four summary lines, the numstats, every ES line number the
+brief states, the bounds, the ctl's `tell()`/`say()` split, the walk, the
+tests' counts, every decision ID, branch, audit folder and punch item held.
+The corrections:
+
+1. **The merge-base count is 15, not 17**, by the brief's own list of new
+   files (ten): only five libcheevos files exist at `bccd715707`. As
+   written, § 8 would have stopped the lane at stage A.
+2. `maskSecrets` is used in ten files, this slice's `OfflineScanJob.cpp:165`
+   among them -- not "only by `ApiSystem.cpp`".
+3. Four run comments disagreed with their commands: the query-parameter
+   grep missed the concatenated and literal-opening forms; `User-Agent`
+   matched nothing (the code says `userAgent`); the `LOG(` count is 2 (the
+   word *token* in prose), not 0; the hasher grep printed definitions, not
+   call sites (`ThreadedHasher::start(` has five direct sites plus
+   `NetworkThread`'s indirect one, not four); `git grep -c` prints 192
+   lines where 222 is the `-o` count.
+4. The syntax check's `rc=$?` read `tail`'s exit (the trap
+   `engineering-practices.md` names); `RetroAchievements.cpp` falls on
+   `curl/curl.h`, not SDL.
+5. `tools/es-untranslated` needs `--upstream bccd715707` (or the ES
+   remote), and its summary is not its last two lines;
+   `tools/es-menu-map-check` reads the checkout's git objects.
+6. `es-ui-style-guide.md` § Dim, don't hide is `:133`; `:91-96` is the
+   `multiLine` trap.
+7. `stopRun` is `:330-353`, the file's end.
+8. Counts now carry their method: 2,206 `msgid` lines less the header
+   (not 2,189); 157 to 177 unique literals by method; the RetroAchievements
+   cases of `CloudTextTests.cpp` are five `TEST_CASE` lines by word; `tell()`
+   has 21 sites.
+9. The scan page's title is absent from the map only when grepped whole;
+   the short pattern hit the drift line itself.
+10. Paths: `tests/app-unit/` for `ProxyCardsTests.cpp` and `JobsTests.cpp`;
+    the stale `rc_version.h` under `rcheevos/src/rcheevos/`; a second cached
+    `exists(` of the ctl's path at `OfflineAchievements.cpp:98`.
+11. Two rule ranges start a line later; `generic-x64-vm-testing.md`'s
+    ranges are the coordinator's branch's, which the lane's worktree has
+    after the merge. And a fact for Q4: no file under `projects/` or
+    `packages/` reads the two `es_settings.cfg` switches, so their store is
+    right.
+
+What a stranger could not do from version 1 alone: read #1154's body or
+#667's dispatch hashes (the tracker), T19's `02` (its branch ahead of
+origin at the time), the membership block from the coordinator's tree
+alone (it needs the stacked worktree, as § 2 says).

@@ -491,3 +491,30 @@ with any row touched. **Streams predicted: three** -- `ask()`'s
 `WIFEXITED` and the unmapped exits (where the coordinator rules the file),
 the `summary` line cap, and the menu map's drift with the page's entries;
 #1154's stream is a fourth if ruled this lane's.
+
+### Errata from the stranger's proof of T20's brief (version 2, 2026-10-26)
+
+Nine commands from the scratch clone and the ES pin by hash; every line
+number and nearly every figure held. What the proof corrected, and what
+the addendum above had assumed:
+
+- **The count that would have stopped the lane:** § 2's expected
+  merge-base count said 17 where the brief's own list of new files gives
+  15. A figure that is also a stop condition is reproduced before it is
+  written, not derived in prose; version 2 says 15 and the block prints
+  it.
+- **Five run comments disagreed with their commands** (the
+  query-parameter grep, `User-Agent` against `userAgent`, the `LOG(`
+  count, the hasher's call sites, `grep -c` against `grep -o`), and the
+  syntax check's `rc=$?` read `tail`'s exit -- the trap
+  `engineering-practices.md` names, committed into a brief that names the
+  rule. A run's expectation is written from the command's output on the
+  clone, as the stranger's proof then checks.
+- `maskSecrets` is used by ten files, this slice's reader among them; the
+  account client does not use it, which is the finding.
+- `RetroAchievements.cpp` falls on `curl/curl.h` on the host, not SDL;
+  the hasher has six call sites, not four; `stopRun` ends at `:353`.
+- A fact for Q4 from the proof: no script reads the two `es_settings.cfg`
+  switches, so their store is right.
+- The stream prediction stands at three (with #1154's as a fourth if ruled
+  this lane's).
