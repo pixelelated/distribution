@@ -5,6 +5,7 @@
 - **Nine `bug`s filed at the stage-D ruling (#666, 13:48 UTC), all Low**: #1157 to #1165 (PL-01 to PL-09; PL-04 with PL-21, PL-06 with PL-23, PL-08 with PL-16's classifier); the streams are `docs/reviews/briefs/t19-streams.md` at `6064579a3f`; the audit issue is #1156. Originally 8 proposed (PL-01 to PL-08), each with its trace, `Already written:` line and VM line; the rest Info. Nothing is Medium or above.
 - **Nothing** in this list changes a file under `packages/`, `projects/` or `tools/` at stages A to D; a fix lands only under a stream brief at the stage-D pause. Removals: none.
 - **One guest window**, 12:43:49 to 12:53:37 UTC, two boots; the image's scripts are M7's, so the tree's four ran from `/storage/t19/bin/` (`02` § The guest cycle, labelled as ruled). **Nothing ran on a person's device or account.**
+- **Found at stage E:** F-42, PL-24, #1166 (Low), in S5's function, ruled into S5 (#666, 15:15 UTC). The list is 24 items carrying 42 findings.
 - **A lead outside the slice:** the image's M7 client fails 4 of 18 native cases (`guest-cycle/b1-08-*`), posted by the coordinator on #1111.
 
 ---
@@ -375,6 +376,22 @@
 - **Acceptance:** recorded as written, or a failed removal counted as an image not saved
 - **Disposition note:** fixed with PL-06 (#1163, stream S7)
 
+## PL-24: the ctl's stderr goes to /dev/null for the rest of a run once pending_lock has run (found at stage E)
+
+- **Severity:** Low
+- **Category:** Correctness
+- **Question:** Q3
+- **Source Finding:** F-42
+- **Owner area:** `raofflineproxy-ctl` `pending_lock` (fork-own)
+- **What:**
+  - `exec 6<>"${PENDING_LOCK}" 2>/dev/null || return 1`. An `exec` with no command applies its redirections to the shell, so from the first `pending_lock` to the end of the run the ctl's stderr is `/dev/null`, `fail`'s line included. `say` (the journal) is unaffected.
+  - Found by the lane in S5 (#1161), filed as #1166. Ruled into S5 by the coordinator (#666, 15:15 UTC; `t19-streams.md` at `648dadebf1`).
+- **Evidence:** F-42; `stage-e/s5-before.txt` and `s5-after.txt`, case 6
+- **Can this be done on the VM?** Yes: on the host, the real ctl's `index-offline` in the lane's bubblewrap harness, with the marker's publication refused while the lock is held.
+- **Already written:** nothing; stderr is not stored.
+- **Acceptance:** a `fail` after `pending_lock` reaches stderr: FAIL before, PASS after
+- **Disposition note:** a `bug`, #1166, carried by stream S5 (#1161) at the coordinator's ruling of 15:15 UTC
+
 ## Phase 7 resolution gate
 
 Every item is open until stage F; each row then takes its outcome. The dispositions are the coordinator's at the stage-D pause.
@@ -404,6 +421,7 @@ Every item is open until stage F; each row then takes its outcome. The dispositi
 | PL-21 | Open | at the stage-D pause; disposition: fixed with PL-04 (#1161, stream S5) |
 | PL-22 | Open | at the stage-D pause; disposition: deferred to #585: two lines in `02` § The patches; the coordinator posts them |
 | PL-23 | Open | at the stage-D pause; disposition: fixed with PL-06 (#1163, stream S7) |
+| PL-24 | Resolved | found at stage E and ruled into S5 (#666, 15:15 UTC): the fix in S5's commit (#1161, #1166; `02` § The streams), its positive `stage-e/s5-before.txt` and `s5-after.txt` case 6 |
 
 ## Machine-readable index
 
@@ -547,4 +565,10 @@ punch_index:
   question: Q3
   source_finding: "F-33"
   outcome: "open"
+- id: PL-24
+  severity: "Low"
+  category: Correctness
+  question: Q3
+  source_finding: "F-42"
+  outcome: "resolved"
 ```

@@ -417,7 +417,9 @@ do_start() {
 
 do_stop() {
     have_systemctl || return 0
-    systemctl stop "${UNIT}" || say "${UNIT} did not stop cleanly; carrying on"
+    systemctl stop "${UNIT}" && return 0
+    say "${UNIT} did not stop"
+    return 1
 }
 
 # What this run of enable changed, for enable_undo to put back: the marker
@@ -429,7 +431,15 @@ E_HARDCORE_BEFORE=""; E_HARDCORE_CHANGED=0; E_KEY_BEFORE=""; E_KEY_CHANGED=0
 
 # A setting back to what it was: its old value, or gone when it had none.
 put_back() {
-    if [ -n "${2}" ]; then set_setting "${1}" "${2}"; else set_setting "${1}" default; fi
+    # Read back, as every forward write is: 0 only when the setting reads as
+    # it was (#1161).
+    if [ -n "${2}" ]; then
+        set_setting "${1}" "${2}"
+        [ "$(setting "${1}")" = "${2}" ]
+    else
+        set_setting "${1}" default
+        [ -z "$(setting "${1}")" ]
+    fi
 }
 
 # A step of enable did not hold: undo every step this run made, in the
@@ -439,11 +449,15 @@ put_back() {
 # failed is a device on which enable never ran (#186 PL-16).
 enable_undo() {
     say "enable: $*; putting the device back as it was"
-    [ "${E_KEY_CHANGED}" -eq 1 ] && put_back "${KEY}" "${E_KEY_BEFORE}"
-    [ "${E_HARDCORE_CHANGED}" -eq 1 ] && put_back "${HARDCORE_KEY}" "${E_HARDCORE_BEFORE}"
-    [ "${E_RECORD_WROTE}" -eq 1 ] && set_setting "${HARDCORE_WAS_KEY}" default
-    [ "${E_STARTED}" -eq 1 ] && [ "${E_SERVICE_WAS}" -eq 0 ] && do_stop
-    [ "${E_MARKER_WAS}" -eq 0 ] && rm -f "${MARKER}"
+    # Each step of the undo is checked like the step it undoes, and the
+    # first that did not hold is said: "back as it was" is a claim (#1161).
+    local BAD=""
+    if [ "${E_KEY_CHANGED}" -eq 1 ]; then put_back "${KEY}" "${E_KEY_BEFORE}" || BAD="${BAD:-${KEY}}"; fi
+    if [ "${E_HARDCORE_CHANGED}" -eq 1 ]; then put_back "${HARDCORE_KEY}" "${E_HARDCORE_BEFORE}" || BAD="${BAD:-${HARDCORE_KEY}}"; fi
+    if [ "${E_RECORD_WROTE}" -eq 1 ]; then put_back "${HARDCORE_WAS_KEY}" "" || BAD="${BAD:-${HARDCORE_WAS_KEY}}"; fi
+    if [ "${E_STARTED}" -eq 1 ] && [ "${E_SERVICE_WAS}" -eq 0 ]; then do_stop || BAD="${BAD:-the service}"; fi
+    if [ "${E_MARKER_WAS}" -eq 0 ]; then rm -f "${MARKER}"; [ ! -e "${MARKER}" ] || BAD="${BAD:-${MARKER}}"; fi
+    [ -z "${BAD}" ] || fail "$*; and ${BAD} could not be put back as it was"
     fail "$*"
 }
 
@@ -588,7 +602,8 @@ do_disable() {
         [ "$(setting "${KEY}")" = "1" ] || fail "a scan or top-up did not stop, and ${KEY} could not be put back"
         fail "a scan or top-up did not stop within ${STOP_WAIT}s; offline RetroAchievements stays on"
     fi
-    do_stop
+    local STOPPED=1
+    do_stop || STOPPED=0
     rm -f "${MARKER}"
 
     # Put hardcore back as the record says, and remove the record only once
@@ -606,6 +621,9 @@ do_disable() {
     fi
 
     [ ! -e "${MARKER}" ] || fail "${MARKER} could not be removed"
+    # Everything else is off; a service that would not stop is still said,
+    # and the exit says it too (#1161).
+    [ "${STOPPED}" -eq 1 ] || fail "offline RetroAchievements is off, but ${UNIT} did not stop"
 
     say "offline RetroAchievements off: hardcore ${WAS:+put back to }${WAS:-left as it was}; ${UNIT} $(service_state)"
     echo "hardcore=$(as_flag "$(setting "${HARDCORE_KEY}")")"
@@ -1173,7 +1191,33 @@ write_stamp() {
     [ -n "${WHY}" ] && LINE="${LINE} why=${WHY}"
     [ -n "${NOTE}" ] && LINE="${LINE} note=${NOTE}"
     mkdir -p "${PROXY_DIR}" || return 1
-    printf '%s\n' "${LINE}" > "${SCAN_STAMP}.tmp" && mv -f "${SCAN_STAMP}.tmp" "${SCAN_STAMP}"
+    # mv into a folder by the stamp's name "succeeds" and publishes nothing,
+    # so a stamp that is not a file is refused; a failed write takes its
+    # temporary with it (#1161).
+    if [ -e "${SCAN_STAMP}" ] && [ ! -f "${SCAN_STAMP}" ]; then
+        say "${ROUTE}: ${SCAN_STAMP} is not a file; the run's stamp was not written"
+        return 1
+    fi
+    if printf '%s\n' "${LINE}" > "${SCAN_STAMP}.tmp" && mv -f "${SCAN_STAMP}.tmp" "${SCAN_STAMP}"; then
+        return 0
+    fi
+    rm -f "${SCAN_STAMP}.tmp"
+    say "${ROUTE}: the stamp could not be written"
+    return 1
+}
+
+# A run's stamp, and what a stamp that could not be written does to the run
+# (#1161): the row would go on showing the run before, so a run that
+# otherwise completed ends 1 and tells the page why (a token new to the
+# interface's table; its sentence is T20's); a run already ending non-zero
+# keeps its own code and why.
+stamp() {
+    write_stamp "$@" && return 0
+    if [ "${1}" = "0" ]; then
+        tell "why STAMP_UNWRITABLE"
+        exit 1
+    fi
+    return 1
 }
 
 # The walk's proposed cursor (scan-cursor.next, from list_jobs) becomes the
@@ -1917,7 +1961,7 @@ cancelled() {
         MADE="$(games_made_ready "${READY_BEFORE}" "${READY_AFTER}")"
     fi
     tell "why CANCELLED"
-    write_stamp 130 "${1}" "${R_CACHED:-0}" "${R_SKIPPED:-0}" "${READY}" 0 "${R_INDEXED:-0}" "${R_ERRORS:-0}" CANCELLED "${MADE}"
+    stamp 130 "${1}" "${R_CACHED:-0}" "${R_SKIPPED:-0}" "${READY}" 0 "${R_INDEXED:-0}" "${R_ERRORS:-0}" CANCELLED "${MADE}"
     slog "${1} cancelled by the player: cached=${R_CACHED:-0} skipped=${R_SKIPPED:-0} errors=${R_ERRORS:-0} ready=${READY}"
     say "${1}: cancelled"
     exit 130
@@ -2089,7 +2133,7 @@ do_scan() {
     if ! COUNTS="$(list_jobs "${LIST}" all 0 2>>"${SCAN_LOG}")"; then
         slog "scan: the library could not be listed"
         tell "why LIBRARY_UNREADABLE"
-        write_stamp 1 scan 0 0 "$(count_ready)" 0 0 0 LIBRARY_UNREADABLE
+        stamp 1 scan 0 0 "$(count_ready)" 0 0 0 LIBRARY_UNREADABLE
         exit 1
     fi
     local FOUND NEW TRUNC
@@ -2113,7 +2157,7 @@ do_scan() {
         slog "scan done: no games found under ${ROMS_ROOT}, ready=${READY}"
         tell "note NO_GAMES"
         commit_cursor || slog "scan: an old cursor could not be removed; the next walk starts from the top all the same"
-        write_stamp 0 scan 0 0 "${READY}" 0 0 0 "" "" 0 NO_GAMES
+        stamp 0 scan 0 0 "${READY}" 0 0 0 "" "" 0 NO_GAMES
         tell "done 0|0|${READY}|0"
         exit 0
     fi
@@ -2130,7 +2174,7 @@ do_scan() {
         local RC0=0 WHY0="${R_IMAGES_WHY}"
         [ -n "${WHY0}" ] && { RC0=1; tell "why ${WHY0}"; }
         slog "scan done: nothing new, ready=${READY}${WHY0:+ why=${WHY0}}"
-        write_stamp "${RC0}" scan 0 0 "${READY}" 0 0 0 "${WHY0}"
+        stamp "${RC0}" scan 0 0 "${READY}" 0 0 0 "${WHY0}"
         tell "done 0|0|${READY}|0"
         exit "${RC0}"
     fi
@@ -2202,7 +2246,7 @@ do_scan() {
     [ "${TRUNC}" -eq 1 ] && tell "note TRUNCATED"
     [ "${R_ERRORS}" -gt 0 ] && tell "errors ${R_ERRORS}"
     [ -n "${WHY}" ] && tell "why ${WHY}"
-    write_stamp "${RC}" scan "${R_CACHED}" "${R_SKIPPED}" "${READY}" "${R_LIMIT}" "${R_INDEXED}" "${R_ERRORS}" "${WHY}" "${ADDED}" "${TRUNC}"
+    stamp "${RC}" scan "${R_CACHED}" "${R_SKIPPED}" "${READY}" "${R_LIMIT}" "${R_INDEXED}" "${R_ERRORS}" "${WHY}" "${ADDED}" "${TRUNC}"
     slog "scan done: rc=${RC} cached=${R_CACHED} indexed=${R_INDEXED} skipped=${R_SKIPPED} errors=${R_ERRORS} ready=${READY} limit=${R_LIMIT}${WHY:+ why=${WHY}}"
     say "scan: cached ${R_CACHED} (${R_INDEXED} from the index), skipped ${R_SKIPPED}, ${READY} ready${WHY:+; ${WHY}}"
     tell "done ${R_CACHED}|${R_SKIPPED}|${READY}|${R_LIMIT}"
@@ -2238,7 +2282,10 @@ do_scan() {
 PENDING_LOCK="/var/run/raofflineproxy-index-pending.lock"
 pending_lock() {
     local TRY=0
-    exec 6<>"${PENDING_LOCK}" 2>/dev/null || return 1
+    # The redirect is the open's alone: on exec's own line it would apply to
+    # the shell, and every later stderr line of the run -- fail's included --
+    # went to /dev/null (#1166).
+    { exec 6<>"${PENDING_LOCK}"; } 2>/dev/null || return 1
     until flock -n 6; do
         TRY=$((TRY + 1))
         if [ "${TRY}" -ge 5 ]; then exec 6>&-; return 1; fi
@@ -2253,8 +2300,11 @@ pending_unlock() {
 write_index_pending() {
     local LOCKED=0 RC=0
     if pending_lock; then LOCKED=1; else say "index-pending: its lock could not be had; written without it"; fi
-    printf '%s %s %s\n' "$(date +%s)" "$$" "${RANDOM}" > "${INDEX_PENDING}.tmp" 2>/dev/null \
-        && mv -f "${INDEX_PENDING}.tmp" "${INDEX_PENDING}" || RC=1
+    # A temporary of this process's own: the fallback writes without the
+    # lock, and two writers sharing one name could publish each other's
+    # half-written line (#1161).
+    printf '%s %s %s\n' "$(date +%s)" "$$" "${RANDOM}" > "${INDEX_PENDING}.tmp.$$" 2>/dev/null \
+        && mv -f "${INDEX_PENDING}.tmp.$$" "${INDEX_PENDING}" || { RC=1; rm -f "${INDEX_PENDING}.tmp.$$"; }
     [ "${LOCKED}" -eq 1 ] && pending_unlock
     return "${RC}"
 }
@@ -2275,8 +2325,14 @@ ack_index_pending() {
         if [ "$(cat "${mine}" 2>/dev/null)" = "${1}" ]; then
             rm -f "${mine}" && [ ! -e "${mine}" ] && RC=0
         else
-            [ -e "${INDEX_PENDING}" ] || mv -f "${mine}" "${INDEX_PENDING}" 2>/dev/null
-            rm -f "${mine}" 2>/dev/null
+            # Put back unless a newer marker has landed; a put-back that
+            # failed keeps the aside -- the only copy of the marker -- and
+            # says so, rather than removing it (#1161).
+            if [ -e "${INDEX_PENDING}" ]; then
+                rm -f "${mine}" 2>/dev/null
+            elif ! mv -f "${mine}" "${INDEX_PENDING}" 2>/dev/null; then
+                say "index-pending: the marker could not be put back; kept as ${mine}"
+            fi
         fi
     fi
     pending_unlock
@@ -2510,7 +2566,7 @@ print(int(r.get("cached", 0)), int(r.get("skipped", 0)), 1 if r.get("limit_reach
     # say: games it added, or a run that could not finish. Nothing new
     # leaves the last scan's line as it was.
     if [ -n "${WHY}" ]; then
-        write_stamp 1 topup "${CACHED}" "${SKIPPED}" "${READY}" "${LIMIT}" "${INDEXED}" "${ERRORS}" "${WHY}" "${ADDED}"
+        stamp 1 topup "${CACHED}" "${SKIPPED}" "${READY}" "${LIMIT}" "${INDEXED}" "${ERRORS}" "${WHY}" "${ADDED}"
         say "topup could not finish (${WHY}); cached ${CACHED}, ${READY} ready"
         exit 1
     fi
@@ -2522,11 +2578,11 @@ print(int(r.get("cached", 0)), int(r.get("skipped", 0)), 1 if r.get("limit_reach
         if [ -n "${R_IMAGES_WHY}" ]; then
             # The games are cached; their images are not all there (#307
             # PL-060): a run whose parts disagree could not finish.
-            write_stamp 1 topup "${CACHED}" "${SKIPPED}" "${READY}" "${LIMIT}" "${INDEXED}" "${ERRORS}" "${R_IMAGES_WHY}" "${ADDED}"
+            stamp 1 topup "${CACHED}" "${SKIPPED}" "${READY}" "${LIMIT}" "${INDEXED}" "${ERRORS}" "${R_IMAGES_WHY}" "${ADDED}"
             say "topup could not finish (${R_IMAGES_WHY}); cached ${CACHED}, ${READY} ready"
             exit 1
         fi
-        write_stamp 0 topup "${CACHED}" "${SKIPPED}" "${READY}" "${LIMIT}" "${INDEXED}" "${ERRORS}" "" "${ADDED}"
+        stamp 0 topup "${CACHED}" "${SKIPPED}" "${READY}" "${LIMIT}" "${INDEXED}" "${ERRORS}" "" "${ADDED}"
         say "topup: cached ${CACHED} game(s), ${INDEXED} from the index; ${READY} ready"
     fi
     exit 0

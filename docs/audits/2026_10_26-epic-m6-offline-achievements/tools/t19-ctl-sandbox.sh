@@ -55,11 +55,19 @@ t19_setup() {
     done
     printf 'export PATH=/shim:/bbin:/usr/bin:/bin\nexport OS_NAME=ROCKNIX\nJ_CONF=/storage/.config/system/configs/system.cfg\nJ_CONF_LOCK=/tmp/.system.cfg.lock\n. /repo/fns.sh\n' > "${T19_W}/profile"
     cat >> "${T19_W}/profile" <<'EOS'
-# One write can be made to fail: /run/fail-set names a key whose set_setting
-# writes nothing and returns 1.
-if [ -e /run/fail-set ]; then
+# A write can be made to fail: /run/fail-set.d/<key> holds how many writes
+# of that key still succeed before every later one writes nothing and
+# returns 1 (0: the first fails).
+if [ -d /run/fail-set.d ]; then
     eval "$(declare -f set_setting | sed '1s/^set_setting/real_set_setting/')"
-    set_setting() { if [ "${1}" = "$(cat /run/fail-set)" ]; then return 1; fi; real_set_setting "$@"; }
+    set_setting() {
+        local f="/run/fail-set.d/${1}" n
+        if [ -e "${f}" ]; then
+            n="$(cat "${f}")"
+            if [ "${n:-0}" -gt 0 ]; then echo "$((n - 1))" > "${f}"; else return 1; fi
+        fi
+        real_set_setting "$@"
+    }
 fi
 EOS
     cat > "${T19_W}/shim/systemctl" <<'EOS'
@@ -76,7 +84,9 @@ case "$1" in
 esac
 exit 0
 EOS
-    printf '#!/bin/sh\necho "logger $*" >&2\n' > "${T19_W}/shim/logger"
+    # say() is logger: on the device its lines go to the journal, whatever the
+    # script's stderr has become, so they are kept in /run/say.log too.
+    printf '#!/bin/sh\necho "logger $*" >&2\necho "logger $*" >> /run/say.log\n' > "${T19_W}/shim/logger"
     chmod +x "${T19_W}/shim/systemctl" "${T19_W}/shim/logger"
     : > "${T19_W}/storage/.config/system/configs/system.cfg"
     OUT="${T19_W}/out"; ERR="${T19_W}/err"

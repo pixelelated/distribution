@@ -45,9 +45,9 @@ The brief's § 7 against this folder at stage C's start:
 | --- | ---: | --- |
 | High | 0 | |
 | Medium | 0 | |
-| Low | 10 | F-01, F-03, F-04, F-06, F-07, F-12, F-15, F-16, F-17, F-25 (F-04 and F-25 with PL-09, ruled a `bug` at the stage-D pause, D-RA-049) |
+| Low | 11 | F-01, F-03, F-04, F-06, F-07, F-12, F-15, F-16, F-17, F-25, F-42 (F-04 and F-25 with PL-09, ruled a `bug` at the stage-D pause, D-RA-049; F-42 found at stage E, #1166) |
 | Info | 31 | F-02, F-05, F-08 to F-11, F-13, F-14, F-18 to F-24, F-26 to F-41 |
-| **Total** | **41** | |
+| **Total** | **42** | F-42 found at stage E |
 
 The Low six share one shape: a state the device can be in -- a link down, a second listener, a full card, a lock or export that cannot be opened, a file name from an archive -- where the code's answer is wrong and nothing says so.
 

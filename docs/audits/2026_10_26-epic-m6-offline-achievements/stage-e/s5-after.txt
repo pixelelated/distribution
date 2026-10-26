@@ -1,0 +1,36 @@
+# S5 after (#666, #1161, #1166): the ctl in the tree, 2026-10-26T15:19:26Z
+ctl sha256 76b6b686f02d177d
+command: tools/t19-s5-writers.sh <tree's ctl> <the pin + 001..022's linux/> /workspace/tmp/m6-t19/s5/after
+
+host bash 5.3.9(1)-release (the tree pins bash 5.3); applets from BusyBox v1.36.1 (a copy of /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox, the image's); host python 3.14.4 (image recipe 3.14.7)
+  1. scan, nothing to scan, last-scan a folder
+     rc 1; stdout >>> doing listing|>>> note NO_GAMES|>>> why STAMP_UNWRITABLE|; stderr logger -t raofflineproxy-ctl scan: /storage/.config/raofflineproxy/last-scan is not a file; the run's stamp was not written|
+     in the proxy folder: ./last-scan 
+    PASS  the run ends non-zero
+    PASS  and tells the page why
+    PASS  and leaves no temporary, in the folder or under the stamp's name
+  2. scan, nothing to scan, no stamp yet (the control)
+     rc 0; last-scan: 1793027967 0 scan cached=0 skipped=0 ready=0 limit=0 indexed=0 errors=0 added=0 note=NO_GAMES
+    PASS  the normal write is still the new line, rc 0
+  3. enable: the toggle's write fails, then hardcore's put-back fails
+     rc 1; hardcore now 0 (was 1); stderr raofflineproxy-ctl: global.retroachievements.offlineproxy did not take; and global.retroachievements.hardcore could not be put back as it was|
+    PASS  enable fails (the control)
+    PASS  and says hardcore could not be put back, not that the device is as it was
+  4. disable: the service will not stop
+     rc 1; toggle 0, hardcore 1, marker no; stderr logger -t raofflineproxy-ctl raofflineproxy.service did not stop|logger -t raofflineproxy-ctl offline RetroAchievements is off, but raofflineproxy.service did not stop|raofflineproxy-ctl: offline RetroAchievements is off, but raofflineproxy.service did not stop|
+    PASS  a service that did not stop is said, and the exit is non-zero
+    PASS  and the rest of disable is done: toggle 0, hardcore back to 1, no marker
+  5. ack_index_pending: a newer marker, and its put-back fails
+     0; ack rc 1; stderr logger -t raofflineproxy-ctl index-pending: the marker could not be put back; kept as /storage/.config/raofflineproxy/index-pending.ack.3027134|; left: index-pending.ack.3027134 
+    PASS  the aside, the only copy of the newer marker, is kept
+    PASS  and it is said (say, the journal's line)
+  6. index-offline whose write fails under pending_lock (#1166): does fail's line reach stderr?
+     rc 1; stderr: mv: refused (fixture)|logger -t raofflineproxy-ctl cannot write /storage/.config/raofflineproxy/index-pending|raofflineproxy-ctl: cannot write /storage/.config/raofflineproxy/index-pending|
+    PASS  index-offline fails (the control)
+    PASS  and fail's own line reaches stderr after pending_lock
+t19-s5-writers: 0 FAIL
+rc 0
+
+bash -n of the ctl: ok
+
+## tools/last-good-scripts-test (QA_SYSTEM_ROOT the retained donor) on S5: 1313 PASS; PASSED. S5 reverses no check.

@@ -1,0 +1,31 @@
+# S5 before (#666, #1161, #1166): the ctl at fdcd576e99 (S4's tip), 2026-10-26T15:19:25Z
+command: tools/t19-s5-writers.sh <ctl at fdcd576e99> <the pin + 001..022's linux/> /workspace/tmp/m6-t19/s5/before
+
+host bash 5.3.9(1)-release (the tree pins bash 5.3); applets from BusyBox v1.36.1 (a copy of /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox, the image's); host python 3.14.4 (image recipe 3.14.7)
+  1. scan, nothing to scan, last-scan a folder
+     rc 0; stdout >>> doing listing|>>> note NO_GAMES|>>> done 0|0|0|0|; stderr 
+     in the proxy folder: ./last-scan ./last-scan/last-scan.tmp 
+    FAIL  the run ends non-zero -- rc 0
+    FAIL  and tells the page why -- stdout: >>> doing listing|>>> note NO_GAMES|>>> done 0|0|0|0|
+    FAIL  and leaves no temporary, in the folder or under the stamp's name -- ./last-scan/last-scan.tmp 
+  2. scan, nothing to scan, no stamp yet (the control)
+     rc 0; last-scan: 1793027966 0 scan cached=0 skipped=0 ready=0 limit=0 indexed=0 errors=0 added=0 note=NO_GAMES
+    PASS  the normal write is still the new line, rc 0
+  3. enable: the toggle's write fails, then hardcore's put-back fails
+     rc 1; hardcore now 0 (was 1); stderr raofflineproxy-ctl: global.retroachievements.offlineproxy did not take|
+    PASS  enable fails (the control)
+    FAIL  and says hardcore could not be put back, not that the device is as it was -- stderr: logger -t raofflineproxy-ctl enable: global.retroachievements.offlineproxy did not take; putting the device back as it was|logger -t raofflineproxy-ctl global.retroachievements.offlineproxy did not take|raofflineproxy-ctl: global.retroachievements.offlineproxy did not take|
+  4. disable: the service will not stop
+     rc 0; toggle 0, hardcore 1, marker no; stderr logger -t raofflineproxy-ctl raofflineproxy.service did not stop cleanly; carrying on|logger -t raofflineproxy-ctl offline RetroAchievements off: hardcore put back to 1; raofflineproxy.service active|
+    FAIL  a service that did not stop is said, and the exit is non-zero -- rc 0
+    PASS  and the rest of disable is done: toggle 0, hardcore back to 1, no marker
+  5. ack_index_pending: a newer marker, and its put-back fails
+     0; ack rc 1; stderr ; left: 
+    FAIL  the aside, the only copy of the newer marker, is kept -- left: 
+    FAIL  and it is said (say, the journal's line) -- say: logger -t raofflineproxy-ctl raofflineproxy.service did not stop cleanly; carrying on|logger -t raofflineproxy-ctl offline RetroAchievements off: hardcore put back to 1; raofflineproxy.service active|
+  6. index-offline whose write fails under pending_lock (#1166): does fail's line reach stderr?
+     rc 1; stderr: 
+    PASS  index-offline fails (the control)
+    FAIL  and fail's own line reaches stderr after pending_lock -- stderr: 
+t19-s5-writers: 8 FAIL
+rc 1
