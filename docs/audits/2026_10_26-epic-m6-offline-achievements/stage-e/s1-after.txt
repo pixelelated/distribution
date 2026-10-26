@@ -1,0 +1,49 @@
+# S1 after (#666, #1157): patch 022, 2026-10-26T14:06:02Z
+host bash 5.3.9(1)-release (tree pins 5.3); host python 3.14.4 (image recipe 3.14.7)
+patch sha256 9a6e0b4b031d8b12d7dc4e44dc9c86ef81abde8f5342074e7a622ffd58128b44
+
+## the pin plus 001..021, fresh from the cache tarball, then patch --dry-run -p1 --fuzz=0 of 022
+checking file linux/raofflineproxy/proxy_service.py
+checking file linux/raofflineproxy/storage.py
+checking file linux/tests/test_linux_offline_login.py
+checking file linux/tests/test_linux_proxy_cache_keys.py
+rc 0
+
+## the patch's test, on the tree the 19 patches made (fresh)
+test_another_account_is_refused_even_with_its_token ... ok
+test_any_origin_is_refused ... ok
+test_cached_token_is_answered ... ok
+test_failed_online_login_records_nothing ... ok
+test_foreign_host_is_refused ... ok
+test_loopback_names_are_accepted ... ok
+test_missing_host_is_refused ... ok
+test_no_credential_is_refused ... ok
+test_password_recorded_online_is_answered ... ok
+test_password_with_no_recorded_hash_is_refused ... ok
+test_recorded_hash_is_not_the_password ... ok
+test_wrong_password_after_recording_is_refused ... ok
+test_wrong_token_is_refused ... ok
+Ran 13 tests in 0.017s
+OK
+(unpatched: 9 of 13 FAIL, s1-before.txt)
+
+## upstream's whole suite, every linux/tests module
+pin + 001..021: Ran 866 tests in 13.224s, OK (skipped=17)
+pin + 001..022: Ran 879 tests in 13.298s, OK (skipped=17)
+the 13 more are the patch's test; three upstream tests of the offline login carried over to the new contract inside 022 (they failed against 022 before: test_offline_login_returns_cached_login2_response, test_offline_login2_returns_cached_login2_response, test_cached_offline_launch_sequence_survives_stale_online_startup)
+
+## the real service on the 19-patch tree, bwrap --clearenv --unshare-net: tools/t19-s1-service.py
+host python 3.14.4 (image recipe 3.14.7); bwrap --clearenv --unshare-net
+PASS no credential: status 401, token no, X-RA-Offline no; expected refused
+PASS wrong token: status 401, token no, X-RA-Offline no; expected refused
+PASS cached token: status 200, token yes, X-RA-Offline yes; expected answered
+PASS password, no recorded hash: status 401, token no, X-RA-Offline no; expected refused
+PASS another account, its own token: status 401, token no, X-RA-Offline no; expected refused
+PASS foreign Host: status 401, token no, X-RA-Offline no; expected refused
+PASS an Origin: status 401, token no, X-RA-Offline no; expected refused
+PASS localhost Host: status 200, token yes, X-RA-Offline yes; expected answered
+rc 0
+service.log: 1 Offline login refused: no credential;1 Offline login refused: not the configured account;2 Offline login refused: the credential does not match;1 Offline login refused: the Host is not a loopback name;1 Offline login refused: the request carries an Origin
+
+## cost on the launch path
+pbkdf2-sha256 20000 rounds: 1.76 ms per hash on the host (Intel Core Ultra 9 285); an H700 is fix-walk-pending-image

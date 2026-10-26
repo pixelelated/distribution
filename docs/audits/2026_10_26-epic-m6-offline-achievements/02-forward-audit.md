@@ -183,6 +183,17 @@ The tarball at the pin: sha256 `88eef31acfa4104b20258bd5cea514ade30e6cdf35767ffc
 | `020-rvz-padding-preserve-partial-word` | `rvz_datasource.py` lagged-Fibonacci padding | `fix` | absent: applies at fuzz 0, rc 0 (`stage-a/unpack.txt`) | `f9b7ce3dfb` 2026-10-14; `f9b7ce3dfb` 2026-10-14 | none | a draft owed (no header; `f9b7ce3dfb` cites #583, #584, #588) | tree, tool-run |
 | `021-flush-reconnect-during-startup` | `proxy_service.py` `ConnectivityMonitor.run`, `run_proxy_service` | `fix` | absent: applies at fuzz 0, rc 0 (`stage-a/unpack.txt`) | `f9b7ce3dfb` 2026-10-14; `f9b7ce3dfb` 2026-10-14 | none | a draft owed (no header; `f9b7ce3dfb`) | tree, tool-run |
 
+### The #585 lines (stage E)
+
+Written in the lane's shape for the coordinator to post on #585: the target,
+the current-source comparison, the minimal patch. None is sent (D-WORKFLOW-165);
+each is rechecked against upstream's head when the contribution is ready, since
+no stream fetches.
+
+| Line | Target | The current-source comparison | The minimal patch | Evidence |
+| --- | --- | --- | --- | --- |
+| PL-01: the offline login answers only the account's credential (#1157, D-RA-050) | RAOfflineProxy upstream, `linux/raofflineproxy/proxy_service.py` `handle_offline_login` and `storage.py`'s `api_cache` | at the pin `c7ebd1b6e7` the handler returns the cached `login2` body to any request naming a cached account, comparing no credential and reading no `Host` or `Origin` (`:491-505` with 001 to 021 applied); upstream's later head not read | `022-offline-login-requires-credential.patch`: the cached token or a password matching a salted hash recorded at the last successful online login, the configured account, a loopback `Host`, no `Origin`; else 401 `invalid_credentials`. One additive column, `credentialHash`. 13 cases in `test_linux_offline_login.py`; three upstream tests carried over | `stage-e/s1-before.txt`, `stage-e/s1-after.txt` |
+
 ## The bounds
 
 | Bound | Value | Enforced by | proved |
@@ -260,6 +271,23 @@ Written, not tested here.
 **The page comment's wording:** `GuiRetroAchievementsSettings.cpp:154` names `raofflineproxy-ctl have_account` as if a verb; it is the ctl's function (:1119, called :1170), not in the dispatch (:2434-2450).
 
 **The consent setting's name:** `usage_stats_consent` (with `usage_stats_consent_version`) in the client's `config.json` (patch 019; `usage_report.py:180`); `upload_logs` (JSON `true` only) for the automatic log upload (patch 008).
+
+**From stage E** (each stream adds its line here as it lands):
+
+- **S1, the offline login's refusal (#1157, D-RA-050).** An offline `login` or `login2` that does not present the configured account's credential is now answered 401 `invalid_credentials`, `Success: false`, no token, no `X-RA-Offline`. No interface reader parses it: EmulationStation signs in to retroarchievements.org directly (`RetroAchievements.cpp:1037` at `16dbac5211`), not through the proxy. The emulator meets the refusal; what RetroArch shows for a 401 is not read here and is `fix-walk-pending-image` (its `(offline)` toast, patch 0013 in the retroarch package, keys on `X-RA-Offline`, which a refusal does not carry). No `>>> why` token is added.
+- **S1, for the integration: the upgrade path.** RetroArch logs in with the password (D-RA-050). A device that updates and then plays offline before any online launch has no recorded hash, so its offline login is refused until one online launch records it. Before 022 that login was answered. The ruling accepts this (read both: the token answers meanwhile). It is player-visible, so the running change log (`docs/cloud-sync-changelog.md`, `change-log.md`) takes a section the day this lands on `next`, checked against the built image. The upgrade rehearsal's seed of a proxy store with no `credentialHash` column, followed by an offline launch, is the integration's owed item (`fix-walk-pending-image`).
+
+## The streams
+
+Stage E's ten streams (`docs/reviews/briefs/t19-streams.md` at `6064579a3f`),
+serial, one commit each. Each fixture runs the real script or service under
+the host's bash 5.3.9 and python 3.14.4; the image's are bash 5.3 and python
+3.14.7 (the recipe). A guest after is `fix-walk-pending-image`, run at the
+integration's window.
+
+| Stream | Bug | The positive, before | The commit | The positive, after | Already written | proved |
+| --- | --- | --- | --- | --- | --- | --- |
+| S1 (PL-01, F-01/F-02, D-RA-050) | #1157 | the patch's test 9 of 13 FAIL on the pin plus 001 to 021; the real service in `bwrap --clearenv --unshare-net` answers six of eight requests it should refuse with 200, a token and `X-RA-Offline` (`stage-e/s1-before.txt`) | (S1's) | 13 of 13; upstream's suite 879 OK (866 before, 17 skipped both); the service refuses the six with 401, no token, no `X-RA-Offline`; the dry run of 022 at fuzz 0 on the pin plus 001 to 021; PBKDF2 at 20000 rounds is 1.76 ms a hash on the host (`stage-e/s1-after.txt`) | tokens already served cannot be recalled; a `login2` row with no recorded hash answers only its token until the next online login records one (read both); nothing migrated, no row purged | fixture; on the image `fix-walk-pending-image`: a RetroArch password login offline after an online one, and PPSSPP's and Dolphin's token logins (the token they hold must equal the cached row's) |
 
 ## Findings index
 

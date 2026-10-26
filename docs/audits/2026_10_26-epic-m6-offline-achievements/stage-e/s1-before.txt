@@ -1,0 +1,31 @@
+# S1 before (#666, #1157): the offline login at the patched pin (c7ebd1b6e7 + 001..021), 2026-10-26T13:57:29Z
+host bash 5.3.9(1)-release (tree pins 5.3); host python 3.14.4 (image recipe 3.14.7)
+
+## the patch's test, unpatched: python3 -B -m unittest linux.tests.test_linux_offline_login (env -i, RAOFFLINEPROXY_CONFIG_DIR scratch)
+test_another_account_is_refused_even_with_its_token ... FAIL
+test_any_origin_is_refused ... FAIL
+test_cached_token_is_answered ... ok
+test_failed_online_login_records_nothing ... FAIL
+test_foreign_host_is_refused ... FAIL
+test_loopback_names_are_accepted ... ok
+test_missing_host_is_refused ... FAIL
+test_no_credential_is_refused ... FAIL
+test_password_recorded_online_is_answered ... ok
+test_password_with_no_recorded_hash_is_refused ... FAIL
+test_recorded_hash_is_not_the_password ... ok
+test_wrong_password_after_recording_is_refused ... FAIL
+test_wrong_token_is_refused ... FAIL
+Ran 13 tests in 0.009s
+FAILED (failures=9)
+
+## the real service in bwrap --clearenv --unshare-net: tools/t19-s1-service.py <tree> /workspace/tmp/m6-t19/s1/svc-before
+host python 3.14.4 (image recipe 3.14.7); bwrap --clearenv --unshare-net
+FAIL no credential: status 200, token yes, X-RA-Offline yes; expected refused
+FAIL wrong token: status 200, token yes, X-RA-Offline yes; expected refused
+PASS cached token: status 200, token yes, X-RA-Offline yes; expected answered
+FAIL password, no recorded hash: status 200, token yes, X-RA-Offline yes; expected refused
+FAIL another account, its own token: status 200, token yes, X-RA-Offline yes; expected refused
+FAIL foreign Host: status 200, token yes, X-RA-Offline yes; expected refused
+FAIL an Origin: status 200, token yes, X-RA-Offline yes; expected refused
+PASS localhost Host: status 200, token yes, X-RA-Offline yes; expected answered
+rc 1
