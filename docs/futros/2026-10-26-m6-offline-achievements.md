@@ -215,3 +215,14 @@ the proof corrected, and what § 1 above had assumed:
   run the membership block off the P1 branch, name "T17's brief" or
   "T22's table", treat `069fc2704421` as a git object -- is now said in
   the text. The stream prediction stands at two.
+
+### Errata from T19's acceptance (2026-10-26)
+
+What the lane found between stage A and the hand-back that the T19 addendum and the brief did not foresee (the brief carries the full list under § Errata at acceptance):
+
+- Stage A: the ctl's protocol function is `tell()` (`:835-837`, 20 sites); `say()` (`:371-373`) is `logger`, syslog only -- the brief's § 5 comment names `say()` where it means `tell()` (found by T20's research).
+- Stage B: `scanWhy` (`CloudText`, T20's table) carries a `NO_GAMES_FOUND` row no producer emits -- routed to #667 at its dispatch.
+- The suite ruling (14:33): `tools/last-good-scripts-test` changes in S1's and S3's commits (D-WORKFLOW-210); the acceptance expects it as the only `tools/` path; the brief's § 5 named the suite as a before/after oracle for the ctl without saying it asserted the defects.
+- Stage E (lane, 15:14): F-42 / #1166 -- `pending_lock`'s `exec 6<>"${PENDING_LOCK}" 2>/dev/null` redirected the ctl's stderr to `/dev/null` for the rest of a run (a bare `exec` with a redirect is a redirect of the shell); folded into S5. The brief's four families did not anticipate a shell-redirect class.
+- Stage E (lane, 15:49 and 16:08): the suite's fixtures also leaned on the defects (an absent image helper read as clean, S7; the old job protocol in its stand-in, S9) -- completed in the streams' commits (D-WORKFLOW-211); the #188 check belongs to that completion, not to the reversed checks.
+- Stage G (lane, 16:41): with 022 as first landed, a device that updates and plays offline before an online launch has no recorded hash and its offline login is refused -- RetroArch holds the token only in memory and signs in with the password each start; S1b under D-RA-051 keeps the old answer until the first online login records a hash. The brief's § 4 Q3 and D-RA-050 assumed the token suffices.
