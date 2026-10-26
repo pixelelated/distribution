@@ -441,7 +441,7 @@ Every item is open until the coordinator's stage-D ruling and stage F.
 | PL-11 | Resolved | Resolved in `61d7152b0` (ES, S9) under #1178 (and PL-16's cancel in `ad2989aa5`, S3, #1172): `throw;`, the player's words on every failure surface with French, a stopped run and an empty library said as they are (`stage-e/s9-*.txt`); the frames owed |
 | PL-12 | Resolved | Resolved in `d7a30f0c6` (ES, S7) under #1176: the card takes only its own run, `topUpRunning()` from the run, the two rows with French (`stage-e/s7-*.txt`); `NO_GAMES_FOUND` recorded |
 | PL-13 | Resolved | Resolved in `2b521c34b` (ES, S10) under #1179, as D-RA-052 rules: HARDCORE MODE dimmed with its reason and not writable while offline achievements are on (`stage-e/s10-*.txt`); the frame owed |
-| PL-14 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
+| PL-14 | Resolved | Resolved in `5c0ddaaee` (ES, S11) under #1180: a success needs a usable token, every member read by type (`stage-e/s11-*.txt`) |
 | PL-15 | Resolved | Resolved in `274a71add` (ES, S5) under #1174: unknown kept unknown at both readers and the card; the three readers carry validity (`stage-e/s5-*.txt`) |
 | PL-16 | Resolved | Resolved in `61d7152b0` (ES, S9) under #1178 (and PL-16's cancel in `ad2989aa5`, S3, #1172): `throw;`, the player's words on every failure surface with French, a stopped run and an empty library said as they are (`stage-e/s9-*.txt`); the frames owed |
 | PL-17 | Resolved | Resolved in `2d8a0a135` (ES, S6) under #1175: the sign-in off the interface thread with a 15 s total and a 10 s stall, its answer tied to the account; a scan never carries another account's token (`stage-e/s6-*.txt`); the stalling-listener walk owed |
@@ -541,7 +541,7 @@ punch_index:
   category: Security
   question: Q3
   source_finding: "L-28"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-15
   severity: "Low"
   category: Correctness

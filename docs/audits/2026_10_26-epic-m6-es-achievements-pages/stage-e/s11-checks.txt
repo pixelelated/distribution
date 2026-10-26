@@ -1,0 +1,33 @@
+== 1. es-app/tests/unit
+rc 0
+  built es-unit-tests
+  built es-file-tests
+  built es-conf-tests
+  built es-file-tests-win32
+  RUN es-unit-tests: rc 0; [doctest] test cases: 209 | 209 passed | 0 failed | 0 skipped [doctest] assertions: 4873 | 4873 passed | 0 failed | 
+  RUN es-file-tests: rc 0; [doctest] test cases: 27 | 27 passed | 0 failed | 0 skipped [doctest] assertions: 3414 | 3414 passed | 0 failed | 
+  RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+  RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+== 2. tests/app-unit jobs-tests
+rc 0
+  built jobs-tests
+  RUN jobs-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 47 | 47 passed | 0 failed | 
+== 2. tests/app-unit proxycards-tests
+rc 0
+  built proxycards-tests
+  RUN proxycards-tests: rc 0; [doctest] test cases: 14 | 14 passed | 0 failed | 0 skipped [doctest] assertions: 72 | 72 passed | 0 failed | 
+== 2. tests/app-unit hasher-tests
+rc 0
+  built hasher-tests
+  RUN hasher-tests: rc 0; [doctest] test cases: 6 | 6 passed | 0 failed | 0 skipped [doctest] assertions: 24 | 24 passed | 0 failed | 
+== 3. the non-ASCII comment grep (the lines this stream adds: the diff's + lines, untracked files whole)
+  changed: es-app/src/RetroAchievements.cpp
+  changed: es-app/src/RetroAchievementsText.h
+  changed: es-app/tests/unit/RetroAchievementsTextTests.cpp
+  0 line(s)
+== 4. the host g++ -fsyntax-only
+  CANNOT es-app/src/RetroAchievements.cpp: curl/curl.h is not on this host
+== 5. tools/es-untranslated
+rc 0
+  es-untranslated: 711 fork string(s) in the source, 711 with French, 0 without
+== result: PASS

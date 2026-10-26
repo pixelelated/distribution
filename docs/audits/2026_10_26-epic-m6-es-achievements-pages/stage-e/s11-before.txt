@@ -1,0 +1,33 @@
+== S11 before (20:16:00Z): the three parses lifted as RetroAchievements.cpp read them at the pin; each case run on its own, since an unchecked member asserts and aborts the binary
+unit build rc 1
+-- case: usable token
+rc 1
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/RetroAchievementsTextTests.cpp:99: ERROR: CHECK_FALSE( a.success ) is NOT correct!
+[doctest] test cases: 1 | 0 passed | 1 failed | 208 skipped
+-- case: Token that is not
+/bin/bash: line 155: 2885217 Aborted                    (core dumped) $B/es-unit-tests -tc="*$tc*" > $B/case.log 2>&1
+rc 134
+es-unit-tests: /workspace/tmp/m6-t20/rj/rapidjson-1.1.0/include/rapidjson/document.h:1681: const rapidjson::GenericValue<Encoding, Allocator>::Ch* rapidjson::GenericValue<Encoding, Allocator>::GetStri
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/RetroAchievementsTextTests.cpp:106: FATAL ERROR: test case CRASHED: SIGABRT - Abort (abnormal termi
+[doctest] test cases: 1 | 0 passed | 1 failed | 208 skipped
+-- case: Error that is not
+/bin/bash: line 155: 2885675 Aborted                    (core dumped) $B/es-unit-tests -tc="*$tc*" > $B/case.log 2>&1
+rc 134
+es-unit-tests: /workspace/tmp/m6-t20/rj/rapidjson-1.1.0/include/rapidjson/document.h:1681: const rapidjson::GenericValue<Encoding, Allocator>::Ch* rapidjson::GenericValue<Encoding, Allocator>::GetStri
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/RetroAchievementsTextTests.cpp:112: FATAL ERROR: test case CRASHED: SIGABRT - Abort (abnormal termi
+[doctest] test cases: 1 | 0 passed | 1 failed | 208 skipped
+-- case: not an object is unreadable
+/bin/bash: line 155: 2885706 Aborted                    (core dumped) $B/es-unit-tests -tc="*$tc*" > $B/case.log 2>&1
+rc 134
+es-unit-tests: /workspace/tmp/m6-t20/rj/rapidjson-1.1.0/include/rapidjson/document.h:1078: rapidjson::GenericValue<Encoding, Allocator>::ConstMemberIterator rapidjson::GenericValue<Encoding, Allocator
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/RetroAchievementsTextTests.cpp:119: FATAL ERROR: test case CRASHED: SIGABRT - Abort (abnormal termi
+[doctest] test cases: 1 | 0 passed | 1 failed | 208 skipped
+-- case: Response or MD5List
+/bin/bash: line 155: 2885718 Aborted                    (core dumped) $B/es-unit-tests -tc="*$tc*" > $B/case.log 2>&1
+rc 134
+es-unit-tests: /workspace/tmp/m6-t20/rj/rapidjson-1.1.0/include/rapidjson/document.h:1075: rapidjson::GenericValue<Encoding, Allocator>::ConstMemberIterator rapidjson::GenericValue<Encoding, Allocator
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/RetroAchievementsTextTests.cpp:127: FATAL ERROR: test case CRASHED: SIGABRT - Abort (abnormal termi
+[doctest] test cases: 1 | 0 passed | 1 failed | 208 skipped
+-- case: well formed
+rc 0
+[doctest] test cases: 1 | 1 passed | 0 failed | 208 skipped
