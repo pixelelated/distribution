@@ -79,3 +79,23 @@
 - **#1167**, `Audit: M6 T20 EmulationStation's RetroAchievements and offline pages -- 25 findings (0 critical, 1 high, 6 medium, 15 low, 3 info)`, labels `audit` and `punch-list`, milestone M6, is a sub-issue of #667 (read back: #667's sub-issues are `1167`).
 - **Checks:** `tools/box-check --issue 1167`: 25 open checkboxes, 0 fail. `tools/lint-audit-artifacts … --phase pre-issue --issue 1167`: `PASS pre-issue artifacts (does not certify resolution)`.
 - **The pause:** the punch list is posted on #667 for the coordinator's dispositions and any stream brief. Nothing in the ES worktree or under `packages/`, `projects/` or `tools/` has changed (R18).
+
+## [Stage E] 18:45 to 20:25 UTC — eleven bugs, twelve streams, no guest
+
+- **The ruling:** the coordinator's dispositions on #667 (18:45 UTC) and the stream brief `docs/reviews/briefs/t20-streams.md` at `60c1dc2db3`, read in full first.
+- **The bugs:** #1170 to #1180, each filed before its stream with its trace, `Already written:` line, VM line and agent-verifiable criteria; `box-check` 0 fail on each. #1167's rows at the ruled outcomes before S1.
+- **The streams:** S1 to S11 on the ES branch, `698040b5c` to `5c0ddaaee`, one commit each, `Refs #667, #<bug>`, pushed to `origin`. S12 on this branch, `087bafdb98`. Each is recorded in `02` § The streams.
+- **How each stream was proved:**
+  - Each stream's test was seen to FAIL against the pin's code (or the pin's logic lifted verbatim into pure code) before its fix, then pass after (`stage-e/sN-before.txt`, `sN-after.txt`).
+  - Before every commit, `tools/t20-stream-checks.sh <es tree> <work dir> jobs-tests proxycards-tests hasher-tests` ran: the four unit binaries and three app targets (all under ASan and UBSan) by the generated commands, the non-ASCII comment grep, the host `g++ -fsyntax-only` with each `CANNOT` naming its header, and `es-untranslated`. The output is `stage-e/sN-checks.txt`.
+  - The ES fork's `.githooks/pre-push-test` ran after each push (`stage-e/sN-es-pre-push-test.txt`).
+- **New harness:** `tests/app-unit/hasher-tests` (the shipped `ThreadedHasher.cpp` against `hasher-fakes/`), `es-file-tests` compiling the shipped `FileSystemUtil.cpp`, and `RetroAchievementsText.h` (pure, header-only) with its cases.
+- **The checks script corrected once:** its non-ASCII step judged a changed file's existing upstream comments. It now judges a stream's added lines and new files, with a control seen to count exactly the two planted lines (`stage-e/s8-checks-first-run.txt`; the friction log).
+- **The guest-only proofs** are written as walks for the integration window, `stage-e/walks/` (S1, S2, S3, S4, S6, S8, S9, S10), all `fix-walk-pending-image`.
+- **Nothing of the never-run list ran:** no guest (M7 has held the host since 18:19 UTC), no image build, no fetch, no keyed call, nothing on a unit or an account. Fixture compiles were single-threaded `g++` runs. Nothing changed under `packages/`, `projects/` or `tools/`. In the ES tree, only the slice's files, the tests, the French catalog and S2's one `HttpReqOptions` field in T21's `HttpReq.{h,cpp}` changed. The pin was not moved.
+
+## [Stage F] 20:26 UTC — Phase 7
+
+- **`05`:** every item at an outcome, 17 resolved, 5 deferred and 3 withdrawn. #1167's 25 checkboxes are ticked with them.
+- **Checks:** `tools/box-check --issue 1167` 0 fail; `tools/lint-audit-artifacts docs/audits/2026_10_26-epic-m6-es-achievements-pages --issue 1167` `PASS`.
+- **`02`:** § What T21 and T26 inherit carries PL-08's fixture and S2's field; § The #585 lines carries five lines for the coordinator to post.

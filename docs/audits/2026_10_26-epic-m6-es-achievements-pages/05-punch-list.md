@@ -424,7 +424,7 @@
 
 ## Phase 7 resolution gate
 
-Every item is open until the coordinator's stage-D ruling and stage F.
+Stage F, 20:25 UTC: every item at its outcome, as the stage-D ruling (#667, 18:45 UTC) set it and stage E delivered it.
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |

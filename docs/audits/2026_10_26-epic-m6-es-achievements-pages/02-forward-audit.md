@@ -319,3 +319,20 @@ The stage-B text above is left as it was read; each change here names the seat's
 - **`HttpReq`'s options** (`HttpReq.h:45-65`: connect 10 s, total 0, stall 0) and its TLS settings (`HttpReq.cpp:192`, `:200`; #1154) are T21's. This slice's users are `RetroAchievements.cpp:174-186`, `:520`, `:633`, `:755`, `:863`, `:1035`.
 - **The gates:** `offlineScanOn`, `offlineScanSignedIn` and `offlineScanOnline` (`GuiRetroAchievementsSettings.cpp:140-165`), and `exists("/usr/bin/raofflineproxy-ctl")` (`:633`), are T26's for the main menu's rows.
 - **The title's source:** `RetroachievementsMenuitem` (`GuiMenu.cpp:190`, `:5760`; `SystemView.cpp:1616`) is T26's.
+- **After stage E, for T21 (#668):**
+  - PL-08, the shared process reader, is T21's Q6. Its fixture is `stage-b/positives/reader.cpp`: `ApiSystem.cpp:2262-2293` verbatim, showing a lost line head, a dropped last line and a signal read as 0.
+  - S2 added one `HttpReqOptions` field, `httpsRedirectsOnly` (`HttpReq.h`, false by default), honoured where `HttpReq.cpp` sets the redirect protocols. It is the brief's one field in T21's files; the transport's verification stays #1154's.
+- **For T26 (#673):** the gates at `GuiMenu.cpp:188-191` and the title's source, as the dispatch notes name them.
+
+## The #585 lines
+
+In the shape the lane writes; the coordinator posts them on #585.
+
+| Upstream | File | The change | Evidence |
+| --- | --- | --- | --- |
+| rcheevos | `src/rhash/hash_disc.c` | every `rc_file_read` in the Nintendo disc partition checked, a truncated disc refused | `02` § The library; the fork's diff at `16dbac5211` |
+| rcheevos | `src/rhash/hash_disc.c` | the apploader header sum in 64 bits before the clamp, the high byte cast before `<< 24` | the same |
+| rcheevos | `src/rhash/hash_disc.c` | the two `rc_file_close` calls before an early return removed (the caller closes, `:546`) | the same |
+| libretro-common | `utils/md5.c` | the x86 word load through `memcpy`, no misaligned or type-punned read | the same |
+| batocera-emulationstation | `es-core/src/utils/FileSystemUtil.cpp` | `skipUtf8Bom` clears the stream before `seekg(0)`, so a file under three bytes reads whole | ES `d9afa5c7c` (S8, #1177); `es-file-tests` before and after |
+
