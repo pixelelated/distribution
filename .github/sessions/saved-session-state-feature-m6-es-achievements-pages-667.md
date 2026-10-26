@@ -17,19 +17,14 @@
 
 ## Current focus
 
-**Stage A done (17:30 UTC); stage B next.**
+**Stage B done; the guest window is asked for on #667 and waits for the coordinator's grant.**
 
-- **Done:**
-  - the first commands, the membership block (every figure as the brief states), and § 5's runs (deltas R5, R14, R17 in `00`);
-  - the unit tests built by the generated commands at the pin, all passing: `es-unit-tests` 185, `jobs-tests` 6, `proxycards-tests` 11. rapidjson is the recipe's own tarball and patches.
-  - `01` § Scope with the 25 and their history, the callers, and the issues.
-  - T19's § What T20 inherits has landed, at `d8c02be1c9`.
-- **Next:** stage B, in this order:
-  - `02`: Coverage (25), the credentials' paths, the pages, the contract (consuming T19's table), the reader, the hasher, the library, the runs;
-  - the two kickoff notes read at their lines;
-  - `generic-x64-vm-testing.md`'s ranges;
-  - the window request on #667, with its plan and bound.
-- **Temporaries:** under `/workspace/tmp/m6-t20/`: the runs, the rapidjson copy, and the test build.
+- **`02`:** Coverage holds 25 rows. It records L-01 to L-25 with their lines, and six host positives under `stage-b/positives/`. The guest cycle's rows are pending.
+- **Next:**
+  - on the grant, the window per the plan in the request comment;
+  - then `02` § The guest cycle;
+  - then stage C: the packet trimmed and scanned, the two seats, four keyed invokes, the pre-issue lint.
+- **If the window is refused or deferred:** stage C may proceed on the host evidence, with the guest rows marked pending.
 
 ## Next commands
 

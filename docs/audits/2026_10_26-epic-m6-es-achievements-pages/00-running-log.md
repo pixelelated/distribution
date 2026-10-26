@@ -30,3 +30,20 @@
   - T19's `02` § What T20 inherits at `d8c02be1c9` (landed: lines 257-307, 10 KB). It is consumed at stage B.
 - **The kickoff notes (the dispatch, as errata at stage A):** `scanWhy`'s `NO_GAMES_FOUND` row, which the brief's why table omits; and `Settings.cpp:420`'s `.hardcore` default, inside `#if WIN32` (`:417-433`), which matters only if `Paths::getSystemConfFilePath()` can be empty on ROCKNIX (T21's Q4). Both are carried into `01` and read at their lines at stage B.
 - **Nothing of the never-run list ran:** no build of an image, no fetch, no guest, no keyed call, no M7 root, worktree or prep directory. The ES worktree is at the pin, its diff empty (R18), and the distribution's `packages`, `projects` and `tools` are unchanged since `ae3c013cac`.
+
+## [Stage B] 17:30 to 17:32 UTC — 02, the host positives, the window request
+
+- **Read whole at the pin:** the 16 interface files and `rvz_hash.*`. The five modified libcheevos files are read as diffs against `bccd715707`, and the two notices as present and shipped (`package.mk:58-64`). The neighbours read where a contract crosses: `ApiSystem.cpp:2262-2293`, `HttpReq.{h,cpp}`, `ProxyCards.cpp:196-385`, `CloudText.cpp:1018-1066` and `:1186-1270`, `FileSystemUtil.cpp:1369-1427`.
+- **The ctl** is read at `8ebaf8daad` (`projects/.../raofflineproxy-ctl`, the same bytes at `ae3c013cac`), and T19's § What T20 inherits is consumed in `02` § The contract. One correction to T19's table: `TOOK_TOO_LONG` reaches `topUpWhy` through its fall-through to `scanWhy`.
+- **Both kickoff notes are read at their lines.** `NO_GAMES_FOUND` is a row no producer emits (L-08). `Settings.cpp:417-433` is `#if WIN32`, and `Paths.cpp:94` sets the ROCKNIX path, so no second `.hardcore` store is live (T21's Q4 owns `Paths`).
+- **The rule ranges** the brief's § 3 cites in `generic-x64-vm-testing.md` are read (`:326-334`, `:495-500`, `:754-760`, `:890-895`, `:1150-1161`, `:1169-1186`).
+- **Six host positives,** each built with the host `g++` from the pin's own lines and kept under `stage-b/positives/` with its output. No ES file changed, and none was built in the ES worktree.
+  - **L-06:** a `popen` child killed by `SIGKILL` reads rc 0.
+  - **L-05:** a 1,500-byte line loses its head, and a last line with no newline is dropped.
+  - **L-20:** `throw e;` shows `std::exception`.
+  - **L-07:** T19 S8's `unknown` reads as 0, at both the scan page's `done` and the stamp's `ready`.
+  - **L-13:** a two-byte `cached_game_ids.txt` reads as empty.
+  - **L-25:** ES's RVZ padding equals Dolphin's on 4,000 cases, 3,032 of them unaligned. The control fails all 4,000.
+- **A lead withdrawn before it was written:** `rvz_hash.cpp:87`'s shift `18` is Dolphin's documented oddity ("NB: 18, not 16"), not a slip. The fixture above is the proof.
+- **`02`:** Coverage holds 25 rows, by the brief's own command. It also carries the credentials' paths, the pages, the contract, the reader, the hasher, the library, the runs, the positives and what T21 and T26 inherit. The guest cycle is pending the window.
+- **Nothing of the never-run list ran.** No guest, no fetch, no keyed call. The ES worktree is unchanged (R18).

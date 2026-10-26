@@ -1,0 +1,178 @@
+### R0: df -i /workspace | tail -n 1
+/dev/nvme0n1   244195328 59868117 184327211   25% /workspace
+[R0 rc=0 wall=0.00s]
+
+### R1: git -C "$W" rev-parse HEAD; git -C "$W" status --short | wc -l; git -C "$W" merge-base bccd715707 HEAD | cut -c1-10
+16dbac5211eea7e70db7394372033be2be7df829
+0
+bccd715707
+[R1 rc=0 wall=0.02s]
+
+### R2: git -C "$W" grep -n -E "global\.retroachievements\.(username|password|token|key)" "$PIN" -- es-app/src/guis/GuiRetroAchievementsSettings.cpp | sed "s/^$PIN://" | cut -c1-110
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:163:	return !conf->get("global.retroachievements.username").e
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:164:		&& (!conf->get("global.retroachievements.token").empty(
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:601:	std::string username = SystemConf::getInstance()->get("g
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:602:	std::string password = SystemConf::getInstance()->get("g
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:610:	addInputTextConfigRow(_("USERNAME"), "global.retroachiev
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:611:	addInputTextConfigRow(_("PASSWORD"), "global.retroachiev
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:616:	addInputTextConfigRow(_("WEB API KEY"), "global.retroach
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:746:		std::string newUsername = SystemConf::getInstance()->ge
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:747:		std::string newPassword = SystemConf::getInstance()->ge
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:748:		std::string token = SystemConf::getInstance()->get("glo
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:767:			SystemConf::getInstance()->set("global.retroachievemen
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:777:				SystemConf::getInstance()->set("global.retroachieveme
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:780:				SystemConf::getInstance()->set("global.retroachieveme
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:796:			SystemConf::getInstance()->set("global.retroachievemen
+[R2 rc=0 wall=0.01s]
+
+### R3: git -C "$W" grep -n -E "[\"?&](z|y|p|u)=" "$PIN" -- es-app/src/RetroAchievements.cpp | sed "s/^$PIN://" | cut -c1-120; git -C "$W" grep -n -i -E "user-?agent" "$PIN" -- es-app/src/RetroAchievements.cpp | sed "s/^$PIN://" | cut -c1-100
+es-app/src/RetroAchievements.cpp:135:// ("z=<user>&y=<key>"). Upstream compiles a pair in (CHEEVOS_DEV_LOGIN). A
+es-app/src/RetroAchievements.cpp:149:	return "z=" + HttpReq::urlEncode(user) + "&y=" + HttpReq::urlEncode(key);
+es-app/src/RetroAchievements.cpp:181:		std::string ret = Utils::String::extractString(login, "z=", "&");
+es-app/src/RetroAchievements.cpp:301:		if (OfflineAchievements::askProxy("r=patch&g=" + std::to_string(gameId) + "&u=" +
+es-app/src/RetroAchievements.cpp:315:		if (OfflineAchievements::askProxy("r=achievementsets&m=" + HttpReq::urlEncode(Uti
+es-app/src/RetroAchievements.cpp:338:	if (!OfflineAchievements::askProxy("r=unlocks&g=" + std::to_string(game.id) + "&u=
+es-app/src/RetroAchievements.cpp:521:	HttpReq httpreq(getApiUrl("API_GetGameInfoAndUserProgress", "u=" + HttpReq::urlEnc
+es-app/src/RetroAchievements.cpp:634:	HttpReq httpreq(getApiUrl("API_GetUserSummary", "u="+ HttpReq::urlEncode(usrName) 
+es-app/src/RetroAchievements.cpp:757:	HttpReq request(getApiUrl("API_GetUserRankAndScore", "u=" + HttpReq::urlEncode(usr
+es-app/src/RetroAchievements.cpp:1037:		HttpReq request("https://retroachievements.org/dorequest.php?r=login&u=" + HttpR
+es-app/src/RetroAchievements.cpp:173:// Use empty UserAgent with doRequest.php calls
+es-app/src/RetroAchievements.cpp:183:		options.userAgent = ret;
+[R3 rc=0 wall=0.01s]
+
+### R4: git -C "$W" grep -n -E "SSL_VERIFY(PEER|HOST)" "$PIN" -- es-core/src/HttpReq.cpp | sed "s/^$PIN://"
+es-core/src/HttpReq.cpp:192:	curl_easy_setopt(mHandle, CURLOPT_SSL_VERIFYPEER, 0L);
+es-core/src/HttpReq.cpp:200:		curl_easy_setopt(mHandle, CURLOPT_SSL_VERIFYHOST, 0L);
+[R4 rc=0 wall=0.01s]
+
+### R5: git -C "$W" grep -n -E "LOG\(" "$PIN" -- es-app/src/RetroAchievements.cpp es-app/src/guis/GuiRetroAchievementsSettings.cpp | sed "s/^$PIN://" | $G -i -E "passw|token|key" | wc -l; git -C "$W" grep -c "maskSecrets" "$PIN" -- es-app/src es-core/src | sed "s/^$PIN://"
+2
+es-app/src/ApiSystem.cpp:4
+es-app/src/FileData.cpp:1
+es-app/src/OfflineScanJob.cpp:1
+es-app/src/Win32ApiSystem.cpp:3
+es-app/src/guis/GuiMenu.cpp:1
+es-app/src/scrapers/Scraper.cpp:1
+es-core/src/InputManager.cpp:2
+es-core/src/Scripting.cpp:3
+es-core/src/utils/Platform.cpp:1
+es-core/src/utils/StringUtil.cpp:3
+es-core/src/utils/StringUtil.h:1
+[R5 rc=0 wall=0.02s]
+
+### R6: git -C "$W" grep -n -E "raofflineproxy-ctl|have_account" "$PIN" -- es-app/src/guis/GuiRetroAchievementsSettings.cpp es-app/src/OfflineAchievements.cpp | sed "s/^$PIN://" | cut -c1-120
+es-app/src/OfflineAchievements.cpp:26:	const char* CTL = "/usr/bin/raofflineproxy-ctl";
+es-app/src/OfflineAchievements.cpp:65:	// anything whose arguments say raofflineproxy-ctl: a tail of its log, a
+es-app/src/OfflineAchievements.cpp:341:		const long pid = RunLock::holder(SCAN_LOCK, "raofflineproxy-ctl");
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:88:// top-up that runs when the device is next connected (raofflineprox
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:125:// raofflineproxy-ctl scan on a page of its own (GuiOfflineScan, th
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:135:// -- dimmed while raofflineproxy-ctl is enabling or disabling on i
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:154:// The ctl's own test (raofflineproxy-ctl have_account): a user nam
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:322:	window->pushGui(new GuiOfflineScan(window, "/usr/bin/raofflineprox
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:389:// system-wide switch, off by default, backed by raofflineproxy-ctl
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:479:			auto result = ApiSystem::executeScriptLegacy(std::string("/usr/b
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:633:	if (Utils::FileSystem::exists("/usr/bin/raofflineproxy-ctl"))
+[R6 rc=0 wall=0.01s]
+
+### R7: git -C "$W" show "$PIN:es-app/src/ApiSystem.cpp" | sed -n "2278,2291p" | $G -n -E "WEXITSTATUS|WIFEXITED|pclose"; git -C "$W" show "$PIN:es-app/src/OfflineScanJob.cpp" | $G -n -E "WIFEXITED|WEXITSTATUS|1024|>>> pid" | cut -c1-110
+14:	int exitCode = WEXITSTATUS(pclose(pipe));
+130:	// shell a process group leader and ">>> pid N" tells cancel() which group
+135:		+ Utils::String::shellQuote("echo \">>> pid $$\"; { trap '' PIPE; " + mCommand + " ; }") + " 2>&1";
+145:				if (buf.size() < 1024)
+156:		if (WIFEXITED(status))
+157:			ret = WEXITSTATUS(status);
+173://   ">>> pid <n>"              the run's process group, from the shell run() starts
+[R7 rc=0 wall=0.01s]
+
+### R8: git -C "$W" grep -n -E "FileSystem::exists\(" "$PIN" -- es-app/src/OfflineAchievements.cpp es-app/src/guis/GuiRetroAchievementsSettings.cpp es-app/src/OfflineScanJob.cpp es-app/src/ThreadedHasher.cpp es-app/src/RetroAchievements.cpp | sed "s/^$PIN://" | cut -c1-120
+es-app/src/OfflineAchievements.cpp:98:	return Utils::FileSystem::exists(CTL);
+es-app/src/OfflineAchievements.cpp:127:	return available() && Utils::FileSystem::exists(FLUSH_STAMP, false);
+es-app/src/OfflineAchievements.cpp:136:	if (!Utils::FileSystem::exists(SCAN_STAMP, false))
+es-app/src/OfflineAchievements.cpp:147:	if (!Utils::FileSystem::exists(RUNNING_FILE, false))
+es-app/src/OfflineAchievements.cpp:156:	if (!Utils::FileSystem::exists(READY_FILE, false))
+es-app/src/OfflineAchievements.cpp:192:	if (!Utils::FileSystem::exists(ONLINE_STATE, false))
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:633:	if (Utils::FileSystem::exists("/usr/bin/raofflineproxy-ctl"))
+[R8 rc=0 wall=0.01s]
+
+### R9: git -C "$W" grep -n -E "stallTimeout|\.timeout|connectTimeout" "$PIN" -- es-app/src/RetroAchievements.cpp es-app/src/ThreadedHasher.cpp | sed "s/^$PIN://" | cut -c1-110; git -C "$W" grep -n -E "ThreadedHasher::start\(" "$PIN" -- es-app/src | sed "s/^$PIN://" | cut -c1-110
+es-app/src/RetroAchievements.cpp:520:	options.timeout = PAGE_REQUEST_MS;
+es-app/src/RetroAchievements.cpp:633:	options.timeout = PAGE_REQUEST_MS;   // fork #190, as the game page
+es-app/src/RetroAchievements.cpp:755:	options.timeout = PAGE_REQUEST_MS;   // fork #190
+es-app/src/RetroAchievements.cpp:863:		options.stallTimeout = 30L;
+es-app/src/SystemData.cpp:1134:		ThreadedHasher::start(window, (ThreadedHasher::HasherType)checkIndex, false, 
+es-app/src/ThreadedHasher.cpp:283:void ThreadedHasher::start(Window* window, HasherType type, bool forceAllGam
+es-app/src/guis/GuiHashStart.cpp:85:	ThreadedHasher::start(mWindow, mType, allGames, false, &systems);
+es-app/src/guis/GuiMenu.cpp:1214:	auto findAllGames = [this] { ThreadedHasher::start(mWindow, ThreadedHasher::
+es-app/src/guis/GuiNetPlaySettings.cpp:59:				ThreadedHasher::start(wnd, ThreadedHasher::HASH_NETPLAY_CRC, fal
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:800:				ThreadedHasher::start(window, ThreadedHasher::HASH_CH
+[R9 rc=0 wall=0.01s]
+
+### R10: F8="es-app/src/RetroAchievements.cpp es-app/src/OfflineAchievements.cpp es-app/src/OfflineScanJob.cpp es-app/src/ThreadedHasher.cpp es-app/src/guis/GuiRetroAchievements.cpp es-app/src/guis/GuiRetroAchievementsSettings.cpp es-app/src/guis/GuiGameAchievements.cpp es-app/src/guis/GuiOfflineScan.cpp es-app/src/ProxyCards.cpp"; git -C "$W" grep -o "_(\"" "$PIN" -- $F8 | wc -l; git -C "$W" grep -c "_(\"" "$PIN" -- $F8 | sed "s/^$PIN://"; tools/es-untranslated --es-src "$W" --upstream bccd715707 2>&1 | $G -i -E "untranslated|of " | tail -n 3
+222
+es-app/src/ProxyCards.cpp:27
+es-app/src/RetroAchievements.cpp:6
+es-app/src/ThreadedHasher.cpp:7
+es-app/src/guis/GuiGameAchievements.cpp:21
+es-app/src/guis/GuiOfflineScan.cpp:38
+es-app/src/guis/GuiRetroAchievements.cpp:17
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:76
+es-untranslated: upstream base bccd71570 (given)
+es-untranslated: 706 fork string(s) in the source, 706 with French, 0 without
+es-untranslated: 2 upstream string(s) not in upstream's catalogue and without French (upstream's, not counted):
+[R10 rc=0 wall=0.28s]
+
+### R11: tools/es-menu-map-check --es-src "$W" 2>&1 | tail -n 1; $G -n -E "PL-07|left running" docs/es-menu-map.md | cut -c1-120; $G -c "SCANNING GAMES FOR OFFLINE ACHIEVEMENTS" docs/es-menu-map.md
+55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing
+595:    PAGE --> SCAN[SCAN GAMES FOR OFFLINE ACHIEVEMENTS<br/><i>NOT SCANNED YET . N GAMES READY FOR OFFLINE PLAY</i><br
+0
+[R11 rc=1 wall=0.13s]
+
+### R12: wc -l tools/vm-walks/m7-retro-achievements.steps; $G -c -i -E "retro|achiev|offline" tools/vm-walks/suite.txt tools/vm-walks/claims.txt tools/vm-walks/masks.txt; tools/ra-ui-test --help >/dev/null 2>&1; echo "ra-ui-test --help rc=$?"
+36 tools/vm-walks/m7-retro-achievements.steps
+tools/vm-walks/suite.txt:0
+tools/vm-walks/claims.txt:0
+tools/vm-walks/masks.txt:0
+ra-ui-test --help rc=0
+[R12 rc=0 wall=0.04s]
+
+### R13: git -C "$W" diff --stat bccd715707 "$PIN" -- external/libcheevos | tail -n 1; git -C "$W" grep -n -E "RCHEEVOS_VERSION_(MAJOR|MINOR|PATCH)" "$PIN" -- external/libcheevos | sed "s/^$PIN://" | cut -c1-100
+ 9 files changed, 526 insertions(+), 15 deletions(-)
+external/libcheevos/rcheevos/src/rc_version.h:10:#define RCHEEVOS_VERSION_MAJOR 12
+external/libcheevos/rcheevos/src/rc_version.h:11:#define RCHEEVOS_VERSION_MINOR 2
+external/libcheevos/rcheevos/src/rc_version.h:12:#define RCHEEVOS_VERSION_PATCH 1
+external/libcheevos/rcheevos/src/rc_version.h:15:#define RCHEEVOS_VERSION RCHEEVOS_MAKE_VERSION(RCHE
+external/libcheevos/rcheevos/src/rc_version.h:21:#if RCHEEVOS_VERSION_PATCH > 0
+external/libcheevos/rcheevos/src/rc_version.h:22: #define RCHEEVOS_VERSION_STRING RCHEEVOS_MAKE_VERS
+external/libcheevos/rcheevos/src/rc_version.h:24: #define RCHEEVOS_VERSION_STRING RCHEEVOS_MAKE_VERS
+external/libcheevos/rcheevos/src/rcheevos/rc_version.h:8:#define RCHEEVOS_VERSION_MAJOR 10
+external/libcheevos/rcheevos/src/rcheevos/rc_version.h:9:#define RCHEEVOS_VERSION_MINOR 7
+external/libcheevos/rcheevos/src/rcheevos/rc_version.h:10:#define RCHEEVOS_VERSION_PATCH 0
+external/libcheevos/rcheevos/src/rcheevos/rc_version.h:13:#define RCHEEVOS_VERSION RCHEEVOS_MAKE_VER
+external/libcheevos/rcheevos/src/rcheevos/rc_version.h:19:#if RCHEEVOS_VERSION_PATCH > 0
+external/libcheevos/rcheevos/src/rcheevos/rc_version.h:20: #define RCHEEVOS_VERSION_STRING RCHEEVOS_
+external/libcheevos/rcheevos/src/rcheevos/rc_version.h:22: #define RCHEEVOS_VERSION_STRING RCHEEVOS_
+[R13 rc=0 wall=0.02s]
+
+### R14: for f in OfflineAchievementsTextTests CheevosIndexTests CheevosRetryTests OfflineProxyUrlTests; do printf "%s: " "$f"; git -C "$W" show "$PIN:es-app/tests/unit/$f.cpp" | $G -c TEST_CASE; done; git -C "$W" show "$PIN:es-app/tests/unit/CloudTextTests.cpp" | $G -c TEST_CASE; git -C "$W" show "$PIN:es-app/tests/unit/CloudTextTests.cpp" | $G -c -i -E "TEST_CASE.*(retroachievements|achievement)"
+OfflineAchievementsTextTests: 15
+CheevosIndexTests: 6
+CheevosRetryTests: 7
+OfflineProxyUrlTests: 4
+70
+0
+[R14 rc=1 wall=0.02s]
+
+### R16: out=$(ES_BUILD_ROOT=/nonexistent tools/es-syntax-check --tree "$W" es-app/src/OfflineAchievements.cpp 2>&1); rc=$?; printf "%s\n" "$out" | tail -n 1; echo "es-syntax-check rc=$rc"
+es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)
+es-syntax-check rc=2
+[R16 rc=0 wall=0.01s]
+
+### R17: for f in es-app/src/OfflineAchievements.cpp es-app/src/RetroAchievements.cpp es-app/src/guis/GuiOfflineScan.cpp; do out=$(g++ -std=c++17 -fsyntax-only -I "$W/es-app/src" -I "$W/es-core/src" -I "$W/external" "$W/$f" 2>&1); rc=$?; printf "%s: %s rc=%s\n" "$f" "$(printf "%s\n" "$out" | $G -m1 -E "fatal error|error:" | cut -c1-90)" "$rc"; done
+es-app/src/OfflineAchievements.cpp: /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-core rc=1
+es-app/src/RetroAchievements.cpp: /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-core rc=1
+es-app/src/guis/GuiOfflineScan.cpp: /home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-core rc=1
+[R17 rc=0 wall=0.13s]
+
+### R18: git diff --stat ae3c013cac HEAD -- packages projects tools | tail -n 1; git -C "$W" diff --stat "$PIN" HEAD | tail -n 1
+[R18 rc=0 wall=0.01s]
+
