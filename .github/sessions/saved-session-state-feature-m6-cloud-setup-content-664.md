@@ -16,16 +16,15 @@
 
 ## Current focus
 
-**Stage E done; the hand-back is posted on #664; the lane is idle** (08:11 UTC).
-- **Stage D:** six bugs (#1128 to #1133) and the audit issue #1134, a sub-issue of #664.
-- **Stage E:** six streams, `59a5a8860e` to `3e95bf18f4`; the record is `7fae1f6da8`.
-  - `reviewed-at: f3803436b8` and `fixed-at: 3e95bf18f4` are in #664's body.
-  - Every bug criterion is ticked from its stage-E record, but #1133's first: the table at the ES pin holds neither sentence, so it is put to the coordinator.
-- **The guest window ran** 07:59:26 to 08:06:04 UTC, with RETURN posted. The disk is retired (`00`), and `/workspace/tmp/m6-t17/cloud-qa/` (138 bytes) is kept until acceptance.
-- **New:** F-24 / PL-23 (Low), from PL-18's full restore, for the coordinator's ruling.
-- **`tools/register-check`** fails on the four D-CLOUD-185 citations until the coordinator's branch is merged here.
+**The second hand-back is posted on #664; the lane is idle** (09:08 UTC).
+- **Seven streams:** S1 to S6, then S7 `479cd96c24` (#1136), with S3 corrected by `c3e260861b`.
+  - `reviewed-at: f3803436b8` and `fixed-at: 479cd96c24` are in #664's body.
+  - All seven bugs are ticked, at 0 fail. The audit #1134 has 23 items.
+- **Two guest windows:** 07:59:26 to 08:06:04 and 08:18:14 to 08:21:22 UTC, both disks retired (`00`). `/workspace/tmp/m6-t17/` is kept until acceptance.
+- **`tools/last-good-scripts-test`** (`QA_SYSTEM_ROOT` the donor) PASSED on the tree.
+- **`tools/register-check`** fails on the four D-CLOUD-185 citations until the coordinator's hand-back merge.
 
-**Next:** the coordinator's acceptance; then stage G (the retro), `audit-completion.json` and the full lint, as the coordinator prompts.
+**Next:** the coordinator's acceptance (`AUDIT_ISSUE=1134`); then stage G (the retro), `audit-completion.json` and the full lint, as prompted.
 
 ## Next commands
 
