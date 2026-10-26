@@ -1,0 +1,45 @@
+$ t17-selection-fixture.py --expect fixed  (the fixed cloud_content_restore; 07:54:46Z)
+sources: projects/ROCKNIX/packages/network/rclone/sources; applets: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox
+full-card: rc 1; no OK line; the selection now: old; temp left: none; set-systems log lines: 1 ([cloud_content_restore] set-systems: the selection could not be written whole; the previous one stands)
+control: rc 0; OK 300 selected; the selection now: all; temp left: none; set-systems log lines: 0
+t17-selection-fixture: fixed-expectation-met
+exit 0
+$ t17-selection-fixture.py --expect unfixed --sources <8ebaf8daad's, extracted to scratch>  (07:54:46Z)
+sources: /workspace/tmp/m6-t17/e/orig; applets: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox
+full-card: rc 0; OK 103 selected; the selection now: partial (103 of 300 names); temp left: none; set-systems log lines: 0
+control: rc 0; OK 300 selected; the selection now: all; temp left: none; set-systems log lines: 0
+t17-selection-fixture: unfixed-expectation-met
+exit 0
+$ bash -n cloud_content_restore
+exit 0
+$ git diff 0ffe7cd94f -- cloud_content_restore  (S5's change alone)
+diff --git a/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore b/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore
+index 19daad6f45..db2ab7e888 100755
+--- a/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore
++++ b/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore
+@@ -1404,10 +1404,18 @@ case "${1}" in
+         # is written whole or not at all: a kill mid-write left an empty
+         # file, and an empty file is a different valid choice -- every later
+         # --selected then said no systems were selected (D-CLOUD-078, #105).
+-        { [ ${#local_names[@]} -eq 0 ] || printf '%s\n' "${local_names[@]}"; } > "${SELECTION}.tmp.$$" 2>/dev/null
+-        mv -f "${SELECTION}.tmp.$$" "${SELECTION}" 2>/dev/null || rm -f "${SELECTION}.tmp.$$"
+-        echo "OK $(selected_systems | wc -l) selected"
+-        exit 0
++        # The write's own status decides the rename: a write cut short on a
++        # full card was renamed in anyway, and the selection lost names
++        # while OK reported the short count (#1132, T17's F-10).
++        if { [ ${#local_names[@]} -eq 0 ] || printf '%s\n' "${local_names[@]}"; } > "${SELECTION}.tmp.$$" 2>/dev/null \
++           && mv -f "${SELECTION}.tmp.$$" "${SELECTION}" 2>/dev/null; then
++            echo "OK $(selected_systems | wc -l) selected"
++            exit 0
++        fi
++        rm -f "${SELECTION}.tmp.$$"
++        log_message "set-systems: the selection could not be written whole; the previous one stands"
++        echo "Nothing was changed: the selection couldn't be saved."
++        exit 1
+     ;;
+     --selected)
+         mapfile -t DIRS < <(selected_systems)
+$ t17-content-fixture.py --expect fixed --real-rclone <donor 1.75.2>  (every case, after S5; 07:54:58Z)
+t17-content-fixture: fixed-expectation-met
+exit 0

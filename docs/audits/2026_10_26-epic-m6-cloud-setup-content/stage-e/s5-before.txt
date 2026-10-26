@@ -1,0 +1,12 @@
+$ t17-selection-fixture.py --expect unfixed  (cloud_content_restore's --set-systems = 8ebaf8daad's: 4 changed lines in the file, all S2's array builder; donor busybox 1.36.1; host bash 5.3.9; 07:54:24Z)
+sources: projects/ROCKNIX/packages/network/rclone/sources; applets: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox
+full-card: rc 0; OK 103 selected; the selection now: partial (103 of 300 names); temp left: none; set-systems log lines: 0
+control: rc 0; OK 300 selected; the selection now: all; temp left: none; set-systems log lines: 0
+t17-selection-fixture: unfixed-expectation-met
+exit 0
+$ t17-selection-fixture.py --expect fixed  (cloud_content_restore's --set-systems = 8ebaf8daad's: 4 changed lines in the file, all S2's array builder; donor busybox 1.36.1; host bash 5.3.9; 07:54:25Z)
+sources: projects/ROCKNIX/packages/network/rclone/sources; applets: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox
+full-card: rc 0; OK 103 selected; the selection now: partial (103 of 300 names); temp left: none; set-systems log lines: 0
+control: rc 0; OK 300 selected; the selection now: all; temp left: none; set-systems log lines: 0
+t17-selection-fixture: UNEXPECTED on fixed: full-card=('partial (103 of 300 names)', False, False)
+exit 1

@@ -1404,10 +1404,18 @@ case "${1}" in
         # is written whole or not at all: a kill mid-write left an empty
         # file, and an empty file is a different valid choice -- every later
         # --selected then said no systems were selected (D-CLOUD-078, #105).
-        { [ ${#local_names[@]} -eq 0 ] || printf '%s\n' "${local_names[@]}"; } > "${SELECTION}.tmp.$$" 2>/dev/null
-        mv -f "${SELECTION}.tmp.$$" "${SELECTION}" 2>/dev/null || rm -f "${SELECTION}.tmp.$$"
-        echo "OK $(selected_systems | wc -l) selected"
-        exit 0
+        # The write's own status decides the rename: a write cut short on a
+        # full card was renamed in anyway, and the selection lost names
+        # while OK reported the short count (#1132, T17's F-10).
+        if { [ ${#local_names[@]} -eq 0 ] || printf '%s\n' "${local_names[@]}"; } > "${SELECTION}.tmp.$$" 2>/dev/null \
+           && mv -f "${SELECTION}.tmp.$$" "${SELECTION}" 2>/dev/null; then
+            echo "OK $(selected_systems | wc -l) selected"
+            exit 0
+        fi
+        rm -f "${SELECTION}.tmp.$$"
+        log_message "set-systems: the selection could not be written whole; the previous one stands"
+        echo "Nothing was changed: the selection couldn't be saved."
+        exit 1
     ;;
     --selected)
         mapfile -t DIRS < <(selected_systems)
