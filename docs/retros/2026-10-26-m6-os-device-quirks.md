@@ -7,16 +7,17 @@
 - stage E's two streams;
 - the close-out to the hand-back.
 
-Not retro'd here: the coordinator's acceptance; the #585 and #332 posts (the coordinator's, from `05`); #1119, #1122 and #1123 (the coordinator's Backlogs under #695); #1125 (the rehearsal's seed, found by S2).
+Not retro'd here: the coordinator's acceptance; the #585 and #332 posts (the coordinator's, from `05`); #1119, #1122, #1123 and #1126 (the coordinator's Backlogs under #695); the rehearsal's own guest run (#1125's last criterion, the next candidate's step 3).
 
 **Commits:**
 - `reviewed-at`: `5ee0dfefcf` (the dispatch tip).
-- `fixed-at`: `04a9fe98b9` (S2, the last fix; S1 is `39851da3e8`).
+- `fixed-at`: `7d097e34aa` (S3, the last fix; S1 is `39851da3e8`, S2 `04a9fe98b9`).
 
 ## What the slice did to the two time-to-play numbers
 
 **Nothing, on either number.** Neither fix is on the launch path or the exit path.
 - **S1** changes the Nova's battery LED helper. `098-deviceutils` starts it at boot in the background (`nohup systemctl start batteryledstatus &`), and it polls every 15 s. The fix makes it exit at once when `led.color` is not `battery`, and repaint after a critical blink.
+- **S3** changes a QA tool's seed only, not the image.
 - **S2** changes a GENERIC_X64 boot quirk.
   - Before the stamp, it now hashes a listed file before removing it: at most 16 `sha256sum` reads, at boot.
   - A guest with an edited file at a listed name hashes it at every boot. That happens at boot, on a developer's tool (D-QA-053).
@@ -32,7 +33,7 @@ Nothing ran on a unit or on a guest.
 
   They are #585 lines, and upstream's own Odin 2 helper is the model.
 - **The leads filed under #695:** #1119 (H700's `030-analog_leds:7`), #1122 (`QUIRK_DEVICE` derived twice, and an empty model), #1123 (the wrappers' `$*`).
-- **#1125:** the upgrade rehearsal's PL-019 seed must be the old quirks' real bytes before the next candidate's step 3. Otherwise the rehearsal fails against #1124's fix.
+- **#1125:** the upgrade rehearsal's PL-019 seed is now the old quirks' real bytes, with a fifth name of the owner's that must be kept (S3, `7d097e34aa`). Its guest run is the next candidate's step 3, and #1125's last criterion waits for it.
 - **The every-boot shapes:** 106 flag rewriters, and nine boards' `050-game-configs` over a player's `retroarch.cfg` (#585).
 
 ## What worked well
@@ -52,7 +53,8 @@ Nothing ran on a unit or on a guest.
   - a hash typed with a leading `0` in `05` (PL-10);
   - the ruling's time copied from its text (`05:5x`) into 22 places, when the tracker says 05:29:36;
   - a readback time typed as `06:0x`;
-  - case (f)'s first link pointed outside its directory, so it tested a dangling link twice.
+  - case (f)'s first link pointed outside its directory, so it tested a dangling link twice;
+  - S3's four bodies were typed before the files were displayed, then replaced from `git show` before any run. The seed's own hash check would have failed them, which is the argument for building it in.
 - **Counting by file instead of by name.** Model names reach further than files (15 names for 12 files), the seat's G-38.
 - **The session was cut once by a rate limit** (stage B; the friction line on 2026-10-25).
 
@@ -77,7 +79,7 @@ These are proposals for the coordinator.
 
 - **AC conformance:** #676's sixteen criteria, read against their artifacts in `04` § Acceptance-criteria scorecard; the hand-back items are this stage's. PASS.
 - **Cornerstone spot-check:** nothing under `packages/`, `projects/` or `tools/` changed at stages A to D. Stage E changed the two fork-own files its brief names, and nothing else under those trees. Nothing ran on a unit. PASS.
-- **Interaction-defect scan:** `03` § 3.5's seams. The wrappers' `$*` seam is corrected (G-2, #1123). S2's interaction with `vm-upgrade-rehearsal` was found by grep (#1125). PARTIAL: the rehearsal must change before the next candidate.
+- **Interaction-defect scan:** `03` § 3.5's seams. The wrappers' `$*` seam is corrected (G-2, #1123). S2's interaction with `vm-upgrade-rehearsal` was found by grep (#1125) and fixed by S3. PASS, with the guest run left to the next candidate.
 - **Futro verification** (`docs/futros/2026-10-23-m6-os-scripts-and-launch.md` § T29 kickoff addendum, `:384-424`):
   - *What we know* held: 333 / 88 / 65 / 23, the owned units without an entry, tier B's 70 / 2,885, 18 pending, two panel files.
   - The three unknowns are answered above.

@@ -32,7 +32,7 @@
 | 2 | the lint `PASS` | pre-issue `PASS` at stages C to H; the full lint after acceptance, with `audit-completion.json` |
 | 3 | the plan, the provenance, the manifest | met: `review-plan.json` `complete`; both provenance files `PASS`; `packet-manifest.json` |
 | 4 | every punch item at a Phase 7 outcome | met: `05` § Phase 7, 7 Resolved, 7 Deferred, read back at stage F; #1121's checkboxes are the coordinator's at acceptance |
-| 5 | `reviewed-at:` and `fixed-at:`; the 333 at `8ebaf8daad`'s bytes; nothing changed at A to D | the diffs were empty through stage D (r03, r20; `ce2af0ca7c`). Stage E changed the two fork-own files its brief names. `reviewed-at: 5ee0dfefcf` and `fixed-at: 04a9fe98b9` are in #676's body at the hand-back |
+| 5 | `reviewed-at:` and `fixed-at:`; the 333 at `8ebaf8daad`'s bytes; nothing changed at A to D | the diffs were empty through stage D (r03, r20; `ce2af0ca7c`). Stage E changed the two fork-own files (S1, S2) and the fork-only rehearsal (S3) its brief names. `reviewed-at: 5ee0dfefcf` and `fixed-at: 7d097e34aa` are in #676's body, read back |
 | 6 | `01` § Scope | met (`e8dcd0ace5`), with the board-count delta |
 | 7 | coverage, 333 rows | met: the brief's `awk` and `grep` print 333 |
 | 8 | § The entries, 88 rows, generated with asserts | met (`tools/t29-tables.py entries`) |

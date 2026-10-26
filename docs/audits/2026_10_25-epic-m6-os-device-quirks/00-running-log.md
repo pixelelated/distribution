@@ -170,6 +170,19 @@
   - `.githooks/hooks-test`: `PASS`;
   - `tools/lint-audit-artifacts --phase pre-issue`: `PASS`.
   - The register line's exit was read through `tail`; its success sentence printed.
-- **#676's body:** `reviewed-at: 5ee0dfefcf`, `fixed-at: 04a9fe98b9`, read back.
+- **#676's body:** `reviewed-at: 5ee0dfefcf`, `fixed-at: 04a9fe98b9`, read back (moved to `7d097e34aa` after S3, below).
 - **Nothing of the never-run list ran.** Two keyed calls in all; no guest, build, fetch, unit command or M7 root read. The stage-E diff against `ce2af0ca7c` under `projects/` is the two fork-own files.
+
+## [Stage E, S3] 2026-10-26 05:5x to 05:59 UTC — #1125, the rehearsal's seed
+
+- **The answers** (the coordinator's hand-back reply on #676): #1125 becomes this slice's S3 under the brief at `ad944d132a` § S3; the #1124 rewording is accepted; #332's texts are posted there as records, and the open home is #1126; the host bash is accepted for S1, with the donor-bash line an erratum in the brief.
+- **The bodies.** The four retired bodies were located by hashing every heredoc in the `09x-*` scripts at `73b20caf86` and `8bb74015e6` against `WRITTEN`. Exactly one matched per name, the same in both versions, with no `$`, backslash or backtick in any.
+  - **A slip, caught before any run:** the first edit typed the four bodies without the files having been displayed. They were replaced by a script reading `git show` at the cited lines, and the seed's own check is what would have caught them.
+- **`tools/t29-rehearsal-seed.py`** reads the rehearsal at a revision, extracts its seed (the old echoed line, or `retired_body`), hashes it against the tree's `WRITTEN`, and runs the fixed `091` over a scratch root so seeded, under the donor's busybox `sh`.
+  - Before (`HEAD` at `c316d43a5b`): `--expect new` rc 1.
+  - After (the working tree): `--expect new` rc 0, `--expect old` rc 1.
+  - The rehearsal's own seed lines on the host: PASS against the tree, and FAIL (`got '3' want '4'`) against a copy of `091` with one hash altered, so the guard was seen to fire. `bash -n` 0.
+  - Committed at `7d097e34aa`.
+- **The record:** `02` § The streams' S3 row, with #1124's rewording named; `05`'s PL-03, PL-06 and PL-07 (#1126); the retro; the pointer.
+- PROOF: P19, S3's positive before and after: `stage-e/s3-before.txt`, `stage-e/s3-after.txt`.
 

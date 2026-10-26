@@ -66,7 +66,7 @@
 - **Acceptance:** the coordinator's disposition: a `bug` with that fixture (unfixed removes edited content, fixed keeps it), or recorded
 - **Bug issue:** #1124
 - **Fix commit:** `04a9fe98b9` (S2; the positive before in `stage-e/s2-before.txt`; `02` § The streams)
-- **Disposition note:** a `bug`, not a record ([#676 ruling](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761), 05:29:36 UTC): #1124, filed by the lane, Low; fixed by S2. #1125 is the rehearsal fixture S2 found seeding bytes no old quirk wrote.
+- **Disposition note:** a `bug`, not a record ([#676 ruling](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761), 05:29:36 UTC): #1124, filed by the lane, Low; fixed by S2. #1125 is the rehearsal fixture S2 found seeding bytes no old quirk wrote, fixed by S3 at `7d097e34aa` (the coordinator's answer at the hand-back); its guest run is the next candidate's step 3.
 
 ## PL-04: upstream's copies of the two battery defects
 
@@ -128,6 +128,7 @@
 - **Can this be done on the VM?** Yes, on the host, by the fixture's shape; what the LEDs show is device fact line 31
 - **Already written:** `led.color=rgb` saved over a failed application
 - **Acceptance:** per-unit dispositions and a #585 line, #332 named
+- **Lead:** #1126, the coordinator's Backlog under #695 for the observations, citing #332 and this text
 - **Disposition note:** per-unit dispositions ([#676 ruling](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761), 05:29:36 UTC). The #585 line, and the #332 comment, for the coordinator to post at acceptance.
 
   #585:
@@ -157,6 +158,7 @@
 - **Can this be done on the VM?** Yes for the scripts, on the host; which value the interface writes is the interface's (#332)
 - **Already written:** nothing proposed
 - **Acceptance:** recorded on #332 (D-UI-121) with G-14 and G-22
+- **Lead:** #1126, the coordinator's Backlog under #695 for the observations, citing #332 and this text
 - **Disposition note:** the #332 comment, for the coordinator to post at acceptance ([#676 ruling](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761), 05:29:36 UTC):
 
   > T29 (#676 F-05, PL-07), two more for D-UI-121's *"the brightness row does nothing on that device"*:
@@ -360,11 +362,11 @@ The coordinator's stage-D dispositions (#676, [issuecomment-6408955761](https://
 | --- | --- | --- |
 | PL-01 | **Resolved** | `39851da3e8`, S1 under `t29-streams.md` (before `stage-e/s1-before.txt`, after `stage-e/s1-after.txt`); bug #1120, its criteria ticked, open until on `next` |
 | PL-02 | **Resolved** | `39851da3e8`, S1 with PL-01 (the `critical-recovery` case); in #1120 by the ruling [issuecomment-6408955761](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761) |
-| PL-03 | **Resolved** | `04a9fe98b9`, S2 (before `stage-e/s2-before.txt`, after `stage-e/s2-after.txt`, the suite `stage-e/s2-suite.txt`); bug #1124, its criteria ticked; #1125 the rehearsal's seed |
+| PL-03 | **Resolved** | `04a9fe98b9`, S2 (before `stage-e/s2-before.txt`, after `stage-e/s2-after.txt`, the suite `stage-e/s2-suite.txt`); bug #1124, its criteria ticked; #1125 the rehearsal's seed, fixed by S3 at `7d097e34aa` |
 | PL-04 | **Deferred** | deferred:#585, the line in § PL-04, for the coordinator's post at acceptance; per-unit dispositions [issuecomment-6408955761](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761) |
 | PL-05 | **Deferred** | deferred:#585, the line in § PL-05, for the coordinator's post at acceptance |
-| PL-06 | **Deferred** | deferred:#585, the line and the #332 comment in § PL-06, for the coordinator's post at acceptance (#332 reads CLOSED at stage F) |
-| PL-07 | **Deferred** | deferred:#332, the comment in § PL-07, for the coordinator's post at acceptance (#332 reads CLOSED at stage F) |
+| PL-06 | **Deferred** | deferred:#585, the line and the #332 comment in § PL-06, for the coordinator's post at acceptance on the closed #332 as a record; the open home is #1126 |
+| PL-07 | **Deferred** | deferred:#332, the comment in § PL-07, for the coordinator's post at acceptance on the closed #332 as a record; the open home is #1126 |
 | PL-08 | **Resolved** | recorded at `dcb2bf63c1`: `02` F-06 |
 | PL-09 | **Resolved** | recorded at `dcb2bf63c1`: `02` F-07 |
 | PL-10 | **Resolved** | recorded at `dcb2bf63c1`: `02` § The upstream delta, regenerated, `check` 0; settled by the next base merge |

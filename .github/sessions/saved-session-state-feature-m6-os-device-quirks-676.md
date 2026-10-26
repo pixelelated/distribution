@@ -16,9 +16,9 @@
 
 ## Current focus
 
-**Idle after the hand-back.** Stages E to H are done: S1 `39851da3e8` (#1120), S2 `04a9fe98b9` (#1124), the record, the retro, the checkers, and `reviewed-at` / `fixed-at` in #676's body.
-- **Waiting on the coordinator:** acceptance; the #1124 criterion's rewording; #1125, the rehearsal seed, which is outside the brief's files; #332 being closed for the two texts.
-- **After acceptance:** `audit-completion.json` with T5's writer (`A` and `ISSUE=1121`), the full lint with `--issue 1121`, the pointer idle, and `/workspace/tmp/m6-t29/` removed.
+**Idle after the second hand-back.** Stages E to H are done: S1 `39851da3e8` (#1120), S2 `04a9fe98b9` (#1124), S3 `7d097e34aa` (#1125), the records, the retro, the checkers, and `reviewed-at` / `fixed-at` in #676's body.
+- **Waiting on the coordinator's acceptance** (`AUDIT_ISSUE=1121`; bugs #1120, #1124, #1125).
+- **After acceptance:** `audit-completion.json` with T5's writer (`ISSUE=1121`), the full lint with `--issue 1121`, the pointer idle, and `/workspace/tmp/m6-t29/` removed.
 
 ## Next commands
 
@@ -63,4 +63,5 @@ host's swap, another lane's worktree, or a guest.
 - Stage C: `2831c85a8f`, 2026-10-26 05:21 UTC.
 - Stage D: `ce2af0ca7c`, 2026-10-26 05:25 UTC (#1120, #1121).
 - Stage E: S1 `39851da3e8`, S2 `04a9fe98b9`, the record `dcb2bf63c1`, 05:31 to 05:46 UTC.
-- Stages F to H: this commit, 05:50 UTC.
+- S3: `7d097e34aa`, then its record, 05:59 UTC.
+- Stages F to H: `c316d43a5b`, 05:50 UTC.
