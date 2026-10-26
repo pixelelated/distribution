@@ -1,0 +1,146 @@
+$ t17-archive-fixture.py --restore --expect fixed  (the fixed backuptool; bubblewrap 0.11.1 unprivileged, --clearenv; the donor's busybox 1.36.1 tar; 09:05:15Z)
+file: projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool; foreign_member() lines 551-558
+tar and awk: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox (busybox applets first on PATH)
+escape: members ['storage/.config/escape', 'storage/.config/escape/note.txt']; foreign_member -> rc 1, accepted (no foreign member); busybox tar -xzf -C root -> rc 1 (tar: can't create symlink 'storage/.config/escape' to '/workspace/tmp/m6-t17/e/t17-archive-7injfm0r/); a file landed outside the root: no
+control: members ['outside-control.txt']; foreign_member -> rc 0, refused (a member a restore can't put back) first: outside-control.txt; busybox tar -xzf -C root -> rc 0 (tar: removing leading 'storage/../' from member names); a file landed outside the root: no
+escape: storage/.config/escape in the root is not a symlink
+restore regular: rc 0; why -; left in .config: nothing; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore directory: rc 0; why -; left in .config: t17d:dir ; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore symlink: rc 1; why THIS BACKUP HOLDS FILES A RESTORE CAN'T PUT BACK; left in .config: nothing; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore symlink-child: rc 1; why THIS BACKUP HOLDS FILES A RESTORE CAN'T PUT BACK; left in .config: nothing; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore hardlink: rc 1; why THIS BACKUP HOLDS FILES A RESTORE CAN'T PUT BACK; left in .config: nothing; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore device: rc 1; why THIS BACKUP HOLDS FILES A RESTORE CAN'T PUT BACK; left in .config: nothing; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore fifo: rc 1; why THIS BACKUP HOLDS FILES A RESTORE CAN'T PUT BACK; left in .config: nothing; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore revert-dir: rc 1; why THE RESTORE COULDN'T FINISH; left in .config: nothing; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'; the restore's last words: "\x1b[32mRESTORING SETTINGS...\x1b[0m >>> why THE RESTORE COULDN'T FINISH \x1b[31mTHE RESTORE COULDN'T FINISH. DON'T WORRY - YOUR SETTINGS ARE UNCHANGED. TRY AGAIN.\x1b[0m"
+t17-archive-fixture --restore: fixed-expectation-met
+exit 0
+$ t17-archive-fixture.py --restore --expect unfixed --file <8ebaf8daad's backuptool, extracted to scratch>  (09:05:15Z)
+file: /workspace/tmp/m6-t17/e/orig/backuptool; foreign_member() lines 551-558
+tar and awk: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox (busybox applets first on PATH)
+escape: members ['storage/.config/escape', 'storage/.config/escape/note.txt']; foreign_member -> rc 1, accepted (no foreign member); busybox tar -xzf -C root -> rc 1 (tar: can't create symlink 'storage/.config/escape' to '/workspace/tmp/m6-t17/e/t17-archive-51pc2_ro/); a file landed outside the root: no
+control: members ['outside-control.txt']; foreign_member -> rc 0, refused (a member a restore can't put back) first: outside-control.txt; busybox tar -xzf -C root -> rc 0 (tar: removing leading 'storage/../' from member names); a file landed outside the root: no
+escape: storage/.config/escape in the root is not a symlink
+restore regular: rc 0; why -; left in .config: nothing; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore directory: rc 0; why -; left in .config: t17d:dir ; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore symlink: rc 0; why -; left in .config: t17-link:link ; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore symlink-child: rc 1; why THE RESTORE COULDN'T FINISH; left in .config: t17-escape:dir ; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: yes; existing.cfg: 'the live setting'
+restore hardlink: rc 1; why THE RESTORE COULDN'T FINISH; left in .config: nothing; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore device: rc 0; why -; left in .config: nothing; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore fifo: rc 0; why -; left in .config: t17-fifo:fifo ; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore revert-dir: rc 1; why THE RESTORE COULDN'T FINISH; left in .config: t17r:dir ; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: yes; existing.cfg: 'the live setting'; the restore's last words: "\x1b[32mRESTORING SETTINGS...\x1b[0m >>> why THE RESTORE COULDN'T FINISH \x1b[31mTHE RESTORE COULDN'T FINISH, AND SOME OF YOUR SETTINGS COULDN'T BE PUT BACK. TRY THE RESTORE AGAIN.\x1b[0m"
+t17-archive-fixture --restore: unfixed-expectation-met
+exit 0
+$ bash -n backuptool
+exit 0
+$ QA_SYSTEM_ROOT=<the M6 donor> tools/last-good-scripts-test  (the whole tree; its output written at 09:04:19Z, after the last change to backuptool and cloud_content_backup)
+  a first run of S7 failed PL-006 (KEEP's appends): foreign_type's first cut wrote tar's listing to a temporary file, which moved the suite's numbered mktemp fault onto that file, and the shell's own redirect error reached the screen. foreign_type now reads the listing from a pipe, with each stage's status from PIPESTATUS, and makes no temporary.
+1 HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS
+PASSED
+PASS lines: 1379; exit 0
+$ git diff c3e260861b -- backuptool  (S7's change alone)
+diff --git a/projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool b/projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool
+index 850ed70c68..7e1f3d595a 100755
+--- a/projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool
++++ b/projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool
+@@ -557,6 +557,30 @@ foreign_member() { # <members file>
+          END { exit !found }' "${1}" 2>/dev/null
+ }
+ 
++# The first member that is not a regular file or a directory, and 0 when
++# there is one; 1 when there is none; anything else when the listing cannot
++# be read. foreign_member reads names only, so a symlink member was made by
++# the extraction -- one to /var/tmp was restored and reported as a success --
++# and so was a fifo; a symlink with a child failed in tar and left its
++# directory (#1136, T17's F-24). busybox `tar -tv` prints a symlink as l, a
++# device as c or b, a fifo as p, and a hard link as - with " -> <target>"
++# after its name, so a member passes only when its type is - or d and its
++# line ends with its own name, the -t listing's line in the same place.
++foreign_type() { # <tar.gz archive> <members file>
++    local S
++    [ -r "${2}" ] || return 2
++    # No temporary file: the listing is read from the pipe, every line of it
++    # (an early exit would leave tar a broken pipe, read as unreadable), and
++    # each stage's status is its own.
++    tar -tvzf "${1}" 2>/dev/null | awk 'NR == FNR { name[FNR] = $0; n = FNR; next }
++         !found { t = substr($0, 1, 1); m = name[FNR]
++           if ((t != "-" && t != "d") || m == "" || substr($0, length($0) - length(m) + 1) != m) { print m; found = 1 } }
++         END { if (!found && FNR != n) exit 2; exit !found }' "${2}" - 2>/dev/null
++    S=("${PIPESTATUS[@]}")
++    [ "${S[0]}" -eq 0 ] || return 2
++    return "${S[1]}"
++}
++
+ # How many file members an archive lists, or nothing and 1 when it does not
+ # list back whole: the count supplements tar's status, never replaces it (a
+ # listing can print every name and then fail on a damaged tail; #307, the
+@@ -663,10 +687,34 @@ snapshot_members() { # <members file> <target> <newlist file>
+ 
+ # Undo a restore that did not finish: the copy back over the tree, and every
+ # file the restore created removed. Returns 0 only when both happened.
++#
++# A path the restore created can be a folder by the time the revert runs --
++# a member's parent made by the extraction where the archive also names a
++# file, or a symlink member's child -- and `rm -f` cannot remove a folder, so
++# the revert failed and left .restore-in-progress behind (#1136, T17's F-24).
++# Such a folder is the restore's own: the path did not exist before it
++# (NEWLIST), or held a file the copy is about to put back. Either is removed
++# whole, and only under /storage, where every member of a restore lands.
+ revert_restore() {
+-    local RC=0 P
++    local RC=0 P M
+     if [ -n "${SNAPSHOT}" ]
+     then
++        # The copy holds files only (snapshot_members' KEEP list), so a folder
++        # at one of its paths is the restore's.
++        if P=$(tar -tzf "${SNAPSHOT}" 2>/dev/null)
++        then
++            while IFS= read -r M
++            do
++                M="/${M#./}"
++                case "${M}" in /storage/*) ;; *) continue ;; esac
++                if [ -d "${M}" ] && [ ! -L "${M}" ]
++                then
++                    rm -rf -- "${M}" 2>/dev/null || RC=1
++                fi
++            done <<< "${P}"
++        else
++            RC=1
++        fi
+         tar -xzf "${SNAPSHOT}" -C / >/dev/null 2>&1 || RC=1
+     fi
+     while IFS= read -r P
+@@ -674,7 +722,12 @@ revert_restore() {
+         [ -n "${P}" ] || continue
+         if [ -L "${P}" ] || [ -e "${P}" ]
+         then
+-            rm -f "${P}" 2>/dev/null
++            if [ -d "${P}" ] && [ ! -L "${P}" ]
++            then
++                case "${P}" in /storage/*) rm -rf -- "${P}" 2>/dev/null ;; esac
++            else
++                rm -f "${P}" 2>/dev/null
++            fi
+             [ -L "${P}" ] || [ -e "${P}" ] && RC=1
+         fi
+     done < "${NEWLIST}"
+@@ -1490,10 +1543,18 @@ case "${VERB}" in
+         # restore cannot put back (foreign_member; #307, the audit of the fix
+         # round, PL-028). The words are proposed (D-UI-112's register).
+         FOREIGN=$(foreign_member "${MEMBERS}")
+-        case $? in
++        FOREIGN_RC=$?
++        # And no member that is not a file or a folder (#1136): the zip path
++        # is the legacy reader's, which writes no links (02297b9c07).
++        if [ "${FOREIGN_RC}" -eq 1 ] && [ "${ARCHIVE_KIND}" = "tar" ]
++        then
++            FOREIGN=$(foreign_type "${BACKUPFILE}" "${MEMBERS}")
++            FOREIGN_RC=$?
++        fi
++        case "${FOREIGN_RC}" in
+             0) rm -f "${MEMBERS}" "${NEWLIST}" "${SEEDS}"
+                why "THIS BACKUP HOLDS FILES A RESTORE CAN'T PUT BACK"
+-               fail "THIS BACKUP HOLDS FILES A RESTORE CAN'T PUT BACK, SO NOTHING WAS CHANGED. RESTORE SETTINGS FROM THE CLOUD AGAIN, OR BACK UP SETTINGS TO REPLACE IT." "${BACKUPFILE} holds '${FOREIGN}', which a settings restore does not write (not a file under storage/)" ;;
++               fail "THIS BACKUP HOLDS FILES A RESTORE CAN'T PUT BACK, SO NOTHING WAS CHANGED. RESTORE SETTINGS FROM THE CLOUD AGAIN, OR BACK UP SETTINGS TO REPLACE IT." "${BACKUPFILE} holds '${FOREIGN}', which a settings restore does not write (not a file or folder under storage/, or a link, device or fifo)" ;;
+             1) ;;
+             *) rm -f "${MEMBERS}" "${NEWLIST}" "${SEEDS}"
+                why "COULDN'T KEEP A COPY OF YOUR CURRENT SETTINGS"

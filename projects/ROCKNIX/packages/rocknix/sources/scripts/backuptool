@@ -557,6 +557,30 @@ foreign_member() { # <members file>
          END { exit !found }' "${1}" 2>/dev/null
 }
 
+# The first member that is not a regular file or a directory, and 0 when
+# there is one; 1 when there is none; anything else when the listing cannot
+# be read. foreign_member reads names only, so a symlink member was made by
+# the extraction -- one to /var/tmp was restored and reported as a success --
+# and so was a fifo; a symlink with a child failed in tar and left its
+# directory (#1136, T17's F-24). busybox `tar -tv` prints a symlink as l, a
+# device as c or b, a fifo as p, and a hard link as - with " -> <target>"
+# after its name, so a member passes only when its type is - or d and its
+# line ends with its own name, the -t listing's line in the same place.
+foreign_type() { # <tar.gz archive> <members file>
+    local S
+    [ -r "${2}" ] || return 2
+    # No temporary file: the listing is read from the pipe, every line of it
+    # (an early exit would leave tar a broken pipe, read as unreadable), and
+    # each stage's status is its own.
+    tar -tvzf "${1}" 2>/dev/null | awk 'NR == FNR { name[FNR] = $0; n = FNR; next }
+         !found { t = substr($0, 1, 1); m = name[FNR]
+           if ((t != "-" && t != "d") || m == "" || substr($0, length($0) - length(m) + 1) != m) { print m; found = 1 } }
+         END { if (!found && FNR != n) exit 2; exit !found }' "${2}" - 2>/dev/null
+    S=("${PIPESTATUS[@]}")
+    [ "${S[0]}" -eq 0 ] || return 2
+    return "${S[1]}"
+}
+
 # How many file members an archive lists, or nothing and 1 when it does not
 # list back whole: the count supplements tar's status, never replaces it (a
 # listing can print every name and then fail on a damaged tail; #307, the
@@ -663,10 +687,34 @@ snapshot_members() { # <members file> <target> <newlist file>
 
 # Undo a restore that did not finish: the copy back over the tree, and every
 # file the restore created removed. Returns 0 only when both happened.
+#
+# A path the restore created can be a folder by the time the revert runs --
+# a member's parent made by the extraction where the archive also names a
+# file, or a symlink member's child -- and `rm -f` cannot remove a folder, so
+# the revert failed and left .restore-in-progress behind (#1136, T17's F-24).
+# Such a folder is the restore's own: the path did not exist before it
+# (NEWLIST), or held a file the copy is about to put back. Either is removed
+# whole, and only under /storage, where every member of a restore lands.
 revert_restore() {
-    local RC=0 P
+    local RC=0 P M
     if [ -n "${SNAPSHOT}" ]
     then
+        # The copy holds files only (snapshot_members' KEEP list), so a folder
+        # at one of its paths is the restore's.
+        if P=$(tar -tzf "${SNAPSHOT}" 2>/dev/null)
+        then
+            while IFS= read -r M
+            do
+                M="/${M#./}"
+                case "${M}" in /storage/*) ;; *) continue ;; esac
+                if [ -d "${M}" ] && [ ! -L "${M}" ]
+                then
+                    rm -rf -- "${M}" 2>/dev/null || RC=1
+                fi
+            done <<< "${P}"
+        else
+            RC=1
+        fi
         tar -xzf "${SNAPSHOT}" -C / >/dev/null 2>&1 || RC=1
     fi
     while IFS= read -r P
@@ -674,7 +722,12 @@ revert_restore() {
         [ -n "${P}" ] || continue
         if [ -L "${P}" ] || [ -e "${P}" ]
         then
-            rm -f "${P}" 2>/dev/null
+            if [ -d "${P}" ] && [ ! -L "${P}" ]
+            then
+                case "${P}" in /storage/*) rm -rf -- "${P}" 2>/dev/null ;; esac
+            else
+                rm -f "${P}" 2>/dev/null
+            fi
             [ -L "${P}" ] || [ -e "${P}" ] && RC=1
         fi
     done < "${NEWLIST}"
@@ -1490,10 +1543,18 @@ case "${VERB}" in
         # restore cannot put back (foreign_member; #307, the audit of the fix
         # round, PL-028). The words are proposed (D-UI-112's register).
         FOREIGN=$(foreign_member "${MEMBERS}")
-        case $? in
+        FOREIGN_RC=$?
+        # And no member that is not a file or a folder (#1136): the zip path
+        # is the legacy reader's, which writes no links (02297b9c07).
+        if [ "${FOREIGN_RC}" -eq 1 ] && [ "${ARCHIVE_KIND}" = "tar" ]
+        then
+            FOREIGN=$(foreign_type "${BACKUPFILE}" "${MEMBERS}")
+            FOREIGN_RC=$?
+        fi
+        case "${FOREIGN_RC}" in
             0) rm -f "${MEMBERS}" "${NEWLIST}" "${SEEDS}"
                why "THIS BACKUP HOLDS FILES A RESTORE CAN'T PUT BACK"
-               fail "THIS BACKUP HOLDS FILES A RESTORE CAN'T PUT BACK, SO NOTHING WAS CHANGED. RESTORE SETTINGS FROM THE CLOUD AGAIN, OR BACK UP SETTINGS TO REPLACE IT." "${BACKUPFILE} holds '${FOREIGN}', which a settings restore does not write (not a file under storage/)" ;;
+               fail "THIS BACKUP HOLDS FILES A RESTORE CAN'T PUT BACK, SO NOTHING WAS CHANGED. RESTORE SETTINGS FROM THE CLOUD AGAIN, OR BACK UP SETTINGS TO REPLACE IT." "${BACKUPFILE} holds '${FOREIGN}', which a settings restore does not write (not a file or folder under storage/, or a link, device or fifo)" ;;
             1) ;;
             *) rm -f "${MEMBERS}" "${NEWLIST}" "${SEEDS}"
                why "COULDN'T KEEP A COPY OF YOUR CURRENT SETTINGS"

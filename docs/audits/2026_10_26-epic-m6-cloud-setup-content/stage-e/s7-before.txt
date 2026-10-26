@@ -1,0 +1,32 @@
+$ t17-archive-fixture.py --restore --expect unfixed  (backuptool = 8ebaf8daad's bytes: yes; bubblewrap 0.11.1, unprivileged; the donor's busybox 1.36.1 tar; host bash 5.3.9, Python 3.14.4; 08:26:58Z)
+file: projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool; foreign_member() lines 551-558
+tar and awk: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox (busybox applets first on PATH)
+escape: members ['storage/.config/escape', 'storage/.config/escape/note.txt']; foreign_member -> rc 1, accepted (no foreign member); busybox tar -xzf -C root -> rc 1 (tar: can't create symlink 'storage/.config/escape' to '/workspace/tmp/m6-t17/e/t17-archive-d60lo127/); a file landed outside the root: no
+control: members ['outside-control.txt']; foreign_member -> rc 0, refused (a member a restore can't put back) first: outside-control.txt; busybox tar -xzf -C root -> rc 0 (tar: removing leading 'storage/../' from member names); a file landed outside the root: no
+escape: storage/.config/escape in the root is not a symlink
+restore regular: rc 0; why -; left in .config: nothing; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore directory: rc 0; why -; left in .config: t17d:dir ; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore symlink: rc 0; why -; left in .config: t17-link:link ; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore symlink-child: rc 1; why THE RESTORE COULDN'T FINISH; left in .config: t17-escape:dir ; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: yes; existing.cfg: 'the live setting'
+restore hardlink: rc 1; why THE RESTORE COULDN'T FINISH; left in .config: nothing; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore device: rc 0; why -; left in .config: nothing; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore fifo: rc 0; why -; left in .config: t17-fifo:fifo ; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore revert-dir: rc 1; why THE RESTORE COULDN'T FINISH; left in .config: t17r:dir ; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: yes; existing.cfg: 'the live setting'
+t17-archive-fixture --restore: unfixed-expectation-met
+exit 0
+$ t17-archive-fixture.py --restore --expect fixed  (backuptool = 8ebaf8daad's bytes: yes; bubblewrap 0.11.1, unprivileged; the donor's busybox 1.36.1 tar; host bash 5.3.9, Python 3.14.4; 08:26:59Z)
+file: projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool; foreign_member() lines 551-558
+tar and awk: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox (busybox applets first on PATH)
+escape: members ['storage/.config/escape', 'storage/.config/escape/note.txt']; foreign_member -> rc 1, accepted (no foreign member); busybox tar -xzf -C root -> rc 1 (tar: can't create symlink 'storage/.config/escape' to '/workspace/tmp/m6-t17/e/t17-archive-lpr2zgti/); a file landed outside the root: no
+control: members ['outside-control.txt']; foreign_member -> rc 0, refused (a member a restore can't put back) first: outside-control.txt; busybox tar -xzf -C root -> rc 0 (tar: removing leading 'storage/../' from member names); a file landed outside the root: no
+escape: storage/.config/escape in the root is not a symlink
+restore regular: rc 0; why -; left in .config: nothing; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore directory: rc 0; why -; left in .config: t17d:dir ; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore symlink: rc 0; why -; left in .config: t17-link:link ; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore symlink-child: rc 1; why THE RESTORE COULDN'T FINISH; left in .config: t17-escape:dir ; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: yes; existing.cfg: 'the live setting'
+restore hardlink: rc 1; why THE RESTORE COULDN'T FINISH; left in .config: nothing; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore device: rc 0; why -; left in .config: nothing; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore fifo: rc 0; why -; left in .config: t17-fifo:fifo ; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: no; existing.cfg: 'the live setting'
+restore revert-dir: rc 1; why THE RESTORE COULDN'T FINISH; left in .config: t17r:dir ; /var/tmp/t17-outside: no; the hard link's target: 'outside target'; mark left: yes; existing.cfg: 'the live setting'
+t17-archive-fixture --restore: UNEXPECTED on fixed: symlink, symlink-child, hardlink, device, fifo, revert-dir
+exit 1
