@@ -1,0 +1,3 @@
+$ grep -rn 'cloud_remote create' es-app/src (the ES checkout at HEAD 16dbac5211, the pin; a read)
+es-app/src/guis/GuiMenu.cpp:7414:						LOG(LogInfo) << "cloud_remote create: " << Utils::String::maskSecrets(out);
+exit 0

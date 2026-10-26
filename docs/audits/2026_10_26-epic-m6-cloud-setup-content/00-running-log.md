@@ -64,3 +64,25 @@
 - **The ES checkout's provenance**, 06:17:44 UTC: `~/Development/emulationstation-next.worktrees/qa-integration` is at `HEAD` `16dbac5211eea7e70db7394372033be2be7df829` on `test/qa-integration`, with `git status --short` 0 lines. `emulationstation/package.mk` at `8ebaf8daad` pins `PKG_VERSION="16dbac5211..."` on the same branch, so **the HEAD is the pin and the tree is clean**: the verdict stands as the image's. No git command that writes ran there; status read 0 lines again after the run.
 - **`tools/vocabulary-check --es <that path>`**, 06:17:50 UTC: **exit 0**, `163 string(s) with back up / backup, save state or Wi-Fi judged, 0 wrong`, and one allowed string (upstream's hidden `GuiBackupStart`). The output, masked, is `stage-b/vocabulary-check.txt`.
   - It reads `cloud_content_backup`, `cloud_content_restore`, `cloud_setup` and `backuptool` from this slice. The other ten are read by hand against `es-player-text.md`; that row stays `CANNOT` for the tool.
+- **The read:** all 14 files whole, in the brief's lens order, 11,180 lines; the reading record is `stage-b/read-notes.md`.
+- **The five fork tools** (`stage-b/tools.sh`, 06:25:41 to 06:26:17 UTC): `cloud-connections-test` 26 OK and `cloud-input-test` 9 OK on the host's rclone 1.60.1-DEV (hard-coded by the first); `pixelelated-save-layout-test` 39 PASS on the donor's rclone 1.75.2; `pixelelated-content-scope-test` 19 PASS and 2 FAIL that are the test's own (an argv file a refused run never writes); `pixelelated-cloud-validator-test` refused to run on the tree's pinned 1.75.2 (it hard-codes 1.75.1). No network beyond loopback.
+- **The fixtures** (`tools/t17-*-fixture.py`; outputs `stage-b/fixture-*.txt`), each running the product's own code:
+  - pin: icon requests spend the ten PIN attempts and lock the right PIN out (F-01); a non-ASCII PIN raises `TypeError` (F-09);
+  - archive: a symlink member passes `foreign_member` and is refused by the image's busybox `tar` (F-04; a candidate refuted);
+  - content: `cloud_content_backup '../.config'` copies from outside `/storage/roms` (F-03); `--delete-excluded` in `RCLONE_NET_OPTS` reaches the deleting `sync`, and with the donor's real rclone the apply deletes a save (F-02);
+  - mode: the writers' modes under umask 022.
+  - The content fixture's absolute paths are rewritten into a scratch root and its rclone is a recording stub, or the donor's real rclone over a local-backend cloud: named substitutes, the guest repeats them.
+- **Two first drafts corrected before commit:** F-17 said the rule names `cloud_setup` as a writer (it does not; it names no writer of `rclone.conf` at all), and F-16 claimed a recount not yet run (run: no shell function named once; three framework-called python methods).
+- **The generator** `tools/t17-tables.py` writes coverage (14), runs (40), tools (5), writers (31 anchored rows), secrets (28 rows and the scrubber's three families) and deletions (12 `rm -rf`, 1 delete, 3 sync statements, the refusals); every anchor must match its asserted count at `8ebaf8daad`; `check` same.
+- **Nothing of the never-run list ran.** No guest; `git diff --stat f3803436b8 HEAD -- packages projects tools` empty.
+- PROOF: P7, § The writers, generated and anchored.
+- PROOF: P8, § The secrets' paths, generated and anchored.
+- PROOF: P9, § The deletions and the refusals.
+- PROOF: P10, the five fork tools on the host: `stage-b/tools-out/`.
+- PROOF: P11, the PIN attempts and the non-ASCII PIN: `stage-b/fixture-pin.txt`.
+- PROOF: P12, the symlink member: `stage-b/fixture-archive.txt`.
+- PROOF: P13, the backup's names and the flag into the deleting sync: `stage-b/fixture-content.txt`.
+- PROOF: P14, the writers' modes: `stage-b/fixture-mode.txt`.
+- PROOF: P15, `tools/vocabulary-check` at the ES pin: `stage-b/vocabulary-check.txt`.
+- PROOF: P16, the why sentences against the interface's table: `stage-b/why-lines.txt`, `stage-b/es-why-sentences.txt`.
+- PROOF: P17, the tables regenerated: `check` same.
