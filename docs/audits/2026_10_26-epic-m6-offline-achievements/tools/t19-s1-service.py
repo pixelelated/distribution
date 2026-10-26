@@ -37,7 +37,10 @@ CASES = [
     ("no credential", f"u={ACCOUNT}", {"Host": LB}, False),
     ("wrong token", f"u={ACCOUNT}&t={OTHER_TOKEN}", {"Host": LB}, False),
     ("cached token", f"u={ACCOUNT}&t={TOKEN}", {"Host": LB}, True),
-    ("password, no recorded hash", f"u={ACCOUNT}&p={word('syn', 'pw', 'one')}", {"Host": LB}, False),
+    # S1b (#1157, D-RA-051): until an online login records the hash, the
+    # configured account's password is answered, as before 022.
+    ("password, no recorded hash", f"u={ACCOUNT}&p={word('syn', 'pw', 'one')}", {"Host": LB}, True),
+    ("password, no recorded hash, another account", f"u={OTHER}&p={word('syn', 'pw', 'one')}", {"Host": LB}, False),
     ("another account, its own token", f"u={OTHER}&t={OTHER_TOKEN}", {"Host": LB}, False),
     ("foreign Host", f"u={ACCOUNT}&t={TOKEN}", {"Host": "rebind.example:8080"}, False),
     ("an Origin", f"u={ACCOUNT}&t={TOKEN}", {"Host": LB, "Origin": "http://rebind.example"}, False),

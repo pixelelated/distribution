@@ -1,0 +1,34 @@
+# S1b before (#666, #1157, D-RA-051): 022 as landed (57c5e8c4ec, patch sha256 9a6e0b4b), 2026-10-26T16:45:26Z
+host bash 5.3.9 (tree pins 5.3); host python 3.14.4 (image recipe 3.14.7)
+
+## the patch's test, extended (the no-hash password answered and said once; refused for another account, a foreign Host, an Origin), on the pin + 001..022 as landed
+test_another_account_is_refused_even_with_its_token ... ok
+test_any_origin_is_refused ... ok
+test_cached_token_is_answered ... ok
+test_failed_online_login_records_nothing ... ok
+test_foreign_host_is_refused ... ok
+test_loopback_names_are_accepted ... ok
+test_missing_host_is_refused ... ok
+test_no_credential_is_refused ... ok
+test_password_recorded_online_is_answered ... ok
+test_password_with_no_recorded_hash_is_answered ... FAIL
+test_password_with_no_recorded_hash_is_refused_otherwise ... ok
+test_recorded_hash_is_not_the_password ... ok
+test_unrecorded_hash_is_said_once ... FAIL
+test_wrong_password_after_recording_is_refused ... ok
+test_wrong_token_is_refused ... ok
+Ran 15 tests in 0.019s
+FAILED (failures=2)
+
+## the real service, bwrap --clearenv --unshare-net: tools/t19-s1-service.py (its no-hash password case now expects an answer)
+host python 3.14.4 (image recipe 3.14.7); bwrap --clearenv --unshare-net
+PASS no credential: status 401, token no, X-RA-Offline no; expected refused
+PASS wrong token: status 401, token no, X-RA-Offline no; expected refused
+PASS cached token: status 200, token yes, X-RA-Offline yes; expected answered
+FAIL password, no recorded hash: status 401, token no, X-RA-Offline no; expected answered
+PASS password, no recorded hash, another account: status 401, token no, X-RA-Offline no; expected refused
+PASS another account, its own token: status 401, token no, X-RA-Offline no; expected refused
+PASS foreign Host: status 401, token no, X-RA-Offline no; expected refused
+PASS an Origin: status 401, token no, X-RA-Offline no; expected refused
+PASS localhost Host: status 200, token yes, X-RA-Offline yes; expected answered
+rc 1

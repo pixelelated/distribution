@@ -99,3 +99,15 @@ All in `02` § What T20 inherits, which is the list to read:
   - The harness's two defects (missing applets; `say` hidden by F-42) were each found by a fixture that failed for the wrong reason.
   - Both are fixed and noted in `00`.
 - **Check 7, step 5, where a fix landed:** every fix's FAIL is recorded before it, on the real script.
+
+## Addendum, after the retro (the ruling of 16:42 UTC on #666)
+
+- **The upgrade-path discovery became stream S1b** (D-RA-051, #1157). 022 is amended: while no hash is recorded for the configured account, its password is answered unverified, as before, and said once in the service's log; the first online login records the hash.
+  - Before: 2 of 15 FAIL on 022 as landed. After: 15 of 15; upstream's suite 881 OK.
+  - `stage-e/s1b-before.txt`, `s1b-after.txt`.
+  - The player meets no change on the upgrade path. The change-log note this retro anticipated is no longer owed.
+  - **Time to play:** the no-hash path compares nothing, so it costs less than S1's PBKDF2.
+- **The three proposals, ruled:**
+  1. A stream brief that touches a covered script says up front how the suite is treated: adopted; plan § 6b.
+  2. *A source cites the bug, the docs cite the row*: adopted, plan § 6b.
+  3. `set -o pipefail`: one friction line; a second makes it a hook question.
