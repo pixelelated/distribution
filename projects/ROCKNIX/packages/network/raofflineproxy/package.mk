@@ -3,7 +3,8 @@
 
 PKG_NAME="raofflineproxy"
 # Current upstream main at2026-10-11 (#541); retain the fork's preparation,
-# recovery and explicit-consent behavior. The16 patches apply at fuzz0 after
+# recovery and explicit-consent behavior. Its nineteen patches -- 001 to 022,
+# with no 006, 014 or 017 -- apply in order at fuzz 0, the first sixteen after
 # rebasing context against the new folder watcher and paced background queue.
 # The OS's deliberate whole-library helper retains its own existing cooldown
 # after upstream removed that utility; it never labels queued work ready.

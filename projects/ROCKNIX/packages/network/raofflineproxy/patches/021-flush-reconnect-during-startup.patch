@@ -1,3 +1,20 @@
+proxy_service: flush pending awards when the link returns during startup
+
+ConnectivityMonitor.run probes once at its start and takes the answer as
+its baseline. When the link came back between run_proxy_service's own
+startup probe (offline, so no flush) and the monitor's first probe
+(online), the monitor began from "online", saw no transition, and awards
+earned offline stayed queued until the link next dropped and returned. At
+the pin c7ebd1b6e7 upstream has no such handoff.
+
+run_proxy_service hands its startup observation to the monitor
+(initial_online); a first probe that is online after a startup that was
+not flushes once, as a transition would have.
+
+Written for ROCKNIX (fork issue pixelelated#588), added in f9b7ce3dfb. No
+draft under docs/upstream/raofflineproxy/ yet (a #585 line, T19 PL-19).
+Not sent (D-WORKFLOW-165).
+
 --- a/linux/raofflineproxy/proxy_service.py
 +++ b/linux/raofflineproxy/proxy_service.py
 @@ -1089,6 +1089,7 @@

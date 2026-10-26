@@ -1,0 +1,45 @@
+# S10 after (#666, PL-19), 2026-10-26T16:28:14Z
+grep -c 'The16 patches' package.mk: 0
+the comment now:
+# Current upstream main at2026-10-11 (#541); retain the fork's preparation,
+# recovery and explicit-consent behavior. Its nineteen patches -- 001 to 022,
+# with no 006, 014 or 017 -- apply in order at fuzz 0, the first sixteen after
+# rebasing context against the new folder watcher and paced background queue.
+# The OS's deliberate whole-library helper retains its own existing cooldown
+--- head -n 3 of 020:
+rvz_datasource: keep the partial word when padding starts inside one
+
+The lagged-Fibonacci padding of an RVZ group skipped to the requested
+--- head -n 3 of 021:
+proxy_service: flush pending awards when the link returns during startup
+
+ConnectivityMonitor.run probes once at its start and takes the answer as
+
+## each patch in series order on a fresh unpack of the pin, patch -p1 --fuzz=0 (020 and 021 dry-run on their predecessors first)
+001 applied: rc 0
+002 applied: rc 0
+003 applied: rc 0
+004 applied: rc 0
+005 applied: rc 0
+007 applied: rc 0
+008 applied: rc 0
+009 applied: rc 0
+010 applied: rc 0
+011 applied: rc 0
+012 applied: rc 0
+013 applied: rc 0
+015 applied: rc 0
+016 applied: rc 0
+018 applied: rc 0
+019 applied: rc 0
+020 --dry-run: rc 0
+020 applied: rc 0
+021 --dry-run: rc 0
+021 applied: rc 0
+022 applied: rc 0
+rejects: 0
+
+## tools/pkgcheck raofflineproxy
+[Kprojects/ROCKNIX/packages/network/raofflineproxy/package.mk...[Krc 0
+
+## tools/last-good-scripts-test (QA_SYSTEM_ROOT the retained donor; section t applies the tree's nineteen patches in order): 1313 PASS; PASSED

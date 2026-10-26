@@ -1,3 +1,20 @@
+rvz_datasource: keep the partial word when padding starts inside one
+
+The lagged-Fibonacci padding of an RVZ group skipped to the requested
+offset through the word writer, which writes whole words: a read that
+began inside a word started at the next word boundary instead, and the
+bytes of the word it began in were lost (the patch's own comment). At the
+pin c7ebd1b6e7 upstream's reader skips the same way.
+
+The skip stops at the last whole word, the partial word is generated with
+the output, and its leading bytes are dropped from what is returned.
+Nothing else changes.
+
+Written for ROCKNIX (fork issues pixelelated#583 and #584: RVZ through the
+offline service, Dolphin routed to it), added in f9b7ce3dfb. No draft
+under docs/upstream/raofflineproxy/ yet (a #585 line, T19 PL-19). Not sent
+(D-WORKFLOW-165).
+
 --- a/linux/raofflineproxy/rvz_datasource.py
 +++ b/linux/raofflineproxy/rvz_datasource.py
 @@ -663,12 +663,16 @@
