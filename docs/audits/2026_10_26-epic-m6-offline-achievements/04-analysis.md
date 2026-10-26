@@ -11,7 +11,7 @@ What the read found, in the brief's four families:
 - **A check whose failure reads as success.** The scan lock that cannot be opened reads as nothing running (F-06); a stamp that could not be written is not seen (F-07); an unreadable ready count prints 0 (F-16); one undecodable ROM name fails the whole listing, reproduced on the host (F-17).
 - **A bound that is not enforced.** The scan has none, by design (F-11); the top-up's played check trusts the mark's mtime (F-12); the IDAT inflate and the lookup threads are unbounded (F-13); `http_post` marks no 429 pause (F-14, upstream).
 
-Six are proposed as Low `bug`s (F-01, F-03, F-06, F-07, F-16, F-17); nineteen are Info. Five of the six fell on the guest as read (F-01, F-03, F-06, F-16, F-17), and F-17 on the host too; F-12 fell as well. Nothing is Medium or above: the port is loopback, the device is single-user and root, and no finding loses an award or a save.
+Six are proposed as Low `bug`s (F-01, F-03, F-06, F-07, F-16, F-17); nineteen are Info. Five of the six fell on the guest as read (F-01, F-03, F-06, F-16, F-17), and F-17 on the host too; F-12 fell as well. Nothing is Medium or above: the port is loopback with a peer check, the device is single-user and root, and no finding was shown to lose an award or a save in what was read (narrowed at stage C, Astra's A-55: the queue's and the flush's whole behaviour is not read here). After Astra's grades, F-12 and F-15 are proposed Low as well, and ten findings are new (F-26 to F-35).
 
 ## Acceptance-criteria scorecard
 
@@ -45,9 +45,9 @@ The brief's § 7 against this folder at stage C's start:
 | --- | ---: | --- |
 | High | 0 | |
 | Medium | 0 | |
-| Low | 6 | F-01, F-03, F-06, F-07, F-16, F-17 |
-| Info | 19 | F-02, F-04, F-05, F-08 to F-15, F-18 to F-25 |
-| **Total** | **25** | |
+| Low | 8 | F-01, F-03, F-06, F-07, F-12, F-15, F-16, F-17 |
+| Info | 27 | F-02, F-04, F-05, F-08 to F-11, F-13, F-14, F-18 to F-35 |
+| **Total** | **35** | |
 
 The Low six share one shape: a state the device can be in -- a link down, a second listener, a full card, a lock or export that cannot be opened, a file name from an archive -- where the code's answer is wrong and nothing says so.
 

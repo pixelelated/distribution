@@ -17,7 +17,7 @@ The proxy against its own record: the epic audit `docs/audits/2026_09_14-epic-of
 
 ## 3.3 Spec fidelity
 
-- **D-RA-001, D-RA-002** (one system-wide toggle, casual only, hardcore switched with the sentence on screen): `do_enable` records hardcore once, turns it off, sets the toggle last, and undoes every step on a failure; `do_disable` puts it back from the record (`02`). Held.
+- **D-RA-001, D-RA-002** (one system-wide toggle, casual only, hardcore switched with the sentence on screen): `do_enable` records hardcore once, turns it off, sets the toggle last, and undoes every step on a failure -- without reading the undo back (F-27, from Astra's A-47); `do_disable` puts it back from the record (`02`). Held.
 - **D-RA-004, D-UI-095, D-UI-101** (the cards at the link's return): the `flushed` stamp taken by rename, once per flush (patch 003, ctl `do_flushed`). Held.
 - **D-RA-010, D-RA-013** (the scan and the index): the I and H job shapes, the index rule per system, the cursor (#307 PL-059). Held; F-17 is the walk's one input that fails the whole listing.
 - **D-RA-016, D-WORKFLOW-164, -165** (whatever the fork changes in the proxy goes back; not sent until the build): ten drafts, none sent; eight patches without one (F-22).

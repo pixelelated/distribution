@@ -37,7 +37,7 @@ Read at `8ebaf8daad` (`reviewed-at` `7de4ece06d`, the read equal to it on the 27
 ## The listener
 
 - **The bind:** `proxy_host` from the client's `config.json`, default `127.0.0.1` (`config.py:376-377` in the patched pin); the port 8080 (`config.py:368`). AF_INET only: `ThreadingTCPServer` keeps `TCPServer`'s address family (`proxy_service.py:268`), `allow_reuse_address = True` (`:269`). proved: tree.
-- **Who can reach it:** any process on the device; nothing off it (a loopback bind). On ROCKNIX the interface, the emulators and every service run as root, so the port adds no reach for a local process, which could read `system.cfg` directly. Two non-local reaches remain: a web page shown on the device (the cloud sign-in window's WebKit, T17's) by DNS rebinding, since the service checks neither `Host` nor `Origin` (none in `proxy_service.py`) and sends no CORS header; and an emulator core running untrusted content. proved: tree.
+- **Who can reach it:** any process on the device; nothing off it (a loopback bind, and **a peer check the first draft missed: `_handle_request` refuses any peer but `127.0.0.1` or `::1` with 403**, `proxy_service.py:290-292`, which holds even if the bind is widened; corrected at stage C from Astra's A-2). On ROCKNIX the interface, the emulators and every service run as root, so the port adds no reach for a local process, which could read `system.cfg` directly. Two reaches beyond a native process remain, both from loopback: a web page shown on the device (the cloud sign-in window's WebKit, T17's), since the service checks neither `Host` nor `Origin` and sends no CORS header -- a conditional reach by DNS rebinding, not demonstrated (A-2, A-23) -- and an emulator core running untrusted content. proved: tree.
 - **What it answers without identity:**
   - `dorequest.php?r=patch|achievementsets|unlocks&u=<user>` from the store, and `/Badge/`, `/Images/`, `/UserPic/` from the image cache, to any client;
   - **a `login`/`login2` request naming the user, while upstream cannot be reached, is answered with the cached sign-in body** (`handle_offline_login`, `proxy_service.py:491-505`): no password or token is compared, and the body is the row `auth.load_cached_login_for` reads `Token` from (`auth.py`, patch 007). So the account's session token is served to any local client that names the (public) account while the device is offline (Q1, Q2; `04`);
@@ -64,7 +64,7 @@ Read at `8ebaf8daad` (`reviewed-at` `7de4ece06d`, the read equal to it on the 27
 | the session token | **the port** | **none: the offline login answers with the cached body** | `proxy_service.py:491-505` | tree |
 | the session token | the service's log | `t=` redacted in request lines (`utils.py:110`); a body is logged through `redact_form_tokens` (`proxy_service.py` request handler) | tree |
 | the session token | the upload bundle | `t=`, `p=` by `redact_query_tokens`; the quarantined store by `_SENSITIVE_CACHE_ENTRY` (`log_uploader.py:83-95`) | tree |
-| the session token, the password | `scan.log` (the helpers' `FAIL ... {error}` lines, ctl `slog`) | none, and none needed so far: the client's exceptions read name no credential; the one URL-bearing message is `image_cache.py:276`, a media-host URL | `cache-indexed:187`, `:204`; `refresh:126`, `:132`, `:219` (stdout) | tree; the guest's scan.log read by count is owed |
+| the session token, the password | `scan.log` (the helpers' `FAIL ... {error}` lines, ctl `slog`) | none; no credential-bearing message found in what was read (the one URL-bearing message read is `image_cache.py:276`, a media-host URL); the error texts of code not read are unknown (A-4) | `cache-indexed:187`, `:204`; `refresh:126`, `:132`, `:219` (stdout) | tree; the guest's scan.log read by count is owed |
 | the web API key | none here | the proxy and the ctl use none (`REDACTED_QUERY_KEYS` has no `y`, `network.py:22`); `ra-candidate-games`' `RA_QA_WEBKEY` is T12's | tree |
 | the per-emulator token files | not this slice's | T30's PL-009, PL-010, PL-020, PL-021; `backuptool` RATOKENFILES (T17's) | tree |
 | all of the above | the packet | the stage-C scan, every hit dispositioned (`second-opinions/`) | design |
@@ -187,11 +187,11 @@ The tarball at the pin: sha256 `88eef31acfa4104b20258bd5cea514ade30e6cdf35767ffc
 
 | Bound | Value | Enforced by | proved |
 | --- | --- | --- | --- |
-| `PROBE_TRIES`, `PROBE_INTERVAL` | 9 × 10 s | the top-up's probe loop, inside its deadline (ctl, `do_topup`) | tree |
-| `STOP_WAIT` | 10 s | `stop_running_run`'s wait for the lock | tree |
+| `PROBE_TRIES`, `PROBE_INTERVAL` | 9 probes, at most 8 sleeps of 10 s (the probes' own time on top; A-16) | the top-up's probe loop, inside its deadline (ctl, `do_topup`) | tree |
+| `STOP_WAIT` | 10 s | `stop_running_run`'s wait for the lock -- a bound on the wait, not a stop: `do_disable` ignores its status (A-8) | tree |
 | `ERRORS_IN_A_ROW` | 3 | `run_jobs`' `IN_A_ROW` | tree |
 | `TOPUP_INTERVAL` | 1,800 s | the mark's age, `stat %Y` against `date +%s`; a negative age is not a skip | tree |
-| `TOPUP_TIMEOUT` | 900 s | `time_left` from `START`: the lock wait, the probes, the listing (`timeout`), the jobs (`timeout`), the recently played pass (`timeout`), the image pass | tree |
+| `TOPUP_TIMEOUT` | 900 s, **a soft deadline** (A-18: `time_left` reads the wall clock, so a backward step lengthens it; the probe subprocess has no `timeout` of its own; nothing wraps `do_topup`) | `time_left` from `START`: the lock wait, the probes, the listing (`timeout`), the jobs (`timeout`), the recently played pass (`timeout`), the image pass | tree |
 | the top-up's played check | `-nt` | `history_path`'s newest of three files against `last-topup-attempt`: mtime against mtime, no clock read; **a mark touched while the clock ran ahead holds every later history file "not newer" until wall time passes it** (Q4) | tree; a guest positive (the mark dated ahead with `touch -d`) owed |
 | the top-up mark | -- | **written unguarded** (`touch`, ctl :2264): a failed touch is not seen, and the half hour is not counted | tree |
 | the scan | **none** | the scan's listing and jobs run with budget 0 (no `timeout`); its comment says so (*"The scan has no deadline of its own"*); only the image pass is bounded | tree |
@@ -269,9 +269,9 @@ Each is graded in `04` (severity, class, the brief's question, the `proved:` a f
 | --- | --- | --- | --- |
 | F-01 | Q1, Q2 | the offline login answers any `login`/`login2` naming the account with the cached sign-in body, `Token` in it, comparing no password or token, while upstream cannot be reached (upstream code) | `proxy_service.py:491-505`; `auth.py` `load_cached_login_for` (patch 007) |
 | F-02 | Q1 | the service validates neither `Host` nor `Origin`: a page shown on the device can reach the port by DNS rebinding, where F-01's answer is readable | `proxy_service.py` (no check); the sign-in window (T17's) |
-| F-03 | Q1 | the readiness check accepts any LISTEN on `0.0.0.0:8080`, whoever owns it; `ExecStartPost` and `enable` rest on it, while `setsettings.sh`'s own check takes `127.0.0.1:8080` only, so a foreign `0.0.0.0` listener turns the toggle on and every launch goes direct | ctl `port_listening` :925-937, `do_listening` :939-957; unit :40; `setsettings.sh:536` |
+| F-03 | Q1 | the readiness check accepts any LISTEN on `0.0.0.0:8080`, whoever owns it, and `setsettings.sh`'s own check takes `127.0.0.1:8080` only: the two predicates disagree. Narrowed at stage C (A-6): `enable` also needs `systemctl start` to succeed, and the service's own bind meets the wildcard socket, so a completed false enable is not shown | ctl `port_listening` :925-937, `do_listening` :939-957; unit :40; `setsettings.sh:536` |
 | F-04 | Q1 | the service runs as root with no hardening directive (no `User=`, `Protect*`, `Private*`, `NoNewPrivileges`, `CapabilityBoundingSet`, `RestrictAddressFamilies`, `UMask=`) | `raofflineproxy.service` (R3: 0); against T22's per-unit table at stage C |
-| F-05 | Q2 | the username on `python3`'s argv at four sites, against the file's own rule (*through the environment, never a command line*) | ctl :616, :647, :764, :1029 against :1244-1246, :1265 |
+| F-05 | Q2 | the username on `python3`'s argv at four sites; narrowed at stage C (A-5): the rule at :1244-1246 is the listing's, which keeps it, and the name is public | ctl :616, :647, :764, :1029 against :1244-1246, :1265 |
 | F-06 | Q3 | the scan lock that cannot be opened reads as nothing running: `disable` then stops the service under a live run | ctl :492 |
 | F-07 | Q3 | `write_stamp`'s status is ignored by every caller: a stamp that could not be written leaves the row on the last run | ctl :1073-1094 against :2103, :2411, :2423, :2427 (and the cancel, no-games, nothing-new and unreadable paths) |
 | F-08 | Q3 | `list_jobs` opens the store through the client's `Storage()`, whose initialisation sets WAL and creates the schema: the ctl's "read-only" holds for its own connects only | ctl :1417; `storage.py:106-151` |
@@ -291,7 +291,17 @@ Each is graded in `04` (severity, class, the brief's question, the `proved:` a f
 | F-22 | Q5 | eight patches have no upstream draft (003, 004, 010, 011, 012, 016, 020, 021) and every draft's base is older than the pin: the #585 lines owed | § The patches; `docs/upstream/raofflineproxy/contribution-map.md` |
 | F-23 | Q8 | the proxy-schema check is a comment check (*"runtime schema proof remains separate"*), and `last-good-scripts-test` runs the real ctl in `bwrap` -- the harness's reach and limit stated | R11; `stage-a/last-good-scripts-test.txt` |
 | F-24 | Q3 | the jobs' classifier matches its stop words over the whole line, file name included: a `FAIL` for a ROM named with `login required` or `HTTP Error 401` stops the scan as a refused sign-in | ctl :1750 |
-| F-25 | Q2, Q3 | every file the proxy and the ctl write takes `644 root` under the service's umask `0022` (none set), the store with the session token's row included: world-readable, on a device where every process is root | `guest-cycle/b1-03-scan.txt`; § The writers' mode column |
+| F-25 | Q2, Q3 | every file observed under the proxy's folder is `644 root` under the service's umask `0022` (none set), the store with the session token's row included: world-readable, on a device where every process is root | `guest-cycle/b1-03-scan.txt`; § The writers' mode column |
+| F-26 | Q6 | a `login2` row of valid JSON that is not an object exits 1, read as "no points", past `cannot_tell` (Astra's A-13) | ctl :780-781 against :793-797 |
+| F-27 | Q3, Q6 | `put_back` reads nothing back and `enable_undo` ignores its results, so a failed rollback is not seen; `disable` swallows a failed stop (A-47) | ctl :421-423, :430-436, :410 |
+| F-28 | Q3 | the index-pending fallback writes one shared `.tmp` without the lock, and `ack_index_pending` removes the aside even when its restore failed, losing the only marker (A-48) | ctl :2150-2157, :2176-2177 |
+| F-29 | Q6 | a newline in a pathname splits a job line (`splitlines`), and the ctl does not reconcile `DONE` with its planned jobs (A-49; not reproduced) | ctl :1674; `cache-indexed:149` |
+| F-30 | Q3 | patch 013's `png_problem` checks no IHDR, chunk order or layout: CRC-correct inflating data passes; the inflate itself is the `+` side's (A-50) | patch 013 `png_problem` |
+| F-31 | Q4 | a negative `Content-Length` passes the size cap and reaches `rfile.read()` as an unbounded read; loopback peers only (A-51) | `proxy_service.py:298-302` |
+| F-32 | Q6 | a missing image helper returns success, and a top-up with under 60 s left skips the recently played pass with no why (A-52) | ctl :1854, :2362, :2389 |
+| F-33 | Q6 | a damaged image that cannot be unlinked stays counted as present (A-53; not reproduced) | `cache-images:338-343`, `:452` |
+| F-34 | Q7 | the interface treats a `running` line older than its bound as a dead run because "the ctl bounds its runs"; the scan does not, and its listing writes `running` once (A-54; T20's and T2's side; not reproduced) | `CloudText.cpp:1335-1342`; ctl :1985-1987 |
+| F-35 | Q2 | the request log's query redactor matches literal lowercase `t=`/`p=` only, so a percent-encoded name passes; the form redactor parses names (A-3) | `utils.py:110-124` |
 
 
 **A lead outside the slice** (M7's, not graded here): the image's installed client (`build/m7-signin-20261022-07`, 57 modules) fails 4 of the 18 native hashing cases that the record's run passed with the same tests file and the same library (`guest-cycle/b1-08-*`); the coordinator routes it.

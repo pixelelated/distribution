@@ -1,0 +1,41 @@
+1+285	    def log_message(self, format: str, *args) -> None:
+2+285	        LOGGER.debug(format, *args)
+3+285	
+4+285	    def _handle_request(self) -> None:
+5+285	        if self.client_address[0] not in {"127.0.0.1", "::1"}:
+6+285	            self.wfile.write(error_json(403, "loopback_only"))
+7+285	            return
+8+285	
+9+285	        if self.command not in {"GET", "POST"}:
+10+285	            self.wfile.write(error_json(405, "method not allowed"))
+11+285	            return
+12+285	
+13+285	        content_length = int(self.headers.get("Content-Length", "0") or "0")
+14+285	        if content_length > MAX_REQUEST_BODY_BYTES:
+15+285	            self.wfile.write(error_json(413, "request body too large"))
+16+285	            return
+17+285	
+18+285	        body = self.rfile.read(content_length).decode("utf-8") if content_length else ""
+19+285	        headers = {key: value for key, value in self.headers.items()}
+20+285	
+21+285	        # ROCKNIX (fork #199, #242): is_online() probes on every call while
+22+285	        # the tracker says unreachable, and the log line is not worth a
+23+285	        # probe for any request: it reads the state as last probed. The
+24+285	        # request's own path asks is_online() below where the answer decides
+25+285	        # something. Before #242 every dorequest.php call paid a probe here
+26+285	        # -- twenty seconds of name lookup on a link with no DNS -- before it
+27+285	        # was even logged, which is how the interface's fifteen-second wait
+28+285	        # for a store-only answer ran out on the RG35XX SP.
+29+285	        online = is_retroachievements_reachable()
+30+285	        LOGGER.info(
+31+285	            "Request: %s %s body=%s online=%s",
+32+285	            self.command,
+33+285	            redact_query_tokens(self.path),
+34+285	            redact_form_tokens(body),
+35+285	            online,
+36+285	        )
+37+285	
+38+285	        response = self.server.process_proxy_request(
+39+285	            self.command, self.path, body, headers
+40+285	        )
+41+285	        self.wfile.write(response)
