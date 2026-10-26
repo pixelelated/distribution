@@ -1,0 +1,6 @@
+$ the phone page from the host: CANNOT, the gap named  (08:19:59Z)
+  the guest is behind QEMU user-mode NAT; vm-pair forwards only its ssh port (10022 for guest a). cloud_oauth serve listens on the guest's port 8080, which nothing forwards, so no host or LAN client can reach it.
+  a probe of 127.0.0.1:8080 from the host: bash: connect: Connection refused
+bash: line 1: /dev/tcp/127.0.0.1/8080: Connection refused
+refused
+  the handler itself is proved by tools/t17-pin-fixture.py over loopback on the guest (window 1, fixtures.out). The gap: a hostfwd for the serve's port, or a second guest on the same NAT as the phone.

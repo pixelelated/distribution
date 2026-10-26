@@ -328,253 +328,19 @@ Every `rm -rf`, `rclone delete`, `sync`, `move` and `purge` in the 14, with its 
 - The content and selection fixtures' first scratch root was under `/storage/t17`, then `/tmp/t17`. The fixture rewrites `/storage/` and a bare `/tmp/` in the scripts, and those roots were rewritten a second time: the lock path named a missing directory (rc 75), then the stub `cloud_remote` could not be found.
 - Under `/var/tmp/t17` both met `--expect unfixed`. All three runs are in `fixtures.out`.
 
-**What the brief's checkbox names and this window did not run** (the window ran the plan posted at stage B):
-- **The match's refusal** (an apply with no preview, *"CHECK WHAT WOULD CHANGE FIRST"*): host only. Read and quoted in § The deletions; not run on the guest.
-- **`backuptool`'s exit 5** on a run-time-assembled credential-shaped line, with its archive unchanged: not run. The host read is § The archive.
-- **`cloud_connections.atomic()`'s observed mode:** the host's `stage-b/fixture-mode.txt` only (0600). The guest's saves went through `atomic()`, but no mode was read.
-- **`tools/signin-memory`'s row:** not run.
-- **The phone page from the host:** `CANNOT` under user-mode networking (the harness gap named at stage B). The handler is proved by the pin fixture on the guest.
+**The second window** (granted at the hand-back, 08:2x UTC, 15 minutes; START 08:18:14 and RETURN 08:21:22 UTC, both posted on #664 with census 0, their times in the first line; `guest-cycle/run2.sh`, outputs `guest-cycle/w2-*.out`). The same image and isolation, the guest rebuilt from the image (`BUILD_ID=069fc27044…`). It ran the five the first window did not reach:
 
-Each is put to the coordinator at the hand-back: a second window, or an open item to test.
+| Proof | On the guest | Verdict | Output |
+| --- | --- | --- | --- |
+| The match's refusal | over `/storage/roms/snes` seeded with `a.zip` and `b.zip` against `ROMs/snes/a.zip` at the QA backend: `--match` previews, then two more ROMs are added, then `--match --apply` | the preview plans `snes|sync|1|10`; the apply exits 1, *"Nothing was removed from snes: it changed since you checked"*, `>>> why SOMETHING CHANGED SINCE YOU CHECKED`, log `previewed sync|1, now sync|3`; **all four files left** | `w2-refusal.out` |
+| `backuptool`'s credential refusal | a baseline `backuptool backup`, then a line shaped like a credential assembled at run time in `/storage/.config/game/t17-scan.cfg`, then a second backup | the second backup is refused: `>>> why A SIGN-IN WAS FOUND IN THE BACKUP`, **the newest archive the same name and hash**, one archive at the root, no `.partial`. The process exits **1**: 5 is `write_archive`'s return, which the `backup` command maps to that why and `fail` (`backuptool:1858`) | `w2-exit5.out` |
+| `atomic()`'s mode | a real `cloud_remote create t17mode local` on `/storage/.config/rclone/rclone.conf`, and `atomic()` called under the image's python 3.14.7 | `600` on `rclone.conf` and `active-connection` after the save; `0o600` for a new file under umask 022, and `0o600` over an existing 0644 file | `w2-mode.out` |
+| `tools/signin-memory`'s row | `tools/signin-memory 10022 --url <a host-local page>`. The tool's default is `example.org`, a network read the slice's rule does not allow, so the page is local. The first, the QA WebDAV root, answered 401 and never finished loading (the tool's FAIL, kept in the output). The second, a static sign-in-shaped page from `python3 -m http.server` on the host's 127.0.0.1:9091 (stopped by its PID), loaded | **PASS**: peak resident 104 MB (`cloud-signin-window`), 98 MB (`WebKitWebProcess`), 42 MB (`WebKitNetworkProcess`); 245 MB together; the guest's free memory 7,016 → 7,001 MB | `w2-signin.out` |
+| The phone page from the host | a probe of the serve's port 8080 from the host | **`CANNOT`**: the guest is behind user-mode NAT and `vm-pair` forwards only its ssh port, so 127.0.0.1:8080 is refused. The gap: a `hostfwd` for the serve's port, or a second guest on the phone's network. The handler is proved over loopback on the guest by `t17-pin-fixture.py` (window 1) | `w2-phone.out` |
 
-## Findings
+The leftover check after `vm-pair down`, the backend's `down` and the page server's PID: qemu 0, listeners 0, `rclone serve` 0, nothing on 9091 (`w2-down.out`). The disk is retired (`00`).
 
-### F-01 (Q3a; Low; a candidate bug, fork-own): a phone's own icon requests spend the sign-in PIN's ten attempts and lock the right PIN out
-
-- **The trace.**
-  - `cloud_oauth:2330-2344` `_supplied()` returns `?pin=` from the query, else the request path's first segment.
-  - `_gate()` (`:2308-2328`) counts any non-empty, non-matching value as a wrong PIN (`pin_failed`, `:2200-2203`).
-  - At ten, `pin_exhausted()` (`:2196-2198`) refuses every request with 403, the right PIN included, for the rest of the serve.
-- **The cause.** `GET /favicon.ico`, and Safari's `apple-touch-icon.png` and `-precomposed.png`, carry no PIN in the path or the query, so each is a wrong PIN named `favicon.ico`. A phone's browser makes these requests on its own, without the page asking for them.
-- **The fixture** (`tools/t17-pin-fixture.py --expect unfixed`, the real holder and server over loopback):
-  - ten `/favicon.ico`, then `GET /<pin>` -> **403**;
-  - ten touch-icon requests -> **403**;
-  - nine -> 200;
-  - ten real wrong PINs -> 403 (the designed lockout, the control).
-- **What the player meets:** the phone keyboard page answering *"Too many wrong PINs. Start again on the handheld."* after a handful of reloads. The sign-in on the handheld itself is unaffected.
-- **Already written:** nothing persisted. The counter lives in the serve's memory, and a new serve starts at 0.
-- **The fix is contained:** count only a request that offers a PIN-shaped value (four digits), and answer `/favicon.ico` and friends with 404 before the gate.
-
-### F-02 (Q3b; Low, a fail-open guard on the only deleting path; fork-own): a flag in `RCLONE_NET_OPTS` reaches the match's deleting `sync`, and `--delete-excluded` there deletes saves
-
-- **The trace.**
-  - `cloud_content_restore:235-238` reads `RCLONE_NET_OPTS` from `cloud_sync.conf` as text (a double-quoted value may hold spaces).
-  - `:276-279` splits it into `RCLONE_NET_OPTS_ARRAY`.
-  - Every networked rclone call takes the array, the preview's dry run (`:750`) and **the apply's deleting `sync` (`:1046`)** among them.
-  - No statement allowlists its flags or strips `--delete-excluded`. The rule (`rclone-cloud-sync.md:207-218`) calls that flag catastrophic on a restore-side `sync` and asks for it to be stripped unconditionally; T16's scripts strip it from `RCLONEOPTS` (`cloud_restore:1383`, `cloud_backup:1342`) but split `RCLONE_NET_OPTS` the same unfiltered way (`cloud_restore:1406-1411`) -- the seam, named from this side.
-- **The fixture** (`tools/t17-content-fixture.py --expect unfixed --real-rclone <the donor's 1.75.2>`):
-  - with `RCLONE_NET_OPTS="... --delete-excluded"`, the deleting `sync` carries the flag (stub);
-  - with the real rclone over a local-backend cloud holding `snes/a.zip` and a device holding `a.zip`, `b.zip` and the save `a.srm`: the preview plans **`snes|sync|2|48`**, and the apply **leaves only `a.zip`. The save is gone.**
-  - The shipped bound plans `snes|sync|1|28` and keeps the save.
-  - The confirmation would say "2 files" with nothing to say one is a save.
-- **The reach:** no shipped build writes the flag into `RCLONE_NET_OPTS` (`cloud_sync.conf.defaults:94`). The value is a player's, an editor's or a future default's. The guard that would catch it is missing; the loss it allows is a save, not recoverable locally.
-- **Already written:** a device whose `cloud_sync.conf` already holds such a value has lost nothing until it runs `--match --apply`. The fix acts on the next run, and no migration is owed.
-- **The fix is contained:** take only the bound's flags from `RCLONE_NET_OPTS` (an allowlist: `--contimeout`, `--timeout`, `--low-level-retries`, `--retries`), or refuse a run whose bound holds anything else. T16's two scripts are the coordinator's to route.
-- **Stage C (A-8, A-16, A-27; re-read `stage-c/rereads/c12.out`).**
-  - **The reach is wider than one statement.** Every `bounded_content_rclone` call takes the array: the restore's preview `:750`, the deleting `sync` `:1046` and the copies `:1538` and `:1551`; the backup's copies `:753` and `:766`.
-  - **The reach is wider than one flag.** Any rclone flag passes: another `--config`, filters, `--ignore-errors`, a `--backup-dir`, a log file. The preview counts what the flags make it count, and the apply then deletes exactly that many. The cap is not bypassed; it is fed.
-  - **So the fix is an allowlist with checked values**, built once where the array is made in both scripts. Stripping one spelling is not enough.
-  - **Argon (R-9, R-47) sharpened it.** The array comes before `SAVE_EXCLUDES` in the argv (`:750`, `:1046`), and rclone's filter rules apply in argv order, first match winning. So an `--include` or `--filter "+ *"` there would reach the saves without `--delete-excluded`. That rests on reading rclone's documented order; no fixture has run it. Both seats propose Medium.
-  - **An unspent plan made under such a value** (R-22) is spent through the same fixed reader, so the allowlist at the array covers it.
-  - **Severity:** the seat proposes Medium, because the loss is a person's saves. The prerequisite is a local configuration value. The coordinator rules.
-  - **Already written, refined:** a device that has already applied with such a value has lost saves the fix cannot bring back. A device whose conf still holds one needs a defined answer at the next run, a refusal or the shipped bound standing in.
-
-### F-03 (Q3b, Q3a; Low; a candidate bug, fork-own): `cloud_content_backup` uploads any path it is named, `/storage/.config` among them
-
-- **The trace.**
-  - `cloud_content_backup:583-585` `*) DIRS=("$@")` takes the explicit names as given.
-  - `:710` makes `SRC="${DEST}/${DIR}"`, and `:753` copies it to `remote_for "${DIR}"`.
-  - No name is checked against `^[A-Za-z0-9_][A-Za-z0-9._-]*$`. `cloud_content_restore` checks every name before its first transfer (`:1482-1487`), and both scripts' `--selected` read through the same pattern (`selected_systems`). Audit #307 PL-030's rule, *"only a system folder's name is ever acted on"*, holds for the restore and not for the backup's explicit form.
-- **The fixture:** `cloud_content_backup '../.config'` hands rclone a `copy` from `<root>/storage/roms/../.config` and exits 0; the control `snes` copies only its folder.
-  - On a device that is `/storage/.config`, `rclone/rclone.conf` with its tokens among it, sent to the player's cloud under `ROMs/../.config`.
-- **The reach:** the interface passes names it listed itself (`--list`), so a player's menu never sends one. A shell, a script or a future caller does. A path traversal into the cloud on the one tier with no name check, with credentials in its path.
-- **Already written:** nothing on the device. A cloud that ever received such an upload keeps it; the fix cannot see it, and the coordinator decides whether that is worth a note.
-- **The fix is contained:** the restore's loop (`:1482-1487`), before the lock.
-- **Stage C (A-15, A-16, A-28; re-read `stage-c/rereads/c06.out`).**
-  - **The destination, read:** `TARGET="$(remote_for "${DIR}")"` (`:711`), and `remote_for` (`:484-489`) makes it `${ROOT}ROMs/../.config`.
-  - **The excludes** (`:753-757`) name saves, conflicts, media, `gamelist.xml` and the setup note, and nothing under `rclone/`.
-  - **What reaches the cloud has not been observed.** The fixture's rclone was a stub. How rclone joins the `..` on each backend, and what lands in the QA backend, is the guest's proof, under the coordinator's condition: the QA backend only, its data directory listed before and after, the upload removed.
-  - **The backup's `RCLONE_NET_OPTS` is the same unchecked input as F-02's** (`:230-232`).
-  - **Severity:** the seat proposes Medium for the confinement. The coordinator rules.
-  - **Already written, refined:** a cloud that already received such an upload keeps it. The fix calls for inspection and, where `rclone.conf` went up, rotating the credential, never an automatic deletion.
-
-### F-04 (Q3b; Info; a candidate refuted by fixture): a symlink member in a hand-made settings archive is accepted by `backuptool`'s check and stopped by the image's `tar`
-
-- **The trace.** `foreign_member()` (`backuptool:551-558`) judges member **names**: under `storage/`, with no `.` or `..` part. A tar member that is a symlink, `storage/.config/escape -> /elsewhere`, followed by `storage/.config/escape/note.txt`, passes it. The restore's `LINKS` skip (`:1633-1638`) covers only paths that are symlinks on the device.
-- **The fixture** (`tools/t17-archive-fixture.py`, the product's own function and the image's busybox):
-  - `foreign_member` -> rc 1, *accepted*;
-  - busybox `tar -xzf -C <root>` -> **rc 1, `can't create symlink`**: busybox defers a link with an absolute or `..` target to the end of extraction, by which time the later member has made a directory of the name. Nothing landed outside the root.
-  - The tree ships no GNU tar (no `PKG_NAME="tar"` under `packages/` or `projects/`), so the image's `tar` is busybox's.
-  - On a device the extraction fails, and `backuptool` reverts the restore.
-- **Disposition:** a design note. The guard that holds is the extractor's, not the check's. `backuptool`'s own archives hold regular files only (`find storage -type f`, `:1324`), so only a foreign or tampered archive carries such a member. D-UI-117's promise is about names. The guest repeats it through a full `backuptool restore`.
-- **Stage C (A-29):** the fixture tested one shape, an absolute link with a child. Standalone links, hard links, a symlink already on the device as an ancestor, and other member types are not tested. The name check inspects none of them. The guest's full restore is the proof still owed.
-
-### F-05 (Q3a; Info): secrets on process argv, and the sign-in state readable by any user
-
-- **On argv.** `connections.save()` builds `rclone --config <staged> config create <name> <type> key=value ...` (`cloud_connections:161-165`) and holds it for that call's `run()` bound of 40 s (`:131`). The `lsd` check after it (`:180`) carries no secret (stage C, A-1: the first draft said it did). The values are a WebDAV or SFTP secret from `cloud_remote`'s own argv (`cloud_remote:325-335`), or the provider token from `cloud_oauth` (`:588-591`). `/proc/<pid>/cmdline` shows them to any process for that time.
-- **At rest:** `session.json` (the PIN, the URL with it, the provider link) is 0644 in a 0755 folder (`stage-b/fixture-mode.txt`), while `session.lock` is 0600.
-- **The reach:** every process on a handheld runs as root, so no second user exists to read either. Recorded for a future multi-user or service account.
-- **Disposition:** a design note. rclone reads a config value from `RCLONE_CONFIG_<REMOTE>_<KEY>` in the environment, which is not world-readable, so a fix exists if the coordinator wants one.
-- **Stage C (A-1, A-30):**
-  - A secret typed into `cloud_remote` stays on **its** argv for its whole run, `rclone config providers` included. That call has no timeout (`cloud_remote:83-88`).
-  - An environment variable is no secret from the same account. It only hides a value from other users.
-
-### F-06 (Q3a; Info): a kill mid-save leaves the new credentials staged beside `rclone.conf`, and nothing sweeps them
-
-- **The trace.** `save()` and `remove()` stage a copy in `tempfile.TemporaryDirectory(prefix='.connection-', dir=/storage/.config/rclone)` (`cloud_connections:157`, `:238`), and `atomic()` stages `.rclone.conf-*` beside the file (`:74`). A SIGKILL or power cut before their cleanup leaves the staged `rclone.conf` with the new token: 0600, in a 0700 directory. No script in the tree removes `.connection-*` or `.rclone.conf-*` (the lane's grep).
-- **What holds:** `backuptool` holds the whole of `rclone/` back (`:723-726`; `last-good-scripts-test:779-781` checks it), so the leftover never reaches an archive or the cloud.
-- **Already written:** any device that was cut mid-sign-in holds such a directory today, and a sweep would remove it.
-- **Disposition:** a hardening, for the coordinator: a sweep of `.connection-*` and `.rclone.conf-*` under the transfer lock, at the start of `save()`.
-- **Stage C (A-18, A-31):**
-  - Depending on where the kill lands, the staging holds the old configuration, the new one, or both.
-  - Between the selection's publish and the configuration's (`cloud_connections.py:195-198`, `:252-253`), a kill leaves a pinned old selection, or a tombstone beside the old credentials.
-  - The exception rollback does not run under SIGKILL.
-  - A content backup that F-03 lets escape is not held to `backuptool`'s exclusion of `rclone/`.
-  - A first save's rollback `CONFIG.unlink()` (`cloud_connections.py:212`) does not fsync the directory, unlike `restore_selection` (Argon, R-17).
-
-### F-07 (Q3a, Q2; Info): what reaches a screen
-
-- `cloud_setup:495`'s probe shows the first two lines of rclone's ERROR text on the setup page (`:537`, `:543`). Nothing masks them: a URL that holds a secret would show it (stage C, A-4 refuted the first draft's *"the URL, not its secret"*). They are also rclone's words on a player's screen (`player-language.md`: a tool's words never reach a player).
-- The legacy console flow shows the root password in the clear (`cloud_setup:926`, `:937`) beside the SSH command. `--info` prints `PASSWORD_SET` only (`:618`, #116).
-- `cloud_remote:331` echoes a malformed `key=value` pair to stderr.
-- `resolve_connection` logs the override file's first line (`cloud_setup:224`, `:928`).
-- **Disposition:** recorded. The first is a Q2 item for the setup page's ES slice, and a confidentiality item with it: fixed categories rather than rclone's text answer both (A-32).
-
-### F-08 (Q3b; Info): the match's smaller edges
-
-- **The plan has a timestamp and no age.** An apply weeks after its preview runs if the context, mode, verbs and counts still agree (`cloud_content_restore:886`, `:898`, `:970-980`). The counts bound it. A design note under D-CLOUD-141.
-- **The `/tmp` fallbacks** with a predictable `.$$` name when `mktemp` fails (`:837-838`): fail-open on a single-user device.
-- **`exists_remote` matches a folder name as a regex** (`:441`, `grep -qx "${name}/"`): a name with `.` matches more than itself. Its callers ask whether BIOS exists.
-- **Stage C (A-33; re-read `stage-c/rereads/c02.out`):** `exists_remote` (`:436-442`) is as described. Its callers pass `${ROOT}BIOS`, a name with no `.`, so the reach is nil today.
-
-### F-09 (Q3a; Info): the listener's two smaller edges
-
-- **A non-ASCII PIN raises `TypeError`.** `secrets.compare_digest` refuses a non-ASCII `str`. `parse_qs` decodes a POSTed `pin=%C3%A9` to `é`, and the handler thread dies with a traceback on stderr (`stage-b/fixture-pin.txt`). It is not counted and grants nothing.
-- **The paste flow renders rclone's words as HTML.** `_render`'s message is inserted raw into `PAGE` (`:2271-2290`), and a failed submit's message is `failure_reason()`, which embeds up to 160 characters of rclone's last error line (`:480-488`), the provider's error text. It is only reachable where the device has no browser stack, and only behind the PIN.
-
-### F-10 (Q3; Info): writes judged by their exit status, or not at all
-
-- **`--set-systems`** (`cloud_content_restore:1405-1407`) does not check its temp write.
-  - **Stage C (A-19, A-35; re-read `c02`):** a write that fails part-way, on a full card, leaves a partial temp file, and the unconditional `mv -f` installs it. The selection loses names, and `OK <n> selected` reports the new, short count.
-  - The first draft's *"the old count"* holds only when the redirect fails before creating the file.
-  - The comment at `:1400-1404` promises *"written whole or not at all"* (D-CLOUD-078), and the group's status is never read.
-  - The seat proposes raising this one from Info to Low.
-- **`backuptool`'s rotation** `mv "${PREVIOUS}" ...` (`:1885`) is unchecked. A failed move leaves two archives at the root, and the settings upload sends both.
-- **`cloud_sync.conf`'s writes take no lock** (`cloud_setup:69-112`, `--set-*-remote`, `--use-content-root`). They are atomic and checked line by line, but an interface write and a `cloud_sync_helper` append can interleave.
-- **The scrubber's `record()`** (`cloud_log_scrub:181-187`) keeps only `printf`'s status. A `grep` that fails to read the stamp drops the other families' lines, and the next boot scrubs again: harmless, and recorded (stage C, A-22).
-- **Two hardenings in the model itself (stage C, Argon's R-45 and R-46, reversing two of the lane's grades of Astra):**
-  - `backuptool:1287` compares with `[ "${STAGED}" -ne ... ]` and no `2>/dev/null`. A `STAGED` that is not a number (only if `wc` itself fails, since `wc -l` prints `0` on empty input) makes `[` exit 2, and the refusal is skipped. `:655` and `:1334` use the closed form, `[ ... -eq ... ] 2>/dev/null` inside a negated chain.
-  - `:655` and `:1342` publish with `mv -f` and do not check that `TARGET` is the file afterwards. `:1611` (`mv -fT`) and `:1822-1823` do.
-- **The model** is `backuptool`'s archive (`:1323-1347`): `.partial`, listed back and counted, then the rename.
-
-### F-11 (Q3a; Info): the device id's hash hides the MAC from a glance, not from a search
-
-- **The trace.** `cloud_device_id:143-145`: the id's suffix is `md5(<permanent MAC>|unknown)[:10]`, unsalted (`DEVICE` is never set on a device, `:136-142`). A MAC is 48 bits, of which the first 24 name the adapter's vendor, so about 2^24 candidates per vendor recover it from a cloud folder name.
-- **The comment's claim** (`:29-31`, *"the address is hashed rather than stored ... has no business sitting in somebody's cloud storage in the clear"*) holds against reading and not against trying.
-- **Disposition:** a design note. A salted or keyed hash is a second identity change, with a legacy variant of its own (`:139-142`); the coordinator's call.
-
-### F-12 (Q3a; Info): the sign-in window
-
-- **Navigation policy:** only user-gesture navigations are filtered (`cloud-signin-window.c:851`), by design (captchas, IdPs).
-  - The allowed host is the last two labels of the provider's (`cloud_oauth:990-1000`), so a Google Drive sign-in allows every `*.google.com`.
-  - Popups are held to the same host rule (`:892-916`).
-- **The context is ephemeral** (`:963-966`).
-- **`CLOUD_SIGNIN_DEBUG` logs every key's string** to `window.log` (`:532-534`). The test is `g_getenv`, so any value turns it on, `0` included (stage C, A-37). Nothing in the tree sets it, but `cloud_oauth` passes its own environment to the window (`:917`), so an exported variable would.
-- **The page record excludes the code-bearing redirect** (`:660-671`); the probe exposes only an 8-hex hash.
-
-### F-13 (Q4; Info): the tools that exercise these files, and the rclone each runs
-
-- `cloud_folder_validate` runs `rclone` from `PATH`, not `/usr/bin/rclone` (`:90`, `:252`). This is M7's #1117 (*the validator bound to the package's rclone*), cited and not read from M7.
-- `tools/pixelelated-cloud-validator-test:58` hard-codes `rclone v1.75.1`; the tree pins 1.75.2. Filed by the coordinator as #1127 (Backlog under #1047).
-- `tools/pixelelated-content-scope-test:222` reads an argv file a refused run never writes. The same #1127.
-- `tools/cloud-connections-test` runs the host's rclone (T13's Q2).
-
-### F-14 (Q2; Low): two `>>> why` sentences the interface's table at the pin does not know
-
-- **The check:** every `>>> why` sentence the 14 print, against `CloudText.cpp:414-466`'s 38 at the ES pin `16dbac5211` (`stage-b/why-lines.txt`, `stage-b/es-why-sentences.txt`). Every literal and helper sentence is in it but two:
-  - `ANOTHER CLOUD SYNC IS RUNNING` (`cloud_setup:797`, `--seed-folders` refused by the lock). It is also the *"Not this"* form of `es-player-text.md:227` (D-UI-031); the rule's word is `A SYNC IS ALREADY RUNNING`.
-  - `THIS BACKUP HOLDS FILES A RESTORE CAN'T PUT BACK` (`backuptool:1495`, D-UI-117's proposed words).
-- **Either one, if shown, reads in English on a French screen** (`localizedWhy` falls back to the sentence itself). Whether the interface shows them (`CloudText.cpp:663` treats `--seed-folders` on its own) is the ES slice's read.
-- **`tools/vocabulary-check`'s verdict** over the four it reads: 0 wrong of 163 (`stage-b/vocabulary-check.txt`). The other ten files' strings were read by hand against `es-player-text.md`, and F-07's rclone text is their one departure.
-
-### F-15 (Q1; Design): the connection model
-
-- **One writer, one lock, one set of refusals:** every path to `rclone.conf` goes through `connections.save` or `remove` under the flock (§ The writers). That covers `cloud_remote create`, `cloud_remote update`, `cloud_oauth`'s sign-in and the interface's connection pages through `cloud_remote`.
-- **Two asymmetries, recorded:**
-  - `require_manual()` refuses while an automatic sync option is on for `update`, `select` and `remove` (`cloud_connections:150`, `:220`, `:229`), but not for a new `create`.
-  - A first connection writes no `active-connection` (`:193-197`), so the legacy first-remote fallback (`active()`, `:54-62`) is a shape the new writer itself leaves. The comment says so, and it is harmless with one remote.
-- **`cloud_oauth` at 2,830 lines and seven classes**, its seams as a proposal: the broker (`Session`, `SessionHolder`), the phone page (`make_handler` and the three templates), the device input (`RemoteKeyboard`, `RemoteMouse`, `GamepadBridge`), and the state (`session.json` and its markers).
-
-### F-16 (Q6; Renovation): dead ends
-
-- **The zip path** in `backuptool` (`:480-518`, `:1436-1445`, `:1686-1708`) is reachable while a device holds a legacy zip. A row; removals none.
-- **Uncalled functions:** the lane's recount at `8ebaf8daad` (every defined name, whole-word, over the 14): no shell function is named only once; three python methods are, `cloud_oauth`'s `do_GET`, `do_POST` and `redirect_request`, which `http.server` and `urllib` call. Nothing dead.
-- **The legacy console flow** in `cloud_setup` (`:913-976`) is the SSH setup the wizard replaced. It is still reachable as `cloud_setup` with no argument. A row.
-
-### F-17 (Q7; Info)
-
-- Can a reader tell, from the directory and the rule, which script writes `rclone.conf`, which deletes, which runs at boot, and where each secret may appear? From the directory, no. From the two generated tables, yes: § The writers and § The secrets' paths.
-- **The rule does not say who writes `rclone.conf`.** `rclone-cloud-sync.md` names `cloud_remote active` and the legacy first-remote fallback (`:268`), and never names `cloud_connections.py` (0 hits). The rule's drift is #909's: cited, not edited here.
-
-### F-18 (Q5; Info)
-
-- **Bounds, and what the player waits for:**
-  - the validator: 6 s a call, 25 s in all, 2 MiB and 4,096 entries (`cloud_folder_validate:22-24`);
-  - the content transfer: an inactivity ceiling of the bound's `--timeout` plus 6 s, with no total (`cloud_content_transfer:85-158`, D-CLOUD-127);
-  - the sign-in: 10 s on the opener (`cloud_oauth:300`), 15 s on the paste replay (`:516`), 15 s a socket, 600 s a serve;
-  - the connection's verification: 40 s.
-- **These scripts run from menus, not on the launch path**, but one: the scrubber runs at every boot from `rclone/autostart/102-cloud-saves:29`. Its once-per-device record makes later boots a read (stage C, A-43). Time to play is not touched; the retro cites `docs/vm-qa-log.md`.
-- **Stage C (A-43):** a connection save is several bounded calls, not one 40 s operation. A timeout value in `RCLONE_NET_OPTS` changes the content transfer's ceiling (F-02).
-
-### F-19 (Q4; Info)
-
-- The window's recipe builds against `webkitgtk` (`cloud-signin-window/package.mk:9`). The DMABuf renderer is off unless set (`cloud-signin-window.c:949`), blindspot 48's family: a WebKit constraint written beside the thing it constrains.
-- rclone 1.75.2 on the image (`rclone/package.mk:7`) against the host's 1.60.1-DEV (§ The host tools).
-
-### F-20 (Q3a, Q3b; Low; a candidate bug, fork-own; found by the seat, A-45): an option-shaped key reaches rclone as a flag, and `--config=` writes the new connection, its secret included, outside `rclone/`
-
-- **The trace.**
-  - `cloud_remote:329-334` accepts any argument with a `=` and splits it into a key and a value.
-  - `cloud_connections.save()` joins each pair as `key=value` into the `rclone ... config create` argv (`:161-165`), and checks only the name (`:141`).
-  - rclone parses a `--flag=value` anywhere in its argv as a flag.
-- **The fixture** (`tools/t17-option-key-fixture.py`: the product's own split and `save()`, with the donor's rclone 1.75.2 over a local backend; `stage-c/rereads/c13_option_key.out`):
-  - **control:** saved into `rclone.conf`.
-  - **`--config=<scratch>/elsewhere.conf`:** `save()` **refuses**, *"could not be verified"*. `rclone.conf` is never written, and **the outside file holds the new connection's section**.
-  - **`--log-file=<scratch>/flag.log`:** saved, and **the log file exists**: a second flag honoured.
-- **The reach:** the interface's pages pass the provider's own option names as keys, and a player types only values. So the caller is a shell, a script or a future page. The guard on *"one writer of `rclone.conf`"* fails open on the keys. A refused sign-in leaves its secret in a file nothing cleans up.
-- **Already written:** nothing a shipped caller wrote. A file an option-shaped key created holds a connection, and the fix cannot find it.
-- **The fix is contained:** refuse a key outside rclone's option-name shape (`^[a-z0-9_]+$`) in `save()`, before staging. Checking against the provider's own option list is the stronger form.
-
-### F-21 (Q3; Info; found by the seat, A-46, A-47, A-48): three more fail-open shapes
-
-- **The scan's temp:** `cloud_content_restore:1271`'s `mktemp -d` is unchecked. With `TMP` empty, the listing goes to `/cloud.raw`, its redirect fails, and the `rc` that follows is the redirect's. `:1282` can then read an unreadable cloud as *"not there yet"*. The same `/tmp` family as F-08.
-- **The setup probe:** `cloud_setup:495` keeps only `head`'s status. An rclone killed without a word yields an empty probe, and `:498` takes empty for success.
-- **The scan's writes:** `cloud_scan:315`, `:332` and `:338-344` are unchecked before `write_completion` (`:353`), so a full `/var/run` can publish a short result as done.
-- **The model** for all three is the validator's `Unreadable` and `backuptool`'s counted archive.
-- **Argon (R-43, R-44):**
-  - The setup probe's `*"not found"*` also matches a path that holds the words when rclone echoes the path in another error.
-  - `cloud_scan:260` takes `CONFIG_ID` before the lock at `:360-362`.
-  - `:335` puts the device label into `grep -E` unescaped (a `.` in a label is a wildcard).
-
-### F-22 (Q3a; Info; found by the seat, A-50): `cloud_remote` logs a connection's name before `save()` checks it
-
-- `cmd_create` logs `creating remote <name>` (`cloud_remote:263`) before `save()` refuses a name holding a newline or a tab (`cloud_connections.py:141`). A refused name can therefore write a forged line into `cloud_sync.log`, credential-shaped or not.
-- The phone page's log line adds the named key raw (`cloud_oauth:2455-2457`). What `RemoteKeyboard.press()` accepts is outside this read.
-- **The fix:** check before logging.
-- **The scrubber's allowlist has drifted** (Argon, R-6 and R-49; re-read `stage-c/rereads/c15.out`). `cloud_log_scrub:94` keeps six older sentences, and not the `Refused` sentences `cloud_oauth:448` writes today (`:594`).
-  - The scrubber reads each log once per device and exits at `:62` once both families are recorded. So only a line written before its first run is affected.
-  - Such a line is masked and counted, and `:193` says once, at boot, that credentials were masked when none were.
-  - A record, not a leak.
-
-### F-23 (Q3b; Info; the brief's question, not answered in the first draft): what the `pkill -f` patterns reach
-
-- `cloud_setup:775-776` (`--free-auth-port`) kills every process whose command line holds `rclone config` or `rclone authorize`. `cloud_oauth:357` and `:2819` kill every `rclone authorize` (re-read `stage-c/rereads/c09.out`).
-- **The reach:**
-  - On a device that includes `cloud_remote`'s own `rclone config providers` and a `save()`'s `config create` running under the lock.
-  - On a host it includes any harness whose argv carries the words. The serve's own cleanup walks `/proc` for this reason (`cloud_oauth:861`).
-- **The model:** kill by the recorded PID, as the serve does.
-
-### F-24 (Q3b; Low; a candidate bug, fork-own; found in the guest window, PL-18's proof): `backuptool restore` plants a symlink an archive carries, and a revert that meets a restored-into directory fails and leaves the mark
+### F-24 (Q3b; Low; a `bug`, #1136, fixed by S7; found in the guest window, PL-18's proof): `backuptool restore` plants a symlink an archive carries, and a revert that meets a restored-into directory fails and leaves the mark
 
 - **How it was found:** PL-18's proof in the guest window, three hand-made archives through the installed `/usr/bin/backuptool restore --no-restart` (`guest-cycle/pl18.out`). It is an observation of the image (`backuptool` identical to `8ebaf8daad`, `guest-cycle/hashes.out`), not yet a trace.
 - **A standalone symlink is restored.**
@@ -605,10 +371,13 @@ Stage E under `docs/reviews/briefs/t17-streams.md` at `f59f7cbbc1`, after the st
 | S3 the backup's names | #1130 (PL-03) | `stage-e/s3-before.txt`: `../.config` and `ps2` copied; fixed exit 1 | `f8feb15bb4` | `stage-e/s3-after.txt`: both refused before the lock with no rclone call; `snes` copies; every case fixed-met; save-layout 39 PASS | nothing on the device; an upload already made stays in the cloud: inspect, and rotate a credential that went up; never delete automatically | proved: fixture |
 | S4 `save()`'s keys, the sweep | #1131 (PL-04, PL-08) | `stage-e/s4-before.txt`: `--config=` writes outside, `--log-file=` honoured, SIGKILL leaves staging, planted leftovers survive; fixed exit 1 | `0ffe7cd94f` | `stage-e/s4-after.txt`: both keys refused before staging, nothing outside; the leftovers swept, `.keep-me` kept; unfixed met; `cloud-connections-test` 26 OK | a file an option-shaped key made holds a connection the fix cannot find; staged leftovers are removed by the first save after the fix | proved: fixture |
 | S5 `--set-systems` | #1132 (PL-06) | `stage-e/s5-before.txt`: 103 of 300 names installed under `ulimit -f 1` (a full card's stand-in), `OK 103`, rc 0; fixed exit 1 | `1d8271a1f3` | `stage-e/s5-after.txt`: the old selection byte for byte, no temp file, a log line, rc 1; the control installs all 300; unfixed met | a selection already cut short is read as written; the fix cannot tell it from a choice | proved: fixture |
+| S7 `backuptool`'s member types and the revert | #1136 (PL-23, F-24) | `stage-e/s7-before.txt`: on `8ebaf8daad`'s bytes, in an unprivileged bubblewrap sandbox with the donor's busybox `tar`, a standalone symlink and a fifo restored (rc 0); a symlink with a child and a forced failure leave their folders and `.restore-in-progress`; fixed exit 1 | `479cd96c24` | `stage-e/s7-after.txt`: symlink, symlink with a child, hard link, device and fifo refused before extraction, nothing planted or outside, no mark; file and folder restore; the forced failure reverts whole, *"YOUR SETTINGS ARE UNCHANGED"*; unfixed met; `last-good-scripts-test` PASSED | an archive already in a cloud holding such a member is refused at its next restore, the log naming it, the previous settings standing; a link an earlier restore planted stays; a mark an earlier revert left is the next boot's verify's | proved: fixture |
 | S6 the lock's sentence | #1133 (PL-05) | `stage-e/s6-before.txt`: `ANOTHER CLOUD SYNC IS RUNNING` at `:797`; **neither it nor the rule's word is a `whySentences` row at the pin** (the brief expected the rule's word there) | `3e95bf18f4` | `stage-e/s6-after.txt`: the rule's word printed; it is a translated msgid at the pin (`ThreadedCloudSync.cpp:92`, French in the catalog) but not a `whySentences` row, so `localizedWhy` returns it as written; `bash -n`; `vocabulary-check` 0 wrong of 165 | nothing persisted (a printed line) | proved: fixture |
 
+- **S3, corrected at S7** (`c3e260861b`): S3's check held every form's names to the declared systems and refused every name where `es_systems.cfg` could not be read. `tools/last-good-scripts-test`, first run at S7, failed three `cloud_content_backup` checks on it. The check now holds explicit names only, the shape always, and the declared systems when they can be read (`stage-e/s3-after.txt`).
+- **`tools/last-good-scripts-test`** (`QA_SYSTEM_ROOT` the donor) PASSED on the tree after S7 and the correction: 1,379 PASS lines, exit 0. It was not run at S1 to S6.
 - **`tools/register-check`** fails on exactly four lines since S2: the code comments citing **D-CLOUD-185**. That row is on the coordinator's branch at `f59f7cbbc1`, which is merged into this one at the hand-back, never by the lane. Every other citation names a row.
-- **#1133's first criterion** (*"a sentence `stage-b/es-why-sentences.txt` holds"*) cannot be met by a script change: the table at the pin holds neither sentence. Pairing the rule's word in `whySentences` is T18's (#665). This is put to the coordinator.
+- **#1133's first criterion** was reworded by the coordinator's ruling to the script's line. The table's pair is T18's (#665), routed by the coordinator.
 
 ## Proofs
 
@@ -635,6 +404,7 @@ Stage E under `docs/reviews/briefs/t17-streams.md` at `f59f7cbbc1`, after the st
 | P19 | An option-shaped key honoured as an rclone flag | `tools/t17-option-key-fixture.py`, `stage-c/rereads/c13_option_key.out` | proved: fixture |
 | P20 | The six streams, each before and after | `stage-e/s1-*.txt` to `stage-e/s6-*.txt` | proved: fixture |
 | P21 | The guest window: the installed files hashed, five fixtures, F-02 and F-03 on the real paths, PL-18 through a full restore | `guest-cycle/` | proved: guest |
+| P22 | The second window: the match's refusal, the credential refusal, `atomic()`'s mode, `signin-memory`'s row, the phone page's `CANNOT` | `guest-cycle/w2-*.out` | proved: guest |
 
 ## Positives
 

@@ -189,3 +189,28 @@
 - PROOF: S4's row: `stage-e/s4-*.txt`.
 - PROOF: S5's row: `stage-e/s5-*.txt`.
 - PROOF: S6's row: `stage-e/s6-*.txt`.
+
+## [Stage E, after the hand-back] 2026-10-26 08:18 UTC onward — the second window, S7, the S3 correction
+
+- **The coordinator's answers at the hand-back** (08:2x UTC):
+  - #1133's first criterion is reworded to the script's line, and the table's pair goes to T18 (#665).
+  - F-24 / PL-23 is a `bug`, Low: S7, under the stream brief at `8e6c990a1f`.
+  - A second window of 15 minutes for the five the first did not reach.
+  - `register-check`'s four lines are the reading wanted; they pass after the hand-back merge.
+  - S5's exit 1 is right.
+- **The second window:** START 08:18:14 and RETURN 08:21:22 UTC, both posted on #664 with census 0 and the time in the first line.
+  - `guest-cycle/run2.sh` and `w2-*.out`. The guest was rebuilt from the same checked image.
+  - **The proofs:** the match's refusal (`previewed sync|1, now sync|3`, nothing removed); the credential refusal (why *"A SIGN-IN WAS FOUND IN THE BACKUP"*, the archive the same hash, the process exit 1 by the command's own mapping of 5 at `backuptool:1858`); `atomic()`'s mode (600 on the real save, `0o600` under the image's python, including over 0644); `signin-memory` PASS (104, 98 and 42 MB; 245 together) on a host-local static page; the phone page `CANNOT`.
+  - `signin-memory`'s first page, the QA WebDAV root, answered 401, so the window never finished loading and the tool reported FAIL; that output is kept. The static page was served by `python3 -m http.server` on 127.0.0.1:9091 and stopped by its recorded PID.
+- **Retired, D-INFRA-022:** the second disk, `/workspace/tmp/m6-t17/vm-pair/vm-a.qcow2`, 2,309,029,888 bytes, sha256 `b9a15bbdd7efa63e5ceaf6cb7f4214f6c0613d40dca7f2552eeeba54f2624955`, removed with its directory (2,309,571,048 bytes in all). The hash is provenance.
+- **S7** (`479cd96c24`, #1136, filed first with its trace and `Already written:`):
+  - The fixture runs the real `backuptool restore --no-restart` unmodified, in an unprivileged bubblewrap sandbox with `/storage` a scratch directory, under the donor's busybox `tar`.
+  - Its first run failed every case on *"COULDN'T KEEP A COPY"*: bwrap passed the host's `TMPDIR` into the sandbox, where that path does not exist (#549's lesson). The sandbox now starts from `--clearenv`.
+  - **On the busybox listing:** busybox prints a hard link as `-` with ` -> target` after its name, so the type check pairs `tar -tv`'s lines with `tar -t`'s names.
+- **`tools/last-good-scripts-test`** (`QA_SYSTEM_ROOT` the donor), first run at S7, failed four checks.
+  - **PL-006** was S7's first cut: the listing went to a temporary file, which moved the suite's numbered `mktemp` fault onto it. `foreign_type` now reads from a pipe.
+  - **Three `cloud_content_backup` checks** were S3's (`f8feb15bb4`): the check applied to every form's names and refused every name with no `es_systems.cfg`. Corrected in `c3e260861b`.
+  - After both, the suite PASSED: 1,379 PASS lines, exit 0. I had not run it at S1 to S6, which is how S3's regression stood for an hour.
+- **Typed times corrected before commit:** RETURN `08:21:3x` (it is 08:21:22, from the comment), and the suite's `08:3x-09:0x` (now its output file's time, 09:04:19Z).
+- PROOF: P22, the second window: `guest-cycle/w2-*.out`.
+- PROOF: S7's row in `02` § The streams: `stage-e/s7-*.txt`.

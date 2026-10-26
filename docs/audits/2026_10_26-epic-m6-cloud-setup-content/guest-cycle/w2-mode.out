@@ -1,0 +1,10 @@
+$ (guest) atomic()'s observed mode: a real cloud_remote create on /storage/.config/rclone/rclone.conf, and atomic() under the image's python  (08:19:20Z)
+0022
+before: 600 /storage/.config/rclone/rclone.conf
+OK=t17mode
+cloud_remote create rc 0
+after a save through atomic(): 600 /storage/.config/rclone/rclone.conf
+after a save through atomic(): 600 /storage/.config/rclone/active-connection
+atomic() new file under umask 022: 0o600
+atomic() over an existing 0644 file: 0o600
+exit 0

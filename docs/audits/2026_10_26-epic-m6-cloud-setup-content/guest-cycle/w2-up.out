@@ -1,0 +1,12 @@
+$ cloud-test-backend --backend webdav up  (08:18:15Z)
+up: webdav serving /workspace/tmp/m6-t17/cloud-qa/data at http://127.0.0.1:9010 (guest: http://10.0.2.2:9010)
+exit 0
+$ vm-pair reimage a <the image, .sha256 checked OK at 07:59:18>  (08:18:16Z)
+up: a (pid 1120787, ssh :10022, serial /workspace/tmp/m6-t17/run/rocknix-qemu-serial.sock, mac 52:54:00:52:4E:58)
+ready: a on 069fc27044 over ssh :10022 (answered after 0s)
+exit 0
+BUILD_ID="069fc270442134fe771258418adf4e666e0473fb"
+Python 3.14.7
+$ the guest's connection: seed-device's configuration lines only (the stanza piped, never printed)
+OK qa-cloud:
+exit 0

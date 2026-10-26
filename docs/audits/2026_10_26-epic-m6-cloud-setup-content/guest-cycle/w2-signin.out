@@ -1,0 +1,23 @@
+$ tools/signin-memory 10022 --url http://10.0.2.2:9010/ --key <vm-pair key>  (08:19:21Z)
+  the page is the QA backend's own listing on the host: a real load, no network beyond the host (the slice's rule; the tool's default is example.org)
+guest: VERSION="0.0.1-dev+20261022T235948Z.g069fc2704421" BUILD_ID="069fc270442134fe771258418adf4e666e0473fb" /usr/lib/libwebkit2gtk-4.1.so.0
+window: http://10.0.2.2:9010/ for 30 s on wayland-1; page: 
+peak resident (VmHWM), MB: cloud-signin-wi 89, WebKitWebProces 75, WebKitNetworkPr 42
+peak of the three together (VmRSS summed per sample), MB: 207
+guest free memory, MB: 7031 before, 7016 after
+FAIL -- the page never finished loading, so these numbers are a window on its placeholder; read /tmp/signin-memory.log on the guest
+exit 1
+$ (guest) /tmp/signin-memory.log, the last 25 lines, filtered  (08:20:08Z)
+$ (guest) the log's size and lines; the WebDAV page from the guest  (08:20:13Z)
+-rw-r--r--    1 root     root             0 Oct 26 04:19 /tmp/signin-memory.log
+0
+curl http://10.0.2.2:9010/ -> 401 text/plain; charset=utf-8
+$ tools/signin-memory 10022 --url http://10.0.2.2:9091/ --key <vm-pair key>  (08:20:30Z)
+  the second run: a static sign-in-shaped page from python3 -m http.server on the host's 127.0.0.1:9091 (pid 1134362); the first page, the QA WebDAV's root, answered 401, so the window never finished a load
+guest: VERSION="0.0.1-dev+20261022T235948Z.g069fc2704421" BUILD_ID="069fc270442134fe771258418adf4e666e0473fb" /usr/lib/libwebkit2gtk-4.1.so.0
+window: http://10.0.2.2:9091/ for 30 s on wayland-1; page: http://10.0.2.2:9091/** Message: 04:20:31.118: load finished, asking the page for a field to focus
+peak resident (VmHWM), MB: cloud-signin-wi 104, WebKitWebProces 98, WebKitNetworkPr 42
+peak of the three together (VmRSS summed per sample), MB: 245
+guest free memory, MB: 7016 before, 7001 after
+PASS
+exit 0

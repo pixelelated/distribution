@@ -1,7 +1,7 @@
 # Punch list — M6.P2 T17, cloud setup, sign-in, connections, content and settings backups (#664)
 
 **Extended depth** (two seats: GPT-6 Astra at `max`, then Gemini 4 Argon at `high`; `04` § Second opinion). The audit issue is opened at stage D as a sub-issue of #664.
-- **Twenty-three items:** 2 Medium, 5 Low, and 16 Info, Design or Renovation. PL-23 (F-24) came from the guest window's PL-18 proof at stage E, and its ruling is the coordinator's.
+- **Twenty-three items:** 2 Medium, 5 Low, and 16 Info, Design or Renovation. PL-23 (F-24) came from the guest window's PL-18 proof at stage E. The coordinator ruled it a `bug` at the hand-back: #1136, fixed by S7.
 - **Six `bug`s filed at stage D** (the coordinator's ruling at the pause, 07:5x UTC), each with its trace, `Already written:` line and VM line:
   - #1128, PL-01 with PL-14 (Low, S1);
   - #1129, PL-02 (**Medium**, S2, under D-CLOUD-185);
@@ -11,8 +11,8 @@
   - #1133, PL-05's `cloud_setup:797` (Low, S6).
   - The streams are `docs/reviews/briefs/t17-streams.md` at `f59f7cbbc1`.
 - **Nothing** in this list changes a file under `packages/`, `projects/` or `tools/` at stages A to D. No item proposes a removal (D-WORKFLOW-209 reaches nothing; the 14 are fork-own).
-- **One guest window** ran 07:59:26 to 08:06:04 UTC (`02` § The guest cycle). **Nothing ran on a person's device or cloud.**
-- **Stage E:** six streams, one commit each (`02` § The streams). The rows for PL-01 to PL-06, PL-08 and PL-14 point there.
+- **Two guest windows** ran, 07:59:26 to 08:06:04 and 08:18:14 to 08:21:22 UTC (`02` § The guest cycle). **Nothing ran on a person's device or cloud.**
+- **Stage E:** seven streams, one commit each, and S3's correction `c3e260861b` (`02` § The streams). The rows for PL-01 to PL-06, PL-08, PL-14 and PL-23 point there.
 
 ---
 
@@ -383,7 +383,7 @@
 - **Acceptance:** recorded in `04` Q4 and Q5
 - **Disposition note:** open -- the stage-D ruling: recorded as written
 
-## PL-23: `backuptool restore` plants a symlink an archive carries, and a revert that meets a restored-into directory fails (a `bug` candidate; found in the guest window)
+## PL-23: `backuptool restore` plants a symlink an archive carries, and a revert that meets a restored-into directory fails (a `bug`, #1136; found in the guest window)
 
 - **Severity:** Low
 - **Category:** Correctness
@@ -398,7 +398,7 @@
 - **Can this be done on the VM?** Yes. It was, in the window. A host fixture of `foreign_member` with member types, plus the full restore on the guest, is the bug's VM line.
 - **Already written:** a device that restored such an archive holds the link, and a fix to the check cannot see it; a device with the mark left keeps it until the next boot's verify (T1's `chksysconfig`)
 - **Acceptance:** the coordinator's ruling: a `bug` with that fixture (types other than regular files and directories refused before extraction; the revert of a restored-into directory), or recorded
-- **Disposition note:** open -- found at stage E; the coordinator's ruling at the hand-back
+- **Disposition note:** open -- the coordinator's ruling at the hand-back: a `bug`, Low, #1136, stream S7 (`8e6c990a1f`); fixed by `479cd96c24`
 
 ## Phase 7 resolution gate
 
@@ -406,7 +406,7 @@
 | --- | --- | --- |
 | PL-01 | Open | the stage-D ruling: a `bug`, #1128 (Low; stage-E stream S1), with PL-14 folded in as its second criterion (the coordinator, 07:5x UTC); fixed by S1 `59a5a8860e`, its before and after in `02` § The streams (stage E); the guest ran the unfixed file (§ The guest cycle) |
 | PL-02 | Open | the stage-D ruling: a `bug`, #1129 (**Medium**, the coordinator's ruling, as both seats proposed; stream S2), under D-CLOUD-185. T16's twins (`cloud_restore:1406-1411`, `cloud_backup:1367-1371`) are routed to #663; fixed by S2 `1def91bdfc`, its before and after in `02` § The streams (stage E); the guest ran the unfixed file (§ The guest cycle) |
-| PL-03 | Open | the stage-D ruling: a `bug`, #1130 (**Medium**, the coordinator's ruling; stream S3); fixed by S3 `f8feb15bb4`, its before and after in `02` § The streams (stage E); the guest ran the unfixed file (§ The guest cycle) |
+| PL-03 | Open | the stage-D ruling: a `bug`, #1130 (**Medium**, the coordinator's ruling; stream S3); fixed by S3 `f8feb15bb4`, its before and after in `02` § The streams (stage E); the guest ran the unfixed file (§ The guest cycle); S3 corrected by `c3e260861b` (explicit names only; `last-good-scripts-test` PASSED) |
 | PL-04 | Open | the stage-D ruling: a `bug`, #1131 (Low; stream S4), with PL-08's sweep folded in; fixed by S4 `0ffe7cd94f`, its before and after in `02` § The streams (stage E); the guest ran the unfixed file (§ The guest cycle) |
 | PL-05 | Open | the stage-D ruling: a `bug` for `cloud_setup:797` only, #1133 (Low; stream S6). `backuptool:1495`'s sentence stays as D-UI-117's proposed words, and its French pair is routed to T18 (#665) by the coordinator; fixed by S6 `3e95bf18f4`, its before and after in `02` § The streams (stage E); the guest ran the unfixed file (§ The guest cycle) |
 | PL-06 | Open | the stage-D ruling: a `bug` for `--set-systems` only, #1132 (Low; stream S5); the other three hardenings recorded as written; fixed by S5 `1d8271a1f3`, its before and after in `02` § The streams (stage E); the guest ran the unfixed file (§ The guest cycle) |
@@ -425,7 +425,7 @@
 | PL-19 | Open | the stage-D ruling: recorded as written |
 | PL-20 | Open | the stage-D ruling: recorded as written |
 | PL-21 | Open | the stage-D ruling: deferred to #909 (the coordinator posts the line at acceptance) |
-| PL-23 | Open | the coordinator's ruling at the hand-back; found in the guest window (`guest-cycle/pl18.out`) |
+| PL-23 | Open | a `bug`, #1136; fixed by S7 `479cd96c24`, its before and after in `02` § The streams |
 | PL-22 | Open | the stage-D ruling: recorded as written |
 
 ## Machine-readable index

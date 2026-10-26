@@ -22,7 +22,8 @@
 - **Stage E and the guest window.**
   - Six streams fixed #1128 to #1133 (`02` § The streams).
   - The window (07:59:26 to 08:06:04 UTC) proved F-02 and F-03 on the guest's real paths against the QA backend. With F-03, 3,418 files of `/storage/.config`, `rclone.conf` among them, reached the cloud.
-  - PL-18's full restore found **F-24**: a standalone symlink an archive carries is restored, and a revert can fail and leave the mark. It is a Low candidate for the coordinator (`05` PL-23).
+  - PL-18's full restore found **F-24**: a standalone symlink an archive carries is restored, and a revert can fail and leave the mark. The coordinator ruled it a `bug`, Low: #1136, fixed by S7 (`479cd96c24`; `05` PL-23).
+  - A second window (08:18:14 to 08:21:22 UTC) ran the five proofs the first did not reach, the phone page `CANNOT` among them (`02` § The guest cycle).
 
 ## Acceptance-criteria scorecard
 

@@ -1,0 +1,12 @@
+$ the cloud side: <root>/ROMs/snes/a.zip  (08:19:07Z)
+put: pixelelated/Content
+exit 0
+OK 1 selected
+preview rc 0
+plan: snes|sync|1|10 
+apply rc 1
+Nothing was removed from snes: it changed since you checked. Check again to see what would change.
+>>> why SOMETHING CHANGED SINCE YOU CHECKED
+match: snes refused: previewed sync|1, now sync|3
+left in roms/snes: a.zip b.zip c.zip d.zip 
+exit 0

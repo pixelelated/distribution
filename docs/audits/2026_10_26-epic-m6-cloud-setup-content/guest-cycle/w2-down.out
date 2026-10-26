@@ -1,0 +1,12 @@
+$ vm-pair down  (08:21:20Z)
+down: owned QEMU exited (pid 1120787)
+exit 0
+$ cloud-test-backend --backend webdav down  (08:21:20Z)
+down
+exit 0
+leftover at 08:21:22Z:
+  qemu: 0
+  ss -ltn 9010-9099: 0
+  ss 10022-10023: 0
+  pgrep rclone serve: 0
+  python http.server 9091 (pid 1134362): stopped by its pid; listeners on 9091: 0
