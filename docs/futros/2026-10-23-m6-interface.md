@@ -766,3 +766,13 @@ version 2:
   166 shared literals, ~930 dead lines, 148 row builders, and the rest)
   now carry their method beside the proof's figures, so the lane's own
   are not read as drift.
+
+### Errata from T20's acceptance (2026-10-26)
+
+What the lane found between stage A and the hand-back that the T20 addendum and the brief did not foresee (the brief carries the full list under § Errata at acceptance):
+
+- From T19's stage A (lane, 12:25): `scanWhy`'s `NO_GAMES_FOUND` row -- the ctl prints `>>> why NO GAMES FOUND` on an empty library and the page's why table has a row for it; the brief's why table omits it (T20's, told at dispatch).
+- From T19's streams (the lane, 16:08): why tokens the ctl now emits, read at the ES pin: `RESULT_UNREADABLE` has no row in the interface's table; `TOOK_TOO_LONG` has a row in `scanWhy` (`CloudText.cpp:1036`) and none in `topUpWhy`; `SOME_IMAGES_NOT_SAVED` has rows in both; S5's `STAMP_UNWRITABLE` has none -- T20's rows and French (T19's `02` § What T20 inherits carries the list).
+- Stage B (lane, 17:33): `topUpWhy` falls through to `scanWhy`, so `TOOK_TOO_LONG` has a row (T19's table said missing); `Paths.cpp:94` sets the ROCKNIX path, so `Settings.cpp:420`'s WIN32 default is no live second store (T21's Q4 owns `Paths`).
+- The window (17:36 to 17:57): the installed EmulationStation carries the pin's literal but is M7's composition on top of the pin, so an identity check needs two literals (Backlog #1169); `tools/ra-ui-test` was `CANNOT` on its own preconditions after other steps left state (run it first on a clean guest); L-06 does not bite on the image (`/bin/sh` is bash and forks for `sh -c "cmd 2>/dev/null"`).
+- Stage E (lane, 19:47 and the hand-back): S4 reads the toggle back through the ctl's `status` rather than the file directly (the ctl reads the file; the ruling's intent); the streams touched files outside the 25 under their rulings -- `HttpReq.{h,cpp}` (S2's one field `httpsRedirectsOnly`), `CloudText.{h,cpp}`, `ProxyCards.cpp`, `FileSystemUtil.cpp` (S8), and two new pure helpers `OfflineAchievementsText.{h,cpp}` and `RetroAchievementsText.h` with their tests -- the brief's § 1 said "nothing in the ES worktree outside the 25 before a stream brief", and the stream brief named these; `es-code-traps.md`'s non-ASCII grep over a whole touched file flags upstream's own em dashes (`FileSystemUtil.cpp`), so the check judges the added lines (the retro's recommendation 1).
