@@ -319,6 +319,24 @@ sections (§ 7).
 the renovation face is added to its checks in P1 so a slice without the seven
 questions answered fails the lint rather than a reader's attention.
 
+**The brief practice that grew in P2 (added 2026-10-26 from the coordinator's
+retro, `docs/retros/2026-10-26-m6-coordinator.md`).** Before any dispatch: a
+**stranger's proof** -- a reader with no context, at most ten commands, from a
+scratch clone, runs the brief's membership block and its runs block and
+spot-checks every figure and line number; **version 2** of the brief records
+each correction in a list at its end, and the futro's kickoff addendum takes
+an errata section. In the brief itself: **every figure names its population**
+(the slice's paths, the directory, the tree), **every block is runnable from a
+clone** (path-safe forms: `-z`, `xargs -0`, Python over `ls-tree -r -z`; never
+`awk '{print $4}'` or `$(cat paths)` over paths that may carry spaces),
+**every binary or path is named only after `ls` has seen it**, and a claim
+about a writer or a caller comes from the grep that finds the write, not from
+a verb's name in a comment. At acceptance the lane's deltas become an **errata
+section** appended to the brief, never edited into its sections: the brief is
+the record of what was asked. Every version-1 brief of P2 needed its proof
+(twelve to seventeen corrections each), and twice the proof refuted the
+premise the lens was built on.
+
 ### 6c. Review depth per slice
 
 From the code-auditor review levels (D-WORKFLOW-137), chosen in P1 and

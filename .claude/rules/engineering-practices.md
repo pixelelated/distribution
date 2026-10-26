@@ -383,6 +383,20 @@ condition under which it stays silent while the thing it watches is dead:
 A watch whose silent-failure mode has not been named has not been thought
 through.
 
+**A granted guest window names what stops the guest at its bound, or says
+that nothing does (2026-10-26, #1135).** T16's window was granted for 30
+minutes; its lane's session was cut by an account limit; the guest ran twenty
+hours, because the mirror that knew the bound only mirrored. The same day the
+coordinator's mirror matched one shape of a lane's START post and said
+nothing when the next lane wrote another, and a host-file monitor keyed on
+one program's line shape and missed the other program's for an hour. A watch
+written as a session loop has had no positive and names no exit for "the
+thing I watch did not happen". So a grant names the post contract the lane's
+START and RETURN must meet, the mirror's output is read within a minute of
+the lane's post, and the grant says what stops the guest at bound plus grace
+-- a tool with that exit, or the sentence *nothing does; the coordinator
+reads the clock*. A silence that cannot be told from success is not a watch.
+
 ### Why this one has no tool behind it
 
 Every other rule here can be checked by something: `pkgcheck`, `register-check`,

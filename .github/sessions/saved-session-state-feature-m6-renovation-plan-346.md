@@ -145,6 +145,8 @@ today:** `.githooks/pre-commit` refuses a conflict marker (#696).
 
 **07:5x-08:08 UTC (2026-10-26):** T17's window ran 07:59:26-08:06:04 and RETURNed clean (verified; the disk retired by the lane). **The mirror job missed both posts** (its regex wanted `**START` first; the lane wrote `**T17 guest window: START`): the blocks were written by hand at 08:08, the job stopped, **#1135** filed under #903 for a mirror tool with a post contract, a self-test and a named silent-failure exit, a friction line added. **For the next window: match `(START|RETURN)` anywhere in the post's first line, and read the mirror's output within a minute of the lane's post.** The host is free (the 08:08 block); M7 asks on the shared log for its UI/archive window and M6 grants explicitly; T16's re-grant behind it. T17 is in stage E; its hand-back follows.
 
+**08:1x-08:14 UTC (2026-10-26):** the coordinator's **mini-retro** written (`docs/retros/2026-10-26-m6-coordinator.md`, on #346) after `tools/ceremony-check --gate` blocked on its absence; the plan § 6b and `engineering-practices.md` edited from its adjustments; **run the gate before every push from now on**, and stamp headings from `date -u`. **T17 handed back at `21db6a1b78`** (six bugs #1128-#1133; `reviewed-at f3803436b8`, `fixed-at 3e95bf18f4`): next the hand-back merge into `/workspace/repos/pixelelated/distribution.worktrees/m6-cloud-setup-content-664`, `AUDIT_ISSUE=<n> BUGS="1128 1129 1130 1131 1132 1133" DISPATCH_TIP=f3803436b8 $S/t17-accept.sh <merged tip> <co tip>`, the ticks, the errata (`$S/t17-errata.md`), PL-21's line to #909, the close-out, then T18's brief (#665).
+
 ## Next commands
 
 ```bash
