@@ -398,7 +398,7 @@ Every item was open until stage F; each row now takes its outcome (resolved with
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Resolved | Resolved in `57c5e8c4ec` (S1) under #1157, D-RA-050: patch `022-offline-login-requires-credential.patch`; the offline login answers the cached token or a password matching its recorded hash, for the configured account, from a loopback Host with no Origin; the suite's 011 check carried over in `5810eff004` (`stage-e/s1-*.txt`) |
+| PL-01 | Resolved | Resolved in `57c5e8c4ec` (S1) under #1157, D-RA-050: patch `022-offline-login-requires-credential.patch`; the offline login answers the cached token or a password matching its recorded hash, for the configured account, from a loopback Host with no Origin; the suite's 011 check carried over in `5810eff004`; amended by S1b in `392e4b33c8` (D-RA-051): until an online login records the hash, the configured account's password is answered as before (`stage-e/s1-*.txt`, `s1b-*.txt`) |
 | PL-02 | Resolved | Resolved in `6aca961c00` (S3) under #1159: `listening` counts only the unit's MainPID's own socket; two suite checks carried over (`stage-e/s3-*.txt`) |
 | PL-03 | Resolved | Resolved in `fdcd576e99` (S4) under #1160: a lock it cannot open is `cannot_tell`, a run that did not stop leaves the device on, helpers start without fd 9, the EXIT traps wait bounded (`stage-e/s4-*.txt`) |
 | PL-04 | Resolved | Resolved in `44120e2e17` (S5) under #1161: a stamp that could not be written ends the run 1 with `STAMP_UNWRITABLE`; the undo's steps read back (`stage-e/s5-*.txt`) |
