@@ -401,6 +401,7 @@ words there.
 
 ## Coordinator checkpoint, 2026-10-26 13:5x UTC (after T19's ruling and T21's version 1)
 
+- **The host (22:51 UTC): M7's**, from the 22:50 grant on the host file (one 4CPU/8GiB no-NIC guest from UI04, 2700 s plus owned cleanup, M7's supervision) until M7's RETURN line; acknowledge its START and RETURN within a minute with a census. Queued behind it: T21's possible second window (G6(a) and (b), 20 min plus 5), pending the lane's reason for not running G6; T21's first window returned 22:49:29 after G1 to G5, the mirror exited at RETURN and is re-armed for any second window.
 - **The host (20:45 UTC): free.** M7's RETURN of 18:49 acknowledged; nothing granted since; its next line on the host file gets a grant block or a named competing runtime. `ceremony-check` says the **2026-W43 weekly summary is due by 2026-10-27** (the coordinator's, from the index and the friction log).
 - **The host (18:19 UTC):** M7's, from its REQUEST of 18:17:57 and the coordinator's grant on the host file -- a native GuiMenu relink then one qualification guest, each bounded, until M7's RETURN line; no M6 guest or build until then; T20's stage-E fixture compiles are the only M6 host use. The owner's words are in the day's log (18:19).
 
