@@ -1,0 +1,11 @@
+$ t17-mode-fixture.py  (06:33:10Z)
+umask 022; scratch under TMPDIR
+atomic() new rclone.conf: 0o600
+atomic() over an existing 0644 rclone.conf: 0o600
+atomic() active-connection: 0o600
+locked(): cloud_sync.lock 0o644 (opened 'a')
+save(): staging directory 0o700, staged rclone.conf 0o600; left behind after a refusal: []
+cloud_oauth STATE_DIR: 0o755; session.json: 0o644; session.lock: 0o600; cloud_sync.log (log()): 0o644
+cloud_oauth marker signed-in: 0o644
+cloud_device_id write_id: 0o644; .previous: 0o644; a cloud_scan-style '> file': 0o644 (bash rc 0)
+exit 0

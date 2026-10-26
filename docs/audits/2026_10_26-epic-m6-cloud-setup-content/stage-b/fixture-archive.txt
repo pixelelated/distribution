@@ -1,0 +1,7 @@
+$ t17-archive-fixture.py  (06:33:06Z)
+file: projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool; foreign_member() lines 551-558
+tar and awk: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox (busybox applets first on PATH)
+escape: members ['storage/.config/escape', 'storage/.config/escape/note.txt']; foreign_member -> rc 1, accepted (no foreign member); busybox tar -xzf -C root -> rc 1 (tar: can't create symlink 'storage/.config/escape' to '<scratch> a file landed outside the root: no
+control: members ['outside-control.txt']; foreign_member -> rc 0, refused (a member a restore can't put back) first: outside-control.txt; busybox tar -xzf -C root -> rc 0 (tar: removing leading 'storage/../' from member names); a file landed outside the root: no
+escape: storage/.config/escape in the root is not a symlink
+exit 0

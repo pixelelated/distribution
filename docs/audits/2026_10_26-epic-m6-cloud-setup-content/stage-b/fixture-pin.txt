@@ -1,0 +1,9 @@
+$ t17-pin-fixture.py --expect unfixed (06:33:03Z)
+file: projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth
+favicon: 10 requests before, statuses ['200', '403'], attempts spent 10; then GET /<the right pin> -> 403
+touch-icons: 10 requests before, statuses ['200', '403'], attempts spent 10; then GET /<the right pin> -> 403
+control: 9 requests before, statuses ['200'], attempts spent 9; then GET /<the right pin> -> 200
+wrong-pins: 10 requests before, statuses ['200', '403'], attempts spent 10; then GET /<the right pin> -> 403
+non-ascii: POST pin=%C3%A9 -> dropped:RemoteDisconnected; handler raised: yes: TypeError: comparing strings with non-ASCII characters is not supported; attempts spent 0
+t17-pin-fixture: unfixed-expectation-met
+exit 0

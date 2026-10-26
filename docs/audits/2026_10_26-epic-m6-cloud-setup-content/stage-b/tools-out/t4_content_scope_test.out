@@ -1,0 +1,21 @@
+PASS missing-list
+PASS missing-scan
+PASS missing-all
+PASS selected-rom-bios-bytes
+PASS unreadable-list
+PASS partial-list
+PASS unreadable-scan
+PASS partial-scan
+PASS unreadable-all
+PASS partial-all
+FAIL system-traversal-refused [Errno 2] No such file or directory: '<out>/t4/system-traversal-refused/ctl/argv'
+PASS scan-run-mode-output-binding
+PASS scan-folder-change-invalidates
+PASS scan-endpoint-change-invalidates
+PASS scan-context-local-read-only
+PASS scan-concurrent-owner-refused
+PASS scan-config-changes-during-run
+PASS selected-trailing-slash
+FAIL content-pointer-traversal-refused [Errno 2] No such file or directory: '<out>/t4/content-pointer-traversal-refused/ctl/argv'
+PASS relative-root-unreadable-bounded
+PASS absolute-root-unreadable-bounded

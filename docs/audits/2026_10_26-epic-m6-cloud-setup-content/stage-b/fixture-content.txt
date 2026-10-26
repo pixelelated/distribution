@@ -1,0 +1,11 @@
+$ t17-content-fixture.py --expect unfixed --real-rclone /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/rclone (06:33:06Z)
+sources: projects/ROCKNIX/packages/network/rclone/sources; applets: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox
+backup-traversal: rc 0; rclone copy calls 1; sources ['<root>/storage/roms/../.config']; a source outside /storage/roms: yes
+backup-control: rc 0; rclone copy calls 1; sources ['<root>/storage/roms/snes']; a source outside /storage/roms: no
+match-netopts: preview rc 0, plan ['snes|sync|1|5']; apply rc 0; deleting syncs 1, --max-delete ['1']; --delete-excluded on the deleting sync: yes
+match-control: preview rc 0, plan ['snes|sync|1|5']; apply rc 0; deleting syncs 1, --max-delete ['1']; --delete-excluded on the deleting sync: no
+real rclone: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/rclone rclone v1.75.2
+match-netopts-real: preview rc 0, plan ['snes|sync|2|48']; apply rc 0; left on the device in roms/snes: ['a.zip']; the save a.srm kept: NO
+match-control-real: preview rc 0, plan ['snes|sync|1|28']; apply rc 0; left on the device in roms/snes: ['a.srm', 'a.zip']; the save a.srm kept: yes
+t17-content-fixture: unfixed-expectation-met
+exit 0

@@ -1,0 +1,6 @@
+$ tools/vocabulary-check --es ~/Development/emulationstation-next.worktrees/qa-integration   (06:17:50 UTC, 2026-10-26)
+ES checkout: HEAD 16dbac5211eea7e70db7394372033be2be7df829 on test/qa-integration; git status --short: 0 lines (before and after)
+the pin at 8ebaf8daad: emulationstation/package.mk PKG_VERSION=16dbac5211eea7e70db7394372033be2be7df829, PKG_GIT_CLONE_BRANCH=test/qa-integration -> HEAD is the pin, the tree clean
+exit 0
+  allowed  es-app/src/guis/GuiBackupStart.cpp: BACKUP USER DATA  -- upstream batocera GuiBackupStart, hidden on ROCKNIX (no ApiSystem::BACKUP); its msgid keys translations
+vocabulary-check: 163 string(s) with back up / backup, save state or Wi-Fi judged, 0 wrong

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-cloud-setup-content-664/tools/pixelelated-cloud-validator-test", line 359, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-cloud-setup-content-664/tools/pixelelated-cloud-validator-test", line 58, in main
+    require(version == 'rclone v1.75.1', 'Use the package-pinned rclone1.75.1, not the host fallback: '+version)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-cloud-setup-content-664/tools/rasteratops-cloud-layout-test", line 158, in require
+    raise AssertionError(message)
+AssertionError: Use the package-pinned rclone1.75.1, not the host fallback: rclone v1.75.2

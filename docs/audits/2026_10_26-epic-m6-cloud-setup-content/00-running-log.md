@@ -57,3 +57,10 @@
 - PROOF: P4, the upstream relation: r29 to r31.
 - PROOF: P5, the callers and the tools' invoking counts: r32 to r35.
 - PROOF: P6, the branch and the removal rule: r39, r40.
+
+## [Stage B] 2026-10-26 06:16 UTC onward — the read of the 14, the tables
+
+- **Stage A accepted** (the coordinator, 06:2x UTC). The deltas go into the brief's errata. **`tools/vocabulary-check` against the ES checkout is allowed as a read**, with its provenance recorded first.
+- **The ES checkout's provenance**, 06:17:44 UTC: `~/Development/emulationstation-next.worktrees/qa-integration` is at `HEAD` `16dbac5211eea7e70db7394372033be2be7df829` on `test/qa-integration`, with `git status --short` 0 lines. `emulationstation/package.mk` at `8ebaf8daad` pins `PKG_VERSION="16dbac5211..."` on the same branch, so **the HEAD is the pin and the tree is clean**: the verdict stands as the image's. No git command that writes ran there; status read 0 lines again after the run.
+- **`tools/vocabulary-check --es <that path>`**, 06:17:50 UTC: **exit 0**, `163 string(s) with back up / backup, save state or Wi-Fi judged, 0 wrong`, and one allowed string (upstream's hidden `GuiBackupStart`). The output, masked, is `stage-b/vocabulary-check.txt`.
+  - It reads `cloud_content_backup`, `cloud_content_restore`, `cloud_setup` and `backuptool` from this slice. The other ten are read by hand against `es-player-text.md`; that row stays `CANNOT` for the tool.

@@ -1,0 +1,29 @@
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup:98:    echo ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup:107:    echo ">>> why YOUR CLOUD STORAGE ISN'T SET UP YET"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup:192:    echo ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup:204:        echo ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup:212:    echo ">>> why ${reason}"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup:272:    echo ">>> why $1"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup:701:    echo ">>> why SOMETHING CHANGED SINCE YOU CHECKED"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:135:    echo ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:144:    echo ">>> why YOUR CLOUD STORAGE ISN'T SET UP YET"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:229:    echo ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:241:        echo ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:249:    echo ">>> why ${reason}"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:258:            echo ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:319:    echo ">>> why $1"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:1500:    echo ">>> why SOMETHING CHANGED SINCE YOU CHECKED"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_scan:49:why() { echo ">>> why $*"; }
+projects/ROCKNIX/packages/network/rclone/sources/cloud_scan:155:        reason=$(sed -n 's/^>>> why //p' "$3" 2>/dev/null | tail -1)
+projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:319:        echo ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:323:        value=$(conf_get "${field}") || { echo ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"; return 2; }
+projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:324:        value=$(folder_path "${value}") || { echo ">>> why YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"; return 2; }
+projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:343:        echo ">>> why YOUR CLOUD STOPPED ANSWERING"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:350:    echo ">>> why YOUR CLOUD STOPPED ANSWERING"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:384:            echo ">>> why YOUR CLOUD FOLDER COULDN'T BE READ"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:400:            echo ">>> why YOUR CLOUD STOPPED ANSWERING"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:413:    echo ">>> why YOUR CLOUD FOLDER COULDN'T BE READ"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:797:            echo ">>> why ANOTHER CLOUD SYNC IS RUNNING"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:818:                echo ">>> why YOUR CLOUD FOLDERS COULDN'T BE CREATED"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:881:        [ "${seed_failed}" -eq 0 ] || { echo ">>> why YOUR CLOUD FOLDERS COULDN'T BE CREATED"; exit 5; }
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool:270:    echo ">>> why ${1}"
