@@ -271,102 +271,104 @@ punch_index:
   category: Correctness
   question: Q3
   source_finding: "F-01"
-  outcome: "open"
+  outcome: "resolved (39851da3e8)"
 - id: PL-02
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-11"
-  outcome: "open"
+  outcome: "resolved (39851da3e8)"
 - id: PL-03
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-12"
-  outcome: "open"
+  outcome: "resolved (04a9fe98b9)"
 - id: PL-04
   severity: Info
   category: Renovation
   question: Q3
   source_finding: "F-01, F-11"
-  outcome: "open"
+  outcome: "deferred:#585"
 - id: PL-05
   severity: Low
   category: Renovation
   question: Q2
   source_finding: "F-03"
-  outcome: "open"
+  outcome: "deferred:#585"
 - id: PL-06
   severity: Low
   category: Renovation
   question: Q2
   source_finding: "F-04"
-  outcome: "open"
+  outcome: "deferred:#585"
 - id: PL-07
   severity: Info
   category: Renovation
   question: Q7
   source_finding: "F-05"
-  outcome: "open"
+  outcome: "deferred:#332"
 - id: PL-08
   severity: Info
   category: Renovation
   question: Q2
   source_finding: "F-06"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-09
   severity: Info
   category: Renovation
   question: Q7
   source_finding: "F-07"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-10
   severity: Info
   category: Renovation
   question: Q4
   source_finding: "F-08"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-11
   severity: Info
   category: Renovation
   question: Q7
   source_finding: "F-09"
-  outcome: "open"
+  outcome: "deferred:#1122"
 - id: PL-12
   severity: Info
   category: Renovation
   question: Q7
   source_finding: "F-02"
-  outcome: "open"
+  outcome: "deferred:#1119"
 - id: PL-13
   severity: Info
   category: Renovation
   question: Q2
   source_finding: "F-04"
-  outcome: "open"
+  outcome: "deferred:#1123"
 - id: PL-14
   severity: Info
   category: Renovation
   question: Q6
   source_finding: "F-10"
-  outcome: "open"
+  outcome: "resolved"
 ```
 
 ## Phase 7 resolution gate
 
+The coordinator's stage-D dispositions (#676, [issuecomment-6408955761](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761), 05:29:36 UTC), each read back from the tracker at stage F (05:46 UTC: #1119 to #1125 open, #585 open, #332 closed).
+
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | #1120, the bug filed at stage D |
-| PL-02 | Open | the coordinator's disposition at the stage-D pause |
-| PL-03 | Open | the coordinator's disposition at the stage-D pause |
-| PL-04 | Open | the coordinator's disposition at the stage-D pause |
-| PL-05 | Open | the coordinator's disposition at the stage-D pause |
-| PL-06 | Open | the coordinator's disposition at the stage-D pause |
-| PL-07 | Open | the coordinator's disposition at the stage-D pause |
-| PL-08 | Open | the coordinator's disposition at the stage-D pause |
-| PL-09 | Open | the coordinator's disposition at the stage-D pause |
-| PL-10 | Open | the coordinator's disposition at the stage-D pause |
-| PL-11 | Open | the coordinator's disposition at the stage-D pause |
-| PL-12 | Open | the coordinator's disposition at the stage-D pause |
-| PL-13 | Open | the coordinator's disposition at the stage-D pause |
-| PL-14 | Open | the coordinator's disposition at the stage-D pause |
+| PL-01 | **Resolved** | `39851da3e8`, S1 under `t29-streams.md` (before `stage-e/s1-before.txt`, after `stage-e/s1-after.txt`); bug #1120, its criteria ticked, open until on `next` |
+| PL-02 | **Resolved** | `39851da3e8`, S1 with PL-01 (the `critical-recovery` case); in #1120 by the ruling [issuecomment-6408955761](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761) |
+| PL-03 | **Resolved** | `04a9fe98b9`, S2 (before `stage-e/s2-before.txt`, after `stage-e/s2-after.txt`, the suite `stage-e/s2-suite.txt`); bug #1124, its criteria ticked; #1125 the rehearsal's seed |
+| PL-04 | **Deferred** | deferred:#585, the line in § PL-04, for the coordinator's post at acceptance; per-unit dispositions [issuecomment-6408955761](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761) |
+| PL-05 | **Deferred** | deferred:#585, the line in § PL-05, for the coordinator's post at acceptance |
+| PL-06 | **Deferred** | deferred:#585, the line and the #332 comment in § PL-06, for the coordinator's post at acceptance (#332 reads CLOSED at stage F) |
+| PL-07 | **Deferred** | deferred:#332, the comment in § PL-07, for the coordinator's post at acceptance (#332 reads CLOSED at stage F) |
+| PL-08 | **Resolved** | recorded at `dcb2bf63c1`: `02` F-06 |
+| PL-09 | **Resolved** | recorded at `dcb2bf63c1`: `02` F-07 |
+| PL-10 | **Resolved** | recorded at `dcb2bf63c1`: `02` § The upstream delta, regenerated, `check` 0; settled by the next base merge |
+| PL-11 | **Deferred** | deferred:#1122, the coordinator's Backlog under #695 |
+| PL-12 | **Deferred** | deferred:#1119, the coordinator's Backlog under #695; `02` § The selection lists both owned H700 units NONE |
+| PL-13 | **Deferred** | deferred:#1123, the coordinator's Backlog under #695 |
+| PL-14 | **Resolved** | recorded at `dcb2bf63c1`: `tools/t29-tables.py check` 0; removals none |

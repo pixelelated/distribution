@@ -24,26 +24,26 @@
 
 ## Acceptance-criteria scorecard
 
-#676's sixteen criteria (= brief § 7), at stage C before the punch-list issue. *Met* names its artifact; *waits* names the stage that ticks it.
+#676's sixteen criteria (= brief § 7), at the hand-back (stage H). *Met* names its artifact; *waits* names who ticks it.
 
 | # | Criterion | State |
 | --- | --- | --- |
 | 1 | `00` and `01` to `05` | met at stage C |
-| 2 | the lint `PASS` | pre-issue at stage C; resolution waits for stage H |
-| 3 | the plan, the provenance, the manifest | stage C |
-| 4 | every punch item at a Phase 7 outcome | waits: stage D onward |
-| 5 | `reviewed-at:` and `fixed-at:`; the 333 at `8ebaf8daad`'s bytes; nothing changed at A to D | the diffs are empty (r03, r20); the header lines wait for stage H |
+| 2 | the lint `PASS` | pre-issue `PASS` at stages C to H; the full lint after acceptance, with `audit-completion.json` |
+| 3 | the plan, the provenance, the manifest | met: `review-plan.json` `complete`; both provenance files `PASS`; `packet-manifest.json` |
+| 4 | every punch item at a Phase 7 outcome | met: `05` § Phase 7, 7 Resolved, 7 Deferred, read back at stage F; #1121's checkboxes are the coordinator's at acceptance |
+| 5 | `reviewed-at:` and `fixed-at:`; the 333 at `8ebaf8daad`'s bytes; nothing changed at A to D | the diffs were empty through stage D (r03, r20; `ce2af0ca7c`). Stage E changed the two fork-own files its brief names. `reviewed-at: 5ee0dfefcf` and `fixed-at: 04a9fe98b9` are in #676's body at the hand-back |
 | 6 | `01` § Scope | met (`e8dcd0ace5`), with the board-count delta |
 | 7 | coverage, 333 rows | met: the brief's `awk` and `grep` print 333 |
 | 8 | § The entries, 88 rows, generated with asserts | met (`tools/t29-tables.py entries`) |
 | 9 | § The selection, § The tiers, § The fork-own five | met |
 | 10 | § The shape, § The upstream delta | met |
 | 11 | § The runs | met (generated, 22 rows) |
-| 12 | `00` shows no guest, build, handheld command, M7 read or extra keyed call | met through stage C: two keyed calls (P15) |
+| 12 | `00` shows no guest, build, handheld command, M7 read or extra keyed call | met through stage H: two keyed calls (P15); the M7 extract's bash was not used |
 | 13 | `04` § Q2, Q3, Q4, Q6, Q7 and § Second opinion | met |
-| 14 | every proof's cell; every punch item's `question:`; every `bug` `box-check` 0 fail | 16 proofs; `05`'s 14 items each carry `question:`; `box-check` waits for stage D's bug |
-| 15 | the retro | waits: stage G |
-| 16 | the five checkers | waits: stage H |
+| 14 | every proof's cell; every punch item's `question:`; every `bug` `box-check` 0 fail | met: 18 proofs (16 in § Proofs, 2 in § The streams); `05`'s 14 items each carry `question:`; #1120 and #1124 `box-check` 0 fail, each with `Already written:` |
+| 15 | the retro | met: `docs/retros/2026-10-26-m6-os-device-quirks.md`, posted on #676 at the hand-back |
+| 16 | the five checkers | run at stage H on the branch (`00` § Stage H); re-run by the coordinator after its hand-back merge |
 
 ## Risk assessment
 

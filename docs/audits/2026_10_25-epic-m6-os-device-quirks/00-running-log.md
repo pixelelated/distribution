@@ -149,3 +149,27 @@
   - Committed at `04a9fe98b9`.
 - PROOF: P17, S1's positive before and after: `stage-e/s1-before.txt`, `stage-e/s1-after.txt`.
 - PROOF: P18, S2's positive before and after, and the suite: `stage-e/s2-before.txt`, `stage-e/s2-after.txt`, `stage-e/s2-suite.txt`.
+
+## [Stage F] 2026-10-26 05:46 UTC — the readback and the outcomes
+
+- **Read back from the tracker:** #1119 to #1125 open; #1120 and #1124 `bug`, their criteria ticked from `stage-e/` and each `box-check` 0 open, 0 fail; #585 open; **#332 closed**. The two #332 texts in `05` would land on a closed issue, which the hand-back names.
+- **#1124's third criterion was reworded** in the same edit that ticked it. It read *"in the first pass's test only"*, and S2 also corrected the header comment. A comment on #1124 says so and asks.
+- **`05` § Phase 7:** 7 Resolved (PL-01 to PL-03 by S1 and S2; PL-08, PL-09, PL-10 and PL-14 recorded) and 7 Deferred (PL-04 to PL-06 to #585, PL-07 to #332, PL-11 to #1122, PL-12 to #1119, PL-13 to #1123).
+
+## [Stage G] 2026-10-26 — the retro
+
+- `docs/retros/2026-10-26-m6-os-device-quirks.md`: nothing to either time-to-play number; what #695's close inherits; the futro addendum's three unknowns answered (the third by `uniq -d` over the two spellings, which prints nothing); three proposals for the coordinator.
+
+## [Stage H] 2026-10-26 05:50 UTC — the checkers and the hand-back
+
+- **On the branch,** before the coordinator's hand-back merge:
+  - `tools/register-check`: 681 IDs, each once;
+  - `tools/work-log-index --check`: current;
+  - `tools/rules-check --quiet`: exit 0;
+  - `tools/forbidden-terms-check .`: exit 0;
+  - `.githooks/hooks-test`: `PASS`;
+  - `tools/lint-audit-artifacts --phase pre-issue`: `PASS`.
+  - The register line's exit was read through `tail`; its success sentence printed.
+- **#676's body:** `reviewed-at: 5ee0dfefcf`, `fixed-at: 04a9fe98b9`, read back.
+- **Nothing of the never-run list ran.** Two keyed calls in all; no guest, build, fetch, unit command or M7 root read. The stage-E diff against `ce2af0ca7c` under `projects/` is the two fork-own files.
+

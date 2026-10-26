@@ -16,10 +16,9 @@
 
 ## Current focus
 
-**Stage D: paused on #676 for the coordinator's dispositions.**
-- **Stage C** is done: the seat PASS, 40 items graded, `05` with 14 items, and the pre-issue lint PASS. **Both keyed calls are spent; there is no further keyed call in this slice.**
-- **Filed:** bug #1120 (F-01 and F-11, the Nova's battery helper) and audit #1121, a sub-issue of #676.
-- **Next, on the dispositions:** stage E's stream(s) per the coordinator's brief, test first with `t29-battery-unset.py --expect`; then F, G and H.
+**Idle after the hand-back.** Stages E to H are done: S1 `39851da3e8` (#1120), S2 `04a9fe98b9` (#1124), the record, the retro, the checkers, and `reviewed-at` / `fixed-at` in #676's body.
+- **Waiting on the coordinator:** acceptance; the #1124 criterion's rewording; #1125, the rehearsal seed, which is outside the brief's files; #332 being closed for the two texts.
+- **After acceptance:** `audit-completion.json` with T5's writer (`A` and `ISSUE=1121`), the full lint with `--issue 1121`, the pointer idle, and `/workspace/tmp/m6-t29/` removed.
 
 ## Next commands
 
@@ -62,4 +61,6 @@ host's swap, another lane's worktree, or a guest.
 - Stage A: `e8dcd0ace5`, 2026-10-25 11:5x UTC.
 - Stage B: `c5e473d264`, 2026-10-26 04:5x UTC.
 - Stage C: `2831c85a8f`, 2026-10-26 05:21 UTC.
-- Stage D: this commit, 2026-10-26 05:25 UTC (#1120, #1121).
+- Stage D: `ce2af0ca7c`, 2026-10-26 05:25 UTC (#1120, #1121).
+- Stage E: S1 `39851da3e8`, S2 `04a9fe98b9`, the record `dcb2bf63c1`, 05:31 to 05:46 UTC.
+- Stages F to H: this commit, 05:50 UTC.
