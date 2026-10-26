@@ -1,0 +1,59 @@
+$ t17-content-fixture.py --only backup --expect fixed  (the fixed cloud_content_backup; the fixture's es_systems.cfg path corrected; 07:50:53Z)
+sources: projects/ROCKNIX/packages/network/rclone/sources; applets: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox
+backup-traversal: printed '>>> why SOMETHING WENT WRONG'
+backup-traversal: rc 1; rclone copy calls 0; sources []; a source outside /storage/roms: no
+backup-control: rc 0; rclone copy calls 1; sources ['<root>/storage/roms/snes']; a source outside /storage/roms: no
+backup-unknown: printed '>>> why SOMETHING WENT WRONG'
+backup-unknown: rc 1; rclone copy calls 0; sources []; a source outside /storage/roms: no
+t17-content-fixture: fixed-expectation-met
+exit 0
+$ t17-content-fixture.py --only backup --expect unfixed --sources <8ebaf8daad's three, extracted to scratch>  (07:50:53Z)
+sources: /workspace/tmp/m6-t17/e/orig; applets: /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox
+backup-traversal: rc 0; rclone copy calls 1; sources ['<root>/storage/roms/../.config']; a source outside /storage/roms: yes
+backup-control: rc 0; rclone copy calls 1; sources ['<root>/storage/roms/snes']; a source outside /storage/roms: no
+backup-unknown: rc 0; rclone copy calls 1; sources ['<root>/storage/roms/ps2']; a source outside /storage/roms: no
+t17-content-fixture: unfixed-expectation-met
+exit 0
+$ bash -n cloud_content_backup
+exit 0
+$ git diff 1def91bdfc -- cloud_content_backup  (S3's change alone)
+diff --git a/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup b/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup
+index 174963c6ac..1d87b7645a 100755
+--- a/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup
++++ b/projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup
+@@ -587,6 +587,29 @@ case "${1}" in
+     ;;
+ esac
+ 
++# Only a system folder's name is ever acted on (audit #307 PL-030), and the
++# explicit form took any: '../.config' sent /storage/.config, rclone.conf
++# with its tokens among it, to ROMs/../.config in the player's cloud (#1130,
++# T17's F-03). Every name is held to what --all would carry -- the restore's
++# shape (cloud_content_restore's own loop), and a system this device's
++# interface declares, or bios, and not a folder another tier owns -- before
++# the lock, so a refusal moves nothing.
++_systems=$(system_folders)
++for DIR in "${DIRS[@]}"; do
++    _known=1
++    [[ "${DIR}" =~ ^[A-Za-z0-9_][A-Za-z0-9._-]*$ ]] || _known=0
++    case "${DIR}" in savefiles|savestates|screenshots|backup) _known=0 ;; esac
++    if [ "${_known}" -eq 1 ] && [ "${DIR}" != bios ] && ! printf '%s\n' "${_systems}" | grep -qxF -- "${DIR}"; then
++        _known=0
++    fi
++    if [ "${_known}" -eq 0 ]; then
++        log_message "Content backup refused: a name that is not a system folder this device declares"
++        echo ">>> why SOMETHING WENT WRONG"
++        echo "That system folder name can't be used. Nothing was backed up."
++        exit 1
++    fi
++done
++
+ # Another sync client's unresolved dispute is not our content.
+ #
+ # Dropbox and Nextcloud rename the losing side of a concurrent write to
+$ t17-content-fixture.py --expect fixed --real-rclone <donor 1.75.2>  (every case, after S3; 07:51:04Z)
+t17-content-fixture: fixed-expectation-met
+exit 0
+$ tools/pixelelated-save-layout-test --source-root . --rclone <donor> --busybox <donor>  (07:51:09Z)
+     39 PASS
+exit 0

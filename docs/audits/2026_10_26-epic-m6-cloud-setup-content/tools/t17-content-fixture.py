@@ -19,6 +19,9 @@ Cases:
   backup-traversal  cloud_content_backup '../.config': does a copy reach
                     rclone with a source outside /storage/roms?
   backup-control    cloud_content_backup snes: the harness copies a system
+  backup-unknown    (stage E, S3) cloud_content_backup ps2, a well-formed name
+                    the interface does not declare: refused on the fix, before
+                    any rclone call, as --all would never carry it
   match-netopts     cloud_sync.conf RCLONE_NET_OPTS="... --delete-excluded";
                     cloud_content_restore --match, then --match --apply: does
                     the flag reach the deleting sync?
@@ -94,6 +97,13 @@ def make(conf_netopts, real=None):
     (root / "storage/roms/snes/a.srm").write_text("save beside the rom\n")
     (root / "storage/.config/x.cfg").write_text("a config file\n")
     (root / "storage/.cache/cloud_sync/content-systems").write_text("snes\n")
+    # The systems the interface declares (stage E, S3): a device always has
+    # one, at /usr/config; the backup's name check reads it as list_local_dirs does.
+    # Its <path> carries the scratch root, because the scripts' own /storage/
+    # (system_folders' sed pattern among them) is rewritten to it below.
+    (root / "storage/.config/emulationstation").mkdir(parents=True)
+    (root / "storage/.config/emulationstation/es_systems.cfg").write_text(
+        f"<systemList><system><name>snes</name><path>{root}/storage/roms/snes</path></system></systemList>\n")
     bins = t / "bin"; bins.mkdir()
     for applet in subprocess.run([str(BB), "--list"], capture_output=True, text=True, check=True).stdout.split():
         if applet not in ("rclone",):
@@ -135,13 +145,16 @@ def run(scripts, env, *args):
 
 res = {}
 NETOPTS = "--contimeout 15s --timeout 5s --low-level-retries 10 --retries 1"
-for name, dirs in (() if a.only == "match" else (("backup-traversal", ["../.config"]), ("backup-control", ["snes"]))):
+for name, dirs in (() if a.only == "match" else (("backup-traversal", ["../.config"]), ("backup-control", ["snes"]), ("backup-unknown", ["ps2"]))):
     t, root, scripts, env = make(None)
     r = run(scripts, env, "cloud_content_backup", *dirs)
     copies = [c for c in calls(root) if "copy" in c]
     sources = [next((x for x in c if x.startswith("/")), "") for c in copies]
     outside = any("/roms/../" in s or not s.startswith(str(root / "storage/roms")) for s in sources)
     res[name] = (r.returncode, bool(copies), outside)
+    why = [l for l in r.stdout.splitlines() if l.startswith(">>> why ")]
+    if why:
+        print(f"{name}: printed {why[0]!r}")
     shown = [s.replace(str(root), "<root>") for s in sources]
     print(f"{name}: rc {r.returncode}; rclone copy calls {len(copies)}; sources {shown}; "
           f"a source outside /storage/roms: {'yes' if outside else 'no'}")
@@ -186,13 +199,13 @@ if a.real_rclone and a.only != "backup":
               f"deleting sync: --timeout 5s {'yes' if timeout else 'no'}, {bad or 'no flag'} {'carried' if carried else 'not carried'}; "
               f"drop logged: {named}" + (f" ({dropped[0].split(']', 1)[-1].strip()[:140]})" if dropped else ""))
 
-want = {"unfixed": {"backup-traversal": (0, True, True), "backup-control": (0, True, False),
+want = {"unfixed": {"backup-traversal": (0, True, True), "backup-control": (0, True, False), "backup-unknown": (0, True, False),
                     "match-netopts": (0, 0, 1, True), "match-control": (0, 0, 1, False),
                     "match-netopts-real": (False, False), "match-control-real": (True, False),
                     "match-include-real": (False, False),
                     "match-netopts-real:argv": (True, True), "match-include-real:argv": (True, True),
                     "match-netopts-real:log": "none", "match-include-real:log": "none"},
-        "fixed": {"backup-traversal": "refused", "backup-control": (0, True, False),
+        "fixed": {"backup-traversal": "refused", "backup-control": (0, True, False), "backup-unknown": "refused",
                   "match-netopts": "no-flag", "match-control": (0, 0, 1, False),
                   "match-netopts-real": (True, False), "match-control-real": (True, False),
                   "match-include-real": (True, False),

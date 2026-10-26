@@ -587,6 +587,29 @@ case "${1}" in
     ;;
 esac
 
+# Only a system folder's name is ever acted on (audit #307 PL-030), and the
+# explicit form took any: '../.config' sent /storage/.config, rclone.conf
+# with its tokens among it, to ROMs/../.config in the player's cloud (#1130,
+# T17's F-03). Every name is held to what --all would carry -- the restore's
+# shape (cloud_content_restore's own loop), and a system this device's
+# interface declares, or bios, and not a folder another tier owns -- before
+# the lock, so a refusal moves nothing.
+_systems=$(system_folders)
+for DIR in "${DIRS[@]}"; do
+    _known=1
+    [[ "${DIR}" =~ ^[A-Za-z0-9_][A-Za-z0-9._-]*$ ]] || _known=0
+    case "${DIR}" in savefiles|savestates|screenshots|backup) _known=0 ;; esac
+    if [ "${_known}" -eq 1 ] && [ "${DIR}" != bios ] && ! printf '%s\n' "${_systems}" | grep -qxF -- "${DIR}"; then
+        _known=0
+    fi
+    if [ "${_known}" -eq 0 ]; then
+        log_message "Content backup refused: a name that is not a system folder this device declares"
+        echo ">>> why SOMETHING WENT WRONG"
+        echo "That system folder name can't be used. Nothing was backed up."
+        exit 1
+    fi
+done
+
 # Another sync client's unresolved dispute is not our content.
 #
 # Dropbox and Nextcloud rename the losing side of a concurrent write to
