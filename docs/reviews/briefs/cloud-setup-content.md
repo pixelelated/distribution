@@ -1,13 +1,12 @@
 # Brief: M6.P2 T17, cloud sync: setup, sign-in, connections, content and settings backups (#664)
 
-**Version 1, 2026-10-26, the coordinator's** (D-WORKFLOW-189). Written from a
+**Version 2, 2026-10-26, the coordinator's** (D-WORKFLOW-189; version 1 the same hour, corrected by a stranger's proof -- eleven corrections, listed at the end). Written from a
 read-only research digest (sixteen commands over the scratch clone at
 `2174265e9c`, every figure with its command and population; the first
 attempt died at an API limit before its first command and was rerun whole),
 T16's brief (`cloud-sync-core.md`, version 2) and T13's audit as the models,
 and the cloud area futro (`docs/futros/2026-10-25-m6-cloud-sync-and-saves.md`).
-A stranger's proof runs before dispatch; version 2 records what it found.
-The lens is **security**; the depth reason is **state preservation**: these
+The stranger's proof of version 1 ran before dispatch (ten commands from the scratch clone); this version records what it found. The lens is **security**; the depth reason is **state preservation**: these
 fourteen files hold every credential the product touches, the only content
 action that deletes, and the archive a player's settings travel in.
 
@@ -30,11 +29,7 @@ action that deletes, and the archive a player's settings travel in.
   `feature/m6-cloud-harness-660`: `04-analysis.md` § Q2 *The oracle
   verdict* -- 78 rows and `CONTRACT`, 25 both ends, 46 synthetic, 8 the
   device's own report -- and its bugs #1057-#1070, #1081, #1092, #1093,
-  fixed at `3a653eaec4`, open until `next`; three touch this slice's files
-  or tests: **#1081** `cloud-census` runs `cloud_device_id`, **#1061** the
-  credential-shaped fixture literal in `tools/cloud-connections-test`,
-  **#1029** `last-good-scripts-test`'s section b runs `backuptool` with the
-  host's tools), **T16 #663** (`cloud-sync-core.md`: the twins, the
+  fixed at `3a653eaec4` -- on `origin/feature/m6-cloud-harness-660` after a fetch; a clone older than 2026-10-25 08:30 lacks it -- open until `next`; two touch this slice's files or tests: **#1081** `cloud-census` runs `cloud_device_id`, **#1061** the credential-shaped fixture literal in `tools/cloud-connections-test`; T15's **#1029**, `last-good-scripts-test`'s section b running `backuptool` with the host's tools, touches it too), **T16 #663** (`cloud-sync-core.md`: the twins, the
   stamps, the seam named from its side; its stage-B deltas -- the built
   `last-${name}` stamp name, the rule's rc sentences against the scripts'
   -- are T16's, not this slice's), **T1 #648** (`post-update` and
@@ -46,10 +41,7 @@ action that deletes, and the archive a player's settings travel in.
   script under the image's busybox on the host; its section b is #1029),
   **T10** (the pre-commit pattern that #1061 trips). **Beside it:** T29 in
   the T5 session (the quirks; no shared path), T16 in the T1 session when
-  it resumes; **the host is M7's** under the coordinator's handoff of
-  2026-10-26 04:47 UTC on `/tmp/m7-m6-host-coordination-20261023.txt` until
-  M7 posts its RETURN there (D-WORKFLOW-190 for the lanes; the host file
-  for the guests).
+  it resumes; **the host is M7's** under the coordinator's handoff of 2026-10-26 04:47 UTC on `/tmp/m7-m6-host-coordination-20261023.txt`: M7's native stage ran 04:48-04:50 and returned, and its guest window is queued behind the T16 guest's stop; M7 writes timestamped lines, not `== ` blocks, so the whole tail is read (D-WORKFLOW-190 for the lanes; the host file for the guests). The register rows this brief cites (D-WORKFLOW-190, 195, 209; D-QA-063) are on the coordinator's branch, merged into the lane's worktree at dispatch; `2174265e9c` alone lacks them and holds D-WORKFLOW-188 (§ 9).
 - **The division of labour (D-WORKFLOW-189).** This lane executes. It does
   not re-cut the slice, change a criterion, write a brief, move the M6
   body, edit `slices.json`, `areas.json`, `order.md` or the plan, file a
@@ -88,8 +80,7 @@ action that deletes, and the archive a player's settings travel in.
   `--help` included; the runtime from `npm install --offline`, no fetch.
   **The packet is scanned before it leaves** (D-WORKFLOW-195's three-way
   scan): these fourteen files carry the words the scanner looks for in
-  comments and variable names (`cloud_oauth` has 22 `token` lines and 6
-  `secret` lines, read here as counts only), so the manifest records every
+  comments and variable names (`cloud_oauth` has 22 `token` lines and 6 `secret` lines by a case-insensitive count, 1 whole-word, read here as counts only), so the manifest records every
   scan hit and its disposition, and a hit that is a value rather than a
   name stops the packet. Every seat item is re-read at its lines before it
   is graded (T22's practice).
@@ -159,36 +150,33 @@ on each; `git diff --stat 8ebaf8daad 651150fc88 -- <the 14>`: *14 files
 changed, 26 insertions(+), 11,138 deletions(-)*). **`backuptool` is the
 exception**: upstream and the base carry an identical **68-line** script of
 that name (`git show 651150fc88:projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool | wc -l`),
-two pre-base commits by ROCKNIX Team (the first 2025-07-13 `9f1fab30f6`),
+two pre-base commits (ROCKNIX Team, 2025-07-13 `9f1fab30f6`; tiopex, 2026-04-29 `beb5d8a239`),
 and the fork's is 1,899 lines after 79 commits since the base. Nothing
 upstream-carried is left in it to disposition (D-WORKFLOW-209 reaches
 nothing here); what it means for the upstream PR bucket is the
 coordinator's question, cited not decided.
 
-**The 14, with what each is** (lines at `8ebaf8daad`; shell functions by
-`grep -c '^[a-z_]*()'`, python by `grep -c '^\s*def '`):
+**The 14, with what each is** (lines at `8ebaf8daad`; shell functions by `grep -c -E '^[a-z_]+\(\) \{$'` -- a definition whose brace is on its line with no trailing comment; the looser `^[a-z_]+\(\)` counts 22 39 5 16 6 17 19 23 = 147, and the lane states which it used -- python by `grep -c -E '^\s*def '`):
 
 | File | Lines | Mode | Language | Functions | What it is |
 | --- | ---: | --- | --- | ---: | --- |
 | `cloud_oauth` | 2,830 | 755 | python (`#!/usr/bin/env python3`) | 89 defs, 7 classes | the sign-in: drives `rclone authorize <backend> --auth-no-open-browser` on `127.0.0.1:53682` (`LOCAL_AUTH` `:74`), serves a phone page on `lan_address()` behind a four-digit pin, keeps its state under `/var/run/cloud_oauth/` (`:72`), logs to `/var/log/cloud_sync.log` (`:77`) |
 | `backuptool` | 1,899 | 755 | bash | 19 | the settings archive: `tar -czf ... -C / -T <list>` (`:649`), legacy zip read with a CRC check (`:487-518`), the held-back lists, the credential scan, the sanitised copies, the refusals, `ARCHIVE_KEEP=3` (`:172`) |
 | `cloud_content_restore` | 1,589 | 755 | bash | 27 | the content restore and **the only deleting path** (`--match --apply`, § 4) |
-| `cloud-signin-window/sources/cloud-signin-window.c` | 1,052 | 644 | C | -- | the WebKit window the sign-in opens on the device (10 decide-policy lines, 11 https/allowed lines: counts, the body is the lane's to read) |
-| `cloud_setup` | 976 | 755 | bash | 15 | setup: `rclone config` (5 verbs) and `auto-config` (2), the folder markers, `--validate-folders`, `--validation-context` (`config_id` the sha256 of REMOTE/SAVES/BACKUPS/CONTENT, `:556`), `--folder-state`, `seed_categories` (CREATE FOLDERS, D-CLOUD-179) |
+| `cloud-signin-window/sources/cloud-signin-window.c` | 1,052 | 644 | C | -- | the WebKit window the sign-in opens on the device (`grep -c`: `decide-policy` 2, `policy` 6, `allowed` 10, `https` 3 -- counts; the body is the lane's to read) |
+| `cloud_setup` | 976 | 755 | bash | 15 | setup: the folder markers, `--validate-folders`, `--validation-context` (`config_id` the sha256 of REMOTE/SAVES/BACKUPS/CONTENT, `:556`), `--folder-state`, `seed_categories` (CREATE FOLDERS, D-CLOUD-179); **it writes no `rclone.conf`**: its eight `rclone config` lines are two reads (`config file` `:553`, `config show` `:651`), the `pkill` at `:775`, three echoed console instructions (`:938`, `:958`, `:972`) and two comments |
 | `cloud_content_backup` | 799 | 755 | bash | 17 | the content backup: `bounded_content_rclone copy` (`:753`, `:766`) under the save and metadata excludes |
 | `cloud_device_id` | 401 | 755 | bash | 16 | this device's cloud name: `<device_label>-<md5(permanent MAC\|DEVICE)[:10]>` (`:144`, `:175`), `/etc/machine-id` fallback (`:170`), poisoned-hash healing (`:317-338`, #86), `/storage/.config/cloud_sync-device-id` (`:54`) and `.previous` (`:58`) |
 | `cloud_scan` | 362 | 755 | bash | 11 | the scan the transfer pages run first (D-CLOUD-156): read-only, results under `/storage/.cache/cloud_sync/scan/`, every non-zero exit routed (`stop_on` `:150-166`) |
-| `cloud_remote` | 345 | 755 | python | 13 defs | providers, fields, choices, list, `create` (through `rclone config`, 2 verbs), `active` (the reader `cloud_backup:475/:957` and the harness use) |
-| `cloud_folder_validate` | 278 | 755 | python (`#!/usr/bin/python3`) | 10 defs, 1 class | the bounded read-only category check: `rclone lsjson --recursive --max-depth N --no-mimetype --no-modtime --contimeout 3s --timeout 5s --max-duration 6s` (`:90-93`), 2 MiB / 4,096 entries / 25 s, stderr to `/dev/null` (`:44`, *diagnostics can contain provider credentials*), any error `Unreadable` |
-| `cloud_connections.py` | 258 | 644 | python (a module) | 12 defs, 1 class | **the only direct writer of `rclone.conf`** (`CONFIG` `:20`): `atomic()` `:72-85` (`mkstemp` beside the file, write, fsync, `os.replace`, directory fsync), staged configs `chmod(0o600)` (`:160`, `:241`), `active-connection` beside it, `flock` on `/var/run/cloud_sync.lock` (`:107-113`), refuses while either automatic sync option is on (`require_manual` `:117-126`) |
+| `cloud_remote` | 345 | 755 | python | 13 defs | providers, fields, choices, list, `active` (the reader `cloud_backup:475/:957` and the harness use); `cmd_create` (`:257-266`) writes through `connections.save` (`:264`; the module imported at `:46`), and its own two `rclone(` calls (`:83` the helper, `:102` `config providers`) are reads |
+| `cloud_folder_validate` | 278 | 755 | python (`#!/usr/bin/python3`) | 10 defs, 1 class | the bounded read-only category check: `rclone lsjson --recursive --max-depth N --no-mimetype --no-modtime --contimeout 3s --timeout 5s --max-duration 6s` (`:90-93`), 2 MiB / 4,096 entries / 25 s, stderr to `/dev/null` (`:49`, *diagnostics can contain provider credentials*), any error `Unreadable` |
+| `cloud_connections.py` | 258 | 644 | python (a module) | 12 defs, 1 class | **the only writer of `rclone.conf` among the 14** (`CONFIG` `:20`; `cloud_remote create` reaches it through `connections.save`): `atomic()` `:72-85` (`mkstemp` beside the file, write, fsync, `os.replace`, directory fsync), staged configs `chmod(0o600)` (`:160`, `:241`), `active-connection` beside it, `flock` on `/var/run/cloud_sync.lock` (`:107-113`), refuses while either automatic sync option is on (`require_manual` `:117-126`) |
 | `cloud_log_scrub` | 206 | 755 | bash | 3 | once per device at boot (`autostart/102-cloud-saves:29`): rewrites `cloud_sync.log*` and `es_log*.txt` under `/storage/.cache/log` through temp and rename with line-count parity (`:148`), masking ` name=value` pairs (`SCRUB_SED` `:78-94`), `cloud_oauth`'s sign-in failure words and ES's `cloud_remote create:` records, plus `redact_credentials`; `set -o pipefail` (`:63`); its record `/storage/.cache/cloud_sync/log-scrubbed` |
 | `cloud_content_transfer` | 158 | 644 | bash (sourced) | 4 | `bounded_content_rclone`: the fifo and ceiling under `${CEILING_DIR_ROOT:-/var/run}/cloud-content.XXXXXX` (`:117`), the inactivity bound (D-CLOUD-127, #401), `idle_timeout_seconds` |
 | `cloud-signin-window/package.mk` | 27 | 644 | recipe | -- | builds the window against webkitgtk (`-latomic` for WebKit's 128-bit atomics); pulled in by `rclone/package.mk:22` |
 
-Shell: 112 functions in 8 files; python: 124 defs and 9 classes in 4
-files. **No file sets `set -e` or `set -u`**; `set -o pipefail` globally
-only in `cloud_log_scrub:63` (local subshells at `cloud_setup:556`,
-`backuptool:492/504/537`); `set -x` 0; `eval` 0 in code (`cloud_setup:114`
+Shell: 112 function definitions in 8 files by the strict pattern (147 by the loose one); python: 124 defs and 9 classes (7, 0, 1, 1) in 4 files. **No file sets `set -e` or `set -u`**; `set -o pipefail` globally
+only in `cloud_log_scrub:63` (local subshells at `cloud_setup:556`, `backuptool:492/504/537/1177`); `set -x` 0; `eval` 0 in code (`cloud_setup:114`
 is a comment saying why). `readonly EXIT_LOCK_HELD=75 EXIT_NO_NETWORK=69`
 in the two content scripts; `readonly EXIT_NO_NETWORK=69` at `cloud_scan:43`;
 no exit constants elsewhere.
@@ -199,8 +187,7 @@ rasterabot 7**, from 2026-07-25 (`f63308522a`) to 2026-10-13
 (`31012f0ca1`); `--since='2026-06-01T00:00:00Z'` on `8ebaf8daad` gives the
 same 284 and the same split; all-time 286 (the two extra are upstream's on
 `backuptool`). Per file: `cloud_oauth` 70, `cloud_setup` 56,
-`cloud_content_restore` 68, `cloud_content_backup` 49, `backuptool` 79
-(81 all-time), the sign-in window 32, `cloud_remote` 9, `cloud_device_id`
+`cloud_content_restore` 68, `cloud_content_backup` 49, `backuptool` 79 (81 all-time), the sign-in window 32 over its directory (31 the `.c`, 2 the recipe), `cloud_remote` 9, `cloud_device_id`
 9, `cloud_scan` 8, `cloud_log_scrub` 3, `cloud_connections.py`,
 `cloud_content_transfer` and `cloud_folder_validate` 1 each. The newest
 fifteen are blitterbot's and rasterabot's of October: the French phone
@@ -249,11 +236,7 @@ slice's: `cloud_scan` runs `cloud_content_restore --scan` and `--systems`
 sources `rasteratops-settings-archive` (`:328`, T16's); `cloud_backup`
 (T16's) calls `cloud_remote active`, `cloud_device_id` and `backuptool`
 (here) -- what each hands over and what it does with the answer is read
-here, the caller's reasons are T16's. The content scripts and `cloud_scan`
-read `cloud_sync.conf` through readers of their own (`conf_valid`-shaped;
-whether `conf_valid`, `cleanup`, `finish` and `usage` are local
-definitions or inherited through `/etc/profile` is **not established by
-the digest** and is a § 5 run).
+here, the caller's reasons are T16's. The content scripts and `cloud_scan` read `cloud_sync.conf` with readers of their own and call none of T16's `conf_valid`, `cleanup`, `finish` or `usage` (the proof: those names occur in these files only in comments and player text; the definitions live in `cloud_backup:1107`, `cloud_restore:1156`, `cloud_sync_helper:240`, `cloud_capture` and `cloud_net_ready:57`, none in `profile.d`); what they source is `/etc/profile` and `cloud_content_transfer` (the § 5 run lists each file's `source` lines).
 
 **The decisions that bind this slice** (every one a Decided row): **D-CLOUD-023**
 (2026-09-04: a third content action makes the device match the cloud; its
@@ -333,9 +316,7 @@ to put to the code, not a finding to copy.
    what reaches the log), **`cloud_log_scrub`**, **`cloud_device_id`**,
    **`backuptool`** (the held-back lists at `:690-760`, `credential_lines`
    `:431`, the SECRETLIST and SENDLIST arithmetic `:1018-1140`, `keep_meta`
-   `:367` and its four call sites, the staging `:1161-1183`, the restore's
-   symlink rules `:813-820` and `:1623-1688`, `write_archive` `:600-660`,
-   `revert_restore` `:666`, `trim_archive` `:1372`, exit 5 at `:1858`),
+   `:367` and its four call sites, the staging `:1161-1183`, the restore's symlink rules `:813-820` and `:1623-1692`, `snapshot_members` `:599-660`, `write_archive` `:805`, `revert_restore` `:666`, `trim_archive` `:1372`, the `5)` arm at `:1858-1859`),
    **`cloud_content_restore`** (`--match`: `match_plan_one` `:726`, the dry
    run `:750`, `match_plan_write` `:813-821`, `match_run` `:860-911`, the
    apply's `sync` with `--max-delete` `:1046-1049` and the `rclone delete`
@@ -368,8 +349,7 @@ preservation, so Q3 leads with two families of question and Q6 is small:
   log `open(self.log_path, "w")` at `:915`), the logs (`log()` at `:80`
   appends to `/var/log/cloud_sync.log`, 31 call sites; `logger -t` in
   `backuptool` 38 lines, `cloud_device_id`, `cloud_scan`; the `>>> why`
-  lines ES shows), stderr dropped or kept (`cloud_folder_validate:44` drops
-  it on purpose; `cloud_connections.read_config` never echoes the dump;
+  lines ES shows), stderr dropped or kept (`cloud_folder_validate:49` drops it on purpose; `cloud_connections.read_config` never echoes the dump;
   where else rclone's stderr is captured and where it goes), a packet
   (D-CLOUD-181), a screen. `cloud_log_scrub` is the measure of what has
   already leaked: its three pattern families are the shapes earlier builds
@@ -423,20 +403,14 @@ preservation, so Q3 leads with two families of question and Q6 is small:
   `>>> why` sentences the shell files print and `backuptool`'s own list
   (`THERE'S NOTHING TO BACK UP YET`, `A SIGN-IN WAS FOUND IN THE BACKUP`,
   `THIS BACKUP HOLDS FILES A RESTORE CAN'T PUT BACK`, ...) against the
-  outcome vocabulary and the two verbs (`BACK UP` 7, `BACKUP` 38 across the
-  14; the digest's heuristics found no violation; `tools/vocabulary-check`
-  is run, § 5); `cloud_oauth`'s phone page strings in both languages (the
+  outcome vocabulary and the two verbs (`BACK UP` 7, `BACKUP` 38 across the 14 by whole-word count; the digest's heuristics found no violation; `tools/vocabulary-check` reads only four of the 14 -- `cloud_content_backup`, `cloud_content_restore`, `cloud_setup`, `backuptool` -- and needs an EmulationStation checkout (`--es`, else exit 1), so the other ten's strings are the lane's own read against the rule, § 5); `cloud_oauth`'s phone page strings in both languages (the
   French phone keyboard, `31012f0ca1`). The scripts' discipline without
   `set -e`: the `|| return` and `rc=$?` shapes, read rather than assumed.
   The modes and owners of what these scripts write under `/storage/.config`,
   `/storage/.cache/cloud_sync` and `/var/run`. The three temp conventions
   (`mktemp` checked in `backuptool:239`, unchecked at `cloud_setup:394`
   with `|| return 5`, the `$$` fallback in the restore).
-- **Q1 Modernize.** `cloud_connections.py` is the newest shape (one
-  writer, atomic, locked, refusing); `cloud_setup`'s `rclone config` path
-  and `cloud_remote`'s `create` are older writers of the same file through
-  rclone: are they still reached from the interface, and if so do they
-  take the same lock and leave the same mode? `cloud_oauth` at 2,830 lines
+- **Q1 Modernize.** `cloud_connections.py` is the one writer of `rclone.conf` and the newest shape (atomic, locked, refusing): `cloud_remote create` reaches it through `connections.save`, and `cloud_setup` writes no `rclone.conf` (version 1 said otherwise; the proof corrected it). So the question is whether every path to `connections.save` -- `cloud_remote create`, the interface's connection pages by name, the harness -- takes the same lock and meets the same refusals, and whether `active()`'s legacy first-remote fallback (a `rclone.conf` with no `active-connection` beside it) is still a shape a device can hold once the new writer has written. `cloud_oauth` at 2,830 lines
   and seven classes is the largest single file the fork wrote: name its
   seams (the serve, the browser session, the phone page, the state) as a
   proposal, not a change.
@@ -554,36 +528,36 @@ D=/workspace/repos/pixelelated/distribution.worktrees/m6-cloud-setup-content-664
 cd "$D"; export TMPDIR=/workspace/tmp/m6-t17/tmp; mkdir -p "$TMPDIR" .qa-scratch/t17
 R=8ebaf8daad; P=projects/ROCKNIX/packages/network/rclone/sources
 # the membership block (§ 2) -> .qa-scratch/t17/paths.txt (14)
-# the lines, modes and functions (expect 11,180; modes 755 x 10 and 644 x 4; shell functions 17 27 4 16 3 11 15 19 = 112; python defs 89 13 10 12 = 124)
-tr '\n' '\0' < .qa-scratch/t17/paths.txt | xargs -0 git ls-tree -l $R -- | awk '{print $1, $4}' | sort | uniq -c | awk '{print $2, $1}'
+# the lines, modes and functions (expect 11,180; modes 100755 x 10 and 100644 x 4; shell definitions by the strict pattern 17 27 4 16 3 11 15 19 = 112 and by the loose one 22 39 5 16 6 17 19 23 = 147; python defs 89 13 10 12 = 124, classes 7 0 1 1)
+tr '\n' '\0' < .qa-scratch/t17/paths.txt | xargs -0 git ls-tree -l $R -- | awk '{print $1}' | sort | uniq -c
 while IFS= read -r p; do printf '%6d %s\n' "$(git show "$R:$p" | wc -l)" "$p"; done < .qa-scratch/t17/paths.txt | awk '{s+=$1} END {print "lines", s}'
-for f in cloud_content_backup cloud_content_restore cloud_content_transfer cloud_device_id cloud_log_scrub cloud_scan cloud_setup; do printf '%s %s\n' "$f" "$(git show "$R:$P/$f" | grep -c -E '^[a-z_]+\(\)')"; done; printf 'backuptool %s\n' "$(git show "$R:projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool" | grep -c -E '^[a-z_]+\(\)')"
+for f in cloud_content_backup cloud_content_restore cloud_content_transfer cloud_device_id cloud_log_scrub cloud_scan cloud_setup; do printf '%s strict %s loose %s\n' "$f" "$(git show "$R:$P/$f" | grep -c -E '^[a-z_]+\(\) \{$')" "$(git show "$R:$P/$f" | grep -c -E '^[a-z_]+\(\)')"; done; printf 'backuptool strict %s loose %s\n' "$(git show "$R:projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool" | grep -c -E '^[a-z_]+\(\) \{$')" "$(git show "$R:projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool" | grep -c -E '^[a-z_]+\(\)')"
 for f in cloud_oauth cloud_remote cloud_folder_validate cloud_connections.py; do printf '%s %s defs %s classes\n' "$f" "$(git show "$R:$P/$f" | grep -c -E '^\s*def ')" "$(git show "$R:$P/$f" | grep -c -E '^class ')"; done
 # set discipline (expect: no global set -e or set -u in any; pipefail global only in cloud_log_scrub:63; set -x 0; eval 0 in code)
 tr '\n' '\0' < .qa-scratch/t17/paths.txt | xargs -0 git grep -n -E '^\s*set -[eux]|set -o pipefail|\beval\b' $R -- | sed "s/^$R://" | grep -v -E '^[^:]+:[0-9]+:\s*#'
 # the exit constants (expect EXIT_LOCK_HELD=75 EXIT_NO_NETWORK=69 in the two content scripts; EXIT_NO_NETWORK=69 at cloud_scan:43)
 git grep -n -E 'readonly EXIT_|^EXIT_[A-Z_]+=' $R -- "$P" | sed "s/^$R://"
-# the writers of rclone.conf, direct and through rclone (expect cloud_connections.py:20 CONFIG, :72-85 atomic, :160 and :241 chmod 0o600; rclone config verbs: cloud_setup 5 config + 2 auto-config, cloud_remote 2 config, cloud_log_scrub 5 as patterns)
+# the one writer of rclone.conf (expect cloud_connections.py:20 CONFIG, :72-85 atomic, :160 and :241 chmod 0o600; cloud_remote:264 connections.save with its rclone( calls :83 and :102 reads; cloud_setup's 'rclone config' lines :553 and :651 reads, :775 the pkill, :938 :958 :972 echoes, the rest comments; the scrubber's five are patterns)
 git grep -n -E 'rclone\.conf|mkstemp|os\.replace|chmod\(0o600\)|umask' $R -- $(tr '\n' ' ' < .qa-scratch/t17/paths.txt) | sed "s/^$R://" | grep -v -i -E 'key|pass|token|user|psk' | grep -v -E ':[0-9]+:\s*#'
-for f in cloud_setup cloud_remote cloud_log_scrub; do printf '%s: config %s auto-config %s\n' "$f" "$(git show "$R:$P/$f" | grep -c -E 'rclone[^#]*\bconfig\b|"config"')" "$(git show "$R:$P/$f" | grep -c 'auto-config')"; done
+git show "$R:$P/cloud_setup" | grep -n 'rclone config' | grep -v -E '^[0-9]+:\s*#' | cut -c1-120; git show "$R:$P/cloud_remote" | grep -n -E 'connections\.(save|select|remove)|rclone\(|^import |^from ' | cut -c1-120
 # the deleting statements and the one --delete-excluded (expect rclone delete at cloud_content_restore:1015; sync at :750 with --dry-run and at :1046 with --max-delete; --delete-excluded 1 hit, a comment at :528, 0 in code; rm -rf 12 sites, every one on a script's own temporary)
-git grep -n -E 'rclone (delete|purge|sync|move|rmdir)|bounded_content_rclone (sync|delete|move|purge)' $R -- "$P" | sed "s/^$R://"
+git grep -n -E 'rclone (delete|purge|sync|move|rmdir)|bounded_content_rclone (sync|delete|move|purge)' $R -- $(tr '\n' ' ' < .qa-scratch/t17/paths.txt) | sed "s/^$R://" | grep -v -E ':[0-9]+:\s*#'
 git grep -n -- '--delete-excluded' $R -- $(tr '\n' ' ' < .qa-scratch/t17/paths.txt) | sed "s/^$R://"
 git grep -n -E 'rm -rf' $R -- $(tr '\n' ' ' < .qa-scratch/t17/paths.txt) | sed "s/^$R://" | grep -v -E ':[0-9]+:\s*#' | wc -l
 git show "$R:$P/cloud_content_restore" | sed -n '886p;890,893p;898,900p;904,906p;1046,1049p'
-# the pattern kills, the unquoted sites, the $$ fallbacks (expect cloud_setup:775-776, cloud_oauth:357 and :2819; backup:40 restore:77 setup:53 scan:54 setup:137; restore:837-838)
+# the pattern kills, the unquoted sites, the $$ names (expect cloud_setup:775-776, cloud_oauth:357 and :2819, :861 a docstring; backup:40 restore:77 setup:53 scan:54 setup:137; 14 `.$$` lines in the slice, restore:837-838 the two mktemp fallbacks among them)
 git grep -n -E 'pkill|killall' $R -- $(tr '\n' ' ' < .qa-scratch/t17/paths.txt) | sed "s/^$R://" | grep -v -E ':[0-9]+:\s*#'
-git grep -n -E '\[ -[a-z] \$\{[A-Z_]+\} |>> \$\{[A-Z_]+\}$' $R -- "$P" | sed "s/^$R://"
-git grep -n -E '\.\$\$' $R -- "$P" | sed "s/^$R://" | grep -v -E ':[0-9]+:\s*#'
+git grep -n -E '\[ -[a-z] \$\{[A-Z_]+\} |>> \$\{[A-Z_]+\}$' $R -- $(tr '\n' ' ' < .qa-scratch/t17/paths.txt) | sed "s/^$R://"
+git grep -n -E '\.\$\$' $R -- $(tr '\n' ' ' < .qa-scratch/t17/paths.txt) | sed "s/^$R://" | grep -v -E ':[0-9]+:\s*#'
 # cloud_oauth's constants and bounds (expect STATE_DIR /var/run/cloud_oauth :72; LOCAL_AUTH 127.0.0.1:53682 :74; LOG_FILE /var/log/cloud_sync.log :77; lock 0o600 :179; MAX_BODY 64 KiB :2215; REQUEST_TIMEOUT 15 :2216; MAX_CONNECTIONS 16 :2217; the pin :2062 and :2206)
 git show "$R:$P/cloud_oauth" | grep -n -E '^(STATE_DIR|RCLONE|LOCAL_AUTH|LOG_FILE|MAX_BODY|REQUEST_TIMEOUT|MAX_CONNECTIONS) =|0o600|secrets\.(randbelow|compare_digest)|def (log|state_path|_write_whole|write_state|write_owned|read_state|lan_address|serve_with|cmd_serve)\b|class BoundedHTTPServer'
-# backuptool's lists and refusals (expect DEVICEONLYDIRS rclone/ and raofflineproxy/; DEVICEONLY 4 files; ARCHIVE_KEEP=3 :172; exit 5 :1858; .partial then listed count then mv :649-655; 38 logger lines; one >>> why emitter :270)
+# backuptool's lists and refusals (expect DEVICEONLYDIRS rclone/ and raofflineproxy/; DEVICEONLY 4 files; ARCHIVE_KEEP=3 :172; the 5) arm :1858-1859; .partial then listed count then mv :649-655; 37 'logger -t backuptool' lines; one >>> why emitter :270)
 git show "$R:projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool" | sed -n '690,760p' | grep -v -E '^\s*#' | grep -v -E '^\s*$' | grep -v -i -E 'key|pass|token|user|psk'
-git show "$R:projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool" | grep -n -E '^ARCHIVE_KEEP=|A SIGN-IN WAS FOUND|\.partial|^[a-z_]+\(\)' | grep -v -i -E 'key|pass|token|user|psk' | head -40
+git show "$R:projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool" | grep -n -E '^ARCHIVE_KEEP=|A SIGN-IN WAS FOUND|\.partial|^[a-z_]+\(\)' | grep -v -i -E 'key|pass|token|user|psk' | head -60
 git show "$R:projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool" | grep -c 'logger -t backuptool'
 # cloud_device_id's derivation (expect :54 ID_FILE, :58 .previous, :144 md5 cut -c1-10, :170 machine-id, :175 the id, :289-292 tmp then mv)
 git show "$R:$P/cloud_device_id" | sed -n '54p;58p;144p;170p;175p;289,292p'
-# cloud_folder_validate's bounds and cloud_scan's routing (expect lsjson flags :90-93, stderr DEVNULL :44, 2 MiB / 4096 / 25 s; stop_on :150-166)
+# cloud_folder_validate's bounds and cloud_scan's routing (expect lsjson flags :90-93, stderr DEVNULL :49, 2 MiB / 4096 / 25 s; stop_on :150-166)
 git show "$R:$P/cloud_folder_validate" | grep -n -E 'MAX_BYTES|MAX_ENTRIES|TOTAL_SECONDS|contimeout|max-duration|DEVNULL|class Unreadable'
 git show "$R:$P/cloud_scan" | sed -n '43p;150,166p'
 # the scrubber's record and the boot hook (expect 102-cloud-saves:29; log-scrubbed; SCRUB_SED :78-94; parity :148)
@@ -602,13 +576,13 @@ for n in cloud_oauth cloud_setup cloud_remote cloud_connections cloud_content_ba
 git grep -n -E 'cp cloud_|cloud-signin-window' $R -- projects/ROCKNIX/packages/network/rclone/package.mk | sed "s/^$R://"
 # the tools that exercise the 14 (expect the invoking lines the brief names; cloud-connections-test imports cloud_connections at :18)
 for t in cloud-connections-test cloud-input-test pixelelated-cloud-validator-test pixelelated-content-scope-test pixelelated-save-layout-test signin-memory cloud-round-trip cloud-census vm-qa pixelelated-vm-cloud-boundaries last-good-scripts-test; do printf '%s %s\n' "$t" "$(git show "$R:tools/$t" | grep -c -w -E 'cloud_oauth|cloud_setup|cloud_remote|cloud_connections|cloud_content_backup|cloud_content_restore|cloud_content_transfer|cloud_scan|cloud_folder_validate|cloud_device_id|cloud_log_scrub|cloud-signin-window|backuptool')"; done
-# T13's oracle rows that name this slice's scripts (the lane counts; the digest found 04 naming cloud_device_id 3, cloud_oauth 1, cloud_connections 1, backuptool 1, and 01 naming none)
+# T13's oracle rows that name this slice's scripts (expect 5 rows within 02's `## Assertion shapes`, whose 78 rows and CONTRACT sit at 02:128; 04 names cloud_device_id 3, cloud_oauth 1, cloud_connections 1, backuptool 1, and 01 none)
 git show feature/m6-cloud-harness-660:docs/audits/2026_10_25-epic-m6-cloud-harness/02-forward-audit.md | awk '/^## Assertion shapes/{p=1;next} /^## /{p=0} p' | grep -c -w -E 'cloud_oauth|cloud_setup|cloud_remote|cloud_connections|cloud_content_backup|cloud_content_restore|cloud_content_transfer|cloud_scan|cloud_folder_validate|cloud_device_id|cloud_log_scrub|backuptool'
-# the player text (expect 'BACK UP' 7, 'BACKUP' 38 across the 14; vocabulary-check's verdict recorded, and whether it reads these scripts)
-tr '\n' '\0' < .qa-scratch/t17/paths.txt | xargs -0 git grep -o -h -E 'BACK UP|BACKUP' $R -- | sort | uniq -c
-tools/vocabulary-check 2>&1 | tail -n 3
-# the local-or-inherited question (expect: each of conf_valid cleanup finish usage either defined in the file that calls it, or inherited -- say which)
-for f in cloud_content_backup cloud_content_restore cloud_scan cloud_setup; do for n in conf_valid cleanup finish usage; do printf '%s %s def=%s uses=%s\n' "$f" "$n" "$(git show "$R:$P/$f" | grep -c -E "^$n\(\)")" "$(git show "$R:$P/$f" | grep -c -w "$n")"; done; done | awk '$4 != "uses=0"'
+# the player text (expect 'BACK UP' 7, 'BACKUP' 38 across the 14, whole words; vocabulary-check reads four of the 14 and needs an EmulationStation checkout: its verdict, or CANNOT with the four named and the other ten read by hand)
+tr '\n' '\0' < .qa-scratch/t17/paths.txt | xargs -0 git grep -o -h -w -E 'BACK UP|BACKUP' $R -- | sort | uniq -c
+grep -n -E 'cloud_|backuptool|--es|ES_SRC' tools/vocabulary-check | head -n 12; if [ -n "${ES_SRC:-}" ]; then tools/vocabulary-check --es "$ES_SRC" 2>&1 | tail -n 3; else echo "CANNOT: no EmulationStation checkout named (ES_SRC); the four scripts it reads are read by hand against es-player-text.md"; fi
+# what each shell file sources (expect /etc/profile and cloud_content_transfer; none of T16's conf_valid, cleanup, finish or usage is called -- the names occur here only in comments and player text)
+for f in cloud_content_backup cloud_content_restore cloud_content_transfer cloud_device_id cloud_log_scrub cloud_scan cloud_setup; do printf '%s: ' "$f"; git show "$R:$P/$f" | grep -n -E '^\s*(\.|source) ' | tr '\n' ' '; echo; done; printf 'backuptool: '; git show "$R:projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool" | grep -n -E '^\s*(\.|source) ' | tr '\n' ' '; echo
 # the removal rule's own check against the dispatch tip (expect empty)
 git diff --stat <dispatch tip> HEAD -- packages projects tools | tail -1
 ```
@@ -653,19 +627,19 @@ the artifact that ticks it (D-QA-044); the coordinator ticks at acceptance,
 from the artifacts, never from the hand-back's words.
 
 - [ ] `docs/audits/<date>-epic-m6-cloud-setup-content/` holds `00-running-log.md` and `01-research-notes.md` to `05-punch-list.md`.
-- [ ] `tools/lint-audit-artifacts docs/audits/<date>-epic-m6-cloud-setup-content/` prints `PASS` (its default `resolution` phase, at close; before stage D the same command with `--phase pre-issue` prints `PASS pre-issue artifacts`), the renovation face included.
-- [ ] `second-opinions/review-plan.json` records `depth: extended` and two reviewers (`gpt`, `openai/gpt-6-astra`, `max`; `gemini-argon`, `google/gemini-4-argon`, `high`); each seat's probe and refutation have a `.provenance.json` beside them whose served model is the seat's, whose verification is PASS and whose `facilitator` block is present (read with `tools/council/` current reader); `manifest.json` lists every packet file with its sha256 and its three-way scan, every scan hit with a disposition, and no hit that is a value.
+- [ ] `tools/lint-audit-artifacts docs/audits/<date>-epic-m6-cloud-setup-content/` prints `PASS` (its default `resolution` phase, at close; before stage D the same command with `--phase pre-issue` prints `PASS pre-issue artifacts (does not certify resolution)`), the renovation face included.
+- [ ] `second-opinions/review-plan.json` records `depth: extended` and two reviewers (`gpt`, `openai/gpt-6-astra`, `max`; `gemini-argon`, `google/gemini-4-argon`, `high`); each seat's probe and refutation have a `.provenance.json` beside them whose served model is the seat's, whose verification is PASS and whose `facilitator` block is present (read with `tools/council/run summary` over `second-opinions/`, the run summary from the provenance siblings, and `tools/council/run verify-seals`); `manifest.json` lists every packet file with its sha256 and its three-way scan, every scan hit with a disposition, and no hit that is a value.
 - [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue (a `bug`, a Backlog the coordinator files, #909, #585, an ES slice's issue the coordinator names, an M7 issue by number), or recorded as a design with its sentence; `tools/box-check --issue <N>` 0 fail; the issue closed by the coordinator with the lint's PASS quoted.
 - [ ] `reviewed-at:` and `fixed-at:` in the checklist's header carry the lane's commits; the read is on `8ebaf8daad`'s bytes for the 14 (``tr '\n' '\0' < .qa-scratch/t17/paths.txt | xargs -0 git diff --stat 8ebaf8daad <reviewed-at> --`` empty) and nothing under `packages/`, `projects/` or `tools/` changes at stages A to D (`git diff --stat <dispatch tip> <stage-D tip> -- packages projects tools` empty).
 - [ ] `01-research-notes.md` § Scope records § 2's block with its output (14 paths, 11,180 lines; read 14; fork-own 14; shipped 14; the rclone directory's 25 rows, 11 of them this slice's -- or the deltas beside them), the provenance correction (`backuptool` 68 lines in upstream and base, identical; the other thirteen absent), the history (284 non-merge since the base, 265 / 12 / 7, 2026-07-25 to 2026-10-13; since June the same), the callers (19 non-slice files; the tools' invoking lines) and the T16 / T17 seam from this side.
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | grep -c -E '^\| `'`` prints `14`.
-- [ ] `02-forward-audit.md` § The writers is generated by a script under the audit folder's `tools/` from `grep -n` over the 14 at `8ebaf8daad` (the generator asserts its row count and exits 1 on drift), one row per writing statement of `rclone.conf`, `active-connection`, `cloud_sync-device-id`, the match plan, the OAuth state, the scan results, the scrubber's record and an archive, each with the mode the file ends with (`observed` from a fixture or the guest, else `by construction`), the lock held and temp-and-rename or in place; the direct writer `cloud_connections.atomic()` and every `rclone config` writer in `cloud_setup` and `cloud_remote` appear.
+- [ ] `02-forward-audit.md` § The writers is generated by a script under the audit folder's `tools/` from `grep -n` over the 14 at `8ebaf8daad` (the generator asserts its row count and exits 1 on drift), one row per writing statement of `rclone.conf`, `active-connection`, `cloud_sync-device-id`, the match plan, the OAuth state, the scan results, the scrubber's record and an archive, each with the mode the file ends with (`observed` from a fixture or the guest, else `by construction`), the lock held and temp-and-rename or in place; the one writer of `rclone.conf`, `cloud_connections.atomic()`, appears with every path that reaches it (`cloud_remote create` through `connections.save`; the interface's pages by name), and the table states in words that `cloud_setup` writes no `rclone.conf`.
 - [ ] `02-forward-audit.md` § The secrets' paths has one row per credential kind (provider token, OAuth code, pin, typed WebDAV/SFTP secret, device id) per sink it can reach (file, `/var/log/cloud_sync.log`, stderr, `/var/run/cloud_oauth/session.json`, the per-session log, a packet, a screen), each with the mask at that sink or `none`, and names `cloud_log_scrub`'s three pattern families as the shapes earlier builds wrote with a `writes it today: yes/no` cell per family.
 - [ ] `02-forward-audit.md` § The deletions lists every `rm -rf`, `rclone delete`, `sync`, `move` and `purge` statement in the 14 with its bound and the condition that reaches it, states `--delete-excluded` 0 in code (one comment at `cloud_content_restore:528`), and shows the two deleting statements of `--match --apply` (`:1015`, `:1046`) reachable only with a spent `plan2` plan whose context and mode match and whose count the device's listing does not exceed, with the refusal lines quoted.
-- [ ] `02-forward-audit.md` § The runs records every § 5 command with exit, wall time, the figure and *a FAIL would mean ...*; a run that cannot be made is `CANNOT` with its reason, never a pass; the local-or-inherited answer for `conf_valid`, `cleanup`, `finish` and `usage` is one of them.
-- [ ] `02-forward-audit.md` § The guest cycle records the window the coordinator granted on #664 (the comment's time, after M7's RETURN and T16's re-granted window on the host file), the image by file name and BUILD_ID (read from the guest), the fourteen installed files' hashes against `git show 8ebaf8daad:<path>` before any verdict (and every verdict a difference touches named), the `--match` refusal and the bounded apply over a seeded synthetic root with their dumps, `backuptool`'s exit 5 on a run-time-assembled credential-shaped line and its unchanged archive, the symlink never extracted, `cloud_connections.atomic()`'s observed mode, `tools/signin-memory`'s row, and the phone-page `CANNOT` with its gap, or the proof if the harness can reach it.
+- [ ] `02-forward-audit.md` § The runs records every § 5 command with exit, wall time, the figure and *a FAIL would mean ...*; a run that cannot be made is `CANNOT` with its reason, never a pass; the per-file list of sourced files is one of them.
+- [ ] `02-forward-audit.md` § The guest cycle records the window the coordinator granted on #664 (the comment's time, after M7's RETURN and T16's re-granted window on the host file), the image by file name and BUILD_ID (read from the guest), the fourteen installed files' hashes against `git show 8ebaf8daad:<path>` before any verdict (and every verdict a difference touches named), the `--match` refusal and the bounded apply over a seeded synthetic root with their dumps, `backuptool`'s exit 5 on a run-time-assembled credential-shaped line and its unchanged archive, the symlink never extracted, `cloud_connections.atomic()`'s observed mode, `tools/signin-memory`'s row, and the phone-page `CANNOT` with its gap, or the proof if the harness can reach it; **if no window is granted before the hand-back**, the section records `CANNOT` with the host file's state at the hand-back and names each guest proof that moved to a host fixture or stays open.
 - [ ] `00-running-log.md` shows no build, no compiler, no plan generation, no fetch (the council runtime from `npm install --offline`), no handheld, no hosted or offsite account, no provider page with an account behind it, no `--real-roms`, no `cloud-census` run, no M7 build root or worktree read, guests only inside the granted window and after M7's RETURN, exactly four `tools/council/run invoke` calls with the key and every other `tools/council/run` call with `COUNCIL_ENV_FILE=/nonexistent`, every config-shaped read through the filter, and no credential-shaped literal written to any file (the pre-commit hook never refused a commit, or the refusal and its fix are recorded).
-- [ ] `04-analysis.md` § Q3 states each bug decision with its trace, its `Already written:` line and its VM line, in the two families (where a secret can travel; what the deleting path can delete); § Q2 the player-text and discipline findings with `tools/vocabulary-check`'s verdict; § Q4 the host-rclone caveat on every `tools/cloud-connections-test` verdict and each M7 issue a finding meets by number; § Q6 the zip path's disposition and every uncalled function, removals none; § Q7 points at the two generated tables.
+- [ ] `04-analysis.md` § Q3 states each bug decision with its trace, its `Already written:` line and its VM line, in the two families (where a secret can travel; what the deleting path can delete); § Q2 the player-text and discipline findings with `tools/vocabulary-check`'s verdict or its `CANNOT` (it reads four of the 14 and needs an EmulationStation checkout) and the lane's own read of the other ten; § Q4 the host-rclone caveat on every `tools/cloud-connections-test` verdict and each M7 issue a finding meets by number; § Q6 the zip path's disposition and every uncalled function, removals none; § Q7 points at the two generated tables.
 - [ ] Every proof in `02-forward-audit.md` carries a `proved:` cell reading `tree`, `history`, `tool-run`, `fixture`, `guest` or `design`; every punch item carries `question:`; every `bug` passes `tools/box-check --issue N` and carries its `Already written:` line and names file:line, never a credential-shaped value.
 - [ ] The retro exists at `docs/retros/<date>-m6-cloud-setup-content.md`, is posted on #664, says what the slice did to the two time-to-play numbers (cited from `docs/vm-qa-log.md`; these scripts are off the launch path, and it says so), and what the ES slices inherit.
 - [ ] `tools/register-check`, `tools/work-log-index --check`, `tools/rules-check --quiet`, `tools/forbidden-terms-check` and `.githooks/hooks-test` pass on the branch before its merge (after the coordinator's hand-back merge).
@@ -736,3 +710,41 @@ is proven; the cloud epic #1047 closes when its three slices have.
 (#1047) takes a T17 kickoff addendum written with this version, and a
 stranger's proof of this brief is run by a reader with no context before
 dispatch; version 2 records what each found.
+
+## Version 2: what the stranger's proof found (2026-10-26)
+
+Ten commands from the scratch clone at `2174265e9c`; the membership block
+ran as written (14 / 11,180 / fork-own 14 / shipped 14 / the directory's 25
+of which 11), and every path, mode, history figure, constant and refusal
+line held. The corrections:
+
+1. **Version 1's two "writers through rclone" do not exist.** `cloud_setup`'s
+   eight `rclone config` lines are two reads, the `pkill`, three echoed
+   instructions and two comments; `cloud_remote create` writes through
+   `connections.save`. `cloud_connections.atomic()` is the one writer among
+   the 14. § 2's table, Q1, the § 5 run and checkbox 8 are rewritten.
+2. The shell function counts reproduce only with `^[a-z_]+\(\) \{$`; the
+   loose pattern gives 147. Both are stated and the run prints both.
+3. § 5's mode tally kept the size column; fixed.
+4. The config-verb run is replaced by the writer run above.
+5. The `BACKUP` count needs `-w` (126 without it).
+6. `tools/vocabulary-check` reads four of the 14 and exits 1 without an
+   EmulationStation checkout; Q2, the run and checkbox 14 say so.
+7. The local-or-inherited run could not answer: none of the four names is
+   called in these files. The question is closed and the run lists each
+   file's sourced files instead.
+8. Line slips: `write_archive` is `:805` (`:599-660` is `snapshot_members`),
+   `cloud_folder_validate`'s `DEVNULL` is `:49`, `backuptool:1858-1859` is
+   the `5)` arm, the symlink rules run to `:1692`, a pipefail subshell at
+   `backuptool:1177`.
+9. Counts: `logger -t backuptool` 37; the sign-in window's 32 commits are
+   31 on the `.c` and 2 on the recipe; the second pre-base `backuptool`
+   commit is tiopex's; the `.c` keyword counts restated; `secret` 6 is
+   case-insensitive.
+10. The `.$$` and deletion runs now take the 14 paths, not the whole
+    directory, and drop comments.
+11. Stranger traps named: the register rows on the coordinator's branch
+    only; `3a653eaec4` after a fetch; #1029 is T15's; M7's host-file lines
+    are timestamped, not `== ` blocks, and its native stage has returned;
+    checkbox 2's string quoted whole; checkbox 3 names the reader; checkbox
+    12 has a `CANNOT` form for a window never granted.

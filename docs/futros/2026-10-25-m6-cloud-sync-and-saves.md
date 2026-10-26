@@ -299,3 +299,34 @@ session and its guest window for two RETURNs.
   with the seventeen criteria and the host-bench VM line; the dispatch to
   the first idle session, with the window's sequencing after M7's RETURN
   and T16's re-granted window stated in the dispatch comment.
+
+### Errata from the stranger's proof of T17's brief (version 2, 2026-10-26)
+
+Ten commands from the scratch clone; the membership block, every path and
+line-number constant, the history and the callers held. What the proof
+corrected, and what the addendum above had wrong:
+
+- **There is one writer of `rclone.conf`, not three.** The addendum's
+  "two writers through `rclone config`" do not exist: `cloud_setup`'s eight
+  `rclone config` lines are two reads, the `pkill`, three echoed
+  instructions and two comments; `cloud_remote create` writes through
+  `connections.save`. Q1 and the writers table are rewritten around the one
+  writer and the paths that reach it.
+- **Known unknown (1) is closed, not open:** none of `conf_valid`,
+  `cleanup`, `finish` or `usage` is called in these files (the names occur
+  only in comments and player text); the content scripts source
+  `/etc/profile` and `cloud_content_transfer`. The run lists sourced files.
+- The shell function counts (112) hold only for definitions whose brace is
+  on the line; the loose pattern gives 147. Both are stated.
+- `tools/vocabulary-check` reads four of the 14 and needs an
+  EmulationStation checkout; the other ten are read by hand.
+- Line slips (`write_archive :805`, `DEVNULL :49`, the `5)` arm
+  `:1858-1859`, a pipefail subshell at `backuptool:1177`) and counts
+  (`logger` 37, the second pre-base `backuptool` commit tiopex's, the
+  sign-in window's 31 + 2) corrected; the `.$$` and deletion runs
+  narrowed to the 14 paths.
+- Stranger traps the brief now names: the register rows cited live on the
+  coordinator's branch (merged at dispatch); `3a653eaec4` needs a fetch;
+  #1029 is T15's; M7 writes timestamped lines on the host file, and its
+  native stage returned 04:50 with its guest window queued behind the T16
+  stop; a `CANNOT` form for a window never granted.
