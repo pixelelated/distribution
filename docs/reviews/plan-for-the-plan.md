@@ -355,7 +355,12 @@ the record of what was asked. Every version-1 brief of P2 needed its proof
 premise the lens was built on. A claim about another repository's table -- a `whySentences` row, a
 catalog's entry, a menu map's line -- names the read that shows it at that
 repository's pin, as the membership block does for this one; T17's S6 was
-briefed on a row the table did not hold (#1133's criterion was reworded).
+briefed on a row the table did not hold (#1133's criterion was reworded). A count a brief states is produced by the binary a script will get --
+`/usr/bin/grep`, `command grep` -- never the interactive shell's `grep`, which
+here is a ugrep function with a different dialect: T18's declaration count
+read 47 there and 44 under GNU `grep -E`, which takes `\s` inside `[...]`
+literally (#1138). The stranger's proof runs from a script for the same
+reason.
 
 ### 6c. Review depth per slice
 
