@@ -1,0 +1,37 @@
+== boot 1, the identity (12:44:55Z)
+OS_NAME="pixelelated"
+VERSION="0.0.1-dev+20261022T235948Z.g069fc2704421"
+BUILD_ID="069fc270442134fe771258418adf4e666e0473fb"
+BUILD_BRANCH="build/m7-signin-20261022-07"
+-- installed against 8ebaf8daad (tree-sha256.txt):
+/usr/bin/raofflineproxy-ctl: DIFFERS (installed 2fcd5f290ac2, tree 47391a3bbcaa)
+/usr/bin/raofflineproxy-refresh: DIFFERS (installed 595af8cefe34, tree 14085cbefbff)
+/usr/bin/raofflineproxy-cache-images: DIFFERS (installed 7198d7a0a636, tree f474c13424a8)
+/usr/bin/raofflineproxy-cache-indexed: DIFFERS (installed 67f907901512, tree 4c6d5a8d5096)
+/usr/lib/systemd/system/raofflineproxy.service: EQUAL
+/usr/lib/autostart/daemons/006-raofflineproxy: EQUAL
+-- the module's installed set against the tarball's:
+installed .py files: 0
+comm: file 2 is not in sorted order
+comm: input is not in sorted order
+comm: file 2 is not in sorted order
+comm: input is not in sorted order
+installed .pyc: 57; tarball modules: 45; in the tarball, not installed: __init__ ; installed, not in the tarball: __init__ browser_client browser_contract browser_owner browser_profile lifecycle lifecycle_browser lifecycle_enable lifecycle_observe lifecycle_owner lifecycle_recovery lifecycle_systemd quiescence 
+-- the listener
+UMask=0022
+CapabilityBoundingSet=cap_chown cap_dac_override cap_dac_read_search cap_fowner cap_fsetid cap_kill cap_setgid cap_setuid cap_setpcap cap_linux_immutable cap_net_bind_service cap_net_broadcast cap_net_admin cap_net_raw cap_ipc_lock cap_ipc_owner cap_sys_module cap_sys_rawio cap_sys_chroot cap_sys_ptrace cap_sys_pacct cap_sys_admin cap_sys_boot cap_sys_nice cap_sys_resource cap_sys_time cap_sys_tty_config cap_mknod cap_lease cap_audit_write cap_audit_control cap_setfcap cap_mac_override cap_mac_admin cap_syslog cap_wake_alarm cap_block_suspend cap_audit_read cap_perfmon cap_bpf cap_checkpoint_restore
+User=
+Group=
+DynamicUser=no
+PrivateTmp=no
+ProtectHome=no
+ProtectSystem=no
+NoNewPrivileges=no
+ActiveState=inactive
+marker: ls: /storage/.cache/services/raofflineproxy.conf: No such file or directory
+sh: line 1: get_setting: command not found
+== the window's subject (12:45:32Z): the image's four scripts are M7's (BUILD_BRANCH build/m7-signin-20261022-07), not 8ebaf8daad's: installed against the tree, ctl 233 diff lines (M7's owner-based enable/disable, D-RA-050), the three helpers 7 each; the unit and the daemon file equal. So 8ebaf8daad's four scripts are copied to /storage/t19/bin/ on the guest and run from there (they find their helpers beside themselves, case "$0" in */*), against the image's installed client and service:
+/storage/t19/bin/raofflineproxy-cache-images: EQUAL to 8ebaf8daad
+/storage/t19/bin/raofflineproxy-cache-indexed: EQUAL to 8ebaf8daad
+/storage/t19/bin/raofflineproxy-ctl: EQUAL to 8ebaf8daad
+/storage/t19/bin/raofflineproxy-refresh: EQUAL to 8ebaf8daad

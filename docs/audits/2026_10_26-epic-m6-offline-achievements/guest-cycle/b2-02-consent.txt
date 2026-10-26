@@ -1,0 +1,275 @@
+== boot 2, tools/raofflineproxy-consent-test (sha256 e369293a9f0156a3...) uploaded by vm-serial script, 12:52:33Z
+default routes v4: 0 v6: 0; links: lo 
+usage: consent-test.py [-h] --output OUTPUT [--expected-build EXPECTED_BUILD]
+                       [--case {usage-only,unanswered,declined,null,zero,one,string-false,string-true,list,object,old-grant,old-decline,explicit-decline,logs-only,both-enabled}]
+                       [--endpoint ENDPOINT] [--replay]
+                       [--require-early-uptime]
+consent-test.py: error: output must be a fresh directory under /storage/.cache
+consent-test rc=0
+vm-serial rc=0
+
+== the second run, --output /storage/.cache/t19-consent (the tool's rule: a fresh directory under /storage/.cache), 12:52:41Z
+default routes v4: 0 v6: 0; links: lo 
+PASS declined restart 0 HTTP requests
+PASS null first call 0 HTTP requests
+PASS null restart 0 HTTP requests
+PASS zero first call 0 HTTP requests
+PASS zero restart 0 HTTP requests
+PASS one first call 0 HTTP requests
+PASS one restart 0 HTTP requests
+PASS string-false first call 0 HTTP requests
+PASS string-false restart 0 HTTP requests
+PASS string-true first call 0 HTTP requests
+PASS string-true restart 0 HTTP requests
+PASS list first call 0 HTTP requests
+PASS list restart 0 HTTP requests
+PASS object first call 0 HTTP requests
+PASS object restart 0 HTTP requests
+PASS old-grant first call 0 HTTP requests
+PASS old-grant restart 0 HTTP requests
+PASS old-decline first call 0 HTTP requests
+PASS old-decline restart 0 HTTP requests
+PASS explicit-decline first call 0 HTTP requests
+PASS explicit-decline restart 0 HTTP requests
+PASS logs-only first call 2 HTTP requests
+PASS logs-only restart 0 HTTP requests
+PASS both-enabled first call 3 HTTP requests
+PASS both-enabled restart 0 HTTP requests
+consent-test rc=0
+vm-serial rc=0
+-- the output folder (12:52:56Z):
+[1;34mboth-enabled[m
+[0;0mboth-enabled-counter-observation.json[m
+[0;0mboth-enabled-replay-result.json[m
+[0;0mboth-enabled-replay.log[m
+[0;0mboth-enabled-result.json[m
+[0;0mboth-enabled.log[m
+[0;0mcollector-events.json[m
+[1;34mdeclined[m
+[0;0mdeclined-counter-observation.json[m
+[0;0mdeclined-replay-result.json[m
+[0;0mdeclined-replay.log[m
+[0;0mdeclined-result.json[m
+[0;0mdeclined.log[m
+[1;34mexplicit-decline[m
+[0;0mexplicit-decline-counter-observation.json[m
+[0;0mexplicit-decline-replay-result.json[m
+[0;0mexplicit-decline-replay.log[m
+[0;0mexplicit-decline-result.json[m
+[0;0mexplicit-decline.log[m
+[1;34mlist[m
+[0;0mlist-counter-observation.json[m
+[0;0mlist-replay-result.json[m
+[0;0mlist-replay.log[m
+[0;0mlist-result.json[m
+[0;0mlist.log[m
+[1;34mlogs-only[m
+[0;0mlogs-only-counter-observation.json[m
+[0;0mlogs-only-replay-result.json[m
+[0;0mlogs-only-replay.log[m
+[0;0mlogs-only-result.json[m
+[0;0mlogs-only.log[m
+[1;34mnull[m
+[0;0mnull-counter-observation.json[m
+[0;0mnull-replay-result.json[m
+[0;0mnull-replay.log[m
+[0;0mnull-result.json[m
+[0;0mnull.log[m
+[1;34mobject[m
+[0;0mobject-counter-observation.json[m
+[0;0mobject-replay-result.json[m
+[0;0mobject-replay.log[m
+[0;0mobject-result.json[m
+[0;0mobject.log[m
+[1;34mold-decline[m
+[0;0mold-decline-counter-observation.json[m
+[0;0mold-decline-replay-result.json[m
+[0;0mold-decline-replay.log[m
+[0;0mold-decline-result.json[m
+[0;0mold-decline.log[m
+[1;34mold-grant[m
+[0;0mold-grant-counter-observation.json[m
+[0;0mold-grant-replay-result.json[m
+[0;0mold-grant-replay.log[m
+[0;0mold-grant-result.json[m
+[0;0mold-grant.log[m
+[1;34mone[m
+[0;0mone-counter-observation.json[m
+[0;0mone-replay-result.json[m
+[0;0mone-replay.log[m
+[0;0mone-result.json[m
+[0;0mone.log[m
+[1;34mstring-false[m
+[0;0mstring-false-counter-observation.json[m
+[0;0mstring-false-replay-result.json[m
+[0;0mstring-false-replay.log[m
+[0;0mstring-false-result.json[m
+[0;0mstring-false.log[m
+[1;34mstring-true[m
+[0;0mstring-true-counter-observation.json[m
+[0;0mstring-true-replay-result.json[m
+[0;0mstring-true-replay.log[m
+[0;0mstring-true-result.json[m
+[0;0mstring-true.log[m
+[0;0msummary.json[m
+[1;34munanswered[m
+[0;0munanswered-counter-observation.json[m
+[0;0munanswered-replay-result.json[m
+[0;0munanswered-replay.log[m
+[0;0munanswered-result.json[m
+[0;0munanswered.log[m
+[1;34musage-only[m
+[0;0musage-only-counter-observation.json[m
+[0;0musage-only-replay-result.json[m
+[0;0musage-only-replay.log[m
+[0;0musage-only-result.json[m
+[0;0musage-only.log[m
+[1;34mzero[m
+[0;0mzero-counter-observation.json[m
+[0;0mzero-replay-result.json[m
+[0;0mzero-replay.log[m
+[0;0mzero-result.json[m
+[0;0mzero.log[m
+both-enabled-counter-observation.json {}
+both-enabled-replay-result.json {}
+both-enabled-result.json {}
+collector-events.json {}
+declined-counter-observation.json {}
+declined-replay-result.json {}
+declined-result.json {}
+explicit-decline-counter-observation.json {}
+explicit-decline-replay-result.json {}
+explicit-decline-result.json {}
+list-counter-observation.json {}
+list-replay-result.json {}
+list-result.json {}
+logs-only-counter-observation.json {}
+logs-only-replay-result.json {}
+logs-only-result.json {}
+null-counter-observation.json {}
+null-replay-result.json {}
+null-result.json {}
+object-counter-observation.json {}
+object-replay-result.json {}
+object-result.json {}
+old-decline-counter-observation.json {}
+old-decline-replay-result.json {}
+old-decline-result.json {}
+old-grant-counter-observation.json {}
+old-grant-replay-result.json {}
+old-grant-result.json {}
+one-counter-observation.json {}
+one-replay-result.json {}
+one-result.json {}
+string-false-counter-observation.json {}
+string-false-replay-result.json {}
+string-false-result.json {}
+string-true-counter-observation.json {}
+string-true-replay-result.json {}
+string-true-result.json {}
+summary.json {}
+unanswered-counter-observation.json {}
+unanswered-replay-result.json {}
+unanswered-result.json {}
+usage-only-counter-observation.json {}
+usage-only-replay-result.json {}
+usage-only-result.json {}
+zero-counter-observation.json {}
+zero-replay-result.json {}
+zero-result.json {}
+0
+0
+0
+-- summary.json (12:53:05Z):
+{
+  "build_id": "069fc270442134fe771258418adf4e666e0473fb",
+  "checks": 30,
+  "results": [
+    {
+      "case": "usage-only",
+      "replay": false,
+      "requests": 1
+    },
+    {
+      "case": "usage-only",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "unanswered",
+      "replay": false,
+      "requests": 0
+    },
+    {
+      "case": "unanswered",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "declined",
+      "replay": false,
+      "requests": 0
+    },
+    {
+      "case": "declined",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "null",
+      "replay": false,
+      "requests": 0
+    },
+    {
+      "case": "null",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "zero",
+      "replay": false,
+      "requests": 0
+    },
+    {
+      "case": "zero",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "one",
+      "replay": false,
+      "requests": 0
+    },
+    {
+      "case": "one",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "string-false",
+      "replay": false,
+      "requests": 0
+    },
+    {
+      "case": "string-false",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "string-true",
+      "replay": false,
+      "requests": 0
+    },
+    {
+      "case": "string-true",
+      "replay": true,
+      "requests": 0
+    },
+    {
+      "case": "list",
+      "replay": false,
+      "requests": 0
+    },
+    {
+      "case": "list",
+   

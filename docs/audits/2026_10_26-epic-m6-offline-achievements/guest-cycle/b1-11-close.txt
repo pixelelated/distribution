@@ -1,0 +1,7 @@
+== boot 1, the close (12:51:42Z)
+cleared: global.retroachievements.username global.retroachievements.password global.retroachievements.key global.retroachievements.token ScreenScraperUser ScreenScraperPass ScreenScraperDevId ScreenScraperDevPass
+qa-accounts: left on :10026: /storage/.config/raofflineproxy (offline achievements are on; raofflineproxy-ctl disable first)
+qa-accounts clear rc=1
+down: owned QEMU exited (pid 564592)
+vm-stop rc=0
+qemu after: 0

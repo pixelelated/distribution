@@ -1,0 +1,29 @@
+== boot 1, a scan with the tree's ctl (12:46:01Z)
+0022
+>>> doing listing
+>>> total 1
+>>> game 1|1|ComboFishing (2024)
+>>> cached 1|0
+>>> done 1|0|1|0
+scan rc=0
+-- last-scan:
+1793018765 0 scan cached=1 skipped=0 ready=1 limit=0 indexed=0 errors=0 added=1
+-- the modes, as written (stat %a %U %n), the proxy's folder and the marker and the locks:
+755 root /storage/.config/raofflineproxy
+644 root /storage/.config/raofflineproxy/cache_queue.bulk.lock
+644 root /storage/.config/raofflineproxy/cache_queue.drain.lock
+644 root /storage/.config/raofflineproxy/cache_queue.draining.lock
+644 root /storage/.config/raofflineproxy/cached_game_ids.txt
+755 root /storage/.config/raofflineproxy/image_cache
+644 root /storage/.config/raofflineproxy/last-scan
+644 root /storage/.config/raofflineproxy/online_state.json
+644 root /storage/.config/raofflineproxy/proxy.sqlite3
+644 root /storage/.config/raofflineproxy/proxy.sqlite3-shm
+644 root /storage/.config/raofflineproxy/proxy.sqlite3-wal
+644 root /storage/.config/raofflineproxy/scan.log
+644 root /storage/.config/raofflineproxy/service.log
+644 root /storage/.config/raofflineproxy/service.pid
+644 root /storage/.config/raofflineproxy/service_status.json
+644 root /storage/.cache/services/raofflineproxy.conf
+644 root /var/run/raofflineproxy-scan.lock
+-- scan.log by counts: 13 lines; lines naming t=, p=, token or password: 0

@@ -1,0 +1,13 @@
+== boot 1, positive F-03: a foreign listener on 0.0.0.0:8080 (12:46:43Z)
+service: inactive
+control, nothing listening: ctl listening rc=1
+tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN      2977/python3
+the foreign listener: ctl listening rc=0
+setsettings.sh:536 check: launches direct
+listeners on 8080 after: 1
+python3 -c import socket,time; s=socket.socket(); s.setsocko
+
+listeners on 8080: 0
+active
+tcp        0      0 127.0.0.1:8080          0.0.0.0:*               LISTEN      3067/python3
+(a pattern pkill in the guest did not match; the stand-in was stopped by its pid, 2977, read from netstat; the service restarted)

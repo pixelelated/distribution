@@ -1,0 +1,14 @@
+== boot 1, positive F-06: the scan lock that cannot be opened (12:47:31Z)
+the stand-in holder (/storage/t19/holder.sh) takes the lock as take_lock does; the held file is then moved aside and a directory put at the path (root bypasses a mode)
+holder pid 3352 alive: yes
+service before: active
+/storage/t19/bin/raofflineproxy-ctl: line 492: /var/run/raofflineproxy-scan.lock: Is a directory
+hardcore=0
+disable rc=0 in 1s
+service after: inactive; marker: gone
+holder pid 3352 still alive after disable: yes
+journal lines asking the run to stop: 0
+control: the lock openable, the holder again:
+hardcore=0
+disable rc=0 in 10s; holder alive after: no
+journal lines asking the run to stop: 1

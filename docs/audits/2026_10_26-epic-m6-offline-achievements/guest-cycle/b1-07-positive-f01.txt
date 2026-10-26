@@ -1,0 +1,21 @@
+== boot 1, positive F-01: the offline login (12:48:15Z)
+service: active
+cached login2 rows: 1
+-- control, the link up:
+account name read from system.cfg: yes
+Traceback (most recent call last):
+  File "/storage/t19/login-probe.py", line 20, in <module>
+    print("status", status, "| X-RA-Offline", offline, "| body keys", keys, "| Token key present:", "yes" if "Token" in keys else "no", "| Token non-empty:", "yes" if isinstance(data, dict) and data.get("Token") else "no")
+                                                                                                                                                                                  ^^^^
+NameError: name 'data' is not defined
+-- the link cut on the monitor (set_link net0 off) at 12:48:19Z:
+Connection timed out during banner exchange
+(ssh over the cut link: expected to fail)
+-- the link restored (set_link net0 on); the probe fixed (a non-JSON body left 'data' undefined) and re-uploaded at 12:48:46Z
+-- control, the link up (over serial):
+account name read from system.cfg: yes
+status 403 | X-RA-Offline None | body keys ['<not JSON: 17 bytes>'] | Token key present: no | Token non-empty: no
+-- the link cut (set_link net0 off) at 12:48:47Z; the probe over serial:
+account name read from system.cfg: yes
+status 200 | X-RA-Offline 1 | body keys ['AccountType', 'AvatarUpdatedAt', 'AvatarUrl', 'Messages', 'Permissions', 'Score', 'SoftcoreScore', 'Success', 'Token', 'User'] | Token key present: yes | Token non-empty: yes
+-- the link restored at 12:48:47Z

@@ -60,3 +60,19 @@
   - `scanWhy`'s row for a token no producer emits.
 - **The criterion's wording** (the coordinator, 12:35 UTC): the ctl is shown never to have run on the host outside `tools/last-good-scripts-test`'s bubblewrap sandbox.
 - **Census at 12:37:11Z:** qemu 0, compilers 0, `:8080` 0. No guest has been started; the window is asked for on #666 with this entry's commit.
+
+## [Stage C, the window] 12:41 to 12:58 UTC — the guest, two boots
+
+- **The grant and the posts:** granted on #666 at 12:41 UTC. **START 12:43:49 and RETURN 12:53:37 UTC**, both posted with census 0 (qemu, `:8080`, compilers). The record is `02` § The guest cycle and `guest-cycle/`.
+- **The image:** the M6 copy, its `.sha256` OK; two fresh disks of the lane's own. **Its scripts are M7's** (`BUILD_BRANCH=build/m7-signin-20261022-07`): the ctl differs from `8ebaf8daad` by 233 diff lines, each helper by 7; the unit and the daemon file are equal. So **`8ebaf8daad`'s four scripts ran from `/storage/t19/bin/`** (sha256 equal), against the image's client and service. The question is put on #666 at RETURN.
+- **Boot 1** (user-mode NIC, ssh 10026, 640x480, headless):
+  - the service runs as root, umask `0022`; every file written `644 root` (F-25);
+  - the six positives fall as read: F-01, F-03, F-06, F-12, F-16, F-17;
+  - `raofflineproxy-installed-native-test` runs 18 with 4 failures, on the image's M7 client: a lead outside the slice;
+  - `ra-offline-test` is **CANNOT** (D-RA-006: the QA account's reachable achievements are spent); nothing launched, nothing spent;
+  - `qa-accounts clear` rc 1, leaving the proxy's folder on the retired disk.
+- **Boot 2** (`-nic none`): the consent test, 30 checks, rc 0.
+- **Both stopped by pidfile** (`tools/vm-stop` rc 0 ×2). The leftover check: qemu 0, `:8080` 0, sockets 0.
+- **Retired (D-INFRA-022):** both disks, with their path, size and sha in `guest-cycle/retired.txt` (boot1 2,312,372,224 B `ddb5a7f6...`; boot2 2,310,471,680 B `e4731d56...`), removed with their firmware vars and the run's QA key.
+- **The RetroAchievements server** was reached by the QA account's sign-in, the scan and the top-up the plan named, and by `ra-offline-test`'s API read at its step 2. The owner's account was never named or used.
+- **The ctl on the host:** the ctl ran only on the guest (the tree's copy) and in the suite's `bwrap`.

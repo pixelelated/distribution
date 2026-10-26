@@ -1,0 +1,14 @@
+== boot 1, positive F-16: the ready export unreadable (12:47:12Z)
+control: ready=1
+the export a directory: ready=0 (rc 0)
+restored: ready=1
+
+== boot 1, positive F-17: a ROM name with byte 0xff (12:47:13Z)
+names carrying 0xff: 1
+>>> doing listing
+>>> why LIBRARY_UNREADABLE
+scan rc=0
+1793018833 1 scan cached=0 skipped=0 ready=1 limit=0 indexed=0 errors=0 added=0 why=LIBRARY_UNREADABLE
+UnicodeEncodeError: 'utf-8' codec can't encode character '\udcff' in position 
+scan: the library could not be listed
+files left in gb: 1

@@ -11,7 +11,7 @@ What the read found, in the brief's four families:
 - **A check whose failure reads as success.** The scan lock that cannot be opened reads as nothing running (F-06); a stamp that could not be written is not seen (F-07); an unreadable ready count prints 0 (F-16); one undecodable ROM name fails the whole listing, reproduced on the host (F-17).
 - **A bound that is not enforced.** The scan has none, by design (F-11); the top-up's played check trusts the mark's mtime (F-12); the IDAT inflate and the lookup threads are unbounded (F-13); `http_post` marks no 429 pause (F-14, upstream).
 
-Six are proposed as Low `bug`s (F-01, F-03, F-06, F-07, F-16, F-17); eighteen are Info. Nothing is Medium or above: the port is loopback, the device is single-user and root, and no finding loses an award or a save.
+Six are proposed as Low `bug`s (F-01, F-03, F-06, F-07, F-16, F-17); nineteen are Info. Five of the six fell on the guest as read (F-01, F-03, F-06, F-16, F-17), and F-17 on the host too; F-12 fell as well. Nothing is Medium or above: the port is loopback, the device is single-user and root, and no finding loses an award or a save.
 
 ## Acceptance-criteria scorecard
 
@@ -26,13 +26,13 @@ The brief's § 7 against this folder at stage C's start:
 | `reviewed-at`, `fixed-at`; nothing under `packages/`, `projects/`, `tools/` | R17 empty at stages A and B |
 | `01` § Scope | written (`01`) |
 | § Coverage 27 | 27 |
-| § The listener | written; the guest's user and bind owed to the window |
+| § The listener | written; the user (`root`) and the bind (`127.0.0.1:8080`) read from the guest |
 | § The credential's paths | written |
 | § The writers, generated | 77 rows, `tools/t19-writers.py`, its drift control |
 | § The patches, 18 | 18 |
 | § The bounds | written |
 | § The runs | written (R0 to R17, the unpack, the integration test, the suite, the generator) |
-| § The guest cycle | owed to the window |
+| § The guest cycle | written: START 12:43:49, RETURN 12:53:37 UTC; the image's scripts are M7's, so the tree's ran from `/storage/t19/bin/` |
 | `00`'s closing census | at hand-back |
 | `04` Q1 to Q8 | below |
 | `proved:`, `question:`, § What T20 inherits | written in `02`; `question:` in `05` |
@@ -46,8 +46,8 @@ The brief's § 7 against this folder at stage C's start:
 | High | 0 | |
 | Medium | 0 | |
 | Low | 6 | F-01, F-03, F-06, F-07, F-16, F-17 |
-| Info | 18 | F-02, F-04, F-05, F-08 to F-15, F-18 to F-24 |
-| **Total** | **24** | |
+| Info | 19 | F-02, F-04, F-05, F-08 to F-15, F-18 to F-25 |
+| **Total** | **25** | |
 
 The Low six share one shape: a state the device can be in -- a link down, a second listener, a full card, a lock or export that cannot be opened, a file name from an archive -- where the code's answer is wrong and nothing says so.
 
@@ -55,7 +55,7 @@ The Low six share one shape: a state the device can be in -- a link down, a seco
 
 - **Read:** the 27 whole at `8ebaf8daad`; the patched pin's request path, offline login, `auth`, `log_uploader`, `usage_report`, `storage` initialisation, `es_export`, `network` GET and POST; the interface's parsers at `16dbac5211`; the context files in `01`.
 - **Not read, and why:** the rest of the upstream client (the menu, the queue internals, `rvz_datasource.py` beyond patch 020's hunk) -- upstream's, outside the four families; the rcheevos and libchdr sources -- T3's and the siblings' pins only; the per-emulator token files -- T30's.
-- **Not run on the host:** the ctl outside `last-good-scripts-test`'s `bwrap`, the service, any network call. The guest's facts (the user, the modes, the four constructed positives, the installed tests, the award) are owed to the window.
+- **Not run on the host:** the ctl outside `last-good-scripts-test`'s `bwrap`, the service, any network call. The guest's facts are in `02` § The guest cycle: the image's scripts are M7's, so `8ebaf8daad`'s four ran from `/storage/t19/bin/` against the image's client and service; the award proof could not run (the QA account's reachable achievements are spent, D-RA-006).
 
 ## Q1 The listener
 
@@ -87,7 +87,7 @@ Eighteen, all absent from the pin and applying at fuzz 0: eleven fixes, six feat
 
 ## Q8 The harness
 
-`02` § The runs and the Positives table. `rc-preflight --only proxy-schema` is a comment check (F-23). `last-good-scripts-test` runs the real ctl in `bwrap` with shims; `raofflineproxy-integration-test` runs the shipped helper against the patched pin with a predecessor from the cache; the installed-native, consent and award tests are the guest's. The constructed positives: F-17's on the host (`tools/t19-listing-fixture.py`, reproduced); F-01, F-03, F-06, F-12 and F-16's on the guest, owed.
+`02` § The runs and the Positives table. `rc-preflight --only proxy-schema` is a comment check (F-23). `last-good-scripts-test` runs the real ctl in `bwrap` with shims; `raofflineproxy-integration-test` runs the shipped helper against the patched pin with a predecessor from the cache; the installed-native, consent and award tests are the guest's. The constructed positives: F-17's on the host (`tools/t19-listing-fixture.py`) and the guest; F-01, F-03, F-06, F-12 and F-16's on the guest. All six fell as read (`02` § Positives). The native test ran 18 with 4 failures on the image's M7 client (a lead outside the slice); the consent test passed 30 checks with no NIC; `ra-offline-test` could not run (D-RA-006).
 
 ## Second opinion
 

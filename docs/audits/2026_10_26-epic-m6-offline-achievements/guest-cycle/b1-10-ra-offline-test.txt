@@ -1,0 +1,22 @@
+ra-offline-test: guest :10026, proxy on, 2026-10-26 12:50 UTC
+0  preconditions
+  PASS  guest :10026 answers over ssh (build 069fc27044); monitor, serial, ROMs and the accounts file are here
+  PASS  /usr/bin/raofflineproxy-ctl is on the image
+  PASS  EmulationStation is up and its HTTP API answers on the guest's loopback
+  PASS  the serial console answers
+1  the games with RetroAchievements sets are on the guest
+  |     copied tobu/Tobu Tobu Girl Deluxe.gb -> /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb (missing, or other bytes were there)
+  PASS  tobu: /storage/roms/gbc/Tobu Tobu Girl Deluxe.gb sha256 0a0e8018dbbc8d7f... (got 0a0e8018dbbc8d7f)
+  |     copied ninoid/Ninoid.gb -> /storage/roms/gb/Ninoid.gb (missing, or other bytes were there)
+  PASS  ninoid: /storage/roms/gb/Ninoid.gb sha256 a40191c169c68e66... (got a40191c169c68e66)
+  |     copied bobl/Bobl (v1.2)-unpacked/böbl-1.2.nes -> /storage/roms/nes/Bobl.nes (missing, or other bytes were there)
+  PASS  bobl: /storage/roms/nes/Bobl.nes sha256 025ec44d0d84ac46... (got 025ec44d0d84ac46)
+  |     a ROM was copied: rebooting so EmulationStation scans it
+  PASS  EmulationStation back after the reboot
+2  a cheap achievement the QA account has not earned
+  |     tobu: 100359 Potato-tan Secret -- earned on the QA account 2026-10-06 06:07:32
+  FAIL  the QA account has already earned every achievement this fixture can reach: 100359 Potato-tan Secret (game 15738, earned 2026-10-06 06:07:32) -- reset the dedicated QA account's softcore progress on that game at retroachievements.org and run again (#464 tracks reset automation)
+
+FAILED (1) -- no achievement to unlock; nothing launched
+
+ra-offline-test rc=1, 12:50:38Z to 12:51:15Z: CANNOT in this window -- its step 2 found no achievement the QA account has not earned (D-RA-006 open); nothing launched, nothing spent. The award proof stands on the record's 2026-10-06 run (docs/qa-logs/2026-10-06-ra-award/, 33 PASS).

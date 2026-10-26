@@ -291,7 +291,10 @@ Each is graded in `04` (severity, class, the brief's question, the `proved:` a f
 | F-22 | Q5 | eight patches have no upstream draft (003, 004, 010, 011, 012, 016, 020, 021) and every draft's base is older than the pin: the #585 lines owed | § The patches; `docs/upstream/raofflineproxy/contribution-map.md` |
 | F-23 | Q8 | the proxy-schema check is a comment check (*"runtime schema proof remains separate"*), and `last-good-scripts-test` runs the real ctl in `bwrap` -- the harness's reach and limit stated | R11; `stage-a/last-good-scripts-test.txt` |
 | F-24 | Q3 | the jobs' classifier matches its stop words over the whole line, file name included: a `FAIL` for a ROM named with `login required` or `HTTP Error 401` stops the scan as a refused sign-in | ctl :1750 |
+| F-25 | Q2, Q3 | every file the proxy and the ctl write takes `644 root` under the service's umask `0022` (none set), the store with the session token's row included: world-readable, on a device where every process is root | `guest-cycle/b1-03-scan.txt`; § The writers' mode column |
 
+
+**A lead outside the slice** (M7's, not graded here): the image's installed client (`build/m7-signin-20261022-07`, 57 modules) fails 4 of the 18 native hashing cases that the record's run passed with the same tests file and the same library (`guest-cycle/b1-08-*`); the coordinator routes it.
 
 ## Positives
 
@@ -299,13 +302,39 @@ The constructed positives, each recorded as it falls (the guest's are owed to th
 
 | Lead | Positive | Where | Expect on `8ebaf8daad` | proved |
 | --- | --- | --- | --- | --- |
-| a foreign listener satisfies readiness | a listener on `0.0.0.0:8080` with the service stopped; `raofflineproxy-ctl listening` | guest | exit 0 | guest (owed) |
-| the scan lock that cannot be opened reads as nothing running | the lock path made a directory (root bypasses a mode), a run started, `disable` | guest | `disable` proceeds and stops the service | guest (owed) |
-| an unreadable export reads 0 | the export made a directory; `ready` | guest | `0` | guest (owed) |
-| one undecodable ROM name fails the listing | a ROM named with a byte invalid in UTF-8 | host (`tools/t19-listing-fixture.py`: the listing's python from the ctl at `8ebaf8daad`, unchanged, against the patched pin with a scratch store) and guest | the listing exits non-zero; the scan's why `LIBRARY_UNREADABLE` | fixture: **reproduced** (`stage-b/listing-fixture.txt`: the decodable library rc 0, `found=1`; one name with 0xff, rc 1, `UnicodeEncodeError ... surrogates not allowed` at the job file's strict write); guest (owed) |
-| the offline login serves the token | `curl` `dorequest.php?r=login2&u=<the QA user>` with the link down | guest | a 200 whose body has a `Token` key (counted, never printed) | guest (owed) |
-| a mark ahead of the clock silences the top-up | `last-topup-attempt` dated ahead (`touch -d`), a game played, `topup` | guest | skipped, `scan.log` *"no game played since the last attempt"* | guest (owed) |
+| a foreign listener satisfies readiness | a listener on `0.0.0.0:8080` with the service stopped; `raofflineproxy-ctl listening` | guest | exit 0 | guest: **falls** (`b1-04`) |
+| the scan lock that cannot be opened reads as nothing running | the lock path made a directory (root bypasses a mode), a run started, `disable` | guest | `disable` proceeds and stops the service | guest: **falls** (`b1-06`) |
+| an unreadable export reads 0 | the export made a directory; `ready` | guest | `0` | guest: **falls** (`b1-05`) |
+| one undecodable ROM name fails the listing | a ROM named with a byte invalid in UTF-8 | host (`tools/t19-listing-fixture.py`: the listing's python from the ctl at `8ebaf8daad`, unchanged, against the patched pin with a scratch store) and guest | the listing exits non-zero; the scan's why `LIBRARY_UNREADABLE` | fixture: **reproduced** (`stage-b/listing-fixture.txt`: the decodable library rc 0, `found=1`; one name with 0xff, rc 1, `UnicodeEncodeError ... surrogates not allowed` at the job file's strict write); guest: **falls** (`b1-05`) |
+| the offline login serves the token | `curl` `dorequest.php?r=login2&u=<the QA user>` with the link down | guest | a 200 whose body has a `Token` key (counted, never printed) | guest: **falls**, the image's service (`b1-07`) |
+| a mark ahead of the clock silences the top-up | `last-topup-attempt` dated ahead (`touch -d`), a game played, `topup` | guest | skipped, `scan.log` *"no game played since the last attempt"* | guest: **falls** (`b1-09`) |
 
 ## The guest cycle
 
-Not run. The window's plan and bound are posted on #666 at stage B's end; nothing runs before the grant.
+**The grant:** the coordinator's comment on #666 at 12:41 UTC, as planned. **START 12:43:49 UTC, RETURN 12:53:37 UTC**, both posted on #666 with census 0 (qemu, `:8080`, compilers), inside the 13:43:49 bound. The record is `guest-cycle/`.
+
+- **The image:** `/workspace/artifacts/m6-t2-20261023/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261022T235948Z.g069fc2704421-from-ROCKNIX.img.gz`, `.sha256` OK. Two fresh 16 GB disks of the lane's own; T2's `t2.qcow2` untouched. Read from the guest: `OS_NAME="pixelelated"`, `VERSION="0.0.1-dev+20261022T235948Z.g069fc2704421"`, `BUILD_ID="069fc270442134fe771258418adf4e666e0473fb"`, **`BUILD_BRANCH="build/m7-signin-20261022-07"`**. proved: guest.
+- **Installed against the tree** (`b1-01-identity.txt`):
+  - the unit and the daemon file are **equal** to `8ebaf8daad`;
+  - **the four scripts differ.** The ctl by 233 diff lines (M7's owner-based `enable`/`disable` and new `toggle`, `operation`, `queue-status` verbs, D-RA-050); each helper by 7;
+  - the installed client has 57 modules to the pin tarball's 45.
+  - **So the positives ran `8ebaf8daad`'s four scripts, copied to `/storage/t19/bin/` (each sha256 equal to the tree's), against the image's installed client and service.** The service-side results (F-01, the native and consent tests) are the image's service and M7's client, said so on each row; the question is put to the coordinator. proved: guest.
+- **The listener as it runs** (`b1-02-enable.txt`): the service runs as `root` (MainPID's user), its umask `0022`, listening on `127.0.0.1:8080`. `systemctl show`: `User=` empty, `NoNewPrivileges=no`, `ProtectSystem=no`, `ProtectHome=no`, `PrivateTmp=no`, the full `CapabilityBoundingSet`, `UMask=0022`. The QA account was carried in by `tools/qa-accounts` (never printed), and the tree's `enable` printed `hardcore=0`, rc 0. proved: guest.
+- **The modes as written** (`b1-03-scan.txt`): a scan with the tree's ctl over one seeded ROM. `>>> doing listing`, `total 1`, `game 1|1|...`, `cached 1|0`, `done 1|0|1|0`, rc 0; `last-scan` `... 0 scan cached=1 skipped=0 ready=1 limit=0 indexed=0 errors=0 added=1`. Every file under `/storage/.config/raofflineproxy/` is **`644 root`**: `proxy.sqlite3` (with the session token's row), its `-wal` and `-shm`, `last-scan`, `scan.log`, `cached_game_ids.txt`, `online_state.json`, `service.log`, the queue locks. The folder and `image_cache/` are `755`; the marker and `/var/run/raofflineproxy-scan.lock` are `644`. `scan.log`: 13 lines, 0 naming `t=`, `p=`, a token or a password. proved: guest.
+- **The constructed positives**, each as it fell (proved: guest):
+  - **F-03** (`b1-04-positive-f03.txt`): control, the service stopped and nothing listening: `listening` rc 1. A stand-in on `0.0.0.0:8080`: **`listening` rc 0**, while `setsettings.sh:536`'s check launches direct. **Falls.**
+  - **F-16** (`b1-05-positives-f16-f17.txt`): `ready` 1; **the export a directory: `ready` 0, rc 0**; restored, 1. **Falls.**
+  - **F-17** (the same file): one name with 0xff: **`why LIBRARY_UNREADABLE`**, the stamp's rc 1, `UnicodeEncodeError` in `scan.log`. **Falls.**
+  - **F-06** (`b1-06-positive-f06.txt`): a stand-in holder (`scripts/holder.sh`) takes the lock as `take_lock` does, and the path is made a directory. `disable` rc 0 in 1 s (`line 492: ... Is a directory`), the service stopped, the marker gone, **the holder still alive, 0 journal lines asking it to stop**. Control, the lock openable: `disable` signals the holder (gone after), 1 such line, 10 s. **Falls.**
+  - **F-01** (`b1-07-positive-f01.txt`; `scripts/login-probe.py`, key names only): one cached `login2` row. Control, the link up: a `login2` naming the account with no password or token, 403 from upstream, a 17-byte non-JSON body, no `Token`. **The link cut on the monitor (`set_link net0 off`): 200, `X-RA-Offline: 1`, body keys `AccountType, AvatarUpdatedAt, AvatarUrl, Messages, Permissions, Score, SoftcoreScore, Success, Token, User`, `Token` present and non-empty.** **Falls** (the image's service).
+  - **F-12** (`b1-09-positive-f12.txt`): the history touched now and the mark a day ahead: the top-up rc 0, **1 `scan.log` line "no game played since the last attempt"**. Control, the mark two hours back: 0 such lines, the link-return and recently played passes run. **Falls.**
+- **`tools/raofflineproxy-installed-native-test`** (`b1-08-installed-native.txt`, `b1-08-native.json`): the pin's `test_linux_rom_hashing.py` (sha256 `500373b9...`, the record's), the record's `legacy-chd.py`, the library sha256 `6c484a29...` (installed equal). **18 run, 4 failures, 0 errors, 0 skips**, against the record's 18 of 18 with the same tests and library. The difference is the installed client (M7's). The four's names were not determined in the window: `python3 -m unittest -v` fails at import, and the tool's report keeps counts only. proved: guest.
+- **`tools/ra-offline-test`** (`b1-10-ra-offline-test.txt`): rc 1 at its step 2, 12:50:38 to 12:51:15 UTC: *"the QA account has already earned every achievement this fixture can reach: 100359 Potato-tan Secret (game 15738, earned 2026-10-06 06:07:32)"*. **CANNOT in this window** (D-RA-006 open). Nothing launched, nothing spent. The award proof stands on `docs/qa-logs/2026-10-06-ra-award/` (33 PASS). proved: guest.
+- **The close of boot 1** (`b1-11-close.txt`): `qa-accounts clear` cleared the account's keys but left `/storage/.config/raofflineproxy` (rc 1: *"offline achievements are on; raofflineproxy-ctl disable first"*). It lived only on `boot1.qcow2`, retired below. `vm-stop` rc 0 (pid 564592).
+- **Boot 2, no NIC** (`b2-*.txt`; `scripts/boot2-cmd.sh`: `qemu-args` without `-netdev`/`virtio-net`, with `-nic none`): 0 default routes, links `lo` only. `raofflineproxy-consent-test --expected-build 069fc270...`, uploaded by `vm-serial script`. Its first run refused the output path (*a fresh directory under `/storage/.cache`*); the second: **30 checks, rc 0**. `summary.json` `build_id` equal. Unanswered, declined, malformed or stale consent sends 0; `logs-only` sends 2 and `both-enabled` 3 on the first call, 0 on restart. `vm-stop` rc 0 (pid 617916). proved: guest.
+- **The leftover check at RETURN:** qemu 0, `:8080` 0, compilers 0, sockets 0.
+- **Retired (D-INFRA-022)** (`guest-cycle/retired.txt`):
+  - `/workspace/tmp/m6-t19/guest/boot1.qcow2`, 2,312,372,224 bytes, sha256 `ddb5a7f6f7f367570f0c662577e59214205cf5fbf592145c5e9109d13f913025`;
+  - `/workspace/tmp/m6-t19/guest/boot2.qcow2`, 2,310,471,680 bytes, sha256 `e4731d563bc1c07851fe2d682540ac11bdb920027b9473030a5e7bbcb993cf75`;
+  - both removed with their firmware vars and the run's QA key.
+- **Three slips in the run, recorded in their files:** a `pkill` by pattern in the guest that did not match (the stand-in then stopped by its pid, 2977); the probe's NameError on a non-JSON body (fixed before its result); the clear without `disable`.

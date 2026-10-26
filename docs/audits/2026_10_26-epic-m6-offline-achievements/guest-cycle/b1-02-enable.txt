@@ -1,0 +1,15 @@
+== boot 1, the account, the enable, the listener (12:45:45Z)
+set on :10026: global.retroachievements=1 global.retroachievements.username global.retroachievements.password global.retroachievements.key (read by the interface at its next start: reboot the guest)
+qa-accounts rc=0
+seeded: /storage/roms/gb/ComboFishing (2024).gb
+-- /storage/t19/bin/raofflineproxy-ctl enable (the tree's):
+hardcore=0
+rc=0
+-- the service as it runs:
+active
+MainPID=2471
+UMask=0022
+User=
+listener user: root
+process umask: 0022
+tcp        0      0 127.0.0.1:8080          0.0.0.0:*               LISTEN      2471/python3

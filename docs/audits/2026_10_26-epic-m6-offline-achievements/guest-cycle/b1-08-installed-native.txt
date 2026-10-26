@@ -1,0 +1,12 @@
+== boot 1, raofflineproxy-installed-native-test (12:49:28Z): --tests the pin's linux/tests/test_linux_rom_hashing.py (unpatched by the 18), --legacy-chd docs/qa-logs/2026-10-11-installed-proxy/legacy-chd.py, --library-sha256 the record's 6c484a29...
+installed library sha256: 6c484a2947a5f2a7c187e60dd93de73593d5fa98d57309bfb4b5f07bf390220d
+Ran 18 tests in 0.006s
+
+FAILED (failures=4)
+installed native tests failed or skipped; see retained report
+rc=0
+{'tests_discovered': 18, 'tests_run': 18, 'failures': 4, 'errors': 0, 'skipped': 0, 'library_sha256': '6c484a2947a5f2a7c187e60dd93de73593d5fa98d57309bfb4b5f07bf390220d'}
+-- the four, verbosely (python3 -m unittest -v against the installed modules) at 12:49:59Z:
+test_linux_rom_hashing (unittest.loader._FailedTest.test_linux_rom_hashing) ... ERROR
+ERROR: test_linux_rom_hashing (unittest.loader._FailedTest.test_linux_rom_hashing)
+-- the four failures' names: not determined in the window (python3 -m unittest -v fails at import, _FailedTest; the tool's report keeps counts only). The tests file (sha 500373b9...) and the library (6c484a29...) are the record's, whose run was 18 of 18: the difference is the installed client, M7's 57 modules
