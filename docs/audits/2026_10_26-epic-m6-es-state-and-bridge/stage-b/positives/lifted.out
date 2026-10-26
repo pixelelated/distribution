@@ -1,0 +1,29 @@
+== lifted.cpp at the pin's lines, ASan and UBSan (21:08:39Z)
+-- lifted header
+rc 1
+==3574341==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x... at pc 0x... bp 0x... sp 0x...
+READ of size 15 at 0x... thread T0
+    #0 0x... in strlen ../../../../src/libsanitizer/sanitizer_common/sanitizer_common_interceptors.inc:425
+    #2 0x... in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> con
+    #3 0x... in HttpReqLift::header_callback(char*, unsigned long, unsigned long, void*) /workspace/repos/pixelelated/distribution.worktrees/m6-es-state-and-bridge-668/do
+    #4 0x... in main /workspace/repos/pixelelated/distribution.worktrees/m6-es-state-and-bridge-668/docs/audits/2026_10_26-epic-m6-es-state-and-bridge/stage-b/positives/l
+    #1 0x... in main /workspace/repos/pixelelated/distribution.worktrees/m6-es-state-and-bridge-668/docs/audits/2026_10_26-epic-m6-es-state-and-bridge/stage-b/positives/l
+    #3 0x... in __libc_start_main (/usr/lib/x86_64-linux-gnu/libc.so.6+0x...) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+SUMMARY: AddressSanitizer: heap-buffer-overflow /workspace/repos/pixelelated/distribution.worktrees/m6-es-state-and-bridge-668/docs/audits/2026_10_26-epic-m6-es-state-and
+-- lifted led
+rc 0
+led.colour=[255 0 165] -> 255 0 165
+led.colour=[255 0] -> 255 0 0
+led.colour=[red] -> THROWS stoi (the pin's code has no catch)
+led.colour=[255,0,165] -> 255 255 255
+-- lifted enum
+rc 0
+[printf 'a\nb\n'] -> ["a","b"]
+[printf 'a\nb\n'; exit 3] -> ["a","b"]
+[printf 'a\nb\n'; kill -9 $$] -> ["a","b"]
+-- lifted script
+rc 0
+[echo joined; exit 0] -> exit 0, lines ["joined"]
+[echo joined; exit 1] -> exit 1, lines ["joined"]
+[echo joined; kill -9 $$] -> exit 0, lines ["joined"]
+[echo joined; kill -TERM $$] -> exit 0, lines ["joined"]

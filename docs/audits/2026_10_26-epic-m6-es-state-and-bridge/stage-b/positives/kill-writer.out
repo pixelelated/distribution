@@ -1,0 +1,106 @@
+== A AtomicFile::writeText: unkilled rc 0, 9 calls; live after = new
+  kill before call  1: killed; live/record old/record; next load source=Live record=1; left behind 0; ok
+  kill before call  2: killed; live/record old/record; next load source=Live record=1; left behind 1 system.cfg.tmp.3558484.0; ok
+  kill before call  3: killed; live/record old/record; next load source=Live record=1; left behind 1 system.cfg.tmp.3558486.0; ok
+  kill before call  4: killed; live/record old/record; next load source=Live record=1; left behind 1 system.cfg.tmp.3558488.0; ok
+  kill before call  5: killed; live/record old/record; next load source=Live record=1; left behind 1 system.cfg.tmp.3558490.0; ok
+  kill before call  6: killed; live/record old/record; next load source=Live record=1; left behind 1 system.cfg.tmp.3558492.0; ok
+  kill before call  7: killed; live/record new/record; next load source=Live record=1; left behind 0; ok
+  kill before call  8: killed; live/record new/record; next load source=Live record=1; left behind 0; ok
+  kill before call  9: killed; live/record new/record; next load source=Live record=1; left behind 0; ok
+  A: 9 kill points, 0 broke the invariant
+== B Settings::saveFile's two writes: unkilled rc 0, 18 calls; live after = new
+  kill before call  1: killed; live/record old/record; next load source=Live record=1; left behind 0; ok
+  kill before call  2: killed; live/record old/record; next load source=Live record=1; left behind 1 system.cfg.tmp.3558503.0; ok
+  kill before call  3: killed; live/record old/record; next load source=Live record=1; left behind 1 system.cfg.tmp.3558505.0; ok
+  kill before call  4: killed; live/record old/record; next load source=Live record=1; left behind 1 system.cfg.tmp.3558507.0; ok
+  kill before call  5: killed; live/record old/record; next load source=Live record=1; left behind 1 system.cfg.tmp.3558509.0; ok
+  kill before call  6: killed; live/record old/record; next load source=Live record=1; left behind 1 system.cfg.tmp.3558511.0; ok
+  kill before call  7: killed; live/record new/record; next load source=Live record=1; left behind 0; ok
+  kill before call  8: killed; live/record new/record; next load source=Live record=1; left behind 0; ok
+  kill before call  9: killed; live/record new/record; next load source=Live record=1; left behind 0; ok
+  kill before call 10: killed; live/record new/record; next load source=Live record=1; left behind 0; ok
+  kill before call 11: killed; live/record new/record; next load source=Live record=1; left behind 1 system.cfg.backup.tmp.3558521.1; ok
+  kill before call 12: killed; live/record new/record; next load source=Live record=1; left behind 1 system.cfg.backup.tmp.3558523.1; ok
+  kill before call 13: killed; live/record new/record; next load source=Live record=1; left behind 1 system.cfg.backup.tmp.3558525.1; ok
+  kill before call 14: killed; live/record new/record; next load source=Live record=1; left behind 1 system.cfg.backup.tmp.3558527.1; ok
+  kill before call 15: killed; live/record new/record; next load source=Live record=1; left behind 1 system.cfg.backup.tmp.3558529.1; ok
+  kill before call 16: killed; live/record new/new; next load source=Live record=1; left behind 0; ok
+  kill before call 17: killed; live/record new/new; next load source=Live record=1; left behind 0; ok
+  kill before call 18: killed; live/record new/new; next load source=Live record=1; left behind 0; ok
+  B: 18 kill points, 0 broke the invariant
+== C SystemConf::set + saveSystemConf: unkilled rc 0, 72 calls; live after = new
+  kill before call  1: killed; live/record old/record; next load source=Live record=1; left behind 0; ok
+  kill before call  2: killed; live/record old/record; next load source=Live record=1; left behind 0; ok
+  kill before call  3: killed; live/record old/record; next load source=Live record=1; left behind 0; ok
+  kill before call  4: killed; live/record old/record; next load source=Live record=1; left behind 0; ok
+  kill before call  5: killed; live/record old/record; next load source=Live record=1; left behind 0; ok
+  kill before call  6: killed; live/record old/record; next load source=Live record=1; left behind 0; ok
+  kill before call  7: killed; live/record old/record; next load source=Live record=1; left behind 1 .system.cfg.lock.new.3558551.0; ok
+  kill before call  8: killed; live/record old/record; next load source=Live record=1; left behind 1 .system.cfg.lock.new.3558553.0; ok
+  kill before call  9: killed; live/record old/record; next load source=Live record=1; left behind 1 .system.cfg.lock.new.3558555.0; ok
+  kill before call 10: killed; live/record old/record; next load source=Live record=1; left behind 1 .system.cfg.lock.new.3558557.0; ok
+  kill before call 11: killed; live/record old/record; next load source=Live record=1; left behind 0; ok
+  kill before call 12: killed; live/record old/record; next load source=Live record=1; left behind 0; ok
+  kill before call 13: killed; live/record old/record; next load source=Live record=1; left behind 0; ok
+  kill before call 14: killed; live/record old/record; next load source=Live record=1; left behind 0; ok
+  kill before call 15: killed; live/record old/record; next load source=Live record=1; left behind 0; ok
+  kill before call 16: killed; live/record old/record; next load source=Live record=1; left behind 0; ok
+  kill before call 17: killed; live/record old/record; next load source=Live record=1; left behind 0; ok
+  kill before call 18: killed; live/record old/record; next load source=Live record=1; left behind 0; ok
+  kill before call 19: killed; live/record old/record; next load source=Live record=1; left behind 1 system.cfg.backup.tmp.3558575.0; ok
+  kill before call 20: killed; live/record old/record; next load source=Live record=1; left behind 1 system.cfg.backup.tmp.3558577.0; ok
+  kill before call 21: killed; live/record old/record; next load source=Live record=1; left behind 1 system.cfg.backup.tmp.3558579.0; ok
+  kill before call 22: killed; live/record old/record; next load source=Live record=1; left behind 1 system.cfg.backup.tmp.3558581.0; ok
+  kill before call 23: killed; live/record old/record; next load source=Live record=1; left behind 1 system.cfg.backup.tmp.3558583.0; ok
+  kill before call 24: killed; live/record old/old; next load source=Live record=1; left behind 0; ok
+  kill before call 25: killed; live/record old/old; next load source=Live record=1; left behind 0; ok
+  kill before call 26: killed; live/record old/old; next load source=Live record=1; left behind 0; ok
+  kill before call 27: killed; live/record old/old; next load source=Live record=1; left behind 0; ok
+  kill before call 28: killed; live/record old/old; next load source=Live record=1; left behind 0; ok
+  kill before call 29: killed; live/record old/old; next load source=Live record=1; left behind 0; ok
+  kill before call 30: killed; live/record old/old; next load source=Live record=1; left behind 0; ok
+  kill before call 31: killed; live/record old/old; next load source=Live record=1; left behind 1 .system.cfg.lock.new.3558599.1; ok
+  kill before call 32: killed; live/record old/old; next load source=Live record=1; left behind 1 .system.cfg.lock.new.3558601.1; ok
+  kill before call 33: killed; live/record old/old; next load source=Live record=1; left behind 1 .system.cfg.lock.new.3558603.1; ok
+  kill before call 34: killed; live/record old/old; next load source=Live record=1; left behind 1 .system.cfg.lock.new.3558605.1; ok
+  kill before call 35: killed; live/record old/old; next load source=Live record=1; left behind 0; ok
+  kill before call 36: killed; live/record old/old; next load source=Live record=1; left behind 0; ok
+  kill before call 37: killed; live/record old/old; next load source=Live record=1; left behind 0; ok
+  kill before call 38: killed; live/record old/old; next load source=Live record=1; left behind 1 system.cfg.tmp.3558613.1; ok
+  kill before call 39: killed; live/record old/old; next load source=Live record=1; left behind 1 system.cfg.tmp.3558615.1; ok
+  kill before call 40: killed; live/record old/old; next load source=Live record=1; left behind 1 system.cfg.tmp.3558617.1; ok
+  kill before call 41: killed; live/record old/old; next load source=Live record=1; left behind 1 system.cfg.tmp.3558619.1; ok
+  kill before call 42: killed; live/record old/old; next load source=Live record=1; left behind 1 system.cfg.tmp.3558621.1; ok
+  kill before call 43: killed; live/record new/old; next load source=Live record=1; left behind 0; ok
+  kill before call 44: killed; live/record new/old; next load source=Live record=1; left behind 0; ok
+  kill before call 45: killed; live/record new/old; next load source=Live record=1; left behind 0; ok
+  kill before call 46: killed; live/record new/old; next load source=Live record=1; left behind 0; ok
+  kill before call 47: killed; live/record new/old; next load source=Live record=1; left behind 0; ok
+  kill before call 48: killed; live/record new/old; next load source=Live record=1; left behind 0; ok
+  kill before call 49: killed; live/record new/old; next load source=Live record=1; left behind 0; ok
+  kill before call 50: killed; live/record new/old; next load source=Live record=1; left behind 1 .system.cfg.lock.new.3558646.2; ok
+  kill before call 51: killed; live/record new/old; next load source=Live record=1; left behind 1 .system.cfg.lock.new.3558648.2; ok
+  kill before call 52: killed; live/record new/old; next load source=Live record=1; left behind 1 .system.cfg.lock.new.3558650.2; ok
+  kill before call 53: killed; live/record new/old; next load source=Live record=1; left behind 1 .system.cfg.lock.new.3558652.2; ok
+  kill before call 54: killed; live/record new/old; next load source=Live record=1; left behind 0; ok
+  kill before call 55: killed; live/record new/old; next load source=Live record=1; left behind 0; ok
+  kill before call 56: killed; live/record new/old; next load source=Live record=1; left behind 0; ok
+  kill before call 57: killed; live/record new/old; next load source=Live record=1; left behind 0; ok
+  kill before call 58: killed; live/record new/old; next load source=Live record=1; left behind 0; ok
+  kill before call 59: killed; live/record new/old; next load source=Live record=1; left behind 0; ok
+  kill before call 60: killed; live/record new/old; next load source=Live record=1; left behind 0; ok
+  kill before call 61: killed; live/record new/old; next load source=Live record=1; left behind 0; ok
+  kill before call 62: killed; live/record new/old; next load source=Live record=1; left behind 1 system.cfg.backup.tmp.3558670.2; ok
+  kill before call 63: killed; live/record new/old; next load source=Live record=1; left behind 1 system.cfg.backup.tmp.3558672.2; ok
+  kill before call 64: killed; live/record new/old; next load source=Live record=1; left behind 1 system.cfg.backup.tmp.3558717.2; ok
+  kill before call 65: killed; live/record new/old; next load source=Live record=1; left behind 1 system.cfg.backup.tmp.3559091.2; ok
+  kill before call 66: killed; live/record new/old; next load source=Live record=1; left behind 1 system.cfg.backup.tmp.3559134.2; ok
+  kill before call 67: killed; live/record new/new; next load source=Live record=1; left behind 0; ok
+  kill before call 68: killed; live/record new/new; next load source=Live record=1; left behind 0; ok
+  kill before call 69: killed; live/record new/new; next load source=Live record=1; left behind 0; ok
+  kill before call 70: killed; live/record new/new; next load source=Live record=1; left behind 0; ok
+  kill before call 71: killed; live/record new/new; next load source=Live record=1; left behind 0; ok
+  kill before call 72: killed; live/record new/new; next load source=Live record=1; left behind 0; ok
+  C: 72 kill points, 0 broke the invariant
+== result: PASS (every kill left the old or the new state whole)

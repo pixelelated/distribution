@@ -1,0 +1,15 @@
+== the pin's SystemConf and AtomicFile through state-fixture (21:08:57Z)
+-- U1: an empty value (D-NET-009 writes system.hostname= on purpose)
+keys=1 has[system.hostname]=0
+value=[BATOCERA]
+-- U2: a value carrying a line end, set and saved by SystemConf
+set rc 0
+the file's lines, values masked:
+system.hostname=<value>
+qa.k=<value>
+wifi.ssid=<value>
+root.password=<value>
+keys=4 has[root.password]=1
+-- U3: a key set to its table default (SystemConf.cpp:46, global.retroachievements.hardcore 0)
+set rc 0
+lines reading global.retroachievements.hardcore=0: 1

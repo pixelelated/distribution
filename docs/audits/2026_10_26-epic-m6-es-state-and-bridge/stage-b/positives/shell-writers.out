@@ -1,0 +1,11 @@
+K1 awk shadowed: bash rc 137; system.cfg old; record unchanged; next interface load source=Live record=1; left behind ['system.cfg.tmp']; ok
+K2 mv shadowed: bash rc 137; system.cfg old; record unchanged; next interface load source=Live record=1; left behind ['system.cfg.tmp']; ok
+K3 mv shadowed: bash rc 137; system.cfg new; record unchanged; next interface load source=Live record=1; left behind nothing; ok
+K0 control (no kill): set_setting rc=0; system.cfg new; next interface load source=Live record=1
+S1 system.cfg absent, record holds the player's keys: set_setting rc=0
+   system.cfg after set_setting: 222 lines, marker absent, qa.setting=newer; mode 0o600
+   system.cfg.backup after set_setting: 4 lines, marker present, qa.setting=record
+   the interface's next load chooses: source=Live record=1
+   a SystemConf load of that file (the pin's code): value=[] rc 0
+   system.cfg.backup after the interface's load: 222 lines, marker absent, qa.setting=newer
+== result: PASS (K0-K3) ; S1 as observed above
