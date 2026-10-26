@@ -261,6 +261,38 @@ Written, not tested here.
 
 **The consent setting's name:** `usage_stats_consent` (with `usage_stats_consent_version`) in the client's `config.json` (patch 019; `usage_report.py:180`); `upload_logs` (JSON `true` only) for the automatic log upload (patch 008).
 
+## Findings index
+
+Each is graded in `04` (severity, class, the brief's question, the `proved:` a fix would need); the ctl's lines are `raofflineproxy-ctl` at `8ebaf8daad`, the service's the patched pin's.
+
+| ID | Q | One line | Where |
+| --- | --- | --- | --- |
+| F-01 | Q1, Q2 | the offline login answers any `login`/`login2` naming the account with the cached sign-in body, `Token` in it, comparing no password or token, while upstream cannot be reached (upstream code) | `proxy_service.py:491-505`; `auth.py` `load_cached_login_for` (patch 007) |
+| F-02 | Q1 | the service validates neither `Host` nor `Origin`: a page shown on the device can reach the port by DNS rebinding, where F-01's answer is readable | `proxy_service.py` (no check); the sign-in window (T17's) |
+| F-03 | Q1 | the readiness check accepts any LISTEN on `0.0.0.0:8080`, whoever owns it; `ExecStartPost` and `enable` rest on it, while `setsettings.sh`'s own check takes `127.0.0.1:8080` only, so a foreign `0.0.0.0` listener turns the toggle on and every launch goes direct | ctl `port_listening` :925-937, `do_listening` :939-957; unit :40; `setsettings.sh:536` |
+| F-04 | Q1 | the service runs as root with no hardening directive (no `User=`, `Protect*`, `Private*`, `NoNewPrivileges`, `CapabilityBoundingSet`, `RestrictAddressFamilies`, `UMask=`) | `raofflineproxy.service` (R3: 0); against T22's per-unit table at stage C |
+| F-05 | Q2 | the username on `python3`'s argv at four sites, against the file's own rule (*through the environment, never a command line*) | ctl :616, :647, :764, :1029 against :1244-1246, :1265 |
+| F-06 | Q3 | the scan lock that cannot be opened reads as nothing running: `disable` then stops the service under a live run | ctl :492 |
+| F-07 | Q3 | `write_stamp`'s status is ignored by every caller: a stamp that could not be written leaves the row on the last run | ctl :1073-1094 against :2103, :2411, :2423, :2427 (and the cancel, no-games, nothing-new and unreadable paths) |
+| F-08 | Q3 | `list_jobs` opens the store through the client's `Storage()`, whose initialisation sets WAL and creates the schema: the ctl's "read-only" holds for its own connects only | ctl :1417; `storage.py:106-151` |
+| F-09 | Q3 | `verify-cursor` is written directly (no temp and rename), and the helpers' stderr appends to `scan.log` past `slog`'s rotation | `cache-images:169-177`; ctl :1711, :1713, :1876, :1987, :2301, :2366 against :843-846 |
+| F-10 | Q3 | the jobs' fifo is named by `mktemp -u` and made by `mkfifo` (a name, then the object) | ctl :1708-1709 |
+| F-11 | Q4 | the scan has no deadline: its listing and its jobs run with budget 0; only the image pass is bounded | ctl :1987, :2037; the comment at :2062 |
+| F-12 | Q4 | the top-up mark is touched unguarded, and the played check compares the history's mtime with the mark's: a mark dated ahead of the clock holds every later play "not newer" | ctl :2264; :2221, :2235 |
+| F-13 | Q4 | two inputs without a bound: the IDAT inflate (`zlib.decompress` with no `max_length`, the body read whole) and the lookup threads (one per attempt, abandoned at 3 s, uncapped in number) | patch 013 (`image_cache.py` `png_problem`, `_fetch_image`); patch 015 (`network.py` `resolve_host_bounded`) |
+| F-14 | Q4 | `http_post` marks no 429 pause where `http_get` does; with patch 001 the 429 reaches the emulator and nothing paces its next POST (upstream code) | `network.py:549-563` against `:408-409`; patch 001 |
+| F-15 | Q4, Q6 | the recently played pass's result line unreadable with exit 0 reads `0 0 0`, nothing cached; a kill is told apart by its exit | ctl :2372-2380 |
+| F-16 | Q6 | `count_ready` prints `0` when the export cannot be read and the client's count fails behind `tail -n 1` with no `pipefail`; its comment says a number not known is never invented | ctl :888-897 |
+| F-17 | Q6 | one ROM name with a byte invalid in UTF-8 fails the whole listing (`out.write_text(..., encoding="utf-8")` over surrogate-escaped paths): the scan reads `why LIBRARY_UNREADABLE` | ctl :1674, :1987-1989; reproduced: `stage-b/listing-fixture.txt` |
+| F-18 | Q6 | two usage exits: the dispatch's 2, `listening` and `refresh`'s `EX_USAGE` 64 | ctl :2453 against :316, :944, :1935, :1938 |
+| F-19 | Q6, Q7 | the refresh helper prints `note()` lines on the protocol's stdout, and its `done a\|b` means *failed* at the end and *left* at the deadline and on repeated failures; no reader at the pin | `refresh:50-51`, `:170`, `:223`, `:227` |
+| F-20 | Q7 | `CloudText::scanWhy` keeps a row for `NO_GAMES_FOUND`, which no producer emits; the page's comment names `have_account` as if a verb (T20's to tidy) | `CloudText.cpp:1032-1033`; `GuiRetroAchievementsSettings.cpp:154` |
+| F-21 | Q5 | the recipe says *"The16 patches apply at fuzz0"* over eighteen; the siblings name older proxy commits as their pins' source; 020 and 021 carry no header | `package.mk:6`; the siblings' :5-9; patches 020, 021 |
+| F-22 | Q5 | eight patches have no upstream draft (003, 004, 010, 011, 012, 016, 020, 021) and every draft's base is older than the pin: the #585 lines owed | § The patches; `docs/upstream/raofflineproxy/contribution-map.md` |
+| F-23 | Q8 | the proxy-schema check is a comment check (*"runtime schema proof remains separate"*), and `last-good-scripts-test` runs the real ctl in `bwrap` -- the harness's reach and limit stated | R11; `stage-a/last-good-scripts-test.txt` |
+| F-24 | Q3 | the jobs' classifier matches its stop words over the whole line, file name included: a `FAIL` for a ROM named with `login required` or `HTTP Error 401` stops the scan as a refused sign-in | ctl :1750 |
+
+
 ## Positives
 
 The constructed positives, each recorded as it falls (the guest's are owed to the window):
