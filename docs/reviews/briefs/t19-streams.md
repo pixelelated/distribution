@@ -434,3 +434,15 @@ always has one, a precondition the old behaviour supplied -- is completed in
 the stream's commit, the setup line named, no assertion changed; a fixture
 change that would alter what a check asserts is still a reversed check or
 a question.
+
+**Erratum to § S7 (the lane's post of 16:08 UTC, S7 at `54ab8c6c10`):** the
+#188 top-up check at `:2410-2412` is not a check S7 reverses. With the
+stand-in helper present, the ctl before S7 also ends that run rc 1
+`TOOK_TOO_LONG` by the image pass's own time check (the completed suite
+passes 1313 on `7239b1adc1` too); its rc 0 held only while the helper was
+absent, so it belongs to the same fixture completion and is carried over
+that way (the games still count; rc 1, `TOOK_TOO_LONG`). S7's positive is
+its own fixture. The sentence above that calls it the reversed check
+quoted the lane's earlier reading; the record is the lane's commit, `02`
+and `stage-e/s7-suite.txt`. S9's stand-in helper follows the new job
+protocol in S9's commit, the same kind of completion.
