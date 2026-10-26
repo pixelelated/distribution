@@ -1,0 +1,29 @@
+== S5 before (11:38:33Z): the code at S4 (2f109d935; the card's and the job's stop handling unchanged since the pin), S5's cases added to the tests only
+ M es-app/tests/unit/AtomicFileTests.cpp
+ M es-app/tests/unit/CloudTextTests.cpp
+ M tests/app-unit/JobsTests.cpp
+BUILD FAIL es-unit-tests:
+RUN es-unit-tests: not built
+RUN es-file-tests: rc 1; [doctest] test cases: 27 | 26 passed | 1 failed | 0 skipped [doctest] assertions: 3415 | 3410 passed | 5 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/AtomicFileTests.cpp:875: ERROR: CHECK( card.find("CloudText::stopEndedRun(mCancelled, ret)") != std::strin
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/AtomicFileTests.cpp:876: ERROR: CHECK( card.find("if (mCancelled && mPid > 0)") != std::string::npos ) is 
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/AtomicFileTests.cpp:877: ERROR: CHECK( card.find("CloudText::followUpsAllowed(") != std::string::npos ) is
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/AtomicFileTests.cpp:878: ERROR: CHECK( job.find("CloudText::stopEndedRun(true, ret)") != std::string::npos
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/AtomicFileTests.cpp:879: ERROR: CHECK( job.find("(ret == 0 || ret == 9))\n") == std::string::npos ) is NOT
+-- jobs-tests
+BUILD FAIL jobs-tests:
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/tests/app-unit/JobsTests.cpp:185:27: error: ‘testPauseAfterExit’ is not a member of ‘CloudTransferJob’
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/tests/app-unit/JobsTests.cpp:189:27: error: ‘testPauseAfterExit’ is not a member of ‘CloudTransferJob’
+-- es-unit-tests' build error (the decision is inline at the pin; the cases name the function the fix adds):
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/CloudTextTests.cpp:775:15: error: ‘stopEndedRun’ was not declared in this scope
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/CloudTextTests.cpp:776:15: error: ‘stopEndedRun’ was not declared in this scope
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/CloudTextTests.cpp:777:15: error: ‘stopEndedRun’ was not declared in this scope
+-- so the behavioural before for the card is the source guard above and the seats' re-read lines (stage-c/rereads/a33.out, a34.out); for the job, jobs-tests' new case cannot build without its seam
+-- the control (11:41:38Z): jobs-tests with the job's old condition (ret == 0 || ret == 9) put back and the seam kept
+1
+RUN jobs-tests: rc 1; [doctest] test cases: 7 | 6 passed | 1 failed | 0 skipped [doctest] assertions: 31 | 30 passed | 1 failed | 
+TEST CASE:  transfer job: a stop after the run failed on its own keeps the failure (#1150)
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/tests/app-unit/JobsTests.cpp:190: ERROR: CHECK_FALSE( job->stoppedByPlayer() ) is NOT correct!
+-- the fix put back after the control (the file's sha256 equal to the saved fixed copy): yes

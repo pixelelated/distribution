@@ -1,0 +1,19 @@
+== S5 after (11:40:35Z): the fix in the working tree, before its commit
+ es-app/src/CloudText.cpp              | 12 ++++++++++++
+ es-app/src/CloudText.h                | 12 ++++++++++++
+ es-app/src/CloudTransferJob.cpp       | 13 +++++++++++--
+ es-app/src/CloudTransferJob.h         |  4 ++++
+ es-app/src/ThreadedCloudSync.cpp      | 27 ++++++++++++++++++++++++---
+ es-app/tests/unit/AtomicFileTests.cpp | 30 ++++++++++++++++++++++++++++++
+ es-app/tests/unit/CloudTextTests.cpp  | 32 ++++++++++++++++++++++++++++++++
+ tests/app-unit/JobsTests.cpp          | 17 +++++++++++++++++
+ 8 files changed, 142 insertions(+), 5 deletions(-)
+RUN es-unit-tests: rc 0; [doctest] test cases: 189 | 189 passed | 0 failed | 0 skipped [doctest] assertions: 4899 | 4899 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 27 | 27 passed | 0 failed | 0 skipped [doctest] assertions: 3415 | 3415 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN jobs-tests: rc 0; [doctest] test cases: 7 | 7 passed | 0 failed | 0 skipped [doctest] assertions: 31 | 31 passed | 0 failed | 
+-- host g++ -fsyntax-only es-app/src/CloudText.cpp: rc 0 
+-- host g++ -fsyntax-only es-app/src/ThreadedCloudSync.cpp: rc 1 fatal error: SDL_joystick.h: No such file
+-- host g++ -fsyntax-only es-app/src/CloudTransferJob.cpp: rc 1 fatal error: SDL_joystick.h: No such file
+-- non-ASCII comment lines in the touched files: 0
