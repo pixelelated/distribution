@@ -17,15 +17,19 @@
 
 ## Current focus
 
-Not started. The first commit on the distribution branch is the running
-log's header (the model, the effort, `reviewed-at` the distribution HEAD with
-the pin beside it, the host file's last lines, the census),
-`01-research-notes.md` § Scope (the block of brief § 2 with its output and
-the § 5 runs' figures), this pointer updated, and the day's work-log entry
-headed `#667` (prose through a quoted heredoc or the Write tool). The ES
-worktree stays at the pin until stage E. `.qa-scratch/` is gitignored and
-`git status --short` is read before every `git add -A`. No network is used
-except the seats' four keyed invokes.
+**Stage A done (17:30 UTC); stage B next.**
+
+- **Done:**
+  - the first commands, the membership block (every figure as the brief states), and § 5's runs (deltas R5, R14, R17 in `00`);
+  - the unit tests built by the generated commands at the pin, all passing: `es-unit-tests` 185, `jobs-tests` 6, `proxycards-tests` 11. rapidjson is the recipe's own tarball and patches.
+  - `01` § Scope with the 25 and their history, the callers, and the issues.
+  - T19's § What T20 inherits has landed, at `d8c02be1c9`.
+- **Next:** stage B, in this order:
+  - `02`: Coverage (25), the credentials' paths, the pages, the contract (consuming T19's table), the reader, the hasher, the library, the runs;
+  - the two kickoff notes read at their lines;
+  - `generic-x64-vm-testing.md`'s ranges;
+  - the window request on #667, with its plan and bound.
+- **Temporaries:** under `/workspace/tmp/m6-t20/`: the runs, the rapidjson copy, and the test build.
 
 ## Next commands
 
@@ -63,4 +67,4 @@ worktree, or a guest outside the one granted window.
 
 ## Checkpoints
 
-- (none yet; the executor appends one line per stage: the stage, both tips, the time)
+- Stage A, 17:30 UTC: distribution `<A-commit>`, ES at the pin `16dbac5211` (unchanged).
