@@ -518,3 +518,99 @@ the addendum above had assumed:
   switches, so their store is right.
 - The stream prediction stands at three (with #1154's as a fourth if ruled
   this lane's).
+
+### T21 kickoff addendum (written with the brief's version 1, 2026-10-26)
+
+**The plan, in the order's words:** T21 is *EmulationStation's state
+primitives and its bridge to the OS*, lens security and state preservation,
+Extended: *`Settings`, `SystemConf` and `AtomicFileUtil` write
+`es_settings.cfg`, `system.cfg` and the last-good copies; `HttpReq` is the
+network client; `ApiSystem` assembles the shell commands every page runs,
+from player-entered strings (Wi-Fi, accounts); `GuiWifi` and
+`ScreenScraper` carry credentials*. 14 paths, 9,249 lines; 12 exist in
+ROCKNIX's master and are rewritten by the fork, `AtomicFileUtil.*` is new.
+The brief is `docs/reviews/briefs/es-state-and-bridge.md`.
+
+**Assumptions the plan leans on and does not state:**
+
+- *That the shell quoting is one rule.* It is two: `shellQuote` where the
+  fork wrote the call (13 sites, all `wifictl`) and double quotes where
+  upstream did (16 functions, two live on this image: `7z` over a ROM's
+  path, poppler over a manual's). A file name is a player's string.
+- *That a failed script fails.* `executeEnumerationScript` discards the
+  exit (`:2251`), so a failed `rocknix-systems` reads as "no BIOS problem"
+  at every launch; eleven `WEXITSTATUS` reads without `WIFEXITED` read a
+  killed child as exit 0.
+- *That the two stores share one contract.* They share the primitive:
+  `SystemConf` is locked and records after a re-read; `Settings` is
+  unlocked, its maps unguarded under a worker's save, 0644 with
+  credentials inside, and has no unit test.
+- *That D-CLOUD-078 holds on the OS side.* The shell writers rename with
+  no `fsync`, `chksysconfig` with no lock, `post-update` in place, and
+  `set_setting` seeds a missing `system.cfg` from `/usr/config` before the
+  lock and without the record.
+- *That the mode is the writer's.* A replaced file keeps its bits (T1's
+  PL-023): a 0644 `system.cfg` on an upgraded device stays so whatever the
+  new writer does. The question is `upgrade-and-install.md`'s.
+- *That the credential's sink is the file.* The Wi-Fi key is argv of four
+  processes for up to 150 s; the scraper's account sits in a 0644 file;
+  the server's error body is logged verbatim; the peer is never verified
+  (#1154).
+- *That the mask reaches the output.* `maskSecrets` guards the command
+  line at four sites and never a script's stdout, which
+  `executeScriptLegacy` echoes to the journal.
+- *That the host builds the tests.* It does not (#1137); the generated
+  `g++` command does, and `ApiSystem.cpp`, `GuiWifi.cpp` and
+  `ScreenScraper.cpp` include SDL or curl.
+- *That `Settings.cpp:420` is a live default.* It is a `#if WIN32` mirror
+  (`:417-433`), where `SystemConf` forwards to `Settings`; T20's brief
+  carries it as a lead and its lane is told at dispatch.
+
+**Known unknowns:** the NetworkManager keyfile's mode after a join (the
+guest); whether a media URL carries the account, where `ssid=<username>`
+is unmasked at LogDebug; which service runs EmulationStation on the
+pixelelated image (`emustation.service` or `essway`), hence where the echoed
+stdout lands; whether the image carries a CA bundle `HttpReq` could verify
+against (the #1154 fix's design question, for the stage-D pause); where
+`Paths.cpp` puts `system.cfg`; the boot ordering of `001-setup` and
+`save-sysconfig.service` against EmulationStation's first save (T22's,
+read here); whether any page shows the "Error starting command" string;
+the p7zip recipe's install step and the `7zr` it never names.
+
+**Patterns:** T18's shape (the same lane kind, the same host floor, the
+generated `g++` build, the stage-D pause, `02`'s generated sections);
+T1's audit on the other end of `system.cfg` (PL-004, PL-014, PL-023: the
+inherited half, cited not re-found; a fix in those files is T1's and lands
+only on the coordinator's ruling); T2's own T21 lead at its `:611`; #102's
+arc -- the truncated stores gave D-CLOUD-078, the EmulationStation side got
+the record and the lock (#320), the shell side got modes (#421) and not the
+record; blindspot 43 (a log with a password; `redact_credentials` is the
+guard, and none of these files writes that log); the replaced-mechanism
+archetype -- `AtomicFile` replaced the in-place write for two stores, and
+five state writers still write in place.
+
+**What we could be missing (the simulation):** a lane that files the
+discarded exit as a bug and fixes it by failing the launch when
+`rocknix-systems` fails -- the fix lands on the launch path; the ruling is
+read the exit and say so, never block the launch. A lane that gives
+`Settings` the `PidLock` and makes every page close take two locks --
+measured on the guest before it is written. A lane that fixes the shell
+writers -- T1's files, the pause. A lane that proves the key on argv by
+printing `/proc/<pid>/cmdline` -- the value in the transcript; the brief
+says a masked count. A lane that pastes the generated `g++` line into `02`
+-- never. A lane that runs `git status` in the `qa-integration` checkout --
+another lane's tree; `W` is its own. A lane that reads #1154 as its to fix
+at stage A -- fixes land only under a stream brief, and the design question
+goes to the pause. A lane that spends the window's first minutes on the
+live scraper sign-in -- last, if the bound allows. A lane that constructs
+the `7z` positive on a device -- never; the guest, a scratch library.
+
+**Adjustments before execution:** carried into the brief: #1154 cited not
+re-found; the four `maskSecrets` sites and both echo lines reproduced at
+the pin; the WIN32 mirror; the per-file deltas by `numstat`; the
+merge-base count reproduced (12); T1's files named as T1's with the ruling
+route; `rc=$?` on its own line; `g++`'s first error line, not its last;
+the `7z` positive on the guest; the key on argv as a masked count. Owed
+before dispatch: the stranger's proof of version 1, version 2 with its
+corrections, this futro's errata section, the kit. Owed at T20's dispatch:
+the note that `Settings.cpp:420` is WIN32-only.
