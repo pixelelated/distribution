@@ -1,0 +1,9 @@
+led.color=unset: rc=0 brightness=['255'] multi_intensity=['0 255 0'] lit=yes
+led.color=rgb: rc=0 brightness=['0'] multi_intensity=['0 0 0'] lit=no
+led.color=battery: rc=0 brightness=['255'] multi_intensity=['0 255 0'] lit=yes
+summary: unset lit=yes, rgb lit=no (control), battery lit=yes
+--- RP6 (upstream):
+led.color=unset: rc=0 brightness=['255'] multi_intensity=['0 255 0'] lit=yes
+led.color=rgb: rc=0 brightness=['0'] multi_intensity=['0 0 0'] lit=no
+led.color=battery: rc=0 brightness=['255'] multi_intensity=['0 255 0'] lit=yes
+summary: unset lit=yes, rgb lit=no (control), battery lit=yes

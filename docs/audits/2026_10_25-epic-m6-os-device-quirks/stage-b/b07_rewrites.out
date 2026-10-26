@@ -1,0 +1,25 @@
+106
+AYANEO Pocket S2/050-game-configs:6
+AYANEO Pocket S2/050-game-configs:7
+AYANEO Pocket S 2K/050-game-configs:6
+AYANEO Pocket S 2K/050-game-configs:7
+AYN Odin 2/050-game-configs:6
+AYN Odin 2/050-game-configs:7
+AYN Odin 2 Portal/050-game-configs:6
+AYN Odin 2 Portal/050-game-configs:7
+AYN Odin 3/050-game-configs:6
+AYN Odin 3/050-game-configs:7
+AYN Thor/050-game-configs:8
+AYN Thor/050-game-configs:9
+AYN Thor Lite/050-game-configs:8
+AYN Thor Lite/050-game-configs:9
+Retroid Pocket 5/050-game-configs:10
+Retroid Pocket 5/050-game-configs:11
+Retroid Pocket Mini/050-game-configs:10
+Retroid Pocket Mini/050-game-configs:11
+if [ ! -f "/storage/.config/commander.cfg" ]; then
+cat <<EOF >/storage/.config/commander.cfg
+disp_ppu_x=4
+disp_ppu_y=4
+EOF
+fi

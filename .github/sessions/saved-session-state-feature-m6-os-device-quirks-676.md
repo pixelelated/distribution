@@ -16,14 +16,17 @@
 
 ## Current focus
 
-**Stage A complete; stage B next** (updated 2026-10-25, 11:50 UTC).
-- **`reviewed-at`:** `5ee0dfefcf`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-os-device-quirks/`, with `00`, `01` (§ Scope) and `stage-a/` (22 runs, all rc 0).
-- **Deltas from the brief:** 26 distinct boards, not 28; P1's 15 tools files in the first command's diff.
-- **Next (stage B):**
-  - the generator under the audit folder's `tools/`: the 88 entries asserting 333 / 88 / 65 / 23, and coverage 333;
-  - § The selection, § The tiers, § The fork-own five, § The shape, § The upstream delta, § The runs;
-  - tier B read line by line;
-  - `03` and `04`.
+**Stage B complete; stage C next** (updated 2026-10-26, 04:55 UTC).
+- **`reviewed-at`:** `5ee0dfefcf`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-os-device-quirks/`, with `00` to `04`, `stage-a/` (22 runs), `stage-b/` (16 reads), `tools/t29-tables.py` and `tools/t29-battery-unset.py`.
+- **Findings:** ten.
+  - F-01 (Low, a candidate bug in the fork-own Nova `battery_led_status`: unset `led.color` lights the sticks at every boot, fixture-proven);
+  - F-02 (the owned H700 units need no device entry);
+  - F-03 (`050-game-configs` reverts RetroArch's audio at every boot);
+  - F-04 (#332's shapes on four tier-B boards);
+  - F-05 (two `led.brightness` dialects);
+  - F-06 to F-10 Info.
+- **The host:** handed to M7 for a bounded window (2026-10-26 04:47). This lane does host-only reads and Python; the seat's two calls are network only.
+- **Next (stage C):** the packet (trimmed and scanned, with its manifest), `review-plan.json`, the probe and the refutation, `04` § Second opinion, `05`, the pre-issue lint; then stage D.
 - **Running for this lane:** nothing.
 
 ## Next commands

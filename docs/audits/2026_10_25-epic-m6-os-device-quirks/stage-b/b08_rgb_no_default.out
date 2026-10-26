@@ -1,0 +1,13 @@
+== AYANEO Pocket EVO/bin/ledcontrol
+100:    LEDS_CONFIG=$(get_setting analogsticks.led)
+101:    /usr/bin/analog_sticks_ledcontrol ${LEDS_CONFIG}
+== AYN Odin 2 Portal/bin/ledcontrol
+26:    LEDS_CONFIG=$(get_setting analogsticks.led)
+27:    /usr/bin/analog_sticks_ledcontrol ${LEDS_CONFIG}
+== Retroid Pocket Nova/bin/ledcontrol
+48:    # analogsticks.led is the seven numbers the stick-colour page writes
+53:    LEDS_CONFIG=$(get_setting analogsticks.led)
+56:      LEDS_CONFIG="${B} 255 255 255 255 255 255"
+58:    /usr/bin/analog_sticks_ledcontrol ${LEDS_CONFIG}
+99:LEDS_CONFIG=$(get_setting analogsticks.led)
+100:/usr/bin/analog_sticks_ledcontrol ${LEDS_CONFIG}

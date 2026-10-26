@@ -1,0 +1,8 @@
+24:    max) echo 255 ;;
+25:    mid) echo 128 ;;
+26:    min) echo 32 ;;
+62:    # LED BRIGHTNESS (max|mid|min): the case the row called and nothing
+13:# Brightness for the status colours, taken from the led.brightness setting
+14:# (percent, 0-100) so the EmulationStation slider applies in battery mode too.
+18:  pct=$(get_setting led.brightness)
+21:  BRI=$(( pct * 255 / 100 ))

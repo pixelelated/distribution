@@ -1,0 +1,9 @@
+100644 blob 8d9664658d06feff2077691a0c159a5dabf7a816	AYN Thor/009-commander-cfg
+100755 blob dad0e9ad8f93d40d32dfee5f02271e6aafde5890	AYN Thor/010-analog_sticks_led_control
+100644 blob 3624c43bb8917ef668f573d0101569b5f6aaec13	AYN Thor/050-game-configs
+040000 tree 9744255a6d566b11d9b4fff661b4c862450cf3f3	AYN Thor/bin
+100644 blob 189a7dfffad93239ad61e1d1ca519616cca16658	AYN Thor/touchcontrol
+4:mkdir -p /run/udev/rules.d/
+5:cat <<EOF >/run/udev/rules.d/99-touchscreen-calibration.rules
+16:udevadm control --reload
+17:udevadm trigger -s input

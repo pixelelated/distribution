@@ -1,0 +1,18 @@
+7:SERIAL_DEVICE="/dev/ttyHS0"
+10:stty -F $SERIAL_DEVICE 115200 -clocal -opost -isig -icanon -echo
+13:printf "\xe7\x55\x05\x01\x00\x00\x00\x00\x00\x5b\xed" >$SERIAL_DEVICE
+15:printf "\x35\x35\x30\x35\x30\x31\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30" >$SERIAL_DEVICE
+7:SERIAL_DEVICE="/dev/ttyHS0"
+45:exec 20<>$SERIAL_DEVICE
+46:stty -F $SERIAL_DEVICE 115200 -opost -isig -icanon -echo
+66:echo -ne "$CMD" > $SERIAL_DEVICE
+69:exec 20>&-
+10:SERIAL_DEVICE="/dev/ttyS2"
+26:RIGHT_RED=$2
+27:RIGHT_GREEN=$3
+28:RIGHT_BLUE=$4
+43:exec 20<>$SERIAL_DEVICE
+44:stty -F $SERIAL_DEVICE 115200 -opost -isig -icanon -echo
+52:  PAYLOAD+=$(printf '\\x%02X\\x%02X\\x%02X' $LEFT_RED $LEFT_GREEN $LEFT_BLUE)
+58:  PAYLOAD_BYTES+=($LEFT_RED $LEFT_GREEN $LEFT_BLUE)
+64:echo -e -n "$PAYLOAD" > $SERIAL_DEVICE

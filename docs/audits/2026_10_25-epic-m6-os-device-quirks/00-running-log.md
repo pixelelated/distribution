@@ -56,3 +56,32 @@
 - **Nothing of the never-run list ran.**
 - PROOF: P1, the membership: r01, r02, r04.
 - PROOF: P2, the history and the delta: r13 to r16.
+
+## [Stage B] 2026-10-25 11:52 to 11:57 UTC, cut; resumed 2026-10-26 04:50 to 04:55 UTC — the tier-B read, the generator, the findings
+
+- **The cut.** An API rate limit cut the session at 11:57 UTC on the 25th, while `02` was being written. The worktree stayed at `e8dcd0ace5`, with `tools/` untracked (the two generators) and the scratch intact. Resumed at 04:50 UTC on the 26th on the coordinator's prompt.
+- **The host** was handed to M7 for a bounded window (the host file's 04:47 blocks). This lane did host-only reads and Python. The live QEMU on the host is T16's (pid 4160936), not touched.
+- **The tier-B read:** 70 paths as 26 distinct blobs, 1,692 lines, each read once with its sharers noted. The fork-own five were read whole.
+- **The fixture:** `tools/t29-battery-unset.py`, run at 11:54:26 on the 25th and again in b04. The Nova's `battery_led_status` with `led.color` unset lights all eight LEDs green at 255. The `rgb` control stays unlit, and upstream's RP6 copy behaves the same.
+- **The reads:** `stage-b/reads.sh`, 16 steps, all rc 0 (`stage-b/runs.tsv`). b03 found 4 `led.color` lines outside the quirks, all reads (`led_flash:7`, `rocknix-fake-suspend:140`, `powerstate.sh:16`, a comment), so nothing seeds a default.
+- **The generator:** `tools/t29-tables.py`, sections `entries` (88, asserting 333 / 88 / 65 / 23), `boards` (28 / 26 / 15), `delta` (31: 16 A 3 D 12 M), `coverage` (333), `runs` (22) and `counts`; `check` same.
+- **Deltas found at stage B:**
+  - `AYN Thor/touchcontrol` is a file the loop runs;
+  - `rocknix-info:12` has the `/` → `-` sed the brief says is absent.
+- **Corrected before commit:**
+  - F-03's tier-B count (four, not five) and F-01's (seven tier-B copies, not four), against b07 and b02;
+  - `03`'s restore seam, which said a backup carries `profile.d`. `backuptool:288` carries `retroarch/*`, and `profile.d` is not in its list.
+- **Findings:** ten. F-01 (a candidate bug, fork-own), F-03 and F-04 Low; seven Info.
+- **Nothing of the never-run list ran.** `git diff --stat 5ee0dfefcf HEAD -- packages projects tools` is empty.
+- PROOF: P3, the branch and the removal rule: r03, r20.
+- PROOF: P4, the selection lines: r05 to r08.
+- PROOF: P5, 26 boards, 15 HAS, 11 NONE: r09 to r11, r21, r22, `boards`.
+- PROOF: P6, the tiers: r12, b01.
+- PROOF: P7, the fork-own five read whole: b15 and the files.
+- PROOF: P8, the battery loop at boot: b02, b03, b04 (fixture).
+- PROOF: P9, the owned H700 units: b05, b06.
+- PROOF: P10, tier B's Q2 shapes: b07 to b11.
+- PROOF: P11, the shape and the weight: r17, r18, b12.
+- PROOF: P12, the delta's 31 paths and 18 commits: `delta`, b13.
+- PROOF: P13, `rocknix-info`'s derivation: b14.
+- PROOF: P14, the tables regenerated: `check` 0.

@@ -1,0 +1,25 @@
+001-device_config
+002-turbo-mode_config
+006-panfrost
+010-governors
+010-led_control
+020-fan_control
+020-set_audio_latency
+030-analog_leds
+030-suspend_mode
+040-wifi_probe_retry
+050-modifiers
+090-ui_service
+091-ui_shader
+400-set_gpu_overclock
+bin/analog_sticks_ledcontrol
+bin/gpu_overclock
+bin/ledcontrol
+sleep.d/post/003-codec
+sleep.d/post/004-led
+sleep.d/post/005-usbgadget
+sleep.d/pre/003-codec
+sleep.d/pre/004-led
+7:if [ $DEVICE_ANALOG_STICKS_LED_CONTROL == "true" ]; then
+bash: line 1: [: ==: unary operator expected
+unset flag: rc=2
