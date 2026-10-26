@@ -237,6 +237,16 @@ So, before stating what code does:
   prose, a second table. Read to the bottom before repeating the top.
 - **Say which one you did.** "The row's timestamp moved" and "the function is
   called refresh" are different sentences, and only one of them is evidence.
+- **A count, a line number or a hash is a claim about one tree.** Produce it by a
+  command run at the hash the claim is about, and mark anything else as the
+  branch's. A hash is copied by a command, never completed from a prefix by
+  memory: a bug body's sha256 typed from its first sixteen characters had a
+  wrong tail, caught only because a check compared every body with its recipe
+  (T7, 2026-10-24). A figure typed from the session's memory, or read off the
+  working tree for a read pinned to a hash, is this same error at the
+  altitude of a number: every renovation brief's version 1, and T4's own
+  draft, carried counts from the wrong tree until a reader with no context
+  reproduced each one (blindspot 75, 2026-10-24).
 
 
 ## A promise is not a mechanism: report the running state, not the intention
@@ -373,6 +383,20 @@ condition under which it stays silent while the thing it watches is dead:
 A watch whose silent-failure mode has not been named has not been thought
 through.
 
+**A granted guest window names what stops the guest at its bound, or says
+that nothing does (2026-10-26, #1135).** T16's window was granted for 30
+minutes; its lane's session was cut by an account limit; the guest ran twenty
+hours, because the mirror that knew the bound only mirrored. The same day the
+coordinator's mirror matched one shape of a lane's START post and said
+nothing when the next lane wrote another, and a host-file monitor keyed on
+one program's line shape and missed the other program's for an hour. A watch
+written as a session loop has had no positive and names no exit for "the
+thing I watch did not happen". So a grant names the post contract the lane's
+START and RETURN must meet, the mirror's output is read within a minute of
+the lane's post, and the grant says what stops the guest at bound plus grace
+-- a tool with that exit, or the sentence *nothing does; the coordinator
+reads the clock*. A silence that cannot be told from success is not a watch.
+
 ### Why this one has no tool behind it
 
 Every other rule here can be checked by something: `pkgcheck`, `register-check`,
@@ -437,6 +461,14 @@ So:
 
 An assertion that cannot fail is not evidence. Ask what input would produce a
 FAIL; if you cannot name one, the check proves nothing.
+
+**Capture `rc=$?` on its own line, directly after the command (2026-10-25,
+#692).** The shell expands a word left to right, so `echo "$(tail -1 out)
+rc=$?"` reports the substitution's exit, not the command's, and a FAIL reads
+as `rc=0`. Three misreads in one day across two lanes (T14's and T45's stage
+A and B, friction 2026-10-25 02:59 UTC) met the P1 retro's trigger. So:
+`cmd; rc=$?` on the next line, then the echo that uses it; never `$?` after a
+`$(...)` in the same word, and never in a pipeline's last stage.
 
 **A fixture for a secret scanner is built at run time, never written as a
 literal (2026-09-28, #307).** `tools/last-good-scripts-test`'s cases for the

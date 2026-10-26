@@ -310,14 +310,57 @@ sections (§ 7).
 | B. Read | code-auditor Phases 1 to 4 over the paths, with Phase 2's criteria being the slice issue's checklist and Phase 3 carrying the seven questions of § 4 as its renovation face beside the skill's own faces | `02-forward-audit.md`, `03-retrospective.md`, `04-analysis.md` |
 | C. Second opinion | Phase 4.5 self-refutation, then Phase 4.6 at the slice's depth (§ 6c) through the Facilitator; the served model verified | `04-analysis.md` § Second opinion, `second-opinions/` |
 | D. Punch list | Phase 5 and 6: `05-punch-list.md` with the YAML index, every item with its question (Q1 to Q7), severity, category, where, acceptance; the punch-list issue with one checkbox per item | the audit issue, `audit`, `punch-list` labels |
-| E. Remediation | one brief per stream of related items (the D-WORKFLOW-056 shape: the verdict's lines, the fix as a specification, the test first, the `Already written:` line, the files owned, the commit shape); the executor works each stream on a branch and delivers the branch, never a build | `streams/briefs/*.md`; `feature/m6-<slice>-<stream>` branches |
-| F. Verification | every behaviour claim proven on the VM (`vm-first.md`), every mechanical check run (`tools/pkgcheck`, `tools/vm-qa` suites that cover the paths, `tools/es-syntax-check` for ES); Phase 7 outcomes re-derived from commands | the outcomes in the audit issue; `audit-completion.json` |
+| E. Remediation | the executing lane pauses after stage D; the **coordinator** writes one brief per stream of related items (the D-WORKFLOW-056 shape: the verdict's lines, the fix as a specification, the test first, the `Already written:` line, the files owned, the commit shape; and, from T1's retro (#648, 2026-10-24): commits are cut from intermediate trees only after a green run of the whole harness, so a fault the passing run finds never reaches history, and a stub or a fixture is part of the claim -- a guest proof prints each stub's call count and each bound file's hash beside the tree's before its verdict (#797); a brief is planning, D-WORKFLOW-189) and names the branch each stream lands on (the slice's own branch by default, one commit series per stream); the executor works each stream and delivers the branch, never a build | `streams/briefs/*.md`; the slice branch, or `feature/m6-<slice>-<stream>` where the coordinator says so | **A commit names its paths** (`git add -- <the stream's files>` or `git status --short` read before each commit, not only after): T3's S5 swept a staged deletion into the wrong commit on 2026-10-24. **A host regeneration runs under `env -i` in the C locale**, as the build does: `mk_es_systems` sorts with `ls | sort`, and an `en_US` shell regenerated a table that matched no image (T3's S2). **A time is produced, never typed**: from `date -u` in the same command, and from the tool #843 proposes once it lands. **A fixture runs the real script over fixture files where its tools can be borrowed read-only from a build root** (T5's E1 used the SM8550 root's mtools); a lifted block proves the block, not the route. **A fixture lifts by marker lines and takes a commit or `WORKTREE` argument**, so before and after are one command. **Before a guard fails closed, the recorded builds are read for what it would meet**: a new failure on a path every build takes is a regression, not a guard (T5's E1 and E6 read 26 and 3 recorded roots). **A count that goes into a decision row is taken per shape, not per file** (D-WORKFLOW-194: five archive versions, not eight recipes). **A tree export or a simulated merge is made under `/workspace/tmp/<lane>/`, never in the session's scratch directory on `/tmp`**, after `df -i`: that tmpfs has about a million inodes, and two lanes unpacking trees there in the same minutes ran it out on 2026-10-24 while `df -h` showed 22 GB free. **Prose goes into a running log or a note through a quoted heredoc (`<<'EOF'`) or the Write tool, never an unquoted one**: an unquoted heredoc expands every backticked name in the prose as a command, and on 2026-10-24 at 10:44 T7's log entry ran `scripts/update_packages` -- on the brief's never-run list -- which rewrote a recipe in the worktree and fetched an archive before the lane reverted it (#654, its running log § Incident). **A reading of what a plan builds expands every field the build reads, per plan, through `config/options`** -- `PKG_VERSION`, `PKG_SHA256`, `PKG_URL` *and* `PKG_ARCH` -- not the three a table names: `btrfs-progs`'s override is `PKG_ARCH="aarch64"`, so GENERIC_X64 never builds it although `viewplan` and the inventory list it (#879; T7's retro). **A `sed` that strips a version suffix from directory names is checked against the names it will meet** (`grep -- '-[0-9]'` over the list first): `ntfs-3g_ntfsprogs` was cut to `ntfs` by T7's brief and read as unbuilt.
+| F. Verification | every behaviour claim proven on the VM (`vm-first.md`), every mechanical check run (`tools/pkgcheck`, `tools/vm-qa` suites that cover the paths, `tools/es-syntax-check` for ES, or its proven recipe while #699 is open); Phase 7 outcomes re-derived from commands | the outcomes in the audit issue; `audit-completion.json` |
 | G. Learning | the mini-retro skill over the slice; findings that recur become a rule edit, a tool, a blindspot entry with its guard, or a work-log entry (`learning-capture.md`); Instruction-Recommendations mode runs because the scope is epic tier | `docs/retros/<date>-m6-<slice>.md`; rule and register edits |
-| H. Close | the slice issue's `reviewed-at` set to the tree hash the read was made at and the hash the fixes merged at; the inventory rows updated; `tools/renovation-status` regenerated; the M6 body's current/next moved | the issue closed `completed` with the commits named |
+| H. Close | the executor posts the hand-back on the slice issue with `reviewed-at:` (the lane's commit the read was made at, its slice bytes equal to `next`'s named hash) and `fixed-at:` (the lane's tip when the fixes are complete) written in the issue's body; the **coordinator** accepts, closes the issue `completed` with the commits named, writes `reviewed_at` and `fixed_at` into `slices.json`, and after the branch merges to `next` regenerates the inventory, `tools/renovation-status` and `tools/renovation-drift` (a drift diff means something only once `fixed-at` is an ancestor of `next`) and moves the M6 body's current/next (D-WORKFLOW-189) **A slice with a fix only an image can show** (every interface slice, whose fixes need a pin bump to reach a binary, `fixed-at-es:` set; and an OS slice's fix to a recipe or a unit as installed, such as a seeded file's mode or a unit's timeout) is accepted at hand-back, its branches merged in their turn by the coordinator (the ES branch into `test/qa-integration` with the pin bumped), and closed only when the first image carrying the fix proves it on the guest; the lane lists each such fix as a `proved: fix-walk-pending-image` or `fix-pending-image` row in `02-forward-audit.md`, and `tools/renovation-status` lists the slice as `remediating` in between (2026-10-23, #700's futro and T1's S5; which build carries the renovation's fixes is D-WORKFLOW-191, open) | the issue closed `completed` with the commits named |
 
 `tools/lint-audit-artifacts` runs before stage D and again before stage H;
 the renovation face is added to its checks in P1 so a slice without the seven
 questions answered fails the lint rather than a reader's attention.
+
+**The stream practice (added 2026-10-26 from T17's second hand-back, #664).**
+A stage-E stream that changes a script `tools/last-good-scripts-test` covers
+runs that suite before its commit and names the run in `02` § The streams;
+a stream that changes an EmulationStation source runs the unit tests and
+the syntax check the slice's brief names, or records their `CANNOT`. T17's
+S3 narrowed a check too far and the suite found it only at S7
+(`c3e260861b` put it right); the suite before the commit would have found
+it at S3. Every stream brief carries the line. Two more from the same
+hand-back, for a stream that proves a fix with a host fixture: a fixture that
+rewrites a script's absolute paths asserts, before it runs, that its scratch
+root lies outside every prefix it rewrites (T17's cost two guest re-runs),
+and the better shape rewrites nothing -- the real script in an unprivileged
+sandbox with `/storage` on scratch; and a host sandbox starts from an empty
+environment (`bwrap --clearenv`), since #549's lesson about `TMPDIR` holds at
+every execution boundary, not only Docker's. Every stream brief carries
+those two lines when a fixture is in its plan.
+
+**The brief practice that grew in P2 (added 2026-10-26 from the coordinator's
+retro, `docs/retros/2026-10-26-m6-coordinator.md`).** Before any dispatch: a
+**stranger's proof** -- a reader with no context, at most ten commands, from a
+scratch clone, runs the brief's membership block and its runs block and
+spot-checks every figure and line number; **version 2** of the brief records
+each correction in a list at its end, and the futro's kickoff addendum takes
+an errata section. In the brief itself: **every figure names its population**
+(the slice's paths, the directory, the tree), **every block is runnable from a
+clone** (path-safe forms: `-z`, `xargs -0`, Python over `ls-tree -r -z`; never
+`awk '{print $4}'` or `$(cat paths)` over paths that may carry spaces),
+**every binary or path is named only after `ls` has seen it**, and a claim
+about a writer or a caller comes from the grep that finds the write, not from
+a verb's name in a comment. At acceptance the lane's deltas become an **errata
+section** appended to the brief, never edited into its sections: the brief is
+the record of what was asked. Every version-1 brief of P2 needed its proof
+(twelve to seventeen corrections each), and twice the proof refuted the
+premise the lens was built on. A claim about another repository's table -- a `whySentences` row, a
+catalog's entry, a menu map's line -- names the read that shows it at that
+repository's pin, as the membership block does for this one; T17's S6 was
+briefed on a row the table did not hold (#1133's criterion was reworded). A count a brief states is produced by the binary a script will get --
+`/usr/bin/grep`, `command grep` -- never the interactive shell's `grep`, which
+here is a ugrep function with a different dialect: T18's declaration count
+read 47 there and 44 under GNU `grep -E`, which takes `\s` inside `[...]`
+literally (#1138). The stranger's proof runs from a script for the same
+reason.
 
 ### 6c. Review depth per slice
 
@@ -350,8 +393,12 @@ start to finish without this conversation. Its sections, in order, each
 mandatory:
 
 1. **Identity**: the slice issue, the epic, the milestone phase, the branch
-   and worktree (`feature/m6-<slice>` under
-   `/workspace/repos/pixelelated/distribution.worktrees/<slice>`), the model
+   and worktree (`feature/m6-<slice>-<issue>` under
+   `/workspace/repos/pixelelated/distribution.worktrees/m6-<slice>-<issue>`,
+   the issue number appended, as T1 #648 and T2 #649 do; an interface
+   slice adds an EmulationStation worktree
+   `emulationstation-next.worktrees/m6-<slice>-<issue>` on
+   `feature/m6-<slice>-<issue>` from the pin), the model
    and effort the maintainer selected, the review depth and reviewer
    recipes.
 2. **Scope**: the paths, the tree hash they are read at, the line count per
@@ -362,13 +409,17 @@ mandatory:
    context).
 3. **Read first**: the rule files in scope by name, read from `next`; the
    blindspot entries that touch these paths by number; the prior audits of
-   these paths under `docs/audits/` (as provenance, verdicts sequestered
-   until Phase 2.5); the decisions by ID that settle questions the slice
+   these paths under `docs/audits/` (as provenance; the skill has no Phase 2.5 at
+   epic tier, so the verdicts are read after the slice's own Phase 2 is
+   written, compared then, and never transcribed into it); the decisions by ID that settle questions the slice
    might otherwise re-open.
 4. **The questions**: § 4's table restated for this slice, with the questions
    that do not apply struck and the reason (a provenance table has no Q5).
-5. **The evidence floor**: the code-auditor's four rules verbatim; what runs
-   on the VM and how (`generic-x64-vm-testing.md` § headless); what never
+5. **The evidence floor**: the code-auditor's rules as its SKILL.md § Evidence
+   floor lists them; what runs on the VM and how (`generic-x64-vm-testing.md`
+   § headless), with every tool the brief names run with `--help` and every
+   host path it names listed before the brief is committed (the first
+   slice brief had six such claims wrong, futro 2026-10-23); what never
    runs (no device, no cloud, no build in a build worktree, no edit to a tool
    that is in flight, no `pkill -f`).
 6. **Outputs**: the audit folder name, the six phase files, the YAML index,
@@ -452,7 +503,7 @@ Feature work (M7 and after) lands on `next` while slices run. The rules:
 | The order and the method | `docs/reviews/order.md`, this file | P0, P1 |
 | The inventory | `docs/reviews/inventory.json`, `inventory.md` | `tools/renovation-inventory`, re-run at every stage H |
 | The status table | `docs/reviews/status.md` | `tools/renovation-status`, from the inventory and the slice issues |
-| Drift | `tools/renovation-drift` output, pasted on the slice issue | every stage H |
+| Drift | `tools/renovation-drift --write docs/reviews/drift.md`, its table also pasted on the slice issue | the coordinator, after every slice's branch merges to `next` |
 | The briefs | `docs/reviews/briefs/<slice>.md` | the planner, before dispatch |
 | The audits | `docs/audits/<date>-epic-m6-<slice>/` | the executor, per slice |
 | Decisions | `docs/decision-register.md` | the session that makes one, same session |
@@ -499,3 +550,9 @@ None blocks P1; each is answered by a register row when settled.
 5. **The canonical stash with two lanes** (§ 8, last rule).
 6. **The legacy checkout** (#640): when M7's build worktrees move and the
    old directory is retired.
+7. **Which build carries the renovation's EmulationStation pin bumps**
+   (D-WORKFLOW-191, from #700's futro on 2026-10-23): the renovation's
+   pins ride the M7 lane's next build, or the coordinator asks the
+   maintainer for a GENERIC_X64 build per batch of interface slices.
+   Until the answer, an interface slice is `remediating` from hand-back
+   to the first image that proves its fixes (§ 6b stage H).
