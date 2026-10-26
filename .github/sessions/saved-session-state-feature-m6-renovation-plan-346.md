@@ -127,6 +127,8 @@ today:** `.githooks/pre-commit` refuses a conflict marker (#696).
 
 **05:1x-05:4x UTC (2026-10-26):** T17's research digest in (`$S/t17-research.md`; the order's "all fork-own" corrected: `backuptool` is the fork's rewrite of upstream's 68-line script) and **T17's brief, version 1, at `4aedca2d78`** (`docs/reviews/briefs/cloud-setup-content.md`, 738 lines, 17 criteria, Extended, the security lens; the cloud futro's T17 addendum beside it). The stranger's proof runs as a subagent (cap 10, `$S/t17-proof.md`); version 2 and the errata follow; the dispatch waits for an idle lane session (T5 is on T29's stage C; T1 and T3 at the weekly limit) and its guest window for M7's RETURN and T16's re-granted window. Monitors re-armed 05:4x.
 
+**05:2x-05:5x UTC (2026-10-26):** T29 at its stage-D pause (`ce2af0ca7c`; #1120 bug, #1121 audit) **ruled 05:5x**: PL-03 (the VM take-back's unbounded first pass) a `bug` the lane files, not a record; two streams under `docs/reviews/briefs/t29-streams.md` at `7130f9b74b` (S1 #1120, S2 the take-back); #585 and #332 texts written by the lane in `05`, posted by the coordinator at acceptance; **#1122** and **#1123** filed under #695 for PL-11 and PL-13; PL-12 cites #1119. The T5 session prompted and working on stage E. At acceptance: `AUDIT_ISSUE=1121 BUGS="1120 <S2's bug>" DISPATCH_TIP=5ee0dfefcf $S/t29-accept.sh <merged tip> <coordinator tip>` (the script expects version 2's history figures), the errata from `$S/t29-errata.md` (26 boards; `touchcontrol` a file; `rocknix-info:12` converts `/`), the #585 lines, the #332 comment.
+
 ## Next commands
 
 ```bash
