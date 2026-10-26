@@ -1,0 +1,26 @@
+# S3 after (#666, #1159): the ctl in the tree, 2026-10-26T14:49:04Z
+ctl sha256 c8578ad7da5dcba9
+command: tools/t19-s3-listening.sh <tree's ctl> /workspace/tmp/m6-t19/s3/after
+
+host bash 5.3.9(1)-release (the tree pins bash 5.3); applets from BusyBox v1.36.1 (a copy of /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox, the image's); host python 3.14.4 (image recipe 3.14.7)
+  1. listening, a stand-in on 0.0.0.0:8080 and MainPID another process
+     rc 1; stand-in pid 2147106; MainPID 2147105; shell 2147105|logger -t raofflineproxy-ctl listening: nothing is listening on 127.0.0.1:8080 after 1 look(s)|
+    PASS  listening is 1: the port is held, but not by the service
+  2. listening, MainPID the stand-in itself (the control)
+     rc 0
+    PASS  listening is 0 when the socket is the service's own
+  3. listening, no MainPID
+     rc 1
+    PASS  listening is 1 when the service has no main process
+  4. enable, the stand-in alone and a start that waits for the service's socket (the unit's ExecStartPost)
+     rc 1; stdout ; stderr 47168; MainPID 2147167; shell 2147167|logger -t raofflineproxy-ctl listening: nothing is listening on 127.0.0.1:8080 after 2 look(s)|logger -t raofflineproxy-ctl raofflineproxy.service did not start; the toggle stays off|raofflineproxy-ctl: raofflineproxy.service did not start; the toggle stays off|
+    PASS  enable fails
+    PASS  and the device is as it was: the toggle unset, hardcore 1, no marker
+  5. enable, MainPID the stand-in (the control)
+     rc 0; stdout hardcore=0|
+    PASS  enable succeeds when the socket is the service's
+t19-s3-listening: 0 FAIL
+rc 0
+
+bash -n of the ctl: ok
+setsettings.sh:536's launch check (127.0.0.1:8080 by netstat) is T1's and unchanged; the two predicates now: the ctl's, the service's own socket at 127.0.0.1, 0.0.0.0 or ::ffff:127.0.0.1 port 8080; the launch's, any 127.0.0.1:8080 listener

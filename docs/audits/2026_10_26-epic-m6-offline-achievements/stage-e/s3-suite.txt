@@ -1,0 +1,13 @@
+# S3's suite (#666, #1159), under the 14:33 ruling (2026-10-26T15:08:08Z)
+tools/last-good-scripts-test, QA_SYSTEM_ROOT=/workspace/artifacts/m6-donor/1a0266484423/image/system; host bash 5.3.9, host python 3.14.4
+
+76658dd062 (S2's commit, the suite as committed): 1313 PASS; PASSED
+
+## two checks carried over
+- D12b #308 gpt F-RA-26 listening (:7265-7300): its rows now count when their inode is the unit's MainPID's (fixture /proc/4242/fd, the block's own systemctl show, the section's shim restored after); two cases added: 0.0.0.0:8080 held by another socket (DL7) and no main process (DL8), both want 1
+- D36 claude G2-D-01 / S-26 (:12305-12310): the assertion unchanged; its runner answers systemctl show with the real run-service's pid. A fixture change, not a reversed assertion: it passes on the unfixed ctl too
+
+the ctl at 76658dd062 (unfixed) with the carried-over suite: 1312 PASS; 1 CHECK(S) FAILED, 0 SKIPPED
+    FAIL  #308 gpt F-RA-26 / G-D-02, #1159 listening: rc 0/0/0 (want 0/0/0), 1/1/1 (want 1/1/1), another socket 0 and no main process 0 (want 1/1)
+  -- the positive: D12b FAILs on DL7 and DL8 alone; D36 PASSes
+the tree's ctl (S3) with the carried-over suite: 1313 PASS; PASSED

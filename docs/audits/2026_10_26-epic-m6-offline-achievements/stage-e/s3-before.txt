@@ -1,0 +1,22 @@
+# S3 before (#666, #1159): the ctl at 76658dd062 (S2's tip; port_listening unchanged since 8ebaf8daad), 2026-10-26T14:48:54Z
+command: tools/t19-s3-listening.sh <ctl at 76658dd062> /workspace/tmp/m6-t19/s3/before
+
+host bash 5.3.9(1)-release (the tree pins bash 5.3); applets from BusyBox v1.36.1 (a copy of /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox, the image's); host python 3.14.4 (image recipe 3.14.7)
+  1. listening, a stand-in on 0.0.0.0:8080 and MainPID another process
+     rc 0; stand-in pid 2145744; MainPID 2145743; shell 2145743|
+    FAIL  listening is 1: the port is held, but not by the service -- rc 0
+  2. listening, MainPID the stand-in itself (the control)
+     rc 0
+    PASS  listening is 0 when the socket is the service's own
+  3. listening, no MainPID
+     rc 0
+    FAIL  listening is 1 when the service has no main process -- rc 0
+  4. enable, the stand-in alone and a start that waits for the service's socket (the unit's ExecStartPost)
+     rc 0; stdout hardcore=0|; stderr stand-in pid 2145780; MainPID 2145779; shell 2145779|logger -t raofflineproxy-ctl offline RetroAchievements on: hardcore was 1, now 0; raofflineproxy.service active|
+    FAIL  enable fails -- rc 0
+    FAIL  and the device is as it was: the toggle unset, hardcore 1, no marker -- toggle '1', hardcore 0, marker present
+  5. enable, MainPID the stand-in (the control)
+     rc 0; stdout hardcore=0|
+    PASS  enable succeeds when the socket is the service's
+t19-s3-listening: 4 FAIL
+rc 1

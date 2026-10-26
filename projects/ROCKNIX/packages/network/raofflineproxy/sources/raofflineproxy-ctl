@@ -968,16 +968,33 @@ do_ready() {
 # suite runs the pinned client's run-service in a network namespace of its
 # own and holds this check to its socket, so a pin that moves to `::` fails
 # there first (audit of the fix round, claude G2-D-01, the blind pass's
-# S-26, PL-033). RAOFFLINEPROXY_PROC_NET stands in for /proc/net (the
-# scripts suite's fixture).
+# S-26, PL-033).
+#
+# And the socket must be the service's own (#1159, T19 PL-02): a LISTEN row
+# at one of those addresses counts only when its inode is one of the
+# sockets the unit's main process holds (systemctl's MainPID, then
+# /proc/<pid>/fd). A listener that is not the proxy -- anything else bound to
+# 0.0.0.0:8080 before it -- once satisfied the start, enable routed the
+# emulators to it, and the service then died on EADDRINUSE. No MainPID, or
+# none of its sockets in LISTEN there, is 1. RAOFFLINEPROXY_PROC_NET stands in
+# for /proc/net and RAOFFLINEPROXY_PROC for /proc (the scripts suite's
+# fixtures). setsettings.sh's own launch check (its :536) is T1's and stays.
 port_listening() {
-    local F SL LOCAL REM ST REST
+    local F SL LOCAL REM ST TXRX TRTM RETR UIDN TOUT INODE REST PID FD SOCKETS=" "
+    PID="$(systemctl show -p MainPID --value "${UNIT}" 2>/dev/null)"
+    case "${PID}" in ''|0|*[!0-9]*) return 1 ;; esac
+    for FD in "${RAOFFLINEPROXY_PROC:-/proc}/${PID}/fd/"*; do
+        F="$(readlink "${FD}" 2>/dev/null)" || continue
+        case "${F}" in 'socket:['*']') F="${F#socket:[}"; SOCKETS="${SOCKETS}${F%]} " ;; esac
+    done
+    [ "${SOCKETS}" != " " ] || return 1
     for F in "${RAOFFLINEPROXY_PROC_NET:-/proc/net}/tcp" "${RAOFFLINEPROXY_PROC_NET:-/proc/net}/tcp6"; do
         [ -r "${F}" ] || continue
-        while read -r SL LOCAL REM ST REST; do
+        while read -r SL LOCAL REM ST TXRX TRTM RETR UIDN TOUT INODE REST; do
             [ "${ST}" = "0A" ] || continue
             case "${LOCAL}" in
-                0100007F:1F90|00000000:1F90|0000000000000000FFFF00000100007F:1F90) return 0 ;;
+                0100007F:1F90|00000000:1F90|0000000000000000FFFF00000100007F:1F90)
+                    case "${SOCKETS}" in *" ${INODE} "*) return 0 ;; esac ;;
             esac
         done < "${F}"
     done

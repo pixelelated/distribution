@@ -7262,14 +7262,27 @@ dproc() { # <tcp line or empty> <tcp6 line or empty>
     printf '  sl  local_address                         remote_address                        st tx_queue rx_queue tr tm->when retrnsmt   uid  timeout inode\n%s' "${2:+   0: $2 00000000000000000000000000000000:0000 0A 00000000:00000000 00:00000000 00000000     0        0 2 1 0000000000000000 100 0 0 10 0
 }" > "${DPN}/tcp6"
 }
-TENV=(--setenv RAOFFLINEPROXY_PROC_NET /storage/procnet)
+# Since #1159 (T19 PL-02) a LISTEN row counts only when its socket is the
+# unit's main process's: systemctl show -p MainPID answers from
+# /run/mainpid here, and RAOFFLINEPROXY_PROC holds that pid's fd links to
+# dproc's inodes (1 in tcp, 2 in tcp6). The block's own systemctl, the
+# section's restored after it.
+DPP="${TS}/procfix"; mkdir -p "${DPP}/4242/fd"; ln -sfn 'socket:[1]' "${DPP}/4242/fd/3"; ln -sfn 'socket:[2]' "${DPP}/4242/fd/4"
+mv "${T}/shim/systemctl" "${T}/shim/systemctl.section-t"
+printf '#!/bin/sh\nif [ "$1" = show ]; then cat /run/mainpid 2>/dev/null || echo 0; exit 0; fi\nexec /shim/systemctl.section-t "$@"\n' > "${T}/shim/systemctl"; chmod +x "${T}/shim/systemctl"
+echo 4242 > "${TR}/mainpid"
+TENV=(--setenv RAOFFLINEPROXY_PROC_NET /storage/procnet --setenv RAOFFLINEPROXY_PROC /storage/procfix)
 dproc 0100007F:1F90 ""; tctl listening; DL1=${RC}
 dproc 00000000:1F90 ""; tctl listening; DL2=${RC}
 dproc "" 00000000000000000000000001000000:1F90; tctl listening; DL3=${RC}
 dproc "" 0000000000000000FFFF00000100007F:1F90; tctl listening; DL6=${RC}
 dproc 0100007F:1F91 ""; tctl listening; DL4=${RC}
 printf '  sl  local_address rem_address   st\n   0: 0100007F:1F90 0100007F:9C40 01 00000000:00000000\n' > "${DPN}/tcp"; : > "${DPN}/tcp6"; tctl listening; DL5=${RC}
-[ "${DL1}" -eq 0 ] && [ "${DL2}" -eq 0 ] && [ "${DL6}" -eq 0 ] && [ "${DL3}" -eq 1 ] && [ "${DL4}" -eq 1 ] && [ "${DL5}" -eq 1 ]; check $? "#308 gpt F-RA-26 listening: 127.0.0.1:8080, 0.0.0.0:8080 and ::ffff:127.0.0.1:8080 in LISTEN read as listening; [::1]:8080 does not -- it cannot take the IPv4 connection the emulators make (gpt G-D-02) -- nor another port, nor 8080 only as a connection's end" "#308 gpt F-RA-26 / G-D-02 listening: rc ${DL1}/${DL2}/${DL6} (want 0/0/0), ${DL3}/${DL4}/${DL5} (want 1/1/1)"
+# #1159: the same 0.0.0.0:8080 in LISTEN held by a socket that is not the
+# service's (inode 9), and the service's own row with no main process.
+printf '  sl  local_address rem_address   st tx_queue rx_queue tr tm->when retrnsmt   uid  timeout inode\n   0: 00000000:1F90 00000000:0000 0A 00000000:00000000 00:00000000 00000000     0        0 9 1 0000000000000000 100 0 0 10 0\n' > "${DPN}/tcp"; : > "${DPN}/tcp6"; tctl listening; DL7=${RC}
+dproc 0100007F:1F90 ""; echo 0 > "${TR}/mainpid"; tctl listening; DL8=${RC}; echo 4242 > "${TR}/mainpid"
+[ "${DL1}" -eq 0 ] && [ "${DL2}" -eq 0 ] && [ "${DL6}" -eq 0 ] && [ "${DL3}" -eq 1 ] && [ "${DL4}" -eq 1 ] && [ "${DL5}" -eq 1 ] && [ "${DL7}" -eq 1 ] && [ "${DL8}" -eq 1 ]; check $? "#308 gpt F-RA-26, #1159 listening: 127.0.0.1:8080, 0.0.0.0:8080 and ::ffff:127.0.0.1:8080 in LISTEN read as listening when the socket is the service's own; 0.0.0.0:8080 held by another socket does not, nor any row with no main process; [::1]:8080 does not -- it cannot take the IPv4 connection the emulators make (gpt G-D-02) -- nor another port, nor 8080 only as a connection's end" "#308 gpt F-RA-26 / G-D-02, #1159 listening: rc ${DL1}/${DL2}/${DL6} (want 0/0/0), ${DL3}/${DL4}/${DL5} (want 1/1/1), another socket ${DL7} and no main process ${DL8} (want 1/1)"
 dproc "" ""; : > "${TR}/sleep.log"
 tctl listening --wait 5
 [ "${RC}" -eq 1 ] && [ "$(grep -c . "${TR}/sleep.log")" -eq 4 ]; check $? "#308 gpt F-RA-26 listening --wait 5 with nothing listening: five looks a second apart, then exit 1" "#308 gpt F-RA-26: rc ${RC}; sleeps: $(tr '\n' ',' < "${TR}/sleep.log")"
@@ -7278,6 +7291,7 @@ rm -f "${TR}/fast-sleep"; dproc "" ""
 DT0=$(dnow); tctl listening --wait 10; DTOOK=$(dsince "${DT0}"); wait
 [ "${RC}" -eq 0 ] && awk -v t="${DTOOK}" 'BEGIN{exit !(t < 5)}'; check $? "#308 gpt F-RA-26 listening --wait 10: the listener that appears after 1.5 s is seen, exit 0 after ${DTOOK}s" "#308 gpt F-RA-26: rc ${RC} after ${DTOOK}s"
 touch "${TR}/fast-sleep"; TENV=(); rm -rf "${DPN}"
+mv -f "${T}/shim/systemctl.section-t" "${T}/shim/systemctl"; rm -f "${TR}/mainpid"
 else
     skip "#308 F-RA-26's listening cases: section t did not run"
 fi
@@ -12301,6 +12315,9 @@ D="$1"; cd /; unset RAOFFLINEPROXY_PROC_NET
 python3 -m raofflineproxy.main run-service > "${D}/service.out" 2>&1 &
 P=$!
 . "${D}/readers.sh"
+# Since #1159 the ctl's reader counts only the unit's main process's
+# sockets: here the unit's MainPID is this run-service.
+UNIT=raofflineproxy.service; systemctl() { [ "$1" = show ] && echo "${P}"; }
 t=0; ctl=0; pp=0
 while [ "${t}" -lt 30 ]; do port_listening && { ctl=1; break; }; sleep 1; t=$((t + 1)); done
 proxy_listening && pp=1
