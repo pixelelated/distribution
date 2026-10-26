@@ -30,7 +30,7 @@
           "output": "astra-audit.md"
         }
       ],
-      "status": "planned"
+      "status": "complete: the probe 10:26:38 to 10:26:57 UTC and the refutation 10:27:06 to 10:47:10 UTC, both PASS, served openai/gpt-6-astra by OpenAI, one attempt each; 42 items graded in 04 \u00a7 Second opinion (40 accepted, 1 in part, 1 plausible, 0 rejected)"
     },
     {
       "member": "gemini-argon",
@@ -52,7 +52,7 @@
           "output": "argon-audit.md"
         }
       ],
-      "status": "planned"
+      "status": "complete: the probe 10:49:58 to 10:50:05 UTC and the refutation 10:50:15 to 11:06:02 UTC, both PASS, served google/gemini-4-argon by Google; the refutation's first attempt returned empty content (finish=error) and the invoke's one retry succeeded; 45 items graded in 04 \u00a7 Second opinion (45 accepted, 0 rejected)"
     }
   ],
   "keyed_calls": "exactly four: Astra's probe and refutation, then Argon's probe and refutation; every other tools/council/run call with COUNCIL_ENV_FILE=/nonexistent",
@@ -67,7 +67,11 @@
     "trim": "D-WORKFLOW-195: 364 KB at the first build, 337 KB with the headers as excerpts and the rows narrowed, 348 KB with the window's results in 02; the page as an excerpt saved 11 KB and was not taken",
     "scan": "forbidden-terms-check --stdin 0 hits in 37 sections; SECRET_PATTERNS 0 lines, proven to fire on a run-time fake line; 0 lines masked; 194 credential-word hits, each classed, 7 read by shape and dispositioned by name in packet.py; 0 values",
     "per_seat": "astra-brief.md is packet.md with {PREFIX} as A; argon-brief.md is packet.md with {PREFIX} as R and the lane's grades of Astra appended",
-    "astra_brief_sha256": "35162b44ace092452996e83a3a9ff0737d0693bb582b1d9c5d452722cf0b3ca7"
+    "astra_brief_sha256": "35162b44ace092452996e83a3a9ff0737d0693bb582b1d9c5d452722cf0b3ca7",
+    "argon_brief_sha256": "bd9d95799a6fc14d89a8531b8a06c701ba4ae27a40d6787b17a9dbd853b42fb3",
+    "argon_brief_bytes": 357825
   },
-  "written_before_first_call": "2026-10-26T10:26Z"
+  "written_before_first_call": "2026-10-26T10:26Z",
+  "keyed_calls_made": "four, as planned: 10:26:38, 10:27:06, 10:49:58, 10:50:15 UTC",
+  "provenance_read": "../stage-c/provenance-read.txt: all four verification=PASS, served model and provider the seat's, output sha256 matching, facilitator_version council-facilitator@1.14.1-pixelelated.2"
 }

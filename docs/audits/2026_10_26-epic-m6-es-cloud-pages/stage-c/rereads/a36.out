@@ -1,0 +1,19 @@
+== A-36 the row with a full stop, and the parser that strips it
+  425  		{ "CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS.", _("CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS.") },
+  571  	else if (clean.rfind(">>> why ", 0) == 0)
+  572  	{
+  573  		out.kind = ProtocolKind::Why;
+  574  		std::string why = Utils::String::toUpper(Utils::String::trim(clean.substr(8)));
+  575  		// The outcome line supplies its own end; a sentence's
+  576  		// full stop after a dash reads as a typo.
+  577  		while (!why.empty() && why.back() == '.')
+  578  			why.pop_back();
+  579  		out.text = why;
+  580  	}
+  469  std::string localizedWhy(const std::string& why)
+  470  {
+  471  	for (auto& sentence : whySentences())
+  472  		if (sentence.first == why)
+  473  			return sentence.second;
+  474  	return why;
+  475  }

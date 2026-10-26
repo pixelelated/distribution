@@ -17,15 +17,13 @@
 
 ## Current focus
 
-**Stage C under way (2026-10-26, 10:27 UTC).**
+**Stage C done (11:09 UTC); at the stage-D pause.**
 
-- **The window is done:** START 10:06:23, RETURN 10:23:21; the disk is retired, and its sha is in `00`.
-- **The packet** is `second-opinions/packet.md`, 347,592 bytes, scanned. `review-plan.json` was written at 10:26Z.
-- **The keyed calls** are logged in `/workspace/tmp/m6-t18/keyed-calls.txt`:
-  - call 1, Astra's probe: PASS;
-  - **call 2, Astra's refutation**, running in the background, its log in `/workspace/tmp/m6-t18/call2.log`.
-- **Next:** grade Astra's items in `04` § Second opinion; build `argon-brief.md` (the packet with `{PREFIX}` as R, plus those grades); calls 3 and 4; `stage-c/provenance-read.py` into `provenance-read.txt`; the re-reads; `05`; then `tools/lint-audit-artifacts --phase pre-issue`.
-- **No keyed call beyond the four.** Every other `tools/council/run` call takes `COUNCIL_ENV_FILE=/nonexistent`.
+- **The seats:** the four keyed calls are made, all PASS. Astra gave 42 items and Argon 45, and every item is graded in `04` § Second opinion.
+- **`05`** has 23 items, seven of them proposed `bug`s.
+- **The lint:** `--phase pre-issue` PASS.
+- **What waits:** the coordinator's dispositions on #665. Then the audit issue (a sub-issue of #665) and the bugs it rules, then the streams under its brief, which land on the ES branch only.
+- **No keyed call remains;** a new one needs a ruling.
 
 ## Next commands
 
@@ -63,3 +61,4 @@ worktree, or a guest outside the one granted window.
 - Stage A: 09:41 UTC, distribution on `cbf6d7ef83` + the stage-A commit, ES at the pin `16dbac5211`; 26 runs exit 0, 221 unit cases pass, two deltas (r07 44/47, r11 control order); next stage B
 - Stage B: 10:00 UTC, distribution on the stage-B commit, ES at the pin `16dbac5211`; two tables generated (both fail on `651150fc88`), F-01 to F-19, P1 to P16; the window asked; next stage C
 - Stage C (window): 10:27 UTC; the window ran 10:06:23 to 10:23:21 at 640x480 after a relaunch (#1141); jobs-tests 6 PASS; exit sync 1.58 s; F-20; the packet 347,592 bytes; call 1 PASS, call 2 running
+- Stage C: 11:09 UTC; four keyed calls PASS (Argon's refutation retried once inside its call); 87 items graded; 05 with 23 items, seven bugs proposed; pre-issue lint PASS; at the stage-D pause

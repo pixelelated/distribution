@@ -36,7 +36,7 @@ The futro predicted two streams, the header comment and the why table's missing 
 - the test that is said to guard the why table and does not (F-12);
 - the two readers' seam (F-18).
 
-**Proposed for stage D: four bugs**, all Low (§ Q3), and fifteen renovation items. The coordinator disposes.
+**Proposed for stage D, after the seats:** seven bugs, all Low: the lane's four (§ Q3); PL-18 (Astra's A-33 and A-34, Argon's R-11 and R-39); PL-20 (A-37); PL-22 (Argon's R-42). Two more are proposed Low by the seats (PL-05, PL-15). The rest are renovation, design or notes routed elsewhere (`05`). The coordinator disposes.
 
 ## Acceptance-criteria scorecard
 
@@ -97,7 +97,136 @@ The futro predicted two streams, the header comment and the why table's missing 
 
 ## Second opinion
 
-*(Written after the seats: the packet, the plan, each seat's items graded.)*
+### The packet and the plan
+
+- **The packet:** `second-opinions/packet.md`, 347,592 bytes, sha256 `e92cc4dc234409ac4efb375f318e7e15acbb6e8a30784c67c20cb13c640a246e`, built by `stage-c/packet.py`. Trimmed under D-WORKFLOW-195: 364 KB at the first build, 337 KB with the headers as excerpts and the register rows narrowed, 348 KB with the window's results in `02`.
+- **Its contents:** the ask; `02`, `03` and `04` whole; three context sections; the job, the card and the page whole and line-numbered; the headers, `CloudText.{h,cpp}`, `CloudTextTests.cpp` and the callers' cited lines as excerpts.
+- **The three-way scan** (`manifest.json`):
+  - `forbidden-terms-check` 0 hits in 37 sections;
+  - `SECRET_PATTERNS` 0 lines, proven to fire on a fake line built at run time;
+  - 0 lines masked;
+  - 194 credential-word hits, each classed. Seven were read by shape and dispositioned by name: an outcome token compared with a word (five lines), a `bool` initialised `false`, and a quotation of T2's "Not a pass:". **No value.**
+- **The plan:** `second-opinions/review-plan.json`, written at 10:26Z before the first call.
+- **The calls:** exactly four keyed invokes, `--max-retries 1 --per-attempt-timeout-ms 1800000 --total-timeout-ms 2400000`.
+- **Argon's brief** is the packet with `{PREFIX}` as R plus the grades below: 357,825 bytes, sha256 `bd9d95799a6fc14d89a8531b8a06c701ba4ae27a40d6787b17a9dbd853b42fb3`.
+
+### GPT-6 Astra (`gpt`, `openai/gpt-6-astra`, `max`): 42 items, graded
+
+**The calls:**
+
+- Call 1, the probe: 10:26:38 to 10:26:57 UTC, PASS.
+- Call 2, the refutation: 10:27:06 to 10:47:10 UTC, one attempt, `finish=stop`, 28,540 bytes.
+- Both were served `openai/gpt-6-astra` by OpenAI (`stage-c/provenance-read.txt`).
+
+Each item was re-read at its lines at the pin before it was graded. **Accepted** means the lane takes the item as written. **Narrowed** means accepted with the limit stated. **Rejected** means the lines say otherwise. **Plausible** means the code allows it and no fixture has shown it. Where a seat said `outside the packet`, the lane's own evidence is named.
+
+| Item | Grade | The lane's re-read, and where it lands |
+| --- | --- | --- |
+| A-1 | accepted | Both `default:` arms drop an unknown marker without a log line; the card's also clears `mWaitingForNetwork` (`ThreadedCloudSync.cpp:330-332`). F-03, PL-13. |
+| A-2 | accepted, narrowed | The producer search the seat could not see is P14's `git grep` at `8ebaf8daad` and in `es-app/src`: only the three wrappers print `>>> pid`. "Every process" corrected: `kill(-1, ...)` reaches every process the sender may signal, which under EmulationStation's root is nearly all. A second pid does not redirect a stop already sent by the job (`mSignalSent`). F-01, PL-13. |
+| A-3 | accepted | The job's trap comes after its pid echo, so its first write is unprotected too. The fix (PL-04) installs the ignored disposition before the echo. The scripts' traps were read (`cloud_backup:2504`: INT and TERM, not PIPE); whether a given write dies depends on the writer, as the seat says. F-02, PL-04. |
+| A-4 | accepted | A fragment of a split line can begin with `>>> ` and be classified; 02's "the second half is not a protocol line" was too strong. Either cap can damage a payload. F-04, PL-13. |
+| A-5 | accepted | The `%3d` separator is handled in the code; it is untested (F-05). U+2026: `cleanLine` keeps UTF-8 (`CloudText.cpp:485-533`), and `CloudTextTests.cpp:564` is its case. Both are in the lane's read and outside the seat's packet. |
+| A-6 | accepted | `atol` on `>>> removed`'s totals and on the job's counters: junk reads 0 and can hide the removal summary. A note in PL-13. |
+| A-7 | accepted | Confirms the page's and the job's deletion paths and the lock order. A positive. |
+| A-8 | accepted, narrowed | The header's "outlives the call" (`ThreadedCloudSync.h:193-199`) is too strong: the call drops the lock between polls. The SIGKILL at `:859` uses a cached pid outside the lock, a check-to-signal window against pid reuse. A comment (PL-08) and a latent edge (PL-13). |
+| A-9 | accepted | The job's races are closed; the card's are not (A-33, A-34). |
+| A-10 | accepted, extended | Both restamp functions log "restamped" after a write that may have failed (`ThreadedCloudSync.cpp:910-927`): `writeStamp` returns nothing. The unchecked `fwrite`/`fclose` the seat could not see is P16 (`FileSystemUtil.cpp:1429-1446`). PL-01. |
+| A-11 | accepted | The 2 s figure against D-CLOUD-119's 3 s compares unlike measures, as the seat says: 02's Q5 sentence is reworded. A-42 asks for a defect rather than a design note: proposed so in PL-15 for the coordinator. |
+| A-12 | accepted | The match is cancellable (`cancellable()` has no Match exclusion), so the branch is reached in the page's state machine whatever a fixture's timing. PL-02. |
+| A-13 | accepted | The short forms are chosen by measurement. 02's "where most players read it" is unproved and is withdrawn. A reachable non-canonical wording is a wording defect whatever the frame (A-42). PL-05. |
+| A-14 | accepted, narrowed | Conditional: a SETTINGS tier that fails, not skips, with the why framed before it. `backuptool:1495` prints it (`why`, `:1495`) before `fail` (`:1496`), read at `8ebaf8daad`. PL-03. |
+| A-15 | accepted | The fallback map omits codes 6 and 10: `whyForCode(6)` and `whyForCode(10)` fall to `SOMETHING WENT WRONG`, where the scripts' `why_for` says `SOME FILES DIDN'T FINISH` and, on an automatic run, `THE CLOUD TOOK TOO LONG - IT'LL TRY AGAIN NEXT TIME`. The generator's "agree on every group" covered only the groups it listed; it now lists 6 and 10. F-13, F-14, PL-08. |
+| A-16 | accepted | The eight strings are not eight outcomes for one slot: some are reasons, some recovery lines, and two name a different lock. PL-10 is reworded as a review, not a unification. |
+| A-17 | accepted | F-12 as written, and the spelling test proves no catalogue (no gettext in the unit build). PL-03, PL-16. |
+| A-18 | accepted | F-05's coverage is narrower still: the page formatter's torn-field rejection is untested too. PL-14. |
+| A-19 | accepted | No case covers the card's cancel after a late pid or against a natural completion, a page deleted before its posted step, or a failed stamp write. PL-14 adds them. |
+| A-20 | accepted | The summary of A-2 to A-4. |
+| A-21 | accepted | The summary of A-1, A-10 and A-11. |
+| A-22 | accepted | F-08, F-10 and F-12 confirmed. |
+| A-23 | accepted, narrowed | F-19's "no standing command builds it" is the lane's reading of `tools/vm-qa`'s suites; its `lifetime` suite builds part of `tests/app-unit` (`02` § The tests). |
+| A-24 | accepted | F-09 and F-11 as narrowed in A-13 and A-14. |
+| A-25 | accepted | `shortenWhy`'s third shape is at `CloudText.cpp:377-379`, in the lane's read. The rule's text is in `03` § 3.2 and the generator reads it whole. |
+| A-26 | accepted | As A-16. |
+| A-27 | accepted, narrowed | The usage census the seat could not see is P12 to P14. "Test-only" is not a removal argument, and PL-12 says so. |
+| A-28 | accepted | A shared reader must not copy the job's cap and discard, nor erase the surfaces' intended differences. PL-16 reworded. |
+| A-29 | accepted | B1/PL-04: the trap goes before the pid echo. Already written: earlier stamps can stand while some transfer work had happened; the line is corrected. |
+| A-30 | accepted | B2/PL-01: test failed creation, a failed write or close, a failed rename and a stale temporary; the result returned to the callers. Already written: devices may hold old, empty or cut stamps whose history cannot be rebuilt, and legacy readability is kept. |
+| A-31 | accepted | B3/PL-02: the match's own words say what stays removed and that going on needs another check. Already written: a cancelled match's deletions stand. |
+| A-32 | accepted | B4/PL-03: a `localizedWhy` case cannot fail in a build without gettext. The regression checks membership after protocol normalization (`isKnownWhy(classifyProtocolLine(">>> why " + s).text)`) for every row, with the generator as the emitter check. |
+| A-33 | accepted, **new**, confirmed | The card samples `mCancelled` after `pclose` (`ThreadedCloudSync.cpp:446-458`), and a cancel can still land while `mInstance` names it (cleared at `:716-720`). A run that completed reads `SKIPPED - YOU STARTED A GAME`, with its stamp 130 `cancelled`. The job clears its stop flags on a natural 0 or 9 (`CloudTransferJob.cpp:691-696`); the card has no such check. The window is narrow but real. PL-18. |
+| A-34 | accepted, **new**, confirmed, latent | When the pid has not arrived within the 2 s budget (`:845-863`), no stop is kept for it: the run goes on and is labelled cancelled. The wrapper's echo is the first line, so a late pid needs a stalled shell. PL-18. |
+| A-35 | plausible, **new** | An rclone tail with no newline, followed at once by a composer's `echo '>>> tier ...'`, would arrive as one line, which classifies as `NotProtocol`. Whether rclone's last block ends in a newline when it exits is not read. A real-pipe fixture with the donor's rclone is the proof (PL-19). |
+| A-36 | accepted, **new**, confirmed | `CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS.` is stored with its full stop (`CloudText.cpp:425`); `classifyProtocolLine` strips trailing full stops (`:577-578`), so the row is never matched. It is the one such row. The generator compared the raw strings and missed it. PL-03. |
+| A-37 | accepted, **new**, confirmed | A tier line clears the pending whys and the units since the tier (`CloudTransferJob.cpp:333-335`) but not `mUnitLabel`, which `:287` uses to label a why. A part that says why before its first unit is blamed on the previous part's unit, which may have succeeded. PL-20. |
+| A-38 | accepted, **new**, confirmed in the code, latent | `GuiMenu.cpp:5006`'s composer sets `rc` from any nonzero part, a 9 included, so a failed part followed by a 9 ends 9. The page's `outcome()` (`GuiCloudTransfer.cpp:435`) calls 0 or 9 COMPLETED without asking the tiers. The manual sync composer (`GuiMenu.cpp:6140`) skips its backup on a restore's 9. No script passes `--error-on-no-transfer` at `8ebaf8daad`, so rclone returns 9 only for a player's own `RCLONEOPTS` carrying it. PL-21. |
+| A-39 | accepted, **new** | The settings backup's chain discards `backuptool backup`'s output (`GuiMenu.cpp:5125`), its whys included. The caller's, T26's. PL-17. |
+| A-40 | accepted | Not every row is fitted: the title (`:56`), the running counter (`:936-939`), the finished footer (`:913-915`) and most `doing` lines (`:1035`) are set without `fitOneLine`. With `setSize(w, 0)` they grow rather than clip. 02's sentence ("the trap does not apply to a row that never wraps") is withdrawn, and the fit is owed per row. PL-14. |
+| A-41 | accepted | "No case whose subject is gone" is unproved at the feature level (a case may test a live function of a retired flow). Q6 reworded. |
+| A-42 | accepted in part | F-07 is proposed as a defect for the coordinator (PL-15). F-09 is a wording defect whatever the frame (PL-05). F-15 is not a bug (PL-10). |
+
+**Counts:** 42 items: 40 accepted, 1 accepted in part (A-42), 1 plausible (A-35), 0 rejected. Of the accepted, A-2, A-8, A-10, A-14, A-23 and A-27 are narrowed or extended. Seven are new findings, six of them confirmed: A-33, A-34, A-36, A-37, A-38 and A-39.
+
+### Gemini 4 Argon (`gemini-argon`, `google/gemini-4-argon`, `high`): 45 items, graded
+
+**The calls:**
+
+- Call 3, the probe: 10:49:58 to 10:50:05 UTC, PASS.
+- Call 4, the refutation: 10:50:15 to 11:06:02 UTC, 36,980 bytes. **Its first attempt returned empty content** (`finish=error`, `retry(empty_content)`, after 396 s). The invoke's one allowed retry succeeded, `finish=stop`, still within the one keyed call.
+- Both were served `google/gemini-4-argon` by Google (`stage-c/provenance-read.txt`).
+- Argon's brief was the packet with `{PREFIX}` as R, plus the grades of Astra (357,825 bytes).
+
+Each item was re-read at its lines before it was graded (`stage-c/rereads/`), in the same words as Astra's table.
+
+| Item | Grade | The lane's re-read, and where it lands |
+| --- | --- | --- |
+| R-1 | accepted, narrowed | `case Doing:` does not clear `mCurrent`, `mChecksTotal` or `mListed`, which outrank `mDoing` on row 3 (`GuiCloudTransfer.cpp:946-1035`). A `doing` after rclone ran within the same unit shows stale rclone state; every producer at `8ebaf8daad` announces its `doing` after a fresh `>>> unit`, so it is latent. The empty `>>> why ` becomes `Unknown` after `cleanLine`'s trim, but both readers ignore an empty why anyway (`CloudTransferJob.cpp:284`), so it changes nothing: `:284` is unreachable. PL-13. |
+| R-2 | accepted | As A-1. |
+| R-3 | accepted | As A-3. |
+| R-4 | accepted, extended | A second `>>> pid` that is junk or `0` overwrites a good pid with 0 and disarms a later stop (`CloudTransferJob.cpp:157`, `ThreadedCloudSync.cpp:816`). It is latent, since only the wrappers print the line (P14). PL-13. |
+| R-5 | accepted, narrowed | The 1,024 cap drops characters and can hide a glued `Transferred:`. On A-35 the seat says "more than merely plausible": the code's own comment (`:645-647`) says the block ends without a newline, but says nothing of rclone's last block at exit. The grade stays plausible until the fixture (PL-19). |
+| R-6 | accepted | `atol` in the count line can double-count a unit's files after a torn line (`CloudTransferJob.cpp:425-428`). Latent. PL-13. |
+| R-7 | accepted | As A-7: `lock` and `job` dangle across `:328-343`, unused. No use after free. |
+| R-8 | accepted, narrowed | Four parts. (1) and (3) are A-33 and A-34. (2): after `mInstance` is cleared (`:716-720`) a launch is allowed during the linger, and then `CloudOffer::present` (`:741`, completed runs only) and `ProxyCards::afterSync` (`:754-755`) run over a game that has started. `afterSync` (`ProxyCards.cpp:543-551`) has no running-game guard; whether `batch()` defers is the offline achievements slice's. (4): `mPid`, `mWaitingForNetwork` and `mCancelled` are `std::atomic` (`ThreadedCloudSync.h:149-151`, in the lane's read). The cached-pid SIGKILL is A-8. Mostly accepted; "refuted" is too strong for a design that holds where it is atomic. PL-18. |
+| R-9 | accepted, extended | A stale `<stamp>.tmp` left by an earlier failed write is renamed over the stamp when the next `fopen` fails, a case the lane did not name. PL-01. |
+| R-10 | accepted | As A-11, citing D-CLOUD-109 and D-CLOUD-129's visible wait. PL-15. |
+| R-11 | accepted, **new** | The job's own window: `pclose` (`CloudTransferJob.cpp:679`) reaps before the lock at `:684`. A stop in that window marks a run that **failed** on its own (5, 69, 75) as stopped, because `:691` clears the stop flags only on 0 or 9, and the real outcome becomes `SKIPPED - YOU CANCELLED IT`. "Refuted" is right about the lane's "every race closed": the named races are closed and this one is not. PL-18. |
+| R-12 | accepted | As A-13 and A-16. The 48-character scan candidate that fits beside the 36- and 43-character `NOTHING NEW` forms is an inference about one font, not a frame. PL-05 stays as written. |
+| R-13 | accepted | As A-12. |
+| R-14 | accepted | As A-14. |
+| R-15 | accepted | As A-15. The sentinels `whyForCode` handles (69, 75, NoFolder) are in § The protocol's exit rows, not the fallback map's comparison. |
+| R-16 | accepted, narrowed | The emitter table omits three rows that no test reaches through the protocol: `CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS.`, `YOUR CLOUD SYNC SETTINGS COULDN'T BE SAVED` and `YOUR CLOUD FOLDER COULDN'T BE READ` (`git grep -c` in `CloudTextTests.cpp`: 0 each). `YOU WENT OFFLINE PART-WAY THROUGH` is a stamp's why and has its own case (`:747`; 12 mentions). That is why A-36 passed the tests. PL-03. |
+| R-17 | accepted | As A-17, with the omitted rows of R-16. |
+| R-18 | accepted | The untested list grows: the page formatter's torn fields and its four-byte separator check, the unfitted rows, normalization round-trips, a glued `>>> `, and the card's three races. PL-14. |
+| R-19 | accepted | As A-2 and R-4. |
+| R-20 | accepted | As A-29. |
+| R-21 | accepted | As A-1. |
+| R-22 | accepted | As A-4. |
+| R-23 | accepted | As A-18. |
+| R-24 | accepted | As A-30, with R-9's stale temporary. |
+| R-25 | accepted | As A-11 and A-42. |
+| R-26 | accepted | As A-31: the preview's plan is spent too, so the next match must check again. |
+| R-27 | accepted | As A-13. |
+| R-28 | accepted | F-10 confirmed. |
+| R-29 | accepted | As A-32 and A-36. |
+| R-30 | accepted | F-12, with R-16's rows. |
+| R-31 | accepted, narrowed | `ThreadedCloudSync.h:158-159` and `shortenWhy`'s body (`CloudText.cpp:371-386`) are in the lane's read: both hold. |
+| R-32 | accepted | F-14, with codes 6 and 10. |
+| R-33 | accepted | As A-16. |
+| R-34 | accepted | F-16; the census is P13 and P14. |
+| R-35 | accepted | As A-27; `nextTime` is P12. |
+| R-36 | accepted | As A-28. |
+| R-37 | accepted | F-19; `jobs-tests` ran here (6 PASS). |
+| R-38 | accepted | F-20 confirmed at its lines. |
+| R-39 | accepted | The details of R-8: (1) is A-33's window and the SIGTERM to a reaped group; (2) is the linger's launch and `afterSync`. PL-18. |
+| R-40 | accepted, **new**, latent | Both readers decide COMPLETED from the last code (`ThreadedCloudSync.cpp:494`, `GuiCloudTransfer.cpp:435`) without asking whether a tier failed. The card's `badTiers` drops each tier's code (`:482-483`), so a failed tier with no why gets the last command's phrase. The composers propagate a failure unless a 9 follows it: `main.cpp`'s startup composer exits the restore's code first (`[ "$_r" != 0 ] && exit "$_r"`), so a restore's 9 hides the backup's failure. Latent with A-38 (no script passes `--error-on-no-transfer`). PL-21. |
+| R-41 | accepted | As R-11. PL-18. |
+| R-42 | accepted, **new**, confirmed | `cloud_content_backup` and `cloud_content_restore` exit 69 after progress with only a stamp and no `>>> why` (`:336-342`, `:391-397` at `8ebaf8daad`). The page reads COULDN'T FINISH (progress), but `run()` leaves 69 out of its fallback (`CloudTransferJob.cpp:721`) and never reads `offlinePartWayWhy` as the card does (`ThreadedCloudSync.cpp:509-511`). So line 4 is blank under COULDN'T FINISH: no why, against D-UI-028. `cloud_content_restore:372` says "the page reads a 69 after progress the same way"; it does not. PL-22. |
+| R-43 | accepted, **new**, confirmed | `CloudTransferJob::mWhy` is written (`:286`) and never read (`git grep -w mWhy` in the job and the page: one write, one declaration), against its comments (`:244`, `.h:173`). The no-tier fallback copies pending whys without the tier arm's de-duplication and drops them when an earlier tier failed. Every composer echoes a tier after each part, so the second half is latent. PL-23. |
+| R-44 | accepted | As R-16. |
+| R-45 | accepted, narrowed | It confirms A-33 to A-42. On A-41 and A-42, which are about the first reader's own claims, the seat agrees. A-39: of `backuptool`'s rows (`CloudText.cpp:437`, `:448-453`, `:461-465`), those printed only by `backup` are unreachable from the backup chain. PL-17. |
+
+**Counts:** 45 items, all accepted, 0 rejected. Of these, R-1, R-4, R-5, R-8, R-9, R-12, R-16, R-31 and R-45 are narrowed or extended. Five are new to the lane: R-1's stale row and R-4's pid zero (both latent), and R-11/R-41, R-42 and R-43, which are confirmed. R-8 and R-39 add the linger's launch to A-33. One grade stays with the lane: A-35/R-5 remains plausible until its fixture.
 
 ## Finding Verification
 
@@ -202,7 +331,7 @@ The checklist (`03` § 3.2): the four tiers, the confirmation shape, the help ba
   - The latest in `docs/vm-qa-log.md` that carries both: 2026-09-27, `c9f5aa7de0` (x64 run 80): 0.58 s from the interface to a first frame, 1.01 s game to game.
   - T2's run on the window's image (`/workspace/artifacts/m6-t2-20261023/ttp-q5.log`, 2026-10-23): game to game 1.01 s median of 3; the STOP IT AND PLAY answer at 1.35 s; the exit sync's stamp 0.54 s; the card gone at 6.01 s. It is marked "Not a pass": no cloud was up, so the exit sync did nothing.
   - The window, with the QA WebDAV up, measures the real exit sync.
-- **The 2 s budget against D-CLOUD-119's 3 s:** inside it. But the spin runs on the interface thread (F-07), so no frame is drawn while it spins: at 1.5 s the player sees the frame the dialog left.
+- **The 2 s budget:** a cancellation's wait, not the exit sync's completion that D-CLOUD-119's 3 s bounds, so the two are not comparable (Astra's A-11 corrected the first wording). The window measured the question answered at 1.34 s median before the next game's first frame. The spin runs on the interface thread (F-07), so no frame is drawn while it spins: at 1.5 s the player sees the frame the dialog left.
 - **The lingers:** 1.5 s on a completed run with nothing to act on, and 5 s otherwise (`ThreadedCloudSync.cpp:731`). T2's 6.01 s "card gone" is the 5 s linger after a run with an outcome to read, plus the fade.
 - **The 20 ms spin** costs nothing measurable beyond holding the interface thread.
 
@@ -218,7 +347,7 @@ Removals none: each is a proposal on the punch list for the coordinator.
   - the comments that name them (`GuiCloudTransfer.h:76-100`, `CloudTransferJob.cpp:235-236`, `CloudText.cpp:1104-1105`).
 - **F-17:** `CloudText::nextTime` has no product caller. `isKnownWhy` and `isKnownUnitLabel` are test-only, which is their job: oracles.
 - **Markers parsed and never produced:** none beyond F-16's three `doing` words. `>>> tier` is ES's own composition, and `>>> offer` is read by both.
-- **Test cases whose subject is gone:** none found. Every case's function exists at the pin.
+- **Test cases whose subject is gone:** none found at the function level. At the feature level it is unproved, as Astra's A-41 says: a case may test a live function of a retired flow, such as the unit labels PL-11 names.
 
 ### Q7 Clarity and structure
 

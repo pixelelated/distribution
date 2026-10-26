@@ -1,0 +1,37 @@
+== A-15 whyForCode against why_for (codes 6 and 10)
+   80  std::string ThreadedCloudSync::whyForCode(int rc)
+   81  {
+   82  	switch (rc)
+   83  	{
+   84  		case 3: case 4: return _("COULDN'T FIND YOUR CLOUD FOLDER");
+   85  		case 5: case 124: return _("YOUR CLOUD STOPPED ANSWERING");
+   86  		case 7: case 8: return _("YOUR CLOUD WOULDN'T TAKE THE FILES");
+   87  		case CloudExit::Stopped:   return _("IT WAS STOPPED");
+   88  		// The sentinels, for a part that exited one beside a part that did
+   89  		// not (the transfer page's line 4): the same words the SKIPPED
+   90  		// outcome uses, so one code is never called two things.
+   91  		case CloudExit::NoNetwork: return _("YOU'RE NOT ONLINE");
+   92  		case CloudExit::LockHeld:  return _("A SYNC IS ALREADY RUNNING");
+   93  		case CloudExit::NoFolder:  return _("YOUR CLOUD FOLDER ISN'T SET UP YET");
+   94  		default:        return _("SOMETHING WENT WRONG");
+   95  	}
+   96  }
+  828  why_for() {
+  829      case "$1" in
+  830          3|4) echo "COULDN'T FIND YOUR CLOUD FOLDER" ;;
+  831          5)   echo "YOUR CLOUD STOPPED ANSWERING" ;;
+  832          6)   echo "SOME FILES DIDN'T FINISH" ;;
+  833          7|8) echo "YOUR CLOUD WOULDN'T TAKE THE FILES" ;;
+  834          130) echo "IT WAS STOPPED" ;;
+  835          10|124)
+  836              # The ceiling ended the run. An automatic sync runs again on its
+  837              # own; a run somebody pressed has TRY AGAIN in reach, and what
+  838              # they saw was a cloud that stopped answering (D-CLOUD-126).
+  839              if [ "${AUTOMATIC:-0}" -eq 1 ]; then
+  840                  echo "THE CLOUD TOOK TOO LONG - IT'LL TRY AGAIN NEXT TIME"
+  841              else
+  842                  echo "YOUR CLOUD STOPPED ANSWERING"
+  843              fi ;;
+  844          *)   echo "SOMETHING WENT WRONG" ;;
+  845      esac
+  846  }

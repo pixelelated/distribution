@@ -165,25 +165,31 @@ def fallback_map(why_for):
     print()
     print("| Code | Code says (`ThreadedCloudSync.cpp`) | Scripts' `why_for` | Header comment | Rule |")
     print("| --- | --- | --- | --- | --- |")
+    # Codes 6 and 10 have no arm of their own in whyForCode (the seat's A-15):
+    # they fall to default, where the scripts' why_for names them.
     groups = [("3 4", ["3", "4"], "YOUR CLOUD FOLDER WASN'T FOUND"), ("5 124", ["5", "124"], "YOUR CLOUD STOPPED ANSWERING"),
-              ("7 8", ["7", "8"], "YOUR CLOUD REFUSED THE TRANSFER"), ("Stopped", ["130"], "IT WAS STOPPED"),
+              ("6", ["6"], "SOME FILES DIDN'T FINISH"), ("7 8", ["7", "8"], "YOUR CLOUD REFUSED THE TRANSFER"),
+              ("10", ["10"], "THE CLOUD TOOK TOO LONG"), ("Stopped", ["130"], "IT WAS STOPPED"),
               ("default", ["*"], "SOMETHING WENT WRONG")]
     bad = 0
     for key, codes, rule_words in groups:
-        said, line = es.get(key, ("(missing)", 0))
+        said, line = es.get(key, es.get("default", ("(missing)", 0)))
         sw = {"3 4": "COULDN'T FIND YOUR CLOUD FOLDER", "5 124": "YOUR CLOUD STOPPED ANSWERING",
-              "7 8": "YOUR CLOUD WOULDN'T TAKE THE FILES", "Stopped": "IT WAS STOPPED",
+              "6": "SOME FILES DIDN'T FINISH", "7 8": "YOUR CLOUD WOULDN'T TAKE THE FILES",
+              "10": "THE CLOUD TOOK TOO LONG - IT'LL TRY AGAIN NEXT TIME", "Stopped": "IT WAS STOPPED",
               "default": "SOMETHING WENT WRONG"}[key]
         in_scripts = sw in why_for
         in_comment = said in comment
         in_rule = said in rule
         rule_has_old = rule_words in rule
-        print("| %s | `%s` (:%d) | %s | %s | %s |" % (
-            key, said, line, ("`%s`" % sw) if in_scripts else "**absent**",
+        print("| %s | `%s` (:%d%s) | %s | %s | %s |" % (
+            key, said, line, ", the default arm" if key in ("6", "10") else "", ("`%s`" % sw) if in_scripts else "**absent**",
             "same" if in_comment else "**differs** (names something else)",
             "same" if in_rule else ("**differs**: says `%s` (#909)" % rule_words if rule_has_old else "**absent** (#909)")))
         bad += 0 if said == sw else 1
-    return ["fallback_map_vs_scripts=%d" % bad] if bad else []
+    print()
+    print("Groups where the code and the scripts differ: %d (expected 2: codes 6 and 10, A-15)" % bad)
+    return [] if bad == 2 else ["fallback_map_vs_scripts=%d" % bad]
 
 
 def lock_held_wordings(literal):

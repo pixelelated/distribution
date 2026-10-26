@@ -52,9 +52,13 @@ Pairs whose two spellings differ: none
 | --- | --- | --- | --- | --- |
 | 3 4 | `COULDN'T FIND YOUR CLOUD FOLDER` (:84) | `COULDN'T FIND YOUR CLOUD FOLDER` | **differs** (names something else) | **differs**: says `YOUR CLOUD FOLDER WASN'T FOUND` (#909) |
 | 5 124 | `YOUR CLOUD STOPPED ANSWERING` (:85) | `YOUR CLOUD STOPPED ANSWERING` | same | same |
+| 6 | `SOMETHING WENT WRONG` (:94, the default arm) | `SOME FILES DIDN'T FINISH` | same | same |
 | 7 8 | `YOUR CLOUD WOULDN'T TAKE THE FILES` (:86) | `YOUR CLOUD WOULDN'T TAKE THE FILES` | **differs** (names something else) | **absent** (#909) |
+| 10 | `SOMETHING WENT WRONG` (:94, the default arm) | `THE CLOUD TOOK TOO LONG - IT'LL TRY AGAIN NEXT TIME` | same | same |
 | Stopped | `IT WAS STOPPED` (:87) | `IT WAS STOPPED` | same | same |
 | default | `SOMETHING WENT WRONG` (:94) | `SOMETHING WENT WRONG` | same | same |
+
+Groups where the code and the scripts differ: 2 (expected 2: codes 6 and 10, A-15)
 
 **Exit 75's wordings** (every string the eight and the scripts give a held lock):
 

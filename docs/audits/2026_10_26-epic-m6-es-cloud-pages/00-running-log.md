@@ -135,3 +135,26 @@
 - PROOF: P19, `SNES 0 FILES` at 640x480.
 - PROOF: P20, the exit sync 1.58 s, completed 3 of 3.
 - PROOF: P21, the card at 640x480.
+
+## [Stage C, the seats] 10:24 to 11:09 UTC — four keyed calls, 87 items graded, the pre-issue lint
+
+- **The runtime:** `npm install --offline` in `tools/council/` (`node_modules` is gitignored). `esbuild`'s install script was left unapproved, and the runner worked without it. `COUNCIL_ENV_FILE=/nonexistent tools/council/run verify-pins`: `OK`.
+- **The packet:** `second-opinions/packet.md`, 347,592 bytes, sha256 `e92cc4dc…`; the scan and the trims are in `04` § Second opinion. `review-plan.json` was written at 10:26Z, before the first call.
+- **The four keyed calls, and no others** (`/workspace/tmp/m6-t18/keyed-calls.txt`; options `--max-retries 1 --per-attempt-timeout-ms 1800000 --total-timeout-ms 2400000` on the refutations):
+  1. Astra's probe, 10:26:38 to 10:26:57 UTC: PASS, `openai/gpt-6-astra` by OpenAI.
+  2. Astra's refutation, 10:27:06 to 10:47:10 UTC: one attempt, `finish=stop`, 42 items.
+  3. Argon's probe, 10:49:58 to 10:50:05 UTC: PASS, `google/gemini-4-argon` by Google.
+  4. Argon's refutation, 10:50:15 to 11:06:02 UTC. Its first attempt returned empty content (`finish=error`, 396 s); the one allowed retry, within the same call, returned 45 items with `finish=stop`.
+- **The provenance, read directly** (`stage-c/provenance-read.py` into `provenance-read.txt`): all four `verification=PASS`, served model and provider the seat's, each output's sha256 matching `output_file_sha256`, `facilitator_version council-facilitator@1.14.1-pixelelated.2`. `tools/council/run summary`, with `COUNCIL_ENV_FILE=/nonexistent`, refuses without a council run directory (`--run-dir is required`), as for T17.
+- **The grades** (`04` § Second opinion; `stage-c/astra-grades.md` and `argon-grades.md`; the re-reads in `stage-c/rereads/`):
+  - Astra: 40 accepted, 1 in part, 1 plausible, 0 rejected.
+  - Argon: 45 accepted, 0 rejected.
+  - New and confirmed: A-33/A-34 with R-11/R-39/R-41 (stops and cancels against an ending run), A-36 (the full-stop row), A-37 (a part's early why misplaced), A-38/R-40 (a 9 after a failed part, latent), A-39 (`backuptool backup`'s output discarded, T26's), R-42 (a content transfer cut by the network reads COULDN'T FINISH with no why), and R-43 (the job's dead `mWhy`).
+  - The lane's claims the seats refuted, corrected in `02` and `04` in place, each saying so:
+    - the fallback map omitted codes 6 and 10 (A-15; the generator now lists seven groups and asserts 2 differences);
+    - "every row is fitted" (A-40);
+    - the 2 s budget compared with D-CLOUD-119's 3 s (A-11);
+    - "the second half is not a protocol line" (A-4).
+- **`05`:** 23 items; seven `bug`s proposed, all Low (PL-01 to PL-04, PL-18, PL-20, PL-22), and two more proposed Low by the seats (PL-05, PL-15).
+- **The lint:** `tools/lint-audit-artifacts docs/audits/2026_10_26-epic-m6-es-cloud-pages --phase pre-issue`: `PASS pre-issue artifacts (does not certify resolution)`.
+- **Nothing of the never-run list ran.** No keyed call beyond the four. No guest outside the window. The ES worktree is at the pin, clean.

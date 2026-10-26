@@ -1,0 +1,16 @@
+== A-37 the why labelled with mUnitLabel, and the tier that does not clear it
+  280  		case CloudText::ProtocolKind::Why:
+  281  		{
+  282  			// An empty why is a why line with nothing in it: the one this
+  283  			// page already had stands, and no item is blamed for it.
+  284  			if (protocol.text.empty())
+  285  				break;
+  286  			mWhy = protocol.text;
+  287  			mPendingWhys.push_back({ Utils::String::toUpper(mUnitLabel), protocol.text });
+  288  			break;
+  333  			mTiers.push_back(t);
+  334  			mPendingWhys.clear();
+  335  			mUnitsSinceTier.clear();
+  336  			break;
+  374  			mUnitLabel = label;
+  375  			mDoing.clear();

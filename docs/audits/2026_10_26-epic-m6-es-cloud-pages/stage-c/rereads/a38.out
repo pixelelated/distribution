@@ -1,0 +1,12 @@
+== A-38 the composer, the page's word, the manual sync
+ 5002  		auto add = [&cmd](const std::string& label, const std::string& part)
+ 5003  		{
+ 5004  			if (cmd.empty())
+ 5005  				cmd = "rc=0";
+ 5006  			cmd += " ; _t=0 ; { " + part + " ; } || _t=$? ; echo \">>> tier " + label + "|$_t\" ; [ \"$_t\" = 0 ] || rc=$_t";
+ 5007  		};
+  435  	o.completed = job.mExit == 0 || job.mExit == 9;
+ 6139  				ThreadedCloudSync::start(window,
+ 6140  					"/usr/bin/cloud_restore --yes --method=copy --update --saves-only; _r=$?; echo \">>> tier RESTORING SAVES|$_r\"; [ \"$_r\" = 0 ] || exit \"$_r\";"
+ 6141  					" /usr/bin/cloud_backup --yes --method=copy --update --saves-only; _b=$?; echo \">>> tier BACKING UP SAVES|$_b\"; exit \"$_b\"",
+-- --error-on-no-transfer in the scripts at 8ebaf8daad: 0 files

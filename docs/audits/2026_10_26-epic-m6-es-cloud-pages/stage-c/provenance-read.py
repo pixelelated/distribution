@@ -48,10 +48,12 @@ for out in OUTS:
     recorded = d.get("output_file_sha256")
     match = "match" if recorded == got else f"DIFFERS (recorded {recorded})"
     attempts = d.get("attempts", [])
-    finish = find(attempts, {"finish_reason", "finish"})
+    # The last attempt is the one whose output was kept; earlier ones are listed.
+    finish = find(attempts[-1:], {"finish_reason", "finish"})
+    earlier = [find([x], {"finish_reason", "finish"}) for x in attempts[:-1]]
     print(f"{out}: verification={ver.get('result')} observed={ver.get('observed')} source={ver.get('model_identity_source')}; "
           f"provider={prov.get('result')} observed={prov.get('observed')}; effort={eff.get('result')} "
-          f"(declared {eff.get('declared')}, reasoning {eff.get('observed_reasoning_tokens')}); attempts={len(attempts)} finish={finish}; "
+          f"(declared {eff.get('declared')}, reasoning {eff.get('observed_reasoning_tokens')}); attempts={len(attempts)} finish={finish}" + (f" (earlier: {earlier})" if earlier else "") + "; "
           f"facilitator_version={d.get('facilitator_version')}; output sha256 {got[:16]} {match}")
     if ver.get("result") != "PASS" or prov.get("result") not in ("PASS", None) or recorded != got:
         bad += 1

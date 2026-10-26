@@ -1,0 +1,29 @@
+== A-34 the late pid within the budget
+  836  	for (;;)
+  837  	{
+  838  		{
+  839  			std::lock_guard<std::mutex> lock(sInstanceLock);
+  840  			if (ThreadedCloudSync::mInstance != sync)
+  841  				return true;
+  842  			// Its first line had not arrived when we looked -- the command
+  843  			// was only just started. Signal it as soon as it says who it is.
+  844  			// Safe to read: mInstance still names it, so it is not deleted.
+  845  			if (pid <= 0)
+  846  			{
+  847  				pid = sync->mPid;
+  848  				if (pid > 0)
+  849  					::kill(-pid, SIGTERM);
+  850  			}
+  851  		}
+  852  
+  853  		const long elapsed = (long) std::chrono::duration_cast<std::chrono::milliseconds>(
+  854  			std::chrono::steady_clock::now() - started).count();
+  855  		if (elapsed >= 2000)
+  856  			return false;
+  857  		if (!killed && elapsed >= 1500 && pid > 0)
+  858  		{
+  859  			::kill(-pid, SIGKILL);
+  860  			killed = true;
+  861  		}
+  862  		std::this_thread::sleep_for(std::chrono::milliseconds(20));
+  863  	}

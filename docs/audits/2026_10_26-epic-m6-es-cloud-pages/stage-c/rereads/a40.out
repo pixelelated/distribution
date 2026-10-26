@@ -1,0 +1,10 @@
+== A-40 the rows set without fitOneLine
+   56  	mTitle    = std::make_shared<TextComponent>(window, Utils::String::toUpper(mJob->title()), theme->Title.font, theme->Title.color, ALIGN_CENTER);
+  913  		mFooter  ->setText(!o.completed ? (match ? CloudText::matchRecovery() : std::string())
+  914  			: mCompletedAction && !mCompletedFooter.empty() ? mCompletedFooter
+  915  			: _("PRESS ANY BUTTON TO CLOSE"));
+  936  			std::string counter = std::string(_("ITEM")) + " " + std::to_string(job.mItemIndex);
+  937  			if (job.mItemCount > 0)
+  938  				counter += " " + std::string(_("OF")) + " " + std::to_string(job.mItemCount);
+  939  			mCounter->setText(counter);
+ 1035  		mActivity->setText(doing);

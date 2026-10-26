@@ -1,0 +1,6 @@
+== A-14 backuptool's why before its fail
+ 1493          case $? in
+ 1494              0) rm -f "${MEMBERS}" "${NEWLIST}" "${SEEDS}"
+ 1495                 why "THIS BACKUP HOLDS FILES A RESTORE CAN'T PUT BACK"
+ 1496                 fail "THIS BACKUP HOLDS FILES A RESTORE CAN'T PUT BACK, SO NOTHING WAS CHANGED. RESTORE SETTINGS FROM THE CLOUD AGAIN, OR BACK UP SETTINGS TO REPLACE IT." "${BACKUPFILE} holds '${FOREIGN}', which a settings restore does not write (not a file under storage/)" ;;
+ 1497              1) ;;

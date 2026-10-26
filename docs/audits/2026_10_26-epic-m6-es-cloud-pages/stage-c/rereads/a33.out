@@ -1,0 +1,31 @@
+== A-33 the card's sample after pclose, and the instance cleared later
+  446  		int status = pclose(pipe);
+  447  		if (WIFEXITED(status))
+  448  			ret = WEXITSTATUS(status);
+  449  	}
+  450  
+  451  	// A cancelled run ends by SIGTERM, which pclose reports as a signal or,
+  452  	// when a shell sat between us and the group, as 143. Neither is what
+  453  	// happened. CloudExit::Stopped is what the scripts' own trap exits with
+  454  	// when somebody stops them, and what cloudLastRunDetail already reads as
+  455  	// STOPPED: the same word for the same thing, whoever did the stopping.
+  456  	const bool cancelled = mCancelled;
+  457  	if (cancelled)
+  458  		ret = CloudExit::Stopped;
+  716  	{
+  717  		std::lock_guard<std::mutex> lock(sInstanceLock);
+  718  		if (ThreadedCloudSync::mInstance == this)
+  719  			ThreadedCloudSync::mInstance = nullptr;
+  720  	}
+-- the job's own check
+  686  	// A stop that came as the command was ending, and found it done: the
+  687  	// command's own 0 (or rclone's 9, nothing to move) says it completed,
+  688  	// and a completed run is not called stopped (#308 gpt F-CS-24). A run
+  689  	// the stop did end exits by the signal or by the scripts' trap, 130 --
+  690  	// never 0.
+  691  	if ((mStoppedForGame || mStoppedByPlayer) && (ret == 0 || ret == 9))
+  692  	{
+  693  		LOG(LogInfo) << "CloudTransferJob: the stop came after the command had finished; it completed";
+  694  		mStoppedForGame = false;
+  695  		mStoppedByPlayer = false;
+  696  	}
