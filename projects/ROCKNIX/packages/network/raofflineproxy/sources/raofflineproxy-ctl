@@ -534,10 +534,15 @@ do_private_modes() {
 # lock file carries its pid (take_lock writes it), so it is asked to stop
 # (SIGTERM: its trap ends the helper and cleans up) and given STOP_WAIT
 # seconds to let go of the lock. Nothing else is matched by name or pattern.
-# Exit 0 when nothing was running or it stopped, 1 when it did not.
+# Exit 0 when nothing was running or it stopped, 1 when it did not, 2 when
+# the lock could not be opened -- whether a run holds it cannot be told, and
+# "cannot tell" is not "nothing running" (#1160).
 stop_running_run() {
     [ -e "${SCAN_LOCK}" ] || return 0
-    exec 7<>"${SCAN_LOCK}" || return 0
+    if ! exec 7<>"${SCAN_LOCK}"; then
+        say "disable: cannot open ${SCAN_LOCK}; whether a scan or top-up is running cannot be told"
+        return 2
+    fi
     if flock -n 7; then exec 7>&-; return 0; fi
     local PID WAITED=0
     PID="$(head -n 1 "${SCAN_LOCK}" 2>/dev/null)"
@@ -550,7 +555,7 @@ stop_running_run() {
     fi
     until flock -n 7; do
         if [ "${WAITED}" -ge "${STOP_WAIT}" ]; then
-            say "disable: the running scan or top-up did not stop within ${STOP_WAIT}s; carrying on"
+            say "disable: the running scan or top-up did not stop within ${STOP_WAIT}s"
             exec 7>&-
             return 1
         fi
@@ -568,9 +573,21 @@ do_disable() {
     # Each step is read back before the next one uses it up (#308 F-RA-18):
     # a toggle that did not clear stops nothing, so the device stays on --
     # service, marker and record together -- rather than half off.
+    # A lock that cannot be opened hides any run that holds it: nothing is
+    # changed, and the answer is that it cannot be told (#1160).
+    if [ -e "${SCAN_LOCK}" ] && ! { : <>"${SCAN_LOCK}"; } 2>/dev/null; then
+        cannot_tell "disable: cannot open ${SCAN_LOCK}, so a scan or top-up may be running unseen; nothing was changed"
+    fi
     set_setting "${KEY}" 0
     [ "$(setting "${KEY}")" = "0" ] || fail "${KEY} did not clear; the service, the marker and the hardcore record are left as they were"
-    stop_running_run
+    # A run that did not stop within STOP_WAIT, or one that could not be
+    # seen, is still writing: the service it talks to stays, and so does
+    # the toggle, put back -- the device is left on, as it was (#1160).
+    if ! stop_running_run; then
+        set_setting "${KEY}" 1
+        [ "$(setting "${KEY}")" = "1" ] || fail "a scan or top-up did not stop, and ${KEY} could not be put back"
+        fail "a scan or top-up did not stop within ${STOP_WAIT}s; offline RetroAchievements stays on"
+    fi
     do_stop
     rm -f "${MARKER}"
 
@@ -1217,8 +1234,28 @@ time_left() {
 # A sleep that a SIGTERM interrupts: the shell waits on a background sleep,
 # and wait returns the moment a trapped signal arrives, so disable is not
 # kept waiting for a probe interval to run out.
+# The helper a run started, asked to end and given five seconds to (#1160):
+# the run's EXIT is not the helper's, and a helper still writing the store
+# after its run has gone is a write nobody waits for. wait reaps it (kill -0
+# would count an unreaped child as alive); the watchdog's KILL bounds the
+# wait. A helper under timeout(1) that ignored both outlives its wrapper, but
+# without the lock (fd 9 is closed in it).
+stop_client() {
+    local W
+    [ -n "${CLIENT:-}" ] || return 0
+    kill "${CLIENT}" 2>/dev/null || return 0
+    ( sleep 5; kill -KILL "${CLIENT}" 2>/dev/null ) 9<&- &
+    W=$!
+    wait "${CLIENT}" 2>/dev/null
+    kill "${W}" 2>/dev/null
+    return 0
+}
+
 pause() {
-    sleep "${1}" &
+    # fd 9 (the lock) closed in every process this script starts in the
+    # background: a helper that outlived its run would hold the lock for a
+    # pid that is gone (#1160).
+    sleep "${1}" 9<&- &
     wait $! 2>/dev/null
 }
 
@@ -1773,9 +1810,9 @@ run_jobs() {
     JOBS_FIFO="$(mktemp -u /tmp/raofflineproxy-scan-out.XXXXXX)"
     mkfifo "${JOBS_FIFO}" || fail "cannot create ${JOBS_FIFO}"
     if [ "${BUDGET}" -gt 0 ]; then
-        timeout "${BUDGET}" python3 "${HELPER}" "${LIST}" > "${JOBS_FIFO}" 2>>"${SCAN_LOG}" &
+        timeout "${BUDGET}" python3 "${HELPER}" "${LIST}" > "${JOBS_FIFO}" 2>>"${SCAN_LOG}" 9<&- &
     else
-        python3 "${HELPER}" "${LIST}" > "${JOBS_FIFO}" 2>>"${SCAN_LOG}" &
+        python3 "${HELPER}" "${LIST}" > "${JOBS_FIFO}" 2>>"${SCAN_LOG}" 9<&- &
     fi
     CLIENT=$!
     exec 8< "${JOBS_FIFO}"
@@ -1938,7 +1975,7 @@ run_image_pass() {
     # seconds less than the pass has and timeout ends it at the pass's
     # bound whatever it is blocked on (a timeout is images not saved).
     # shellcheck disable=SC2086 -- MODE is one flag or empty, on purpose
-    timeout "${SECONDS_LEFT}" "${IMAGE_HELPER}" --seconds "$(( SECONDS_LEFT - 10 ))" ${MODE} >>"${SCAN_LOG}" 2>&1 &
+    timeout "${SECONDS_LEFT}" "${IMAGE_HELPER}" --seconds "$(( SECONDS_LEFT - 10 ))" ${MODE} >>"${SCAN_LOG}" 2>&1 9<&- &
     CLIENT=$!
     wait "${CLIENT}" || RC=$?
     unset CLIENT
@@ -1972,12 +2009,12 @@ do_images() {
     RUN_ROUTE=images
     take_lock images
     mark_running
-    trap 'unmark_running; [ -n "${CLIENT:-}" ] && kill "${CLIENT}" 2>/dev/null' EXIT
+    trap 'unmark_running; stop_client' EXIT
     local RC=0
     # Bounded at the process too, a grace past the helper's own --seconds
     # (#308 F-RA-10).
     # shellcheck disable=SC2086 -- MODE is one flag or empty, on purpose
-    timeout "$(( IMAGE_PASS_SECONDS + 10 ))" "${IMAGE_HELPER}" --seconds "${IMAGE_PASS_SECONDS}" ${MODE} &
+    timeout "$(( IMAGE_PASS_SECONDS + 10 ))" "${IMAGE_HELPER}" --seconds "${IMAGE_PASS_SECONDS}" ${MODE} 9<&- &
     CLIENT=$!
     wait "${CLIENT}" || RC=$?
     CLIENT=""
@@ -2014,12 +2051,12 @@ do_refresh() {
     RUN_ROUTE=refresh
     take_lock refresh
     mark_running
-    trap 'unmark_running; [ -n "${CLIENT:-}" ] && kill "${CLIENT}" 2>/dev/null' EXIT
+    trap 'unmark_running; stop_client' EXIT
     local RC=0
     # The helper looks at its --seconds between games; a game's requests
     # can block past it, so the process is bounded too, a minute's grace
     # past the helper's own ceiling (#308 F-RA-10).
-    timeout "$(( TOPUP_TIMEOUT + 60 ))" "${REFRESH_HELPER}" --seconds "${TOPUP_TIMEOUT}" "${WHICH[@]}" &
+    timeout "$(( TOPUP_TIMEOUT + 60 ))" "${REFRESH_HELPER}" --seconds "${TOPUP_TIMEOUT}" "${WHICH[@]}" 9<&- &
     CLIENT=$!
     wait "${CLIENT}" || RC=$?
     CLIENT=""
@@ -2043,7 +2080,7 @@ do_scan() {
     local LIST
     LIST="$(mktemp /tmp/raofflineproxy-scan.XXXXXX)" || fail "cannot create the list"
     # Everything of the run's goes when the run does, however it ends.
-    trap 'rm -f "${LIST}" "${JOBS_FIFO:-}" "${READY_BEFORE:-}" "${READY_AFTER:-}" "${SCAN_CURSOR}.next" "${RUNNING}" "${RUNNING}.tmp"; [ -n "${CLIENT:-}" ] && kill "${CLIENT}" 2>/dev/null' EXIT
+    trap 'rm -f "${LIST}" "${JOBS_FIFO:-}" "${READY_BEFORE:-}" "${READY_AFTER:-}" "${SCAN_CURSOR}.next" "${RUNNING}" "${RUNNING}.tmp"; stop_client' EXIT
 
     local COUNTS
     R_IMAGES_WHY=""
@@ -2330,7 +2367,7 @@ do_topup() {
 
     local LIST
     LIST="$(mktemp /tmp/raofflineproxy-topup.XXXXXX)" || fail "cannot create the list"
-    trap 'rm -f "${LIST}" "${JOBS_FIFO:-}" "${SC_OUT:-}" "${READY_BEFORE:-}" "${READY_AFTER:-}" "${RUNNING}" "${RUNNING}.tmp"; [ -n "${CLIENT:-}" ] && kill "${CLIENT}" 2>/dev/null' EXIT
+    trap 'rm -f "${LIST}" "${JOBS_FIFO:-}" "${SC_OUT:-}" "${READY_BEFORE:-}" "${READY_AFTER:-}" "${RUNNING}" "${RUNNING}.tmp"; stop_client' EXIT
     mark_running
     # The games ready for this account before either pass, for added=.
     READY_BEFORE="$(mktemp /tmp/raofflineproxy-ready.XXXXXX 2>/dev/null)" && { ready_games_into "${READY_BEFORE}" || { rm -f "${READY_BEFORE}"; READY_BEFORE=""; }; }
@@ -2428,7 +2465,7 @@ do_topup() {
         local SRC RESULT
         SC_OUT="$(mktemp /tmp/raofflineproxy-topup-sc.XXXXXX)" || fail "cannot create the result file"
         mark_running
-        timeout "${LEFT}" ${PROXY_PY} run-smart-cache > "${SC_OUT}" 2>>"${SCAN_LOG}" &
+        timeout "${LEFT}" ${PROXY_PY} run-smart-cache > "${SC_OUT}" 2>>"${SCAN_LOG}" 9<&- &
         CLIENT=$!
         wait "${CLIENT}" 2>/dev/null
         SRC=$?

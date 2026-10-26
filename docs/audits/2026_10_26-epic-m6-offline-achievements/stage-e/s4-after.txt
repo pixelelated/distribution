@@ -1,0 +1,28 @@
+# S4 after (#666, #1160): the ctl in the tree, 2026-10-26T15:09:23Z
+ctl sha256 05cd13737d5dabc2
+command: tools/t19-s4-disable.sh <tree's ctl> /workspace/tmp/m6-t19/s4/after
+
+host bash 5.3.9(1)-release (the tree pins bash 5.3); applets from BusyBox v1.36.1 (a copy of /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox, the image's); host python 3.14.4 (image recipe 3.14.7)
+  1. the lock path a directory, a holder alive
+     rc 2 in 0 s; toggle 1, hardcore 0, record 1, marker yes, service active, stops 0; holder alive; stderr en /var/run/raofflineproxy-scan.lock, so a scan or top-up may be running unseen; nothing was changed|raofflineproxy-ctl: disable: cannot open /var/run/raofflineproxy-scan.lock, so a scan or top-up may be running unseen; nothing was changed|
+    PASS  disable exits non-zero when it cannot open the lock
+    PASS  and nothing changed: the toggle, hardcore, the marker and the service as they were, no stop
+    PASS  and the ctl says why in its own line, naming the lock (not bash's error)
+  2. a holder that ignores SIGTERM (STOP_WAIT 10 s)
+     rc 1 in 10 s; toggle 1, hardcore 0, record 1, marker yes, service active, stops 0; stderr an or top-up did not stop within 10s|logger -t raofflineproxy-ctl a scan or top-up did not stop within 10s; offline RetroAchievements stays on|raofflineproxy-ctl: a scan or top-up did not stop within 10s; offline RetroAchievements stays on|
+    PASS  disable exits non-zero when the run did not stop
+    PASS  and leaves the device on as it was
+  3. images: does the helper hold the lock?
+     rc 0; helper fd 9: absent
+    PASS  the helper ran (the control)
+    PASS  the helper does not inherit fd 9, the lock
+  4. images stopped by SIGTERM, its helper taking 2 s to end
+     rc 143; the helper when the ctl had exited: gone
+    PASS  the ctl's EXIT trap waits, bounded, for the helper it killed
+t19-s4-disable: 0 FAIL
+rc 0
+
+bash -n of the ctl: ok
+every background launch with 9<&-: 8 (six helper launches, pause's sleep and stop_client's watchdog)
+
+## tools/last-good-scripts-test (QA_SYSTEM_ROOT the retained donor) on S4: 1313 PASS; PASSED. S4 reverses no check.

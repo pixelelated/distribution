@@ -1,0 +1,22 @@
+# S4 before (#666, #1160): the ctl at 6aca961c00 (S3's tip), 2026-10-26T15:09:06Z
+command: tools/t19-s4-disable.sh <ctl at 6aca961c00> /workspace/tmp/m6-t19/s4/before
+
+host bash 5.3.9(1)-release (the tree pins bash 5.3); applets from BusyBox v1.36.1 (a copy of /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox, the image's); host python 3.14.4 (image recipe 3.14.7)
+  1. the lock path a directory, a holder alive
+     rc 0 in 0 s; toggle 0, hardcore 1, record , marker no, service inactive, stops 1; holder alive; stderr /repo/raofflineproxy-ctl: line 540: /var/run/raofflineproxy-scan.lock: Is a directory|logger -t raofflineproxy-ctl offline RetroAchievements off: hardcore put back to 1; raofflineproxy.service inactive|
+    FAIL  disable exits non-zero when it cannot open the lock -- rc 0
+    FAIL  and nothing changed: the toggle, hardcore, the marker and the service as they were, no stop -- toggle 0, hardcore 1, record , marker no, service inactive, stops 1
+    FAIL  and the ctl says why in its own line, naming the lock (not bash's error) -- stderr: epo/raofflineproxy-ctl: line 540: /var/run/raofflineproxy-scan.lock: Is a directory|logger -t raofflineproxy-ctl offline RetroAchievements off: hardcore put back to 1; raofflineproxy.service inactive|
+  2. a holder that ignores SIGTERM (STOP_WAIT 10 s)
+     rc 0 in 11 s; toggle 0, hardcore 1, record , marker no, service inactive, stops 1; stderr 3); asking it to stop|logger -t raofflineproxy-ctl disable: the running scan or top-up did not stop within 10s; carrying on|logger -t raofflineproxy-ctl offline RetroAchievements off: hardcore put back to 1; raofflineproxy.service inactive|
+    FAIL  disable exits non-zero when the run did not stop -- rc 0
+    FAIL  and leaves the device on as it was -- toggle 0, hardcore 1, record , marker no, service inactive, stops 1
+  3. images: does the helper hold the lock?
+     rc 0; helper fd 9: /var/run/raofflineproxy-scan.lock
+    PASS  the helper ran (the control)
+    FAIL  the helper does not inherit fd 9, the lock -- fd 9 -> /var/run/raofflineproxy-scan.lock
+  4. images stopped by SIGTERM, its helper taking 2 s to end
+     rc 143; the helper when the ctl had exited: alive
+    FAIL  the ctl's EXIT trap waits, bounded, for the helper it killed -- helper alive
+t19-s4-disable: 7 FAIL
+rc 1
