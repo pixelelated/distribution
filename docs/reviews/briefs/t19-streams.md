@@ -402,3 +402,35 @@ PASS after), its own row in `02` § The streams and a PL-24 row in `05`
 lane; `Already written:` nothing persisted -- stderr only. S5's commit
 message names both bugs: `Refs #666, #1161, #1166`. Had the line sat
 outside S5's function it would have waited for the pause; the rule stands.
+
+## S7: the suite's fixture relied on the defect; it is completed in S7's commit (ruled 2026-10-26 15:50 UTC; D-WORKFLOW-211)
+
+Found by the lane at S7 (its post of 15:49): with a missing image helper no
+longer a clean run, `tools/last-good-scripts-test` reads 1301 PASS, 12
+FAIL. One check S7's ruling reverses (`:2410-2412`, #188's *topup whose
+helper reported DONE and was then killed by the bound*: it asserted rc 0
+for a run whose spent deadline left no time for the recently played pass;
+carried over it asserts the games still count and the run ends 1 with
+`TOOK_TOO_LONG`). **Eleven are incidental**: section t's early scan and
+top-up cases assert nothing about images and ran with no image helper
+beside the ctl, which the unfixed ctl counted as clean; the suite's own
+stand-in arrives only at `:2506`.
+
+So S7's commit also **completes the fixture**: at section t's setup
+(`:2062-2066`, right after the ctl is copied in), an image-helper stand-in
+that exits 0 -- the helper that finds every image there, as the shipped one
+does on a device; the image cases at `:2506` keep replacing it with their
+own. No assertion changes. The commit message and `02` § The streams name
+it as a fixture completion, distinct from the reversed check, with the
+sentence: *the early cases passed only because the helper was absent and
+the defect read absence as clean*. The whole suite passes after, its count
+named. The three new why tokens S7 emits (`RESULT_UNREADABLE`,
+`TOOK_TOO_LONG`, `SOME_IMAGES_NOT_SAVED`) are recorded in `02` § What T20
+inherits with which already have a row in the interface's table.
+
+This refines the suite rule above and D-WORKFLOW-210 (D-WORKFLOW-211): a
+fixture that relied on the defect -- a stand-in absent where the image
+always has one, a precondition the old behaviour supplied -- is completed in
+the stream's commit, the setup line named, no assertion changed; a fixture
+change that would alter what a check asserts is still a reversed check or
+a question.
