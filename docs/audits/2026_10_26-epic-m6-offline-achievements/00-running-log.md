@@ -103,3 +103,67 @@
 - **`05`:** 23 items covering all 41 findings: eight `bug`s proposed, all Low (PL-01 to PL-08); fifteen Info.
 - **The lint:** `tools/lint-audit-artifacts docs/audits/2026_10_26-epic-m6-offline-achievements --phase pre-issue`: `PASS pre-issue artifacts (does not certify resolution)`.
 - **Nothing of the never-run list ran.** No keyed call beyond the four. No guest outside the window.
+
+## [Stage D] 13:48 to 13:55 UTC — the dispositions, the audit issue, the bugs
+
+- **The ruling:** #666, 13:48 UTC. The streams are `docs/reviews/briefs/t19-streams.md` at `6064579a3f`, with sections added at `22caaa375a` (14:33, the suite), `648dadebf1` (15:15, #1166 into S5) and `dccd82138d` (15:50, S7's fixture).
+- **The audit issue:** #1156, a sub-issue of #666, with 23 items, then 24 with PL-24.
+- **The nine bugs, all Low:** #1157 to #1165. `tools/box-check` 0 fail on all ten issues. Committed at `715f39a0fd`.
+
+## [Stage E] 13:55 to 16:30 UTC — ten streams and #1166, one commit each
+
+- **Versions:** every fixture ran under the host's bash 5.3.9 (the tree pins 5.3) and python 3.14.4 (the image's recipe: 3.14.7). The ctl's applets came from a copy of the retained donor's busybox 1.36.1 (`/workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox`), wrapped only for the applets it provides: it has no `grep` or `sort`, which the image takes from packages of their own.
+- **Every fixture ran in `bwrap --clearenv`,** its scratch root asserted under `/workspace/tmp/m6-t19/` and no real prefix rewritten. Each is in the audit folder's `tools/`; nothing of the lane's is under the repository's `tools/`. Arguments are given only where they differ from the stream's scratch:
+  - S1: the patch's test, `python3 -B -m unittest linux.tests.test_linux_offline_login` (`env -i`); `tools/t19-s1-service.py <tree> <scratch>`, the real service in `--unshare-net`.
+  - S2: `tools/t19-s2-modes.sh <ctl> <unit> <scratch>`.
+  - S3: `tools/t19-s3-listening.sh <ctl> <scratch>`, a python stand-in on `0.0.0.0:8080` in `--unshare-net`.
+  - S4: `tools/t19-s4-disable.sh <ctl> <scratch>`, each case in `--unshare-pid`.
+  - S5: `tools/t19-s5-writers.sh <ctl> <client> <scratch>`, its case 6 #1166's positive.
+  - S6: `tools/t19-s6-topup-mark.sh <ctl> <scratch>`.
+  - S7: `tools/t19-s7-not-clean.sh <ctl> <cache-images> <client> <scratch>`.
+  - S8: `tools/t19-s8-counts.sh <ctl> <client> <scratch>`.
+  - S9: `python3 -I -B tools/t19-listing-fixture.py <tree> <scratch> --ctl <ctl> --helper <cache-indexed> --expect unfixed|fixed`.
+  - S10: `patch --dry-run -p1 --fuzz=0` of 020 and 021; `tools/pkgcheck raofflineproxy`.
+  - The shared harness is `tools/t19-ctl-sandbox.sh`. The client is the pin's tarball from the cache with the series applied, under `/workspace/tmp/m6-t19/s1/fresh/`.
+- **`tools/last-good-scripts-test`** (`QA_SYSTEM_ROOT` the retained donor) before every commit that touched a covered script: 1313 PASS at every stream's commit.
+  - Its checks changed only as ruled (14:33, 15:50; D-WORKFLOW-210/211): S1's 011 check; S3's D12b check and D36's runner; S7's and S9's fixture completions. Each is named in `02` § The streams.
+- **The commits:**
+
+  | Commit | Stream |
+  | --- | --- |
+  | `57c5e8c4ec` | S1 |
+  | `5810eff004` | S1's suite carry-over |
+  | `76658dd062` | S2 |
+  | `6aca961c00` | S3 |
+  | `fdcd576e99` | S4 |
+  | `44120e2e17` | S5, with #1166 |
+  | `7239b1adc1` | S6 |
+  | `54ab8c6c10` | S7 |
+  | `72f0f3e3dd` | S8 |
+  | `09b204153d` | S9 |
+  | `49f3dc8679` | S10 |
+
+- **Two of the lane's slips, each corrected:**
+  - `register-check` FAILED at S1 behind `| tail -1`; the unpushed commit was amended, with a friction line.
+  - The 15:49 post called #188's top-up check reversed; it is a fixture completion, corrected on #666 and in `02`.
+
+## [Stage F] 16:30 UTC — every row at its outcome
+
+- **`05`:** all 24 rows at an outcome: 14 resolved with their commits, 5 deferred (#667 three, #585 two), 5 withdrawn as recorded. `tools/lint-audit-artifacts docs/audits/2026_10_26-epic-m6-offline-achievements`: `PASS` (the default `resolution` phase).
+- **#1156:** 24 checkboxes ticked at their outcomes; `tools/box-check --issue 1156`: 0 fail.
+
+## Closing census
+
+- **Never ran:**
+  - no build;
+  - no compiler beyond python's own byte-compiling;
+  - no plan generation;
+  - no fetch: the upstream proxy came from the cache's tarball, and the council runtime from `npm install --offline`;
+  - no handheld;
+  - the owner's RetroAchievements account was never named or used;
+  - no hosted account (no `ra-offline-test` run this cycle: CANNOT, D-RA-006);
+  - no M7 root or worktree;
+  - no keyed council call beyond the four of stage C.
+- **The one guest window:** 12:43:49 to 12:53:37 UTC. Both disks were retired, recorded in `guest-cycle/retired.txt`.
+- **The ctl and the proxy on the host:** the proxy's service ran on the host only at stage E, inside `bwrap --clearenv --unshare-net`, as S1's stream brief directs (`tools/t19-s1-service.py`), and in the suite's own D36 case. The ctl ran on the host only at stage E, inside the stream fixtures' sandboxes and the suite's. Before stage E neither ran on the host.
+- **Under `packages/`, `projects/` and `tools/`:** nothing changed at stages A to D (`git diff --stat 7de4ece06d 715f39a0fd -- packages projects tools` is empty). At stage E: the package's own files under `projects/ROCKNIX/packages/network/raofflineproxy/` (patch 022 new; the ctl, `cache-images` and `cache-indexed`; the unit; `package.mk`'s comment; 020's and 021's headers), and `tools/last-good-scripts-test` as ruled.

@@ -394,34 +394,34 @@
 
 ## Phase 7 resolution gate
 
-Every item is open until stage F; each row then takes its outcome. The dispositions are the coordinator's at the stage-D pause.
+Every item was open until stage F; each row now takes its outcome (resolved with its commit, deferred to a named issue, or withdrawn: recorded as written with its reason). The dispositions are the coordinator's at the stage-D pause (#666, 13:48 UTC), and PL-24's at 15:15 UTC. Stage F, 2026-10-26: every row at its outcome -- 14 resolved, 5 deferred (#667 three, #585 two), 5 withdrawn.
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | at the stage-D pause; disposition: a `bug`, #1157, filed at the stage-D ruling (#666, 13:48 UTC); stream S1 (D-RA-050) |
-| PL-02 | Open | at the stage-D pause; disposition: a `bug`, #1159, filed at the stage-D ruling (#666, 13:48 UTC); stream S3 |
-| PL-03 | Open | at the stage-D pause; disposition: a `bug`, #1160, filed at the stage-D ruling (#666, 13:48 UTC); stream S4 |
-| PL-04 | Open | at the stage-D pause; disposition: a `bug`, #1161 (with PL-21), filed at the stage-D ruling (#666, 13:48 UTC); stream S5 |
-| PL-05 | Open | at the stage-D pause; disposition: a `bug`, #1162, filed at the stage-D ruling (#666, 13:48 UTC); stream S6 |
-| PL-06 | Open | at the stage-D pause; disposition: a `bug`, #1163 (with PL-23), filed at the stage-D ruling (#666, 13:48 UTC); stream S7 |
-| PL-07 | Open | at the stage-D pause; disposition: a `bug`, #1164, filed at the stage-D ruling (#666, 13:48 UTC); stream S8 |
-| PL-08 | Open | at the stage-D pause; disposition: a `bug`, #1165 (with PL-16's classifier), filed at the stage-D ruling (#666, 13:48 UTC); stream S9 |
-| PL-09 | Open | at the stage-D pause; disposition: a `bug`, Low, #1158, filed at the stage-D ruling (#666, 13:48 UTC); stream S2 (D-RA-049); the full sandboxing Backlog #1155 |
-| PL-10 | Open | at the stage-D pause; disposition: recorded as written: the account name is public; the listing's environment rule stays |
-| PL-11 | Open | at the stage-D pause; disposition: recorded as written: the schema the service writes anyway; Argon's "never closed" refuted at ctl :1564 |
-| PL-12 | Open | at the stage-D pause; disposition: recorded as written: the cursor regenerable, the log rotating at the next `slog`; `02` names the fifo's directory |
-| PL-13 | Open | at the stage-D pause; disposition: handed to T20 (#667): the staleness contract in `02` § What T20 inherits |
-| PL-14 | Open | at the stage-D pause; disposition: recorded as written: the badge CDN's images; the lookup threads bounded by the lookups |
-| PL-15 | Open | at the stage-D pause; disposition: deferred to #585: two lines in `02` § The patches; the coordinator posts them |
-| PL-16 | Open | at the stage-D pause; disposition: the classifier fixed with PL-08 (#1165, stream S9); the usage exits recorded as written |
-| PL-17 | Open | at the stage-D pause; disposition: handed to T20 (#667), with #224's row |
-| PL-18 | Open | at the stage-D pause; disposition: handed to T20 (#667) |
-| PL-19 | Open | at the stage-D pause; disposition: stream S10 (documentation, no bug); the missing drafts and stale bases a #585 line in `02` § The patches |
-| PL-20 | Open | at the stage-D pause; disposition: recorded as written; the installed-native run on the built image is the integration's owed item |
-| PL-21 | Open | at the stage-D pause; disposition: fixed with PL-04 (#1161, stream S5) |
-| PL-22 | Open | at the stage-D pause; disposition: deferred to #585: two lines in `02` § The patches; the coordinator posts them |
-| PL-23 | Open | at the stage-D pause; disposition: fixed with PL-06 (#1163, stream S7) |
-| PL-24 | Resolved | found at stage E and ruled into S5 (#666, 15:15 UTC): the fix in S5's commit (#1161, #1166; `02` § The streams), its positive `stage-e/s5-before.txt` and `s5-after.txt` case 6 |
+| PL-01 | Resolved | Resolved in `57c5e8c4ec` (S1) under #1157, D-RA-050: patch `022-offline-login-requires-credential.patch`; the offline login answers the cached token or a password matching its recorded hash, for the configured account, from a loopback Host with no Origin; the suite's 011 check carried over in `5810eff004` (`stage-e/s1-*.txt`) |
+| PL-02 | Resolved | Resolved in `6aca961c00` (S3) under #1159: `listening` counts only the unit's MainPID's own socket; two suite checks carried over (`stage-e/s3-*.txt`) |
+| PL-03 | Resolved | Resolved in `fdcd576e99` (S4) under #1160: a lock it cannot open is `cannot_tell`, a run that did not stop leaves the device on, helpers start without fd 9, the EXIT traps wait bounded (`stage-e/s4-*.txt`) |
+| PL-04 | Resolved | Resolved in `44120e2e17` (S5) under #1161: a stamp that could not be written ends the run 1 with `STAMP_UNWRITABLE`; the undo's steps read back (`stage-e/s5-*.txt`) |
+| PL-05 | Resolved | Resolved in `7239b1adc1` (S6) under #1162: a mark dated ahead of the clock is no mark (`stage-e/s6-*.txt`) |
+| PL-06 | Resolved | Resolved in `54ab8c6c10` (S7) under #1163: an unreadable result is `RESULT_UNREADABLE`, a pass skipped for time `TOOK_TOO_LONG`, a missing helper `SOME_IMAGES_NOT_SAVED`; the suite's fixture completed (D-WORKFLOW-211) (`stage-e/s7-*.txt`) |
+| PL-07 | Resolved | Resolved in `72f0f3e3dd` (S8) under #1164: `ready` cannot tell is exit 2 and nothing on stdout; stamps say `ready=unknown`; `account` takes only an object and a number (`stage-e/s8-*.txt`) |
+| PL-08 | Resolved | Resolved in `09b204153d` (S9) under #1165: the job list is NUL-separated in surrogateescape, `DONE` reconciled, an id-less index job refused; `tools/t19-listing-fixture.py --expect` (`stage-e/s9-*.txt`) |
+| PL-09 | Resolved | Resolved in `76658dd062` (S2) under #1158, D-RA-049: `UMask=0077`, `umask 077`, the `private-modes` pass at `enable` and `ExecStartPre=-`; the full sandboxing is Backlog #1155 (`stage-e/s2-*.txt`) |
+| PL-10 | Withdrawn | Withdrawn: recorded as written at the stage-D ruling (#666, 13:48 UTC); the account name is public and the listing's environment rule stays; no change made |
+| PL-11 | Withdrawn | Withdrawn: recorded as written at the stage-D ruling (#666, 13:48 UTC); the schema is the service's own, and Argon's "never closed" is refuted at ctl `:1564`; no change made |
+| PL-12 | Withdrawn | Withdrawn: recorded as written at the stage-D ruling (#666, 13:48 UTC); the cursor is regenerable and the log rotates at the next `slog`; `02` § The writers names the fifo's directory (`/tmp`); no change made |
+| PL-13 | Deferred | Deferred: #667 (T20), the staleness contract in `02` § What T20 inherits, as ruled at the stage-D ruling (#666, 13:48 UTC) |
+| PL-14 | Withdrawn | Withdrawn: recorded as written at the stage-D ruling (#666, 13:48 UTC); the badge CDN's images; the lookup threads bounded by the lookups; no change made |
+| PL-15 | Deferred | Deferred: #585, two lines in `02` § The patches, The #585 lines (`http_post`'s 429; the usage report's row), for the coordinator to post; not sent (D-WORKFLOW-165) |
+| PL-16 | Resolved | Resolved in `09b204153d` (S9) under #1165 for the classifier (it reads the reason field, never the file name); the usage exits recorded as written at the stage-D ruling (#666, 13:48 UTC) |
+| PL-17 | Deferred | Deferred: #667 (T20), with #224's row, in `02` § What T20 inherits, as ruled at the stage-D ruling (#666, 13:48 UTC) |
+| PL-18 | Deferred | Deferred: #667 (T20), `NO_GAMES_FOUND`'s row and the page's comment, in `02` § What T20 inherits, as ruled at the stage-D ruling (#666, 13:48 UTC) |
+| PL-19 | Resolved | Resolved in `49f3dc8679` (S10): the recipe counts nineteen patches with the gaps named; 020 and 021 carry headers; `tools/pkgcheck raofflineproxy` exits 0; the missing drafts and stale bases a #585 line in `02` § The patches (`stage-e/s10-*.txt`) |
+| PL-20 | Withdrawn | Withdrawn: recorded as written at the stage-D ruling (#666, 13:48 UTC); the installed-native run against the tree's own service on the built image is the integration's owed item (`02` § The guest cycle); no change made |
+| PL-21 | Resolved | Resolved in `44120e2e17` (S5) with PL-04, under #1161: `put_back` and `enable_undo` read back; the aside is kept when its put-back fails (`stage-e/s5-*.txt`) |
+| PL-22 | Deferred | Deferred: #585, two lines in `02` § The patches, The #585 lines (the request path's malformed inputs; the query redactor's reach), for the coordinator to post; not sent (D-WORKFLOW-165) |
+| PL-23 | Resolved | Resolved in `54ab8c6c10` (S7) with PL-06, under #1163: a damaged image `--verify` cannot remove counts as not saved (`stage-e/s7-*.txt`) |
+| PL-24 | Resolved | Resolved in `44120e2e17` (S5) under #1166, ruled into S5 (#666, 15:15 UTC): `pending_lock`'s redirect scoped to the open (`stage-e/s5-*.txt`, case 6) |
 
 ## Machine-readable index
 
@@ -432,139 +432,139 @@ punch_index:
   category: Security
   question: Q3
   source_finding: "F-01, F-02"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-02
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "F-03"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-03
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "F-06, F-39"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-04
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "F-07"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-05
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "F-12"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-06
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "F-15, F-32"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-07
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "F-16, F-26"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-08
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "F-17, F-29, F-41"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-09
   severity: "Low"
   category: Security
   question: Q2
   source_finding: "F-04, F-25"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-10
   severity: "Info"
   category: Standards
   question: Q2
   source_finding: "F-05"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-11
   severity: "Info"
   category: Standards
   question: Q2
   source_finding: "F-08"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-12
   severity: "Info"
   category: Standards
   question: Q2
   source_finding: "F-09, F-10"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-13
   severity: "Info"
   category: Clarity
   question: Q7
   source_finding: "F-11, F-34"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-14
   severity: "Info"
   category: Efficiency
   question: Q5
   source_finding: "F-13, F-30, F-36"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-15
   severity: "Info"
   category: Correctness
   question: Q3
   source_finding: "F-14, F-38"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-16
   severity: "Info"
   category: Standards
   question: Q2
   source_finding: "F-18, F-24"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-17
   severity: "Info"
   category: Clarity
   question: Q7
   source_finding: "F-19, F-40"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-18
   severity: "Info"
   category: Clarity
   question: Q6
   source_finding: "F-20"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-19
   severity: "Info"
   category: Renovation
   question: Q4
   source_finding: "F-21, F-22"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-20
   severity: "Info"
   category: Standards
   question: Q2
   source_finding: "F-23"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-21
   severity: "Info"
   category: Correctness
   question: Q3
   source_finding: "F-27, F-28"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-22
   severity: "Info"
   category: Security
   question: Q3
   source_finding: "F-31, F-35, F-37"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-23
   severity: "Info"
   category: Correctness
   question: Q3
   source_finding: "F-33"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-24
   severity: "Low"
   category: Correctness
