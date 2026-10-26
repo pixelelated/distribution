@@ -2,7 +2,17 @@
 
 **Extended depth** (two seats: GPT-6 Astra at `max`, then Gemini 4 Argon at `high`; `04` § Second opinion). The audit issue is opened at stage D as a sub-issue of #665.
 
-- **Seven `bug`s proposed**, all Low: PL-01 to PL-04 (the lane's), PL-18 (Astra's A-33 and A-34, Argon's R-11 and R-39), PL-20 (A-37) and PL-22 (Argon's R-42), each with its trace, `Already written:` line and VM line. PL-05 and PL-15 are proposed Low by the seat (A-42). The rest are renovation, design or notes routed elsewhere. The coordinator disposes at the stage-D pause.
+- **Eight `bug`s filed at the stage-D ruling** (#665, 11:16 UTC), all Low, each with its trace, `Already written:` line and VM line:
+  - #1145 (PL-01);
+  - #1146 (PL-02);
+  - #1147 (PL-03, with PL-08's comments);
+  - #1148 (PL-04);
+  - #1149 (PL-05 and PL-07, one wording bug);
+  - #1150 (PL-18);
+  - #1151 (PL-20);
+  - #1152 (PL-22).
+  - PL-15 is not a bug here: #1142.
+- **The streams:** `docs/reviews/briefs/t18-streams.md` at `1b6588efd8`, S1 to S6 on the ES branch.
 - **Nothing** in this list changes a file under the distribution's `packages/`, `projects/` or `tools/`, or an ES file, at stages A to D. Removals: none; every dead end is a proposal.
 - **One guest window**, 10:06:23 to 10:23:21 UTC at 640x480 (`02` § The guest cycle). **Nothing ran on a person's device or cloud.**
 
@@ -25,7 +35,7 @@
 - **Can this be done on the VM?** Yes. On the host, a case that runs the writer under `ulimit -f 0` with SIGXFSZ ignored shows the stamp survive after the fix. On the guest, a filled loop device.
 - **Already written:** devices may hold old, empty or cut stamps, and the history a cut one lost cannot be rebuilt. The fix keeps the reader's legacy readability and writes new stamps whole; the next run rewrites a cut one. Nothing to migrate (A-30).
 - **Acceptance:** with creation, the write, the close or the rename made to fail, and with a stale temporary present, the previous stamp's bytes are unchanged and the caller is told (a case that fails on the unfixed writer); with a normal write the new stamp is whole
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** a `bug`, #1145, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8`
 
 ## PL-02: the CANCEL confirmation over a match promises that the next backup or restore finishes it (a `bug` proposed)
 
@@ -42,7 +52,7 @@
 - **Can this be done on the VM?** Yes, given a fixture large enough for a match to run for a second. In the window it was `CANNOT` (a match ended at 0:00). The coordinator ruled the proof `fix-walk-pending-image`, with the before-frame owed to the integration build's walk.
 - **Already written:** the dialog persists nothing, but a cancelled match's deletions stand and are not rolled back. The words must say so; nothing is migrated (A-31).
 - **Acceptance:** a focused text and state case for the Match arm; and at 640x480, back pressed over a running match shows the match's own confirmation, its words read back, and NO returns to the run
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** a `bug`, #1146, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8`
 
 ## PL-03: two script sentences have no row in the why table, and `backuptool`'s reaches the settings-restore page in English (a `bug` proposed)
 
@@ -62,7 +72,7 @@
 - **Can this be done on the VM?** Yes. A `localizedWhy` case per pair on the host, failing before. On the guest, a settings archive the restore refuses, with the page's line 4 read in French.
 - **Already written:** nothing inherited by the interface. The stamps keep the scripts' English by design.
 - **Acceptance:** for every row, `isKnownWhy(classifyProtocolLine(">>> why " + row).text)` holds, which fails today on the full-stop row and on the two missing ones. A `localizedWhy` case cannot fail in a build without gettext (A-32). The generator reports `script_only 0` and compares the normalized text; a French frame of the refusal's line 4 reads French
-- **Disposition note:** at the stage-D pause (T17's S6 routed the pair here, #1133)
+- **Disposition note:** a `bug`, #1147, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8`
 
 ## PL-04: the card's scripts die of SIGPIPE when the interface goes, before they stamp (a `bug` proposed)
 
@@ -79,11 +89,11 @@
 - **Can this be done on the VM?** Yes. On the host, the two wrapper strings run under `sh` with the reader closed early. On the guest, `essway` stopped under a startup sync, then the stamps read.
 - **Already written:** no stamp format changes. Earlier stamps can stand while some transfer work had already happened, and the next run's stamp replaces them; nothing is migrated (A-29).
 - **Acceptance:** with the reader closed mid-run, the script's stamp is written under the fixed wrapper and not under the unfixed one
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** a `bug`, #1148, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8`
 
 ## PL-05: `NOTHING NEW TO BRING DOWN` / `TO SEND UP` paraphrase the two verbs on the small panel
 
-- **Severity:** Low (proposed; reachable non-canonical wording is a wording defect whatever the frame, Astra's A-13 and A-42)
+- **Severity:** Low
 - **Category:** Correctness
 - **Question:** Q3
 - **Source Finding:** F-09
@@ -93,7 +103,7 @@
 - **Can this be done on the VM?** Yes, once #1141's walks run at 640x480.
 - **Already written:** nothing.
 - **Acceptance:** a 640x480 frame of a back up with nothing new, its line read back in the canonical verbs
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** a `bug`, #1149, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8`
 
 ## PL-06: the match's done page names a system nothing was removed from
 
@@ -107,11 +117,11 @@
 - **Can this be done on the VM?** Yes: the same walk.
 - **Already written:** nothing.
 - **Acceptance:** the done page lists only systems from which files were removed
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** recorded as written, with its frame (`guest-cycle/frames/640-match-done.png`)
 
 ## PL-07: words in the formal register, and a third verb
 
-- **Severity:** Info
+- **Severity:** Low
 - **Category:** Renovation
 - **Question:** Q3
 - **Source Finding:** F-10
@@ -121,7 +131,7 @@
 - **Can this be done on the VM?** Yes: frames.
 - **Already written:** nothing.
 - **Acceptance:** the words put to the maintainer and changed with French, or recorded as kept
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** a `bug`, #1149, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8`
 
 ## PL-08: comments that describe an older code (the futro's predicted stream)
 
@@ -144,7 +154,7 @@
 - **Can this be done on the VM?** Yes: a comment change; `tools/es-syntax-check` where a toolchain exists, else the host `g++ -fsyntax-only`, and the non-ASCII comment grep clean.
 - **Already written:** nothing.
 - **Acceptance:** each line says what the code at the pin does
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** fixed in S1 with PL-03 (#1147)
 
 ## PL-09: the rule's half of the drift
 
@@ -158,7 +168,7 @@
 - **Can this be done on the VM?** Not a VM question: a rule's text.
 - **Already written:** nothing.
 - **Acceptance:** the rule's sentence matches `whyForCode` at the pin
-- **Disposition note:** proposed deferred:#909, in the shape the coordinator posts there
+- **Disposition note:** deferred:#909 (the coordinator's line posted there)
 
 ## PL-10: exit 75 in eight wordings
 
@@ -172,7 +182,7 @@
 - **Can this be done on the VM?** Not a VM question: words.
 - **Already written:** nothing.
 - **Acceptance:** the coordinator's choice of which to keep, recorded
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** recorded as written: the eight wordings listed in `02` § The why table
 
 ## PL-11: what the retired folder move and folder step left behind
 
@@ -192,7 +202,7 @@
 - **Can this be done on the VM?** Yes: a removal proved by the unit tests and the walks unchanged.
 - **Already written:** the French catalog carries the three strings and the label; a removal takes their rows too.
 - **Acceptance:** removals none at stages A to D; a proposal the coordinator rules on
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** deferred:#1143 (removals proposed, none made here)
 
 ## PL-12: `CloudText::nextTime` has no product caller
 
@@ -206,7 +216,7 @@
 - **Can this be done on the VM?** Yes: the unit tests.
 - **Already written:** nothing.
 - **Acceptance:** kept with its reason, or proposed for removal
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** deferred:#1143
 
 ## PL-13: the protocol's latent edges
 
@@ -227,7 +237,7 @@
 - **Can this be done on the VM?** Yes, with the unit tests' fixtures.
 - **Already written:** nothing.
 - **Acceptance:** recorded, or taken into the Q1 seam's stream
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** recorded as written; folded into the seam #1143 names
 
 ## PL-14: two piped-progress traps without a case
 
@@ -245,11 +255,11 @@
 - **Can this be done on the VM?** Yes: the host unit tests.
 - **Already written:** nothing.
 - **Acceptance:** a case per trap, failing on a parser that splits on `": "`
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** the unfitted rows fixed in S3 (#1149's stream); the untested traps' cases with the streams that touch them
 
 ## PL-15: the launch's stop spins up to 2 s on the interface thread
 
-- **Severity:** Low (proposed by the seat, A-11 and A-42) / Info
+- **Severity:** Info
 - **Category:** Design
 - **Question:** Q5
 - **Source Finding:** F-07
@@ -259,7 +269,7 @@
 - **Can this be done on the VM?** Yes: `time-to-play`'s game-to-game cell, frames during the wait.
 - **Already written:** nothing.
 - **Acceptance:** routed to the launch path's owner (T2's) with the measurement
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** deferred:#1142 (the coordinator's, under #700: T2's bounded wait on the wrong thread)
 
 ## PL-16: one reader for the two surfaces, and the why table's check where the scripts are
 
@@ -276,7 +286,7 @@
 - **Can this be done on the VM?** Yes.
 - **Already written:** nothing.
 - **Acceptance:** proposals ruled on by the coordinator
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** the one-reader refactor deferred:#1143; the two suites deferred:#1144 (under #903)
 
 ## PL-17: notes for other slices, and the harness
 
@@ -296,7 +306,7 @@
 - **Can this be done on the VM?** Yes.
 - **Already written:** nothing.
 - **Acceptance:** each routed by number
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** routed: the T26 notes posted on #673; #1141 (the harness); #1140 (T17's TERM)
 
 ## PL-18: a stop or cancel against a run that is ending, a cancel before a late pid, and the linger's launch (a `bug` proposed)
 
@@ -314,7 +324,7 @@
 - **Can this be done on the VM?** Yes. On the host, the card's decision moved into pure code with both orderings as cases. On the guest, a cancel timed at a sync's end (`time-to-play`'s game-to-game cell is the shape).
 - **Already written:** `last-sync-exit` and `last-sync-startup` stamps on devices may read 130 `cancelled` for runs that completed; their rows say SKIPPED where COMPLETED was true. The next run's stamp replaces them; nothing to migrate.
 - **Acceptance:** a completion that a cancel races reads COMPLETED, and a failure that a stop races keeps its own outcome, in both readers; a stop before a late pid is delivered when the pid arrives; nothing the card raises after its linger lands over a game that started in it
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** a `bug`, #1150, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8`
 
 ## PL-19: a protocol line glued to an unterminated rclone tail
 
@@ -328,7 +338,7 @@
 - **Can this be done on the VM?** Yes. A host fixture pipes the donor's rclone 1.75.2 through the job's reader with a composer's echo after it; or the guest's `run-transfer` walk once #1141 lets it run.
 - **Already written:** nothing.
 - **Acceptance:** the fixture shows whether the marker survives; if not, the readers split on `>>> ` as they split on `Transferred:`
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** S4's fixture first; a fix only if it falls
 
 ## PL-20: a part's early why is blamed on the previous part's unit (a `bug` proposed)
 
@@ -342,7 +352,7 @@
 - **Can this be done on the VM?** Yes. `jobs-tests`' shape (the shipped job with doubles) runs a composed command whose second part prints a why before its unit.
 - **Already written:** nothing persisted. Line 4 is the page's.
 - **Acceptance:** that run's line 4 names the second part, not the first
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** a `bug`, #1151, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8`
 
 ## PL-21: a 9 after a failed part reads COMPLETED
 
@@ -362,7 +372,7 @@
 - **Can this be done on the VM?** Yes: `jobs-tests`' shape with a composed `exit 5`, then `exit 9`.
 - **Already written:** nothing persisted beyond the run's stamps, which the scripts write per part.
 - **Acceptance:** the page's word follows the failed tier; the composers' handling of 9 recorded for T26
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** the readers' half recorded as written (latent); the composers' half posted on #673
 
 ## PL-22: a content transfer the network cut part-way reads COULDN'T FINISH with no why (a `bug` proposed)
 
@@ -379,7 +389,7 @@
 - **Can this be done on the VM?** Yes. The guest's QA WebDAV cut by `cloud-test-backend`'s dead port part-way through a content transfer; line 4 read back. Or `jobs-tests`' shape with a command that writes the stamp and exits 69.
 - **Already written:** the scripts' stamps already carry the why, so the rows under the toggles say it; only the page's line is missing. Nothing to migrate.
 - **Acceptance:** that run's line 4 reads `YOU WENT OFFLINE PART-WAY THROUGH` in the interface's language
-- **Disposition note:** at the stage-D pause
+- **Disposition note:** a `bug`, #1152, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8`
 
 ## PL-23: the job's run why is written and never read
 
@@ -393,38 +403,37 @@
 - **Can this be done on the VM?** Yes: the unit tests and `jobs-tests`.
 - **Already written:** nothing.
 - **Acceptance:** `mWhy` removed or read; the fallback's behaviour recorded
-- **Disposition note:** at the stage-D pause
-
+- **Disposition note:** deferred:#1143
 
 ## Phase 7 resolution gate
 
-Every item is open until the coordinator's dispositions at the stage-D pause; each row then takes its outcome (resolved with its commit, deferred to a named issue, or recorded as a design with its sentence).
+Every item is open until stage F; each row then takes its outcome (resolved with its commit, deferred to a named issue, or recorded as a design with its sentence). The dispositions are the coordinator's stage-D ruling (#665, 11:16 UTC).
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | at the stage-D pause |
-| PL-02 | Open | at the stage-D pause |
-| PL-03 | Open | at the stage-D pause |
-| PL-04 | Open | at the stage-D pause |
-| PL-05 | Open | at the stage-D pause |
-| PL-06 | Open | at the stage-D pause |
-| PL-07 | Open | at the stage-D pause |
-| PL-08 | Open | at the stage-D pause |
-| PL-09 | Open | at the stage-D pause |
-| PL-10 | Open | at the stage-D pause |
-| PL-11 | Open | at the stage-D pause |
-| PL-12 | Open | at the stage-D pause |
-| PL-13 | Open | at the stage-D pause |
-| PL-14 | Open | at the stage-D pause |
-| PL-15 | Open | at the stage-D pause |
-| PL-16 | Open | at the stage-D pause |
-| PL-17 | Open | at the stage-D pause |
-| PL-18 | Open | at the stage-D pause |
-| PL-19 | Open | at the stage-D pause |
-| PL-20 | Open | at the stage-D pause |
-| PL-21 | Open | at the stage-D pause |
-| PL-22 | Open | at the stage-D pause |
-| PL-23 | Open | at the stage-D pause |
+| PL-01 | Open | at the stage-D pause; disposition: a `bug`, #1145, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8` |
+| PL-02 | Open | at the stage-D pause; disposition: a `bug`, #1146, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8` |
+| PL-03 | Open | at the stage-D pause; disposition: a `bug`, #1147, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8` |
+| PL-04 | Open | at the stage-D pause; disposition: a `bug`, #1148, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8` |
+| PL-05 | Open | at the stage-D pause; disposition: a `bug`, #1149, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8` |
+| PL-06 | Open | at the stage-D pause; disposition: recorded as written, with its frame (`guest-cycle/frames/640-match-done.png`) |
+| PL-07 | Open | at the stage-D pause; disposition: a `bug`, #1149, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8` |
+| PL-08 | Open | at the stage-D pause; disposition: fixed in S1 with PL-03 (#1147) |
+| PL-09 | Open | at the stage-D pause; disposition: deferred:#909 (the coordinator's line posted there) |
+| PL-10 | Open | at the stage-D pause; disposition: recorded as written: the eight wordings listed in `02` § The why table |
+| PL-11 | Open | at the stage-D pause; disposition: deferred:#1143 (removals proposed, none made here) |
+| PL-12 | Open | at the stage-D pause; disposition: deferred:#1143 |
+| PL-13 | Open | at the stage-D pause; disposition: recorded as written; folded into the seam #1143 names |
+| PL-14 | Open | at the stage-D pause; disposition: the unfitted rows fixed in S3 (#1149's stream); the untested traps' cases with the streams that touch them |
+| PL-15 | Open | at the stage-D pause; disposition: deferred:#1142 (the coordinator's, under #700: T2's bounded wait on the wrong thread) |
+| PL-16 | Open | at the stage-D pause; disposition: the one-reader refactor deferred:#1143; the two suites deferred:#1144 (under #903) |
+| PL-17 | Open | at the stage-D pause; disposition: routed: the T26 notes posted on #673; #1141 (the harness); #1140 (T17's TERM) |
+| PL-18 | Open | at the stage-D pause; disposition: a `bug`, #1150, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8` |
+| PL-19 | Open | at the stage-D pause; disposition: S4's fixture first; a fix only if it falls |
+| PL-20 | Open | at the stage-D pause; disposition: a `bug`, #1151, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8` |
+| PL-21 | Open | at the stage-D pause; disposition: the readers' half recorded as written (latent); the composers' half posted on #673 |
+| PL-22 | Open | at the stage-D pause; disposition: a `bug`, #1152, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8` |
+| PL-23 | Open | at the stage-D pause; disposition: deferred:#1143 |
 
 ## Machine-readable index
 
@@ -467,7 +476,7 @@ punch_index:
   source_finding: "F-20"
   outcome: "open"
 - id: PL-07
-  severity: "Info"
+  severity: "Low"
   category: Renovation
   question: Q3
   source_finding: "F-10"
@@ -515,7 +524,7 @@ punch_index:
   source_finding: "F-05"
   outcome: "open"
 - id: PL-15
-  severity: "Low"
+  severity: "Info"
   category: Design
   question: Q5
   source_finding: "F-07"
