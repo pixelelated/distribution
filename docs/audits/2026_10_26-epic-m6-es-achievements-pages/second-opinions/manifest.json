@@ -1,0 +1,3849 @@
+{
+ "schema": "t20-packet-manifest/1",
+ "pin": "16dbac5211eea7e70db7394372033be2be7df829",
+ "sources": [
+  {
+   "section": 0,
+   "title": "ask",
+   "path": "docs/audits/2026_10_26-epic-m6-es-achievements-pages/stage-c/ask.md",
+   "ref": "worktree",
+   "kind": "ask",
+   "sha256": "686be04604573555e1745beae9a2faa31bd40913c4b195b096719dc7b17a6c7a",
+   "bytes": 6721
+  },
+  {
+   "section": 2,
+   "title": "The first reader's 02-forward-audit.md (whole)",
+   "path": "docs/audits/2026_10_26-epic-m6-es-achievements-pages/02-forward-audit.md",
+   "ref": "worktree",
+   "kind": "first reader",
+   "sha256": "3f68ccf1d90b82b70b9c4ff4442ad661bc4ae6380d390896cad4669069359859",
+   "bytes": 37904,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 3,
+   "title": "The first reader's 03-retrospective.md (whole)",
+   "path": "docs/audits/2026_10_26-epic-m6-es-achievements-pages/03-retrospective.md",
+   "ref": "worktree",
+   "kind": "first reader",
+   "sha256": "55d1cb36b6746ae8cfdfbfc33339f8f6857b9b1928dd831570fd7c6434879380",
+   "bytes": 7922,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 4,
+   "title": "The first reader's 04-analysis.md (whole)",
+   "path": "docs/audits/2026_10_26-epic-m6-es-achievements-pages/04-analysis.md",
+   "ref": "worktree",
+   "kind": "first reader",
+   "sha256": "3ecd033d92612122848a0c96ec9c5c6482b417aceba73c5ea154670b64215ab9",
+   "bytes": 17416,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 5,
+   "title": "Context 1: docs/reviews/order.md \u00a7 T20",
+   "path": "docs/reviews/order.md \u00a7 T20",
+   "ref": "2174265e9c",
+   "kind": "context",
+   "sha256": "11848cf413406062f992b85b0ed9e06784d3bce0423f3c9d53052a614bd4d047",
+   "bytes": 1258,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 6,
+   "title": "Context 2: the brief's \u00a7 4",
+   "path": "docs/reviews/briefs/es-achievements-pages.md \u00a7 4",
+   "ref": "14852bd6ed",
+   "kind": "context",
+   "sha256": "e858d6cda807ed42f2d3d2efc882b55026f9e93fc5f82ddac9296895c1f045a2",
+   "bytes": 5469,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 7,
+   "title": "Context 3: the register rows",
+   "path": "docs/decision-register.md rows D-UI-028, D-UI-030, D-UI-035, D-UI-078, D-UI-095, D-UI-107, D-RA-001, D-RA-010, D-RA-012, D-RA-013, D-RA-050, D-RA-051, D-QA-015, D-QA-016, D-QA-021, D-WORKFLOW-195",
+   "ref": "worktree",
+   "kind": "context",
+   "sha256": "e04cc13adfeaf6422a13beb0d0c8fcfee0624f91adf14430e34f2e286601c1be",
+   "bytes": 16422,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 8,
+   "title": "Context 4: T19's 02 \u00a7 What T20 inherits (at d8c02be1c9)",
+   "path": "T19 02 \u00a7 What T20 inherits",
+   "ref": "d8c02be1c9",
+   "kind": "context",
+   "sha256": "af490fed144abe4dd69ca5bd284d3879d7f89382ac9c898d16c564088b069d77",
+   "bytes": 10021,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 9,
+   "title": "Evidence: stage-b/positives/reader.out",
+   "path": "docs/audits/2026_10_26-epic-m6-es-achievements-pages/stage-b/positives/reader.out",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "d162ca7025ec2bd67b0dabbb6d0eee084293935da930d90644b74d02355b25c0",
+   "bytes": 324,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 10,
+   "title": "Evidence: stage-b/positives/slice.out",
+   "path": "docs/audits/2026_10_26-epic-m6-es-achievements-pages/stage-b/positives/slice.out",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "2b3a767b3470620a594f7ec9955597368529ef5f067207da64ae6d517cd9b7fa",
+   "bytes": 33,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 11,
+   "title": "Evidence: stage-b/positives/num.out",
+   "path": "docs/audits/2026_10_26-epic-m6-es-achievements-pages/stage-b/positives/num.out",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "7b9730246990350bb5fd56de11162358f51a144e2574cecdfe87c7441fd17bf9",
+   "bytes": 124,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 12,
+   "title": "Evidence: stage-b/positives/stamp.out",
+   "path": "docs/audits/2026_10_26-epic-m6-es-achievements-pages/stage-b/positives/stamp.out",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "1e0d3c288e083d5f5acc171f1dae0d929ac2792e115f0393914b9baabf080267",
+   "bytes": 103,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 13,
+   "title": "Evidence: stage-b/positives/readall.out",
+   "path": "docs/audits/2026_10_26-epic-m6-es-achievements-pages/stage-b/positives/readall.out",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "953a7a95c5fa52c2d2d4b785e3b88ec440707b54d1ddd01a97d7110e2ea7643c",
+   "bytes": 86,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 14,
+   "title": "Evidence: stage-b/positives/lfg.out",
+   "path": "docs/audits/2026_10_26-epic-m6-es-achievements-pages/stage-b/positives/lfg.out",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "e3f1c535bfc6154bacf617c7bd2209bc41c0625ab3a430cd9fde22a897b27971",
+   "bytes": 125,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 15,
+   "title": "Evidence: guest-cycle/g02-sh-exec.txt",
+   "path": "docs/audits/2026_10_26-epic-m6-es-achievements-pages/guest-cycle/g02-sh-exec.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "e87773f7bcbcc1c2f85f12f59d78b9a0c04f8d2f6ae92147958cc8e6ee105a7b",
+   "bytes": 410,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 16,
+   "title": "Evidence: guest-cycle/g05-l20-startup-offline.txt",
+   "path": "docs/audits/2026_10_26-epic-m6-es-achievements-pages/guest-cycle/g05-l20-startup-offline.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "9c76816d3b2455e2b09328719c0fb7cd5f9c0881156e63eb8a57431801829e7d",
+   "bytes": 504,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 17,
+   "title": "Evidence: guest-cycle/g06-l13.txt",
+   "path": "docs/audits/2026_10_26-epic-m6-es-achievements-pages/guest-cycle/g06-l13.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "7cadb4ea45ac6caf40f117314579b58662e40fdea6ec35dfc404e84ba85c168d",
+   "bytes": 182,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 18,
+   "title": "Evidence: guest-cycle/g07-l01-tls.txt",
+   "path": "docs/audits/2026_10_26-epic-m6-es-achievements-pages/guest-cycle/g07-l01-tls.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "984f8c182dfeda97e1fe3e42ddb484b5f3c2133468295fffdc329ca5e018567c",
+   "bytes": 1076,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 19,
+   "title": "es-app/src/OfflineAchievements.cpp @ 16dbac5211 (whole, 353 lines)",
+   "path": "es-app/src/OfflineAchievements.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "61f7a0cd460c3aed0c0c1378abd40cc118c0ed389c242be117c93038ffbb4d51",
+   "bytes": 15691,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 20,
+   "title": "es-app/src/OfflineScanJob.cpp @ 16dbac5211 (whole, 273 lines)",
+   "path": "es-app/src/OfflineScanJob.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "b86d470271f0dec8923c73d4498672bad6692a2532a97ccb45c92b06582f8cf1",
+   "bytes": 10752,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 21,
+   "title": "es-app/src/guis/GuiOfflineScan.cpp @ 16dbac5211 (whole, 382 lines)",
+   "path": "es-app/src/guis/GuiOfflineScan.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "1b1facbe7e02c9e148520a41d001ae9b97637186e192d29929d86eb07173df96",
+   "bytes": 18804,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 22,
+   "title": "es-app/src/ThreadedHasher.cpp @ 16dbac5211 (whole, 415 lines)",
+   "path": "es-app/src/ThreadedHasher.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "0072029e1a598ad9dbfdeff199921149f18717c5cad6c667e280dea8dc5bce2b",
+   "bytes": 16405,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 23,
+   "title": "external/libcheevos/rvz_hash.cpp @ 16dbac5211 (whole, 389 lines)",
+   "path": "external/libcheevos/rvz_hash.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "9d4605f48d54b140823f511bb999609b679d1743143dd31489a6967bcd2495f3",
+   "bytes": 17245,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 24,
+   "title": "The library's five edits: git diff bccd715707..16dbac5211",
+   "path": "external/libcheevos (diff)",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice diff",
+   "sha256": "b79b93377f42ae451ed4f5fbbc1af00d32abd94fbb858922fc377e74e528367a",
+   "bytes": 9175,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 25,
+   "title": "es-app/src/RetroAchievements.cpp @ 16dbac5211: lines 126-203 (excerpt of 1072)",
+   "path": "es-app/src/RetroAchievements.cpp:126-203",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "04e1a463cc6c670553d5dd0d1c2cabd501da6b0dc370fc684271d018df66a525",
+   "bytes": 3480,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 26,
+   "title": "es-app/src/RetroAchievements.cpp @ 16dbac5211: lines 282-353 (excerpt of 1072)",
+   "path": "es-app/src/RetroAchievements.cpp:282-353",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "62c719d60b7fcbe2323540d8b94b4e2ff36ae14dbfd7cca06247ecbf214d7b2b",
+   "bytes": 2888,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 27,
+   "title": "es-app/src/RetroAchievements.cpp @ 16dbac5211: lines 492-533 (excerpt of 1072)",
+   "path": "es-app/src/RetroAchievements.cpp:492-533",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "2ac943a893fa8ca02e246f7cbd369fc23074955e5c2b2c268ef710fa40316c38",
+   "bytes": 2039,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 28,
+   "title": "es-app/src/RetroAchievements.cpp @ 16dbac5211: lines 732-808 (excerpt of 1072)",
+   "path": "es-app/src/RetroAchievements.cpp:732-808",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e8f8d89eb21ee75f7c8b8b9b989b2a6ddd5dff2c3bf17bc68ee706b76b62f63a",
+   "bytes": 2711,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 29,
+   "title": "es-app/src/RetroAchievements.cpp @ 16dbac5211: lines 842-938 (excerpt of 1072)",
+   "path": "es-app/src/RetroAchievements.cpp:842-938",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "15b69f7cd8645ad8ddf9b17d63e701a2571c18cc50ea435bbd4a5dd22e6817b8",
+   "bytes": 3583,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 30,
+   "title": "es-app/src/RetroAchievements.cpp @ 16dbac5211: lines 1002-1072 (excerpt of 1072)",
+   "path": "es-app/src/RetroAchievements.cpp:1002-1072",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "b62d059559ab90e6cd482aed55397820f0e641d18018d48dc0cade917ec26820",
+   "bytes": 2542,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 31,
+   "title": "es-app/src/guis/GuiRetroAchievementsSettings.cpp @ 16dbac5211: lines 132-183 (excerpt of 808)",
+   "path": "es-app/src/guis/GuiRetroAchievementsSettings.cpp:132-183",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "36367c047b150b46005cfbfb37e11b26bd9ce2ceaee3497cc017cd693b623724",
+   "bytes": 2799,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 32,
+   "title": "es-app/src/guis/GuiRetroAchievementsSettings.cpp @ 16dbac5211: lines 302-373 (excerpt of 808)",
+   "path": "es-app/src/guis/GuiRetroAchievementsSettings.cpp:302-373",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "8ed4fddef0b90bdac0a2a8ee65d7159a8321425073269fc2e36d5d84298050a5",
+   "bytes": 3824,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 33,
+   "title": "es-app/src/guis/GuiRetroAchievementsSettings.cpp @ 16dbac5211: lines 432-568 (excerpt of 808)",
+   "path": "es-app/src/guis/GuiRetroAchievementsSettings.cpp:432-568",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "a139fa21f47ff41baad25a3e8e03efed6cb905997d3f2940202426eb396f4abc",
+   "bytes": 6892,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 34,
+   "title": "es-app/src/guis/GuiRetroAchievementsSettings.cpp @ 16dbac5211: lines 588-648 (excerpt of 808)",
+   "path": "es-app/src/guis/GuiRetroAchievementsSettings.cpp:588-648",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "4f8423ab384e332c39f80f3c503104628d9fc152be2b249ee47f9df93461a7bb",
+   "bytes": 4106,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 35,
+   "title": "es-app/src/guis/GuiRetroAchievementsSettings.cpp @ 16dbac5211: lines 682-808 (excerpt of 808)",
+   "path": "es-app/src/guis/GuiRetroAchievementsSettings.cpp:682-808",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e847a929d0c046af19d5fca81768b37277ef99640fda1e88ebd20782bb4d6835",
+   "bytes": 8050,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 36,
+   "title": "es-app/src/guis/GuiRetroAchievements.cpp @ 16dbac5211: lines 36-52 (excerpt of 471)",
+   "path": "es-app/src/guis/GuiRetroAchievements.cpp:36-52",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "37b73f8c3431c9a09dff5079a086eb0c5ed421b8f771f2c389267f894edff91f",
+   "bytes": 803,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 37,
+   "title": "es-app/src/guis/GuiRetroAchievements.cpp @ 16dbac5211: lines 326-342 (excerpt of 471)",
+   "path": "es-app/src/guis/GuiRetroAchievements.cpp:326-342",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "52887604078691ae42fe294f16bd1734b05d78d4c9d36279abeb1defe8f9102e",
+   "bytes": 576,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 38,
+   "title": "es-app/src/guis/GuiGameAchievements.cpp @ 16dbac5211: lines 32-48 (excerpt of 352)",
+   "path": "es-app/src/guis/GuiGameAchievements.cpp:32-48",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "726f3cf6b5587bf8a2194c412cade667afa6ead38ad1bc6b395d8ad594aaa34b",
+   "bytes": 970,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 39,
+   "title": "es-app/src/OfflineScanJob.h @ 16dbac5211: lines 1-100 (excerpt of 100)",
+   "path": "es-app/src/OfflineScanJob.h:1-100",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "6a5f63d1fdd3134203946630c351f51c125e5db3da12210edc87fecd9b7046a1",
+   "bytes": 4925,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 40,
+   "title": "es-app/src/ThreadedHasher.h @ 16dbac5211: lines 1-76 (excerpt of 76)",
+   "path": "es-app/src/ThreadedHasher.h:1-76",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e6771437a364a6cc29da03f21e8eafc41f9fd18f6fc3b89959586f808e9c79f1",
+   "bytes": 2918,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 41,
+   "title": "es-app/src/ApiSystem.cpp @ 16dbac5211: lines 2254-2301 (excerpt of 3519)",
+   "path": "es-app/src/ApiSystem.cpp:2254-2301",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "6b5a253bbfd7524c10a908a72ed5f46a4cead86d09134b3b2d7382b50cfbc9fb",
+   "bytes": 1849,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 42,
+   "title": "es-core/src/HttpReq.cpp @ 16dbac5211: lines 162-248 (excerpt of 644)",
+   "path": "es-core/src/HttpReq.cpp:162-248",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "c8da74d0bbd0d2a7e45e9ef5f57469943e8396b3e4f6c41674280fa19c986cd7",
+   "bytes": 3668,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 43,
+   "title": "es-core/src/HttpReq.cpp @ 16dbac5211: lines 547-578 (excerpt of 644)",
+   "path": "es-core/src/HttpReq.cpp:547-578",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "f0c88b29c3a055fad73c45155147541b6e9fdbfd36c4b3820c8eafc4ce29f0d4",
+   "bytes": 749,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 44,
+   "title": "es-core/src/HttpReq.h @ 16dbac5211: lines 32-88 (excerpt of 180)",
+   "path": "es-core/src/HttpReq.h:32-88",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "a7fc975eb99ac6b95cf8e30c732801cceb4fbd892fa5579430cfa6bd6ad117e5",
+   "bytes": 1888,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 45,
+   "title": "es-app/src/CloudText.cpp @ 16dbac5211: lines 1010-1074 (excerpt of 1409)",
+   "path": "es-app/src/CloudText.cpp:1010-1074",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "3a4d13542179b91d84454e3c74b0c90b7cc392f2db51674cb95983a63c2aed5c",
+   "bytes": 3144,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 46,
+   "title": "es-app/src/CloudText.cpp @ 16dbac5211: lines 1178-1283 (excerpt of 1409)",
+   "path": "es-app/src/CloudText.cpp:1178-1283",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "5d08a3adbf8712e96b19012cedcccf045d73c18a14adefe94a37b813df82380e",
+   "bytes": 3881,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 47,
+   "title": "es-app/src/CloudText.cpp @ 16dbac5211: lines 1292-1353 (excerpt of 1409)",
+   "path": "es-app/src/CloudText.cpp:1292-1353",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "cab96843a91f3fc2336db0ff1d10d0ad5f14ed7bd245a52b5f57ab35dfd011b0",
+   "bytes": 1997,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 48,
+   "title": "es-app/src/CloudText.h @ 16dbac5211: lines 472-518 (excerpt of 589)",
+   "path": "es-app/src/CloudText.h:472-518",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "aa18a5c66f24917c413db6c73b172d88ef7cee8ab8326a708d02fff3d9245e55",
+   "bytes": 3191,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 49,
+   "title": "es-app/src/ProxyCards.cpp @ 16dbac5211: lines 182-408 (excerpt of 596)",
+   "path": "es-app/src/ProxyCards.cpp:182-408",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "be1fd4cf9456fe7cc69b6a802579a4f4f5e429418abe80fa2c6c5d44c4bdd185",
+   "bytes": 12009,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 50,
+   "title": "es-app/src/ProxyCards.cpp @ 16dbac5211: lines 552-596 (excerpt of 596)",
+   "path": "es-app/src/ProxyCards.cpp:552-596",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e84228a77a12353a496e5d5734ac763a3385d1d5fa69fc8459c90895af4d5be2",
+   "bytes": 1827,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 51,
+   "title": "es-core/src/utils/FileSystemUtil.cpp @ 16dbac5211: lines 1357-1438 (excerpt of 1805)",
+   "path": "es-core/src/utils/FileSystemUtil.cpp:1357-1438",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "0eebf9267e3bc482231c189cff8ee6eed758ebd2845dc70b4d9526b82023c52b",
+   "bytes": 2399,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 52,
+   "title": "es-core/src/Settings.cpp @ 16dbac5211: lines 51-67 (excerpt of 723)",
+   "path": "es-core/src/Settings.cpp:51-67",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "8b8aa7f8ca8c1d48d80403cd0373e59a1636322149a88e8843d7723bcb158272",
+   "bytes": 867,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 53,
+   "title": "es-core/src/Settings.cpp @ 16dbac5211: lines 412-428 (excerpt of 723)",
+   "path": "es-core/src/Settings.cpp:412-428",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d231bc0a28a162d09039bde3e9f5b72db7f30d97bb02951832541dcfc157af36",
+   "bytes": 736,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 54,
+   "title": "es-core/src/SystemConf.cpp @ 16dbac5211: lines 280-296 (excerpt of 494)",
+   "path": "es-core/src/SystemConf.cpp:280-296",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "dc5645fa491216cbd1b5f388542eca0c85189ec44063eaef13e0c62648a06e6b",
+   "bytes": 642,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 55,
+   "title": "es-core/src/Paths.cpp @ 16dbac5211: lines 86-102 (excerpt of 363)",
+   "path": "es-core/src/Paths.cpp:86-102",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "4ee2aea76514ec32887bc1e2b76be8dfcfdba58b9a95761d2fe346282c49b163",
+   "bytes": 866,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 56,
+   "title": "raofflineproxy-ctl @ 8ebaf8daad: lines 292-408 (excerpt of 2455)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:292-408",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "ba0989dd57e4de91331c8d5a481a8e8cba0b037479194179ba770a3e0a8157b2",
+   "bytes": 5611,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 57,
+   "title": "raofflineproxy-ctl @ 8ebaf8daad: lines 432-668 (excerpt of 2455)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:432-668",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "c9022b826f8067cf8420c5b01b138ffd4615462c6e7fd3cc624e544507e38809",
+   "bytes": 12334,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 58,
+   "title": "raofflineproxy-ctl @ 8ebaf8daad: lines 692-878 (excerpt of 2455)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:692-878",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "ac52fad2101dafbc66eec8895047788bc6cc71dad9145371b291161f7c3e2d21",
+   "bytes": 9674,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 59,
+   "title": "raofflineproxy-ctl @ 8ebaf8daad: lines 1111-1208 (excerpt of 2455)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:1111-1208",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "1a455ad21f824446531b765ea5123f65b08256512c4b7e907b0de3333e429c3c",
+   "bytes": 5032,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 60,
+   "title": "raofflineproxy-ctl @ 8ebaf8daad: lines 1692-1838 (excerpt of 2455)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:1692-1838",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "10ad20c616e3d51a4d36e63883baf0fa23006266d645e7787d2ea55d68e83273",
+   "bytes": 8481,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 61,
+   "title": "raofflineproxy-ctl @ 8ebaf8daad: lines 1957-2118 (excerpt of 2455)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:1957-2118",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "5b8b00f963017b15695e0a56ca6bb10d0965b441a803e28226ebcbc87d89d4d3",
+   "bytes": 9647,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 62,
+   "title": "raofflineproxy-ctl @ 8ebaf8daad: lines 2129-2273 (excerpt of 2455)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:2129-2273",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "9406e6b14d808a48072160e54d2f92cfa370e73a176a0b250b271138905e4eaa",
+   "bytes": 8205,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 63,
+   "title": "raofflineproxy-ctl @ 8ebaf8daad: lines 2392-2455 (excerpt of 2455)",
+   "path": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:2392-2455",
+   "ref": "8ebaf8daad",
+   "kind": "excerpt",
+   "sha256": "c149394e1fe9c71daaccbcb22777684b60b64b64660915f5c0c8ae152716402d",
+   "bytes": 3853,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  }
+ ],
+ "scan": {
+  "forbidden": [],
+  "secret_patterns": [],
+  "mask": [
+   {
+    "section": 46,
+    "line": 13,
+    "classes": [
+     "identifier-or-word"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 46,
+    "line": 106,
+    "classes": [
+     "identifier-or-word"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 56,
+    "line": 20,
+    "classes": [
+     "identifier-or-word"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 56,
+    "line": 21,
+    "classes": [
+     "identifier-or-word"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 56,
+    "line": 22,
+    "classes": [
+     "identifier-or-word"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 57,
+    "line": 214,
+    "classes": [
+     "expansion"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 58,
+    "line": 10,
+    "classes": [
+     "empty"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 58,
+    "line": 21,
+    "classes": [
+     "empty"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 58,
+    "line": 52,
+    "classes": [
+     "identifier-or-word"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 58,
+    "line": 68,
+    "classes": [
+     "expansion"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   }
+  ],
+  "words": [
+   {
+    "section": 2,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 6,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 6,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 44,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 44,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 44,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 45,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 46,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 46,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 46,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 47,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 47,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 48,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 49,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 49,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 50,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 51,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 52,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 53,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 54,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 54,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 55,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 55,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 55,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 56,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 56,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 57,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 57,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 58,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 59,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 60,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 60,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 63,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 66,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 67,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 67,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 73,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 73,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 73,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 78,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 85,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 89,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 90,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 112,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 116,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 124,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 129,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 133,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 145,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 197,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 197,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 197,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 198,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 199,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 199,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 201,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 202,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 202,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 211,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 212,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 222,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 223,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 223,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 224,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 227,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 227,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 234,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 234,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 241,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 244,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 248,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 263,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 264,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 23,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 55,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 70,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 89,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 8,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 9,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 17,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 24,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 37,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 48,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 68,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 75,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 89,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 91,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 91,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 92,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 93,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 93,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 93,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 97,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 130,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 173,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 210,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 210,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 210,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 210,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 9,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 13,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 14,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 14,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 22,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 44,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 75,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 1,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 3,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 3,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 9,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 9,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 9,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 9,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 9,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 9,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 9,
+    "word": "psk",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 9,
+    "word": "pass",
+    "class": "dispositioned",
+    "disposition": "name: D-QA-021's prose naming rclone's field names and the read filter's own words"
+   },
+   {
+    "section": 7,
+    "line": 9,
+    "word": "user",
+    "class": "dispositioned",
+    "disposition": "name: D-QA-021's prose naming rclone's field names and the read filter's own words"
+   },
+   {
+    "section": 7,
+    "line": 9,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "name: D-QA-021's prose naming rclone's field names and the read filter's own words"
+   },
+   {
+    "section": 7,
+    "line": 9,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "name: D-QA-021's prose naming rclone's field names and the read filter's own words"
+   },
+   {
+    "section": 7,
+    "line": 9,
+    "word": "psk",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 9,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 9,
+    "word": "pass",
+    "class": "dispositioned",
+    "disposition": "name: D-QA-021's prose naming rclone's field names and the read filter's own words"
+   },
+   {
+    "section": 7,
+    "line": 17,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 23,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 23,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 23,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 25,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 25,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 27,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 29,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 29,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 29,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 29,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 29,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 29,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 29,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 29,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 31,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 31,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 31,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 31,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 31,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 7,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 9,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 11,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 12,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 13,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 16,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 16,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 18,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 18,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 26,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 27,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 32,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 32,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 32,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 33,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 33,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 35,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 39,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 41,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 41,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 42,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 43,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 12,
+    "line": 2,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 18,
+    "line": 3,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 18,
+    "line": 3,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 18,
+    "line": 3,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 18,
+    "line": 3,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 200,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 202,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 214,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 215,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 293,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 19,
+    "line": 295,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 20,
+    "line": 165,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 20,
+    "line": 177,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 20,
+    "line": 178,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 20,
+    "line": 181,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 20,
+    "line": 181,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 21,
+    "line": 140,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 21,
+    "line": 223,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 21,
+    "line": 288,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 22,
+    "line": 355,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 22,
+    "line": 360,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 22,
+    "line": 368,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 22,
+    "line": 377,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 9,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 9,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 9,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 10,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 10,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 11,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 13,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 20,
+    "word": "user",
+    "class": "dispositioned",
+    "disposition": "code: a local variable read from a setting by its key name (`get(\"global.retroachievements.<name>\")`)"
+   },
+   {
+    "section": 25,
+    "line": 20,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 21,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: a local variable read from a setting by its key name (`get(\"global.retroachievements.<name>\")`)"
+   },
+   {
+    "section": 25,
+    "line": 21,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 22,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 22,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 24,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 24,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 30,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 30,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 33,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 38,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 38,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 48,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 58,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 25,
+    "line": 73,
+    "word": "user",
+    "class": "dispositioned",
+    "disposition": "code: a method signature (`GameInfoAndUserProgress::getImageUrl`)"
+   },
+   {
+    "section": 26,
+    "line": 7,
+    "word": "user",
+    "class": "small-number"
+   },
+   {
+    "section": 26,
+    "line": 8,
+    "word": "user",
+    "class": "small-number"
+   },
+   {
+    "section": 26,
+    "line": 10,
+    "word": "user",
+    "class": "dispositioned",
+    "disposition": "code: a local variable read from a setting by its key name (`get(\"global.retroachievements.<name>\")`)"
+   },
+   {
+    "section": 26,
+    "line": 10,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 11,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 20,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 34,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 57,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 27,
+    "line": 30,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 28,
+    "line": 2,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 28,
+    "line": 3,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 28,
+    "line": 12,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 28,
+    "line": 12,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 28,
+    "line": 12,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 28,
+    "line": 14,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 28,
+    "line": 16,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 28,
+    "line": 18,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 28,
+    "line": 26,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 28,
+    "line": 32,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 28,
+    "line": 40,
+    "word": "user",
+    "class": "dispositioned",
+    "disposition": "code: an exception's English message naming an API (`GetUserRankAndScore`)"
+   },
+   {
+    "section": 28,
+    "line": 45,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 28,
+    "line": 49,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 28,
+    "line": 58,
+    "word": "user",
+    "class": "dispositioned",
+    "disposition": "code: a member assigned a URL built from a field (`info.userpic`)"
+   },
+   {
+    "section": 28,
+    "line": 58,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 28,
+    "line": 72,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 28,
+    "line": 72,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 12,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 12,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 16,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 16,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 16,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 21,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 21,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 26,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 30,
+    "line": 36,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 36,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 39,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 30,
+    "line": 47,
+    "word": "token",
+    "class": "expression"
+   },
+   {
+    "section": 30,
+    "line": 53,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 54,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 30,
+    "line": 54,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 63,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 30,
+    "line": 67,
+    "word": "token",
+    "class": "expression"
+   },
+   {
+    "section": 31,
+    "line": 23,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 24,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 24,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 32,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 33,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 33,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 14,
+    "word": "user",
+    "class": "dispositioned",
+    "disposition": "code: a local variable read from a setting by its key name"
+   },
+   {
+    "section": 34,
+    "line": 14,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 15,
+    "word": "pass",
+    "class": "dispositioned",
+    "disposition": "code: a local variable read from a setting by its key name"
+   },
+   {
+    "section": 34,
+    "line": 15,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 22,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 22,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 23,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 23,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 24,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 24,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 27,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 28,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 29,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 29,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 48,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 51,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 62,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 62,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 65,
+    "word": "user",
+    "class": "dispositioned",
+    "disposition": "code: a local variable read from a setting by its key name"
+   },
+   {
+    "section": 35,
+    "line": 65,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 66,
+    "word": "pass",
+    "class": "dispositioned",
+    "disposition": "code: a local variable read from a setting by its key name"
+   },
+   {
+    "section": 35,
+    "line": 66,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 67,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: a local variable read from a setting by its key name"
+   },
+   {
+    "section": 35,
+    "line": 67,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 69,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 69,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 69,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 69,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 72,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 74,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 77,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 80,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 80,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 84,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 86,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 93,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 95,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 95,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 95,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 96,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 96,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 99,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 103,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 104,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 104,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 111,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 111,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 115,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 125,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 36,
+    "line": 3,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 36,
+    "line": 8,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 36,
+    "line": 10,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 37,
+    "line": 9,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 38,
+    "line": 2,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 39,
+    "line": 26,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 39,
+    "line": 45,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 41,
+    "line": 12,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 41,
+    "line": 44,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 42,
+    "line": 34,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 42,
+    "line": 38,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 42,
+    "line": 38,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 19,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 44,
+    "line": 19,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 29,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 44,
+    "line": 29,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 39,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 44,
+    "line": 41,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 13,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 15,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: a why token compared with a fixed word (`token == \"WORD\"`)"
+   },
+   {
+    "section": 45,
+    "line": 17,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: a why token compared with a fixed word (`token == \"WORD\"`)"
+   },
+   {
+    "section": 45,
+    "line": 19,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: a why token compared with a fixed word (`token == \"WORD\"`)"
+   },
+   {
+    "section": 45,
+    "line": 21,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: a why token compared with a fixed word (`token == \"WORD\"`)"
+   },
+   {
+    "section": 45,
+    "line": 23,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: a why token compared with a fixed word (`token == \"WORD\"`)"
+   },
+   {
+    "section": 45,
+    "line": 25,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: a why token compared with a fixed word (`token == \"WORD\"`)"
+   },
+   {
+    "section": 45,
+    "line": 27,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: a why token compared with a fixed word (`token == \"WORD\"`)"
+   },
+   {
+    "section": 45,
+    "line": 32,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: a why token compared with a fixed word (`token == \"WORD\"`)"
+   },
+   {
+    "section": 45,
+    "line": 34,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 35,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 38,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: a why token compared with a fixed word (`token == \"WORD\"`)"
+   },
+   {
+    "section": 45,
+    "line": 43,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: a why token compared with a fixed word (`token == \"WORD\"`)"
+   },
+   {
+    "section": 45,
+    "line": 48,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 50,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: a why token compared with a fixed word (`token == \"WORD\"`)"
+   },
+   {
+    "section": 45,
+    "line": 52,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: a why token compared with a fixed word (`token == \"WORD\"`)"
+   },
+   {
+    "section": 45,
+    "line": 54,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 13,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 46,
+    "line": 50,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 46,
+    "line": 52,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: a stamp field's key compared with its fixed name (`key == \"name\"`)"
+   },
+   {
+    "section": 46,
+    "line": 54,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 56,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: `bool token = !value.empty();`, a parse flag"
+   },
+   {
+    "section": 46,
+    "line": 59,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 46,
+    "line": 60,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 64,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: a stamp field's key compared with its fixed name (`key == \"name\"`)"
+   },
+   {
+    "section": 46,
+    "line": 66,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 67,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 68,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: `bool token = !value.empty();`, a parse flag"
+   },
+   {
+    "section": 46,
+    "line": 71,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 46,
+    "line": 72,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 78,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: a stamp field's key compared with its fixed name (`key == \"name\"`)"
+   },
+   {
+    "section": 46,
+    "line": 86,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: a stamp field's key compared with its fixed name (`key == \"name\"`)"
+   },
+   {
+    "section": 46,
+    "line": 87,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: a stamp field's key compared with its fixed name (`key == \"name\"`)"
+   },
+   {
+    "section": 46,
+    "line": 88,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: a stamp field's key compared with its fixed name (`key == \"name\"`)"
+   },
+   {
+    "section": 46,
+    "line": 89,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: a stamp field's key compared with its fixed name (`key == \"name\"`)"
+   },
+   {
+    "section": 46,
+    "line": 90,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: a stamp field's key compared with its fixed name (`key == \"name\"`)"
+   },
+   {
+    "section": 46,
+    "line": 91,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: a stamp field's key compared with its fixed name (`key == \"name\"`)"
+   },
+   {
+    "section": 46,
+    "line": 92,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: a stamp field's key compared with its fixed name (`key == \"name\"`)"
+   },
+   {
+    "section": 46,
+    "line": 93,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: a stamp field's key compared with its fixed name (`key == \"name\"`)"
+   },
+   {
+    "section": 46,
+    "line": 106,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 47,
+    "line": 19,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 47,
+    "line": 21,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: a stamp field's key compared with its fixed name (`key == \"name\"`)"
+   },
+   {
+    "section": 47,
+    "line": 23,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: a stamp field's key compared with its fixed name (`key == \"name\"`)"
+   },
+   {
+    "section": 47,
+    "line": 32,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: a stamp field's key compared with its fixed name (`key == \"name\"`)"
+   },
+   {
+    "section": 47,
+    "line": 32,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: a stamp field's key compared with its fixed name (`key == \"name\"`)"
+   },
+   {
+    "section": 47,
+    "line": 37,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: a stamp field's key compared with its fixed name (`key == \"name\"`)"
+   },
+   {
+    "section": 48,
+    "line": 1,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 48,
+    "line": 8,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 48,
+    "line": 27,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 48,
+    "line": 37,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 48,
+    "line": 42,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 48,
+    "line": 44,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 48,
+    "line": 45,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 49,
+    "line": 1,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 49,
+    "line": 2,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 49,
+    "line": 15,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 49,
+    "line": 17,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 49,
+    "line": 219,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 1,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 2,
+    "word": "user",
+    "class": "expression"
+   },
+   {
+    "section": 55,
+    "line": 4,
+    "word": "user",
+    "class": "expression"
+   },
+   {
+    "section": 55,
+    "line": 7,
+    "word": "user",
+    "class": "expression"
+   },
+   {
+    "section": 55,
+    "line": 16,
+    "word": "user",
+    "class": "dispositioned",
+    "disposition": "code: a path built from the home path (`getHomePath()`)"
+   },
+   {
+    "section": 56,
+    "line": 8,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 56,
+    "line": 18,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 56,
+    "line": 18,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 56,
+    "line": 20,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 56,
+    "line": 20,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 56,
+    "line": 21,
+    "word": "token",
+    "class": "masked"
+   },
+   {
+    "section": 56,
+    "line": 21,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 56,
+    "line": 22,
+    "word": "pass",
+    "class": "masked"
+   },
+   {
+    "section": 56,
+    "line": 22,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 56,
+    "line": 31,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 1,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 1,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 1,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 2,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 3,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 10,
+    "word": "key",
+    "class": "expansion"
+   },
+   {
+    "section": 57,
+    "line": 10,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 11,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 37,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 38,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 40,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 40,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 42,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 44,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 44,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 45,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 46,
+    "word": "key",
+    "class": "small-number"
+   },
+   {
+    "section": 57,
+    "line": 47,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 47,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 50,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 92,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 93,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 93,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 104,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 106,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 107,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 107,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 108,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 109,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 109,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 115,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 120,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 124,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 129,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 138,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 163,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 174,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 57,
+    "line": 183,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 183,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 185,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 185,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 210,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 213,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 214,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 57,
+    "line": 214,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 214,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 215,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 216,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 219,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 58,
+    "line": 6,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 8,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 9,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 10,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 58,
+    "line": 19,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 20,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 21,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 58,
+    "line": 38,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 38,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 42,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 52,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 58,
+    "line": 60,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 60,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 60,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 60,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 61,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 64,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 67,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 68,
+    "word": "user",
+    "class": "masked"
+   },
+   {
+    "section": 58,
+    "line": 68,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 68,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 69,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 77,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: an SQL query by cache key with a bound parameter (`cacheKey = ?`)"
+   },
+   {
+    "section": 58,
+    "line": 86,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 86,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 97,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 58,
+    "line": 172,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 59,
+    "line": 6,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 59,
+    "line": 7,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 59,
+    "line": 7,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 59,
+    "line": 10,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 59,
+    "line": 10,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 59,
+    "line": 11,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 59,
+    "line": 11,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 59,
+    "line": 11,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 59,
+    "line": 11,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 59,
+    "line": 24,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 59,
+    "line": 55,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 59,
+    "line": 92,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 60,
+    "line": 111,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 60,
+    "line": 144,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 61,
+    "line": 67,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 61,
+    "line": 69,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 61,
+    "line": 70,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 61,
+    "line": 70,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 61,
+    "line": 107,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 61,
+    "line": 110,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 61,
+    "line": 114,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 61,
+    "line": 114,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 61,
+    "line": 115,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 62,
+    "line": 32,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 62,
+    "line": 41,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 62,
+    "line": 74,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 62,
+    "line": 115,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 62,
+    "line": 142,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 63,
+    "line": 6,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 63,
+    "line": 8,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 63,
+    "line": 13,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 63,
+    "line": 28,
+    "word": "pass",
+    "class": "word"
+   }
+  ]
+ },
+ "summary": {
+  "forbidden_terms_check": "0 section(s) with hits of 62; proven to run on a clean line",
+  "secret_patterns": "0 line(s); proven to fire on a run-time fake line",
+  "mask": "10 line(s) masked; classes [\"empty\", \"expansion\", \"identifier-or-word\"]",
+  "words": "511 credential-word hit(s); classes {\"dispositioned\": 48, \"expansion\": 1, \"expression\": 5, \"identifier-or-word\": 14, \"masked\": 13, \"small-number\": 3, \"word\": 427}",
+  "review": 0
+ },
+ "packet": {
+  "file": "packet.md",
+  "bytes": 354904,
+  "sha256": "c9e48ae158f2e8d89d68435e17c423c66fc947950eeafbddac3646482ec5faea"
+ }
+}
