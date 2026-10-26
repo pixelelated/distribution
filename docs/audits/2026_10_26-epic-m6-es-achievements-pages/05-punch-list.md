@@ -447,7 +447,7 @@ Every item is open until the coordinator's stage-D ruling and stage F.
 | PL-17 | Resolved | Resolved in `2d8a0a135` (ES, S6) under #1175: the sign-in off the interface thread with a 15 s total and a 10 s stall, its answer tied to the account; a scan never carries another account's token (`stage-e/s6-*.txt`); the stalling-listener walk owed |
 | PL-18 | Resolved | Resolved in `f85061f14` (ES, S4) under #1173: the page reads the toggle back from the ctl's status after any exit; the LED callback weak; `AppWindow::post` (`stage-e/s4-*.txt`); the stub-ctl walk owed |
 | PL-19 | Withdrawn | Withdrawn: recorded as written at the stage-D ruling (#667, 18:45 UTC); the `:173` comment fixed in `2d8a0a135` (ES, S6, #1175) |
-| PL-20 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
+| PL-20 | Resolved | Resolved in `087bafdb98` (distribution, S12): the scan page mapped by its title, `:595` as it ships; `es-menu-map-check` 0 missing (`stage-e/s12-map.txt`) |
 | PL-21 | Deferred | Deferred: #585, the four lines in `02` § The library, as ruled at the stage-D ruling (#667, 18:45 UTC) |
 | PL-22 | Deferred | Deferred: Backlogs #1168 and #1169 (under #903), filed at the stage-D ruling (#667, 18:45 UTC) |
 | PL-23 | Withdrawn | Withdrawn: recorded as written at the stage-D ruling (#667, 18:45 UTC; D-WORKFLOW-209); the `:154` comment fixed in `f85061f14` (ES, S4, #1173) |
@@ -577,7 +577,7 @@ punch_index:
   category: Documentation
   question: Q2
   source_finding: "L-17"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-21
   severity: "Info"
   category: Upstream
