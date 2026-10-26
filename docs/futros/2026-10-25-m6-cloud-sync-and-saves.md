@@ -330,3 +330,36 @@ corrected, and what the addendum above had wrong:
   #1029 is T15's; M7 writes timestamped lines on the host file, and its
   native stage returned 04:50 with its guest window queued behind the T16
   stop; a `CANNOT` form for a window never granted.
+
+### Errata from T17's acceptance (2026-10-26)
+
+What the slice found that the kickoff addendum and the brief's version 2 had
+wrong or did not foresee; the brief's own "Errata at acceptance" section
+carries the figures.
+
+- **"No streams expected" was wrong by seven.** Six at the stage-D pause
+  (PL-01+14, PL-02 Medium, PL-03 Medium, PL-04+08, PL-05, PL-06) and a
+  seventh, S7, from the guest window's full restore (F-24, #1136: a
+  standalone symlink or fifo member restored; a failed restore's revert over
+  a restored-into directory failing). D-CLOUD-185 was written for PL-02's
+  allowlist. The addendum's known unknowns held; its "what we could be
+  missing" did not reach a member-type check the name check never made.
+- **Two host assumptions were the brief's, not the host's:** the
+  EmulationStation checkout for `tools/vocabulary-check` exists on the host
+  (ruled a read; 163 judged, 0 wrong), and `tools/signin-memory`'s default
+  page is a network read the slice forbids (a host-local page replaced it;
+  the QA WebDAV's 401 kept as the FAIL it was).
+- **A stream regressed a check and the suite found it two streams later**
+  (S3 at `f8feb15bb4`, corrected at `c3e260861b`); the plan § 6b now has a
+  stream run `tools/last-good-scripts-test` before its commit when it
+  changes a covered script, and a fixture's scratch root is asserted outside
+  every prefix it rewrites (the better shape rewrites nothing: the real
+  script in a bubblewrap sandbox with `--clearenv`).
+- **The credential refusal exits 1, not 5**; checkbox 3's reader was wrong
+  (the provenance files are read directly); the window sequencing put M7's
+  guest first; the phone page from the host stays `CANNOT` with the gap
+  named (a `hostfwd` for the serve's port, or a second guest).
+- **What the ES slices inherit** is the retro's list: the why table's two
+  missing sentences and six script-less rows, the sign-in window's contract,
+  the phone page's states after S1, S5's exit 1 and S7's reused refusal --
+  routed to #665 (T18) by the audit's rows.

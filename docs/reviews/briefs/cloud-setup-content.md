@@ -748,3 +748,80 @@ line held. The corrections:
     are timestamped, not `== ` blocks, and its native stage has returned;
     checkbox 2's string quoted whole; checkbox 3 names the reader; checkbox
     12 has a `CANNOT` form for a window never granted.
+
+## Errata at acceptance (2026-10-26)
+
+What the lane found that version 2 had wrong or did not foresee, recorded
+here rather than edited into the sections above:
+
+- **15 `.$$` lines in the 14, not 14:** `cloud_content_restore:819` is the
+  plan's temp-write `printf`, beside the two `mktemp` fallbacks at
+  `:837-838` (stage A).
+- **The exit-constant run read the whole rclone directory** and printed
+  T16's four constants too; it should take the 14 paths like the other runs
+  (stage A).
+- **`backuptool:224`'s `rm -rf "${STAGING_PREFIX}"*`** sweeps the script's
+  own prefix (`/storage/.cache/backuptool-staging.`, `:762`): "every
+  `rm -rf` on a script's own temporary" holds, and the brief should have
+  said so (stage A).
+- **`tools/vocabulary-check`'s default EmulationStation checkout exists on
+  the host** (`~/Development/emulationstation-next.worktrees/qa-integration`,
+  at the pin); the brief's `CANNOT` assumed none. Ruled a read with
+  provenance; it ran, 163 judged, 0 wrong (stage A).
+- **The symlink-member proof (F-04) was answered on the host** by the image's
+  own busybox `tar` refusing a symlink with a child, not on the guest; the
+  guest's full restore then found **F-24**: a standalone symlink member is
+  restored, and a failed restore's revert over a restored-into directory
+  fails too (stream S7, #1136-class bug).
+- **The window sequencing changed at stage B**: M7's guest first, then T17's,
+  then T16's re-grant when its session can run; the brief's "after T16's
+  re-granted window" assumed the T1 session could run. T17's first window
+  ran 07:59-08:06 and a second, 08:18-08:21, for five proofs the first did
+  not reach.
+- **Checkbox 3's reader was wrong:** `tools/council/run summary` and
+  `verify-seals` read a council run's manifest, which audit invokes do not
+  have; the evidence is the direct read of each `.provenance.json`
+  (verification PASS, served model and provider, output hash,
+  `facilitator_version`). #664's checkbox 3 was reworded at the stage-D
+  pause.
+- **Six streams, then seven, where the futro's addendum said "none
+  expected"**: PL-01+14, PL-02 (Medium), PL-03 (Medium), PL-04+08, PL-05,
+  PL-06, F-24. **D-CLOUD-185** was written for PL-02's allowlist, and the
+  seam to T16's twins posted on #663.
+- **The seats added F-20** (an option-shaped key reaching rclone as a flag),
+  which version 2 did not anticipate; both seats raised F-02 and F-03 to
+  Medium and the ruling followed them on impact.
+- **The image copy the lane used is `m6-t2-20261023`**, not the
+  `m6-t3-20261024` copy T16's grant named; both carry `069fc2704421`.
+- **Seven streams, the seventh at the hand-back:** S7 (`backuptool`, #1136)
+  refuses every member that is not a file or a folder before extraction --
+  pairing `tar -tv`'s lines with `tar -t`'s names, since busybox prints a
+  hard link as `-` -- and the revert removes, under `/storage` only, a
+  folder the restore made; its fixture runs the real `backuptool restore`
+  in an unprivileged bubblewrap sandbox (`--clearenv`, after the sandbox
+  inherited the host's `TMPDIR`) and fails on the unfixed file.
+- **The credential refusal's exit is 1, not 5:** 5 is `write_archive`'s
+  return, which the `backup` command maps to the why at `backuptool:1858`;
+  the brief wrote the function's code as the process's.
+- **`tools/signin-memory`'s default page is a network read** (`example.org`)
+  the slice forbids; the lane loaded a host-local static page instead
+  (`python3 -m http.server` on 127.0.0.1, stopped by its PID), keeping the
+  QA WebDAV root's 401 as the FAIL it was: PASS at 104, 98 and 42 MB, 245
+  MB together. The brief's "a page load, no account" assumed the tool's
+  page was local.
+- **The phone page stayed `CANNOT`** under user-mode NAT with only ssh
+  forwarded, the gap named as the brief asked: a `hostfwd` for the serve's
+  port, or a second guest. The handler is proved on the guest over
+  loopback (the first window).
+- **A stream regressed a check and the suite caught it two streams later:**
+  S3's name check at `f8feb15bb4` also refused `--selected` and `--all`,
+  and every name where `es_systems.cfg` could not be read;
+  `tools/last-good-scripts-test`, first run at S7, failed three
+  `cloud_content_backup` checks, and `c3e260861b` narrowed the check to
+  explicit names (the shape always, the declared systems when the file
+  reads; 1,379 PASS lines). The plan § 6b now carries the stream practice:
+  a stream that changes a covered script runs the suite before its commit.
+- **The second window's match refusal** planned `snes|sync|1|10`, saw two
+  ROMs added, refused with `previewed sync|1, now sync|3`, and removed
+  nothing; **`atomic()`'s mode** read 0600 on a real save and under the
+  image's python, including over a 0644 file.
