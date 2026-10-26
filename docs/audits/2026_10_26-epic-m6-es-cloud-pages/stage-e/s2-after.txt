@@ -27,3 +27,25 @@ RUN jobs-tests: rc 0; [doctest] test cases: 6 | 6 passed | 0 failed | 0 skipped 
 ThreadedCloudSync.cpp: rc 1 (fatal error: SDL_joystick.h: No such file)
 -- non-ASCII comment lines in the touched files: 0
 -- not built here: proxycards-tests (its double's return type changed from void to bool with return true; the brief's suite is es-unit-tests and jobs-tests)
+
+== the read-only case added to the fixture at stage F (11:50:05Z), #1145's own wording: the directory 0555, a stale <stamp>.tmp in it
+-- the pin (16dbac5211):
+rev 16dbac5211: writeStamp returns void; uses Utils::AtomicFile: no
+$ g++ -std=c++17 -pthread -I es-core/src stamp-fixture.cpp AtomicFileUtil.cpp StringUtil.cpp
+full-disk: previous stamp REPLACED by 0 byte(s); writer reported nothing (void)
+stale-tmp: the stamp is THE STALE TEMPORARY
+read-only: previous stamp kept; writer reported nothing (void)
+normal: whole
+cases failing as #1145 says: 2
+unfixed-expectation-met
+exit 0
+-- the fix (f63ad4de4):
+rev f63ad4de4: writeStamp returns bool; uses Utils::AtomicFile: yes
+$ g++ -std=c++17 -pthread -I es-core/src stamp-fixture.cpp AtomicFileUtil.cpp StringUtil.cpp
+full-disk: previous stamp kept; writer reported false
+stale-tmp: the stamp is the new line
+read-only: previous stamp kept; writer reported false
+normal: whole
+cases failing as #1145 says: 0
+fixed-expectation-met
+exit 0

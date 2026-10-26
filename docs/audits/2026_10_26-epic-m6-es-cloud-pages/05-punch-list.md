@@ -407,33 +407,33 @@
 
 ## Phase 7 resolution gate
 
-Every item is open until stage F; each row then takes its outcome (resolved with its commit, deferred to a named issue, or recorded as a design with its sentence). The dispositions are the coordinator's stage-D ruling (#665, 11:16 UTC).
+Every item is open until stage F; each row then takes its outcome (resolved with its commit, deferred to a named issue, or recorded as a design with its sentence). The dispositions are the coordinator's stage-D ruling (#665, 11:16 UTC). Stage F, 2026-10-26 11:48 UTC: every row at its outcome. A design recorded as written is `Withdrawn`, the code-auditor's word for an explicit no-action decision, with who decided named. ES commits are on `feature/m6-es-cloud-pages-665`; the pin is not moved.
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | at the stage-D pause; disposition: a `bug`, #1145, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8` |
-| PL-02 | Open | at the stage-D pause; disposition: a `bug`, #1146, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8` |
-| PL-03 | Open | at the stage-D pause; disposition: a `bug`, #1147, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8` |
-| PL-04 | Open | at the stage-D pause; disposition: a `bug`, #1148, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8` |
-| PL-05 | Open | at the stage-D pause; disposition: a `bug`, #1149, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8` |
-| PL-06 | Open | at the stage-D pause; disposition: recorded as written, with its frame (`guest-cycle/frames/640-match-done.png`) |
-| PL-07 | Open | at the stage-D pause; disposition: a `bug`, #1149, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8` |
-| PL-08 | Open | at the stage-D pause; disposition: fixed in S1 with PL-03 (#1147) |
-| PL-09 | Open | at the stage-D pause; disposition: deferred:#909 (the coordinator's line posted there) |
-| PL-10 | Open | at the stage-D pause; disposition: recorded as written: the eight wordings listed in `02` § The why table |
-| PL-11 | Open | at the stage-D pause; disposition: deferred:#1143 (removals proposed, none made here) |
-| PL-12 | Open | at the stage-D pause; disposition: deferred:#1143 |
-| PL-13 | Open | at the stage-D pause; disposition: recorded as written; folded into the seam #1143 names |
-| PL-14 | Open | at the stage-D pause; disposition: the unfitted rows fixed in S3 (#1149's stream); the untested traps' cases with the streams that touch them |
-| PL-15 | Open | at the stage-D pause; disposition: deferred:#1142 (the coordinator's, under #700: T2's bounded wait on the wrong thread) |
-| PL-16 | Open | at the stage-D pause; disposition: the one-reader refactor deferred:#1143; the two suites deferred:#1144 (under #903) |
-| PL-17 | Open | at the stage-D pause; disposition: routed: the T26 notes posted on #673; #1141 (the harness); #1140 (T17's TERM) |
-| PL-18 | Open | at the stage-D pause; disposition: a `bug`, #1150, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8` |
-| PL-19 | Open | at the stage-D pause; disposition: S4's fixture first; a fix only if it falls |
-| PL-20 | Open | at the stage-D pause; disposition: a `bug`, #1151, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8` |
-| PL-21 | Open | at the stage-D pause; disposition: the readers' half recorded as written (latent); the composers' half posted on #673 |
-| PL-22 | Open | at the stage-D pause; disposition: a `bug`, #1152, filed at the stage-D ruling (#665, 11:16 UTC); fixed by a stream under `t18-streams.md` at `1b6588efd8` |
-| PL-23 | Open | at the stage-D pause; disposition: deferred:#1143 |
+| PL-01 | Resolved | Resolved in `f63ad4de4` (ES, S2) under #1145: `writeStamp` writes through `Utils::AtomicFile` and returns whether it did; `tools/t18-stamp-fixture.py` keeps the stamp under a full disk and ignores a stale temporary (`stage-e/s2-*.txt`) |
+| PL-02 | Resolved | Resolved in `fd85f7e36` (ES, S3) under #1146: the Match arm's words as proposed, its French, the source guard (`stage-e/s3-*.txt`); the dialog's frame owed to the integration build's walk (`stage-e/walks/s3-match-cancel.steps`) |
+| PL-03 | Resolved | Resolved in `1a1828a8b` (ES, S1) under #1147: both rows and the dot-less CHOOSE row, with French; `tools/t18-why-table.py` exits 0 against `a8de42ffbc` (`stage-e/s1-*.txt`) |
+| PL-04 | Resolved | Resolved in `2f109d935` (ES, S4) under #1148: both wrappers `{ trap '' PIPE; echo ">>> pid $$"; CMD ; }`; `tools/t18-wrapper-fixture.py` writes the stamp in all four cases (`stage-e/s4-*.txt`); the restart proof on a guest owed (`stage-e/walks/suite-lines.txt`) |
+| PL-05 | Resolved | Resolved in `fd85f7e36` (ES, S3) under #1149: NOTHING NEW TO RESTORE / TO BACK UP, with French |
+| PL-06 | Withdrawn | Withdrawn: recorded as written at the stage-D ruling (#665, 11:16 UTC), with its frame (`guest-cycle/frames/640-match-done.png`); no change made |
+| PL-07 | Resolved | Resolved in `fd85f7e36` (ES, S3) under #1149: COULDN'T FINISH and N FILES RESTORED, with French |
+| PL-08 | Resolved | Resolved in `1a1828a8b` (ES, S1) with PL-03 (#1147): the six files' comments |
+| PL-09 | Deferred | Deferred: #909, as ruled at the stage-D ruling (#665, 11:16 UTC) |
+| PL-10 | Withdrawn | Withdrawn: recorded as written at the stage-D ruling (#665, 11:16 UTC); the wordings are listed in `02` § The why table |
+| PL-11 | Deferred | Deferred: #1143 (removals proposed, none made here), as ruled at the stage-D ruling (#665, 11:16 UTC) |
+| PL-12 | Deferred | Deferred: #1143, as ruled at the stage-D ruling (#665, 11:16 UTC) |
+| PL-13 | Withdrawn | Withdrawn: recorded as written at the stage-D ruling (#665, 11:16 UTC); folded into the seam #1143 names |
+| PL-14 | Deferred | Fixed in part: the rows fitted in `fd85f7e36` (S3); the failed stamp write `f63ad4de4` (S2); every why row's round trip `1a1828a8b` (S1); the late pid and the natural completion `29d500db9` (S5); the glued `>>> ` by `tools/t18-wrapper-fixture.py` (S4, it did not fall). The rest (the `%3d` separator at 100%, the job's glued splitter, the torn-field and four-byte checks, a page deleted before its posted step) Deferred: #1143, where the per-file split moves into `CloudText` and the existing binary can test it |
+| PL-15 | Deferred | Deferred: #1142 (under #700), as ruled at the stage-D ruling (#665, 11:16 UTC) |
+| PL-16 | Deferred | Deferred: the one-reader refactor #1143; the two suites #1144 (under #903), as ruled at the stage-D ruling (#665, 11:16 UTC) |
+| PL-17 | Deferred | Deferred: the T26 notes on #673; the harness #1141; T17's TERM #1140, as ruled at the stage-D ruling (#665, 11:16 UTC) |
+| PL-18 | Resolved | Resolved in `29d500db9` (ES, S5) under #1150: `CloudText::stopEndedRun`, the late pid's kill, `CloudText::followUpsAllowed`; the `jobs-tests` control fails the new case with the old condition (`stage-e/s5-*.txt`); `afterSync`'s own guard is #667's |
+| PL-19 | Withdrawn | Withdrawn: S4's fixture did not reproduce it: with the donor's rclone 1.75.2 the byte before `>>> tier` is a newline (`stage-e/s4-before.txt`); the ruling at the stage-D ruling (#665, 11:16 UTC) said a fix only if it falls |
+| PL-20 | Resolved | Resolved in `d55235d4b` (ES, S6) under #1151: a why is filed under a unit only when one was announced since the last tier; `jobs-tests` FAIL before, PASS after (`stage-e/s6-*.txt`) |
+| PL-21 | Deferred | Deferred: the composers' half on #673; the readers' half recorded as written (latent), as ruled at the stage-D ruling (#665, 11:16 UTC) |
+| PL-22 | Resolved | Resolved in `d55235d4b` (ES, S6) under #1152: the job reads the stamp's offline why, for a run with no tier lines and for the composed run's one part that ended 69 without a word (two such parts named, not covered); `jobs-tests` FAIL before, PASS after |
+| PL-23 | Deferred | Deferred: #1143, as ruled at the stage-D ruling (#665, 11:16 UTC) |
 
 ## Machine-readable index
 
@@ -444,137 +444,137 @@ punch_index:
   category: Correctness
   question: Q3
   source_finding: "F-06"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-02
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "F-08"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-03
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "F-11, F-12"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-04
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "F-02"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-05
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "F-09"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-06
   severity: "Info"
   category: Renovation
   question: Q3
   source_finding: "F-20"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-07
   severity: "Low"
   category: Renovation
   question: Q3
   source_finding: "F-10"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-08
   severity: "Info"
   category: Renovation
   question: Q7
   source_finding: "F-13"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-09
   severity: "Info"
   category: Renovation
   question: Q7
   source_finding: "F-14"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-10
   severity: "Info"
   category: Renovation
   question: Q7
   source_finding: "F-15"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-11
   severity: "Info"
   category: Renovation
   question: Q6
   source_finding: "F-16"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-12
   severity: "Info"
   category: Renovation
   question: Q6
   source_finding: "F-17"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-13
   severity: "Info"
   category: Renovation
   question: Q3
   source_finding: "F-01, F-03, F-04; A-6; R-1, R-4, R-6"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-14
   severity: "Info"
   category: Renovation
   question: Q2
   source_finding: "F-05"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-15
   severity: "Info"
   category: Design
   question: Q5
   source_finding: "F-07"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-16
   severity: "Info"
   category: Renovation
   question: Q1
   source_finding: "F-18, F-12, F-19"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-17
   severity: "Info"
   category: Design
   question: Q7
   source_finding: "the window's frames; F-19"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-18
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "A-33, A-34 (Astra, new); R-8, R-11, R-39, R-41 (Argon, new)"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-19
   severity: "Info"
   category: Correctness
   question: Q3
   source_finding: "A-35 (Astra, new)"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-20
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "A-37 (Astra, new)"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-21
   severity: "Info"
   category: Correctness
   question: Q3
   source_finding: "A-38 (Astra, new); R-40 (Argon, new)"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-22
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "R-42 (Argon, new)"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-23
   severity: "Info"
   category: Renovation
   question: Q6
   source_finding: "R-43 (Argon, new)"
-  outcome: "open"
+  outcome: "deferred"
 ```

@@ -158,3 +158,54 @@
 - **`05`:** 23 items; seven `bug`s proposed, all Low (PL-01 to PL-04, PL-18, PL-20, PL-22), and two more proposed Low by the seats (PL-05, PL-15).
 - **The lint:** `tools/lint-audit-artifacts docs/audits/2026_10_26-epic-m6-es-cloud-pages --phase pre-issue`: `PASS pre-issue artifacts (does not certify resolution)`.
 - **Nothing of the never-run list ran.** No keyed call beyond the four. No guest outside the window. The ES worktree is at the pin, clean.
+
+## [Stage D] 11:09 to 11:21 UTC — the pause, the rulings, the filing
+
+- **The pause:** the punch list was posted on #665 at the stage-D pause. The coordinator ruled at 11:16 UTC: eight Low `bug`s, six streams under `docs/reviews/briefs/t18-streams.md` at `1b6588efd8`, and the deferrals and records `05`'s gate names.
+- **The filing:** the audit issue #1153 (a sub-issue of #665, 23 items) and #1145 to #1152, each run through `tools/box-check` (0 fail). The coordinator read the filing at 11:21 UTC, taking S1's sentence as an erratum to the stream brief at acceptance.
+
+## [Stage E] 11:21 to 11:48 UTC — six streams, test first
+
+Six ES commits on `feature/m6-es-cloud-pages-665`, one per stream, `16dbac5211..d55235d4b`, serial; the pin in `package.mk` is not moved:
+
+| Stream | ES commit | Bugs |
+| --- | --- | --- |
+| S1 | `1a1828a8b` | #1147 |
+| S2 | `f63ad4de4` | #1145 |
+| S3 | `fd85f7e36` | #1146, #1149 |
+| S4 | `2f109d935` | #1148 |
+| S5 | `29d500db9` | #1150 |
+| S6 | `d55235d4b` | #1151, #1152 |
+
+Each stream's before and after are under `stage-e/`, with its row in `02` § The streams.
+
+- **The builds:**
+  - `tools/t18-build-tests.sh <es> <build>`, with `RAPIDJSON_INCLUDE_DIR=/workspace/tmp/m6-t18/rapidjson`, builds the four unit binaries from `es-app/tests/unit`.
+  - `tools/t18-build-jobs-tests.sh <es> <build>` generates `jobs-tests` from `tests/app-unit/CMakeLists.txt`'s `add_executable`, with ASan and UBSan.
+  - The last plan (`/workspace/tmp/m6-t18/build-s6-jobs/plan.txt`) compiles `tests/app-unit/main.cpp` and `JobsTests.cpp`, under-test copies of `CloudTransferJob.cpp` and `OfflineScanJob.cpp`, then `es-app/src/CloudText.cpp` and `es-core/src/utils/StringUtil.cpp`, with `tests/app-unit/fakes` first on the include path.
+  - At the ES tip: `es-unit-tests` 189, `es-file-tests` 27, `es-conf-tests` 10, `es-file-tests-win32` 2, `jobs-tests` 10, all PASS.
+- **The syntax checks** (host `g++ -std=c++17 -fsyntax-only`):
+  - `CloudText.cpp` rc 0;
+  - `ThreadedCloudSync.cpp`, `CloudTransferJob.cpp` and `GuiCloudTransfer.cpp` each `CANNOT: SDL_joystick.h` (no SDL on the host), so their compile proof is the integration build's;
+  - the non-ASCII comment grep was 0 on every touched file.
+- **The fixtures** (each command is in its stream's `stage-e/s<N>-*.txt`):
+  - `tools/t18-why-table.py <es> <rev> a8de42ffbc` (S1);
+  - `tools/t18-stamp-fixture.py <es> <rev> <build> --expect unfixed|fixed` (S2; the read-only case added at stage F);
+  - `tools/t18-wrapper-fixture.py <es> <rev> <scratch> --expect unfixed|fixed --rclone <the donor's rclone 1.75.2>` (S4, local folders only).
+- **Controls seen to fail:**
+  - S5's `jobs-tests` case with the job's old condition put back;
+  - S6's three cases at S5's code;
+  - the source guards at S1, S3 and S5 before their fixes.
+- **Found during the streams:**
+  - The card's commands now sit inside braces. Every one was checked to parse there (`sh -n`, the startup command read from `main.cpp`).
+  - The page's run is composed with tier lines (`GuiMenu.cpp:5006`), so S6 covered the composed run's one offline part too. Two such parts are named and not covered (#1143).
+  - PL-19's glued line did not reproduce.
+- **Nothing of the never-run list ran:** no build, no guest, no fetch, no keyed call, nothing under the distribution's `packages/`, `projects/` or `tools/`, no ES path outside each stream's list, and no move of the pin.
+
+## [Stage F] 11:48 to 11:53 UTC — the outcomes
+
+- **`05`'s 23 rows:** 9 Resolved, 10 Deferred, 4 Withdrawn. "Withdrawn" is "recorded as written" under the ruling, and PL-19, whose fixture did not fall. `tools/lint-audit-artifacts docs/audits/2026_10_26-epic-m6-es-cloud-pages --issue 1153`: `PASS`.
+- **#1153:** 18 of 23 ticked. PL-02, PL-04, PL-05, PL-07 and PL-18 wait on their bugs' open criteria:
+  - `strings` on the image and the walks' frames are the integration build's (#1146, #1148, #1149);
+  - #1150's card cases are proven at the decision function and by source guard only, put to the coordinator on #1150.
+- **The bugs:** #1145, #1147, #1151 and #1152 have every criterion ticked; they are left open for the coordinator to close at integration. PL-14's remaining traps are listed on #1143. `tools/box-check`: 0 fail on all nine issues.

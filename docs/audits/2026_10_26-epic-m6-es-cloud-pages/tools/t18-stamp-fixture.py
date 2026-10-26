@@ -20,6 +20,9 @@ Three cases, each in a fresh directory under <build dir>:
   stale-tmp  a previous stamp and a stale `<stamp>.tmp` that cannot be
              opened for writing: the stamp must be the new line, never the
              stale file;
+  read-only  #1145's own wording: a previous stamp and a stale `<stamp>.tmp`
+             in a directory made unwritable (mode 0555): the previous stamp
+             must survive, and a writer that returns bool must say false;
   normal     the new line, whole.
 `--expect unfixed` exits 0 when at least one case fails as #1145 says;
 `--expect fixed` exits 0 when every case holds. Writes only under <build dir>.
@@ -116,6 +119,16 @@ int main(int argc, char** argv)
     const bool stale = got.find("STALE") != std::string::npos, fresh = got.find(" 0 completed") != std::string::npos;
     std::cout << "stale-tmp: the stamp is " << (stale ? "THE STALE TEMPORARY" : fresh ? "the new line" : "neither") << "\n";
     if (stale || !fresh) bad++; }
+  // read-only: the directory unwritable, a stale temporary in it
+  { const std::string d = base + "/readonly"; mkdir(d.c_str(), 0755); const std::string s = d + "/last-sync-exit";
+    put(s, PREV); put(s + ".tmp", "1600000000 5 STALE\n");
+    chmod(d.c_str(), 0555);
+    RESULT_DECL ThreadedCloudSync::writeStamp(s, 5, "cloud-stopped", "YOUR CLOUD STOPPED ANSWERING");
+    chmod(d.c_str(), 0755);
+    const std::string got = slurp(s);
+    const bool kept = got == PREV;
+    std::cout << "read-only: previous stamp " << (kept ? "kept" : ("REPLACED by " + std::to_string(got.size()) + " byte(s)")) << "; writer reported " << RESULT_SAY << "\n";
+    if (!kept || RESULT_BAD) bad++; }
   // normal
   { const std::string d = base + "/normal"; mkdir(d.c_str(), 0755); const std::string s = d + "/last-sync-exit";
     ThreadedCloudSync::writeStamp(s, 0, "completed", "");
@@ -145,7 +158,9 @@ if r.returncode:
     print(r.stderr[-2000:]); sys.exit(2)
 base = os.path.join(B, "cases")
 os.makedirs(base, exist_ok=True)
-for sub in ("full", "stale", "normal"):
+for sub in ("full", "stale", "readonly", "normal"):
+    if os.path.isdir(os.path.join(base, sub)):
+        os.chmod(os.path.join(base, sub), 0o755)
     for f in ("last-sync-exit", "last-sync-exit.tmp"):
         p = os.path.join(base, sub, f)
         if os.path.exists(p):
