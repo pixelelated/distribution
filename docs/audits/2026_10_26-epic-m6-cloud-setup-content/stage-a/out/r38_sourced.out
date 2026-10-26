@@ -1,0 +1,8 @@
+cloud_content_backup: 21:. /etc/profile 234:. "$(dirname "${BASH_SOURCE[0]}")/cloud_content_transfer" || exit 1 
+cloud_content_restore: 25:. /etc/profile 281:. "$(dirname "${BASH_SOURCE[0]}")/cloud_content_transfer" || exit 1 
+cloud_content_transfer: 
+cloud_device_id: 
+cloud_log_scrub: 67:. /etc/profile.d/001-functions 2>/dev/null 
+cloud_scan: 39:. /etc/profile 2>/dev/null 328:. "${archive_tool}" 
+cloud_setup: 44:. /etc/profile 
+backuptool: 8:. /etc/profile 

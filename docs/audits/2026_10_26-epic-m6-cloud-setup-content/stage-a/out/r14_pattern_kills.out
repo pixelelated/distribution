@@ -1,0 +1,5 @@
+projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth:357:        subprocess.run(["pkill", "-f", "rclone authorize"],
+projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth:861:    Walks /proc rather than calling pkill: `pkill -f "cloud_oauth serve"`
+projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth:2819:        subprocess.run(["pkill", "-f", "rclone authorize"], capture_output=True)
+projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:775:        pkill -f "rclone config" 2>/dev/null
+projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:776:        pkill -f "rclone authorize" 2>/dev/null

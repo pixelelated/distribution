@@ -1,0 +1,16 @@
+15
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup:252:    tmp="${file}.tmp.$$"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:299:    tmp="${file}.tmp.$$"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:819:    { printf 'plan2 %s %s %s\n' "$(date +%s)" "${CONTENT_CONFIG_ID}" "${MEDIA_MODE}";
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:820:        && mv -f "${MATCH_PLAN}.tmp.$$" "${MATCH_PLAN}" 2>/dev/null \
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:821:        || { rm -f "${MATCH_PLAN}.tmp.$$" 2>/dev/null; return 1; }
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:837:    MATCH_LOG=$(mktemp /tmp/cloud-match-log.XXXXXX 2>/dev/null) || MATCH_LOG="/tmp/cl
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:838:    MATCH_BEFORE=$(mktemp /tmp/cloud-match-before.XXXXXX 2>/dev/null) || MATCH_BEFORE
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:1405:        { [ ${#local_names[@]} -eq 0 ] || printf '%s\n' "${local_names[@]}"; } > "${
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:1406:        mv -f "${SELECTION}.tmp.$$" "${SELECTION}" 2>/dev/null || rm -f "${SELECTION
+projects/ROCKNIX/packages/network/rclone/sources/cloud_device_id:290:    { printf '%s\n' "$1" > "${ID_FILE}.tmp.$$"; } 2>/dev/null \
+projects/ROCKNIX/packages/network/rclone/sources/cloud_device_id:291:        && mv -f "${ID_FILE}.tmp.$$" "${ID_FILE}" 2>/dev/null \
+projects/ROCKNIX/packages/network/rclone/sources/cloud_device_id:292:        || { rm -f "${ID_FILE}.tmp.$$" 2>/dev/null; return 1; }
+projects/ROCKNIX/packages/network/rclone/sources/cloud_log_scrub:137:    local f="$1" tmp="$1.scrub.$$" before after tries=0 changed
+projects/ROCKNIX/packages/network/rclone/sources/cloud_scan:225:    tmp="${OUT}/${stamp}.tmp.$$"
+projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:70:    local tmp="${SYNC_CONF}.tmp.$$" src="${SYNC_CONF}" n=0 i

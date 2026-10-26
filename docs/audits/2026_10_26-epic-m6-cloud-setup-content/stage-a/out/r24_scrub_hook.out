@@ -1,0 +1,5 @@
+projects/ROCKNIX/packages/network/rclone/autostart/102-cloud-saves:29:[ -x /usr/bin/cloud_log_scrub ] && /usr/bin/cloud_log_scrub
+48:# Done is recorded in /storage/.cache/cloud_sync/log-scrubbed, one line per
+59:STAMP=/storage/.cache/cloud_sync/log-scrubbed
+63:set -o pipefail
+78:SCRUB_SED='

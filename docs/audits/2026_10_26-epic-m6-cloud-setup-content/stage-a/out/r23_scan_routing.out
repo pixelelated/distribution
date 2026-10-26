@@ -1,0 +1,18 @@
+readonly EXIT_NO_NETWORK=69
+    [ "$1" -eq 0 ] && return 0
+    log "scan: $2 exited $1"
+    [ "$1" -eq "${EXIT_NO_NETWORK}" ] && exit "$1"
+    if [ -n "${3:-}" ]; then
+        local reason
+        reason=$(sed -n 's/^>>> why //p' "$3" 2>/dev/null | tail -1)
+        if [ -n "${reason}" ]; then
+            why "${reason}"
+        elif [ "$1" -eq 124 ]; then
+            why "YOUR CLOUD STOPPED ANSWERING"
+        else
+            # Application codes are not rclone's codes. A refused layout
+            # or invalid record does not mean that a folder is missing.
+            why "YOUR CLOUD FOLDER COULDN'T BE READ"
+        fi
+    else
+        why_for_rc "$1"

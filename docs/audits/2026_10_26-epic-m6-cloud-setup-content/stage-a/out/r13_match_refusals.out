@@ -1,0 +1,15 @@
+        if [ -s "${MATCH_PLAN}" ] && head -1 "${MATCH_PLAN}" | grep -qE '^plan2 [0-9]+ [0-9a-f]{64} (roms|with|only)$'; then
+        rm -f "${MATCH_PLAN}" 2>/dev/null
+        if [ -e "${MATCH_PLAN}" ]; then
+            echo "Nothing was removed: something went wrong on this device. Try again."
+            log_message "match: refused, the preview plan could not be spent"
+        if ! content_context_current || { [ -n "${plan_context}" ] && { [ "${plan_context}" != "${CONTENT_CONFIG_ID}" ] || [ "${plan_mode}" != "${MEDIA_MODE}" ]; }; }; then
+            echo "Nothing was removed: your cloud settings changed. Check what would change again."
+            say_why "SOMETHING CHANGED SINCE YOU CHECKED"
+        if [ -z "${MATCH_PLAN_TEXT}" ]; then
+            echo "Nothing was removed: check what would change first, then try again."
+            say_why "CHECK WHAT WOULD CHANGE FIRST"
+                    bounded_content_rclone sync "$(remote_for "${sys}")" "${DEST}/${sys}" "${RCLONE_NET_OPTS_ARRAY[@]}" \
+                        "${SAVE_EXCLUDES[@]}" "${SYSTEM_SAVE_EXCLUDES[@]}" "${CONFLICT_EXCLUDES[@]}" "${METADATA_EXCLUDES[@]}" \
+                        --max-delete "${files}" \
+                        --progress --stats 1s \

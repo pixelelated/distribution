@@ -1,0 +1,13 @@
+12
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:1271:        TMP=$(mktemp -d /tmp/cloud-scan.XXXXXX); trap 'rm -rf "${TMP}"' EXIT
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_transfer:110:        [ -z "${dir}" ] || rm -rf -- "${dir}"
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool:224:    rm -rf "${STAGING_PREFIX}"* 2>/dev/null
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool:227:trap '[ -n "${STAGING:-}" ] && rm -rf "${STAGING}"' EXIT
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool:1183:        rm -rf "${STAGING}"
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool:1274:        rm -rf "${STAGING}"
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool:1290:        rm -rf "${STAGING}"
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool:1303:            rm -rf "${STAGING}"
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool:1308:            rm -rf "${STAGING}"
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool:1327:        rm -rf "${STAGING}"
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool:1337:        rm -rf "${STAGING}"
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool:1341:    rm -rf "${STAGING}"

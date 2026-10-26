@@ -1,0 +1,17 @@
+553:    config_file=$(timeout 3 rclone config file 2>/dev/null | tail -1)
+651:            remote_type=$(rclone config show "${remote_name}" 2>/dev/null | sed -n 's/^[[:space:]]*type[[:space:]]*=
+775:        pkill -f "rclone config" 2>/dev/null
+938:echo -e "  2. Run:                        \e[1;36mrclone config\e[0m"
+958:    echo "Run this again once you have completed 'rclone config'."
+972:    echo "run 'rclone config reconnect ${REMOTE}' to repair it."
+--- cloud_remote
+42:import json
+43:import os
+44:import subprocess
+45:import sys
+46:import cloud_connections as connections
+83:def rclone(*args, check=True):
+102:    code, out, err = rclone("config", "providers")
+264:    connections.save(name, backend_type, settings, replace=replace)
+310:        print(connections.selection_reason())
+321:        (connections.select if command == "select" else connections.remove)(argv[2])

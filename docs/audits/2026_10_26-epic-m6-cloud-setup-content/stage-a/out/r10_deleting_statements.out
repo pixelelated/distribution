@@ -1,0 +1,3 @@
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:750:        out=$(bounded_content_rclone sync "${src}" "${local_dir}" "${RCLONE_NET_OPTS_ARRAY[@]}" \
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:1015:                    rclone delete "${DEST}/${sys}" \
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:1046:                    bounded_content_rclone sync "$(remote_for "${sys}")" "${DEST}/${sys}" "${RCLONE_NET_OPTS_ARRAY[@]}" \

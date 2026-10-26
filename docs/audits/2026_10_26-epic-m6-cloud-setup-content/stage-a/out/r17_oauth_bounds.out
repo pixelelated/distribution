@@ -1,0 +1,20 @@
+72:STATE_DIR = "/var/run/cloud_oauth"
+73:RCLONE = "/usr/bin/rclone"
+74:LOCAL_AUTH = "http://127.0.0.1:53682"
+77:LOG_FILE = "/var/log/cloud_sync.log"
+80:def log(message):
+90:def state_path(name):
+179:        fd = os.open(state_path("session.lock"), os.O_RDWR | os.O_CREAT, 0o600)
+187:def _write_whole(data):
+196:def write_state(**fields):
+203:def write_owned(attempt, owner=None, from_status=None, **fields):
+260:def read_state():
+268:def lan_address():
+2062:        self.pin = "%04d" % secrets.randbelow(10000)
+2206:        return secrets.compare_digest(str(pin), self.pin)
+2215:MAX_BODY = 64 * 1024
+2216:REQUEST_TIMEOUT = 15
+2217:MAX_CONNECTIONS = 16
+2220:class BoundedHTTPServer(http.server.ThreadingHTTPServer):
+2510:def cmd_serve(backend, remote_name, label, port, timeout, replace=False):
+2542:def serve_with(holder, backend, port, timeout):

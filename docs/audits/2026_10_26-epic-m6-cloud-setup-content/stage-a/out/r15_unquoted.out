@@ -1,0 +1,5 @@
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup:40:    echo "[$(date "+%Y-%m-%d %H:%M:%S")] [INFO] [${SCRIPT_NAME}] ${1}" >> ${LOG_FILE}
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:77:    echo "[$(date "+%Y-%m-%d %H:%M:%S")] [INFO] [${SCRIPT_NAME}] ${1}" >> ${LOG_FILE}
+projects/ROCKNIX/packages/network/rclone/sources/cloud_scan:54:    [ -f ${SYNC_CONF} ] || return 0
+projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:53:    echo "[${timestamp}] [INFO] [${SCRIPT_NAME}] ${message}" >> ${LOG_FILE}
+projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:137:    [ -f ${SYNC_CONF} ] || return 0

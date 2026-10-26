@@ -1,0 +1,18 @@
+    /storage/.config/ppsspp/PSP/SYSTEM/ppsspp_retroachievements.dat  # cheevos_ppsspp.sh
+    /storage/.config/dolphin-emu/RetroAchievements.ini               # cheevos_dolphin.sh
+    /storage/.config/ARMSX2/inis/secrets.ini                         # cheevos_armsx2.sh
+)
+)
+DEVICEONLYDIRS=(
+    /storage/.config/rclone/
+    /storage/.config/raofflineproxy/
+)
+DEVICEONLYDIR_PATTERNS=()
+for D in "${DEVICEONLYDIRS[@]}"; do DEVICEONLYDIR_PATTERNS+=("${D#/}*"); done
+DEVICEONLY=(
+    /storage/.config/rclone/rclone.conf
+    /storage/.config/rclone/active-connection
+    /storage/.config/cloud_sync-device-id
+    /storage/.config/cloud_sync-device-id.previous
+)
+SEEDLIST="/storage/.config/.backuptool-seeds"

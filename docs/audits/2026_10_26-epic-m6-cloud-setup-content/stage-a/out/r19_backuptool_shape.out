@@ -1,0 +1,43 @@
+93:stamp_at() {
+122:device_label() {
+159:newest_backup() {
+172:ARCHIVE_KEEP=3
+189:fail() {
+196:note() {
+203:# shared the stamp, the .partial name and the startup sweep of .partials: one
+209:take_lock() {
+217:# .partial at the root, a pre-restore copy's .partial in archive/ (which
+222:sweep_leftovers() {
+223:    rm -f "${SETTINGS_BACKUPS}"/*.tar.gz.partial "${ARCHIVEFOLDER}"/*.tar.gz.partial 2>/dev/null
+237:tmp_file() {
+255:to_log() {
+269:why() {
+367:keep_meta() {
+377:glob_literal() {
+431:credential_lines() {
+480:zip_stored_ok() { # <zip>: 0 when every stored member's bytes match its listed CRC
+515:archive_ok() {
+534:archive_members() {
+551:foreign_member() { # <members file>
+564:listed_files() {
+599:snapshot_members() { # <members file> <target> <newlist file>
+649:    if ! tar -czf "${TARGET}.partial" -C / -T "${KEEP}" 2>/dev/null
+651:        rm -f "${KEEP}" "${TARGET}.partial"
+654:    if ! { LISTED=$(listed_files "${TARGET}.partial") && NKEEP_FILE=$(wc -l 2>/dev/null < "${KEEP}") \
+655:           && [ "${LISTED}" -eq "${NKEEP_FILE}" ] 2>/dev/null && mv -f "${TARGET}.partial" "${TARGET}"; }
+657:        rm -f "${KEEP}" "${TARGET}.partial"
+666:revert_restore() {
+784:# Staged, then archived once, to TARGET.partial; listed back (tar -tzf) as
+787:# previous archive -- and at most a .partial beside it that nothing reads
+805:write_archive() {
+1314:    # anything reading the archive sees the same shape. To .partial first;
+1325:           && to_log tar -czf "${TARGET}.partial" -C "${STAGING}" -T "${MEMBERLIST}"; }
+1328:        rm -f "${TARGET}.partial"
+1334:    if ! { LISTED=$(listed_files "${TARGET}.partial") && [ "${LISTED}" -eq "${STAGED}" ] 2>/dev/null; }
+1338:        rm -f "${TARGET}.partial"
+1342:    if ! mv -f "${TARGET}.partial" "${TARGET}"
+1344:        rm -f "${TARGET}.partial"
+1372:trim_archive() {
+1784:        # A .partial left by a run that was killed mid-write is not a backup
+1858:            5) why "A SIGN-IN WAS FOUND IN THE BACKUP"
+1859:               fail "A SIGN-IN WAS FOUND IN THE BACKUP, SO IT WASN'T KEPT. YOUR LAST BACKUP IS UNCHANGED." "a staged file holds a line shaped like a credential (the log names it); nothing written" ;;

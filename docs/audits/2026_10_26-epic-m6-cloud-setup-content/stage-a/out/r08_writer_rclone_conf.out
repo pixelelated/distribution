@@ -1,0 +1,14 @@
+projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c:657: * and lives in /var/run with whatever mode the umask gives it (#308 claude
+projects/ROCKNIX/packages/network/rclone/sources/cloud_connections.py:20:CONFIG = Path('/storage/.config/rclone/rclone.conf')
+projects/ROCKNIX/packages/network/rclone/sources/cloud_connections.py:74:    fd, name = tempfile.mkstemp(prefix='.' + path.name + '-', dir=path.parent)
+projects/ROCKNIX/packages/network/rclone/sources/cloud_connections.py:80:        os.replace(name, path)
+projects/ROCKNIX/packages/network/rclone/sources/cloud_connections.py:158:            staged = Path(directory) / 'rclone.conf'
+projects/ROCKNIX/packages/network/rclone/sources/cloud_connections.py:160:            staged.chmod(0o600)
+projects/ROCKNIX/packages/network/rclone/sources/cloud_connections.py:239:            staged = Path(directory) / 'rclone.conf'
+projects/ROCKNIX/packages/network/rclone/sources/cloud_connections.py:241:            staged.chmod(0o600)
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_backup:106:if [ ! -e "/storage/.config/rclone/rclone.conf" ]; then
+projects/ROCKNIX/packages/network/rclone/sources/cloud_content_restore:143:if [ ! -e "/storage/.config/rclone/rclone.conf" ]; then
+projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth:193:    os.replace(tmp, path)
+projects/ROCKNIX/packages/network/rclone/sources/cloud_scan:176:                /storage/.config/rclone/rclone.conf \
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool:747:    /storage/.config/rclone/rclone.conf
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool:810:    local RCLONECFG="/storage/.config/rclone/rclone.conf"

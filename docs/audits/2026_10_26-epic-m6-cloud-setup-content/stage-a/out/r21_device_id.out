@@ -1,0 +1,9 @@
+ID_FILE="/storage/.config/cloud_sync-device-id"
+PREVIOUS_FILE="${ID_FILE}.previous"
+    printf '%s|%s' "${1}" "${DEVICE:-unknown}" | md5sum | cut -c1-10
+        prefix=$(tr -cd 'a-f0-9' < /etc/machine-id 2>/dev/null | cut -c1-10)
+    echo "$(device_label)-${prefix}"
+    mkdir -p "$(dirname "${ID_FILE}")" 2>/dev/null
+    { printf '%s\n' "$1" > "${ID_FILE}.tmp.$$"; } 2>/dev/null \
+        && mv -f "${ID_FILE}.tmp.$$" "${ID_FILE}" 2>/dev/null \
+        || { rm -f "${ID_FILE}.tmp.$$" 2>/dev/null; return 1; }

@@ -1,0 +1,11 @@
+22:MAX_BYTES = 2 * 1024 * 1024
+23:MAX_ENTRIES = 4096
+24:TOTAL_SECONDS = 25
+39:class Unreadable(Exception):
+43:def command(args, deadline, seconds=6, limit=MAX_BYTES):
+49:    proc = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+93:                       '--contimeout', '3s', '--timeout', '5s', '--max-duration', '6s'], deadline)
+101:    if not isinstance(entries, list) or len(entries) > MAX_ENTRIES:
+133:        if len(combined) > MAX_ENTRIES:
+212:    deadline = time.monotonic() + TOTAL_SECONDS
+214:              'scope': {'max_depth': 3, 'save_subtree_depths': SAVE_SUBTREES, 'max_entries_per_listing': MAX_ENTRIES, 'max_bytes_per_listing': MAX_BYTES, 'max_seconds': TOTAL_SECONDS}}

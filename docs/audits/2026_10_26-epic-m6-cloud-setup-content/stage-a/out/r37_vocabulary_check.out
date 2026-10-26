@@ -1,0 +1,9 @@
+6:  ./tools/vocabulary-check [--es <emulationstation checkout>] [--scripts <dir>] [--show]
+20:(default: the qa-integration worktree, or $ES_SRC), and every sentence the
+22:echo -- plus the whole of backuptool's notes. Comments are skipped. It exits
+37:DEFAULT_ES = os.environ.get("ES_SRC") or os.path.expanduser("~/Development/emulationstation-next.worktrees/qa-integration")
+39:BACKUPTOOL = os.path.join(ROOT, "projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool")
+104:    ap.add_argument("--es", default=DEFAULT_ES)
+109:        print(f"vocabulary-check: no EmulationStation checkout at {a.es} (set ES_SRC or --es)", file=sys.stderr)
+111:    paths = [os.path.join(a.scripts, n) for n in ("cloud_backup", "cloud_restore", "cloud_content_backup", "cloud_content_restore", "cloud_setup", "cloud_saves_root", "cloud_net_ready")] + [BACKUPTOOL]
+CANNOT: no EmulationStation checkout named (ES_SRC); the four scripts it reads are read by hand against es-player-text.md

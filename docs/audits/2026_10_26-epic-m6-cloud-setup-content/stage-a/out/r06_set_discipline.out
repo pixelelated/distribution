@@ -1,0 +1,6 @@
+projects/ROCKNIX/packages/network/rclone/sources/cloud_log_scrub:63:set -o pipefail
+projects/ROCKNIX/packages/network/rclone/sources/cloud_setup:556:    config_id=$( set -o pipefail; { printf '%s\0' "${REMOTE}" "${SAVES}" "${BACKUPS}" "${CONTENT}";
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool:492:    if ! ( set -o pipefail
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool:504:        if ! GOT=$( set -o pipefail; unzip -p "${1}" "$(glob_literal "${NAME}")" 2>/dev/null | crc32 2>/dev/null ) \
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool:537:        *)        ( set -o pipefail
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool:1177:        ( set -o pipefail
