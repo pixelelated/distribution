@@ -139,6 +139,8 @@ today:** `.githooks/pre-commit` refuses a conflict marker (#696).
 
 **07:3x-07:39 UTC (2026-10-26):** T17 at its stage-D pause (`3a7fdb0ec2`; four seat calls PASS; 22 items) **ruled**: six bugs (PL-01+14, PL-02 Medium, PL-03 Medium, PL-04+08, PL-06's `--set-systems`, PL-05's sentence), six streams under `docs/reviews/briefs/t17-streams.md` at `f59f7cbbc1`; **D-CLOUD-185** (the rclone option allowlist, every reader; the seam posted on #663 for T16's twins); #664's checkbox 3 reworded (direct provenance read). The lane files the bugs and the audit issue, runs S1 to S6, hands back. At acceptance: `AUDIT_ISSUE=<n> BUGS="<six>" DISPATCH_TIP=f3803436b8 $S/t17-accept.sh <merged tip> <co tip>`; the errata in `$S/t17-errata.md` (add: the checkbox-3 reader, the window sequencing); PL-21's line to #909 and PL-05's pair to #665 (posted now). The window: M7's guest RETURN first.
 
+**07:4x UTC (2026-10-26):** **T16's idle guest stopped** at 07:40 by the M7 lane with the owner's explicit approval (*"you have my approval to stop the abandoned VM if it isn't doing anything"*; *"if it is doing useful work, let me know and we can revive it"*), verified here at 07:41 (qemu 0, pid gone, 10022 closed). **Retained for revival:** `/workspace/tmp/m6-t16/vm-pair/vm-a.qcow2` (sha256 `27d1a5e5dac3…`), the OVMF vars, `rec/` -- D-INFRA-022 reason on #663 (test: T16's re-granted window; release: T16's close-out). **#1118 closed.** M7 is preparing its qualification guest under the 04:47 handoff; **no fresh M6 guest until M7's guest RETURN on the host file**; then T17's window, then T16's re-grant when the T1 session can run. Open for the owner on #346: the T1/T3 sessions' account before Oct 30 09:00 UTC.
+
 ## Next commands
 
 ```bash
