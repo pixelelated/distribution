@@ -25,6 +25,7 @@
 - **Already written:** nothing persisted. The helper reads `led.color` and writes only sysfs, never `set_setting`, so a Nova that booted with it unset has nothing of the helper's on `/storage` to migrate.
 - **Acceptance:** the bug's fixture case (`unset` unlit, `rgb` unlit, `battery` lit) passes on the fixed file and fails on the unfixed one
 - **Bug issue:** #1120
+- **Fix commit:** `39851da3e8` (S1; the positive before in `stage-e/s1-before.txt`; `02` § The streams)
 - **Disposition note:** open
 
 ## PL-02: after a critical-battery blink, the Nova's LEDs stay off when the charge returns to the earlier bucket
@@ -45,7 +46,8 @@
 - **Already written:** nothing persisted (sysfs only)
 - **Acceptance:** the coordinator's disposition: the same `bug` as PL-01 with the `critical-recovery` case, or a bug of its own
 - **Bug issue:** #1120 (its own section and criterion)
-- **Disposition note:** open
+- **Fix commit:** `39851da3e8` (S1, with PL-01; `02` § The streams)
+- **Disposition note:** stays in #1120 as its own section and criterion: one file, one fixture, one stream ([#676 ruling](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761), 05:29:36 UTC). Fixed by S1 with PL-01.
 
 ## PL-03: the VM's take-back removes a listed file by name before its stamp exists (a candidate)
 
@@ -62,7 +64,9 @@
 - **Can this be done on the VM?** Yes, on the host: a fixture of the script over a scratch root covering unstamped user content, both known hashes, stamped unknown content, a dangling link and a missing stamp (the seat's G-12)
 - **Already written:** a guest that booted this build once holds its `STAMP`, and its first-pass removals are done. Nothing to migrate.
 - **Acceptance:** the coordinator's disposition: a `bug` with that fixture (unfixed removes edited content, fixed keeps it), or recorded
-- **Disposition note:** open
+- **Bug issue:** #1124
+- **Fix commit:** `04a9fe98b9` (S2; the positive before in `stage-e/s2-before.txt`; `02` § The streams)
+- **Disposition note:** a `bug`, not a record ([#676 ruling](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761), 05:29:36 UTC): #1124, filed by the lane, Low; fixed by S2. #1125 is the rehearsal fixture S2 found seeding bytes no old quirk wrote.
 
 ## PL-04: upstream's copies of the two battery defects
 
@@ -79,7 +83,13 @@
 - **Can this be done on the VM?** Yes, on the host: the fixture with `--redirect-paths` (met on RP6's copy)
 - **Already written:** nothing proposed
 - **Acceptance:** per-unit dispositions (D-WORKFLOW-209), with a #585 line naming the Odin 2 helper as the fix
-- **Disposition note:** open
+- **Disposition note:** per-unit dispositions (D-WORKFLOW-209; removals none) ([#676 ruling](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761), 05:29:36 UTC). The #585 line, for the coordinator to post at acceptance:
+
+  > **ROCKNIX quirks, `bin/battery_led_status` (#676 PL-04).** Two defects in upstream's battery LED helpers, both fixed in the fork's Nova copy (#1120).
+  > - **The unquoted test:** `[ ! ${BAT_LED_STATE} == "battery" ]` runs battery mode when `led.color` is unset. It is in 12 device copies, reaching 15 model names: ACE (DMG by symlink), DS, EVO, S 2K (S Mini), S2 (KONKR Pocket FIT), Odin 2 Portal, Odin 3, Thor, MANGMI Pocket Max, RP6 (TOP-DPAD). It is also in `platforms/SM6115` and `SM8250`.
+  > - **The stale cache:** a critical blink ends off without resetting the cached bucket, so a return to the earlier bucket stays dark. It is in ACE, EVO, Odin 2 Portal and Thor.
+  > - **The model is upstream's own** `AYN Odin 2/bin/battery_led_status:62-63`: the quoted test, and `PREV_CAP="critical"` before the blink.
+  > - **Proof:** `t29-battery-unset.py --redirect-paths --expect unfixed|fixed`, a host fixture. **Target:** ROCKNIX/distribution. **Status:** prepared, not submitted (D-WORKFLOW-165).
 
 ## PL-05: nine boards' `050-game-configs` revert a player's RetroArch audio driver and microphone at every boot
 
@@ -96,7 +106,12 @@
 - **Can this be done on the VM?** Yes, on the host: the two `sed` lines over a fixture `retroarch.cfg`
 - **Already written:** players' earlier choices were reverted at each boot; nothing can restore them
 - **Acceptance:** per-unit dispositions and a #585 line: defaults at creation, not at every boot
-- **Disposition note:** open
+- **Disposition note:** per-unit dispositions ([#676 ruling](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761), 05:29:36 UTC). The #585 line, for the coordinator to post at acceptance:
+
+  > **ROCKNIX quirks, `050-game-configs` (#676 PL-05).** Nine boards' quirk runs `sed -i` over `retroarch.cfg`'s `audio_driver` and `microphone_enable` at every boot, reverting a player's choice: Pocket S2, Pocket S 2K (and S Mini), Odin 2, Odin 2 Portal, Odin 3, Thor, Thor Lite, Retroid Pocket 5, Retroid Pocket Mini.
+  > - The fix is a default applied when the file is created, not a rewrite at every boot. `AYN Odin 2/009-commander-cfg`'s *"only if absent"* is the ownership contrast, not a drop-in: a guard on existence would skip every existing file.
+  > - A value already reverted cannot be given back.
+  > - **Target:** ROCKNIX/distribution. **Status:** prepared, not submitted (D-WORKFLOW-165).
 
 ## PL-06: the stick helpers on four tier-B boards keep #332's unset-preset shape; achievements' restore
 
@@ -113,7 +128,19 @@
 - **Can this be done on the VM?** Yes, on the host, by the fixture's shape; what the LEDs show is device fact line 31
 - **Already written:** `led.color=rgb` saved over a failed application
 - **Acceptance:** per-unit dispositions and a #585 line, #332 named
-- **Disposition note:** open
+- **Disposition note:** per-unit dispositions ([#676 ruling](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761), 05:29:36 UTC). The #585 line, and the #332 comment, for the coordinator to post at acceptance.
+
+  #585:
+
+  > **ROCKNIX quirks, the stick LED `rgb` default (#676 PL-06).** `AYANEO Pocket EVO/bin/ledcontrol:100-101` and the shared `AYN Odin 2 Portal/bin/ledcontrol:26-27` (Odin 2 Portal, Thor, RP6, RP6 TOP-DPAD) pass an unset `analogsticks.led` to `analog_sticks_ledcontrol`.
+  > - The helper rejects the call and writes nothing, and `ledcontrol` saves `led.color=rgb` anyway.
+  > - The model is the fork's Nova copy (`Retroid Pocket Nova/bin/ledcontrol:53-57`), which applies a white default at the saved brightness.
+  > - **Target:** ROCKNIX/distribution. **Status:** prepared, not submitted (D-WORKFLOW-165).
+
+  #332:
+
+  > T29 (#676 F-04, PL-06) read the stick LED helpers on four tier-B boards against D-UI-121. On EVO, Odin 2 Portal, Thor and RP6, choosing RGB with no saved preset writes nothing and still saves `led.color=rgb`. So the sticks keep whatever they showed: not *"turned off"*, but not the colour the row says. The Nova's copy applies a default, and that fix is the fork's.
+  > `bin/achievements` (Odin 2, DMG, EVO, CubeXX, RG40XX H and V) runs only with `global.retroachievements.leds` on. It restores a valid saved preset; with none set, the rainbow's last colour stays. On the H700 and ACE-derived boards `led.color` is the power LED, not the sticks. What the LEDs show on a unit stays device fact line 31.
 
 ## PL-07: `led.brightness` means words on the Nova and a percentage on the Thor
 
@@ -130,7 +157,12 @@
 - **Can this be done on the VM?** Yes for the scripts, on the host; which value the interface writes is the interface's (#332)
 - **Already written:** nothing proposed
 - **Acceptance:** recorded on #332 (D-UI-121) with G-14 and G-22
-- **Disposition note:** open
+- **Disposition note:** the #332 comment, for the coordinator to post at acceptance ([#676 ruling](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761), 05:29:36 UTC):
+
+  > T29 (#676 F-05, PL-07), two more for D-UI-121's *"the brightness row does nothing on that device"*:
+  > - **The Nova:** once `analogsticks.led` holds a preset, `ledcontrol rgb` uses the preset's first field and never reads `led.brightness` (`Retroid Pocket Nova/bin/ledcontrol:53-58`). A `brightness min` is therefore undone by the next `rgb`, such as `powerstate.sh:16`'s at boot. The two settings can disagree.
+  > - **The Thor** reads `led.brightness` as a percentage, and the Nova as `max|mid|min`. Thor's `led_bri` runs only when a colour is painted (`AYN Thor/bin/battery_led_status:16-22,48-56`), so a brightness change waits for the next battery-bucket change.
+  > Which value the interface writes on each board is the interface's, outside the distribution tree.
 
 ## PL-08: device writes without a test for the node
 
@@ -144,7 +176,7 @@
 - **Can this be done on the VM?** Yes, on the host: the redirect over a scratch root
 - **Already written:** nothing proposed
 - **Acceptance:** recorded; a #585 line if the coordinator wants one
-- **Disposition note:** open
+- **Disposition note:** recorded as it stands ([#676 ruling](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761), 05:29:36 UTC).
 
 ## PL-09: naming a reader meets
 
@@ -158,7 +190,7 @@
 - **Can this be done on the VM?** No: a read; the host shows it
 - **Already written:** nothing proposed
 - **Acceptance:** recorded in `02` F-07
-- **Disposition note:** open
+- **Disposition note:** recorded as it stands ([#676 ruling](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761), 05:29:36 UTC).
 
 ## PL-10: 18 upstream commits pending over 31 paths; panel calibration for the Thor and the RP6
 
@@ -172,7 +204,7 @@
 - **Can this be done on the VM?** No: a history read; the calibration is a device fact
 - **Already written:** nothing proposed
 - **Acceptance:** *settled by the next base merge*; not a correctness proof of the calibration
-- **Disposition note:** open
+- **Disposition note:** recorded as it stands; *settled by the next base merge*, the merge's ([#676 ruling](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761), 05:29:36 UTC).
 
 ## PL-11: two derivations of `QUIRK_DEVICE`, and an empty `model` that falls to nothing
 
@@ -185,8 +217,8 @@
 - **Evidence:** P13, P15
 - **Can this be done on the VM?** Yes, on the host: both derivations over a fixture `model`
 - **Already written:** nothing proposed
-- **Acceptance:** a lead recorded for the derivations' owners
-- **Disposition note:** open
+- **Acceptance:** a lead recorded for the derivations' owners, #1122
+- **Disposition note:** recorded; the lead is **#1122**, filed under #695 by the coordinator in the lane's words ([#676 ruling](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761), 05:29:36 UTC).
 
 ## PL-12: the owned H700 units select no device entry
 
@@ -195,12 +227,12 @@
 - **Question:** Q7
 - **Source Finding:** F-02
 - **Owner area:** `platforms/H700/*` (T22's)
-- **What:** the RG35XX SP and the RG-SP run only `platforms/H700/*`. No missing need was identified in a device entry. `030-analog_leds:7`'s unquoted test is the coordinator's lead under #695.
+- **What:** the RG35XX SP and the RG-SP run only `platforms/H700/*`. No missing need was identified in a device entry. `030-analog_leds:7`'s unquoted test is the coordinator's lead, #1119.
 - **Evidence:** P5, P9, P15
 - **Can this be done on the VM?** No: a selection read; the host shows it
 - **Already written:** nothing proposed
-- **Acceptance:** recorded in `02` § The selection; the lead is #695's
-- **Disposition note:** open
+- **Acceptance:** recorded in `02` § The selection; the lead is #1119
+- **Disposition note:** recorded; the `030-analog_leds:7` lead is **#1119**, filed under #695 by the coordinator ([#676 ruling](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761), 05:29:36 UTC).
 
 ## PL-13: the wrappers forward `$*` unquoted where `"$@"` would keep the arguments
 
@@ -213,8 +245,8 @@
 - **Evidence:** P15, P16
 - **Can this be done on the VM?** Yes, on the host: the wrapper over a stub helper
 - **Already written:** nothing proposed
-- **Acceptance:** a lead recorded for the wrapper's owner
-- **Disposition note:** open
+- **Acceptance:** a lead recorded for the wrapper's owner, #1123
+- **Disposition note:** recorded; the lead is **#1123**, filed under #695 by the coordinator in the lane's words ([#676 ruling](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761), 05:29:36 UTC).
 
 ## PL-14: the design, and the 263 paths carried by placement
 
@@ -228,7 +260,7 @@
 - **Can this be done on the VM?** No: a design read
 - **Already written:** nothing proposed
 - **Acceptance:** recorded in `04` Q1 and Q6
-- **Disposition note:** open
+- **Disposition note:** recorded as it stands ([#676 ruling](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761), 05:29:36 UTC).
 
 ## Machine-readable index
 

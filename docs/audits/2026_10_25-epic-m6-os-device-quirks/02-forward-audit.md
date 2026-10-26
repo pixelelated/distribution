@@ -329,7 +329,7 @@ One row per top-level entry, generated (`tools/t29-tables.py entries`). It asser
 - **What the H700 entries add.** The three entries the H700 image does select (RG40XX H, RG40XX V, CubeXX) add only stick-LED behaviour: `010-analog_sticks_led_control`, `bin/achievements`, and the RG40XX V's own serial `bin/analog_sticks_ledcontrol`.
 - **The trees agree.** Those three trees declare RGB and UART nodes (b06: 3 matches each); the two SP trees declare none (0).
 - **So the absence is upstream's design, not a gap.** No unit was asked.
-- **Lead, filed by the coordinator under #695 (outside the membership; T22 is closed out):** `platforms/H700/030-analog_leds:7` tests `[ $DEVICE_ANALOG_STICKS_LED_CONTROL == "true" ]` unquoted. With the flag unset, as on both SP units, bash prints `[: ==: unary operator expected` and returns 2 (b05). The block is skipped, as intended, but with an error on every boot.
+- **Lead, filed by the coordinator as #1119 under #695 (outside the membership; T22 is closed out):** `platforms/H700/030-analog_leds:7` tests `[ $DEVICE_ANALOG_STICKS_LED_CONTROL == "true" ]` unquoted. With the flag unset, as on both SP units, bash prints `[: ==: unary operator expected` and returns 2 (b05). The block is skipped, as intended, but with an error on every boot.
 
 ### F-03 (Q2; Low; Renovation): every-boot rewrites as root, two of them over a player's own settings
 
@@ -424,6 +424,23 @@ One row per top-level entry, generated (`tools/t29-tables.py entries`). It asser
 - **The reach.** The paths are VM-specific (`tmpfiles.d/10-generic-x64-journald.conf`, ...), the VM is a developer's tool (D-QA-053), and the window is one boot.
 - **Disposition:** the coordinator's. A hardening the seat sketches, a hash-bound first pass that preserves unknown content and a positive completion check, with a host fixture; or recorded.
 - **Already written:** a guest that has booted this build once has its `STAMP`, and the first-pass removals are already done. Nothing to migrate.
+
+## § The streams
+
+Stage E, under `docs/reviews/briefs/t29-streams.md` at `7130f9b74b` (the coordinator's ruling on #676, [issuecomment-6408955761](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761), 05:29:36 UTC). Two serial streams, each test first, one commit each, the fork-own file only.
+
+| Stream | Bug | The positive before | The commit | The positive after | `Already written:` | Proof |
+| --- | --- | --- | --- | --- | --- | --- |
+| S1 (P17) | #1120 (PL-01, PL-02) | `stage-e/s1-before.txt`: `--expect fixed` exits 1, `UNEXPECTED on fixed: unset, critical-recovery`; `--expect unfixed` exits 0 | `39851da3e8`: `:73` quoted, and `PREV_BATCAP="critical"` before the blink, both as `AYN Odin 2/bin/battery_led_status:62-63` | `stage-e/s1-after.txt`: `--expect fixed` exits 0 (`unset lit=no, rgb lit=no, battery lit=yes, critical-recovery lit=yes`); `--expect unfixed` exits 1; `bash -n` 0; `tools/nova-led-test` 14 PASS, 0 FAIL | nothing persisted: the helper writes only sysfs and never calls `set_setting` | proved: fixture |
+| S2 (P18) | #1124 (PL-03) | `stage-e/s2-before.txt`: `--expect fixed` exits 1, `UNEXPECTED on fixed: a edited, d dangling, f live-link`; `--expect unfixed` exits 0 | `04a9fe98b9`: the first pass removes only a regular, non-link file at one of `WRITTEN`'s hashes, or a dangling link; the header comment says so | `stage-e/s2-after.txt`: `--expect fixed` exits 0 (a kept, b1 and b2 removed, c kept, d removed and stamped, e stamped, f kept); `--expect unfixed` exits 1; `busybox sh -n` 0. `stage-e/s2-suite.txt`: `tools/last-good-scripts-test` exit 0, 1378 PASS, 0 FAIL, F1b and F1r-b included | a guest that booted a build with this script once holds its `STAMP`, and its first-pass removals are done; nothing to migrate | proved: fixture |
+
+- **The shells.**
+  - S1 ran under the host's bash 5.3.9 (`/usr/bin/bash`; the tree pins bash 5.3). M6's donor holds busybox and rclone only, and no M7 root is read; the image's own bash was not run.
+  - S2 ran under the donor's busybox `sh`, BusyBox v1.36.1, sha256 `79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346` (the donor's `SHA256SUMS`), with `PATH` limited to its applets. That is the image's shell for `#!/bin/sh`.
+- **The known contents** in S2's fixture are rebuilt from the retired `099-mount-configuration-fixes` at `73b20caf86` and `8bb74015e6`, and are checked against `WRITTEN`'s hashes before any case runs. They are the old quirks' real bytes, not a substituted hash.
+- **Case f** (a live link at a listed name, to the owner's own file) is the lane's, beyond the brief's five. The unfixed first pass removed the link; the fix keeps it.
+- **What S2 changes besides.** While an edited or linked file remains at a listed name, the final loop does not stamp, so each boot runs the first pass again and keeps the file. That is the cost of keeping unknown content (the seat's G-12), and the brief leaves the final loop as it is.
+- **Found while landing S2: #1125.** `tools/vm-upgrade-rehearsal:112` seeds four retired paths with its own line, not an old quirk's bytes, and `:156` expects them taken back. Against this fix that check reads `4`, not `0`. The rehearsal is outside the stream's two files, so it is filed, not changed.
 
 ## Proofs
 

@@ -81,7 +81,7 @@
 | --- | --- | --- | --- | --- |
 | G-1 | confirmed | *"executes direct, non-hidden entries satisfying `-f`, in shell glob order"* | r05 to r08 | accepted; `02` § The selection unchanged |
 | G-2 | refuted | *"the shown caller does not justify retaining `$*`"* | c01: 22 callers, one quoted | accepted; `03` § 3.5 and `04` Q2 corrected; PL-13 |
-| G-3 | narrowed | *"no omitted general-purpose quirk is identified ... not the unrestricted assertion"* | b05, b06 | accepted; F-02 says "identified", the lead is #695's |
+| G-3 | narrowed | *"no omitted general-purpose quirk is identified ... not the unrestricted assertion"* | b05, b06 | accepted; F-02 says "identified", the lead is #1119 (under #695) |
 | G-4 | confirmed | *"28 lines minus the repeated ... gives 26"* | r21, r22 | accepted |
 | G-5 | confirmed | *"a valid software result, not proof of physical illumination"* | c03 | accepted; F-01 says "driven", device fact line 31 |
 | G-6 | narrowed | *"`WantedBy=` is installation metadata, not evidence that the unit has actually been enabled"* | c02: `enable_service` 0; `030-led-control:7`, `098-deviceutils:31-34` | accepted; F-01's start rewritten to the real chain |

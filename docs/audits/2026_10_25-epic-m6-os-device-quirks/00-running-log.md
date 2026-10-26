@@ -121,3 +121,31 @@
   - `box-check --issue 1120`: 3 open checkboxes, 0 fail.
 - **#1121** (`audit`, `punch-list`, M6), 14 items, attached as a sub-issue of #676. `box-check --issue 1121`: the first run failed PL-07, which named devices with no physical fact; the item was reworded by file, then 14 open, 0 fail.
 - **Paused** on #676 for the coordinator's dispositions (PL-02 to PL-14).
+
+## [Stage E] 2026-10-26 05:29 to 05:45 UTC — S1 (#1120) and S2 (#1124), test first
+
+- **The ruling** (#676, [issuecomment-6408955761](https://github.com/pixelelated/distribution/issues/676#issuecomment-6408955761), 05:29:36 UTC):
+  - PL-02 stays in #1120;
+  - PL-03 is a `bug` the lane files;
+  - PL-04 to PL-07 are per-unit dispositions, with the #585 and #332 texts written in `05` for the coordinator to post;
+  - PL-08 to PL-14 are recorded, with #1119, #1122 and #1123 cited.
+  - The brief is `docs/reviews/briefs/t29-streams.md` at `7130f9b74b`, read with `git show` from the coordinator's worktree.
+- **The shells.**
+  - The brief names the donor's bash, but `/workspace/artifacts/m6-donor/1a0266484423/` holds only busybox, its applet links and rclone (`RECORD.txt`). The one other image bash on the host is under an M7 extract and was not used.
+  - S1 ran under the host's bash 5.3.9 (the tree pins 5.3). S2 ran under the donor's busybox `sh` (sha256 `79e7b20d...`, `SHA256SUMS` line 1), the image's shell for `#!/bin/sh`.
+- **S1** (05:31 UTC):
+  - `t29-battery-unset.py` gained `--bash`, and names the bash in its output.
+  - Before: `--expect fixed` rc 1.
+  - The fix: two places, as the Odin 2.
+  - After: `--expect fixed` rc 0, `--expect unfixed` rc 1, `bash -n` 0, `tools/nova-led-test` 14 PASS.
+  - Committed at `39851da3e8`.
+- **S2** (05:32 to 05:43 UTC):
+  - **#1124 filed** (`bug`, M6), `box-check` 0 fail.
+  - **`tools/t29-takeback.py`** has seven cases: the brief's five, b split in two, and f, a live link. It rebuilds the two known contents from the retired `099` and checks them against `WRITTEN`. The fixture's first draft of f pointed its link outside the directory and so tested a dangling link twice. It was corrected before the before-run was recorded.
+  - Before: `--expect fixed` rc 1. After: `--expect fixed` rc 0, `--expect unfixed` rc 1, `busybox sh -n` 0.
+  - **Before committing, the stamp's other readers were grepped:**
+    - `tools/last-good-scripts-test`'s F1b and F1r-b seed the old quirks' real output. Run whole over the fixed tree under the donor: exit 0, 1378 PASS, 0 FAIL (05:34:23 to 05:42:59 UTC).
+    - `tools/vm-upgrade-rehearsal:112` seeds its own text, so its `:156` check fails against the fix: **#1125**, filed, outside the brief's files.
+  - Committed at `04a9fe98b9`.
+- PROOF: P17, S1's positive before and after: `stage-e/s1-before.txt`, `stage-e/s1-after.txt`.
+- PROOF: P18, S2's positive before and after, and the suite: `stage-e/s2-before.txt`, `stage-e/s2-after.txt`, `stage-e/s2-suite.txt`.
