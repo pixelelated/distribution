@@ -614,3 +614,32 @@ the `7z` positive on the guest; the key on argv as a masked count. Owed
 before dispatch: the stranger's proof of version 1, version 2 with its
 corrections, this futro's errata section, the kit. Owed at T20's dispatch:
 the note that `Settings.cpp:420` is WIN32-only.
+
+### Errata from the stranger's proof of T21's brief (version 2, 2026-10-26)
+
+The T21 addendum above was written with version 1; the proof corrected
+these of its sentences, and version 2 carries the corrections:
+
+- *"a failed `rocknix-systems` reads as 'no BIOS problem' at every launch"*
+  -- at launch when CHECK BIOS AT LAUNCH is on (`CheckBiosesAtLaunch`,
+  default false, `Settings.cpp:207`); the time-to-play line is conditional.
+- *"It is a `#if WIN32` mirror (`:417-433`), where `SystemConf` forwards
+  to `Settings`"* -- the default is under `#if WIN32`, but the forward is
+  the empty-path case (`SystemConf.cpp:288` and its siblings, the path from
+  `Paths::getSystemConfFilePath()`), not `#if WIN32` and not `:19-25`;
+  whether the path can be empty on ROCKNIX is the lane's Q4 to read in
+  `Paths` before the "not a second live store" conclusion is drawn.
+- *"The Wi-Fi key is ... typed in a popup with no password flag"* -- the
+  key's popup is `GuiWifi.cpp:365`/`:367` (version 1 cited `update()`'s
+  `:460`/`:462`), and neither popup class has a password parameter at all:
+  masking is a mode to add.
+- *"`timeout N` on every `wifictl` call"* -- four calls have no bound
+  (`:642` `enable <ssid> <key>`, `:767`, `:771`, `:775`).
+- *"the `7zr` the recipe owes"* -- the p7zip recipe builds `all3` and
+  installs `bin/7z*`; whether `7zr` is on the image is a listing in the
+  window, not a finding.
+- *"62 `batocera-*` sites"* -- 105 lines naming a `batocera-` script, 36
+  distinct names; and the prediction that the writers generator counts
+  five in-place writers meets 27 `writeAllText` sites, sixteen of them
+  sysfs writes in `ApiSystem.cpp`, which the brief now carries as `sysfs`
+  rows so the generated count does not read as drift.
