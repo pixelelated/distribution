@@ -1,0 +1,15 @@
+# S6 (#1175), for the integration build's window (fix-walk-pending-image):
+# the sign-in at the page's close against a service that accepts and stalls.
+# 1. On the guest: a listener on loopback :443 (the window's tls-probe.py with
+#    its handler sleeping 120 s before answering), /etc/hosts pointing
+#    retroachievements.org at it, dummy credentials only.
+# 2. RETROACHIEVEMENTS SETTINGS: change USERNAME to another dummy, back out.
+#    Frames every second for 20 s: the menu closes at once and the carousel
+#    answers input throughout (the page no longer waits); within 15 s the
+#    dialog COULDN'T REACH RETROACHIEVEMENTS TO SIGN YOU IN.
+# 3. Change the account again before the first answer comes: es_log.txt says
+#    "a sign-in answered for an account that has changed since"; system.cfg's
+#    token is empty.
+# 4. Change USERNAME, open OFFLINE ACHIEVEMENTS (BETA) without closing, start a
+#    scan: system.cfg carries the new name and no token from the old account.
+# 5. Stop the listener by PID; restore /etc/hosts through its target.

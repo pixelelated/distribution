@@ -433,7 +433,7 @@ Every item is open until the coordinator's stage-D ruling and stage F.
 | PL-03 | Resolved | Resolved in `ad2989aa5` (ES, S3) under #1172: the pid taken once and above 1, a later line ignored and logged; `jobs-tests` FAIL before, PASS after (`stage-e/s3-*.txt`); the CR-named ROM's walk owed |
 | PL-04 | Resolved | Resolved in `f85061f14` (ES, S4) under #1173: the page reads the toggle back from the ctl's status after any exit; the LED callback weak; `AppWindow::post` (`stage-e/s4-*.txt`); the stub-ctl walk owed |
 | PL-05 | Resolved | Resolved in `274a71add` (ES, S5) under #1174: unknown kept unknown at both readers and the card; the three readers carry validity (`stage-e/s5-*.txt`) |
-| PL-06 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
+| PL-06 | Resolved | Resolved in `2d8a0a135` (ES, S6) under #1175: the sign-in off the interface thread with a 15 s total and a 10 s stall, its answer tied to the account; a scan never carries another account's token (`stage-e/s6-*.txt`); the stalling-listener walk owed |
 | PL-07 | Deferred | Deferred: #300, as ruled at the stage-D ruling (#667, 18:45 UTC) |
 | PL-08 | Deferred | Deferred: #668 (T21), with `stage-b/positives/reader.cpp`, as ruled at the stage-D ruling (#667, 18:45 UTC) |
 | PL-09 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
@@ -444,9 +444,9 @@ Every item is open until the coordinator's stage-D ruling and stage F.
 | PL-14 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-15 | Resolved | Resolved in `274a71add` (ES, S5) under #1174: unknown kept unknown at both readers and the card; the three readers carry validity (`stage-e/s5-*.txt`) |
 | PL-16 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
-| PL-17 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
+| PL-17 | Resolved | Resolved in `2d8a0a135` (ES, S6) under #1175: the sign-in off the interface thread with a 15 s total and a 10 s stall, its answer tied to the account; a scan never carries another account's token (`stage-e/s6-*.txt`); the stalling-listener walk owed |
 | PL-18 | Resolved | Resolved in `f85061f14` (ES, S4) under #1173: the page reads the toggle back from the ctl's status after any exit; the LED callback weak; `AppWindow::post` (`stage-e/s4-*.txt`); the stub-ctl walk owed |
-| PL-19 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
+| PL-19 | Withdrawn | Withdrawn: recorded as written at the stage-D ruling (#667, 18:45 UTC); the `:173` comment fixed in `2d8a0a135` (ES, S6, #1175) |
 | PL-20 | Open | its stream (the ruling at the stage-D ruling (#667, 18:45 UTC)) |
 | PL-21 | Deferred | Deferred: #585, the four lines in `02` § The library, as ruled at the stage-D ruling (#667, 18:45 UTC) |
 | PL-22 | Deferred | Deferred: Backlogs #1168 and #1169 (under #903), filed at the stage-D ruling (#667, 18:45 UTC) |
@@ -493,7 +493,7 @@ punch_index:
   category: Performance
   question: Q3
   source_finding: "L-02"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-07
   severity: "Medium"
   category: Performance
@@ -559,7 +559,7 @@ punch_index:
   category: Correctness
   question: Q3
   source_finding: "L-31"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-18
   severity: "Low"
   category: Correctness
@@ -571,7 +571,7 @@ punch_index:
   category: Security
   question: Q2
   source_finding: "L-04"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-20
   severity: "Low"
   category: Documentation

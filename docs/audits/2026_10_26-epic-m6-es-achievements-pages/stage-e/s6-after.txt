@@ -1,0 +1,9 @@
+== S6 after (19:37:09Z)
+[doctest] test cases: 3 | 3 passed | 0 failed | 195 skipped
+[doctest] assertions: 8 | 8 passed | 0 failed |
+-- the page and the client (read): the sign-in on a detached thread posting through AppWindow, the token cleared at once and kept only for the account that asked; the scan's token through tokenForScan; the bounds applied
+344:	if (RetroAchievementsText::tokenForScan(atOpen.user, atOpen.password, conf->get("global.retroachievements.username"),
+829:			std::thread([window, newUsername, newPassword, accountChanged]
+837:					if (!RetroAchievementsText::sameAccount(newUsername, newPassword,
+1046:		options.timeout = signIn.timeoutMs;
+1047:		options.stallTimeout = signIn.stallSeconds;

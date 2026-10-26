@@ -1,0 +1,10 @@
+== S6 before (19:31:30Z): the sign-in's options as the pin gives them (no bound) and offlineScanStart's save lifted as it was
+-- the pin's options for the sign-in: HttpReq.h:52-54 connect 10000, timeout 0, stall 0; RetroAchievements.cpp:1035 getHttpOptions() sets none
+unit build rc 1
+TEST CASE:  RetroAchievements: the sign-in carries a total and a stall bound (#1175)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/RetroAchievementsTextTests.cpp:50: ERROR: CHECK( request.timeoutMs > 0 ) is NOT correct!
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/RetroAchievementsTextTests.cpp:52: ERROR: CHECK( request.stallSeconds > 0 ) is NOT correct!
+TEST CASE:  RetroAchievements: a scan started after an account change carries no other account's token (#1175)
+/home/max/Development/emulationstation-next.worktrees/m6-es-achievements-pages-667/es-app/tests/unit/RetroAchievementsTextTests.cpp:64: ERROR: CHECK( RetroAchievementsText::tokenForScan("a", "pw", "b", "pw2", "tokenA").empty() ) is NOT correct!
+[doctest] test cases: 3 | 1 passed | 2 failed | 195 skipped
+[doctest] assertions: 8 | 5 passed | 3 failed |
