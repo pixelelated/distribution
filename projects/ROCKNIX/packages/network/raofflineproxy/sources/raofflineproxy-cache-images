@@ -308,6 +308,10 @@ def main() -> int:
     budget_end = time.monotonic() + max(1.0, args.seconds)
     verify_deadline = min(budget_end, time.monotonic() + max(1.0, args.seconds) / 2)
     damaged_found: list[str] = []
+    # Damaged files whose removal failed: still on disk, so the fetch below
+    # would count them as present. They are images not saved (fork
+    # pixelelated#1163).
+    unremovable: list[str] = []
     verify_left = 0
     if args.verify:
         try:
@@ -341,6 +345,7 @@ def main() -> int:
                         target.unlink()
                     except OSError as exc:
                         note(f"{path}: could not be removed ({exc})")
+                        unremovable.append(path)
             checked += 1
             index += 1
             if checked % 500 == 0:
@@ -378,6 +383,12 @@ def main() -> int:
          f"{f', {len(known_absent)} the image server does not have (not asked for again)' if known_absent else ''}")
     tell(f"total {len(missing)}")
     if not missing:
+        if unremovable:
+            # Nothing to fetch, but what verify found damaged is still there.
+            note(f"{len(unremovable)} damaged image(s) could not be removed; not saved")
+            tell("why SOME_IMAGES_NOT_SAVED")
+            tell(f"done 0|{len(unremovable)}")
+            return 1
         tell("note NOTHING_MISSING")
         tell("done 0|0")
         return 3 if verify_left else 0
@@ -450,6 +461,7 @@ def main() -> int:
     # Left behind: not there and not absent -- what the next pass asks for,
     # and what makes this one a failure.
     left = [p for p in missing if image_cache.resolve_cached_static_asset(p) is None and p not in absent]
+    left += [p for p in unremovable if p not in left]
     newly_absent = len(absent) - len(absent_before)
     note(
         f"fetched {fetched}, {newly_absent} absent, still missing {len(left)}"

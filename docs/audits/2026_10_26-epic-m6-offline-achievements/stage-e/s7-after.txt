@@ -1,0 +1,30 @@
+# S7 after (#666, #1163): the ctl and cache-images in the tree, 2026-10-26T15:38:49Z
+ctl sha256 3d48c613a330fca4; cache-images sha256 5b088aecee85f375
+command: tools/t19-s7-not-clean.sh <tree's ctl> <tree's cache-images> <the pin + 001..022's linux/> /workspace/tmp/m6-t19/s7/after
+
+host bash 5.3.9(1)-release (the tree pins bash 5.3); applets from BusyBox v1.36.1 (a copy of /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox, the image's); host python 3.14.4 (image recipe 3.14.7)
+  1. the recently played pass exits 0 with no result line
+     rc 1; stamp: 1793029129 1 topup cached=0 skipped=0 ready=0 limit=0 indexed=0 errors=0 added=0 why=RESULT_UNREADABLE; pass called: 1
+    PASS  the run is not clean: rc non-zero and a stamp with a why
+  2. a result line that does not parse
+     rc 1; stamp: 1793029129 1 topup cached=0 skipped=0 ready=0 limit=0 indexed=0 errors=0 added=0 why=RESULT_UNREADABLE; pass called: 1
+    PASS  the run is not clean
+  2b. a result line that parses (the control)
+     rc 0; stamp: none; pass called: 1
+    PASS  a whole result with nothing cached is a clean run, rc 0
+  3. less than 60 s left for the pass
+     rc 1; stamp: 1793029979 1 topup cached=0 skipped=0 ready=0 limit=0 indexed=0 errors=0 added=0 why=TOOK_TOO_LONG; pass called: 0
+    PASS  the run is not clean, and the stamp says TOOK_TOO_LONG
+  4. run_image_pass with no image helper
+     rc 1 why=SOME_IMAGES_NOT_SAVED
+    PASS  a missing helper is a pass not done: non-zero, SOME_IMAGES_NOT_SAVED
+  5. cache-images --verify: a damaged badge it cannot remove
+     rc 1; stdout >>> doing images|>>> verified 1|1|>>> note VERIFY_COMPLETE|>>> total 0|>>> why SOME_IMAGES_NOT_SAVED|>>> done 0|1|; stderr could not be removed ([Errno 13] Permission denied: '/storage/.config/raofflineproxy/image_cache/static/Badge/7001.png')
+    PASS  the unlink failed (the control: a real EACCES)
+    PASS  the damaged image it could not remove counts as not saved: exit 1, SOME_IMAGES_NOT_SAVED
+t19-s7-not-clean: 0 FAIL
+rc 0
+
+bash -n of the ctl: ok; cache-images parses: ok
+
+## tools/last-good-scripts-test: see stage-e/s7-suite.txt (1313 PASS with the fixture completed, on S7 and on the ctl before it). The #188 check's comment and label were corrected after those runs; its logic is what ran.

@@ -1,0 +1,25 @@
+# S7 before (#666, #1163): the ctl and cache-images at 7239b1adc1 (S6's tip), 2026-10-26T15:38:48Z
+command: tools/t19-s7-not-clean.sh <ctl> <cache-images> <the pin + 001..022's linux/> /workspace/tmp/m6-t19/s7/before
+
+host bash 5.3.9(1)-release (the tree pins bash 5.3); applets from BusyBox v1.36.1 (a copy of /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox, the image's); host python 3.14.4 (image recipe 3.14.7)
+  1. the recently played pass exits 0 with no result line
+     rc 0; stamp: none; pass called: 1
+    FAIL  the run is not clean: rc non-zero and a stamp with a why -- rc 0
+  2. a result line that does not parse
+     rc 0; stamp: none; pass called: 1
+    FAIL  the run is not clean -- rc 0
+  2b. a result line that parses (the control)
+     rc 0; stamp: none; pass called: 1
+    PASS  a whole result with nothing cached is a clean run, rc 0
+  3. less than 60 s left for the pass
+     rc 0; stamp: none; pass called: 0
+    FAIL  the run is not clean, and the stamp says TOOK_TOO_LONG -- rc 0; no time left for the recently played pass (50s)
+  4. run_image_pass with no image helper
+     rc 0 why=
+    FAIL  a missing helper is a pass not done: non-zero, SOME_IMAGES_NOT_SAVED -- rc 0 why=
+  5. cache-images --verify: a damaged badge it cannot remove
+     rc 0; stdout >>> doing images|>>> verified 1|1|>>> note VERIFY_COMPLETE|>>> total 0|>>> note NOTHING_MISSING|>>> done 0|0|; stderr could not be removed ([Errno 13] Permission denied: '/storage/.config/raofflineproxy/image_cache/static/Badge/7001.png')
+    PASS  the unlink failed (the control: a real EACCES)
+    FAIL  the damaged image it could not remove counts as not saved: exit 1, SOME_IMAGES_NOT_SAVED -- rc 0
+t19-s7-not-clean: 5 FAIL
+rc 1

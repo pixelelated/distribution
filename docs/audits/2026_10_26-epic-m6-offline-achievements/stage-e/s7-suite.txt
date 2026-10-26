@@ -1,0 +1,12 @@
+# S7's suite (#666, #1163), under the 14:33 and 15:50 rulings (2026-10-26T16:07:10Z)
+tools/last-good-scripts-test, QA_SYSTEM_ROOT=/workspace/artifacts/m6-donor/1a0266484423/image/system; host bash 5.3.9, host python 3.14.4
+
+the suite as it was, on S7: 1301 PASS; 12 CHECK(S) FAILED, 0 SKIPPED
+  -- one is #188's top-up check (rc 0 expected); eleven are section t's early scan and top-up cases
+
+## the fixture completed (D-WORKFLOW-211)
+- section t's setup (:2062-2066): an image-helper stand-in beside the ctl that exits 0, until the images cases at :2506 put their own. No assertion changed. The early cases passed only because the helper was absent and the defect read absence as clean.
+- #188's top-up check (:2410-2416): with the helper present, the run whose deadline its helper spent ends rc 1, TOOK_TOO_LONG -- on the ctl before S7 too, by the image pass's own time check. Its rc 0 held only while the helper was absent, so it is the same completion, not a check S7 reverses (corrected from the lane's 15:49 post). Carried over: the games count (cached and added 2, the kill not the why), rc 1, TOOK_TOO_LONG, the recently played pass said to have had no time.
+
+the ctl before S7 (7239b1adc1) with the completed suite: 1313 PASS; PASSED -- the fixture completion holds on both sides; S7's positive is its own fixture (stage-e/s7-before.txt, s7-after.txt)
+S7 with the completed suite: 1313 PASS; PASSED

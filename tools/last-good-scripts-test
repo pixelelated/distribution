@@ -2059,6 +2059,11 @@ elif [ -z "${TARBALL}" ]; then
     skip "the client's tarball raofflineproxy-${PIN:-?}.tar.gz is not under SOURCES_DIR, /workspace/cache/rocknix-sources or a build worktree's sources/ -- case t needs the pinned client to drive the ctl's listing against"
 else
 src_of "${CTL_REL}" "${T}/repo/raofflineproxy-ctl"
+# Since #1163 a run whose image helper is missing has not looked at the
+# images and is not clean, as on a device, where the helper always ships:
+# until the images cases below put their own stand-in beside the ctl, this
+# one finds every image there (exit 0).
+printf '#!/bin/sh\nexit 0\n' > "${T}/repo/raofflineproxy-cache-images"; chmod +x "${T}/repo/raofflineproxy-cache-images"
 # The archive's top directory is the project's name and the pin (a GitHub
 # archive: RAOfflineProxy-<hash>); only the module is taken out of it.
 # The module and its tests: a patch may carry a test for what it changes
@@ -2406,10 +2411,13 @@ rm -f "${TR}/listing-delay" "${TR}/helper-plan"
 # The helper's DONE is the verdict on the games (fork #188: on the RG SP the
 # helper finished its 147 games and then downloaded badges until the bound
 # killed it, and the kill was read as TOOK_TOO_LONG). Finished, then killed
-# by the bound: the run finished -- rc 0, no why, the note in the log. The
-# case above (killed before DONE) stays TOOK_TOO_LONG.
+# by the bound: the games count -- cached and added from DONE, the kill not
+# the why, the note in the log. With an image helper beside the ctl (section
+# t's stand-in, #1163) the deadline the helper spent leaves no time for what
+# follows, and the run says so: rc 1, TOOK_TOO_LONG. It read rc 0 only while
+# no helper was there. The case above (killed before DONE) stays TOOK_TOO_LONG.
 treset; touch -d '2 hours ago' "${TMARK}"; printf 'ok\nok\n' > "${TR}/helper-plan"; echo 'slow 1000' > "${TR}/helper-linger"
-tctl topup --after-index; [ "${RC}" -eq 0 ] && grep -qE ' 0 topup cached=2 skipped=0 ready=[0-9]+ limit=0 indexed=2 errors=0 added=2$' "${TSTAMP}" && grep -q 'had reported DONE and ended with rc 124' "${TLOG}"; check $? "topup whose helper reported DONE and was then killed by the bound: the run finished, rc 0, no why (#188)" "rc ${RC}; stamp: $(cat "${TSTAMP}" 2>/dev/null); log: $(grep -E 'DONE|topup' "${TLOG}" | tail -3 | tr '\n' '|')"
+tctl topup --after-index; [ "${RC}" -eq 1 ] && grep -qE ' 1 topup cached=2 skipped=0 ready=[0-9]+ limit=0 indexed=2 errors=0 added=2 why=TOOK_TOO_LONG$' "${TSTAMP}" && grep -q 'had reported DONE and ended with rc 124' "${TLOG}" && grep -q 'no time left for the recently played pass' "${TLOG}"; check $? "topup whose helper reported DONE and was then killed by the bound: its games count (cached and added 2), the kill is not the why; the spent deadline is (rc 1, TOOK_TOO_LONG) (#188, #1163)" "rc ${RC}; stamp: $(cat "${TSTAMP}" 2>/dev/null); log: $(grep -E 'DONE|topup' "${TLOG}" | tail -3 | tr '\n' '|')"
 rm -f "${TR}/helper-linger" "${TR}/helper-plan"
 # The same on the scan route: a helper that dies after its DONE.
 treset; printf 'ok\nok\n' > "${TR}/helper-plan"; echo die > "${TR}/helper-linger"

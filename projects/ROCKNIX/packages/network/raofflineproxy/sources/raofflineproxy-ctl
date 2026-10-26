@@ -1997,7 +1997,8 @@ IMAGE_PASS_SECONDS="${RAOFFLINEPROXY_IMAGE_PASS_SECONDS:-300}"
 run_image_pass() {
     local VERB="$1" SECONDS_LEFT="${2:-${IMAGE_PASS_SECONDS}}" MODE="${3:-}" RC=0
     R_IMAGES_WHY=""
-    [ -x "${IMAGE_HELPER}" ] || { slog "${VERB}: no image helper at ${IMAGE_HELPER}"; return 0; }
+    # No helper is no pass: the images were not looked at (#1163).
+    [ -x "${IMAGE_HELPER}" ] || { slog "${VERB}: no image helper at ${IMAGE_HELPER}; the image pass was not run"; R_IMAGES_WHY=SOME_IMAGES_NOT_SAVED; return 1; }
     # No time left is no pass: the images were not looked at, and the run
     # does not say it finished (audit of the fixes, gpt G-D-01).
     [ "${SECONDS_LEFT}" -gt 10 ] 2>/dev/null || { slog "${VERB}: no time left for the image pass (${SECONDS_LEFT}s); not run"; R_IMAGES_WHY=TOOK_TOO_LONG; return 0; }
@@ -2539,13 +2540,22 @@ do_topup() {
         unmark_running
         RESULT="$(grep '"type":"result"' "${SC_OUT}" 2>/dev/null | tail -n 1)"
         rm -f "${SC_OUT}"; SC_OUT=""
-        local SC=0 SS=0 SL=0
+        # A result line that is missing or does not parse is a pass whose
+        # outcome is not known, never "nothing cached" (#1163): the counts
+        # stay 0 and the run is not clean.
+        local SC=0 SS=0 SL=0 PARSED=""
         if [ -n "${RESULT}" ]; then
-            read -r SC SS SL < <(python3 -c '
+            PARSED="$(python3 -c '
 import json, sys
 r = json.loads(sys.argv[1])
 print(int(r.get("cached", 0)), int(r.get("skipped", 0)), 1 if r.get("limit_reached") else 0)
-' "${RESULT}" 2>/dev/null || echo "0 0 0")
+' "${RESULT}" 2>/dev/null)" || PARSED=""
+        fi
+        if [ -n "${PARSED}" ]; then
+            read -r SC SS SL <<< "${PARSED}"
+        elif [ "${SRC}" -eq 0 ]; then
+            slog "topup recently played: rc=0 with no result line that could be read; what it cached is not known"
+            WHY=RESULT_UNREADABLE
         fi
         CACHED=$((CACHED + SC)); SKIPPED=$((SKIPPED + SS)); [ "${SL}" -eq 1 ] && LIMIT=1
         slog "topup recently played: rc=${SRC} cached=${SC} skipped=${SS} limit=${SL}"
@@ -2554,7 +2564,10 @@ print(int(r.get("cached", 0)), int(r.get("skipped", 0)), 1 if r.get("limit_reach
             [ "${SRC}" -eq 124 ] && WHY=TOOK_TOO_LONG
         fi
     elif [ -z "${WHY}" ]; then
-        slog "topup: no time left for the recently played pass (${LEFT}s)"
+        # A pass skipped for time is work not done: the stamp says so and
+        # the run is not clean (#1163).
+        slog "topup: no time left for the recently played pass (${LEFT}s); not run"
+        WHY=TOOK_TOO_LONG
     fi
 
     # A listing that could not be read is the run's why when nothing later
