@@ -141,6 +141,8 @@ today:** `.githooks/pre-commit` refuses a conflict marker (#696).
 
 **07:4x UTC (2026-10-26):** **T16's idle guest stopped** at 07:40 by the M7 lane with the owner's explicit approval (*"you have my approval to stop the abandoned VM if it isn't doing anything"*; *"if it is doing useful work, let me know and we can revive it"*), verified here at 07:41 (qemu 0, pid gone, 10022 closed). **Retained for revival:** `/workspace/tmp/m6-t16/vm-pair/vm-a.qcow2` (sha256 `27d1a5e5dac3…`), the OVMF vars, `rec/` -- D-INFRA-022 reason on #663 (test: T16's re-granted window; release: T16's close-out). **#1118 closed.** M7 is preparing its qualification guest under the 04:47 handoff; **no fresh M6 guest until M7's guest RETURN on the host file**; then T17's window, then T16's re-grant when the T1 session can run. Open for the owner on #346: the T1/T3 sessions' account before Oct 30 09:00 UTC.
 
+**07:4x-07:54 UTC (2026-10-26):** M7's guest window ran 07:49-07:51 and RETURNed; **T17's window granted 07:5x on #664** (the `m6-t2-20261023` copy; 30 minutes from START; T13's conditions; the F-02/F-03 conditions), mirror job running (`$S/t17-mirror-seen.ids`); after T17's RETURN the host is free and **M7 asks on the shared log for its UI/archive qualification window; M6 grants explicitly** (the 07:53 block says so). T16's re-grant behind both when the T1 session can run. The lane (T5) is in stage E with six streams and the window at its choosing; then the hand-back and `$S/t17-accept.sh`.
+
 ## Next commands
 
 ```bash
