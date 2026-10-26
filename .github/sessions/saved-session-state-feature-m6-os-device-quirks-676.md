@@ -16,9 +16,13 @@
 
 ## Current focus
 
-**Idle after the second hand-back.** Stages E to H are done: S1 `39851da3e8` (#1120), S2 `04a9fe98b9` (#1124), S3 `7d097e34aa` (#1125), the records, the retro, the checkers, and `reviewed-at` / `fixed-at` in #676's body.
-- **Waiting on the coordinator's acceptance** (`AUDIT_ISSUE=1121`; bugs #1120, #1124, #1125).
-- **After acceptance:** `audit-completion.json` with T5's writer (`ISSUE=1121`), the full lint with `--issue 1121`, the pointer idle, and `/workspace/tmp/m6-t29/` removed.
+**Idle: T29 accepted and closed out.** The coordinator accepted at the merged tip `54f323dc89` (06:1x UTC) and closed #1121 at 06:08:57 UTC.
+- **The close-out:** `audit-completion.json` written by T5's writer adapted for #1121 (`tools/write-completion.py`); the full lint `--issue 1121` `PASS`; this pointer idle; `/workspace/tmp/m6-t29/` removed.
+- **Still open, owned elsewhere:**
+  - #1120 and #1124 have every criterion ticked and close when their fixes are on `next`;
+  - #1125's guest-run criterion waits for the next candidate's step 3;
+  - #1126 is the coordinator's.
+- **This session goes to T17 (#664) next.** Nothing here resumes.
 
 ## Next commands
 
@@ -65,3 +69,4 @@ host's swap, another lane's worktree, or a guest.
 - Stage E: S1 `39851da3e8`, S2 `04a9fe98b9`, the record `dcb2bf63c1`, 05:31 to 05:46 UTC.
 - S3: `7d097e34aa`, then its record, 05:59 UTC.
 - Stages F to H: `c316d43a5b`, 05:50 UTC.
+- Close-out: this commit, 2026-10-26 06:1x UTC (`audit-completion.json`, #1121 closed).
