@@ -107,3 +107,52 @@ File: `projects/ROCKNIX/packages/hardware/quirks/devices/QEMU Standard PC (Q35 +
 A build, a compiler, a guest, a fetch, a keyed council call, anything on a
 unit, a change outside the two files and the audit folder, a change to any
 upstream copy of either line.
+
+## S3 -- #1125: the upgrade rehearsal seeds the retired quirks' real bytes (added at the hand-back, 2026-10-26 06:0x UTC)
+
+Found by the lane while landing S2: `tools/vm-upgrade-rehearsal:99-115` seeds
+four of `091-retired-vm-fixes`'s paths with its own line and `:156` expects
+them taken back, which held only while the first pass removed by name. Against
+#1124's fix the check reads `4`. The tool is fork-only and gates the next
+candidate's step 3 (`release-candidates.md`), so it is this slice's third
+stream, under this brief, in `tools/` -- stage E is past the stages A to D
+rule.
+
+File: `tools/vm-upgrade-rehearsal` (fork-only; `:99-115` the seed, `:156-157`
+the checks).
+
+1. **The positive, before.** On the host, the four seeded bodies as `:112`
+   writes them, hashed, against `091`'s `WRITTEN` table at `8ebaf8daad`: none
+   matches (`stage-e/s3-before.txt`). The fixed `091` over a scratch root
+   seeded the rehearsal's way keeps all four (the fixture
+   `t29-takeback.py`'s shape, or the fixture itself with the rehearsal's
+   bytes as its input).
+2. **The fix:**
+   - `:112` seeds each of the four paths with **the bytes the retired quirk
+     wrote there** -- the heredoc bodies of the `QEMU Standard PC (Q35 + ICH9,
+     2009)/09x-*` scripts at `73b20caf86` or `8bb74015e6`, as
+     `t29-takeback.py` rebuilds them -- embedded in the tool as heredocs,
+     and **the seed asserts each body's sha256 is in `091`'s `WRITTEN`**
+     (read from the new image's `091` on the guest, or from the tree at the
+     rehearsal's start) so a later change to the table fails the seed, not
+     the check;
+   - **a fifth listed path with other bytes**, seeded beside them, with a
+     `:156`-side check that it is kept (the owner's-edit case #1124 protects,
+     on a real guest), and the existing `50-rehearsal-owner.conf` check kept;
+   - `:102-105`'s comment says *bytes an old quirk wrote*, not *by name*.
+3. **The positive, after:** the four bodies hash into `WRITTEN`; the fixed
+   `091` over a scratch root seeded with them removes the four and keeps the
+   fifth; `bash -n` on the tool (`stage-e/s3-after.txt`). The rehearsal's
+   own run needs its guest pair and is the next candidate's step 3: #1125's
+   criterion for it stays open until that run, stated in the bug.
+4. **`Already written:`** nothing on a device; a rehearsal that ran the old
+   seed left nothing behind (its guests are disposable).
+5. **Commit:** `vm-upgrade-rehearsal: seed the retired quirks' real bytes, and
+   a control that must be kept (Refs #676, #1125)`; `fixed-at` into #1125.
+
+**The donor bash erratum.** This brief named
+`/workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/bash`; the
+donor holds busybox and rclone only (its `RECORD.txt`). S1 ran under the
+host's bash 5.3.9, named in its output, and the tree pins 5.3: accepted for
+S1's verdict (a quoting and an assignment, the same in both); the image's
+bash runs the fixture at the next granted window, not as a gate.
