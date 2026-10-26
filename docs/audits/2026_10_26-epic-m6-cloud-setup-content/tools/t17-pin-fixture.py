@@ -20,10 +20,17 @@ Cases (each on a fresh holder and server):
                lockout, the control that the limit exists
   non-ascii    POST pin=%C3%A9 (a decoded non-ASCII PIN): a refusal page, or
                an unhandled exception in the handler?
+  paste-html   (stage E, S1; #1128's second criterion) the paste flow's POST
+               code=..., with the right PIN, where the handheld has no browser
+               stack: does rclone's last error line reach the page raw? The
+               substitutes, named: a real Session built with no rclone
+               (proc a finished stub, rclone_says a run-time-assembled string
+               holding a <b> tag), urlopen answering HTTPError as rclone's
+               own page does, and browser_stack_available() false.
 
 --expect unfixed asserts what the file at 8ebaf8daad does; --expect fixed what
-a fix must do (icons spend nothing; a non-ASCII PIN is refused like any wrong
-one). Writes only under a temporary directory.
+a fix must do (icons spend nothing; a non-ASCII PIN spends nothing and gets the
+PIN page; rclone's words arrive escaped). Writes only under a temporary directory.
 """
 from pathlib import Path
 import argparse, http.client, importlib.machinery, importlib.util, io, os, sys, tempfile, threading, contextlib
@@ -61,7 +68,7 @@ def request(server, method, path, body=None):
         headers = {"Content-Type": "application/x-www-form-urlencoded"} if body is not None else {}
         conn.request(method, path, body=body, headers=headers)
         r = conn.getresponse()
-        r.read()
+        request.body = r.read().decode("utf-8", "replace")
         return r.status
     except (ConnectionError, http.client.HTTPException) as exc:
         return "dropped:" + type(exc).__name__
@@ -92,13 +99,37 @@ with contextlib.redirect_stderr(captured):
     status = request(server, "POST", "/", body="pin=%C3%A9&type=x")
 server.shutdown(); server.server_close()
 trace = captured.getvalue()
-res["non-ascii"] = "exception" if "TypeError" in trace else str(status)
+res["non-ascii"] = "exception" if "TypeError" in trace else f"{status} spent {holder.pin_attempts}"
 print(f"non-ascii: POST pin=%C3%A9 -> {status}; handler raised: "
       f"{'yes: ' + next(l for l in trace.splitlines() if 'TypeError' in l).strip()[:120] if 'TypeError' in trace else 'no'}; "
       f"attempts spent {holder.pin_attempts}")
 
-want = {"unfixed": {"favicon": 403, "touch-icons": 403, "control": 200, "wrong-pins": 403, "non-ascii": "exception"},
-        "fixed": {"favicon": 200, "touch-icons": 200, "control": 200, "wrong-pins": 403, "non-ascii": "200"}}
+# paste-html: rclone's words, with a tag built at run time, through the real POST route.
+import urllib.error
+TAG = "<" + "b>" + "t17-" + "said" + "<" + "/b>"
+holder, server, _ = serve()
+session = oauth.Session("drive", None, 60)
+session.provider = "https://provider.invalid/auth?state=" + "s" * 8
+session.rclone_says = "error: " + TAG
+class _Done:
+    def poll(self): return 1
+session.proc = _Done()
+holder.session = session
+real_urlopen, real_stack = oauth.urllib.request.urlopen, oauth.browser_stack_available
+def _answered(*args, **kw):
+    raise urllib.error.HTTPError("http://127.0.0.1", 400, "rclone's page", None, None)
+oauth.urllib.request.urlopen, oauth.browser_stack_available = _answered, (lambda: False)
+try:
+    status = request(server, "POST", "/", body=f"pin={holder.pin}&code=abc")
+finally:
+    oauth.urllib.request.urlopen, oauth.browser_stack_available = real_urlopen, real_stack
+server.shutdown(); server.server_close()
+page = request.body
+res["paste-html"] = "raw" if TAG in page else ("escaped" if "&lt;b&gt;t17-said" in page else "absent")
+print(f"paste-html: POST code with the right PIN -> {status}; rclone's words on the page: {res['paste-html']}")
+
+want = {"unfixed": {"favicon": 403, "touch-icons": 403, "control": 200, "wrong-pins": 403, "non-ascii": "exception", "paste-html": "raw"},
+        "fixed": {"favicon": 200, "touch-icons": 200, "control": 200, "wrong-pins": 403, "non-ascii": "200 spent 0", "paste-html": "escaped"}}
 if a.expect:
     bad = [k for k, v in want[a.expect].items() if res[k] != v]
     if bad:

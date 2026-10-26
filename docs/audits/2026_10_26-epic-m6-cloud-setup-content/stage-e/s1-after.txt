@@ -1,0 +1,92 @@
+$ t17-pin-fixture.py --expect fixed  (the fixed cloud_oauth in the worktree; host Python 3.14.4; 07:43:41Z)
+file: projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth
+favicon: 10 requests before, statuses ['404'], attempts spent 0; then GET /<the right pin> -> 200
+touch-icons: 10 requests before, statuses ['404'], attempts spent 0; then GET /<the right pin> -> 200
+control: 9 requests before, statuses ['404'], attempts spent 0; then GET /<the right pin> -> 200
+wrong-pins: 10 requests before, statuses ['200', '403'], attempts spent 10; then GET /<the right pin> -> 403
+non-ascii: POST pin=%C3%A9 -> 200; handler raised: no; attempts spent 0
+paste-html: POST code with the right PIN -> 200; rclone's words on the page: escaped
+t17-pin-fixture: fixed-expectation-met
+exit 0
+$ t17-pin-fixture.py --expect unfixed --file <8ebaf8daad's cloud_oauth, extracted to scratch>  (07:43:44Z)
+file: /workspace/tmp/m6-t17/e/orig/cloud_oauth
+favicon: 10 requests before, statuses ['200', '403'], attempts spent 10; then GET /<the right pin> -> 403
+touch-icons: 10 requests before, statuses ['200', '403'], attempts spent 10; then GET /<the right pin> -> 403
+control: 9 requests before, statuses ['200'], attempts spent 9; then GET /<the right pin> -> 200
+wrong-pins: 10 requests before, statuses ['200', '403'], attempts spent 10; then GET /<the right pin> -> 403
+non-ascii: POST pin=%C3%A9 -> dropped:RemoteDisconnected; handler raised: yes: TypeError: comparing strings with non-ASCII characters is not supported; attempts spent 0
+paste-html: POST code with the right PIN -> 200; rclone's words on the page: raw
+t17-pin-fixture: unfixed-expectation-met
+exit 0
+$ PYTHONPYCACHEPREFIX=<scratch> python3 -m py_compile cloud_oauth
+exit 0
+$ git diff 8ebaf8daad -- cloud_oauth
+diff --git a/projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth b/projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth
+index 78c343771a..862e2f91a8 100755
+--- a/projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth
++++ b/projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth
+@@ -2216,6 +2216,16 @@ MAX_BODY = 64 * 1024
+ REQUEST_TIMEOUT = 15
+ MAX_CONNECTIONS = 16
+ 
++# What counts as a PIN offered. A phone's browser asks for /favicon.ico and
++# the touch icons on its own, with no PIN anywhere, and each was counted as
++# a wrong one: ten locked the right PIN out for the rest of the serve
++# (#1128, T17's F-01). Only four ASCII digits are a guess; anything else is
++# a request without a PIN, which gets the prompt and spends nothing -- and
++# never reaches compare_digest, which raises on a non-ASCII str (F-09).
++PIN_SHAPE = re.compile(r"[0-9]{4}")
++ICON_PATHS = frozenset(("/favicon.ico", "/apple-touch-icon.png",
++                        "/apple-touch-icon-precomposed.png"))
++
+ 
+ class BoundedHTTPServer(http.server.ThreadingHTTPServer):
+     """ThreadingHTTPServer with a cap on connections handled at once: one
+@@ -2307,6 +2317,8 @@ def make_handler(holder, shutdown):
+ 
+         def _gate(self, pin):
+             """True when the request may proceed; renders the refusal if not."""
++            if not PIN_SHAPE.fullmatch(pin or ""):
++                pin = ""
+             if holder.pin_exhausted():
+                 self.send_error(403, "Too many wrong PINs. Start again on "
+                                      "the handheld.")
+@@ -2344,6 +2356,12 @@ def make_handler(holder, shutdown):
+             return parsed.path.strip("/").split("/")[0]
+ 
+         def do_GET(self):
++            # Answered before the gate, so they cost nothing (#1128).
++            if urllib.parse.urlparse(self.path).path in ICON_PATHS:
++                self.send_response(404)
++                self.send_header("Content-Length", "0")
++                self.end_headers()
++                return
+             if not self._gate(self._supplied()):
+                 return
+ 
+@@ -2479,7 +2497,7 @@ def make_handler(holder, shutdown):
+                              '<input type=hidden name=restart value="1">'
+                              '<button class=minor type=submit>'
+                              'Start a new sign-in</button></form>' % holder.pin)
+-                self._render('<div class=err>%s</div>%s' % (error, again))
++                self._render('<div class=err>%s</div>%s' % (html.escape(error), again))
+                 return
+ 
+             session = holder.session
+@@ -2502,7 +2520,9 @@ def make_handler(holder, shutdown):
+                            '<input type=hidden name=restart value="1">'
+                            '<button class=minor type=submit>'
+                            'Start a new sign-in</button></form>' % holder.pin)
+-            self._render('<div class=err>%s</div>%s' % (detail, restart))
++            # detail can carry rclone's own last words (failure_reason):
++            # text, never markup (#1128, T17's F-09).
++            self._render('<div class=err>%s</div>%s' % (html.escape(detail), restart))
+ 
+     return Handler
+ 
+$ tools/cloud-input-test  (regression, the fixed cloud_oauth; 07:43:55Z)
+----------------------------------------------------------------------
+Ran 9 tests in 0.979s
+
+OK
+exit 0
