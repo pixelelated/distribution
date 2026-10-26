@@ -1,6 +1,6 @@
 # Review brief: M6.P2 T26, EmulationStation's main menu, GuiMenu (#673)
 
-**Version 1, 2026-10-26, the coordinator's** (D-WORKFLOW-189). Written from
+**Version 2, 2026-10-26, the coordinator's** (D-WORKFLOW-189; version 1 `a71f833ea0`; the stranger's proof's 16 corrections are listed at the end). Written from
 four read-only research digests (the coordinator's scratch files, not in any
 tree; every figure they gave is reproduced by a command below), the order's
 § T26, the slice record, and what T2, T18, T20 and T21 found or cited in
@@ -13,8 +13,7 @@ runs before dispatch; version 2 records what it found
 
 - **Issue:** #673 `M6.P2 E700/T26: interface: EmulationStation's main
   menu (GuiMenu)`, slice `es-guimenu` (`k: 26`) in
-  `docs/reviews/slices.json`, twenty-sixth in `docs/reviews/order.md` (its
-  § T26 paths line: *"2 paths, 11,883 lines, 11,883 read, of which 11,883
+  `docs/reviews/slices.json`, twenty-sixth in `docs/reviews/order.md` (`order.md`, `slices.json` and `inventory.json` are the P1 branch's, which the lane's worktree is stacked on -- a reader of the coordinator's branch alone cannot open them; its § T26 paths line: *"2 paths, 11,883 lines, 11,883 read, of which 11,883
   fork-own; 0 patch and config lines; reach shipped 2"*; its `why`: *"one
   file, 11,883 lines, the largest fork-own unit, where every fork page is
   reached from"*; kind read; lens new functionality, brittleness; depth
@@ -22,8 +21,7 @@ runs before dispatch; version 2 records what it found
   lint PASS, `tools/es-menu-map-check`, punch list through Phase 7"*).
   **Epic:** #700 (the interface: T2 #649 and T18 #665 accepted and closed
   out; T20 #667 and T21 #668 briefed; this slice; T31 to T37 and T44
-  after), whose futro `docs/futros/2026-10-23-m6-interface.md` takes a T26
-  kickoff addendum written with this version. **Milestone:** M6.
+  after), whose futro `docs/futros/2026-10-23-m6-interface.md` carries a T26 kickoff addendum written with version 1 and an errata section from the proof. **Milestone:** M6.
   **Predecessors:** #346, #641, **T2 #649** (the launch path: its PL-006 at `:11325`, the boot game's frozen command; its leads for this slice at `:11714-11738` and `:1842`), **T18 #665** (the cloud pages this menu opens; `GuiMenu.cpp` was not among its 30 covered paths, and its PL-17 and PL-21 halves were routed to #673 on 2026-10-26 at 11:13, its PL-01 and PL-03 cite `:5066` and `:5043-5045`, its forward audit assigned eight Python harnesses to this slice), **T20 #667** (the RetroAchievements gates at `:188-191` and the hasher started at `:1214` are read there for the account and the index, here for the menu; the relink page's RETROACHIEVEMENTS step is inside `:8261-8497`),
   **T21 #668** (the stores and the bridge: the relink rows `:8297`,
   `:8342`, `:8367`, `:8371`, `:8374`, the timezone at `:1890`, the journey
@@ -100,7 +98,7 @@ git rev-parse --verify 651150fc88^{commit} >/dev/null && echo upstream-next-is-h
 W=/home/max/Development/emulationstation-next.worktrees/m6-es-guimenu-673; PIN=16dbac5211eea7e70db7394372033be2be7df829
 git -C "$W" rev-parse HEAD; git -C "$W" status --short | wc -l                  # the pin; 0
 git -C "$W" merge-base bccd715707 HEAD | cut -c1-10                             # bccd715707: the merge base with ROCKNIX's master
-git show feature/m6-es-cloud-pages-665:docs/audits/2026_10_26-epic-m6-es-cloud-pages/05-punch-list.md | /usr/bin/grep -c '^## PL-'   # T18's punch list is reachable (23)
+git show feature/m6-es-cloud-pages-665:docs/audits/2026_10_26-epic-m6-es-cloud-pages/05-punch-list.md | /usr/bin/grep -c '^## PL-'   # T18's punch list is reachable (23): a branch of the main repository, which the lane's worktree shares
 tools/register-check >/dev/null && echo register-ok
 tail -n 3 /tmp/m7-m6-host-coordination-20261023.txt | cut -c1-200             # who holds the host: no guest before a grant on #673
 ```
@@ -155,8 +153,8 @@ lines 11883`; the merge-base count **2**; the numstat pairs 5124/436 and 23/1.
 
 | File | Lines | What it is |
 | --- | ---: | --- |
-| `es-app/src/guis/GuiMenu.cpp` | 11,747 | the main menu and every fork page, built in place: **156 function definitions at the pin against 60 at the base -- 97 added, 15 changed (`openNetworkSettings` +236/-95, `openGamesSettings` +78/-13, `openResetOptions` +69/-26 the largest), 1 removed (`openWifiSettings`), 44 unchanged** (the pages digest's parser over the two dumps; 38 hunks; 225 commits from 2026-07-24 to 2026-10-13, 142 of them in September); the added functions build twenty page titles -- the SYSTEM MANAGEMENT AND RESET helpers (`:296-392`), the content picker and its helpers (`:4086-4609`; `cloudContentSystemPicker` 317 lines), the LAST-row readers (`:4634-4827`), BACK UP TO / RESTORE FROM THE CLOUD (`cloudOpenTransferOptions` `:4836-5210`, 375 lines), the scan pages and the match (`:5219-5388`), the CLOUD hub (`:5437-5745`; `openCloud` 144 lines), the SSH wizard and its helpers (`:6222-6879`; `cloudSetupPresent` `:6484`, sixteen calls, every one the last statement of its caller and every callback handing the new page on), the folder pages (`:6883-7070`), the native provider form (`cloudRemoteShowForm` `:7220-7440`, 221 lines) and backend picker, the OAuth sign-in (`:7507-7922`; `cloudOAuthShowSignIn` 152 lines), the connections pages (`:7925-8160`), CLOUD STORAGE SETUP (`:8162-8242`), FINISH RESTORE PROCESS (`openRestoreRelink` `:8261-8497`, 237 lines), NETWORK SETTINGS and MANAGE SAVED NETWORKS (`:9744-10512`); **264 value-binding rows from 568 builder calls** (the settings digest's generator: 35 `addSwitch`, 30 of them to `Settings` and 5 to `SystemConf`; 6 `addOptionList`, all `Settings`; 15 `addInputTextConfigRow`; 5 `addFileBrowser`; 169 `addWithLabel`; 72 and 27 `addWithDescription`; 129 `addEntry`; 90 `addGroup`; 16 `addRow`), 260 store writes (152 `SystemConf`, 108 `Settings`; 68 dynamic keys), the store decided mechanically for 261 rows and by hand for 41; 96 literal `system.cfg` keys written here, 24 of them named by the OS scripts and the rclone package at `8ebaf8daad`, 4 written on both sides, **33 written by a row and read by nothing under `projects/ROCKNIX/packages`**, 15 read by a script with no row; **the ten longest functions**: `openSystemSettings` `:1697-3300` (1,604 lines, 148 row builders, 87 lambdas, 24 `#if`), `openThemeConfiguration` 674, `popSpecificConfigurationGui` 537, `openNetworkSettings` 494 (+101 by the fork over 30 hunks), `openDeveloperSettings` 483, `openGamesSettings` 446 (+65), `cloudOpenTransferOptions` 375 (fork-own, nesting depth 6), `addFeatureItem` 357, `cloudContentSystemPicker` 317 (fork-own), `openRestoreRelink` 237 (fork-own); **86 `#if` regions** (78 at the base) and, under the build's `-DROCKNIX=1 -DDISABLE_KODI=1` with BATOCERA off, about 930 lines (8%) compiled into no ROCKNIX image (753 BATOCERA, 124 `!ROCKNIX` first arms, 37 WIN32, 19 `_RPI_`, 19 KODI); 98 includes (71 at the base), 11 fork-own headers, the top include block repeated at `:99-102` and `GuiLoading.h` included under two spellings; **166 `_("")` literals used in two or more functions**; 109 `GuiMsgBox` constructions; 9 upstream commits to this file since the base (+155/-12, 14 hunks) against the fork's 148 hunks |
-| `es-app/src/guis/GuiMenu.h` | 136 | the class (114 lines at the base; 23 insertions, 1 deletion): the fork's member declarations for the pages above (`openCloud`, `openCloudConnections`, `openCloudAddRemote`, `openCloudSetup`, `openRestoreRelink`, `openCloudFolderEditor`, ...); 63 `GuiMenu::` members are defined in the `.cpp` (91 file-statics and 2 free functions beside them); the lane matches the header's declarations against the definitions and names any declared member without one, or vice versa |
+| `es-app/src/guis/GuiMenu.cpp` | 11,747 | the main menu and every fork page, built in place: **156 function definitions at the pin against 60 at the base -- 97 added, 15 changed (`openNetworkSettings` +196/-95 by difflib, 494 lines at the pin against 393; `openGamesSettings` +78/-13; `openResetOptions` +69/-26 the largest), 1 removed (`openWifiSettings`), 44 unchanged** -- 15 and 44 by the pages digest's body-text rule, 12 and 47 by an exact-text rule, and the lane's parser states its own (the digest's parser over the two dumps; 38 hunks at `-U3`, 148 at `-U0`; 225 commits from 2026-07-24 to 2026-10-13, 142 of them in September); the added functions build twenty page titles -- the SYSTEM MANAGEMENT AND RESET helpers (`:296-392`), the content picker and its helpers (`:4086-4609`; `cloudContentSystemPicker` 317 lines), the LAST-row readers (`:4634-4827`), BACK UP TO / RESTORE FROM THE CLOUD (`cloudOpenTransferOptions` `:4836-5210`, 375 lines), the scan pages and the match (`:5219-5388`), the CLOUD hub (`:5437-5745`; `openCloud` 144 lines), the SSH wizard and its helpers (`:6222-6879`; `cloudSetupPresent` `:6484`, sixteen calls, every one the last statement of its caller and every callback handing the new page on), the folder pages (`:6883-7070`), the native provider form (`cloudRemoteShowForm` `:7220-7440`, 221 lines) and backend picker, the OAuth sign-in (`:7507-7922`; `cloudOAuthShowSignIn` 152 lines), the connections pages (`:7925-8160`), CLOUD STORAGE SETUP (`:8162-8242`), FINISH RESTORE PROCESS (`openRestoreRelink` `:8261-8497`, 237 lines), NETWORK SETTINGS and MANAGE SAVED NETWORKS (`:9744-10512`); **264 value-binding rows from 564 builder calls by the nine `\b<builder>\(` greps** (the settings digest's generator counted 568, and the lane's says which four more; by the greps: 35 `addSwitch`, 30 of them to `Settings` and 5 to `SystemConf`; 6 `addOptionList`, all `Settings`; 15 `addInputTextConfigRow`; 5 `addFileBrowser`; 169 `addWithLabel`; 72 and 27 `addWithDescription`; 129 `addEntry`; 90 `addGroup`; 16 `addRow`), 260 store writes (152 `SystemConf`, 108 or 109 `Settings`; 68 dynamic keys), the store decided mechanically for 261 rows and by hand for 41; 96 (or 97) literal `system.cfg` keys written here, 24 of them named by the OS scripts and the rclone package at `8ebaf8daad`, 4 written on both sides, **33 written by a row and read by nothing under `projects/ROCKNIX/packages`**, 15 read by a script with no row; **the ten longest functions**: `openSystemSettings` `:1697-3300` (1,604 lines; 148 row builders by the digest's count, 96 of the nine builders and 140 of all `->add*(`; 87 lambdas; 24 `#if`), `openThemeConfiguration` 674, `popSpecificConfigurationGui` 537, `openNetworkSettings` 494 (+101 by the fork over 30 hunks), `openDeveloperSettings` 483, `openGamesSettings` 446 (+65), `cloudOpenTransferOptions` 375 (fork-own, nesting depth 6), `addFeatureItem` 357, `cloudContentSystemPicker` 317 (fork-own), `openRestoreRelink` 237 (fork-own); **86 `#if` regions** (78 at the base) and, under the build's `-DROCKNIX=1 -DDISABLE_KODI=1` with BATOCERA off, about 930 lines (8%) compiled into no ROCKNIX image by the digest's count (753 BATOCERA, 124 `!ROCKNIX` first arms, 37 WIN32, 19 `_RPI_`, 19 KODI; 1,189 counting the device arms); 98 includes (71 at the base), 11 fork-own headers, the top include block repeated at `:99-102` and `GuiLoading.h` included under two spellings; **166 `_("")` literals used in two or more functions** (158 by one-line literals); 109 `GuiMsgBox` constructions; 9 upstream commits to this file since the base (+155/-12, 14 hunks) against the fork's 148 hunks |
+| `es-app/src/guis/GuiMenu.h` | 136 | the class (114 lines at the base; 23 insertions, 1 deletion): the fork's member declarations for the pages above (`openCloud`, `openCloudConnections`, `openCloudAddRemote`, `openCloudSetup`, `openRestoreRelink`, `openCloudFolderEditor`, ...); 63 `GuiMenu::` members are defined in the `.cpp` (91 or 92 file-statics and 1 or 2 free functions beside them, `getCountryCodes` classed either way); the lane matches the header's declarations against the definitions and names any declared member without one, or vice versa |
 
 **The pages** (the pages digest). Every fork page is a function in this
 file building a `GuiSettings` in place: the wizard's three steps and its
@@ -184,12 +182,11 @@ flag this file passes exists in the product scripts at `8ebaf8daad`.
 
 What it found instead, the leads of § 4: **`exists(qrPath)` at `:7792` is
 cached** on `/tmp/cloud-oauth-qr.png`, a file `rm -f`ed and rewritten by
-`qrencode` on every sign-in attempt (`:7767-7793`; `runSystemCommand`
-waits and returns 0 always, `Platform.cpp:868/876`) -- a first attempt
+`qrencode` on every sign-in attempt (`:7767-7793`; `runSystemCommand` waits and returns 0 always, `es-core/src/utils/Platform.cpp:868/876`) -- a first attempt
 with no QR caches the miss for the session, a first attempt with one
 caches the hit over a later failure; **`cloudSelectionRead` (`:4133-4137`)
 reads the scan files through `isRegularFile`, which is cache-backed and
-remembers a miss** (`FileSystemUtil.cpp:1164-1167`, `:138-148`) while its
+remembers a miss** (`es-core/src/utils/FileSystemUtil.cpp:1164-1167`, `:138-148`) while its
 own comment at `:4154-4156` says "uncached" (exposure narrow: every read
 follows a `--stamp-valid` gate and `cloud_scan` writes all three files);
 **synchronous process starts on the interface thread with no bound**,
@@ -223,12 +220,9 @@ a build with a compiled pair.
 **The rows** (the settings digest). The generated table's counts are in
 the file table above; what they hide is the shape of the leads. **A page
 with only `addInputTextConfigRow` rows never writes a file by itself**:
-`GuiSettings::save()` returns at `if(!mSaveFuncs.size())`
-(`GuiSettings.cpp:88-89`) before it saves either store, and
-`SystemConf::set` is memory-only (`SystemConf.cpp:439-464`), so the six
+`GuiSettings::save()` returns at `if(!mSaveFuncs.size())` (`es-app/src/guis/GuiSettings.cpp:88-89`) before it saves either store, and `SystemConf::set` is memory-only (`es-core/src/SystemConf.cpp:439-464`), so the six
 such pages (`:7223`, `:7890`, `:8296`, `:8352`, `:8370`, `:8391`) persist
-only because the fork added `onFinalize` saves (`:8309`, `:8360`, `:8376`,
-`:8393`) -- the next one will not, silently. **An empty OK clears a
+only because the fork added `onFinalize` saves (`:8307`, whose save is `:8309`; `:8360`; `:8376`; `:8393`) -- the next one will not, silently. **An empty OK clears a
 credential**: `buildInputTextConfigRow`'s `updateVal` writes whatever the
 editor returns with no non-empty or changed guard (`GuiSettings.cpp:218-238`),
 the editor opens blank when `system.security.enabled=1` (`:245-248`), and
@@ -241,8 +235,7 @@ PASSWORD** (`:3261-3275`, SYSTEM SETTINGS > SECURITY, an upstream page the
 fork's #198 touched) draws its value unmasked and runs `setrootpass
 <value>` on every page close, changed or not, empty or not, against its
 guarded twin on the relink page. **The VIDEO FILTER global row writes
-`global.videofilters`** (`:5947`) while `setsettings.sh` reads
-`videofilter` and the per-system row writes `.videofilter` (`:10990`), so
+`global.videofilters`** (`:5947`; `:5928` beside it) while `setsettings.sh` reads `videofilter` and the per-system row writes `.videofilter` (`:10991`; `:10990` is its label; `:10972` another), so
 the global default never reaches RetroArch. **Writes at page open, before
 any player action**: `system.battery.warning_threshold=25` when SOUND
 SETTINGS opens (`:9655`, persisted at close), `audio.useFavoriteMusic=false`
@@ -256,18 +249,14 @@ WIREGUARD (`:10316`), the splash rows (`:2799-2814`), the boot game
 decides. The four keys both sides write (`rocknix.bottomscreen.type`,
 `system.automount`, `system.merged.device`, `system.suspendmode`) meet
 `saveSystemConf`'s rewrite of only its changed keys under the shell's lock
-(T21's). `cloudSetupPresent` (`:6484-6503`) sizes the 0.75-height wizard
-pages without positioning them and they fit only because 0.15 + 0.75 =
-0.90 (#540's shape, one constant away). `exitreboot` is set at `:1100` on
-a page whose `onFinalize` (`:1457-1466`) reads only `reboot`; two labels
+(T21's). `cloudSetupPresent` (`:6484-6504`) sizes the 0.75-height wizard pages (`:6496`) without positioning them -- `:6498` positions only the 0.90 page -- and they fit only because 0.15 + 0.75 = 0.90 (#540's shape, one constant away). `exitreboot` is set at `:1100` on a page whose `onFinalize` (`:1457-1466`) reads only `reboot` (other pages read it at `:978`, `:3283`, `:3289`); two labels
 are not upper-cased in the source (`:10349` `ZeroTier One`, `:10860`
-`Emulator`); 25 descriptions run past 60 characters, nine on fork lines
+`Emulator`); 25 descriptions (24 by the proof's count) run past 60 characters, nine on fork lines
 (`:1358`/`:9461` at 88 the longest); `ScrollLoadMedias` (`:9485`) is the one
 `addSwitch(..., false)` that sends an ES-only key to `system.cfg`. The menu
 map: `tools/es-menu-map-check` at the pin prints `55 screen(s) at
 16dbac521, 31 in the map, 24 declared unmapped, 0 missing`; this file
-builds 37 literal `GuiSettings` titles (plus 8 computed), all 37 in the
-map, with one stale node name (FINISH RESTORE SETUP, D-UI-046's drift) and
+builds 37 literal `GuiSettings` titles (plus 8 computed by the digest's count, 13 `new GuiSettings(` without a literal), all 37 in the map, with one stale node name (FINISH RESTORE SETUP, D-UI-046's drift) and
 86 row labels the map names that no `_("")` literal carries -- the lane
 reads which are the map's prose and which are drift.
 
@@ -277,15 +266,12 @@ largest build a page in one go -- `openSystemSettings` at 1,604 lines
 with 24 `#if` arms inside it, and the two fork-own builders over 300
 lines (`cloudOpenTransferOptions`, `cloudContentSystemPicker`) where
 T18's PL-21 and PL-03 sites live. **Duplication in four families**:
-upstream's global/per-system twins (`openGamesSettings` against
-`popSpecificConfigurationGui`, 17 literal pairs), the theme-page and
+upstream's global/per-system twins (`openGamesSettings` against `popSpecificConfigurationGui`, 17 literal pairs by the digest's method, 25 by the proof's), the theme-page and
 UI-page twins, the system-page twins, and the fork's own repeats --
 CONNECT CLOUD STORAGE as five titles, CHECKING... five times, CONNECTING
 TO WI-FI four, **the FINISH RESTORE PROCESS row built in two menus
 (`:5739-5741`, `:10269-10271`)**, the TURN OFF BOTH AUTOMATIC... sentence
-on both sides of the process boundary, five `GuiMsgBox` texts built in two
-or more places and **the NO CLOUD STORAGE IS SET UP gate three times
-behind three different predicates (`:4969`, `:5247`, `:6315`)**; seven
+on both sides of the process boundary, five `GuiMsgBox` texts built in two or more places and **the NO CLOUD STORAGE IS SET UP sentence at seven sites -- three gates (`:4971`, `:5249`, `:6322`) behind three different predicates (`:4969`, `:5247`, `:6315`), two `GuiMsgBox`es (`:8199`, `:8458`), the gate check's dialog text (`:6782`) and the hub's row line (`:5703`)**; seven
 identical code runs of six lines or more, all upstream's, the 13-line one
 dead (`:1344-1362` under `!ROCKNIX` against `:9447-9465`); fork helpers
 that overlap (`cloudSetupAddInfoRow`/`cloudAddCentredLine`,
@@ -298,12 +284,9 @@ copies of a `#if !WIN32`/`#else` lambda pair sit in `openNetworkSettings`
 `#if !defined(ROCKNIX)` and closed under another in `openGamesSettings`
 and `popSpecificConfigurationGui` (the digest's own parser tripped on
 exactly this). **Compile and translation**: `g++ -fsyntax-only` fails at
-`InputConfig.h:6` on `SDL_joystick.h` (`CANNOT`); 0 of 1,606 comment
-lines carry a non-ASCII byte (40 string lines do), and the build runs
+`InputConfig.h:6` on `SDL_joystick.h` (`CANNOT`); 0 of about 1,600 comment lines carry a non-ASCII byte (1,606 or 1,603 by how a comment line is counted; 40 string lines do), and the build runs
 `xgettext --add-comments=TRANSLATION` with no `--from-code`
-(`locale/CMakeLists.txt:9`), so the trap stands empty at this pin; 1,447
-lines carry `_("`, 1,689 occurrences, 980 unique one-line literals (408
-new at the pin), **French 978 of 980**, 0 fuzzy, the two absent being
+(`locale/CMakeLists.txt:9`), so the trap stands empty at this pin; 1,447 lines carry `_("`, 1,689 occurrences (1,695 by substring), 980 unique one-line literals (408 new at the pin), **French 978 of 980**, 0 fuzzy, the two absent being
 upstream's RESET BATTERY FUEL GAUGE rows at `openResetOptions:517-518`,
 live on every image. **The merge debt**: 9 upstream commits to this file
 since the base; both sides changed `openNetworkSettings`,
@@ -413,27 +396,18 @@ which were read (`working-principles.md` § Pre-flight):
    fewer sites than its issue named: #198's three `setrootpass` callers in
    this file; guard `tests/credential-quoting.py`, the `quoting` suite)**,
    67 (a credential-shaped fixture reaching history).
-5. **The tests at the pin.** No unit test compiles `GuiMenu.cpp`
-   (`es-app/tests/unit/` 19 files, 221 cases, GuiMenu named only in
-   `CloudTextTests.cpp` and `MaskSecretsTests.cpp`; `tests/app-unit/` 7
-   files, 40 cases, none). **Nine Python harnesses under the ES repository's
-   `tests/` extract this file's own functions by brace-matching and compile
-   them with the host's `g++`** -- T18's forward audit assigned eight of
-   them to this slice: `cloud-oauth-lifetime.py` (184 lines; the sign-in
+5. **The tests at the pin.** No unit test compiles `GuiMenu.cpp` (`es-app/tests/unit/` 19 files, 221 cases, GuiMenu named only in `CloudTextTests.cpp` and `MaskSecretsTests.cpp`; `tests/app-unit/` eight test files and `main.cpp`, 40 cases, none). **Ten Python harnesses under the ES repository's `tests/` extract this file's own functions by brace-matching and compile them with the host's `g++`** -- T18's forward audit (`02-forward-audit.md:62-69`) assigned eight of them to this slice: `cloud-oauth-lifetime.py` (184 lines; the sign-in
    callbacks under `-fsanitize=address`, the phone, keyboard, no-browser and
    failed-start routes), `cloud-sync-last-run.py` (`cloudLastRunWhy` over
    stamps), `maintenance-why.py` (`maintenanceWhy`), `cloud-set-systems-quoting.py`
    (`cloudSetSystemsCommand` through `/bin/sh`), `cloud-gated-row.py`
    (`cloudAddGatedEntry`), `cloud-folder-reopen.py` (reads the source for
    the reopened row; no compiler), `cloud-content-selection.py` (the content
-   picker), `cloud-oauth-await.py` (`cloudOAuthAwaitSession`) -- and
-   `credential-quoting.py` (blindspot 57's guard) is the ninth; `wifi-profile-lifetime.py`
-   is read for whether its subject is this file's. They are the host
+   picker), `cloud-oauth-await.py` (`cloudOAuthAwaitSession`) -- and `credential-quoting.py` (blindspot 57's guard) and `gpu-governor-save.py` (the GPU governor row's save callback, #436) are the ninth and tenth; `wifi-profile-lifetime.py` is `GuiWifi.cpp`'s (T21's). They are the host
    evidence floor (§ 5). `.githooks/pre-push-test` is the ES fork's guard
    test.
 6. **The walks and the frames.** `tools/vm-walks/`: 18 `.steps` files;
-   those naming this file's pages: `to-manage-cloud-storage.steps` (five
-   lines: START opens MAIN MENU on GAME SETTINGS, MANAGE CLOUD STORAGE the
+   those naming this file's pages: `to-manage-cloud-storage.steps` (28 lines, 17 of them steps: START opens MAIN MENU on GAME SETTINGS, MANAGE CLOUD STORAGE the
    last row of the CLOUD SETTINGS group, the RETROACHIEVEMENTS row above
    it), `ui-settings-toggle.steps`, `reset.steps`, `m7-cloud-sync.steps`,
    `m7-retro-achievements.steps`; `suite.txt` resets `cloudsync.pick.*` and
@@ -487,8 +461,7 @@ map). The leads below are the digests' by shape; each is read at its lines
 before it is called anything.
 
 - **Q1 The pages' lifetimes.** The sixteen `cloudSetupPresent` calls and
-  what each callback captures (sound by the digest: confirmed, with the
-  nine harnesses as the proof); the posted rebuilds; the three detached
+  what each callback captures (sound by the digest: confirmed, with the ten harnesses as the proof); the posted rebuilds; the three detached
   threads (`:9769-9847`: safe through the gated post, unbounded in
   `queryInterfaceAddresses`); `CloudHubRefresher` and `CloudConnectionsPage`'s
   `mAlive`; what `tests/cloud-oauth-lifetime.py` and `wifi-profile-lifetime.py`
@@ -562,10 +535,7 @@ before it is called anything.
    is `CANNOT` for the host's `g++ -fsyntax-only` (SDL through
    `Window.h`) and its compile proof is the integration build's;
    `tools/es-syntax-check` records its exit-2 line with `ES_BUILD_ROOT`
-   set, never empty. **But nine Python harnesses under the ES repository's
-   `tests/` extract this file's own functions by brace-matching and compile
-   them with the host's `g++`** -- the coordinator ran all nine on an
-   extract of the pin on 2026-10-26 and each passed (the lines in the runs
+   set, never empty. **But ten Python harnesses under the ES repository's `tests/` extract this file's own functions by brace-matching and compile them with the host's `g++`** -- the coordinator ran all ten on an extract of the pin on 2026-10-26 and each passed (the lines in the runs
    block are their output); they are the host evidence floor, each run
    from the ES worktree at stage A with its exit and summary line recorded
    in `02` § The runs, and **a new case in one of them is the proof of
@@ -579,7 +549,7 @@ before it is called anything.
    plan and bound (45 minutes proposed), granted explicitly in the shared
    log's queue, one boot of the M6 copy of the image
    (`/workspace/artifacts/m6-t2-20261023/`, `069fc2704421`) **started at
-   640x480** (`generic-x64-vm run --res`, #1141), the post contract
+   640x480** (`projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm run --res`, #1141), the post contract
    `START HH:MM:SS UTC` / `RETURN HH:MM:SS UTC` as each post's first line
    with the census, the stop by pidfile at bound plus grace, the disk
    retired after with path, size and sha (D-INFRA-022): the identity
@@ -608,8 +578,7 @@ before it is called anything.
    the commands' quoting through one function, and the table of upstream
    hunks the next merge will meet.
 4. **A fix lands only under a stream brief** at the stage-D pause, on the
-   ES branch, proven twice (`fix-unit-test` through one of the nine
-   harnesses or `fix-walk-pending-image`), the harness that covers the
+   ES branch, proven twice (`fix-unit-test` through one of the ten harnesses or `fix-walk-pending-image`), the harness that covers the
    function run before every commit; **a row added, moved or renamed
    updates `docs/es-menu-map.md` in the same commit and
    `tools/es-menu-map-check` passes before it (D-UI-039)**.
@@ -631,34 +600,34 @@ git -C "$W" show "$PIN:$F" > "$TMPDIR/pin.cpp"; git -C "$W" show "bccd715707:$F"
 git -C "$W" grep -n 'cloudSetupPresent(' "$PIN" -- "$F" | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo; git -C "$W" grep -c 'cloudSetupPresent(' "$PIN" -- "$F" | sed "s/^$PIN://"
 # the reads of files other processes write (expect 12 lines with `, false)`; exists(qrPath) at 7792 without it; isRegularFile at 4133-4137; the comment "uncached" at 4154-4156)
 git -C "$W" grep -n -E 'exists\(|isRegularFile\(' "$PIN" -- "$F" | sed "s/^$PIN://" | $G -c ', false)'; git -C "$W" grep -n -E 'qrPath|isRegularFile\(' "$PIN" -- "$F" | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo; git -C "$W" show "$PIN:$F" | sed -n '4154,4156p' | cut -c1-120
-# the synchronous starts and the output reader (expect cloud_remote/cloud_setup/cloud_oauth lines including 5579 5589 7060 7233 7321 7450 6749 4207 7813 7848 7930 8027 8091; GetShOutput at 7133 and its callers)
-git -C "$W" grep -n -E 'cloud_remote|cloud_setup|cloud_oauth' "$PIN" -- "$F" | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' ' | cut -c1-400; echo; git -C "$W" grep -n 'GetShOutput' "$PIN" -- "$F" | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo
-# the dialogs, the composers, the chain, the quoting (expect CANCEL SIGN-IN at 7702-7717 and 7824-7827; MANUAL UPDATES at 1511-1521; backuptool at 5043-5045 and 5125; the composers' rc at 5006 and 6140; setrootpass at 3272 6537 8421; cloudShellQuote at 7183; the runtime msgid at 8116; the two #ifndef at 8354 and 8372)
-git -C "$W" grep -n -E 'CANCEL SIGN-IN|MANUAL UPDATES|backuptool|setrootpass|cloudShellQuote\(|want\.second\.c_str|#ifndef (CHEEVOS|SCREENSCRAPER)_DEV_LOGIN' "$PIN" -- "$F" | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' ' | cut -c1-400; echo
-# the nine harnesses on the host (expect: maintenance-why: PASS; cloud-sync-last-run: PASS; cloud-oauth-lifetime PASS phone/keyboard/no-browser/failed-start; cloud-set-systems-quoting: 5 of 5 passed; cloud-gated-row: PASS; cloud-folder-reopen: PASS; cloud-content-selection: 14 of 14 passed; cloud-oauth-await: PASS; credential-quoting: 9 credential call site(s), 9 quoted, 0 bare; every rc 0 -- the coordinator's run of 2026-10-26 on the pin extract)
-( cd "$W" && for t in maintenance-why cloud-sync-last-run cloud-oauth-lifetime cloud-set-systems-quoting cloud-gated-row cloud-folder-reopen cloud-content-selection cloud-oauth-await credential-quoting; do out=$(timeout 600 python3 -I "tests/$t.py" 2>&1); rc=$?; printf '%s rc=%s: %s\n' "$t" "$rc" "$(printf '%s\n' "$out" | tail -n 1 | cut -c1-120)"; done )
-# the menu map and the French (expect `55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing` -- or the counts the lane finds, named; the es-untranslated summary line `N fork string(s) in the source, N with French, 0 without`)
+# the synchronous starts and the output reader (expect, among the line numbers printed: 5579 5589 7060 6749 7813 7848 by the script names and 7233 7321 7450 7930 8027 8091 4207 through cloudRemoteLines/cloudRemoteBackends/cloudSetSystemsCommand; GetShOutputLines at 7133 and GetShOutput's callers at 7407-7422 and 7995-8001)
+git -C "$W" grep -n -E 'cloudRemoteLines\(|cloudRemoteBackends\(|cloudSetSystemsCommand\(|cloud_remote|cloud_setup|cloud_oauth' "$PIN" -- "$F" | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo; git -C "$W" grep -n 'GetShOutput' "$PIN" -- "$F" | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo
+# the dialogs, the chain, the quoting, the guards (expect, among the line numbers printed: CANCEL SIGN-IN at 7703 7717 7827; MANUAL UPDATES at 1516; backuptool at 5044 and 5125; setrootpass at 3272 6537 8421; cloudShellQuote at 7183; the runtime msgid at 8116; the guards at 8354 (#ifndef CHEEVOS_DEV_LOGIN) and 8372 (#if defined(SCREENSCRAPER_RUNTIME_DEV_LOGIN) && !defined(SCREENSCRAPER_DEV_LOGIN)); then the composers' two rc lines read)
+git -C "$W" grep -n -E 'CANCEL SIGN-IN|MANUAL UPDATES|backuptool|setrootpass|cloudShellQuote\(|want\.second\.c_str|_DEV_LOGIN' "$PIN" -- "$F" | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo; git -C "$W" show "$PIN:$F" | sed -n '5006p;6140p' | cut -c1-120
+# the ten harnesses on the host (expect the last line of each: maintenance-why: PASS; cloud-sync-last-run: PASS; cloud-oauth-lifetime PASS failed-start (its four routes above it); cloud-set-systems-quoting: 5 of 5 passed; cloud-gated-row: PASS; cloud-folder-reopen: PASS; cloud-content-selection: 14 of 14 passed; cloud-oauth-await: PASS; credential-quoting: 9 credential call site(s), 9 quoted, 0 bare; gpu-governor-save PASS fallback; every rc 0 -- the coordinator's run of 2026-10-26 on the pin extract)
+( cd "$W" && for t in maintenance-why cloud-sync-last-run cloud-oauth-lifetime cloud-set-systems-quoting cloud-gated-row cloud-folder-reopen cloud-content-selection cloud-oauth-await credential-quoting gpu-governor-save; do out=$(timeout 600 python3 -I "tests/$t.py" 2>&1); rc=$?; printf '%s rc=%s: %s\n' "$t" "$rc" "$(printf '%s\n' "$out" | tail -n 1 | cut -c1-120)"; done )
+# the menu map and the French (expect `55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing` -- or the counts the lane finds, named; the es-untranslated summary line `706 fork string(s) in the source, 706 with French, 0 without` at the pin, the two upstream fuel-gauge strings listed after it, rc 0)
 out=$(tools/es-menu-map-check --es-src "$W" --ref "$PIN" 2>&1); rc=$?; printf '%s\n' "$out" | tail -n 1; echo "es-menu-map-check rc=$rc"
 out=$(tools/es-untranslated --es-src "$W" --upstream bccd715707 2>&1); rc=$?; printf '%s\n' "$out" | $G -m1 'fork string'; echo "es-untranslated rc=$rc"
 # the non-ASCII comments and the compile (expect 0 with rc 1; es-syntax-check exit 2 on this host; g++'s first error names SDL)
 git -C "$W" show "$PIN:$F" | $G -c -P '^\s*//.*[^\x00-\x7F]'; rc=$?; echo "non-ascii grep rc=$rc"
 out=$(ES_BUILD_ROOT=/nonexistent tools/es-syntax-check --tree "$W" "$F" 2>&1); rc=$?; printf '%s\n' "$out" | tail -n 1; echo "es-syntax-check rc=$rc"
 out=$(g++ -std=c++17 -fsyntax-only -I "$W/es-app/src" -I "$W/es-core/src" -I "$W/external" "$W/$F" 2>&1); rc=$?; printf '%s rc=%s\n' "$(printf '%s\n' "$out" | $G -m1 -E 'fatal error|error:' | cut -c1-90)" "$rc"
-# the rows (expect the lane's generator under the audit folder's tools/ to print its asserted counts: 264 value-binding rows from 568 builder calls -- addSwitch 35 (30 Settings, 5 SystemConf), addOptionList 6, addInputTextConfigRow 15, addFileBrowser 5, addWithLabel 169, addWithDescription 72+27, addEntry 129, addGroup 90, addRow 16; 260 store writes, 152 SystemConf and 108 Settings -- or its own figures with the method named; the raw builder counts by grep beside them)
+# the rows (expect the lane's generator under the audit folder's tools/ to print its asserted counts: 264 value-binding rows from 564 builder calls by the nine greps below (the digest's generator counted 568: the generator says which four more) -- addSwitch 35 (30 Settings, 5 SystemConf), addOptionList 6, addInputTextConfigRow 15, addFileBrowser 5, addWithLabel 169, addWithDescription 72+27, addEntry 129, addGroup 90, addRow 16; 260 store writes, 152 SystemConf and 108 or 109 Settings -- or its own figures with the method named)
 python3 -I docs/audits/*-epic-m6-es-guimenu/tools/t26-rows.py "$TMPDIR/pin.cpp" | tail -n 3; for b in addSwitch addOptionList addInputTextConfigRow addFileBrowser addWithLabel addWithDescription addEntry addGroup addRow; do printf '%s %s\n' "$b" "$(git -C "$W" show "$PIN:$F" | $G -c -E "\b$b\(")"; done
-# the credential rows, the stores' writers and the page-open writes (expect addInputTextConfigRow at 8297 8353 8356 8371 8374 8392 among the 15; onFinalize at 8309 8360 8376 8393; the guard at 8413-8423; setrootpass at 3272; global.videofilters at 5947 and .videofilter at 10990; led.colour between 3038 and 3062; warning_threshold at 9655; useFavoriteMusic at 9612-9613; timezone at 1857-1870)
-git -C "$W" grep -n -E 'addInputTextConfigRow\(|onFinalize|global\.videofilters|\.videofilter|led\.colour|warning_threshold|useFavoriteMusic|system\.timezone' "$PIN" -- "$F" | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' ' | cut -c1-500; echo
+# the credential rows, the stores' writers and the page-open writes (expect, among the line numbers printed: addInputTextConfigRow at 8297 8353 8356 8371 8374 8392 among the 15; onFinalize at 8307 8360 8376 8393; global.videofilters at 5928 and 5947; .videofilter at 10972 and 10991; led.colour between 3038 and 3062; warning_threshold at 9655; useFavoriteMusic at 9612; system.timezone between 1857 and 1870; the guard at 8413-8423 is read, not grepped)
+git -C "$W" grep -n -E 'addInputTextConfigRow\(|onFinalize|global\.videofilters|\.videofilter|led\.colour|warning_threshold|useFavoriteMusic|system\.timezone' "$PIN" -- "$F" | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo
 # the keys both sides touch (expect 4 keys written by a row and by a set_setting: rocknix.bottomscreen.type, system.automount, system.merged.device, system.suspendmode; the scripts' videofilter and led.color names)
 git grep -n -E 'set_setting (rocknix\.bottomscreen\.type|system\.automount|system\.merged\.device|system\.suspendmode)\b' "$C" -- projects/ROCKNIX/packages/rocknix/sources/scripts | sed "s/^$C://" | cut -d: -f1,2 | tr '\n' ' '; echo; git grep -n -E 'videofilter|led\.colou?r' "$C" -- projects/ROCKNIX/packages/rocknix/sources/scripts | sed "s/^$C://" | cut -d: -f1,2 | tr '\n' ' ' | cut -c1-300; echo
-# the reboot flags and the sized pages (expect every setVariable/getVariable of reboot|exitreboot in GuiMenu.cpp; exitreboot set at 1100 and read nowhere but reboot at 1457-1466; setSize only in cloudSetupPresent 6484-6503, the 0.75 pages unpositioned)
-git -C "$W" grep -n -E 'setVariable\("(reboot|exitreboot)"|getVariable\("(reboot|exitreboot)"' "$PIN" -- es-app/src | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' ' | cut -c1-400; echo; git -C "$W" grep -n -E 'getMenu\(\)\.(setSize|setPosition)|mMenu\.(setSize|setPosition)' "$PIN" -- es-app/src/guis | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo
-# the structure (expect the lane's analyser under the audit folder's tools/ to print: 156 definitions (63 members, 91 statics, 2 free); the ten longest with openSystemSettings 1697-3300 at 1604 lines first; 86 #if regions; about 930 lines in no ROCKNIX image; 166 literals in two or more functions; 109 GuiMsgBox; the FINISH RESTORE PROCESS row at 5739-5741 and 10269-10271; the NO CLOUD STORAGE gate at 4969 5247 6315)
+# the reboot flags and the sized pages (expect every setVariable/getVariable of reboot|exitreboot to be in GuiMenu.cpp; exitreboot set at 1100 on openDeveloperSettings, whose onFinalize 1457-1466 reads only reboot, while other pages read exitreboot at 978 3283 3289; the setSize|setPosition grep prints 6496 (setSize), 6498 (setPosition of the 0.90 page) and 10730 (setPosition of the quick-access menu): the 0.75 pages are sized at 6496 and not positioned)
+git -C "$W" grep -n -E 'setVariable\("(reboot|exitreboot)"|getVariable\("(reboot|exitreboot)"' "$PIN" -- es-app/src | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo; git -C "$W" grep -n -E 'getMenu\(\)\.(setSize|setPosition)|mMenu\.(setSize|setPosition)' "$PIN" -- es-app/src/guis | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo
+# the structure (expect the lane's analyser under the audit folder's tools/ to print: 156 definitions (63 members, 91 statics, 2 free); the ten longest with openSystemSettings 1697-3300 at 1604 lines first; 86 #if regions; about 930 lines in no ROCKNIX image by the digest's count; 166 literals in two or more functions by its method; 109 GuiMsgBox; the grep below prints the sentence lines 4971 5249 5703 5739 6322 6782 8199 8266 8458 10269 -- the predicates sit at 4969 5247 6315, the row ranges are 5739-5741 and 10269-10271, 8266 is a page title)
 python3 -I docs/audits/*-epic-m6-es-guimenu/tools/t26-structure.py "$TMPDIR/pin.cpp" | tail -n 12; git -C "$W" show "$PIN:$F" | $G -c -E '^\s*#\s*if'; git -C "$W" show "$PIN:$F" | $G -c 'new GuiMsgBox'; git -C "$W" grep -n -E 'FINISH RESTORE PROCESS|NO CLOUD STORAGE IS SET UP' "$PIN" -- "$F" | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo
 # the strings (expect 1447 lines with _(" ; 980 unique one-line literals; French 978 of 980 with RESET BATTERY FUEL GAUGE the two absent -- the lane's pass, one-line msgids)
 git -C "$W" show "$PIN:$F" | $G -c '_("'; git -C "$W" show "$PIN:$F" | $G -o -E '_\("[^"]*"\)' | sort -u | wc -l; python3 -I docs/audits/*-epic-m6-es-guimenu/tools/t26-french.py "$TMPDIR/pin.cpp" <(git -C "$W" show "$PIN:locale/lang/fr/LC_MESSAGES/emulationstation2.po") | tail -n 3
 # the merge debt (expect 9 upstream commits and +155/-12 since the base; the fork's 225 on the two files; cada856d8 among upstream's, touching openWifiSettings)
 git -C "$W" log --oneline bccd715707..rocknix/master -- "$F" | wc -l; git -C "$W" diff --numstat bccd715707 rocknix/master -- "$F"; git -C "$W" log --oneline bccd715707..rocknix/master -- "$F" | $G -c cada856d8; git -C "$W" show --stat cada856d8 -- "$F" | tail -n 1
-# the removal check from the dispatch tip -- <dispatch tip> is the lane tip the dispatch comment on #673 names (expect empty) and the ES diff against the pin (expect empty before stage E)
+# the removal check -- <dispatch tip> is the lane's own tip the pointer and the dispatch comment name (the merge of 2174265e9c and the coordinator's tip; never 2174265e9c itself, whose tools/ differ from the coordinator's) (expect empty) and the ES diff against the pin (expect empty before stage E)
 git diff --stat <dispatch tip> HEAD -- packages projects tools | tail -n 1; git -C "$W" diff --stat "$PIN" HEAD | tail -n 1
 ```
 
@@ -694,7 +663,7 @@ from the artifacts, never from the hand-back's words.
 - [ ] `tools/lint-audit-artifacts docs/audits/<date>-epic-m6-es-guimenu/` prints `PASS` (its default `resolution` phase, at close; before stage D the same command with `--phase pre-issue` prints `PASS pre-issue artifacts (does not certify resolution)`).
 - [ ] `second-opinions/review-plan.json` records `depth: independent` and one reviewer (`gpt`, `openai/gpt-6-astra`, `max`); its probe and refutation have a `.provenance.json` beside them whose served model is the seat's, whose verification is PASS and whose `facilitator_version` is named (read directly); `packet-manifest.json` carries the three-way scan with every hit dispositioned by name and the trimmed regions named; the running log shows exactly two keyed invokes.
 - [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue (a `bug`, a Backlog the coordinator files, #1143, #585, #648, #665, #668, an M7 issue by number), withdrawn or recorded as written with its reason; `tools/box-check --issue <audit issue>` prints 0 fail.
-- [ ] `reviewed-at:`, `reviewed-at-es:`, `fixed-at:` and `fixed-at-es:` in the checklist's header carry the lane's commits; the ES read is on the pin's bytes for the two files (`git -C <W> diff --stat 16dbac5211 <reviewed-at-es> -- es-app/src/guis/GuiMenu.cpp es-app/src/guis/GuiMenu.h` empty before stage E) and nothing under the distribution's `packages/`, `projects/` or `tools/` changed at any stage.
+- [ ] `reviewed-at:`, `reviewed-at-es:`, `fixed-at:` and `fixed-at-es:` in the checklist's header carry the lane's commits; the ES read is on the pin's bytes for the two files (`git -C <W> diff --stat 16dbac5211 <reviewed-at-es> -- es-app/src/guis/GuiMenu.cpp es-app/src/guis/GuiMenu.h` empty before stage E) and nothing under the distribution's `packages/`, `projects/` or `tools/` changed at any stage against the lane's own dispatch tip (the pointer's merge hash, never `2174265e9c`).
 - [ ] `01-research-notes.md` § Scope records § 2's block with its output (2 paths, 11,883 lines; fork-own 2; both in the merge base; 5124/436 and 23/1 -- or the deltas beside them) and the definitions parser's line (156 / 60 / 97 / 15 / 1 / 44, or the lane's figures with the parser committed under `tools/`).
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | /usr/bin/grep -c -E '^\| `'`` prints `2`.
 - [ ] `02-forward-audit.md` § The pages has one row per page title this file builds (the title, the function, the line range, what it opens, what it runs and on which thread with what bound, its threads, its confirmations with the button back lands on), generated or asserted by a script under the audit folder's `tools/` that names its count (twenty by the pages digest, or the lane's count with its method).
@@ -702,7 +671,7 @@ from the artifacts, never from the hand-back's words.
 - [ ] `02-forward-audit.md` § The transitions has one row per `cloudSetupPresent` call and per page replacement outside the wizard (sixteen and the rest): what closes, what the callbacks capture, which harness covers it or `none`.
 - [ ] `02-forward-audit.md` § The reads has one row per `exists(`/`isRegularFile(` in this file: the file, its writer, cached or not, and the line -- the twelve uncached and the two cached leads among them.
 - [ ] `02-forward-audit.md` § The duplicates and § The merge debt are present: every label built in two functions with both lines; upstream's commits to this file since `bccd715707` and the hunks the fork's edits overlap, named; D-WORKFLOW-080's option (a) recorded as the shape.
-- [ ] `02-forward-audit.md` § The runs records every § 5 command with exit, wall time, the figure and *a FAIL would mean ...*; a run that cannot be made is `CANNOT` with its reason; the nine harnesses' lines, the menu-map check's line and the French summary line are among them.
+- [ ] `02-forward-audit.md` § The runs records every § 5 command with exit, wall time, the figure and *a FAIL would mean ...*; a run that cannot be made is `CANNOT` with its reason; the ten harnesses' lines, the menu-map check's line and the French summary line are among them.
 - [ ] `02-forward-audit.md` § The guest cycle records the window the coordinator granted on #673 (the comment's time; the START and RETURN posts with their first-line contract and censuses), the image by file name and `BUILD_ID` read from the guest at 640x480, the walks of the fork's pages with their strings read back at EN and FR and each frame labelled by side, each confirmation's back landing, the two stores after a page close for Q2's rows, the taller pages' last row and buttons on screen, the QR-path positive, the disk retired with path, size and sha, the leftover check.
 - [ ] `00-running-log.md` shows no image build, no fetch (the council runtime from `npm install --offline`), no handheld, the owner's accounts never named or used, no hosted account but the QA ones, no M7 root, worktree or prep directory, the guest only inside the granted window, two keyed invokes and every other council call keyless (`00`'s own closing census).
 - [ ] `04-analysis.md` § Q1 to Q7 are answered at their lines; every `bug` states its trace, its `Already written:` line and its VM line in the four families and passes `tools/box-check --issue N`; every #585 line owed is written in `02` in the shape the lane writes.
@@ -738,8 +707,7 @@ does not end a turn on a post that asks nothing**.
   mode; its *adjustments* are proposals for the coordinator; its scoped
   audit runs check 7's step 5 where a fix landed.
 - A register row the same session for any decision the slice forces (none
-  expected); D-WORKFLOW-209 is the highest workflow row and D-RA-050 the
-  highest row on the coordinator's branch (D-WORKFLOW-188 on the P1 branch
+  expected); D-WORKFLOW-210 is the highest workflow row, and the highest row, on the coordinator's branch, D-RA-050 the highest RA row (D-WORKFLOW-188 on the P1 branch
   only; the merge unites them); a row this slice forces takes an ID the
   coordinator assigns on #673.
 - `tools/ceremony-check --gate` before every push of the distribution
@@ -794,3 +762,26 @@ any hosted account but the QA ones the window names, a guest before a grant
 on #673, M7's roots, worktrees or prep directories, a change outside the two
 files, `docs/es-menu-map.md` and the audit folder except under a stream
 brief, a move of the pin.
+
+## Version 2: what the stranger's proof of version 1 corrected (2026-10-26)
+
+A reader with no context ran version 1 (`a71f833ea0`) from the P1 clone and the pin by hash, seven commands; § 2's block, the two line counts and deltas, the 225 commits, the nine upstream commits, the definitions (156/60, 97 added, 1 removed), the ten longest functions, some 130 line citations in this file, the builder counts, the `#if`, include and `GuiMsgBox` counts, the strings and the French, all ten harnesses' lines, the menu-map check, `es-untranslated`, the register IDs, the blindspots, the map's and the rules' lines all held. What did not, corrected above:
+
+1. **Four runs-block lines could not print what their comments promised** -- a § 8 stop condition as written: `cut -c1-400/500` after `cut -d: -f1,2` kept only the first dozen hits because the path prefix survived; the synchronous-starts regex could not show seven of its thirteen lines (they call `cloudRemoteLines`, `cloudRemoteBackends`, `cloudSetSystemsCommand`); the dialogs regex could not show `:5006`, `:6140` or `:8372` (which is `#if defined(...) && !defined(...)`, not an `#ifndef`); the structure grep prints the sentence lines, not the predicates. Now `cut -d: -f2` with no width cut, the regexes widened, the comments restated, the composers' two lines read with `sed`.
+2. **564 builder calls by the nine greps**, not 568 (the digest's generator counted four more; the lane's says which).
+3. **`openNetworkSettings` is +196/-95 by difflib** (not +236); the changed/unchanged split (15/44) and the statics/free split (91/2) depend on the parser's rule, now said; the lane's parser states its own.
+4. **D-WORKFLOW-210 is the highest workflow row** (not 209).
+5. **The dispatch tip is the lane's own merge tip**, never `2174265e9c` (whose `tools/` differ from the coordinator's): said in § 5's last line and § 7.
+6. **A tenth harness** reads this file: `gpu-governor-save.py` (`PASS fallback` on the pin extract).
+7. **The NO CLOUD STORAGE sentence has seven sites**, not three: the three gates, two `GuiMsgBox`es (`:8199`, `:8458`), the gate check's dialog (`:6782`), the hub's row line (`:5703`).
+8. Line drifts: `.videofilter` at `:10991` (`:10990` is the label); the WI-FI PASSWORD page's `onFinalize` at `:8307` (its save `:8309`); `cloudSetupPresent` `:6484-6504`; `exitreboot` is read at `:978`, `:3283`, `:3289` on other pages; `:7133` is `GetShOutputLines`; the `setSize` grep also prints `:6498` and `:10730`.
+9. Paths given for `GuiSettings.cpp` (`es-app/src/guis/`), `SystemConf.cpp` (`es-core/src/`), `Platform.cpp` and `FileSystemUtil.cpp` (`es-core/src/utils/`), `generic-x64-vm` (`projects/ROCKNIX/devices/GENERIC_X64/vm/`).
+10. Digest-method counts labelled with their method beside the proof's: 1,689 occurrences (1,695), 166 shared literals (158), 17 twin pairs (25), 148 row builders (96 of nine / 140 of all), 8 computed titles (13), 1,606 comment lines (1,603), 25 long descriptions (24), ~930 dead lines (1,189 with the device arms), 108 `Settings` writes (109), 96 keys (97), `tests/app-unit/` eight test files and `main.cpp`.
+11. `to-manage-cloud-storage.steps` is 28 lines (17 steps), not five.
+12. The hunk figures carry their context width: 38 at `-U3`, 148 at `-U0`.
+13. The futro's addendum exists (it *carries*, not *takes*).
+14. T18's harness table is `02-forward-audit.md:62-69`.
+15. `es-untranslated`'s expected line is `706 fork string(s) in the source, 706 with French, 0 without`.
+16. `order.md`, `slices.json` and `inventory.json` are the P1 branch's, and `feature/m6-es-cloud-pages-665` is a branch of the main repository: said where § 1 and the first commands name them.
+
+Not checked by the proof (no command given; the lane's generators are the check): the 264/260 row and write counts, the 96/24/4/33/15 key cross-reference, the 44 register rows, the 86 unmatched map labels, T18's "35 cached `exists()` in the callers" (the proof counts 26 of 38 in this file), the September time-to-play numbers, "every script flag exists", twelve of the sixteen "last statement" transitions, ROOT PASSWORD's behaviour.

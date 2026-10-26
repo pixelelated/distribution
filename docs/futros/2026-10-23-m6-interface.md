@@ -736,3 +736,33 @@ or `gated: never built` each; D-UI-046's drift as a checkbox; the menu
 map's update rule in the same commit as any row change. Owed before
 dispatch: the stranger's proof of version 1, version 2 with its
 corrections, this futro's errata section, the kit.
+
+### Errata from the stranger's proof of T26's brief (version 2, 2026-10-26)
+
+The T26 addendum above was written with version 1; the proof held every
+count that is a stop condition for the lane (the membership block, the two
+files' lines and deltas, the definitions, the ten harnesses' lines) and
+corrected these of the addendum's and the brief's sentences, now in
+version 2:
+
+- *"nine Python harnesses compile the callbacks on the host"* -- ten:
+  `tests/gpu-governor-save.py` also reads `GuiMenu.cpp` (the GPU governor
+  row's save callback; `PASS fallback` on the pin extract).
+- *"one gate behind three predicates"* -- the NO CLOUD STORAGE sentence has
+  seven sites: the three gates, two `GuiMsgBox`es, the gate check's dialog
+  and the hub's row line.
+- *"264 settings rows from 568 builder calls"* -- 564 by the nine builder
+  greps; the digest's generator counted four more, and the lane's
+  generator says which.
+- The runs block's own commands could not print what their comments
+  promised (a width cut after the path prefix; regexes that missed the
+  helper names and the `#if defined(...) && !defined(...)` guard) -- the
+  fourth brief in a row whose runs block was proven only by running it,
+  which the proof is for.
+- The dispatch tip in a run expectation is the lane's own merge tip, never
+  the P1 branch's `2174265e9c`, whose `tools/` differ from the coordinator's.
+- D-WORKFLOW-210 (the suite ruling of the same afternoon) is the highest
+  workflow row, not 209; and the digest-method counts (1,689 occurrences,
+  166 shared literals, ~930 dead lines, 148 row builders, and the rest)
+  now carry their method beside the proof's figures, so the lane's own
+  are not read as drift.
