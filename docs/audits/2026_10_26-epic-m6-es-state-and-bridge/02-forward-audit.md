@@ -101,6 +101,26 @@ Each lead is in one of the brief's four families. Each is read at its lines and 
 | L-32 | Q5 | a check whose failure reads as success | The player is told RESTORED when the write-back failed or the lock was busy (SO-55). | `SystemConf.cpp:221-265`; `Settings.cpp:615-619`; `main.cpp:1041-1042` | tree |
 | L-33 | Q6 | a check whose failure reads as success | `wifictl saved` with no device is an empty success to both readers; the Bluetooth bulk delete ignores its result (SO-26). | `ApiSystem.cpp:687-705`; `GuiWifi.cpp:548-569`; `GuiBluetoothDevices.cpp:117-121` | tree |
 
+**From Gemini 4 Argon** (`second-opinions/argon-audit.md`, graded in `stage-c/argon-grades.md`; Argon saw the grades of Astra).
+
+**Independent confirmations:**
+- L-23, the empty HOSTNAME (Argon SO-14);
+- L-24, the response-code write (Argon SO-41).
+
+**Widened:**
+- **L-01:** `getMD5` runs `7zr` a second time through `unzipFile` when the first answer is unusable, and a `.m3u`'s first content file is what gets hashed (SO-1, SO-2). Its `Already written:` line: a failed extraction has already stored the empty input's digest as a game's MD5 (SO-19).
+- **L-21:** the same 0645 `system.cfg` holds `root.password` and the RetroAchievements password, and `es_settings.cfg` at 0644 holds the scraper's pair and account (SO-11, SO-39). Both readers AND the copies' modes, so the fix chmods the existing files (SO-12).
+- **L-28:** `renameFile` removes its destination before the rename (SO-42).
+- **L-31:** `getCRC32`'s empty `CRC = ` entry, and a `Retry-After` date read as 0 ms (SO-43).
+
+**New:**
+
+| Lead | Q | Family | What | Where | proved |
+| --- | --- | --- | --- | --- | --- |
+| L-34 | Q4 | a state write that can lose the record | `applyChanges` rewrites a `#k=` line as a live `k=` line beside the real one, misses a first key behind a BOM and appends it again, and writes a literal `key=default` for a new key set to `default` (SO-17). | `SystemConf.cpp:373-407` | tree |
+| L-35 | Q4 | — | `GuiLoading` completions hold raw `this` (`GuiWifi.cpp:314`, `:350`, `:382`); the Bluetooth page's worker writes `mWaitingLoad`, which the interface thread reads (`GuiBluetoothDevices.cpp:127`, `:150`): a data race by reading; the lifetime is plausible, not settled (SO-44, Astra SO-56). | as named | tree |
+| L-36 | Q6 | a check whose failure reads as success | A 501 to 504, or redirects exhausted, reads as `YOU'RE NOT ONLINE` to an online player (SO-45). | `HttpReq.cpp:462-469`; `ScreenScraper.cpp:989-990` | tree |
+
 **Design notes for #1154's question at the pause:**
 - the 429 retry rebuilds the request without its options, so a media-only exception would be lost (SO-9);
 - certificate failures read as `YOU'RE NOT ONLINE` (SO-10);
