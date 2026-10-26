@@ -46,7 +46,7 @@ The first reader's analysis, at the pin `16dbac5211` with the ctl at `8ebaf8daad
 | --- | --- | --- | --- | --- |
 | L-21 | `ThreadedHasher::start` reads and stores a hasher its threads may have deleted (`:385-392` against `:258-265`) | High: use after free on the interface thread, a dangling `mInstance` that `stop()` then writes through | plausible daily: the silent lookups-alone run writes `es_settings.cfg` (file I/O) between the threads' start and the read | tree |
 | L-01 | the password in the login's query string to a peer nobody verified, redirects followed to `http` | Medium; #1154 owns the peer | every sign-in with a changed account, and the watcher's at boot | guest |
-| L-20 | `throw e;` slices to `std::exception`: a dialog whose whole text is that, and a log line with no cause | Medium (the player's words, and a diagnosis lost) | every non-silent index with the library unreachable | fixture, guest |
+| L-20 | `throw e;` slices to `std::exception`: a dialog whose whole text is that, and a summary log line with no cause | Low after the seats (A-43; Argon keeps Medium for the screen) | every non-silent index with the library unreachable | fixture, guest |
 | L-07 | `unknown` (T19 S8) read as 0: NO GAMES READY…, EVERYTHING'S UP TO DATE. | Medium (a count nobody measured, said as fact) | once T19 merges, whenever the store cannot be read | fixture |
 | L-09 | `disable`'s exit 1 with the toggle already off (T19 S5): the page shows on and `SystemConf` keeps on | Medium | once T19 merges, a service that will not stop | tree |
 | L-02 | the sign-in on the interface thread with no total and no stall bound | Medium (a frozen screen of unknown length) | a changed account on a bad link | tree |
@@ -55,14 +55,20 @@ The first reader's analysis, at the pin `16dbac5211` with the ctl at `8ebaf8daad
 | L-06 | `WEXITSTATUS` without `WIFEXITED` | Low on the image (bash forks) | the wrapping shell itself killed by a signal | fixture, guest |
 | L-03 | curl's words, the server's `Error`, two English literals on screen | Low | sign-in failures | tree |
 | L-08 | `STAMP_UNWRITABLE` and `RESULT_UNREADABLE` without rows; `NO_GAMES_FOUND` a dead row; 75/77/78 unnamed for a top-up | Low | once T19 merges | tree |
-| L-10 | `>>> pid` accepted from any line; `kill(-1)` as root if one said 1 | Low (no producer prints it) | none at `8ebaf8daad` | tree |
-| L-14 | HARDCORE MODE can be turned back on with the proxy on | question | — | tree |
+| L-10 | `>>> pid` accepted from any line; `kill(-1)` as root if one said 1 | **Medium** after the seats (A-11, R-5) | a ROM named with a CR and `>>> pid 1`, then a CANCEL: the ctl prints names unreplaced at `8ebaf8daad` | tree |
+| L-14 | HARDCORE MODE on with the proxy on, and `disable` restoring an obsolete preference | Low, a defect by both seats (A-19, R-14); its fix is a question | — | tree |
 | L-17 | the menu map's `:595` and the scan page's missing title | Low (D-UI-039) | — | tool-run |
 | L-18 | a runtime msgid from a sound's name | Low | — | tree |
 | L-19 | the hash library fetched on the interface thread, about 40 s bound offline | known: #300 | — | tree |
 | L-22 | `mExit`/`mPaused` plain `bool`s across threads; `pause()`/`resume()` uncalled | Low | — | tree |
 | L-24 | four #585 lines owed (rcheevos ×3, libretro-common ×1) | Info | — | tree |
-
+| L-26 | the hasher's threads leaked; the LED callback's self-capture; a raw `Window*` post | Low | every run | tree |
+| L-27 | readers that turn an incomplete answer into an empty one | Low | a malformed or unreadable answer | tree |
+| L-28 | `Success` without `Token` counts as signed in; JSON types unchecked | Low (more beside #1154) | a malformed answer | tree |
+| L-29 | INDEXING COMPLETED after a stop; a CANCEL with no way out if undelivered | Low | a stop; an undelivered signal | tree |
+| L-30 | NO GAMES FIT THAT CRITERIA over an empty library | Low | a captive portal's 200 | tree |
+| L-31 | a scan saves an edited username beside the old token | Low | a scan before the parent page closes | tree |
+| L-32 | AN ERROR OCCURRED before a sentence already in the player's words | Low | the game page's two messages | tree |
 ## Coverage boundary
 
 - **Read:** the 23 code paths at the pin whole or as diffs, and the two notices as present and shipped. Read where a contract crosses: `ApiSystem.cpp:2262-2293` and its siblings, `HttpReq.{h,cpp}`, `ProxyCards.cpp:196-385`, `CloudText.cpp` (the why tables, the stamp), `FileSystemUtil.cpp` (`readAllText`), and the ctl at `8ebaf8daad`.
@@ -79,6 +85,41 @@ The first reader's analysis, at the pin `16dbac5211` with the ctl at `8ebaf8daad
   - L-21's positive on the host (the class needs `Window`, `FileData` and `SDL`);
   - `ra-ui-test` in this window;
   - the three hashers end to end (no GameCube RVZ fixture on the image).
+
+## Second opinion
+
+### The packet and the plan
+
+- **The packet:** `second-opinions/packet.md`, 354,904 bytes, built by `stage-c/packet.py` (T18's, adapted) from 63 sections. It holds the ask, `02`, `03` and `04` whole, five context sections, ten evidence sections, five files whole, the library's diff, and cited excerpts with eight lines of context.
+- **The scan, three ways** (`second-opinions/manifest.json`):
+  - the forbidden-terms check: 0 sections with hits, proven to run on a clean line;
+  - the push guard's patterns: 0 lines, proven to fire on a run-time fake line;
+  - the credential words: 511 hits, 48 dispositioned by shape (code comparing a key or token with a word, settings read by key name, D-QA-021's prose), 0 left for review.
+- **The plan:** `review-plan.json`, written before the first call. Depth `extended`; `gpt` (`openai/gpt-6-astra`, `max`) then `gemini-argon` (`google/gemini-4-argon`, `high`), each a probe then one refutation.
+- **The calls:** exactly four keyed calls (`00`), every one PASS on its provenance, read directly (`stage-c/provenance-read.py`).
+- **Argon's brief** was the same packet plus the grades of Astra, scanned the same way (0 and 0).
+
+### GPT-6 Astra (`gpt`, `openai/gpt-6-astra`, `max`): 55 items, graded
+
+`stage-c/astra-grades.md`: 48 accepted, 6 in part (A-7, A-17, A-38, A-40, A-43 and A-49, mostly where the evidence lay outside its packet), 1 plausible (A-55), 0 rejected.
+
+- **It corrected the first reader:**
+  - L-03 (A-4: curl's words never reach `:784`);
+  - L-04 (A-27, A-1);
+  - `scan`'s 77/78 (A-9);
+  - L-07 narrowed (A-10);
+  - L-09 widened to the pin (A-8);
+  - L-10 raised to Medium (A-11);
+  - L-20 lowered to Low (A-43).
+- **New:** A-13 (the constructor's own `push_back` races the deletion), A-50 (L-26), A-51 (L-27), A-52 (L-28), A-53 (L-29), A-54 (the top-up adopting a scan's stamp).
+
+### Gemini 4 Argon (`gemini-argon`, `google/gemini-4-argon`, `high`): 25 items, graded
+
+`stage-c/argon-grades.md`: 24 accepted, 1 in part (R-21, on L-20's severity), 0 rejected.
+
+- **It agrees with Astra** on every correction above.
+- **It adds:** the POST body `HttpReq` already carries (R-2); L-30 (R-22); L-31 (R-24); L-32 (R-25); the RapidJSON type checks (R-23, joining L-28).
+- **The one disagreement** is L-20's severity, which the lane keeps at Low.
 
 ## The questions
 

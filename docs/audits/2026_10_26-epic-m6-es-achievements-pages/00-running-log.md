@@ -57,3 +57,19 @@
   - A kill by pattern: `pgrep -x sleep | head -1` hit `video_sense`'s `sleep 3600` (`g02b`), against the PID-only rule. It was voided in the record.
   - A first `openssl req` under `set -e` with its output silenced stopped without a word. The image has no `openssl.cnf`; nothing had changed.
 - **Closed:** `vm-stop` rc 0; the disk retired with path, size and sha; the account's four keys emptied on the guest before the stop. No image build, no fetch, no handheld, no M7 root or worktree.
+
+## [Stage C] 17:58 to 18:37 UTC — 04, the packet, four keyed calls, 80 items graded, the pre-issue lint
+
+- **`03` and `04`** were written as the first reader's before the packet was built.
+- **The runtime:** `npm install --offline --ignore-scripts` in `tools/council/`; `COUNCIL_ENV_FILE=/nonexistent tools/council/run verify-pins`: `OK`. No fetch.
+- **The packet:** `second-opinions/packet.md`, 354,904 bytes, built by `stage-c/packet.py`. The scan's figures and its 48 shape dispositions are in `04` § Second opinion; a first build stopped on 43 review lines, each read through the mask and dispositioned before the rebuild. `review-plan.json` was written before the first call.
+- **The keyed calls: exactly 4, and no others** (`stage-c/keyed-calls.txt`; every other `tools/council/run` call ran with `COUNCIL_ENV_FILE=/nonexistent`; the key file was never read by me):
+  1. Astra's probe, 18:05:10 to 18:05:23 UTC: PASS, `openai/gpt-6-astra` by OpenAI, effort `max`.
+  2. Astra's refutation, 18:05:34 to 18:22:23 UTC: one attempt, `finish=stop`, 55 items.
+  3. Argon's probe, 18:23:49 to 18:23:56 UTC: PASS, `google/gemini-4-argon` by Google, effort `high`.
+  4. Argon's refutation, 18:24:18 to 18:33:50 UTC: one attempt, `finish=stop`, 25 items.
+- **The provenance, read directly** (`stage-c/provenance-read.py`): all four `verification=PASS`, served model and provider the seat's, each output's sha256 matching, `facilitator_version council-facilitator@1.14.1-pixelelated.2`.
+- **The grades:** Astra 48 accepted, 6 in part, 1 plausible, 0 rejected; Argon 24 accepted, 1 in part, 0 rejected. Each item was re-read at its lines. The corrections and the new leads L-26 to L-32 are in `02` § Corrections and new leads from the seats.
+- **`05`:** 25 items, PL-01 High; PL-02 to PL-07 Medium. Ten are proposed as `bug`s.
+- **`tools/lint-audit-artifacts --phase pre-issue`:** `PASS pre-issue artifacts (does not certify resolution)`.
+- **The host:** M7 has held it since 18:19 UTC (the coordinator's comment); nothing here needed it.

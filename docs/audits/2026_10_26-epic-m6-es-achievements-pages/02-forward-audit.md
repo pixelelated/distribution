@@ -287,6 +287,13 @@ The stage-B text above is left as it was read; each change here names the seat's
   - **L-29** (A-53): a stopped hasher still toasts `INDEXING COMPLETED` (`ThreadedHasher.cpp:146`). `cancel()` marks the job cancelled before the signal and ignores its failure, and refuses a second CANCEL (`OfflineScanJob.cpp:65-80`), so an undelivered cancel has no way out. Low. proved: tree.
 - **PL-13's page half** (A-54): `topUpRunning()` trusts the progress file as liveness, and a top-up reads another run's stamp by its time alone.
 
+- **From Argon** (`stage-c/argon-grades.md`):
+  - **L-04** (R-1): the comment at `RetroAchievements.cpp:173`, "Use empty UserAgent with doRequest.php calls", is stale: `getHttpOptions()` also serves `dorequest.php` (`:855-866`, `:1035`).
+  - **L-28 joined** (R-23): `response` and `mdlist` are used as objects without `IsObject()` (`:879-880`, `:904-905`).
+  - **L-30** (R-22): an empty hash library without an exception (a 200 carrying a captive portal's HTML or bad JSON) posts the offline card and makes `mTotal` 0. A non-silent run then shows `NO GAMES FIT THAT CRITERIA.` (`ThreadedHasher.cpp:383-390`), false there. Low. proved: tree.
+  - **L-31** (R-24): `offlineScanStart` saves `SystemConf` (`GuiRetroAchievementsSettings.cpp:321`) before the parent page's save has cleared or replaced the token (`:743-807`). An edited username reaches `system.cfg` beside the previous account's token, and the scan runs with that pair. Low. proved: tree.
+  - **L-32** (R-25): the game page prefixes a message already in the player's words with `AN ERROR OCCURRED` (`GuiGameAchievements.cpp:41-42` over `RetroAchievements.cpp:507`, `:513`). Low. proved: tree.
+
 ## What T21 and T26 inherit
 
 - **`ask()`'s reader.** `ApiSystem::executeScriptLegacy` (`ApiSystem.cpp:2262-2293`) and its siblings (`:234`, `:270`, `:293`, `:329`, `:354`, `:397`, `:415`, `:440`, `:469`, every one `WEXITSTATUS` without `WIFEXITED`) are T21's. The users this slice found are `OfflineAchievements.cpp:51-57`, `:250`, `:275` and `GuiRetroAchievementsSettings.cpp:479`.
