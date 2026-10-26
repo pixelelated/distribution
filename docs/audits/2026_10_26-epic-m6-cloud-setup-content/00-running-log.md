@@ -129,3 +129,23 @@
 - **Nothing of the never-run list ran.** No guest, and no build. `git diff --stat f3803436b8 HEAD -- packages projects tools` is empty. The one new rclone run was the donor's, over a local backend in scratch.
 - PROOF: P18, every seat item re-read at its lines: `stage-c/rereads/`.
 - PROOF: P19, an option-shaped key honoured as an rclone flag: `stage-c/rereads/c13_option_key.out`.
+
+## [Stage D] 2026-10-26 07:41 UTC — six bugs, the audit issue, the dispositions
+
+- **Stage C accepted and stage D ruled** (the coordinator, 07:5x UTC).
+  - **Six `bug`s:** PL-01 (with PL-14), PL-02 and PL-03 (both **Medium**), PL-04 (with PL-08), PL-05's `cloud_setup:797`, and PL-06's `--set-systems`. The rest are recorded or deferred as `05` now says.
+  - **PL-02's seam:** this slice's scripts only, under **D-CLOUD-185** (a row on the coordinator's branch). T16's twins go to #663.
+  - **Checkbox 3:** the direct provenance read is the evidence, and #664's wording changed.
+  - **Yes** to Argon's filter-flag case as S2's second fixture case.
+  - **Stage E** runs under `docs/reviews/briefs/t17-streams.md` at `f59f7cbbc1`.
+- **Filed**, each with its trace, `Already written:` line and VM line, and `tools/box-check --issue N` at 0 fail:
+  - #1128 S1, PL-01 and PL-14, Low;
+  - #1129 S2, PL-02, Medium;
+  - #1130 S3, PL-03, Medium;
+  - #1131 S4, PL-04 and PL-08, Low;
+  - #1132 S5, PL-06, Low;
+  - #1133 S6, PL-05, Low.
+  - The bodies were scanned before they left: `forbidden-terms-check` 0, `SECRET_PATTERNS` 0.
+- **The audit issue:** #1134, *Audit: M6 T17 cloud setup, sign-in, connections and settings backups -- 22 findings (0 critical, 0 high, 2 medium, 4 low, 16 info)*, labelled `audit` and `punch-list` on M6, attached as a sub-issue of #664. `box-check`: 22 open, 0 fail.
+- **`05`:** every item's disposition note and its Phase 7 row carry the ruling; PL-02 and PL-03 are Medium and PL-06 Low. `tools/lint-audit-artifacts --phase pre-issue`: PASS. `tools/register-check`: PASS.
+- **Nothing under `packages/`, `projects/` or `tools/` changed at stages A to D:** `git diff --stat f3803436b8 HEAD -- packages projects tools` is empty.
