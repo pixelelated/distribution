@@ -1,0 +1,40 @@
+monitor: /workspace/tmp/m6-t18/run/rocknix-qemu-monitor.sock
+$ the match's systems set, as the suite's match-dialog pre does  (10:19:16Z)
+OK 2 selected
+exit 0
+$ vm-visual-qa dismiss; run to-manage-cloud-storage; run f08-cancel-match  (10:19:22Z)
+1 press(es) moved the screen, back on the carousel
+exit 0
+changed after 0.0s (`key ret`, line 12)
+settle: still after 1.7s
+changed after 0.1s (`key x`, line 15)
+settle: still after 1.3s
+changed after 0.1s (`key up`, line 18)
+changed after 0.1s (`key up`, line 20)
+changed after 0.0s (`key up`, line 22)
+settle: still after 1.3s
+changed after 0.5s (`key x`, line 25)
+settle: still after 1.3s
+captured /workspace/tmp/m6-t18/f08/01-cloud-hub.png
+exit 0
+changed after 0.0s (`key down`, line 15)
+changed after 0.1s (`key down`, line 17)
+settle: still after 1.3s
+captured /workspace/tmp/m6-t18/f08/01-cloud-hub-match-row.png
+changed after 0.1s (`key x`, line 21)
+settle: still after 1.7s
+captured /workspace/tmp/m6-t18/f08/02-match-confirm.png
+changed after 0.0s (`key x`, line 25)
+changed after 0.1s (`key z`, line 27)
+settle: still after 1.3s
+captured /workspace/tmp/m6-t18/f08/03-f08-cancel-dialog.png
+changed after 0.1s (`key z`, line 31)
+settle: still after 1.3s
+captured /workspace/tmp/m6-t18/f08/04-f08-after-no.png
+exit 0
+total 200
+-rw-rw-r-- 1 max max 34150 Oct 26 10:19 01-cloud-hub-match-row.png
+-rw-rw-r-- 1 max max 34099 Oct 26 10:19 01-cloud-hub.png
+-rw-rw-r-- 1 max max 61062 Oct 26 10:19 02-match-confirm.png
+-rw-rw-r-- 1 max max 34150 Oct 26 10:19 03-f08-cancel-dialog.png
+-rw-rw-r-- 1 max max 32470 Oct 26 10:19 04-f08-after-no.png

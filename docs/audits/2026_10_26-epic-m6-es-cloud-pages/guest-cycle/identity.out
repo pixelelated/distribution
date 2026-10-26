@@ -1,0 +1,16 @@
+$ the installed EmulationStation against the pin  (10:07:17Z)
+VERSION="0.0.1-dev+20261022T235948Z.g069fc2704421"
+BUILD_ID="069fc270442134fe771258418adf4e666e0473fb"
+BUILD_BRANCH="build/m7-signin-20261022-07"
+25155163fd7970f7da54b3f36d003b8c006111c894d4fe6f0c92d24d51831226  /usr/bin/emulationstation
+lrwxrwxrwx    1 root     root             7 Oct  4 23:37 /bin/setsid -> busybox
+lrwxrwxrwx    1 root     root             7 Oct  4 23:37 /usr/bin/setsid -> busybox
+/usr/bin/busybox
+exit 0
+strings | grep -c -F "FOLDERS ALREADY CREATED WILL STAY. YOU CAN TRY AGAIN LATER."  1
+strings | grep -c -F "STOPPING IT SO YOU CAN PLAY"                                  1
+strings | grep -c -F "RECORDING YOUR LAST GAME"                                     1
+strings | grep -c -F "CANCEL THIS BACKUP OR RESTORE?"                               1
+strings | grep -c -F "NOTHING NEW TO SEND UP"                                       1
+strings | grep -c -F "COMPARING WITH THIS DEVICE..."                                1
+the pin's package.mk: 069fc2704421 is not in the distribution repository; the binary is named by its strings above

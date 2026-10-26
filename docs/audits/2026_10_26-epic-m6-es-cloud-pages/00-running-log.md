@@ -111,3 +111,27 @@
 - PROOF: P14, `doing copy`/`verify`/`remove` and `DISCARDED SAVES` have no producer.
 - PROOF: P15, `cancelForLaunch` runs on the interface thread.
 - PROOF: P16, `writeStamp` renames an unchecked write.
+
+## [Stage C, the window] 10:00 to 10:24 UTC — the window, `jobs-tests`, the packet's first build
+
+- **The coordinator's reads on #665:** the window granted at 10:02 UTC; `jobs-tests` allowed (F-19); the `cloud_content_transfer` lead taken as Backlog #1140 under #1047.
+- **`jobs-tests`** (`tools/t18-build-jobs-tests.sh`, 10:07:52 to 10:08:01 UTC): the host `g++` by commands generated from `tests/app-unit/CMakeLists.txt`, with ASan and UBSan, the test's own copies of the shipped sources under `/workspace/tmp/m6-t18/build-jobs-tests/under-test/`. 6 cases PASS.
+- **The window** (`guest-cycle/`, START 10:06:23 and RETURN 10:23:21 UTC, both posted on #665 with census 0):
+  - The image's `.sha256` OK; the backend up; guest a reimaged.
+  - The identity read first (P17).
+  - The first walks ran at 1280x800, `vm-pair`'s default, which my plan did not name. I stopped them by PID (3001365, 3030647 and their `vm-visual-qa` children) and stopped the guest by its pidfile (`vm-pair down`). I relaunched it on the same disk with `generic-x64-vm run --res 640x480` and `vm-pair`'s own arguments (`relaunch-640.out`); this is #1141.
+  - At 640x480 five walks passed. `run-transfer-frames` exited 3 (#1141), and I stopped the run by PID (3036593, 3086676 and their children) before `run-transfer`.
+  - F-08's before-frame was `CANNOT`.
+  - `time-to-play` exited 0 (P20, P21).
+  - `vm-pair down` and `backend down`; the leftover check all 0.
+- **Retired, D-INFRA-022:** `/workspace/tmp/m6-t18/vm-pair/vm-a.qcow2`, 2,334,785,536 bytes, sha256 `c24599965c6331f9d4d1bf88636a4d225ed6861fee503ab24c130957880514a9`, removed with its directory (the run's QA key and firmware vars with it). What is kept:
+  - the cited frames, in `guest-cycle/frames/`;
+  - the walks' and `time-to-play`'s other frames under `/workspace/tmp/m6-t18/`, until the hand-back;
+  - `time-to-play`'s saved copy of the guest's `rclone.conf` (the QA endpoint's synthetic config, mode 600, never read). It is retired with the scratch.
+- **The packet's first build** (`stage-c/packet.py`, before the window's results): 31 sections and 364 KB at first, trimmed to 38 sections and 337 KB by moving the headers to excerpts and narrowing the register rows. Six `review` hits were read by shape (an outcome token compared with a word; a `bool` initialised `false`; D-QA-021's prose row) and dispositioned by name in `packet.py`. **No keyed call yet.**
+- **Filed:** #1141 (`vm-pair` has no resolution, and the transfer walks fail at 640x480).
+- PROOF: P17, the binary carries the pin's strings.
+- PROOF: P18, `jobs-tests` 6 PASS.
+- PROOF: P19, `SNES 0 FILES` at 640x480.
+- PROOF: P20, the exit sync 1.58 s, completed 3 of 3.
+- PROOF: P21, the card at 640x480.

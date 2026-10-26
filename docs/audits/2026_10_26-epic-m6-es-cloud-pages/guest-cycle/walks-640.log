@@ -1,0 +1,7 @@
+walk to-manage-cloud-storage: 1 frames  [to-manage-cloud-storage]
+walk restore-page: 2 frames  [to-manage-cloud-storage restore-page]
+walk match-dialog: 4 frames  [to-manage-cloud-storage match-dialog]
+walk to-change-cloud-folder: 3 frames  [to-manage-cloud-storage to-change-cloud-folder]
+walk confirm-cloud-folder: 5 frames  [to-manage-cloud-storage to-change-cloud-folder confirm-cloud-folder]
+walk run-transfer-frames: exit 3  (see walks/run-transfer-frames.log)
+walk run-transfer-frames: 1 frames  [to-manage-cloud-storage back-up-page tick-roms continue-to-systems run-transfer-frames]

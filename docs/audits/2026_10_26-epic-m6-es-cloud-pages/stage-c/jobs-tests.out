@@ -1,0 +1,11 @@
+g++: g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+$ g++ -std=c++17 -pthread  -g -fno-omit-frame-pointer -fsanitize=address,undefined  -fsanitize=address,undefined -I /home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/tests/app-unit/fakes -I /home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/external <6 sources> -o jobs-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/tests/app-unit/main.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/tests/app-unit/JobsTests.cpp
+    /workspace/tmp/m6-t18/build-jobs-tests/under-test/CloudTransferJob.cpp
+    /workspace/tmp/m6-t18/build-jobs-tests/under-test/OfflineScanJob.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/src/CloudText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-core/src/utils/StringUtil.cpp
+built jobs-tests
+RUN jobs-tests: rc 0; [doctest] test cases: 6 | 6 passed | 0 failed | 0 skipped [doctest] assertions: 28 | 28 passed | 0 failed | 
+rc=0 started 10:07:52 ended 10:08:01

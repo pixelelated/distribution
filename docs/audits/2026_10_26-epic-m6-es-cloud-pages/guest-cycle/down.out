@@ -1,0 +1,13 @@
+$ vm-pair down  (10:23:06Z)
+down: owned QEMU exited (pid 3033468)
+exit 0
+$ cloud-test-backend --backend webdav down  (10:23:06Z)
+down
+exit 0
+leftover at 10:23:08Z:
+  qemu: 0
+  ss -ltn 9010-9099: 0
+  ss 10022-10023: 0
+  pgrep rclone serve: 0
+  docker ps -a m6-t18-cloud-qa*: 0
+census 10:23:08Z: qemu 0; listeners 9010-9099/10022-10023: 0; cc1plus 0

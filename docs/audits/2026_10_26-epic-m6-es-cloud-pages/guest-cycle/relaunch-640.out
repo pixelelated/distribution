@@ -1,0 +1,10 @@
+$ vm-pair down  (10:12:10Z) -- stopping the 1280x800 guest to relaunch it at 640x480
+down: owned QEMU exited (pid 2995993)
+exit 0
+qemu after: 0
+$ generic-x64-vm run --res 640x480 <vm-pair's own arguments for a>  (10:12:12Z)
+exit 0
+pid 3033468
+ssh answered after 3s
+640x480
+5120x2160

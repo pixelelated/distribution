@@ -1,0 +1,10 @@
+$ cloud-test-backend --backend webdav up  (10:06:30Z)
+up: webdav serving /workspace/tmp/m6-t18/cloud-qa/data at http://127.0.0.1:9010 (guest: http://10.0.2.2:9010)
+exit 0
+$ vm-pair reimage a <the image>  (10:06:31Z)
+up: a (pid 2995993, ssh :10022, serial /workspace/tmp/m6-t18/run/rocknix-qemu-serial.sock, mac 52:54:00:52:4E:58)
+ready: a on 069fc27044 over ssh :10022 (answered after 0s)
+exit 0
+$ vm-pair info  (10:07:14Z)
+a: ssh -i /workspace/tmp/m6-t18/vm-pair/qa-key -p 10022 root@127.0.0.1   monitor /workspace/tmp/m6-t18/run/rocknix-qemu-monitor.sock   serial /workspace/tmp/m6-t18/run/rocknix-qemu-serial.sock   pid 2995993   vnc :9   mac 52:54:00:52:4E:58
+b: ssh -i /workspace/tmp/m6-t18/vm-pair/qa-key -p 10023 root@127.0.0.1   monitor /workspace/tmp/m6-t18/run/rocknix-qemu-monitor-b.sock   serial /workspace/tmp/m6-t18/run/rocknix-qemu-serial-b.sock   pid -   vnc :10   mac 52:54:00:52:4E:59
