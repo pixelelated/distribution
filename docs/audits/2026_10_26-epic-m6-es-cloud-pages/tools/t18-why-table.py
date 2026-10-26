@@ -22,9 +22,14 @@ ES, PIN, REV = sys.argv[1:4]
 SCRIPT_DIRS = ["projects/ROCKNIX/packages/network/rclone/sources",
                "projects/ROCKNIX/packages/rocknix/sources/scripts",
                "projects/ROCKNIX/packages/network/raofflineproxy/sources"]
-EXPECT = {"es_rows": 38, "es_unique": 38, "literal": 34, "shared_literal": 32,
-          "script_only": 2, "es_only_literal": 6, "variable_lines": 17,
-          "es_only_unproduced": 1}
+# The counts after T18's S1 (ES 1a1828a8b) against the scripts at T17's
+# accepted merge a8de42ffbc, where cloud_setup prints A SYNC IS ALREADY
+# RUNNING. Stage B's version asserted the pin's against 8ebaf8daad (38, 38,
+# 34, 32, 2, 6, 17, 1; its output is stage-b/why-table.md); this version
+# exits 1 on the pin, which is the point.
+EXPECT = {"es_rows": 40, "es_unique": 40, "literal": 34, "shared_literal": 34,
+          "script_only": 0, "es_only_literal": 6, "variable_lines": 17,
+          "es_only_unproduced": 1, "es_dotted": 0}
 
 
 def git(*args, cwd=None):
@@ -44,7 +49,9 @@ def es_rows():
             break
         m = re.match(r'\s*\{ "([^"]+)", _\("([^"]+)"\) \},', text[i])
         if m:
-            rows.append((m.group(1), i + 1, m.group(1) == m.group(2)))
+            # As classifyProtocolLine leaves a ">>> why" line: no trailing full
+            # stop (the T18 seats' A-36: a row stored with one never matched).
+            rows.append((m.group(1).rstrip("."), i + 1, m.group(1) == m.group(2)))
     return rows
 
 
@@ -73,11 +80,11 @@ def scan():
                 in_why_for = False
             if in_why_for:
                 for w in re.findall(r'echo "([A-Z][^"]*)"', line):
-                    why_for.setdefault(w, []).append("%s:%d" % (name, n))
+                    why_for.setdefault(w.rstrip("."), []).append("%s:%d" % (name, n))
                 continue
             for m in LIT.finditer(line):
                 w = next(g for g in m.groups() if g)
-                literal.setdefault(w.rstrip(), []).append("%s:%d" % (name, n))
+                literal.setdefault(w.rstrip().rstrip("."), []).append("%s:%d" % (name, n))
             if VAR.search(line):
                 variable.append("%s:%d" % (name, n))
             if "gaps YOU WENT OFFLINE PART-WAY THROUGH" in line:
@@ -85,12 +92,14 @@ def scan():
             if name == "cloud_connections.py":
                 for w in re.findall(r'"([A-Z][A-Z \'.,-]+)"', line):
                     if "selection_reason" in "".join(lines[max(0, n - 6):n]):
-                        selection.append((w, "%s:%d" % (name, n)))
+                        selection.append((w.rstrip("."), "%s:%d" % (name, n)))
     return literal, variable, why_for, selection, stamp
 
 
 def main():
     rows = es_rows()
+    raw = git("-C", ES, "show", PIN + ":es-app/src/CloudText.cpp")
+    raw_dotted = sorted(set(re.findall(r'\{ "([^"]*\.)", _\(', raw)))
     es = {r[0]: r for r in rows}
     literal, variable, why_for, selection, stamp = scan()
     sel = {w: where for w, where in selection}
@@ -106,6 +115,7 @@ def main():
     produced = set(literal) | set(why_for) | set(sel) | ({"YOU WENT OFFLINE PART-WAY THROUGH"} if stamp else set())
     unproduced = sorted(set(es) - produced)
     counts["es_only_unproduced"] = len(unproduced)
+    counts["es_dotted"] = len(raw_dotted)
     drift = [k for k, v in EXPECT.items() if counts[k] != v]
     mismatched = [r[0] for r in rows if not r[2]]
 
@@ -133,6 +143,7 @@ def main():
             ", ".join(literal.get(w, [])) or "--", "; ".join(filled) or "--", status))
     print()
     print("Counts: " + ", ".join("%s %d (expected %d)" % (k, counts[k], EXPECT[k]) for k in EXPECT))
+    print("ES rows that differ from their normalized form: %s" % (", ".join(raw_dotted) or "none"))
     print("Variable emitter lines: " + ", ".join(variable))
     print("ES-only with no producer: " + (", ".join("`%s`" % w for w in unproduced) or "none"))
     print("Pairs whose two spellings differ: " + (", ".join(mismatched) or "none"))
@@ -212,8 +223,8 @@ def lock_held_wordings(literal):
         print("| `%s` | %s |" % (w, where))
     print()
     distinct = len({w for w, _ in rows})
-    print("Distinct wordings: %d (expected 8)" % distinct)
-    return [] if distinct == 8 else ["lock_held_wordings=%d" % distinct]
+    print("Distinct wordings: %d (expected 7: cloud_setup says A SYNC IS ALREADY RUNNING since T17's S6)" % distinct)
+    return [] if distinct == 7 else ["lock_held_wordings=%d" % distinct]
 
 
 main()

@@ -346,6 +346,14 @@ Every § 5 command, from `stage-a/out/runs.tsv` (all started 09:37:15 to 09:37:5
 
 Wall times are `stage-a/out/runs.tsv`'s. Every run took under a second except r20, the build and the four runs (39.78 s).
 
+## The streams
+
+Under `docs/reviews/briefs/t18-streams.md` at `1b6588efd8` (the coordinator's, at the stage-D ruling, 11:16 UTC), serial, one commit each on the ES branch `feature/m6-es-cloud-pages-665`. The pin in `package.mk` is not moved. Every stream: its case written first and seen to FAIL on the pin's code, then the fix; `es-unit-tests` and `jobs-tests` built and run before its commit; the host `g++ -fsyntax-only` on each edited `.cpp`, or its `CANNOT` with the missing header named; the non-ASCII comment grep clean.
+
+| Stream | Bug | Before | Commit (ES) | After | Already written | proved |
+| --- | --- | --- | --- | --- | --- | --- |
+| S1 the why table and the comments (PL-03, PL-08) | #1147 | `stage-e/s1-before.txt`: the two new rows and the round-trip FAIL on the pin's `CloudText.cpp`, 3 checks (`THIS BACKUP HOLDS FILES ...`, `A SYNC IS ALREADY RUNNING`, and `CHOOSE A CONNECTION ...` failing its own round-trip) | `1a1828a8b` | `stage-e/s1-after.txt`: `es-unit-tests` 187 cases PASS, `jobs-tests` 6 PASS. The syntax check: PASS for `CloudText.cpp`; `CANNOT` for `ThreadedCloudSync.cpp` and `CloudTransferJob.cpp` (`SDL_joystick.h`), the latter compiled by `jobs-tests` against its doubles. `es-untranslated` 0 in the eight. `t18-why-table.py`, normalized and re-pinned, exits 0 on the fix (40 rows, 0 script-only, 0 rows differing from their normalized form) and 1 on the pin | nothing persisted: the table is read at run time; a device with the old binary shows the English until the pin moves | fix-unit-test |
+
 ## The guest cycle
 
 **The window:** granted by the coordinator on #665 at 10:02 UTC, first in the host file's queue (M7 had nothing queued; the grant's line is on the host file at 10:02 with the census 0). START 10:06:23 UTC, posted on #665; the bound 10:36:23 plus a 5-minute grace. The runner is `guest-cycle/run.sh`; each stage's output is kept whole, through the mask, in `guest-cycle/`.

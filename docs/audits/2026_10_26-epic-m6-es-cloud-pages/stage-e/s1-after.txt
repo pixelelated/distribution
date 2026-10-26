@@ -1,0 +1,28 @@
+== S1 after (11:22:50Z): the fix in the working tree, before its commit
+ es-app/src/CloudText.cpp                        | 23 ++++++++++++-----
+ es-app/src/CloudText.h                          | 21 ++++++++-------
+ es-app/src/CloudTransferJob.cpp                 |  5 ++--
+ es-app/src/ThreadedCloudSync.cpp                |  8 +++---
+ es-app/src/ThreadedCloudSync.h                  | 34 +++++++++++++++----------
+ es-app/src/guis/GuiCloudTransfer.h              |  2 --
+ es-app/tests/unit/CloudTextTests.cpp            | 26 +++++++++++++++++++
+ locale/lang/fr/LC_MESSAGES/emulationstation2.po |  6 +++++
+ 8 files changed, 87 insertions(+), 38 deletions(-)
+RUN es-unit-tests: rc 0; [doctest] test cases: 187 | 187 passed | 0 failed | 0 skipped [doctest] assertions: 4881 | 4881 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3389 | 3389 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN jobs-tests: rc 0; [doctest] test cases: 6 | 6 passed | 0 failed | 0 skipped [doctest] assertions: 28 | 28 passed | 0 failed | 
+-- host g++ -std=c++17 -fsyntax-only
+PASS es-app/src/CloudText.cpp
+CANNOT es-app/src/ThreadedCloudSync.cpp (rc 1; fatal error: SDL_joystick.h: No such file)
+CANNOT es-app/src/CloudTransferJob.cpp (rc 1; fatal error: SDL_joystick.h: No such file)
+-- non-ASCII comment lines in the touched files: 0
+-- jobs-tests compiled the edited CloudTransferJob.cpp (the test's copy, with its doubles): see its RUN line above
+-- tools/es-untranslated --es-src <the ES worktree>: rc 0; lines naming the eight: 0
+  es-app/src/guis/GuiMenu.cpp:517	RESET BATTERY FUEL GAUGE
+  es-app/src/guis/GuiMenu.cpp:518	WARNING: THE PMIC FUEL GAUGE WILL BE RESET AND THE SYSTEM WILL POWER OFF!\n\nLEAVE THE CHARGER UNPLUGGED AND POWER THE DEVICE BACK ON AFTER A FEW SECONDS. THE BATTERY LEVEL IS RE-ESTIMATED FROM THE RESTING BATTERY VOLTAGE AND BECOMES ACCURATE AGAIN AFTER A FULL CHARGE.\n\nRESET FUEL GAUGE AND POWER OFF?
+-- tools/t18-why-table.py, normalized and re-pinned to the post-fix counts (11:24:29Z)
+on the fix (ES 1a1828a8b, scripts a8de42ffbc): exit 0; 
+Counts: es_rows 40 (expected 40), es_unique 40 (expected 40), literal 34 (expected 34), shared_literal 34 (expected 34), script_only 0 (expected 0), es_only_literal 6 (expected 6), variable_lines 17 (expected 17), es_only_unproduced 1 (expected 1), es_dotted 0 (expected 0)
+on the pin (ES 16dbac5211, scripts a8de42ffbc): exit 1; t18-why-table: DRIFT es_rows=38, es_unique=38, shared_literal=32, script_only=2, es_dotted=1

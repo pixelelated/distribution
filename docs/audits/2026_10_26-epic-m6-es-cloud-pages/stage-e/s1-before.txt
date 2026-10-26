@@ -1,0 +1,18 @@
+== S1 before (11:20:34Z): the pin's CloudText.cpp with S1's two new cases added to CloudTextTests.cpp only
+ M es-app/tests/unit/CloudTextTests.cpp
+built es-unit-tests
+built es-file-tests
+built es-conf-tests
+built es-file-tests-win32
+RUN es-unit-tests: rc 1; [doctest] test cases: 187 | 185 passed | 2 failed | 0 skipped [doctest] assertions: 4873 | 4870 passed | 3 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3389 | 3389 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+-- the failing checks
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/CloudTextTests.cpp:748: ERROR: CHECK( isKnownWhy("THIS BACKUP HOLDS FILES A RESTORE CAN'T PUT BACK") ) is NOT correct!
+  values: CHECK( false )
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/CloudTextTests.cpp:749: ERROR: CHECK( isKnownWhy("A SYNC IS ALREADY RUNNING") ) is NOT correct!
+  values: CHECK( false )
+/home/max/Development/emulationstation-next.worktrees/m6-es-cloud-pages-665/es-app/tests/unit/CloudTextTests.cpp:763: ERROR: CHECK( isKnownWhy(p.text) ) is NOT correct!
+  values: CHECK( false )
+  logged: CHOOSE A CONNECTION BEFORE USING CLOUD TOOLS.
