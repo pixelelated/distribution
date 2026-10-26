@@ -2787,19 +2787,28 @@ class HeadSock:
 def parse(raw):
     r = http.client.HTTPResponse(HeadSock(raw)); r.begin(); body = r.read()
     return r, body
+# Since 022 (pixelelated#666 PL-01, #1157) the store answers only the configured
+# account's credential, asked by a loopback Host: the stub names the account
+# and presents the token, and the same login with no credential is refused.
 class LoginServer:
-    def __init__(self, st): self.storage = st
+    def __init__(self, st):
+        self.storage = st
+        (cfg / "p194-system.cfg").write_text("global.retroachievements.username=qa\n" + "global.retroachievements." + "token=planted\n")
+        self.config_data = {"rocknix_system_cfg": str(cfg / "p194-system.cfg"), "retroarch_cfg": str(cfg / "p194-absent.cfg")}
+    offline_login_refusal = getattr(proxy_service.ProxyRuntimeServer, "offline_login_refusal", None)
 try:
     st = Storage(cfg / "p194.sqlite3")
     st.upsert_cache(cache_keys.login("qa"), '{"Success":true,"User":"qa","Token":"planted"}')
-    r, body = parse(proxy_service.ProxyRuntimeServer.handle_offline_login(LoginServer(st), "/dorequest.php?r=login2&u=qa&p=x", "", "login2"))
+    r, body = parse(proxy_service.ProxyRuntimeServer.handle_offline_login(LoginServer(st), "/dorequest.php?r=login2&u=qa&t=planted", "", "login2", {"Host": "127.0.0.1:8080"}))
     login_ok = r.status == 200 and r.getheader("X-RA-Offline") == "1" and r.getheader("X-RA-Proxy") == "1" and body == b'{"Success":true,"User":"qa","Token":"planted"}' and int(r.getheader("Content-Length")) == len(body)
+    rr, rbody = parse(proxy_service.ProxyRuntimeServer.handle_offline_login(LoginServer(st), "/dorequest.php?r=login2&u=qa", "", "login2", {"Host": "127.0.0.1:8080"}))
+    login_ok = login_ok and rr.status == 401 and rr.getheader("X-RA-Offline") is None and b"planted" not in rbody
     others = [parse(b) for b in (proxy_service.ok_json('{"Success":true}'), proxy_service.error_json(503, "offline"), proxy_service.raw_response_bytes(200, b"PNG", "image/png", "OK"))]
     proxy_on_all = all(r.getheader("X-RA-Proxy") == "1" and r.getheader("X-RA-Offline") is None for r, _ in others) and [b for _, b in others] == [b'{"Success":true}', b'{"Success":false,"Error":"offline"}', b"PNG"]
     st.close()
-    verdict(login_ok and proxy_on_all, "011 / #194 login header: the store's answer to r=login2 carries X-RA-Offline: 1 and X-RA-Proxy: 1 with the body intact; a plain answer, an error and a raw asset carry X-RA-Proxy: 1 and no X-RA-Offline", f"login {r.status} offline={r.getheader('X-RA-Offline')} proxy={r.getheader('X-RA-Proxy')} body={body!r}; others: {[(o.status, o.getheader('X-RA-Proxy'), o.getheader('X-RA-Offline'), b) for o, b in others]}")
+    verdict(login_ok and proxy_on_all, "011 / #194 login header, 022 / #1157: the store's answer to the account's r=login2 with its token carries X-RA-Offline: 1 and X-RA-Proxy: 1 with the body intact, and the same login with no credential is 401 with no token; a plain answer, an error and a raw asset carry X-RA-Proxy: 1 and no X-RA-Offline", f"login {r.status} offline={r.getheader('X-RA-Offline')} proxy={r.getheader('X-RA-Proxy')} body={body!r}; others: {[(o.status, o.getheader('X-RA-Proxy'), o.getheader('X-RA-Offline'), b) for o, b in others]}")
 except Exception as exc:
-    verdict(False, "011 / #194 login header: the store's answer to r=login2 carries X-RA-Offline: 1 and X-RA-Proxy: 1 with the body intact; a plain answer, an error and a raw asset carry X-RA-Proxy: 1 and no X-RA-Offline", repr(exc))
+    verdict(False, "011 / #194 login header, 022 / #1157: the store's answer to the account's r=login2 with its token carries X-RA-Offline: 1 and X-RA-Proxy: 1 with the body intact, and the same login with no credential is 401 with no token; a plain answer, an error and a raw asset carry X-RA-Proxy: 1 and no X-RA-Offline", repr(exc))
 # 012 / #199: an image the store does not hold is a 404 at once -- with X-RA-Store-Only: 1, or while the process's own state is offline -- driven through the real request handler over a fake connection, so the log line's probe is in the count: is_online never asked, nothing forwarded, the answer inside a second. A hit is served, and a miss with the state online still asks the link and fetches, as before.
 from raofflineproxy import network
 class ImageServer:

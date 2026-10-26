@@ -1,0 +1,17 @@
+# S1's suite carry-over (#666, #1157), under the 14:33 ruling (2026-10-26T14:47:03Z)
+tools/last-good-scripts-test, QA_SYSTEM_ROOT=/workspace/artifacts/m6-donor/1a0266484423/image/system, TMPDIR under /workspace/tmp/m6-t19; each tree in a detached worktree
+host bash 5.3.9 (tree pins 5.3); host python 3.14.4 (image recipe 3.14.7)
+
+## the suite as it was
+715f39a0fd (before S1): 1313 PASS; PASSED
+57c5e8c4ec (S1, the check as it was): 1312 PASS; 1 CHECK(S) FAILED, 0 SKIPPED
+    FAIL  011 / #194 login header: the store's answer to r=login2 carries X-RA-Offline: 1 and X-RA-Proxy: 1 with the body intact; a plain answer, an error and a raw asset carry X-RA-Proxy: 1 and no X-RA-Offline -- AttributeError("'LoginServer' object has no attribute 'offline_login_refusal'")
+
+## the 011 check carried over (:2790-2805): the account's token from a loopback Host answered, the same login with no credential 401
+715f39a0fd with the updated check (no 022): 1312 PASS; 1 CHECK(S) FAILED, 0 SKIPPED
+    FAIL  011 / #194 login header, 022 / #1157: the store's answer to the account's r=login2 with its token carries X-RA-Offline: 1 and X-RA-Proxy: 1 with the body intact, and the same login with no credential is 401 with no token; a plain answer, an error and a raw asset carry X-RA-Proxy: 1 and no X-RA-Offline -- TypeError('ProxyRuntimeServer.handle_offline_login() takes 4 positional arguments but 5 were given')
+  -- the positive: FAIL without 022. Its failure is a TypeError (the handler before 022 takes no headers); the behavioural half, a token handed to a login with no credential, is stage-e/s1-before.txt's service run (200, token yes)
+57c5e8c4ec with the updated check (022): 1313 PASS; PASSED
+S1 + S2 (the worktree) with the updated check: 1313 PASS; PASSED
+
+git diff --stat 7de4ece06d -- tools (after this commit): tools/last-good-scripts-test only
