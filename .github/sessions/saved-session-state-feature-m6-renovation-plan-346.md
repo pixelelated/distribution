@@ -147,6 +147,8 @@ today:** `.githooks/pre-commit` refuses a conflict marker (#696).
 
 **08:1x-08:14 UTC (2026-10-26):** the coordinator's **mini-retro** written (`docs/retros/2026-10-26-m6-coordinator.md`, on #346) after `tools/ceremony-check --gate` blocked on its absence; the plan § 6b and `engineering-practices.md` edited from its adjustments; **run the gate before every push from now on**, and stamp headings from `date -u`. **T17 handed back at `21db6a1b78`** (six bugs #1128-#1133; `reviewed-at f3803436b8`, `fixed-at 3e95bf18f4`): next the hand-back merge into `/workspace/repos/pixelelated/distribution.worktrees/m6-cloud-setup-content-664`, `AUDIT_ISSUE=<n> BUGS="1128 1129 1130 1131 1132 1133" DISPATCH_TIP=f3803436b8 $S/t17-accept.sh <merged tip> <co tip>`, the ticks, the errata (`$S/t17-errata.md`), PL-21's line to #909, the close-out, then T18's brief (#665).
 
+**08:1x-08:17 UTC (2026-10-26):** T17's hand-back answered on #664: #1133's criterion reworded, **F-24 → S7** (stream brief `8e6c990a1f`), **second window granted 15 min** (post contract in the first line; mirror `/t17w2-mirror-seen.ids`, overdue at 20 min → stop by pidfile), register lines pass at the merge, S5's exit and the why pair routed to #665. **Then:** the lane's second hand-back → merge the coordinator tip into the T17 worktree, `AUDIT_ISSUE=1134 BUGS="1128 1129 1130 1131 1132 1133 <S7 bug>" DISPATCH_TIP=f3803436b8 $S/t17-accept.sh <merged tip> <co tip>`, ticks, errata (`$S/t17-errata.md` + F-24, the second window), PL-21's #909 line, #1134 closed, close-out, M6 body; then T18's brief (#665). Check the mirror's output within a minute of the lane's START post.
+
 ## Next commands
 
 ```bash
