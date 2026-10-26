@@ -1,0 +1,198 @@
+=== R0-df (12:10:29Z)
+/dev/nvme0n1   244195328 59188836 185006492   25% /workspace
+--- R0-df rc=0 wall=0.01s
+=== R1-membership-bytes (12:10:29Z)
+27 paths 5369 lines
+--- R1-membership-bytes rc=0 wall=0.06s
+=== R2-ctl-shape (12:10:29Z)
+0
+0
+55
+316:EX_USAGE=64         # a bad argument; the usage line was printed (refresh, audit #258 PL-012)
+317:EX_UNAVAILABLE=69   # offline by the proxy's probe
+318:EX_TEMPFAIL=75      # another scan or top-up holds the lock
+319:EX_NOPERM=77        # no RetroAchievements account signed in
+320:EX_CONFIG=78        # the toggle is off
+28:exit 0
+32:exit 0
+41:exit 0
+41:exit 1
+59:exit 0
+62:exit 1
+62:exit 2
+75:exit 0
+75:exit 1
+80:exit 2
+173:exit 0
+183:exit 0
+255:exit 2
+378:exit 1
+560:exit 2
+565:exit 2
+639:exit 2
+762:exit 3
+1797:exit 143
+1821:exit 130
+1843:exit 3
+1991:exit 1
+2016:exit 0
+2120:exit 0
+2227:exit 0
+2237:exit 0
+2413:exit 1
+2425:exit 1
+2430:exit 0
+2453:exit 2
+--- R2-ctl-shape rc=0 wall=0.01s
+=== R3-unit (12:10:29Z)
+7:ConditionPathExists=/storage/.cache/services/raofflineproxy.conf
+33:ExecStart=/usr/bin/python3 -m raofflineproxy.main run-service
+40:ExecStartPost=/usr/bin/raofflineproxy-ctl listening --wait 30
+41:Restart=on-failure
+42:RestartSec=5
+43:TimeoutStopSec=15
+0
+--- R3-unit rc=1 wall=0.01s
+=== R4-port (12:10:29Z)
+projects/ROCKNIX/packages/emulators/libretro/retroarch/patches/0013-cheevos-offline-proxy-toast.patch:6:on the device (c
+projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh:142:    0) hosturl="127.0.0.1:8080"
+projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh:143:    1) echo "Offline RetroAchie
+projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/scripts/cheevos_ppsspp.sh:66:# listeners that take the IPv4 con
+projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/scripts/cheevos_ppsspp.sh:97:    0) host="127.0.0.1:8080" ;;
+projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/scripts/cheevos_ppsspp.sh:98:    1) echo "Offline RetroAchievem
+projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth:2553:    # proxy, which listens on 127.0.0.1:8080 -- a wild
+projects/ROCKNIX/packages/rocknix/sources/scripts/setsettings.sh:538:                add_setting "none" "cheevos_custom_
+projects/ROCKNIX/packages/rocknix/sources/scripts/setsettings.sh:540:                log "offline RetroAchievements is o
+projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth:857:    cancel only ever killed rclone;
+projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth:2333:            The address shown on t
+projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth:2553:    # proxy, which listens on 127.
+projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth:2681:        name, label, port, timeout
+--- R4-port rc=0 wall=0.13s
+=== R5-credential (12:10:30Z)
+311:USER_KEY="global.retroachievements.username"
+312:TOKEN_KEY="global.retroachievements.token"
+313:PASSWORD_KEY="global.retroachievements.password"
+616:' "${QUEUE}" "$(setting "${USER_KEY}")" 2>/dev/null)" || cannot_tell "the award queue at ${QUEUE} could no
+645:    USER="$(setting "${USER_KEY}")"
+759:    USER="$(setting "${USER_KEY}")"
+1029:' "${QUEUE}" "$(setting "${USER_KEY}")" > "$1" 2>/dev/null
+1120:    [ -n "$(setting "${USER_KEY}")" ] || return 1
+1121:    [ -n "$(setting "${TOKEN_KEY}")" ] || [ -n "$(setting "${PASSWORD_KEY}")" ]
+1265:    RA_SCAN_USER="$(setting "${USER_KEY}")" "${BOUND[@]}" python3 - "$1" "${2:-all}" "${ROMS_ROOT}" "${ES
+1280:user = cache_keys.normalize_user(os.environ.get("RA_SCAN_USER", ""))
+0
+--- R5-credential rc=1 wall=0.01s
+=== R6-stamps (12:10:30Z)
+450:    touch "${MARKER}" || fail "cannot write ${MARKER}"
+812:    mv -f "${FLUSH_STAMP}" "${MINE}" 2>/dev/null || return 1
+828:    printf 'route=%s at=%s%s\n' "${RUN_ROUTE:-run}" "$(date +%s)" "${1:-}" > "${RUNNING}.tmp" 2>/dev/null \
+829:        && mv -f "${RUNNING}.tmp" "${RUNNING}" 2>/dev/null
+844:        mv -f "${SCAN_LOG}" "${SCAN_LOG}.1"
+1094:    printf '%s\n' "${LINE}" > "${SCAN_STAMP}.tmp" && mv -f "${SCAN_STAMP}.tmp" "${SCAN_STAMP}"
+1112:    [ ! -d "${SCAN_CURSOR}" ] && mv -f "${SCAN_CURSOR}.next" "${SCAN_CURSOR}" 2>/dev/null \
+1160:# What both verbs refuse before they touch anything, in the order a player
+2154:    printf '%s %s %s\n' "$(date +%s)" "$$" "${RANDOM}" > "${INDEX_PENDING}.tmp" 2>/dev/null \
+2155:        && mv -f "${INDEX_PENDING}.tmp" "${INDEX_PENDING}" || RC=1
+2172:    if mv -f "${INDEX_PENDING}" "${mine}" 2>/dev/null; then
+2176:            [ -e "${INDEX_PENDING}" ] || mv -f "${mine}" "${INDEX_PENDING}" 2>/dev/null
+2264:    touch "${TOPUP_MARK}"
+--- R6-stamps rc=0 wall=0.01s
+=== R7-helpers-writes (12:10:30Z)
+== raofflineproxy-cache-images
+173:            CURSOR.write_text(value + "\n", encoding="utf-8")
+200:        tmp.write_text("".join(f"{stamp} {path}\n" for path, stamp in sorted(entries.items())), encoding="
+201:        os.replace(tmp, ABSENT_FILE)
+207:    print(">>> " + text, flush=True)
+211:    print(text, file=sys.stderr, flush=True)
+278:        print(__doc__ or "usage: raofflineproxy-cache-images [--seconds N]")
+474:    sys.stdout.flush()
+== raofflineproxy-refresh
+47:    print(f">>> {text}", flush=True)
+51:    print(text, flush=True)
+== raofflineproxy-cache-indexed
+68:    print(text, file=sys.stderr, flush=True)
+143:        print("usage: raofflineproxy-cache-indexed <jobs-file>", file=sys.stderr)
+162:        print("DONE cached=0 failed=0 indexed=0", flush=True)
+180:                print(f"FAIL {index}/{total} {label}: RetroAchievements login required", flush=True)
+187:                    print(f"FAIL {index}/{total} {label}: {error}", flush=True)
+192:                print(f"OK {index}/{total} {label}", flush=True)
+198:                print(f"FAIL {index}/{total} {label}: not found", flush=True)
+204:                print(f"FAIL {index}/{total} {label}: {error}", flush=True)
+208:                print(f"OK {index}/{total} {label}", flush=True)
+211:                print(f"FAIL {index}/{total} {label}: {result.message}", flush=True)
+216:    print(f"DONE cached={cached} failed={failed} indexed={indexed}", flush=True)
+--- R7-helpers-writes rc=0 wall=0.01s
+=== R8-tokens (12:10:30Z)
+raofflineproxy-ctl: 9
+raofflineproxy-refresh: 5
+raofflineproxy-cache-images: 8
+raofflineproxy-cache-indexed: 0
+--- R8-tokens rc=0 wall=0.01s
+=== R9-deletions (12:10:30Z)
+977:    : > "$1" || return 1
+1141:    rm -rf "${SCRATCH}"
+120:  rm -rf "${SITE}/raofflineproxy/__pycache__"
+123:  rm -rf "${SITE}/raofflineproxy/assets"
+124:  rm -f "${SITE}"/raofflineproxy/font-mono*.ttf
+--- R9-deletions rc=0 wall=0.01s
+=== R10-patches (12:10:30Z)
+18
+6:# recovery and explicit-consent behavior. The16 patches apply at fuzz0 after
+24:# And the packages whose tools the shipped scripts call (packaging-and-patches:
+12:PKG_VERSION="c7ebd1b6e777f3751ff0ecdf8aba54045844e00d"
+13:PKG_SHA256="88eef31acfa4104b20258bd5cea514ade30e6cdf35767ffc958009851d61898b"
+16:PKG_VERSION="1433173220a7eaede6a9ed7a18e94117be1821e0"
+17:PKG_VERSION="607694ca0812edfc9cc2030c64634fc2393668de"
+242:# package.mk pins (c7ebd1b6e777f3751ff0ecdf8aba54045844e00d, storage.py
+--- R10-patches rc=0 wall=0.01s
+=== R11-proxy-schema (12:10:30Z)
+rc-preflight: /workspace/repos/pixelelated/distribution.worktrees/m6-offline-achievements-666 at 7de4ece06d (feature/m6-offline-achievements-666)
+PASS      proxy schema note        review note matches c7ebd1b6e777f3751ff0ecdf8aba54045844e00d; runtime schema proof remains separate
+--- R11-proxy-schema rc=0 wall=0.04s
+=== R12-tarball (12:10:30Z)
+42
+88eef31acfa4104b
+88eef31acfa4104b
+--- R12-tarball rc=0 wall=0.01s
+=== R13-neighbours (12:10:30Z)
+projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/scripts/cheevos_ppsspp.sh:3
+projects/ROCKNIX/packages/rocknix/profile.d/001-functions:1
+projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool:1
+projects/ROCKNIX/packages/rocknix/sources/scripts/setsettings.sh:2
+projects/ROCKNIX/packages/virtual/network/package.mk:1
+es-app/src/OfflineAchievements.h:10
+es-app/src/OfflineAchievements.cpp:9
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:8
+es-app/src/CloudText.h:7
+es-app/src/OfflineAchievementsText.h:3
+es-app/src/RetroAchievements.cpp:2
+es-app/src/OfflineScanJob.h:2
+es-app/src/guis/GuiOfflineScan.h:1
+es-app/src/ThreadedHasher.cpp:1
+es-app/src/RunLock.h:1
+es-app/src/OfflineScanJob.cpp:1
+--- R13-neighbours rc=0 wall=0.12s
+=== R14-have-account (12:10:30Z)
+es-app/src/guis/GuiRetroAchievementsSettings.cpp:154:// The ctl's own test (raofflineproxy-ctl have_
+1119:have_account() {
+1170:    if ! have_account; then
+0
+--- R14-have-account rc=1 wall=0.02s
+=== R15-tools (12:10:30Z)
+raofflineproxy-integration-test: rc=0
+raofflineproxy-installed-native-test: rc=0
+raofflineproxy-consent-test: rc=0
+187
+qa-accounts: <ssh-port> must be a QA guest's (10022-10029)
+--- R15-tools rc=0 wall=0.15s
+=== R16-syntax (12:10:30Z)
+GNU bash, version 5.3.9(1)-release (x86_64-pc-linux-gnu)
+bash -n rc=0
+Python 3.14.4
+raofflineproxy-refresh py_compile rc=0
+raofflineproxy-cache-images py_compile rc=0
+raofflineproxy-cache-indexed py_compile rc=0
+--- R16-syntax rc=0 wall=0.10s
+=== R17-removal-check (12:10:30Z)
+(empty above = nothing changed since the dispatch tip 7de4ece06d)
+--- R17-removal-check rc=0 wall=0.01s

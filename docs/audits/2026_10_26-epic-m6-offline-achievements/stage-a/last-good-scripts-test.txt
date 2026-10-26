@@ -1,0 +1,24 @@
+== tools/last-good-scripts-test (12:21:06Z), QA_SYSTEM_ROOT=/workspace/artifacts/m6-donor/1a0266484423/image/system: rc=0 wall=523s
+PASS lines 1379, FAIL lines 0
+    PASS  #526: preserved configuration and atomic hotkey additions
+1 HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS
+PASSED
+-- the proxy cases (lines naming the proxy, its marker, lock or stamps):
+114:    PASS  the offline RetroAchievements proxy's folder travels in no shape: none of its five files is in the archive (#165)
+121:    PASS  the proxy's queue from the archive is not put over this device's own (tar, #165)
+127:    PASS  nor is the proxy's queue (zip, #165)
+214:    PASS  enable with the offlineproxy write failing: exit 1, toggle not 1, hardcore still 1, no record, marker gone, service stopped, nothing on stdout
+221:    PASS  account for a user the proxy never signed in: exit 1, nothing on stdout
+240:    PASS  the boot pass ran over 001-ssh 002-samba 004-tailscaled 004-zerotier-one 005-fstrim 006-raofflineproxy 007-syncthing (rc 0)
+242:    PASS  toggle on: raofflineproxy.conf is still there after the pass
+264:    PASS  and the three shapes the audit found passing (#186 PL-29): the web key's setting name, a single-quoted value, a bare t= on a proxy line
+282:    PASS  the pinned client unpacked from raofflineproxy-c7ebd1b6e777f3751ff0ecdf8aba54045844e00d.tar.gz
+284:    PASS  the pinned proxy's award-parity suite, including subset game ids
+289:    PASS  scan offline by the proxy's probe: exit 69, no stamp, the refusal in scan.log
+290:    PASS  the ctl's probe wrote its own folder (/tmp/raofflineproxy-probe.H2NisX); the service's online_state.json still says online with its mtime unchanged
+647:    PASS  with something on 127.0.0.1 of the same port (the offline achievements proxy's 127.0.0.1:8080), the serve still comes up on the LAN address
+741:    PASS  #308 gpt F-RA-26 unit: ExecStartPost waits for the listener (raofflineproxy-ctl listening --wait N)
+761:    PASS  #308 claude F-EM-04 cheevos_ppsspp.sh: 127.0.0.1:8080 in LISTEN in the socket table routes PPSSPP to the proxy (no netstat)
+763:    PASS  gpt G-D-02 cheevos_ppsspp.sh: ::ffff:127.0.0.1:8080 in LISTEN (tcp6, an IPv4-mapped socket) routes to the proxy
+766:    PASS  #308 F-RA-23/24 package.mk: PKG_DEPENDS_TARGET names Python3, bash, busybox, coreutils, grep and systemd (toolchain Python3 bash busybox coreutils grep systemd raofflineproxy-rcheevos ra
+1226:    PASS  claude G2-D-01 / S-26: the proxy listens on IPv4 alone -- no tcp6 line on 8080, so the readers' leaving out :: turns nothing away

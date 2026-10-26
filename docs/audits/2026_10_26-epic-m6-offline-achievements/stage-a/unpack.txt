@@ -1,0 +1,55 @@
+== the unpack (12:11:10Z): /workspace/cache/rocknix-sources/raofflineproxy/raofflineproxy-c7ebd1b6e777f3751ff0ecdf8aba54045844e00d.tar.gz, sha256 88eef31acfa4104b20258bd5cea514ade30e6cdf35767ffc958009851d61898b (PKG_SHA256 88eef31acfa4104b20258bd5cea514ade30e6cdf35767ffc958009851d61898b)
+tar rc=0; top: RAOfflineProxy-c7ebd1b6e777f3751ff0ecdf8aba54045844e00d
+== the patches, GNU patch 2.8, -p1 --fuzz=0 --no-backup-if-mismatch, in name order (the build's order: no PKG_PATCH_DIRS in the recipe)
+001-dorequest-4xx-passthrough.patch: rc=0 hunks=2; 1 files; 0 offset/fuzz/failed lines
+002-no-synthetic-casual-only-achievement.patch: rc=0 hunks=2; 1 files; 2 offset/fuzz/failed lines
+    Hunk #1 succeeded at 40 (offset 3 lines).
+    Hunk #2 succeeded at 62 (offset 3 lines).
+003-flush-stamp.patch: rc=0 hunks=4; 1 files; 0 offset/fuzz/failed lines
+004-no-cap-on-cached-games.patch: rc=0 hunks=6; 1 files; 0 offset/fuzz/failed lines
+005-keep-the-refresh-thread-alive.patch: rc=0 hunks=5; 1 files; 0 offset/fuzz/failed lines
+007-cached-sign-in-of-the-configured-account.patch: rc=0 hunks=3; 1 files; 0 offset/fuzz/failed lines
+008-log-upload-opt-in.patch: rc=0 hunks=9; 3 files; 3 offset/fuzz/failed lines
+    Hunk #2 succeeded at 1315 (offset 43 lines).
+    Hunk #3 succeeded at 1323 (offset 43 lines).
+    Hunk #4 succeeded at 1379 (offset 54 lines).
+009-unique-image-temp-names.patch: rc=0 hunks=1; 1 files; 0 offset/fuzz/failed lines
+010-store-only-header.patch: rc=0 hunks=1; 1 files; 1 offset/fuzz/failed lines
+    Hunk #1 succeeded at 413 (offset 1 line).
+011-offline-login-header.patch: rc=0 hunks=4; 1 files; 0 offset/fuzz/failed lines
+012-offline-image-miss.patch: rc=0 hunks=6; 1 files; 0 offset/fuzz/failed lines
+013-validate-a-cached-image-before-publishing-it.patch: rc=0 hunks=6; 2 files; 0 offset/fuzz/failed lines
+015-bounded-name-lookup.patch: rc=0 hunks=7; 3 files; 3 offset/fuzz/failed lines
+    Hunk #3 succeeded at 249 (offset -14 lines).
+    Hunk #2 succeeded at 303 (offset 1 line).
+    Hunk #3 succeeded at 845 (offset -6 lines).
+016-say-what-became-of-a-download.patch: rc=0 hunks=2; 1 files; 0 offset/fuzz/failed lines
+018-pixelelated-platform-identity.patch: rc=0 hunks=2; 2 files; 0 offset/fuzz/failed lines
+019-consent-cache-initial-observation.patch: rc=0 hunks=2; 2 files; 0 offset/fuzz/failed lines
+020-rvz-padding-preserve-partial-word.patch: rc=0 hunks=1; 1 files; 0 offset/fuzz/failed lines
+021-flush-reconnect-during-startup.patch: rc=0 hunks=3; 1 files; 0 offset/fuzz/failed lines
+== rejects left: 0
+
+== the predecessor for --predecessor-source (12:11:46Z): the previous shipped pin 879b158995d412af434301ebdae581f66b8b6d57 (the recipe at 7afa9efcfc, 2026-10-06, the pin before a0f60255ab's), from the cache, sha256 984957322337d1325f1b0fc11502336a80241ec511fd041c969bb0103c231664 (PKG_SHA256 at 7afa9efcfc: 984957322337d1325f1b0fc11502336a80241ec511fd041c969bb0103c231664), with that commit's 16 patches, -p1 --fuzz=0 in name order
+001-dorequest-4xx-passthrough.patch rc=0 002-no-synthetic-casual-only-achievement.patch rc=0 003-flush-stamp.patch rc=0 004-no-cap-on-cached-games.patch rc=0 005-keep-the-refresh-thread-alive.patch rc=0 007-cached-sign-in-of-the-configured-account.patch rc=0 008-log-upload-opt-in.patch rc=0 009-unique-image-temp-names.patch rc=0 010-store-only-header.patch rc=0 011-offline-login-header.patch rc=0 012-offline-image-miss.patch rc=0 013-validate-a-cached-image-before-publishing-it.patch rc=0 015-bounded-name-lookup.patch rc=0 016-say-what-became-of-a-download.patch rc=0 018-pixelelated-platform-identity.patch rc=0 019-consent-cache-initial-observation.patch rc=0
+rejects left: 0
+
+== tools/raofflineproxy-integration-test (12:11:54Z) --source /workspace/tmp/m6-t19/src/RAOfflineProxy-c7ebd1b6e777f3751ff0ecdf8aba54045844e00d --predecessor-source /workspace/tmp/m6-t19/pred/RAOfflineProxy-879b158995d412af434301ebdae581f66b8b6d57 (host python 3.14.4, synthetic HTTP, no account)
+test_image_repair_reads_streamed_bodies (__main__.OSConsumers.test_image_repair_reads_streamed_bodies) ... ok
+test_refresh_age_uses_newest_summary (__main__.OSConsumers.test_refresh_age_uses_newest_summary) ... ok
+test_refresh_scope_and_session_removal_do_not_load_cache_bodies (__main__.OSConsumers.test_refresh_scope_and_session_removal_do_not_load_cache_bodies) ... ok
+test_existing_pause_boundaries_survive_removed_upstream_helper (__main__.PreparationCadence.test_existing_pause_boundaries_survive_removed_upstream_helper) ... ok
+test_actual_predecessor_store_and_image_paths_survive_reopen (__main__.Upgrade.test_actual_predecessor_store_and_image_paths_survive_reopen) ... ok
+test_failure_and_retry_preserve_completed_games (__main__.WholeLibrary.test_failure_and_retry_preserve_completed_games) ... ok
+test_indexed_125_games_are_cached_without_rom_lookup (__main__.WholeLibrary.test_indexed_125_games_are_cached_without_rom_lookup) ... ok
+test_indexed_429_stops_requests_and_survives_restart (__main__.WholeLibrary.test_indexed_429_stops_requests_and_survives_restart) ... ok
+test_persisted_pause_never_reports_queued_games_ready (__main__.WholeLibrary.test_persisted_pause_never_reports_queued_games_ready) ... ok
+test_unindexed_125_games_are_cached_not_just_queued (__main__.WholeLibrary.test_unindexed_125_games_are_cached_not_just_queued) ... ok
+test_unindexed_429_stops_requests_and_survives_restart (__main__.WholeLibrary.test_unindexed_429_stops_requests_and_survives_restart) ... ok
+test_upstream_default_still_queues_at_100 (__main__.WholeLibrary.test_upstream_default_still_queues_at_100) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 6.937s
+
+OK
+rc=0 wall=8s
