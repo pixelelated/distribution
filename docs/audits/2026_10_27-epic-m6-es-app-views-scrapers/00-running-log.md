@@ -168,3 +168,4 @@
   - **Checks:** stand-in rc 0; non-ASCII 0; `es-untranslated` 706/706; `TOTAL: 225 test cases in 4 binaries`.
   - The four choices stand, as ruled.
 - **The acceptance items, 18:34 UTC** (the coordinator's 18:31 UTC read): `stage-e/handback-checks.txt` at `b52245036` (the map check 0 missing, `es-untranslated` 706/706, the pre-push-test PASS, the stand-in 12 of 13 with `SystemView.cpp` `CANNOT`, `TOTAL: 225 test cases in 4 binaries`); #1257's 22 checkboxes ticked from `05`'s outcomes at `a0ac8e7831` (box-check: 0 open, 0 fail); the retro `docs/retros/2026-10-27-m6-es-app-views-scrapers.md`.
+- **Close-out, 18:37 UTC:** `audit-completion.json` from #1257's closed readback (`tools/write-completion.py`, T31's adapted); `tools/lint-audit-artifacts --issue 1257` PASS and the default phase PASS; the 23 #585 lines on #585 (comment 6450506376); `/workspace/tmp/m6-t32/` retired after a check (no process's argv, working directory or open file named it); the pointer idle.
