@@ -27,3 +27,7 @@
 - **History** (`stage-a/history.out`): 72 fork commits on the 77 since `bccd715707`, 68 non-merge.
 - **Callers** (`stage-a/callers.out`): 149 quoted includes of the slice's 41 headers, from 66 files outside the 77. `CollectionSystemManager.h` 17, `PlatformId.h` 11, `Gamelist.h` 10, `Genres.h` 9.
 - **Nothing else ran:** no build, no fetch, no guest, no council call. Scratch is `/workspace/tmp/m6-t33/`.
+
+## Stage B (18:44 UTC onward)
+
+- Stage A accepted on #680 at 18:43 UTC (the coordinator's errata: the cut in the brief's g++ line, and the pointer's epic line). The plan is in the pointer's Current focus: § 3, § 4, § 6 and § 7 read; the generators (T32's, renamed); `02` composed from `stage-b/02-template.md`; then the window request.
