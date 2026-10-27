@@ -1,0 +1,30 @@
+| Site | Kind | Argument(s) | Cache |
+| --- | --- | --- | --- |
+| `GuiAnalogSticksLedControls.cpp:20` | atoi | `tokens[0].c_str()` | - |
+| `GuiAnalogSticksLedControls.cpp:21` | atoi | `tokens[1].c_str()` | - |
+| `GuiAnalogSticksLedControls.cpp:22` | atoi | `tokens[2].c_str()` | - |
+| `GuiAnalogSticksLedControls.cpp:23` | atoi | `tokens[3].c_str()` | - |
+| `GuiAnalogSticksLedControls.cpp:24` | atoi | `tokens[4].c_str()` | - |
+| `GuiAnalogSticksLedControls.cpp:25` | atoi | `tokens[5].c_str()` | - |
+| `GuiAnalogSticksLedControls.cpp:26` | atoi | `tokens[6].c_str()` | - |
+| `GuiFavoriteMusicSelector.cpp:19` | exists | `path` | cached |
+| `GuiGameOptions.cpp:41` | exists | `logo` | cached |
+| `GuiGameOptions.cpp:53` | exists | `game->getMetadata(MetaDataId::Manual)` | cached |
+| `GuiGameOptions.cpp:54` | exists | `game->getMetadata(MetaDataId::Magazine)` | cached |
+| `GuiGameOptions.cpp:55` | exists | `game->getMetadata(MetaDataId::Map)` | cached |
+| `GuiGameOptions.cpp:56` | exists | `game->getMetadata(MetaDataId::Video)` | cached |
+| `GuiGamelistOptions.cpp:389` | atof | `first.c_str()` | - |
+| `GuiGamelistOptions.cpp:389` | atof | `second.c_str()` | - |
+| `GuiImageViewer.cpp:415` | exists | `fullPath` | cached |
+| `GuiImageViewer.cpp:629` | exists | `imagePath` | cached |
+| `GuiImageViewer.cpp:660` | exists | `imagePath` | cached |
+| `GuiImageViewer.cpp:723` | exists | `videoPath` | cached |
+| `GuiKeyMappingEditor.cpp:156` | atoi | `mTabs->getSelected().c_str()` | - |
+| `GuiMetaDataEd.cpp:600` | atof | `mdv.c_str()` | - |
+| `GuiMetaDataEd.cpp:601` | atof | `value.c_str()` | - |
+| `GuiNetPlay.cpp:679` | exists | `entry.fileData->getImagePath()` | cached |
+| `GuiNetPlaySettings.cpp:70` | exists | `xmlpath` | cached |
+| `GuiSaveState.cpp:33` | isFlockHeld | `"/var/run/cloud_sync.lock"` | - |
+| `GuiUpdate.cpp:213` | atoi | `percent.c_str()` | - |
+
+sites 26: exists 12, isFlockHeld 1, atoi 9, atof 4

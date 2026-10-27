@@ -17,7 +17,7 @@
 
 ## Current focus
 
-**Stage A done** (12:00 to 12:25 UTC), committed and posted on #678. The audit folder is
+**Stage A done** (12:00 to 12:07 UTC; committed 12:07:06, posted 12:07:50), committed and posted on #678. The audit folder is
 `docs/audits/2026_10_27-epic-m6-es-pages/`: `00-running-log.md` (the header and § Stage A),
 `01-research-notes.md` (§ Scope, § History, § Callers, § Context), `stage-a/` (the first
 commands, the membership block, the § 5 runs and their output, the reruns, the callers, the
@@ -67,4 +67,4 @@ granted window.
 
 ## Checkpoints
 
-- Stage A: distribution `c252de767f`, ES at the pin `16dbac5211`, 12:25 UTC
+- Stage A: distribution `c252de767f` (pointer `87f679e0ce`), ES at the pin `16dbac5211`, posted 12:07:50 UTC (accepted 12:09 UTC)
