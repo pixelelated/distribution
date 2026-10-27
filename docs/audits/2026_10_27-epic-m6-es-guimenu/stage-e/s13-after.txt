@@ -1,0 +1,7 @@
+== S13 after: tests/cloud-scan-absent.py against the worktree
+cloud-scan-absent: PASS, 3 cases
+rc 0
+== negative: cloudOpenTransfer's fallback to the options put back
+FAIL cloud-scan-absent: BACK UP TO THE CLOUD without cloud_scan said "THE CLOUD CHECK IS NO LONGER CURRENT. CHECK YOUR FOLDERS AGAIN."
+rc 1
+== noted, not changed (not in the brief's two sites): cloudContentSystemPicker's own fallback to cloud_content_restore --scan when cloud_scan is absent (GuiMenu.cpp:4612's else) is dead -- its only caller is cloudScanContent's continuation (:5218), which stops without cloud_scan, at the pin as now; for the interface slices

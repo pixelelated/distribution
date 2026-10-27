@@ -126,3 +126,7 @@
   - **The sweep:** at the pin, 2 of 5 kill points leave the file empty; after, 0 of 11.
   - **At integration:** `t21-writers.py --expect-writeall` comes down by one on T21's branch; recorded, not run here.
   - **Mine:** the first extraction ended at a `;` inside the log message's string.
+- **S13 (PL-29, #1233)** at ES `757f5370e`, pushed. The fallback is gone. Without `cloud_scan`, both transfer pages now say THIS DEVICE CAN'T CHECK YOUR CLOUD. SOMETHING IT NEEDS IS MISSING FROM THIS BUILD. and stop. The words are new (no missing-tool sentence existed on these pages), in backuptool's shape, with their French (D-UI-112).
+  - **Tests:** `tests/cloud-scan-absent.py` (new) FAILs at the pin and PASSes after. It FAILs with the fallback put back.
+  - **Noted, read before recording:** `cloudContentSystemPicker`'s own absent-script fallback is dead at the pin and now. Its one caller (`:5218`) is `cloudScanContent`'s continuation, which stops first. My first note named the function wrong; it was corrected after reading the caller.
+- **All thirteen streams committed.** ES `70a00ad13` … `757f5370e` on `feature/m6-es-guimenu-673`. Next: the record (`05`'s gate and index), stage G's retro, the hand-back.
