@@ -71,3 +71,8 @@
 
 - **The audit issue #1213**, a sub-issue of #673, labels `audit` and `punch-list`, milestone M6; its body generated from `05` by `tools/t26-issue-body.py`; `tools/box-check --issue 1213`: 29 open checkboxes, 0 fail.
 - **The pause** posted on #673 with the punch list and the rulings asked for. No bug is filed until the ruling.
+
+## [Stage E] 09:17 UTC onward — the ruling, the bugs, the streams
+
+- **The ruling** (09:17 UTC, comment 6438068860) and the stream brief `docs/reviews/briefs/t26-streams.md` at `4bd066551a`: thirteen streams, serial; 19 bugs.
+- **The bugs:** #1215 to #1233, each a sub-issue of #673, its body its `05` section (now with its `Already written:`, Acceptance and Disposition lines) copied by `tools/t26-file-bugs.py`; `tools/box-check` 0 fail on each (`stage-e/bugs-filed.txt`).

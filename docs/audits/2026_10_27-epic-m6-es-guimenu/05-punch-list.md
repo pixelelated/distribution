@@ -20,6 +20,11 @@ Written by the first reader (Opus 5.5) at stage C, from `02` § The leads and §
 - **Owner area:** `GuiMenu::openCloudSetup` (`:8219-8239`), `cloudSetupShowSshStep` (`:6660-6713`)
 - **What:** the picker's row closes the setup page `s` (`:8234`) and then calls `cloudSetupShowSshStep(..., picker)`, which returns without presenting when `cloudSetupInfo()` reports no IP (`:6662-6667`). The picker stays, its rows holding the freed `s`; the next press calls `s->close()` on it. **Fix shape:** close `s` only once the next page is presented (hand `s` to the step to close, or check the network before closing), so a refused step leaves every page valid.
 - **Can this be done on the VM?** Yes -- an AddressSanitizer case in `tests/cloud-oauth-lifetime.py`'s shape (the extracted functions, `cloudSetupInfo` stubbed to return no IP): heap-use-after-free on the second press before the fix, clean after (`fix-unit-test`); the guest walk with two remotes and the network cut (`fix-walk-pending-image`).
+- **Already written:** nothing inherited (a lifetime).
+- **Acceptance:**
+  - [ ] an AddressSanitizer case in `tests/cloud-oauth-lifetime.py`'s shape: the setup page closed by the picker, no IP before the press, the picker's next press -- heap-use-after-free on the pin (`stage-e/s1-before.txt`), clean on S1's commit (`s1-after.txt`).
+  - [ ] `tests/cloud-oauth-lifetime.py` PASS on S1's commit.
+- **Disposition (ruled 09:17 UTC):** a `bug` filed by the lane; stream S1 of `docs/reviews/briefs/t26-streams.md` (the coordinator's, at `4bd066551a`), on the ES branch `feature/m6-es-guimenu-673`.
 - **question:** none -- the fix is contained.
 
 ## PL-02: after a failed CHECK CONNECTION the relink page sends the player to CONNECT OR REPAIR CLOUD STORAGE, a row renamed CLOUD CONNECTIONS on 2026-10-11 (a `bug` proposed)
@@ -32,6 +37,11 @@ Written by the first reader (Opus 5.5) at stage C, from `02` § The leads and §
 - **Owner area:** `GuiMenu::openRestoreRelink` (`:8460`); `locale/lang/fr/LC_MESSAGES/emulationstation2.po`
 - **What:** the sentence names a row the pin does not build; the rename updated the hub's sentence (`:5706`) and missed this one. **Fix shape:** name the pin's row (GAME SETTINGS > MANAGE CLOUD STORAGE > CLOUD CONNECTIONS) with its French; sweep the catalog's three old msgids.
 - **Can this be done on the VM?** Yes -- `tools/vocabulary-check`-style grep of every row name cited in a `_("")` against the titles the pin builds (`fix-unit-test` as a new case), and the G08 walk on an image that carries the fix (`fix-walk-pending-image`).
+- **Already written:** nothing inherited (a sentence).
+- **Acceptance:**
+  - [ ] a unit over the sentence's row name against the hub's built rows: FAIL on the pin, PASS on S2's commit (`stage-e/s2-*.txt`), the French entry present (`tools/es-untranslated` names none).
+  - [ ] `tools/es-menu-map-check --es-src <W> --ref <S2's commit>` prints `0 missing`, with `docs/es-menu-map.md:405` reading FINISH RESTORE PROCESS in the same change.
+- **Disposition (ruled 09:17 UTC):** a `bug` filed by the lane; stream S2 of `docs/reviews/briefs/t26-streams.md` (the coordinator's, at `4bd066551a`), on the ES branch `feature/m6-es-guimenu-673`.
 - **question:** the exact path words (the image's composition says MANAGE CLOUD CONNECTIONS; the pin says CLOUD CONNECTIONS).
 
 ## PL-03: the global VIDEO FILTER writes `global.videofilters`; the launch script reads `videofilter`, so the global choice reaches no game (a `bug` proposed; upstream's row)
@@ -44,6 +54,10 @@ Written by the first reader (Opus 5.5) at stage C, from `02` § The leads and §
 - **Owner area:** `GuiMenu::openGamesSettings` (`:5928`, `:5946-5947`); `setsettings.sh:793`, `001-functions:164-172` (T1's, read)
 - **What:** one letter: the row's key against the script's. **Fix shape:** the row reads and writes `global.videofilter`; **Already written:** devices carry `global.videofilters` -- read it when `global.videofilter` is absent and write the new key (read both, write the new one).
 - **Can this be done on the VM?** Yes -- G04's walk and `get_setting` answer the chosen filter (`fix-walk-pending-image`); a rows-table case asserting the key (`fix-unit-test`).
+- **Acceptance:**
+  - [ ] a unit over the row's key against `setsettings.sh:793`'s: FAIL on the pin, PASS on S3's commit (`stage-e/s3-*.txt`).
+  - [ ] a device-state fixture holding `global.videofilters` alone: the row loads its value and the next save writes `global.videofilter`.
+- **Disposition (ruled 09:17 UTC):** a `bug` filed by the lane; stream S3 of `docs/reviews/briefs/t26-streams.md` (the coordinator's, at `4bd066551a`), on the ES branch `feature/m6-es-guimenu-673`.
 - **question:** a contained fix of upstream's row (`bugs-are-agent-first.md` rule 6) or left to upstream (D-UI-079)? A #585 line either way.
 
 ## PL-04: GAME MEDIAS DURING FAST SCROLLING saves to `system.cfg`; its reader reads `es_settings.cfg`, so the switch does nothing (a `bug` proposed; upstream's row)
@@ -56,6 +70,10 @@ Written by the first reader (Opus 5.5) at stage C, from `02` § The leads and §
 - **Owner area:** `GuiMenu::openUISettings` (`:9485`); `IList.h:110`, `:118`, `:418`; `Settings.cpp:37`, `:61`, `:145`
 - **What:** `addSwitch(..., "ScrollLoadMedias", false)` -- the bool is `storeInSettings`. **Fix shape:** `true`. **Already written:** a device that toggled it carries `ScrollLoadMedias=` in `system.cfg`; carry that value into `es_settings.cfg` once, or accept the default (argued in the stream).
 - **Can this be done on the VM?** Yes -- G03's walk reading `es_settings.cfg` (`fix-walk-pending-image`).
+- **Acceptance:**
+  - [ ] a unit over the row's store against `IList.h:110`'s reader: FAIL on the pin, PASS on S3's commit (`stage-e/s3-*.txt`).
+  - [ ] a device-state fixture holding `ScrollLoadMedias` in `system.cfg` alone: the row loads it and the next save writes `es_settings.cfg`.
+- **Disposition (ruled 09:17 UTC):** a `bug` filed by the lane; stream S3 of `docs/reviews/briefs/t26-streams.md` (the coordinator's, at `4bd066551a`), on the ES branch `feature/m6-es-guimenu-673`.
 - **question:** as PL-03 (rule 6 or D-UI-079).
 
 ## PL-05: the device password: ROOT PASSWORD is unmasked and applied on every close; three password pages can persist an empty `root.password` while the device keeps its password (a `bug` proposed)
@@ -68,6 +86,11 @@ Written by the first reader (Opus 5.5) at stage C, from `02` § The leads and §
 - **Owner area:** `openSystemSettings`' SECURITY page (`:3261-3275`), `cloudSetupOpenPasswordPage` (`:6523-6542`), `openRestoreRelink`'s DEVICE PASSWORD (`:8412-8425`); `GuiSettings::save()` (`GuiSettings.cpp:82-95`); `setrootpass:20-26` (T1's, read)
 - **What:** ROOT PASSWORD runs `setrootpass` on every close, changed or not, re-hashing and restarting services on the interface thread; an empty entry is persisted by `save()` while `setrootpass` refuses it, so `root.password` reads empty and the wizard's CURRENT PASSWORD shows blank. **Fix shape:** one guarded apply for the three pages: non-empty and changed, else the stored value is restored before the save; the SECURITY row masked; the unused `rootpassword` text removed.
 - **Can this be done on the VM?** Yes -- a harness case over the three save hooks (`fix-unit-test`); the guest: open and close SECURITY unchanged and read the journal for no `setrootpass` (`fix-walk-pending-image`).
+- **Already written:** a device whose `root.password` reads empty while its password stands -- an empty stored value is treated as unset and the row shows nothing until set.
+- **Acceptance:**
+  - [ ] a harness case over the two pages' save hooks: an unchanged close runs no `setrootpass`, an empty entry leaves the stored value as it was -- FAIL on the pin, PASS on S4's commit (`stage-e/s4-*.txt`).
+  - [ ] a journal read on the integration guest shows no `setrootpass` after an unchanged close (`fix-walk-pending-image`).
+- **Disposition (ruled 09:17 UTC):** a `bug` filed by the lane; stream S4 of `docs/reviews/briefs/t26-streams.md` (the coordinator's, at `4bd066551a`), on the ES branch `feature/m6-es-guimenu-673`.
 - **question:** should the SECURITY row show the password at all (the SSH wizard shows it by design)?
 
 ## PL-06: 116 process starts on the interface thread with no caller-side bound; each `cloud_oauth cancel` sleeps a second there (a `bug` proposed for the cloud pages)
@@ -80,6 +103,11 @@ Written by the first reader (Opus 5.5) at stage C, from `02` § The leads and §
 - **Owner area:** the cloud pages: `CloudConnectionsPage` (`:5579`, `:5589`), `cloudRemoteBackends`/`cloudRemoteLines` callers (`:7233`, `:7321`, `:7450`, `:7930`, `:8027`, `:8091`), `--connected` (`:6749`), `cloud_remote active` (`:7060`), `cloud_oauth status`/`cancel` (`:7515`, `:7692`, `:7708`, `:7813`, `:7835`, `:7848`, `:6476`), `--set-systems` (`:4207`), `systemctl` for SSH (`:6695-6698`)
 - **What:** each is usually quick and none is bounded; the player sees nothing while it runs; the cancel's one-second sleep is certain. **Fix shape:** a `timeout` on each local helper call and a spinner where it can exceed a frame; the cancel off the interface thread. The fork's lanes only; upstream's service rows are recorded (D-UI-079).
 - **Can this be done on the VM?** Yes -- the pages tool's interface-unbounded count for the cloud pages falls to 0 (`fix-unit-test` as the generator's asserted count); the guest timing a sign-in start (`fix-walk-pending-image`).
+- **Already written:** nothing inherited.
+- **Acceptance:**
+  - [ ] a harness case with a stub script sleeping 3 s: the pin's call holds the calling thread for it (`stage-e/s5-before.txt`); on S5's commit the listed calls run through the bounded executor under a spinner, and a 6 s stub reads as a failure at the 5 s deadline (`s5-after.txt`).
+  - [ ] `tools/t26-pages.py`'s interface-thread unbounded count for the listed sites reads 0 on S5's commit.
+- **Disposition (ruled 09:17 UTC):** a `bug` filed by the lane; stream S5 of `docs/reviews/briefs/t26-streams.md` (the coordinator's, at `4bd066551a`), on the ES branch `feature/m6-es-guimenu-673`.
 - **question:** the bound for each (a few seconds, per D-CLOUD-109's spirit) -- the coordinator's.
 
 ## PL-07: the sign-in's QR read is cached, so one failed attempt leaves the session text-only; a page built while the old one lives may draw the old code (a `bug` proposed)
@@ -92,6 +120,11 @@ Written by the first reader (Opus 5.5) at stage C, from `02` § The leads and §
 - **Owner area:** `cloudOAuthShowSignIn` (`:7767-7796`), `cloudOAuthPresentChoice` (`:7644-7646`)
 - **What:** `exists(qrPath)` remembers its first answer until the cache is reset; `TextureResource` returns a live texture of the same key. **Fix shape:** `exists(qrPath, false)` and a path that names the session (or the image's reload), with `qrencode`'s result read.
 - **Can this be done on the VM?** Yes -- G10's three attempts (`fix-walk-pending-image`); a harness case for the read (`fix-unit-test`).
+- **Already written:** nothing inherited.
+- **Acceptance:**
+  - [ ] a unit over the QR's existence read: cached on the pin, uncached on S6's commit (`stage-e/s6-*.txt`).
+  - [ ] G10's shape on the integration guest draws the QR after a failed attempt without an ES restart (`fix-walk-pending-image`).
+- **Disposition (ruled 09:17 UTC):** a `bug` filed by the lane; stream S6 of `docs/reviews/briefs/t26-streams.md` (the coordinator's, at `4bd066551a`), on the ES branch `feature/m6-es-guimenu-673`.
 - **question:** none.
 
 ## PL-08: cached reads of files other processes write: the scan and selection files through `isRegularFile` (its comment says uncached) and `wg0.conf` (a `bug` proposed)
@@ -104,6 +137,11 @@ Written by the first reader (Opus 5.5) at stage C, from `02` § The leads and §
 - **Owner area:** `cloudSelectionRead` (`:4133-4150`), the comment at `:4154-4156`; `openNetworkSettings` (`:10303`)
 - **What:** a miss is remembered; the consequence differs by file. **Fix shape:** an uncached regular-file test (`exists(p, false)` then a stat), and `exists(wg0.conf, false)`; the comment made true.
 - **Can this be done on the VM?** Yes -- `tests/cloud-content-selection.py` gains a case with the file absent then written (`fix-unit-test`).
+- **Already written:** nothing inherited.
+- **Acceptance:**
+  - [ ] units over `cloudSelectionRead` and the `wg0.conf` read with the file absent then written in the same process: a miss remembered on the pin, the file seen on S6's commit (`stage-e/s6-*.txt`).
+  - [ ] `tests/cloud-content-selection.py` PASS on S6's commit.
+- **Disposition (ruled 09:17 UTC):** a `bug` filed by the lane; stream S6 of `docs/reviews/briefs/t26-streams.md` (the coordinator's, at `4bd066551a`), on the ES branch `feature/m6-es-guimenu-673`.
 - **question:** none.
 
 ## PL-09: script text reaches the screen untranslated: the match's refusal and a failed maintenance run's why (a `bug` proposed)
@@ -116,6 +154,11 @@ Written by the first reader (Opus 5.5) at stage C, from `02` § The leads and §
 - **Owner area:** `cloudOpenMatch` (`:5313-5326`), `runMaintenanceCommand` (`:360-389`)
 - **What:** raw English lines upper-cased into a dialog, where the cloud's last-run why goes through `CloudText::localizedWhy` (`:4697`). **Fix shape:** the same localization for both, with the scripts' sentences in `CloudText::whySentences` and the French catalog (`es-player-text.md` § French).
 - **Can this be done on the VM?** Yes -- `es-unit-tests` cases over the mapping; the guest under `fr_FR` with a refused match (`fix-walk-pending-image`).
+- **Already written:** nothing inherited.
+- **Acceptance:**
+  - [ ] a unit: the match's refusal and a maintenance why map through `CloudText::whySentences` to their French -- FAIL on the pin, PASS on S7's commit (`stage-e/s7-*.txt`).
+  - [ ] `tools/es-untranslated` names none of the sentences on S7's commit.
+- **Disposition (ruled 09:17 UTC):** a `bug` filed by the lane; stream S7 of `docs/reviews/briefs/t26-streams.md` (the coordinator's, at `4bd066551a`), on the ES branch `feature/m6-es-guimenu-673`.
 - **question:** none.
 
 ## PL-10: provider labels bypass the French: a runtime msgid with no extractable literal, `providerLabel()` without gettext, and the form's script-supplied choice labels (a `bug` proposed)
@@ -128,6 +171,11 @@ Written by the first reader (Opus 5.5) at stage C, from `02` § The leads and §
 - **Owner area:** `openCloudAddRemote` (`:8116`), `CloudText.cpp:18-46`, `:5679-5682`, `:8012`, `:8078`, `:7323-7328`, `:7452-7455`
 - **What:** WINDOWS SHARE (SMB) and AMAZON S3 AND COMPATIBLE are phrases; the rest are names. **Fix shape:** the table's phrases marked for extraction (`N_()`) and translated at every display; the script's choice labels left as the provider's names, or mapped.
 - **Can this be done on the VM?** Yes -- `tools/es-untranslated` counts them once extractable; G11's frame (`fix-walk-pending-image`).
+- **Already written:** nothing inherited.
+- **Acceptance:**
+  - [ ] `tools/es-untranslated` names WINDOWS SHARE (SMB) and AMAZON S3 AND COMPATIBLE as untranslated on the pin and none on S7's commit (`stage-e/s7-*.txt`).
+  - [ ] French frames of the provider list and CONNECTED TO at the integration window (`fix-walk-pending-image`).
+- **Disposition (ruled 09:17 UTC):** a `bug` filed by the lane; stream S7 of `docs/reviews/briefs/t26-streams.md` (the coordinator's, at `4bd066551a`), on the ES branch `feature/m6-es-guimenu-673`.
 - **question:** which provider strings are names (left) and which are phrases (translated).
 
 ## PL-11: the command readers: `GetShOutput` drops a byte per read and does not test `popen`; two parses of one success line; a lost status line reads as YOUR CLOUD IS ANSWERING (a `bug` proposed)
@@ -140,6 +188,11 @@ Written by the first reader (Opus 5.5) at stage C, from `02` § The leads and §
 - **Owner area:** `:7407-7422`, `:7995-8001`, `:8445-8453`, `:5579`, `:5589`; `Platform.cpp:891-905` (`es-core`'s)
 - **What:** a long line loses a byte, so a refusal sentence can fail to match; the success parses differ; an empty status reads as 0. **Fix shape:** this file's callers move to `GetShOutputLines` with the exit status (`executeScriptLegacy`'s pair), one parse of `OK=<name>` as a whole line; `GetShOutput` itself is a #585 line (upstream's).
 - **Can this be done on the VM?** Yes -- the fixture extended to the callers' parse (`fix-unit-test`).
+- **Already written:** nothing inherited.
+- **Acceptance:**
+  - [ ] units: `GetShOutput` keeps every byte and fails closed on a failed `popen`; one parse of `OK=`; an empty status is a failure -- FAIL on the pin, PASS on S8's commit (`stage-e/s8-*.txt`).
+  - [ ] `tests/credential-quoting.py` PASS with the same count after `cloudShellQuote` is replaced (the output-equality guard first).
+- **Disposition (ruled 09:17 UTC):** a `bug` filed by the lane; stream S8 of `docs/reviews/briefs/t26-streams.md` (the coordinator's, at `4bd066551a`), on the ES branch `feature/m6-es-guimenu-673`.
 - **question:** none.
 
 ## PL-12: the relink WI-FI PASSWORD page reconnects on every close, changed or not (a `bug` proposed)
@@ -152,6 +205,10 @@ Written by the first reader (Opus 5.5) at stage C, from `02` § The leads and §
 - **Owner area:** `openRestoreRelink` (`:8307-8318`)
 - **What:** opening the page and pressing back starts an association. **Fix shape:** reconnect only when the key changed (compare with the value at entry).
 - **Can this be done on the VM?** Yes -- a harness case counting `enableWifi` calls over the finalizer (`fix-unit-test`).
+- **Already written:** nothing inherited.
+- **Acceptance:**
+  - [ ] a harness case over the relink WI-FI PASSWORD page's finalizer: an unchanged close calls `enableWifi` on the pin and not on S9's commit (`stage-e/s9-*.txt`).
+- **Disposition (ruled 09:17 UTC):** a `bug` filed by the lane; stream S9 of `docs/reviews/briefs/t26-streams.md` (the coordinator's, at `4bd066551a`), on the ES branch `feature/m6-es-guimenu-673`.
 - **question:** none.
 
 ## PL-13: a stored `led.color` reaches `sh -lc "..."` unquoted (a `bug` proposed)
@@ -164,6 +221,10 @@ Written by the first reader (Opus 5.5) at stage C, from `02` § The leads and §
 - **Owner area:** `openSystemSettings` (`:2150-2167`), ROCKNIX-built behind `DEVICE_LED_CONTROL`
 - **What:** a value kept from `system.cfg` is selectable and interpolated into nested shell syntax. **Fix shape:** `Utils::String::shellQuote` on the argument; `credential-quoting.py`'s count gains the site.
 - **Can this be done on the VM?** Yes -- `tests/credential-quoting.py`-style case (`fix-unit-test`).
+- **Already written:** a `led.color` already stored is read as before.
+- **Acceptance:**
+  - [ ] a `tests/credential-quoting.py`-style case: a `led.color` with a quote reaches `sh -lc` as one literal argument on S10's commit, and not on the pin (`stage-e/s10-*.txt`).
+- **Disposition (ruled 09:17 UTC):** a `bug` filed by the lane; stream S10 of `docs/reviews/briefs/t26-streams.md` (the coordinator's, at `4bd066551a`), on the ES branch `feature/m6-es-guimenu-673`.
 - **question:** ROCKNIX's code in a lane the fork has not worked in: contained (rule 6) or left (D-UI-079)?
 
 ## PL-14: the MANUAL UPDATES dialog is sentence-case prose, in the fork's own code (a `bug` proposed)
@@ -176,6 +237,10 @@ Written by the first reader (Opus 5.5) at stage C, from `02` § The leads and §
 - **Owner area:** `openUpdatesSettings` (`:1513-1521`)
 - **What:** the fork's dialect is ALL CAPS (`es-ui-style-guide.md` § Text). **Fix shape:** the sentence in capitals with the URL as written, and its French.
 - **Can this be done on the VM?** Yes -- a frame of the dialog (`fix-walk-pending-image`).
+- **Already written:** nothing inherited.
+- **Acceptance:**
+  - [ ] a unit over the dialog's text in the house's upper case: FAIL on the pin, PASS on S11's commit (`stage-e/s11-*.txt`), its French present.
+- **Disposition (ruled 09:17 UTC):** a `bug` filed by the lane; stream S11 of `docs/reviews/briefs/t26-streams.md` (the coordinator's, at `4bd066551a`), on the ES branch `feature/m6-es-guimenu-673`.
 - **question:** the words.
 
 ## PL-15: the menu map's relink heading reads FINISH RESTORE SETUP against D-UI-046 (the map, a stream's commit)
@@ -200,6 +265,10 @@ Written by the first reader (Opus 5.5) at stage C, from `02` § The leads and §
 - **Owner area:** `:8320-8332`, `:10084-10090`, `:10124-10129`, `:10172`
 - **What:** WI-FI ENABLED on a page close; nothing on the relink page's success; nothing either way from the switch. **Fix shape:** one composer, decided at the pause (`least-surprise.md`).
 - **Can this be done on the VM?** Yes -- frames of the three paths.
+- **Already written:** nothing inherited.
+- **Acceptance:**
+  - [ ] a unit over the one Wi-Fi composer: the switch toasts `WI-FI IS ON.` / `WI-FI IS OFF.` (and their French), the page close adds nothing -- FAIL on the pin, PASS on S11's commit (`stage-e/s11-*.txt`).
+- **Disposition (ruled 09:17 UTC):** a `bug` filed by the lane; stream S11 of `docs/reviews/briefs/t26-streams.md` (the coordinator's, at `4bd066551a`), on the ES branch `feature/m6-es-guimenu-673`.
 - **question:** what each path should say.
 
 ## PL-17: a page of only `addInputTextConfigRow` rows writes nothing on its close; four sub-pages work around it with `onFinalize` saves (another slice's file)
@@ -224,6 +293,10 @@ Written by the first reader (Opus 5.5) at stage C, from `02` § The leads and §
 - **Owner area:** `openSoundSettings` (`:9609-9613`, `:9653-9661`), `openSystemSettings` (`:1857-1870`)
 - **What:** writes before any player action; upstream's and ROCKNIX's rows. **Fix shape:** read the default without writing it; write the timezone only when it changed.
 - **Can this be done on the VM?** Yes -- the stores read before and after a no-change visit.
+- **Already written:** nothing inherited.
+- **Acceptance:**
+  - [ ] a harness case with doubled stores: a no-change visit to SOUND SETTINGS writes neither default and a no-change close writes no timezone on S9's commit; it does on the pin (`stage-e/s9-*.txt`).
+- **Disposition (ruled 09:17 UTC):** a `bug` filed by the lane; stream S9 of `docs/reviews/briefs/t26-streams.md` (the coordinator's, at `4bd066551a`), on the ES branch `feature/m6-es-guimenu-673`.
 - **question:** rule 6 or D-UI-079 (upstream's and ROCKNIX's rows).
 
 ## PL-19: back on TRY AGAIN / CANCEL SIGN-IN lands on CANCEL SIGN-IN (a style item)
@@ -308,6 +381,9 @@ Written by the first reader (Opus 5.5) at stage C, from `02` § The leads and §
 - **Owner area:** `saveSubsetSettings` (`:11587`)
 - **What:** a kill during the write can leave a cut file. **Fix shape:** `Utils::AtomicFile::writeText`. **Already written:** existing theme-set files are read as before.
 - **Can this be done on the VM?** Yes -- T21's kill sweep pattern over the writer (`fix-unit-test`).
+- **Acceptance:**
+  - [ ] the kill sweep's shape over the writer: a kill mid-write leaves a cut file on the pin and 0 kill points do on S12's commit (`stage-e/s12-*.txt`).
+- **Disposition (ruled 09:17 UTC):** a `bug` filed by the lane; stream S12 of `docs/reviews/briefs/t26-streams.md` (the coordinator's, at `4bd066551a`), on the ES branch `feature/m6-es-guimenu-673`.
 - **question:** none.
 
 ## PL-26: the 0.75 wizard page relies on `GuiSettings`' default position (recorded)
@@ -344,6 +420,10 @@ Written by the first reader (Opus 5.5) at stage C, from `02` § The leads and §
 - **Owner area:** `openRestoreRelink` (`:8486-8493`)
 - **What:** the marker stays (the page returns at the next start: the safe direction). **Fix shape:** a sentence when the removal fails.
 - **Can this be done on the VM?** Yes -- a read-only marker on the guest.
+- **Already written:** nothing inherited.
+- **Acceptance:**
+  - [ ] a unit: FINISH with the marker's removal failing says `COULDN'T FINISH - THIS DEVICE COULDN'T SAVE THAT SETUP IS DONE. TRY AGAIN.` (and its French) and leaves the marker -- FAIL on the pin, PASS on S11's commit (`stage-e/s11-*.txt`).
+- **Disposition (ruled 09:17 UTC):** a `bug` filed by the lane; stream S11 of `docs/reviews/briefs/t26-streams.md` (the coordinator's, at `4bd066551a`), on the ES branch `feature/m6-es-guimenu-673`.
 - **question:** worth a sentence?
 
 ## PL-29: with `cloud_scan` absent the fallback cannot reach the transfer options (latent)
@@ -356,6 +436,10 @@ Written by the first reader (Opus 5.5) at stage C, from `02` § The leads and §
 - **Owner area:** `cloudOpenTransfer` (`:5253-5256`), `cloudOpenTransferOptions` (`:4838-4841`)
 - **What:** every image ships `cloud_scan`. **Fix shape:** remove the fallback (D-CLOUD-175's scripts are current) or let it skip the stamp.
 - **Can this be done on the VM?** Yes -- a harness case with `cloud_scan` absent.
+- **Already written:** nothing inherited.
+- **Acceptance:**
+  - [ ] a harness case with `cloud_scan` absent: the pin's fallback ends at THE CLOUD CHECK IS NO LONGER CURRENT; on S13's commit the page says its sentence for a missing tool, and the transfer options are reachable with the script present (`stage-e/s13-*.txt`).
+- **Disposition (ruled 09:17 UTC):** a `bug` filed by the lane; stream S13 of `docs/reviews/briefs/t26-streams.md` (the coordinator's, at `4bd066551a`), on the ES branch `feature/m6-es-guimenu-673`.
 - **question:** remove the fallback?
 
 ---
