@@ -114,6 +114,12 @@ def shape(v):
 # here by (path, line): a slice file's own line for an excerpt, else the
 # section's line. Filled from the first build's STOP list, each read at its line.
 DISPOSITIONS = {
+    ("es-app/src/scrapers/GamesDBJSONScraper.cpp", 201): "code: the `apikey=` query prefix joined to `resources.getApiKey()` (a call, no literal)",
+    ("es-app/src/scrapers/GamesDBJSONScraper.cpp", 570): "code: the `apikey=` query prefix joined to `resources.getApiKey()` (a call, no literal)",
+    ("es-app/src/scrapers/HfsDBScraper.cpp", 222): "code: `mTokenDate = ...now()` (a member name; a date)",
+    ("es-app/src/scrapers/IGDBScraper.cpp", 177): "code: `mTokenDate = ...now()` (a member name; a date)",
+    ("es-app/src/views/UIModeController.cpp", 72): "code: `mPassKeyCounter = 0` (the unlock sequence's counter, a member name)",
+    ("es-app/src/views/UIModeController.cpp", 75): "code: `mPassKeyCounter == ...length()` (a member name)",
 }
 _T31_DISPOSITIONS = {
     ('docs/audits/2026_10_27-epic-m6-es-pages/02-forward-audit.md', 105): "prose: the pages table's GLOBAL HOTKEYS / JOYSTICKS HOTKEYS row (`hotkey`, a word)",

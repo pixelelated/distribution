@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "depth": "independent",
+  "scope": "epic",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "anthropic/claude-opus-5-5",
+    "lab": "anthropic",
+    "identity_source": "the coordinator's T32 dispatch on #679 (comment 6446520036, to the T5 session, m6-t5-build-engine) and the session's own model metadata (claude-opus-5-5)"
+  },
+  "reviewers": [
+    {
+      "member": "gpt",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "max",
+      "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
+      "allow_fallbacks": false,
+      "probes": [
+        {
+          "phase": "probe",
+          "prompt": "probe-prompt.md",
+          "output": "astra-probe.md"
+        }
+      ],
+      "calls": [
+        {
+          "phase": "refutation",
+          "prompt": "astra-brief.md",
+          "output": "astra-audit.md"
+        }
+      ],
+      "status": "in_progress"
+    }
+  ],
+  "packet": {
+    "file": "packet.md",
+    "manifest": "packet-manifest.json"
+  }
+}

@@ -1,0 +1,3677 @@
+{
+ "schema": "t32-packet-manifest/1",
+ "pin": "16dbac5211eea7e70db7394372033be2be7df829",
+ "sources": [
+  {
+   "section": 0,
+   "title": "ask",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-views-scrapers/stage-c/ask.md",
+   "ref": "worktree",
+   "kind": "ask",
+   "sha256": "4dcf5e06d4f4511f1dad02c3d623a1bb85e714dff22b1106b0d94c1f475e7d9b",
+   "bytes": 6351
+  },
+  {
+   "section": 2,
+   "title": "The first reader's 02-forward-audit.md (whole)",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-views-scrapers/02-forward-audit.md",
+   "ref": "worktree",
+   "kind": "first reader",
+   "sha256": "80541dbd4d485f20207fff0d868339d2f7271c8a345a9fa53b6073c7f58ff604",
+   "bytes": 75744,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 3,
+   "title": "The first reader's 03-retrospective.md (whole)",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-views-scrapers/03-retrospective.md",
+   "ref": "worktree",
+   "kind": "first reader",
+   "sha256": "53080fb8cf010761b691b002e1dade85df6042fbcd5faec65b1f177eb45655c3",
+   "bytes": 12406,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 4,
+   "title": "The first reader's 04-analysis.md (whole)",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-views-scrapers/04-analysis.md",
+   "ref": "worktree",
+   "kind": "first reader",
+   "sha256": "97fadb78ec0d417a755c28e0367d0bc9803e9fc0a8514f1e24e71bb7b4971ffb",
+   "bytes": 20087,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 5,
+   "title": "Context 1: the brief's \u00a7 4",
+   "path": "docs/reviews/briefs/es-app-views-scrapers.md \u00a7 4",
+   "ref": "85307da3b3",
+   "kind": "context",
+   "sha256": "5f12aafa0247943c8f50502c9ebdd110df8dc3d7cdfb61fb8a55e8dac0cbf9dc",
+   "bytes": 21760,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 6,
+   "title": "Context 2: the register rows",
+   "path": "docs/decision-register.md rows D-QA-003, D-UI-028, D-UI-030, D-UI-039, D-UI-078, D-UI-079, D-UI-129, D-WORKFLOW-162, D-WORKFLOW-166, D-WORKFLOW-195",
+   "ref": "worktree",
+   "kind": "context",
+   "sha256": "4bf989589eef75859f0aa69f27c2d5d18d6b6d3780f64b615f41a215630b0577",
+   "bytes": 9098,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 7,
+   "title": "Evidence: stage-c/runs.txt (the host harnesses)",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-views-scrapers/stage-c/runs.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "d3ac4ed4d86f06265d428c4ff4446a01c0d42e9f8794b3f4a9431964efd24ed5",
+   "bytes": 9732,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 8,
+   "title": "Evidence: stage-c/floor.md",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-views-scrapers/stage-c/floor.md",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "81423ad38983530f8b9db110f99499b4f03f12f3794554570c7ab5da016c1e48",
+   "bytes": 15642,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 9,
+   "title": "Evidence: stage-c/includes.out",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-views-scrapers/stage-c/includes.out",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "6867481155869a4d3a3cebb4c969e57367dbf35e9615079410acb75a3800341f",
+   "bytes": 864,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 10,
+   "title": "Evidence: guest-cycle/g01-identity.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-views-scrapers/guest-cycle/g01-identity.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "ada30d041e4a8e59149de4993f997b8a1c848720573e8f4b57496107f98da1d5",
+   "bytes": 972,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 11,
+   "title": "Evidence: guest-cycle/g02-l14-timings.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-views-scrapers/guest-cycle/g02-l14-timings.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "11b9874c4a6e451f924b9df963345321a730983b95f6241acb65cfc0e7290db0",
+   "bytes": 155,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 12,
+   "title": "Evidence: guest-cycle/g05-journal.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-views-scrapers/guest-cycle/g05-journal.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "b14a5efda8c650436bb0e5291cb19d5a26f40153c22510ef99cdab3bfa48edea",
+   "bytes": 130,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 13,
+   "title": "Evidence: guest-cycle/g08-api.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-views-scrapers/guest-cycle/g08-api.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "7b761faec70a994b89d236fa511044fffc09a6555dda0a62d5c6cfd7956986bf",
+   "bytes": 170,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 14,
+   "title": "Evidence: guest-cycle/retired.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-views-scrapers/guest-cycle/retired.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "14052971e6a559ad3810b3b7a49547472b35e5286e363470e31175559522c50a",
+   "bytes": 620,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 15,
+   "title": "Evidence: guest-cycle/window-bound.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-views-scrapers/guest-cycle/window-bound.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "453be406639abf6dfe73352257ee0f6bff508d7d9e9443e6db6d86d73e10864e",
+   "bytes": 37,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 16,
+   "title": "es-app/src/scrapers/Scraper.cpp @ 16dbac5211 (whole, 813 lines)",
+   "path": "es-app/src/scrapers/Scraper.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "f966f3beda415486f108d5e7ab104428055a139e5bb0cc2e3f0c579f885b02f6",
+   "bytes": 30391,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 17,
+   "title": "es-app/src/scrapers/ThreadedScraper.cpp @ 16dbac5211 (whole, 339 lines)",
+   "path": "es-app/src/scrapers/ThreadedScraper.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "5e97d69dcb6c9290a643c23401e480f4f0a9d6490f29f1a54a50d84feb7b2b41",
+   "bytes": 11419,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 18,
+   "title": "es-app/src/scrapers/ThreadedScraper.h @ 16dbac5211 (whole, 119 lines)",
+   "path": "es-app/src/scrapers/ThreadedScraper.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "c8173a1c79e66125e9328fd01b0c407ae6e1fddc5e2be8d73d500a7c3b448157",
+   "bytes": 4174,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 19,
+   "title": "es-app/src/views/gamelist/DetailedContainer.cpp @ 16dbac5211 (whole, 1450 lines)",
+   "path": "es-app/src/views/gamelist/DetailedContainer.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "ba63ca6f7d1affd8d758b2e231b9cd4e458b62e8172263f4f6406e9b5404f661",
+   "bytes": 54792,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 20,
+   "title": "es-app/src/views/gamelist/GridGameListView.cpp @ 16dbac5211 (whole, 347 lines)",
+   "path": "es-app/src/views/gamelist/GridGameListView.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "6eb6aa0e335cf24e6a4d7c09bbdcf92fabd92a2cb05293ac3562e6f0934f3a83",
+   "bytes": 11703,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 21,
+   "title": "es-app/src/views/gamelist/ISimpleGameListView.cpp @ 16dbac5211 (whole, 937 lines)",
+   "path": "es-app/src/views/gamelist/ISimpleGameListView.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "55750b0a466a67023147d6364e6bf22c396adc71c2d118e07a38d0e28bbe749e",
+   "bytes": 31115,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 22,
+   "title": "es-app/src/scrapers/ArcadeDBJSONScraper.cpp @ 16dbac5211: lines 18-45 (excerpt of 243)",
+   "path": "es-app/src/scrapers/ArcadeDBJSONScraper.cpp:18-45",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d63c22d02a2a0ffd5c37b55f921b0ff3504b3af97046a318600c873738e75cb8",
+   "bytes": 1201,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 23,
+   "title": "es-app/src/scrapers/ArcadeDBJSONScraper.cpp @ 16dbac5211: lines 68-111 (excerpt of 243)",
+   "path": "es-app/src/scrapers/ArcadeDBJSONScraper.cpp:68-111",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "f27ac71c82f0b13665fddc5d31918aa089d848641234cc537b8d89468efb717c",
+   "bytes": 1470,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 24,
+   "title": "es-app/src/scrapers/ArcadeDBJSONScraper.cpp @ 16dbac5211: lines 113-129 (excerpt of 243)",
+   "path": "es-app/src/scrapers/ArcadeDBJSONScraper.cpp:113-129",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "b45429fec697050c181f4183a11c87cabccd53f2cb515a4bebf9886faffdbc97",
+   "bytes": 552,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 25,
+   "title": "es-app/src/scrapers/ArcadeDBJSONScraper.cpp @ 16dbac5211: lines 191-208 (excerpt of 243)",
+   "path": "es-app/src/scrapers/ArcadeDBJSONScraper.cpp:191-208",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "c935461cb34c0879a1bbf0bf6b849039daae3040a8edc4cb23cc6bd0ed1e77e5",
+   "bytes": 669,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 26,
+   "title": "es-app/src/scrapers/GamesDBJSONScraper.cpp @ 16dbac5211: lines 187-203 (excerpt of 633)",
+   "path": "es-app/src/scrapers/GamesDBJSONScraper.cpp:187-203",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "757e29cb176a461bc691d0820944342590d68eefbfbe28c978eddafd01c74656",
+   "bytes": 677,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 27,
+   "title": "es-app/src/scrapers/GamesDBJSONScraper.cpp @ 16dbac5211: lines 285-317 (excerpt of 633)",
+   "path": "es-app/src/scrapers/GamesDBJSONScraper.cpp:285-317",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "a67a45b7366e1b6c8956ddb9e8f80caf8050282c01a81712aecb5a073b469952",
+   "bytes": 887,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 28,
+   "title": "es-app/src/scrapers/GamesDBJSONScraper.cpp @ 16dbac5211: lines 394-410 (excerpt of 633)",
+   "path": "es-app/src/scrapers/GamesDBJSONScraper.cpp:394-410",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d59d41af5c6f9cafe58eeb7ec333f02c1df7bb1ceeae161ffd5f93e9646011ec",
+   "bytes": 541,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 29,
+   "title": "es-app/src/scrapers/GamesDBJSONScraper.cpp @ 16dbac5211: lines 454-499 (excerpt of 633)",
+   "path": "es-app/src/scrapers/GamesDBJSONScraper.cpp:454-499",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "fe5ec34d80e5bd39e1fa37d36a0154d4f9239e36694330a4114b4d315ecd535e",
+   "bytes": 1693,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 30,
+   "title": "es-app/src/scrapers/GamesDBJSONScraper.cpp @ 16dbac5211: lines 545-561 (excerpt of 633)",
+   "path": "es-app/src/scrapers/GamesDBJSONScraper.cpp:545-561",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "8f4886d8a2c4f564564aaf390b1fa97240a292bc50c93a30cb7968ef46fbac9b",
+   "bytes": 549,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 31,
+   "title": "es-app/src/scrapers/GamesDBJSONScraper.cpp @ 16dbac5211: lines 567-615 (excerpt of 633)",
+   "path": "es-app/src/scrapers/GamesDBJSONScraper.cpp:567-615",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "724b70660c85a0845c7a507700d6cb2efa209fd5f87ac2d5ad67cf34d57ab094",
+   "bytes": 1894,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 32,
+   "title": "es-app/src/scrapers/GamesDBJSONScraperResources.cpp @ 16dbac5211: lines 29-45 (excerpt of 201)",
+   "path": "es-app/src/scrapers/GamesDBJSONScraperResources.cpp:29-45",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "f673b7496012fd548ae3177d2bed60b41b40451fcb2e906ad3084d435a368076",
+   "bytes": 486,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 33,
+   "title": "es-app/src/scrapers/GamesDBJSONScraperResources.cpp @ 16dbac5211: lines 145-161 (excerpt of 201)",
+   "path": "es-app/src/scrapers/GamesDBJSONScraperResources.cpp:145-161",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "8978cbd57286dce106b69d1c6d80fb046d4bfb11071ade2225172867fcca46cd",
+   "bytes": 558,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 34,
+   "title": "es-app/src/scrapers/GamesDBJSONScraperResources.cpp @ 16dbac5211: lines 172-188 (excerpt of 201)",
+   "path": "es-app/src/scrapers/GamesDBJSONScraperResources.cpp:172-188",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "942fdbaaa796d1ec72a000f1c0604be8dd650807d7b0aab2ad6b5ca16537fd5b",
+   "bytes": 659,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 35,
+   "title": "es-app/src/scrapers/HfsDBScraper.cpp @ 16dbac5211: lines 171-225 (excerpt of 633)",
+   "path": "es-app/src/scrapers/HfsDBScraper.cpp:171-225",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "6fd4225acd2a5ecfe16e19121582443f645bdad1493dfebebad5fce24d008adb",
+   "bytes": 1726,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 36,
+   "title": "es-app/src/scrapers/HfsDBScraper.cpp @ 16dbac5211: lines 300-316 (excerpt of 633)",
+   "path": "es-app/src/scrapers/HfsDBScraper.cpp:300-316",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "56cafdbd45a2f57f01ef6fd18b4d612310162d36bd2cc2e9c40450045a736734",
+   "bytes": 622,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 37,
+   "title": "es-app/src/scrapers/HfsDBScraper.cpp @ 16dbac5211: lines 335-351 (excerpt of 633)",
+   "path": "es-app/src/scrapers/HfsDBScraper.cpp:335-351",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "6ba76c6f29c69e4b89d306deaa622d9d73d1cd962bac16c1cafc6f98732ecc71",
+   "bytes": 512,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 38,
+   "title": "es-app/src/scrapers/HfsDBScraper.cpp @ 16dbac5211: lines 399-415 (excerpt of 633)",
+   "path": "es-app/src/scrapers/HfsDBScraper.cpp:399-415",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "b5b425458c818d7a45c3671b6cf573bffbb04ed141e4aa4c13773c35f158a3e5",
+   "bytes": 529,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 39,
+   "title": "es-app/src/scrapers/HfsDBScraper.cpp @ 16dbac5211: lines 454-499 (excerpt of 633)",
+   "path": "es-app/src/scrapers/HfsDBScraper.cpp:454-499",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "a94ee554c899a6437b054d427253df253d62f581dee2583c2a92fd0beafa1004",
+   "bytes": 1648,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 40,
+   "title": "es-app/src/scrapers/HfsDBScraper.cpp @ 16dbac5211: lines 576-592 (excerpt of 633)",
+   "path": "es-app/src/scrapers/HfsDBScraper.cpp:576-592",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "4a5e7a09f55f624865fd00c6ead527ae072123da9e7f85d23205e46b436b142a",
+   "bytes": 649,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 41,
+   "title": "es-app/src/scrapers/HfsDBScraper.cpp @ 16dbac5211: lines 613-629 (excerpt of 633)",
+   "path": "es-app/src/scrapers/HfsDBScraper.cpp:613-629",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "5ad1698f3657af4dbe578877a0e6b16345e874f4068968f47862d08a0444739a",
+   "bytes": 427,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 42,
+   "title": "es-app/src/scrapers/IGDBScraper.cpp @ 16dbac5211: lines 135-180 (excerpt of 349)",
+   "path": "es-app/src/scrapers/IGDBScraper.cpp:135-180",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "90565f985f1cd26e93bd4d789868c3afac95e36efe191710a8a6b84598cff1c8",
+   "bytes": 1691,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 43,
+   "title": "es-app/src/scrapers/IGDBScraper.cpp @ 16dbac5211: lines 305-345 (excerpt of 349)",
+   "path": "es-app/src/scrapers/IGDBScraper.cpp:305-345",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "b5e4bcade0a38145325703c0dd93918e881ac9a6318d588411705ca59b24eeac",
+   "bytes": 1273,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 44,
+   "title": "es-app/src/services/HttpApi.cpp @ 16dbac5211: lines 94-118 (excerpt of 344)",
+   "path": "es-app/src/services/HttpApi.cpp:94-118",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "23dbe22c5b3c70bd529fcbc542aad83b81b8f75ddc4324c072a707013cf915c3",
+   "bytes": 696,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 45,
+   "title": "es-app/src/services/HttpApi.cpp @ 16dbac5211: lines 162-178 (excerpt of 344)",
+   "path": "es-app/src/services/HttpApi.cpp:162-178",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "2d9420fd6b2e5b8375c318df5e6f7f1e5e1ac96eb12022938180740eb7aa038d",
+   "bytes": 376,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 46,
+   "title": "es-app/src/services/HttpApi.cpp @ 16dbac5211: lines 202-218 (excerpt of 344)",
+   "path": "es-app/src/services/HttpApi.cpp:202-218",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e349597c778aad51955bc235a0fefd03e24f26f3e6b95d57703b50fdec690b4d",
+   "bytes": 539,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 47,
+   "title": "es-app/src/services/HttpApi.cpp @ 16dbac5211: lines 232-268 (excerpt of 344)",
+   "path": "es-app/src/services/HttpApi.cpp:232-268",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "51e8b252a9d240f3d2674961cd2da31e448479766343c8bc62ae1314e6940bb5",
+   "bytes": 1251,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 48,
+   "title": "es-app/src/services/HttpApi.cpp @ 16dbac5211: lines 324-340 (excerpt of 344)",
+   "path": "es-app/src/services/HttpApi.cpp:324-340",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "8c742877bfed40a833eda8872fb7777915211c3a4b22dbf383ae1498546a4934",
+   "bytes": 517,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 49,
+   "title": "es-app/src/services/HttpServerThread.cpp @ 16dbac5211: lines 66-82 (excerpt of 834)",
+   "path": "es-app/src/services/HttpServerThread.cpp:66-82",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "a7749a37757a6494e801ffda9fa6df8f67eb75cd8b6b8f37294c14ce851e5d3d",
+   "bytes": 432,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 50,
+   "title": "es-app/src/services/HttpServerThread.cpp @ 16dbac5211: lines 85-101 (excerpt of 834)",
+   "path": "es-app/src/services/HttpServerThread.cpp:85-101",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "38a0ba2081850aa29ab74cca72d2815eaca1425e99cc280eeedb25d8f7ff2822",
+   "bytes": 439,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 51,
+   "title": "es-app/src/services/HttpServerThread.cpp @ 16dbac5211: lines 106-135 (excerpt of 834)",
+   "path": "es-app/src/services/HttpServerThread.cpp:106-135",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "6e26230f4b905f00177acf1fba8e4e6f0da637c83553cafdb0245a3c7819d560",
+   "bytes": 1057,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 52,
+   "title": "es-app/src/services/HttpServerThread.cpp @ 16dbac5211: lines 137-811 (excerpt of 834)",
+   "path": "es-app/src/services/HttpServerThread.cpp:137-811",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "b4c108a7b1cc41ab16dd06a6508ca44a867ad3d70d49f6e5ba685c4cb39a0920",
+   "bytes": 21834,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 53,
+   "title": "es-app/src/services/HttpServerThread.cpp @ 16dbac5211: lines 813-834 (excerpt of 834)",
+   "path": "es-app/src/services/HttpServerThread.cpp:813-834",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "96f79a9924c0c38dc1d80902854e6056f56f35882a2fccfb11a2d7f3d329518d",
+   "bytes": 444,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 54,
+   "title": "es-app/src/services/httplib.h @ 16dbac5211: lines 64-80 (excerpt of 5713)",
+   "path": "es-app/src/services/httplib.h:64-80",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e767732d64a0cf5c8e43ce2d0c9958a556457fc58047dcf65c64d4f229d97ddf",
+   "bytes": 586,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 55,
+   "title": "es-app/src/services/httplib.h @ 16dbac5211: lines 2467-2483 (excerpt of 5713)",
+   "path": "es-app/src/services/httplib.h:2467-2483",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "3a2e9e0c1f20d1cc15db418583d49e206792e0f8e443e4294a47c86f1079a0bd",
+   "bytes": 475,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 56,
+   "title": "es-app/src/services/httplib.h @ 16dbac5211: lines 2550-2567 (excerpt of 5713)",
+   "path": "es-app/src/services/httplib.h:2550-2567",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d4359ce22ecb81b89d110b9090f0e9ae50857265d0e0008a90934f47cd61efae",
+   "bytes": 647,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 57,
+   "title": "es-app/src/views/SystemView.cpp @ 16dbac5211: lines 26-42 (excerpt of 1638)",
+   "path": "es-app/src/views/SystemView.cpp:26-42",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "3b90fa5704b132d420b2210ef5f34098f31418e6a3c64a14b4e9ce6a3387e514",
+   "bytes": 660,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 58,
+   "title": "es-app/src/views/SystemView.cpp @ 16dbac5211: lines 188-204 (excerpt of 1638)",
+   "path": "es-app/src/views/SystemView.cpp:188-204",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "a165ab91ba93c9861becf9c3ca8e46d7738bbd598c8d53264e311b25a9001d2c",
+   "bytes": 398,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 59,
+   "title": "es-app/src/views/SystemView.cpp @ 16dbac5211: lines 225-251 (excerpt of 1638)",
+   "path": "es-app/src/views/SystemView.cpp:225-251",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "abb0c3b4c046f50c6017b216af2d0d7830708cd3353b92046f824124d6bc14bd",
+   "bytes": 959,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 60,
+   "title": "es-app/src/views/SystemView.cpp @ 16dbac5211: lines 264-290 (excerpt of 1638)",
+   "path": "es-app/src/views/SystemView.cpp:264-290",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "6e7dfa86e27b5a846bf48448cfd87a1d37eb878f5ca9488b6e797bacf204cc95",
+   "bytes": 820,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 61,
+   "title": "es-app/src/views/SystemView.cpp @ 16dbac5211: lines 323-339 (excerpt of 1638)",
+   "path": "es-app/src/views/SystemView.cpp:323-339",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "645dd1ca8173e3e62eb1abc2d7d202193f507502e7716e158c18328b318234f9",
+   "bytes": 596,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 62,
+   "title": "es-app/src/views/SystemView.cpp @ 16dbac5211: lines 345-373 (excerpt of 1638)",
+   "path": "es-app/src/views/SystemView.cpp:345-373",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "64a702371fd06c276fa49851825acda127466a9af1bad53925be0c22708edaea",
+   "bytes": 1131,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 63,
+   "title": "es-app/src/views/SystemView.cpp @ 16dbac5211: lines 399-421 (excerpt of 1638)",
+   "path": "es-app/src/views/SystemView.cpp:399-421",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "dcc457b0f264fb2a6bcf8afe296a9b22a2791692815e74ac289670eb19cebc1a",
+   "bytes": 1006,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 64,
+   "title": "es-app/src/views/SystemView.cpp @ 16dbac5211: lines 516-560 (excerpt of 1638)",
+   "path": "es-app/src/views/SystemView.cpp:516-560",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "9eb332c6cbd028525cdb0c85bde4b5fcfe308df352e0b32241a470f4b5f66321",
+   "bytes": 1903,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 65,
+   "title": "es-app/src/views/SystemView.cpp @ 16dbac5211: lines 700-716 (excerpt of 1638)",
+   "path": "es-app/src/views/SystemView.cpp:700-716",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "9d7c4e189bb5abe6d72fc47b117c144475aba4a9a4a370b02230ce1c28b395d9",
+   "bytes": 645,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 66,
+   "title": "es-app/src/views/SystemView.cpp @ 16dbac5211: lines 886-923 (excerpt of 1638)",
+   "path": "es-app/src/views/SystemView.cpp:886-923",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "61c89d8e3df419ef407d3b883f61c89e93bb805865123c988f5eca651076928a",
+   "bytes": 1417,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 67,
+   "title": "es-app/src/views/SystemView.cpp @ 16dbac5211: lines 1611-1627 (excerpt of 1638)",
+   "path": "es-app/src/views/SystemView.cpp:1611-1627",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e62d1e68825e25e1ef703f29e9862f53acd72a6fb30692fc78095832ac2bf544",
+   "bytes": 645,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 68,
+   "title": "es-app/src/views/UIModeController.cpp @ 16dbac5211: lines 1-19 (excerpt of 197)",
+   "path": "es-app/src/views/UIModeController.cpp:1-19",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "ad7d82642128dc8e9d2da76fd96c3c5f030a8b27cdecb06ed9be186652409640",
+   "bytes": 586,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 69,
+   "title": "es-app/src/views/UIModeController.cpp @ 16dbac5211: lines 47-105 (excerpt of 197)",
+   "path": "es-app/src/views/UIModeController.cpp:47-105",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "439ee3e566a1aba3c71d577fdaf78b5866b32fb5bccede5f422d6fc780bc728d",
+   "bytes": 1909,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 70,
+   "title": "es-app/src/views/gamelist/BasicGameListView.cpp @ 16dbac5211: lines 23-39 (excerpt of 227)",
+   "path": "es-app/src/views/gamelist/BasicGameListView.cpp:23-39",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "1afed8afcb827dcbd5d585b7d57f0e6494f470f1dc2f99efd6059708f5deb4d6",
+   "bytes": 524,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 71,
+   "title": "es-app/src/views/gamelist/BasicGameListView.cpp @ 16dbac5211: lines 46-84 (excerpt of 227)",
+   "path": "es-app/src/views/gamelist/BasicGameListView.cpp:46-84",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "672bc1123108fa448f487de4a0be0b0fd450c1d592b118353651c0f004e058fb",
+   "bytes": 1296,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 72,
+   "title": "es-app/src/views/gamelist/BasicGameListView.cpp @ 16dbac5211: lines 93-109 (excerpt of 227)",
+   "path": "es-app/src/views/gamelist/BasicGameListView.cpp:93-109",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "8fdcf830f686d94dcf71f4bbf3b8f510e5b2d35f736ad376ba760d8c1fd2a31d",
+   "bytes": 542,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 73,
+   "title": "es-app/src/views/gamelist/BasicGameListView.cpp @ 16dbac5211: lines 115-132 (excerpt of 227)",
+   "path": "es-app/src/views/gamelist/BasicGameListView.cpp:115-132",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "5678c75d935dd8376b6b5f73e9a8e42587aeae46880d95ab660df095d0908100",
+   "bytes": 422,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 74,
+   "title": "es-app/src/views/gamelist/BasicGameListView.cpp @ 16dbac5211: lines 174-190 (excerpt of 227)",
+   "path": "es-app/src/views/gamelist/BasicGameListView.cpp:174-190",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "745f06415fadaf8fd67db7dcf10e97136fa79b269e09ce796bbb2958df3d0419",
+   "bytes": 505,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 75,
+   "title": "es-app/src/views/gamelist/BasicGameListView.h @ 16dbac5211: lines 23-49 (excerpt of 49)",
+   "path": "es-app/src/views/gamelist/BasicGameListView.h:23-49",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "8544929467c3bf8269f50a894a10faef10a02418e60af9cdbdf90126c7769baa",
+   "bytes": 981,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 76,
+   "title": "es-app/src/views/gamelist/CarouselGameListView.cpp @ 16dbac5211: lines 53-91 (excerpt of 207)",
+   "path": "es-app/src/views/gamelist/CarouselGameListView.cpp:53-91",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d74500dbb9bedd91f9da6d8a235756702e2b0883d659369f85836c4ee61fa968",
+   "bytes": 1344,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 77,
+   "title": "es-app/src/views/gamelist/CarouselGameListView.cpp @ 16dbac5211: lines 163-179 (excerpt of 207)",
+   "path": "es-app/src/views/gamelist/CarouselGameListView.cpp:163-179",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "c1b87fa20a8678477f8f0ad58e81bf963576fd52722fe4949873e1eb133f0b1a",
+   "bytes": 428,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 78,
+   "title": "es-app/src/views/gamelist/CarouselGameListView.h @ 16dbac5211: lines 24-45 (excerpt of 52)",
+   "path": "es-app/src/views/gamelist/CarouselGameListView.h:24-45",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "ca1282503289f6dad203fb6ed04cda0d497a99b66fc0ba19000bdeed17b1b6dc",
+   "bytes": 826,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 79,
+   "title": "es-app/src/views/gamelist/DetailedGameListView.cpp @ 16dbac5211: lines 31-47 (excerpt of 66)",
+   "path": "es-app/src/views/gamelist/DetailedGameListView.cpp:31-47",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "b5583813e6f4e4268ca1d4e73c664264f059d76cce0648d1f79550ace0fdd23d",
+   "bytes": 617,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 80,
+   "title": "es-app/src/views/gamelist/DetailedGameListView.h @ 16dbac5211: lines 16-32 (excerpt of 38)",
+   "path": "es-app/src/views/gamelist/DetailedGameListView.h:16-32",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "4952d1025762643ca71965a1bf446fc7c3dad4526b573b8e995bc025193857e4",
+   "bytes": 492,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 81,
+   "title": "es-app/src/views/gamelist/GameNameFormatter.cpp @ 16dbac5211: lines 76-93 (excerpt of 269)",
+   "path": "es-app/src/views/gamelist/GameNameFormatter.cpp:76-93",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "40d57e922d953720e2082f430c179a87cb295706df89cdb15b4521ffbe43f340",
+   "bytes": 959,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 82,
+   "title": "es-app/src/views/gamelist/GameNameFormatter.cpp @ 16dbac5211: lines 105-121 (excerpt of 269)",
+   "path": "es-app/src/views/gamelist/GameNameFormatter.cpp:105-121",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d23a2bba4c15aad39e769dbb161e8570db3736a211fe835c5757706996ea001e",
+   "bytes": 701,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 83,
+   "title": "es-app/src/views/gamelist/GameNameFormatter.cpp @ 16dbac5211: lines 163-193 (excerpt of 269)",
+   "path": "es-app/src/views/gamelist/GameNameFormatter.cpp:163-193",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e3c90e69ad2bc277d94ab9fd2bb14d3396b215037762979ec5c71c8404edfc5f",
+   "bytes": 1057,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 84,
+   "title": "es-app/src/views/gamelist/GridGameListView.h @ 16dbac5211: lines 28-44 (excerpt of 65)",
+   "path": "es-app/src/views/gamelist/GridGameListView.h:28-44",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "3d4e4c62692528d8d805409c5eca54bba7066eb3dd6735ac9f713e556866d576",
+   "bytes": 574,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 85,
+   "title": "es-app/src/views/gamelist/VideoGameListView.h @ 16dbac5211: lines 18-34 (excerpt of 39)",
+   "path": "es-app/src/views/gamelist/VideoGameListView.h:18-34",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "123623688f8d6152ec90d4db08f0fa8fe846a627f4c2e28a57007ed2a772a433",
+   "bytes": 458,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 86,
+   "title": "es-core/src/AsyncHandle.h @ 16dbac5211: lines 1-57 (excerpt of 57)",
+   "path": "es-core/src/AsyncHandle.h:1-57",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "77f3865af88813389116a60bfc3e1bff0482afeefedcccdc5d6657e9685c726c",
+   "bytes": 1751,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 87,
+   "title": "es-core/src/HttpReq.h @ 16dbac5211: lines 32-128 (excerpt of 180)",
+   "path": "es-core/src/HttpReq.h:32-128",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "7197ff8d6bc0710bb102ece88a40b768ae1cb988032f3b6e436363e9ef59773a",
+   "bytes": 3112,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 88,
+   "title": "es-core/src/HttpReq.cpp @ 16dbac5211: lines 187-223 (excerpt of 644)",
+   "path": "es-core/src/HttpReq.cpp:187-223",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "7e9ed0a2b83e80dba55e0f12ca161ca1a61eb11340dbc0dafe5be7cb7c81220d",
+   "bytes": 1816,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 89,
+   "title": "es-core/src/HttpReq.cpp @ 16dbac5211: lines 622-644 (excerpt of 644)",
+   "path": "es-core/src/HttpReq.cpp:622-644",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "ff14846324531695d26f43dfffb86b15bfad22f67221ad96bc01211460506ac1",
+   "bytes": 611,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 90,
+   "title": "es-core/src/utils/TimeUtil.cpp @ 16dbac5211: lines 506-591 (excerpt of 634)",
+   "path": "es-core/src/utils/TimeUtil.cpp:506-591",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "438d4ba1d6f49ab70f9edfa13eaeaf6a0724f6877ee455af4ccd254d6b5b8b0c",
+   "bytes": 2580,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 91,
+   "title": "es-app/src/components/ScraperSearchComponent.cpp @ 16dbac5211: lines 187-338 (excerpt of 755)",
+   "path": "es-app/src/components/ScraperSearchComponent.cpp:187-338",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "9c0fd8f67a0ad22e1b7520c13603bfe5ec5a87d60dc78d0bee66940166bc2f0d",
+   "bytes": 4666,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 92,
+   "title": "es-app/src/components/ScraperSearchComponent.cpp @ 16dbac5211: lines 628-678 (excerpt of 755)",
+   "path": "es-app/src/components/ScraperSearchComponent.cpp:628-678",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "73c7195f86b14b9d7759d5429cafac19b21341c64286123e8571858bd6e13eaf",
+   "bytes": 1955,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 93,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 1095-1148 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:1095-1148",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "70996f8f3e19fe8a51e777eecfbd396beff4ecde466bc45f59d620d58c7252b3",
+   "bytes": 2048,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 94,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 1533-1608 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:1533-1608",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "b6585f29067f88d4a1e508b4c9c298433a2fb29cab8a373c71a3ffd3d73bf724",
+   "bytes": 2500,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 95,
+   "title": "es-app/src/views/ViewController.cpp @ 16dbac5211: lines 1111-1168 (excerpt of 1531)",
+   "path": "es-app/src/views/ViewController.cpp:1111-1168",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "0d401cbf840f04a1feebae23cd1b9e06b8c5422d66d118172292b2fd93873dea",
+   "bytes": 1734,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 96,
+   "title": "es-app/src/FileData.cpp @ 16dbac5211: lines 2297-2338 (excerpt of 2680)",
+   "path": "es-app/src/FileData.cpp:2297-2338",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "b14534fbd868826a618d0e4d1e6594af6abe0125b2ee0d3fa4355a6b2634cccd",
+   "bytes": 1316,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 97,
+   "title": "es-app/src/FileSorts.h @ 16dbac5211: lines 7-50 (excerpt of 87)",
+   "path": "es-app/src/FileSorts.h:7-50",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "95a7f058e7da10dbbab4e4643c1813f096c7093d31b22f06ea9a56a596017711",
+   "bytes": 1391,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 98,
+   "title": "es-app/src/guis/GuiScraperRun.cpp @ 16dbac5211: lines 92-158 (excerpt of 258)",
+   "path": "es-app/src/guis/GuiScraperRun.cpp:92-158",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "dcf476c7e53bb0d7fb42c0c4a53d844ee68ecbd0da4bc46137e391460f099107",
+   "bytes": 2777,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 99,
+   "title": "es-app/src/guis/GuiScraperRun.cpp @ 16dbac5211: lines 207-243 (excerpt of 258)",
+   "path": "es-app/src/guis/GuiScraperRun.cpp:207-243",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "0c18415009816ddd3ac9266ec47c740de173a2d28d7efbe26515a2b5929264fc",
+   "bytes": 2024,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 100,
+   "title": "es-app/src/guis/GuiMenu.cpp @ 16dbac5211: lines 1078-1108 (excerpt of 11747)",
+   "path": "es-app/src/guis/GuiMenu.cpp:1078-1108",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "f015317ca3af221e60de051cac810f9faf8e65a2b7220253f91dd2618f38edaa",
+   "bytes": 1331,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 101,
+   "title": "es-core/src/Settings.cpp @ 16dbac5211: lines 178-200 (excerpt of 723)",
+   "path": "es-core/src/Settings.cpp:178-200",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "39646b37ed2e6773ee1a25674c3d384b5d0d26e104dfa2a1277ae2da3f5d99a0",
+   "bytes": 957,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  }
+ ],
+ "scan": {
+  "forbidden": [],
+  "secret_patterns": [],
+  "mask": [
+   {
+    "section": 23,
+    "line": 13,
+    "classes": [
+     "empty-string"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 23,
+    "line": 22,
+    "classes": [
+     "empty-string"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 26,
+    "line": 15,
+    "classes": [
+     "empty-string"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 31,
+    "line": 4,
+    "classes": [
+     "empty-string"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 33,
+    "line": 7,
+    "classes": [
+     "empty-string"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 35,
+    "line": 22,
+    "classes": [
+     "empty-string"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   }
+  ],
+  "words": [
+   {
+    "section": 2,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 56,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 58,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 61,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 77,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 77,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 77,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 77,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 77,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 80,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 80,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 85,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 87,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 91,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 94,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 98,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 98,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 101,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 103,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 104,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 115,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 119,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 120,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 143,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 144,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 144,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 145,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 145,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 246,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 247,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 247,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 248,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 248,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 316,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 323,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 327,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 341,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 362,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 363,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 363,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 363,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 364,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 364,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 377,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 383,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 383,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 395,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 403,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 18,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 38,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 67,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 67,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 67,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 76,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 84,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 102,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 104,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 106,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 108,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 108,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 10,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 12,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 12,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 17,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 17,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 26,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 29,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 44,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 59,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 72,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 95,
+    "word": "pin",
+    "class": "empty"
+   },
+   {
+    "section": 4,
+    "line": 113,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 115,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 119,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 121,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 139,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 174,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 174,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 176,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 193,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 14,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 28,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 79,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 83,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 158,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 161,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 195,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 196,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 202,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 209,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 217,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 221,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 223,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 226,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 230,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 240,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 1,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 1,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 3,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 5,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 5,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 15,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 17,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 19,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 5,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 16,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 20,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 29,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 37,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 37,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 48,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 48,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 57,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 72,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 81,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 91,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 91,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 101,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 101,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 110,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 110,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 115,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 115,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 116,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 116,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 117,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 117,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 127,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 127,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 132,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 132,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 133,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 133,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 134,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 134,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 134,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 135,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 135,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 135,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 136,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 136,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 137,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 137,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 140,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 140,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 145,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 145,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 146,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 146,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 147,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 147,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 152,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 161,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 165,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 12,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 22,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 25,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 32,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 38,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 60,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 60,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 60,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 60,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 7,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 16,
+    "line": 29,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 16,
+    "line": 524,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 16,
+    "line": 691,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 21,
+    "line": 22,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 21,
+    "line": 468,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 9,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 11,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 11,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 13,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 23,
+    "line": 13,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 15,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 18,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 20,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 20,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 22,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 23,
+    "line": 22,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 23,
+    "line": 24,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 24,
+    "line": 11,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 24,
+    "line": 12,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 24,
+    "line": 12,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 24,
+    "line": 13,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 26,
+    "line": 15,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the `apikey=` query prefix joined to `resources.getApiKey()` (a call, no literal)"
+   },
+   {
+    "section": 26,
+    "line": 15,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 26,
+    "line": 15,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 28,
+    "line": 10,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 28,
+    "line": 12,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 4,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the `apikey=` query prefix joined to `resources.getApiKey()` (a call, no literal)"
+   },
+   {
+    "section": 31,
+    "line": 4,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 31,
+    "line": 4,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 5,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 7,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 33,
+    "line": 7,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 2,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 2,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 2,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 5,
+    "word": "token",
+    "class": "empty-string"
+   },
+   {
+    "section": 35,
+    "line": 7,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 17,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 35,
+    "line": 18,
+    "word": "pass",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 35,
+    "line": 22,
+    "word": "user",
+    "class": "empty-string"
+   },
+   {
+    "section": 35,
+    "line": 22,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 22,
+    "word": "pass",
+    "class": "masked"
+   },
+   {
+    "section": 35,
+    "line": 22,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 25,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 32,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 34,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 35,
+    "line": 34,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 44,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 52,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: `mTokenDate = ...now()` (a member name; a date)"
+   },
+   {
+    "section": 42,
+    "line": 2,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 42,
+    "line": 4,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 42,
+    "line": 4,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 42,
+    "line": 4,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 42,
+    "line": 7,
+    "word": "token",
+    "class": "empty-string"
+   },
+   {
+    "section": 42,
+    "line": 9,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 42,
+    "line": 14,
+    "word": "secret",
+    "class": "empty-string"
+   },
+   {
+    "section": 42,
+    "line": 14,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 42,
+    "line": 16,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 42,
+    "line": 23,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 42,
+    "line": 25,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 42,
+    "line": 25,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 42,
+    "line": 35,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 42,
+    "line": 43,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: `mTokenDate = ...now()` (a member name; a date)"
+   },
+   {
+    "section": 47,
+    "line": 4,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 48,
+    "line": 9,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 48,
+    "line": 12,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 57,
+    "line": 1,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 62,
+    "line": 9,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 67,
+    "line": 6,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 69,
+    "line": 11,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 69,
+    "line": 11,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 69,
+    "line": 12,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 69,
+    "line": 12,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 69,
+    "line": 26,
+    "word": "pass",
+    "class": "dispositioned",
+    "disposition": "code: `mPassKeyCounter = 0` (the unlock sequence's counter, a member name)"
+   },
+   {
+    "section": 69,
+    "line": 26,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `mPassKeyCounter = 0` (the unlock sequence's counter, a member name)"
+   },
+   {
+    "section": 69,
+    "line": 29,
+    "word": "pass",
+    "class": "dispositioned",
+    "disposition": "code: `mPassKeyCounter == ...length()` (a member name)"
+   },
+   {
+    "section": 69,
+    "line": 29,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `mPassKeyCounter == ...length()` (a member name)"
+   },
+   {
+    "section": 69,
+    "line": 29,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 69,
+    "line": 29,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 69,
+    "line": 42,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 69,
+    "line": 42,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 69,
+    "line": 42,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 69,
+    "line": 42,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 69,
+    "line": 44,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 69,
+    "line": 44,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 69,
+    "line": 54,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 69,
+    "line": 54,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 69,
+    "line": 58,
+    "word": "pass",
+    "class": "small-number"
+   },
+   {
+    "section": 69,
+    "line": 58,
+    "word": "key",
+    "class": "small-number"
+   },
+   {
+    "section": 86,
+    "line": 30,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 87,
+    "line": 19,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 87,
+    "line": 19,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 87,
+    "line": 29,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 87,
+    "line": 29,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 87,
+    "line": 39,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 87,
+    "line": 41,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 88,
+    "line": 9,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 88,
+    "line": 13,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 88,
+    "line": 13,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 91,
+    "line": 10,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 101,
+    "line": 20,
+    "word": "key",
+    "class": "word"
+   }
+  ]
+ },
+ "summary": {
+  "forbidden_terms_check": "0 section(s) with hits of 100; proven to run on a clean line",
+  "secret_patterns": "0 line(s); proven to fire on a run-time fake line",
+  "mask": "6 line(s) masked; classes [\"empty-string\"]",
+  "words": "274 credential-word hit(s); classes {\"dispositioned\": 8, \"empty\": 1, \"empty-string\": 4, \"identifier-or-word\": 8, \"masked\": 6, \"small-number\": 2, \"word\": 245}",
+  "review": 0,
+  "slice": "6240 of 17311 slice lines sent; 6 files whole; 17 files with no line cited (sent nothing)"
+ },
+ "slice_files": {
+  "Scraper.cpp": {
+   "sent": [
+    [
+     1,
+     813
+    ]
+   ],
+   "trimmed": [],
+   "lines": 813
+  },
+  "ThreadedScraper.cpp": {
+   "sent": [
+    [
+     1,
+     339
+    ]
+   ],
+   "trimmed": [],
+   "lines": 339
+  },
+  "ThreadedScraper.h": {
+   "sent": [
+    [
+     1,
+     119
+    ]
+   ],
+   "trimmed": [],
+   "lines": 119
+  },
+  "DetailedContainer.cpp": {
+   "sent": [
+    [
+     1,
+     1450
+    ]
+   ],
+   "trimmed": [],
+   "lines": 1450
+  },
+  "GridGameListView.cpp": {
+   "sent": [
+    [
+     1,
+     347
+    ]
+   ],
+   "trimmed": [],
+   "lines": 347
+  },
+  "ISimpleGameListView.cpp": {
+   "sent": [
+    [
+     1,
+     937
+    ]
+   ],
+   "trimmed": [],
+   "lines": 937
+  },
+  "ArcadeDBJSONScraper.cpp": {
+   "sent": [
+    [
+     18,
+     45
+    ],
+    [
+     68,
+     111
+    ],
+    [
+     113,
+     129
+    ],
+    [
+     191,
+     208
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     17
+    ],
+    [
+     46,
+     67
+    ],
+    [
+     112,
+     112
+    ],
+    [
+     130,
+     190
+    ],
+    [
+     209,
+     243
+    ]
+   ],
+   "lines": 243
+  },
+  "ArcadeDBJSONScraper.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     46
+    ]
+   ],
+   "lines": 46
+  },
+  "GamesDBJSONScraper.cpp": {
+   "sent": [
+    [
+     187,
+     203
+    ],
+    [
+     285,
+     317
+    ],
+    [
+     394,
+     410
+    ],
+    [
+     454,
+     499
+    ],
+    [
+     545,
+     561
+    ],
+    [
+     567,
+     615
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     186
+    ],
+    [
+     204,
+     284
+    ],
+    [
+     318,
+     393
+    ],
+    [
+     411,
+     453
+    ],
+    [
+     500,
+     544
+    ],
+    [
+     562,
+     566
+    ],
+    [
+     616,
+     633
+    ]
+   ],
+   "lines": 633
+  },
+  "GamesDBJSONScraper.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     51
+    ]
+   ],
+   "lines": 51
+  },
+  "GamesDBJSONScraperResources.cpp": {
+   "sent": [
+    [
+     29,
+     45
+    ],
+    [
+     145,
+     161
+    ],
+    [
+     172,
+     188
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     28
+    ],
+    [
+     46,
+     144
+    ],
+    [
+     162,
+     171
+    ],
+    [
+     189,
+     201
+    ]
+   ],
+   "lines": 201
+  },
+  "GamesDBJSONScraperResources.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     45
+    ]
+   ],
+   "lines": 45
+  },
+  "HfsDBScraper.cpp": {
+   "sent": [
+    [
+     171,
+     225
+    ],
+    [
+     300,
+     316
+    ],
+    [
+     335,
+     351
+    ],
+    [
+     399,
+     415
+    ],
+    [
+     454,
+     499
+    ],
+    [
+     576,
+     592
+    ],
+    [
+     613,
+     629
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     170
+    ],
+    [
+     226,
+     299
+    ],
+    [
+     317,
+     334
+    ],
+    [
+     352,
+     398
+    ],
+    [
+     416,
+     453
+    ],
+    [
+     500,
+     575
+    ],
+    [
+     593,
+     612
+    ],
+    [
+     630,
+     633
+    ]
+   ],
+   "lines": 633
+  },
+  "HfsDBScraper.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     66
+    ]
+   ],
+   "lines": 66
+  },
+  "IGDBScraper.cpp": {
+   "sent": [
+    [
+     135,
+     180
+    ],
+    [
+     305,
+     345
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     134
+    ],
+    [
+     181,
+     304
+    ],
+    [
+     346,
+     349
+    ]
+   ],
+   "lines": 349
+  },
+  "IGDBScraper.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     62
+    ]
+   ],
+   "lines": 62
+  },
+  "Scraper.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     289
+    ]
+   ],
+   "lines": 289
+  },
+  "HttpApi.cpp": {
+   "sent": [
+    [
+     94,
+     118
+    ],
+    [
+     162,
+     178
+    ],
+    [
+     202,
+     218
+    ],
+    [
+     232,
+     268
+    ],
+    [
+     324,
+     340
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     93
+    ],
+    [
+     119,
+     161
+    ],
+    [
+     179,
+     201
+    ],
+    [
+     219,
+     231
+    ],
+    [
+     269,
+     323
+    ],
+    [
+     341,
+     344
+    ]
+   ],
+   "lines": 344
+  },
+  "HttpApi.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     35
+    ]
+   ],
+   "lines": 35
+  },
+  "HttpServerThread.cpp": {
+   "sent": [
+    [
+     66,
+     82
+    ],
+    [
+     85,
+     101
+    ],
+    [
+     106,
+     135
+    ],
+    [
+     137,
+     811
+    ],
+    [
+     813,
+     834
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     65
+    ],
+    [
+     83,
+     84
+    ],
+    [
+     102,
+     105
+    ],
+    [
+     136,
+     136
+    ],
+    [
+     812,
+     812
+    ]
+   ],
+   "lines": 834
+  },
+  "HttpServerThread.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     30
+    ]
+   ],
+   "lines": 30
+  },
+  "httplib.h": {
+   "sent": [
+    [
+     64,
+     80
+    ],
+    [
+     2467,
+     2483
+    ],
+    [
+     2550,
+     2567
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     63
+    ],
+    [
+     81,
+     2466
+    ],
+    [
+     2484,
+     2549
+    ],
+    [
+     2568,
+     5713
+    ]
+   ],
+   "lines": 5713
+  },
+  "SystemView.cpp": {
+   "sent": [
+    [
+     26,
+     42
+    ],
+    [
+     188,
+     204
+    ],
+    [
+     225,
+     251
+    ],
+    [
+     264,
+     290
+    ],
+    [
+     323,
+     339
+    ],
+    [
+     345,
+     373
+    ],
+    [
+     399,
+     421
+    ],
+    [
+     516,
+     560
+    ],
+    [
+     700,
+     716
+    ],
+    [
+     886,
+     923
+    ],
+    [
+     1611,
+     1627
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     25
+    ],
+    [
+     43,
+     187
+    ],
+    [
+     205,
+     224
+    ],
+    [
+     252,
+     263
+    ],
+    [
+     291,
+     322
+    ],
+    [
+     340,
+     344
+    ],
+    [
+     374,
+     398
+    ],
+    [
+     422,
+     515
+    ],
+    [
+     561,
+     699
+    ],
+    [
+     717,
+     885
+    ],
+    [
+     924,
+     1610
+    ],
+    [
+     1628,
+     1638
+    ]
+   ],
+   "lines": 1638
+  },
+  "SystemView.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     142
+    ]
+   ],
+   "lines": 142
+  },
+  "SystemViewControlWrapper.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     184
+    ]
+   ],
+   "lines": 184
+  },
+  "UIModeController.cpp": {
+   "sent": [
+    [
+     1,
+     19
+    ],
+    [
+     47,
+     105
+    ]
+   ],
+   "trimmed": [
+    [
+     20,
+     46
+    ],
+    [
+     106,
+     197
+    ]
+   ],
+   "lines": 197
+  },
+  "UIModeController.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     63
+    ]
+   ],
+   "lines": 63
+  },
+  "BasicGameListView.cpp": {
+   "sent": [
+    [
+     23,
+     39
+    ],
+    [
+     46,
+     84
+    ],
+    [
+     93,
+     109
+    ],
+    [
+     115,
+     132
+    ],
+    [
+     174,
+     190
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     22
+    ],
+    [
+     40,
+     45
+    ],
+    [
+     85,
+     92
+    ],
+    [
+     110,
+     114
+    ],
+    [
+     133,
+     173
+    ],
+    [
+     191,
+     227
+    ]
+   ],
+   "lines": 227
+  },
+  "BasicGameListView.h": {
+   "sent": [
+    [
+     23,
+     49
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     22
+    ]
+   ],
+   "lines": 49
+  },
+  "CarouselGameListView.cpp": {
+   "sent": [
+    [
+     53,
+     91
+    ],
+    [
+     163,
+     179
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     52
+    ],
+    [
+     92,
+     162
+    ],
+    [
+     180,
+     207
+    ]
+   ],
+   "lines": 207
+  },
+  "CarouselGameListView.h": {
+   "sent": [
+    [
+     24,
+     45
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     23
+    ],
+    [
+     46,
+     52
+    ]
+   ],
+   "lines": 52
+  },
+  "DetailedContainer.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     187
+    ]
+   ],
+   "lines": 187
+  },
+  "DetailedGameListView.cpp": {
+   "sent": [
+    [
+     31,
+     47
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     30
+    ],
+    [
+     48,
+     66
+    ]
+   ],
+   "lines": 66
+  },
+  "DetailedGameListView.h": {
+   "sent": [
+    [
+     16,
+     32
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     15
+    ],
+    [
+     33,
+     38
+    ]
+   ],
+   "lines": 38
+  },
+  "GameNameFormatter.cpp": {
+   "sent": [
+    [
+     76,
+     93
+    ],
+    [
+     105,
+     121
+    ],
+    [
+     163,
+     193
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     75
+    ],
+    [
+     94,
+     104
+    ],
+    [
+     122,
+     162
+    ],
+    [
+     194,
+     269
+    ]
+   ],
+   "lines": 269
+  },
+  "GameNameFormatter.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     36
+    ]
+   ],
+   "lines": 36
+  },
+  "GridGameListView.h": {
+   "sent": [
+    [
+     28,
+     44
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     27
+    ],
+    [
+     45,
+     65
+    ]
+   ],
+   "lines": 65
+  },
+  "IGameListView.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     49
+    ]
+   ],
+   "lines": 49
+  },
+  "IGameListView.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     57
+    ]
+   ],
+   "lines": 57
+  },
+  "ISimpleGameListView.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     102
+    ]
+   ],
+   "lines": 102
+  },
+  "VideoGameListView.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     65
+    ]
+   ],
+   "lines": 65
+  },
+  "VideoGameListView.h": {
+   "sent": [
+    [
+     18,
+     34
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     17
+    ],
+    [
+     35,
+     39
+    ]
+   ],
+   "lines": 39
+  }
+ },
+ "packet": {
+  "file": "packet.md",
+  "bytes": 433943,
+  "sha256": "24abc3b97df04874e444c1a2d37ff40417068075da74c676e6883840b4a4f5ae"
+ }
+}

@@ -79,3 +79,7 @@
   - **03 and 04** are written before the seat.
   - **The packet builder and the ask** are in `stage-c/`.
   - **Next:** build the packet (scan and dispositions); the two keyed calls; the pre-issue lint; then 05, the issue, the bugs and the stage-D post.
+- **The packet** (`stage-c/packet.py`, T31's adapted): 101 sections, 433,943 bytes. The forbidden-terms check found 0 sections with hits and was proven to run on a clean line. SECRET_PATTERNS found 0 lines and was proven to fire on a run-time fake. The first build stopped on 8 credential-word hits for review; each was read through the mask and dispositioned by `(file, line)` as code: the `apikey=` query prefix joined to a call (GamesDB `:201`, `:570`), `mTokenDate` (HfsDB `:222`, IGDB `:177`) and ``mPassKeyCounter` (UIModeController `:72`, `:75`). The second build had 0 for review. Sent: 6,240 of 17,311 slice lines, the six fork-modified files whole, and `httplib.h` by its cited ranges. `astra-brief.md` is byte-identical to `packet.md`.
+- **The runtime:** `npm install --offline` in `tools/council/`. A keyless check (`COUNCIL_ENV_FILE=/nonexistent tools/council/run efforts`) printed OK.
+- **Keyed call 1 of 2,** the probe: 16:53:56 to 16:54:10 UTC, rc 0. Served `openai/gpt-6-astra` by OpenAI at `max`, with identity, effort and provider verification PASS. The reply was `READY unknown` (13 bytes).
+- **Keyed call 2 of 2,** the refutation, started 16:54 UTC in the background. Its exit writes `/workspace/tmp/m6-t32/refutation.rc`, and a harness waiter on that file delivers the result.
