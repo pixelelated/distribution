@@ -1,6 +1,6 @@
 """The title shapes of T31's pages against es-menu-map-check and the map (#678, Q7).
 
-    python3 -I t31-titles.py <es worktree> <commit> <docs/es-menu-map.md> [paths.txt]
+    python3 -I t31-titles.py <es worktree> <commit> <docs/es-menu-map.md> [paths.txt] [--expect=C,W,N]
 
 For each .cpp of the slice at <commit>: the titles the checker sees (its own
 three SCREEN_PATTERNS, loaded from tools/es-menu-map-check, never retyped),
@@ -32,8 +32,13 @@ import subprocess
 import sys
 from pathlib import Path
 
-tree, commit, map_path = sys.argv[1:4]
-paths_file = sys.argv[4] if len(sys.argv) > 4 else ".qa-scratch/t31/paths.txt"
+args = [a for a in sys.argv[1:] if not a.startswith("--expect=")]
+expect = [a for a in sys.argv[1:] if a.startswith("--expect=")]
+tree, commit, map_path = args[0:3]
+paths_file = args[3] if len(args) > 3 else ".qa-scratch/t31/paths.txt"
+# --expect=C,W,N replaces the pin's hand counts for a later commit, stated by the caller
+# (S8: at 70db6535b S3's #1248 put MOONLIGHT GAME STREAMING through _(), so 13,28,9).
+counts = tuple(int(x) for x in expect[-1].split("=", 1)[1].split(",")) if expect else (12, 27, 10)
 
 loader = importlib.machinery.SourceFileLoader("es_menu_map_check", "tools/es-menu-map-check")
 spec = importlib.util.spec_from_loader("es_menu_map_check", loader)
@@ -90,7 +95,7 @@ print(".cpp %d; with a title by the checker's shapes %d; by the wider sweep %d; 
 print("no title: " + ", ".join(none))
 print("neither: " + ", ".join(neither_pages))
 fail = []
-for what, got, want in (("checker", len(seen_checker), 12), ("wider", len(seen_wider), 27), ("none", len(none), 10)):
+for what, got, want in zip(("checker", "wider", "none"), (len(seen_checker), len(seen_wider), len(none)), counts):
     if got != want:
         fail.append("%s %d, the brief's hand count %d" % (what, got, want))
 if fail:

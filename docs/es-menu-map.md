@@ -175,7 +175,7 @@ being scraped, its detail, a note, `ELAPSED` with the time, and the footer
 the back button is CANCEL: `CANCEL SCRAPING?` / `WHAT'S SCRAPED SO FAR IS
 KEPT. UPDATE GAMELISTS TO APPLY IT.` with YES and NO. The outcome is one of
 three words (D-UI-028): `COMPLETED`; `SKIPPED - YOU CANCELLED IT` for the
-player's cancel (D-UI-129, the word kept); or `COULDN'T FINISH` when the
+player's cancel (the word kept, the stage-D ruling on #678 at 13:27 UTC); or `COULDN'T FINISH` when the
 scraper refused the run or some games could not be scraped. The counts line
 (`GAMES SCRAPED: N  ·  COULDN'T SCRAPE: M`) and the next step (`UPDATE
 GAMELISTS TO APPLY CHANGES.`) follow. This lane's S7 (#1247) adds the why

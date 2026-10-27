@@ -1,0 +1,11 @@
+# S8 after (the coordinator's ruling of 14:27 UTC): BIOS CHECK and SCRAPING GAMES mapped; the ten declarations as HTML comment lines in ## Not mapped, 14:28:40Z
+$ tools/es-menu-map-check --es-src <W> --ref 70db6535b
+56 screen(s) at 70db6535b, 32 in the map, 24 declared unmapped, 0 missing
+rc 0
+(the control: the same ten as '- TITLE -- why' lines read STALE, rc 1 -- stage-e/s8-stopped.txt; as '<!-- TITLE -- why ... -->' the parser's '\s*-\s+' does not take them)
+$ python3 -I tools/t31-titles.py <W> 70db6535b docs/es-menu-map.md --expect=13,28,9   (S3's #1248 put MOONLIGHT's title through _())
+.cpp 37; with a title by the checker's shapes 13; by the wider sweep 28; with no _() literal title 9; pages whose every literal title is in neither the map's body nor ## Not mapped 10
+no title: GuiAutoScrape.cpp, GuiBackup.cpp, GuiFileBrowser.cpp, GuiGameScraper.cpp, GuiImageViewer.cpp, GuiInstall.cpp, GuiKeyboardLayout.cpp, GuiSettings.cpp, GuiUpdate.cpp
+neither: GuiBackupStart.cpp, GuiBatoceraStore.cpp, GuiBezelInstaller.cpp, GuiBluetoothDeviceOptions.cpp, GuiBluetoothDevices.cpp, GuiGamelistFilter.cpp, GuiInstallStart.cpp, GuiKeyMappingEditor.cpp, GuiMetaDataEd.cpp, GuiThemeInstaller.cpp
+rc 0
+The ten in neither place are the ten waiting on #951/#965: titles the checker's three shapes cannot see, so a declaration of one reads STALE.
