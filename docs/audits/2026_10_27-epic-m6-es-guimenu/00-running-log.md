@@ -106,3 +106,9 @@
   - **Tests:** `tests/command-readers.py` (new) FAILs at the pin on five points, including a real crash on a failed popen. It PASSes after and FAILs on two constructed copies. Two harnesses that extracted `cloudShellQuote` now extract the one function: 5 of 5 and 14 of 14, at the pin and after. credential-quoting stays at 8 of 8.
   - **`Platform.cpp` by the stand-in syntax check:** CANNOT, because its SDL fake lacks `SDL_PushEvent`, the same at the pin. The edited function is compiled and run by the test.
   - **Mine:** the guard's first extractor took a forward declaration for the definition, and its first negative crashed its parser. Both fixed before a result was taken.
+- **S9 (PL-12, #1226; PL-18, #1230)** at ES `408f7c122`, pushed.
+  - **The fix:** the relink Wi-Fi finalizer reconnects only when the key changed from the one the page opened with. SOUND SETTINGS reads the favorites and threshold defaults without writing them; each save writes only a moved control. TIMEZONE is set when it changed, or while the store is empty, since `es_settings` sets the device's timezone from it.
+  - **The readers were read first:** `powerstate.sh:58-59` takes an empty threshold as 25. `AudioManager::playRandomMusic` resets a stale favorites ON itself.
+  - **Tests:** `tests/no-change-writes.py` (new) FAILs at the pin (an association; two writes) and PASSes after (5 cases). It FAILs on two constructed copies.
+  - **A correction to L-11/PL-18:** over a stored timezone, the pin's every-close `set` is a set of the value held, which `SystemConf` drops. That third of the item was a call, not a write; the empty-store write is kept on purpose.
+  - **#585:** two lines, one per upstream reach. The favorites write is in batocera too; the threshold seed and the timezone set are ROCKNIX's.

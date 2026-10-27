@@ -1,0 +1,5 @@
+== S9 before: tests/no-change-writes.py against the pin's GuiMenu.cpp (16dbac521)
+FAIL no-change-writes: WI-FI PASSWORD: an unchanged close started an association
+FAIL no-change-writes: SOUND SETTINGS: a visit that changed nothing wrote 2 time(s)
+rc 1
+== note: the pin's TIMEZONE cases pass: over a stored timezone its every-close set is a set of the value held, which SystemConf drops (no write); it writes only into an empty store, which S9 keeps on purpose (es_settings sets the device's timezone from it). PL-18's timezone third was a call, not a write.

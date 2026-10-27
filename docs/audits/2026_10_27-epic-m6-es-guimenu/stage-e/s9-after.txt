@@ -1,0 +1,10 @@
+== S9 after: tests/no-change-writes.py against the worktree
+no-change-writes: PASS, 5 cases
+rc 0
+== negative: the relink finalizer without its key comparison
+FAIL no-change-writes: WI-FI PASSWORD: an unchanged close started an association
+rc 1
+== negative: the threshold's save without its moved-slider guard
+FAIL no-change-writes: SOUND SETTINGS: a visit that changed nothing wrote 1 time(s)
+rc 1
+== readers of what is no longer seeded: powerstate.sh takes an empty threshold as 25 (projects/ROCKNIX/packages/sysutils/powerstate/sources/powerstate.sh:58-59 at aa0114a619); AudioManager::playRandomMusic resets a stored favorites ON when the list is empty (es-core/src/AudioManager.cpp:220-229)
