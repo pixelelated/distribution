@@ -68,7 +68,13 @@ breaks the image build while `g++ -fsyntax-only` passes it (2026-09-08,
 `b44a715a9`: eight comment lines in `GuiCloudTransfer.cpp`). String
 literals may carry `·`; comments may not. Write `.`, `--`, `->`, `...`.
 Before bumping the ES pin, run `grep -nP '^\s*//.*[^\x00-\x7F]'` over the
-files you touched; a real image build is the only check that runs xgettext.
+files you touched; a real image build is the only check that runs xgettext. The grep over a whole touched file also
+flags upstream's own non-ASCII comments (three em dashes in
+`FileSystemUtil.cpp` at the pin did, T20's S8), so the check a stream runs
+before its commit judges the lines it added -- `git diff -U0 HEAD -- <file>`,
+its `+` lines, then the same pattern -- and the whole-file grep stays the
+image build's question; a hit in an upstream line is recorded, not fixed
+in the stream.
 
 ## The help bar offers a direction only where it moves something
 
@@ -214,6 +220,20 @@ record beside them said one turn, and it took a diagnostic build to see
 `exists yes turns 0`. A stamp or record the interface writes and reads back
 is a line that says what it is (`turns=1`), never a bare digit, and a
 reader that gets `""` from a file that exists should suspect this first.
+
+## curl hands a header callback a length, not a string (2026-10-27, #1195)
+
+`CURLOPT_HEADERFUNCTION` is called with `buffer`, `size` and `nitems`, and
+the header occupies exactly `size * nitems` bytes of a buffer curl reuses:
+there is no terminating NUL. `HttpReq::header_callback` at the pin
+`16dbac5211` built a `std::string` from the pointer alone, so every
+response header of every request read on to the next NUL in curl's buffer
+and the bytes past the header landed in `mResponseHeaders` -- a
+heap-buffer-overflow under AddressSanitizer (T21's lifted fixture, S7).
+Write `std::string(buffer, size * nitems)`, and read any curl callback's
+payload by the length it gives. The same family: `CURLINFO_RESPONSE_CODE`
+writes a `long` through the pointer it is given, so an `int` there is four
+bytes short on every transfer (#1196).
 
 ## A pooled connection with the link gone is silent for a quarter of an hour (2026-09-27, #299)
 
