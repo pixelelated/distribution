@@ -119,6 +119,10 @@ def shape(v):
 # here by (path, line): a slice file's own line for an excerpt, else the
 # section's line. Filled from the first build's STOP list, each read at its line.
 DISPOSITIONS = {
+    ('docs/audits/2026_10_27-epic-m6-es-app-system/02-forward-audit.md', 155): 'prose: the floor row 3.21 naming `KeyMappingFile::load` (a class name)',
+    ('docs/audits/2026_10_27-epic-m6-es-app-system/02-forward-audit.md', 281): 'prose: the reads row "uncached at the pin:" (the word pin; the commit)',
+    ('docs/audits/2026_10_27-epic-m6-es-app-system/04-analysis.md', 47): 'prose: the scorecard row "at the pin:" (the word pin; the commit)',
+    ('docs/reviews/briefs/es-app-system.md \u00a7 4', 236): 'prose: the brief\'s floor row 3.21 naming `KeyMappingFile::load` (a class name)',
     ('es-app/src/NetworkThread.cpp', 32): 'code: `sCheevosToken = &mCheckCheevosTokenComponent` (a static pointer and a member name)',
     ('es-app/src/NetworkThread.cpp', 115): 'code: `CheckCheevosTokenComponent::enabled()` (a class name)',
     ('es-app/src/NetworkThread.cpp', 120): 'code: `CheckCheevosTokenComponent::check()` (a class name)',

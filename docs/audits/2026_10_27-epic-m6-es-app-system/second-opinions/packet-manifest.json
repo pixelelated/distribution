@@ -1,0 +1,7498 @@
+{
+ "schema": "t33-packet-manifest/1",
+ "pin": "16dbac5211eea7e70db7394372033be2be7df829",
+ "sources": [
+  {
+   "section": 0,
+   "title": "ask",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/stage-c/ask.md",
+   "ref": "worktree",
+   "kind": "ask",
+   "sha256": "47862ae4a43645dd25dba843842d0824110324de51eec7a73a493ea9e0ea9869",
+   "bytes": 6660
+  },
+  {
+   "section": 2,
+   "title": "The first reader's 02-forward-audit.md (whole)",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/02-forward-audit.md",
+   "ref": "worktree",
+   "kind": "first reader",
+   "sha256": "febd0b9af10104420c57f537a5dae8556d9c0937a30e6348922168808ce7ecf9",
+   "bytes": 108119,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 3,
+   "title": "The first reader's 03-retrospective.md (whole)",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/03-retrospective.md",
+   "ref": "worktree",
+   "kind": "first reader",
+   "sha256": "536ddfba6dcfe68cf66328fe939ba177562da49f4bef43e7dec7e07693afa046",
+   "bytes": 8557,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 4,
+   "title": "The first reader's 04-analysis.md (whole)",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/04-analysis.md",
+   "ref": "worktree",
+   "kind": "first reader",
+   "sha256": "da705e319aa35f153f6d940c151a5e3332c270369d6ee2c72652c5ed943afff7",
+   "bytes": 16156,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 5,
+   "title": "Context 1: the brief's \u00a7 4",
+   "path": "docs/reviews/briefs/es-app-system.md \u00a7 4",
+   "ref": "c48f8b387e",
+   "kind": "context",
+   "sha256": "aa84a7d682da386482837ab832f9535bf41fac7a92e5452493b07a761b809e9b",
+   "bytes": 22654,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 6,
+   "title": "Context 2: the register rows",
+   "path": "docs/decision-register.md rows D-CLOUD-049, D-CLOUD-078, D-UI-039, D-UI-051, D-UI-079, D-UI-112, D-WORKFLOW-050, D-WORKFLOW-164, D-WORKFLOW-165, D-WORKFLOW-195, D-WORKFLOW-209, D-WORKFLOW-210, D-WORKFLOW-211",
+   "ref": "worktree",
+   "kind": "context",
+   "sha256": "faa285098bd6d3a2e2dc544be24e73946226be7859a3d590528a26054a277c37",
+   "bytes": 12230,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 7,
+   "title": "Evidence: stage-c/runs.txt (the host harnesses)",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/stage-c/runs.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "0798712444b7ba2e77ab29f086be00183b7138d4acaf70010255ced255a4feef",
+   "bytes": 7011,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 8,
+   "title": "Evidence: stage-c/floor.md",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/stage-c/floor.md",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "c7af6bcb16d8fd5ea056676942d77d92f8f0b08bb05a4408b9c3aece3ed2a182",
+   "bytes": 7542,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 9,
+   "title": "Evidence: stage-c/includes.out",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/stage-c/includes.out",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "4a63a5745b532e095737c554e918bfd690cc56272763222a7d090a17f79faef8",
+   "bytes": 1859,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 10,
+   "title": "Evidence: stage-c/build-pin.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/stage-c/build-pin.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "5bf4fc069a10894ba6dd956004539ac1ca0be3afa18d59fc3120137aab7009ff",
+   "bytes": 7662,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 11,
+   "title": "Evidence: guest-cycle/g01-identity.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/guest-cycle/g01-identity.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "d098a5833f4e6ac4e3ef9801a8d579d1bd3c7b5865e5ca7b1aa17d82823c6804",
+   "bytes": 1103,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 12,
+   "title": "Evidence: guest-cycle/g02-l06.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/guest-cycle/g02-l06.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "8a5edf6b076ebba0e370c6caa195b2db2d8f7c2361bc8cb18ec10b4bc6ecb721",
+   "bytes": 136,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 13,
+   "title": "Evidence: guest-cycle/g02-seed.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/guest-cycle/g02-seed.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "a3f566d2d02541e327a0139fa0e9902a117da23e420b3351e7b9764167b115ff",
+   "bytes": 695,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 14,
+   "title": "Evidence: guest-cycle/g03-screenshots-run.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/guest-cycle/g03-screenshots-run.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "9a328e20d5454fd48fdfd6c16e7f190df99e27be76cd749c8f5d300df1532c95",
+   "bytes": 279,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 15,
+   "title": "Evidence: guest-cycle/g03-screenshots.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/guest-cycle/g03-screenshots.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "0dbebb851a3ef459ef430a3b71af85f0dc6fb04a310a812eca704f3cefdb11d6",
+   "bytes": 448,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 16,
+   "title": "Evidence: guest-cycle/g03-update.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/guest-cycle/g03-update.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "1b1dcc8a91a68f374f047fa4ae4b5c9d5d14c97b466f0ce762b4d0bf75e54f14",
+   "bytes": 571,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 17,
+   "title": "Evidence: guest-cycle/g03b-seed.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/guest-cycle/g03b-seed.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "d8b3211b4a901b1e18718499c4ac016cf1377b3a8b6f2a647fc28bced1d34be3",
+   "bytes": 57,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 18,
+   "title": "Evidence: guest-cycle/g04-gamelists-after.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/guest-cycle/g04-gamelists-after.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "05f2030429adefc31c201ff3bf69c840b5846bd366bfda3ef3afb545f51fc5ec",
+   "bytes": 735,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 19,
+   "title": "Evidence: guest-cycle/g04-gamelists.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/guest-cycle/g04-gamelists.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "da7c1b016a84999998ed88c727edb659454500ae093c5f71b677ea361acc494b",
+   "bytes": 1296,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 20,
+   "title": "Evidence: guest-cycle/g04-pre.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/guest-cycle/g04-pre.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "3902ae172d19a594695a56d256c3acf67067415ab032b5e514276f8427f56fb4",
+   "bytes": 472,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 21,
+   "title": "Evidence: guest-cycle/g04-seed.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/guest-cycle/g04-seed.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "7e734b14f90cae148b974e9ad1e22dcc18d3307d778182f0a2e1f1acee5f02dd",
+   "bytes": 138,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 22,
+   "title": "Evidence: guest-cycle/g04-where.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/guest-cycle/g04-where.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "12517db1d0b9fe4d8fdb3f626bd6a2a42af63fcb0b711179e1bf650ad14a523f",
+   "bytes": 1433,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 23,
+   "title": "Evidence: guest-cycle/g06-dim.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/guest-cycle/g06-dim.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "7de5100611d030065d12032763276e0e2870f289ed716411f62a1f083702ac0b",
+   "bytes": 168,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 24,
+   "title": "Evidence: guest-cycle/g06b-g08-seed.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/guest-cycle/g06b-g08-seed.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "96d9871591ddb734e637c5ce00d07eab36951e62044865ae0aa3795a579dc44f",
+   "bytes": 171,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 25,
+   "title": "Evidence: guest-cycle/g10-journal.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/guest-cycle/g10-journal.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "6f944400f1571918b3963a31e7f1ec747c8380b762a169180d7ca67c1bc85426",
+   "bytes": 80,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 26,
+   "title": "Evidence: guest-cycle/retired.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/guest-cycle/retired.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "a6f814671eb7e690a4f53d799be3b8005312ece4610df563a4abe97e9be82844",
+   "bytes": 741,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 27,
+   "title": "Evidence: guest-cycle/window-bound.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-app-system/guest-cycle/window-bound.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "16e6a5cfb64e9fbe0911bc9419ceec9ae5e0ba2acf39287f5d769e8dee8adac8",
+   "bytes": 51,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 28,
+   "title": "es-app/src/AppWindow.h @ 16dbac5211 (whole, 56 lines)",
+   "path": "es-app/src/AppWindow.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "32be5c4222aab4335a7504adf617e04a1be299b953824a4a5ed18c290524fe3c",
+   "bytes": 2041,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 29,
+   "title": "es-app/src/CaptureRotation.cpp @ 16dbac5211 (whole, 188 lines)",
+   "path": "es-app/src/CaptureRotation.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "0682729eae1c974280be59acbab392cdd1da637cd26863e7f53a30de77a98af9",
+   "bytes": 8049,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 30,
+   "title": "es-app/src/CaptureRotation.h @ 16dbac5211 (whole, 39 lines)",
+   "path": "es-app/src/CaptureRotation.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "d3be5c2af03693f95e6b3fa6293aaaf59cd3bc5fcab219a1510ad0c8af09fe26",
+   "bytes": 1915,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 31,
+   "title": "es-app/src/CaptureRotationText.cpp @ 16dbac5211 (whole, 164 lines)",
+   "path": "es-app/src/CaptureRotationText.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "3c5883e7d2430fc2518b6897377fcca749709cab819013ceffedadc5be872a3c",
+   "bytes": 6568,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 32,
+   "title": "es-app/src/CaptureRotationText.h @ 16dbac5211 (whole, 68 lines)",
+   "path": "es-app/src/CaptureRotationText.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "814506cf3d4b7ad13fa04dd9b4af1bfb591383990cad5352536e8961f579bbe8",
+   "bytes": 4147,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 33,
+   "title": "es-app/src/CheevosIndex.cpp @ 16dbac5211 (whole, 30 lines)",
+   "path": "es-app/src/CheevosIndex.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "2f17023b80f188af90d703c01601d8f6cd0b9e04084a0bc26cf7d0b1879f3563",
+   "bytes": 1004,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 34,
+   "title": "es-app/src/CheevosIndex.h @ 16dbac5211 (whole, 47 lines)",
+   "path": "es-app/src/CheevosIndex.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "9f062123951f6ba89c4569e496e980f026bb0588bb9b522cdf612d91bba25b45",
+   "bytes": 2466,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 35,
+   "title": "es-app/src/CheevosRetry.cpp @ 16dbac5211 (whole, 31 lines)",
+   "path": "es-app/src/CheevosRetry.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "24c6faf5ff704bd1d38e5ee6a1a5a961dd7bb9b84f6269dbcce75602f240151a",
+   "bytes": 1227,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 36,
+   "title": "es-app/src/CheevosRetry.h @ 16dbac5211 (whole, 47 lines)",
+   "path": "es-app/src/CheevosRetry.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "f504b3e8c727f3287673225ed3a714652e84497f097e16bedb1b65322bdeed8f",
+   "bytes": 2809,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 37,
+   "title": "es-app/src/CloudExit.h @ 16dbac5211 (whole, 30 lines)",
+   "path": "es-app/src/CloudExit.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "22ad089c7cedfcde8da2169c023a5cd7c7ffd5334af78f5454a53087681a2583",
+   "bytes": 1924,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 38,
+   "title": "es-app/src/CloudFolderValidation.cpp @ 16dbac5211 (whole, 96 lines)",
+   "path": "es-app/src/CloudFolderValidation.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "183d90c20ae5f8d67c93e166805d1ca43d90c97847a134c3a1a67cfb76030024",
+   "bytes": 4338,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 39,
+   "title": "es-app/src/CloudFolderValidation.h @ 16dbac5211 (whole, 33 lines)",
+   "path": "es-app/src/CloudFolderValidation.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "750c5c459c5959008c485b29fb078571401530ac4dc1d9eaf6c3b348b60a0ed4",
+   "bytes": 1145,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 40,
+   "title": "es-app/src/CloudOffer.cpp @ 16dbac5211 (whole, 84 lines)",
+   "path": "es-app/src/CloudOffer.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "1f3c4a71b3929fc44495a61897345c2f9d0ac7b843c1f8edc48f9b01c539de99",
+   "bytes": 3794,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 41,
+   "title": "es-app/src/CloudOffer.h @ 16dbac5211 (whole, 33 lines)",
+   "path": "es-app/src/CloudOffer.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "c3a46ba953fe41b3b118a94606129ebfa8a23849d1b340b30c0fb4deb67b54d6",
+   "bytes": 1509,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 42,
+   "title": "es-app/src/DisplayAspect.cpp @ 16dbac5211 (whole, 153 lines)",
+   "path": "es-app/src/DisplayAspect.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "45b8466bff8b3eae14d8c2a744c81f0071b3462bbac4fcef6e5427a6bc0177ce",
+   "bytes": 6141,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 43,
+   "title": "es-app/src/DisplayAspect.h @ 16dbac5211 (whole, 42 lines)",
+   "path": "es-app/src/DisplayAspect.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "520937c5e9bb184230c333bf8a6b003d869db45642e5c7d249d657185bae2a31",
+   "bytes": 1834,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 44,
+   "title": "es-app/src/DisplayAspectText.cpp @ 16dbac5211 (whole, 76 lines)",
+   "path": "es-app/src/DisplayAspectText.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "7611d97d5587496217c2c2cc3eebd90f3941f567af4e2f4a44a4978be2a6df8d",
+   "bytes": 3651,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 45,
+   "title": "es-app/src/DisplayAspectText.h @ 16dbac5211 (whole, 26 lines)",
+   "path": "es-app/src/DisplayAspectText.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "6eeabb7240bb178737c13b1cf920abbc5ff1a16ac7448e38dab044c702c8c227",
+   "bytes": 1213,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 46,
+   "title": "es-app/src/FolderMerge.h @ 16dbac5211 (whole, 74 lines)",
+   "path": "es-app/src/FolderMerge.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "98bec317ed694d20373baf96d93d9dff4df351ad0e3626a684ec6e46dab318ae",
+   "bytes": 3338,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 47,
+   "title": "es-app/src/GameCubeRvzHashRetry.h @ 16dbac5211 (whole, 45 lines)",
+   "path": "es-app/src/GameCubeRvzHashRetry.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "12c4d90329753b04897726bb7b0acaa79198a07b6bebd071a0a0df540e45aa82",
+   "bytes": 2049,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 48,
+   "title": "es-app/src/JourneyTiers.h @ 16dbac5211 (whole, 159 lines)",
+   "path": "es-app/src/JourneyTiers.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "489bdaaa51cc38a049db7ece819d877c96200c238b005526c8d0e64c286267db",
+   "bytes": 7481,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 49,
+   "title": "es-app/src/OfflineAchievementsText.cpp @ 16dbac5211 (whole, 283 lines)",
+   "path": "es-app/src/OfflineAchievementsText.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "327a394054fbcdfe2780d6c2b4ce15f3b49d968538d13c24bcdc8637e912e880",
+   "bytes": 10271,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 50,
+   "title": "es-app/src/OfflineAchievementsText.h @ 16dbac5211 (whole, 161 lines)",
+   "path": "es-app/src/OfflineAchievementsText.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "fa7b0faa37268f1bb0e6d7ff80c7db3aefabeb8da4cb90a55e6a97af3ebcbfbc",
+   "bytes": 7871,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 51,
+   "title": "es-app/src/RunLock.h @ 16dbac5211 (whole, 74 lines)",
+   "path": "es-app/src/RunLock.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "9b13d1a101cd5ad4dacb7436add6cdccc71802b545f4a4e6ef6f4ba9b892f4cc",
+   "bytes": 3045,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 52,
+   "title": "es-app/src/TextFit.h @ 16dbac5211 (whole, 40 lines)",
+   "path": "es-app/src/TextFit.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "64ae28ad745c60e9623f0fea14533c389c7e6a700390babda14f06ea10f6bffc",
+   "bytes": 1511,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 53,
+   "title": "es-app/src/WifiText.cpp @ 16dbac5211 (whole, 265 lines)",
+   "path": "es-app/src/WifiText.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "0d3c6ccfa3885ccb7ed7c175283839eebb61a839deb8ba39970286894414ef34",
+   "bytes": 10069,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 54,
+   "title": "es-app/src/WifiText.h @ 16dbac5211 (whole, 164 lines)",
+   "path": "es-app/src/WifiText.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "ebab7e2a0380a353f47ecbcbf58c3484f6bba47f8acb38e8f58351afd5b9743d",
+   "bytes": 9178,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 55,
+   "title": "es-app/src/NetworkThread.cpp @ 16dbac5211 (whole, 274 lines)",
+   "path": "es-app/src/NetworkThread.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "1d200fd02414cf651e6aca5d98e66d895123da6184e98aa34247c391efd3ff1e",
+   "bytes": 11170,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 56,
+   "title": "es-app/src/NetworkThread.h @ 16dbac5211 (whole, 108 lines)",
+   "path": "es-app/src/NetworkThread.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "c1d0b6e7d534ac0c97d11801821e9b3bfa34d50982de93239d469304155d940c",
+   "bytes": 3810,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 57,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 26-64 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:26-64",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "9210cbd34f813594e2d96754a2f708148dc6933675cf8a5c1a5dc78c8173b1a0",
+   "bytes": 3060,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 58,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 125-141 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:125-141",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "b0d1bfdd35a50d38176f5c38c17516147f47945fe940a4533bee8c4f39842908",
+   "bytes": 623,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 59,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 337-365 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:337-365",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "93b5198e999e042c4a89fe14953b8e66f341ce6c7a4dba7dd02875911ec63898",
+   "bytes": 956,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 60,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 532-548 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:532-548",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "7770de2d6b6be3776aaddb0c23c5fc337ce68278885734835a944a554662f785",
+   "bytes": 736,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 61,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 590-606 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:590-606",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "8a28205de0566d4441437d6f7f00d4bdc4cedf891a2696a25ab608387d048c25",
+   "bytes": 516,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 62,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 619-635 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:619-635",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "68f1f9a7dee5fae3b94706e87b4c87363a893b3991c0184673846bf4e2cd0619",
+   "bytes": 753,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 63,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 638-659 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:638-659",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "b11a359340ec0afc71a87da84e85ba21ae752c7ae6cb14da74e4c591a6e928fa",
+   "bytes": 913,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 64,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 750-768 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:750-768",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "61ae83dca2d29c66ace6a817df4c2a3229bd51dbd38c1dd83179f5cc2ba05e8b",
+   "bytes": 783,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 65,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 789-810 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:789-810",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "b72e66250b8b2ac33b815e153c9e48786df7bac1fce5efd1a1097110397898d7",
+   "bytes": 769,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 66,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 825-842 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:825-842",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "182dd5a4d93bfaeee5dc57e70160d37fa250ca8970ae219430e6c71df33cb876",
+   "bytes": 1014,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 67,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 955-971 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:955-971",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "3b5baa363dbb896ece30e9345bf7893d47bccd889a41ff4298a535a7d675a5b2",
+   "bytes": 510,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 68,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 1107-1125 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:1107-1125",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "b3e6fb25615d5fbeafd64b8471fe410cd09ce52cfb76003a3c0a425dc3f3cc74",
+   "bytes": 796,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 69,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 1139-1155 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:1139-1155",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "ea4bdcfe2ec05159bfb37a4c32e1a094a06005edd2a63e32e992f7203b6b5d46",
+   "bytes": 505,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 70,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 1294-1325 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:1294-1325",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "41e581d02b52b8f5e7d094487f9d0f29d6fc1f20fa40c5dcecbe20a5cb2c8db2",
+   "bytes": 1063,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 71,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 1361-1380 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:1361-1380",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "239138a59611561a84c828b80dc5e8a1e5e000df2da05c6754d7b220dcb4c431",
+   "bytes": 816,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 72,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 1383-1399 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:1383-1399",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "88682560ed4107de956d20904891373a0f89d18ccb5931cdfb12911c6796de36",
+   "bytes": 574,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 73,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 1426-1447 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:1426-1447",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "8e3c41b3db32d8b407b0afeb556985ab16db25ae5b8dbe0034a93f0fe6020699",
+   "bytes": 821,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 74,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 1484-1540 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:1484-1540",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "586245791f69036f09ac0aabfed00649a0fee21878ddd648fa31cce6c02901c5",
+   "bytes": 2256,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 75,
+   "title": "es-app/src/CollectionSystemManager.cpp @ 16dbac5211: lines 1550-1621 (excerpt of 1631)",
+   "path": "es-app/src/CollectionSystemManager.cpp:1550-1621",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "4576eb77905a5de5810f8b5e9187156a3c23af3459b46b367363db6249d739a6",
+   "bytes": 2500,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 76,
+   "title": "es-app/src/ContentInstaller.cpp @ 16dbac5211: lines 53-86 (excerpt of 277)",
+   "path": "es-app/src/ContentInstaller.cpp:53-86",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d7f857ec01e8c1e7ed7534f33661123544cfe0ca54f4874af360a6bc274bfea6",
+   "bytes": 1025,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 77,
+   "title": "es-app/src/ContentInstaller.cpp @ 16dbac5211: lines 132-256 (excerpt of 277)",
+   "path": "es-app/src/ContentInstaller.cpp:132-256",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "42890c4f8a76508d9e40e01716f7b43078cfdc844bad285498e73541b7a51982",
+   "bytes": 4711,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 78,
+   "title": "es-app/src/CustomFeatures.cpp @ 16dbac5211: lines 5-31 (excerpt of 537)",
+   "path": "es-app/src/CustomFeatures.cpp:5-31",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "aacf895e4a005099e059b9bc1c35d739d339ad5cf087e83a38ef3642dcd07a9f",
+   "bytes": 1149,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 79,
+   "title": "es-app/src/CustomFeatures.cpp @ 16dbac5211: lines 53-69 (excerpt of 537)",
+   "path": "es-app/src/CustomFeatures.cpp:53-69",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "6c2956c608fd146f381bc523cec73f1e0f205d13715d41da47e7223982891b12",
+   "bytes": 796,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 80,
+   "title": "es-app/src/CustomFeatures.cpp @ 16dbac5211: lines 85-101 (excerpt of 537)",
+   "path": "es-app/src/CustomFeatures.cpp:85-101",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "8e2024944b60b7e3e72a29b049dc40dd148885d374e65402b4b4abd06b2ce381",
+   "bytes": 703,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 81,
+   "title": "es-app/src/CustomFeatures.cpp @ 16dbac5211: lines 143-175 (excerpt of 537)",
+   "path": "es-app/src/CustomFeatures.cpp:143-175",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "93f359d04da9c3dcbe268e8eb18ffb1ef21dd60870a529360e126ca246302f85",
+   "bytes": 1057,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 82,
+   "title": "es-app/src/CustomFeatures.cpp @ 16dbac5211: lines 194-264 (excerpt of 537)",
+   "path": "es-app/src/CustomFeatures.cpp:194-264",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "c67c0e4662ee6205980b55acb51d53901cf32065aa59878cd2bab00816ccef19",
+   "bytes": 3127,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 83,
+   "title": "es-app/src/CustomFeatures.cpp @ 16dbac5211: lines 284-306 (excerpt of 537)",
+   "path": "es-app/src/CustomFeatures.cpp:284-306",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "3d55a61d7a5b9777e50674002074db12f7e3829ea8034428ef6a580106293f31",
+   "bytes": 1102,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 84,
+   "title": "es-app/src/CustomFeatures.cpp @ 16dbac5211: lines 398-414 (excerpt of 537)",
+   "path": "es-app/src/CustomFeatures.cpp:398-414",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "77b90a74cba97e8a006f292869a520d54a89b0e3b69ea49c7f26825bf2ded92c",
+   "bytes": 401,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 85,
+   "title": "es-app/src/CustomFeatures.cpp @ 16dbac5211: lines 515-537 (excerpt of 537)",
+   "path": "es-app/src/CustomFeatures.cpp:515-537",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "0a57bfa00b1fe8e2d87bf5e55f7c316b322b3cd4e69864a032c3b8ec4d1f53ba",
+   "bytes": 778,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 86,
+   "title": "es-app/src/FileFilterIndex.cpp @ 16dbac5211: lines 22-57 (excerpt of 1412)",
+   "path": "es-app/src/FileFilterIndex.cpp:22-57",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "51176161972d93c6cedb360ba891dd45614c3ed3e4181f1969c8507b838dbc2c",
+   "bytes": 3974,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 87,
+   "title": "es-app/src/FileFilterIndex.cpp @ 16dbac5211: lines 239-255 (excerpt of 1412)",
+   "path": "es-app/src/FileFilterIndex.cpp:239-255",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "ea15a49a3152f5f75a4e5fda28c346865bfadaf44986f0ba51384de55701810a",
+   "bytes": 587,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 88,
+   "title": "es-app/src/FileFilterIndex.cpp @ 16dbac5211: lines 314-377 (excerpt of 1412)",
+   "path": "es-app/src/FileFilterIndex.cpp:314-377",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "9b1240c8adb9888b450a2e80832956ba890629f91136d29ae6335255782adbc1",
+   "bytes": 1789,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 89,
+   "title": "es-app/src/FileFilterIndex.cpp @ 16dbac5211: lines 549-565 (excerpt of 1412)",
+   "path": "es-app/src/FileFilterIndex.cpp:549-565",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "0abae448d3d0d046fa31e5c01da493f48898277b17251e11d3df6a38be91b442",
+   "bytes": 498,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 90,
+   "title": "es-app/src/FileFilterIndex.cpp @ 16dbac5211: lines 859-875 (excerpt of 1412)",
+   "path": "es-app/src/FileFilterIndex.cpp:859-875",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "234bdf00ffb89d94e914e4ed9ed285b604bb67b8f45b630baebe489a969b0f10",
+   "bytes": 379,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 91,
+   "title": "es-app/src/FileFilterIndex.cpp @ 16dbac5211: lines 881-897 (excerpt of 1412)",
+   "path": "es-app/src/FileFilterIndex.cpp:881-897",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "f011f35e4168d22799a4ca8faceb910053434e422b2d83b525adf928ebe13972",
+   "bytes": 449,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 92,
+   "title": "es-app/src/FileFilterIndex.cpp @ 16dbac5211: lines 1099-1329 (excerpt of 1412)",
+   "path": "es-app/src/FileFilterIndex.cpp:1099-1329",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "2d53cdd84b1ddd7d63a0a3b0ad6ac7bfa2cbf93b2aa61c16b993363141265d66",
+   "bytes": 8379,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 93,
+   "title": "es-app/src/FileFilterIndex.cpp @ 16dbac5211: lines 1364-1380 (excerpt of 1412)",
+   "path": "es-app/src/FileFilterIndex.cpp:1364-1380",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "9a8ca0800a07045d634a27d2818eb96abf9d998488f07ba4c9035bdf8cfe4cdd",
+   "bytes": 513,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 94,
+   "title": "es-app/src/FileSorts.cpp @ 16dbac5211: lines 24-114 (excerpt of 226)",
+   "path": "es-app/src/FileSorts.cpp:24-114",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "0e3df4b74a88a721392a5c6a9cd4d15646cd4fa618e3daea1c2d32abee9fb855",
+   "bytes": 5949,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 95,
+   "title": "es-app/src/FileSorts.h @ 16dbac5211: lines 14-31 (excerpt of 87)",
+   "path": "es-app/src/FileSorts.h:14-31",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "550243fa567bfdeedcda87ac73949179a6b030e54090e718ec8f85e3ba2962f0",
+   "bytes": 629,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 96,
+   "title": "es-app/src/FileTag.cpp @ 16dbac5211: lines 1-38 (excerpt of 46)",
+   "path": "es-app/src/FileTag.cpp:1-38",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "5df335eb6d4874c83d04eb5aae7dd56ac4eccc560d83f8ebc472b65559e51d88",
+   "bytes": 1336,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 97,
+   "title": "es-app/src/Gamelist.cpp @ 16dbac5211: lines 104-125 (excerpt of 848)",
+   "path": "es-app/src/Gamelist.cpp:104-125",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "adbb613a2d7cd0484895a95b7546f2e4203aa68cfedeadcec71a5e18f8abd3d8",
+   "bytes": 719,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 98,
+   "title": "es-app/src/Gamelist.cpp @ 16dbac5211: lines 182-198 (excerpt of 848)",
+   "path": "es-app/src/Gamelist.cpp:182-198",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "f9bc6ed1c64a05743c38de81575d280c56346d1ae666ac5d3fa3877e70410895",
+   "bytes": 660,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 99,
+   "title": "es-app/src/Gamelist.cpp @ 16dbac5211: lines 247-269 (excerpt of 848)",
+   "path": "es-app/src/Gamelist.cpp:247-269",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e9e4ee354240292c8f43053eb3482e5a96526364a51b5e7faa5b332f5e4a681a",
+   "bytes": 1113,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 100,
+   "title": "es-app/src/Gamelist.cpp @ 16dbac5211: lines 280-316 (excerpt of 848)",
+   "path": "es-app/src/Gamelist.cpp:280-316",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "3d08f35b354f8c725aa733676d9352e98bfb8be142a829818dfcf111996b4800",
+   "bytes": 1272,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 101,
+   "title": "es-app/src/Gamelist.cpp @ 16dbac5211: lines 344-360 (excerpt of 848)",
+   "path": "es-app/src/Gamelist.cpp:344-360",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "7a39e3f903ec73cbb4bf88c5de92415a66b9b48c02ece8fa76c9ecf545974731",
+   "bytes": 819,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 102,
+   "title": "es-app/src/Gamelist.cpp @ 16dbac5211: lines 366-491 (excerpt of 848)",
+   "path": "es-app/src/Gamelist.cpp:366-491",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d2f08cdf9b1055f6a10a9971663376d078f8879a5b874774a67c19394c23ebce",
+   "bytes": 4976,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 103,
+   "title": "es-app/src/Gamelist.cpp @ 16dbac5211: lines 510-539 (excerpt of 848)",
+   "path": "es-app/src/Gamelist.cpp:510-539",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "9f5c4aa3b8e5c8bf7305f9a723446a7173179131b525a3721f5d77c84fc73f96",
+   "bytes": 1042,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 104,
+   "title": "es-app/src/Gamelist.cpp @ 16dbac5211: lines 593-609 (excerpt of 848)",
+   "path": "es-app/src/Gamelist.cpp:593-609",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "c44fe2de366a6da99022ba0ec1c7f12e5262af954ef7b4889791d02594c1d35b",
+   "bytes": 572,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 105,
+   "title": "es-app/src/Gamelist.cpp @ 16dbac5211: lines 611-652 (excerpt of 848)",
+   "path": "es-app/src/Gamelist.cpp:611-652",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "1e7fad450267b9480f74eb892f666b20942d1bd3c2b43531a32dd63a29873ca3",
+   "bytes": 1775,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 106,
+   "title": "es-app/src/Gamelist.cpp @ 16dbac5211: lines 697-713 (excerpt of 848)",
+   "path": "es-app/src/Gamelist.cpp:697-713",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "3de288cd81b3cda1459bd5da33ae0519ee3d164b775537f16f74fae668774402",
+   "bytes": 683,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 107,
+   "title": "es-app/src/Gamelist.cpp @ 16dbac5211: lines 724-756 (excerpt of 848)",
+   "path": "es-app/src/Gamelist.cpp:724-756",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "6fc02fcd77630e20cc1b9d7916dd17194499133c19e0b245dc9acf3da221a1ac",
+   "bytes": 1919,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 108,
+   "title": "es-app/src/Gamelist.cpp @ 16dbac5211: lines 830-848 (excerpt of 848)",
+   "path": "es-app/src/Gamelist.cpp:830-848",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "52ca9112fc6a49d00d38013e3d580b2c9885e04604370b2f0412803ae73efaad",
+   "bytes": 818,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 109,
+   "title": "es-app/src/Genres.cpp @ 16dbac5211: lines 11-30 (excerpt of 372)",
+   "path": "es-app/src/Genres.cpp:11-30",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e1c44fd524c14ef12cd4289216441cb7f1da0f7eeda37b97f6c1e70be160f51c",
+   "bytes": 663,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 110,
+   "title": "es-app/src/Genres.cpp @ 16dbac5211: lines 177-193 (excerpt of 372)",
+   "path": "es-app/src/Genres.cpp:177-193",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "444f4020a902214f2ee88e2ce0f8f20b8013398b9259a0c9eab1f80a03b90397",
+   "bytes": 557,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 111,
+   "title": "es-app/src/Genres.cpp @ 16dbac5211: lines 226-242 (excerpt of 372)",
+   "path": "es-app/src/Genres.cpp:226-242",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "6537888490b24b6e02bf4f235d57db60e25cb3f0a7334cf40a33c9c8f4d979bd",
+   "bytes": 503,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 112,
+   "title": "es-app/src/Genres.cpp @ 16dbac5211: lines 249-265 (excerpt of 372)",
+   "path": "es-app/src/Genres.cpp:249-265",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "74e2585abc98cc0b5ec3f4b95965f80f84d0e8a57154bfd9a5c4aedb873c3376",
+   "bytes": 437,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 113,
+   "title": "es-app/src/Genres.cpp @ 16dbac5211: lines 285-301 (excerpt of 372)",
+   "path": "es-app/src/Genres.cpp:285-301",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "ec5a2b7567ed62d931e9a1699380c4d3b6fd43acdef41e0a06214788b4757a7c",
+   "bytes": 559,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 114,
+   "title": "es-app/src/Genres.cpp @ 16dbac5211: lines 315-331 (excerpt of 372)",
+   "path": "es-app/src/Genres.cpp:315-331",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "1a98a94a3dba6f95992fe33d28482612cf387999e386ac4ff89b64faf1fe5b94",
+   "bytes": 438,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 115,
+   "title": "es-app/src/KeyboardMapping.cpp @ 16dbac5211: lines 155-230 (excerpt of 817)",
+   "path": "es-app/src/KeyboardMapping.cpp:155-230",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "5de73035b4aea8fdb95fbc9119a300bd5525961a60423f4194aaf8c1d699d426",
+   "bytes": 2179,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 116,
+   "title": "es-app/src/KeyboardMapping.cpp @ 16dbac5211: lines 239-300 (excerpt of 817)",
+   "path": "es-app/src/KeyboardMapping.cpp:239-300",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "ec6553111775f10f6411976b5888837dd10f7c42a8d004f562fbfe31f02128c1",
+   "bytes": 2046,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 117,
+   "title": "es-app/src/KeyboardMapping.cpp @ 16dbac5211: lines 316-440 (excerpt of 817)",
+   "path": "es-app/src/KeyboardMapping.cpp:316-440",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "805e025f9b7a9bcbb604326973bb7483b93232e6b7a8d7065ab0c774a74f8be5",
+   "bytes": 3451,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 118,
+   "title": "es-app/src/KeyboardMapping.cpp @ 16dbac5211: lines 491-520 (excerpt of 817)",
+   "path": "es-app/src/KeyboardMapping.cpp:491-520",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "5e2308aa021727a4c0070e307d2800bf4c380b6ae571c2d6f1a40053aa7472b0",
+   "bytes": 741,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 119,
+   "title": "es-app/src/KeyboardMapping.cpp @ 16dbac5211: lines 527-543 (excerpt of 817)",
+   "path": "es-app/src/KeyboardMapping.cpp:527-543",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "049f3a1ba52d9574b47bebb09c2bdc5f86397efeed4861393fb159d5b356366c",
+   "bytes": 384,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 120,
+   "title": "es-app/src/KeyboardMapping.cpp @ 16dbac5211: lines 578-594 (excerpt of 817)",
+   "path": "es-app/src/KeyboardMapping.cpp:578-594",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "78dd06db9af55724ab7ac1559661a0002595aa578e2d91e31be4923b6c41c4f2",
+   "bytes": 478,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 121,
+   "title": "es-app/src/KeyboardMapping.cpp @ 16dbac5211: lines 718-734 (excerpt of 817)",
+   "path": "es-app/src/KeyboardMapping.cpp:718-734",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "5bd82a1b3f150f4a3b7d64a9226dc2f0648a805b0eff913b203a74a37630a3d4",
+   "bytes": 436,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 122,
+   "title": "es-app/src/KeyboardMapping.cpp @ 16dbac5211: lines 768-801 (excerpt of 817)",
+   "path": "es-app/src/KeyboardMapping.cpp:768-801",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "0a9daa6e119f980339f08d78877089ac106a1d19a2fba1523c11e28cfc89a438",
+   "bytes": 987,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 123,
+   "title": "es-app/src/LangParser.cpp @ 16dbac5211: lines 10-73 (excerpt of 242)",
+   "path": "es-app/src/LangParser.cpp:10-73",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "57ad355ceb4a6f68da0bee0cc0a5182a5537cdc0bedb84911c07a0f25c5de7b6",
+   "bytes": 1880,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 124,
+   "title": "es-app/src/LangParser.cpp @ 16dbac5211: lines 136-152 (excerpt of 242)",
+   "path": "es-app/src/LangParser.cpp:136-152",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "bff4a95f8bdfd5d97ab5290bc9f570a5b219afc73b58519f770818e74da3ba4a",
+   "bytes": 583,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 125,
+   "title": "es-app/src/LangParser.cpp @ 16dbac5211: lines 195-211 (excerpt of 242)",
+   "path": "es-app/src/LangParser.cpp:195-211",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "3a07996fc2eee126cd6c035586a3697a29d2b5b01a544b3c8eb42f232c0feb4f",
+   "bytes": 440,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 126,
+   "title": "es-app/src/LibretroRatio.cpp @ 16dbac5211: lines 4-53 (excerpt of 53)",
+   "path": "es-app/src/LibretroRatio.cpp:4-53",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "ca394f5da391232f2bd7fe5441741c0c62315e22f1123667a0e0ecf63a64a58f",
+   "bytes": 2137,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 127,
+   "title": "es-app/src/MetaData.cpp @ 16dbac5211: lines 20-108 (excerpt of 604)",
+   "path": "es-app/src/MetaData.cpp:20-108",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "eeece84c33daed3aaa6c4c9d9b7083caea22813a84164171d1ba65813f7cb8be",
+   "bytes": 8217,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 128,
+   "title": "es-app/src/MetaData.cpp @ 16dbac5211: lines 143-159 (excerpt of 604)",
+   "path": "es-app/src/MetaData.cpp:143-159",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "7ad3aa4f680fb9c76f1c251b4998cbdbf07e0664d58c183d03035b47bc45441d",
+   "bytes": 508,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 129,
+   "title": "es-app/src/MetaData.cpp @ 16dbac5211: lines 215-231 (excerpt of 604)",
+   "path": "es-app/src/MetaData.cpp:215-231",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d7356df3ac638d9de3ebf6f63443d01d06e3ec5642dd4792d3bfde23ba38dfdc",
+   "bytes": 745,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 130,
+   "title": "es-app/src/MetaData.cpp @ 16dbac5211: lines 262-288 (excerpt of 604)",
+   "path": "es-app/src/MetaData.cpp:262-288",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "772ea7742f79fceb3b2c58db2614bca7b09aeaf3dc689b48ec73b39323de3579",
+   "bytes": 895,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 131,
+   "title": "es-app/src/MetaData.cpp @ 16dbac5211: lines 349-365 (excerpt of 604)",
+   "path": "es-app/src/MetaData.cpp:349-365",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "c44c345b0af4535fd02e72798c4a5c7ee34eb9ef231779a0e39011725507cf61",
+   "bytes": 506,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 132,
+   "title": "es-app/src/MetaData.cpp @ 16dbac5211: lines 399-415 (excerpt of 604)",
+   "path": "es-app/src/MetaData.cpp:399-415",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "a7c01dfb91680b4050d510ec0146cc120c231bb85945967d4f0a2d1206e7a17c",
+   "bytes": 507,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 133,
+   "title": "es-app/src/MetaData.cpp @ 16dbac5211: lines 427-477 (excerpt of 604)",
+   "path": "es-app/src/MetaData.cpp:427-477",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "f0869e8f69986cee515118af1199e69546d4d7393134212a28474e4e624fa4ad",
+   "bytes": 1476,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 134,
+   "title": "es-app/src/PlatformId.cpp @ 16dbac5211: lines 207-245 (excerpt of 301)",
+   "path": "es-app/src/PlatformId.cpp:207-245",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "baef2b975e659621114dc0e4ac41977592e5b659bea23296aa36e76f63dda180",
+   "bytes": 1196,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 135,
+   "title": "es-app/src/ScraperCmdLine.cpp @ 16dbac5211: lines 1-9 (excerpt of 290)",
+   "path": "es-app/src/ScraperCmdLine.cpp:1-9",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e5b4be11368e27313a1278b8285e90676fa00423f655479e7c81d75926589671",
+   "bytes": 238,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 136,
+   "title": "es-app/src/ScraperCmdLine.cpp @ 16dbac5211: lines 16-35 (excerpt of 290)",
+   "path": "es-app/src/ScraperCmdLine.cpp:16-35",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "7eafeaaa7f5062819886eee1624ab758605ab6dd30ffbbcb37dcb45e6c270415",
+   "bytes": 544,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 137,
+   "title": "es-app/src/ScraperCmdLine.cpp @ 16dbac5211: lines 279-290 (excerpt of 290)",
+   "path": "es-app/src/ScraperCmdLine.cpp:279-290",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "3b842035d2814ecad42255e1be320ede9ef0ff91b982008e064cb82d384f2db3",
+   "bytes": 295,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 138,
+   "title": "es-app/src/SystemRandomPlaylist.cpp @ 16dbac5211: lines 79-109 (excerpt of 109)",
+   "path": "es-app/src/SystemRandomPlaylist.cpp:79-109",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d51b57d5ef5607811fb39f669efa8f2129e1294d3e47adc8f0ff97168011c9f9",
+   "bytes": 892,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 139,
+   "title": "es-app/src/SystemScreenSaver.cpp @ 16dbac5211: lines 43-59 (excerpt of 1125)",
+   "path": "es-app/src/SystemScreenSaver.cpp:43-59",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "48351d42c8e66cb866fb0b6dd8458fe1adecdef4cfbfe1f0a708dc4f31514adf",
+   "bytes": 462,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 140,
+   "title": "es-app/src/SystemScreenSaver.cpp @ 16dbac5211: lines 148-172 (excerpt of 1125)",
+   "path": "es-app/src/SystemScreenSaver.cpp:148-172",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "0a1c77b133304ed3fe3d2e789b293652d9c056e8a70f5fd3a0d18844843da097",
+   "bytes": 839,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 141,
+   "title": "es-app/src/SystemScreenSaver.cpp @ 16dbac5211: lines 200-216 (excerpt of 1125)",
+   "path": "es-app/src/SystemScreenSaver.cpp:200-216",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "4ae335b4c5a091e60333594e47ed163f4722a7ef2bd69f32252ed3dae5adffeb",
+   "bytes": 641,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 142,
+   "title": "es-app/src/SystemScreenSaver.cpp @ 16dbac5211: lines 342-358 (excerpt of 1125)",
+   "path": "es-app/src/SystemScreenSaver.cpp:342-358",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "456c85c42f00b9730e91e0d827463c2af7631ae0b5d4ae74fd8259ad55642bf1",
+   "bytes": 691,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 143,
+   "title": "es-app/src/SystemScreenSaver.cpp @ 16dbac5211: lines 367-396 (excerpt of 1125)",
+   "path": "es-app/src/SystemScreenSaver.cpp:367-396",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "c3310eefa7bb78f541c96722f80f89c4e9fa0c547e604a944d4fdd2bb6ff679c",
+   "bytes": 1053,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 144,
+   "title": "es-app/src/SystemScreenSaver.cpp @ 16dbac5211: lines 489-515 (excerpt of 1125)",
+   "path": "es-app/src/SystemScreenSaver.cpp:489-515",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e7e5c2cdb1b7e3b57337df87354c0ff09e8e7ff3d30cd380258d18cea79a3c3d",
+   "bytes": 775,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 145,
+   "title": "es-app/src/SystemScreenSaver.cpp @ 16dbac5211: lines 538-554 (excerpt of 1125)",
+   "path": "es-app/src/SystemScreenSaver.cpp:538-554",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "62d809cbdb8f45acbe4ddceb8ea1a81ca5f4c7620b976198899b272881d17154",
+   "bytes": 653,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 146,
+   "title": "es-app/src/SystemScreenSaver.cpp @ 16dbac5211: lines 686-702 (excerpt of 1125)",
+   "path": "es-app/src/SystemScreenSaver.cpp:686-702",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "843ad5bee8ca4d56cdb556eb8eec42950bec50c527f10c401a064c302f0149fd",
+   "bytes": 535,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 147,
+   "title": "es-app/src/SystemScreenSaver.cpp @ 16dbac5211: lines 722-741 (excerpt of 1125)",
+   "path": "es-app/src/SystemScreenSaver.cpp:722-741",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e913ed780b5c9fddd3273653a4f1aaaa25c5c3793f7a73ef406becc07dd3265d",
+   "bytes": 689,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 148,
+   "title": "es-app/src/SystemScreenSaver.cpp @ 16dbac5211: lines 779-795 (excerpt of 1125)",
+   "path": "es-app/src/SystemScreenSaver.cpp:779-795",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "bb89ab2a02e32d0f1724f7110781004ca81cc6841193f49a4ed2bcc756df34ac",
+   "bytes": 775,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 149,
+   "title": "es-app/src/SystemScreenSaver.cpp @ 16dbac5211: lines 1014-1030 (excerpt of 1125)",
+   "path": "es-app/src/SystemScreenSaver.cpp:1014-1030",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "0c41e2d7c014db4d8e25a9e12910ebf875eedc2453d6d5f25848dcb9c583f6e3",
+   "bytes": 438,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 150,
+   "title": "es-app/src/ThreadedBluetooth.cpp @ 16dbac5211: lines 8-34 (excerpt of 123)",
+   "path": "es-app/src/ThreadedBluetooth.cpp:8-34",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "618a1eb208328d90a06a9091be64983eeb88d279af000c2be0642634466b2dd1",
+   "bytes": 875,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 151,
+   "title": "es-app/src/ThreadedBluetooth.cpp @ 16dbac5211: lines 38-62 (excerpt of 123)",
+   "path": "es-app/src/ThreadedBluetooth.cpp:38-62",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "af38b6b0307f9c2d7c8e1e63ecd8a3d9728d97b5f24b19360a98124e40d4d3d0",
+   "bytes": 669,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 152,
+   "title": "es-app/src/ThreadedBluetooth.cpp @ 16dbac5211: lines 65-84 (excerpt of 123)",
+   "path": "es-app/src/ThreadedBluetooth.cpp:65-84",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "cae45a1e40f91c0647f320811da86f8ca5cd3e1e9e1d376755840cf29e3c9b25",
+   "bytes": 710,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 153,
+   "title": "es-app/src/ThreadedBluetooth.cpp @ 16dbac5211: lines 100-123 (excerpt of 123)",
+   "path": "es-app/src/ThreadedBluetooth.cpp:100-123",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "3434f80eab0d4090841ec906014e592e8f29a71bdbabe9dcee3c818cef8c55db",
+   "bytes": 827,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 154,
+   "title": "es-app/src/ZaparooSupport.cpp @ 16dbac5211: lines 1-47 (excerpt of 64)",
+   "path": "es-app/src/ZaparooSupport.cpp:1-47",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "cb54605143fa1f01b3a80c12661dafba2c4345cc4a863c621142a4e8a77dba88",
+   "bytes": 1251,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 155,
+   "title": "es-app/src/ZaparooSupport.cpp @ 16dbac5211: lines 50-64 (excerpt of 64)",
+   "path": "es-app/src/ZaparooSupport.cpp:50-64",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e9ea047e8b4a893b832119f5a3f1169d9dd9687bc55886eda64fce785efc4630",
+   "bytes": 608,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 156,
+   "title": "es-app/src/components/ScraperSearchComponent.cpp @ 16dbac5211: lines 23-39 (excerpt of 755)",
+   "path": "es-app/src/components/ScraperSearchComponent.cpp:23-39",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "70832eb4992853c16b711e6aecaa5768fecb35fdc530bd432c95ae9fe29b398e",
+   "bytes": 659,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 157,
+   "title": "es-app/src/components/ScraperSearchComponent.cpp @ 16dbac5211: lines 56-77 (excerpt of 755)",
+   "path": "es-app/src/components/ScraperSearchComponent.cpp:56-77",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "08e080ac30d9b1b17b217fe1c12abf46a8d2847ad0e9cb1c477fb1a2f93f9704",
+   "bytes": 1775,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 158,
+   "title": "es-app/src/components/ScraperSearchComponent.cpp @ 16dbac5211: lines 88-108 (excerpt of 755)",
+   "path": "es-app/src/components/ScraperSearchComponent.cpp:88-108",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "2c51395c405f9229645bd3108f8025ab247bc584b24174695423c933f8991214",
+   "bytes": 634,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 159,
+   "title": "es-app/src/components/ScraperSearchComponent.cpp @ 16dbac5211: lines 188-266 (excerpt of 755)",
+   "path": "es-app/src/components/ScraperSearchComponent.cpp:188-266",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e4bdba7772260205ec32410696543287dc7466d73cf6f1ad16aeb386d4e6bef8",
+   "bytes": 2230,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 160,
+   "title": "es-app/src/components/ScraperSearchComponent.cpp @ 16dbac5211: lines 347-369 (excerpt of 755)",
+   "path": "es-app/src/components/ScraperSearchComponent.cpp:347-369",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "72eba8f792ca65e324df0baac49e20d147a3e912592cdce2c71f7f8d82060aa1",
+   "bytes": 582,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 161,
+   "title": "es-app/src/components/ScraperSearchComponent.cpp @ 16dbac5211: lines 378-400 (excerpt of 755)",
+   "path": "es-app/src/components/ScraperSearchComponent.cpp:378-400",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "9e381614275b4aa7c6626222f01d5f832aa13addc7da8ae9213fe501ce6d6201",
+   "bytes": 853,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 162,
+   "title": "es-app/src/components/ScraperSearchComponent.cpp @ 16dbac5211: lines 460-479 (excerpt of 755)",
+   "path": "es-app/src/components/ScraperSearchComponent.cpp:460-479",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d58e79e5cd95c64a8d7df1de911b691b062f346cb3cc0bef400b181537b5e6f2",
+   "bytes": 784,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 163,
+   "title": "es-app/src/components/ScraperSearchComponent.cpp @ 16dbac5211: lines 589-605 (excerpt of 755)",
+   "path": "es-app/src/components/ScraperSearchComponent.cpp:589-605",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "98e44a87b50d7d45fdfd4f5ffb835a733f8bfc129686eef0189c91a1adf28ab7",
+   "bytes": 440,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 164,
+   "title": "es-app/src/components/ScraperSearchComponent.cpp @ 16dbac5211: lines 608-631 (excerpt of 755)",
+   "path": "es-app/src/components/ScraperSearchComponent.cpp:608-631",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d431b2ad3745253a90f2f2a313258840c2d12fce35be869003b311e2609a4694",
+   "bytes": 708,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 165,
+   "title": "es-app/src/components/ScraperSearchComponent.cpp @ 16dbac5211: lines 637-666 (excerpt of 755)",
+   "path": "es-app/src/components/ScraperSearchComponent.cpp:637-666",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "8edffc8ddcc217fc7ef34a2cdf49b432bf933cd05731baac2035e00f79ab5d9e",
+   "bytes": 1381,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 166,
+   "title": "es-app/src/components/ScraperSearchComponent.cpp @ 16dbac5211: lines 716-752 (excerpt of 755)",
+   "path": "es-app/src/components/ScraperSearchComponent.cpp:716-752",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "fb4e1fdc73bcfc8d9c3aae7f3e06c3aff47005e45ba8e6e2c2f93c0a8f41694a",
+   "bytes": 1299,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 167,
+   "title": "es-app/src/views/ViewController.cpp @ 16dbac5211: lines 482-568 (excerpt of 1531)",
+   "path": "es-app/src/views/ViewController.cpp:482-568",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "87c1c382fcc54e659b0173e7796688e6c7a0d98654ef215a126e1c47ec6b7c0a",
+   "bytes": 3599,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 168,
+   "title": "es-app/src/views/ViewController.cpp @ 16dbac5211: lines 1111-1168 (excerpt of 1531)",
+   "path": "es-app/src/views/ViewController.cpp:1111-1168",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "0d401cbf840f04a1feebae23cd1b9e06b8c5422d66d118172292b2fd93873dea",
+   "bytes": 1734,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 169,
+   "title": "es-app/src/FileData.cpp @ 16dbac5211: lines 977-1013 (excerpt of 2680)",
+   "path": "es-app/src/FileData.cpp:977-1013",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "96b12908c6d8f3905f3a1d8b2ff72753a93b781748450e2332bd6b366323be46",
+   "bytes": 2231,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 170,
+   "title": "es-app/src/FileData.cpp @ 16dbac5211: lines 1152-1178 (excerpt of 2680)",
+   "path": "es-app/src/FileData.cpp:1152-1178",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "7729eb585a7c9485f3c4bf442a4aed99e4d6e35304904badccdc395e5e689650",
+   "bytes": 1499,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 171,
+   "title": "es-app/src/FileData.cpp @ 16dbac5211: lines 1192-1220 (excerpt of 2680)",
+   "path": "es-app/src/FileData.cpp:1192-1220",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "0e3e95af4ea59fb80a7cec30a9df8823a7670d38c58f6c04f792f6db8bdd1897",
+   "bytes": 1436,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 172,
+   "title": "es-app/src/FileData.cpp @ 16dbac5211: lines 2177-2203 (excerpt of 2680)",
+   "path": "es-app/src/FileData.cpp:2177-2203",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "21a3d6ba36011d01378750eedbd328e3ab20b1dc1f91c5bacf9b4c30d8da141c",
+   "bytes": 940,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 173,
+   "title": "es-app/src/SystemData.cpp @ 16dbac5211: lines 112-138 (excerpt of 2583)",
+   "path": "es-app/src/SystemData.cpp:112-138",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "89fda057bf682b4de8fd5664d4ac650976358682a03e5616a249640b57beb7bf",
+   "bytes": 878,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 174,
+   "title": "es-app/src/SystemData.cpp @ 16dbac5211: lines 457-498 (excerpt of 2583)",
+   "path": "es-app/src/SystemData.cpp:457-498",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "97b2cde3cf069f99d2cd471b65fef71a220d47dec851432ad77b08d60f396d0e",
+   "bytes": 1681,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 175,
+   "title": "es-app/src/SystemData.cpp @ 16dbac5211: lines 642-668 (excerpt of 2583)",
+   "path": "es-app/src/SystemData.cpp:642-668",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "2314e26e6ec81ca9e3a0e7935bc9ed30936a57be99922e9ef6257c7446ca6bf8",
+   "bytes": 689,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 176,
+   "title": "es-app/src/SystemData.cpp @ 16dbac5211: lines 1188-1298 (excerpt of 2583)",
+   "path": "es-app/src/SystemData.cpp:1188-1298",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "488591a1c416635b08e66a363f1479525c7ab02afb946644ca7bfdb0198730de",
+   "bytes": 3507,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 177,
+   "title": "es-app/src/SystemData.cpp @ 16dbac5211: lines 1552-1580 (excerpt of 2583)",
+   "path": "es-app/src/SystemData.cpp:1552-1580",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "4e450909cbdb0729a47ed24f2501f34559ef2516394bf6e81ae8d0c1278701a6",
+   "bytes": 743,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 178,
+   "title": "es-app/src/SystemData.cpp @ 16dbac5211: lines 1640-1672 (excerpt of 2583)",
+   "path": "es-app/src/SystemData.cpp:1640-1672",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "0e769bab049c167c4e9b451e48a7630dfe80e0769df0b0234cbfbc2d86e536db",
+   "bytes": 1229,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 179,
+   "title": "es-app/src/main.cpp @ 16dbac5211: lines 792-858 (excerpt of 1368)",
+   "path": "es-app/src/main.cpp:792-858",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "6ee39cd83fb4e3ac06c60ea759735a5ce9becc1b96bb46892cc1f2330cdbf92d",
+   "bytes": 2550,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 180,
+   "title": "es-app/src/main.cpp @ 16dbac5211: lines 882-908 (excerpt of 1368)",
+   "path": "es-app/src/main.cpp:882-908",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "36e3ebb1f07b829184bf385ef9faabbea7cdc39bb68f3348a8015fdf4290695e",
+   "bytes": 851,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 181,
+   "title": "es-app/src/main.cpp @ 16dbac5211: lines 947-986 (excerpt of 1368)",
+   "path": "es-app/src/main.cpp:947-986",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "3965d06909faf4f33622da62842544036a07fe14e305070c6b033b0bf06fe04c",
+   "bytes": 2471,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 182,
+   "title": "es-app/src/main.cpp @ 16dbac5211: lines 1308-1342 (excerpt of 1368)",
+   "path": "es-app/src/main.cpp:1308-1342",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "c4e1fea7e95bfb0e97395c374e40d9ce2ce85fed107c54fc9e55e311b480865e",
+   "bytes": 1268,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 183,
+   "title": "es-core/src/watchers/WatchersManager.cpp @ 16dbac5211: lines 77-113 (excerpt of 203)",
+   "path": "es-core/src/watchers/WatchersManager.cpp:77-113",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "dd20259ad9f7b12eabcc6286b17d4b55c054e646cba3e5756137276c42b13c0d",
+   "bytes": 997,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 184,
+   "title": "es-core/src/watchers/WatchersManager.cpp @ 16dbac5211: lines 157-203 (excerpt of 203)",
+   "path": "es-core/src/watchers/WatchersManager.cpp:157-203",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "bf07a371a7f706981433149bb5d2a099956624dfc8a9f9cc0d51b382f19df2e5",
+   "bytes": 1153,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 185,
+   "title": "es-core/src/utils/FileSystemUtil.cpp @ 16dbac5211: lines 217-273 (excerpt of 1805)",
+   "path": "es-core/src/utils/FileSystemUtil.cpp:217-273",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "8481130efda6f03639a9906461afa14782c69a69043499c504e359a8c3ae9a0a",
+   "bytes": 2488,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 186,
+   "title": "es-core/src/utils/FileSystemUtil.cpp @ 16dbac5211: lines 332-358 (excerpt of 1805)",
+   "path": "es-core/src/utils/FileSystemUtil.cpp:332-358",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "44567983868b54a58b488fb1405be862783ecea79d27facc8d1161ceba766380",
+   "bytes": 828,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 187,
+   "title": "es-app/src/guis/GuiGamelistOptions.cpp @ 16dbac5211: lines 52-88 (excerpt of 692)",
+   "path": "es-app/src/guis/GuiGamelistOptions.cpp:52-88",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e69223b6c371d187578463fb42628aa9a86fc82378bd036a0b6f68ad1c7cd2df",
+   "bytes": 1516,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 188,
+   "title": "es-app/src/guis/GuiGamelistOptions.cpp @ 16dbac5211: lines 157-188 (excerpt of 692)",
+   "path": "es-app/src/guis/GuiGamelistOptions.cpp:157-188",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "db6f3edc3e0015a03ccb468c296927f92756bd09b8e90755f7f5559d41245618",
+   "bytes": 1416,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 189,
+   "title": "es-app/src/guis/GuiGamelistOptions.cpp @ 16dbac5211: lines 242-278 (excerpt of 692)",
+   "path": "es-app/src/guis/GuiGamelistOptions.cpp:242-278",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "bcd5a34469f6e60b6a1030a6aaf823779f76d37d1a80fc7e6c9928a4a79b616a",
+   "bytes": 1602,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 190,
+   "title": "es-app/src/guis/GuiGamelistOptions.cpp @ 16dbac5211: lines 412-448 (excerpt of 692)",
+   "path": "es-app/src/guis/GuiGamelistOptions.cpp:412-448",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "6f2329e120cf0444f56c76b9d922c46bef09535ea0d14c6891ea24c2f17d7b57",
+   "bytes": 1472,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 191,
+   "title": "es-app/src/guis/GuiGamelistOptions.cpp @ 16dbac5211: lines 587-618 (excerpt of 692)",
+   "path": "es-app/src/guis/GuiGamelistOptions.cpp:587-618",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "c6ce3843dac33b03110bbf72f3b6e85253abaf0a982f11f860121b270a35fe76",
+   "bytes": 1432,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 192,
+   "title": "es-app/src/guis/GuiCollectionSystemsOptions.cpp @ 16dbac5211: lines 217-240 (excerpt of 611)",
+   "path": "es-app/src/guis/GuiCollectionSystemsOptions.cpp:217-240",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e307bd0f23c1508975235b9ce5ddbf2c0aa69e6adb7284ef58a477a54b612ee7",
+   "bytes": 1123,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 193,
+   "title": "es-app/src/guis/GuiCollectionSystemsOptions.cpp @ 16dbac5211: lines 352-380 (excerpt of 611)",
+   "path": "es-app/src/guis/GuiCollectionSystemsOptions.cpp:352-380",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "168eaf3ab68eca0ace57b1857ce803ae0dcbc4ed6422bc14541b6b6fc3f3eb6c",
+   "bytes": 1490,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 194,
+   "title": "es-app/src/guis/GuiCollectionSystemsOptions.cpp @ 16dbac5211: lines 477-508 (excerpt of 611)",
+   "path": "es-app/src/guis/GuiCollectionSystemsOptions.cpp:477-508",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "227c21f61bb39e80559471091fd1ba7dc938f681a85d5e3d728dfd9c29cc260a",
+   "bytes": 981,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 195,
+   "title": "es-app/src/guis/GuiGamelistFilter.cpp @ 16dbac5211: lines 1-53 (excerpt of 271)",
+   "path": "es-app/src/guis/GuiGamelistFilter.cpp:1-53",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "921ade2d95eb0f5c013c765a97dc60b5b77251a5aeec232ca23c1f960dcff785",
+   "bytes": 2131,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 196,
+   "title": "es-app/src/guis/GuiGamelistFilter.cpp @ 16dbac5211: lines 212-271 (excerpt of 271)",
+   "path": "es-app/src/guis/GuiGamelistFilter.cpp:212-271",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "a095002f97c89f513697f25e022189fbf8fd85715b88eed931833800b49be664",
+   "bytes": 2185,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 197,
+   "title": "es-app/src/guis/GuiMenu.cpp @ 16dbac5211: lines 5742-5768 (excerpt of 11747)",
+   "path": "es-app/src/guis/GuiMenu.cpp:5742-5768",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "2c36c519ccf99d07784add12773ba8a653bab2a47dde705e7c11fc75b25ed864",
+   "bytes": 990,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 198,
+   "title": "es-app/src/guis/GuiMenu.cpp @ 16dbac5211: lines 8487-8528 (excerpt of 11747)",
+   "path": "es-app/src/guis/GuiMenu.cpp:8487-8528",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "3898a22d40389a2ded4ca20c1d8b50aa9ca0a3798fdceac293268fb154f4deb1",
+   "bytes": 1287,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 199,
+   "title": "es-app/src/guis/GuiRetroAchievementsSettings.cpp @ 16dbac5211: lines 177-203 (excerpt of 808)",
+   "path": "es-app/src/guis/GuiRetroAchievementsSettings.cpp:177-203",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d32eb7db2f26b95018187f2b53bdd14143cc8d6ea3b1d366180109d22a48089e",
+   "bytes": 1637,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 200,
+   "title": "es-app/src/guis/GuiRetroAchievementsSettings.cpp @ 16dbac5211: lines 242-270 (excerpt of 808)",
+   "path": "es-app/src/guis/GuiRetroAchievementsSettings.cpp:242-270",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "664738e43cdf295ec8fb990ad01a91b60f0b8bebc3734c1c2fa0f8560a867edc",
+   "bytes": 1553,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 201,
+   "title": "es-app/src/guis/GuiRetroAchievementsSettings.cpp @ 16dbac5211: lines 792-808 (excerpt of 808)",
+   "path": "es-app/src/guis/GuiRetroAchievementsSettings.cpp:792-808",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "982f8a91bdbd2201b6d5521f454e0bce719ac508b34ac97168771b1676e1aa4f",
+   "bytes": 961,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  }
+ ],
+ "scan": {
+  "forbidden": [],
+  "secret_patterns": [],
+  "mask": [
+   {
+    "section": 36,
+    "line": 41,
+    "classes": [
+     "empty"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 55,
+    "line": 161,
+    "classes": [
+     "empty"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   }
+  ],
+  "words": [
+   {
+    "section": 2,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 5,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 5,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 5,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 55,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 56,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 97,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 99,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 103,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 103,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 104,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 105,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 110,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 111,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 111,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 112,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 113,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 114,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 117,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 117,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 118,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 118,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 122,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 123,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 123,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 123,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 124,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 124,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 124,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 124,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 125,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 125,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 126,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 126,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 126,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 126,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 126,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 131,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 133,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 136,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 143,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 143,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 143,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 143,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 143,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 147,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 147,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 155,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 155,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "prose: the floor row 3.21 naming `KeyMappingFile::load` (a class name)"
+   },
+   {
+    "section": 2,
+    "line": 155,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 155,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 155,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 155,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 156,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 157,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 157,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 163,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 163,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 164,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 165,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 165,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 169,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 169,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 195,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 214,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 258,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 258,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 258,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 259,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 259,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 281,
+    "word": "pin",
+    "class": "dispositioned",
+    "disposition": "prose: the reads row \"uncached at the pin:\" (the word pin; the commit)"
+   },
+   {
+    "section": 2,
+    "line": 282,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 283,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 284,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 285,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 292,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 295,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 296,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 316,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 316,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 317,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 317,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 389,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 398,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 399,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 400,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 495,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 534,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 620,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 640,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 698,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 698,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 698,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 714,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 714,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 719,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 728,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 729,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 729,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 734,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 734,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 735,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 749,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 3,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 7,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 7,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 20,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 20,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 22,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 26,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 29,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 36,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 36,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 38,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 38,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 43,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 46,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 48,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 49,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 52,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 54,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 5,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 7,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 7,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 7,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 15,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 18,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 28,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 29,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 47,
+    "word": "pin",
+    "class": "dispositioned",
+    "disposition": "prose: the scorecard row \"at the pin:\" (the word pin; the commit)"
+   },
+   {
+    "section": 4,
+    "line": 55,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 57,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 57,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 59,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 75,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 87,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 88,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 99,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 126,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 132,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 136,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 143,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 144,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 147,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 167,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 176,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 189,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 194,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 195,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 16,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 74,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 77,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 78,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 79,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 127,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 129,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 144,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 151,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 171,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 172,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 191,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 192,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 193,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 205,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 209,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 214,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 217,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 224,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 224,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 224,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 236,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 236,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "prose: the brief's floor row 3.21 naming `KeyMappingFile::load` (a class name)"
+   },
+   {
+    "section": 5,
+    "line": 236,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 237,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 238,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 238,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 245,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 7,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 7,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 19,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 23,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 23,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 23,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 23,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 1,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 1,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 1,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 15,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 18,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 26,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 26,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 31,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 31,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 46,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 51,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 54,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 62,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 70,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 78,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 78,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 81,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 84,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 98,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 104,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 104,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 106,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 106,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 109,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 109,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 123,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 130,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 137,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 143,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 148,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 148,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 1,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 24,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 25,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 42,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 43,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 43,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 43,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 49,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 1,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 9,
+    "line": 19,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 1,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 1,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 11,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 54,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 56,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 56,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 57,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 57,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 58,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 58,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 59,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 59,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 60,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 60,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 14,
+    "line": 1,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 15,
+    "line": 2,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 24,
+    "line": 2,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 29,
+    "line": 183,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 16,
+    "word": "key",
+    "class": "expression"
+   },
+   {
+    "section": 31,
+    "line": 17,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 20,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 23,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 157,
+    "word": "key",
+    "class": "expression"
+   },
+   {
+    "section": 31,
+    "line": 158,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 158,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 159,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 36,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 40,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 41,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 19,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 23,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 35,
+    "line": 29,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 36,
+    "line": 3,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 36,
+    "line": 7,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 36,
+    "line": 32,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 36,
+    "line": 39,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 36,
+    "line": 41,
+    "word": "token",
+    "class": "masked"
+   },
+   {
+    "section": 36,
+    "line": 41,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 36,
+    "line": 46,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 38,
+    "line": 53,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 38,
+    "line": 56,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 38,
+    "line": 57,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 38,
+    "line": 71,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 38,
+    "line": 72,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 38,
+    "line": 72,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 22,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 43,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 50,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 54,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 61,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 48,
+    "line": 49,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 48,
+    "line": 50,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 48,
+    "line": 72,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 48,
+    "line": 76,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 48,
+    "line": 101,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 49,
+    "line": 183,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 49,
+    "line": 183,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 49,
+    "line": 189,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 14,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 17,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 18,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 84,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 50,
+    "line": 85,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 53,
+    "line": 205,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 53,
+    "line": 230,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 53,
+    "line": 242,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 54,
+    "line": 45,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 54,
+    "line": 95,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 54,
+    "line": 101,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 54,
+    "line": 108,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 54,
+    "line": 108,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 54,
+    "line": 132,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 54,
+    "line": 134,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 54,
+    "line": 135,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 19,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 19,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 55,
+    "line": 21,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 23,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 24,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 31,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 32,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: `sCheevosToken = &mCheckCheevosTokenComponent` (a static pointer and a member name)"
+   },
+   {
+    "section": 55,
+    "line": 32,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 115,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: `CheckCheevosTokenComponent::enabled()` (a class name)"
+   },
+   {
+    "section": 55,
+    "line": 120,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: `CheckCheevosTokenComponent::check()` (a class name)"
+   },
+   {
+    "section": 55,
+    "line": 130,
+    "word": "user",
+    "class": "dispositioned",
+    "disposition": "code: a variable read from SystemConf by setting name (a call, no literal value)"
+   },
+   {
+    "section": 55,
+    "line": 130,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 131,
+    "word": "pass",
+    "class": "dispositioned",
+    "disposition": "code: a variable read from SystemConf by setting name (a call, no literal value)"
+   },
+   {
+    "section": 55,
+    "line": 131,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 133,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 133,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 136,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 138,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 138,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 138,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 142,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: a comparison against SystemConf's setting by name (a call, no literal value)"
+   },
+   {
+    "section": 55,
+    "line": 142,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 144,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 144,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 148,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 148,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 149,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 55,
+    "line": 149,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 161,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 161,
+    "word": "token",
+    "class": "masked"
+   },
+   {
+    "section": 55,
+    "line": 161,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 171,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 178,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: `CheckCheevosTokenComponent::setOnline` (a class name)"
+   },
+   {
+    "section": 55,
+    "line": 214,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 221,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 254,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 256,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 256,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 262,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 264,
+    "word": "token",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 55,
+    "line": 264,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 264,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 266,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 268,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 55,
+    "line": 268,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 56,
+    "line": 49,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: `class CheckCheevosTokenComponent` (a class name)"
+   },
+   {
+    "section": 56,
+    "line": 52,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 56,
+    "line": 52,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 56,
+    "line": 74,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 56,
+    "line": 88,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 56,
+    "line": 93,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 56,
+    "line": 103,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 56,
+    "line": 103,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 59,
+    "line": 13,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 62,
+    "line": 15,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 62,
+    "line": 16,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 62,
+    "line": 16,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 63,
+    "line": 1,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 63,
+    "line": 1,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 73,
+    "line": 8,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 74,
+    "line": 37,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 79,
+    "line": 9,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 79,
+    "line": 13,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 79,
+    "line": 16,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 80,
+    "line": 11,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 81,
+    "line": 21,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 8,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 8,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 8,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 8,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 8,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 9,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 9,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 10,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 10,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 11,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 11,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 12,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 12,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 13,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 13,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 14,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 14,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 15,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 15,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 16,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 16,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 17,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 17,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 18,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 18,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 19,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 19,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 20,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 20,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 21,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 21,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 22,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 22,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 23,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 23,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 24,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 24,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 25,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 25,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 26,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 26,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 27,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 27,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 28,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 28,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 87,
+    "line": 1,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 87,
+    "line": 2,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 87,
+    "line": 3,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 87,
+    "line": 6,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 87,
+    "line": 9,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 87,
+    "line": 11,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 88,
+    "line": 1,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `key = game->getMetadata(...)` (a filter key, metadata)"
+   },
+   {
+    "section": 88,
+    "line": 3,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 88,
+    "line": 3,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 88,
+    "line": 4,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `key = game->getMetadata(...)` (a filter key, metadata)"
+   },
+   {
+    "section": 88,
+    "line": 35,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `key = game->getMetadata(...)` (a filter key, metadata)"
+   },
+   {
+    "section": 88,
+    "line": 44,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `key = game->getMetadata(...)` (a filter key, metadata)"
+   },
+   {
+    "section": 88,
+    "line": 53,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `key = game->getMetadata(...)` (a filter key, metadata)"
+   },
+   {
+    "section": 88,
+    "line": 54,
+    "word": "key",
+    "class": "expression"
+   },
+   {
+    "section": 88,
+    "line": 54,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 88,
+    "line": 54,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 88,
+    "line": 54,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 88,
+    "line": 54,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 89,
+    "line": 3,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 89,
+    "line": 6,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 89,
+    "line": 6,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 91,
+    "line": 2,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `keys = ...currentFilteredKeys` (a filter's key list)"
+   },
+   {
+    "section": 91,
+    "line": 2,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 91,
+    "line": 3,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `keys == nullptr` (a filter's key list)"
+   },
+   {
+    "section": 91,
+    "line": 6,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 1,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 35,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 88,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 91,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 93,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 95,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 97,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 99,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 101,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 103,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 105,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 107,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 109,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 111,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 113,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 115,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 117,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 119,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 121,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 123,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 125,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 127,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 133,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 145,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 146,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 151,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 151,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 153,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 158,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 158,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 159,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 161,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 161,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 162,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 164,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 164,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 165,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 167,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 167,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 168,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 170,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 170,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 171,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 173,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 173,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 174,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 176,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 176,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 177,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 179,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 179,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 180,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 182,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 182,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 183,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 185,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 185,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 186,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 188,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 188,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 189,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 191,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 191,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 192,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 194,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 194,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 195,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 197,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 197,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 198,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 200,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 200,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 201,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 203,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 203,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 204,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 206,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 206,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 207,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 209,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 209,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 210,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 212,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 92,
+    "line": 212,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 92,
+    "line": 213,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 106,
+    "line": 6,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 107,
+    "line": 29,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 107,
+    "line": 31,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 115,
+    "line": 5,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 115,
+    "line": 5,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 115,
+    "line": 5,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 115,
+    "line": 5,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 115,
+    "line": 6,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 115,
+    "line": 6,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 115,
+    "line": 6,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 115,
+    "line": 6,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 115,
+    "line": 9,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `KeyMappingFile::KeyName::KeyName` (a class name; keyboard keys)"
+   },
+   {
+    "section": 115,
+    "line": 9,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `KeyMappingFile::KeyName::KeyName` (a class name; keyboard keys)"
+   },
+   {
+    "section": 115,
+    "line": 9,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 115,
+    "line": 11,
+    "word": "key",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 115,
+    "line": 18,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 115,
+    "line": 24,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `KeyMappingFile::checkTriggerExists` (a class name)"
+   },
+   {
+    "section": 115,
+    "line": 30,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `map.key == target` (a keyboard key name)"
+   },
+   {
+    "section": 115,
+    "line": 36,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `KeyMappingFile::checkTargetExists` (a class name)"
+   },
+   {
+    "section": 115,
+    "line": 38,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 115,
+    "line": 39,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `map.key == target` (a keyboard key name)"
+   },
+   {
+    "section": 115,
+    "line": 45,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `KeyMappingFile::getTriggerFromP2k` (a class name)"
+   },
+   {
+    "section": 115,
+    "line": 49,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 115,
+    "line": 54,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `KeyMappingFile::getTargetFromP2k` (a class name)"
+   },
+   {
+    "section": 115,
+    "line": 56,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 115,
+    "line": 58,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 115,
+    "line": 63,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 115,
+    "line": 63,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `KeyMappingFile::load` (a class name)"
+   },
+   {
+    "section": 115,
+    "line": 65,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 116,
+    "line": 10,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 116,
+    "line": 44,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 116,
+    "line": 50,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 117,
+    "line": 7,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `KeyMappingFile::deleteFile` (a class name)"
+   },
+   {
+    "section": 117,
+    "line": 13,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `KeyMappingFile::save` (a class name)"
+   },
+   {
+    "section": 117,
+    "line": 29,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 117,
+    "line": 41,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 117,
+    "line": 56,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 117,
+    "line": 62,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 117,
+    "line": 68,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 117,
+    "line": 90,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 117,
+    "line": 117,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 117,
+    "line": 117,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `KeyMappingFile::fromP2k` (a class name)"
+   },
+   {
+    "section": 117,
+    "line": 119,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 118,
+    "line": 9,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `KeyMappingFile::isValid` (a class name)"
+   },
+   {
+    "section": 118,
+    "line": 22,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `KeyMappingFile::KeyMapping::triggerEquals` (a class name)"
+   },
+   {
+    "section": 118,
+    "line": 22,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `KeyMappingFile::KeyMapping::triggerEquals` (a class name)"
+   },
+   {
+    "section": 119,
+    "line": 9,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `KeyMappingFile::KeyMapping::toTargetString` (a class name)"
+   },
+   {
+    "section": 119,
+    "line": 9,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `KeyMappingFile::KeyMapping::toTargetString` (a class name)"
+   },
+   {
+    "section": 120,
+    "line": 3,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 120,
+    "line": 9,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `KeyMappingFile::updateMapping` (a class name)"
+   },
+   {
+    "section": 121,
+    "line": 9,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `KeyMappingFile::removeMapping` (a class name)"
+   },
+   {
+    "section": 122,
+    "line": 2,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `std::vector<KeyMappingFile::KeyMapping>()` (a class name)"
+   },
+   {
+    "section": 122,
+    "line": 2,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 122,
+    "line": 9,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `KeyMappingFile::getMappingDescription` (a class name)"
+   },
+   {
+    "section": 122,
+    "line": 26,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `KeyMappingFile::updateMappingDescription` (a class name)"
+   },
+   {
+    "section": 127,
+    "line": 13,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 128,
+    "line": 1,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 133,
+    "line": 1,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 133,
+    "line": 3,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 133,
+    "line": 6,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 133,
+    "line": 9,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 133,
+    "line": 11,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 133,
+    "line": 14,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 133,
+    "line": 16,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 159,
+    "line": 9,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 166,
+    "line": 9,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 170,
+    "line": 20,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 172,
+    "line": 11,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 172,
+    "line": 14,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 172,
+    "line": 16,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 175,
+    "line": 1,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `key = newFolder->getPath()` (a path used as a map key)"
+   },
+   {
+    "section": 175,
+    "line": 2,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 175,
+    "line": 5,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 178,
+    "line": 17,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 180,
+    "line": 9,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 185,
+    "line": 2,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 185,
+    "line": 4,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 185,
+    "line": 7,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 185,
+    "line": 10,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 185,
+    "line": 15,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 185,
+    "line": 19,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 185,
+    "line": 22,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 185,
+    "line": 24,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 185,
+    "line": 27,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 185,
+    "line": 29,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 185,
+    "line": 32,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 185,
+    "line": 34,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 185,
+    "line": 37,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 185,
+    "line": 39,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 185,
+    "line": 39,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 185,
+    "line": 39,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 185,
+    "line": 49,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 185,
+    "line": 52,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 189,
+    "line": 14,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 189,
+    "line": 16,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 189,
+    "line": 18,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 189,
+    "line": 21,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 189,
+    "line": 23,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 189,
+    "line": 25,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 191,
+    "line": 26,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 195,
+    "line": 7,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 197,
+    "line": 19,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 201,
+    "line": 1,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 201,
+    "line": 1,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 201,
+    "line": 5,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 201,
+    "line": 15,
+    "word": "token",
+    "class": "word"
+   }
+  ]
+ },
+ "summary": {
+  "forbidden_terms_check": "0 section(s) with hits of 200; proven to run on a clean line",
+  "secret_patterns": "0 line(s); proven to fire on a run-time fake line",
+  "mask": "2 line(s) masked; classes [\"empty\"]",
+  "words": "632 credential-word hit(s); classes {\"dispositioned\": 42, \"expression\": 3, \"identifier-or-word\": 29, \"masked\": 2, \"word\": 556}",
+  "review": 0,
+  "slice": "6399 of 16276 slice lines sent; 29 files whole; 26 files with no line cited (sent nothing)"
+ },
+ "slice_files": {
+  "AppWindow.h": {
+   "sent": [
+    [
+     1,
+     56
+    ]
+   ],
+   "trimmed": [],
+   "lines": 56
+  },
+  "CaptureRotation.cpp": {
+   "sent": [
+    [
+     1,
+     188
+    ]
+   ],
+   "trimmed": [],
+   "lines": 188
+  },
+  "CaptureRotation.h": {
+   "sent": [
+    [
+     1,
+     39
+    ]
+   ],
+   "trimmed": [],
+   "lines": 39
+  },
+  "CaptureRotationText.cpp": {
+   "sent": [
+    [
+     1,
+     164
+    ]
+   ],
+   "trimmed": [],
+   "lines": 164
+  },
+  "CaptureRotationText.h": {
+   "sent": [
+    [
+     1,
+     68
+    ]
+   ],
+   "trimmed": [],
+   "lines": 68
+  },
+  "CheevosIndex.cpp": {
+   "sent": [
+    [
+     1,
+     30
+    ]
+   ],
+   "trimmed": [],
+   "lines": 30
+  },
+  "CheevosIndex.h": {
+   "sent": [
+    [
+     1,
+     47
+    ]
+   ],
+   "trimmed": [],
+   "lines": 47
+  },
+  "CheevosRetry.cpp": {
+   "sent": [
+    [
+     1,
+     31
+    ]
+   ],
+   "trimmed": [],
+   "lines": 31
+  },
+  "CheevosRetry.h": {
+   "sent": [
+    [
+     1,
+     47
+    ]
+   ],
+   "trimmed": [],
+   "lines": 47
+  },
+  "CloudExit.h": {
+   "sent": [
+    [
+     1,
+     30
+    ]
+   ],
+   "trimmed": [],
+   "lines": 30
+  },
+  "CloudFolderValidation.cpp": {
+   "sent": [
+    [
+     1,
+     96
+    ]
+   ],
+   "trimmed": [],
+   "lines": 96
+  },
+  "CloudFolderValidation.h": {
+   "sent": [
+    [
+     1,
+     33
+    ]
+   ],
+   "trimmed": [],
+   "lines": 33
+  },
+  "CloudOffer.cpp": {
+   "sent": [
+    [
+     1,
+     84
+    ]
+   ],
+   "trimmed": [],
+   "lines": 84
+  },
+  "CloudOffer.h": {
+   "sent": [
+    [
+     1,
+     33
+    ]
+   ],
+   "trimmed": [],
+   "lines": 33
+  },
+  "DisplayAspect.cpp": {
+   "sent": [
+    [
+     1,
+     153
+    ]
+   ],
+   "trimmed": [],
+   "lines": 153
+  },
+  "DisplayAspect.h": {
+   "sent": [
+    [
+     1,
+     42
+    ]
+   ],
+   "trimmed": [],
+   "lines": 42
+  },
+  "DisplayAspectText.cpp": {
+   "sent": [
+    [
+     1,
+     76
+    ]
+   ],
+   "trimmed": [],
+   "lines": 76
+  },
+  "DisplayAspectText.h": {
+   "sent": [
+    [
+     1,
+     26
+    ]
+   ],
+   "trimmed": [],
+   "lines": 26
+  },
+  "FolderMerge.h": {
+   "sent": [
+    [
+     1,
+     74
+    ]
+   ],
+   "trimmed": [],
+   "lines": 74
+  },
+  "GameCubeRvzHashRetry.h": {
+   "sent": [
+    [
+     1,
+     45
+    ]
+   ],
+   "trimmed": [],
+   "lines": 45
+  },
+  "JourneyTiers.h": {
+   "sent": [
+    [
+     1,
+     159
+    ]
+   ],
+   "trimmed": [],
+   "lines": 159
+  },
+  "OfflineAchievementsText.cpp": {
+   "sent": [
+    [
+     1,
+     283
+    ]
+   ],
+   "trimmed": [],
+   "lines": 283
+  },
+  "OfflineAchievementsText.h": {
+   "sent": [
+    [
+     1,
+     161
+    ]
+   ],
+   "trimmed": [],
+   "lines": 161
+  },
+  "RunLock.h": {
+   "sent": [
+    [
+     1,
+     74
+    ]
+   ],
+   "trimmed": [],
+   "lines": 74
+  },
+  "TextFit.h": {
+   "sent": [
+    [
+     1,
+     40
+    ]
+   ],
+   "trimmed": [],
+   "lines": 40
+  },
+  "WifiText.cpp": {
+   "sent": [
+    [
+     1,
+     265
+    ]
+   ],
+   "trimmed": [],
+   "lines": 265
+  },
+  "WifiText.h": {
+   "sent": [
+    [
+     1,
+     164
+    ]
+   ],
+   "trimmed": [],
+   "lines": 164
+  },
+  "NetworkThread.cpp": {
+   "sent": [
+    [
+     1,
+     274
+    ]
+   ],
+   "trimmed": [],
+   "lines": 274
+  },
+  "NetworkThread.h": {
+   "sent": [
+    [
+     1,
+     108
+    ]
+   ],
+   "trimmed": [],
+   "lines": 108
+  },
+  "CMakeLists.txt": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     363
+    ]
+   ],
+   "lines": 363
+  },
+  "EmulationStation.h.in": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     27
+    ]
+   ],
+   "lines": 27
+  },
+  "CollectionSystemManager.cpp": {
+   "sent": [
+    [
+     26,
+     64
+    ],
+    [
+     125,
+     141
+    ],
+    [
+     337,
+     365
+    ],
+    [
+     532,
+     548
+    ],
+    [
+     590,
+     606
+    ],
+    [
+     619,
+     635
+    ],
+    [
+     638,
+     659
+    ],
+    [
+     750,
+     768
+    ],
+    [
+     789,
+     810
+    ],
+    [
+     825,
+     842
+    ],
+    [
+     955,
+     971
+    ],
+    [
+     1107,
+     1125
+    ],
+    [
+     1139,
+     1155
+    ],
+    [
+     1294,
+     1325
+    ],
+    [
+     1361,
+     1380
+    ],
+    [
+     1383,
+     1399
+    ],
+    [
+     1426,
+     1447
+    ],
+    [
+     1484,
+     1540
+    ],
+    [
+     1550,
+     1621
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     25
+    ],
+    [
+     65,
+     124
+    ],
+    [
+     142,
+     336
+    ],
+    [
+     366,
+     531
+    ],
+    [
+     549,
+     589
+    ],
+    [
+     607,
+     618
+    ],
+    [
+     636,
+     637
+    ],
+    [
+     660,
+     749
+    ],
+    [
+     769,
+     788
+    ],
+    [
+     811,
+     824
+    ],
+    [
+     843,
+     954
+    ],
+    [
+     972,
+     1106
+    ],
+    [
+     1126,
+     1138
+    ],
+    [
+     1156,
+     1293
+    ],
+    [
+     1326,
+     1360
+    ],
+    [
+     1381,
+     1382
+    ],
+    [
+     1400,
+     1425
+    ],
+    [
+     1448,
+     1483
+    ],
+    [
+     1541,
+     1549
+    ],
+    [
+     1622,
+     1631
+    ]
+   ],
+   "lines": 1631
+  },
+  "CollectionSystemManager.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     149
+    ]
+   ],
+   "lines": 149
+  },
+  "ContentInstaller.cpp": {
+   "sent": [
+    [
+     53,
+     86
+    ],
+    [
+     132,
+     256
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     52
+    ],
+    [
+     87,
+     131
+    ],
+    [
+     257,
+     277
+    ]
+   ],
+   "lines": 277
+  },
+  "ContentInstaller.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     65
+    ]
+   ],
+   "lines": 65
+  },
+  "CustomFeatures.cpp": {
+   "sent": [
+    [
+     5,
+     31
+    ],
+    [
+     53,
+     69
+    ],
+    [
+     85,
+     101
+    ],
+    [
+     143,
+     175
+    ],
+    [
+     194,
+     264
+    ],
+    [
+     284,
+     306
+    ],
+    [
+     398,
+     414
+    ],
+    [
+     515,
+     537
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     4
+    ],
+    [
+     32,
+     52
+    ],
+    [
+     70,
+     84
+    ],
+    [
+     102,
+     142
+    ],
+    [
+     176,
+     193
+    ],
+    [
+     265,
+     283
+    ],
+    [
+     307,
+     397
+    ],
+    [
+     415,
+     514
+    ]
+   ],
+   "lines": 537
+  },
+  "CustomFeatures.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     157
+    ]
+   ],
+   "lines": 157
+  },
+  "EmulationStation.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     31
+    ]
+   ],
+   "lines": 31
+  },
+  "EmulationStation.rc": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     39
+    ]
+   ],
+   "lines": 39
+  },
+  "FileFilterIndex.cpp": {
+   "sent": [
+    [
+     22,
+     57
+    ],
+    [
+     239,
+     255
+    ],
+    [
+     314,
+     377
+    ],
+    [
+     549,
+     565
+    ],
+    [
+     859,
+     875
+    ],
+    [
+     881,
+     897
+    ],
+    [
+     1099,
+     1329
+    ],
+    [
+     1364,
+     1380
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     21
+    ],
+    [
+     58,
+     238
+    ],
+    [
+     256,
+     313
+    ],
+    [
+     378,
+     548
+    ],
+    [
+     566,
+     858
+    ],
+    [
+     876,
+     880
+    ],
+    [
+     898,
+     1098
+    ],
+    [
+     1330,
+     1363
+    ],
+    [
+     1381,
+     1412
+    ]
+   ],
+   "lines": 1412
+  },
+  "FileFilterIndex.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     197
+    ]
+   ],
+   "lines": 197
+  },
+  "FileSorts.cpp": {
+   "sent": [
+    [
+     24,
+     114
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     23
+    ],
+    [
+     115,
+     226
+    ]
+   ],
+   "lines": 226
+  },
+  "FileSorts.h": {
+   "sent": [
+    [
+     14,
+     31
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     13
+    ],
+    [
+     32,
+     87
+    ]
+   ],
+   "lines": 87
+  },
+  "FileTag.cpp": {
+   "sent": [
+    [
+     1,
+     38
+    ]
+   ],
+   "trimmed": [
+    [
+     39,
+     46
+    ]
+   ],
+   "lines": 46
+  },
+  "FileTag.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     20
+    ]
+   ],
+   "lines": 20
+  },
+  "Gamelist.cpp": {
+   "sent": [
+    [
+     104,
+     125
+    ],
+    [
+     182,
+     198
+    ],
+    [
+     247,
+     269
+    ],
+    [
+     280,
+     316
+    ],
+    [
+     344,
+     360
+    ],
+    [
+     366,
+     491
+    ],
+    [
+     510,
+     539
+    ],
+    [
+     593,
+     609
+    ],
+    [
+     611,
+     652
+    ],
+    [
+     697,
+     713
+    ],
+    [
+     724,
+     756
+    ],
+    [
+     830,
+     848
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     103
+    ],
+    [
+     126,
+     181
+    ],
+    [
+     199,
+     246
+    ],
+    [
+     270,
+     279
+    ],
+    [
+     317,
+     343
+    ],
+    [
+     361,
+     365
+    ],
+    [
+     492,
+     509
+    ],
+    [
+     540,
+     592
+    ],
+    [
+     610,
+     610
+    ],
+    [
+     653,
+     696
+    ],
+    [
+     714,
+     723
+    ],
+    [
+     757,
+     829
+    ]
+   ],
+   "lines": 848
+  },
+  "Gamelist.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     31
+    ]
+   ],
+   "lines": 31
+  },
+  "Genres.cpp": {
+   "sent": [
+    [
+     11,
+     30
+    ],
+    [
+     177,
+     193
+    ],
+    [
+     226,
+     242
+    ],
+    [
+     249,
+     265
+    ],
+    [
+     285,
+     301
+    ],
+    [
+     315,
+     331
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     10
+    ],
+    [
+     31,
+     176
+    ],
+    [
+     194,
+     225
+    ],
+    [
+     243,
+     248
+    ],
+    [
+     266,
+     284
+    ],
+    [
+     302,
+     314
+    ],
+    [
+     332,
+     372
+    ]
+   ],
+   "lines": 372
+  },
+  "Genres.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     69
+    ]
+   ],
+   "lines": 69
+  },
+  "KeyboardMapping.cpp": {
+   "sent": [
+    [
+     155,
+     230
+    ],
+    [
+     239,
+     300
+    ],
+    [
+     316,
+     440
+    ],
+    [
+     491,
+     520
+    ],
+    [
+     527,
+     543
+    ],
+    [
+     578,
+     594
+    ],
+    [
+     718,
+     734
+    ],
+    [
+     768,
+     801
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     154
+    ],
+    [
+     231,
+     238
+    ],
+    [
+     301,
+     315
+    ],
+    [
+     441,
+     490
+    ],
+    [
+     521,
+     526
+    ],
+    [
+     544,
+     577
+    ],
+    [
+     595,
+     717
+    ],
+    [
+     735,
+     767
+    ],
+    [
+     802,
+     817
+    ]
+   ],
+   "lines": 817
+  },
+  "KeyboardMapping.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     80
+    ]
+   ],
+   "lines": 80
+  },
+  "LangParser.cpp": {
+   "sent": [
+    [
+     10,
+     73
+    ],
+    [
+     136,
+     152
+    ],
+    [
+     195,
+     211
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     9
+    ],
+    [
+     74,
+     135
+    ],
+    [
+     153,
+     194
+    ],
+    [
+     212,
+     242
+    ]
+   ],
+   "lines": 242
+  },
+  "LangParser.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     27
+    ]
+   ],
+   "lines": 27
+  },
+  "LibretroRatio.cpp": {
+   "sent": [
+    [
+     4,
+     53
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     3
+    ]
+   ],
+   "lines": 53
+  },
+  "LibretroRatio.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     22
+    ]
+   ],
+   "lines": 22
+  },
+  "MetaData.cpp": {
+   "sent": [
+    [
+     20,
+     108
+    ],
+    [
+     143,
+     159
+    ],
+    [
+     215,
+     231
+    ],
+    [
+     262,
+     288
+    ],
+    [
+     349,
+     365
+    ],
+    [
+     399,
+     415
+    ],
+    [
+     427,
+     477
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     19
+    ],
+    [
+     109,
+     142
+    ],
+    [
+     160,
+     214
+    ],
+    [
+     232,
+     261
+    ],
+    [
+     289,
+     348
+    ],
+    [
+     366,
+     398
+    ],
+    [
+     416,
+     426
+    ],
+    [
+     478,
+     604
+    ]
+   ],
+   "lines": 604
+  },
+  "MetaData.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     201
+    ]
+   ],
+   "lines": 201
+  },
+  "PlatformId.cpp": {
+   "sent": [
+    [
+     207,
+     245
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     206
+    ],
+    [
+     246,
+     301
+    ]
+   ],
+   "lines": 301
+  },
+  "PlatformId.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     196
+    ]
+   ],
+   "lines": 196
+  },
+  "ScraperCmdLine.cpp": {
+   "sent": [
+    [
+     1,
+     9
+    ],
+    [
+     16,
+     35
+    ],
+    [
+     279,
+     290
+    ]
+   ],
+   "trimmed": [
+    [
+     10,
+     15
+    ],
+    [
+     36,
+     278
+    ]
+   ],
+   "lines": 290
+  },
+  "ScraperCmdLine.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     7
+    ]
+   ],
+   "lines": 7
+  },
+  "SystemRandomPlaylist.cpp": {
+   "sent": [
+    [
+     79,
+     109
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     78
+    ]
+   ],
+   "lines": 109
+  },
+  "SystemRandomPlaylist.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     38
+    ]
+   ],
+   "lines": 38
+  },
+  "SystemScreenSaver.cpp": {
+   "sent": [
+    [
+     43,
+     59
+    ],
+    [
+     148,
+     172
+    ],
+    [
+     200,
+     216
+    ],
+    [
+     342,
+     358
+    ],
+    [
+     367,
+     396
+    ],
+    [
+     489,
+     515
+    ],
+    [
+     538,
+     554
+    ],
+    [
+     686,
+     702
+    ],
+    [
+     722,
+     741
+    ],
+    [
+     779,
+     795
+    ],
+    [
+     1014,
+     1030
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     42
+    ],
+    [
+     60,
+     147
+    ],
+    [
+     173,
+     199
+    ],
+    [
+     217,
+     341
+    ],
+    [
+     359,
+     366
+    ],
+    [
+     397,
+     488
+    ],
+    [
+     516,
+     537
+    ],
+    [
+     555,
+     685
+    ],
+    [
+     703,
+     721
+    ],
+    [
+     742,
+     778
+    ],
+    [
+     796,
+     1013
+    ],
+    [
+     1031,
+     1125
+    ]
+   ],
+   "lines": 1125
+  },
+  "SystemScreenSaver.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     134
+    ]
+   ],
+   "lines": 134
+  },
+  "ThreadedBluetooth.cpp": {
+   "sent": [
+    [
+     8,
+     34
+    ],
+    [
+     38,
+     62
+    ],
+    [
+     65,
+     84
+    ],
+    [
+     100,
+     123
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     7
+    ],
+    [
+     35,
+     37
+    ],
+    [
+     63,
+     64
+    ],
+    [
+     85,
+     99
+    ]
+   ],
+   "lines": 123
+  },
+  "ThreadedBluetooth.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     47
+    ]
+   ],
+   "lines": 47
+  },
+  "Win32ApiSystem.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     1269
+    ]
+   ],
+   "lines": 1269
+  },
+  "Win32ApiSystem.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     70
+    ]
+   ],
+   "lines": 70
+  },
+  "ZaparooSupport.cpp": {
+   "sent": [
+    [
+     1,
+     47
+    ],
+    [
+     50,
+     64
+    ]
+   ],
+   "trimmed": [
+    [
+     48,
+     49
+    ]
+   ],
+   "lines": 64
+  },
+  "ZaparooSupport.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     21
+    ]
+   ],
+   "lines": 21
+  },
+  "LaunchAnimation.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     67
+    ]
+   ],
+   "lines": 67
+  },
+  "MoveCameraAnimation.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     28
+    ]
+   ],
+   "lines": 28
+  },
+  "ScraperSearchComponent.cpp": {
+   "sent": [
+    [
+     23,
+     39
+    ],
+    [
+     56,
+     77
+    ],
+    [
+     88,
+     108
+    ],
+    [
+     188,
+     266
+    ],
+    [
+     347,
+     369
+    ],
+    [
+     378,
+     400
+    ],
+    [
+     460,
+     479
+    ],
+    [
+     589,
+     605
+    ],
+    [
+     608,
+     631
+    ],
+    [
+     637,
+     666
+    ],
+    [
+     716,
+     752
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     22
+    ],
+    [
+     40,
+     55
+    ],
+    [
+     78,
+     87
+    ],
+    [
+     109,
+     187
+    ],
+    [
+     267,
+     346
+    ],
+    [
+     370,
+     377
+    ],
+    [
+     401,
+     459
+    ],
+    [
+     480,
+     588
+    ],
+    [
+     606,
+     607
+    ],
+    [
+     632,
+     636
+    ],
+    [
+     667,
+     715
+    ],
+    [
+     753,
+     755
+    ]
+   ],
+   "lines": 755
+  },
+  "ScraperSearchComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     112
+    ]
+   ],
+   "lines": 112
+  }
+ },
+ "packet": {
+  "file": "packet.md",
+  "bytes": 539134,
+  "sha256": "183b0c90576e16c89167225ac9c1388c15fbbcc0a5b5b14e755703f292cd9753"
+ }
+}
