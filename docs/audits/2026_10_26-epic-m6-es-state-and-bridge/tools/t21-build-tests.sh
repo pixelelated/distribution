@@ -100,4 +100,14 @@ for t in es-unit-tests es-file-tests es-conf-tests es-file-tests-win32 ${FS} ${S
   echo "RUN ${t}: rc ${rc}; $(grep -E '^\[doctest\] (test cases|assertions):' "${B}/${t}.run.log" | tr -s ' ' | tr '\n' ' ')"
   [ "${rc}" -eq 0 ] || { FAIL=1; grep -E 'ERROR|FAILED' "${B}/${t}.run.log" | head -n 10; }
 done
+# The total, from the binaries' own summary lines: a record quotes this line
+# rather than a sum written by hand (T21 stage E: totals written without
+# adding were found 2 to 53 cases high, S2 to S13).
+TOTAL=0; BINS=0
+for t in es-unit-tests es-file-tests es-conf-tests es-file-tests-win32 ${FS} ${ST} ${MORE}; do
+  [ -r "${B}/${t}.run.log" ] || continue
+  n=$(grep -m1 -E '^\[doctest\] test cases:' "${B}/${t}.run.log" | grep -o -E '[0-9]+' | head -n 1)
+  [ -n "${n}" ] && { TOTAL=$((TOTAL + n)); BINS=$((BINS + 1)); }
+done
+echo "TOTAL: ${TOTAL} test cases in ${BINS} binaries"
 exit "${FAIL}"
