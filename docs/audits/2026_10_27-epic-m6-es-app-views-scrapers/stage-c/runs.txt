@@ -1,0 +1,150 @@
+# T32 (#679) stage C: the host proofs' runs, as printed
+
+Pin sources: `git -C <es worktree> show 16dbac5211:<path>` into /workspace/tmp/m6-t32/pin (<pin>, <pin-es-core>). rapidjson: the recipe's 1.1.0 tarball, PKG_SHA256 matched, its four patches applied. Sanitizer register dumps dropped from the record; the SUMMARY lines kept.
+
+$ python3 -I stage-c/l327-cursor-range.py <pin>/SystemView.cpp    (16:30:48Z)
+out of range: (0, -10, 1) leaves -9
+out of range: (0, -10, 2) leaves -8
+out of range: (1, -10, 2) leaves -7
+out of range: (0, -10, 3) leaves -7
+out of range: (1, -10, 3) leaves -6
+out of range: (2, -10, 3) leaves -5
+312 cases, 25 out of range, 275 with the caller's delta congruent to the right move
+FAIL 3.27: the fast move leaves the carousel cursor outside 0..size-1
+rc=1
+
+$ python3 -I stage-c/l327-cursor-range.py <pin>/SystemView.cpp --control   (16:30:48Z)
+312 cases, 0 out of range, 312 with the caller's delta congruent to the right move
+rc=0
+
+$ python3 -I stage-c/l331-grid-image.py <pin>/GridGameListView.cpp    (16:31:08Z)
+IMAGE, no image, a thumbnail   -> ""   (want the fallback)
+IMAGE, an image                -> "i.png"
+TITLESHOT, none, an image      -> "i.png"
+BOXART, none, a thumbnail      -> "t.png"
+MARQUEE, none, a thumbnail     -> "t.png"
+FAIL 3.31: the IMAGE source draws an empty tile for a game with a thumbnail and no image
+rc=1
+
+$ python3 -I stage-c/l331-grid-image.py <pin>/GridGameListView.cpp --control   (16:31:09Z)
+IMAGE, no image, a thumbnail   -> "t.png"
+IMAGE, an image                -> "i.png"
+TITLESHOT, none, an image      -> "i.png"
+BOXART, none, a thumbnail      -> "t.png"
+MARQUEE, none, a thumbnail     -> "t.png"
+rc=0
+
+$ python3 -I stage-c/l332-year-and-time.py <pin>/GameNameFormatter.cpp <pin-es-core>/TimeUtil.cpp    (16:31:34Z)
+mShowYear: RELEASEDATE_ASCENDING 1, RELEASEDATE_DESCENDING 0
+FAIL 3.32: no year beside the name under RELEASEDATE_DESCENDING
+  3599 s: name "GAME [59:59]"   detailed row "59 mn"
+  3600 s: name "GAME [01:00:00]"   detailed row "1 h"
+ 86399 s: name "GAME [23:59:59]"   detailed row "23 h 59 mn"
+ 90000 s: name "GAME [01:00:00]"   detailed row "25 h"
+180000 s: name "GAME [02:00:00]"   detailed row "2 d 2 h"
+FAIL 3.32: 25 hours of play read as [01:00:00] beside the name
+rc=1
+
+$ python3 -I stage-c/l332-year-and-time.py <pin>/GameNameFormatter.cpp <pin-es-core>/TimeUtil.cpp --control   (16:31:34Z)
+mShowYear: RELEASEDATE_ASCENDING 1, RELEASEDATE_DESCENDING 1
+  3599 s: name "GAME [59:59]"   detailed row "59 mn"
+  3600 s: name "GAME [01:00:00]"   detailed row "1 h"
+ 86399 s: name "GAME [23:59:59]"   detailed row "23 h 59 mn"
+ 90000 s: name "GAME [25:00:00]"   detailed row "25 h"
+180000 s: name "GAME [50:00:00]"   detailed row "2 d 2 h"
+rc=0
+
+$ python3 -I stage-c/l310-boxart-shape.py <pin>/GamesDBJSONScraper.cpp <recipe rapidjson>/include    (16:33:01Z)
+boxart []      ... returns 1, preconditions violated 4, games processed 0
+boxart [1,2]   ... returns 1, preconditions violated 8, games processed 0
+data []        ... returns 1, preconditions violated 4, games processed 0
+root []        ... returns 1, preconditions violated 4, games processed 0
+well formed    ... returns 1, preconditions violated 0, games processed 1
+boxart "x"     ...
+SUMMARY: AddressSanitizer: SEGV /workspace/tmp/m6-t32/rj/rapidjson-1.1.0/include/rapidjson/document.h:949 in rapidjson::GenericValue<rapidjson::UTF8<char>, rapidjson::MemoryPoolAllocator<rapidjson::CrtAllocator> >::IsString() const
+FAIL l310: rc 1  (BuildId: 232700950e5fec5d837c3834018bae8210544e3e)
+
+SUMMARY: AddressSanitizer: SEGV /workspace/tmp/m6-t32/rj/rapidjson-1.1.0/include/rapidjson/document.h:949 in rapidjson::GenericValue<rapidjson::UTF8<char>, rapidjson::MemoryPoolAllocator<rapidjson::CrtAllocator> >::IsString() const
+==38774==ABORTING
+
+rc=1
+
+$ python3 -I stage-c/l310-boxart-shape.py <pin>/GamesDBJSONScraper.cpp <recipe rapidjson>/include --control   (16:33:02Z)
+boxart []      ... returns 1, preconditions violated 0, games processed 0
+boxart [1,2]   ... returns 1, preconditions violated 0, games processed 0
+data []        ... returns 1, preconditions violated 0, games processed 0
+root []        ... returns 1, preconditions violated 0, games processed 0
+well formed    ... returns 1, preconditions violated 0, games processed 1
+boxart "x"     ... returns 1, preconditions violated 0, games processed 0
+rc=0
+
+$ python3 -I stage-c/l310-boxart-shape.py <pin>/GamesDBJSONScraper.cpp <recipe rapidjson>/include --plain   (16:33:11Z)
+boxart []      ... returns 1, preconditions violated 4, games processed 0
+boxart [1,2]   ... returns 1, preconditions violated 8, games processed 0
+data []        ... returns 1, preconditions violated 4, games processed 0
+root []        ... returns 1, preconditions violated 4, games processed 0
+well formed    ... returns 1, preconditions violated 0, games processed 1
+boxart "x"     ...
+FAIL l310: rc -11 
+rc=1
+
+$ python3 -I stage-c/l313-request-outcome.py <pin>/Scraper.cpp <pin-es-core>    (16:34:42Z)
+IO error (no network)                    -> ASYNC_DONE  code 200 after 1 request(s)   (want an error the page counts)
+429, retries spent                       -> ASYNC_DONE  code 200 after 5 request(s)   (want an error the page counts)
+429, Retry-After 60, retryOn249 false    -> ASYNC_DONE  code 200 after 1 request(s)   (want an error the page counts)
+404 (no match)                           -> ASYNC_DONE  code 200 after 1 request(s)
+403 (bad login)                          -> ASYNC_ERROR code 403 after 1 request(s)
+a body whose process() returns false     -> ASYNC_DONE  (printed only; 3.16)
+FAIL 3.13: 3 outcome(s) with no usable answer read as done
+rc=1
+
+$ python3 -I stage-c/l313-request-outcome.py <pin>/Scraper.cpp <pin-es-core> --control   (16:34:42Z)
+IO error (no network)                    -> ASYNC_ERROR code   3 after 1 request(s)
+429, retries spent                       -> ASYNC_ERROR code 429 after 5 request(s)
+429, Retry-After 60, retryOn249 false    -> ASYNC_ERROR code 429 after 1 request(s)
+404 (no match)                           -> ASYNC_DONE  code 200 after 1 request(s)
+403 (bad login)                          -> ASYNC_ERROR code 403 after 1 request(s)
+a body whose process() returns false     -> ASYNC_DONE  (printed only; 3.16)
+rc=0
+
+$ python3 -I stage-c/l316-igdb-contract.py <pin>/IGDBScraper.cpp <pin>/HfsDBScraper.cpp <recipe rapidjson>/include    (16:36:03Z)
+3.16 process(an empty answer []  ) returns 0, error set 0, results 0   (the contract: false only when rate-limited)
+3.16 process(an object {}        ) returns 0, error set 0, results 0   (the contract: false only when rate-limited)
+3.16 process(not JSON            ) returns 0, error set 1, results 0   (the contract: false only when rate-limited)
+3.16 process(one game            ) returns 1, error set 0, results 1
+L-22 IGDB  token body []              ... token 0, preconditions violated 4
+L-22 HfsDB token body []              ... token 0, preconditions violated 4
+L-22 IGDB  token body access_token 5  ...
+SUMMARY: AddressSanitizer: SEGV (/usr/lib/x86_64-linux-gnu/libc.so.6+0x19a79d) (BuildId: 066527e430a32768d82741e00b81eebb1a872294) 
+FAIL l316: rc 1 b81eebb1a872294)
+    #9 0x641ff4f127a4 in _start (/workspace/tmp/m6-t32/tmp/l316-k249gkiq/a+0x567a4) (BuildId: 41bfb896937998000a3df462734dfb4e50b4ac72)
+
+SUMMARY: AddressSanitizer: SEGV (/usr/lib/x86_64-linux-gnu/libc.so.6+0x19a79d) (BuildId: 066527e430a32768d82741e00b81eebb1a872294) 
+==58114==ABORTING
+
+rc=1
+
+$ python3 -I stage-c/l316-igdb-contract.py <pin>/IGDBScraper.cpp <pin>/HfsDBScraper.cpp <recipe rapidjson>/include --control   (16:36:04Z)
+3.16 process(an empty answer []  ) returns 1, error set 0, results 0
+3.16 process(an object {}        ) returns 1, error set 0, results 0
+3.16 process(not JSON            ) returns 1, error set 1, results 0
+3.16 process(one game            ) returns 1, error set 0, results 1
+L-22 IGDB  token body []              ... token 0, preconditions violated 0
+L-22 HfsDB token body []              ... token 0, preconditions violated 0
+L-22 IGDB  token body access_token 5  ... token 0, preconditions violated 0
+L-22 HfsDB token body access_token 5  ... token 0, preconditions violated 0
+L-22 IGDB  token body well formed     ... token 1, preconditions violated 0
+L-22 HfsDB token body well formed     ... token 1, preconditions violated 0
+rc=0
+
+$ python3 -I stage-c/l316-igdb-contract.py <pin>/IGDBScraper.cpp <pin>/HfsDBScraper.cpp <recipe rapidjson>/include --plain   (16:36:05Z)
+3.16 process(an empty answer []  ) returns 0, error set 0, results 0   (the contract: false only when rate-limited)
+3.16 process(an object {}        ) returns 0, error set 0, results 0   (the contract: false only when rate-limited)
+3.16 process(not JSON            ) returns 0, error set 1, results 0   (the contract: false only when rate-limited)
+3.16 process(one game            ) returns 1, error set 0, results 1
+L-22 IGDB  token body []              ... token 0, preconditions violated 4
+L-22 HfsDB token body []              ... token 0, preconditions violated 4
+L-22 IGDB  token body access_token 5  ...
+FAIL l316: rc -11 
+rc=1
+
