@@ -1,0 +1,9 @@
+== S2 after: tests/relink-row-names.py against the worktree's GuiMenu.cpp
+relink-row-names: PASS, 3 path(s) walked
+rc 0
+== negative: the worktree's GuiMenu.cpp with the hub's CLOUD CONNECTIONS row renamed CLOUD LINKS
+FAIL relink-row-names: "YOUR CLOUD ISN'T ANSWERING.\\n\\nSIGN IN AGAIN UNDER GAME SETTINGS > MANAGE CLOUD STORAGE > CLOUD CONNECTIONS." names CLOUD CONNECTIONS, which MANAGE CLOUD STORAGE does not build
+rc 1
+== the French entry
+5967:msgid "YOUR CLOUD ISN'T ANSWERING.\n\nSIGN IN AGAIN UNDER GAME SETTINGS > MANAGE CLOUD STORAGE > CLOUD CONNECTIONS."
+5968-msgstr "VOTRE CLOUD NE RÉPOND PAS.\n\nRECONNECTEZ-VOUS DANS PARAMÈTRES DES JEUX > GÉRER LE STOCKAGE CLOUD > CONNEXIONS AU CLOUD."

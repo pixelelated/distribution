@@ -777,6 +777,7 @@ Stage E, under the ruling of 09:17 UTC (#673, comment 6438068860) and the stream
 | Stream | Bugs | ES commit | Test (before at the pin, after) | Already written | proved |
 | --- | --- | --- | --- | --- | --- |
 | S1 | PL-01, #1215 | `70a00ad13` | `tests/cloud-setup-repair-lifetime.py`: ASan heap-use-after-free at `16dbac521`; PASS, 1 page left, 2 refusals | nothing: the picker holds no state and writes nothing; the crash came before anything was stored | `fix-unit-test` |
+| S2 | PL-02, #1216 (and PL-15, no bug) | `03183f899`; the map at distribution `190faf95fe` | `tests/relink-row-names.py`, every path the relink page names walked from the main menu: FAIL at `16dbac521` (CONNECT OR REPAIR CLOUD STORAGE is no row of MANAGE CLOUD STORAGE); PASS, 3 paths; FAIL on a copy whose hub no longer builds CLOUD CONNECTIONS. `es-menu-map-check` at `03183f899` 0 missing | nothing: a sentence; nothing stored names the row | `fix-unit-test`; the frame `fix-walk-pending-image` (G08) |
 
 ## Positives
 
