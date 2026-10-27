@@ -1,0 +1,22 @@
+# T21 S13 before: S10's follow-up tree (ES a73ed9efc) with ScraperRepliesTests; ScraperReplies holding the pin's readers (#668, #1205)
+
+RUN es-unit-tests: rc 0; [doctest] test cases: 206 | 206 passed | 0 failed | 0 skipped [doctest] assertions: 4917 | 4917 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 28 | 28 passed | 0 failed | 0 skipped [doctest] assertions: 3427 | 3427 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 25 | 25 passed | 0 failed | 0 skipped [doctest] assertions: 244 | 244 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+RUN es-settings-tests: rc 0; [doctest] test cases: 6 | 6 passed | 0 failed | 0 skipped [doctest] assertions: 48 | 48 passed | 0 failed | 
+RUN es-scraper-tests: rc 1; [doctest] test cases: 2 | 0 passed | 2 failed | 0 skipped [doctest] assertions: 14 | 5 passed | 9 failed | 
+
+## es-scraper-tests: the failing cases
+TEST CASE:  threadCount: an answer that is not user-info is a failure, not one thread (T21 PL-17, #1205)
+es-app/tests/unit/ScraperRepliesTests.cpp:17: ERROR: CHECK( ScraperReplies::threadCount("Erreur de login : Verifier vos identifiants developpeur !") == -1 ) is NOT correct!
+es-app/tests/unit/ScraperRepliesTests.cpp:18: ERROR: CHECK( ScraperReplies::threadCount("") == -1 ) is NOT correct!
+es-app/tests/unit/ScraperRepliesTests.cpp:19: ERROR: CHECK( ScraperReplies::threadCount("<html><body>maintenance</body></html>") == -1 ) is NOT correct!
+es-app/tests/unit/ScraperRepliesTests.cpp:20: ERROR: CHECK( ScraperReplies::threadCount("<Data><jeu/></Data>") == -1 ) is NOT correct!
+TEST CASE:  retryAfterSeconds: seconds, or an HTTP-date as the wait until it, or the default; never 0 for a date (T21 PL-17, #1205)
+es-app/tests/unit/ScraperRepliesTests.cpp:29: ERROR: CHECK( ScraperReplies::retryAfterSeconds("Sun, 06 Nov 1994 08:49:37 GMT", now, 5) == 120 ) is NOT correct!
+es-app/tests/unit/ScraperRepliesTests.cpp:31: ERROR: CHECK( ScraperReplies::retryAfterSeconds("Sun, 06 Nov 1994 08:49:37 GMT", now + 600, 5) == 1 ) is NOT correct!
+es-app/tests/unit/ScraperRepliesTests.cpp:32: ERROR: CHECK( ScraperReplies::retryAfterSeconds("soon", now, 5) == 5 ) is NOT correct!
+es-app/tests/unit/ScraperRepliesTests.cpp:33: ERROR: CHECK( ScraperReplies::retryAfterSeconds("", now, 5) == 5 ) is NOT correct!
+es-app/tests/unit/ScraperRepliesTests.cpp:34: ERROR: CHECK( ScraperReplies::retryAfterSeconds("-3", now, 5) == 5 ) is NOT correct!

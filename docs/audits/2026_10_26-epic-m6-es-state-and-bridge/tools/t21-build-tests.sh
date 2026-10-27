@@ -77,6 +77,15 @@ if [ "${#S6[@]}" -gt 0 ]; then
   ST=es-settings-tests
   build es-settings-tests -I "${ES}/es-core/src" -I "${ES}/external" -I "${PX}" -- "${S6[@]}"
 fi
+# Any other test the tree's CMakeLists names (T21 S13 on): built with the
+# include roots every target here uses, pugixml and rapidjson among them.
+MORE=""
+for extra in $(awk '{print $1}' "${B}/sources.txt" | sort -u); do
+  case " es-unit-tests es-file-tests es-conf-tests es-file-tests-win32 atomicfile-win32-branch es-fs-tests es-settings-tests " in *" ${extra} "*) continue;; esac
+  mapfile -t SX < <(srcs "${extra}")
+  MORE="${MORE} ${extra}"
+  build "${extra}" -I "${ES}/es-app/src" -I "${ES}/es-core/src" -I "${ES}/external" -I "${PUGIXML_INCLUDE_DIR:-${ES}/external}" -I "${RAPIDJSON_INCLUDE_DIR}" -- "${SX[@]}"
+done
 mapfile -t S4o < <(srcs atomicfile-win32-branch)
 mapfile -t S4 < <(srcs es-file-tests-win32)
 echo "\$ ${CXX[*]} -D_WIN32 -c ${S4o[*]} -o atomicfile-win32-branch.o"
@@ -85,7 +94,7 @@ if "${CXX[@]}" -D_WIN32 -I "${ES}/es-core/src" -c "${S4o[@]}" -o "${B}/atomicfil
 else
   echo "BUILD FAIL atomicfile-win32-branch:"; tail -n 15 "${B}/win32obj.build.log"; FAIL=1
 fi
-for t in es-unit-tests es-file-tests es-conf-tests es-file-tests-win32 ${FS} ${ST}; do
+for t in es-unit-tests es-file-tests es-conf-tests es-file-tests-win32 ${FS} ${ST} ${MORE}; do
   [ -x "${B}/${t}" ] || { echo "RUN ${t}: not built"; FAIL=1; continue; }
   "${B}/${t}" > "${B}/${t}.run.log" 2>&1; rc=$?
   echo "RUN ${t}: rc ${rc}; $(grep -E '^\[doctest\] (test cases|assertions):' "${B}/${t}.run.log" | tr -s ' ' | tr '\n' ' ')"
