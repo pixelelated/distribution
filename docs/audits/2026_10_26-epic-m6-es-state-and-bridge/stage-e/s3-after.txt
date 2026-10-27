@@ -1,0 +1,46 @@
+== S3 after, 2026-10-27T01:01:37Z, ES worktree 8cf52e263 -> 13a688804 (coordinator/t21-s3)
+TEST CASE:  a path reaches the program as one argument, byte for byte, where the pin's double quotes let the shell read it
+/home/max/Development/emulationstation-next.worktrees/m6-coordinator-t21-s3/es-app/tests/unit/ArchiveCommandsTests.cpp:72: SUCCESS: CHECK( receivedBy(stubDir, ArchiveCommands::pdfInfoCommand(substituted)) == substituted ) is correct!
+  values: CHECK( a $(echo X) b.pdf == a $(echo X) b.pdf )
+/home/max/Development/emulationstation-next.worktrees/m6-coordinator-t21-s3/es-app/tests/unit/ArchiveCommandsTests.cpp:75: SUCCESS: CHECK( pinReceived != substituted ) is correct!
+  values: CHECK( a X b.pdf != a $(echo X) b.pdf )
+/home/max/Development/emulationstation-next.worktrees/m6-coordinator-t21-s3/es-app/tests/unit/ArchiveCommandsTests.cpp:76: SUCCESS: CHECK( pinReceived == "a X b.pdf" ) is correct!
+  values: CHECK( a X b.pdf == a X b.pdf )
+/home/max/Development/emulationstation-next.worktrees/m6-coordinator-t21-s3/es-app/tests/unit/ArchiveCommandsTests.cpp:80: SUCCESS: CHECK( receivedBy(stubDir, ArchiveCommands::pdfInfoCommand(everything)) == everything ) is correct!
+  values: CHECK( tricky "name" `echo Y` back\slash 'quote' $HOME end.pdf == tricky "name" `echo Y` back\slash 'quote' $HOME end.pdf )
+/home/max/Development/emulationstation-next.worktrees/m6-coordinator-t21-s3/es-app/tests/unit/ArchiveCommandsTests.cpp:81: SUCCESS: CHECK( receivedBy(stubDir, "pdfinfo \"" + everything + "\"") != everything ) is correct!
+  values: CHECK( tricky name Y back\slash 'quote' /home/max end.pdf != tricky "name" `echo Y` back\slash 'quote' $HOME end.pdf )
+TEST CASE:  the five builders quote the path and never wrap it in double quotes
+/home/max/Development/emulationstation-next.worktrees/m6-coordinator-t21-s3/es-app/tests/unit/ArchiveCommandsTests.cpp:90: SUCCESS: CHECK( ArchiveCommands::md5Pipeline("7zr", name) == "7zr x -so " + q + " | md5sum" ) is correct!
+  values: CHECK( 7zr x -so '/storage/roms/snes/it'\''s a "game" $(x).7z' | md5sum == 7zr x -so '/storage/roms/snes/it'\''s a "game" $(x).7z' | md5sum )
+/home/max/Development/emulationstation-next.worktrees/m6-coordinator-t21-s3/es-app/tests/unit/ArchiveCommandsTests.cpp:91: SUCCESS: CHECK( ArchiveCommands::listCommand("7zr", name) == "7zr l -slt " + q ) is correct!
+  values: CHECK( 7zr l -slt '/storage/roms/snes/it'\''s a "game" $(x).7z' == 7zr l -slt '/storage/roms/snes/it'\''s a "game" $(x).7z' )
+/home/max/Development/emulationstation-next.worktrees/m6-coordinator-t21-s3/es-app/tests/unit/ArchiveCommandsTests.cpp:92: SUCCESS: CHECK( ArchiveCommands::extractCommand("7zr", name, "/tmp/out dir") == "7zr x " + q + " -y -o" + Utils::String::shellQuote("/tmp/out dir") ) is correct!
+  values: CHECK( 7zr x '/storage/roms/snes/it'\''s a "game" $(x).7z' -y -o'/tmp/out dir' == 7zr x '/storage/roms/snes/it'\''s a "game" $(x).7z' -y -o'/tmp/out dir' )
+/home/max/Development/emulationstation-next.worktrees/m6-coordinator-t21-s3/es-app/tests/unit/ArchiveCommandsTests.cpp:93: SUCCESS: CHECK( ArchiveCommands::pdfInfoCommand(name) == "pdfinfo " + q ) is correct!
+  values: CHECK( pdfinfo '/storage/roms/snes/it'\''s a "game" $(x).7z' == pdfinfo '/storage/roms/snes/it'\''s a "game" $(x).7z' )
+/home/max/Development/emulationstation-next.worktrees/m6-coordinator-t21-s3/es-app/tests/unit/ArchiveCommandsTests.cpp:94: SUCCESS: CHECK( ArchiveCommands::pdfToPpmCommand("96", " -f 1 -l 1", name, "/tmp/o/p") == "pdftoppm -jpeg -r 96 -cropbox -f 1 -l 1 " + q + " " + Utils::String::shellQuote("/tmp/o/p") ) is correct!
+  values: CHECK( pdftoppm -jpeg -r 96 -cropbox -f 1 -l 1 '/storage/roms/snes/it'\''s a "game" $(x).7z' '/tmp/o/p' == pdftoppm -jpeg -r 96 -cropbox -f 1 -l 1 '/storage/roms/snes/it'\''s a "game" $(x).7z' '/tmp/o/p' )
+/home/max/Development/emulationstation-next.worktrees/m6-coordinator-t21-s3/es-app/tests/unit/ArchiveCommandsTests.cpp:96: SUCCESS: CHECK( cmd.find("\"" + name + "\"") == std::string::npos ) is correct!
+  values: CHECK( 18446744073709551615 == 18446744073709551615 )
+/home/max/Development/emulationstation-next.worktrees/m6-coordinator-t21-s3/es-app/tests/unit/ArchiveCommandsTests.cpp:96: SUCCESS: CHECK( cmd.find("\"" + name + "\"") == std::string::npos ) is correct!
+  values: CHECK( 18446744073709551615 == 18446744073709551615 )
+/home/max/Development/emulationstation-next.worktrees/m6-coordinator-t21-s3/es-app/tests/unit/ArchiveCommandsTests.cpp:96: SUCCESS: CHECK( cmd.find("\"" + name + "\"") == std::string::npos ) is correct!
+  values: CHECK( 18446744073709551615 == 18446744073709551615 )
+/home/max/Development/emulationstation-next.worktrees/m6-coordinator-t21-s3/es-app/tests/unit/ArchiveCommandsTests.cpp:96: SUCCESS: CHECK( cmd.find("\"" + name + "\"") == std::string::npos ) is correct!
+  values: CHECK( 18446744073709551615 == 18446744073709551615 )
+/home/max/Development/emulationstation-next.worktrees/m6-coordinator-t21-s3/es-app/tests/unit/ArchiveCommandsTests.cpp:96: SUCCESS: CHECK( cmd.find("\"" + name + "\"") == std::string::npos ) is correct!
+  values: CHECK( 18446744073709551615 == 18446744073709551615 )
+TEST CASE:  a failed extraction's digest of empty input is no hash
+/home/max/Development/emulationstation-next.worktrees/m6-coordinator-t21-s3/es-app/tests/unit/ArchiveCommandsTests.cpp:103: SUCCESS: CHECK( pinMd5Reading(emptyInput) == ArchiveCommands::EMPTY_INPUT_DIGEST ) is correct!
+  values: CHECK( d41d8cd98f00b204e9800998ecf8427e == 0x64ade1cbac20 )
+/home/max/Development/emulationstation-next.worktrees/m6-coordinator-t21-s3/es-app/tests/unit/ArchiveCommandsTests.cpp:105: SUCCESS: CHECK( ArchiveCommands::md5FromPipelineLines(emptyInput) == "" ) is correct!
+  values: CHECK(  ==  )
+/home/max/Development/emulationstation-next.worktrees/m6-coordinator-t21-s3/es-app/tests/unit/ArchiveCommandsTests.cpp:106: SUCCESS: CHECK( ArchiveCommands::md5FromPipelineLines({ "0123456789abcdef0123456789abcdef  -" }) == "0123456789abcdef0123456789abcdef" ) is correct!
+  values: CHECK( 0123456789abcdef0123456789abcdef == 0123456789abcdef0123456789abcdef )
+/home/max/Development/emulationstation-next.worktrees/m6-coordinator-t21-s3/es-app/tests/unit/ArchiveCommandsTests.cpp:107: SUCCESS: CHECK( ArchiveCommands::md5FromPipelineLines({}) == "" ) is correct!
+-- all binaries:
+RUN es-unit-tests: rc 0; [doctest] test cases: 190 | 190 passed | 0 failed | 0 skipped [doctest] assertions: 4828 | 4828 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3390 | 3390 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 20 | 20 passed | 0 failed | 0 skipped [doctest] assertions: 182 | 182 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
