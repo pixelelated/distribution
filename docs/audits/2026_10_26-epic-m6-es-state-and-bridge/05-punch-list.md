@@ -686,7 +686,8 @@ punch_index:
 - id: PL-23
   severity: "Low"
   category: Harness
-  question: Q8
+  question: none
+  question_reason: "the brief's Q8 (the harness), not one of the renovation questions Q1 to Q7"
   source_finding: "Q8"
   outcome: "open"
 - id: PL-24

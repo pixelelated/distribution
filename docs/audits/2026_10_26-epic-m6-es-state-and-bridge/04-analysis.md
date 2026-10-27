@@ -208,6 +208,52 @@ L-20's 82 rows. The Windows-only branches (`:639-645`, `Win32ApiSystem.cpp`) are
 - A `SettingsTests.cpp` in the unit set, beside `SystemConfTests.cpp`.
 - The kill sweep (`stage-b/positives/kill-writer.py`) as a standing tool for every writer of a store.
 
+## Second opinion
+
+### The packet and the plan
+
+- **The packet:** `second-opinions/packet.md`, 369,068 bytes (sha256 `ad3a21e9...`), built by `stage-c/packet.py` from 83 sources: the ask, `02`, `03` and `04` whole, the brief's § 4, ten register rows, the stage-B and guest evidence, the slice's files whole or in cited excerpts, and the shell writers at `8ebaf8daad`.
+- **The scan, three ways** (`second-opinions/manifest.json`):
+  - the forbidden-terms check: 0 sections with hits of 82, proven to run on a clean line;
+  - the push guard's patterns: 0 lines, proven to fire on a run-time fake line;
+  - the credential words: 584 hits, 20 lines masked, 22 dispositioned by (path, line), 0 left for review.
+- **The plan:** `review-plan.json`, written before the first call. Depth `extended`; `gpt` (`openai/gpt-6-astra`, `max`) then `gemini-argon` (`google/gemini-4-argon`, `high`), each a probe then one refutation.
+- **The calls:** exactly four keyed calls (`stage-c/keyed-calls.txt`), each PASS on its provenance (served model, provider and effort read from the response by `stage-c/provenance-read.py`), one attempt each, `finish=stop`:
+
+  | Call | Seat | Window (UTC) | Outcome |
+  | --- | --- | --- | --- |
+  | 1 | Astra, probe | 23:00:43 to 23:00:54 | PASS |
+  | 2 | Astra, refutation | 23:01:06 to 23:21:28 | PASS, 58 items |
+  | 3 | Argon, probe | 23:26:36 to 23:26:42 | PASS |
+  | 4 | Argon, refutation | 23:26:50 to 23:37:20 | PASS, 45 items |
+
+- **Argon's brief** was the same packet plus the grades of Astra (`argon-brief.md`, 378,998 bytes), the grades scanned the same way first (0 and 0).
+
+### GPT-6 Astra: 58 items, graded
+
+`stage-c/astra-grades.md`: 54 accepted, 2 in part (SO-3, SO-41), 1 rejected in part (SO-11), 1 plausible (SO-56).
+
+- **It corrected the first reader:** L-01's reach and L-03's (not the default filter); the `file://` closure's wording; the credentials' log rows (no API URL is logged); L-21's universal claim; the readers' duplicate and carriage-return rows.
+- **New:** the empty HOSTNAME's loss of the record (L-23, taken further by a host fixture), the response-code width (L-24), the `env` argv sink (L-25), and L-26 to L-33.
+
+### Gemini 4 Argon: 45 items, graded
+
+`stage-c/argon-grades.md`: 41 accepted, 3 in part (SO-3, SO-11, SO-32), 1 plausible (SO-44).
+
+- **Independent confirmations:** L-23 (its SO-14) and L-24 (its SO-41), neither prompted by the grades it was shown.
+- **Widened:** L-01, L-21, L-28 and L-31; **new:** L-34 to L-36.
+
+### Dead ends: what a seat raised and the reading did not keep
+
+| Seat item | Claim | Why it is not an item |
+| --- | --- | --- |
+| Astra SO-11 (part) | the text popups take a password parameter | neither constructor has one (`GuiTextEditPopup.h:15-16`, `GuiTextEditPopupKeyboard.h:13-14`) |
+| Astra SO-3, Argon SO-3 (storage half) | the storage row passes a whole script line to a command | the code does store the whole line, but `rocknix-config storage` prints nothing at `8ebaf8daad` (`:271-273`): no line reaches it. The closure's reason in `02` is corrected |
+| Argon SO-11 (item 2) | `get_setting wifi.key` and `nmcli -s` are credential sinks | both fill a shell variable; neither is argv nor a file |
+| Astra SO-41, Argon SO-32 (part) | the writer call sites outside the packet are unread | each is read in the tree (`02` § The writers) |
+
+The plausible items (Astra SO-56, Argon SO-44) are L-35, left at plausible.
+
 ## Quality self-check
 
 - Every figure here was produced by a command at the hash it names; three of the brief's comments were corrected that way.
