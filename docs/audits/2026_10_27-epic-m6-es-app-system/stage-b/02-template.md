@@ -215,9 +215,11 @@ The proposed text follows. A stage-E stream the coordinator writes adds it to `d
 
 ## The merge debt
 
-None. Upstream's delta on the 77 since the merge base `cada856d86` is empty: `upstream commits rc=1` and `upstream numstat rc=1`, both printing 0. All 46 upstream-carried files are byte-identical to `rocknix/master` and to `cada856d86`. Upstream's whole delta is outside the slice, in `guis/GuiMenu.cpp` and `.h` (`stage-a/runs.out`).
+**None.** The merge base with `rocknix/master` (`f6c542872e`) is `cada856d86`. Its parent `bccd715707` is the base the stale `upstream/master` ref still names, and `bccd715707..cada856d86` touches none of the 77. **0 of the 14 upstream commits since `cada856d86` touch the 77** (`upstream commits rc=1`, `upstream numstat rc=1`); upstream's whole delta is `GuiMenu.cpp` and `.h`. All 46 upstream-carried files are byte-identical to `rocknix/master` and to `cada856d86`. **The fork's four modified files:** `CMakeLists.txt` 44/0, `NetworkThread.cpp` 105/3, `NetworkThread.h` 29/1, `Win32ApiSystem.cpp` 3/3. **Batocera's six commits since `1750dded8c`** (`a79c12052`, `5f106acce`, `308221458`, `52710803c`, `7988b09d9`, `b69fb143c`) are context only: they are not ROCKNIX's, so they are never a debt figure and were never fetched. **Inherited from the other lanes:**
+- T21's `es-app/CMakeLists.txt` +10/-0, `WifiText.cpp` +11/-0 and `WifiText.h` +13/-0 (`44d3c7e25 e38dcdefd eeee95265 31b49999e 00669ccd9 ba0e82c1f`);
+- T20's `OfflineAchievementsText.cpp` +99/-0 and `.h` +52/-0 (`274a71add f85061f14`).
 
-The fork's side is four modified files against both bases: `CMakeLists.txt` 44/0, `NetworkThread.cpp` 105/3, `NetworkThread.h` 29/1 and `Win32ApiSystem.cpp` 3/3. batocera's six commits on the 77 (brief § 2) are context only: they are not ROCKNIX's, so they are never a debt figure and were never fetched. proved: tool-run (L-29).
+proved: tool-run (`stage-a/runs.out`; L-29).
 
 ## The runs
 
@@ -278,7 +280,19 @@ Written by the coordinator after stage D, as for T21, T26 and T32. The lane leav
 
 ## The #585 lines owed
 
-One line per upstream-carried defect closed under rule 6, written in the lane's shape at stage E and never sent (D-WORKFLOW-165). Before stage D, the candidates are L-05, L-06, L-23, L-25 and L-26, and L-01's lock if the pause takes it.
+Per D-WORKFLOW-164, each upstream-side lead is weighed for upstream. None is sent (D-WORKFLOW-165), and each is rechecked against upstream's head when it is ready. At stage D these are the candidates, by lead; the punch items are numbered in `05`, and stage F fills the commit. "Present at" `rocknix/master` means the 46 upstream-carried files are byte-identical to it at the pin (§ The merge debt). `batocera/master` was not read.
+
+| Upstream | File | The change (proposed) | Evidence | Present at |
+| --- | --- | --- | --- | --- |
+| batocera-emulationstation, then ROCKNIX | `Gamelist.cpp` `updateGamelist`, `packGamelist`, `cleanupGamelist`; `SystemData.cpp` `getGamelistPath` | L-05: the read of `gamelist.xml` uncached; the write temp-and-rename | `stage-c/l313-update-gamelist.py`; G-04 | `rocknix/master` |
+| batocera-emulationstation, then ROCKNIX | `CollectionSystemManager.cpp` `reloadCollection` | L-06: the bundle view's cursor read before the collection is cleared, the view remade from the path | `stage-c/l06-reload-collection.py` | `rocknix/master` |
+| batocera-emulationstation, then ROCKNIX | `components/ScraperSearchComponent.cpp` `ScraperAsyncRequestsBuilder` | L-07: a destructor that joins and deletes the thread; `mFinished` atomic | `stage-c/l07-search-builder.py` | `rocknix/master` |
+| batocera-emulationstation, then ROCKNIX | `CollectionSystemManager.cpp:345`, `FileFilterIndex.cpp:1313` | L-23: the collections' files written temp-and-rename | `t33-writes.py` | `rocknix/master` |
+| batocera-emulationstation, then ROCKNIX | `FileTag.cpp` | L-25: three tag names through `_()` | `stage-c/l329-filetag-words.py` | `rocknix/master` |
+| batocera-emulationstation, then ROCKNIX | `LangParser.cpp:65` | L-26: the token `india` | `stage-c/l331-lang-india.py` | `rocknix/master` |
+| batocera-emulationstation, then ROCKNIX (if the pause takes them) | `FileFilterIndex.cpp` rating and year; `KeyboardMapping.cpp` `load` | L-27, L-28: the rule as the cases state it; a log line for a dropped mapping; shape before `GetString` | `stage-c/l309-rating-year.py`, `stage-c/l321-keys-parse.py`; G-08 | `rocknix/master` |
+| ROCKNIX's es-core, then batocera (if the pause takes it) | `es-core/src/watchers/WatchersManager.cpp` | L-01: `check()` outside `mWatchersLock` | the read trace | `rocknix/master` (T21's file) |
+| recorded only, outside the lanes | `ZaparooSupport.cpp`, `ContentInstaller.cpp`, `ThreadedBluetooth.cpp`, `SystemScreenSaver.cpp` | L-09, L-10, L-11: bounds, thread ownership, uncached reads | `t33-bounds.py`, `t33-reads.py` | `rocknix/master` |
 
 Q7's six candidates, for the coordinator to weigh. These are what the slice carries that upstream lacks:
 1. **`maskSecrets` on the logged command line** (`80f52e500`). It needs `StringUtil`'s `maskSecrets`, which is in 0 files at `rocknix/master`.
@@ -287,8 +301,6 @@ Q7's six candidates, for the coordinator to weigh. These are what the slice carr
 4. **`FolderMerge.h`.** Its consumer is in an earlier slice (`SystemData.cpp:486`).
 5. **`CheevosIndex.*`.** Its consumer is `ThreadedHasher.cpp`.
 6. **`GameCubeRvzHashRetry.h`.** Its consumer is `ThreadedHasher.cpp:44`; #609 is open against it.
-
-L-25's three lines go with any of them.
 
 ## What T34 to T37 inherit
 
