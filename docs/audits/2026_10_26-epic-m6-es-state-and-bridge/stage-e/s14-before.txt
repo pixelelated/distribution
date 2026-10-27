@@ -1,0 +1,19 @@
+# T21 S14 before: S13's tree (ES 44d3c7e25) with the TLS choice's case; HttpText::tlsChoice holding the pin's behaviour (#668, #1154)
+
+RUN es-unit-tests: rc 1; [doctest] test cases: 207 | 206 passed | 1 failed | 0 skipped [doctest] assertions: 4925 | 4919 passed | 6 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 28 | 28 passed | 0 failed | 0 skipped [doctest] assertions: 3427 | 3427 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 25 | 25 passed | 0 failed | 0 skipped [doctest] assertions: 244 | 244 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+RUN es-settings-tests: rc 0; [doctest] test cases: 6 | 6 passed | 0 failed | 0 skipped [doctest] assertions: 48 | 48 passed | 0 failed | 
+RUN es-scraper-tests: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+TOTAL: 278 test cases in 7 binaries
+
+## es-unit-tests: the failing case
+TEST CASE:  tlsChoice: the peer is verified unless a media download opts out, and a client certificate keeps it (D-NET-017, #1154)
+es-app/tests/unit/HttpTextTests.cpp:84: ERROR: CHECK( plain.verifyPeer ) is NOT correct!
+es-app/tests/unit/HttpTextTests.cpp:89: ERROR: CHECK( media.verifyHost == 0 ) is NOT correct!
+es-app/tests/unit/HttpTextTests.cpp:92: ERROR: CHECK( certificate.verifyPeer ) is NOT correct!
+es-app/tests/unit/HttpTextTests.cpp:93: ERROR: CHECK( certificate.verifyHost == 2 ) is NOT correct!
+es-app/tests/unit/HttpTextTests.cpp:96: ERROR: CHECK( both.verifyPeer ) is NOT correct!
+es-app/tests/unit/HttpTextTests.cpp:97: ERROR: CHECK( both.verifyHost == 2 ) is NOT correct!

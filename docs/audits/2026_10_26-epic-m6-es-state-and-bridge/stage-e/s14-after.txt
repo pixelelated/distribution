@@ -1,0 +1,19 @@
+# T21 S14 after: the stream's tree (#668, #1154; D-NET-017)
+
+RUN es-unit-tests: rc 0; [doctest] test cases: 207 | 207 passed | 0 failed | 0 skipped [doctest] assertions: 4925 | 4925 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 28 | 28 passed | 0 failed | 0 skipped [doctest] assertions: 3427 | 3427 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 25 | 25 passed | 0 failed | 0 skipped [doctest] assertions: 244 | 244 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+RUN es-settings-tests: rc 0; [doctest] test cases: 6 | 6 passed | 0 failed | 0 skipped [doctest] assertions: 48 | 48 passed | 0 failed | 
+RUN es-scraper-tests: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+TOTAL: 278 test cases in 7 binaries
+
+## Syntax-only, with the stand-in headers
+es-core/src/HttpReq.cpp: rc 0
+es-app/src/scrapers/Scraper.cpp: rc 0
+es-app/src/scrapers/ScreenScraper.cpp: rc 0
+es-app/src/ApiSystem.cpp: rc 0
+
+## The self-signed listener: CANNOT on this host
+The brief's second positive -- HttpReq against a self-signed listener, accepted on the pin and refused after -- needs HttpReq built and linked against libcurl. This host has libcurl's runtime library (libcurl-gnutls.so.4) and no headers; the stand-in header in stage-e/fakes/ declares names with invented option codes, which is fine for -fsyntax-only and would make a linked binary send curl the wrong options, a test of nothing true. So the listener is CANNOT here, named for the integration window's guest walk (T20's guest-cycle/scripts/tls-probe.py is the listener's shape), where the image's HttpReq and libcurl run.
