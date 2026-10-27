@@ -1,0 +1,81 @@
+# T21 S4 checks (#668, #1191)
+
+## The unit build, whole
+g++: g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+rapidjson: /workspace/tmp/m6-t21/rj/rapidjson-1.1.0/include (document.h a8c29c92d1e89279)
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/external -I /workspace/tmp/m6-t21/rj/rapidjson-1.1.0/include <30 sources> -o es-unit-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/CloudTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/CloudFolderValidationTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/CheevosRetryTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/OfflineAchievementsTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/CheevosIndexTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/TimeTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/MaskSecretsTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/LogPolicyTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/WifiTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/OfflineProxyUrlTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/SaveStateJobQueueTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/CaptureRotationTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/DisplayAspectTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/CommandLineTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/TabStopsTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/LaunchCommandTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/TextRowEditTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/CloudText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/CloudFolderValidation.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/CheevosRetry.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/OfflineAchievementsText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/CheevosIndex.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/WifiText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/SaveStateJobQueue.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/CaptureRotationText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/DisplayAspectText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/TextRowEdit.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/StringUtil.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/TimeText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/OfflineProxyUrl.cpp
+built es-unit-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/external -DES_ROOT_DIR="/home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668" <2 sources> -o es-file-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/AtomicFileTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/AtomicFileUtil.cpp
+built es-file-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/fakes -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/external <3 sources> -o es-conf-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/SystemConfTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/SystemConf.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/AtomicFileUtil.cpp
+built es-conf-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/external <5 sources> -o es-fs-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/FileSystemTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/FileSystemUtil.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/DownloadFile.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/StringUtil.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/md5.cpp
+built es-fs-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -D_WIN32 -c /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/AtomicFileUtil.cpp -o atomicfile-win32-branch.o
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/external <2 sources> -o es-file-tests-win32
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/AtomicFileWin32Tests.cpp
+    /workspace/tmp/m6-t21/stageE/s4-after/atomicfile-win32-branch.o
+built es-file-tests-win32
+RUN es-unit-tests: rc 0; [doctest] test cases: 186 | 186 passed | 0 failed | 0 skipped [doctest] assertions: 4799 | 4799 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3390 | 3390 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 20 | 20 passed | 0 failed | 0 skipped [doctest] assertions: 182 | 182 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+
+## Non-ASCII in the lines S4 added
+rc 1 (1: none)
+
+## Sources no test compiles
+- es-core/src/HttpReq.cpp and HttpReq.h: curl/curl.h is absent on this host, so HttpReq is CANNOT here; its edits read twice: begin() replaces the shared .tmp and the destination's removal, closeStream() records a failed flush or close in mStreamFailed, and finish() replaces the rename and its copy fallback, which stays for Windows inside DownloadFile. write_content's ferror path still sets REQ_FILESTREAM_ERROR, which status() checks before the finish, and the destructor removes the temporary.
+- es-core/src/utils/FileSystemUtil.cpp and DownloadFile.cpp are compiled by the new es-fs-tests (FileSystemTests.cpp, with doubles for Paths, Settings::_UseFileCache, ZipFile::computeCRC and DateTime's two constructors); tools/t21-build-tests.sh builds it when the tree's CMakeLists names it.
+
+## Callers of renameFile whose answer changes (an absent source now fails)
+- HttpReq.cpp:479 (now DownloadFile::finish): the point of the fix.
+- Scraper.cpp:672: an absent save path now keeps its old name instead of taking the new one; nothing was there to rename.
+- Log.cpp:274-279, SaveState.cpp:121-228, ApiSystem.cpp:1407, Win32ApiSystem.cpp: the result is ignored.
+
+## Not swept
+A media temporary <path>.tmp.<pid>.<n> left by a killed process is not swept; the shared <path>.tmp it replaces was overwritten by the next request for that path. S9 sweeps the two settings stores only. Named on #668.
+
+## Player text
+S4 adds no player sentence.

@@ -1,0 +1,26 @@
+# T21 S4 before: S2's tree (ES 8cf52e263) with S4's tests; Utils::DownloadFile as the pin's HttpReq behaved (#668, #1191)
+
+Utils::DownloadFile at this step held the pin's file-mode lines lifted from HttpReq.cpp (the destination removed at the start, one shared .tmp, the close unchecked, the rename trusted); renameFile is the pin's.
+
+$ RAPIDJSON_INCLUDE_DIR=<rj> bash tools/t21-build-tests.sh <es tree> <build dir>
+RUN es-unit-tests: rc 0; [doctest] test cases: 186 | 186 passed | 0 failed | 0 skipped [doctest] assertions: 4799 | 4799 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3390 | 3390 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 20 | 20 passed | 0 failed | 0 skipped [doctest] assertions: 182 | 182 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 1; [doctest] test cases: 8 | 2 passed | 6 failed | 0 skipped [doctest] assertions: 33 | 25 passed | 8 failed | 
+
+## es-fs-tests: the failing cases
+TEST CASE:  renameFile of a source that is not there fails and leaves the destination (T21 PL-04, #1191)
+es-app/tests/unit/FileSystemTests.cpp:98: ERROR: CHECK_FALSE( Utils::FileSystem::renameFile(dir / "absent.tmp", dir / "old.png") ) is NOT correct!
+TEST CASE:  a download that fails after its start leaves the old file as it was (T21 PL-04, #1191)
+es-app/tests/unit/FileSystemTests.cpp:122: ERROR: CHECK( get(path) == "OLD ART" ) is NOT correct!
+TEST CASE:  a stream that did not close cleanly is not put in place (T21 PL-04, #1191)
+es-app/tests/unit/FileSystemTests.cpp:132: ERROR: CHECK_FALSE( Utils::DownloadFile::finish(tmp, path, false) ) is NOT correct!
+es-app/tests/unit/FileSystemTests.cpp:133: ERROR: CHECK( get(path) == "OLD ART" ) is NOT correct!
+TEST CASE:  a finish whose temporary is gone fails and leaves the old file (T21 PL-04, #1191)
+es-app/tests/unit/FileSystemTests.cpp:145: ERROR: CHECK_FALSE( Utils::DownloadFile::finish(tmp, path, true) ) is NOT correct!
+es-app/tests/unit/FileSystemTests.cpp:146: ERROR: CHECK( get(path) == "OLD ART" ) is NOT correct!
+TEST CASE:  two downloads of one path write to two temporaries (T21 PL-04, #1191)
+es-app/tests/unit/FileSystemTests.cpp:167: ERROR: CHECK( first != second ) is NOT correct!
+TEST CASE:  a write that never reached the disk is a failed close (T21 PL-04, #1191)
+es-app/tests/unit/FileSystemTests.cpp:175: ERROR: CHECK_FALSE( Utils::DownloadFile::close(full) ) is NOT correct!

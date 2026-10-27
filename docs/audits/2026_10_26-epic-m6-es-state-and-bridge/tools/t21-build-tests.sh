@@ -58,6 +58,13 @@ mapfile -t S2 < <(srcs es-file-tests)
 build es-file-tests -I "${ES}/es-core/src" -I "${ES}/external" "-DES_ROOT_DIR=\"${ES}\"" -- "${S2[@]}"
 mapfile -t S3 < <(srcs es-conf-tests)
 build es-conf-tests -I "${UNIT}/fakes" -I "${ES}/es-core/src" -I "${ES}/external" -- "${S3[@]}"
+# es-fs-tests (T21 S4, #1191), when the tree's CMakeLists has it.
+mapfile -t S5 < <(srcs es-fs-tests)
+FS=""
+if [ "${#S5[@]}" -gt 0 ]; then
+  FS=es-fs-tests
+  build es-fs-tests -I "${ES}/es-core/src" -I "${ES}/external" -- "${S5[@]}"
+fi
 mapfile -t S4o < <(srcs atomicfile-win32-branch)
 mapfile -t S4 < <(srcs es-file-tests-win32)
 echo "\$ ${CXX[*]} -D_WIN32 -c ${S4o[*]} -o atomicfile-win32-branch.o"
@@ -66,7 +73,7 @@ if "${CXX[@]}" -D_WIN32 -I "${ES}/es-core/src" -c "${S4o[@]}" -o "${B}/atomicfil
 else
   echo "BUILD FAIL atomicfile-win32-branch:"; tail -n 15 "${B}/win32obj.build.log"; FAIL=1
 fi
-for t in es-unit-tests es-file-tests es-conf-tests es-file-tests-win32; do
+for t in es-unit-tests es-file-tests es-conf-tests es-file-tests-win32 ${FS}; do
   [ -x "${B}/${t}" ] || { echo "RUN ${t}: not built"; FAIL=1; continue; }
   "${B}/${t}" > "${B}/${t}.run.log" 2>&1; rc=$?
   echo "RUN ${t}: rc ${rc}; $(grep -E '^\[doctest\] (test cases|assertions):' "${B}/${t}.run.log" | tr -s ' ' | tr '\n' ' ')"

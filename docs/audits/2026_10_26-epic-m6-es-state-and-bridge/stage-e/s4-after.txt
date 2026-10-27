@@ -1,0 +1,7 @@
+# T21 S4 after: the stream's tree (#668, #1191)
+
+RUN es-unit-tests: rc 0; [doctest] test cases: 186 | 186 passed | 0 failed | 0 skipped [doctest] assertions: 4799 | 4799 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3390 | 3390 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 20 | 20 passed | 0 failed | 0 skipped [doctest] assertions: 182 | 182 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 

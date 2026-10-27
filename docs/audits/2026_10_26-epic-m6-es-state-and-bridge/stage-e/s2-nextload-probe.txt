@@ -1,0 +1,12 @@
+# T21 S2: does the next load publish a written-not-recorded live file? (#668; the coordinator's 00:51 UTC note)
+
+state-fixture built from ES 8cf52e263 (S2). The record holds a.key and b.key; the live file, written by a save that did not record it (S1's guard), holds b.key and c.key.
+
+$ printf "a.key=1\nb.key=2\n" > system.cfg.backup; printf "b.key=2\nc.key=3\n" > system.cfg
+$ state-fixture get system.cfg .lock b.key
+value=[2]
+
+record before: a.key=1 b.key=2
+record after a fresh load: b.key=2 c.key=3
+
+Yes: the next load chooses the whole live file (Source::Live, record=1) and records it (SystemConf.cpp loadFromDisk). S1's guard holds within one session only.
