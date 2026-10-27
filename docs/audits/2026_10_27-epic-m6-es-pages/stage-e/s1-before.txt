@@ -1,0 +1,11 @@
+== S1 before (13:55:03Z), ES at 16dbac5211
+$ python3 -I stage-c/l01-start-drops.py <W>/es-app/src/guis/GuiSettings.cpp
+FAIL l01: start: the moved switch dropped, es_settings.cfg written 0 time(s), onFinalize ran 0 time(s)
+FAIL l01: outside-click: the moved switch dropped, onFinalize ran 0 time(s)
+FAIL l01: mixed-stack: A dropped, B dropped, onFinalize ran 0 time(s), 0 page(s) left over the view
+FAIL l01: finalize-push: B dropped, A unsaved, the pushed page gone, A closed
+rc=1
+$ ... --fixed (the stage-C control)
+FAIL l01: outside-click: the moved switch dropped, onFinalize ran 0 time(s)
+FAIL l01: finalize-push: B saved, A saved, the pushed page gone, A closed
+rc=1

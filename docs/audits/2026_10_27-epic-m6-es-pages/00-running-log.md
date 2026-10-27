@@ -107,3 +107,14 @@
 
   The rows are on the coordinator's branch (`acb7ead172`), not this one.
 - **The bugs** (filed by 13:32 UTC): 21, #1236 to #1256, one per bug item (`tools/t31-file-bugs.py`). Each carries its `05` section with the ruling, a four-part code trace, its `Already written:` line and its VM line. Each passes `tools/box-check --issue N` (0 fail). They are cross-linked from `05` (a `Bug:` line per item) and from #1234's item lines, both read back with 21 links. `box-check --issue 1234` 0 fail; the pre-issue lint PASS.
+
+## [Stage E] 13:51 UTC onward — the streams
+
+- **The brief:** `docs/reviews/briefs/t31-streams.md` at `17be18bde5` (the coordinator's; comment 6443605741). Fourteen streams in its order: S1, S2, S13, S5, S11, S3 with S8, S4, S14, S9, S10, S12, S7, then S6 after cherry-picking `a73ed9efc`.
+- **The floor:**
+  - `tools/t31-build-tests.sh`: T26's `t26-build-tests.sh`, copied by `git show` from `feature/m6-es-guimenu-673` and renamed.
+  - rapidjson 1.1.0 from the source cache, its sha matching the recipe's `PKG_SHA256`, with the recipe's four patches, under `/workspace/tmp/m6-t31/rapidjson`.
+  - `stage-e/syntax-check.sh` and `stage-e/fakes/`: T21's, by `git show` from `feature/m6-es-state-and-bridge-668`.
+  - `stage-e/checks.sh`: T26's, adapted.
+- **The baseline at the pin** (`stage-e/s0-pin-checks.txt`): `TOTAL: 221 test cases in 4 binaries`; the 15 `tests/` harnesses rc 0; the five stage-C positives FAIL; the map check `0 missing`; French 706 and 703 with 0 without. The build script refuses without rapidjson (rc 2).
+- **S1** (#1236): ES `9cb0e5c9a`, pushed after `.githooks/pre-push-test` PASS. `l01-start-drops.py` went from 4 of 5 FAIL to `5 cases`; the checks are clean (`stage-e/s1-*.txt`).

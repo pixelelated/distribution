@@ -161,6 +161,16 @@ The questions are Q1 to Q7 as brief § 4 sets them, the family is from the brief
   - L-03/#1191 (`:99`);
   - `GuiKeyboardLayout.cpp:164` (Backlog #1186: the write is `/tmp/kblayout-N.svg`, a scratch render).
 
+## The streams
+
+Stage E, under the coordinator's brief `docs/reviews/briefs/t31-streams.md` at `17be18bde5`, on the ES branch `feature/m6-es-pages-678` (pixelelated/emulationstation). Each stream's positive FAILs on the code before it (`stage-e/sN-before.txt`) and PASSes after (`sN-after.txt`); the checks are `stage-e/sN-checks.txt` (`stage-e/checks.sh`: the stand-in syntax check, `tools/t31-build-tests.sh`'s own `TOTAL:` line, the non-ASCII checks, every `tests/` harness, the stage-C positives, the map check and the French). The baseline at the pin is `stage-e/s0-pin-checks.txt`: `TOTAL: 221 test cases in 4 binaries`, 15 harnesses rc 0, the five stage-C positives FAIL; the build script refuses without rapidjson (rc 2). No stream touches the launch path (`time-to-play.md`).
+
+| Stream | Bug | ES commit | Positive before | Positive after | Already written | proved: |
+| --- | --- | --- | --- | --- | --- | --- |
+| S1 | #1236 (PL-01) | `9cb0e5c9a` | `l01-start-drops.py`: 4 of 5 cases FAIL (START, outside click, mixed stack, an `onFinalize` that pushes); the stage-C `--fixed` loop still fails two | `5 cases`, rc 0, ASan clean; the four lifetime harnesses PASS; `TOTAL: 221 test cases in 4 binaries` | nothing inherited -- the dropped values were never written | fix-unit-test; G02 with its control `fix-walk-pending-image` |
+
+S1's record: the reach is every `GuiSettings` page in the app, the fork's cloud pages among them; no `GuiSettings` subclass declares its own `close()` (the four classes that do -- `GuiGameOptions`, `GuiGameScraper`, `GuiKeyMappingEditor`, `GuiOfflineScan` -- are plain pages, deleted as before; `GuiGameOptions` saves in its destructor). `GuiMetaDataEd.cpp:619-622`'s loop is upstream's editor, unchanged, in the #585 line. The stand-in syntax check: `GuiSettings.cpp` rc 0, `GuiScraperStart.cpp` rc 0.
+
 ## Corrections and new leads from the seat
 
 GPT-6 Astra's 43 items (`second-opinions/astra-audit.md`) are graded in `stage-c/astra-grades.md`: 41 accepted, 1 in part (EP-33), 1 not kept (EP-26: `GuiAutoScrape` is in no build list, `es-app/CMakeLists.txt:315`). The narrowings are written into the leads above in place, each citing its EP item. The sixteen new items are L-28 to L-43. Two corrections reach this file's own method:
@@ -270,7 +280,7 @@ Per D-WORKFLOW-164, each upstream-side lead is weighed for upstream (none sent, 
 
 | Upstream | File | The change | Evidence | Present at |
 | --- | --- | --- | --- | --- |
-| batocera-emulationstation, then ROCKNIX | `es-app/src/guis/GuiSettings.cpp` `input`, `getHelpPrompts`, `onMouseClick`, `addInputTextRow` | one close contract for START, CLOSE and an outside click (L-01, L-34), designed for a mixed stack; the text-row editor reopening from the current value (L-37); a page of text rows flushing on its own close (L-36) | `stage-c/l01-start-drops.py`; G02; EP-34, EP-36, EP-37 | `batocera/master` `b2ceb55a7`, `rocknix/master` `f6c542872` |
+| batocera-emulationstation, then ROCKNIX | `es-app/src/guis/GuiSettings.cpp` `input`, `getHelpPrompts`, `onMouseClick`, `addInputTextRow` | one close contract for START, CLOSE and an outside click (L-01, L-34), designed for a mixed stack (S1, ES `9cb0e5c9a`: `closeAllFromTop`; the lines identical in `batocera/master` and `rocknix/master`; `GuiMetaDataEd.cpp:619-622`'s loop the same shape, left); the text-row editor reopening from the current value (L-37); a page of text rows flushing on its own close (L-36) | `stage-c/l01-start-drops.py`; G02; EP-34, EP-36, EP-37 | `batocera/master` `b2ceb55a7`, `rocknix/master` `f6c542872` |
 | ROCKNIX/emulationstation-next | `es-app/src/guis/GuiAnalogSticksLedControls.cpp` | a save function so `GuiSettings::save` writes `system.cfg` | `stage-c/l02-led-not-saved.py` | `rocknix/master` (the page is ROCKNIX's own) |
 | batocera-emulationstation, then ROCKNIX | `es-app/src/guis/GuiNetPlaySettings.cpp` relay callback; `GuiControllersSettings.cpp` activity switch | `save()` before the page is replaced (L-03, L-35) | G08; EP-35 | `batocera/master` (the same `delete this`), `rocknix/master` |
 | ROCKNIX/emulationstation-next | `es-app/src/guis/GuiMoonlight.cpp` | `Utils::String::shellQuote` on the SERVER IP and in the generated launchers (L-28); `$HOME` in the removals and their results checked; the title through `_()`; fetch and validate before replacing the library (L-29), the writes checked (L-30); `isEmbedded` reading the output and closing it (L-31); the conf parsers bounded (L-32); the key written 0600 (L-33) | `stage-c/l05-l06-moonlight.py`; G09, G12; the seat's EP-28 to EP-33 | `rocknix/master` (the page is ROCKNIX's own) |

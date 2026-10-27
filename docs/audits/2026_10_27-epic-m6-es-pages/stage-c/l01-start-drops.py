@@ -1,60 +1,45 @@
-"""L-01 (#678): does START (CLOSE) keep an open settings page's choice?
+"""L-01 / S1 (#678, #1236): does closing from the top save what BACK would have saved (D-UI-128)?
 
     python3 -I l01-start-drops.py <GuiSettings.cpp> [--fixed]
 
-GuiSettings::input, ::close and ::save are extracted as written (balanced
-braces, strings and comments skipped) and compiled over doubles: a Window
-whose stack the page is pushed on, ViewController at the stack's bottom, an
-InputConfig that maps "back" and "start", and Settings / SystemConf with the
-real stores' rule (a set of the held value changes nothing; saveFile writes
-only after a change). A page is given one save function that sets a switch's
-key, as addSwitch's does (GuiSettings.cpp:408-413), with the switch moved.
+GuiSettings::input, ::close, ::save, ::onMouseClick and (where the source has
+it) ::closeAllFromTop are extracted as written (t31extract: balanced braces,
+strings and comments skipped) and compiled under AddressSanitizer over
+doubles: a Window whose stack the pages are pushed on (`peekGui`,
+`getGuiStackSize`, the destructor's removal as GuiComponent.cpp:28-30 does),
+ViewController at the stack's bottom, an InputConfig mapping "back" and
+"start", and Settings with the real store's rule (a set of the held value
+changes nothing; saveFile writes only after a change). Each settings page has
+one save function that sets a switch's key, as addSwitch's does
+(GuiSettings.cpp:408-413), with the switch moved.
 
-Case BACK: the page closes; the key is written and the file saved once.
-Case START: the expectation is the same. At the pin START deletes the page
-(`delete window->peekGui()`), no save function runs, and the case FAILs --
-which is the lead. --fixed replaces START's deletion loop with one that
-closes each GuiSettings page through close() (the constructed variant, to
-show the case can pass); it is not a proposed fix, only the test's control.
+Five cases:
+  back          B on one page: its key written, the file saved, onFinalize run (the control).
+  start         START on the same page: the same expected.
+  outside-click a left click outside the menu: the same expected.
+  mixed-stack   view, settings A, plain P, settings B on top; START: A and B saved, P deleted, the stack at the view.
+  finalize-push view, A, B; B's onFinalize pushes a plain page C; START: B saved, C on top, A still open and unsaved.
+At the pin START and the click delete without close(): every case but back FAILs.
+--fixed is the stage-C control (START's loop replaced by close() per page); it
+applies only to the pin's loop and is not the fix.
 """
 import re
-import subprocess
 import sys
-import tempfile
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from t31extract import function, run  # noqa: E402
 
 src = Path(sys.argv[1]).read_text()
 fixed = "--fixed" in sys.argv
-
-def function(head):
-    m = re.search(head, src, re.M)
-    if not m:
-        sys.exit("FAIL l01: %s not found" % head)
-    i = src.index("{", m.end() - 1)
-    depth, j = 0, i
-    while True:
-        c = src[j]
-        if src.startswith("//", j):
-            j = src.index("\n", j); continue
-        if c in "\"'":
-            j += 1
-            while src[j] != c:
-                j += 2 if src[j] == "\\" else 1
-        elif c == "{":
-            depth += 1
-        elif c == "}":
-            depth -= 1
-            if depth == 0:
-                return src[m.start():j + 1]
-        j += 1
-
-close_fn = function(r"^void GuiSettings::close\(\)")
-save_fn = function(r"^void GuiSettings::save\(\)")
-input_fn = function(r"^bool GuiSettings::input\(InputConfig\* config, Input input\)")
+close_fn = function(src, r"^void GuiSettings::close\(\)", "l01")
+save_fn = function(src, r"^void GuiSettings::save\(\)", "l01")
+input_fn = function(src, r"^bool GuiSettings::input\(InputConfig\* config, Input input\)", "l01")
+click_fn = function(src, r"^bool GuiSettings::onMouseClick\(", "l01")
+walk_fn = function(src, r"^void GuiSettings::closeAllFromTop\(", "l01") if re.search(r"^void GuiSettings::closeAllFromTop\(", src, re.M) else ""
 loop = "while(window->peekGui() && window->peekGui() != ViewController::get())\n\t\t\tdelete window->peekGui();"
-if loop not in input_fn:
-    sys.exit("FAIL l01: START's deletion loop is not as the pin writes it -- this test models the pin")
 if fixed:
+    if loop not in input_fn:
+        sys.exit("FAIL l01: --fixed models the pin's START loop, which this source no longer has")
     input_fn = input_fn.replace(loop, "while(window->peekGui() && window->peekGui() != ViewController::get())\n\t\t\twindow->peekGui()->closeForTest();")
 
 harness = r'''
@@ -79,6 +64,8 @@ struct GuiComponent;
 struct Window {
     std::vector<GuiComponent*> stack;
     GuiComponent* peekGui() { return stack.empty() ? nullptr : stack.back(); }
+    int getGuiStackSize() { return (int)stack.size(); }
+    void pushGui(GuiComponent* g) { stack.push_back(g); }
     void removeGui(GuiComponent* g) { for (size_t i = 0; i < stack.size(); i++) if (stack[i] == g) { stack.erase(stack.begin() + i); return; } }
 };
 struct GuiComponent {
@@ -93,57 +80,79 @@ struct ViewController : GuiComponent {
     static ViewController*& inst() { static ViewController* v = nullptr; return v; }
     static GuiComponent* get() { return inst(); }
 };
+struct Menu { bool isMouseOver() { return false; } };
 struct GuiSettings : GuiComponent {
     using GuiComponent::GuiComponent;
     bool mDoSave = true;
     std::vector<std::function<void()>> mSaveFuncs;
     std::function<void()> mOnFinalizeFunc;
     std::string mCloseButton = "start";
+    Menu mMenu;
+    std::string key;
     void addSaveFunc(const std::function<void()>& f) { mSaveFuncs.push_back(f); }
     void close();
     void save();
     bool input(InputConfig* config, Input input) override;
+    virtual bool onMouseClick(int button, bool pressed, int x, int y);
+    static void closeAllFromTop(Window* window);
     void closeForTest() override { close(); }
 };
-''' + close_fn + "\n" + save_fn + "\n" + input_fn + r'''
+''' + close_fn + "\n" + save_fn + "\n" + input_fn + "\n" + click_fn + "\n" + walk_fn + r'''
 static int failed = 0;
 static void check(bool ok, const std::string& what) { if (!ok) { std::cout << "FAIL l01: " << what << "\n"; failed++; } }
-static void run(const std::string& key)
+static int finalized = 0;
+static GuiSettings* page(Window& w, const std::string& key)
 {
-    Settings::getInstance()->b.clear(); Settings::getInstance()->changed = false; gSettingsWrites = 0;
-    Window w; ViewController vc(&w); ViewController::inst() = &vc; w.stack.push_back(&vc);
-    auto* parent = new GuiSettings(&w); w.stack.push_back(parent);
-    auto* page = new GuiSettings(&w); w.stack.push_back(page);
-    bool switchState = true;                                  // the player moved the switch
-    page->addSaveFunc([switchState] { Settings::getInstance()->setBool("ScrapeNames", switchState); });
-    bool finalized = false;
-    page->mOnFinalizeFunc = [&finalized] { finalized = true; };
-    InputConfig cfg; Input in; in.name = key;
-    page->input(&cfg, in);
-    bool kept = Settings::getInstance()->getBool("ScrapeNames");
-    check(kept && gSettingsWrites == 1 && finalized,
-          key + ": the moved switch " + (kept ? "kept" : "dropped") + ", es_settings.cfg written " + std::to_string(gSettingsWrites)
-          + " time(s), onFinalize " + (finalized ? "ran" : "did not run"));
-    while (w.stack.size() > 1) w.peekGui()->closeForTest();
+    auto* p = new GuiSettings(&w); p->key = key; w.pushGui(p);
+    p->addSaveFunc([key] { Settings::getInstance()->setBool(key, true); });   // the switch moved
+    p->mOnFinalizeFunc = [] { finalized++; };
+    return p;
 }
+static bool saved(const std::string& k) { return Settings::getInstance()->getBool(k); }
+static void reset() { Settings::getInstance()->b.clear(); Settings::getInstance()->changed = false; gSettingsWrites = 0; finalized = 0; }
+static void teardown(Window& w) { while (w.stack.size() > 1) w.peekGui()->closeForTest(); }
 int main()
 {
-    run("back");
-    run("start");
+    InputConfig cfg;
+    { // back, start: one page over the view
+        for (std::string key : { std::string("back"), std::string("start") }) {
+            reset(); Window w; ViewController vc(&w); ViewController::inst() = &vc; w.pushGui(&vc);
+            auto* p = page(w, "ScrapeNames"); Input in; in.name = key; p->input(&cfg, in);
+            check(saved("ScrapeNames") && gSettingsWrites == 1 && finalized == 1 && w.stack.size() == 1,
+                  key + ": the moved switch " + (saved("ScrapeNames") ? "kept" : "dropped") + ", es_settings.cfg written " + std::to_string(gSettingsWrites) + " time(s), onFinalize ran " + std::to_string(finalized) + " time(s)");
+            teardown(w);
+        }
+    }
+    { // outside click
+        reset(); Window w; ViewController vc(&w); ViewController::inst() = &vc; w.pushGui(&vc);
+        auto* p = page(w, "ScrapeNames"); p->onMouseClick(1, true, -1, -1);
+        check(saved("ScrapeNames") && finalized == 1 && w.stack.size() == 1,
+              std::string("outside-click: the moved switch ") + (saved("ScrapeNames") ? "kept" : "dropped") + ", onFinalize ran " + std::to_string(finalized) + " time(s)");
+        teardown(w);
+    }
+    { // mixed stack: view, A, plain P, B; START from B
+        reset(); Window w; ViewController vc(&w); ViewController::inst() = &vc; w.pushGui(&vc);
+        page(w, "A"); auto* P = new GuiComponent(&w); w.pushGui(P); auto* B = page(w, "B");
+        Input in; in.name = "start"; B->input(&cfg, in);
+        check(saved("A") && saved("B") && finalized == 2 && w.stack.size() == 1,
+              std::string("mixed-stack: A ") + (saved("A") ? "saved" : "dropped") + ", B " + (saved("B") ? "saved" : "dropped") + ", onFinalize ran " + std::to_string(finalized) + " time(s), " + std::to_string(w.stack.size() - 1) + " page(s) left over the view");
+        teardown(w);
+    }
+    { // an onFinalize that pushes a page stops the walk
+        reset(); Window w; ViewController vc(&w); ViewController::inst() = &vc; w.pushGui(&vc);
+        auto* A = page(w, "A"); auto* B = page(w, "B");
+        GuiComponent* C = nullptr;
+        B->mOnFinalizeFunc = [&w, &C] { finalized++; C = new GuiComponent(&w); w.pushGui(C); };
+        Input in; in.name = "start"; B->input(&cfg, in);
+        bool cOnTop = C != nullptr && w.peekGui() == C;
+        bool aOpen = w.stack.size() == 3 && w.stack[1] == A;
+        check(saved("B") && !saved("A") && cOnTop && aOpen,
+              std::string("finalize-push: B ") + (saved("B") ? "saved" : "dropped") + ", A " + (saved("A") ? "saved" : "unsaved") + ", the pushed page " + (cOnTop ? "on top" : "gone") + ", A " + (aOpen ? "still open" : "closed"));
+        teardown(w);
+    }
     if (failed) return 1;
-    std::cout << "2 cases\n";
+    std::cout << "5 cases\n";
     return 0;
 }
 '''
-with tempfile.TemporaryDirectory(prefix="l01-", dir="/workspace/tmp/m6-t31/tmp") as d:
-    d = Path(d)
-    (d / "a.cpp").write_text(harness)
-    b = subprocess.run(["g++", "-std=c++17", "-O0", "-g", "-fsanitize=address,undefined", str(d / "a.cpp"), "-o", str(d / "a")],
-                       capture_output=True, text=True)
-    if b.returncode:
-        print("FAIL l01: the extract does not compile\n" + b.stderr[-2000:]); sys.exit(2)
-    r = subprocess.run([str(d / "a")], capture_output=True, text=True)
-    print(r.stdout.strip())
-    if r.returncode and "FAIL" not in r.stdout:
-        print("FAIL l01: rc %d %s" % (r.returncode, r.stderr[-600:]))
-    sys.exit(1 if r.returncode else 0)
+run(harness, "l01")
