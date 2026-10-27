@@ -17,7 +17,7 @@
 
 ## Current focus
 
-**Handed back (15:27 UTC); the lane is idle, waiting for the coordinator.** Stage E done under `docs/reviews/briefs/t31-streams.md` at `17be18bde5` and the rulings on #678 (13:51, 14:27, 15:12 UTC): fourteen streams; the ES tip `95852f873` on `feature/m6-es-pages-678` (pixelelated/emulationstation); the distribution's records under `docs/audits/2026_10_27-epic-m6-es-pages/` (`02` § The streams, `05` at Phase 7, `stage-e/`). S8 landed as two sections, with its ten declarations waiting as comments on #951/#965; S6b is a patch (`stage-e/s6b.patch`, `s6b-fr.po`) for the integration after T21's merge, and #1244 stays open on that checkbox. The 21 bugs stay open until the pin moves on `next`. `fixed-at` `ada47cfe46`, `fixed-at-es` `95852f873`, in #678's body, `05` and each bug.
+**Idle. T31 is closed out (15:45 UTC):** accepted on #678 at `a490d8cc21` / ES `95852f873`; #1234 closed, its marker `docs/audits/2026_10_27-epic-m6-es-pages/audit-completion.json`; both lints PASS; the #585 lines posted on #585; the scratch `/workspace/tmp/m6-t31` retired. What remains is the coordinator's at the integration: S6b's patch (#1244), GuiMenu's four saves, the map's D-UI-129, and the guest halves by step (`02`, the hand-back on #678). The session moves to T32 (#679) by the coordinator's dispatch comment there.
 
 ## Next commands
 
