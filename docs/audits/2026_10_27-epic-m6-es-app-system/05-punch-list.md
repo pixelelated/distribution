@@ -8,7 +8,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 
 - **reviewed-at:** `27bd8499f1` (distribution); **reviewed-at-es:** `16dbac5211` (the pin). **fixed-at** and **fixed-at-es** come at stage E.
 - **Independent depth:** one seat, GPT-6 Astra at `max` (`second-opinions/review-plan.json`).
-- **One item per defect or reusable improvement**, however many leads found it, ordered by severity within the bugs proposed, then the recorded.
+- **One item per defect or reusable improvement**, however many leads found it. PL-01 to PL-20 are the first read's, ordered by severity within the bugs proposed, then the recorded; PL-21 to PL-26 are the seat's new items (EP-39 to EP-46), appended.
 - **Nothing here changes a file** under the distribution's `packages/`, `projects/` or `tools/`, or an ES file, at stages A to D. A fix lands only under a stream brief on the ES branch, proven twice. A row added, moved or renamed updates `docs/es-menu-map.md` in the same commit (D-UI-039).
 - **Lines** are the pin's. "Guest" means the M6 image (M7's composition over the pin). "Fixture" means a stage-C harness that fails at the pin and passes its control.
 - **Every disposition is a question** for the stage-D pause (`question:`). The coordinator rules; the bugs are filed after the ruling, each with its code trace and its `Already written:` line.
@@ -21,41 +21,49 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Category:** Correctness
 - **Question:** Q4
 - **Family:** a read of a file another process writes; a write with no last good copy
-- **Source Finding:** L-05, 3.13, 3.15 -- proved: fixture (`stage-c/l313-update-gamelist.py`); guest (G-04, with its control)
+- **Source Finding:** L-05, 3.13, 3.15, EP-1, EP-2, EP-36 -- proved: fixture (`stage-c/l313-update-gamelist.py`); guest (G-04, with its control)
 - **Owner area:** `es-app/src/Gamelist.cpp:412-413`, `:466-477` (`:474`), `:518-631` (`:601`, `:622`, `:705`, `:732-748`, `:841`); `SystemData.cpp:1653` (`getGamelistPath`, outside the slice)
 - **What:**
   - `SystemData::getGamelistPath` caches the system's `gamelist.xml` as absent when the systems load (`SystemData.cpp:1653`), and `updateGamelist` reads that cached answer at `:413`.
   - A file the cloud's game-content restore writes afterwards is not seen: the save starts from an empty `<gameList>` (`:427`) and writes only the dirty entries over the restored file in place (`:474`). Every restored description and picture reference is lost.
   - `cleanupGamelist` and `packGamelist` decide media references by the same cache (`:601`, `:705`, `:732-748`; the floor's 3.15) and write in place after a `.old` copy nothing reads (`:619-622`, `:838-841`).
+  - **EP-36:** even with a fresh read, a dirty game's whole node is removed and rebuilt from memory (`:449-459`), so the restored description and art of *that* game are lost; and a writer between the read (`:416`) and the write (`:474`) is a lost update.
+  - **EP-1:** an unreadable `gamelist.xml` is logged and then overwritten (`:416-424`).
 - **Fix shape:**
-  - the read of `gamelist.xml` and of each media path in the three functions uncached (`exists(path, false)`), and `getGamelistPath`'s own check the same;
-  - the three writes temp-and-rename through `AtomicFileUtil`, which also drops the cache entry.
+  - the reads uncached: `:413`, `getGamelistPath` (`SystemData.cpp:1652-1663`), and `packGamelist`'s and `cleanupGamelist`'s media probes (`:595-605`, `:702-752`; EP-2);
+  - a field-level merge of a dirty game's node with the file's (EP-36), and no overwrite of a file that did not parse (EP-1);
+  - the three writes temp-and-rename, with the cache entry dropped explicitly (EP-19);
+  - the startup order checked: `packGamelist` clears recovery before `parseGamelist` reads it (EP-2).
 - **Can this be done on the VM?** Yes. The fixture against the fixed file (`fix-unit-test` shape), then G-04 again on the integration image (`fix-walk-pending-image`).
 - **Already written:** a `gamelist.xml` already overwritten on a device is lost metadata the device cannot recover; the cloud copy is the player's, and a restore after the fix is read. A `gamelist.xml.old` left by `:619-620` or `:838-839` is read by nothing, before or after: nothing inherited.
 - **Acceptance:**
   - [ ] `stage-c/l313-update-gamelist.py` against the fixed `Gamelist.cpp` prints `Bravo present` and `inode new (replaced)` with rc 0, and against the pin reports both FAIL lines (`stage-e/` before/after records).
+  - [ ] The fixture gains a same-game case (a restored description on the dirty game) that FAILs at the pin and passes on the fix (EP-36).
   - [ ] On the integration image, G-04's steps leave `/storage/roms/gb/gamelist.xml` holding both the outside entry and the favourite (a `vm-serial` read in `stage-e/`).
 - **Disposition (proposed for the stage-D pause):** question: a `bug`, rule 6 (upstream-carried, contained, inside the lanes), one stream with a #585 line?
 
-## PL-02: editing a dynamic collection's filters from the collections bundle frees the games the bundle's view points at, then reads the cursor (a `bug` proposed; upstream's reload, #246's shape)
+## PL-02: a dynamic collection's reload frees the games a view's cursor may hold, then reads the bundle view's cursor; the route from the bundle is not established (a `bug` proposed, conditional; upstream's reload, #246's shape)
 
-- **Severity:** High
+- **Severity:** Medium
 - **Category:** Correctness
 - **Question:** Q1
 - **Family:** a lifetime or a thread
-- **Source Finding:** L-06, T32 L-16 -- proved: fixture (`stage-c/l06-reload-collection.py`, a heap-use-after-free under ASan); the guest's G-02 drove a plain collection, which `:1573` never repopulates
+- **Source Finding:** L-06, T32 L-16, EP-5, EP-37, EP-38 -- proved: fixture (`stage-c/l06-reload-collection.py`, the mechanism); the caller route open (EP-5)
 - **Owner area:** `es-app/src/CollectionSystemManager.cpp:1558-1600` (`reloadCollection`), `:1115-1117` (`populateCustomCollection`'s clear), `:1302` (the bundle's child); callers `guis/GuiGamelistOptions.cpp:425`, `views/gamelist/ISimpleGameListView.cpp:462`
 - **What:**
   - A dynamic collection's root folder is the custom collections bundle's child, by identity (`:1302`).
   - `reloadCollection(name, true)` repopulates it, and `populateCustomCollection` clears the root (`:1117`), deleting every game in it. `ViewController::reloadGameListView(bundle)` then reads the old view's cursor (`ViewController.cpp:1140-1142`), a freed `FileData` when the cursor was on one of those games.
+  - **EP-5:** `GuiGamelistOptions.cpp:424` reloads the collection only when the system is not the bundle, and `ISimpleGameListView.cpp:461-462` reloads by the root's system. A route from the bundle is not established. A **non-bundled** dynamic collection's own view is cleared by `:1117` and not remade by `reloadCollection`: a further lead.
+  - **EP-37:** `moveToFolder` is called on the retained old view, not the remade one (`:1586-1593`).
+  - **EP-38:** the screensaver keeps `FileData*` (`SystemScreenSaver.cpp:350-358`) that no retirement shown clears.
 - **Fix shape:**
-  - read the bundle view's cursor path before the repopulate and remake the view from it (`es-code-traps.md:191`'s two halves, `dropGameListView` / `remakeGameListView`).
+  - every view holding the collection's games dropped before the clear and remade after from the cursor's path (`es-code-traps.md:191`); the remade view moved (EP-37); the caller route established before the stream (a read of `ISimpleGameListView.cpp:445-464`'s callers).
 - **Can this be done on the VM?** Yes. The fixture against the fixed file; on the integration image, a dynamic collection's filter edited from the bundle with the cursor on one of its games, the journal read for a backtrace.
 - **Already written:** nothing inherited: a crash leaves no record but the journal's backtrace.
 - **Acceptance:**
   - [ ] `stage-c/l06-reload-collection.py` against the fixed `CollectionSystemManager.cpp` prints `no freed entry was read` with no sanitizer report (rc 0), and against the pin reports the heap-use-after-free (`stage-e/` records).
   - [ ] On the integration image, the walk above ends with the same ES pid and no `crash backtrace` line in `journalctl -u essway` (`stage-e/`).
-- **Disposition (proposed for the stage-D pause):** question: a `bug`, rule 6, a #585 line?
+- **Disposition (proposed for the stage-D pause):** question: a `bug` under rule 6 once the route is read (the mechanism is proved), or recorded with the lead?
 
 ## PL-03: backing out of a single-game scrape while its search is being built leaves the builder's thread writing into freed memory (a `bug` proposed; upstream's search component, outside the lanes)
 
@@ -66,11 +74,11 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Source Finding:** L-07, L-08 -- proved: fixture (`stage-c/l07-search-builder.py`, a heap-use-after-free under ASan)
 - **Owner area:** `es-app/src/components/ScraperSearchComponent.cpp:196-258` (`ScraperAsyncRequestsBuilder`), `:206`, `:231`; drop sites `:358-361`, `:96-100`; `:645-658` (L-08's synchronous second search)
 - **What:**
-  - The builder runs `Scraper::search` on a thread it news (`:206`) and never joins or deletes; `update()` drops the pointer after a join (`:231`), leaking the object. The class has no destructor.
+  - The builder runs `Scraper::search` on a thread it news (`:206`). `update()` joins it after a completed search and then drops the pointer without deleting it (`:230-233`; EP-6: the first reader's "never joined" was wrong). The class has no destructor.
   - `stop()` and the component's destructor drop the builder while its thread runs: the thread then writes `mSearchHandle`, `mError` and `mFinished` into freed memory. `mFinished` is read across threads unsynchronised.
   - L-08: with no results, the second search runs synchronously on the interface thread (`:652`, `:658`).
 - **Fix shape:**
-  - a destructor that joins and deletes the thread; the thread deleted after `update()`'s join; `mFinished` atomic; L-08's second search through the same builder.
+  - one ownership scheme: the builder owns its thread, joins only when `joinable()`, deletes it; `mFinished` atomic; `stop()` does not join on the interface thread (EP-6); L-08's second search through the same builder.
 - **Can this be done on the VM?** Yes. The fixture against the fixed file; a guest walk cannot time the window.
 - **Already written:** nothing inherited: no file is written by the window.
 - **Acceptance:**
@@ -103,13 +111,14 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Category:** Reliability
 - **Question:** Q4
 - **Family:** a write with no last good copy; a read of a file another process writes
-- **Source Finding:** L-23, the third cache shape -- proved: tool-run (`t33-writes.py`, `t33-reads.py`)
+- **Source Finding:** L-23, the third cache shape, EP-19, EP-43 -- proved: tool-run (`t33-writes.py`, `t33-reads.py`)
 - **Owner area:** `es-app/src/CollectionSystemManager.cpp:340-358` (`std::ofstream`, `:345`), `:1610`, `:1613`, `:963`; `FileFilterIndex.cpp:1313` (`pugi::save_file`), `:1144`
 - **What:**
-  - Both files are in the settings tier backuptool archives, written in place with no error check (`:345`) or a logged one (`:1313`). A cut `custom-<name>.cfg` reads as a shorter collection, which the next save writes back; a cut `.xcc` is a parse error and the collection loses its filter.
-  - Neither writer goes through `Utils::FileSystem`, so a path whose miss the cache remembered (`:963` reads the `.xcc` at startup) stays absent: `deleteCustomCollection` (`:1610`, `:1613`) can return false for a file written this session.
+  - Both files are in the settings tier backuptool archives, written in place: `custom-<name>.cfg` by `std::ofstream` with no error check (`:345`), the `.xcc` by pugixml (`:1313`). A cut `.cfg` reads as a shorter collection, which the next save writes back; a cut `.xcc` is a parse error, and the collection is left **empty** (`:1114-1124`; EP-19).
+  - Neither writer goes through `Utils::FileSystem`, so a path whose miss the cache remembered (`:963`) stays absent: `deleteCustomCollection` (`:1609-1614`) falls to the `.cfg`, or returns false.
+  - **EP-43:** the filter page discards `save()`'s result and closes as saved (`GuiGamelistFilter.cpp:262-270`).
 - **Fix shape:**
-  - both writes through `AtomicFileUtil` (temp-and-rename), which drops the cache entry; the delete's checks uncached.
+  - both writes temp-and-rename with the cache entry dropped explicitly (`FileSystemUtil.cpp:348-350`'s reset, EP-19); the delete's checks uncached; the page keeps its choices and says so when `save()` fails (EP-43).
 - **Can this be done on the VM?** Yes. A file case over a temp folder for each writer (the floor's 3.11 shape), and the delete after a create in one session on the guest.
 - **Already written:** a `custom-<name>.cfg` or `.xcc` already cut on a device reads as it does today, a shorter list or no filter; the fix changes the write, not the read: nothing to migrate.
 - **Acceptance:**
@@ -127,6 +136,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Owner area:** `es-app/src/NetworkThread.cpp:206`, `:237`, `:251`, `:257`, `:266`; `AppWindow.h:38-45`; `main.cpp:1322`, `:1330`
 - **What:**
   - `AppWindow::post` drops a worker's post once `main()` calls `AppWindow::closing()` (`main.cpp:1322`, F-ES-26). NetworkThread's watchers run until `WatchersManager::stop()` (`:1330`), and its five posts call `mWindow->postToUiThread` directly: a check that ends between the two lines queues a task no loop runs, `:266`'s token write among them.
+  - **EP-7:** this is a closing-protocol violation, not a dangling write; routing the posts through the gate drops a completed token write rather than saving it, so the stream states the drain policy.
 - **Fix shape:**
   - the five posts through `AppWindow::post(mWindow, ...)`.
 - **Can this be done on the VM?** Yes. The fixture's count and run against the fixed file.
@@ -217,7 +227,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Source Finding:** L-17, the floor's 3.41 -- proved: tree (`stage-c/floor.md`)
 - **Owner area:** `es-app/src/OfflineAchievementsText.cpp:17-20` (`jsonInt`), `:229`
 - **What:**
-  - `"4294967297 1700000000"` reads id 1 and is accepted; `(int)v.GetInt64()` truncates the same way. Harmless with today's ids.
+  - `jsonInt`'s `(int)v.GetInt64()` narrows an id (`:17-20`), and the id fields are `int`. The epoch is `time_t` via `strtoll` (`:229-231`; EP-12: the first reader had it as `int`). Out-of-range input needs a defined outcome.
 - **Fix shape:**
   - `int64_t` through, with an `OfflineAchievementsTextTests.cpp` case above 2^31 (T20's delta on the same file named as a collision).
 - **Can this be done on the VM?** Yes. A case in `es-unit-tests`.
@@ -228,22 +238,22 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 
 ## PL-12: a key map's refused trigger drops the whole mapping with no word, and the loader reads strings unchecked (upstream's loader, outside the lanes)
 
-- **Severity:** Low
+- **Severity:** Medium
 - **Category:** Correctness
 - **Question:** Q3
 - **Family:** a check whose failure reads as success
-- **Source Finding:** L-28, 3.21 -- proved: fixture (`stage-c/l321-keys-parse.py`); guest (G-08)
+- **Source Finding:** L-28, 3.21, EP-10 -- proved: fixture (`stage-c/l321-keys-parse.py`); guest (G-08)
 - **Owner area:** `es-app/src/KeyboardMapping.cpp:217-300` (`:262-272`, `:292`; `GetString` with no `IsString` at `:247-288`)
 - **What:**
   - A trigger `checkTriggerExists` refuses is skipped, and a mapping with no trigger is dropped (`:292`): the editor shows the rest and says nothing.
-  - Under NDEBUG, `GetString` on a `type`, `mode`, `description` or `trigger` that is not a string is a wild read on a hand-edited file.
+  - **EP-10:** under NDEBUG, `GetString` with no `IsString` at `:251`, `:254`, `:257` (type, mode, description), `:265-266`, `:271-272` (triggers) and `:282-283`, `:288-289` (targets), and no `IsObject` before `HasMember` (`:246-250`), are undefined behaviour on a hand-edited file. The `GetArray` calls are guarded. A chord with one unknown trigger loses it and changes meaning.
 - **Fix shape:**
   - a log line naming the dropped trigger (the fixture's control), and shape before every `GetString`.
 - **Can this be done on the VM?** Yes. The fixture against the fixed file; G-08 on the integration image.
 - **Already written:** nothing inherited: `.keys` files are read the same way; the fix adds a line, not a format.
 - **Acceptance:**
   - [ ] `stage-c/l321-keys-parse.py` against the fixed file prints the log line naming `t33unknown` (rc 0).
-- **Disposition (proposed for the stage-D pause):** question: recorded with a #585 line (outside the lanes, D-UI-079), or a `bug` under rule 6?
+- **Disposition (proposed for the stage-D pause):** question: a `bug` under rule 6 (memory safety on a player file, EP-10), or recorded with a #585 line (outside the lanes)?
 
 ## PL-13: the filter's rating and year keys: a positive rating reads 0 STARS, a year outside 1000-2999 reads nothing, and `1 STARS` (upstream's filter, outside the lanes)
 
@@ -255,6 +265,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Owner area:** `es-app/src/FileFilterIndex.cpp:321-340`, `:364-369`
 - **What:**
   - `0.05` rounds to `0 STARS` where `""` and `"0"` read UNKNOWN; `3000…` and `0999…` read `""`; the label for one star is `1 STARS`.
+  - **EP-11:** the cases' rule (one star for any positive rating; any four digits a year) is a proposed policy, and `1 STARS` is an index key whose display is not yet read.
 - **Fix shape:**
   - a floor of one star for a positive rating; four digits for a year; the label's singular.
 - **Can this be done on the VM?** Yes. The fixture against the fixed file.
@@ -270,11 +281,11 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Question:** Q2
 - **Family:** a call with no bound
 - **Source Finding:** L-01 -- proved: tree (the read trace; G-09 `CANNOT`)
-- **Owner area:** `es-core/src/watchers/WatchersManager.cpp:181-196`, `:92-100` (T21's file); `NetworkThread.cpp:21-25` <- `guis/GuiRetroAchievementsSettings.cpp:806`, `:257`, `:191`
+- **Owner area:** `es-core/src/watchers/WatchersManager.cpp:80-100`, `:181-199` (T21's file); `NetworkThread.cpp:21-25` <- `guis/GuiRetroAchievementsSettings.cpp:805-806` and `NetworkThread.cpp:257` (EP-13: the brief's `:191` is a comment and `:257` a weak-pointer test)
 - **What:**
   - The interface thread's `ResetComponent` takes `mWatchersLock`, which the watcher thread holds across every `check()`, a network login among them: a page close waits out the check.
 - **Fix shape:**
-  - `check()` run outside `mWatchersLock`, or `nextCheckTime` under a lock of its own (rule 6, T21's file named).
+  - `check()` run outside `mWatchersLock` with the registry's lifetime kept (unregistering deletes the `WatcherInfo`, `:80-86`; EP-13), or `nextCheckTime` under a lock of its own (rule 6, T21's file named).
 - **Can this be done on the VM?** No case without SDL; the bound's arithmetic and the trace are the proof.
 - **Already written:** nothing inherited.
 - **Acceptance:**
@@ -308,7 +319,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Source Finding:** L-03, T21 PL-20 -- proved: tool-run (`t33-writes.py`)
 - **Owner area:** `es-app/src/CaptureRotation.cpp:175`, `KeyboardMapping.cpp:426`, `:429`, `Gamelist.cpp:307-308`
 - **What:**
-  - `writeAllText` in place (`CaptureRotation.cpp:175`, `KeyboardMapping.cpp:426`, `:429`) and remove-then-save with no file between (`Gamelist.cpp:307-308`).
+  - `writeAllText` in place, its result unread (`CaptureRotation.cpp:175`, `KeyboardMapping.cpp:426`, `:429`), and remove-then-save with no file between (`Gamelist.cpp:307-308`; EP-3: a failed save destroys the previous recovery record).
 - **Fix shape:**
   - #1186's helper, when it lands, at these four lines.
 - **Can this be done on the VM?** Yes, as #1186 states.
@@ -326,13 +337,13 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Source Finding:** Q7, the brief's § 7 -- proved: tool-run (`es-menu-map-check`'s line; the grep's 0 hits)
 - **Owner area:** `docs/es-menu-map.md`; `tools/es-menu-map-check:48-55`; `guis/GuiGamelistFilter.cpp:11`, `:17`; `guis/GuiMenu.cpp:5756`; `guis/GuiCollectionSystemsOptions.cpp:368`
 - **What:**
-  - The proposed text is in `02` § The structure. The check reads three title shapes and misses `mMenu(window, _("..."))` in a member initializer (#951/#965's class).
+  - The proposed text is in `02` § The structure: UPDATE GAMELISTS has **one** handheld home, GAME SETTINGS > TOOLS; the collection-settings entry is Windows-only (`GuiCollectionSystemsOptions.cpp:366-369`; EP-25). The check reads three title shapes and misses `mMenu(window, _("..."))` in a member initializer (#951/#965's class); the fourth pattern's census is rerun (EP-26).
 - **Fix shape:**
   - the rows added by the coordinator's stage-E stream, in the same commit as any row it touches; the fourth pattern for the coordinator.
 - **Can this be done on the VM?** Yes: the check and the grep on the tree.
 - **Already written:** nothing inherited: documentation.
 - **Acceptance:**
-  - [ ] `grep -c -E 'FILTER GAMELIST BY|EDIT DYNAMIC COLLECTION FILTERS|UPDATE GAMELISTS' docs/es-menu-map.md` prints 3 or more, and `tools/es-menu-map-check` prints `0 missing`.
+  - [ ] `grep -c -E 'FILTER GAMELIST BY|EDIT DYNAMIC COLLECTION FILTERS|UPDATE GAMELISTS' docs/es-menu-map.md` prints 3 or more, the UPDATE GAMELISTS row names GAME SETTINGS > TOOLS alone, and `tools/es-menu-map-check` prints `0 missing`.
 - **Disposition (proposed for the stage-D pause):** question: the stream at stage E as the brief says; the check's pattern to #951/#965?
 
 ## PL-18: the floor's smaller upstream defects (recorded; upstream's)
@@ -341,10 +352,11 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Category:** Correctness
 - **Question:** Q3
 - **Family:** a check whose failure reads as success
-- **Source Finding:** the floor's 3.1, 3.3, 3.4, 3.5, 3.10's aside, 3.14, 3.16, 3.17, 3.26, 3.28, 3.32, 3.34, 3.37; 3.20's sibling -- proved: tree (`stage-c/floor.md`)
+- **Source Finding:** the floor's 3.1, 3.3 (the prefix case), 3.4, 3.5, 3.10's aside, 3.14, 3.32, 3.34; 3.20's sibling; EP-27 to EP-35 -- proved: tree (`stage-c/floor.md`)
 - **Owner area:** `PlatformId.cpp:28`, `:171`; `MetaData.cpp:303`, `:313`, `:392-404`, `:568`; `FileFilterIndex.cpp:579-580`; `Gamelist.cpp:177`; `CollectionSystemManager.cpp:627-651`, `:1510`; `CustomFeatures.cpp:531`, `:536`; `FileSorts.cpp:38`; `LangParser.cpp:225-226`; `SystemRandomPlaylist.cpp:28-30`; `FolderMerge.h:50-52`; `FileData.cpp:1659` (outside the slice)
 - **What:**
   - Each in `stage-c/floor.md` with its input. The two with a player cost: a scrape blanks a filled field it did not return (3.5, `MetaData.cpp:568`), and `<sys>.sort=28` throws at `FileData.cpp:1659` (T2 FD-15's sibling, #771).
+  - **Removed by the seat as not defects:** 3.26 (EP-30), 3.28 (EP-31), 3.37 (EP-32); 3.16 and 3.17 narrowed to preconditions (EP-28, EP-29); 3.3's default omission is a contract (EP-27); 3.10's empty/empty is 0 (EP-33).
 - **Fix shape:**
   - each recorded with a #585 line; 3.20's sibling to #771.
 - **Can this be done on the VM?** Yes, each as a unit case.
@@ -359,17 +371,18 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Category:** Correctness
 - **Question:** Q2
 - **Family:** a call with no bound
-- **Source Finding:** L-09, L-10, L-11, L-02, L-04, the take-up row T2 `:293-294`, `02` § The words -- proved: tool-run, tree, guest (G-06)
+- **Source Finding:** L-09, L-10, L-11, L-02, L-04, the take-up row T2 `:293-294`, `02` § The words, EP-14 to EP-17, EP-45, EP-47 -- proved: tool-run, tree, guest (G-06)
 - **Owner area:** `ZaparooSupport.cpp:32-39`, `:58-63`; `ContentInstaller.cpp:61`, `:144-236`; `ThreadedBluetooth.cpp:19-110`; `SystemScreenSaver.cpp:156-164`, `:546`; `components/ScraperSearchComponent.cpp:386`, `:468`; `CaptureRotation.cpp:162`; `DisplayAspect.cpp:74-87`
 - **What:**
   - Each in `02` with its lines: no bound past the connect; `delete this` on a worker; `AN ERROR OCCURRED: <status>`; ten retries over a cached miss; the screensaver's launch skipping the format and BIOS checks (keeping the cloud gate); an English dialog outside `_()`; `retroarch.cfg` read on every exit; the screenshot walk.
+  - **EP-45:** Zaparoo's card write is `req.wait()` alone, and the name is inserted raw into JSON (`ZaparooSupport.cpp:58-63`). **EP-47:** Bluetooth's worker, started in the constructor, can delete itself (`ThreadedBluetooth.cpp:39-47`) before `start()` publishes it (`:58`). **EP-14:** L-02's log read has no size bound.
 - **Fix shape:**
   - recorded, with #585 lines; L-02 and L-04 priced by the integration image's time-to-play.
 - **Can this be done on the VM?** Partly: G-06 ran; the rest are reads.
 - **Already written:** nothing inherited by recording.
 - **Acceptance:**
   - [ ] `02` § The #585 lines owed carries the recorded row naming these files.
-- **Disposition (proposed for the stage-D pause):** question: recorded as listed?
+- **Disposition (proposed for the stage-D pause):** question: recorded as listed, or EP-47's publication race (a use-after-free) raised to a `bug` under rule 6?
 
 ## PL-20: the Windows and console residue (recorded; L-21, L-22)
 
@@ -388,6 +401,115 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Acceptance:**
   - [ ] #1235 names `ScraperCmdLine.*` (a comment link in `stage-e/`).
 - **Disposition (proposed for the stage-D pause):** question: recorded, `ScraperCmdLine` to #1235?
+
+## PL-21: a malformed unlocks reply reads as known, empty progress (a `bug` proposed; the fork's helper, the offline achievements lane)
+
+- **Severity:** Medium
+- **Category:** Correctness
+- **Question:** Q3
+- **Family:** a check whose failure reads as success
+- **Source Finding:** EP-42 -- proved: tree (`OfflineAchievementsText.cpp:183-200`, the first reader's read)
+- **Owner area:** `es-app/src/OfflineAchievementsText.cpp:183-200` (`parseUnlocks`), `:99-112`, `:120-148`; `OfflineAchievementsText.h:84-90`
+- **What:**
+  - `parseUnlocks` rejects only a boolean-false `Success` (`:187`); a missing or non-bool one passes, every invalid list entry is skipped, and `ok = true` (`:199`): `{"Success":"false","UserUnlocks":[{}]}` reads as known with no unlocks, against the header's own contract (`.h:84-90`). The patch and set readers set `ok` without the `Success` check (`:99-112`, `:120-148`).
+- **Fix shape:**
+  - `Success` required true and boolean; a list whose entries are all invalid is not `ok`; the documented all-unofficial set kept (`.h:75-76`); cases in `OfflineAchievementsTextTests.cpp` (T20's delta named as a collision).
+- **Can this be done on the VM?** Yes. Cases in `es-unit-tests`.
+- **Already written:** nothing inherited: a reply is parsed when it arrives; a wrongly empty reading is replaced by the next good reply.
+- **Acceptance:**
+  - [ ] New `OfflineAchievementsTextTests.cpp` cases (a missing `Success`, a string `Success`, a list of only invalid entries) FAIL at the pin and pass on the fix (`stage-e/`).
+- **Disposition (proposed for the stage-D pause):** question: a `bug` (the fork's lane), or T20's file?
+
+## PL-22: `FileFilterIndex::resetIndex` clears copies of its indexes, so a reset keeps every old key (a `bug` proposed; upstream's filter)
+
+- **Severity:** Medium
+- **Category:** Correctness
+- **Question:** Q3
+- **Family:** a check whose failure reads as success
+- **Source Finding:** EP-44 -- proved: tree (`FileFilterIndex.cpp:146-160`, `:1102-1105`)
+- **Owner area:** `es-app/src/FileFilterIndex.cpp:1102-1105` (`clearIndex`), `:154-160` (`resetIndex`); caller `CollectionSystemManager.cpp:1114`
+- **What:**
+  - `clearIndex(std::map<std::string, int> indexMap)` takes the map by value and clears the copy. `resetIndex` calls it for every facet, so a dynamic collection's repopulate (`:1114`) and every other reset keep the old keys and counts: the filter pages offer values no game has.
+- **Fix shape:**
+  - `clearIndex(std::map<std::string, int>& indexMap)`; a unit case over a populated index.
+- **Can this be done on the VM?** Yes. A unit case; a frame of FILTER GAMELIST BY after a reset on the integration image.
+- **Already written:** nothing inherited: the index is built in memory.
+- **Acceptance:**
+  - [ ] A unit case populates an index, calls `resetIndex`, and asserts the facet maps are empty; it FAILs at the pin (`stage-e/`).
+- **Disposition (proposed for the stage-D pause):** question: a `bug` under rule 6 (one character), a #585 line?
+
+## PL-23: a token check in flight writes the token back after the player turned achievements off (a `bug` proposed; the fork's NetworkThread, the achievements lane)
+
+- **Severity:** Medium
+- **Category:** Correctness
+- **Question:** Q1
+- **Family:** a lifetime or a thread
+- **Source Finding:** EP-39 -- proved: tree (`NetworkThread.cpp:260-272`, `GuiRetroAchievementsSettings.cpp:793-799`)
+- **Owner area:** `es-app/src/NetworkThread.cpp:130-138`, `:260-272`; `guis/GuiRetroAchievementsSettings.cpp:795-796`
+- **What:**
+  - The check snapshots the credentials, signs in, and posts only the returned token; the interface writes it (`:266-270`) with no account or generation check. Turning achievements off clears the token (`GuiRetroAchievementsSettings.cpp:795-796`); a check already running writes it back.
+- **Fix shape:**
+  - the result carries the account and a settings generation, and is dropped when either changed; with PL-06's gate.
+- **Can this be done on the VM?** Yes, with a blocked sign-in double in a harness over the two functions (`fixture`).
+- **Already written:** a token written back on a device after a disable stays in `system.cfg` until the next disable or sign-in; the fix's next check overwrites it.
+- **Acceptance:**
+  - [ ] A fixture blocks the sign-in, clears the token, releases the old result, and asserts the token stays empty; it FAILs at the pin (`stage-e/`).
+- **Disposition (proposed for the stage-D pause):** question: a `bug` (the fork's lane), with PL-06 in one stream?
+
+## PL-24: the rotation record is cached as written though the write is unchecked, and the cache is keyed by mtime alone (a `bug` proposed; the fork's helper)
+
+- **Severity:** Low
+- **Category:** Correctness
+- **Question:** Q4
+- **Family:** a read of a file another process writes
+- **Source Finding:** EP-40, EP-41, L-03 -- proved: tree (`CaptureRotation.cpp:100-110`, `:174-181`)
+- **Owner area:** `es-app/src/CaptureRotation.cpp:100-110` (`read`'s `sKnownAt`), `:174-181` (`write`)
+- **What:**
+  - **EP-40:** `writeAllText`'s result is not read; the new turns are cached with the destination's mtime (`:179-180`), so a failed write reads as the new rotation until restart.
+  - **EP-41:** `sKnownAt` answers by mtime alone (`:103-108`), before the uncached probe: a record replaced (by the cloud's saves tier) with the same mtime returns the old turns.
+- **Fix shape:**
+  - cache only after a checked write; key the cache by mtime and size (or reread the few bytes); with PL-16's helper for the write.
+- **Can this be done on the VM?** Yes. A fixture over `read` and `write` with a failing write double and a same-mtime replacement.
+- **Already written:** nothing inherited: the cache is in memory; a record on disk is read the same way.
+- **Acceptance:**
+  - [ ] A fixture with a failing write and one with a same-mtime replacement each FAIL at the pin and pass on the fix (`stage-e/`).
+- **Disposition (proposed for the stage-D pause):** question: a `bug`, or with PL-16 under #1186?
+
+## PL-25: the screensaver keeps `FileData` pointers the rescan does not retire (a lead; upstream's screensaver, outside the lanes)
+
+- **Severity:** Low
+- **Category:** Correctness
+- **Question:** Q1
+- **Family:** a lifetime or a thread
+- **Source Finding:** EP-38, EP-8 -- proved: tree (a lead; the retirement paths outside the packet)
+- **Owner area:** `es-app/src/SystemScreenSaver.cpp:342-358`, `:378-380`, `:538-548`; `SystemData.cpp:459-473` (outside the slice)
+- **What:**
+  - The media list and `mCurrentGame` hold raw `FileData*`; the rescan's retirement shown removes collection and group holders, not the screensaver's. Not reproduced.
+- **Fix shape:**
+  - the screensaver's holders on L-15's retirement checklist; or the screensaver stores paths, as `DisplayAspect` does.
+- **Can this be done on the VM?** Yes: prime the screensaver, remove a ROM, rescan, select its media under an ASan build (an image with ASan is not available; a fixture first).
+- **Already written:** nothing inherited.
+- **Acceptance:**
+  - [ ] A read of the rescan's invalidation paths names whether the screensaver's list is cleared (`stage-e/`), and a fixture follows if it is not.
+- **Disposition (proposed for the stage-D pause):** question: recorded as a lead for the rescan's owner?
+
+## PL-26: a mouse-only key map loads and saves but is called invalid (recorded; upstream's, outside the lanes)
+
+- **Severity:** Low
+- **Category:** Correctness
+- **Question:** Q3
+- **Family:** a check whose failure reads as success
+- **Source Finding:** EP-46 -- proved: tree (`KeyboardMapping.cpp:499-509`)
+- **Owner area:** `es-app/src/KeyboardMapping.cpp:178-181`, `:293-294`, `:499-509`; `guis/GuiGamelistOptions.cpp:262-267`
+- **What:**
+  - A mouse mapping needs no targets and is accepted by the loader and writer, but `isValid()` requires targets on some mapping, so a file of mouse mappings alone is invalid and its information row is hidden.
+- **Fix shape:**
+  - `isValid()` accepts a mouse mapping with a trigger.
+- **Can this be done on the VM?** Yes. A unit case.
+- **Already written:** nothing inherited.
+- **Acceptance:**
+  - [ ] `02` § The #585 lines owed carries this item's line (a grep in `stage-e/`).
+- **Disposition (proposed for the stage-D pause):** question: recorded with a #585 line?
 
 ## Phase 7 resolution gate
 
@@ -415,6 +537,12 @@ Stage F rewrites this table and the index together. Until then every item is `Op
 | PL-18 | Open | -- |
 | PL-19 | Open | -- |
 | PL-20 | Open | -- |
+| PL-21 | Open | -- |
+| PL-22 | Open | -- |
+| PL-23 | Open | -- |
+| PL-24 | Open | -- |
+| PL-25 | Open | -- |
+| PL-26 | Open | -- |
 
 ```yaml
 punch_index:
@@ -422,13 +550,13 @@ punch_index:
   severity: "High"
   category: Correctness
   question: Q4
-  source_finding: "L-05, 3.13, 3.15"
+  source_finding: "L-05, 3.13, 3.15, EP-1, EP-2, EP-36"
   outcome: "open"
 - id: PL-02
-  severity: "High"
+  severity: "Medium"
   category: Correctness
   question: Q1
-  source_finding: "L-06, T32 L-16"
+  source_finding: "L-06, T32 L-16, EP-5, EP-37, EP-38"
   outcome: "open"
 - id: PL-03
   severity: "Medium"
@@ -446,7 +574,7 @@ punch_index:
   severity: "Medium"
   category: Reliability
   question: Q4
-  source_finding: "L-23, the third cache shape"
+  source_finding: "L-23, the third cache shape, EP-19, EP-43"
   outcome: "open"
 - id: PL-06
   severity: "Medium"
@@ -485,10 +613,10 @@ punch_index:
   source_finding: "L-17, the floor's 3.41"
   outcome: "open"
 - id: PL-12
-  severity: "Low"
+  severity: "Medium"
   category: Correctness
   question: Q3
-  source_finding: "L-28, 3.21"
+  source_finding: "L-28, 3.21, EP-10"
   outcome: "open"
 - id: PL-13
   severity: "Low"
@@ -524,18 +652,54 @@ punch_index:
   severity: "Low"
   category: Correctness
   question: Q3
-  source_finding: "the floor's 3.1, 3.3, 3.4, 3.5, 3.10's aside, 3.14, 3.16, 3.17, 3.26, 3.28, 3.32, 3.34, 3.37; 3.20's sibling"
+  source_finding: "the floor's 3.1, 3.3 (the prefix case), 3.4, 3.5, 3.10's aside, 3.14, 3.32, 3.34; 3.20's sibling; EP-27 to EP-35"
   outcome: "open"
 - id: PL-19
   severity: "Low"
   category: Correctness
   question: Q2
-  source_finding: "L-09, L-10, L-11, L-02, L-04, the take-up row T2 `:293-294`, `02` § The words"
+  source_finding: "L-09, L-10, L-11, L-02, L-04, the take-up row T2 `:293-294`, `02` § The words, EP-14 to EP-17, EP-45, EP-47"
   outcome: "open"
 - id: PL-20
   severity: "Low"
   category: Structure
   question: Q7
   source_finding: "L-21, L-22"
+  outcome: "open"
+- id: PL-21
+  severity: "Medium"
+  category: Correctness
+  question: Q3
+  source_finding: "EP-42"
+  outcome: "open"
+- id: PL-22
+  severity: "Medium"
+  category: Correctness
+  question: Q3
+  source_finding: "EP-44"
+  outcome: "open"
+- id: PL-23
+  severity: "Medium"
+  category: Correctness
+  question: Q1
+  source_finding: "EP-39"
+  outcome: "open"
+- id: PL-24
+  severity: "Low"
+  category: Correctness
+  question: Q4
+  source_finding: "EP-40, EP-41, L-03"
+  outcome: "open"
+- id: PL-25
+  severity: "Low"
+  category: Correctness
+  question: Q1
+  source_finding: "EP-38, EP-8"
+  outcome: "open"
+- id: PL-26
+  severity: "Low"
+  category: Correctness
+  question: Q3
+  source_finding: "EP-46"
   outcome: "open"
 ```

@@ -140,12 +140,12 @@ One row per `Utils::FileSystem::exists(` line: 83 lines and 86 calls. Four calls
 The cache's rule is T21's file, cited from T32's Q4 and not re-read:
 - ES's own writes through `Utils::FileSystem` drop their path from the cache.
 - A file written outside the process is not seen until a launch resets the cache (`FileSystemUtil.cpp:345`). Examples are the cloud's game-content restore (D-CLOUD-049) and the player over SSH.
-- A third shape this slice adds: ES's own writes that do not go through `Utils::FileSystem`. These are `std::ofstream` (`CollectionSystemManager.cpp:345`) and `pugi::save_file` (`FileFilterIndex.cpp:1313`, `Gamelist.cpp:474`, `:622`, `:841`), and their paths are not dropped either.
+- A third shape this slice adds: ES's own writes that do not go through `Utils::FileSystem`. These are `std::ofstream` (`CollectionSystemManager.cpp:345`) and `pugi::save_file` (`FileFilterIndex.cpp:1313`, `Gamelist.cpp:474`, `:622`, `:841`), and their paths are not dropped either. The key maps are not among them: they write through `writeAllText` (EP-21).
 
 The four the brief names, with their dispositions:
 - **`Gamelist.cpp:413` (L-05):** the reader that can lose a player's data. The next save starts from an empty `<gameList>` and writes over the restored file.
-- **`SystemScreenSaver.cpp:157` and `:164` (L-11):** recorded, outside the lanes.
-- **`CaptureRotation.cpp:51`:** left cached on purpose, because it reads the image's read-only tree.
+- **`SystemScreenSaver.cpp:157` and `:164` (L-11):** recorded, outside the lanes. Each retry picks a new candidate, but a candidate whose miss is cached never becomes visible (EP-17).
+- **`CaptureRotation.cpp:51`:** left cached on purpose, because it reads the image's read-only tree. The four uncached reads are not full freshness: `sKnownAt`, keyed by mtime alone, answers first (`:103-108`, EP-41).
 
 {{READS}}
 
@@ -155,7 +155,7 @@ The table covers every network or script wait reachable from the 77, in three ki
 
 The brief's § 5 "HttpReq lines" (`OfflineAchievementsText.h:1`, `ScraperCmdLine.cpp:1`, `Win32ApiSystem.cpp:3`, `ZaparooSupport.cpp:5`) count every line naming HttpReq. The constructions among them are four: two live, both Zaparoo's, and two dead. The one option line is `ZaparooSupport.cpp:38`, a `connectTimeout`.
 
-The slice's own code sets no total or stall bound anywhere. The one bounded process is `CloudOffer.cpp:37`'s `timeout 90` (L-18: the bound is sound). The unbounded live waits are:
+The table is not exhaustive (EP-18). It rows direct constructions, process starts and named waits. The transitive calls through `ApiSystem` (`ContentInstaller.cpp:132-135`, `:206-209`; `ThreadedBluetooth.cpp:41-44`, `:102-105`) and the search component's fallback searches (`ScraperSearchComponent.cpp:652`, `:658`) are named here and not bounded by this read. The slice's own code sets no total or stall bound anywhere. The one bounded process is `CloudOffer.cpp:37`'s `timeout 90` (L-18: the bound is sound). The launcher's truncation of `exec.log` is not a size bound (EP-14). The unbounded live waits are:
 - L-01: es-core's lock reached from the interface thread;
 - L-09: Zaparoo's probe, its card and its lock, outside the lanes;
 - `retroarch.cfg`'s read after every exit (L-02).
@@ -205,13 +205,13 @@ The 176 `_("` lines, 223 calls and 196 distinct msgids, each against the French 
 
 The proposed text follows. A stage-E stream the coordinator writes adds it to `docs/es-menu-map.md`, in the same commit as any row that stream touches. The lane does not edit the map.
 
-- Under **`## What lives where`**, the GAME SETTINGS row's TOOLS group gains its first row. GAME COLLECTION's OPTIONS gains the same row:
-  > `UPDATE GAMELISTS` -- GAME SETTINGS > TOOLS (`guis/GuiMenu.cpp:5756`) and GAME COLLECTION SETTINGS > OPTIONS (`guis/GuiCollectionSystemsOptions.cpp:368`): one action in two places, the same call (`GuiMenu::updateGameLists`). It refuses while a scrape or the hasher runs (`GuiMenu.cpp:8501-8511`) and otherwise reloads the game lists. With INDEX NEW GAMES on, it ends in the hasher's toast INDEXING COMPLETED. UPDATE GAMELISTS TO APPLY CHANGES. (`ThreadedHasher.cpp:146`).
+- Under **`## What lives where`**, the GAME SETTINGS row's TOOLS group gains its first row:
+  > `UPDATE GAMELISTS` -- GAME SETTINGS > TOOLS (`guis/GuiMenu.cpp:5756`; seen on the guest, G-03). It asks REALLY UPDATE GAMELISTS?, then reloads the game lists. While a scrape or the hasher runs, it asks to stop that instead and returns (`GuiMenu.cpp:8501-8517`). The second entry, in GAME COLLECTION SETTINGS > OPTIONS (`guis/GuiCollectionSystemsOptions.cpp:366-369`), is inside `#if defined(WIN32) && !defined(_DEBUG)` and never on a handheld (EP-25; the stage-B draft gave it two homes). The index toast (`ThreadedHasher.cpp:146`) is not promised: the guest did not show it.
 - A new short section, **`## Game list filters`**, after `## What lives where`:
-  > **FILTER GAMELIST BY** -- a page of its own (`guis/GuiGamelistFilter.cpp:11`), opened from a game list's VIEW OPTIONS > NAVIGATION > OTHER FILTERS (`guis/GuiGamelistOptions.cpp:77-79`, `:435`). Each row is a facet of the system's `FileFilterIndex`; BACK applies the choice (`applyFilters`, `:39`, `:226-263`). Where a system's choice is kept across a restart is read at stage C before this text is final.
+  > **FILTER GAMELIST BY** -- a page of its own (`guis/GuiGamelistFilter.cpp:11`), opened from a game list's VIEW OPTIONS > NAVIGATION > OTHER FILTERS (`guis/GuiGamelistOptions.cpp:77-79`, `:435`). Each row is a facet of the system's `FileFilterIndex`; BACK applies the choice to the in-memory index (`applyFilters`, `:39`, `:226-263`). The page saves nothing for an ordinary filter (EP-26); whether another component persists it is not established.
   >
-  > **EDIT DYNAMIC COLLECTION FILTERS** -- the same page over a dynamic collection's index (`guis/GuiGamelistFilter.cpp:17`). It is opened from that collection's VIEW OPTIONS > DYNAMIC COLLECTION (`guis/GuiGamelistOptions.cpp:174-176`, `:603`) and from GAME COLLECTION SETTINGS when a dynamic collection is made (`guis/GuiCollectionSystemsOptions.cpp:495`). Its choices are written to the collection's `.xcc` in place (`FileFilterIndex.cpp:1313`, L-23).
-- The check's half is named for the coordinator: a fourth pattern, `\bmMenu\s*\(\s*\w+\s*,\s*_\("([^"]+)"\)`, would let `tools/es-menu-map-check` see both titles. That is a change under `tools/`, which this lane does not make.
+  > **EDIT DYNAMIC COLLECTION FILTERS** -- the same page over a dynamic collection's index (`guis/GuiGamelistFilter.cpp:17`). It is opened from that collection's VIEW OPTIONS > DYNAMIC COLLECTION (`guis/GuiGamelistOptions.cpp:174-176`, `:603`) and from GAME COLLECTION SETTINGS when a dynamic collection is made (`guis/GuiCollectionSystemsOptions.cpp:495`). Its choices are written to the collection's `.xcc` in place (`FileFilterIndex.cpp:1313`, L-23), and the page closes as saved whatever `save()` returned (`GuiGamelistFilter.cpp:262-270`, EP-43); creating one reloads the collection on finalize (`GuiCollectionSystemsOptions.cpp:495-504`).
+- The check's half is named for the coordinator: a fourth pattern, `\bmMenu\s*\(\s*\w+\s*,\s*_\("([^"]+)"\)`, would let `tools/es-menu-map-check` see both titles. It may find other pages too, so its census is rerun with it (EP-26). That is a change under `tools/`, which this lane does not make.
 
 ## The merge debt
 
@@ -235,7 +235,7 @@ Stage A's runs are in `stage-a/runs.out` (brief § 5's block, each expectation m
 | the French, both bases | `es-untranslated` 706/706 and 703/703, rc 0 | a fork string without French | `stage-a/runs.out` |
 | the reads | 83 lines, 86 calls, 4 uncached | a read the table does not name | `tools/t33-reads.py` |
 | the writes | 11 lines (9 compiled, 2 dead) | a writer the table does not name | `tools/t33-writes.py` |
-| the bounds | 4 http, 6 process, 4 waits; 2 bounded, 7 dead | a wait the table does not name | `tools/t33-bounds.py` |
+| the bounds | 4 http, 6 process, 4 waits; 1 bounded, 7 dead (EP-14: the log read is not bounded) | a wait the table does not name | `tools/t33-bounds.py` |
 | the library | 11 units, each cited caller line holding its call | a fact read off a moved line | `tools/t33-library.py` |
 | the helpers | 17 units in 27 files; 12 with a case, 7 built | a unit with a case nobody runs, unnamed | `tools/t33-helpers.py` |
 | the map | `55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing` rc 0 | an undeclared screen | `stage-a/runs.out` |
@@ -271,8 +271,8 @@ Written by the coordinator after stage D, as for T21, T26 and T32. The lane leav
 
 ## Positives
 
-- **The fork's helpers are pure where it matters.** Seven units with built cases (CloudFolderValidation 4, CheevosRetry 7, OfflineAchievementsText 15, CheevosIndex 6, WifiText 19, CaptureRotationText 8, DisplayAspectText 3; brief § 5's counts; the total is stage C's `TOTAL:` line) are string-in/string-out and fail closed (`CloudFolderValidation`'s `document()` refuses empty, oversized, NUL and an unknown schema).
-- **CaptureRotation reads its four mutable inputs uncached and trusts its record only with `from=checked-launch`** (`:124`): a cut or foreign record reads as untrusted, the benign direction.
+- **The fork's helpers are mostly pure.** Seven units with built cases (CloudFolderValidation 4, CheevosRetry 7, OfflineAchievementsText 15, CheevosIndex 6, WifiText 19, CaptureRotationText 8, DisplayAspectText 3; brief § 5's counts; the total is stage C's `TOTAL:` line) are string-in/string-out, and `CloudFolderValidation`'s `document()` fails closed (it refuses empty, oversized, NUL and an unknown schema). `OfflineAchievementsText`'s `parseUnlocks` does not: a missing `Success` or a list of invalid entries reads `ok` (EP-42).
+- **CaptureRotation trusts its record only with `from=checked-launch`** (`:124`): a cut or foreign record reads as untrusted, the benign direction. (Narrowed by EP-40 and EP-41: the running process caches by mtime after an unchecked write.)
 - **`AppWindow::post`'s two locks are taken in one order everywhere** (brief § 2, confirmed): the gate, then `Window::mNotificationMessagesLock`.
 - **CloudOffer's dialogs put the safe choice last**, where back lands (NOT NOW), and its script carries its own bound (`timeout 90`).
 - **Every msgid the 77 carry has French at the pin** (196 of 196). The three that FileTag never passes through `_()` are L-25, the exception that check cannot see.

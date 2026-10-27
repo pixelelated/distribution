@@ -27,12 +27,12 @@ PAT = re.compile(r"save_file\(|writeAllText\(|std::ofstream")
 # (file, line, what it writes and its tier, how, last good copy, Already written, disposition)
 ROWS = [
     ("CaptureRotation.cpp", 175, "a game's `.rotation` record beside its save states (saves tier, synced)", "in place (`writeAllText`)", "none",
-     "a cut record lacks `from=checked-launch` and reads as untrusted (`:124`): the core's table stands in and the next exit rewrites it -- benign", "L-03: Backlog #1186's site (§ 1 e); temp-and-rename through `AtomicFile::writeText`"),
+     "a cut record lacks `from=checked-launch` and reads as untrusted (`:124`), the core's table standing in; but the running process caches the new turns with the destination's mtime after an unchecked write (`:175-180`, EP-40), so a failed write reads as the new rotation until restart", "L-03: Backlog #1186's site (§ 1 e); temp-and-rename through `AtomicFile::writeText`"),
     ("CollectionSystemManager.cpp", 345, "a custom collection's `custom-<name>.cfg` (settings tier, in backuptool's archive)", "in place (`std::ofstream`, truncate then write, no error check)", "none",
      "a cut list reads as a shorter collection: the games past the cut are silently out of it, and the next save writes the shorter list back", "L-23: a stream (temp-and-rename through `AtomicFileUtil`, which also drops the cache entry `:1610`/`:1613` remember)"),
     ("CustomFeatures.cpp", 151, "nothing: `c:\\temp\\test.xml` inside a /* */ block", "dead text", "--", "nothing inherited: the line never compiled", "left: upstream's comment"),
     ("FileFilterIndex.cpp", 1313, "a dynamic collection's filter `.xcc` (settings tier, in backuptool's archive)", "in place (`pugi::save_file`)", "none",
-     "a cut `.xcc` is a parse error: `CollectionFilter::load` returns false and the collection reads as having no filter (every game)", "L-23: a stream, as `:345`"),
+     "a cut `.xcc` is a parse error: `CollectionFilter::load` returns false and the collection is left empty (`CollectionSystemManager.cpp:1114-1124` clears, then adds only on a successful load; EP-19); the page that saved it ignores `save()`'s result (EP-43)", "L-23: a stream, as `:345`"),
     ("Gamelist.cpp", 308, "`saveToXml`: the launch's `%GAMEINFOXML%` file (`FileData.cpp:639`) or a gamelist recovery file (`:336`)", "remove (`:307`) then `pugi::save_file`: no file between", "none",
      "a cut recovery file is a parse error at the next load and the entry is not recovered; the launch's file is rewritten every launch", "Backlog #1186's site (§ 1 e)"),
     ("Gamelist.cpp", 474, "`updateGamelist`: the system's `gamelist.xml` (game content tier, D-CLOUD-049, synced)", "in place (`pugi::save_file`)", "none",

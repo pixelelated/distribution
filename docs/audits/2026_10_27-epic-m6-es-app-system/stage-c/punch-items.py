@@ -215,3 +215,109 @@ ITEMS = [
   acc=["#1235 names `ScraperCmdLine.*` (a comment link in `stage-e/`)."],
   disp="question: recorded, `ScraperCmdLine` to #1235?"),
 ]
+
+# ---- After the seat (stage-c/astra-grades.md, 47 items accepted, 20:03 UTC): each change cites its EP. ----
+I = {i["id"]: i for i in ITEMS}
+I["PL-01"]["src"] = "L-05, 3.13, 3.15, EP-1, EP-2, EP-36 -- proved: fixture (`stage-c/l313-update-gamelist.py`); guest (G-04, with its control)"
+I["PL-01"]["what"] += ["**EP-36:** even with a fresh read, a dirty game's whole node is removed and rebuilt from memory (`:449-459`), so the restored description and art of *that* game are lost; and a writer between the read (`:416`) and the write (`:474`) is a lost update.",
+                       "**EP-1:** an unreadable `gamelist.xml` is logged and then overwritten (`:416-424`)."]
+I["PL-01"]["fix"] = ["the reads uncached: `:413`, `getGamelistPath` (`SystemData.cpp:1652-1663`), and `packGamelist`'s and `cleanupGamelist`'s media probes (`:595-605`, `:702-752`; EP-2);",
+                     "a field-level merge of a dirty game's node with the file's (EP-36), and no overwrite of a file that did not parse (EP-1);",
+                     "the three writes temp-and-rename, with the cache entry dropped explicitly (EP-19);",
+                     "the startup order checked: `packGamelist` clears recovery before `parseGamelist` reads it (EP-2)."]
+I["PL-01"]["acc"].insert(1, "The fixture gains a same-game case (a restored description on the dirty game) that FAILs at the pin and passes on the fix (EP-36).")
+I["PL-02"]["title"] = "a dynamic collection's reload frees the games a view's cursor may hold, then reads the bundle view's cursor; the route from the bundle is not established (a `bug` proposed, conditional; upstream's reload, #246's shape)"
+I["PL-02"]["sev"] = "Medium"
+I["PL-02"]["src"] = "L-06, T32 L-16, EP-5, EP-37, EP-38 -- proved: fixture (`stage-c/l06-reload-collection.py`, the mechanism); the caller route open (EP-5)"
+I["PL-02"]["what"] += ["**EP-5:** `GuiGamelistOptions.cpp:424` reloads the collection only when the system is not the bundle, and `ISimpleGameListView.cpp:461-462` reloads by the root's system. A route from the bundle is not established. A **non-bundled** dynamic collection's own view is cleared by `:1117` and not remade by `reloadCollection`: a further lead.",
+                       "**EP-37:** `moveToFolder` is called on the retained old view, not the remade one (`:1586-1593`).",
+                       "**EP-38:** the screensaver keeps `FileData*` (`SystemScreenSaver.cpp:350-358`) that no retirement shown clears."]
+I["PL-02"]["fix"] = ["every view holding the collection's games dropped before the clear and remade after from the cursor's path (`es-code-traps.md:191`); the remade view moved (EP-37); the caller route established before the stream (a read of `ISimpleGameListView.cpp:445-464`'s callers)."]
+I["PL-02"]["disp"] = "question: a `bug` under rule 6 once the route is read (the mechanism is proved), or recorded with the lead?"
+I["PL-03"]["what"][0] = "The builder runs `Scraper::search` on a thread it news (`:206`). `update()` joins it after a completed search and then drops the pointer without deleting it (`:230-233`; EP-6: the first reader's \"never joined\" was wrong). The class has no destructor."
+I["PL-03"]["fix"] = ["one ownership scheme: the builder owns its thread, joins only when `joinable()`, deletes it; `mFinished` atomic; `stop()` does not join on the interface thread (EP-6); L-08's second search through the same builder."]
+I["PL-05"]["src"] = "L-23, the third cache shape, EP-19, EP-43 -- proved: tool-run (`t33-writes.py`, `t33-reads.py`)"
+I["PL-05"]["what"] = ["Both files are in the settings tier backuptool archives, written in place: `custom-<name>.cfg` by `std::ofstream` with no error check (`:345`), the `.xcc` by pugixml (`:1313`). A cut `.cfg` reads as a shorter collection, which the next save writes back; a cut `.xcc` is a parse error, and the collection is left **empty** (`:1114-1124`; EP-19).",
+                      "Neither writer goes through `Utils::FileSystem`, so a path whose miss the cache remembered (`:963`) stays absent: `deleteCustomCollection` (`:1609-1614`) falls to the `.cfg`, or returns false.",
+                      "**EP-43:** the filter page discards `save()`'s result and closes as saved (`GuiGamelistFilter.cpp:262-270`)."]
+I["PL-05"]["fix"] = ["both writes temp-and-rename with the cache entry dropped explicitly (`FileSystemUtil.cpp:348-350`'s reset, EP-19); the delete's checks uncached; the page keeps its choices and says so when `save()` fails (EP-43)."]
+I["PL-06"]["what"].append("**EP-7:** this is a closing-protocol violation, not a dangling write; routing the posts through the gate drops a completed token write rather than saving it, so the stream states the drain policy.")
+I["PL-11"]["what"] = ["`jsonInt`'s `(int)v.GetInt64()` narrows an id (`:17-20`), and the id fields are `int`. The epoch is `time_t` via `strtoll` (`:229-231`; EP-12: the first reader had it as `int`). Out-of-range input needs a defined outcome."]
+I["PL-12"]["sev"] = "Medium"
+I["PL-12"]["src"] = "L-28, 3.21, EP-10 -- proved: fixture (`stage-c/l321-keys-parse.py`); guest (G-08)"
+I["PL-12"]["what"][1] = "**EP-10:** under NDEBUG, `GetString` with no `IsString` at `:251`, `:254`, `:257` (type, mode, description), `:265-266`, `:271-272` (triggers) and `:282-283`, `:288-289` (targets), and no `IsObject` before `HasMember` (`:246-250`), are undefined behaviour on a hand-edited file. The `GetArray` calls are guarded. A chord with one unknown trigger loses it and changes meaning."
+I["PL-12"]["disp"] = "question: a `bug` under rule 6 (memory safety on a player file, EP-10), or recorded with a #585 line (outside the lanes)?"
+I["PL-13"]["what"].append("**EP-11:** the cases' rule (one star for any positive rating; any four digits a year) is a proposed policy, and `1 STARS` is an index key whose display is not yet read.")
+I["PL-14"]["owner"] = "`es-core/src/watchers/WatchersManager.cpp:80-100`, `:181-199` (T21's file); `NetworkThread.cpp:21-25` <- `guis/GuiRetroAchievementsSettings.cpp:805-806` and `NetworkThread.cpp:257` (EP-13: the brief's `:191` is a comment and `:257` a weak-pointer test)"
+I["PL-14"]["fix"] = ["`check()` run outside `mWatchersLock` with the registry's lifetime kept (unregistering deletes the `WatcherInfo`, `:80-86`; EP-13), or `nextCheckTime` under a lock of its own (rule 6, T21's file named)."]
+I["PL-16"]["what"] = ["`writeAllText` in place, its result unread (`CaptureRotation.cpp:175`, `KeyboardMapping.cpp:426`, `:429`), and remove-then-save with no file between (`Gamelist.cpp:307-308`; EP-3: a failed save destroys the previous recovery record)."]
+I["PL-17"]["what"] = ["The proposed text is in `02` § The structure: UPDATE GAMELISTS has **one** handheld home, GAME SETTINGS > TOOLS; the collection-settings entry is Windows-only (`GuiCollectionSystemsOptions.cpp:366-369`; EP-25). The check reads three title shapes and misses `mMenu(window, _(\"...\"))` in a member initializer (#951/#965's class); the fourth pattern's census is rerun (EP-26)."]
+I["PL-17"]["acc"] = ["`grep -c -E 'FILTER GAMELIST BY|EDIT DYNAMIC COLLECTION FILTERS|UPDATE GAMELISTS' docs/es-menu-map.md` prints 3 or more, the UPDATE GAMELISTS row names GAME SETTINGS > TOOLS alone, and `tools/es-menu-map-check` prints `0 missing`."]
+I["PL-18"]["src"] = "the floor's 3.1, 3.3 (the prefix case), 3.4, 3.5, 3.10's aside, 3.14, 3.32, 3.34; 3.20's sibling; EP-27 to EP-35 -- proved: tree (`stage-c/floor.md`)"
+I["PL-18"]["what"].append("**Removed by the seat as not defects:** 3.26 (EP-30), 3.28 (EP-31), 3.37 (EP-32); 3.16 and 3.17 narrowed to preconditions (EP-28, EP-29); 3.3's default omission is a contract (EP-27); 3.10's empty/empty is 0 (EP-33).")
+I["PL-19"]["src"] = "L-09, L-10, L-11, L-02, L-04, the take-up row T2 `:293-294`, `02` § The words, EP-14 to EP-17, EP-45, EP-47 -- proved: tool-run, tree, guest (G-06)"
+I["PL-19"]["what"].append("**EP-45:** Zaparoo's card write is `req.wait()` alone, and the name is inserted raw into JSON (`ZaparooSupport.cpp:58-63`). **EP-47:** Bluetooth's worker, started in the constructor, can delete itself (`ThreadedBluetooth.cpp:39-47`) before `start()` publishes it (`:58`). **EP-14:** L-02's log read has no size bound.")
+I["PL-19"]["disp"] = "question: recorded as listed, or EP-47's publication race (a use-after-free) raised to a `bug` under rule 6?"
+ITEMS += [
+ dict(id="PL-21", title="a malformed unlocks reply reads as known, empty progress (a `bug` proposed; the fork's helper, the offline achievements lane)",
+  sev="Medium", cat="Correctness", q="Q3", fam="a check whose failure reads as success",
+  src="EP-42 -- proved: tree (`OfflineAchievementsText.cpp:183-200`, the first reader's read)",
+  owner="`es-app/src/OfflineAchievementsText.cpp:183-200` (`parseUnlocks`), `:99-112`, `:120-148`; `OfflineAchievementsText.h:84-90`",
+  what=["`parseUnlocks` rejects only a boolean-false `Success` (`:187`); a missing or non-bool one passes, every invalid list entry is skipped, and `ok = true` (`:199`): `{\"Success\":\"false\",\"UserUnlocks\":[{}]}` reads as known with no unlocks, against the header's own contract (`.h:84-90`). The patch and set readers set `ok` without the `Success` check (`:99-112`, `:120-148`)."],
+  fix=["`Success` required true and boolean; a list whose entries are all invalid is not `ok`; the documented all-unofficial set kept (`.h:75-76`); cases in `OfflineAchievementsTextTests.cpp` (T20's delta named as a collision)."],
+  vm="Yes. Cases in `es-unit-tests`.",
+  aw="nothing inherited: a reply is parsed when it arrives; a wrongly empty reading is replaced by the next good reply.",
+  acc=["New `OfflineAchievementsTextTests.cpp` cases (a missing `Success`, a string `Success`, a list of only invalid entries) FAIL at the pin and pass on the fix (`stage-e/`)."],
+  disp="question: a `bug` (the fork's lane), or T20's file?"),
+ dict(id="PL-22", title="`FileFilterIndex::resetIndex` clears copies of its indexes, so a reset keeps every old key (a `bug` proposed; upstream's filter)",
+  sev="Medium", cat="Correctness", q="Q3", fam="a check whose failure reads as success",
+  src="EP-44 -- proved: tree (`FileFilterIndex.cpp:146-160`, `:1102-1105`)",
+  owner="`es-app/src/FileFilterIndex.cpp:1102-1105` (`clearIndex`), `:154-160` (`resetIndex`); caller `CollectionSystemManager.cpp:1114`",
+  what=["`clearIndex(std::map<std::string, int> indexMap)` takes the map by value and clears the copy. `resetIndex` calls it for every facet, so a dynamic collection's repopulate (`:1114`) and every other reset keep the old keys and counts: the filter pages offer values no game has."],
+  fix=["`clearIndex(std::map<std::string, int>& indexMap)`; a unit case over a populated index."],
+  vm="Yes. A unit case; a frame of FILTER GAMELIST BY after a reset on the integration image.",
+  aw="nothing inherited: the index is built in memory.",
+  acc=["A unit case populates an index, calls `resetIndex`, and asserts the facet maps are empty; it FAILs at the pin (`stage-e/`)."],
+  disp="question: a `bug` under rule 6 (one character), a #585 line?"),
+ dict(id="PL-23", title="a token check in flight writes the token back after the player turned achievements off (a `bug` proposed; the fork's NetworkThread, the achievements lane)",
+  sev="Medium", cat="Correctness", q="Q1", fam="a lifetime or a thread",
+  src="EP-39 -- proved: tree (`NetworkThread.cpp:260-272`, `GuiRetroAchievementsSettings.cpp:793-799`)",
+  owner="`es-app/src/NetworkThread.cpp:130-138`, `:260-272`; `guis/GuiRetroAchievementsSettings.cpp:795-796`",
+  what=["The check snapshots the credentials, signs in, and posts only the returned token; the interface writes it (`:266-270`) with no account or generation check. Turning achievements off clears the token (`GuiRetroAchievementsSettings.cpp:795-796`); a check already running writes it back."],
+  fix=["the result carries the account and a settings generation, and is dropped when either changed; with PL-06's gate."],
+  vm="Yes, with a blocked sign-in double in a harness over the two functions (`fixture`).",
+  aw="a token written back on a device after a disable stays in `system.cfg` until the next disable or sign-in; the fix's next check overwrites it.",
+  acc=["A fixture blocks the sign-in, clears the token, releases the old result, and asserts the token stays empty; it FAILs at the pin (`stage-e/`)."],
+  disp="question: a `bug` (the fork's lane), with PL-06 in one stream?"),
+ dict(id="PL-24", title="the rotation record is cached as written though the write is unchecked, and the cache is keyed by mtime alone (a `bug` proposed; the fork's helper)",
+  sev="Low", cat="Correctness", q="Q4", fam="a read of a file another process writes",
+  src="EP-40, EP-41, L-03 -- proved: tree (`CaptureRotation.cpp:100-110`, `:174-181`)",
+  owner="`es-app/src/CaptureRotation.cpp:100-110` (`read`'s `sKnownAt`), `:174-181` (`write`)",
+  what=["**EP-40:** `writeAllText`'s result is not read; the new turns are cached with the destination's mtime (`:179-180`), so a failed write reads as the new rotation until restart.",
+        "**EP-41:** `sKnownAt` answers by mtime alone (`:103-108`), before the uncached probe: a record replaced (by the cloud's saves tier) with the same mtime returns the old turns."],
+  fix=["cache only after a checked write; key the cache by mtime and size (or reread the few bytes); with PL-16's helper for the write."],
+  vm="Yes. A fixture over `read` and `write` with a failing write double and a same-mtime replacement.",
+  aw="nothing inherited: the cache is in memory; a record on disk is read the same way.",
+  acc=["A fixture with a failing write and one with a same-mtime replacement each FAIL at the pin and pass on the fix (`stage-e/`)."],
+  disp="question: a `bug`, or with PL-16 under #1186?"),
+ dict(id="PL-25", title="the screensaver keeps `FileData` pointers the rescan does not retire (a lead; upstream's screensaver, outside the lanes)",
+  sev="Low", cat="Correctness", q="Q1", fam="a lifetime or a thread",
+  src="EP-38, EP-8 -- proved: tree (a lead; the retirement paths outside the packet)",
+  owner="`es-app/src/SystemScreenSaver.cpp:342-358`, `:378-380`, `:538-548`; `SystemData.cpp:459-473` (outside the slice)",
+  what=["The media list and `mCurrentGame` hold raw `FileData*`; the rescan's retirement shown removes collection and group holders, not the screensaver's. Not reproduced."],
+  fix=["the screensaver's holders on L-15's retirement checklist; or the screensaver stores paths, as `DisplayAspect` does."],
+  vm="Yes: prime the screensaver, remove a ROM, rescan, select its media under an ASan build (an image with ASan is not available; a fixture first).",
+  aw="nothing inherited.",
+  acc=["A read of the rescan's invalidation paths names whether the screensaver's list is cleared (`stage-e/`), and a fixture follows if it is not."],
+  disp="question: recorded as a lead for the rescan's owner?"),
+ dict(id="PL-26", title="a mouse-only key map loads and saves but is called invalid (recorded; upstream's, outside the lanes)",
+  sev="Low", cat="Correctness", q="Q3", fam="a check whose failure reads as success",
+  src="EP-46 -- proved: tree (`KeyboardMapping.cpp:499-509`)",
+  owner="`es-app/src/KeyboardMapping.cpp:178-181`, `:293-294`, `:499-509`; `guis/GuiGamelistOptions.cpp:262-267`",
+  what=["A mouse mapping needs no targets and is accepted by the loader and writer, but `isValid()` requires targets on some mapping, so a file of mouse mappings alone is invalid and its information row is hidden."],
+  fix=["`isValid()` accepts a mouse mapping with a trigger."],
+  vm="Yes. A unit case.",
+  aw="nothing inherited.",
+  acc=["`02` § The #585 lines owed carries this item's line (a grep in `stage-e/`)."],
+  disp="question: recorded with a #585 line?"),
+]

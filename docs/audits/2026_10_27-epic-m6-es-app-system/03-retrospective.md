@@ -19,7 +19,7 @@ Read at the ES pin `16dbac5211` over the 77 paths of brief § 2: the game lists,
 - **D-CLOUD-049 (`gamelist.xml` is game content and is restored):** broken end to end by L-05. A `gamelist.xml` that arrives after the session's first look is read as absent and overwritten with the dirty entries alone (3.13 on the host; G-04 on the image, with its control).
 - **D-UI-051 (every string ships in English and French):** met for the 196 msgids the 77 pass through `_()`. Three player words never pass through it: FileTag's IN PROGRESS, DROPPED and ON HOLD (L-25, 3.29).
 - **`es-ui-style-guide.md` § Confirmations:** CloudOffer's two dialogs put NOT NOW last, where back lands. The scraper search's two upstream boxes do not use the fork's dialect: one is an English sentence through `toUpper` with a bare `"FINISH"`, and one carries a tool's error text (`02` § The words; outside the lanes).
-- **D-UI-039 (the map):** two pages and one row are absent from `docs/es-menu-map.md`. `tools/es-menu-map-check` cannot see the pages, because their titles are passed in a member initializer (`02` § The structure). The coordinator recorded this as #951/#965's class.
+- **D-UI-039 (the map):** two pages and one row are absent from `docs/es-menu-map.md`. UPDATE GAMELISTS has one handheld home: its collection-settings entry is Windows-only (EP-25). `tools/es-menu-map-check` cannot see the pages, because their titles are passed in a member initializer (`02` § The structure). The coordinator recorded this as #951/#965's class.
 
 ## 3.3 Spec fidelity
 
@@ -42,17 +42,17 @@ The brief's figures, read at the pin, all hold (stage A; `02` § The runs). Wher
 ### Interaction: the cloud's game-content restore x `Gamelist.cpp:413`'s cached read x the exit's `updateGamelist`
 A restore writes `gamelist.xml` outside ES. The cache answers `:413` with the miss it remembered. The next save of any dirty game (a favourite, a play count) writes a `<gameList>` holding the dirty entries alone over the restored file. The player loses every scraped description and picture reference the restore brought. proved: 3.13 (host, FAIL then control PASS); G-04 (image, with a control system byte-identical).
 
-### Interaction: EDIT DYNAMIC COLLECTION FILTERS x `reloadCollection(name, true)` x `ViewController::reloadGameListView`
-From the bundle's view, with the cursor on a game in a dynamic collection, a filter change reloads the collection. `populateCustomCollection` clears the collection's root, which is the bundle's child (`:1302`). The reload then reads the freed cursor (`ViewController.cpp:1140-1142`), the #246 shape. proved: `stage-c/l06-reload-collection.py` (a heap-use-after-free under ASan at the pin; the control, reading the cursor before the clear, is clean). Not reproduced on the guest: G-02 drove a plain collection.
+### Interaction: a dynamic collection's reload x `reloadCollection(name, true)` x `ViewController::reloadGameListView`
+**Narrowed by the seat (EP-5):** the route from the bundle is not established. `GuiGamelistOptions.cpp:424` excludes the bundle, and `ISimpleGameListView.cpp:461-462` reloads by its root's system. A non-bundled dynamic collection's own view is a further lead, because `:1117` clears its games and `reloadCollection` remakes only the bundle's view. The mechanism, when reached: `populateCustomCollection` clears the collection's root, which is the bundle's child (`:1302`). The reload then reads the freed cursor (`ViewController.cpp:1140-1142`), the #246 shape. proved: `stage-c/l06-reload-collection.py` (a heap-use-after-free under ASan at the pin; the control, reading the cursor before the clear, is clean), for the mechanism; the caller route is open. Not reproduced on the guest: G-02 drove a plain collection. It also moves the retained old view, not the remade one (`:1586-1593`, EP-37).
 
 ### Interaction: the scrape page's stop x `ScraperAsyncRequestsBuilder`'s thread x a slow token or hash
-`stop()` and the destructor drop the builder while its thread runs `Scraper::search`. The class has no destructor and never joins or deletes its thread, so the thread writes into freed memory when the search returns. proved: `stage-c/l07-search-builder.py` (a heap-use-after-free at the pin; the control's destructor is clean).
+`stop()` and the destructor drop the builder while its thread runs `Scraper::search`. The class has no destructor; `update()` joins the thread after a completed search, then drops the pointer without deleting it (`:230-233`, EP-6). A builder dropped before completion is never joined, so its thread writes into freed memory when the search returns. proved: `stage-c/l07-search-builder.py` (a heap-use-after-free at the pin; the control's destructor is clean).
 
 ### Interaction: `main()`'s end x `AppWindow::closing()` x NetworkThread's watchers
 Between `closing()` (`main.cpp:1322`) and `WatchersManager::stop()` (`:1330`), a watcher's check can still post directly. Its task lands in a queue no loop will run, and `:266`'s token write is such a task. Sound by order, unsound by the fork's own rule. proved: `stage-c/l12-network-posts.py`.
 
 ### Interaction: a deleted custom collection x the session cache x the writers that bypass it
-`deleteCustomCollection` (`:1610`, `:1613`) asks the cache for a file `std::ofstream` wrote this session. If an earlier read remembered the miss (`:963` reads the same `.xcc` path), the delete returns false and the file stays. Read, not run (`02` § The reads).
+`deleteCustomCollection` (`:1610`, `:1613`) asks the cache for a file pugixml or `std::ofstream` wrote this session. If an earlier read remembered the miss (`:963` reads the same `.xcc` path), the delete falls to the `.cfg`, or returns false when that too reads absent (EP-19). Read, not run (`02` § The reads).
 
 ## 3.6 Time to play
 

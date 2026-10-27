@@ -1,6 +1,6 @@
 """02 § The bounds: every network or script wait reachable from T33's 77 paths (#680, Q2).
 
-    python3 -I t33-bounds.py <es worktree> <commit> <paths.txt> [http=4,process=6,waits=4,bounded=2]
+    python3 -I t33-bounds.py <es worktree> <commit> <paths.txt> [http=4,process=6,waits=4,bounded=1]
 
 Three kinds of row:
 - **http**: an HttpReq constructed (`new HttpReq(` or on the stack), read by
@@ -12,6 +12,9 @@ Three kinds of row:
   (`(system|popen)(`, `runSystemCommand(`, `executeScript`).
 - **waits**: a wait the grep cannot see, named by L-01, L-02 and L-09 and
   matched by a pattern that must hit exactly one line in its file.
+Not exhaustive (EP-18): the transitive calls through ApiSystem (the
+installer's `installBatocera*`, Bluetooth's scan and format) and the
+search component's fallback searches are named in 02, not rowed here.
 A row is "bounded" when something ends it however the far side behaves: a
 total or stall timeout, or a `timeout N` prefix on the command. Win32 rows
 are dead (`#if WIN32`, :1-:1267, L-21) and counted apart.
@@ -46,7 +49,7 @@ WAITS = [
     ("NetworkThread.cpp", r"WatchersManager::getInstance\(\)->ResetComponent\(sCheevosToken\)", "`checkCheevosTokenSoon` -> es-core's `ResetComponent`, which takes `mWatchersLock` (`WatchersManager.cpp:92-100`)",
      "the interface thread (`guis/GuiRetroAchievementsSettings.cpp:806`, `:257`, `:191`)", "as long as the watcher thread holds `mWatchersLock` across every `check()` (`WatchersManager.cpp:181-196`), each of which may be a network call", False, "L-01: rule 6, es-core's lock (T21's file) put to the pause"),
     ("CaptureRotation.cpp", r"readAllText\(LAUNCH_LOG\)", "the whole `/var/log/exec.log`, read and scanned", "the interface thread, after every RetroArch exit (`FileData.cpp:1166-1167`)",
-     "the launcher's truncation (#280): the log is this session's only", True, "L-02: priced by the retro's time-to-play line (G-03's `stat`)"),
+     "none: the launcher's truncation (#280) stops accumulation across launches, not the size of one session's log (EP-14)", False, "L-02: priced by the retro's time-to-play line (G-03's `stat`)"),
     ("CaptureRotation.cpp", r"readAllText\(RETROARCH_CONFIG\)", "`retroarch.cfg`, read and scanned", "the interface thread, after every RetroArch exit",
      "none: the file's size, which nothing bounds (L-02: the launcher's truncation covers only the log)", False, "L-02"),
     ("ZaparooSupport.cpp", r"std::unique_lock<std::mutex> lock\(mZaparooLock\)", "`mZaparooLock` taken by `isZaparooEnabled`", "whichever thread asks second, the game-options page among them",

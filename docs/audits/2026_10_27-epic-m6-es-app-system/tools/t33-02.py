@@ -40,7 +40,7 @@ tables = {
     "HELPERS": gen("t33-helpers.py", PATHS, "units=17,cases=12,built=7,files=27"),
     "WRITES": gen("t33-writes.py", PATHS, "lines=11"),
     "READS": gen("t33-reads.py", PATHS, "lines=83,calls=86,uncached=4"),
-    "BOUNDS": gen("t33-bounds.py", PATHS, "http=4,process=6,waits=4,bounded=2"),
+    "BOUNDS": gen("t33-bounds.py", PATHS, "http=4,process=6,waits=4,bounded=1"),
     "WORDS": gen("t33-words.py", PATHS, "lines=176,calls=223,msgids=196,empty=0,missing=0"),
 }
 

@@ -86,3 +86,17 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
 - **The floor's 35 rows** (`stage-c/floor.md`, the subagent's read, labelled): PRESENT 16, ABSENT 18, NO-DEFECT-CLAIM 1. The first reader re-read five at their lines. **One new defect worth a punch item:** 3.8's `Genres.cpp:304` dereferences the end iterator (`g` for `sg`). Also re-read: `FileData.cpp:1659`'s off-by-one (T2 FD-15's sibling, outside the slice) and `FileFilterIndex.cpp:579-580`'s 520 KB of stack.
 - **The packet** (`stage-c/packet.py`, T32's adapted): 201 sections, 539,134 bytes, sha256 in `second-opinions/packet-manifest.json`. The forbidden-terms check found 0 sections with hits and was proven to run on a clean line. `SECRET_PATTERNS` found 0 lines and was proven to fire on a run-time fake. The words scan left 0 for review: 35 code hits and 4 prose hits were dispositioned by `(file, line)` after a masked read. 6,399 of 16,276 slice lines were sent, 29 files whole. `astra-brief.md` is the packet.
 - **Keyed call 1 of 2, the probe** (19:31:25 to 19:31:43 UTC, rc 0): `READY unknown`, served `openai/gpt-6-astra` by OpenAI at `max`; identity, effort and provider verification PASS.
+- **Keyed call 2 of 2, the refutation** (19:41:52 to 20:01:31 UTC, rc 0): served `openai/gpt-6-astra` by OpenAI at `max`; identity, effort and provider verification PASS; 167,998 prompt tokens and 43,931 completion tokens. **Exactly two keyed invokes, and no others.**
+- **The grades** (`stage-c/astra-grades.md`): 47 items, all accepted, each checked at the pin's lines.
+  - **Corrections to this reader, fixed in place:**
+    - L-06's bundle route is not established (EP-5);
+    - L-07's thread *is* joined in `update()` (EP-6);
+    - L-02's log read is not bounded (EP-14);
+    - `SystemScreenSaver.cpp:375` is media, not the title folder (EP-17);
+    - the bounds table is not exhaustive (EP-18);
+    - the `.xcc` is pugixml's, and a cut one empties the collection (EP-19);
+    - the `.keys` writes go through `writeAllText` (EP-21);
+    - UPDATE GAMELISTS's collection-settings entry is Windows-only (EP-25);
+    - the epoch is `time_t` (EP-12).
+  - **New punch items:** PL-21 (EP-42), PL-22 (EP-44), PL-23 (EP-39), PL-24 (EP-40, EP-41), PL-25 (EP-38), PL-26 (EP-46). EP-36 joins PL-01, EP-37 PL-02, EP-43 PL-05, and EP-45 and EP-47 PL-19.
+- **`t33-bounds.py` revised** (EP-14): `bounded=1`, drift-tested (`stage-b/generators.txt`). `05` is rendered by `tools/t33-05.py` from `stage-c/punch-items.py`: 26 items, all Open.

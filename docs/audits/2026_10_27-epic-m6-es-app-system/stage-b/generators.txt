@@ -75,3 +75,11 @@ $ t33-words.py <W> 16dbac5211 <paths> msgids=195
 generated, asserted: 176 lines, 223 calls, 196 distinct msgids in 11 files; 0 with an empty French msgstr, 0 with no msgid
 FAIL t33-words: msgids 196, expected 195
 rc 1
+# t33-bounds.py revised after the seat (20:04:05Z; EP-14: the exec.log row is not bounded): at the new count, then the old one (it must exit 1)
+$ t33-bounds.py <W> 16dbac5211 <paths> http=4,process=6,waits=4,bounded=1
+generated, asserted: 4 http, 6 process lines, 4 waits; 7 live, 1 bounded, 7 dead (Win32)
+rc 0
+$ t33-bounds.py <W> 16dbac5211 <paths> bounded=2
+generated, asserted: 4 http, 6 process lines, 4 waits; 7 live, 1 bounded, 7 dead (Win32)
+FAIL t33-bounds: bounded 1, expected 2
+rc 1

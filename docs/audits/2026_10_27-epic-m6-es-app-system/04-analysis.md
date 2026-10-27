@@ -7,9 +7,15 @@
   - Nine host fixtures, each extracting the pin's code as written, FAIL at the pin and PASS under the proposed fix (`stage-c/runs.txt`).
   - The unit build ran every target, `tests/app-unit`'s five case files for the first time (`TOTAL: 239 test cases in 5 binaries`, 0 failed).
   - One guest window reproduced L-05 and L-28 on the image (`02` § The guest cycle).
+- **The seat's new items** (47 graded, all accepted, `stage-c/astra-grades.md`) add:
+  - EP-36: a dirty game's restored fields are lost even with a fresh read;
+  - EP-39: a stale token check writes back a cleared token;
+  - EP-42: malformed unlocks read as known;
+  - EP-44: `clearIndex` clears a copy;
+  - EP-40 and EP-41: the rotation cache.
 - **The highest finding is L-05,** in the lanes (D-CLOUD-049). A `gamelist.xml` restored from the cloud while ES runs is overwritten at the next save by the changed entries alone, because the read before the write is a cached miss (`SystemData.cpp:1653`, then `Gamelist.cpp:413`) and the write is in place (`:474`). Proved on the host (3.13) and on the image (G-04, with a control).
 - **Two use-after-frees, proved under ASan:**
-  - L-06: a dynamic collection's reload frees what the bundle view's cursor points at.
+  - L-06: a dynamic collection's reload frees what the bundle view's cursor points at. The mechanism is proved, but the GUI route from the bundle is not established (EP-5).
   - L-07: the scrape search's builder thread outlives its builder.
 - **Fork rules the fork's own code misses:**
   - NetworkThread bypasses `AppWindow`'s closing gate (L-12).
@@ -51,10 +57,10 @@
 | Risk | Where | Who meets it | Severity |
 | --- | --- | --- | --- |
 | A restored `gamelist.xml` loses its entries | L-05 | every player who restores game content from the cloud while ES runs, then plays or edits a game | **high** (data loss, in the lanes) |
-| A dynamic collection's filter edit crashes ES | L-06 | a player who edits a dynamic collection's filters from the bundle with the cursor on one of its games | **high** (a crash; #246's shape) |
+| A dynamic collection's reload reads freed games | L-06, EP-5, EP-37 | a player on a dynamic collection's games when it reloads; the route from the bundle is not established (EP-5) | medium (the mechanism proved, the route open) |
 | A stopped scrape search writes into freed memory | L-07 | a player who backs out of a single-game scrape while its token or hash is being built | medium (a crash or heap corruption; scraping, outside the lanes) |
 | Collections' files cut by a power loss | L-23 | settings tier, archived by the backup tool | medium |
-| A refused trigger dropped silently; wild reads on a malformed `.keys` | L-28 | a player who edits a key map by hand | low (outside the lanes) |
+| A refused trigger dropped silently; wild reads on a malformed `.keys` | L-28, EP-10 | a player who edits a key map by hand | medium (memory safety on a player file; outside the lanes) |
 | Tag names in English under French | L-25 | French players filtering by tag | low |
 | A post lost at shutdown | L-12 | a token write racing the exit | low |
 | An interface-thread wait on the watcher lock | L-01 | a page close during a network check | medium (a freeze bounded by the check) |
@@ -69,8 +75,8 @@
 ## The questions
 
 ### Q1 Lifetimes and threads
-- **L-06** (`CollectionSystemManager.cpp:1573-1600`, `:1302`, `:1115-1117`; `ViewController.cpp:1140-1142`): proved, a heap-use-after-free. The fix is es-code-traps.md:191's two halves: read the cursor path before the clear, and remake from it. Upstream-carried, contained (rule 6), with a #585 line.
-- **L-07** (`components/ScraperSearchComponent.cpp:196-258`, `:206`, `:231`, `:358-361`): proved. The fix is a destructor that joins and deletes the thread, with `mFinished` atomic.
+- **L-06** (`CollectionSystemManager.cpp:1573-1600`, `:1302`, `:1115-1117`; `ViewController.cpp:1140-1142`): the mechanism is proved, a heap-use-after-free. The route is narrowed by EP-5: `GuiGamelistOptions.cpp:424` excludes the bundle, and a non-bundled dynamic collection's own view is the further lead. The fix is es-code-traps.md:191's two halves for every view that holds the collection's games, and the remade view moved, not the old one (EP-37). Upstream-carried, contained (rule 6), with a #585 line.
+- **L-07** (`components/ScraperSearchComponent.cpp:196-258`, `:206`, `:230-233`, `:358-361`): proved for a builder dropped before completion. `update()` does join, and then leaks the thread object (EP-6). The fix is one ownership scheme (`joinable()`, the object deleted), `mFinished` atomic, and no join on the interface thread in `stop()`.
 - **L-12** (`NetworkThread.cpp:206`, `:237`, `:251`, `:257`, `:266`; `main.cpp:1322`, `:1330`): proved by count and by the gate's behaviour. The fix routes the five posts through `AppWindow::post`.
 - **L-15** (`FolderMerge.h:38-71` <- `SystemData.cpp:486`): its three cases pass. The holders' list is recorded for the rescan's owner.
 - **L-24** (`NetworkThread.cpp:19-25`, `main.cpp:898`): sound for the process's life. Recorded so nobody frees the static.
@@ -79,14 +85,16 @@
 ### Q2 Bounded calls
 - **L-01:** the interface thread's `ResetComponent` (`NetworkThread.cpp:24`) takes `mWatchersLock`, which the watcher thread holds across every `check()` (`WatchersManager.cpp:181-196`). A page close waits out a network check. It is es-core's lock (T21's file): rule 6, put to the pause.
 - **L-09:** Zaparoo's probe and card set no total or stall bound (`ZaparooSupport.cpp:39`, `:62`), and the lock (`:32`) inherits it. Outside the lanes, recorded.
-- **L-18:** `timeout 90` is the bound, and it is sound (`02` § The bounds: 2 bounded of 7 live).
+- **L-18:** `timeout 90` is the bound, and it is sound (`02` § The bounds: 1 bounded of 7 live; the table is not exhaustive, EP-18).
 - **L-02:** `retroarch.cfg` (`CaptureRotation.cpp:162`) has no bound but its size, on the interface thread after every exit. The time-to-play line prices it.
 
 ### Q3 Reads that read as success
 - **L-27** (3.9): `0.05` reads 0 STARS, and `3000…`/`0999…` read "" (`FileFilterIndex.cpp:331-339`, `:367`). Proved. Also, `1 STARS` has no singular.
 - **L-28** (3.21): a refused trigger drops the whole mapping with no word (`KeyboardMapping.cpp:262-272`, `:292`). Proved on the host and the image. The loader's other reads (`:247-288`) call `GetString` with no `IsString`, which are wild reads under NDEBUG on a malformed file.
 - **L-14:** `holder()`'s substring match (`RunLock.h:66-68`) would name an unrelated process whose argv contains `program`. Its three cases pass, but none covers the substring. A stream's case.
-- **L-17:** `(int)v.GetInt64()` (`OfflineAchievementsText.cpp:18`). Harmless today.
+- **L-17:** `(int)v.GetInt64()` (`OfflineAchievementsText.cpp:18`) narrows an id; the epoch is `time_t` via `strtoll` (`:229-231`, EP-12). Out-of-range input needs a defined outcome.
+- **EP-42:** `parseUnlocks` passes a missing or non-bool `Success` and ends `ok = true` over a list of invalid entries (`OfflineAchievementsText.cpp:183-200`): unknown progress reads as known-empty. The fork's helper.
+- **EP-44:** `clearIndex` takes its map by value (`FileFilterIndex.cpp:1102-1105`), so `resetIndex` (`:154-160`) clears nothing.
 - **L-18:** `CloudOffer.cpp:42-45` reads DONE on rc 0 alone. The script's half is the rclone slice's.
 - **`MetaData::getInt`** (`:451`, `atoi`): reads 0 unchecked. Recorded.
 
@@ -94,8 +102,8 @@
 - **L-05:**
   - **The read:** the first cached miss is `SystemData::getGamelistPath` (`SystemData.cpp:1653`), at the systems' load and again at `Gamelist.cpp:412`. Then `:413` reads the remembered miss.
   - **The write:** in place (`:474`).
-  - **Fix:** an uncached read at `:413` and in `getGamelistPath` for the read path, and temp-and-rename at `:474`, `:622` and `:841`.
-  - **`Already written:`** a `gamelist.xml` already cut by a past power loss is a parse error, and `:416-424` falls to an empty root. The fix reads both, so nothing is inherited beyond what a reread repairs.
+  - **Fix:** an uncached read at `:413` and in `getGamelistPath`, the same for `packGamelist`'s and `cleanupGamelist`'s media probes (EP-2), and temp-and-rename at `:474`, `:622` and `:841`. **Not enough by itself (EP-36):** a dirty game's whole node is replaced from memory (`:449-459`), so its own restored fields are lost even with a fresh read. A field merge is needed.
+  - **`Already written:`** a `gamelist.xml` already cut by a past power loss is a parse error, and `:416-424` logs and continues, then overwrites (EP-1: an unreadable file must not be overwritten). A file already overwritten has lost its entries; no fix restores them.
 - **L-23 and the third cache shape:** `std::ofstream` (`CollectionSystemManager.cpp:345`) and `pugi::save_file` (`FileFilterIndex.cpp:1313`) bypass the cache's invalidation. `deleteCustomCollection` (`:1610`, `:1613`) can refuse a file written this session.
 - **L-03:** Backlog #1186's site.
 - **L-13:** covered by `es-conf-tests`.
@@ -112,7 +120,7 @@
 - **The screensaver's launch** (`SystemScreenSaver.cpp:546`): it skips `ViewController::launch`'s format warning (`:497`) and BIOS check (`:507`), and keeps the cloud gate (`FileData.cpp:993`). Recorded (take-up row T2 `:293-294`).
 
 ### Q7 The structure, the map and the merge debt
-- **The map:** the proposed text for FILTER GAMELIST BY, EDIT DYNAMIC COLLECTION FILTERS and UPDATE GAMELISTS is in `02` § The structure. The check's blindness to member-initializer titles is named with its fourth pattern. UPDATE GAMELISTS has two homes (GAME SETTINGS > TOOLS; GAME COLLECTION SETTINGS > OPTIONS), both seen on the guest for the first.
+- **The map:** the proposed text for FILTER GAMELIST BY, EDIT DYNAMIC COLLECTION FILTERS and UPDATE GAMELISTS is in `02` § The structure. The check's blindness to member-initializer titles is named with its fourth pattern. UPDATE GAMELISTS has one handheld home, GAME SETTINGS > TOOLS (seen on the guest); its collection-settings entry is `#if defined(WIN32) && !defined(_DEBUG)` (EP-25).
 - **The residue:** L-21 and L-22, one row each.
 - **The merge debt:** none.
 - **Collisions:** T21's ten `CMakeLists.txt` lines and its `WifiText` delta, and T20's `OfflineAchievementsText` delta. A stream that edits these files names them.
@@ -186,7 +194,30 @@ Seven headers absent from `ES_HEADERS`. `KeyboardMapping`'s loader, which never 
 
 ## Second opinion
 
-Filled after the two keyed calls (stage C's last step).
+- **The plan:** `second-opinions/review-plan.json`, depth `independent`, one reviewer: `gpt`, `openai/gpt-6-astra`, `max`, OpenRouter pinned to OpenAI, `allow_fallbacks` false.
+- **The packet:** `second-opinions/packet.md`, 539,134 bytes, built by `stage-c/packet.py`. Its manifest names every range sent and trimmed. The three-way scan found no value; 39 credential-word hits were dispositioned by `(file, line)` as code or prose.
+- **What the seat saw:** the 02, 03 and 04 of stage C before its grades. Edits after it are listed in `00`.
+- **The calls:** exactly two keyed invokes (`stage-c/keyed-calls.txt`):
+  - the probe, 19:31:25 to 19:31:43 UTC, rc 0;
+  - the refutation, 19:41:52 to 20:01:31 UTC, rc 0, with 167,998 prompt tokens and 43,931 completion tokens.
+
+  Both were served `openai/gpt-6-astra` by OpenAI at `max`, with identity, effort and provider verification PASS (the `.provenance.json` beside each).
+- **The grades:** 47 items, all accepted (`stage-c/astra-grades.md`).
+- **What the seat changed in this reader's text:**
+  - L-06's route (EP-5);
+  - L-07's join (EP-6);
+  - L-12 as a protocol violation (EP-7);
+  - L-02 not bounded (EP-14);
+  - `:375` (EP-17);
+  - the bounds table not exhaustive (EP-18);
+  - the `.xcc` writer and the empty collection (EP-19);
+  - the `.keys` claim withdrawn (EP-21);
+  - UPDATE GAMELISTS's Windows-only second home (EP-25);
+  - the epoch's type (EP-12).
+
+  Each is fixed in place and cited.
+- **New items:** EP-36 to EP-47; six of them become punch items (PL-21 to PL-26), and the rest join existing items.
+- **Where the seat could not see:** the first reader's re-reads settle `Genres.cpp:304`, `PlatformId.cpp`, `MetaData.cpp:568` and `FileData.cpp:1659` (EP-35).
 
 ## Quality self-check
 
@@ -195,4 +226,4 @@ Filled after the two keyed calls (stage C's last step).
 - **Void passes are recorded as void:** G-04's first read.
 - **Corrections to the brief are listed** (`03` § 3.3).
 - **What a subagent read is labelled** (`stage-c/floor.md`).
-- **Not done:** FR frames; the index toast; L-02's `stat`; L-14's substring case; a TSan run.
+- **Not done:** FR frames; the index toast; L-02's `stat`; L-14's substring case; a TSan run; L-06's caller route (EP-5); EP-38's screensaver holders under ASan.
