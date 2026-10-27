@@ -1,0 +1,286 @@
+# Forward audit — M6.P2 T33, EmulationStation's system layer (#680)
+
+Composed by `tools/t33-02.py` from this template and the generators under `tools/`. Each generated section ends with its generator's own "generated, asserted" line, and each generator was seen to exit 1 on a constructed drift before it was trusted (`stage-b/generators.txt`). The ES worktree is read at the pin `16dbac5211` by `git -C` only. The distribution was reviewed at `27bd8499f1`. Depth: Independent, one seat (GPT-6 Astra at `max`), at stage C.
+
+Every proof carries `proved:`. At stage B a proof still to be run says when: `(stage C)` for a host case or harness, `(guest)` for the window's step. The brief is `docs/reviews/briefs/es-app-system.md` at `c48f8b387e`; its § numbers are cited as "brief § N".
+
+## Coverage
+
+The 77 paths, one row each. The read tier is from `git diff` against the fork's base `bccd715707`: added, modified, or neither. The inventory tier is fork-own for the first two and upstream-carried for the third. The fork's numstat is against `bccd715707`, which equals the merge base `cada856d86`'s and `rocknix/master`'s for every row (`stage-a/runs.out`: the three shortstats are equal).
+
+{{COVERAGE}}
+
+## The leads
+
+The brief's L-01 to L-29 (brief § 2), read at their lines. The lines, the shape and Q are the brief's, carried word for word. Family, owner, disposition and proof are this read's. A disposition is proposed for the stage-D pause, and the coordinator rules. "Rule 6" is `bugs-are-agent-first.md` rule 6: an upstream defect whose fix is contained is still ours to close, with a #585 line (D-WORKFLOW-164), never sent (D-WORKFLOW-165).
+
+| Lead | Lines at the pin | Shape | Q | Family | Owner | Disposition proposed | proved: |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| L-01 | `es-core/src/watchers/WatchersManager.cpp:181-196` (every `check()` under `mWatchersLock`), `:92-100` (`ResetComponent` takes the same lock); the interface-thread callers `NetworkThread.cpp:21-25` <- `guis/GuiRetroAchievementsSettings.cpp:806`, `:257`, `:191` | a page close that asks for the token check blocks the interface thread until the check in flight ends: `testAccount`'s HTTPS login (`RetroAchievements.cpp:1035-1038`, bounded by `getHttpOptions()`), `canUpdate`'s or `getPadsInfo`'s script; #308 F-RA-19 moved the sign-in off the thread and left this path back onto it | Q2, Q1 | an unbounded wait on the interface thread | es-core's lock (T21's file, upstream-carried); the three callers the fork's (#175, F-RA-19) | rule 6: a contained fix (`nextCheckTime` under a lock of its own, or `check()` outside `mWatchersLock`) put to the pause with T21 named | (stage C) read trace and the bound's arithmetic; G-09 `CANNOT` |
+| L-02 | `CaptureRotation.cpp:146-163` <- `FileData.cpp:1166-1167` | after every RetroArch exit, on the interface thread, the whole `/var/log/exec.log` (`:158`) and `retroarch.cfg` (`:162`) read and scanned; the only size bound is the launcher's truncation (#280) | Q6, Q2 | work on the interface thread | the fork (#280) | recorded; priced by the retro's time-to-play line | (stage E guest) G-03's `stat` of the log |
+| L-03 | `CaptureRotation.cpp:175` against `guis/GuiMenu.cpp:5066` | the rotation record, a saves-tier file the cloud syncs, written in place by `writeAllText` where the journey record beside it is atomic; a truncated record reads as untrusted (benign), D-CLOUD-078 asks for temp-and-rename anyway; Backlog #1186's site (§ 1 e) | Q4 | a write with no last good copy | the fork | Backlog #1186's site (§ 1 e): temp-and-rename through `AtomicFile::writeText`, there or in a stream | tool-run (`t33-writes.py`) |
+| L-04 | `DisplayAspect.cpp:74-87`, `:116-118`, `:96` + `FileData.cpp:1914-1926`; rebuilt after `SystemData.cpp:503-504` and `views/ViewController.cpp:1470` | the first screenshot look after each library change walks the whole library under `sShotLock` on the interface thread, and every hit walks the tree for the game (T31 PL-26, T32 L-14; § 1 c) | Q6 | work on the interface thread | the fork (T31 PL-26) | recorded with G-03's press-to-frame number | (guest) G-03 |
+| L-05 | `Gamelist.cpp:413` (cached `exists`), `:466-477` (in-place `save_file` `:474`), `:112-117` (the `isRegularFile` gate); writers `SystemData.cpp:1570`, `services/HttpServerThread.cpp:688`; the cache's only reset `es-core/src/utils/FileSystemUtil.cpp:345` | a `gamelist.xml` that arrives after startup (the cloud's game-content restore, D-CLOUD-049) reads as absent through the session cache: the restore's reload may not parse it, and the exit's `updateGamelist` writes the in-memory nodes alone over it; `saveToXml`'s remove-then-save `:307-308` is the same writer's no-last-good shape for the recovery files (D-CLOUD-078) | Q4 | a read of a file another process writes; a write with no last good copy | upstream-carried, inside the lanes (D-CLOUD-049) | a stream (rule 6): `exists(path, false)` at `:413` and `:116`'s gate, `updateGamelist` temp-and-rename; a #585 line | (stage C) 3.13's unit case, FAIL at the pin; (guest) G-04 |
+| L-06 | `CollectionSystemManager.cpp:1117` (`rootFolder->clear()` via `:1576`) then `:1589` (`reloadGameListView(bundle)`); callers `guis/GuiGamelistOptions.cpp:425`, `views/gamelist/ISimpleGameListView.cpp:462` | the #246 shape (`es-code-traps.md:191`): the custom collection's entries deleted, then the bundle view's cursor read; the fork's `dropGameListView`/`remakeGameListView` pair (`SystemData.cpp:508`) is the contained fix (T32 L-16, handed here; § 1 c) | Q1 | a lifetime: a free, then a read (#246's shape) | upstream-carried | a stream (rule 6): `dropGameListView` before the clear, `remakeGameListView` after (`es-code-traps.md:191`); a #585 line | (stage C) the extract under ASan; (guest) G-02 |
+| L-07 | `components/ScraperSearchComponent.cpp:197-258` (`:206`, `:230-234`, `:256`, no destructor); dropped at `:358-361` and `:96-100` | a builder destroyed mid-search leaks its running thread, which then writes `:213`, `:217`, `:220` into freed memory; `mFinished` read unsynchronised | Q1 | a lifetime or a thread | upstream-carried (T32 ruling 4 handed it here) | a stream question: the builder owns and joins its thread | (stage C) the extract under ASan |
+| L-08 | `components/ScraperSearchComponent.cpp:645-658` (`:652`, `:658`) | on `ASYNC_DONE` with no results the second search runs synchronously on the interface thread, the call the builder exists to take off it (`:196`) | Q2, Q6 | work on the interface thread | upstream-carried | with L-07: the second search on the builder's thread | (stage C) the extract |
+| L-09 | `ZaparooSupport.cpp:32-39`, `:58-63`; `guis/GuiGameOptions.cpp:59`, `:281`; `main.cpp:839` | a service on `127.0.0.1:7497` that accepts and never answers holds the detached probe forever and, through `mZaparooLock`, the game-options page; `writeZaparooCard` unbounded; outside the lanes, recorded | Q2 | an unbounded wait | upstream-carried, outside the lanes (D-UI-079) | recorded; a #585 line | tool-run (`t33-bounds.py`); a `nc -l 7497` not asked for |
+| L-10 | `ContentInstaller.cpp:61`, `:64-70`, `:247-248`; `ThreadedBluetooth.cpp:19`, `:22-26`, `:46`, `:76`, `:110`; the `AN ERROR OCCURRED: <status>` strings `:144`, `:163`, `:182`, `:200`, `:218`, `:236` | `delete this` on the worker, the thread never joined or deleted, the card closed from the worker; a tool's status text on the screen; outside the lanes (D-UI-079), recorded | Q1, Q5 | a lifetime; a tool's words on a player's toast | upstream-carried, outside the lanes (D-UI-079) | recorded; a #585 line | read; G-07 `CANNOT` |
+| L-11 | `SystemScreenSaver.cpp:156-164`, `:350`, `:1022` | ten retries over a cached miss never see a file appear; a media file deleted since the cache remembered it is handed to the player; the first start walks the library on the interface thread; a post outside `AppWindow` (its target is process-lifetime); outside the lanes, recorded | Q4, Q6 | a read of a file another process writes; work on the interface thread | upstream-carried, outside the lanes (D-UI-079) | recorded | tool-run (`t33-reads.py`); (guest) G-06 for the start and stop |
+| L-12 | `NetworkThread.cpp:206`, `:237`, `:251`, `:257`, `:266` vs `AppWindow.h:38-45`; `main.cpp:1322`, `:1330` | five posts straight to `Window::postToUiThread`, not through the gate the fork wrote for exactly this (F-ES-26); sound by order, but a post between `:1322` and `:1330` lands in `mFunctions` and never runs; `:237`, `:251`, `:257` are the fork's | Q1 | a post that can be dropped at shutdown | the fork (F-ES-26) | a stream question: route the five posts through `AppWindow::post` | (stage C) `AppWindowTests.cpp` built, a case for the window |
+| L-13 | `NetworkThread.cpp:266-270` | the token written with `SystemConf::set` + `saveSystemConf()` on the interface thread, a `system.cfg` rewrite covered by `es-conf-tests` (D-CLOUD-078's writer is es-core's); nothing new to prove | Q4 | a settings write | the fork | nothing new: `es-conf-tests` covers the writer (D-CLOUD-078) | cited |
+| L-14 | `RunLock.h:44-70` (`:58`, `:66-68`) | `holder()` names a pid whose `/proc/<pid>/cmdline` merely contains `program`; the window is a pid reused between a holder's death and the file's next writer; `OfflineAchievements::stopRun` signals what it returns | Q3, Q7 | a pid reused | the fork | a stream: argv[0] basename equality, contained | (stage C) `RunLockTests.cpp` built, a case for the substring |
+| L-15 | `FolderMerge.h:38-71` <- `SystemData.cpp:486` (`vanished` -> `delete n` `:473`) | every holder of a vanished node (the collections' entries, a group folder, a hasher's queue, the header's own list `:9-13`) must be dropped at the `Tree` `:470-484`; the template's case file exists and has never been built (`tests/app-unit/FolderMergeTests.cpp`) | Q1 | a lifetime: every holder of a vanished node | the fork | recorded with the holders' list | (stage C) `FolderMergeTests.cpp` built |
+| L-16 | `JourneyTiers.h:133-154`; `main.cpp:958-975` | the continuation from fixed literals (sound); a marker with no record runs everything (`--all` + `--yes`, `:142-143`) by design (D-WORKFLOW-050); recorded, not a defect; the case file exists, never built | Q7 | a design, sound | the fork | recorded, not a defect (D-WORKFLOW-050) | (stage C) `JourneyTiersTests.cpp` built |
+| L-17 | `OfflineAchievementsText.cpp:18`, `:231` | a 64-bit id or epoch truncated to `int`; harmless today | Q3 | a number truncated | the fork | a stream: `int64_t` through | (stage C) 3.41's case above 2^31 |
+| L-18 | `CloudOffer.cpp:37`, `:42-45` | bounded at 90 s on `GuiLoading`'s worker; a `timeout` kill (124) reads COULDN'T CREATE IT; a script exiting 0 having created nothing reads DONE (the no-op-success shape; the script's half is the rclone slice's) | Q3, Q5 | a success read over a no-op | the fork (the dialog); the rclone slice (the script) | a stream question for the dialog's half: what rc 0 proves against what DONE says | read; the script's half to the rclone slice |
+| L-19 | `WifiText.cpp:151-173`, `:67-81`, `:248-252`; `.h:137-146` | with two profiles up on one SSID and neither named, the connected row joins by its name, which `wifictl join` reads as a profile name: a renamed profile fails with `MayBeKey` and the player is asked for a key they have; documented as deliberate | Q5 | a profile joined by name | the fork | recorded: documented as deliberate | (stage C) `WifiTextTests.cpp`, built |
+| L-20 | `TextFit.h:34` | the floor is 4 bytes, not 4 characters: a 4-byte name wider than the box never gets its ellipsis; a two-character CJK name stops at one character | Q5 | a byte floor where a character floor was meant | the fork | a stream: the floor counted in characters | (stage C) 3.35's case, FAIL at the pin |
+| L-21 | `Win32ApiSystem.cpp:1`, `:1267`, `:316`, `:341`, `:368`; `es-app/CMakeLists.txt:287` | listed unconditionally, guarded in the file: the fork-own tier is provenance | Q7 | provenance | upstream-carried (the fork's three lines `:316`, `:341`, `:368`) | one row each in § The structure (D-WORKFLOW-209) | tool-run (`stage-a/syntax-check.out`: preprocesses to nothing) |
+| L-22 | `ScraperCmdLine.cpp:27`, `:24`, `:287`; `es-app/CMakeLists.txt` (absent) | 290 lines of console code in no list; Backlog #1235's shape | Q7 | provenance | upstream-carried | recorded as Backlog #1235's shape; never deleted by the lane | tool-run (the CMake grep) |
+| L-23 | `FileFilterIndex.cpp:1313`; `CollectionSystemManager.cpp:345-357` | settings-tier files (`.xcc`, `custom-<name>.cfg`, which backuptool's archive carries) written in place; the atomic writer exists (`AtomicFileUtil`) | Q4 | a write with no last good copy | upstream-carried, settings tier (backuptool's archive) | a stream (rule 6): `AtomicFileUtil` for both | (stage C) 3.11's file case; tool-run (`t33-writes.py`) |
+| L-24 | `NetworkThread.cpp:19-25`, `main.cpp:898` | `sCheevosToken` points into a `NetworkThread` newed once and never deleted: sound for the process's life, recorded so nobody "fixes" the leak and dangles the static | Q1 | a lifetime, sound | the fork | recorded so nobody frees it and dangles the static | read |
+| L-25 | `FileTag.cpp:6-11` against `:16-18`; the catalog | six of nine tag names reach xgettext through `fake_gettext_*`; `IN PROGRESS`, `DROPPED`, `ON HOLD` do not and have no `msgid` at the pin (six `msgid` lines at po 717, 3576, 3579, 3582, 3585, 3588; none for the three) | Q5 | a player word outside the catalog | upstream-carried | a stream (rule 6): three `_()` and their French (D-UI-051); a #585 line | (stage C) 3.29's case, FAIL at the pin; the catalog grep |
+| L-26 | `LangParser.cpp:65` | `{ { "in", "ìndia" }, "in", "in" }`: a non-ASCII token matched lowercase against ASCII ROM names, unreachable; a string literal, so xgettext is unaffected | Q5 | a token unreachable | upstream-carried | a stream (rule 6): one literal; a #585 line | (stage C) 3.31's case, FAIL at the pin |
+| L-27 | `FileFilterIndex.cpp:333-340`, `:367` | `"0.05"` rounds to `0 STARS` where `"0"` and `""` read UNKNOWN; a year starting `3`, or three digits, reads `""` | Q3 | a parse that reads a failure as data | upstream-carried | recorded with its case; the fix put to the pause | (stage C) 3.9's case, FAIL at the pin |
+| L-28 | `KeyboardMapping.cpp:265`, `:271`, `:282`, `:288` | a trigger or key target `checkTriggerExists`/`checkTargetExists` refuses is dropped silently: a mapping loads as an action with no trigger | Q3 | a parse that drops what it cannot read, silently | upstream-carried, outside the lanes (D-UI-079) | recorded with its case; the fix put to the pause | (stage C) 3.21's case, FAIL at the pin; (guest) G-08 |
+| L-29 | § 5's two delta commands | merge debt none | Q7 | -- | -- | § The merge debt | tool-run (`stage-a/runs.out`) |
+
+### The floor's pure leads, carried
+
+The brief's 41 rows (brief § 4), word for word, with the proof this read plans. The six that FAIL at the pin are in bold: 3.9, 3.13, 3.21, 3.29, 3.31 and 3.35. Each is seen to FAIL against the unfixed extract before it is trusted, at stage C. Offsets written `+N` are read to absolute lines when a case cites them.
+
+| # | At the pin | Function | What a case would catch | Proof planned |
+| --- | --- | --- | --- | --- |
+| 3.1 | `PlatformId.cpp:215` (`:220`), `:227` (`:233`), `:237` | `getPlatformId`, `getPlatformName`, the `ArcadeSystems` map | `getPlatformId(nullptr)`; a duplicated table string shadowing an id; an enum value with no row reading `"unknown"`; short names not lowercase | unit case at stage C |
+| 3.2 | `MetaData.cpp:28` (`:30-66`), `:42-43`/`:46-47` | `initMetadata`'s `gameDecls` | a key typed twice with two types; `Emulator`/`Core` twice by design, the case pins which wins | unit case at stage C |
+| 3.3 | `MetaData.cpp:280` (`+153`, `+158-161`, `+167-169`, `+199-201`) | `appendToXML` | a player-set value equal to its default dropped under `ignoreDefaults`; an `MD_PATH` written absolute when relative was asked | unit case at stage C |
+| 3.4 | `MetaData.cpp:357`, `:407`, `:435`, `:451`, `:454`, `:459` | `set`, `get`, `exists`, `getInt`, `getFloat`, `wasChanged` | `getInt` on `""`; a non-numeric `playcount`; `set` of the same value flipping `wasChanged` | unit case at stage C |
+| 3.5 | `MetaData.cpp:469` | `importScrappedMetadata` | a scrape wiping a player's favourite flag; an empty scraped field blanking a filled one | unit case at stage C |
+| 3.6 | `MetaData.cpp:270` (`+124`) | `migrate` (`FileData*` on the signature: the lane finds the seam) | an old `<hash>` lost on first load (`upgrade-and-install.md:95`: read both) | unit case at stage C |
+| 3.7 | `MetaData.cpp:151` (`+20-28`, `+66-70`) | `loadFromXML`'s default-and-lowercase rule and the `<scrap>` reading, lifted | a `"TRUE"` another tool wrote not read as true | unit case at stage C |
+| 3.8 | `Genres.cpp:185`, `:234`, `:257`, `:293`, `:323` (`init` `:19`) | the genre lookups, over a seam that takes a document | a game counted twice in the genre filter (parent and child); a trailing comma | unit case at stage C |
+| **3.9** | `FileFilterIndex.cpp:247` (**`:322-341`, `:364-369`**), `:362` | the rating, year and played predicates, lifted into string-in/string-out helpers | **`ratingKey("0.05")` reads `0 STARS` where `""` and `"0"` read UNKNOWN (`:333`, `:339`); `yearKey("3000")` and `yearKey("999")` read `""` (`:367`)** (L-27) | **FAIL at the pin**: unit case at stage C |
+| 3.10 | `FileFilterIndex.cpp:557` | `jw_distance` (file-static Jaro-Winkler) | identical -> 1.0; empty vs non-empty -> 0; symmetric; a distance above 1 or NaN on an empty string | unit case at stage C |
+| 3.11 | `FileFilterIndex.cpp:1107-1321` (`+11`, `+37-39`, `+99-161`) | `CollectionFilter::load`/`save` on a temp `.xcc` (file) | a tag `save` writes that `load` ignores: a filter forgetting one of its rows on restart | file case at stage C |
+| 3.12 | `Gamelist.cpp:255`, `:288` (`:261`, `+274`, `+283`) | `addFileDataNode`, `saveToXml` (needs `FileData*`/`SystemData*` doubles, `tests/app-unit/fakes/FileData.h`) | a `<path>` written absolute into a per-system gamelist | unit case at stage C |
+| **3.13** | `Gamelist.cpp:374` (**`:413`, `:466-477`**; `:308`, `:622`, `:841`) | `updateGamelist`'s shape | **the in-place `doc.save_file` with no temp-and-rename (D-CLOUD-078) and the cached `exists` before it** (L-05); the shape in a file case, the atomicity `CANNOT` without a fault seam (G-05) | **FAIL at the pin**: file case at stage C; the atomicity `CANNOT` (G-05) |
+| 3.14 | `Gamelist.cpp:112` (`+35-38`, `+47`, `+61-63`, `+66`, `+79-83`) | `loadGamelistFile` through its `!fromFile` branch (a string) | a `<path>` with a trailing newline or `\` never matched; the size-mismatch warning | unit case at stage C |
+| 3.15 | `Gamelist.cpp:518`, `:631`, `:483` (`+601`, `+705`, `+732-748`) | `packGamelist`, `cleanupGamelist` (file or guest) | `cleanupGamelist` dropping a media reference that exists on disk through the cache | file case at stage C, or G-04 |
+| 3.16 | `CollectionSystemManager.cpp:1508`, `:1513`, `:1518`, `:1523`, `:1532` | the collection paths | a name containing `/` or `..` writing outside the collections folder | unit case at stage C |
+| 3.17 | `CollectionSystemManager.cpp:598` (`:627`, `:646`, `:651`; `themeFolderExists` `:1492`) | `getValidNewCollectionName` over a seam for `sSystemVector` | an auto-collection name (`"all"`) or a theme folder accepted | unit case at stage C |
+| 3.18 | `CollectionSystemManager.cpp:1434` (`+1450`) | `getCollectionsFromConfigFolder` over a handed listing | `custom-.cfg` or `custom-a.cfg.bak` read as a collection | unit case at stage C |
+| 3.19 | `CollectionSystemManager.cpp:34` (`:40`) | `getSystemDecls` | names or theme folders not unique; `recent`'s sort | unit case at stage C |
+| 3.20 | `CollectionSystemManager.cpp:540` | the `.at()` on a set value (T2 FD-15, #771) | an index outside the 28 sort types | unit case at stage C |
+| **3.21** | `KeyboardMapping.cpp:217` (**`:265`, `:271`, `:282`, `:288`**; `checkTriggerExists` `:178`) | `KeyMappingFile::load`'s parse, split out as `parse(json)` | **a trigger naming an unknown key dropped silently: a mapping loads as an action with no trigger** (L-28); a parse error -> what `isValid` `:499` says | **FAIL at the pin**: unit case at stage C |
+| 3.22 | `KeyboardMapping.cpp:328`, `:432`, `:512`, `:535`, `:586`, `:726`, `:776`, `:793` | `save`, `fromP2k`, `triggerEquals`, `toTargetString`, `updateMapping`, `removeMapping`, the descriptions | a description with a quote breaking a JSON written by hand (read `:328-431` first); `save -> load` round trip | unit case at stage C |
+| 3.23 | `KeyboardMapping.cpp:178`, `:190`, `:199`, `:208` (the tables `:163-176`) | `checkTriggerExists`, `checkTargetExists`, `getTriggerFromP2k`, `getTargetFromP2k` | a key whose name has two `_` taking the wrong tail | unit case at stage C |
+| 3.24 | `CustomFeatures.cpp:23` (`:13-21`) | `parseFeatures` | a feature name with a trailing space never enabling its row | unit case at stage C |
+| 3.25 | `CustomFeatures.cpp:406`, `:61`, `:93`, `:155` (`:202-207`, `:224-227`, `:242-251`, `:256`, `:292-298`) | `loadCustomFeatures` over an XML string | a feature declared on the core not reaching the menu when the emulator declares none | unit case at stage C |
+| 3.26 | `CustomFeatures.cpp:529`, `:534`, `:523` | `hasFeature`, `hasGlobalFeature`, `sort` | a case mismatch between `es_features.cfg` and the launcher | unit case at stage C |
+| 3.27 | `FileSorts.cpp:93` (`:96`, `:99`, `:106`; `:83`) | `stripLeadingArticle` | an article matched by prefix; a title that is only an article emptied; `_("A,AN,THE")` translated | unit case at stage C |
+| 3.28 | `FileSorts.cpp:32` (`:43-71`) | `getSortType` and the 28-row table | an id twice; a pair not sharing its comparator; `getSortType(-1)` falling to the first row | unit case at stage C |
+| **3.29** | `FileTag.cpp:30` (**`:6-11` against `:16-18`**) | `getDisplayIcons` | **three of nine names outside `_()` and absent from the catalog** (L-25); `"finished"` -> 0 (exact case) | **FAIL at the pin**: unit case at stage C |
+| 3.30 | `LibretroRatio.cpp:51` (`:12-43`) | `getRatio()` | keys not unique; a value RetroArch does not accept | unit case at stage C |
+| **3.31** | `LangParser.cpp:33` (**`:65`**; `:37-64`) | `extractLang` | **`"ìndia"` unreachable: only `"in"` matches** (L-26); `"(USA, Europe)"` -> en + us,eu | **FAIL at the pin**: unit case at stage C |
+| 3.32 | `LangParser.cpp:144`, `:203`, `:18` | `parse`, `getFlag`, `getLanguageString` | a region with no flag asset drawing a broken image | unit case at stage C |
+| 3.33 | `CaptureRotation.cpp` (§ 2's row) **(fork-own)** | the one cached read beside four uncached | a rotation table written after ES started reading as absent (by design: the lane records the comment `:23-30`) | recorded (`t33-reads.py`: the deliberate cached read) |
+| 3.34 | `SystemRandomPlaylist.cpp` (§ 2's row) | `getNextItem` over a seam for the RNG | a path that starts existing mid-session never seen | unit case at stage C over an RNG seam, or recorded with L-11 |
+| **3.35** | `TextFit.h` (§ 2's row) **(fork-own)** | `fitOneLine` with a fake measure (1 px per char), `popCharacter` | **a 4-byte name over the width never gets its ellipsis; a two-character CJK name stops at one** (L-20); a label cut inside a UTF-8 sequence | **FAIL at the pin**: unit case at stage C |
+| 3.36 | `JourneyTiers.h` (§ 2's row) **(fork-own)** | `record`, `parse`, `replaceRecord`, `command` (`JourneyTiersTests.cpp`'s 8 cases first) | a two-byte record read as empty; a `Write` that fails -> `OldRecordStands`; the literals' exact shape | unit case at stage C |
+| 3.37 | `FolderMerge.h` (§ 2's row) **(fork-own)** | `merge(live, fresh, tree)` (`FolderMergeTests.cpp`'s 3 cases first) | a live node dropped when the fresh tree holds it under a different case; a renamed folder | unit case at stage C |
+| 3.38 | `RunLock.h` (§ 2's row) **(fork-own)** | `held`, `holder` (`RunLockTests.cpp`'s 3 cases first; file) | a stale lock file read as held; the substring match (L-14) | unit case at stage C |
+| 3.39 | `GameCubeRvzHashRetry.h` (§ 2's row) **(fork-own)** | `trim`, `needed` | a valid unknown hash retried; whitespace only | unit case at stage C |
+| 3.40 | `AppWindow.h` (§ 2's row) **(fork-own)** | `gate`, `open`, `post`, `closing` (`AppWindowTests.cpp`'s 1 case first) | a task posted after `closing()` running; a task posted before running twice | unit case at stage C |
+| 3.41 | `OfflineAchievementsText.cpp` (§ 2's row) **(fork-own)** | `jsonInt`, `parsePendingIds` | the `int` truncation (L-17) | unit case at stage C |
+
+## The library
+
+One row per unit of the game lists, collections, metadata and filters. The facts are read at the cited lines, and the generator checks that each cited caller line holds the call it names. Three things stand out:
+- **The first frame waits for the whole library:** every system's `gamelist.xml` parse, the filter index, the collections' load and es_features.cfg, under the splash. None of the slice's own reads is on the network.
+- **Two writers are on the player's data:** `gamelist.xml` (game content, synced) and the collections' files (settings, archived). Both write in place (§ The writes).
+- **One reader can lose data:** `Gamelist.cpp:413`'s cached read is the one that can drop a restored `gamelist.xml` (L-05).
+
+{{LIBRARY}}
+
+## The helpers
+
+One row per fork-added unit (17 units, 27 files). Its includers outside the 77 are the page or caller in another slice. The case file is matched by name.
+
+Twelve units have a case file:
+- Seven are built by `es-unit-tests`, which every lane has run.
+- Five are `tests/app-unit`'s, which no lane has built (T18 `02:50-58`). Stage C's first build is theirs, extended in `t33-build-tests.sh`.
+
+Five units have no case file:
+- `CaptureRotation` and `DisplayAspect`: their pure halves are their `Text` siblings, which have cases.
+- `CloudExit.h`: constants.
+- `GameCubeRvzHashRetry.h`: 3.39 plans its case.
+- `CloudOffer`: L-18's dialog, read.
+
+The brief's "three without a case" counts `NetworkThread.*`, which is fork-modified, and leaves out the two `Text` pairs. The French is § The words': every msgid the 77 carry has a translation at the pin.
+
+{{HELPERS}}
+
+## The writes
+
+§ 5's grep, line for line. Nine lines compile. The brief's "ten live sites" counts `CustomFeatures.cpp:151`, which is text inside a `/* */` block. `Win32ApiSystem.cpp:979` is dead inside `#if WIN32`.
+
+None of the nine is temp-and-rename. `Gamelist.cpp:622` and `:841` keep a `.old` copy that nothing reads back. Every in-place writer is measured against two references:
+- JourneyTiers' writer (`guis/GuiMenu.cpp:5066`, `AtomicFile::writeText`);
+- es-core's `AtomicFileUtil`, which `es-file-tests` covers.
+
+D-CLOUD-078 asks every writer for temp-and-rename. `Already written:` is answered per row (D-WORKFLOW-050).
+
+{{WRITES}}
+
+## The reads
+
+One row per `Utils::FileSystem::exists(` line: 83 lines and 86 calls. Four calls are uncached, all in `CaptureRotation.cpp` (`:113`, `:146`, `:161`, `:170`). The 46 upstream-carried files have none.
+
+The cache's rule is T21's file, cited from T32's Q4 and not re-read:
+- ES's own writes through `Utils::FileSystem` drop their path from the cache.
+- A file written outside the process is not seen until a launch resets the cache (`FileSystemUtil.cpp:345`). Examples are the cloud's game-content restore (D-CLOUD-049) and the player over SSH.
+- A third shape this slice adds: ES's own writes that do not go through `Utils::FileSystem`. These are `std::ofstream` (`CollectionSystemManager.cpp:345`) and `pugi::save_file` (`FileFilterIndex.cpp:1313`, `Gamelist.cpp:474`, `:622`, `:841`), and their paths are not dropped either.
+
+The four the brief names, with their dispositions:
+- **`Gamelist.cpp:413` (L-05):** the reader that can lose a player's data. The next save starts from an empty `<gameList>` and writes over the restored file.
+- **`SystemScreenSaver.cpp:157` and `:164` (L-11):** recorded, outside the lanes.
+- **`CaptureRotation.cpp:51`:** left cached on purpose, because it reads the image's read-only tree.
+
+{{READS}}
+
+## The bounds
+
+The table covers every network or script wait reachable from the 77, in three kinds: an HttpReq construction, a process start (§ 5's grep), and a wait the grep cannot see (L-01, L-02, L-09).
+
+The brief's § 5 "HttpReq lines" (`OfflineAchievementsText.h:1`, `ScraperCmdLine.cpp:1`, `Win32ApiSystem.cpp:3`, `ZaparooSupport.cpp:5`) count every line naming HttpReq. The constructions among them are four: two live, both Zaparoo's, and two dead. The one option line is `ZaparooSupport.cpp:38`, a `connectTimeout`.
+
+The slice's own code sets no total or stall bound anywhere. The one bounded process is `CloudOffer.cpp:37`'s `timeout 90` (L-18: the bound is sound). The unbounded live waits are:
+- L-01: es-core's lock reached from the interface thread;
+- L-09: Zaparoo's probe, its card and its lock, outside the lanes;
+- `retroarch.cfg`'s read after every exit (L-02).
+
+{{BOUNDS}}
+
+## The words
+
+The 176 `_("` lines, 223 calls and 196 distinct msgids, each against the French catalog at the pin (`locale/lang/fr/LC_MESSAGES/emulationstation2.po`, continuation lines joined). Beyond the table, five more items:
+- **L-25:** `FileTag.cpp:6-11` passes six of nine tag names through `fake_gettext_*`. `IN PROGRESS`, `DROPPED` and `ON HOLD` are not there and have no msgid; they reach T31's filter and editor pages in English under French. The catalog's six are at po 717, 3576, 3579, 3582, 3585 and 3588. proved: (stage C) 3.29's case; tool-run (`stage-a/runs.out`'s msgid grep).
+- **L-26:** `LangParser.cpp:65`'s `"ìndia"` is a string literal, so xgettext is unaffected, but the token is unreachable. proved: (stage C) 3.31's case.
+- **The dialog words** (7 `GuiMsgBox`, 1 `GuiLoading`, 2 text-edit popups; `stage-a/runs.out`):
+  - `CloudOffer.cpp:51` has CHANGE FOLDER / CREATE ANYWAY / NOT NOW, and `:59` has CREATE IT / NOT NOW. Back falls through to the last button, NOT NOW, the safe one (`es-ui-style-guide.md` § Confirmations).
+  - `:42`'s outcome box is DONE... / COULDN'T CREATE IT. CHECK YOUR CONNECTION AND TRY AGAIN FROM MANAGE CLOUD STORAGE. on rc alone (L-18).
+  - `components/ScraperSearchComponent.cpp:386` is an English sentence-case message upper-cased by `toUpper`, outside `_()`, with a bare `"FINISH"`: no French reaches it.
+  - `:468` reads AN ERROR OCCURRED: <the tool's error, upper-cased> with RETRY / SKIP.
+  - `ThreadedBluetooth.cpp:54` and `:118` are single-OK boxes.
+  - These four, the two scraper boxes and the two Bluetooth boxes, are upstream-carried and outside the lanes (D-UI-079), recorded.
+- **L-10's toasts:** `ContentInstaller.cpp:144`, `:163`, `:182`, `:200`, `:218` and `:236` read `AN ERROR OCCURRED: <status>`, a tool's text on a player's toast. Recorded, outside the lanes.
+- **The one help bar:** `ScraperSearchComponent::getHelpPrompts` (`:738-744`) adds ACCEPT RESULT to the grid's only while a row is selected. It offers a direction only where the grid moves (`es-code-traps.md` § The help bar).
+
+{{WORDS}}
+
+## The structure
+
+**`es-app/CMakeLists.txt`** (brief § 2's row, read at the pin):
+- **The four conditionals:**
+  - `if(WIN32)` `:3-29`, with `if(INJECT_VERSION)` nested `:7-28`;
+  - three `if(MSVC)`: `:292-296`, `:299-311` and `:320-329`.
+- No `BATOCERA` or `ROCKNIX` condition, no `add_definitions` and no test target.
+- 30 of the slice's 31 `.cpp` are in `ES_SOURCES`; `ScraperCmdLine.cpp` is absent (L-22).
+- 34 of the 41 headers are in `ES_HEADERS`. The seven not listed are `AppWindow.h`, `FolderMerge.h`, `GameCubeRvzHashRetry.h`, `JourneyTiers.h`, `RunLock.h`, `ScraperCmdLine.h` and `TextFit.h`. This is a listing omission, not a build one: headers compile through their includers.
+- T21's branch adds ten lines to this file (`origin/feature/m6-es-state-and-bridge-668`, `stage-a/runs.out`), named as a collision for any stream that edits it.
+
+**The Windows residue** (L-21, one row each, D-WORKFLOW-209):
+
+| Path | What it is | Disposition proposed |
+| --- | --- | --- |
+| `Win32ApiSystem.cpp` | `#if WIN32` `:1` to `:1267`, listed unconditionally (`CMakeLists.txt:287`); preprocesses to nothing on every image (`stage-a/syntax-check.out`); the fork's three lines `:316`, `:341`, `:368` | recorded: provenance, not a defect |
+| `Win32ApiSystem.h` | the class's header, 70 lines, `executeScript` declared `:55-56` | recorded with it |
+| `EmulationStation.h.in`, `EmulationStation.rc`, `EmulationStation.aps`, `es_icon.ico` | the Windows version resource and icon (`if(WIN32)` `:3-29`) | recorded: never built on an image |
+| `ScraperCmdLine.cpp` / `.h` | 290 lines of console scraping in no list; its `platform.h` does not exist (class (f)) | recorded as Backlog #1235's shape; never deleted by the lane (`engineering-practices.md` § Before deleting a duplicate) |
+
+**The credential macros** are not in this slice. Brief § 1's sentence is the one statement of where they live.
+
+**The map** (D-UI-039). `tools/es-menu-map-check` prints `55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing`, rc 0 (`stage-a/runs.out`). It still cannot see the two filter pages. Their titles are passed in a member initializer, `mMenu(window, _("FILTER GAMELIST BY"))` (`guis/GuiGamelistFilter.cpp:11`) and `mMenu(window, _("EDIT DYNAMIC COLLECTION FILTERS"))` (`:17`), and none of the check's three patterns (`tools/es-menu-map-check:48-55`: `new GuiSettings(`, `GuiSettings(` constructed directly, `MenuComponent(`) reads that form. UPDATE GAMELISTS is an action row, not a screen, so the check never reads it.
+
+The proposed text follows. A stage-E stream the coordinator writes adds it to `docs/es-menu-map.md`, in the same commit as any row that stream touches. The lane does not edit the map.
+
+- Under **`## What lives where`**, the GAME SETTINGS row's TOOLS group gains its first row. GAME COLLECTION's OPTIONS gains the same row:
+  > `UPDATE GAMELISTS` -- GAME SETTINGS > TOOLS (`guis/GuiMenu.cpp:5756`) and GAME COLLECTION SETTINGS > OPTIONS (`guis/GuiCollectionSystemsOptions.cpp:368`): one action in two places, the same call (`GuiMenu::updateGameLists`). It refuses while a scrape or the hasher runs (`GuiMenu.cpp:8501-8511`) and otherwise reloads the game lists. With INDEX NEW GAMES on, it ends in the hasher's toast INDEXING COMPLETED. UPDATE GAMELISTS TO APPLY CHANGES. (`ThreadedHasher.cpp:146`).
+- A new short section, **`## Game list filters`**, after `## What lives where`:
+  > **FILTER GAMELIST BY** -- a page of its own (`guis/GuiGamelistFilter.cpp:11`), opened from a game list's VIEW OPTIONS > NAVIGATION > OTHER FILTERS (`guis/GuiGamelistOptions.cpp:77-79`, `:435`). Each row is a facet of the system's `FileFilterIndex`; BACK applies the choice (`applyFilters`, `:39`, `:226-263`). Where a system's choice is kept across a restart is read at stage C before this text is final.
+  >
+  > **EDIT DYNAMIC COLLECTION FILTERS** -- the same page over a dynamic collection's index (`guis/GuiGamelistFilter.cpp:17`). It is opened from that collection's VIEW OPTIONS > DYNAMIC COLLECTION (`guis/GuiGamelistOptions.cpp:174-176`, `:603`) and from GAME COLLECTION SETTINGS when a dynamic collection is made (`guis/GuiCollectionSystemsOptions.cpp:495`). Its choices are written to the collection's `.xcc` in place (`FileFilterIndex.cpp:1313`, L-23).
+- The check's half is named for the coordinator: a fourth pattern, `\bmMenu\s*\(\s*\w+\s*,\s*_\("([^"]+)"\)`, would let `tools/es-menu-map-check` see both titles. That is a change under `tools/`, which this lane does not make.
+
+## The merge debt
+
+None. Upstream's delta on the 77 since the merge base `cada856d86` is empty: `upstream commits rc=1` and `upstream numstat rc=1`, both printing 0. All 46 upstream-carried files are byte-identical to `rocknix/master` and to `cada856d86`. Upstream's whole delta is outside the slice, in `guis/GuiMenu.cpp` and `.h` (`stage-a/runs.out`).
+
+The fork's side is four modified files against both bases: `CMakeLists.txt` 44/0, `NetworkThread.cpp` 105/3, `NetworkThread.h` 29/1 and `Win32ApiSystem.cpp` 3/3. batocera's six commits on the 77 (brief § 2) are context only: they are not ROCKNIX's, so they are never a debt figure and were never fetched. proved: tool-run (L-29).
+
+## The runs
+
+Stage A's runs are in `stage-a/runs.out` (brief § 5's block, each expectation met; the two errata accepted on #680 at 18:43 UTC) and `stage-a/syntax-check.out`.
+
+| Run | Figure | A FAIL would mean | Where |
+| --- | --- | --- | --- |
+| the scope | 77; 31 `.cpp`, 41 `.h`, 5 other | a path dropped or added since the brief | `stage-a/runs.out` |
+| the delta, three ways | `31 files changed, 2689 insertions(+), 7 deletions(-)` three times; 27 added; 4 modified; 72 commits, 68 non-merge | the bases disagree: the tiers would need two tables | `stage-a/runs.out` |
+| upstream's delta | 0 rc=1, 0 rc=1; 46 identical twice | merge debt this slice would owe | `stage-a/runs.out` |
+| the other lanes' deltas | T21 10/11/13 lines, T20 99/52; the rest empty | an unnamed collision at stage E | `stage-a/runs.out` |
+| the strings | 176 lines in 11 files, 223 calls; 196 msgids, 0 empty, 0 missing | an untranslated or missing msgid | `stage-a/runs.out`; `tools/t33-words.py` |
+| the French, both bases | `es-untranslated` 706/706 and 703/703, rc 0 | a fork string without French | `stage-a/runs.out` |
+| the reads | 83 lines, 86 calls, 4 uncached | a read the table does not name | `tools/t33-reads.py` |
+| the writes | 11 lines (9 compiled, 2 dead) | a writer the table does not name | `tools/t33-writes.py` |
+| the bounds | 4 http, 6 process, 4 waits; 2 bounded, 7 dead | a wait the table does not name | `tools/t33-bounds.py` |
+| the library | 11 units, each cited caller line holding its call | a fact read off a moved line | `tools/t33-library.py` |
+| the helpers | 17 units in 27 files; 12 with a case, 7 built | a unit with a case nobody runs, unnamed | `tools/t33-helpers.py` |
+| the map | `55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing` rc 0 | an undeclared screen | `stage-a/runs.out` |
+| the compile | `es-syntax-check` rc 2 (no build root); plain `g++` rc 1 at `pugixml/src/pugixml.hpp`; the stand-in check 29/29 rc 0 | a class (a)-(d) file the host's g++ refuses | `stage-a/runs.out`, `stage-a/syntax-check.out` |
+| the include graph | (stage C) `t33-includes.py` | -- | stage C |
+| the unit build | (stage C) `t33-build-tests.sh`'s `TOTAL:` line, with `app-unit-tests` | -- | stage C |
+| the generators' drifts | each exits 1 on a wrong count and on a paths list with its file dropped | a generator that cannot fail | `stage-b/generators.txt` |
+
+## The guest cycle
+
+One window, asked for on #680 at stage B's end, with the plan, the bound and the conditions in `stage-b/window-plan.md` (brief § 5 item 2): 25 minutes plus 5 of grace, for a plan of 1,260 s. Results land here at stage C or E, each labelled `image` or `pin-binary`.
+
+## The streams
+
+Written by the coordinator after stage D, as for T21, T26 and T32. The lane leaves this heading and the pause's dispositions.
+
+## Positives
+
+- **The fork's helpers are pure where it matters.** Seven units with built cases (CloudFolderValidation 4, CheevosRetry 7, OfflineAchievementsText 15, CheevosIndex 6, WifiText 19, CaptureRotationText 8, DisplayAspectText 3; brief § 5's counts; the total is stage C's `TOTAL:` line) are string-in/string-out and fail closed (`CloudFolderValidation`'s `document()` refuses empty, oversized, NUL and an unknown schema).
+- **CaptureRotation reads its four mutable inputs uncached and trusts its record only with `from=checked-launch`** (`:124`): a cut or foreign record reads as untrusted, the benign direction.
+- **`AppWindow::post`'s two locks are taken in one order everywhere** (brief § 2, confirmed): the gate, then `Window::mNotificationMessagesLock`.
+- **CloudOffer's dialogs put the safe choice last**, where back lands (NOT NOW), and its script carries its own bound (`timeout 90`).
+- **Every msgid the 77 carry has French at the pin** (196 of 196). The three that FileTag never passes through `_()` are L-25, the exception that check cannot see.
+- **No merge debt:** the 46 upstream-carried files are `rocknix/master`'s bytes.
+
+## The #585 lines owed
+
+One line per upstream-carried defect closed under rule 6, written in the lane's shape at stage E and never sent (D-WORKFLOW-165). Before stage D, the candidates are L-05, L-06, L-23, L-25 and L-26, and L-01's lock if the pause takes it.
+
+Q7's six candidates, for the coordinator to weigh. These are what the slice carries that upstream lacks:
+1. **`maskSecrets` on the logged command line** (`80f52e500`). It needs `StringUtil`'s `maskSecrets`, which is in 0 files at `rocknix/master`.
+2. **The bounded token-check retry at link-up** (`d9d6083de`, `461e14305`, `42f9e8851`). It needs `testAccount(..., bool* refused)` at `RetroAchievements.h:282`.
+3. **The startup index re-run at link-up** (`cce9ab12a`). It needs `ThreadedHasher::cheevosLibraryCameThisSession` and `SystemData::startIndexesAtStart`, both absent at master.
+4. **`FolderMerge.h`.** Its consumer is in an earlier slice (`SystemData.cpp:486`).
+5. **`CheevosIndex.*`.** Its consumer is `ThreadedHasher.cpp`.
+6. **`GameCubeRvzHashRetry.h`.** Its consumer is `ThreadedHasher.cpp:44`; #609 is open against it.
+
+L-25's three lines go with any of them.
+
+## What T34 to T37 inherit
+
+Brief § 5 item 3's eight items, written here and not tested here:
+1. **The provenance table:** § Coverage, 27 / 4 / 46 against `bccd715707` and `cada856d86`, which agree.
+2. **The cached-read table with its writers:** § The reads, 83 rows, and its third shape (ES's own non-`Utils::FileSystem` writers).
+3. **The write table:** § The writes, nine compiled lines in place, one dead text and one dead Win32.
+4. **The thread-and-lifetime table:** § The library's thread column, § The bounds, and L-06, L-07, L-10, L-12, L-15 and L-24 (stage C adds the harnesses).
+5. **The bounds table:** § The bounds.
+6. **The `app-unit-tests` build recipe:** the five case files, their nine fakes under `tests/app-unit/fakes/`, and the pugixml root `/workspace/cache/rocknix-sources/emulationstation/emulationstation-<PIN>/external`, in `tools/t33-build-tests.sh` at stage C.
+7. **The map's two filter rows and UPDATE GAMELISTS as proposed text:** § The structure.
+8. **The Windows residue's dispositions:** § The structure.

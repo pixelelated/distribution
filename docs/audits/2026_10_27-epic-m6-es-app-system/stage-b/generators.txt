@@ -1,0 +1,77 @@
+# T33 (#680) stage B: each generator at its asserted counts, then on a constructed drift (it must exit 1), 18:52:12Z. <W> the ES worktree at the pin; <paths> .qa-scratch/t33/paths.txt; <tmp> /workspace/tmp/m6-t33/tmp.
+$ t33-reads.py <W> 16dbac5211 <paths> lines=83,calls=86,uncached=4
+generated, asserted: 83 lines, 86 calls, 4 uncached, in 11 files
+rc 0
+$ t33-reads.py <W> 16dbac5211 <paths> lines=82,calls=86,uncached=4
+generated, asserted: 83 lines, 86 calls, 4 uncached, in 11 files
+FAIL t33-reads: lines 83, expected 82
+rc 1
+$ t33-reads.py <W> 16dbac5211 <tmp>/drop-gamelist.txt
+generated, asserted: 68 lines, 71 calls, 4 uncached, in 10 files
+FAIL t33-reads: a group names Gamelist.cpp:190, where there is no exists(; a group names Gamelist.cpp:304, where there is no exists(; a group names Gamelist.cpp:352, where there is no exists(; a group names Gamelist.cpp:413, where there is no exists(; a group names Gamelist.cpp:531, where there is no exists(; a group names Gamelist.cpp:644, where there is no exists(; a group names Gamelist.cpp:601, where there is no exists(; a group names Gamelist.cpp:705, where there is no exists(; a group names Gamelist.cpp:732, where there is no exists(; a group names Gamelist.cpp:735, where there is no exists(; a group names Gamelist.cpp:738, where there is no exists(; a group names Gamelist.cpp:740, where there is no exists(; a group names Gamelist.cpp:743, where there is no exists(; a group names Gamelist.cpp:745, where there is no exists(; a group names Gamelist.cpp:748, where there is no exists(
+rc 1
+$ t33-writes.py <W> 16dbac5211 <paths> lines=11
+generated, asserted: 11 lines (9 live, 2 dead) in 7 files
+rc 0
+$ t33-writes.py <W> 16dbac5211 <paths> lines=10
+generated, asserted: 11 lines (9 live, 2 dead) in 7 files
+FAIL t33-writes: lines 11, expected 10
+rc 1
+$ t33-writes.py <W> 16dbac5211 <tmp>/drop-keys.txt
+generated, asserted: 9 lines (7 live, 2 dead) in 6 files
+FAIL t33-writes: a row names KeyboardMapping.cpp:426, where no write matches; a row names KeyboardMapping.cpp:429, where no write matches
+rc 1
+$ t33-bounds.py <W> 16dbac5211 <paths> http=4,process=6,waits=4,bounded=2
+generated, asserted: 4 http, 6 process lines, 4 waits; 7 live, 2 bounded, 7 dead (Win32)
+rc 0
+$ t33-bounds.py <W> 16dbac5211 <paths> bounded=3
+generated, asserted: 4 http, 6 process lines, 4 waits; 7 live, 2 bounded, 7 dead (Win32)
+FAIL t33-bounds: bounded 2, expected 3
+rc 1
+$ t33-bounds.py <W> 16dbac5211 <tmp>/drop-zaparoo.txt
+generated, asserted: 2 http, 6 process lines, 3 waits; 5 live, 2 bounded, 7 dead (Win32)
+FAIL t33-bounds: a row names ZaparooSupport.cpp http 1, which is not there; a row names ZaparooSupport.cpp http 2, which is not there; the wait /std::unique_lock<std::mutex> lock\(mZaparooLock\)/ hits 0 lines in ZaparooSupport.cpp
+rc 1
+$ t33-library.py <W> 16dbac5211 <paths> units=11
+generated, asserted: 11 units
+rc 0
+$ t33-library.py <W> 16dbac5211 <paths> units=12
+generated, asserted: 11 units
+FAIL t33-library: units 11, expected 12
+rc 1
+$ t33-library.py <W> 16dbac5211 <tmp>/drop-features.txt
+generated, asserted: 11 units
+FAIL t33-library: es-app/src/CustomFeatures.cpp is not in the 77
+rc 1
+$ t33-helpers.py <W> 16dbac5211 <paths> units=17,cases=12,built=7,files=27
+generated, asserted: 17 units in 27 files; 12 with a case file, 7 of them built by `es-unit-tests`
+rc 0
+$ t33-helpers.py <W> 16dbac5211 <paths> built=12
+generated, asserted: 17 units in 27 files; 12 with a case file, 7 of them built by `es-unit-tests`
+FAIL t33-helpers: built 7, expected 12
+rc 1
+$ t33-helpers.py <W> 16dbac5211 <tmp>/drop-runlock.txt
+FAIL t33-helpers: RunLock has no file in the 77
+rc 1
+$ t33-words.py <W> 16dbac5211 <paths> lines=176,calls=223,msgids=196,empty=0,missing=0
+generated, asserted: 176 lines, 223 calls, 196 distinct msgids in 11 files; 0 with an empty French msgstr, 0 with no msgid
+rc 0
+$ t33-words.py <W> 16dbac5211 <paths> msgids=195
+generated, asserted: 176 lines, 223 calls, 196 distinct msgids in 11 files; 0 with an empty French msgstr, 0 with no msgid
+FAIL t32-words: msgids 196, expected 195
+rc 1
+# the composer, 18:56:56Z: at its counts, then on the paths list with Gamelist.cpp dropped (it must exit 1 and write nothing)
+$ t33-02.py <A> <W> 16dbac5211 <paths>
+t33-02: coverage 77 (fork-added 27, fork-modified 4, upstream-carried 46; inventory 31 / 46); library, helpers, writes, reads, bounds, words generated; wrote 02-forward-audit.md
+rc 0
+$ t33-02.py <A> <W> 16dbac5211 <tmp>/drop-gamelist.txt
+FAIL t33-02: t33-library.py exited 1: FAIL t33-library: es-app/src/Gamelist.cpp is not in the 77; t33-writes.py exited 1: FAIL t33-writes: a row names Gamelist.cpp:308, where no write matches; a row names Gamelist.cpp:474, where no write matches; a row names Gamelist.cpp:622, where no write matches; a row names Gamelist.cpp:841, where no write matches; lines 7, expected 11; t33-reads.py exited 1: 
+rc 1
+# t33-words.py's failure line still read t32-words above (the copy's message, renamed at 18:57:06Z with its docstring); the two runs again after the rename:
+$ t33-words.py <W> 16dbac5211 <paths> lines=176,calls=223,msgids=196,empty=0,missing=0
+generated, asserted: 176 lines, 223 calls, 196 distinct msgids in 11 files; 0 with an empty French msgstr, 0 with no msgid
+rc 0
+$ t33-words.py <W> 16dbac5211 <paths> msgids=195
+generated, asserted: 176 lines, 223 calls, 196 distinct msgids in 11 files; 0 with an empty French msgstr, 0 with no msgid
+FAIL t33-words: msgids 196, expected 195
+rc 1

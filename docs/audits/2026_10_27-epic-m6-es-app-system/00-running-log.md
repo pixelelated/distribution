@@ -31,3 +31,14 @@
 ## Stage B (18:44 UTC onward)
 
 - Stage A accepted on #680 at 18:43 UTC (the coordinator's errata: the cut in the brief's g++ line, and the pointer's epic line). The plan is in the pointer's Current focus: § 3, § 4, § 6 and § 7 read; the generators (T32's, renamed); `02` composed from `stage-b/02-template.md`; then the window request.
+- **The generators** (`tools/`, T32's renamed and rewritten for T33), each asserting its counts. Each was seen to exit 1 on a wrong count and on a paths list with its file dropped (`stage-b/generators.txt`):
+  - `t33-reads.py`: 83 lines, 86 calls, 4 uncached;
+  - `t33-writes.py`: 11 lines, 9 compiled and 2 dead;
+  - `t33-bounds.py`: 4 http, 6 process, 4 waits, 2 bounded;
+  - `t33-library.py`: 11 units;
+  - `t33-helpers.py`: 17 units in 27 files; 12 with a case, 7 built;
+  - `t33-words.py`: 176 lines, 223 calls, 196 msgids, 0 empty.
+- **One recording slip, kept as it was:** `t33-words.py`'s failure message still said `t32-words` at its first drift run. I renamed it and reran both runs, which are appended below the first. The first record is not edited.
+- **`02` composed** by `tools/t33-02.py` from `stage-b/02-template.md`: coverage 77 rows (27 / 4 / 46, inventory 31 / 46), the sixteen sections of brief § 6, and the leads and the floor carried word for word with the proposed dispositions. The composer exits 1 and writes nothing on a dropped path (recorded).
+- **Found while composing:** `tools/es-menu-map-check` cannot see FILTER GAMELIST BY or EDIT DYNAMIC COLLECTION FILTERS, because their titles are passed in a member initializer (`mMenu(window, _("..."))`) that none of its three patterns reads. This is recorded in `02` § The structure, with the proposed map text and the fourth pattern named for the coordinator. The lane does not change `tools/`.
+- **Window plan:** `stage-b/window-plan.md`: 25 + 5 minutes; the steps sum to 1,260 s by awk; G-05, G-07 and G-09 are `CANNOT`.
