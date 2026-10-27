@@ -1417,3 +1417,16 @@ counts paragraph (now § 5's comments and § 7's checkbox alone), four of
 the five merge-debt restatements, § 3's rule glosses (now the table), § 6
 against § 7, the pointer paragraph (now the eleven-key table), and the
 "Version 1" section, replaced by this one.
+
+## Errata at acceptance (2026-10-27)
+
+Found by the lane in stages A to E and by its seat, each recorded on #679; the brief's text above is left as dispatched.
+
+1. **§ 5, the parse run's `atol(` count:** 2 sites in 2 files at the pin, not 1 -- `GameNameFormatter.cpp:171` (lead 3.32) and `DetailedContainer.cpp:1049`, the detailed view's play-time display, the same parse (stage A).
+2. **§ 5's counts, none a finding:** the local API's routes are 25 patterns over 27 registrations, not 16 distinct paths (16 is the plain strings alone); `HttpReq` constructions are 9 (seven `new`, two on the stack), not 7; the `_("` counts 58 / 70 / 51 include a comment at `ISimpleGameListView.cpp:905`; po L116's `msgstr ""` continues at L117, so the EVERY SYSTEM IS HIDDEN msgid has French and L-11's empty-French half is withdrawn (its dialog half stands, fixed by S4) (stage B).
+3. **The grid view (L-14, 3.31, PL-09):** no shipped theme draws a grid; `GamelistViewStyle=grid` draws SCREENSHOTS in the detailed style, so the per-tile cost lead is not reachable on the image (the window; PL-09 recorded with a #585 line).
+4. **IGDB with no client id (3.16's remainder):** SCRAPE NOW reads NO GAMES FIT THAT CRITERIA because `isSupportedPlatform` reads only the platform map, not the credentials (the lane's own correction after its RETURN); the credentials' absence is still not said to the player (PL-02's token-failure page covers it).
+5. **G-05's count:** "GAMES SCRAPED: 9" was ten games minus one thread (3.19), the count fixed by S2.
+6. **The stand-in syntax check** cannot compile `SystemView.cpp` (it stops at `SDLK_r`, `:471`); the integration build proves S4's edit at `:231-238`.
+7. **`05`'s PL-14 line:** `:218` is `:220` (the erase; the floor's own line), corrected with S1.
+8. **The acceptance kit:** `t32-accept.sh`'s clone path was fixed to `accept-t32/` before this run (T31's had cloned over T26's scratch).
