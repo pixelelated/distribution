@@ -167,3 +167,4 @@
   - **After:** rc 0; `l02` rc 0 with its fake completed (`isMediaError`, the third counter, `HttpReq`'s two codes).
   - **Checks:** stand-in rc 0; non-ASCII 0; `es-untranslated` 706/706; `TOTAL: 225 test cases in 4 binaries`.
   - The four choices stand, as ruled.
+- **The acceptance items, 18:34 UTC** (the coordinator's 18:31 UTC read): `stage-e/handback-checks.txt` at `b52245036` (the map check 0 missing, `es-untranslated` 706/706, the pre-push-test PASS, the stand-in 12 of 13 with `SystemView.cpp` `CANNOT`, `TOTAL: 225 test cases in 4 binaries`); #1257's 22 checkboxes ticked from `05`'s outcomes at `a0ac8e7831` (box-check: 0 open, 0 fail); the retro `docs/retros/2026-10-27-m6-es-app-views-scrapers.md`.

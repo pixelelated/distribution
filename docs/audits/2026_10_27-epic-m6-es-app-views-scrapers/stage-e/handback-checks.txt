@@ -1,0 +1,46 @@
+# T32 hand-back checks (18:31:45Z), ES at b52245036 (fixed-at-es), as each tool printed them
+
+$ git -C <W> status --short | wc -l
+0
+
+$ tools/es-menu-map-check --es-src <W> --ref b52245036
+55 screen(s) at b52245036, 31 in the map, 24 declared unmapped, 0 missing
+rc=0
+
+$ tools/es-untranslated --es-src <W> --upstream cada856d86
+es-untranslated: upstream base cada856d8 (given)
+es-untranslated: 706 fork string(s) in the source, 706 with French, 0 without
+es-untranslated: 2 upstream string(s) not in upstream's catalogue and without French (upstream's, not counted):
+  es-app/src/guis/GuiMenu.cpp:517	RESET BATTERY FUEL GAUGE
+  es-app/src/guis/GuiMenu.cpp:518	WARNING: THE PMIC FUEL GAUGE WILL BE RESET AND THE SYSTEM WILL POWER OFF!\n\nLEAVE THE CHARGER UNPLUGGED AND POWER THE DEVICE BACK ON AFTER A FEW SECONDS. THE BATTERY LEVEL IS RE-ESTIMATED FROM THE RESTING BATTERY VOLTAGE AND BECOMES ACCURATE AGAIN AFTER A FULL CHARGE.\n\nRESET FUEL GAUGE AND POWER OFF?
+rc=0
+
+$ bash <W>/.githooks/pre-push-test
+  ok    a credential list that does not compile: refused
+  ok    no wordlist at all: refused
+PASS
+rc=0
+
+$ bash stage-a/syntax-check.sh <W> <the 13 sources> (the stand-in)
+es-app/src/scrapers/ThreadedScraper.cpp: rc 0
+es-app/src/scrapers/Scraper.cpp: rc 0
+es-app/src/scrapers/IGDBScraper.cpp: rc 0
+es-app/src/scrapers/HfsDBScraper.cpp: rc 0
+es-app/src/scrapers/GamesDBJSONScraper.cpp: rc 0
+es-app/src/scrapers/GamesDBJSONScraperResources.cpp: rc 0
+es-app/src/scrapers/ArcadeDBJSONScraper.cpp: rc 0
+es-app/src/views/gamelist/GameNameFormatter.cpp: rc 0
+es-app/src/views/gamelist/ISimpleGameListView.cpp: rc 0
+es-app/src/views/gamelist/GridGameListView.cpp: rc 0
+es-app/src/views/gamelist/DetailedContainer.cpp: rc 0
+es-app/src/views/SystemView.cpp: rc 1; SystemView.cpp:471:92: error: ‘SDLK_r’ was not declared in this scope; did you mean ‘SDLK_F5’?
+es-app/src/services/HttpServerThread.cpp: rc 0
+rc=1 (SystemView.cpp CANNOT: SDLK_r, after the edited :231-238)
+
+$ bash tools/t32-build-tests.sh <W> /workspace/tmp/m6-t32/build-handback
+RUN es-unit-tests: rc 0; [doctest] test cases: 189 | 189 passed | 0 failed | 0 skipped [doctest] assertions: 4822 | 4822 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3389 | 3389 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+TOTAL: 225 test cases in 4 binaries
+rc=0
