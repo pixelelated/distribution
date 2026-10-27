@@ -25,7 +25,7 @@ history) and `tools/` (`t31-callers.py`, `t31-run-runs.py`). Every § 5 figure a
 expects; the brief's non-ASCII adjacency grep is a basic-regex error (`'_\("'`), rerun with
 `-F`: 0. `GuiAutoScrape` has no caller at the pin (a Q7 lead).
 
-**Next:** the window when granted on #678 (`stage-b/window-plan.md`), and stage C beside it: the host proofs under `stage-c/` (the plan's list), `03`, `04`, the packet trimmed and scanned, the seat (GPT-6 Astra at max, two keyed invokes), the pre-issue lint.
+**Window done** (12:26:47 to 12:45:00 UTC, the disk retired). **Stage C in progress:** the host proofs, `02` composed by `tools/t31-02.py`, `03`, `04`, the draft `05` (20 items), the packet (94 sections), keyed call 1 (the probe) PASS; keyed call 2 (the refutation) started 12:59:34 UTC under a background waiter, writing `second-opinions/astra-audit.md`. **Next:** grade it into `stage-c/astra-grades.md`, fold into `02`/`04`/`05`, set `review-plan.json` status, the pre-issue lint, then stage D: the audit issue (a sub-issue of #678) and the pause with the punch list posted on #678.
 
 ## Next commands
 
