@@ -66,3 +66,8 @@
 - **Keyed call 2 of 2:** the refutation, 08:39:54 to 09:05:01 UTC, rc 0; served `openai/gpt-6-astra` by OpenAI, effort `max` (41,678 reasoning tokens), identity, effort and provider verification PASS. **Exactly two keyed invokes, and no others.**
 - **The grades** (`stage-c/astra-grades.md`): 42 items, 40 accepted, 1 in part, 1 plausible (counted by `awk`). Twelve new leads, L-31 to L-42, among them the audit's one High (L-31, a use-after-free in the repair picker). The corrections are in `02` § Corrections and new leads from the seat, `03` § 3.6 and `04`; the leads above them keep the first reader's words.
 - **05:** 29 items (1 high, 5 medium, 23 low, counted from the index). `tools/lint-audit-artifacts --phase pre-issue`: `PASS pre-issue artifacts (does not certify resolution)`.
+
+## [Stage D] 09:2x to 09:11 UTC — the audit issue, the pause
+
+- **The audit issue #1213**, a sub-issue of #673, labels `audit` and `punch-list`, milestone M6; its body generated from `05` by `tools/t26-issue-body.py`; `tools/box-check --issue 1213`: 29 open checkboxes, 0 fail.
+- **The pause** posted on #673 with the punch list and the rulings asked for. No bug is filed until the ruling.

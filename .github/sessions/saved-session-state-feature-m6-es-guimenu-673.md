@@ -17,10 +17,10 @@
 
 ## Current focus
 
-**Stage C done; stage D: the audit issue and the pause on #673.**
+**Stage D: paused on #673 for the coordinator's ruling.**
 
-- **Stage C:** 03 and 04; the packet scanned; exactly two keyed invokes (probe and refutation, both PASS); 42 items graded (40 accepted); `05` with 29 items; the pre-issue lint PASS.
-- **Next:** the audit issue (a sub-issue of #673), `tools/box-check` on it, the pause posted on #673 with the punch list; then the coordinator's ruling, the bugs, and stage E's streams.
+- **The audit issue:** #1213 (29 items: 1 high, 5 medium, 23 low), a sub-issue of #673; box-check 0 fail.
+- **Waiting on:** the ruling of the pause post on #673 -- which items become streams, the rule-6-or-D-UI-079 calls, the words. Then the bugs, filed from `05`, and stage E on the ES branch.
 - **What runs here:** nothing. Scratch is `/workspace/tmp/m6-t26/`; the ES worktree stays at the pin.
 
 ## Next commands
@@ -60,6 +60,7 @@ granted window.
 
 ## Checkpoints
 
+- Stage D: #1213 filed; the pause posted on #673.
 - Stage C, 09:2x UTC: the seat graded, `05` written, the lint PASS.
 - The window, 08:31 UTC: RETURN posted; `02` § The guest cycle written.
 - Stage B, see the work log: `02` assembled, the window asked for on #673.
