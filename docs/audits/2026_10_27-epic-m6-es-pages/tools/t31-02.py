@@ -13,7 +13,7 @@ Substitutes, in stage-b/02-template.md:
                 what a failure reads as (WRITERS below, read at each line); a
                 site without an entry, or an entry without a site, fails;
   {{NUMSTAT}}   the fork's 12 numstat pairs (stage-a/runs.txt's run).
-Asserts: 76 coverage rows, 37 pages, 50 dialogs, 50 rows, 26 reads, 37 titles,
+Asserts: 76 coverage rows, 37 pages, 50 dialogs, 48 rows, 26 reads, 37 titles,
 12 numstat pairs. Exits 1 on any difference, writing nothing.
 """
 import re
@@ -55,7 +55,7 @@ WRITERS = {
     "GuiAnalogSticksLedControls.cpp:26": ("token 6", "the page", "as above"),
     "GuiKeyMappingEditor.cpp:156": ("a tab's value, \"0\" to \"3\"", "the page", "positive"),
     "GuiUpdate.cpp:213": ("the updater's `>>> N%` line", "`updateSystem`'s script", "a non-number is 0% on the card; upstream's OS update card (D-UI-079)"),
-    "GuiGamelistOptions.cpp:389": ("two ratings", "the gamelist", "positive"),
+    "GuiGamelistOptions.cpp:389": ("a grid size's two dimensions (the seat's EP-27; the first reading said ratings)", "the theme or the player's choice", "a non-number is 0"),
     "GuiMetaDataEd.cpp:600": ("the stored rating", "the gamelist", "positive"),
     "GuiMetaDataEd.cpp:601": ("the edited rating", "the editor", "positive"),
 }
@@ -96,7 +96,7 @@ expect("coverage rows", len(cov) - 2, 76)
 pages, dialogs, rowsT, titles, reads = table("pages.md"), table("dialogs.md"), table("rows.md"), table("titles.md"), table("reads.md")
 expect("pages", len([r for r in rows_of(pages) if "(header only)" not in r]), 37)
 expect("dialogs", len(rows_of(dialogs)), 50)
-expect("rows", len(rows_of(rowsT)), 50)
+expect("rows", len(rows_of(rowsT)), 48)
 expect("titles", len(rows_of(titles)), 37)
 rd = ["| Site | Kind | Argument(s) | Cache | The file | Its writer while ES runs | What a failure reads as |", "| --- | --- | --- | --- | --- | --- | --- |"]
 seen = set()
@@ -129,4 +129,4 @@ for key, lines in (("COVERAGE", cov), ("PAGES", pages), ("DIALOGS", dialogs), ("
 if "{{" in out:
     print("FAIL t31-02: a placeholder is left"); sys.exit(1)
 (A / "02-forward-audit.md").write_text(out)
-print("t31-02: coverage 76, pages 37, dialogs 50, rows 50, reads 25 sites (26 calls), titles 37, numstat 12; wrote 02-forward-audit.md")
+print("t31-02: coverage 76, pages 37, dialogs 50, rows 48, reads 25 sites (26 calls), titles 37, numstat 12; wrote 02-forward-audit.md")

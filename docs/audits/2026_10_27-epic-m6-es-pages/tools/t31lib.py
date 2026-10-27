@@ -45,10 +45,46 @@ def call_args(src, open_paren):
             start = i + 1
         i += 1
 
+_SPANS = {}
+
+
+def _comment_spans(src):
+    """The [start, end) spans of every // and /* */ comment, found by one scan
+    that skips string and char literals (a "/*" inside "rm .../*" is no comment)."""
+    key = id(src), len(src)
+    if key in _SPANS:
+        return _SPANS[key]
+    spans, i, n = [], 0, len(src)
+    while i < n:
+        c = src[i]
+        if src.startswith("//", i):
+            j = src.find("\n", i)
+            j = n if j < 0 else j
+            spans.append((i, j)); i = j
+        elif src.startswith("/*", i):
+            j = src.find("*/", i + 2)
+            j = n if j < 0 else j + 2
+            spans.append((i, j)); i = j
+        elif c in "\"'":
+            j = i + 1
+            while j < n and src[j] != c and src[j] != "\n":
+                j += 2 if src[j] == "\\" else 1
+            i = j + 1
+        else:
+            i += 1
+    _SPANS.clear()
+    _SPANS[key] = spans
+    return spans
+
+
 def in_comment_or_string(src, at):
-    """Is the match at `at` inside a // comment or an open string on its line?"""
+    """Is the match at `at` inside a comment (// or /* */) or an open string on
+    its line? The block test was missing until the seat's EP-27 (#678) found two
+    addSwitch calls counted from inside one (GuiScraperStart.cpp:370-376)."""
     prefix = src[src.rfind("\n", 0, at) + 1:at]
-    return "//" in prefix or prefix.count('"') % 2 == 1
+    if prefix.count('"') % 2 == 1:
+        return True
+    return any(a <= at < b for a, b in _comment_spans(src))
 
 
 def literal(expr):

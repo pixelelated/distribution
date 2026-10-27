@@ -83,3 +83,11 @@
 - **L-01** (`l01-start-drops.py`): FAIL at the pin (START drops the switch, writes 0 times, skips `onFinalize`). The control replaces START's loop with `close()` per page and passes.
 - **L-02** (`l02-led-not-saved.py`): FAIL at the pin (`system.cfg` written 0 times). The control adds one save function and the colour is saved.
 - Their outputs are in `stage-c/runs.txt`.
+- **Keyed call 2 of 2,** the refutation: 12:59:34 to 13:14:26 UTC, rc 0, served `openai/gpt-6-astra` by OpenAI at `max`, with identity, effort and provider verification PASS. **Exactly two keyed invokes, and no others.**
+- **The grades** (`stage-c/astra-grades.md`): 43 items, 41 accepted, 1 in part (EP-33), 1 not kept (EP-26), counted by `awk`. Sixteen new leads, L-28 to L-43, Moonlight's six among them. The narrowings are written into `02`'s leads in place, citing their EP items.
+- **The seat found a bug in this lane's own census:** two `addSwitch` calls inside a `/* */` block were counted.
+  - `tools/t31lib.py` now scans comments and strings; four constructed cases pass.
+  - The first fix attempt dropped real sites, because a `/*` inside `"rm .../*"` read as a comment. The dialog count fell from 50 to 46 and was caught by its own assertion.
+  - Every generator was rerun: 48 rows, 21 switches.
+- **Corrected by the seat** (EP-4): stage B's and the window's explanation of L-16, "a default counts as a change", was wrong. The setters change only on an absent key or a different value; the two mtimes stand as observations.
+- **05:** 27 items (7 medium, 20 low, counted from the index). `tools/lint-audit-artifacts --phase pre-issue`: `PASS pre-issue artifacts (does not certify resolution)`.

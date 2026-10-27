@@ -1,24 +1,26 @@
 # Analysis — M6.P2 T31, EmulationStation's other pages (#678)
 
-The first reader's analysis (Opus 5.5), written after stages A and B, the guest window and the stage-C proofs, before the seat saw the packet. § Second opinion follows the seat. The leads are `02`'s (L-01 to L-27); every line is the pin's (`16dbac5211`).
+The first reader's analysis (Opus 5.5), written after stages A and B, the guest window and the stage-C proofs, before the seat saw the packet, then corrected by the seat's grades (`stage-c/astra-grades.md`), each correction citing its EP item. The leads are `02`'s: L-01 to L-27 the first reader's, L-28 to L-43 the seat's. Every line is the pin's (`16dbac5211`).
 
 ## Executive summary
 
 The fork's three pages are built to the house rules. The scrape page is a fourth-tier page with CANCEL and its own help bar. The save state manager draws its bar at 640x480, deletes on a worker, and refuses a write while the saves tree is busy. The Wi-Fi scan's executor is the argv model #1192 names. Every YES / NO box lands on NO. The French is complete.
 
 What does not hold:
-- **The base's second exit.** START (CLOSE on every settings page's bar) deletes the pages without `close()`, so no save function runs. A choice B keeps, START drops (L-01, guest and fixture). This is upstream's, in batocera's and ROCKNIX's masters alike, and it reaches the fork's cloud pages, which are all `GuiSettings`.
-- **Pages that set without saving.** The LED colour never reaches `system.cfg` (L-02, fixture). A relay-server change replaces NETPLAY SETTINGS without `save()` and drops ENABLE NETPLAY (L-03, guest).
-- **Moonlight**, ROCKNIX's own page:
-  - the player's SERVER IP is run by the shell (L-05, fixture);
+- **The base's other exits.** START (CLOSE on every settings page's bar) and a click outside the menu delete the pages without `close()`, so no save function runs. A choice B keeps, START drops (L-01, guest and fixture; L-34). This is upstream's, in batocera's and ROCKNIX's masters alike, and it reaches the fork's cloud pages, which are all `GuiSettings`. A stack can mix `GuiSettings` and plain pages, so the fix is a design, not a loop (EP-1).
+- **Pages that set without saving.** The LED colour is saved only if a later page flushes `system.cfg` (L-02, fixture), as is any page of only text rows (L-36). A relay-server change and SHOW CONTROLLER ACTIVITY replace their pages without `save()`, dropping the deferred switches changed before (L-03 guest, L-35).
+- **Moonlight**, ROCKNIX's own page, the slice's largest cluster:
+  - the player's SERVER IP is run by the shell (L-05, fixture), and the server's game titles are written into launch scripts the same way (L-28);
+  - UPDATE MOONLIGHT GAMES deletes the library before fetching its replacement and reports success over unchecked writes (L-29, L-30);
   - UNPAIR says the settings were cleared while removing nothing (L-06, guest and fixture);
+  - its version probe reads a pointer, its certificate parser can loop or throw on the interface thread, and its private key has no explicit mode (L-31, L-32, L-33);
   - its title is English in every language, and no map entry or check sees it (L-07, guest).
-- **Silence where the fork works.** COPY TO FREE SLOT says nothing when it fails. A copy that worked leaves the same frame, the cursor back on START NEW GAME and the new tile off-screen (L-13, guest). A failing BIOS script reads as an empty check (L-12, guest). An all-errored scrape gives no why and no next step (L-09, fixture).
+- **Silence where the fork works.** COPY TO FREE SLOT says nothing when it fails or works, and does not hold the transfer lock across its write (L-13 guest, L-38). A failing BIOS script reads as an empty check, or as ALL PRESENT when it dies after a header (L-12 guest, L-39). An all-errored scrape gives no why and no next step (L-09, fixture). Changing SCRAPE FROM leaves the filters bound to the old scraper (L-42). The manager's incremental sort breaks `std::sort`'s contract (L-43).
 - **The BIOS page's bar.** BIOS CHECK draws no help bar under full-screen menus, so DETAILS and REFRESH are never offered (L-26, guest). Its French summary is English word order (L-11, guest).
 - **The map.** BIOS CHECK and SCRAPING GAMES, the fork's pages, are in neither the map nor `## Not mapped` (L-24).
 - **`GuiLoading`'s done flag** races its worker (L-22, ThreadSanitizer).
 
-One brief lead is closed without a change: the LED parse is guarded by the token count. One is narrowed: `GuiKeyboardLayout.cpp:164` writes a scratch render under `/tmp`.
+One brief lead is closed without a change: the LED parse is guarded by the token count. One is narrowed: `GuiKeyboardLayout.cpp:164` writes a scratch render under `/tmp`. One of this lane's own counts was wrong until the seat: 21 switches, not 23 (a parser blind to `/* */`).
 
 ## Acceptance-criteria scorecard
 
@@ -28,14 +30,14 @@ One brief lead is closed without a change: the LED parse is guarded by the token
 | ---: | --- | --- | --- |
 | 1 | `00`, `01` to `05` | 00 to 04 written; 05 at stage C's end | the folder |
 | 2 | lint `PASS` (pre-issue before D, resolution at close) | pending: the pre-issue run ends stage C | `tools/lint-audit-artifacts` |
-| 3 | `review-plan.json` independent, one reviewer (`gpt`, `openai/gpt-6-astra`, `max`), provenance, manifest scan, two keyed invokes | pending: stage C | `second-opinions/` |
+| 3 | `review-plan.json` independent, one reviewer (`gpt`, `openai/gpt-6-astra`, `max`), provenance, manifest scan, two keyed invokes | met: the probe and the refutation, each PASS; exactly two keyed invokes | `second-opinions/`, `stage-c/keyed-calls.txt` |
 | 4 | every punch item at a Phase 7 outcome; box-check 0 fail | pending: stage D onward | the audit issue |
 | 5 | reviewed-at / fixed-at headers; the ES read on the pin's bytes; no `packages`/`projects`/`tools` change | reviewed-at `da7922a7bd` and the pin; the removal check empty | `00`, `stage-a/runs.txt` |
 | 6 | `01` § Scope with § 2's block | met | `01-research-notes.md` |
 | 7 | `02` § Coverage, 76 rows | met: the checkbox's `awk` prints `76` | `02` |
 | 8 | `02` § The pages, 37 rows, by a script that names its count | met (`t31-pages.py`) | `02` § The pages |
 | 9 | `02` § The dialogs, 50 sites with landings | met (`t31-dialogs.py`) | `02` § The dialogs |
-| 10 | `02` § The rows, generated, asserted | met (`t31-rows.py`, 50 calls) | `02` § The rows |
+| 10 | `02` § The rows, generated, asserted | met (`t31-rows.py`, 48 calls; 50 before the seat found two in a block comment) | `02` § The rows |
 | 11 | `02` § The reads, 12 + 1 + 9 with writers | met: 25 rows, 26 calls with the 4 `atof` | `02` § The reads |
 | 12 | `02` § The titles, 37 rows, the twelve with dispositions | met; the dispositions are proposals for the pause | `02` § The titles |
 | 13 | `02` § The merge debt | met | `02` |
@@ -56,6 +58,11 @@ One brief lead is closed without a change: the LED parse is guarded by the token
 | The LED colour reset at every restart | L-02 | certain on devices with the row (fixture) | a setting that never sticks | Medium |
 | ENABLE NETPLAY undone by a relay change | L-03 | certain on that path (guest) | netplay stays off after the player turned it on | Low |
 | A typed SERVER IP run by the shell | L-05 | needs a crafted string; the player's own | a command run as root from a settings row | Medium |
+| A server's game title run by the shell at launch | L-28 | needs a crafted or unusual title on the paired server | a command run as root when the game is launched | Medium |
+| The Moonlight library deleted by a failed update | L-29, L-30 | whenever the fetch fails or a write fails | the player's games list gone, "Unable to connect" or a false success said | Medium |
+| Pairing hangs or crashes on a malformed conf | L-32 | needs a conf without the marker or the escape | the interface frozen or killed in the pairing callback | Medium |
+| COPY writes while a sync holds the saves tree | L-38 | a sync starting between the probe and the copy | the race D-CLOUD-053 exists to prevent | Low |
+| A BIOS script that dies mid-output reads clean | L-39 | needs a partial output | ALL PRESENT for a check that did not finish | Low |
 | UNPAIR says it cleared what it did not | L-06 | certain (guest) | a pairing the player believes gone is still there | Medium |
 | COPY TO FREE SLOT silent both ways | L-13 | certain (guest) | a player cannot tell whether the copy happened; a failed one is invisible | Medium |
 | A failed BIOS check reads as an empty one | L-12 | when `rocknix-systems` fails (guest) | no recovery offered for a broken check | Low |
@@ -77,7 +84,7 @@ One brief lead is closed without a change: the LED parse is guarded by the token
 
 ### Q1 The dialogs and where back lands
 
-All 50 sites read whole (`02` § The dialogs). YES / NO lands on NO at 17 of 17, proved on the guest for DELETE GAME and the manager. Three landings act: CONTROLLER MAPPING's OK (L-19), the metadata editor's saving NO (L-20), and the two SAVE CHANGES? boxes' discarding NO (L-21). All are upstream's and recorded with #585 lines owed. A change of behaviour on an upstream surface outside the lanes is the maintainer's to open (D-UI-079), so they go to the pause. The NFC writer's WRITE / CANCEL lands on CANCEL. The manager's `busyNow` box, re-asked inside YES (`:457`), is the gate's second ask, correct. The scrape page's finished state is dismissed by any input (L-10).
+All 50 sites read whole (the comment-aware parser kept the count at 50) (`02` § The dialogs). YES / NO lands on NO at 17 of 17, proved on the guest for DELETE GAME and the manager. Three landings act: CONTROLLER MAPPING's OK (L-19), the metadata editor's saving NO (L-20), and the two SAVE CHANGES? boxes' discarding NO (L-21). All are upstream's and recorded with #585 lines owed. A change of behaviour on an upstream surface outside the lanes is the maintainer's to open (D-UI-079), so they go to the pause. The NFC writer's WRITE / CANCEL lands on CANCEL. The manager's `busyNow` box, re-asked inside YES (`:457`), is the gate's second ask, correct. The scrape page's finished state is dismissed by any input (L-10).
 
 ### Q2 The rows, their stores, and the writes that can lose the record
 
@@ -88,9 +95,11 @@ All 50 sites read whole (`02` § The dialogs). YES / NO lands on NO at 17 of 17,
   - an untouched editor writes on OK (#1185, cited);
   - the mode is #1193's (cited).
 - **Writes that lose the record:**
-  - START drops every page's choices (L-01);
-  - the LED page never saves (L-02);
-  - a relay change drops ENABLE NETPLAY (L-03);
+  - START and an outside click drop a page's deferred choices (L-01, L-34);
+  - the LED page and every text-only page do not save on their own close (L-02, L-36);
+  - a relay change and SHOW CONTROLLER ACTIVITY drop the deferred switches (L-03, L-35);
+  - a text row's editor reopens from its first value (L-37);
+  - Moonlight's update deletes before it fetches (L-29), and its key has no explicit mode (L-33);
   - SCRAPER stores its default set on the first visit and cannot keep "none" (L-15);
   - a first visit rewrites `es_settings.cfg` twice with nothing chosen (L-16).
 - **PL-031's nickname rows** read the builder's seed (`FileData.cpp:653-657`); the move is PL-031's.
@@ -104,7 +113,10 @@ All 50 sites read whole (`02` § The dialogs). YES / NO lands on NO at 17 of 17,
   - `GuiControllersSettings`' two.
 - **COPY TO FREE SLOT** runs `copyToSlot` synchronously (L-13). On the guest's disk 64 MB took under a second; a card is not measured here.
 - **The image viewer's first tile** walks the library (L-18).
-- **The 18 `GuiLoading`** completions run on the interface thread over a raced flag (L-22), holding raw `this` (#1212's shape, T21's).
+- **The 18 `GuiLoading`** completions run on the interface thread over a raced flag (L-22); most hold raw `this` (#1212's shape), BIOS's first does not.
+- **The image viewer** guards its pool jobs with a plain global, not the instance (L-40), and abandons an unpushed viewer when its first extraction is empty (L-41).
+- **Moonlight's pairing callback** parses the conf on the interface thread with no EOF test (L-32).
+- **The manager's incremental sort** uses `>=` (L-43).
 - **SCRAPER's `getSearches`** reads the page's components from the worker (L-17).
 - **The hasher constructions** are #1170's and #301's (cited).
 - **Time to play** (`03` § 3.6): the manager's PLAY and the options menu start nothing at the press.
@@ -118,7 +130,10 @@ All 50 sites read whole (`02` § The dialogs). YES / NO lands on NO at 17 of 17,
   - COPY's silence both ways (L-13, guest);
   - UNPAIR's false success (L-06);
   - the all-errored scrape (L-09);
-  - the Bluetooth bulk delete's ignored result (L-33, cited).
+  - the Bluetooth bulk delete's ignored result (T21's L-33, cited);
+  - a BIOS script that dies after a header reads ALL PRESENT (L-39);
+  - Moonlight's update and version probe (L-30, L-31);
+  - SCRAPE FROM's stale filters (L-42).
 - **The 9 `atoi`:** the LED page's seven are guarded; the key mapping editor's tab value and the update card's percent are benign.
 
 ### Q5 The words, the French and the help bars
@@ -134,8 +149,8 @@ All 50 sites read whole (`02` § The dialogs). YES / NO lands on NO at 17 of 17,
 
 ### Q6 The commands and their readers
 
-- **The SERVER IP** reaches `popen` unquoted, in three commands (L-05). The fix is `Utils::String::shellQuote`, T26's single quoting function, or the argv executor `WifiScanProcess.h` already models (#1192).
-- **The LED values** are numbers formatted by `%u` (safe by shape). The Bluetooth and storage arguments are joined bare (T21's `:66`, safe by shape).
+- **The SERVER IP** reaches `popen` unquoted, in three commands (L-05), and the server's titles reach generated launch scripts inside double quotes (L-28). The fix is `Utils::String::shellQuote`, T26's single quoting function, or the argv executor `WifiScanProcess.h` already models (#1192).
+- **The LED values** are numbers formatted by `%u` (safe by shape). The Bluetooth and storage arguments' safety is T21's reading (`:66`); this read does not reach their backends (EP-16).
 - **`GuiUpdate.cpp:213`'s percent reader** takes the text after `>>>`.
 - **The spectator and relay session** are #776's.
 - No `system(`.
@@ -163,7 +178,7 @@ All 50 sites read whole (`02` § The dialogs). YES / NO lands on NO at 17 of 17,
 
 ### Q3 Bugs
 
-L-01, L-02, L-03, L-05, L-06, L-12, L-13 and L-26 are proved defects (guest or fixture). L-09, L-10, L-11 and L-22 are proved with lower stakes. L-14 is a keep-an-eye item.
+L-01, L-02, L-03, L-05, L-06, L-12, L-13 and L-26 are proved defects (guest or fixture). L-09, L-10, L-11 and L-22 are proved with lower stakes. The seat's L-28 to L-43 are read at their lines (tree), L-33 in part. L-14 is a keep-an-eye item.
 
 ### Q4 Package currency
 
@@ -196,7 +211,33 @@ Moonlight's and the LED page's commands block the interface thread per press or 
 
 ## Second opinion
 
-Pending: the seat runs at stage C's end (GPT-6 Astra at `max`, one refutation call after its probe). This section records the plan, the call and the grading.
+### The packet and the plan
+
+- **Depth:** independent, one seat: GPT-6 Astra (`openai/gpt-6-astra`) at `max`, through the Facilitator (`council-facilitator@1.14.1-pixelelated.2`), provider pinned to OpenAI (`second-opinions/review-plan.json`).
+- **The packet** (`stage-c/packet.py`, T26's builder adapted): 94 sections, 411,984 bytes, sha256 `7b157c9d…f1083f`. It holds:
+  - the twelve fork-touched files and three small upstream files whole;
+  - the upstream ranges `02`, `03` and `04` cite, with 8 lines of context: 5,798 of 15,537 slice lines sent; 43 files with no cited line were sent nothing;
+  - the neighbours the leads turn on.
+
+  The manifest names every range sent and trimmed (D-WORKFLOW-195).
+- **The scan:** the secret patterns were proven to fire on a run-time fake line and found 0 lines; the forbidden-terms check found 0 sections; 351 credential-word hits, 31 of them dispositioned by name at their lines (identifiers, prose, a parse marker, a file name), none a value.
+- **The calls:** exactly two keyed invokes (`stage-c/keyed-calls.txt`). The probe ran 12:59:09 to 12:59:25 UTC; the refutation 12:59:34 to 13:14:26 UTC. Each was rc 0, served `openai/gpt-6-astra` by OpenAI, with identity, effort and provider verification PASS. Every other council call ran keyless.
+
+### GPT-6 Astra: 43 items, graded
+
+`stage-c/astra-grades.md`: 41 accepted, 1 in part (EP-33: the key's mode on the image is unread), 1 not kept (EP-26). The narrowings are written into `02`'s leads in place. The sixteen new items are L-28 to L-43. The seat's highest priorities were:
+- Moonlight's command construction (L-05, L-28);
+- the preservation of working data (L-29, L-38, L-13);
+- the close contract (L-01, L-34, L-35);
+- the concurrency (L-22, L-40);
+- the pairing parser (L-32).
+
+The punch list's order follows that, with the severities in `05`.
+
+### Dead ends: what the seat raised and the reading did not keep
+
+- **EP-26:** "`GuiAutoScrape` not built" cannot be confirmed from the packet. It is confirmed outside it: the target's sources are the explicit `ES_SOURCES` list (`es-app/CMakeLists.txt:315`), and the only GLOB (`:301`) is MSVC's source grouping.
+- **The seat could not see** the menu map, the checker or ThreadedScraper's synchronization. It said so, and no claim is built on its silence there.
 
 ## Quality self-check
 
@@ -205,3 +246,4 @@ Pending: the seat runs at stage C's end (GPT-6 Astra at `max`, one refutation ca
 - Void guest passes are recorded as void. No void pass is cited as evidence.
 - Corrections to the brief and to this lane's own earlier statements are listed (`02` § Corrections; `00` § Window).
 - Not done: G10, G11, the scrape page's finished frames on the guest.
+- The seat found a counting bug in this lane's own parser (block comments); the fix has its constructed cases, and every generator was rerun after it.

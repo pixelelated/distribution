@@ -23,7 +23,8 @@ store "caller's onsave". Output: a table and the totals per builder; exits 1
 when the per-builder totals differ from the counts asserted at the end, which
 were taken from this tool's first run and checked against the brief's
 switches and two-line-rows runs (26 addSwitch lines of which 3 in GuiSettings'
-own header/source; 14 addWithDescription lines in 7 files).
+own header/source and 2 inside a /* */ block, GuiScraperStart.cpp:370-376 --
+21 active; 14 addWithDescription lines in 7 files, 2 of them commented out).
 """
 import os
 import re

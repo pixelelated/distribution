@@ -20,7 +20,7 @@ One row per path (76). `Lines` is `grep -c ''`, the inventory's count. The read'
 | `es-app/src/guis/GuiBatoceraStore.h` | 81 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiBezelInstaller.cpp` | 292 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiBezelInstaller.h` | 53 | upstream-carried | upstream-carried | the censuses | - |
-| `es-app/src/guis/GuiBios.cpp` | 324 | fork-own | fork-modified | whole | L-11, L-12, L-26, L-27 |
+| `es-app/src/guis/GuiBios.cpp` | 324 | fork-own | fork-modified | whole | L-11, L-12, L-26, L-27, L-39 |
 | `es-app/src/guis/GuiBios.h` | 43 | fork-own | fork-modified | the fork's diff whole, the rest at the leads' lines | - |
 | `es-app/src/guis/GuiBluetoothDeviceOptions.cpp` | 123 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiBluetoothDeviceOptions.h` | 28 | upstream-carried | upstream-carried | the censuses | - |
@@ -30,13 +30,13 @@ One row per path (76). `Lines` is `grep -c ''`, the inventory's count. The read'
 | `es-app/src/guis/GuiBluetoothPair.h` | 35 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiCollectionSystemsOptions.cpp` | 611 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiCollectionSystemsOptions.h` | 33 | upstream-carried | upstream-carried | the censuses | - |
-| `es-app/src/guis/GuiControllersSettings.cpp` | 853 | upstream-carried | upstream-carried | the censuses; at the leads' lines | L-19 |
+| `es-app/src/guis/GuiControllersSettings.cpp` | 853 | upstream-carried | upstream-carried | the censuses; at the leads' lines | L-19, L-35 |
 | `es-app/src/guis/GuiControllersSettings.h` | 44 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiFavoriteMusicSelector.cpp` | 91 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiFavoriteMusicSelector.h` | 28 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiFileBrowser.cpp` | 231 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiFileBrowser.h` | 41 | upstream-carried | upstream-carried | the censuses | - |
-| `es-app/src/guis/GuiGameOptions.cpp` | 682 | fork-own | fork-modified | the fork's diff whole, the rest at the leads' lines | L-04 |
+| `es-app/src/guis/GuiGameOptions.cpp` | 682 | fork-own | fork-modified | the fork's diff whole, the rest at the leads' lines | L-04, L-36 |
 | `es-app/src/guis/GuiGameOptions.h` | 52 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiGameScraper.cpp` | 131 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiGameScraper.h` | 39 | upstream-carried | upstream-carried | the censuses | - |
@@ -48,7 +48,7 @@ One row per path (76). `Lines` is `grep -c ''`, the inventory's count. The read'
 | `es-app/src/guis/GuiGeneralScreensaverOptions.h` | 22 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiHashStart.cpp` | 118 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiHashStart.h` | 40 | upstream-carried | upstream-carried | the censuses | - |
-| `es-app/src/guis/GuiImageViewer.cpp` | 778 | fork-own | fork-modified | the fork's diff whole, the rest at the leads' lines | L-18 |
+| `es-app/src/guis/GuiImageViewer.cpp` | 778 | fork-own | fork-modified | the fork's diff whole, the rest at the leads' lines | L-18, L-40, L-41 |
 | `es-app/src/guis/GuiImageViewer.h` | 52 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiInstall.cpp` | 108 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiInstall.h` | 41 | upstream-carried | upstream-carried | the censuses | - |
@@ -58,24 +58,24 @@ One row per path (76). `Lines` is `grep -c ''`, the inventory's count. The read'
 | `es-app/src/guis/GuiKeyMappingEditor.h` | 81 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiKeyboardLayout.cpp` | 296 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiKeyboardLayout.h` | 33 | upstream-carried | upstream-carried | the censuses | - |
-| `es-app/src/guis/GuiKeyboardtopads.cpp` | 380 | upstream-carried | upstream-carried | the censuses | - |
+| `es-app/src/guis/GuiKeyboardtopads.cpp` | 380 | upstream-carried | upstream-carried | the censuses; at the leads' lines | L-37 |
 | `es-app/src/guis/GuiKeyboardtopads.h` | 34 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiLoading.h` | 143 | upstream-carried | upstream-carried | whole | L-22 |
 | `es-app/src/guis/GuiMetaDataEd.cpp` | 679 | upstream-carried | upstream-carried | the censuses; at the leads' lines | L-01, L-20, L-21 |
 | `es-app/src/guis/GuiMetaDataEd.h` | 56 | upstream-carried | upstream-carried | the censuses | - |
-| `es-app/src/guis/GuiMoonlight.cpp` | 365 | upstream-carried | upstream-carried | the censuses; at the leads' lines | L-05, L-06, L-07 |
+| `es-app/src/guis/GuiMoonlight.cpp` | 365 | upstream-carried | upstream-carried | the censuses; at the leads' lines | L-05, L-06, L-07, L-28, L-29, L-30, L-31, L-32, L-33, L-36 |
 | `es-app/src/guis/GuiMoonlight.h` | 17 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiNetPlay.cpp` | 1110 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiNetPlay.h` | 121 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiNetPlaySettings.cpp` | 192 | upstream-carried | upstream-carried | the censuses; at the leads' lines | L-03, L-25 |
 | `es-app/src/guis/GuiNetPlaySettings.h` | 15 | upstream-carried | upstream-carried | the censuses | - |
-| `es-app/src/guis/GuiSaveState.cpp` | 612 | fork-own | fork-modified | whole | L-13, L-14 |
+| `es-app/src/guis/GuiSaveState.cpp` | 612 | fork-own | fork-modified | whole | L-13, L-14, L-38, L-43 |
 | `es-app/src/guis/GuiSaveState.h` | 76 | fork-own | fork-modified | the fork's diff whole, the rest at the leads' lines | - |
 | `es-app/src/guis/GuiScraperRun.cpp` | 258 | fork-own | fork-own | whole | L-08, L-09, L-10 |
 | `es-app/src/guis/GuiScraperRun.h` | 67 | fork-own | fork-own | whole | - |
-| `es-app/src/guis/GuiScraperStart.cpp` | 559 | fork-own | fork-modified | whole | L-01, L-15, L-16, L-17 |
+| `es-app/src/guis/GuiScraperStart.cpp` | 559 | fork-own | fork-modified | whole | L-01, L-15, L-16, L-17, L-42 |
 | `es-app/src/guis/GuiScraperStart.h` | 48 | upstream-carried | upstream-carried | the censuses | - |
-| `es-app/src/guis/GuiSettings.cpp` | 465 | fork-own | fork-modified | whole | L-01, L-16 |
+| `es-app/src/guis/GuiSettings.cpp` | 465 | fork-own | fork-modified | whole | L-01, L-16, L-34, L-36, L-37 |
 | `es-app/src/guis/GuiSettings.h` | 164 | fork-own | fork-modified | whole | - |
 | `es-app/src/guis/GuiSystemInformation.cpp` | 66 | upstream-carried | upstream-carried | the censuses | - |
 | `es-app/src/guis/GuiSystemInformation.h` | 11 | upstream-carried | upstream-carried | the censuses | - |
@@ -133,7 +133,7 @@ One row per path (76). `Lines` is `grep -c ''`, the inventory's count. The read'
 
 What each page runs, and on which thread, beyond the census:
 - The process starts are all on the interface thread with no bound: `GuiMoonlight`'s 5 `executeScriptLegacy` and 3 `runSystemCommand`, the LED page's one per slider step (L-02), and `GuiControllersSettings`' 2. Moonlight's `popen ("moonlight -v")` at `:42` is the version probe of its client.
-- The 18 `GuiLoading<` run their work on a worker and their completion on the interface thread, holding the page's raw `this` (#1212's shape, T21's grading), over L-22's race.
+- The 18 `GuiLoading<` run their work on a worker and their completion on the interface thread, over L-22's race. Most completions hold the page's raw `this` (#1212's shape); not all: BIOS's first loader captures only `window` (`GuiBios.cpp:43-45`). Ownership is graded per site.
 - The 18 `std::thread` mentions are `GuiLoading.h`'s 2, `GuiUpdate`'s 6 (the OS update, D-UI-079's named card), `GuiBluetoothPair`'s 2, `GuiNetPlay`'s 2, `GuiBackup`'s, `GuiInstall`'s and `GuiAutoScrape`'s (not built).
 
 ## The dialogs
@@ -249,8 +249,6 @@ What each page runs, and on which thread, beyond the census:
 | `GuiScraperStart.cpp:362` | addSwitch | FAN ART | `ScrapeFanart` | Settings | no description |
 | `GuiScraperStart.cpp:365` | addSwitch | BOX BACKSIDE | `ScrapeBoxBack` | Settings | no description |
 | `GuiScraperStart.cpp:368` | addSwitch | MAP | `ScrapeMap` | Settings | no description |
-| `GuiScraperStart.cpp:372` | addSwitch | SCRAPE TITLESHOT | `ScrapeTitleShot` | Settings | no description |
-| `GuiScraperStart.cpp:375` | addSwitch | SCRAPE CARTRIDGE | `ScrapeCartridge` | Settings | no description |
 | `GuiScraperStart.cpp:379` | addSwitch | MANUAL | `ScrapeManual` | Settings | no description |
 | `GuiScraperStart.cpp:382` | addSwitch | PADTOKEY SETTINGS | `ScrapePadToKey` | Settings | no description |
 | `GuiScraperStart.cpp:413` | addInputTextConfigRow | USERNAME | `ScreenScraperUser` | Settings | plain |
@@ -262,7 +260,7 @@ What each page runs, and on which thread, beyond the census:
 | `GuiSettings.cpp:401` | addWithDescription | <title> | `-` | - | GuiSettings comp form: multiLine = true |
 | `GuiSettings.cpp:428` | addWithDescription | <title> | `-` | - | GuiSettings comp form: multiLine = true |
 
-- **Switches:** all 23 are `storeInSettings = true` to ES-own keys in `es_settings.cfg`: 20 by the three-argument form, 3 with a description at `GuiNetPlaySettings.cpp:38-40`. None is the PROGRESS TRACKER shape.
+- **Switches:** all 21 active ones are `storeInSettings = true` to ES-own keys in `es_settings.cfg`: 18 by the three-argument form, 3 with a description at `GuiNetPlaySettings.cpp:38-40`. None is the PROGRESS TRACKER shape. The brief's 23 included two inside a `/* */` block (`GuiScraperStart.cpp:370-376`), which this table counted too until the seat's EP-27; the parser now skips block comments.
 - **Text rows:**
   - The scraper's six account rows go to `Settings`, the three secrets with `password = true`.
   - The netplay and Moonlight rows go to SystemConf. **PLAYER PASSWORD (`GuiGameOptions.cpp:204`) is `password = false`** (L-04).
@@ -290,7 +288,7 @@ What each page runs, and on which thread, beyond the census:
 | `GuiGameOptions.cpp:54` | exists | `game->getMetadata(MetaDataId::Magazine)` | cached | the game's magazine | the scraper | the magazine row absent after a scrape until a restart |
 | `GuiGameOptions.cpp:55` | exists | `game->getMetadata(MetaDataId::Map)` | cached | the game's map | the scraper | the map row absent after a scrape until a restart |
 | `GuiGameOptions.cpp:56` | exists | `game->getMetadata(MetaDataId::Video)` | cached | the game's video | the scraper | the video row absent after a scrape until a restart |
-| `GuiGamelistOptions.cpp:389` | atof | `first.c_str()` | - | two ratings | the gamelist | positive |
+| `GuiGamelistOptions.cpp:389` | atof | `first.c_str()` | - | a grid size's two dimensions (the seat's EP-27; the first reading said ratings) | the theme or the player's choice | a non-number is 0 |
 | `GuiImageViewer.cpp:415` | exists | `fullPath` | cached | a page extracted from an archive | this process (`zipFile.extract`) | the extraction reported failed if its path was asked about before |
 | `GuiImageViewer.cpp:629` | exists | `imagePath` | cached | an image added to the viewer | RetroArch (screenshots), the scraper | a new capture not shown until a restart |
 | `GuiImageViewer.cpp:660` | exists | `imagePath` | cached | the image to show | RetroArch, the scraper | the viewer opens nothing for a capture made this session, if missed before |
@@ -397,33 +395,49 @@ The questions are Q1 to Q7 as brief § 4 sets them, the family is from the brief
 
 | Lead | Q | Lines | What the read shows | Family | Side | proved: |
 | --- | --- | --- | --- | --- | --- | --- |
-| **L-01** | Q2 | `GuiSettings.cpp:106-112`, `:133-139`; `GuiScraperStart.cpp:542-548`; `GuiMetaDataEd.cpp:620-624` | START, offered as CLOSE on every settings page, deletes every page with `delete window->peekGui()`. No `close()`, `save()` or `onFinalize` runs, so every open page's unsaved choices are dropped, the fork's cloud pages included. Identical in `batocera/master` (`b2ceb55a7`) and `rocknix/master` | a state write that can lose the record | upstream, reaching the fork's lanes | fixture (`stage-c/l01-start-drops.py`: FAIL at the pin, control PASS); guest (G02: START left `es_settings.cfg` untouched, the B control wrote `ShowCheevosIcon=false`) |
-| **L-02** | Q2, Q3 | `GuiAnalogSticksLedControls.cpp:62-87` | Each slider step runs `/usr/bin/analog_sticks_ledcontrol` on the interface thread and sets `analogsticks.led` in memory. The page has no save function, so `GuiSettings::save` returns at `:88-89`, and nothing saves `system.cfg` at exit. The quirks' `ledcontrol` reads the key at boot, **so the colour is lost at a restart** | a state write that can lose the record | upstream (ROCKNIX's own page) | fixture (`stage-c/l02-led-not-saved.py`: FAIL, control PASS); the guest shows the row only with `DEVICE_ANALOG_STICKS_LED_CONTROL=true` (`GuiMenu.cpp:2197`) |
-| **L-03** | Q2 | `GuiNetPlaySettings.cpp:155-187` | Changing USE RELAY SERVER runs `delete this` without `save()` and opens a new page, **so ENABLE NETPLAY, toggled before, is dropped**. The delete runs inside the option list's own callback; nothing is touched after it (`OptionListComponent.h:310`, `:323`) | a state write that can lose the record | upstream | guest (G08: switched on, relay moved, BACK: `global.netplay=0`, `global.netplay.relay=nyc`) |
+| **L-01** | Q2 | `GuiSettings.cpp:106-112`, `:133-139`; `GuiScraperStart.cpp:542-548`; `GuiMetaDataEd.cpp:620-624` | START, offered as CLOSE on every settings page, deletes every page with `delete window->peekGui()`. No `close()`, `save()` or `onFinalize` runs, so a `GuiSettings` page's deferred choices are dropped, the fork's cloud pages included. Immediate setters keep theirs in memory, and `GuiGameOptions` saves in its destructor. FAVORITE SONGS' close key is SELECT. A stack can mix `GuiSettings` and plain pages (BIOS DETAILS over `GuiBios`), and `close()` is not virtual: a close-all needs a design, not a loop (EP-1). Identical in `batocera/master` (`b2ceb55a7`) and `rocknix/master` | a state write that can lose the record | upstream, reaching the fork's lanes | fixture (`stage-c/l01-start-drops.py`: FAIL at the pin, control PASS); guest (G02: START left `es_settings.cfg` untouched, the B control wrote `ShowCheevosIcon=false`) |
+| **L-02** | Q2, Q3 | `GuiAnalogSticksLedControls.cpp:62-87` | Each slider step runs `/usr/bin/analog_sticks_ledcontrol` on the interface thread and sets `analogsticks.led` in memory. The page has no save function, so `GuiSettings::save` returns at `:88-89`, and nothing saves `system.cfg` at exit. The change stays pending and **persists only if a later page flushes `system.cfg`** in the same session (EP-2); the quirks' `ledcontrol` reads the file at boot | a state write that can lose the record | upstream (ROCKNIX's own page) | fixture (`stage-c/l02-led-not-saved.py`: FAIL, control PASS); the guest shows the row only with `DEVICE_ANALOG_STICKS_LED_CONTROL=true` (`GuiMenu.cpp:2197`) |
+| **L-03** | Q2 | `GuiNetPlaySettings.cpp:155-187` | Changing USE RELAY SERVER runs `delete this` without `save()` and opens a new page, **so ENABLE NETPLAY, the three lobby switches and INDEX NEW GAMES AT STARTUP (`:38-45`), changed before, are dropped**. The text rows are immediate in memory (EP-3). The delete runs inside the option list's own callback; nothing is touched after it in the paths shown (`OptionListComponent.h:310`, `:323`) | a state write that can lose the record | upstream | guest (G08: switched on, relay moved, BACK: `global.netplay=0`, `global.netplay.relay=nyc`) |
 | **L-04** | Q2 | `GuiGameOptions.cpp:204` | PLAYER PASSWORD is `password = false`: the netplay password is shown on the row and in the editor. batocera's is the same | a credential's sink | upstream | tree |
 | **L-05** | Q6 | `GuiMoonlight.cpp:282`, `:304`, `:306` | The SERVER IP the player typed goes unquoted into `popen` (`executeScriptLegacy`, `ApiSystem.cpp:2269`). The pairing callback writes a host parsed from moonlight's output back to `moonlight.host` (`:310-311`) | a command built from a player's string | upstream (ROCKNIX's own page) | fixture (`stage-c/l05-l06-moonlight.py`: the canary made by all three commands; control PASS) |
 | **L-06** | Q4 | `GuiMoonlight.cpp:330-333` | `rm -r "~/.cache/Moonlight Game Streaming Project"`: a tilde inside double quotes is not expanded, so nothing is removed, and the box says "Unpaired and settings cleared" | a check whose failure reads as success | upstream (ROCKNIX's own) | fixture (both `rm` rc 1, the directories left; control PASS); guest (G09) |
 | **L-07** | Q5, Q7 | `GuiMoonlight.cpp:268`, `:295-336` | The page title is a raw English literal, with no `_()`, no French and invisible to the checker. Four boxes are in sentence case, one misspelt. The page is neither mapped nor declared; GAME SETTINGS opens it unconditionally (`GuiMenu.cpp:5758`). The pairing PIN is new at each opening | a player sentence outside the vocabulary; a page the map does not describe and the checker cannot see | upstream (ROCKNIX's own) | guest (G12: the rows French, the title English; PIN 4269, then 4282) |
 | **L-08** | Q5 | `GuiScraperRun.cpp:132-145` | `SKIPPED - YOU CANCELLED IT`, a fourth SKIPPED reason. The comment argues it; no register row | a player sentence outside the vocabulary | fork | design -- **for the pause** (a decision; an ID the coordinator assigns) |
-| **L-09** | Q4 | `GuiScraperRun.cpp:142`, `:225`, `:231` | A run where every game errored and the scraper did not fail reads COULDN'T FINISH and the counts. There is no why (line 4 needs `p.failed`) and no next step (line 5 needs `done - errors > 0`) | a check whose failure reads as success (half) | fork | fixture (`stage-c/l09-l10-scrape-page.py`: lines 4 and 5 empty; control PASS); the guest's offline run never reaches the page (G04) |
-| **L-10** | Q1, Q4 | `GuiScraperRun.cpp:90-103` | Once finished, any non-zero input dismisses the outcome, an axis past its deadzone included | (page) | fork | fixture (an axis dismissed it; control PASS) |
-| **L-11** | Q5 | `GuiBios.cpp:220-230` | The row summary is built word by word, so the French reads `7 SUR 7 MANQUANT` | a player sentence outside the vocabulary | fork | guest (G12) |
-| **L-12** | Q4 | `GuiBios.cpp:183-187`, `ApiSystem.cpp:886` | A failing or absent `rocknix-systems` gives the same screen as a check that knows nothing, with no recovery line | a check whose failure reads as success | fork | guest (G05: the script shadowed by one that exits 1) |
-| **L-13** | Q3, Q4 | `GuiSaveState.cpp:507-529` | COPY TO FREE SLOT runs `copyToSlot` on the interface thread. No free slot is silent. A failed copy is silent, and so is a successful one: `loadGrid` puts the cursor back on START NEW GAME, the new tile off-screen. At the pin `copyToSlot` returns `true` over an unchecked `copyFile` (SS-4, T2's `f11e7528a` not in the pin) | a check whose failure reads as success; work on the interface thread | fork | guest (G06: read-only directory, no message, no tile; a 64 MB copy leaves the identical frame) |
-| **L-14** | Q4 | `GuiSaveState.cpp:26-36`, `AtomicFileUtil.cpp:440-442` | Any open failure but ENOENT is read as "a sync is running". It fails closed, with the wrong words. ES runs as root on the image (G01 `id -u` 0), so EACCES is hard to reach: a keep-an-eye candidate | (page) | fork | tree |
-| **L-15** | Q2 | `GuiScraperStart.cpp:166-210` | An empty selection saved from the main menu reads back as "nothing remembered", so every system is selected: "none" cannot be kept. The first tab switch or close from the main menu stores the default set, so a system added later is not selected | a row whose store is wrong | fork | guest (G03: `ScraperSystems="pico-8"` written at the first SCRAPE → OPTIONS) |
-| **L-16** | Q2, Q3 | `GuiScraperStart.cpp:34-37`, `GuiSettings.cpp:83-96`, `Settings.cpp:471` | `save()` on every tab switch. `Settings` counts a value equal to its default as a change and `saveMap` omits it, so a first visit rewrote `es_settings.cfg` twice with nothing chosen: the second write changed no content | a state write with nothing to write | fork, upstream | guest (G03: two mtimes moved; the second with no key changed) |
-| **L-17** | Q3 | `GuiScraperStart.cpp:475-494`, `:97-100` | `getSearches` runs on `GuiLoading`'s worker reading `mSystems`/`mFilters` (interface components), and its filters write `mOverwriteMedias` from that thread. Modal while it runs | work on the interface thread (its inverse) | fork, upstream lines | tree |
-| **L-18** | Q3 | `GuiImageViewer.cpp:279-286`, `DisplayAspect.cpp:74-87` | The first tile decorated walks every system's games (`buildStems`) on the interface thread | work on the interface thread | fork | tree (G10 CANNOT: no library to time) |
+| **L-09** | Q4 | `GuiScraperRun.cpp:142`, `:225`, `:231` | A run where every game errored and the scraper did not fail reads COULDN'T FINISH and the counts. There is no why (line 4 needs `p.failed`) and no next step (line 5 needs `done - errors > 0`): an incomplete failure outcome, also met by a partly successful run with per-game errors (EP-8) | a check whose failure reads as success (half) | fork | fixture (`stage-c/l09-l10-scrape-page.py`: lines 4 and 5 empty; control PASS); the guest's offline run never reaches the page (G04) |
+| **L-10** | Q1, Q4 | `GuiScraperRun.cpp:90-103` | Once finished, any non-zero input dismisses the outcome, an axis past its deadzone included, and even before `update` has drawn it (`mShownFinished` is not tested, EP-9). The comment at `:87-89` says SCRAPER is behind; it was closed at the run's start (`GuiScraperStart.cpp:489-492`) | (page) | fork | fixture (an axis dismissed it; control PASS) |
+| **L-11** | Q5 | `GuiBios.cpp:220-230` | The row summary is assembled from separately translated fragments, so no locale can reorder it or agree it with the count: the French reads `7 SUR 7 MANQUANT` (EP-25) | a player sentence outside the vocabulary | fork | guest (G12) |
+| **L-12** | Q4 | `GuiBios.cpp:183-187`, `ApiSystem.cpp:886` | A failing or absent `rocknix-systems` gives the same screen as a check that knows nothing, with no recovery line: `executeEnumerationScript` drops the status (`ApiSystem.cpp:2233-2252`). The stronger case is L-39 | a check whose failure reads as success | fork | guest (G05: the script shadowed by one that exits 1) |
+| **L-13** | Q3, Q4 | `GuiSaveState.cpp:507-529` | COPY TO FREE SLOT runs `copyToSlot` on the interface thread. No free slot is silent; a `false` copy is silent; a `true` one rebuilds the grid with the cursor on START NEW GAME and no success word (on G06 the new tile was off-screen). At the pin a failed `copyFile` takes the `true` branch (`SaveState.cpp:231-238`; SS-4, T2's `f11e7528a` not in the pin) | a check whose failure reads as success; work on the interface thread | fork | guest (G06: read-only directory, no message, no tile; a 64 MB copy leaves the identical frame) |
+| **L-14** | Q4 | `GuiSaveState.cpp:26-36`, `AtomicFileUtil.cpp:440-442` | Any open failure but ENOENT, and any failed `flock` but EINTR, is read as "a sync is running" (EP-12). It fails closed, with the wrong words. ES runs as root on the image (G01 `id -u` 0), so EACCES is hard to reach: a keep-an-eye candidate | (page) | fork | tree |
+| **L-15** | Q2 | `GuiScraperStart.cpp:166-210` | With `currentSystem` empty (EP-13), an empty selection saved reads back as "nothing remembered", so the eligible systems with platform ids are selected: "none" cannot be kept. The first tab switch or close stores the default set, so a system added later is not selected | a row whose store is wrong | fork | guest (G03: `ScraperSystems="pico-8"` written at the first SCRAPE → OPTIONS) |
+| **L-16** | Q2, Q3 | `GuiScraperStart.cpp:34-37`, `GuiSettings.cpp:83-96`, `Settings.cpp:471` | `save()` on every tab switch. A first visit rewrote `es_settings.cfg` twice with nothing chosen, the second with no key listed changed. **The cause is not established:** the setters mark a change only for an absent key or a different value (`Settings.cpp:646-654`, `:670-686`), and which save function set `mWasChanged` is unrecorded (EP-4, refuting the first reading) | a state write with nothing to write | fork, upstream | guest (G03: two mtimes moved; the second with no key changed) |
+| **L-17** | Q3 | `GuiScraperStart.cpp:475-494`, `:97-100` | `getSearches` runs on `GuiLoading`'s worker reading `mSystems`/`mFilters` (interface components), and its filters write `mOverwriteMedias` from that thread: thread-affinity brittleness, not a proven race on its own (EP-22) | work on the interface thread (its inverse) | fork, upstream lines | tree |
+| **L-18** | Q3 | `GuiImageViewer.cpp:279-286`, `DisplayAspect.cpp:74-87` | The first uncached lookup after a rebuild walks every system's games (`buildStems`) on the interface thread: the grid's decorator, the single-image zoom (`GuiImageViewer.cpp:675-681`), a rebuild after `forgetScreenshots`, and a non-screenshot path all reach it (EP-23) | work on the interface thread | fork | tree (G10 CANNOT: no library to time) |
 | **L-19** | Q1 | `GuiControllersSettings.cpp:74-83` | OK / CANCEL: back presses OK and starts the mapping | a dialog whose back lands on the acting choice | upstream | tree (not pressed on the guest) |
 | **L-20** | Q1 | `GuiMetaDataEd.cpp:520-528` | YES / NO / CANCEL: back presses NO, which saves without the copies | the same | upstream | tree |
-| **L-21** | Q1 | `GuiMetaDataEd.cpp:626-632`, `GuiKeyMappingEditor.cpp:493-502` | SAVE CHANGES?: back presses NO, which discards the edits | a dialog whose back lands on the destructive choice | upstream | tree |
-| **L-22** | Q3 | `GuiLoading.h` | `mRunning` is a plain `bool` written by the worker and read on the interface thread, and `result` is read on its strength: a data race in every `GuiLoading`. The `std::thread` is never deleted | work on the interface thread | upstream (batocera's bytes) | fixture (`stage-c/l22-guiloading-race.py`: 2 ThreadSanitizer races; control with an atomic: none) |
+| **L-21** | Q1 | `GuiMetaDataEd.cpp:626-632`, `GuiKeyMappingEditor.cpp:493-502` | SAVE CHANGES?: back presses NO, which discards the edits (two sites). With L-19 and L-20, four call sites across three leads (EP-20); DELETE COLLECTION's NO deletes the options page, navigation only | a dialog whose back lands on the destructive choice | upstream | tree |
+| **L-22** | Q3 | `GuiLoading.h` | `mRunning` is a plain `bool` written by the worker and read on the interface thread, and `result` is copied on its strength before the join (EP-21): a data race in every `GuiLoading`. The `std::thread` is never deleted; an atomic fixes the publication, not the leak | work on the interface thread | upstream (batocera's bytes) | fixture (`stage-c/l22-guiloading-race.py`: 2 ThreadSanitizer races; control with an atomic: none) |
 | **L-23** | Q7 | `GuiAutoScrape.*`, `es-app/CMakeLists.txt` | Not compiled, no caller; the inventory's `reach: shipped` is wrong for 2 paths | the inventory's side | upstream | tool-run (`git show <pin>:es-app/CMakeLists.txt \| grep -c GuiAutoScrape`: 0) |
 | **L-24** | Q7 | § The titles | BIOS CHECK and SCRAPING GAMES (the fork's) neither mapped nor declared (D-UI-039), with 10 upstream titles and MOONLIGHT; #951/#965's evidence from the pages' side | a page the map does not describe and the checker cannot see | fork, upstream | tool-run (`t31-titles.py`) |
 | **L-25** | Q2 | `GuiNetPlaySettings.cpp:17-19` | The default port is written at page open: a real seed, saved on the next close | (record) | upstream | tree |
-| **L-26** | Q5 | `GuiBios.cpp:293-324` | BIOS CHECK is a `GuiComponent` and does not call `renderHelpPromptsEarly`, so with full-screen menus its help bar is never drawn. DETAILS and START (REFRESH) are offered by `getHelpPrompts` and shown nowhere; START refreshes unannounced (`es-code-traps.md` § Three things a font is not, the window paragraph) | a page with no help bar | fork | guest (G05, G12: no bar in any frame; START refreshed) |
-| **L-27** | Q5 | `GuiBios.cpp:143-156` | A system without games is named `proper()` of its short name (Nds, Psx, Gb), where a system with games has its full name (Game Boy) | a player sentence outside the vocabulary | fork | guest (G05, G12) |
+| **L-26** | Q5 | `GuiBios.cpp:293-324` | BIOS CHECK is a `GuiComponent` and does not call `renderHelpPromptsEarly`, so with full-screen menus its help bar is never drawn. REFRESH is a visible button; DETAILS and START are offered by `getHelpPrompts` and shown nowhere, and START refreshes unannounced. DETAILS is offered whenever `mBios` is non-empty, wherever the focus is (EP-14) (`es-code-traps.md` § Three things a font is not, the window paragraph) | a page with no help bar | fork | guest (G05, G12: no bar in any frame; START refreshed) |
+| **L-27** | Q5 | `GuiBios.cpp:143-156` | A system that is not loaded is named `proper()` of its short name (Nds, Psx, Gb), where a loaded one has its full name (Game Boy): the test is membership in `sSystemVector`, which the sort's `hasGames` also reads (EP-15) | a player sentence outside the vocabulary | fork | guest (G05, G12) |
+| **L-28** | Q6 | `GuiMoonlight.cpp:223-239` | UPDATE MOONLIGHT GAMES writes one `.sh` per game: the server's `AppTitle` inside double quotes and the host bare, so `$(...)` or a backtick in a title runs when the game is launched. Only `/` is replaced in the file name | a command built from a player's string (here the network's) | upstream (ROCKNIX's own) | tree (EP-28) |
+| **L-29** | Q2 | `GuiMoonlight.cpp:174-184` | `rm /storage/roms/moonlight/images/*` and `rm /storage/roms/moonlight/*` run before the app list is fetched; a fetch or parse failure leaves the library gone and says only "Unable to connect to server" | a state write that can lose the record | upstream (ROCKNIX's own) | tree (EP-29) |
+| **L-30** | Q4 | `GuiMoonlight.cpp:167-171`, `:230-257`, `:287-293` | the launchers' streams unchecked, `gamelist_doc.save_file` ignored, `WriteBoxArtFile` always `true`; on `true` the page quits ES to reload | a check whose failure reads as success | upstream (ROCKNIX's own) | tree (EP-30) |
+| **L-31** | Q4 | `GuiMoonlight.cpp:40-50` | `isEmbedded()` streams the `FILE*` pointer (`ss << mlver`), never the output, so it is always false; the `popen` is never closed (a descriptor per call) | a check whose failure reads as success | upstream (ROCKNIX's own) | tree (EP-31) |
+| **L-32** | Q3 | `GuiMoonlight.cpp:54-100`, `:308-325` | `extractClient`/`extractKey` loop on `getline` with no EOF test (a conf without the marker hangs), and `replace(npos, ...)` throws on a line with no `\n`; they run inside the pairing callback on the interface thread | work on the interface thread | upstream (ROCKNIX's own) | tree (EP-32) |
+| **L-33** | Q2 | `GuiMoonlight.cpp:79-100`, `:145-147` | the client's private key is written by a plain `ofstream`: its mode is the umask's and the directory's, no explicit 0600 | a credential's sink | upstream (ROCKNIX's own) | tree, in part (EP-33: the mode on the image is unread) |
+| **L-34** | Q2 | `GuiSettings.cpp:456-464` | a click outside the menu runs `delete this`, bypassing `close()` like START | a state write that can lose the record | upstream | tree (EP-34) |
+| **L-35** | Q2 | `GuiControllersSettings.cpp:200-211` | SHOW CONTROLLER ACTIVITY deletes and reopens the page without `save()`, dropping the deferred switches changed before it | a state write that can lose the record | upstream | tree (EP-35) |
+| **L-36** | Q2 | `GuiSettings.cpp:218-258`; `GuiMoonlight.cpp:278-343`; `GuiGameOptions.cpp:203-216` | a page of only text rows registers no save function, so its own close flushes nothing (Moonlight's SERVER IP; NETPLAY with ad hoc on); T26's PL-17 is the same shape | a state write that can lose the record | upstream | tree (EP-36) |
+| **L-37** | Q2 | `GuiSettings.cpp:301-334`; `GuiKeyboardtopads.cpp:168` | `addInputTextRow`'s editor reopens from the value captured at build, so an unchanged OK writes the old name back over the new | a state write that can lose the record | upstream | tree (EP-37) |
+| **L-38** | Q2 | `GuiSaveState.cpp:499-516`, `AtomicFileUtil.cpp:440-449` | COPY probes the transfer lock and releases it before copying: a check-then-write window, not D-CLOUD-053's exclusion | a state write that can lose the record | fork | tree (EP-38) |
+| **L-39** | Q4 | `GuiBios.cpp:158-162`, `:220-223`; `ApiSystem.cpp:2233-2252` | a script that prints a system header and dies reads ALL PRESENT (0); one that dies after PRESENT rows reads clean | a check whose failure reads as success | fork | tree (EP-39) |
+| **L-40** | Q3 | `GuiImageViewer.cpp:272-277`, `:365-377`, `:501-512` | `g_isGuiImageViewerRunning` is a plain global read by pool jobs: a race, and no instance guard (a later viewer sets it true for an old viewer's callbacks) | work on the interface thread | upstream | tree (EP-40) |
+| **L-41** | Q3 | `GuiImageViewer.cpp:390-399`, `:536-545`, `:692-712` | an empty first extraction returns without deleting the viewer it never pushed, its thread pool started | work on the interface thread | upstream | tree (EP-41) |
+| **L-42** | Q4 | `GuiScraperStart.cpp:83`, `:97-133`, `:173-175`, `:215` | SCRAPE FROM updates only the setting; the filters and the systems keep the old scraper until the tab is rebuilt, so SCRAPE NOW can find NO GAMES FIT THAT CRITERIA for the new source | a check whose failure reads as success | fork, upstream lines | tree (EP-42) |
+| **L-43** | Q3 | `GuiSaveState.cpp:268-278` | the incremental branch sorts with `>=`, which breaks `std::sort`'s strict weak ordering on equal dates | work on the interface thread | upstream lines in the fork's file | tree (EP-43) |
 
 **Cited, not re-found (their dispositions at their lines):**
 - T2's four routed leads:
@@ -441,16 +455,23 @@ The questions are Q1 to Q7 as brief § 4 sets them, the family is from the brief
   - L-03/#1191 (`:99`);
   - `GuiKeyboardLayout.cpp:164` (Backlog #1186: the write is `/tmp/kblayout-N.svg`, a scratch render).
 
+## Corrections and new leads from the seat
+
+GPT-6 Astra's 43 items (`second-opinions/astra-audit.md`) are graded in `stage-c/astra-grades.md`: 41 accepted, 1 in part (EP-33), 1 not kept (EP-26: `GuiAutoScrape` is in no build list, `es-app/CMakeLists.txt:315`). The narrowings are written into the leads above in place, each citing its EP item. The sixteen new items are L-28 to L-43. Two corrections reach this file's own method:
+- **The rows table counted two `addSwitch` calls inside a `/* */` block** (`GuiScraperStart.cpp:370-376`). The parser now scans comments and strings (`tools/t31lib.py`, four constructed cases), and the table reads 21 switches.
+- **L-16's cause is withdrawn.** The setters mark a change only for an absent key or a different value; the G03 mtimes stand as observations.
+
 ## Positives
 
 - `WifiScanProcess.h`, read whole, is the argv model #1192 names:
   - `posix_spawnp` in its own process group, with a relocated low pipe end;
-  - a 256 KiB cap and a deadline on the read, and a 2 s reap;
-  - `-1` for every failure, and lines only on exit 0.
+  - a 256 KiB cap and a deadline on the read, and a 2 s bounded reap attempt;
+  - `-1` for a spawn, read, signal or timeout failure, a child's own non-zero exit code preserved, and lines only on exit 0 (EP-16). It inherits `environ` and searches `PATH`.
 - Every YES / NO box lands on NO (17 of 17), and the fork's confirmations are YES first (proved: guest, G07, for DELETE GAME and the manager).
 - The three `clearButtons(` sites rebuild from page methods, none from a button's own lambda.
 - `GuiScraperRun`'s `delete this` at `:101` is the page deleting itself from its own input. Its help bar is drawn under full-screen menus (`:173-174`), and the spinner is never a bar.
 - The manager's placeholders are never null (`SaveStateRepository.cpp:280-294`). Its help bar is drawn at 640x480 and follows the cursor (G06: BACK / LAUNCH on START NEW GAME; BACK / DELETE / COPY TO FREE SLOT / LAUNCH on a slot).
+- `GuiGameOptions` runs its save functions in its destructor (`GuiGameOptions.cpp:494-501`), so START does not drop its choices (EP-1).
 - `GuiAnalogSticksLedControls`' parse is guarded by the token count.
 - No `system(`; no reboot flag; 0 non-ASCII comments.
 - The French: 706 of 706 against `bccd715707`, 703 of 703 against `cada856d86`.
@@ -464,6 +485,7 @@ The questions are Q1 to Q7 as brief § 4 sets them, the family is from the brief
 5. "`save()` rewrites `es_settings.cfg` twice on every visit" holds on a first visit, but not for the reason given: `Settings` counts a default as a change. Stage B's own first correction ("only on a change") was wrong in effect, and the guest corrected it (L-16).
 6. `GuiAutoScrape` is not built (L-23).
 7. The dialogs counted by landing replace the three-line heuristic: OK 30, NO 18, CANCEL 1, CLOSE 1.
+8. "23 `addSwitch` literals" are 21 active: two sit inside a `/* */` block (`GuiScraperStart.cpp:370-376`); this lane's own table repeated the count until the seat's EP-27.
 
 ## The runs
 
@@ -497,7 +519,7 @@ The questions are Q1 to Q7 as brief § 4 sets them, the family is from the brief
 | `t31-callers.py` | 0 | <2 s | 39 classes, 1 without a caller | negative: 9 paths → exit 1 |
 | `t31-dialogs.py` | 0 | <2 s | 50 sites; OK 30, NO 18, CANCEL 1, CLOSE 1 | negative: `--expect 49` → exit 1 |
 | `t31-titles.py` | 0 | <3 s | 12 / 27 / 10 / 12 | negative: 9 paths → exit 1 |
-| `t31-rows.py` | 0 | <2 s | 50 calls | negative: `addSwitch=26` → exit 1 |
+| `t31-rows.py` | 0 | <2 s | 48 calls (21 switches; 50 before the block-comment fix) | negative: `addSwitch=26` → exit 1; the parser's four constructed cases PASS |
 | `t31-reads.py` | 0 | <2 s | 26 sites | negative: `exists=11` → exit 1 |
 | `t31-pages.py` | 0 | <3 s | 37 pages, 2 header-only units | negative: 9 paths → exit 1 |
 | `stage-c/l01-start-drops.py` | 1, then 0 | <5 s | FAIL at the pin; the control (START closes each page) PASS | -- (the lead) |
@@ -542,10 +564,10 @@ Per D-WORKFLOW-164, each upstream-side lead is weighed for upstream (none sent, 
 
 | Upstream | File | The change | Evidence | Present at |
 | --- | --- | --- | --- | --- |
-| batocera-emulationstation, then ROCKNIX | `es-app/src/guis/GuiSettings.cpp` `input` / `getHelpPrompts` (START, CLOSE) | close each page through `close()` so its save functions and `onFinalize` run, or say on the bar that CLOSE discards | `stage-c/l01-start-drops.py`; G02 | `batocera/master` `b2ceb55a7`, `rocknix/master` `f6c542872` |
+| batocera-emulationstation, then ROCKNIX | `es-app/src/guis/GuiSettings.cpp` `input`, `getHelpPrompts`, `onMouseClick`, `addInputTextRow` | one close contract for START, CLOSE and an outside click (L-01, L-34), designed for a mixed stack; the text-row editor reopening from the current value (L-37); a page of text rows flushing on its own close (L-36) | `stage-c/l01-start-drops.py`; G02; EP-34, EP-36, EP-37 | `batocera/master` `b2ceb55a7`, `rocknix/master` `f6c542872` |
 | ROCKNIX/emulationstation-next | `es-app/src/guis/GuiAnalogSticksLedControls.cpp` | a save function so `GuiSettings::save` writes `system.cfg` | `stage-c/l02-led-not-saved.py` | `rocknix/master` (the page is ROCKNIX's own) |
-| batocera-emulationstation, then ROCKNIX | `es-app/src/guis/GuiNetPlaySettings.cpp` relay callback | `save()` before the page is replaced | G08 | `batocera/master` (the same `delete this`), `rocknix/master` |
-| ROCKNIX/emulationstation-next | `es-app/src/guis/GuiMoonlight.cpp` | `Utils::String::shellQuote` on the SERVER IP; `$HOME` in the removals; the title through `_()` | `stage-c/l05-l06-moonlight.py`; G09, G12 | `rocknix/master` (the page is ROCKNIX's own) |
+| batocera-emulationstation, then ROCKNIX | `es-app/src/guis/GuiNetPlaySettings.cpp` relay callback; `GuiControllersSettings.cpp` activity switch | `save()` before the page is replaced (L-03, L-35) | G08; EP-35 | `batocera/master` (the same `delete this`), `rocknix/master` |
+| ROCKNIX/emulationstation-next | `es-app/src/guis/GuiMoonlight.cpp` | `Utils::String::shellQuote` on the SERVER IP and in the generated launchers (L-28); `$HOME` in the removals and their results checked; the title through `_()`; fetch and validate before replacing the library (L-29), the writes checked (L-30); `isEmbedded` reading the output and closing it (L-31); the conf parsers bounded (L-32); the key written 0600 (L-33) | `stage-c/l05-l06-moonlight.py`; G09, G12; the seat's EP-28 to EP-33 | `rocknix/master` (the page is ROCKNIX's own) |
 | batocera-emulationstation, then ROCKNIX | `es-app/src/guis/GuiLoading.h` | `std::atomic<bool> mRunning` | `stage-c/l22-guiloading-race.py` | `batocera/master` (identical bytes), `rocknix/master` |
 | batocera-emulationstation | `es-app/src/guis/GuiGameOptions.cpp:204` | PLAYER PASSWORD with `password = true` | tree | `batocera/master:198` |
 

@@ -1,16 +1,16 @@
 # Retrospective audit — M6.P2 T31, EmulationStation's other pages (#678)
 
-This was written by the first reader (Opus 5.5) after stages A and B and the guest window, before any seat saw the packet. Line numbers are the pin's (`16dbac5211`). The leads are `02`'s (L-01 to L-27).
+This was written by the first reader (Opus 5.5) after stages A and B and the guest window, before any seat saw the packet. Line numbers are the pin's (`16dbac5211`). The leads are `02`'s (L-01 to L-27, and the seat's L-28 to L-43, added after the seat with their EP items).
 
 ## 3.1 Architectural coherence
 
-- **One page, one file.** All 37 pages are each their own class in their own file. The fork's three new pages and nine changes sit where the pages already lived. Nothing here is a second copy of a GuiMenu page.
+- **One page per file, mostly.** Each of the 37 `.cpp` files builds its own page; the viewer's file also defines a zoomable image and a video viewer (EP-27). The fork's three new files are one page (SCRAPING GAMES, `.cpp` and `.h`) and one executor (`WifiScanProcess.h`); its nine changes sit where the pages already lived. Nothing here is a second copy of a GuiMenu page.
 - **Two page shapes, and the help bar follows the shape.**
   - The `GuiSettings` pages get their bar from `MenuComponent`.
   - The full-screen `GuiComponent` pages must draw their own bar under full-screen menus. The fork's save state manager and scrape page do (`GuiSaveState.cpp:397-398`, `GuiScraperRun.cpp:173-174`); the fork-rebuilt BIOS CHECK does not (L-26, guest).
 - **`GuiSettings` is the base every settings page stands on, and it has two exits.**
   - BACK goes through `close()`: the save functions, `saveFile`, `saveSystemConf`, then `onFinalize`.
-  - START, CLOSE on the bar, deletes the pages without any of it (L-01).
+  - START, CLOSE on the bar, deletes the pages without any of it (L-01); so does a click outside the menu (L-34); and two option callbacks replace their own page without it (L-03, L-35).
 
   A page whose writes all happen in save functions loses them on START. A page that writes at once (`updateVal`, the LED page) keeps them in memory but writes the files only if some later `save()` runs (L-02). The base's contract is "apply on close", and one of its two closes does not apply.
 - **The long jobs follow D-UI-078 where the fork works.** SCRAPING GAMES is a fourth-tier page with CANCEL; the hasher and the OS update keep upstream's cards (D-UI-079). The manager's DELETE runs on a worker (D-UI-073), and its COPY still runs on the interface thread (L-13).
@@ -76,10 +76,14 @@ At the pin `copyToSlot` reports success over an unchecked copy (SS-4); T2's fix 
 
 The IP goes through a shell unquoted. The pairing reader writes a host it parsed back to `moonlight.host`, and the next command quotes it no better.
 
+### Interaction: Moonlight's server x the generated launchers x the library
+
+UPDATE MOONLIGHT GAMES deletes the library first (L-29), writes a shell script per game with the server's title inside double quotes (L-28), checks none of its writes (L-30), and quits ES to reload on `true`. A server that answers with a crafted title, or one that does not answer at all, turns into a command at the next launch, or into an empty library with only "Unable to connect to server" said.
+
 ## 3.6 Time to play
 
 From `docs/vm-qa-log.md`: interface to a game's first frame was 0.6 to 1.11 s in September's rows. It reads `Not measured` on 2026-10-14 and 2026-10-16, and nothing here built an image. This slice's pages sit on the launch path at two points:
-- **The manager's PLAY from a slot** (`GuiSaveState::input`, `:418-428`) calls the run callback and deletes the page: no process, no file. The manager's opening (the constructor) builds the grid from the repository's list, which is the cost before the first frame of the page, not of the game. COPY's synchronous copy (L-13) is not on the launch path.
+- **The manager's PLAY from a slot** (`GuiSaveState::input`, `:418-428`) calls the run callback and deletes the page; the callback is `ViewController::launch` (`GuiGameOptions.cpp:152-157`), whose work is T2's and outside this slice (EP-11 corrected the first reading's "no process, no file"). The manager's opening builds the grid from the repository's list, the cost before the page's first frame. COPY's synchronous copy (L-13) is not on the launch path.
 - **The game options menu** (X on a game) opens with five cached `exists` (`GuiGameOptions.cpp:41`, `:53-56`). On the guest it opened within the frame after the press (G06 g06-8); no figure was taken.
 
 Neither number is measured for this slice; the integration image's `time-to-play` run is owed with the window of the fixes.

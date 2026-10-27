@@ -38,8 +38,6 @@
 | `GuiScraperStart.cpp:362` | addSwitch | FAN ART | `ScrapeFanart` | Settings | no description |
 | `GuiScraperStart.cpp:365` | addSwitch | BOX BACKSIDE | `ScrapeBoxBack` | Settings | no description |
 | `GuiScraperStart.cpp:368` | addSwitch | MAP | `ScrapeMap` | Settings | no description |
-| `GuiScraperStart.cpp:372` | addSwitch | SCRAPE TITLESHOT | `ScrapeTitleShot` | Settings | no description |
-| `GuiScraperStart.cpp:375` | addSwitch | SCRAPE CARTRIDGE | `ScrapeCartridge` | Settings | no description |
 | `GuiScraperStart.cpp:379` | addSwitch | MANUAL | `ScrapeManual` | Settings | no description |
 | `GuiScraperStart.cpp:382` | addSwitch | PADTOKEY SETTINGS | `ScrapePadToKey` | Settings | no description |
 | `GuiScraperStart.cpp:413` | addInputTextConfigRow | USERNAME | `ScreenScraperUser` | Settings | plain |
@@ -51,4 +49,4 @@
 | `GuiSettings.cpp:401` | addWithDescription | <title> | `-` | - | GuiSettings comp form: multiLine = true |
 | `GuiSettings.cpp:428` | addWithDescription | <title> | `-` | - | GuiSettings comp form: multiLine = true |
 
-calls 50: addInputTextConfigRow 15, addInputTextRow 1, addOptionList 3, addSwitch 23, addWithDescription 8
+calls 48: addInputTextConfigRow 15, addInputTextRow 1, addOptionList 3, addSwitch 21, addWithDescription 8
