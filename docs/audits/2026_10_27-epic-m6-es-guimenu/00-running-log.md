@@ -130,3 +130,8 @@
   - **Tests:** `tests/cloud-scan-absent.py` (new) FAILs at the pin and PASSes after. It FAILs with the fallback put back.
   - **Noted, read before recording:** `cloudContentSystemPicker`'s own absent-script fallback is dead at the pin and now. Its one caller (`:5218`) is `cloudScanContent`'s continuation, which stops first. My first note named the function wrong; it was corrected after reading the caller.
 - **All thirteen streams committed.** ES `70a00ad13` … `757f5370e` on `feature/m6-es-guimenu-673`. Next: the record (`05`'s gate and index), stage G's retro, the hand-back.
+
+## [Stage F] 12:30 UTC — the outcomes
+
+- `05`'s Phase 7 gate and `punch_index` were rewritten together: 22 Resolved (20 by this slice's streams; PL-15 by S2's map commit; PL-20 by T21's S1, `ba0e82c1f`, at integration), 2 Deferred (PL-17 to #678, PL-22 to #1214), and 5 Withdrawn (PL-19 kept; PL-23, PL-24, PL-26 and PL-27 recorded as written, D-WORKFLOW-209).
+- `tools/lint-audit-artifacts` (resolution phase): PASS.

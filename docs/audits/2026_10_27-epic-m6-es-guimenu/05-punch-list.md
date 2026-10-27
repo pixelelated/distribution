@@ -446,39 +446,39 @@ Written by the first reader (Opus 5.5) at stage C, from `02` § The leads and §
 
 ## Phase 7 resolution gate
 
-At stage C, before the audit issue: every item open. Stage F writes each outcome -- resolved with its commit, deferred to a named issue, withdrawn, or recorded as written -- in this table and the index together.
+Stage F, 2026-10-27: every item at its outcome, the table and the index rewritten together. The ES commits are on `feature/m6-es-guimenu-673` (pixelelated/emulationstation); each stream's before, after and checks are under `stage-e/`, and `02` § The streams carries one row per stream.
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | -- |
-| PL-02 | Open | -- |
-| PL-03 | Open | -- |
-| PL-04 | Open | -- |
-| PL-05 | Open | -- |
-| PL-06 | Open | -- |
-| PL-07 | Open | -- |
-| PL-08 | Open | -- |
-| PL-09 | Open | -- |
-| PL-10 | Open | -- |
-| PL-11 | Open | -- |
-| PL-12 | Open | -- |
-| PL-13 | Open | -- |
-| PL-14 | Open | -- |
-| PL-15 | Open | -- |
-| PL-16 | Open | -- |
-| PL-17 | Open | -- |
-| PL-18 | Open | -- |
-| PL-19 | Open | -- |
-| PL-20 | Open | -- |
-| PL-21 | Open | -- |
-| PL-22 | Open | -- |
-| PL-23 | Open | -- |
-| PL-24 | Open | -- |
-| PL-25 | Open | -- |
-| PL-26 | Open | -- |
-| PL-27 | Open | -- |
-| PL-28 | Open | -- |
-| PL-29 | Open | -- |
+| PL-01 | Resolved | Resolved in `70a00ad13` (ES, S1) under #1215: the picker replaces the setup page and never closes a page twice; ASan clean (`stage-e/s1-*.txt`) |
+| PL-02 | Resolved | Resolved in `03183f899` (ES, S2) under #1216: the relink sentence names GAME SETTINGS > MANAGE CLOUD STORAGE > CLOUD CONNECTIONS, with its French; the map at distribution `190faf95fe` (`stage-e/s2-*.txt`) |
+| PL-03 | Resolved | Resolved in `d9bcdfb8a` and `2b50bf112` (ES, S3; the second test only) under #1217: `global.videofilter`, the old key read while the new is absent; a #585 line (`stage-e/s3-*.txt`) |
+| PL-04 | Resolved | Resolved in `d9bcdfb8a` and `2b50bf112` (ES, S3) under #1218: `es_settings.cfg`, the old `system.cfg` key read and kept in step where it exists, as ruled 09:51 UTC; a #585 line (`stage-e/s3-*.txt`) |
+| PL-05 | Resolved | Resolved in `e96222310` (ES, S4) under #1219: one guarded apply; an emptied entry never saved; the SECURITY page left as ruled (`stage-e/s4-*.txt`) |
+| PL-06 | Resolved | Resolved in `b7de744aa` (ES, S5) under #1220: the listed calls by argv under a 5 s deadline, under a spinner; the two return compares on a worker as ruled 10:14 UTC; the other 100 starts listed (`stage-e/s5-*.txt`) |
+| PL-07 | Resolved | Resolved in `aca4076c5` (ES, S6) under #1221: the QR read uncached, a path per code (`stage-e/s6-*.txt`) |
+| PL-08 | Resolved | Resolved in `aca4076c5` (ES, S6) under #1222: `cloudSelectionRead` and `wg0.conf` read uncached (`stage-e/s6-*.txt`) |
+| PL-09 | Resolved | Resolved in `072278be9` (ES, S7) under #1223: the scripts' sentences through `CloudText::scriptLines` with their French (`stage-e/s7-*.txt`) |
+| PL-10 | Resolved | Resolved in `072278be9` (ES, S7) under #1224: the two phrase labels translated; rclone's form labels stay the provider's words, as ruled 10:55 UTC (a) (`stage-e/s7-*.txt`) |
+| PL-11 | Resolved | Resolved in `a5d2d3756` (ES, S8) under #1225: `GetShOutput` keeps every byte and tests `popen` (a #585 line, ROCKNIX's); one `OK=` parse; a strict status (`stage-e/s8-*.txt`) |
+| PL-12 | Resolved | Resolved in `408f7c122` (ES, S9) under #1226: the relink reconnects only on a changed key (`stage-e/s9-*.txt`) |
+| PL-13 | Resolved | Resolved in `01f33e33e` (ES, S10) under #1227: the colour quoted for both shells; a #585 line (`stage-e/s10-*.txt`) |
+| PL-14 | Resolved | Resolved in `fb43038be` (ES, S11) under #1228: the dialog in the house's upper case, with its French (`stage-e/s11-*.txt`) |
+| PL-15 | Resolved | Resolved in distribution `190faf95fe` (S2's map commit, D-UI-039, no bug): the relink heading reads FINISH RESTORE PROCESS (ruled at the stage-D ruling, #673, 09:17 UTC) |
+| PL-16 | Resolved | Resolved in `fb43038be` (ES, S11) under #1229: one Wi-Fi verdict as ruled; the map carries it (`stage-e/s11-*.txt`) |
+| PL-17 | Deferred | Deferred: #678 (T31) (ruled at the stage-D ruling, #673, 09:17 UTC) |
+| PL-18 | Resolved | Resolved in `408f7c122` (ES, S9) under #1230: SOUND SETTINGS reads its defaults without writing; the timezone set on a change or into an empty store; its every-close set over a stored value was a set of the value held, corrected (`stage-e/s9-*.txt`); #585 lines |
+| PL-19 | Withdrawn | Withdrawn: kept -- back lands on CANCEL SIGN-IN, the safe verb last (`es-ui-style-guide.md` § Confirmations) (ruled at the stage-D ruling, #673, 09:17 UTC) |
+| PL-20 | Resolved | Resolved by T21's S1, `ba0e82c1f` (ES, `feature/m6-es-state-and-bridge-668`) under #1198: `getHostsName` answers the device's own name; reaches this slice at integration, no stream here (ruled at the stage-D ruling, #673, 09:17 UTC) |
+| PL-21 | Resolved | Resolved in `a5d2d3756` (ES, S8) under #1225: `cloudShellQuote` replaced by `Utils::String::shellQuote` after the equality guard; credential-quoting 8 of 8 (`stage-e/s8-*.txt`) |
+| PL-22 | Deferred | Deferred: #1214 (a Backlog under #700) (ruled at the stage-D ruling, #673, 09:17 UTC) |
+| PL-23 | Withdrawn | Withdrawn: recorded as written (D-WORKFLOW-209) (ruled at the stage-D ruling, #673, 09:17 UTC) |
+| PL-24 | Withdrawn | Withdrawn: recorded as written (D-WORKFLOW-209) (ruled at the stage-D ruling, #673, 09:17 UTC) |
+| PL-25 | Resolved | Resolved in `2dd46a3e3` (ES, S12) under #1231 and #1186: the atomic writer; 0 of 11 kill points leave the file cut (`stage-e/s12-*.txt`) |
+| PL-26 | Withdrawn | Withdrawn: recorded as written (D-WORKFLOW-209) (ruled at the stage-D ruling, #673, 09:17 UTC) |
+| PL-27 | Withdrawn | Withdrawn: recorded as written (D-WORKFLOW-209), the leak's shape noted for the es-core slice (ruled at the stage-D ruling, #673, 09:17 UTC) |
+| PL-28 | Resolved | Resolved in `fb43038be` (ES, S11) under #1232: the ruled sentence, the marker and the page left (`stage-e/s11-*.txt`) |
+| PL-29 | Resolved | Resolved in `757f5370e` (ES, S13) under #1233: the fallback removed; the missing-tool sentence with its French (`stage-e/s13-*.txt`) |
 
 ```yaml
 punch_index:
@@ -487,173 +487,173 @@ punch_index:
   category: Correctness
   question: Q1
   source_finding: "L-31"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-02
   severity: "Medium"
   category: UX
   question: Q5
   source_finding: "L-18"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-03
   severity: "Medium"
   category: Correctness
   question: Q2
   source_finding: "L-09"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-04
   severity: "Medium"
   category: Correctness
   question: Q2
   source_finding: "L-10"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-05
   severity: "Medium"
   category: Security
   question: Q2
   source_finding: "L-08, L-32"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-06
   severity: "Medium"
   category: Reliability
   question: Q3
   source_finding: "L-04"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-07
   severity: "Low"
   category: Correctness
   question: Q4
   source_finding: "L-01, L-02"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-08
   severity: "Low"
   category: Correctness
   question: Q4
   source_finding: "L-03, L-34"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-09
   severity: "Low"
   category: UX
   question: Q5
   source_finding: "L-19, L-37"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-10
   severity: "Low"
   category: UX
   question: Q5
   source_finding: "L-20, L-36"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-11
   severity: "Low"
   category: Correctness
   question: Q6
   source_finding: "L-05, L-06, L-38, L-39"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-12
   severity: "Low"
   category: Correctness
   question: Q2
   source_finding: "L-40"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-13
   severity: "Low"
   category: Security
   question: Q6
   source_finding: "L-35"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-14
   severity: "Low"
   category: UX
   question: Q5
   source_finding: "L-21"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-15
   severity: "Low"
   category: Docs
   question: Q5
   source_finding: "L-23"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-16
   severity: "Low"
   category: UX
   question: Q7
   source_finding: "L-26"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-17
   severity: "Low"
   category: Maintainability
   question: Q2
   source_finding: "L-12"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-18
   severity: "Low"
   category: Correctness
   question: Q2
   source_finding: "L-11"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-19
   severity: "Low"
   category: UX
   question: Q5
   source_finding: "L-22"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-20
   severity: "Low"
   category: UX
   question: Q5
   source_finding: "L-25"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-21
   severity: "Low"
   category: Maintainability
   question: Q6
   source_finding: "L-27"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-22
   severity: "Low"
   category: Maintainability
   question: Q7
   source_finding: "L-28, L-29"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-23
   severity: "Low"
   category: Correctness
   question: Q2
   source_finding: "L-13"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-24
   severity: "Low"
   category: UX
   question: Q5
   source_finding: "L-15, L-24"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-25
   severity: "Low"
   category: Reliability
   question: Q4
   source_finding: "Backlog #1186"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-26
   severity: "Low"
   category: UX
   question: Q1
   source_finding: "L-16"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-27
   severity: "Low"
   category: Maintainability
   question: Q1
   source_finding: "L-17, L-33"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-28
   severity: "Low"
   category: UX
   question: Q5
   source_finding: "L-41"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-29
   severity: "Low"
   category: Correctness
   question: Q5
   source_finding: "L-42"
-  outcome: "open"
+  outcome: "resolved"
 ```
