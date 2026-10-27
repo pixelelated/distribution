@@ -25,16 +25,21 @@
 3. `stage-b/02-template.md` has the sixteen sections and is composed by `tools/t33-02.py` into `02`: coverage 77, 27/4/46, inventory 31/46. Done.
 4. The window plan is `stage-b/window-plan.md` (25 + 5 minutes; the plan sums to 1,260 s; G-05, G-07 and G-09 are `CANNOT`). The request is on #680. Done.
 
-**Next, on the grant:** run the window (START post, G-01 to G-10, RETURN post), then stage C:
-- `t33-includes.py`'s expectations;
-- `t33-build-tests.sh` extended to `app-unit-tests`;
-- the six FAIL-at-pin cases;
-- the harnesses for L-06, L-07 and L-12;
-- `03` and `04`;
-- the packet and the two keyed calls;
-- the pre-issue lint.
+**The window ran and returned.** Granted at 19:00 UTC; START 19:01:31; stopped by pidfile at 19:14:06; RETURN posted (comment 6451273341) and in the host file; the disk retired. The results are in `02` § The guest cycle:
+- L-05 and L-28 were reproduced on the image.
+- L-06 did not fault once.
+- G-03's index toast and `exec.log` were not shown.
 
-Without a grant, stage C's host work runs first, and the window comes when it is granted.
+**Next: stage C's host work**, in this order:
+1. `t33-includes.py`'s expectations.
+2. `t33-build-tests.sh` extended to `tests/app-unit`'s `app-unit-tests` (its fakes before `es-app/src`).
+3. The six FAIL-at-pin cases (3.9, 3.13, 3.21, 3.29, 3.31, 3.35).
+4. The harnesses for L-06 (ASan extract), L-07 and L-12.
+5. `03` and `04`.
+6. The packet and the two keyed council calls.
+7. The pre-issue lint.
+
+After that comes stage D: `05`, the audit issue under #680, and the pause.
 
 **Scratch:** `/workspace/tmp/m6-t33/` (`tmp/`, `rj/` the recipe's rapidjson). `stage-a/env.sh` holds the paths.
 
@@ -75,5 +80,6 @@ granted window.
 
 ## Checkpoints
 
+- window, 2026-10-27 19:01-19:14 UTC: G-01..G-10 run (G-05/07/09 CANNOT); L-05 and L-28 reproduced on the image; RETURN posted; distribution `d680658464`
 - stage B, 2026-10-27 18:58 UTC: `02` composed (16 sections; the five generated tables and the words, each asserted and drift-tested); the window plan; the request posted on #680
 - stage A, 2026-10-27 18:4x UTC: distribution `27bd8499f1` + stage A's record, ES `16dbac5211` (the pin, clean); every § 1, § 2 and § 5 figure as the brief expects; the stand-in 29/29 rc 0; next: stage B (`02`), then the window request
