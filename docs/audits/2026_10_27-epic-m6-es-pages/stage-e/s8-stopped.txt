@@ -1,0 +1,21 @@
+# S8 (#678, #1234, PL-17): stopped at the checker, 14:26:03Z. ES tip 70db6535b; the map as stage-e/s8-map-draft.patch writes it.
+$ tools/es-menu-map-check --es-src <W> --ref 70db6535b   (the draft map)
+56 screen(s) at 70db6535b, 22 in the map, 34 declared unmapped, 0 missing
+  STALE    BACKUP USER DATA is declared unmapped but no longer exists
+  STALE    BLUETOOTH DEVICE LIST is declared unmapped but no longer exists
+  STALE    CONTENT DOWNLOADER is declared unmapped but no longer exists
+  STALE    DEVICE OPTIONS is declared unmapped but no longer exists
+  STALE    EDIT METADATA is declared unmapped but no longer exists
+  STALE    FILTER GAMELIST BY is declared unmapped but no longer exists
+  STALE    INSTALL ON A NEW DISK is declared unmapped but no longer exists
+  STALE    PAD TO KEYBOARD CONFIGURATION is declared unmapped but no longer exists
+  STALE    THE BEZEL PROJECT is declared unmapped but no longer exists
+  STALE    THEMES DOWNLOADER is declared unmapped but no longer exists
+rc 1
+
+$ python3 -I tools/t31-titles.py <W> 70db6535b docs/es-menu-map.md   (the draft map; its hand-count asserts are the pin's)
+.cpp 37; with a title by the checker's shapes 13; by the wider sweep 28; with no _() literal title 9; pages whose every literal title is in neither the map's body nor ## Not mapped 0
+no title: GuiAutoScrape.cpp, GuiBackup.cpp, GuiFileBrowser.cpp, GuiGameScraper.cpp, GuiImageViewer.cpp, GuiInstall.cpp, GuiKeyboardLayout.cpp, GuiSettings.cpp, GuiUpdate.cpp
+neither: 
+FAIL t31-titles: checker 13, the brief's hand count 12; wider 28, the brief's hand count 27; none 9, the brief's hand count 10
+rc 1

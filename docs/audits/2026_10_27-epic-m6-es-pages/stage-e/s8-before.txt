@@ -1,0 +1,9 @@
+# S8 before: the pin's map (863b0024bc) and ES 16dbac5211; then the checker at the S3 tip with the map at the S3 record (b0f3154b27), 14:26:14Z
+$ python3 -I tools/t31-titles.py <W> 16dbac5211 <the map at 863b0024bc>
+.cpp 37; with a title by the checker's shapes 12; by the wider sweep 27; with no _() literal title 10; pages whose every literal title is in neither the map's body nor ## Not mapped 12
+no title: GuiAutoScrape.cpp, GuiBackup.cpp, GuiFileBrowser.cpp, GuiGameScraper.cpp, GuiImageViewer.cpp, GuiInstall.cpp, GuiKeyboardLayout.cpp, GuiMoonlight.cpp, GuiSettings.cpp, GuiUpdate.cpp
+neither: GuiBackupStart.cpp, GuiBatoceraStore.cpp, GuiBezelInstaller.cpp, GuiBios.cpp, GuiBluetoothDeviceOptions.cpp, GuiBluetoothDevices.cpp, GuiGamelistFilter.cpp, GuiInstallStart.cpp, GuiKeyMappingEditor.cpp, GuiMetaDataEd.cpp, GuiScraperRun.cpp, GuiThemeInstaller.cpp
+rc 0
+$ tools/es-menu-map-check --es-src <W> --ref 70db6535b   (0 missing with 12 pages in neither place: the checker's blind spot, #951/#965, not a FAIL)
+56 screen(s) at 70db6535b, 32 in the map, 24 declared unmapped, 0 missing
+rc 0

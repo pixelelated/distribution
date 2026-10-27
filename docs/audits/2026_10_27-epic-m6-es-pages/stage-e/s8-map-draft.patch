@@ -1,0 +1,72 @@
+diff --git a/docs/es-menu-map.md b/docs/es-menu-map.md
+index e258283657..f65e7231d9 100644
+--- a/docs/es-menu-map.md
++++ b/docs/es-menu-map.md
+@@ -136,7 +136,7 @@ to decide where something belongs.
+ | **GAME COLLECTION** | COLLECTIONS TO DISPLAY · CREATE CUSTOM COLLECTION · OPTIONS |
+ | **SOUND** | VOLUME · MUSIC · SOUNDS |
+ | **NETWORK** | INFORMATION · SETTINGS · NETWORK SERVICES · SYNCTHING SERVICES · VPN SERVICES · FINISH RESTORE PROCESS (only after a restore) — *no cloud group; D-UI-015/017* |
+-| **SCRAPER** | tabbed: SCRAPE · OPTIONS · ACCOUNTS |
++| **SCRAPER** | tabbed: SCRAPE · OPTIONS · ACCOUNTS; SCRAPE NOW opens **SCRAPING GAMES** (below) |
+ | **UPDATES & DOWNLOADS** | DOWNLOADS · SOFTWARE UPDATES (`MANUAL UPDATES` on pixelelated 0.0.1; opens the release-page instructions, with no automatic-update, force or branch controls) |
+ | **SYSTEM SETTINGS** | SYSTEM · HARDWARE · DEVICE · STORAGE · PERFORMANCE · TWEAKS · SUSPEND · LED HARDWARE · ADVANCED |
+ 
+@@ -147,6 +147,41 @@ Two placement rules the existing tree already follows:
+ - **Destructive and system-level operations sit behind ADVANCED**, inside SYSTEM
+   SETTINGS → SYSTEM MANAGEMENT AND RESET, where every row confirms first.
+ 
++## BIOS CHECK
++
++`GAME SETTINGS > BIOS SETTINGS > BIOS CHECK` (the row is also offered at
++`GuiMenu.cpp:2832` where the BIOS script is supported), mapped by T31 S8
++(#678, #1234; D-UI-039): the fork-modified `GuiBios` page. While the check
++runs, `PLEASE WAIT`. Then one list: a row per system, its name and its
++summary sentence (`ALL PRESENT (N)`, or how many are missing and how many
++are not a known version). On a row, the help bar offers DETAILS (south),
++which opens the system's own page, titled by its name, a file per row:
++`PRESENT`, `MISSING`, or `PRESENT, BUT NOT A KNOWN VERSION`. BACK closes
++the page; START is REFRESH, which runs the check again. When the check
++returns nothing, the list is one sentence: `THE BIOS CHECK RETURNED
++NOTHING`, or, once T21's `a73ed9efc` and this lane's S6 are integrated,
++`COULDN'T CHECK THE BIOS FILES RIGHT NOW.` with its next step on the page
++(#1244). S6 (#1245, #1246) makes the summary one sentence per count and
++DETAILS a row's prompt only.
++
++## SCRAPING GAMES
++
++`SCRAPER > SCRAPE NOW` closes SCRAPER and opens SCRAPING GAMES (`GuiScraperRun`,
++the fork's page), mapped by T31 S8 (#678, #1234): a fourth-tier page with
++CANCEL (D-UI-078). Under its title, seven lines: the status (`PREPARING...`,
++`SCRAPING...`, then the outcome), the counter (`GAME N OF M`), the game
++being scraped, its detail, a note, `ELAPSED` with the time, and the footer
++(`THIS CAN TAKE A WHILE.`, then `PRESS ANY BUTTON TO CLOSE`). While it runs,
++the back button is CANCEL: `CANCEL SCRAPING?` / `WHAT'S SCRAPED SO FAR IS
++KEPT. UPDATE GAMELISTS TO APPLY IT.` with YES and NO. The outcome is one of
++three words (D-UI-028): `COMPLETED`; `SKIPPED - YOU CANCELLED IT` for the
++player's cancel (D-UI-129, the word kept); or `COULDN'T FINISH` when the
++scraper refused the run or some games could not be scraped. The counts line
++(`GAMES SCRAPED: N  ·  COULDN'T SCRAPE: M`) and the next step (`UPDATE
++GAMELISTS TO APPLY CHANGES.`) follow. This lane's S7 (#1247) adds the why
++and the next step for a run with failures, and makes a button dismiss the
++page only once its outcome has been drawn.
++
+ ## MOONLIGHT GAME STREAMING (ROCKNIX's page)
+ 
+ `GAME SETTINGS > TOOLS > MOONLIGHT GAME STREAMING`, ROCKNIX's own page, mapped
+@@ -733,6 +768,16 @@ here.** The reason column is the point; a line with no reason is not a decision.
+ - KEYBOARDTOPADS -- upstream key-to-pad editor; #63 will move its tab strip to the focus model, which does not change where it lives
+ - ANALOG STICKS LEDS -- upstream LED page for controllers our devices do not have
+ - PAIR A BLUETOOTH DEVICE -- upstream pairing flow, unchanged here
++- BACKUP USER DATA -- upstream backup page, hidden on ROCKNIX (no `ApiSystem::BACKUP` backend; `es-native-ui.md` § Reusable precedents)
++- CONTENT DOWNLOADER -- upstream store page, unchanged here; one of #63's four tab strips
++- THE BEZEL PROJECT -- upstream installer behind DECORATIONS, which is declared above
++- DEVICE OPTIONS -- upstream Bluetooth device page, unchanged here
++- BLUETOOTH DEVICE LIST -- upstream Bluetooth list, unchanged here
++- FILTER GAMELIST BY -- upstream game-list filter, with its EDIT DYNAMIC COLLECTION FILTERS and FIND GAMES forms, unchanged here
++- INSTALL ON A NEW DISK -- upstream installer, not a handheld flow
++- PAD TO KEYBOARD CONFIGURATION -- upstream pad-to-keyboard editor; one of #63's four tab strips
++- EDIT METADATA -- upstream metadata editor, unchanged here
++- THEMES DOWNLOADER -- upstream theme store; one of #63's four tab strips
+ 
+ ## pixelelated identity (0.0.1)
+ 
