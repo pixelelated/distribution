@@ -772,11 +772,11 @@ Every run, with its exit and wall time; the figure, and what a FAIL would mean. 
 
 ## The streams
 
-Stage E, under the ruling of 09:17 UTC (#673, comment 6438068860) and the stream brief `docs/reviews/briefs/t26-streams.md` at `4bd066551a`. One ES commit per stream on `feature/m6-es-guimenu-673` (pixelelated/emulationstation), serial, each test first: its FAIL at the pin in `stage-e/sN-before.txt`, its PASS in `sN-after.txt`, and every check in `sN-checks.txt` (`stage-e/checks.sh`: T21's stand-in syntax check, proven to pass the pin and fire on a broken copy, with the recipe's patched rapidjson; the non-ASCII check over the added lines; every harness under `tests/`; `es-menu-map-check`; the French count). `tools/es-syntax-check` answers CANNOT here (no build root, rc 2), which is not a pass.
+Stage E, under the ruling of 09:17 UTC (#673, comment 6438068860) and the stream brief `docs/reviews/briefs/t26-streams.md` at `4bd066551a`. One ES commit per stream on `feature/m6-es-guimenu-673` (pixelelated/emulationstation), serial, each test first: its FAIL at the pin in `stage-e/sN-before.txt`, its PASS in `sN-after.txt`, and every check in `sN-checks.txt` (`stage-e/checks.sh`: T21's stand-in syntax check, proven to pass the pin and fire on a broken copy; the unit tests by `tools/t26-build-tests.sh`, T21's generated host build copied, with the recipe's patched rapidjson, proven to fail on a flipped assertion and to refuse without rapidjson; the non-ASCII check over the added lines; every harness under `tests/`; `es-menu-map-check`; the French count). `tools/es-syntax-check` answers CANNOT here (no build root, rc 2), which is not a pass.
 
-| Stream | Bugs | ES commit | Test (before at the pin, after) | Already written |
-| --- | --- | --- | --- | --- |
-| S1 | PL-01, #1215 | `70a00ad13` | `tests/cloud-setup-repair-lifetime.py`: ASan heap-use-after-free at `16dbac521`; PASS, 1 page left, 2 refusals | nothing: the picker holds no state and writes nothing; the crash came before anything was stored |
+| Stream | Bugs | ES commit | Test (before at the pin, after) | Already written | proved |
+| --- | --- | --- | --- | --- | --- |
+| S1 | PL-01, #1215 | `70a00ad13` | `tests/cloud-setup-repair-lifetime.py`: ASan heap-use-after-free at `16dbac521`; PASS, 1 page left, 2 refusals | nothing: the picker holds no state and writes nothing; the crash came before anything was stored | `fix-unit-test` |
 
 ## Positives
 

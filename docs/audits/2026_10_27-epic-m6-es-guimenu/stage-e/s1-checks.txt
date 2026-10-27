@@ -1,9 +1,17 @@
-== S1 (PL-01, #1215) checks
+== S1 (PL-01, #1215) checks, at the S1 commit
 es-syntax-check: CANNOT -- 'no build root at /workspace/repos/rocknix.worktrees/generic-x64/build.ROCKNIX-GENERIC_X64.x86_64', rc 2 (not a pass; no build root is ours to use)
 stand-in syntax-check.sh proven: the pin's GuiMenu.cpp rc 0; a copy with '@@broken@@' at :8230 rc 1 (stray '@')
-== checks: S1 (09:24:51Z), ES HEAD 16dbac5211, worktree changes 2
+t26-build-tests.sh proven: a scratch tree with CHECK(false) added to CheevosRetryTests.cpp rc 1 (es-unit-tests 1 failed); RAPIDJSON_INCLUDE_DIR unset rc 2 (nothing built)
+GuiMenu.cpp is compiled by no unit-test target: read twice (the diff, then openCloudSetup whole), and compiled by the stand-in check and by tests/cloud-setup-repair-lifetime.py's extraction
+== checks: S1 (09:29:37Z), ES HEAD 70a00ad13c, worktree changes 0
 es-app/src/guis/GuiMenu.cpp: rc 0
 syntax-check rc 0
+RUN es-unit-tests: rc 0; [doctest] test cases: 185 | 185 passed | 0 failed | 0 skipped [doctest] assertions: 4795 | 4795 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3389 | 3389 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+TOTAL: 221 test cases in 4 binaries
+t26-build-tests rc 0
 non-ASCII added lines: 0
 maintenance-why rc=0: maintenance-why: PASS
 cloud-sync-last-run rc=0: cloud-sync-last-run: PASS
@@ -16,5 +24,5 @@ cloud-oauth-await rc=0: cloud-oauth-await: PASS
 credential-quoting rc=0: credential-quoting: 9 credential call site(s), 9 quoted, 0 bare
 gpu-governor-save rc=0: PASS fallback
 cloud-setup-repair-lifetime rc=0: PASS repair picker: 1 page(s) left, 2 refusals
-55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing (rc 0)
+55 screen(s) at 70a00ad13, 31 in the map, 24 declared unmapped, 0 missing (rc 0)
 es-untranslated: 706 fork string(s) in the source, 706 with French, 0 without (rc 0)
