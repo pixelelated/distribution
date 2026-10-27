@@ -1,0 +1,10 @@
+definitions 156 ({'member': 63, 'static': 92, 'free': 1}); the ten longest: openSystemSettings 1604, openThemeConfiguration 674, popSpecificConfigurationGui 537, openNetworkSettings 494, openDeveloperSettings 483, openGamesSettings 446, cloudOpenTransferOptions 375, addFeatureItem 357, cloudContentSystemPicker 317, openRestoreRelink 237
+transitions: cloudSetupPresent calls 16 (last statement 15; harnessed 5); other page replacements 10 (harnessed 1; a capture used after closing the lambda's own holder 1)
+reads 37: uncached 13, cached 24 (exists 36, isRegularFile 1)
+labels (row, title, dialog) built in two or more functions 74; one-line _() literals in two or more functions 165
+conditional regions 86; lines no ROCKNIX image compiles 869; lines under an unknown macro 282; regions whose first arm's braces do not balance 13: 3798 +1, 3805 -1, 3819 +1, 3826 -1, 5887 +1, 5912 -1, 5918 +2, 5948 -1, 10071 +1, 10929 +1, 10954 -1, 10960 +2, 10992 -1
+dead lines by condition (top 6): {'#ifdef BATOCERA': 415, '#if defined(BATOCERA)': 209, '#if !defined(ROCKNIX)': 116, '#if defined(ROCKNIX)': 21, '#if defined(BATOCERA) || defined(ROCKNIX)': 19, '#ifdef _ENABLE_KODI_': 18}
+unknown macros: ['AMD64', 'BATTERYPLUS', 'CHEEVOS_DEV_LOGIN', 'CLOUD_CONTENT_SELECTION', 'GAMEFORCE', 'H700', 'HAVE_INTL', 'ODROIDGOA', 'RK3326', 'RK3399', 'RK3566', 'RK3576', 'RK3588', 'S922X', 'SCREENSCRAPER_DEV_LOGIN', 'SCREENSCRAPER_RUNTIME_DEV_LOGIN', 'SM4450', 'SM6115', 'SM8250', 'SM8550', 'SM8650', 'X86', 'X86_64', '_DEBUG', '_ENABLE_TTS_']
+includes 98; repeated lines {'#include<chrono>': 2, '#include<cstdio>': 3, '#include<sys/wait.h>': 2, '#include<tuple>': 2}; one header by two spellings {'chrono': 2, 'cstdio': 3, 'tuple': 2, 'GuiLoading.h': 2}
+header: declared 62, GuiMenu:: defined 62; declared without a definition []; defined without a declaration []
+DRIFT (got, asserted): {'reads-uncached': (13, 12)}

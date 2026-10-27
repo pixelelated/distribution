@@ -1,0 +1,7 @@
+greps (raw lines): addSwitch 34 addOptionList 6 addInputTextConfigRow 15 addFileBrowser 5 addWithLabel 169 addWithDescription 99 addEntry 129 addGroup 90 addRow 16 = 563
+calls in code: 560; value-binding rows 274 (builder-own 60, by a store write 214); component rows with no store write 25
+stores: {'SystemConf': 169, 'Settings': 105} saves: {'close': 218, 'immediate': 32, 'close/immediate': 4, 'edit-memory': 20}
+component rows with no store write, by what saves them: {'a save hook calling ApiSystem': 8, 'a save hook running a script': 3, 'read-only fact (a TextComponent)': 3, 'collected into a container, saved by its reader': 6, 'a save hook with no store write (7301)': 1, 'a save hook with no store write (7351)': 1, 'an input to an action row': 3}
+store writes 267 (SystemConf 156, Settings 111; literal keys 195, dynamic 72): in a row 247, in a hook no row names 1, at build time 19
+OS column over SystemConf keys: {'-': 39, 'named': 48, 'set_setting': 25, 'dynamic': 57, 'suffix': 6} ; distinct literal SystemConf row keys 108
+DRIFT (got, asserted): {'calls': (560, 561), 'binding': (274, 275), 'builder-own': (60, 61)}

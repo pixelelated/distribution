@@ -1,0 +1,336 @@
+| Line | Function | Builder | Label | Key | Store | Save | OS | ROCKNIX |
+| ---: | --- | --- | --- | --- | --- | --- | --- | --- |
+| 735 | `openDmdSettings` | `addWithDescription` | FORMAT | `dmd.format` | SystemConf | close | - | built |
+| 743 | `openDmdSettings` | `addWithLabel` | BRIGHTNESS | `dmd.zedmd.brightness` | SystemConf | close | - | built |
+| 822 | `openMultiScreensSettings` | `addWithLabel` | THEME | `backglass.theme` | SystemConf | close | - | dead |
+| 853 | `openMultiScreensSettings` | `addWithLabel` | VIDEO OUTPUT | `global.videooutput2` | SystemConf | close | - | dead |
+| 867 | `openMultiScreensSettings` | `addWithDescription` | VIDEO MODE | `es.resolution2` | SystemConf | close | - | dead |
+| 890 | `openMultiScreensSettings` | `addWithLabel` | SCREEN ROTATION | `display.rotate2` | SystemConf | close | - | dead |
+| 925 | `openMultiScreensSettings` | `addWithLabel` | VIDEO OUTPUT | `global.videooutput3` | SystemConf | close | - | dead |
+| 939 | `openMultiScreensSettings` | `addWithDescription` | VIDEO MODE | `es.resolution3` | SystemConf | close | - | dead |
+| 962 | `openMultiScreensSettings` | `addWithLabel` | SCREEN ROTATION | `display.rotate3` | SystemConf | close | - | dead |
+| 999 | `openDeveloperSettings` | `addWithLabel` | VRAM LIMIT | `MaxVRAM` | Settings | close |  | built |
+| 1002 | `openDeveloperSettings` | `addSwitch` | SHOW FRAMERATE | `DrawFramerate` | Settings | close |  | built |
+| 1003 | `openDeveloperSettings` | `addSwitch` | VSYNC | `VSync` | Settings | close |  | built |
+| 1012 | `openDeveloperSettings` | `addWithLabel` | ANTI-ALIASING (MSAA) | `AntiAliasing` | Settings | close |  | built |
+| 1030 | `openDeveloperSettings` | `addWithLabel` | FPS LIMIT | `static: setFpsLimit` | Settings | close |  | built |
+| 1037 | `openDeveloperSettings` | `addWithLabel` | OVERSCAN | `Overscan` | Settings | close |  | built |
+| 1052 | `openDeveloperSettings` | `addWithLabel` | USE OMX PLAYER (HARDWARE ACCELERATED) | `VideoOmxPlayer` | Settings | close |  | dead |
+| 1094 | `openDeveloperSettings` | `addWithDescription` | ENABLE PUBLIC WEB API ACCESS | `PublicWebAccess` | Settings | close |  | built |
+| 1120 | `openDeveloperSettings` | `addWithLabel` | LOG LEVEL | `LogLevel` | Settings | close |  | built |
+| 1238 | `openDeveloperSettings` | `addWithLabel` | MENU FONT SCALE | `MenuFontScale` | Settings | close |  | built |
+| 1244 | `openDeveloperSettings` | `addWithLabel` | THEME FONT SCALE | `FontScale` | Settings | close |  | built |
+| 1249 | `openDeveloperSettings` | `addWithLabel` | FULL SCREEN MENUS | `FullScreenMenu` | Settings | close |  | built |
+| 1254 | `openDeveloperSettings` | `addWithLabel` | FORCE SMALL SCREEN THEMING | `ForceSmallScreen` | Settings | close |  | built |
+| 1264 | `openDeveloperSettings` | `addWithLabel` | IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U) | `RemoveMultiDiskContent` | Settings | close |  | built |
+| 1270 | `openDeveloperSettings` | `addWithDescription` | ENABLE GAME FILTERING | `ForceDisableFilters` | Settings | close |  | built |
+| 1279 | `openDeveloperSettings` | `addWithLabel` | SAVE METADATA ON EXIT | `SaveGamelistsOnExit` | Settings | close |  | built |
+| 1285 | `openDeveloperSettings` | `addWithDescription` | PARSE GAMELISTS ONLY | `ParseGamelistOnly` | Settings | close |  | built |
+| 1291 | `openDeveloperSettings` | `addWithDescription` | SEARCH FOR LOCAL ART | `LocalArt` | Settings | close |  | built |
+| 1299 | `openDeveloperSettings` | `addWithLabel` | CAROUSEL TRANSITIONS | `MoveCarousel` | Settings | close |  | built |
+| 1305 | `openDeveloperSettings` | `addWithLabel` | QUICK SYSTEM SELECT | `QuickSystemSelect` | Settings | close |  | built |
+| 1311 | `openDeveloperSettings` | `addWithLabel` | QUICK JUMP LETTER | `QuickJumpLetter` | Settings | close |  | built |
+| 1317 | `openDeveloperSettings` | `addWithLabel` | ON-SCREEN KEYBOARD | `UseOSK` | Settings | close |  | built |
+| 1324 | `openDeveloperSettings` | `addWithLabel` | HIDE EMULATIONSTATION WHEN RUNNING A GAME | `HideWindow` | Settings | close |  | unknown |
+| 1332 | `openDeveloperSettings` | `addWithLabel` | COMPLETE QUIT MENU | `ShowOnlyExit` | Settings | close |  | dead |
+| 1340 | `openDeveloperSettings` | `addWithLabel` | RETROARCH MENU DRIVER | `global.retroarch.menu_driver` | SystemConf | close | named | built |
+| 1346 | `openDeveloperSettings` | `addWithDescription` | SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION | `InvertButtons` | Settings | close |  | dead |
+| 1358 | `openDeveloperSettings` | `addWithDescription` | ACCESS GAME OPTIONS WITH NORTH BUTTON | `GameOptionsAtNorth` | Settings | close |  | dead |
+| 1367 | `openDeveloperSettings` | `addWithLabel` | CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY | `FirstJoystickOnly` | Settings | close |  | built |
+| 1371 | `openDeveloperSettings` | `addSwitch` | RIGHT ANALOG STICK CHANGES VOLUME | `RightStickVolume` | Settings | close |  | built |
+| 1379 | `openDeveloperSettings` | `addWithLabel` | GUN MOVE TOLERENCE | `GunMoveTolerence` | Settings | close |  | built |
+| 1390 | `openDeveloperSettings` | `addWithDescription` | ENABLE PS3 CONTROLLER SUPPORT | `controllers.ps3.enabled` | SystemConf | close | - | built |
+| 1407 | `openDeveloperSettings` | `addWithLabel` | ENABLE HID JOYSTICK DRIVERS | `HidJoysticks` | Settings | close |  | dead |
+| 1413 | `openDeveloperSettings` | `addWithLabel` | SHOW NETWORK INDICATOR | `ShowNetworkIndicator` | Settings | close |  | dead |
+| 1422 | `openDeveloperSettings` | `addWithDescription` | PRELOAD UI ELEMENTS ON BOOT | `PreloadUI` | Settings | close |  | built |
+| 1428 | `openDeveloperSettings` | `addWithDescription` | PRELOAD METADATA MEDIA ON BOOT | `PreloadMedias` | Settings | close |  | built |
+| 1434 | `openDeveloperSettings` | `addWithLabel` | THREADED LOADING | `ThreadedLoading` | Settings | close |  | built |
+| 1440 | `openDeveloperSettings` | `addWithLabel` | ASYNC IMAGE LOADING | `AsyncImages` | Settings | close |  | built |
+| 1446 | `openDeveloperSettings` | `addWithLabel` | OPTIMIZE IMAGES VRAM USE | `OptimizeVRAM` | Settings | close |  | built |
+| 1452 | `openDeveloperSettings` | `addWithLabel` | OPTIMIZE VIDEO VRAM USAGE | `OptimizeVideo` | Settings | close |  | built |
+| 1455 | `openDeveloperSettings` | `addSwitch` | USE FILESYSTEM CACHE | `UseFileCache` | Settings | close |  | built |
+| 1527 | `openUpdatesSettings` | `addSwitch` | CHECK FOR UPDATES | `updates.enabled` | SystemConf | close | named | built |
+| 1529 | `openUpdatesSettings` | `addSwitch` | FORCE NEXT UPDATE | `updates.force` | SystemConf | close | named | built |
+| 1536 | `openUpdatesSettings` | `addWithLabel` | UPDATE BRANCH | `updates.branch` | SystemConf | immediate | named | built |
+| 1548 | `openUpdatesSettings` | `addWithLabel` | ARCHITECTURE UPDATE | `updates.architecture` | SystemConf | immediate | - | dead |
+| 1753 | `openSystemSettings` | `addWithLabel` | LANGUAGE (REGION) | `system.language` | SystemConf | close | named | built |
+| 1833 | `openSystemSettings` | `addWithDescription` | KEYBOARD LAYOUT | `system.kblayout` | SystemConf | close | named | built |
+| 1834 | `openSystemSettings` | `addWithDescription` | KEYBOARD VARIANT | `system.kbvariant` | SystemConf | close | named | built |
+| 1864 | `openSystemSettings` | `addWithLabel` | TIMEZONE | `system.timezone` | SystemConf | close | set_setting | built |
+| 1887 | `openSystemSettings` | `addWithLabel` | TIME ZONE | `system.timezone` | SystemConf | close | set_setting | dead |
+| 1898 | `openSystemSettings` | `addSwitch` | SHOW CLOCK IN 12-HOUR FORMAT | `ClockMode12` | Settings | close |  | built |
+| 1903 | `openSystemSettings` | `addWithDescription` | POWER SAVING MODE | `EnableSounds; static: setPowerSaverMode` | Settings | close |  | built |
+| 1919 | `openSystemSettings` | `addWithLabel` | SCREEN READER (TEXT TO SPEECH) | `TTS` | Settings | close |  | unknown |
+| 1934 | `openSystemSettings` | `addWithDescription` | USER INTERFACE MODE | `UIMode` | Settings | close |  | built |
+| 1962 | `openSystemSettings` | `addWithLabel` | ENABLE MANGOHUD OVERLAY | `rocknix.mangohud.enabled` | SystemConf | immediate | set_setting | built |
+| 1979 | `openSystemSettings` | `addWithLabel` | ENABLE TOUCHSCREEN KEYBOARD | `rocknix.touchscreen-keyboard.enabled` | SystemConf | immediate | set_setting | built |
+| 2004 | `openSystemSettings` | `addRow` | ENABLE pixelelated SCREENSHOT | `rocknix.screenshot.enabled` | SystemConf | immediate | set_setting | built |
+| 2017 | `openSystemSettings` | `addSwitch` | ENABLE KODI | `kodi.enabled` | SystemConf | close | named | dead |
+| 2018 | `openSystemSettings` | `addSwitch` | LAUNCH KODI AT BOOT | `kodi.atstartup` | SystemConf | close | - | dead |
+| 2059 | `openSystemSettings` | `addWithLabel` | SCREEN BRIGHTNESS | `dynamic: "display.brightness"+nstr` | SystemConf | immediate | dynamic | built |
+| 2079 | `openSystemSettings` | `addWithLabel` | BOTTOM SCREEN CONTENT | `rocknix.bottomscreen.type` | SystemConf | close | set_setting | built |
+| 2122 | `openSystemSettings` | `addWithLabel` | DISPLAY MODE | `system.display_mode` | SystemConf | close | named | built |
+| 2139 | `openSystemSettings` | `addWithLabel` | DISABLE POWER LED | `powerled.disabled` | SystemConf | immediate | named | built |
+| 2162 | `openSystemSettings` | `addWithLabel` | LED COLOR | `led.color` | SystemConf | close/immediate | set_setting | built |
+| 2184 | `openSystemSettings` | `addWithLabel` | LED BRIGHTNESS | `led.brightness` | SystemConf | close/immediate | set_setting | built |
+| 2234 | `openSystemSettings` | `addWithLabel` | AUTODETECT GAMES CARD | `system.automount` | SystemConf | immediate | set_setting | built |
+| 2244 | `openSystemSettings` | `addWithLabel` | ENABLE MERGED STORAGE | `system.merged.storage` | SystemConf | immediate | named | built |
+| 2257 | `openSystemSettings` | `addWithLabel` | MERGED STORAGE PRIMARY CARD | `system.merged.device` | SystemConf | close | set_setting | built |
+| 2292 | `openSystemSettings` | `addWithLabel` | COOLING PROFILE | `cooling.profile` | SystemConf | close | set_setting | built |
+| 2317 | `openSystemSettings` | `addWithLabel` | DEFAULT SCALING GOVERNOR | `system.cpugovernor` | SystemConf | close | set_setting | built |
+| 2347 | `openSystemSettings` | `addWithLabel` | DEFAULT GPU SCALING GOVERNOR | `system.gpuperf` | SystemConf | close | named | built |
+| 2365 | `openSystemSettings` | `addWithLabel` | ENABLE CPU OVERCLOCK | `enable.turbo-mode` | SystemConf | immediate | set_setting | built |
+| 2392 | `openSystemSettings` | `addWithLabel` | GPU MAX CLOCK SPEED | `gpu-max-clock-speed` | SystemConf | close | set_setting | unknown |
+| 2418 | `openSystemSettings` | `addWithLabel` | GPU OVERCLOCK SPEED | `gpu-overclock-speed` | SystemConf | close | set_setting | unknown |
+| 2431 | `openSystemSettings` | `addWithLabel` | ENABLE GPU OVERCLOCK | `enable.gpu-overclock` | SystemConf | immediate | set_setting | unknown |
+| 2486 | `openSystemSettings` | `addWithLabel` | DEVICE SUSPEND MODE | `system.suspendmode` | SystemConf | close | set_setting | unknown |
+| 2502 | `openSystemSettings` | `addWithLabel` | ENABLE SUSPEND | `system.suspend.enable` | SystemConf | immediate | named | unknown |
+| 2514 | `openSystemSettings` | `addWithLabel` | ENABLE TIMED SHUTDOWN | `system.suspend.enable_timed_shutdown` | SystemConf | immediate | named | unknown |
+| 2535 | `openSystemSettings` | `addWithLabel` | SHUTDOWN DELAY | `system.shutdown_delay` | SystemConf | close | named | unknown |
+| 2554 | `openSystemSettings` | `addWithLabel` | SHUTDOWN DELAY (IN GAME) | `system.shutdown_delay_running_game` | SystemConf | close | named | unknown |
+| 2564 | `openSystemSettings` | `addWithLabel` | ENABLE CORE PARKING | `system.suspend.park_cores` | SystemConf | immediate | named | unknown |
+| 2574 | `openSystemSettings` | `addWithLabel` | ENABLE DPMS | `system.suspend.dpms` | SystemConf | immediate | named | unknown |
+| 2586 | `openSystemSettings` | `addWithDescription` | ENABLE BATTERYPLUS | `system.batteryplus.enabled` | SystemConf | close | named | unknown |
+| 2621 | `openSystemSettings` | `addWithLabel` | VIDEO OUTPUT | `global.videooutput` | SystemConf | close | - | dead |
+| 2636 | `openSystemSettings` | `addWithDescription` | VIDEO MODE | `es.resolution` | SystemConf | close | - | dead |
+| 2679 | `openSystemSettings` | `addWithLabel` | AUDIO OUTPUT | `audio.device` | SystemConf | close | set_setting | built |
+| 2741 | `openSystemSettings` | `addWithDescription` | AUDIO PROFILE | `audio.profile` | SystemConf | close | - | built |
+| 2768 | `openSystemSettings` | `addWithLabel` | SCREEN ROTATION | `display.rotate` | SystemConf | close | - | dead |
+| 2799 | `openSystemSettings` | `addWithLabel` | SPLASH SETTING | `splash.screen.enabled; splash.screen.sound` | SystemConf | close | -,- | dead |
+| 2833 | `openSystemSettings` | `addSwitch` | CHECK BIOS FILES BEFORE RUNNING A GAME | `CheckBiosesAtLaunch` | Settings | close |  | built |
+| 2844 | `openSystemSettings` | `addWithLabel` | MULTIMEDIA KEYS | `system.multimediakeys.enabled` | SystemConf | close | - | unknown |
+| 2865 | `openSystemSettings` | `addWithLabel` | BUTTON LED COLOR | `color_rgb` | SystemConf | close | - | unknown |
+| 2878 | `openSystemSettings` | `addWithLabel` | POWER LED COLOR | `option_powerled` | SystemConf | close | - | unknown |
+| 2899 | `openSystemSettings` | `addWithLabel` | BUTTON LED COLOR | `color_rgb` | SystemConf | close | - | unknown |
+| 2912 | `openSystemSettings` | `addWithLabel` | POWER LED COLOR | `option_powerled` | SystemConf | close | - | unknown |
+| 2967 | `openSystemSettings` | `addWithLabel` | OVERCLOCK | `Overclock` | Settings | close |  | built |
+| 3040 | `openSystemSettings` | `addWithLabel` | RED | `led.colour` | SystemConf | immediate | - | dead |
+| 3052 | `openSystemSettings` | `addWithLabel` | GREEN | `led.colour` | SystemConf | immediate | - | dead |
+| 3064 | `openSystemSettings` | `addWithLabel` | BLUE | `led.colour` | SystemConf | immediate | - | dead |
+| 3101 | `openSystemSettings` | `addWithLabel` | LED BRIGHTNESS | `led.brightness` | SystemConf | immediate | set_setting | dead |
+| 3184 | `openSystemSettings` | `addWithLabel` | EXTRA DRIVE FILESYSTEM TYPE | `system.external_disk_format` | SystemConf | close | - | dead |
+| 3207 | `openSystemSettings` | `addWithDescription` | ENFORCE SECURITY | `system.security.enabled` | SystemConf | close | named | dead |
+| 3265 | `openSystemSettings` | `addInputTextConfigRow` | ROOT PASSWORD | `root.password` | SystemConf | edit-memory | set_setting | built |
+| 3309 | `openLatencyReductionConfiguration` | `addWithDescription` | RUN-AHEAD FRAMES | `dynamic: configName + ".runahead"` | SystemConf | close | dynamic | built |
+| 3315 | `openLatencyReductionConfiguration` | `addWithDescription` | USE SECOND INSTANCE FOR RUN-AHEAD | `dynamic: configName + ".secondinstance"` | SystemConf | close | dynamic | built |
+| 3321 | `openLatencyReductionConfiguration` | `addWithDescription` | AUTO FRAME DELAY | `dynamic: configName + ".video_frame_delay_auto"` | SystemConf | close | dynamic | built |
+| 3327 | `openLatencyReductionConfiguration` | `addWithDescription` | VARIABLE REFRESH RATE | `dynamic: configName + ".vrr_runloop_enable"` | SystemConf | close | dynamic | built |
+| 3379 | `openSystemOptionsConfiguration` | `addWithLabel` | CORES USED | `dynamic: configName + ".cores"` | SystemConf | close | dynamic | unknown |
+| 3397 | `openSystemOptionsConfiguration` | `addWithLabel` | COOLING PROFILE | `dynamic: configName + ".cooling.profile"` | SystemConf | close | dynamic | built |
+| 3424 | `openSystemOptionsConfiguration` | `addWithLabel` | CPU SCALING GOVERNOR | `dynamic: configName + ".cpugovernor"` | SystemConf | close | dynamic | built |
+| 3454 | `openSystemOptionsConfiguration` | `addWithLabel` | GPU SCALING GOVERNOR | `dynamic: configName + ".gpuperf"` | SystemConf | close | dynamic | built |
+| 3467 | `openSystemOptionsConfiguration` | `addWithLabel` | MANGOHUD OVERLAY | `dynamic: configName + ".rocknix.mangohud.enabled"` | SystemConf | close | dynamic | built |
+| 3503 | `openSystemOptionsConfiguration` | `addWithLabel` | DISPLAY MODE | `dynamic: configName + ".display_mode"` | SystemConf | close | dynamic | built |
+| 3549 | `addDecorationSetOptionListComponent` | `addWithLabel` | DECORATION SET | `dynamic: configName + ".bezel"` | SystemConf | close | dynamic | built |
+| 3570 | `addFeatureItem` | `addInputTextConfigRow` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | edit-memory | dynamic | built |
+| 3576 | `addFeatureItem` | `addInputTextConfigRow` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | edit-memory | dynamic | built |
+| 3582 | `addFeatureItem` | `addFileBrowser` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | edit-memory | dynamic | built |
+| 3588 | `addFeatureItem` | `addFileBrowser` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | edit-memory | dynamic | built |
+| 3594 | `addFeatureItem` | `addFileBrowser` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | edit-memory | dynamic | built |
+| 3600 | `addFeatureItem` | `addFileBrowser` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | edit-memory | dynamic | built |
+| 3606 | `addFeatureItem` | `addFileBrowser` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | edit-memory | dynamic | built |
+| 3656 | `addFeatureItem` | `addWithDescription` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | close | dynamic | built |
+| 3658 | `addFeatureItem` | `addWithLabel` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | close | dynamic | built |
+| 3672 | `addFeatureItem` | `addWithDescription` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | close | dynamic | built |
+| 3674 | `addFeatureItem` | `addWithLabel` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | close | dynamic | built |
+| 3686 | `addFeatureItem` | `addWithDescription` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | close | dynamic | built |
+| 3688 | `addFeatureItem` | `addWithLabel` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | close | dynamic | built |
+| 3700 | `addFeatureItem` | `addWithDescription` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | close | dynamic | built |
+| 3702 | `addFeatureItem` | `addWithLabel` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | close | dynamic | built |
+| 3732 | `addFeatureItem` | `addWithDescription` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | close | dynamic | built |
+| 3734 | `addFeatureItem` | `addWithLabel` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | close | dynamic | built |
+| 3769 | `addFeatureItem` | `addWithDescription` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | close | dynamic | built |
+| 3771 | `addFeatureItem` | `addWithLabel` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | close | dynamic | built |
+| 3909 | `addFeatureItem` | `addWithDescription` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | close | dynamic | built |
+| 3911 | `addFeatureItem` | `addWithLabel` | expr: pgettext("game_options", feat.name.c_str()) | `dynamic: storageName` | SystemConf | close | dynamic | built |
+| 4866 | `cloudOpenTransferOptions` | `addWithDescription` | SAVES | `dynamic: key + "saves"` | SystemConf | close | dynamic | built |
+| 4875 | `cloudOpenTransferOptions` | `addWithDescription` | ROMS AND BIOS | `dynamic: key + "content"` | SystemConf | close | dynamic | built |
+| 4885 | `cloudOpenTransferOptions` | `addWithDescription` | GAME CONTENT | `dynamic: key + "media"` | SystemConf | close | dynamic | built |
+| 4908 | `cloudOpenTransferOptions` | `addWithDescription` | SETTINGS | `dynamic: key + "settings"` | SystemConf | close | dynamic | built |
+| 5650 | `openCloud` | `addWithDescription` | SYNC SAVES DURING STARTUP | `cloudsaves.startup` | SystemConf | immediate | named | built |
+| 5657 | `openCloud` | `addWithDescription` | SYNC SAVES WHEN EXITING A GAME | `cloudsaves.gameexit` | SystemConf | immediate | named | built |
+| 5791 | `openGamesSettings` | `addWithLabel` | CHECK BIOS FILES BEFORE RUNNING A GAME | `CheckBiosesAtLaunch` | Settings | close |  | built |
+| 5802 | `openGamesSettings` | `addWithDescription` | AUTO SAVE/LOAD | `global.autosave` | SystemConf | close | named | built |
+| 5804 | `openGamesSettings` | `addWithDescription` | AUTO SAVE/LOAD | `global.autosave` | SystemConf | close | named | dead |
+| 5826 | `openGamesSettings` | `addWithLabel` | INCREMENTAL SAVE STATES | `global.incrementalsavestates` | SystemConf | close | named | built |
+| 5833 | `openGamesSettings` | `addWithDescription` | SHOW SAVE STATE MANAGER | `global.savestates` | SystemConf | close | named | built |
+| 5835 | `openGamesSettings` | `addWithDescription` | SHOW SAVE STATE MANAGER | `global.savestates` | SystemConf | close | named | dead |
+| 5845 | `openGamesSettings` | `addWithDescription` | GAME ASPECT RATIO | `global.ratio` | SystemConf | close | named | built |
+| 5853 | `openGamesSettings` | `addWithDescription` | VIDEO MODE | `global.videomode` | SystemConf | close | - | built |
+| 5862 | `openGamesSettings` | `addWithLabel` | SMOOTH GAMES (BILINEAR FILTERING) | `global.smooth` | SystemConf | close | suffix | built |
+| 5871 | `openGamesSettings` | `addWithDescription` | REWIND | `global.rewind` | SystemConf | close | named | built |
+| 5880 | `openGamesSettings` | `addWithLabel` | INTEGER SCALING (PIXEL PERFECT) | `global.integerscale` | SystemConf | close | suffix | built |
+| 5910 | `openGamesSettings` | `addWithLabel` | SHADER SET | `global.shaderset` | SystemConf | close | suffix | built |
+| 5946 | `openGamesSettings` | `addWithLabel` | VIDEO FILTER | `global.videofilters` | SystemConf | close | - | built |
+| 5971 | `openGamesSettings` | `addWithLabel` | STRETCH BEZELS (4K & ULTRAWIDE) | `global.bezel_stretch` | SystemConf | close | - | dead |
+| 5987 | `openGamesSettings` | `addWithDescription` | SHOW TATTOO OVER BEZEL | `global.bezel.tattoo` | SystemConf | close | - | dead |
+| 6004 | `openGamesSettings` | `addWithLabel` | TATTOO CORNER | `global.bezel.tattoo_corner` | SystemConf | close | - | dead |
+| 6011 | `openGamesSettings` | `addInputTextConfigRow` | CUSTOM .PNG IMAGE PATH | `global.bezel.tattoo_file` | SystemConf | edit-memory | - | dead |
+| 6015 | `openGamesSettings` | `addWithDescription` | RESIZE TATTOO | `global.bezel.resize_tattoo` | SystemConf | close | - | dead |
+| 6046 | `openGamesSettings` | `addWithLabel` | ENABLE AI TRANSLATION SERVICE | `global.ai_service_enabled` | SystemConf | close | suffix | built |
+| 6076 | `openGamesSettings` | `addWithLabel` | TARGET LANGUAGE | `global.ai_target_lang` | SystemConf | close | suffix | built |
+| 6079 | `openGamesSettings` | `addInputTextConfigRow` | AI TRANSLATION SERVICE URL | `global.ai_service_url` | SystemConf | edit-memory | suffix | built |
+| 6085 | `openGamesSettings` | `addWithLabel` | PAUSE ON TRANSLATED SCREEN | `global.ai_service_pause` | SystemConf | close | - | built |
+| 6111 | `openGamesSettings` | `addWithLabel` | AUTOCONFIGURE CONTROLLERS | `global.disableautocontrollers` | SystemConf | close | - | built |
+| 6527 | `cloudSetupOpenPasswordPage` | `addInputTextConfigRow` | CHANGE PASSWORD | `root.password` | SystemConf | edit-memory | set_setting | built |
+| 8297 | `openRestoreRelink` | `addInputTextConfigRow` | WI-FI PASSWORD | `wifi.key` | SystemConf | edit-memory | named | built |
+| 8353 | `openRestoreRelink` | `addInputTextConfigRow` | PASSWORD | `global.retroachievements.password` | SystemConf | edit-memory | named | built |
+| 8356 | `openRestoreRelink` | `addInputTextConfigRow` | WEB API KEY | `global.retroachievements.key` | SystemConf | edit-memory | named | unknown |
+| 8371 | `openRestoreRelink` | `addInputTextConfigRow` | PASSWORD | `ScreenScraperPass` | Settings | edit-memory |  | built |
+| 8374 | `openRestoreRelink` | `addInputTextConfigRow` | DEVELOPER PASSWORD | `ScreenScraperDevPass` | Settings | edit-memory |  | unknown |
+| 8392 | `openRestoreRelink` | `addInputTextConfigRow` | NETPLAY PASSWORD | `global.netplay.password` | SystemConf | edit-memory | named | built |
+| 8413 | `openRestoreRelink` | `addInputTextConfigRow` | DEVICE PASSWORD | `root.password` | SystemConf | edit-memory | set_setting | built |
+| 8575 | `openSystemEmulatorSettings` | `addRow` | Emulator | `dynamic: system->getName() + ".emulator"` | Settings | close |  | built |
+| 8609 | `openSystemEmulatorSettings` | `addRow` | Core | `dynamic: system->getName() + ".core"` | Settings | close |  | built |
+| 8729 | `openThemeConfiguration` | `addWithLabel` | GAMELIST VIEW STYLE | `DefaultGridSize; GamelistViewStyle; ThemeColorSet; ThemeGamelistView; ThemeIconS` | Settings | close |  | built |
+| 8757 | `openThemeConfiguration` | `addWithLabel` | DEFAULT GRID SIZE | `DefaultGridSize` | Settings | close |  | built |
+| 8930 | `openThemeConfiguration` | `addWithDescription` | SHOW FAVORITES ON TOP | `dynamic: system->getName() + ".FavoritesFirst"` | Settings | close |  | built |
+| 8944 | `openThemeConfiguration` | `addWithDescription` | SHOW HIDDEN FILES | `dynamic: system->getName() + ".ShowHiddenFiles"` | Settings | close |  | built |
+| 8962 | `openThemeConfiguration` | `addWithDescription` | SHOW FOLDERS | `dynamic: system->getName() + ".FolderViewMode"` | Settings | close |  | built |
+| 8976 | `openThemeConfiguration` | `addWithDescription` | SHOW '..' PARENT FOLDER | `dynamic: system->getName() + ".ShowParentFolder"` | Settings | close |  | built |
+| 8998 | `openThemeConfiguration` | `addWithDescription` | SHOW TAGS ICONS | `dynamic: system->getName() + ".ShowTags"` | Settings | close |  | built |
+| 9025 | `openThemeConfiguration` | `addWithDescription` | SHOW REGION FLAG | `dynamic: system->getName() + ".ShowFlags"` | Settings | close |  | built |
+| 9039 | `openThemeConfiguration` | `addWithDescription` | SHOW SAVE STATE ICON | `dynamic: system->getName() + ".ShowSaveStates"` | Settings | close |  | built |
+| 9053 | `openThemeConfiguration` | `addWithDescription` | SHOW MANUAL ICON | `dynamic: system->getName() + ".ShowManualIcon"` | Settings | close |  | built |
+| 9067 | `openThemeConfiguration` | `addWithDescription` | SHOW RETROACHIEVEMENTS ICON | `dynamic: system->getName() + ".ShowCheevosIcon"` | Settings | close |  | built |
+| 9081 | `openThemeConfiguration` | `addWithDescription` | SHOW GUN ICON | `dynamic: system->getName() + ".ShowGunIconOnGames"` | Settings | close |  | dead |
+| 9095 | `openThemeConfiguration` | `addWithDescription` | SHOW WHEEL ICON | `dynamic: system->getName() + ".ShowWheelIconOnGames"` | Settings | close |  | dead |
+| 9109 | `openThemeConfiguration` | `addWithDescription` | SHOW TRACKBALL ICON | `dynamic: system->getName() + ".ShowTrackballIconOnGames"` | Settings | close |  | dead |
+| 9123 | `openThemeConfiguration` | `addWithDescription` | SHOW SPINNER ICON | `dynamic: system->getName() + ".ShowSpinnerIconOnGames"` | Settings | close |  | dead |
+| 9138 | `openThemeConfiguration` | `addWithDescription` | SHOW FILENAMES INSTEAD | `dynamic: system->getName() + ".ShowFilenames"` | Settings | close |  | built |
+| 9165 | `openThemeConfiguration` | `addWithLabel` | FILE EXTENSIONS | `dynamic: system->getName() + ".HiddenExt"` | Settings | close |  | built |
+| 9364 | `openUISettings` | `addWithLabel` | THEME SET | `DefaultGridSize; GamelistViewStyle; ThemeColorSet; ThemeGamelistView; ThemeIconS` | Settings | close |  | built |
+| 9434 | `openUISettings` | `addWithLabel` | GAMELIST VIEW STYLE | `GamelistViewStyle` | Settings | close |  | built |
+| 9449 | `openUISettings` | `addWithDescription` | SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION | `InvertButtons` | Settings | close |  | built |
+| 9461 | `openUISettings` | `addWithDescription` | ACCESS GAME OPTIONS WITH NORTH BUTTON | `GameOptionsAtNorth` | Settings | close |  | built |
+| 9471 | `openUISettings` | `addWithLabel` | DISABLE TOUCHSCREEN IN EMULATIONSTATION | `DisableTouchscreen` | Settings | close |  | built |
+| 9482 | `openUISettings` | `addOptionList` | LIST TRANSITION | `TransitionStyle` | Settings | close |  | built |
+| 9483 | `openUISettings` | `addOptionList` | GAME LAUNCH TRANSITION | `GameTransitionStyle` | Settings | close |  | built |
+| 9485 | `openUISettings` | `addSwitch` | GAME MEDIAS DURING FAST SCROLLING | `ScrollLoadMedias` | SystemConf | close | - | built |
+| 9487 | `openUISettings` | `addSwitch` | SHOW CLOCK | `DrawClock` | Settings | close |  | built |
+| 9488 | `openUISettings` | `addSwitch` | ON-SCREEN HELP | `ShowHelpPrompts` | Settings | close |  | built |
+| 9491 | `openUISettings` | `addOptionList` | SHOW BATTERY STATUS | `ShowBattery` | Settings | close |  | built |
+| 9495 | `openUISettings` | `addSwitch` | SHOW VIDEO PREVIEWS | `ShowVideoPreviews` | Settings | close |  | built |
+| 9497 | `openUISettings` | `addSwitch` | SHOW FAVORITES ON TOP | `FavoritesFirst` | Settings | close |  | built |
+| 9498 | `openUISettings` | `addSwitch` | SHOW HIDDEN FILES | `ShowHiddenFiles` | Settings | close |  | built |
+| 9499 | `openUISettings` | `addOptionList` | SHOW FOLDERS | `FolderViewMode` | Settings | close |  | built |
+| 9500 | `openUISettings` | `addSwitch` | SHOW FOLDERS FIRST | `ShowFoldersFirst` | Settings | close |  | built |
+| 9501 | `openUISettings` | `addSwitch` | SHOW '..' PARENT FOLDER | `ShowParentFolder` | Settings | close |  | built |
+| 9502 | `openUISettings` | `addSwitch` | SHOW FILENAMES INSTEAD | `ShowFilenames` | Settings | close |  | built |
+| 9510 | `openUISettings` | `addSwitch` | IGNORE LEADING ARTICLES WHEN SORTING | `IgnoreLeadingArticles` | Settings | close |  | built |
+| 9513 | `openUISettings` | `addOptionList` | SHOW TAGS ICONS | `ShowTags` | Settings | close |  | built |
+| 9514 | `openUISettings` | `addOptionList` | SHOW REGION FLAG | `ShowFlags` | Settings | close |  | built |
+| 9515 | `openUISettings` | `addSwitch` | SHOW SAVE STATE ICON | `ShowSaveStates` | Settings | close |  | built |
+| 9516 | `openUISettings` | `addSwitch` | SHOW MANUAL ICON | `ShowManualIcon` | Settings | close |  | built |
+| 9517 | `openUISettings` | `addSwitch` | SHOW RETROACHIEVEMENTS ICON | `ShowCheevosIcon` | Settings | close |  | built |
+| 9519 | `openUISettings` | `addSwitch` | SHOW GUN ICON | `ShowGunIconOnGames` | Settings | close |  | dead |
+| 9520 | `openUISettings` | `addSwitch` | SHOW WHEEL ICON | `ShowWheelIconOnGames` | Settings | close |  | dead |
+| 9521 | `openUISettings` | `addSwitch` | SHOW TRACKBALL ICON | `ShowTrackballIconOnGames` | Settings | close |  | dead |
+| 9522 | `openUISettings` | `addSwitch` | SHOW SPINNER ICON | `ShowSpinnerIconOnGames` | Settings | close |  | dead |
+| 9557 | `openSoundSettings` | `addWithLabel` | SYSTEM VOLUME | `audio.volume` | SystemConf | close | set_setting | built |
+| 9571 | `openSoundSettings` | `addWithLabel` | MUSIC VOLUME | `MusicVolume` | Settings | immediate |  | built |
+| 9573 | `openSoundSettings` | `addSwitch` | SHOW OVERLAY WHEN VOLUME CHANGES | `VolumePopup` | Settings | close |  | built |
+| 9578 | `openSoundSettings` | `addSwitch` | FRONTEND MUSIC | `audio.bgmusic` | Settings | close |  | built |
+| 9586 | `openSoundSettings` | `addSwitch` | DISPLAY SONG TITLES | `audio.display_titles` | Settings | close |  | built |
+| 9591 | `openSoundSettings` | `addWithLabel` | SONG TITLE DISPLAY DURATION | `audio.display_titles_time` | Settings | close |  | built |
+| 9596 | `openSoundSettings` | `addSwitch` | ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER | `audio.persystem` | Settings | close |  | built |
+| 9597 | `openSoundSettings` | `addSwitch` | PLAY SYSTEM-SPECIFIC MUSIC | `audio.thememusics` | Settings | close |  | built |
+| 9598 | `openSoundSettings` | `addSwitch` | LOWER MUSIC WHEN PLAYING VIDEO | `VideoLowersMusic` | Settings | close |  | built |
+| 9616 | `openSoundSettings` | `addWithDescription` | PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST | `audio.useFavoriteMusic` | Settings | close |  | built |
+| 9635 | `openSoundSettings` | `addSwitch` | ENABLE NAVIGATION SOUNDS | `EnableSounds` | Settings | close |  | built |
+| 9647 | `openSoundSettings` | `addWithLabel` | ENABLE AUDIBLE BATTERY WARNING | `system.battery.warning` | SystemConf | close | named | built |
+| 9659 | `openSoundSettings` | `addWithLabel` | BATTERY WARNING THRESHOLD | `system.battery.warning_threshold` | SystemConf | close | named | built |
+| 9664 | `openSoundSettings` | `addSwitch` | ENABLE VIDEO PREVIEW AUDIO | `VideoAudio` | Settings | close |  | built |
+| 9922 | `openNetworkSettings` | `addWithLabel` | SHOW NETWORK INDICATOR | `ShowNetworkIndicator` | Settings | close |  | built |
+| 9929 | `openNetworkSettings` | `addInputTextConfigRow` | HOSTNAME | `system.hostname` | SystemConf | edit-memory | set_setting | built |
+| 9935 | `openNetworkSettings` | `addWithLabel` | ENABLE WI-FI | `wifi.enabled` | SystemConf | close/immediate | named | built |
+| 9942 | `openNetworkSettings` | `addWithLabel` | ENABLE WI-FI GPIO | `internal.wifi` | SystemConf | immediate | set_setting | unknown |
+| 10024 | `openNetworkSettings` | `addWithLabel` | WI-FI COUNTRY | `wifi.country` | SystemConf | close | named | built |
+| 10036 | `openNetworkSettings` | `addWithLabel` | LOCAL PLAY MODE | `global.netplay.host; global.netplay.port; global.netplay.relay; wifi.adhoc.enabl` | SystemConf | immediate | named,named,named,named | built |
+| 10052 | `openNetworkSettings` | `addWithLabel` | LOCAL PLAY ID | `wifi.adhoc.id` | SystemConf | close/immediate | named | built |
+| 10181 | `openNetworkSettings` | `addWithLabel` | ENABLE SSH | `ssh.enabled` | SystemConf | immediate | named | built |
+| 10200 | `openNetworkSettings` | `addWithLabel` | ENABLE SAMBA | `samba.enabled` | SystemConf | immediate | named | built |
+| 10219 | `openNetworkSettings` | `addWithLabel` | ENABLE SIMPLE HTTP SERVER | `simplehttp.enabled` | SystemConf | immediate | named | built |
+| 10288 | `openNetworkSettings` | `addWithLabel` | ENABLE SYNCTHING | `syncthing.enabled` | SystemConf | immediate | named | built |
+| 10307 | `openNetworkSettings` | `addWithLabel` | WIREGUARD VPN | `wireguard.up` | SystemConf | immediate | - | built |
+| 10323 | `openNetworkSettings` | `addWithLabel` | TAILSCALE VPN | `tailscale.up` | SystemConf | immediate | named | built |
+| 10349 | `openNetworkSettings` | `addWithLabel` | ZeroTier One | `zerotier.up` | SystemConf | immediate | named | built |
+| 10860 | `popSpecificConfigurationGui` | `addWithLabel` | Emulator | `dynamic: configName + ".core"; dynamic: configName + ".emulator"` | SystemConf | immediate | dynamic,dynamic | built |
+| 10886 | `popSpecificConfigurationGui` | `addWithDescription` | GAME ASPECT RATIO | `dynamic: configName + ".ratio"` | SystemConf | close | dynamic | built |
+| 10894 | `popSpecificConfigurationGui` | `addWithDescription` | VIDEO MODE | `dynamic: configName + ".videomode"` | SystemConf | close | dynamic | built |
+| 10903 | `popSpecificConfigurationGui` | `addWithLabel` | SMOOTH GAMES (BILINEAR FILTERING) | `dynamic: configName + ".smooth"` | SystemConf | close | dynamic | built |
+| 10912 | `popSpecificConfigurationGui` | `addWithLabel` | REWIND | `dynamic: configName + ".rewind"` | SystemConf | close | dynamic | built |
+| 10921 | `popSpecificConfigurationGui` | `addWithDescription` | AUTO SAVE/LOAD ON GAME LAUNCH | `dynamic: configName + ".autosave"` | SystemConf | close | dynamic | built |
+| 10952 | `popSpecificConfigurationGui` | `addWithLabel` | SHADER SET | `dynamic: configName + ".shaderset"` | SystemConf | close | dynamic | built |
+| 10990 | `popSpecificConfigurationGui` | `addWithLabel` | VIDEO FILTER | `dynamic: configName + ".videofilter"` | SystemConf | close | dynamic | built |
+| 11002 | `popSpecificConfigurationGui` | `addWithLabel` | INTEGER SCALING (PIXEL PERFECT) | `dynamic: configName + ".integerscale"` | SystemConf | close | dynamic | built |
+| 11024 | `popSpecificConfigurationGui` | `addWithLabel` | STRETCH BEZELS (4K & ULTRAWIDE) | `dynamic: configName + ".bezel_stretch"` | SystemConf | close | dynamic | dead |
+| 11040 | `popSpecificConfigurationGui` | `addWithLabel` | SHOW CONTROLLER OVERLAYS | `dynamic: configName + ".bezel.tattoo"` | SystemConf | close | dynamic | dead |
+| 11057 | `popSpecificConfigurationGui` | `addWithLabel` | OVERLAY CORNER | `dynamic: configName + ".bezel.tattoo_corner"` | SystemConf | close | dynamic | dead |
+| 11067 | `popSpecificConfigurationGui` | `addInputTextConfigRow` | CUSTOM .PNG IMAGE PATH | `dynamic: bezelpath` | SystemConf | edit-memory | dynamic | dead |
+| 11224 | `popSpecificConfigurationGui` | `addWithLabel` | COLORIZATION | `dynamic: configName + "-renderer.colorization"` | SystemConf | close | dynamic | built |
+| 11236 | `popSpecificConfigurationGui` | `addWithLabel` | FULL BOOT | `dynamic: configName + ".fullboot"` | SystemConf | close | dynamic | built |
+| 11248 | `popSpecificConfigurationGui` | `addWithLabel` | EMULATED WIIMOTES | `dynamic: configName + ".emulatedwiimotes"` | SystemConf | close | dynamic | built |
+| 11260 | `popSpecificConfigurationGui` | `addWithLabel` | CHANGE SCREEN LAYOUT | `dynamic: configName + ".layout_option"` | SystemConf | close | dynamic | built |
+| 11286 | `popSpecificConfigurationGui` | `addWithLabel` | INTERNAL RESOLUTION | `dynamic: configName + ".internalresolution"` | SystemConf | close | dynamic | built |
+| 11299 | `popSpecificConfigurationGui` | `addWithLabel` | AUTOCONFIGURE CONTROLLERS | `dynamic: configName + ".disableautocontrollers"` | SystemConf | close | dynamic | built |
+| 11319 | `popSpecificConfigurationGui` | `addWithLabel` | LAUNCH THIS GAME AT STARTUP | `global.bootgame.cmd; global.bootgame.path` | SystemConf | close | -,- | built |
+SystemConf rows whose literal key nothing under projects/ROCKNIX/packages names: 38 ({'built': 11, 'dead': 22, 'unknown': 5})
+
+build-time writes (outside every save hook):
+  685 GuiMenu::exitKidMode Settings->setString(UIMode)
+  1081 GuiMenu::openDeveloperSettings SystemConf->set(global.bootgame.path)
+  1082 GuiMenu::openDeveloperSettings SystemConf->set(global.bootgame.cmd)
+  1187 GuiMenu::openDeveloperSettings Settings->setString(dynamic: system->getName() + ".HiddenExt")
+  6699 cloudSetupShowSshStep SystemConf->set(ssh.enabled)
+  9612 GuiMenu::openSoundSettings Settings->setBool(audio.useFavoriteMusic)
+  9639 GuiMenu::openSoundSettings Settings->setPowerSaverMode(default)
+  9655 GuiMenu::openSoundSettings SystemConf->set(system.battery.warning_threshold)
+  11616 GuiMenu::loadSubsetSettings Settings->setString(ThemeColorSet)
+  11618 GuiMenu::loadSubsetSettings Settings->setString(ThemeIconSet)
+  11620 GuiMenu::loadSubsetSettings Settings->setString(ThemeMenu)
+  11622 GuiMenu::loadSubsetSettings Settings->setString(ThemeSystemView)
+  11624 GuiMenu::loadSubsetSettings Settings->setString(ThemeGamelistView)
+  11626 GuiMenu::loadSubsetSettings Settings->setString(ThemeRegionName)
+  11628 GuiMenu::loadSubsetSettings Settings->setString(GamelistViewStyle)
+  11630 GuiMenu::loadSubsetSettings Settings->setString(DefaultGridSize)
+  11632 GuiMenu::loadSubsetSettings Settings->setString(dynamic: name)
+  11634 GuiMenu::loadSubsetSettings Settings->setString(dynamic: name)
+  11636 GuiMenu::loadSubsetSettings Settings->setString(dynamic: name)
+
+writes in a hook that no row's component names:
+  9236 GuiMenu::openThemeConfiguration close Settings(dynamic: option.first) [setString]
+
+rows with a component and no store write found:
+  703 GuiMenu::openServicesSettings addWithLabel expr: services[i].name (service_enabled): a save hook calling ApiSystem
+  729 GuiMenu::openDmdSettings addWithDescription SERVER (server): a save hook calling ApiSystem
+  1601 GuiMenu::openUpdatesSettings addWithLabel SHARE UPDATES VIA TORRENT (server_switch): a save hook calling ApiSystem
+  2215 GuiMenu::openSystemSettings addWithLabel THIS DEVICE IS (optionsDeviceSwitch): a save hook running a script
+  2451 GuiMenu::openSystemSettings addWithLabel GPU DRIVER (optionsGpuDriver): a save hook running a script
+  2997 GuiMenu::openSystemSettings addWithLabel ENABLE LED (led_enabled_switch): a save hook calling ApiSystem
+  3013 GuiMenu::openSystemSettings addWithLabel LED MODE (ledMode): a save hook calling ApiSystem
+  3146 GuiMenu::openSystemSettings addWithLabel STORAGE DEVICE (optionsStorage): a save hook calling ApiSystem
+  3210 GuiMenu::openSystemSettings addWithLabel ROOT PASSWORD (rootpassword): read-only fact (a TextComponent)
+  3215 GuiMenu::openSystemSettings addWithDescription CPU SECURITY MITIGATIONS (cpuMitigations): a save hook calling ApiSystem
+  3353 GuiMenu::dtbOverlayItem addWithLabel expr: _(title.c_str()) (optionsDtb): a save hook running a script
+  4500 cloudContentSystemPicker addWithDescription expr: Utils::String::toUpper(f.name) (sw): collected into a container, saved by its reader
+  7001 cloudShowFolderSelection addWithDescription expr: cloudFolderCategoryLabel(category) (toggle): collected into a container, saved by its reader
+  7300 cloudRemoteShowForm addWithLabel expr: CloudText::fieldLabel(fieldName) (sw): a save hook with no store write (7301)
+  7356 cloudRemoteShowForm addWithLabel expr: CloudText::fieldLabel(fieldName) (list): a save hook with no store write (7351)
+  8886 GuiMenu::openThemeConfiguration addWithDescription expr: displayName (item): collected into a container, saved by its reader
+  8888 GuiMenu::openThemeConfiguration addWithDescription expr: displayName (item): collected into a container, saved by its reader
+  8890 GuiMenu::openThemeConfiguration addWithLabel expr: displayName + prefix (item): collected into a container, saved by its reader
+  8900 GuiMenu::openThemeConfiguration addWithLabel expr: _(("THEME " + Utils::String::toUpper(subset)).c_st (item): collected into a container, saved by its reader
+  9891 GuiMenu::openNetworkSettings addWithLabel IP ADDRESS (ip): read-only fact (a TextComponent)
+  9915 GuiMenu::openNetworkSettings addWithLabel INTERNET STATUS (status): read-only fact (a TextComponent)
+  10240 GuiMenu::openNetworkSettings addWithLabel USB GADGET FUNCTION (optionsUSBGadget): a save hook calling ApiSystem
+  11473 GuiMenu::openFormatDriveSettings addWithLabel DEVICE TO FORMAT (optionsStorage): an input to an action row
+  11488 GuiMenu::openFormatDriveSettings addWithLabel FILE SYSTEM (fileSystem): an input to an action row
+  11704 GuiMenu::openUnmountDriveSettings addWithLabel MERGED DRIVE (optionsStorage): an input to an action row
+greps (raw lines): addSwitch 35 addOptionList 6 addInputTextConfigRow 15 addFileBrowser 5 addWithLabel 169 addWithDescription 99 addEntry 129 addGroup 90 addRow 16 = 564
+calls in code: 561; value-binding rows 275 (builder-own 61, by a store write 214); component rows with no store write 25
+stores: {'SystemConf': 170, 'Settings': 105} saves: {'close': 219, 'immediate': 32, 'close/immediate': 4, 'edit-memory': 20}
+component rows with no store write, by what saves them: {'a save hook calling ApiSystem': 8, 'a save hook running a script': 3, 'read-only fact (a TextComponent)': 3, 'collected into a container, saved by its reader': 6, 'a save hook with no store write (7301)': 1, 'a save hook with no store write (7351)': 1, 'an input to an action row': 3}
+store writes 267 (SystemConf 156, Settings 111; literal keys 195, dynamic 72): in a row 247, in a hook no row names 1, at build time 19
+OS column over SystemConf keys: {'-': 40, 'named': 48, 'set_setting': 25, 'dynamic': 57, 'suffix': 6} ; distinct literal SystemConf row keys 109
+asserted counts hold

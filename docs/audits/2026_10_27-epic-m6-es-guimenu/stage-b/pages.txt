@@ -1,0 +1,178 @@
+| Title | Built at | Function | Range | Opens | Runs (line thread bound) | Threads | Dialogs (buttons; back) |
+| --- | ---: | --- | --- | --- | --- | --- | --- |
+| MAIN MENU | 160 | `GuiMenu` | 160-277 | openGamesSettings 203, openUISettings 205, openSoundSettings 207, openNetworkSettings 210, openGamesSettings 213, openUISettings 215, openSoundSettings 222, openEmulatorSettings 232, openUpdatesSettings 243, openSystemSettings 245 | - | - | - |
+| SYSTEM MANAGEMENT AND RESET | 397 | `openResetOptions` | 394-538 | - | runMaintenanceCommand 406 worker (in the helper) none; runMaintenanceCommand 419 worker (in the helper) none; runMaintenanceCommand 447 worker (in the helper) none; runMaintenanceCommand 459 worker (in the helper) none; runMaintenanceCommand 468 worker (in the helper) none; runMaintenanceCommand 481 worker (in the helper) none; runMaintenanceCommand 490 worker (in the helper) none; runMaintenanceCommand 499 worker (in the helper) none; runMaintenanceCommand 510 worker (in the helper) none; runSystemCommand 520 interface none; runMaintenanceCommand 531 worker (in the helper) none | - | 401 YES/NO; back NO; 413 YES/NO; back NO; 432 YES/NO; back NO; 445 YES/NO; back NO; 454 YES/NO; back NO; 466 YES/NO; back NO; 476 YES/NO; back NO; 488 YES/NO; back NO; 497 YES/NO; back NO; 508 YES/NO; back NO; 518 YES/NO; back NO; 526 YES/NO; back NO |
+| expr: window, title | 665 | `ExitKidModeMsgBox` | 666-680 | - | - | - | - |
+| SERVICES | 697 | `openServicesSettings` | 696-711 | - | - | - | - |
+| DMD | 715 | `openDmdSettings` | 714-793 | - | - | - | - |
+| MULTISCREENS | 797 | `openMultiScreensSettings` | 796-986 | - | - | - | - |
+| FRONTEND DEVELOPER OPTIONS | 992 | `openDeveloperSettings` | 989-1470 | openFormatDriveSettings 1147 | - | GuiLoading 1196 | 1134 YES/NO; back NO; 1138 OK; back OK; 1140 OK; back OK; 1151 YES/NO; back NO; 1167 YES/NO; back NO |
+| UPDATES & DOWNLOADS | 1474 | `openUpdatesSettings` | 1473-1643 | GuiBatoceraStore 1485, GuiThemeInstaller 1497, GuiBezelInstaller 1509, GuiUpdate 1570 | - | - | 1518 OK; back OK; 1564 OK; back OK; 1579 YES/NO; back NO; 1632 YES/NO; back NO |
+| SYSTEM SETTINGS | 1701 | `openSystemSettings` | 1698-3300 | GuiBackupStart 3159, GuiInstallStart 3162, GuiMenu 3295, openDmdSettings 2980, openMultiScreensSettings 2984, openUnmountDriveSettings 3164, openServicesSettings 3198, openServicesSettings 3252, openDeveloperSettings 3258, openResetOptions 3277 | getScriptOutput 1781 interface none; getScriptOutput 1800 interface none; getScriptOutput 1822 interface none; system 1843 interface none; GetShOutput 1859 interface none; GetShOutput 1861 interface none; runSystemCommand 1868 interface none; runSystemCommand 1965 interface none; runSystemCommand 1967 interface none; runSystemCommand 1982 interface none; runSystemCommand 1984 interface none; runSystemCommand 2129 interface none; runSystemCommand 2167 interface none; runSystemCommand 2189 interface none; GetShOutput 2207 interface none; GetShOutput 2212 interface none; runSystemCommand 2219 interface none; runSystemCommand 2237 interface none; runSystemCommand 2248 interface none; runSystemCommand 2264 interface none; runSystemCommand 2272 interface none; runSystemCommand 2274 interface none; runSystemCommand 2297 interface none; runSystemCommand 2323 interface none; runSystemCommand 2357 interface none; runSystemCommand 2368 interface none; runSystemCommand 2370 interface none; runSystemCommand 2397 interface none; runSystemCommand 2423 interface none; runSystemCommand 2434 interface none; runSystemCommand 2436 interface none; GetShOutput 2446 interface none; GetShOutput 2448 interface none; runSystemCommand 2454 interface none; dtbOverlayItem 2465 interface none; dtbOverlayItem 2466 interface none; runSystemCommand 2491 interface none | - | 1947 YES/NO; back NO; 2220 Reboot now/later; back later; 2261 YES/NO; back NO; 2276 OK; back OK; 2455 Reboot now/later; back later |
+| KODI SETTINGS | 2016 | `openSystemSettings` | 2015-2020 | - | - | - | - |
+| SECURITY | 3204 | `openSystemSettings` | 3203-3245 | - | - | - | - |
+| SECURITY | 3263 | `openSystemSettings` | 3262-3275 | - | runSystemCommand 3272 interface none | - | - |
+| LATENCY REDUCTION | 3304 | `openLatencyReductionConfiguration` | 3303-3331 | - | - | - | - |
+| SYSTEM OPTIONS | 3372 | `openSystemOptionsConfiguration` | 3371-3515 | - | - | - | - |
+| expr: pgettext("game_options", feat.submenu.c_str()) | 4021 | `addFeatures` | 4020-4040 | - | addFeatureItem 3995 interface none; addFeatureItem 4024 interface none | - | - |
+| CONTENT TO BACK UP / CONTENT TO RESTORE | 4449 | `cloudContentSystemPicker` | 4447-4475 | - | cloudSaveSelection 4464 interface none | - | 4466 OK; back OK |
+| CONTENT TO BACK UP / CONTENT TO RESTORE | 4489 | `cloudContentSystemPicker` | 4301-4585 | - | cloudSaveSelection 4518 interface none; cloudSaveSelection 4569 interface none; cloudScanStamped 4589 interface timeout (in the helper); executeScriptLegacy 4603 worker none; executeScriptLegacy 4605 worker none | - | 4308 OK; back OK; 4313 OK; back OK; 4478 OK; back OK; 4571 OK; back OK |
+| BACK UP TO THE CLOUD / RESTORE FROM THE CLOUD | 4844 | `cloudOpenTransferOptions` | 4837-5210 | GuiCloudTransfer 5082, GuiCloudTransfer 5157, cloudContentSystemPicker 5182 | cloudScanStamped 4838 interface timeout (in the helper); cloudScanContent 5179 interface timeout (in the helper) | - | 4971 YES/NO; back NO; 4982 OK; back OK; 5050 YES/NO; back NO; 5075 OK; back OK |
+| expr: window, title), mRefresh(refresh), mAlive(std::make_shared<b | 5574 | `CloudConnectionsPage` | 5575-5600 | - | GetShOutput 5579 interface none; GetShOutput 5589 interface none | - | - |
+| GAME SETTINGS | 5751 | `openGamesSettings` | 5748-6192 | openLatencyReductionConfiguration 6033, addFeatures 6105 | GetShOutput 5904 interface none; GetShOutput 5940 interface none | - | 6137 YES/NO; back NO; 6146 YES/NO; back NO; 6151 YES/NO; back NO |
+| DECORATIONS | 5962 | `openGamesSettings` | 5961-6024 | - | - | - | - |
+| AI GAME TRANSLATION | 6040 | `openGamesSettings` | 6039-6101 | - | - | - | - |
+| PER SYSTEM ADVANCED CONFIGURATION | 6168 | `openGamesSettings` | 6166-6189 | - | - | - | - |
+| SSH PASSWORD | 6525 | `cloudSetupOpenPasswordPage` | 6524-6542 | - | runSystemCommand 6537 interface none | - | - |
+| CLOUD FOLDERS | 6599 | `cloudOpenFolderSettings` | 6598-6625 | - | cloudSetupInfo 6600 interface timeout (in the helper); cloudSetupOpenPathEditor 6615 worker (in the helper) timeout (in the helper) | - | - |
+| expr: cloudSetupTitle(mode) | 6677 | `cloudSetupShowSshStep` | 6661-6713 | cloudSetupOpenPasswordPage 6683, cloudSetupShowConnectStep 6708 | cloudSetupInfo 6662 interface timeout (in the helper); runSystemCommand 6695 interface none; runSystemCommand 6696 interface none; runSystemCommand 6697 interface none; runSystemCommand 6698 interface none | - | 6665 OK; back OK |
+| expr: cloudSetupTitle(mode) | 6722 | `cloudSetupShowConnectStep` | 6718-6763 | cloudSetupOpenPasswordPage 6737, cloudSetupShowConfigureStep 6753 | cloudSetupInfo 6719 interface timeout (in the helper); GetShOutput 6749 interface none | - | 6756 OK/EXIT; back OK |
+| expr: cloudSetupTitle(mode) | 6799 | `cloudSetupShowConfigureStep` | 6795-6879 | - | cloudSetupInfo 6796 interface timeout (in the helper); runSystemCommand 6846 interface none; cloudSetupInfo 6857 interface timeout (in the helper); cloudSetupGateCheck 6872 worker (in the helper) none; cloudSetupGateCheck 6875 worker (in the helper) none | - | 6866 OK/EXIT; back OK |
+| CLOUD FOLDER INSTRUCTIONS | 6923 | `cloudFolderInstructions` | 6922-6944 | - | - | - | - |
+| CLOUD FOLDER CHECK | 6953 | `cloudShowFolderResult` | 6946-6964 | cloudFolderInstructions 6961 | - | - | 6949 OK; back OK |
+| CLOUD FOLDERS | 6990 | `cloudShowFolderSelection` | 6989-7057 | GuiCloudTransfer 7041, cloudOpenFolderSettings 7049 | cloudFolderContext 6993 interface none; cloudFolderContext 7014 interface none; cloudCheckFolders 7023 worker (in the helper) none; cloudCheckFolders 7043 worker (in the helper) none | - | 7031 OK; back OK; 7036 YES/NO; back NO |
+| CONNECTION SAVED | 7063 | `cloudSetupShowDoneStep` | 7062-7068 | cloudShowFolderSelection 7069 | GetShOutput 7060 interface none | - | - |
+| CONNECT CLOUD STORAGE | 7223 | `cloudRemoteShowForm` | 7222-7440 | cloudSetupShowDoneStep 7423 | cloudRemoteLines 7233 interface none; cloudRemoteLines 7321 interface none; GetShOutput 7407 worker timeout | GuiLoading 7404 | 7376 OK; back OK; 7393 UPDATE CONNECTION/NO; back NO; 7429 OK; back OK |
+| CONNECT CLOUD STORAGE | 7465 | `cloudRemoteChooseBackend` | 7448-7478 | cloudRemoteShowForm 7461, cloudRemoteShowForm 7474 | cloudRemoteLines 7450 interface none | - | - |
+| CONNECT CLOUD STORAGE | 7650 | `cloudOAuthPresentChoice` | 7641-7675 | cloudOAuthShowSignIn 7646, cloudOAuthShowSignIn 7660, cloudOAuthShowSignIn 7669 | cloudOAuthOwnSession 7673 interface none | - | - |
+| CONNECT CLOUD STORAGE | 7724 | `cloudOAuthShowSignIn` | 7723-7871 | - | cloudOAuthOwnSession 7743 interface none; runSystemCommand 7768 interface none; GetShOutputLines 7813 interface none; cloudOAuthStart 7826 interface none; runSystemCommand 7835 interface none; GetShOutputLines 7848 interface none; cloudOAuthOpenSignIn 7852 interface none; cloudOAuthOwnSession 7861 interface none; cloudOAuthOpenSignIn 7870 interface none | - | 7824 TRY AGAIN/CANCEL SIGN-IN; back CANCEL SIGN-IN; 7830 OK/CANCEL SIGN-IN; back OK |
+| ADD CONNECTION | 7890 | `cloudOAuthAdd` | 7889-7922 | GuiTextEditPopupKeyboard 7905, GuiTextEditPopup 7907 | cloudRemoteLines 7893 interface none; cloudOAuthStart 7919 interface none | - | 7916 OK; back OK |
+| expr: title | 7928 | `cloudRemoteShowList` | 7927-7981 | cloudOAuthAdd 7965, cloudRemoteChooseBackend 7972 | cloudRemoteBackends 7930 interface none | - | - |
+| CLOUD CONNECTION | 8010 | `cloudConnectionDetails` | 8009-8061 | cloudRemoteShowForm 8049 | cloudSetupRunCheck 8015 worker (in the helper) none; cloudConnectionChange 8025 worker (in the helper) timeout (in the helper); cloudRemoteBackends 8027 interface none; cloudOAuthStart 8039 interface none; cloudConnectionChange 8058 worker (in the helper) timeout (in the helper) | - | 8017 OK; back OK; 8023 USE CONNECTION/CANCEL; back CANCEL; 8037 SIGN IN/CANCEL; back CANCEL; 8056 REMOVE CONNECTION/CANCEL; back CANCEL |
+| CONNECT CLOUD STORAGE | 8089 | `openCloudAddRemote` | 8088-8160 | GuiTextEditPopupKeyboard 8137, GuiTextEditPopup 8139, cloudOAuthAdd 8119, cloudRemoteChooseBackend 8121, cloudRemoteShowList 8134, cloudRemoteShowList 8148 | cloudRemoteBackends 8091 interface none | - | - |
+| CLOUD STORAGE SETUP | 8185 | `openCloudSetup` | 8163-8242 | cloudSetupShowSshStep 8181, cloudOpenFolderSettings 8208, cloudSetupShowSshStep 8217 | cloudSetupInfo 8164 interface timeout (in the helper); cloudSetupRunCheck 8192 worker (in the helper) none | - | 8167 OK; back OK; 8195 OK; back OK; 8197 OK; back OK; 8199 OK; back OK |
+| WHICH CONNECTION? | 8226 | `openCloudSetup` | 8220-8239 | cloudSetupShowSshStep 8223, cloudSetupShowSshStep 8235 | - | - | - |
+| FINISH RESTORE PROCESS | 8266 | `openRestoreRelink` | 8262-8497 | - | GetShOutput 8445 worker none | GuiLoading 8442 | 8453 OK; back OK; 8458 OK; back OK; 8460 OK; back OK |
+| WI-FI PASSWORD | 8296 | `openRestoreRelink` | 8295-8335 | - | - | - | 8330 OK; back OK |
+| RETROACHIEVEMENTS | 8352 | `openRestoreRelink` | 8351-8362 | - | - | - | - |
+| SCREENSCRAPER | 8370 | `openRestoreRelink` | 8369-8378 | - | - | - | - |
+| NETPLAY PASSWORD | 8391 | `openRestoreRelink` | 8390-8395 | - | - | - | - |
+| DEVICE PASSWORD | 8412 | `openRestoreRelink` | 8411-8426 | - | runSystemCommand 8421 interface none | - | - |
+| expr: system->getFullName().c_str() | 8549 | `openSystemEmulatorSettings` | 8546-8622 | - | - | - | - |
+| EMULATOR SETTINGS | 8626 | `openEmulatorSettings` | 8625-8646 | openSystemEmulatorSettings 8642 | - | - | - |
+| THEME CONFIGURATION / VIEW CUSTOMIZATION | 8668 | `openThemeConfiguration` | 8656-9328 | - | - | - | 8659 OK; back OK |
+| USER INTERFACE SETTINGS | 9335 | `openUISettings` | 9331-9543 | GuiMenu 9538, openThemeConfiguration 9404 | - | - | - |
+| SOUND SETTINGS | 9547 | `openSoundSettings` | 9546-9667 | - | - | - | - |
+| NETWORK SETTINGS | 9880 | `openNetworkSettings` | 9870-10362 | GuiWifi 9996 | runSystemCommand 9945 interface none; runSystemCommand 9947 interface none; runSystemCommand 10184 interface none; runSystemCommand 10185 interface none; runSystemCommand 10186 interface none; runSystemCommand 10188 interface none; runSystemCommand 10189 interface none; runSystemCommand 10190 interface none; runSystemCommand 10191 interface none; runSystemCommand 10203 interface none; runSystemCommand 10204 interface none; runSystemCommand 10205 interface none; runSystemCommand 10207 interface none; runSystemCommand 10208 interface none; runSystemCommand 10209 interface none; runSystemCommand 10210 interface none; runSystemCommand 10222 interface none; runSystemCommand 10224 interface none; GetShOutput 10232 interface none; GetShOutput 10237 interface none; runSystemCommand 10244 interface none; GetShOutput 10246 interface none; runSystemCommand 10291 interface none; runSystemCommand 10293 interface none; runSystemCommand 10310 interface none; runSystemCommand 10311 interface none; runSystemCommand 10313 interface none; runSystemCommand 10314 interface none; runSystemCommand 10336 interface none; runSystemCommand 10337 interface timeout; IsTailscaleUp 10338 interface none; runSystemCommand 10340 interface none; runSystemCommand 10341 interface none; runSystemCommand 10353 interface none; IsZeroTierUp 10354 interface none; runSystemCommand 10356 interface none | - | 9901 OK; back OK; 10088 OK; back OK; 10247 OK; back OK |
+| MANAGE SAVED NETWORKS | 10375 | `GuiManageNetworks` | 10376-10394 | - | - | - | - |
+| QUICK ACCESS / QUIT | 10557 | `openQuitMenu_static` | 10548-10733 | - | - | - | 10684 YES/NO; back NO; 10690 YES/NO; back NO; 10698 YES/NO; back NO; 10705 YES/NO; back NO; 10711 YES/NO; back NO; 10720 YES/NO; back NO |
+| expr: title.c_str() | 10799 | `popSpecificConfigurationGui` | 10797-11332 | openSystemOptionsConfiguration 10878, openLatencyReductionConfiguration 11078, addFeatures 11292 | GetShOutput 10946 interface none; GetShOutput 10984 interface none | - | 10871 OK; back OK |
+| DECORATIONS | 11015 | `popSpecificConfigurationGui` | 11014-11070 | - | - | - | - |
+| FORMAT DEVICE | 11454 | `openFormatDriveSettings` | 11451-11510 | - | - | - | 11497 OK; back OK; 11501 YES/NO; back NO |
+| SAFELY EJECT A DISK | 11679 | `openUnmountDriveSettings` | 11677-11746 | - | - | - | 11710 OK; back OK; 11714 YES, EJECT (untranslated)/NO (untranslated); back NO (untranslated); 11727 OK (untranslated); back OK (untranslated); 11738 OK (untranslated); back OK (untranslated) |
+dialog 383 [OK] back=OK: expr: doneText
+dialog 389 [OK] back=OK: COULDN'T FINISH
+dialog 401 [YES / NO] back=NO: BACK UP YOUR SETTINGS TO /storage/roms/backup/?\n\nWI-FI AND ACCOUNT P
+dialog 413 [YES / NO] back=NO: RESTORE SETTINGS FROM THE NEWEST BACKUP IN /storage/roms/backup/?\n\nY
+dialog 432 [YES / NO] back=NO: ARE YOU SURE?
+dialog 445 [YES / NO] back=NO: WARNING: RETROARCH CONFIG WILL RESET TO DEFAULT\n\nPER-CORE CONFIGURAT
+dialog 454 [YES / NO] back=NO: WARNING: ALL CUSTOM RETROARCH OVERLAYS WILL BE REMOVED\n\nCUSTOM CORES
+dialog 466 [YES / NO] back=NO: WARNING: RETROARCH AND ALL USER SAVED CONFIGURATIONS WILL RESET TO DEF
+dialog 476 [YES / NO] back=NO: WARNING: MEDNAFEN CONFIG WILL RESET TO DEFAULT\n\nNO BACKUP WILL BE CR
+dialog 488 [YES / NO] back=NO: WARNING: STANDALONE EMULATOR CONFIGS WILL RESET TO DEFAULT\n\nNO BACKU
+dialog 497 [YES / NO] back=NO: WARNING: PORTMASTER WILL RESET TO DEFAULT\n\nNO BACKUP WILL BE CREATED
+dialog 508 [YES / NO] back=NO: WARNING: AUDIO SETTINGS WILL BE RESET TO DEFAULTS AND THE SYSTEM WILL 
+dialog 518 [YES / NO] back=NO: WARNING: THE PMIC FUEL GAUGE WILL BE RESET AND THE SYSTEM WILL POWER O
+dialog 526 [YES / NO] back=NO: WARNING: YOUR DATA AND ALL OTHER CONFIGURATIONS WILL BE RESET TO DEFAU
+dialog 548 [YES / NO] back=NO: ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?
+dialog 605 [OK] back=OK: THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING
+dialog 1134 [YES / NO] back=NO: CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER.
+dialog 1138 [OK] back=OK: SUPPORT FILE CREATED IN SAVES FOLDER
+dialog 1140 [OK] back=OK: SUPPORT FILE CREATION FAILED
+dialog 1151 [YES / NO] back=NO: ARE YOU SURE?
+dialog 1167 [YES / NO] back=NO: ARE YOU SURE?
+dialog 1518 [OK] back=OK: This version uses manual updates. Open github.com/pixelelated/distribu
+dialog 1564 [OK] back=OK: UPDATER IS ALREADY RUNNING
+dialog 1579 [YES / NO] back=NO: REALLY UPDATE FROM LOCAL MEDIA?
+dialog 1632 [YES / NO] back=NO: REALLY UPDATE FROM TORRENT FILE ?
+dialog 1649 [OK] back=OK: YOU ARE NOT CONNECTED TO A NETWORK
+dialog 1947 [YES / NO] back=NO: expr: msg
+dialog 2220 [Reboot now / later] back=later: Device will be switched on next reboot
+dialog 2261 [YES / NO] back=NO: WARNING: CHANGING THE PRIMARY CARD CAN CAUSE ACCESS TO GAMES TO BE LOS
+dialog 2276 [OK] back=OK: You may now remove the card.
+dialog 2455 [Reboot now / later] back=later: GPU driver will be switched on next reboot
+dialog 3358 [Reboot now / later] back=later: WARNING: You are altering 
+dialog 4194 [OK] back=OK: THE CLOUD CHECK IS NO LONGER CURRENT. CHECK YOUR FOLDERS AGAIN.
+dialog 4308 [OK] back=OK: COULDN'T REACH YOUR CLOUD.\n\nTRY AGAIN WHEN YOU'RE ONLINE.
+dialog 4313 [OK] back=OK: COULDN'T READ YOUR CLOUD'S CONTENT.\n\nTRY AGAIN.
+dialog 4466 [OK] back=OK: expr: cloudSelectionNotSaved(backup)
+dialog 4478 [OK] back=OK: NO SYSTEM ON THIS DEVICE HOLDS WHAT YOU TICKED.
+dialog 4571 [OK] back=OK: expr: cloudSelectionNotSaved(backup)
+dialog 4971 [YES / NO] back=NO: NO CLOUD STORAGE IS SET UP ON THIS DEVICE YET.\n\nSET IT UP NOW?
+dialog 4982 [OK] back=OK: NOTHING IS TICKED.\n\nCHOOSE AT LEAST ONE THING TO MOVE.
+dialog 5050 [YES / NO] back=NO: expr: question
+dialog 5075 [OK] back=OK: COULDN'T SAVE WHAT YOU TICKED, SO NOTHING WAS RESTORED.
+dialog 5249 [YES / NO] back=NO: NO CLOUD STORAGE IS SET UP ON THIS DEVICE YET.\n\nSET IT UP NOW?
+dialog 5308 [OK] back=OK: COULDN'T REACH YOUR CLOUD.\n\nTRY AGAIN WHEN YOU'RE ONLINE.
+dialog 5326 [OK] back=OK: NOTHING WAS CHANGED.
+dialog 5349 [OK] back=OK: THIS DEVICE ALREADY MATCHES YOUR CLOUD.\n\nTHERE IS NOTHING TO REMOVE.
+dialog 5381 [YES / NO] back=NO: expr: text
+dialog 5707 [OK] back=OK: expr: text
+dialog 6137 [YES / NO] back=NO: SYNC GAME SAVES BOTH WAYS?\n\nTHE NEWEST COPY OF EACH SAVE IS KEPT ON 
+dialog 6146 [YES / NO] back=NO: BACK UP GAME SAVES, SAVE STATES, AND SCREENSHOTS TO THE CLOUD?
+dialog 6151 [YES / NO] back=NO: RESTORE GAME SAVES, SAVE STATES, AND SCREENSHOTS FROM THE CLOUD?
+dialog 6322 [YES / NO] back=NO: NO CLOUD STORAGE IS SET UP ON THIS DEVICE YET.\n\nSET IT UP NOW?
+dialog 6556 [OK] back=OK: ENTER A CLOUD FOLDER PATH.
+dialog 6577 [OK] back=OK: THE CLOUD FOLDER WAS NOT CHANGED.
+dialog 6665 [OK] back=OK: NO NETWORK CONNECTION DETECTED.\n\nCONNECT TO A NETWORK FIRST, THEN TR
+dialog 6756 [OK / EXIT] back=OK: THERE IS NO ACTIVE SSH CONNECTION TO THE DEVICE.\n\nTRY CONNECTING FRO
+dialog 6776 [OK / EXIT] back=OK: THIS CONNECTION ISN'T ANSWERING:
+dialog 6781 [OK / EXIT] back=OK: NO CLOUD STORAGE IS SET UP ON THIS DEVICE YET.\n\nFINISH 'RCLONE CONFI
+dialog 6866 [OK / EXIT] back=OK: NO NEW CONNECTION WAS ADDED YET.\n\nFINISH 'RCLONE CONFIG' IN THE TERM
+dialog 6949 [OK] back=OK: COULDN'T CHECK YOUR FOLDERS. CHECK YOUR CONNECTION, THEN TRY AGAIN.
+dialog 6969 [OK] back=OK: CHOOSE AT LEAST ONE ITEM TO CHECK.
+dialog 7031 [OK] back=OK: CHOOSE AT LEAST ONE ITEM TO CREATE FOLDERS FOR.
+dialog 7036 [YES / NO] back=NO: CREATE FOLDERS AND SETUP NOTES FOR THE ITEMS YOU CHOSE?\n\nYOUR FILES 
+dialog 7376 [OK] back=OK: GIVE THE CONNECTION A NAME FIRST.
+dialog 7393 [UPDATE CONNECTION / NO] back=NO: UPDATE THIS CONNECTION AND KEEP YOUR SELECTED FOLDERS?\n\nYOUR CURRENT
+dialog 7429 [OK] back=OK: THE CONNECTION COULDN'T BE SAVED.
+dialog 7702 [TRY AGAIN / CANCEL SIGN-IN] back=CANCEL SIGN-IN: THE SIGN-IN WINDOW DID NOT OPEN OR STOPPED WORKING.\n\nTRY AGAIN, OR C
+dialog 7824 [TRY AGAIN / CANCEL SIGN-IN] back=CANCEL SIGN-IN: THE SIGN-IN DID NOT COMPLETE. TRY AGAIN TO START A NEW SIGN-IN.
+dialog 7830 [OK / CANCEL SIGN-IN] back=OK: STILL WAITING FOR THE SIGN-IN.\n\nFINISH IT, THEN CHOOSE 'CONTINUE' AG
+dialog 7916 [OK] back=OK: CHOOSE A DIFFERENT CONNECTION NAME.
+dialog 7987 [OK] back=OK: TURN OFF BOTH AUTOMATIC SAVE SYNC OPTIONS UNDER MANAGE CLOUD STORAGE B
+dialog 8000 [OK] back=OK: THE CONNECTION COULDN'T BE CHANGED.
+dialog 8017 [OK] back=OK: THE CONNECTION ANSWERED.
+dialog 8023 [USE CONNECTION / CANCEL] back=CANCEL: USE THIS CONNECTION FOR CLOUD TOOLS? YOUR SELECTED FOLDER PATHS WILL S
+dialog 8037 [SIGN IN / CANCEL] back=CANCEL: SIGN IN TO THE SAME CLOUD ACCOUNT AGAIN. YOUR CURRENT SIGN-IN IS KEPT 
+dialog 8056 [REMOVE CONNECTION / CANCEL] back=CANCEL: REMOVE THIS CONNECTION FROM THIS DEVICE? YOUR CLOUD FILES STAY WHERE T
+dialog 8167 [OK] back=OK: NO NETWORK CONNECTION DETECTED.\n\nCONNECT TO A NETWORK FIRST, THEN TR
+dialog 8195 [OK] back=OK: YOUR CLOUD IS ANSWERING:
+dialog 8197 [OK] back=OK: THIS CONNECTION ISN'T ANSWERING:
+dialog 8199 [OK] back=OK: NO CLOUD STORAGE IS SET UP ON THIS DEVICE YET.
+dialog 8330 [OK] back=OK: COULDN'T CONNECT TO %s.
+dialog 8453 [OK] back=OK: YOUR CLOUD IS ANSWERING.
+dialog 8458 [OK] back=OK: NO CLOUD STORAGE IS SET UP ON THIS DEVICE YET.\n\nBACKUPS NEVER CARRY 
+dialog 8460 [OK] back=OK: YOUR CLOUD ISN'T ANSWERING.\n\nUSE CONNECT OR REPAIR CLOUD STORAGE IN 
+dialog 8503 [YES / NO] back=NO: SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?
+dialog 8512 [YES / NO] back=NO: GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?
+dialog 8537 [YES / NO] back=NO: expr: confirmation
+dialog 8659 [OK] back=OK: YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION
+dialog 9901 [OK] back=OK: expr: text
+dialog 10088 [OK] back=OK: WI-FI ENABLED
+dialog 10247 [OK] back=OK: USB Networking enabled, the device IP is 
+dialog 10411 [YES / NO] back=NO: expr: text
+dialog 10426 [OK] back=OK: COULDN'T FORGET
+dialog 10507 [OK] back=OK: COULDN'T READ THE SAVED NETWORKS. TRY AGAIN.
+dialog 10528 [OK] back=OK: expr: msg
+dialog 10684 [YES / NO] back=NO: REALLY RESTART EMULATIONSTATION?
+dialog 10690 [YES / NO] back=NO: REALLY RESTART?
+dialog 10698 [YES / NO] back=NO: REALLY SUSPEND ?
+dialog 10705 [YES / NO] back=NO: REALLY SHUTDOWN?
+dialog 10711 [YES / NO] back=NO: REALLY SHUTDOWN WITHOUT SAVING METADATA?
+dialog 10720 [YES / NO] back=NO: REALLY QUIT?
+dialog 10871 [OK] back=OK: THE AUTO SAVE/LOAD SETTING AND SAVE STATE MANAGER DO NOT APPLY TO THIS
+dialog 11497 [OK] back=OK: SELECTED OPTIONS ARE INVALID
+dialog 11501 [YES / NO] back=NO: ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?
+dialog 11710 [OK] back=OK: NO DRIVE SELECTED
+dialog 11714 [YES, EJECT (untranslated) / NO (untranslated)] back=NO (untranslated): expr: "ARE YOU SURE YOU WANT TO EJECT THIS DRI
+dialog 11727 [OK (untranslated)] back=OK (untranslated): expr: "DEVICE EJECTED SAFELY.\nGAME LISTS WILL
+dialog 11738 [OK (untranslated)] back=OK (untranslated): expr: "FAILED TO EJECT DEVICE."
+pages 60 ({'main': 1, 'GuiSettings': 56, 'class': 3}); titles 65 (literal 56, computed 9)
+unique literal titles 47
+runners (this file's functions that start a process, transitively): 55, of which page builders 27 and helpers 28: IsTailscaleUp, IsZeroTierUp, addFeatureItem, cloudCheckFolders, cloudConnectionChange, cloudFolderContext, cloudOAuthAwaitSession, cloudOAuthChooseInput, cloudOAuthOpenSignIn, cloudOAuthOwnSession, cloudOAuthStart, cloudOpenMatch, cloudOpenTransfer, cloudReadFolderJson, cloudRemoteBackends, cloudRemoteLines, cloudSaveSelection, cloudScanContent, cloudScanStamped, cloudSetupGateCheck, cloudSetupInfo, cloudSetupOpenPathEditor, cloudSetupOpenSyncPathEditor, cloudSetupRunCheck, dtbOverlayItem, getScriptOutput, openCloudFolderEditor, runMaintenanceCommand
+runs 159: interface 131, worker 28; bounded 21 (in the call 2, in the helper 19); bounded helpers: cloudConnectionChange, cloudOpenTransfer, cloudScanContent, cloudScanStamped, cloudSetupInfo, cloudSetupOpenPathEditor, cloudSetupOpenSyncPathEditor, openCloudFolderEditor
+interface-thread runs with no bound 116; worker helpers: cloudCheckFolders, cloudConnectionChange, cloudOAuthChooseInput, cloudOpenMatch, cloudSetupGateCheck, cloudSetupOpenPathEditor, cloudSetupOpenSyncPathEditor, cloudSetupRunCheck, openCloudFolderEditor, runMaintenanceCommand
+dialogs 108; back lands on: {'OK': 56, 'NO': 41, 'later': 3, 'CANCEL SIGN-IN': 2, 'CANCEL': 3, 'NO (untranslated)': 1, 'OK (untranslated)': 2}
+dialog shapes: {'OK': 51, 'YES / NO': 40, 'OK / EXIT': 4, 'Reboot now / later': 3, 'TRY AGAIN / CANCEL SIGN-IN': 2, 'OK (untranslated)': 2, 'UPDATE CONNECTION / NO': 1, 'OK / CANCEL SIGN-IN': 1, 'USE CONNECTION / CANCEL': 1, 'SIGN IN / CANCEL': 1, 'REMOVE CONNECTION / CANCEL': 1, 'YES, EJECT (untranslated) / NO (untranslated)': 1}
+asserted counts hold

@@ -1,0 +1,60 @@
+== structure: per-line liveness  (rc 0, 0.22 s) -> stage-b/lines.txt
+unknown macros: ['AMD64', 'BATTERYPLUS', 'CHEEVOS_DEV_LOGIN', 'CLOUD_CONTENT_SELECTION', 'GAMEFORCE', 'H700', 'HAVE_INTL', 'ODROIDGOA', 'RK3326', 'RK3399', 'RK3566', 'RK3576', 'RK3588', 'S922X', 'SCREENSCRAPER_DEV_LOGIN', 'SCREENSCRAPER_RUNTIME_DEV_LOGIN', 'SM4450', 'SM6115', 'SM8250', 'SM8550', 'SM
+includes 98; repeated lines {'#include<chrono>': 2, '#include<cstdio>': 3, '#include<sys/wait.h>': 2, '#include<tuple>': 2}; one header by two spellings {'chrono': 2, 'cstdio': 3, 'tuple': 2, 'GuiLoading.h': 2}
+header: declared 62, GuiMenu:: defined 62; declared without a definition []; defined without a declaration []
+asserted counts hold
+
+== rows  (rc 0, 6.99 s) -> stage-b/rows.txt
+component rows with no store write, by what saves them: {'a save hook calling ApiSystem': 8, 'a save hook running a script': 3, 'read-only fact (a TextComponent)': 3, 'collected into a container, saved by its reader': 6, 'a save hook with no store write (7301)': 1, 'a save hook with no store write (
+store writes 267 (SystemConf 156, Settings 111; literal keys 195, dynamic 72): in a row 247, in a hook no row names 1, at build time 19
+OS column over SystemConf keys: {'-': 40, 'named': 48, 'set_setting': 25, 'dynamic': 57, 'suffix': 6} ; distinct literal SystemConf row keys 109
+asserted counts hold
+
+== pages  (rc 0, 0.32 s) -> stage-b/pages.txt
+interface-thread runs with no bound 116; worker helpers: cloudCheckFolders, cloudConnectionChange, cloudOAuthChooseInput, cloudOpenMatch, cloudSetupGateCheck, cloudSetupOpenPathEditor, cloudSetupOpenSyncPathEditor, cloudSetupRunCheck, openCloudFolderEditor, runMaintenanceCommand
+dialogs 108; back lands on: {'OK': 56, 'NO': 41, 'later': 3, 'CANCEL SIGN-IN': 2, 'CANCEL': 3, 'NO (untranslated)': 1, 'OK (untranslated)': 2}
+dialog shapes: {'OK': 51, 'YES / NO': 40, 'OK / EXIT': 4, 'Reboot now / later': 3, 'TRY AGAIN / CANCEL SIGN-IN': 2, 'OK (untranslated)': 2, 'UPDATE CONNECTION / NO': 1, 'OK / CANCEL SIGN-IN': 1, 'USE CONNECTION / CANCEL': 1, 'SIGN IN / CANCEL': 1, 'REMOVE CONNECTION / CANCEL': 1, 'YES, EJECT (untran
+asserted counts hold
+
+== structure: transitions, reads, duplicates, conditionals  (rc 0, 0.23 s) -> stage-b/structure.txt
+unknown macros: ['AMD64', 'BATTERYPLUS', 'CHEEVOS_DEV_LOGIN', 'CLOUD_CONTENT_SELECTION', 'GAMEFORCE', 'H700', 'HAVE_INTL', 'ODROIDGOA', 'RK3326', 'RK3399', 'RK3566', 'RK3576', 'RK3588', 'S922X', 'SCREENSCRAPER_DEV_LOGIN', 'SCREENSCRAPER_RUNTIME_DEV_LOGIN', 'SM4450', 'SM6115', 'SM8250', 'SM8550', 'SM
+includes 98; repeated lines {'#include<chrono>': 2, '#include<cstdio>': 3, '#include<sys/wait.h>': 2, '#include<tuple>': 2}; one header by two spellings {'chrono': 2, 'cstdio': 3, 'tuple': 2, 'GuiLoading.h': 2}
+header: declared 62, GuiMenu:: defined 62; declared without a definition []; defined without a declaration []
+asserted counts hold
+
+== merge debt  (rc 0, 0.16 s) -> stage-b/merge.txt
+  d95eaf6fb sway: hide cursor setting: 2 hunk(s), 1 meeting the fork
+  7add7f9c6 Batteryplus calibration reset: 1 hunk(s), 1 meeting the fork
+  1a531a55c S922X: hardware suspend: 1 hunk(s), 0 meeting the fork
+asserted counts hold
+
+== fixture: GetShOutput, verbatim  (rc 0, 0.19 s) -> stage-b/positives/getshoutput.out
+1 one line 'OK=dropbox\n': 10 bytes; find(OK=) name 'dropbox'; newlines 0; 'Turn off both automatic' NOT found
+2 300-byte line then OK=: 309 bytes; find(OK=) name 'dropbox'; newlines 0; 'Turn off both automatic' NOT found
+3 'OK=dropbox' with no newline: 9 bytes; find(OK=) name 'dropbo'; newlines 0; 'Turn off both automatic' NOT found
+4 refusal across byte 255: 287 bytes; find(OK=) none; newlines 0; 'Turn off both automatic' NOT found
+
+== negative: rows without :9485  (rc 1, 6.92 s) -> stage-b/neg-rows.txt
+component rows with no store write, by what saves them: {'a save hook calling ApiSystem': 8, 'a save hook running a script': 3, 'read-only fact (a TextComponent)': 3, 'collected into a container, saved by its reader': 6, 'a save hook with no store write (7301)': 1, 'a save hook with no store write (
+store writes 267 (SystemConf 156, Settings 111; literal keys 195, dynamic 72): in a row 247, in a hook no row names 1, at build time 19
+OS column over SystemConf keys: {'-': 39, 'named': 48, 'set_setting': 25, 'dynamic': 57, 'suffix': 6} ; distinct literal SystemConf row keys 108
+DRIFT (got, asserted): {'calls': (560, 561), 'binding': (274, 275), 'builder-own': (60, 61)}
+
+== negative: pages with :1134 renamed  (rc 1, 0.31 s) -> stage-b/neg-pages.txt
+interface-thread runs with no bound 116; worker helpers: cloudCheckFolders, cloudConnectionChange, cloudOAuthChooseInput, cloudOpenMatch, cloudSetupGateCheck, cloudSetupOpenPathEditor, cloudSetupOpenSyncPathEditor, cloudSetupRunCheck, openCloudFolderEditor, runMaintenanceCommand
+dialogs 107; back lands on: {'OK': 56, 'NO': 40, 'later': 3, 'CANCEL SIGN-IN': 2, 'CANCEL': 3, 'NO (untranslated)': 1, 'OK (untranslated)': 2}
+dialog shapes: {'OK': 51, 'YES / NO': 39, 'OK / EXIT': 4, 'Reboot now / later': 3, 'TRY AGAIN / CANCEL SIGN-IN': 2, 'OK (untranslated)': 2, 'UPDATE CONNECTION / NO': 1, 'OK / CANCEL SIGN-IN': 1, 'USE CONNECTION / CANCEL': 1, 'SIGN IN / CANCEL': 1, 'REMOVE CONNECTION / CANCEL': 1, 'YES, EJECT (untran
+DRIFT (got, asserted): {'dialogs': (107, 108)}
+
+== negative: structure with :7792 uncached  (rc 1, 0.22 s) -> stage-b/neg-structure.txt
+unknown macros: ['AMD64', 'BATTERYPLUS', 'CHEEVOS_DEV_LOGIN', 'CLOUD_CONTENT_SELECTION', 'GAMEFORCE', 'H700', 'HAVE_INTL', 'ODROIDGOA', 'RK3326', 'RK3399', 'RK3566', 'RK3576', 'RK3588', 'S922X', 'SCREENSCRAPER_DEV_LOGIN', 'SCREENSCRAPER_RUNTIME_DEV_LOGIN', 'SM4450', 'SM6115', 'SM8250', 'SM8550', 'SM
+includes 98; repeated lines {'#include<chrono>': 2, '#include<cstdio>': 3, '#include<sys/wait.h>': 2, '#include<tuple>': 2}; one header by two spellings {'chrono': 2, 'cstdio': 3, 'tuple': 2, 'GuiLoading.h': 2}
+header: declared 62, GuiMenu:: defined 62; declared without a definition []; defined without a declaration []
+DRIFT (got, asserted): {'reads-uncached': (13, 12)}
+
+== negative: merge at 23df404f6^  (rc 1, 0.16 s) -> stage-b/neg-merge.txt
+  d95eaf6fb sway: hide cursor setting: 2 hunk(s), 1 meeting the fork
+  7add7f9c6 Batteryplus calibration reset: 1 hunk(s), 1 meeting the fork
+  1a531a55c S922X: hardware suspend: 1 hunk(s), 0 meeting the fork
+DRIFT (got, asserted): {'meeting': (7, 8), 'fork-hunks': (146, 148)}
+

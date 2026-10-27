@@ -1,0 +1,27 @@
+| Upstream commit | Date | Base lines | -/+ | Functions (base) | Fork hunks it meets |
+| --- | --- | ---: | ---: | --- | --- |
+| `cada856d8` Refactor wifi menu and add support for saving multiple profi | 2026-09-23 | 5441-5445 | -5/+0 | `openWifiSettings` | base 5441-5441 (-1/+133); base 5443-5443 (-1/+7) |
+| `cada856d8` Refactor wifi menu and add support for saving multiple profi | 2026-09-23 | 5542-5544 | -3/+1 | `openNetworkSettings` | base 5542-5543 (-2/+42) |
+| `cada856d8` Refactor wifi menu and add support for saving multiple profi | 2026-09-23 | 5602-5602 | -1/+1 | `openNetworkSettings` | base 5602-5602 (-1/+1); base 5604-5608 (-5/+1) |
+| `cada856d8` Refactor wifi menu and add support for saving multiple profi | 2026-09-23 | 5610-5610 | -1/+1 | `openNetworkSettings` | base 5604-5608 (-5/+1); base 5610-5610 (-1/+1); base 5612-5616 (-5/+1) |
+| `830d370cf` GuiMenu: add a ZRAM swap menu | 2026-10-03 | 525-525 | -0/+50 | `(file scope)` | none |
+| `830d370cf` GuiMenu: add a ZRAM swap menu | 2026-10-03 | 2158-2158 | -0/+2 | `openSystemSettings` | none |
+| `21efaa1ba` GuiMenu: add scaling and sharpening settings | 2026-09-19 | 1491-1491 | -0/+54 | `(file scope)` | none |
+| `21efaa1ba` GuiMenu: add scaling and sharpening settings | 2026-09-19 | 1768-1768 | -0/+3 | `openSystemSettings` | none |
+| `21efaa1ba` GuiMenu: add scaling and sharpening settings | 2026-09-19 | 6190-6190 | -0/+2 | `popSpecificConfigurationGui` | base 6188-6188 (-0/+14) |
+| `17230ab0c` GuiMenu: add a display refresh rate calibration entry | 2026-10-08 | 342-342 | -0/+9 | `openResetOptions` | base 344-346 (-3/+8) |
+| `57836098d` GuiMenu: restart batteryplus service on toggle | 2026-10-19 | 2377-2377 | -1/+1 | `openSystemSettings` | none |
+| `d95eaf6fb` sway: hide cursor setting | 2026-10-22 | 1793-1793 | -0/+13 | `openSystemSettings` | base 1790-1790 (-1/+10) |
+| `d95eaf6fb` sway: hide cursor setting | 2026-10-22 | 3249-3249 | -0/+8 | `openSystemOptionsConfiguration` | none |
+| `7add7f9c6` Batteryplus calibration reset | 2026-10-23 | 342-342 | -0/+9 | `openResetOptions` | base 344-346 (-3/+8) |
+| `1a531a55c` S922X: hardware suspend | 2026-10-23 | 2250-2250 | -1/+1 | `openSystemSettings` | none |
+upstream commits 9 (1 merge(s): 40343cf6e); the 8 others' hunks 15, of which 8 meet a fork hunk; fork hunks 148
+  cada856d8 Refactor wifi menu and add support for saving mult: 4 hunk(s), 4 meeting the fork
+  830d370cf GuiMenu: add a ZRAM swap menu: 2 hunk(s), 0 meeting the fork
+  21efaa1ba GuiMenu: add scaling and sharpening settings: 3 hunk(s), 1 meeting the fork
+  17230ab0c GuiMenu: add a display refresh rate calibration en: 1 hunk(s), 1 meeting the fork
+  57836098d GuiMenu: restart batteryplus service on toggle: 1 hunk(s), 0 meeting the fork
+  d95eaf6fb sway: hide cursor setting: 2 hunk(s), 1 meeting the fork
+  7add7f9c6 Batteryplus calibration reset: 1 hunk(s), 1 meeting the fork
+  1a531a55c S922X: hardware suspend: 1 hunk(s), 0 meeting the fork
+asserted counts hold

@@ -1,0 +1,217 @@
+| Line | Function | Kind | Closes | Held by | Captures | After the close | Harness |
+| ---: | --- | --- | --- | --- | --- | --- | --- |
+| 6712 | `cloudSetupShowSshStep` | `cloudSetupPresent` (new `s`) | `prev` | - | `[(the function's own scope)]` | last | none |
+| 6762 | `cloudSetupShowConnectStep` | `cloudSetupPresent` (new `s`) | `prev` | - | `[(the function's own scope)]` | last | none |
+| 6878 | `cloudSetupShowConfigureStep` | `cloudSetupPresent` (new `s`) | `prev` | - | `[(the function's own scope)]` | last | none |
+| 7056 | `cloudShowFolderSelection` | `cloudSetupPresent` (new `s`) | `prev` | - | `[(the function's own scope)]` | last | none |
+| 7066 | `cloudSetupShowDoneStep` | `cloudSetupPresent` (new `s`) | `prev` | - | `[(the function's own scope)]` | last | none |
+| 7439 | `cloudRemoteShowForm` | `cloudSetupPresent` (new `s`) | `prev` | - | `[(the function's own scope)]` | last | none |
+| 7477 | `cloudRemoteChooseBackend` | `cloudSetupPresent` (new `s`) | `nullptr` | - | `[(the function's own scope)]` | last | none |
+| 7674 | `cloudOAuthPresentChoice` | `cloudSetupPresent` (new `s`) | `prev` | - | `[(the function's own scope)]` | last | cloud-oauth-lifetime.py |
+| 7744 | `cloudOAuthShowSignIn` | `cloudSetupPresent` (new `s`) | `prev` | - | `[(the function's own scope)]` | last | cloud-oauth-lifetime.py |
+| 7862 | `cloudOAuthShowSignIn` | `cloudSetupPresent` (new `s`) | `prev` | - | `[(the function's own scope)]` | **statements follow** | cloud-oauth-lifetime.py |
+| 7921 | `cloudOAuthAdd` | `cloudSetupPresent` (new `s`) | `prev` | - | `[(the function's own scope)]` | last | none |
+| 7980 | `cloudRemoteShowList` | `cloudSetupPresent` (new `s`) | `nullptr` | - | `[(the function's own scope)]` | last | none |
+| 8060 | `cloudConnectionDetails` | `cloudSetupPresent` (new `s`) | `nullptr` | - | `[(the function's own scope)]` | last | none |
+| 8084 | `openCloudConnections` | `cloudSetupPresent` (new `s`) | `nullptr` | - | `[(the function's own scope)]` | last | none |
+| 8097 | `openCloudAddRemote` | `cloudSetupPresent` (new `s`) | `nullptr` | - | `[(the function's own scope)]` | last | cloud-gated-row.py |
+| 8159 | `openCloudAddRemote` | `cloudSetupPresent` (new `s`) | `nullptr` | - | `[(the function's own scope)]` | last | cloud-gated-row.py |
+| 1616 | `openUpdatesSettings` | delete, opens openUpdatesSettings 1617 (close first) | `updateGui` | `server_switch (setOnChangedCallback)` | `[this, updateGui, service_torrent_status, server_switch]` | **uses this (a member call): the holder is the closed page or one of its rows** | none |
+| 3294 | `openSystemSettings` | delete, opens GuiMenu 3295 (close first) | `pthis` | `s (onFinalize)` | `[s, pthis, window]` | uses window, this (a member call) (its holder is not the closed page) | none |
+| 5156 | `cloudOpenTransferOptions` | close(), opens GuiCloudTransfer 5157 (close first) | `s` | `local `run`` | `[window, s, backup, configured, saves, content, media, settings, hasContent]` | nothing captured | none |
+| 6619 | `cloudOpenFolderSettings` | close(), opens cloudOpenFolderSettings 6617 (open first) | `s` | `cloudSetupOpenPathEditor(...)` | `[window, s, onDone]` | nothing captured | cloud-folder-reopen.py |
+| 8234 | `openCloudSetup` | close(), opens cloudSetupShowSshStep 8235 (close first) | `s` | `picker (addEntry)` | `[window, s, picker, remote]` | uses picker, remote, window (its holder is not the closed page) | none |
+| 9537 | `openUISettings` | delete, opens GuiMenu 9538 (close first) | `pthis` | `s (onFinalize)` | `[s, pthis, window]` | uses window, this (a member call) (its holder is not the closed page) | none |
+| 9998 | `openNetworkSettings` | delete, opens openNetworkSettings 9999 (close first) | `s` | `GuiWifi(...)` | `[this, s]` | uses this (a member call) (its holder is not the closed page) | none |
+| 10127 | `openNetworkSettings` | delete, opens openNetworkSettings 10128 (close first) | `s` | `networkApplyWifi(...)` | `[this, s]` | uses this (a member call) (its holder is not the closed page) | none |
+| 10149 | `openNetworkSettings` | delete, opens openNetworkSettings 10149 (close first) | `s` | `local `reopen`` | `[this, s]` | uses this (a member call) (its holder is not the closed page) | none |
+| 10856 | `popSpecificConfigurationGui` | delete, opens popSpecificConfigurationGui 10855 (open first) | `systemConfiguration` | `emulChoice (setSelectedChangedCallback)` | `[mWindow, title, systemConfiguration, systemData, fileData, configName, emulChoice]` | nothing captured | none |
+| Line | Function | Call | Path | Cache |
+| ---: | --- | --- | --- | --- |
+| 2239 | `openSystemSettings` | `exists` | `"/storage/.ms_supported"` | cached |
+| 2270 | `openSystemSettings` | `exists` | `"/storage/.ms_supported"` | cached |
+| 2444 | `openSystemSettings` | `exists` | `gpuDriverScript = "/usr/bin/gpudriver"` | cached |
+| 2463 | `openSystemSettings` | `exists` | `"/usr/bin/dtb_overlay"` | cached |
+| 2889 | `openSystemSettings` | `exists` | `"/sys/class/leds/keros::ambient"` | cached |
+| 4136 | `cloudSelectionRead` | `isRegularFile` | `path (a parameter)` | cached |
+| 4586 | `cloudContentSystemPicker` | `exists` | `"/usr/bin/cloud_scan"` | cached |
+| 4645 | `cloudReadLastRun` | `exists` | `path = "/storage/.cache/cloud_sync/last-" + name` | uncached |
+| 4843 | `cloudOpenTransferOptions` | `exists` | `"/storage/.config/rclone/rclone.conf"` | uncached |
+| 4870 | `cloudOpenTransferOptions` | `exists` | `backup ? "/usr/bin/cloud_content_backup" : "/usr/bin/cloud_content_restore"` | cached |
+| 5068 | `cloudOpenTransferOptions` | `exists` | `record = JourneyTiers::PATH` | uncached |
+| 5079 | `cloudOpenTransferOptions` | `exists` | `record = JourneyTiers::PATH` | uncached |
+| 5221 | `cloudScanContent` | `exists` | `"/usr/bin/cloud_scan"` | cached |
+| 5247 | `cloudOpenTransfer` | `exists` | `"/storage/.config/rclone/rclone.conf"` | uncached |
+| 5253 | `cloudOpenTransfer` | `exists` | `"/usr/bin/cloud_scan"` | cached |
+| 5604 | `openCloud` | `exists` | `"/storage/.config/rclone/rclone.conf"` | uncached |
+| 5622 | `openCloud` | `exists` | `"/usr/bin/cloud_content_restore"` | cached |
+| 5730 | `openCloud` | `exists` | `"/storage/.config/.restore-finish-pending"` | uncached |
+| 6124 | `openGamesSettings` | `exists` | `"/usr/bin/cloud_backup"` | cached |
+| 6124 | `openGamesSettings` | `exists` | `"/usr/bin/cloud_restore"` | cached |
+| 6126 | `openGamesSettings` | `exists` | `"/storage/.config/rclone/rclone.conf"` | uncached |
+| 6315 | `cloudAddGatedEntry` | `exists` | `"/storage/.config/rclone/rclone.conf"` | uncached |
+| 7792 | `cloudOAuthShowSignIn` | `exists` | `qrPath = "/tmp/cloud-oauth-qr.png"` | cached |
+| 8428 | `openRestoreRelink` | `exists` | `"/usr/bin/cloud_setup"` | cached |
+| 8436 | `openRestoreRelink` | `exists` | `"/storage/.config/rclone/rclone.conf"` | uncached |
+| 8475 | `openRestoreRelink` | `exists` | `restoreMarker = "/storage/.config/.restore-finish-pending"` | uncached |
+| 9300 | `openThemeConfiguration` | `exists` | `path = Paths::getUserEmulationStationPath() + "/themesettings/" + Settings::getInstance()->getStr` | cached |
+| 9604 | `openSoundSettings` | `exists` | `favoritesFile = FavoriteMusicManager::getFavoriteMusicFilePath()` | cached |
+| 10261 | `openNetworkSettings` | `exists` | `"/storage/.config/.restore-finish-pending"` | uncached |
+| 10303 | `openNetworkSettings` | `exists` | `wireguardConfigFile = "/storage/.config/wireguard/wg0.conf"` | cached |
+| 10650 | `openQuitMenu_static` | `exists` | `Paths::getUserManualPath()` | cached |
+| 11423 | `getDecorationsSets` | `exists` | `systemImg = path + "/"+ info.name +"/systems/" + system->getName() + ".png"` | cached |
+| 11430 | `getDecorationsSets` | `exists` | `img = folder + "/default.png"` | cached |
+| 11575 | `saveSubsetSettings` | `exists` | `path = Paths::getUserEmulationStationPath() + "/themesettings"` | cached |
+| 11583 | `saveSubsetSettings` | `exists` | `fileName = path + "/" + themeSet + ".cfg"` | cached |
+| 11594 | `loadSubsetSettings` | `exists` | `path = Paths::getUserEmulationStationPath() + "/themesettings"` | cached |
+| 11598 | `loadSubsetSettings` | `exists` | `fileName = path + "/" + themeName + ".cfg"` | cached |
+| Literal | Built at (role line, function) |
+| --- | --- |
+| RETROACHIEVEMENTS | row 192 `GuiMenu`; row 5762 `openGamesSettings`; title 8352 `openRestoreRelink` |
+| GAME SETTINGS | row 203 `GuiMenu`; row 213 `GuiMenu`; title 5751 `openGamesSettings` |
+| USER INTERFACE SETTINGS | row 205 `GuiMenu`; row 215 `GuiMenu`; title 9335 `openUISettings` |
+| SOUND SETTINGS | row 207 `GuiMenu`; row 222 `GuiMenu`; title 9547 `openSoundSettings` |
+| NETWORK SETTINGS | row 210 `GuiMenu`; title 9880 `openNetworkSettings` |
+| EMULATOR SETTINGS | row 232 `GuiMenu`; title 8626 `openEmulatorSettings` |
+| UPDATES & DOWNLOADS | row 243 `GuiMenu`; title 1474 `openUpdatesSettings` |
+| SYSTEM SETTINGS | row 245 `GuiMenu`; row 6162 `openGamesSettings`; title 1701 `openSystemSettings` |
+| INFORMATION | row 249 `GuiMenu`; row 1707 `openSystemSettings`; row 9881 `openNetworkSettings` |
+| QUIT | row 254 `GuiMenu`; row 256 `GuiMenu`; row 10681 `openQuitMenu_static`; title 10557 `openQuitMenu_static` |
+| DATA MANAGEMENT | row 399 `openResetOptions`; row 1259 `openDeveloperSettings` |
+| CLEAN GAMELISTS & REMOVE UNUSED MEDIA | row 431 `openResetOptions`; row 1149 `openDeveloperSettings` |
+| ARE YOU SURE? | dialog 432 `openResetOptions`; dialog 1151 `openDeveloperSettings`; dialog 1167 `openDeveloperSettings` |
+| VIDEO OUTPUT | row 853 `openMultiScreensSettings`; row 925 `openMultiScreensSettings`; row 2621 `openSystemSettings` |
+| VIDEO MODE | row 867 `openMultiScreensSettings`; row 939 `openMultiScreensSettings`; row 2636 `openSystemSettings`; row 5853 `openGamesSettings`; row 10894 `popSpecificConfigurationGui` |
+| SCREEN ROTATION | row 890 `openMultiScreensSettings`; row 962 `openMultiScreensSettings`; row 2768 `openSystemSettings` |
+| TOOLS | row 1070 `openDeveloperSettings`; row 5753 `openGamesSettings`; row 9197 `openThemeConfiguration` |
+| SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION | row 1346 `openDeveloperSettings`; row 9449 `openUISettings` |
+| ACCESS GAME OPTIONS WITH NORTH BUTTON | row 1358 `openDeveloperSettings`; row 9461 `openUISettings` |
+| SHOW NETWORK INDICATOR | row 1413 `openDeveloperSettings`; row 9922 `openNetworkSettings` |
+| DISPLAY MODE | row 2122 `openSystemSettings`; row 3503 `openSystemOptionsConfiguration` |
+| COOLING PROFILE | row 2292 `openSystemSettings`; row 3397 `openSystemOptionsConfiguration` |
+| RETROACHIEVEMENTS SETTINGS | row 2826 `openSystemSettings`; row 5777 `openGamesSettings` |
+| NETPLAY SETTINGS | row 2829 `openSystemSettings`; row 5781 `openGamesSettings` |
+| BIOS CHECK | row 2832 `openSystemSettings`; row 5787 `openGamesSettings` |
+| CHECK BIOS FILES BEFORE RUNNING A GAME | row 2833 `openSystemSettings`; row 5791 `openGamesSettings` |
+| DMD | row 2980 `openSystemSettings`; title 715 `openDmdSettings` |
+| MULTISCREENS | row 2984 `openSystemSettings`; title 797 `openMultiScreensSettings` |
+| SERVICES | row 3198 `openSystemSettings`; row 3252 `openSystemSettings`; title 697 `openServicesSettings` |
+| FRONTEND DEVELOPER OPTIONS | row 3258 `openSystemSettings`; title 992 `openDeveloperSettings` |
+| SYSTEM MANAGEMENT AND RESET | row 3277 `openSystemSettings`; title 397 `openResetOptions` |
+| COULDN'T REACH YOUR CLOUD. /  / TRY AGAIN WHEN YOU'RE ONLINE. | dialog 4308 `cloudContentSystemPicker`; dialog 5308 `cloudOpenMatch` |
+| SETTINGS | row 4908 `cloudOpenTransferOptions`; row 9925 `openNetworkSettings` |
+| NO CLOUD STORAGE IS SET UP ON THIS DEVICE YET. /  / SET IT UP NOW? | dialog 4971 `cloudOpenTransferOptions`; dialog 5249 `cloudOpenTransfer`; dialog 6322 `cloudAddGatedEntry` |
+| CLOUD STORAGE SETUP | row 5663 `openCloud`; title 8185 `openCloudSetup` |
+| CHECK CONNECTION | row 5688 `openCloud`; row 8013 `cloudConnectionDetails` |
+| CHANGE CLOUD FOLDER | row 5715 `openCloud`; row 7047 `cloudShowFolderSelection` |
+| FINISH RESTORE PROCESS | row 5739 `openCloud`; row 10269 `openNetworkSettings`; title 8266 `openRestoreRelink` |
+| ACCOUNTS | row 5773 `openGamesSettings`; row 8345 `openRestoreRelink` |
+| GAME ASPECT RATIO | row 5845 `openGamesSettings`; row 10886 `popSpecificConfigurationGui` |
+| SMOOTH GAMES (BILINEAR FILTERING) | row 5862 `openGamesSettings`; row 10903 `popSpecificConfigurationGui` |
+| REWIND | row 5871 `openGamesSettings`; row 10912 `popSpecificConfigurationGui` |
+| INTEGER SCALING (PIXEL PERFECT) | row 5880 `openGamesSettings`; row 11002 `popSpecificConfigurationGui` |
+| SHADER SET | row 5910 `openGamesSettings`; row 10952 `popSpecificConfigurationGui` |
+| VIDEO FILTER | row 5946 `openGamesSettings`; row 10990 `popSpecificConfigurationGui` |
+| DECORATIONS | row 5960 `openGamesSettings`; row 11013 `popSpecificConfigurationGui`; title 5962 `openGamesSettings`; title 11015 `popSpecificConfigurationGui` |
+| STRETCH BEZELS (4K & ULTRAWIDE) | row 5971 `openGamesSettings`; row 11024 `popSpecificConfigurationGui` |
+| CUSTOM .PNG IMAGE PATH | row 6011 `openGamesSettings`; row 11067 `popSpecificConfigurationGui` |
+| LATENCY REDUCTION | row 6033 `openGamesSettings`; row 11078 `popSpecificConfigurationGui`; title 3304 `openLatencyReductionConfiguration` |
+| AUTOCONFIGURE CONTROLLERS | row 6111 `openGamesSettings`; row 11299 `popSpecificConfigurationGui` |
+| CLOUD FOLDERS | title 6599 `cloudOpenFolderSettings`; title 6990 `cloudShowFolderSelection` |
+| NO NETWORK CONNECTION DETECTED. /  / CONNECT TO A NETWORK FIRST, THEN TRY AGAIN. | dialog 6665 `cloudSetupShowSshStep`; dialog 8167 `openCloudSetup` |
+| THIS CONNECTION ISN'T ANSWERING: | dialog 6776 `cloudSetupGateCheck`; dialog 8197 `openCloudSetup` |
+| CONNECT CLOUD STORAGE | title 7223 `cloudRemoteShowForm`; title 7465 `cloudRemoteChooseBackend`; title 7650 `cloudOAuthPresentChoice`; title 7724 `cloudOAuthShowSignIn`; title 8089 `openCloudAddRemote` |
+| ADD CONNECTION | row 8082 `openCloudConnections`; title 7890 `cloudOAuthAdd` |
+| USE A COMPUTER INSTEAD | row 8083 `openCloudConnections`; row 8155 `openCloudAddRemote` |
+| GAMELIST VIEW STYLE | row 8729 `openThemeConfiguration`; row 9434 `openUISettings` |
+| GAMELIST OPTIONS | row 8921 `openThemeConfiguration`; row 9493 `openUISettings` |
+| SHOW FAVORITES ON TOP | row 8930 `openThemeConfiguration`; row 9497 `openUISettings` |
+| SHOW HIDDEN FILES | row 8944 `openThemeConfiguration`; row 9498 `openUISettings` |
+| SHOW FOLDERS | row 8962 `openThemeConfiguration`; row 9499 `openUISettings` |
+| SHOW '..' PARENT FOLDER | row 8976 `openThemeConfiguration`; row 9501 `openUISettings` |
+| ICONS | row 8983 `openThemeConfiguration`; row 9512 `openUISettings` |
+| SHOW TAGS ICONS | row 8998 `openThemeConfiguration`; row 9513 `openUISettings` |
+| SHOW REGION FLAG | row 9025 `openThemeConfiguration`; row 9514 `openUISettings` |
+| SHOW SAVE STATE ICON | row 9039 `openThemeConfiguration`; row 9515 `openUISettings` |
+| SHOW MANUAL ICON | row 9053 `openThemeConfiguration`; row 9516 `openUISettings` |
+| SHOW RETROACHIEVEMENTS ICON | row 9067 `openThemeConfiguration`; row 9517 `openUISettings` |
+| SHOW GUN ICON | row 9081 `openThemeConfiguration`; row 9519 `openUISettings` |
+| SHOW WHEEL ICON | row 9095 `openThemeConfiguration`; row 9520 `openUISettings` |
+| SHOW TRACKBALL ICON | row 9109 `openThemeConfiguration`; row 9521 `openUISettings` |
+| SHOW SPINNER ICON | row 9123 `openThemeConfiguration`; row 9522 `openUISettings` |
+| SHOW FILENAMES INSTEAD | row 9138 `openThemeConfiguration`; row 9502 `openUISettings` |
+| SYSTEM OPTIONS | row 10878 `popSpecificConfigurationGui`; title 3372 `openSystemOptionsConfiguration` |
+if 105 #if WIN32                                                    dead 1 unknown 0 braces +0 
+if 176 #ifdef _ENABLE_KODI_                                         dead 8 unknown 0 braces +0 
+if 202 #if defined(BATOCERA) || defined(ROCKNIX)                    dead 19 unknown 0 braces +0 
+if 253 #ifdef WIN32                                                 dead 1 unknown 0 braces +0 
+if 800 #ifdef BATOCERA                                              dead 148 unknown 0 braces +0 
+if 1048 #ifdef _RPI_                                                 dead 17 unknown 0 braces +0 
+if 1320 #if defined(_WIN32) || defined(X86) || defined(X86_64)       dead 0 unknown 5 braces +0 unknown: X86,X86_64
+if 1328 #if defined(WIN32) && !defined(_DEBUG)                       dead 5 unknown 0 braces +0 unknown: _DEBUG
+if 1343 #if !defined(ROCKNIX)                                        dead 19 unknown 0 braces +0 
+if 1403 #if defined(WIN32)                                           dead 9 unknown 0 braces +0 
+if 1543 #if BATOCERA                                                 dead 11 unknown 0 braces +0 
+if 1761 #ifdef HAVE_INTL                                             dead 0 unknown 1 braces +0 unknown: HAVE_INTL
+if 1855 #if defined(ROCKNIX)                                         dead 19 unknown 0 braces +0 
+if 1913 #if defined(_ENABLE_TTS_) || defined(WIN32)                  dead 0 unknown 12 braces +0 unknown: _ENABLE_TTS_
+if 2011 #ifdef _ENABLE_KODI_                                         dead 10 unknown 0 braces +0 
+if 2377 #if defined(SM6115)                                          dead 0 unknown 22 braces +0 unknown: SM6115
+if 2403 #if defined(SM8250)                                          dead 0 unknown 36 braces +0 unknown: SM8250
+if 2469 #if defined(AMD64) || defined(RK3326) || defined(RK3566) ||  dead 0 unknown 94 braces +0 unknown: AMD64,H700,RK3326,RK3399,RK3566,RK3588,SM6115,SM8250
+if 2581 #if defined(BATTERYPLUS)                                     dead 0 unknown 15 braces +0 unknown: BATTERYPLUS
+if 2601 #ifdef BATOCERA                                              dead 34 unknown 0 braces +0 
+if 2754 #ifdef BATOCERA                                              dead 56 unknown 0 braces +0 
+if 2838 #if ODROIDGOA || GAMEFORCE || RK3326                         dead 0 unknown 14 braces +0 unknown: GAMEFORCE,ODROIDGOA,RK3326
+if 2855 #if GAMEFORCE                                                dead 0 unknown 29 braces +0 unknown: GAMEFORCE
+if 2888 #if RK3326                                                   dead 0 unknown 30 braces +0 unknown: RK3326
+if 2979 #ifdef BATOCERA                                              dead 1 unknown 0 braces +0 
+if 2983 #ifdef BATOCERA                                              dead 1 unknown 0 braces +0 
+if 2987 #ifdef BATOCERA                                              dead 100 unknown 0 braces +0 
+if 3105 #if defined(BATOCERA)                                        dead 98 unknown 0 braces +0 
+if 3212 #ifdef BATOCERA                                              dead 6 unknown 0 braces +0 
+if 3233 #ifdef BATOCERA                                              dead 8 unknown 0 braces +0 
+if 3375 #if defined(S922X) || defined(RK3588) || defined(RK3399)|| d dead 0 unknown 5 braces +0 unknown: RK3399,RK3576,RK3588,S922X,SM4450,SM6115,SM8250,SM8550,SM8650
+if 3798 #if !defined(ROCKNIX)                                        dead 3 unknown 0 braces +1 
+if 3805 #if !defined(ROCKNIX)                                        dead 3 unknown 0 braces -1 
+if 3819 #if !defined(ROCKNIX)                                        dead 3 unknown 0 braces +1 
+if 3826 #if !defined(ROCKNIX)                                        dead 3 unknown 0 braces -1 
+if 4122 #ifndef CLOUD_CONTENT_SELECTION                              dead 0 unknown 1 braces +0 unknown: CLOUD_CONTENT_SELECTION
+if 5801 #if defined(ROCKNIX)                                         dead 1 unknown 0 braces +0 
+if 5832 #if defined(ROCKNIX)                                         dead 1 unknown 0 braces +0 
+if 5887 #if !defined(ROCKNIX)                                        dead 3 unknown 0 braces +1 
+if 5898 #if !defined(ROCKNIX)                                        dead 2 unknown 0 braces +0 
+if 5912 #if !defined(ROCKNIX)                                        dead 1 unknown 0 braces -1 
+if 5918 #if !defined(ROCKNIX)                                        dead 5 unknown 0 braces +2 
+if 5934 #if !defined(ROCKNIX)                                        dead 2 unknown 0 braces +0 
+if 5948 #if !defined(ROCKNIX)                                        dead 1 unknown 0 braces -1 
+if 5959 #if defined(BATOCERA)                                        dead 59 unknown 0 braces +0 
+if 8354 #ifndef CHEEVOS_DEV_LOGIN                                    dead 0 unknown 2 braces +0 unknown: CHEEVOS_DEV_LOGIN
+if 8372 #if defined(SCREENSCRAPER_RUNTIME_DEV_LOGIN) && !defined(SCR dead 0 unknown 2 braces +0 unknown: SCREENSCRAPER_DEV_LOGIN,SCREENSCRAPER_RUNTIME_DEV_LOGIN
+if 9073 #if !defined(ROCKNIX)                                        dead 52 unknown 0 braces +0 
+if 9518 #if !defined(ROCKNIX)                                        dead 4 unknown 0 braces +0 
+if 9937 #ifdef RK3399                                                dead 0 unknown 14 braces +0 unknown: RK3399
+if 10071 #if !WIN32                                                   dead 3 unknown 0 braces +1 
+if 10107 #if !WIN32                                                   dead 5 unknown 0 braces +0 
+if 10158 #if !WIN32                                                   dead 5 unknown 0 braces +0 
+if 10549 #ifdef WIN32                                                 dead 5 unknown 0 braces +0 
+if 10716 #ifdef WIN32                                                 dead 8 unknown 0 braces +0 
+if 10929 #if !defined(ROCKNIX)                                        dead 3 unknown 0 braces +1 
+if 10940 #if !defined(ROCKNIX)                                        dead 2 unknown 0 braces +0 
+if 10954 #if !defined(ROCKNIX)                                        dead 1 unknown 0 braces -1 
+if 10960 #if !defined(ROCKNIX)                                        dead 6 unknown 0 braces +2 
+if 10978 #if !defined(ROCKNIX)                                        dead 2 unknown 0 braces +0 
+if 10992 #if !defined(ROCKNIX)                                        dead 1 unknown 0 braces -1 
+if 11012 #if defined(BATOCERA)                                        dead 52 unknown 0 braces +0 
+if 11394 #if WIN32                                                    dead 1 unknown 0 braces +0 
+if 11675 #ifdef BATOCERA                                              dead 61 unknown 0 braces +0 
+definitions 156 ({'member': 63, 'static': 92, 'free': 1}); the ten longest: openSystemSettings 1604, openThemeConfiguration 674, popSpecificConfigurationGui 537, openNetworkSettings 494, openDeveloperSettings 483, openGamesSettings 446, cloudOpenTransferOptions 375, addFeatureItem 357, cloudContentSystemPicker 317, openRestoreRelink 237
+transitions: cloudSetupPresent calls 16 (last statement 15; harnessed 5); other page replacements 10 (harnessed 1; a capture used after closing the lambda's own holder 1)
+reads 37: uncached 12, cached 25 (exists 36, isRegularFile 1)
+labels (row, title, dialog) built in two or more functions 74; one-line _() literals in two or more functions 165
+conditional regions 86; lines no ROCKNIX image compiles 869; lines under an unknown macro 282; regions whose first arm's braces do not balance 13: 3798 +1, 3805 -1, 3819 +1, 3826 -1, 5887 +1, 5912 -1, 5918 +2, 5948 -1, 10071 +1, 10929 +1, 10954 -1, 10960 +2, 10992 -1
+dead lines by condition (top 6): {'#ifdef BATOCERA': 415, '#if defined(BATOCERA)': 209, '#if !defined(ROCKNIX)': 116, '#if defined(ROCKNIX)': 21, '#if defined(BATOCERA) || defined(ROCKNIX)': 19, '#ifdef _ENABLE_KODI_': 18}
+unknown macros: ['AMD64', 'BATTERYPLUS', 'CHEEVOS_DEV_LOGIN', 'CLOUD_CONTENT_SELECTION', 'GAMEFORCE', 'H700', 'HAVE_INTL', 'ODROIDGOA', 'RK3326', 'RK3399', 'RK3566', 'RK3576', 'RK3588', 'S922X', 'SCREENSCRAPER_DEV_LOGIN', 'SCREENSCRAPER_RUNTIME_DEV_LOGIN', 'SM4450', 'SM6115', 'SM8250', 'SM8550', 'SM8650', 'X86', 'X86_64', '_DEBUG', '_ENABLE_TTS_']
+includes 98; repeated lines {'#include<chrono>': 2, '#include<cstdio>': 3, '#include<sys/wait.h>': 2, '#include<tuple>': 2}; one header by two spellings {'chrono': 2, 'cstdio': 3, 'tuple': 2, 'GuiLoading.h': 2}
+header: declared 62, GuiMenu:: defined 62; declared without a definition []; defined without a declaration []
+asserted counts hold

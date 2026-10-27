@@ -1,0 +1,4 @@
+1 one line 'OK=dropbox\n': 10 bytes; find(OK=) name 'dropbox'; newlines 0; 'Turn off both automatic' NOT found
+2 300-byte line then OK=: 309 bytes; find(OK=) name 'dropbox'; newlines 0; 'Turn off both automatic' NOT found
+3 'OK=dropbox' with no newline: 9 bytes; find(OK=) name 'dropbo'; newlines 0; 'Turn off both automatic' NOT found
+4 refusal across byte 255: 287 bytes; find(OK=) none; newlines 0; 'Turn off both automatic' NOT found

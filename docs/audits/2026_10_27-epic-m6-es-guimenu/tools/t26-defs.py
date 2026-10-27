@@ -138,24 +138,28 @@ def definitions(path):
         sys.exit("%s: %d brace(s) left open at the end" % (path, len(stack)))
     return defs
 
-pin, base = definitions(sys.argv[1]), definitions(sys.argv[2])
-key = lambda d: (d["name"], d["params"])
-P = {key(d): d for d in pin}; B = {key(d): d for d in base}
-if len(P) != len(pin) or len(B) != len(base):
-    print("note: duplicate (name, parameters) keys: pin %d of %d, base %d of %d" % (len(P), len(pin), len(B), len(base)))
-added = [k for k in P if k not in B]; removed = [k for k in B if k not in P]
-common = [k for k in P if k in B]
-changed = [k for k in common if P[k]["text"] != B[k]["text"]]
-wsk = lambda t: re.sub(r"\s+", "", t)
-changed_ws = [k for k in common if wsk(P[k]["text"]) != wsk(B[k]["text"])]
-kinds = collections.Counter(d["kind"] for d in pin)
-print("pin %d definitions %s; base %d" % (len(pin), dict(kinds), len(base)))
-print("added %d, removed %d, common %d: changed %d / unchanged %d (exact), changed %d / unchanged %d (whitespace removed)"
-      % (len(added), len(removed), len(common), len(changed), len(common) - len(changed), len(changed_ws), len(common) - len(changed_ws)))
-print("removed:", ", ".join(k[0] for k in removed) or "none")
-longest = sorted(pin, key=lambda d: d["end"] - d["start"] + 1, reverse=True)[:10]
-print("the ten longest:", "; ".join("%s %d-%d (%d)" % (d["name"], d["start"], d["end"], d["end"] - d["start"] + 1) for d in longest))
-if "--list" in sys.argv:
-    for d in pin:
-        st = "added" if key(d) in added else "changed" if key(d) in changed else "unchanged"
-        print("%s\t%d\t%d\t%s\t%s" % (d["name"], d["start"], d["end"], d["kind"], st))
+def main():
+    pin, base = definitions(sys.argv[1]), definitions(sys.argv[2])
+    key = lambda d: (d["name"], d["params"])
+    P = {key(d): d for d in pin}; B = {key(d): d for d in base}
+    if len(P) != len(pin) or len(B) != len(base):
+        print("note: duplicate (name, parameters) keys: pin %d of %d, base %d of %d" % (len(P), len(pin), len(B), len(base)))
+    added = [k for k in P if k not in B]; removed = [k for k in B if k not in P]
+    common = [k for k in P if k in B]
+    changed = [k for k in common if P[k]["text"] != B[k]["text"]]
+    wsk = lambda t: re.sub(r"\s+", "", t)
+    changed_ws = [k for k in common if wsk(P[k]["text"]) != wsk(B[k]["text"])]
+    kinds = collections.Counter(d["kind"] for d in pin)
+    print("pin %d definitions %s; base %d" % (len(pin), dict(kinds), len(base)))
+    print("added %d, removed %d, common %d: changed %d / unchanged %d (exact), changed %d / unchanged %d (whitespace removed)"
+          % (len(added), len(removed), len(common), len(changed), len(common) - len(changed), len(changed_ws), len(common) - len(changed_ws)))
+    print("removed:", ", ".join(k[0] for k in removed) or "none")
+    longest = sorted(pin, key=lambda d: d["end"] - d["start"] + 1, reverse=True)[:10]
+    print("the ten longest:", "; ".join("%s %d-%d (%d)" % (d["name"], d["start"], d["end"], d["end"] - d["start"] + 1) for d in longest))
+    if "--list" in sys.argv:
+        for d in pin:
+            st = "added" if key(d) in added else "changed" if key(d) in changed else "unchanged"
+            print("%s\t%d\t%d\t%s\t%s" % (d["name"], d["start"], d["end"], d["kind"], st))
+
+if __name__ == "__main__":
+    main()
