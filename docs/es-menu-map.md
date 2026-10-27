@@ -147,6 +147,32 @@ Two placement rules the existing tree already follows:
 - **Destructive and system-level operations sit behind ADVANCED**, inside SYSTEM
   SETTINGS → SYSTEM MANAGEMENT AND RESET, where every row confirms first.
 
+## MOONLIGHT GAME STREAMING (ROCKNIX's page)
+
+`GAME SETTINGS > TOOLS > MOONLIGHT GAME STREAMING`, ROCKNIX's own page, mapped
+by T31 S3 (#678, #1248). Its title is a fork translation (`STREAMING DE JEUX
+MOONLIGHT`), shared with the row that opens it.
+
+| Group | Rows |
+|---|---|
+| TOOLS | QUIT CURRENT GAME · UPDATE MOONLIGHT GAMES · PAIR WITH SERVER · UNPAIR WITH SERVER |
+| SETTINGS | SERVER IP · PAIRING PIN (a new PIN at each opening) |
+
+Its boxes are ROCKNIX's and keep the page's sentence case (D-UI-079), the
+misspelt one corrected in its spelling only (the coordinator's ruling on #678,
+13:51 UTC): `Unable to connect to server` (UPDATE, the server unreachable or
+its list unreadable; nothing is removed), `Successfully paired with server`,
+`Unpaired and settings cleared`, `Unpaired from server`. Three failure
+sentences are new with S3, in the same case, proposed (D-UI-112) with their
+French:
+
+- UNPAIR, a removal that fails: `The pairing files couldn't be removed. This device is still paired.`
+- UPDATE, the new game list not written: `The game list couldn't be saved. Your Moonlight games are as they were.`
+- PAIR, a pairing file that cannot be read: `The pairing file couldn't be read. Try pairing again.`
+
+UPDATE replaces the library under `/storage/roms/moonlight` only once the new
+set is complete, and then restarts the interface, as before.
+
 ## Save state manager
 
 A game's long-press menu > SAVE STATES, or before every launch under GAME
