@@ -14,5 +14,7 @@ Punch list of the M6.P2 T32 audit: EmulationStation's game list views, scrapers 
 
 **Seven host harnesses** fail at the pin and pass their controls (`stage-c/runs.txt`). Three of the failures are memory errors in the shipped build's shape: two SEGVs and a use-after-free. **The floor's 27** were read at their lines (`stage-c/floor.md`).
 
-- **The folder:** `docs/audits/2026_10_27-epic-m6-es-app-views-scrapers/` on `feature/m6-es-app-views-scrapers-679` at `947345f2d0`.
+- **The folder:** `docs/audits/2026_10_27-epic-m6-es-app-views-scrapers/` on `feature/m6-es-app-views-scrapers-679` at `HEADCOMMIT`.
 - **The list:** `05-punch-list.md`. `tools/lint-audit-artifacts --phase pre-issue`: `PASS pre-issue artifacts (does not certify resolution)`.
+
+**The stage-D ruling** (#679, comment 6448695986, 17:22 UTC): twelve bugs filed with their code traces, #1258 to #1269, each named on its line below. PL-06, PL-09 and the rest of PL-11 are recorded with #585 lines. PL-11's two bugs are PL-21 and PL-22. G-03 and the French bar's fifth entry are carried as observations in PL-13 and PL-10.

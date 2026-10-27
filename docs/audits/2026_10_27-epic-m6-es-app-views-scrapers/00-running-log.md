@@ -90,3 +90,9 @@
 - **05:** 20 items (3 High, 5 Medium, 12 Low); ten `bug`s proposed, to be filed after the ruling as on #678. `tools/lint-audit-artifacts --phase pre-issue`: `PASS pre-issue artifacts (does not certify resolution)` at 17:19 UTC.
 - **Stage D, 17:20 UTC:** the audit issue #1257 was filed from `05` by `tools/t32-issue-body.py` and attached as a sub-issue of #679. `tools/box-check --issue 1257`: 20 open checkboxes, 0 fail. The ten bugs wait for the ruling. Next: the stage-D pause post on #679.
 - **The stage-D pause post** on #679 (comment 6448662059, 17:20 UTC): the 20 items, and four questions (the ten bugs; PL-06, PL-09 and PL-11's `/isIdle`; the streams with two design calls; G-03 and the French bar). Waiting for the ruling.
+- **The stage-D ruling, 17:26 UTC** (#679 comment 6448695986, 17:22 UTC), carried out:
+  - **Twelve bugs filed with their code traces** by `tools/t32-file-bugs.py`: #1258 PL-01, #1259 PL-02, #1260 PL-03, #1261 PL-04, #1262 PL-05, #1263 PL-07, #1264 PL-08, #1265 PL-10, #1266 PL-17, #1267 PL-18, #1268 PL-21, #1269 PL-22. Each passes `tools/box-check --issue N` with 0 fail. PL-02's heading was shortened for GitHub's 256-character title.
+  - **PL-11 split** into PL-21 (`/isIdle`) and PL-22 (`/launch`); 05 now holds 22 items.
+  - **Recorded:** PL-06 and PL-09, with #585 lines.
+  - **Carried as observations:** G-03 (PL-13) and the French bar (PL-10).
+  - The streams S1 to S6 are recorded in each item's disposition. The stream brief is the coordinator's.

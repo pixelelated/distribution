@@ -28,5 +28,7 @@ out = [summary, "",
     "",
 ]
 for pl, s, cat, q, src in idx:
-    out.append("- [ ] **%s** (%s, %s, %s): %s **Checked by:** its Phase 7 row in `05-punch-list.md` at the outcome the stage-D ruling sets (a commit with its proof, an issue, or the record as written)." % (pl, s, q, src, titles[pl]))
+    bug = re.search(r"^## %s: .*?^- \*\*Bug:\*\* (#\d+)" % pl, text, re.S | re.M)
+    bug = bug if bug and "\n## PL-" not in text[bug.start():bug.end()] else None
+    out.append("- [ ] **%s** (%s, %s, %s): %s%s **Checked by:** its Phase 7 row in `05-punch-list.md` at the outcome the stage-D ruling sets (a commit with its proof, an issue, or the record as written)." % (pl, s, q, src, titles[pl], (" **Bug:** %s." % bug.group(1)) if bug else ""))
 print("\n".join(out))

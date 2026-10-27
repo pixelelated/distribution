@@ -12,7 +12,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Nothing here changes a file** under the distribution's `packages/`, `projects/` or `tools/`, or an ES file, at stages A to D. A fix lands only under a stream brief on the ES branch, proven twice. A row added, moved or renamed updates `docs/es-menu-map.md` in the same commit (D-UI-039).
 - **Lines** are the pin's. "Guest" means the M6 image (M7's composition over the pin). "Fixture" means a stage-C harness that fails at the pin and passes its control.
 - **The audit issue:** #1257 (a sub-issue of #679), one checkbox per item; `tools/box-check --issue 1257`: 20 open checkboxes, 0 fail.
-- **The bugs are proposed, not filed.** As on #678, each is filed with its code trace once the coordinator rules at the stage-D pause.
+- **The bugs:** twelve, filed with their code traces after the stage-D ruling (ruled 17:22 UTC, #679 comment 6448695986); each item's **Bug:** line names its issue.
 
 ---
 
@@ -42,7 +42,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Acceptance:**
   - [ ] `stage-c/l02-stop-after-finish.py` against the fixed `ThreadedScraper.cpp` prints `finished 1, cancelled 0` with no sanitizer report (rc 0), and against the pin reports the use-after-free (`stage-e/` before/after records).
   - [ ] a harness case for EP-34 (the worker done before `mHandle` is assigned) and one for EP-37 (a startup throw), each FAIL at the pin and rc 0 against the fix.
-- **Disposition (proposed):** a `bug`, filed after the ruling; a stream on the ES branch; a #585 line (the unlocked lifetime is upstream's).
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** a `bug`, filed; S1 (ownership): an owned, joined worker -- `ThreadedScraper` owns its `std::thread`, `stop()` requests and joins, the destructor joins, no `delete this`; `main.cpp`'s exit teardown read, one `stop()` added there if needed and named under merge debt; a #585 line.
+- **Bug:** #1258 (filed 2026-10-27, with its code trace).
 
 ## PL-02: a scrape that reached nothing reads as COMPLETED: an IO error, a spent 429 and a long Retry-After end as done; `process()`'s return is dropped, so ScreenScraper's rate limit reads as "no match"; and the page's count is short by the thread count (a `bug` proposed; upstream's request under the fork's page)
 
@@ -72,7 +73,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
   - [ ] `l316` against the fixed `IGDBScraper.cpp`: `process` returns 1 for `[]`, `{}` and a parse error (rc 0 for its 3.16 half).
   - [ ] a unit on `run()`'s end: ten games on one thread give `done 10`.
   - [ ] on the integration image, SCRAPE NOW with `eth0` down: a frame reading COULDN'T SCRAPE with the game count, not COMPLETED, GAMES SCRAPED: 9 (`fix-walk-pending-image`).
-- **Disposition (proposed):** a `bug`, filed after the ruling; one stream (the request, the reader's count, IGDB's return); #1205 keeps the HTTP-date half; a #585 line.
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** a `bug`, filed; S2 (outcomes and bounds); `ThreadedScraper::start`'s contract with T31's page unchanged; `GuiScraperRun.cpp` named as T31's collision; a #585 line.
+- **Bug:** #1259 (filed 2026-10-27, with its code trace).
 
 ## PL-03: a response of the wrong shape is a wild read in the shipped build: TheGamesDB's `"boxart": "x"` and IGDB's or HfsDB's numeric token are SEGVs (a `bug` proposed; upstream's parsers)
 
@@ -97,7 +99,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited. A crash writes nothing, and a token is held in memory only.
 - **Acceptance:**
   - [ ] `l310` and `l316` against the fixed files: every body, `"boxart": "x"` and `{"access_token": 5}` included, prints `preconditions violated 0` and returns (rc 0, and rc 0 with `--plain`); against the pin, FAIL.
-- **Disposition (proposed):** a `bug`, filed after the ruling; a stream; a #585 line.
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** a `bug`, filed; S3 (parsers); a #585 line.
+- **Bug:** #1260 (filed 2026-10-27, with its code trace).
 
 ## PL-04: a saved scraper the build does not register crashes SCRAPE NOW (a `bug` proposed; upstream's registry, an upgrade path)
 
@@ -118,7 +121,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Acceptance:**
   - [ ] a unit: `getScraper("Absent")` returns the first registered scraper.
   - [ ] on the integration image with `Scraper` set to an unregistered name: SCRAPE NOW runs, ES's pid is unchanged, and the journal has no backtrace (`fix-walk-pending-image`).
-- **Disposition (proposed):** a `bug`, filed after the ruling; a stream; a #585 line.
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** a `bug`, filed; S2; a #585 line.
+- **Bug:** #1261 (filed 2026-10-27, with its code trace).
 
 ## PL-05: the token requests and media downloads have no bound but the 10 s connect, and the token fetch at a scrape's start runs on the interface thread (a `bug` proposed; upstream's requests, #299's shape)
 
@@ -143,7 +147,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Acceptance:**
   - [ ] `t32-bounds.py` against the fixed tree prints `bounded=9`.
   - [ ] a unit: a request to a listener that accepts and never answers ends within its `stallTimeout` plus 2 s.
-- **Disposition (proposed):** a `bug`, filed after the ruling; one stream with PL-02 (the same files); a #585 line.
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** a `bug`, filed; S2: the token fetch and the first hand-out move onto the worker, `Progress` reporting a starting state the page already draws; a #585 line.
+- **Bug:** #1262 (filed 2026-10-27, with its code trace).
 
 ## PL-06: the vendored cpp-httplib (2020) bounds no request body; with WEB ACCESS on, a LAN host can grow one until ES dies (a `bug` proposed; upstream's server)
 
@@ -162,7 +167,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] on the integration image, a chunked POST of 64 MiB to `127.0.0.1:1234` answers 413, and ES's RSS and pid are unchanged (`fix-walk-pending-image`).
-- **Disposition (proposed):** a `bug`, filed after the ruling, or recorded for the coordinator under D-UI-079 (WEB ACCESS is upstream's lane); a #585 line either way.
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** **recorded, with a #585 line to ROCKNIX** naming the vendored cpp-httplib (the 2020 v0.7 series; its own header `Copyright (c) 2020`; ES's last change to it b4985a427, 2021-11-08). The fix is a bump of the vendored file or a patch inside it, upstream's to take and the integration's to carry. WEB ACCESS is off by default and binds 127.0.0.1 without the player's opt-in.
 
 ## PL-07: a picture written from outside ES stays hidden until a restart, and the MANUAL and MAP rows are gated by the same cached reads (a `bug` proposed; upstream's cached reads)
 
@@ -178,7 +183,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] on the integration image, a manual written over serial with the list open shows the MANUAL row on re-entry, without a restart (`fix-walk-pending-image`).
-- **Disposition (proposed):** a `bug`, filed after the ruling, or a stream question (the cloud restore is the fork's lane).
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** a `bug`, filed; S4 (views and words); a #585 line.
+- **Bug:** #1263 (filed 2026-10-27, with its code trace).
 
 ## PL-08: the game name shows no year under a descending date sort, and 25 hours of play read `[01:00:00]` (a `bug` proposed; upstream's formatter)
 
@@ -194,7 +200,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] `l332` against the fixed file: `RELEASEDATE_DESCENDING 1` and `GAME [25:00:00]` (rc 0); against the pin, FAIL.
-- **Disposition (proposed):** a `bug`, filed after the ruling; a stream; a #585 line.
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** a `bug`, filed; S4; a #585 line.
+- **Bug:** #1264 (filed 2026-10-27, with its code trace).
 
 ## PL-09: the grid's IMAGE source draws an empty tile for a game with a thumbnail and no image (a question; upstream's view)
 
@@ -210,7 +217,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] `l331` against the fixed file: IMAGE with no image returns the thumbnail (rc 0).
-- **Disposition (proposed):** put to the coordinator: a `bug` with the fix, or recorded (no shipped theme reaches it; D-UI-079).
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** **recorded, with a #585 line.** No shipped theme draws a grid, so no image shows it, and the history leaves the intent to upstream.
 
 ## PL-10: the slice's words: #210's SAVE STATES (HOLD) in French is the game-save word; an English dialog outside `_()`; the help bar refreshed on a cursor move only in collections (a `bug` proposed for the first two; a frame owed for the third)
 
@@ -231,7 +238,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
   - [ ] the catalog's msgid `SAVE STATES (HOLD)` reads `SAUVEGARDES D’ÉTAT (MAINTENU)` (a grep of the po).
   - [ ] `t32-words.py` over the fixed tree counts the dialog's string, with French.
   - [ ] French frames at 640x480: SAVE STATES (HOLD)'s entry present after a cursor move from a game without save states to one with them (`fix-walk-pending-image`).
-- **Disposition (proposed):** a `bug` for L-10 and L-11, filed after the ruling (#210's string is the fork's); 3.34's refresh as a frame first.
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** a `bug` for L-10 and L-11, filed; S4 (views and words). **3.34's refresh and the French bar's fifth entry are carried as an observation** (an open item to test, `bugs-are-agent-first.md`): seen once, unexplained; the frame owed is a French 640x480 list with save states before and after a cursor move, on the integration image. If that frame reproduces it, it becomes a bug then.
+- **Bug:** #1265 (filed 2026-10-27, with its code trace).
 
 ## PL-11: the API's handlers touch `FileData` and quit ES on httplib's pool thread; `/launch` posts a raw pointer per match; `/isIdle` ignores a cloud sync and the proxy (recorded; upstream's services, D-UI-079)
 
@@ -250,7 +258,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] the coordinator's ruling recorded here: which of these a stream takes (the `/isIdle` half is in the fork's lanes), and which go to #585 as written.
-- **Disposition (proposed):** recorded, with `/isIdle`'s cloud half put to the coordinator as a `bug` in the fork's lane; the rest #585 lines.
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** **split.** `/isIdle` is a bug in this slice (PL-21), and so is `/launch`'s missing `break` (PL-22), both S6 (the local API). L-12's pool-thread notification, L-21's `quitES`, the rest of L-13, and 3.17, 3.18, 3.22-3.24 are recorded with #585 lines.
 
 ## PL-12: the scrapers' smaller parse and media defects: one bad boxart entry drops a whole game, renamed keys yield no media silently, HfsDB's arcade filter drops TEKNOPARROT's id, ArcadeDB's null `system` (recorded; upstream's, partly macro-gated)
 
@@ -266,7 +274,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] the coordinator's ruling recorded here: a stream for ArcadeDB's two (built in every image), #585 lines for the rest.
-- **Disposition (proposed):** recorded; ArcadeDB's `:56` and `:213-218` in PL-02's stream if the coordinator takes them.
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** recorded; #585 lines.
 
 ## PL-13: the views' smaller defects: the carousel's fast move leaves an index out of range (hidden by the wrap) and does nothing forward on fewer than ten systems; the letter jump takes a UTF-8 lead byte as a letter and lands wrong under another sort; G-03's cursor stayed on Alpha (recorded; upstream's views; G-03 open)
 
@@ -286,7 +294,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] the coordinator's ruling recorded here: a stream, or #585 lines (D-UI-079: the views are not a fork lane).
-- **Disposition (proposed):** recorded as #585 lines; G-03 carried as a frame for whichever stream next touches the list.
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** recorded; #585 lines. **G-03 is carried as an observation** (an open item to test): the cursor stayed on Alpha after a letter jump under a name sort, seen once and unexplained by 3.29. The frame owed is the same jump on the integration image; if it reproduces, it becomes a bug then.
 
 ## PL-14: `run()` leaks every `ScraperThread` and its own `std::thread` (recorded, or with PL-01's stream)
 
@@ -302,7 +310,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] `l02` with a heap-allocated thread double reports no leak against the fixed file.
-- **Disposition (proposed):** in PL-01's stream (the same lines).
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** S1, with PL-01 (the same lines).
 
 ## PL-15: the map has no section for the five view styles, the rows that pick them, or the SCREENSHOTS list (required: checkbox 18, D-UI-039)
 
@@ -318,7 +326,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] `tools/es-menu-map-check --es-src <W> --ref <fixed-at-es>` prints `0 missing` with the section in place.
-- **Disposition (proposed):** resolved in the lane at stage E (a docs commit).
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** resolved in the lane at stage E: S5 (the map).
 
 ## PL-16: carried, not this slice's to fix: L-16's free-then-read in `reloadCollection` (T33's), L-14's per-tile read (a grid theme), and the #585 lines owed (recorded)
 
@@ -334,7 +342,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] `02` § What T33 to T37 inherit names L-16 with its lines.
-- **Disposition (proposed):** Deferred to T33 (#680) for L-16; L-14 recorded; the #585 lines written in `02`.
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** Deferred to T33 (#680) for L-16; L-14 recorded; the #585 lines written in `02`.
 
 ## PL-17: rebuilding an empty grid reads the placeholder it just deleted (a `bug` proposed; the fork-modified grid and list files)
 
@@ -354,7 +362,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] a stage-E harness: an empty grid's `onFileChanged` under ASan reports a heap-use-after-free at the pin and nothing against the fix.
-- **Disposition (proposed):** a `bug`, filed after the ruling; with PL-09's stream (the same file); a #585 line.
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** a `bug`, filed; S4; a #585 line.
+- **Bug:** #1266 (filed 2026-10-27, with its code trace).
 
 ## PL-18: `hasAnyMedia`'s logo test is inverted (a `bug` proposed; upstream's)
 
@@ -370,7 +379,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] a unit: an existing marquee and a non-empty `ScrapperLogoSrc` make `hasAnyMedia` true; empty makes it false.
-- **Disposition (proposed):** a `bug`, filed after the ruling; with PL-02's stream; a #585 line.
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** a `bug`, filed; S2; a #585 line.
+- **Bug:** #1267 (filed 2026-10-27, with its code trace).
 
 ## PL-19: media are named by the game's stem, so two games with one name in different folders share a file (recorded; upstream's naming)
 
@@ -386,7 +396,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** every scraped device's media folder holds stem-named files and gamelists pointing at them. A fix must read both, or the old paths break.
 - **Acceptance:**
   - [ ] the coordinator's ruling recorded here: a stream with a migration, or a #585 line.
-- **Disposition (proposed):** recorded as a #585 line (D-UI-079; a migration is the owner's to weigh).
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** recorded; a #585 line.
 
 ## PL-20: TLS peer verification is off in the shared request layer (Deferred: #1154)
 
@@ -402,7 +412,50 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** as #1154 says.
 - **Acceptance:**
   - [ ] #1154 names PL-03's parsers as a consumer, in a comment.
-- **Disposition (proposed):** Deferred to #1154.
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** Deferred to #1154.
+
+## PL-21: `/isIdle` answers idle while a cloud sync, the cloud lock or the proxy's send is running (a `bug`; the fork's lanes, the fork's harness)
+
+- **Severity:** Low
+- **Category:** Correctness
+- **Question:** Q1
+- **Family:** a check whose failure reads as success
+- **Source Finding:** L-20 (EP-21) -- proved: tree; guest (G-08 read `[ true ]` on an idle guest)
+- **Owner area:** `es-app/src/services/HttpServerThread.cpp:299-320`
+- **What:**
+  - The route asks only about a running game, the scraper, the content installer, the hasher and the updater (`:304-309`).
+  - It does not ask about `ThreadedCloudSync::isRunning()` (`ThreadedCloudSync.h:46`), the scripts' `/var/run/cloud_sync.lock` (the predicate `SaveStateBookkeeper.cpp:71` uses), or the proxy's send and top-up (`ProxyCards::sendRunning()`, `topUpRunning()`, `ProxyCards.h:34`, `:44`).
+  - The fork's own harness waits on this answer (`tools/es-launch-memory:66`, `tools/ra-ui-test:157`), so a walk can go on while a sync it did not start is still running.
+- **Fix shape:** idle also requires no cloud sync, no held cloud lock, and no proxy send or top-up. `/isIdle` is documented as "nothing the fork's harness would race" (EP-21).
+- **Can this be done on the VM?** Yes. A harness over the route's predicate with each source doubled (`fix-unit-test`); on the integration image, `flock /var/run/cloud_sync.lock sleep 30 &` and then `curl 127.0.0.1:1234/isIdle` reads `[ false ]` (`fix-walk-pending-image`).
+- **Already written:** nothing inherited: the route writes nothing.
+- **Acceptance:**
+  - [ ] a stage-E harness: with the lock held, a sync running or a send running, the predicate is false at the fix and true at the pin.
+  - [ ] on the integration image, `/isIdle` reads `[ false ]` while a shell holds `/var/run/cloud_sync.lock`, and `[ true ]` after (`fix-walk-pending-image`).
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** a `bug`, filed; S6 (the local API).
+- **Bug:** #1268 (filed 2026-10-27, with its code trace).
+
+## PL-22: `POST /launch` posts one launch per matching file, with no `break`, as a raw `FileData*` read on the pool thread (a `bug`; upstream's route, driven by the fork's harness)
+
+- **Severity:** Low
+- **Category:** Correctness
+- **Question:** Q1
+- **Family:** a lifetime or a thread
+- **Source Finding:** L-19 (EP-20) -- proved: tree
+- **Owner area:** `es-app/src/services/HttpServerThread.cpp:603-630`
+- **What:**
+  - The handler walks every game system's files on httplib's pool thread while the interface thread may rebuild them.
+  - For **every** file whose full path or path equals the body, it posts `ViewController::launch(file)` with the raw pointer captured. There is no `break`, so a game reachable by two paths gets two launch callbacks.
+  - A reload between the lookup and the callback leaves the pointer dangling (#774's shape, T2's PL-008).
+  - The fork's harness drives this route (`tools/time-to-play:235`, `tools/es-launch-memory:130`).
+- **Fix shape:** one launch per request. Post the path, not the pointer, and find the file by path on the interface thread at execution time (D-QA-051 rule 6).
+- **Can this be done on the VM?** Yes. A harness with two systems carrying the same path: one launch at the fix, two at the pin (`fix-unit-test`). On the integration image, `tools/time-to-play`'s launch still starts its game (`fix-walk-pending-image`).
+- **Already written:** nothing inherited.
+- **Acceptance:**
+  - [ ] a stage-E harness: a path matched by two entries posts one launch at the fix and two at the pin, and the posted work carries no `FileData*`.
+  - [ ] `tools/time-to-play`'s cell on the integration image reaches its first frame through `/launch` (`fix-walk-pending-image`).
+- **Disposition (ruled 17:22 UTC, #679 comment 6448695986):** a `bug`, filed; S6 (the local API).
+- **Bug:** #1269 (filed 2026-10-27, with its code trace).
 
 ---
 
@@ -432,6 +485,8 @@ At stage D every item is open, awaiting the coordinator's dispositions. Stage F 
 | PL-18 | Open | -- |
 | PL-19 | Open | -- |
 | PL-20 | Open | -- |
+| PL-21 | Open | -- |
+| PL-22 | Open | -- |
 
 ```yaml
 punch_index:
@@ -554,5 +609,17 @@ punch_index:
   category: Security
   question: Q3
   source_finding: "EP-40"
+  outcome: "open"
+- id: PL-21
+  severity: "Low"
+  category: Correctness
+  question: Q1
+  source_finding: "L-20"
+  outcome: "open"
+- id: PL-22
+  severity: "Low"
+  category: Correctness
+  question: Q1
+  source_finding: "L-19"
   outcome: "open"
 ```
