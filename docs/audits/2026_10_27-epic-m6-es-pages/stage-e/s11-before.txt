@@ -1,0 +1,4 @@
+== S11 before (14:05:38Z), ES at 82f80693da
+$ python3 -I tools/t31-rows.py <W> HEAD .qa-scratch/t31/paths.txt | grep GuiGameOptions.cpp:204
+| `GuiGameOptions.cpp:204` | addInputTextConfigRow | PLAYER PASSWORD | `global.netplay.password` | SystemConf (default) | plain |
+(the mode column reads plain: shown in clear -- the lead's line)
