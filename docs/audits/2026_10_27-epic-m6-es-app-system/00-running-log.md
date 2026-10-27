@@ -100,3 +100,8 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
     - the epoch is `time_t` (EP-12).
   - **New punch items:** PL-21 (EP-42), PL-22 (EP-44), PL-23 (EP-39), PL-24 (EP-40, EP-41), PL-25 (EP-38), PL-26 (EP-46). EP-36 joins PL-01, EP-37 PL-02, EP-43 PL-05, and EP-45 and EP-47 PL-19.
 - **`t33-bounds.py` revised** (EP-14): `bounded=1`, drift-tested (`stage-b/generators.txt`). `05` is rendered by `tools/t33-05.py` from `stage-c/punch-items.py`: 26 items, all Open.
+
+## Stage D (20:07 UTC)
+
+- **The audit issue #1270**, created from `05` by `tools/t33-issue-body.py` (26 items: 0 critical, 1 high, 13 medium, 12 low, 0 info) with the labels `audit` and `punch-list` and the milestone M6, attached as a sub-issue of #680. `tools/box-check --issue 1270`: 26 open checkboxes, 0 fail (`stage-d/box-check-1270.txt`). `tools/lint-audit-artifacts --phase pre-issue --issue 1270`: PASS (`stage-d/lint-pre-issue-1270.txt`).
+- **The pause:** the punch list and the questions are posted on #680. The lane waits for the coordinator's ruling and the stream brief; no bug is filed before the ruling.

@@ -30,15 +30,16 @@
 - L-06 did not fault once.
 - G-03's index toast and `exec.log` were not shown.
 
-**Stage C, in progress** (the coordinator, 19:16 UTC: run stage C whole, then `05` and the audit issue, and end only on the stage-D pause post with the punch list and questions):
-- Done: the include graph, the unit build with `app-unit-tests` (TOTAL 239 in 5 binaries), and the six FAIL-at-pin harnesses with their controls (`stage-c/l309`, `l313`, `l321`, `l329`, `l331`, `l335`).
-- Next:
-  1. The harnesses for L-06 (`reloadCollection` under ASan), L-07 (ScraperSearchComponent's thread) and L-12 (posts outside `AppWindow::post`).
-  2. `stage-c/runs.txt`.
-  3. `03` and `04`.
-  4. The packet (`stage-c/packet.py`, trimmed and scanned), the two keyed calls (probe, refutation), and the pre-issue lint.
-  5. `05` and the audit issue (a sub-issue of #680).
-  6. The pause post.
+**Stage D: paused on #680 for the coordinator's ruling.** Stage C is done:
+- the fixtures: nine FAIL at the pin, nine PASS under their controls;
+- `app-unit-tests` built;
+- the floor read (a subagent's, labelled);
+- the packet;
+- the two keyed calls;
+- 47 grades accepted;
+- the pre-issue lint PASS.
+
+The audit issue is #1270, a sub-issue of #680, with 26 items. Next, on the ruling: file the bugs with their code traces, then wait for the coordinator's stream brief (stage E).
 
 **Scratch:** `/workspace/tmp/m6-t33/` (`tmp/`, `rj/` the recipe's rapidjson). `stage-a/env.sh` holds the paths.
 
@@ -79,6 +80,7 @@ granted window.
 
 ## Checkpoints
 
+- stage D pause, 2026-10-27 20:1x UTC: #1270 filed (26 items), the pause posted on #680
 - window, 2026-10-27 19:01-19:14 UTC: G-01..G-10 run (G-05/07/09 CANNOT); L-05 and L-28 reproduced on the image; RETURN posted; distribution `d680658464`
 - stage B, 2026-10-27 18:58 UTC: `02` composed (16 sections; the five generated tables and the words, each asserted and drift-tested); the window plan; the request posted on #680
 - stage A, 2026-10-27 18:4x UTC: distribution `27bd8499f1` + stage A's record, ES `16dbac5211` (the pin, clean); every § 1, § 2 and § 5 figure as the brief expects; the stand-in 29/29 rc 0; next: stage B (`02`), then the window request
