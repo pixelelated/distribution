@@ -74,3 +74,12 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
   - 3.31: `india` reads nothing.
   - 3.35: the floor keeps 4 ASCII characters against 1 Japanese.
   - **Two readings sharpened:** at 3.21, the dropped mapping does not load at all (`:292` keeps a mapping only with a trigger), where the brief said "an action with no trigger". At 3.31, `usa, europe` reads region `us` alone; the region is one string, so the brief's "us,eu" is not this code's shape (recorded, not a FAIL). And `1 STARS` has no singular: a word, upstream, recorded.
+- **The lifetime harnesses**, each with its control:
+  - L-06: a heap-use-after-free at the pin. Only a **dynamic** collection takes `reloadCollection`'s repopulate path (`:1573`), and its root is the bundle's child (`:1302`), so G-02's plain collection could not show it.
+  - L-07: a heap-use-after-free at the pin. The builder has no destructor, and its thread is never joined or deleted.
+  - L-12: five direct posts bypass `AppWindow::closing()`.
+  - `stage-c/runs.txt`: nine FAIL at the pin, nine controls PASS. The L-06 control's first run failed on the harness's own leaked fixture, which was then freed (D-WORKFLOW-211); the assertion did not change.
+- **L-05's first cached miss:** `SystemData::getGamelistPath` (`SystemData.cpp:1653`) calls `exists(filePath)` when the systems load and again as `Gamelist.cpp:412`'s own call. A session started before a restore always holds the miss.
+- **The screensaver's launch** (`SystemScreenSaver.cpp:546`, take-up row T2 `:293-294`) skips `ViewController::launch`'s format warning (`:497`) and BIOS check (`:507`). It keeps the cloud gate in `FileData::launchGame` (`FileData.cpp:993`).
+- **The floor's other 35 rows** are being read by a read-only subagent (labelled as such in `stage-c/floor.md`).
+- `03-retrospective.md` and `stage-c/ask.md` are written.
