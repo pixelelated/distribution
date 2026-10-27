@@ -495,7 +495,7 @@ Stage F, 2026-10-27: every item at its outcome, the table and the index rewritte
 | PL-14 | Resolved | Resolved in `70db6535b` (ES, S3) under #1248, the title through `_()`, and the map in `babec2f359` (distribution), MOONLIGHT GAME STREAMING under GAME SETTINGS > TOOLS (`stage-e/s3-*.txt`); a #585 line |
 | PL-15 | Resolved | Resolved in `70db6535b` (ES, S3) under #1249: the probe read and closed (`stage-e/s3-*.txt`); a #585 line |
 | PL-16 | Resolved | Resolved in `70db6535b` (ES, S3) under #1250: the key written 0600, an existing one narrowed at the page's open (`stage-e/s3-*.txt`); a #585 line |
-| PL-17 | Resolved | Resolved in `50f5d08ccd` (distribution, S8) and `ee8ac47dd6`'s record, under #1234: BIOS CHECK and SCRAPING GAMES mapped; the ten upstream declarations wait as comments on #951/#965 (the ruling of 14:27 UTC; `stage-e/s8-*.txt`) |
+| PL-17 | Resolved | Resolved in `50f5d08ccd` (distribution, S8) and `7df7ba0c32` (its record, the map's citation fixed forward; `ee8ac47dd6` the stop before the ruling), under #1234: BIOS CHECK and SCRAPING GAMES mapped; the ten upstream declarations wait as comments on #951/#965 (the ruling of 14:27 UTC; `stage-e/s8-*.txt`) |
 | PL-18 | Resolved | Resolved in `1f06113e0` (ES, S9) under #1251: an atomic flag, the result read after the join, the thread owned (`stage-e/s9-*.txt`); a #585 line |
 | PL-19 | Resolved | Resolved in `b71d656d9` (ES, S10) under #1252: a life token per viewer, an unfilled viewer deleted with a toast (`stage-e/s10-*.txt`); a #585 line |
 | PL-20 | Resolved | Resolved in `a8dcc23ea` (ES, S11) under #1253: PLAYER PASSWORD masked (`stage-e/s11-*.txt`); a #585 line |
