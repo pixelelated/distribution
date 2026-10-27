@@ -1,0 +1,111 @@
+== df -i  (rc 0, 0.00 s)
+/dev/nvme0n1   244195328 61238011 182957317   26% /workspace
+
+== the ES worktree, the merge base, the delta  (rc 0, 0.02 s)
+16dbac5211eea7e70db7394372033be2be7df829
+0
+bccd715707
+5124	436	es-app/src/guis/GuiMenu.cpp
+23	1	es-app/src/guis/GuiMenu.h
+
+== the definitions  (rc 0, 0.20 s)
+pin 156 definitions {'member': 63, 'static': 92, 'free': 1}; base 60
+added 97, removed 1, common 59: changed 12 / unchanged 47 (exact), changed 10 / unchanged 49 (whitespace removed)
+removed: GuiMenu::openWifiSettings
+the ten longest: GuiMenu::openSystemSettings 1697-3300 (1604); GuiMenu::openThemeConfiguration 8655-9328 (674); GuiMenu::popSpecificConfigurationGui 10796-11332 (537); GuiMenu::openNetworkSettings 9869-10362 (494); GuiMenu::openDeveloperSettings 988-1470 (483); GuiMenu::openGamesSettings 5747-6192 (446); cloudOpenTransferOptions 4836-5210 (375); GuiMenu::addFeatureItem 3558-3914 (357); cloudContentSystemPicker 4293-4609 (317); GuiMenu::openRestoreRelink 8261-8497 (237)
+225
+
+== the transitions  (rc 0, 0.01 s)
+es-app/src/guis/GuiMenu.cpp:6484 es-app/src/guis/GuiMenu.cpp:6712 es-app/src/guis/GuiMenu.cpp:6762 es-app/src/guis/GuiMenu.cpp:6878 es-app/src/guis/GuiMenu.cpp:7056 es-app/src/guis/GuiMenu.cpp:7066 es-app/src/guis/GuiMenu.cpp:7439 es-app/src/guis/GuiMenu.cpp:7477 es-app/src/guis/GuiMenu.cpp:7674 es-app/src/guis/GuiMenu.cpp:7744 es-app/src/guis/GuiMenu.cpp:7862 es-app/src/guis/GuiMenu.cpp:7921 es-app/src/guis/GuiMenu.cpp:7980 es-app/src/guis/GuiMenu.cpp:8060 es-app/src/guis/GuiMenu.cpp:8084 es-app/src/guis/GuiMenu.cpp:8097 es-app/src/guis/GuiMenu.cpp:8159 
+es-app/src/guis/GuiMenu.cpp:17
+
+== the reads of files other processes write  (rc 0, 0.02 s)
+12
+es-app/src/guis/GuiMenu.cpp:4136 es-app/src/guis/GuiMenu.cpp:7767 es-app/src/guis/GuiMenu.cpp:7769 es-app/src/guis/GuiMenu.cpp:7792 es-app/src/guis/GuiMenu.cpp:7793 
+// Read with the selection reader above -- line by line, so a file under
+// three bytes is not read as empty (es-code-traps.md) -- and uncached: the
+// scan writes them while this process runs.
+
+== the synchronous starts and the output reader  (rc 0, 0.01 s)
+4111 4207 5579 5589 5674 5694 6199 6254 6460 6475 6476 6536 6564 6584 6627 6633 6648 6669 6675 6694 6720 6749 6750 6797 6845 6846 6863 6918 6975 6981 7041 7060 7082 7125 7133 7167 7170 7180 7233 7321 7399 7408 7414 7450 7482 7515 7518 7526 7544 7557 7599 7600 7692 7708 7806 7813 7815 7835 7848 7893 7930 7995 8027 8066 8091 8094 8177 8428 8430 8445 
+1859 1861 2207 2212 2446 2448 3342 3349 3811 3832 5579 5589 5904 5940 6248 6639 6749 7060 7127 7133 7407 7557 7600 7692 7708 7813 7848 7995 8445 10232 10237 10246 10946 10984 
+
+== the dialogs, the chain, the quoting, the guards  (rc 0, 0.01 s)
+337 403 406 416 419 1516 3272 4101 4116 4189 5012 5019 5023 5026 5029 5044 5117 5118 5125 5230 5260 6530 6537 7183 7230 7232 7313 7314 7316 7381 7382 7385 7390 7450 7525 7526 7527 7528 7703 7717 7771 7827 7833 8025 8058 8116 8354 8372 8400 8421 
+			cmd += " ; _t=0 ; { " + part + " ; } || _t=$? ; echo \">>> tier " + label + "|$_t\" ; [ \"$_t\" = 0 ] || rc=$_t";
+					"/usr/bin/cloud_restore --yes --method=copy --update --saves-only; _r=$?; echo \">>> tier RESTORING SAVES|$_r\"; [ 
+
+== the ten harnesses on the host  (rc 0, 3.10 s)
+maintenance-why rc=0: maintenance-why: PASS
+cloud-sync-last-run rc=0: cloud-sync-last-run: PASS
+cloud-oauth-lifetime rc=0: PASS failed-start
+cloud-set-systems-quoting rc=0: cloud-set-systems-quoting: 5 of 5 passed
+cloud-gated-row rc=0: cloud-gated-row: PASS
+cloud-folder-reopen rc=0: cloud-folder-reopen: PASS
+cloud-content-selection rc=0: cloud-content-selection: 14 of 14 passed
+cloud-oauth-await rc=0: cloud-oauth-await: PASS
+credential-quoting rc=0: credential-quoting: 9 credential call site(s), 9 quoted, 0 bare
+gpu-governor-save rc=0: PASS fallback
+
+== the menu map  (rc 0, 0.13 s)
+55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing
+es-menu-map-check rc=0
+
+== the French  (rc 0, 0.29 s)
+es-untranslated: 706 fork string(s) in the source, 706 with French, 0 without
+es-untranslated rc=0
+
+== the non-ASCII comments  (rc 0, 0.01 s)
+0
+non-ascii grep rc=1
+
+== es-syntax-check  (rc 0, 0.01 s)
+es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)
+es-syntax-check rc=2
+
+== g++ -fsyntax-only  (rc 0, 0.06 s)
+/home/max/Development/emulationstation-next.worktrees/m6-es-guimenu-673/es-core/src/InputC rc=1
+
+== the builders (the greps; t26-rows.py is stage B)  (rc 0, 0.03 s)
+addSwitch 35
+addOptionList 6
+addInputTextConfigRow 15
+addFileBrowser 5
+addWithLabel 169
+addWithDescription 99
+addEntry 129
+addGroup 90
+addRow 16
+
+== the credential rows, the writers, the page-open writes  (rc 0, 0.01 s)
+976 1457 1857 1870 1890 3016 3038 3050 3062 3265 3281 3570 3576 4473 4584 5202 5928 5947 6011 6079 6471 6527 6540 6618 6623 8297 8307 8353 8356 8360 8371 8374 8376 8392 8393 8413 8424 9524 9609 9610 9612 9624 9654 9655 9657 9661 9929 10972 10991 11067 
+
+== the keys both sides touch  (rc 0, 0.01 s)
+projects/ROCKNIX/packages/rocknix/sources/scripts/automount:28 projects/ROCKNIX/packages/rocknix/sources/scripts/automount:94 projects/ROCKNIX/packages/rocknix/sources/scripts/automount:288 projects/ROCKNIX/packages/rocknix/sources/scripts/suspendmode:53 projects/ROCKNIX/packages/rocknix/sources/scripts/vertical-check:136 
+projects/ROCKNIX/packages/rocknix/sources/scripts/led_flash:7 projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-fake-suspend:140 projects/ROCKNIX/packages/rocknix/sources/scripts/setsettings.sh:793 
+
+== the reboot flags and the sized pages  (rc 0, 0.02 s)
+es-app/src/guis/GuiMenu.cpp:860 es-app/src/guis/GuiMenu.cpp:872 es-app/src/guis/GuiMenu.cpp:897 es-app/src/guis/GuiMenu.cpp:932 es-app/src/guis/GuiMenu.cpp:944 es-app/src/guis/GuiMenu.cpp:970 es-app/src/guis/GuiMenu.cpp:978 es-app/src/guis/GuiMenu.cpp:1016 es-app/src/guis/GuiMenu.cpp:1099 es-app/src/guis/GuiMenu.cpp:1100 es-app/src/guis/GuiMenu.cpp:1239 es-app/src/guis/GuiMenu.cpp:1245 es-app/src/guis/GuiMenu.cpp:1250 es-app/src/guis/GuiMenu.cpp:1255 es-app/src/guis/GuiMenu.cpp:1459 es-app/src/guis/GuiMenu.cpp:1762 es-app/src/guis/GuiMenu.cpp:1848 es-app/src/guis/GuiMenu.cpp:2596 es-app/src/guis/GuiMenu.cpp:2628 es-app/src/guis/GuiMenu.cpp:2776 es-app/src/guis/GuiMenu.cpp:2850 es-app/src/guis/GuiMenu.cpp:2974 es-app/src/guis/GuiMenu.cpp:3152 es-app/src/guis/GuiMenu.cpp:3229 es-app/src/guis/GuiMenu.cpp:3239 es-app/src/guis/GuiMenu.cpp:3283 es-app/src/guis/GuiMenu.cpp:3289 
+es-app/src/guis/GuiBackupStart.cpp:47 es-app/src/guis/GuiBackupStart.cpp:49 es-app/src/guis/GuiBezelInstaller.cpp:122 es-app/src/guis/GuiBezelInstaller.cpp:124 es-app/src/guis/GuiBezelInstaller.cpp:126 es-app/src/guis/GuiBluetoothDeviceOptions.cpp:24 es-app/src/guis/GuiBluetoothDevices.cpp:30 es-app/src/guis/GuiBluetoothDevices.cpp:32 es-app/src/guis/GuiBluetoothDevices.cpp:72 es-app/src/guis/GuiFavoriteMusicSelector.cpp:56 es-app/src/guis/GuiFileBrowser.cpp:144 es-app/src/guis/GuiFileBrowser.cpp:147 es-app/src/guis/GuiFileBrowser.cpp:148 es-app/src/guis/GuiGameAchievements.cpp:264 es-app/src/guis/GuiGameAchievements.cpp:266 es-app/src/guis/GuiGameAchievements.cpp:268 es-app/src/guis/GuiGameOptions.cpp:483 es-app/src/guis/GuiGamelistFilter.cpp:42 es-app/src/guis/GuiGamelistFilter.cpp:44 es-app/src/guis/GuiHashStart.cpp:69 es-app/src/guis/GuiHashStart.cpp:71 es-app/src/guis/GuiInstallStart.cpp:67 es-app/src/guis/GuiInstallStart.cpp:69 es-app/src/guis/GuiKeyboardtopads.cpp:52 es-app/src/guis/GuiKeyboardtopads.cpp:54 es-app/src/guis/GuiMenu.cpp:6496 es-app/src/guis/GuiMenu.cpp:6498 es-app/src/guis/GuiMenu.cpp:10730 es-app/src/guis/GuiRetroAchievements.cpp:416 es-app/src/guis/GuiRetroAchievements.cpp:418 es-app/src/guis/GuiRetroAchievements.cpp:420 es-app/src/guis/GuiScraperStart.cpp:29 es-app/src/guis/GuiScraperStart.cpp:31 es-app/src/guis/GuiSettings.cpp:52 es-app/src/guis/GuiSettings.cpp:54 es-app/src/guis/GuiWifi.cpp:90 es-app/src/guis/GuiWifi.cpp:92 
+
+== the structure (the greps; t26-structure.py is stage B)  (rc 0, 0.01 s)
+86
+109
+es-app/src/guis/GuiMenu.cpp:4971 es-app/src/guis/GuiMenu.cpp:5249 es-app/src/guis/GuiMenu.cpp:5703 es-app/src/guis/GuiMenu.cpp:5739 es-app/src/guis/GuiMenu.cpp:6322 es-app/src/guis/GuiMenu.cpp:6782 es-app/src/guis/GuiMenu.cpp:8199 es-app/src/guis/GuiMenu.cpp:8266 es-app/src/guis/GuiMenu.cpp:8458 es-app/src/guis/GuiMenu.cpp:8477 es-app/src/guis/GuiMenu.cpp:10269 
+
+== the strings  (rc 0, 0.03 s)
+1447
+980
+978 with French, 0 fuzzy among them, 2 without
+  without French: RESET BATTERY FUEL GAUGE
+  without French: WARNING: THE PMIC FUEL GAUGE WILL BE RESET AND THE SYSTEM WILL POWER OFF!\n\nLEAVE THE CHARGER UNPLU
+
+== the merge debt  (rc 0, 0.02 s)
+9
+155	12	es-app/src/guis/GuiMenu.cpp
+1
+ 1 file changed, 3 insertions(+), 10 deletions(-)
+
+== the removal check (the dispatch tip db7be4b104)  (rc 0, 0.01 s)
+end
+

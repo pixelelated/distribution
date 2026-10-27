@@ -1,0 +1,32 @@
+== the fork's commits to the two files by month (bccd715707..pin)
+     16 2026-07
+     42 2026-08
+    142 2026-09
+     25 2026-10
+== first and last
+3319baa73 2026-07-24 GuiMenu: native cloud backup/restore entries, drop rclonectl toggle
+23df404f6 2026-10-13 GuiMenu: explain standalone save-state limits (#575)
+== the callers outside the two files (GuiMenu:: and new GuiMenu, at the pin)
+es-app/src/CloudOffer.cpp:54:			_("CHANGE FOLDER"), [window, folder] { GuiMenu::openCloudFolderEditor(window, folder); },
+es-app/src/SystemScreenSaver.cpp:681:		auto sets = GuiMenu::getDecorationsSets(game->getSystem());
+es-app/src/guis/GuiCollectionSystemsOptions.cpp:368:		addEntry(_("UPDATE GAMELISTS"), false, [this] { GuiMenu::updateGameLists(mWindow); }); // Game List Update
+es-app/src/guis/GuiGameOptions.cpp:423:					GuiMenu::editKeyboardMappings(mWindow, game, true); 
+es-app/src/guis/GuiGameOptions.cpp:431:					GuiMenu::editKeyboardMappings(mWindow, game, true);
+es-app/src/guis/GuiGameOptions.cpp:449:						GuiMenu::popGameConfigurationGui(mWindow, game);
+es-app/src/guis/GuiGameOptions.cpp:465:			GuiMenu::editKeyboardMappings(mWindow, game, false);
+es-app/src/guis/GuiGameOptions.cpp:588:		GuiMenu::popGameConfigurationGui(mWindow, mGame);
+es-app/src/guis/GuiGameOptions.cpp:612:			GuiMenu::popGameConfigurationGui(mWindow, mGame);
+es-app/src/guis/GuiGamelistOptions.cpp:236:				GuiMenu::openThemeConfiguration(mWindow, this, nullptr, system->getThemeFolder());
+es-app/src/guis/GuiGamelistOptions.cpp:259:						GuiMenu::editKeyboardMappings(mWindow, file, false);
+es-app/src/guis/GuiGamelistOptions.cpp:266:						GuiMenu::editKeyboardMappings(mWindow, srcSystem, false);
+es-app/src/guis/GuiGamelistOptions.cpp:270:				mMenu.addEntry(_("ADVANCED SYSTEM OPTIONS"), true, [this, sysOptions] { GuiMenu::popSystemConfigurationGui(mWindo
+es-app/src/guis/GuiWifi.cpp:243:		// confirmation and reader (GuiMenu::forgetWifiNetworkWithConfirmation),
+es-app/src/guis/GuiWifi.cpp:253:			_("FORGET"), [this, joinAs] { GuiMenu::forgetWifiNetworkWithConfirmation(mWindow, joinAs, false, [this] { onRefresh(false); }
+es-app/src/main.cpp:1065:		GuiMenu::openRestoreRelink(&window, true);
+es-app/src/main.cpp:1095:			_("YES"), [&window] { GuiMenu::openRestoreRelink(&window, false); },
+es-app/src/services/HttpServerThread.cpp:237:			GuiMenu::openQuitMenu_static(mWindow);
+es-app/src/services/HttpServerThread.cpp:541:			GuiMenu::updateGameLists(w, false);
+es-app/src/services/HttpServerThread.cpp:698:			mWindow->postToUiThread([w]() { GuiMenu::updateGameLists(w, false); });
+es-app/src/views/SystemView.cpp:507:			GuiMenu::openQuitMenu_static(mWindow, true);
+es-app/src/views/ViewController.cpp:912:		mWindow->pushGui(new GuiMenu(mWindow));
+es-app/src/views/ViewController.cpp:1372:		prompts.push_back(HelpPrompt("start", _("MENU"), [&] { mWindow->pushGui(new GuiMenu(mWindow)); }));

@@ -17,15 +17,11 @@
 
 ## Current focus
 
-Not started. The first commit on the distribution branch is the running
-log's header (the model, the effort, `reviewed-at` the distribution HEAD with
-the pin beside it, the host file's last lines, the census),
-`01-research-notes.md` § Scope (the block of brief § 2 with its output and
-the § 5 runs' figures), this pointer updated, and the day's work-log entry
-headed `#673` (prose through a quoted heredoc or the Write tool). The ES
-worktree stays at the pin until stage E. `.qa-scratch/` is gitignored and
-`git status --short` is read before every `git add -A`. No network is used
-except the seat's two keyed invokes.
+**Stage A done (02:50 UTC); stage B next.**
+
+- **Stage A:** the first commands, the membership block and every § 5 run as the brief expects (`docs/audits/2026_10_27-epic-m6-es-guimenu/stage-a/`); the definitions parser `tools/t26-defs.py` (156 / 60 / 97 added / 1 removed / 12 and 47 exact); the French pass `tools/t26-french.py` (978 of 980); `00` and `01` § Scope, History, Callers, Context.
+- **Next, stage B:** `02` with § Coverage, The pages, The rows (`tools/t26-rows.py`), The transitions, The reads, The duplicates, The merge debt (with `tools/t26-structure.py`), The runs; then the window request on #673 with its plan and bound.
+- **What runs here:** nothing. Scratch is `/workspace/tmp/m6-t26/`; the ES worktree stays at the pin.
 
 ## Next commands
 
@@ -64,4 +60,5 @@ granted window.
 
 ## Checkpoints
 
+- Stage A, 02:50 UTC: distribution `db7be4b104` + stage A's commit; ES at the pin `16dbac5211` (unchanged).
 - (none yet; the executor appends one line per stage: the stage, both tips, the time)
