@@ -321,3 +321,26 @@ ITEMS += [
   acc=["`02` § The #585 lines owed carries this item's line (a grep in `stage-e/`)."],
   disp="question: recorded with a #585 line?"),
 ]
+
+# ---- Filed after the stage-D ruling (#680 comment 6452429909, 20:10 UTC): each item's Bug line. ----
+I = {i["id"]: i for i in ITEMS}
+I["PL-01"]["bug"] = "#1271 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
+I["PL-02"]["bug"] = "#1272 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
+I["PL-03"]["bug"] = "#1273 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
+I["PL-04"]["bug"] = "#1274 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
+I["PL-05"]["bug"] = "#1275 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
+I["PL-06"]["bug"] = "#1276 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
+I["PL-07"]["bug"] = "#1277 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
+I["PL-08"]["bug"] = "#1278 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
+I["PL-09"]["bug"] = "#1279 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
+I["PL-10"]["bug"] = "#1280 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
+I["PL-11"]["bug"] = "#1281 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
+I["PL-12"]["bug"] = "#1282 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
+I["PL-14"]["bug"] = "#1283 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
+I["PL-15"]["bug"] = "#1284 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
+I["PL-16"]["bug"] = "#1285 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
+I["PL-21"]["bug"] = "#1286 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
+I["PL-22"]["bug"] = "#1287 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
+I["PL-23"]["bug"] = "#1288 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
+I["PL-24"]["bug"] = "#1289 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
+I["PL-19"]["bug"] = "#1290 for EP-47 alone (filed 2026-10-27, with its code trace; ruled 20:10 UTC); the rest recorded as listed"

@@ -1,0 +1,1 @@
+Bug: EmulationStation: the rotation record is cached as written though the write is unchecked, and the cache is keyed by mtime alone (T33 PL-24)

@@ -1,0 +1,1 @@
+Bug: EmulationStation: Bluetooth's scan can publish its own freed object: the worker deletes itself before `start()` assigns it (T33 PL-19 EP-47)

@@ -11,7 +11,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **One item per defect or reusable improvement**, however many leads found it. PL-01 to PL-20 are the first read's, ordered by severity within the bugs proposed, then the recorded; PL-21 to PL-26 are the seat's new items (EP-39 to EP-46), appended.
 - **Nothing here changes a file** under the distribution's `packages/`, `projects/` or `tools/`, or an ES file, at stages A to D. A fix lands only under a stream brief on the ES branch, proven twice. A row added, moved or renamed updates `docs/es-menu-map.md` in the same commit (D-UI-039).
 - **Lines** are the pin's. "Guest" means the M6 image (M7's composition over the pin). "Fixture" means a stage-C harness that fails at the pin and passes its control.
-- **Every disposition is a question** for the stage-D pause (`question:`). The coordinator rules; the bugs are filed after the ruling, each with its code trace and its `Already written:` line.
+- **Every disposition is a question** for the stage-D pause (`question:`). **Ruled 20:10 UTC** (#680 comment 6452429909): twenty bugs, #1271 to #1290, filed with their code traces by `tools/t33-file-bugs.py`; each item's **Bug:** line names its issue.
 - **The audit issue:** #1270 (a sub-issue of #680), one checkbox per item; `tools/box-check --issue 1270`: 26 open checkboxes, 0 fail.
 
 ---
@@ -42,6 +42,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
   - [ ] The fixture gains a same-game case (a restored description on the dirty game) that FAILs at the pin and passes on the fix (EP-36).
   - [ ] On the integration image, G-04's steps leave `/storage/roms/gb/gamelist.xml` holding both the outside entry and the favourite (a `vm-serial` read in `stage-e/`).
 - **Disposition (proposed for the stage-D pause):** question: a `bug`, rule 6 (upstream-carried, contained, inside the lanes), one stream with a #585 line?
+- **Bug:** #1271 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)
 
 ## PL-02: a dynamic collection's reload frees the games a view's cursor may hold, then reads the bundle view's cursor; the route from the bundle is not established (a `bug` proposed, conditional; upstream's reload, #246's shape)
 
@@ -65,6 +66,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
   - [ ] `stage-c/l06-reload-collection.py` against the fixed `CollectionSystemManager.cpp` prints `no freed entry was read` with no sanitizer report (rc 0), and against the pin reports the heap-use-after-free (`stage-e/` records).
   - [ ] On the integration image, the walk above ends with the same ES pid and no `crash backtrace` line in `journalctl -u essway` (`stage-e/`).
 - **Disposition (proposed for the stage-D pause):** question: a `bug` under rule 6 once the route is read (the mechanism is proved), or recorded with the lead?
+- **Bug:** #1272 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)
 
 ## PL-03: backing out of a single-game scrape while its search is being built leaves the builder's thread writing into freed memory (a `bug` proposed; upstream's search component, outside the lanes)
 
@@ -85,6 +87,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Acceptance:**
   - [ ] `stage-c/l07-search-builder.py` against the fixed file prints `nothing wrote into the freed builder` with no sanitizer report (rc 0), and against the pin reports the heap-use-after-free (`stage-e/` records).
 - **Disposition (proposed for the stage-D pause):** question: a `bug` under rule 6 though outside the lanes (a crash, contained), or recorded with a #585 line?
+- **Bug:** #1273 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)
 
 ## PL-04: a genre name found by its part after `/` returns through the end iterator (a `bug` proposed; upstream's genre table)
 
@@ -105,6 +108,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Acceptance:**
   - [ ] A unit case `fromGenreName("Foo / <a known subgenre>")` returns that subgenre's entry; at the pin, under ASan, it reports the end-iterator read (`stage-e/` records).
 - **Disposition (proposed for the stage-D pause):** question: a `bug`, rule 6 (one token), with the double count recorded?
+- **Bug:** #1274 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)
 
 ## PL-05: a custom collection's list and a dynamic collection's filter are written in place, and ES's own writes leave the file cache stale (a `bug` proposed; upstream's writers, settings tier)
 
@@ -126,6 +130,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
   - [ ] A file case kills the write half-way (a writer double) and the previous file is what remains; at the pin the cut file remains (`stage-e/`).
   - [ ] On the integration image, a custom collection created and deleted in one session leaves no `custom-<name>.cfg` (a `vm-serial` listing in `stage-e/`).
 - **Disposition (proposed for the stage-D pause):** question: a `bug`, rule 6, one stream with PL-01's helper?
+- **Bug:** #1275 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)
 
 ## PL-06: NetworkThread posts straight to the window, past the closing gate the fork wrote for exactly this (a `bug` proposed; the fork's file)
 
@@ -145,6 +150,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Acceptance:**
   - [ ] `stage-c/l12-network-posts.py` against the fixed `NetworkThread.cpp` prints `0 direct post(s)` (rc 0), and against the pin `5 direct post(s) at :206, :237, :251, :257, :266` (`stage-e/`).
 - **Disposition (proposed for the stage-D pause):** question: a `bug` (the fork's own rule), noting T20's hasher-start lines `:248`, `:251`?
+- **Bug:** #1276 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)
 
 ## PL-07: three tag names a player reads, IN PROGRESS, DROPPED and ON HOLD, never reach the French catalog (a `bug` proposed; upstream's words, D-UI-051)
 
@@ -164,6 +170,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
   - [ ] `stage-c/l329-filetag-words.py` against the fixed `FileTag.cpp` and catalog prints `9 tag names, 0 without` (rc 0), and against the pin `3 without` (`stage-e/`).
   - [ ] `tools/es-untranslated` reports 0 without French on the stream's tree.
 - **Disposition (proposed for the stage-D pause):** question: a `bug` with the three French words as proposed (the maintainer's to change)?
+- **Bug:** #1277 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)
 
 ## PL-08: the long-job pages' text fit keeps four characters of an ASCII name and one of a Japanese one (a `bug` proposed; the fork's helper)
 
@@ -182,6 +189,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Acceptance:**
   - [ ] `stage-c/l335-textfit-floor.py` against the fixed header keeps 4 characters for both scripts (rc 0); a new `TextFitTests.cpp` case passes in `app-unit-tests`.
 - **Disposition (proposed for the stage-D pause):** question: a `bug`?
+- **Bug:** #1278 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)
 
 ## PL-09: a ROM tagged `(India)` reads no language or region: the table's token is `ìndia` (a `bug` proposed; upstream's)
 
@@ -200,6 +208,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Acceptance:**
   - [ ] `stage-c/l331-lang-india.py` against the fixed file reads `india -> lang [in] region [in]` (rc 0).
 - **Disposition (proposed for the stage-D pause):** question: a `bug`, rule 6, a #585 line?
+- **Bug:** #1279 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)
 
 ## PL-10: `RunLock::holder` names any process whose command line merely contains the program's name (a `bug` proposed; the fork's helper)
 
@@ -218,6 +227,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Acceptance:**
   - [ ] A new `RunLockTests.cpp` case (a holder whose cmdline contains the name as a substring) FAILs at the pin and passes on the fix in `app-unit-tests` (`stage-e/`).
 - **Disposition (proposed for the stage-D pause):** question: a `bug`?
+- **Bug:** #1280 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)
 
 ## PL-11: a 64-bit id or epoch in the proxy's list is truncated to `int` (a `bug` proposed; the fork's helper)
 
@@ -236,6 +246,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Acceptance:**
   - [ ] A new `OfflineAchievementsTextTests.cpp` case with an id above 2^31 FAILs at the pin and passes on the fix (`stage-e/`).
 - **Disposition (proposed for the stage-D pause):** question: a `bug`, or deferred to T20's file?
+- **Bug:** #1281 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)
 
 ## PL-12: a key map's refused trigger drops the whole mapping with no word, and the loader reads strings unchecked (upstream's loader, outside the lanes)
 
@@ -255,6 +266,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Acceptance:**
   - [ ] `stage-c/l321-keys-parse.py` against the fixed file prints the log line naming `t33unknown` (rc 0).
 - **Disposition (proposed for the stage-D pause):** question: a `bug` under rule 6 (memory safety on a player file, EP-10), or recorded with a #585 line (outside the lanes)?
+- **Bug:** #1282 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)
 
 ## PL-13: the filter's rating and year keys: a positive rating reads 0 STARS, a year outside 1000-2999 reads nothing, and `1 STARS` (upstream's filter, outside the lanes)
 
@@ -292,6 +304,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Acceptance:**
   - [ ] The stream's record shows `check()` called with `mWatchersLock` released (a line-cited read of the fixed `WatchersManager.cpp` in `stage-e/`).
 - **Disposition (proposed for the stage-D pause):** question: a `bug` under rule 6 in es-core (T21's file), or routed to the es-core slice?
+- **Bug:** #1283 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)
 
 ## PL-15: CloudOffer says DONE on a script's exit 0 alone (the fork's dialog; the script's half is the rclone slice's)
 
@@ -310,6 +323,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Acceptance:**
   - [ ] A guest run with a stub that exits 0 without creating the folder shows the not-done outcome (a frame in `stage-e/`).
 - **Disposition (proposed for the stage-D pause):** question: a stream here, or the whole item to the rclone slice?
+- **Bug:** #1284 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)
 
 ## PL-16: the other in-place writers: the rotation record, the key maps, and `saveToXml`'s remove-then-save (Backlog #1186's sites)
 
@@ -328,6 +342,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Acceptance:**
   - [ ] #1186's acceptance names these four lines.
 - **Disposition (proposed for the stage-D pause):** question: deferred to #1186, these lines added to it?
+- **Bug:** #1285 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)
 
 ## PL-17: the map describes neither filter page nor UPDATE GAMELISTS, and the map check cannot see member-initialized titles (required: D-UI-039)
 
@@ -384,6 +399,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Acceptance:**
   - [ ] `02` § The #585 lines owed carries the recorded row naming these files.
 - **Disposition (proposed for the stage-D pause):** question: recorded as listed, or EP-47's publication race (a use-after-free) raised to a `bug` under rule 6?
+- **Bug:** #1290 for EP-47 alone (filed 2026-10-27, with its code trace; ruled 20:10 UTC); the rest recorded as listed
 
 ## PL-20: the Windows and console residue (recorded; L-21, L-22)
 
@@ -420,6 +436,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Acceptance:**
   - [ ] New `OfflineAchievementsTextTests.cpp` cases (a missing `Success`, a string `Success`, a list of only invalid entries) FAIL at the pin and pass on the fix (`stage-e/`).
 - **Disposition (proposed for the stage-D pause):** question: a `bug` (the fork's lane), or T20's file?
+- **Bug:** #1286 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)
 
 ## PL-22: `FileFilterIndex::resetIndex` clears copies of its indexes, so a reset keeps every old key (a `bug` proposed; upstream's filter)
 
@@ -438,6 +455,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Acceptance:**
   - [ ] A unit case populates an index, calls `resetIndex`, and asserts the facet maps are empty; it FAILs at the pin (`stage-e/`).
 - **Disposition (proposed for the stage-D pause):** question: a `bug` under rule 6 (one character), a #585 line?
+- **Bug:** #1287 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)
 
 ## PL-23: a token check in flight writes the token back after the player turned achievements off (a `bug` proposed; the fork's NetworkThread, the achievements lane)
 
@@ -456,6 +474,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Acceptance:**
   - [ ] A fixture blocks the sign-in, clears the token, releases the old result, and asserts the token stays empty; it FAILs at the pin (`stage-e/`).
 - **Disposition (proposed for the stage-D pause):** question: a `bug` (the fork's lane), with PL-06 in one stream?
+- **Bug:** #1288 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)
 
 ## PL-24: the rotation record is cached as written though the write is unchecked, and the cache is keyed by mtime alone (a `bug` proposed; the fork's helper)
 
@@ -475,6 +494,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Acceptance:**
   - [ ] A fixture with a failing write and one with a same-mtime replacement each FAIL at the pin and pass on the fix (`stage-e/`).
 - **Disposition (proposed for the stage-D pause):** question: a `bug`, or with PL-16 under #1186?
+- **Bug:** #1289 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)
 
 ## PL-25: the screensaver keeps `FileData` pointers the rescan does not retire (a lead; upstream's screensaver, outside the lanes)
 

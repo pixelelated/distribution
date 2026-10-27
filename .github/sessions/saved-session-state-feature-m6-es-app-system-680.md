@@ -30,16 +30,7 @@
 - L-06 did not fault once.
 - G-03's index toast and `exec.log` were not shown.
 
-**Stage D: paused on #680 for the coordinator's ruling.** Stage C is done:
-- the fixtures: nine FAIL at the pin, nine PASS under their controls;
-- `app-unit-tests` built;
-- the floor read (a subagent's, labelled);
-- the packet;
-- the two keyed calls;
-- 47 grades accepted;
-- the pre-issue lint PASS.
-
-The audit issue is #1270, a sub-issue of #680, with 26 items. Next, on the ruling: file the bugs with their code traces, then wait for the coordinator's stream brief (stage E).
+**Stage D: ruled (20:10 UTC, #680 comment 6452429909); twenty bugs filed, #1271 to #1290; waiting for the coordinator's stream brief (stage E).** The bugs map to items through `stage-d/bugs/filed.txt`. Open questions put on #680: PL-13 and PL-18's 3.5.
 
 **Scratch:** `/workspace/tmp/m6-t33/` (`tmp/`, `rj/` the recipe's rapidjson). `stage-a/env.sh` holds the paths.
 
