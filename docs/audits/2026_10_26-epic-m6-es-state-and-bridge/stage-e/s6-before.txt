@@ -1,0 +1,14 @@
+# T21 S6 before: the tree after S5 and the S3 merge (ES f2561bbe4) with S6's test; connectOutcome as the pin decided, by the exit alone (#668, #1194)
+
+RUN es-unit-tests: rc 1; [doctest] test cases: 191 | 190 passed | 1 failed | 0 skipped [doctest] assertions: 4835 | 4831 passed | 4 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 27 | 27 passed | 0 failed | 0 skipped [doctest] assertions: 3414 | 3414 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 21 | 21 passed | 0 failed | 0 skipped [doctest] assertions: 192 | 192 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+
+## es-unit-tests: the failing case
+TEST CASE:  connectOutcome: a connect is CONNECTED only when wifictl current names the network (T21 PL-06, #1194)
+es-app/tests/unit/WifiTextTests.cpp:360: ERROR: CHECK( WifiText::connectOutcome(true, false, "", "Home Wi-Fi") == ConnectOutcome::NotAvailable ) is NOT correct!
+es-app/tests/unit/WifiTextTests.cpp:361: ERROR: CHECK( WifiText::connectOutcome(true, true, "", "Home Wi-Fi") == ConnectOutcome::NotAvailable ) is NOT correct!
+es-app/tests/unit/WifiTextTests.cpp:363: ERROR: CHECK( WifiText::connectOutcome(true, true, "Cafe", "Home Wi-Fi") == ConnectOutcome::Failed ) is NOT correct!
+es-app/tests/unit/WifiTextTests.cpp:365: ERROR: CHECK( WifiText::connectOutcome(true, true, "home wi-fi", "Home Wi-Fi") == ConnectOutcome::Failed ) is NOT correct!

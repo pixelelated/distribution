@@ -1,0 +1,19 @@
+# T21 S6 after: the stream's tree (#668, #1194)
+
+RUN es-unit-tests: rc 0; [doctest] test cases: 191 | 191 passed | 0 failed | 0 skipped [doctest] assertions: 4835 | 4835 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 27 | 27 passed | 0 failed | 0 skipped [doctest] assertions: 3414 | 3414 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 21 | 21 passed | 0 failed | 0 skipped [doctest] assertions: 192 | 192 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+
+## tests/wifi-profile-lifetime.py (the ES tree)
+PASS profile-choice callback survives page deletion
+
+## tools/es-untranslated --es-src <es tree> --upstream bccd715707
+es-untranslated: upstream base bccd71570 (given)
+es-untranslated: 707 fork string(s) in the source, 707 with French, 0 without
+es-untranslated: 2 upstream string(s) not in upstream's catalogue and without French (upstream's, not counted):
+  es-app/src/guis/GuiMenu.cpp:517	RESET BATTERY FUEL GAUGE
+  es-app/src/guis/GuiMenu.cpp:518	WARNING: THE PMIC FUEL GAUGE WILL BE RESET AND THE SYSTEM WILL POWER OFF!\n\nLEAVE THE CHARGER UNPLUGGED AND POWER THE DEVICE BACK ON AFTER A FEW SECONDS. THE BATTERY LEVEL IS RE-ESTIMATED FROM THE RESTING BATTERY VOLTAGE AND BECOMES ACCURATE AGAIN AFTER A FULL CHARGE.\n\nRESET FUEL GAUGE AND POWER OFF?
+
+WI-FI ISN'T AVAILABLE ON THIS DEVICE RIGHT NOW. is in neither list.
