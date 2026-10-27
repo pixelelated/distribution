@@ -1,0 +1,13 @@
+== S5 before (14:03:36Z), ES at 03a929e026
+$ python3 -I stage-c/s05-replace-saves.py <G>/GuiNetPlaySettings.cpp <G>/GuiControllersSettings.cpp <G>/GuiSettings.cpp
+relay: system.cfg written 0 time(s); global.netplay=(absent)
+FAIL s05: the relay change replaced the page and dropped ENABLE NETPLAY
+activity: system.cfg written 0 time(s); system.autohotkeys=(absent)
+FAIL s05: SHOW CONTROLLER ACTIVITY replaced the page and dropped AUTOCONFIGURE
+rc=1
+-- rerun (14:04:07Z) with the extractor that skips // comments, against the files at HEAD (unfixed)
+relay: system.cfg written 0 time(s); global.netplay=(absent)
+FAIL s05: the relay change replaced the page and dropped ENABLE NETPLAY
+activity: system.cfg written 0 time(s); system.autohotkeys=(absent)
+FAIL s05: SHOW CONTROLLER ACTIVITY replaced the page and dropped AUTOCONFIGURE
+rc=1
