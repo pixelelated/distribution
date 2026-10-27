@@ -1,0 +1,26 @@
+$ python3 -I stage-c/l02-stop-after-finish.py <W>/es-app/src/scrapers/ThreadedScraper.cpp   (17:49:16Z, ES with S1's fix, uncommitted)
+cancel: finished 1, cancelled 0
+  cancel rc=0
+leak: a two-game run started, finished and reaped (LeakSanitizer reads the rest)
+  leak rc=0
+publish: the worker's run finished before the creator stored its thread
+  publish rc=0
+startup: running 1, finished 1, failed 1, isRunning 0
+  startup rc=0
+rc=0
+
+$ ... --plain
+cancel: finished 1, cancelled 0
+  cancel rc=0
+leak: a two-game run started, finished and reaped (LeakSanitizer reads the rest)
+  leak rc=0
+publish: the worker's run finished before the creator stored its thread
+  publish rc=0
+startup: running 1, finished 1, failed 1, isRunning 0
+  startup rc=0
+rc=0
+
+$ ... --control
+CANNOT l02 --control: run() has no `delete this` to rewrite (the control is the pin's)
+rc=2
+cancel repeat 1 rc=0 cancel repeat 2 rc=0 cancel repeat 3 rc=0 cancel repeat 4 rc=0 cancel repeat 5 rc=0 

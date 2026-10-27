@@ -1,0 +1,15 @@
+$ syntax-check.sh <W> <13 sources>   (17:44:15Z, ES at 16dbac521)
+es-app/src/scrapers/ThreadedScraper.cpp: rc 0
+es-app/src/scrapers/Scraper.cpp: rc 0
+es-app/src/scrapers/IGDBScraper.cpp: rc 0
+es-app/src/scrapers/HfsDBScraper.cpp: rc 0
+es-app/src/scrapers/GamesDBJSONScraper.cpp: rc 0
+es-app/src/scrapers/GamesDBJSONScraperResources.cpp: rc 0
+es-app/src/scrapers/ArcadeDBJSONScraper.cpp: rc 0
+es-app/src/views/gamelist/GameNameFormatter.cpp: rc 0
+es-app/src/views/gamelist/ISimpleGameListView.cpp: rc 0
+es-app/src/views/gamelist/GridGameListView.cpp: rc 0
+es-app/src/views/gamelist/DetailedContainer.cpp: rc 0
+es-app/src/views/SystemView.cpp: rc 1; SystemView.cpp:469:92: error: ‘SDLK_r’ was not declared in this scope; did you mean ‘SDLK_F5’?
+es-app/src/services/HttpServerThread.cpp: rc 0
+rc=1

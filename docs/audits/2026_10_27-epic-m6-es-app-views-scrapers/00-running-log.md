@@ -96,3 +96,16 @@
   - **Recorded:** PL-06 and PL-09, with #585 lines.
   - **Carried as observations:** G-03 (PL-13) and the French bar (PL-10).
   - The streams S1 to S6 are recorded in each item's disposition. The stream brief is the coordinator's.
+
+## Stage E (17:43 UTC onward) -- the streams, under `docs/reviews/briefs/t32-streams.md` at `1010359737`
+
+- **Commands:** `stage-e/env.sh` holds the paths. Each stream's command is in its `sN-before.txt` and `sN-after.txt`.
+- **At the start:** `TOTAL: 221 test cases in 4 binaries` (`s0-build-pin.txt`). The stand-in passes 12 of 13 sources, with `SystemView.cpp` `CANNOT` on `SDLK_r` (`s0-syntax-pin.txt`).
+- **S1, 17:51 UTC:** ES `e85735b0b`, pushed to pixelelated/emulationstation.
+  - `l02` was rewritten to four cases over the extracted `Process`, `run`, `stop`, `start` and destructor. The fake was completed for the fixed shape (`mWorker`, atomic `mExitCode`, and a `pushGui` that deletes, since the window owns what is pushed). EP-34's hook is named in the harness.
+  - Before: every case FAILs.
+  - After: every case rc 0, also under `--plain`, and cancel five times. `--control` is `CANNOT` against the fix.
+  - Checks: the stand-in rc 0 on four sources; non-ASCII 0; `TOTAL: 221 test cases in 4 binaries`.
+  - `main.cpp` was read: `stop()` at `:1332` follows `AppWindow::closing()` and precedes the window's teardown, so a joining `stop()` needs no added call and nothing is named under merge debt.
+  - Time to play: off the launch path.
+  - The ES pre-push-test PASS.

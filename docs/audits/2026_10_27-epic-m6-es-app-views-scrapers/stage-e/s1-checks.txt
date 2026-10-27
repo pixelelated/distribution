@@ -1,0 +1,15 @@
+# S1 checks (17:49:30Z)
+$ syntax-check.sh <W> ThreadedScraper.cpp and its includers in the slice
+es-app/src/scrapers/ThreadedScraper.cpp: rc 0
+es-app/src/views/gamelist/ISimpleGameListView.cpp: rc 0
+es-app/src/services/HttpServerThread.cpp: rc 0
+es-app/src/scrapers/Scraper.cpp: rc 0
+rc=0
+$ the added lines' non-ASCII
+non-ascii hits: 0
+$ unit build
+RUN es-unit-tests: rc 0; [doctest] test cases: 185 | 185 passed | 0 failed | 0 skipped [doctest] assertions: 4795 | 4795 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3389 | 3389 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+TOTAL: 221 test cases in 4 binaries

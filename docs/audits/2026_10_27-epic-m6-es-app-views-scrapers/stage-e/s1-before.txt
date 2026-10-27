@@ -1,0 +1,23 @@
+$ python3 -I stage-c/l02-stop-after-finish.py <W>/es-app/src/scrapers/ThreadedScraper.cpp   (17:49:05Z, ES at the pin, the fix set aside; the fake's pushGui now deletes, as the window owns it)
+cancel: finished 1, cancelled 1
+FAIL L-02: a stop() after the run finished marked it cancelled: the page reads SKIPPED - YOU CANCELLED IT
+  SUMMARY: AddressSanitizer: 12 byte(s) leaked in 2 allocation(s).
+  cancel rc=1
+leak: a two-game run started, finished and reaped (LeakSanitizer reads the rest)
+  SUMMARY: AddressSanitizer: 12 byte(s) leaked in 2 allocation(s).
+FAIL leak: rc 1 (a sanitizer report or a signal)
+  leak rc=1
+publish: (no line; the process stopped)
+  SUMMARY: AddressSanitizer: heap-use-after-free a.cpp:91 in ThreadedScraper::Process()
+FAIL publish: rc 1 (a sanitizer report or a signal)
+  publish rc=1
+startup: running 1, finished 0, failed 0, isRunning 0
+FAIL EP-37: a startup throw leaves the snapshot running and not finished: the page reads a run forever
+  startup rc=1
+rc=1
+
+$ ... --plain --case cancel
+cancel: finished 1, cancelled 1
+FAIL L-02: a stop() after the run finished marked it cancelled: the page reads SKIPPED - YOU CANCELLED IT
+  cancel rc=1
+rc=1

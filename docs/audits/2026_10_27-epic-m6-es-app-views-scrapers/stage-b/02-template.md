@@ -206,7 +206,11 @@ Every § 5 run of stage A (`stage-a/runs.sh`, its output `stage-a/runs.out`, rc 
 
 ## The streams
 
-Written by the coordinator after stage D (as for T21 and T26); the lane leaves this heading and the pause's dispositions.
+Stage E, under the coordinator's brief `docs/reviews/briefs/t32-streams.md` at `1010359737`, on the ES branch `feature/m6-es-app-views-scrapers-679` (pixelelated/emulationstation). Each stream's positive FAILs on the code before it (`stage-e/sN-before.txt`) and PASSes after (`sN-after.txt`). Its checks are `stage-e/sN-checks.txt`: the stand-in syntax check, `tools/t32-build-tests.sh`'s own `TOTAL:` line, and the non-ASCII check on the added lines. The paths are in `stage-e/env.sh`. At the start of stage E: `TOTAL: 221 test cases in 4 binaries` (`s0-build-pin.txt`); the stand-in passes 12 of 13 sources, with `SystemView.cpp` `CANNOT` (the fakes lack `SDLK_r`, `s0-syntax-pin.txt`).
+
+| Stream | Bug | ES commit | Positive before | Positive after | Already written | proved: |
+| --- | --- | --- | --- | --- | --- | --- |
+| S1 | #1258 (PL-01), PL-14 | `e85735b0b` | `stage-c/l02-stop-after-finish.py`, four cases at the pin: cancel (a heap-use-after-free in `stop()` at the 17:48 run; cancelled 1 over finished 1 at the rerun and under `--plain`), leak (12 bytes in 2 allocations), publish (a heap-use-after-free in `Process()`), startup (running 1, finished 0) | the four cases rc 0, under ASan with LeakSanitizer and `--plain`; cancel repeated five times rc 0; `--control` `CANNOT` against the fix | nothing inherited: the false SKIPPED is a page outcome, not a file | fix-unit-test; the guest half cannot be timed, so the fixture is the proof |
 
 ## Positives
 
