@@ -14,8 +14,8 @@ This was written by the first reader (Opus 5.5) after stages A and B, the guest 
   - `ScraperHttpRequest::update` (`Scraper.cpp:289-385`) turns an `HttpReq` status into an `AsyncHandle` status.
   - `ThreadedScraper` (`:103-173`) reads it: a fatal list stops the run, any other error is counted, and DONE is a game with or without a match.
 
-  The contract between them is a comment written in three scrapers (`IGDBScraper.cpp:313`, the GamesDB and ArcadeDB equivalents): "return false only when we reached a maximum scrap by minute, to retry". **No caller reads the return** (`Scraper.cpp:337`), and IGDB returns false for "no match" (3.16). An IO error and a spent 429 end as DONE (3.13). So the one place that turns a network failure into something the page can count drops it, and the page reads COMPLETED, GAMES SCRAPED: 9 offline (G-05).
-- **The scrapers parse with rapidjson and check the shape after reading it.** Four sites call `HasMember` before `IsObject`, or `GetString` before `IsString`: 3.10 in GamesDB, L-22 in IGDB's and HfsDB's token reads, and 3.8's resources if the floor read confirms it. The recipe builds with NDEBUG, so rapidjson's assertion is compiled out, and a wrong shape is a wild read: two SEGVs at stage C.
+  The contract between them is a comment written in three scrapers (`IGDBScraper.cpp:313`, the GamesDB and ArcadeDB equivalents): "return false only when we reached a maximum scrap by minute, to retry". **No caller reads the return** (`Scraper.cpp:337`). IGDB returns false for "no match" (3.16). ScreenScraper, which ships in the fork's images, returns false for "maximum threads per minute reached" (`ScreenScraper.cpp:383-384`), so a rate-limited search reads as no match. An IO error and a spent 429 end as DONE (3.13). So the one place that turns a network failure into something the page can count drops it, and the page reads COMPLETED, GAMES SCRAPED: 9 offline (G-05). The page's count is itself short by the thread count, since `done` is set only at hand-out (3.19): G-05's guest had ten games.
+- **The scrapers parse with rapidjson and check the shape after reading it.** Several sites call `HasMember` before `IsObject`, or `GetString` before `IsString`: 3.10 and 3.8 in GamesDB (its process, its images JSON and its resources), and L-22 in IGDB's and HfsDB's token reads. The recipe builds with NDEBUG, so rapidjson's assertion is compiled out, and a wrong shape is a wild read: two SEGVs at stage C.
 - **The batch scrape is a fourth-tier page over a thread whose lifetime is its own.** `ThreadedScraper::run` ends with `delete this`, while `stop()` and `isRunning()` read the static `mInstance` under no lock. L-01 is the read; L-02's harness turns it into a use-after-free, and the same window marks a finished run cancelled. Each run also leaks its `ScraperThread`s and its `std::thread` (L-23).
 - **The services run their handlers on httplib's pool.** Some post to the interface thread and some do not: `/notify` (L-12), `/removegames` and the media writes (L-13), `/launch`'s walk (L-19), and `/quit`, `/shutdown` and `/restart` (L-21). The vendored httplib is the 2020 v0.7 series with no body limit (L-24).
 - **The views are upstream's, with the fork's additions in three files:**
@@ -69,7 +69,7 @@ Of the six FAIL-at-pin leads, all six FAIL at the pin and pass their controls (`
 - 3.13 covers the spent 429 and the long Retry-After as well as the IO error;
 - L-02 is a use-after-free.
 
-The floor's other 28 are in `02` § The leads with their verdicts (`stage-c/floor.md`).
+The floor's other 27 are in `02` § The leads with their verdicts (`stage-c/floor.md`: 11 holds, 1 design, 15 findings; a read-only subagent's read, re-checked by the first reader where `floor.md` § Verification says). Two of the 15 change the picture: 3.15, a null dereference on SCRAPE NOW when the saved scraper is one this build does not register; and 3.19, which corrects G-05's 9 to ten games minus one thread.
 
 ## 3.4 Platform conformance
 
@@ -98,6 +98,10 @@ The player's YES on CANCEL in the frame the last game ends gives two results (L-
 - `cancelled` over `finished`, so SKIPPED - YOU CANCELLED IT over a completed run.
 
 Proved: `l02` (fixture, the window widened by a named hook).
+
+### Interaction: a saved scraper name x a build's key set x SCRAPE NOW
+
+The registry depends on the build's macros, while `Settings`' `Scraper` survives an upgrade. `GuiScraperStart` shows a fallback without saving it, and `ThreadedScraper::start` dereferences `getScraper()` (3.15). An image built with another key set, or an upgrade from one, crashes on SCRAPE NOW. `upgrade-and-install.md`'s case, tree; VM-provable by writing the setting on a guest.
 
 ### Interaction: IGDB's `ensureToken` x the interface thread x `generateRequests`' throw
 

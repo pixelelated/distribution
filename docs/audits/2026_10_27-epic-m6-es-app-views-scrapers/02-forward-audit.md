@@ -17,9 +17,9 @@ Composed by `tools/t32-02.py` from this template and the generators under `tools
 | `es-app/src/scrapers/IGDBScraper.cpp` | 349 | upstream-carried | upstream-carried | 0/0 | 3.16, L-18, L-22 |
 | `es-app/src/scrapers/IGDBScraper.h` | 62 | upstream-carried | upstream-carried | 0/0 | - |
 | `es-app/src/scrapers/Scraper.cpp` | 813 | fork-own | fork-modified | 2/2 | 3.10, 3.13, 3.16, 3.1, 3.11, 3.12, 3.14, 3.15, 3.17, 3.18, 3.19, 3.2, 3.20, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, L-01, L-02, L-03, L-04, L-05, L-07, L-09, L-18, L-22, L-23 |
-| `es-app/src/scrapers/Scraper.h` | 289 | upstream-carried | upstream-carried | 0/0 | L-01, L-03 |
-| `es-app/src/scrapers/ThreadedScraper.cpp` | 339 | fork-own | fork-modified | 56/22 | 3.13, 3.19, 3.20, L-01, L-02, L-03, L-04, L-05, L-23 |
-| `es-app/src/scrapers/ThreadedScraper.h` | 119 | fork-own | fork-modified | 30/4 | L-01, L-03 |
+| `es-app/src/scrapers/Scraper.h` | 289 | upstream-carried | upstream-carried | 0/0 | 3.19, L-01, L-03 |
+| `es-app/src/scrapers/ThreadedScraper.cpp` | 339 | fork-own | fork-modified | 56/22 | 3.13, 3.15, 3.19, 3.20, L-01, L-02, L-03, L-04, L-05, L-23 |
+| `es-app/src/scrapers/ThreadedScraper.h` | 119 | fork-own | fork-modified | 30/4 | 3.19, L-01, L-03 |
 | `es-app/src/services/HttpApi.cpp` | 344 | upstream-carried | upstream-carried | 0/0 | 3.17, 3.21, 3.22, 3.23, L-13 |
 | `es-app/src/services/HttpApi.h` | 35 | upstream-carried | upstream-carried | 0/0 | - |
 | `es-app/src/services/HttpServerThread.cpp` | 834 | upstream-carried | upstream-carried | 0/0 | 3.24, 3.25, 3.26, L-12, L-13, L-19, L-20, L-21 |
@@ -30,13 +30,13 @@ Composed by `tools/t32-02.py` from this template and the generators under `tools
 | `es-app/src/views/SystemViewControlWrapper.h` | 184 | upstream-carried | upstream-carried | 0/0 | - |
 | `es-app/src/views/UIModeController.cpp` | 197 | upstream-carried | upstream-carried | 0/0 | 3.33 |
 | `es-app/src/views/UIModeController.h` | 63 | upstream-carried | upstream-carried | 0/0 | - |
-| `es-app/src/views/gamelist/BasicGameListView.cpp` | 227 | upstream-carried | upstream-carried | 0/0 | 3.30 |
+| `es-app/src/views/gamelist/BasicGameListView.cpp` | 227 | upstream-carried | upstream-carried | 0/0 | 3.30, 3.34 |
 | `es-app/src/views/gamelist/BasicGameListView.h` | 49 | upstream-carried | upstream-carried | 0/0 | - |
 | `es-app/src/views/gamelist/CarouselGameListView.cpp` | 207 | upstream-carried | upstream-carried | 0/0 | - |
 | `es-app/src/views/gamelist/CarouselGameListView.h` | 52 | upstream-carried | upstream-carried | 0/0 | - |
 | `es-app/src/views/gamelist/DetailedContainer.cpp` | 1450 | fork-own | fork-modified | 21/0 | 3.32, 3.35, L-08 |
 | `es-app/src/views/gamelist/DetailedContainer.h` | 187 | upstream-carried | upstream-carried | 0/0 | - |
-| `es-app/src/views/gamelist/DetailedGameListView.cpp` | 66 | upstream-carried | upstream-carried | 0/0 | - |
+| `es-app/src/views/gamelist/DetailedGameListView.cpp` | 66 | upstream-carried | upstream-carried | 0/0 | 3.34 |
 | `es-app/src/views/gamelist/DetailedGameListView.h` | 38 | upstream-carried | upstream-carried | 0/0 | - |
 | `es-app/src/views/gamelist/GameNameFormatter.cpp` | 269 | upstream-carried | upstream-carried | 0/0 | 3.32 |
 | `es-app/src/views/gamelist/GameNameFormatter.h` | 36 | upstream-carried | upstream-carried | 0/0 | - |
@@ -86,41 +86,41 @@ The floor's 35, carried from the brief's § 4 table (the six that FAIL at the pi
 
 | # | At the pin | What a case would catch | proved: |
 | --- | --- | --- | --- |
-| 3.1 | `ArcadeDBJSONScraper.cpp:26` (`:34-37`) | the name cleaning in the URL | at C |
-| 3.2 | `ArcadeDBJSONScraper.cpp:76`, `:85`, `:94` | a silently defaulted field | at C |
-| 3.3 | `ArcadeDBJSONScraper.cpp:103` | a renamed image source yielding no media | at C |
-| 3.4 | `ArcadeDBJSONScraper.cpp:121` | tag precedence; a non-string skipped | at C |
-| 3.5 | `ArcadeDBJSONScraper.cpp:200` | the `:199` contract (see 3.13) | at C |
-| 3.6 | `GamesDBJSONScraper.cpp:195` | the platform map drifting | at C |
-| 3.7 | `GamesDBJSONScraper.cpp:293` (`:309`) | an array whose first element has no `filename` throws | at C |
-| 3.8 | `GamesDBJSONScraper.cpp:402` | the resource JSON's shape | at C |
-| 3.9 | `GamesDBJSONScraper.cpp:553` | the dependency queue's shape | at C |
+| 3.1 | `ArcadeDBJSONScraper.cpp:26` (`:34-37`) | the name cleaning in the URL | holds (`floor.md`): `HttpReq::urlEncode` percent-encodes every byte outside `A-Za-z0-9-_.~` |
+| 3.2 | `ArcadeDBJSONScraper.cpp:76`, `:85`, `:94` | a silently defaulted field | holds (`floor.md`): types checked before `Get*`; `players` as a string dropped silently |
+| 3.3 | `ArcadeDBJSONScraper.cpp:103` | a renamed image source yielding no media | finding, low (`floor.md`): a renamed media key yields no media and no log line |
+| 3.4 | `ArcadeDBJSONScraper.cpp:121` | tag precedence; a non-string skipped | holds (`floor.md`) |
+| 3.5 | `ArcadeDBJSONScraper.cpp:200` | the `:199` contract (see 3.13) | holds (`floor.md`; re-read): every exit returns `true`; the `:199` comment is stale since 3a997b651 |
+| 3.6 | `GamesDBJSONScraper.cpp:195` | the platform map drifting | holds (`floor.md`): an unmapped system is silently not offered; `GAMESDB_APIKEY` only |
+| 3.7 | `GamesDBJSONScraper.cpp:293` (`:309`) | an array whose first element has no `filename` throws | finding (`floor.md`): one malformed boxart entry throws, and the catch drops the whole game |
+| 3.8 | `GamesDBJSONScraper.cpp:402` | the resource JSON's shape | finding (`floor.md`; `:590`-`:607` re-read, `l310`): the images JSON (`:462-491`) and `Resources.cpp:180` read unchecked too; a wild read under NDEBUG |
+| 3.9 | `GamesDBJSONScraper.cpp:553` | the dependency queue's shape | holds (`floor.md`) |
 | **3.10** | `GamesDBJSONScraper.cpp:575`; `:605`, `:607` | `HasMember` before `IsObject`: `"boxart": []` is a rapidjson assertion | **FAIL at the pin** (`stage-c/l310-boxart-shape.py`): `[]`, `[1,2]`, `data []` and root `[]` violate HasMember's precondition, and `"boxart": "x"` is a **SEGV** in the NDEBUG build the recipe makes (`config/functions`' ndebug flag; rc -11 without the sanitizers). Reached only with `GAMESDB_APIKEY` (`Scraper.cpp:29`); control rc 0 |
-| 3.11 | `HfsDBScraper.cpp:308`, `:343` | the `name == tagName + "type"` convention | at C |
-| 3.12 | `HfsDBScraper.cpp:407`, `:584` | the arcade filter; the first-result rule | at C |
+| 3.11 | `HfsDBScraper.cpp:308`, `:343` | the `name == tagName + "type"` convention | finding, low (`floor.md`): box-back never scraped when the field names differ, silently; `HFS_DEV_LOGIN` only |
+| 3.12 | `HfsDBScraper.cpp:407`, `:584` | the arcade filter; the first-result rule | finding (`floor.md`): TEKNOPARROT's `29794` (886eb1909) never excluded, so arcade results are dropped and `:621`'s `break` leaves nothing; `HFS_DEV_LOGIN` only |
 | **3.13** | `Scraper.cpp:289` (`:337`, `:372-376`) | 404 and IO error end `ASYNC_DONE` with no error: an unreachable scraper reads as "no results"; `:337` discards `process()`'s return | **FAIL at the pin** (`stage-c/l313-request-outcome.py`): IO error, 429 with retries spent, and 429 with Retry-After 60 where `retryOn249` is false all end `ASYNC_DONE` code 200; 404 DONE and 403 ERROR are right. The reader (`ThreadedScraper.cpp:157-173`) counts a non-fatal error and goes on, so the 2020 intent (a631e8c84, "Secure requests": a batch survives one game) holds under the fix; G-05 is the image's positive; control rc 0 |
-| 3.14 | `Scraper.cpp:212` | the multi-URL fallback | at C |
-| 3.15 | `Scraper.cpp:41-78` | the registry lookups over an injected vector | at C |
+| 3.14 | `Scraper.cpp:212` | the multi-URL fallback | holds (`floor.md`): the next URL only on an empty DONE; an ERROR fails the search |
+| 3.15 | `Scraper.cpp:41-78` | the registry lookups over an injected vector | **finding (`floor.md`; re-read): an unregistered `Scraper` name (a build with another key set, or an upgrade from one) is a null dereference at `ThreadedScraper.cpp:296` on SCRAPE NOW; `GuiScraperStart.cpp:74-78` shows a fallback it never saves. VM-provable: the setting written on a guest** |
 | **3.16** | `IGDBScraper.cpp:143-144`, `:167-172`, `:314` | `process` returns `false` where the three others return `true`; IGDB offered with no client id | **FAIL at the pin** (`stage-c/l316-igdb-contract.py`): `process` returns false for `[]`, `{}` and a parse error, against the contract at `:313`; dropped today by `:337` (3.13), so it lands with 3.13's fix or before it. The "offered with no client id" half is GuiScraperStart's (T31's file), and G-06 did not reach it (corrected on #679); control rc 0 |
-| 3.17 | `Scraper.cpp:583`; `HttpApi.cpp:210` | the Content-Type rule written twice; a non-image body kept | at C |
-| 3.18 | `Scraper.cpp:779` | an id outside `getSaveAsPath`'s switch | at C |
-| 3.19 | `ThreadedScraper.cpp:15`, `:155`, `:248` (fork-own) | a status landing in the wrong column of `Progress` | at C |
-| 3.20 | `ThreadedScraper.cpp:103` | the state machine | at C |
-| 3.21 | `HttpApi.cpp:102`, `:110` | the id scheme a web client caches | at C |
-| 3.22 | `HttpApi.cpp:170` | `ImportFromJson`'s string-only rule | at C |
-| 3.23 | `HttpApi.cpp:210` (`:240-253`) | `image/svg+xml` refused with no reason | at C |
-| 3.24 | `HttpServerThread.cpp:93`, `:114` | the MIME table | at C |
-| 3.25 | `HttpServerThread.cpp:127` | `::1` refused unless public | at C |
+| 3.17 | `Scraper.cpp:583`; `HttpApi.cpp:210` | the Content-Type rule written twice; a non-image body kept | finding (`floor.md`): a Content-Type with parameters becomes the extension; a 2xx HTML body kept as the game's image |
+| 3.18 | `Scraper.cpp:779` | an id outside `getSaveAsPath`'s switch | finding (`floor.md`): `POST .../media/mix` overwrites `-image<ext>` (the API only) |
+| 3.19 | `ThreadedScraper.cpp:15`, `:155`, `:248` (fork-own) | a status landing in the wrong column of `Progress` | **finding (`floor.md`; re-read; G-05): `done` is set only at hand-out, so a finished run counts total minus threads -- G-05's ten games read GAMES SCRAPED: 9; a no-match counts as scraped against `ThreadedScraper.h:67`** |
+| 3.20 | `ThreadedScraper.cpp:103` | the state machine | finding (`floor.md`): no state leaves IN_PROGRESS without its handle; with L-06 a stall holds a thread (CANCEL exits) |
+| 3.21 | `HttpApi.cpp:102`, `:110` | the id scheme a web client caches | holds (`floor.md`): `md5(path)`, stable across a reload while the path is |
+| 3.22 | `HttpApi.cpp:170` | `ImportFromJson`'s string-only rule | finding, low (`floor.md`): a non-string value skipped silently and answered `404 game not found` |
+| 3.23 | `HttpApi.cpp:210` (`:240-253`) | `image/svg+xml` refused with no reason | finding, low (`floor.md`): `image/svg+xml`, `webp` refused as `404 media not found` |
+| 3.24 | `HttpServerThread.cpp:93`, `:114` | the MIME table | finding, low (`floor.md`): `image/jpg`; video served as `text/plain` |
+| 3.25 | `HttpServerThread.cpp:127` | `::1` refused unless public | holds (`floor.md`): IPv4 binds only, so `::1` never connects |
 | 3.26 | `HttpServerThread.cpp:149-803` | the routes (§ The services: 27 registrations over 25 patterns) | guest (G-08) |
 | **3.27** | `SystemView.cpp:272` (`:331`) | `_moveCursorInRange(2, -10, 5)` leaves `-3` | **FAIL at the pin** (`stage-c/l327-cursor-range.py`): 25 of 312 cases out of range, all congruent mod the size, so the caller's delta (`:407`, `:413`) on a wrapping carousel hides them (G-04's clean wrap); the other 37 non-congruent cases are the forward fast move on 3 to 9 systems, a no-op by `count >= sz`. History 1d9212bec; control rc 0 |
-| 3.28 | `SystemView.cpp:282` | the manufacturer grouping | at C |
-| 3.29 | `ISimpleGameListView.cpp:486`, `:529`, `:580` (fork-own file) | a UTF-8 lead byte as a letter; the `break` assuming name order | at C; G-03 |
-| 3.30 | `BasicGameListView.cpp:101` (`:123-124`) | not found with an empty stack -> the root, silently | at C |
+| 3.28 | `SystemView.cpp:282` | the manufacturer grouping | holds (`floor.md`; consistent with `l327`) |
+| 3.29 | `ISimpleGameListView.cpp:486`, `:529`, `:580` (fork-own file) | a UTF-8 lead byte as a letter; the `break` assuming name order | finding (`floor.md`): a UTF-8 lead byte as the letter (`toupper` on `char`, signed on x86); the `break` at `:514` lands on the last run's first game under a non-name sort. G-03's Alpha is not explained by either under a name sort: left open |
+| 3.30 | `BasicGameListView.cpp:101` (`:123-124`) | not found with an empty stack -> the root, silently | design (`floor.md`): 9be91629e; `BasicGameListView.cpp:101`'s `recurseFind` is a dead copy |
 | **3.31** | `GridGameListView.cpp:131` (`:135-136`) (fork-own file) | `src == IMAGE` returns `getImagePath()` even when empty | **FAIL at the pin** (`stage-c/l331-grid-image.py`): IMAGE with no image returns `""`, not the thumbnail. The early return is 8f30c244c (2019); 4371e3b7d (2021) added IMAGE to the fallback below it and kept the return as context: intent ambiguous, a stream question; control rc 0 |
 | **3.32** | `GameNameFormatter.cpp:84-85`, `:171-185`; **and `DetailedContainer.cpp:1049`** | no year under a descending sort; `(seconds / 3600) % 24` wraps a 25-hour game | **FAIL at the pin** (`stage-c/l332-year-and-time.py`): no year under RELEASEDATE_DESCENDING (5cb43906b wrote ASCENDING twice); 90000 s reads `[01:00:00]` (2e4b5a9dc). **Corrected:** `DetailedContainer.cpp:1049` does not wrap, since `secondsToString` folds the day back ("25 h"); one site, not two; control rc 0 |
 | 3.33 | `UIModeController.cpp:55-97` (`:72`) | a wrong press resets the unlock counter (settled) | design |
-| 3.34 | `ISimpleGameListView.cpp:681` (fork-own, #210) | the #210 rule regressing | at C; G-02 |
-| 3.35 | `DetailedContainer.cpp:112-140`, `:1010`, `:1043` (fork-own file) | a label without French | tool-run (`t32-words.py`: 0 without) |
+| 3.34 | `ISimpleGameListView.cpp:681` (fork-own, #210) | the #210 rule regressing | finding (`floor.md`): shown only with GameOptionsAtNorth, a `retroarch` game outside IMAGEVIEWER with a save-state config; the bar refreshes on cursor change only in collections (`BasicGameListView.cpp:31`, `DetailedGameListView.cpp:39`). The French frame's five entries are consistent with that, not proved by it |
+| 3.35 | `DetailedContainer.cpp:112-140`, `:1010`, `:1043` (fork-own file) | a label without French | holds (`floor.md`): `": "` and `"- "` concatenated outside `_()` |
 
 ## The views
 
@@ -360,6 +360,9 @@ Every § 5 run of stage A (`stage-a/runs.sh`, its output `stage-a/runs.out`, rc 
 | the compile | `es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)` rc 2; `g++` on `ThreadedScraper.cpp`: `es-core/src/HttpReq.h:5:10: fatal error: curl/curl.h: No such file or directory` rc 1 | 2 / 1 | -- (`CANNOT` on the host, as § 5 names) |
 | the stand-in syntax check (`stage-a/syntax-check.out`) | rc 0 on the seven scrapers' `.cpp` files and `GameNameFormatter.cpp` (T21's script and 13 fakes) | 0 | a scraper that does not compile against the stand-ins |
 | the removal check | empty against `603b358a14` and `121d0180f0`; `TIPHASH` refused; the ES diff against the pin empty | 0 | a change under `packages`, `projects` or `tools` |
+| the unit build at the pin (`tools/t32-build-tests.sh`, `stage-c/build-pin.txt`, 43 s) | `TOTAL: 221 test cases in 4 binaries`; 0 failed in each binary's summary | 0 | a test at the pin already failing, so a stream's FAIL could not be read as its own |
+| the stage-C harnesses (`stage-c/runs.txt`) | seven, each FAIL at the pin (rc 1) and its control rc 0: `l327`, `l331`, `l332`, `l310`, `l313`, `l316`, `l02`; `l310`, `l316` and `l02` also `--plain` (rc 1: two SIGSEGVs and cancelled over finished) | 1 then 0 | a case that cannot fail, or a control that cannot pass |
+| the include graph (`tools/t32-includes.py`, `stage-c/includes.out`) | generated, asserted: inbound 47 include lines from 23 files outside the slice; outbound 410; es-core edges 143 of 410; seen to exit 1 on a constructed drift (`stage-b/generators.txt`) | 0 | an edge the brief's figures miss |
 
 **The generators, each seen to exit 1 on a constructed drift before it was trusted** (`stage-b/generators.txt`): `t32-reads.py` (a count of 48; `ISimpleGameListView.cpp` dropped from the paths: its two groups name lines with no site), `t32-bounds.py` (6, and 7 against its 9; `GamesDBJSONScraperResources.cpp` dropped), `t32-services.py` (the brief's 16 as the pattern count), `t32-scrapers.py` (2 gated), `t32-views.py` (6 help bars), `t32-words.py` (the brief's 58 / 70 / 51 / 1 empty). Two defects in my own generators were found by their first runs and fixed before use: `t32-views.py`'s precedence slip (it flagged `SystemView` despite its note) and its count of `ViewController`'s help bar (T2's file, outside the 42).
 
@@ -379,7 +382,7 @@ Every § 5 run of stage A (`stage-a/runs.sh`, its output `stage-a/runs.out`, rc 
 | G-02 | the five styles by `GamelistViewStyle` with ES stopped (`guest-cycle/scripts/style.sh`), the gb list in each; SCREENSHOTS (`imageviewer`) timed | basic, detailed and video drawn; **grid and gamecarousel draw the basic list** (the shipped theme has neither view); one list bar in every style (OPTIONS, MENU, BACK, SEARCH, GAME OPTIONS, SAVE STATES); **L-14 not reached**: SCREENSHOTS draws the detailed style under `grid`, and the press to a still screen read 2.775 s (SCREENSHOTS, grid), 2.786 s (automatic), 2.777 s (gb, 10 games) -- the settle tool's floor (`guest-cycle/g02-l14-timings.txt`) | `image` |
 | G-03 | VIEW OPTIONS' JUMP TO GAME BEGINNING WITH THE LETTER moved to D, then BACK | the row reads D; **the list's cursor stays on Alpha** -- read at stage C before it is called anything (T31's `GuiGamelistOptions` applies it through this slice's `moveToLetter`); the l2/r2 keys `CANNOT` (no trigger in the guest's keyboard map) | `image` |
 | G-04 | the fast move backward (`q`, left shoulder) then forward (`w`) on the carousel | FAVORITES, then PICO-8 again; ES's pid unchanged, no backtrace in the journal | `image` |
-| G-05 | `ip link set eth0 down`; SCRAPER, ArcadeDB, SCRAPE NOW | **COMPLETED, GAMES SCRAPED: 9, UPDATE GAMELISTS TO APPLY CHANGES.**, no COULDN'T SCRAPE, `ELAPSED 0:00`; no `images` folder written, the gamelist unchanged; no scraper line in the journal at the image's log level (`guest-cycle/g05-journal.txt`) -- **3.13's and L-07's positive** | `image` |
+| G-05 | `ip link set eth0 down`; SCRAPER, ArcadeDB, SCRAPE NOW | **COMPLETED, GAMES SCRAPED: 9, UPDATE GAMELISTS TO APPLY CHANGES.** (the guest had **ten** gb games: 9 is 3.19's total minus ArcadeDB's one thread, read at stage C), no COULDN'T SCRAPE, `ELAPSED 0:00`; no `images` folder written, the gamelist unchanged; no scraper line in the journal at the image's log level (`guest-cycle/g05-journal.txt`) -- **3.13's and L-07's positive** | `image` |
 | G-06 | SCRAPER, IGDB with no client id, SCRAPE NOW; then `fr_FR` | SYSTEMS INCLUDED empty; **NO GAMES FIT THAT CRITERIA.** / **AUCUN JEU NE CORRESPOND.** (one OK). **Corrected at stage C:** this is not 3.16. `IGDBScraper::isSupportedPlatform` (`:221-230`) reads only the platform map, which has `GAME_BOY` (`:65`); SCRAPER had opened with ArcadeDB, the scraper G-05's run left set, and ArcadeDB takes no gb, so the list was built empty and moving SCRAPE FROM to IGDB did not rebuild it -- T31's PL-21 (#1254, its S12) as the image shows it. The INVALID CREDENTIALS box was not reached: 3.16 on the guest `CANNOT` in this window (it needs SCRAPER opened with IGDB already chosen); its unit case stands | `image` |
 | G-07 | -- | `CANNOT`: host port 80 is privileged (`ip_unprivileged_port_start` 1024) | -- |
 | G-08 | `guest-cycle/scripts/g08-api.sh` from inside the guest | `"Version": "0.0.1-dev"`; `[ true ]`; `/notify`'s long body one line cut with an ellipsis (`frames/g08-notify-toast.png`; L-12 holds the one-line rule, its thread shows nothing); `/removegames/gb` outside the system `204 No game removed`, the 10 games kept (`guest-cycle/g08-api.txt`); the `403` `CANNOT` (no forward of 1234) | `image` |
