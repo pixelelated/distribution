@@ -42,6 +42,13 @@ echo '--- pre-commit'
 echo 'plain line' > a.txt; g add a.txt
 expect allowed "a clean file" "${HOOKS}/pre-commit"
 g commit -q -m base
+printf 'a\n<<<<<<< HEAD\nours\n=======\ntheirs\n>>>>>>> c25d772b21\n' > m.txt; g add m.txt
+expect refused "a leftover conflict marker" "${HOOKS}/pre-commit"
+says "the marker's file and line are named" "m.txt:2"
+g reset -q; rm m.txt
+printf 'Title\n=======\n\n| a | b |\n| --- | --- |\n' > n.md; g add n.md
+expect allowed "a setext underline alone is not a marker (#696's control)" "${HOOKS}/pre-commit"
+g reset -q; rm n.md
 echo "${FAKE}" > b.txt; g add b.txt
 expect refused "a credential-shaped line" "${HOOKS}/pre-commit"
 says "the value is redacted" "[REDACTED]"
