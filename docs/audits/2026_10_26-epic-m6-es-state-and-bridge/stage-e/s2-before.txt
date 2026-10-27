@@ -1,0 +1,39 @@
+# T21 S2 before: S1's tree (ES ba0e82c1f) with S2's tests (#668, #1197, #1189)
+
+$ RAPIDJSON_INCLUDE_DIR=<rj> bash tools/t21-build-tests.sh <es tree> <build dir>
+RUN es-unit-tests: rc 0; [doctest] test cases: 186 | 186 passed | 0 failed | 0 skipped [doctest] assertions: 4799 | 4799 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3390 | 3390 passed | 0 failed | 
+RUN es-conf-tests: rc 1; [doctest] test cases: 20 | 18 passed | 2 failed | 0 skipped [doctest] assertions: 182 | 175 passed | 7 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+
+## es-conf-tests: the failing cases
+TEST CASE:  a cut live file newer than its record is still a recovery, and the record keeps its keys (T21 PL-09, #1197)
+es-app/tests/unit/SystemConfTests.cpp:681: ERROR: CHECK( conf->get("qa.marker") == "player" ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:682: ERROR: CHECK( conf->get("qa.tail") == "kept" ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:683: ERROR: CHECK( get(path + ".backup").find("qa.tail=kept\n") != std::string::npos ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:684: ERROR: CHECK( get(path).find("qa.tail=kept\n") != std::string::npos ) is NOT correct!
+TEST CASE:  a live file equal to the image's seed beside a differing record loads the record and records nothing over it (T21 PL-03, #1189)
+es-app/tests/unit/SystemConfTests.cpp:698: ERROR: CHECK( conf->get("qa.marker") == "player" ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:699: ERROR: CHECK( get(path + ".backup") == record ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:700: ERROR: CHECK( get(path) == record ) is NOT correct!
+
+## The reversed file check (D-WORKFLOW-210) against S1's AtomicFileUtil.cpp
+$ g++ ... -I <ba0e82c1f header> es-app/tests/unit/AtomicFileTests.cpp <ba0e82c1f AtomicFileUtil.cpp>; ./es-file-tests -tc="*G-E1-04*"
+TEST CASE:  a live file cut short of its own record loads the record (G-E1-04)
+es-app/tests/unit/AtomicFileTests.cpp:910: ERROR: CHECK( c.source == LoadedConfig::Source::Backup ) is NOT correct!
+es-app/tests/unit/AtomicFileTests.cpp:911: ERROR: CHECK( c.text == whole ) is NOT correct!
+[doctest] test cases:  2 | 1 passed | 1 failed | 22 skipped
+
+## The shell side's picture: shell-writers.py with S1's state-fixture
+$ python3 -I -B stage-b/positives/shell-writers.py <001-functions> <seed> <busybox> <os-release> <state-fixture> <scratch>
+K1 awk shadowed: bash rc 137; system.cfg old; record unchanged; next interface load source=Live record=1; left behind ['system.cfg.tmp']; ok
+K2 mv shadowed: bash rc 137; system.cfg old; record unchanged; next interface load source=Live record=1; left behind ['system.cfg.tmp']; ok
+K3 mv shadowed: bash rc 137; system.cfg new; record unchanged; next interface load source=Live record=1; left behind nothing; ok
+K0 control (no kill): set_setting rc=0; system.cfg new; next interface load source=Live record=1
+S1 system.cfg absent, record holds the player's keys: set_setting rc=0
+   system.cfg after set_setting: 222 lines, marker absent, qa.setting=newer; mode 0o600
+   system.cfg.backup after set_setting: 4 lines, marker present, qa.setting=record
+   the interface's next load chooses: source=Live record=1
+   a SystemConf load of that file (the pin's code): value=[] rc 0
+   system.cfg.backup after the interface's load: 222 lines, marker absent, qa.setting=newer
+== result: PASS (K0-K3) ; S1 as observed above

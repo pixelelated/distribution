@@ -1,0 +1,28 @@
+# T21 S2 after: the stream's tree (#668, #1197, #1189)
+
+RUN es-unit-tests: rc 0; [doctest] test cases: 186 | 186 passed | 0 failed | 0 skipped [doctest] assertions: 4799 | 4799 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3390 | 3390 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 20 | 20 passed | 0 failed | 0 skipped [doctest] assertions: 182 | 182 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+
+## The kill sweep with S2's state-fixture
+$ python3 -I -B stage-b/positives/kill-writer.py <state-fixture> <killer.so> <scratch>
+  A: 9 kill points, 0 broke the invariant
+  B: 18 kill points, 0 broke the invariant
+  C: 88 kill points, 0 broke the invariant
+== result: PASS (every kill left the old or the new state whole)
+
+## The shell side's picture with S2's state-fixture
+K1 awk shadowed: bash rc 137; system.cfg old; record unchanged; next interface load source=Live record=1; left behind ['system.cfg.tmp']; ok
+K2 mv shadowed: bash rc 137; system.cfg old; record unchanged; next interface load source=Live record=1; left behind ['system.cfg.tmp']; ok
+K3 mv shadowed: bash rc 137; system.cfg new; record unchanged; next interface load source=Live record=1; left behind nothing; ok
+K0 control (no kill): set_setting rc=0; system.cfg new; next interface load source=Live record=1
+S1 system.cfg absent, record holds the player's keys: set_setting rc=0
+   system.cfg after set_setting: 222 lines, marker absent, qa.setting=newer; mode 0o600
+   system.cfg.backup after set_setting: 4 lines, marker present, qa.setting=record
+   the interface's next load chooses: source=Live record=1
+   a SystemConf load of that file (the pin's code): value=[] rc 0
+   system.cfg.backup after the interface's load: 222 lines, marker absent, qa.setting=newer
+== result: PASS (K0-K3) ; S1 as observed above
+
+S1 of shell-writers is unchanged by S2, as expected: set_setting copies the seed and then writes its key, so the live file is not the seed byte for byte, and the interface's load records it. That half is the OS scripts' (#1208, under #695): set_setting restores the record under its lock. S2 covers the interface's half: a live file equal to the seed, and a cut file whatever its mtime.
