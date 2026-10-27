@@ -11,7 +11,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **One item per defect or reusable improvement**, however many leads found it. PL-01 to PL-20 are the first read's, ordered by severity within the bugs proposed, then the recorded; PL-21 to PL-26 are the seat's new items (EP-39 to EP-46), appended.
 - **Nothing here changes a file** under the distribution's `packages/`, `projects/` or `tools/`, or an ES file, at stages A to D. A fix lands only under a stream brief on the ES branch, proven twice. A row added, moved or renamed updates `docs/es-menu-map.md` in the same commit (D-UI-039).
 - **Lines** are the pin's. "Guest" means the M6 image (M7's composition over the pin). "Fixture" means a stage-C harness that fails at the pin and passes its control.
-- **Every disposition is a question** for the stage-D pause (`question:`). **Ruled 20:10 UTC** (#680 comment 6452429909): twenty bugs, #1271 to #1290, filed with their code traces by `tools/t33-file-bugs.py`; each item's **Bug:** line names its issue.
+- **Every disposition is a question** for the stage-D pause (`question:`). **Ruled 20:10 UTC** (#680 comment 6452429909): twenty bugs, #1271 to #1290, filed with their code traces by `tools/t33-file-bugs.py`; **ruled 20:15 UTC** (#680 comment 6452522368): PL-13 and PL-18's 3.5, #1291 and #1292 (`--second`). Each item's **Bug:** line names its issue.
 - **The audit issue:** #1270 (a sub-issue of #680), one checkbox per item; `tools/box-check --issue 1270`: 26 open checkboxes, 0 fail.
 
 ---
@@ -286,6 +286,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Acceptance:**
   - [ ] `stage-c/l309-rating-year.py` against the fixed file prints no `(want ...)` line (rc 0).
 - **Disposition (proposed for the stage-D pause):** question: recorded with a #585 line (outside the lanes), or a `bug`?
+- **Bug:** #1291 (filed 2026-10-27, with its code trace; ruled 20:15 UTC)
 
 ## PL-14: closing a RetroAchievements page waits on the watcher lock while a network check holds it (es-core's lock, the fork's callers)
 
@@ -380,6 +381,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Acceptance:**
   - [ ] `02` § The #585 lines owed carries a line for each of 3.5 and 3.8's double count, and #771 carries `FileData.cpp:1659` (a comment link in `stage-e/`).
 - **Disposition (proposed for the stage-D pause):** question: recorded, 3.5 raised to a `bug`, and `FileData.cpp:1659` to #771?
+- **Bug:** #1292 for 3.5 alone (filed 2026-10-27, with its code trace; ruled 20:15 UTC); the rest recorded as listed
 
 ## PL-19: the surfaces outside the lanes: Zaparoo's unbounded probe, the installer's and Bluetooth's self-deleting workers and tool-text toasts, the screensaver's cached reads and launch, the scraper search's words (recorded; D-UI-079)
 

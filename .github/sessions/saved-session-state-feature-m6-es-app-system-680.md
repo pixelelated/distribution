@@ -30,7 +30,7 @@
 - L-06 did not fault once.
 - G-03's index toast and `exec.log` were not shown.
 
-**Stage D: ruled (20:10 UTC, #680 comment 6452429909); twenty bugs filed, #1271 to #1290; waiting for the coordinator's stream brief (stage E).** The bugs map to items through `stage-d/bugs/filed.txt`. Open questions put on #680: PL-13 and PL-18's 3.5.
+**Stage D: ruled (20:10 UTC, #680 comment 6452429909); twenty-two bugs filed, #1271 to #1292 (PL-13 and 3.5 ruled 20:15 UTC); waiting for the coordinator's stream brief (stage E).** The bugs map to items through `stage-d/bugs/filed.txt`.
 
 **Scratch:** `/workspace/tmp/m6-t33/` (`tmp/`, `rj/` the recipe's rapidjson). `stage-a/env.sh` holds the paths.
 

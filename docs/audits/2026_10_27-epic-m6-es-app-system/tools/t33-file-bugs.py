@@ -3,7 +3,10 @@
 (#680 comment 6452429909, 20:10 UTC), from 05-punch-list.md (T32's t32-file-bugs.py,
 #679, adapted).
 
-    python3 -I t33-file-bugs.py <05-punch-list.md> <out dir>
+    python3 -I t33-file-bugs.py <05-punch-list.md> <out dir> [--second]
+
+With --second, the two the last ruling names (#680 comment 6452522368,
+20:15 UTC): PL-13 and PL-18's 3.5, under rule 6.
 
 Writes <out dir>/<ID>.title and <ID>.md. A body is: an introduction, the
 item's section of 05 copied (its family, owner area, fix shape, VM line,
@@ -138,12 +141,45 @@ EP47 = """## EP-47 (part of PL-19)
   - [ ] A fixture whose scan returns before `start()` publishes FAILs at the pin under ASan and passes on the fix (`stage-e/`).
 """
 PLS = ["PL-01", "PL-02", "PL-03", "PL-04", "PL-05", "PL-06", "PL-07", "PL-08", "PL-09", "PL-10", "PL-11", "PL-12", "PL-14", "PL-15", "PL-16", "PL-21", "PL-22", "PL-23", "PL-24", "EP-47"]
+RULE2 = "#680 comment 6452522368, 20:15 UTC"
+RULING["PL-13"] = "a bug under rule 6: the rating and year keys are pure functions with wrong boundaries; a wrong boundary in a pure function is a defect with a unit case, not a filter behaviour altered; the fix contained to those functions."
+RULING["PL-18/3.5"] = "a bug under rule 6: an empty returned field never overwrites a filled one (T32's S2 kept a game's data over a dependency's 404 by the same reasoning)."
+TRACE["PL-13"] = ("L-27 at stage B; `stage-c/l309-rating-year.py` at stage C (`0.05` reads 0 STARS; `3000…` and `0999…` read \"\"); the seat's EP-11 (the rule is a proposed policy, `1 STARS` an index key whose display is to read).",
+           "`FileFilterIndex.cpp:321-340`: a rating at or below 0 reads UNKNOWN, any positive one `(int)Math::round(rating * 5) + \" STARS\"`, so `0.05` reads `0 STARS` and `0.2` reads `1 STARS`; `:364-369`: a year key only when the first character is `1` or `2`.",
+           "The other cases of `getIndexableKey` (`:300-380`); the filter page's labels (T31's `GuiGamelistFilter`) that show the keys; the stored `.xcc` values (`:1243-1311`), which carry the keys: a key spelled differently after the fix no longer matches a stored filter.",
+           "How the labels read on the filter page (an integration-window frame); whether a stored `.xcc` with `0 STARS` exists on any device.")
+TRACE["PL-18/3.5"] = ("The floor's 3.5, a subagent's read, re-read by the first reader at `MetaData.cpp:560-568`; the seat's EP-35 could not see it (outside the packet).",
+           "`MetaDataList::importScrappedMetadata` (`MetaData.cpp:469-569`): the media fields are skipped when the scrape returned nothing (`:533-563`), but the text fields (developer, publisher, genre, players, release date; the description when ScrapeDescription is on) fall through to `set(mdd.id, source.get(mdd.id))` (`:568`), which writes `\"\"` over a filled field. The rating is skipped only when negative (`:565`).",
+           "The callers `scrapers/ThreadedScraper.cpp:279` (the batch scrape) and `guis/GuiGameOptions.cpp:405` (a single game's); the name (`:517-521`) and description (`:523-527`) guards keep a filled field only when their setting is off; `Favorite`, `Hidden`, `Emulator` and `Core` are skipped (`:532`).",
+           "Which scrapers return an empty field for one they know nothing of (each scraper's parse, T32's slice); how often a player's hand-entered field meets one.")
+EP35 = """## PL-18's 3.5
+
+- **Severity:** Medium
+- **Category:** Correctness
+- **Question:** Q3
+- **Family:** a write with no last good copy
+- **Source Finding:** the floor's 3.5 [re-read] -- proved: tree (`stage-c/floor.md`; `MetaData.cpp:560-568`, the first reader's read)
+- **Owner area:** `es-app/src/MetaData.cpp:469-569` (`importScrappedMetadata`), `:568`
+- **What:**
+  - A game whose developer is "Capcom" is scraped by a source that returns no developer: `:568` writes `\"\"` over it. The same for publisher, genre, players and release date (which becomes not-a-date-time), and the description when ScrapeDescription is on. The media fields are already guarded by an emptiness check (`:533-563`); the text fields are not.
+- **Fix shape:**
+  - an empty returned field never overwrites a filled one, for every field the import sets; a unit case over `importScrappedMetadata` with a source that lacks the field.
+- **Can this be done on the VM?** Yes. A unit case in `es-unit-tests` over `MetaDataList` (the import is pure over two lists, `fix-unit-test`); a guest scrape needs a network.
+- **Already written:** what earlier scrapes already blanked stays blanked: the old value is not stored anywhere to bring back, so there is nothing inherited to migrate. The fix stops further blanking.
+- **Acceptance:**
+  - [ ] A unit case imports a source without a developer into a list with one and asserts the developer stays; it FAILs at the pin and passes on the fix (`stage-e/`).
+"""
+if "--second" in sys.argv:
+    PLS = ["PL-13", "PL-18/3.5"]
+
 text = open(sys.argv[1], encoding="utf-8").read()
 out = sys.argv[2]
 os.makedirs(out, exist_ok=True)
 n = 0
 for pl in PLS:
-    if pl == "EP-47":
+    if pl == "PL-18/3.5":
+        sec, title = EP35, "a scrape that returns nothing for a field blanks the filled one: developer, publisher, genre, players, release date"
+    elif pl == "EP-47":
         sec, title = EP47, "Bluetooth's scan can publish its own freed object: the worker deletes itself before `start()` assigns it"
     else:
         m = re.search(r"^## %s: (.*)$" % pl, text, re.M)
@@ -153,12 +189,12 @@ for pl in PLS:
         sec = re.sub(r"^## (PL-\d+): .*$", r"## \1", sec, count=1, flags=re.M)
     assert "**Already written:**" in sec and "**Can this be done on the VM?**" in sec, pl
     how, src, sib, cannot = TRACE[pl]
-    body = ("Found by T33 (#680), the audit of EmulationStation's system layer (`docs/audits/2026_10_27-epic-m6-es-app-system/` on `feature/m6-es-app-system-680`; the audit issue #1270), read at the ES pin `16dbac5211`. The section below is `05-punch-list.md`'s, copied; the ruling is the coordinator's (%s).\n\n" % RULE
-            + sec + "\n- **Ruled (%s):** %s\n\n" % (RULE, RULING[pl])
+    body = ("Found by T33 (#680), the audit of EmulationStation's system layer (`docs/audits/2026_10_27-epic-m6-es-app-system/` on `feature/m6-es-app-system-680`; the audit issue #1270), read at the ES pin `16dbac5211`. The section below is `05-punch-list.md`'s, copied; the ruling is the coordinator's (%s).\n\n" % (RULE2 if "--second" in sys.argv else RULE)
+            + sec + "\n- **Ruled (%s):** %s\n\n" % (RULE2 if "--second" in sys.argv else RULE, RULING[pl])
             + "## Code trace\n\n- **How it was found:** %s\n- **The defect at its source (the pin):** %s\n- **Siblings hunted:** %s\n- **What reading cannot prove:** %s\n\n" % (how, src, sib, cannot)
             + "## Acceptance criteria\n\n- [ ] The item's positive FAILs on the pin and PASSes on the stream's commit: `stage-e/<stream>-before.txt` and `-after.txt` in the audit folder, as the item's **Acceptance** lines above describe.\n- [ ] `02` § The streams carries the stream's row with this bug's `Already written:` answer, and `05`'s Phase 7 row names the commit.\n")
-    open(os.path.join(out, pl + ".title"), "w").write("Bug: EmulationStation: %s (T33 %s)" % (title, pl if pl != "EP-47" else "PL-19 EP-47"))
-    open(os.path.join(out, pl + ".md"), "w").write(body)
+    open(os.path.join(out, pl.replace("/", "-") + ".title"), "w").write("Bug: EmulationStation: %s (T33 %s)" % (title, {"EP-47": "PL-19 EP-47", "PL-18/3.5": "PL-18 3.5"}.get(pl, pl)))
+    open(os.path.join(out, pl.replace("/", "-") + ".md"), "w").write(body)
     n += 1
-assert n == 20, n
+assert n == (2 if "--second" in sys.argv else 20), n
 print("t33-file-bugs: %d bodies written to %s" % (n, out))

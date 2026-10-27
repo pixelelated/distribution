@@ -344,3 +344,6 @@ I["PL-22"]["bug"] = "#1287 (filed 2026-10-27, with its code trace; ruled 20:10 U
 I["PL-23"]["bug"] = "#1288 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
 I["PL-24"]["bug"] = "#1289 (filed 2026-10-27, with its code trace; ruled 20:10 UTC)"
 I["PL-19"]["bug"] = "#1290 for EP-47 alone (filed 2026-10-27, with its code trace; ruled 20:10 UTC); the rest recorded as listed"
+# ---- The last ruling (#680 comment 6452522368, 20:15 UTC): PL-13 and PL-18's 3.5, bugs under rule 6. ----
+I["PL-13"]["bug"] = "#1291 (filed 2026-10-27, with its code trace; ruled 20:15 UTC)"
+I["PL-18"]["bug"] = "#1292 for 3.5 alone (filed 2026-10-27, with its code trace; ruled 20:15 UTC); the rest recorded as listed"
