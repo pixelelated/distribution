@@ -1,0 +1,41 @@
+# T21 S12 before: S11's tree (ES eeee95265) with S12's tests; StatusText, HttpText's two tables and the stores' recoveryOutcome holding the pin's behaviour (#668, #1206)
+
+RUN es-unit-tests: rc 1; [doctest] test cases: 205 | 200 passed | 5 failed | 0 skipped [doctest] assertions: 4915 | 4902 passed | 13 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 28 | 28 passed | 0 failed | 0 skipped [doctest] assertions: 3427 | 3427 passed | 0 failed | 
+RUN es-conf-tests: rc 1; [doctest] test cases: 25 | 24 passed | 1 failed | 0 skipped [doctest] assertions: 244 | 242 passed | 2 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+RUN es-settings-tests: rc 1; [doctest] test cases: 6 | 5 passed | 1 failed | 0 skipped [doctest] assertions: 48 | 46 passed | 2 failed | 
+
+## es-unit-tests: the failing cases
+TEST CASE:  statusForHttpCode: 501 to 504 are their own class, not offline (T21 PL-18, #1206)
+es-app/tests/unit/HttpTextTests.cpp:65: ERROR: CHECK( HttpText::statusForHttpCode(code) == HttpText::kStatusServerUnavailable ) is NOT correct!
+es-app/tests/unit/HttpTextTests.cpp:65: ERROR: CHECK( HttpText::statusForHttpCode(code) == HttpText::kStatusServerUnavailable ) is NOT correct!
+es-app/tests/unit/HttpTextTests.cpp:65: ERROR: CHECK( HttpText::statusForHttpCode(code) == HttpText::kStatusServerUnavailable ) is NOT correct!
+es-app/tests/unit/HttpTextTests.cpp:65: ERROR: CHECK( HttpText::statusForHttpCode(code) == HttpText::kStatusServerUnavailable ) is NOT correct!
+TEST CASE:  statusForTransferFailure: redirects exhausted and a certificate that did not verify are their own classes (T21 PL-18, #1206)
+es-app/tests/unit/HttpTextTests.cpp:73: ERROR: CHECK( HttpText::statusForTransferFailure(47) == HttpText::kStatusServerUnavailable ) is NOT correct!
+es-app/tests/unit/HttpTextTests.cpp:74: ERROR: CHECK( HttpText::statusForTransferFailure(60) == HttpText::kStatusCertificate ) is NOT correct!
+es-app/tests/unit/HttpTextTests.cpp:75: ERROR: CHECK( HttpText::statusForTransferFailure(77) == HttpText::kStatusCertificate ) is NOT correct!
+TEST CASE:  ladderSentence: three outcomes, three sentences, each true of its outcome (T21 PL-18, #1206)
+es-app/tests/unit/StatusTextTests.cpp:13: ERROR: CHECK( StatusText::ladderSentence(RecoveryOutcome::RestoredInMemory) == "YOUR SETTINGS FILE WAS DAMAGED. THE LAST GOOD COPY IS IN USE AND WILL BE SAVED
+es-app/tests/unit/StatusTextTests.cpp:14: ERROR: CHECK( StatusText::ladderSentence(RecoveryOutcome::Missing) == "YOUR SETTINGS FILE WAS MISSING. THE LAST GOOD COPY WAS RESTORED." ) is NOT correct!
+TEST CASE:  worst: the outcome with more left to do is the one told (T21 PL-18, #1206)
+es-app/tests/unit/StatusTextTests.cpp:21: ERROR: CHECK( StatusText::worst(RecoveryOutcome::Restored, RecoveryOutcome::Missing) == RecoveryOutcome::Missing ) is NOT correct!
+es-app/tests/unit/StatusTextTests.cpp:22: ERROR: CHECK( StatusText::worst(RecoveryOutcome::Missing, RecoveryOutcome::RestoredInMemory) == RecoveryOutcome::RestoredInMemory ) is NOT correct!
+TEST CASE:  scraperTransportSentence: offline, not answering and not verified are three sentences (T21 PL-18, #1206)
+es-app/tests/unit/StatusTextTests.cpp:29: ERROR: CHECK( StatusText::scraperTransportSentence(HttpText::kStatusServerUnavailable) == "THE SCRAPER'S SERVER ISN'T ANSWERING RIGHT NOW." ) is NOT correct!
+es-app/tests/unit/StatusTextTests.cpp:30: ERROR: CHECK( StatusText::scraperTransportSentence(HttpText::kStatusCertificate) == "THE SCRAPER'S SERVER COULDN'T BE VERIFIED." ) is NOT correct!
+
+## es-conf-tests: the failing cases
+TEST CASE:  the recovery says which one it was: damaged, missing, or in use with the write-back owed (T21 PL-18, #1206)
+es-app/tests/unit/SystemConfTests.cpp:854: ERROR: CHECK( SystemConf::recoveryOutcome() == RecoveryOutcome::Missing ) is NOT correct!
+TEST CASE:  the recovery says which one it was: damaged, missing, or in use with the write-back owed (T21 PL-18, #1206)
+es-app/tests/unit/SystemConfTests.cpp:867: ERROR: CHECK( SystemConf::recoveryOutcome() == RecoveryOutcome::RestoredInMemory ) is NOT correct!
+
+## es-settings-tests: the failing cases
+TEST CASE:  Settings' recovery says which one it was: damaged, missing, or in use with the write-back owed (T21 PL-18, #1206)
+es-app/tests/unit/SettingsTests.cpp:267: ERROR: CHECK( Settings::recoveryOutcome() == RecoveryOutcome::Missing ) is NOT correct!
+TEST CASE:  Settings' recovery says which one it was: damaged, missing, or in use with the write-back owed (T21 PL-18, #1206)
+es-app/tests/unit/SettingsTests.cpp:278: ERROR: CHECK( Settings::recoveryOutcome() == RecoveryOutcome::RestoredInMemory ) is NOT correct!
+

@@ -1,0 +1,27 @@
+# T21 S12 after: the stream's tree (#668, #1206)
+
+RUN es-unit-tests: rc 0; [doctest] test cases: 205 | 205 passed | 0 failed | 0 skipped [doctest] assertions: 4915 | 4915 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 28 | 28 passed | 0 failed | 0 skipped [doctest] assertions: 3427 | 3427 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 25 | 25 passed | 0 failed | 0 skipped [doctest] assertions: 244 | 244 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+RUN es-settings-tests: rc 0; [doctest] test cases: 6 | 6 passed | 0 failed | 0 skipped [doctest] assertions: 48 | 48 passed | 0 failed | 
+
+## The sources no test compiles, syntax-only with the stand-in headers
+es-app/src/ApiSystem.cpp: rc 0
+es-app/src/guis/GuiSettings.cpp: rc 0
+es-app/src/guis/GuiWifi.cpp: rc 0
+es-core/src/HttpReq.cpp: rc 0
+es-core/src/Settings.cpp: rc 0
+es-app/src/scrapers/ScreenScraper.cpp: rc 0
+es-app/src/scrapers/Scraper.cpp: rc 0
+es-app/src/main.cpp: rc 0
+
+## tools/es-untranslated --es-src <es tree> --upstream bccd715707
+es-untranslated: upstream base bccd71570 (given)
+es-untranslated: 711 fork string(s) in the source, 711 with French, 0 without
+es-untranslated: 2 upstream string(s) not in upstream's catalogue and without French (upstream's, not counted):
+  es-app/src/guis/GuiMenu.cpp:517	RESET BATTERY FUEL GAUGE
+  es-app/src/guis/GuiMenu.cpp:518	WARNING: THE PMIC FUEL GAUGE WILL BE RESET AND THE SYSTEM WILL POWER OFF!\n\nLEAVE THE CHARGER UNPLUGGED AND POWER THE DEVICE BACK ON AFTER A FEW SECONDS. THE BATTERY LEVEL IS RE-ESTIMATED FROM THE RESTING BATTERY VOLTAGE AND BECOMES ACCURATE AGAIN AFTER A FULL CHARGE.\n\nRESET FUEL GAUGE AND POWER OFF?
+
+The four new sentences are in neither list.

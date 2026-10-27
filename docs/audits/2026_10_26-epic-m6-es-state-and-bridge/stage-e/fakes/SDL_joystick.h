@@ -9,7 +9,13 @@ typedef int32_t SDL_Keycode;
 typedef struct _SDL_Joystick SDL_Joystick;
 typedef struct _SDL_GameController SDL_GameController;
 typedef struct { uint8_t data[16]; } SDL_JoystickGUID;
-typedef union SDL_Event { uint32_t type; uint8_t padding[56]; } SDL_Event;
+typedef struct { uint32_t type; uint32_t timestamp; SDL_JoystickID which; uint8_t button; uint8_t state; } SDL_JoyButtonEvent;
+typedef struct { uint32_t type; uint32_t timestamp; uint32_t windowID; uint8_t event; int32_t data1; int32_t data2; } SDL_WindowEvent;
+typedef union SDL_Event { uint32_t type; SDL_JoyButtonEvent jbutton; SDL_WindowEvent window; uint8_t padding[56]; } SDL_Event;
+enum { SDL_QUIT = 0x100, SDL_WINDOWEVENT = 0x200, SDL_JOYBUTTONDOWN = 0x603, SDL_JOYBUTTONUP = 0x604 };
+enum { SDL_WINDOWEVENT_RESIZED = 5 };
+#define SDL_PRESSED 1
+#define SDL_RELEASED 0
 typedef enum { SDL_FALSE = 0, SDL_TRUE = 1 } SDL_bool;
 typedef uint8_t Uint8; typedef uint16_t Uint16; typedef uint32_t Uint32; typedef int32_t Sint32; typedef int16_t Sint16; typedef uint64_t Uint64;
 #define SDL_HAT_CENTERED 0x00
@@ -28,6 +34,11 @@ extern "C" {
 #endif
 const char* SDL_GetKeyName(SDL_Keycode);
 Uint32 SDL_GetTicks(void);
+void SDL_Delay(Uint32);
+int SDL_PollEvent(SDL_Event*);
+int SDL_WaitEvent(SDL_Event*);
+int SDL_WaitEventTimeout(SDL_Event*, int);
+void SDL_StopTextInput(void);
 #ifdef __cplusplus
 }
 #endif
