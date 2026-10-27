@@ -1,0 +1,11 @@
+# S10 after: ES b71d656d9, 14:56:40Z
+$ python3 -I stage-c/s10-viewer-guard.py <W>/es-app/src/guis/GuiImageViewer.cpp
+race: ran
+ok   race (rc 0)
+late: 2 callback(s) queued for A
+late: callbacks returned
+ok   late (rc 0)
+empty: pushed 0, toasts 1 [COULDN'T OPEN THIS FILE.]
+ok   empty (rc 0)
+s10: PASS, 3 cases
+rc 0

@@ -1,0 +1,16 @@
+# S10 before (#678, #1252): GuiImageViewer.cpp at the S9 tip (the pin's bytes), 14:56:37Z
+$ python3 -I stage-c/s10-viewer-guard.py <GuiImageViewer.cpp at the S9 tip>
+race: ran
+  WARNING: ThreadSanitizer: data race (pid=3470555)
+  SUMMARY: ThreadSanitizer: data race
+FAIL race (rc 66)
+late: 2 callback(s) queued for A
+  ==3470565==ERROR: AddressSanitizer: heap-use-after-free on address 0x6f23d6fe0060 at pc 0x5f080f589201 bp 0x7ffcd1ab7680 sp 0x7ffcd1ab7670
+  SUMMARY: AddressSanitizer: heap-use-after-free
+FAIL late (rc 1)
+empty: pushed 0, toasts 0
+  ==3470590==ERROR: LeakSanitizer: detected memory leaks
+  SUMMARY: AddressSanitizer: 640 byte(s) leaked in 9 allocation(s).
+FAIL empty (rc 1)
+FAIL s10: 3 of 3 cases
+rc 1

@@ -30,7 +30,7 @@ done
 G=$W/es-app/src/guis
 # From S3 on, Moonlight's positive is s03-moonlight.py, which compiles the whole page and runs it:
 # l05-l06 reads the pin's snprintf and tilde shapes, which S3 removes, and stays the pin's record (D-WORKFLOW-210).
-for h in "l01-start-drops.py $G/GuiSettings.cpp" "l02-led-not-saved.py $G/GuiAnalogSticksLedControls.cpp $G/GuiSettings.cpp" "s03-moonlight.py $W" "s04-copy-press.py $G/GuiSaveState.cpp" "l09-l10-scrape-page.py $G/GuiScraperRun.cpp" "l22-guiloading-race.py $G/GuiLoading.h"; do
+for h in "l01-start-drops.py $G/GuiSettings.cpp" "l02-led-not-saved.py $G/GuiAnalogSticksLedControls.cpp $G/GuiSettings.cpp" "s03-moonlight.py $W" "s04-copy-press.py $G/GuiSaveState.cpp" "s10-viewer-guard.py $G/GuiImageViewer.cpp" "l09-l10-scrape-page.py $G/GuiScraperRun.cpp" "l22-guiloading-race.py $G/GuiLoading.h"; do
   out=$(python3 -I $C/$h 2>&1); rc=$?
   printf 'stage-c/%s rc=%s: %s\n' "${h%% *}" "$rc" "$(printf '%s\n' "$out" | grep -v -E '^\s+#' | tail -n 1 | cut -c1-140)"
 done
