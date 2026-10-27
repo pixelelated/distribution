@@ -1,0 +1,11 @@
+# T21 S10's follow-up before: S12's tree (ES e38dcdefd) with the page sentence's case; biosPageSentence returning nothing, as the pin's page showed its list (#668, #1202)
+
+RUN es-unit-tests: rc 1; [doctest] test cases: 206 | 205 passed | 1 failed | 0 skipped [doctest] assertions: 4917 | 4916 passed | 1 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 28 | 28 passed | 0 failed | 0 skipped [doctest] assertions: 3427 | 3427 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 25 | 25 passed | 0 failed | 0 skipped [doctest] assertions: 244 | 244 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+RUN es-settings-tests: rc 0; [doctest] test cases: 6 | 6 passed | 0 failed | 0 skipped [doctest] assertions: 48 | 48 passed | 0 failed | 
+
+TEST CASE:  biosPageSentence: a check that did not run says so in place of the list (T21 PL-14, #1202)
+es-app/tests/unit/StatusTextTests.cpp:37: ERROR: CHECK( StatusText::biosPageSentence(false) == "COULDN'T CHECK THE BIOS FILES RIGHT NOW." ) is NOT correct!

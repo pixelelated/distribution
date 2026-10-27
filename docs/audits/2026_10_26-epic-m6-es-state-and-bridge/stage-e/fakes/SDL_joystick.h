@@ -15,6 +15,7 @@ typedef union SDL_Event { uint32_t type; SDL_JoyButtonEvent jbutton; SDL_WindowE
 enum { SDL_QUIT = 0x100, SDL_WINDOWEVENT = 0x200, SDL_JOYBUTTONDOWN = 0x603, SDL_JOYBUTTONUP = 0x604 };
 enum { SDL_WINDOWEVENT_RESIZED = 5 };
 #define SDL_PRESSED 1
+enum { SDLK_F3 = 0x4000003c, SDLK_F5 = 0x4000003e };
 #define SDL_RELEASED 0
 typedef enum { SDL_FALSE = 0, SDL_TRUE = 1 } SDL_bool;
 typedef uint8_t Uint8; typedef uint16_t Uint16; typedef uint32_t Uint32; typedef int32_t Sint32; typedef int16_t Sint16; typedef uint64_t Uint64;

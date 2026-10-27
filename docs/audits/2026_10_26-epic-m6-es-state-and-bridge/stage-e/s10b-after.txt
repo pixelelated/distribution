@@ -1,0 +1,29 @@
+# T21 S10's follow-up after: both callers read ran (#668, #1202; the ruling on #668, 01:47 UTC)
+
+RUN es-unit-tests: rc 0; [doctest] test cases: 206 | 206 passed | 0 failed | 0 skipped [doctest] assertions: 4917 | 4917 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 28 | 28 passed | 0 failed | 0 skipped [doctest] assertions: 3427 | 3427 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 25 | 25 passed | 0 failed | 0 skipped [doctest] assertions: 244 | 244 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+RUN es-settings-tests: rc 0; [doctest] test cases: 6 | 6 passed | 0 failed | 0 skipped [doctest] assertions: 48 | 48 passed | 0 failed | 
+
+## Syntax-only, with the stand-in headers
+es-app/src/views/ViewController.cpp: rc 0
+es-app/src/guis/GuiBios.cpp: rc 0
+es-app/src/ApiSystem.cpp: rc 0
+es-app/src/main.cpp: rc 0
+
+## tools/es-untranslated --es-src <es tree> --upstream bccd715707
+es-untranslated: upstream base bccd71570 (given)
+es-untranslated: 712 fork string(s) in the source, 712 with French, 0 without
+es-untranslated: 2 upstream string(s) not in upstream's catalogue and without French (upstream's, not counted):
+  es-app/src/guis/GuiMenu.cpp:517	RESET BATTERY FUEL GAUGE
+  es-app/src/guis/GuiMenu.cpp:518	WARNING: THE PMIC FUEL GAUGE WILL BE RESET AND THE SYSTEM WILL POWER OFF!\n\nLEAVE THE CHARGER UNPLUGGED AND POWER THE DEVICE BACK ON AFTER A FEW SECONDS. THE BATTERY LEVEL IS RE-ESTIMATED FROM THE RESTING BATTERY VOLTAGE AND BECOMES ACCURATE AGAIN AFTER A FULL CHARGE.\n\nRESET FUEL GAUGE AND POWER OFF?
+
+COULDN'T CHECK THE BIOS FILES RIGHT NOW. is in neither list.
+
+## As built
+- GuiBios carries ran from both loads (show and REFRESH); when it is false, the page's one row is the sentence (StatusText::biosPageSentence) in place of its list, the way THE BIOS CHECK RETURNED NOTHING is shown.
+- ViewController's launch check: with ran false, no warning; the game launches and the log says why. No toast.
+- French: IMPOSSIBLE DE VÉRIFIER LES FICHIERS BIOS POUR LE MOMENT. (the coordinator's), beside THE BIOS CHECK RETURNED NOTHING in the catalog.
+- The page's frame is fix-walk-pending-image.
