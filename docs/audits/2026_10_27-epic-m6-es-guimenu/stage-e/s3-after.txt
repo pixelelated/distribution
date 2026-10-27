@@ -1,0 +1,7 @@
+== S3 after: tests/upstream-row-stores.py against the worktree
+upstream-row-stores: PASS, VIDEO FILTER writes global.videofilter, GAME MEDIAS DURING FAST SCROLLING writes es_settings.cfg, 8 fixture cases
+rc 0
+== negative: the worktree's GuiMenu.cpp with setScrollLoadMedias' old-key write replaced by ';'
+FAIL upstream-row-stores: a device-state fixture failed: rows: /workspace/tmp/m6-t26/tmp/upstream-row-stores-a9sx_8dy/rows.cpp:68: int main(): Assertion `settings.v.count("ScrollLoadMedias") == 0 && !scrollLoadMedias()' failed.
+rc 1
+== the reader's fallback: game_setting ends at global.<name> (001-functions at 8ebaf8daad, :165-169)

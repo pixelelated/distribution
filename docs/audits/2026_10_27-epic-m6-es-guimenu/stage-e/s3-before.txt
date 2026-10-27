@@ -1,0 +1,7 @@
+== S3 before: tests/upstream-row-stores.py against the pin's GuiMenu.cpp and IList.h (16dbac521)
+FAIL upstream-row-stores: VIDEO FILTER writes ['global.videofilters']; setsettings.sh reads global.videofilter
+FAIL upstream-row-stores: GAME MEDIAS DURING FAST SCROLLING is an addSwitch storing in system.cfg (storeInSettings false); IList reads es_settings.cfg
+FAIL upstream-row-stores: no helper globalVideoFilter, setGlobalVideoFilter, scrollLoadMedias, setScrollLoadMedias to run the device-state fixtures against
+rc 1
+== the reader: setsettings.sh at the distribution's 8ebaf8daad
+793:    local FILTER="$(game_setting videofilter)"

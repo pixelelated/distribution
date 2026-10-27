@@ -1,0 +1,27 @@
+== S3 (PL-03 #1217, PL-04 #1218) checks, before the ES commit
+== checks: S3 (09:44:45Z), ES HEAD 03183f899d, worktree changes 2
+es-app/src/guis/GuiMenu.cpp: rc 0
+syntax-check rc 0
+RUN es-unit-tests: rc 0; [doctest] test cases: 185 | 185 passed | 0 failed | 0 skipped [doctest] assertions: 4795 | 4795 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3389 | 3389 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+TOTAL: 221 test cases in 4 binaries
+t26-build-tests rc 0
+non-ASCII added comment lines in C++ sources: 0
+  non-ASCII added lines (any kind) in locale/lang/fr/LC_MESSAGES/emulationstation2.po: 1
+maintenance-why rc=0: maintenance-why: PASS
+cloud-sync-last-run rc=0: cloud-sync-last-run: PASS
+cloud-oauth-lifetime rc=0: PASS failed-start
+cloud-set-systems-quoting rc=0: cloud-set-systems-quoting: 5 of 5 passed
+cloud-gated-row rc=0: cloud-gated-row: PASS
+cloud-folder-reopen rc=0: cloud-folder-reopen: PASS
+cloud-content-selection rc=0: cloud-content-selection: 14 of 14 passed
+cloud-oauth-await rc=0: cloud-oauth-await: PASS
+credential-quoting rc=0: credential-quoting: 9 credential call site(s), 9 quoted, 0 bare
+gpu-governor-save rc=0: PASS fallback
+cloud-setup-repair-lifetime rc=0: PASS repair picker: 1 page(s) left, 2 refusals
+relink-row-names rc=0: relink-row-names: PASS, 3 path(s) walked
+upstream-row-stores rc=0: upstream-row-stores: PASS, VIDEO FILTER writes global.videofilter, GAME MEDIAS DURING FAST SCROLLING writes es_settings.cfg, 8 fixture cases
+55 screen(s) at 03183f899, 31 in the map, 24 declared unmapped, 0 missing (rc 0)
+es-untranslated: 706 fork string(s) in the source, 706 with French, 0 without (rc 0)

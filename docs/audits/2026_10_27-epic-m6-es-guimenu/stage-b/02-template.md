@@ -212,6 +212,7 @@ Stage E, under the ruling of 09:17 UTC (#673, comment 6438068860) and the stream
 | --- | --- | --- | --- | --- | --- |
 | S1 | PL-01, #1215 | `70a00ad13` | `tests/cloud-setup-repair-lifetime.py`: ASan heap-use-after-free at `16dbac521`; PASS, 1 page left, 2 refusals | nothing: the picker holds no state and writes nothing; the crash came before anything was stored | `fix-unit-test` |
 | S2 | PL-02, #1216 (and PL-15, no bug) | `03183f899`; the map at distribution `190faf95fe` | `tests/relink-row-names.py`, every path the relink page names walked from the main menu: FAIL at `16dbac521` (CONNECT OR REPAIR CLOUD STORAGE is no row of MANAGE CLOUD STORAGE); PASS, 3 paths; FAIL on a copy whose hub no longer builds CLOUD CONNECTIONS. `es-menu-map-check` at `03183f899` 0 missing | nothing: a sentence; nothing stored names the row | `fix-unit-test`; the frame `fix-walk-pending-image` (G08) |
+| S3 | PL-03, #1217; PL-04, #1218 | `d9bcdfb8a` | `tests/upstream-row-stores.py`, each row's key and store against its reader and the rows' four helpers run on two small stores: FAIL at `16dbac521` (`global.videofilters`; `system.cfg`; no helpers); PASS, 8 fixture cases; FAIL on a copy whose save stops keeping the old key in step | `global.videofilters` and `system.cfg`'s `ScrollLoadMedias` on every device that saved those pages: read while the new place is absent, the new place written by the next save, nothing removed. `es_settings.cfg` keeps no OFF, so a save keeps the old `ScrollLoadMedias` equal to the new value where it already exists (otherwise an old ON would return over an OFF). The old ON takes effect when UI SETTINGS is next saved | `fix-unit-test`; G03 and G04 `fix-walk-pending-image` |
 
 ## Positives
 
@@ -232,6 +233,13 @@ Per D-WORKFLOW-164, each confirmed defect or reusable fix is weighed for upstrea
 - L-05 (`GetShOutput`) is `es-core`'s, upstream's, and reaches every caller of it: a candidate for upstream with the fixture as its reproducer; the fork's own callers are this file's.
 - L-02 (the texture cache by path) is a property of `TextureResource`, upstream's; the fork's QR page is the caller that meets it. The fix belongs in this file (a path per session), not upstream.
 - The rest are the fork's own and stay here.
+
+From the streams, in T21's shape (each from its stream's row above; none sent, D-WORKFLOW-165; rechecked against upstream's head when ready). "Present at" names the local refs read, which are not refreshed here (no fetch):
+
+| Upstream | File | The change | Evidence | Present at |
+| --- | --- | --- | --- | --- |
+| ROCKNIX/emulationstation-next | `es-app/src/guis/GuiMenu.cpp` `openGamesSettings` (VIDEO FILTER) | the global row stores `global.videofilter`, the key ROCKNIX's `setsettings.sh` reads (`game_setting videofilter`), and loads `global.videofilters` when that is absent; batocera's own launcher is not read here, so the change is ROCKNIX's to weigh | ES `d9bcdfb8a` (S3, #1217); `tests/upstream-row-stores.py` | `rocknix/master` `f6c542872`, `batocera/master` `b2ceb55a7` (the row's lines, from `15f512a85`) |
+| batocera-emulationstation, then ROCKNIX | `es-app/src/guis/GuiMenu.cpp` `openUISettings` (GAME MEDIAS DURING FAST SCROLLING) | the switch stores in `Settings`, which `IList` reads, not in `system.cfg` (`addSwitch(..., false)`); the old `system.cfg` value read while `es_settings.cfg` has none | ES `d9bcdfb8a` (S3, #1218); the same test | `rocknix/master` `f6c542872`, `batocera/master` `b2ceb55a7` |
 
 ## What T31 to T37 inherit
 
