@@ -193,7 +193,19 @@ Stage C's: each unit case's FAIL against the unfixed extract, then its PASS.
 
 ## The #585 lines owed
 
-Stage D's: one per upstream-carried defect closed under rule 6, in the shape the lane writes, never sent.
+Per D-WORKFLOW-164, each upstream-side lead is weighed for upstream. None is sent (D-WORKFLOW-165); each is rechecked against upstream's head when ready. At stage D these are the candidates, by punch item; stage F fills the commit. "Present at" means the 36 upstream-carried files are byte-identical to `rocknix/master` at the pin (§ The merge debt); `batocera/master` was not read.
+
+| Upstream | File | The change (proposed) | Evidence | Present at |
+| --- | --- | --- | --- | --- |
+| ROCKNIX/emulationstation-next (the CANCEL is the fork's) | `scrapers/ThreadedScraper.cpp` `stop`, `run`, `isRunning` | PL-01: the lifetime read and cleared under `sProgressMutex`; `stop()` a no-op once finished; with PL-14's delete on erase | `stage-c/l02-stop-after-finish.py` | the fork's lines over `rocknix/master`'s |
+| batocera-emulationstation, then ROCKNIX | `scrapers/Scraper.cpp` `ScraperHttpRequest::update`; `IGDBScraper.cpp` `process` | PL-02: an IO error and a spent or long 429 are errors with their codes; `process()`'s `false` retried once; IGDB returns `true` for no match | `l313`, `l316`; G-05 | `rocknix/master` |
+| batocera-emulationstation, then ROCKNIX | `scrapers/GamesDBJSONScraper.cpp`, `IGDBScraper.cpp`, `HfsDBScraper.cpp` | PL-03: shape before access, for builds with NDEBUG | `l310`, `l316` (`--plain` rc -11) | `rocknix/master` |
+| batocera-emulationstation, then ROCKNIX | `scrapers/Scraper.cpp` `getScraper` | PL-04: fall back to the first registered scraper | `floor.md` 3.15 | `rocknix/master` |
+| batocera-emulationstation, then ROCKNIX | `scrapers/Scraper.cpp`, the token requests | PL-05: a `stallTimeout` on every scraper request (#299's shape) | `t32-bounds.py` | `rocknix/master` |
+| batocera-emulationstation, then ROCKNIX; cpp-httplib's currency | `services/HttpServerThread.cpp`, `services/httplib.h` | PL-06: `set_payload_max_length`; the vendored 2020 copy behind 0.20.1's chunked limit | `httplib.h:72`, `:2475`; the dated search | `rocknix/master` |
+| batocera-emulationstation, then ROCKNIX | `views/gamelist/GameNameFormatter.cpp` | PL-08: DESCENDING shows the year; play time past a day | `l332` | `rocknix/master` |
+| batocera-emulationstation, then ROCKNIX | `views/gamelist/GridGameListView.cpp`, `views/SystemView.cpp`, `ISimpleGameListView.cpp`'s letter | PL-09, PL-13: the IMAGE fallback; the modulo; the first code point | `l331`, `l327`; `floor.md` | `rocknix/master` (the letter code is the fork's file, upstream's lines) |
+| batocera-emulationstation, then ROCKNIX | `services/HttpServerThread.cpp`, `HttpApi.cpp`; the scrapers' smaller items | PL-11, PL-12: as recorded there | `floor.md`; G-08 | `rocknix/master` |
 
 ## What T33 to T37 inherit
 
@@ -204,5 +216,7 @@ Stage D's: one per upstream-carried defect closed under rule 6, in the shape the
 3. **The thread-and-lifetime table**: the scrape thread (`ThreadedScraper.cpp:53`, never joined, L-01, L-03), the server thread (`HttpServerThread.cpp:74`) and httplib's pool (`:145`) with every route's work and posts (§ The services), L-12, L-13, L-19, L-21.
 4. **The bounds table** (every `HttpReq` construction with its options; none bounded but the 10 s connect): § The bounds, L-06, L-18.
 5. **The scrapers' outcome routing** (status -> `processError` -> `Progress` -> the page's line 4): § The scrapers' last paragraph.
-6. **`httplib.h`'s currency note**: § The structure (stage C completes it).
+6. **`httplib.h`'s currency note**: § The structure, completed at stage C (the 2020 v0.7 series; L-24).
+
+And carried by name: **L-16** to T33 (#680): `CollectionSystemManager::reloadCollection` (`:1574-1589`) clears a grouped collection's root (`:1117`) before `reloadGameListView(bundle)` reads the bundle view's cursor (`ViewController.cpp:1140-1142`), which is #246's shape. Its proof is FILTER GAMES BY TEXT on a grouped custom collection on a guest.
 7. **The map section for the views**: L-15, at stage E.
