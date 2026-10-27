@@ -1,0 +1,14 @@
+# S6 after (18:18:37Z, ES at 1655e2f4c plus S6's uncommitted change)
+$ python3 -I stage-c/s6-api.py <W>/es-app/src/services/HttpServerThread.cpp
+isidle: nothing running                    -> [ true ]
+isidle: a cloud sync running               -> [ false ]
+isidle: the cloud lock held by a script    -> [ false ]
+isidle: the proxy's send running           -> [ false ]
+isidle: the proxy's top-up running         -> [ false ]
+isidle: a scrape running                   -> [ false ]
+launch: the route posted 1 piece(s) of work
+launch: the library rebuilt before the interface thread ran the work
+launch: 1 launch(es), the last of '/roms/gb/Alpha.gb'
+rc=0
+
+The proxy half needed no accessor: ProxyCards is a namespace, and sendRunning() (an atomic flag, ProxyCards.cpp:39, :553-556) and topUpRunning() (an uncached read of the ctl's running file, OfflineAchievements.cpp:141-147) are free functions safe off the interface thread. Nothing in ProxyCards.* changed.

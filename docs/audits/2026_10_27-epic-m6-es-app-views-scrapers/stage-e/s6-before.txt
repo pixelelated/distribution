@@ -1,0 +1,14 @@
+# S6 before (18:18:08Z, ES at 1655e2f4c, S4's tip: HttpServerThread.cpp is the pin's)
+$ python3 -I stage-c/s6-api.py <W>/es-app/src/services/HttpServerThread.cpp
+isidle: nothing running                    -> [ true ]
+isidle: a cloud sync running               -> [ true ]   (want the other)
+isidle: the cloud lock held by a script    -> [ true ]   (want the other)
+isidle: the proxy's send running           -> [ true ]   (want the other)
+isidle: the proxy's top-up running         -> [ true ]   (want the other)
+isidle: a scrape running                   -> [ false ]
+launch: the route posted 2 piece(s) of work
+launch: the library rebuilt before the interface thread ran the work
+SUMMARY: AddressSanitizer: heap-use-after-free a.cpp:27 in FileData::getPath[abi:cxx11]()
+FAIL s6: rc 1  fd fd fd fa fa fa fd fd
+
+rc=1

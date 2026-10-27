@@ -145,3 +145,10 @@
 - **S5, 18:16 UTC:** `docs/es-menu-map.md` § Game list views, paired with S4's `1655e2f4c`. Before and after, the checker reads `0 missing`; the views carry no title, which is its blind spot. The grep moved from 0 lines to the section's.
   - **One correction to the brief:** the carousel's fast move is a shoulder-button input in `SystemView` (`:282-334`, `:406-413`), not a VIEW OPTIONS row. The map says so, and the letter jump is the row.
   - Time to play: a document.
+- **S6, 18:19 UTC:** ES `e594e46e3`, pushed.
+  - **Harness:** `stage-c/s6-api.py` (new) extracts `/isIdle`'s predicate and `/launch`'s body as written.
+  - **Before** (S4's tip): `[ true ]` under each of the four, and two posts holding raw pointers, a use-after-free after the rebuild.
+  - **After:** rc 0.
+  - **The brief's premise was wrong:** `ProxyCards::sendRunning()` and `topUpRunning()` are free functions of a namespace, not instance methods. So no accessor was added and `ProxyCards.*` is unchanged; the reads are an atomic and an uncached file read, safe off the interface thread.
+  - **Time to play:** the lookup by path moves from the pool thread to the interface thread, before the launch: one walk of the library's games. The integration's `time-to-play` cell says what it costs against the accepted baseline.
+  - **Checks:** the stand-in passes 12 of 13 (`HttpServerThread.cpp` rc 0); non-ASCII 0; `TOTAL: 225 test cases in 4 binaries`.
