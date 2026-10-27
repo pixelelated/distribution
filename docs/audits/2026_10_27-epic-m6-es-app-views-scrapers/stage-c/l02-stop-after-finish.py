@@ -116,9 +116,10 @@ struct Log { Log(int lvl) { if (lvl == 1 && gHookArmed) { gHookArmed = false; ho
 enum { LogDebug = 0, LogInfo = 1, LogError = 2, LogWarning = 3 };
 #define LOG(x) Log(x)
 struct ScraperSearchParams { int n = 0; };
+struct HttpReq { enum Status { REQ_IO_ERROR = 3, REQ_429_TOOMANYREQUESTS = 429 }; };   // the codes run() reads since S2b (D-WORKFLOW-211)
 static bool gThrowOnHandout = false;
 struct ScraperThread { int mThreadId; ScraperThread(int i) : mThreadId(i) {}
-    int updateState() { return ASYNC_DONE; } int getError() { return 0; } std::string getErrorString() { return ""; } };
+    int updateState() { return ASYNC_DONE; } int getError() { return 0; } std::string getErrorString() { return ""; } bool isMediaError() { return false; } };
 struct Window { template<class T> void pushGui(T* g) { delete g; } };   // the window owns what is pushed
 struct GuiMsgBox { GuiMsgBox(Window*, const std::string&) {} };
 struct FakeScraper { int getThreadCount(std::string&) { return 1; } };
@@ -133,7 +134,7 @@ struct ThreadedScraper {
     std::thread mWorker;              // the fixed shape's (D-WORKFLOW-211)
     std::queue<ScraperSearchParams> mSearchQueue; std::vector<ScraperThread*> mScraperThreads;
     int mTotal, mThreadCount; std::atomic<int> mExitCode{ASYNC_IN_PROGRESS};
-    int mOfflineErrors = 0, mBusyErrors = 0;   // S2's (#1259; D-WORKFLOW-211)
+    int mOfflineErrors = 0, mBusyErrors = 0, mMediaErrors = 0;   // S2's and S2b's (#1259; D-WORKFLOW-211)
     ThreadedScraper(Window* w, const std::queue<ScraperSearchParams>& s, int threadCount)
         : mWindow(w), mSearchQueue(s), mTotal((int) s.size()), mThreadCount(threadCount) {}
     ~ThreadedScraper();

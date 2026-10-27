@@ -161,3 +161,9 @@
   - `tools/es-untranslated`: `es-untranslated: 705 fork string(s) in the source, 705 with French, 0 without`.
   - `tools/t32-build-tests.sh`: `TOTAL: 225 test cases in 4 binaries`, 0 failed in every binary.
   - **The stand-in per edited `.cpp`:** `ThreadedScraper`, `Scraper`, `IGDBScraper`, `HfsDBScraper`, `GamesDBJSONScraper`, `GamesDBJSONScraperResources`, `ArcadeDBJSONScraper`, `GameNameFormatter`, `ISimpleGameListView`, `DetailedContainer` and `HttpServerThread` rc 0. `SystemView.cpp` is `CANNOT` (`SDLK_r` at `:471`, after the edited `:231-238`, which were read twice). `GridGameListView.cpp` was read, not changed.
+- **S2b, 18:26 UTC** (the coordinator's 18:24 UTC follow-up on the hand-back: a COULDN'T FINISH always carries its why, D-UI-030): ES `b52245036`, pushed.
+  - **The change:** `ScraperThread` marks a resolve's error as a media error; the run counts those apart from offline and busy; a run with only media failures ends failed with `SOME IMAGES COULDN'T BE SAVED.` / `CERTAINES IMAGES N’ONT PAS PU ÊTRE ENREGISTRÉES.`.
+  - **Before** (S6's tip): `s2-scrapers.py`'s new `media` and `media404` cases FAIL (no why).
+  - **After:** rc 0; `l02` rc 0 with its fake completed (`isMediaError`, the third counter, `HttpReq`'s two codes).
+  - **Checks:** stand-in rc 0; non-ASCII 0; `es-untranslated` 706/706; `TOTAL: 225 test cases in 4 binaries`.
+  - The four choices stand, as ruled.

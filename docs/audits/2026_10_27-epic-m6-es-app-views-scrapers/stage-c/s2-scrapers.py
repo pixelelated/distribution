@@ -25,6 +25,10 @@ case's status. Cases, each printed with its verdict:
   an IO error (code 3), or in a spent 429: the run must end `failed` with
   the class's why on the page's line 4 (YOU'RE NOT ONLINE. / THE SCRAPER IS
   BUSY RIGHT NOW.). At the pin: not failed, no why.
+- **media**, **media404** (S2b, the coordinator's 18:24 UTC follow-up, D-UI-030):
+  three games whose images failed after their data arrived (a rename or a
+  resize, code 200; or a 404): COULDN'T FINISH with SOME IMAGES COULDN'T BE
+  SAVED. on line 4. At S2's tip: errors 3, not failed, no why.
 - **nomatch** (ruling 5): three games, no match (DONE, no result): COMPLETED
   -- not failed, errors 0. Right at the pin; kept.
 - **thread** (PL-05): the first search must run on the worker, not on the
@@ -93,11 +97,12 @@ std::vector<std::pair<std::string, Scraper*>> Scraper::scrapers;
 ''' + gs + "\n" + ha + r'''
 struct ScraperSearchParams { int n = 0; std::string getGameName() const { return "game" + std::to_string(n); } };
 static std::thread::id gSearchThread; static std::atomic<int> gSearches{0};
-static int gCaseStatus = ASYNC_DONE, gCaseCode = 0; static bool gCaseMatch = true;
+static int gCaseStatus = ASYNC_DONE, gCaseCode = 0; static bool gCaseMatch = true, gCaseMedia = false;
 struct ScraperThread { int mThreadId; int mStatus = ASYNC_IN_PROGRESS;
     ScraperThread(int i) : mThreadId(i) {}
     void run(const ScraperSearchParams&) { if (gSearches++ == 0) gSearchThread = std::this_thread::get_id(); mStatus = gCaseStatus; }
-    int updateState() { return mStatus; } int getError() { return gCaseCode; } std::string getErrorString() { return "the scraper's words"; } };
+    int updateState() { return mStatus; } int getError() { return gCaseCode; } std::string getErrorString() { return "the scraper's words"; }
+    bool isMediaError() { return gCaseMedia; } };   // S2b's (#1259; D-WORKFLOW-211)
 struct Window { template<class T> void pushGui(T* g) { delete g; } };
 struct GuiMsgBox { GuiMsgBox(Window*, const std::string&) {} };
 struct ThreadedScraper {
@@ -109,7 +114,7 @@ struct ThreadedScraper {
     std::thread* mHandle = nullptr; std::thread mWorker;
     std::queue<ScraperSearchParams> mSearchQueue; std::vector<ScraperThread*> mScraperThreads;
     int mTotal, mThreadCount; std::atomic<int> mExitCode{ASYNC_IN_PROGRESS};
-    int mOfflineErrors = 0, mBusyErrors = 0;
+    int mOfflineErrors = 0, mBusyErrors = 0, mMediaErrors = 0;
     ThreadedScraper(Window* w, const std::queue<ScraperSearchParams>& s, int threadCount)
         : mWindow(w), mSearchQueue(s), mTotal((int) s.size()), mThreadCount(threadCount) {}
     ~ThreadedScraper();
@@ -124,8 +129,8 @@ std::mutex ThreadedScraper::sProgressMutex; ThreadedScraper::Progress ThreadedSc
 std::chrono::steady_clock::time_point ThreadedScraper::sStarted;
 ''' + "\n".join(parts) + r'''
 static Window gW;
-static ThreadedScraper::Progress runGames(int n, int status, int code) {
-    gCaseStatus = status; gCaseCode = code; gSearches = 0;
+static ThreadedScraper::Progress runGames(int n, int status, int code, bool media = false) {
+    gCaseStatus = status; gCaseCode = code; gCaseMedia = media; gSearches = 0;
     std::queue<ScraperSearchParams> q; for (int i = 0; i < n; i++) q.push({i});
     ThreadedScraper::start(&gW, q);
     for (int i = 0; i < 400; i++) {
@@ -161,6 +166,12 @@ int main() {
     p = runGames(3, ASYNC_ERROR, 429);
     printf("busy: three spent 429s -> failed %d, errors %d, why '%s'\n", p.failed, p.errors, p.failure.c_str());
     if (!p.failed || p.failure != "THE SCRAPER IS BUSY RIGHT NOW.") bad++;
+    p = runGames(3, ASYNC_ERROR, 200, true);
+    printf("media: three games whose images failed (rename, resize) -> failed %d, errors %d, why '%s'\n", p.failed, p.errors, p.failure.c_str());
+    if (!p.failed || p.failure != "SOME IMAGES COULDN'T BE SAVED.") bad++;
+    p = runGames(3, ASYNC_ERROR, 404, true);
+    printf("media404: three games whose images were not found -> failed %d, why '%s'\n", p.failed, p.failure.c_str());
+    if (!p.failed || p.failure != "SOME IMAGES COULDN'T BE SAVED.") bad++;
     p = runGames(3, ASYNC_DONE, 0);
     printf("nomatch: three games, each answered -> failed %d, errors %d\n", p.failed, p.errors);
     if (p.failed || p.errors) bad++;

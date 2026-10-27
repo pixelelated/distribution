@@ -6,7 +6,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - the guest cycle, the stage-C harnesses (`stage-c/runs.txt`) and the floor read (`stage-c/floor.md`);
 - the seat's grades (`stage-c/astra-grades.md`).
 
-- **reviewed-at:** `603b358a14` (distribution), **reviewed-at-es:** `16dbac5211` (the pin). **fixed-at:** the distribution's hand-back tip on `feature/m6-es-app-views-scrapers-679` (named in #679's header and the hand-back post), **fixed-at-es:** `e594e46e3` (`feature/m6-es-app-views-scrapers-679` on pixelelated/emulationstation).
+- **reviewed-at:** `603b358a14` (distribution), **reviewed-at-es:** `16dbac5211` (the pin). **fixed-at:** the distribution's hand-back tip on `feature/m6-es-app-views-scrapers-679` (named in #679's header and the hand-back post), **fixed-at-es:** `b52245036` (S2b over `e594e46e3`) (`feature/m6-es-app-views-scrapers-679` on pixelelated/emulationstation).
 - **Independent depth:** one seat, GPT-6 Astra at `max`: 40 items, all accepted (`stage-c/astra-grades.md`).
 - **One item per defect or reusable improvement**, however many leads found it, ordered by severity.
 - **Nothing here changes a file** under the distribution's `packages/`, `projects/` or `tools/`, or an ES file, at stages A to D. A fix lands only under a stream brief on the ES branch, proven twice. A row added, moved or renamed updates `docs/es-menu-map.md` in the same commit (D-UI-039).
@@ -466,7 +466,7 @@ Stage F, 2026-10-27: every item at its outcome, the table and the index rewritte
 | Item | Outcome | Evidence |
 | --- | --- | --- |
 | PL-01 | Resolved | Resolved in `e85735b0b` (ES, S1) under #1258: an owned, joined worker, reaped on the interface thread, `cancelled` only while unfinished, the startup throw finalized (`stage-e/s1-*.txt`); a #585 line |
-| PL-02 | Resolved | Resolved in `bf3e8e2bd` (ES, S2) under #1259: request failures are errors with their codes, the dependency's 404 keeps the primary, `false` retried once, media failures counted, every game counted, offline and busy runs COULDN'T FINISH with the why (`stage-e/s2-*.txt`); two choices put to the coordinator on #679 (18:05 UTC); a #585 line |
+| PL-02 | Resolved | Resolved in `bf3e8e2bd` (ES, S2) and `b52245036` (S2b: a run whose images failed reads COULDN'T FINISH with SOME IMAGES COULDN'T BE SAVED., D-UI-030, the coordinator's 18:24 UTC follow-up) under #1259: request failures are errors with their codes, the dependency's 404 keeps the primary, `false` retried once, media failures counted, every game counted, offline and busy runs COULDN'T FINISH with the why (`stage-e/s2-*.txt`); the choices ruled to stand on #679 (18:24 UTC); a #585 line |
 | PL-03 | Resolved | Resolved in `0404e76cc` (ES, S3) under #1260: `ScraperJson.h` and each container's shape first in four scrapers, a doctest in `es-unit-tests` (`stage-e/s3-*.txt`); #1154 named as the peer-verification dependency in the record; a #585 line |
 | PL-04 | Resolved | Resolved in `bf3e8e2bd` (ES, S2) under #1261: `getScraper()` falls back to the first registered scraper; the second half, SCRAPER saving its shown selection, is `stage-e/s2-guiscraperstart.patch` for the integration over T31's `2fa6b5f73` (ruling 1); a #585 line |
 | PL-05 | Resolved | Resolved in `bf3e8e2bd` (ES, S2) under #1262: a stall bound on all nine constructions (`bounded=9`), a total bound on the tokens, the first searches on the worker; the manual paths and the manual builder are `ScraperSearchComponent.cpp`'s, T33's (ruling 4), recorded in `02`; a #585 line |

@@ -1,0 +1,13 @@
+# S2b before (18:25:01Z, ES at e594e46e3, S6's tip)
+$ python3 -I stage-c/s2-scrapers.py <W>/Scraper.cpp <W>/ThreadedScraper.cpp
+registry: Scraper=TheGamesDB (not registered) -> ScreenScraper (the first registered)
+logo: a present marquee, ScrapperLogoSrc set -> 1, empty -> 0
+count: ten games found on one thread -> done 10 of 10, failed 0
+thread: the first search ran on the worker
+offline: three IO errors -> failed 1, errors 3, why 'YOU'RE NOT ONLINE.'
+busy: three spent 429s -> failed 1, errors 3, why 'THE SCRAPER IS BUSY RIGHT NOW.'
+media: three games whose images failed (rename, resize) -> failed 0, errors 3, why ''
+media404: three games whose images were not found -> failed 0, why ''
+nomatch: three games, each answered -> failed 0, errors 0
+FAIL S2: 2 case(s)
+rc=1

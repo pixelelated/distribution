@@ -1,0 +1,21 @@
+# S2b after (18:25:32Z, ES at e594e46e3 plus S2b's uncommitted change)
+$ python3 -I stage-c/s2-scrapers.py <W>/Scraper.cpp <W>/ThreadedScraper.cpp
+registry: Scraper=TheGamesDB (not registered) -> ScreenScraper (the first registered)
+logo: a present marquee, ScrapperLogoSrc set -> 1, empty -> 0
+count: ten games found on one thread -> done 10 of 10, failed 0
+thread: the first search ran on the worker
+offline: three IO errors -> failed 1, errors 3, why 'YOU'RE NOT ONLINE.'
+busy: three spent 429s -> failed 1, errors 3, why 'THE SCRAPER IS BUSY RIGHT NOW.'
+media: three games whose images failed (rename, resize) -> failed 1, errors 3, why 'SOME IMAGES COULDN'T BE SAVED.'
+media404: three games whose images were not found -> failed 1, why 'SOME IMAGES COULDN'T BE SAVED.'
+nomatch: three games, each answered -> failed 0, errors 0
+rc=0
+
+$ python3 -I stage-c/l02-stop-after-finish.py <W>/ThreadedScraper.cpp (S1's positive after S2b; the fake given isMediaError, the third counter and HttpReq's two codes)
+cancel: finished 1, cancelled 0
+  cancel rc=0
+  leak rc=0
+  publish rc=0
+startup: running 1, finished 1, failed 1, isRunning 0
+  startup rc=0
+rc=0
