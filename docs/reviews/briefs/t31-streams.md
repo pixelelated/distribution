@@ -215,3 +215,7 @@ A build, a compiler beyond the host's `g++` for the unit targets and the stand-i
 3. **Every guest half is `fix-walk-pending-image`, confirmed:** the host builds neither EmulationStation nor an image, so the walks (G02, G03, G05, G06, G08, G09 repeated; the key's mode on the guest; the frames) are the coordinator's at the integration window, and the bugs' guest checkboxes stay open until then, as T26's do. The lane's positives are the host fixtures and the unit cases, each seen to FAIL first.
 4. **S2's four `onFinalize` workarounds in `GuiMenu.cpp` are the integration's.** T26's round is closed and is not reopened; the hand-back names the four lines under merge debt with the sentence that `save()` now flushes, and the integration removes them when the branches meet.
 5. **S8: a red checker is the finding.** If declaring the ten upstream titles turns `tools/es-menu-map-check` red because it cannot see a title (#951, #965), the lane stops and posts the checker's line; no declaration is deleted to go green.
+
+## Superseded at acceptance (2026-10-27)
+
+- **§ The order and the rulings' item 2, the cherry-pick of `a73ed9efc`:** it rests on `e38dcdefd` and `31b49999e`, both T21's, and does not apply alone; the 15:12 UTC ruling on #678 took the brief's own fallback (S6a at the pin; S6b a proven patch for the integration after T21's merge). Recorded here; the text above is left as dispatched.

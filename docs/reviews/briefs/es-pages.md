@@ -1080,3 +1080,19 @@ Settled without correction: the NFC box at `GuiGameOptions.cpp:274` is
 WRITE / CANCEL (`:298`) and the `:289` box is a single CLOSE; `cada856d86`
 was committed 2026-09-28 (authored 09-23); `ThreadedScraper.cpp` lives under
 `es-app/src/scrapers/`.
+
+## Errata at acceptance (2026-10-27)
+
+Found by the lane in stages A to E and by its seat, each recorded on #678; the brief's text above is left as dispatched (the errata practice: appended, never edited in).
+
+1. **§ 5, the non-ASCII run (`:830`):** the adjacency grep `$G -B1 '_\("'` is a basic-regex error (`\(` opens a group) and printed `Unmatched ( or \(` once per file. The run is `-F '_("'` over the same `-A1` windows: 0 adjacent non-ASCII comments at the pin (stage A, `stage-a/reruns.txt`).
+2. **The seeded pointer** carried T26's "The lens" and "The rule" sentences (two files, 11,883 lines); the lane rewrote both at stage A. A kit derived from a predecessor's is read line by line before seeding (T32's was).
+3. **`popen` is 1, not 0:** `GuiMoonlight.cpp:42` writes `popen (` with a space, which the brief's census pattern missed.
+4. **`GuiKeyboardLayout.cpp:164`** writes `/tmp/kblayout-N.svg`, not a file on the card.
+5. **The LED parse** (`GuiAnalogSticksLedControls.cpp`) is guarded by `tokens.size() == 7`; the brief's lead assumed it unguarded.
+6. **The tab-switch `save()`:** the brief's "writes `es_settings.cfg` on every tab switch" and the lane's stage-B correction ("only when a value changed") are both partial: a save function stores a value the player never chose on a first visit (the default scraper set, PL-21, #1254) and that counts as a change; the mtimes stand as observations (the seat's correction at stage C).
+7. **`GuiAutoScrape.{cpp,h}`** are in no build list (`es-app/CMakeLists.txt:315`): never compiled, while the inventory records both as `shipped` (PL-25, Backlog #1235).
+8. **The dialog table:** 50 `GuiMsgBox` sites at the pin; back lands on OK at 30, NO at 18, CANCEL at 1, CLOSE at 1, by `GuiMsgBox.cpp:116-134`'s rule read from the source; the brief's hand counts are replaced by the lane's generated table (`tools/t31-dialogs.py`).
+9. **The rows census:** 21 active switches, not 23; two `addSwitch` calls sit inside a `/* */` block (the seat's correction; the parser fixed with constructed cases).
+10. **The stream brief's S6 (`t31-streams.md`, § The order and the rulings' item 2):** `git cherry-pick -x a73ed9efc` does not apply alone -- it rests on `e38dcdefd` (creates `StatusText`) and `31b49999e` (changes `ApiSystem.*`), both T21's; superseded by the 15:12 UTC ruling: S6a at the pin, S6b a proven patch for the integration after T21's merge (`stage-e/s6b.patch`, `s6b-merge.diff`). The coordinator's error: a cherry-pick ruled without reading the commit's parent chain.
+11. **Three runs the brief wrote as expectations could not run before dispatch** (the generators' final signatures, the build script, the pointer's hashes); the acceptance reads the lane's recorded runs in `02` § The runs for those.
