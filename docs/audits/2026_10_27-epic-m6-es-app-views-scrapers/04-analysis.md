@@ -209,3 +209,12 @@ The contract comment repeated in three scrapers and read by no caller. `HttpServ
 ## Second opinion
 
 (After the seat: the packet, the plan, the probe and the refutation, and the grades.)
+
+## Quality self-check
+
+- **Every figure in `02` is a tool's line.** The composer asserts the counts, and every generator has a constructed negative (`stage-b/generators.txt`), the include graph's included.
+- **Every proved lead names its artifact:** a guest step's file and frame, or a stage-C harness's FAIL-then-PASS pair. A hook that widens a window (L-02) is named in the harness and here.
+- **Void guest passes are recorded as void.** No void pass is cited as evidence.
+- **Corrections are listed:** to the brief (`02` § The runs), to this lane's own statements (G-06 on #679; 3.32's second site; L-16's sequence; G-05's 9 being ten games), and to the floor read's open claim (NDEBUG, read by the first reader).
+- **What a subagent read is labelled.** The floor's 27 were read by a read-only subagent. The first reader re-read 3.15, 3.19, 3.5, 3.28, 3.8's driven lines, the ArcadeDB slip and ScreenScraper's rate-limit `false`; the rest go to the seat labelled as the subagent's read (`stage-c/floor.md` § Verification).
+- **Not done:** G-03's cause; the French bar's fifth entry; L-14 on a grid theme; L-16 and L-19 on a guest; any scraper's success path; a TSan run of L-01.
