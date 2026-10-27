@@ -1,0 +1,28 @@
+# S3 after: ES 70db6535b, 14:21:11Z
+$ python3 -I stage-c/s03-moonlight.py <W>
+ok   quit: the SERVER IP is one argument and runs nothing (canary absent; argv [quit][192.0.2.7;touch /w/canary])
+ok   pair: the SERVER IP is one argument and runs nothing (canary absent; argv [-v]
+[pair][-pin][9383][192.0.2.7;touch /w/canary])
+ok   launcher: 2 script(s) generated, run: the title one argument and nothing run (canary absent)
+ok   update-empty: a failed fetch leaves the library as it was (kept)
+ok   update-malformed: an unparsable list leaves the library as it was (kept)
+ok   update-keeps: restart yes, Old.sh gone, .keep kept, mine/ kept, /storage/roms holds ['moonlight']
+ok   update-readonly: no restart, the library as it was; ["box: The game list couldn't be saved. Your Moonlight games are as they were."]
+ok   update-pinned: no restart, the library as it was; ["box: The game list couldn't be saved. Your Moonlight games are as they were."]
+ok   unpair: the directories removed; ['box: Unpaired and settings cleared']
+ok   unpair-fail: a removal that cannot happen says ["box: The pairing files couldn't be removed. This device is still paired."]
+ok   conf-empty: the pairing callback over an empty conf returned
+ok   conf-malformed: a certificate with no escaped line end handled
+ok   embedded: embedded 11 fds+0 (expected both true, no descriptor left)
+ok   key-mode: the extracted key is 0o600 under umask 022
+ok   key-narrow: an existing 0644 key at the page's open is 0o600
+ok   key-replace: after a new pairing the key is 0o600, replaced
+s03: PASS, 16 cases
+rc 0
+$ python3 -I tests/credential-quoting.py <W>
+credential-quoting: 11 credential call site(s), 11 quoted, 0 bare
+rc 0
+$ the suite against a constructed bare site ("moonlight quit " + server_ip), a copy outside the tree
+BARE  es-app/src/guis/GuiMoonlight.cpp:390  moonlight quit (bare: server_ip)
+credential-quoting: 11 credential call site(s), 10 quoted, 1 bare
+rc 1

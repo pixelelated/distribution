@@ -18,7 +18,8 @@ export PUGIXML_INCLUDE_DIR=/workspace/cache/rocknix-sources/emulationstation/emu
 export RAPIDJSON_INCLUDE_DIR=/workspace/tmp/m6-t31/rapidjson/rapidjson-1.1.0/include
 label=${1:-}; shift || true
 echo "== checks: ${label} ($(date -u +%H:%M:%SZ)), ES HEAD $(git -C "$W" rev-parse --short=10 HEAD), worktree changes $(git -C "$W" status --short | wc -l)"
-[ $# -gt 0 ] && { bash "$H/syntax-check.sh" "$W" "$@"; echo "syntax-check rc $?"; }
+# GuiMoonlight.cpp includes <pugixml.hpp> bare where ThemeData.h includes pugixml/src/pugixml.hpp (S3): the bare one by CPATH.
+[ $# -gt 0 ] && { CPATH="$PUGIXML_INCLUDE_DIR/pugixml/src" bash "$H/syntax-check.sh" "$W" "$@"; echo "syntax-check rc $?"; }
 B=/workspace/tmp/m6-t31/build-unit; out=$(bash "$H/../tools/t31-build-tests.sh" "$W" "$B" 2>&1); rc=$?; printf '%s\n' "$out" | grep -E "^(RUN|BUILD FAIL|TOTAL)"; echo "t31-build-tests rc $rc"
 n=$(git -C "$W" diff "$PIN" -- '*.cpp' '*.h' | grep -E '^\+' | grep -v '^+++' | grep -c -P '(//|/\*|^\+\s*\*).*[^\x00-\x7F]'); echo "non-ASCII added comment lines in C++ sources: $n"
 for f in $(git -C "$W" diff "$PIN" --name-only); do c=$(git -C "$W" diff "$PIN" -- "$f" | grep -E '^\+' | grep -v '^+++' | grep -c -P '[^\x00-\x7F]'); [ "$c" -gt 0 ] && echo "  non-ASCII added lines (any kind) in $f: $c"; done
@@ -27,7 +28,9 @@ for t in $( { git -C "$W" ls-files -- 'tests/*.py'; git -C "$W" ls-files --other
   printf '%s rc=%s: %s\n' "$t" "$rc" "$(printf '%s\n' "$out" | tail -n 1 | cut -c1-140)"
 done
 G=$W/es-app/src/guis
-for h in "l01-start-drops.py $G/GuiSettings.cpp" "l02-led-not-saved.py $G/GuiAnalogSticksLedControls.cpp $G/GuiSettings.cpp" "l05-l06-moonlight.py $G/GuiMoonlight.cpp" "l09-l10-scrape-page.py $G/GuiScraperRun.cpp" "l22-guiloading-race.py $G/GuiLoading.h"; do
+# From S3 on, Moonlight's positive is s03-moonlight.py, which compiles the whole page and runs it:
+# l05-l06 reads the pin's snprintf and tilde shapes, which S3 removes, and stays the pin's record (D-WORKFLOW-210).
+for h in "l01-start-drops.py $G/GuiSettings.cpp" "l02-led-not-saved.py $G/GuiAnalogSticksLedControls.cpp $G/GuiSettings.cpp" "s03-moonlight.py $W" "l09-l10-scrape-page.py $G/GuiScraperRun.cpp" "l22-guiloading-race.py $G/GuiLoading.h"; do
   out=$(python3 -I $C/$h 2>&1); rc=$?
   printf 'stage-c/%s rc=%s: %s\n' "${h%% *}" "$rc" "$(printf '%s\n' "$out" | grep -v -E '^\s+#' | tail -n 1 | cut -c1-140)"
 done

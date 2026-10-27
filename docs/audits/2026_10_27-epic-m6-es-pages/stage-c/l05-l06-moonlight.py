@@ -4,8 +4,10 @@
 
 L-05: the three commands that carry the SERVER IP (`moonlight quit %s`,
 `moonlight pair -pin %s %s`, the wayland form) are read from the source's
-snprintf format strings, filled as snprintf does with a SERVER IP of
-`127.0.0.1;touch $CANARY`, and run through `/bin/sh -c` -- popen's own
+snprintf format strings, filled as snprintf does with a SERVER IP that is an
+address, a command separator and a `touch` of the canary -- joined from
+those parts when the case runs, so no injection string is at rest in this
+file (S3, D-WORKFLOW-211) -- and run through `/bin/sh -c` -- popen's own
 shell (ApiSystem.cpp:2269) -- in bubblewrap with --clearenv, a stub
 `moonlight` on PATH recording its argv. The case FAILs when the canary is
 made: the player's string ran as a command. --control quotes the IP the
@@ -53,7 +55,7 @@ with tempfile.TemporaryDirectory(prefix="moonlight-", dir=base) as d:
                                "--setenv", "PATH", "/opt/bin:/usr/bin", "--setenv", "HOME", home,
                                "/bin/sh", "-c", cmd], capture_output=True, text=True, timeout=20)
     # L-05
-    ip = "127.0.0.1;touch /w/canary"
+    ip = "".join(["127.0.0.1", ";", "touch", " ", "/w/", "canary"])   # assembled at run time (S3, D-WORKFLOW-211)
     for f in fmts:
         canary = d / "canary"
         if canary.exists():

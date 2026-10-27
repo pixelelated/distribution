@@ -1,0 +1,36 @@
+# S3 before (#678; #1238 #1239 #1240 #1241 #1248 #1249 #1250): the page at a8dcc23ea (the pin's GuiMoonlight.cpp), 14:21:01Z
+$ python3 -I stage-c/s03-moonlight.py <W> <GuiMoonlight.cpp at a8dcc23ea>
+FAIL quit: the SERVER IP is one argument and runs nothing (canary MADE; argv [quit][192.0.2.7])
+FAIL pair: the SERVER IP is one argument and runs nothing (canary MADE; argv [-v]
+[pair][-pin][9383][192.0.2.7])
+FAIL launcher: 2 script(s) generated, run: the title one argument and nothing run (canary MADE)
+FAIL update-empty: a failed fetch leaves the library as it was (removed)
+FAIL update-malformed: an unparsable list leaves the library as it was (removed)
+ok   update-keeps: restart yes, Old.sh gone, .keep kept, mine/ kept, /storage/roms holds ['moonlight']
+FAIL update-readonly: the page restarts ES, the library as it was; []
+FAIL update-pinned: the page restarts ES, the library changed; []
+FAIL unpair: the directories left; ['box: Unpaired and settings cleared']
+FAIL unpair-fail: a removal that cannot happen says ['box: Unpaired and settings cleared']
+FAIL conf-empty: the pairing callback over an empty conf hung (the watchdog)
+FAIL conf-malformed: a certificate with no escaped line end rc 134 (  what():  basic_string::replace: __pos (which is 18446744073709551615) > this->)
+FAIL embedded: embedded 00 fds+2 (expected both true, no descriptor left)
+FAIL key-mode: the extracted key is 0o644 under umask 022
+FAIL key-narrow: an existing 0644 key at the page's open is 0o644
+FAIL key-replace: after a new pairing the key is 0o644, the old one
+FAIL s03: 15 of 16 cases
+rc 1
+$ python3 -I stage-c/l05-l06-moonlight.py <GuiMoonlight.cpp at a8dcc23ea>   (its IP assembled at run time; D-WORKFLOW-211)
+L-05 moonlight quit %s                                canary MADE
+L-05 -pin %s %s                                       canary MADE
+L-05 -pin %s %s                                       canary MADE
+L-06 rm -r "~/.cache/Moonlight Game Streaming Project" -> rc 1
+L-06 rm -r "~/.config/Moonlight Game Streaming Project" -> rc 1
+L-06 directories left: .cache/Moonlight Game Streaming Project, .config/Moonlight Game Streaming Project
+FAIL L-05: `moonlight quit %s` with SERVER IP '127.0.0.1;touch /w/canary' ran the player's string as a command
+FAIL L-05: `QT_QPA_PLATFORM=wayland moonlight pair -pin %s %s` with SERVER IP '127.0.0.1;touch /w/canary' ran the player's string as a command
+FAIL L-05: `moonlight pair -pin %s %s` with SERVER IP '127.0.0.1;touch /w/canary' ran the player's string as a command
+FAIL L-06: UNPAIR's removals left .cache/Moonlight Game Streaming Project, .config/Moonlight Game Streaming Project while the page says the settings were cleared
+rc 1
+$ python3 -I tests/credential-quoting.py <a8dcc23ea's es-app, es-core>   (the extended list; the pin's snprintf form is not a site it reads)
+credential-quoting: 9 credential call site(s), 9 quoted, 0 bare
+rc 0
