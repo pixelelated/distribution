@@ -1,0 +1,35 @@
+# S4 before (18:12:01Z, ES at 0404e76cc, S3's tip)
+
+$ python3 -I stage-c/s4-views.py <W>/ISimpleGameListView.cpp <W>/GridGameListView.cpp <W>/Scraper.cpp
+reads: hasAnyMedia and hasMissingMedia asked exists 12 time(s) cached, 0 uncached
+FAIL PL-07: the scraper's media reads ask the cached form, which remembers a miss or a hit made before an outside write
+placeholder: an empty grid, cursor on its placeholder
+SUMMARY: AddressSanitizer: heap-use-after-free a.cpp:17 in FileData::isPlaceHolder()
+rc=1
+
+$ python3 -I stage-c/l332-year-and-time.py <W>/GameNameFormatter.cpp <pin es-core>/TimeUtil.cpp
+mShowYear: RELEASEDATE_ASCENDING 1, RELEASEDATE_DESCENDING 0
+FAIL 3.32: no year beside the name under RELEASEDATE_DESCENDING
+  3599 s: name "GAME [59:59]"   detailed row "59 mn"
+  3600 s: name "GAME [01:00:00]"   detailed row "1 h"
+ 86399 s: name "GAME [23:59:59]"   detailed row "23 h 59 mn"
+ 90000 s: name "GAME [01:00:00]"   detailed row "25 h"
+180000 s: name "GAME [02:00:00]"   detailed row "2 d 2 h"
+FAIL 3.32: 25 hours of play read as [01:00:00] beside the name
+rc=1
+
+$ python3 -I tools/t32-reads.py <W> HEAD paths.txt lines=49,calls=50,uncached=34
+generated, asserted: 49 lines, 50 calls, 0 uncached, in 6 files
+FAIL t32-reads: uncached 0, expected 34
+rc=1
+
+$ grep -n 'SAUVEGARDES (MAINTENU)\|SAUVEGARDES D’ÉTAT (MAINTENU)' <W>/locale/lang/fr/LC_MESSAGES/emulationstation2.po
+219:msgstr "SAUVEGARDES (MAINTENU)"
+
+$ grep -n 'EVERY SYSTEM IS HIDDEN IN THIS MODE' <W>/es-app/src/views/SystemView.cpp <W>/locale/.../emulationstation2.po (expect nothing)
+/home/max/Development/emulationstation-next.worktrees/m6-es-app-views-scrapers-679/es-app/src/views/SystemView.cpp:0
+/home/max/Development/emulationstation-next.worktrees/m6-es-app-views-scrapers-679/locale/lang/fr/LC_MESSAGES/emulationstation2.po:0
+$ SystemView.cpp:234 as it is:
+			mWindow->pushGui(new GuiMsgBox(mWindow, "The selected UI mode has nothing to show,\n returning to UI mode: FULL", "OK", nullptr));
+
+$ (18:13:44Z) s4-views.py again at S3's tip (the fix set aside), after the fake view was given the real destructor's delete of its placeholder: reads 12 cached, 0 uncached (FAIL PL-07); heap-use-after-free a.cpp:17 in FileData::isPlaceHolder() -- both cases still FAIL

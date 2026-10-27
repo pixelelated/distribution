@@ -60,3 +60,6 @@ rc=1
 
 ## t32-bounds.py revised at stage E with S2 (D-WORKFLOW-210, #1262)
 Sites keyed by file and order; "bounded" read from the options each construction passes. At the pin and at S1's tip it prints `0 set a stall bound`, and with `bounded=9` expected it exits 1 (`stage-e/s2-before.txt`: `FAIL t32-bounds: bounded 0, expected 9`, rc=1) -- the constructed negative. At S2's tip `bf3e8e2bd`: `9 constructions in 4 files (7 new HttpReq(, 2 on the stack); 9 set a stall bound`, rc 0 (`stage-e/s2-after.txt`). 02's own composition still runs it at the pin with `bounded=0`.
+
+## t32-reads.py revised at stage E with S4 (D-WORKFLOW-210, #1263)
+GROUPS stay in the pin's lines; at another commit a line takes the group of the pin's line of the same order in its file, and a file whose count changed fails. At the pin: `49 lines, 50 calls, 0 uncached` (unchanged). At S3's tip with `uncached=34` expected: `FAIL t32-reads: uncached 0, expected 34` (rc 1, `stage-e/s4-before.txt`), the constructed negative. At S4's tip `1655e2f4c`: `49 lines, 50 calls, 34 uncached`, rc 0.

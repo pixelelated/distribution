@@ -1,0 +1,26 @@
+# S4 checks (18:13:44Z)
+$ syntax-check.sh <W> <the 13 sources>
+es-app/src/scrapers/ThreadedScraper.cpp: rc 0
+es-app/src/scrapers/Scraper.cpp: rc 0
+es-app/src/scrapers/IGDBScraper.cpp: rc 0
+es-app/src/scrapers/HfsDBScraper.cpp: rc 0
+es-app/src/scrapers/GamesDBJSONScraper.cpp: rc 0
+es-app/src/scrapers/GamesDBJSONScraperResources.cpp: rc 0
+es-app/src/scrapers/ArcadeDBJSONScraper.cpp: rc 0
+es-app/src/views/gamelist/GameNameFormatter.cpp: rc 0
+es-app/src/views/gamelist/ISimpleGameListView.cpp: rc 0
+es-app/src/views/gamelist/GridGameListView.cpp: rc 0
+es-app/src/views/gamelist/DetailedContainer.cpp: rc 0
+es-app/src/views/SystemView.cpp: rc 1; SystemView.cpp:471:92: error: ‘SDLK_r’ was not declared in this scope; did you mean ‘SDLK_F5’?
+es-app/src/services/HttpServerThread.cpp: rc 0
+rc=1 (SystemView.cpp CANNOT as at the pin: the same SDLK_r error, now at :471; g++ reports in line order, so the edited lines :231-238 before it compiled, and they were read twice)
+non-ASCII on the added lines of .cpp/.h: 0
+$ tools/es-untranslated --es-src <W> --upstream cada856d86
+es-untranslated: upstream base cada856d8 (given)
+es-untranslated: 705 fork string(s) in the source, 705 with French, 0 without
+$ unit build
+RUN es-unit-tests: rc 0; [doctest] test cases: 189 | 189 passed | 0 failed | 0 skipped [doctest] assertions: 4822 | 4822 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3389 | 3389 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+TOTAL: 225 test cases in 4 binaries

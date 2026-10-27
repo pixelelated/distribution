@@ -1,0 +1,37 @@
+# S4 after (18:13:11Z, ES at 0404e76cc plus S4's uncommitted change)
+
+$ python3 -I stage-c/s4-views.py <W>/ISimpleGameListView.cpp <W>/GridGameListView.cpp <W>/Scraper.cpp (the fake view frees its placeholder, as the real destructor does)
+reads: hasAnyMedia and hasMissingMedia asked exists 0 time(s) cached, 12 uncached
+placeholder: an empty grid, cursor on its placeholder
+placeholder: after a file change, cursor on the new placeholder
+rc=0
+$ python3 -I stage-c/l332-year-and-time.py <W>/GameNameFormatter.cpp <pin es-core>/TimeUtil.cpp
+mShowYear: RELEASEDATE_ASCENDING 1, RELEASEDATE_DESCENDING 1
+  3599 s: name "GAME [59:59]"   detailed row "59 mn"
+  3600 s: name "GAME [01:00:00]"   detailed row "1 h"
+ 86399 s: name "GAME [23:59:59]"   detailed row "23 h 59 mn"
+ 90000 s: name "GAME [25:00:00]"   detailed row "25 h"
+180000 s: name "GAME [50:00:00]"   detailed row "2 d 2 h"
+rc=0
+
+$ grep the po for SAVE STATES (HOLD) and the dialog's msgid
+218:msgid "SAVE STATES (HOLD)"
+219-msgstr "SAUVEGARDES D’ÉTAT (MAINTENU)"
+--
+6971:msgid "EVERY SYSTEM IS HIDDEN IN THIS MODE. SWITCHING BACK TO THE FULL MODE."
+6972-msgstr "TOUS LES SYSTÈMES SONT MASQUÉS DANS CE MODE. RETOUR AU MODE COMPLET."
+
+$ SystemView.cpp's dialog now:
+235:			Settings::getInstance()->saveFile();
+236:			mWindow->pushGui(new GuiMsgBox(mWindow, _("EVERY SYSTEM IS HIDDEN IN THIS MODE. SWITCHING BACK TO THE FULL MODE."), _("OK"), nullptr));
+241:			Settings::getInstance()->saveFile();
+
+$ the picture (PL-07, ruling 7): DetailedContainer.cpp:806 is metadata with no exists(), handed to ImageComponent::setImage (:850); es-core's TextureData.cpp:331, :339 and :410 read exists() cached -- es-core's, routed; #1263's picture checkbox stays open
+
+$ python3 -I tools/t32-reads.py <W> 1655e2f4c paths.txt lines=49,calls=50,uncached=34
+generated, asserted: 49 lines, 50 calls, 34 uncached, in 6 files
+rc=0
+
+$ python3 -I tools/t32-words.py <W> 1655e2f4c paths.txt (the dialog's msgid counted, with French)
+| `EVERY SYSTEM IS HIDDEN IN THIS MODE. SWITCHING BACK TO THE FULL MODE.` | `SystemView.cpp:236` | TOUS LES SYSTÈMES SONT MASQUÉS DANS CE MODE. RETOUR AU MODE COMPLET. (L6971) |
+generated, asserted: 59 lines, 75 calls, 53 distinct msgids in 9 files; 0 with an empty French msgstr, 0 with no msgid

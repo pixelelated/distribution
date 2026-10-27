@@ -133,3 +133,12 @@
   - **Checks:** the stand-in passes 12 of 13 (`SystemView.cpp` `CANNOT`); non-ASCII 0; `TOTAL: 225 test cases in 4 binaries`.
   - **#1154 (PL-20):** these parsers are a consumer of peer verification. The note is in this record, and the comment on #1154 is the coordinator's.
   - **Time to play:** off the launch path.
+- **S4, 18:15 UTC:** ES `1655e2f4c`, pushed.
+  - **Harness:** `stage-c/s4-views.py` (new) covers the placeholder and the scraper's reads. Its fake view was given the real destructor's delete (`ISimpleGameListView.cpp:63-69`) after the first after-run reported the fake's own leak, and S3's tip was rerun with it: both cases still FAIL.
+  - **Before:** FAIL throughout.
+  - **After:** rc 0 throughout; `t32-reads.py` `34 uncached`, its revision recorded in `generators.txt`.
+  - **Scope:** `Scraper.cpp`'s `getSaveAsPath` directory check (the pin's `:808`) was changed by the sweep and put back: ES writes that directory, and the brief's 24 do not name it.
+  - **The picture is es-core's** (ruling 7): `TextureData.cpp:331`, `:339`, `:410`; #1263's picture checkbox stays open.
+  - **Checks:** the stand-in passes 12 of 13. `SystemView.cpp` is `CANNOT` at the same `SDLK_r`, now `:471`; the edited `:231-238` come before it and were read twice. Non-ASCII 0; `es-untranslated` 705/705; `TOTAL: 225 test cases in 4 binaries`.
+  - `t32-words.py` now reads 59 lines, 75 calls and 53 msgids, every one with French: S2's two sentences, and S4's dialog and its `OK`.
+  - **Time to play:** off the launch path.

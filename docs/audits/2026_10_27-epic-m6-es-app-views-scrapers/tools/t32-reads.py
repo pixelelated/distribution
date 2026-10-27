@@ -18,7 +18,9 @@ or Samba -- is not, until a launch.
 GROUPS maps each site to what it reads, its writer while ES runs, what a
 remembered miss (or hit) reads as, and the disposition proposed for the
 pause. Exits 1 when a site has no group, a group names a line with no
-site, or a count differs from the one given.
+site, or a count differs from the one given. At a commit other than the
+pin, each line is matched to the pin's line of the same order in its file
+(stage E, D-WORKFLOW-210), and the table prints the commit's own line.
 """
 import os
 import re
@@ -64,16 +66,42 @@ GROUPS = [
 
 tree, commit, paths_file = sys.argv[1:4]
 want = dict((k, int(v)) for k, v in (kv.split("=") for kv in sys.argv[4].split(","))) if len(sys.argv) > 4 else {}
-sites = []
-for path in [l.strip() for l in open(paths_file) if l.strip()]:
-    src = show(tree, commit, path)
-    for m in re.finditer(r"\bFileSystem::exists\s*\(", src):
-        if in_comment_or_string(src, m.start()):
-            continue
-        a, _ = call_args(src, src.index("(", m.start()))
-        line = src.count("\n", 0, m.start()) + 1
-        cached = not (len(a) > 1 and a[1].strip() == "false")
-        sites.append((path.rsplit("/", 1)[1], line, cached))
+PIN = "16dbac5211"
+
+
+def read_sites(rev):
+    out = []
+    for path in [l.strip() for l in open(paths_file) if l.strip()]:
+        src = show(tree, rev, path)
+        for m in re.finditer(r"\bFileSystem::exists\s*\(", src):
+            if in_comment_or_string(src, m.start()):
+                continue
+            a, _ = call_args(src, src.index("(", m.start()))
+            line = src.count("\n", 0, m.start()) + 1
+            cached = not (len(a) > 1 and a[1].strip() == "false")
+            out.append((path.rsplit("/", 1)[1], line, cached))
+    return out
+
+
+# GROUPS are written in the pin's lines. At another commit (stage E, D-WORKFLOW-210)
+# a line takes the group of the pin's line of the same order in its file, so a
+# fix that moves lines keeps its rows; a file whose line count changed fails.
+sites = read_sites(commit)
+if not commit.startswith(PIN):
+    pin_lines = sorted(set((f, l) for f, l, _ in read_sites(PIN)))
+    now_lines = sorted(set((f, l) for f, l, _ in sites))
+    remap = {}
+    for f in sorted(set(f for f, _ in pin_lines) | set(f for f, _ in now_lines)):
+        a_ = [l for g, l in pin_lines if g == f]
+        b_ = [l for g, l in now_lines if g == f]
+        if len(a_) != len(b_):
+            print("FAIL t32-reads: %s has %d exists( lines at the pin and %d at %s" % (f, len(a_), len(b_), commit))
+            sys.exit(1)
+        remap.update({(f, y): x for x, y in zip(a_, b_)})
+    shown = {(f, x): y for (f, y), x in remap.items()}
+    sites = [(f, remap[(f, l)], c) for f, l, c in sites]
+else:
+    shown = {}
 lines = sorted(set((f, l) for f, l, _ in sites))
 fail = []
 group_of = {}
@@ -91,7 +119,7 @@ for f, l in lines:
     calls = [s for s in sites if s[0] == f and s[1] == l]
     g = GROUPS[group_of[(f, l)]] if (f, l) in group_of else (f, [l], "?", "?", "?", "?")
     cache = "cached" if all(c for _, _, c in calls) else "uncached"
-    print("| `%s:%d` | %s%s | %s | %s | %s | %s |" % (f, l, g[2], " (%d calls)" % len(calls) if len(calls) > 1 else "", g[3], cache, g[4], g[5]))
+    print("| `%s:%d` | %s%s | %s | %s | %s | %s |" % (f, shown.get((f, l), l), g[2], " (%d calls)" % len(calls) if len(calls) > 1 else "", g[3], cache, g[4], g[5]))
 counts = {"lines": len(lines), "calls": len(sites), "uncached": sum(1 for s in sites if not s[2])}
 print()
 print("generated, asserted: %d lines, %d calls, %d uncached, in %d files" % (counts["lines"], counts["calls"], counts["uncached"], len(set(f for f, _ in lines))))
