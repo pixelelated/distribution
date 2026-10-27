@@ -1,0 +1,8 @@
+== S12 before: tests/theme-set-writer.py (the kill sweep, its killer T21's with stdio counted) against the pin's GuiMenu.cpp (16dbac521)
+theme-set-writer: 5 file-system calls; 2 kill point(s) leave the file cut
+FAIL theme-set-writer: kill points that leave the theme-set file cut: 3 (0 bytes), 4 (0 bytes)
+rc 1
+== T21's killer unmodified sees none of writeAllText's calls (stdio's own): the sweep refuses to pass over nothing
+theme-set-writer: 0 file-system calls; 0 kill point(s) leave the file cut
+FAIL theme-set-writer: the killer saw no file-system call: no kill point could be placed
+rc 1

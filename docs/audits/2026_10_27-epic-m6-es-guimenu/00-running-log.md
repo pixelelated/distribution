@@ -121,3 +121,8 @@
   - **The map:** its Network section and relink diagram carry the verdict and FINISH's refusal (D-UI-039's spirit for copy; `es-menu-map-check` 0 missing).
   - **Tests:** `tests/player-words.py` (new) FAILs at the pin on every item, PASSes after, and FAILs on two constructed copies.
   - **Mine:** the FINISH anchor first matched the setup wizard's own FINISH (`[s]`), which made the fix look like a fail until the anchor named `restoreMarker`. `no-change-writes.py` broke on S11's new call in the finalizer it extracts and was given the double.
+- **S12 (PL-25, #1231; Backlog #1186)** at ES `2dd46a3e3`, pushed. The theme-set file is written by `Utils::AtomicFile::writeText`, its result read.
+  - **The killer:** `tests/theme-set-writer.py` (new) uses T21's killer, copied by `git show` at `4df674cc82`, with stdio's `fopen`, `fwrite` and `fclose` counted, and embedded in the test. Unmodified, T21's killer saw none of `writeAllText`'s calls, because glibc's stdio uses internal calls, and so "passed" the pin over zero kill points. The sweep now refuses that, shown against T21's killer.
+  - **The sweep:** at the pin, 2 of 5 kill points leave the file empty; after, 0 of 11.
+  - **At integration:** `t21-writers.py --expect-writeall` comes down by one on T21's branch; recorded, not run here.
+  - **Mine:** the first extraction ended at a `;` inside the log message's string.

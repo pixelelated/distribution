@@ -1,0 +1,6 @@
+== S12 after: tests/theme-set-writer.py against the worktree
+theme-set-writer: 11 file-system calls; 0 kill point(s) leave the file cut
+theme-set-writer: PASS
+rc 0
+== tools/t21-writers.py --expect-writeall: down by one on T21's branch at integration (GuiMenu.cpp's one writeAllText gone) -- recorded, not run here (T21's tool on T21's branch)
+`writeAllText(` call sites in GuiMenu.cpp: 0 here, 1 at the pin (the one remaining mention is the new comment's, without a call)
