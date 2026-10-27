@@ -15,6 +15,9 @@ then the next boot's chksysconfig.
    which the donor's busybox does not carry. The host's GNU grep stands in
    for it, named as a substitute; rsync stays absent and its line is reported.
 
+3. The interface's next start after that boot: a fresh SystemConf load
+   (state-fixture `get`), which records what it chose.
+
 Prints which keys each file holds (names and counts only). Writes only under
 <scratch>. Exit 0 always: this is a lead's positive, reported as observed.
 """
@@ -46,7 +49,7 @@ def state(label):
 print("== 0 before")
 state("before")
 r = subprocess.run([str(fixture), "set", str(live), str(d / ".lock"), "system.hostname", str(d / "empty")], capture_output=True, text=True)
-print(f"== 1 the interface saves system.hostname as empty (the pin's SystemConf): rc {r.returncode}")
+print(f"== 1 the interface saves system.hostname as empty (SystemConf as built): rc {r.returncode}")
 state("after the save")
 r = subprocess.run([str(fixture), "get", str(live), str(d / ".lock"), "qa.marker"], capture_output=True, text=True)
 print(f"   the interface's next start (a fresh SystemConf load): {r.stdout.strip()}")
@@ -81,3 +84,10 @@ for line in (r.stdout + r.stderr).splitlines():
     if line.strip():
         print("   said:", line.strip()[:160])
 state("after chksysconfig")
+
+# Step 3 was run by hand at stage C and appended to the .out; it is part of
+# the script since T21 S1 (#668), so the script reproduces its own output.
+r = subprocess.run([str(fixture), "get", str(live), str(d / ".lock"), "qa.marker"], capture_output=True, text=True)
+print("== 3 the interface's next start after that boot (a fresh SystemConf load)")
+print("  ", r.stdout.strip())
+state("after that start")

@@ -1,0 +1,79 @@
+# T21 S1 before: the pin's SystemConf, AtomicFileUtil and the text row's decision, with S1's tests (#668, #1185, #1198, #1199)
+
+$ RAPIDJSON_INCLUDE_DIR=<rj> bash tools/t21-build-tests.sh <es tree> <build dir>
+RUN es-unit-tests: rc 1; [doctest] test cases: 186 | 185 passed | 1 failed | 0 skipped [doctest] assertions: 4799 | 4798 passed | 1 failed | 
+RUN es-file-tests: rc 1; [doctest] test cases: 24 | 23 passed | 1 failed | 0 skipped [doctest] assertions: 3390 | 3388 passed | 2 failed | 
+RUN es-conf-tests: rc 1; [doctest] test cases: 18 | 10 passed | 8 failed | 0 skipped [doctest] assertions: 168 | 151 passed | 17 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+
+## es-unit-tests: the failing cases
+TEST CASE:  TextRowEdit::writes: the four cases of (opened blank, typed text)
+es-app/tests/unit/TextRowEditTests.cpp:17: ERROR: CHECK_FALSE( TextRowEdit::writes(true, "") ) is NOT correct!
+
+## es-file-tests: the failing cases
+TEST CASE:  parseKeyValues reads a system.cfg as SystemConf always has
+es-app/tests/unit/AtomicFileTests.cpp:859: ERROR: CHECK( v.size() == 4 ) is NOT correct!
+es-app/tests/unit/AtomicFileTests.cpp:866: ERROR: CHECK( v.at("empty") == "" ) THREW exception: "map::at"
+
+## es-conf-tests: the failing cases
+TEST CASE:  an empty value is saved as key=, in the file and the record (T21 PL-01, #1185)
+es-app/tests/unit/SystemConfTests.cpp:527: ERROR: CHECK( get(path) == "system.hostname=\nqa.marker=player\n" ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:528: ERROR: CHECK( get(path + ".backup") == "system.hostname=\nqa.marker=player\n" ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:533: ERROR: CHECK( conf->get("system.hostname") == "" ) is NOT correct!
+TEST CASE:  the hostname set to default or auto keeps its line, empty (T21 PL-01, #1185)
+es-app/tests/unit/SystemConfTests.cpp:547: ERROR: CHECK( get(path) == "system.hostname=\nqa.marker=player\n" ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:547: ERROR: CHECK( get(path) == "system.hostname=\nqa.marker=player\n" ) is NOT correct!
+TEST CASE:  a reload forgets a key the file no longer holds, and reads key= as empty (T21 PL-10, #1198)
+es-app/tests/unit/SystemConfTests.cpp:564: ERROR: CHECK( conf->get("wifi.key") == "" ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:565: ERROR: CHECK( conf->get("qa.gone") == "" ) is NOT correct!
+TEST CASE:  a commented key is left alone and the live key rewritten once (T21 PL-11, #1199)
+es-app/tests/unit/SystemConfTests.cpp:576: ERROR: CHECK( get(path) == "#k=1\nk=3\nz=9\n" ) is NOT correct!
+TEST CASE:  a new key set to default writes no literal; a key at its table default is removed (T21 PL-11, #1199)
+es-app/tests/unit/SystemConfTests.cpp:588: ERROR: CHECK( get(path) == "system.hostname=qa\n" ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:594: ERROR: CHECK( get(path) == "system.hostname=BATOCERA\n" ) is NOT correct!
+TEST CASE:  a value with a line end is refused, and nothing is written for it (T21 PL-11, #1199)
+es-app/tests/unit/SystemConfTests.cpp:603: ERROR: CHECK_FALSE( conf->set("qa.k", "x\nroot.password=y") ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:604: ERROR: CHECK_FALSE( conf->set("qa.k", "x\r") ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:605: ERROR: CHECK_FALSE( conf->saveSystemConf() ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:606: ERROR: CHECK( get(path) == "system.hostname=qa\n" ) is NOT correct!
+TEST CASE:  a byte-order mark before the first key does not hide it (T21 PL-11, #1199)
+es-app/tests/unit/SystemConfTests.cpp:615: ERROR: CHECK( conf->get("k") == "1" ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:618: ERROR: CHECK( get(path) == "k=5\nz=2\n" ) is NOT correct!
+TEST CASE:  a save does not record a file that lost a key the record holds and this save did not remove (T21 PL-01, #1185)
+es-app/tests/unit/SystemConfTests.cpp:636: ERROR: CHECK( get(path + ".backup") == whole ) is NOT correct!
+
+## the host positives (state-fixture from the pin's SystemConf)
+$ bash stage-e/s1-positives.sh <es tree> <scratch> <chksysconfig> <001-functions> <seed> <busybox> <os-release>
+== state-fixture built from 16dbac5211
+-- U1: an empty value (D-NET-009 writes system.hostname= on purpose)
+keys=0 has[system.hostname]=0
+value=[BATOCERA]
+-- U2: a value carrying a line end, set and saved by SystemConf
+set rc 0
+the file's lines, values masked:
+system.hostname=<value>
+qa.k=<value>
+root.password=<value>
+root.password lines: 1
+-- U3: a key set to its table default (global.retroachievements.hardcore 0)
+set rc 0
+lines reading global.retroachievements.hardcore=0: 1
+-- hostname-empty.py (stage C's chain)
+== 0 before
+   before: system.cfg 4 keys; system.hostname line present; qa.marker present
+   before: system.cfg.backup 4 keys; system.hostname line present; qa.marker present
+== 1 the interface saves system.hostname as empty (the pin's SystemConf): rc 0
+   after the save: system.cfg 3 keys; system.hostname line ABSENT; qa.marker present
+   after the save: system.cfg.backup 3 keys; system.hostname line ABSENT; qa.marker present
+   the interface's next start (a fresh SystemConf load): value=[player]
+   after that start: system.cfg 3 keys; system.hostname line ABSENT; qa.marker present
+   after that start: system.cfg.backup 3 keys; system.hostname line ABSENT; qa.marker present
+   (substitute: the host's /usr/bin/grep stands in for grep, which the donor's busybox lacks)
+== 2 the next boot's chksysconfig verify (8ebaf8daad, unrewritten): rc 0
+   said: /usr/bin/chksysconfig.real: line 324: rsync: command not found
+   after chksysconfig: system.cfg 221 keys; system.hostname line present; qa.marker ABSENT
+   after chksysconfig: system.cfg.backup 3 keys; system.hostname line ABSENT; qa.marker present
+== 3 the interface's next start after that boot (a fresh SystemConf load)
+   value=[]
+   after that start: system.cfg 221 keys; system.hostname line present; qa.marker ABSENT
+   after that start: system.cfg.backup 221 keys; system.hostname line present; qa.marker ABSENT

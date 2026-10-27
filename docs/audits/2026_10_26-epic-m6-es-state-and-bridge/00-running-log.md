@@ -113,3 +113,21 @@
   - the guest's stores restored and verified by `cmp`, and no account key ever set on it;
   - the leftover check at 0.
 - **No other host action:** nothing in the window touched an M7 root, a handheld or the owner's accounts, and no QA account was used.
+
+## [Stage C] 22:51 to 23:56 UTC — the second opinions, the grades, the leads from the seats
+
+- **The four keyed calls, and no others** (`stage-c/keyed-calls.txt`): Astra's probe and refutation, then Argon's probe and refutation, each PASS on its provenance (`stage-c/provenance-read.py`); `04` § Second opinion has the windows and the verdicts.
+- **The grades:** Astra 58 items (`stage-c/astra-grades.md`), Argon 45 (`stage-c/argon-grades.md`); `02` § Corrections and new leads from the seats holds the corrections and L-23 to L-36.
+- **The host positive taken further:** `stage-c/positives/hostname-empty.py` (L-23). Its step 3 was run by hand at stage C and appended to the `.out`; it is part of the script since S1, so the script reproduces its own output.
+- **`05` was not written by this session:** two of its responses were stopped by an automated safety check (23:38 and 00:20 UTC), and the coordinator wrote `05` from the lane's inputs at `14cd564486` (D-WORKFLOW-212, merged at `69a2006ed4`). Friction: Backlog #1183.
+
+## [Stage D] 00:20 to 00:35 UTC — the lint, the audit issue, the pause
+
+- `04` § Second opinion written; PL-23's `punch_index` question changed from Q8 to `none` with its reason (the lint's second FAIL); `tools/lint-audit-artifacts --phase pre-issue` PASS.
+- The audit issue #1184, a sub-issue of #668, 26 items; `tools/box-check` 0 fail. The pause posted on #668; the ruling at 00:29 UTC with the stream brief `docs/reviews/briefs/t21-streams.md` at `e3c07a9c30`.
+- **The bugs:** 19 under #668 (#1185, #1187, #1189, #1191, #1193 to #1207) and the OS scripts' four halves under #695 (#1208 to #1211), each body its `05` section copied by a script (`/workspace/tmp/m6-t21/stageD/bugs.py`), cross-linked in pairs.
+
+## [Stage E] 00:36 UTC onward — the streams
+
+- **The build command:** `RAPIDJSON_INCLUDE_DIR=/workspace/tmp/m6-t21/rj/rapidjson-1.1.0/include bash tools/t21-build-tests.sh <es tree> <build dir>`, with `TMPDIR=/workspace/tmp/m6-t21/tmp`.
+- **S1** (#1185, #1198, #1199), ES `ba0e82c1f`. The question on `updateVal`'s refusal was ruled at 00:36 UTC: (b), refined. Before: es-conf-tests 8 of 18 failed, es-unit-tests and es-file-tests 1 each. After: 230 cases passing in the four binaries. The host positives: `bash stage-e/s1-positives.sh <es tree> <scratch> <chksysconfig> <001-functions> <seed> <busybox> <os-release>`, the inputs those of stage C (the scripts at `8ebaf8daad` under `/workspace/tmp/m6-t21/shell/in/`, the donor's busybox and os-release under `/workspace/artifacts/m6-donor/1a0266484423/image/system/`). `stage-e/s1-before.txt`, `s1-after.txt`, `s1-checks.txt`.

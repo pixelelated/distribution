@@ -1,0 +1,40 @@
+# T21 S1 after: the stream's tree (#668, #1185, #1198, #1199)
+
+$ RAPIDJSON_INCLUDE_DIR=<rj> bash tools/t21-build-tests.sh <es tree> <build dir>
+RUN es-unit-tests: rc 0; [doctest] test cases: 186 | 186 passed | 0 failed | 0 skipped [doctest] assertions: 4799 | 4799 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3390 | 3390 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 18 | 18 passed | 0 failed | 0 skipped [doctest] assertions: 168 | 168 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+
+## the host positives (state-fixture from the stream's SystemConf)
+== state-fixture built from 16dbac5211 + the working tree
+-- U1: an empty value (D-NET-009 writes system.hostname= on purpose)
+keys=1 has[system.hostname]=1
+value=[]
+-- U2: a value carrying a line end, set and saved by SystemConf
+set rc 1
+the file's lines, values masked:
+system.hostname=<value>
+root.password lines: 0
+-- U3: a key set to its table default (global.retroachievements.hardcore 0)
+set rc 0
+lines reading global.retroachievements.hardcore=0: 0
+-- hostname-empty.py (stage C's chain)
+== 0 before
+   before: system.cfg 4 keys; system.hostname line present; qa.marker present
+   before: system.cfg.backup 4 keys; system.hostname line present; qa.marker present
+== 1 the interface saves system.hostname as empty (the pin's SystemConf): rc 0
+   after the save: system.cfg 4 keys; system.hostname line present; qa.marker present
+   after the save: system.cfg.backup 4 keys; system.hostname line present; qa.marker present
+   the interface's next start (a fresh SystemConf load): value=[player]
+   after that start: system.cfg 4 keys; system.hostname line present; qa.marker present
+   after that start: system.cfg.backup 4 keys; system.hostname line present; qa.marker present
+   (substitute: the host's /usr/bin/grep stands in for grep, which the donor's busybox lacks)
+== 2 the next boot's chksysconfig verify (8ebaf8daad, unrewritten): rc 0
+   said: /usr/bin/chksysconfig.real: line 324: rsync: command not found
+   after chksysconfig: system.cfg 4 keys; system.hostname line present; qa.marker present
+   after chksysconfig: system.cfg.backup 4 keys; system.hostname line present; qa.marker present
+== 3 the interface's next start after that boot (a fresh SystemConf load)
+   value=[player]
+   after that start: system.cfg 4 keys; system.hostname line present; qa.marker present
+   after that start: system.cfg.backup 4 keys; system.hostname line present; qa.marker present

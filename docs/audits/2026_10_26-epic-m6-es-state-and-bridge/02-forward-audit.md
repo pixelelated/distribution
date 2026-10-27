@@ -596,3 +596,11 @@ Each ran single-threaded, in seconds.
 | `wifictl`'s key lines "including 177 195 209 460" | the pattern prints 177 and 460; 195 and 209 are `psk` lines it cannot match | R8 |
 | "27 `writeAllText` sites" | 27 lines, 25 call sites (sixteen sysfs), plus the definition and the declaration | R9, R20 |
 | `:642` `enable <ssid> <key>`, the key on argv with no bound | `:639-645` is the `#else` of `#if !WIN32`: Windows only | L-08 |
+
+## The streams
+
+One row per stream of `docs/reviews/briefs/t21-streams.md` (the coordinator's, at `e3c07a9c30`). The guest walks are `fix-walk-pending-image`, the coordinator's at the integration window.
+
+| Stream | Items (bugs) | Positive before | ES commit | Positive after | `Already written:` | proved |
+| --- | --- | --- | --- | --- | --- | --- |
+| S1 | PL-01 (#1185), PL-10 (#1198), PL-11 (#1199) | `stage-e/s1-before.txt`: eight SystemConfTests cases, TextRowEditTests and the parse case FAIL; `hostname-empty.py` loses every key; U1 `BATOCERA`, U2 a second key, U3 the default written | `ba0e82c1f` | `stage-e/s1-after.txt`: 230 cases pass; the chain keeps the line, `chksysconfig verify` reseeds nothing, the next start reads the player's keys; U1 empty and present, U2 refused, U3 removed | PL-01: a device that lost its settings to the reseed keeps the defaults it has, recoverable only from a settings backup; one that saved empty and has not rebooted keeps its keys, and the next save writes `system.hostname=`. PL-10: `system.hostname=` on D-NET-009's devices reads as the device's own name (`getHostsName`). PL-11: revived `k=` lines and literal `default`s already written are read as today and not written again | fix-unit-test |
