@@ -1,0 +1,13 @@
+== hand-back checks, 11:42:54Z, distribution 1398be7fc2, ES 757f5370e
+tools/register-check: rc 0: register-check: 691 IDs, each once; every citation in the live documents names a row
+tools/work-log-index --check: rc 0: work-log index: current
+tools/rules-check --quiet: rc 0: 
+tools/forbidden-terms-check: rc 0: forbidden-terms-check: 0 hits in 133635 tracked files
+.githooks/hooks-test: rc 0: PASS
+tools/lint-audit-artifacts /workspace/repos/pixelelated/distribution.worktrees/m6-es-guimenu-673/docs/audits/2026_10_27-epic-m6-es-guimenu: rc 0: PASS
+tools/box-check --issue 1213: rc 0: box-check: 1 issue(s), 0 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+tools/es-menu-map-check --es-src /home/max/Development/emulationstation-next.worktrees/m6-es-guimenu-673 --ref 16dbac5211eea7e70db7394372033be2be7df829: rc 0: 55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing
+tools/es-menu-map-check --es-src /home/max/Development/emulationstation-next.worktrees/m6-es-guimenu-673 --ref 757f5370ea17617edc59e8823d639a4e3a146961: rc 0: 55 screen(s) at 757f5370e, 31 in the map, 24 declared unmapped, 0 missing
+ES .githooks/pre-push-test: rc 0: PASS
+packages/projects/tools changed since 8ebaf8daad:  15 files changed, 2130 insertions(+), 8 deletions(-)  <- the P0/P1 lanes' tools and the coordinator's dispatch merge 8c6789f2c2, which this branch is stacked on; 8ebaf8daad is the scripts' read commit, not this branch's base
+packages/projects/tools changed by this lane (8c6789f2c2..HEAD): nothing (empty diff; 0 commits)

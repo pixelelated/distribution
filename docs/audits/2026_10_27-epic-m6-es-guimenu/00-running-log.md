@@ -141,3 +141,8 @@
 - `docs/retros/2026-10-27-m6-es-guimenu.md`: the four questions, the scoped audit, time to play (from `docs/vm-qa-log.md` and `03` § 3.6: what the streams did to the three costs; neither number is measured, since no image was built), what T31 to T37 inherit, and three instruction recommendations.
 - **A count corrected:** the S12–S13 checkpoint on #673 said 13 new tests and 6 changed. `git diff --name-status 16dbac5211 HEAD -- tests es-app/tests` reads 14 added and 5 modified. That was composed, not counted, the lesson T21 recorded. It is corrected in the retro and on #673.
 - The audit issue #1213 has its 29 items ticked against the stage-F outcomes and the outcomes table appended. `tools/box-check --issue 1213`: 0 open, 0 fail.
+
+## [Hand-back] 12:45 UTC — the checks
+
+- `stage-e/handback-checks.txt`: register-check, work-log-index, rules-check, forbidden-terms-check (0 hits), `.githooks/hooks-test`, the resolution lint, `box-check --issue 1213`, `es-menu-map-check` at the pin and at `757f5370e` (0 missing each), and the ES `pre-push-test`. All rc 0.
+- **Nothing under `packages/`, `projects/` or `tools/` changed by this lane:** `8c6789f2c2..HEAD` is empty. The first read, against `8ebaf8daad`, showed 15 files; those are the P0/P1 lanes' and the dispatch merge's, from the commits this branch is stacked on.
