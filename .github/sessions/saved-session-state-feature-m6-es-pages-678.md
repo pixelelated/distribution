@@ -62,5 +62,5 @@ granted window.
 
 ## Checkpoints
 
-- Stage B: distribution `<this commit>`, ES at the pin, window requested
+- Stage B: distribution `5547dd1c88`, ES at the pin, window requested
 - Stage A: distribution `c252de767f` (pointer `87f679e0ce`), ES at the pin `16dbac5211`, posted 12:07:50 UTC (accepted 12:09 UTC)
