@@ -1,0 +1,39 @@
+# T21 S5 after: the stream's tree (#668, #1193)
+
+RUN es-unit-tests: rc 0; [doctest] test cases: 186 | 186 passed | 0 failed | 0 skipped [doctest] assertions: 4799 | 4799 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 27 | 27 passed | 0 failed | 0 skipped [doctest] assertions: 3414 | 3414 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 21 | 21 passed | 0 failed | 0 skipped [doctest] assertions: 192 | 192 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+
+## The shell side, read as the contract (unchanged by S5)
+$ tools/settings-modes-test --profile <001-functions at 8ebaf8daad> --chksysconfig <chksysconfig at 8ebaf8daad> --busybox <donor busybox> --output <scratch>
+PASS set_setting-private_live
+PASS set_setting-private_record
+PASS set_setting-wide_temp
+PASS set_setting-restricted_group
+PASS set_settings-private_live
+PASS set_settings-private_record
+PASS set_settings-wide_temp
+PASS set_settings-restricted_group
+PASS del_setting-private_live
+PASS del_setting-private_record
+PASS del_setting-wide_temp
+PASS del_setting-restricted_group
+PASS sort_settings-private_live
+PASS sort_settings-private_record
+PASS sort_settings-wide_temp
+PASS sort_settings-restricted_group
+PASS backup-private_live
+PASS backup-private_record
+PASS backup-wide_temp
+PASS backup-restricted_group
+PASS restore-private_live
+PASS restore-private_record
+PASS restore-wide_temp
+PASS restore-restricted_group
+PASS refuse-symlink
+PASS refuse-chmod
+PASS refuse-stat
+PASS refuse-producer
+PASS refuse-rename

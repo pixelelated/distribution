@@ -1,0 +1,11 @@
+# T21: the coordinator's S3 merged (#668, #1187, #1205)
+
+$ git fetch origin coordinator/t21-s3 && git merge --no-ff origin/coordinator/t21-s3   # 13a688804, based on S2 8cf52e263; merge f2561bbe4
+$ RAPIDJSON_INCLUDE_DIR=<rj> bash tools/t21-build-tests.sh <es tree> <build dir>
+RUN es-unit-tests: rc 0; [doctest] test cases: 190 | 190 passed | 0 failed | 0 skipped [doctest] assertions: 4828 | 4828 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 27 | 27 passed | 0 failed | 0 skipped [doctest] assertions: 3414 | 3414 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 21 | 21 passed | 0 failed | 0 skipped [doctest] assertions: 192 | 192 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+
+es-unit-tests 186 -> 190: the four ArchiveCommandsTests cases. Five binaries since S4 (es-fs-tests).

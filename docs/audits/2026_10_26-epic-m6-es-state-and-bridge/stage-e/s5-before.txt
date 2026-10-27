@@ -1,0 +1,24 @@
+# T21 S5 before: S4's tree (ES f7c16144d) with S5's tests; copy-with-mode and narrowTo as stubs keeping the pin's behaviour (#668, #1193)
+
+RUN es-unit-tests: rc 0; [doctest] test cases: 186 | 186 passed | 0 failed | 0 skipped [doctest] assertions: 4799 | 4799 passed | 0 failed | 
+RUN es-file-tests: rc 1; [doctest] test cases: 27 | 25 passed | 2 failed | 0 skipped [doctest] assertions: 3414 | 3410 passed | 4 failed | 
+RUN es-conf-tests: rc 1; [doctest] test cases: 21 | 20 passed | 1 failed | 0 skipped [doctest] assertions: 192 | 188 passed | 4 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+
+## es-file-tests: the failing cases
+TEST CASE:  narrowTo takes a 0645 file and a 0644 record to 0600, once, and leaves an absent one alone (T21 PL-05, #1193)
+es-app/tests/unit/AtomicFileTests.cpp:1135: ERROR: CHECK( modeOfFile(path) == 0600 ) is NOT correct!
+es-app/tests/unit/AtomicFileTests.cpp:1136: ERROR: CHECK( modeOfFile(path + ".backup") == 0600 ) is NOT correct!
+es-app/tests/unit/AtomicFileTests.cpp:1141: ERROR: CHECK( modeOfFile(path) == 0600 ) is NOT correct!
+TEST CASE:  a recovery copy takes the mode asked for, not its source's (T21 PL-05, #1193)
+es-app/tests/unit/AtomicFileTests.cpp:1156: ERROR: CHECK( modeOfFile(dir / "es_settings.cfg") == 0600 ) is NOT correct!
+
+## es-conf-tests: the failing cases
+TEST CASE:  the start narrows system.cfg and its record to 0600 (T21 PL-05, #1193)
+es-app/tests/unit/SystemConfTests.cpp:716: ERROR: CHECK( modeOf(path) == 0600 ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:717: ERROR: CHECK( modeOf(path + ".backup") == 0600 ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:721: ERROR: CHECK( modeOf(path) == 0600 ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:722: ERROR: CHECK( modeOf(path + ".backup") == 0600 ) is NOT correct!
+
+The first new file case (writeText over a 0645 file with 0600 asked for) passes at the pin: writeText already applies a mode it is given. It is kept as the guard.
