@@ -32,3 +32,33 @@
 - **Read at stage A** (`01` § Context): the dispatch comment whole; the brief whole with its two version notes; #678's body (21 checkboxes); T2's punch list at the lines the brief routes (`:109`, `:295`, `:614-615`, PL-016's and PL-031's resolution rows); T26's `02` § What T31 to T37 inherit and its retro.
 - **Nothing else ran:** no image build, no fetch, no guest, no handheld, no council call.
 - **A correction (stage B):** the stage-A heading above first read 12:00 to 12:20 UTC, the pointer 12:25, and the checkpoint on #678 was headed 12:28 UTC. All three were times written by hand, not read from a clock. The commit is at 12:07:06Z (`git log --format=%cI`) and the post at 12:07:50 UTC (the coordinator's note, 12:09 UTC). Corrected here, in the pointer, and in the comment's heading. From now on a time in a record comes from `date -u` in the same command that makes the record.
+
+## [Stage B] 12:10 to 12:23 UTC — the generators, the reading, 02, the window plan
+
+- **Six generators under `tools/`**, sharing `t31lib.py` (the call parser). Each asserts its counts and exits 1 on drift, and each was seen to exit 1 on a constructed drift:
+  - `t31-dialogs.py`: 50 sites; back lands on OK 30, NO 18, CANCEL 1, CLOSE 1. GuiMsgBox's rule is read from `GuiMsgBox.cpp:116-134`.
+  - `t31-titles.py`: the checker's own patterns and `names_screen`, 12 / 27 / 10 / 12, the brief's hand counts.
+  - `t31-rows.py`: 50 calls.
+  - `t31-reads.py`: 26 sites.
+  - `t31-pages.py`: 37 pages and 2 header-only units, every census total as the brief's runs except `popen` (1).
+  - `t31-callers.py`, from stage A.
+- **The generators were corrected as they were read:**
+  - a receiver match that crossed a comment's end hid the DEVELOPER ID row, found by its absence;
+  - `std::atoi` was missed by a pattern that excluded `::`;
+  - header-only files were missed by a per-`.cpp` loop;
+  - the no-title count first excluded computed titles. The brief's 10 counts no `_()` title, with `GuiMoonlight`'s raw literal among them.
+- **The reading:** the twelve fork-touched files (the three fork-own and four modified whole, the rest at the fork's diff and the leads' lines), `GuiLoading.h` whole, and the upstream pages at every lead's lines (`stage-b/`, `02` § Leads).
+- **`02`:** 25 leads. New against the brief:
+  - L-01: START drops every open settings page's choices; upstream in both trees, reaching the fork's pages;
+  - L-02: the LED colour is never saved to `system.cfg`;
+  - L-03: a relay change drops ENABLE NETPLAY;
+  - L-04: PLAYER PASSWORD is shown in clear;
+  - L-05 and L-06: Moonlight's unquoted SERVER IP, and an unpair that removes nothing and says it cleared;
+  - L-07: Moonlight's raw English title, unmapped and invisible to the checker;
+  - L-19 to L-21: three back landings that act;
+  - L-22: `GuiLoading`'s unsynchronised `mRunning`;
+  - L-23: `GuiAutoScrape` is not compiled.
+
+  Corrections to the brief: seven, in `02`.
+- **The window plan** (`stage-b/window-plan.md`): thirteen steps, 45 minutes plus 5 of grace, stopped by pidfile at the bound; the identity by two literals first.
+- **Nothing else ran:** no image build, no fetch, no guest, no handheld, no council call.

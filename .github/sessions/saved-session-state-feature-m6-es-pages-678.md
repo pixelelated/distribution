@@ -17,7 +17,7 @@
 
 ## Current focus
 
-**Stage A done** (12:00 to 12:07 UTC; committed 12:07:06, posted 12:07:50), committed and posted on #678. The audit folder is
+**Stage A done** (12:00 to 12:07 UTC; committed 12:07:06, posted 12:07:50). **Stage B done** (12:23 UTC): `02` with its sections and 25 leads, six generators, the window plan; the window asked for on #678.
 `docs/audits/2026_10_27-epic-m6-es-pages/`: `00-running-log.md` (the header and § Stage A),
 `01-research-notes.md` (§ Scope, § History, § Callers, § Context), `stage-a/` (the first
 commands, the membership block, the § 5 runs and their output, the reruns, the callers, the
@@ -25,12 +25,7 @@ history) and `tools/` (`t31-callers.py`, `t31-run-runs.py`). Every § 5 figure a
 expects; the brief's non-ASCII adjacency grep is a basic-regex error (`'_\("'`), rerun with
 `-F`: 0. `GuiAutoScrape` has no caller at the pin (a Q7 lead).
 
-**Stage B next, now:** `02-forward-audit.md` with its sections (§ Coverage, § The pages, § The
-dialogs, § The rows, § The reads, § The titles, § The merge debt, § The runs), its generators
-under the audit folder's `tools/` (`t31-titles.py` first: the § 5 title-shapes run), the
-reading of the twelve fork-touched files whole and the 64 upstream ones at the leads' lines,
-`tools/archaeology 'save state manager'` and `'scrape'`, then the guest-window request on
-#678 with its plan and bound. The ES worktree stays at the pin.
+**Next:** the window when granted on #678 (`stage-b/window-plan.md`), and stage C beside it: the host proofs under `stage-c/` (the plan's list), `03`, `04`, the packet trimmed and scanned, the seat (GPT-6 Astra at max, two keyed invokes), the pre-issue lint.
 
 ## Next commands
 
@@ -67,4 +62,5 @@ granted window.
 
 ## Checkpoints
 
+- Stage B: distribution `<this commit>`, ES at the pin, window requested
 - Stage A: distribution `c252de767f` (pointer `87f679e0ce`), ES at the pin `16dbac5211`, posted 12:07:50 UTC (accepted 12:09 UTC)
