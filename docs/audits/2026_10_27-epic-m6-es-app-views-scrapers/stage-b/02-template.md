@@ -141,6 +141,15 @@ GPT-6 Astra's 40 items, all accepted (`stage-c/astra-grades.md`). The narrowings
 
 `cada856d86` is the merge base with `rocknix/master` (`f6c542872e`), one commit after `bccd715707` (the base the stale `upstream/master` ref still names); 0 of the 14 upstream commits since the base touch the 42 paths and the numstat prints nothing; the fork's six files carry `Scraper.cpp` 2/2, `ThreadedScraper.cpp` 56/22, `ThreadedScraper.h` 30/4, `DetailedContainer.cpp` 21/0, `GridGameListView.cpp` 14/0 and `ISimpleGameListView.cpp` 45/18 (168/46 against both bases); T21's ES tip carries, inherited and not merged here, `Scraper.cpp` 28/8 and `Scraper.h` 5/0 and adds `ScraperReplies.cpp` 51 and `ScraperReplies.h` 22 (`3ae9610b0`, `44d3c7e25`, `e38dcdefd`).
 
+**At stage E, the merge debt by file** (for the integration, which merges T21's, T31's and this lane's branches):
+- `Scraper.cpp` (S2, S4) against T21's `3ae9610b0` (the media retry, the pin's `:596`, now `:644`: T21 rebuilds it as `new HttpReq(mRequestUrl, &mOptions)` with members in `Scraper.h`; this lane bounds the pin's shape -- keep T21's hunk and the stall bound), `44d3c7e25` (both `Retry-After` reads through `ScraperReplies::retryAfterSeconds`; this lane changed the branches around them) and `e38dcdefd`.
+- `GuiScraperRun.cpp`: unchanged here; T31's `2fa6b5f73` changed its lines 4 and 5 and `input`. S2 kept the page's contract (`failed`, `failure`, `errors`, `done`).
+- `GuiScraperStart.cpp:74-78` (T31's): PL-04's second half, `stage-e/s2-guiscraperstart.patch`, applies to `2fa6b5f73` (`s2-guiscraperstart.txt`).
+- `main.cpp`: no change. `stop()` at `:1332` follows `AppWindow::closing()` and now joins.
+- `ScraperSearchComponent.cpp` (T33's, ruling 4): the manual searches on the interface thread (`:303`, `:321`, `:658`), the builder's thread (`:206`, `:220-256`, EP-38), and the manual token failure as no result (EP-36's manual half).
+- `ProxyCards.*`: no change (S6 needed none).
+- es-core `TextureData.cpp:331`, `:339`, `:410`: PL-07's picture, routed per ruling 7.
+
 ## The runs
 
 Every § 5 run of stage A (`stage-a/runs.sh`, its output `stage-a/runs.out`, rc 0, 2 s wall for the whole block), with what a FAIL would mean. The stage-C runs (the include graph, the unit build) are stage C's.
@@ -237,6 +246,25 @@ Per D-WORKFLOW-164, each upstream-side lead is weighed for upstream. None is sen
 | batocera-emulationstation, then ROCKNIX | `views/gamelist/GridGameListView.cpp`, `views/SystemView.cpp`, `ISimpleGameListView.cpp`'s letter | PL-09, PL-13: the IMAGE fallback; the modulo; the first code point | `l331`, `l327`; `floor.md` | `rocknix/master` (the letter code is the fork's file, upstream's lines) |
 | batocera-emulationstation, then ROCKNIX | `services/HttpServerThread.cpp`, `HttpApi.cpp`; the scrapers' smaller items | PL-11, PL-12: as recorded there | `floor.md`; G-08 | `rocknix/master` |
 
+**At stage E, the lines as written** (none sent; D-WORKFLOW-165), each with its ES commit on `feature/m6-es-app-views-scrapers-679`:
+
+| Stream | Upstream | The change | ES commit |
+| --- | --- | --- | --- |
+| S1 | ROCKNIX/emulationstation-next (the lifetime is batocera's, the CANCEL the fork's) | the batch scrape owns and joins its worker; `mInstance` under one lock; `cancelled` only while unfinished; ScraperThreads deleted as erased | `e85735b0b` |
+| S2 | batocera-emulationstation, then ROCKNIX | a search's IO error and spent or long 429 are errors; a dependency's 404 keeps the primary; `process()`'s `false` retried once; IGDB's `true` for no match | `bf3e8e2bd` |
+| S2 | batocera-emulationstation, then ROCKNIX | `getScraper()` falls back to the first registered scraper | `bf3e8e2bd` |
+| S2 | batocera-emulationstation, then ROCKNIX | a stall bound on every scraper request, a total bound on token exchanges, the first searches on the worker | `bf3e8e2bd` |
+| S2 | batocera-emulationstation, then ROCKNIX | `hasAnyMedia`'s logo test as `hasMissingMedia`'s | `bf3e8e2bd` |
+| S3 | batocera-emulationstation, then ROCKNIX | each response's shape before its members (`ScraperJson.h`), for builds with NDEBUG | `0404e76cc` |
+| S4 | batocera-emulationstation, then ROCKNIX | the container's media reads uncached (an outside writer) | `1655e2f4c` |
+| S4 | batocera-emulationstation, then ROCKNIX | `GameNameFormatter`: DESCENDING's year; play time past a day | `1655e2f4c` |
+| S4 | batocera-emulationstation, then ROCKNIX | `SystemView`'s hidden-systems dialog through `_()` and the switch saved | `1655e2f4c` |
+| S6 | batocera-emulationstation, then ROCKNIX | `POST /launch`: one launch, by path, on the interface thread | `e594e46e3` |
+| recorded | ROCKNIX (the vendored copy's currency) | cpp-httplib: the 2020 v0.7 series by content (`Copyright (c) 2020`, `Client2`), ES's last change b4985a427 (2021-11-08); no chunked-body limit, fixed upstream in 0.20.1; WEB ACCESS off by default and the server on 127.0.0.1 without the player's opt-in (PL-06) | -- |
+| recorded | batocera-emulationstation, then ROCKNIX | the grid's IMAGE fallback (PL-09); `/notify`, `/quit` and the media writes on the pool (PL-11); the scrapers' smaller items (PL-12); the carousel's modulo and the letter jump (PL-13); media named by stem (PL-19) | -- |
+
+`/isIdle`'s sources (S6, #1268) and #210's French (S4) are the fork's: no #585 line.
+
 ## What T33 to T37 inherit
 
 § 5 item 3's seven, with their lines:
@@ -247,6 +275,8 @@ Per D-WORKFLOW-164, each upstream-side lead is weighed for upstream. None is sen
 4. **The bounds table** (every `HttpReq` construction with its options; none bounded but the 10 s connect): § The bounds, L-06, L-18.
 5. **The scrapers' outcome routing** (status -> `processError` -> `Progress` -> the page's line 4): § The scrapers' last paragraph.
 6. **`httplib.h`'s currency note**: § The structure, completed at stage C (the 2020 v0.7 series; L-24).
+
+And for T33 by ruling 4: `components/ScraperSearchComponent.cpp`'s manual paths -- `search` on the interface thread at `:303` (a typed name), `:321` (no scraper takes the system) and `:658` (`update()`'s retry); the builder's plain completion flag, leaked thread and missing join (`:206`, `:220-256`, EP-38); and a manual token failure read as no result (EP-36), whose synchronous callers would have to catch S2's typed throw.
 
 And carried by name: **L-16** to T33 (#680): `CollectionSystemManager::reloadCollection` (`:1574-1589`) clears a grouped collection's root (`:1117`) before `reloadGameListView(bundle)` reads the bundle view's cursor (`ViewController.cpp:1140-1142`), which is #246's shape. Its proof is FILTER GAMES BY TEXT on a grouped custom collection on a guest.
 7. **The map section for the views**: L-15, at stage E.

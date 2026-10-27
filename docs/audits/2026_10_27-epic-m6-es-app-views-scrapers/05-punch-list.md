@@ -6,7 +6,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - the guest cycle, the stage-C harnesses (`stage-c/runs.txt`) and the floor read (`stage-c/floor.md`);
 - the seat's grades (`stage-c/astra-grades.md`).
 
-- **reviewed-at:** `603b358a14` (distribution), **reviewed-at-es:** `16dbac5211` (the pin). **fixed-at:** and **fixed-at-es:** at stage E.
+- **reviewed-at:** `603b358a14` (distribution), **reviewed-at-es:** `16dbac5211` (the pin). **fixed-at:** the distribution's hand-back tip on `feature/m6-es-app-views-scrapers-679` (named in #679's header and the hand-back post), **fixed-at-es:** `e594e46e3` (`feature/m6-es-app-views-scrapers-679` on pixelelated/emulationstation).
 - **Independent depth:** one seat, GPT-6 Astra at `max`: 40 items, all accepted (`stage-c/astra-grades.md`).
 - **One item per defect or reusable improvement**, however many leads found it, ordered by severity.
 - **Nothing here changes a file** under the distribution's `packages/`, `projects/` or `tools/`, or an ES file, at stages A to D. A fix lands only under a stream brief on the ES branch, proven twice. A row added, moved or renamed updates `docs/es-menu-map.md` in the same commit (D-UI-039).
@@ -302,9 +302,9 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Category:** Performance
 - **Question:** Q1
 - **Family:** a lifetime or a thread
-- **Source Finding:** L-23 -- proved: tree (`ThreadedScraper.cpp:218`, `:53`, `:71-72`)
+- **Source Finding:** L-23 -- proved: tree (`ThreadedScraper.cpp:220`, `:53`, `:71-72`); fixture after S1 (`l02`'s leak case)
 - **Owner area:** `es-app/src/scrapers/ThreadedScraper.cpp`
-- **What:** each finished `ScraperThread` is erased without a `delete` (717e7d8c3), and `mHandle` is never joined or freed.
+- **What:** each finished `ScraperThread` is erased without a `delete` (`:220`; L-23 and this item said `:218`, corrected at Phase 7 as the brief's § Lines found; 717e7d8c3), and `mHandle` is never joined or freed.
 - **Fix shape:** delete on erase; detach or join `mHandle` before `delete this`.
 - **Can this be done on the VM?** Yes. `l02`'s fixture with a heap thread and LeakSanitizer (`fix-unit-test`).
 - **Already written:** nothing inherited.
@@ -459,34 +459,34 @@ Written by the first reader (Opus 5.5) at stage C, from:
 
 ---
 
-## Phase 7
+## Phase 7 resolution gate
 
-At stage D every item is open, awaiting the coordinator's dispositions. Stage F rewrites this table and the index together.
+Stage F, 2026-10-27: every item at its outcome, the table and the index rewritten together. The ES commits are on `feature/m6-es-app-views-scrapers-679` (pixelelated/emulationstation), fixed-at-es `e594e46e3`; each stream's before, after and checks are under `stage-e/`, and `02` § The streams carries one row per stream.
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | -- |
-| PL-02 | Open | -- |
-| PL-03 | Open | -- |
-| PL-04 | Open | -- |
-| PL-05 | Open | -- |
-| PL-06 | Open | -- |
-| PL-07 | Open | -- |
-| PL-08 | Open | -- |
-| PL-09 | Open | -- |
-| PL-10 | Open | -- |
-| PL-11 | Open | -- |
-| PL-12 | Open | -- |
-| PL-13 | Open | -- |
-| PL-14 | Open | -- |
-| PL-15 | Open | -- |
-| PL-16 | Open | -- |
-| PL-17 | Open | -- |
-| PL-18 | Open | -- |
-| PL-19 | Open | -- |
-| PL-20 | Open | -- |
-| PL-21 | Open | -- |
-| PL-22 | Open | -- |
+| PL-01 | Resolved | Resolved in `e85735b0b` (ES, S1) under #1258: an owned, joined worker, reaped on the interface thread, `cancelled` only while unfinished, the startup throw finalized (`stage-e/s1-*.txt`); a #585 line |
+| PL-02 | Resolved | Resolved in `bf3e8e2bd` (ES, S2) under #1259: request failures are errors with their codes, the dependency's 404 keeps the primary, `false` retried once, media failures counted, every game counted, offline and busy runs COULDN'T FINISH with the why (`stage-e/s2-*.txt`); two choices put to the coordinator on #679 (18:05 UTC); a #585 line |
+| PL-03 | Resolved | Resolved in `0404e76cc` (ES, S3) under #1260: `ScraperJson.h` and each container's shape first in four scrapers, a doctest in `es-unit-tests` (`stage-e/s3-*.txt`); #1154 named as the peer-verification dependency in the record; a #585 line |
+| PL-04 | Resolved | Resolved in `bf3e8e2bd` (ES, S2) under #1261: `getScraper()` falls back to the first registered scraper; the second half, SCRAPER saving its shown selection, is `stage-e/s2-guiscraperstart.patch` for the integration over T31's `2fa6b5f73` (ruling 1); a #585 line |
+| PL-05 | Resolved | Resolved in `bf3e8e2bd` (ES, S2) under #1262: a stall bound on all nine constructions (`bounded=9`), a total bound on the tokens, the first searches on the worker; the manual paths and the manual builder are `ScraperSearchComponent.cpp`'s, T33's (ruling 4), recorded in `02`; a #585 line |
+| PL-06 | Deferred | Deferred: #585 -- recorded as ruled (17:22 UTC), the vendored cpp-httplib's 2020 v0.7 series, ES's last change b4985a427 (2021-11-08), and WEB ACCESS off by default, written in `02` § The #585 lines owed |
+| PL-07 | Resolved | Resolved in `1655e2f4c` (ES, S4) under #1263: the nine container reads and the scraper's 24 uncached (`t32-reads.py`: 34 uncached); the picture's miss is es-core's `TextureData.cpp:331`, `:339`, `:410`, routed per ruling 7, and #1263 keeps that checkbox open; a #585 line |
+| PL-08 | Resolved | Resolved in `1655e2f4c` (ES, S4) under #1264: DESCENDING shows the year, play time past a day (`l332`); a #585 line |
+| PL-09 | Deferred | Deferred: #585 -- recorded as ruled, the IMAGE source's fallback, the intent left to upstream |
+| PL-10 | Resolved | Resolved in `1655e2f4c` (ES, S4) under #1265: SAUVEGARDES D’ÉTAT (MAINTENU); the hidden-systems dialog through `_()` with its French and saved; 3.34's refresh and the French bar's fifth entry carried as an observation, the frame owed at the integration window; a #585 line for the dialog |
+| PL-11 | Deferred | Deferred: #585 -- the remainder recorded (L-12, L-21, L-13's rest, 3.17, 3.18, 3.22-3.24); its two bugs are PL-21 and PL-22 |
+| PL-12 | Deferred | Deferred: #585 -- recorded as ruled |
+| PL-13 | Deferred | Deferred: #585 -- recorded as ruled; G-03 carried as an observation (an open item to test), the jump's frame owed at the integration window |
+| PL-14 | Resolved | Resolved in `e85735b0b` (ES, S1) with PL-01: each `ScraperThread` deleted as it is erased, the worker owned and joined (`l02`'s leak case rc 0); the line corrected to `:220` |
+| PL-15 | Resolved | Resolved in `cf16ff5237` (distribution, S5), paired with ES `1655e2f4c`: `docs/es-menu-map.md` § Game list views; `es-menu-map-check` 0 missing; the grep prints the section |
+| PL-16 | Deferred | Deferred: #680 (T33) for L-16, written in `02` § What T33 to T37 inherit; L-14 recorded; the #585 lines in `02` |
+| PL-17 | Resolved | Resolved in `1655e2f4c` (ES, S4) under #1266: the placeholder branch no longer hands the old placeholder to `setCursor` (`s4-views.py` ASan clean); a #585 line |
+| PL-18 | Resolved | Resolved in `bf3e8e2bd` (ES, S2) under #1267: the logo test reads as `hasMissingMedia` does (`s2-scrapers.py`); a #585 line |
+| PL-19 | Deferred | Deferred: #585 -- recorded as ruled |
+| PL-20 | Deferred | Deferred: #1154 -- these parsers named as its consumer in S3's record; the comment on #1154 is the coordinator's |
+| PL-21 | Resolved | Resolved in `e594e46e3` (ES, S6) under #1268: `/isIdle` asks the cloud sync, its lock and the proxy; no `ProxyCards` change was needed (`stage-e/s6-*.txt`) |
+| PL-22 | Resolved | Resolved in `e594e46e3` (ES, S6) under #1269: one launch per request, by path, on the interface thread; a #585 line |
 
 ```yaml
 punch_index:
@@ -495,131 +495,131 @@ punch_index:
   category: Correctness
   question: Q1
   source_finding: "L-01, L-02, EP-34, EP-37"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-02
   severity: "High"
   category: Correctness
   question: Q3
   source_finding: "3.13, 3.5, 3.16, 3.19, L-07, L-05, L-27"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-03
   severity: "High"
   category: Correctness
   question: Q3
   source_finding: "3.10, 3.8, L-22, 3.2, 3.4"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-04
   severity: "Medium"
   category: Correctness
   question: Q7
   source_finding: "3.15"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-05
   severity: "Medium"
   category: Performance
   question: Q2
   source_finding: "L-06, L-18, 3.20, L-28"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-06
   severity: "Medium"
   category: Security
   question: Q7
   source_finding: "L-24"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-07
   severity: "Low"
   category: Correctness
   question: Q4
   source_finding: "L-08, L-09"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-08
   severity: "Low"
   category: Correctness
   question: Q6
   source_finding: "3.32"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-09
   severity: "Low"
   category: Correctness
   question: Q6
   source_finding: "3.31"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-10
   severity: "Low"
   category: Correctness
   question: Q5
   source_finding: "L-10, L-11, 3.34, 3.35"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-11
   severity: "Low"
   category: Correctness
   question: Q1
   source_finding: "L-12, L-13, L-19, L-20, L-21, 3.17, 3.18, 3.22, 3.23, 3.24"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-12
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "3.3, 3.7, 3.11, 3.12"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-13
   severity: "Low"
   category: Correctness
   question: Q6
   source_finding: "3.27, 3.29, 3.30"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-14
   severity: "Low"
   category: Performance
   question: Q1
   source_finding: "L-23"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-15
   severity: "Low"
   category: Documentation
   question: Q7
   source_finding: "L-15"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-16
   severity: "Low"
   category: Correctness
   question: Q1
   source_finding: "L-16, L-14, L-17"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-17
   severity: "Medium"
   category: Correctness
   question: Q1
   source_finding: "L-26"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-18
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "L-25"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-19
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "L-29"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-20
   severity: "Medium"
   category: Security
   question: Q3
   source_finding: "EP-40"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-21
   severity: "Low"
   category: Correctness
   question: Q1
   source_finding: "L-20"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-22
   severity: "Low"
   category: Correctness
   question: Q1
   source_finding: "L-19"
-  outcome: "open"
+  outcome: "resolved"
 ```

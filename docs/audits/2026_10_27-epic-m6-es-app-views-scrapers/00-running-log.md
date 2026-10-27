@@ -152,3 +152,12 @@
   - **The brief's premise was wrong:** `ProxyCards::sendRunning()` and `topUpRunning()` are free functions of a namespace, not instance methods. So no accessor was added and `ProxyCards.*` is unchanged; the reads are an atomic and an uncached file read, safe off the interface thread.
   - **Time to play:** the lookup by path moves from the pool thread to the interface thread, before the launch: one walk of the library's games. The integration's `time-to-play` cell says what it costs against the accepted baseline.
   - **Checks:** the stand-in passes 12 of 13 (`HttpServerThread.cpp` rc 0); non-ASCII 0; `TOTAL: 225 test cases in 4 binaries`.
+- **The hand-back, 18:21 UTC.** ES tip `e594e46e3` (fixed-at-es); the ES pre-push-test PASS at it.
+  - **05 at Phase 7:** 14 resolved, 8 deferred; the table and the index moved together; PL-14's line corrected to `:220`.
+  - **02:** § The streams has one row per stream; § The #585 lines owed lists the stage-E lines; § The merge debt is by file; § What T33 to T37 inherit takes ruling 4's manual paths.
+  - `tools/lint-audit-artifacts --phase resolution --issue 1257`: `PASS`.
+  - `tools/box-check --issue 1257`: `box-check: 1 issue(s), 22 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against`.
+  - `tools/es-menu-map-check --ref e594e46e3`: `55 screen(s) at e594e46e3, 31 in the map, 24 declared unmapped, 0 missing`.
+  - `tools/es-untranslated`: `es-untranslated: 705 fork string(s) in the source, 705 with French, 0 without`.
+  - `tools/t32-build-tests.sh`: `TOTAL: 225 test cases in 4 binaries`, 0 failed in every binary.
+  - **The stand-in per edited `.cpp`:** `ThreadedScraper`, `Scraper`, `IGDBScraper`, `HfsDBScraper`, `GamesDBJSONScraper`, `GamesDBJSONScraperResources`, `ArcadeDBJSONScraper`, `GameNameFormatter`, `ISimpleGameListView`, `DetailedContainer` and `HttpServerThread` rc 0. `SystemView.cpp` is `CANNOT` (`SDLK_r` at `:471`, after the edited `:231-238`, which were read twice). `GridGameListView.cpp` was read, not changed.
