@@ -14,7 +14,7 @@ The slice is 42 files and 17,311 lines. Six files carry the fork's changes and 3
 - **A saved scraper name the build does not register** crashes SCRAPE NOW (3.15). The page's count is short by the thread count (3.19).
 - **The views are mostly sound.** Their defects are small and upstream's: a missing year (3.32), a wrapped play time (3.32), an empty tile in a grid theme (3.31), and a fast move whose wrong index a wrapping carousel hides (3.27).
 
-All seven host harnesses FAIL at the pin and pass their controls. The window proved 3.13 and L-08 on the image. Proposed: **N bugs** (counted in `05`) and the rest Deferred or recorded, each named in `05`.
+All seven host harnesses FAIL at the pin and pass their controls. The window proved 3.13 and L-08 on the image. `05` has 20 items: 3 High, 5 Medium, 12 Low. **Ten `bug`s are proposed** (PL-01 to PL-05, PL-07, PL-08, PL-10, PL-17, PL-18). Three more are put to the coordinator (PL-06, PL-09, and PL-11's `/isIdle` half). The rest are recorded or Deferred, each by name in `05`.
 
 ## Acceptance-criteria scorecard
 
@@ -54,7 +54,7 @@ All seven host harnesses FAIL at the pin and pass their controls. The window pro
   - L-02's SKIPPED over a completed run;
   - 3.19's count, short by the thread count;
   - L-05, curl's words on line 4;
-  - L-08, a manual that appears only after a restart.
+  - L-08, a picture written from outside ES that appears only after a restart (G-09; its cache owner not identified, EP-29).
 - **Medium, a freeze or a bound:**
   - L-18, the token fetch on the interface thread, bounded by the connect timeout;
   - L-06, a media download with no bound under a page whose only exit is CANCEL.
@@ -106,7 +106,8 @@ All seven host harnesses FAIL at the pin and pass their controls. The window pro
 
   Each is upstream's and contained. G-08 drove `/notify` and `/removegames` on the image without a crash, which proves no race either way.
 - **L-16.** `ISimpleGameListView.cpp:461-464` is an either/or. The free-then-read is inside `CollectionSystemManager::reloadCollection` (`:1574-1589`): the root is cleared at `:1117`, then the bundle view's cursor is read (`ViewController.cpp:1140-1142`). #246's shape, carried to T33 with its lines.
-- **The rescan callers that delete nothing** (`BasicGameListView.cpp:54`, `:182`, `CarouselGameListView.cpp:61`, `:171`) call `reloadGameListView(this)` with nothing freed first. Recorded sound.
+- **The rescan callers** (`BasicGameListView.cpp:54`, `:182`, `CarouselGameListView.cpp:61`, `:171`). **Corrected by EP-28:** `:182` and `:171` do delete a game first (`BasicGameListView.cpp:174-177`, `CarouselGameListView.cpp:164-166`). What protects them is removing the entry from the list before the delete, not deleting nothing. Recorded, not called sound.
+- **L-26 (EP-35, re-read).** `onFileChanged` saves a placeholder cursor (`ISimpleGameListView.cpp:112-125`). The repopulate of an empty grid deletes that placeholder (`:929-934`), and `GridGameListView::setCursor` then calls `cursor->isPlaceHolder()` on it (`:84`): a use-after-free read, in two fork-modified files. Only a theme with a grid view reaches it.
 
 ### Q2 Bounded calls
 
@@ -135,7 +136,7 @@ All seven host harnesses FAIL at the pin and pass their controls. The window pro
 
 - All 49 `exists`-family lines in the 42 are cached (`t32-reads.py`: `uncached=0`).
 - ES's own writers drop their entry: `FileSystemUtil.cpp` `:1051`, `:1067`, `:1097`, `:1445`, `:1457-1458`, `:1506-1507`. So a stale answer needs a writer outside the process: the cloud content restore, a player over SSH, a scraper run by another tool.
-- **L-08:** `DetailedContainer.cpp:903`, `:916` decide the MANUAL and MAP rows from such a read. G-09 is its positive with a control: the manual written from outside was absent in the session and present after a restart.
+- **L-08:** `DetailedContainer.cpp:903`, `:916` decide the MANUAL and MAP rows from such a read. G-09 is the shape's positive with a control, but for a **picture**: absent in the session and present after a restart. Its cache owner is not identified (the image path is set at `:806`, `:845-850`; `:817-831` is the video-snapshot branch; EP-29). The MANUAL row's gate is the tree's reading, not the guest's.
 - **L-09:** the scrape decides what to fetch and what to overwrite from the same cache. A stream question: pass `false` for the reads whose writer is outside ES, as #179's rclone.conf gate did.
 
 ### Q5 The words, the French and the help bars
@@ -208,7 +209,34 @@ The contract comment repeated in three scrapers and read by no caller. `HttpServ
 
 ## Second opinion
 
-(After the seat: the packet, the plan, the probe and the refutation, and the grades.)
+### The packet and the plan
+
+- **The plan:** `second-opinions/review-plan.json`, depth `independent`, one reviewer: `gpt`, `openai/gpt-6-astra`, `max`, OpenRouter pinned to OpenAI, `allow_fallbacks` false.
+- **The packet:** `second-opinions/packet.md`, 433,943 bytes, built by `stage-c/packet.py`. Its manifest names every range sent and trimmed. The three-way scan found no value, and 8 credential-word hits were dispositioned by `(file, line)` as code.
+- **What the seat saw:** the 02, 03 and 04 that stood before the floor's last edits and 05. The packet's sha256 is in the manifest. Later edits to 02 are listed in `00`.
+
+### The calls
+
+Exactly two keyed invokes (`stage-c/keyed-calls.txt`):
+- **The probe**, 16:53:56 to 16:54:10 UTC, rc 0: `READY unknown`.
+- **The refutation**, 16:54:20 to 17:15:50 UTC, rc 0. 137,102 prompt tokens, 44,178 completion tokens, 34,731 of them reasoning.
+
+Both served `openai/gpt-6-astra` by OpenAI at `max`, with identity, effort and provider verification PASS (the `.provenance.json` beside each).
+
+### The grades
+
+40 items, all accepted (`stage-c/astra-grades.md`): EP-1 to EP-31 on the leads, EP-32 to EP-40 new.
+- **What it changed:**
+  - L-01's fix shape: an owned, joined worker (EP-7, with EP-34 and EP-37).
+  - L-02 needs no hook (EP-6).
+  - L-22's lines and prerequisites (EP-10).
+  - The parse inventory, container by container (EP-14, EP-32).
+  - L-24's setter is not enough (EP-23).
+  - G-09 is a picture (EP-29).
+  - L-16 is conditional, and two rescan callers do delete first (EP-28).
+  - G-05 does not prove L-07 (EP-4).
+- **New leads:** L-25 to L-29 (EP-33, EP-35 to EP-39). EP-40 is #1154.
+- **Where it was right against this reader:** EP-4, EP-6, EP-10, EP-28 and EP-29 each corrected a sentence of this reader's. Each is fixed in place and cited.
 
 ## Quality self-check
 

@@ -83,3 +83,8 @@
 - **The runtime:** `npm install --offline` in `tools/council/`. A keyless check (`COUNCIL_ENV_FILE=/nonexistent tools/council/run efforts`) printed OK.
 - **Keyed call 1 of 2,** the probe: 16:53:56 to 16:54:10 UTC, rc 0. Served `openai/gpt-6-astra` by OpenAI at `max`, with identity, effort and provider verification PASS. The reply was `READY unknown` (13 bytes).
 - **Keyed call 2 of 2,** the refutation, started 16:54 UTC in the background. Its exit writes `/workspace/tmp/m6-t32/refutation.rc`, and a harness waiter on that file delivers the result.
+- **Keyed call 2 of 2,** the refutation: 16:54:20 to 17:15:50 UTC, rc 0. Served `openai/gpt-6-astra` by OpenAI at `max`, with identity, effort and provider verification PASS. 137,102 prompt tokens and 44,178 completion tokens, 34,731 of them reasoning. **Exactly two keyed invokes, and no others.** The harness waiter delivered its end at 17:15:55 UTC.
+- **The grades** (`stage-c/astra-grades.md`): 40 items, 40 accepted, counted by `awk`. EP-33 and EP-35 were re-read before grading; EP-34 is unproved; EP-40 is #1154.
+  - The seat corrected five sentences of mine, each fixed in place: G-05 is not L-07's positive (EP-4); L-02 needs no hook (EP-6); L-22's lines and prerequisites (EP-10); two rescan callers do delete first (EP-28); G-09 is a picture, not a manual (EP-29).
+  - New leads L-25 to L-29 in 02 § Corrections and new leads from the seat.
+- **05:** 20 items (3 High, 5 Medium, 12 Low); ten `bug`s proposed, to be filed after the ruling as on #678. `tools/lint-audit-artifacts --phase pre-issue`: `PASS pre-issue artifacts (does not certify resolution)` at 17:19 UTC.

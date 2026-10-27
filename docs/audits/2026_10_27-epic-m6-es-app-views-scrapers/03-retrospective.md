@@ -36,7 +36,7 @@ This was written by the first reader (Opus 5.5) after stages A and B, the guest 
   - None of the nine `HttpReq` constructions in the slice sets `stallTimeout` or `timeout` (L-06, `t32-bounds.py`).
   - Two are on the stack and end in `wait()`, a 20 ms sleep loop (L-18).
   - L-18's read at stage C: the token fetch runs on the **interface thread** at a batch run's start and in three manual-scrape paths, so the bound on that freeze is the connect timeout plus nothing.
-- **`es-native-ui.md` § Core patterns ("a file another process writes is read uncached").** All 49 `exists`-family reads in the 42 are cached (`t32-reads.py`). ES's own writers drop their entry, so the stale case is a writer outside the process. G-09 showed it on the image: a manual written from outside ES is absent until a restart (L-08).
+- **`es-native-ui.md` § Core patterns ("a file another process writes is read uncached").** All 49 `exists`-family reads in the 42 are cached (`t32-reads.py`). ES's own writers drop their entry, so the stale case is a writer outside the process. G-09 showed a **picture** written from outside ES absent until a restart. Which cache held it is not identified (EP-29), so it is L-08's shape, not proof of the MANUAL row's gate.
 - **`es-code-traps.md` § A rescan that deletes FileData drops the view first (#246).** The same free-then-read shape sits in `CollectionSystemManager::reloadCollection` behind the slice's filter (L-16, carried to T33). `POST /launch` posts raw `FileData*` from the pool thread (L-19, #774's sibling).
 - **`es-player-text.md` § Every fork string ships in English and French.**
   - All 50 msgids in the slice have French (`t32-words.py`: 0 empty, 0 missing).

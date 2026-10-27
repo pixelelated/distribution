@@ -7,7 +7,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - the seat's grades (`stage-c/astra-grades.md`).
 
 - **reviewed-at:** `603b358a14` (distribution), **reviewed-at-es:** `16dbac5211` (the pin). **fixed-at:** and **fixed-at-es:** at stage E.
-- **Independent depth:** one seat, GPT-6 Astra at `max` (`04` § Second opinion).
+- **Independent depth:** one seat, GPT-6 Astra at `max`: 40 items, all accepted (`stage-c/astra-grades.md`).
 - **One item per defect or reusable improvement**, however many leads found it, ordered by severity.
 - **Nothing here changes a file** under the distribution's `packages/`, `projects/` or `tools/`, or an ES file, at stages A to D. A fix lands only under a stream brief on the ES branch, proven twice. A row added, moved or renamed updates `docs/es-menu-map.md` in the same commit (D-UI-039).
 - **Lines** are the pin's. "Guest" means the M6 image (M7's composition over the pin). "Fixture" means a stage-C harness that fails at the pin and passes its control.
@@ -21,17 +21,26 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Category:** Correctness
 - **Question:** Q1
 - **Family:** a lifetime or a thread
-- **Source Finding:** L-01, L-02 -- proved: fixture (`stage-c/l02-stop-after-finish.py`)
+- **Source Finding:** L-01, L-02 (EP-6, EP-7), EP-34, EP-37 -- proved: fixture (`stage-c/l02-stop-after-finish.py`); tree (EP-34, EP-37)
 - **Owner area:** `es-app/src/scrapers/ThreadedScraper.cpp:323-337` (`stop`), `:228-240` (`run`'s end), `ThreadedScraper.h:77` (`isRunning`)
 - **What:**
   - `stop()` reads the static `mInstance` and writes `thread->mExitCode` under no lock, while `run()` sets `finished` under `sProgressMutex`, then does `delete this`.
-  - A YES on CANCEL in that window is a heap-use-after-free at `:333`, and it sets `cancelled` over `finished`. The page (T31's `GuiScraperRun.cpp:140-141`) then reads SKIPPED - YOU CANCELLED IT over a completed run.
-  - The harness widens the window with a hook, as it says. On a device the order needs a press in the frame the last game ends.
-- **Fix shape:** the control. `stop()` takes `sProgressMutex`, returns when `finished` is set, and reads `mInstance` under it. `run()` clears `mInstance` under the same lock before `delete this`. `isRunning()` and `main.cpp:1332`'s exit-time `stop()` read the same static under the same lock.
+  - A YES on CANCEL in that window is a heap-use-after-free: the write at `:335` after the self-delete at `:241`. It also sets `cancelled` over `finished`. The page (T31's `GuiScraperRun.cpp:140-141`) then reads SKIPPED - YOU CANCELLED IT over a completed run.
+  - The harness widens the window with a hook. The seat shows the interleaving is natural (EP-6): `stop()` copies `mInstance`, the worker finishes and deletes itself, then `stop()` writes. The confirmation's YES calls `stop()` without rechecking `finished` (`GuiScraperRun.cpp:110-116`).
+  - Two more ownership paths: the worker can `delete this` before the creator publishes `mHandle` (`:53`; EP-34, unproved). A startup throw leaves `running` set and `finished` unset (`:35-50`, `:308-316`; EP-37).
+- **Fix shape (EP-7: a lock on `stop()` alone is not sufficient):**
+  - an owned worker that is joined, not self-deleted;
+  - every publication and clear of the singleton under one rule (start, the exception path, completion);
+  - `mExitCode` and `mPaused` atomic;
+  - completion and cancellation decided once, under the mutex;
+  - a startup failure finalizes the snapshot.
+
+  `main.cpp`'s exit-time `stop()` needs its teardown order read (outside the slice). The harness's control proves only the first window.
 - **Can this be done on the VM?** Yes. The harness against the fixed file (`fix-unit-test`). A guest press in the frame cannot be timed, so the fixture is the proof.
 - **Already written:** nothing inherited. The false SKIPPED stamp is a page outcome, not a file; no record carries it.
 - **Acceptance:**
   - [ ] `stage-c/l02-stop-after-finish.py` against the fixed `ThreadedScraper.cpp` prints `finished 1, cancelled 0` with no sanitizer report (rc 0), and against the pin reports the use-after-free (`stage-e/` before/after records).
+  - [ ] a harness case for EP-34 (the worker done before `mHandle` is assigned) and one for EP-37 (a startup throw), each FAIL at the pin and rc 0 against the fix.
 - **Disposition (proposed):** a `bug`, filed after the ruling; a stream on the ES branch; a #585 line (the unlocked lifetime is upstream's).
 
 ## PL-02: a scrape that reached nothing reads as COMPLETED: an IO error, a spent 429 and a long Retry-After end as done; `process()`'s return is dropped, so ScreenScraper's rate limit reads as "no match"; and the page's count is short by the thread count (a `bug` proposed; upstream's request under the fork's page)
@@ -40,16 +49,20 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Category:** Correctness
 - **Question:** Q3
 - **Family:** a check whose failure reads as success
-- **Source Finding:** 3.13, 3.5, 3.16, 3.19, L-07 (the media half), L-05 -- proved: fixture (`stage-c/l313-request-outcome.py`, `l316-igdb-contract.py`), guest (G-05: ten games offline, COMPLETED, GAMES SCRAPED: 9)
+- **Source Finding:** 3.13, 3.5, 3.16, 3.19, L-07 (the media half), L-05 (EP-1 to EP-5, EP-36) -- proved: fixture (`stage-c/l313-request-outcome.py`, `l316-igdb-contract.py`), guest (G-05: ten games offline, COMPLETED, GAMES SCRAPED: 9; it does not prove L-07's media path, EP-4)
 - **Owner area:** `es-app/src/scrapers/Scraper.cpp:289-385` (`ScraperHttpRequest::update`, with `:337`, `:350-361`, `:372-376`), `:607-614`, `:631-635` (the media handle); `IGDBScraper.cpp:313-331`; `ThreadedScraper.cpp:248-256` (`updateUI`), `:66`; `ScreenScraper.cpp:383-384` (outside the 42: its `false`)
 - **What:**
   - `REQ_IO_ERROR` is an "ignored error" (`:372-376`, a631e8c84). A 429 whose retries are spent is DONE (`:350-352`), and so is a Retry-After over 5 s where `retryOn249()` is false (`:357-361`). So an offline or rate-limited scrape counts no error, and T31's page says COMPLETED.
   - `:337` drops `process()`'s return. The three scrapers document "false = retry, rate limited". ScreenScraper returns `false` for "maximum threads per minute reached", which reads as no match. IGDB returns `false` for no match and on a parse error (3.16), so a fix that honours the return must correct IGDB first.
   - `sProgress.done` is set only as a game is handed out, so a finished run counts total minus threads: ten games read 9 on the guest (3.19). A no-match is counted as scraped, against `ThreadedScraper.h:67`.
-  - The media handle's 404, IO error and spent 429 read as done too (L-07; #1191's caller half).
+  - The media handle's 404, IO error and spent 429 read as done too (L-07; #1191's caller half). So do a failed rename and a failed resize (`:669-688`, EP-5).
+  - A dependency request's 404 discards the primary search's results (EP-1).
+  - A manual token failure is an empty DONE, and a token transport failure reads INVALID CREDENTIALS (EP-36).
+  - Line 4 carries the raw error words only for a fatal error; a nonfatal one has no why (L-05 narrowed, EP-3).
 - **Fix shape:**
   - These statuses go through `setError(status, ...)`. The reader stops a run only on its fatal list (`ThreadedScraper.cpp:155-173`), so a batch still survives one game's failure (a631e8c84's intent) and the page counts it.
-  - `:337` honours `false` with one bounded retry after `mOverQuotaRetryDelay`. IGDB's two `false`s become `true` (the control).
+  - If `:337` is made to honour `false` (one bounded retry, for ScreenScraper's rate limit), IGDB's two `false`s become `true` first. 3.16 is a trap only for that change (EP-2).
+  - Transport, response, file creation and media preparation are separate outcomes (EP-5). A token outcome is typed: rejected, unreachable, or absent (EP-36).
   - `run()` sets `done` to `total` minus the queue at its end, and the no-match case is counted apart if the page is to say it.
 - **Can this be done on the VM?** Yes. `l313` and `l316` against the fixed files (`fix-unit-test`); G-05 again on the integration image with the link down: COULDN'T SCRAPE: 10 and GAMES SCRAPED: 0 (`fix-walk-pending-image`).
 - **Already written:** nothing inherited. A game marked scraped with no data carries a `scrapeDate` (`acceptResult`'s empty-name branch, `ThreadedScraper.cpp:263-266`). Nothing reads that date to skip a game, so it is a stamp, not a gate. Read both: none.
@@ -66,16 +79,18 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Category:** Correctness
 - **Question:** Q3
 - **Family:** a check whose failure reads as success
-- **Source Finding:** 3.10, 3.8, L-22 -- proved: fixture (`stage-c/l310-boxart-shape.py`, `l316-igdb-contract.py`, both also `--plain`: rc -11)
+- **Source Finding:** 3.10, 3.8, L-22, floor 3.2 and 3.4 (EP-9 to EP-14, EP-32) -- proved: fixture (`stage-c/l310-boxart-shape.py`, `l316-igdb-contract.py`, both also `--plain`: rc -11; HfsDB's numeric token is the same source defect, not separately measured, EP-10)
 - **Owner area:**
-  - `GamesDBJSONScraper.cpp:590`, `:598`, `:605-607`, `:415`, `:462-491`; `GamesDBJSONScraperResources.cpp:180`;
-  - `IGDBScraper.cpp:155-157`;
-  - `HfsDBScraper.cpp:202-204`.
+  - `GamesDBJSONScraper.cpp:558`, `:590`, `:596-607`, `:415`, `:467-494`; `GamesDBJSONScraperResources.cpp:180-187`;
+  - `IGDBScraper.cpp:157`, `:159`;
+  - `HfsDBScraper.cpp:202`, `:204`, `:345`, `:410-415`, `:464-473`;
+  - `ArcadeDBJSONScraper.cpp:78`, `:87`, `:124`.
 - **What:**
   - The recipe builds with NDEBUG (`config/functions:384-388`; ES's `PKG_BUILD_FLAGS` is `-gold`), so rapidjson's `IsObject` and `IsString` assertions are compiled out.
   - `HasMember` on an array or a string walks its elements or bytes as members. `GetString` on a number reads its bits as a pointer.
   - A server, a proxy or a captive portal that answers with the wrong shape crashes ES: `l310` on `"boxart": "x"`, and `l316` on `{"access_token": 5}`.
-  - IGDB is built in every image. TheGamesDB and HfsDB only with their macros.
+  - Not every violated precondition is a crash: the array cases violate without one (EP-9).
+  - IGDB is built in every image and fetches a token only with both a client id and a secret (`:143-150`). TheGamesDB and HfsDB are built only with their macros.
 - **Fix shape:** `IsObject`, `IsArray` or `IsString` before each member access (the controls), one helper per response.
 - **Can this be done on the VM?** Yes. Both harnesses against the fixed files (`fix-unit-test`), with the images JSON's case added to `l310`.
 - **Already written:** nothing inherited. A crash writes nothing, and a token is held in memory only.
@@ -110,15 +125,16 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Category:** Performance
 - **Question:** Q2
 - **Family:** a call with no bound
-- **Source Finding:** L-06, L-18, 3.20 -- proved: tool-run (`t32-bounds.py`: `bounded=0` of 9), tree (the threads, `02` L-18)
-- **Owner area:** `Scraper.cpp:267`, `:302`, `:332`, `:564`, `:567`, `:596`; `HfsDBScraper.cpp:195-196`; `IGDBScraper.cpp:150-151`; `GamesDBJSONScraperResources.cpp:153`; `ThreadedScraper.cpp:100`, `:296-320`; `ScraperSearchComponent.cpp:303`, `:321`, `:652`, `:658`
+- **Source Finding:** L-06, L-18, 3.20 (EP-15, EP-16), EP-38 -- proved: tool-run (`t32-bounds.py`: `bounded=0` of 9), tree (the threads, `02` L-18)
+- **Owner area:** `Scraper.cpp:267`, `:302`, `:332`, `:564`, `:567`, `:596`; `HfsDBScraper.cpp:195-196`; `IGDBScraper.cpp:150-151`; `GamesDBJSONScraperResources.cpp:153`; `ThreadedScraper.cpp:100`, `:296-320`; `ScraperSearchComponent.cpp:206`, `:220-256`, `:303`, `:321`, `:658`
 - **What:**
   - None of the nine constructions sets `timeout` or `stallTimeout`.
   - The two token requests end in `wait()`, a 20 ms sleep loop.
   - A batch run's first searches, and three manual-scrape paths, run on the interface thread. A link that drops after the connect holds the screen until TCP gives up.
   - On the scrape thread, a refetch after 30 minutes can throw with no catch (unproved).
 - **Fix shape:**
-  - #299's: `stallTimeout` on the scrapers' options, the media handle's and the two token requests'.
+  - #299's `stallTimeout` on every construction, the media retry at `:596` included (it takes no options, EP-16). A total deadline for the token exchanges. The Retry-After wait capped separately.
+  - The manual builder given owned, joined worker state (EP-38).
   - The batch run's first hand-out moved off the interface thread, or the token fetched before the page opens, with the page's own wait.
   - `generateRequests`' throw caught on the scrape thread.
 - **Can this be done on the VM?** Yes. `tools/cloud-test-backend`'s dead port, and a stalling listener above 1024 for an https-less scraper URL in a unit (`fix-unit-test`). The interface-thread half is a frame timing on the guest with the link cut after the connect (`fix-walk-pending-image`).
@@ -140,24 +156,24 @@ Written by the first reader (Opus 5.5) at stage C, from:
   - `CPPHTTPLIB_PAYLOAD_MAX_LENGTH` is `SIZE_MAX`, and chunked reads take no limit: CVE-2025-46728's class, fixed upstream in 0.20.1.
   - The server listens on loopback, or on every interface with WEB ACCESS (a player's switch).
   - CVE-2026-45372's mechanism (decoded header values) is absent at this version.
-- **Fix shape:** `mHttpServer->set_payload_max_length(<the largest media upload>)` where the server is built, plus a chunked limit in the vendored reader. The library's currency is a #585 line.
+- **Fix shape:** the setter bounds only the Content-Length branch (`:2564-2567`; EP-23). The chunked and lengthless reads (`:2559-2562`) need a cumulative limit in the vendored reader. The library's currency is a #585 line. The seat could not verify the other library claims from the packet.
 - **Can this be done on the VM?** Yes. From inside the guest, a chunked `POST` past the limit answers 413 and ES's pid is unchanged (`fix-walk-pending-image`).
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] on the integration image, a chunked POST of 64 MiB to `127.0.0.1:1234` answers 413, and ES's RSS and pid are unchanged (`fix-walk-pending-image`).
 - **Disposition (proposed):** a `bug`, filed after the ruling, or recorded for the coordinator under D-UI-079 (WEB ACCESS is upstream's lane); a #585 line either way.
 
-## PL-07: a manual or map written from outside ES is hidden until a launch or a restart (a `bug` proposed; upstream's cached reads)
+## PL-07: a picture written from outside ES stays hidden until a restart, and the MANUAL and MAP rows are gated by the same cached reads (a `bug` proposed; upstream's cached reads)
 
 - **Severity:** Low
 - **Category:** Correctness
 - **Question:** Q4
 - **Family:** a read of a file another process writes
-- **Source Finding:** L-08, L-09 -- proved: guest (G-09, with its control)
+- **Source Finding:** L-08, L-09 (EP-29) -- proved: guest (G-09, with its control, for a picture), tree (the MANUAL and MAP gates)
 - **Owner area:** `DetailedContainer.cpp:903`, `:916` (and `:817-831`, `:863`, `:873`); `Scraper.cpp:88-177`, `:407`, `:440`
-- **What:** the rows are decided from `exists()` with the session's cache. ES's own writers drop their entry, so only an outside writer is stale: a cloud content restore, the player over SSH. On the guest, the manual stayed hidden in the session and appeared after a restart.
+- **What:** the rows are decided from `exists()` with the session's cache. ES's own writers drop their entry, so only an outside writer is stale: a cloud content restore, the player over SSH. On the guest a **picture** stayed hidden in the session and appeared after a restart. Its cache owner is not identified (`:806`, `:845-850`; EP-29).
 - **Fix shape:** `exists(path, false)` at the reads whose writer is outside ES (`es-native-ui.md` § Core patterns), as the rclone.conf gate did.
-- **Can this be done on the VM?** Yes. G-09 again on the integration image: the MANUAL row appears without a restart (`fix-walk-pending-image`).
+- **Can this be done on the VM?** Yes. G-09 again on the integration image, for the picture and for a manual with a theme that draws MANUAL (`fix-walk-pending-image`).
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] on the integration image, a manual written over serial with the list open shows the MANUAL row on re-entry, without a restart (`fix-walk-pending-image`).
@@ -185,7 +201,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Category:** Correctness
 - **Question:** Q6
 - **Family:** a check whose failure reads as success
-- **Source Finding:** 3.31 -- proved: fixture (`stage-c/l331-grid-image.py`)
+- **Source Finding:** 3.31 (EP-26) -- proved: fixture (`stage-c/l331-grid-image.py`), for the missing fallback; an empty path is not proved a blank tile
 - **Owner area:** `views/gamelist/GridGameListView.cpp:131-153`
 - **What:** the early return (8f30c244c, 2019) makes the IMAGE fallback added by 4371e3b7d (2021) unreachable. No shipped theme has a grid view (G-02).
 - **Fix shape:** drop the early return (the control), if intent is the fallback. The history leaves it ambiguous.
@@ -201,11 +217,11 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Category:** Correctness
 - **Question:** Q5
 - **Family:** a player sentence outside the vocabulary
-- **Source Finding:** L-10, L-11, 3.34, 3.35 -- proved: tree; tool-run (`t32-words.py`); guest (the French bar's five entries, consistent with 3.34, not proved)
+- **Source Finding:** L-10, L-11, 3.34, 3.35 (EP-30, EP-31) -- proved: tree; tool-run (`t32-words.py`); guest (the French bar's five entries, consistent with 3.34, not proved)
 - **Owner area:** `locale/lang/fr/LC_MESSAGES/emulationstation2.po` L218; `views/SystemView.cpp:233-234`; `ISimpleGameListView.cpp:681-741`; `BasicGameListView.cpp:31`, `DetailedGameListView.cpp:39`
 - **What:**
   - `SAUVEGARDES (MAINTENU)` names game saves where L233 says `SAUVEGARDES D’ÉTAT` (`es-player-text.md` § Conventions).
-  - `SystemView.cpp:233-234` writes `UIMode` with no `saveFile()` and shows an English sentence-case dialog outside `_()`, with a bare `"OK"`.
+  - `SystemView.cpp:233-234` shows an English sentence-case dialog outside `_()`, with a bare `"OK"`. Its `UIMode` write has no guaranteed save: `:237-239` saves only if HiddenSystems changes (EP-31).
   - The bar's SAVE STATES (HOLD) is refreshed on a cursor move only in collections.
 - **Fix shape:** one catalog line; the dialog through `_()` with its French, and `saveFile()`; `updateHelpPrompts()` on a cursor change in every list.
 - **Can this be done on the VM?** Yes. French frames of a list with save states, before and after a cursor move (`fix-walk-pending-image`); `tools/vm-qa`'s `french` suite.
@@ -222,10 +238,10 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Category:** Correctness
 - **Question:** Q1
 - **Family:** a lifetime or a thread
-- **Source Finding:** L-12, L-13, L-19, L-20, L-21, 3.17, 3.18, 3.22, 3.23, 3.24 -- proved: tree; guest (G-08: `/notify`, `/removegames`, `/caps`, `/isIdle`)
+- **Source Finding:** L-12, L-13, L-19, L-20, L-21, 3.17, 3.18, 3.22, 3.23, 3.24 (EP-18 to EP-22) -- proved: tree; guest (G-08: `/notify`, `/removegames`, `/caps`, `/isIdle`)
 - **Owner area:** `services/HttpServerThread.cpp:241`, `:249`, `:257`, `:299-320`, `:533-543`, `:574`, `:615-630`, `:738`, `:751-755`; `services/HttpApi.cpp:170-193`, `:210-259`; `Scraper.cpp:653-676`, `:784-799`
 - **What:** each handler is upstream's.
-  - `/notify` toasts from the pool (L-12). `/removegames` and the media writes touch `FileData` there (L-13). `/launch` walks every system and posts a raw `FileData*` per match, with no `break` (L-19, #774's sibling). `/quit` and its siblings call `quitES` there (L-21).
+  - `/notify` toasts from the pool (L-12). `/removegames` and the media writes touch `FileData` there (L-13). `/launch` walks every system and posts a raw `FileData*` per match, with no `break`: launch callbacks, not launches (L-19, #774's sibling, EP-20). `/quit` and its siblings call `quitES` there, and its threading contract is outside the slice (L-21, EP-22). The removal does not free the `FileData` (`:771` commented out, EP-19).
   - `/isIdle` asks the scraper, the installer, the hasher and the updater, but not a cloud sync or the RetroAchievements proxy (L-20). That half is the fork's lane.
   - The media and metadata responses (3.17, 3.18, 3.22-3.24) answer wrong statuses, or overwrite the image under `mix`.
 - **Fix shape:** post every handler that touches `FileData` to the interface thread, as `/reloadgames` does. `/isIdle` reads the cloud lock and the proxy's state.
@@ -243,7 +259,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Family:** a check whose failure reads as success
 - **Source Finding:** 3.3, 3.7, 3.11, 3.12; `floor.md`'s ArcadeDB `:56` and `:213-218` -- proved: tree (`floor.md`; `:56` re-read)
 - **Owner area:** `ArcadeDBJSONScraper.cpp:56`, `:103-127`, `:213-218`; `GamesDBJSONScraper.cpp:293-310`, `:624`; `HfsDBScraper.cpp:29`, `:385-394`, `:410-423`, `:621`
-- **What:** in `floor.md`, each as the subagent read it. Only ArcadeDB is built in every image; TheGamesDB and HfsDB are macro-gated.
+- **What:** in `floor.md`, each as the subagent read it. 3.7's throw-then-drop trace needs a helper the seat did not see (EP-13). Only ArcadeDB is built in every image; TheGamesDB and HfsDB are macro-gated.
 - **Fix shape:** per item, contained.
 - **Can this be done on the VM?** Yes. Units over each parser (`fix-unit-test`).
 - **Already written:** nothing inherited.
@@ -257,10 +273,10 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Category:** Correctness
 - **Question:** Q6
 - **Family:** a check whose failure reads as success
-- **Source Finding:** 3.27, 3.29, 3.30 -- proved: fixture (`stage-c/l327-cursor-range.py`); tree (`floor.md`); guest (G-04 clean wrap; G-03 unexplained)
+- **Source Finding:** 3.27, 3.29, 3.30 (EP-24, EP-25) -- proved: fixture (`stage-c/l327-cursor-range.py`); tree (`floor.md`); guest (G-04 clean wrap; G-03 unexplained)
 - **Owner area:** `views/SystemView.cpp:272-278`, `:331`; `views/gamelist/ISimpleGameListView.cpp:486-603` (`:511`, `:514`, `:554`, `:603`)
 - **What:**
-  - `_moveCursorInRange(2, -10, 5)` leaves `-3`. The caller uses only the delta, so a wrapping carousel hides it (25 of 312 cases out of range, all congruent).
+  - `_moveCursorInRange(2, -10, 5)` leaves `-3`, a delta and not a cursor (EP-24). A wrapping carousel hides it: 25 of 312 cases out of range, all congruent.
   - The forward fast move is a no-op on 3 to 9 systems.
   - `toupper(name[0])` files `É` and `Ã` under `"\xC3"`. The `break` at `:514` assumes name order.
   - G-03's cursor stayed on Alpha after a letter jump under a name sort, which neither explains.
@@ -309,15 +325,83 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Category:** Correctness
 - **Question:** Q1
 - **Family:** a lifetime or a thread
-- **Source Finding:** L-16, L-14, L-17 -- proved: tree
+- **Source Finding:** L-16, L-14, L-17 (EP-17, EP-28) -- proved: tree
 - **Owner area:** `CollectionSystemManager.cpp:1574-1589` (T33's); `GridGameListView.cpp:42-47`; `02` § The #585 lines owed
-- **What:** as `02` § The leads gives them, with their lines.
+- **What:** as `02` § The leads gives them, with their lines. L-16 is conditional: the root's ownership and the cursor's identity are T33's to read, and the quick search passes the root's name (EP-28). L-14 is a lead, not a measured cost (EP-17).
 - **Fix shape:** none here.
 - **Can this be done on the VM?** Yes, for T33: FILTER GAMES BY TEXT on a grouped custom collection on a guest.
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] `02` § What T33 to T37 inherit names L-16 with its lines.
 - **Disposition (proposed):** Deferred to T33 (#680) for L-16; L-14 recorded; the #585 lines written in `02`.
+
+## PL-17: rebuilding an empty grid reads the placeholder it just deleted (a `bug` proposed; the fork-modified grid and list files)
+
+- **Severity:** Medium
+- **Category:** Correctness
+- **Question:** Q1
+- **Family:** a lifetime or a thread
+- **Source Finding:** L-26 (EP-35) -- proved: tree (re-read by the first reader)
+- **Owner area:** `views/gamelist/ISimpleGameListView.cpp:112-125` (`onFileChanged`), `:929-934` (`createNoEntriesPlaceholder`); `views/gamelist/GridGameListView.cpp:84-87` (`setCursor`), `:214-215`, `:249-253`
+- **What:**
+  - `onFileChanged` saves the cursor (the placeholder of an empty grid), repopulates, and passes it to `setCursor`.
+  - The repopulate creates a new placeholder and `delete`s the previous one.
+  - `setCursor` then calls `cursor->isPlaceHolder()` on the freed placeholder: a use-after-free read.
+  - Only a theme with a grid view reaches it. The shipped theme has none, but a player may install one.
+- **Fix shape:** do not restore a placeholder cursor across a repopulate. Keep it by identity, or skip `setCursor` when the old cursor was a placeholder.
+- **Can this be done on the VM?** Yes. A harness over the two functions with an empty root, under ASan (`fix-unit-test`).
+- **Already written:** nothing inherited.
+- **Acceptance:**
+  - [ ] a stage-E harness: an empty grid's `onFileChanged` under ASan reports a heap-use-after-free at the pin and nothing against the fix.
+- **Disposition (proposed):** a `bug`, filed after the ruling; with PL-09's stream (the same file); a #585 line.
+
+## PL-18: `hasAnyMedia`'s logo test is inverted (a `bug` proposed; upstream's)
+
+- **Severity:** Low
+- **Category:** Correctness
+- **Question:** Q3
+- **Family:** a check whose failure reads as success
+- **Source Finding:** L-25 (EP-33) -- proved: tree (re-read)
+- **Owner area:** `scrapers/Scraper.cpp:95-97` against `:144-146`
+- **What:** a marquee counts as present only when `ScrapperLogoSrc` is **empty**, while the missing-media test uses non-empty. So a game whose only media is its logo can be scraped again, and a disabled logo source can count as present.
+- **Fix shape:** `!` on `:96`'s `empty()`, as `:145` has it.
+- **Can this be done on the VM?** Yes. A unit over `hasAnyMedia` with the setting toggled (`fix-unit-test`).
+- **Already written:** nothing inherited.
+- **Acceptance:**
+  - [ ] a unit: an existing marquee and a non-empty `ScrapperLogoSrc` make `hasAnyMedia` true; empty makes it false.
+- **Disposition (proposed):** a `bug`, filed after the ruling; with PL-02's stream; a #585 line.
+
+## PL-19: media are named by the game's stem, so two games with one name in different folders share a file (recorded; upstream's naming)
+
+- **Severity:** Low
+- **Category:** Correctness
+- **Question:** Q3
+- **Family:** a check whose failure reads as success
+- **Source Finding:** L-29 (EP-39) -- proved: tree
+- **Owner area:** `scrapers/Scraper.cpp:801-811`, `:438-446`
+- **What:** `a/game.zip` and `b/game.zip` get the same media path. With overwrite off, the second adopts the first's media.
+- **Fix shape:** a collision-resistant name that reads the existing paths. The devices' media folders already hold these names.
+- **Can this be done on the VM?** Yes. A unit on `getSaveAsPath` (`fix-unit-test`).
+- **Already written:** every scraped device's media folder holds stem-named files and gamelists pointing at them. A fix must read both, or the old paths break.
+- **Acceptance:**
+  - [ ] the coordinator's ruling recorded here: a stream with a migration, or a #585 line.
+- **Disposition (proposed):** recorded as a #585 line (D-UI-079; a migration is the owner's to weigh).
+
+## PL-20: TLS peer verification is off in the shared request layer (Deferred: #1154)
+
+- **Severity:** Medium
+- **Category:** Security
+- **Question:** Q3
+- **Family:** a check whose failure reads as success
+- **Source Finding:** EP-40 -- proved: tree (`HttpReq.cpp:191-192`, es-core, outside the 42)
+- **Owner area:** `es-core/src/HttpReq.cpp` (#1154's)
+- **What:** an untrusted chain is accepted. That widens PL-03: a malformed response need not come from the provider.
+- **Fix shape:** #1154's.
+- **Can this be done on the VM?** Yes, as #1154 says.
+- **Already written:** as #1154 says.
+- **Acceptance:**
+  - [ ] #1154 names PL-03's parsers as a consumer, in a comment.
+- **Disposition (proposed):** Deferred to #1154.
 
 ---
 
@@ -343,6 +427,10 @@ At stage D every item is open, awaiting the coordinator's dispositions. Stage F 
 | PL-14 | Open | -- |
 | PL-15 | Open | -- |
 | PL-16 | Open | -- |
+| PL-17 | Open | -- |
+| PL-18 | Open | -- |
+| PL-19 | Open | -- |
+| PL-20 | Open | -- |
 
 ```yaml
 punch_index:
@@ -350,19 +438,19 @@ punch_index:
   severity: "High"
   category: Correctness
   question: Q1
-  source_finding: "L-01, L-02"
+  source_finding: "L-01, L-02, EP-34, EP-37"
   outcome: "open"
 - id: PL-02
   severity: "High"
   category: Correctness
   question: Q3
-  source_finding: "3.13, 3.5, 3.16, 3.19, L-07, L-05"
+  source_finding: "3.13, 3.5, 3.16, 3.19, L-07, L-05, L-27"
   outcome: "open"
 - id: PL-03
   severity: "High"
   category: Correctness
   question: Q3
-  source_finding: "3.10, 3.8, L-22"
+  source_finding: "3.10, 3.8, L-22, 3.2, 3.4"
   outcome: "open"
 - id: PL-04
   severity: "Medium"
@@ -374,7 +462,7 @@ punch_index:
   severity: "Medium"
   category: Performance
   question: Q2
-  source_finding: "L-06, L-18, 3.20"
+  source_finding: "L-06, L-18, 3.20, L-28"
   outcome: "open"
 - id: PL-06
   severity: "Medium"
@@ -441,5 +529,29 @@ punch_index:
   category: Correctness
   question: Q1
   source_finding: "L-16, L-14, L-17"
+  outcome: "open"
+- id: PL-17
+  severity: "Medium"
+  category: Correctness
+  question: Q1
+  source_finding: "L-26"
+  outcome: "open"
+- id: PL-18
+  severity: "Low"
+  category: Correctness
+  question: Q3
+  source_finding: "L-25"
+  outcome: "open"
+- id: PL-19
+  severity: "Low"
+  category: Correctness
+  question: Q3
+  source_finding: "L-29"
+  outcome: "open"
+- id: PL-20
+  severity: "Medium"
+  category: Security
+  question: Q3
+  source_finding: "EP-40"
   outcome: "open"
 ```
