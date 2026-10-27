@@ -1,17 +1,74 @@
-$ python3 -I stage-c/l01-start-drops.py <pin>/GuiSettings.cpp
+$ python3 -I stage-c/l01-start-drops.py <pin>/GuiSettings.cpp   (12:49:06Z)
 FAIL l01: start: the moved switch dropped, es_settings.cfg written 0 time(s), onFinalize did not run
 rc=1
 
-$ python3 -I stage-c/l01-start-drops.py <pin>/GuiSettings.cpp --fixed
+$ python3 -I stage-c/l01-start-drops.py <pin>/GuiSettings.cpp --fixed   (12:49:07Z)
 2 cases
 rc=0
 
-$ python3 -I stage-c/l02-led-not-saved.py <pin>/GuiAnalogSticksLedControls.cpp <pin>/GuiSettings.cpp
+$ python3 -I stage-c/l02-led-not-saved.py <pin>/GuiAnalogSticksLedControls.cpp <pin>/GuiSettings.cpp   (12:49:07Z)
 commands run 1; system.cfg written 0 time(s); analogsticks.led not saved
 FAIL l02: the LED colour set on the page never reaches system.cfg
 rc=1
 
-$ python3 -I stage-c/l02-led-not-saved.py <pin>/GuiAnalogSticksLedControls.cpp <pin>/GuiSettings.cpp --fixed
+$ python3 -I stage-c/l02-led-not-saved.py <pin>/GuiAnalogSticksLedControls.cpp <pin>/GuiSettings.cpp --fixed   (12:49:08Z)
 commands run 1; system.cfg written 1 time(s); analogsticks.led saved: 255 0 255 0 127 0 0
+rc=0
+
+$ python3 -I stage-c/l05-l06-moonlight.py <pin>/GuiMoonlight.cpp   (12:49:08Z)
+L-05 moonlight quit %s                                canary MADE
+L-05 -pin %s %s                                       canary MADE
+L-05 -pin %s %s                                       canary MADE
+L-06 rm -r "~/.cache/Moonlight Game Streaming Project" -> rc 1
+L-06 rm -r "~/.config/Moonlight Game Streaming Project" -> rc 1
+L-06 directories left: .cache/Moonlight Game Streaming Project, .config/Moonlight Game Streaming Project
+FAIL L-05: `moonlight quit %s` with SERVER IP '127.0.0.1;touch /w/canary' ran the player's string as a command
+FAIL L-05: `QT_QPA_PLATFORM=wayland moonlight pair -pin %s %s` with SERVER IP '127.0.0.1;touch /w/canary' ran the player's string as a command
+FAIL L-05: `moonlight pair -pin %s %s` with SERVER IP '127.0.0.1;touch /w/canary' ran the player's string as a command
+FAIL L-06: UNPAIR's removals left .cache/Moonlight Game Streaming Project, .config/Moonlight Game Streaming Project while the page says the settings were cleared
+rc=1
+
+$ python3 -I stage-c/l05-l06-moonlight.py <pin>/GuiMoonlight.cpp --control   (12:49:08Z)
+L-05 moonlight quit %s                                canary absent
+L-05 -pin %s %s                                       canary absent
+L-05 -pin %s %s                                       canary absent
+L-06 rm -r "$HOME/.cache/Moonlight Game Streaming Project" -> rc 0
+L-06 rm -r "$HOME/.config/Moonlight Game Streaming Project" -> rc 0
+L-06 directories left: none
+argv seen: [quit][127.0.0.1;touch /w/canary] | [pair][-pin][4269][127.0.0.1;touch /w/canary] | [pair][-pin][4269][127.0.0.1;touch /w/canary]
+moonlight: PASS
+rc=0
+
+$ python3 -I stage-c/l09-l10-scrape-page.py <pin>/GuiScraperRun.cpp   (12:49:08Z)
+L-09 rows: [COULDN'T FINISH] [GAMES SCRAPED: 0  ·  COULDN'T SCRAPE: 5] [] [] [PRESS ANY BUTTON TO CLOSE]
+FAIL scrape: L-09: an all-errored run says no why (line 4 empty)
+FAIL scrape: L-09: an all-errored run says nothing to do next (line 5 empty)
+L-10 an axis past its deadzone: the outcome dismissed
+FAIL scrape: L-10: an axis event dismissed the finished outcome
+rc=1
+
+$ python3 -I stage-c/l09-l10-scrape-page.py <pin>/GuiScraperRun.cpp --control   (12:49:09Z)
+L-09 rows: [COULDN'T FINISH] [GAMES SCRAPED: 0  ·  COULDN'T SCRAPE: 5] [NO MATCH FOR SOME GAMES] [UPDATE GAMELISTS TO APPLY CHANGES.] [PRESS ANY BUTTON TO CLOSE]
+L-10 an axis past its deadzone: the outcome kept
+L-10 a button: the outcome dismissed
+3 checks
+rc=0
+
+$ python3 -I stage-c/l22-guiloading-race.py <pin>/GuiLoading.h   (12:49:09Z)
+completion received 42
+WARNING: ThreadSanitizer: data race (pid=2520827)
+SUMMARY: ThreadSanitizer: data race a.cpp:124 in GuiLoading<int>::threadLoading()
+WARNING: ThreadSanitizer: data race (pid=2520827)
+SUMMARY: ThreadSanitizer: data race a.cpp:109 in GuiLoading<int>::update(int)
+FAIL l22: rc 66 hread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xf5ff0) (BuildId: 3a7a8c6bd922e6314edb7a710fdc0293265c2c42)
+
+SUMMARY: ThreadSanitizer: data race a.cpp:109 in GuiLoading<int>::update(int)
+==================
+ThreadSanitizer: reported 2 warnings
+
+rc=1
+
+$ python3 -I stage-c/l22-guiloading-race.py <pin>/GuiLoading.h --control   (12:49:10Z)
+completion received 42
 rc=0
 

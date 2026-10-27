@@ -46,6 +46,11 @@ def run(harness, name, flags=("-fsanitize=address,undefined",)):
             sys.exit(2)
         r = subprocess.run([str(d / "a")], capture_output=True, text=True, timeout=60)
         print(r.stdout.strip())
+        # A sanitizer's verdict is its report: the warning heads, the frames in
+        # the harness, and the summary (the tail alone hid which race it was).
+        for line in r.stderr.splitlines():
+            if line.startswith(("WARNING: ", "SUMMARY: ")) or (" a.cpp:" in line and line.lstrip().startswith("#")):
+                print(line.replace(str(d) + "/", ""))
         if r.returncode and "FAIL" not in r.stdout:
             print("FAIL %s: rc %d %s" % (name, r.returncode, r.stderr[-800:]))
         sys.exit(1 if r.returncode else 0)
