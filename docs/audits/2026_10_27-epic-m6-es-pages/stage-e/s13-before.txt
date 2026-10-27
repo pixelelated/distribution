@@ -1,0 +1,7 @@
+== S13 before (14:01:10Z), ES at 1ca322f752 (S2; addInputTextRow as at the pin)
+$ python3 -I stage-c/s13-text-row.py <W>/es-app/src/guis/GuiSettings.cpp
+reopen: the editor opened on 'A'
+FAIL s13: reopen: the editor opened on the first value, not the saved one
+ok-only: onsave handed 'A'
+FAIL s13: ok-only: the old value was written back over the new
+rc=1

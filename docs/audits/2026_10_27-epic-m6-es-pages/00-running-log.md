@@ -119,3 +119,4 @@
 - **The baseline at the pin** (`stage-e/s0-pin-checks.txt`): `TOTAL: 221 test cases in 4 binaries`; the 15 `tests/` harnesses rc 0; the five stage-C positives FAIL; the map check `0 missing`; French 706 and 703 with 0 without. The build script refuses without rapidjson (rc 2).
 - **S1** (#1236): ES `9cb0e5c9a`, pushed after `.githooks/pre-push-test` PASS. `l01-start-drops.py` went from 4 of 5 FAIL to `5 cases`; the checks are clean (`stage-e/s1-*.txt`).
 - **S2** (#1237): ES `1ca322f75`, pushed after pre-push-test PASS. `l02-led-not-saved.py`, extended, went from 2 of 3 FAIL to `3 cases` (the no-change page writing 0 times both before and after); the checks are clean (`stage-e/s2-*.txt`).
+- **S13** (#1255): ES `03a929e02`, pushed after pre-push-test PASS. A new harness, `stage-c/s13-text-row.py`: 2 FAIL at S2's tip, then `3 cases`; the checks are clean (`stage-e/s13-*.txt`).
