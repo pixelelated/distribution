@@ -1,7 +1,13 @@
-== S3 after: tests/upstream-row-stores.py against the worktree
+== S3 after: tests/upstream-row-stores.py against the worktree (the fix d9bcdfb8a, the test with its load checks)
 upstream-row-stores: PASS, VIDEO FILTER writes global.videofilter, GAME MEDIAS DURING FAST SCROLLING writes es_settings.cfg, 8 fixture cases
 rc 0
-== negative: the worktree's GuiMenu.cpp with setScrollLoadMedias' old-key write replaced by ';'
-FAIL upstream-row-stores: a device-state fixture failed: rows: /workspace/tmp/m6-t26/tmp/upstream-row-stores-a9sx_8dy/rows.cpp:68: int main(): Assertion `settings.v.count("ScrollLoadMedias") == 0 && !scrollLoadMedias()' failed.
+== negative: setScrollLoadMedias' old-key write replaced by ';'
+FAIL upstream-row-stores: a device-state fixture failed: rows: /workspace/tmp/m6-t26/tmp/upstream-row-stores-XXXX/rows.cpp:68: int main(): Assertion `settings.v.count("ScrollLoadMedias") == 0 && !scrollLoadMedias()' failed.
+rc 1
+== negative: VIDEO FILTER's load reading global.videofilter alone
+FAIL upstream-row-stores: VIDEO FILTER loads ['global.videofilter']; it must read global.videofilter and the old global.videofilters
+rc 1
+== negative: the switch's state read from Settings alone
+FAIL upstream-row-stores: GAME MEDIAS DURING FAST SCROLLING's switch does not load from es_settings.cfg and the old system.cfg key
 rc 1
 == the reader's fallback: game_setting ends at global.<name> (001-functions at 8ebaf8daad, :165-169)

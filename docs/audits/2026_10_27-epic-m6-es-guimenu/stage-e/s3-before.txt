@@ -1,5 +1,6 @@
-== S3 before: tests/upstream-row-stores.py against the pin's GuiMenu.cpp and IList.h (16dbac521)
+== S3 before (the test with its load checks, S3's second commit): tests/upstream-row-stores.py against the pin's GuiMenu.cpp and IList.h (16dbac521)
 FAIL upstream-row-stores: VIDEO FILTER writes ['global.videofilters']; setsettings.sh reads global.videofilter
+FAIL upstream-row-stores: VIDEO FILTER loads ['global.videofilters']; it must read global.videofilter and the old global.videofilters
 FAIL upstream-row-stores: GAME MEDIAS DURING FAST SCROLLING is an addSwitch storing in system.cfg (storeInSettings false); IList reads es_settings.cfg
 FAIL upstream-row-stores: no helper globalVideoFilter, setGlobalVideoFilter, scrollLoadMedias, setScrollLoadMedias to run the device-state fixtures against
 rc 1

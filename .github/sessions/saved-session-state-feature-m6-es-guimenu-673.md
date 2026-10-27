@@ -20,7 +20,7 @@
 **Stage E: the streams, serial, on the ES branch** (the ruling 09:17 UTC, #673 comment 6438068860; the stream brief `docs/reviews/briefs/t26-streams.md` at `4bd066551a`).
 
 - **The bugs:** #1215 to #1233 filed (`stage-e/bugs-filed.txt`).
-- **Done:** S1 (PL-01, #1215) at ES `70a00ad13`; S2 (PL-02, #1216; PL-15) at ES `03183f899`, the map at `190faf95fe`; S3 (PL-03 #1217, PL-04 #1218) at ES `d9bcdfb8a`.
+- **Done:** S1 (PL-01, #1215) at ES `70a00ad13`; S2 (PL-02, #1216; PL-15) at ES `03183f899`, the map at `190faf95fe`; S3 (PL-03 #1217, PL-04 #1218) at ES `d9bcdfb8a` and `2b50bf112` (its test's loads).
 - **Next:** S4 (PL-05, #1219), then S5 to S13 in order; each with `stage-e/sN-before.txt`, `sN-after.txt`, `sN-checks.txt` (`bash stage-e/checks.sh SN`), one ES commit, `.githooks/pre-push-test`, the push; then `02` § The streams via `stage-b/02-template.md` and `tools/t26-assemble-02.py`.
 - **Scratch:** `/workspace/tmp/m6-t26/` (the pin's files in `tmp/`, the recipe's patched rapidjson in `rapidjson/`).
 

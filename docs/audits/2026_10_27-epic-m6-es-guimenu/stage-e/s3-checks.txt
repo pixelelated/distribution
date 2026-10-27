@@ -1,5 +1,5 @@
-== S3 (PL-03 #1217, PL-04 #1218) checks, before the ES commit
-== checks: S3 (09:44:45Z), ES HEAD 03183f899d, worktree changes 2
+== S3 (PL-03 #1217, PL-04 #1218) checks, with the test's load checks (before S3's second commit)
+== checks: S3 (09:48:18Z), ES HEAD d9bcdfb8a5, worktree changes 1
 es-app/src/guis/GuiMenu.cpp: rc 0
 syntax-check rc 0
 RUN es-unit-tests: rc 0; [doctest] test cases: 185 | 185 passed | 0 failed | 0 skipped [doctest] assertions: 4795 | 4795 passed | 0 failed | 
@@ -23,5 +23,5 @@ gpu-governor-save rc=0: PASS fallback
 cloud-setup-repair-lifetime rc=0: PASS repair picker: 1 page(s) left, 2 refusals
 relink-row-names rc=0: relink-row-names: PASS, 3 path(s) walked
 upstream-row-stores rc=0: upstream-row-stores: PASS, VIDEO FILTER writes global.videofilter, GAME MEDIAS DURING FAST SCROLLING writes es_settings.cfg, 8 fixture cases
-55 screen(s) at 03183f899, 31 in the map, 24 declared unmapped, 0 missing (rc 0)
+55 screen(s) at d9bcdfb8a, 31 in the map, 24 declared unmapped, 0 missing (rc 0)
 es-untranslated: 706 fork string(s) in the source, 706 with French, 0 without (rc 0)
