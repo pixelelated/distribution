@@ -1,0 +1,15 @@
+# T21 S8 after: the stream's tree (#668, #1200)
+
+pugixml: /workspace/cache/rocknix-sources/emulationstation/emulationstation-16dbac5211eea7e70db7394372033be2be7df829/external (pugixml.hpp 8c1b9d5092c86a80)
+RUN es-unit-tests: rc 0; [doctest] test cases: 194 | 194 passed | 0 failed | 0 skipped [doctest] assertions: 4852 | 4852 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 27 | 27 passed | 0 failed | 0 skipped [doctest] assertions: 3414 | 3414 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 22 | 22 passed | 0 failed | 0 skipped [doctest] assertions: 222 | 222 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+RUN es-settings-tests: rc 0; [doctest] test cases: 4 | 4 passed | 0 failed | 0 skipped [doctest] assertions: 32 | 32 passed | 0 failed | 
+
+## The race case under ThreadSanitizer
+== built from eeeaa462c8 + the working tree
+rc 0
+ThreadSanitizer warnings: 0
+[doctest] test cases: 1 | 1 passed | 0 failed | 3 skipped

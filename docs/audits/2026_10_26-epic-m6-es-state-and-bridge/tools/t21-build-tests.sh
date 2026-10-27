@@ -27,14 +27,15 @@ CM="${ES}/es-app/tests/unit/CMakeLists.txt"
 command -v g++ >/dev/null || { echo "t21-build-tests: no g++" >&2; exit 2; }
 mkdir -p "${B}"
 # target -> its source list, from CMakeLists.txt itself.
-python3 -I - "${CM}" "${ES}" > "${B}/sources.txt" <<'PY' || exit 2
+python3 -I - "${CM}" "${ES}" "${PUGIXML_INCLUDE_DIR:-${ES}/external}" > "${B}/sources.txt" <<'PY' || exit 2
 import re, sys
 cm, es = sys.argv[1], sys.argv[2]
+pugi = sys.argv[3] if len(sys.argv) > 3 else ""
 text = re.sub(r"#[^\n]*", "", open(cm).read())
 unit = cm.rsplit("/", 1)[0]
 for kind, name, body in re.findall(r"add_(executable|library)\(\s*([A-Za-z0-9_-]+)\s+(?:OBJECT\s+)?([^)]*)\)", text):
     for s in body.split():
-        s = s.replace("${CMAKE_CURRENT_SOURCE_DIR}", unit).replace("${ES_ROOT}", es)
+        s = s.replace("${CMAKE_CURRENT_SOURCE_DIR}", unit).replace("${ES_ROOT}", es).replace("${PUGIXML_INCLUDE_DIR}", pugi)
         print(name, s)
 PY
 echo "g++: $(g++ --version | head -1)"
@@ -65,6 +66,17 @@ if [ "${#S5[@]}" -gt 0 ]; then
   FS=es-fs-tests
   build es-fs-tests -I "${ES}/es-core/src" -I "${ES}/external" -- "${S5[@]}"
 fi
+# es-settings-tests (T21 S8, #1200), when the tree names it: pugixml from
+# PUGIXML_INCLUDE_DIR (default <es tree>/external), as the CMakeLists has it.
+mapfile -t S6 < <(srcs es-settings-tests)
+ST=""
+if [ "${#S6[@]}" -gt 0 ]; then
+  PX="${PUGIXML_INCLUDE_DIR:-${ES}/external}"
+  [ -r "${PX}/pugixml/src/pugixml.hpp" ] || { echo "t21-build-tests: pugixml/src/pugixml.hpp not under PUGIXML_INCLUDE_DIR='${PX}'"; exit 2; }
+  echo "pugixml: ${PX} (pugixml.hpp $(sha256sum < "${PX}/pugixml/src/pugixml.hpp" | cut -c1-16))"
+  ST=es-settings-tests
+  build es-settings-tests -I "${ES}/es-core/src" -I "${ES}/external" -I "${PX}" -- "${S6[@]}"
+fi
 mapfile -t S4o < <(srcs atomicfile-win32-branch)
 mapfile -t S4 < <(srcs es-file-tests-win32)
 echo "\$ ${CXX[*]} -D_WIN32 -c ${S4o[*]} -o atomicfile-win32-branch.o"
@@ -73,7 +85,7 @@ if "${CXX[@]}" -D_WIN32 -I "${ES}/es-core/src" -c "${S4o[@]}" -o "${B}/atomicfil
 else
   echo "BUILD FAIL atomicfile-win32-branch:"; tail -n 15 "${B}/win32obj.build.log"; FAIL=1
 fi
-for t in es-unit-tests es-file-tests es-conf-tests es-file-tests-win32 ${FS}; do
+for t in es-unit-tests es-file-tests es-conf-tests es-file-tests-win32 ${FS} ${ST}; do
   [ -x "${B}/${t}" ] || { echo "RUN ${t}: not built"; FAIL=1; continue; }
   "${B}/${t}" > "${B}/${t}.run.log" 2>&1; rc=$?
   echo "RUN ${t}: rc ${rc}; $(grep -E '^\[doctest\] (test cases|assertions):' "${B}/${t}.run.log" | tr -s ' ' | tr '\n' ' ')"

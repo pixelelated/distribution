@@ -1,0 +1,96 @@
+# T21 S8 checks (#668, #1200)
+
+## The unit build, whole
+g++: g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+rapidjson: /workspace/tmp/m6-t21/rj/rapidjson-1.1.0/include (document.h a8c29c92d1e89279)
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/external -I /workspace/tmp/m6-t21/rj/rapidjson-1.1.0/include <33 sources> -o es-unit-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/CloudTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/CloudFolderValidationTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/CheevosRetryTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/OfflineAchievementsTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/CheevosIndexTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/TimeTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/MaskSecretsTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/LogPolicyTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/WifiTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/OfflineProxyUrlTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/SaveStateJobQueueTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/CaptureRotationTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/DisplayAspectTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/CommandLineTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/TabStopsTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/LaunchCommandTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/TextRowEditTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/HttpTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/ArchiveCommandsTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/CloudText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/CloudFolderValidation.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/CheevosRetry.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/OfflineAchievementsText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/CheevosIndex.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/WifiText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/SaveStateJobQueue.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/CaptureRotationText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/DisplayAspectText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/src/TextRowEdit.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/HttpText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/StringUtil.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/TimeText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/OfflineProxyUrl.cpp
+built es-unit-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/external -DES_ROOT_DIR="/home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668" <2 sources> -o es-file-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/AtomicFileTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/AtomicFileUtil.cpp
+built es-file-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/fakes -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/external <3 sources> -o es-conf-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/SystemConfTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/SystemConf.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/AtomicFileUtil.cpp
+built es-conf-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/external <5 sources> -o es-fs-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/FileSystemTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/FileSystemUtil.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/DownloadFile.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/StringUtil.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/md5.cpp
+built es-fs-tests
+pugixml: /workspace/cache/rocknix-sources/emulationstation/emulationstation-16dbac5211eea7e70db7394372033be2be7df829/external (pugixml.hpp 8c1b9d5092c86a80)
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/external -I /workspace/cache/rocknix-sources/emulationstation/emulationstation-16dbac5211eea7e70db7394372033be2be7df829/external <7 sources> -o es-settings-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/SettingsTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/Settings.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/AtomicFileUtil.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/FileSystemUtil.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/StringUtil.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/md5.cpp
+    /workspace/cache/rocknix-sources/emulationstation/emulationstation-16dbac5211eea7e70db7394372033be2be7df829/external/pugixml/src/pugixml.cpp
+built es-settings-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -D_WIN32 -c /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src/utils/AtomicFileUtil.cpp -o atomicfile-win32-branch.o
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/external <2 sources> -o es-file-tests-win32
+    /home/max/Development/emulationstation-next.worktrees/m6-es-state-and-bridge-668/es-app/tests/unit/AtomicFileWin32Tests.cpp
+    /workspace/tmp/m6-t21/stageE/s8-after/atomicfile-win32-branch.o
+built es-file-tests-win32
+RUN es-unit-tests: rc 0; [doctest] test cases: 194 | 194 passed | 0 failed | 0 skipped [doctest] assertions: 4852 | 4852 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 27 | 27 passed | 0 failed | 0 skipped [doctest] assertions: 3414 | 3414 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 22 | 22 passed | 0 failed | 0 skipped [doctest] assertions: 222 | 222 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+RUN es-settings-tests: rc 0; [doctest] test cases: 4 | 4 passed | 0 failed | 0 skipped [doctest] assertions: 32 | 32 passed | 0 failed | 
+
+## Non-ASCII in the lines S8 added
+rc 1 (1: none)
+
+## pugixml
+The worktree's external/pugixml submodule is not checked out, and nothing is fetched. The recipe's source cache at the pin (/workspace/cache/rocknix-sources/emulationstation/emulationstation-16dbac5211.../external/pugixml) is at 61c944895e, the submodule's own commit; PUGIXML_INCLUDE_DIR names it. The CMakeLists finds it under external/ when the submodule is there, and fails closed otherwise.
+
+## Sources compiled now
+Settings.cpp is compiled by es-settings-tests from S8 on, S5's edits to it included.
+
+## As built
+- A recursive mutex on the maps and mWasChanged: the getters, the setters, getSettingType, getSettingsNames and saveFile's snapshot. getStringMap() still hands out the map itself; its callers are outside this lock, as before.
+- saveFile serialises under the mutex, then writes under the settings lock (D-CLOUD-186; PidLock, sLockPath and sLockBudgetMs as SystemConf's). A lock not free within the budget writes nothing and keeps the save owed.
+- A record write that fails keeps the save owed; the next save writes both.
+- loadFile parses the bytes it read (load_buffer) and records those same bytes; a document without <config> is not settings, live or record.
+- No marker for Settings (the ruling on #668, 01:20 UTC); 02 says why.
+
+## Player text
+S8 adds no player sentence.

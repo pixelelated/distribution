@@ -1,0 +1,38 @@
+# T21 S8 before: the tree at S2's marker (ES eeeaa462c) with SettingsTests; Settings.h carrying only the test hooks (#668, #1200)
+
+$ PUGIXML_INCLUDE_DIR=<the recipe source cache at the pin>/external RAPIDJSON_INCLUDE_DIR=<rj> bash tools/t21-build-tests.sh <es tree> <build dir>
+pugixml: /workspace/cache/rocknix-sources/emulationstation/emulationstation-16dbac5211eea7e70db7394372033be2be7df829/external (pugixml.hpp 8c1b9d5092c86a80)
+RUN es-unit-tests: rc 0; [doctest] test cases: 194 | 194 passed | 0 failed | 0 skipped [doctest] assertions: 4852 | 4852 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 27 | 27 passed | 0 failed | 0 skipped [doctest] assertions: 3414 | 3414 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 22 | 22 passed | 0 failed | 0 skipped [doctest] assertions: 222 | 222 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+RUN es-settings-tests: rc 1; [doctest] test cases: 4 | 1 passed | 3 failed | 0 skipped [doctest] assertions: 32 | 23 passed | 9 failed | 
+
+## es-settings-tests: the failing cases
+TEST CASE:  an empty, a cut and a non-config es_settings.cfg each load the record (T21 PL-12, #1200)
+es-app/tests/unit/SettingsTests.cpp:152: ERROR: CHECK( settings->getString("ScreenScraperUser") == "qa-user" ) is NOT correct!
+es-app/tests/unit/SettingsTests.cpp:153: ERROR: CHECK( settings->getString("Language") == "fr_FR" ) is NOT correct!
+es-app/tests/unit/SettingsTests.cpp:154: ERROR: CHECK( SettingsTestAccess::recovered() ) is NOT correct!
+es-app/tests/unit/SettingsTests.cpp:155: ERROR: CHECK( get(dir / "es_settings.cfg.backup") == kRecord ) is NOT correct!
+TEST CASE:  a record write that fails keeps the save owed, and the next save writes the record (T21 PL-12, #1200)
+es-app/tests/unit/SettingsTests.cpp:176: ERROR: CHECK( settings->saveFile() ) is NOT correct!
+es-app/tests/unit/SettingsTests.cpp:177: ERROR: CHECK( get(dir / "es_settings.cfg.backup").find("de_DE") != std::string::npos ) is NOT correct!
+TEST CASE:  a save waits for the settings lock, and keeps the change when it cannot have it (D-CLOUD-186, T21 PL-12, #1200)
+es-app/tests/unit/SettingsTests.cpp:190: ERROR: CHECK_FALSE( settings->saveFile() ) is NOT correct!
+es-app/tests/unit/SettingsTests.cpp:191: ERROR: CHECK( get(dir / "es_settings.cfg") == kRecord ) is NOT correct!
+es-app/tests/unit/SettingsTests.cpp:193: ERROR: CHECK( settings->saveFile() ) is NOT correct!
+
+The empty and the cut live file already recover at the pin (the first case's two passing iterations); the non-<config> file does not.
+
+## The race case under ThreadSanitizer
+$ PUGIXML_INCLUDE_DIR=<...> bash stage-e/s8-tsan.sh <es tree> <scratch>
+== built from eeeaa462c8 + the working tree
+rc 66
+ThreadSanitizer warnings: 7
+      1 SUMMARY: ThreadSanitizer: data race pugixml.cpp:237 in strlength
+      1 SUMMARY: ThreadSanitizer: data race Settings.cpp:494 in Settings::saveFile()
+      2 SUMMARY: ThreadSanitizer: data race Settings.cpp:498 in Settings::saveFile()
+      1 SUMMARY: ThreadSanitizer: data race Settings.cpp:499 in Settings::saveFile()
+      1 SUMMARY: ThreadSanitizer: data race Settings.cpp:508 in Settings::saveFile()
+[doctest] test cases: 1 | 1 passed | 0 failed | 3 skipped
