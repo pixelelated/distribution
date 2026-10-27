@@ -402,7 +402,7 @@ The [initial failed fixture](qa-logs/2026-10-13-library-vm/dolphin-initial-frame
 retains its own outcome; the source and screenshots are not a promoted product pin.
 
 
-### FINISH RESTORE SETUP (the checklist after a settings restore)
+### FINISH RESTORE PROCESS (the checklist after a settings restore)
 
 `GuiMenu::openRestoreRelink`, subtitled *RE-ENTER THE PASSWORDS BACKUPS DO NOT
 INCLUDE*. It exists because no credential travels in a settings archive
@@ -415,12 +415,21 @@ yet" is the expected state on arrival.
 
 ```mermaid
 flowchart TD
-    REL{{FINISH RESTORE SETUP<br/><i>RE-ENTER THE PASSWORDS BACKUPS DO NOT INCLUDE</i>}}
+    REL{{FINISH RESTORE PROCESS<br/><i>RE-ENTER THE PASSWORDS BACKUPS DO NOT INCLUDE</i>}}
     REL --> WIFI[WI-FI PASSWORD<br/><i>first: everything else needs the network back</i>]
     REL --> DEV[DEVICE PASSWORD]
     REL --> NP[NETPLAY PASSWORD<br/><i>only when the restored configuration uses it</i>]
     WIFI --> RECONNECT[reconnects on save, then the page rebuilds]
+    REL --> CHK[CHECK CONNECTION<br/><i>dimmed until a cloud is set up</i>]
+    CHK -->|answers| OKC[YOUR CLOUD IS ANSWERING.]
+    CHK -->|no cloud set up| NOCLOUD[CONNECT IT AGAIN UNDER<br/>GAME SETTINGS > MANAGE CLOUD STORAGE]
+    CHK -->|not answering| NOANS[SIGN IN AGAIN UNDER GAME SETTINGS ><br/>MANAGE CLOUD STORAGE > CLOUD CONNECTIONS]
 ```
+
+CHECK CONNECTION's refusal named CONNECT OR REPAIR CLOUD STORAGE, a row
+renamed CLOUD CONNECTIONS in ES `c8dc72cf9`, until T26's S2 (#1216); its
+frame is owed by the next image that carries the fix (`fix-walk-pending-image`,
+the guest cycle's G08 walk).
 
 Wi-Fi comes first by design: the sanitised `system.cfg` drops `wifi.key`, so a
 settings restore disconnects, and the cloud-journey continuation that follows
