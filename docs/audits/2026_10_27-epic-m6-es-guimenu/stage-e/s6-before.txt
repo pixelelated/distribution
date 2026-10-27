@@ -1,0 +1,7 @@
+== S6 before: tests/stale-file-reads.py against the pin's GuiMenu.cpp (16dbac521)
+FAIL stale-file-reads: the QR's path is one fixed name (const std::string qrPath = "/tmp/cloud-oauth-qr.png";), which the texture cache keys on
+FAIL stale-file-reads: the selection file, written after a miss, read as absent (the miss remembered)
+FAIL stale-file-reads: the QR, written after a failed attempt, read as absent (the miss remembered)
+FAIL stale-file-reads: wg0.conf, written after a miss, read as absent (the miss remembered)
+rc 1
+== the guest's own evidence: guest-cycle G10 (a failed attempt, then text-only in the same process; the QR drawn after an ES restart), the window of 08:06 UTC

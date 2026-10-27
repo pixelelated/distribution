@@ -1,0 +1,13 @@
+== S6 after: tests/stale-file-reads.py against the worktree
+stale-file-reads: PASS, 6 reads
+rc 0
+== negative: cloudSelectionRead's first look cached again (exists(path))
+FAIL stale-file-reads: the selection file, written after a miss, read as absent (the miss remembered)
+rc 1
+== negative: the QR's one fixed path restored
+FAIL stale-file-reads: the QR's path is one fixed name (const std::string qrPath = "/tmp/cloud-oauth-qr.png";), which the texture cache keys on
+rc 1
+== tests/cloud-content-selection.py (its FileSystem double given the uncached exists the reader now calls) at the pin and on the worktree
+cloud-content-selection: 14 of 14 passed
+cloud-content-selection: 14 of 14 passed
+rc 0
