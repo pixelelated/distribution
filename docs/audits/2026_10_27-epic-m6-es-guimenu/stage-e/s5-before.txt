@@ -1,0 +1,22 @@
+== S5 before: tests/cloud-helper-bounds.py against the pin's GuiMenu.cpp and Platform.cpp (16dbac521)
+the pin's GetShOutput: 3 s stub answered in 3.0 s with 1 line(s), 0 calling-thread ticks; 6 s stub ended at 6.0 s with 1 line(s)
+FAIL cloud-helper-bounds: the calling thread was held for the whole of each stub: 3.0 s and 6.0 s, no bound
+rc 1
+== tools/t26-pages.py --listed at the pin (the listed sites, where written)
+listed 5579 GetShOutput in : interface, none
+listed 5589 GetShOutput in : interface, none
+listed 6476 runSystemCommand in cloudOAuthOwnSession: interface, none
+listed 6749 GetShOutput in cloudSetupShowConnectStep: interface, none
+listed 7060 GetShOutput in cloudSetupShowDoneStep: interface, none
+listed 7233 cloudRemoteLines in cloudRemoteShowForm: interface, none
+listed 7321 cloudRemoteLines in cloudRemoteShowForm: interface, none
+listed 7450 cloudRemoteLines in cloudRemoteChooseBackend: interface, none
+listed 7515 runSystemCommand in cloudOAuthStart: interface, none
+listed 7835 runSystemCommand in cloudOAuthShowSignIn: interface, none
+listed 7893 cloudRemoteLines in cloudOAuthAdd: interface, none
+listed 7930 cloudRemoteBackends in cloudRemoteShowList: interface, none
+listed 8027 cloudRemoteBackends in cloudConnectionDetails: interface, none
+listed 8066 cloudRemoteLines in openCloudConnections: interface, none
+listed 8091 cloudRemoteBackends in openCloudAddRemote: interface, none
+listed sites 15; on the interface thread with no bound 15
+asserted counts hold

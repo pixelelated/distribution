@@ -20,11 +20,18 @@ Method, stated so the figures can be checked:
   `popen(` -- outside a helper's body, or to a helper of this file whose
   body makes one, found transitively (a page builder that makes one is an
   opener, listed under Opens, and its own runs are on its own row). Its thread is `worker` when it
-  sits in the first lambda of a `GuiLoading` or in a `std::thread`, else
+  sits in the first lambda of a `GuiLoading`, in a `std::thread`, or in the
+  work argument of `cloudFetchThen` (T26 S5's spinner over a GuiLoading), else
   `interface` (`worker (in the helper)` when the helper's every process
   runs on a worker of its own); its bound is `timeout` when the call's text runs one,
   `timeout (in the helper)` when the helper's every process does, else
-  `none`.
+  `none`. `WifiScanProcess::read(` (T26 S5's argv executor) is a process
+  primitive whose deadline is a required argument, so its bound is `timeout`.
+- `--listed`: each site T26 S5 bounds, where it is written (cloud_remote's
+  reads, `cloud_setup --connected`, `cloud_oauth cancel`), with its thread
+  and bound and the interface-thread unbounded count among them.
+- `--not-pin`: a file other than the pin; the asserted counts are the pin's,
+  so they are reported and not asserted.
 - Opens: `new Gui*(` / `new Cloud*(` other than `GuiMsgBox`, `GuiLoading`
   and the page's own construction, and calls to functions of this file that
   build a page.
@@ -116,7 +123,8 @@ def page_at(off):
     return min(same, key=lambda p: abs(p["off"] - off)) if same else None
 
 # --- runners: functions whose body starts a process, transitively ----------------------
-PRIM = r"\b(runSystemCommand|GetShOutputLines|GetShOutput|executeScriptLegacy|system|popen)\("
+PRIM = r"\b(runSystemCommand|GetShOutputLines|GetShOutput|executeScriptLegacy|system|popen|WifiScanProcess::read)\("
+bounded_text = lambda txt: re.search(r"\btimeout\b", txt) is not None or txt.startswith("WifiScanProcess::read(")
 def body_of(d):
     return blanked[off_of_line(d["start"]):off_of_line(d["end"] + 1) - 1]
 short = lambda n: n.split("::")[-1]
@@ -136,6 +144,12 @@ for m in re.finditer(r"\bnew GuiLoading<", blanked):
     for a in args:
         if "[" in blanked[a[0]:a[1]] and "{" in blanked[a[0]:a[1]]:
             workers.append(a); break
+for m in re.finditer(r"\bcloudFetchThen<", blanked):
+    op = blanked.find("(", m.end())
+    if op > 0:
+        args, _ = call_args(op)
+        if len(args) > 1:
+            workers.append(args[1])
 for m in re.finditer(r"\bstd::thread\b\s*\(?", blanked):
     op = blanked.find("(", m.start(), m.start() + 40)
     if op > 0:
@@ -153,7 +167,7 @@ def _starts(d):
     prim, calls, wk = [], [], []
     for m in re.finditer(PRIM, blanked[body0:body1]):
         op = blanked.index("(", body0 + m.start()); _, e = call_args(op)
-        prim.append(re.search(r"\btimeout\b", raw[body0 + m.start():e + 1]) is not None)
+        prim.append(bounded_text(raw[body0 + m.start():e + 1]))
         wk.append(in_worker(body0 + m.start()))
     for h in helpers:
         if h == short(d["name"]): continue
@@ -186,7 +200,8 @@ for m in re.finditer(r"(?<![\w:>.])(%s)\(|%s" % (names, PRIM), blanked):
     txt = raw[m.start():end + 1]
     runs.append({"off": m.start(), "line": line_of(m.start()), "name": name,
                  "thread": "worker" if in_worker(m.start()) else ("worker (in the helper)" if name in worker_helpers else "interface"),
-                 "bound": "timeout" if re.search(r"\btimeout\b", txt) else ("timeout (in the helper)" if name in bounded_helpers else "none"),
+                 "bound": "timeout" if bounded_text(txt) else ("timeout (in the helper)" if name in bounded_helpers else "none"),
+                 "text": txt,
                  "page": page_at(m.start())})
 
 opens = collections.defaultdict(list)
@@ -256,7 +271,35 @@ print("interface-thread runs with no bound %d; worker helpers: %s" % (len([r for
       ", ".join(sorted(worker_helpers))))
 print("dialogs %d; back lands on:" % got["dialogs"], dict(collections.Counter(x["back"] for x in dialogs)))
 print("dialog shapes:", dict(shapes.most_common()))
+if "--listed" in sys.argv:
+    # Each site where it is written: a process primitive whose text names a
+    # listed command, or a call to the cloud_remote readers. The plumbing's
+    # own bodies are not sites (they run where they are called); a site's
+    # thread is its own worker region, else its function's when that is a
+    # worker helper, else the interface.
+    listed_re = re.compile(r"cloud_remote\b[^)]*\b(list|active)\b|cloud_setup\b[^)]*--connected|cloud_oauth\b[^)]*\bcancel\b")
+    plumbing = {"cloudRemoteLines", "cloudRemoteBackends", "cloudHelperLines"}
+    listed = []
+    for m in re.finditer(r"(?<![\w:>.])(cloudRemoteLines|cloudRemoteBackends|cloudHelperLines)\(|%s" % PRIM, blanked):
+        name = m.group(1) or m.group(2)
+        d = def_at(line_of(m.start()))
+        if d and short(d["name"]) in plumbing:
+            continue
+        op = blanked.index("(", m.start()); _a, end = call_args(op)
+        txt = raw[m.start():end + 1]
+        if name not in ("cloudRemoteLines", "cloudRemoteBackends") and not listed_re.search(txt):
+            continue
+        fn = short(d["name"]) if d else ""
+        thread = "worker" if in_worker(m.start()) else ("worker (in the helper)" if fn in worker_helpers else "interface")
+        bound = "timeout" if bounded_text(txt) else ("timeout (in the helper)" if name in bounded_helpers else "none")
+        listed.append((line_of(m.start()), name, fn, thread, bound))
+    for ln, name, fn, thread, bound in listed:
+        print("listed %d %s in %s: %s, %s" % (ln, name, fn, thread, bound))
+    print("listed sites %d; on the interface thread with no bound %d" % (len(listed),
+          len([x for x in listed if x[3] == "interface" and x[4] == "none"])))
 drift = {k: (got[k], EXPECT[k]) for k in EXPECT if got[k] != EXPECT[k]}
+if drift and "--not-pin" in sys.argv:
+    print("not the pin: counts differ from the pin's asserted ones (got, asserted):", drift); sys.exit(0)
 if drift:
     print("DRIFT (got, asserted):", drift); sys.exit(1)
 print("asserted counts hold")

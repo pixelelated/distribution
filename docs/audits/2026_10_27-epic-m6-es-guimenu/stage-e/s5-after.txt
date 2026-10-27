@@ -1,0 +1,35 @@
+== S5 after: tests/cloud-helper-bounds.py against the worktree
+the argv executor (cloudHelperLines): 3 s stub answered in 3.0 s with 2 line(s), 296 calling-thread ticks; 6 s stub ended at 5.0 s with 0 line(s)
+cloud-helper-bounds: PASS
+rc 0
+== negative: CLOUD_HELPER_DEADLINE raised to 10 s
+FAIL cloud-helper-bounds: the 6 s stub did not read as a failure at the 5 s deadline (6.0 s, 2 lines)
+rc 1
+== negative: cloud_remote active put back through GetShOutput in cloudSetupShowDoneStep
+FAIL cloud-helper-bounds: line 7177 still runs '/usr/bin/cloud_remote active' through GetShOutput
+rc 1
+== negative: serve launched before cloudOAuthStart's cancel
+FAIL cloud-helper-bounds: cloudOAuthStart launches serve outside its cancel's continuation
+rc 1
+== tools/t26-pages.py --listed --not-pin on the worktree
+interface-thread runs with no bound 100; worker helpers: cloudCheckFolders, cloudConnectionChange, cloudConnectionDetails, cloudOAuthAdd, cloudOAuthCancelThen, cloudOAuthChooseInput, cloudOAuthOwnSession, cloudOAuthShowConnected, cloudOpenMatch, cloudRemoteChooseBackend, cloudRemoteShowForm, cloudRemoteShowList, cloudSetupGateCheck, cloudSetupOpenPathEditor, cloudSetupOpenSyncPathEditor, cloudSetupRunCheck, cloudSetupShowDoneStep, openCloudAddRemote, openCloudConnections, openCloudFolderEditor, runMaintenanceCommand
+listed 5614 cloudHelperLines in cloudOAuthCancelThen: worker, timeout (in the helper)
+listed 5674 cloudHelperLines in : worker, timeout (in the helper)
+listed 6859 cloudHelperLines in cloudSetupShowConnectStep: worker, timeout (in the helper)
+listed 7179 cloudHelperLines in cloudSetupShowDoneStep: worker, timeout (in the helper)
+listed 7388 cloudRemoteLines in cloudRemoteShowForm: worker, timeout (in the helper)
+listed 7398 cloudRemoteLines in cloudRemoteShowForm: worker, timeout (in the helper)
+listed 7613 cloudRemoteLines in cloudRemoteChooseBackend: worker, timeout (in the helper)
+listed 8063 cloudRemoteLines in cloudOAuthAdd: worker, timeout (in the helper)
+listed 8110 cloudRemoteBackends in cloudRemoteShowList: worker, timeout (in the helper)
+listed 8201 cloudRemoteBackends in cloudConnectionDetails: worker, timeout (in the helper)
+listed 8265 cloudRemoteLines in openCloudConnections: worker, timeout (in the helper)
+listed 8296 cloudRemoteBackends in openCloudAddRemote: worker, timeout (in the helper)
+listed sites 12; on the interface thread with no bound 0
+not the pin: counts differ from the pin's asserted ones (got, asserted): {'runs': (165, 159), 'runs-interface': (115, 131)}
+== negative: the same report over s5-neg-site
+listed 7177 GetShOutput in cloudSetupShowDoneStep: interface, none
+listed sites 13; on the interface thread with no bound 1
+== tests/cloud-oauth-lifetime.py (taught the spinner-run cancel) at the pin and on the worktree
+PASS phone PASS keyboard PASS no-browser PASS failed-start 
+PASS phone PASS keyboard PASS no-browser PASS failed-start rc 0

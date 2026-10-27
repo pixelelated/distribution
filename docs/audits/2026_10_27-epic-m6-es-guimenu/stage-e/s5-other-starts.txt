@@ -1,0 +1,101 @@
+# T26 S5 (#1220): the process starts left on the interface thread with no bound, by site, in GuiMenu.cpp at S5's commit (tools/t26-pages.py --table --not-pin); recorded for the interface slices, not changed here (the ruling of 09:17 UTC). Format: line name -- page title.
+521 runSystemCommand -- SYSTEM MANAGEMENT AND RESET
+1782 getScriptOutput -- SYSTEM SETTINGS
+1801 getScriptOutput -- SYSTEM SETTINGS
+1823 getScriptOutput -- SYSTEM SETTINGS
+1844 system -- SYSTEM SETTINGS
+1860 GetShOutput -- SYSTEM SETTINGS
+1862 GetShOutput -- SYSTEM SETTINGS
+1869 runSystemCommand -- SYSTEM SETTINGS
+1966 runSystemCommand -- SYSTEM SETTINGS
+1968 runSystemCommand -- SYSTEM SETTINGS
+1983 runSystemCommand -- SYSTEM SETTINGS
+1985 runSystemCommand -- SYSTEM SETTINGS
+2130 runSystemCommand -- SYSTEM SETTINGS
+2168 runSystemCommand -- SYSTEM SETTINGS
+2190 runSystemCommand -- SYSTEM SETTINGS
+2208 GetShOutput -- SYSTEM SETTINGS
+2213 GetShOutput -- SYSTEM SETTINGS
+2220 runSystemCommand -- SYSTEM SETTINGS
+2238 runSystemCommand -- SYSTEM SETTINGS
+2249 runSystemCommand -- SYSTEM SETTINGS
+2265 runSystemCommand -- SYSTEM SETTINGS
+2273 runSystemCommand -- SYSTEM SETTINGS
+2275 runSystemCommand -- SYSTEM SETTINGS
+2298 runSystemCommand -- SYSTEM SETTINGS
+2324 runSystemCommand -- SYSTEM SETTINGS
+2358 runSystemCommand -- SYSTEM SETTINGS
+2369 runSystemCommand -- SYSTEM SETTINGS
+2371 runSystemCommand -- SYSTEM SETTINGS
+2398 runSystemCommand -- SYSTEM SETTINGS
+2424 runSystemCommand -- SYSTEM SETTINGS
+2435 runSystemCommand -- SYSTEM SETTINGS
+2437 runSystemCommand -- SYSTEM SETTINGS
+2447 GetShOutput -- SYSTEM SETTINGS
+2449 GetShOutput -- SYSTEM SETTINGS
+2455 runSystemCommand -- SYSTEM SETTINGS
+2466 dtbOverlayItem -- SYSTEM SETTINGS
+2467 dtbOverlayItem -- SYSTEM SETTINGS
+2492 runSystemCommand -- SYSTEM SETTINGS
+3273 runSystemCommand -- SECURITY
+3996 addFeatureItem -- expr: pgettext("game_options", feat.submenu.c_str())
+4025 addFeatureItem -- expr: pgettext("game_options", feat.submenu.c_str())
+4465 cloudSaveSelection -- CONTENT TO BACK UP / CONTENT TO RESTORE
+4519 cloudSaveSelection -- CONTENT TO BACK UP / CONTENT TO RESTORE
+4570 cloudSaveSelection -- CONTENT TO BACK UP / CONTENT TO RESTORE
+6002 GetShOutput -- GAME SETTINGS
+6038 GetShOutput -- GAME SETTINGS
+6647 applyDevicePassword -- SSH PASSWORD
+6803 runSystemCommand -- expr: cloudSetupTitle(mode)
+6804 runSystemCommand -- expr: cloudSetupTitle(mode)
+6805 runSystemCommand -- expr: cloudSetupTitle(mode)
+6806 runSystemCommand -- expr: cloudSetupTitle(mode)
+6961 runSystemCommand -- expr: cloudSetupTitle(mode)
+7108 cloudFolderContext -- CLOUD FOLDERS
+7129 cloudFolderContext -- CLOUD FOLDERS
+7940 runSystemCommand -- CONNECT CLOUD STORAGE
+7985 GetShOutputLines -- CONNECT CLOUD STORAGE
+7998 cloudOAuthStart -- CONNECT CLOUD STORAGE
+8019 GetShOutputLines -- CONNECT CLOUD STORAGE
+8023 cloudOAuthOpenSignIn -- CONNECT CLOUD STORAGE
+8041 cloudOAuthOpenSignIn -- CONNECT CLOUD STORAGE
+8098 cloudOAuthStart -- ADD CONNECTION
+8237 cloudOAuthStart -- CLOUD CONNECTION
+8629 applyDevicePassword -- DEVICE PASSWORD
+10176 runSystemCommand -- NETWORK SETTINGS
+10178 runSystemCommand -- NETWORK SETTINGS
+10415 runSystemCommand -- NETWORK SETTINGS
+10416 runSystemCommand -- NETWORK SETTINGS
+10417 runSystemCommand -- NETWORK SETTINGS
+10419 runSystemCommand -- NETWORK SETTINGS
+10420 runSystemCommand -- NETWORK SETTINGS
+10421 runSystemCommand -- NETWORK SETTINGS
+10422 runSystemCommand -- NETWORK SETTINGS
+10434 runSystemCommand -- NETWORK SETTINGS
+10435 runSystemCommand -- NETWORK SETTINGS
+10436 runSystemCommand -- NETWORK SETTINGS
+10438 runSystemCommand -- NETWORK SETTINGS
+10439 runSystemCommand -- NETWORK SETTINGS
+10440 runSystemCommand -- NETWORK SETTINGS
+10441 runSystemCommand -- NETWORK SETTINGS
+10453 runSystemCommand -- NETWORK SETTINGS
+10455 runSystemCommand -- NETWORK SETTINGS
+10463 GetShOutput -- NETWORK SETTINGS
+10468 GetShOutput -- NETWORK SETTINGS
+10475 runSystemCommand -- NETWORK SETTINGS
+10477 GetShOutput -- NETWORK SETTINGS
+10522 runSystemCommand -- NETWORK SETTINGS
+10524 runSystemCommand -- NETWORK SETTINGS
+10541 runSystemCommand -- NETWORK SETTINGS
+10542 runSystemCommand -- NETWORK SETTINGS
+10544 runSystemCommand -- NETWORK SETTINGS
+10545 runSystemCommand -- NETWORK SETTINGS
+10567 runSystemCommand -- NETWORK SETTINGS
+10569 IsTailscaleUp -- NETWORK SETTINGS
+10571 runSystemCommand -- NETWORK SETTINGS
+10572 runSystemCommand -- NETWORK SETTINGS
+10584 runSystemCommand -- NETWORK SETTINGS
+10585 IsZeroTierUp -- NETWORK SETTINGS
+10587 runSystemCommand -- NETWORK SETTINGS
+11177 GetShOutput -- expr: title.c_str()
+11215 GetShOutput -- expr: title.c_str()
