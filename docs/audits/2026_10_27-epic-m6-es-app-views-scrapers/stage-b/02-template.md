@@ -150,7 +150,29 @@ Every § 5 run of stage A (`stage-a/runs.sh`, its output `stage-a/runs.out`, rc 
 
 ## The guest cycle
 
-To be written when the window is granted and run (stage B's request on #679; `stage-b/window-plan.md`).
+**Granted** on #679 at 16:07 UTC (comment 6447015977), under T13's conditions; the host free (qemu 0, compilers 0; swap 1,402 of 8,191 MiB, no reclaim needed).
+- **START 16:08 UTC** (comment 6447041699; the first line `START 16:08:36 UTC`; census qemu 0, compilers 0) and its line in the shared host file.
+- **RETURN** (comment 6447364690; the first line `RETURN 16:22:34 UTC`; census qemu 0, compilers 0) and its line. The guest was stopped by `tools/vm-stop` on its pidfile at 16:22:12 (rc 0), 14 minutes into the 35.
+
+**The image:** `pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261022T235948Z.g069fc2704421-from-ROCKNIX.img.gz` (sha256 compared by hand with its bare `.sha256`: match), on a fresh 16 GiB qcow2 (`guest-cycle/g01-identity.txt`): `BUILD_ID="069fc270442134fe771258418adf4e666e0473fb"`, `BUILD_BRANCH="build/m7-signin-20261022-07"`, `geometry 640 480`. The installed ES carries M7's composition (`Pending achievements stay`: 1) beside the pin's slice strings, so **every frame is `image` evidence**. Fixtures (`guest-cycle/scripts/seed.sh`, `g09-seed.sh`): ten gb games A to J, 100 screenshots, a `gamelist.xml` naming Alpha's manual and Bravo's picture, both absent.
+
+| G | What ran | What was read back | Verdict (side) |
+| --- | --- | --- | --- |
+| G-01 | the identity script | the four os-release lines, 640x480, seven literals, the ES digest `25155163fd7970f7` | `image` |
+| G-02 | the five styles by `GamelistViewStyle` with ES stopped (`guest-cycle/scripts/style.sh`), the gb list in each; SCREENSHOTS (`imageviewer`) timed | basic, detailed and video drawn; **grid and gamecarousel draw the basic list** (the shipped theme has neither view); one list bar in every style (OPTIONS, MENU, BACK, SEARCH, GAME OPTIONS, SAVE STATES); **L-14 not reached**: SCREENSHOTS draws the detailed style under `grid`, and the press to a still screen read 2.775 s (SCREENSHOTS, grid), 2.786 s (automatic), 2.777 s (gb, 10 games) -- the settle tool's floor (`guest-cycle/g02-l14-timings.txt`) | `image` |
+| G-03 | VIEW OPTIONS' JUMP TO GAME BEGINNING WITH THE LETTER moved to D, then BACK | the row reads D; **the list's cursor stays on Alpha** -- read at stage C before it is called anything (T31's `GuiGamelistOptions` applies it through this slice's `moveToLetter`); the l2/r2 keys `CANNOT` (no trigger in the guest's keyboard map) | `image` |
+| G-04 | the fast move backward (`q`, left shoulder) then forward (`w`) on the carousel | FAVORITES, then PICO-8 again; ES's pid unchanged, no backtrace in the journal | `image` |
+| G-05 | `ip link set eth0 down`; SCRAPER, ArcadeDB, SCRAPE NOW | **COMPLETED, GAMES SCRAPED: 9, UPDATE GAMELISTS TO APPLY CHANGES.**, no COULDN'T SCRAPE, `ELAPSED 0:00`; no `images` folder written, the gamelist unchanged; no scraper line in the journal at the image's log level (`guest-cycle/g05-journal.txt`) -- **3.13's and L-07's positive** | `image` |
+| G-06 | SCRAPER, IGDB with no client id, SCRAPE NOW; then `fr_FR` | SYSTEMS INCLUDED empty; **NO GAMES FIT THAT CRITERIA.** / **AUCUN JEU NE CORRESPOND.** (one OK) -- not INVALID CREDENTIALS: 3.16's remainder as the player meets it, `isSupportedPlatform` read at C | `image` |
+| G-07 | -- | `CANNOT`: host port 80 is privileged (`ip_unprivileged_port_start` 1024) | -- |
+| G-08 | `guest-cycle/scripts/g08-api.sh` from inside the guest | `"Version": "0.0.1-dev"`; `[ true ]`; `/notify`'s long body one line cut with an ellipsis (`frames/g08-notify-toast.png`; L-12 holds the one-line rule, its thread shows nothing); `/removegames/gb` outside the system `204 No game removed`, the 10 games kept (`guest-cycle/g08-api.txt`); the `403` `CANNOT` (no forward of 1234) | `image` |
+| G-09 | Bravo's picture written from outside ES with its detailed list open, the list re-entered; then ES restarted | **no picture after the write in the same session; the picture after the restart** -- L-08's positive with its control (the theme has no MANUAL element, so the picture's read `:817-831` stands in for `:903`) | `image` |
+| G-10 | -- | `CANNOT`: the https hosts refuse a stub | -- |
+| G-11 | `tools/vm-stop` on the pidfile | `retired.txt`: `t32.qcow2`, 2,312,372,224 bytes, sha256 `a3a152ce5b6df4d848caa8446654a622c746db0f1ea2ee7cdc8b13694bd0627d`, removed; qemu 0, compilers 0 | -- |
+
+- **French** (`frames/g02-fr-gb-list.png`, `g06-fr-1-box.png`): the list's bar reads OPTIONS, MENU, RETOUR, RECHERCHER, OPTIONS DU JEU -- five, where English showed six with SAVE STATES. Read at stage C (#210's bar) before it is called anything.
+- **Not driven:** L-11's dialog (hiding every system), L-10's `SAVE STATES (HOLD)` (no game with states).
+- **Void passes, mine, each redone with a frame:** a SCREENSHOTS timing under `StartupSystem=screenshots` (the system is `imageviewer`); a `ret` that went to the list after the outcome page; a French switch run without `/etc/profile` (`set_setting` absent).
 
 ## The streams
 

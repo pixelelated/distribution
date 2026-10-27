@@ -1,0 +1,13 @@
+== the guest stopped by tools/vm-stop on its pidfile (16:22:12 UTC)
+== the disk retired
+total 2258664
+-rw-rw-r-- 1 max max         37 Oct 27 16:08 bound.txt
+-rw-rw-r-- 1 max max        284 Oct 27 16:08 run.log
+-rw-rw-r-- 1 max max     540672 Oct 27 16:08 t32.ovmf-vars.fd
+-rw-r--r-- 1 max max 2312372224 Oct 27 16:22 t32.qcow2
+/workspace/tmp/m6-t32/guest/t32.qcow2 2312372224 bytes
+a3a152ce5b6df4d848caa8446654a622c746db0f1ea2ee7cdc8b13694bd0627d  /workspace/tmp/m6-t32/guest/t32.qcow2
+-- after removal (16:22:13 UTC)
+total 8
+-rw-rw-r-- 1 max max  37 Oct 27 16:08 bound.txt
+-rw-rw-r-- 1 max max 284 Oct 27 16:08 run.log
