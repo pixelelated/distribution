@@ -34,6 +34,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Acceptance:**
   - [ ] `stage-c/l01-start-drops.py` against the fixed `GuiSettings.cpp` prints its cases (rc 0), with a mixed-stack case and an outside-click case added; against the pin it fails (`stage-e/s1-before.txt`, `s1-after.txt`).
   - [ ] on the integration image, USER INTERFACE SETTINGS > SHOW RETROACHIEVEMENTS ICON moved and START pressed: `es_settings.cfg` carries the change (`fix-walk-pending-image`).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed; fixed in this shape under **D-UI-128** (`acb7ead172`): each `GuiSettings` page closed from the top through `close()`, a plain page deleted as today, the loop stopped if an `onFinalize` pushes a page. Rule 6 applies (every cloud page is a `GuiSettings`; the save was the page's own promise). The reach is every settings page in the app, named in the stream's record and in a #585 line to ROCKNIX (the lines are identical in batocera's master). Proof: the lifetime harness over a mixed stack (a plain page between two settings pages; an `onFinalize` that pushes), FAIL first against the pin, then G02 with its control. **Already written:** nothing inherited -- the dropped values were never written.
+- **Bug:** #1236 (filed 2026-10-27, with its code trace).
 
 ## PL-02: a settings page that registers no save function does not write the stores on its own close: the LED colour, and every page of only text rows (a `bug` proposed; the base, with T26's PL-17)
 
@@ -54,6 +56,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Acceptance:**
   - [ ] `stage-c/l02-led-not-saved.py` against the fixed files: `analogsticks.led saved` (rc 0), with a text-row-only page case; against the pin it fails (`stage-e/s2-*.txt`).
   - [ ] the four `onFinalize` saves T26's PL-17 named either still work or are removed, by the fixture over `save()`.
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed; its stream in `docs/reviews/briefs/t31-streams.md` (the coordinator's).
+- **Bug:** #1237 (filed 2026-10-27, with its code trace).
 
 ## PL-03: Moonlight builds shell commands from the player's SERVER IP and the server's game titles, unquoted (a `bug` proposed; ROCKNIX's page)
 
@@ -72,6 +76,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** launchers already generated from a crafted title stay on the card until the next UPDATE, which rewrites them all; a stored `moonlight.host` is quoted at its next use.
 - **Acceptance:**
   - [ ] the fixture against the fixed file: no canary from the three commands or a generated launcher; the whole IP and the whole title each one argument (`stage-e/s3-*.txt`).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed; one Moonlight stream with PL-03 to PL-06, PL-15 and PL-16 under rule 6 (D-QA-051), the #585 lines to ROCKNIX, whose page it is.
+- **Bug:** #1238 (filed 2026-10-27, with its code trace).
 
 ## PL-04: UPDATE MOONLIGHT GAMES deletes the library before fetching its replacement, and reports success over unchecked writes (a `bug` proposed; ROCKNIX's page)
 
@@ -90,6 +96,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** a device whose library was emptied by a failed update stays empty until a successful UPDATE rebuilds it. Nothing to migrate.
 - **Acceptance:**
   - [ ] the fixture: an empty or malformed fetch leaves the seeded library untouched; a failed write returns false (`stage-e/s4-*.txt`).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed; one Moonlight stream with PL-03 to PL-06, PL-15 and PL-16 under rule 6 (D-QA-051), the #585 lines to ROCKNIX, whose page it is.
+- **Bug:** #1239 (filed 2026-10-27, with its code trace).
 
 ## PL-05: UNPAIR WITH SERVER removes nothing (`"~/..."` is not expanded) and says "Unpaired and settings cleared"; neither branch checks its removal (a `bug` proposed; ROCKNIX's page)
 
@@ -104,6 +112,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** a device whose player pressed UNPAIR still holds the pairing. The next UNPAIR after the fix removes it.
 - **Acceptance:**
   - [ ] the fixture against the fixed file: `L-06 directories left: none`, and a removal that fails is reported (`stage-e/s5-*.txt`).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed; one Moonlight stream with PL-03 to PL-06, PL-15 and PL-16 under rule 6 (D-QA-051), the #585 lines to ROCKNIX, whose page it is.
+- **Bug:** #1240 (filed 2026-10-27, with its code trace).
 
 ## PL-06: Moonlight's certificate parser can loop forever or throw inside the pairing callback, on the interface thread (a `bug` proposed; ROCKNIX's page)
 
@@ -118,6 +128,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited (a parser).
 - **Acceptance:**
   - [ ] the fixture: both inputs return within the watchdog, with no exception (`stage-e/s6-*.txt`).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed; one Moonlight stream with PL-03 to PL-06, PL-15 and PL-16 under rule 6 (D-QA-051), the #585 lines to ROCKNIX, whose page it is.
+- **Bug:** #1241 (filed 2026-10-27, with its code trace).
 
 ## PL-07: COPY TO FREE SLOT is silent when it fails and when it works, copies on the interface thread, and releases the transfer lock before it writes (a `bug` proposed; the fork's manager)
 
@@ -139,6 +151,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Acceptance:**
   - [ ] the fixture: `false` → a sentence; `true` → the cursor on the new slot; no free slot → a sentence; the lock held across the copy (`stage-e/s7-*.txt`).
   - [ ] on the integration image, G06's read-only copy shows the failure sentence, and a copy that works leaves the cursor on SLOT 3 (`fix-walk-pending-image`).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed; its stream in `docs/reviews/briefs/t31-streams.md` (the coordinator's).
+- **Bug:** #1242 (filed 2026-10-27, with its code trace).
 
 ## PL-08: USE RELAY SERVER and SHOW CONTROLLER ACTIVITY replace their pages without `save()`, dropping the deferred switches changed before (a `bug` proposed; upstream's)
 
@@ -154,6 +168,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Acceptance:**
   - [ ] a fixture over both callbacks: a switch moved before each is saved (`stage-e/s8-*.txt`).
   - [ ] G08 on the integration image reads `global.netplay=1` (`fix-walk-pending-image`).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed; its stream in `docs/reviews/briefs/t31-streams.md` (the coordinator's).
+- **Bug:** #1243 (filed 2026-10-27, with its code trace).
 
 ## PL-09: a failing or partial `rocknix-systems` reads as THE BIOS CHECK RETURNED NOTHING, or as ALL PRESENT (a `bug` proposed; the fork's page)
 
@@ -168,6 +184,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] the fixture: a failed run, a partial run and an empty run each show their own sentence, with French (`stage-e/s9-*.txt`; `es-untranslated` 0 without).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed; its stream in `docs/reviews/briefs/t31-streams.md` (the coordinator's).
+- **Bug:** #1244 (filed 2026-10-27, with its code trace).
 
 ## PL-10: BIOS CHECK draws no help bar under full-screen menus; DETAILS and START (REFRESH) are never shown (a `bug` proposed; the fork's page)
 
@@ -182,6 +200,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] a 640x480 frame of BIOS CHECK shows DETAILS, BACK and REFRESH on the bar with a row focused, and no DETAILS on the buttons (`fix-walk-pending-image`).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed; its stream in `docs/reviews/briefs/t31-streams.md` (the coordinator's).
+- **Bug:** #1245 (filed 2026-10-27, with its code trace).
 
 ## PL-11: the BIOS summary is assembled from fragments (`7 SUR 7 MANQUANT`), and a system not loaded shows its short name (a `bug` proposed; the fork's page)
 
@@ -196,6 +216,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] `tools/es-untranslated` 0 without, with the new msgids in the French catalog; a FR frame of BIOS CHECK reads an agreed sentence (`fix-walk-pending-image`).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed; its stream in `docs/reviews/briefs/t31-streams.md` (the coordinator's).
+- **Bug:** #1246 (filed 2026-10-27, with its code trace).
 
 ## PL-12: the scrape page's outcome: an all-errored run has no why and no next step; any input, an axis included, dismisses it, even before it is drawn (a `bug` proposed; the fork's page)
 
@@ -215,6 +237,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] the fixture against the fixed page passes, with a case for input arriving before the finished frame (`stage-e/s10-*.txt`).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed; its stream in `docs/reviews/briefs/t31-streams.md` (the coordinator's).
+- **Bug:** #1247 (filed 2026-10-27, with its code trace).
 
 ## PL-13: `SKIPPED - YOU CANCELLED IT` is a fourth SKIPPED reason (a design item, for the pause)
 
@@ -227,6 +251,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **What:** `es-player-text.md` § Outcome vocabulary and D-UI-028 reserve SKIPPED for rclone 69, 75 and the launch cancel. The page's comment argues that the player's own cancel is a skip; no register row records it. **Options:** a register row admitting the reason, or the cancel worded another way. The coordinator assigns the ID.
 - **Can this be done on the VM?** Yes, if the words change: a frame of the cancelled page.
 - **Already written:** nothing inherited (a word on a page).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** **D-UI-129** (`acb7ead172`): `SKIPPED - <reason>` admits a player's own cancel of a run they started on a fourth-tier page; `es-player-text.md` § Outcome vocabulary carries the fourth entry (the coordinator's commit). The word stays; no bug. A completed run reported as cancelled (`stop()` after `run()` finished, in `ThreadedScraper`) is T32's lead L-02 and T32's file: recorded in `02` as inherited by T32.
 
 ## PL-14: Moonlight's page title is a raw English literal, four boxes are sentence case (one misspelt), and the page is neither mapped nor declared (a `bug` proposed; ROCKNIX's page)
 
@@ -241,6 +266,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] a FR frame of the page reads its title in French; `es-untranslated` 0 without; `es-menu-map-check` sees MOONLIGHT GAME STREAMING as mapped (`fix-walk-pending-image`, `tool-run`).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed, for the title: it goes through `_()` (an untranslatable string is a defect, not a word choice) and the page is mapped in the same commit (D-UI-039); the sentence-case box wording stays as ROCKNIX wrote it (D-UI-079), recorded.
+- **Bug:** #1248 (filed 2026-10-27, with its code trace).
 
 ## PL-15: Moonlight's `isEmbedded()` reads a pointer, not the output, and leaks a `popen` per call (a `bug` proposed; ROCKNIX's page)
 
@@ -255,6 +282,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] the fixture: "Embedded" from the stub makes `isEmbedded()` true; a second call leaves no open descriptor (`stage-e/s11-*.txt`).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed; one Moonlight stream with PL-03 to PL-06, PL-15 and PL-16 under rule 6 (D-QA-051), the #585 lines to ROCKNIX, whose page it is.
+- **Bug:** #1249 (filed 2026-10-27, with its code trace).
 
 ## PL-16: Moonlight writes the client's private key with no explicit mode (a `bug` proposed if the image's mode reads open; ROCKNIX's page)
 
@@ -269,6 +298,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** a key already extracted keeps its mode; the fix's writer should also tighten an existing file.
 - **Acceptance:**
   - [ ] a fixture under umask 022: `key.pem` created and replaced at 0600 (`stage-e/s12-*.txt`).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed; one Moonlight stream with PL-03 to PL-06, PL-15 and PL-16 under rule 6 (D-QA-051), the #585 lines to ROCKNIX, whose page it is; a bug whether or not the image reads the file open (an explicit mode on a key is the fix); the VM line reads the mode on the guest at the stream's proof, labelled by side.
+- **Bug:** #1250 (filed 2026-10-27, with its code trace).
 
 ## PL-17: the map: BIOS CHECK and SCRAPING GAMES (the fork's) are in neither the map nor `## Not mapped`, with ten upstream titles (D-UI-039)
 
@@ -283,6 +314,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited (a document).
 - **Acceptance:**
   - [ ] `tools/t31-titles.py` reports 0 pages in neither place once the map changes, and `es-menu-map-check` prints `0 missing` (`tool-run`).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** the map commit (D-UI-039), in a stream's commit; no bug.
 
 ## PL-18: `GuiLoading`'s `mRunning` is a plain `bool` across its two threads, and its thread object leaks (a `bug` proposed; batocera's header)
 
@@ -297,6 +329,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] `stage-c/l22-guiloading-race.py` against the fixed header: no ThreadSanitizer warning, completion 42, no leak under LeakSanitizer (`stage-e/s13-*.txt`).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed; its stream in `docs/reviews/briefs/t31-streams.md` (the coordinator's).
+- **Bug:** #1251 (filed 2026-10-27, with its code trace).
 
 ## PL-19: the image viewer guards its pool jobs with a plain global rather than the instance, and abandons an unpushed viewer whose first extraction is empty (a `bug` proposed; upstream's)
 
@@ -315,6 +349,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] the fixtures: no race on the guard; viewer A's callback after B's construction touches nothing of A; an empty extraction leaves no live viewer (`stage-e/s14-*.txt`).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed; its stream in `docs/reviews/briefs/t31-streams.md` (the coordinator's).
+- **Bug:** #1252 (filed 2026-10-27, with its code trace).
 
 ## PL-20: PLAYER PASSWORD is shown in clear on the row and in its editor (a `bug` proposed; upstream's row)
 
@@ -329,6 +365,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited (a display mode).
 - **Acceptance:**
   - [ ] `tools/t31-rows.py` reads `password` for `GuiGameOptions.cpp:204` (`tool-run`).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed; its stream in `docs/reviews/briefs/t31-streams.md` (the coordinator's).
+- **Bug:** #1253 (filed 2026-10-27, with its code trace).
 
 ## PL-21: SCRAPER's remembered filters: the default set stored on a first visit, an empty selection unkeepable, and a change of SCRAPE FROM leaving the filters bound to the old scraper (a `bug` proposed; the fork's remembered filters)
 
@@ -348,6 +386,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** a device that visited SCRAPER holds a `ScraperSystems` list. The fix reads it as before; no migration.
 - **Acceptance:**
   - [ ] the fixture: no write on an unchanged first visit; an empty selection kept; the queue after a source change uses the new scraper (`stage-e/s15-*.txt`).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed; its stream in `docs/reviews/briefs/t31-streams.md` (the coordinator's).
+- **Bug:** #1254 (filed 2026-10-27, with its code trace).
 
 ## PL-22: `addInputTextRow`'s editor reopens from the value captured at build, so an unchanged OK writes the old value back (a `bug` proposed; upstream's base)
 
@@ -362,6 +402,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] the fixture: A → B, reopen, OK without editing → B stays (`stage-e/s16-*.txt`).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed; its stream in `docs/reviews/briefs/t31-streams.md` (the coordinator's).
+- **Bug:** #1255 (filed 2026-10-27, with its code trace).
 
 ## PL-23: the save state manager's incremental sort uses `>=` in a `std::sort` comparator (a `bug` proposed; upstream's lines in the fork's file)
 
@@ -376,6 +418,8 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **Already written:** nothing inherited.
 - **Acceptance:**
   - [ ] the fixture: the comparator irreflexive and asymmetric on equal dates; the debug sort clean (`stage-e/s17-*.txt`).
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** a `bug`, filed; its stream in `docs/reviews/briefs/t31-streams.md` (the coordinator's).
+- **Bug:** #1256 (filed 2026-10-27, with its code trace).
 
 ## PL-24: four back landings act: CONTROLLER MAPPING's OK, the metadata editor's saving NO, the two SAVE CHANGES? boxes' discarding NO (recorded; D-UI-079, for the pause)
 
@@ -388,6 +432,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **What:** `GuiMsgBox`'s rule (`:116-134`) lands back on OK or NO, else the last button, so reordering does not change it. These are upstream pages outside the fork's lanes, so a change of behaviour is the maintainer's to open (D-UI-079). DELETE COLLECTION's NO only navigates. **Options:** recorded as written; or an explicit accelerator on each (CANCEL, keep editing).
 - **Can this be done on the VM?** Yes: the dialog table (`t31-dialogs.py`).
 - **Already written:** nothing inherited.
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** recorded as written, with #585 lines (D-UI-079: CONTROLLER MAPPING and the metadata editor are upstream pages outside the lanes), one line per landing in `02` § The #585 lines owed.
 
 ## PL-25: `GuiAutoScrape` is not compiled and nothing opens it; the inventory records its two paths as shipped
 
@@ -400,6 +445,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **What:** dead upstream code, counted in the slice's 76. **Options:** correct the inventory's reach (the coordinator's file); leave the files as upstream has them, or remove them with a #585 note.
 - **Can this be done on the VM?** Yes (`tool-run`).
 - **Already written:** nothing inherited.
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** Backlog **#1235** (the coordinator's): the inventory's `reach` derives from the CMake source lists, so a source compiled nowhere reads `unbuilt`; the two files stay as upstream has them.
 
 ## PL-26: interface-thread work recorded: the image viewer's library walk on an uncached lookup; SCRAPER's worker reading the page's components
 
@@ -412,6 +458,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **What:** recorded with lines for the slices that own `DisplayAspect` and `GuiLoading`'s callers. Moving the walk needs a safe snapshot of `SystemData`. G10 (the timing) could not run.
 - **Can this be done on the VM?** Yes, with a seeded library: the viewer's first open timed.
 - **Already written:** nothing inherited.
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** recorded as written; no bug.
 
 ## PL-27: `isFlockHeld`'s failures read as A SYNC IS ALREADY RUNNING (keep an eye on)
 
@@ -424,6 +471,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **What:** an open failure other than ENOENT, or a failed `flock` other than EINTR, is read as held. That fails closed, which is right, but with words that blame a sync. ES runs as root on the image (G01). Proposed as `keep an eye on` (`bugs-are-agent-first.md`). It becomes a bug on a journal line of a refusal with no sync running.
 - **Can this be done on the VM?** No reachable input on the image (root); a host fixture can show the words.
 - **Already written:** nothing inherited.
+- **Disposition (ruled 13:27 UTC, #678 comment 6443081619):** keep an eye on (`bugs-are-agent-first.md`); no bug.
 
 ## Phase 7 resolution gate
 

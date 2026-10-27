@@ -25,7 +25,7 @@ history) and `tools/` (`t31-callers.py`, `t31-run-runs.py`). Every § 5 figure a
 expects; the brief's non-ASCII adjacency grep is a basic-regex error (`'_\("'`), rerun with
 `-F`: 0. `GuiAutoScrape` has no caller at the pin (a Q7 lead).
 
-**Stages A to D done.** Window 12:26:47 to 12:45:00 UTC (disk retired). The seat: 43 items graded (41/1/1), 16 new leads. `05`: 27 items (7 medium). The audit issue is #1234 (a sub-issue of #678); box-check 0 fail; the pre-issue lint PASS. **Paused at stage D:** the punch list and five questions posted on #678; waiting for the coordinator's ruling and stream brief. No bug is filed and no ES change is made before it.
+**Stages A to D done; the ruling received (13:27 UTC); the bugs filed:** #1236 to #1256 (21; the map in `05`'s `Bug:` lines and #1234's items). **Waiting for the coordinator's stream brief** `docs/reviews/briefs/t31-streams.md`; then stage E on the ES branch `feature/m6-es-pages-678`, each stream FAIL-first, under `stage-e/`.
 
 ## Next commands
 

@@ -570,6 +570,10 @@ Per D-WORKFLOW-164, each upstream-side lead is weighed for upstream (none sent, 
 | ROCKNIX/emulationstation-next | `es-app/src/guis/GuiMoonlight.cpp` | `Utils::String::shellQuote` on the SERVER IP and in the generated launchers (L-28); `$HOME` in the removals and their results checked; the title through `_()`; fetch and validate before replacing the library (L-29), the writes checked (L-30); `isEmbedded` reading the output and closing it (L-31); the conf parsers bounded (L-32); the key written 0600 (L-33) | `stage-c/l05-l06-moonlight.py`; G09, G12; the seat's EP-28 to EP-33 | `rocknix/master` (the page is ROCKNIX's own) |
 | batocera-emulationstation, then ROCKNIX | `es-app/src/guis/GuiLoading.h` | `std::atomic<bool> mRunning` | `stage-c/l22-guiloading-race.py` | `batocera/master` (identical bytes), `rocknix/master` |
 | batocera-emulationstation | `es-app/src/guis/GuiGameOptions.cpp:204` | PLAYER PASSWORD with `password = true` | tree | `batocera/master:198` |
+| batocera-emulationstation, then ROCKNIX | `es-app/src/guis/GuiControllersSettings.cpp:76-82` (CONTROLLER MAPPING, OK / CANCEL) | back lands on **OK** and starts the mapping: name CANCEL the accelerator (PL-24, recorded as written by the stage-D ruling) | `02` § The dialogs; EP-18 | `rocknix/master` (`batocera/master` differs in the file; the box to recheck there) |
+| batocera-emulationstation, then ROCKNIX | `es-app/src/guis/GuiMetaDataEd.cpp:524-528` (SOME FILES YOU LINKED..., YES / NO / CANCEL) | back lands on **NO**, which saves without the copies: make CANCEL the accelerator (PL-24, recorded) | EP-19 | `rocknix/master` (`batocera/master` differs in the file; the box to recheck there) |
+| batocera-emulationstation, then ROCKNIX | `es-app/src/guis/GuiMetaDataEd.cpp:629-632` (SAVE CHANGES?, YES / NO) | back lands on **NO**, which discards the edits: back should keep the editor open (PL-24, recorded) | EP-20 | `rocknix/master` (`batocera/master` differs in the file; the box to recheck there) |
+| batocera-emulationstation, then ROCKNIX | `es-app/src/guis/GuiKeyMappingEditor.cpp:497-501` (SAVE CHANGES?, YES / NO) | back lands on **NO**, which deletes the dirty editor: back should keep it open (PL-24, recorded) | EP-20 | `batocera/master` (identical bytes), `rocknix/master` |
 
 The rest are the fork's own and stay here.
 
@@ -580,6 +584,7 @@ The rest are the fork's own and stay here.
 - **The title-shape table** (§ The titles). The checker's three regexes see 12 of 37 pages; a raw literal (MOONLIGHT) and a computed title (`GuiBios`' DETAILS, `GuiSettings(window, displayName)`) are invisible to it.
 - **The cached-read table** (§ The reads): the scraper, RetroArch and the player are the writers of what these pages ask `exists` about.
 - **The four tab-strip pages**, with their lines: `GuiThemeInstaller`, `GuiBatoceraStore`, `GuiKeyMappingEditor` (`:150-156`), `GuiKeyboardtopads` (`:78`).
+- **T32's lead L-02, inherited** (the stage-D ruling, PL-13): a completed scrape reported as cancelled -- `ThreadedScraper::stop()` arriving after `run()` finished sets `cancelled` on a run that completed. T32's file; recorded here, no fix in T31. D-UI-129 keeps the word SKIPPED for the player's own cancel.
 - **The base's two traps:**
   - START drops what a page did not save (L-01);
   - a page with no save function never writes `system.cfg`, whatever it `set` (L-02).
