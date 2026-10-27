@@ -48,8 +48,7 @@ copy from a recorded output and every judgement it made.
   stores' keys and `addSwitch`'s bool at its `02:546`; `GuiSettings.cpp`'s
   `addInputTextConfigRow` and #1185; `GuiBluetoothDevices.cpp:127/:150` and
   #1212; `GuiBluetoothDevices.cpp:117-121` L-33; `GuiScraperStart.cpp:413-420`
-  and #1193; `GuiScraperStart.cpp:99` and #1191; `GuiKeyboardLayout.cpp:164`'s
-  in-place `fopen "wb"`; `GuiSaveState.cpp:33`'s `isFlockHeld`; its ES branch's
+  and #1193; `GuiScraperStart.cpp:99` and #1191; `GuiKeyboardLayout.cpp:164`'s `writeAllText` call (the in-place `fopen "wb"` is `FileSystemUtil.cpp:1434`, T21's file; the site is Backlog #1186's); `GuiSaveState.cpp:33`'s `isFlockHeld`; its ES branch's
   `a73ed9efc` touching `GuiBios.cpp` for PL-14/#1202), **T26 #673** (GuiMenu,
   the file every page here is reached from; its `02` § What T31 to T37 inherit
   is owed and not written at this version -- read at dispatch if it has
@@ -74,8 +73,7 @@ copy from a recorded output and every judgement it made.
   master** and twelve are the fork's (three files it added, nine it
   modified: 1,207 lines added and 129 removed against the merge base). A
   defect in a line the fork wrote is the fork's to fix; a defect in an
-  upstream line is a contained fix under `bugs-are-agent-first.md` rule 6
-  (`:53`) and a #585 line (D-WORKFLOW-164, never sent, D-WORKFLOW-165).
+  upstream line is a contained fix under `bugs-are-agent-first.md` rule 6 (`:76`) and a #585 line (D-WORKFLOW-164, never sent, D-WORKFLOW-165).
   D-UI-079's lanes (`engineering-practices.md:12`): the save state manager,
   the scrape page and the scraper's fork rows, the BIOS check, the image
   viewer's aspect, the Wi-Fi executor are the lanes the fork works in; an
@@ -236,12 +234,12 @@ never double quotes) and as #1192's named precedent.
 
 | File | Lines | +/- | Commits | What it is |
 | --- | ---: | ---: | ---: | --- |
-| `GuiSaveState.cpp` / `.h` | 612 / 75 | 330/23 / 23/0 | 25 | the SAVE STATE MANAGER: upstream's sheet turned into a page that fits two-line labels at 640x480, draws tiles at the system's aspect and the capture's turn (`DisplayAspect::forGame`, `:76-83`), says TODAY / YESTERDAY / date "at" time (`:303-307`), refuses DELETE and COPY while the saves tree is being synced (`savesTreeBusy`, `:18-35`: `ThreadedCloudSync::isRunning()` at `:28`, then `isFlockHeld("/var/run/cloud_sync.lock") && !holdsTransferLock()` at `:33`), deletes on a worker (`SaveStateBookkeeper::deleteLater`, `:480`) and rebuilds only when the disk disagrees with the page (`update`, `:538-575`, comparing `filesOnDisk()` with `mShown` when `completed()` moves), draws its own help bar on full-screen-menu panels (`render`, `:386-399`); WINDOW_HEIGHT 0.40 → 0.55 (`:42`); 19 `_("` in added lines, 10 distinct, all with French; dialogs `:442`/`:503` single-OK, `:457` re-asked inside the YES lambda, `:449-488` YES/NO |
+| `GuiSaveState.cpp` / `.h` | 612 / 75 | 330/23 / 23/0 | 25 | the SAVE STATE MANAGER: upstream's sheet turned into a page that fits two-line labels at 640x480, draws tiles at the system's aspect and the capture's turn (`DisplayAspect::forGame`, `:76-83`), says TODAY / YESTERDAY / date "at" time (`:303-307`), refuses DELETE and COPY while the saves tree is being synced (`savesTreeBusy`, `:18-35`: `ThreadedCloudSync::isRunning()` at `:28`, then `isFlockHeld("/var/run/cloud_sync.lock") && !holdsTransferLock()` at `:33`), deletes on a worker (`SaveStateBookkeeper::deleteLater`, `:480`) and rebuilds only when the disk disagrees with the page (`update`, `:538-575`, comparing `filesOnDisk()` with `mShown` when `completed()` moves), draws its own help bar on full-screen-menu panels (`render`, `:386-399`); WINDOW_HEIGHT 0.40 → 0.55 (`:43`); 19 `_("` in added lines, 10 distinct, all with French; dialogs `:442`/`:503` single-OK, `:457` re-asked inside the YES lambda, `:449-488` YES/NO |
 | `GuiScraperRun.cpp` / `.h` | 258 / 67 | 258/0 / 67/0 | 4 | **fork-own**, the SCRAPING GAMES page (D-UI-078, #241): a fourth-tier page in `GuiCloudTransfer`'s geometry -- one column 0.78 W, seven rows, a spinner (never a bar), elapsed time, CANCEL the one way out while `ThreadedScraper` runs (`input`, `:90-103`: releases swallowed, only BACK does anything, every other press refused; once finished `delete this` on any press, `:101`), the outcome in D-UI-028's words (`outcomeWord`, `:138-145`: `SKIPPED - YOU CANCELLED IT` / `COULDN'T FINISH` / `COMPLETED`); `BusyComponent(window, "")` at `:14`; `progress()` a mutex-guarded copy of a static (`ThreadedScraper.cpp:15-22`); 23 `_("`, 21 distinct, all with French; one dialog `:112-116` YES/NO |
 | `WifiScanProcess.h` | 202 | 202/0 | 2 | **fork-own**, header-only (#577): `Answer{code=-1, lines}` (`:24-28`, every failure `-1`, "never empty success"); `Child` RAII over pid and pipe with `kill(-pid, SIGKILL)` of the child's own group and a 2 s `waitpid` deadline (`:31-71`); `read(command, timeout, cancelled)` (`:74-201`): refuses an empty command, a non-positive timeout or an already-cancelled flag, `pipe2(O_CLOEXEC)`, relocates a pipe end that landed on fd 0-2, `posix_spawnp` with `POSIX_SPAWN_SETPGROUP`, a non-blocking read bounded by the deadline and a 256 KiB cap, `WIFEXITED` required before `code`; 0 player strings |
 | `GuiBios.cpp` / `.h` | 324 / 43 | 172/88 / 6/7 | 4 | BIOS CHECK (#308 F-ES-06/F-ES-28): the two-tab "Installed / All" page became one list of every system the check knows, sorted problems first (`loadList`, `:121-249`); a press opens a per-system `GuiSettings` of file rows (`openSystem`, `:251-281`); the empty state reads THE BIOS CHECK RETURNED NOTHING (`:187`); DETAILS offered only with a row to open (`:319-320`); `GuiLoading` over `getBiosInformations("", true)` (`:43-44`, `:116-117`) → `rocknix-systems --all` (`ApiSystem.cpp:880-886`); the row summary built word by word (`:223-229`); 10 `_("`, 9 distinct, all with French; no dialog left in the file; **T21's ES branch edited this file after the pin (`a73ed9efc`, PL-14/#1202)** -- the read is the pin's bytes, the stream's a fix on top |
 | `GuiScraperStart.cpp` (`.h` upstream) | 559 / 48 | 105/7 | 5 | the SCRAPER page: GAMES TO SCRAPE FOR, IGNORE RECENTLY SCRAPED GAMES and SYSTEMS INCLUDED remembered in `Settings` (`ScraperFilter` `:93-107`, `RecentlyScrappedFilter` `:122-140` bounded to 0..6 else 3, `ScraperSystems` `:166-210`, the set saved only when opened from the main menu); DEVELOPER ID / DEVELOPER PASSWORD rows under `#if defined(SCREENSCRAPER_RUNTIME_DEV_LOGIN) && !defined(SCREENSCRAPER_DEV_LOGIN)` (`:415-421`, `storeInSettings=true`) and the refusal at SCRAPE NOW when empty (`:436-441`); SCRAPE NOW pushes `GuiScraperRun` when `ThreadedScraper::isRunning()` then closes (`:489-492`); `loadActivePage()` (`:34-50`, upstream) runs `save()` then `clearSaveFuncs()` on every tab switch; 13 `addSwitch(` with a literal `true`; 7 `_("` added, all with French; dialogs `:438-439` single-OK (fork), `:449` WARNING YES, `:467-470` YES/NO, `:483` single (upstream) |
-| `GuiSettings.cpp` / `.h` | 465 / 164 | 8/1 / 18/0 | 3 / 4 | the base every settings page is built on: `lifeToken()` (`.h:104-115`, a `shared_ptr<void>` a worker holds weak and locks inside `postToUiThread`, held as `mLifeToken` at `:157` rather than in a save function "so that adding one does not turn a page with nothing to save into one that writes the settings files on close"); `addInputTextConfigRow` forwarding to `buildInputTextConfigRow` (`.h:151`, `.cpp:167-175`), the arrow sized from `font->getLetterHeight()` (`:208`); the two `addSwitch` signatures with `bool storeInSettings` (`.h:88-89`); the two `addWithDescription` overloads (`.h:49-56`: the three-argument form passes `multiLine = true`, the func form defaults `false`); `save()` and the close path T21's #1188 names (`:94-95`); `updateVal` with no non-empty-and-changed guard (#1185, T21 PL-01); one dialog `:449` single-OK |
+| `GuiSettings.cpp` / `.h` | 465 / 164 | 8/1 / 18/0 | 3 / 4 | the base every settings page is built on: `lifeToken()` (`.h:104-115`, a `shared_ptr<void>` a worker holds weak and locks inside `postToUiThread`, held as `mLifeToken` at `:157` rather than in a save function "so that adding one does not turn a page with nothing to save into one that writes the settings files on close"); `addInputTextConfigRow` (`.h:84`) forwarding to `buildInputTextConfigRow` (`.h:151`, `.cpp:167-175`), the arrow sized from `font->getLetterHeight()` (`:208`); the two `addSwitch` signatures with `bool storeInSettings` (`.h:88-89`); the two `addWithDescription` overloads (`.h:49-56`: the three-argument form passes `multiLine = true`, the func form defaults `false`); `save()` and the close path T21's #1188 names (`:94-95`); `updateVal` with no non-empty-and-changed guard (#1185, T21 PL-01); one dialog `:449` single-OK |
 | `GuiImageViewer.cpp` (`.h` upstream) | 778 / 51 | 16/1 | 1 | the viewer's grid tiles and the zoom take `DisplayAspect::forScreenshotPath(path)` (`:281-286`, `:678-682`; #243/#245, D-UI-080/081); the first call of a session walks every system's games on the interface thread under `sShotLock` (`DisplayAspect.cpp:74-87`, `:99-131`); upstream's four cached `exists` (`:415`, `:629`, `:660`, `:723`) and four `postToUiThread` (`:371`, `:432`, `:507`, `:752`); 0 strings added |
 | `GuiGameOptions.cpp` (`.h` upstream) | 682 / 52 | 2/2 | 1 | both VIEW THIS GAME'S ACHIEVEMENTS rows pass the game's `CheevosHash` to `GuiGameAchievements::show` (`:128`, `:136`; #180, D-RA-009/011); otherwise upstream's context menu: 59 `_("`, 8 `GuiMsgBox(` (the most of any slice file), 5 cached `exists` at `:41`, `:53-56`; the DELETE confirmation at `:253` (FD-14) and `:630`; the NETPLAY NICKNAME row at `:203` (PL-031) |
 | the 64 upstream-carried | 11,297 | 0/0 | 0 | byte-identical to the merge base **and to `rocknix/master` today**: upstream changed none of them since the base (its 14 commits touch `guis/` only in `GuiMenu.*`, `152/2` and `1/0`); the largest `GuiNetPlay.cpp` 1,109, `GuiControllersSettings.cpp` 853 (183 `_("`, the most), `GuiGamelistOptions.cpp` 691, `GuiMetaDataEd.cpp` 678, `GuiKeyMappingEditor.cpp` 632, `GuiCollectionSystemsOptions.cpp` 611, `GuiBatoceraStore.cpp` 547, `GuiThemeInstaller.cpp` 461, `GuiGeneralScreensaverOptions.cpp` 424, `GuiKeyboardtopads.cpp` 380, `GuiMoonlight.cpp` 365; `GuiLoading.h` 143 is the busy page every `GuiLoading<T>` in the tree is; read for brittleness, left as upstream has them (D-UI-079), a contained defect still closed (rule 6) |
@@ -343,7 +341,7 @@ in `GuiUpdate.*` (the OS update card, D-UI-079's named upstream surface);
 
 **The map and the checker.** `docs/es-menu-map.md` (989 lines) describes or
 declares the titles of 15 of this slice's pages: six mapped (GAME COLLECTION
-SETTINGS; VIEW OPTIONS once, in the SELECT-button table at `:83`; INDEX
+SETTINGS; VIEW OPTIONS once, the SELECT row at `:90` under `## Two ways in` at `:83`; INDEX
 GAMES as the RetroAchievements row, not the page; SAVE STATE MANAGER in its
 own section `:150`; SCRAPER in the main menu, the tabbed page and the #566
 flow at `:911`; INFORMATION at `:718` and `:793`) and nine declared under
@@ -392,7 +390,7 @@ doubled), `tests/cloud-gated-row.py` / `tests/cloud-set-systems-quoting.py`
 manager, right to the capture tile, back out; shots `0-carousel`, `1-list`,
 `2-game-options`, `3-manager`, `4-manager-next-tile`), with the accepted
 baseline `d72084ccad`'s `manager-gb/nes/fbn` claims at `claims.txt:38-44`,
-`:49-50`, `:160-168` (564 lines; `suite.txt` 100); `ui-settings-toggle.steps`
+`:49-50`, `:160-230` (564 lines; `suite.txt` 100); `ui-settings-toggle.steps`
 (41 lines) is the one walk that exercises `GuiSettings.cpp`'s close path
 (#1188's lines) on a T26 page. **No walk opens** the Bluetooth pages,
 SCRAPER, the BIOS check, the theme installer or content downloader, the
@@ -439,9 +437,7 @@ VM line), #1193 (`ScreenScraperUser`/`ScreenScraperPass` in
 L-03/#1191 (the default filter clears the overwrite, `:99`), `:66` (the
 Bluetooth and storage arguments joined bare -- "safe by shape, not by
 quoting"), `:335` (`GuiSaveState.cpp:33` asks the transfer's flock), `:399`
-(`GuiKeyboardLayout.cpp:164` writes a file on the card in place with
-`fopen "wb"`, `fwrite` and `fclose` unchecked -- an empty or cut file where
-the old one was), PL-14/#1202 (`a73ed9efc` on T21's ES branch); blindspot
+(`GuiKeyboardLayout.cpp:164` writes a file on the card through `writeAllText`, whose `fopen "wb"`, `fwrite` and `fclose` are unchecked at `FileSystemUtil.cpp:1434` -- an empty or cut file where the old one was; Backlog #1186), PL-14/#1202 (`a73ed9efc` on T21's ES branch); blindspot
 4 (`close()` inside a page's own handler), 45 (the manager's DELETE ran two
 synchronous `cloud_capture`s, proven at a fixture's speed), 62 (the
 maintainer's first look at the SAVE STATE MANAGER after the upgrade found
@@ -496,7 +492,7 @@ which were read (`working-principles.md` § Pre-flight):
    upstream early -- the 64 upstream-carried files are at `rocknix/master`'s
    bytes, so the check is of batocera's tree for a page's later fix), `:111`
    (verify the artifact), `:419` (guards fail closed), `:576` (blindspot
-   23); `bugs-are-agent-first.md` `:41`, `:53` (rule 6); `player-language.md`
+   23); `bugs-are-agent-first.md` `:41`, `:53` (§ The rules), `:76` (rule 6); `player-language.md`
    and `least-surprise.md` whole.
 2. **The register.** The rows that name a page here (all present on the
    coordinator's branch; D-WORKFLOW-188 is the P1 branch's): **D-UI-021**
@@ -552,7 +548,7 @@ which were read (`working-principles.md` § Pre-flight):
    test.
 6. **The walks and the frames.** `tools/vm-walks/manager.steps` (33 lines)
    and its `README.md:184-189`; `ui-settings-toggle.steps` (41);
-   `claims.txt:38-44`, `:49-50`, `:160-168` (the `manager-*` frames at
+   `claims.txt:38-44`, `:49-50`, `:160-230` (the `manager-*` frames at
    `d72084ccad`); `suite.txt` (100 lines; the `default-pre` every leg
    starts from); `reset.steps`'s note on the GO TO dialog a walk must not be
    left holding (#85); `docs/qa-logs/2026-10-14-screenscraper-ui-runtime`
@@ -626,7 +622,7 @@ measures it.
   lose the record**: `save()` on every SCRAPER tab switch (`:36-37`, two
   rewrites of `es_settings.cfg` before SCRAPE NOW; atomicity is T21's
   `:547`, cited), `ScraperSystems=""` read as every system (`:181`,
-  `:202-210`), `GuiKeyboardLayout.cpp:164`'s in-place `fopen "wb"`; PL-031's
+  `:202-210`), `GuiKeyboardLayout.cpp:164`'s `writeAllText` call (the in-place `fopen "wb"` is `FileSystemUtil.cpp:1434`, T21's file; the site is Backlog #1186's); PL-031's
   nickname default; the overload each of the 14 `addWithDescription(` hits
   and the metadata editor's multi-line popups (`GuiMetaDataEd.cpp:333-341`);
   no reboot flag set by any page here (a setting that needs one is a
@@ -1039,9 +1035,7 @@ except these, which the stranger's proof should run first:
    the titles and states of #776, #782, #768, #63, #196, #37, #301, #791,
    #222, #700 (the `gh` list of the 400 most recent did not reach them;
    quoted from the inherit digest).
-3. **Two digests disagree**: "21 doctest files under `es-app/tests/unit/`"
-   against 19 names listed (T26's brief says 19 files, 221 cases); the
-   brief says 19 and the lane counts.
+3. **Two digests disagreed** ("21 doctest files under `es-app/tests/unit/`" against 19 names): the proof counted 19 `.cpp` under `es-app/tests/unit/` at the pin, every one a `*Tests.cpp`; settled.
 4. **Lines counted from hunk headers** in the fork-pages digest (its `≈`
    marks): `GuiSaveState.cpp:48-245`, `:95-189`, `:246-321`, `:323-334`,
    `:336-363`, `:365-384`, `:386-399`, `:575`; `GuiBios.cpp:33-38`,
@@ -1061,3 +1055,28 @@ except these, which the stranger's proof should run first:
    `tools/archaeology` over the register's 7 "save state manager" and 16
    "scrape" mentions (`grep -c -i -F`, mentions not rows); the walk files
    beyond `wc -l` and the `claims.txt` lines named.
+
+## Version 2: what the stranger's proof of version 1 corrected (2026-10-27)
+
+A reader with no context ran the membership block and the first eight runs of
+§ 5 from the P1 clone and the pin, resolved `rocknix/master` and the merge
+base, checked the four tool flags, the 36 rule-file citations and the menu
+map's figures (82 checks; the coordinator's `t31-proof.md`). Everything held
+except these seven, corrected above in place:
+
+1. `GuiSaveState.cpp`'s WINDOW_HEIGHT is at `:43` (`:42` is a comment).
+2. `claims.txt`'s `manager-*` claims run `:160-230`, not `:160-168`.
+3. `GuiKeyboardLayout.cpp:164` calls `Utils::FileSystem::writeAllText`; the
+   unchecked `fopen "wb"` is `FileSystemUtil.cpp:1434`, T21's file (the site
+   is Backlog #1186's).
+4. `GuiSettings.h:84` declares `addInputTextConfigRow`; `:151` is
+   `buildInputTextConfigRow`.
+5. VIEW OPTIONS in the menu map is the SELECT row at `:90`, under `## Two
+   ways in` at `:83`.
+6. The unit test files under `es-app/tests/unit/` are 19 `.cpp`, not 21.
+7. `bugs-are-agent-first.md:53` is `## The rules`; rule 6 is at `:76`.
+
+Settled without correction: the NFC box at `GuiGameOptions.cpp:274` is
+WRITE / CANCEL (`:298`) and the `:289` box is a single CLOSE; `cada856d86`
+was committed 2026-09-28 (authored 09-23); `ThreadedScraper.cpp` lives under
+`es-app/src/scrapers/`.
