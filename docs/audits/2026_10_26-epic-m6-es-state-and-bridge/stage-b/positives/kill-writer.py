@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """T21 (#668) stage B: the interface's writers killed at every step (D-CLOUD-078).
 
-    python3 -I -B kill-writer.py <state-fixture> <killer.so> <scratch dir>
+    python3 -I -B kill-writer.py <state-fixture> <killer.so> <scratch dir> [--after-start]
 
 Three writers, each run once to count its file-system calls, then once per
 call with SIGKILL before that call:
@@ -17,11 +17,16 @@ and AtomicFile::chooseConfig
 must name a whole source. Leftover temporaries are counted (what a kill
 leaves behind). Exit 0 when every kill point keeps the invariant, 1 otherwise.
 Writes only under <scratch dir>.
+
+--after-start (T21 S9, #1201): after each kill, a fresh SystemConf load (the
+fixture's `get`, the interface's next start) runs, and the temporaries are
+counted again; any left after it is a FAIL.
 """
 import os, re, shutil, subprocess, sys
 from pathlib import Path
 
 fixture, killer, scratch = sys.argv[1], sys.argv[2], Path(sys.argv[3])
+after_start = "--after-start" in sys.argv[4:]
 OLD = b"system.hostname=qa\nqa.k=old\nqa.keep=kept\n"
 REC = b"system.hostname=qa\nqa.k=record\nqa.keep=kept\n"
 NEW_TEXT = b"system.hostname=qa\nqa.k=new\nqa.keep=kept\n"
@@ -76,8 +81,14 @@ for case, label in (("A", "AtomicFile::writeText"), ("B", "Settings::saveFile's 
         temps = sorted(p.name for p in d.iterdir() if ".tmp" in p.name or ".new." in p.name)
         state = ("old" if lb == OLD else "new" if lb == new_live else "OTHER") + "/" + ("record" if rb == REC else "old" if rb == OLD else "new" if rb == new_live else "OTHER")
         ok = live_ok and rec_ok and whole
+        after = ""
+        if after_start:
+            run(["get", str(live), str(d / ".system.cfg.lock"), "qa.k"])
+            left = sorted(p.name for p in d.iterdir() if ".tmp" in p.name or ".new." in p.name)
+            ok = ok and not left
+            after = f"; after the next start {len(left)}{' ' + ','.join(left) if left else ''}"
         bad += 0 if ok else 1
-        print(f"  kill before call {n:2d}: {'killed' if killed else 'ran to end'}; live/record {state}; next load {ch}; left behind {len(temps)}{' ' + ','.join(temps) if temps else ''}; {'ok' if ok else 'FAIL'}")
+        print(f"  kill before call {n:2d}: {'killed' if killed else 'ran to end'}; live/record {state}; next load {ch}; left behind {len(temps)}{' ' + ','.join(temps) if temps else ''}{after}; {'ok' if ok else 'FAIL'}")
     print(f"  {case}: {total} kill points, {bad} broke the invariant")
     fail |= bad > 0
 

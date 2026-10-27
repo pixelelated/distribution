@@ -1,0 +1,39 @@
+# T21 S9 before: S8's tree (ES 80c8cbcaa) with S9's tests; sweepDead a stub that sweeps nothing (#668, #1201)
+
+RUN es-unit-tests: rc 0; [doctest] test cases: 194 | 194 passed | 0 failed | 0 skipped [doctest] assertions: 4852 | 4852 passed | 0 failed | 
+RUN es-file-tests: rc 1; [doctest] test cases: 28 | 27 passed | 1 failed | 0 skipped [doctest] assertions: 3427 | 3422 passed | 5 failed | 
+RUN es-conf-tests: rc 1; [doctest] test cases: 24 | 22 passed | 2 failed | 0 skipped [doctest] assertions: 232 | 227 passed | 5 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+RUN es-settings-tests: rc 1; [doctest] test cases: 5 | 4 passed | 1 failed | 0 skipped [doctest] assertions: 38 | 35 passed | 3 failed | 
+
+## es-file-tests: the failing cases
+TEST CASE:  sweepDead removes a gone process's temporaries and staging, and nothing else (T21 PL-13, #1201)
+es-app/tests/unit/AtomicFileTests.cpp:1185: ERROR: CHECK( sweepDead(path, ".tmp.") == 2 ) is NOT correct!
+es-app/tests/unit/AtomicFileTests.cpp:1186: ERROR: CHECK_FALSE( there(path + ".tmp." + dead + ".0") ) is NOT correct!
+es-app/tests/unit/AtomicFileTests.cpp:1187: ERROR: CHECK_FALSE( there(path + ".tmp." + dead + ".17") ) is NOT correct!
+es-app/tests/unit/AtomicFileTests.cpp:1197: ERROR: CHECK( sweepDead(lock, ".new.") == 1 ) is NOT correct!
+es-app/tests/unit/AtomicFileTests.cpp:1198: ERROR: CHECK_FALSE( there(lock + ".new." + dead + ".0") ) is NOT correct!
+
+## es-conf-tests: the failing cases
+TEST CASE:  the start leaves chksysconfig's system.cfg.backup.tmp alone (T21 PL-13, #1201)
+es-app/tests/unit/SystemConfTests.cpp:802: ERROR: CHECK( get(path + ".backup.tmp") == "system.hostname=qa\n" ) is NOT correct!
+TEST CASE:  the start and every save sweep a gone writer's temporaries, and keep a live one's (T21 PL-13, #1201)
+es-app/tests/unit/SystemConfTests.cpp:819: ERROR: CHECK( modeOf(path + ".tmp." + dead + ".0") == -1 ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:820: ERROR: CHECK( modeOf(path + ".backup.tmp." + dead + ".1") == -1 ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:821: ERROR: CHECK( modeOf(lockPath + ".new." + dead + ".0") == -1 ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:827: ERROR: CHECK( modeOf(path + ".tmp." + dead + ".2") == -1 ) is NOT correct!
+
+## es-settings-tests: the failing cases
+TEST CASE:  Settings' start and save sweep a gone writer's temporaries (T21 PL-13, #1201)
+es-app/tests/unit/SettingsTests.cpp:241: ERROR: CHECK( ::access((dir / ("es_settings.cfg.tmp." + dead + ".0")).c_str(), 0) != 0 ) is NOT correct!
+es-app/tests/unit/SettingsTests.cpp:242: ERROR: CHECK( ::access((dir / ("es_settings.cfg.backup.tmp." + dead + ".4")).c_str(), 0) != 0 ) is NOT correct!
+es-app/tests/unit/SettingsTests.cpp:247: ERROR: CHECK( ::access((dir / ("es_settings.cfg.tmp." + dead + ".5")).c_str(), 0) != 0 ) is NOT correct!
+
+## The kill sweep with a next start after each kill
+$ python3 -I -B stage-b/positives/kill-writer.py <state-fixture> <killer.so> <scratch> --after-start
+  A: 9 kill points, 5 broke the invariant
+  B: 18 kill points, 10 broke the invariant
+  C: 89 kill points, 27 broke the invariant
+== result: FAIL
+kill points with a temporary left after the next start: 42 (the pin's 42)
