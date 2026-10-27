@@ -54,3 +54,12 @@
 - **The disk retired:** `t26.qcow2`, 2,310,275,072 bytes, sha256 `f9fec3fb…c81e`, removed; the leftover check clean (`guest-cycle/retired.txt`).
 - **Mine:** a malformed `vm-serial sh` call left the guest's shell in `cat` (cleared with Ctrl-C and Ctrl-D); `vm-stop`'s first call refused a timeout above 60 s; two key bursts overshot. None reached a result.
 - **Nothing else ran:** no image build, no fetch, no handheld, no account, no council call.
+
+## [Stage C] 08:31 UTC onward — 03 and 04, the packet, the seat
+
+- **A correction:** commit `31d55a8a7e`'s message says "38 frames"; `ls guest-cycle/frames | wc -l` reads 50. A hand count, against the rule that a total is the tool's line.
+- **03 and 04** written before the seat saw the packet.
+- **The packet** (`stage-c/packet.py`, T21's builder adapted): 92 sections, 563,026 bytes; the secret scan proven to fire on a run-time fake line and silent on the packet; the forbidden-terms check run on all 91 sections, 0 hits; 24 credential-shape hits read at their lines and dispositioned by name (code names, a loop counter, prose, a masked public URL), none a value; `GuiMenu.cpp` 6,305 of 11,747 lines in 46 excerpts, the 47 trimmed ranges named in `second-opinions/packet-manifest.json`.
+- **The council runtime:** `npm install --offline` in `tools/council` (the dispatch's allowance); every other council call keyless (`COUNCIL_ENV_FILE=/nonexistent`: `invoke --help`, `efforts`).
+- **Keyed call 1 of 2** (`stage-c/keyed-calls.txt`): the probe, 08:39:25 to 08:39:37 UTC, rc 0; served `openai/gpt-6-astra`, provider OpenAI, effort `max`, identity, effort and provider verification each PASS, `council-facilitator@1.14.1-pixelelated.2`.
+- **Keyed call 2 of 2:** the refutation over the packet, started 08:40 UTC.
