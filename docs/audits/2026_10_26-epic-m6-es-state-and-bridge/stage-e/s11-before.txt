@@ -1,0 +1,23 @@
+# T21 S11 before: S10's tree (ES 31b49999e) with LedTextTests; LedText holding the pin's three parses, lifted (#668, #1203)
+
+RUN es-unit-tests: rc 1; [doctest] test cases: 200 | 198 passed | 2 failed | 0 skipped [doctest] assertions: 4884 | 4875 passed | 9 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 28 | 28 passed | 0 failed | 0 skipped [doctest] assertions: 3427 | 3427 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 232 | 232 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+RUN es-settings-tests: rc 0; [doctest] test cases: 5 | 5 passed | 0 failed | 0 skipped [doctest] assertions: 38 | 38 passed | 0 failed | 
+
+## es-unit-tests: the failing cases
+TEST CASE:  parseColour: three numbers in range, or the default, and never a throw (T21 PL-15, #1203)
+es-app/tests/unit/LedTextTests.cpp:23: ERROR: CHECK( same(LedText::parseColour("255,0,165", kDefault), 255, 0, 165) ) is NOT correct!
+es-app/tests/unit/LedTextTests.cpp:24: ERROR: CHECK_NOTHROW( LedText::parseColour("blue", kDefault) ) THREW exception: "stoi"
+es-app/tests/unit/LedTextTests.cpp:25: ERROR: CHECK( same(LedText::parseColour("blue", kDefault), 255, 0, 165) ) THREW exception: "stoi"
+es-app/tests/unit/LedTextTests.cpp:27: ERROR: CHECK( same(LedText::parseColour("255 0", kDefault), 255, 0, 165) ) is NOT correct!
+es-app/tests/unit/LedTextTests.cpp:28: ERROR: CHECK( same(LedText::parseColour("300 0 0", kDefault), 255, 0, 165) ) is NOT correct!
+es-app/tests/unit/LedTextTests.cpp:29: ERROR: CHECK( same(LedText::parseColour("-1 0 0", kDefault), 255, 0, 165) ) is NOT correct!
+es-app/tests/unit/LedTextTests.cpp:31: ERROR: CHECK( same(LedText::parseColour("12x 0 0", kDefault), 255, 0, 165) ) is NOT correct!
+TEST CASE:  parseBaseColour: R G B or RRGGBB, or the default, and never a throw (T21 PL-15, #1203)
+es-app/tests/unit/LedTextTests.cpp:39: ERROR: CHECK_NOTHROW( LedText::parseBaseColour("zzzzzz", white) ) THREW exception: "stoul"
+es-app/tests/unit/LedTextTests.cpp:40: ERROR: CHECK( same(LedText::parseBaseColour("zzzzzz", white), 255, 255, 255) ) THREW exception: "stoul"
+
+stage-b/positives/lifted.out's led case is the same picture: 'red' throws stoi, '255,0,165' reads 255 255 255.

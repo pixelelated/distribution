@@ -1,0 +1,11 @@
+# T21 S11 after: the stream's tree (#668, #1203)
+
+RUN es-unit-tests: rc 0; [doctest] test cases: 200 | 200 passed | 0 failed | 0 skipped [doctest] assertions: 4884 | 4884 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 28 | 28 passed | 0 failed | 0 skipped [doctest] assertions: 3427 | 3427 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 232 | 232 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+RUN es-settings-tests: rc 0; [doctest] test cases: 5 | 5 passed | 0 failed | 0 skipped [doctest] assertions: 38 | 38 passed | 0 failed | 
+
+## ApiSystem.cpp, syntax-only with the stand-in headers
+es-app/src/ApiSystem.cpp: rc 0
