@@ -1,0 +1,74 @@
+# the fork's commits on the 77, bccd715707..pin, oldest first (18:42:01Z)
+76f502979 2026-07-25 Cloud Saves: run syncs in the background with a native progress card
+43de02010 2026-09-04 Cloud: a screen for transfers that take minutes
+c530a581b 2026-09-08 Capture at game exit: tell cloud_capture what was launched (#21)
+aacde6e20 2026-09-09 CloudExit: the lock and no-network sentinels move to 75 and 69 (#99)
+38e08cdc6 2026-09-10 Move the cloud surfaces' pure text into CloudText
+1b3d94d0d 2026-09-12 cloud: one protocol parser, and the offer on the transfer page (#145)
+35618d447 2026-09-12 CloudOffer: the empty-cloud dialogs say restore, not bring back (D-UI-045)
+b14a71ffc 2026-09-12 cloud: the empty-cloud dialogs in the words the maintainer chose (#127, D-UI-045); one description for the relink rows
+f7430b49d 2026-09-14 ThreadedCloudSync.cpp, OfflineAchievements.cpp: the offline achievements ride the sync cards (#173, D-RA-004)
+461e14305 2026-09-14 GuiRetroAchievementsSettings.cpp: a failed sign-in never writes the switch (#175)
+d9d6083de 2026-09-14 NetworkThread.cpp: the network-up token check tries again while the link is up (#175)
+b7ee98631 2026-09-14 GuiOfflineScan.cpp, GuiRetroAchievementsSettings.cpp: SCAN GAMES FOR OFFLINE ACHIEVEMENTS, and the top-up when the device comes o
+c13119bfb 2026-09-14 OfflineAchievementsText.cpp, OfflineAchievements.cpp, HttpReq.cpp, WebImageComponent.cpp: the offline proxy's answers, read as th
+f80083a19 2026-09-14 ThreadedHasher.cpp, CheevosIndex.cpp: a game with a hash and no id gets its id from the library, no re-hash (audit #186 PL-08)
+34f4483d5 2026-09-14 GuiOfflineScan.cpp, OfflineScanJob.cpp, GuiRetroAchievementsSettings.cpp, emulationstation2.po: a scan can be left running -- B c
+29b5d6fdc 2026-09-14 ThreadedHasher.cpp, CheevosIndex.cpp: the lookup-only startup pass runs once a day at most (audit #186 PL-08, the cost)
+22044d604 2026-09-14 OfflineAchievementsText.cpp, RetroAchievements.cpp: a malformed or empty answer from the proxy is never a page of empty progress 
+cce9ab12a 2026-09-14 SystemData.cpp, main.cpp, NetworkThread.cpp, ThreadedHasher.cpp: the startup index runs without the splash screen, and again when
+f054fef73 2026-09-15 OfflineAchievementsText, OfflineAchievements.cpp, RetroAchievements.cpp: the offline summary in one read of the store, and every 
+80f52e500 2026-09-15 StringUtil.cpp, Platform.cpp, ApiSystem.cpp: a credential's value never reaches the log; every logged command line goes through m
+6915d80f7 2026-09-15 WifiText, ApiSystem.cpp, GuiSettings.cpp, GuiMenu.cpp, emulationstation2.po: the WI-FI SSID row says what the device is on, and M
+6c7a36d04 2026-09-15 Merge branch 'feature/network-manage' into test/qa-integration
+b3af07e3b 2026-09-15 GuiCloudTransfer.cpp, CloudTransferJob.cpp, GuiMenu.cpp, FileData.cpp, emulationstation2.po: a transfer can be left running -- B 
+137309b7d 2026-09-15 Merge branch 'feature/cloud-surfaces-rc11' into test/qa-integration
+0ec3f43ae 2026-09-15 WebImageComponent.cpp, OfflineProxyUrl.cpp, OfflineAchievementsText.cpp: an image asked of the offline proxy asks for its store o
+daafb69f1 2026-09-15 The line under WI-FI SSID only when it says what the value does not; MANAGE SAVED NETWORKS
+404d3a9a3 2026-09-15 Wi-Fi like a phone: the row is the network you are on, the picker joins a saved network with a press
+a11cde632 2026-09-16 GuiSaveState: a deletion is instant; the retire and the unlink run on a worker (#205)
+9e4e2ab85 2026-09-17 GuiSaveState: the copy is gated and recorded; the deletion's unit moves into the script; a stopped transfer restamps its parts (#
+acd7a6fee 2026-09-22 Scan, transfer and scrape pages: sat in, with CANCEL; nothing runs in the background (fork #241, D-UI-078)
+3b7265f33 2026-09-22 Save-state thumbnails and screenshots are drawn at the system's display aspect (fork #243, D-UI-080)
+9f46264a8 2026-09-22 The SCREENSHOTS list is the imageviewer platform, not a system named screenshots (fork #243)
+05dc0a829 2026-09-22 DisplayAspect: say in the log what the screenshot lookup found (fork #243, diagnostic)
+4e4ab0647 2026-09-22 The picture a theme binds to a screenshot takes the system's aspect too (fork #243)
+12de21757 2026-09-22 A game's captures are turned by the rotation the display gave its frame (fork #245, D-UI-081)
+1ce55ceef 2026-09-23 Log what the rotation record reads and what the components are told (fork #245, diagnostic)
+b49d85448 2026-09-23 The rotation record is a line that says what it is (fork #245)
+1a5186f59 2026-09-23 When no session has recorded a game's rotation, the core's own table says it (fork #248)
+9733fc066 2026-09-23 The achievement screenshot's name gives its content back too (fork #248)
+217872e32 2026-09-24 main.cpp, SaveStateBookkeeper.cpp, ImageGridComponent.h, CaptureRotation, DisplayAspect, and the comments audit #258 named (fork 
+4fd019f04 2026-09-24 main.cpp, DisplayAspect.cpp: SIGINT quits through the main loop, not exit(); the screenshot cache holds the game, not the turn (f
+d30cbd282 2026-09-24 DisplayAspect.cpp, GuiSaveState.cpp: the library indexed by stem once per epoch; the landed-job comment says when the disk is rea
+370ebe416 2026-09-25 Merge remote-tracking branch 'rocknix/master' into test/qa-integration
+0cc13be61 2026-09-25 CaptureRotationText, Platform, GuiMenu: a launch's own rotation line; a link is not a tunnel (fork #279, #280)
+5644752aa 2026-09-26 CaptureRotation: a record says its turn came from the game's own launch, and one that does not is not trusted (fork #288)
+0ade9086b 2026-09-26 es: the offline achievements' own cards, and a launch asks over them
+f8519388f 2026-09-27 link's return: saves first, then one RetroAchievements batch; the send card takes its own stamp (#305, D-UI-109)
+8fb12b185 2026-09-28 JourneyTiers: the settings-first continuation runs what was ticked
+9b7b1d3a2 2026-09-28 SystemData: a rescan keeps the FileData of files still on disk
+7b7f2f9ee 2026-09-28 OfflineAchievements: stop only the run that holds the lock
+53a444e91 2026-09-28 TextFit: the long-job pages fit a line on characters, not bytes
+e5cfa708e 2026-09-28 GuiWifi: "could not ask" is not "none"; the connected row is checked
+fa57923af 2026-09-28 SaveStateBookkeeper: a queued deletion waits out a cloud transfer
+5443b5301 2026-09-28 AppWindow: workers stop posting once main() lets the window go
+da702d8b6 2026-09-28 merge feature/pl-e2: audit #307 stream E2
+c0def453a 2026-09-28 GuiWifi: a join that failed says why, by wifictl's exit code
+df44e0ab9 2026-09-28 DisplayAspectText: an extensionless dotted name keeps its dot
+190f62550 2026-09-28 CaptureRotation: no record without a launch; a zero where it corrects
+4d1ddebc1 2026-09-28 OfflineScanJob: post through AppWindow, as the offer the card asks does
+435a506b5 2026-09-28 OfflineAchievementsText: a null unlock count is unknown, not none
+6caac243c 2026-09-28 GuiWifi: the network you're on joins by its profile, not its SSID
+42f9e8851 2026-09-28 GuiRetroAchievementsSettings: a page close no longer waits on a sign-in
+71a67ed1b 2026-09-28 JourneyTiers: a record read whole, and one that cannot be replaced stops
+5a37c7981 2026-09-28 ApiSystem: a join's answer is a type that cannot read as a truth value
+df954c563 2026-09-28 CaptureRotationText: the own-launch claim of earlier builds is retired
+5f044cc52 2026-09-28 WifiText: the connected row's profile is the one in use
+014f82685 2026-09-29 wifi: a saved network offers CONNECT / FORGET / CANCEL; the WI-FI KEY row goes (#318, D-UI-118)
+dc819f432 2026-10-01 cloud: scan first, then the options; the folder dialogs; settings by device; the content chooser (fork #350, #349, #352, #353)
+1272b3405 2026-10-08 cloud setup: check selected folders without moving libraries
+baeea2a8c 2026-10-08 cloud setup: preserve bounded JSON across pipe reads
+c8dc72cf9 2026-10-11 emulationstation: manage cloud connections and network recovery
+5a86caea9 2026-10-13 ThreadedHasher: retry failed GameCube RVZ hashes without an id
+commits: 72, non-merge: 68

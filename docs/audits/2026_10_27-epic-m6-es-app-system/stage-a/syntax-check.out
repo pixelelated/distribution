@@ -1,0 +1,45 @@
+# T33 stage A: the stand-in syntax check (T21's syntax-check.sh, T31's 13 fakes, the pin's pugixml root, the recipe's rapidjson), classes (a) to (d), 29 files, at the pin (18:41:22Z)
+## class (a)
+es-app/src/CaptureRotationText.cpp: rc 0
+es-app/src/CheevosIndex.cpp: rc 0
+es-app/src/CheevosRetry.cpp: rc 0
+es-app/src/CloudFolderValidation.cpp: rc 0
+es-app/src/CustomFeatures.cpp: rc 0
+es-app/src/DisplayAspectText.cpp: rc 0
+es-app/src/FileTag.cpp: rc 0
+es-app/src/KeyboardMapping.cpp: rc 0
+es-app/src/LibretroRatio.cpp: rc 0
+es-app/src/OfflineAchievementsText.cpp: rc 0
+es-app/src/PlatformId.cpp: rc 0
+es-app/src/WifiText.cpp: rc 0
+class rc=0
+## class (b)
+es-app/src/MetaData.cpp: rc 0
+es-app/src/Gamelist.cpp: rc 0
+es-app/src/Genres.cpp: rc 0
+es-app/src/CaptureRotation.cpp: rc 0
+es-app/src/FileSorts.cpp: rc 0
+es-app/src/FileFilterIndex.cpp: rc 0
+class rc=0
+## class (c)
+es-app/src/CloudOffer.cpp: rc 0
+es-app/src/CollectionSystemManager.cpp: rc 0
+es-app/src/ContentInstaller.cpp: rc 0
+es-app/src/DisplayAspect.cpp: rc 0
+es-app/src/LangParser.cpp: rc 0
+es-app/src/NetworkThread.cpp: rc 0
+es-app/src/SystemRandomPlaylist.cpp: rc 0
+es-app/src/SystemScreenSaver.cpp: rc 0
+es-app/src/ThreadedBluetooth.cpp: rc 0
+es-app/src/components/ScraperSearchComponent.cpp: rc 0
+class rc=0
+## class (d)
+es-app/src/ZaparooSupport.cpp: rc 0
+class rc=0
+
+## class (e) and (f) (18:41:41Z)
+Win32ApiSystem.cpp first and last preprocessor guards:
+1:#if WIN32
+1267:#endif
+Win32ApiSystem.cpp preprocessed without WIN32: lines naming Win32ApiSystem:: = 0
+ScraperCmdLine.cpp: 4:#include "platform.h" -- platform.h at the pin: 0 files

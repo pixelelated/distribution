@@ -1,0 +1,141 @@
+# run 18:40:12Z from the distribution worktree
+/dev/nvme0n1   244195328 62958369 181236959   26% /workspace
+## the scope (expect 77; cpp 31; h 41; other 5; text 75)
+77
+31
+41
+5
+75
+## the ES worktree at the pin, clean; the bases; the counts (expect the pin; 0; cada856d86; f6c542872e; 725; 14; 1; 3ae9610b0; 5c0ddaaee)
+16dbac5211
+0
+cada856d86
+f6c542872e
+725
+14
+1
+3ae9610b0
+5c0ddaaee
+## the lines two ways (expect wc -l text 16272; grep -c text 16276; no trailing newline: 4 -- EmulationStation.h.in 26/27, KeyboardMapping.cpp 816/817, LangParser.cpp 241/242, NetworkThread.cpp 273/274)
+wc -l text 16272
+grep -c text 16276
+no newline: es-app/EmulationStation.h.in 26/27
+no newline: es-app/src/KeyboardMapping.cpp 816/817
+no newline: es-app/src/LangParser.cpp 241/242
+no newline: es-app/src/NetworkThread.cpp 273/274
+no trailing newline: 4
+## the fork's delta (expect `31 files changed, 2689 insertions(+), 7 deletions(-)` three times; 27 added; the four M rows `44 0 es-app/CMakeLists.txt`, `105 3 es-app/src/NetworkThread.cpp`, `29 1 es-app/src/NetworkThread.h`, `3 3 es-app/src/Win32ApiSystem.cpp`; 72 commits, 68 non-merge, the merges `da702d8b6 370ebe416 137309b7d 6c7a36d04`)
+ 31 files changed, 2689 insertions(+), 7 deletions(-)
+ 31 files changed, 2689 insertions(+), 7 deletions(-)
+ 31 files changed, 2689 insertions(+), 7 deletions(-)
+27
+44	0	es-app/CMakeLists.txt
+105	3	es-app/src/NetworkThread.cpp
+29	1	es-app/src/NetworkThread.h
+3	3	es-app/src/Win32ApiSystem.cpp
+72
+68
+da702d8b6 370ebe416 137309b7d 6c7a36d04 
+## upstream's delta: the merge-debt record (expect 0 rc=1; 0 rc=1; identical to rocknix/master: 46; identical to cada856d86: 46; the two GuiMenu files as upstream's whole delta)
+0
+upstream commits rc=1
+0
+upstream numstat rc=1
+identical to rocknix/master: 46
+identical to cada856d86: 46
+es-app/src/guis/GuiMenu.cpp es-app/src/guis/GuiMenu.h 
+## the other lanes' deltas inside the 77, inherited (expect T21: `10 0 es-app/CMakeLists.txt`, `11 0 es-app/src/WifiText.cpp`, `13 0 es-app/src/WifiText.h`, commits `44d3c7e25 e38dcdefd eeee95265 31b49999e 00669ccd9 ba0e82c1f`; T20: `99 0 .../OfflineAchievementsText.cpp`, `52 0 .../OfflineAchievementsText.h`, commits `274a71add f85061f14`; T26, T31, T2, T18 empty)
+== origin/feature/m6-es-state-and-bridge-668
+10	0	es-app/CMakeLists.txt
+11	0	es-app/src/WifiText.cpp
+13	0	es-app/src/WifiText.h
+44d3c7e25 e38dcdefd eeee95265 31b49999e 00669ccd9 ba0e82c1f 
+== origin/feature/m6-es-achievements-pages-667
+99	0	es-app/src/OfflineAchievementsText.cpp
+52	0	es-app/src/OfflineAchievementsText.h
+274a71add f85061f14 
+== origin/feature/m6-es-guimenu-673
+
+== origin/feature/m6-es-pages-678
+
+== origin/feature/m6-es-launch-path-649
+
+== origin/feature/m6-es-cloud-pages-665
+
+## the strings, two ways (expect `_(" lines TOTAL 176 in 11 files`; occurrences 223; per file 45 MetaData, 29 FileSorts, 21 FileFilterIndex, 21 CollectionSystemManager, 19, 13, 12, 7, 6, 2, 1)
+_(" lines TOTAL 176 in 11 files
+223
+## the dialogs and pages built (expect `new Gui TOTAL 10 in 3 files`; `7 GuiMsgBox; 1 GuiTextEditPopupKeyboard; 1 GuiTextEditPopup; 1 GuiLoading`; the sites read whole for the buttons in order)
+new Gui TOTAL 10 in 3 files
+      7 GuiMsgBox;      1 GuiTextEditPopupKeyboard;      1 GuiTextEditPopup;      1 GuiLoading;
+7
+## the threads and the lifetimes (expect `std::thread lines TOTAL 9 in 6 files`; the sites `ContentInstaller.cpp:61 :247 ThreadedBluetooth.cpp:19 :46 :76 :110 ZaparooSupport.cpp:22 components/ScraperSearchComponent.cpp:206` -- 5 constructions, 3 `delete this`; detach `FolderMerge.h:64 ZaparooSupport.cpp:27`; postToUiThread `AppWindow.h:1 NetworkThread.cpp:5 SystemScreenSaver.cpp:1`)
+std::thread lines TOTAL 9 in 6 files
+es-app/src/ContentInstaller.cpp:61 es-app/src/ContentInstaller.cpp:247 es-app/src/ThreadedBluetooth.cpp:19 es-app/src/ThreadedBluetooth.cpp:46 es-app/src/ThreadedBluetooth.cpp:76 es-app/src/ThreadedBluetooth.cpp:110 es-app/src/ZaparooSupport.cpp:22 es-app/src/components/ScraperSearchComponent.cpp:206 
+es-app/src/FolderMerge.h:64 es-app/src/ZaparooSupport.cpp:27 
+es-app/src/AppWindow.h:1 es-app/src/NetworkThread.cpp:5 es-app/src/SystemScreenSaver.cpp:1 
+## the bounds (expect HttpReq lines `OfflineAchievementsText.h:1 ScraperCmdLine.cpp:1 Win32ApiSystem.cpp:3 ZaparooSupport.cpp:5`; the one option line `ZaparooSupport.cpp:38`)
+es-app/src/OfflineAchievementsText.h:1 es-app/src/ScraperCmdLine.cpp:1 es-app/src/Win32ApiSystem.cpp:3 es-app/src/ZaparooSupport.cpp:5 
+es-app/src/ZaparooSupport.cpp:38 
+## the reads (expect `exists( lines TOTAL 83 in 11 files`; occurrences 86; uncached `CaptureRotation.cpp:113 :146 :161 :170`; per file CaptureRotation 5, CollectionSystemManager 10, CustomFeatures 2, FileFilterIndex 3, Gamelist 15, Genres 1, KeyboardMapping 2, MetaData 1, SystemRandomPlaylist 3, SystemScreenSaver 10, Win32ApiSystem 31)
+exists( lines TOTAL 83 in 11 files
+86
+es-app/src/CaptureRotation.cpp:113 es-app/src/CaptureRotation.cpp:146 es-app/src/CaptureRotation.cpp:161 es-app/src/CaptureRotation.cpp:170 
+## the writes (expect exactly eleven lines: the ten live sites CaptureRotation.cpp:175 writeAllText; CollectionSystemManager.cpp:345 std::ofstream; CustomFeatures.cpp:151 save_file (dead text); FileFilterIndex.cpp:1313; Gamelist.cpp:308 :474 :622 :841; KeyboardMapping.cpp:426 :429; and the dead Win32ApiSystem.cpp:979 writeAllText inside `#if WIN32`; then Gamelist's removeFile :307 :353 :619 :827 :838, copyFile :620 :839)
+es-app/src/CaptureRotation.cpp:175 es-app/src/CollectionSystemManager.cpp:345 es-app/src/CustomFeatures.cpp:151 es-app/src/FileFilterIndex.cpp:1313 es-app/src/Gamelist.cpp:308 es-app/src/Gamelist.cpp:474 es-app/src/Gamelist.cpp:622 es-app/src/Gamelist.cpp:841 es-app/src/KeyboardMapping.cpp:426 es-app/src/KeyboardMapping.cpp:429 es-app/src/Win32ApiSystem.cpp:979 
+307 353 619 620 827 838 839 
+## the process starts and the parses (expect `CloudOffer.cpp:37 Win32ApiSystem.cpp:314 :340 :1264 Win32ApiSystem.h:55 :56`; `gamelist.xml lines TOTAL 6 in 3 files`; the parse loop's own lines: `std::stoi( TOTAL 0 in 0 files`, `std::stoul( TOTAL 0 in 0 files`, `atoi( TOTAL 3 in 3 files` (ContentInstaller.cpp, MetaData.cpp, Win32ApiSystem.cpp), `toInteger( TOTAL 17 in 6 files` (Genres 5, OfflineAchievementsText 6, CustomFeatures 2, FileFilterIndex 2, CheevosIndex 1, components/ScraperSearchComponent 1), `atol( TOTAL 0 in 0 files`, `strtol TOTAL 2 in 2 files` (RunLock.h:63, and OfflineAchievementsText.cpp:231's strtoll, which `-F 'strtol'` also counts), `strtoll TOTAL 1 in 1 files`)
+es-app/src/CloudOffer.cpp:37 es-app/src/Win32ApiSystem.cpp:314 es-app/src/Win32ApiSystem.cpp:340 es-app/src/Win32ApiSystem.cpp:1264 es-app/src/Win32ApiSystem.h:55 es-app/src/Win32ApiSystem.h:56 
+gamelist.xml lines TOTAL 6 in 3 files
+std::stoi( TOTAL 0 in 0 files
+std::stoul( TOTAL 0 in 0 files
+atoi( TOTAL 3 in 3 files
+toInteger( TOTAL 17 in 6 files
+atol( TOTAL 0 in 0 files
+strtol TOTAL 2 in 2 files
+strtoll TOTAL 1 in 1 files
+## the success-reads and the FAIL-at-pin lines (expect `1117 1558 1589` for rootFolder->clear(), reloadCollection and reloadGameListView( in that order of lines; KeyboardMapping checkTriggerExists at `178 265 271`; the screensaver retry `157`; FileTag `_("` at `6 7 8 9 10 11`; LangParser `65` the `ìndia` line; TextFit.h `34` the `> 4`)
+1117 1558 1589 
+178 265 271 
+157
+6 7 8 9 10 11 
+65
+34
+## the French (expect six msgid lines for the tag names at po 717 3576 3579 3582 3585 3588 and none for IN PROGRESS, DROPPED, ON HOLD; `^msgid ` lines 2207; `^msgstr ""$` lines 42 -- the openers of multi-line entries, § 2, not untranslated strings; es-untranslated `706 fork string(s) in the source, 706 with French, 0 without` rc 0 against bccd715707 and `703 ... 703 with French, 0 without` rc 0 against cada856d86)
+717:msgid "FINISHED" 3576:msgid "SLOW" 3579:msgid "NOT WORKING" 3582:msgid "BUGGY" 3585:msgid "LIKED" 3588:msgid "DISLIKED" 
+locale/lang/fr/LC_MESSAGES/emulationstation2.po:2207
+locale/lang/fr/LC_MESSAGES/emulationstation2.po:42
+es-untranslated: 706 fork string(s) in the source, 706 with French, 0 without
+es-untranslated rc=0
+es-untranslated: 703 fork string(s) in the source, 703 with French, 0 without
+es-untranslated(cada) rc=0
+## the non-ASCII comments (expect files with non-ascii comments: 0; adjacent 0 rc=1 -- the adjacency grep is -F, never a basic-regex `\(`)
+files with non-ascii comments: 0
+0
+adjacent rc=1
+## the harness (expect 19 Tests.cpp under es-app/tests/unit; 15 .py under tests/; app-unit `AppWindow: 1 FolderMerge: 3 JourneyTiers: 8 RunLock: 3 TextFit: 3`; ScraperCmdLine one line, its own include; the pugixml gitlink `160000 commit ... external/pugixml`)
+19
+15
+AppWindow: 1 FolderMerge: 3 JourneyTiers: 8 RunLock: 3 TextFit: 3 
+es-app/src/ScraperCmdLine.cpp:1:#include "ScraperCmdLine.h"
+160000 commit 61c944895e071872370219cadade8423dc6e04dc	external/pugixml
+## the menu map (expect `55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing` rc 0 -- proved 2026-10-27 on the map at ce8608e38f, 989 lines, the same line T32 proved at the same pin; its output names none of the two filter rows or UPDATE GAMELISTS; 0 hits for the two filter rows rc 1; the map at 989 lines)
+55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing
+es-menu-map-check rc=0
+0
+filter rows rc=1
+989 docs/es-menu-map.md
+## the compile (expect `es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)` rc 2; plain g++ on MetaData.cpp: `es-app/src/MetaData.cpp:6:10: fatal error: pugixml/src/pugixml.hpp: No such file or directory` rc=1 -- the gitlink, item 1; with -I the cache source's external/ the stand-in check over classes (a)-(d) with T31's fakes copied under stage-a/fakes/ and RAPIDJSON_INCLUDE_DIR set, rc per file)
+es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)
+es-syntax-check rc=2
+/home/max/Development/emulationstation-next.worktrees/m6-es-app-system-680/es-app/src/Meta rc=1
+pugixml root present
+## STAGE C -- the include graph and the unit build: the lane's scripts, which do not exist at stage A (expect the include script's last lines: 272 include lines; es-core 119 edges over 40 headers; earlier slices 10 edges over 7 headers -- the digests' quoted-form figures, the tool's line replaces them; and the build script's own `TOTAL: N test cases in B binaries` with 0 failed, the five app-unit files among the binaries, and before any fix the six FAIL-at-pin cases reported FAIL by name)
+## STAGE A, after the pointer is read -- the removal check: TIPHASH is the lane's own tip the pointer and the dispatch comment name (MERGE_HASH at stage A); the literal word fails with `fatal: bad revision 'TIPHASH'` (expect empty) and the ES diff against the pin (expect empty before stage E)
+
+## the literal word (18:40:31Z), as the brief's comment expects
+fatal: bad revision 'TIPHASH'
+
+## the plain g++ line uncut (18:40:43Z): the brief's cut -c1-90 stops inside the absolute path $W/$F, before the error
+es-app/src/MetaData.cpp:6:10: fatal error: pugixml/src/pugixml.hpp: No such file or directory
+rc=1

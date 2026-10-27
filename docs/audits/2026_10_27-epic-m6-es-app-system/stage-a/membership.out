@@ -1,0 +1,15 @@
+# T33 stage A: § 2's membership block, run 18:39:55Z by bash stage-a/membership.sh
+77 .qa-scratch/t33/paths.txt
+mine: 77 paths.txt: 77 equal: True
+only-mine: []
+only-paths.txt: []
+lines: 16276 reach: {'shipped': 77} tier: {'fork-own': 31, 'upstream-carried': 46} lang: {'cmake': 1, 'other': 4, 'c-header': 41, 'c++': 31}
+fork-own lines: 4522
+read lines: 16210
+75
+wc -l text 16272
+grep -c text 16276
+50
+50
+ 31 files changed, 2689 insertions(+), 7 deletions(-)
+ 31 files changed, 2689 insertions(+), 7 deletions(-)
