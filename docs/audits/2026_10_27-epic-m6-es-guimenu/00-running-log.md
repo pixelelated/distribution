@@ -146,3 +146,4 @@
 
 - `stage-e/handback-checks.txt`: register-check, work-log-index, rules-check, forbidden-terms-check (0 hits), `.githooks/hooks-test`, the resolution lint, `box-check --issue 1213`, `es-menu-map-check` at the pin and at `757f5370e` (0 missing each), and the ES `pre-push-test`. All rc 0.
 - **Nothing under `packages/`, `projects/` or `tools/` changed by this lane:** `8c6789f2c2..HEAD` is empty. The first read, against `8ebaf8daad`, showed 15 files; those are the P0/P1 lanes' and the dispatch merge's, from the commits this branch is stacked on.
+- **Posted** 12:48 UTC: the retro and the hand-back on #673, naming distribution `c12e8d2443` and ES `757f5370e`; #673's header filled.

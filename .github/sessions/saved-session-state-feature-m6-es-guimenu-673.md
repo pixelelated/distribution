@@ -17,9 +17,9 @@
 
 ## Current focus
 
-**Stage G done; the hand-back next.** Every stream is committed (ES `70a00ad13` … `757f5370e`), stage F's outcomes are written (22 Resolved, 2 Deferred, 5 Withdrawn; the lint PASS), and the retro is at `docs/retros/2026-10-27-m6-es-guimenu.md`.
+**Handed back** (#673, 12:48 UTC): distribution `c12e8d2443`, ES `757f5370e`; #673's header carries `reviewed-at`, `reviewed-at-es`, `fixed-at` and `fixed-at-es`. Every stream is committed (ES `70a00ad13` … `757f5370e`), stage F's outcomes are written (22 Resolved, 2 Deferred, 5 Withdrawn; the lint PASS), and the retro is at `docs/retros/2026-10-27-m6-es-guimenu.md`.
 
-- **Waiting on the coordinator:** the rewording of #1224's and #1230's first checkboxes; the hand-back's acceptance.
+- **Waiting on the coordinator:** the hand-back's acceptance; the rewording of #1224's and #1230's first checkboxes (left open until then); the integration window's `fix-walk-pending-image` checkboxes.
 - **What runs here:** nothing. Scratch is `/workspace/tmp/m6-t26/`.
 
 ## Next commands
@@ -59,6 +59,7 @@ granted window.
 
 ## Checkpoints
 
+- Hand-back, 12:48 UTC: posted on #673 with both tips; the retro posted.
 - Stages F and G, 12:41 UTC: the outcomes and the retro on the distribution branch; ES at `757f5370e`.
 - Stage E, S13, 12:25 UTC: ES `757f5370e` (pushed); every stream committed; S13's record on the distribution branch.
 - Stage E, S12, 12:13 UTC: ES `2dd46a3e3` (pushed); S12's record on the distribution branch.
