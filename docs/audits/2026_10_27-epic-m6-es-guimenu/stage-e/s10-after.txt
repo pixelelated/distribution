@@ -1,0 +1,12 @@
+== S10 after: tests/led-color-quoting.py against the worktree
+led-color-quoting: PASS, 8 colours each one literal argument
+rc 0
+== negative: the colour shellQuote'd but left inside the outer double quotes (the brief's 'shellQuote on the argument' taken literally)
+FAIL led-color-quoting: '$(touch CANARY)' ran a command: sh -c "/workspace/tmp/m6-t26/tmp/led-color-quoting-XXXX/ledcontrol '$(touch CANARY)'"
+FAIL led-color-quoting: '`touch CANARY`' ran a command: sh -c "/workspace/tmp/m6-t26/tmp/led-color-quoting-XXXX/ledcontrol '`touch CANARY`'"
+FAIL led-color-quoting: 'a"b' arrived as None: sh -c "/workspace/tmp/m6-t26/tmp/led-color-quoting-XXXX/ledcontrol 'a"b'"
+FAIL led-color-quoting: 'x\\$y' arrived as [b'x$y']: sh -c "/workspace/tmp/m6-t26/tmp/led-color-quoting-XXXX/ledcontrol 'x\$y'"
+rc 1
+== tests/credential-quoting.py on the worktree, and on that negative (a static check cannot see the outer shell: it PASSes the half-quoted copy, which is why the run test exists)
+credential-quoting: 9 credential call site(s), 9 quoted, 0 bare
+credential-quoting: 3 credential call site(s), 3 quoted, 0 bare

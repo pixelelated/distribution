@@ -1,0 +1,13 @@
+== S10 before: tests/led-color-quoting.py against the pin's GuiMenu.cpp (16dbac521)
+FAIL led-color-quoting: 'deep blue' arrived as [b'deep', b'blue']: sh -c "/workspace/tmp/m6-t26/tmp/led-color-quoting-XXXX/ledcontrol deep blue"
+FAIL led-color-quoting: '$(touch CANARY)' ran a command: sh -c "/workspace/tmp/m6-t26/tmp/led-color-quoting-XXXX/ledcontrol $(touch CANARY)"
+FAIL led-color-quoting: '`touch CANARY`' ran a command: sh -c "/workspace/tmp/m6-t26/tmp/led-color-quoting-XXXX/ledcontrol `touch CANARY`"
+FAIL led-color-quoting: 'a"b' arrived as None: sh -c "/workspace/tmp/m6-t26/tmp/led-color-quoting-XXXX/ledcontrol a"b"
+FAIL led-color-quoting: "it's" arrived as None: sh -c "/workspace/tmp/m6-t26/tmp/led-color-quoting-XXXX/ledcontrol it's"
+FAIL led-color-quoting: 'a;touch CANARY' ran a command: sh -c "/workspace/tmp/m6-t26/tmp/led-color-quoting-XXXX/ledcontrol a;touch CANARY"
+FAIL led-color-quoting: 'x\\$y' arrived as [b'x']: sh -c "/workspace/tmp/m6-t26/tmp/led-color-quoting-XXXX/ledcontrol x\$y"
+rc 1
+== tests/credential-quoting.py (taught the ledcontrol site) against the pin's tree
+BARE  es-app/src/guis/GuiMenu.cpp:2167  /usr/bin/sh -lc \"/usr/bin/ledcontrol (bare: newColor)
+credential-quoting: 10 credential call site(s), 9 quoted, 1 bare
+rc 1
