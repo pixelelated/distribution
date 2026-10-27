@@ -109,3 +109,17 @@
   - `main.cpp` was read: `stop()` at `:1332` follows `AppWindow::closing()` and precedes the window's teardown, so a joining `stop()` needs no added call and nothing is named under merge debt.
   - Time to play: off the launch path.
   - The ES pre-push-test PASS.
+- **S2, 18:03 UTC:** ES `bf3e8e2bd`, pushed.
+  - **Before** (S1's tip): `l313` 10 FAIL; `l316`'s 3.16 half returns 0; `s2-scrapers.py` 6 FAIL; `t32-bounds.py` `bounded=0`.
+  - **After:** every positive passes, `bounded=9`, and `l02` is still rc 0.
+  - **Fixtures completed** (D-WORKFLOW-211): `l316`'s fakes take S2's `status()`, the bounds and `mTokenUnreachable`; `l02`'s fake takes the two class counters, and its startup case waits for `finished`. `l313` was rewritten to a request sequence with the dependency, the retry and five media cases; `--control` is `CANNOT` against the fix.
+  - **The generator** `t32-bounds.py` is keyed by order and reads `bounded` from the options passed (D-WORKFLOW-210; `generators.txt`).
+  - **PL-04's second half:** `stage-e/s2-guiscraperstart.patch` applies to T31's `2fa6b5f73`, and the stand-in shows the same T31 error with it and without it.
+  - **Words:** `YOU'RE NOT ONLINE.` reuses the catalog's L4386; `THE SCRAPER IS BUSY RIGHT NOW.` is added with `LE SCRAPEUR EST OCCUPÉ POUR L’INSTANT.`; `es-untranslated`: 0 without French.
+  - **Checks:** the stand-in passes 12 of 13 (`SystemView.cpp` `CANNOT` as at the pin); non-ASCII 0; `TOTAL: 221 test cases in 4 binaries`.
+  - **Choices, put to the coordinator in the #679 line:**
+    - a dependency's 404 keeps the primary's data and is logged, not counted (the ruling listed it as a request failure; counting it would discard the game's text, which EP-1 forbids);
+    - media, rename and resize errors are counted in `errors` (COULDN'T FINISH) with no class why on line 4, since only offline and busy have a sentence;
+    - the manual scrape's token failure (EP-36's manual half) is unchanged, because the synchronous paths that would have to catch it are `ScraperSearchComponent.cpp`'s (T33's).
+  - **Collisions named:** `Scraper.cpp` against T21's `3ae9610b0` (the `:596` retry, now `:644`; T21 keeps `mRequestUrl`/`mOptions` there), `44d3c7e25` (both `Retry-After` reads) and `e38dcdefd`; `GuiScraperRun.cpp` against T31's `2fa6b5f73` (unchanged here: the contract kept).
+  - **Time to play:** off the launch path.

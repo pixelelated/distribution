@@ -262,19 +262,19 @@ generated, asserted: 49 lines, 50 calls, 0 uncached, in 6 files
 
 ## The bounds
 
-| Site | Function | Options | Connect | Total | Stall | Requests |
-| --- | --- | --- | --- | --- | --- | --- |
-| `GamesDBJSONScraperResources.cpp:153` | TheGamesDBJSONRequestResources::fetchResource | none (`new HttpReq(path)`) | 10 s | none | none | the platform, genre and developer lists from api.thegamesdb.net (under GAMESDB_APIKEY) |
-| `HfsDBScraper.cpp:195` | HfsDBScraper::ensureToken, on the stack, then `request.wait()` (`:196`) | `options` (`:179`): the Basic authorization header only | 10 s | none | none | the token, from `generateRequests` (`:214`) -- the batch scrape's thread, or `ScraperSearchComponent::search` (`components/ScraperSearchComponent.cpp:261`, outside the 42) for one game |
-| `IGDBScraper.cpp:150` | IGDBScraper::ensureToken, on the stack, then `request.wait()` (`:151`) | `options` (`:146`): the Content-Type header and the POST body only | 10 s | none | none | the token, from `generateRequests` (`:169`), as HfsDB's; not made without a client id (`:143-144`) |
-| `Scraper.cpp:267` | ScraperHttpRequest's constructor | the scraper's own, copied into `mOptions` (`:265-266`): headers and the POST body only -- HfsDB `:179`, `:287`; IGDB `:146`, `:189`, `:205`, `:215`; none for ArcadeDB and TheGamesDB | 10 s | none | none | every search request of the four upstream scrapers |
-| `Scraper.cpp:302` | ScraperHttpRequest::update, the 429 retry | `mOptions`, as `:267` | 10 s | none | none | the same request again after `Retry-After` |
-| `Scraper.cpp:332` | ScraperHttpRequest::update, the dependency queue | `mOptions`, as `:267` | 10 s | none | none | TheGamesDB's dependent requests (`preProcess`) |
-| `Scraper.cpp:564` | ImageDownloadHandle's constructor (ScreenScraper media, resized) | `options` (`:539`): `outputFilename`, the ScreenScraper `Referer` header (`:541-546`) | 10 s | none | none | a media download from ScreenScraper with maxwidth/maxheight |
-| `Scraper.cpp:567` | ImageDownloadHandle's constructor (every other media) | `options` (`:539`): `outputFilename`, and the `Referer` for a ScreenScraper media path | 10 s | none | none | every scraper's media download |
-| `Scraper.cpp:596` | ImageDownloadHandle::update, the 429 retry | none: `new HttpReq(url, mSavePath)`, the two-string constructor -- the first request's `Referer` header is not carried | 10 s | none | none | the media download again after `Retry-After` |
+| Site | Function | Options passed | Connect | Stall bound | Requests |
+| --- | --- | --- | --- | --- | --- |
+| `GamesDBJSONScraperResources.cpp:153` | TheGamesDBJSONRequestResources::fetchResource | `none` | 10 s | none | the platform, genre and developer lists from api.thegamesdb.net (under GAMESDB_APIKEY) |
+| `HfsDBScraper.cpp:195` | HfsDBScraper::ensureToken, on the stack, then `request.wait()` | `&options` | 10 s | none | the token, from `generateRequests` |
+| `IGDBScraper.cpp:150` | IGDBScraper::ensureToken, on the stack, then `request.wait()` | `&options` | 10 s | none | the token, from `generateRequests`; not made without a client id and a secret |
+| `Scraper.cpp:267` | ScraperHttpRequest's constructor | `&mOptions` | 10 s | none | every search request of the four upstream scrapers |
+| `Scraper.cpp:302` | ScraperHttpRequest::update, the 429 retry | `&mOptions` | 10 s | none | the same request again after `Retry-After` |
+| `Scraper.cpp:332` | ScraperHttpRequest::update, the dependency queue | `&mOptions` | 10 s | none | TheGamesDB's dependent requests (`preProcess`) |
+| `Scraper.cpp:564` | ImageDownloadHandle's constructor (ScreenScraper media, resized) | `&options` | 10 s | none | a media download from ScreenScraper with maxwidth/maxheight |
+| `Scraper.cpp:567` | ImageDownloadHandle's constructor (every other media) | `&options` | 10 s | none | every scraper's media download |
+| `Scraper.cpp:596` | ImageDownloadHandle::update, the 429 retry | `mSavePath` | 10 s | none | the media download again after `Retry-After` |
 
-generated, asserted: 9 constructions in 4 files (7 `new HttpReq(`, 2 on the stack); 0 set a total or stall bound
+generated, asserted: 9 constructions in 4 files (7 `new HttpReq(`, 2 on the stack); 0 set a stall bound
 
 ## The words
 
@@ -422,6 +422,7 @@ Stage E, under the coordinator's brief `docs/reviews/briefs/t32-streams.md` at `
 | Stream | Bug | ES commit | Positive before | Positive after | Already written | proved: |
 | --- | --- | --- | --- | --- | --- | --- |
 | S1 | #1258 (PL-01), PL-14 | `e85735b0b` | `stage-c/l02-stop-after-finish.py`, four cases at the pin: cancel (a heap-use-after-free in `stop()` at the 17:48 run; cancelled 1 over finished 1 at the rerun and under `--plain`), leak (12 bytes in 2 allocations), publish (a heap-use-after-free in `Process()`), startup (running 1, finished 0) | the four cases rc 0, under ASan with LeakSanitizer and `--plain`; cancel repeated five times rc 0; `--control` `CANNOT` against the fix | nothing inherited: the false SKIPPED is a page outcome, not a file | fix-unit-test; the guest half cannot be timed, so the fixture is the proof |
+| S2 | #1259 (PL-02), #1261 (PL-04), #1262 (PL-05), #1267 (PL-18) | `bf3e8e2bd` | `l313` at S1's tip: 10 FAIL (IO error, spent 429 and long Retry-After DONE code 200; a dependency's 404 processed 0 times; a `false` not retried; five media failures DONE); `l316`'s 3.16 half returns 0 for `[]`, `{}` and a parse error; `stage-c/s2-scrapers.py`: 6 FAIL (registry nullptr; logo 0 then 1; done 9 of 10; the first search on the caller's thread; no why offline or busy); `t32-bounds.py` `bounded=0` (expected 9: rc 1) | `l313` rc 0 (codes 3 and 429; the 404 DONE; the dependency's 404 processed once; the `false` retried once; the five media failures ASYNC_ERROR); `l316`'s 3.16 half returns 1 throughout; `s2-scrapers.py` rc 0 (the first registered scraper; logo 1 then 0; done 10 of 10; the first search on the worker; YOU'RE NOT ONLINE. and THE SCRAPER IS BUSY RIGHT NOW.; no-match COMPLETED); `t32-bounds.py` `bounded=9` at `bf3e8e2bd`; `l02` still rc 0; PL-04's second half `stage-e/s2-guiscraperstart.patch`, which applies to T31's `2fa6b5f73` (`s2-guiscraperstart.txt`) | PL-02, PL-05, PL-18: nothing inherited (a game marked scraped with no data carries a `scrapeDate` nothing gates on). PL-04: read both -- a stored name the build lacks falls back at every read until T31's file saves the shown one (the patch, for the integration) | fix-unit-test; G-05 offline, the unregistered scraper and the token-failure page are fix-walk-pending-image |
 
 ## Positives
 

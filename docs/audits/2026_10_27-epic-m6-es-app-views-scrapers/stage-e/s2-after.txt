@@ -1,0 +1,64 @@
+# S2 after (18:00:18Z, ES at e85735b0b plus S2's uncommitted change)
+
+$ python3 -I stage-c/l313-request-outcome.py <W>/es-app/src/scrapers/Scraper.cpp <pin es-core>
+search IO error (no network)                  -> ASYNC_ERROR code   3 after 1 request(s)
+search 429, retries spent                     -> ASYNC_ERROR code 429 after 5 request(s)
+search 429, Retry-After 60, retryOn249 false  -> ASYNC_ERROR code 429 after 1 request(s)
+search 404 (no match)                         -> ASYNC_DONE  code 200 after 1 request(s)
+search 403 (bad login)                        -> ASYNC_ERROR code 403 after 1 request(s)
+search a dependency's 404 (EP-1)              -> ASYNC_DONE  processed 1 time(s)
+search process() false once, then true        -> ASYNC_DONE  2 request(s), processed 2 time(s)
+media  404                                    -> ASYNC_ERROR code 404
+media  IO error                               -> ASYNC_ERROR code   3
+media  429, retries spent                     -> ASYNC_ERROR code 429
+media  a rename that fails                    -> ASYNC_ERROR code 200
+media  a resize that fails                    -> ASYNC_ERROR code 200
+rc=0
+
+$ python3 -I stage-c/l313-request-outcome.py ... --control
+CANNOT l313 --control: the pin's branches are not in this file (the control is the pin's)
+rc=2
+
+$ python3 -I stage-c/l316-igdb-contract.py <W>/IGDBScraper.cpp <W>/HfsDBScraper.cpp <rj> --plain (the 3.16 half)
+3.16 process(an empty answer []  ) returns 1, error set 0, results 0
+3.16 process(an object {}        ) returns 1, error set 0, results 0
+3.16 process(not JSON            ) returns 1, error set 1, results 0
+3.16 process(one game            ) returns 1, error set 0, results 1
+
+$ python3 -I stage-c/s2-scrapers.py <W>/Scraper.cpp <W>/ThreadedScraper.cpp
+registry: Scraper=TheGamesDB (not registered) -> ScreenScraper (the first registered)
+logo: a present marquee, ScrapperLogoSrc set -> 1, empty -> 0
+count: ten games found on one thread -> done 10 of 10, failed 0
+thread: the first search ran on the worker
+offline: three IO errors -> failed 1, errors 3, why 'YOU'RE NOT ONLINE.'
+busy: three spent 429s -> failed 1, errors 3, why 'THE SCRAPER IS BUSY RIGHT NOW.'
+nomatch: three games, each answered -> failed 0, errors 0
+rc=0
+
+$ python3 -I tools/t32-bounds.py <W> <worktree> paths.txt bounded=9 (read from the working tree)
+
+$ python3 -I stage-c/l02-stop-after-finish.py <W>/es-app/src/scrapers/ThreadedScraper.cpp (S1's positive, after S2; the fake given S2's two counters)
+cancel: finished 1, cancelled 0
+  cancel rc=0
+leak: a two-game run started, finished and reaped (LeakSanitizer reads the rest)
+  leak rc=0
+publish: the worker's run finished before the creator stored its thread
+  publish rc=0
+startup: running 1, finished 1, failed 1, isRunning 0
+  startup rc=0
+rc=0
+
+$ python3 -I tools/t32-bounds.py <W> bf3e8e2bd paths.txt constructions=9,new=7,stack=2,bounded=9
+| --- | --- | --- | --- | --- | --- |
+| `GamesDBJSONScraperResources.cpp:156` | TheGamesDBJSONRequestResources::fetchResource | `&options` | 10 s | set | the platform, genre and developer lists from api.thegamesdb.net (under GAMESDB_APIKEY) |
+| `HfsDBScraper.cpp:199` | HfsDBScraper::ensureToken, on the stack, then `request.wait()` | `&options` | 10 s | set | the token, from `generateRequests` |
+| `IGDBScraper.cpp:154` | IGDBScraper::ensureToken, on the stack, then `request.wait()` | `&options` | 10 s | set | the token, from `generateRequests`; not made without a client id and a secret |
+| `Scraper.cpp:274` | ScraperHttpRequest's constructor | `&mOptions` | 10 s | set | every search request of the four upstream scrapers |
+| `Scraper.cpp:310` | ScraperHttpRequest::update, the 429 retry | `&mOptions` | 10 s | set | the same request again after `Retry-After` |
+| `Scraper.cpp:350` | ScraperHttpRequest::update, the dependency queue | `&mOptions` | 10 s | set | TheGamesDB's dependent requests (`preProcess`) |
+| `Scraper.cpp:610` | ImageDownloadHandle's constructor (ScreenScraper media, resized) | `&options` | 10 s | set | a media download from ScreenScraper with maxwidth/maxheight |
+| `Scraper.cpp:613` | ImageDownloadHandle's constructor (every other media) | `&options` | 10 s | set | every scraper's media download |
+| `Scraper.cpp:644` | ImageDownloadHandle::update, the 429 retry | `&options` | 10 s | set | the media download again after `Retry-After` |
+
+generated, asserted: 9 constructions in 4 files (7 `new HttpReq(`, 2 on the stack); 9 set a stall bound
+rc=0

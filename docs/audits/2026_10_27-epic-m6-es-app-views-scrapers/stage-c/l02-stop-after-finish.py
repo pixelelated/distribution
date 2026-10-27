@@ -32,7 +32,9 @@ report):
 - **startup** (EP-37): `Process()` throws after it published `running` (the
   first hand-out's search, as `generateRequests`' INVALID CREDENTIALS does).
   start()'s catch must leave a snapshot the page can end on (`finished`). At
-  the pin: running 1, finished 0.
+  the pin: running 1, finished 0. From S2 the hand-out runs on the worker,
+  so the case waits up to 2 s for `finished` before it reads (D-WORKFLOW-211);
+  at the pin the wait times out and the read is the same.
 
 The fake class carries both shapes' members (D-WORKFLOW-211: completed for the
 fixed shape, an owned `std::thread mWorker` and an atomic `mExitCode` beside
@@ -131,6 +133,7 @@ struct ThreadedScraper {
     std::thread mWorker;              // the fixed shape's (D-WORKFLOW-211)
     std::queue<ScraperSearchParams> mSearchQueue; std::vector<ScraperThread*> mScraperThreads;
     int mTotal, mThreadCount; std::atomic<int> mExitCode{ASYNC_IN_PROGRESS};
+    int mOfflineErrors = 0, mBusyErrors = 0;   // S2's (#1259; D-WORKFLOW-211)
     ThreadedScraper(Window* w, const std::queue<ScraperSearchParams>& s, int threadCount)
         : mWindow(w), mSearchQueue(s), mTotal((int) s.size()), mThreadCount(threadCount) {}
     ~ThreadedScraper();
@@ -191,9 +194,12 @@ int main(int argc, char** argv) {
     } else if (c == "startup") {
         gThrowOnHandout = true;
         ThreadedScraper::start(&gW, games(1));
+        waitFinished();   // S2 (#1262): the first hand-out is the worker's, so its throw lands there
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
         auto p = ThreadedScraper::sProgress;
         printf("startup: running %d, finished %d, failed %d, isRunning %d\n", p.running, p.finished, p.failed, ThreadedScraper::isRunning());
         if (!p.finished) { printf("FAIL EP-37: a startup throw leaves the snapshot running and not finished: the page reads a run forever\n"); return 1; }
+        ThreadedScraper::stop();   // the reap
     }
     return 0;
 }

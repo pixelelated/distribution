@@ -57,3 +57,6 @@ generated, asserted: outbound 398 include lines in the 42 paths
 generated, asserted: es-core edges 140 of 398
 FAIL t32-includes: in_lines 46, expected 47; out_lines 398, expected 410; es_core 140, expected 143
 rc=1
+
+## t32-bounds.py revised at stage E with S2 (D-WORKFLOW-210, #1262)
+Sites keyed by file and order; "bounded" read from the options each construction passes. At the pin and at S1's tip it prints `0 set a stall bound`, and with `bounded=9` expected it exits 1 (`stage-e/s2-before.txt`: `FAIL t32-bounds: bounded 0, expected 9`, rc=1) -- the constructed negative. At S2's tip `bf3e8e2bd`: `9 constructions in 4 files (7 new HttpReq(, 2 on the stack); 9 set a stall bound`, rc 0 (`stage-e/s2-after.txt`). 02's own composition still runs it at the pin with `bounded=0`.

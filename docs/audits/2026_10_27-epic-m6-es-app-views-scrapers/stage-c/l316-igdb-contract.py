@@ -73,11 +73,15 @@ namespace Utils { namespace Time { struct DateTime { static DateTime now() { ret
 // The build's macro, given a placeholder of the shape the code splits ("a:b").
 #define HFS_DEV_LOGIN "a:b"
 namespace httplib { namespace detail { std::string base64_encode(const std::string& s) { return s; } } }
-struct HttpReqOptions { std::vector<std::string> customHeaders; std::string dataToPost; };
+struct HttpReqOptions { std::vector<std::string> customHeaders; std::string dataToPost; long timeout = 0, stallTimeout = 0; };
+#ifndef SCRAPER_STALL_TIMEOUT
+#define SCRAPER_STALL_TIMEOUT 30L
+#define SCRAPER_TOKEN_TIMEOUT 30000L
+#endif
 static std::string gBody;
-struct HttpReq { HttpReq(const std::string&, HttpReqOptions*) {} bool wait() { return true; } std::string getContent() { return gBody; } };
-struct IGDBScraper { std::string mToken; Utils::Time::DateTime mTokenDate; bool ensureToken(); };
-struct HfsDBScraper { std::string mToken; Utils::Time::DateTime mTokenDate; bool ensureToken(); };
+struct HttpReq { enum Status { REQ_IO_ERROR = 3, REQ_SUCCESS = 200 }; HttpReq(const std::string&, HttpReqOptions*) {} bool wait() { return true; } Status status() { return REQ_SUCCESS; } std::string getContent() { return gBody; } };
+struct IGDBScraper { std::string mToken; Utils::Time::DateTime mTokenDate; bool mTokenUnreachable = false; bool ensureToken(); };
+struct HfsDBScraper { std::string mToken; Utils::Time::DateTime mTokenDate; bool mTokenUnreachable = false; bool ensureToken(); };
 ''' + proc + "\n" + igt + "\n" + hft + r'''
 int main() {
     setvbuf(stdout, nullptr, _IONBF, 0);

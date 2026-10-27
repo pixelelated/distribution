@@ -1,0 +1,40 @@
+# S2 before (17:57:16Z, ES at e85735b0b, S1's tip: Scraper.cpp and the scrapers are the pin's)
+
+$ python3 -I stage-c/l313-request-outcome.py <W>/es-app/src/scrapers/Scraper.cpp <pin es-core>
+search IO error (no network)                  -> ASYNC_DONE  code 200 after 1 request(s)   (want an error the page counts)
+search 429, retries spent                     -> ASYNC_DONE  code 200 after 5 request(s)   (want an error the page counts)
+search 429, Retry-After 60, retryOn249 false  -> ASYNC_DONE  code 200 after 1 request(s)   (want an error the page counts)
+search 404 (no match)                         -> ASYNC_DONE  code 200 after 1 request(s)
+search 403 (bad login)                        -> ASYNC_ERROR code 403 after 1 request(s)
+search a dependency's 404 (EP-1)              -> ASYNC_DONE  processed 0 time(s)   (want the primary processed, done)
+search process() false once, then true        -> ASYNC_DONE  1 request(s), processed 1 time(s)   (want one retry)
+media  404                                    -> ASYNC_DONE  code 200   (want an error the run counts)
+media  IO error                               -> ASYNC_DONE  code 200   (want an error the run counts)
+media  429, retries spent                     -> ASYNC_DONE  code 200   (want an error the run counts)
+media  a rename that fails                    -> ASYNC_DONE  code 200   (want an error the run counts)
+media  a resize that fails                    -> ASYNC_DONE  code 200   (want an error the run counts)
+FAIL 3.13/L-07: 10 outcome(s) with no usable answer read as done, or a usable one discarded
+rc=1
+
+$ python3 -I stage-c/l316-igdb-contract.py <W>/IGDBScraper.cpp <W>/HfsDBScraper.cpp <rj> --plain (the 3.16 half; L-22 is S3's)
+3.16 process(an empty answer []  ) returns 0, error set 0, results 0   (the contract: false only when rate-limited)
+3.16 process(an object {}        ) returns 0, error set 0, results 0   (the contract: false only when rate-limited)
+3.16 process(not JSON            ) returns 0, error set 1, results 0   (the contract: false only when rate-limited)
+3.16 process(one game            ) returns 1, error set 0, results 1
+FAIL l316: rc -11 
+
+$ python3 -I stage-c/s2-scrapers.py <W>/Scraper.cpp <W>/ThreadedScraper.cpp
+registry: Scraper=TheGamesDB (not registered) -> nullptr
+logo: a present marquee, ScrapperLogoSrc set -> 0, empty -> 1
+count: ten games found on one thread -> done 9 of 10, failed 0
+thread: the first search ran on the caller's thread (the interface thread)
+offline: three IO errors -> failed 0, errors 3, why ''
+busy: three spent 429s -> failed 0, errors 3, why ''
+nomatch: three games, each answered -> failed 0, errors 0
+FAIL S2: 6 case(s)
+rc=1
+
+$ python3 -I tools/t32-bounds.py <W> HEAD paths.txt bounded=9
+generated, asserted: 9 constructions in 4 files (7 `new HttpReq(`, 2 on the stack); 0 set a stall bound
+FAIL t32-bounds: bounded 0, expected 9
+rc=1

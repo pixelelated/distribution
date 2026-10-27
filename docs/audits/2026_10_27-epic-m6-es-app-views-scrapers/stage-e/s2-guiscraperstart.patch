@@ -1,0 +1,12 @@
+--- a/es-app/src/guis/GuiScraperStart.cpp
++++ b/es-app/src/guis/GuiScraperStart.cpp
+@@ -76,6 +76,9 @@
+ 	{
+ 		scraper_list->selectFirstItem();
+ 		scraperName = scraper_list->getSelected();
++		// The saved name is not in this build's registry: save the one shown,
++		// so SCRAPE NOW and the next visit use it (#1261).
++		Settings::getInstance()->setString("Scraper", scraperName);
+ 	}	
+ 
+ 	addGroup(_("FILTERS"));

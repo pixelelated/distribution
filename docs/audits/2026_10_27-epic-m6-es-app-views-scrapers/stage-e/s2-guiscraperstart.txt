@@ -1,0 +1,6 @@
+# PL-04's second half (#1261): stage-e/s2-guiscraperstart.patch, proven on a scratch copy of T31's es-app/src/guis/GuiScraperStart.cpp at 2fa6b5f73 (18:01:17Z)
+$ git apply --check -v stage-e/s2-guiscraperstart.patch, on a fresh copy of 2fa6b5f73's file: Checking patch es-app/src/guis/GuiScraperStart.cpp... rc 0
+the stand-in syntax check, T31's file as is: rc 1 GuiScraperStart.cpp:574:30: error: ‘closeAllFromTop’ is not a member of ‘GuiSettings’
+the stand-in syntax check, T31's file patched: rc 1 GuiScraperStart.cpp:577:30: error: ‘closeAllFromTop’ is not a member of ‘GuiSettings’
+the patched line: 81:		Settings::getInstance()->setString("Scraper", scraperName);
+Both stand-in runs stop at T31's own GuiSettings::closeAllFromTop (T31's S1, not in this tree), the same error three lines apart: the patch adds none.
