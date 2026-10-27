@@ -247,6 +247,13 @@ So, before stating what code does:
   altitude of a number: every renovation brief's version 1, and T4's own
   draft, carried counts from the wrong tree until a reader with no context
   reproduced each one (blindspot 75, 2026-10-24).
+  **A total is the tool's line, never a sum made in the head:** T21's lane posted
+  case totals for twelve streams, each composed from the binaries' lines
+  without adding them, every one too high by 2 to 53 (2026-10-27, #668); the
+  per-binary lines were right throughout. Its build script now prints
+  `TOTAL: N test cases in B binaries` from those lines, and a record quotes
+  that line. The same rule for any figure that is a sum, a difference or a
+  rate of other figures: the command computes it, the record quotes it.
 
 
 ## A promise is not a mechanism: report the running state, not the intention
@@ -455,7 +462,13 @@ So:
   reported success; the count is the only thing that shows it. The same is
   true of any command in the loop body that reads stdin.
 - **Prove the guard fires.** Construct the violation it exists to catch and
-  watch it fail, then fix it and watch it pass. A guard with no observed
+  watch it fail, then fix it and watch it pass. **And check the stub that
+  constructs it against the unfixed code first:** a positive written for the
+  fixed shape can fail for a reason the defect never had. T21's S11 stub left
+  out the pin's spaced base-colour branch and reported one failure the pin
+  does not have; the lane completed the stub and reran before recording the
+  FAIL (2026-10-27, #668). A FAIL is evidence of the defect only when the
+  stub reproduces the unfixed behaviour everywhere else. A guard with no observed
   positive is a guard with no evidence — the same rule blindspot 14 states for
   hooks, applied to checks inside a script.
 
