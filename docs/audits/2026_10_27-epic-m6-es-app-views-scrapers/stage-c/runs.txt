@@ -148,3 +148,22 @@ L-22 IGDB  token body access_token 5  ...
 FAIL l316: rc -11 
 rc=1
 
+
+$ python3 -I stage-c/l02-stop-after-finish.py <pin>/ThreadedScraper.cpp    (16:37:56Z)
+
+SUMMARY: AddressSanitizer: heap-use-after-free a.cpp:119 in ThreadedScraper::stop()
+FAIL l02: rc 1 a fa fa fa fa fa fa fa fa
+  ASan internal:           fe
+==69764==ABORTING
+
+rc=1
+
+$ python3 -I stage-c/l02-stop-after-finish.py <pin>/ThreadedScraper.cpp --control   (16:37:56Z)
+finished 1, cancelled 0
+rc=0
+
+$ python3 -I stage-c/l02-stop-after-finish.py <pin>/ThreadedScraper.cpp --plain   (16:38:06Z)
+finished 1, cancelled 1
+FAIL L-02: a stop() after the run finished marked it cancelled: the page reads SKIPPED - YOU CANCELLED IT
+rc=1
+
