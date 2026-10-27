@@ -44,3 +44,16 @@ rc 1
 $ python3 -I t32-02.py docs/audits/2026_10_27-epic-m6-es-app-views-scrapers <W> 16dbac5211 <paths>
 t32-02: coverage 42 (fork-modified 6, upstream-carried 36, fork-added 0); views, scrapers, services, reads, bounds, words generated; wrote 02-forward-audit.md
 rc 0
+
+## t32-includes.py (16:42 UTC)
+$ t32-includes.py <W> 16dbac5211 paths.txt in_lines=47,in_files=23,out_lines=410,es_core=143
+generated, asserted: inbound 47 include lines from 23 files outside the slice
+generated, asserted: outbound 410 include lines in the 42 paths
+generated, asserted: es-core edges 143 of 410
+rc=0
+$ the same, GameNameFormatter.cpp and .h dropped from the paths (a constructed drift)
+generated, asserted: inbound 46 include lines from 23 files outside the slice
+generated, asserted: outbound 398 include lines in the 42 paths
+generated, asserted: es-core edges 140 of 398
+FAIL t32-includes: in_lines 46, expected 47; out_lines 398, expected 410; es_core 140, expected 143
+rc=1

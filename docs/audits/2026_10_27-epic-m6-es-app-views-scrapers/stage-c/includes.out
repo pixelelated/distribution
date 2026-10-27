@@ -1,0 +1,24 @@
+| Slice header | Include lines from outside the 42 |
+| --- | ---: |
+| `views/UIModeController.h` | 10 |
+| `views/gamelist/IGameListView.h` | 9 |
+| `scrapers/ThreadedScraper.h` | 9 |
+| `scrapers/Scraper.h` | 8 |
+| `views/SystemView.h` | 3 |
+| `views/gamelist/ISimpleGameListView.h` | 2 |
+| `views/gamelist/GameNameFormatter.h` | 1 |
+| `services/HttpServerThread.h` | 1 |
+| `views/gamelist/DetailedGameListView.h` | 1 |
+| `views/gamelist/GridGameListView.h` | 1 |
+| `views/gamelist/VideoGameListView.h` | 1 |
+| `views/gamelist/CarouselGameListView.h` | 1 |
+
+| Target of the 42's includes | Lines |
+| --- | ---: |
+| es-app | 161 |
+| es-core | 143 |
+| system or external | 106 |
+
+generated, asserted: inbound 47 include lines from 23 files outside the slice
+generated, asserted: outbound 410 include lines in the 42 paths
+generated, asserted: es-core edges 143 of 410
