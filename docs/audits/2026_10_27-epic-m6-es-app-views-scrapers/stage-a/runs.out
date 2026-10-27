@@ -1,0 +1,138 @@
+/dev/nvme0n1   244195328 62270232 181925096   26% /workspace
+46
+4
+42
+scrapers 14
+services 5
+views 23
+views/gamelist 18
+20
+22
+16dbac5211eea7e70db7394372033be2be7df829
+0
+cada856d86
+bccd715707
+14
+725
+1
+f6c542872e
+3ae9610b0
+wc -l 17306
+grep -c 17311
+no trailing newline: 5
+M	es-app/src/scrapers/Scraper.cpp
+M	es-app/src/scrapers/ThreadedScraper.cpp
+M	es-app/src/scrapers/ThreadedScraper.h
+M	es-app/src/views/gamelist/DetailedContainer.cpp
+M	es-app/src/views/gamelist/GridGameListView.cpp
+M	es-app/src/views/gamelist/ISimpleGameListView.cpp
+168 46
+168 46
+0
+fork-added rc=1
+0
+upstream commits on the slice rc=1
+0
+upstream numstat rows rc=1
+42
+42
+bccd715707 cd0f559cb1 2f14b69046 2ffe2cc4cf 
+cada856d86 cd0f559cb1 2f14b69046 2ffe2cc4cf 
+rocknix/master cd0f559cb1 2f14b69046 2ffe2cc4cf 
+16dbac5211eea7e70db7394372033be2be7df829 31078e99df 1e39292413 2ffe2cc4cf 
+28	8	es-app/src/scrapers/Scraper.cpp
+5	0	es-app/src/scrapers/Scraper.h
+51	0	es-app/src/scrapers/ScraperReplies.cpp
+22	0	es-app/src/scrapers/ScraperReplies.h
+17	16	es-app/src/scrapers/ScreenScraper.cpp
+8	2	es-app/src/views/ViewController.cpp
+3ae9610b0 44d3c7e25 e38dcdefd 
+scrapers/Scraper.cpp 2
+scrapers/ThreadedScraper.cpp 1
+scrapers/ThreadedScraper.h 1
+views/gamelist/DetailedContainer.cpp 5
+views/gamelist/GridGameListView.cpp 1
+views/gamelist/ISimpleGameListView.cpp 4
+10
+11
+TOTAL 58 in 9 files
+70
+TOTAL 19 in 5 files
+      8 GuiMsgBox
+      2 GuiTextEditPopupKeyboard
+      2 GuiTextEditPopup
+      2 GuiSaveState
+      2 GuiGamelistOptions
+      1 GuiSettings
+      1 GuiNetPlay
+      1 GuiGameOptions
+8
+TOTAL 13 in 5 files
+es-app/src/scrapers/ThreadedScraper.cpp:53 es-app/src/scrapers/ThreadedScraper.cpp:241 es-app/src/services/HttpServerThread.cpp:74 
+es-app/src/scrapers/ThreadedScraper.cpp:9
+0
+detach rc=1
+TOTAL 13 in 3 files
+TOTAL 83 in 14 files
+95
+es-app/src/scrapers/GamesDBJSONScraperResources.cpp:153 es-app/src/scrapers/Scraper.cpp:267 es-app/src/scrapers/Scraper.cpp:302 es-app/src/scrapers/Scraper.cpp:332 es-app/src/scrapers/Scraper.cpp:564 es-app/src/scrapers/Scraper.cpp:567 es-app/src/scrapers/Scraper.cpp:596 
+0
+bounds rc=1
+214 237 253 336 346 359 371 374 469 480 486 503 519 612 630 633 688 
+448 607 
+144 164 230 324 331 
+TOTAL 49 in 6 files
+50
+0
+uncached rc=1
+667 669 677 679 681 756 762 765 768 771 817 819 827 829 831 863 873 903 916 
+0
+process starts rc=1
+std::stoi( TOTAL 3 in 1 files
+std::stoul( TOTAL 0 in 0 files
+atoi( TOTAL 0 in 0 files
+toInteger( TOTAL 6 in 5 files
+atol( TOTAL 2 in 2 files
+SystemView.cpp ISimpleGameListView.cpp 
+es-app/src/views/gamelist/BasicGameListView.h:31 es-app/src/views/gamelist/CarouselGameListView.h:32 es-app/src/views/gamelist/DetailedGameListView.h:24 es-app/src/views/gamelist/GridGameListView.h:36 es-app/src/views/gamelist/VideoGameListView.h:26 
+272 293 296 303 305 315 318 325 327 331 
+     10 es-app/src/views/gamelist/ISimpleGameListView.cpp
+     10 es-app/src/services/HttpServerThread.cpp
+      7 es-app/src/views/SystemView.cpp
+      4 es-app/src/views/gamelist/GridGameListView.cpp
+      4 es-app/src/views/gamelist/CarouselGameListView.cpp
+      4 es-app/src/views/gamelist/BasicGameListView.cpp
+      2 es-app/src/views/gamelist/VideoGameListView.cpp
+      2 es-app/src/views/gamelist/DetailedGameListView.cpp
+      2 es-app/src/views/UIModeController.cpp
+      2 es-app/src/scrapers/Scraper.cpp
+      1 es-app/src/views/gamelist/IGameListView.cpp
+      1 es-app/src/views/gamelist/DetailedContainer.cpp
+      1 es-app/src/views/UIModeController.h
+      1 es-app/src/services/HttpApi.cpp
+51
+es-app/src/scrapers/GamesDBJSONScraper.cpp:7:GAMESDB_APIKEY es-app/src/scrapers/GamesDBJSONScraper.h:7:GAMESDB_APIKEY es-app/src/scrapers/GamesDBJSONScraperResources.cpp:12:GAMESDB_APIKEY es-app/src/scrapers/GamesDBJSONScraperResources.cpp:49:GAMESDB_APIKEY es-app/src/scrapers/GamesDBJSONScraperResources.h:7:GAMESDB_APIKEY es-app/src/scrapers/HfsDBScraper.cpp:1:HFS_DEV_LOGIN es-app/src/scrapers/HfsDBScraper.cpp:181:HFS_DEV_LOGIN es-app/src/scrapers/HfsDBScraper.cpp:190:HFS_DEV_LOGIN es-app/src/scrapers/HfsDBScraper.h:6:HFS_DEV_LOGIN es-app/src/scrapers/Scraper.cpp:25:SCREENSCRAPER_DEV_LOGIN es-app/src/scrapers/Scraper.cpp:25:SCREENSCRAPER_RUNTIME_DEV_LOGIN es-app/src/scrapers/Scraper.cpp:29:GAMESDB_APIKEY es-app/src/scrapers/Scraper.cpp:33:HFS_DEV_LOGIN 
+files with non-ascii comments: 0
+0
+adjacent rc=1
+sweep done
+15
+19
+locale/lang/fr/LC_MESSAGES/emulationstation2.po:218:msgid "SAVE STATES (HOLD)"
+locale/lang/fr/LC_MESSAGES/emulationstation2.po-219-msgstr "SAUVEGARDES (MAINTEN
+--
+locale/lang/fr/LC_MESSAGES/emulationstation2.po:233:msgid "SAVE STATES"
+locale/lang/fr/LC_MESSAGES/emulationstation2.po-234-msgstr "SAUVEGARDES D’ÉTA
+msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
+msgstr ""
+es-untranslated: 706 fork string(s) in the source, 706 with French, 0 without
+es-untranslated rc=0
+es-untranslated: 703 fork string(s) in the source, 703 with French, 0 without
+es-untranslated(cada) rc=0
+55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing
+es-menu-map-check rc=0
+135:| **USER INTERFACE** | APPEARANCE · CONTROL OPTIONS · 
+989 docs/es-menu-map.md
+es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)
+es-syntax-check rc=2
+/home/max/Development/emulationstation-next.worktrees/m6-es-app-views-scrapers-679/es-core rc=1

@@ -1,0 +1,52 @@
+selects 1 paths 42 lines 17311 {'shipped': 42} {'upstream-carried': 36, 'fork-own': 6}
+{'c++': 20, 'c-header': 22}
+fork-own lines by inventory tier: 4005
+243 c++ upstream-carried es-app/src/scrapers/ArcadeDBJSONScraper.cpp
+46 c-header upstream-carried es-app/src/scrapers/ArcadeDBJSONScraper.h
+633 c++ upstream-carried es-app/src/scrapers/GamesDBJSONScraper.cpp
+51 c-header upstream-carried es-app/src/scrapers/GamesDBJSONScraper.h
+201 c++ upstream-carried es-app/src/scrapers/GamesDBJSONScraperResources.cpp
+45 c-header upstream-carried es-app/src/scrapers/GamesDBJSONScraperResources.h
+633 c++ upstream-carried es-app/src/scrapers/HfsDBScraper.cpp
+66 c-header upstream-carried es-app/src/scrapers/HfsDBScraper.h
+349 c++ upstream-carried es-app/src/scrapers/IGDBScraper.cpp
+62 c-header upstream-carried es-app/src/scrapers/IGDBScraper.h
+813 c++ fork-own es-app/src/scrapers/Scraper.cpp
+289 c-header upstream-carried es-app/src/scrapers/Scraper.h
+339 c++ fork-own es-app/src/scrapers/ThreadedScraper.cpp
+119 c-header fork-own es-app/src/scrapers/ThreadedScraper.h
+344 c++ upstream-carried es-app/src/services/HttpApi.cpp
+35 c-header upstream-carried es-app/src/services/HttpApi.h
+834 c++ upstream-carried es-app/src/services/HttpServerThread.cpp
+30 c-header upstream-carried es-app/src/services/HttpServerThread.h
+5713 c-header upstream-carried es-app/src/services/httplib.h
+1638 c++ upstream-carried es-app/src/views/SystemView.cpp
+142 c-header upstream-carried es-app/src/views/SystemView.h
+184 c-header upstream-carried es-app/src/views/SystemViewControlWrapper.h
+197 c++ upstream-carried es-app/src/views/UIModeController.cpp
+63 c-header upstream-carried es-app/src/views/UIModeController.h
+227 c++ upstream-carried es-app/src/views/gamelist/BasicGameListView.cpp
+49 c-header upstream-carried es-app/src/views/gamelist/BasicGameListView.h
+207 c++ upstream-carried es-app/src/views/gamelist/CarouselGameListView.cpp
+52 c-header upstream-carried es-app/src/views/gamelist/CarouselGameListView.h
+1450 c++ fork-own es-app/src/views/gamelist/DetailedContainer.cpp
+187 c-header upstream-carried es-app/src/views/gamelist/DetailedContainer.h
+66 c++ upstream-carried es-app/src/views/gamelist/DetailedGameListView.cpp
+38 c-header upstream-carried es-app/src/views/gamelist/DetailedGameListView.h
+269 c++ upstream-carried es-app/src/views/gamelist/GameNameFormatter.cpp
+36 c-header upstream-carried es-app/src/views/gamelist/GameNameFormatter.h
+347 c++ fork-own es-app/src/views/gamelist/GridGameListView.cpp
+65 c-header upstream-carried es-app/src/views/gamelist/GridGameListView.h
+49 c++ upstream-carried es-app/src/views/gamelist/IGameListView.cpp
+57 c-header upstream-carried es-app/src/views/gamelist/IGameListView.h
+937 c++ fork-own es-app/src/views/gamelist/ISimpleGameListView.cpp
+102 c-header upstream-carried es-app/src/views/gamelist/ISimpleGameListView.h
+65 c++ upstream-carried es-app/src/views/gamelist/VideoGameListView.cpp
+39 c-header upstream-carried es-app/src/views/gamelist/VideoGameListView.h
+42 .qa-scratch/t32/paths.txt
+wc -l lines 17306
+grep -c lines 17311
+42
+42
+6 files 168 added 46 removed
+6 files 168 added 46 removed

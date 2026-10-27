@@ -1,0 +1,13 @@
+# the fork's commits on the slice, no merges, bccd715707..pin
+12de21757 2026-09-22 A game's captures are turned by the rotation the display gave its frame (fork #245, D-UI-081)
+4e4ab0647 2026-09-22 The picture a theme binds to a screenshot takes the system's aspect too (fork #243)
+05dc0a829 2026-09-22 DisplayAspect: say in the log what the screenshot lookup found (fork #243, diagnostic)
+9f46264a8 2026-09-22 The SCREENSHOTS list is the imageviewer platform, not a system named screenshots (fork #243)
+3b7265f33 2026-09-22 Save-state thumbnails and screenshots are drawn at the system's display aspect (fork #243, D-UI-080)
+acd7a6fee 2026-09-22 Scan, transfer and scrape pages: sat in, with CANCEL; nothing runs in the background (fork #241, D-UI-078)
+7dc8bf373 2026-09-18 Help bar: promise only what the buttons do, and centre what the row draws (#210)
+80f52e500 2026-09-15 StringUtil.cpp, Platform.cpp, ApiSystem.cpp: a credential's value never reaches the log; every logged command line goes
+986f1749c 2026-09-14 RetroAchievements.cpp, GuiGameAchievements.cpp, GuiRetroAchievements.cpp, GuiMenu.cpp, emulationstation2.po: the achiev
+c0f6fb58f 2026-09-05 scrapers: ScreenScraper developer pair entered on the device (SCREENSCRAPER_RUNTIME_DEV_LOGIN)
+# the merge
+370ebe416 2026-09-25 Merge remote-tracking branch 'rocknix/master' into test/qa-integration

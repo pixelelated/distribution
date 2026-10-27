@@ -17,15 +17,7 @@
 
 ## Current focus
 
-Not started. The first commit on the distribution branch is the running
-log's header (the model, the effort, `reviewed-at` the distribution HEAD with
-the pin beside it, the host file's last lines, the census),
-`01-research-notes.md` § Scope (the block of brief § 2 with its output and
-the § 5 runs' figures), this pointer updated, and the day's work-log entry
-headed `#679` (prose through a quoted heredoc or the Write tool). The ES
-worktree stays at the pin until stage E. `.qa-scratch/` is gitignored and
-`git status --short` is read before every `git add -A`. No network is used
-except the seat's two keyed invokes.
+**Stage A done (15:52 UTC).** `docs/audits/2026_10_27-epic-m6-es-app-views-scrapers/`: `00-running-log.md` (the header and § Stage A), `01-research-notes.md` (§ Scope, § History, § Callers, § Context) and `stage-a/` (the first commands, the membership block, the § 5 runs, the stand-in syntax check with T21's fakes, the removal check, the callers, the history; each a script or command with its output). Every figure as the brief expects but one: `atol(` 2 in 2 files, not 1 (`DetailedContainer.cpp:1049`, 3.32's second site). rapidjson unpacked and patched under `/workspace/tmp/m6-t32/rj/`. **Next: stage B** -- `02` with its sections, the generators under `tools/`, the context items § 3 left for B, then the window request on #679 with its plan and bound. The ES worktree stays at the pin until stage E.
 
 ## Next commands
 
