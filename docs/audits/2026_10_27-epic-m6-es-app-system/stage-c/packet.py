@@ -32,7 +32,7 @@ FORK = ["AppWindow.h", "CaptureRotation.cpp", "CaptureRotation.h", "CaptureRotat
         "OfflineAchievementsText.h", "RunLock.h", "TextFit.h", "WifiText.cpp", "WifiText.h", "NetworkThread.cpp", "NetworkThread.h"]
 WHOLE = ["es-app/src/" + f for f in FORK]
 EXTRA_WHOLE = []
-BINARY = ("es-app/EmulationStation.aps", "es-app/src/es_icon.ico")
+BINARY = ("es-app/src/EmulationStation.aps", "es-app/src/es_icon.ico")
 NEIGHBOURS = {
     "es-app/src/views/ViewController.cpp": [(490, 560), (1119, 1160)],
     "es-app/src/FileData.cpp": [(985, 1005), (1160, 1170), (1200, 1212), (2185, 2195)],
@@ -119,6 +119,41 @@ def shape(v):
 # here by (path, line): a slice file's own line for an excerpt, else the
 # section's line. Filled from the first build's STOP list, each read at its line.
 DISPOSITIONS = {
+    ('es-app/src/NetworkThread.cpp', 32): 'code: `sCheevosToken = &mCheckCheevosTokenComponent` (a static pointer and a member name)',
+    ('es-app/src/NetworkThread.cpp', 115): 'code: `CheckCheevosTokenComponent::enabled()` (a class name)',
+    ('es-app/src/NetworkThread.cpp', 120): 'code: `CheckCheevosTokenComponent::check()` (a class name)',
+    ('es-app/src/NetworkThread.cpp', 130): 'code: a variable read from SystemConf by setting name (a call, no literal value)',
+    ('es-app/src/NetworkThread.cpp', 131): 'code: a variable read from SystemConf by setting name (a call, no literal value)',
+    ('es-app/src/NetworkThread.cpp', 142): "code: a comparison against SystemConf's setting by name (a call, no literal value)",
+    ('es-app/src/NetworkThread.cpp', 178): 'code: `CheckCheevosTokenComponent::setOnline` (a class name)',
+    ('es-app/src/NetworkThread.h', 49): 'code: `class CheckCheevosTokenComponent` (a class name)',
+    ('es-app/src/FileFilterIndex.cpp', 314): 'code: `key = game->getMetadata(...)` (a filter key, metadata)',
+    ('es-app/src/FileFilterIndex.cpp', 317): 'code: `key = game->getMetadata(...)` (a filter key, metadata)',
+    ('es-app/src/FileFilterIndex.cpp', 348): 'code: `key = game->getMetadata(...)` (a filter key, metadata)',
+    ('es-app/src/FileFilterIndex.cpp', 357): 'code: `key = game->getMetadata(...)` (a filter key, metadata)',
+    ('es-app/src/FileFilterIndex.cpp', 366): 'code: `key = game->getMetadata(...)` (a filter key, metadata)',
+    ('es-app/src/FileFilterIndex.cpp', 882): "code: `keys = ...currentFilteredKeys` (a filter's key list)",
+    ('es-app/src/FileFilterIndex.cpp', 883): "code: `keys == nullptr` (a filter's key list)",
+    ('es-app/src/KeyboardMapping.cpp', 163): 'code: `KeyMappingFile::KeyName::KeyName` (a class name; keyboard keys)',
+    ('es-app/src/KeyboardMapping.cpp', 178): 'code: `KeyMappingFile::checkTriggerExists` (a class name)',
+    ('es-app/src/KeyboardMapping.cpp', 184): 'code: `map.key == target` (a keyboard key name)',
+    ('es-app/src/KeyboardMapping.cpp', 190): 'code: `KeyMappingFile::checkTargetExists` (a class name)',
+    ('es-app/src/KeyboardMapping.cpp', 193): 'code: `map.key == target` (a keyboard key name)',
+    ('es-app/src/KeyboardMapping.cpp', 199): 'code: `KeyMappingFile::getTriggerFromP2k` (a class name)',
+    ('es-app/src/KeyboardMapping.cpp', 208): 'code: `KeyMappingFile::getTargetFromP2k` (a class name)',
+    ('es-app/src/KeyboardMapping.cpp', 217): 'code: `KeyMappingFile::load` (a class name)',
+    ('es-app/src/KeyboardMapping.cpp', 322): 'code: `KeyMappingFile::deleteFile` (a class name)',
+    ('es-app/src/KeyboardMapping.cpp', 328): 'code: `KeyMappingFile::save` (a class name)',
+    ('es-app/src/KeyboardMapping.cpp', 432): 'code: `KeyMappingFile::fromP2k` (a class name)',
+    ('es-app/src/KeyboardMapping.cpp', 499): 'code: `KeyMappingFile::isValid` (a class name)',
+    ('es-app/src/KeyboardMapping.cpp', 512): 'code: `KeyMappingFile::KeyMapping::triggerEquals` (a class name)',
+    ('es-app/src/KeyboardMapping.cpp', 535): 'code: `KeyMappingFile::KeyMapping::toTargetString` (a class name)',
+    ('es-app/src/KeyboardMapping.cpp', 586): 'code: `KeyMappingFile::updateMapping` (a class name)',
+    ('es-app/src/KeyboardMapping.cpp', 726): 'code: `KeyMappingFile::removeMapping` (a class name)',
+    ('es-app/src/KeyboardMapping.cpp', 769): 'code: `std::vector<KeyMappingFile::KeyMapping>()` (a class name)',
+    ('es-app/src/KeyboardMapping.cpp', 776): 'code: `KeyMappingFile::getMappingDescription` (a class name)',
+    ('es-app/src/KeyboardMapping.cpp', 793): 'code: `KeyMappingFile::updateMappingDescription` (a class name)',
+    ('es-app/src/SystemData.cpp', 642): 'code: `key = newFolder->getPath()` (a path used as a map key)',
 }
 
 
