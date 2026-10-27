@@ -1,0 +1,9 @@
+== S7 before: tests/script-text-french.py against the pin's tree (16dbac521, git archive)
+FAIL script-text-french: a failed maintenance run's dialog upper-cases the script's line (runMaintenanceCommand): English whatever the language
+FAIL script-text-french: the match's refusal upper-cases each line the script printed (cloudOpenMatch), its >>> why line included: English whatever the language
+FAIL script-text-french: the provider list builds a msgid at run time (_(want.second.c_str())), which xgettext cannot carry
+FAIL script-text-french: providerLabel(smb): got "WINDOWS SHARE (SMB)"
+FAIL script-text-french: providerLabel(s3): got "AMAZON S3 AND COMPATIBLE"
+rc 1
+== tools/es-untranslated at the pin: it reads the upstream catalogue through git, which the archived tree lacks ("cannot read the upstream catalogue at bccd715707: not a git repository"); its pin figure is S1's, run with the worktree at 16dbac521 before S1 committed (s1-checks.txt): 706 fork strings, 706 with French. The two phrases are no msgid there at all (a runtime _(want.second.c_str()), and providerLabel without gettext), so no extraction can name them -- the defect itself, not a pass. Lines naming them in the pin's French catalog:
+0

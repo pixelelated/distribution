@@ -1,0 +1,13 @@
+== S7 after: tests/script-text-french.py against the worktree
+script-text-french: PASS, 119 catalog entries used
+rc 0
+== negative: the audio sentence's French emptied in the catalog
+FAIL script-text-french: still English: THE AUDIO SETTINGS COULDN'T BE CLEARED.
+rc 1
+== negative: matchRefusalText keeping protocol lines
+FAIL script-text-french: the refusal with its why: got ">>> WHY YOUR CLOUD STORAGE ISN'T SET UP YET
+rc 1
+== CloudTextTests' new case (31 script lines cited, isKnownScriptLine) in the host build: see s7-checks.txt (186 cases in es-unit-tests, 185 at the pin)
+== tools/es-untranslated on the worktree
+es-untranslated: 742 fork string(s) in the source, 742 with French, 0 without
+== the form's rclone labels stay as the provider's own words (the coordinator's ruling (a), 10:55 UTC)
