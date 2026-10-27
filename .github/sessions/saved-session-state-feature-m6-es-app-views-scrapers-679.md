@@ -17,7 +17,7 @@
 
 ## Current focus
 
-**Stage A done (15:52 UTC).** `docs/audits/2026_10_27-epic-m6-es-app-views-scrapers/`: `00-running-log.md` (the header and § Stage A), `01-research-notes.md` (§ Scope, § History, § Callers, § Context) and `stage-a/` (the first commands, the membership block, the § 5 runs, the stand-in syntax check with T21's fakes, the removal check, the callers, the history; each a script or command with its output). Every figure as the brief expects but one: `atol(` 2 in 2 files, not 1 (`DetailedContainer.cpp:1049`, 3.32's second site). rapidjson unpacked and patched under `/workspace/tmp/m6-t32/rj/`. **Next: stage B** -- `02` with its sections, the generators under `tools/`, the context items § 3 left for B, then the window request on #679 with its plan and bound. The ES worktree stays at the pin until stage E.
+**Stage B done (16:06 UTC); the window asked for on #679.** `02-forward-audit.md` composed by `tools/t32-02.py` (42 coverage rows; L-01 to L-21; the floor's 35; views 6, scrapers 5, services 27/25, reads 49/50, bounds 9, words 57/69/50 generated and asserted, each generator seen to exit 1 on a drift: `stage-b/generators.txt`); the window plan `stage-b/window-plan.md` (35 + 5 minutes). **Next:** on the grant, the window (START post first); meanwhile stage C -- the unit cases for the six FAIL-at-pin leads by `tools/t32-build-tests.sh`, the include graph `tools/t32-includes.py`, the packet and the seat. § 3's remaining reads (blindspots, the other audits' lines, the issues, `vm-qa-log.md:9-18`) before stage D.
 
 ## Next commands
 

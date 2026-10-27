@@ -1,0 +1,46 @@
+# T32 (#679) stage B: each generator at its asserted counts, then on a constructed drift (it must exit 1), 16:04:38Z. <W> the ES worktree at the pin; <paths> <paths>.
+$ python3 -I t32-reads.py <W> 16dbac5211 <paths> lines=49,calls=50,uncached=0
+generated, asserted: 49 lines, 50 calls, 0 uncached, in 6 files
+rc 0
+$ python3 -I t32-reads.py <W> 16dbac5211 <paths> lines=48,calls=50,uncached=0
+FAIL t32-reads: lines 49, expected 48
+rc 1
+$ python3 -I t32-reads.py <W> 16dbac5211 /workspace/tmp/m6-t32/tmp/drop-isimple.txt
+FAIL t32-reads: a group names ISimpleGameListView.cpp:619, where there is no exists(; a group names ISimpleGameListView.cpp:910, where there is no exists(
+rc 1
+$ python3 -I t32-bounds.py <W> 16dbac5211 <paths> constructions=9,new=7,stack=2,bounded=0
+generated, asserted: 9 constructions in 4 files (7 `new HttpReq(`, 2 on the stack); 0 set a total or stall bound
+rc 0
+$ python3 -I t32-bounds.py <W> 16dbac5211 <paths> constructions=7
+FAIL t32-bounds: constructions 9, expected 7
+rc 1
+$ python3 -I t32-bounds.py <W> 16dbac5211 /workspace/tmp/m6-t32/tmp/drop-gdbres.txt
+FAIL t32-bounds: an entry names GamesDBJSONScraperResources.cpp:153, where there is no HttpReq construction
+rc 1
+$ python3 -I t32-services.py <W> 16dbac5211 registrations=27,patterns=25,literal=16,allowed=27,posts=10
+generated, asserted: 27 registrations over 25 distinct path patterns (16 plain strings, 9 raw regex); isAllowed() in every handler (27 calls); 10 postToUiThread( calls; listen(ip, 1234) at :828
+rc 0
+$ python3 -I t32-services.py <W> 16dbac5211 patterns=16
+FAIL t32-services: patterns 25, expected 16
+rc 1
+$ python3 -I t32-scrapers.py <W> 16dbac5211 scrapers=5,gated=3
+The routing, every scraper but ScreenScraper: `ScraperHttpRequest::update` (`Scraper.cpp:289`) ends `ASYNC_DONE` with no error on a 404 or an IO error (`:372-376`, 3.13), retries a 429 (`:343-361`, `Retry-After` at `:351`; T21's `
+rc 0
+$ python3 -I t32-scrapers.py <W> 16dbac5211 gated=2
+FAIL t32-scrapers: gated 3, expected 2
+rc 1
+$ python3 -I t32-views.py <W> 16dbac5211 views=6,helpbars=2
+generated, asserted: 6 views (the five styles and the carousel); getHelpPrompts defined by 2 classes: ISimpleGameListView, SystemView; 9 view classes under views/ in all
+rc 0
+$ python3 -I t32-views.py <W> 16dbac5211 helpbars=6
+FAIL t32-views: helpbars 2, expected 6
+rc 1
+$ python3 -I t32-words.py <W> 16dbac5211 <paths> lines=57,calls=69,msgids=50,empty=0,missing=0
+generated, asserted: 57 lines, 69 calls, 50 distinct msgids in 9 files; 0 with an empty French msgstr, 0 with no msgid
+rc 0
+$ python3 -I t32-words.py <W> 16dbac5211 <paths> lines=58,calls=70,msgids=51,empty=1
+FAIL t32-words: lines 57, expected 58; calls 69, expected 70; msgids 50, expected 51; empty 0, expected 1
+rc 1
+$ python3 -I t32-02.py docs/audits/2026_10_27-epic-m6-es-app-views-scrapers <W> 16dbac5211 <paths>
+t32-02: coverage 42 (fork-modified 6, upstream-carried 36, fork-added 0); views, scrapers, services, reads, bounds, words generated; wrote 02-forward-audit.md
+rc 0
