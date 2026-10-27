@@ -1,0 +1,65 @@
+# S3 before (18:05:27Z, ES at bf3e8e2bd, S2's tip: the parsers are the pin's but for S2's token bounds; the doctest written, the header not)
+
+$ python3 -I stage-c/l310-boxart-shape.py <W>/es-app/src/scrapers/GamesDBJSONScraper.cpp <rj>
+boxart []      ... returns 1, preconditions violated 4, games processed 0
+boxart [1,2]   ... returns 1, preconditions violated 8, games processed 0
+data []        ... returns 1, preconditions violated 4, games processed 0
+root []        ... returns 1, preconditions violated 4, games processed 0
+root "x"       ...
+SUMMARY: AddressSanitizer: SEGV /workspace/tmp/m6-t32/rj/rapidjson-1.1.0/include/rapidjson/document.h:949 in rapidjson::GenericValue<rapidjson::UTF8<char>, rapidjson::Mem
+FAIL l310: rc 1 BuildId: f6aebce84053ffa114c829f3a5cb1298f6c69743)
+
+SUMMARY: AddressSanitizer: SEGV /workspace/tmp/m6-t32/rj/rapidjson-1.1.0/include/rapidjson/document.h:949 in rapidjson::GenericValue<rapidjson::UTF8<char>, rapidjson::Mem
+
+rc=1
+
+$ python3 -I stage-c/l310-boxart-shape.py <W>/es-app/src/scrapers/GamesDBJSONScraper.cpp <rj> --plain
+boxart []      ... returns 1, preconditions violated 4, games processed 0
+boxart [1,2]   ... returns 1, preconditions violated 8, games processed 0
+data []        ... returns 1, preconditions violated 4, games processed 0
+root []        ... returns 1, preconditions violated 4, games processed 0
+root "x"       ...
+FAIL l310: rc -11 
+rc=1
+
+$ python3 -I stage-c/s3-images.py <W>/es-app/src/scrapers/GamesDBJSONScraper.cpp <rj>
+well formed                            ... returned, results 1, preconditions violated 0
+images: root a string                  ...
+SUMMARY: AddressSanitizer: SEGV /workspace/tmp/m6-t32/rj/rapidjson-1.1.0/include/rapidjson/document.h:949 in rapidjson::GenericValue<rapidjson::UTF8<char>, rapidjson::Mem
+FAIL s3img: rc 1 BuildId: 88c9ecc85164844ea9f5f96e6b4bce03cb503d62)
+
+SUMMARY: AddressSanitizer: SEGV /workspace/tmp/m6-t32/rj/rapidjson-1.1.0/include/rapidjson/document.h:949 in rapidjson::GenericValue<rapidjson::UTF8<char>, rapidjson::Mem
+
+rc=1
+
+$ python3 -I stage-c/s3-images.py <W>/es-app/src/scrapers/GamesDBJSONScraper.cpp <rj> --plain
+well formed                            ... returned, results 1, preconditions violated 0
+images: root a string                  ...
+FAIL s3img: rc -11 
+rc=1
+
+$ python3 -I stage-c/l316-igdb-contract.py <W>/es-app/src/scrapers/IGDBScraper.cpp <W>/es-app/src/scrapers/HfsDBScraper.cpp <rj> --plain
+3.16 process(an empty answer []  ) returns 1, error set 0, results 0
+3.16 process(an object {}        ) returns 1, error set 0, results 0
+3.16 process(not JSON            ) returns 1, error set 1, results 0
+3.16 process(one game            ) returns 1, error set 0, results 1
+L-22 IGDB  token body []              ... token 0, preconditions violated 4
+L-22 HfsDB token body []              ... token 0, preconditions violated 4
+L-22 IGDB  token body access_token 5  ...
+FAIL l316: rc -11 
+rc=1
+
+$ tools/t32-build-tests.sh <W> (the doctest listed, ScraperJson.h absent)
+    /home/max/Development/emulationstation-next.worktrees/m6-es-app-views-scrapers-679/es-app/tests/unit/ScraperJsonTests.cpp
+BUILD FAIL es-unit-tests:
+RUN es-unit-tests: not built
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3389 | 3389 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+rc=1
+
+$ python3 -I stage-c/l316-igdb-contract.py <W>/IGDBScraper.cpp <W>/HfsDBScraper.cpp <rj> --plain --hfs-only   (EP-10: HfsDB measured apart)
+L-22 HfsDB token body []              ... token 0, preconditions violated 4
+L-22 HfsDB token body access_token 5  ...
+FAIL l316: rc -11 
+rc=1

@@ -14,7 +14,7 @@ aborts instead. Either way the response's shape must be checked before it is
 read, and the parse-error path's `return true` (no results, no error a page
 shows) is upstream's design, not this lead.
 Responses fed, each a body a server or a proxy could send:
-  "boxart": [], "boxart": [1,2], "data": [], a root array, a well-formed body,
+  "boxart": [], "boxart": [1,2], "data": [], a root array, a root string (S3), a well-formed body,
   and "boxart": "x" last (it ends the run at the pin).
 Each must return with no precondition violated and no game processed. At the
 pin the boxart cases violate HasMember's precondition at :605 -- FAIL; the
@@ -42,6 +42,8 @@ if "--control" in sys.argv:
          'if (!boxart.IsObject() || !boxart.HasMember("base_url") || !boxart.HasMember("data"))')]:
         assert a in fn, a
         fn = fn.replace(a, b)
+EXTRACTS = [v for k, v in list(globals().items()) if isinstance(v, str) and k in ('fn', 'proc', 'igt', 'hft', 'gs', 'gi', 'gi1', 'pg')]
+SRCDIR = str(Path(sys.argv[1]).resolve().parent.parent)  # es-app/src, for scrapers/ScraperJson.h (S3, D-WORKFLOW-211)
 harness = r'''
 #include <cstdio>
 #include <sstream>
@@ -52,6 +54,7 @@ static int gViolations = 0;
 #define RAPIDJSON_ASSERT(x) ((x) ? (void)0 : (void)(++gViolations))
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
+''' + ('#include "scrapers/ScraperJson.h"\n' if 'ScraperJson' in ''.join(EXTRACTS) else '') + r'''
 using namespace rapidjson;
 struct NullLog { template<typename T> NullLog& operator<<(const T&) { return *this; } };
 #define LOG(x) NullLog()
@@ -69,6 +72,7 @@ int main() {
         {"boxart [1,2]", "{\"data\":{\"games\":[{\"id\":1}]},\"include\":{\"boxart\":[1,2]}}"},
         {"data []", "{\"data\":[],\"include\":{\"boxart\":{}}}"},
         {"root []", "[]"},
+        {"root \"x\"", "\"x\""},
         {"well formed", "{\"data\":{\"games\":[{\"id\":1}]},\"include\":{\"boxart\":{\"base_url\":{},\"data\":{}}}}"},
         {"boxart \"x\"", "{\"data\":{\"games\":[{\"id\":1}]},\"include\":{\"boxart\":\"x\"}}"},
     };
@@ -85,4 +89,4 @@ int main() {
     return 0;
 }
 '''
-run(harness, "l310", (() if "--plain" in sys.argv else ("-fsanitize=address,undefined",)) + ("-DNDEBUG", "-I" + rj))
+run(harness, "l310", (() if "--plain" in sys.argv else ("-fsanitize=address,undefined",)) + ("-DNDEBUG", "-I" + rj, "-I" + SRCDIR))

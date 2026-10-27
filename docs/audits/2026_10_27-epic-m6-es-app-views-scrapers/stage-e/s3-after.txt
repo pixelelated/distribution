@@ -1,0 +1,79 @@
+# S3 after (18:08:05Z, ES at bf3e8e2bd plus S3's uncommitted change)
+
+$ python3 -I stage-c/l310-boxart-shape.py <W>/es-app/src/scrapers/GamesDBJSONScraper.cpp <rj>
+boxart []      ... returns 1, preconditions violated 0, games processed 0
+boxart [1,2]   ... returns 1, preconditions violated 0, games processed 0
+data []        ... returns 1, preconditions violated 0, games processed 0
+root []        ... returns 1, preconditions violated 0, games processed 0
+root "x"       ... returns 1, preconditions violated 0, games processed 0
+well formed    ... returns 1, preconditions violated 0, games processed 1
+boxart "x"     ... returns 1, preconditions violated 0, games processed 0
+rc=0
+
+$ python3 -I stage-c/l310-boxart-shape.py <W>/es-app/src/scrapers/GamesDBJSONScraper.cpp <rj> --plain
+boxart []      ... returns 1, preconditions violated 0, games processed 0
+boxart [1,2]   ... returns 1, preconditions violated 0, games processed 0
+data []        ... returns 1, preconditions violated 0, games processed 0
+root []        ... returns 1, preconditions violated 0, games processed 0
+root "x"       ... returns 1, preconditions violated 0, games processed 0
+well formed    ... returns 1, preconditions violated 0, games processed 1
+boxart "x"     ... returns 1, preconditions violated 0, games processed 0
+rc=0
+
+$ python3 -I stage-c/s3-images.py <W>/es-app/src/scrapers/GamesDBJSONScraper.cpp <rj>
+well formed                            ... returned, results 1, preconditions violated 0
+images: root a string                  ... returned, results 0, preconditions violated 0
+images: data a number                  ... returned, results 0, preconditions violated 0
+images: base_url a string              ... returned, results 0, preconditions violated 0
+images: images a string                ... returned, results 0, preconditions violated 0
+images: an element's type a number     ... returned, results 0, preconditions violated 0
+images: medium a number                ... returned, results 0, preconditions violated 0
+base_url a string (:415)               ... threw (the caller's catch takes it), results 0, preconditions violated 0
+rc=0
+
+$ python3 -I stage-c/s3-images.py <W>/es-app/src/scrapers/GamesDBJSONScraper.cpp <rj> --plain
+well formed                            ... returned, results 1, preconditions violated 0
+images: root a string                  ... returned, results 0, preconditions violated 0
+images: data a number                  ... returned, results 0, preconditions violated 0
+images: base_url a string              ... returned, results 0, preconditions violated 0
+images: images a string                ... returned, results 0, preconditions violated 0
+images: an element's type a number     ... returned, results 0, preconditions violated 0
+images: medium a number                ... returned, results 0, preconditions violated 0
+base_url a string (:415)               ... threw (the caller's catch takes it), results 0, preconditions violated 0
+rc=0
+
+$ python3 -I stage-c/l316-igdb-contract.py <W>/es-app/src/scrapers/IGDBScraper.cpp <W>/es-app/src/scrapers/HfsDBScraper.cpp <rj>
+3.16 process(an empty answer []  ) returns 1, error set 0, results 0
+3.16 process(an object {}        ) returns 1, error set 0, results 0
+3.16 process(not JSON            ) returns 1, error set 1, results 0
+3.16 process(one game            ) returns 1, error set 0, results 1
+L-22 IGDB  token body []              ... token 0, preconditions violated 0
+L-22 HfsDB token body []              ... token 0, preconditions violated 0
+L-22 IGDB  token body access_token 5  ... token 0, preconditions violated 0
+L-22 HfsDB token body access_token 5  ... token 0, preconditions violated 0
+L-22 IGDB  token body well formed     ... token 1, preconditions violated 0
+L-22 HfsDB token body well formed     ... token 1, preconditions violated 0
+rc=0
+
+$ python3 -I stage-c/l316-igdb-contract.py <W>/es-app/src/scrapers/IGDBScraper.cpp <W>/es-app/src/scrapers/HfsDBScraper.cpp <rj> --plain
+3.16 process(an empty answer []  ) returns 1, error set 0, results 0
+3.16 process(an object {}        ) returns 1, error set 0, results 0
+3.16 process(not JSON            ) returns 1, error set 1, results 0
+3.16 process(one game            ) returns 1, error set 0, results 1
+L-22 IGDB  token body []              ... token 0, preconditions violated 0
+L-22 HfsDB token body []              ... token 0, preconditions violated 0
+L-22 IGDB  token body access_token 5  ... token 0, preconditions violated 0
+L-22 HfsDB token body access_token 5  ... token 0, preconditions violated 0
+L-22 IGDB  token body well formed     ... token 1, preconditions violated 0
+L-22 HfsDB token body well formed     ... token 1, preconditions violated 0
+rc=0
+
+$ python3 -I stage-c/l316-igdb-contract.py <W>/es-app/src/scrapers/IGDBScraper.cpp <W>/es-app/src/scrapers/HfsDBScraper.cpp <rj> --plain --hfs-only
+3.16 process(an empty answer []  ) returns 1, error set 0, results 0
+3.16 process(an object {}        ) returns 1, error set 0, results 0
+3.16 process(not JSON            ) returns 1, error set 1, results 0
+3.16 process(one game            ) returns 1, error set 0, results 1
+L-22 HfsDB token body []              ... token 0, preconditions violated 0
+L-22 HfsDB token body access_token 5  ... token 0, preconditions violated 0
+L-22 HfsDB token body well formed     ... token 1, preconditions violated 0
+rc=0

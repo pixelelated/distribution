@@ -24,6 +24,7 @@ doubles; the token request's body is the case's.
   read as a string is a wild pointer in the shipped build.
 --control returns true from the two process() exits and checks IsObject and
 IsString first in both token reads. --plain builds without the sanitizers.
+--hfs-only runs HfsDB's token reads alone (S3, EP-10: measured apart from IGDB's).
 """
 import sys
 from pathlib import Path
@@ -50,6 +51,8 @@ if "--control" in sys.argv:
         else:
             assert old in hft
             hft = hft.replace(old, new)
+EXTRACTS = [v for k, v in list(globals().items()) if isinstance(v, str) and k in ('fn', 'proc', 'igt', 'hft', 'gs', 'gi', 'gi1', 'pg')]
+SRCDIR = str(Path(sys.argv[1]).resolve().parent.parent)  # es-app/src, for scrapers/ScraperJson.h (S3, D-WORKFLOW-211)
 harness = r'''
 #include <cstdio>
 #include <stdexcept>
@@ -59,6 +62,7 @@ static int gViolations = 0;
 #define RAPIDJSON_ASSERT(x) ((x) ? (void)0 : (void)(++gViolations))
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
+''' + ('#include "scrapers/ScraperJson.h"\n' if 'ScraperJson' in ''.join(EXTRACTS) else '') + r'''
 using namespace rapidjson;
 struct NullLog { template<typename T> NullLog& operator<<(const T&) { return *this; } };
 #define LOG(x) NullLog()
@@ -83,8 +87,10 @@ struct HttpReq { enum Status { REQ_IO_ERROR = 3, REQ_SUCCESS = 200 }; HttpReq(co
 struct IGDBScraper { std::string mToken; Utils::Time::DateTime mTokenDate; bool mTokenUnreachable = false; bool ensureToken(); };
 struct HfsDBScraper { std::string mToken; Utils::Time::DateTime mTokenDate; bool mTokenUnreachable = false; bool ensureToken(); };
 ''' + proc + "\n" + igt + "\n" + hft + r'''
-int main() {
+static bool gHfsOnly = false;
+int main(int argc, char**) {
     setvbuf(stdout, nullptr, _IONBF, 0);
+    gHfsOnly = argc > 1;
     int bad = 0;
     struct P { const char* what; const char* body; } ps[] = { {"an empty answer []", "[]"}, {"an object {}", "{}"}, {"not JSON", "<html>"}, {"one game", "[{}]"} };
     for (auto& p : ps) {
@@ -96,8 +102,9 @@ int main() {
     struct T { const char* what; const char* body; } ts[] = { {"[]", "[]"}, {"access_token 5", "{\"access_token\":5,\"token\":5}"}, {"well formed", "{\"access_token\":\"a\",\"token\":\"a\"}"} };
     for (auto& t : ts) {
         gBody = t.body;
-        IGDBScraper i; gViolations = 0; printf("L-22 IGDB  token body %-15s ... ", t.what); bool ig = i.ensureToken(); int iv = gViolations;
-        printf("token %d, preconditions violated %d\n", ig, iv);
+        bool ig = false; int iv = 0;
+        if (!gHfsOnly) { IGDBScraper i; gViolations = 0; printf("L-22 IGDB  token body %-15s ... ", t.what); ig = i.ensureToken(); iv = gViolations;
+            printf("token %d, preconditions violated %d\n", ig, iv); }
         HfsDBScraper h; gViolations = 0; printf("L-22 HfsDB token body %-15s ... ", t.what); bool hf = h.ensureToken(); int hv = gViolations;
         printf("token %d, preconditions violated %d\n", hf, hv);
         if (iv || hv) bad++;
@@ -106,4 +113,5 @@ int main() {
     return 0;
 }
 '''
-run(harness, "l316", (() if "--plain" in sys.argv else ("-fsanitize=address,undefined",)) + ("-DNDEBUG", "-Wno-deprecated-declarations", "-I" + rj))
+run(harness, "l316", (() if "--plain" in sys.argv else ("-fsanitize=address,undefined",)) + ("-DNDEBUG", "-Wno-deprecated-declarations", "-I" + rj, "-I" + SRCDIR),
+    ("hfs",) if "--hfs-only" in sys.argv else ())

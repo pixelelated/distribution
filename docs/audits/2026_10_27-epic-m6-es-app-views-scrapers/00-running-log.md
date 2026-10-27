@@ -123,3 +123,13 @@
     - the manual scrape's token failure (EP-36's manual half) is unchanged, because the synchronous paths that would have to catch it are `ScraperSearchComponent.cpp`'s (T33's).
   - **Collisions named:** `Scraper.cpp` against T21's `3ae9610b0` (the `:596` retry, now `:644`; T21 keeps `mRequestUrl`/`mOptions` there), `44d3c7e25` (both `Retry-After` reads) and `e38dcdefd`; `GuiScraperRun.cpp` against T31's `2fa6b5f73` (unchanged here: the contract kept).
   - **Time to play:** off the launch path.
+- **S3, 18:09 UTC:** ES `0404e76cc`, pushed.
+  - **The doctest came first:** `ScraperJsonTests.cpp` was listed in `es-unit-tests` before `ScraperJson.h` existed, and the build failed.
+  - **Harnesses:** `l310` takes a root string; `stage-c/s3-images.py` (new) extracts `processGame` and its two helpers for the images JSON and `:415`; `l316` takes `--hfs-only` to measure HfsDB apart (EP-10), so `t32extract.run` takes `args`.
+  - **Before:** every case FAILs, the malformed shapes as SEGVs.
+  - **After:** every case rc 0 with 0 violations, also under `--plain`.
+  - **Fixture completions** (D-WORKFLOW-211): the three harnesses include `scrapers/ScraperJson.h` from the tree they read, when the extract uses it.
+  - **`:415` re-read, as the brief asked:** `getStringOrThrow(boxart["base_url"], "thumb")` carries neither `HasMember` nor `GetString` itself. The helper now checks the container, and `process` checks `base_url` is an object.
+  - **Checks:** the stand-in passes 12 of 13 (`SystemView.cpp` `CANNOT`); non-ASCII 0; `TOTAL: 225 test cases in 4 binaries`.
+  - **#1154 (PL-20):** these parsers are a consumer of peer verification. The note is in this record, and the comment on #1154 is the coordinator's.
+  - **Time to play:** off the launch path.

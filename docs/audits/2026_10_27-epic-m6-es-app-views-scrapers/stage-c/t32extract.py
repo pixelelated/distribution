@@ -35,7 +35,7 @@ def function(src, head, name="extract"):
         j += 1
 
 
-def run(harness, name, flags=("-fsanitize=address,undefined",)):
+def run(harness, name, flags=("-fsanitize=address,undefined",), args=()):
     with tempfile.TemporaryDirectory(prefix=name + "-", dir="/workspace/tmp/m6-t32/tmp") as d:
         d = Path(d)
         (d / "a.cpp").write_text(harness)
@@ -44,7 +44,7 @@ def run(harness, name, flags=("-fsanitize=address,undefined",)):
         if b.returncode:
             print("FAIL %s: the extract does not compile\n%s" % (name, b.stderr[-2000:]))
             sys.exit(2)
-        r = subprocess.run([str(d / "a")], capture_output=True, text=True, timeout=60)
+        r = subprocess.run([str(d / "a"), *args], capture_output=True, text=True, timeout=60)
         print(r.stdout.strip())
         # A sanitizer's verdict is its report: the warning heads, the frames in
         # the harness, and the summary (the tail alone hid which race it was).
