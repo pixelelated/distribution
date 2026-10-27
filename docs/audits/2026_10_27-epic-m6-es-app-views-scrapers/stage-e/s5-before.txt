@@ -1,0 +1,7 @@
+# S5 (the map; the distribution branch, paired with S4's ES 1655e2f4c)
+## before (18:16:24Z, the map as it was)
+$ tools/es-menu-map-check --es-src <W> --ref 1655e2f4c
+55 screen(s) at 1655e2f4c, 31 in the map, 24 declared unmapped, 0 missing
+$ grep -c 'VIEW STYLE|SCREENSHOTS|gamecarousel' docs/es-menu-map.md
+0
+The checker cannot see the views (no screen title), so 0 missing before is its blind spot, not a pass; the grep's 0 is the finding.

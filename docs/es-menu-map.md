@@ -147,6 +147,40 @@ Two placement rules the existing tree already follows:
 - **Destructive and system-level operations sit behind ADVANCED**, inside SYSTEM
   SETTINGS → SYSTEM MANAGEMENT AND RESET, where every row confirms first.
 
+## Game list views
+
+The lists a system opens on, and the carousel above them (T32, #679, PL-15;
+D-UI-039). None of these pages carries a screen title, so
+`tools/es-menu-map-check` cannot see them; they are mapped here by hand.
+
+- **The styles.** `basic`, `detailed`, `video`, `grid` and `gamecarousel`, or
+  `automatic`, which takes the first the theme draws (`ViewController.cpp:703-731`).
+  Which ones exist is the theme's: the shipped theme draws neither `grid` nor
+  `gamecarousel` (G-02 on the M6 image, `docs/audits/2026_10_27-epic-m6-es-app-views-scrapers/02-forward-audit.md`
+  § The guest cycle), so a style it lacks falls back to `automatic`.
+- **Where a style is chosen.** For every system: MAIN MENU > USER INTERFACE
+  SETTINGS > THEME CONFIGURATION > GAMELIST VIEW STYLE (`GuiMenu.cpp:8691`,
+  `:8729`). For one system: SELECT on its list > VIEW OPTIONS > GAMELIST VIEW
+  STYLE (`GuiGamelistOptions.cpp:194`, `:229`).
+- **What acts on a list from VIEW OPTIONS.** JUMP TO GAME BEGINNING WITH THE
+  LETTER (`GuiGamelistOptions.cpp:101`, `:127`) moves the cursor to the first
+  game under a letter. The carousel's fast move is not a row: the shoulder
+  buttons (and the directions, with the `QuickSystemSelect` setting on) step ten systems, or
+  a manufacturer or hardware group (`SystemView.cpp:282-334`).
+- **The list's help bar** (#210, `ISimpleGameListView.cpp:681-742`, one bar
+  for every style): BACK, CHOOSE, GAME OPTIONS (HOLD) -- or SAVE STATES (HOLD)
+  when GAME OPTIONS AT NORTH is on and the cursor is a RetroArch game whose
+  system keeps save states -- OPTIONS, the north/west pair (FAVORITE, SYSTEM),
+  SEARCH and RANDOM. French: SAUVEGARDES D’ÉTAT (MAINTENU) since #1265.
+- **The SCREENSHOTS list** is the `imageviewer` system's: the captures, each
+  tile turned and shaped by its record (`DisplayAspect`, D-UI-080/081).
+- **The carousel's two dialogs**, when no system is left to show: EVERY SYSTEM
+  IS HIDDEN IN THIS MODE. SWITCHING BACK TO THE FULL MODE. / TOUS LES SYSTÈMES
+  SONT MASQUÉS DANS CE MODE. RETOUR AU MODE COMPLET. (`SystemView.cpp:236`,
+  #1265, the mode switch saved), and ERROR: EVERY SYSTEM IS HIDDEN,
+  RE-DISPLAYING ALL OF THEM NOW (`:245`, when HIDDEN SYSTEMS is cleared). Each
+  is one OK.
+
 ## Save state manager
 
 A game's long-press menu > SAVE STATES, or before every launch under GAME

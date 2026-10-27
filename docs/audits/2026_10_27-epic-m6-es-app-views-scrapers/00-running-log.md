@@ -142,3 +142,6 @@
   - **Checks:** the stand-in passes 12 of 13. `SystemView.cpp` is `CANNOT` at the same `SDLK_r`, now `:471`; the edited `:231-238` come before it and were read twice. Non-ASCII 0; `es-untranslated` 705/705; `TOTAL: 225 test cases in 4 binaries`.
   - `t32-words.py` now reads 59 lines, 75 calls and 53 msgids, every one with French: S2's two sentences, and S4's dialog and its `OK`.
   - **Time to play:** off the launch path.
+- **S5, 18:16 UTC:** `docs/es-menu-map.md` § Game list views, paired with S4's `1655e2f4c`. Before and after, the checker reads `0 missing`; the views carry no title, which is its blind spot. The grep moved from 0 lines to the section's.
+  - **One correction to the brief:** the carousel's fast move is a shoulder-button input in `SystemView` (`:282-334`, `:406-413`), not a VIEW OPTIONS row. The map says so, and the letter jump is the row.
+  - Time to play: a document.

@@ -1,0 +1,8 @@
+# S5 after (18:16:25Z)
+$ tools/es-menu-map-check --es-src <W> --ref 1655e2f4c
+55 screen(s) at 1655e2f4c, 31 in the map, 24 declared unmapped, 0 missing
+$ grep -n 'VIEW STYLE|SCREENSHOTS|gamecarousel' docs/es-menu-map.md
+156:- **The styles.** `basic`, `detailed`, `video`, `grid` and `gamecarousel`, or
+159:  `gamecarousel` (G-02 on the M6 image, `docs/audits/2026_10_27-epic-m6-es-app-views-scrapers/02-forward-audit.md`
+162:  SETTINGS > THEME CONFIGURATION > GAMELIST VIEW STYLE (`GuiMenu.cpp:8691`,
+175:- **The SCREENSHOTS list** is the `imageviewer` system's: the captures, each
