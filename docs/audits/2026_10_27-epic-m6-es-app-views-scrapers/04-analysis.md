@@ -14,7 +14,7 @@ The slice is 42 files and 17,311 lines. Six files carry the fork's changes and 3
 - **A saved scraper name the build does not register** crashes SCRAPE NOW (3.15). The page's count is short by the thread count (3.19).
 - **The views are mostly sound.** Their defects are small and upstream's: a missing year (3.32), a wrapped play time (3.32), an empty tile in a grid theme (3.31), and a fast move whose wrong index a wrapping carousel hides (3.27).
 
-All seven host harnesses FAIL at the pin and pass their controls. The window proved 3.13 and L-08 on the image. `05` has 20 items: 3 High, 5 Medium, 12 Low. **Ten `bug`s are proposed** (PL-01 to PL-05, PL-07, PL-08, PL-10, PL-17, PL-18). Three more are put to the coordinator (PL-06, PL-09, and PL-11's `/isIdle` half). The rest are recorded or Deferred, each by name in `05`.
+All seven host harnesses FAIL at the pin and pass their controls. The window proved 3.13 and L-08 on the image. `05` has 22 items: 3 High, 5 Medium, 14 Low. As ruled at stage D (#679, 17:22 UTC), **twelve bugs are filed** (#1258 to #1269). The ruling added PL-21 (`/isIdle`) and PL-22 (`/launch`), split from PL-11, and recorded PL-06 and PL-09 with #585 lines. The rest are recorded or Deferred, each by name in `05`.
 
 ## Acceptance-criteria scorecard
 
