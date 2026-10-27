@@ -1,0 +1,4230 @@
+{
+ "schema": "t31-packet-manifest/1",
+ "pin": "16dbac5211eea7e70db7394372033be2be7df829",
+ "sources": [
+  {
+   "section": 0,
+   "title": "ask",
+   "path": "docs/audits/2026_10_27-epic-m6-es-pages/stage-c/ask.md",
+   "ref": "worktree",
+   "kind": "ask",
+   "sha256": "b97214023e124be81bb9c303b695ee5c8157672b986d96cd66fc934cef0189bb",
+   "bytes": 5811
+  },
+  {
+   "section": 2,
+   "title": "The first reader's 02-forward-audit.md (whole)",
+   "path": "docs/audits/2026_10_27-epic-m6-es-pages/02-forward-audit.md",
+   "ref": "worktree",
+   "kind": "first reader",
+   "sha256": "41713db79a0286a12eb264df04101f74552dceb918aca8198a2bd2b1c5043218",
+   "bytes": 64827,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 3,
+   "title": "The first reader's 03-retrospective.md (whole)",
+   "path": "docs/audits/2026_10_27-epic-m6-es-pages/03-retrospective.md",
+   "ref": "worktree",
+   "kind": "first reader",
+   "sha256": "03898eb8f11d86b016a480755068b13e4a9766f7ba9175caa07ad9315d33543d",
+   "bytes": 7925,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 4,
+   "title": "The first reader's 04-analysis.md (whole)",
+   "path": "docs/audits/2026_10_27-epic-m6-es-pages/04-analysis.md",
+   "ref": "worktree",
+   "kind": "first reader",
+   "sha256": "bd2d5f7470ac865a1706adaa7e32e77905cf30da55def3b50742d815046240a5",
+   "bytes": 16249,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 5,
+   "title": "Context 1: the brief's \u00a7 4",
+   "path": "docs/reviews/briefs/es-pages.md \u00a7 4",
+   "ref": "34e130d2ce",
+   "kind": "context",
+   "sha256": "e2cda0ba19a906d255c00e8b3710e276dc8b3200266ae86770f6747eb1595b19",
+   "bytes": 9087,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 6,
+   "title": "Context 2: the register rows",
+   "path": "docs/decision-register.md rows D-UI-021, D-UI-028, D-UI-030, D-UI-039, D-UI-073, D-UI-074, D-UI-078, D-UI-079, D-CLOUD-053, D-WORKFLOW-080, D-WORKFLOW-195",
+   "ref": "worktree",
+   "kind": "context",
+   "sha256": "d16f96f2adb8b6033832bcdf13da64dde76c21ea82389b3627fc5a9ccf03ed7d",
+   "bytes": 11579,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 7,
+   "title": "Evidence: stage-c/runs.txt (the host harnesses)",
+   "path": "docs/audits/2026_10_27-epic-m6-es-pages/stage-c/runs.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "71dac0c998b9ea070c84ca940eb2f74c7c061eafb10a8b2ae8dcf50caff7ac25",
+   "bytes": 4056,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 8,
+   "title": "Evidence: guest-cycle/g01-identity.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-pages/guest-cycle/g01-identity.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "417821e9b8667a183b87a09f913dcd2e1bbd6e085f7c1897f28af5627df4b779",
+   "bytes": 1079,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 9,
+   "title": "Evidence: guest-cycle/g02-start.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-pages/guest-cycle/g02-start.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "dad516a58d02d9f39883ce1015c059c667d7a258473967eddc853cde135f0a0b",
+   "bytes": 625,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 10,
+   "title": "Evidence: guest-cycle/g03-tabs.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-pages/guest-cycle/g03-tabs.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "f87aa44dda3f0e1a1df9e74599b53155f233ab04eb4c53002bd3c05e44c0a82f",
+   "bytes": 2839,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 11,
+   "title": "Evidence: guest-cycle/g04-scrape.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-pages/guest-cycle/g04-scrape.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "98aaa2f2e45f61ca51feee1ac978105d49037145ecda9fc03a7a79ca3f09c740",
+   "bytes": 479,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 12,
+   "title": "Evidence: guest-cycle/g05-bios.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-pages/guest-cycle/g05-bios.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "e15e5bbc19ad47904df6b942304e3512852c65f46129a5ea9e1706f6e11ac90b",
+   "bytes": 309,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 13,
+   "title": "Evidence: guest-cycle/g06-manager.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-pages/guest-cycle/g06-manager.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "10cc2fbf98491d1bfa152cfeffa6f4d2e49893655ee31d6a0e44f417a7107691",
+   "bytes": 2107,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 14,
+   "title": "Evidence: guest-cycle/g07-back.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-pages/guest-cycle/g07-back.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "a5e74435ea8ff36192999679536e6b29fc1f2783d5770b4f928c9a505a94be48",
+   "bytes": 665,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 15,
+   "title": "Evidence: guest-cycle/g08-relay.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-pages/guest-cycle/g08-relay.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "cf65efff66463ab300812d31af68cdef3fc9d9a8d81e570ec56efa7a0ef90a35",
+   "bytes": 900,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 16,
+   "title": "Evidence: guest-cycle/g09-moonlight.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-pages/guest-cycle/g09-moonlight.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "aa86134e19b25df84e05319a67424fd65af495f7cf74a1e567245ba2014e4fc0",
+   "bytes": 1340,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 17,
+   "title": "Evidence: guest-cycle/g12-fr.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-pages/guest-cycle/g12-fr.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "991792f5789eee00937b488df2e55873e93f9933546f06f27c1e72f3e9c535a3",
+   "bytes": 919,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 18,
+   "title": "Evidence: guest-cycle/g13-stop.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-pages/guest-cycle/g13-stop.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "68b74329f78e0a73c00a9325431619fa737b04d165248dd13fb2b5ffa3e881f2",
+   "bytes": 76,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 19,
+   "title": "Evidence: guest-cycle/retired.txt",
+   "path": "docs/audits/2026_10_27-epic-m6-es-pages/guest-cycle/retired.txt",
+   "ref": "worktree",
+   "kind": "evidence",
+   "sha256": "9236e580d7359641aca92feac0fed3e2159aaaad65a44f0766e2f1ff1e9d3b79",
+   "bytes": 662,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 20,
+   "title": "es-app/src/guis/GuiScraperRun.cpp @ 16dbac5211 (whole, 258 lines)",
+   "path": "es-app/src/guis/GuiScraperRun.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "9b7a92b307dc091aedcf2718c7873590f042f3fac1b5f33a029e4f0e64f4deb5",
+   "bytes": 12865,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 21,
+   "title": "es-app/src/guis/GuiScraperRun.h @ 16dbac5211 (whole, 67 lines)",
+   "path": "es-app/src/guis/GuiScraperRun.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "4991cf55048036f15133d1272f4e149827887a626b3c6666664ad3270b01eabe",
+   "bytes": 3329,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 22,
+   "title": "es-app/src/guis/WifiScanProcess.h @ 16dbac5211 (whole, 202 lines)",
+   "path": "es-app/src/guis/WifiScanProcess.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "2ba792f45f97b4ea72491382742a129e9588318047ce1f5685ad43550eb64f4c",
+   "bytes": 6882,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 23,
+   "title": "es-app/src/guis/GuiBios.cpp @ 16dbac5211 (whole, 324 lines)",
+   "path": "es-app/src/guis/GuiBios.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "61272022fd557da7079f4fd7de9fe3cfe70e12dd6c4cb9af305bc5d351f146de",
+   "bytes": 13274,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 24,
+   "title": "es-app/src/guis/GuiBios.h @ 16dbac5211 (whole, 43 lines)",
+   "path": "es-app/src/guis/GuiBios.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "e9eb3b78ef323e8c136dafe6853add356592302e7e441f35e670c7aed95cc82d",
+   "bytes": 1486,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 25,
+   "title": "es-app/src/guis/GuiGameOptions.cpp @ 16dbac5211 (whole, 682 lines)",
+   "path": "es-app/src/guis/GuiGameOptions.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "c4d78fb09a90676ca9a7cf58f5d690a3d611b7b3c20f3a1d177b5a5715f40364",
+   "bytes": 26211,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 26,
+   "title": "es-app/src/guis/GuiImageViewer.cpp @ 16dbac5211 (whole, 778 lines)",
+   "path": "es-app/src/guis/GuiImageViewer.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "69cc2009c41dc8ab4df1d3e6e50b8170530f61fd812df796d7b8d61394003d8d",
+   "bytes": 23456,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 27,
+   "title": "es-app/src/guis/GuiSaveState.cpp @ 16dbac5211 (whole, 612 lines)",
+   "path": "es-app/src/guis/GuiSaveState.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "53aad4d7293a21036f0e8c22bccb1541a176a3bc2d521cbed488eacabaa20016",
+   "bytes": 31044,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 28,
+   "title": "es-app/src/guis/GuiSaveState.h @ 16dbac5211 (whole, 76 lines)",
+   "path": "es-app/src/guis/GuiSaveState.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "c723e719627293b0632a3b3037eb0925e2357cda9223d20fdb5bf9d2d8cc104a",
+   "bytes": 2931,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 29,
+   "title": "es-app/src/guis/GuiScraperStart.cpp @ 16dbac5211 (whole, 559 lines)",
+   "path": "es-app/src/guis/GuiScraperStart.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "df77b6b592a221ba12123bc6a826c279752e627cc8b4e95a52bd6b015fdd4652",
+   "bytes": 24334,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 30,
+   "title": "es-app/src/guis/GuiSettings.cpp @ 16dbac5211 (whole, 465 lines)",
+   "path": "es-app/src/guis/GuiSettings.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "6000a85bc6fe7b91f313f7f75fc6a4f0da2e1170f9ea7051d69f05af3edf777c",
+   "bytes": 17845,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 31,
+   "title": "es-app/src/guis/GuiSettings.h @ 16dbac5211 (whole, 164 lines)",
+   "path": "es-app/src/guis/GuiSettings.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "5a965e086b654a0426218e2dec0a2886fca8e583956eedaec5c4a6a62323a70a",
+   "bytes": 7990,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 32,
+   "title": "es-app/src/guis/GuiLoading.h @ 16dbac5211 (whole, 143 lines)",
+   "path": "es-app/src/guis/GuiLoading.h",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "aeed99e58e27959e16f10783e26803faa5e8175f5e2bb374309f9f7ab5913dd9",
+   "bytes": 3777,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 33,
+   "title": "es-app/src/guis/GuiMoonlight.cpp @ 16dbac5211 (whole, 365 lines)",
+   "path": "es-app/src/guis/GuiMoonlight.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "a0732af597da22f9753b3954c3c7cbc229ac9cf30924df68a3816635574503cb",
+   "bytes": 14994,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 34,
+   "title": "es-app/src/guis/GuiAnalogSticksLedControls.cpp @ 16dbac5211 (whole, 88 lines)",
+   "path": "es-app/src/guis/GuiAnalogSticksLedControls.cpp",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "slice file (whole)",
+   "sha256": "9a349df1c4faee4aa918c28550b62a3813ed0d144b540a3b95134adbf39a1c4a",
+   "bytes": 4344,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 35,
+   "title": "es-app/src/guis/GuiAutoScrape.cpp @ 16dbac5211: lines 60-86 (excerpt of 113)",
+   "path": "es-app/src/guis/GuiAutoScrape.cpp:60-86",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "0b30c18d6555fe613c950ef2a0dd4d1de048d4c2302cd918cb94f32b04c9d380",
+   "bytes": 902,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 36,
+   "title": "es-app/src/guis/GuiBackup.cpp @ 16dbac5211: lines 53-79 (excerpt of 107)",
+   "path": "es-app/src/guis/GuiBackup.cpp:53-79",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "553debd9d66750f3d7110a6b677743a7d1a910fc74bac2e3d8c10df2b8d97df4",
+   "bytes": 821,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 37,
+   "title": "es-app/src/guis/GuiBluetoothDeviceOptions.cpp @ 16dbac5211: lines 48-64 (excerpt of 123)",
+   "path": "es-app/src/guis/GuiBluetoothDeviceOptions.cpp:48-64",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "0350f8c527a87a10d1ddc74809282fc708a886c4815360b2c17512d62dfabd6e",
+   "bytes": 706,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 38,
+   "title": "es-app/src/guis/GuiBluetoothDeviceOptions.cpp @ 16dbac5211: lines 73-89 (excerpt of 123)",
+   "path": "es-app/src/guis/GuiBluetoothDeviceOptions.cpp:73-89",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "38df51d23bb2db986f5ca0e069924134b28bd9fa9202d487324d975a71e620b8",
+   "bytes": 712,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 39,
+   "title": "es-app/src/guis/GuiBluetoothDeviceOptions.cpp @ 16dbac5211: lines 98-114 (excerpt of 123)",
+   "path": "es-app/src/guis/GuiBluetoothDeviceOptions.cpp:98-114",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "94de917bcbe3a2bb41c5a1088d4c219e7ed6adcf6e10568f9505ce324cb1c310",
+   "bytes": 718,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 40,
+   "title": "es-app/src/guis/GuiBluetoothDevices.cpp @ 16dbac5211: lines 52-68 (excerpt of 160)",
+   "path": "es-app/src/guis/GuiBluetoothDevices.cpp:52-68",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "1ca0f826f2a2d70632fe01090baeadf9203de49f672053eeb786e99de758e11e",
+   "bytes": 898,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 41,
+   "title": "es-app/src/guis/GuiBluetoothDevices.cpp @ 16dbac5211: lines 109-129 (excerpt of 160)",
+   "path": "es-app/src/guis/GuiBluetoothDevices.cpp:109-129",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "6d9384216f273d220cfa99dc8b91947d02a2d46c0ea6764094316a637a3aaa04",
+   "bytes": 666,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 42,
+   "title": "es-app/src/guis/GuiBluetoothDevices.cpp @ 16dbac5211: lines 136-152 (excerpt of 160)",
+   "path": "es-app/src/guis/GuiBluetoothDevices.cpp:136-152",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "76ae38b8ce449230852ea887cfc19aa440a2bb6e1a0071d37a80d0c4387ac96b",
+   "bytes": 689,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 43,
+   "title": "es-app/src/guis/GuiBluetoothPair.cpp @ 16dbac5211: lines 85-101 (excerpt of 142)",
+   "path": "es-app/src/guis/GuiBluetoothPair.cpp:85-101",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d7fcc9c487b643d63d7e2bb3d4b4569a9b926afb5569a022d84ae7ee6ef6c039",
+   "bytes": 515,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 44,
+   "title": "es-app/src/guis/GuiCollectionSystemsOptions.cpp @ 16dbac5211: lines 355-372 (excerpt of 611)",
+   "path": "es-app/src/guis/GuiCollectionSystemsOptions.cpp:355-372",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d18468e649f8a5983295265b945172e36be68f1b596edbef6db5c136c1234997",
+   "bytes": 784,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 45,
+   "title": "es-app/src/guis/GuiControllersSettings.cpp @ 16dbac5211: lines 66-91 (excerpt of 853)",
+   "path": "es-app/src/guis/GuiControllersSettings.cpp:66-91",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "882ad9a8107de238b1b593f239a645c44985fd720207007c0c14bd977e68910f",
+   "bytes": 1512,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 46,
+   "title": "es-app/src/guis/GuiControllersSettings.cpp @ 16dbac5211: lines 174-226 (excerpt of 853)",
+   "path": "es-app/src/guis/GuiControllersSettings.cpp:174-226",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "90e995a6c60978a6a8cb31f80a954787fb2d4a62735f289e102e278f82ed3edc",
+   "bytes": 2304,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 47,
+   "title": "es-app/src/guis/GuiControllersSettings.cpp @ 16dbac5211: lines 679-729 (excerpt of 853)",
+   "path": "es-app/src/guis/GuiControllersSettings.cpp:679-729",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "8aba49036b1fd2fb5e772be53dcac126601951f72184056abc00bc345f429f81",
+   "bytes": 3465,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 48,
+   "title": "es-app/src/guis/GuiFavoriteMusicSelector.cpp @ 16dbac5211: lines 11-27 (excerpt of 91)",
+   "path": "es-app/src/guis/GuiFavoriteMusicSelector.cpp:11-27",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "1e16aed49ff1231361d1cd5e277e4df06e541a50b36c1fc4e03c9c6fa402c953",
+   "bytes": 933,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 49,
+   "title": "es-app/src/guis/GuiFavoriteMusicSelector.cpp @ 16dbac5211: lines 37-55 (excerpt of 91)",
+   "path": "es-app/src/guis/GuiFavoriteMusicSelector.cpp:37-55",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "82de63d75c59de1c6c55acdc657e3cedd38846585a0621bca3d69eaffda549f1",
+   "bytes": 1000,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 50,
+   "title": "es-app/src/guis/GuiGamelistOptions.cpp @ 16dbac5211: lines 69-85 (excerpt of 692)",
+   "path": "es-app/src/guis/GuiGamelistOptions.cpp:69-85",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "1693eaf39d4b4eed582ffc55287035d5ffe7bb8b8fcb10cd114094fd73cf03b4",
+   "bytes": 745,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 51,
+   "title": "es-app/src/guis/GuiGamelistOptions.cpp @ 16dbac5211: lines 140-156 (excerpt of 692)",
+   "path": "es-app/src/guis/GuiGamelistOptions.cpp:140-156",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "c1b8f4ff2ab48b3d347a7c8a2c354abfd65be693b6f2054605ff91a142db3bd0",
+   "bytes": 691,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 52,
+   "title": "es-app/src/guis/GuiGamelistOptions.cpp @ 16dbac5211: lines 166-182 (excerpt of 692)",
+   "path": "es-app/src/guis/GuiGamelistOptions.cpp:166-182",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e5684b792462d627160ae11669d3d9269fe9e7e7da88a422d87b366486a9dcf8",
+   "bytes": 827,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 53,
+   "title": "es-app/src/guis/GuiGamelistOptions.cpp @ 16dbac5211: lines 381-397 (excerpt of 692)",
+   "path": "es-app/src/guis/GuiGamelistOptions.cpp:381-397",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "005a5fb52695a7db3e3ee98e7707dd349d43dd2a13d5349ee221b19649abb1b2",
+   "bytes": 616,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 54,
+   "title": "es-app/src/guis/GuiGamelistOptions.cpp @ 16dbac5211: lines 453-469 (excerpt of 692)",
+   "path": "es-app/src/guis/GuiGamelistOptions.cpp:453-469",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "3bc42360ae0787fd05d6a004c9c96522c7a0f59d9767effb3fa685fa4540112a",
+   "bytes": 564,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 55,
+   "title": "es-app/src/guis/GuiGamelistOptions.cpp @ 16dbac5211: lines 652-668 (excerpt of 692)",
+   "path": "es-app/src/guis/GuiGamelistOptions.cpp:652-668",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "0a85a4d57b4ec5d88a5e9c6d28e33af9e70927c97aa08125275b810dce8d6932",
+   "bytes": 792,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 56,
+   "title": "es-app/src/guis/GuiInstall.cpp @ 16dbac5211: lines 54-80 (excerpt of 108)",
+   "path": "es-app/src/guis/GuiInstall.cpp:54-80",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "04d6ecdaafa59cfcc6a96a32bce2948de59e96b979f99dfde86d3f18a4f90dd9",
+   "bytes": 823,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 57,
+   "title": "es-app/src/guis/GuiInstallStart.cpp @ 16dbac5211: lines 74-90 (excerpt of 115)",
+   "path": "es-app/src/guis/GuiInstallStart.cpp:74-90",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "e49614c075bb0c0164fa7a90b6b89265c2d7f1686a6730a5c3c0041219d631f5",
+   "bytes": 681,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 58,
+   "title": "es-app/src/guis/GuiKeyMappingEditor.cpp @ 16dbac5211: lines 148-164 (excerpt of 632)",
+   "path": "es-app/src/guis/GuiKeyMappingEditor.cpp:148-164",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "167e3dc304bd2b1725c2d5b95017923db1855665b25925f7b6946077e912a6a0",
+   "bytes": 550,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 59,
+   "title": "es-app/src/guis/GuiKeyMappingEditor.cpp @ 16dbac5211: lines 447-463 (excerpt of 632)",
+   "path": "es-app/src/guis/GuiKeyMappingEditor.cpp:447-463",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "80c37e7c55572853f0b669871c04afb9d576264d262a99fef0f43f0400b2c3cc",
+   "bytes": 588,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 60,
+   "title": "es-app/src/guis/GuiKeyMappingEditor.cpp @ 16dbac5211: lines 468-514 (excerpt of 632)",
+   "path": "es-app/src/guis/GuiKeyMappingEditor.cpp:468-514",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "2dabfce3461bb9918367a560704f5a0a0f56d624f3a33a892b6b18871b4e9303",
+   "bytes": 1305,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 61,
+   "title": "es-app/src/guis/GuiKeyboardLayout.cpp @ 16dbac5211: lines 156-172 (excerpt of 296)",
+   "path": "es-app/src/guis/GuiKeyboardLayout.cpp:156-172",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d3b1a4bce2b1ea8c8610bfe33d9389d27ba0df53f234de16dd769a3b10c9b74e",
+   "bytes": 659,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 62,
+   "title": "es-app/src/guis/GuiKeyboardtopads.cpp @ 16dbac5211: lines 160-176 (excerpt of 380)",
+   "path": "es-app/src/guis/GuiKeyboardtopads.cpp:160-176",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "4066497856e0556963983ae292d3ee1fa6a5f84d411aa001a7b749bebe1f8504",
+   "bytes": 623,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 63,
+   "title": "es-app/src/guis/GuiMetaDataEd.cpp @ 16dbac5211: lines 325-349 (excerpt of 679)",
+   "path": "es-app/src/guis/GuiMetaDataEd.cpp:325-349",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "5d3d88baef3c6fb6a7f73baa20556494770bbc61c6a37c6ae1022e5f2fd401b4",
+   "bytes": 1166,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 64,
+   "title": "es-app/src/guis/GuiMetaDataEd.cpp @ 16dbac5211: lines 357-373 (excerpt of 679)",
+   "path": "es-app/src/guis/GuiMetaDataEd.cpp:357-373",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d3d3fff6fc99edb48db989671e71da7aa561763b1a45cb1db20b1b7b6e298366",
+   "bytes": 1104,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 65,
+   "title": "es-app/src/guis/GuiMetaDataEd.cpp @ 16dbac5211: lines 512-536 (excerpt of 679)",
+   "path": "es-app/src/guis/GuiMetaDataEd.cpp:512-536",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "0942efb0b36662552ec5597a4bd3a126e3f3336c132a1f7c339652c0ca6a439e",
+   "bytes": 977,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 66,
+   "title": "es-app/src/guis/GuiMetaDataEd.cpp @ 16dbac5211: lines 592-609 (excerpt of 679)",
+   "path": "es-app/src/guis/GuiMetaDataEd.cpp:592-609",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "6da1295e823b1bfdcfec3a83ffaf7884c92902111ab0817a1133aa9b382131df",
+   "bytes": 629,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 67,
+   "title": "es-app/src/guis/GuiMetaDataEd.cpp @ 16dbac5211: lines 612-640 (excerpt of 679)",
+   "path": "es-app/src/guis/GuiMetaDataEd.cpp:612-640",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d30ff06dc1233a5dc1bf16cc9d2708148e9b18e6b8a547b85a548ce5e0495c02",
+   "bytes": 783,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 68,
+   "title": "es-app/src/guis/GuiNetPlay.cpp @ 16dbac5211: lines 328-344 (excerpt of 1110)",
+   "path": "es-app/src/guis/GuiNetPlay.cpp:328-344",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "9d7e844c2dfd559d1350d79b16bc743715901967b9aa5a3178e6cdb5ae628883",
+   "bytes": 539,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 69,
+   "title": "es-app/src/guis/GuiNetPlay.cpp @ 16dbac5211: lines 671-687 (excerpt of 1110)",
+   "path": "es-app/src/guis/GuiNetPlay.cpp:671-687",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "2f1b552d61f9110410701afce49b0866fff3bdf8bc8479b43544c845404a5bb2",
+   "bytes": 642,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 70,
+   "title": "es-app/src/guis/GuiNetPlay.cpp @ 16dbac5211: lines 1013-1029 (excerpt of 1110)",
+   "path": "es-app/src/guis/GuiNetPlay.cpp:1013-1029",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "16885e36466c1e629105af454fcd2aee9f694b8e399863bdd29672d7ffefaee6",
+   "bytes": 437,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 71,
+   "title": "es-app/src/guis/GuiNetPlay.cpp @ 16dbac5211: lines 1050-1066 (excerpt of 1110)",
+   "path": "es-app/src/guis/GuiNetPlay.cpp:1050-1066",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "1b47721ddae70377bf59f2b15c61db4c5be1bb2870419ddb7c26eff96f0dfef4",
+   "bytes": 504,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 72,
+   "title": "es-app/src/guis/GuiNetPlaySettings.cpp @ 16dbac5211: lines 9-53 (excerpt of 192)",
+   "path": "es-app/src/guis/GuiNetPlaySettings.cpp:9-53",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "89cca25f9cac3ae8539c7a2235b8f57b17cfcbfdcedc5cdcd0bfcd1ed4d56724",
+   "bytes": 2219,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 73,
+   "title": "es-app/src/guis/GuiNetPlaySettings.cpp @ 16dbac5211: lines 62-78 (excerpt of 192)",
+   "path": "es-app/src/guis/GuiNetPlaySettings.cpp:62-78",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "b1b97f60eb7c2e3d8850f0914b96dfb18a2e3880be78b48fc80b7e73d67a9d09",
+   "bytes": 553,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 74,
+   "title": "es-app/src/guis/GuiNetPlaySettings.cpp @ 16dbac5211: lines 147-192 (excerpt of 192)",
+   "path": "es-app/src/guis/GuiNetPlaySettings.cpp:147-192",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "a30b1759f4a142a15be76d3ed5ef5a43746ba73060fff7dec1d94f9dbd1f76c5",
+   "bytes": 2489,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 75,
+   "title": "es-app/src/guis/GuiUpdate.cpp @ 16dbac5211: lines 89-131 (excerpt of 248)",
+   "path": "es-app/src/guis/GuiUpdate.cpp:89-131",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "56bf88e329ec7af2c2bc0699139bcca9380fbfad043ce67616d05332e6986f5f",
+   "bytes": 1454,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 76,
+   "title": "es-app/src/guis/GuiUpdate.cpp @ 16dbac5211: lines 205-221 (excerpt of 248)",
+   "path": "es-app/src/guis/GuiUpdate.cpp:205-221",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "49712fb5aafbb5cd085593cd1a99d6553674a947b429b85b1cac70caa8561477",
+   "bytes": 625,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 77,
+   "title": "es-core/src/guis/GuiMsgBox.cpp @ 16dbac5211: lines 17-48 (excerpt of 299)",
+   "path": "es-core/src/guis/GuiMsgBox.cpp:17-48",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "935f56424e797ee823cd6ba226a264b27f11b1fb6ae3aff42a263f53b0206097",
+   "bytes": 1829,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 78,
+   "title": "es-core/src/guis/GuiMsgBox.cpp @ 16dbac5211: lines 97-143 (excerpt of 299)",
+   "path": "es-core/src/guis/GuiMsgBox.cpp:97-143",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "962267520ae4964fe5d76b5feb53bf08befa99b55b7455a68e91717fa40a71f1",
+   "bytes": 2404,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 79,
+   "title": "es-core/src/components/OptionListComponent.h @ 16dbac5211: lines 282-338 (excerpt of 661)",
+   "path": "es-core/src/components/OptionListComponent.h:282-338",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d0bc43d81e9312a6a25c0fad0e585ea31c9e4ddc4b82cf205bf9e0c7a0db950d",
+   "bytes": 1598,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 80,
+   "title": "es-core/src/components/OptionListComponent.h @ 16dbac5211: lines 572-642 (excerpt of 661)",
+   "path": "es-core/src/components/OptionListComponent.h:572-642",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "4cf8ed0431cead4906efd6b0c5602ca41b5afb46660272d8baf064326baa785a",
+   "bytes": 2561,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 81,
+   "title": "es-core/src/Settings.cpp @ 16dbac5211: lines 461-548 (excerpt of 723)",
+   "path": "es-core/src/Settings.cpp:461-548",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "039c9510ff823b6806d1a67384de8681b9fa9ef90262a39757fc3e903810de87",
+   "bytes": 4138,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 82,
+   "title": "es-core/src/Settings.cpp @ 16dbac5211: lines 628-698 (excerpt of 723)",
+   "path": "es-core/src/Settings.cpp:628-698",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "1da6834a11bc74bc38b2ffc7a25535baaaa2920fbae62c1e020f117506b742db",
+   "bytes": 2692,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 83,
+   "title": "es-core/src/SystemConf.cpp @ 16dbac5211: lines 277-328 (excerpt of 494)",
+   "path": "es-core/src/SystemConf.cpp:277-328",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "d4e52de253dc7e8bf3f1fa527c2d423abcaaac0f08eb217693ce05614dace538",
+   "bytes": 2549,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 84,
+   "title": "es-core/src/SystemConf.cpp @ 16dbac5211: lines 431-494 (excerpt of 494)",
+   "path": "es-core/src/SystemConf.cpp:431-494",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "4b4cb17c092e8ef1aa906e96cebbd36c68102d93551c071e83cbb44b1d6e6908",
+   "bytes": 2362,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 85,
+   "title": "es-core/src/utils/AtomicFileUtil.cpp @ 16dbac5211: lines 422-460 (excerpt of 829)",
+   "path": "es-core/src/utils/AtomicFileUtil.cpp:422-460",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "1fa0e042c577f4fbe00576765c22a89dd59897ad4df80cb2bacb4f0fbba1a800",
+   "bytes": 1437,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 86,
+   "title": "es-app/src/ApiSystem.cpp @ 16dbac5211: lines 864-938 (excerpt of 3519)",
+   "path": "es-app/src/ApiSystem.cpp:864-938",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "b7a3fac32c0f66d28cb281696e33aee8d4bdf8b20b3da95cab1b09d1fb5a689c",
+   "bytes": 2177,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 87,
+   "title": "es-app/src/ApiSystem.cpp @ 16dbac5211: lines 2225-2308 (excerpt of 3519)",
+   "path": "es-app/src/ApiSystem.cpp:2225-2308",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "695040cbd48c69e7c734bc96feb30e21ef5b55f09f3dde64b91d8b8fdf40d704",
+   "bytes": 3281,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 88,
+   "title": "es-app/src/SaveState.cpp @ 16dbac5211: lines 205-240 (excerpt of 240)",
+   "path": "es-app/src/SaveState.cpp:205-240",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "048da5534fb5b4abe35d1ad608ce1dc7508df0fa58cc4cb8fb8c412e0f982fa5",
+   "bytes": 1022,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 89,
+   "title": "es-app/src/SaveStateRepository.cpp @ 16dbac5211: lines 272-304 (excerpt of 342)",
+   "path": "es-app/src/SaveStateRepository.cpp:272-304",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "a6cc136e784017ab3e1318b3d6f748a2fffb3de05901b78dc0ccdcbdb6d12b90",
+   "bytes": 787,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 90,
+   "title": "es-app/src/DisplayAspect.cpp @ 16dbac5211: lines 47-143 (excerpt of 153)",
+   "path": "es-app/src/DisplayAspect.cpp:47-143",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "055825a1f0cf9b04496617e54ea0a4f648950c27d77e345cdc014ed1dde72f26",
+   "bytes": 3909,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 91,
+   "title": "es-app/src/SystemData.cpp @ 16dbac5211: lines 2061-2080 (excerpt of 2583)",
+   "path": "es-app/src/SystemData.cpp:2061-2080",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "1d3a36d73a812cffd3efc34dbdfa94e58c178fbf455d2b1ccaf6254ed227a2e8",
+   "bytes": 466,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 92,
+   "title": "es-core/src/utils/FileSystemUtil.cpp @ 16dbac5211: lines 1114-1158 (excerpt of 1805)",
+   "path": "es-core/src/utils/FileSystemUtil.cpp:1114-1158",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "1a081c4dd2951e0294cc28b4f51cb1d1efaba8c39bec787ba017ff0394bd0962",
+   "bytes": 1303,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 93,
+   "title": "es-app/src/guis/GuiMenu.cpp @ 16dbac5211: lines 2182-2208 (excerpt of 11747)",
+   "path": "es-app/src/guis/GuiMenu.cpp:2182-2208",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "0d1e78b983fb59c5dd7780de7baf1cdd2becbcd1fc0474f7ab0417df51c6289c",
+   "bytes": 1518,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  },
+  {
+   "section": 94,
+   "title": "es-app/src/guis/GuiMenu.cpp @ 16dbac5211: lines 5737-5768 (excerpt of 11747)",
+   "path": "es-app/src/guis/GuiMenu.cpp:5737-5768",
+   "ref": "16dbac5211eea7e70db7394372033be2be7df829",
+   "kind": "excerpt",
+   "sha256": "7eb927eabefa22902b791849a935853dac9fc0ae7e014a368b817fb57563e391",
+   "bytes": 1324,
+   "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin"
+  }
+ ],
+ "scan": {
+  "forbidden": [],
+  "secret_patterns": [],
+  "mask": [
+   {
+    "section": 33,
+    "line": 86,
+    "classes": [
+     "empty-string"
+    ],
+    "disposition": "name (the masked token is not a literal)"
+   },
+   {
+    "section": 33,
+    "line": 87,
+    "classes": [
+     "review"
+    ],
+    "disposition": "code: a parse marker, the `key=` prefix a line is searched for (no value)"
+   }
+  ],
+  "words": [
+   {
+    "section": 2,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 57,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 58,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 59,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 60,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 61,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 62,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 97,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 97,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 105,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 105,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 105,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 105,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "prose: the pages table's GLOBAL HOTKEYS / JOYSTICKS HOTKEYS row (`hotkey`, a word)"
+   },
+   {
+    "section": 2,
+    "line": 105,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "prose: the pages table's GLOBAL HOTKEYS / JOYSTICKS HOTKEYS row (`hotkey`, a word)"
+   },
+   {
+    "section": 2,
+    "line": 105,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "prose: the pages table's GLOBAL HOTKEYS / JOYSTICKS HOTKEYS row (`hotkey`, a word)"
+   },
+   {
+    "section": 2,
+    "line": 117,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 117,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "prose: the pages table's GuiKeyMappingEditor row (class names)"
+   },
+   {
+    "section": 2,
+    "line": 117,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "prose: the pages table's GuiKeyMappingEditor row (class names)"
+   },
+   {
+    "section": 2,
+    "line": 117,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 117,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 118,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 118,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "prose: the pages table's GuiKeyboardLayout row (a class name)"
+   },
+   {
+    "section": 2,
+    "line": 118,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 119,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 119,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "prose: the pages table's KEYBOARDTOPADS row (a title)"
+   },
+   {
+    "section": 2,
+    "line": 119,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 119,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "prose: the pages table's KEYBOARDTOPADS row (a title)"
+   },
+   {
+    "section": 2,
+    "line": 141,
+    "word": "pin",
+    "class": "dispositioned",
+    "disposition": "prose: the dialogs tool's description (`GuiMsgBox` is not a credential; a word hit on a name)"
+   },
+   {
+    "section": 2,
+    "line": 156,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 157,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 171,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 172,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 173,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 187,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 201,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 212,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 228,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 228,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 233,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 255,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 255,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 256,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 256,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 257,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 257,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 257,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 259,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 259,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 259,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 261,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 261,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 261,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 265,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 267,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 267,
+    "word": "pass",
+    "class": "dispositioned",
+    "disposition": "prose: the rows' summary naming `password = true` as the rows' mode"
+   },
+   {
+    "section": 2,
+    "line": 268,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 268,
+    "word": "pass",
+    "class": "dispositioned",
+    "disposition": "prose: the rows' summary naming PLAYER PASSWORD's `password = false` mode"
+   },
+   {
+    "section": 2,
+    "line": 280,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 280,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 280,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 281,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 281,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 282,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 282,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 283,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 283,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 284,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 284,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 285,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 285,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 286,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 286,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 298,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 317,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 317,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 325,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 325,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 325,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 325,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 325,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 325,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 325,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "prose: the titles table's GuiControllersSettings row (HOTKEYS titles)"
+   },
+   {
+    "section": 2,
+    "line": 325,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "prose: the titles table's GuiControllersSettings row (HOTKEYS titles)"
+   },
+   {
+    "section": 2,
+    "line": 325,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "prose: the titles table's GuiControllersSettings row (HOTKEYS titles)"
+   },
+   {
+    "section": 2,
+    "line": 337,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 337,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 337,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 338,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 339,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 339,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 339,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 339,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "prose: the titles table's KEYBOARDTOPADS row"
+   },
+   {
+    "section": 2,
+    "line": 358,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 365,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 365,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 365,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 369,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 369,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 375,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 400,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 400,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 401,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 401,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 403,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 403,
+    "word": "pass",
+    "class": "dispositioned",
+    "disposition": "prose: L-04 naming the row's `password = false` mode"
+   },
+   {
+    "section": 2,
+    "line": 403,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 404,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 405,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 406,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 406,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 408,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 409,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 412,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 412,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 415,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 420,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 422,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 442,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 454,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 462,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 463,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 463,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 474,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 496,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 503,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 503,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 504,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 504,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 505,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 506,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 507,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 509,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 519,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 524,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 525,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 525,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 533,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 534,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 550,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 550,
+    "word": "pass",
+    "class": "dispositioned",
+    "disposition": "prose: the #585 row naming `password = true` as the change"
+   },
+   {
+    "section": 2,
+    "line": 560,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 2,
+    "line": 560,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 43,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 49,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 61,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 3,
+    "line": 73,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 3,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 21,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 21,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 30,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 31,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 33,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 33,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 42,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 48,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 48,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 62,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 72,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 74,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 84,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 86,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 87,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 122,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 179,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 194,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 194,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 204,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 205,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 4,
+    "line": 205,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 26,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 32,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 33,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 35,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 42,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 55,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 80,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 80,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 81,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 99,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 107,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 5,
+    "line": 113,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 3,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 3,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 3,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 5,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 7,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 7,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 6,
+    "line": 19,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 1,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 5,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 9,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 9,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 14,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 14,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 18,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 20,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 21,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 26,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 27,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 31,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 33,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 34,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 38,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 38,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 39,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 42,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 50,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 57,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 7,
+    "line": 71,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 8,
+    "line": 7,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 10,
+    "line": 21,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 17,
+    "line": 7,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 17,
+    "line": 7,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 17,
+    "line": 8,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 20,
+    "line": 167,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 18,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 204,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 204,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 419,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 421,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 423,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 427,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 429,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 431,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 461,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 463,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 25,
+    "line": 465,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 27,
+    "line": 334,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 27,
+    "line": 520,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 29,
+    "line": 104,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 29,
+    "line": 107,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 29,
+    "line": 181,
+    "word": "user",
+    "class": "identifier-or-word"
+   },
+   {
+    "section": 29,
+    "line": 190,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 29,
+    "line": 381,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 29,
+    "line": 382,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 29,
+    "line": 382,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 29,
+    "line": 413,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 29,
+    "line": 413,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 29,
+    "line": 414,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 29,
+    "line": 414,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 29,
+    "line": 420,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 29,
+    "line": 420,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 29,
+    "line": 425,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 29,
+    "line": 425,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 29,
+    "line": 439,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 10,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 167,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 170,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 173,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 192,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 218,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 220,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 241,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 246,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 252,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 260,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 278,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 301,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 303,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 321,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 325,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 30,
+    "line": 331,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 84,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 85,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 104,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 110,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 112,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: `mLifeToken`, a page's life token (a member name)"
+   },
+   {
+    "section": 31,
+    "line": 113,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: `mLifeToken` made (a member name)"
+   },
+   {
+    "section": 31,
+    "line": 114,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 151,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 31,
+    "line": 157,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 78,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 79,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 81,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 81,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 86,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 33,
+    "line": 87,
+    "word": "key",
+    "class": "masked"
+   },
+   {
+    "section": 33,
+    "line": 100,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 147,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: a file name (`key.pem`) joined to a path"
+   },
+   {
+    "section": 33,
+    "line": 147,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 170,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 270,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 271,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 271,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 276,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 299,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 304,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 304,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 306,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 306,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 322,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 323,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 33,
+    "line": 342,
+    "word": "pin",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 18,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: `tokens` from splitting a setting's line"
+   },
+   {
+    "section": 34,
+    "line": 19,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 20,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 21,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 22,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 23,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 24,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 25,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 34,
+    "line": 26,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 1,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `autohotkeys`, a switch's variable name"
+   },
+   {
+    "section": 45,
+    "line": 2,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 2,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 3,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 3,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 4,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 5,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 5,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 45,
+    "line": 13,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 50,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 50,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 52,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: `restrictHotkeys`, a switch's variable name"
+   },
+   {
+    "section": 46,
+    "line": 53,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 46,
+    "line": 53,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 5,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 9,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 47,
+    "line": 11,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 60,
+    "line": 7,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the class name `GuiKeyMappingEditor`"
+   },
+   {
+    "section": 60,
+    "line": 22,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the class name `GuiKeyMappingEditor`"
+   },
+   {
+    "section": 60,
+    "line": 37,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the class name `GuiKeyMappingEditor`"
+   },
+   {
+    "section": 60,
+    "line": 46,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the class name `GuiKeyMappingEditor`"
+   },
+   {
+    "section": 61,
+    "line": 10,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 61,
+    "line": 13,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: the class name `GuiKeyboardLayout`"
+   },
+   {
+    "section": 62,
+    "line": 4,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 63,
+    "line": 15,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 65,
+    "line": 5,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 66,
+    "line": 5,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 66,
+    "line": 7,
+    "word": "key",
+    "class": "dispositioned",
+    "disposition": "code: a metadata key name compared (`key == \"rating\"`)"
+   },
+   {
+    "section": 67,
+    "line": 17,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 81,
+    "line": 18,
+    "word": "user",
+    "class": "word"
+   },
+   {
+    "section": 81,
+    "line": 31,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 83,
+    "line": 23,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 83,
+    "line": 52,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 84,
+    "line": 16,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 84,
+    "line": 18,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 84,
+    "line": 20,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 85,
+    "line": 32,
+    "word": "key",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 38,
+    "word": "token",
+    "class": "dispositioned",
+    "disposition": "code: `tokens` from splitting a script's output line"
+   },
+   {
+    "section": 86,
+    "line": 39,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 41,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 42,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 46,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 86,
+    "line": 49,
+    "word": "token",
+    "class": "word"
+   },
+   {
+    "section": 87,
+    "line": 11,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 87,
+    "line": 41,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 87,
+    "line": 73,
+    "word": "secret",
+    "class": "word"
+   },
+   {
+    "section": 94,
+    "line": 4,
+    "word": "pass",
+    "class": "word"
+   },
+   {
+    "section": 94,
+    "line": 24,
+    "word": "user",
+    "class": "word"
+   }
+  ]
+ },
+ "summary": {
+  "forbidden_terms_check": "0 section(s) with hits of 93; proven to run on a clean line",
+  "secret_patterns": "0 line(s); proven to fire on a run-time fake line",
+  "mask": "2 line(s) masked; classes [\"empty-string\", \"review\"]",
+  "words": "351 credential-word hit(s); classes {\"dispositioned\": 30, \"identifier-or-word\": 1, \"masked\": 2, \"word\": 318}",
+  "review": 0,
+  "slice": "5798 of 15537 slice lines sent; 15 files whole; 43 files with no line cited (sent nothing)"
+ },
+ "slice_files": {
+  "GuiScraperRun.cpp": {
+   "sent": [
+    [
+     1,
+     258
+    ]
+   ],
+   "trimmed": [],
+   "lines": 258
+  },
+  "GuiScraperRun.h": {
+   "sent": [
+    [
+     1,
+     67
+    ]
+   ],
+   "trimmed": [],
+   "lines": 67
+  },
+  "WifiScanProcess.h": {
+   "sent": [
+    [
+     1,
+     202
+    ]
+   ],
+   "trimmed": [],
+   "lines": 202
+  },
+  "GuiBios.cpp": {
+   "sent": [
+    [
+     1,
+     324
+    ]
+   ],
+   "trimmed": [],
+   "lines": 324
+  },
+  "GuiBios.h": {
+   "sent": [
+    [
+     1,
+     43
+    ]
+   ],
+   "trimmed": [],
+   "lines": 43
+  },
+  "GuiGameOptions.cpp": {
+   "sent": [
+    [
+     1,
+     682
+    ]
+   ],
+   "trimmed": [],
+   "lines": 682
+  },
+  "GuiImageViewer.cpp": {
+   "sent": [
+    [
+     1,
+     778
+    ]
+   ],
+   "trimmed": [],
+   "lines": 778
+  },
+  "GuiSaveState.cpp": {
+   "sent": [
+    [
+     1,
+     612
+    ]
+   ],
+   "trimmed": [],
+   "lines": 612
+  },
+  "GuiSaveState.h": {
+   "sent": [
+    [
+     1,
+     76
+    ]
+   ],
+   "trimmed": [],
+   "lines": 76
+  },
+  "GuiScraperStart.cpp": {
+   "sent": [
+    [
+     1,
+     559
+    ]
+   ],
+   "trimmed": [],
+   "lines": 559
+  },
+  "GuiSettings.cpp": {
+   "sent": [
+    [
+     1,
+     465
+    ]
+   ],
+   "trimmed": [],
+   "lines": 465
+  },
+  "GuiSettings.h": {
+   "sent": [
+    [
+     1,
+     164
+    ]
+   ],
+   "trimmed": [],
+   "lines": 164
+  },
+  "GuiLoading.h": {
+   "sent": [
+    [
+     1,
+     143
+    ]
+   ],
+   "trimmed": [],
+   "lines": 143
+  },
+  "GuiMoonlight.cpp": {
+   "sent": [
+    [
+     1,
+     365
+    ]
+   ],
+   "trimmed": [],
+   "lines": 365
+  },
+  "GuiAnalogSticksLedControls.cpp": {
+   "sent": [
+    [
+     1,
+     88
+    ]
+   ],
+   "trimmed": [],
+   "lines": 88
+  },
+  "GuiAnalogSticksLedControls.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     11
+    ]
+   ],
+   "lines": 11
+  },
+  "GuiAutoScrape.cpp": {
+   "sent": [
+    [
+     60,
+     86
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     59
+    ],
+    [
+     87,
+     113
+    ]
+   ],
+   "lines": 113
+  },
+  "GuiAutoScrape.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     36
+    ]
+   ],
+   "lines": 36
+  },
+  "GuiBackup.cpp": {
+   "sent": [
+    [
+     53,
+     79
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     52
+    ],
+    [
+     80,
+     107
+    ]
+   ],
+   "lines": 107
+  },
+  "GuiBackup.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     39
+    ]
+   ],
+   "lines": 39
+  },
+  "GuiBackupStart.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     90
+    ]
+   ],
+   "lines": 90
+  },
+  "GuiBackupStart.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     22
+    ]
+   ],
+   "lines": 22
+  },
+  "GuiBatoceraStore.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     548
+    ]
+   ],
+   "lines": 548
+  },
+  "GuiBatoceraStore.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     81
+    ]
+   ],
+   "lines": 81
+  },
+  "GuiBezelInstaller.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     292
+    ]
+   ],
+   "lines": 292
+  },
+  "GuiBezelInstaller.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     53
+    ]
+   ],
+   "lines": 53
+  },
+  "GuiBluetoothDeviceOptions.cpp": {
+   "sent": [
+    [
+     48,
+     64
+    ],
+    [
+     73,
+     89
+    ],
+    [
+     98,
+     114
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     47
+    ],
+    [
+     65,
+     72
+    ],
+    [
+     90,
+     97
+    ],
+    [
+     115,
+     123
+    ]
+   ],
+   "lines": 123
+  },
+  "GuiBluetoothDeviceOptions.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     28
+    ]
+   ],
+   "lines": 28
+  },
+  "GuiBluetoothDevices.cpp": {
+   "sent": [
+    [
+     52,
+     68
+    ],
+    [
+     109,
+     129
+    ],
+    [
+     136,
+     152
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     51
+    ],
+    [
+     69,
+     108
+    ],
+    [
+     130,
+     135
+    ],
+    [
+     153,
+     160
+    ]
+   ],
+   "lines": 160
+  },
+  "GuiBluetoothDevices.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     28
+    ]
+   ],
+   "lines": 28
+  },
+  "GuiBluetoothPair.cpp": {
+   "sent": [
+    [
+     85,
+     101
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     84
+    ],
+    [
+     102,
+     142
+    ]
+   ],
+   "lines": 142
+  },
+  "GuiBluetoothPair.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     35
+    ]
+   ],
+   "lines": 35
+  },
+  "GuiCollectionSystemsOptions.cpp": {
+   "sent": [
+    [
+     355,
+     372
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     354
+    ],
+    [
+     373,
+     611
+    ]
+   ],
+   "lines": 611
+  },
+  "GuiCollectionSystemsOptions.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     33
+    ]
+   ],
+   "lines": 33
+  },
+  "GuiControllersSettings.cpp": {
+   "sent": [
+    [
+     66,
+     91
+    ],
+    [
+     174,
+     226
+    ],
+    [
+     679,
+     729
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     65
+    ],
+    [
+     92,
+     173
+    ],
+    [
+     227,
+     678
+    ],
+    [
+     730,
+     853
+    ]
+   ],
+   "lines": 853
+  },
+  "GuiControllersSettings.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     44
+    ]
+   ],
+   "lines": 44
+  },
+  "GuiFavoriteMusicSelector.cpp": {
+   "sent": [
+    [
+     11,
+     27
+    ],
+    [
+     37,
+     55
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     10
+    ],
+    [
+     28,
+     36
+    ],
+    [
+     56,
+     91
+    ]
+   ],
+   "lines": 91
+  },
+  "GuiFavoriteMusicSelector.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     28
+    ]
+   ],
+   "lines": 28
+  },
+  "GuiFileBrowser.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     231
+    ]
+   ],
+   "lines": 231
+  },
+  "GuiFileBrowser.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     41
+    ]
+   ],
+   "lines": 41
+  },
+  "GuiGameOptions.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     52
+    ]
+   ],
+   "lines": 52
+  },
+  "GuiGameScraper.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     131
+    ]
+   ],
+   "lines": 131
+  },
+  "GuiGameScraper.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     39
+    ]
+   ],
+   "lines": 39
+  },
+  "GuiGamelistFilter.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     271
+    ]
+   ],
+   "lines": 271
+  },
+  "GuiGamelistFilter.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     47
+    ]
+   ],
+   "lines": 47
+  },
+  "GuiGamelistOptions.cpp": {
+   "sent": [
+    [
+     69,
+     85
+    ],
+    [
+     140,
+     156
+    ],
+    [
+     166,
+     182
+    ],
+    [
+     381,
+     397
+    ],
+    [
+     453,
+     469
+    ],
+    [
+     652,
+     668
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     68
+    ],
+    [
+     86,
+     139
+    ],
+    [
+     157,
+     165
+    ],
+    [
+     183,
+     380
+    ],
+    [
+     398,
+     452
+    ],
+    [
+     470,
+     651
+    ],
+    [
+     669,
+     692
+    ]
+   ],
+   "lines": 692
+  },
+  "GuiGamelistOptions.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     66
+    ]
+   ],
+   "lines": 66
+  },
+  "GuiGeneralScreensaverOptions.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     424
+    ]
+   ],
+   "lines": 424
+  },
+  "GuiGeneralScreensaverOptions.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     22
+    ]
+   ],
+   "lines": 22
+  },
+  "GuiHashStart.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     118
+    ]
+   ],
+   "lines": 118
+  },
+  "GuiHashStart.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     40
+    ]
+   ],
+   "lines": 40
+  },
+  "GuiImageViewer.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     52
+    ]
+   ],
+   "lines": 52
+  },
+  "GuiInstall.cpp": {
+   "sent": [
+    [
+     54,
+     80
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     53
+    ],
+    [
+     81,
+     108
+    ]
+   ],
+   "lines": 108
+  },
+  "GuiInstall.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     41
+    ]
+   ],
+   "lines": 41
+  },
+  "GuiInstallStart.cpp": {
+   "sent": [
+    [
+     74,
+     90
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     73
+    ],
+    [
+     91,
+     115
+    ]
+   ],
+   "lines": 115
+  },
+  "GuiInstallStart.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     26
+    ]
+   ],
+   "lines": 26
+  },
+  "GuiKeyMappingEditor.cpp": {
+   "sent": [
+    [
+     148,
+     164
+    ],
+    [
+     447,
+     463
+    ],
+    [
+     468,
+     514
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     147
+    ],
+    [
+     165,
+     446
+    ],
+    [
+     464,
+     467
+    ],
+    [
+     515,
+     632
+    ]
+   ],
+   "lines": 632
+  },
+  "GuiKeyMappingEditor.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     81
+    ]
+   ],
+   "lines": 81
+  },
+  "GuiKeyboardLayout.cpp": {
+   "sent": [
+    [
+     156,
+     172
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     155
+    ],
+    [
+     173,
+     296
+    ]
+   ],
+   "lines": 296
+  },
+  "GuiKeyboardLayout.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     33
+    ]
+   ],
+   "lines": 33
+  },
+  "GuiKeyboardtopads.cpp": {
+   "sent": [
+    [
+     160,
+     176
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     159
+    ],
+    [
+     177,
+     380
+    ]
+   ],
+   "lines": 380
+  },
+  "GuiKeyboardtopads.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     34
+    ]
+   ],
+   "lines": 34
+  },
+  "GuiMetaDataEd.cpp": {
+   "sent": [
+    [
+     325,
+     349
+    ],
+    [
+     357,
+     373
+    ],
+    [
+     512,
+     536
+    ],
+    [
+     592,
+     609
+    ],
+    [
+     612,
+     640
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     324
+    ],
+    [
+     350,
+     356
+    ],
+    [
+     374,
+     511
+    ],
+    [
+     537,
+     591
+    ],
+    [
+     610,
+     611
+    ],
+    [
+     641,
+     679
+    ]
+   ],
+   "lines": 679
+  },
+  "GuiMetaDataEd.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     56
+    ]
+   ],
+   "lines": 56
+  },
+  "GuiMoonlight.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     17
+    ]
+   ],
+   "lines": 17
+  },
+  "GuiNetPlay.cpp": {
+   "sent": [
+    [
+     328,
+     344
+    ],
+    [
+     671,
+     687
+    ],
+    [
+     1013,
+     1029
+    ],
+    [
+     1050,
+     1066
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     327
+    ],
+    [
+     345,
+     670
+    ],
+    [
+     688,
+     1012
+    ],
+    [
+     1030,
+     1049
+    ],
+    [
+     1067,
+     1110
+    ]
+   ],
+   "lines": 1110
+  },
+  "GuiNetPlay.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     121
+    ]
+   ],
+   "lines": 121
+  },
+  "GuiNetPlaySettings.cpp": {
+   "sent": [
+    [
+     9,
+     53
+    ],
+    [
+     62,
+     78
+    ],
+    [
+     147,
+     192
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     8
+    ],
+    [
+     54,
+     61
+    ],
+    [
+     79,
+     146
+    ]
+   ],
+   "lines": 192
+  },
+  "GuiNetPlaySettings.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     15
+    ]
+   ],
+   "lines": 15
+  },
+  "GuiScraperStart.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     48
+    ]
+   ],
+   "lines": 48
+  },
+  "GuiSystemInformation.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     66
+    ]
+   ],
+   "lines": 66
+  },
+  "GuiSystemInformation.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     11
+    ]
+   ],
+   "lines": 11
+  },
+  "GuiThemeInstaller.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     462
+    ]
+   ],
+   "lines": 462
+  },
+  "GuiThemeInstaller.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     81
+    ]
+   ],
+   "lines": 81
+  },
+  "GuiUpdate.cpp": {
+   "sent": [
+    [
+     89,
+     131
+    ],
+    [
+     205,
+     221
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     88
+    ],
+    [
+     132,
+     204
+    ],
+    [
+     222,
+     248
+    ]
+   ],
+   "lines": 248
+  },
+  "GuiUpdate.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     65
+    ]
+   ],
+   "lines": 65
+  }
+ },
+ "packet": {
+  "file": "packet.md",
+  "bytes": 411984,
+  "sha256": "7b157c9dab5b6d6258d016118146e52e851acd51da88168b0e7e8fc0ccf1083f"
+ }
+}
