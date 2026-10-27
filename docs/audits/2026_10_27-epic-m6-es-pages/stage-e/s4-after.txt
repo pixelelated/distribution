@@ -1,0 +1,14 @@
+# S4 after: ES f9b97b3ea, 14:39:08Z
+$ python3 -I stage-c/s04-copy-press.py <W>/es-app/src/guis/GuiSaveState.cpp
+ok   failed: probe | queued | box: THE COPY COULDN'T BE MADE. YOUR SAVE STATES ARE AS THEY WERE.; tiles 2
+ok   made: the cursor on /s/nes/Bobl.state2; probe | queued | toast: SAVE STATE COPIED.
+ok   no-slot: probe | box: THERE'S NO FREE SLOT LEFT. DELETE A SAVE STATE FIRST.
+ok   lock: probe | queued
+ok   twice: 1 copies asked for; probe | queued
+s04: PASS, 5 cases
+rc 0
+$ bash tools/t31-bookkeeper-tests.sh <W> <build>
+[doctest] test cases:  8 |  8 passed | 0 failed | 0 skipped
+[doctest] assertions: 36 | 36 passed | 0 failed |
+RUN bookkeeper-tests: rc 0
+rc 0

@@ -30,9 +30,11 @@ done
 G=$W/es-app/src/guis
 # From S3 on, Moonlight's positive is s03-moonlight.py, which compiles the whole page and runs it:
 # l05-l06 reads the pin's snprintf and tilde shapes, which S3 removes, and stays the pin's record (D-WORKFLOW-210).
-for h in "l01-start-drops.py $G/GuiSettings.cpp" "l02-led-not-saved.py $G/GuiAnalogSticksLedControls.cpp $G/GuiSettings.cpp" "s03-moonlight.py $W" "l09-l10-scrape-page.py $G/GuiScraperRun.cpp" "l22-guiloading-race.py $G/GuiLoading.h"; do
+for h in "l01-start-drops.py $G/GuiSettings.cpp" "l02-led-not-saved.py $G/GuiAnalogSticksLedControls.cpp $G/GuiSettings.cpp" "s03-moonlight.py $W" "s04-copy-press.py $G/GuiSaveState.cpp" "l09-l10-scrape-page.py $G/GuiScraperRun.cpp" "l22-guiloading-race.py $G/GuiLoading.h"; do
   out=$(python3 -I $C/$h 2>&1); rc=$?
   printf 'stage-c/%s rc=%s: %s\n' "${h%% *}" "$rc" "$(printf '%s\n' "$out" | grep -v -E '^\s+#' | tail -n 1 | cut -c1-140)"
 done
+# From S4 on, tests/app-unit's bookkeeper-tests (the host has no cmake; the lane's script reads its CMake block).
+out=$(bash "$H/../tools/t31-bookkeeper-tests.sh" "$W" /workspace/tmp/m6-t31/bk-build 2>&1); rc=$?; printf '%s\n' "$out" | grep -E '^\[doctest\] test cases|^BUILD FAIL'; echo "t31-bookkeeper-tests rc $rc"
 out=$(cd "$D" && tools/es-menu-map-check --es-src "$W" --ref "$(git -C "$W" rev-parse HEAD)" 2>&1); rc=$?; printf '%s (rc %s)\n' "$(printf '%s\n' "$out" | tail -n 1)" "$rc"
 for base in bccd715707 cada856d86; do out=$(cd "$D" && tools/es-untranslated --es-src "$W" --upstream $base 2>&1); rc=$?; printf '%s [%s] (rc %s)\n' "$(printf '%s\n' "$out" | grep -m1 'fork string')" $base "$rc"; done

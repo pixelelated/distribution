@@ -1,0 +1,17 @@
+# S4 before (#678, #1242, #782): the page and the bookkeeper at 70db6535b (S3's tip; the pin's for these files), 14:38:51Z
+$ python3 -I stage-c/s04-copy-press.py <GuiSaveState.cpp at 70db6535b>
+FAIL failed: probe | write@press; tiles 2
+FAIL made: the cursor on START NEW GAME; probe | write@press | record
+FAIL no-slot: probe
+FAIL lock: probe | write@press | record
+ok   twice: 1 copies asked for; probe | write@press | record | probe
+FAIL s04: 4 of 5 cases
+rc 1
+$ bash tools/t31-bookkeeper-tests.sh <70db6535b's tree with the new BookkeeperTests.cpp> <build>
+BUILD FAIL bookkeeper-tests: BookkeeperTests.cpp:221:56: error: ‘copyOutcome’ is not a member of ‘SaveStateBookkeeper’ BookkeeperTests.cpp:236:54: error: ‘copyLater’ is not a member of ‘SaveStateBookkeeper’ BookkeeperTests.cpp:239:36: error: ‘copyOutcome’ is not a member of ‘SaveStateBookkeeper’ 
+rc 1
+$ the same at 70db6535b's own tests (the baseline)
+[doctest] test cases:  5 |  5 passed | 0 failed | 0 skipped
+[doctest] assertions: 20 | 20 passed | 0 failed |
+RUN bookkeeper-tests: rc 0
+rc 0
