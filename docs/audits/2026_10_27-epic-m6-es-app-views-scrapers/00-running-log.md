@@ -88,3 +88,4 @@
   - The seat corrected five sentences of mine, each fixed in place: G-05 is not L-07's positive (EP-4); L-02 needs no hook (EP-6); L-22's lines and prerequisites (EP-10); two rescan callers do delete first (EP-28); G-09 is a picture, not a manual (EP-29).
   - New leads L-25 to L-29 in 02 § Corrections and new leads from the seat.
 - **05:** 20 items (3 High, 5 Medium, 12 Low); ten `bug`s proposed, to be filed after the ruling as on #678. `tools/lint-audit-artifacts --phase pre-issue`: `PASS pre-issue artifacts (does not certify resolution)` at 17:19 UTC.
+- **Stage D, 17:20 UTC:** the audit issue #1257 was filed from `05` by `tools/t32-issue-body.py` and attached as a sub-issue of #679. `tools/box-check --issue 1257`: 20 open checkboxes, 0 fail. The ten bugs wait for the ruling. Next: the stage-D pause post on #679.

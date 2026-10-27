@@ -11,6 +11,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - **One item per defect or reusable improvement**, however many leads found it, ordered by severity.
 - **Nothing here changes a file** under the distribution's `packages/`, `projects/` or `tools/`, or an ES file, at stages A to D. A fix lands only under a stream brief on the ES branch, proven twice. A row added, moved or renamed updates `docs/es-menu-map.md` in the same commit (D-UI-039).
 - **Lines** are the pin's. "Guest" means the M6 image (M7's composition over the pin). "Fixture" means a stage-C harness that fails at the pin and passes its control.
+- **The audit issue:** #1257 (a sub-issue of #679), one checkbox per item; `tools/box-check --issue 1257`: 20 open checkboxes, 0 fail.
 - **The bugs are proposed, not filed.** As on #678, each is filed with its code trace once the coordinator rules at the stage-D pause.
 
 ---
