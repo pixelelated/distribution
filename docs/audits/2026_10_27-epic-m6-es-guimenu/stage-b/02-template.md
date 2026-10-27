@@ -204,6 +204,14 @@ Every run, with its exit and wall time; the figure, and what a FAIL would mean. 
 
 **Not done in the window, with the reason:** the TRY AGAIN / CANCEL SIGN-IN landing (L-22; a failing sign-in, not set up); the EN walk of the folder pages beyond the selection page; the FR walk of NETWORK SETTINGS; L-16 at 1280x800 (`fix-walk-pending-image`: `vm-pair` has no `--res`). **Mistakes of mine, recorded:** a malformed serial command left the guest's shell in `cat` for a minute (cleared with Ctrl-C and Ctrl-D); two fast key bursts overshot and were re-walked.
 
+## The streams
+
+Stage E, under the ruling of 09:17 UTC (#673, comment 6438068860) and the stream brief `docs/reviews/briefs/t26-streams.md` at `4bd066551a`. One ES commit per stream on `feature/m6-es-guimenu-673` (pixelelated/emulationstation), serial, each test first: its FAIL at the pin in `stage-e/sN-before.txt`, its PASS in `sN-after.txt`, and every check in `sN-checks.txt` (`stage-e/checks.sh`: T21's stand-in syntax check, proven to pass the pin and fire on a broken copy, with the recipe's patched rapidjson; the non-ASCII check over the added lines; every harness under `tests/`; `es-menu-map-check`; the French count). `tools/es-syntax-check` answers CANNOT here (no build root, rc 2), which is not a pass.
+
+| Stream | Bugs | ES commit | Test (before at the pin, after) | Already written |
+| --- | --- | --- | --- | --- |
+| S1 | PL-01, #1215 | `70a00ad13` | `tests/cloud-setup-repair-lifetime.py`: ASan heap-use-after-free at `16dbac521`; PASS, 1 page left, 2 refusals | nothing: the picker holds no state and writes nothing; the crash came before anything was stored |
+
 ## Positives
 
 - **Every wizard transition hands the new page on** (§ The transitions): fifteen of sixteen `cloudSetupPresent` calls are their scope's last statement and the sixteenth is deliberate; five are covered by `cloud-oauth-lifetime.py` and `cloud-gated-row.py`, and `cloud-folder-reopen.py` covers the folder page's rebuild.

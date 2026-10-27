@@ -1,0 +1,14 @@
+== S1 before: tests/cloud-setup-repair-lifetime.py over the pin's GuiMenu.cpp (16dbac5211), 09:22:00Z
+FAIL repair picker: ==636131==ERROR: AddressSanitizer: heap-use-after-free on address 0x74726d9e0150 at pc 0x5ba8dd5b13f9 bp 0x7ffdc84173a0 sp 0x7ffdc8417390
+    #4 0x5ba8dd5b13f8 in __invoke_impl<void, GuiMenu::openCloudSetup(Window*)::<lambda()>::<lambda()>&> /usr/include/c++/15/bits/invoke.h:63
+    #5 0x5ba8dd5b13f8 in __invoke_r<void, GuiMenu::openCloudSetup(Window*)::<lambda()>::<lambda()>&> /usr/include/c++/15/bits/invoke.h:152
+    #9 0x5ba8dd5ba2b3 in main /workspace/tmp/m6-t26/tmp/cloud-setup-repair-lifetime-_225r9q0/repair.cpp:291
+    #11 0x77c26e62a717 in __libc_start_main (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a717) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+    #4 0x5ba8dd5b1387 in __invoke_impl<void, GuiMenu::openCloudSetup(Window*)::<lambda()>::<lambda()>&> /usr/include/c++/15/bits/invoke.h:63
+    #5 0x5ba8dd5b1387 in __invoke_r<void, GuiMenu::openCloudSetup(Window*)::<lambda()>::<lambda()>&> /usr/include/c++/15/bits/invoke.h:152
+    #9 0x5ba8dd5b9feb in main /workspace/tmp/m6-t26/tmp/cloud-setup-repair-lifetime-_225r9q0/repair.cpp:287
+    #11 0x77c26e62a717 in __libc_start_main (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a717) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+    #1 0x5ba8dd5b4d38 in GuiMenu::openCloudSetup(Window*) /workspace/tmp/m6-t26/tmp/cloud-setup-repair-lifetime-_225r9q0/repair.cpp:205
+    #2 0x5ba8dd5b9e45 in main /workspace/tmp/m6-t26/tmp/cloud-setup-repair-lifetime-_225r9q0/repair.cpp:279
+    #4 0x77c26e62a717 in __libc_start_main (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a717) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+rc 1

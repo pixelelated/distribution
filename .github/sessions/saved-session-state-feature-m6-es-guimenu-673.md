@@ -17,11 +17,12 @@
 
 ## Current focus
 
-**Stage D: paused on #673 for the coordinator's ruling.**
+**Stage E: the streams, serial, on the ES branch** (the ruling 09:17 UTC, #673 comment 6438068860; the stream brief `docs/reviews/briefs/t26-streams.md` at `4bd066551a`).
 
-- **The audit issue:** #1213 (29 items: 1 high, 5 medium, 23 low), a sub-issue of #673; box-check 0 fail.
-- **Waiting on:** the ruling of the pause post on #673 -- which items become streams, the rule-6-or-D-UI-079 calls, the words. Then the bugs, filed from `05`, and stage E on the ES branch.
-- **What runs here:** nothing. Scratch is `/workspace/tmp/m6-t26/`; the ES worktree stays at the pin.
+- **The bugs:** #1215 to #1233 filed (`stage-e/bugs-filed.txt`).
+- **Done:** S1 (PL-01, #1215) at ES `70a00ad13`.
+- **Next:** S2 (PL-02 #1216 + PL-15), then S3 to S13 in order; each with `stage-e/sN-before.txt`, `sN-after.txt`, `sN-checks.txt` (`bash stage-e/checks.sh SN`), one ES commit, `.githooks/pre-push-test`, the push; then `02` § The streams via `stage-b/02-template.md` and `tools/t26-assemble-02.py`.
+- **Scratch:** `/workspace/tmp/m6-t26/` (the pin's files in `tmp/`, the recipe's patched rapidjson in `rapidjson/`).
 
 ## Next commands
 
@@ -33,7 +34,7 @@ git diff --stat 8ebaf8daad HEAD -- packages projects | tail -1                  
 test -f docs/reviews/inventory.json && echo inventory
 grep -c 'D-RA-050' docs/decision-register.md                                       # 1 or more: the coordinator's tip is merged
 W=/home/max/Development/emulationstation-next.worktrees/m6-es-guimenu-673
-git -C "$W" rev-parse HEAD; git -C "$W" status --short | wc -l                      # the pin; 0
+git -C "$W" log --oneline 16dbac5211..HEAD; git -C "$W" status --short | wc -l   # one commit per stream done; 0
 tail -n 6 /tmp/m7-m6-host-coordination-20261023.txt | cut -c1-200; pgrep -x qemu-system-x86 -r R,S,D,T | wc -l
 sed -n '1,150p' docs/reviews/briefs/es-guimenu.md
 ```
@@ -60,6 +61,7 @@ granted window.
 
 ## Checkpoints
 
+- Stage E, S1, 09:27 UTC: ES `70a00ad13` (pushed); the 19 bugs #1215 to #1233.
 - Stage D: #1213 filed; the pause posted on #673.
 - Stage C, 09:2x UTC: the seat graded, `05` written, the lint PASS.
 - The window, 08:31 UTC: RETURN posted; `02` § The guest cycle written.
