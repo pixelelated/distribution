@@ -1,0 +1,152 @@
+# T33 (#680) stage C: the host proofs' runs, as printed. Every harness at the pin (each must FAIL), then with --control, the lane's proposed fix (each must PASS). The unit build is build-pin.txt; the include graph includes.out.
+
+$ python3 -I stage-c/l309-rating-year.py <pin>/FileFilterIndex.cpp    (19:25:38Z)
+rating       -> UNKNOWN
+rating 0     -> UNKNOWN
+rating 0.05  -> 0 STARS   (a positive rating reads 0 STARS)
+rating 0.1   -> 1 STARS
+rating 0.5   -> 3 STARS
+rating 1     -> 5 STARS
+year 19920101T000000  -> "1992"
+year 20240101T000000  -> "2024"
+year 30000101T000000  -> ""   (want the year)
+year 09990101T000000  -> ""   (want the year)
+year                  -> ""
+FAIL 3.9: 3 key(s) read against the rule
+rc=1
+
+$ python3 -I stage-c/l313-update-gamelist.py <pin>/Gamelist.cpp <pugixml>    (19:25:38Z)
+startup: gamelist.xml absent (the session's first answer, remembered)
+outside ES: gamelist.xml written with Bravo's entry
+after the save: Alpha present, Bravo absent; inode the same (written in place)
+FAIL 3.13: the entry that arrived from outside was lost by the save (L-05)
+FAIL 3.13: gamelist.xml written in place, no temp-and-rename (D-CLOUD-078)
+rc=1
+
+$ python3 -I stage-c/l321-keys-parse.py <pin> <rapidjson>    (19:25:39Z)
+loaded: player 1 holds 1 mapping(s) [KNOWN]
+FAIL 3.21: a mapping whose trigger the table refuses is dropped and nothing says so (L-28)
+rc=1
+
+$ python3 -I stage-c/l329-filetag-words.py <pin>/FileTag.cpp <pin-fr.po>    (19:25:40Z)
+tag FINISHED     extracted yes French 'TERMINÉ'
+tag IN PROGRESS  extracted NO  French NONE
+tag DROPPED      extracted NO  French NONE
+tag ON HOLD      extracted NO  French NONE
+tag SLOW         extracted yes French 'LENT'
+tag NOT WORKING  extracted yes French 'NE FONCTIONNE PAS'
+tag BUGGY        extracted yes French 'BOGUÉ'
+tag LIKED        extracted yes French 'J’AIME'
+tag DISLIKED     extracted yes French 'J’AIME PAS'
+9 tag names, 3 without an extracted literal or a French msgstr
+getDisplayIcons("FINISHED") -> 1 icon(s); ("finished") -> 0 (exact case, recorded); ("FINISHED, IN PROGRESS") -> 2
+FAIL 3.29: 3 tag name(s) a player reads are not extracted or have no French (L-25)
+rc=1
+
+$ python3 -I stage-c/l331-lang-india.py <pin>/LangParser.cpp    (19:25:41Z)
+usa          -> lang [en] region [us]
+usa, europe  -> lang [en] region [us]
+in           -> lang [in] region [in]
+india        -> lang [] region []
+FAIL 3.31: "india" reads no region: the table's token is "ìndia" (L-26)
+rc=1
+
+$ python3 -I stage-c/l335-textfit-floor.py <pin>/TextFit.h    (19:25:41Z)
+ASCII, 8     width 1 -> 4 character(s) kept, then "..."
+Japanese, 6  width 1 -> 1 character(s) kept, then "..."
+ASCII, 2     width 1 -> 2 character(s) kept, then "..."
+Japanese, 2  width 1 -> 1 character(s) kept, then "..."
+FAIL 3.35: the floor keeps a different number of characters by script (it counts bytes, :34; L-20)
+rc=1
+
+$ python3 -I stage-c/l06-reload-collection.py <pin>/CollectionSystemManager.cpp    (19:25:42Z)
+before: the bundle's view open, cursor on /roms/gb/Bravo.gb inside the dynamic collection
+SUMMARY: AddressSanitizer: heap-use-after-free a.cpp:29 in ViewController::reloadGameListView(SystemData*)
+FAIL l06: rc 1
+  ASan internal:           fe
+
+rc=1
+
+$ python3 -I stage-c/l07-search-builder.py <pin>/components/ScraperSearchComponent.cpp    (19:25:42Z)
+a search started on the builder's thread; the page stops it at once (searchHandle.reset(), :358-361)
+SUMMARY: AddressSanitizer: heap-use-after-free (/usr/lib/x86_64-linux-gnu/libstdc++.so.6+0xf5ef8) (BuildId: 3a7a8c6bd922e6314edb7a710fdc0293265c2c42) 
+FAIL l07: rc 1
+  ASan internal:           fe
+
+rc=1
+
+$ python3 -I stage-c/l12-network-posts.py <pin>/NetworkThread.cpp <pin>/AppWindow.h    (19:25:43Z)
+NetworkThread.cpp: 5 direct post(s) at :206, :237, :251, :257, :266; 0 through AppWindow::post
+after closing(): the direct post queued (1 task(s) no loop will run); AppWindow::post refused
+FAIL L-12: 5 NetworkThread post(s) bypass the closing gate
+rc=1
+
+$ python3 -I stage-c/l309-rating-year.py <pin>/FileFilterIndex.cpp --control    (19:25:43Z)
+rating       -> UNKNOWN
+rating 0     -> UNKNOWN
+rating 0.05  -> 1 STARS
+rating 0.1   -> 1 STARS
+rating 0.5   -> 3 STARS
+rating 1     -> 5 STARS
+year 19920101T000000  -> "1992"
+year 20240101T000000  -> "2024"
+year 30000101T000000  -> "3000"
+year 09990101T000000  -> "0999"
+year                  -> ""
+rc=0
+
+$ python3 -I stage-c/l313-update-gamelist.py <pin>/Gamelist.cpp <pugixml> --control    (19:25:43Z)
+startup: gamelist.xml absent (the session's first answer, remembered)
+outside ES: gamelist.xml written with Bravo's entry
+after the save: Alpha present, Bravo present; inode new (replaced)
+rc=0
+
+$ python3 -I stage-c/l321-keys-parse.py <pin> <rapidjson> --control    (19:25:44Z)
+loaded: player 1 holds 1 mapping(s) [KNOWN]
+log: KeyMappingFile - unknown trigger t33unknown in Alpha.gb.keys
+rc=0
+
+$ python3 -I stage-c/l329-filetag-words.py <pin>/FileTag.cpp <pin-fr.po> --control    (19:25:46Z)
+tag FINISHED     extracted yes French 'TERMINÉ'
+tag IN PROGRESS  extracted yes French 'EN COURS'
+tag DROPPED      extracted yes French 'ABANDONNÉ'
+tag ON HOLD      extracted yes French 'EN PAUSE'
+tag SLOW         extracted yes French 'LENT'
+tag NOT WORKING  extracted yes French 'NE FONCTIONNE PAS'
+tag BUGGY        extracted yes French 'BOGUÉ'
+tag LIKED        extracted yes French 'J’AIME'
+tag DISLIKED     extracted yes French 'J’AIME PAS'
+9 tag names, 0 without an extracted literal or a French msgstr
+getDisplayIcons("FINISHED") -> 1 icon(s); ("finished") -> 0 (exact case, recorded); ("FINISHED, IN PROGRESS") -> 2
+rc=0
+
+$ python3 -I stage-c/l331-lang-india.py <pin>/LangParser.cpp --control    (19:25:46Z)
+usa          -> lang [en] region [us]
+usa, europe  -> lang [en] region [us]
+in           -> lang [in] region [in]
+india        -> lang [in] region [in]
+rc=0
+
+$ python3 -I stage-c/l335-textfit-floor.py <pin>/TextFit.h --control    (19:25:46Z)
+ASCII, 8     width 1 -> 4 character(s) kept, then "..."
+Japanese, 6  width 1 -> 4 character(s) kept, then "..."
+ASCII, 2     width 1 -> 2 character(s) kept, then "..."
+Japanese, 2  width 1 -> 2 character(s) kept, then "..."
+rc=0
+
+$ python3 -I stage-c/l06-reload-collection.py <pin>/CollectionSystemManager.cpp --control    (19:25:47Z)
+before: the bundle's view open, cursor on /roms/gb/Bravo.gb inside the dynamic collection
+reload: the bundle's view remade, cursor /roms/gb/Bravo.gb
+after: no freed entry was read
+rc=0
+
+$ python3 -I stage-c/l07-search-builder.py <pin>/components/ScraperSearchComponent.cpp --control    (19:25:47Z)
+a search started on the builder's thread; the page stops it at once (searchHandle.reset(), :358-361)
+the search's 200 ms are over: nothing wrote into the freed builder
+rc=0
+
+$ python3 -I stage-c/l12-network-posts.py <pin>/NetworkThread.cpp <pin>/AppWindow.h --control    (19:25:48Z)
+NetworkThread.cpp: 0 direct post(s) at -; 5 through AppWindow::post
+after closing(): the direct post queued (1 task(s) no loop will run); AppWindow::post refused
+rc=0
+
