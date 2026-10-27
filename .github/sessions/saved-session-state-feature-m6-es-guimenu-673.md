@@ -17,12 +17,10 @@
 
 ## Current focus
 
-**Stage E: the streams, serial, on the ES branch** (the ruling 09:17 UTC, #673 comment 6438068860; the stream brief `docs/reviews/briefs/t26-streams.md` at `4bd066551a`).
+**Stage G done; the hand-back next.** Every stream is committed (ES `70a00ad13` … `757f5370e`), stage F's outcomes are written (22 Resolved, 2 Deferred, 5 Withdrawn; the lint PASS), and the retro is at `docs/retros/2026-10-27-m6-es-guimenu.md`.
 
-- **The bugs:** #1215 to #1233 filed (`stage-e/bugs-filed.txt`).
-- **Done:** S1 (PL-01, #1215) at ES `70a00ad13`; S2 (PL-02, #1216; PL-15) at ES `03183f899`, the map at `190faf95fe`; S3 (PL-03 #1217, PL-04 #1218) at ES `d9bcdfb8a` and `2b50bf112` (its test's loads); S4 (PL-05, #1219) at ES `e96222310`; S5 (PL-06, #1220) at ES `b7de744aa`; S6 (PL-07 #1221, PL-08 #1222) at ES `aca4076c5`; S7 (PL-09 #1223, PL-10 #1224) at ES `072278be9`; S8 (PL-11 #1225, PL-21) at ES `a5d2d3756`; S9 (PL-12 #1226, PL-18 #1230) at ES `408f7c122`; S10 (PL-13, #1227) at ES `01f33e33e`; S11 (PL-14 #1228, PL-16 #1229, PL-28 #1232) at ES `fb43038be`; S12 (PL-25 #1231, #1186) at ES `2dd46a3e3`; S13 (PL-29 #1233) at ES `757f5370e`.
-- **Next:** the record (`02` § The streams done row by row; `05`'s gate and index; stage G's retro; the hand-back); each with `stage-e/sN-before.txt`, `sN-after.txt`, `sN-checks.txt` (`bash stage-e/checks.sh SN`), one ES commit, `.githooks/pre-push-test`, the push; then `02` § The streams via `stage-b/02-template.md` and `tools/t26-assemble-02.py`.
-- **Scratch:** `/workspace/tmp/m6-t26/` (the pin's files in `tmp/`, the recipe's patched rapidjson in `rapidjson/`).
+- **Waiting on the coordinator:** the rewording of #1224's and #1230's first checkboxes; the hand-back's acceptance.
+- **What runs here:** nothing. Scratch is `/workspace/tmp/m6-t26/`.
 
 ## Next commands
 
@@ -61,6 +59,7 @@ granted window.
 
 ## Checkpoints
 
+- Stages F and G, 12:41 UTC: the outcomes and the retro on the distribution branch; ES at `757f5370e`.
 - Stage E, S13, 12:25 UTC: ES `757f5370e` (pushed); every stream committed; S13's record on the distribution branch.
 - Stage E, S12, 12:13 UTC: ES `2dd46a3e3` (pushed); S12's record on the distribution branch.
 - Stage E, S11, 11:59 UTC: ES `fb43038be` (pushed); S11's record and the map on the distribution branch.

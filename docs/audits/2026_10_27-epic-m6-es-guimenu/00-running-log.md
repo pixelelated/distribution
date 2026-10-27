@@ -135,3 +135,9 @@
 
 - `05`'s Phase 7 gate and `punch_index` were rewritten together: 22 Resolved (20 by this slice's streams; PL-15 by S2's map commit; PL-20 by T21's S1, `ba0e82c1f`, at integration), 2 Deferred (PL-17 to #678, PL-22 to #1214), and 5 Withdrawn (PL-19 kept; PL-23, PL-24, PL-26 and PL-27 recorded as written, D-WORKFLOW-209).
 - `tools/lint-audit-artifacts` (resolution phase): PASS.
+
+## [Stage G] 12:40 UTC — the retro
+
+- `docs/retros/2026-10-27-m6-es-guimenu.md`: the four questions, the scoped audit, time to play (from `docs/vm-qa-log.md` and `03` § 3.6: what the streams did to the three costs; neither number is measured, since no image was built), what T31 to T37 inherit, and three instruction recommendations.
+- **A count corrected:** the S12–S13 checkpoint on #673 said 13 new tests and 6 changed. `git diff --name-status 16dbac5211 HEAD -- tests es-app/tests` reads 14 added and 5 modified. That was composed, not counted, the lesson T21 recorded. It is corrected in the retro and on #673.
+- The audit issue #1213 has its 29 items ticked against the stage-F outcomes and the outcomes table appended. `tools/box-check --issue 1213`: 0 open, 0 fail.
