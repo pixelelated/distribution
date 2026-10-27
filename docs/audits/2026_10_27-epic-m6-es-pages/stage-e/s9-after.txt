@@ -1,0 +1,7 @@
+# S9 after: ES 1f06113e0, 14:51:00Z
+$ python3 -I stage-c/l22-guiloading-race.py <W>/es-app/src/guis/GuiLoading.h
+LSan: no leak; completion received 42
+completion received 42
+rc 0
+$ the same with --control (the pin's plain bool rewritten): refused, as this source no longer has one
+FAIL l22: --control rewrites a plain bool mRunning, which this source no longer has

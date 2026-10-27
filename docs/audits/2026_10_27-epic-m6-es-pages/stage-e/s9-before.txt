@@ -1,0 +1,13 @@
+# S9 before (#678, #1251): GuiLoading.h at bc3959c69 (the pin's bytes), 14:48:49Z
+$ python3 -I stage-c/l22-guiloading-race.py <GuiLoading.h>   (extended with a LeakSanitizer binary)
+LSan: Direct leak of 8 byte(s) in 1 object(s) allocated from: | SUMMARY: AddressSanitizer: 8 byte(s) leaked in 1 allocation(s).; completion received 42
+FAIL l22: LeakSanitizer rc 1 -- the page leaves what it allocated
+completion received 42
+WARNING: ThreadSanitizer: data race (pid=3411415)
+SUMMARY: ThreadSanitizer: data race a.cpp:124 in GuiLoading<int>::threadLoading()
+WARNING: ThreadSanitizer: data race (pid=3411415)
+SUMMARY: ThreadSanitizer: data race a.cpp:109 in GuiLoading<int>::update(int)
+FAIL l22: rc 66 hread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xf5ff0) (BuildId: 3a7a8c6bd922e6314edb7a710fdc0293265c2c42)
+SUMMARY: ThreadSanitizer: data race /workspace/tmp/m6-t31/tmp/l22-_0fsqb33/a.cpp:109 in GuiLoading<int>::update(int)
+ThreadSanitizer: reported 2 warnings
+rc 1

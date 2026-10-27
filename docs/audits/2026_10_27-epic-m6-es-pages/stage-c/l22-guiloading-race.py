@@ -10,7 +10,16 @@ calls update() until the page deletes itself and its completion has run. A
 data race reported on mRunning or result FAILs the case (TSan's exit 66).
 --control declares mRunning std::atomic<bool> (the constructed variant): no
 race, the completion receives 42.
+
+S9 (#1251): the same program is built a second time with AddressSanitizer,
+whose LeakSanitizer reports what the page never freed (the pin: the
+`new std::thread`); TSan and ASan do not combine, so it is its own binary.
+The default run is the positive: both binaries clean and 42 received. The
+pin-shape guard applies to --control only, which rewrites a plain bool
+(D-WORKFLOW-211: the fixture's setup completed, no assertion changed).
 """
+import subprocess
+import tempfile
 import re
 import sys
 from pathlib import Path
@@ -22,8 +31,8 @@ control = "--control" in sys.argv
 a = src.index("class IGuiLoadingHandler")
 b = src.index("\n};", src.index("class GuiLoading", a)) + 3
 cls = src[a:b]
-if "bool\t\t\tmRunning;" not in cls and not re.search(r"bool\s+mRunning;", cls):
-    sys.exit("FAIL l22: mRunning is no longer a plain bool -- this test models the pin")
+if control and "bool\t\t\tmRunning;" not in cls and not re.search(r"(?<!<)bool\s+mRunning;", cls):
+    sys.exit("FAIL l22: --control rewrites a plain bool mRunning, which this source no longer has")
 if control:
     cls = re.sub(r"bool(\s+)mRunning;", r"std::atomic<bool>\1mRunning;", cls)
 harness = r'''
@@ -63,8 +72,26 @@ int main()
         [](IGuiLoadingHandler*) { std::this_thread::sleep_for(std::chrono::milliseconds(50)); return 42; },
         [&got](int r) { got = r; });
     for (int i = 0; i < 400 && got == 0; i++) { g->update(16); std::this_thread::sleep_for(std::chrono::milliseconds(1)); }
-    std::cout << "completion received " << got << "\n";
+    std::cout << "completion received " << got << std::endl;
     return got == 42 ? 0 : 1;
 }
 '''
-run(harness, "l22", flags=("-fsanitize=thread",))
+# LeakSanitizer first, in its own binary (ASan); then the TSan run, whose
+# verdict and exit t31extract.run reports.
+with tempfile.TemporaryDirectory(prefix="l22-lsan-", dir="/workspace/tmp/m6-t31/tmp") as d:
+    d = Path(d)
+    (d / "a.cpp").write_text(harness)
+    b = subprocess.run(["g++", "-std=c++17", "-O0", "-g", "-fsanitize=address", str(d / "a.cpp"), "-o", str(d / "a"), "-pthread"],
+                       capture_output=True, text=True)
+    if b.returncode:
+        print("FAIL l22: the extract does not compile under ASan\n" + b.stderr[-1500:]); sys.exit(2)
+    r = subprocess.run([str(d / "a")], capture_output=True, text=True, timeout=60, env={"ASAN_OPTIONS": "detect_leaks=1"})
+    leaks = [l for l in r.stderr.splitlines() if l.startswith(("Direct leak", "Indirect leak", "SUMMARY: AddressSanitizer"))]
+    print("LSan: " + (" | ".join(leaks) if leaks else "no leak") + "; " + r.stdout.strip())
+    leaked = r.returncode != 0
+    if leaked:
+        print("FAIL l22: LeakSanitizer rc %d -- the page leaves what it allocated" % r.returncode)
+try:
+    run(harness, "l22", flags=("-fsanitize=thread",))
+except SystemExit as e:
+    sys.exit(1 if leaked or e.code else 0)
