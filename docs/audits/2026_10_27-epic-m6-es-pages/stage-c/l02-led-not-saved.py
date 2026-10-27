@@ -1,4 +1,4 @@
-"""L-02 (#678): is the analog sticks' LED colour saved to system.cfg when the page closes?
+"""L-02 / S2 (#678, #1237): does a settings page with no save function write the stores on its own close?
 
     python3 -I l02-led-not-saved.py <GuiAnalogSticksLedControls.cpp> <GuiSettings.cpp> [--fixed]
 
@@ -8,8 +8,13 @@ runSystemCommand records the command; SystemConf keeps the real rule (set marks
 the key changed, saveSystemConf writes only what changed, GuiSettings::save is
 the only caller on this path). A slider moved once, then BACK. Expected: the
 key in system.cfg. At the pin the page has no save function, save() returns at
-its `!mSaveFuncs.size()` and nothing is written -- the case FAILs. --fixed adds
-one empty save function to the page (the control), and the case passes.
+its `!mSaveFuncs.size()` and nothing is written -- the case FAILs. Two more
+cases (S2): a text-row-only page (one value set through SystemConf::set, as
+addInputTextConfigRow's updateVal does, no save function) whose close must
+write system.cfg once (FAIL at the pin); and a no-change page (no save
+function, nothing set) whose close must write nothing (PASS at the pin: the
+guard that the fix does not rewrite the stores on every close). --fixed adds
+one empty save function to each page (the stage-C control).
 """
 import re
 import sys
@@ -61,14 +66,30 @@ int main()
          right_red = mk(0.f), right_green = mk(1.0f), right_blue = mk(0.f);
     const std::string analogSticksLedScript = "/usr/bin/analog_sticks_ledcontrol";
 ''' + apply + r'''
-    auto* s = new GuiSettings();
-''' + ("    s->addSaveFunc([] {});\n" if fixed else "") + r'''
-    applyChanges();               // one slider step
-    s->close();                   // BACK
-    const bool saved = gOnDisk.count("analogsticks.led") > 0;
-    std::cout << "commands run " << gCommands.size() << "; system.cfg written " << gSystemCfgWrites << " time(s); analogsticks.led "
-              << (saved ? "saved: " + gOnDisk["analogsticks.led"] : std::string("not saved")) << "\n";
-    if (!saved) { std::cout << "FAIL l02: the LED colour set on the page never reaches system.cfg\n"; return 1; }
+    int failed = 0;
+    auto fresh = [] { gOnDisk.clear(); gSystemCfgWrites = 0; SystemConf::getInstance()->v.clear(); SystemConf::getInstance()->changed.clear(); };
+    {   // the LED page
+        fresh(); auto* s = new GuiSettings();
+''' + ("        s->addSaveFunc([] {});\n" if fixed else "") + r'''        applyChanges(); s->close();
+        const bool saved = gOnDisk.count("analogsticks.led") > 0;
+        std::cout << "led: commands run " << gCommands.size() << "; system.cfg written " << gSystemCfgWrites << " time(s); analogsticks.led "
+                  << (saved ? "saved: " + gOnDisk["analogsticks.led"] : std::string("not saved")) << "\n";
+        if (!saved) { std::cout << "FAIL l02: the LED colour set on the page never reaches system.cfg\n"; failed++; }
+    }
+    {   // a text-row-only page: updateVal's SystemConf::set, no save function
+        fresh(); auto* s = new GuiSettings();
+''' + ("        s->addSaveFunc([] {});\n" if fixed else "") + r'''        SystemConf::getInstance()->set("moonlight.host", "192.0.2.1"); s->close();
+        std::cout << "text-rows: system.cfg written " << gSystemCfgWrites << " time(s)\n";
+        if (gSystemCfgWrites != 1) { std::cout << "FAIL l02: a page of text rows did not write system.cfg on its close\n"; failed++; }
+    }
+    {   // a no-change page: nothing set, nothing written
+        fresh(); auto* s = new GuiSettings();
+''' + ("        s->addSaveFunc([] {});\n" if fixed else "") + r'''        s->close();
+        std::cout << "no-change: system.cfg written " << gSystemCfgWrites << " time(s)\n";
+        if (gSystemCfgWrites != 0) { std::cout << "FAIL l02: a page with nothing changed wrote system.cfg\n"; failed++; }
+    }
+    if (failed) return 1;
+    std::cout << "3 cases\n";
     return 0;
 }
 '''

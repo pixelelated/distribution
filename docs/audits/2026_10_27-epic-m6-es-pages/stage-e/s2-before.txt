@@ -1,0 +1,14 @@
+== S2 before (13:58:26Z), ES at 9cb0e5c9a1 (S1)
+$ python3 -I stage-c/l02-led-not-saved.py <W>/.../GuiAnalogSticksLedControls.cpp <W>/.../GuiSettings.cpp
+led: commands run 1; system.cfg written 0 time(s); analogsticks.led not saved
+FAIL l02: the LED colour set on the page never reaches system.cfg
+text-rows: system.cfg written 0 time(s)
+FAIL l02: a page of text rows did not write system.cfg on its close
+no-change: system.cfg written 0 time(s)
+rc=1
+$ ... --fixed (the stage-C control)
+led: commands run 1; system.cfg written 1 time(s); analogsticks.led saved: 255 0 255 0 127 0 0
+text-rows: system.cfg written 1 time(s)
+no-change: system.cfg written 0 time(s)
+3 cases
+rc=0
