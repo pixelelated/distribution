@@ -785,3 +785,117 @@ What the lane and the coordinator found between stage A and the hand-back that t
 - S1/S2 (lane, 00:50): the brief's S2 "a live file whose text is a strict prefix of its record's is a recovery whatever its mtime" is not buildable as written -- a whole file that is a line-prefix of its record cannot be told from a script removing the last key; the lane's reading (S1's save-side guard plus the re-choose on every save) covers PL-09's loss path and was accepted. `hostname-empty.py`'s step 3 had been run by hand at stage C and appended to its `.out`; the script now reproduces its own output.
 - S8 (lane, 01:19): the ruling of 01:11 that `Settings` takes the unrecorded-save marker in S8 was wrong -- `Settings` rewrites every non-default value from memory, so a key the record holds and the file lacks is a reset, not a loss; ruled (b), no marker; `kUnrecordedSuffix` is `SystemConf`'s.
 - Stage E (lane, 00:50 to 02:25): the case totals the lane posted for S2 to S13 were composed, not counted, each too high by 2 to 53; corrected in `02` and `00`, and the build script now prints `TOTAL: N test cases in B binaries` (the rule's sentence in `engineering-practices.md`). S12 edited `Scraper.cpp` (`:372`, `:631`) beyond the brief's file list so the two new status classes are skipped as `REQ_IO_ERROR` was: a contained edit in T32's file, accepted. `Retry-After` is read at two sites (`:356` and `:628`), the brief named one. `getMD5`'s pipeline exit is `md5sum`'s, so S3's reader, not the exit, is the check there. S14's self-signed listener is CANNOT on this host (libcurl's runtime without its headers): the integration window's walk. The brief's S1 "every text row gets the guard" and S2 "strict prefix" sentences, and the coordinator's "Settings takes the marker", are the errata above.
+
+### T31 kickoff addendum (written with the brief's version 1, 2026-10-27)
+
+**The plan, in the order's words:** T31 is *EmulationStation's other
+pages*, kind currency, lens new functionality, Independent: *the remaining
+pages under `guis/`: the fork-touched ones read line by line, the upstream
+ones checked against `rocknix/master`*. Seventy-six paths, 15,537 lines by
+the inventory's count, 4,230 of them in the twelve files the fork touched
+-- three it added (`GuiScraperRun.{cpp,h}`, `WifiScanProcess.h`, 527 lines)
+and nine it modified (1,207 lines added, 129 removed, against the merge
+base; 25 of the fork's commits on `GuiSaveState.cpp` alone); the other 64
+are byte-identical to the base and to ROCKNIX's master today. The brief is
+`docs/reviews/briefs/es-pages.md`; the closing evidence the order names is
+the audit folder, the lint and the punch list through Phase 7.
+
+**Assumptions the plan leans on and does not state:**
+
+- *That "4,230 fork-own" is what the fork wrote.* It is the lines of the
+  files the fork touched: the inventory's tier is `fork-own` for any path
+  the fork added or changed, and nine of the twelve are upstream pages
+  carrying edits of 2 to 330 lines. The brief's § 2 carries both tiers so
+  the lane neither reads 3,702 upstream lines as ours nor skips the 330
+  that are.
+- *That the merge base is `bccd715707`.* It is `cada856d86`, one commit
+  later; the earlier ES briefs read a stale `upstream/master`. Nothing in
+  this slice differs between the two, but a lane that names the old base
+  names the wrong one and the next slice copies it (blindspot 75's shape).
+- *That upstream has moved under these pages.* Its 14 commits since the
+  base land in `GuiMenu.*`; no slice file differs between the base and
+  `rocknix/master`. "Checked against `rocknix/master`" is a no-op at this
+  hash and the brief says so, so the lane does not invent a delta.
+- *That a harness exists for pages.* None of the 15 Python harnesses reads
+  a file here; the one doctest naming `GuiSaveState` needs a toolchain the
+  host lacks (#1137). The host floor is what the lane writes in the four
+  patterns' shape, FAIL first.
+- *That the map and the checker cover these pages.* Twelve titles are in
+  neither the map nor `## Not mapped` -- the fork-own SCRAPING GAMES and
+  the fork-modified BIOS CHECK among them -- and the checker's three
+  regexes cannot see a page built on `GuiComponent` with its own
+  `mMenu(window, _(..))`, so `0 missing` is true of what it can read
+  (#951/#965 from the pages' side).
+- *That the fork's confirmations are the risk.* Both fork YES/NO boxes are
+  YES first, NO last; the ones to read whole are upstream's: WRITE and
+  CLOSE as first buttons (`GuiGameOptions.cpp:274`, `:289`), FAILED as a
+  message (`GuiNetPlay.cpp:336`), SAVE CHANGES? on two editors.
+- *That the manager's long work moved to a worker.* DELETE did (#205);
+  COPY at `:516` still runs `copyToSlot` on the interface thread, and since
+  T2's `f11e7528a` that call can return `false` to a page that says nothing
+  (PL-016, #782). And the scrape page ends in a fourth SKIPPED
+  (`GuiScraperRun.cpp:141`) the register does not list.
+
+**Known unknowns:** the second button of the NFC WRITE box and what back
+does on it; whether the eight bar-less `.cpp` files inherit a true bar or
+show none; whether any slice page calls `getMenu().setSize(` (#540; the
+floor did not grep it); whether the `GuiMoonlight` boxes are reachable on a
+ROCKNIX image; what a short `rocknix-systems` line does to `atoi(tokens[6])`;
+`tools/es-untranslated`'s line against `cada856d86`; whether `Settings::saveFile`
+is atomic under `GuiScraperStart`'s two rewrites per visit (T21's `:547`);
+which es-core owner rules on a popup or `GuiMsgBox` change (the inherit
+digest reads T35; the coordinator confirms); whether T26's `02` § What T31
+to T37 inherit lands before stage A.
+
+**Patterns:** T18's shape (the stage-D pause, `02`'s generated sections,
+the one-seat packet); T20's two routed callers (the hasher from
+`GuiHashStart.cpp:85` and `GuiNetPlaySettings.cpp:59`, #1170/#301: cited,
+not re-found); T21's rows rule and writers' contract (`addSwitch`'s bool;
+`AtomicFile::writeText`; a string from outside goes through one quoting
+function or an argv executor -- `WifiScanProcess.h` is that executor and
+is in this slice by the glob) and its retro's rule that a harness FAILs
+against the unfixed code first; T26's method of reading every dialog's
+first button whole (the floor's window mis-read six of fifty); blindspot 45
+(the manager's DELETE proven at a fixture's speed -- COPY is the sibling);
+blindspot 62 (the `Already written:` line on every manager bug); blindspot
+4 (`close()` inside a page's own handler -- the scrape page's `delete this`
+read and found safe); D-UI-079 against rule 6 (64 of 76 paths are
+upstream's: a behaviour stays, a contained defect closes, the punch list
+says which for every item).
+
+**What we could be missing (the simulation):** an Opus lane at Independent
+depth opens 76 files and reads `GuiNetPlay.cpp`'s 1,109 upstream lines at
+the depth of the manager's 612 -- § 2 orders the read by provenance. A
+lane that grades the 50 dialogs by the floor's heuristic and reports 17 /
+10 / 6 without reading the six -- the brief names them. A lane that
+rewords the fourth SKIPPED on the ES branch -- a register question for the
+pause. A lane that moves `copyToSlot` to the worker because DELETE did --
+blindspot 45 asks for the measurement first and the stream brief rules. A
+lane that declares all twelve undescribed titles under `## Not mapped` --
+BIOS CHECK and SCRAPING GAMES are the fork's rows and D-UI-039 maps them.
+A lane that patches `tools/es-menu-map-check` under `tools/` -- a Backlog
+the coordinator files from the lane's title-shape table. A lane that
+changes `GuiSettings.cpp`'s `updateVal` for #1185 -- T21's bug, the pause
+rules whose file. A lane that fetches `rocknix/master` "to be sure" -- a
+write; the ref is shared. A lane that finds T21's `a73ed9efc` missing from
+`GuiBios.cpp` at the pin -- the read is the pin's bytes, the stream's a fix
+on top. A lane that proves the stale read by restarting ES between frames
+-- one session: options menu, scrape, options menu again. A lane that
+reports "nothing" for time to play -- the number, with the page named. A
+lane that spends its window on the Bluetooth pages and never frames the
+manager's help bar at 640x480.
+
+**Adjustments before execution:** carried into the brief: the two counting
+rules and the two tiers in § 2 with the membership block's recorded
+output; the corrected merge base with the stale ref explained; the empty
+harness floor as the lane's to build, a case per pure lead, FAIL first;
+the dialog table read whole with the six mis-read sites named; the twelve
+undescribed titles with the fork's two first and the checker's blind spot
+as a Backlog; the fourth SKIPPED as the one register row expected; COPY's
+synchronous call and the two rewrites per SCRAPER visit as Q3 with the
+time-to-play line; the 12 cached reads as Q4 with the one-session positive;
+`WifiScanProcess.h` claimed by the glob and read as the quoting model; the
+sized-pages grep added to § 5 with no expectation. Owed before dispatch:
+the stranger's proof of version 1 (the hand counts 12 / 27 / 11 of title
+shapes and the `73` merge-base loop first), version 2 with its corrections,
+this futro's errata section, the kit, the retitle to `E700/T31`.
