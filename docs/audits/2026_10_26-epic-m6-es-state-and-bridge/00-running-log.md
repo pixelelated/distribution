@@ -149,3 +149,9 @@
 - **S13** (#1205), ES `44d3c7e25`. A seventh host target, es-scraper-tests; `t21-build-tests.sh` now builds any further named test. Both Retry-After sites fixed (the brief named one). Before: nine checks FAIL. After: 277 cases. `stage-e/s13-before.txt`, `s13-after.txt`, `s13-checks.txt`.
 - **A correction, 2026-10-27:** the case totals written for S2 to S13 in `02` § The streams, in this log and in the checkpoints on #668 were written without being added up, and were 2 to 53 cases high. They are recomputed from each stream's own after-log and corrected here and in `02`: S2 232, S4 240, S5 244, S6 249, S7 252, S2's marker 253, S8 257, S9 261, S10 265, S11 267, S12 274, S10's follow-up 275, S13 277 (S1's 230 was right). The per-binary lines in `stage-e/` were always the binaries' own. `tools/t21-build-tests.sh` now prints `TOTAL: N test cases in B binaries` from the binaries' summary lines, and a record quotes that line.
 - **S14** (#1154, D-NET-017), ES `3ae9610b0`. Before: six checks FAIL. After: `TOTAL: 278 test cases in 7 binaries`. The listener positive is CANNOT on this host -- libcurl's runtime without its headers -- and goes to the integration window's guest walk. `stage-e/s14-before.txt`, `s14-after.txt`, `s14-checks.txt`.
+
+## [Stage F] 2026-10-27 — Phase 7: every item at its outcome
+
+- `05`'s gate and its `punch_index` rewritten together: 19 Resolved, 5 Deferred (PL-16 to #1204 and #1210, PL-20 #1186, PL-22 #1188, PL-23 #1190, PL-26 routed), 2 Withdrawn (PL-21 on the #1184 reading, ruled 02:12 UTC; PL-24 recorded as written). Each Resolved row names its ES commit and bug.
+- `tools/lint-audit-artifacts` at the resolution phase PASS, and against #1184 PASS (`stage-f/`). #1184's 26 checkboxes ticked at their outcomes; `tools/box-check` 0 fail.
+- The bugs carry `fixed-at-es` in their bodies (18 under #668, and #1154); they stay open until the pin moves on `next`.

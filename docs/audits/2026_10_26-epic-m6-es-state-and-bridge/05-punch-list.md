@@ -516,36 +516,36 @@ Written by the M6 coordinator (Claude Fable 5.1) from the lane's committed input
 
 ## Phase 7 resolution gate
 
-Pre-issue, 2026-10-27: every item is **Open**; the stage-D ruling sets each outcome, and the table and the index are rewritten together when it does.
+Stage F, 2026-10-27: every item at its outcome, the table and the index rewritten together. The ES commits are on `feature/m6-es-state-and-bridge-668`; each stream's before, after and checks are under `stage-e/`, and `02` § The streams carries one row per stream.
 
-| Item | Outcome | Proposed disposition (the ruling's) |
+| Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | a `bug` (High); a fix stream on the ES branch; `chksysconfig`'s sentinel a note on #648 |
-| PL-02 | Open | a `bug` (High); a fix stream on the ES branch; a #585 line |
-| PL-03 | Open | a `bug` (High); the shell half to the ruling on #648; the recorder's half a fix stream on the ES branch |
-| PL-04 | Open | a `bug` (Medium); a fix stream on the ES branch; a #585 line for `renameFile` |
-| PL-05 | Open | a `bug` (Medium); a fix stream on the ES branch; the seed's build step to the coordinator |
-| PL-06 | Open | a `bug` (Medium); `wifictl`'s half to the ruling on #648; the page's half a fix stream on the ES branch |
-| PL-07 | Open | a `bug` (Medium); a fix stream on the ES branch; a #585 line |
-| PL-08 | Open | a `bug`, severity to the ruling; PL-07's stream; a #585 line |
-| PL-09 | Open | a `bug`, severity to the ruling; a fix stream on the ES branch |
-| PL-10 | Open | a `bug` (Low); PL-01's stream |
-| PL-11 | Open | a `bug` (Low); PL-01's stream |
-| PL-12 | Open | a `bug` (Low); a fix stream on the ES branch; a register row to the coordinator |
-| PL-13 | Open | a `bug` (Low); a fix stream on the ES branch; `chksysconfig`'s name a note on #648 |
-| PL-14 | Open | a `bug` (Low); a fix stream on the ES branch (the reader as a unit) |
-| PL-15 | Open | a `bug` (Low); a fix stream on the ES branch (the parse) |
-| PL-16 | Open | the page's half a fix stream on the ES branch; the scripts' half to the ruling on #648 |
-| PL-17 | Open | a `bug` (Low); PL-02's stream for the hashes; a small stream for the scraper's two |
-| PL-18 | Open | a `bug` (Low); a small stream on the ES branch |
-| PL-19 | Open | a `bug` (Low); PL-07's stream |
-| PL-20 | Open | a stream on the ES branch or a Backlog in #1143's family, to the ruling |
-| PL-21 | Open | a reading in PL-06's stream, or recorded as written, to the ruling |
-| PL-22 | Open | the retro's time-to-play line and a Backlog the coordinator files |
-| PL-23 | Open | Backlogs the coordinator files; the two G6 walks for the integration window |
-| PL-24 | Open | recorded as written (D-WORKFLOW-209) |
-| PL-25 | Open | to #1154 at the ruling |
-| PL-26 | Open | routed at the ruling |
+| PL-01 | Resolved | Resolved in `ba0e82c1f` (ES, S1) under #1185: an empty value is `key=`, the hostname's line kept on a reset, the text row's OK over a hidden value writes nothing (ruled 00:36 UTC); `hostname-empty.py`'s chain keeps every key (`stage-e/s1-*.txt`); `chksysconfig`'s sentinel noted on #648 |
+| PL-02 | Resolved | Resolved in `13a688804` (ES, S3, written by the coordinator under D-WORKFLOW-212, merged at `f2561bbe4`) under #1187: the five commands quote the path, an empty extraction stores no hash; the argv executor is #1192 |
+| PL-03 | Resolved | Resolved for the interface in `8cf52e263` (ES, S2) and `eeeaa462c` (S2's marker, ruled 01:09 UTC) under #1189: the seed over a differing record is a recovery and is never recorded, and a written-not-recorded file is not recorded at the next load (`stage-e/s2-*.txt`, `s2m-*.txt`); the shell's seed copy is #1208 under #695 |
+| PL-04 | Resolved | Resolved in `f7c16144d` (ES, S4) under #1191: a download replaces its target only when whole, `renameFile` fails on an absent source (`stage-e/s4-*.txt`); a #585 line |
+| PL-05 | Resolved | Resolved in `94791c4ed` (ES, S5) under #1193: both stores and records 0600, narrowed once at start (`stage-e/s5-*.txt`); the seed's build step named on #1184 |
+| PL-06 | Resolved | Resolved for the page in `00669ccd9` (ES, S6) under #1194: CONNECTED only on the network asked for, WI-FI ISN'T AVAILABLE ON THIS DEVICE RIGHT NOW. with its French (`stage-e/s6-*.txt`); `wifictl`'s device guard is #1209 under #695 |
+| PL-07 | Resolved | Resolved in `8629d5d08` (ES, S7) under #1195: the header read by its length, clean under ASan (`stage-e/s7-*.txt`); a #585 line |
+| PL-08 | Resolved | Resolved in `8629d5d08` (ES, S7) under #1196: the response code a `long`, clean under ASan (`stage-e/s7-*.txt`); a #585 line |
+| PL-09 | Resolved | Resolved in `8cf52e263` (ES, S2) and `eeeaa462c` (S2's marker) under #1197: a cut live file is a recovery whatever its mtime, and the next load records nothing while the file lacks the record's keys (`stage-e/s2-*.txt`, `s2m-*.txt`) |
+| PL-10 | Resolved | Resolved in `ba0e82c1f` (ES, S1) under #1198: `key=` is present and empty, a reload replaces the map, `getHostsName` answers the device's own name (`stage-e/s1-*.txt`) |
+| PL-11 | Resolved | Resolved in `ba0e82c1f` (ES, S1) under #1199: a comment line left alone, a line end refused, the default compared on the key, no literal `default` (`stage-e/s1-*.txt`) |
+| PL-12 | Resolved | Resolved in `80c8cbcaa` (ES, S8) under #1200, its modes in `94791c4ed` (S5): the stores' lock (D-CLOUD-186), a failed record retried, only a `<config>` document; ThreadSanitizer 0 (`stage-e/s8-*.txt`); no marker, as ruled 01:20 UTC |
+| PL-13 | Resolved | Resolved in `c4341c335` (ES, S9) under #1201: each store sweeps its dead-pid temporaries, `chksysconfig`'s name left; 0 of 116 kill points leave one after the next start (`stage-e/s9-*.txt`); `chksysconfig`'s half is #1211 |
+| PL-14 | Resolved | Resolved in `31b49999e` (ES, S10) and `a73ed9efc` (S10's follow-up, ruled 01:47 UTC) under #1202: bounded logical lines, a checked exit, the BIOS check's callers (`stage-e/s10-*.txt`, `s10b-*.txt`) |
+| PL-15 | Resolved | Resolved in `eeee95265` (ES, S11) under #1203: the LED parses fall back, nothing throws (`stage-e/s11-*.txt`) |
+| PL-16 | Deferred | Deferred: #1204 and #1210 -- the page's half waits for the OS round, one change across the page and `wifictl`, as ruled at the stage-D ruling (#668, 00:29 UTC) |
+| PL-17 | Resolved | Resolved in `13a688804` (ES, S3, the hash halves, the coordinator's) and `44d3c7e25` (S13, the scraper halves) under #1205 (`stage-e/s13-*.txt`) |
+| PL-18 | Resolved | Resolved in `e38dcdefd` (ES, S12) under #1206: three recovery outcomes and the client's status classes, four sentences with their French (`stage-e/s12-*.txt`) |
+| PL-19 | Resolved | Resolved in `8629d5d08` (ES, S7) under #1207: `mStatus` atomic, the error body one masked line, the header list freed (`stage-e/s7-*.txt`); #585 lines |
+| PL-20 | Deferred | Deferred: #1186 (a Backlog under #700), as ruled at the stage-D ruling (#668, 00:29 UTC) |
+| PL-21 | Withdrawn | Withdrawn on the reading posted on #1184 (https://github.com/pixelelated/distribution/issues/1184#issuecomment-6432012995), ruled 02:12 UTC; the Bluetooth race is #1212 |
+| PL-22 | Deferred | Deferred: #1188 (a Backlog), as ruled at the stage-D ruling (#668, 00:29 UTC) |
+| PL-23 | Deferred | Deferred: #1190 (a Backlog under #903; the two G6 walks included), as ruled at the stage-D ruling (#668, 00:29 UTC) |
+| PL-24 | Withdrawn | Withdrawn: recorded as written (D-WORKFLOW-209) at the stage-D ruling (#668, 00:29 UTC) |
+| PL-25 | Resolved | Resolved in `3ae9610b0` (ES, S14) under #1154 (D-NET-017): the peer verified by default, one media-only opt-out that survives the retry (`stage-e/s14-*.txt`); the self-signed listener is the integration window's |
+| PL-26 | Deferred | Deferred: routed at the stage-D ruling (#668, 00:29 UTC) -- to #673, #648 and #695, and #669; the WI-FI KEY popup's masking mode is #1192; D-CLOUD-079 refined by D-CLOUD-186; the curl-header trap into `es-code-traps.md` at acceptance |
 
 ## Machine-readable index
 
@@ -556,157 +556,157 @@ punch_index:
   category: Correctness
   question: Q4
   source_finding: "L-23"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-02
   severity: "High"
   category: Security
   question: Q1
   source_finding: "L-01, L-31 (the getMD5 half)"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-03
   severity: "High"
   category: Correctness
   question: Q4
   source_finding: "L-10"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-04
   severity: "Medium"
   category: Correctness
   question: Q2
   source_finding: "L-03, L-28"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-05
   severity: "Medium"
   category: Security
   question: Q3
   source_finding: "L-21"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-06
   severity: "Medium"
   category: Correctness
   question: Q6
   source_finding: "L-22, L-33"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-07
   severity: "Medium"
   category: Security
   question: Q2
   source_finding: "L-02"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-08
   severity: "Medium"
   category: Correctness
   question: Q2
   source_finding: "L-24"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-09
   severity: "Medium"
   category: Correctness
   question: Q4
   source_finding: "L-27"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-10
   severity: "Low"
   category: Correctness
   question: Q5
   source_finding: "L-15, L-26"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-11
   severity: "Low"
   category: Correctness
   question: Q4
   source_finding: "L-11, L-12, L-34"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-12
   severity: "Low"
   category: Correctness
   question: Q4
   source_finding: "L-13, L-30"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-13
   severity: "Low"
   category: Correctness
   question: Q4
   source_finding: "L-09, L-29"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-14
   severity: "Low"
   category: Correctness
   question: Q6
   source_finding: "L-17, L-18, L-19, T20's PL-08"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-15
   severity: "Low"
   category: Correctness
   question: Q5
   source_finding: "L-16"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-16
   severity: "Low"
   category: Security
   question: Q3
   source_finding: "L-08, L-25"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-17
   severity: "Low"
   category: Correctness
   question: Q6
   source_finding: "L-31"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-18
   severity: "Low"
   category: Standards
   question: Q5
   source_finding: "L-32, L-36"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-19
   severity: "Low"
   category: Correctness
   question: Q2
   source_finding: "L-04, L-05, L-07"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-20
   severity: "Low"
   category: Correctness
   question: Q4
   source_finding: "L-14"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-21
   severity: "Low"
   category: Correctness
   question: Q7
   source_finding: "L-35"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-22
   severity: "Low"
   category: Performance
   question: Q1
   source_finding: "Astra SO-4, SO-58; Argon SO-4; 04 § Q5"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-23
   severity: "Low"
   category: Harness
   question: none
   question_reason: "the brief's Q8 (the harness), not one of the renovation questions Q1 to Q7"
   source_finding: "Q8"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-24
   severity: "Info"
   category: Dead code
   question: Q7
   source_finding: "L-20"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-25
   severity: "Info"
   category: Security
   question: Q2
   source_finding: "L-06 (#1154, cited)"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-26
   severity: "Info"
   category: Handoff
   question: none
   question_reason: "an extraction note or a handoff, not a renovation question"
   source_finding: "02 § What T26 and the OS slices inherit"
-  outcome: "open"
+  outcome: "deferred"
 ```
