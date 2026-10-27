@@ -1,0 +1,5 @@
+RUN es-unit-tests: rc 0; [doctest] test cases: 185 | 185 passed | 0 failed | 0 skipped [doctest] assertions: 4795 | 4795 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3389 | 3389 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+TOTAL: 221 test cases in 4 binaries

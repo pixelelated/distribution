@@ -59,3 +59,4 @@
 ## [Stage C] 16:24 UTC onward — the host proofs, the analysis, the seat
 
 - The coordinator's instruction (16:24 UTC): stage C whole, then 05 and the audit issue, ending on the stage-D pause post. The order and its state are in the pointer's § Current focus.
+- **Correction to the RETURN post (16:22 UTC), mine:** G-06's NO GAMES FIT THAT CRITERIA. is not 3.16's remainder. `IGDBScraper::isSupportedPlatform` (`:221-230`) reads only the platform map, and it has `GAME_BOY` (`:65`). SCRAPER had opened with ArcadeDB (left set by G-05's run), which takes no gb, so the systems list was empty, and moving SCRAPE FROM to IGDB did not rebuild it: T31's PL-21 (#1254) on the image. The INVALID CREDENTIALS box was not reached. 02 § The guest cycle and the post on #679 are corrected.
