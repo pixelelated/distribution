@@ -30,16 +30,15 @@
 - L-06 did not fault once.
 - G-03's index toast and `exec.log` were not shown.
 
-**Next: stage C's host work**, in this order:
-1. `t33-includes.py`'s expectations.
-2. `t33-build-tests.sh` extended to `tests/app-unit`'s `app-unit-tests` (its fakes before `es-app/src`).
-3. The six FAIL-at-pin cases (3.9, 3.13, 3.21, 3.29, 3.31, 3.35).
-4. The harnesses for L-06 (ASan extract), L-07 and L-12.
-5. `03` and `04`.
-6. The packet and the two keyed council calls.
-7. The pre-issue lint.
-
-After that comes stage D: `05`, the audit issue under #680, and the pause.
+**Stage C, in progress** (the coordinator, 19:16 UTC: run stage C whole, then `05` and the audit issue, and end only on the stage-D pause post with the punch list and questions):
+- Done: the include graph, the unit build with `app-unit-tests` (TOTAL 239 in 5 binaries), and the six FAIL-at-pin harnesses with their controls (`stage-c/l309`, `l313`, `l321`, `l329`, `l331`, `l335`).
+- Next:
+  1. The harnesses for L-06 (`reloadCollection` under ASan), L-07 (ScraperSearchComponent's thread) and L-12 (posts outside `AppWindow::post`).
+  2. `stage-c/runs.txt`.
+  3. `03` and `04`.
+  4. The packet (`stage-c/packet.py`, trimmed and scanned), the two keyed calls (probe, refutation), and the pre-issue lint.
+  5. `05` and the audit issue (a sub-issue of #680).
+  6. The pause post.
 
 **Scratch:** `/workspace/tmp/m6-t33/` (`tmp/`, `rj/` the recipe's rapidjson). `stage-a/env.sh` holds the paths.
 

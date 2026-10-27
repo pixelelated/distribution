@@ -1,0 +1,56 @@
+# T33 stage C: the include graph, 19:17:26Z. Every #include form (quoted and angle); the brief's 272/119 were the digests' quoted-only Python passes, which this line replaces (brief § 5's STAGE C note).
+$ python3 -I tools/t33-includes.py <W> 16dbac5211 <paths> in_lines=150,in_files=66,out_lines=380,es_core=134
+| Slice header | Include lines from outside the slice |
+| --- | ---: |
+| `CollectionSystemManager.h` | 17 |
+| `PlatformId.h` | 11 |
+| `Gamelist.h` | 10 |
+| `Genres.h` | 9 |
+| `FileFilterIndex.h` | 8 |
+| `ContentInstaller.h` | 8 |
+| `EmulationStation.h` | 7 |
+| `CloudExit.h` | 7 |
+| `FileSorts.h` | 7 |
+| `DisplayAspect.h` | 7 |
+| `AppWindow.h` | 5 |
+| `LangParser.h` | 5 |
+| `Win32ApiSystem.h` | 4 |
+| `MetaData.h` | 4 |
+| `KeyboardMapping.h` | 4 |
+| `WifiText.h` | 3 |
+| `OfflineAchievementsText.h` | 3 |
+| `TextFit.h` | 3 |
+| `FileTag.h` | 3 |
+| `SystemRandomPlaylist.h` | 2 |
+| `CloudOffer.h` | 2 |
+| `ThreadedBluetooth.h` | 2 |
+| `ZaparooSupport.h` | 2 |
+| `JourneyTiers.h` | 2 |
+| `NetworkThread.h` | 2 |
+| `CaptureRotation.h` | 1 |
+| `RunLock.h` | 1 |
+| `FolderMerge.h` | 1 |
+| `CustomFeatures.h` | 1 |
+| `CheevosIndex.h` | 1 |
+| `GameCubeRvzHashRetry.h` | 1 |
+| `components/ScraperSearchComponent.h` | 1 |
+| `CloudFolderValidation.h` | 1 |
+| `LibretroRatio.h` | 1 |
+| `CheevosRetry.h` | 1 |
+| `SystemScreenSaver.h` | 1 |
+| `animations/LaunchAnimation.h` | 1 |
+| `animations/MoveCameraAnimation.h` | 1 |
+
+| Target of the slice's includes | Lines |
+| --- | ---: |
+| system or external | 147 |
+| es-core | 134 |
+| es-app | 99 |
+
+generated, asserted: inbound 150 include lines from 66 files outside the slice
+generated, asserted: outbound 380 include lines in the slice's paths
+generated, asserted: es-core edges 134 of 380
+rc 0
+$ ... in_lines=149   (the drift: stage A's quoted-only count)
+FAIL t33-includes: in_lines 150, expected 149
+rc 1

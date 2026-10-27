@@ -86,6 +86,30 @@ for extra in $(awk '{print $1}' "${B}/sources.txt" | sort -u); do
   MORE="${MORE} ${extra}"
   build "${extra}" -I "${ES}/es-app/src" -I "${ES}/es-core/src" -I "${ES}/external" -I "${PUGIXML_INCLUDE_DIR:-${ES}/external}" -I "${RAPIDJSON_INCLUDE_DIR}" -- "${SX[@]}"
 done
+# T33 (#680): tests/app-unit's app-unit-tests, which no lane had built (T18
+# 02:50-58). Its sources and flags are its own CMakeLists' (`:35-46`):
+# main.cpp and the five case files, include roots es-app/src, es-core/src and
+# external (no fakes/ for this target: the file puts fakes/ BEFORE only for
+# proxycards-tests, jobs-tests and bookkeeper-tests), -g with
+# -fsanitize=address,undefined. Parsed, never typed.
+APPCM="${ES}/tests/app-unit/CMakeLists.txt"
+APP=""
+if [ -r "${APPCM}" ]; then
+  mapfile -t SA < <(python3 -I - "${APPCM}" <<'PYA'
+import re, sys
+cm = sys.argv[1]
+text = re.sub(r"#[^\n]*", "", open(cm).read())
+m = re.search(r"add_executable\(\s*app-unit-tests\s+([^)]*)\)", text)
+d = cm.rsplit("/", 1)[0]
+for s in (m.group(1).split() if m else []):
+    print(s.replace("${CMAKE_CURRENT_SOURCE_DIR}", d))
+PYA
+)
+  if [ "${#SA[@]}" -gt 0 ]; then
+    APP=app-unit-tests
+    build app-unit-tests -g -fno-omit-frame-pointer -fsanitize=address,undefined -I "${ES}/es-app/src" -I "${ES}/es-core/src" -I "${ES}/external" -- "${SA[@]}"
+  fi
+fi
 mapfile -t S4o < <(srcs atomicfile-win32-branch)
 mapfile -t S4 < <(srcs es-file-tests-win32)
 echo "\$ ${CXX[*]} -D_WIN32 -c ${S4o[*]} -o atomicfile-win32-branch.o"
@@ -94,7 +118,7 @@ if "${CXX[@]}" -D_WIN32 -I "${ES}/es-core/src" -c "${S4o[@]}" -o "${B}/atomicfil
 else
   echo "BUILD FAIL atomicfile-win32-branch:"; tail -n 15 "${B}/win32obj.build.log"; FAIL=1
 fi
-for t in es-unit-tests es-file-tests es-conf-tests es-file-tests-win32 ${FS} ${ST} ${MORE}; do
+for t in es-unit-tests es-file-tests es-conf-tests es-file-tests-win32 ${FS} ${ST} ${MORE} ${APP}; do
   [ -x "${B}/${t}" ] || { echo "RUN ${t}: not built"; FAIL=1; continue; }
   "${B}/${t}" > "${B}/${t}.run.log" 2>&1; rc=$?
   echo "RUN ${t}: rc ${rc}; $(grep -E '^\[doctest\] (test cases|assertions):' "${B}/${t}.run.log" | tr -s ' ' | tr '\n' ' ')"
@@ -104,7 +128,7 @@ done
 # rather than a sum written by hand (T21 stage E: totals written without
 # adding were found 2 to 53 cases high, S2 to S13).
 TOTAL=0; BINS=0
-for t in es-unit-tests es-file-tests es-conf-tests es-file-tests-win32 ${FS} ${ST} ${MORE}; do
+for t in es-unit-tests es-file-tests es-conf-tests es-file-tests-win32 ${FS} ${ST} ${MORE} ${APP}; do
   [ -r "${B}/${t}.run.log" ] || continue
   n=$(grep -m1 -E '^\[doctest\] test cases:' "${B}/${t}.run.log" | grep -o -E '[0-9]+' | head -n 1)
   [ -n "${n}" ] && { TOTAL=$((TOTAL + n)); BINS=$((BINS + 1)); }

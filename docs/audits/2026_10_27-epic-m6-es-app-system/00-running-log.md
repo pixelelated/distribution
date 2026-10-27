@@ -61,3 +61,16 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
 | G-10 | journal: 0 crash lines; the disk `t33.qcow2` 2,309,619,712 bytes, sha256 `1409b81a…6ca9ca4`, removed; qemu 0, compilers 0 | guest (`retired.txt`, `g10-journal.txt`) |
 
 **Also seen on the way:** VIEW OPTIONS > NAVIGATION > OTHER FILTERS on the gb list (`g08-2`), the path the proposed map text for FILTER GAMELIST BY names.
+
+## Stage C (19:22 UTC onward; the coordinator's 19:16 instruction: stage C whole, then 05 and the audit issue, ending on the stage-D pause)
+
+- **The include graph** (`stage-c/includes.out`): inbound 150 include lines from 66 files; outbound 380, es-core 134. Every #include form is counted. Stage A's quoted-only count was 149; the extra line is `GuiMenu.cpp:60`'s angle-bracket `LibretroRatio.h`. Drift-tested.
+- **The unit build** (`stage-c/build-pin.txt`): `tools/t33-build-tests.sh` is extended to `tests/app-unit`'s `app-unit-tests`, parsed from its CMakeLists with its flags (`-g -fsanitize=address,undefined`). That file puts no `fakes/` before `es-app/src` for this target, unlike the brief's sentence. The first build of the five case files gives `app-unit-tests` 18 cases and 18 passed; the script's line is `TOTAL: 239 test cases in 5 binaries`, rc 0.
+- **The six FAIL-at-pin cases**, each seen to FAIL at the pin with its `--control` (the proposed fix) PASSing. They are the `stage-c/l3NN-*.py` harnesses; their runs are in `stage-c/runs.txt`:
+  - 3.9: `0.05` reads 0 STARS; `3000…` and `0999…` read "".
+  - 3.13: Bravo is lost and the file is written in place.
+  - 3.21: the unknown trigger is dropped and nothing is logged.
+  - 3.29: three tag names have no extracted literal and no French.
+  - 3.31: `india` reads nothing.
+  - 3.35: the floor keeps 4 ASCII characters against 1 Japanese.
+  - **Two readings sharpened:** at 3.21, the dropped mapping does not load at all (`:292` keeps a mapping only with a trigger), where the brief said "an action with no trigger". At 3.31, `usa, europe` reads region `us` alone; the region is one string, so the brief's "us,eu" is not this code's shape (recorded, not a FAIL). And `1 STARS` has no singular: a word, upstream, recorded.

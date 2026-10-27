@@ -2,10 +2,10 @@
 
     python3 -I t33-includes.py <es worktree> <commit> <paths.txt> [in_lines=47,in_files=23,out_lines=410,es_core=143]
 
-In: every `#include "<x>"` line in es-app/src and es-core/src outside the 42
+In: every `#include "<x>"` line in es-app/src and es-core/src outside the slice
 paths whose target ends with one of the slice's headers (matched by the path
 under es-app/src, or by its basename when the include names no directory),
-counted per header. Out: every `#include` line in the 42 paths, and how many
+counted per header. Out: every `#include` line in the slice's paths, and how many
 of them resolve to a header under es-core/src (by the include's path, or by a
 basename that exists only there). Printed: the inbound table, the outbound
 split by target area, then three summary lines. Exits 1 when a count differs
@@ -60,19 +60,19 @@ for p in paths:
             areas["es-app"] += 1
         else:
             areas["system or external"] += 1
-print("| Slice header | Include lines from outside the 42 |")
+print("| Slice header | Include lines from outside the slice |")
 print("| --- | ---: |")
 for r, n in inbound.most_common():
     print("| `%s` | %d |" % (r, n))
 print()
-print("| Target of the 42's includes | Lines |")
+print("| Target of the slice's includes | Lines |")
 print("| --- | ---: |")
 for a, n in areas.most_common():
     print("| %s | %d |" % (a, n))
 print()
 counts = {"in_lines": sum(inbound.values()), "in_files": len(in_files), "out_lines": out, "es_core": areas["es-core"]}
 print("generated, asserted: inbound %d include lines from %d files outside the slice" % (counts["in_lines"], counts["in_files"]))
-print("generated, asserted: outbound %d include lines in the 42 paths" % out)
+print("generated, asserted: outbound %d include lines in the slice's paths" % out)
 print("generated, asserted: es-core edges %d of %d" % (areas["es-core"], out))
 fail = ["%s %d, expected %d" % (k, counts[k], v) for k, v in want.items() if counts.get(k) != v]
 if fail:
