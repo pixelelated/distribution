@@ -113,3 +113,11 @@
   - **A correction to L-11/PL-18:** over a stored timezone, the pin's every-close `set` is a set of the value held, which `SystemConf` drops. That third of the item was a call, not a write; the empty-store write is kept on purpose.
   - **#585:** two lines, one per upstream reach. The favorites write is in batocera too; the threshold seed and the timezone set are ROCKNIX's.
 - **S10 (PL-13, #1227)** at ES `01f33e33e`, pushed. The LED colour is quoted for the inner `sh -lc`, and the inner command for the outer shell. **Why not the brief's words alone:** "`shellQuote` on the argument" taken literally leaves the quoted colour inside the outer double quotes, where `$( )` and backticks stay live for the outer shell. A constructed copy shows it, and `credential-quoting.py` (a static check) passes that copy. `tests/led-color-quoting.py` (new) builds the command as written and runs it as `system()` does, in bubblewrap with a recording stub. It FAILs at the pin (split, broken, and three payloads run) and on the half-quoted copy, and PASSes after. `credential-quoting.py` learned the site and the `sh -lc` wrapper: 1 bare at the pin, 9 of 9 after. #585: one line, ROCKNIX's.
+- **S11 (PL-14, #1228; PL-16, #1229; PL-28, #1232)** at ES `fb43038be`, pushed. The words are as ruled (D-UI-112).
+  - **MANUAL UPDATES:** in the fork's upper case.
+  - **One Wi-Fi verdict:** the switch toasts WI-FI IS ON./OFF.; a join toasts the picker's CONNECTED, `WifiText::joinedNotice`, the words T21's S6 keeps (read by `git show`); a page close adds nothing on success.
+  - **FINISH:** says the ruled sentence and stays open when the marker cannot be removed.
+  - **Left as it was:** the local-play mode switch, which re-applies Wi-Fi, still says nothing. It is not the Wi-Fi switch the ruling names.
+  - **The map:** its Network section and relink diagram carry the verdict and FINISH's refusal (D-UI-039's spirit for copy; `es-menu-map-check` 0 missing).
+  - **Tests:** `tests/player-words.py` (new) FAILs at the pin on every item, PASSes after, and FAILs on two constructed copies.
+  - **Mine:** the FINISH anchor first matched the setup wizard's own FINISH (`[s]`), which made the fix look like a fail until the anchor named `restoreMarker`. `no-change-writes.py` broke on S11's new call in the finalizer it extracts and was given the double.

@@ -419,12 +419,16 @@ flowchart TD
     REL --> WIFI[WI-FI PASSWORD<br/><i>first: everything else needs the network back</i>]
     REL --> DEV[DEVICE PASSWORD]
     REL --> NP[NETPLAY PASSWORD<br/><i>only when the restored configuration uses it</i>]
-    WIFI --> RECONNECT[reconnects on save, then the page rebuilds]
+    WIFI --> RECONNECT[reconnects when the key changed -- CONNECTED toast -- then the page rebuilds]
     REL --> CHK[CHECK CONNECTION<br/><i>dimmed until a cloud is set up</i>]
     CHK -->|answers| OKC[YOUR CLOUD IS ANSWERING.]
     CHK -->|no cloud set up| NOCLOUD[CONNECT IT AGAIN UNDER<br/>GAME SETTINGS > MANAGE CLOUD STORAGE]
     CHK -->|not answering| NOANS[SIGN IN AGAIN UNDER GAME SETTINGS ><br/>MANAGE CLOUD STORAGE > CLOUD CONNECTIONS]
 ```
+
+FINISH clears the restore marker and closes the page; when the marker cannot
+be removed it says COULDN'T FINISH - THIS DEVICE COULDN'T SAVE THAT SETUP IS
+DONE. TRY AGAIN. and the page stays, the marker with it (T26 S11, #1232).
 
 CHECK CONNECTION's refusal named CONNECT OR REPAIR CLOUD STORAGE, a row
 renamed CLOUD CONNECTIONS in ES `c8dc72cf9`, until T26's S2 (#1216); its
@@ -497,6 +501,13 @@ flowchart TD
   asked "which network's key?"; the two places a key is typed are the
   picker's WI-FI KEY page, per network, and the restore wizard's WI-FI
   PASSWORD page.
+  **One Wi-Fi verdict** (T26 S11, #1229; the words proposed, D-UI-112): the
+  ENABLE WI-FI switch says what it did, as a toast, WI-FI IS ON. / WI-FI IS
+  OFF.; a join says the picker's CONNECTED toast, from the picker and from
+  the restore wizard's WI-FI PASSWORD alike; the page's close says nothing
+  more on success (D-UI-107), where it had opened a WI-FI ENABLED dialog. A
+  failure keeps the picker's COULDN'T CONNECT TO <name>. The local-play mode
+  switch, which re-applies Wi-Fi, says nothing either way, as before.
 **Implemented picker — #577 / D-UI-127, ES3178 in the fac608ff engineering image:**
 The list and footer keep their screen-relative geometry across first search and
 refresh. Searching appears inside a reserved status band; existing results remain
