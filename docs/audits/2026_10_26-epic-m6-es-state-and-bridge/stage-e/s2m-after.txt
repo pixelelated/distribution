@@ -1,0 +1,13 @@
+# T21 S2's follow-up, the marker, after (#668, #1189, #1197)
+
+RUN es-unit-tests: rc 0; [doctest] test cases: 194 | 194 passed | 0 failed | 0 skipped [doctest] assertions: 4852 | 4852 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 27 | 27 passed | 0 failed | 0 skipped [doctest] assertions: 3414 | 3414 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 22 | 22 passed | 0 failed | 0 skipped [doctest] assertions: 222 | 222 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+
+## The kill sweep with the marker
+  A: 9 kill points, 0 broke the invariant
+  B: 18 kill points, 0 broke the invariant
+  C: 89 kill points, 0 broke the invariant
+== result: PASS (every kill left the old or the new state whole)

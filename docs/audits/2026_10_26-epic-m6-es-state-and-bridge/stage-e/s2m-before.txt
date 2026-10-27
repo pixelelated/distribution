@@ -1,0 +1,21 @@
+# T21 S2's follow-up, the marker, before: S7's tree (ES 8629d5d08) with the case built from the probe (#668, #1189, #1197)
+
+The probe (stage-e/s2-nextload-probe.txt) as a case in one process: a load, a rewrite by something else, a save that writes and does not record, then a fresh load.
+
+RUN es-unit-tests: rc 0; [doctest] test cases: 194 | 194 passed | 0 failed | 0 skipped [doctest] assertions: 4852 | 4852 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 27 | 27 passed | 0 failed | 0 skipped [doctest] assertions: 3414 | 3414 passed | 0 failed | 
+RUN es-conf-tests: rc 1; [doctest] test cases: 22 | 21 passed | 1 failed | 0 skipped [doctest] assertions: 222 | 214 passed | 8 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+
+## es-conf-tests: the failing case
+TEST CASE:  a written-not-recorded file is not recorded at the next load either (T21 PL-03, PL-09; #1189, #1197)
+es-app/tests/unit/SystemConfTests.cpp:749: ERROR: CHECK( marker.find("# ") == 0 ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:750: ERROR: CHECK( marker.find("\na.key\n") != std::string::npos ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:751: ERROR: CHECK( modeOf(path + ".unrecorded") == 0600 ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:756: ERROR: CHECK( get(path + ".backup") == whole ) is NOT correct!
+TEST CASE:  a written-not-recorded file is not recorded at the next load either (T21 PL-03, PL-09; #1189, #1197)
+es-app/tests/unit/SystemConfTests.cpp:749: ERROR: CHECK( marker.find("# ") == 0 ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:750: ERROR: CHECK( marker.find("\na.key\n") != std::string::npos ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:751: ERROR: CHECK( modeOf(path + ".unrecorded") == 0600 ) is NOT correct!
+es-app/tests/unit/SystemConfTests.cpp:756: ERROR: CHECK( get(path + ".backup") == whole ) is NOT correct!
