@@ -1,0 +1,20 @@
+# T21 S7 after: the stream's tree (#668, #1195, #1196, #1207)
+
+RUN es-unit-tests: rc 0; [doctest] test cases: 194 | 194 passed | 0 failed | 0 skipped [doctest] assertions: 4852 | 4852 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 27 | 27 passed | 0 failed | 0 skipped [doctest] assertions: 3414 | 3414 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 21 | 21 passed | 0 failed | 0 skipped [doctest] assertions: 192 | 192 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+
+## Under the sanitizers
+$ bash stage-e/s7-asan.sh <es tree> <scratch> header status-s7 leak-s7
+== s7-asan built from 00669ccd9b + the working tree
+-- header
+rc 0
+header parsed: 1 [Content-Type] [image/png]
+-- status-s7
+rc 0
+status read: 404
+-- leak-s7
+rc 0
+headers sent
