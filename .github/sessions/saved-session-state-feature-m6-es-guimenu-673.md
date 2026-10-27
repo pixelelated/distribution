@@ -17,11 +17,11 @@
 
 ## Current focus
 
-**Stage B done; the window asked for on #673.**
+**The window done (08:08 to 08:31 UTC, RETURN posted); stage C next.**
 
-- **Stage B:** `02-forward-audit.md` (assembled by `tools/t26-assemble-02.py` from `stage-b/02-template.md`), 30 leads; the generators `t26-rows.py`, `t26-pages.py`, `t26-structure.py`, `t26-merge.py`, each with asserted counts and a proven negative; `stage-b/reading-notes.md`; the `GetShOutput` fixture; `stage-b/window-plan.md`.
-- **Next:** the window on its grant (START/RETURN posts, the plan's twelve steps, `02` § The guest cycle); then stage C (the packet, the plan, the seat's two keyed invokes, the pre-issue lint).
-- **What runs here:** nothing until the grant. Scratch is `/workspace/tmp/m6-t26/`; the ES worktree stays at the pin.
+- **Window:** L-01 (with a control), L-09, L-10, L-18, L-20 proved on the image; L-02 and L-16 not reached; the disk retired (`guest-cycle/`, `02` § The guest cycle).
+- **Next, stage C:** the packet trimmed and scanned (`second-opinions/`), `review-plan.json` with depth `independent`, one seat (GPT-6 Astra at `max`), a probe and one refutation -- exactly two keyed invokes, every other council call keyless -- and the pre-issue lint.
+- **What runs here:** nothing. Scratch is `/workspace/tmp/m6-t26/`; the ES worktree stays at the pin.
 
 ## Next commands
 
@@ -60,6 +60,7 @@ granted window.
 
 ## Checkpoints
 
+- The window, 08:31 UTC: RETURN posted; `02` § The guest cycle written.
 - Stage B, see the work log: `02` assembled, the window asked for on #673.
 - Stage A, 02:50 UTC: distribution `db7be4b104` + stage A's commit; ES at the pin `16dbac5211` (unchanged).
 - (none yet; the executor appends one line per stage: the stage, both tips, the time)

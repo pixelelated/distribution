@@ -46,3 +46,11 @@
 - **`02`:** 30 leads. New against the brief: L-02 (a QR texture asked for by path), L-18 (`:8460` names a row `c8dc72cf9` renamed), L-19 (the match's English refusal), L-20 (`:8116`'s runtime msgid). Corrections to the brief: MANUAL UPDATES is the fork's (`975235429`); `led.colour`, `:2989` and `:3209` are under `BATOCERA` (never built); the six unguarded credential rows are fixed by T21's S1 in `GuiSettings` (#1185); 11 of the brief's 33 unread keys hold once the global fallback is read.
 - **The window plan** (`stage-b/window-plan.md`): twelve steps, 45 minutes plus 5 of grace, stopped by pidfile at the bound, image versus tree first.
 - **Nothing else ran:** no image build, no fetch, no guest, no handheld, no council call.
+
+## [Window] 08:06 to 08:31 UTC — the guest, granted on #673
+
+- **Granted** 08:06 UTC (comment 6436803989). The guarded swap reclaim ran once before the guest (`READY`, 8,191 MB to 0). **START** 08:08:16 UTC, **RETURN** 08:31:02 UTC, each with its census on #673 and in the shared host file; the guest stopped 08:30:06 by `tools/vm-stop` on its pidfile (rc 0), 22 minutes into the 45.
+- **Proved on the image** (M7's composition over the pin, by its two literals): L-01 with its control, L-09, L-10, L-18 (EN and FR), L-20. **Not reached:** L-02 (`ON_DEVICE=yes`), L-16 at 640x480 (full-screen menus). **Read:** L-11's seed already carries the threshold; L-13's reach (two rows hidden, two reachable).
+- **The disk retired:** `t26.qcow2`, 2,310,275,072 bytes, sha256 `f9fec3fb…c81e`, removed; the leftover check clean (`guest-cycle/retired.txt`).
+- **Mine:** a malformed `vm-serial sh` call left the guest's shell in `cat` (cleared with Ctrl-C and Ctrl-D); `vm-stop`'s first call refused a timeout above 60 s; two key bursts overshot. None reached a result.
+- **Nothing else ran:** no image build, no fetch, no handheld, no account, no council call.

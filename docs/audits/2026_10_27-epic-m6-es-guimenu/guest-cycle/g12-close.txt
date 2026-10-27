@@ -1,0 +1,9 @@
+== G12 close (08:29:52Z)
+ls: /storage/.config/.restore-finish-pending: No such file or directory
+active-connection
+synced
+usage: vm-stop [-h] [--timeout TIMEOUT] pidfile disk
+vm-stop: error: timeout must be greater than zero and at most 60 seconds
+vm-stop rc 2
+down: owned QEMU exited (pid 130178)
+vm-stop rc 0

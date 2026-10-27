@@ -1,0 +1,16 @@
+== G02 (08:09:19Z)
+STATUS=
+ON_DEVICE=yes
+EXIT_HINT=SELECT + START
+info rc 0
+SIGNIN_WINDOW=/usr/bin/cloud-signin-window
+-rwxr-xr-x    1 root     root         44200 Oct 21 12:36 /usr/bin/cloud-signin-window
+ls: /tmp/cloud-oauth-qr.png: No such file or directory
+/usr/bin/qrencode
+-- the installed browser_stack_available (cloud_oauth differs from 8ebaf8daad)
+880:def browser_stack_available():
+881-    """Whether this image can show a provider's page on the device itself."""
+882-    runtime, display = running_session()
+883-    return os.path.exists(SIGNIN_WINDOW) and runtime is not None
+884-
+3201:        state["on_device"] = "yes" if browser_stack_available() else "no"

@@ -1,0 +1,21 @@
+tmpfs[01;31m[K /tmp [m[Ktmpfs rw,nosuid,nodev,nr_inodes=1048576 0 0
+ls: /tmp/cloud-oauth-qr.png: No such file or directory
+remount rc 0
+ro
+-- attempt 1 (/tmp ro)
+ls: /tmp/cloud-oauth-qr.png: No such file or directory
+remount rc 0
+rw
+-- attempt 2 (/tmp rw, the same ES session)
+-rw-r--r--    1 root     root           334 Oct 27 04:23 /tmp/cloud-oa
+1686
+-- control: ES restarted (the file cache cleared)
+6541
+-rw-r--r--    1 root     root           334 Oct 27 04:23 /tm
+-- control attempt (ES restarted)
+-rw-r--r--    1 root     root           337 Oct 27 04:25 /tm
+6541
+-- frames, read before the address band was painted out (tools/png-blackout; the band carried the session's address and PIN)
+attempt 1 (08:22:12Z, /tmp read-only): g10-4-phone-ro.png -- text only: SCAN THIS, OR OPEN / <address> / WHAT YOU TYPE THERE APPEARS HERE; no code.
+attempt 2 (08:23:26Z, /tmp writable, the same ES pid 1686): g10-7-phone-rw.png -- text only again, though /tmp/cloud-oauth-qr.png existed (334 bytes).
+control (08:25:55Z, ES restarted, pid 6541): g10-10-control-phone.png -- the QR code drawn left of the text (the band painted out covers the code and the address).
