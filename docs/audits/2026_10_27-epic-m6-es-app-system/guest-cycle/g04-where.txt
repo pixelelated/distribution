@@ -1,0 +1,28 @@
+== G-04 where the favourite went (19:08:02Z)
+/storage/.config/emulationstation/recovery/gb/Alpha.xml
+/storage/.config/emulationstation/resources/ubuntu_condensed.ttf
+/storage/.config/emulationstation/resources/PyeojinGothic-Medium.ttf
+/storage/.config/emulationstation/resources/arcaderoms.xml
+/var/run/hwdb.bin
+/storage/roms/gb/gamelist.xml
+/storage/roms/gbc/gamelist.xml
+/storage/.config/emulationstation/recovery/gb/Alpha.xml
+/storage/games-internal/roms/gb/gamelist.xml
+/storage/games-internal/roms/gbc/gamelist.xml
+-- recovery record (19:08:17Z)
+total 12
+drwxr-xr-x    2 root     root          4096 2026-10-27 15:07:13 -0400 [1;34m.[m
+drwxr-xr-x    3 root     root          4096 2026-10-27 15:07:13 -0400 [1;34m..[m
+-rw-r--r--    1 root     root           152 2026-10-27 15:07:13 -0400 [0;0mAlpha.xml[m
+<?xml version="1.0"?>
+<gameList parentHash="0">
+	<game>
+		<path>./Alpha.gb</path>
+		<name>Alpha</name>
+		<favorite>true</favorite>
+	</game>
+</gameList>
+
+Oct 27 15:06:04 GENERIC-X64-15ca start_es.sh[3303]: 2026-10-27 15:06:04        [3325]        WARNING        Unknown element of type "notification"!
+Oct 27 15:06:04 GENERIC-X64-15ca start_es.sh[3303]: 2026-10-27 15:06:04        [3323]        ERROR        HttpReq::onError (3) : Could not connect to server
+Oct 27 15:06:04 GENERIC-X64-15ca serial_number_check[3346]: SERIAL NUMBER CHECK: This device has no unique serial number to check, skipping and continue to Emul

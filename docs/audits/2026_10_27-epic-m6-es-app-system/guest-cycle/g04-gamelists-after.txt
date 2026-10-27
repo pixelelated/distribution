@@ -1,0 +1,24 @@
+== G-04 after YES at 19:08:37 Z (REALLY RESTART EMULATIONSTATION?); ES pid 3303 before, 4215 after; read 19:08:48Z
+-- /storage/roms/gb/gamelist.xml
+d4307578f44603e995664c6ff4195d0c  /storage/roms/gb/gamelist.xml
+<?xml version="1.0"?>
+<gameList>
+	<game>
+		<path>./Alpha.gb</path>
+		<name>Alpha</name>
+		<favorite>true</favorite>
+	</game>
+</gameList>
+-- /storage/roms/gbc/gamelist.xml
+45b27e813ddb82f206a0942e8d180de2  /storage/roms/gbc/gamelist.xml
+<?xml version="1.0"?>
+<gameList>
+	<game>
+		<path>./Delta.gbc</path>
+		<name>Delta</name>
+		<desc>T33 written from outside ES while it ran</desc>
+	</game>
+</gameList>
+-- recovery/gb:
+ls: /storage/.config/emulationstation/recovery/gb/: No such file or directory
+-- custom-t33.cfg bytes: 0

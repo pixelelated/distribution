@@ -1,0 +1,29 @@
+== G-04 read at 19:07:52Z, BEFORE the restart: the RESTART press had opened REALLY RESTART EMULATIONSTATION? (frame g04-5) and nothing was confirmed; void as G-04's read, kept as the before-state. The "2308 before" was also wrong: 2308 preceded the 19:06 systemctl restart; ES was 3303 here.
+-- /storage/roms/gb/gamelist.xml
+055b53a8babb58797f31dc2ea374b875  /storage/roms/gb/gamelist.xml
+<?xml version="1.0"?>
+<gameList>
+	<game>
+		<path>./Bravo.gb</path>
+		<name>Bravo</name>
+		<desc>T33 written from outside ES while it ran</desc>
+	</game>
+</gameList>
+-- /storage/roms/gbc/gamelist.xml
+45b27e813ddb82f206a0942e8d180de2  /storage/roms/gbc/gamelist.xml
+<?xml version="1.0"?>
+<gameList>
+	<game>
+		<path>./Delta.gbc</path>
+		<name>Delta</name>
+		<desc>T33 written from outside ES while it ran</desc>
+	</game>
+</gameList>
+-- the recovery folder
+total 12
+drwxrwxrwx    2 root     root          4096 Oct 27 15:06 [1;34m.[m
+drwxr-xr-x  132 root     root          4096 Oct 27 15:02 [1;34m..[m
+-rw-r--r--    1 root     root             0 Oct 27 15:03 [0;0mAlpha.gb[m
+-rw-r--r--    1 root     root             0 Oct 27 15:03 [0;0mBravo.gb[m
+-rw-r--r--    1 root     root             0 Oct 27 15:03 [0;0mCharlie.gb[m
+-rw-r--r--    1 root     root           165 Oct 27 15:06 [0;0mgamelist.xml[m
