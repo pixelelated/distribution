@@ -1,0 +1,21 @@
+== S8 after: tests/command-readers.py against the worktree
+command-readers: PASS
+rc 0
+== negative: cloudRemoteOkName without its exit check
+FAIL command-readers: OK= with a failing exit read as success
+rc 1
+== negative: GetShOutput without its popen test
+FAIL command-readers: the reader crashed (signal 11) after the failed popen: it read from a null stream
+rc 1
+== tests/shell-quote-equality.py after the replacement (shellQuote alone)
+shell-quote-equality: PASS, 20 values, shellQuote alone (cloudShellQuote gone)
+rc 0
+== tests/credential-quoting.py
+credential-quoting: 8 credential call site(s), 8 quoted, 0 bare
+rc 0
+== the two harnesses taught the one quoting function, at the pin and after
+cloud-set-systems-quoting: 5 of 5 passed
+cloud-set-systems-quoting: 5 of 5 passed
+cloud-content-selection: 14 of 14 passed
+cloud-content-selection: 14 of 14 passed
+== es-core/src/utils/Platform.cpp by the stand-in syntax check: CANNOT -- its SDL fake lacks SDL_PushEvent (Platform.cpp:237), the same at the pin; the edited GetShOutput is compiled and run by command-readers.py

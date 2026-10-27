@@ -1,0 +1,13 @@
+== S8 before: tests/command-readers.py against the pin's GuiMenu.cpp and Platform.cpp (16dbac521)
+FAIL command-readers: two parses of one "OK=" line: anywhere in the joined text (create) and at its start (select, remove)
+FAIL command-readers: CHECK CONNECTION reads its status with atoi: an empty one is 0, YOUR CLOUD IS ANSWERING
+FAIL command-readers: GetShOutput gave a 300-byte line back as 299 bytes
+FAIL command-readers: GetShOutput lost the last byte of a line with no newline: CONNECTE
+FAIL command-readers: the reader crashed (signal 11) after the failed popen: it read from a null stream
+rc 1
+== the refactor's guard first: tests/shell-quote-equality.py at the pin and on the tree before the replacement (both functions present)
+shell-quote-equality: PASS, 20 values, cloudShellQuote and shellQuote byte-equal
+rc 0
+== the guard fires: a copy whose cloudShellQuote escapes one quote short
+FAIL shell-quote-equality: cloudShellQuote and shellQuote differ on 6 of 20 values
+rc 1

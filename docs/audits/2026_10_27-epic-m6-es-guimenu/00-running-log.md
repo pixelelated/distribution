@@ -98,3 +98,11 @@
   - **Tests:** `tests/script-text-french.py` (new) is FAIL at the pin, PASS after, and FAIL on two constructed copies. CloudTextTests gained the 31 cited lines.
   - **What the punch item's first PL-10 checkbox expected and could not happen:** `es-untranslated` cannot name the two phrases at the pin, because they were no msgid at all. The French test shows them English at the pin instead.
   - **Mine:** `es-untranslated` cannot run on a `git archive` tree; its pin figure is S1's, cited.
+- **S8 (PL-11, #1225; PL-21)** at ES `a5d2d3756`, pushed.
+  - **`GetShOutput` (es-core, ROCKNIX's own; `batocera/master` has no such function):** it keeps every byte but a newline and tests `popen`'s result. Its joined-lines contract is unchanged for upstream's callers.
+  - **The `cloud_remote` changes:** both are read whole by `cloudRemoteRun`, with one `OK=` parse (`cloudRemoteOkName`). It is not `executeScriptLegacy`, which echoes lines to stdout unmasked.
+  - **CHECK CONNECTION's status:** read strictly (`cloudExitStatus`).
+  - **`cloudShellQuote` → `Utils::String::shellQuote`:** after `tests/shell-quote-equality.py` showed them byte-equal over 20 values and fired on a copy one character off.
+  - **Tests:** `tests/command-readers.py` (new) FAILs at the pin on five points, including a real crash on a failed popen. It PASSes after and FAILs on two constructed copies. Two harnesses that extracted `cloudShellQuote` now extract the one function: 5 of 5 and 14 of 14, at the pin and after. credential-quoting stays at 8 of 8.
+  - **`Platform.cpp` by the stand-in syntax check:** CANNOT, because its SDL fake lacks `SDL_PushEvent`, the same at the pin. The edited function is compiled and run by the test.
+  - **Mine:** the guard's first extractor took a forward declaration for the definition, and its first negative crashed its parser. Both fixed before a result was taken.
