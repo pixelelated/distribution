@@ -55,3 +55,7 @@
 - **The disk retired:** `t32.qcow2`, 2,312,372,224 bytes, sha256 `a3a152ce…0627d`, removed (`guest-cycle/retired.txt`); qemu 0, compilers 0.
 - **Mine:** three void passes, each redone with a frame (a `StartupSystem` named `screenshots` where the system is `imageviewer`; a `ret` that reached the list; a `set_setting` without `/etc/profile`).
 - **Nothing else ran:** no image build, no fetch, no handheld, no account, no council call.
+
+## [Stage C] 16:24 UTC onward — the host proofs, the analysis, the seat
+
+- The coordinator's instruction (16:24 UTC): stage C whole, then 05 and the audit issue, ending on the stage-D pause post. The order and its state are in the pointer's § Current focus.

@@ -17,21 +17,29 @@
 
 ## Current focus
 
-**Stage B done (16:06 UTC); the window asked for on #679.** `02-forward-audit.md` composed by `tools/t32-02.py` (42 coverage rows; L-01 to L-21; the floor's 35; views 6, scrapers 5, services 27/25, reads 49/50, bounds 9, words 57/69/50 generated and asserted, each generator seen to exit 1 on a drift: `stage-b/generators.txt`); the window plan `stage-b/window-plan.md` (35 + 5 minutes). **Next:** on the grant, the window (START post first); meanwhile stage C -- the unit cases for the six FAIL-at-pin leads by `tools/t32-build-tests.sh`, the include graph `tools/t32-includes.py`, the packet and the seat. § 3's remaining reads (blindspots, the other audits' lines, the issues, `vm-qa-log.md:9-18`) before stage D.
+**Stages A and B done; the window run and recorded (16:08:36 to 16:22:34 UTC, the disk retired); stage C in progress (16:24 UTC).** The coordinator's instruction (16:24 UTC): run stage C whole -- the host proofs under `stage-c/` (the six FAIL-at-pin leads first, each seen to FAIL against the unfixed extract before a fix shape is trusted), the include graph, `03` and `04`, the packet trimmed and scanned with every hit dispositioned, the two keyed seat calls, the pre-issue lint -- then `05` and the audit issue, and **end the turn only on the stage-D pause post with the punch list and the questions** (or an earlier question that needs the coordinator).
+
+**Stage C, in order, and where each stands** (tick here as each lands):
+1. `tools/t32-build-tests.sh`: T21's `t21-build-tests.sh` (`git show origin/feature/m6-es-state-and-bridge-668:docs/audits/2026_10_26-epic-m6-es-state-and-bridge/tools/t21-build-tests.sh`) or T31's `t31-build-tests.sh` renamed; rapidjson is at `/workspace/tmp/m6-t32/rj/rapidjson-1.1.0/include` (the recipe's tarball, sha matching, four patches). Its `TOTAL:` line is quoted, never summed.
+2. The six FAIL-at-pin cases, as stage-C harnesses over the pin's extracts (T31's `stage-c/` shape: `t31extract.function`, doubles, compiled under ASan) or as doctest files, each with its FAIL recorded at the pin: **3.10** (`GamesDBJSONScraper.cpp:605-607`, `"boxart": []`), **3.13** (`Scraper.cpp:289` update, `:337`, `:372-376` over a doubled `HttpReq` and `SDL_GetTicks`), **3.16's remainder** (`IGDBScraper.cpp:314-331` returns false; `:143-144`; also read `isSupportedPlatform` `:221-230` for G-06's empty systems list), **3.27** (`SystemView.cpp:272` `_moveCursorInRange(2,-10,5)` -> -3), **3.31** (`GridGameListView.cpp:131-153` IMAGE returns empty), **3.32** (`GameNameFormatter.cpp:84-85` the two ASCENDING tests; `:171-185` the 25-hour wrap; and `DetailedContainer.cpp:1049`). Also L-02 (`progress()` cancelled over finished, `ThreadedScraper.cpp:331`).
+3. Read at C, from the window: G-03 (the letter jump through T31's `GuiGamelistOptions` and `ISimpleGameListView::moveToLetter` `:486-603` -- why the cursor stayed on Alpha), the French bar's missing SAVE STATES (`ISimpleGameListView::getHelpPrompts` `:681-741`), L-18's caller `components/ScraperSearchComponent.cpp:261` (which thread), L-16's holders (`CollectionSystemManager::reloadCollection`).
+4. `tools/t32-includes.py` (the include graph: expect 47 include lines from 23 files outside, es-core edges 143 of 410).
+5. `03-retrospective.md`, `04-analysis.md` (Q1 to Q7 at their lines) -- T31's shape.
+6. The packet: `second-opinions/` (`review-plan.json` depth independent, one reviewer gpt `openai/gpt-6-astra` max; `packet-manifest.json` with every scan hit dispositioned by file:line, `httplib.h` by ranges only); the two keyed `tools/council/run invoke` calls (probe, refutation), every other call `COUNCIL_ENV_FILE=/nonexistent`; T31's `second-opinions/` and `00` are the model.
+7. `tools/lint-audit-artifacts --phase pre-issue <A>`; then `05-punch-list.md`, the audit issue (a sub-issue of #679), the bugs; the stage-D pause post on #679.
+
+**Facts the record already holds:** 02 is composed by `python3 -I tools/t32-02.py <A> <W> 16dbac5211 .qa-scratch/t32/paths.txt` from `stage-b/02-template.md` (edit the template, never 02); the window's verdicts are in 02 § The guest cycle; L-01 to L-21 in 02 § The leads; corrections to the brief in 02 § The runs.
 
 ## Next commands
 
 ```bash
-D=/workspace/repos/pixelelated/distribution.worktrees/m6-es-app-views-scrapers-679
-cd "$D"   # no fetch of any kind: 651150fc88 and c445081a59 are already in the repository
-git merge-base --is-ancestor 2174265e9c HEAD && echo stacked-on-P1
-git diff --stat 8ebaf8daad HEAD -- packages projects | tail -1                     # empty
-test -f docs/reviews/inventory.json && echo inventory
-grep -c 'D-RA-050' docs/decision-register.md                                       # 1 or more: the coordinator's tip is merged
-W=/home/max/Development/emulationstation-next.worktrees/m6-es-app-views-scrapers-679
-git -C "$W" rev-parse HEAD; git -C "$W" status --short | wc -l                      # the pin; 0
-tail -n 6 /tmp/m7-m6-host-coordination-20261023.txt | cut -c1-200; pgrep -x qemu-system-x86 -r R,S,D,T | wc -l
-sed -n '1,150p' docs/reviews/briefs/es-app-views-scrapers.md
+D=/workspace/repos/pixelelated/distribution.worktrees/m6-es-app-views-scrapers-679; cd "$D"
+W=/home/max/Development/emulationstation-next.worktrees/m6-es-app-views-scrapers-679; PIN=16dbac5211
+A=docs/audits/2026_10_27-epic-m6-es-app-views-scrapers
+git -C "$W" status --short | wc -l                      # 0: the ES worktree stays at the pin until stage E
+tail -n 40 "$A/00-running-log.md"; ls "$A/stage-c" "$A/second-opinions" 2>&1
+python3 -I "$A/tools/t32-02.py" "$A" "$W" "$PIN" .qa-scratch/t32/paths.txt   # recompose 02 after a template edit
+gh issue view 679 --repo pixelelated/distribution --comments | tail -40
 ```
 
 ## Merge notes
