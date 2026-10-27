@@ -1,0 +1,20 @@
+== S4 after: tests/device-password-apply.py against the worktree
+device-password-apply: PASS, 10 closes over 2 pages
+rc 0
+== negative: applyDevicePassword's restore of the opened value replaced by ';'
+FAIL device-password-apply: SSH PASSWORD (wizard): an emptied entry was saved: root.password '' while the device keeps its password
+FAIL device-password-apply: DEVICE PASSWORD (relink): an emptied entry was saved: root.password '' while the device keeps its password
+rc 1
+== negative: the empty-entry guard removed (entered == opened only)
+FAIL device-password-apply: SSH PASSWORD (wizard): an emptied entry ran setrootpass
+FAIL device-password-apply: SSH PASSWORD (wizard): an emptied entry was saved: root.password '' while the device keeps its password
+FAIL device-password-apply: DEVICE PASSWORD (relink): an emptied entry ran setrootpass
+FAIL device-password-apply: DEVICE PASSWORD (relink): an emptied entry was saved: root.password '' while the device keeps its password
+rc 1
+== negative: the unchanged guard removed (entered.empty() only)
+FAIL device-password-apply: SSH PASSWORD (wizard): an unchanged close ran setrootpass or changed the stored value
+FAIL device-password-apply: SSH PASSWORD (wizard): re-entering the same value ran setrootpass
+FAIL device-password-apply: DEVICE PASSWORD (relink): an unchanged close ran setrootpass or changed the stored value
+FAIL device-password-apply: DEVICE PASSWORD (relink): re-entering the same value ran setrootpass
+rc 1
+== note: at the pin the two built pages already ran no setrootpass on an unchanged close; the every-close apply is the SECURITY page's (:3261-3275), under BATOCERA and not built on ROCKNIX, recorded and unchanged
