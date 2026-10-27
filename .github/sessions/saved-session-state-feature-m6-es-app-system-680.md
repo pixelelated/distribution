@@ -80,7 +80,7 @@ granted window.
 
 ## Checkpoints
 
-- stage D pause, 2026-10-27 20:1x UTC: #1270 filed (26 items), the pause posted on #680
+- stage D pause, 2026-10-27 20:08:31 UTC: #1270 filed (26 items), the pause posted on #680
 - window, 2026-10-27 19:01-19:14 UTC: G-01..G-10 run (G-05/07/09 CANNOT); L-05 and L-28 reproduced on the image; RETURN posted; distribution `d680658464`
 - stage B, 2026-10-27 18:58 UTC: `02` composed (16 sections; the five generated tables and the words, each asserted and drift-tested); the window plan; the request posted on #680
 - stage A, 2026-10-27 18:4x UTC: distribution `27bd8499f1` + stage A's record, ES `16dbac5211` (the pin, clean); every § 1, § 2 and § 5 figure as the brief expects; the stand-in 29/29 rc 0; next: stage B (`02`), then the window request
