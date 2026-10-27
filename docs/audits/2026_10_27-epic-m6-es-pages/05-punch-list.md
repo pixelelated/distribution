@@ -6,7 +6,7 @@ Written by the first reader (Opus 5.5) at stage C, from:
 - the guest cycle and the stage-C harnesses;
 - `stage-c/astra-grades.md`.
 
-- **reviewed-at:** `da7922a7bd` (distribution), **reviewed-at-es:** `16dbac5211` (the pin). **fixed-at** and **fixed-at-es:** at stage F.
+- **reviewed-at:** `da7922a7bd` (distribution), **reviewed-at-es:** `16dbac5211` (the pin). **fixed-at:** `ada47cfe46` (distribution, `feature/m6-es-pages-678`), **fixed-at-es:** `95852f873` (`feature/m6-es-pages-678` on pixelelated/emulationstation).
 - **Independent depth:** one seat, GPT-6 Astra at `max` (43 items: 41 accepted, 1 in part, 1 not kept).
 - **One item per defect or reusable improvement**, however many leads found it, ordered by severity. Not an item: L-25 (a real seed, recorded).
 - **Nothing here changes a file** under the distribution's `packages/`, `projects/` or `tools/`, or an ES file, at stages A to D. A fix lands only under a stream brief on the ES branch, proven twice. A row added, moved or renamed updates `docs/es-menu-map.md` in the same commit (D-UI-039).
@@ -475,37 +475,37 @@ Written by the first reader (Opus 5.5) at stage C, from:
 
 ## Phase 7 resolution gate
 
-At stage D every item is open, awaiting the coordinator's dispositions. Stage F rewrites this table and the index together.
+Stage F, 2026-10-27: every item at its outcome, the table and the index rewritten together. The ES commits are on `feature/m6-es-pages-678` (pixelelated/emulationstation), fixed-at-es `95852f873`; each stream's before, after and checks are under `stage-e/`, and `02` § The streams carries one row per stream.
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | -- |
-| PL-02 | Open | -- |
-| PL-03 | Open | -- |
-| PL-04 | Open | -- |
-| PL-05 | Open | -- |
-| PL-06 | Open | -- |
-| PL-07 | Open | -- |
-| PL-08 | Open | -- |
-| PL-09 | Open | -- |
-| PL-10 | Open | -- |
-| PL-11 | Open | -- |
-| PL-12 | Open | -- |
-| PL-13 | Open | -- |
-| PL-14 | Open | -- |
-| PL-15 | Open | -- |
-| PL-16 | Open | -- |
-| PL-17 | Open | -- |
-| PL-18 | Open | -- |
-| PL-19 | Open | -- |
-| PL-20 | Open | -- |
-| PL-21 | Open | -- |
-| PL-22 | Open | -- |
-| PL-23 | Open | -- |
-| PL-24 | Open | -- |
-| PL-25 | Open | -- |
-| PL-26 | Open | -- |
-| PL-27 | Open | -- |
+| PL-01 | Resolved | Resolved in `9cb0e5c9a` (ES, S1) under #1236 and D-UI-128: START, CLOSE and an outside click close each settings page through `close()` from the top (`GuiSettings::closeAllFromTop`), stopping at a page an `onFinalize` pushed (`stage-e/s1-*.txt`); a #585 line |
+| PL-02 | Resolved | Resolved in `1ca322f75` (ES, S2) under #1237: `save()` writes the stores on every close, with or without a save function (`stage-e/s2-*.txt`); GuiMenu's four workaround saves are merge debt in `02`; a #585 line |
+| PL-03 | Resolved | Resolved in `70db6535b` (ES, S3) under #1238: every value handed to the shell quoted, the launcher's file name kept to what a shell reads as itself; `credential-quoting.py` 9 to 11 sites (`stage-e/s3-*.txt`); a #585 line |
+| PL-04 | Resolved | Resolved in `70db6535b` (ES, S3) under #1239: fetch and parse first, the new set swapped in whole, every write checked, the library as it was on a failure (`stage-e/s3-*.txt`); a #585 line |
+| PL-05 | Resolved | Resolved in `70db6535b` (ES, S3) under #1240: the literal `/storage` paths removed and checked, the box true only when both are gone (`stage-e/s3-*.txt`); a #585 line |
+| PL-06 | Resolved | Resolved in `70db6535b` (ES, S3) under #1241: one bounded conf reader, nothing written on a missing or malformed value, its failure said (`stage-e/s3-*.txt`); a #585 line |
+| PL-07 | Resolved | Resolved in `f9b97b3ea` (ES, S4) under #1242: the copy made on the worker under the transfer lock, checked by its size, and said both ways (`stage-e/s4-*.txt`); `SaveState.cpp`'s half is T2's under #782 |
+| PL-08 | Resolved | Resolved in `82f80693d` (ES, S5) under #1243: `save()` before each page is replaced (`stage-e/s5-*.txt`); two #585 lines |
+| PL-09 | Deferred | Deferred: #1244 -- S6b is the patch `stage-e/s6b.patch` with `s6b-fr.po`, proven on a scratch tree of T21's `a73ed9efc` (`stage-e/s6b-*`), for the integration to apply after T21's merge (the coordinator's ruling of 15:12 UTC); T21's `a73ed9efc` carries the failed case |
+| PL-10 | Resolved | Resolved in `95852f873` (ES, S6a) under #1245: the help bar drawn under full-screen menus, DETAILS only on a system's row (`stage-e/s6a-*.txt`) |
+| PL-11 | Resolved | Resolved in `95852f873` (ES, S6a) under #1246: the summary one sentence per count through the catalog's plural forms, an unloaded system's full name from the definitions (`stage-e/s6a-*.txt`) |
+| PL-12 | Resolved | Resolved in `2fa6b5f73` (ES, S7) under #1247: the why and the next step on the finished page, a button dismissing it once drawn (`stage-e/s7-*.txt`) |
+| PL-13 | Resolved | Resolved by D-UI-129 as ruled on #678 (13:27 UTC, comment 6443081619): the word stays; the completed run reported as cancelled is T32's L-02, inherited in `02` |
+| PL-14 | Resolved | Resolved in `70db6535b` (ES, S3) under #1248, the title through `_()`, and the map in `babec2f359` (distribution), MOONLIGHT GAME STREAMING under GAME SETTINGS > TOOLS (`stage-e/s3-*.txt`); a #585 line |
+| PL-15 | Resolved | Resolved in `70db6535b` (ES, S3) under #1249: the probe read and closed (`stage-e/s3-*.txt`); a #585 line |
+| PL-16 | Resolved | Resolved in `70db6535b` (ES, S3) under #1250: the key written 0600, an existing one narrowed at the page's open (`stage-e/s3-*.txt`); a #585 line |
+| PL-17 | Resolved | Resolved in `50f5d08ccd` (distribution, S8) and `ee8ac47dd6`'s record, under #1234: BIOS CHECK and SCRAPING GAMES mapped; the ten upstream declarations wait as comments on #951/#965 (the ruling of 14:27 UTC; `stage-e/s8-*.txt`) |
+| PL-18 | Resolved | Resolved in `1f06113e0` (ES, S9) under #1251: an atomic flag, the result read after the join, the thread owned (`stage-e/s9-*.txt`); a #585 line |
+| PL-19 | Resolved | Resolved in `b71d656d9` (ES, S10) under #1252: a life token per viewer, an unfilled viewer deleted with a toast (`stage-e/s10-*.txt`); a #585 line |
+| PL-20 | Resolved | Resolved in `a8dcc23ea` (ES, S11) under #1253: PLAYER PASSWORD masked (`stage-e/s11-*.txt`); a #585 line |
+| PL-21 | Resolved | Resolved in `a8beab553` (ES, S12) under #1254: only a moved selection written, an empty one kept as `none`, the filters rebuilt on SCRAPE FROM (`stage-e/s12-*.txt`) |
+| PL-22 | Resolved | Resolved in `03a929e02` (ES, S13) under #1255: the editor reopens from the value last saved (`stage-e/s13-*.txt`); a #585 line |
+| PL-23 | Resolved | Resolved in `bc3959c69` (ES, S14) under #1256: a strict ordering, the slot breaking a tie (`stage-e/s14-*.txt`) |
+| PL-24 | Deferred | Deferred: #585 -- recorded as written, four lines in `02` § The #585 lines owed, as ruled on #678 (13:27 UTC; D-UI-079) |
+| PL-25 | Deferred | Deferred: #1235 (a Backlog, the coordinator's), as ruled on #678 (13:27 UTC): the inventory's reach from the CMake source lists; the files stay as upstream has them |
+| PL-26 | Deferred | Deferred: #678's inheritance -- recorded as written in `02` § What T32 to T37 inherit, for the slices that own `DisplayAspect.cpp` and SCRAPER's worker, as ruled on #678 (13:27 UTC); no bug |
+| PL-27 | Withdrawn | Withdrawn as a bug: keep an eye on (`bugs-are-agent-first.md`), as ruled on #678 (13:27 UTC, comment 6443081619); a journal line naming an open failure turns it into one |
 
 ```yaml
 punch_index:
@@ -514,161 +514,161 @@ punch_index:
   category: Correctness
   question: Q2
   source_finding: "L-01, L-34"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-02
   severity: "Medium"
   category: Correctness
   question: Q2
   source_finding: "L-02, L-36"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-03
   severity: "Medium"
   category: Security
   question: Q6
   source_finding: "L-05, L-28"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-04
   severity: "Medium"
   category: Correctness
   question: Q2
   source_finding: "L-29, L-30"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-05
   severity: "Medium"
   category: Correctness
   question: Q4
   source_finding: "L-06"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-06
   severity: "Medium"
   category: Reliability
   question: Q3
   source_finding: "L-32"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-07
   severity: "Medium"
   category: Correctness
   question: Q4
   source_finding: "L-13, L-38"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-08
   severity: "Low"
   category: Correctness
   question: Q2
   source_finding: "L-03, L-35"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-09
   severity: "Low"
   category: Correctness
   question: Q4
   source_finding: "L-12, L-39"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-10
   severity: "Low"
   category: UX
   question: Q5
   source_finding: "L-26"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-11
   severity: "Low"
   category: UX
   question: Q5
   source_finding: "L-11, L-27"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-12
   severity: "Low"
   category: UX
   question: Q4
   source_finding: "L-09, L-10"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-13
   severity: "Low"
   category: UX
   question: Q5
   source_finding: "L-08"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-14
   severity: "Low"
   category: UX
   question: Q5
   source_finding: "L-07"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-15
   severity: "Low"
   category: Correctness
   question: Q4
   source_finding: "L-31"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-16
   severity: "Low"
   category: Security
   question: Q2
   source_finding: "L-33"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-17
   severity: "Low"
   category: Docs
   question: Q7
   source_finding: "L-24"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-18
   severity: "Low"
   category: Reliability
   question: Q3
   source_finding: "L-22"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-19
   severity: "Low"
   category: Reliability
   question: Q3
   source_finding: "L-40, L-41"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-20
   severity: "Low"
   category: Security
   question: Q2
   source_finding: "L-04"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-21
   severity: "Low"
   category: Correctness
   question: Q2
   source_finding: "L-15, L-16, L-42"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-22
   severity: "Low"
   category: Correctness
   question: Q2
   source_finding: "L-37"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-23
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "L-43"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-24
   severity: "Low"
   category: UX
   question: Q1
   source_finding: "L-19, L-20, L-21"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-25
   severity: "Low"
   category: Maintainability
   question: Q7
   source_finding: "L-23"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-26
   severity: "Low"
   category: Reliability
   question: Q3
   source_finding: "L-17, L-18"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-27
   severity: "Low"
   category: UX
   question: Q4
   source_finding: "L-14"
-  outcome: "open"
+  outcome: "withdrawn"
 ```

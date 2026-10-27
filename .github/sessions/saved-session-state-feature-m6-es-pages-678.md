@@ -17,27 +17,18 @@
 
 ## Current focus
 
-**Stage A done** (12:00 to 12:07 UTC; committed 12:07:06, posted 12:07:50). **Stage B done** (12:23 UTC): `02` with its sections and 25 leads, six generators, the window plan; the window asked for on #678.
-`docs/audits/2026_10_27-epic-m6-es-pages/`: `00-running-log.md` (the header and § Stage A),
-`01-research-notes.md` (§ Scope, § History, § Callers, § Context), `stage-a/` (the first
-commands, the membership block, the § 5 runs and their output, the reruns, the callers, the
-history) and `tools/` (`t31-callers.py`, `t31-run-runs.py`). Every § 5 figure as the brief
-expects; the brief's non-ASCII adjacency grep is a basic-regex error (`'_\("'`), rerun with
-`-F`: 0. `GuiAutoScrape` has no caller at the pin (a Q7 lead).
-
-**Stages A to D done; the ruling received (13:27 UTC); the bugs filed:** #1236 to #1256 (21; the map in `05`'s `Bug:` lines and #1234's items). **Waiting for the coordinator's stream brief** `docs/reviews/briefs/t31-streams.md`; then stage E on the ES branch `feature/m6-es-pages-678`, each stream FAIL-first, under `stage-e/`.
+**Handed back (15:27 UTC); the lane is idle, waiting for the coordinator.** Stage E done under `docs/reviews/briefs/t31-streams.md` at `17be18bde5` and the rulings on #678 (13:51, 14:27, 15:12 UTC): fourteen streams; the ES tip `95852f873` on `feature/m6-es-pages-678` (pixelelated/emulationstation); the distribution's records under `docs/audits/2026_10_27-epic-m6-es-pages/` (`02` § The streams, `05` at Phase 7, `stage-e/`). S8 landed as two sections, with its ten declarations waiting as comments on #951/#965; S6b is a patch (`stage-e/s6b.patch`, `s6b-fr.po`) for the integration after T21's merge, and #1244 stays open on that checkbox. The 21 bugs stay open until the pin moves on `next`. `fixed-at` `ada47cfe46`, `fixed-at-es` `95852f873`, in #678's body, `05` and each bug.
 
 ## Next commands
 
 ```bash
 D=/workspace/repos/pixelelated/distribution.worktrees/m6-es-pages-678; cd "$D"
-W=/home/max/Development/emulationstation-next.worktrees/m6-es-pages-678; PIN=16dbac5211
+W=/home/max/Development/emulationstation-next.worktrees/m6-es-pages-678
 A=docs/audits/2026_10_27-epic-m6-es-pages
-git -C "$W" rev-parse HEAD; git -C "$W" status --short | wc -l            # the pin; 0
-cat "$A/00-running-log.md"; sed -n '584,800p' docs/reviews/briefs/es-pages.md   # § 4 the questions, § 5 the floor
-tools/archaeology 'save state manager' | head -60; tools/archaeology 'scrape' | head -60
-python3 -I "$A/tools/t31-callers.py" "$W" "$PIN" .qa-scratch/t31/paths.txt | tail -1   # classes 39; 1 without a caller
-tail -n 6 /tmp/m7-m6-host-coordination-20261023.txt | cut -c1-200        # the host, before the window request
+git -C "$W" log --oneline -1; git -C "$W" status --short | wc -l           # 95852f873; 0
+(cd "$A" && bash stage-e/checks.sh "a reread")                               # TOTAL: 228 test cases in 4 binaries; the stage-C positives
+tools/lint-audit-artifacts --phase resolution --issue 1234 "$A" | tail -1   # PASS
+gh issue view 678 --repo pixelelated/distribution --comments | tail -40     # the coordinator's next ruling
 ```
 
 ## Merge notes
