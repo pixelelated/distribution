@@ -155,3 +155,8 @@
 - `05`'s gate and its `punch_index` rewritten together: 19 Resolved, 5 Deferred (PL-16 to #1204 and #1210, PL-20 #1186, PL-22 #1188, PL-23 #1190, PL-26 routed), 2 Withdrawn (PL-21 on the #1184 reading, ruled 02:12 UTC; PL-24 recorded as written). Each Resolved row names its ES commit and bug.
 - `tools/lint-audit-artifacts` at the resolution phase PASS, and against #1184 PASS (`stage-f/`). #1184's 26 checkboxes ticked at their outcomes; `tools/box-check` 0 fail.
 - The bugs carry `fixed-at-es` in their bodies (18 under #668, and #1154); they stay open until the pin moves on `next`.
+
+## [Stages G and H] 2026-10-27 — the retro and the hand-back's checkers
+
+- The retro: `docs/retros/2026-10-27-m6-es-state-and-bridge.md`, its state table computed from the logs in commit order.
+- The checkers: `stage-h-checkers.txt` -- register-check, work-log-index, ceremony-check --gate, the lint twice, box-check, the unit build, the syntax check, the ES pre-push test and es-untranslated, every one rc 0.

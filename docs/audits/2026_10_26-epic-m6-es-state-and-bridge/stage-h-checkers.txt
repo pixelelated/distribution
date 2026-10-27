@@ -1,0 +1,79 @@
+# T21 stage H: the checkers at both tips (2026-10-27, 02:17Z)
+
+- distribution: `5a04a0def9` (before this file's commit)
+- ES: `3ae9610b0`, clean: yes
+
+## register-check
+$ tools/register-check
+rc 0
+register-check: 689 IDs, each once; every citation in the live documents names a row
+
+## work-log-index --check
+$ tools/work-log-index --check
+rc 0
+work-log index: current
+
+## ceremony-check --gate
+$ tools/ceremony-check --gate
+rc 0
+
+
+## lint-audit-artifacts (resolution)
+$ tools/lint-audit-artifacts docs/audits/2026_10_26-epic-m6-es-state-and-bridge
+rc 0
+
+PASS
+
+## lint-audit-artifacts against #1184
+$ tools/lint-audit-artifacts docs/audits/2026_10_26-epic-m6-es-state-and-bridge --issue 1184
+rc 0
+
+PASS
+
+## box-check
+$ tools/box-check
+rc 0
+note  #897: 3 open checkbox(es); decided rows cite it: D-WORKFLOW-199 -- re-derive against them
+box-check: 300 issue(s), 741 open checkbox(es), 0 fail, 20 issue(s) with rows to re-derive against
+
+## the unit build at the ES tip
+$ bash docs/audits/2026_10_26-epic-m6-es-state-and-bridge/tools/t21-build-tests.sh <es tree> /workspace/tmp/m6-t21/stageH/build-tip
+rc 0
+built es-file-tests-win32
+RUN es-unit-tests: rc 0; [doctest] test cases: 207 | 207 passed | 0 failed | 0 skipped [doctest] assertions: 4925 | 4925 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 28 | 28 passed | 0 failed | 0 skipped [doctest] assertions: 3427 | 3427 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 25 | 25 passed | 0 failed | 0 skipped [doctest] assertions: 244 | 244 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+RUN es-settings-tests: rc 0; [doctest] test cases: 6 | 6 passed | 0 failed | 0 skipped [doctest] assertions: 48 | 48 passed | 0 failed | 
+RUN es-scraper-tests: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+TOTAL: 278 test cases in 7 binaries
+
+## the syntax check at the ES tip
+$ bash docs/audits/2026_10_26-epic-m6-es-state-and-bridge/stage-e/syntax-check.sh <es tree> es-app/src/ApiSystem.cpp es-app/src/guis/GuiSettings.cpp es-app/src/guis/GuiWifi.cpp es-app/src/guis/GuiBios.cpp es-app/src/views/ViewController.cpp es-app/src/main.cpp es-app/src/scrapers/Scraper.cpp es-app/src/scrapers/ScreenScraper.cpp es-core/src/HttpReq.cpp es-core/src/Settings.cpp es-core/src/SystemConf.cpp
+rc 0
+es-app/src/ApiSystem.cpp: rc 0
+es-app/src/guis/GuiSettings.cpp: rc 0
+es-app/src/guis/GuiWifi.cpp: rc 0
+es-app/src/guis/GuiBios.cpp: rc 0
+es-app/src/views/ViewController.cpp: rc 0
+es-app/src/main.cpp: rc 0
+es-app/src/scrapers/Scraper.cpp: rc 0
+es-app/src/scrapers/ScreenScraper.cpp: rc 0
+es-core/src/HttpReq.cpp: rc 0
+es-core/src/Settings.cpp: rc 0
+es-core/src/SystemConf.cpp: rc 0
+
+## the ES pre-push test at the tip
+$ bash -c cd <es tree> && bash .githooks/pre-push-test
+rc 0
+  ok    no wordlist at all: refused
+PASS
+
+## es-untranslated
+$ tools/es-untranslated --es-src <es tree> --upstream bccd715707
+rc 0
+es-untranslated: 2 upstream string(s) not in upstream's catalogue and without French (upstream's, not counted):
+  es-app/src/guis/GuiMenu.cpp:517	RESET BATTERY FUEL GAUGE
+  es-app/src/guis/GuiMenu.cpp:518	WARNING: THE PMIC FUEL GAUGE WILL BE RESET AND THE SYSTEM WILL POWER OFF!\n\nLEAVE THE CHARGER UNPLUGGED AND POWER THE DEVICE BACK ON AFTER A FEW SECONDS. THE BATTERY LEVEL IS RE-ESTIMATED FROM THE RESTING BATTERY VOLTAGE AND BECOMES ACCURATE AGAIN AFTER A FULL CHARGE.\n\nRESET FUEL GAUGE AND POWER OFF?
+
