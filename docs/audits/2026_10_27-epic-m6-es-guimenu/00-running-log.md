@@ -147,3 +147,11 @@
 - `stage-e/handback-checks.txt`: register-check, work-log-index, rules-check, forbidden-terms-check (0 hits), `.githooks/hooks-test`, the resolution lint, `box-check --issue 1213`, `es-menu-map-check` at the pin and at `757f5370e` (0 missing each), and the ES `pre-push-test`. All rc 0.
 - **Nothing under `packages/`, `projects/` or `tools/` changed by this lane:** `8c6789f2c2..HEAD` is empty. The first read, against `8ebaf8daad`, showed 15 files; those are the P0/P1 lanes' and the dispatch merge's, from the commits this branch is stacked on.
 - **Posted** 12:48 UTC: the retro and the hand-back on #673, naming distribution `c12e8d2443` and ES `757f5370e`; #673's header filled.
+
+## [Close-out] 11:55 UTC — accepted; the audit closed
+
+- The coordinator accepted T26 on #673 at the merged distribution tip `6e7693b39c` and the ES tip `757f5370e`, and closed #1213. The branch was fast-forwarded to `6e7693b39c` by a read of our own remote.
+- **The marker:** `audit-completion.json` was written by `tools/write-completion.py` (T5's writer, copied) from #1213's closed readback: 29 ticked, 0 open, with `tracker-final-readback.json` and `tracker-completion.json`. `tools/ceremony-check` reads it as the last audit.
+- **The lints:** `tools/lint-audit-artifacts` prints PASS with `--issue 1213` and at the default phase.
+- **The reworded checkboxes:** #1224's and #1230's are ticked from `stage-e/s7-*.txt` and `s9-*.txt`, the lines quoted on each.
+- **Scratch:** `/workspace/tmp/m6-t26/` (84M) retired. Before that, no process of 710 had its cwd, command line or an open file there.

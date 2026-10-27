@@ -17,10 +17,12 @@
 
 ## Current focus
 
-**Handed back** (#673, 12:48 UTC): distribution `c12e8d2443`, ES `757f5370e`; #673's header carries `reviewed-at`, `reviewed-at-es`, `fixed-at` and `fixed-at-es`. Every stream is committed (ES `70a00ad13` … `757f5370e`), stage F's outcomes are written (22 Resolved, 2 Deferred, 5 Withdrawn; the lint PASS), and the retro is at `docs/retros/2026-10-27-m6-es-guimenu.md`.
-
-- **Waiting on the coordinator:** the hand-back's acceptance; the rewording of #1224's and #1230's first checkboxes (left open until then); the integration window's `fix-walk-pending-image` checkboxes.
-- **What runs here:** nothing. Scratch is `/workspace/tmp/m6-t26/`.
+**Idle (2026-10-27 11:55 UTC): T26 accepted by the coordinator on #673 at the merged distribution tip `6e7693b39c` and the ES tip `757f5370e`; the audit closed.**
+- **Status:** #1213 closed as completed. `docs/audits/2026_10_27-epic-m6-es-guimenu/audit-completion.json` was written from its closed readback (completed 11:52:35 UTC) and is accepted by `tools/ceremony-check`. `tools/lint-audit-artifacts` prints `PASS` on the folder, with and without `--issue 1213`.
+- **Commits:** `reviewed-at` `db7be4b104`, `reviewed-at-es` `16dbac5211`, `fixed-at` `c12e8d2443`, `fixed-at-es` `757f5370e` (in #673's body).
+- **Work done:** streams S1 to S13, each recorded on its bug. #1224's and #1230's reworded checkboxes are ticked. The guest checkboxes (`fix-walk-pending-image`) stay open for the integration window. The nineteen bugs are the coordinator's to close.
+- **Scratch:** `/workspace/tmp/m6-t26/` retired after a check that no process used it.
+- **What the lane waits for:** nothing. Nothing runs in this lane: no guest, no compiler, no watched run, no waiter. The session takes T31 (#678) by the coordinator's dispatch there.
 
 ## Next commands
 
@@ -59,6 +61,7 @@ granted window.
 
 ## Checkpoints
 
+- Close-out, 11:55 UTC: accepted; `audit-completion.json`; both lints PASS; scratch retired; idle.
 - Hand-back, 12:48 UTC: posted on #673 with both tips; the retro posted.
 - Stages F and G, 12:41 UTC: the outcomes and the retro on the distribution branch; ES at `757f5370e`.
 - Stage E, S13, 12:25 UTC: ES `757f5370e` (pushed); every stream committed; S13's record on the distribution branch.
