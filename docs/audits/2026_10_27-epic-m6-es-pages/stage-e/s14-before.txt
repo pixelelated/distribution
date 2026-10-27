@@ -1,0 +1,14 @@
+# S14 before (#678, #1256): SaveStateOrder.h carrying the manager's expression as it is (`date1 >= date2`, lifted from GuiSaveState.cpp:275), 14:44:09Z
+$ RAPIDJSON_INCLUDE_DIR=... bash tools/t31-build-tests.sh <W> <build>   (es-unit-tests with SaveStateOrderTests.cpp)
+[doctest] test cases:  189 |  186 passed |  3 failed | 0 skipped
+TEST CASE:  save state order: no state comes before itself
+/home/max/Development/emulationstation-next.worktrees/m6-es-pages-678/es-app/tests/unit/SaveStateOrderTests.cpp:23: ERROR: CHECK_FALSE( cmp(a, a) ) is NOT correct!
+TEST CASE:  save state order: two states of one second are ordered one way, by the slot
+/home/max/Development/emulationstation-next.worktrees/m6-es-pages-678/es-app/tests/unit/SaveStateOrderTests.cpp:30: ERROR: CHECK_FALSE( cmp(b, a) ) is NOT correct!
+TEST CASE:  save state order: a sort of states with equal dates is newest first, then by slot
+/home/max/Development/emulationstation-next.worktrees/m6-es-pages-678/es-app/tests/unit/SaveStateOrderTests.cpp:50: ERROR: CHECK( v[i - 1].slot < v[i].slot ) is NOT correct!
+$ python3 -I stage-c/s14-sort-debug.py <W>
+/usr/include/c++/15/bits/stl_algo.h:4872:
+In function:
+    void std::sort(_RAIter, _RAIter, _Compare) [with _RAIter = 
+rc 1

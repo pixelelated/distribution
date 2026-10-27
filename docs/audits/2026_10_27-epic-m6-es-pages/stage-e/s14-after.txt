@@ -1,0 +1,6 @@
+# S14 after: ES bc3959c69, 14:46:11Z
+$ python3 -I stage-c/s14-sort-debug.py <W>
+sorted 40 states under _GLIBCXX_DEBUG
+s14: PASS
+rc 0
+RUN es-unit-tests: rc 0; [doctest] test cases: 189 | 189 passed | 0 failed | 0 skipped [doctest] assertions: 4876 | 4876 passed | 0 failed | 
