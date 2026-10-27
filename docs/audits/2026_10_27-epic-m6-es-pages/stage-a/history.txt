@@ -1,0 +1,71 @@
+# The fork's commits on the slice's twelve files, cada856d86..16dbac5211, no merges (git -C <es> log --no-merges --format='%h %ad %s' --date=short)
+## es-app/src/guis/GuiBios.cpp
+72ef97b54 2026-09-28 GuiBios: file paths as the system expects them; DETAILS only with rows
+871a2a81f 2026-09-05 bios: one list of every system, ordered by what needs doing
+5dc8552cf 2026-09-05 bios: name the tabs for what they filter, and let the empty message wrap
+2c72d9e42 2026-09-04 bios: say why the missing-BIOS list is empty
+## es-app/src/guis/GuiBios.h
+871a2a81f 2026-09-05 bios: one list of every system, ordered by what needs doing
+## es-app/src/guis/GuiGameOptions.cpp
+986f1749c 2026-09-14 RetroAchievements.cpp, GuiGameAchievements.cpp, GuiRetroAchievements.cpp, GuiMenu.cpp, emulationstation2.po: the achievements pages read the proxy's cache with Wi-Fi off (#180, D-RA-009, D-RA-011)
+## es-app/src/guis/GuiImageViewer.cpp
+12de21757 2026-09-22 A game's captures are turned by the rotation the display gave its frame (fork #245, D-UI-081)
+## es-app/src/guis/GuiSaveState.cpp
+9b89369dc 2026-09-28 SaveStateBookkeeper: a deletion holds the transfer lock while it runs
+6e58988f8 2026-09-28 GuiSaveState: DELETE and COPY ask the transfer lock, not only the card
+296aa5966 2026-09-24 SAVE STATE MANAGER: TODAY at 17:07, YESTERDAY at 14:03, 09/22/26 at 14:03 (fork #195, D-UI-089)
+5067f7a1b 2026-09-24 SAVE STATE MANAGER: a tile from today shows the time, yesterday's says YESTERDAY, older ones the date (fork #195, D-UI-087)
+d30cbd282 2026-09-24 DisplayAspect.cpp, GuiSaveState.cpp: the library indexed by stem once per epoch; the landed-job comment says when the disk is read (fork #258, the seat's G-04 and G-07)
+bb79e4fc4 2026-09-23 The manager turns and fits only the tiles that show a capture (fork #250)
+b49d85448 2026-09-23 The rotation record is a line that says what it is (fork #245)
+1ce55ceef 2026-09-23 Log what the rotation record reads and what the components are told (fork #245, diagnostic)
+12de21757 2026-09-22 A game's captures are turned by the rotation the display gave its frame (fork #245, D-UI-081)
+3b7265f33 2026-09-22 Save-state thumbnails and screenshots are drawn at the system's display aspect (fork #243, D-UI-080)
+ee4786940 2026-09-17 GuiSaveState: rebuild the grid only when the disk disagrees with the page (#207)
+9e4e2ab85 2026-09-17 GuiSaveState: the copy is gated and recorded; the deletion's unit moves into the script; a stopped transfer restamps its parts (#206, #205, #203)
+a11cde632 2026-09-16 GuiSaveState: a deletion is instant; the retire and the unlink run on a worker (#205)
+8d7213712 2026-09-16 The round's decisions: WI-FI NETWORK, no slot renumbering, the two offline lines' French
+9161d602f 2026-09-15 Save state manager: the tile labels one point under the theme's small font
+8b7340f5b 2026-09-15 TimeUtil.cpp, TimeText.cpp, TimeTextTests.cpp, GuiSaveState.cpp: the save state manager's times follow SHOW CLOCK IN 12-HOUR FORMAT (fork #195, D-UI-058)
+772d70035 2026-09-13 GuiSaveState: helpRowPerc measures the style the bar is drawn with, from both callers (#151 PL-17)
+7c935a39d 2026-09-13 GuiSaveState: the tile font is asked for once, not scaled twice (#27)
+d8e95118c 2026-09-13 GuiSaveState: the label font fits a date in a narrow tile; the help bar is drawn on full-screen-menu panels (#27)
+2088eadb9 2026-09-13 GuiSaveState: the tile label wraps for real at 640x480 (#27)
+c7838165b 2026-09-13 GuiSaveState: tile labels wrap to two lines instead of ending in "..." (#27)
+a45c4c1b1 2026-09-13 GuiSaveState: the help bar follows a rebuilt grid (#93)
+194bb9fa1 2026-09-12 strings: save state is two words; the settings tier is settings (#148, D-UI-022)
+62888f967 2026-09-10 GuiSaveState: DELETE refuses while a cloud sync is running (D-CLOUD-053)
+00df7eca6 2026-09-08 GuiSaveState: a deletion writes a retired record; a renumber is a move (#21)
+## es-app/src/guis/GuiSaveState.h
+ee4786940 2026-09-17 GuiSaveState: rebuild the grid only when the disk disagrees with the page (#207)
+9e4e2ab85 2026-09-17 GuiSaveState: the copy is gated and recorded; the deletion's unit moves into the script; a stopped transfer restamps its parts (#206, #205, #203)
+a11cde632 2026-09-16 GuiSaveState: a deletion is instant; the retire and the unlink run on a worker (#205)
+772d70035 2026-09-13 GuiSaveState: helpRowPerc measures the style the bar is drawn with, from both callers (#151 PL-17)
+d8e95118c 2026-09-13 GuiSaveState: the label font fits a date in a narrow tile; the help bar is drawn on full-screen-menu panels (#27)
+c7838165b 2026-09-13 GuiSaveState: tile labels wrap to two lines instead of ending in "..." (#27)
+## es-app/src/guis/GuiScraperRun.cpp
+4a87044e7 2026-09-28 GuiScraperRun: the player's own buttons, and a line cut on characters
+217872e32 2026-09-24 main.cpp, SaveStateBookkeeper.cpp, ImageGridComponent.h, CaptureRotation, DisplayAspect, and the comments audit #258 named (fork #258 PL-003/006/009/016/017/019/026/028)
+46111b1e3 2026-09-22 GuiScraperRun: the done page's note takes the longest form that fits the line -- the French ran off a 640x480 panel (fork #241)
+acd7a6fee 2026-09-22 Scan, transfer and scrape pages: sat in, with CANCEL; nothing runs in the background (fork #241, D-UI-078)
+## es-app/src/guis/GuiScraperRun.h
+217872e32 2026-09-24 main.cpp, SaveStateBookkeeper.cpp, ImageGridComponent.h, CaptureRotation, DisplayAspect, and the comments audit #258 named (fork #258 PL-003/006/009/016/017/019/026/028)
+acd7a6fee 2026-09-22 Scan, transfer and scrape pages: sat in, with CANCEL; nothing runs in the background (fork #241, D-UI-078)
+## es-app/src/guis/GuiScraperStart.cpp
+6ae936577 2026-09-28 GuiScraperStart: two comments back to ASCII
+acd7a6fee 2026-09-22 Scan, transfer and scrape pages: sat in, with CANCEL; nothing runs in the background (fork #241, D-UI-078)
+ee53ecd65 2026-09-13 The developer pair lives under SCRAPER > ACCOUNTS; two comments say what the code does (#151 PL-15)
+3e7195eb9 2026-09-05 scraper: remember GAMES TO SCRAPE FOR, the date filter and SYSTEMS INCLUDED
+c0f6fb58f 2026-09-05 scrapers: ScreenScraper developer pair entered on the device (SCREENSCRAPER_RUNTIME_DEV_LOGIN)
+## es-app/src/guis/GuiSettings.cpp
+404d3a9a3 2026-09-15 Wi-Fi like a phone: the row is the network you are on, the picker joins a saved network with a press
+daafb69f1 2026-09-15 The line under WI-FI SSID only when it says what the value does not; MANAGE SAVED NETWORKS
+6915d80f7 2026-09-15 WifiText, ApiSystem.cpp, GuiSettings.cpp, GuiMenu.cpp, emulationstation2.po: the WI-FI SSID row says what the device is on, and MANAGE NETWORKS forgets a remembered one (fork #191)
+## es-app/src/guis/GuiSettings.h
+404d3a9a3 2026-09-15 Wi-Fi like a phone: the row is the network you are on, the picker joins a saved network with a press
+daafb69f1 2026-09-15 The line under WI-FI SSID only when it says what the value does not; MANAGE SAVED NETWORKS
+6915d80f7 2026-09-15 WifiText, ApiSystem.cpp, GuiSettings.cpp, GuiMenu.cpp, emulationstation2.po: the WI-FI SSID row says what the device is on, and MANAGE NETWORKS forgets a remembered one (fork #191)
+75e97ab0f 2026-09-09 GuiMenu: network calls leave the interface thread; NETWORK SETTINGS fills in (#103)
+## es-app/src/guis/WifiScanProcess.h
+16dbac521 2026-10-15 GuiWifi: cancel scan worker on normal frontend exit
+a6dbc33bb 2026-10-13 emulationstation: keep Wi-Fi scans inside a stable picker

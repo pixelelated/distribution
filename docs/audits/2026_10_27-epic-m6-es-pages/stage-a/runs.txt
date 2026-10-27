@@ -1,0 +1,215 @@
+## the scope (expect 90 all; 14 excluded; 76 in scope; no subdirectory under guis/)
+wall 0.0 s
+/dev/nvme0n1   244195328 61926095 182269233   26% /workspace
+90
+14
+76
+0
+__rc=1
+
+## the ES worktree at the pin, clean; the two merge bases; the counts (expect the pin; 0; cada856d86; bccd715707; 14; 724; 1; f6c542872e)
+wall 0.0 s
+/dev/nvme0n1   244195328 61926095 182269233   26% /workspace
+16dbac5211eea7e70db7394372033be2be7df829
+0
+cada856d86
+bccd715707
+14
+724
+1
+f6c542872e
+__rc=0
+
+## the lines two ways (expect wc -l 15526; grep -c 15537; 11 files without a trailing newline)
+wall 0.4 s
+/dev/nvme0n1   244195328 61926095 182269233   26% /workspace
+wc -l 15526
+grep -c 15537
+no trailing newline: 11
+__rc=0
+
+## the fork's delta over the slice (expect 12 rows: 9 M and 3 A -- GuiScraperRun.cpp, GuiScraperRun.h, WifiScanProcess.h; no D; the sums 1207 129; the pairs 172 88, 6 7, 2 2, 16 1, 330 23, 23 0, 258 0, 67 0, 105 7, 8 1, 18 0, 202 0)
+wall 0.0 s
+/dev/nvme0n1   244195328 61926095 182269233   26% /workspace
+M	es-app/src/guis/GuiBios.cpp
+M	es-app/src/guis/GuiBios.h
+M	es-app/src/guis/GuiGameOptions.cpp
+M	es-app/src/guis/GuiImageViewer.cpp
+M	es-app/src/guis/GuiSaveState.cpp
+M	es-app/src/guis/GuiSaveState.h
+A	es-app/src/guis/GuiScraperRun.cpp
+A	es-app/src/guis/GuiScraperRun.h
+M	es-app/src/guis/GuiScraperStart.cpp
+M	es-app/src/guis/GuiSettings.cpp
+M	es-app/src/guis/GuiSettings.h
+A	es-app/src/guis/WifiScanProcess.h
+1207 129
+__rc=0
+
+## upstream's delta over the slice (expect 0 slice rows, rc 1 from grep -c on no match; the excluded 152 2 GuiMenu.cpp and 1 0 GuiMenu.h; 8 upstream commits touching guis/, none a slice file; 73 slice files at the base and at master)
+wall 0.0 s
+/dev/nvme0n1   244195328 61926095 182269233   26% /workspace
+0
+slice rows rc=1
+152	2	es-app/src/guis/GuiMenu.cpp
+1	0	es-app/src/guis/GuiMenu.h
+8
+73   [x2 identical lines]
+__rc=0
+
+## the fork's commits per touched file, no merges, from bccd715707 (expect GuiSaveState.cpp 25, GuiScraperRun.cpp 4, WifiScanProcess.h 2, GuiBios.cpp 4, GuiScraperStart.cpp 5, GuiSettings.h 4, GuiSettings.cpp 3, GuiImageViewer.cpp 1, GuiGameOptions.cpp 1)
+wall 0.4 s
+/dev/nvme0n1   244195328 61926095 182269233   26% /workspace
+GuiSaveState.cpp 25
+GuiScraperRun.cpp 4
+WifiScanProcess.h 2
+GuiBios.cpp 4
+GuiScraperStart.cpp 5
+GuiSettings.h 4
+GuiSettings.cpp 3
+GuiImageViewer.cpp 1
+GuiGameOptions.cpp 1
+__rc=0
+
+## the strings (expect TOTAL 891 in 37 files; GuiControllersSettings.cpp 183, GuiScraperStart.cpp 92, GuiGameOptions.cpp 59 the three largest)
+wall 0.0 s
+/dev/nvme0n1   244195328 61926095 182269233   26% /workspace
+TOTAL 891 in 37 files
+__rc=0
+
+## the dialogs (expect TOTAL 50 in 18 files; GuiGameOptions.cpp 8; then every site with two lines after it, read whole -- the first button is never counted from a window: WRITE at GuiGameOptions.cpp:274 and CLOSE at :289 are the two first buttons that are neither YES nor OK)
+wall 0.0 s
+/dev/nvme0n1   244195328 61926095 182269233   26% /workspace
+TOTAL 50 in 18 files
+50
+__rc=0
+
+## the switches and their store (expect TOTAL 26 in 6 files; 3 lines with the literal in the 4th slot, all at GuiNetPlaySettings.cpp:38-40; 20 lines with it in the 3rd slot; every literal true; the two signatures at GuiSettings.h:88-89)
+wall 0.0 s
+/dev/nvme0n1   244195328 61926096 182269232   26% /workspace
+TOTAL 26 in 6 files
+3
+20
+0
+es-app/src/guis/GuiSettings.h:88
+es-app/src/guis/GuiSettings.h:89
+__rc=0
+
+## the reads (expect TOTAL 12 in 5 files; 0 with `, false)`; 12 FileSystem::exists; the lines at GuiFavoriteMusicSelector.cpp:19, GuiGameOptions.cpp:41 53 54 55 56, GuiImageViewer.cpp:415 629 660 723, GuiNetPlay.cpp:679, GuiNetPlaySettings.cpp:70)
+wall 0.0 s
+/dev/nvme0n1   244195328 61926096 182269232   26% /workspace
+TOTAL 12 in 5 files
+0
+12
+es-app/src/guis/GuiFavoriteMusicSelector.cpp:19 es-app/src/guis/GuiGameOptions.cpp:41 es-app/src/guis/GuiGameOptions.cpp:53 es-app/src/guis/GuiGameOptions.cpp:54 es-app/src/guis/GuiGameOptions.cpp:55 es-app/src/guis/GuiGameOptions.cpp:56 es-app/src/guis/GuiImageViewer.cpp:415 es-app/src/guis/GuiImageViewer.cpp:629 es-app/src/guis/GuiImageViewer.cpp:660 es-app/src/guis/GuiImageViewer.cpp:723 es-app/src/guis/GuiNetPlay.cpp:679 es-app/src/guis/GuiNetPlaySettings.cpp:70 
+__rc=0
+
+## the process starts (expect system( 0; popen( 0; runSystemCommand( TOTAL 6 in 3 files -- GuiAnalogSticksLedControls.cpp 1, GuiControllersSettings.cpp 2, GuiMoonlight.cpp 3; executeScript 5 in 1 -- GuiMoonlight.cpp; executeEnumerationScript 0)
+wall 0.0 s
+/dev/nvme0n1   244195328 61926096 182269232   26% /workspace
+system( TOTAL 0 in 0 files
+popen( TOTAL 0 in 0 files
+runSystemCommand( TOTAL 6 in 3 files
+executeScript TOTAL 5 in 1 files
+executeEnumerationScript TOTAL 0 in 0 files
+0
+__rc=1
+
+## the button bars (expect clearButtons( TOTAL 3 in 2 files at GuiKeyboardtopads.cpp:78, GuiScraperStart.cpp:40 and :212; addButton( at GuiKeyboardtopads.cpp:93, GuiScraperStart.cpp:55 and :213 -- none of the three sites inside a button's lambda, read)
+wall 0.0 s
+/dev/nvme0n1   244195328 61926096 182269232   26% /workspace
+es-app/src/guis/GuiKeyboardtopads.cpp:78 es-app/src/guis/GuiScraperStart.cpp:40 es-app/src/guis/GuiScraperStart.cpp:212 
+es-app/src/guis/GuiKeyboardtopads.cpp:93 es-app/src/guis/GuiScraperStart.cpp:55 es-app/src/guis/GuiScraperStart.cpp:213 
+__rc=0
+
+## the async surfaces (expect std::thread TOTAL 18 in 13 files; GuiLoading< 18 in 12; postToUiThread( 9 in 5; AsyncNotificationComponent 3 in 2 -- GuiUpdate.cpp 1, GuiUpdate.h 2)
+wall 0.0 s
+/dev/nvme0n1   244195328 61926096 182269232   26% /workspace
+std::thread TOTAL 18 in 13 files
+GuiLoading< TOTAL 18 in 12 files
+postToUiThread( TOTAL 9 in 5 files
+AsyncNotificationComponent TOTAL 3 in 2 files
+__rc=0
+
+## the help bars (expect 79 lines naming getHelpPrompts; 8 .cpp files with no ::getHelpPrompts( definition: GuiAnalogSticksLedControls GuiCollectionSystemsOptions GuiControllersSettings GuiFavoriteMusicSelector GuiGeneralScreensaverOptions GuiMoonlight GuiNetPlaySettings GuiSystemInformation)
+wall 0.0 s
+/dev/nvme0n1   244195328 61926096 182269232   26% /workspace
+79
+GuiAnalogSticksLedControls.cpp GuiCollectionSystemsOptions.cpp GuiControllersSettings.cpp GuiFavoriteMusicSelector.cpp GuiGeneralScreensaverOptions.cpp GuiMoonlight.cpp GuiNetPlaySettings.cpp GuiSystemInformation.cpp 
+__rc=0
+
+## the parses (expect std::stoi( 0; std::stoul( 0; atoi( TOTAL 9 in 3 files; the 9 lines at GuiAnalogSticksLedControls.cpp:20-26, GuiKeyMappingEditor.cpp:156, GuiUpdate.cpp:213)
+wall 0.0 s
+/dev/nvme0n1   244195328 61926096 182269232   26% /workspace
+std::stoi( TOTAL 0 in 0 files
+std::stoul( TOTAL 0 in 0 files
+atoi( TOTAL 9 in 3 files
+es-app/src/guis/GuiAnalogSticksLedControls.cpp:20 es-app/src/guis/GuiAnalogSticksLedControls.cpp:21 es-app/src/guis/GuiAnalogSticksLedControls.cpp:22 es-app/src/guis/GuiAnalogSticksLedControls.cpp:23 es-app/src/guis/GuiAnalogSticksLedControls.cpp:24 es-app/src/guis/GuiAnalogSticksLedControls.cpp:25 es-app/src/guis/GuiAnalogSticksLedControls.cpp:26 es-app/src/guis/GuiKeyMappingEditor.cpp:156 es-app/src/guis/GuiUpdate.cpp:213 
+__rc=0
+
+## the two-line rows (expect multiLine TOTAL 8 in 3 files; addWithDescription( TOTAL 14 in 7 files; the overloads at GuiSettings.h:49 51 54 56)
+wall 0.0 s
+/dev/nvme0n1   244195328 61926096 182269232   26% /workspace
+multiLine TOTAL 8 in 3 files
+addWithDescription( TOTAL 14 in 7 files
+es-app/src/guis/GuiSettings.h:49 es-app/src/guis/GuiSettings.h:51 es-app/src/guis/GuiSettings.h:54 es-app/src/guis/GuiSettings.h:56 
+__rc=0
+
+## the reboot flags (expect 0 and 0: no page here sets or names reboot or exitreboot)
+wall 0.0 s
+/dev/nvme0n1   244195328 61926096 182269232   26% /workspace
+0   [x2 identical lines]
+__rc=1
+
+## the sized pages (the floor did not run this: the lane's figure, every setSize/setPosition on a GuiSettings menu in the slice, read against #540)
+wall 0.0 s
+/dev/nvme0n1   244195328 61926096 182269232   26% /workspace
+es-app/src/guis/GuiBackupStart.cpp:47 es-app/src/guis/GuiBackupStart.cpp:49 es-app/src/guis/GuiBezelInstaller.cpp:122 es-app/src/guis/GuiBezelInstaller.cpp:124 es-app/src/guis/GuiBezelInstaller.cpp:126 es-app/src/guis/GuiBluetoothDeviceOptions.cpp:24 es-app/src/guis/GuiBluetoothDevices.cpp:30 es-app/src/guis/GuiBluetoothDevices.cpp:32 es-app/src/guis/GuiBluetoothDevices.cpp:72 es-app/src/guis/GuiFavoriteMusicSelector.cpp:56 es-app/src/guis/GuiFileBrowser.cpp:144 es-app/src/guis/GuiFileBrowser.cpp:147 es-app/src/guis/GuiFileBrowser.cpp:148 es-app/src/guis/GuiGameOptions.cpp:483 es-app/src/guis/GuiGamelistFilter.cpp:42 es-app/src/guis/GuiGamelistFilter.cpp:44 es-app/src/guis/GuiHashStart.cpp:69 es-app/src/guis/GuiHashStart.cpp:71 es-app/src/guis/GuiInstallStart.cpp:67 es-app/src/guis/GuiInstallStart.cpp:69 es-app/src/guis/GuiKeyboardtopads.cpp:52 es-app/src/guis/GuiKeyboardtopads.cpp:54 es-app/src/guis/GuiScraperStart.cpp:29 es-app/src/guis/GuiScraperStart.cpp:31 es-app/src/guis/GuiSettings.cpp:52 es-app/src/guis/GuiSettings.cpp:54 
+__rc=0
+
+## the non-ASCII comments (expect 0 files with a hit across the 76, and 0 hits adjacent to a _( ; each grep -c exits 1 on 0)
+wall 0.2 s
+/dev/nvme0n1   244195328 61926096 182269232   26% /workspace
+files with non-ascii comments: 0
+0
+__rc=1
+
+[stderr]
+/usr/bin/grep: Unmatched ( or \(   [x76 identical lines]
+
+## the harness sweep (expect GuiSaveState -> es-app/tests/unit/TimeTextTests.cpp; GuiSettings -> tests/cloud-content-selection.py cloud-gated-row.py cloud-oauth-lifetime.py wifi-profile-lifetime.py; GuiLoading -> tests/launch-capture-gate.py; every other class 0; 15 .py under tests/)
+wall 0.2 s
+/dev/nvme0n1   244195328 61926096 182269232   26% /workspace
+GuiLoading: tests/launch-capture-gate.py 
+GuiSaveState: es-app/tests/unit/TimeTextTests.cpp 
+GuiSettings: tests/cloud-content-selection.py tests/cloud-gated-row.py tests/cloud-oauth-lifetime.py tests/wifi-profile-lifetime.py 
+15
+__rc=0
+
+## the menu map and the French (expect `55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing` -- T26's recorded line at this pin, or the counts the lane finds, named; `706 fork string(s) in the source, 706 with French, 0 without` against bccd715707 -- the line against cada856d86 is the lane's to record, unrecorded here; rc 0 for both)
+wall 0.7 s
+/dev/nvme0n1   244195328 61926096 182269232   26% /workspace
+55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing
+es-menu-map-check rc=0
+es-untranslated: 706 fork string(s) in the source, 706 with French, 0 without
+es-untranslated rc=0
+es-untranslated: 703 fork string(s) in the source, 703 with French, 0 without
+es-untranslated(cada) rc=0
+__rc=0
+
+## the title shapes (the lane's script under the audit folder's tools/: for each .cpp, the titles by the checker's three regexes and by the wider shapes -- expect 12 .cpp with a title by the checker's shapes, 27 .cpp with a title by the wider sweep, 12 pages whose title is in neither the map's body nor `## Not mapped`, 10 .cpp with no title by any shape -- the 12 and 27 are hand counts over the membership digest's lists, the lane's script asserts them; the map at 989 lines, `## Not mapped` at :677 with 24 lines)
+NOT RUN AT STAGE A (its script is written at stage B)
+
+## the compile (expect es-syntax-check exit 2 on this host for every .cpp tried; g++'s first error named, SDL expected)
+wall 0.1 s
+/dev/nvme0n1   244195328 61926096 182269232   26% /workspace
+es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)
+es-syntax-check rc=2
+/home/max/Development/emulationstation-next.worktrees/m6-es-pages-678/es-core/src/InputCon rc=1
+__rc=0
+
+## the removal check -- TIPHASH is the lane's own tip the pointer and the dispatch comment name (the merge of 2174265e9c and COHASH; never 2174265e9c itself, whose tools/ differ from the coordinator's) (expect empty) and the ES diff against the pin (expect empty before stage E)
+wall 0.0 s
+/dev/nvme0n1   244195328 61926096 182269232   26% /workspace
+__rc=0
+

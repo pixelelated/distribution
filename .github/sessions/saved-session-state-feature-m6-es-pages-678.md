@@ -9,37 +9,40 @@
 > **Executor:** Opus 5.5 at high effort, the session the dispatch comment on #678 names (`m6-t5-build-engine`)
 > **Epic:** #700 (the interface: T2 and T18 accepted and closed out; T20 #667 and T21 #668 briefed; this slice; T31 to T37, T44 after); the renovation epic #339; the milestone M6 (D-WORKFLOW-190)
 > **Depth:** Independent -- **one seat, GPT-6 Astra at `max`** over a trimmed, scanned packet (D-WORKFLOW-195: the twelve fork-touched files whole, 4,230 lines, and of the 64 upstream-carried files only the ranges the questions cite; the manifest names every trimmed file and range), a probe then one refutation; `review-plan.json` records depth `independent`, one reviewer; **exactly two keyed invokes**, every other `tools/council/run` call with `COUNCIL_ENV_FILE=/nonexistent`; every scan hit dispositioned by shape, a value stops the packet; a test fixture's secret-shaped literal is itself a finding (#1061)
-> **The lens:** new functionality and brittleness over two files at the pin (11,883 lines, both read whole, both rewritten from ROCKNIX's base: 5,124 insertions over 225 fork commits): every fork page is built in this file and reached from it -- the cloud setup wizard and its transitions, the cloud hub, the network and Wi-Fi pages, the relink page, the save rows, the RetroAchievements rows -- beside upstream's pages read for brittleness and left as upstream has them (D-UI-079). Q1 to Q7 in the families the brief names
-> **The rule:** **the lane changes nothing under the distribution's `packages/`, `projects/` or `tools/` at any stage, and nothing in the ES worktree outside the two files at stages A to D**; a defect is a `bug` with its trace and `Already written:` line, fixed only under a stream brief the coordinator writes, on the ES branch, proven twice (`fix-unit-test` or `fix-walk-pending-image`), `tools/es-syntax-check` PASS where a toolchain exists, else the host `g++ -fsyntax-only` pass or its `CANNOT` with the missing header named (#1137), a clean non-ASCII comment grep before its commit, and **`docs/es-menu-map.md` updated in the same commit as any row added, moved or renamed, `tools/es-menu-map-check` passing (D-UI-039)**; the walks' steps under the audit folder's `stage-e/walks/`; the pin is not moved by the lane
+> **The lens:** new functionality and brittleness over EmulationStation's other pages at the pin: 76 paths under `es-app/src/guis/` (GuiMenu, the cloud, RetroAchievements, offline-scan and Wi-Fi pages excluded), 15,537 lines by `grep -c`; the twelve the fork touched (3 added, 9 modified, 1,207 added and 129 removed against `cada856d86`) read line by line, the 64 byte-identical to `rocknix/master` checked against it and read for brittleness and left as upstream has them (D-UI-079); Q1 to Q7 as brief § 4 sets them. *(Corrected at stage A: the seeded line was T26's, "two files, 11,883 lines".)*
+> **The rule:** **the lane changes nothing under the distribution's `packages/`, `projects/` or `tools/` at any stage, and nothing in the ES worktree at stages A to D**; a defect is a `bug` with its trace and `Already written:` line, fixed only under a stream brief the coordinator writes, on the ES branch, proven twice (`fix-unit-test` or `fix-walk-pending-image`), `tools/es-syntax-check` PASS where a toolchain exists, else the host `g++ -fsyntax-only` pass or its `CANNOT` with the missing header named (#1137), a clean non-ASCII comment grep over a stream's added lines before its commit, and **`docs/es-menu-map.md` updated in the same commit as any row added, moved or renamed, `tools/es-menu-map-check` passing (D-UI-039)**; a sentence carries its French in the same commit (D-UI-051); the walks' steps under the audit folder's `stage-e/walks/`; the pin is not moved by the lane. *(Corrected at stage A: the seeded line said "outside the two files", T26's.)*
 > **The host:** M6's and M7's by the shared log `/tmp/m7-m6-host-coordination-20261023.txt` (M7 writes timestamped lines, not `== ` blocks: read the whole tail); this slice runs **one guest window**, asked for on #678 with its plan and bound after stage B and granted in the host file's queue: one GENERIC_X64 guest from M6's `069fc2704421` copy at `/workspace/artifacts/m6-t2-20261023/`, started at 640x480 (`generic-x64-vm run --res`; `vm-pair` has no option, #1141), the post contract `START HH:MM:SS UTC` / `RETURN HH:MM:SS UTC` as each post's first line with the census, the stop by pidfile at bound plus grace, the disk retired after with path, size and sha; the fork pages' walks with their strings read back, the wizard's transitions, the confirmations' back-button landing, the rows' stores read from both files after a page close; **the QA accounts only** (`tools/qa-accounts`, never printed; D-QA-016), never the owner's (D-QA-015)
 > **Register:** the rows this brief cites are on the coordinator's branch, merged here; D-WORKFLOW-212, D-NET-017 and D-CLOUD-186 the last three decided rows (D-WORKFLOW-188 on the P1 branch only); a row this slice forces (none expected) takes an ID the coordinator assigns on #678
 > **The brief:** `docs/reviews/briefs/es-pages.md` at `34e130d2ce` (version 2, after a stranger's proof of version 1 -- its corrections listed at its end); #678's body carries its § 7 checkboxes; where the two differ the body wins and the coordinator corrects the brief
 
 ## Current focus
 
-Not started. The first commit on the distribution branch is the running
-log's header (the model, the effort, `reviewed-at` the distribution HEAD with
-the pin beside it, the host file's last lines, the census),
-`01-research-notes.md` § Scope (the block of brief § 2 with its output and
-the § 5 runs' figures), this pointer updated, and the day's work-log entry
-headed `#678` (prose through a quoted heredoc or the Write tool). The ES
-worktree stays at the pin until stage E. `.qa-scratch/` is gitignored and
-`git status --short` is read before every `git add -A`. No network is used
-except the seat's two keyed invokes.
+**Stage A done** (12:00 to 12:25 UTC), committed and posted on #678. The audit folder is
+`docs/audits/2026_10_27-epic-m6-es-pages/`: `00-running-log.md` (the header and § Stage A),
+`01-research-notes.md` (§ Scope, § History, § Callers, § Context), `stage-a/` (the first
+commands, the membership block, the § 5 runs and their output, the reruns, the callers, the
+history) and `tools/` (`t31-callers.py`, `t31-run-runs.py`). Every § 5 figure as the brief
+expects; the brief's non-ASCII adjacency grep is a basic-regex error (`'_\("'`), rerun with
+`-F`: 0. `GuiAutoScrape` has no caller at the pin (a Q7 lead).
+
+**Stage B next, now:** `02-forward-audit.md` with its sections (§ Coverage, § The pages, § The
+dialogs, § The rows, § The reads, § The titles, § The merge debt, § The runs), its generators
+under the audit folder's `tools/` (`t31-titles.py` first: the § 5 title-shapes run), the
+reading of the twelve fork-touched files whole and the 64 upstream ones at the leads' lines,
+`tools/archaeology 'save state manager'` and `'scrape'`, then the guest-window request on
+#678 with its plan and bound. The ES worktree stays at the pin.
 
 ## Next commands
 
 ```bash
-D=/workspace/repos/pixelelated/distribution.worktrees/m6-es-pages-678
-cd "$D"   # no fetch of any kind: 651150fc88 and c445081a59 are already in the repository
-git merge-base --is-ancestor 2174265e9c HEAD && echo stacked-on-P1
-git diff --stat 8ebaf8daad HEAD -- packages projects | tail -1                     # empty
-test -f docs/reviews/inventory.json && echo inventory
-grep -c 'D-RA-050' docs/decision-register.md                                       # 1 or more: the coordinator's tip is merged
-W=/home/max/Development/emulationstation-next.worktrees/m6-es-pages-678
-git -C "$W" rev-parse HEAD; git -C "$W" status --short | wc -l                      # the pin; 0
-tail -n 6 /tmp/m7-m6-host-coordination-20261023.txt | cut -c1-200; pgrep -x qemu-system-x86 -r R,S,D,T | wc -l
-sed -n '1,150p' docs/reviews/briefs/es-pages.md
+D=/workspace/repos/pixelelated/distribution.worktrees/m6-es-pages-678; cd "$D"
+W=/home/max/Development/emulationstation-next.worktrees/m6-es-pages-678; PIN=16dbac5211
+A=docs/audits/2026_10_27-epic-m6-es-pages
+git -C "$W" rev-parse HEAD; git -C "$W" status --short | wc -l            # the pin; 0
+cat "$A/00-running-log.md"; sed -n '584,800p' docs/reviews/briefs/es-pages.md   # § 4 the questions, § 5 the floor
+tools/archaeology 'save state manager' | head -60; tools/archaeology 'scrape' | head -60
+python3 -I "$A/tools/t31-callers.py" "$W" "$PIN" .qa-scratch/t31/paths.txt | tail -1   # classes 39; 1 without a caller
+tail -n 6 /tmp/m7-m6-host-coordination-20261023.txt | cut -c1-200        # the host, before the window request
 ```
 
 ## Merge notes
@@ -64,4 +67,4 @@ granted window.
 
 ## Checkpoints
 
-- (none yet; the executor appends one line per stage: the stage, both tips, the time)
+- Stage A: distribution `<this commit>`, ES at the pin `16dbac5211`, 12:25 UTC
