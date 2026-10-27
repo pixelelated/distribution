@@ -1,0 +1,8 @@
+== G12 French (12:42:01)
+system.language=fr_FR
+started
+ready after ~5s
+- PARAMÈTRES DES JEUX (frame g12-3): the rows in French; NETPLAY SETTINGS now listed (it was not before the restart -- netplay activation is read at start).
+- VÉRIFICATION DES BIOS (frame g12-4): `1 SUR 1 MANQUANT`, `7 SUR 7 MANQUANT`, `5 SUR 5 MANQUANT` -- English word order, no agreement: L-11 on the image.
+- STREAMING DE JEUX MOONLIGHT (frame g12-6): every row French, the title `MOONLIGHT GAME STREAMING` English (the raw literal): L-07 on the image. The PAIRING PIN read 4269 at the first open (g09-2) and 4282 at this one: a new PIN per opening.
+- G10 (the viewer's first open, timed) and G11 (the stale read): CANNOT within the bound -- G10 needs a screenshot library large enough to time a walk (the guest has a handful of games), G11 a metadata path set while ES runs (an on-screen keyboard entry); both stay host-side readings in 04.

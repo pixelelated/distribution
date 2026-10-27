@@ -1,0 +1,28 @@
+== G06 the save state manager: seed (12:36:33)
+085a0105555d5a11
+085a0105555d5a11
+total 65540
+-rw-r--r--    1 root     root          1024 Oct 27 08:36 TTProbe.state1
+-rw-r--r--    1 root     root      67108864 Oct 27 08:36 TTProbe.state2
+/dev/vda2                11.9G    237.8M     11.7G   2% /storage
+-- W-5: the directory read-only (12:39:36)
+touch: /storage/roms/savestates/gb/t31-w: Read-only file system
+[0;0mTTProbe.state1[m  [0;0mTTProbe.state2[m
+total 65540
+-rw-r--r--    1 root     root          1024 Oct 27 08:36 TTProbe.state1
+-rw-r--r--    1 root     root      67108864 Oct 27 08:36 TTProbe.state2
+umount rc=0
+-- VOID above: the cursor never left START NEW GAME (frames g06-10, g06-11), so X fell on the placeholder. Redone with a frame per press. (12:39:52)
+-- W-5 redo, SLOT 1 selected (frame g06-13): the directory read-only (12:40:11)
+touch: /storage/roms/savestates/gb/t31-w: Read-only file system
+total 65540
+-rw-r--r--    1 root     root          1024 Oct 27 08:36 TTProbe.state1
+-rw-r--r--    1 root     root      67108864 Oct 27 08:36 TTProbe.state2
+umount rc=0
+W-5 redo: X (COPY TO FREE SLOT) on SLOT 1 over the read-only directory: no message, no new tile, the grid rebuilt with the cursor back on START NEW GAME (frame g06-14); the directory unchanged (listing above). L-13 on the image.
+-- the 64 MB copy: guest clock before the press 1793104842.770439277
+total 131076
+-rw-r--r--    1 root     root          1024 2026-10-27 08:36:34 -0400 TTProbe.state1
+-rw-r--r--    1 root     root      67108864 2026-10-27 08:36:35 -0400 TTProbe.state2
+-rw-r--r--    1 root     root      67108864 2026-10-27 08:40:43 -0400 TTProbe.state3
+The 64 MB copy of SLOT 2 (directory writable): pressed at guest 1793104842.77 (12:40:42.77Z); TTProbe.state3 written 08:40:43 -0400 (12:40:43Z), within the second on the guest's virtio disk -- a card is not measured here. The frame after (g06-16) is the same as after the failed copy (g06-14): the cursor back on START NEW GAME, the new tile off-screen; SLOT 3 is found four presses right (g06-17). A copy that worked and one that did not look the same.

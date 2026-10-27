@@ -1,0 +1,10 @@
+== G08 the relay change (L-03); NETPLAY SETTINGS reached in French after ES's restart (12:43:16)
+== stores: before (12:43:16Z)
+system.cfg: global.netplay.port=55435 global.netplay.relay=none global.netplay=0 
+es_settings.cfg: 
+mtimes: /storage/.config/system/configs/system.cfg 1793104922 /storage/.emulationstation/es_settings.cfg 1793104291 
+== stores: after: ENABLE NETPLAY on, relay moved, BACK (12:43:34Z)
+system.cfg: global.netplay.port=55435 global.netplay.relay=nyc global.netplay=0 
+es_settings.cfg: 
+mtimes: /storage/.config/system/configs/system.cfg 1793105011 /storage/.emulationstation/es_settings.cfg 1793104291 
+ENABLE NETPLAY switched on (frame g08-1), USE RELAY SERVER moved to NEW YORK: the page reopened with ENABLE NETPLAY off (frame g08-3); BACK; system.cfg: global.netplay=0, global.netplay.relay=nyc (above). The toggle made before the relay change is lost: L-03 on the image.

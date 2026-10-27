@@ -1,0 +1,48 @@
+== stores: before (12:29:02Z)
+system.cfg: 
+es_settings.cfg: 
+mtimes: /storage/.config/system/configs/system.cfg 1793104120 /storage/.emulationstation/es_settings.cfg 1793104120 
+== stores: SCRAPE tab open (first visit, from the main menu) (12:29:18Z)
+system.cfg: 
+es_settings.cfg: 
+mtimes: /storage/.config/system/configs/system.cfg 1793104120 /storage/.emulationstation/es_settings.cfg 1793104120 
+== stores: after SCRAPE -> OPTIONS, no change (12:29:26Z)
+system.cfg: 
+es_settings.cfg: 
+mtimes: /storage/.config/system/configs/system.cfg 1793104120 /storage/.emulationstation/es_settings.cfg 1793104120 
+== stores: after OPTIONS -> ACCOUNTS, no change (12:29:30Z)
+system.cfg: 
+es_settings.cfg: 
+mtimes: /storage/.config/system/configs/system.cfg 1793104120 /storage/.emulationstation/es_settings.cfg 1793104120 
+== stores: after BACK (12:29:35Z)
+system.cfg: 
+es_settings.cfg: 
+mtimes: /storage/.config/system/configs/system.cfg 1793104120 /storage/.emulationstation/es_settings.cfg 1793104120 
+-- VOID: the pass above never opened the main menu (frame g03-1 is PICO-8's game list, g03-3 the music player's): the first START press did not land. Redone below with a frame after each press. (12:29:48)
+== stores: redo: before (main menu open) (12:30:19Z)
+system.cfg: 
+es_settings.cfg: 
+mtimes: /storage/.config/system/configs/system.cfg 1793104120 /storage/.emulationstation/es_settings.cfg 1793104120 
+== stores: redo: SCRAPE tab open (first visit, from the main menu) (12:30:34Z)
+system.cfg: 
+es_settings.cfg: 
+mtimes: /storage/.config/system/configs/system.cfg 1793104120 /storage/.emulationstation/es_settings.cfg 1793104120 
+== stores: redo: after SCRAPE -> OPTIONS, no change (12:30:57Z)
+system.cfg: 
+es_settings.cfg: 
+mtimes: /storage/.config/system/configs/system.cfg 1793104120 /storage/.emulationstation/es_settings.cfg 1793104120 
+== stores: redo: after OPTIONS -> ACCOUNTS, no change (12:31:04Z)
+system.cfg: 
+es_settings.cfg: 
+mtimes: /storage/.config/system/configs/system.cfg 1793104120 /storage/.emulationstation/es_settings.cfg 1793104120 
+-- the two 'after' reads above are VOID too: the two ups put the focus on BACK, not the strip, and right moved it there (frame g03-r5). (12:31:14)
+== stores: redo: after SCRAPE -> OPTIONS, no change (12:31:30Z)
+system.cfg: 
+es_settings.cfg: name="ScraperSystems" value="pico-8"  
+mtimes: /storage/.config/system/configs/system.cfg 1793104120 /storage/.emulationstation/es_settings.cfg 1793104286 
+== stores: redo: after OPTIONS -> ACCOUNTS, no change (12:31:35Z)
+system.cfg: 
+es_settings.cfg: name="ScraperSystems" value="pico-8"  
+mtimes: /storage/.config/system/configs/system.cfg 1793104120 /storage/.emulationstation/es_settings.cfg 1793104291 
+name="ShowCheevosIcon" name="recent.sort" name="ScraperSystems" name="ShowFlags" name="ShowTags" 
+name="ScraperSystems" value="pico-8" 

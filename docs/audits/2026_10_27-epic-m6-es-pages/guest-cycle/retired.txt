@@ -1,0 +1,14 @@
+== the disk retired (12:45:05 UTC)
+/workspace/tmp/m6-t31/guest/t31.qcow2 2510749696 bytes
+8aee68ee915fbbc6c93eb13bd562a6728ef780a6610c4a4ea877ecb901b2a596  /workspace/tmp/m6-t31/guest/t31.qcow2
+total 2452388
+-rw-rw-r-- 1 max max         27 Oct 27 12:26 bound.txt
+-rw-rw-r-- 1 max max        284 Oct 27 12:26 run.log
+-rw-rw-r-- 1 max max     540672 Oct 27 12:26 t31.ovmf-vars.fd
+-rw-r--r-- 1 max max 2510749696 Oct 27 12:44 t31.qcow2
+-- after removal (12:45:12 UTC)
+total 8
+-rw-rw-r-- 1 max max  27 Oct 27 12:26 bound.txt
+-rw-rw-r-- 1 max max 284 Oct 27 12:26 run.log
+qemu live: 0
+ls: cannot access '/workspace/tmp/m6-t31/guest/*.sock': No such file or directory

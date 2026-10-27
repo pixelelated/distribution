@@ -1,0 +1,5 @@
+== G07 back landings (12:38:48)
+-rw-r--r--    1 root     root         32768 Oct 27 08:36 /storage/roms/gb/TTProb
+GAME OPTIONS > DELETE GAME: the dialog YES / NO (frame g07-1); B closed it on NO -- the page stays, the ROM is listed above (frame g07-2).
+[0;0mTTProbe.state1[m  [0;0mTTProbe.state2[m  [0;0mTTProbe.state3[m
+SAVE STATE MANAGER > DELETE on SLOT 3: ARE YOU SURE YOU WANT TO DELETE THIS ITEM? YES / NO (frame g07-3); B closed it on NO, the three states remain (listing above, frame g07-4). CONTROLLER MAPPING (L-19) not exercised: its OK starts GuiDetectDevice, which a stray B would have to leave by the device page's own path -- left to the table.

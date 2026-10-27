@@ -62,3 +62,24 @@
   Corrections to the brief: seven, in `02`.
 - **The window plan** (`stage-b/window-plan.md`): thirteen steps, 45 minutes plus 5 of grace, stopped by pidfile at the bound; the identity by two literals first.
 - **Nothing else ran:** no image build, no fetch, no guest, no handheld, no council call.
+
+## [Window] 12:25 to 12:45 UTC — the guest, granted on #678
+
+- **Granted** at 12:25 UTC (comment 6441815522). The guarded swap reclaim ran once before the guest (`READY`, 7,331 MiB of swap used to 0). **START** 12:26:47 UTC (comment 6441849481); **RETURN** posted after the stop at 12:45:00 (comment 6442212756), each with its census (qemu, compilers) and a line in the shared host file. The guest was stopped by `tools/vm-stop` on its pidfile (rc 0), 18 minutes into the 45.
+- **Proved on the image** (M7's composition over the pin, by its two literals): L-01, L-03, L-06, L-07 (FR), L-11 (FR), L-12, L-13 (with a new fact: a copy that worked leaves the same frame as one that failed), L-15 and L-16; and two back landings on NO. **New:** BIOS CHECK draws no help bar under full-screen menus; offline SCRAPE NOW ends on the main menu with a box, not on SCRAPING GAMES. **CANNOT:** L-09 offline, G10, G11, L-19 by design.
+- **The disk retired:** `t31.qcow2`, 2,510,749,696 bytes, sha256 `8aee68ee…b2a596`, removed; the leftover check is clean (`guest-cycle/retired.txt`).
+- **Mine:**
+  - a START pressed before the carousel settled did not land, so G03's first pass entered PICO-8 instead of the menu;
+  - two up presses put the focus on BACK rather than the tab strip;
+  - right presses sent while the manager slid in did not move its cursor.
+
+  Each void pass is recorded and redone with a frame per press.
+- **Correction:** `02`'s correction 5 ("writes only on a change") is wrong in effect. A save function stores a value the player never chose, and `Settings` counts a default as a change. This is corrected in `04`.
+- **Nothing else ran:** no image build, no fetch, no handheld, no account, no council call.
+
+## [Stage C] 12:24 UTC onward — the host proofs
+
+- `stage-c/t31extract.py` holds the shared extractor and runner.
+- **L-01** (`l01-start-drops.py`): FAIL at the pin (START drops the switch, writes 0 times, skips `onFinalize`). The control replaces START's loop with `close()` per page and passes.
+- **L-02** (`l02-led-not-saved.py`): FAIL at the pin (`system.cfg` written 0 times). The control adds one save function and the colour is saved.
+- Their outputs are in `stage-c/runs.txt`.

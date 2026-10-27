@@ -1,0 +1,17 @@
+$ python3 -I stage-c/l01-start-drops.py <pin>/GuiSettings.cpp
+FAIL l01: start: the moved switch dropped, es_settings.cfg written 0 time(s), onFinalize did not run
+rc=1
+
+$ python3 -I stage-c/l01-start-drops.py <pin>/GuiSettings.cpp --fixed
+2 cases
+rc=0
+
+$ python3 -I stage-c/l02-led-not-saved.py <pin>/GuiAnalogSticksLedControls.cpp <pin>/GuiSettings.cpp
+commands run 1; system.cfg written 0 time(s); analogsticks.led not saved
+FAIL l02: the LED colour set on the page never reaches system.cfg
+rc=1
+
+$ python3 -I stage-c/l02-led-not-saved.py <pin>/GuiAnalogSticksLedControls.cpp <pin>/GuiSettings.cpp --fixed
+commands run 1; system.cfg written 1 time(s); analogsticks.led saved: 255 0 255 0 127 0 0
+rc=0
+
