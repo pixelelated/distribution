@@ -1,0 +1,11 @@
+# S6b after: the merged GuiBios.cpp with stage-e/s6b.patch applied (patch -p1, rc 0; the result byte-equal to the file proven), 15:22:08Z
+$ python3 -I stage-c/s06b-bios.py <scratch> <scratch>/es-app/src/guis/GuiBios.cpp
+ok   zero-rows: a header with no files reads [NO FILES LISTED]
+ok   not-run: the row reads [COULDN'T CHECK THE BIOS FILES RIGHT NOW. REFRESH TO TRY AGAIN.]
+ok   control: a check that ran and listed nothing reads [THE BIOS CHECK RETURNED NOTHING]
+s06b: PASS, 3 checks
+rc 0
+$ the stand-in syntax check, the patched file
+es-app/src/guis/GuiBios.cpp: rc 0
+rc 0
+French: stage-e/s6b-fr.po, two entries to append to locale/lang/fr/LC_MESSAGES/emulationstation2.po with the patch

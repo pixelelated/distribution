@@ -1,0 +1,15 @@
+# S6a before (#678, #1245, #1246): GuiBios.cpp at the S7 tip 2fa6b5f73 (the pin's bytes), 15:20:34Z
+$ python3 -I stage-c/s06a-bios.py <W> <GuiBios.cpp at 2fa6b5f73>
+ok   summary: 1 of 7 missing reads [1 SUR 7 MANQUANT]
+FAIL summary: 7 of 7 missing reads [7 SUR 7 MANQUANT]
+ok   summary: nothing missing reads [TOUS PRÉSENTS (3)]
+FAIL summary: 2 not a known version reads [2 VERSION INCONNUE]
+ok   summary: English, 1 of 7 missing reads [1 OF 7 MISSING]
+FAIL name: nds, not loaded, reads [Nds]
+ok   name: snes, loaded, reads [Super Nintendo]
+FAIL details: the sentence row focused offers DETAILS? yes
+ok   details: a system's row focused offers DETAILS? yes
+FAIL details: the buttons focused offer DETAILS? yes
+FAIL s06a: 5 of 10 checks
+rc 1
+render's early bar: no host proof -- read twice (GuiBios::render, GuiSaveState::render's two lines); the frame is fix-walk-pending-image

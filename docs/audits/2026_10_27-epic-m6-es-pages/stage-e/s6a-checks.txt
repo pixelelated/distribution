@@ -1,0 +1,39 @@
+== checks: S6a after, ES 95852f873 (15:20:35Z), ES HEAD 95852f8736, worktree changes 0
+es-app/src/guis/GuiBios.cpp: rc 0
+syntax-check rc 0
+RUN es-unit-tests: rc 0; [doctest] test cases: 192 | 192 passed | 0 failed | 0 skipped [doctest] assertions: 4883 | 4883 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3389 | 3389 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+TOTAL: 228 test cases in 4 binaries
+t31-build-tests rc 0
+non-ASCII added comment lines in C++ sources: 0
+  non-ASCII added lines (any kind) in locale/lang/fr/LC_MESSAGES/emulationstation2.po: 12
+cloud-content-selection rc=0: cloud-content-selection: 14 of 14 passed
+cloud-folder-reopen rc=0: cloud-folder-reopen: PASS
+cloud-gated-row rc=0: cloud-gated-row: PASS
+cloud-oauth-await rc=0: cloud-oauth-await: PASS
+cloud-oauth-lifetime rc=0: PASS failed-start
+cloud-set-systems-quoting rc=0: cloud-set-systems-quoting: 5 of 5 passed
+cloud-sync-last-run rc=0: cloud-sync-last-run: PASS
+credential-quoting rc=0: credential-quoting: 11 credential call site(s), 11 quoted, 0 bare
+gpu-governor-save rc=0: PASS fallback
+hasher-offline-index rc=0: hasher-offline-index: PASS
+launch-capture-gate rc=0: launch-capture-gate: PASS
+launch-deferred-state rc=0: launch-deferred-state: PASS
+maintenance-why rc=0: maintenance-why: PASS
+run-lock-signal rc=0: run-lock-signal: 3 of 3 passed
+wifi-profile-lifetime rc=0: PASS profile-choice callback survives page deletion
+stage-c/l01-start-drops.py rc=0: 5 cases
+stage-c/l02-led-not-saved.py rc=0: 3 cases
+stage-c/s03-moonlight.py rc=0: s03: PASS, 16 cases
+stage-c/s04-copy-press.py rc=0: s04: PASS, 5 cases
+stage-c/s10-viewer-guard.py rc=0: s10: PASS, 3 cases
+stage-c/s12-scrape-filters.py rc=0: s12: PASS, 4 cases
+stage-c/l09-l10-scrape-page.py rc=0: 7 checks
+stage-c/l22-guiloading-race.py rc=0: completion received 42
+[doctest] test cases:  8 |  8 passed | 0 failed | 0 skipped
+t31-bookkeeper-tests rc 0
+56 screen(s) at 95852f873, 32 in the map, 24 declared unmapped, 0 missing (rc 0)
+es-untranslated: 717 fork string(s) in the source, 717 with French, 0 without [bccd715707] (rc 0)
+es-untranslated: 714 fork string(s) in the source, 714 with French, 0 without [cada856d86] (rc 0)

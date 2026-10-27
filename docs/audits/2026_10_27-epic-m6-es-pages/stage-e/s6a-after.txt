@@ -1,0 +1,26 @@
+# S6a after: ES 95852f873, 15:20:34Z
+$ python3 -I stage-c/s06a-bios.py <W>
+ok   summary: 1 of 7 missing reads [1 SUR 7 MANQUANT]
+ok   summary: 7 of 7 missing reads [7 SUR 7 MANQUANTS]
+ok   summary: nothing missing reads [TOUS PRÉSENTS (3)]
+ok   summary: 2 not a known version reads [2 DE VERSION INCONNUE]
+ok   summary: English, 1 of 7 missing reads [1 OF 7 MISSING]
+ok   name: nds, not loaded, reads [Nintendo DS]
+ok   name: snes, loaded, reads [Super Nintendo]
+ok   details: the sentence row focused offers DETAILS? no
+ok   details: a system's row focused offers DETAILS? yes
+ok   details: the buttons focused offer DETAILS? no
+s06a: PASS, 10 checks
+rc 0
+RUN es-unit-tests: rc 0; [doctest] test cases: 192 | 192 passed | 0 failed | 0 skipped [doctest] assertions: 4883 | 4883 passed | 0 failed | 
+TOTAL: 228 test cases in 4 binaries
+$ the two ngettext msgids in the French catalog (es-untranslated reads _() only):
+7012:msgid "%i OF %i MISSING"
+7013-msgid_plural "%i OF %i MISSING"
+7014-msgstr[0] "%i SUR %i MANQUANT"
+7015-msgstr[1] "%i SUR %i MANQUANTS"
+--
+7019:msgid "%i NOT A KNOWN VERSION"
+7020-msgid_plural "%i NOT KNOWN VERSIONS"
+7021-msgstr[0] "%i DE VERSION INCONNUE"
+7022-msgstr[1] "%i DE VERSION INCONNUE"

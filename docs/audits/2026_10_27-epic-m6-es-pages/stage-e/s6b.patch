@@ -1,0 +1,25 @@
+--- a/es-app/src/guis/GuiBios.cpp
++++ b/es-app/src/guis/GuiBios.cpp
+@@ -196,7 +196,10 @@
+ 	{
+ 		// Only when the check itself produced nothing: with every system
+ 		// listed, an empty page is a failed check, not a clean one.
+-		auto text = std::make_shared<TextComponent>(mWindow, notRun.empty() ? _("THE BIOS CHECK RETURNED NOTHING") : notRun, theme->Text.font, theme->Text.color);
++		// The not-run sentence says what to do next on the page itself (#1244):
++		// the bar names REFRESH, and the sentence alone left a player to
++		// find it.
++		auto text = std::make_shared<TextComponent>(mWindow, notRun.empty() ? _("THE BIOS CHECK RETURNED NOTHING") : notRun + " " + _("REFRESH TO TRY AGAIN."), theme->Text.font, theme->Text.color);
+ 		if (EsLocale::isRTL())
+ 			text->setHorizontalAlignment(Alignment::ALIGN_RIGHT);
+ 
+@@ -231,7 +234,9 @@
+ 
+ 		// One sentence per count, from the catalog's own form for that count
+ 		// (#1245).
+-		const std::string summary = BiosText::summary(e.missing, e.untested, e.present,
++		// A system whose header came with no files has nothing present to
++		// count: NO FILES LISTED, not ALL PRESENT (0) (#1244).
++		const std::string summary = e.missing + e.untested + e.present == 0 ? _("NO FILES LISTED") : BiosText::summary(e.missing, e.untested, e.present,
+ 			ngettext("%i OF %i MISSING", "%i OF %i MISSING", e.missing),
+ 			ngettext("%i NOT A KNOWN VERSION", "%i NOT KNOWN VERSIONS", e.untested),
+ 			_("ALL PRESENT (%i)"));

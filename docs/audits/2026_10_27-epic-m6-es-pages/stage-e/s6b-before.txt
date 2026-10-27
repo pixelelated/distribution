@@ -1,0 +1,10 @@
+# S6b before (#678, #1244): the merged GuiBios.cpp (stage-e/s6b-merged-GuiBios.cpp.txt) on a scratch tree of T21's a73ed9efc with S6a's BiosText.h, 15:22:07Z
+$ python3 -I stage-c/s06b-bios.py <scratch> <the merged GuiBios.cpp>
+FAIL zero-rows: a header with no files reads [ALL PRESENT (0)]
+FAIL not-run: the row reads [COULDN'T CHECK THE BIOS FILES RIGHT NOW.]
+ok   control: a check that ran and listed nothing reads [THE BIOS CHECK RETURNED NOTHING]
+FAIL s06b: 2 of 3 checks
+rc 1
+$ the stand-in syntax check over the merged GuiBios.cpp on the scratch tree (CPATH gives pugixml's src)
+es-app/src/guis/GuiBios.cpp: rc 0
+rc 0
