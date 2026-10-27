@@ -1,6 +1,6 @@
 # Session pointer: M6.P2 T31, EmulationStation's other pages (#678)
 
-> **Seeded:** 2026-10-26 by the coordinator (Fable 5.1, lane `m6-coordinator`, D-WORKFLOW-189); the executor updates this file **at every checkpoint** (#1014)
+> **Seeded:** 2026-10-27 by the coordinator (Fable 5.1, lane `m6-coordinator`, D-WORKFLOW-189); the executor updates this file **at every checkpoint** (#1014)
 > **Branch (distribution):** `feature/m6-es-pages-678`, stacked on `feature/m6-p1-survey-641` at `2174265e9c` (which carries the P0 branch and `docs/reviews/{order.md,slices.json,inventory.json,status.md}`); the coordinator's tip merged in (`266a14163e` at `3d591f7e30`, one merge, carrying the brief's versions 1 and 2, the register rows the brief cites, the day's logs)
 > **Worktree (distribution):** `/workspace/repos/pixelelated/distribution.worktrees/m6-es-pages-678` -- the audit artifacts, the work log, this pointer and every ceremony live here
 > **Worktree (EmulationStation):** `/home/max/Development/emulationstation-next.worktrees/m6-es-pages-678`, branch `feature/m6-es-pages-678`, cut by the coordinator from **the pin `16dbac5211eea7e70db7394372033be2be7df829`** (what `projects/ROCKNIX/packages/ui/emulationstation/package.mk`'s `PKG_VERSION` names at `8ebaf8daad`); the sources are read and the fixes are made here, on this branch only; **the pin bump in the distribution is the coordinator's**
