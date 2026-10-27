@@ -16,7 +16,7 @@
 - **A syntax check for the files the host cannot build.** Stand-in SDL, curl, FreeType and FreeImage headers (`stage-e/fakes/`) and the build's `-DHAVE_INTL` let `ApiSystem.cpp`, `HttpReq.cpp`, `main.cpp`, the scrapers and four pages take `g++ -fsyntax-only` (`stage-e/syntax-check.sh`). It was proven to fail on a misspelt copy before it was trusted. From S10 on, no edit was "read twice" only, and S1's, S4's and S6's earlier edits were checked after the fact.
 - **The recipe's own inputs, not a fetch.** pugixml came from the recipe's source cache at the submodule's commit (`61c944895e`), so `Settings` and the scraper's readers got real tests without the worktree's submodule.
 - **Questions put on #668 with a recommendation**, each ruled within minutes: the text row's refusal, the marker and where it does not apply, the BIOS page's sentence, PL-21's reading.
-- **Bodies copied, not re-drafted.** The nineteen bugs and the four OS halves took their text from `05` by script (`/workspace/tmp/m6-t21/stageD/bugs.py`).
+- **Bodies copied, not re-drafted.** The nineteen bugs and the four OS halves took their text from `05` by script (`tools/t21-file-bugs.py` in the audit folder).
 
 ## What was harder than expected
 

@@ -125,7 +125,7 @@
 
 - `04` § Second opinion written; PL-23's `punch_index` question changed from Q8 to `none` with its reason (the lint's second FAIL); `tools/lint-audit-artifacts --phase pre-issue` PASS.
 - The audit issue #1184, a sub-issue of #668, 26 items; `tools/box-check` 0 fail. The pause posted on #668; the ruling at 00:29 UTC with the stream brief `docs/reviews/briefs/t21-streams.md` at `e3c07a9c30`.
-- **The bugs:** 19 under #668 (#1185, #1187, #1189, #1191, #1193 to #1207) and the OS scripts' four halves under #695 (#1208 to #1211), each body its `05` section copied by a script (`/workspace/tmp/m6-t21/stageD/bugs.py`), cross-linked in pairs.
+- **The bugs:** 19 under #668 (#1185, #1187, #1189, #1191, #1193 to #1207) and the OS scripts' four halves under #695 (#1208 to #1211), each body its `05` section copied by a script (`tools/t21-file-bugs.py`, kept from scratch at the close-out), cross-linked in pairs.
 
 ## [Stage E] 00:36 UTC onward — the streams
 
@@ -160,3 +160,11 @@
 
 - The retro: `docs/retros/2026-10-27-m6-es-state-and-bridge.md`, its state table computed from the logs in commit order.
 - The checkers: `stage-h-checkers.txt` -- register-check, work-log-index, ceremony-check --gate, the lint twice, box-check, the unit build, the syntax check, the ES pre-push test and es-untranslated, every one rc 0.
+
+## [Close-out] 2026-10-27 02:33 UTC — the audit complete
+
+- Accepted by the coordinator on #668 at 02:31 UTC (the merged distribution tip `06c5c4e685`, the ES tip `3ae9610b0`); #1184 closed as completed.
+- `audit-completion.json`, `tracker-completion.json` and `tracker-final-readback.json` written by `tools/write-completion.py` (T20's, its path and issue changed) from #1184's closed readback: 26 ticked, 0 open, completed 02:32:32 UTC. The readback carries no credential-shaped line (`.githooks/secret-patterns`: 0).
+- `tools/lint-audit-artifacts --issue 1184` PASS; the default phase PASS; `tools/ceremony-check` accepts the marker.
+- The scratch `/workspace/tmp/m6-t21/` (375M) retired after a check that no process of this session had its working directory or an open file there; `stageD/bugs.py`, which the records cite, kept first as `tools/t21-file-bugs.py`. The rapidjson copy and the build directories are reproducible from the recipe's cache and `tools/t21-build-tests.sh`.
+- The pointer set idle, with the checkpoints from the window onward it had missed.

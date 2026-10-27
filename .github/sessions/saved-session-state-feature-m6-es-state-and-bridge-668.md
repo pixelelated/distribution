@@ -17,12 +17,12 @@
 
 ## Current focus
 
-**The first window is closed (22:43:36 to 22:49:29 UTC); stage C next, by the coordinator's 22:51 ruling.**
-
-- **The window:** G1 to G5 stand as the image's verdicts, recorded in `02` § The guest cycle and `guest-cycle/`, with the new leads L-21 and L-22. G6 and G7 were not run; the reason is in `02`.
-- **A second 20-minute window** for G6(a) and G6(b) is queued behind M7's RETURN; the coordinator says when the host is free. G6(c) and G7 stay `CANNOT` for the slice.
-- **Next, stage C:** the packet trimmed and scanned, `review-plan.json`, GPT-6 Astra then Gemini 4 Argon (four keyed invokes), the grades, `03` to `05`, the pre-issue lint.
-- **What runs here:** nothing. Scratch is `/workspace/tmp/m6-t21/`.
+**Idle (2026-10-27 02:35 UTC): T21 accepted by the coordinator on #668 at the merged distribution tip `06c5c4e685` and the ES tip `3ae9610b0`; the audit closed.**
+- **Status:** #1184 closed as completed, its 26 checkboxes ticked. `docs/audits/2026_10_26-epic-m6-es-state-and-bridge/audit-completion.json` was written from its closed readback (completed 02:32:32 UTC) by `tools/write-completion.py`; `tools/lint-audit-artifacts --issue 1184` and the default phase both PASS; `tools/ceremony-check` accepts the marker.
+- **Commits (in #668's body):** `reviewed-at` `4844a773ca`, `reviewed-at-es` `16dbac5211`, `fixed-at` `cfd7b2d89c`, `fixed-at-es` `3ae9610b0`.
+- **Work done:** S1, S2 (and its marker), S4 to S14 and S10's follow-up on the ES branch (`ba0e82c1f` to `3ae9610b0`); S3 by the coordinator (D-WORKFLOW-212), merged at `f2561bbe4`. Bugs #1185 to #1207 under #668 and the OS halves #1208 to #1211 under #695, each with `fixed-at-es`; the retro at `docs/retros/2026-10-27-m6-es-state-and-bridge.md`.
+- **What the lane waits for:** nothing. The coordinator's: the merge to `next` with the pin moved to `3ae9610b0` in the same integration commit; the integration window's walks (S1, S6, S10, S12) and S14's self-signed listener; `time-to-play` on the image; the OS round (#1208 to #1211).
+- **Scratch:** `/workspace/tmp/m6-t21/` retired at the close-out (`00`); `stageD/bugs.py` kept as `tools/t21-file-bugs.py`.
 
 ## Next commands
 
@@ -60,6 +60,13 @@ another lane's worktree, or a guest outside the one granted window.
 
 ## Checkpoints
 
+- Close-out, 02:35 UTC: `audit-completion.json`; both lints PASS; scratch retired; idle.
+- Hand-back, 02:28 UTC: distribution `cfd7b2d89c`, ES `3ae9610b0`; accepted 02:31 at `06c5c4e685`.
+- Stages F to H, 02:15 to 02:28 UTC: Phase 7 (19 Resolved, 5 Deferred, 2 Withdrawn), the retro, every checker rc 0.
+- Stage E, 00:36 to 02:15 UTC: S1 to S14 (S3 the coordinator's) and S10's follow-up; ES `ba0e82c1f` to `3ae9610b0`.
+- Stage D, 00:35 UTC: #1184 opened; the pause; the ruling at 00:29 with the stream brief at `e3c07a9c30`.
+- Stage C, 23:56 UTC: four keyed calls PASS; Astra 58 and Argon 45 items graded; `05` written by the coordinator (D-WORKFLOW-212).
+- This pointer was not updated between the window and the close-out, though every checkpoint owed it; these lines restore the record from `00`.
 - Window, 22:43:36 to 22:49:29 UTC: G1 to G5; the disk retired; RETURN acknowledged at 22:51.
 - Stage B, 21:20 UTC: distribution `5722daf7e5`; ES at the pin, unchanged; the window requested.
 - Stage A, 21:00 UTC: distribution `4844a773ca` + stage A's commit; ES at the pin `16dbac5211` (unchanged).
