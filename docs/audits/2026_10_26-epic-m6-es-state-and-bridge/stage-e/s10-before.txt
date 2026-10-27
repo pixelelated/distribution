@@ -1,0 +1,31 @@
+# T21 S10 before: S9's tree (ES c4341c335) with ScriptOutputTests; ScriptOutput holding the pin's behaviour (#668, #1202)
+
+RUN es-unit-tests: rc 1; [doctest] test cases: 198 | 194 passed | 4 failed | 0 skipped [doctest] assertions: 4863 | 4855 passed | 8 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 28 | 28 passed | 0 failed | 0 skipped [doctest] assertions: 3427 | 3427 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 232 | 232 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+RUN es-settings-tests: rc 0; [doctest] test cases: 5 | 5 passed | 0 failed | 0 skipped [doctest] assertions: 38 | 38 passed | 0 failed | 
+
+## es-unit-tests: the failing cases
+TEST CASE:  a 1,500-byte record is one line, however the bytes arrive (T21 PL-14, #1202)
+es-app/tests/unit/ScriptOutputTests.cpp:51: FATAL ERROR: REQUIRE( lines.size() == 2 ) is NOT correct!
+TEST CASE:  the last line is kept without a line end (T21 PL-14, #1202)
+es-app/tests/unit/ScriptOutputTests.cpp:59: FATAL ERROR: REQUIRE( lines.size() == 2 ) is NOT correct!
+TEST CASE:  a line past the limit is refused, not cut, and the reader says so (T21 PL-14, #1202)
+es-app/tests/unit/ScriptOutputTests.cpp:67: ERROR: CHECK( overflowed ) is NOT correct!
+es-app/tests/unit/ScriptOutputTests.cpp:68: FATAL ERROR: REQUIRE( lines.size() == 2 ) is NOT correct!
+TEST CASE:  exitCode: a signal is a failure, an exit is its code (T21 PL-14, #1202)
+es-app/tests/unit/ScriptOutputTests.cpp:77: ERROR: CHECK( ScriptOutput::exitCode(statusOf([] { raise(9); })) == 128 + 9 ) is NOT correct!
+es-app/tests/unit/ScriptOutputTests.cpp:79: ERROR: CHECK( ScriptOutput::exitCode(statusOf([] { signal(15, ((__sighandler_t) 0)); raise(15); })) == 128 + 15 ) is NOT correct!
+es-app/tests/unit/ScriptOutputTests.cpp:80: ERROR: CHECK( ScriptOutput::exitCode(-1) == -1 ) is NOT correct!
+es-app/tests/unit/ScriptOutputTests.cpp:87: ERROR: CHECK( ScriptOutput::exitCode(pclose(pipe)) == 128 + 9 ) is NOT correct!
+
+## T20's reader cases at the pin (ffb6b686cb's reader.cpp, the pin's executeScriptLegacy lifted verbatim)
+RESULT popen-child-killed rc=0 lines=1 longest=10 last=[hardcore=0]
+RESULT killed-by-signal rc=137 lines=1 longest=10 last=[hardcore=0]
+RESULT exit-143 rc=143 lines=1 longest=10 last=[hardcore=0]
+RESULT line-1500-bytes rc=0 lines=2 longest=476 last=[{"id":2}]
+RESULT last-line-no-newline rc=0 lines=1 longest=5 last=[first]
+
+stage-b/positives/lifted.out's enum and script cases are the same picture for executeEnumerationScript and executeScript.

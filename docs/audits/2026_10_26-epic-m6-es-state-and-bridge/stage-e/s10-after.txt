@@ -1,0 +1,25 @@
+# T21 S10 after: the stream's tree (#668, #1202)
+
+RUN es-unit-tests: rc 0; [doctest] test cases: 198 | 198 passed | 0 failed | 0 skipped [doctest] assertions: 4868 | 4868 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 28 | 28 passed | 0 failed | 0 skipped [doctest] assertions: 3427 | 3427 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 232 | 232 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN es-fs-tests: rc 0; [doctest] test cases: 8 | 8 passed | 0 failed | 0 skipped [doctest] assertions: 33 | 33 passed | 0 failed | 
+RUN es-settings-tests: rc 0; [doctest] test cases: 5 | 5 passed | 0 failed | 0 skipped [doctest] assertions: 38 | 38 passed | 0 failed | 
+
+## T20's reader cases through S10's ScriptOutput
+$ g++ -std=c++17 -I <es>/es-app/src stage-e/s10-reader.cpp <es>/es-app/src/ScriptOutput.cpp && ./a.out
+Killed
+RESULT popen-child-killed rc=137 lines=1 longest=10 last=[hardcore=0]
+RESULT killed-by-signal rc=137 lines=1 longest=10 last=[hardcore=0]
+RESULT exit-143 rc=143 lines=1 longest=10 last=[hardcore=0]
+RESULT line-1500-bytes rc=0 lines=2 longest=1499 last=[{"id":2}]
+RESULT last-line-no-newline rc=0 lines=2 longest=10 last=[hardcore=1]
+
+## The sources no test compiles, with the stand-in headers
+$ bash stage-e/syntax-check.sh <es tree> <files>
+es-app/src/ApiSystem.cpp: rc 0
+es-app/src/guis/GuiSettings.cpp: rc 0
+es-app/src/guis/GuiWifi.cpp: rc 0
+es-core/src/HttpReq.cpp: rc 0
+es-core/src/Settings.cpp: rc 0

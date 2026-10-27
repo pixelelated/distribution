@@ -1,0 +1,34 @@
+/* T21 (#668) stage E: a stand-in for SDL's headers, declarations only, so
+ * g++ -fsyntax-only can read ApiSystem.cpp on a host without SDL. It links
+ * nothing and proves nothing about SDL. */
+#ifndef T21_FAKE_SDL_JOYSTICK_H
+#define T21_FAKE_SDL_JOYSTICK_H
+#include <stdint.h>
+typedef int32_t SDL_JoystickID;
+typedef int32_t SDL_Keycode;
+typedef struct _SDL_Joystick SDL_Joystick;
+typedef struct _SDL_GameController SDL_GameController;
+typedef struct { uint8_t data[16]; } SDL_JoystickGUID;
+typedef union SDL_Event { uint32_t type; uint8_t padding[56]; } SDL_Event;
+typedef enum { SDL_FALSE = 0, SDL_TRUE = 1 } SDL_bool;
+typedef uint8_t Uint8; typedef uint16_t Uint16; typedef uint32_t Uint32; typedef int32_t Sint32; typedef int16_t Sint16; typedef uint64_t Uint64;
+#define SDL_HAT_CENTERED 0x00
+#define SDL_HAT_UP 0x01
+#define SDL_HAT_RIGHT 0x02
+#define SDL_HAT_DOWN 0x04
+#define SDL_HAT_LEFT 0x08
+typedef struct SDL_mutex SDL_mutex;
+typedef struct _Mix_Music Mix_Music;
+typedef struct Mix_Chunk Mix_Chunk;
+typedef struct _snd_mixer snd_mixer_t;
+typedef struct _snd_mixer_elem snd_mixer_elem_t;
+typedef struct _snd_mixer_selem_id snd_mixer_selem_id_t;
+#ifdef __cplusplus
+extern "C" {
+#endif
+const char* SDL_GetKeyName(SDL_Keycode);
+Uint32 SDL_GetTicks(void);
+#ifdef __cplusplus
+}
+#endif
+#endif
