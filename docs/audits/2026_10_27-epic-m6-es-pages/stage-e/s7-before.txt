@@ -1,0 +1,15 @@
+# S7 before (#678, #1247): GuiScraperRun.cpp at the S12 tip (the pin's bytes), 15:08:44Z
+$ python3 -I stage-c/l09-l10-scrape-page.py <GuiScraperRun.cpp at the S12 tip>   (extended: the proposed words, two cases)
+L-09 rows: [COULDN'T FINISH] [GAMES SCRAPED: 0  ·  COULDN'T SCRAPE: 5] [] [] [PRESS ANY BUTTON TO CLOSE]
+FAIL scrape: L-09: an all-errored run's line 4 is [], not the why
+FAIL scrape: L-09: an all-errored run's line 5 is [], not what to do next
+L-10 an axis past its deadzone: the outcome dismissed
+FAIL scrape: L-10: an axis event dismissed the finished outcome
+S7 a button before the outcome is drawn: the page dismissed
+FAIL scrape: S7: a button dismissed the page before its outcome was drawn
+S7 partial rows: [] [UPDATE GAMELISTS TO APPLY CHANGES.]
+FAIL scrape: S7: a partial run's line 4 is [], not the why
+rc 1
+$ the same with --control (the constructed variant, the proposed words)
+7 checks
+rc 0

@@ -1,0 +1,9 @@
+# S7 after: ES 2fa6b5f73, 15:08:45Z
+$ python3 -I stage-c/l09-l10-scrape-page.py <W>/es-app/src/guis/GuiScraperRun.cpp
+L-09 rows: [COULDN'T FINISH] [GAMES SCRAPED: 0  ·  COULDN'T SCRAPE: 5] [NO MATCH, OR NO ANSWER IN TIME, FOR THE ONES IT COULDN'T SCRAPE.] [TRY AGAIN LATER, OR SCRAPE A GAME FROM ITS OWN MENU.] [PRESS ANY BUTTON TO CLOSE]
+L-10 an axis past its deadzone: the outcome kept
+L-10 a button: the outcome dismissed
+S7 a button before the outcome is drawn: the page kept
+S7 partial rows: [NO MATCH, OR NO ANSWER IN TIME, FOR THE ONES IT COULDN'T SCRAPE.] [UPDATE GAMELISTS TO APPLY CHANGES.]
+7 checks
+rc 0

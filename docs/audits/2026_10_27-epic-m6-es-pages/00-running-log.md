@@ -131,3 +131,4 @@
 - **S9** (#1251): ES `1f06113e0`, pushed after pre-push-test PASS. `l22-guiloading-race.py` (a LeakSanitizer binary added): a leak and 2 races before, clean with 42 after (`stage-e/s9-*.txt`).
 - **S10** (#1252): ES `b71d656d9`, pushed after pre-push-test PASS. `python3 -I stage-c/s10-viewer-guard.py <GuiImageViewer.cpp>` (new; three binaries, TSan, ASan, LSan): 3 of 3 FAIL, then `s10: PASS, 3 cases` (`stage-e/s10-*.txt`).
 - **S12** (#1254): ES `a8beab553`, pushed after pre-push-test PASS. `python3 -I stage-c/s12-scrape-filters.py <GuiScraperStart.cpp> [--control]` (new): 3 of 4 FAIL and a leak before, `s12: PASS, 4 cases` after, `--control` FAILs `in-callback` (`stage-e/s12-*.txt`).
+- **S7** (#1247): ES `2fa6b5f73`, pushed after pre-push-test PASS. `l09-l10-scrape-page.py` (extended; the proposed words in its expectation and its control): 5 of 7 FAIL, then `7 checks` (`stage-e/s7-*.txt`).

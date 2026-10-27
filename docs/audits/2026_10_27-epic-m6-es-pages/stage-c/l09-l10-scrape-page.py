@@ -16,6 +16,15 @@ must not dismiss the outcome; a button press must. At the pin `delete this`
 follows any non-zero input -- FAIL on the axis.
 --control runs constructed variants (line 4 and 5 filled for p.errors, and the
 dismissal on TYPE_BUTTON only), to show both cases can pass.
+
+S7 (#1247): the expectation names the brief's proposed sentences (line 4 NO
+MATCH, OR NO ANSWER IN TIME, FOR THE ONES IT COULDN'T SCRAPE.; line 5, nothing
+scraped, TRY AGAIN LATER, OR SCRAPE A GAME FROM ITS OWN MENU.), and --control's
+constructed words are those sentences. Two cases added: a button before the
+finished frame has been drawn (finished true, mShownFinished false) keeps the
+page; a run with some games scraped and some not carries the why on line 4
+and UPDATE GAMELISTS on line 5. The control's dismissal rule applies to the
+pin's input only.
 """
 import sys
 from pathlib import Path
@@ -31,13 +40,13 @@ counts = function(src, r"^std::string GuiScraperRun::countsLine\(", "scrape")
 if control:
     a = 'mDetail  ->setText(p.failed ? fitOneLine(mSmallFont, p.failure, mLineWidth) : "");'
     assert a in upd
-    upd = upd.replace(a, 'mDetail  ->setText(p.failed ? fitOneLine(mSmallFont, p.failure, mLineWidth) : (p.errors > 0 ? std::string("NO MATCH FOR SOME GAMES") : std::string("")));')
+    upd = upd.replace(a, 'mDetail  ->setText(p.failed ? fitOneLine(mSmallFont, p.failure, mLineWidth) : (p.errors > 0 ? std::string("NO MATCH, OR NO ANSWER IN TIME, FOR THE ONES IT COULDN\'T SCRAPE.") : std::string("")));')
     b = "mNote    ->setText(p.done - p.errors > 0 ? CloudText::chooseThatFits("
     assert b in upd
-    upd = upd.replace(b, "mNote    ->setText(p.done > 0 ? CloudText::chooseThatFits(")
+    upd = upd.replace(b, "mNote    ->setText(p.done - p.errors <= 0 && p.errors > 0 ? std::string(\"TRY AGAIN LATER, OR SCRAPE A GAME FROM ITS OWN MENU.\") : p.done - p.errors > 0 ? CloudText::chooseThatFits(")
     c = "\tdelete this;\n\treturn true;\n}"
     assert c in inp
-    inp = inp.replace(c, "\tif (input.type == TYPE_BUTTON)\n\t\tdelete this;\n\treturn true;\n}")
+    inp = inp.replace(c, "\tif (input.type == TYPE_BUTTON && mShownFinished)\n\t\tdelete this;\n\treturn true;\n}")
 harness = r'''
 #include <functional>
 #include <iostream>
@@ -45,7 +54,7 @@ harness = r'''
 #include <string>
 #include <vector>
 #define _(x) std::string(x)
-enum InputType { TYPE_AXIS, TYPE_BUTTON };
+enum InputType { TYPE_AXIS, TYPE_BUTTON, TYPE_HAT, TYPE_KEY };
 struct Input { int type = TYPE_BUTTON; int value = 1; };
 #define BUTTON_BACK "back"
 struct InputConfig { bool isMappedTo(const std::string&, Input) { return false; } };
@@ -88,8 +97,8 @@ int main()
     p.finished = true; p.done = 5; p.total = 5; p.errors = 5; p.elapsedMs = 61000;
     auto* page = new GuiScraperRun(); page->update(16);
     std::cout << "L-09 rows: [" << page->mStatus->text << "] [" << page->mCounter->text << "] [" << page->mDetail->text << "] [" << page->mNote->text << "] [" << page->mFooter->text << "]\n";
-    check(!page->mDetail->text.empty(), "L-09: an all-errored run says no why (line 4 empty)");
-    check(!page->mNote->text.empty(), "L-09: an all-errored run says nothing to do next (line 5 empty)");
+    check(page->mDetail->text == "NO MATCH, OR NO ANSWER IN TIME, FOR THE ONES IT COULDN'T SCRAPE.", "L-09: an all-errored run's line 4 is [" + page->mDetail->text + "], not the why");
+    check(page->mNote->text == "TRY AGAIN LATER, OR SCRAPE A GAME FROM ITS OWN MENU.", "L-09: an all-errored run's line 5 is [" + page->mNote->text + "], not what to do next");
     // L-10: finished; an axis event, then a button.
     InputConfig cfg; Input axis; axis.type = TYPE_AXIS; axis.value = -1;
     gDeleted = false; page->input(&cfg, axis);
@@ -98,8 +107,25 @@ int main()
     if (!gDeleted) { Input button; gDeleted = false; page->input(&cfg, button);
         std::cout << "L-10 a button: the outcome " << (gDeleted ? "dismissed" : "kept") << "\n";
         check(gDeleted, "L-10: a button did not dismiss the outcome"); if (!gDeleted) delete page; }
+    // S7: a button before the finished frame has been drawn keeps the page.
+    {
+        auto* fresh = new GuiScraperRun(); Input button; gDeleted = false;
+        fresh->input(&cfg, button);
+        std::cout << "S7 a button before the outcome is drawn: the page " << (gDeleted ? "dismissed" : "kept") << "\n";
+        check(!gDeleted, "S7: a button dismissed the page before its outcome was drawn");
+        if (!gDeleted) delete fresh;
+    }
+    // S7: some scraped, some not -- the why, and UPDATE GAMELISTS.
+    {
+        ThreadedScraper::gP.errors = 2;
+        auto* part = new GuiScraperRun(); part->update(16);
+        std::cout << "S7 partial rows: [" << part->mDetail->text << "] [" << part->mNote->text << "]\n";
+        check(part->mDetail->text == "NO MATCH, OR NO ANSWER IN TIME, FOR THE ONES IT COULDN'T SCRAPE.", "S7: a partial run's line 4 is [" + part->mDetail->text + "], not the why");
+        check(part->mNote->text == "UPDATE GAMELISTS TO APPLY CHANGES.", "S7: a partial run's line 5 is [" + part->mNote->text + "]");
+        gDeleted = false; delete part;
+    }
     if (failed) return 1;
-    std::cout << "3 checks\n";
+    std::cout << "7 checks\n";
     return 0;
 }
 '''
