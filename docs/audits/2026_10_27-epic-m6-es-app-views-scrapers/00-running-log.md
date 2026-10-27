@@ -70,3 +70,12 @@
   - **L-22 (new):** IGDB's and HfsDB's ensureToken read HasMember before IsObject and GetString before IsString. A body of `{"access_token": 5}` is a **SEGV** (rc -11 plain). IGDB is compiled in every build.
 - **16:38 UTC, L-02** (`l02-stop-after-finish.py`). The window is widened synthetically: the finishing block's LOG starts stop() and waits 50 ms; named in the docstring. At the pin it is a **heap-use-after-free** in stop() (`:333` writing through mInstance after `delete this` at `:238`). Under `--plain`, finished 1, cancelled 1: SKIPPED - YOU CANCELLED IT over a completed run. The control (stop() under the mutex, returning when finished) gives rc 0.
   - **L-23 (new, minor):** run() erases each ScraperThread without a delete (`:218`, 717e7d8c3), and mHandle is never joined or freed, so every run leaks them.
+- **16:52 UTC, the rest of stage C before the seat:**
+  - **L-16 and L-18 read.** L-16's free-then-read is inside `reloadCollection` (T33's). L-18's token fetch runs on the interface thread at a batch's start and in three manual paths.
+  - **The include graph:** 47 lines from 23 files; es-core edges 143 of 410; seen to exit 1 on a drift.
+  - **`httplib.h`** is the 2020 v0.7 series. L-24 is its unbounded body (CVE-2025-46728's class). CVE-2026-45372's mechanism is absent. One web search, dated in 02.
+  - **§ 3 items 4, 8, 9 and 10** are read; the issue states are as the brief gives them.
+  - **The floor's 27**, read by a read-only subagent and checked per `stage-c/floor.md` § Verification. The two that matter most are 3.15 (a null dereference on SCRAPE NOW for an unregistered saved scraper) and 3.19 (G-05's ten games read 9). ScreenScraper's rate-limit `false` is dropped at `:337`.
+  - **03 and 04** are written before the seat.
+  - **The packet builder and the ask** are in `stage-c/`.
+  - **Next:** build the packet (scan and dispositions); the two keyed calls; the pre-issue lint; then 05, the issue, the bugs and the stage-D post.
