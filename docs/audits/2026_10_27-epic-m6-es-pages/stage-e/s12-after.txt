@@ -1,0 +1,15 @@
+# S12 after: ES a8beab553, 15:03:19Z
+$ python3 -I stage-c/s12-scrape-filters.py <W>/es-app/src/guis/GuiScraperStart.cpp
+ok   first-visit: ScraperSystems written 0 time(s) (now "")
+ok   empty: stored "none", 0 system(s) selected at the reopen
+ok   scrape-from: the filter asked B after SCRAPE FROM moved to B
+ok   in-callback: the SCRAPE FROM list outlived its own callback
+s12: PASS, 4 cases
+rc 0
+$ the same with --control (the posted rebuild run inline)
+ok   first-visit: ScraperSystems written 0 time(s) (now "")
+ok   empty: stored "none", 0 system(s) selected at the reopen
+ok   scrape-from: the filter asked B after SCRAPE FROM moved to B
+FAIL in-callback: the SCRAPE FROM list was destroyed inside its own callback
+FAIL s12: 1 of 4 cases
+rc 1

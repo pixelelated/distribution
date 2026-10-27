@@ -1,0 +1,8 @@
+# S12 before (#678, #1254): GuiScraperStart.cpp at the S10 tip (the pin's bytes), 15:03:17Z
+$ python3 -I stage-c/s12-scrape-filters.py <GuiScraperStart.cpp at the S10 tip>
+FAIL first-visit: ScraperSystems written 1 time(s) (now "nes,snes,gb")
+FAIL empty: stored "", 3 system(s) selected at the reopen
+FAIL scrape-from: the filter asked A after SCRAPE FROM moved to B
+ok   in-callback: the SCRAPE FROM list outlived its own callback
+SUMMARY: AddressSanitizer: 1216 byte(s) leaked in 12 allocation(s).
+rc 1
