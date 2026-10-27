@@ -12,7 +12,8 @@ What does not hold is at the joins:
 - **The interface and the cache:** the sign-in's QR read is cached, so one failed attempt leaves the session text-only (L-01, guest with a control).
 - **The interface thread:** 116 process starts with no bound, the cloud pages' among them (L-04).
 - **The French surface:** the match's refusal and two provider labels reach a French player in English (L-19, L-20).
-- **A credential row:** the ROCKNIX SECURITY page runs `setrootpass` on every close (L-08).
+- **A credential row:** the ROCKNIX SECURITY page runs `setrootpass` on every close, and three password pages can persist an empty `root.password` while the device keeps its password (L-08, L-32).
+- **A page's lifetime:** the REPAIR A CONNECTION picker can call `close()` on a page it already closed when the network drops before the press (L-31, the seat's, the most serious item here).
 
 Two leads of the brief are closed without a change here: T21's S1 already guards the six relink rows (L-07), and `led.colour` is in code no ROCKNIX image builds (L-14).
 
@@ -47,11 +48,12 @@ The brief's § 7, as #673's body carries it, at this point (stage C, before the 
 
 | Risk | Leads | Likelihood | Impact | Severity |
 | --- | --- | --- | --- | --- |
+| A freed page's `close()` called again from the repair picker | L-31 | low (the network must drop between opening setup and the press) | a use-after-free in the interface, root: a crash or worse | High |
 | A player follows a dead path after a failed cloud check | L-18 | certain on that path (guest) | a player told to use a row that is not there, at the moment of a failure | Medium |
 | A setting the player changes does nothing | L-09, L-10 | certain (guest) | the VIDEO FILTER default and the fast-scrolling choice are silently ignored | Medium |
 | The interface freezes on a wedged helper | L-04 | low (each call is local) | a frozen menu with nothing on screen, for as long as the helper hangs | Medium |
 | A sign-in without a code after one failed attempt | L-01 | low (needs a first failure) | a text-only page for the rest of the session; the address still shows | Low |
-| The device password re-applied on every SECURITY close | L-08 | certain (tree) | seconds of frozen interface and service restarts; after S1, `root.password` reads empty while the device keeps it | Medium |
+| The device password re-applied on every SECURITY close; an empty value persisted | L-08, L-32 | certain (tree) | seconds of frozen interface and service restarts; `root.password` can read empty while the device keeps its password (at the pin, not from S1) | Medium |
 | A French player reads English | L-19, L-20 | certain where reached (guest for L-20) | a refusal they must read to act on, in a language not theirs | Low |
 | A long error line loses a byte and the wrong sentence shows | L-05 | low | the generic sentence instead of the specific one | Low |
 | The next upstream merge conflicts in `openNetworkSettings` | L-28 | certain at the next merge | a manual resolution against a competing saved-networks design | Low (planning) |
@@ -67,19 +69,19 @@ The brief's § 7, as #673's body carries it, at this point (stage C, before the 
 
 ### Q1 The pages' lifetimes
 
-**Sound, with one shape recorded.** The sixteen `cloudSetupPresent` calls hand the new page on; fifteen are their scope's last statement and `:7862` opens the blocking window after the push on purpose (`02` § The transitions; the ten harnesses rc 0). The posted rebuilds are weakly held (`:4529-4584`) or owned by the page (`:5202-5206`); `CloudConnectionsPage`'s posted refresh is guarded (`:5580-5594`); the three detached threads post through the gated `AppWindow::post` with weak rows (`:9769-9847`; `queryInterfaceAddresses` unbounded). The recorded shape: three callbacks delete the page whose row holds them, from inside that row's callback (`:10149-10153` the fork's; `:1616`, `:10855-10856` upstream's) -- safe by a self-capture cycle that leaks the switch, and by the input path returning at once at the two levels read (L-17). `cloud-oauth-lifetime.py` and `cloud-gated-row.py` cover five wizard transitions and `cloud-folder-reopen.py` the folder page's rebuild; the relink page's and the connections pages' transitions have no harness. L-16 (the 0.75 page unpositioned) is not reached at 640x480.
+**Sound for the transitions; one lifetime defect and one shape recorded.** The sixteen `cloudSetupPresent` calls hand the new page on; fifteen are their scope's last statement and `:7862` opens the blocking window after the push on purpose (`02` § The transitions; the ten harnesses rc 0). The posted rebuilds are weakly held (`:4529-4584`) or owned by the page (`:5202-5206`); `CloudConnectionsPage`'s posted refresh is guarded (`:5580-5594`); the three detached threads post through the gated `AppWindow::post` with weak rows (`:9769-9847`; `queryInterfaceAddresses` unbounded). The recorded shape: three callbacks delete the page whose row holds them, from inside that row's callback (`:10149-10153` the fork's; `:1616`, `:10855-10856` upstream's) -- plausible-safe at the two levels read (L-17, the seat's wording): the self-capture cycles keep the switch and its closure, not the page, and leak on every visit, with more of them in the hub, the provider form and the network services (L-33). **The seat found a use-after-free (L-31):** the REPAIR A CONNECTION picker closes the setup page and then fails to replace itself when no IP is reported; its next press calls the freed page's `close()`. `cloud-oauth-lifetime.py` and `cloud-gated-row.py` cover five wizard transitions and `cloud-folder-reopen.py` the folder page's rebuild; the relink page's and the connections pages' transitions have no harness. L-16 (the 0.75 page unpositioned) is not reached at 640x480.
 
 ### Q2 The rows and their stores
 
-275 value-binding rows (`t26-rows.py`), 267 store writes. **Two rows write where nothing reads** (L-09, L-10: guest). Eleven built rows write keys nothing reads once `get_setting`'s global fallback is counted; on the image two are hidden by runtime gates and PAUSE ON TRANSLATED SCREEN is reachable (L-13). The six `addInputTextConfigRow`-only pages persist through their `onFinalize` saves (L-12, the systemic fix `GuiSettings.cpp`'s). The six unguarded credential rows are fixed by T21's S1 (L-07). ROOT PASSWORD is unmasked and applied on every close (L-08). `led.colour` and the first SECURITY page are never built (L-14). `exitreboot` has no consumer on its page (L-15). Writes at open: two pages' (L-11), the image's seed making one moot. **The folder step** builds no join, follow or move: CHECK and CREATE, the latter confirmed (D-CLOUD-175/178/179).
+275 value-binding rows (`t26-rows.py`), 267 store writes. **Two rows write where nothing reads** (L-09, L-10: guest). Eleven built rows write keys nothing reads once `get_setting`'s global fallback is counted; on the image two are hidden by runtime gates and PAUSE ON TRANSLATED SCREEN is reachable (L-13). The four relink sub-pages persist through their `onFinalize` saves (L-12, corrected from six by the seat; the systemic fix `GuiSettings.cpp`'s). The six unguarded credential rows are fixed by T21's S1 (L-07). ROOT PASSWORD is unmasked and applied on every close (L-08); it and the two guarded password pages persist an empty `root.password` while the device keeps its password (L-32). The relink WI-FI PASSWORD page reconnects on every close (L-40). `led.colour` and the first SECURITY page are never built (L-14). `exitreboot` has no consumer on its page (L-15). Writes at open: two pages' (L-11), the image's seed making one moot. **The folder step** builds no join, follow or move: CHECK and CREATE, the latter confirmed (D-CLOUD-175/178/179).
 
 ### Q3 The interface thread's bounds
 
-159 runs, 131 on the interface thread, 116 of those with no bound (`t26-pages.py`; L-04). The player sees nothing while each runs. The bounded ones are `cloudSetupInfo()` (10 s), `cloudScanStamped` (5 s), `cloudFolderContext()` (5 s) and the path editor (30 s, on a worker). None sits between a launch press and a frame (`03` § 3.6).
+159 runs, 131 on the interface thread, 116 of those with no bound by the tool's method (`t26-pages.py`; L-04, which the seat narrowed: caller-side sites, not proved indefinite blocks; `cloudFolderContext()` is in fact bounded at 5 s). Every `cloud_oauth cancel` sleeps a second on the interface thread (`cloud_oauth:2816`). The player sees nothing while each runs. The bounded ones are `cloudSetupInfo()` (10 s), `cloudScanStamped` (5 s), `cloudFolderContext()` (5 s) and the path editor (30 s, on a worker). None sits between a launch press and a frame (`03` § 3.6).
 
 ### Q4 The reads that can be stale
 
-37 reads (`02` § The reads): 12 uncached. The cached ones that read a file another process writes are the QR (L-01, guest with a control) and the scan and selection files through `isRegularFile` (L-03, narrow). L-02 (a texture by path) is a second stale read on the same page, not reached on this image.
+37 reads (`02` § The reads): 12 uncached. The cached ones that read a file another process writes are the QR (L-01, guest with a control), the scan and selection files through `isRegularFile` (L-03; `:4589` is not a gate, the seat showed), and `wg0.conf` (L-34). L-02 (a texture by path) is a second stale read on the same page, not reached on this image.
 
 ### Q5 The words and the dialogs
 
@@ -107,8 +109,9 @@ The ten longest functions are as the brief lists them; `openSystemSettings` is 1
 
 ### Q3 Bugs
 
-- **Medium:** L-08, L-09, L-10, L-18.
-- **Low:** L-01, L-03, L-04 (Medium where a helper hangs), L-05, L-19, L-20, L-21, L-26.
+- **High:** L-31.
+- **Medium:** L-08 with L-32, L-09, L-10, L-18.
+- **Low:** L-01, L-03, L-04 (Medium where a helper hangs), L-05, L-19, L-20, L-21, L-26, L-33 to L-42.
 - **Latent or not reached here:** L-02, L-16, L-17.
 
 ### Q4 Package currency
@@ -142,8 +145,23 @@ The ROCKNIX SECURITY page's close re-applies the password and restarts services 
 
 ## Second opinion
 
-Pending the seat (stage C).
+### The packet and the plan
+
+- **Depth:** independent (D-WORKFLOW-195): one seat, GPT-6 Astra at `max` (`second-opinions/review-plan.json`).
+- **The packet** (`stage-c/packet.py`, `second-opinions/packet-manifest.json`): 92 sections, 563,026 bytes; `02`, `03` and `04` whole; the brief's § 4 and ten register rows; the fixture's and the guest's outputs; `GuiMenu.h` whole; `GuiMenu.cpp` as 46 excerpts (6,305 of 11,747 lines: every cited line, the 97 added definitions, the fork's classes and the constructor), the 47 trimmed ranges named; the neighbours and the scripts as excerpts; T21's `GuiSettings.cpp` change as a diff. The three-way scan: the forbidden-terms check 0 hits on 91 sections, the secret patterns proven to fire and silent on the packet, 24 credential-shape hits read at their lines and dispositioned by name, none a value.
+- **Exactly two keyed invokes** (`stage-c/keyed-calls.txt`): the probe (08:39:25 to 08:39:37 UTC) and the refutation (08:39:54 to 09:05:01 UTC), each rc 0, each with its provenance: served `openai/gpt-6-astra`, provider OpenAI, effort `max` by reasoning tokens (259 and 41,678), identity, effort and provider verification PASS, `council-facilitator@1.14.1-pixelelated.2`. Every other council call keyless (`COUNCIL_ENV_FILE=/nonexistent`).
+
+### GPT-6 Astra: 42 items, graded
+
+`stage-c/astra-grades.md`, each at its lines: 40 accepted, 1 in part (GM-41: the marker's failure is the safe direction), 1 plausible (GM-38: a fault path). It confirmed L-01, L-06, L-09, L-10, L-14, L-18, L-19, L-20, L-22, L-26 and L-27, and L-11 with two corrections; it narrowed L-04, L-08, L-12, L-13, L-15, L-16, L-17, L-02, L-03, L-05, L-24, L-25, L-28 and the gated-row positive; it found twelve new leads, L-31 to L-42, among them the one High item of this audit (L-31, a use-after-free in the repair picker) and a second state split in the password pages (L-32). It refuted none of the first reader's leads outright; the corrections are in `02` § Corrections and new leads from the seat.
+
+### Dead ends: what the seat raised and the reading did not keep
+
+None rejected. Two kept with a qualifier: GM-38 is reachable only by a lost status line; GM-41's failure keeps the marker, so the page returns.
 
 ## Quality self-check
 
-Pending stage C's end.
+- **Every count here is a tool's line**, at the hash it describes: the generators' asserted counts, the packet builder's summary, the grades' totals by `awk`. One hand count slipped (a commit message's "38 frames" against 50) and is corrected in `00`.
+- **Every lead carries its proof**, and the five guest proofs say they are the image's; the two not reached say so (L-02, L-16).
+- **The seat was given the code, not the conclusions alone:** 6,305 lines of the file and the neighbours each lead turns on; where it said `outside the packet`, the first reader read the line in the full tree before grading.
+- **What this analysis did not do:** run a fix (stage E), compile the file (no toolchain on the host; the ten harnesses compile extracted functions), walk 1280x800 (`vm-pair` has no `--res`), or prove L-31 and L-02 beyond the tree.

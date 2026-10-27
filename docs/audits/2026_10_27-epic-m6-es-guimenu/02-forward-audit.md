@@ -58,6 +58,42 @@ Each lead is in one of the brief's four families and carries its proof. A lead i
 | L-29 | Q7 | — | 86 conditional regions; 869 lines no ROCKNIX image compiles and 282 under a device or build macro (`t26-structure.py`); 13 regions whose first arm opens and closes a different number of braces (§ The structure). Recorded (D-UI-079: not removed here). | § The structure | tool-run |
 | L-30 | Q4 | — | 37 reads of a file's existence: 12 uncached, 25 cached (§ The reads). Of the cached, the files another process writes while ES runs are L-01's QR and L-03's scan and selection files; the rest read binaries on the read-only image, theme files ES itself writes, and device nodes (each named in § The reads). | § The reads | tool-run, tree |
 
+## Corrections and new leads from the seat
+
+GPT-6 Astra at `max` read the packet (`second-opinions/astra-audit.md`, 42 items, GM-1 to GM-42) and the first reader graded each item at its lines (`stage-c/astra-grades.md`: 40 accepted, 1 in part, 1 plausible). The leads above keep the first reader's words; these are the corrections, each by item, and the new leads.
+
+**Corrections to the leads above:**
+- **L-04** (GM-10): the 116 are caller-side process sites by the tool's method, not 116 proved indefinite blocks. The bound column is wrong for `cloudFolderContext()` (its own `timeout 5`, `:6916-6919`) and too broad for `cloudScanContent` and `cloudOpenTransfer` (only their stamp checks are bounded). **Added:** every `cloud_oauth cancel` sleeps one second (`cloud_oauth:2816`) on the interface thread, at each sign-in start (`:7515`) and twice on the waiting dialog's cancel (`:7835`, then `:6476`). `cloud_remote list` reads configuration and does not visibly run rclone (`cloud_remote:244-254`).
+- **L-01** (GM-11): "until the file cache is reset" (USE FILESYSTEM CACHE, `:1455`, or a restart).
+- **L-02** (GM-12): reachable through the legacy `url` fallback too (`:7599-7603`); the texture key includes `shareId`, so the old code's rendering is unproved until the sharing default is read.
+- **L-03** (GM-13): `:4589` is not a gate around the reads; the consequence differs by file (the selection, the scan, the settings facts).
+- **L-05** (GM-26, GM-39): `:7422`'s search can match a CR that survives; a lost byte loses the diagnosis and does not fail open; `CloudConnectionsPage`'s snapshot comparison reads through the same reader; and `GetShOutput` does not test `popen`'s result (L-39).
+- **L-07** (GM-4): T21's change covers every caller for the hidden-value, untouched-blank case, once the pin carries it.
+- **L-08** (GM-5, GM-32): the empty-`root.password`-versus-device split already exists at the pin (`:3265`; `GuiSettings.cpp:218-237`), not from S1; and the "guarded" twins persist an empty value too (L-32).
+- **L-11** (GM-6): two conditional writes at one page's construction (SOUND SETTINGS); the guest's mtime change is the page's normal save.
+- **L-12** (GM-7): the four relink sub-pages; the provider form and ADD CONNECTION keep their values in their own maps (`addInputTextRow`). `03`'s "every settings page's close writes both stores" is corrected: a page with no save function writes nothing.
+- **L-13** (GM-3): compiled, reachable, persisted and applied directly are four different things; AUDIO PROFILE and WIREGUARD VPN apply directly, and the DMD rows sit behind a `BATOCERA`-gated opener.
+- **L-15** (GM-9): the notice shows; the `ExitOnRebootRequired` quit is what is absent.
+- **L-16** (GM-15), **L-17** (GM-16), **L-28** (GM-29): reliance on a default position; plausible-safe at the levels read; integration hotspots, not certain conflicts.
+- **L-22** (GM-21): two sites. **L-23** (GM-22): the map's heading is the first reader's read. **L-24** (GM-23): `addWithLabel` upper-cases its label, so `ZeroTier One` and `Emulator` render upper-case; only the fuel gauge's French and the three `Reboot now` / `later` dialogs remain. **L-25** (GM-24): S1 is not the onset. **L-27** (GM-25): the timezone, the LED colour and the USB gadget choice are unquoted. **L-30** (GM-14): `wg0.conf` is a mutable file read cached (L-34). The gated-row positive (GM-30) holds only for rows built unconfigured.
+
+**New leads:**
+
+| Lead | Q | Family | What | Where | proved |
+| --- | --- | --- | --- | --- | --- |
+| L-31 | Q1 | a page's lifetime or thread | **A use-after-free on a failed repair.** The REPAIR A CONNECTION picker's row closes the setup page `s` and then calls `cloudSetupShowSshStep`, which returns without presenting when no IP is reported; the picker stays, its rows holding the deleted `s`, and the next press calls `s->close()` on freed memory. Reached when the network drops between opening CLOUD STORAGE SETUP and the press. (GM-31) | `:8226-8239`, `:6662-6667` | tree; an AddressSanitizer case in `cloud-oauth-lifetime.py`'s shape is the proof to add |
+| L-32 | Q2 | a row that writes or reads the wrong place | SSH PASSWORD and DEVICE PASSWORD skip `setrootpass` on an empty entry, and `GuiSettings::save()` then persists `root.password=` (`GuiSettings.cpp:82-95`). (GM-32) | `:6527-6539`, `:8413-8423` | tree |
+| L-33 | Q1 | a page's lifetime or thread | More self-capturing callbacks, leaked on every visit: the hub's two switches, the provider form's boolean switches (with the values map, which can hold an entered secret), the network service switches. (GM-33) | `:5651`, `:5658`, `:7301`, `:10182`, `:10201`, `:10220` | tree |
+| L-34 | Q4 | a read that can be stale | `exists(wg0.conf)` is cached: a config added or removed from outside after a visit is not seen. (GM-34) | `:10303` | tree |
+| L-35 | Q6 | a row that writes or reads the wrong place | A stored `led.color` (kept as an option when the list lacks it) reaches `sh -lc "..."` unquoted. (GM-35) | `:2160-2167` | tree |
+| L-36 | Q5 | a word or a dialog | `providerLabel()` returns the table's label without gettext into CONNECTED TO and the connections pages; the form's choice and subprovider labels are the script's text. (GM-36) | `CloudText.cpp:39-46`; `:5679-5682`, `:8012`, `:8078`, `:7323-7328`, `:7452-7455` | tree |
+| L-37 | Q5 | a word or a dialog | A failed maintenance run shows the script's why upper-cased, with no localization. (GM-37) | `:360-389` | tree |
+| L-38 | Q6 | a row that writes or reads the wrong place | The relink CHECK CONNECTION reads `atoi("")` as 0, YOUR CLOUD IS ANSWERING, when the status line is lost. A fault path. (GM-38) | `:8445-8453` | tree (plausible) |
+| L-39 | Q6 | a row that writes or reads the wrong place | `GetShOutput` does not test `popen`'s result. `es-core`'s, upstream's. (GM-39) | `Platform.cpp:893-897` | tree |
+| L-40 | Q2 | a row that writes or reads the wrong place | The relink WI-FI PASSWORD page reconnects on every close, changed or not. (GM-40) | `:8307-8318` | tree |
+| L-41 | Q5 | a word or a dialog | FINISH ignores `std::remove`'s result: the marker stays (the safe direction) and nothing says so. (GM-41) | `:8486-8493` | tree |
+| L-42 | Q5 | a word or a dialog | With `cloud_scan` absent the fallback cannot reach the transfer options: `cloudOpenTransferOptions` first requires a stamp no run made. Latent: every image ships `cloud_scan`. (GM-42) | `:5253-5256`, `:4838-4841` | tree |
+
 ## The pages
 
 Generated by `tools/t26-pages.py` (its method in its docstring). A page is a `new GuiSettings(`, a class deriving from `GuiSettings`, or the main menu; its range is the innermost block that holds its construction. **Runs** are the process primitives and this file's helpers around them (page builders are openers, not runs), with the thread and the bound; **dialogs** give the buttons in order and where back lands. A run inside a page's range that opens another page is listed on that page's own row.

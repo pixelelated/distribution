@@ -17,10 +17,10 @@
 
 ## Current focus
 
-**The window done (08:08 to 08:31 UTC, RETURN posted); stage C next.**
+**Stage C done; stage D: the audit issue and the pause on #673.**
 
-- **Window:** L-01 (with a control), L-09, L-10, L-18, L-20 proved on the image; L-02 and L-16 not reached; the disk retired (`guest-cycle/`, `02` § The guest cycle).
-- **Next, stage C:** the packet trimmed and scanned (`second-opinions/`), `review-plan.json` with depth `independent`, one seat (GPT-6 Astra at `max`), a probe and one refutation -- exactly two keyed invokes, every other council call keyless -- and the pre-issue lint.
+- **Stage C:** 03 and 04; the packet scanned; exactly two keyed invokes (probe and refutation, both PASS); 42 items graded (40 accepted); `05` with 29 items; the pre-issue lint PASS.
+- **Next:** the audit issue (a sub-issue of #673), `tools/box-check` on it, the pause posted on #673 with the punch list; then the coordinator's ruling, the bugs, and stage E's streams.
 - **What runs here:** nothing. Scratch is `/workspace/tmp/m6-t26/`; the ES worktree stays at the pin.
 
 ## Next commands
@@ -60,6 +60,7 @@ granted window.
 
 ## Checkpoints
 
+- Stage C, 09:2x UTC: the seat graded, `05` written, the lint PASS.
 - The window, 08:31 UTC: RETURN posted; `02` § The guest cycle written.
 - Stage B, see the work log: `02` assembled, the window asked for on #673.
 - Stage A, 02:50 UTC: distribution `db7be4b104` + stage A's commit; ES at the pin `16dbac5211` (unchanged).

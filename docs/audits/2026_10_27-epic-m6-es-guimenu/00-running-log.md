@@ -63,3 +63,6 @@
 - **The council runtime:** `npm install --offline` in `tools/council` (the dispatch's allowance); every other council call keyless (`COUNCIL_ENV_FILE=/nonexistent`: `invoke --help`, `efforts`).
 - **Keyed call 1 of 2** (`stage-c/keyed-calls.txt`): the probe, 08:39:25 to 08:39:37 UTC, rc 0; served `openai/gpt-6-astra`, provider OpenAI, effort `max`, identity, effort and provider verification each PASS, `council-facilitator@1.14.1-pixelelated.2`.
 - **Keyed call 2 of 2:** the refutation over the packet, started 08:40 UTC.
+- **Keyed call 2 of 2:** the refutation, 08:39:54 to 09:05:01 UTC, rc 0; served `openai/gpt-6-astra` by OpenAI, effort `max` (41,678 reasoning tokens), identity, effort and provider verification PASS. **Exactly two keyed invokes, and no others.**
+- **The grades** (`stage-c/astra-grades.md`): 42 items, 40 accepted, 1 in part, 1 plausible (counted by `awk`). Twelve new leads, L-31 to L-42, among them the audit's one High (L-31, a use-after-free in the repair picker). The corrections are in `02` § Corrections and new leads from the seat, `03` § 3.6 and `04`; the leads above them keep the first reader's words.
+- **05:** 29 items (1 high, 5 medium, 23 low, counted from the index). `tools/lint-audit-artifacts --phase pre-issue`: `PASS pre-issue artifacts (does not certify resolution)`.
