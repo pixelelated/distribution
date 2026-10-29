@@ -354,197 +354,197 @@ punch_index:
   question: Q2
   source_finding: "F-01, F-20; the seat's Q1"
   tracked: "#1018"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-02
   severity: High
   category: Correctness
   question: Q3
   source_finding: "F-07, G-10"
   tracked: "#1019"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-03
   severity: Medium
   category: Correctness
   question: Q4
   source_finding: "F-02"
   tracked: "#1020"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-04
   severity: Medium
   category: Correctness
   question: Q2
   source_finding: "F-03 (the coordinator, 00:36 UTC)"
   tracked: "#1021"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-05
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-04 (the coordinator, 02:24 UTC)"
   tracked: "#1022"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-06
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-05 (the coordinator, 02:24 UTC); the seat's Q4"
   tracked: "#1023"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-07
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-06 (the coordinator, 02:24 UTC)"
   tracked: "#1024"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-08
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-09"
   tracked: "#1025"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-09
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-10"
   tracked: "#1026"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-10
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-11"
   tracked: "#1027"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-11
   severity: Medium
   category: Security
   question: Q2
   source_finding: "F-16"
   tracked: "#1028"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-12
   severity: Medium
   category: Correctness
   question: Q2
   source_finding: "G-01 (the seat)"
   tracked: "#1029"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-13
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "G-02 (the seat)"
   tracked: "#1030"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-14
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "G-04, G-08 (the seat)"
   tracked: "#1031"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-15
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "G-06 (the seat)"
   tracked: "#1032"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-16
   severity: Low
   category: Correctness
   question: Q2
   source_finding: "F-12"
   tracked: "#1033"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-17
   severity: Low
   category: Correctness
   question: Q2
   source_finding: "F-15 (and the seat's :599, :8784)"
   tracked: "#1034"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-18
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-17 (and the seat's additions)"
   tracked: "#1035"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-19
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-13, F-14, G-03, G-05, G-09"
   tracked: "#1036"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-20
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-19, G-07"
   tracked: "#1037"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-21
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-21"
   tracked: "#1038"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-22
   severity: Low
   category: Clarity
   question: Q7
   source_finding: "F-18"
   tracked: "#1039"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-23
   severity: Low
   category: Renovation
   question: Q7
   source_finding: "the § Q7 reading"
-  tracked: "the coordinator lead"
-  outcome: "open"
+  tracked: "#1007"
+  outcome: "deferred"
 - id: PL-24
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "§ Q6's split proposal; the seat's Q5"
-  tracked: "the coordinator lead"
-  outcome: "open"
+  tracked: "#1041"
+  outcome: "deferred"
 ```
 
 ## Phase 7 resolution gate
 
-Pre-issue: every item is open until the coordinator's stage-E dispositions. Each row names what tracks it.
+At the hand-back (stage E complete): every bug resolved by its commits on `feature/m6-tooling-last-good-test-662`, each proven by its constructed positive on M6's donor root (`02` § The streams' positives, `00`, `stage-e/`); the two leads deferred to the coordinator's issues. Each row names what tracks it.
 
 | Item | Outcome | Tracked |
 | --- | --- | --- |
-| PL-01 | Open | #1018 |
-| PL-02 | Open | #1019 |
-| PL-03 | Open | #1020 |
-| PL-04 | Open | #1021 |
-| PL-05 | Open | #1022 |
-| PL-06 | Open | #1023 |
-| PL-07 | Open | #1024 |
-| PL-08 | Open | #1025 |
-| PL-09 | Open | #1026 |
-| PL-10 | Open | #1027 |
-| PL-11 | Open | #1028 |
-| PL-12 | Open | #1029 |
-| PL-13 | Open | #1030 |
-| PL-14 | Open | #1031 |
-| PL-15 | Open | #1032 |
-| PL-16 | Open | #1033 |
-| PL-17 | Open | #1034 |
-| PL-18 | Open | #1035 |
-| PL-19 | Open | #1036 |
-| PL-20 | Open | #1037 |
-| PL-21 | Open | #1038 |
-| PL-22 | Open | #1039 |
-| PL-23 | Open | the coordinator lead |
-| PL-24 | Open | the coordinator lead |
+| PL-01 | **Resolved** `3037ce6b8c`; no root: refusal rc 2; `--host-diagnostic` rc 1 marked, rc 3 with no failing case (`02` § S1, #1018) | #1018 |
+| PL-02 | **Resolved** `3da816ce24`; T14's tools: unfixed both refused and read FAIL, fixed rc 0 both PASS; doubles: CANNOT and UNVERIFIED named, rc 3 (`02` § S1, #1019) | #1019 |
+| PL-03 | **Resolved** `7cb11eb379`; `rchost` root: unfixed PASSED with the host's rclone, fixed CANNOT rc 2 (`02` § S1, #1020) | #1020 |
+| PL-04 | **Resolved** `70af8e3771`; shallow clone: unfixed ten vacuity FAILs, fixed rc 2 at the read naming the ref (`02` § S2, #1021) | #1021 |
+| PL-05 | **Resolved** `bea0374f3b`; `717bc04449` fires `q`, `51e2acece6` fires `p` (`02` § S2, the twelve) | #1022 |
+| PL-06 | **Resolved** `5a155ed7fc`, `4cb399ba2b`, `e430d61cfa`; every recipe reaches a verdict, every promise fires; the ABORTED trap proven (`02` § S2, #1023 and the twelve) | #1023 |
+| PL-07 | **Resolved** `4bc40d7733`, with `d3f7843050` and `2dc1746de8` (#1032); `70b6c70ca7`'s `t` builds its own client; its five `012 / #199` checks FAIL by name (`02`, the twelve and the close-out) | #1024 |
+| PL-08 | **Resolved** `db08ed0953`; 40 branches, 164 dependent check sites named, one counted SKIP each (`02`, `00` 06:05) | #1025 |
+| PL-09 | **Resolved** `812d09e3af`, `7987e9cc9f`; 71 of 71 witnessed; no sandbox: 23 of 64 PASS unfixed, 0 fixed; at the tip 28 of 72, 0 (`02` § S3, #1026; `00` close-out) | #1026 |
+| PL-10 | **Resolved** `65bdd1a717`; constructed `set_autosave` (`stage-e/alter-1027.sh`): unfixed joined check PASS, fixed cases 1 and 2 FAIL (`00` 11:12, 11:21) | #1027 |
+| PL-11 | **Resolved** `5d1b47deb7`; probe: unfixed sees the caller's environment and the host's interfaces, fixed none and `lo` (`02` § S5, #1028) | #1028 |
+| PL-12 | **Resolved** `4e5b6c6103`; `b`'s probe: 0 of 28 applets unbound, 28 of 28 bound (`02` § S1, #1029 and #1038) | #1029 |
+| PL-13 | **Resolved** `3da816ce24`; a source without the tool: unfixed FAIL, fixed PASS (`02` § S6, #1030) | #1030 |
+| PL-14 | **Resolved** `b729628ad6`; constructed broken lock and ack (`stage-e/alter-1031.sh`): fixed FAILs both at its barriers; the unfixed file caught this construction too, by timing, which the barriers make certain (`00` close-out) | #1031 |
+| PL-15 | **Resolved** `11952dfcf3`, `5d1f67ca0b`, `d3f7843050`, `2dc1746de8`; a driver that raises: unfixed PASS, fixed FAIL with each missing verdict by name; whole drivers PASS (`02` § #1024 and #1032) | #1032 |
+| PL-16 | **Resolved** `5429e27e72`; static count 3 then 0; the suite counts itself (the commit, root-final) | #1033 |
+| PL-17 | **Resolved** `e155cd4309`, `e8d8fd7dc6`; missing member (`stage-e/alter-1034.sh`): unfixed PASS, fixed FAIL with the unread note (`00` 11:30, 11:38) | #1034 |
+| PL-18 | **Resolved** `1dbb668bb2`; `1d1503180d`: `i` FAILs at the ref, `g` reads the ref's value (the coordinator's 06:41 (a); `02`, the twelve) | #1035 |
+| PL-19 | **Resolved** `32ba775765`; four predicates PASS unfixed and FAIL fixed; the gate read as retired unfixed and CANNOT rc 2 fixed; `q` under the ref's fragments fires its promise only fixed (`stage-e/alter-1036*.sh`, `00`) | #1036 |
+| PL-20 | **Resolved** `60066e21f8`; absent functions and a 127 ack (`stage-e/alter-1037*.sh`): unfixed PASS, fixed FAIL (`00`) | #1037 |
+| PL-21 | **Resolved** `4e5b6c6103`; host busybox: unfixed measured as the image's, fixed a named SKIP (`02` § S1, #1029 and #1038) | #1038 |
+| PL-22 | **Resolved** `a286e5b49f`; 34 sections claimed with their positives; the SIGINT refusal and `setsid -w` (`00`, the commit) | #1039 |
+| PL-23 | **Deferred** to #1007: the coordinator's two rows on #1007; rule edits at integration | #1007 |
+| PL-24 | **Deferred** to #1041: Backlog #1041, the split; a design for the coordinator and the maintainer | #1041 |

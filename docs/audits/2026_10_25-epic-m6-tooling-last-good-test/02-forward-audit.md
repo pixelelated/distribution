@@ -654,3 +654,28 @@ Every recipe in the header, run once on the donor root (`QA_SYSTEM_ROOT=/workspa
 | `d13b` after its first verdict, then a traceback, rc 1 | `FAIL  stream D's d13b: F-RA-13 --verify did not run (...)`, `FAIL  stream D's d13b: F-RA-12 --verify did not run (...)`, then the overall FAIL: 3 counted | proved: tool-run |
 
 The run of `t` under `--old 70b6c70ca7` at the branch tip is in the close-out queue.
+
+### S3, the constructed positives on altered throwaway clones (`stage-e/`, the coordinator's 06:05 ruling)
+
+Each recipe changes a `git clone --shared` of the tip, never committed and removed after its run. Each runs once under the unfixed harness (the commit before its fix) and once under the fixed one (`5d1f67ca0b`), on the donor. `stage-e/run-positives.sh` reproduces them.
+
+| Bug | Alteration | Unfixed | Fixed | Proved |
+| --- | --- | --- | --- | --- |
+| #1037 | `conf_valid`, `sort_settings` and `ack_index_pending` removed (`alter-1037.sh`) | `PASS  conf_valid is one text ...` (three empty extracts); `PASS  a producer that fails after the hostname line installs nothing` | `FAIL  conf_valid found in 0 of the 3 extracts ...`; `FAIL  system.cfg is now ...` | proved: tool-run |
+| #1037 | `ack_index_pending` answers 127 (`alter-1037-ack.sh`) | `PASS  an ack for token A over a marker holding B keeps B in place` | `FAIL  rc=127|; marker: B` | proved: tool-run |
+| #1027 | `set_autosave` writes the third case's output on every run (`alter-1027.sh`) | `PASS  without a state file (...; nothing; ...)` (one joined check) and `PASS  and without a state file no -e is spliced` | cases 1 and 2 FAIL, case 3 PASS; `FAIL  set_autosave rc 0; cfg: ...` | proved: tool-run |
+| #1034 | backuptool's member list without `system.cfg` (`alter-1034.sh`) | `PASS  with the wifi key stripped` | `FAIL  the archive carries the wifi key`; the archive was unreadable, and `e8d8fd7dc6`'s note says so before the FAIL | proved: tool-run |
+| #1036 | the pass ends `false`; its marker `rm` and `touch` off; an uncompilable patch; one helper a symlink (`alter-1036.sh`) | PASS: `the boot pass ran over ... (rc 0)`, both markers `still there`, `each compiled:   File "t15_1036_broken.py", line 1ok`, `... mode 100755` | FAIL: `rc 1; output: ...`, both markers `... or the pass never rewrote it`, `... does not compile (py_compile rc 1 ...)`, `modes: ... raofflineproxy-refresh=120000` | proved: tool-run |
+| #1036 | the recipe names `cp -f cloud_migrate_layout` (`alter-1036-gate.sh`) | rc 3, migration `NOT APPLICABLE` (read as retired) | rc 2: `cannot test selected source: recipe names cloud_migrate_layout, which the source does not have` | proved: tool-run |
+| #1036 | `007-syncthing` deleted from the working tree; `q` under `--old 717bc04449` (`alter-1036-frag.sh`) | the working tree's fragments; `PASS  toggle on: raofflineproxy.conf is still there` | the ref's fragments; `FAIL  raofflineproxy.conf is gone ... 007-syncthing inherited CONF ...` | proved: tool-run |
+| #1031 | the keeper's `flock -n 8 \|\| true`; an ack that removes any marker (`alter-1031.sh`) | both FAIL (by timing) | both FAIL at their barriers: `F-PB-21: the second note existed mid-way through the first dump: yes`; `G-D-03: the run exited 0; marker: gone` | proved: tool-run |
+
+### The suites re-run at the hand-back tip (`1ff2f82a95`, on the donor)
+
+| Run | Result | Proved |
+| --- | --- | --- |
+| the full suite | **rc 3 in 513 s, 1,315 PASS / 0 FAIL / 0 SKIP / 2 CANNOT** (this branch's writer tests until T14 merges); `PASSED, 0 SKIPPED, 2 CHILD SUITE(S) NOT EVIDENCE` | proved: tool-run |
+| no sandbox can start (a fake `bwrap`) | rc 1; of 72 witnessed checks matched by their text, **0 PASS** (28 on the unfixed `11952dfcf3`) | proved: tool-run |
+| section `t` under `--old 70b6c70ca7` | the ref's client built (11 patches, each compiled); 12 missing verdicts FAIL by name, the five `012 / #199` among them | proved: tool-run |
+| the twelve `--old` recipes | each a verdict, exit 1, every promise fired (§ S2, the twelve) | proved: tool-run |
+| `--host-diagnostic` and the refusal | rc 1 on the host's busybox (319 FAIL, every line `HOST:`); rc 3 with no failing case; no root: rc 2 (§ S1, #1018) | proved: tool-run |

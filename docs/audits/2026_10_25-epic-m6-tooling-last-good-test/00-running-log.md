@@ -412,3 +412,22 @@
   - `FAIL  a patch did not apply, or the patched client does not compile (py_compile rc 1:   File "t15_1036_broken.py", line 1|    def (:|)`;
   - `FAIL  #308 claude F-RA-17: modes: ... raofflineproxy-refresh=120000`.
   - Every one of them PASSed on the unfixed file. The clones were removed.
+- **12:05-12:07, pos-1036-gate:** unfixed (`65bdd1a717`) rc 3, `NOT APPLICABLE  historical migration cases: selected source has no engine and its recipe does not install one`. A `cp -f cloud_migrate_layout` read as retired. Fixed rc 2 in 117 s: `cannot test selected source: recipe names cloud_migrate_layout, which the source does not have`.
+- **12:07, pos-1036-frag** (the `q` cut under `--old 717bc04449`, `007-syncthing` deleted from the working tree):
+  - unfixed: `fragments: 001-ssh ... 006-raofflineproxy` (the working tree's), and `PASS  toggle on: raofflineproxy.conf is still there`;
+  - fixed: `fragments: ... 006-raofflineproxy 007-syncthing` (the ref's), and `FAIL  raofflineproxy.conf is gone after the pass ... 007-syncthing inherited CONF from 006-raofflineproxy`. The promise fires on its own check.
+- **12:16-12:25, pos-1031** (the keeper's `flock -n 8 || true`; an ack that removes any marker):
+  - fixed: `FAIL  #308 F-PB-21: the second note existed mid-way through the first dump: yes` and `FAIL  gpt G-D-03: the run exited 0; marker: gone`;
+  - unfixed: the same two FAILs. The construction is caught by the unfixed file's timing too, as predicted when the recipe was written. What #1031 adds is that the barrier makes the catch certain, asserted.
+- **12:26-12:43, pos-1037-ack** (`ack_index_pending` answering 127): unfixed `PASS  an ack for token A over a marker holding B keeps B in place`; fixed `FAIL  rc=127|; marker: B`.
+- **12:43-12:56, the close-out at `1ff2f82a95`:**
+  - **closeout-nobwrap:** rc 1, 539 / 720 / 3 SKIP / 2 CANNOT, no sandbox able to start. Of the 72 witnessed checks matched by their text (71 of 71 at the tip), 28 PASS on the unfixed file (`11952dfcf3`) and **0** here. That is `7987e9cc9f`'s eight's positive with the rest.
+  - **closeout-t-70b6** (section `t` alone under `--old 70b6c70ca7`): `the client at 64d03d3063 with 11 patch(es) applied in order, each compiled`, and **12 missing verdicts FAIL by name**, the five `012 / #199` checks among them (`section t's predicates: 012 / #199 image hit did not run (the driver ended rc 1 after 5 verdict line(s))` and the rest).
+  - **closeout-root, the final full run:** **rc 3 in 513 s, 1,315 PASS / 0 FAIL / 0 SKIP / 2 CANNOT**, on the donor (`source: root, BUILD_ID 1a026648442321609b2288c2c9c06803817f9df2`; rclone v1.75.2, the recipe's). The 2 CANNOT are this branch's writer tests, which predate T14's `--busybox-from`; with T14 merged, the run is 1,315 + 2 PASS. `CLOSEOUT END` 12:56:16.
+- **Not recorded until 2026-10-29:** the session stopped at the usage limit on 2026-10-25 after 12:16, and the host rebooted on 2026-10-28. The runs finished on their own, and their outputs survived under `/workspace/tmp/m6-t15/`. This entry and the close-out below were written from `queue.log` and those outputs on 2026-10-29.
+
+## [Stage E] 18:09 UTC 2026-10-29 — resumed; the coordinator's branch merged; the close-out of the record
+
+- **The coordinator, 18:00:** every lane resumes from the record. State posted on #662 (18:01): every run finished on 2026-10-25; the record lagged.
+- **The coordinator, 18:05:** merge `0721307c0c`, then close out the record. Merged at `aade7a9949`: two conflicts of the allowed kinds (the 2026-10-25 work log united by `ledger-union.py`, 1 + 53 = 54 headings kept; `INDEX.md` theirs, then regenerated), 0 markers, and `register-check`, `work-log-index --check` and `ceremony-check` each exit 0.
+- **`05` at Phase 7:** PL-01 to PL-22 Resolved, each citing its commits and its positive; PL-23 Deferred to #1007 (the coordinator's two rule rows); PL-24 Deferred to Backlog #1041 (the split). The `punch_index` agrees. `tools/lint-audit-artifacts` at the default phase: PASS.
