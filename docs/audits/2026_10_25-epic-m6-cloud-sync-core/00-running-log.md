@@ -71,3 +71,28 @@ time comes from `date -u`.
   - census: qemu by `comm` 0, and 0 listeners on 9010-9099 and 10022-10023.
 - **Carried for stage D:** D-CLOUD-185 (#663, 2026-10-26 07:38Z). The twins' `RCLONE_NET_OPTS` split (`cloud_restore:1406-1411`, `cloud_backup:1367-1371`) takes the same allowlist in the stage-D stream brief, with T17's fixture as the model.
 - **The shared host file** is now `/workspace/tmp/m7-m6-host-coordination.txt`. Its 18:00 block says M6 runs nothing and asks for no window before T34 reaches stage B.
+
+## 2026-10-29 18:05-22:33 UTC -- the merge; the re-granted window, overrun; the disks retired
+
+- **18:06:** the coordinator's `0721307c0c` merged as `1bb8ad08e7`.
+  - The allowed conflicts only: two ledgers by `ledger-union.py`, every line of both sides kept and checked line by line; `INDEX.md` taken from theirs and regenerated.
+  - Markers 0; `register-check`, `work-log-index --check`, `rules-check --quiet` and `ceremony-check --gate` green.
+  - Nothing under `packages/`, `projects/` or `tools/`.
+- **18:09 grant.** START 18:10:18Z (census qemu 0); the bound 18:40:18, the grace 18:45:18.
+  - Guest a was reimaged into `vm-pair-2` in 41 s; `BUILD_ID` `069fc270442134fe771258418adf4e666e0473fb`.
+  - **All 13 installed files are byte-identical to `8ebaf8daad`** (`guest-cycle/image-vs-tree.txt`), so every guest verdict below is a verdict on the read bytes.
+- **The suite over WebDAV:**
+  - The first run is **void**. The `--shared` clone checks out `tools/` only, and `cloud-test-backend` reads the shipped folder names from `../projects/…/cloud_sync.conf.defaults`. So the suite ran with `SAVES_REMOTE=""` and failed 3 checks for that reason.
+  - The re-run, with `CLOUD_QA_DEFAULTS` pointing at the `8ebaf8daad` copy (identical to the installed file): `PASSED -- backend webdav ...: 108 passed, 0 failed, 0 skipped`, rc 0, 82 s.
+- **The cells:**
+  - KILL15 (cells-1): the refusal holds. One FAIL: `cloud_saves_root`'s last line is not an outcome sentence.
+  - KILL2, LINK1, LINK2, LINK6 at 200k (cells-3): 53 passed, 3 failed, all in KILL2. After the stop, two saves are absent from `SAVESPATH` in each arm, and in 2b three `*.partial` remain. Graded at stage C against the code.
+- **The overrun.**
+  - This session hit its usage limit again at about 18:19, while supervising the last cell, and ran again at 22:30.
+  - Stopped by pidfile at **22:31:21**, 3 h 46 min after the grace; M7's window had been queued behind it since 18:17. The guest sat idle.
+  - RETURN was posted on #663 and on the host file. A friction line with `issue: #663` is in the log.
+- **Disks retired (D-INFRA-022), `guest-cycle/retire.txt`:**
+  - `/workspace/tmp/m6-t16/vm-pair/vm-a.qcow2`: 2,310,799,360 bytes, sha256 `27d1a5e5dac3c2de13a4e83127b520e1a8a7b1771def4ae0244c075f66ae79ee` (the retained one, as ruled at the RETURN).
+  - `/workspace/tmp/m6-t16/vm-pair-2/vm-a.qcow2`: 2,331,246,592 bytes, sha256 `bc8e8a19988b08e02cc1fbfc50847ea872d4c3d3ba7068c4e79167cff0bc0475`.
+  - Both directories (each holding the disk, its OVMF vars and a QA key) were removed by literal path. `df` avail went from 1,499,053,215,744 to 1,503,696,261,120 bytes (+4,643,045,376).
+- **Not run:** leads (a) to (e), the brief's extra cells and `time-to-play`.

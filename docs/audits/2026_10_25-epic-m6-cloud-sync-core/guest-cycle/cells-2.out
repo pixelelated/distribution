@@ -1,0 +1,36 @@
+
+=== device reachable and equipped
+    PASS  ssh works
+    PASS  rclone and cloud scripts present
+
+=== point the device at the QA bucket
+    PASS  active remote is 'qa-cloud', which is what the scripts will use
+    scratch tree /storage/cloud-qa (pass --real-roms to use /storage/roms)
+    SAVES_REMOTE  on the webdav endpoint
+
+=== the link-loss cells: a serial console, a throttled endpoint, one guest
+    PASS  the endpoint is throttled (--bwlimit on the server)
+    PASS  the serial console is this device's; its default route runs over eth0; the endpoint is 10.0.2.2:9010
+    link restored 40s after each cut; a run must end within 90s of it
+
+=== LINK1 -- saves restore (the startup sync's command), link cut during the compare
+
+=== clean up root@127.0.0.1 port 10022
+    scratch tree and bucket emptied; the device's own remote, paths and settings-backup setting restored
+Traceback (most recent call last):
+  File "/workspace/tmp/m6-t16/harness/tools/cloud-round-trip", line 8037, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/workspace/tmp/m6-t16/harness/tools/cloud-round-trip", line 738, in main
+    failures += run_link(first.dev, root, remote, args, first.settings, serial, only)
+                ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/m6-t16/harness/tools/cloud-round-trip", line 5932, in run_link
+    failures += fn(L)
+                ~~^^^
+  File "/workspace/tmp/m6-t16/harness/tools/cloud-round-trip", line 5790, in fx_link1
+    if rc != 0 or len(backend_sizes(epath(L.saves_remote))) < len(files):
+                                    ~~~~~^^^^^^^^^^^^^^^^
+  File "/workspace/tmp/m6-t16/harness/tools/cloud-round-trip", line 1948, in epath
+    path = remote_path.strip()
+           ^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'strip'

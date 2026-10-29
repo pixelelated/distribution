@@ -1,0 +1,33 @@
+
+=== device reachable and equipped
+    PASS  ssh works
+    PASS  rclone and cloud scripts present
+
+=== point the device at the QA bucket
+    PASS  active remote is 'qa-cloud', which is what the scripts will use
+    scratch tree /storage/cloud-qa (pass --real-roms to use /storage/roms)
+    SAVES_REMOTE  on the webdav endpoint
+
+=== the link-loss cells: a serial console, a throttled endpoint, one guest
+    FAIL  the endpoint is not throttled: nine MiB cross the loopback before the transfer can be cut -- `tools/cloud-test-backend [--backend s3] down && CLOUD_QA_BWLIMIT=200k tools/cloud-test-backend [--backend s3] up` (WebDAV or s3; the other three cannot be throttled)
+
+=== the KILL cells: a writer killed at every step, the power cut, one record at rest (#105, D-CLOUD-078)
+    device GENERIC-X64-15ca35b6b4 (GENERIC-X64); endpoint 10.0.2.2:9010 NOT throttled; serial yes; monitor yes
+
+=== KILL2 -- saves restore stopped mid-download by ES's TERM-then-KILL (D-CLOUD-076): the game's save stands, *.partial litter, re-run keeps the previous version
+    SKIP  KILL2 needs a throttled endpoint: `tools/cloud-test-backend down && CLOUD_QA_BWLIMIT=200k tools/cloud-test-backend up`
+
+=== KILL15 -- an empty saves-root record refuses instead of reading as none
+    PASS  an empty saves-root record is refused (exit 1) rather than read as none
+    PASS  check: no developer words on the 0 card-visible line(s) or the outcome line ('If both cards are in the device, try again.')
+    FAIL  check: the outcome line is not Completed / Couldn't finish / Skipped: 'If both cards are in the device, try again.'
+    PASS  check: a failed run says how to recover
+    PASS  record rewrites the identity (uuid:4e65d46a-9bfe-4c84-b957-6c8a3a555999)
+    PASS  no saves-root temp left
+    PASS  KILL15: one record each, no litter: system.cfg 226 keys, record .backup; es_settings.cfg 0 keys; 7 last-* stamps, 0 capture line(s), 0 manifest; 0 archive at root, 0 in archive/; saves tree clean of *.partial/*.tmp; cloud 0 settings file(s)
+    (KILL15 took 0s)
+
+=== clean up root@127.0.0.1 port 10022
+    scratch tree and bucket emptied; the device's own remote, paths and settings-backup setting restored
+
+2 CHECK(S) FAILED -- backend webdav (hash=none modtime=no commit=partial bucket=no): 9 passed, 2 failed, 1 skipped (KILL2 needs a throttled endpoint: `tools/cloud-test-backend down && CLOUD_QA_BWLIMIT=200k tools/cloud-test-backend up`)

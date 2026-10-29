@@ -16,20 +16,24 @@
 
 ## Current focus
 
-**Waiting on the re-granted guest window (2026-10-29 18:0x UTC).**
+**The re-granted window ran and is closed (2026-10-29). Stage C goes on.**
 
-- **Stages A and B are done**, and stage C's first reader is committed (`03`, `04` with F-01 to F-13, `fixtures/load-config-fallback.sh` and `fixtures/trap-defer.sh`) at `ab32ce5745`.
-- **The first window (START 2026-10-25 11:56:21Z) was cut by the usage limit** after the boot. No guest verdict exists from it.
-  - The coordinator stopped the guest on 10-26 with the owner's yes.
-  - The disk is retained: `/workspace/tmp/m6-t16/vm-pair/vm-a.qcow2`, sha256 `27d1a5e5…`, re-checked 10-29.
-  - The window is re-granted on #663 for everything after the boot (the installed-files comparison, the suite over WebDAV, the hand cells, lead (b) and the timings), queued after M7's guest and T17's. The 30-minute bound restarts at its START.
-  - Reuse of the retained disk, or a reimage from the copy, is stated at START.
-- **The seats run only after that record is in `02` § The guest cycle.**
-- **Isolation, harness and image:**
-  - isolation: `/workspace/tmp/m6-t16/cycle.env`;
-  - harness: the `--shared` clone at `/workspace/tmp/m6-t16/harness` (`tools/` at `3a653eaec4`), with the worktree's `vm-pair` for the boot;
-  - image: M6's copy, `/workspace/artifacts/m6-t3-20261024/…g069fc2704421…img.gz`.
-- **Stage D carries D-CLOUD-185's allowlist** for the twins' `RCLONE_NET_OPTS` split.
+- **The window:**
+  - START 18:10:18Z; RETURN 22:31:21, overrun by 3 h 46 min when the session's limit cut it.
+  - 13 of 13 installed files are identical to the tree.
+  - The suite passed 108/0/0 (the first run was void: the tools-only clone needs `CLOUD_QA_DEFAULTS`).
+  - LINK1, LINK2 and LINK6 pass. KILL15 has one vocabulary FAIL.
+  - KILL2 has 3 FAILs: saves absent after a stopped restore, and `*.partial` left until the re-run.
+  - The leads, the extra cells and `time-to-play` were not run.
+  - Both disks are retired.
+- **Next:**
+  - grade KILL2 against `cloud_restore`'s `--backup-dir` (`:1869-1871`) and rclone's replace order, as a possible F-14;
+  - add KILL15's vocabulary FAIL;
+  - update `04`;
+  - build the packet (`tools/t16-packet.py` on T22's model);
+  - `review-plan.json`; then Astra, then Argon;
+  - the pre-issue lint; stage D.
+- **Ask the coordinator** whether the unrun leads need another window. Do not ask for one while the record is open.
 
 ## Next commands
 
@@ -73,3 +77,4 @@ host's swap, another lane's worktree, or a guest.
 - stage B: 02 and its two generators; `6ce90c7c57`; 11:5x UTC; window asked for
 - stage C first reader: 03, 04, two fixtures; `ab32ce5745`; 2026-10-25 11:55 UTC; window START 11:56:21Z, cut at ~12:08 by the usage limit
 - resumed 2026-10-29 18:0x UTC: state reconciled from the record; waiting on the re-granted window
+- 2026-10-29: merge `1bb8ad08e7`; window START 18:10:18Z, RETURN 22:31:21 (overrun 3 h 46 min, session cut); disks retired; record committed

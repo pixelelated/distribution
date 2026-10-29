@@ -1,0 +1,24 @@
+T16 guest window, 2026-10-29 (#663). Times from date -u.
+START 18:10:18Z (census qemu 0, compilers 0, listeners 0). Bound 30 + 5 min.
+18:11:08 guest a up (vm-pair reimage, 41 s), BUILD_ID 069fc270442134fe771258418adf4e666e0473fb (os-release.txt).
+18:11:17 image vs tree: all 13 files identical to 8ebaf8daad (image-vs-tree.txt, installed.sha256; 102-cloud-saves at /usr/lib/autostart/common/).
+18:11:29 WebDAV up :9010 (webdav-up.out).
+18:11-18:12 suite-webdav: 100 passed, 3 failed, rc 1, 73 s -- VOID AS A VERDICT: the --shared clone checks out tools/ only, and
+  cloud-test-backend reads the shipped folder names from ../projects/.../cloud_sync.conf.defaults, absent there, so
+  'saves-remote' and 'settings-remote' printed nothing and the suite ran with SAVES_REMOTE="" and SETTINGS_REMOTE=""
+  ("SAVES_REMOTE  on the webdav endpoint" in suite-webdav.out). The three FAILs (step 2, step 7, the seeding step) follow from it.
+  The lane's harness-setup error, not the scripts'. Fixed by CLOUD_QA_DEFAULTS=/workspace/tmp/m6-t16/src/cloud_sync.conf.defaults
+  (the 8ebaf8daad copy, byte-identical to the installed one), then: saves-remote /pixelelated/Saves, settings-remote /pixelelated/Backups.
+18:13 cells-1 (KILL2,KILL15,LINK1,LINK2,LINK6, unthrottled): LINK refused (not throttled), KILL2 SKIP (needs a throttle);
+  KILL15 ran: refusal holds; one FAIL: cloud_saves_root's last line 'If both cards are in the device, try again.' is not an outcome sentence.
+  (KILL15 ran under the empty SAVES_REMOTE too; its cell is local -- the saves-root record -- and does not read the remote.)
+18:13:45 WebDAV restarted at CLOUD_QA_BWLIMIT=200k; cells-2 (KILL2,LINK1,LINK2,LINK6): AttributeError at LINK1 (L.saves_remote None) -- the same setup error.
+18:14:23 WebDAV restarted unthrottled with CLOUD_QA_DEFAULTS; suite-webdav-2 running.
+18:15:49 suite-webdav-2: PASSED -- backend webdav (hash=none modtime=no commit=partial bucket=no): 108 passed, 0 failed, 0 skipped; rc 0, 82 s. The verdict on the read bytes (all 13 identical).
+18:15:54 WebDAV restarted at 200k; cells-3 (KILL2,LINK1,LINK2,LINK6) running.
+18:15:54-~18:20 cells-3 (KILL2, LINK1, LINK2, LINK6; WebDAV at 200k): rc 1, 275 s, "3 CHECK(S) FAILED ... 53 passed, 3 failed, 0 skipped", all three in KILL2 (cells-3.out, cells-3/).
+~18:19 the lane's session hit its usage limit while supervising; it ran again at 22:30. The guest and the WebDAV stayed up, idle, unwatched.
+22:31:21 stopped by pidfile: vm-pair down ("down: owned QEMU exited (pid 1792756)"), WebDAV down; pids 1792756 and 1836940 gone; leftover.txt: qemu 0, compilers 0, listeners 0.
+  OVERRUN: bound 18:40:18, grace 18:45:18; stopped 3 h 46 min after the grace. M7's request (18:17) was queued behind this RETURN.
+22:31:54-22:32:06 disks retired (retire.txt): both pair directories removed by literal path after their sha256 was read; df avail +4,643,045,376 bytes.
+Not run: leads (a)-(e), the brief's extra cells, time-to-play (CANNOT: the session was cut, then the bound had passed).

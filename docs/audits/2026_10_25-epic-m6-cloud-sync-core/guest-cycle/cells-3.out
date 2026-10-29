@@ -1,0 +1,101 @@
+
+=== device reachable and equipped
+    PASS  ssh works
+    PASS  rclone and cloud scripts present
+
+=== point the device at the QA bucket
+    PASS  active remote is 'qa-cloud', which is what the scripts will use
+    scratch tree /storage/cloud-qa (pass --real-roms to use /storage/roms)
+    SAVES_REMOTE /pixelelated/Saves on the webdav endpoint
+
+=== the link-loss cells: a serial console, a throttled endpoint, one guest
+    PASS  the endpoint is throttled (--bwlimit on the server)
+    PASS  the serial console is this device's; its default route runs over eth0; the endpoint is 10.0.2.2:9010
+    link restored 40s after each cut; a run must end within 90s of it
+
+=== LINK1 -- saves restore (the startup sync's command), link cut during the compare
+          48 saves in 24 directories on both sides; RCLONE_TPSLIMIT=2 makes the compare last
+          cut eth0 at guest uptime 311.39 (18:16:04); last line: 'Elapsed time:         1.0s'
+          11s into the outage: default route gone; NetworkManager says unavailable; no address on eth0
+          ended 37.1s after the cut, with the link still down (rc 69)
+          link restored 40.7s after the cut; address, default route and the endpoint back in 0.3s
+    PASS  ended 37.1s after the cut (bound 90s)
+    PASS  exit 69: SKIPPED - NO NETWORK CONNECTION, the sentinel
+    PASS  no *.partial left on the receiving side
+    PASS  every file present on the receiving side is whole, by content (48 of 48 there)
+    PASS  last-restore records the failure (1793297801 69)
+          waited 10s for the endpoint to let go of the cut run before the re-run
+          outputs kept: /tmp/qa-link-LINK1/ on the guest, /workspace/repos/pixelelated/distribution.worktrees/m6-cloud-sync-core-663/docs/audits/2026_10_25-epic-m6-cloud-sync-core/guest-cycle/cells-3/LINK1/ here
+    PASS  the cut run: no developer words on the 76 card-visible line(s) or the outcome line ("Couldn't finish: lost the network during the saves restore. Try again ")
+    PASS  the cut run: the outcome line is one of the three outcome words ("Couldn't finish: lost the network during the saves restore. Try again ")
+    PASS  a plain re-run with the link back exits 0
+    PASS  after the re-run all 48 files match on the receiving side
+    PASS  LINK1: one record each, no litter: system.cfg 226 keys, record .backup; es_settings.cfg 0 keys; 7 last-* stamps, 0 capture line(s), 0 manifest; 0 archive at root, 0 in archive/; saves tree clean of *.partial/*.tmp; cloud 0 settings file(s)
+
+=== LINK2 -- saves backup, link cut during the transfer
+          cut eth0 at guest uptime 396.90 (18:17:29); last line: '*                       savestates/link-3.state:100% / 3 MiB, 0 B/s, -'
+          11s into the outage: default route gone; NetworkManager says unavailable; no address on eth0
+          ended 37.0s after the cut, with the link still down (rc 69)
+          link restored 40.7s after the cut; address, default route and the endpoint back in 0.3s
+    PASS  ended 37.0s after the cut (bound 90s)
+    PASS  exit 69: SKIPPED - NO NETWORK CONNECTION, the sentinel
+    PASS  no *.partial left on the receiving side
+    PASS  every file present on the receiving side is whole, by content (3 of 3 there)
+    PASS  last-backup records the failure (1793297886 69 gaps YOU WENT OFFLINE PART-WAY THROUGH)
+          outputs kept: /tmp/qa-link-LINK2/ on the guest, /workspace/repos/pixelelated/distribution.worktrees/m6-cloud-sync-core-663/docs/audits/2026_10_25-epic-m6-cloud-sync-core/guest-cycle/cells-3/LINK2/ here
+    PASS  the cut run: no developer words on the 153 card-visible line(s) or the outcome line ("Couldn't finish: lost the network during the saves backup. Try again w")
+    PASS  the cut run: the outcome line is one of the three outcome words ("Couldn't finish: lost the network during the saves backup. Try again w")
+    PASS  a plain re-run with the link back exits 0
+    PASS  after the re-run all 3 files match on the receiving side
+    PASS  LINK2: one record each, no litter: system.cfg 226 keys, record .backup; es_settings.cfg 0 keys; 7 last-* stamps, 0 capture line(s), 0 manifest; 0 archive at root, 0 in archive/; saves tree clean of *.partial/*.tmp; cloud 0 settings file(s)
+
+=== LINK6 -- the exit sync (cloud_backup --yes --saves-only --recent), link cut during the transfer
+          cut eth0 at guest uptime 448.78 (18:18:21); last line: '*                       savestates/link-3.state:100% / 3 MiB, 0 B/s, -'
+          11s into the outage: default route gone; NetworkManager says unavailable; no address on eth0
+          ended 37.0s after the cut, with the link still down (rc 69)
+          link restored 40.7s after the cut; address, default route and the endpoint back in 0.3s
+    PASS  ended 37.0s after the cut (bound 90s)
+    PASS  exit 69: SKIPPED - NO NETWORK CONNECTION, the sentinel
+    PASS  no *.partial left on the receiving side
+    PASS  every file present on the receiving side is whole, by content (3 of 3 there)
+    PASS  last-backup records the failure (1793297938 69 gaps YOU WENT OFFLINE PART-WAY THROUGH)
+          outputs kept: /tmp/qa-link-LINK6/ on the guest, /workspace/repos/pixelelated/distribution.worktrees/m6-cloud-sync-core-663/docs/audits/2026_10_25-epic-m6-cloud-sync-core/guest-cycle/cells-3/LINK6/ here
+    PASS  the cut run: no developer words on the 153 card-visible line(s) or the outcome line ("Couldn't finish: lost the network during the saves backup. Try again w")
+    PASS  the cut run: the outcome line is one of the three outcome words ("Couldn't finish: lost the network during the saves backup. Try again w")
+    PASS  a plain re-run with the link back exits 0
+    PASS  after the re-run all 3 files match on the receiving side
+    PASS  LINK6: one record each, no litter: system.cfg 226 keys, record .backup; es_settings.cfg 0 keys; 7 last-* stamps, 0 capture line(s), 0 manifest; 0 archive at root, 0 in archive/; saves tree clean of *.partial/*.tmp; cloud 0 settings file(s)
+
+=== the KILL cells: a writer killed at every step, the power cut, one record at rest (#105, D-CLOUD-078)
+    device GENERIC-X64-15ca35b6b4 (GENERIC-X64); endpoint 10.0.2.2:9010 throttled; serial yes; monitor yes
+
+=== KILL2 -- saves restore stopped mid-download by ES's TERM-then-KILL (D-CLOUD-076): the game's save stands, *.partial litter, re-run keeps the previous version
+    PASS  2a: TERM then KILL at 1.5s: the group was empty 0.01s after the signal (budget 2s), mid-download of 'savestates/kill2-3.state'
+    PASS  2a: the save the game wrote 1s after the stop still stands 5s later (no rename landed on it)
+    FAIL  2a: a file is torn or gone: {'savestates/kill2-1.state': 'absent', 'savestates/kill2-2.state': 'absent'}
+    PASS  2a: no rclone *.partial left under SAVESPATH
+    PASS  2a: last-restore is 1793297958 130: the stop is recorded, never as 0
+          outputs kept: /tmp/qa-link-KILL2a/ on the guest, /workspace/repos/pixelelated/distribution.worktrees/m6-cloud-sync-core-663/docs/audits/2026_10_25-epic-m6-cloud-sync-core/guest-cycle/cells-3/KILL2a/ here
+    PASS  2a: a plain re-run exits 0
+    PASS  2a: after the re-run: the game's save kept, the rest v2 ({'savestates/kill2-1.state': 'v2', 'savestates/kill2-2.state': 'v2', 'savestates/kill2-3.state': 'v3'})
+    PASS  2a: the previous version of every overwritten save is kept somewhere (2 checked)
+    PASS  2a re-run: no developer words on the 91 card-visible line(s) or the outcome line ('Completed.')
+    PASS  2a re-run: the outcome line is one of the three outcome words ('Completed.')
+    PASS  2b: SIGKILL mid-download of 'savestates/kill2-1.state': the group was gone in 0.01s
+    PASS  2b: the save the game wrote 1s after the stop still stands 5s later (no rename landed on it)
+    FAIL  2b: a file is torn or gone: {'savestates/kill2-2.state': 'absent', 'savestates/kill2-3.state': 'absent'}
+    FAIL  2b: rclone's temporary copy left under SAVESPATH, and nothing removes it: ['savestates/kill2-2.state.fc23ea21.partial', 'savestates/kill2-1.state.8042cffa.partial', 'savestates/kill2-3.state.612c0b57.partial'] (D-CLOUD-078: litter forever)
+    PASS  2b: last-restore unchanged (1793297989 0) -- nothing ran after SIGKILL
+          outputs kept: /tmp/qa-link-KILL2b/ on the guest, /workspace/repos/pixelelated/distribution.worktrees/m6-cloud-sync-core-663/docs/audits/2026_10_25-epic-m6-cloud-sync-core/guest-cycle/cells-3/KILL2b/ here
+    PASS  2b: a plain re-run exits 0
+    PASS  2b: after the re-run: the game's save kept, the rest v2 ({'savestates/kill2-1.state': 'v3', 'savestates/kill2-2.state': 'v2', 'savestates/kill2-3.state': 'v2'})
+    PASS  2b: the previous version of every overwritten save is kept somewhere (2 checked)
+    PASS  2b re-run: no developer words on the 91 card-visible line(s) or the outcome line ('Completed.')
+    PASS  2b re-run: the outcome line is one of the three outcome words ('Completed.')
+    PASS  KILL2: one record each, no litter: system.cfg 226 keys, record .backup; es_settings.cfg 0 keys; 7 last-* stamps, 0 capture line(s), 0 manifest; 0 archive at root, 0 in archive/; saves tree clean of *.partial/*.tmp; cloud 0 settings file(s)
+    (KILL2 took 74s)
+
+=== clean up root@127.0.0.1 port 10022
+    scratch tree and bucket emptied; the device's own remote, paths and settings-backup setting restored
+
+3 CHECK(S) FAILED -- backend webdav (hash=none modtime=no commit=partial bucket=no): 53 passed, 3 failed, 0 skipped

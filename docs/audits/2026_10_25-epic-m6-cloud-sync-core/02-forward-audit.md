@@ -425,6 +425,46 @@ Every § 5 command of the brief, run at stage A as one script file
 | r25 | all-time commits and the first | 151; 9f1fab30f6 ROCKNIX Team 2025-07-13 | 0 | 214 ms | the history's start is not upstream's import | tool-run |
 | r26 | T13's branch tip | 0b72904621 | 0 | 3 ms | the oracle was read from a branch that moved after its acceptance | tool-run |
 
+## The guest cycle
+
+**The windows.**
+- **The first**, START 2026-10-25 11:56:21Z, was cut by the lane's usage limit after the boot. No verdict came from it.
+- **The second** was granted on #663 at 2026-10-29 18:09: START 18:10:18Z (census 0), the bound 18:40:18, the grace 18:45:18.
+  - **It was stopped by pidfile at 22:31:21, 3 h 46 min past the grace**: the lane's session was cut again at about 18:19, and the guest sat idle.
+  - RETURN was posted on #663 and on the host file. The record is `guest-cycle/`.
+
+**The image.**
+- M6's copy, `/workspace/artifacts/m6-t3-20261024/…g069fc2704421….img.gz` (sha256 `6b4c3079…`), by `tools/vm-pair reimage a` under `VM_PAIR_DIR=/workspace/tmp/m6-t16/vm-pair-2`.
+- The guest's `/etc/os-release`: `BUILD_ID="069fc270442134fe771258418adf4e666e0473fb"` (`guest-cycle/os-release.txt`).
+
+**The image against the tree, before any verdict.**
+- `sha256sum` on the guest of the nine scripts (`102-cloud-saves` at `/usr/lib/autostart/common/`) and the four `/usr/config` files, against `git show 8ebaf8daad:<path>`: **13 of 13 identical** (`guest-cycle/image-vs-tree.txt`, `installed.sha256`).
+- No verdict below needs a difference written beside it. The guest ran the read bytes.
+
+**The harness.** `tools/` at `3a653eaec4` (T13's fixes), from the `--shared` clone at `/workspace/tmp/m6-t16/harness`; the worktree's `vm-pair` booted the guest (identical at both hashes).
+
+| Run | Harness | Result | Verdict | proved: |
+| --- | --- | --- | --- | --- |
+| the suite over WebDAV, first | `3a653eaec4` | 100 passed, 3 failed, rc 1, 73 s | **void**: the clone has `tools/` only, so `cloud-test-backend saves-remote` read no shipped default and the suite ran with `SAVES_REMOTE=""` (`suite-webdav.out`: `SAVES_REMOTE  on the webdav endpoint`); the lane's setup error | guest |
+| the suite over WebDAV | `3a653eaec4`, `CLOUD_QA_DEFAULTS` = the `8ebaf8daad` defaults | `PASSED -- backend webdav (hash=none modtime=no commit=partial bucket=no): 108 passed, 0 failed, 0 skipped`, rc 0, 82 s (`suite-webdav-2.out`) | the oracle's both-ends rows that the suite holds (steps 2, 5, 8, 17, 18, 19, 22, 23, 27, 32) pass on the read bytes; T13's 108 reproduced | guest |
+| KILL15 | `3a653eaec4` | 6 passed, 1 failed (`cells-1.out`) | the empty saves-root record is refused (exit 1); **FAIL**: `cloud_saves_root`'s last line, `If both cards are in the device, try again.`, is not one of the three outcome sentences (`cloud_saves_root:137-139`; `es-player-text.md` § Outcome vocabulary) | guest |
+| LINK1, LINK2, LINK6 (200k) | `3a653eaec4` | each exit 69 with `Couldn't finish: lost the network during the saves restore/backup. Try again ...`; no FAIL (`cells-3.out`, `cells-3/LINK*`) | the link cut ends in the sentinel and an outcome line, on the restore, the backup and the exit sync | guest |
+| KILL2 (200k) | `3a653eaec4` | 3 FAIL (`cells-3.out`, `cells-3/KILL2a`, `KILL2b`) | **2a** (TERM then KILL at 1.5 s) and **2b** (SIGKILL): two saves **absent** from `SAVESPATH` after the stop in each arm, while the previous version of each "is kept somewhere" and a re-run restores them; **2b**: three `*.partial` under `SAVESPATH` until the re-run sweeps them (the tree is clean at the cell's end). Read with the code at stage C before it is graded: the shape is `--backup-dir` moving the replaced save aside before the new copy lands | guest |
+
+**Not run:**
+- leads (a) to (e) of the plan;
+- the brief's extra both-ends cells (LINK3, LINK5, KILL4, A1, A2, A8, A9, A11, A14);
+- `tools/time-to-play --vm`: **CANNOT**, the session was cut and then the bound had passed. The figure stays the last in `docs/vm-qa-log.md`, cited in `04` § Q5.
+
+**The stop and the leftovers:**
+- `tools/vm-pair down`: `down: owned QEMU exited (pid 1792756)`; the WebDAV `down`.
+- `guest-cycle/leftover.txt`: qemu 0, compilers 0, listeners 0.
+
+**The disks** (`guest-cycle/retire.txt`, D-INFRA-022):
+- the retained `vm-pair/vm-a.qcow2` (2,310,799,360 bytes, sha256 `27d1a5e5…`);
+- the window's `vm-pair-2/vm-a.qcow2` (2,331,246,592 bytes, sha256 `bc8e8a19…`);
+- both removed with their directories after the stop; +4,643,045,376 bytes.
+
 ## Leads for stage C and the window
 
 Each is a question the lane has read and not yet graded. Each becomes a
