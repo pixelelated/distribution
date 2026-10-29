@@ -25,6 +25,10 @@
 
 ## Current focus
 
+**2026-10-29, 18:02 UTC.** Resumed after the coordinator's monthly-limit stop (2026-10-27 ~20:35 UTC) and the host reboot (2026-10-28 00:37 UTC) that emptied `/tmp`: the session scratchpad's kits, research files, proofs and helpers are gone; the shared host file is now **`/workspace/tmp/m7-m6-host-coordination.txt`**; the coordinator's kit lives in **`/workspace/tmp/m6-coordinator/kit/`** (`ledger-union.py` rebuilt there; `rewrite-body.py`, the mirror template and the acceptance scripts are rebuilt as needed). The branch tips and the lane sessions survived. Below, every `$S/...` path written before 2026-10-29 names a file that no longer exists; the briefs and the audit records in git are the sources.
+
+### Earlier focus
+
 **2026-10-24, afternoon (13:5x UTC).** P0 and every accepted slice branch
 wait for the M7 lane's post-candidate merge to clear the push guard's W42
 gate before anything merges to `next` (never `--no-verify`); the order is in
