@@ -54,3 +54,20 @@ time comes from `date -u`.
 - **Errata of my own, corrected before the commit:** six line numbers in the first draft of `02`'s leads were written from a comment-free listing, not the file; each was re-read with `grep -n` and corrected.
 - No guest, no fetch, no seat call so far.
 - **Census re-taken (11:51 UTC):** by `comm`, 0 processes whose name starts `qemu`. `pgrep -f '^qemu-system|/qemu-system'` read 2: both were the checking shell itself, whose argv carries the pattern (`ps -eo comm` lists none). Compilers: 0. Docker: 22 containers, every one another project's `postgres` (`gh-wt-*`, `groundhog_*`), none of M6's.
+
+## 2026-10-25 11:56 UTC -- 2026-10-29 18:01 UTC -- the first window, cut; the lane resumed
+
+- **START 11:56:21Z** (posted on #663). The guest booted in 44 s from M6's copy (`rec/boot.out`). Its `/etc/os-release` reads `BUILD_ID="069fc270442134fe771258418adf4e666e0473fb"` (`rec/os-release.txt`, 11:57).
+- **The tree side** of the hash comparison is `rec/tree.sha256` (13 files at `8ebaf8daad`, 11:55).
+- **The session then hit its usage limit (about 12:08).** No guest hash was read, the WebDAV never came up (`state/` and `artifacts/` are empty), and no cell, lead or timing ran. **No guest verdict exists from this window**, and RETURN was never posted by the lane.
+- **The coordinator reconciled it on #663:**
+  - 2026-10-26 04:47Z;
+  - the stop, with the owner's yes, run by the M7 lane at 07:40 with `tools/vm-stop` on the pidfile; `/proc/4160936` was gone at 07:41;
+  - the disk retained under D-INFRA-022 for this slice's re-granted window;
+  - the re-grant, queued after M7's guest and T17's.
+- **Re-read by the lane, 2026-10-29 18:01 UTC:**
+  - `/workspace/tmp/m6-t16/vm-pair/vm-a.qcow2`: 2,310,799,360 bytes, mtime 2026-10-26 07:37:50, sha256 `27d1a5e5dac3c2de13a4e83127b520e1a8a7b1771def4ae0244c075f66ae79ee`, exactly as the coordinator recorded it;
+  - `/workspace/tmp/m6-t16/` survived the 2026-10-28 reboot, being under `/workspace`;
+  - census: qemu by `comm` 0, and 0 listeners on 9010-9099 and 10022-10023.
+- **Carried for stage D:** D-CLOUD-185 (#663, 2026-10-26 07:38Z). The twins' `RCLONE_NET_OPTS` split (`cloud_restore:1406-1411`, `cloud_backup:1367-1371`) takes the same allowlist in the stage-D stream brief, with T17's fixture as the model.
+- **The shared host file** is now `/workspace/tmp/m7-m6-host-coordination.txt`. Its 18:00 block says M6 runs nothing and asks for no window before T34 reaches stage B.

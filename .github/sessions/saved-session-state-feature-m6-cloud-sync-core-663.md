@@ -16,7 +16,20 @@
 
 ## Current focus
 
-**Stage B done (11:5x UTC, `6ce90c7c57`); the guest window asked for on #663 with its plan; stage C next** (the packet from `02`'s § Leads and the code, `review-plan.json`, Astra then Argon, a probe and a refutation each, then the pre-issue lint). `02` carries coverage (14), the functions (132, `tools/t16-functions.py`), the oracle (79, `tools/t16-oracle.py`), the stamps and locks, the configuration, the 26 runs and twelve leads. The strongest leads: the conf fallback that sources what `conf_valid` refused when `cp`/`mv` fails (`cloud_backup:1209-1222`, the twin the same); an empty `SAVESPATH` that the backup refuses and the restore copies into `/` (`cloud_restore:1758-1760,1902-1906`) while the card check judges `/storage/roms`; the why sentences against `es-player-text.md`; three uncalled restore functions; the helper and two `rclone help` calls on every run (time to play). Sources of the read: `/workspace/tmp/m6-t16/src/` (`git show` copies at `8ebaf8daad`).
+**Waiting on the re-granted guest window (2026-10-29 18:0x UTC).**
+
+- **Stages A and B are done**, and stage C's first reader is committed (`03`, `04` with F-01 to F-13, `fixtures/load-config-fallback.sh` and `fixtures/trap-defer.sh`) at `ab32ce5745`.
+- **The first window (START 2026-10-25 11:56:21Z) was cut by the usage limit** after the boot. No guest verdict exists from it.
+  - The coordinator stopped the guest on 10-26 with the owner's yes.
+  - The disk is retained: `/workspace/tmp/m6-t16/vm-pair/vm-a.qcow2`, sha256 `27d1a5e5…`, re-checked 10-29.
+  - The window is re-granted on #663 for everything after the boot (the installed-files comparison, the suite over WebDAV, the hand cells, lead (b) and the timings), queued after M7's guest and T17's. The 30-minute bound restarts at its START.
+  - Reuse of the retained disk, or a reimage from the copy, is stated at START.
+- **The seats run only after that record is in `02` § The guest cycle.**
+- **Isolation, harness and image:**
+  - isolation: `/workspace/tmp/m6-t16/cycle.env`;
+  - harness: the `--shared` clone at `/workspace/tmp/m6-t16/harness` (`tools/` at `3a653eaec4`), with the worktree's `vm-pair` for the boot;
+  - image: M6's copy, `/workspace/artifacts/m6-t3-20261024/…g069fc2704421…img.gz`.
+- **Stage D carries D-CLOUD-185's allowlist** for the twins' `RCLONE_NET_OPTS` split.
 
 ## Next commands
 
@@ -58,3 +71,5 @@ host's swap, another lane's worktree, or a guest.
 
 - stage A: 00, 01 § Scope, the friction line, the work-log entry; `5d0a65d334`; 11:39 UTC (accepted by the coordinator 11:4x)
 - stage B: 02 and its two generators; `6ce90c7c57`; 11:5x UTC; window asked for
+- stage C first reader: 03, 04, two fixtures; `ab32ce5745`; 2026-10-25 11:55 UTC; window START 11:56:21Z, cut at ~12:08 by the usage limit
+- resumed 2026-10-29 18:0x UTC: state reconciled from the record; waiting on the re-granted window
