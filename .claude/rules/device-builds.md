@@ -120,6 +120,9 @@ set the container TMPDIR to a writable container path (for example add
 Retain the actual container environment readback; do not infer it from the
 host variable. Config.Env may retain duplicate entries; verify the effective
 value and a real temporary-file operation inside the running container. Preserve the failed owner and submit a fresh one after correction.
+A host sandbox is the same boundary: start bubblewrap with `--clearenv` and
+pass only what the run needs, or the sandboxed script inherits the host's
+`TMPDIR` and writes outside the scratch it was given (T17's S7 fixture, #1136).
 
 ## After rebasing onto upstream
 

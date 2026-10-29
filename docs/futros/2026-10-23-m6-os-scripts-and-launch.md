@@ -344,3 +344,141 @@ pause.
 
 **Futro complete. Ready to proceed to T1's dispatch once the brief's
 version 2 is committed with these edits and the stranger's findings.**
+
+## T22's kickoff (2026-10-25), and the errata from its brief's stranger's proof
+
+T22 (#669, the OS's system services and platform quirks; Extended, two
+seats as T1's) is briefed in `docs/reviews/briefs/os-system-services.md`
+from a read-only research pass (`$S/t22-research.md`, 422 rows). What the
+pass tested of the order's `why`: half right -- `system-utils` selects at
+install time (`package.mk:27-34`; 8 rows / 317 lines shipped by no shipped
+image), while the quirks' platforms are all installed into every image
+with a platform directory of its own (`quirks/package.mk:15-18`) and
+selected at run time by `HW_DEVICE` and `QUIRK_DEVICE` (`/usr/bin/autostart:16-28,
+31-43`; `002-autostart:6-12`), so 213 of 264 platform files are shipped
+bytes that never run on H700, SM8550 or the VM; the brief's reachability
+table carries a *runs on* column. The 29 units all run as root; the read
+tree is three and a half weeks behind upstream in exactly this area (44 M,
+20 D, 42 A and 2 R at `651150fc88`); the inventory's `last_upstream_commit`
+is upstream's tip, not the read tree's.
+
+The stranger's proof (`$S/t22-proof.md`: 70 checks, 26 differed, 41
+reproduced; 21 distinct findings) corrected version 1: the block never
+wrote `paths.txt`; the read set is shell, recipe, systemd, udev and one C
+file (10,898), not python; 23 other sysutils packages; the platforms copy
+is under `:16`'s test; `/usr/bin/autostart` lives in `sysutils/autostart/sources/`
+and both its loops lack `-f`; `:31-43` is the autostart's, not
+`002-autostart`'s; the per-platform count needs `cut -f7`; the units count
+needs the quirks' `system.d/`; `video_sense` is proved by `ls-tree`;
+upstream's busybox carries seven patches that are renames of the
+override's own; `system-utils` installs `autostart/common/*` on every build
+and has no `post_install` -- enablement is a preset's or another
+package's; the 20 D are 9 never upstream's, 2 upstream removed, 9 deleted;
+the A list is 42 plus 2 renames, not 20; `54acd9556f` deletes
+`sysctl.d/rocknix.conf` and does not touch `hang-policy.conf`; util-linux
+is 2.42.4 upstream; `slice_of` is `:1237-1248`; T1's folder has no
+`.run.log` for the GPT seat and no packet manifest (T13's is the model);
+`input_sense` was rewritten in four commits; the GENERIC_X64 quirks in
+eight on 2026-09-28; #797 is not the autostart hook-shape issue.
+
+### T29 kickoff addendum (written with the brief's version 1, 2026-10-25)
+
+Read with the brief `docs/reviews/briefs/os-device-quirks.md`; the research
+digest behind it was taken read-only at `2174265e9c` (lead, not evidence).
+
+- **What we know.** 333 paths, 10,175 lines, 328 upstream's and 5 the
+  fork's (the VM's two quirk files and the Nova's three LED helpers, 389
+  lines); 88 top-level entries (65 directories, 23 aliases); the selection
+  is by the dt `model` (or DMI) matched to a directory name, files directly
+  in the directory only, as root, in glob order; **neither of the
+  maintainer's H700 units has a device entry** (`Anbernic RG35XX SP`,
+  `Anbernic RG-SP`), so only the platform quirks run there; the boards the
+  shipped images boot that do have entries are 70 paths / 2,885 lines
+  (tier B); 18 upstream commits are pending, two of them panel calibration
+  for shipped SM8550 boards.
+- **Assumptions named.** The read is tier B line by line and the rest by
+  its table row; the tree-wide counts are taken unfiltered (the credential
+  filter drops lines with `user` or `key`); no guest cycle is planned (the
+  Nova's helpers have `tools/nova-led-test`; the VM's two files are T22's
+  guest record).
+- **Known unknowns.** (1) Whether anything the owned H700 units need sits
+  in a device entry they never reach (read `platforms/H700/*` by name
+  against the RG40XX and CubeXX entries); (2) which of the 32 sysfs writers
+  in the 266 would fail on a node that is absent (one guard in the tree);
+  (3) whether both `050-game*configs` spellings run on a board that has
+  both.
+- **Patterns.** T22's generated tables with asserted counts; T28's
+  "read a file's device by its match rule, not its name"; T27's and T28's
+  updater contract as the model of a contained fix in upstream's file;
+  the `Already written:` line for every-boot heredoc rewrites.
+- **What could be missed.** A reader counting the 263 carried-by-placement
+  files as dead (D-WORKFLOW-185: a row each); a reader filing the owned
+  units' missing entries as a bug without reading the platform set; a
+  reader asking a unit for a sysfs fact (nothing runs on a unit); a reader
+  taking a `100644` mode as a defect without `package.mk:20`'s `chmod`.
+- **Before execution.** The stranger's proof of version 1; #676 retitled
+  `E695/T29` and re-parented under #695, #695's path cell corrected to the
+  glob, the inventory hash noted; the worktree cut from `2174265e9c` with
+  the coordinator's tip merged; the body rewritten with the sixteen
+  criteria and the VM line; the dispatch to the first idle session.
+
+### T29 errata (2026-10-25, after the stranger's proof of version 1)
+
+The proof ran ten commands from the scratch clone at `2174265e9c`; the
+membership, the tiers, the selection, the fork-own five, the upstream
+delta and every cited path held. What it corrected, and what this
+addendum had wrong:
+
+- **The tree-wide shape block could not run.** It read paths with
+  `awk '{print $4}'`, which cuts every quirk path at its first space, so
+  the § 2 figures had not come from it. Version 2 carries a path-safe
+  tally (`git ls-tree -r -z`, `cat-file -p`), and every figure names its
+  population: `#!/bin/sh` 256 (not 257), `/storage` 156 of 285 blobs or
+  145 of 266 shell, `DEVICE_*` 104 or 101. The addendum's "one guard in
+  the tree" holds only when the pattern admits a quote: the x55's
+  `040-hdmi` writes `[ -f "/sys/..."`, and the proof's unquoted pattern
+  found none.
+- **The history figures were the directory's, not the slice's.** Over the
+  333 paths the fork's commits since the base are 6 (9 over the
+  directory, three of them on QEMU quirks since deleted) and 28 / 6 since
+  June (32 / 9 / 23 over the directory). Version 2 runs both.
+- **Checkbox 5 could not fail**: `$(cat paths.txt)` word-splits every
+  spaced path; it is the `xargs -0` form now.
+- `rocknix-info:8-10` has its own DMI fallback; "no DMI" was wrong.
+- The 18 pending upstream commits are 12 without merges; the rest of the
+  tree is 51 directories (not 50) and 21 aliases; tier B is 14
+  directories and 2 aliases.
+- The HAS / NONE read covers all 28 board `model` strings of the two
+  shipped trees (nine more NONEs: RG28XX, RG34XX, RG34XX-SP, RG35XX
+  Pro / H / Plus / 2024, Pocket S 1K, Odin 2 Mini), with
+  `qcs8550-ayn-thor.dts:358`'s sub-node set apart.
+- The third known unknown above (both `050-game*configs` spellings on
+  one board) is moot: no directory has both; it is a naming
+  inconsistency for Q7.
+- #676 was retitled and re-parented before dispatch, not at it; its body
+  was still P1's generated one (five checkboxes, a guest-proof VM line)
+  and is rewritten at dispatch.
+- The shared-file examples are completed (the DMG's and EVO's
+  `bin/achievements` → the Odin 2's; Pocket DS's two → the ACE's; RG DS
+  Plus → RG DS's `bin/`, `sleep.d/` and four files); the twelve AYANEO
+  aliases include `AYA NEO AYA NEO Founder`.
+- Not verified by the proof, and said so in version 2: #695's cell (the
+  coordinator corrected it), the inventory's `eb4763e3cc`, T22's 225 and
+  G-35.
+
+### T29 errata at acceptance (2026-10-26)
+
+- The board count is 26 (15 HAS, 11 NONE), not 28; `AYN Thor/touchcontrol`
+  is a file; `rocknix-info:12` converts `/` to `-` (the errata section of
+  version 2 was itself wrong on that point).
+- The addendum expected no stream; the slice landed three: the Nova's
+  battery LED helper (#1120, fork-own), the VM take-back's first pass
+  (#1124, fork-own; ruled a bug over the lane's "record" because a take-back
+  that removes by name whatever a file holds is the shape
+  `upgrade-and-install.md` forbids), and the upgrade rehearsal's seed
+  (#1125, a fork-only tool outside the membership, which the second fix
+  exposed and which gates the next candidate's step 3).
+- The stream brief named a donor bash that does not exist; the host's bash
+  5.3.9 stood in, named. A brief names a binary only after `ls` has seen it.
+- Three leads filed under #695 by the coordinator: #1119, #1122, #1123, and
+  #1126 for the LED presets (#332 being closed).

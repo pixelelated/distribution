@@ -767,3 +767,144 @@ under the image's busybox 1,303 PASS / 10 FAIL / 0 SKIP in 514 s; under the
 host's 984 / 329 / 0 in 671 s; 319 checks flip between them (#1015's count),
 and the ten that fail under both are the suite's own vacuous-fixture
 detectors firing in `x` and `y` -- the first thing the lane sorts.
+
+## Addendum: T45 at its kickoff (2026-10-25, from the brief `docs/reviews/briefs/tooling-council.md` version 1)
+
+**What we know and assume.** T45 is the area's sixth and last slice, a
+**table at Local depth** (no seat): the council toolchain scaffold exported
+and the fork committed byte for byte (D-WORKFLOW-088) -- **52 paths, 25,848
+lines, all fork-own; 23 TypeScript, 22 JavaScript, 4 JSON, 1 text, 1
+Python, 1 shell**; 8 fork commits from the 2026-09-05 import to the
+2026-10-04 identity re-pin; none upstream. The delivery's record is beside
+the skill (`IMPORTED-FROM.md`, `COUNCIL-BUNDLE.md`, the 94-line
+`SHA256SUMS`: scaffold `7be6721b`, 2026-09-30, corpus 4.29.1 plus #976).
+**The coordinator's comparison at the hash:** 50 members listed in the
+SUMS, 41 byte-equal, 9 differ (4 of them re-pinned with a reason, 5 not
+pinned but named in `IMPORTED-FROM.md`'s adaptations or unable to pin
+themselves), 2 unlisted (the fork's own `tools/council/run` and
+`package.json`). The lens is **package currency**: the two npm
+dependencies (ranges that admit today's latest, no lockfile), the Python
+requirements of a seat that left the roster, the seat-efforts snapshot's
+age (27 days), the corpus version against any reachable export (the
+scaffold checkout on this host is at 3.29.1, older than our 4.29.1:
+CANNOT), and every active seat against `adversarial-council.md`'s floor.
+**Who runs it:** every Independent slice's Phase 4.6 (four this week), the
+two council skills, the code-auditor skill, two rules.
+
+**Known unknowns.** U-1 the reconciliation: is every one of the 9
+differing files accounted for by a re-pin reason or `IMPORTED-FROM.md`,
+and is each reason true of the bytes (the 2026-10-04 re-pin says *URLs
+only*). U-2 the toolchain's own tests and verifiers at the hash
+(`verify-pins`, `drift`, `test`, `lint` over a recorded run): green, or a
+finding. U-3 what `npm install` resolves today for the two unpinned ranges,
+and whether the four slices' provenance records name it (they do not, by
+the coordinator's read). U-4 whether `run efforts` can read OpenRouter's
+public list without the key (read `--help` first; a refresh that needs the
+key is not run). U-5 the dead ends -- the Mistral tokenizer path,
+`forge-write-status.mjs`, the inactive agents: what still imports them,
+and whether D-WORKFLOW-088 keeps them regardless (it does; the row says
+so). U-6 whether a procedure for "copy the next export over" exists
+anywhere (a lead if not).
+
+**Patterns.** T7's and T8's provenance tables (a table slice's shape:
+counts produced by commands, reconciled against a ledger); T10's `rules-check`
+lesson (three lists tied together: the push guard's personal paths, the
+rule and the index name these files); T14's and T12's finding that a
+record's figure can count the wrong thing (`scripts_pass_lines` counted
+words): a table's counts name their commands; the D-WORKFLOW-089 re-pin
+rule (a changed pinned file carries its reason).
+
+**What could we be missing.** A lane "fixes" a council script when a test
+fails: the brief forbids any edit to a member (a drift is a lead; a fix is
+the next export). A lane runs `tools/council/run invoke` to see the
+toolchain work: forbidden, the toolchain is the subject and a call spends
+the maintainer's key. A lane reads `~/.config/council/env` to check the
+provider: forbidden. A lane `npm install`s at the repository root and
+litters it: `--prefix tools/council` only, and `node_modules` there is
+gitignored (`.gitignore:66`). A lane treats the scaffold checkout on this
+host as the current export: it is older than ours, said in § 1.
+Pre-mortem: a month on, a seat's slug changes upstream and the four
+Independent slices' audits keep citing a roster nobody re-read -- so Q4
+puts every active seat beside the floor. Replaced mechanism: none (a
+table).
+
+**Adjustments written into version 1 of the brief:** A1 § 2 carries the
+coordinator's bytes comparison with the nine named and which are pinned;
+A2 § 5 runs the toolchain's own checks after `npm install --prefix
+tools/council` and never `invoke`; A3 § 4 makes Q7 the provenance table
+and Q4 the currency table, with the three ledgers reconciled; A4 § 1 names
+the scaffold checkout's age and makes "a newer export" a CANNOT with its
+source named; A5 § 8 forbids a refresh, a re-pin, an edit to any member
+and any provider call by name; A6 § 9 checks the `node_modules` ignore
+before the first install; A7 § 6 asks the retro what the next export must
+carry.
+
+### Erratum to T15's brief from the lane's stage A (2026-10-25, 00:35 UTC)
+
+The coordinator's image-busybox run at the hash reported 10 FAILs in `x`
+and `y`; the lane's run from its worktree reported 0 (1,313 PASS, rc 0, 517
+s). The ten were the coordinator's fixture: the export under
+`/workspace/tmp/m6-coordinator/t15-hash/tree` was a fresh `git init` with
+one commit and no history, and three fixtures (`F1.`, `F1r.`, `C.`) read
+earlier builds' files from git (`f1_tree_at`, `:3274`; `:4271`), silently --
+`2>/dev/null`, no `pipefail`, an `exit 2` inside a pipeline's subshell that
+cannot end the run -- so each came up empty and the suite's vacuity
+detectors fired ten checks downstream. The brief's § 2 is corrected to the
+tree's figure, and the fail-open read is a stage-D `bug` of the file (the
+coordinator's ruling on #662). The lesson for the briefs: an export used
+to run a suite carries the history the suite reads, or the brief says it
+does not -- the T15 export was made with `git archive`, which carries none.
+
+### Errata from the stranger's proof of T45's brief (version 2, 2026-10-25)
+
+A read-only reader with no context checked 48 rows of version 1 against the
+hashes it named (35 verified, 4 wrong, 6 partial, 1 uncheckable; 8 API calls'
+budget, 6 used). What version 2 corrects, each at the place it lands:
+
+1. **The lane's tree is not the hash's on ten members.** The coordinator's
+   branch (merged into every lane worktree) carries `0ceb2994c5` and
+   `033eb7ed23` (2026-10-22, #636/#638: an Argon audit route, a content-filter
+   stop, three new pins on `scripts/lib/council-staged-*`), via the merge
+   `18747fbc52`; `FACILITATOR_VERSION` reads `council-facilitator@1.14.0` at
+   `8ebaf8daad` and `1.14.1-pixelelated.2` on the branch; 27 pins against 30;
+   the SUMS comparison 41/9/2 against 36/14/2. Version 1's stage-A stop ("a
+   branch that differs from `8ebaf8daad` on a member") fired by construction,
+   and its empty-diff checkbox could not be ticked. Version 2 keeps the read at
+   the hash, tables the delta as § Provenance rows (with the missing register row as a lead: no row names #636, #638 or the local Facilitator; the branch's `IMPORTED-FROM.md` records both in two sections and `docs/qa-logs/2026-10-22-review-filter-636/` holds #636's evidence), scopes the
+   stop and the checkbox to "other than those ten files", and runs the
+   toolchain's checks on both trees (a clone at the hash, never `git archive`).
+   The four Independent slices' provenance records were written by the branch's
+   Facilitator, not the export's bytes; the brief now says so.
+2. **Five fork commits on the 52, not eight.** Version 1 counted
+   `tools/council/`'s own log (six commits, two of which touch none of the 52).
+   By § 7's own command the figure is 5; `tools/council/package.json`'s last
+   fork commit is `b3e5c92559`, and 48 members' is `5f1b343d25`, not "every
+   other".
+3. **A seat-efforts refresh needs the key.** `lint-council-seat-efforts.ts
+   --refresh` sends `Authorization: Bearer $OPENROUTER_API_KEY` and fails
+   `refresh_no_key` without it; there is no public-list mode and no `--help`.
+   Version 1 listed "OpenRouter's public models list" among the slice's
+   read-only network uses; version 2 forbids `--refresh`, runs the offline
+   validation, and records that a fresh reading was not taken.
+4. **The `__tests__` pair differ by IMPORTED-FROM item 3** (ten fixture
+   literals built at run time) and the sweep, not by the Forge assertions,
+   which item 1 changes inside `council-toolchain.node-test.mjs` alone.
+5. **"The rules' front matter" is a relocation row**, not an adaptation with a
+   re-pin.
+6. **The env-file guard is one-sided**: `run` refuses a readable file at a mode
+   other than 600 and skips an absent one silently. Version 2 makes every
+   `tools/council/run` call carry `COUNCIL_ENV_FILE=/nonexistent` so the
+   wrapper never sources the key for a table, and names the one-sidedness as a
+   Q2 row.
+7. Smaller: `numpy<2.4` carries `python_version < "3.13"`; "39 cases" is the
+   export commit's claim (grep gives 37/34/19 top-level `test(`); the seats'
+   slugs live in `council-invoke.ts:1404-1481`, not in `council-roster.ts`;
+   `run test` needs a type-stripping Node (host `v24.21.0`); "no lockfile" is
+   `.gitignore:67`'s policy; the pins file's field is `schema_version`; the
+   scaffold checkout lacks the export's object entirely.
+
+Not checked by the proof, and left to the lane's stage A: the npm install,
+`verify-pins`, `drift`, `efforts`, `test` and `lint` runs; the diffs of the
+differing files against the export's bytes (only hashes exist on this host);
+the tracker bodies.
+
