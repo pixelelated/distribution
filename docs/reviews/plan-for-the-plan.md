@@ -319,6 +319,58 @@ sections (§ 7).
 the renovation face is added to its checks in P1 so a slice without the seven
 questions answered fails the lint rather than a reader's attention.
 
+**The stream practice (added 2026-10-26 from T17's second hand-back, #664).**
+A stage-E stream that changes a script `tools/last-good-scripts-test` covers
+runs that suite before its commit and names the run in `02` § The streams;
+a stream that changes an EmulationStation source runs the unit tests and
+the syntax check the slice's brief names, or records their `CANNOT`. T17's
+S3 narrowed a check too far and the suite found it only at S7
+(`c3e260861b` put it right); the suite before the commit would have found
+it at S3. And a suite that asserts the defect the stream fixes changes in
+the stream's commit -- exactly the checks the ruling reverses, each named
+with what it asserted before and after, each a recorded positive, the whole
+suite passing after with its count named (D-WORKFLOW-210: T29's S3 for
+`vm-upgrade-rehearsal`, T19's S1 and S3 for the scripts suite); and a fixture that relied on the defect -- a
+stand-in absent where the image always has one -- is completed in the same
+commit, no assertion changed (D-WORKFLOW-211, T19's S7). A source a stream changes cites its bug
+number, never a register row the brief ruled: the row reaches the lane's
+branch at hand-back, and `register-check` fails closed on a citation with
+no row (T19's retro). Every stream brief carries the line. Two more from the same
+hand-back, for a stream that proves a fix with a host fixture: a fixture that
+rewrites a script's absolute paths asserts, before it runs, that its scratch
+root lies outside every prefix it rewrites (T17's cost two guest re-runs),
+and the better shape rewrites nothing -- the real script in an unprivileged
+sandbox with `/storage` on scratch; and a host sandbox starts from an empty
+environment (`bwrap --clearenv`), since #549's lesson about `TMPDIR` holds at
+every execution boundary, not only Docker's. Every stream brief carries
+those two lines when a fixture is in its plan.
+
+**The brief practice that grew in P2 (added 2026-10-26 from the coordinator's
+retro, `docs/retros/2026-10-26-m6-coordinator.md`).** Before any dispatch: a
+**stranger's proof** -- a reader with no context, at most ten commands, from a
+scratch clone, runs the brief's membership block and its runs block and
+spot-checks every figure and line number; **version 2** of the brief records
+each correction in a list at its end, and the futro's kickoff addendum takes
+an errata section. In the brief itself: **every figure names its population**
+(the slice's paths, the directory, the tree), **every block is runnable from a
+clone** (path-safe forms: `-z`, `xargs -0`, Python over `ls-tree -r -z`; never
+`awk '{print $4}'` or `$(cat paths)` over paths that may carry spaces),
+**every binary or path is named only after `ls` has seen it**, and a claim
+about a writer or a caller comes from the grep that finds the write, not from
+a verb's name in a comment. At acceptance the lane's deltas become an **errata
+section** appended to the brief, never edited into its sections: the brief is
+the record of what was asked. Every version-1 brief of P2 needed its proof
+(twelve to seventeen corrections each), and twice the proof refuted the
+premise the lens was built on. A claim about another repository's table -- a `whySentences` row, a
+catalog's entry, a menu map's line -- names the read that shows it at that
+repository's pin, as the membership block does for this one; T17's S6 was
+briefed on a row the table did not hold (#1133's criterion was reworded). A count a brief states is produced by the binary a script will get --
+`/usr/bin/grep`, `command grep` -- never the interactive shell's `grep`, which
+here is a ugrep function with a different dialect: T18's declaration count
+read 47 there and 44 under GNU `grep -E`, which takes `\s` inside `[...]`
+literally (#1138). The stranger's proof runs from a script for the same
+reason.
+
 ### 6c. Review depth per slice
 
 From the code-auditor review levels (D-WORKFLOW-137), chosen in P1 and

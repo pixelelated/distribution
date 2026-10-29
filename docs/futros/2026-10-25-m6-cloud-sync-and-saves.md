@@ -251,3 +251,115 @@ digest behind it was taken read-only at `2174265e9c` (lead, not evidence).
   prefix. `comm` and `sort` run under `LC_ALL=C` in every block.
 - A blindspot is glossed by its own title, not by the lesson the author
   remembers from it (31 and 33 were glossed by other entries' lessons).
+
+### T17 kickoff addendum (written with the brief's version 1, 2026-10-26)
+
+The brief is `docs/reviews/briefs/cloud-setup-content.md`; the slice is
+#664 (`cloud-setup-content`, Extended, the security lens; 14 paths, 11,180
+lines, every one read). Written after T13's close-out and during T16's
+stage C, with the host handed to M7 (04:47 UTC) and two of three lane
+sessions at their account's weekly limit, so the dispatch waits for an idle
+session and its guest window for two RETURNs.
+
+- **Assumptions named.** Thirteen of the fourteen are the fork's own and
+  `backuptool` is the fork's rewrite of upstream's 68-line script (the
+  order said all fork-own; the inventory's tier does not distinguish
+  origin); `rclone.conf` has one direct writer (`cloud_connections.atomic`)
+  and two writers through `rclone config` (`cloud_setup`, `cloud_remote`);
+  `--match --apply` is the only deleting path and both of its statements
+  sit under the preview's count; the read is `8ebaf8daad`'s bytes while
+  M7's branch rewrites parts of these scripts (#1111 to #1117), cited by
+  number and never read from M7's worktrees.
+- **Known unknowns.** (1) Whether `conf_valid`, `cleanup`, `finish` and
+  `usage` in the content scripts and the scan are local or inherited
+  through `/etc/profile` (a § 5 run); (2) what `cloud_oauth`'s
+  `read_state` exposes and whether the per-session log at `:915` can carry
+  rclone's words (the digest counted 22 `token` and 6 `secret` lines and
+  read none, as the filter requires); (3) whether the guest's phone page is
+  reachable from the host under user-mode networking without a tools
+  change (if not, `CANNOT` with the gap named; `tools/cloud-input-test`
+  covers the handler on the host); (4) T16's lane report's *15 oracle rows
+  run only T17's scripts*, unverified by name in T13's documents.
+- **Patterns.** T16's generated tables with asserted counts and its seam
+  paragraph; T22's Extended recipe and guest conditions; T13's three-way
+  packet scan -- these files carry the scanner's words in comments and
+  names, so every hit needs a disposition and a value stops the packet;
+  #1061's lesson for every fixture (assembled at run time, never a literal
+  at rest); the removal-shape rule after the T16 lane's auto-denied runner.
+- **What could be missed.** A reader quoting a credential-shaped line as
+  evidence (the brief names file:line and the shape only); a reader taking
+  `rclone.conf`'s 0600 by construction as observed (a fixture reads the
+  mode back); a reader filing M7's open work as a bug against `next`; a
+  reader counting `--max-delete` as a transaction (the comment at
+  `:1036-1044` says it is a cap, and the refusals before it are the guard);
+  a reader asking a unit for anything (nothing runs on a handheld; the
+  guest is the candidate image and its installed files are hashed first).
+- **Before execution.** The stranger's proof of version 1; the worktree cut
+  from `2174265e9c` with the coordinator's tip merged; the body rewritten
+  with the seventeen criteria and the host-bench VM line; the dispatch to
+  the first idle session, with the window's sequencing after M7's RETURN
+  and T16's re-granted window stated in the dispatch comment.
+
+### Errata from the stranger's proof of T17's brief (version 2, 2026-10-26)
+
+Ten commands from the scratch clone; the membership block, every path and
+line-number constant, the history and the callers held. What the proof
+corrected, and what the addendum above had wrong:
+
+- **There is one writer of `rclone.conf`, not three.** The addendum's
+  "two writers through `rclone config`" do not exist: `cloud_setup`'s eight
+  `rclone config` lines are two reads, the `pkill`, three echoed
+  instructions and two comments; `cloud_remote create` writes through
+  `connections.save`. Q1 and the writers table are rewritten around the one
+  writer and the paths that reach it.
+- **Known unknown (1) is closed, not open:** none of `conf_valid`,
+  `cleanup`, `finish` or `usage` is called in these files (the names occur
+  only in comments and player text); the content scripts source
+  `/etc/profile` and `cloud_content_transfer`. The run lists sourced files.
+- The shell function counts (112) hold only for definitions whose brace is
+  on the line; the loose pattern gives 147. Both are stated.
+- `tools/vocabulary-check` reads four of the 14 and needs an
+  EmulationStation checkout; the other ten are read by hand.
+- Line slips (`write_archive :805`, `DEVNULL :49`, the `5)` arm
+  `:1858-1859`, a pipefail subshell at `backuptool:1177`) and counts
+  (`logger` 37, the second pre-base `backuptool` commit tiopex's, the
+  sign-in window's 31 + 2) corrected; the `.$$` and deletion runs
+  narrowed to the 14 paths.
+- Stranger traps the brief now names: the register rows cited live on the
+  coordinator's branch (merged at dispatch); `3a653eaec4` needs a fetch;
+  #1029 is T15's; M7 writes timestamped lines on the host file, and its
+  native stage returned 04:50 with its guest window queued behind the T16
+  stop; a `CANNOT` form for a window never granted.
+
+### Errata from T17's acceptance (2026-10-26)
+
+What the slice found that the kickoff addendum and the brief's version 2 had
+wrong or did not foresee; the brief's own "Errata at acceptance" section
+carries the figures.
+
+- **"No streams expected" was wrong by seven.** Six at the stage-D pause
+  (PL-01+14, PL-02 Medium, PL-03 Medium, PL-04+08, PL-05, PL-06) and a
+  seventh, S7, from the guest window's full restore (F-24, #1136: a
+  standalone symlink or fifo member restored; a failed restore's revert over
+  a restored-into directory failing). D-CLOUD-185 was written for PL-02's
+  allowlist. The addendum's known unknowns held; its "what we could be
+  missing" did not reach a member-type check the name check never made.
+- **Two host assumptions were the brief's, not the host's:** the
+  EmulationStation checkout for `tools/vocabulary-check` exists on the host
+  (ruled a read; 163 judged, 0 wrong), and `tools/signin-memory`'s default
+  page is a network read the slice forbids (a host-local page replaced it;
+  the QA WebDAV's 401 kept as the FAIL it was).
+- **A stream regressed a check and the suite found it two streams later**
+  (S3 at `f8feb15bb4`, corrected at `c3e260861b`); the plan § 6b now has a
+  stream run `tools/last-good-scripts-test` before its commit when it
+  changes a covered script, and a fixture's scratch root is asserted outside
+  every prefix it rewrites (the better shape rewrites nothing: the real
+  script in a bubblewrap sandbox with `--clearenv`).
+- **The credential refusal exits 1, not 5**; checkbox 3's reader was wrong
+  (the provenance files are read directly); the window sequencing put M7's
+  guest first; the phone page from the host stays `CANNOT` with the gap
+  named (a `hostfwd` for the serve's port, or a second guest).
+- **What the ES slices inherit** is the retro's list: the why table's two
+  missing sentences and six script-less rows, the sign-in window's contract,
+  the phone page's states after S1, S5's exit 1 and S7's reused refusal --
+  routed to #665 (T18) by the audit's rows.

@@ -421,3 +421,64 @@ digest behind it was taken read-only at `2174265e9c` (lead, not evidence).
   glob, the inventory hash noted; the worktree cut from `2174265e9c` with
   the coordinator's tip merged; the body rewritten with the sixteen
   criteria and the VM line; the dispatch to the first idle session.
+
+### T29 errata (2026-10-25, after the stranger's proof of version 1)
+
+The proof ran ten commands from the scratch clone at `2174265e9c`; the
+membership, the tiers, the selection, the fork-own five, the upstream
+delta and every cited path held. What it corrected, and what this
+addendum had wrong:
+
+- **The tree-wide shape block could not run.** It read paths with
+  `awk '{print $4}'`, which cuts every quirk path at its first space, so
+  the § 2 figures had not come from it. Version 2 carries a path-safe
+  tally (`git ls-tree -r -z`, `cat-file -p`), and every figure names its
+  population: `#!/bin/sh` 256 (not 257), `/storage` 156 of 285 blobs or
+  145 of 266 shell, `DEVICE_*` 104 or 101. The addendum's "one guard in
+  the tree" holds only when the pattern admits a quote: the x55's
+  `040-hdmi` writes `[ -f "/sys/..."`, and the proof's unquoted pattern
+  found none.
+- **The history figures were the directory's, not the slice's.** Over the
+  333 paths the fork's commits since the base are 6 (9 over the
+  directory, three of them on QEMU quirks since deleted) and 28 / 6 since
+  June (32 / 9 / 23 over the directory). Version 2 runs both.
+- **Checkbox 5 could not fail**: `$(cat paths.txt)` word-splits every
+  spaced path; it is the `xargs -0` form now.
+- `rocknix-info:8-10` has its own DMI fallback; "no DMI" was wrong.
+- The 18 pending upstream commits are 12 without merges; the rest of the
+  tree is 51 directories (not 50) and 21 aliases; tier B is 14
+  directories and 2 aliases.
+- The HAS / NONE read covers all 28 board `model` strings of the two
+  shipped trees (nine more NONEs: RG28XX, RG34XX, RG34XX-SP, RG35XX
+  Pro / H / Plus / 2024, Pocket S 1K, Odin 2 Mini), with
+  `qcs8550-ayn-thor.dts:358`'s sub-node set apart.
+- The third known unknown above (both `050-game*configs` spellings on
+  one board) is moot: no directory has both; it is a naming
+  inconsistency for Q7.
+- #676 was retitled and re-parented before dispatch, not at it; its body
+  was still P1's generated one (five checkboxes, a guest-proof VM line)
+  and is rewritten at dispatch.
+- The shared-file examples are completed (the DMG's and EVO's
+  `bin/achievements` → the Odin 2's; Pocket DS's two → the ACE's; RG DS
+  Plus → RG DS's `bin/`, `sleep.d/` and four files); the twelve AYANEO
+  aliases include `AYA NEO AYA NEO Founder`.
+- Not verified by the proof, and said so in version 2: #695's cell (the
+  coordinator corrected it), the inventory's `eb4763e3cc`, T22's 225 and
+  G-35.
+
+### T29 errata at acceptance (2026-10-26)
+
+- The board count is 26 (15 HAS, 11 NONE), not 28; `AYN Thor/touchcontrol`
+  is a file; `rocknix-info:12` converts `/` to `-` (the errata section of
+  version 2 was itself wrong on that point).
+- The addendum expected no stream; the slice landed three: the Nova's
+  battery LED helper (#1120, fork-own), the VM take-back's first pass
+  (#1124, fork-own; ruled a bug over the lane's "record" because a take-back
+  that removes by name whatever a file holds is the shape
+  `upgrade-and-install.md` forbids), and the upgrade rehearsal's seed
+  (#1125, a fork-only tool outside the membership, which the second fix
+  exposed and which gates the next candidate's step 3).
+- The stream brief named a donor bash that does not exist; the host's bash
+  5.3.9 stood in, named. A brief names a binary only after `ls` has seen it.
+- Three leads filed under #695 by the coordinator: #1119, #1122, #1123, and
+  #1126 for the LED presets (#332 being closed).
