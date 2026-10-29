@@ -43,32 +43,20 @@
    banners, exits, wall times and counts, the five `--old` recipes' exits --
    before reading a section.
 
-## Current focus (11:02 UTC update)
+## Current focus (18:11 UTC 2026-10-29 update): idle, handed back
 
-**Stage E: every bug's code is in (tip `5d1f67ca0b`); the evidence runs are going on M6's donor** (`QA_SYSTEM_ROOT=/workspace/artifacts/m6-donor/1a0266484423/image/system`; no M6 run names an M7 root).
-- **S1:** `3037ce6b8c`, `7cb11eb379`, `4e5b6c6103`, `3da816ce24` (with #1030).
-- **S2:** #1023 `5a155ed7fc`, #1022 `bea0374f3b`, #1021 `70af8e3771`, #1035 `1dbb668bb2`, #1024 `4bc40d7733`, #1039 `a286e5b49f`.
-- **S3:** #1033 `5429e27e72`, #1037 `60066e21f8`, #1027 `65bdd1a717`, #1036 `32ba775765`, #1034 `e155cd4309`, #1032 `11952dfcf3` (and `5d1f67ca0b`), #1026 `812d09e3af`, #1031 `b729628ad6`.
-- **S4:** #1025 `db08ed0953`. **S5:** #1028 `5d1b47deb7`.
-- **Running: the second queue** `/workspace/tmp/m6-t15/s3/queue2.sh`, PID 1008748, harness task `btiiafr4w`, writing `/workspace/tmp/m6-t15/s2/queue.log`:
-  1. root-final at `5d1f67ca0b`;
-  2. #1026's fake-`bwrap` runs, unfixed and fixed;
-  3. #1028's probe cuts, unfixed and fixed;
-  4. the twelve `--old` recipes at `5d1f67ca0b`.
-- **root-final at `5d1f67ca0b`: rc 3, 1,315 PASS / 0 FAIL / 0 SKIP / 2 CANNOT** in 516 s (1,312, plus #1033's self-check, plus #1027's split). Every strengthened check passes on the real scripts.
-- **Queued after the second queue:** a waiter (harness task `bko8f22st`) on `QUEUE2 END`, then `docs/audits/2026_10_25-epic-m6-tooling-last-good-test/stage-e/run-positives.sh <worktree> 5d1f67ca0b`. That is S3's constructed positives: the `alter-*.sh` recipes on throwaway clones under `/workspace/tmp/m6-t15/s3/<bug>/`, the unfixed and fixed harness each, the clones removed after (the coordinator, 06:05).
-- **Recorded since:** #1026's positive (no sandbox can start: 23 of 64 witnessed checks PASS unfixed, 0 fixed) and #1028's (the probe sees the caller's environment and host interfaces unfixed, none and `lo` fixed), both in `02`. `7987e9cc9f` witnessed the remaining six runners (71 of 71; the coordinator's 06:17 (b)).
-- **The chain, serial, each piece starting when the last writes its end line to `queue.log`:**
-  1. **the twelve: done.** Each reached a verdict, exit 1, every promise fired: five at `5d1f67ca0b`, seven at `e430d61cfa` (the table is in `02` § S2 and on #662 at 10:58). One departure, `70b6c70ca7`'s `012` checks: fixed at `d3f7843050` (`t`'s predicates through `driver_verdicts`), with `2dc1746de8` (a FAIL per missing verdict, proposed as (b) on #662; revert if the coordinator says (a));
-  2. `stage-e/run-positives.sh` (waiter task `bko8f22st`, on `QUEUE2 END`);
-  3. `/workspace/tmp/m6-t15/s3/closeout-queue.sh` (waiter task `btr4s8ben`, on `POSITIVES END`), at the branch tip read when it starts: the fake-`bwrap` run (`7987e9cc9f`'s eight checks), the `t` cut under `--old 70b6c70ca7` (#1024's `012` FAILs by name), then the final full run.
-- **It honours a `PAUSE T15` directive** at each boundary. If the session is gone, read `queue.log`; a START with no END means in flight or died, so check its PID.
-- **Done and recorded:** root-tip at `a286e5b49f` (rc 3, 1,312 / 0 / 0 / 2 CANNOT); #1021's shallow-clone positives (`02`); #1023's `1d1503180d` and `34aca64afd`.
-- **Answered (06:05):** altered throwaway copies yes, as committed recipes (`stage-e/`, `c388b07f78`); the twelve at the final tip only.
-- **Then:** write each positive into `02`, the twelve-recipe table, and the S2-S5 checkpoint; then the close-out.
-- **The register:** D-WORKFLOW-206 to 209 and D-INFRA-032 are the M7 lane's; a row here takes D-WORKFLOW-210+, D-QA-064 or D-INFRA-033+. None is planned.
-- **Then S2 to S6, then the close-out** (the brief's last section): the Phase 7 table, `02` § The suites re-run, the lint, `fixed-at:`, the retro, the hand-back, then idle.
-- **Stages A to D** are in `00` (A 00:23-01:10; B `c4a7e98509`; C `4851698b02`; D `2eface0727`: `05`, bugs #1018-#1039, audit issue #1040).
+**T15 is handed back and idle, waiting on the coordinator's acceptance run.** Nothing of T15 is running (no suite, queue, waiter or clone process). The hand-back is on #662.
+- **The code:** all 22 bugs fixed on this branch; the last code commit is `fixed-at: e8d8fd7dc6`, and `reviewed-at: 60d7f6a5b2` is the read on `8ebaf8daad`'s bytes. Both are in #662's body.
+- **The proof** is on M6's donor root (`QA_SYSTEM_ROOT=/workspace/artifacts/m6-donor/1a0266484423/image/system`, BUILD_ID `1a0266484423`):
+  - the final full run at `1ff2f82a95`: rc 3, 1,315 PASS / 0 FAIL / 0 SKIP / 2 CANNOT (this branch's writer tests until T14 merges);
+  - the twelve `--old` recipes, each a verdict with every promise fired;
+  - every bug's positive, in `02` § The streams' positives, `00`, and `stage-e/` (the recipes for the constructed inputs, re-runnable with `stage-e/run-positives.sh <worktree> <tip> [bug...]`).
+- **`05` is at Phase 7:** PL-01 to PL-22 Resolved, PL-23 Deferred to #1007, PL-24 to #1041, the `punch_index` agreeing. `tools/lint-audit-artifacts` at the default phase: PASS.
+- **The coordinator's branch** was merged at `aade7a9949` (`0721307c0c`).
+- **#1035's checkbox** was edited and ticked in one action (the 06:41 ruling (a)).
+- **After acceptance:** `audit-completion.json` from #1040's closed readback, the full lint, and this pointer set accepted.
+- **Run outputs** are kept in `/workspace/tmp/m6-t15/` (`s2/queue.log`, `s3/donor-*.out`, `s3/<bug>/`). The throwaway clones are removed; the `s2/` and `s3/` run clones (`tip`, `final`, `final2`, `closeout`, `at10*`, `shallow-*`, `u1026`) stay until acceptance, then go, one short `rm -rf` each.
+- **The register:** no row from this slice. D-WORKFLOW-206 to 209 and D-INFRA-032 are the M7 lane's.
 
 Not started before 00:22 UTC. The first commit on this branch is the running log's header,
 `01-research-notes.md` § Scope, this pointer updated, and the day's
