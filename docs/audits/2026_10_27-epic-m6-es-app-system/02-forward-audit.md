@@ -657,6 +657,18 @@ The proposed text follows. A stage-E stream the coordinator writes adds it to `d
 
 proved: tool-run (`stage-a/runs.out`; L-29).
 
+**At stage E's hand-back, by file.** Each is named for the integration (the brief's § The hand-back):
+- **`OfflineAchievementsText.cpp`, `.h` and `OfflineAchievementsTextTests.cpp`:** S4b against T20's `274a71add` and `f85061f14`. T20 appends after the `.cpp`'s pin `:283`, the `.h`'s `:158` and the test file's end; S4b's hunks end at the `.cpp`'s pin `:230`, the `.h`'s `:123` and the test file's pin `:232`. No shared line.
+- **`SystemData.cpp:1653`, `:1657`** (T2's): S1a's two-token patch, `stage-e/patches/s1a-SystemData-getGamelistPath.patch`.
+- **`guis/GuiGamelistFilter.cpp:262-270`** (T31's): S2's EP-43 patch with its sentence and its French, `stage-e/patches/s2-GuiGamelistFilter-save-result.patch`.
+- **`guis/GuiKeyMappingEditor.cpp`** (T31's; the constructor at `:80`): S3's one-line toast, `stage-e/patches/s3-GuiKeyMappingEditor-refused-keys.patch`. Proven on a copy read at T31's tip `95852f873`.
+- **`guis/GuiRetroAchievementsSettings.cpp:795-796`** (T31's): no patch. S4a's sameacct case passes (ruling 5).
+- **`es-core/src/watchers/WatchersManager.cpp`** (es-core): no patch. S4a's worker removes the network call from `check()`; the lock's shape is recorded for the es-core slice (#585 line 20).
+- **`ViewController.*`** (T2's): the pair S2 calls (`dropGameListView`, `remakeGameListView`), unchanged.
+- **`es-app/CMakeLists.txt` and `WifiText.*`** (T21's): untouched here.
+- **`SystemData.cpp:459-473`, `Window.cpp:1107-1117`:** PL-25's lead, no patch (#585 line 21).
+- **The catalog** (`locale/lang/fr/LC_MESSAGES/emulationstation2.po`): S3, S4b and S6 add 6 entries, the KEY sentence, the CloudOffer sentence and the lock's why, and the three tags. Any other lane's catalog hunk meets them by msgid, beside SLOW's and beside the cloud box's entries.
+
 ## The runs
 
 Stage A's runs are in `stage-a/runs.out` (brief § 5's block, each expectation met; the two errata accepted on #680 at 18:43 UTC) and `stage-a/syntax-check.out`.
@@ -703,7 +715,34 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
 
 ## The streams
 
-Written by the coordinator after stage D, as for T21, T26 and T32. The lane leaves this heading and the pause's dispositions.
+Stage E, under the coordinator's brief `docs/reviews/briefs/t33-streams.md` at `31561429a2` (dispatched 05:14 UTC 2026-10-30, #680 comment 6515550000), on the ES branch `feature/m6-es-app-system-680` (pixelelated/emulationstation), which left the pin `16dbac5211` here. Each stream's positive FAILs on the code before it (`stage-e/sN-before.txt`) and PASSes after (`sN-after.txt`). The checks are in `sN-checks.txt`: the stand-in syntax check, `tools/t33-build-tests.sh`'s own `TOTAL:` line where a stream adds cases, the generators, `es-untranslated` and the ES pre-push test. Every guest half is `fix-walk-pending-image`, the coordinator's at the integration window. The tip checks are `stage-e/handback-checks.txt`, and every harness at the tip is `stage-e/handback-run.sh` (30 runs, 0 unexpected).
+
+| Stream | Bug | ES commit | Positive before | Positive after | Already written | proved: |
+| --- | --- | --- | --- | --- | --- | --- |
+| S1a | #1271 (PL-01), #1285 (PL-16's `saveToXml`) | `d0d92dda6` | `l313-update-gamelist`: the restored entry lost and `gamelist.xml` written in place; `l313-gamelist-save`: 9 FAIL (outside, inode, unparsed, recovery, media, record, three kills) | both rc 0, `--control` guarded `CANNOT`. `t33-reads` goes from 4 to 16 uncached and `t33-writes` from 11 to 7 lines. `getGamelistPath`'s two tokens are `stage-e/patches/s1a-SystemData-getGamelistPath.patch` (ruling 1) | read both: a file on disk is read uncached and parsed before it is written; a recovery record waits for the save that folds it in (#1271's) | fix-unit-test; G-04 again `fix-walk-pending-image` |
+| S1b | #1271 (EP-36, D-CLOUD-187) | `dd86d7ce2` | `l313-gamelist-merge`: same, desc and default FAIL (a restored field lost, a session's change not winning, a default not removed) | the four cases rc 0. The exit save's cost is below. EP-36's lost update inside the read-to-rename span is recorded, not closed | as S1a | fix-unit-test |
+| S2 | #1272 (PL-02), #1275 (PL-05), #1287 (PL-22) | `4e9a7d166` | `l06` and its route case: heap-use-after-free in `reloadGameListView`; `ep37`: the old view moved; `s2-collection-files`: cfgkill, xcckill, delete and reset FAIL | all rc 0, the control guarded. `t33-reads` reaches 18 and `t33-writes` 5. EP-43's page half is `stage-e/patches/s2-GuiGamelistFilter-save-result.patch` (ruling 4). PL-02 stays Medium: the non-bundled route does not fault (ruling 10) | nothing inherited for the reload; a cut `.cfg` or `.xcc` reads as empty, and the next save rewrites it whole (#1275's) | fix-unit-test; the bundle's filter, the create-and-delete and FILTER GAMELIST BY after a reset `fix-walk-pending-image` |
+| S3 | #1274 (PL-04), #1279 (PL-09), #1291 (PL-13), #1292 (PL-18's 3.5), #1282 (PL-12), #1278 (PL-08) | `0b369b44b` | `l321`, `l331`, `l335`, `l309`, `s3-tables` (genre, import, xcc0) and `l321-keys-shapes` FAIL, the last with a SEGV and an abort under the pin's `-DNDEBUG` | all rc 0. `TOTAL: 240 test cases in 5 binaries`. `t33-words` goes from 196 to 197 msgids. The toast's call is `stage-e/patches/s3-GuiKeyMappingEditor-refused-keys.patch` (ruling 2) | read both: a stored `0 STARS` reads as `1 STARS` and is written so at the next save (ruling 3, #1291's line edited) | fix-unit-test; G-08 with the line and the rating rows `fix-walk-pending-image` |
+| S4a | #1276 (PL-06), #1288 (PL-23), #1283 (PL-14) | `b902cc8ba` | `l12`: 5 direct posts; `s4a-token-check`: switchoff, account, reset (1999 ms) and closing FAIL; sameacct passes (ruling 5: no generation) | `l12` reads 0 direct and 5 gated. All five cases pass under ASan and TSan, `ResetComponent` at 0 ms. The worker never calls `ResetComponent`: the deadlock is posted at 05:41 | nothing inherited (PL-06, PL-14); PL-23: a stale token sits unused while the switch is off, and the next check overwrites it | fix-unit-test; G-09 `CANNOT` (no account) |
+| S4b | #1286 (PL-21), #1281 (PL-11), #1280 (PL-10), #1284 (PL-15), #1285 (PL-16's two writers), #1289 (PL-24) | `a5273390e` | five doctest cases: four FAIL at the pin; `s4b-cloudoffer` 5 of 7 FAIL; `s4b-writes` 6 of 6 FAIL | `TOTAL: 245 test cases in 5 binaries`, 0 failed; 7 of 7 and 6 of 6. `t33-writes` reaches 2 and `t33-words` 199. RunLock also takes the script after `sh` or `bash` (the ctl is `#!/bin/bash`); the rotation cache is keyed by inode and nanoseconds as well | nothing inherited, except a cut `.rotation` or `.keys` reading as the safe reading (#1285's) | fix-unit-test; the CloudOffer stub and its French box `fix-walk-pending-image` |
+| S5 | #1273 (PL-03), #1290 (PL-19's EP-47) | `d370ac62e` | `l07` drop and engine: heap-use-after-free; l08 on the calling thread; stage C's control FAILs engine on destroyed params; `s5-bluetooth`: heap-use-after-free in the constructor | all rc 0, the control guarded. The builder copies its params. The join's bound is the hash plus the 10 s connect, with no stall bound on this branch | nothing inherited (both in memory) | fix-unit-test; no adapter on the guest |
+| S6 | #1277 (PL-07) | `f802c55c6` | `l329`: 9 tag names, 3 without | 0 without, the control guarded. `t33-words` reaches 202; `es-untranslated` reads 709 of 709 | nothing inherited (a tag is stored by its English name) | fix-unit-test; the French tag frames `fix-walk-pending-image` |
+| S7 | #1270 checkbox 17 (PL-17) | distribution `75f696b22d`, after S2 | `es-menu-map-check` reads `0 missing` (the pages are invisible to it); the grep finds 0 | the same `0 missing`; the grep finds 5; UPDATE GAMELISTS sits under GAME SETTINGS > TOOLS alone | nothing inherited (a document) | tool-run |
+
+**The exit save's cost against D-CLOUD-119 (3 s; S1b item 4).** One dirty game in N entries, read, parsed, overlaid or rebuilt, written and renamed, on the host at -O2:
+
+| N | Pin | S1a | S1b |
+| ---: | --- | --- | --- |
+| 1,000 | 0.7 ms | 0.8-0.9 ms | 0.8-0.9 ms |
+| 10,000 | 6.5-7.0 ms | 8.0-8.3 ms | 8.4-8.5 ms |
+
+A handheld is slower by a factor the host cannot know. The harness's AtomicFile double does not fsync, and the real `writeText` fsyncs the file and its directory, so that cost is not priced here. The exit save runs at QUIT and restart and from `/updategames`, not on the launch path. Time to play: only S1a's `saveToXml` touches the launch path, with one `rename(2)` where there was a remove and a save.
+
+**Recorded, no stream (the brief's § Recorded):**
+- **PL-25 has a fixture.** The screensaver's list is not cleared on the transfer's rescan path, and `stage-c/pl25-screensaver.py` FAILs at the pin and at the tip (heap-use-after-free in the next pick). Its read is `stage-e/pl25-read.txt`. It is a lead for the rescan's owner, T2's `SystemData.cpp`, and es-core's `Window.cpp`; severity is the coordinator's word.
+- **PL-20** goes to Backlog #1235 and **PL-18's 3.20 sibling** to #771, both by comment (`stage-e/comment-links.md`).
+- **PL-14's update check** is not moved: `canUpdate` returns for `pixelelated` at `ApiSystem.cpp:455-456`. Together with the lock's own shape, it is recorded for the es-core slice, and #1283 keeps that checkbox open. **PL-23's generation** is not needed: the sameacct case passes.
+- **The two gaps** are open items to test at the integration window: the French frames (S6) and the index toast with INDEX NEW GAMES on (G-03's half).
 
 ## Positives
 
@@ -737,6 +776,34 @@ Q7's six candidates, for the coordinator to weigh. These are what the slice carr
 4. **`FolderMerge.h`.** Its consumer is in an earlier slice (`SystemData.cpp:486`).
 5. **`CheevosIndex.*`.** Its consumer is `ThreadedHasher.cpp`.
 6. **`GameCubeRvzHashRetry.h`.** Its consumer is `ThreadedHasher.cpp:44`; #609 is open against it.
+
+**At stage E's hand-back** (the brief's § The record: S1's, S2's three, S3's five and the double count's, S5's two, S6's, and the recorded items'). Each is a candidate under D-WORKFLOW-164 and is not sent (D-WORKFLOW-165). The stream's commit is on `feature/m6-es-app-system-680`, and each is rechecked against upstream's head when it is ready. `batocera/master` was not read.
+
+| # | Upstream | File | The change | Commit, evidence |
+| --- | --- | --- | --- | --- |
+| 1 | batocera-emulationstation, then ROCKNIX | `Gamelist.cpp` (`updateGamelist`, `packGamelist`, `cleanupGamelist`, `saveToXml`); `SystemData.cpp` `getGamelistPath` | the file read uncached and parsed before the save; temp-and-rename; the recovery kept until the save folds it in; the changed fields laid over the file's entry | S1a `d0d92dda6`, S1b `dd86d7ce2`; `l313-*`; the `getGamelistPath` patch |
+| 2 | the same | `CollectionSystemManager.cpp` `reloadCollection` | the holders' views dropped before the clear and remade after; the bundle's remade view moved | S2 `4e9a7d166`; `l06-*` |
+| 3 | the same | `CollectionSystemManager.cpp` `saveCustomCollection`, `FileFilterIndex.cpp` `CollectionFilter::save` | temp-and-rename | S2; `s2-collection-files` |
+| 4 | the same | `FileFilterIndex.cpp` `clearIndex` | the map by reference (`resetIndex` cleared copies) | S2; `s2-collection-files` reset |
+| 5 | the same | `Genres.cpp:299`, `:305` | `npos`, and the parent's entry | S3 `0b369b44b`; `s3-tables` genre |
+| 6 | the same | `LangParser.cpp:65` | the token `india` | S3; `l331` |
+| 7 | the same | `FileFilterIndex.cpp` rating and year, `CollectionFilter::load` | one star at least; four digits; a stored `0 STARS` read as `1 STARS` | S3; `l309`, `s3-tables` xcc0 |
+| 8 | the same | `MetaData.cpp` `importScrappedMetadata` | a field the scraper did not return is left as it was | S3; `s3-tables` import |
+| 9 | the same | `KeyboardMapping.cpp` `load` | shape checks before `GetString`, a refused trigger named and logged | S3; `l321-*` |
+| 10 | the same, recorded | `Genres.cpp:244-248`, `FileFilterIndex.cpp:1015-1016` | 3.8's double count | `stage-e/s3-checks.txt` |
+| 11 | the same | `components/ScraperSearchComponent.cpp` `ScraperAsyncRequestsBuilder` | the thread owned and joined; params copied; the second search on a builder | S5 `d370ac62e`; `l07` |
+| 12 | the same | `ThreadedBluetooth.cpp` | published under a lock before the worker starts (the formatter too) | S5; `s5-bluetooth` |
+| 13 | the same | `FileTag.cpp` | three tag names through `_()` | S6 `f802c55c6`; `l329` |
+| 14 | the same, recorded | `ZaparooSupport.cpp:32-39`, `:58-63` | EP-45: the probe unbounded, the name raw in JSON | PL-19's remainder |
+| 15 | the same, recorded | `ContentInstaller.cpp:61`, `:144-236` | L-10: the self-deleting worker, the tool-text toasts | PL-19's remainder |
+| 16 | the same, recorded | `SystemScreenSaver.cpp:156-164`, `:546` | L-11: the cached reads, ten retries over a remembered miss, the launch past the format and BIOS checks | PL-19's remainder |
+| 17 | the same, recorded | `components/ScraperSearchComponent.cpp:386`, `:468` | the search's English dialog | PL-19's remainder |
+| 18 | the same, recorded | `KeyboardMapping.cpp:499-509` | PL-26: a mouse-only map called invalid | PL-26 |
+| 19 | the same, recorded | `PlatformId.cpp:28`, `:171`; `MetaData.cpp:313`, `:392-404`; `FileFilterIndex.cpp:579-580`; `Gamelist.cpp:177`; `LangParser.cpp:225-226`; `SystemRandomPlaylist.cpp:28-30` | PL-18's rest: 3.1, 3.3's prefix, 3.4, 3.10's aside, 3.14, 3.32, 3.34 | `stage-c/floor.md` |
+| 20 | ROCKNIX's es-core, then batocera | `es-core/src/watchers/WatchersManager.cpp:181-199` | `check()` outside `mWatchersLock`, the `WatcherInfo` kept alive across it (EP-13) | S4a's record |
+| 21 | T2's slice first (`SystemData.cpp`), then upstream | `SystemData.cpp:459-473`, `Window.cpp:1107-1117` | PL-25: the rescan tells the screensaver before it deletes | `stage-c/pl25-screensaver.py`, `stage-e/pl25-read.txt` |
+
+The fork's own files carry no #585 line: `NetworkThread.*`, `OfflineAchievementsText.*`, `RunLock.h`, `CloudOffer.cpp`, `CaptureRotation.cpp`, `TextFit.h` and `DisplayAspect.cpp`. PL-19's `CaptureRotation.cpp:146-163` (EP-14, the log read with no size bound) and `DisplayAspect.cpp:74-87` (L-04) are recorded against the integration image's time to play.
 
 ## What T34 to T37 inherit
 

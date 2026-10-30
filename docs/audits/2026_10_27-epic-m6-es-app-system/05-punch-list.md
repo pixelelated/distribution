@@ -6,13 +6,14 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - the guest cycle, the stage-C fixtures (`stage-c/runs.txt`) and the floor read (`stage-c/floor.md`, a subagent's, labelled);
 - the seat's grades (`stage-c/astra-grades.md`).
 
-- **reviewed-at:** `27bd8499f1` (distribution); **reviewed-at-es:** `16dbac5211` (the pin). **fixed-at** and **fixed-at-es** come at stage E.
+- **reviewed-at:** `27bd8499f1` (distribution); **reviewed-at-es:** `16dbac5211` (the pin). **fixed-at:** the distribution's hand-back tip on `feature/m6-es-app-system-680` (named in #680's header and the hand-back post); **fixed-at-es:** `f802c55c6` (`feature/m6-es-app-system-680`, pixelelated/emulationstation; S1a `d0d92dda6` to S6 over the pin).
 - **Independent depth:** one seat, GPT-6 Astra at `max` (`second-opinions/review-plan.json`).
 - **One item per defect or reusable improvement**, however many leads found it. PL-01 to PL-20 are the first read's, ordered by severity within the bugs proposed, then the recorded; PL-21 to PL-26 are the seat's new items (EP-39 to EP-46), appended.
 - **Nothing here changes a file** under the distribution's `packages/`, `projects/` or `tools/`, or an ES file, at stages A to D. A fix lands only under a stream brief on the ES branch, proven twice. A row added, moved or renamed updates `docs/es-menu-map.md` in the same commit (D-UI-039).
 - **Lines** are the pin's. "Guest" means the M6 image (M7's composition over the pin). "Fixture" means a stage-C harness that fails at the pin and passes its control.
 - **Every disposition is a question** for the stage-D pause (`question:`). **Ruled 20:10 UTC** (#680 comment 6452429909): twenty bugs, #1271 to #1290, filed with their code traces by `tools/t33-file-bugs.py`; **ruled 20:15 UTC** (#680 comment 6452522368): PL-13 and PL-18's 3.5, #1291 and #1292 (`--second`). Each item's **Bug:** line names its issue.
-- **The audit issue:** #1270 (a sub-issue of #680), one checkbox per item; `tools/box-check --issue 1270`: 26 open checkboxes, 0 fail.
+- **The audit issue:** #1270 (a sub-issue of #680), one checkbox per item, ticked at stage E's hand-back from the Phase 7 table below; `tools/box-check --issue 1270`'s line is in the hand-back post.
+- **Lines corrected at Phase 7** (the stream brief's § Lines): PL-04's `:304` is `:305`; PL-09's `:148` is `:150`; PL-12's `:292` is `:293-294`; PL-22's `resetIndex` is `:148-162`; PL-13's `:321` is `:322`; PL-11's `:229` is `:230`; the checker's patterns are `:49-56`.
 
 ---
 
@@ -95,14 +96,14 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Category:** Correctness
 - **Question:** Q3
 - **Family:** a check whose failure reads as success
-- **Source Finding:** the floor's 3.8 [re-read], 3.11 -- proved: tree (`stage-c/floor.md`, the first reader's re-read at `Genres.cpp:304`)
+- **Source Finding:** the floor's 3.8 [re-read], 3.11 -- proved: tree (`stage-c/floor.md`, the first reader's re-read at `Genres.cpp:304`; the line returned through is `:305`, stage E's § Lines)
 - **Owner area:** `es-app/src/Genres.cpp:293-306` (`fromGenreName`), `:299`; reached from `FileFilterIndex.cpp:1251-1253`, `:1184` (a dynamic collection's genre filter) and the scrapers
 - **What:**
-  - `fromGenreName` looks a name up whole (`:295`); on a miss it tries each part after `/` and, on a hit, returns `mGenres[g->second]` (`:304`), where `g` is the whole name's end iterator, not the part's `sg`. That is undefined behaviour: a wrong genre or a crash.
+  - `fromGenreName` looks a name up whole (`:295`); on a miss it tries each part after `/` and, on a hit, returns `mGenres[g->second]` (`:305`), where `g` is the whole name's end iterator, not the part's `sg`. That is undefined behaviour: a wrong genre or a crash.
   - `:299`'s `name.find("/") >= 0` is always true (`size_t`).
   - The floor's 3.8 also finds a parent genre counted twice for a game with two of its children (`Genres.cpp:244-248`, `FileFilterIndex.cpp:1015-1016`).
 - **Fix shape:**
-  - `mGenres[sg->second]` at `:304`; `!= std::string::npos` at `:299`; a unit case over a document seam (3.8's).
+  - `mGenres[sg->second]` at `:305`; `!= std::string::npos` at `:299`; a unit case over a document seam (3.8's).
 - **Can this be done on the VM?** Yes. A unit case in `es-unit-tests` over a genre table; it FAILs at the pin under ASan.
 - **Already written:** nothing inherited: a filter's `.xcc` stores the genre by name and is read the same way after the fix.
 - **Acceptance:**
@@ -200,7 +201,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Source Finding:** L-26, 3.31 -- proved: fixture (`stage-c/l331-lang-india.py`)
 - **Owner area:** `es-app/src/LangParser.cpp:65`
 - **What:**
-  - Tags are lowercased before `extractLang` (`:148`); `india` never equals `ìndia` (U+00EC), so only `in` matches.
+  - Tags are lowercased before `extractLang` (`:150`); `india` never equals `ìndia` (U+00EC), so only `in` matches.
 - **Fix shape:**
   - the token `india`.
 - **Can this be done on the VM?** Yes. The fixture against the fixed file.
@@ -236,7 +237,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Question:** Q3
 - **Family:** a check whose failure reads as success
 - **Source Finding:** L-17, the floor's 3.41 -- proved: tree (`stage-c/floor.md`)
-- **Owner area:** `es-app/src/OfflineAchievementsText.cpp:17-20` (`jsonInt`), `:229`
+- **Owner area:** `es-app/src/OfflineAchievementsText.cpp:17-20` (`jsonInt`), `:230`
 - **What:**
   - `jsonInt`'s `(int)v.GetInt64()` narrows an id (`:17-20`), and the id fields are `int`. The epoch is `time_t` via `strtoll` (`:229-231`; EP-12: the first reader had it as `int`). Out-of-range input needs a defined outcome.
 - **Fix shape:**
@@ -255,9 +256,9 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Question:** Q3
 - **Family:** a check whose failure reads as success
 - **Source Finding:** L-28, 3.21, EP-10 -- proved: fixture (`stage-c/l321-keys-parse.py`); guest (G-08)
-- **Owner area:** `es-app/src/KeyboardMapping.cpp:217-300` (`:262-272`, `:292`; `GetString` with no `IsString` at `:247-288`)
+- **Owner area:** `es-app/src/KeyboardMapping.cpp:217-300` (`:262-272`, `:293-294`; `GetString` with no `IsString` at `:247-288`)
 - **What:**
-  - A trigger `checkTriggerExists` refuses is skipped, and a mapping with no trigger is dropped (`:292`): the editor shows the rest and says nothing.
+  - A trigger `checkTriggerExists` refuses is skipped, and a mapping with no trigger is dropped (`:293-294`): the editor shows the rest and says nothing.
   - **EP-10:** under NDEBUG, `GetString` with no `IsString` at `:251`, `:254`, `:257` (type, mode, description), `:265-266`, `:271-272` (triggers) and `:282-283`, `:288-289` (targets), and no `IsObject` before `HasMember` (`:246-250`), are undefined behaviour on a hand-edited file. The `GetArray` calls are guarded. A chord with one unknown trigger loses it and changes meaning.
 - **Fix shape:**
   - a log line naming the dropped trigger (the fixture's control), and shape before every `GetString`.
@@ -275,7 +276,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Question:** Q3
 - **Family:** a check whose failure reads as success
 - **Source Finding:** L-27, 3.9 -- proved: fixture (`stage-c/l309-rating-year.py`)
-- **Owner area:** `es-app/src/FileFilterIndex.cpp:321-340`, `:364-369`
+- **Owner area:** `es-app/src/FileFilterIndex.cpp:322-340`, `:364-369`
 - **What:**
   - `0.05` rounds to `0 STARS` where `""` and `"0"` read UNKNOWN; `3000…` and `0999…` read `""`; the label for one star is `1 STARS`.
   - **EP-11:** the cases' rule (one star for any positive rating; any four digits a year) is a proposed policy, and `1 STARS` is an index key whose display is not yet read.
@@ -352,7 +353,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Question:** Q7
 - **Family:** a page the map does not describe
 - **Source Finding:** Q7, the brief's § 7 -- proved: tool-run (`es-menu-map-check`'s line; the grep's 0 hits)
-- **Owner area:** `docs/es-menu-map.md`; `tools/es-menu-map-check:48-55`; `guis/GuiGamelistFilter.cpp:11`, `:17`; `guis/GuiMenu.cpp:5756`; `guis/GuiCollectionSystemsOptions.cpp:368`
+- **Owner area:** `docs/es-menu-map.md`; `tools/es-menu-map-check:49-56`; `guis/GuiGamelistFilter.cpp:11`, `:17`; `guis/GuiMenu.cpp:5756`; `guis/GuiCollectionSystemsOptions.cpp:368`
 - **What:**
   - The proposed text is in `02` § The structure: UPDATE GAMELISTS has **one** handheld home, GAME SETTINGS > TOOLS; the collection-settings entry is Windows-only (`GuiCollectionSystemsOptions.cpp:366-369`; EP-25). The check reads three title shapes and misses `mMenu(window, _("..."))` in a member initializer (#951/#965's class); the fourth pattern's census is rerun (EP-26).
 - **Fix shape:**
@@ -446,8 +447,8 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Category:** Correctness
 - **Question:** Q3
 - **Family:** a check whose failure reads as success
-- **Source Finding:** EP-44 -- proved: tree (`FileFilterIndex.cpp:146-160`, `:1102-1105`)
-- **Owner area:** `es-app/src/FileFilterIndex.cpp:1102-1105` (`clearIndex`), `:154-160` (`resetIndex`); caller `CollectionSystemManager.cpp:1114`
+- **Source Finding:** EP-44 -- proved: tree (`FileFilterIndex.cpp:148-162`, `:1102-1105`)
+- **Owner area:** `es-app/src/FileFilterIndex.cpp:1102-1105` (`clearIndex`), `:154-162` (`resetIndex`, nine facets); caller `CollectionSystemManager.cpp:1114`
 - **What:**
   - `clearIndex(std::map<std::string, int> indexMap)` takes the map by value and clears the copy. `resetIndex` calls it for every facet, so a dynamic collection's repopulate (`:1114`) and every other reset keep the old keys and counts: the filter pages offer values no game has.
 - **Fix shape:**
@@ -536,36 +537,36 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 
 ## Phase 7 resolution gate
 
-Stage F rewrites this table and the index together. Until then every item is `Open`.
+Stage E's hand-back, 2026-10-30: every item at its outcome, the table and the index rewritten together from `stage-c/punch-items.py`'s `RES`. The ES commits are on `feature/m6-es-app-system-680` (pixelelated/emulationstation), fixed-at-es `f802c55c6`; each stream's before, after and checks are under `stage-e/`, the tip's are `stage-e/handback-checks.txt`, and `02` § The streams carries one row per stream.
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | -- |
-| PL-02 | Open | -- |
-| PL-03 | Open | -- |
-| PL-04 | Open | -- |
-| PL-05 | Open | -- |
-| PL-06 | Open | -- |
-| PL-07 | Open | -- |
-| PL-08 | Open | -- |
-| PL-09 | Open | -- |
-| PL-10 | Open | -- |
-| PL-11 | Open | -- |
-| PL-12 | Open | -- |
-| PL-13 | Open | -- |
-| PL-14 | Open | -- |
-| PL-15 | Open | -- |
-| PL-16 | Open | -- |
-| PL-17 | Open | -- |
-| PL-18 | Open | -- |
-| PL-19 | Open | -- |
-| PL-20 | Open | -- |
-| PL-21 | Open | -- |
-| PL-22 | Open | -- |
-| PL-23 | Open | -- |
-| PL-24 | Open | -- |
-| PL-25 | Open | -- |
-| PL-26 | Open | -- |
+| PL-01 | Resolved | Resolved in `d0d92dda6` (ES, S1a: read uncached, parse before write, temp-and-rename, the recovery kept) and `dd86d7ce2` (S1b: the changed fields laid over the file's entry, D-CLOUD-187) under #1271; `getGamelistPath`'s two tokens are `stage-e/patches/s1a-SystemData-getGamelistPath.patch` for T2's file (ruling 1); EP-36's lost update recorded; a #585 line |
+| PL-02 | Resolved | Resolved in `4e9a7d166` (ES, S2) under #1272: the holders' views dropped before the clear and remade after (#246's pair); Medium stands, the non-bundled route does not fault (ruling 10); a #585 line |
+| PL-03 | Resolved | Resolved in `d370ac62e` (ES, S5) under #1273: the builder owns and joins its thread, copies its params, takes the second search; the join's bound named in `stage-e/s5-checks.txt`; a #585 line |
+| PL-04 | Resolved | Resolved in `0b369b44b` (ES, S3) under #1274: `npos` at `:299` and the part's entry at `:305` (the line corrected); 3.8's double count recorded; a #585 line |
+| PL-05 | Resolved | Resolved in `4e9a7d166` (ES, S2) under #1275: the custom list and the dynamic filter written temp-and-rename, the delete's reads uncached; EP-43's page half is `stage-e/patches/s2-GuiGamelistFilter-save-result.patch` for T31's file (ruling 4); a #585 line |
+| PL-06 | Resolved | Resolved in `b902cc8ba` (ES, S4a) under #1276: the five posts through `AppWindow::post`, the drain policy in the file's comment |
+| PL-07 | Resolved | Resolved in `f802c55c6` (ES, S6) under #1277: three anchors, EN COURS, ABANDONNÉ, EN PAUSE; the French frames are an open item to test at the integration window; a #585 line |
+| PL-08 | Resolved | Resolved in `0b369b44b` (ES, S3) under #1278: the floor counts characters, a fourth `TextFitTests` case |
+| PL-09 | Resolved | Resolved in `0b369b44b` (ES, S3) under #1279: the token `india` (the lowercasing is `:150`, corrected); a #585 line |
+| PL-10 | Resolved | Resolved in `a5273390e` (ES, S4b) under #1280: argv[0]'s base name, or the script after sh or bash (the ctl is #!/bin/bash); two `RunLockTests` cases |
+| PL-11 | Resolved | Resolved in `a5273390e` (ES, S4b) under #1281: the ids 64-bit, an out-of-range pending id dropped (the id is `:230`, corrected); T20's collision named, no shared line |
+| PL-12 | Resolved | Resolved in `0b369b44b` (ES, S3) under #1282: shapes checked before `GetString`, a refused trigger logged and named (the drop is `:293-294`, corrected); the toast's call is `stage-e/patches/s3-GuiKeyMappingEditor-refused-keys.patch` for T31's file (ruling 2); a #585 line |
+| PL-13 | Resolved | Resolved in `0b369b44b` (ES, S3) under #1291: one star at least, four digits, a stored `0 STARS` read as `1 STARS` (ruling 3, #1291's line edited; `:322`, corrected); a #585 line |
+| PL-14 | Resolved | Resolved in `b902cc8ba` (ES, S4a) under #1283, the fork's half: the sign-in on a worker the component owns, `check()` quick under the lock; the update check and the lock's own shape recorded for the es-core slice (ruling 7), #1283 keeps that checkbox open; a #585 line for es-core |
+| PL-15 | Resolved | Resolved in `a5273390e` (ES, S4b) under #1284: DONE only on rc 0 with an OK line and no why (ruling 9); the why through CloudText, 124 STOPPED ANSWERING; the script's half needs no line |
+| PL-16 | Resolved | Resolved in `d0d92dda6` (ES, S1a: `saveToXml`) and `a5273390e` (S4b: the rotation record and the key maps) under #1285: temp-and-rename, a killed write leaves the previous file whole |
+| PL-17 | Resolved | Resolved in `75f696b22d` (distribution, S7) for #1270's checkbox 17: UPDATE GAMELISTS and `## Game list filters`; `es-menu-map-check` 0 missing, the grep 5; the checker's blind spot is the coordinator's note on #965 |
+| PL-18 | Resolved | Resolved in `0b369b44b` (ES, S3) under #1292 for 3.5 (the scrape leaves a field it did not return); the rest are #585 lines in `02`; 3.20's sibling to #771 (`stage-e/comment-links.md`) |
+| PL-19 | Resolved | Resolved in `d370ac62e` (ES, S5) under #1290 for EP-47 (the scan published under a lock, the formatter too); the remainder are #585 lines in `02`, recorded (D-UI-079) |
+| PL-20 | Deferred | Deferred: #1235 -- `ScraperCmdLine.{cpp,h}` named there (`stage-e/comment-links.md`); the Windows residue one row each in `02` § The structure (D-WORKFLOW-209) |
+| PL-21 | Resolved | Resolved in `a5273390e` (ES, S4b) under #1286: Success present, boolean and true; a list of only invalid ids not ok |
+| PL-22 | Resolved | Resolved in `4e9a7d166` (ES, S2) under #1287: `clearIndex` by reference (`resetIndex` `:148-162`, corrected); a #585 line |
+| PL-23 | Resolved | Resolved in `b902cc8ba` (ES, S4a) under #1288: the answer applied only to the credentials it was asked with and only while the switch is on; the save tests the switch and the account; no generation (ruling 5: sameacct passes) |
+| PL-24 | Resolved | Resolved in `a5273390e` (ES, S4b) under #1289: the turns cached only after a checked write; the record known by mtime to the nanosecond, size and inode |
+| PL-25 | Deferred | Deferred: #585 -- a lead for the rescan's owner (T2, #649) and es-core's `Window.cpp`: the list is not cleared on the transfer's rescan, `stage-c/pl25-screensaver.py` FAILs at the pin and the tip (`stage-e/pl25-read.txt`); severity the coordinator's word |
+| PL-26 | Deferred | Deferred: #585 -- recorded, line 18 of `02`'s stage-E table |
 
 ```yaml
 punch_index:
@@ -574,155 +575,155 @@ punch_index:
   category: Correctness
   question: Q4
   source_finding: "L-05, 3.13, 3.15, EP-1, EP-2, EP-36"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-02
   severity: "Medium"
   category: Correctness
   question: Q1
   source_finding: "L-06, T32 L-16, EP-5, EP-37, EP-38"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-03
   severity: "Medium"
   category: Correctness
   question: Q1
   source_finding: "L-07, L-08"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-04
   severity: "Medium"
   category: Correctness
   question: Q3
   source_finding: "the floor's 3.8 [re-read], 3.11"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-05
   severity: "Medium"
   category: Reliability
   question: Q4
   source_finding: "L-23, the third cache shape, EP-19, EP-43"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-06
   severity: "Medium"
   category: Correctness
   question: Q1
   source_finding: "L-12"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-07
   severity: "Medium"
   category: Words
   question: Q5
   source_finding: "L-25, 3.29"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-08
   severity: "Low"
   category: Words
   question: Q5
   source_finding: "L-20, 3.35, T20 S9"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-09
   severity: "Low"
   category: Correctness
   question: Q5
   source_finding: "L-26, 3.31"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-10
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "L-14, the floor's 3.38"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-11
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "L-17, the floor's 3.41"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-12
   severity: "Medium"
   category: Correctness
   question: Q3
   source_finding: "L-28, 3.21, EP-10"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-13
   severity: "Low"
   category: Words
   question: Q3
   source_finding: "L-27, 3.9"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-14
   severity: "Medium"
   category: Performance
   question: Q2
   source_finding: "L-01"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-15
   severity: "Low"
   category: Words
   question: Q3
   source_finding: "L-18"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-16
   severity: "Medium"
   category: Reliability
   question: Q4
   source_finding: "L-03, T21 PL-20"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-17
   severity: "Medium"
   category: Documentation
   question: Q7
   source_finding: "Q7, the brief's § 7"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-18
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "the floor's 3.1, 3.3 (the prefix case), 3.4, 3.5, 3.10's aside, 3.14, 3.32, 3.34; 3.20's sibling; EP-27 to EP-35"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-19
   severity: "Low"
   category: Correctness
   question: Q2
   source_finding: "L-09, L-10, L-11, L-02, L-04, the take-up row T2 `:293-294`, `02` § The words, EP-14 to EP-17, EP-45, EP-47"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-20
   severity: "Low"
   category: Structure
   question: Q7
   source_finding: "L-21, L-22"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-21
   severity: "Medium"
   category: Correctness
   question: Q3
   source_finding: "EP-42"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-22
   severity: "Medium"
   category: Correctness
   question: Q3
   source_finding: "EP-44"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-23
   severity: "Medium"
   category: Correctness
   question: Q1
   source_finding: "EP-39"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-24
   severity: "Low"
   category: Correctness
   question: Q4
   source_finding: "EP-40, EP-41, L-03"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-25
   severity: "Low"
   category: Correctness
   question: Q1
   source_finding: "EP-38, EP-8"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-26
   severity: "Low"
   category: Correctness
   question: Q3
   source_finding: "EP-46"
-  outcome: "open"
+  outcome: "deferred"
 ```

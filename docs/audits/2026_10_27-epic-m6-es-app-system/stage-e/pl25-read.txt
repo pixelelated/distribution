@@ -1,0 +1,31 @@
+# PL-25 (#680): the screensaver's FileData pointers against the rescan's delete -- the read of the invalidation paths, 2026-10-30T14:22:33Z, ES f802c55c6 (SystemScreenSaver.cpp, SystemData.cpp, Window.cpp unchanged since the pin)
+
+## What holds the pointers
+- SystemScreenSaver keeps mGamesWithImages, mGamesWithVideos (std::vector<FileData*>) and mCurrentGame (SystemScreenSaver.h:117-118, :126), filled by countGameListNodes (SystemScreenSaver.cpp:321-370) from every game system's getFilesRecursive, read by pickRandomGameMedia (:399-430) and selectGameMedia (:372-396), and mCurrentGame by getCurrentGame (:531) and launchGame (:536-550, with ScreenSaverControls a launch).
+- Only the slideshow and random-video behaviours fill the lists; dim and black never call countGameListNodes.
+
+## What clears them
+- resetCounts (SystemScreenSaver.h:95) clears both lists and their loaded flags. Its one caller is Window::cancelScreenSaver (Window.cpp:1107-1117), when the screensaver stops on input.
+- mCurrentGame is set to NULL at each start (:149, :203, :227) and at each pick (:401), not at a rescan.
+
+## What deletes the games
+- SystemData::rescanIfFolderChanged (SystemData.cpp:378-512): its `vanished` (:459-473) drops collection entries and runs `delete n` for a game or folder gone from disk. It drops and remakes the system's game list view (#246's rule) but tells the screensaver nothing.
+- Its callers: SystemData::rescanChangedFolders (:514-518), posted to the interface thread after a game exits (FileData.cpp:1223) and when a transfer ends (guis/GuiCloudTransfer.cpp:335).
+
+## The window
+- After a game, the screensaver is not running when the posted rescan runs: the launch stopped it, and the exit is input.
+- During a transfer it can be: Window starts the screensaver after ScreenSaverTime without input (Window.cpp:777-779), and nothing in GuiCloudTransfer holds it off. A transfer measured in minutes (D-UI-078) outlasts the default. A restore or a match that removes ROMs (cloud_content_restore --match) makes `vanished` delete games the slideshow's list still holds. The next picture, or a press with ScreenSaverControls on mCurrentGame, reads freed memory.
+- The list is therefore not cleared on that path, which is the brief's condition for a fixture.
+
+## The fixture (stage-c/pl25-screensaver.py: countGameListNodes, pickRandomGameMedia and selectGameMedia as written)
+$ python3 -I stage-c/pl25-screensaver.py <W>/es-app/src/SystemScreenSaver.cpp
+the slideshow starts during a transfer: 3 game(s) in its list
+the rescan deleted one game gone from disk; the next picture is picked
+SUMMARY: AddressSanitizer: heap-use-after-free a.cpp:14 in FileData::getImagePath[abi:cxx11]()
+FAIL pl25: rc 1 fa fa fa fa fa fa fa fa
+
+## The disposition (a lead for the rescan's owner, T2; recorded, not made here)
+- The fix belongs to the files that own the delete and the window's screensaver: SystemData.cpp (T2's) and Window.cpp (es-core). Either the rescan tells the screensaver to reset its counts before it deletes (the shape #246 gave the views: list who holds a pointer, drop or re-point each first, es-code-traps.md), or the transfer's posted rescan waits until the screensaver has stopped.
+- Within T33's slice, SystemScreenSaver could re-read its list on a rescan if told; the telling is the rescan's.
+- The fixture FAILs at the pin and is the proof for whoever takes it. Severity is the coordinator's word: the item was Low as a lead, and the read shows a heap-use-after-free reachable during a long restore with a slideshow screensaver.
+- The guest half (a slideshow screensaver over a restore that removes a ROM) is fix-walk-pending-image.

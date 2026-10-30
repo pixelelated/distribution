@@ -36,13 +36,20 @@ for i in items:
            [f"  - [ ] {a}" for a in i["acc"]] + \
            [f"- **Disposition (proposed for the stage-D pause):** {i['disp']}"] + \
            ([f"- **Bug:** {i['bug']}"] if i.get("bug") else []) + [""]
-out += ["## Phase 7 resolution gate", "", "Stage F rewrites this table and the index together. Until then every item is `Open`.", "",
+resolved = all(i.get("res") for i in items)
+gate_lead = ("Stage E's hand-back, 2026-10-30: every item at its outcome, the table and the index rewritten together from `stage-c/punch-items.py`'s `RES`. "
+             "The ES commits are on `feature/m6-es-app-system-680` (pixelelated/emulationstation), fixed-at-es `f802c55c6`; each stream's before, after and checks are under `stage-e/`, "
+             "the tip's are `stage-e/handback-checks.txt`, and `02` § The streams carries one row per stream.") if resolved else \
+            "Stage F rewrites this table and the index together. Until then every item is `Open`."
+out += ["## Phase 7 resolution gate", "", gate_lead, "",
         "| Item | Outcome | Evidence |", "| --- | --- | --- |"]
-out += [f"| {i['id']} | Open | -- |" for i in items]
+out += [f"| {i['id']} | {i['res'][0]} | {i['res'][1]} |" if i.get("res") else f"| {i['id']} | Open | -- |" for i in items]
 out += ["", "```yaml", "punch_index:"]
 for i in items:
     out += [f"- id: {i['id']}", f"  severity: \"{i['sev']}\"", f"  category: {i['cat']}", f"  question: {i['q']}",
-            "  source_finding: \"%s\"" % i["src"].split(" -- ")[0].replace('"', "'"), "  outcome: \"open\""]
+            "  source_finding: \"%s\"" % i["src"].split(" -- ")[0].replace('"', "'"), "  outcome: \"%s\"" % (i["res"][0].lower() if i.get("res") else "open")]
 out += ["```", ""]
 open(os.path.join(A, "05-punch-list.md"), "w").write("\n".join(out))
-print("t33-05: %d items rendered (%s); the gate and the index Open" % (len(items), ", ".join("%s %s" % (i["id"], i["sev"]) for i in items)))
+words = [i["res"][0] if i.get("res") else "Open" for i in items]
+print("t33-05: %d items rendered (%s); the gate and the index: %s" % (len(items), ", ".join("%s %s" % (i["id"], i["sev"]) for i in items),
+      ", ".join("%d %s" % (words.count(w), w) for w in ("Resolved", "Deferred", "Withdrawn", "Open") if words.count(w))))

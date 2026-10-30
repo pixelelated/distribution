@@ -183,3 +183,20 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
   - `docs/es-menu-map.md` takes UPDATE GAMELISTS under GAME SETTINGS > TOOLS, and a new `## Game list filters` section for FILTER GAMELIST BY and EDIT DYNAMIC COLLECTION FILTERS.
   - **Checker:** `es-menu-map-check` reads `0 missing` before and after, because the pages stay invisible to it.
   - **The grep** goes from 0 to 5. Recorded in `stage-e/s7-checks.txt`.
+
+## [Stage F] 14:30 UTC 2026-10-30 -- the record at the hand-back (the brief's § The record)
+- **`05` at Phase 7**, by `tools/t33-05.py` from `stage-c/punch-items.py`'s new `RES`: 23 Resolved and 3 Deferred (PL-20 to #1235; PL-25 and PL-26 to #585). The table and the index were moved together, and the brief's § Lines are corrected. `tools/lint-audit-artifacts --phase resolution --issue 1270` reads PASS.
+- **`02`:**
+  - § The streams: one row per stream, S1a to S7, the exit save's cost against D-CLOUD-119, and the recorded items;
+  - § The #585 lines owed: a stage-E table of 21 lines, the fork's own files named as carrying none;
+  - § The merge debt: stage E's, by file.
+- **PL-25:** the list is not cleared on the transfer's rescan path (`stage-e/pl25-read.txt`). The new `stage-c/pl25-screensaver.py` FAILs at the pin and the tip with heap-use-after-free; it is a lead for T2 and es-core, and severity is the coordinator's word.
+- **Comments:** #1235 (`ScraperCmdLine`) and #771 (`FileData.cpp:1659`), linked in `stage-e/comment-links.md`.
+- **The tip's checks** (`stage-e/handback-checks.txt`):
+  - `TOTAL: 245 test cases in 5 binaries`, 0 failed in each;
+  - 14 edited `.cpp` through the stand-in at rc 0;
+  - `es-untranslated` 709 of 709 and `es-menu-map-check` 0 missing;
+  - the pre-push test PASS;
+  - generators at 18, 2, 202 and the bounds line;
+  - `stage-e/handback-run.sh`: 30 runs, 0 unexpected.
+- **Commands:** the build script is `tools/t33-build-tests.sh <W> <dir>`, and each fixture's command is in `stage-e/handback-run.sh`.

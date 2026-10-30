@@ -1,0 +1,96 @@
+# T33 (#680) stage E's hand-back checks at the ES tip f802c55c6 -- 2026-10-30T14:25:48Z
+
+## the tips
+- ES: f802c55c62c1e06fe89f4db9720106e911f574db on feature/m6-es-app-system-680 (pixelelated/emulationstation), clean (git status --short: 0 lines), = origin's feature/m6-es-app-system-680 at f802c55c62c1e06fe89f4db9720106e911f574db, read through the API (gh api repos/pixelelated/emulationstation/branches/feature/m6-es-app-system-680); this session's ssh agent is gone, so git ls-remote over the ES remote's host was refused, and nothing is unpushed (S6's push readback)
+- distribution: the hand-back commit on feature/m6-es-app-system-680 (named in #680's header and the hand-back post)
+
+## the unit build at the tip ($ bash tools/t33-build-tests.sh <W> /workspace/tmp/m6-t33/build-tip)
+RUN es-unit-tests: rc 0; [doctest] test cases: 188 | 188 passed | 0 failed | 0 skipped [doctest] assertions: 4821 | 4821 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3389 | 3389 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN app-unit-tests: rc 0; [doctest] test cases: 21 | 21 passed | 0 failed | 0 skipped [doctest] assertions: 127 | 127 passed | 0 failed | 
+TOTAL: 245 test cases in 5 binaries
+(240 at S3's tip; S4b's five cases make 245; 0 failed in every one of the five binaries)
+
+## the stand-in syntax check over every .cpp edited since the pin (es-syntax-check exits 2 on this host, #1137: CANNOT; the stand-in stage-a/syntax-check.sh is the compiler's check)
+es-app/src/CaptureRotation.cpp: rc 0
+es-app/src/CloudOffer.cpp: rc 0
+es-app/src/CollectionSystemManager.cpp: rc 0
+es-app/src/FileFilterIndex.cpp: rc 0
+es-app/src/FileTag.cpp: rc 0
+es-app/src/Gamelist.cpp: rc 0
+es-app/src/Genres.cpp: rc 0
+es-app/src/KeyboardMapping.cpp: rc 0
+es-app/src/LangParser.cpp: rc 0
+es-app/src/MetaData.cpp: rc 0
+es-app/src/NetworkThread.cpp: rc 0
+es-app/src/OfflineAchievementsText.cpp: rc 0
+es-app/src/ThreadedBluetooth.cpp: rc 0
+es-app/src/components/ScraperSearchComponent.cpp: rc 0
+rc=0
+
+## es-untranslated (tools/es-untranslated --es-src <W> --upstream cada856d86)
+es-untranslated: 709 fork string(s) in the source, 709 with French, 0 without
+
+## es-menu-map-check (tools/es-menu-map-check --es-src <W> --ref f802c55c6)
+55 screen(s) at f802c55c6, 31 in the map, 24 declared unmapped, 0 missing
+
+## the ES .githooks/pre-push-test at the tip
+PASS
+
+## the generators at the tip (D-WORKFLOW-210: reads 4 -> 16 -> 18; writes 11 -> 7 -> 5 -> 2; words 196 -> 197 -> 199 -> 202)
+$ t33-reads.py <W> f802c55c6 <paths> uncached=18
+generated, asserted: 83 lines, 86 calls, 18 uncached, in 11 files
+rc=0
+$ t33-writes.py <W> f802c55c6 <paths> lines=2
+generated, asserted: 2 lines (0 live, 2 dead) in 2 files
+rc=0
+$ t33-words.py <W> f802c55c6 <paths> msgids=202
+generated, asserted: 182 lines, 229 calls, 202 distinct msgids in 12 files; 0 with an empty French msgstr, 0 with no msgid
+rc=0
+$ t33-bounds.py <W> f802c55c6 <paths> 
+generated, asserted: 4 http, 6 process lines, 4 waits; 7 live, 1 bounded, 7 dead (Win32)
+rc=0
+
+## every harness at the tip ($ bash stage-e/handback-run.sh)
+ok         l06-collections                              rc 0 (want 0)  
+ok         l06-reload-collection                        rc 0 (want 0)  
+ok         l06-reload-collection --control              rc 2 (want 2)  CANNOT: --control rewrites the pin's lines, which this file no longer has (S2: the default run is the positive)
+ok         l07-search-builder                           rc 0 (want 0)  
+ok         l07-search-builder --control                 rc 2 (want 2)  CANNOT: --control rewrites the pin's lines, which this file no longer has (S5: the default run is the positive)
+ok         l12-network-posts                            rc 0 (want 0)  after closing(): the direct post queued (1 task(s) no loop will run); AppWindow::post refused
+ok         l12-network-posts --control                  rc 2 (want 2)  CANNOT: --control rewrites the pin's lines, which this file no longer has (S4a: the default run is the positive)
+ok         l309-rating-year                             rc 0 (want 0)  
+ok         l313-gamelist-merge                          rc 0 (want 0)  
+ok         l313-gamelist-save                           rc 0 (want 0)  
+ok         l313-update-gamelist                         rc 0 (want 0)  
+ok         l313-update-gamelist --control               rc 2 (want 2)  CANNOT: --control rewrites the pin's lines, which this file no longer has (S1a: the default run is the positive)
+ok         l321-keys-parse                              rc 0 (want 0)  
+ok         l321-keys-shapes typenum                     rc 0 (want 0)  
+ok         l321-keys-shapes trignum                     rc 0 (want 0)  
+ok         l321-keys-shapes targetobj                   rc 0 (want 0)  
+ok         l321-keys-shapes actionstr                   rc 0 (want 0)  
+ok         l321-keys-shapes chord                       rc 0 (want 0)  
+ok         l329-filetag-words                           rc 0 (want 0)  9 tag names, 0 without an extracted literal or a French msgstr
+ok         l329-filetag-words --control                 rc 2 (want 2)  CANNOT: --control adds the three anchors, which this file already has (S6: the default run is the positive)
+ok         l331-lang-india                              rc 0 (want 0)  
+ok         l335-textfit-floor                           rc 0 (want 0)  
+ok         s2-collection-files                          rc 0 (want 0)  
+ok         s3-tables                                    rc 0 (want 0)  
+ok         s4a-token-check                              rc 0 (want 0)  PASS closing (iv) EP-7: after closing(): 0 task(s) queued that no loop will run; the drop logged
+ok         s4a-token-check --tsan                       rc 0 (want 0)  PASS closing (iv) EP-7: after closing(): 0 task(s) queued that no loop will run; the drop logged
+ok         s4b-cloudoffer                               rc 0 (want 0)  PASS no-remote: rc 2 -> "COULDN'T CREATE IT. CHECK YOUR CONNECTION AND TRY AGAIN FROM MANAGE CLOUD STORAGE."
+ok         s4b-writes                                   rc 0 (want 0)  PASS keyskill-file (PL-16): after a write killed at 5 bytes the previous map is whole
+ok         s5-bluetooth                                 rc 0 (want 0)  
+ok         pl25-screensaver (the lead)                  rc 1 (want 1)  FAIL pl25: rc 1 fa fa fa fa fa fa fa fa
+handback-run: 0 unexpected
+rc=0
+
+## the patches for other lanes' files (each proven on a scratch copy in its stream's record)
+- stage-e/patches/s1a-SystemData-getGamelistPath.patch (4 changed lines)
+- stage-e/patches/s2-GuiGamelistFilter-save-result.patch (11 changed lines)
+- stage-e/patches/s3-GuiKeyMappingEditor-refused-keys.patch (5 changed lines)
+
+## non-ASCII in every line added pin..tip outside the catalog: 0
+## the comment links: stage-e/comment-links.md (#1235, #771); PL-25's read: stage-e/pl25-read.txt
