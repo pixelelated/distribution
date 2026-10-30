@@ -1,0 +1,26 @@
+# T34 (#681): the 25 bugs filed under the 20:30 ruling (2026-10-30T20:44:40Z), by tools/t34-file-bugs.py --file; each passes tools/box-check --issue N with 0 fail
+PL-01 #1309 the progress card's close() writes its closing state with no lock while the interface thread reads it
+PL-02 #1310 a progress card cannot refuse a holder's call after the window has deleted it
+PL-03 #1311 the text field posts raw `this` to the interface queue on focus
+PL-04 #1312 the up/down help icon key is passed through _()
+PL-06 #1313 the vertical marquee's limit subtracts the top padding twice
+PL-07 #1314 a two-line row's shares do not sum to 1 when its two fonts differ
+PL-08 #1315 TextComponent measures its auto height at a width wider than the one it draws at
+PL-09 #1316 the slider's AUTO value reads Auto, outside _()
+PL-10 #1317 the rating's OK prompt add star is outside _()
+PL-11 #1318 a focused video component labels BACK as SELECT
+PL-13 #1319 a web image answered with 0 bytes is never asked for again
+PL-15 #1320 two pages read a fixed 10 px row inset at every panel
+PL-19 #1321 a carousel and an option row offer a direction whatever their count
+PL-25 #1322 an unset date reads blank instead of <NOT SET>
+PL-27 #1323 a web image's cache file name is derived from its URL without containment
+PL-28 #1324 three component members are read before anything sets them
+PL-29 #1325 a help bar whose first prompt does not fit builds a zero-column grid
+PL-30 #1326 a web image in a resizing grid cell can recurse through its parent
+PL-31 #1327 rebinding a web image can leave an older URL queued
+PL-32 #1328 replacing an image from memory or a shared texture does not cancel a pending load
+PL-33 #1329 a cleared looping image grid keeps drawing its loop-copy tiles
+PL-34 #1330 changing a visible grid entry's image strands its old tile
+PL-35 #1331 an assignment where a comparison was meant in the image grid's cursor change
+PL-36 #1332 a switch can show a state other than the one it holds
+PL-37 #1333 updating a menu's subtitle re-inserts the title image it already holds

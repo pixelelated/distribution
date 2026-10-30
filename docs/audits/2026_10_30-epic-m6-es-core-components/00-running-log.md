@@ -97,3 +97,4 @@
     - PL-03 / 3.20: `ERROR: AddressSanitizer: heap-use-after-free`, rc 1;
     - 3.19 (a double of the popup's shape, not its lines): clean, rc 0.
 - **Not yet written:** 3.21, the other 26 seam cases, and the new items' own cases. They follow the bugs.
+- **20:44 UTC, the bugs filed:** 25, #1309 to #1333 (`stage-d/bugs-filed.txt`, `tools/t34-file-bugs.py`). Each has its trace, its family, its VM line, `Already written:` and criteria an agent can tick; `tools/box-check` reports 0 fail on each. PL-27 (#1323) carries only its fix's shape and the held trace's path and sha256 (`46d9494e...`); the trace is at `/workspace/tmp/m6-t34/held/pl27-trace.md`, mode 600, beside the coordinator's `pl27-stream.md`.

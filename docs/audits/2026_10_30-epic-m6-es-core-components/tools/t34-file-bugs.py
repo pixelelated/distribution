@@ -1,0 +1,150 @@
+"""Compose T34's 25 bug bodies (#681, the 20:30 ruling) into <out>/<PL>.md:
+the code trace (where, the defect, how found, the positive before the fix or
+that it is owed, what reading cannot prove), the family, the VM line, the
+acceptance criteria an agent can tick, and Already written. PL-27's body names
+its fix's shape and its held trace by path and sha256 only. With --file, each
+is filed (label bug, milestone M6) and its number printed one line each.
+    t34-file-bugs.py <out dir> [--file]"""
+import os, subprocess, sys
+OUT = sys.argv[1]; FILE = "--file" in sys.argv
+PIN = "16dbac5211"
+F = {"layout": "a layout computed from what it last produced or from a moving number", "const": "a house constant a surface does not keep",
+     "prompt": "a prompt offered where the key moves nothing", "life": "a lifetime or a thread", "read": "a read of a file another process writes",
+     "words": "a player sentence outside the vocabulary or without its French", "struct": "a structure or merge-debt fact"}
+REC = "`docs/audits/2026_10_30-epic-m6-es-core-components/`"
+HOST = "Yes -- host-only: the case runs in `tools/t34-build-tests.sh` (components-tests, or its sanitizer programs) over the pin's lines lifted verbatim; no guest is needed"
+NOTHING = "nothing inherited -- a component writes no file and keeps this state only for its own life; the fix reads nothing an earlier build left on a device or in a cloud"
+B = [  # PL, title, lines, defect, source, positive, cannot prove, family, vm, [criteria], already written
+ ("PL-01", "the progress card's close() writes its closing state with no lock while the interface thread reads it", "`AsyncNotificationComponent.cpp:117-121`, `:261-299`; h `:72`, `:74`",
+  "`close()` sets the plain `mClosing` and `mFadeTime` from the cloud and achievements worker threads; `update()` reads and writes both on the interface thread; `mMutex` guards only the text. A data race is undefined behaviour; the seat added that making the two atomic is not enough (the interface could see `mClosing` before `mFadeTime = -1` and skip `mFadeOutOpacity`'s set, `:269`).",
+  "L-22 (the first reader), confirmed with narrowing by the seat", "`SAN tsan-card (-fsanitize=thread): rc 66; WARNING: ThreadSanitizer: data race` over the lifted `close()` and `update()` on two threads (`stage-d/tsan-card.run.log`)",
+  "the production callers' threads (`ThreadedCloudSync`, `ProxyCards`) and `Window`'s update order are cited, not read in this slice", "life", HOST,
+  ["at `fixed-at-es`, `tools/t34-build-tests.sh` prints `SAN tsan-card (-fsanitize=thread): rc 0; no sanitizer report` (rc 66 and the race at the pin, `stage-d/tsan-card.run.log`)",
+   "a components-tests case asserts the fade starts from `mFadeTime == -1` whenever `update()` sees a close request (a single atomic request read by the interface thread, or the whole transition under the lock)"], NOTHING),
+ ("PL-02", "a progress card cannot refuse a holder's call after the window has deleted it", "`AsyncNotificationComponent.cpp:117-127`, `:147-192`; `Window.cpp:1152-1169`, `:1242-1252` (T35's)",
+  "Every holder keeps the raw pointer `createAsyncNotificationComponent` returned, and `Window` deletes a card once it stops running; a holder's later `close()` or `updateText()` writes freed memory, and the card has no way to refuse it.",
+  "§ 1 (b), T2 PC-1's component half; the seat: the raw-pointer API cannot reject calls after destruction", "owed: an ASan case where a holder calls `close()` and `updateText()` after the window deletes the card (a use after free at the pin)",
+  "an actual late production call is not shown (the seat's narrowing); `Window`'s teardown order is T35's", "life", HOST,
+  ["an ASan case in `tools/t34-build-tests.sh`: a late `close()` and `updateText()` through the card's handle after the window lets go is refused, clean under `-fsanitize=address` at `fixed-at-es` and a use after free at the pin",
+   "the card's holders keep the handle whose `lock()` fails once the window has let go, not the raw pointer: `git grep -n 'AsyncNotificationComponent\\*' es-app/src` lists no member at `fixed-at-es`"], NOTHING),
+ ("PL-03", "the text field posts raw `this` to the interface queue on focus", "`TextEditComponent.cpp:29`, `:39`, `:47`",
+  "`onFocusGained` and `onFocusLost` post `[this] { startEditing(); }` and `stopEditing()`; the constructor already calls `onFocusLost()` (`:29`). A field destroyed before the queue drains is used after free.",
+  "L-12, confirmed with narrowing by the seat", "`SAN asan-textedit (-fsanitize=address): rc 1; ERROR: AddressSanitizer: heap-use-after-free` over the lifted `onFocusLost` (`stage-d/asan-textedit.run.log`)",
+  "the real queue's drain order is `Window`'s (T35's)", "life", HOST,
+  ["at `fixed-at-es`, `tools/t34-build-tests.sh` prints `SAN asan-textedit (-fsanitize=address): rc 0; no sanitizer report` (the use after free at the pin)",
+   "the two posts check a weak token before they touch `this`: the lifted lines at `fixed-at-es` hold the check (a grep in the case's extract spec)"], NOTHING),
+ ("PL-04", "the up/down help icon key is passed through _()", "`ComponentList.cpp:568`; `HelpComponent.cpp:18-33`, `:190-194`; fr po `:3708-3709`",
+  "Under a catalog that translates `up/down` (French: `haut/bas`), the list's CHOOSE prompt carries a key the help bar's icon map does not hold: a null icon and `Unknown help icon`. Not reproduced on M7's image at 1280x800, where the bar showed one CHOISIR with its icon and logged nothing (T35's to read, with PL-05).",
+  "L-01, 3.16; confirmed with narrowing by the seat; D-UI-133", "`3.16 ... ERROR: CHECK( ICON_PATH_MAP.count(fr.at(\"up/down\")) == 1 ) is NOT correct! values: CHECK( 0 == 1 )` (`stage-d/components-tests.run.log`)",
+  "the bar's delivery of that prompt on every page (the seat)", "words", HOST,
+  ["at `fixed-at-es`, components-tests reports 3.16 PASS (`0 == 1` at the pin)",
+   "`git grep -c -F '_(\"up/down\")'` over `es-core/src` and `es-app/src` prints nothing at `fixed-at-es`; the catalog's orphan msgid is left to `msgmerge` (D-UI-133)"], NOTHING),
+ ("PL-06", "the vertical marquee's limit subtracts the top padding twice", "`TextComponent.cpp:486` (against `:351`, `:428`)",
+  "`int limit = mSize.y() - mPadding.y() - mPadding.y();` where the two other measures subtract top and bottom: with padding (0,10,0,30) the limit is 20 px too large, so a text that overflows by less never scrolls.",
+  "3.6, confirmed by the seat", "`3.6 ... values: CHECK( 80 == 60 )` (`stage-d/components-tests.run.log`)", "nothing further: the case lifts the line itself", "layout", HOST,
+  ["at `fixed-at-es`, components-tests reports 3.6 PASS (`80 == 60` at the pin)", "`02` § The #585 lines owed carries 3.6's line"], NOTHING),
+ ("PL-07", "a two-line row's shares do not sum to 1 when its two fonts differ", "`MultiLineMenuEntry.cpp:71-77`; `ComponentGrid.cpp:93`",
+  "`th*0.9/h + sh*1.1/h` is 1 only when `th == sh`; and a multi-line description more than ten times the label's height drives the second share above 1, which `ComponentGrid.cpp:93` asserts against. D-UI-131: the shares are `th/(th+sh)` and `sh/(th+sh)`.",
+  "L-03, 3.4; confirmed by the seat (Medium in assertion builds)", "`3.4 ... values: CHECK( 0.986957 == Approx( 1 ) )` and `CHECK( 1.01304 == Approx( 1 ) )` (`stage-d/components-tests.run.log`)",
+  "every row's look at both panels before and after (the frames at stage F)", "layout", HOST,
+  ["at `fixed-at-es`, components-tests reports 3.4 PASS for 26/20 and 20/26", "a components-tests case with a description ten times the label's height keeps both shares in [0, 1]",
+   "a cloud page's rows framed at 640x480 and 1280x800 after the fix, labelled `fix-walk-pending-image`"], NOTHING),
+ ("PL-08", "TextComponent measures its auto height at a width wider than the one it draws at", "`TextComponent.cpp:338` against `:350`; `:483`",
+  "The auto height is measured at `getSize().x()` and the text drawn at `mSize.x() - padding`; a wrap between the two paints a line the height never budgeted (#48's root; `GuiMsgBox` works around it, nothing else does). D-UI-130: the component measures at its drawn width.",
+  "L-17, #48; confirmed with narrowing by the seat", "owed: 3.5's case (padding 32 px on a 640 px box, a word at the wrap point)", "the full wrap call and which pages draw a padded auto-height text (the seat)", "layout", HOST,
+  ["3.5's components-tests case FAILs at the pin and PASSes at `fixed-at-es`",
+   "`tools/frame-diff` over the fork's walks at 640x480 and 1280x800 reports every changed frame named and intended (D-UI-130), and `GuiMsgBox`'s workaround is removed once they hold"], NOTHING),
+ ("PL-09", "the slider's AUTO value reads Auto, outside _()", "`SliderComponent.cpp:280-283`", "`ss << \"Auto\";` -- neither translated nor the placeholder `AUTO` (`es-ui-style-guide.md`).",
+  "3.7, confirmed by the seat", "`3.7 ... values: CHECK( Auto == AUTO )` (`stage-d/components-tests.run.log`)", "nothing further", "words", HOST,
+  ["at `fixed-at-es`, components-tests reports 3.7's AUTO case PASS (`Auto == AUTO` at the pin)", "the French for `AUTO` lands in the same commit; `tools/es-untranslated` prints `0 without`"], NOTHING),
+ ("PL-10", "the rating's OK prompt add star is outside _()", "`RatingComponent.cpp:262-266`", "`HelpPrompt(BUTTON_OK, \"add star\")`: English under every language.",
+  "L-23, confirmed by the seat", "owed: a components-tests case over the prompt's label", "nothing further", "words", HOST,
+  ["a components-tests case reads the prompt's label through `_()` (FAIL at the pin, PASS at `fixed-at-es`)", "its French lands in the same commit; `tools/es-untranslated` prints `0 without`"], NOTHING),
+ ("PL-11", "a focused video component labels BACK as SELECT", "`VideoComponent.cpp:347-351`", "`HelpPrompt(BUTTON_BACK, _(\"SELECT\"))`: a prompt that names an action the key does not take (D-UI-034's rule).",
+  "L-24, confirmed with narrowing by the seat", "owed: a components-tests case over `VideoComponent::getHelpPrompts`", "where a video component holds focus on the fork's pages", "prompt", HOST,
+  ["a components-tests case asserts BACK's prompt is not labelled SELECT (FAIL at the pin, PASS at `fixed-at-es`)"], NOTHING),
+ ("PL-13", "a web image answered with 0 bytes is never asked for again", "`WebImageComponent.cpp:187-204`, `:225-244`",
+  "A 0-byte answer (the offline proxy's 204 for a badge it lacks) removes the file and returns, but `mUrlToLoad` was cleared when the request went out (`:244`), so the badge stays missing until the page is rebuilt or ES restarts.",
+  "L-08, 3.21's second half; confirmed with narrowing by the seat", "owed: 3.21's second half (a 204, then a 200 on the same URL)", "how often the fork's pages rebuild a web image on their own (the seat: a new `setImage` or component asks again)", "read", HOST,
+  ["3.21's components-tests case: after a 0-byte answer the next page build asks again (FAIL at the pin, PASS at `fixed-at-es`)",
+   "on the VM, `tools/ra-ui-test`'s fixture (a 204, then a 200) shows the badge once the proxy has it, its frame labelled `fix-walk-pending-image`"],
+  "nothing inherited -- the 0-byte file is removed at `:199`; no cache entry the fix reads outlives it"),
+ ("PL-15", "two pages read a fixed 10 px row inset at every panel", "`ComponentList.cpp:11`, `:491-494`, `:508`, `:521`",
+  "`TOTAL_HORIZONTAL_PADDING_PX` is 20 px (10 a side) at every panel: 3.1 % of 640, 1.0 % of 1920. D-UI-132: the inset is 0.015625 of the screen width, defined once.",
+  "L-06, confirmed with narrowing by the seat", "owed: a case reading `rowInset()` at 640 and 1280", "nothing further", "const", HOST,
+  ["a components-tests case reads `rowInset()` as 10 px at 640 and 20 px at 1280 (FAIL at 1280 at the pin, PASS at `fixed-at-es`)",
+   "`MenuComponent.cpp:7-13`'s comment names the keyboard popup's gap as T35's (PL-16) in the same stream", "a cloud page framed at 640x480 and 1280x800, labelled `fix-walk-pending-image`"], NOTHING),
+ ("PL-19", "a carousel and an option row offer a direction whatever their count", "`CarouselComponent.cpp:354-361`; `OptionListComponent.h:636-643`",
+  "A one-entry carousel offers CHOOSE and a one-value option row offers CHANGE, for a key that moves nothing (the help bar's rule, `es-code-traps.md`).", "L-13, confirmed by the seat",
+  "owed: a components-tests case over the two prompts with one entry", "nothing further", "prompt", HOST,
+  ["a components-tests case asserts a one-entry carousel and a one-value option row offer no direction (FAIL at the pin, PASS at `fixed-at-es`)"], NOTHING),
+ ("PL-25", "an unset date reads blank instead of <NOT SET>", "`DateTimeEditComponent.cpp:251-259`", "`getTime() == 0` returns `\"\"`; the house placeholder is `<NOT SET>` (`es-ui-style-guide.md`).",
+  "3.13, confirmed with narrowing by the seat", "owed: 3.13's case", "nothing further", "words", HOST,
+  ["3.13's components-tests case reads `<NOT SET>` through `_()` for an unset date (FAIL at the pin, PASS at `fixed-at-es`)", "its French lands in the same commit"], NOTHING),
+ ("PL-27", "a web image's cache file name is derived from its URL without containment", "held (see below)",
+  "Held. The trace is `/workspace/tmp/m6-t34/held/pl27-trace.md` (mode 600), sha256 `46d9494e06c4de26e42d844e45f461973841d04be757fcb1ec7a542a3143e320`; the stream's section is held beside it. The fix is a hardening of the cache key.",
+  "the independent seat's G-3, verified at the pin by the first reader", "owed: a unit case over the cache-key function (held trace)", "recorded in the held trace", "read",
+  "Yes -- host-only: a unit case over the cache-key function in `tools/t34-build-tests.sh`, which FAILs at the pin on a traversal URL and PASSes after",
+  ["the held trace's sha256 is `46d9494e06c4de26e42d844e45f461973841d04be757fcb1ec7a542a3143e320` at the hand-back (`sha256sum` of the path above)",
+   "a components-tests case over the cache-key function FAILs at the pin and PASSes at `fixed-at-es`"], "nothing inherited -- a cache file is remade on the next fetch"),
+ ("PL-28", "three component members are read before anything sets them", "`ComponentList.h:157` with `ComponentList.cpp:13-27`, `:196`; `GridTileComponent.h:312` with `GridTileComponent.cpp:49`, `:1246`; `GridTileComponent.h:77-90`, `:107`, `:134`",
+  "`ComponentList::mUpdateType` has no initializer and the constructor never sets it before `update()` reads it; `GridTileComponent`'s constructor calls `setSelected(false)`, which reads the uninitialised `mSelected`; `GridTextProperties::autoScroll` is set only when a theme names `singleLineScroll`.",
+  "the seat's G-1, verified at the pin", "owed: an uninitialised read is not a deterministic FAIL; the proof is the read of each constructor (above) and, after, a case asserting the defaults", "nothing further", "struct", HOST,
+  ["each of the three members has an initial value at `fixed-at-es` (a default member initializer, or the constructor's), and a components-tests case asserts the defaults", "`02` § The #585 lines owed carries the line"], NOTHING),
+ ("PL-29", "a help bar whose first prompt does not fit builds a zero-column grid", "`HelpComponent.cpp:131-132`, `:150-156`; `ComponentGrid.cpp:12`",
+  "If the first prompt is wider than the bar, nothing is kept and `:155` builds `ComponentGrid(Vector2i(0, 1))`, which the grid asserts against (Medium in assertion builds); a long translated label or a large themed font reaches it.",
+  "the seat's G-2, verified at the pin", "owed: a case with a first prompt wider than the bar", "nothing further", "layout", HOST,
+  ["a components-tests case with a first prompt wider than the bar builds no zero-column grid (FAIL at the pin, PASS at `fixed-at-es`)"], NOTHING),
+ ("PL-30", "a web image in a resizing grid cell can recurse through its parent", "`WebImageComponent.cpp:69-70`; `ImageComponent.cpp:65-79`; `ComponentGrid.cpp:174-175`",
+  "`resize()` notifies the parent grid, the grid resizes the cell, `setSize` re-runs `resize()` with no unchanged-size exit: unbounded in a `resize=true` cell.",
+  "the seat's G-4, verified with narrowing", "owed: a case with a resizing cell", "which of the fork's pages put a web image in a resizing cell", "layout", HOST,
+  ["a components-tests case puts a web image double in a resizing cell and returns (the recursion bounded by an unchanged-size exit) at `fixed-at-es`"], NOTHING),
+ ("PL-31", "rebinding a web image can leave an older URL queued", "`WebImageComponent.cpp:98-115`, `:156-165`, `:225-244`",
+  "`setImage()` deletes an active request but does not clear `mUrlToLoad`; the local and cached returns leave it, and `render` starts it, replacing the image the caller set last.",
+  "the seat's G-5, verified at the pin", "owed: a case (queue A, set B, render: A is not asked for)", "nothing further", "read", HOST,
+  ["a components-tests case: queue an uncached URL, set a local image, render: the first URL is not requested (FAIL at the pin, PASS at `fixed-at-es`)"], NOTHING),
+ ("PL-32", "replacing an image from memory or a shared texture does not cancel a pending load", "`ImageComponent.cpp:413-416`, `:436-467`, `:816-823`",
+  "Only the path overload sets `mLoadingTexture`; the memory and shared-texture overloads never clear it, and `watchTextureLoading` later installs the stale texture.",
+  "the seat's G-6, verified at the pin", "owed: a case over the three overloads", "nothing further", "read", HOST,
+  ["a components-tests case: a path load pending, then a memory or shared-texture replacement: the pending texture is never installed (FAIL at the pin, PASS at `fixed-at-es`)"], NOTHING),
+ ("PL-33", "a cleared looping image grid keeps drawing its loop-copy tiles", "`ImageGridComponent.h:505-509`, `:1381-1435`, `:316-317`, `:339-340`, `:762-763`",
+  "`clear()` -> `resetGrid()` never clears `mScrollLoopTiles`, the routine that does returns first on an empty list, and `render` still draws them: old media drawn after a clear.",
+  "the seat's G-7, verified at the pin; it corrects this audit's stage-B contract", "owed: a case in T32's `s4-views.py` shape", "nothing further", "life", HOST,
+  ["a case in T32's `s4-views.py` shape: after `clear()` on a looping grid, no loop-copy tile remains (FAIL at the pin, PASS at `fixed-at-es`)"], NOTHING),
+ ("PL-34", "changing a visible grid entry's image strands its old tile", "`ImageGridComponent.h:526-533`, `:373-384`, `:426-433`",
+  "The entry's tile pointer is dropped without removing the tile from the visible list; repeated changes accumulate tiles that are still updated and drawn until a reset.",
+  "the seat's G-8, verified with narrowing", "owed: a case changing an entry's image three times", "how often the fork's pages change a visible entry's image", "life", HOST,
+  ["a components-tests case: three image changes on one visible entry leave one tile for it (FAIL at the pin, PASS at `fixed-at-es`)"], NOTHING),
+ ("PL-35", "an assignment where a comparison was meant in the image grid's cursor change", "`ImageGridComponent.h:1151`",
+  "`else if (mLastCursor = -9999)` always succeeds and overwrites the last cursor, suppressing the callbacks that follow.", "the seat's G-9, verified at the pin", "owed: the line itself is the proof; a case after", "nothing further", "struct", HOST,
+  ["`git grep -n 'mLastCursor = -9999)'` prints nothing at `fixed-at-es`, and a components-tests case asserts the callback runs on a revisit"], NOTHING),
+ ("PL-36", "a switch can show a state other than the one it holds", "`SwitchComponent.cpp:7-25`, `:118-137`",
+  "The constructor always loads the OFF image and never calls `onStateChanged()`; with auto set, `setValue(\"true\")` leaves auto in force and `getValue()` still returns `auto`.",
+  "the seat's G-10, verified with narrowing", "owed: two cases (constructed ON; an explicit value under auto)", "which of the fork's rows construct a switch with its state rather than setting it after", "prompt", HOST,
+  ["components-tests cases: a switch constructed ON shows ON, and `setValue(\"true\")` under auto returns `true` (FAIL at the pin, PASS at `fixed-at-es`)"], NOTHING),
+ ("PL-37", "updating a menu's subtitle re-inserts the title image it already holds", "`MenuComponent.cpp:374-375`, `:305-331`",
+  "`setSubTitle` re-runs `setTitleImage`, which `setEntry`s the already parented image again with no `removeEntry`: an assertion in debug builds, a duplicate entry otherwise.",
+  "the seat's G-11, verified with narrowing", "owed: a case (a title image, then a subtitle)", "the grid's no-parent assertion line is cited by the seat", "struct", HOST,
+  ["a components-tests case: a title image, then a subtitle, leaves one entry for the image (FAIL at the pin, PASS at `fixed-at-es`)"], NOTHING),
+]
+assert len(B) == 25, len(B)
+os.makedirs(OUT, exist_ok=True)
+for pl, title, lines, defect, src, pos, cannot, fam, vm, crit, aw in B:
+    body = ["## Code trace", "",
+            "**Where (at `%s`):** %s" % (PIN, lines), "",
+            "**The defect:** %s" % defect, "",
+            "**How it was found:** T34's audit of `es-core/src/components/**` (#681): %s. The punch item is %s in %s`05-punch-list.md` and #1307." % (src, pl, REC), "",
+            "**The positive before the fix:** %s." % pos, "",
+            "**What reading cannot prove:** %s." % cannot, "",
+            "**The family:** %s." % F[fam], "",
+            "**Can this be done on the VM?** %s." % vm, "",
+            "## Acceptance criteria", ""] + ["- [ ] %s" % c for c in crit] + ["", "**Already written:** %s." % aw, "", "Refs #681, #1307"]
+    open(os.path.join(OUT, pl + ".md"), "w").write("\n".join(body) + "\n")
+print("t34-file-bugs: %d bodies written" % len(B))
+if FILE:
+    for pl, title, *_ in B:
+        t = "Bug: EmulationStation: %s (T34 %s)" % (title, pl)
+        r = subprocess.run(["gh", "issue", "create", "--repo", "pixelelated/distribution", "--title", t, "--label", "bug", "--milestone", "M6: Codebase renovation", "--body-file", os.path.join(OUT, pl + ".md")], capture_output=True, text=True)
+        if r.returncode != 0:
+            print("%s: FILE FAILED: %s" % (pl, r.stderr.strip())); sys.exit(1)
+        print("%s #%s %s" % (pl, r.stdout.strip().rsplit("/", 1)[-1], title))
