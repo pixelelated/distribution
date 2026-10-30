@@ -1,0 +1,96 @@
+# T15 hand-back checks (09:26:01Z 2026-10-30), the branch at 8bafe4b8b9 (the hand-back tip, unchanged since 2026-10-29), as each tool printed them; <W> is the lane's worktree
+
+$ git -C <W> status --short | wc -l
+1
+rc=0
+
+$ git merge-base --is-ancestor 0721307c0c HEAD && echo ancestor
+0721307c0c is an ancestor of HEAD
+rc=0
+(re-run by itself at once: the first attempt's rc 2 was the wrapper's own quoting -- an apostrophe in its echo text inside a single-quoted bash -c -- and the check never ran)
+
+$ conflict markers in the tree's tracked text
+0
+rc=0
+
+$ header: git diff --stat 8ebaf8daad 60d7f6a5b2 -- tools/last-good-scripts-test | wc -l
+0
+rc=0
+
+$ header: git log -1 --format=%h -- tools/last-good-scripts-test (fixed-at)
+e8d8fd7dc6
+rc=0
+
+$ bash -n tools/last-good-scripts-test
+
+rc=0
+
+$ tools/last-good-scripts-test --help (the dispatch, no fixtures)
+Usage: tools/last-good-scripts-test [--host-diagnostic] [--old] | --cloud-layout [options]
+Run the host script regression suite with a candidate image's busybox:
+rc=0
+
+$ tools/register-check
+register-check: 694 IDs, each once; every citation in the live documents names a row
+rc=0
+
+$ tools/work-log-index --check
+work-log index: current
+rc=0
+
+$ tools/rules-check
+ok    list    AGENTS.md carries the generated rule list
+ok    mention CLAUDE.md names every rule
+rules-check: 30 rule files, every one front-mattered and indexed
+rc=0
+
+$ tools/ceremony-check
+  ok    hygiene   no issue closed completed since 2026-09-21 carries an open checkbox
+
+nothing overdue.
+rc=0
+
+$ tools/lint-audit-artifacts docs/audits/2026_10_25-epic-m6-tooling-last-good-test
+  ok    PL-24 answers Q6
+
+PASS
+rc=0
+
+$ tools/lint-audit-artifacts docs/audits/2026_10_25-epic-m6-tooling-last-good-test --phase resolution --issue 1040
+  ok    issue #1040 references PL-24
+
+PASS
+rc=0
+
+$ tools/box-check --issue 662
+note  #662: 19 open checkbox(es); decided rows cite it: D-QA-063 -- re-derive against them
+box-check: 1 issue(s), 19 open checkbox(es), 0 fail, 1 issue(s) with rows to re-derive against
+rc=0
+
+$ tools/box-check --issue 1040
+box-check: 1 issue(s), 24 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+rc=0
+
+$ tools/forbidden-terms-check <W> (the whole tree)
+forbidden-terms-check: 0 hits in 133500 tracked files
+rc=0
+
+$ sha256sum -c ../../SHA256SUMS (the donor root, from its image/system)
+usr/bin/busybox: OK
+usr/bin/rclone: OK
+etc/os-release: OK
+rc=0
+
+$ the final full run at 1ff2f82a95 on the donor (2026-10-25, from /workspace/tmp/m6-t15/s2/queue.log; not re-run here -- your acceptance's section g re-ran it at the tip)
+12:56:16 END closeout-root rc=3 513s PASS=1315 FAIL=0 NA=0 SKIP=0 CANNOT=2 census: cc1plus=0 qemu=1 load=0.71 0.90 1.00
+    verdict: PASSED, 0 SKIPPED, 2 CHILD SUITE(S) NOT EVIDENCE, 0 NOT APPLICABLE -- a check that did not run has not passed
+rc=0
+
+$ tools/register-check (after the retro and tools/work-log-index --write)
+register-check: 694 IDs, each once; every citation in the live documents names a row
+rc=0
+
+$ tools/work-log-index --check (after the retro and tools/work-log-index --write)
+work-log index: current
+rc=0
+
