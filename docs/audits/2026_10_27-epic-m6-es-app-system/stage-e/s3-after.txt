@@ -1,0 +1,77 @@
+# T33 S3: the positives at ES 0b369b44b, 05:38:23Z.
+
+$ python3 -I stage-c/l309-rating-year.py <W>/FileFilterIndex.cpp
+rating       -> UNKNOWN
+rating 0     -> UNKNOWN
+rating 0.05  -> 1 STARS
+rating 0.1   -> 1 STARS
+rating 0.5   -> 3 STARS
+rating 1     -> 5 STARS
+year 19920101T000000  -> "1992"
+year 20240101T000000  -> "2024"
+year 30000101T000000  -> "3000"
+year 09990101T000000  -> "0999"
+year                  -> ""
+rc=0
+
+$ python3 -I stage-c/l321-keys-parse.py <W> <rapidjson>
+loaded: player 1 holds 1 mapping(s) [KNOWN]
+log: KeyMappingFile - unknown trigger t33unknown in Alpha.gb.keys
+rc=0
+
+$ python3 -I stage-c/l331-lang-india.py <W>/LangParser.cpp
+usa          -> lang [en] region [us]
+usa, europe  -> lang [en] region [us]
+in           -> lang [in] region [in]
+india        -> lang [in] region [in]
+rc=0
+
+$ python3 -I stage-c/l335-textfit-floor.py <W>/TextFit.h
+ASCII, 8     width 1 -> 4 character(s) kept, then "..."
+Japanese, 6  width 1 -> 4 character(s) kept, then "..."
+ASCII, 2     width 1 -> 2 character(s) kept, then "..."
+Japanese, 2  width 1 -> 2 character(s) kept, then "..."
+rc=0
+
+$ python3 -I stage-c/l321-keys-shapes.py <W> <rapidjson> typenum   (-DNDEBUG, ASan)
+typenum: loaded 1 mapping(s); 1 log line(s)
+rc=0
+
+$ python3 -I stage-c/l321-keys-shapes.py <W> <rapidjson> trignum   (-DNDEBUG, ASan)
+trignum: loaded 0 mapping(s); 1 log line(s)
+rc=0
+
+$ python3 -I stage-c/l321-keys-shapes.py <W> <rapidjson> targetobj   (-DNDEBUG, ASan)
+targetobj: loaded 0 mapping(s); 1 log line(s)
+rc=0
+
+$ python3 -I stage-c/l321-keys-shapes.py <W> <rapidjson> actionstr   (-DNDEBUG, ASan)
+actionstr: loaded 0 mapping(s); 1 log line(s)
+rc=0
+
+$ python3 -I stage-c/l321-keys-shapes.py <W> <rapidjson> chord   (-DNDEBUG, ASan)
+chord: loaded 0 mapping(s); 1 log line(s)
+rc=0
+
+$ python3 -I stage-c/s3-tables.py <W>/Genres.cpp <W>/MetaData.cpp <W>/FileFilterIndex.cpp genre
+genre: "Foo / Shooter" -> Shooter
+rc=0
+
+$ python3 -I stage-c/s3-tables.py <W>/Genres.cpp <W>/MetaData.cpp <W>/FileFilterIndex.cpp import
+import: 0 of 5 filled fields blanked by a scrape that returned nothing for them; desc imported
+rc=0
+
+$ python3 -I stage-c/s3-tables.py <W>/Genres.cpp <W>/MetaData.cpp <W>/FileFilterIndex.cpp xcc0
+xcc0: a stored 0 STARS loads as 1 STARS
+rc=0
+
+$ the fourth TextFitTests case against the pin's TextFit.h (g++ with tests/app-unit/main.cpp)
+TextFitTests.cpp:82: ERROR: CHECK( fit(<6 Japanese characters>) == <4 of them>... ) values: 日... == 日本語文...; :83 values: 日... == 日本...; [doctest] test cases: 4 | 3 passed | 1 failed
+
+$ bash tools/t33-build-tests.sh <W> /workspace/tmp/m6-t33/build-s3
+RUN es-unit-tests: rc 0; [doctest] test cases: 185 | 185 passed | 0 failed | 0 skipped [doctest] assertions: 4795 | 4795
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3389 | 3389 p
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 pas
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 p
+RUN app-unit-tests: rc 0; [doctest] test cases: 19 | 19 passed | 0 failed | 0 skipped [doctest] assertions: 122 | 122 pa
+TOTAL: 240 test cases in 5 binaries

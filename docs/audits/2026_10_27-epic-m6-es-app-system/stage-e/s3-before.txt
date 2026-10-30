@@ -1,0 +1,97 @@
+# T33 S3 (#680; #1274, #1279, #1291, #1292, #1282, #1278): the positives at the pin, 05:33:58Z.
+
+$ python3 -I stage-c/l309-rating-year.py <pin>/FileFilterIndex.cpp
+rating       -> UNKNOWN
+rating 0     -> UNKNOWN
+rating 0.05  -> 0 STARS   (a positive rating reads 0 STARS)
+rating 0.1   -> 1 STARS
+rating 0.5   -> 3 STARS
+rating 1     -> 5 STARS
+year 19920101T000000  -> "1992"
+year 20240101T000000  -> "2024"
+rc=1
+
+$ python3 -I stage-c/l321-keys-parse.py <pin> <rapidjson>
+loaded: player 1 holds 1 mapping(s) [KNOWN]
+FAIL 3.21: a mapping whose trigger the table refuses is dropped and nothing says so (L-28)
+rc=1
+
+$ python3 -I stage-c/l331-lang-india.py <pin>/LangParser.cpp
+usa          -> lang [en] region [us]
+usa, europe  -> lang [en] region [us]
+in           -> lang [in] region [in]
+india        -> lang [] region []
+FAIL 3.31: "india" reads no region: the table's token is "ìndia" (L-26)
+rc=1
+
+$ python3 -I stage-c/l335-textfit-floor.py <pin>/TextFit.h
+ASCII, 8     width 1 -> 4 character(s) kept, then "..."
+Japanese, 6  width 1 -> 1 character(s) kept, then "..."
+ASCII, 2     width 1 -> 2 character(s) kept, then "..."
+Japanese, 2  width 1 -> 1 character(s) kept, then "..."
+FAIL 3.35: the floor keeps a different number of characters by script (it counts bytes, :34; L-20)
+rc=1
+
+$ python3 -I stage-c/l321-keys-shapes.py <pin> <rapidjson> typenum   (-DNDEBUG, ASan)
+
+SUMMARY: AddressSanitizer: SEGV (/usr/lib/x86_64-linux-gnu/libc.so.6+0x19a79d) (BuildId: 066527e430a32768d82741e00b81eebb1a872294) 
+FAIL l321s: rc 1
+
+rax = 0x0000000000000000  rbx = 0x0000000000000000  rcx = 0x0000735d9361d92b  rdx = 0x0000000000000000  
+rdi = 0x0000000000000000  rsi = 0x00007fffc35a2720  rbp = 0x00007fffc35a2720  rsp = 0x00007fffc35a1eb8  
+ r8 = 0x00007fffc35a2174   r9 = 0x0000000000000084  r10 = 0x0000000000000000  r11 = 0x0000000000000206  
+r12 = 0x00000debb22be100  r13 = 0x00006f5d915f0800  r14 = 0x0000726d925f4838  r15 = 0x000060df87c0fa10  
+rc=1
+
+$ python3 -I stage-c/l321-keys-shapes.py <pin> <rapidjson> trignum   (-DNDEBUG, ASan)
+
+FAIL l321s: rc -6
+  what():  basic_string: construction from null is not valid
+
+rc=1
+
+$ python3 -I stage-c/l321-keys-shapes.py <pin> <rapidjson> targetobj   (-DNDEBUG, ASan)
+targetobj: loaded 0 mapping(s); 0 log line(s)
+rc=0
+
+$ python3 -I stage-c/l321-keys-shapes.py <pin> <rapidjson> actionstr   (-DNDEBUG, ASan)
+
+SUMMARY: AddressSanitizer: SEGV /workspace/tmp/m6-t33/rj/rapidjson-1.1.0/include/rapidjson/document.h:1686 in rapidjson::GenericValue<rapidjson::UTF8<char>, rapidjson::MemoryPoolAllocator<rapidjson::CrtAllocator> >::GetStringLength() const
+FAIL l321s: rc 1
+
+rax = 0x00000b000000000e  rbx = 0x00006d22e4060600  rcx = 0x0000000000000000  rdx = 0x000001607fff8001  
+rdi = 0x00000b0000000000  rsi = 0x00000b0000000000  rbp = 0x00007ffea029b070  rsp = 0x00007ffea029b060  
+ r8 = 0x00007122e6198400   r9 = 0x00000000fffffff3  r10 = 0x0000000000000000  r11 = 0x0000000000002e0c  
+r12 = 0x00006d22e4060680  r13 = 0x00000da45c80c0c0  r14 = 0x00000b0000000000  r15 = 0x00007ffea029b0f0  
+rc=1
+
+$ python3 -I stage-c/l321-keys-shapes.py <pin> <rapidjson> chord   (-DNDEBUG, ASan)
+chord: loaded 1 mapping(s), the chord kept on "up" alone; 0 log line(s)
+FAIL chord: a chord with one refused key loads on its other key, its meaning changed (EP-10)
+rc=1
+
+$ python3 -I stage-c/s3-tables.py <pin>/Genres.cpp <pin>/MetaData.cpp <pin>/FileFilterIndex.cpp genre
+
+SUMMARY: AddressSanitizer: global-buffer-overflow a.cpp:37 in Genres::fromGenreName(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+FAIL s3t: rc 1
+  ASan internal:           fe
+
+rc=1
+
+$ python3 -I stage-c/s3-tables.py <pin>/Genres.cpp <pin>/MetaData.cpp <pin>/FileFilterIndex.cpp import
+import: 5 of 5 filled fields blanked by a scrape that returned nothing for them; desc imported
+FAIL import: a scrape that returned nothing for a field blanked the filled one (:568, 3.5)
+FAIL S3: 1 case(s)
+rc=1
+
+$ python3 -I stage-c/s3-tables.py <pin>/Genres.cpp <pin>/MetaData.cpp <pin>/FileFilterIndex.cpp xcc0
+xcc0: a stored 0 STARS loads as 0 STARS
+FAIL xcc0: a stored 0 STARS selection is not read as 1 STARS (ruling 3: read both)
+FAIL S3: 1 case(s)
+rc=1
+
+$ python3 -I tools/t33-words.py <W> 16dbac5211 <paths>   (the refused-key sentence absent)
+generated, asserted: 176 lines, 223 calls, 196 distinct msgids in 11 files; 0 with an empty French msgstr, 0 with no msgid
+
+$ git -C <W> log -S "ìndia" --format="%h %ad %s" --date=short -- es-app/src/LangParser.cpp
+ed5ded2a3 2020-06-03 add: pc88 to ScreenScraper

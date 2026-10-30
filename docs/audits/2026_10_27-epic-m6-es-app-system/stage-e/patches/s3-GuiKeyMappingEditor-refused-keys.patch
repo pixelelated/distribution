@@ -1,0 +1,15 @@
+--- a/es-app/src/guis/GuiKeyMappingEditor.cpp
++++ b/es-app/src/guis/GuiKeyMappingEditor.cpp
+@@ -80,6 +80,12 @@
+ 	mMapping = mapping->getKeyboardMapping();
+ 	mDirty = false;
+ 
++	// #1282: keys the file names that the table does not know are said once,
++	// here, where the map is opened (the editor and VIEW PAD TO KEYBOARD
++	// INFORMATION both land here).
++	if (!mMapping.refusedTriggers.empty())
++		window->displayNotificationMessage(_U("\uF071  ") + KeyMappingFile::refusedTriggersSentence(mMapping.refusedTriggers));
++
+ 	//mMapping.players[0].mappings
+ 
+ 	addChild(&mBackground);

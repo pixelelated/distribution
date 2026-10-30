@@ -1,0 +1,27 @@
+# T33 S3 checks at ES 0b369b44b, 05:38:36Z
+
+es-app/src/Genres.cpp: rc 0
+es-app/src/LangParser.cpp: rc 0
+es-app/src/FileFilterIndex.cpp: rc 0
+es-app/src/MetaData.cpp: rc 0
+es-app/src/KeyboardMapping.cpp: rc 0
+rc=0
+
+## generators (D-WORKFLOW-210)
+$ t33-words.py <W> 0b369b44b <paths> lines=177,calls=224,msgids=197,empty=0,missing=0
+generated, asserted: 177 lines, 224 calls, 197 distinct msgids in 12 files; 0 with an empty French msgstr, 0 with no msgid
+rc=0
+$ t33-words.py <W> 0b369b44b <paths> msgids=196
+generated, asserted: 177 lines, 224 calls, 197 distinct msgids in 12 files; 0 with an empty French msgstr, 0 with no msgid
+FAIL t33-words: msgids 197, expected 196
+rc=1
+
+## es-untranslated against cada856d86
+es-untranslated: 704 fork string(s) in the source, 704 with French, 0 without
+
+## PL-12's toast: stage-e/patches/s3-GuiKeyMappingEditor-refused-keys.patch over T31's tip 95852f873 (its GuiKeyMappingEditor.cpp identical to the pin's); the constructor at :80 is where both the editor and VIEW PAD TO KEYBOARD INFORMATION load the map; the patched scratch copy (with S3's KeyboardMapping.h) through the stand-in: rc 0
+## 3.8's double count (Genres.cpp:244-248, FileFilterIndex.cpp:1015-1016): recorded, a #585 line
+## the India token: git log -S "ìndia" names ed5ded2a3 (2020-06-03, add: pc88 to ScreenScraper), upstream's
+## targetobj at the pin: no observable fault (an object read as a string, undefined, quiet here); after: logged and skipped
+## non-ASCII in the added .cpp/.h lines: 0 (the French is in the catalog only)
+## time to play: not on the launch path

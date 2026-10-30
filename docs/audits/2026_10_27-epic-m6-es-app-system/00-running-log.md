@@ -145,3 +145,12 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
   - **Stand-in:** both files rc 0.
   - **EP-43's patch** for T31's `GuiGamelistFilter.cpp` is in `stage-e/patches/`; the patched scratch copy is rc 0.
   - **A correction to the brief:** `resetIndex` clears 20 facets, not nine.
+- **S3** (ES `0b369b44b`, #1274, #1279, #1291, #1292, #1282, #1278):
+  - **New harnesses:** `stage-c/s3-tables.py` (genre, import, xcc0) and `stage-c/l321-keys-shapes.py` (l321's NDEBUG extension, one shape per run).
+  - **Before, at the pin:** l309, l321, l331 and l335 FAIL; `typenum` and `actionstr` SEGV and `trignum` aborts; `chord` loads on `up` alone; `genre` is a global-buffer-overflow; `import` blanks 5 of 5 fields; `xcc0` reads `0 STARS`. `targetobj` does not fault at the pin (undefined behaviour, quiet).
+  - **After:** all rc 0.
+  - **The fourth `TextFitTests` case** FAILs on the pin's header and passes here; `TOTAL: 240 test cases in 5 binaries`, 0 failed.
+  - **Words:** `t33-words` reads 177 lines, 224 calls, 197 msgids, 0 empty; `es-untranslated` 704 of 704.
+  - **Stand-in:** five `.cpp` rc 0.
+  - **PL-12's toast patch** for T31's `GuiKeyMappingEditor.cpp` is in `stage-e/patches/`; the patched scratch copy is rc 0.
+  - **#1291's `Already written:`** takes ruling 3's sentence, edited with S3's checkpoint.
