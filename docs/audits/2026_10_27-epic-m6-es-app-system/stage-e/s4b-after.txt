@@ -1,0 +1,30 @@
+# S4b after (#680; #1286, #1281, #1280, #1284, #1285, #1289) -- 2026-10-30T09:45:05Z, ES a5273390e
+
+$ bash tools/t33-build-tests.sh <W at a5273390e> /workspace/tmp/m6-t33/build-s4b-after
+RUN es-unit-tests: rc 0; [doctest] test cases: 188 | 188 passed | 0 failed | 0 skipped [doctest] assertions: 4821 | 4821 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3389 | 3389 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN app-unit-tests: rc 0; [doctest] test cases: 21 | 21 passed | 0 failed | 0 skipped [doctest] assertions: 127 | 127 passed | 0 failed | 
+TOTAL: 245 test cases in 5 binaries
+
+$ python3 -I stage-c/s4b-cloudoffer.py <W>/es-app/src
+outcome: outcomeFor, as written
+PASS created: rc 0 -> "DONE. YOUR SAVES WILL GO THERE THE NEXT TIME YOU BACK THEM UP."
+PASS rc0-no-ok: rc 0 -> "COULDN'T CREATE IT. CHECK YOUR CONNECTION AND TRY AGAIN FROM MANAGE CLOUD STORAGE."
+PASS rc0-why: rc 0 -> "COULDN'T CREATE IT. YOUR CLOUD FOLDERS COULDN'T BE CREATED. TRY AGAIN FROM MANAGE CLOUD STORAGE."
+PASS timeout: rc 124 -> "COULDN'T CREATE IT. YOUR CLOUD STOPPED ANSWERING. TRY AGAIN FROM MANAGE CLOUD STORAGE."
+PASS missing: rc 5 -> "COULDN'T CREATE IT. YOUR CLOUD FOLDERS COULDN'T BE CREATED. TRY AGAIN FROM MANAGE CLOUD STORAGE."
+PASS locked: rc 75 -> "COULDN'T CREATE IT. ANOTHER CLOUD SYNC IS RUNNING. TRY AGAIN FROM MANAGE CLOUD STORAGE."
+PASS no-remote: rc 2 -> "COULDN'T CREATE IT. CHECK YOUR CONNECTION AND TRY AGAIN FROM MANAGE CLOUD STORAGE."
+rc=0
+
+$ python3 -I stage-c/s4b-writes.py <W>/es-app/src
+writers: rotation AtomicFile::writeText; key maps AtomicFile::writeText
+PASS writefail (PL-24): read 1 before; the record on disk "turns=1 from=own-launch"; read 1 after
+PASS samemtime-rename (PL-24): read 1 before; replaced with turns 2, mtime the same, size the same, inode new; read 2 after
+PASS samemtime-size (PL-24): read 1 before; replaced with turns 2, mtime the same, size one longer, inode the same; read 2 after
+PASS rotkill (PL-16): read 1 before; the record on disk "turns=1 from=own-launch"; read 1 after
+PASS keyskill-path (PL-16): after a write killed at 5 bytes the previous map is whole
+PASS keyskill-file (PL-16): after a write killed at 5 bytes the previous map is whole
+rc=0

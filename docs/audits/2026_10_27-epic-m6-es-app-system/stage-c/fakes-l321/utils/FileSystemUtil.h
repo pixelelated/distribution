@@ -1,4 +1,4 @@
-// T33 3.21 fake (#680): the seven calls KeyboardMapping.cpp makes, on the host's files.
+// T33 3.21 fake (#680): the calls KeyboardMapping.cpp makes, on the host's files (S4b: the cache reset after its save).
 #pragma once
 #include <fstream>
 #include <sstream>
@@ -13,4 +13,5 @@ inline bool createDirectory(const std::string& p) { return ::mkdir(p.c_str(), 07
 inline std::string readAllText(const std::string& p) { std::stringstream ss; ss << std::ifstream(p).rdbuf(); return ss.str(); }
 inline bool removeFile(const std::string& p) { return ::unlink(p.c_str()) == 0; }
 inline void writeAllText(const std::string& p, const std::string& t) { std::ofstream(p) << t; }
+struct FileSystemCache { static void reset(const std::string&) {} };
 } }

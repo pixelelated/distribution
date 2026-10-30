@@ -1,0 +1,49 @@
+# T33 S4b checks at ES a5273390e, 09:45:06Z
+
+es-app/src/OfflineAchievementsText.cpp: rc 0
+es-app/src/KeyboardMapping.cpp: rc 0
+es-app/src/CaptureRotation.cpp: rc 0
+es-app/src/CloudOffer.cpp: rc 0
+rc=0
+## the ids' consumers, read and not changed (RetroAchievements.cpp, OfflineAchievements.cpp: outside the slice), through the stand-in over the widened header:
+es-app/src/RetroAchievements.cpp: rc 0
+es-app/src/OfflineAchievements.cpp: rc 0
+rc=0
+## named for their slice: RetroAchievements.cpp:350-363 keeps the ids in std::set<int> (unlocked, queued) and compares a.id against them at :384-385; both sides are narrowed the same way, so a match stays a match, and two ids equal modulo 2^32 would collide. :376 and :438 format the ids with std::to_string, which now carries them whole.
+
+## generators (D-WORKFLOW-210)
+$ t33-reads.py <W> a5273390e <paths> uncached=18
+| `Win32ApiSystem.cpp:1217` | Windows-only paths | none: the file is `#if WIN32` (:1-:1267) and compiles to nothing | cached | nothing: no image carries it | L-21: dead on every image; recorded |
+generated, asserted: 83 lines, 86 calls, 18 uncached, in 11 files
+rc=0
+$ t33-writes.py <W> a5273390e <paths> lines=2
+| `KeyboardMapping.cpp:429` (the pin's line) | a `.keys` mapping at a named path | **replaced at this commit**: written through `AtomicFile::writeText` | -- | -- | resolved by the stream |
+generated, asserted: 2 lines (0 live, 2 dead) in 2 files
+rc=0
+$ t33-writes.py <W> a5273390e <paths> lines=5
+generated, asserted: 2 lines (0 live, 2 dead) in 2 files
+FAIL t33-writes: lines 2, expected 5
+rc=1
+$ t33-words.py <W> a5273390e <paths> msgids=199
+| `wheel games` | `CollectionSystemManager.cpp:52` | jeux au volant (L3530) |
+generated, asserted: 179 lines, 226 calls, 199 distinct msgids in 12 files; 0 with an empty French msgstr, 0 with no msgid
+rc=0
+$ t33-words.py <W> a5273390e <paths> msgids=197
+generated, asserted: 179 lines, 226 calls, 199 distinct msgids in 12 files; 0 with an empty French msgstr, 0 with no msgid
+FAIL t33-words: msgids 199, expected 197
+rc=1
+t33-writes moves from 5 to 2 (CaptureRotation.cpp's :175 and KeyboardMapping.cpp's two save lines, the pin's :426 and :429); t33-words from 197 to 199 (the box's new sentence and the lock's why); t33-reads is unchanged.
+
+## es-untranslated against cada856d86
+es-untranslated: 706 fork string(s) in the source, 706 with French, 0 without
+
+## the fixtures completed (D-WORKFLOW-211): stage-c/fakes-l321 gains utils/AtomicFileUtil.h and FileSystemCache::reset, the writer and reset KeyMappingFile::save now calls; no assertion changed. l321-keys-parse rc 0; l321-keys-shapes typenum, trignum, targetobj, actionstr and chord rc 0.
+## the ES .githooks/pre-push-test at a5273390e: PASS, then pushed: origin/feature/m6-es-app-system-680 = a5273390e6478df503dca94aad92bfb8e30a7cd0
+## non-ASCII in the added .cpp/.h lines: 0 (the French is in the catalog only)
+## RunLock (#1280), the brief's rule changed: the brief says argv[0]'s basename. The shipped raofflineproxy-ctl is #!/bin/bash (projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:1), so the kernel runs it as "/bin/bash /usr/bin/raofflineproxy-ctl ...". Its cmdline's first field is /bin/bash, and argv[0] alone would never match the run OfflineAchievements::stopRun (:341) signals. The program is therefore argv[0]'s basename, or the field after it when that is sh or bash. The RunLockTests case "a script run by its interpreter" proves the shape (its first field is /bin/sh) and passes at the pin and here; the tail case FAILs at the pin and passes here.
+## CloudOffer (#1284): with --seed-folders saves the script checks one folder, the saves folder (cloud_setup's --seed-folders branch: check_dirs+=("${SAVES}")), and prints "OK ${d}" for it, so the box takes any "OK <folder>" line as that folder's. The script's half needs no line (a why on every failure path; OK or MISSING per folder): the read above. Every why the seed path prints, checked against CloudText::whySentences: YOUR CLOUD FOLDER COULDN'T BE READ, YOUR CLOUD FOLDERS COULDN'T BE CREATED, YOUR CLOUD STOPPED ANSWERING and YOUR CLOUD SYNC SETTINGS COULDN'T BE READ are in the table; ANOTHER CLOUD SYNC IS RUNNING (the lock, rc 75) is not, so outcomeFor gives it its own _() with French (UNE AUTRE SYNCHRONISATION CLOUD EST EN COURS); a row for CloudText's table is named for the cloud slice under merge debt.
+## CaptureRotation (#1289): the brief's mtime and size, plus the inode and the mtime's nanoseconds. A restore through rclone renames a temporary over the record with the source's modtime, and a one-digit turn is the same size, so mtime and size alone would not see it (samemtime-rename: same mtime, same size, new inode). An in-place rewrite of the same size with its mtime put back is still read as unchanged; named.
+## T20's collision: 274a71add and f85061f14 append to OfflineAchievementsText.cpp after its :283, to .h after :158 and to the test file's end. This stream's hunks end at .cpp:240 (pin :230), .h:126 (pin :123) and the test file's pin :232, so they share no line. T20's added code reads parseReadyIds (std::vector<int>, unchanged here) and the PendingAward and StoreGame structs whose ids widen; its literals (4902) compare the same. The integration meets T20's hunks at the end of each file.
+## Already written: PL-21 nothing inherited (a reply is parsed when it arrives); PL-11 nothing inherited (the ids are read from the proxy each time); PL-10 nothing inherited (the lock file holds a pid, read the same way); PL-15 nothing inherited; PL-16 a cut .rotation reads as untrusted and a cut .keys as an empty map, each the safe reading; PL-24 nothing inherited (the cache is in memory). As the bugs say.
+## guest half: a stub cloud_setup that exits 0 without an OK line shows the not-done box, and the French box at 640x480: fix-walk-pending-image.
+## time to play: not on the launch path (the exit capture's record is written after the game; the key map at the editor; the box at the offer).

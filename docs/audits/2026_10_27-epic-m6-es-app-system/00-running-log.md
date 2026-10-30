@@ -161,3 +161,13 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
   - **PL-23's test** adds the password, so a page's check for the same account after a password edit is not absorbed by the sign-in in flight. Ruling 5: no generation patch.
   - **Ruling 7:** the update check is not moved, because `canUpdate` returns for `pixelelated` at `ApiSystem.cpp:455-456`. It is recorded for the es-core slice, and #1283 keeps that checkbox open.
   - **Checks:** generators unchanged (18, 5, 197); stand-in rc 0; pre-push-test PASS.
+- **S4b, 09:45 UTC (ES `a5273390e`; #1286, #1281, #1280, #1284, #1285, #1289)**
+  - **Before:** five new doctest cases. The ids, the unlocks shape, the pending ids and the tail holder FAIL at the pin; the interpreter case passes. `TOTAL: 245 test cases in 5 binaries`, with es-unit-tests at 3 failed and app-unit-tests at 1. The new `stage-c/s4b-cloudoffer.py` FAILs 5 of 7 at the pin, and `stage-c/s4b-writes.py` FAILs 6 of 6.
+  - **After:** `TOTAL: 245 test cases in 5 binaries`, 0 failed in every binary. The `CloudOffer` fixture passes 7 of 7 and the write fixture 6 of 6. Stand-in rc 0 for the four `.cpp` and for the ids' two consumers.
+  - **Generators:** `t33-writes` goes from 5 to 2 lines, `t33-words` from 197 to 199 msgids, `t33-reads` stays at 18. `es-untranslated` reads 706 of 706.
+  - **Changed from the brief, both recorded:**
+    - **RunLock** also matches the script after `sh` or `bash`, because the shipped ctl is `#!/bin/bash` and argv[0] alone would never name it.
+    - **The rotation cache** is keyed by the inode and the mtime's nanoseconds as well as mtime and size, which catches a rename that keeps the modtime.
+  - **The lock's why** (`ANOTHER CLOUD SYNC IS RUNNING`) is missing from CloudText's table, so `outcomeFor` gives it French itself; the table row is named for the cloud slice.
+  - **The l321 fakes** are completed with `AtomicFileUtil.h` (D-WORKFLOW-211).
+  - **T20's collision** is named: no shared line.
