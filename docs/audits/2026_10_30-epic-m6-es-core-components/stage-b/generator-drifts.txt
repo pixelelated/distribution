@@ -13,3 +13,17 @@ ASSERT: grep rows without a disposition: []; dispositions without a grep row: ['
 rc=1
 $ python3 -B -I tools/t34-reads.py <W> (the 80)
 rc=0
+
+## t34-lifetimes.py
+$ python3 -B -I tools/t34-lifetimes.py <W> <stage-a/paths.txt less OptionListComponent.h> (79 paths)
+ASSERT: delete this: 0, expected 4
+rc=1
+$ python3 -B -I tools/t34-lifetimes.py <W> (the 80)
+rc=0
+
+## t34-input.py
+$ python3 -B -I tools/t34-input.py <W> <stage-a/paths.txt less ComponentGrid.cpp> (79 paths)
+ASSERT: ::input(: 13, expected 14
+rc=1
+$ python3 -B -I tools/t34-input.py <W> (the 80)
+rc=0
