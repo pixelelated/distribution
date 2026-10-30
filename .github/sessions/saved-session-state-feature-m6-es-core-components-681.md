@@ -19,10 +19,10 @@
 
 - **Stage C ran:** the guest window (19:28 to 19:39), the packet and its scan, and the seat (two keyed invokes, both PASS). The seat's G-1 to G-16 were each verified at the pin.
 - **The pre-issue lint:** PASS with the held reply present; one failure on the committed tree, the reply.
-- **The punch list:** 43 items in \`05\` and **#1307** (the audit issue, a sub-issue of #681).
+- **The punch list:** 43 items in `05` and **#1307** (the audit issue, a sub-issue of #681).
 - **The pause** is posted on #681. The lane waits for the coordinator's dispositions and any stream brief.
-- **PL-27 is security-sensitive:** the seat's reply is held at \`/workspace/tmp/m6-t34/held/gpt-audit.md\` (mode 600, sha256 \`609c488c...\`). It is never committed or posted until the maintainer names the channel.
-- **Owed before or at stage E:** \`tools/t34-build-tests.sh\` and the 34 seam cases, the seven FAIL-at-pin first; the sanitizer cases; the stand-in syntax check over the 37.
+- **PL-27 is security-sensitive:** the seat's reply is held at `/workspace/tmp/m6-t34/held/gpt-audit.md` (mode 600, sha256 `609c488c...`). It is never committed or posted until the maintainer names the channel.
+- **Owed before or at stage E:** `tools/t34-build-tests.sh` and the 34 seam cases, the seven FAIL-at-pin first; the sanitizer cases; the stand-in syntax check over the 37.
 
 ## Earlier focus (14:24 UTC 2026-10-30 update): stage A done; stage B next
 
