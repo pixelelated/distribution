@@ -43,7 +43,19 @@
    banners, exits, wall times and counts, the five `--old` recipes' exits --
    before reading a section.
 
-## Current focus (18:11 UTC 2026-10-29 update): idle, handed back
+## Current focus (09:42 UTC 2026-10-30 update): idle, accepted
+
+**The lane is IDLE. T15 is accepted on #662 (comment 6519663330, at `c0a23854f7`), and #1040 is closed as completed.**
+
+- **The record:** `audit-completion.json` is written from #1040's closed readback, at `9cb25deb0f`. `tools/lint-audit-artifacts` prints `PASS` with `--issue 1040` and at the default phase. `tools/ceremony-check` accepts the marker.
+- **The run clones are removed:** nine, freeing 26,611,806,208 bytes by `df`. The outputs stay under `/workspace/tmp/m6-t15/` (`00`, Stage H).
+- **Nothing is owed by this lane.** The coordinator owns:
+  - the merge to `next` (after T14's, in the order below);
+  - closing the 22 bugs (#1018 to #1039) once their fixes reach `next`;
+  - PL-23's rule rows on #1007 at integration, and the split, Backlog #1041.
+- **If a new brief arrives on #662,** read it, then `00-running-log.md`'s tail, then this file's earlier sections. The host file is `/workspace/tmp/m7-m6-host-coordination.txt`.
+
+## Earlier focus (18:11 UTC 2026-10-29 update): idle, handed back
 
 **T15 is handed back and idle, waiting on the coordinator's acceptance run.** Nothing of T15 is running (no suite, queue, waiter or clone process). The hand-back is on #662.
 - **The code:** all 22 bugs fixed on this branch; the last code commit is `fixed-at: e8d8fd7dc6`, and `reviewed-at: 60d7f6a5b2` is the read on `8ebaf8daad`'s bytes. Both are in #662's body.
@@ -73,7 +85,8 @@ cd "$D" && git fetch origin && git fetch upstream --no-tags
 git merge-base --is-ancestor 2174265e9c HEAD && echo stacked-on-P1
 git diff --stat next -- .claude CLAUDE.md AGENTS.md tools/lint-audit-artifacts   # exactly the dispatch's paths
 test -f docs/reviews/inventory.json && echo inventory
-tail -3 /tmp/m7-m6-host-coordination-20261023.txt | cut -c1-200; pgrep -x qemu-system-x86 -r R,S,D,T | wc -l
+tail -3 /workspace/tmp/m7-m6-host-coordination.txt | cut -c1-200   # the durable host file since 2026-10-29
+pgrep -x qemu-system-x86 -r R,S,D,T | wc -l
 ls /workspace/repos/rocknix.worktrees/*/build.*GENERIC_X64*/image/system/usr/bin/busybox   # the read-only roots for QA_SYSTEM_ROOT
 sed -n '1,120p' docs/reviews/briefs/tooling-last-good-test.md
 ```
