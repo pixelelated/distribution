@@ -64,8 +64,8 @@ sweep)
   echo "== S2-sweep (a): what the shipped rules admit, the donor's rclone lsf over a tree with a .partial ($(now))"
   T=$(mktemp -d "${HL}/cells/s2lsf.XXXXXX"); mkdir -p "${T}/savestates"; : > "${T}/savestates/n.state"; : > "${T}/savestates/n.state.abcdefgh.partial"
   echo "  listed: $("${DONOR}/usr/bin/rclone" lsf -R --files-only --filter-from "${ROOT}/usr/config/cloud_sync-rules.txt" "${T}" | tr '\n' ' ')"
-  echo "== S2-sweep (b): a restore that completes over a dirty tree whose savestates folder refuses the removal ($(now))"
-  new_cell s2sweep; L=${CELL}/storage/roms/savestates; mkdir -p "${L}" "${CELL}/storage/roms/gba"
+  echo "== S2-sweep (b): a restore that completes over a dirty tree, a partial left in a folder that refuses the removal and no download writes ($(now))"
+  new_cell s2sweep; L=${CELL}/storage/roms/nes-ro; mkdir -p "${L}" "${CELL}/storage/roms/gba"
   : > "${L}/x.state.abcdefgh.partial"; chmod 555 "${L}"; seed "gba/ok-${RUN}.srm" 1024
   cat > "${CELL}/drv/w.sh" <<'EOD'
 cloud_restore --yes --saves-only > /tmp/w.out 2>&1; echo "  restore rc=$?"
@@ -106,6 +106,16 @@ remote)
   RCLONE_CONFIG=${RC} "${DONOR}/usr/bin/rclone" touch "${RN}:pixelelated/Saves-replaced/t-${RUN}/.completed" 2>&1 | tail -1; echo "  touch rc=${PIPESTATUS[0]}"
   echo "  lsf of the folder: $(RCLONE_CONFIG=${RC} "${DONOR}/usr/bin/rclone" lsf "${RN}:pixelelated/Saves-replaced/t-${RUN}/" 2>&1 | tr '\n' ' ')"
   echo "  one listing for every marker: $(RCLONE_CONFIG=${RC} "${DONOR}/usr/bin/rclone" lsf -R --files-only --include '/*/.completed' --include '/*/.recovered' "${RN}:pixelelated/Saves-replaced/" 2>&1 | tr '\n' ' ')"
+  echo ;;
+rprune)
+  echo "== S2-rprune: cloud_backup's prune_replaced_remote, lifted, over folders on the QA WebDAV: A completed, B unmarked (a stopped run's), C recovered by an earlier run, P this run's ($(now))"
+  new_cell s2rp; RC=${CELL}/storage/.config/rclone/rclone.conf; RN=$(head -1 "${CELL}/storage/.config/rclone/active-connection"); RT="${RN}:pixelelated/Saves-replaced-${RUN}"
+  for d in A B C P; do printf 'copy\n' > "${CELL}/f"; RCLONE_CONFIG=${RC} "${DONOR}/usr/bin/rclone" copyto "${CELL}/f" "${RT}/${d}/savestates/s.state" 2>/dev/null; done
+  RCLONE_CONFIG=${RC} "${DONOR}/usr/bin/rclone" touch "${RT}/A/.completed" 2>/dev/null
+  RCLONE_CONFIG=${RC} "${DONOR}/usr/bin/rclone" touch "${RT}/C/.recovered.EARLIER" 2>/dev/null
+  echo "  before the prune: $(RCLONE_CONFIG=${RC} "${DONOR}/usr/bin/rclone" lsf -R --files-only "${RT}/" 2>/dev/null | sort | tr '\n' ' ')"
+  RCLONE_CONFIG=${RC} PATH="${DONOR}/usr/bin:${PATH}" bash -c '. <(sed -n "/^prune_replaced_remote() {/,/^}/p" "$1"); log_message() { :; }; RCLONE_LIST_OPTS=(); RCLONE_NET_OPTS_ARRAY=(); prune_replaced_remote "$2" P' _ "${ROOT}/usr/bin/cloud_backup" "${RT}"
+  echo "  after the prune (pinned P): $(RCLONE_CONFIG=${RC} "${DONOR}/usr/bin/rclone" lsf -R --files-only "${RT}/" 2>/dev/null | sort | tr '\n' ' ')"
   echo ;;
 g01f)
   echo "== S2-g01f: g01-timeout-pgid's shape with --foreground, as the fixed wrapper calls timeout ($(now); $(gnutimeout --version | head -1))"

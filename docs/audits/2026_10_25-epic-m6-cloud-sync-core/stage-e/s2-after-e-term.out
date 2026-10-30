@@ -1,0 +1,109 @@
+(rerun of guest-cycle/host-leads/e-term-automatic/cmd.sh on ROOT=/workspace/tmp/m6-t16/hl/root-s2; lib and sandbox: stage-e/tools/)
+== T16 host lead (e) TERM to an automatic restore -- 2026-10-30T20:31:37Z
+donor root: /workspace/artifacts/m6-donor/1a0266484423/image/system (BUILD_ID 1a0266484423); sha256sum -c ../../SHA256SUMS:
+  usr/bin/busybox: OK
+  usr/bin/rclone: OK
+  etc/os-release: OK
+the scripts and /usr/config: /workspace/tmp/m6-t16/hl/root-s2 (tree), 5 of 12 sha256-equal to the guest's installed bytes at 8ebaf8daad (guest-cycle/installed.sha256)
+from the donor: busybox v1.36.1 (146 applet links), rclone v1.75.2
+host stand-ins (not in the donor): bash 5.3.9(1)-release (image: 5.3), timeout (GNU coreutils) 9.7 (image: 9.4), grep (GNU grep) 3.12 (image: 3.9), python3 3.14.4, ip (iproute2)
+sandbox: stage-e/tools/sbx.sh (bwrap, own pid namespace, host network); backend: cloud-test-backend at 3a653eaec4, WebDAV 127.0.0.1:9010, state /workspace/tmp/m6-t16/hl/state
+
+
+=== arm term (2026-10-30T20:31:37Z); cell /workspace/tmp/m6-t16/hl/cells/e-term.203137
+cloud_restore --automatic --yes --saves-only started, pid 5
++5s: script alive; partial: 4190208  landed: a-202501.state 
+            5       2       5 /bin/bash /usr/bin/cloud_restore --automatic --yes --saves-only
+          302       5       4 timeout --foreground -k 3 89 rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sy
+          303     302       4 rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt --log-level INFO
+TERM to 5 at +5s
+the script ended by +6s
+its status (as its parent saw it): 130
++8s: script gone; partial:  landed: a-202501.state 
++18s: script gone; partial:  landed: a-202501.state 
++38s: script gone; partial:  landed: a-202501.state 
+-- the script's last lines (masked):
+=>  CLOUD RESTORE
+====================================
+RESTORING YOUR GAME SAVES
+>>> unit SAVES||
+====================================
+-- the log: deadline, interruption, exit (masked):
+[2026-10-30 20:31:37] [INFO] [cloud_restore] automatic run: --contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1; ceiling 90s from start
+2026/10/30 20:31:38 INFO  : Local file system at /storage/roms: Transfer session HARD deadline: 2026/10/30 20:33:08
+[2026-10-30 20:31:42] [WARN] [cloud_restore] Script interrupted by user
+2026/10/30 20:31:42 INFO  : Exiting...
+[2026-10-30 20:31:43] [INFO] [cloud_restore] Script completed in 5 seconds with exit code 130
+-- stamp last-restore: 1793392303 130 gaps IT WAS STOPPED
+-- left in the saves tree: /storage/roms/gba/ok-202501.srm /storage/roms/savestates/a-202501.state 
+sandbox rc=0 at 2026-10-30T20:32:15Z
+
+=== arm termkill (2026-10-30T20:32:16Z); cell /workspace/tmp/m6-t16/hl/cells/e-termkill.203215
+cloud_restore --automatic --yes --saves-only started, pid 5
++5s: script alive; partial: 3141632  landed: a-202501.state 
+            5       2       5 /bin/bash /usr/bin/cloud_restore --automatic --yes --saves-only
+          298       5       4 timeout --foreground -k 3 90 rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sy
+          299     298       4 rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt --log-level INFO
+TERM to 5 at +5s
++7s: script gone; partial:  landed: a-202501.state 
++9s: script gone; partial:  landed: a-202501.state 
+the script was already gone at +9s
+the script ended by +9s
+its status (as its parent saw it): 130
++11s: script gone; partial:  landed: a-202501.state 
++21s: script gone; partial:  landed: a-202501.state 
++41s: script gone; partial:  landed: a-202501.state 
+-- the script's last lines (masked):
+=>  CLOUD RESTORE
+====================================
+RESTORING YOUR GAME SAVES
+>>> unit SAVES||
+====================================
+-- the log: deadline, interruption, exit (masked):
+[2026-10-30 20:32:16] [INFO] [cloud_restore] automatic run: --contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1; ceiling 90s from start
+2026/10/30 20:32:16 INFO  : Local file system at /storage/roms: Transfer session HARD deadline: 2026/10/30 20:33:46
+[2026-10-30 20:32:21] [WARN] [cloud_restore] Script interrupted by user
+2026/10/30 20:32:21 INFO  : Exiting...
+[2026-10-30 20:32:21] [INFO] [cloud_restore] Script completed in 5 seconds with exit code 130
+-- stamp last-restore: 1793392341 130 gaps IT WAS STOPPED
+-- left in the saves tree: /storage/roms/savestates/a-202501.state 
+sandbox rc=0 at 2026-10-30T20:32:57Z
+
+=== arm termkill-game (2026-10-30T20:32:57Z); cell /workspace/tmp/m6-t16/hl/cells/e-termkill-game.203257
+cloud_restore --automatic --yes --saves-only started, pid 5
++5s: script alive; partial: 3141632  landed: a-202501.state 
+            5       2       5 /bin/bash /usr/bin/cloud_restore --automatic --yes --saves-only
+          300       5       4 timeout --foreground -k 3 90 rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sy
+          301     300       4 rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt --log-level INFO
+TERM to 5 at +5s
++7s: script gone; partial:  landed: a-202501.state 
++9s: script gone; partial:  landed: a-202501.state 
+the script was already gone at +9s
+/drv/e.sh: line 19: /storage/roms/savestates/: Is a directory
+wc: standard input: Is a directory
++11s: the game wrote /storage/roms/savestates/ (0 bytes) while  is open
+the script ended by +11s
+its status (as its parent saw it): 130
++13s: script gone; partial:  landed: a-202501.state 
++23s: script gone; partial:  landed: a-202501.state 
++43s: script gone; partial:  landed: a-202501.state 
++73s: script gone; partial:  landed: a-202501.state 
+wc: standard input: Is a directory
+head: /storage/roms/savestates/: Input/output error
+-- the game's file at the end: /storage/roms/savestates/, 0 bytes, NOT the game's bytes: the orphan's rename landed on it
+-- the script's last lines (masked):
+=>  CLOUD RESTORE
+====================================
+RESTORING YOUR GAME SAVES
+>>> unit SAVES||
+====================================
+-- the log: deadline, interruption, exit (masked):
+[2026-10-30 20:32:57] [INFO] [cloud_restore] automatic run: --contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1; ceiling 90s from start
+2026/10/30 20:32:57 INFO  : Local file system at /storage/roms: Transfer session HARD deadline: 2026/10/30 20:34:27
+[2026-10-30 20:33:02] [WARN] [cloud_restore] Script interrupted by user
+2026/10/30 20:33:02 INFO  : Exiting...
+[2026-10-30 20:33:02] [INFO] [cloud_restore] Script completed in 5 seconds with exit code 130
+-- stamp last-restore: 1793392382 130 gaps IT WAS STOPPED
+-- left in the saves tree: /storage/roms/savestates/a-202501.state 
+sandbox rc=0 at 2026-10-30T20:34:10Z
+== end 2026-10-30T20:34:10Z

@@ -187,13 +187,39 @@ _sib() {
     printf '%s' "${t}"
 }
 
-# cloud_saves_root's extraction, verbatim: SAVESPATH, then BACKUPPATH, then
-# the default. Read, never sourced -- and never cloud_sync_helper, which
-# rewrites /storage/.config on every call.
+# cloud_saves_root's reader, verbatim (#1301). Read, never sourced -- and
+# never cloud_sync_helper, which rewrites /storage/.config on every call.
+# The value a sourced cloud_sync.conf gives a key, read without sourcing it
+# (#1301): the last assignment wins, as it does for source; a double-quoted,
+# single-quoted or plain value, each with a trailing comment allowed --
+# conf_valid's grammar. Prints nothing when the key is absent. The same
+# function in cloud_saves_root and cloud_capture.
+conf_value() {
+    awk -v k="$1" '
+        index($0, k "=") == 1 {
+            v = substr($0, length(k) + 2); q = substr(v, 1, 1)
+            if (q == "\"" || q == "\047") { v = substr(v, 2); i = index(v, q); if (i) v = substr(v, 1, i - 1) }
+            else sub(/[ \t].*$/, "", v)
+            last = v; seen = 1
+        }
+        END { if (seen) print last }' "${CONF}" 2>/dev/null
+}
+
+# The saves folder: the one the calling script sourced, when it hands it over
+# (CLOUD_SAVESPATH: cloud_backup and cloud_restore do), else the conf's
+# SAVESPATH as the twins would read it; BACKUPPATH only when SAVESPATH is
+# absent (a conf cloud_sync_helper has not migrated yet); else the default.
 saves_path() {
     local p
-    p=$(sed -n 's/^SAVESPATH="\{0,1\}\([^"]*\)"\{0,1\}$/\1/p' "${CONF}" 2>/dev/null | head -1)
-    [ -n "${p}" ] || p=$(sed -n 's/^BACKUPPATH="\{0,1\}\([^"]*\)"\{0,1\}$/\1/p' "${CONF}" 2>/dev/null | head -1)
+    if [ -n "${CLOUD_SAVESPATH:-}" ]; then
+        echo "${CLOUD_SAVESPATH}"
+        return 0
+    fi
+    if grep -q '^SAVESPATH=' "${CONF}" 2>/dev/null; then
+        p=$(conf_value SAVESPATH)
+    else
+        p=$(conf_value BACKUPPATH)
+    fi
     echo "${p:-/storage/roms}"
 }
 

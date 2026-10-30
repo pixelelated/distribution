@@ -24,6 +24,8 @@
 - /**/*.db-journal
 - /**/*.sqlite
 - /**/*.sqlite3
+# rclone's temporary copy of a file in flight: never sent, never fetched (PL-19).
+- /**/*.partial
 
 # Start by explicitly including directories we want to fully backup
 + /savefiles/**

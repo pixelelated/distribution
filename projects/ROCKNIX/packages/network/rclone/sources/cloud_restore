@@ -167,6 +167,11 @@ DELIBERATE_CEILING_SECONDS=36
 CEILING_DIR_ROOT=/var/run
 RCLONE_CHILD=""
 RCLONE_MOVED=0
+# The log offset of an automatic call in flight, for clean_exit (#1298).
+RCLONE_LOG0=""
+# The saves phase's --backup-dir while its transfer runs, for clean_exit's
+# put-back (#1299).
+REPLACED_DIR=""
 
 # Is this child still running? kill -0 says yes of one that has exited and
 # not been waited for, so the state in /proc is read: Z is done. The comm
@@ -356,7 +361,23 @@ rclone() {
             fi
             local log0 rc
             log0=$(stat -c %s "${LOG_FILE}" 2>/dev/null || echo 0)
-            command timeout -k 3 "${left}" rclone "$@" "${RCLONE_SYNC_NET_OPTS_ARRAY[@]}"; rc=$?
+            # In the background and waited for, as bounded_rclone runs a
+            # deliberate call (#1298): bash runs a trap while it waits, where a
+            # TERM behind a foreground child waited out the whole transfer, and
+            # clean_exit then stops the call. --foreground keeps timeout in this
+            # script's process group, so a signal to the group -- EmulationStation's
+            # STOP IT AND PLAY sends SIGTERM, then SIGKILL at 1.5 s -- reaches
+            # timeout and rclone; without it timeout made a group of its own and
+            # the transfer outlived every stop, renaming into the saves folder
+            # after it. What --foreground gives up is timing out the command's
+            # children, and rclone has none.
+            RCLONE_LOG0="${log0}"
+            command timeout --foreground -k 3 "${left}" rclone "$@" "${RCLONE_SYNC_NET_OPTS_ARRAY[@]}" &
+            RCLONE_CHILD=$!
+            wait "${RCLONE_CHILD}"
+            rc=$?
+            RCLONE_CHILD=""
+            RCLONE_LOG0=""
             logged_moved "${log0}" && RCLONE_MOVED=1
             return "${rc}"
         else
@@ -735,6 +756,11 @@ record_last_run() {
     if [ "${exit_code}" = "${EXIT_NO_NETWORK}" ] && [ "${RCLONE_MOVED}" -eq 1 ]; then
         why=" gaps YOU WENT OFFLINE PART-WAY THROUGH"
     fi
+    # A stop after a file of this run had landed (#1298) says so the same
+    # way, with why_for 130's own sentence: never a bare 130 over a change.
+    if [ "${exit_code}" = 130 ] && [ "${RCLONE_MOVED}" -eq 1 ]; then
+        why=" gaps $(why_for 130)"
+    fi
     write_stamp "/storage/.cache/cloud_sync/last-${name}" "$(date +%s) ${exit_code}${why}"
 }
 
@@ -904,7 +930,26 @@ clean_exit() {
     # than leaving it to finish unwatched, and its trace goes with it.
     if [ -n "${RCLONE_CHILD}" ] && child_running "${RCLONE_CHILD}"; then
         kill -TERM "${RCLONE_CHILD}" 2>/dev/null
+        # And waited for, four seconds at most -- timeout's -k 3 has ended
+        # rclone by then -- then KILLed (#1298): a stopped call is over before
+        # the run says it ended, so no rename of it lands after the outcome.
+        local _n=0
+        while [ "${_n}" -lt 40 ] && child_running "${RCLONE_CHILD}"; do
+            sleep 0.1
+            _n=$((_n + 1))
+        done
+        child_running "${RCLONE_CHILD}" && kill -KILL "${RCLONE_CHILD}" 2>/dev/null
     fi
+    # What a stopped automatic call had moved before the stop (#1298), read
+    # from its own part of the log, so the stamp says the run stopped with
+    # gaps rather than a bare 130.
+    [ -n "${RCLONE_LOG0:-}" ] && logged_moved "${RCLONE_LOG0}" && RCLONE_MOVED=1
+    # A stopped saves restore puts back what it had moved aside (#1299), now
+    # that its call is over.
+    case "${exit_code}" in
+        0|9) ;;
+        *) [ -n "${REPLACED_DIR:-}" ] && put_back_replaced "${REPLACED_DIR}" ;;
+    esac
     rm -rf "${CEILING_DIR_ROOT}/cloud_sync.${$}."* 2>/dev/null
     
     # A failed phase leaves with the code the phase gave -- rclone's, when a
@@ -1609,6 +1654,9 @@ PARTIALS_CLEAN=/storage/.cache/cloud_sync/restore-tree-clean
 sweep_partials() {
     [ -d "$1" ] || return 0
     find "$1" -type f -name '*.????????.partial' -exec rm -f {} + 2>/dev/null
+    # Swept is what the listing says afterwards, not find's word (PL-19): a
+    # tree that refused the removal is not clean.
+    [ -z "$(find "$1" -type f -name '*.????????.partial' 2>/dev/null | head -1)" ]
 }
 
 # One record at rest under the local --backup-dir root: the folder this run
@@ -1618,19 +1666,105 @@ sweep_partials() {
 # older run's and the copies this run had just replaced were the ones removed
 # (audit #307 PL-021, the local half). With no folder of this run's --
 # nothing was replaced -- the newest by name is kept, as before.
+#
+# Only a folder a completed run marked .completed is a record to prune
+# (#1299): rclone moves each save it will replace into the folder before the
+# copy that replaces it lands, so a stopped run's folder can hold the only
+# copy of a save. Such a folder is never pruned as superseded; the next
+# restore puts its absent saves back (recover_replaced_local) and marks it
+# .recovered with its own stamp, and the completed run after that one prunes
+# it -- one completed cycle later than a completed run's folder.
 prune_replaced_local() {
-    local root="$1" pinned="$2" d
+    local root="$1" pinned="$2" d n
     [ -d "${root}" ] || return 0
+    for d in "${root}"/*/; do
+        d="${d%/}"; n="${d##*/}"
+        [ -d "${d}" ] || continue
+        [ "${n}" = "${pinned}" ] && continue
+        if [ -e "${d}/.recovered" ] && [ "$(cat "${d}/.recovered" 2>/dev/null)" != "${pinned}" ]; then
+            rm -rf "${d:?}"
+        fi
+    done
     if [ -n "${pinned}" ] && [ -d "${root}/${pinned}" ]; then
         for d in "${root}"/*/; do
-            [ -d "${d}" ] || continue
-            [ "${d%/}" = "${root}/${pinned}" ] && continue
-            rm -rf "${d}"
+            d="${d%/}"
+            [ -e "${d}/.completed" ] || continue
+            [ "${d##*/}" = "${pinned}" ] && continue
+            rm -rf "${d:?}"
         done
         return 0
     fi
-    ls -1d "${root}"/*/ 2>/dev/null | sort -r | tail -n +2 | while read -r d; do
-        rm -rf "${d}"
+    for d in "${root}"/*/; do
+        [ -e "${d%/}/.completed" ] && echo "${d%/}"
+    done | sort -r | tail -n +2 | while read -r d; do
+        rm -rf "${d:?}"
+    done
+}
+
+# A marker beside a run's copies, whole or not at all (D-CLOUD-078).
+mark_replaced() { # <folder> <.completed|.recovered> <stamp>
+    local rc
+    printf '%s\n' "$3" > "$1/$2.tmp.$$" 2>/dev/null
+    rc=$?
+    if [ "${rc}" -eq 0 ]; then
+        mv -f "$1/$2.tmp.$$" "$1/$2" 2>/dev/null
+        rc=$?
+    fi
+    if [ "${rc}" -ne 0 ] || [ ! -e "$1/$2" ]; then
+        rm -f "$1/$2.tmp.$$" 2>/dev/null
+        log_message "could not mark ${1##*/} $2" "false" "WARN"
+        return 1
+    fi
+    return 0
+}
+
+# The saves a stopped or failed run had moved aside, put back where their
+# place under SAVESPATH is still empty (#1299). A destination that exists --
+# the replacement landed, or a game wrote one since -- is left alone, and the
+# copy stays as the kept loser. Copied, compared, then the copy removed (the
+# two can be two cards); every status read. Returns 1 if any could not be put
+# back whole; that copy stays where it was.
+put_back_replaced() {
+    local dir="$1" f rel dest rc bad=0
+    [ -d "${dir}" ] || return 0
+    while IFS= read -r f; do
+        rel="${f#"${dir}"/}"
+        dest="${SAVESPATH%/}/${rel}"
+        [ -e "${dest}" ] && continue
+        mkdir -p "$(dirname "${dest}")" 2>/dev/null
+        cp -p "${f}" "${dest}.tmp.$$" 2>/dev/null
+        rc=$?
+        if [ "${rc}" -eq 0 ]; then
+            mv -f "${dest}.tmp.$$" "${dest}" 2>/dev/null
+            rc=$?
+        fi
+        if [ "${rc}" -eq 0 ] && cmp -s "${f}" "${dest}"; then
+            rm -f "${f}" 2>/dev/null
+            log_message "put back ${rel}, which a stopped restore had moved aside" "false"
+        else
+            rm -f "${dest}.tmp.$$" 2>/dev/null
+            log_message "could not put back ${rel}; it stays under ${dir}" "false" "WARN"
+            bad=1
+        fi
+    done < <(find "${dir}" -type f ! -path "${dir}/.completed*" ! -path "${dir}/.recovered*" 2>/dev/null)
+    return "${bad}"
+}
+
+# Before a restore's transfer: every folder another run left without
+# .completed or .recovered is a stopped run's, or one from before the marker
+# (#1299). Its absent saves are put back and it is marked .recovered with this
+# run's stamp.
+recover_replaced_local() {
+    local root="$1" stamp="$2" d
+    [ -d "${root}" ] || return 0
+    for d in "${root}"/*/; do
+        d="${d%/}"
+        [ -d "${d}" ] || continue
+        [ "${d##*/}" = "${stamp}" ] && continue
+        [ -e "${d}/.completed" ] && continue
+        [ -e "${d}/.recovered" ] && continue
+        put_back_replaced "${d}"
+        mark_replaced "${d}" .recovered "${stamp}"
     done
 }
 
@@ -1646,6 +1780,24 @@ restore_game_saves() {
     log_message "Starting restore from ${REMOTENAME}${SAVES_REMOTE} to ${SAVESPATH}" "false"
     log_message "Restore started at $(date)" "false"
 
+    # The saves folder is a folder on this device, made if missing, or the
+    # restore ends here, before any rclone call (#1301). An empty SAVESPATH
+    # sent the copy to /, which only rclone's --backup-dir overlap check
+    # refused, and the player read that the cloud had refused; [ -d / ] is
+    # true, so / is named. cloud_backup refuses the same conf in these words.
+    local mk_rc=0
+    if [ -n "${SAVESPATH%/}" ] && [ ! -d "${SAVESPATH}" ]; then
+        log_message "Creating local restore path: ${SAVESPATH}" "false"
+        mkdir -p "${SAVESPATH}" 2>/dev/null
+        mk_rc=$?
+    fi
+    if [ -z "${SAVESPATH%/}" ] || [ "${mk_rc}" -ne 0 ] || [ ! -d "${SAVESPATH}" ]; then
+        log_message "the saves folder '${SAVESPATH}' is not a folder on this device" "false" "ERROR"
+        log_message "Your saves folder isn't on this device." "true" "ERROR"
+        say_why "YOUR SAVES FOLDER ISN'T ON THIS DEVICE"
+        return 1
+    fi
+
     # Which card is the saves folder on? (#83; see cloud_backup for the case.)
     # A restore into the wrong card's tree is the copy that later reads as
     # this device's newest save.
@@ -1659,7 +1811,7 @@ restore_game_saves() {
         # after the interface starts, so a mismatch is given 15 seconds to
         # clear before it is a refusal. check prints the identity it
         # confirmed, or the reason it refused.
-        if ! saves_root_id=$("${saves_root_tool}" check --wait 15); then
+        if ! saves_root_id=$(CLOUD_SAVESPATH="${SAVESPATH}" "${saves_root_tool}" check --wait 15); then
             relay_refusal "${saves_root_id}"
             return 1
         fi
@@ -1766,12 +1918,6 @@ restore_game_saves() {
         log_message "Couldn't reach your saves folder in the cloud." "true" "ERROR"
         report_rclone_error $remote_check_status "Reaching your saves folder"
         return $remote_check_status
-    fi
-    
-    # Ensure local restore path exists
-    if [ ! -d "${SAVESPATH}" ]; then
-        log_message "Creating local restore path: ${SAVESPATH}" "false"
-        mkdir -p "${SAVESPATH}"
     fi
     
     # Pass an explicit --log-level INFO when LOG_LEVEL is INFO
@@ -1908,7 +2054,10 @@ restore_game_saves() {
         all_opts+=("--progress-terminal-width=80")
     fi
     
-    local tree_was_clean=0
+    recover_replaced_local "${replaced_root}" "${replaced_stamp}"
+    REPLACED_DIR="${replaced_root}/${replaced_stamp}"
+
+    local tree_was_clean=0 sweep_rc=0
     [ -e "${PARTIALS_CLEAN}" ] && tree_was_clean=1
     rm -f "${PARTIALS_CLEAN}" 2>/dev/null
 
@@ -1920,13 +2069,27 @@ restore_game_saves() {
         "${all_opts[@]}"
     
     RESTORE_STATUS=$?
+    if [ $RESTORE_STATUS -eq 0 ] || [ $RESTORE_STATUS -eq 9 ]; then
+        if [ -d "${REPLACED_DIR}" ]; then
+            mark_replaced "${REPLACED_DIR}" .completed "${replaced_stamp}"
+        fi
+        prune_replaced_local "${replaced_root}" "${replaced_stamp}"
+    else
+        put_back_replaced "${REPLACED_DIR}"
+    fi
+    REPLACED_DIR=""
     if [ "${tree_was_clean}" -eq 0 ] || { [ $RESTORE_STATUS -ne 0 ] && [ $RESTORE_STATUS -ne 9 ]; }; then
         sweep_partials "${SAVESPATH}"
+        sweep_rc=$?
     fi
-    mkdir -p "$(dirname "${PARTIALS_CLEAN}")" 2>/dev/null
-    : > "${PARTIALS_CLEAN}" 2>/dev/null
-    if [ $RESTORE_STATUS -eq 0 ] || [ $RESTORE_STATUS -eq 9 ]; then
-        prune_replaced_local "${replaced_root}" "${replaced_stamp}"
+    # The tree is recorded clean only when it is (PL-19): a sweep that left a
+    # partial removes the record, so the next restore sweeps again.
+    if [ "${sweep_rc}" -eq 0 ]; then
+        mkdir -p "$(dirname "${PARTIALS_CLEAN}")" 2>/dev/null
+        : > "${PARTIALS_CLEAN}" 2>/dev/null
+    else
+        rm -f "${PARTIALS_CLEAN}" 2>/dev/null
+        log_message "the partials sweep left files under ${SAVESPATH}; the next restore sweeps again" "false" "WARN"
     fi
     # A failed transfer says why. The network gone ends the run as 69 here;
     # anything else falls through to report_rclone_error with rclone's code.
@@ -1945,11 +2108,11 @@ restore_game_saves() {
     local root_note=""
     if [ -x "${saves_root_tool}" ]; then
         if [ $RESTORE_STATUS -eq 0 ] || [ $RESTORE_STATUS -eq 9 ]; then
-            if ! root_note=$("${saves_root_tool}" record "${saves_root_id}"); then
+            if ! root_note=$(CLOUD_SAVESPATH="${SAVESPATH}" "${saves_root_tool}" record "${saves_root_id}"); then
                 RESTORE_STATUS=1
             fi
         else
-            root_note=$("${saves_root_tool}" record "${saves_root_id}" --no-write) || true
+            root_note=$(CLOUD_SAVESPATH="${SAVESPATH}" "${saves_root_tool}" record "${saves_root_id}" --no-write) || true
         fi
     fi
 

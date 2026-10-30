@@ -180,6 +180,8 @@ DELIBERATE_CEILING_SECONDS=36
 CEILING_DIR_ROOT=/var/run
 RCLONE_CHILD=""
 RCLONE_MOVED=0
+# The log offset of an automatic call in flight, for clean_exit (#1298).
+RCLONE_LOG0=""
 
 # Is this child still running? kill -0 says yes of one that has exited and
 # not been waited for, so the state in /proc is read: Z is done. The comm
@@ -369,7 +371,23 @@ rclone() {
             fi
             local log0 rc
             log0=$(stat -c %s "${LOG_FILE}" 2>/dev/null || echo 0)
-            command timeout -k 3 "${left}" rclone "$@" "${RCLONE_SYNC_NET_OPTS_ARRAY[@]}"; rc=$?
+            # In the background and waited for, as bounded_rclone runs a
+            # deliberate call (#1298): bash runs a trap while it waits, where a
+            # TERM behind a foreground child waited out the whole transfer, and
+            # clean_exit then stops the call. --foreground keeps timeout in this
+            # script's process group, so a signal to the group -- EmulationStation's
+            # STOP IT AND PLAY sends SIGTERM, then SIGKILL at 1.5 s -- reaches
+            # timeout and rclone; without it timeout made a group of its own and
+            # the transfer outlived every stop, renaming into the saves folder
+            # after it. What --foreground gives up is timing out the command's
+            # children, and rclone has none.
+            RCLONE_LOG0="${log0}"
+            command timeout --foreground -k 3 "${left}" rclone "$@" "${RCLONE_SYNC_NET_OPTS_ARRAY[@]}" &
+            RCLONE_CHILD=$!
+            wait "${RCLONE_CHILD}"
+            rc=$?
+            RCLONE_CHILD=""
+            RCLONE_LOG0=""
             logged_moved "${log0}" && RCLONE_MOVED=1
             return "${rc}"
         else
@@ -734,6 +752,11 @@ record_last_run() {
     if [ "${exit_code}" = "${EXIT_NO_NETWORK}" ] && [ "${RCLONE_MOVED}" -eq 1 ]; then
         why=" gaps YOU WENT OFFLINE PART-WAY THROUGH"
     fi
+    # A stop after a file of this run had landed (#1298) says so the same
+    # way, with why_for 130's own sentence: never a bare 130 over a change.
+    if [ "${exit_code}" = 130 ] && [ "${RCLONE_MOVED}" -eq 1 ]; then
+        why=" gaps $(why_for 130)"
+    fi
     write_stamp "/storage/.cache/cloud_sync/last-${name}" "$(date +%s) ${exit_code}${why}"
 }
 
@@ -911,7 +934,20 @@ clean_exit() {
     # than leaving it to finish unwatched, and its trace goes with it.
     if [ -n "${RCLONE_CHILD}" ] && child_running "${RCLONE_CHILD}"; then
         kill -TERM "${RCLONE_CHILD}" 2>/dev/null
+        # And waited for, four seconds at most -- timeout's -k 3 has ended
+        # rclone by then -- then KILLed (#1298): a stopped call is over before
+        # the run says it ended, so no rename of it lands after the outcome.
+        local _n=0
+        while [ "${_n}" -lt 40 ] && child_running "${RCLONE_CHILD}"; do
+            sleep 0.1
+            _n=$((_n + 1))
+        done
+        child_running "${RCLONE_CHILD}" && kill -KILL "${RCLONE_CHILD}" 2>/dev/null
     fi
+    # What a stopped automatic call had moved before the stop (#1298), read
+    # from its own part of the log, so the stamp says the run stopped with
+    # gaps rather than a bare 130.
+    [ -n "${RCLONE_LOG0:-}" ] && logged_moved "${RCLONE_LOG0}" && RCLONE_MOVED=1
     rm -rf "${CEILING_DIR_ROOT}/cloud_sync.${$}."* 2>/dev/null
     
     # A failed phase leaves with the code the phase gave -- rclone's, when a
@@ -1575,13 +1611,51 @@ execute_rclone_with_error_handling() {
 # PL-021). When this run replaced nothing it wrote no folder, nothing is
 # superseded, and the newest by name is kept as before. The root not
 # existing, or not listing, removes nothing.
+#
+# Only a folder a completed run marked .completed is a record to prune
+# (#1299, the restore's rule): rclone moves each cloud copy it will replace
+# into the folder before the upload that replaces it lands, so a stopped
+# backup's folder can hold the only copy of a cloud save. A folder with no
+# marker is a stopped run's (or one from before the marker); the completed
+# run that finds it has re-sent what it moved aside, marks it
+# .recovered.<this stamp>, and the completed run after that prunes it. The
+# markers are zero-byte objects found in one listing; if that listing fails,
+# nothing is pruned. Proved on WebDAV (T16 S2-remote); unproved on a bucket
+# remote without directory markers, where a folder of markers alone may not
+# list.
 prune_replaced_remote() {
-    local root="$1" pinned="$2" names doomed d
+    local root="$1" pinned="$2" names marks rc d s doomed="" completed=""
     names=$(rclone lsf --dirs-only "${root}/" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null | tr -d '/' | grep .)
+    marks=$(rclone lsf -R --files-only --include '/*/.completed' --include '/*/.recovered.*' "${root}/" "${RCLONE_LIST_OPTS[@]}" 2>/dev/null)
+    rc=$?
+    if [ "${rc}" -ne 0 ]; then
+        log_message "the replaced-saves markers under ${root} could not be listed; nothing pruned" "false" "WARN"
+        return 0
+    fi
     if [ -n "${pinned}" ] && printf '%s\n' "${names}" | grep -qxF -- "${pinned}"; then
-        doomed=$(printf '%s\n' "${names}" | grep -vxF -- "${pinned}")
+        rclone touch "${root}/${pinned}/.completed" "${RCLONE_NET_OPTS_ARRAY[@]}" 2>/dev/null
+        rc=$?
+        [ "${rc}" -eq 0 ] || log_message "could not mark ${root}/${pinned} completed" "false" "WARN"
+    fi
+    while read -r d; do
+        [ -n "${d}" ] || continue
+        [ "${d}" = "${pinned}" ] && continue
+        if printf '%s\n' "${marks}" | grep -qxF -- "${d}/.completed"; then
+            completed="${completed}${d}
+"
+        elif s=$(printf '%s\n' "${marks}" | sed -n "s|^${d}/\.recovered\.||p" | head -1) && [ -n "${s}" ]; then
+            [ "${s}" != "${pinned}" ] && doomed="${doomed}${d}
+"
+        elif [ -n "${pinned}" ]; then
+            rclone touch "${root}/${d}/.recovered.${pinned}" "${RCLONE_NET_OPTS_ARRAY[@]}" 2>/dev/null
+            rc=$?
+            [ "${rc}" -eq 0 ] || log_message "could not mark ${root}/${d} recovered" "false" "WARN"
+        fi
+    done <<< "${names}"
+    if [ -n "${pinned}" ] && printf '%s\n' "${names}" | grep -qxF -- "${pinned}"; then
+        doomed="${doomed}${completed}"
     else
-        doomed=$(printf '%s\n' "${names}" | sort -r | tail -n +2)
+        doomed="${doomed}$(printf '%s' "${completed}" | sort -r | tail -n +2)"
     fi
     printf '%s\n' "${doomed}" | while read -r d; do
         [ -n "${d}" ] || continue
@@ -1617,7 +1691,7 @@ backup_game_saves() {
         # after the interface starts, so a mismatch is given 15 seconds to
         # clear before it is a refusal. check prints the identity it
         # confirmed, or the reason it refused.
-        if ! saves_root_id=$("${saves_root_tool}" check --wait 15); then
+        if ! saves_root_id=$(CLOUD_SAVESPATH="${SAVESPATH}" "${saves_root_tool}" check --wait 15); then
             relay_refusal "${saves_root_id}"
             return 1
         fi
@@ -1937,11 +2011,11 @@ backup_game_saves() {
     local root_note=""
     if [ -x "${saves_root_tool}" ]; then
         if [ $BACKUP_STATUS -eq 0 ] || [ $BACKUP_STATUS -eq 9 ]; then
-            if ! root_note=$("${saves_root_tool}" record "${saves_root_id}"); then
+            if ! root_note=$(CLOUD_SAVESPATH="${SAVESPATH}" "${saves_root_tool}" record "${saves_root_id}"); then
                 BACKUP_STATUS=1
             fi
         else
-            root_note=$("${saves_root_tool}" record "${saves_root_id}" --no-write) || true
+            root_note=$(CLOUD_SAVESPATH="${SAVESPATH}" "${saves_root_tool}" record "${saves_root_id}" --no-write) || true
         fi
     fi
 

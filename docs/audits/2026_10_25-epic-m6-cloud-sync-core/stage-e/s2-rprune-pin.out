@@ -1,0 +1,15 @@
+== T16 host lead S2 the stop, the stamp, the kept copies, the sweep, the readers -- 2026-10-30T20:31:13Z
+donor root: /workspace/artifacts/m6-donor/1a0266484423/image/system (BUILD_ID 1a0266484423); sha256sum -c ../../SHA256SUMS:
+  usr/bin/busybox: OK
+  usr/bin/rclone: OK
+  etc/os-release: OK
+the scripts and /usr/config: /workspace/tmp/m6-t16/hl/root-pin (8ebaf8daad), 12 of 12 sha256-equal to the guest's installed bytes at 8ebaf8daad (guest-cycle/installed.sha256)
+from the donor: busybox v1.36.1 (146 applet links), rclone v1.75.2
+host stand-ins (not in the donor): bash 5.3.9(1)-release (image: 5.3), timeout (GNU coreutils) 9.7 (image: 9.4), grep (GNU grep) 3.12 (image: 3.9), python3 3.14.4, ip (iproute2)
+sandbox: stage-e/tools/sbx.sh (bwrap, own pid namespace, host network); backend: cloud-test-backend at 3a653eaec4, WebDAV 127.0.0.1:9010, state /workspace/tmp/m6-t16/hl/state
+
+== S2-rprune: cloud_backup's prune_replaced_remote, lifted, over folders on the QA WebDAV: A completed, B unmarked (a stopped run's), C recovered by an earlier run, P this run's (2026-10-30T20:31:13Z)
+  before the prune: A/.completed A/savestates/s.state B/savestates/s.state C/.recovered.EARLIER C/savestates/s.state P/savestates/s.state 
+  after the prune (pinned P): P/savestates/s.state 
+
+== end 2026-10-30T20:31:14Z

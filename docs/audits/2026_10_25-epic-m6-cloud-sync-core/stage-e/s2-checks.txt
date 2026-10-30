@@ -1,0 +1,11 @@
+S2 checks 2026-10-30T20:45:06Z
+bash -n cloud_backup: ok
+bash -n cloud_restore: ok
+bash -n cloud_saves_root: ok
+bash -n cloud_capture: ok
+conf_value and saves_path: byte-identical in cloud_saves_root and cloud_capture (diff empty)
+section h's grep: 'command timeout' in the lifted wrapper: 1
+tools/vocabulary-check rc=0: vocabulary-check: 163 string(s) with back up / backup, save state or Wi-Fi judged, 0 wrong
+added lines with a QEMU, VM, port or loopback word: 0
+f14-backup-dir-order: not rerun -- the bare rclone's order is rclone's; the fix works around it (S2-kept)
+e-term-automatic's termkill-game arm: run from stage-e/cells/e-term-automatic.cmd.sh, its setup completed (D-WORKFLOW-211): the target is the name open at +5 s; the message's 'while  is open' prints the old variable, the assertion is the cmp unchanged
