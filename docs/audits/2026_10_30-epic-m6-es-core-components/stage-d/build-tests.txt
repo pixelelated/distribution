@@ -1,0 +1,79 @@
+g++: g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+rapidjson: /workspace/tmp/m6-t34/rj/rapidjson-1.1.0/include (document.h a8c29c92d1e89279)
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/external -I /workspace/tmp/m6-t34/rj/rapidjson-1.1.0/include <28 sources> -o es-unit-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/CloudTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/CloudFolderValidationTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/CheevosRetryTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/OfflineAchievementsTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/CheevosIndexTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/TimeTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/MaskSecretsTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/LogPolicyTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/WifiTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/OfflineProxyUrlTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/SaveStateJobQueueTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/CaptureRotationTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/DisplayAspectTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/CommandLineTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/TabStopsTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/LaunchCommandTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src/CloudText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src/CloudFolderValidation.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src/CheevosRetry.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src/OfflineAchievementsText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src/CheevosIndex.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src/WifiText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src/SaveStateJobQueue.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src/CaptureRotationText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src/DisplayAspectText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src/utils/StringUtil.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src/utils/TimeText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src/utils/OfflineProxyUrl.cpp
+built es-unit-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/external -DES_ROOT_DIR="/home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681" <2 sources> -o es-file-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/AtomicFileTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src/utils/AtomicFileUtil.cpp
+built es-file-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/fakes -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/external <3 sources> -o es-conf-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/SystemConfTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src/SystemConf.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src/utils/AtomicFileUtil.cpp
+built es-conf-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -g -fno-omit-frame-pointer -fsanitize=address,undefined -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/external <6 sources> -o app-unit-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/tests/app-unit/main.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/tests/app-unit/JourneyTiersTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/tests/app-unit/FolderMergeTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/tests/app-unit/RunLockTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/tests/app-unit/TextFitTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/tests/app-unit/AppWindowTests.cpp
+built app-unit-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -D_WIN32 -c /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src/utils/AtomicFileUtil.cpp -o atomicfile-win32-branch.o
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/external <2 sources> -o es-file-tests-win32
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/AtomicFileWin32Tests.cpp
+    /workspace/tmp/m6-t34/build/atomicfile-win32-branch.o
+built es-file-tests-win32
+RUN es-unit-tests: rc 0; [doctest] test cases: 185 | 185 passed | 0 failed | 0 skipped [doctest] assertions: 4795 | 4795 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3389 | 3389 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN app-unit-tests: rc 0; [doctest] test cases: 18 | 18 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+t34-extract: 12 extracts, each holding its first and last line: mlme_shares MultiLineMenuEntry.cpp:72-75; text_limit TextComponent.cpp:486-486; slider_text SliderComponent.cpp:276-299; slider_precision SliderComponent.cpp:44-59; button_pad MenuComponent.cpp:14-14; button_width MenuComponent.cpp:547-552; carousel_fast CarouselComponent.cpp:76-89; ilist_scroll IList.h:381-406; help_map HelpComponent.cpp:18-33; card_close AsyncNotificationComponent.cpp:119-120; card_update AsyncNotificationComponent.cpp:267-274; textedit_focuslost TextEditComponent.cpp:44-47
+$ g++ -std=c++17 -O0 -g0 -pthread -I /workspace/tmp/m6-t34/build/x -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/external <1 sources> -o components-tests
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp
+built components-tests
+RUN components-tests: rc 1; [doctest] test cases: 7 | 2 passed | 5 failed | 0 skipped [doctest] assertions: 288 | 282 passed | 6 failed | 
+    TEST CASE:  3.4 a two-line row's shares sum to 1 whatever its two fonts (MultiLineMenuEntry.cpp:72-75)
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:27: ERROR: CHECK( s.p0 + s.p1 == doctest::Approx(1.0f) ) is NOT correct!
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:27: ERROR: CHECK( s.p0 + s.p1 == doctest::Approx(1.0f) ) is NOT correct!
+    TEST CASE:  3.6 the marquee's limit is the height less the top and the bottom padding (TextComponent.cpp:486)
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:43: ERROR: CHECK( m.lim() == 100 - 10 - 30 ) is NOT correct!
+    TEST CASE:  3.7 the slider's AUTO value reads the placeholder AUTO (SliderComponent.cpp:280-283)
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:58: ERROR: CHECK( s.text() == "AUTO" ) is NOT correct!
+    TEST CASE:  3.16 the list's CHOOSE key resolves to an icon under French (ComponentList.cpp:568; HelpComponent.cpp:18-33, :190-194)
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:104: ERROR: CHECK( ICON_PATH_MAP.count(fr.at("up/down")) == 1 ) is NOT correct!
+    TEST CASE:  3.26 a button bar fits the menu at 640 (MenuComponent.cpp:543-562)
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:124: ERROR: CHECK( barWidth(five) <= menu ) is NOT correct!
+SAN tsan-card (-fsanitize=thread): rc 66; WARNING: ThreadSanitizer: data race (pid=1893979)
+SAN asan-textedit (-fsanitize=address): rc 1; ==1894434==ERROR: AddressSanitizer: heap-use-after-free on address 0x756d82de0050 at pc 0x5ab4f4c5b960 bp 0x7ffd8898b500 sp 0x7ffd8898b4f0
+SAN asan-popup (-fsanitize=address): rc 0; no sanitizer report
+TOTAL: 246 test cases in 6 binaries

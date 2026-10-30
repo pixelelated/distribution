@@ -1,0 +1,48 @@
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:23:
+TEST CASE:  3.4 a two-line row's shares sum to 1 whatever its two fonts (MultiLineMenuEntry.cpp:72-75)
+
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:27: ERROR: CHECK( s.p0 + s.p1 == doctest::Approx(1.0f) ) is NOT correct!
+  values: CHECK( 0.986957 == Approx( 1 ) )
+  logged: p.first := 26
+          p.second := 20
+
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:27: ERROR: CHECK( s.p0 + s.p1 == doctest::Approx(1.0f) ) is NOT correct!
+  values: CHECK( 1.01304 == Approx( 1 ) )
+  logged: p.first := 20
+          p.second := 26
+
+===============================================================================
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:41:
+TEST CASE:  3.6 the marquee's limit is the height less the top and the bottom padding (TextComponent.cpp:486)
+
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:43: ERROR: CHECK( m.lim() == 100 - 10 - 30 ) is NOT correct!
+  values: CHECK( 80 == 60 )
+
+===============================================================================
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:56:
+TEST CASE:  3.7 the slider's AUTO value reads the placeholder AUTO (SliderComponent.cpp:280-283)
+
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:58: ERROR: CHECK( s.text() == "AUTO" ) is NOT correct!
+  values: CHECK( Auto == AUTO )
+
+===============================================================================
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:100:
+TEST CASE:  3.16 the list's CHOOSE key resolves to an icon under French (ComponentList.cpp:568; HelpComponent.cpp:18-33, :190-194)
+
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:104: ERROR: CHECK( ICON_PATH_MAP.count(fr.at("up/down")) == 1 ) is NOT correct!
+  values: CHECK( 0 == 1 )
+
+===============================================================================
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:119:
+TEST CASE:  3.26 a button bar fits the menu at 640 (MenuComponent.cpp:543-562)
+
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:124: ERROR: CHECK( barWidth(five) <= menu ) is NOT correct!
+  values: CHECK( 710.4 <= 576 )
+
+===============================================================================
+[doctest] test cases:   7 |   2 passed | 5 failed | 0 skipped
+[doctest] assertions: 288 | 282 passed | 6 failed |
+[doctest] Status: FAILURE!

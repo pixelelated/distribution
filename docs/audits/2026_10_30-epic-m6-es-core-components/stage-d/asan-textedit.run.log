@@ -1,0 +1,24 @@
+=================================================================
+==1894434==ERROR: AddressSanitizer: heap-use-after-free on address 0x756d82de0050 at pc 0x5ab4f4c5b960 bp 0x7ffd8898b500 sp 0x7ffd8898b4f0
+WRITE of size 1 at 0x756d82de0050 thread T0
+    #0 0x5ab4f4c5b95f in TextEdit::stopEditing() /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-asan-textedit.cpp:17
+    #1 0x5ab4f4c5b95f in TextEdit::onFocusLost()::{lambda()#1}::operator()() const /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/TextEditComponent.cpp:47
+    #2 0x5ab4f4c5b95f in void std::__invoke_impl<void, TextEdit::onFocusLost()::{lambda()#1}&>(std::__invoke_other, TextEdit::onFocusLost()::{lambda()#1}&) /usr/include/c++/15/bits/invoke.h:63
+    #3 0x5ab4f4c5b95f in std::enable_if<is_invocable_r_v<void, TextEdit::onFocusLost()::{lambda()#1}&>, void>::type std::__invoke_r<void, TextEdit::onFocusLost()::{lambda()#1}&>(TextEdit::onFocusLost()::{lambda()#1}&) /usr/include/c++/15/bits/invoke.h:113
+    #4 0x5ab4f4c5b95f in std::_Function_handler<void (), TextEdit::onFocusLost()::{lambda()#1}>::_M_invoke(std::_Any_data const&) /usr/include/c++/15/bits/std_function.h:292
+    #5 0x5ab4f4c5c684 in std::function<void ()>::operator()() const /usr/include/c++/15/bits/std_function.h:593
+    #6 0x5ab4f4c5c684 in Window::drain() /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-asan-textedit.cpp:10
+    #7 0x5ab4f4c5b7d0 in main /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-asan-textedit.cpp:27
+    #8 0x790d83a2a600  (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a600) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+    #9 0x790d83a2a717 in __libc_start_main (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a717) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+    #10 0x5ab4f4c5b364 in _start (/workspace/tmp/m6-t34/build/asan-textedit+0x2364) (BuildId: a6b200deceaede784e3d2c0897145722ccdbdded)
+
+0x756d82de0050 is located 48 bytes inside of 56-byte region [0x756d82de0020,0x756d82de0058)
+freed by thread T0 here:
+    #0 0x790d8432d89f in operator delete(void*, unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:190
+    #1 0x5ab4f4c5b7c6 in main /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-asan-textedit.cpp:26
+    #2 0x790d83a2a600  (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a600) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+    #3 0x790d83a2a717 in __libc_start_main (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a717) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+    #4 0x5ab4f4c5b364 in _start (/workspace/tmp/m6-t34/build/asan-textedit+0x2364) (BuildId: a6b200deceaede784e3d2c0897145722ccdbdded)
+
+previousl

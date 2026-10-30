@@ -1,0 +1,33 @@
+==================
+WARNING: ThreadSanitizer: data race (pid=1893979)
+  Read of size 1 at 0x7fffffffdc4c by main thread:
+    #0 Card::update(int) /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/AsyncNotificationComponent.cpp:267 (tsan-card+0x1546) (BuildId: ade80d1699d5a0632e16cbe21d073dc1512aeba8)
+    #1 main /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-tsan-card.cpp:19 (tsan-card+0x1546)
+
+  Previous write of size 1 at 0x7fffffffdc4c by thread T1:
+    #0 Card::close() /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/AsyncNotificationComponent.cpp:119 (tsan-card+0x13d8) (BuildId: ade80d1699d5a0632e16cbe21d073dc1512aeba8)
+    #1 operator() /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-tsan-card.cpp:18 (tsan-card+0x13d8)
+    #2 __invoke_impl<void, main()::<lambda()> > /usr/include/c++/15/bits/invoke.h:63 (tsan-card+0x13d8)
+    #3 __invoke<main()::<lambda()> > /usr/include/c++/15/bits/invoke.h:98 (tsan-card+0x13d8)
+    #4 _M_invoke<0> /usr/include/c++/15/bits/std_thread.h:303 (tsan-card+0x13d8)
+    #5 operator() /usr/include/c++/15/bits/std_thread.h:310 (tsan-card+0x13d8)
+    #6 _M_run /usr/include/c++/15/bits/std_thread.h:255 (tsan-card+0x13d8)
+    #7 <null> <null> (libstdc++.so.6+0xf5ef8) (BuildId: 3a7a8c6bd922e6314edb7a710fdc0293265c2c42)
+
+  Location is stack of main thread.
+
+  Thread T1 (tid=1893981, finished) created by main thread at:
+    #0 pthread_create ../../../../src/libsanitizer/tsan/tsan_interceptors_posix.cpp:1078 (libtsan.so.2+0x5cb02) (BuildId: 66d37dc704b813df6c813b77217284deb43a0042)
+    #1 std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) <null> (libstdc++.so.6+0xf5ff0) (BuildId: 3a7a8c6bd922e6314edb7a710fdc0293265c2c42)
+    #2 <null> <null> (libc.so.6+0x2a600) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+
+SUMMARY: ThreadSanitizer: data race /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/AsyncNotificationComponent.cpp:267 in Card::update(int)
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=1893979)
+  Read of size 4 at 0x7fffffffdc50 by main thread:
+    #0 Card::update(int) /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/AsyncNotificationComponent.cpp:267 (tsan-card+0x1554) (BuildId: ade80d1699d5a0632e16cbe21d073dc1512aeba8)
+    #1 main /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-tsan-card.cpp:19 (tsan-card+0x1554)
+
+  Previous write of size 4 at 0x7fffffffdc50 by thread T1:
+    #0 Card::close() /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/AsyncNotificationComponent.cpp:120 (tsan-card+0x13e4) (BuildId:

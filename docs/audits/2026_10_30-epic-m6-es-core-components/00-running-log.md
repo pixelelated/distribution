@@ -75,3 +75,25 @@
 
 - **The audit issue:** #1307, `Audit: M6 T34 EmulationStation's core components -- 43 findings (0 critical, 1 high)`. Labels `audit` and `punch-list`, milestone M6, a sub-issue of #681. Its 43 checkboxes are generated from `05`. `tools/box-check --issue 1307`: `43 open checkbox(es), 0 fail`, rc 0. PL-27's line names no mechanism.
 - **The pause** is posted on #681. The lane waits for the coordinator's dispositions, the four register rows, the channel for PL-27, the bug list and the unit build's timing.
+
+## [Stage D] 20:39 UTC 2026-10-30 — the owed proofs, under the 20:30 ruling (host-only; the host file's lines 20:32:17 START, 20:39:10 END)
+
+- **The stand-in syntax check over the 37** (`tools/t34-syntax-check.sh`, `stage-d/syntax-check.txt`):
+  - the first run: 35 of 37 rc 0. `BusyComponent.cpp` and `TextEditComponent.cpp` stopped on SDL symbols T31's fakes do not declare: the mutex calls, the keyboard calls and nine `SDLK_*`;
+  - the lane's copies were extended, plus the tenth fake `SDL_power.h`;
+  - the second run: **37 of 37 rc 0**. `VideoVlcComponent.cpp` is CANNOT, its two VLC headers named.
+- **The unit build** (`tools/t34-build-tests.sh`, T33's with `components-tests` and three sanitizer programs; `stage-d/build-tests.txt`): rc 1 (`components-tests` FAILs at the pin, as it should). The script exited 0 on its first run despite that, because its run loop never set `FAIL` for the new binary; that is fixed. `TOTAL: 246 test cases in 6 binaries`.
+  - The tree's five binaries pass: 185, 24, 10, 2 and 18 cases.
+  - `components-tests`: 7 cases, 2 passed, 5 failed. Each is the pin's lines lifted verbatim by `tools/t34-extract.py`, each range refused unless it holds its code.
+  - **FAIL at the pin, as the brief expects:**
+    - 3.4: `0.986957` and `1.01304 == Approx(1)`;
+    - 3.6: `80 == 60`;
+    - 3.7: `Auto == AUTO`;
+    - 3.16: `0 == 1` for `haut/bas`;
+    - 3.26: five 128 px buttons `710.4 <= 576` (four fit).
+  - **PASS at the pin:** 3.8, every loop type landing in range (the seat's refutation of PL-24, shown), and 3.7's precision case.
+  - **The sanitizer cases:**
+    - PL-01: `WARNING: ThreadSanitizer: data race`, rc 66;
+    - PL-03 / 3.20: `ERROR: AddressSanitizer: heap-use-after-free`, rc 1;
+    - 3.19 (a double of the popup's shape, not its lines): clean, rc 0.
+- **Not yet written:** 3.21, the other 26 seam cases, and the new items' own cases. They follow the bugs.
