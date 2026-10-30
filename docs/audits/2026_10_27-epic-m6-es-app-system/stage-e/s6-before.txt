@@ -1,0 +1,33 @@
+# S6 before (#680; #1277) -- 2026-10-30T09:51:42Z: FileTag.cpp at the pin (unchanged on the branch) and the catalog at S5's d370ac62e
+
+$ python3 -I stage-c/l329-filetag-words.py <W>/es-app/src/FileTag.cpp <W>/locale/lang/fr/LC_MESSAGES/emulationstation2.po
+tag FINISHED     extracted yes French 'TERMINÉ'
+tag IN PROGRESS  extracted NO  French NONE
+tag DROPPED      extracted NO  French NONE
+tag ON HOLD      extracted NO  French NONE
+tag SLOW         extracted yes French 'LENT'
+tag NOT WORKING  extracted yes French 'NE FONCTIONNE PAS'
+tag BUGGY        extracted yes French 'BOGUÉ'
+tag LIKED        extracted yes French 'J’AIME'
+tag DISLIKED     extracted yes French 'J’AIME PAS'
+9 tag names, 3 without an extracted literal or a French msgstr
+getDisplayIcons("FINISHED") -> 1 icon(s); ("finished") -> 0 (exact case, recorded); ("FINISHED, IN PROGRESS") -> 2
+FAIL 3.29: 3 tag name(s) a player reads are not extracted or have no French (L-25)
+rc=1
+
+$ ... --control
+tag FINISHED     extracted yes French 'TERMINÉ'
+tag IN PROGRESS  extracted yes French 'EN COURS'
+tag DROPPED      extracted yes French 'ABANDONNÉ'
+tag ON HOLD      extracted yes French 'EN PAUSE'
+tag SLOW         extracted yes French 'LENT'
+tag NOT WORKING  extracted yes French 'NE FONCTIONNE PAS'
+tag BUGGY        extracted yes French 'BOGUÉ'
+tag LIKED        extracted yes French 'J’AIME'
+tag DISLIKED     extracted yes French 'J’AIME PAS'
+9 tag names, 0 without an extracted literal or a French msgstr
+getDisplayIcons("FINISHED") -> 1 icon(s); ("finished") -> 0 (exact case, recorded); ("FINISHED, IN PROGRESS") -> 2
+rc=0
+
+$ tools/es-untranslated --es-src <W> --upstream cada856d86   (the three are invisible to it: no _() names them)
+es-untranslated: 706 fork string(s) in the source, 706 with French, 0 without

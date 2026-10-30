@@ -20,6 +20,9 @@ from t33extract import function, run  # noqa: E402
 
 src = Path(sys.argv[1]).read_text()
 po = Path(sys.argv[2]).read_text()
+if "--control" in sys.argv and "fake_gettext_inprogress" in src:
+    print("CANNOT: --control adds the three anchors, which this file already has (S6: the default run is the positive)")
+    sys.exit(2)
 if "--control" in sys.argv:
     src = src.replace('#define fake_gettext_disliked _("DISLIKED")', '#define fake_gettext_disliked _("DISLIKED")\n#define fake_gettext_inprogress _("IN PROGRESS")\n#define fake_gettext_dropped _("DROPPED")\n#define fake_gettext_onhold _("ON HOLD")')
     po += '\nmsgid "IN PROGRESS"\nmsgstr "EN COURS"\n\nmsgid "DROPPED"\nmsgstr "ABANDONNÉ"\n\nmsgid "ON HOLD"\nmsgstr "EN PAUSE"\n'

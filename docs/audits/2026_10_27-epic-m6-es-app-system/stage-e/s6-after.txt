@@ -1,0 +1,19 @@
+# S6 after (#680; #1277) -- 2026-10-30T09:52:23Z, ES f802c55c6
+
+$ python3 -I stage-c/l329-filetag-words.py <W>/es-app/src/FileTag.cpp <W>/locale/lang/fr/LC_MESSAGES/emulationstation2.po
+tag FINISHED     extracted yes French 'TERMINÉ'
+tag IN PROGRESS  extracted yes French 'EN COURS'
+tag DROPPED      extracted yes French 'ABANDONNÉ'
+tag ON HOLD      extracted yes French 'EN PAUSE'
+tag SLOW         extracted yes French 'LENT'
+tag NOT WORKING  extracted yes French 'NE FONCTIONNE PAS'
+tag BUGGY        extracted yes French 'BOGUÉ'
+tag LIKED        extracted yes French 'J’AIME'
+tag DISLIKED     extracted yes French 'J’AIME PAS'
+9 tag names, 0 without an extracted literal or a French msgstr
+getDisplayIcons("FINISHED") -> 1 icon(s); ("finished") -> 0 (exact case, recorded); ("FINISHED, IN PROGRESS") -> 2
+rc=0
+
+$ ... --control   (D-WORKFLOW-211: guarded CANNOT once the anchors are in)
+CANNOT: --control adds the three anchors, which this file already has (S6: the default run is the positive)
+rc=2

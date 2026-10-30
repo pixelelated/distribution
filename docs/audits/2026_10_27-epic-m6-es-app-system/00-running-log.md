@@ -175,3 +175,7 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
   - **`l07` extended:** `engine` deletes the engine while its search runs, and `l08` records which thread the second search runs on. At the pin, `drop` and `engine` FAIL with heap-use-after-free and `l08` FAILs on the calling thread. Stage C's control passes `drop` and FAILs `engine`, reading destroyed params, so the builder now copies its params.
   - **The new `stage-c/s5-bluetooth.py`** FAILs at the pin with heap-use-after-free in the constructor.
   - **After:** `drop`, `engine` and `l08` all PASS. The Bluetooth fixture runs 2 scans and 2 formats with 0 refused. `l07`'s control is guarded `CANNOT`; stand-in rc 0; generators unchanged.
+- **S6, 09:52 UTC (ES `f802c55c6`; #1277)**
+  - **Before:** `l329` reads `9 tag names, 3 without` and FAILs. `es-untranslated` reads 706 of 706 and cannot see the three.
+  - **After:** `l329` reads `9 tag names, 0 without` (rc 0), and its control is guarded `CANNOT`. `t33-words` moves from 199 to 202 msgids; `es-untranslated` reads 709 of 709; stand-in rc 0.
+  - **The words:** EN COURS, ABANDONNÉ, EN PAUSE.

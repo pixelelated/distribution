@@ -1,0 +1,31 @@
+# T33 S6 checks at ES f802c55c6, 09:52:23Z
+
+es-app/src/FileTag.cpp: rc 0
+rc=0
+
+## generators (D-WORKFLOW-210)
+$ t33-words.py <W> f802c55c6 <paths> msgids=202
+generated, asserted: 182 lines, 229 calls, 202 distinct msgids in 12 files; 0 with an empty French msgstr, 0 with no msgid
+rc=0
+$ t33-words.py <W> f802c55c6 <paths> msgids=199
+generated, asserted: 182 lines, 229 calls, 202 distinct msgids in 12 files; 0 with an empty French msgstr, 0 with no msgid
+FAIL t33-words: msgids 202, expected 199
+rc=1
+$ t33-reads.py <W> f802c55c6 <paths> uncached=18
+generated, asserted: 83 lines, 86 calls, 18 uncached, in 11 files
+rc=0
+$ t33-writes.py <W> f802c55c6 <paths> lines=2
+generated, asserted: 2 lines (0 live, 2 dead) in 2 files
+rc=0
+t33-words moves from 199 to 202 msgids (IN PROGRESS, DROPPED, ON HOLD).
+
+## es-untranslated against cada856d86
+es-untranslated: 709 fork string(s) in the source, 709 with French, 0 without
+
+## the ES .githooks/pre-push-test at f802c55c6: PASS, then pushed: origin/feature/m6-es-app-system-680 = f802c55c62c1e06fe89f4db9720106e911f574db
+## non-ASCII in the added .cpp lines: 0 (the French is in the catalog only; the comment above the anchors is ASCII, es-code-traps.md)
+## the words (the ruling's, D-UI-112): IN PROGRESS / EN COURS; DROPPED / ABANDONNÉ; ON HOLD / EN PAUSE. The stored names unchanged (FileFilterIndex.cpp:1224-1225, :1310-1311 read the English).
+## guest half: FILTER GAMELIST BY's TAG row and the metadata editor's tags at 640x480 in French: fix-walk-pending-image (the ruling's gap 8).
+## Already written: nothing inherited: a tag is stored by its English name in gamelist.xml and is unchanged; only the label is translated (#1277's).
+## #585: one line at the hand-back (batocera, then ROCKNIX).
+## time to play: not on the launch path.
