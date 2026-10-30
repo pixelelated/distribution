@@ -1,0 +1,2790 @@
+{
+ "schema": "t34-packet-manifest-1",
+ "pin": "16dbac5211eea7e70db7394372033be2be7df829",
+ "sources": [
+  {
+   "section": 1,
+   "title": "AsyncNotificationComponent.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/AsyncNotificationComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "1aac48f3953143f61241282a49f3efedb09a6d2aea761645bef7dec2f7acff89",
+   "bytes": 12509
+  },
+  {
+   "section": 2,
+   "title": "AsyncNotificationComponent.h (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/AsyncNotificationComponent.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "e14855b9b41b36b3e21a7bb293fb414f89b42d729bacefbfa0a7e0ab447f8999",
+   "bytes": 3331
+  },
+  {
+   "section": 3,
+   "title": "BatteryIndicatorComponent.cpp `:44-56` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/BatteryIndicatorComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "87221ff01cf0021e5dd02f02e5cc2507c9becd61516ce90af2d3b2a6b24dc462",
+   "bytes": 589
+  },
+  {
+   "section": 4,
+   "title": "BusyComponent.cpp `:27-43` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/BusyComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "fd92ccaf72710a6948dd2c782105b2ec5f8fe705b1a6fb625fda628f57beb706",
+   "bytes": 874
+  },
+  {
+   "section": 5,
+   "title": "ButtonComponent.cpp `:2-18` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/ButtonComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "200680b6d429af1ace827baa086ae50bf814cb966f3d32df03fd243750abdee8",
+   "bytes": 720
+  },
+  {
+   "section": 6,
+   "title": "ButtonComponent.cpp `:41-98` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/ButtonComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "df2ffce998daa60d14f5dcc85547fba26fa4112039d9065d670f39f55bd26162",
+   "bytes": 1679
+  },
+  {
+   "section": 7,
+   "title": "ButtonComponent.cpp `:136-152` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/ButtonComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "23df0d6f636af52bdf1c8bfd2348d17a85b04f813ee243c4690f8d65eb17ae55",
+   "bytes": 618
+  },
+  {
+   "section": 8,
+   "title": "ButtonComponent.cpp `:178-225` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/ButtonComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "cba03b3a57d6910153e0e33d422e0f66489f44bf055636aee4834d619f008f27",
+   "bytes": 1293
+  },
+  {
+   "section": 9,
+   "title": "CarouselComponent.cpp `:66-100` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/CarouselComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "f505a9d4960cc04b60e0892aa9d42f1a980b1dc956e7dbafff7aa0293ff0c6f8",
+   "bytes": 888
+  },
+  {
+   "section": 10,
+   "title": "CarouselComponent.cpp `:105-127` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/CarouselComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "7d69c5381181ebdab5717a4607435c292452b217bbfa919a23db07d6ed569d59",
+   "bytes": 785
+  },
+  {
+   "section": 11,
+   "title": "CarouselComponent.cpp `:175-208` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/CarouselComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "ac65be0191fc403c4aa03c8c1a23798c14539a3902107286f0e8e253f9cdb8ee",
+   "bytes": 1009
+  },
+  {
+   "section": 12,
+   "title": "CarouselComponent.cpp `:346-369` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/CarouselComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "d468f75158c813d9ccae3f471a74ce298b55789f1bcdb32c613a1c0b7952bde3",
+   "bytes": 731
+  },
+  {
+   "section": 13,
+   "title": "CarouselComponent.cpp `:755-773` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/CarouselComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "cb9c0a1f6ad05f2f27d8f1e48dffeeeb165fe6cce6048194d7ca901839c253f0",
+   "bytes": 1172
+  },
+  {
+   "section": 14,
+   "title": "ComponentGrid.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/ComponentGrid.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "2f8536042eabe3706b8a2ddb99001b46e4a560d0f7912b1594789e782129637e",
+   "bytes": 18196
+  },
+  {
+   "section": 15,
+   "title": "ComponentGrid.h (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/ComponentGrid.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "62f10be0ffb71b65eaf1162757739979d414b868630af6d13765ec5f45839cbe",
+   "bytes": 5642
+  },
+  {
+   "section": 16,
+   "title": "ComponentList.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/ComponentList.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "1acb75bed9564cec1303298ae370f6e46a5433371b06fe5d9653cc0fc2f70978",
+   "bytes": 23497
+  },
+  {
+   "section": 17,
+   "title": "ComponentList.h (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/ComponentList.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "4ee6500ac88d72773e5335d6bdc93045656a2083588aed5f6c7f9a954d269a35",
+   "bytes": 6618
+  },
+  {
+   "section": 18,
+   "title": "ComponentTab.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/ComponentTab.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "22afae0b3cb29c0126f36c3887e335b8a559908844d79f9b1cf8be638fb4a8d2",
+   "bytes": 14007
+  },
+  {
+   "section": 19,
+   "title": "ControllerActivityComponent.cpp `:130-146` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/ControllerActivityComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "7328bc5ee61a68e8e972959231880a70cb0b098b1e19a3c4e685ede48c3b72db",
+   "bytes": 577
+  },
+  {
+   "section": 20,
+   "title": "ControllerActivityComponent.cpp `:395-437` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/ControllerActivityComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "4c1b6b74996b0a0c1ebf6cc2f2104246d676be3ced0505c054a46e11af1a3a51",
+   "bytes": 1860
+  },
+  {
+   "section": 21,
+   "title": "ControllerActivityComponent.cpp `:538-554` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/ControllerActivityComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "93008e73eb518f7c2b6b973d0d96e69d77c1dc881c64dcc855092e71d0b24770",
+   "bytes": 526
+  },
+  {
+   "section": 22,
+   "title": "DateTimeComponent.cpp `:47-63` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/DateTimeComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "7a8749e1b50e88307686e1649f1e73879e16868223d5b0fae78797b42962faaa",
+   "bytes": 499
+  },
+  {
+   "section": 23,
+   "title": "DateTimeEditComponent.cpp `:72-88` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/DateTimeEditComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "d5ca8c4fc752dc6a24ae67e6c9818af7aa242681bcae6e92138faa0b95dd9902",
+   "bytes": 437
+  },
+  {
+   "section": 24,
+   "title": "DateTimeEditComponent.cpp `:116-168` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/DateTimeEditComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "42634ea2031004cab1030dd1872c45c118b141e639e088988b961cd74647e390",
+   "bytes": 1606
+  },
+  {
+   "section": 25,
+   "title": "DateTimeEditComponent.cpp `:243-268` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/DateTimeEditComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "0e3848812a60774f4064045ccb2e30bb9c2e1fd9f495fe5c71d90303b23692d0",
+   "bytes": 760
+  },
+  {
+   "section": 26,
+   "title": "GridTileComponent.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/GridTileComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "7ab623088ab28e35a0c9cece07812fcd379b10c4596f3f0799214302e2679fe3",
+   "bytes": 54366
+  },
+  {
+   "section": 27,
+   "title": "GridTileComponent.h (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/GridTileComponent.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "9a17713d6fc22681156c201b0138ef06228e521d8167a33817f57b08cddcb2d5",
+   "bytes": 10792
+  },
+  {
+   "section": 28,
+   "title": "HelpComponent.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/HelpComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "897e4c5b38c8cab9e2b67e69f5a1069b6d07cf14497ea74189832b779cd0791a",
+   "bytes": 11116
+  },
+  {
+   "section": 29,
+   "title": "IList.h `:259-338` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/IList.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "a83ea3773e0e5604560c9e94fcab329cf26893f8a3954f30e29c1e04c858fb05",
+   "bytes": 3032
+  },
+  {
+   "section": 30,
+   "title": "IList.h `:368-408` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/IList.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "4decd9638d0b45cbed521758f122ae4ffb28c69e982c1206d940b57e1138d81b",
+   "bytes": 1370
+  },
+  {
+   "section": 31,
+   "title": "ImageComponent.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/ImageComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "aa24e951bec0150d05733c8e3639ab9a01973f2040da6970e5055c426f20c1f9",
+   "bytes": 48484
+  },
+  {
+   "section": 32,
+   "title": "ImageComponent.h (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/ImageComponent.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "2898327dec865aa440048da943a85bd50ec84e6744d420a725d0dbadd8d75fe6",
+   "bytes": 9027
+  },
+  {
+   "section": 33,
+   "title": "ImageGridComponent.h (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/ImageGridComponent.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "8ffe6085ace5f215edc061d1d0a7bdbf5f97ef886554054344694a04eb6943f0",
+   "bytes": 58504
+  },
+  {
+   "section": 34,
+   "title": "MenuComponent.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/MenuComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "6611e831f30477d4c3406b4b29231985da15760e9f51d7c1ddca4dc1c4ad2847",
+   "bytes": 21459
+  },
+  {
+   "section": 35,
+   "title": "MenuComponent.h (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/MenuComponent.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "33a16b98a05b084f0e0caa965906d2ceaeb2e164a5d2b6673d84ccdb2ca70b8d",
+   "bytes": 6442
+  },
+  {
+   "section": 36,
+   "title": "MultiLineMenuEntry.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/MultiLineMenuEntry.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "796992756d9cb436fa4430b614e5cf581cccde5d1486a80a8c1eef9634b08e15",
+   "bytes": 5552
+  },
+  {
+   "section": 37,
+   "title": "MultiLineMenuEntry.h (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/MultiLineMenuEntry.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "752bd154509cedc1740190707b64b3fc51ef2a1e210457efbbb59f97c96432dc",
+   "bytes": 1941
+  },
+  {
+   "section": 38,
+   "title": "NinePatchComponent.cpp `:169-185` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/NinePatchComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "d613b4c6f30ba4ad4593e482a1b5c016ef11019d00925581fd485ddc9f8e7616",
+   "bytes": 836
+  },
+  {
+   "section": 39,
+   "title": "NinePatchComponent.cpp `:318-334` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/NinePatchComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "082d2ef5c2605c3088784bdfaec2c1fbe0f260fe26635e66968c29036670e71b",
+   "bytes": 466
+  },
+  {
+   "section": 40,
+   "title": "NinePatchComponent.cpp `:407-423` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/NinePatchComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "7b56ae542a3a6078bb8160a3bda91b8b9eb078289cdd49aae90773625c7021ca",
+   "bytes": 662
+  },
+  {
+   "section": 41,
+   "title": "OptionListComponent.h `:80-108` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/OptionListComponent.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "ce69802a9879152fbd2e84a0bfe007e7e428a1aeb2d3b624fb254e994b7b3ea7",
+   "bytes": 1104
+  },
+  {
+   "section": 42,
+   "title": "OptionListComponent.h `:132-213` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/OptionListComponent.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "7b8443205c372ff88caab25b44974259baf0f3b0206d351fe8da42baf83b5856",
+   "bytes": 2977
+  },
+  {
+   "section": 43,
+   "title": "OptionListComponent.h `:247-263` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/OptionListComponent.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "d76c50b23538963b64f3bc68fca223511582c8d2e12f4f0b064ed6ad280990c6",
+   "bytes": 611
+  },
+  {
+   "section": 44,
+   "title": "OptionListComponent.h `:268-292` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/OptionListComponent.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "9171ecf62338b446735c164684fb757fd466abacdbef74b696266d3b7ec51300",
+   "bytes": 1097
+  },
+  {
+   "section": 45,
+   "title": "OptionListComponent.h `:302-332` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/OptionListComponent.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "8440ea489910cf2694e91c2c96def79964ded43351d38ee8d24eb9cdc30179e3",
+   "bytes": 953
+  },
+  {
+   "section": 46,
+   "title": "OptionListComponent.h `:624-661` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/OptionListComponent.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "ee4f7e81b840c5942567b8cd409be489b75053b69cf07395cb570d15af282008",
+   "bytes": 1145
+  },
+  {
+   "section": 47,
+   "title": "RatingComponent.cpp `:150-169` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/RatingComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "4fefccb665279c8280e8d0cf030e230bbc9fcfad5022510d0cc94ad95b76dc75",
+   "bytes": 924
+  },
+  {
+   "section": 48,
+   "title": "RatingComponent.cpp `:184-234` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/RatingComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "9b54656a5bfc38df8d0cede5ba22f5936a691c5021fe0fa9450dd945e296c567",
+   "bytes": 1589
+  },
+  {
+   "section": 49,
+   "title": "RatingComponent.cpp `:254-274` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/RatingComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "e8d861ec4477fc0d215c434189212b5dc03685191d3ced9f81bae54eb56def3f",
+   "bytes": 597
+  },
+  {
+   "section": 50,
+   "title": "RectangleComponent.cpp `:30-46` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/RectangleComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "3effac63ae646815ebfaab805539e2204d568e122d85d72512d7784ba6d85250",
+   "bytes": 524
+  },
+  {
+   "section": 51,
+   "title": "ScrollableContainer.cpp `:54-132` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/ScrollableContainer.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "85abb8f55aa7c72e7889d9597b186d7fed99370bc40e9cb5ea845c8aae12c8c5",
+   "bytes": 2398
+  },
+  {
+   "section": 52,
+   "title": "SliderComponent.cpp `:36-66` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/SliderComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "518f4f6dbf7a208f7287645ec14f66e96119891b325fdcdf62f7efbb74ae4d79",
+   "bytes": 1201
+  },
+  {
+   "section": 53,
+   "title": "SliderComponent.cpp `:110-126` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/SliderComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "ccabc3a5a5d926b1aa521f6eb361b7f2e53088668241944a4d3fef27d0a83ec8",
+   "bytes": 463
+  },
+  {
+   "section": 54,
+   "title": "SliderComponent.cpp `:226-327` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/SliderComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "eb8cbf3d1f5500e5403415d6d65d46026de46bb80cd1fabed608d8eef56cfe9e",
+   "bytes": 2693
+  },
+  {
+   "section": 55,
+   "title": "SliderComponent.cpp `:329-348` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/SliderComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "f5832858c86736d45b59b9dee17f249c7cc19ddaf2f9de18b6fb4b319246961b",
+   "bytes": 699
+  },
+  {
+   "section": 56,
+   "title": "SwitchComponent.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/SwitchComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "69c7520e6887aff8072baaad046c33b0d4e9a5bd11ba03dfb26d2b2029aad63d",
+   "bytes": 4913
+  },
+  {
+   "section": 57,
+   "title": "SwitchComponent.h (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/SwitchComponent.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "401f4582dd0237e6c6d734a205a7ba1f0aec055d885a8852b5e658e3ae8667e7",
+   "bytes": 2105
+  },
+  {
+   "section": 58,
+   "title": "TextComponent.cpp `:168-184` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/TextComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "96fbc10acc755425b6cab1589da00817a063c9cf6bd7b9a529304378855787e1",
+   "bytes": 649
+  },
+  {
+   "section": 59,
+   "title": "TextComponent.cpp `:192-208` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/TextComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "6a97552afda1b4c017e026fae25c923390ac93d0f62c3271ad5438302c6cd90f",
+   "bytes": 737
+  },
+  {
+   "section": 60,
+   "title": "TextComponent.cpp `:307-367` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/TextComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "622ad19a1be4f24533ed8d93dff9b4e2858d53ddbef79fe44c00d4099e1c844e",
+   "bytes": 2165
+  },
+  {
+   "section": 61,
+   "title": "TextComponent.cpp `:420-440` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/TextComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "5956bb0102060d0e5d146726925272c57edb105bce27fb29ecb44f6d96ec4186",
+   "bytes": 786
+  },
+  {
+   "section": 62,
+   "title": "TextComponent.cpp `:475-494` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/TextComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "3daa1fa7cf8fb7adf68160524817c678a6069eb86d682c4cff00048b7551b2b4",
+   "bytes": 758
+  },
+  {
+   "section": 63,
+   "title": "TextComponent.h (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/TextComponent.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "1c4dcf39faaa4955da57affd5e2caa59e76eb29bc8dd74142076b260968c523d",
+   "bytes": 5057
+  },
+  {
+   "section": 64,
+   "title": "TextEditComponent.cpp `:1-17` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/TextEditComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "7688caf92eb925b54a72f46d90564f08a9fc3795ad1121a1905e161642e32f43",
+   "bytes": 585
+  },
+  {
+   "section": 65,
+   "title": "TextEditComponent.cpp `:23-61` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/TextEditComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "08cec69125c76515e4e482e8b80d1c3ba8d0699b7821405a229abc95c87e05ce",
+   "bytes": 1189
+  },
+  {
+   "section": 66,
+   "title": "TextEditComponent.cpp `:132-148` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/TextEditComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "eb6dad943a837aa44ae6fb43d61ed1f228dd9bd59f789afc718966a0d69561c7",
+   "bytes": 698
+  },
+  {
+   "section": 67,
+   "title": "TextEditComponent.cpp `:259-279` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/TextEditComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "be442add6a25a372237942f76d9886732071edeed1c1e42d303ab51d38245c47",
+   "bytes": 619
+  },
+  {
+   "section": 68,
+   "title": "TextEditComponent.cpp `:290-308` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/TextEditComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "45d562043436beb37a431c4a491f0303e2df8f3dfe5a58e884c9d14e24ee9089",
+   "bytes": 752
+  },
+  {
+   "section": 69,
+   "title": "TextEditComponent.cpp `:356-400` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/TextEditComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "40d7fdc9f68727817f46b08fc8d86f84b833850be59b9c31b0cc082c2461649b",
+   "bytes": 1566
+  },
+  {
+   "section": 70,
+   "title": "TextListComponent.h `:254-277` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/TextListComponent.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "7d2959def5acb8f8292a556a3187e167fb528631eca8d4aa0872aadd17520528",
+   "bytes": 919
+  },
+  {
+   "section": 71,
+   "title": "TextListComponent.h `:450-466` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/TextListComponent.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "b348b732402b5f631bf43c6500746445776cdb0c2f4bd27309c50851e7e2790d",
+   "bytes": 585
+  },
+  {
+   "section": 72,
+   "title": "TextListComponent.h `:583-621` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/TextListComponent.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "1b8eba2b3a286762bb098a3b9aa628ff2d77e5088483ea826daf332f8b28b76f",
+   "bytes": 1255
+  },
+  {
+   "section": 73,
+   "title": "TextListComponent.h `:717-733` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/TextListComponent.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "0fcb9a787320e56f5f8f6ba85e478f6c0d545b60c3e57a1fc627efd3e207c52f",
+   "bytes": 665
+  },
+  {
+   "section": 74,
+   "title": "VideoComponent.cpp `:14-30` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/VideoComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "1bf3ba369ac1997762669d84812d1ad776cafc8b9747c8e8c627277e2db667aa",
+   "bytes": 487
+  },
+  {
+   "section": 75,
+   "title": "VideoComponent.cpp `:319-359` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/VideoComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "be923dd070351d44e33ea85dd451fe85430bf1e5597af1c9b26e5f363b796fa4",
+   "bytes": 1233
+  },
+  {
+   "section": 76,
+   "title": "VideoComponent.cpp `:583-599` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/VideoComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "161913cb874a5d7018c613da270d88f1b33f27d177312162d486e0b820db2df1",
+   "bytes": 680
+  },
+  {
+   "section": 77,
+   "title": "VideoPlayerComponent.cpp `:1-9` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/VideoPlayerComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "5ec66298fec6cfbeee3dfd4eafe1a3a941320800b15a191a59bdcff78d87d887",
+   "bytes": 285
+  },
+  {
+   "section": 78,
+   "title": "VideoPlayerComponent.h `:1-9` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/VideoPlayerComponent.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "a7bc85ae8879d733941c8fa56514d73f240bfccdf693541d8bbdb2eb0b7e3b39",
+   "bytes": 277
+  },
+  {
+   "section": 79,
+   "title": "VideoVlcComponent.cpp `:1-104` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/VideoVlcComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "979dc8831b160686503f6f770e73b9808d0bd3e6a14432add720cb8486c2342d",
+   "bytes": 3127
+  },
+  {
+   "section": 80,
+   "title": "VideoVlcComponent.cpp `:471-502` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/VideoVlcComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "803457b123ba8ab8c1ee5375de7f9fcf158288d80c9a121f1fec3495726f9c1a",
+   "bytes": 1078
+  },
+  {
+   "section": 81,
+   "title": "VideoVlcComponent.cpp `:584-613` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/VideoVlcComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "c73f34149d014c63b156d171f82bc3757e73bc69562115a733003befda56987a",
+   "bytes": 1048
+  },
+  {
+   "section": 82,
+   "title": "VideoVlcComponent.cpp `:631-647` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/VideoVlcComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "1bbe2cdc7ed699a1582cdd9e0be5e7e18abe1637b205fcf9f3a86290cb5eabfd",
+   "bytes": 556
+  },
+  {
+   "section": 83,
+   "title": "VideoVlcComponent.cpp `:660-676` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/VideoVlcComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "fadc009a04df0990f65548f7efae494e0a0f208043158b1935fcb8b288e93c35",
+   "bytes": 416
+  },
+  {
+   "section": 84,
+   "title": "VideoVlcComponent.cpp `:771-790` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/VideoVlcComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "4ae898b7e481e15192d104b74f1da21730787224349fa86e00ed3a15ad2ea78d",
+   "bytes": 942
+  },
+  {
+   "section": 85,
+   "title": "VideoVlcComponent.cpp `:828-844` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/VideoVlcComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "e476c4985f3377d5be474003de943ee5addf22fff7293a251ab323c0cf4562b9",
+   "bytes": 450
+  },
+  {
+   "section": 86,
+   "title": "VideoVlcComponent.cpp `:851-883` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/VideoVlcComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "a2365a5d293838c5314f4da6e42598689ad02cbdd8905426d0c6715a4738310c",
+   "bytes": 1270
+  },
+  {
+   "section": 87,
+   "title": "VideoVlcComponent.cpp `:903-919` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/VideoVlcComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "d5b56cfae477b3546456d69ec563b9ae8d5747a02bba26e544ae8300d4641fb6",
+   "bytes": 463
+  },
+  {
+   "section": 88,
+   "title": "VolumeInfoComponent.cpp `:37-53` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/VolumeInfoComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "77facf0698e0d8e5be45788f257546f8ad75783ce3f100c2fd05fed64e8a215f",
+   "bytes": 777
+  },
+  {
+   "section": 89,
+   "title": "WebImageComponent.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/components/WebImageComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "6bde7650da0b763bb531c753a95304c8b0f8ad7919a95953fc6eef650daae64c",
+   "bytes": 9255
+  },
+  {
+   "section": 90,
+   "title": "WebImageComponent.h `:1-10` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/components/WebImageComponent.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "3f915162b44ca10d5cc4d3060422447620e80b357e939b49c099467d8b262bf8",
+   "bytes": 227
+  },
+  {
+   "section": 91,
+   "title": "The first reader's 02-forward-audit.md (whole)",
+   "path": "docs/audits/2026_10_30-epic-m6-es-core-components/02-forward-audit.md",
+   "ref": "worktree",
+   "kind": "analysis",
+   "sha256": "2f028fee3c18559dfc7774d49d76d35953080313bd9c1883aa04a73be4dda6c7",
+   "bytes": 75328
+  },
+  {
+   "section": 92,
+   "title": "The first reader's 03-retrospective.md (whole)",
+   "path": "docs/audits/2026_10_30-epic-m6-es-core-components/03-retrospective.md",
+   "ref": "worktree",
+   "kind": "analysis",
+   "sha256": "da5e9debb51175cb842f739b98b1fa7a2fae5ca199af9e3530a76136da789294",
+   "bytes": 2484
+  },
+  {
+   "section": 93,
+   "title": "The first reader's 04-analysis.md (whole)",
+   "path": "docs/audits/2026_10_30-epic-m6-es-core-components/04-analysis.md",
+   "ref": "worktree",
+   "kind": "analysis",
+   "sha256": "dcfce5f908e45e901409646c81fe6d5b7c86584e2435e01de13bb2127ce09e84",
+   "bytes": 12935
+  },
+  {
+   "section": 94,
+   "title": "The first reader's 05-punch-list.md (whole)",
+   "path": "docs/audits/2026_10_30-epic-m6-es-core-components/05-punch-list.md",
+   "ref": "worktree",
+   "kind": "analysis",
+   "sha256": "45021582f83c8787a7697102e11a2c547284e8b8a5e7e5bc65d6451d7edcd41e",
+   "bytes": 21665
+  },
+  {
+   "section": 95,
+   "title": "The brief's \u00a7 4, the questions",
+   "path": "docs/reviews/briefs/es-core-components.md",
+   "ref": "worktree",
+   "kind": "brief",
+   "sha256": "3da5c18d92da2e8bf029e932fb031f22d84b128e305769fc8a841a4a21e0aebf",
+   "bytes": 23106
+  }
+ ],
+ "scan": {
+  "forbidden": [],
+  "secret_patterns": [],
+  "mask": [],
+  "words": [
+   {
+    "file": "AsyncNotificationComponent.cpp",
+    "file_line": 204,
+    "line": 210,
+    "word": "key",
+    "class": "identifier: the joined candidate rows the card re-chooses on (`render`, `:200-224`)"
+   },
+   {
+    "file": "AsyncNotificationComponent.cpp",
+    "file_line": 206,
+    "line": 212,
+    "word": "key",
+    "class": "identifier: the same"
+   },
+   {
+    "file": "AsyncNotificationComponent.cpp",
+    "file_line": 207,
+    "line": 213,
+    "word": "key",
+    "class": "identifier: the same"
+   },
+   {
+    "file": "AsyncNotificationComponent.cpp",
+    "file_line": 209,
+    "line": 215,
+    "word": "key",
+    "class": "identifier: the same"
+   },
+   {
+    "file": "AsyncNotificationComponent.cpp",
+    "file_line": 216,
+    "line": 222,
+    "word": "key",
+    "class": "identifier: the same"
+   },
+   {
+    "file": "AsyncNotificationComponent.cpp",
+    "file_line": 218,
+    "line": 224,
+    "word": "key",
+    "class": "identifier: the same"
+   },
+   {
+    "file": "AsyncNotificationComponent.cpp",
+    "file_line": 219,
+    "line": 225,
+    "word": "key",
+    "class": "identifier: the same"
+   },
+   {
+    "file": "AsyncNotificationComponent.cpp",
+    "file_line": 221,
+    "line": 227,
+    "word": "key",
+    "class": "identifier: the same"
+   },
+   {
+    "file": "ComponentGrid.cpp",
+    "file_line": 394,
+    "line": 1154,
+    "word": "key",
+    "class": "prose: a comment (a pad key)"
+   },
+   {
+    "file": "ComponentGrid.cpp",
+    "file_line": 395,
+    "line": 1155,
+    "word": "key",
+    "class": "prose: a comment (a pad key)"
+   },
+   {
+    "file": "ComponentList.h",
+    "file_line": 50,
+    "line": 2256,
+    "word": "user",
+    "class": "prose: a comment (the player)"
+   },
+   {
+    "file": "IList.h",
+    "file_line": 273,
+    "line": 5336,
+    "word": "user",
+    "class": "prose: a comment (the player, a pad key)"
+   },
+   {
+    "file": "IList.h",
+    "file_line": 273,
+    "line": 5336,
+    "word": "key",
+    "class": "prose: a comment (the player, a pad key)"
+   },
+   {
+    "file": "VideoVlcComponent.cpp",
+    "file_line": 660,
+    "line": 11607,
+    "word": "token",
+    "class": "identifier: a VLC command-line option word"
+   },
+   {
+    "file": "VideoVlcComponent.cpp",
+    "file_line": 866,
+    "line": 11691,
+    "word": "token",
+    "class": "identifier: a VLC option word split from the options string"
+   },
+   {
+    "file": "VideoVlcComponent.cpp",
+    "file_line": 867,
+    "line": 11692,
+    "word": "token",
+    "class": "identifier: the same"
+   },
+   {
+    "line": 12154,
+    "word": "token",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12155,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12166,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12167,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12167,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12168,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12168,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12169,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12169,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12173,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12174,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12179,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12181,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12183,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12183,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12191,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12196,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12200,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12232,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12234,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12245,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12250,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12253,
+    "word": "token",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12277,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12284,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12303,
+    "word": "keys",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12305,
+    "word": "Keys",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12331,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12343,
+    "word": "keys",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12353,
+    "word": "token",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12379,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12379,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12381,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12386,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12386,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12387,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12387,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12388,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12388,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12389,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12389,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12390,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12390,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12391,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12391,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12392,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12392,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12393,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12393,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12394,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12394,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12396,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12396,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12397,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12397,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12399,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12399,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12402,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12402,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12403,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12403,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12445,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12445,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12445,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12524,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12532,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12532,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12550,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12582,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12606,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12625,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12669,
+    "word": "token",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12678,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12692,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12692,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12813,
+    "word": "token",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12816,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12822,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12843,
+    "word": "token",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 12843,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 13052,
+    "word": "token",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 13055,
+    "word": "token",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 13055,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 13249,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 13281,
+    "word": "token",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 13283,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 13332,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 13333,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 13351,
+    "word": "token",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 13383,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 13389,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 13477,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   }
+  ]
+ },
+ "summary": {
+  "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin",
+  "secret_patterns": "0 line(s) match",
+  "mask": "0 value(s) masked",
+  "words": "108 credential-shaped word(s), each classed; 0 a value",
+  "review": 0,
+  "slice": "21 fork-modified whole, 23 upstream-carried by cited ranges"
+ },
+ "slice_files": {
+  "AnimatedImageComponent.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     86
+    ]
+   ],
+   "lines": 86
+  },
+  "AnimatedImageComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     47
+    ]
+   ],
+   "lines": 47
+  },
+  "AsyncNotificationComponent.cpp": {
+   "sent": [
+    [
+     1,
+     306
+    ]
+   ],
+   "trimmed": [],
+   "lines": 306
+  },
+  "AsyncNotificationComponent.h": {
+   "sent": [
+    [
+     1,
+     78
+    ]
+   ],
+   "trimmed": [],
+   "lines": 78
+  },
+  "BatteryIconComponent.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     101
+    ]
+   ],
+   "lines": 101
+  },
+  "BatteryIconComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     38
+    ]
+   ],
+   "lines": 38
+  },
+  "BatteryIndicatorComponent.cpp": {
+   "sent": [
+    [
+     44,
+     56
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     43
+    ]
+   ],
+   "lines": 56
+  },
+  "BatteryIndicatorComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     19
+    ]
+   ],
+   "lines": 19
+  },
+  "BatteryTextComponent.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     64
+    ]
+   ],
+   "lines": 64
+  },
+  "BatteryTextComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     30
+    ]
+   ],
+   "lines": 30
+  },
+  "BusyComponent.cpp": {
+   "sent": [
+    [
+     27,
+     43
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     26
+    ],
+    [
+     44,
+     134
+    ]
+   ],
+   "lines": 134
+  },
+  "BusyComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     41
+    ]
+   ],
+   "lines": 41
+  },
+  "ButtonComponent.cpp": {
+   "sent": [
+    [
+     2,
+     18
+    ],
+    [
+     41,
+     98
+    ],
+    [
+     136,
+     152
+    ],
+    [
+     178,
+     225
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     1
+    ],
+    [
+     19,
+     40
+    ],
+    [
+     99,
+     135
+    ],
+    [
+     153,
+     177
+    ]
+   ],
+   "lines": 225
+  },
+  "ButtonComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     73
+    ]
+   ],
+   "lines": 73
+  },
+  "CarouselComponent.cpp": {
+   "sent": [
+    [
+     66,
+     100
+    ],
+    [
+     105,
+     127
+    ],
+    [
+     175,
+     208
+    ],
+    [
+     346,
+     369
+    ],
+    [
+     755,
+     773
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     65
+    ],
+    [
+     101,
+     104
+    ],
+    [
+     128,
+     174
+    ],
+    [
+     209,
+     345
+    ],
+    [
+     370,
+     754
+    ],
+    [
+     774,
+     1128
+    ]
+   ],
+   "lines": 1128
+  },
+  "CarouselComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     183
+    ]
+   ],
+   "lines": 183
+  },
+  "ClockComponent.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     52
+    ]
+   ],
+   "lines": 52
+  },
+  "ClockComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     24
+    ]
+   ],
+   "lines": 24
+  },
+  "ComponentGrid.cpp": {
+   "sent": [
+    [
+     1,
+     553
+    ]
+   ],
+   "trimmed": [],
+   "lines": 553
+  },
+  "ComponentGrid.h": {
+   "sent": [
+    [
+     1,
+     150
+    ]
+   ],
+   "trimmed": [],
+   "lines": 150
+  },
+  "ComponentList.cpp": {
+   "sent": [
+    [
+     1,
+     728
+    ]
+   ],
+   "trimmed": [],
+   "lines": 728
+  },
+  "ComponentList.h": {
+   "sent": [
+    [
+     1,
+     169
+    ]
+   ],
+   "trimmed": [],
+   "lines": 169
+  },
+  "ComponentTab.cpp": {
+   "sent": [
+    [
+     1,
+     437
+    ]
+   ],
+   "trimmed": [],
+   "lines": 437
+  },
+  "ComponentTab.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     82
+    ]
+   ],
+   "lines": 82
+  },
+  "ControllerActivityComponent.cpp": {
+   "sent": [
+    [
+     130,
+     146
+    ],
+    [
+     395,
+     437
+    ],
+    [
+     538,
+     554
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     129
+    ],
+    [
+     147,
+     394
+    ],
+    [
+     438,
+     537
+    ],
+    [
+     555,
+     603
+    ]
+   ],
+   "lines": 603
+  },
+  "ControllerActivityComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     135
+    ]
+   ],
+   "lines": 135
+  },
+  "DateTimeComponent.cpp": {
+   "sent": [
+    [
+     47,
+     63
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     46
+    ],
+    [
+     64,
+     110
+    ]
+   ],
+   "lines": 110
+  },
+  "DateTimeComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     41
+    ]
+   ],
+   "lines": 41
+  },
+  "DateTimeEditComponent.cpp": {
+   "sent": [
+    [
+     72,
+     88
+    ],
+    [
+     116,
+     168
+    ],
+    [
+     243,
+     268
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     71
+    ],
+    [
+     89,
+     115
+    ],
+    [
+     169,
+     242
+    ],
+    [
+     269,
+     363
+    ]
+   ],
+   "lines": 363
+  },
+  "DateTimeEditComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     77
+    ]
+   ],
+   "lines": 77
+  },
+  "GridTileComponent.cpp": {
+   "sent": [
+    [
+     1,
+     1596
+    ]
+   ],
+   "trimmed": [],
+   "lines": 1596
+  },
+  "GridTileComponent.h": {
+   "sent": [
+    [
+     1,
+     332
+    ]
+   ],
+   "trimmed": [],
+   "lines": 332
+  },
+  "HelpComponent.cpp": {
+   "sent": [
+    [
+     1,
+     331
+    ]
+   ],
+   "trimmed": [],
+   "lines": 331
+  },
+  "HelpComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     44
+    ]
+   ],
+   "lines": 44
+  },
+  "IExternalActivity.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     3
+    ]
+   ],
+   "lines": 3
+  },
+  "IExternalActivity.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     14
+    ]
+   ],
+   "lines": 14
+  },
+  "IList.h": {
+   "sent": [
+    [
+     259,
+     338
+    ],
+    [
+     368,
+     408
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     258
+    ],
+    [
+     339,
+     367
+    ],
+    [
+     409,
+     431
+    ]
+   ],
+   "lines": 431
+  },
+  "ImageComponent.cpp": {
+   "sent": [
+    [
+     1,
+     1400
+    ]
+   ],
+   "trimmed": [],
+   "lines": 1400
+  },
+  "ImageComponent.h": {
+   "sent": [
+    [
+     1,
+     220
+    ]
+   ],
+   "trimmed": [],
+   "lines": 220
+  },
+  "ImageGridComponent.h": {
+   "sent": [
+    [
+     1,
+     1705
+    ]
+   ],
+   "trimmed": [],
+   "lines": 1705
+  },
+  "MenuComponent.cpp": {
+   "sent": [
+    [
+     1,
+     574
+    ]
+   ],
+   "trimmed": [],
+   "lines": 574
+  },
+  "MenuComponent.h": {
+   "sent": [
+    [
+     1,
+     122
+    ]
+   ],
+   "trimmed": [],
+   "lines": 122
+  },
+  "MultiLineMenuEntry.cpp": {
+   "sent": [
+    [
+     1,
+     153
+    ]
+   ],
+   "trimmed": [],
+   "lines": 153
+  },
+  "MultiLineMenuEntry.h": {
+   "sent": [
+    [
+     1,
+     46
+    ]
+   ],
+   "trimmed": [],
+   "lines": 46
+  },
+  "NetworkIconComponent.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     79
+    ]
+   ],
+   "lines": 79
+  },
+  "NetworkIconComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     34
+    ]
+   ],
+   "lines": 34
+  },
+  "NinePatchComponent.cpp": {
+   "sent": [
+    [
+     169,
+     185
+    ],
+    [
+     318,
+     334
+    ],
+    [
+     407,
+     423
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     168
+    ],
+    [
+     186,
+     317
+    ],
+    [
+     335,
+     406
+    ],
+    [
+     424,
+     495
+    ]
+   ],
+   "lines": 495
+  },
+  "NinePatchComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     88
+    ]
+   ],
+   "lines": 88
+  },
+  "OptionListComponent.h": {
+   "sent": [
+    [
+     80,
+     108
+    ],
+    [
+     132,
+     213
+    ],
+    [
+     247,
+     263
+    ],
+    [
+     268,
+     292
+    ],
+    [
+     302,
+     332
+    ],
+    [
+     624,
+     661
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     79
+    ],
+    [
+     109,
+     131
+    ],
+    [
+     214,
+     246
+    ],
+    [
+     264,
+     267
+    ],
+    [
+     293,
+     301
+    ],
+    [
+     333,
+     623
+    ]
+   ],
+   "lines": 661
+  },
+  "PostProcessShaderComponent.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     105
+    ]
+   ],
+   "lines": 105
+  },
+  "PostProcessShaderComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     28
+    ]
+   ],
+   "lines": 28
+  },
+  "RatingComponent.cpp": {
+   "sent": [
+    [
+     150,
+     169
+    ],
+    [
+     184,
+     234
+    ],
+    [
+     254,
+     274
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     149
+    ],
+    [
+     170,
+     183
+    ],
+    [
+     235,
+     253
+    ],
+    [
+     275,
+     295
+    ]
+   ],
+   "lines": 295
+  },
+  "RatingComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     63
+    ]
+   ],
+   "lines": 63
+  },
+  "RectangleComponent.cpp": {
+   "sent": [
+    [
+     30,
+     46
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     29
+    ],
+    [
+     47,
+     166
+    ]
+   ],
+   "lines": 166
+  },
+  "RectangleComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     37
+    ]
+   ],
+   "lines": 37
+  },
+  "ScrollableContainer.cpp": {
+   "sent": [
+    [
+     54,
+     132
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     53
+    ]
+   ],
+   "lines": 132
+  },
+  "ScrollableContainer.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     32
+    ]
+   ],
+   "lines": 32
+  },
+  "ScrollbarComponent.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     215
+    ]
+   ],
+   "lines": 215
+  },
+  "ScrollbarComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     64
+    ]
+   ],
+   "lines": 64
+  },
+  "SliderComponent.cpp": {
+   "sent": [
+    [
+     36,
+     66
+    ],
+    [
+     110,
+     126
+    ],
+    [
+     226,
+     327
+    ],
+    [
+     329,
+     348
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     35
+    ],
+    [
+     67,
+     109
+    ],
+    [
+     127,
+     225
+    ],
+    [
+     328,
+     328
+    ],
+    [
+     349,
+     408
+    ]
+   ],
+   "lines": 408
+  },
+  "SliderComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     67
+    ]
+   ],
+   "lines": 67
+  },
+  "StackPanelComponent.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     226
+    ]
+   ],
+   "lines": 226
+  },
+  "StackPanelComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     37
+    ]
+   ],
+   "lines": 37
+  },
+  "SwitchComponent.cpp": {
+   "sent": [
+    [
+     1,
+     175
+    ]
+   ],
+   "trimmed": [],
+   "lines": 175
+  },
+  "SwitchComponent.h": {
+   "sent": [
+    [
+     1,
+     60
+    ]
+   ],
+   "trimmed": [],
+   "lines": 60
+  },
+  "TextComponent.cpp": {
+   "sent": [
+    [
+     168,
+     184
+    ],
+    [
+     192,
+     208
+    ],
+    [
+     307,
+     367
+    ],
+    [
+     420,
+     440
+    ],
+    [
+     475,
+     494
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     167
+    ],
+    [
+     185,
+     191
+    ],
+    [
+     209,
+     306
+    ],
+    [
+     368,
+     419
+    ],
+    [
+     441,
+     474
+    ],
+    [
+     495,
+     857
+    ]
+   ],
+   "lines": 857
+  },
+  "TextComponent.h": {
+   "sent": [
+    [
+     1,
+     141
+    ]
+   ],
+   "trimmed": [],
+   "lines": 141
+  },
+  "TextEditComponent.cpp": {
+   "sent": [
+    [
+     1,
+     17
+    ],
+    [
+     23,
+     61
+    ],
+    [
+     132,
+     148
+    ],
+    [
+     259,
+     279
+    ],
+    [
+     290,
+     308
+    ],
+    [
+     356,
+     400
+    ]
+   ],
+   "trimmed": [
+    [
+     18,
+     22
+    ],
+    [
+     62,
+     131
+    ],
+    [
+     149,
+     258
+    ],
+    [
+     280,
+     289
+    ],
+    [
+     309,
+     355
+    ]
+   ],
+   "lines": 400
+  },
+  "TextEditComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     72
+    ]
+   ],
+   "lines": 72
+  },
+  "TextListComponent.h": {
+   "sent": [
+    [
+     254,
+     277
+    ],
+    [
+     450,
+     466
+    ],
+    [
+     583,
+     621
+    ],
+    [
+     717,
+     733
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     253
+    ],
+    [
+     278,
+     449
+    ],
+    [
+     467,
+     582
+    ],
+    [
+     622,
+     716
+    ],
+    [
+     734,
+     981
+    ]
+   ],
+   "lines": 981
+  },
+  "VideoComponent.cpp": {
+   "sent": [
+    [
+     14,
+     30
+    ],
+    [
+     319,
+     359
+    ],
+    [
+     583,
+     599
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     13
+    ],
+    [
+     31,
+     318
+    ],
+    [
+     360,
+     582
+    ],
+    [
+     600,
+     657
+    ]
+   ],
+   "lines": 657
+  },
+  "VideoComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     228
+    ]
+   ],
+   "lines": 228
+  },
+  "VideoPlayerComponent.cpp": {
+   "sent": [
+    [
+     1,
+     9
+    ]
+   ],
+   "trimmed": [
+    [
+     10,
+     274
+    ]
+   ],
+   "lines": 274
+  },
+  "VideoPlayerComponent.h": {
+   "sent": [
+    [
+     1,
+     9
+    ]
+   ],
+   "trimmed": [
+    [
+     10,
+     42
+    ]
+   ],
+   "lines": 42
+  },
+  "VideoVlcComponent.cpp": {
+   "sent": [
+    [
+     1,
+     104
+    ],
+    [
+     471,
+     502
+    ],
+    [
+     584,
+     613
+    ],
+    [
+     631,
+     647
+    ],
+    [
+     660,
+     676
+    ],
+    [
+     771,
+     790
+    ],
+    [
+     828,
+     844
+    ],
+    [
+     851,
+     883
+    ],
+    [
+     903,
+     919
+    ]
+   ],
+   "trimmed": [
+    [
+     105,
+     470
+    ],
+    [
+     503,
+     583
+    ],
+    [
+     614,
+     630
+    ],
+    [
+     648,
+     659
+    ],
+    [
+     677,
+     770
+    ],
+    [
+     791,
+     827
+    ],
+    [
+     845,
+     850
+    ],
+    [
+     884,
+     902
+    ],
+    [
+     920,
+     1113
+    ]
+   ],
+   "lines": 1113
+  },
+  "VideoVlcComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     170
+    ]
+   ],
+   "lines": 170
+  },
+  "VolumeInfoComponent.cpp": {
+   "sent": [
+    [
+     37,
+     53
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     36
+    ],
+    [
+     54,
+     143
+    ]
+   ],
+   "lines": 143
+  },
+  "VolumeInfoComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     30
+    ]
+   ],
+   "lines": 30
+  },
+  "WebImageComponent.cpp": {
+   "sent": [
+    [
+     1,
+     265
+    ]
+   ],
+   "trimmed": [],
+   "lines": 265
+  },
+  "WebImageComponent.h": {
+   "sent": [
+    [
+     1,
+     10
+    ]
+   ],
+   "trimmed": [
+    [
+     11,
+     40
+    ]
+   ],
+   "lines": 40
+  }
+ },
+ "packet": {
+  "file": "t34-packet.md",
+  "bytes": 544752,
+  "sha256": "530084b8151f522d57483283076d43c7478433007b63685ea4681cf12d392c58"
+ }
+}

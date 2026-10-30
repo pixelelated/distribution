@@ -16,7 +16,7 @@ files = paths()
 fork = set(git(W, "diff", "--name-only", BASE, PIN, "--", *files).split())
 if len(fork) != 21:
     die("fork-modified: %d, expected 21" % len(fork))
-docs = [n for n in ("02-forward-audit.md", "03-retrospective.md", "04-analysis.md") if os.path.exists(os.path.join(AUDIT, n))]
+docs = [n for n in ("02-forward-audit.md", "03-retrospective.md", "04-analysis.md", "05-punch-list.md") if os.path.exists(os.path.join(AUDIT, n))]
 cited = {}
 CTX = 8
 for n in docs:
