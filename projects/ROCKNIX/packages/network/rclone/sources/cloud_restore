@@ -1214,6 +1214,17 @@ conf_valid() {
             # RANDOM="BASH_VERSINFO[\\$(cmd)0]" ran cmd on the host); PATH, IFS and
             # the rest change what every later command means.
             if (key ~ /^(RANDOM|SRANDOM|SECONDS|LINENO|HISTCMD|BASHPID|BASH_[A-Z_]*|EPOCH[A-Z]*|FUNCNAME|GROUPS|DIRSTACK|PIPESTATUS|SHELLOPTS|BASHOPTS|COMP_[A-Z_]*|READLINE_[A-Z_]*|PATH|IFS|ENV|BASH_ENV|CDPATH|HOME|PS[0-4]|PROMPT_COMMAND|TMPDIR|SHELL|LANG|LC_[A-Z_]*|GLOBIGNORE|HISTFILE|TMOUT|OPTIND|OPTARG|PWD|OLDPWD|SHLVL|UID|EUID|PPID|LD_[A-Z_]*)$/) bad("a name the shell owns (" key ")")
+            # And a name the fork does not document is refused too (D-CLOUD-188): the
+            # conf is sourced as root after the scripts have set their own variables,
+            # so RCLONE_OUTER, PARTIALS_CLEAN, LOG_FILE or a parsed flag set here
+            # would replace them (#1300; a settings archive carries this file). The
+            # list is the DEFAULT_ names of cloud_sync.conf.defaults. Beside it, the
+            # keys the helper renamed (migrate_key) and RESTOREPATH, admitted as known
+            # legacy keys read by nothing but the refusal RESTOREPATH has of its own, so a conf
+            # the helper could not rewrite is not refused for them (D-CLOUD-189,
+            # 2026-10-30; their removal is #1297). Never the value in the reason.
+            if (key !~ /^(SAVESPATH|SETTINGS_BACKUPS|SAVES_REMOTE|SETTINGS_REMOTE|CONTENT_REMOTE|LOG_LEVEL|RCLONEOPTS|RCLONE_NET_OPTS|RCLONE_SYNC_NET_OPTS|SYNC_CEILING_SECONDS|BACKUPMETHOD|CLOUD_BACKUP_KEEP|BACKUPFILE_BACKUP_OPTION|RESTOREMETHOD|BACKUPFILE_RESTORE_OPTION|RSYNCRMDIR)$/ \
+                && key !~ /^(BACKUPPATH|BACKUPFOLDER|SYNCPATH|SYNCPATH_BACKUP|CONTENTPATH|RESTOREPATH)$/) bad("a key the fork does not document (" key ")")
             c = substr(s, i, 1)
             if (c == "\"") {
                 j = dq(s, i + 1)

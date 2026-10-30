@@ -298,6 +298,17 @@ conf_valid() {
             # RANDOM="BASH_VERSINFO[\\$(cmd)0]" ran cmd on the host); PATH, IFS and
             # the rest change what every later command means.
             if (key ~ /^(RANDOM|SRANDOM|SECONDS|LINENO|HISTCMD|BASHPID|BASH_[A-Z_]*|EPOCH[A-Z]*|FUNCNAME|GROUPS|DIRSTACK|PIPESTATUS|SHELLOPTS|BASHOPTS|COMP_[A-Z_]*|READLINE_[A-Z_]*|PATH|IFS|ENV|BASH_ENV|CDPATH|HOME|PS[0-4]|PROMPT_COMMAND|TMPDIR|SHELL|LANG|LC_[A-Z_]*|GLOBIGNORE|HISTFILE|TMOUT|OPTIND|OPTARG|PWD|OLDPWD|SHLVL|UID|EUID|PPID|LD_[A-Z_]*)$/) bad("a name the shell owns (" key ")")
+            # And a name the fork does not document is refused too (D-CLOUD-188): the
+            # conf is sourced as root after the scripts have set their own variables,
+            # so RCLONE_OUTER, PARTIALS_CLEAN, LOG_FILE or a parsed flag set here
+            # would replace them (#1300; a settings archive carries this file). The
+            # list is the DEFAULT_ names of cloud_sync.conf.defaults. Beside it, the
+            # keys the helper renamed (migrate_key) and RESTOREPATH, admitted as known
+            # legacy keys read by nothing but the refusal RESTOREPATH has of its own, so a conf
+            # the helper could not rewrite is not refused for them (D-CLOUD-189,
+            # 2026-10-30; their removal is #1297). Never the value in the reason.
+            if (key !~ /^(SAVESPATH|SETTINGS_BACKUPS|SAVES_REMOTE|SETTINGS_REMOTE|CONTENT_REMOTE|LOG_LEVEL|RCLONEOPTS|RCLONE_NET_OPTS|RCLONE_SYNC_NET_OPTS|SYNC_CEILING_SECONDS|BACKUPMETHOD|CLOUD_BACKUP_KEEP|BACKUPFILE_BACKUP_OPTION|RESTOREMETHOD|BACKUPFILE_RESTORE_OPTION|RSYNCRMDIR)$/ \
+                && key !~ /^(BACKUPPATH|BACKUPFOLDER|SYNCPATH|SYNCPATH_BACKUP|CONTENTPATH|RESTOREPATH)$/) bad("a key the fork does not document (" key ")")
             c = substr(s, i, 1)
             if (c == "\"") {
                 j = dq(s, i + 1)
@@ -374,20 +385,38 @@ update_cloud_sync_config() {
     # without this step a device that had customised SYNCPATH would gain a
     # SAVES_REMOTE pointing at /ROCKNIX/Saves and silently stop syncing to
     # its own folder. That is the "renamed key resets everyone's preference"
-    # trap upgrade-and-install.md names. The old key is left in place and
-    # ignored; the .bak beside the file keeps the pre-migration text.
+    # trap upgrade-and-install.md names. The old key is then removed from the
+    # working copy (D-CLOUD-189); the .bak beside the file keeps the
+    # pre-migration text.
     #
     # RESTOREPATH is not carried: saves have one local folder now
     # (D-CLOUD-040). A value that differs from the saves folder is reported
     # here and refused by every saves transfer until it is removed.
     migrate_key() {
-      local old="$1" new="$2" value
-      if grep -q "^${old}=" "${work}" \
-         && ! grep -q "^${new}=" "${work}"; then
+      local old="$1" new="$2" value rc
+      grep -q "^${old}=" "${work}" || return 0
+      if ! grep -q "^${new}=" "${work}"; then
         value=$(grep -m1 "^${old}=" "${work}" | cut -d= -f2-)
         echo "${new}=${value}" >> "${work}"
+        rc=$?
+        if [ "${rc}" -ne 0 ] || ! grep -q "^${new}=" "${work}"; then
+          log_to_file "${log_file}" "could not carry ${old} across to ${new}; ${old} is left in place" "WARN"
+          return 0
+        fi
         log_to_file "${log_file}" "Carried ${old} across to ${new} (${value})"
       fi
+      # The old key goes once the new one is present (D-CLOUD-189): in this
+      # working copy, under the .bak the install below takes first, so the conf
+      # leaves the helper with the documented keys only (D-CLOUD-188, #1300).
+      # A second run finds nothing to remove. A removal that fails leaves the old
+      # key, which conf_valid admits as a known legacy key read by nothing.
+      sed -i "/^${old}=/d" "${work}"
+      rc=$?
+      if [ "${rc}" -ne 0 ] || grep -q "^${old}=" "${work}"; then
+        log_to_file "${log_file}" "could not remove ${old} after carrying it across to ${new}; it stays, read by nothing" "WARN"
+        return 0
+      fi
+      log_to_file "${log_file}" "Removed ${old}; ${new} carries it now"
     }
     migrate_key BACKUPPATH      SAVESPATH
     migrate_key BACKUPFOLDER    SETTINGS_BACKUPS

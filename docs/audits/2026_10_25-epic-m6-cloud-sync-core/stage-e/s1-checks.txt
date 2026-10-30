@@ -1,0 +1,7 @@
+S1 checks 2026-10-30T20:08:27Z
+bash -n cloud_backup: ok
+bash -n cloud_restore: ok
+bash -n cloud_sync_helper: ok
+conf_valid copies: byte-identical (diff empty, both pairs)
+added lines with a QEMU, VM, port or loopback word: 0
+vocabulary-check: not run -- S1 changes no line that prints a player sentence (two log_to_file lines in the helper)

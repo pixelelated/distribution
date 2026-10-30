@@ -1,0 +1,49 @@
+== T16 host lead S1 conf_valid's allowlist -- 2026-10-30T20:00:53Z
+donor root: /workspace/artifacts/m6-donor/1a0266484423/image/system (BUILD_ID 1a0266484423); sha256sum -c ../../SHA256SUMS:
+  usr/bin/busybox: OK
+  usr/bin/rclone: OK
+  etc/os-release: OK
+the scripts and /usr/config: /workspace/tmp/m6-t16/hl/root-pin (8ebaf8daad), 12 of 12 sha256-equal to the guest's installed bytes at 8ebaf8daad (guest-cycle/installed.sha256)
+from the donor: busybox v1.36.1 (146 applet links), rclone v1.75.2
+host stand-ins (not in the donor): bash 5.3.9(1)-release (image: 5.3), timeout (GNU coreutils) 9.7 (image: 9.4), grep (GNU grep) 3.12 (image: 3.9), python3 3.14.4, ip (iproute2)
+sandbox: stage-e/tools/sbx.sh (bwrap, own pid namespace, host network); backend: cloud-test-backend at 3a653eaec4, WebDAV 127.0.0.1:9010, state /workspace/tmp/m6-t16/hl/state
+
+-- the three conf_valid bodies: cloud_backup 84 lines; cmp restore same; cmp helper same
+conf                           backup   restore  helper   want  verdict
+00-shipped                     rc=0     rc=0     rc=0     0     PASS
+01-doc-SAVESPATH               rc=0     rc=0     rc=0     0     PASS
+02-doc-SETTINGS_BACKUPS        rc=0     rc=0     rc=0     0     PASS
+03-doc-SAVES_REMOTE            rc=0     rc=0     rc=0     0     PASS
+04-doc-SETTINGS_REMOTE         rc=0     rc=0     rc=0     0     PASS
+05-doc-CONTENT_REMOTE          rc=0     rc=0     rc=0     0     PASS
+06-doc-LOG_LEVEL               rc=0     rc=0     rc=0     0     PASS
+07-doc-RCLONEOPTS              rc=0     rc=0     rc=0     0     PASS
+08-doc-RCLONE_NET_OPTS         rc=0     rc=0     rc=0     0     PASS
+09-doc-RCLONE_SYNC_NET_OPTS    rc=0     rc=0     rc=0     0     PASS
+10-doc-SYNC_CEILING_SECONDS    rc=0     rc=0     rc=0     0     PASS
+11-doc-BACKUPMETHOD            rc=0     rc=0     rc=0     0     PASS
+12-doc-CLOUD_BACKUP_KEEP       rc=0     rc=0     rc=0     0     PASS
+13-doc-BACKUPFILE_BACKUP_OPTION rc=0     rc=0     rc=0     0     PASS
+14-doc-RESTOREMETHOD           rc=0     rc=0     rc=0     0     PASS
+15-doc-BACKUPFILE_RESTORE_OPTION rc=0     rc=0     rc=0     0     PASS
+16-doc-RSYNCRMDIR              rc=0     rc=0     rc=0     0     PASS
+17-undoc-RCLONE_OUTER          rc=0     rc=0     rc=0     1     FAIL
+18-undoc-PARTIALS_CLEAN        rc=0     rc=0     rc=0     1     FAIL
+19-undoc-LOG_FILE              rc=0     rc=0     rc=0     1     FAIL
+20-undoc-AUTOMATIC             rc=0     rc=0     rc=0     1     FAIL
+21-undoc-lowercase             rc=0     rc=0     rc=0     1     FAIL
+22-legacy-BACKUPPATH           rc=0     rc=0     rc=0     0     PASS
+23-legacy-BACKUPFOLDER         rc=0     rc=0     rc=0     0     PASS
+24-legacy-SYNCPATH             rc=0     rc=0     rc=0     0     PASS
+25-legacy-SYNCPATH_BACKUP      rc=0     rc=0     rc=0     0     PASS
+26-legacy-CONTENTPATH          rc=0     rc=0     rc=0     0     PASS
+27-legacy-RESTOREPATH          rc=0     rc=0     rc=0     0     PASS
+
+== S1-upgraded: the helper whole on a pre-rename conf (BACKUPPATH, no SAVESPATH)
+before: 1 path keys: BACKUPPATH= 
+helper rc=0
+conf_valid (the copy in cloud_backup) rc=0 
+after: path keys: BACKUPPATH="/storage/roms" SAVESPATH="/storage/roms" 
+.bak: BACKUPPATH= 
+the helper's log lines on the keys: [2026-10-30 20:00:54] [INFO] [cloud_sync_helper] Carried BACKUPPATH across to SAVESPATH ("/storage/roms")|
+== end 2026-10-30T20:00:54Z
