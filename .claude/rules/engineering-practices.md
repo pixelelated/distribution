@@ -730,13 +730,15 @@ question, and is said in the report.
   value and keep the line:
 
   ```bash
-  sed -E 's/((token|key|passw[a-z]*|psk|user)[=:])[^ ]*/\1***/Ig; s/(--(token|key|passw[a-z]*|psk|user)[= ]+)[^ ]+/\1***/Ig'
+  sed -E 's/((token|key|pass(w[a-z]*)?|psk|user)[=:])[^ ]*/\1***/Ig; s/(--(token|key|pass(w[a-z]*)?|psk|user)[= ]+)[^ ]+/\1***/Ig'
   ```
 
   The second substitution covers a command line's flag form (`--user X
   --pass Y`): a process's `cmdline` read through the first alone printed a
   QA backend's pair on 2026-10-30 (the coordinator's own read of a loopback
-  listener's owner). The group closes at the delimiter and the value sits outside it: the
+  listener's owner); and `pass` is matched bare, not only as `passw...`,
+  because rclone writes `pass =` and the backend takes `--pass` (the first
+  widening missed it, caught by its own positive the same minute). The group closes at the delimiter and the value sits outside it: the
   example carried the value inside group 1 for two weeks (`\1***` printed it
   back, audit of the fix round PL-013), so a masking pattern is proven on a
   fake `key=SECRET` line first, and the proof is the absence of `SECRET` in
