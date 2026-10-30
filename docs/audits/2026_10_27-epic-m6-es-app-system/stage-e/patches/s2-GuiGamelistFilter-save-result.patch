@@ -1,0 +1,24 @@
+--- a/es-app/src/guis/GuiGamelistFilter.cpp
++++ b/es-app/src/guis/GuiGamelistFilter.cpp
+@@ -259,8 +259,13 @@
+ 		mFilterIndex->setFilter(it->first, &filters);
+ 	}
+ 
+-	if (collectionFilter != nullptr)
+-		collectionFilter->save();
++	// #1275 (EP-43): a dynamic collection's filter that was not written keeps
++	// the page open, with its choices, and says so.
++	if (collectionFilter != nullptr && !collectionFilter->save())
++	{
++		mWindow->displayNotificationMessage(_U("\uF071  ") + _("COULDN'T SAVE THIS FILTER. TRY AGAIN."));
++		return;
++	}
+ 
+ 	auto finalize = mOnFinalizeFunc;
+ 
+--- a/locale/lang/fr/LC_MESSAGES/emulationstation2.po
++++ b/locale/lang/fr/LC_MESSAGES/emulationstation2.po
+@@ not a unified hunk: the two lines below are appended to the catalog with the patch above @@
++
++msgid "COULDN'T SAVE THIS FILTER. TRY AGAIN."
++msgstr "IMPOSSIBLE D’ENREGISTRER CE FILTRE. RÉESSAYEZ."

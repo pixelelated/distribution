@@ -1,0 +1,28 @@
+# T33 S2 checks at ES 4e9a7d166, 05:30:44Z
+
+es-app/src/CollectionSystemManager.cpp: rc 0
+es-app/src/FileFilterIndex.cpp: rc 0
+rc=0
+
+## generators (D-WORKFLOW-210), each with a drift run
+$ t33-reads.py <W> 4e9a7d166 <paths> uncached=18
+generated, asserted: 83 lines, 86 calls, 18 uncached, in 11 files
+rc=0
+$ t33-reads.py <W> 4e9a7d166 <paths> uncached=16
+generated, asserted: 83 lines, 86 calls, 18 uncached, in 11 files
+FAIL t33-reads: uncached 18, expected 16
+rc=1
+$ t33-writes.py <W> 4e9a7d166 <paths> lines=5
+generated, asserted: 5 lines (3 live, 2 dead) in 4 files
+rc=0
+$ t33-writes.py <W> 4e9a7d166 <paths> lines=7
+generated, asserted: 5 lines (3 live, 2 dead) in 4 files
+FAIL t33-writes: lines 5, expected 7
+rc=1
+
+## the route read for #1272: GuiGamelistOptions.cpp:424-427 reloads a collection only when it is not the bundle; a collection shown as its own system reaches :1601's repopulateGameListView, whose ISimpleGameListView::repopulate (:637-649) reads mRoot and the cursor stack's folders and whose populateList clears without reading the old cursor (BasicGameListView.cpp:65): no freed game read at the pin (l06-collections nonbundled rc 0 at the pin, s2-before.txt). Medium stands.
+## resetIndex clears 20 facet maps (FileFilterIndex.cpp:154-174), not nine as the brief has it; each then reseeds its TRUE/FALSE keys (:176 on)
+## EP-43's patch: stage-e/patches/s2-GuiGamelistFilter-save-result.patch, written over T31's tip 95852f873 (its GuiGamelistFilter.cpp identical to the pin's); the patched scratch copy through the stand-in: rc 0
+## non-ASCII in the added lines
+0
+## time to play: not on the launch path

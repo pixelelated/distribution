@@ -27,6 +27,9 @@ from t33extract import function, run  # noqa: E402
 
 src = Path(sys.argv[1]).read_text()
 fn = function(src, r"^void CollectionSystemManager::reloadCollection\(const std::string& collectionName, bool repopulateGamelist\)", "L-06")
+if "--control" in sys.argv and "ViewController::get()->reloadGameListView(bundle);" not in fn:
+    print("CANNOT: --control rewrites the pin's lines, which this file no longer has (S2: the default run is the positive)")
+    sys.exit(2)
 if "--control" in sys.argv:
     a = "\t\tdata->second.isPopulated = false;\n\t\tpopulateCustomCollection(&data->second);"
     assert fn.count(a) == 1
@@ -63,6 +66,10 @@ struct ViewController {
     void reloadGameListView(SystemData* s) { auto v = getGameListView(s, false); std::string cursorPath; FileData* cursor = v->getCursor();
         if (cursor != nullptr && !cursor->isPlaceHolder()) cursorPath = cursor->getPath(); remake(s, cursorPath); }
     void reloadGameListView(SystemData* s, const std::string& cursorPath) { remake(s, cursorPath); }
+    // S2 (D-WORKFLOW-211): the fork's pair as ViewController.cpp:1059-1117 has it -- the cursor read while alive, the view dropped; made again after
+    std::string dropGameListView(SystemData* s, bool* wasCurrent) { if (wasCurrent) *wasCurrent = false; auto it = views.find(s); if (it == views.end()) return "";
+        FileData* c = it->second->getCursor(); std::string p = c != nullptr && !c->isPlaceHolder() ? c->getPath() : ""; views.erase(it); return p; }
+    void remakeGameListView(SystemData* s, const std::string& cursorPath, bool) { remake(s, cursorPath); }
     void remake(SystemData* s, const std::string& cursorPath) { auto n = std::make_shared<ISimpleGameListView>();
         for (auto k : s->getRootFolder()->getChildren()) for (auto g : ((FolderData*)k)->getChildren()) if (g->getPath() == cursorPath) n->cursor = g;
         views[s] = n; printf("reload: the bundle's view remade, cursor %s\n", n->cursor ? n->cursor->getPath().c_str() : "(none)"); }

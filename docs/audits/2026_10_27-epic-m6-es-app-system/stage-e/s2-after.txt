@@ -1,0 +1,31 @@
+# T33 S2: the positives at ES 4e9a7d166, 05:30:40Z.
+
+$ python3 -I stage-c/l06-reload-collection.py <W>/CollectionSystemManager.cpp   (the fixture completed with the drop/remake pair, D-WORKFLOW-211)
+before: the bundle's view open, cursor on /roms/gb/Bravo.gb inside the dynamic collection
+reload: the bundle's view remade, cursor /roms/gb/Bravo.gb
+after: no freed entry was read
+rc=0
+CANNOT: --control rewrites the pin's lines, which this file no longer has (S2: the default run is the positive)
+rc=2   (--control guarded)
+
+$ python3 -I stage-c/l06-collections.py <W>/CollectionSystemManager.cpp <pin>/ViewController.cpp bundled
+bundled: the view open, cursor on /roms/gb/Bravo.gb
+bundled: no freed game was read
+rc=0
+
+$ python3 -I stage-c/l06-collections.py <W>/CollectionSystemManager.cpp <pin>/ViewController.cpp nonbundled
+nonbundled: the view open, cursor on /roms/gb/Bravo.gb
+nonbundled: no freed game was read
+rc=0
+
+$ python3 -I stage-c/l06-collections.py <W>/CollectionSystemManager.cpp <pin>/ViewController.cpp ep37
+ep37: the view open, cursor on no game (the case asks only which view is moved)
+ep37: the folder moved to on the registered view
+rc=0
+
+$ python3 -I stage-c/s2-collection-files.py <W>/CollectionSystemManager.cpp <W>/FileFilterIndex.cpp
+cfgkill: the previous list whole
+xcckill: the previous filter whole
+delete: deleteCustomCollection returned true, the .xcc removed
+reset: 20 facet map(s) given to resetIndex, 0 stale key(s) left
+rc=0

@@ -137,3 +137,11 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
   - **The lost update** inside the read-to-rename span is recorded, not closed.
   - **`setDirty()`'s callers:** `Gamelist.cpp:239`, `SystemData.cpp:259`, `services/HttpServerThread.cpp:682`, `:686`.
   - **Stand-in:** `MetaData.cpp` and `Gamelist.cpp` rc 0.
+- **S2** (ES `4e9a7d166`, #1272, #1275, #1287):
+  - **The harnesses:** `stage-c/l06-collections.py` (l06's extension, over the real drop/remake pair read from T2's `ViewController.cpp`) and `stage-c/s2-collection-files.py`.
+  - **Before:** at the pin, `bundled` faults (heap-use-after-free) and `ep37` FAILs (the old view is moved); `nonbundled` does not fault, so Medium stands. `cfgkill`, `xcckill`, `delete` and `reset` all FAIL.
+  - **After:** all pass. l06's fixture was completed with the pair (D-WORKFLOW-211), and its `--control` is guarded.
+  - **Generators:** 16 → 18 uncached; 7 → 5 lines.
+  - **Stand-in:** both files rc 0.
+  - **EP-43's patch** for T31's `GuiGamelistFilter.cpp` is in `stage-e/patches/`; the patched scratch copy is rc 0.
+  - **A correction to the brief:** `resetIndex` clears 20 facets, not nine.

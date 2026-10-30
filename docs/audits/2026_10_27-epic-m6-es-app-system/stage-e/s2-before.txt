@@ -1,0 +1,41 @@
+# T33 S2 (#680; #1272, #1275, #1287): the positives at the pin, 05:28:47Z. <pin> = 16dbac5211 (ViewController.cpp read by git show, T2's).
+
+$ python3 -I stage-c/l06-reload-collection.py <pin>/CollectionSystemManager.cpp
+before: the bundle's view open, cursor on /roms/gb/Bravo.gb inside the dynamic collection
+SUMMARY: AddressSanitizer: heap-use-after-free a.cpp:29 in ViewController::reloadGameListView(SystemData*)
+FAIL l06: rc 1
+  ASan internal:           fe
+
+rc=1
+
+$ python3 -I stage-c/l06-collections.py <pin>/CollectionSystemManager.cpp <pin>/ViewController.cpp bundled
+bundled: the view open, cursor on /roms/gb/Bravo.gb
+SUMMARY: AddressSanitizer: heap-use-after-free a.cpp:37 in ViewController::reloadGameListView(SystemData*)
+FAIL s2r: rc 1
+  ASan internal:           fe
+
+rc=1
+
+$ python3 -I stage-c/l06-collections.py <pin>/CollectionSystemManager.cpp <pin>/ViewController.cpp nonbundled
+nonbundled: the view open, cursor on /roms/gb/Bravo.gb
+nonbundled: no freed game was read
+rc=0
+
+$ python3 -I stage-c/l06-collections.py <pin>/CollectionSystemManager.cpp <pin>/ViewController.cpp ep37
+ep37: the view open, cursor on no game (the case asks only which view is moved)
+ep37: the folder moved to on the retained OLD view
+FAIL ep37: moveToFolder acted on the retained old view, not the one registered after the reload (EP-37)
+FAIL S2: 1 case(s)
+rc=1
+
+$ python3 -I stage-c/s2-collection-files.py <pin>/CollectionSystemManager.cpp <pin>/FileFilterIndex.cpp
+cfgkill: the previous list cut
+FAIL cfgkill: a custom collection's list killed mid-write is left cut (D-CLOUD-078)
+xcckill: the previous filter cut
+FAIL xcckill: a dynamic collection's filter killed mid-write is left cut; a cut .xcc empties the collection (EP-19)
+delete: deleteCustomCollection returned false, the .xcc still there
+FAIL delete: a filter written this session was not found by the delete (the cache remembered its absence)
+reset: 20 facet map(s) given to resetIndex, 20 stale key(s) left
+FAIL reset: resetIndex clears copies (clearIndex takes its map by value; EP-44)
+FAIL S2: 4 case(s)
+rc=1
