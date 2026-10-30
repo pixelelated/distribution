@@ -1,0 +1,9 @@
+#!/bin/bash
+# T34 (#681): the window's guest gets no network beyond the loopback SSH forward
+# (the request's "no network"): restrict=on on the user netdev, then the real QEMU.
+args=()
+for a in "$@"; do
+  case "$a" in user,id=net0,*) a="user,id=net0,restrict=on,${a#user,id=net0,}" ;; esac
+  args+=("$a")
+done
+exec /usr/bin/qemu-system-x86_64 "${args[@]}"

@@ -39,3 +39,10 @@
 - **Readings:** L-09 is sound at the pin, by the writer's erase. § 1 (g)'s `setOpacity` is unreachable on the fork's images. `UntintedImageComponent` is at `GuiMenu.cpp:6401`.
 - **The window plan** is `stage-b/window-plan.md`: 1,410 s by the brief's command re-run; 30 + 5 minutes; two boots.
 - **The push route:** HTTPS with `gh`'s credential (the friction lines).
+
+## [Stage C] 19:39 UTC 2026-10-30 — the guest window (granted 19:24), START 19:28:13 to RETURN 19:39:23
+
+- **The order:** the host file was read at 19:27:40, the minute before START. My scripted open-START check matched no M7 line, because M7 stamps its lines `+00:00`, not `Z`. Read by hand at 19:27:53: the last M7 runtime line was the 13:35:50 RETURN, so no M7 START was open. The scripted check was wrong, and I said so in the START post.
+- **The guest:** `generic-x64-vm run --headless --daemonize` through a wrapper (`guest-cycle/helpers/qemu-wrap`) adding `restrict=on` to the user netdev (read back from `/proc/<pid>/cmdline`), sockets under `/workspace/tmp/m6-t34/guest/`. Two boots: 640x480 (pid 743737, 19:27:41 to 19:35:30), then 1280x800 (pid 797892, 19:35:30 to 19:38:58). The detached stop timer was PID 743756, set to fire at 20:02:42; it was stopped with its child by recorded PIDs, unfired.
+- **The records:** the RETURN post on #681 (comment 6531938082) carries the readings; the frames and reads are in `guest-cycle/`. Every frame is `image`. Gap 14 px at 640 and 28 px at 1280; the dim's ratio 0.314; the strip's four frames and L-02's pair identical. L-01 not reproduced on the image (0 log lines; the catalog carries `haut/bas`); new lead L-25 (the tabbed page's bar carries no component prompt at 1280); G-02, G-06, G-07, G-08 and G-10 CANNOT with their reasons.
+- **The disk:** retired after the RETURN, as `guest-cycle/retired.txt` records; the census `qemu 0, compilers 0, listeners 0`.
