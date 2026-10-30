@@ -28,3 +28,14 @@
   - `stage-a/membership-block.txt` and `stage-a/paths.txt`;
   - the pointer (the stage-A focus, its line 43 rewritten, the first checkpoint line);
   - the day's work-log entry headed #681.
+
+## [Stage B] 14:46 UTC 2026-10-30 — 02 composed; the window plan; the request
+
+- **`02-forward-audit.md`** is composed by `tools/t34-02.py` from `tools/t34-02.template.md` and nine generators (coverage, leads, layouts, constants, input, lifetimes, reads, words, includes). Each was seen to exit 1 on a constructed drift (`stage-b/generator-drifts.txt`). It has 510 lines, its 16 sections in the brief's § 6 order, and 80 coverage rows by § 7's own command; the placeholder grep reads 0.
+- **New leads:**
+  - L-22: the card's `close()` writes its closing state unlocked from the holders' threads while `update()` reads it;
+  - L-23: `"add star"` is outside `_()`;
+  - L-24: a video component's BACK prompt is labelled SELECT.
+- **Readings:** L-09 is sound at the pin, by the writer's erase. § 1 (g)'s `setOpacity` is unreachable on the fork's images. `UntintedImageComponent` is at `GuiMenu.cpp:6401`.
+- **The window plan** is `stage-b/window-plan.md`: 1,410 s by the brief's command re-run; 30 + 5 minutes; two boots.
+- **The push route:** HTTPS with `gh`'s credential (the friction lines).

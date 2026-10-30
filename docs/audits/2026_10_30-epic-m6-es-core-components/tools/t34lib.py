@@ -12,7 +12,7 @@ BASE = "bccd715707"
 HERE = os.path.dirname(os.path.abspath(__file__))
 AUDIT = os.path.dirname(HERE)
 ROOT = os.path.abspath(os.path.join(AUDIT, "..", "..", ".."))
-BRIEF = os.path.join(ROOT, "docs/reviews/briefs/es-core-components.md")
+BRIEF = os.environ.get("T34_BRIEF") or os.path.join(ROOT, "docs/reviews/briefs/es-core-components.md")  # T34_BRIEF: the drift test only
 COMP = "es-core/src/components/"
 
 

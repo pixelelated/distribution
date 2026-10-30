@@ -55,3 +55,10 @@ ASSERT: quoted include lines: 343, expected 352
 rc=1
 $ python3 -B -I tools/t34-includes.py <W> <pin> (the 80)
 rc=0
+
+## t34-leads.py
+$ T34_BRIEF=<the brief less its L-13 row> python3 -B -I tools/t34-leads.py
+ASSERT: L leads: 23; unanswered []; answered without a cell ['L-13']
+rc=1
+$ python3 -B -I tools/t34-leads.py (the brief)
+rc=0
