@@ -112,6 +112,12 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
 
 ## Stage E (05:19 UTC 2026-10-30 onward; the brief `t33-streams.md` at the coordinator's `31561429a2`, the dispatch #680 comment 6515550000)
 
+- **The build script's command file:** `tools/t33-build-tests.sh` in this folder. Run as `. stage-a/env.sh && bash tools/t33-build-tests.sh <W> /workspace/tmp/m6-t33/build-<point>`:
+  - `build-pin` at stage C (`stage-c/build-pin.txt`);
+  - `build-s3` for S3;
+  - `build-s4b` for S4b's new cases over the unfixed sources, and `build-s4b-after` after its fix;
+  - `build-tip` at the hand-back.
+  Each prints its own `TOTAL:` line, quoted in the stream's records and in `stage-e/handback-checks.txt`. The fixtures' commands are `stage-e/handback-run.sh` (every harness at a tip, with its expected rc) and the `$` lines heading each `stage-e/sN-before.txt` and `sN-after.txt`.
 - **S1a** (ES `d0d92dda6`, #1271, #1285):
   - **Before:** at the pin, `stage-c/l313-gamelist-save.py` (l313's extension) FAILs all nine checks across its seven cases (outside, inode, unparsed, recovery, media, record, kill ×3), and l313 FAILs both its lines.
   - **After:** all rc 0. l313's `--control` is guarded `CANNOT`, and its fixture was completed (D-WORKFLOW-211: the helper's extract and two doubles; no assertion changed).
@@ -210,3 +216,8 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
   - `02` § The merge debt names #1305, with `SystemData.cpp`'s half for the integration and `Window.cpp`'s for T35. § The streams' recorded line and #585 line 21 name it too.
   - `05`: PL-25 is Medium, its bug is #1305, and its Phase 7 row is Deferred: #1305. The lint reads PASS.
   - #1270's PL-25 row carries the bug; `box-check` reads 0 fail.
+- **19:23 UTC, the close-out (the coordinator's acceptance read, #680 comment 6525576831):**
+  - **The two record lines:** the build script's command file is named at the head of the stage-E section above; `02` § The streams' S4a row names the es-core half and its S4b row names T20's collision. PL-25's #1305 was already in § The merge debt (`1140125aca`).
+  - **Retired under D-INFRA-022** (`stage-e/retirement.txt`): the ES worktree (47,501,898 bytes, `git worktree remove` without `--force`, the branch kept at `f802c55c6` and on origin) and `/workspace/tmp/m6-t33/` (100,573,633 bytes).
+  - **`tools/write-completion.py`** (T32's, its folder and issue changed) refuses while #1270 is open, and writes nothing.
+  - **Lint:** both ways PASS (`--phase resolution --issue 1270` and the folder alone).

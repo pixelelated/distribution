@@ -21,7 +21,9 @@
 - **The tips:** ES `f802c55c6` (S1a `d0d92dda6` to S6, pushed); distribution: the hand-back merge on this branch, named in #680's header.
 - **`05` at Phase 7:** 23 resolved, 3 deferred. The resolution lint reads PASS. #1270's 26 checkboxes are ticked, `box-check` reads 0 fail, and the 22 bugs carry `fixed-at-es`. The bugs stay open until the pin moves on `next`.
 - **Waiting on the coordinator:** acceptance, PL-25's severity (a reachable use-after-free; the lead goes to T2 and es-core), and the integration window's guest halves.
-- **The lane's next step:** the close-out once #1270 is closed: `audit-completion.json` from #1270's readback, the full lint, the pointer idle.
+- **Accepted** (#680 comment 6525576831, 14:46 UTC).
+- **The close-out so far:** the two record lines; PL-25's bug #1305 in the merge debt; the ES worktree and `/workspace/tmp/m6-t33/` retired, 148,075,531 bytes (`stage-e/retirement.txt`).
+- **The lane's last step:** once #1270 is closed, `python3 -I docs/audits/2026_10_27-epic-m6-es-app-system/tools/write-completion.py .` (it refuses while #1270 is open), then the lint both ways, this pointer idle, and the tip posted on #680.
 
 **History, stages A to D:**
 
