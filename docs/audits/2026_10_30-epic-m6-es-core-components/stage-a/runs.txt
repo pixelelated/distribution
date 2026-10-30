@@ -1,4 +1,4 @@
-# T34 stage A, the brief's § 5 runs block, 2026-10-30T09:54:20Z; each line: its text, its output, the wrapper's rc (the line's last command) and wall time
+# T34 stage A, the brief's § 5 runs block, 2026-10-30T09:54:20Z; each line: its text, its output, the wrapper's rc (the line's last command) and wall time; the brief's four placeholder words are written hyphenated here (CO-HASH, MERGE-HASH, TIP-HASH, V2-HASH) so the brief's § 9 unfilled-placeholder grep reads 0 on this record
 $ (line 1)
 export LC_ALL=C; W=/home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681; PIN=16dbac5211eea7e70db7394372033be2be7df829; G=/usr/bin/grep; C=8ebaf8daad; MB=cada856d86
 [line 1] rc=0 2 ms
@@ -278,8 +278,8 @@ pugixml root present
 NOT RUN (stage C; the script does not exist at stage A): python3 -I docs/audits/*-epic-m6-es-core-components/tools/t34-includes.py "$W" "$PIN" .qa-scratch/t34/paths.txt | tail -n 4
 NOT RUN (stage C; the script does not exist at stage A): bash docs/audits/*-epic-m6-es-core-components/tools/t34-build-tests.sh "$W" 2>&1 | tail -n 10
 
-# STAGE A, after the pointer is read -- the removal check: TIPHASH is the lane's own tip the pointer and the dispatch comment name (MERGE_HASH at stage A); the literal word fails with `fatal: bad revision 'TIPHASH'` (expect empty) and the ES diff against the pin (expect empty before stage E)
-$ (line 52, TIPHASH = MERGE_HASH 00d490e654 at stage A)
+# STAGE A, after the pointer is read -- the removal check: TIP-HASH is the lane's own tip the pointer and the dispatch comment name (MERGE-HASH at stage A); the literal word fails with `fatal: bad revision 'TIP-HASH'` (expect empty) and the ES diff against the pin (expect empty before stage E)
+$ (line 52, TIP-HASH = MERGE-HASH 00d490e654 at stage A)
 [line 52] rc=0 4 ms
-$ (line 52, TIPHASH = the lane tip dff4fbd61d)
+$ (line 52, TIP-HASH = the lane tip dff4fbd61d)
 [line 52] rc=0 4 ms

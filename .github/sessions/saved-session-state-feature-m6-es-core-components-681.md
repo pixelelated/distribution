@@ -15,7 +15,23 @@
 > **Register:** the rows this brief cites are on the coordinator's branch, merged here; D-CLOUD-187 D-INFRA-031 D-LAUNCH-007 D-NET-017 D-QA-063 D-RA-052 D-SYS-014 D-UI-129 D-WORKFLOW-213 are the highest rows of their areas on the coordinator's branch (computed from the decided table at `200a9a032d`), with the ownership row of the brief's § 1 written at dispatch (D-WORKFLOW-188 on the P1 branch only; the merge unites them); the four rows the brief's § 9 expects are put to the coordinator at the pause, never decided by the lane, and a row this slice forces takes an ID the coordinator assigns on #681
 > **The brief:** `docs/reviews/briefs/es-core-components.md` at `a6e14fed86` (version 2 of 2026-10-30, after a stranger's proof of version 1 `a728d04c95` -- its corrections listed at its end, `## Corrections in version 2`); #681's body carries its § 7 checkboxes; where the two differ the body wins and the coordinator corrects the brief
 
-## Current focus
+## Current focus (14:24 UTC 2026-10-30 update): stage A done; stage B next
+
+**Stage A is recorded** in `docs/audits/2026_10_30-epic-m6-es-core-components/`:
+- `00-running-log.md`: the header, the eleven keys checked, and the two seeding slips -- this file's line 43, now rewritten, and the Register line's D-SYS-014, which is an open decision; the decided table's highest SYS row is D-SYS-013;
+- `01-research-notes.md` § Scope and § The § 5 runs at stage A;
+- `stage-a/`: `first-commands.txt`, `membership-block.txt`, `paths.txt`, `runs.txt` and `issue-states.txt`.
+
+Every expectation of § 1, § 2 and § 5 printed as the brief says, with one erratum: the gates command prints 13 lines, which is § 4 Q7's own list. All eight lanes' ES tips are empty inside the 80 (T33's is now `f802c55c62c1`). The ES worktree is at the pin and clean.
+
+**Next is stage B:**
+- the brief's § 3 items 2 to 10, read at T34's copies of the rules (six differ from the T3 worktree's);
+- then `02-forward-audit.md` in § 6's order;
+- then the window request on #681 and in the host file. Per the host file's 09:26 entry, it waits behind M7's TLS proof windows.
+
+No guest, build, fetch or keyed call before the grant.
+
+## Earlier focus (seeded): not started
 
 Not started. Before the first command after `cat`, the eleven keys of this
 pointer are read against the brief's § 10 table, and any that names the
@@ -40,7 +56,7 @@ git merge-base --is-ancestor 2174265e9c HEAD && echo stacked-on-P1
 git merge-base --is-ancestor 200a9a032d HEAD && echo coordinator-tip-merged
 git diff --stat 8ebaf8daad HEAD -- packages projects | tail -1                     # empty
 test -f docs/reviews/inventory.json && echo inventory
-/usr/bin/grep -c -E '__[A-Z]+__|\b(200a9a032d|00d490e654|TIPHASH|a6e14fed86)\b' .github/sessions/saved-session-state-feature-m6-es-core-components-681.md   # 0: every placeholder filled at seeding
+/usr/bin/grep -c -E '__[A-Z]+__|\b(CO''HASH|MERGE_''HASH|TIP''HASH|V2''HASH)\b' .github/sessions/saved-session-state-feature-m6-es-core-components-681.md   # 0: the brief's § 9 check; the quotes split each word so this line does not count itself (the seeded line had its hashes filled in and counted 5, stage A)
 W=/home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681
 git -C "$W" rev-parse HEAD; git -C "$W" status --short | wc -l                      # the pin; 0
 git -C "$W" merge-base 16dbac5211eea7e70db7394372033be2be7df829 rocknix/master | cut -c1-10   # cada856d86
@@ -70,4 +86,4 @@ or a guest outside the one granted window.
 
 ## Checkpoints
 
-- (none yet; the executor appends one line per stage: the stage, both tips, the time)
+- Stage A, 14:24 UTC 2026-10-30: distribution `22c0d5a2c2` plus the stage-A close commit that carries this line; ES `16dbac5211` (the pin, clean).
