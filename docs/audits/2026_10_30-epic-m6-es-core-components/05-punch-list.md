@@ -34,7 +34,7 @@ Written by `tools/t34-05.py` from one item table, so the sections, the Phase 7 g
 
 ## PL-04: The `up/down` help icon key goes through `_()`
 
-- **Severity:** Medium; **category:** Words; **question:** Q3
+- **Severity:** Low; **category:** Words; **question:** Q3
 - **Source finding:** L-01, 3.16
 - **Lines at the pin:** `ComponentList.cpp:568`; `HelpComponent.cpp:176-200`; fr po `:3708-3709`
 - **Owner:** T34 (upstream's line, rule 6)
@@ -42,14 +42,14 @@ Written by `tools/t34-05.py` from one item table, so the sections, the Phase 7 g
 - **Proposed disposition:** drop the `_()` (a contained fix, a #585 line); 3.16 as the covering case; the catalog's orphan `msgid` is a row for the pause
 - **proved:** tree; guest (image): not reproduced
 
-## PL-05: The tabbed SCRAPEUR page's help bar carries no component prompt
+## PL-05: The tabbed SCRAPEUR page's help bar carried no component prompt on the image
 
-- **Severity:** Medium; **category:** Input; **question:** Q3
+- **Severity:** Low; **category:** Input; **question:** Q3
 - **Source finding:** L-25 (new, the guest)
 - **Lines at the pin:** `ComponentTab.cpp:320-345`; `MenuComponent.cpp:531-533`; `ComponentGrid.cpp:519-553`
 - **Owner:** T34 (if the pin's components drop them); `Window`'s bar T35's
 - **What is wrong:** At 1280x800 the bar reads only FERMER and RETOUR, pixel-identical with a row focused and with the strip focused: no SWITCH TAB, no row prompt. Shown on the image only; whether the pin's tabbed `MenuComponent` loses its children's prompts, or the image's composition does, is unread.
-- **Proposed disposition:** read at the pin before a fix (the grid's prompt collection with a tab strip cell; when `updateHelpPrompts` runs on a focus move inside the menu); a `bug` only if the pin's code drops them
+- **Proposed disposition:** withdraw as a component defect: the seat traced SWITCH TAB through the pin's chain (`ComponentTab.cpp:341`, `ComponentGrid.cpp:493`, `:522-552`, `MenuComponent.cpp:533`); the image's empty bar named for T35 (the bar's collection in `Window`) and M7's composition
 - **proved:** guest (image)
 
 ## PL-06: The vertical marquee's limit subtracts the top padding twice
@@ -64,11 +64,11 @@ Written by `tools/t34-05.py` from one item table, so the sections, the Phase 7 g
 
 ## PL-07: A two-line row's shares do not sum to 1 when its fonts differ
 
-- **Severity:** Low; **category:** Layout; **question:** Q1
+- **Severity:** Medium; **category:** Layout; **question:** Q1
 - **Source finding:** L-03, 3.4
 - **Lines at the pin:** `MultiLineMenuEntry.cpp:74-75`
 - **Owner:** T34 (upstream's formula, moved by the fork's `48d43c0fb`)
-- **What is wrong:** `th*0.9/h + sh*1.1/h` is 1 only when `th == sh`: a taller Text font leaves a gap, a taller TextSmall overflows by `0.1*(sh-th)/h`.
+- **What is wrong:** `th*0.9/h + sh*1.1/h` is 1 only when `th == sh`: a taller Text font leaves a gap, a taller TextSmall overflows by `0.1*(sh-th)/h`; and (the seat) a multi-line description more than ten times the label's height drives the second share above 1, which `ComponentGrid.cpp:93` asserts against: Medium in assertion builds.
 - **Proposed disposition:** a pause ruling (a register row): shares that sum to 1, or the gap recorded; 3.4's case
 - **proved:** tree
 
@@ -142,13 +142,13 @@ Written by `tools/t34-05.py` from one item table, so the sections, the Phase 7 g
 - **Proposed disposition:** a pause ruling: a bar that fits its cell, or the pages' labels; 3.26's arithmetic per page
 - **proved:** tree
 
-## PL-15: Two pages read a 20 px row inset at every panel
+## PL-15: Two pages read a fixed 10 px row inset (20 px in all) at every panel
 
 - **Severity:** Low; **category:** Constants; **question:** Q2
 - **Source finding:** L-06
 - **Lines at the pin:** `ComponentList.cpp:11`, `:491-494`
 - **Owner:** T34 (upstream's constant); the pages T26's and T31's
-- **What is wrong:** `rowInset()` exports `TOTAL_HORIZONTAL_PADDING_PX` 20 to two fork pages: 3.1 % of 640, 1.0 % of 1920.
+- **What is wrong:** `rowInset()` returns `TOTAL_HORIZONTAL_PADDING_PX / 2`, 10 px (the seat's narrowing), to two fork pages: 20 px in all is 3.1 % of 640, 1.0 % of 1920.
 - **Proposed disposition:** a pause ruling (a register row): a screen fraction under D-UI-012's family, or upstream's constant kept
 - **proved:** tree; guest (image) at both sizes
 
@@ -172,9 +172,9 @@ Written by `tools/t34-05.py` from one item table, so the sections, the Phase 7 g
 - **Proposed disposition:** a pause ruling: a rasterise-first in the component, or recorded
 - **proved:** tree; guest (image): no difference shown
 
-## PL-18: The VLC release thread nulls `component` without a lock while VLC's thread reads it
+## PL-18: The VLC release path nulls `component` without a lock while VLC's thread reads it
 
-- **Severity:** Low; **category:** Lifetime; **question:** Q4
+- **Severity:** Medium; **category:** Lifetime; **question:** Q4
 - **Source finding:** L-10
 - **Lines at the pin:** `VideoVlcComponent.cpp:53-61`, `:84-96`, `:911`
 - **Owner:** T34 (upstream surface, outside the lanes)
@@ -239,7 +239,7 @@ Written by `tools/t34-05.py` from one item table, so the sections, the Phase 7 g
 - **Lines at the pin:** `CarouselComponent.cpp:74-90`, `:113`, `:119`; `IList.h:376-400`
 - **Owner:** T34 (upstream surface)
 - **What is wrong:** Size 3, cursor 0, page up: `count = -10`, one `+= sz` gives `-7`; whether `listInput(-7)` lands in `[0, sz)` for every loop type is 3.8's case.
-- **Proposed disposition:** 3.8's case at stage C decides; a `bug` only if it FAILs
+- **Proposed disposition:** withdraw: the seat showed `IList::scroll` clamps (NEVER_LOOP, PAUSE_AT_END) or wraps the `-7` into range (`IList.h:376-405`); a negative count is an intended input; 3.8 stays as a case
 - **proved:** tree
 
 ## PL-25: An unset date reads blank, not `<NOT SET>`
@@ -262,6 +262,176 @@ Written by `tools/t34-05.py` from one item table, so the sections, the Phase 7 g
 - **Proposed disposition:** a question for the pause; nothing changed here
 - **proved:** tree
 
+## PL-27: A security-sensitive finding in a fork-modified component; its details are held off the public tracker
+
+- **Severity:** High; **category:** Security; **question:** Q5
+- **Source finding:** G-3 (the seat's), verified at the pin
+- **Lines at the pin:** held
+- **Owner:** T34
+- **What is wrong:** Held privately (outside the tree, mode 600) pending the maintainer's decision on where security findings go; the public record names its existence, its severity and its owner, not its mechanism.
+- **Proposed disposition:** the coordinator names the private channel; the fix lands under a stream brief there
+- **proved:** tree
+
+## PL-28: Three members are read before anything sets them
+
+- **Severity:** Medium; **category:** Correctness; **question:** Q7
+- **Source finding:** G-1, verified
+- **Lines at the pin:** `ComponentList.h:157` with `ComponentList.cpp:13-27`, `:196`; `GridTileComponent.h:312` with `.cpp:49`, `:1246`; `GridTileComponent.h:77-90`, `:107`, `:134`
+- **Owner:** T34 (upstream's lines, rule 6)
+- **What is wrong:** `mUpdateType` has no initializer and the constructor never sets it before `update()` reads it; `GridTile`'s constructor calls `setSelected(false)`, which reads the uninitialised `mSelected`; `GridTextProperties::autoScroll` is set only when a theme names `singleLineScroll`.
+- **Proposed disposition:** explicit initial values; a #585 line
+- **proved:** tree
+
+## PL-29: A help bar whose first entry does not fit builds a 0-column grid
+
+- **Severity:** Medium; **category:** Input; **question:** Q3
+- **Source finding:** G-2, verified
+- **Lines at the pin:** `HelpComponent.cpp:131-132`, `:150-156`; `ComponentGrid.cpp:12`
+- **Owner:** T34 (the fork's `7dc8bf373` fit, #210)
+- **What is wrong:** If the first prompt is wider than the bar, nothing is kept and `:155` builds `ComponentGrid(0, 1)`, which the grid asserts against: Medium in assertion builds; a long translated label or a large themed font reaches it.
+- **Proposed disposition:** an empty-items return before the grid is built; 3.16's case extended
+- **proved:** tree
+
+## PL-30: A web image in a resizing grid cell can recurse through its parent
+
+- **Severity:** Medium; **category:** Layout; **question:** Q1
+- **Source finding:** G-4, verified with narrowing
+- **Lines at the pin:** `WebImageComponent.cpp:69-70`; `ImageComponent.cpp:65-79`; `ComponentGrid.cpp:174-175`
+- **Owner:** T34
+- **What is wrong:** `resize()` notifies the parent grid, the grid resizes the cell, `setSize` re-runs `resize()` with no unchanged-size exit. Reached only in a `resize=true` cell; the callers' cells are unread.
+- **Proposed disposition:** an unchanged-size exit, or a non-reentrant notification; the callers' cells read first
+- **proved:** tree
+
+## PL-31: Rebinding a web image can leave an older URL queued
+
+- **Severity:** Medium; **category:** Reads; **question:** Q5
+- **Source finding:** G-5, verified
+- **Lines at the pin:** `WebImageComponent.cpp:98-115`, `:156-165`, `:225-244`
+- **Owner:** T34
+- **What is wrong:** `setImage()` deletes an active request but does not clear `mUrlToLoad`; the local and cached returns (`:115`, `:158`) leave it, and `render` starts it, replacing the image the caller set last.
+- **Proposed disposition:** clear the pending URL on every rebind
+- **proved:** tree
+
+## PL-32: Replacing an image from memory or a shared texture does not cancel a pending load
+
+- **Severity:** Medium; **category:** Reads; **question:** Q5
+- **Source finding:** G-6, verified
+- **Lines at the pin:** `ImageComponent.cpp:413-416`, `:436-467`, `:816-823`
+- **Owner:** T34
+- **What is wrong:** Only the path overload sets `mLoadingTexture`; the other two never clear it, and `watchTextureLoading` later installs the stale texture.
+- **Proposed disposition:** every source-replacing overload cancels the pending load
+- **proved:** tree
+
+## PL-33: A cleared looping grid keeps drawing its loop-copy tiles
+
+- **Severity:** Medium; **category:** Lifetime; **question:** Q4
+- **Source finding:** G-7, verified; corrects the stage-B contract
+- **Lines at the pin:** `ImageGridComponent.h:505-509`, `:1381-1435`, `:316-317`, `:339-340`, `:762-763`
+- **Owner:** T34 (the save-state manager and the grid view)
+- **What is wrong:** `clear()` -> `resetGrid()` never clears `mScrollLoopTiles`, and the routine that does returns first on an empty list; `render` still draws them.
+- **Proposed disposition:** clear the loop map in `resetGrid()`; T32's `s4-views.py` shape as the case
+- **proved:** tree
+
+## PL-34: Changing a visible grid entry's image strands its old tile
+
+- **Severity:** Medium; **category:** Lifetime; **question:** Q4
+- **Source finding:** G-8, verified with narrowing
+- **Lines at the pin:** `ImageGridComponent.h:526-533`, `:373-384`, `:426-433`
+- **Owner:** T34
+- **What is wrong:** The entry's tile pointer is dropped without removing the tile from the visible list; repeated changes accumulate tiles until a reset.
+- **Proposed disposition:** remove the old tile when the entry's image changes
+- **proved:** tree
+
+## PL-35: An assignment where a comparison was meant
+
+- **Severity:** Low; **category:** Correctness; **question:** Q3
+- **Source finding:** G-9, verified
+- **Lines at the pin:** `ImageGridComponent.h:1151`
+- **Owner:** T34 (upstream's line, rule 6)
+- **What is wrong:** `else if (mLastCursor = -9999)` always succeeds and overwrites the last cursor.
+- **Proposed disposition:** `==`; a #585 line
+- **proved:** tree
+
+## PL-36: A switch can show a state other than the one it holds
+
+- **Severity:** Medium; **category:** Input; **question:** Q3
+- **Source finding:** G-10, verified with narrowing
+- **Lines at the pin:** `SwitchComponent.cpp:7-25`, `:118-137`
+- **Owner:** T34 (a lane surface: every on/off row)
+- **What is wrong:** The constructor always loads the OFF image and never calls `onStateChanged()`; with auto set, `setValue("true")` leaves auto in force and `getValue()` still says `auto`.
+- **Proposed disposition:** the image from the given state; explicit values leave auto mode
+- **proved:** tree
+
+## PL-37: Updating a subtitle re-inserts the title image it already holds
+
+- **Severity:** Medium; **category:** Structure; **question:** Q7
+- **Source finding:** G-11, verified with narrowing
+- **Lines at the pin:** `MenuComponent.cpp:374-375`, `:305-331`
+- **Owner:** T34
+- **What is wrong:** `setSubTitle` re-runs `setTitleImage`, which `setEntry`s the parented image again with no `removeEntry`: an assertion in debug builds, a duplicate entry otherwise.
+- **Proposed disposition:** remove or update the existing entry first
+- **proved:** tree
+
+## PL-38: Right-to-left rows send text and prompts to a different element than input
+
+- **Severity:** Medium; **category:** Input; **question:** Q3
+- **Source finding:** G-12, verified
+- **Lines at the pin:** `ComponentList.h:56-61`; `ComponentList.cpp:155-165`, `:541-553`
+- **Owner:** T34 (outside the fork's languages)
+- **What is wrong:** RTL rows prepend elements and `input()` uses `front()`, while `textInput` and `getHelpPrompts` use `back()`; neither guards an empty row.
+- **Proposed disposition:** one element choice for all three, with the empty check; outside English and French, so recorded unless the pause opens it
+- **proved:** tree
+
+## PL-39: A quarter-turned min-size image reports the wrong cropped size
+
+- **Severity:** Low; **category:** Layout; **question:** Q1
+- **Source finding:** G-13, verified with narrowing
+- **Lines at the pin:** `ImageComponent.cpp:33`, `:155-170`
+- **Owner:** T34 (the fork's turn, `3b7265f33`)
+- **What is wrong:** `getSize()` multiplies screen-axis size by crop factors that are in texture axes after a turn.
+- **Proposed disposition:** swap the crop factors in `getSize()` after a turn; 3.22's case extended
+- **proved:** tree
+
+## PL-40: Narrow scrollable content gets a negative horizontal offset
+
+- **Severity:** Low; **category:** Layout; **question:** Q1
+- **Source finding:** G-14, verified
+- **Lines at the pin:** `ScrollableContainer.cpp:78-96`
+- **Owner:** T34 (upstream's line, rule 6)
+- **What is wrong:** The X branch lacks the Y branch's narrow-content case.
+- **Proposed disposition:** the same guard as Y; 3.14's case
+- **proved:** tree
+
+## PL-41: A tab's mouse release never dispatches
+
+- **Severity:** Low; **category:** Input; **question:** Q3
+- **Source finding:** G-15, verified
+- **Lines at the pin:** `ComponentTab.cpp:426-430`
+- **Owner:** T34
+- **What is wrong:** `row` is compared with `mHotTab` after `mHotTab` was reset to -1.
+- **Proposed disposition:** compare with the saved value; recorded (mouse only)
+- **proved:** tree
+
+## PL-42: Tile padding's test checks Y twice and never Z
+
+- **Severity:** Low; **category:** Constants; **question:** Q2
+- **Source finding:** G-16, verified
+- **Lines at the pin:** `GridTileComponent.cpp:565`
+- **Owner:** T34
+- **What is wrong:** The right inset is never tested, so a pixel right inset can enter the normalised branch.
+- **Proposed disposition:** test Z; a #585 line
+- **proved:** tree
+
+## PL-43: A subtitle with a slash keeps only what follows the last one
+
+- **Severity:** Low; **category:** Words; **question:** Q6
+- **Source finding:** L-26 (new, the read)
+- **Lines at the pin:** `MenuComponent.cpp:357-359`
+- **Owner:** T34
+- **What is wrong:** `setSubTitle` builds its text from `getFileName(text)`.
+- **Proposed disposition:** read the update path; `getFileName` dropped if no caller relies on it
+- **proved:** tree
+
 ## Phase 7 resolution gate
 
 | Item | Outcome | Evidence |
@@ -270,7 +440,7 @@ Written by `tools/t34-05.py` from one item table, so the sections, the Phase 7 g
 | PL-02 | Open | proposed: a design ruling at the pause: a handle the window keeps alive until the holder lets go (the component's half), with `Window`'s teardown order T35's |
 | PL-03 | Open | proposed: a weak token the posts check; 3.20's case (post, delete, drain) with the fakes' `Window.h` as the covering case |
 | PL-04 | Open | proposed: drop the `_()` (a contained fix, a #585 line); 3.16 as the covering case; the catalog's orphan `msgid` is a row for the pause |
-| PL-05 | Open | proposed: read at the pin before a fix (the grid's prompt collection with a tab strip cell; when `updateHelpPrompts` runs on a focus move inside the menu); a `bug` only if the pin's code drops them |
+| PL-05 | Open | proposed: withdraw as a component defect: the seat traced SWITCH TAB through the pin's chain (`ComponentTab.cpp:341`, `ComponentGrid.cpp:493`, `:522-552`, `MenuComponent.cpp:533`); the image's empty bar named for T35 (the bar's collection in `Window`) and M7's composition |
 | PL-06 | Open | proposed: the one token (`.w()`), a #585 line; 3.6's case FAIL then PASS |
 | PL-07 | Open | proposed: a pause ruling (a register row): shares that sum to 1, or the gap recorded; 3.4's case |
 | PL-08 | Open | proposed: a pause ruling (a register row): the root fixed in the component (it re-heights every padded auto-height text) or recorded with the reproducer for #585; 3.5's case |
@@ -289,9 +459,26 @@ Written by `tools/t34-05.py` from one item table, so the sections, the Phase 7 g
 | PL-21 | Open | proposed: recorded; a `CloudText` that moves to es-core is T18's and T35's call |
 | PL-22 | Open | proposed: a design ruling at the pause; LeakSanitizer over an extracted builder |
 | PL-23 | Open | proposed: a `tools/vocabulary-check` rule proposed (the brand inside those builders' arguments) |
-| PL-24 | Open | proposed: 3.8's case at stage C decides; a `bug` only if it FAILs |
+| PL-24 | Open | proposed: withdraw: the seat showed `IList::scroll` clamps (NEVER_LOOP, PAUSE_AT_END) or wraps the `-7` into range (`IList.h:376-405`); a negative count is an intended input; 3.8 stays as a case |
 | PL-25 | Open | proposed: a style question for the pause |
 | PL-26 | Open | proposed: a question for the pause; nothing changed here |
+| PL-27 | Open | proposed: the coordinator names the private channel; the fix lands under a stream brief there |
+| PL-28 | Open | proposed: explicit initial values; a #585 line |
+| PL-29 | Open | proposed: an empty-items return before the grid is built; 3.16's case extended |
+| PL-30 | Open | proposed: an unchanged-size exit, or a non-reentrant notification; the callers' cells read first |
+| PL-31 | Open | proposed: clear the pending URL on every rebind |
+| PL-32 | Open | proposed: every source-replacing overload cancels the pending load |
+| PL-33 | Open | proposed: clear the loop map in `resetGrid()`; T32's `s4-views.py` shape as the case |
+| PL-34 | Open | proposed: remove the old tile when the entry's image changes |
+| PL-35 | Open | proposed: `==`; a #585 line |
+| PL-36 | Open | proposed: the image from the given state; explicit values leave auto mode |
+| PL-37 | Open | proposed: remove or update the existing entry first |
+| PL-38 | Open | proposed: one element choice for all three, with the empty check; outside English and French, so recorded unless the pause opens it |
+| PL-39 | Open | proposed: swap the crop factors in `getSize()` after a turn; 3.22's case extended |
+| PL-40 | Open | proposed: the same guard as Y; 3.14's case |
+| PL-41 | Open | proposed: compare with the saved value; recorded (mouse only) |
+| PL-42 | Open | proposed: test Z; a #585 line |
+| PL-43 | Open | proposed: read the update path; `getFileName` dropped if no caller relies on it |
 
 ## punch_index
 
@@ -316,13 +503,13 @@ punch_index:
   source_finding: "L-12"
   outcome: "open"
 - id: PL-04
-  severity: "Medium"
+  severity: "Low"
   category: Words
   question: Q3
   source_finding: "L-01, 3.16"
   outcome: "open"
 - id: PL-05
-  severity: "Medium"
+  severity: "Low"
   category: Input
   question: Q3
   source_finding: "L-25 (new, the guest)"
@@ -334,7 +521,7 @@ punch_index:
   source_finding: "3.6"
   outcome: "open"
 - id: PL-07
-  severity: "Low"
+  severity: "Medium"
   category: Layout
   question: Q1
   source_finding: "L-03, 3.4"
@@ -400,7 +587,7 @@ punch_index:
   source_finding: "L-02, L-16"
   outcome: "open"
 - id: PL-18
-  severity: "Low"
+  severity: "Medium"
   category: Lifetime
   question: Q4
   source_finding: "L-10"
@@ -452,5 +639,107 @@ punch_index:
   category: Structure
   question: Q7
   source_finding: "§ 1 (h)"
+  outcome: "open"
+- id: PL-27
+  severity: "High"
+  category: Security
+  question: Q5
+  source_finding: "G-3 (the seat's), verified at the pin"
+  outcome: "open"
+- id: PL-28
+  severity: "Medium"
+  category: Correctness
+  question: Q7
+  source_finding: "G-1, verified"
+  outcome: "open"
+- id: PL-29
+  severity: "Medium"
+  category: Input
+  question: Q3
+  source_finding: "G-2, verified"
+  outcome: "open"
+- id: PL-30
+  severity: "Medium"
+  category: Layout
+  question: Q1
+  source_finding: "G-4, verified with narrowing"
+  outcome: "open"
+- id: PL-31
+  severity: "Medium"
+  category: Reads
+  question: Q5
+  source_finding: "G-5, verified"
+  outcome: "open"
+- id: PL-32
+  severity: "Medium"
+  category: Reads
+  question: Q5
+  source_finding: "G-6, verified"
+  outcome: "open"
+- id: PL-33
+  severity: "Medium"
+  category: Lifetime
+  question: Q4
+  source_finding: "G-7, verified; corrects the stage-B contract"
+  outcome: "open"
+- id: PL-34
+  severity: "Medium"
+  category: Lifetime
+  question: Q4
+  source_finding: "G-8, verified with narrowing"
+  outcome: "open"
+- id: PL-35
+  severity: "Low"
+  category: Correctness
+  question: Q3
+  source_finding: "G-9, verified"
+  outcome: "open"
+- id: PL-36
+  severity: "Medium"
+  category: Input
+  question: Q3
+  source_finding: "G-10, verified with narrowing"
+  outcome: "open"
+- id: PL-37
+  severity: "Medium"
+  category: Structure
+  question: Q7
+  source_finding: "G-11, verified with narrowing"
+  outcome: "open"
+- id: PL-38
+  severity: "Medium"
+  category: Input
+  question: Q3
+  source_finding: "G-12, verified"
+  outcome: "open"
+- id: PL-39
+  severity: "Low"
+  category: Layout
+  question: Q1
+  source_finding: "G-13, verified with narrowing"
+  outcome: "open"
+- id: PL-40
+  severity: "Low"
+  category: Layout
+  question: Q1
+  source_finding: "G-14, verified"
+  outcome: "open"
+- id: PL-41
+  severity: "Low"
+  category: Input
+  question: Q3
+  source_finding: "G-15, verified"
+  outcome: "open"
+- id: PL-42
+  severity: "Low"
+  category: Constants
+  question: Q2
+  source_finding: "G-16, verified"
+  outcome: "open"
+- id: PL-43
+  severity: "Low"
+  category: Words
+  question: Q6
+  source_finding: "L-26 (new, the read)"
   outcome: "open"
 ```

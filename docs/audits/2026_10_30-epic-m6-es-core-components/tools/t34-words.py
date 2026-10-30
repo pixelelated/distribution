@@ -1,7 +1,7 @@
 """02 § The words (#681): every `_("` in the 80 at the pin with its French from
 the catalog at the pin (asserted: 22 lines in 12 files, 27 occurrences, 17
 distinct msgids, each with a non-empty msgstr), the player text outside `_()`
-the read found, and the up-casing formatters (L-18), each cited line asserted.
+the read found, and the up-casing formatters (L-18; seven, the read's `:358` among them), each cited line asserted.
     t34-words.py <ES worktree> [paths file]"""
 import os, re, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -50,10 +50,11 @@ OUT = [  # (file, line, must hold, the text, disposition)
  ("RatingComponent.cpp", 265, '"add star"', "`\"add star\"`, the rating's OK prompt", "**L-23 (new):** a help label outside `_()`, English under every language; upstream's line; contained under rule 6"),
 ]
 FMT = [  # (file, line, must hold, the formatter)
- ("MenuComponent.cpp", 205, "toUpper", "`addGroup`'s label"),
- ("MenuComponent.cpp", 233, "toUpper", "`addWithDescription`'s label"),
- ("MenuComponent.cpp", 236, "toUpper", "`addEntry`'s label"),
+ ("MenuComponent.cpp", 205, "toUpper", "`addWithLabel`'s label (the brief's `addGroup`; corrected by the seat, read at `:197`)"),
+ ("MenuComponent.cpp", 233, "toUpper", "`addWithDescription`'s label, with a description"),
+ ("MenuComponent.cpp", 236, "toUpper", "`addWithDescription`'s label, without one"),
  ("MenuComponent.cpp", 283, "toUpper", "`setTitle`"),
+ ("MenuComponent.cpp", 358, "toUpper(Utils::FileSystem::getFileName(text))", "`setSubTitle`, through `getFileName`: a subtitle with a `/` keeps only what follows the last one (L-26)"),
  ("MenuComponent.cpp", 487, "toUpper", "`addButton`'s name"),
  ("ButtonComponent.cpp", 73, "toUpper", "the button's text"),
 ]

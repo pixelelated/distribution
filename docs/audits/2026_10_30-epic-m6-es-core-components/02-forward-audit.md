@@ -320,7 +320,7 @@ Generated, asserted by `tools/t34-input.py`: 16 `input()` (14 `::input(InputConf
 | `OptionListComponent.h:658` | read | the option list stores its callback by value, called from `onSelectedChanged` (`:632-633`) | - | § 1 (c), as the switch's | tree |
 | `OptionListComponent.h:310` | read | `input()` left: the callback, then `return true` (`:311`) | - | **§ 1 (d), T31 L-03 / #1243's invariant, kept:** a page that deletes the option list's owner inside the callback is safe only because nothing after the callback touches the component (`:311`, `:324`) | tree |
 | `OptionListComponent.h:323` | read | `input()` right: the callback, then `return true` (`:324`) | - | § 1 (d), as `:310` | tree |
-| `ImageGridComponent.h:91` | read | `clear()` and `resetGrid()` (#207) drop the entries and the tiles | - | **§ 1 (e), #1266's contract:** after `clear()` the grid holds no tile and no entry the cursor may name; T32's `s4-views.py` is the harness shape; the view's fix is T32's `1655e2f4c`; the contract is read at stage C against the two functions' bodies | tree |
+| `ImageGridComponent.h:91` | read | `clear()` and `resetGrid()` (#207) drop the entries and the tiles | - | **§ 1 (e), #1266's contract, corrected by the seat (G-7, verified):** `clear()` -> `resetGrid()` clears `mVisibleTiles` (`:1383`) but never `mScrollLoopTiles`, which `ensureVisibleTileExist` clears only after its early return for an empty list (`:316-317` before `:339-340`), and `render` still draws it (`:762-763`): a cleared looping grid keeps its loop-copy tiles. The stage-B reading here said the grid held no tile after `clear()`, which was wrong. T32's `s4-views.py` is the harness shape; the view's fix is T32's `1655e2f4c` | tree |
 | `WebImageComponent.cpp:243` | read | a stack `HttpReqOptions` (`:239`) handed by pointer to a heap `HttpReq` | - | L-21: sound, the constructor consumes the options before it returns (`HttpReq.cpp:119-123`, `:131-132`, `:172-176`, T21's) | tree |
 
 Generated, asserted by `tools/t34-lifetimes.py`: 8 shape rows (`delete this` 4, `std::thread` 1, `.detach(` 1, `postToUiThread` 2), each with a disposition; 9 read rows, each cited line asserted to hold its code at the pin.
@@ -407,14 +407,15 @@ Generated, asserted by `tools/t34-reads.py`: 33 rows -- 10 `exists(` lines in 5 
 
 | Site | What it upper-cases |
 | --- | --- |
-| `MenuComponent.cpp:205` | `addGroup`'s label |
-| `MenuComponent.cpp:233` | `addWithDescription`'s label |
-| `MenuComponent.cpp:236` | `addEntry`'s label |
+| `MenuComponent.cpp:205` | `addWithLabel`'s label (the brief's `addGroup`; corrected by the seat, read at `:197`) |
+| `MenuComponent.cpp:233` | `addWithDescription`'s label, with a description |
+| `MenuComponent.cpp:236` | `addWithDescription`'s label, without one |
 | `MenuComponent.cpp:283` | `setTitle` |
+| `MenuComponent.cpp:358` | `setSubTitle`, through `getFileName`: a subtitle with a `/` keeps only what follows the last one (L-26) |
 | `MenuComponent.cpp:487` | `addButton`'s name |
 | `ButtonComponent.cpp:73` | the button's text |
 
-Generated, asserted by `tools/t34-words.py`: 22 `_("` lines in 12 files, 27 occurrences, 17 distinct msgids, each with a non-empty French `msgstr` at the pin; 2 player texts outside `_()`; 6 formatters; every cited line asserted to hold its code.
+Generated, asserted by `tools/t34-words.py`: 22 `_("` lines in 12 files, 27 occurrences, 17 distinct msgids, each with a non-empty French `msgstr` at the pin; 2 player texts outside `_()`; 7 formatters; every cited line asserted to hold its code.
 
 ## The structure
 

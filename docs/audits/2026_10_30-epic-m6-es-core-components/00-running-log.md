@@ -56,3 +56,17 @@
 - **Keyed invoke 2 of 2, the refutation,** started at 20:00Z with `--per-attempt-timeout-ms 3600000 --total-timeout-ms 10800000`, logging to `/workspace/tmp/m6-t34/audit.log`.
   - **What watches it:** the harness background task `b28z2x9mz`, which delivers its end.
   - **Its silent mode:** a hung seat ends only at those timeouts.
+
+## [Stage C] 20:23 UTC 2026-10-30 — the refutation returned; the findings verified; one held
+
+- **Keyed invoke 2 of 2:** 20:00:16 to 20:17:16Z, attempt 1 of 4, `finish=stop`, 24,250 bytes of content, 35,726 reasoning tokens. Served `openai/gpt-6-astra` by OpenAI at `max`; verification, effort and provider PASS. The reply was scanned before it was read: 0 forbidden, 0 secret-shaped.
+- **No more keyed invokes:** exactly two were allowed, and both ran. The seat's "Sections I need" list got no second packet.
+- **The grades** are recorded in `04` § Second opinion: PL-05 and PL-24 refuted (proposed withdrawn); PL-04 lowered to Low; PL-07 and PL-18 raised to Medium; the rest confirmed, confirmed with narrowing, or cannot tell.
+- **G-1 to G-16:** each read at its cited lines at the pin before it was carried (11 confirmed, 5 with narrowing). They are PL-27 to PL-42.
+  - **G-7 corrects this audit:** the stage-B statement of the grid's `clear()` contract was wrong, and `02` is recomposed with the correction.
+  - **The seat's `:205` correction** (`addWithLabel`) is applied. Checking it found a seventh formatter, `:358` `setSubTitle` through `getFileName`: L-26, PL-43.
+- **G-3 (PL-27) is security-sensitive,** and this repository and tracker are public. Its details are kept out of every committed file and post. The reply is held at `/workspace/tmp/m6-t34/held/gpt-audit.md` (mode 600; sha256 `609c488c...`, which the committed receipt binds). The maintainer's decision on the channel is asked for at the pause.
+- **`05` now holds 43 items** (0 Critical, 1 High, 15 Medium, 27 Low), each Open until stage D disposes it.
+- **The pre-issue lint** (`stage-c/lint-pre-issue.txt`):
+  - on the committed tree: rc 1, one failure, the missing reply (the lint hashes it against the receipt, `tools/lint-audit-artifacts:105-110`);
+  - with the held reply copied in for the run and removed straight after: `PASS pre-issue artifacts (does not certify resolution)`, rc 0. The reply was not left in the tree (`git status` after).

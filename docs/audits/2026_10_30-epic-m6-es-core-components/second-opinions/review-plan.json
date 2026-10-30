@@ -28,7 +28,7 @@
           "output": "gpt-probe.md"
         }
       ],
-      "status": "running: probe PASS 19:59:53-20:00:06Z (served openai/gpt-6-astra by OpenAI at max); refutation started 20:00Z over gpt-brief.md (547,488 bytes)"
+      "status": "complete: probe PASS 19:59:53-20:00:06Z; refutation PASS 20:00:16-20:17:16Z (35726 reasoning tokens), attempt 1 of 4, served openai/gpt-6-astra by OpenAI at max, outcome success; PL-01 to PL-26 graded (4 confirmed, 13 with narrowing, 2 at a changed severity, 2 refuted, 4 cannot tell, 1 lowered), G-1 to G-16 added and each verified at the pin, in 04 \u00a7 Second opinion; the reply held outside the tree (security-sensitive PL-27), sha256 609c488c93cd7848dfb76d34587094eaf01313056262d4b301e9c9e2b7e02dcb = the receipt's output_file_sha256; its 'Sections I need' not sent: exactly two keyed invokes"
     }
   ],
   "packet": {
@@ -36,5 +36,10 @@
     "manifest": "packet-manifest.json",
     "built_by": "tools/t34-packet.py"
   },
-  "keyed_invokes": 2
+  "keyed_invokes": 2,
+  "reply_held": {
+    "path": "/workspace/tmp/m6-t34/held/gpt-audit.md (outside the tree, mode 600)",
+    "sha256": "609c488c93cd7848dfb76d34587094eaf01313056262d4b301e9c9e2b7e02dcb",
+    "why": "one finding is security-sensitive; the maintainer decides where its details go (#681 stage-D post)"
+  }
 }

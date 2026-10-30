@@ -4,14 +4,11 @@
 
 The 80 paths of `es-core/src/components/**` at the pin `16dbac5211` were read whole: 21 modified by the fork (+591/-114 over 33 commits) and 59 carried byte-identical from ROCKNIX's master. There is no merge debt: 0 of the 14 upstream commits since the base touch the 80. `02-forward-audit.md` tables every layout read, house constant, input, lifetime, read and string, each table generated and asserted by a script under `tools/` that was seen to fail on a constructed drift. The guest window (19:28 to 19:39) confirmed on the image that the house constants hold: the button bar's gap at 14 px and 28 px, and the dim at 0x50.
 
-**26 punch items, none Critical or High, 5 Medium.** The five Medium items:
-- **PL-01:** a data race on the progress card's closing state, in a lane surface.
-- **PL-02:** the card's lifetime against its holders once the window deletes it (T2 PC-1's component half).
-- **PL-03:** the text field's two raw-`this` posts.
-- **PL-04:** the `up/down` icon key through `_()`. It did not reproduce on the image.
-- **PL-05:** a tabbed page's help bar that carried no component prompt on the image, unread at the pin.
-
-The rest are Low: three contained upstream fixes under rule 6, four register-row rulings the brief expects, and recorded upstream surfaces.
+**43 punch items: none Critical, 1 High, 15 Medium, 27 Low.**
+- **The High item, PL-27,** is a security-sensitive finding the independent seat raised (G-3) and the first reader verified at the pin. Its details are held off the public tracker until the maintainer says where such findings go. The public record names its existence, severity and owner only.
+- **The first reader's Medium items:** the progress card's closing race (PL-01); the card's lifetime against its holders (PL-02, T2 PC-1's component half); the text field's raw-`this` posts (PL-03); a two-line row's shares, which can trip an assertion (PL-07); and the VLC release path (PL-18).
+- **The seat's verified Medium items:** three uninitialised members (PL-28); a 0-column help grid (PL-29); a web image's resize recursion (PL-30); a rebound web image's stale URL (PL-31); an image's stale pending load (PL-32); the image grid's `clear()`, which keeps its loop-copy tiles and corrects this audit's own stage-B contract (PL-33); stranded grid tiles (PL-34); a switch that can show a state other than the one it holds (PL-36); a subtitle's re-insert (PL-37); and right-to-left dispatch (PL-38).
+- **The seat refuted two of the first reader's items,** and the proposals are to withdraw them: PL-05 as a component defect (the pin's chain keeps SWITCH TAB; the image's empty bar is named for T35 and M7), and PL-24 (`IList` clamps or wraps the carousel's negative count).
 
 **What this analysis does not yet carry:**
 - **The unit build:** `tools/t34-build-tests.sh` and the 34 seam cases, with the seven FAIL-at-pin pairs.
@@ -28,7 +25,7 @@ Each proof below is `tree` or `guest` until those run. They are named as owed in
 | --- | --- | --- | --- |
 | 1 | the audit folder's files and directories | partial: `stage-d/`, `stage-e/` owed | `ls` at the hand-back |
 | 2 | the lint at both phases and with `--issue` | pre-issue PASS owed this stage; resolution at close | `tools/lint-audit-artifacts` |
-| 3 | `review-plan.json` and the two provenance files | after the seat this stage | `second-opinions/` |
+| 3 | `review-plan.json` and the two provenance files | met: probe and refutation PASS, served `openai/gpt-6-astra` at `max`; the refutation's reply held off the tree (PL-27), its receipt committed and binding its sha256 | `second-opinions/` |
 | 4 | the punch-list issue at Phase 7 | the issue at stage D; outcomes at stage F | `05` |
 | 5 | the four header fields | `reviewed-at:` at the hand-back | #681's body |
 | 6 | `01` § Scope with the block's lines | met | `01-research-notes.md` |
@@ -50,6 +47,7 @@ Each proof below is `tree` or `guest` until those run. They are named as owed in
 
 ## Risk assessment
 
+- **PL-27** is the slice's one High item, security-sensitive and held. Its fix should land before the details do.
 - **The card's closing race (PL-01)** sits under every automatic sync and every achievements card. Its likely symptom is a fade that starts late, not a crash, but it is undefined behaviour. The fix is small and the covering case is a host ThreadSanitizer run.
 - **The holders' raw pointers (PL-02)** are the larger risk. A worker that outlives its card writes into freed memory. The component cannot refuse the call; only a handle the window keeps alive can. That is a design ruling across T34, T35, T18 and T20, so it waits for the pause.
 - **The image is M7's composition, not the pin.** PL-04 did not reproduce there, and PL-05 appeared only there. Neither is a finding about the pin until the pin's code is read for it.
@@ -172,7 +170,28 @@ The es-app include (PL-21), the misleading indentation (PL-20), the cast's unsta
 
 ## Second opinion
 
-Depth **independent**: one seat, `gpt` (`openai/gpt-6-astra`, effort `max`), a probe and one refutation over `second-opinions/t34-packet.md` (`review-plan.json`). The outcome is recorded here after the refutation returns.
+Depth **independent**: one seat, `gpt` (`openai/gpt-6-astra`, effort `max`), over `second-opinions/gpt-brief.md` (547,488 bytes; `review-plan.json`).
+- **The probe:** 19:59:53 to 20:00:06Z, PASS.
+- **The refutation:** 20:00:16 to 20:17:16Z, attempt 1 of 4, `finish=stop`, 35,726 reasoning tokens; served by OpenAI at `max`; verification, effort and provider PASS (`gpt-audit.md.provenance.json`).
+- **The reply** (24,818 bytes, sha256 `609c488c93cd7848dfb76d34587094eaf01313056262d4b301e9c9e2b7e02dcb`, the receipt's `output_file_sha256`) is held outside the tree, because one finding is security-sensitive (PL-27). It was scanned before it was read: 0 forbidden, 0 secret-shaped lines.
+- **Its "Sections I need"** asked for whole neighbours (`Window.cpp`, `ThreadedCloudSync.cpp`, `HttpReq.cpp`, `Font.cpp` and more). This slice allows exactly two keyed invokes, so no second packet went, and its *cannot tell* grades stand as written.
+
+**The seat's grades of PL-01 to PL-26.** Confirmed: PL-06, PL-09, PL-10, PL-19. Confirmed with narrowing: PL-01, PL-02, PL-03, PL-08, PL-11, PL-12, PL-13, PL-14, PL-15 (`rowInset()` is 10, not 20), PL-20, PL-21, PL-22, PL-25. Confirmed at a higher severity: PL-07 (Medium in assertion builds: a long description drives a share above 1) and PL-18 (Medium). Confirmed at a lower one: PL-04 (Low; the bar's delivery is not shown). **Refuted:** PL-05 as a component defect, and PL-24. Cannot tell from the packet: PL-16, PL-17, PL-23 (and the misnamed `:205`, `addWithLabel`, corrected in § The words), PL-26.
+
+**On the seven FAIL-at-pin leads,** statically:
+- 3.4 fails as the lead says;
+- 3.6 is right;
+- 3.7 is right for AUTO (the 1e-6 claim was too strong);
+- 3.8's intermediate `-7` is real, but its out-of-range landing is not;
+- 3.16 rejects `haut/bas`, subject to the bar's delivery;
+- 3.21's first half is a citation-dependent PASS, its second half confirmed;
+- 3.26: five buttons overhang, and at a windowed 480-px menu four do too.
+
+**The seat's new findings, G-1 to G-16, each verified at the pin by the first reader before it was carried:**
+- confirmed: G-1, G-2, G-3, G-5, G-6, G-7, G-9, G-12, G-14, G-15, G-16;
+- confirmed with narrowing (callers' cells or reachability unread): G-4, G-8, G-10, G-11, G-13.
+
+They are PL-27 to PL-42; PL-43 is the first reader's L-26, found while checking the seat's `:205` correction. **G-7 corrects this audit:** `02`'s stage-B statement of the grid's `clear()` contract was wrong and is rewritten.
 
 ## Quality self-check
 

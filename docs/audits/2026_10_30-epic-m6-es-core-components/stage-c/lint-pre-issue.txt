@@ -1,0 +1,10 @@
+# T34 the pre-issue lint, two runs (2026-10-30T20:24:03Z)
+
+## the committed tree (the seat's reply held outside it, PL-27)
+  FAIL  second-opinions/review-plan.json or its call evidence is invalid: [Errno 2] No such file or directory: 'docs/audits/2026_10_30-epic-m6-es-core-components/second-opinions/gpt-audit.md'
+1 CONTRACT FAILURE(S)
+rc=1
+
+## with the held reply copied in for the run and removed after it (sha256 609c488c... = the receipt's output_file_sha256)
+PASS pre-issue artifacts (does not certify resolution)
+rc=0
