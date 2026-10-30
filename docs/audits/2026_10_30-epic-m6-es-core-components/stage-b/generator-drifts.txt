@@ -1,0 +1,15 @@
+# T34 stage B: each generator seen to exit 1 on a constructed drift before its table is trusted (2026-10-30T14:30:58Z)
+
+## t34-coverage.py
+$ python3 -B -I tools/t34-coverage.py <W> <stage-a/paths.txt less MenuComponent.cpp> (79 paths)
+ASSERT: lead L-05 names no path in the 80 (['MenuComponent.cpp'])
+rc=1
+$ python3 -B -I tools/t34-coverage.py <W> (the 80)
+rc=0
+
+## t34-reads.py
+$ python3 -B -I tools/t34-reads.py <W> <stage-a/paths.txt less WebImageComponent.cpp> (79 paths)
+ASSERT: grep rows without a disposition: []; dispositions without a grep row: ['WebImageComponent.cpp:134', 'WebImageComponent.cpp:190', 'WebImageComponent.cpp:197', 'WebImageComponent.cpp:228', 'WebImageComponent.cpp:243', 'WebImageComponent.cpp:81']
+rc=1
+$ python3 -B -I tools/t34-reads.py <W> (the 80)
+rc=0
