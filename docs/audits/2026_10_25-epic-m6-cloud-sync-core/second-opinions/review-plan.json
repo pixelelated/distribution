@@ -28,7 +28,7 @@
           "brief": "gpt-brief.md: the preamble and packet-body.md (tools/t16-packet.py), trimmed per D-WORKFLOW-195"
         }
       ],
-      "status": "planned"
+      "status": "complete: probe and refutation ran; served openai/gpt-6-astra by OpenAI (provider_response); refutation output sha256 c872717a1a8ea3b88e8ddcbe1ca86e3ea2ed70d6d8c6fced222f96570acb206c; graded in 04-analysis.md section Second opinion (2026-10-30)"
     },
     {
       "member": "gemini-argon",
@@ -49,7 +49,7 @@
           "brief": "gemini-argon-brief.md: a third-reader preamble, the Astra brief unchanged, and 04 \u00a7 Second opinion's Astra grades appended, as T22 ran it"
         }
       ],
-      "status": "planned"
+      "status": "probe ran (PASS: google/gemini-4-argon by Google); refutation running since 2026-10-30T09:48:28Z (.build-runs/20261030T094828Z-ae27bab7)"
     }
   ],
   "written_before_first_call": "2026-10-30",

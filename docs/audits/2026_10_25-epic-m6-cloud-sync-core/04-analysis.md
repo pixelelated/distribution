@@ -252,9 +252,66 @@ are?
 
 ## Second opinion (Phase 4.6)
 
-Not run yet. Astra then Argon, a probe and a refutation each, after the
-guest window's record is in `02`, over the packet `tools/t16-packet.py`
-builds from `02`, `03`, this file and the 14 at `8ebaf8daad`.
+Depth **extended** (`second-opinions/review-plan.json`): the primary (Anthropic, Opus 5.5) and two reviewers from other labs. Each seat ran its probe first, then its refutation, through the Facilitator.
+
+**Both seats saw the same trimmed packet** (D-WORKFLOW-195): `02` to `04` whole, the eleven smaller files whole, and the three large scripts in excerpt (`second-opinions/packet-manifest.json` lists the spans). Argon's brief also carries Astra's grades below. An item resting on lines a seat saw only in excerpt says so, and is graded from the file, not from either seat.
+
+| Seat | Call | Provenance | Served | Outcome |
+| --- | --- | --- | --- | --- |
+| GPT-6 Astra, `max` | probe 09:26:11-09:26:20 (`READY unknown`); refutation `tools/council/run invoke --member gpt --provider openrouter`, brief `second-opinions/gpt-brief.md` (381,240 bytes), under `tools/watch-build --record-only` (`.build-runs/20261030T092635Z-597bc6f5/`, `build.rc` 0), 09:26:35-09:43:20 | `gpt-probe.md.provenance.json`, `gpt-audit.md.provenance.json`: `council-facilitator@1.14.1-pixelelated.2`; verification PASS (`provider_response`), provider PASS (`response_provider_field`), effort PASS (41,752 reasoning tokens); 1 attempt, `finish=stop`, 1,002,690 ms | `openai/gpt-6-astra` by OpenAI | `gpt-audit.md`, 26,238 bytes, sha256 `c872717a1a8ea3b88e8ddcbe1ca86e3ea2ed70d6d8c6fced222f96570acb206c`: 19 items of its own, the 15 findings graded |
+
+### Astra's items, graded against the artifacts
+
+Each grade comes from re-reading the cited lines at `8ebaf8daad` (09:43-09:47 UTC), not from the seat's wording. One item was also run: G-01, as a host cell. The grades are:
+- **confirmed** (the lines show it);
+- **confirmed, re-graded** (they show it, at another severity);
+- **narrowed** (part of it holds);
+- **design** (the lines show it, and a comment beside them gives the reason);
+- **disagree** (with the artifact that refutes it).
+
+| Item | Grade | The lines read, and what they show |
+| --- | --- | --- |
+| G-01 `timeout`'s own process group | **confirmed, High; widens F-03** | GNU `timeout` without `--foreground` makes its own process group. `guest-cycle/host-leads/g01-timeout-pgid` (GNU 9.7): after a TERM to the script's group, the script is gone and `timeout` and its child run on to `timeout`'s own deadline. So a group stop does not end an automatic transfer either (`cloud_restore:359`, `cloud_backup:372`); only a stop that reaches `timeout`'s group, or the whole session, does |
+| G-02 migration markers after an unchecked `sed` | **confirmed, Medium** | `cloud_sync_helper:576-577`: `sed -i` then `touch` the marker, whatever `sed` returned. A rewrite that fails (a full card) leaves `BACKUPMETHOD="sync"`, the mirror that deleted another device's 70 saves (`:548-552`), and the marker stops every retry. The two option migrations (`:594-596`, `:613-615`) have the same shape, with less at stake |
+| G-03 card identity by path prefix | **confirmed, Low** | `cloud_saves_root:56-68` matches `/proc/mounts` by prefix, unresolved and unescaped. The shipped layout binds the card over `/storage/roms` (`:53-55`), which this reads right. A `SAVESPATH` through a symlink, or a mount point with a space, is the owner's own setting |
+| G-04 `dev:unknown` accepted | **confirmed, Low** | `:83` gives `dev:unknown` when `stat` fails; with no record, `check` passes it (`:143-164`), and `record` can keep it. The next run with the path present reads `uuid:` and refuses, so it fails closed one run late |
+| G-05 unchecked writes to `/tmp` | **confirmed, Low** | `cloud_sync_helper:81-94`: `: >` and `echo >>` into `/tmp/cloud_sync-rules.user` are unchecked. A failed write drops the player's rules, and `rules_whole` (`:145`) cannot see it. `/tmp` is tmpfs, so a full one is rare |
+| G-06 a truncated rules file merged | **confirmed, Low** | `:79-98` merges whatever `${rules}` holds. `:168-173` keeps the last whole `.bak` and does not overwrite it from a cut file, so the lost lines are recoverable by hand |
+| G-07 a backslash in a trailing comment | **confirmed, Low** | `cloud_sync_cleanup_duplicates.sh:15,22-24` treats any trailing `\` as a continuation, and bash does not continue a comment. A repeated assignment whose comment ends in `\` removes the next line. The owner's own conf, in an unusual shape |
+| G-08 no FIFO, no ceiling | **design, Low** | `cloud_restore:241-249` (and the twin) runs rclone unbounded when no FIFO can be made. The comment at `:242-245` gives the reason: on a device `/var/run` is tmpfs, and refusing the backup would be worse. The trade is written down |
+| G-09 deadlines on the wall clock | **confirmed, Low** | `cloud_backup:8,1403` and `cloud_restore:347` (and `cloud_saves_root:108-110`) count from `date +%s`. **The likelier shape is a forward step**, not Astra's backward one: a handheld with no RTC is stepped forward by NTP near the startup sync, so `left` goes below 1 and the run ends at once with 124 (`:353-355`). No save is lost; the next sync carries it. The guest can step the clock mid-run (stage E) |
+| G-10 `restore-tree-clean` after a failed sweep | **confirmed, Low** | `cloud_restore:1597` hides `find -exec rm`'s failures, and `:1912-1913` writes the marker regardless. A card that refuses the delete leaves `.partial`s that later runs do not look for, and that the allowlist admits (F-14) |
+| G-11 the helper has no lock of its own | **narrowed, Low** | The fixed names are at `:81-82,119`. Its callers are the twins, under `cloud_sync.lock` (`cloud_backup:1199`, `cloud_restore:1248`), and `post-update:111` after an update (`git grep` at `8ebaf8daad`). An overlap needs `post-update` during a twin's run |
+| G-12 the database sidecars | **confirmed, Low** | `cloud_sync-rules.txt:10-15` excludes `*.db-wal`, `*.db-shm` and `*.db-journal`, but not `*.sqlite-wal`, `-shm` or `-journal`, nor `*.sqlite3`'s. A lone WAL restored beside a different database is applied on its next open. No shipped emulator is named as writing one there |
+| G-13 the sweep's pattern | **confirmed, Low** | `cloud_restore:1597` removes any `*.????????.partial` under the saves tree, so a file of that shape the cloud holds is removed after a dirty-tree restore. Contrived |
+| G-14 the empty record cannot be retried away | **confirmed, Medium** | `cloud_saves_root:131-141` refuses on an empty record, and says "try again". The twins refuse at `check` (`cloud_restore:1648-1651`) and call `record` only after a completed transfer (`:1931-1940`), so no run can ever rewrite it. The only exit is `cloud_setup --accept-saves-root`, a command, and `:154-155` says no menu offers one. The comment at `:135` ("until a good run rewrites it") cannot come true. Today's `write_record` is temp-and-rename (`:94-101`); a record left empty by an older build's in-place write is the `Already written:` |
+| G-15 `cloud_net_ready`'s bound | **confirmed, Low** | `NOW` is sampled at `:131`, before up to two 5 s `nmcli` calls (`:107-108,167-169`), and `timeout 5` has no `-k`. A slow NetworkManager stretches `N + GRACE` by up to about 10 s a round |
+| G-16 a fresh device's first `sync` | **confirmed, Low** | `cloud_sync_helper:569-577` sets its marker only when it rewrites, so a device that never had `sync` has none. The owner's first deliberate `sync` is rewritten once, against `cloud_sync.conf:124-126` ("honoured if set here") |
+| G-17 `unpack()` | **confirmed, Low; joins F-10** | `package.mk:54-58`: no `set -e` reaches `scripts/unpack` at `8ebaf8daad` (`git grep`), so a failed `unzip` runs on into the `rm`, which deletes the archive a retry needs |
+| G-18 leading zeros | **confirmed, Low** | `cloud_net_ready:72-73` accepts `010`, and `:122` reads it as octal (8 s). `08` is an arithmetic error. Its callers pass fixed numbers |
+| G-19 `CONTENT_REMOTE`'s comment | **confirmed, Low; joins F-09** | `cloud_sync.conf:40-45` (and its `.defaults`) says the key is derived for an upgrading config. `cloud_sync_helper:463-466` says a missing key takes the fresh default, as D-CLOUD-175 decided |
+
+**The first reader's findings, as Astra graded them:**
+
+| Finding | Astra | Graded |
+| --- | --- | --- |
+| F-01 | agree, Medium; "the defect is a read" is wrong | **correction taken.** A refused line runs as root when the put-back fails (the fixture's planted line ran). `Already written:` now says so |
+| F-02 | narrow the empty path (Low); raise the readers' disagreement to Medium | **taken: F-02 is Medium, in two parts.** The empty path stays Low: nothing written, the wrong why. The disagreement is Medium. A non-default `SAVESPATH` with a trailing comment is sourced by the twins, while `cloud_saves_root:48` and `cloud_capture:193-198` miss it and read `/storage/roms`. The card guard then checks the wrong card (`02` § The configuration, the fixture) |
+| F-03 | agree, High; the condition is wider (G-01) | **taken.** Any stop that does not reach `timeout`'s group leaves the transfer running. That is a signal to the script or to its group. The ES slice reads which stop ES makes |
+| F-04 | narrow, Low | **taken.** Only exit 7's words are shown in a run (`b-empty-savespath`); the rest of the inventory is in excerpt |
+| F-05 | Medium to Low: no measurement | **taken: Low until lead (c) measures it.** The probes' futility stands (`d-terminal-width`) |
+| F-06 | narrow: `logged_moved`'s stderr half works | **taken.** The log half sees only what is appended after the transfer; the stderr half (`cloud_backup:349-354`) stands |
+| F-07 | Low to Medium: the `-v` edit can rename a folder | **disagree with the re-grade, Low.** Both shapes are at `:462` and `:536-542`, but the folder change needs two things in the owner's own conf: a `-v` or `--verbose` somewhere, and a double space or `-v ` inside a value |
+| F-08 | Low to Medium: the seals are preservation copies | **narrowed: Low today, Medium once a reader exists.** No consumer of `stage/` exists (#1057), so nothing a player has is lost today. The item carries to #1057 |
+| F-09 | agree, Low | taken |
+| F-10 | narrow: a rebuild needing the archive | **taken**, with G-17 |
+| F-11 | agree, a design | taken |
+| F-12 | narrow, Low: no shutdown measured | **taken.** It stays `(window)` |
+| F-13 | agree, Low | taken |
+| F-14 | Medium to High; narrow "every save before any transfer" | **taken, both.** A save the game needs is absent until a completed restore, which is High under the lens. The ordering claim narrows to what was observed: the saves are moved aside early, before their replacements land. On the host, all three moved before the first copy completed. `02` and Q3 say so |
+| F-15 | agree; G-14 is separate | taken |
+
+**What Astra could not judge** (its § 3): the bodies the trimming left out, namely `conf_valid` (twins), `clean_exit`, most of `cloud_backup`'s main and its settings phase, the restore's pre-flight and card handling, the capture's seal and commit protocol, and `why_for`. It also lacked EmulationStation's stop, the guest's timings, power-cut durability, T17's callees and the whole oracle. None of its items rests on an omitted line except F-04's inventory. The ES stop and the guest timings are `(window)`-pending already.
 
 ## Quality Self-Check
 

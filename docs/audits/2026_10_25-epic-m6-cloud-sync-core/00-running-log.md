@@ -146,3 +146,21 @@ time comes from `date -u`.
 - **Scanned before any brief was written:** `tools/forbidden-terms-check --stdin` 0 hits; `.githooks/secret-patterns` 0 lines; T10's widened set (`git show feature/m6-tooling-guards-657:.githooks/secret-patterns`) 0 lines; the QA backend's credential shapes 0 lines. No redaction. `second-opinions/packet-manifest.json` records every source's sha256, the excerpted spans and the scan.
 - **`gpt-brief.md`:** the preamble, then the body, 381,240 bytes. Re-scanned: 0 and 0.
 - **`review-plan.json`:** depth `extended`, the two reviewers, four calls planned. Committed with this entry, before the first call.
+
+## 2026-10-30 09:26-09:49 UTC -- three keyed calls, Astra graded, Argon's refutation running
+
+- **The `invoke` calls so far:** three of the four, a probe and a refutation for Astra and a probe for Argon. Every other `tools/council/run` call carried `COUNCIL_ENV_FILE=/nonexistent` (the `--help`).
+  1. **Astra probe** (`--member gpt --provider openrouter --prompt-file .../gpt-probe-prompt.md --output .../gpt-probe.md`), 09:26:11-09:26:20: rc 0, `council-facilitator@1.14.1-pixelelated.2`, outcome success, 1 attempt. Verification PASS: observed `openai/gpt-6-astra` (`provider_response`), provider OpenAI, effort `max` (222 reasoning tokens). The reply was `READY unknown`; identity is taken from the provider's fields.
+  2. **Astra refutation:** `tools/watch-build --record-only -- tools/council/run invoke --member gpt --provider openrouter --prompt-file .../gpt-brief.md --output .../gpt-audit.md --per-attempt-timeout-ms 1800000 --total-timeout-ms 3600000`, 09:26:35-09:43:20.
+     - Watch-build rc 0, `build.rc` 0, state finished (`.build-runs/20261030T092635Z-597bc6f5/`). The watcher read `stalled` from 09:41 (no log write for 15 min, the buffered transport's shape); the facilitator was alive at 912 s.
+     - `attempt=1/4 ... model=openai/gpt-6-astra providers=["OpenAI"] effort=max reasoning=41752 content=25758b finish=stop outcome=success duration=1002690ms`.
+     - Verification, provider and effort PASS. Output sha256 `c872717a1a8ea3b8…`.
+  3. **Argon probe** (`--member gemini-argon`), 09:26:51-09:26:58: rc 0, success, verification PASS (`google/gemini-4-argon`, `provider_response`), provider Google, effort PASS (228 reasoning tokens). Reply `READY Gemini 4 Argon`.
+- **Astra graded** in `04` § Second opinion. Each of its 19 items was re-read at its lines at `8ebaf8daad`.
+  - **G-01 was run:** `guest-cycle/host-leads/g01-timeout-pgid`. GNU `timeout` keeps its own process group, so a TERM to the script's group leaves `timeout` and its child running. **F-03's condition widens:** any stop that does not reach `timeout`'s group.
+  - Grades: G-01 High (into F-03); G-02 and G-14 Medium; G-08 a design; G-11 narrowed; the rest confirmed Low. G-17 joins F-10, and G-19 joins F-09.
+  - Taken from Astra: F-01's `Already written:` correction (a refused line runs as root); F-02 Medium in two parts; F-05 Low until measured; F-14 High, with its ordering claim narrowed. F-07's re-grade is not taken (owner-made in two ways); F-08 stays Low until #1057.
+- **My slip:** G-01's first cell wrote a pid file to `/tmp`, which this slice keeps out of. It was removed by literal path, the cell moved to `/workspace/tmp/m6-t16/g01.pids`, and the cell was re-run. The committed `cmd.sh` and `out` are the second run.
+- **The Argon refutation**, running since 09:48:28: the same command with `--member gemini-argon` and `gemini-argon-brief.md`.
+  - The brief is 393,482 bytes: Argon's preamble, the Astra brief unchanged, and `04` § Second opinion appended. Scanned four ways: 0, 0, 0, 0.
+  - **What watches it:** the record `.build-runs/20261030T094828Z-ae27bab7`, a monitor on its state, and the harness's background task.

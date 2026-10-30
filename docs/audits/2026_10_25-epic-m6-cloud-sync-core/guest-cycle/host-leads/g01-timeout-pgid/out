@@ -1,0 +1,7 @@
+== 2026-10-30T09:46:31Z timeout (GNU coreutils) 9.7
+script pid 1118973 pgid 1118973
+timeout pid 1118975 pgid 1118975
+child (rclone stand-in) pid 1118977 pgid 1118975
+TERM to the script's group -1118973
+after: script gone; timeout alive; child alive
+after timeout's own 6 s: child gone
