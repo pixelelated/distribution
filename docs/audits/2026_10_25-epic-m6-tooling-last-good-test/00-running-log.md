@@ -442,3 +442,18 @@
   - **The positive, 09:33:** unfixed `65bdd1a717` rc 1, 7 PASS / 2 FAIL, `2 CHECK(S) FAILED, 0 SKIPPED`. Fixed `5f554961f7` rc 1, 4 / 5, and its last line is `5 CHECK(S) FAILED, 0 SKIPPED`. The clones were removed. The 2026-10-25 outputs are kept under `/workspace/tmp/m6-t15/s3/1036-frag/2026-10-25/`.
   - **Siblings:** the close-out's cut (`closeout-queue.sh`) already starts at `VERDICT_REACHED=1`, and every other copy is whole. There is no other cut-maker.
   - **The host file:** the runner's `H` names its new path, `/workspace/tmp/m7-m6-host-coordination.txt`. The `/tmp` one went with the 2026-10-28 reboot.
+
+## [Stage H] 09:42 UTC 2026-10-30 — the close-out after acceptance
+
+- **The coordinator, 09:39 (comment 6519663330):** T15 is ACCEPTED at `c0a23854f7`. #1040 is closed as completed, and #662's 19 criteria are ticked. The 22 bugs stay open until their fixes reach `next`.
+- **The completion marker:** `tools/write-completion.py` is T3's writer (`5f737500ce`), copied byte-identical (sha256 `30d9015d…`).
+  - **Its refusal, first:** against the open #1041 it printed `refusing: #1041 is open/None, not closed/completed` and exited 1, writing nothing.
+  - **Then #1040:** `write-completion: #1040 closed/completed, 24 ticked; verified 2026-10-30T09:40:08.087462+00:00`. It wrote `tracker-final-readback.json` (closed, completed, `closed_at` 09:39:05Z, 24 ticked, 0 open), `tracker-completion.json` and `audit-completion.json`, with `04` and `05` hash-bound.
+- **The lint:** with `--issue 1040`: `PASS`, its last check `ok    issue #1040 references PL-24`. At the default phase: `PASS`.
+- **`tools/ceremony-check`** (no `--gate`) exits 0: `ok    audit     last 2026-10-30T09:40:08.087462+00:00 via #1040 ...`, and `nothing overdue.`
+- **The run clones** (09:41), nine of them, each removed by one short literal-path `rm -rf`, after a check that each was a standalone `--shared` clone, no registered worktree, and nothing ran under it:
+  - in `s2`: `at1022`, `at1023`, `shallow-fixed`, `shallow-unfixed` and `tip`;
+  - in `s3`: `closeout`, `final`, `final2` and `u1026`.
+  - **The bytes:** 21,476,884,132 apparent (`du -sb`). By `df` on `/workspace`, 1,503,268,605,952 bytes available before and 1,529,880,412,160 after: **26,611,806,208 bytes freed**. `df` counts allocated blocks, and the volume is shared, so its figure can include another writer's change.
+  - **Kept first:** each clone's one non-tracked difference. `at1022`'s uncommitted edit (the #1022 fix tried before `bea0374f3b`) is now `s2/at1022-uncommitted.diff`. `closeout`'s generated `t` cut (`closeout-queue.sh:38`) is now `s3/closeout-lgst-t`.
+  - **The outputs stay** in `/workspace/tmp/m6-t15/`: 6,106,272 bytes in `s2` and 13,170,763 in `s3` (`queue.log`, every `*.out`, `s3/<bug>/`, the cuts and the queue scripts).
