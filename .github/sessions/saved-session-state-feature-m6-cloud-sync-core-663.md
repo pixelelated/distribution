@@ -16,22 +16,20 @@
 
 ## Current focus
 
-**Stage C, on the host (2026-10-30).** The window is closed; no second window, by the coordinator's 05:15 ruling on #663.
+**Stage D's pause (2026-10-30). Waiting for the coordinator's ruling on #663; nothing runs until it.**
 
-- **The host leads** (`guest-cycle/host-leads/`, `02` § The host leads) ran with the donor's busybox and rclone, and the scripts at `8ebaf8daad`:
-  - (a) busybox awk has `gensub` (F-09);
-  - (b) an empty `SAVESPATH` copies nothing into `/`, because rclone's `--backup-dir` overlap check refuses first (F-02 re-graded Low);
-  - (d) rclone 1.75.2 has no `--progress-terminal-width` (F-05, F-06);
-  - (e) TERM is deferred 36 s, and after a KILL to the script alone, the orphan's rename replaces a save written after the stop (F-03).
-- **Graded:** KILL2 is F-14 (`--backup-dir` moves saves aside before the transfer). KILL15's FAIL is the harness's (F-15).
-- **`(window)`-pending, for stage E and the integration window:** lead (c)'s timings, F-03 on the image's own bash and coreutils, and the ES stop shape (the ES slice's).
-- **Next:**
-  - build the packet (`tools/t16-packet.py` on T22's model), scanned three ways;
-  - `second-opinions/review-plan.json`, depth `extended`, two reviewers;
-  - Astra (probe, refutation), then Argon (probe, refutation): exactly four keyed invokes;
-  - grade every item at its lines;
-  - the pre-issue lint;
-  - stage D.
+- **The seats are done:** four keyed calls, each PASS (`second-opinions/`). Both are graded at the lines in `04` § Second opinion.
+- **`05` holds 25 items:** 3 High, 4 Medium, 18 Low.
+  - PL-01: F-03 with G-01, a stop over an automatic restore.
+  - PL-02: F-14 with G-21, a stopped restore's absent saves and their pruned copies.
+  - PL-03: G-20, the conf naming the program root runs.
+- **The audit issue is #1295**, a sub-issue of #663: 25 checkboxes, `box-check` 0 fail. The pre-issue lint PASS.
+- **Next, after the ruling:**
+  - record each item's outcome in `05` § Phase 7 resolution gate and its YAML;
+  - file the bugs the ruling names, each with its trace, `Already written:` line and VM line from `04` § Q3;
+  - tick #1295 as each outcome is recorded;
+  - wait for any stream brief (stage E).
+- **Scratch to retire at close-out** (literal paths): `/workspace/tmp/m6-t16/hl/` (the sandbox roots, the cells, and `state/` with the QA backend's throwaway sign-in), `/workspace/tmp/m6-t16/packet*`, and `/workspace/tmp/m6-t16/g01.pids`.
 
 ## Next commands
 
@@ -77,3 +75,4 @@ host's swap, another lane's worktree, or a guest.
 - resumed 2026-10-29 18:0x UTC: state reconciled from the record; waiting on the re-granted window
 - 2026-10-29: merge `1bb8ad08e7`; window START 18:10:18Z, RETURN 22:31:21 (overrun 3 h 46 min, session cut); disks retired; record committed
 - 2026-10-30: the leads ruled (05:15); the host leads (05:24-05:35); KILL2 graded F-14, KILL15 F-15, F-02 re-graded, F-03 proved; three corrections; next, the packet and the seats
+- 2026-10-30: packet `552a6b525c`; Astra graded `4ee3eaba1f`; Argon graded and 05 `4853bdbd5c`; #1295 `9cdcc98bec`; stage-D pause posted
