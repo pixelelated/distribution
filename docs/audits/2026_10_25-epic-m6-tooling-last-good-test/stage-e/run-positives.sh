@@ -12,7 +12,7 @@ set -u
 W="$(cd "$1" && pwd)"; TIP="$2"; shift 2
 E="$(cd "$(dirname "$0")" && pwd)"
 S=/workspace/tmp/m6-t15/s3
-H=/tmp/m7-m6-host-coordination-20261023.txt
+H=/workspace/tmp/m7-m6-host-coordination.txt   # the durable host file since 2026-10-29 (/tmp's went with the reboot)
 LOG=/workspace/tmp/m6-t15/s2/queue.log
 export TMPDIR=/workspace/tmp/m6-t15/tmp PYTHONDONTWRITEBYTECODE=1
 export QA_SYSTEM_ROOT=/workspace/artifacts/m6-donor/1a0266484423/image/system
@@ -41,7 +41,12 @@ qcut() {
     local f="$1" a q r v
     a=$(command grep -n '^# ---------------------------------------------------------------- a\.' "$f" | cut -d: -f1)
     q=$(command grep -n '^section q ' "$f" | cut -d: -f1); r=$(command grep -n '^section r ' "$f" | cut -d: -f1)
-    v=$(command grep -n '^if \[ "${NOT_APPLICABLE}" -ne 0 \]' "$f" | cut -d: -f1)
+    # The verdict from the trap's disarm where the harness has one (#1023,
+    # e430d61cfa): a cut that starts below VERDICT_REACHED=1 prints its verdict
+    # and is then reported ABORTED, rc 2 (the coordinator's acceptance read,
+    # 2026-10-30). An older harness has no trap, and starts where it always did.
+    v=$(command grep -n '^VERDICT_REACHED=1' "$f" | cut -d: -f1)
+    [ -n "$v" ] || v=$(command grep -n '^if \[ "${NOT_APPLICABLE}" -ne 0 \]' "$f" | cut -d: -f1)
     { sed -n "1,$((a - 1))p" "$f"; sed -n "${q},$((r - 1))p" "$f"; sed -n "${v},\$p" "$f"; } > "$2"; chmod +x "$2"
 }
 run() { # <bug> <side> <harness dir> <script> [args...]

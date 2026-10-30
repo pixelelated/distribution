@@ -94,3 +94,30 @@ $ tools/work-log-index --check (after the retro and tools/work-log-index --write
 work-log index: current
 rc=0
 
+
+# After the acceptance read (comment 6519510487), 09:36:04Z 2026-10-30, at 5f554961f7 plus this commit's qcut edit
+
+$ pos-1036-frag, the control: the old qcut (cut from the NOT_APPLICABLE line), a scratch copy at /workspace/tmp/m6-t15/s3/qcut-old/
+09:32:52 END pos-1036-frag-fixed rc=2 2s PASS=4 FAIL=5 SKIP=0 CANNOT=0 census: cc1plus=0 qemu=0 load=2.07 1.63 1.21
+5 CHECK(S) FAILED, 0 SKIPPED
+last-good-scripts-test: ABORTED in section q (rc 1) -- no verdict; the harness failed, not a script (its message above)
+rc=2 (the defect: the trap fires after the verdict)
+
+$ pos-1036-frag, the fix: qcut cuts from VERDICT_REACHED=1 (stage-e/run-positives.sh <W> 5f554961f7 1036-frag)
+09:33:24 END pos-1036-frag-unfixed rc=1 3s PASS=7 FAIL=2 SKIP=0 CANNOT=0 census: cc1plus=0 qemu=0 load=1.89 1.62 1.22
+09:33:26 END pos-1036-frag-fixed rc=1 2s PASS=4 FAIL=5 SKIP=0 CANNOT=0 census: cc1plus=0 qemu=0 load=1.89 1.62 1.22
+unfixed last line: 2 CHECK(S) FAILED, 0 SKIPPED
+fixed last line: 5 CHECK(S) FAILED, 0 SKIPPED
+rc=1 both (the positive: the fixed cut ends at its FAILED line)
+
+$ tools/box-check --issue 1040 (after the 24 ticks)
+box-check: 1 issue(s), 0 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+rc=0
+
+$ tools/register-check
+register-check: 694 IDs, each once; every citation in the live documents names a row
+rc=0
+
+$ tools/work-log-index --check (after tools/work-log-index --write)
+work-log index: current
+rc=0

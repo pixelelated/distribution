@@ -670,6 +670,8 @@ Each recipe changes a `git clone --shared` of the tip, never committed and remov
 | #1036 | `007-syncthing` deleted from the working tree; `q` under `--old 717bc04449` (`alter-1036-frag.sh`) | the working tree's fragments; `PASS  toggle on: raofflineproxy.conf is still there` | the ref's fragments; `FAIL  raofflineproxy.conf is gone ... 007-syncthing inherited CONF ...` | proved: tool-run |
 | #1031 | the keeper's `flock -n 8 \|\| true`; an ack that removes any marker (`alter-1031.sh`) | both FAIL (by timing) | both FAIL at their barriers: `F-PB-21: the second note existed mid-way through the first dump: yes`; `G-D-03: the run exited 0; marker: gone` | proved: tool-run |
 
+Re-run 2026-10-30 at `5f554961f7` (the acceptance, comment 6519510487): the #1036 `q` cut needs `qcut` to start the verdict at `VERDICT_REACHED=1`, which `e430d61cfa`'s trap disarms on. Cut below it, the fixed run printed `5 CHECK(S) FAILED` and then `ABORTED in section q`, rc 2 (the control). Cut from it, the run ends rc 1 at `5 CHECK(S) FAILED, 0 SKIPPED`. Unfixed: 2 FAIL, rc 1, unchanged (`00`, 2026-10-30).
+
 ### The suites re-run at the hand-back tip (`1ff2f82a95`, on the donor)
 
 | Run | Result | Proved |
