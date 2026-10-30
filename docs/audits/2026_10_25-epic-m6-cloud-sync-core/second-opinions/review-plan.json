@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "depth": "extended",
+  "scope": "epic",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "anthropic/claude-opus-5-5",
+    "lab": "anthropic",
+    "identity_source": "the coordinator's dispatch on #663 (2026-10-25 11:32 UTC: the T1 session, m6-t1-os-launch, Opus 5.5 at high effort) and the session's own model metadata (claude-opus-5-5)"
+  },
+  "reviewers": [
+    {
+      "member": "gpt",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "max",
+      "provider": "openrouter, provider order [openai], allow_fallbacks false (scripts/council-invoke.ts gpt recipe)",
+      "probes": [
+        {
+          "phase": "probe",
+          "output": "gpt-probe.md"
+        }
+      ],
+      "calls": [
+        {
+          "phase": "refutation",
+          "output": "gpt-audit.md",
+          "brief": "gpt-brief.md: the preamble and packet-body.md (tools/t16-packet.py), trimmed per D-WORKFLOW-195"
+        }
+      ],
+      "status": "planned"
+    },
+    {
+      "member": "gemini-argon",
+      "model": "google/gemini-4-argon",
+      "lab": "google",
+      "effort": "high",
+      "provider": "openrouter, provider only/order [google-vertex/global], allow_fallbacks false (scripts/council-invoke.ts AUDIT_OPENROUTER_SEATS gemini-argon)",
+      "probes": [
+        {
+          "phase": "probe",
+          "output": "gemini-argon-probe.md"
+        }
+      ],
+      "calls": [
+        {
+          "phase": "refutation",
+          "output": "gemini-argon-audit.md",
+          "brief": "gemini-argon-brief.md: a third-reader preamble, the Astra brief unchanged, and 04 \u00a7 Second opinion's Astra grades appended, as T22 ran it"
+        }
+      ],
+      "status": "planned"
+    }
+  ],
+  "written_before_first_call": "2026-10-30",
+  "probes_note": "Each seat is probed once before its refutation (brief \u00a7 1); the probes are listed under probes, not calls, because an epic-tier audit has one review pass per reviewer. Exactly four keyed tools/council/run invoke calls in all: a probe and a refutation per seat; every other tools/council/run call carries COUNCIL_ENV_FILE=/nonexistent.",
+  "packet": "packet-manifest.json: body sha256 afe63258652d11fafa979d912635d64096bb91e8785115516b8564ba8fb7a304, 376,779 bytes, scanned three ways, 0 hits"
+}

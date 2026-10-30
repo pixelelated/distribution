@@ -129,3 +129,20 @@ time comes from `date -u`.
 - **Scratch kept:** `/workspace/tmp/m6-t16/hl/` (`root1`, `root2`, `cells/`, `state/`).
   - The cells' `rclone.conf` copies hold the QA backend's throwaway sign-in, and are never printed.
   - Removed at close-out by literal path.
+
+## 2026-10-30 09:2x UTC -- the packet and the plan, before the first call
+
+- **Resumed at about 09:20 UTC** after the session's usage limit. The coordinator's 05:4x message on #663 reads the 05:40 post and says to go on through stage C to the stage-D pause.
+- **One fix to the 05:3x record:** the host leads' `proved:` cells read `host`, which is outside the brief's vocabulary (`tree`, `history`, `tool-run`, `fixture`, `guest`, `design`). They now read `fixture` (a constructed input ran a script, or the donor's rclone, whole) or `tool-run` (the donor's binary asked directly), in `02` and `04` alike.
+- **The council runtime:** `npm install --offline --prefix tools/council --no-audit --no-fund`: rc 0, 0 s, esbuild's install script declined. `package-lock.json` sha256 `ad7b535894875b35…`, the same as T22's. Both files are gitignored (`.gitignore:66-67`); nothing under `tools/` changes. `COUNCIL_ENV_FILE=/nonexistent tools/council/run invoke --help` runs.
+- **The packet** (`tools/t16-packet.py`), trimmed per D-WORKFLOW-195 from the start, as the brief says:
+  - `02`, `03` and `04` whole;
+  - four contexts: the order's § T16, the brief's § 4, `es-player-text.md` § Outcome vocabulary, and the 22 register rows the brief's §§ 1-4 name (none missing);
+  - the eleven smaller files whole;
+  - the three large scripts as excerpts: `cloud_backup` 423 of 2,510 lines, `cloud_restore` 658 of 2,324, `cloud_capture` 270 of 1,704. That is every line `02` and `04` cite, 8 lines either side, each head, trap and main, the restore's `bounded_rclone` and `rclone()` whole (identical in the twins, `02` § The functions), and the capture's five cited regions by hand;
+  - the evidence: both fixtures, the host leads' records, KILL2's and KILL15's guest lines, and the harness's `fx_kill15`.
+  - **Built in three passes.** The first read function ranges from `02`'s tables as citations, and a `last-good-scripts-test:8983` landed on `cloud_restore` (497,041 bytes). The citation pattern was tightened. The third pass added the wrappers.
+  - The body is 376,779 bytes, sha256 `afe63258652d11fa…`.
+- **Scanned before any brief was written:** `tools/forbidden-terms-check --stdin` 0 hits; `.githooks/secret-patterns` 0 lines; T10's widened set (`git show feature/m6-tooling-guards-657:.githooks/secret-patterns`) 0 lines; the QA backend's credential shapes 0 lines. No redaction. `second-opinions/packet-manifest.json` records every source's sha256, the excerpted spans and the scan.
+- **`gpt-brief.md`:** the preamble, then the body, 381,240 bytes. Re-scanned: 0 and 0.
+- **`review-plan.json`:** depth `extended`, the two reviewers, four calls planned. Committed with this entry, before the first call.

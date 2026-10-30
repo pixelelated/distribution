@@ -1,0 +1,432 @@
+{
+  "sources": [
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-cloud-sync-core/02-forward-audit.md",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "cc4e59306006bc085e386c897ff9ff1f1820db93a68fe264fdac5c73cc2cd63c",
+      "bytes": 87488
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-cloud-sync-core/03-retrospective.md",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "02851aaaf4cc8af0b7bd64a5c14fc036700e91daa3580eca0e328b45d9beb3de",
+      "bytes": 3788
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-cloud-sync-core/04-analysis.md",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "93b9e84cfc6c76681a6b08eb1ee2fe18c76b5208b920fa0bbb4613ef990796b8",
+      "bytes": 27606
+    },
+    {
+      "path": "docs/reviews/order.md \u00a7 T16",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "4c6862427d16f833df59f7515556febdd5b4bcb67310191d8273c5b9ab2b2bd9",
+      "bytes": 1706
+    },
+    {
+      "path": "the brief \u00a7 4 The questions",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "276970e1c83385cf82834c8c9fd2790182278e594b590c6aeee4ff6b9f462efa",
+      "bytes": 5515
+    },
+    {
+      "path": ".claude/rules/es-player-text.md \u00a7 Outcome vocabulary (D-UI-028)",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "42c061ea027116faae7ccd26cdb4bc394c7f3c1d4d37df467d1cf794fe6e6028",
+      "bytes": 7478
+    },
+    {
+      "path": "docs/decision-register.md: the rows the brief's \u00a7\u00a7 1-4 name (D-CLOUD-075, D-CLOUD-076, D-CLOUD-078, D-CLOUD-109, D-CLOUD-112, D-CLOUD-113, D-CLOUD-118, D-CLOUD-119, D-CLOUD-130, D-CLOUD-158, D-CLOUD-178, D-QA-012, D-QA-015, D-QA-058, D-QA-063, D-UI-095, D-WORKFLOW-183, D-WORKFLOW-187, D-WORKFLOW-189, D-WORKFLOW-190, D-WORKFLOW-195, D-WORKFLOW-209)",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "e1143b953610639c7ebaa874c6a4a3539d3a8fbb5a66eadfb46287ae567af898",
+      "bytes": 24288
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/autostart/102-cloud-saves",
+      "ref": "8ebaf8daad",
+      "kind": "file under review, whole",
+      "sha256": "6020c468553e3ab1b4171c413c285333c2d0d461961a51fe7d6ba3910e14da84",
+      "bytes": 3248
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/package.mk",
+      "ref": "8ebaf8daad",
+      "kind": "file under review, whole",
+      "sha256": "030b2429b9c61fd55431fd5e9ac3f58ff7bb6214256a05e0bef132381347a254",
+      "bytes": 5483
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_net_ready",
+      "ref": "8ebaf8daad",
+      "kind": "file under review, whole",
+      "sha256": "19afce254bc5c55f119b9681463b8103da5f564f3235b64f100ba9c35e62df89",
+      "bytes": 9512
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_saves_root",
+      "ref": "8ebaf8daad",
+      "kind": "file under review, whole",
+      "sha256": "d0b0c5b850a7b51257797dcc9bfdac2e6f3e0abf2c3be4584ca65583748bfe43",
+      "bytes": 9236
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync_helper",
+      "ref": "8ebaf8daad",
+      "kind": "file under review, whole",
+      "sha256": "9fcdd5516dc72c5e35921254cbc89b019e90b36580bd0846f2649ccabb90a050",
+      "bytes": 32916
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync_cleanup_duplicates.sh",
+      "ref": "8ebaf8daad",
+      "kind": "file under review, whole",
+      "sha256": "b62ee55ace6e9d776a89686ed6ecdfa17c90ac0e9a6f16d2e260cb2a7617eac1",
+      "bytes": 1193
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/rasteratops-settings-archive",
+      "ref": "8ebaf8daad",
+      "kind": "file under review, whole",
+      "sha256": "58977f0e8aec6adfe673037c1a926bb2cbee94269ad6306ec02206250bceb50c",
+      "bytes": 2063
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf",
+      "ref": "8ebaf8daad",
+      "kind": "file under review, whole",
+      "sha256": "a121977066ce805e791108258fe12d1ecbce5e71ce2f61f096394a9fca982305",
+      "bytes": 8232
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync.conf.defaults",
+      "ref": "8ebaf8daad",
+      "kind": "file under review, whole",
+      "sha256": "77ce914421b47ef7f0a33e6085a5793cb8be55a5c239788adf8575a57d3ad1c4",
+      "bytes": 7039
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt",
+      "ref": "8ebaf8daad",
+      "kind": "file under review, whole",
+      "sha256": "2528550d5b45f8ab8264b55f21afa8098a88d1a99572bcfd87a4b9e3d3506208",
+      "bytes": 2432
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt.defaults",
+      "ref": "8ebaf8daad",
+      "kind": "file under review, whole",
+      "sha256": "a5243acb3b3b4381b8b8cdd42b7071a242c283f93c2668f1ea5dfc2991b90cf9",
+      "bytes": 3122
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_backup",
+      "ref": "8ebaf8daad",
+      "kind": "file under review, excerpt",
+      "sha256": "9f43ace5fa17d57d4251852d52dc8a5aa5fd4558843a33af63e38105c4bf440a",
+      "bytes": 129704,
+      "spans": [
+        [
+          1,
+          120
+        ],
+        [
+          349,
+          385
+        ],
+        [
+          449,
+          465
+        ],
+        [
+          708,
+          724
+        ],
+        [
+          1201,
+          1230
+        ],
+        [
+          1395,
+          1411
+        ],
+        [
+          1531,
+          1547
+        ],
+        [
+          1558,
+          1574
+        ],
+        [
+          1605,
+          1621
+        ],
+        [
+          1798,
+          1814
+        ],
+        [
+          2020,
+          2038
+        ],
+        [
+          2046,
+          2064
+        ],
+        [
+          2106,
+          2126
+        ],
+        [
+          2162,
+          2181
+        ],
+        [
+          2295,
+          2311
+        ],
+        [
+          2490,
+          2510
+        ]
+      ],
+      "lines_shown": 423,
+      "lines_total": 2510
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_restore",
+      "ref": "8ebaf8daad",
+      "kind": "file under review, excerpt",
+      "sha256": "041740d9f633d76a9f809fd0909bbda9342906d948f6b5fa4a0904be52d7d292",
+      "bytes": 115716,
+      "spans": [
+        [
+          1,
+          160
+        ],
+        [
+          238,
+          380
+        ],
+        [
+          434,
+          450
+        ],
+        [
+          714,
+          732
+        ],
+        [
+          756,
+          773
+        ],
+        [
+          1250,
+          1279
+        ],
+        [
+          1586,
+          1629
+        ],
+        [
+          1750,
+          1768
+        ],
+        [
+          1861,
+          1879
+        ],
+        [
+          1885,
+          1921
+        ],
+        [
+          1985,
+          2001
+        ],
+        [
+          2020,
+          2036
+        ],
+        [
+          2207,
+          2324
+        ]
+      ],
+      "lines_shown": 658,
+      "lines_total": 2324
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/rclone/sources/cloud_capture",
+      "ref": "8ebaf8daad",
+      "kind": "file under review, excerpt",
+      "sha256": "6853272e6eb29b2c61908dbfe135a5cb14cab7e86f833dea69a4cc6ac66a8929",
+      "bytes": 82552,
+      "spans": [
+        [
+          1,
+          140
+        ],
+        [
+          185,
+          206
+        ],
+        [
+          765,
+          805
+        ],
+        [
+          1075,
+          1090
+        ],
+        [
+          1640,
+          1690
+        ]
+      ],
+      "lines_shown": 270,
+      "lines_total": 1704
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-cloud-sync-core/fixtures/load-config-fallback.sh",
+      "ref": "worktree",
+      "kind": "evidence",
+      "sha256": "2ed4eadd8bed887732a8de36871af9ea5a8e680277a901f1750413ca30baabf3",
+      "bytes": 2720
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-cloud-sync-core/fixtures/trap-defer.sh",
+      "ref": "worktree",
+      "kind": "evidence",
+      "sha256": "3e28f8d4137f3e1a5278c96feaa57083b262cb2362bcbeac32b709780753bde4",
+      "bytes": 357
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-cloud-sync-core/guest-cycle/host-leads/a-awk/out",
+      "ref": "worktree",
+      "kind": "evidence",
+      "sha256": "4000640cf87eb3a933b87154df6ef1ccb3d696cf60405471ba71f7aa43d257af",
+      "bytes": 1591
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-cloud-sync-core/guest-cycle/host-leads/b-empty-savespath/out",
+      "ref": "worktree",
+      "kind": "evidence",
+      "sha256": "08731f09cd25ae2ceb09bc2a3e4b412772331d7996e9d65c8204655fed8a371a",
+      "bytes": 10066
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-cloud-sync-core/guest-cycle/host-leads/d-terminal-width/out",
+      "ref": "worktree",
+      "kind": "evidence",
+      "sha256": "5fa940db2d6840994f2d20c03b447a08a5a25eff9217702d39e79fd65b9e1967",
+      "bytes": 1478
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-cloud-sync-core/guest-cycle/host-leads/f14-backup-dir-order/out",
+      "ref": "worktree",
+      "kind": "evidence",
+      "sha256": "06cdc3f470e8c35cc4c121f1028df72555cece830fced68a36f237294237a752",
+      "bytes": 2114
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-cloud-sync-core/guest-cycle/host-leads/k15-at-the-run/out",
+      "ref": "worktree",
+      "kind": "evidence",
+      "sha256": "d5d44623bc0f2123abf026abe5c232fd1daa70d9543ed455fb75268543c9593e",
+      "bytes": 2900
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-cloud-sync-core/guest-cycle/host-leads/e-term-automatic/out",
+      "ref": "worktree",
+      "kind": "evidence",
+      "sha256": "922e2dfa9e03a97bca40624e56aea9cf32ccf661bd8b6ddda0946f91152d9262",
+      "bytes": 6360
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-cloud-sync-core/guest-cycle/host-leads/e-term-automatic/out-game",
+      "ref": "worktree",
+      "kind": "evidence",
+      "sha256": "769ae7bc56b9c128b48f5c98eff46730dcb8bae049064369f980c4a0df3d2c5c",
+      "bytes": 5474
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-cloud-sync-core/guest-cycle/cells-1.out",
+      "ref": "worktree",
+      "kind": "evidence, excerpt",
+      "sha256": "102f008a2b35f576ae99946c24911de1a2ff54e1d50223626f2a76c0161e19c3",
+      "bytes": 856,
+      "excerpt_of": "=== KILL15 to the next blank line"
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-cloud-sync-core/guest-cycle/cells-3.out",
+      "ref": "worktree",
+      "kind": "evidence, excerpt",
+      "sha256": "e21ff1774dcf712f5417538393e57ae4c5aea30eaf25d44c1736a4fce1cc8570",
+      "bytes": 2976,
+      "excerpt_of": "=== KILL2 to the next blank line"
+    },
+    {
+      "path": "tools/cloud-round-trip",
+      "ref": "3a653eaec4",
+      "kind": "harness, excerpt",
+      "sha256": "85ec255fd257d877f2f8d321dc79480e02f55041f37d6a6922355d614f38d019",
+      "bytes": 484825,
+      "spans": [
+        [
+          7747,
+          7772
+        ]
+      ]
+    }
+  ],
+  "built_by": "docs/audits/2026_10_25-epic-m6-cloud-sync-core/tools/t16-packet.py",
+  "context_lines": 8,
+  "redactions": [],
+  "register_rows_missing": [],
+  "packet_body_sha256": "afe63258652d11fafa979d912635d64096bb91e8785115516b8564ba8fb7a304",
+  "packet_body_bytes": 376779,
+  "files_whole": 11,
+  "files_excerpted": 3,
+  "register_rows": [
+    "D-CLOUD-075",
+    "D-CLOUD-076",
+    "D-CLOUD-078",
+    "D-CLOUD-109",
+    "D-CLOUD-112",
+    "D-CLOUD-113",
+    "D-CLOUD-118",
+    "D-CLOUD-119",
+    "D-CLOUD-130",
+    "D-CLOUD-158",
+    "D-CLOUD-178",
+    "D-QA-012",
+    "D-QA-015",
+    "D-QA-058",
+    "D-QA-063",
+    "D-UI-095",
+    "D-WORKFLOW-183",
+    "D-WORKFLOW-187",
+    "D-WORKFLOW-189",
+    "D-WORKFLOW-190",
+    "D-WORKFLOW-195",
+    "D-WORKFLOW-209"
+  ],
+  "scan": {
+    "forbidden_terms_check_stdin": "0 hits (rc 0: 'forbidden-terms-check: 0 hits on stdin')",
+    "pre_commit_secret_patterns": "0 lines (.githooks/secret-patterns, grep -c -E)",
+    "t10_widened_secret_patterns": "0 lines (git show feature/m6-tooling-guards-657:.githooks/secret-patterns)",
+    "qa_credential_shapes": "0 lines (the QA backend's user, its password, a remote stanza, pass/user/token = lines)",
+    "scanned": "2026-10-30T09:25:16Z, the packet body before any brief was written",
+    "result": "clean; no redaction needed; no rclone.conf, QA credential or token-bearing stamp in the packet"
+  },
+  "packet_body_path_at_build": "/workspace/tmp/m6-t16/packet3/packet-body.md (scratch; the briefs carry it whole)"
+}
