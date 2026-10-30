@@ -1,0 +1,28 @@
+== T16 host lead (a) awk and gensub -- 2026-10-30T05:34:01Z
+donor root: /workspace/artifacts/m6-donor/1a0266484423/image/system (BUILD_ID 1a0266484423); sha256sum -c ../../SHA256SUMS:
+  usr/bin/busybox: OK
+  usr/bin/rclone: OK
+  etc/os-release: OK
+the scripts and /usr/config: git show 8ebaf8daad, 12 of 12 sha256-equal to the guest's installed bytes (guest-cycle/installed.sha256)
+from the donor: busybox v1.36.1 (146 applet links), rclone v1.75.2
+host stand-ins (not in the donor): bash 5.3.9(1)-release (image: 5.3), timeout (GNU coreutils) 9.7 (image: 9.4), grep (GNU grep) 3.12 (image: 3.9), python3 3.14.4, ip (iproute2)
+sandbox: /workspace/tmp/m6-t16/hl/sbx.sh (copied to host-leads/sandbox/) (bwrap, own pid namespace, host network); backend: cloud-test-backend at 3a653eaec4, WebDAV 127.0.0.1:9010, state /workspace/tmp/m6-t16/hl/state
+
+$ readlink /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/awk
+busybox
+$ echo 'a=b' | busybox awk '{print gensub(/=.*/, "", 1)}'   (the cleanup's own call)
+a
+rc=0
+$ busybox awk 'BEGIN{print gensub(/(b)/, "<\\1>", "g", "abcb")}'   (back-references, global)
+a<b>c<b>
+rc=0
+
+the shipped conf with LOG_LEVEL and a three-line RCLONEOPTS repeated after it (A48's shape):
+  before: 2 LOG_LEVEL, 2 RCLONEOPTS, bwlimit lines 1
+$ (sandbox) command -v awk; cloud_sync_cleanup_duplicates.sh /storage/.config/cloud_sync.conf
+/donor/usr/bin/busybox
+Duplicate variable assignments removed from /storage/.config/cloud_sync.conf.
+rc=0
+bash -n rc=0
+  after: 1 LOG_LEVEL (LOG_LEVEL="INFO"), 1 RCLONEOPTS, bwlimit lines 0
+== end 2026-10-30T05:34:01Z

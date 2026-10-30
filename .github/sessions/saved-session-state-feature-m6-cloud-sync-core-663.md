@@ -16,24 +16,22 @@
 
 ## Current focus
 
-**The re-granted window ran and is closed (2026-10-29). Stage C goes on.**
+**Stage C, on the host (2026-10-30).** The window is closed; no second window, by the coordinator's 05:15 ruling on #663.
 
-- **The window:**
-  - START 18:10:18Z; RETURN 22:31:21, overrun by 3 h 46 min when the session's limit cut it.
-  - 13 of 13 installed files are identical to the tree.
-  - The suite passed 108/0/0 (the first run was void: the tools-only clone needs `CLOUD_QA_DEFAULTS`).
-  - LINK1, LINK2 and LINK6 pass. KILL15 has one vocabulary FAIL.
-  - KILL2 has 3 FAILs: saves absent after a stopped restore, and `*.partial` left until the re-run.
-  - The leads, the extra cells and `time-to-play` were not run.
-  - Both disks are retired.
+- **The host leads** (`guest-cycle/host-leads/`, `02` § The host leads) ran with the donor's busybox and rclone, and the scripts at `8ebaf8daad`:
+  - (a) busybox awk has `gensub` (F-09);
+  - (b) an empty `SAVESPATH` copies nothing into `/`, because rclone's `--backup-dir` overlap check refuses first (F-02 re-graded Low);
+  - (d) rclone 1.75.2 has no `--progress-terminal-width` (F-05, F-06);
+  - (e) TERM is deferred 36 s, and after a KILL to the script alone, the orphan's rename replaces a save written after the stop (F-03).
+- **Graded:** KILL2 is F-14 (`--backup-dir` moves saves aside before the transfer). KILL15's FAIL is the harness's (F-15).
+- **`(window)`-pending, for stage E and the integration window:** lead (c)'s timings, F-03 on the image's own bash and coreutils, and the ES stop shape (the ES slice's).
 - **Next:**
-  - grade KILL2 against `cloud_restore`'s `--backup-dir` (`:1869-1871`) and rclone's replace order, as a possible F-14;
-  - add KILL15's vocabulary FAIL;
-  - update `04`;
-  - build the packet (`tools/t16-packet.py` on T22's model);
-  - `review-plan.json`; then Astra, then Argon;
-  - the pre-issue lint; stage D.
-- **Ask the coordinator** whether the unrun leads need another window. Do not ask for one while the record is open.
+  - build the packet (`tools/t16-packet.py` on T22's model), scanned three ways;
+  - `second-opinions/review-plan.json`, depth `extended`, two reviewers;
+  - Astra (probe, refutation), then Argon (probe, refutation): exactly four keyed invokes;
+  - grade every item at its lines;
+  - the pre-issue lint;
+  - stage D.
 
 ## Next commands
 
@@ -44,7 +42,7 @@ git merge-base --is-ancestor 2174265e9c HEAD && echo stacked-on-P1
 git diff --stat 8ebaf8daad HEAD -- packages projects | tail -1                     # empty
 test -f docs/reviews/inventory.json && echo inventory
 grep -c 'D-WORKFLOW-209' docs/decision-register.md                                 # 1 or more: the coordinator's tip is merged
-tail -3 /tmp/m7-m6-host-coordination-20261023.txt | cut -c1-200; pgrep -x qemu-system-x86 -r R,S,D,T | wc -l
+tail -3 /workspace/tmp/m7-m6-host-coordination.txt | cut -c1-200; pgrep -x qemu-system-x86 -r R,S,D,T | wc -l   # the host file since the 2026-10-28 reboot
 git rev-parse --verify 651150fc88^{commit} >/dev/null && echo upstream-next-is-here   # read locally, never fetched
 sed -n '1,140p' docs/reviews/briefs/cloud-sync-core.md
 ```
@@ -78,3 +76,4 @@ host's swap, another lane's worktree, or a guest.
 - stage C first reader: 03, 04, two fixtures; `ab32ce5745`; 2026-10-25 11:55 UTC; window START 11:56:21Z, cut at ~12:08 by the usage limit
 - resumed 2026-10-29 18:0x UTC: state reconciled from the record; waiting on the re-granted window
 - 2026-10-29: merge `1bb8ad08e7`; window START 18:10:18Z, RETURN 22:31:21 (overrun 3 h 46 min, session cut); disks retired; record committed
+- 2026-10-30: the leads ruled (05:15); the host leads (05:24-05:35); KILL2 graded F-14, KILL15 F-15, F-02 re-graded, F-03 proved; three corrections; next, the packet and the seats

@@ -96,3 +96,36 @@ time comes from `date -u`.
   - `/workspace/tmp/m6-t16/vm-pair-2/vm-a.qcow2`: 2,331,246,592 bytes, sha256 `bc8e8a19988b08e02cc1fbfc50847ea872d4c3d3ba7068c4e79167cff0bc0475`.
   - Both directories (each holding the disk, its OVMF vars and a QA key) were removed by literal path. `df` avail went from 1,499,053,215,744 to 1,503,696,261,120 bytes (+4,643,045,376).
 - **Not run:** leads (a) to (e), the brief's extra cells and `time-to-play`.
+
+## 2026-10-30 05:15-05:39 UTC -- the leads ruled; the host leads; KILL2 and KILL15 graded; three corrections
+
+- **05:15, the coordinator's ruling** (#663, comment 6515562455):
+  - no second window now;
+  - (a), (b), (d) and (e) run on the host, with the image's own binaries, as stage-C cells under `guest-cycle/host-leads/`;
+  - (c), and whatever a host run cannot show, are `(window)`-pending for stage E and the integration window.
+- **The host cells, 05:24-05:35.**
+  - Opened and closed on the host file (05:24:09Z, 05:34:11Z).
+  - One QA WebDAV on 127.0.0.1:9010, its state under `/workspace/tmp/m6-t16/hl/state`. It was restarted at 100k for (e) and stopped by its pidfile; pids 1534987 and 1610039 are gone, 0 listeners on 9010.
+  - No guest, compiler or build; qemu 0 throughout.
+- **The donor root** `/workspace/artifacts/m6-donor/1a0266484423`:
+  - `sha256sum -c ../../SHA256SUMS` reads OK for busybox, rclone and os-release, in every cell's `out`.
+  - **It holds no cloud script.** The ruling's sentence says it does; its `RECORD.txt` lists busybox, rclone and os-release only.
+  - So the scripts and `/usr/config` come from `git show 8ebaf8daad`, 12 of 12 sha256-equal to the guest's installed bytes.
+  - Host bash 5.3.9, GNU coreutils 9.7 (by `gnu<name>`, the host's default being uutils), grep 3.12, python3 and `ip` stand in where the donor has nothing. That is named in `02` § The host leads.
+- **Two retries, both kept in the record:**
+  - (b)'s first run refused at `cloud_remote`: `cloud_connections.py` was missing from the sandbox's `/usr/bin`, my root's list. It was rebuilt as `root2` and re-run with a control arm.
+  - (e)'s 2 MiB save finished before the +9 s KILL, so the arm did not test what it was for. It was re-run at 6 MiB; the first try is `out.2mib`.
+- **Graded** (`02` § The host leads and § Positives; `04`):
+  - **F-02 re-graded Low.** Nothing is copied into `/`: rclone's `--backup-dir` overlap check refuses first, and the why blames the cloud.
+  - **F-03 proved on the host:** the orphan's rename replaces a save written after the stop, with no copy kept.
+  - **F-14 new (Medium):** `--backup-dir` moves the saves aside before the transfer, so a stopped restore leaves them absent.
+  - **F-15 new (oracle):** KILL15's FAIL is the harness's.
+  - F-05 and F-06 gain the `--progress-terminal-width` probe, which never matches on 1.75.2.
+  - F-09 gains `cloud_restore:764` (busybox awk has `gensub`).
+- **Three corrections, asked by the coordinator:**
+  1. **The RETURN post's sentence was wrong.** It said `time-to-play` was marked CANNOT "with the last logged figure cited". `02`:457 said CANNOT and pointed at `04` § Q5 for a figure, and `04` § Q5 cited none. Both lines now say what happened: not run, no figure.
+  2. **The 22:34 post counted 38 files** under `guest-cycle/`. `git show --name-only --format= 34b6d28ee6 | grep -c 'guest-cycle/'` prints **39**.
+  3. **The pointer's Next commands tailed `/tmp/m7-m6-host-coordination-20261023.txt`**, which the 2026-10-28 reboot removed. The host file is `/workspace/tmp/m7-m6-host-coordination.txt`.
+- **Scratch kept:** `/workspace/tmp/m6-t16/hl/` (`root1`, `root2`, `cells/`, `state/`).
+  - The cells' `rclone.conf` copies hold the QA backend's throwaway sign-in, and are never printed.
+  - Removed at close-out by literal path.

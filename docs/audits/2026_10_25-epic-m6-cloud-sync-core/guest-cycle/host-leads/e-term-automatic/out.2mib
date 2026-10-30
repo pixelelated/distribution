@@ -1,0 +1,71 @@
+== T16 host lead (e) TERM to an automatic restore -- 2026-10-30T05:27:46Z
+donor root: /workspace/artifacts/m6-donor/1a0266484423/image/system (BUILD_ID 1a0266484423); sha256sum -c ../../SHA256SUMS:
+  usr/bin/busybox: OK
+  usr/bin/rclone: OK
+  etc/os-release: OK
+the scripts and /usr/config: git show 8ebaf8daad, 12 of 12 sha256-equal to the guest's installed bytes (guest-cycle/installed.sha256)
+from the donor: busybox v1.36.1 (146 applet links), rclone v1.75.2
+host stand-ins (not in the donor): bash 5.3.9(1)-release (image: 5.3), timeout (GNU coreutils) 9.7 (image: 9.4), grep (GNU grep) 3.12 (image: 3.9), python3 3.14.4, ip (iproute2)
+sandbox: /workspace/tmp/m6-t16/hl/sbx.sh (copied to host-leads/sandbox/) (bwrap, own pid namespace, host network); backend: cloud-test-backend at 3a653eaec4, WebDAV 127.0.0.1:9010, state /workspace/tmp/m6-t16/hl/state
+
+
+=== arm term (2026-10-30T05:27:46Z); cell /workspace/tmp/m6-t16/hl/cells/e-term.052746
+cloud_restore --automatic --yes --saves-only started, pid 5
++5s: script alive; partial: 520192  landed: b1.state 
+            5       2       5 /bin/bash /usr/bin/cloud_restore --automatic --yes --saves-only
+          304       5       4 timeout -k 3 90 rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+          305     304       4 rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt --log-level INFO
+TERM to 5 at +5s
+the script ended by +20s
+its status (as its parent saw it): 130
++22s: script gone; partial:  landed: b1.state e-term.state 
++32s: script gone; partial:  landed: b1.state e-term.state 
++52s: script gone; partial:  landed: b1.state e-term.state 
+-- the script's last lines (masked):
+=>  CLOUD RESTORE
+====================================
+RESTORING YOUR GAME SAVES
+>>> unit SAVES||
+====================================
+-- the log: deadline, interruption, exit (masked):
+[2026-10-30 05:27:46] [INFO] [cloud_restore] automatic run: --contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1; ceiling 90s from start
+2026/10/30 05:27:46 INFO  : Local file system at /storage/roms: Transfer session HARD deadline: 2026/10/30 05:29:16
+[2026-10-30 05:28:05] [WARN] [cloud_restore] Script interrupted by user
+[2026-10-30 05:28:05] [INFO] [cloud_restore] Script completed in 19 seconds with exit code 130
+-- stamp last-restore: 1793338085 130
+-- left in the saves tree: /storage/roms/gba/b2.srm /storage/roms/savestates/b1.state /storage/roms/savestates/e-term.state 
+sandbox rc=0 at 2026-10-30T05:28:38Z
+
+=== arm termkill (2026-10-30T05:28:38Z); cell /workspace/tmp/m6-t16/hl/cells/e-termkill.052838
+cloud_restore --automatic --yes --saves-only started, pid 5
++5s: script alive; partial: 1044480  landed: b1.state e-term.state 
+            5       2       5 /bin/bash /usr/bin/cloud_restore --automatic --yes --saves-only
+          299       5       4 timeout -k 3 90 rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+          300     299       4 rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt --log-level INFO
+TERM to 5 at +5s
++7s: script alive; partial: 1044480  landed: b1.state e-term.state 
+            5       2       7 /bin/bash /usr/bin/cloud_restore --automatic --yes --saves-only
+          299       5       6 timeout -k 3 90 rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt 
+          300     299       6 rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt --log-level INFO
++9s: script gone; partial:  landed: b1.state e-term.state e-termkill.state 
+the script was already gone at +9s
+the script ended by +9s
+its status (as its parent saw it): 130
++11s: script gone; partial:  landed: b1.state e-term.state e-termkill.state 
++21s: script gone; partial:  landed: b1.state e-term.state e-termkill.state 
++41s: script gone; partial:  landed: b1.state e-term.state e-termkill.state 
+-- the script's last lines (masked):
+=>  CLOUD RESTORE
+====================================
+RESTORING YOUR GAME SAVES
+>>> unit SAVES||
+====================================
+-- the log: deadline, interruption, exit (masked):
+[2026-10-30 05:28:38] [INFO] [cloud_restore] automatic run: --contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1; ceiling 90s from start
+2026/10/30 05:28:38 INFO  : Local file system at /storage/roms: Transfer session HARD deadline: 2026/10/30 05:30:08
+[2026-10-30 05:28:46] [WARN] [cloud_restore] Script interrupted by user
+[2026-10-30 05:28:46] [INFO] [cloud_restore] Script completed in 8 seconds with exit code 130
+-- stamp last-restore: 1793338126 130
+-- left in the saves tree: /storage/roms/gba/b2.srm /storage/roms/savestates/b1.state /storage/roms/savestates/e-term.state /storage/roms/savestates/e-termkill.state 
+sandbox rc=0 at 2026-10-30T05:29:19Z
+== end 2026-10-30T05:29:19Z

@@ -1,0 +1,27 @@
+== T16 host lead (d) --progress-terminal-width -- 2026-10-30T05:34:01Z
+donor root: /workspace/artifacts/m6-donor/1a0266484423/image/system (BUILD_ID 1a0266484423); sha256sum -c ../../SHA256SUMS:
+  usr/bin/busybox: OK
+  usr/bin/rclone: OK
+  etc/os-release: OK
+the scripts and /usr/config: git show 8ebaf8daad, 12 of 12 sha256-equal to the guest's installed bytes (guest-cycle/installed.sha256)
+from the donor: busybox v1.36.1 (146 applet links), rclone v1.75.2
+host stand-ins (not in the donor): bash 5.3.9(1)-release (image: 5.3), timeout (GNU coreutils) 9.7 (image: 9.4), grep (GNU grep) 3.12 (image: 3.9), python3 3.14.4, ip (iproute2)
+sandbox: /workspace/tmp/m6-t16/hl/sbx.sh (copied to host-leads/sandbox/) (bwrap, own pid namespace, host network); backend: cloud-test-backend at 3a653eaec4, WebDAV 127.0.0.1:9010, state /workspace/tmp/m6-t16/hl/state
+
+$ rclone help | grep -c progress-terminal-width   (the scripts' test)
+0
+$ rclone help flags | grep -c -- --progress-terminal-width
+0
+$ rclone help flags | grep -c -- '--progress'   (the family is listed there)
+2
+$ rclone lsf <empty dir> --progress-terminal-width=80
+rc=2
+Error: unknown flag: --progress-terminal-width
+Usage:
+$ rclone lsf <empty dir>   (the control)
+rc=0
+the scripts' probe, timed on this host (not the device's figure; lead (c) is (window)-pending):
+  rclone help | grep -q: 24 ms, grep rc=1
+  rclone help | grep -q: 24 ms, grep rc=1
+  rclone help | grep -q: 23 ms, grep rc=1
+== end 2026-10-30T05:34:01Z

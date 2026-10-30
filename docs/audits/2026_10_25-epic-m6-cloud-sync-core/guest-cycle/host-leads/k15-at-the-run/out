@@ -1,0 +1,51 @@
+== T16 host lead KILL15 at the run: an empty saves-root record under each twin -- 2026-10-30T05:34:58Z
+donor root: /workspace/artifacts/m6-donor/1a0266484423/image/system (BUILD_ID 1a0266484423); sha256sum -c ../../SHA256SUMS:
+  usr/bin/busybox: OK
+  usr/bin/rclone: OK
+  etc/os-release: OK
+the scripts and /usr/config: git show 8ebaf8daad, 12 of 12 sha256-equal to the guest's installed bytes (guest-cycle/installed.sha256)
+from the donor: busybox v1.36.1 (146 applet links), rclone v1.75.2
+host stand-ins (not in the donor): bash 5.3.9(1)-release (image: 5.3), timeout (GNU coreutils) 9.7 (image: 9.4), grep (GNU grep) 3.12 (image: 3.9), python3 3.14.4, ip (iproute2)
+sandbox: /workspace/tmp/m6-t16/hl/sbx.sh (copied to host-leads/sandbox/) (bwrap, own pid namespace, host network); backend: cloud-test-backend at 3a653eaec4, WebDAV 127.0.0.1:9010, state /workspace/tmp/m6-t16/hl/state
+
+$ (sandbox) cloud_saves_root check   (the guest cell's own invocation, for comparison)
+
+=== cloud_saves_root check (2026-10-30T05:34:58Z); cell /workspace/tmp/m6-t16/hl/cells/k15-check.053458
+rc=1
+>>> why COULDN'T TELL WHICH CARD YOUR SAVES ARE ON
+We can't tell which card your saves were last synced from, so nothing was transferred.
+If both cards are in the device, try again.
+stamps: last-restore none; last-backup none; the local save local save
+
+=== cloud_restore --yes --saves-only (2026-10-30T05:34:58Z); cell /workspace/tmp/m6-t16/hl/cells/k15-cloud_restore.053458
+rc=1
+RESTORING YOUR GAME SAVES
+>>> unit SAVES||
+====================================
+>>> why COULDN'T TELL WHICH CARD YOUR SAVES ARE ON
+[31mWe can't tell which card your saves were last synced from, so nothing was transferred.
+If both cards are in the device, try again.[0m
+Skipped settings this time - saves only.
+====================================
+RESTORE SUMMARY:
+Game saves: COULDN'T FINISH
+[31mCouldn't finish: couldn't tell which card your saves are on. Try again.[0m
+====================================
+stamps: last-restore 1793338498 1 COULDN'T_TELL_WHICH_CARD_YOUR_SAVES_ARE_ON; last-backup none; the local save local save
+
+=== cloud_backup --yes --saves-only (2026-10-30T05:34:58Z); cell /workspace/tmp/m6-t16/hl/cells/k15-cloud_backup.053458
+rc=1
+>>> unit SAVES||
+====================================
+>>> why COULDN'T TELL WHICH CARD YOUR SAVES ARE ON
+[31mWe can't tell which card your saves were last synced from, so nothing was transferred.
+If both cards are in the device, try again.[0m
+Skipped settings this time - saves only.
+====================================
+BACKUP SUMMARY:
+Game saves: COULDN'T FINISH
+Settings backup: SKIPPED - SAVES ONLY
+[31mCouldn't finish: couldn't tell which card your saves are on. Try again.[0m
+====================================
+stamps: last-restore none; last-backup 1793338498 1 COULDN'T_TELL_WHICH_CARD_YOUR_SAVES_ARE_ON; the local save local save
+== end 2026-10-30T05:34:58Z

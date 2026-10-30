@@ -1,0 +1,180 @@
+== T16 host lead (b) SAVESPATH="", cloud_restore --yes --saves-only -- 2026-10-30T05:27:00Z
+donor root: /workspace/artifacts/m6-donor/1a0266484423/image/system (BUILD_ID 1a0266484423); sha256sum -c ../../SHA256SUMS:
+  usr/bin/busybox: OK
+  usr/bin/rclone: OK
+  etc/os-release: OK
+the scripts and /usr/config: git show 8ebaf8daad, 12 of 12 sha256-equal to the guest's installed bytes (guest-cycle/installed.sha256)
+from the donor: busybox v1.36.1 (146 applet links), rclone v1.75.2
+host stand-ins (not in the donor): bash 5.3.9(1)-release (image: 5.3), timeout (GNU coreutils) 9.7 (image: 9.4), grep (GNU grep) 3.12 (image: 3.9), python3 3.14.4, ip (iproute2)
+sandbox: /workspace/tmp/m6-t16/hl/sbx.sh (copied to host-leads/sandbox/) (bwrap, own pid namespace, host network); backend: cloud-test-backend at 3a653eaec4, WebDAV 127.0.0.1:9010, state /workspace/tmp/m6-t16/hl/state
+
+the cloud (the backend's data directory): pixelelated/Saves/gba/b2.srm pixelelated/Saves/savestates/b1.state 
+
+=== arm ctl (2026-10-30T05:27:00Z); cell /workspace/tmp/m6-t16/hl/cells/b-ctl.052700
+conf: 24:SAVESPATH="/storage/roms"
+/ is writable
+cloud_restore rc=0
+-- its output, protocol and prose lines (rclone's redraws dropped; masked):
+=>  CLOUD RESTORE
+====================================
+RESTORING YOUR GAME SAVES
+>>> unit SAVES||
+====================================
+Restoring your saves: completed.
+Skipped settings this time - saves only.
+====================================
+RESTORE SUMMARY:
+Game saves: COMPLETED
+Completed.
+====================================
+-- the log's lines for this run (masked):
+[2026-10-30 05:27:01] [INFO] [cloud_restore] Starting restore from qa-cloud:/pixelelated/Saves to /storage/roms
+[2026-10-30 05:27:01] [INFO] [cloud_restore] the remote compares by size alone (#315): the cloud's upload time is compared with this device's copy (--update)
+[2026-10-30 05:27:02] [INFO] [cloud_restore] About to execute: rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt --log-level INFO --stats 1s --exclude=bios/** --exclude=backup/** --backup-dir=/storage/.cache/cloud_sync/replaced/2026_10_30-052701 --update qa-cloud:/pixelelated/Saves/ /storage/roms/
+-- stamp last-restore: 1793338022 0
+-- stamp last-backup: none
+-- the seeded saves by name, anywhere but /proc: /storage/roms/gba/b2.srm /storage/roms/savestates/b1.state 
+-- files newer than the marker, the whole tree but /proc, /dev and the marker:
+/storage/.cache/cloud_sync/last-restore
+/storage/.cache/cloud_sync/restore-tree-clean
+/storage/.cache/cloud_sync/saves-root
+/storage/.config/cloud_sync-rules.txt
+/t16-probe
+/tmp/b.out
+/var/log/cloud_sync.log
+/var/run/cloud_sync.lock
+-- directories at / now: bin dev donor drv etc host lib lib64 proc run sbin storage t16-probe tmp usr var 
+sandbox rc=0
+
+=== arm ro (2026-10-30T05:27:05Z); cell /workspace/tmp/m6-t16/hl/cells/b-ro.052705
+conf: 24:SAVESPATH=""
+/ is read-only
+cloud_restore rc=7
+-- its output, protocol and prose lines (rclone's redraws dropped; masked):
+=>  CLOUD RESTORE
+====================================
+RESTORING YOUR GAME SAVES
+>>> unit SAVES||
+====================================
+mkdir: can't create directory '': No such file or directory
+[31mRestoring your saves: your cloud wouldn't take the files.[0m
+>>> why YOUR CLOUD WOULDN'T TAKE THE FILES
+Skipped settings this time - saves only.
+====================================
+RESTORE SUMMARY:
+Game saves: COULDN'T FINISH
+[31mCouldn't finish: your cloud wouldn't take the files. Try again.[0m
+====================================
+-- the log's lines for this run (masked):
+[2026-10-30 05:27:06] [INFO] [cloud_restore] Starting restore from qa-cloud:/pixelelated/Saves to 
+[2026-10-30 05:27:06] [INFO] [cloud_restore] Creating local restore path: 
+[2026-10-30 05:27:06] [INFO] [cloud_restore] the remote compares by size alone (#315): the cloud's upload time is compared with this device's copy (--update)
+[2026-10-30 05:27:07] [INFO] [cloud_restore] About to execute: rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt --log-level INFO --stats 1s --exclude=bios/** --exclude=storage/roms/backup/** --backup-dir=/storage/.cache/cloud_sync/replaced/2026_10_30-052706 --update qa-cloud:/pixelelated/Saves/ /
+2026/10/30 05:27:07 ERROR : Fatal error received - not attempting retries
+Errors:                 1 (fatal error encountered)
+2026/10/30 05:27:07 NOTICE: Failed to copy: destination and parameter to --backup-dir mustn't overlap
+[2026-10-30 05:27:07] [ERROR] [cloud_restore] Restoring your saves: rclone exit 7
+[2026-10-30 05:27:07] [ERROR] [cloud_restore] Restoring your saves: your cloud wouldn't take the files.
+[2026-10-30 05:27:07] [INFO] [cloud_restore] why: YOUR CLOUD WOULDN'T TAKE THE FILES
+[2026-10-30 05:27:07] [ERROR] [cloud_restore] Couldn't finish: your cloud wouldn't take the files. Try again.
+-- stamp last-restore: 1793338027 7 YOUR_CLOUD_WOULDN'T_TAKE_THE_FILES
+-- stamp last-backup: none
+-- the seeded saves by name, anywhere but /proc: 
+-- files newer than the marker, the whole tree but /proc, /dev and the marker:
+/storage/.cache/cloud_sync/last-restore
+/storage/.cache/cloud_sync/restore-tree-clean
+/storage/.config/cloud_sync-rules.txt
+/storage/.config/cloud_sync-rules.txt.bak
+/storage/.config/cloud_sync.conf
+/tmp/b.out
+/var/log/cloud_sync.log
+/var/run/cloud_sync.lock
+-- directories at / now: bin dev donor drv etc host lib lib64 proc run sbin storage tmp usr var 
+sandbox rc=0
+
+=== arm rw (2026-10-30T05:27:08Z); cell /workspace/tmp/m6-t16/hl/cells/b-rw.052708
+conf: 24:SAVESPATH=""
+/ is writable
+cloud_restore rc=7
+-- its output, protocol and prose lines (rclone's redraws dropped; masked):
+=>  CLOUD RESTORE
+====================================
+RESTORING YOUR GAME SAVES
+>>> unit SAVES||
+====================================
+mkdir: can't create directory '': No such file or directory
+[31mRestoring your saves: your cloud wouldn't take the files.[0m
+>>> why YOUR CLOUD WOULDN'T TAKE THE FILES
+Skipped settings this time - saves only.
+====================================
+RESTORE SUMMARY:
+Game saves: COULDN'T FINISH
+[31mCouldn't finish: your cloud wouldn't take the files. Try again.[0m
+====================================
+-- the log's lines for this run (masked):
+[2026-10-30 05:27:09] [INFO] [cloud_restore] Starting restore from qa-cloud:/pixelelated/Saves to 
+[2026-10-30 05:27:09] [INFO] [cloud_restore] Creating local restore path: 
+[2026-10-30 05:27:09] [INFO] [cloud_restore] the remote compares by size alone (#315): the cloud's upload time is compared with this device's copy (--update)
+[2026-10-30 05:27:10] [INFO] [cloud_restore] About to execute: rclone copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt --log-level INFO --stats 1s --exclude=bios/** --exclude=storage/roms/backup/** --backup-dir=/storage/.cache/cloud_sync/replaced/2026_10_30-052709 --update qa-cloud:/pixelelated/Saves/ /
+2026/10/30 05:27:10 ERROR : Fatal error received - not attempting retries
+Errors:                 1 (fatal error encountered)
+2026/10/30 05:27:10 NOTICE: Failed to copy: destination and parameter to --backup-dir mustn't overlap
+[2026-10-30 05:27:10] [ERROR] [cloud_restore] Restoring your saves: rclone exit 7
+[2026-10-30 05:27:10] [ERROR] [cloud_restore] Restoring your saves: your cloud wouldn't take the files.
+[2026-10-30 05:27:10] [INFO] [cloud_restore] why: YOUR CLOUD WOULDN'T TAKE THE FILES
+[2026-10-30 05:27:10] [ERROR] [cloud_restore] Couldn't finish: your cloud wouldn't take the files. Try again.
+-- stamp last-restore: 1793338030 7 YOUR_CLOUD_WOULDN'T_TAKE_THE_FILES
+-- stamp last-backup: none
+-- the seeded saves by name, anywhere but /proc: 
+-- files newer than the marker, the whole tree but /proc, /dev and the marker:
+/storage/.cache/cloud_sync/last-restore
+/storage/.cache/cloud_sync/restore-tree-clean
+/storage/.config/cloud_sync-rules.txt
+/storage/.config/cloud_sync-rules.txt.bak
+/storage/.config/cloud_sync.conf
+/t16-probe
+/tmp/b.out
+/var/log/cloud_sync.log
+/var/run/cloud_sync.lock
+-- directories at / now: bin dev donor drv etc host lib lib64 proc run sbin storage t16-probe tmp usr var 
+sandbox rc=0
+
+=== arm bk (2026-10-30T05:27:11Z); cell /workspace/tmp/m6-t16/hl/cells/b-bk.052711
+conf: 24:SAVESPATH=""
+/ is read-only
+cloud_backup rc=1
+-- its output, protocol and prose lines (rclone's redraws dropped; masked):
+=>  CLOUD BACKUP
+====================================
+BACKING UP YOUR GAME SAVES
+>>> unit SAVES||
+====================================
+[31mYour saves folder isn't on this device.[0m
+>>> why YOUR SAVES FOLDER ISN'T ON THIS DEVICE
+Skipped settings this time - saves only.
+====================================
+BACKUP SUMMARY:
+Game saves: COULDN'T FINISH
+Settings backup: SKIPPED - SAVES ONLY
+[31mCouldn't finish: your saves folder isn't on this device. Try again.[0m
+====================================
+-- the log's lines for this run (masked):
+[2026-10-30 05:27:12] [INFO] [cloud_backup] Starting backup from  to qa-cloud:/pixelelated/Saves
+[2026-10-30 05:27:12] [ERROR] [cloud_backup] the saves folder  is not on this device
+[2026-10-30 05:27:12] [ERROR] [cloud_backup] Your saves folder isn't on this device.
+[2026-10-30 05:27:12] [INFO] [cloud_backup] why: YOUR SAVES FOLDER ISN'T ON THIS DEVICE
+[2026-10-30 05:27:12] [ERROR] [cloud_backup] Couldn't finish: your saves folder isn't on this device. Try again.
+-- stamp last-restore: none
+-- stamp last-backup: 1793338032 1 YOUR_SAVES_FOLDER_ISN'T_ON_THIS_DEVICE
+-- the seeded saves by name, anywhere but /proc: /storage/roms/gba/bk.srm 
+-- files newer than the marker, the whole tree but /proc, /dev and the marker:
+/storage/.cache/cloud_sync/last-backup
+/storage/.config/cloud_sync-rules.txt
+/storage/.config/cloud_sync-rules.txt.bak
+/storage/.config/cloud_sync.conf
+/tmp/b.out
+/var/log/cloud_sync.log
+/var/run/cloud_sync.lock
+-- directories at / now: bin dev donor drv etc host lib lib64 proc run sbin storage tmp usr var 
+sandbox rc=0
+== end 2026-10-30T05:27:13Z
