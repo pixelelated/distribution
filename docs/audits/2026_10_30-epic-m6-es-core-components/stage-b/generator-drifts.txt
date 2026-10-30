@@ -27,3 +27,17 @@ ASSERT: ::input(: 13, expected 14
 rc=1
 $ python3 -B -I tools/t34-input.py <W> (the 80)
 rc=0
+
+## t34-constants.py
+$ python3 -B -I tools/t34-constants.py <W> <stage-a/paths.txt less MenuComponent.cpp> (79 paths)
+ASSERT: BUTTON_GRID_HORIZ_PADDING defined at [], expected once in MenuComponent.cpp
+rc=1
+$ python3 -B -I tools/t34-constants.py <W> (the 80)
+rc=0
+
+## t34-layouts.py
+$ python3 -B -I tools/t34-layouts.py <W> <stage-a/paths.txt less TextComponent.cpp> (79 paths)
+ASSERT: font-height reads: 14, expected 19
+rc=1
+$ python3 -B -I tools/t34-layouts.py <W> (the 80)
+rc=0
