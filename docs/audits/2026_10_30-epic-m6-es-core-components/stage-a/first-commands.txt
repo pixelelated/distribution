@@ -1,0 +1,65 @@
+# T34 stage A, the brief's § 1 first commands, 2026-10-30T09:53:15Z, each with rc and wall time
+$ git status --short | wc -l
+1
+rc=0 238 ms
+
+$ git log --oneline -3; git merge-base --is-ancestor 8ebaf8daad HEAD && echo stacked
+dff4fbd61d docs: T34 pointer seeded for the T3 session (#681)
+00d490e654 Merge the coordinator's branch at 200a9a032d into feature/m6-es-core-components-681 for T34's dispatch (#681)
+200a9a032d docs: D-WORKFLOW-213, T34's ownership (the 80 paths and nothing else; the neighbours' owners); the brief's errata before dispatch (#681)
+stacked
+rc=0 6 ms
+
+$ git merge-base --is-ancestor 2174265e9c HEAD && echo stacked-on-P1; git merge-base --is-ancestor 200a9a032d HEAD && echo coordinator-tip-merged
+stacked-on-P1
+coordinator-tip-merged
+rc=0 4 ms
+
+$ git diff --stat 8ebaf8daad HEAD -- packages projects | tail -1
+rc=0 3 ms
+
+$ git rev-parse --verify 651150fc88^{commit} >/dev/null && echo upstream-next-is-here
+upstream-next-is-here
+rc=0 3 ms
+
+$ test -f docs/reviews/inventory.json && echo inventory
+inventory
+rc=0 1 ms
+
+$ git -C "$W" rev-parse HEAD; git -C "$W" status --short | wc -l; git -C "$W" rev-parse --abbrev-ref HEAD
+16dbac5211eea7e70db7394372033be2be7df829
+0
+feature/m6-es-core-components-681
+rc=0 7 ms
+
+$ git -C "$W" merge-base "$PIN" rocknix/master | cut -c1-10
+cada856d86
+rc=0 13 ms
+
+$ git -C "$W" rev-parse --verify rocknix/master | cut -c1-10
+f6c542872e
+rc=0 3 ms
+
+$ git -C "$W" rev-parse --verify batocera/master | cut -c1-10
+b2ceb55a7e
+rc=0 3 ms
+
+$ git -C "$W" merge-base "$PIN" batocera/master | cut -c1-10
+1750dded8c
+rc=0 15 ms
+
+$ for b in m6-es-launch-path-649 m6-es-cloud-pages-665 m6-es-achievements-pages-667 m6-es-state-and-bridge-668 m6-es-guimenu-673 m6-es-pages-678 m6-es-app-views-scrapers-679 m6-es-app-system-680; do printf "%s " "$b"; git -C "$W" rev-parse --verify "origin/feature/$b" 2>&1 | cut -c1-12; done
+m6-es-launch-path-649 55158d2a64c6
+m6-es-cloud-pages-665 d55235d4b36a
+m6-es-achievements-pages-667 5c0ddaaeef19
+m6-es-state-and-bridge-668 3ae9610b0f3f
+m6-es-guimenu-673 757f5370ea17
+m6-es-pages-678 95852f8736cb
+m6-es-app-views-scrapers-679 b52245036f78
+m6-es-app-system-680 f802c55c62c1
+rc=0 12 ms
+
+$ tools/register-check >/dev/null && echo register-ok
+register-ok
+rc=0 1510 ms
+

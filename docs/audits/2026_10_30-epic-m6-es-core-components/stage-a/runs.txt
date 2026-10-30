@@ -1,0 +1,285 @@
+# T34 stage A, the brief's § 5 runs block, 2026-10-30T09:54:20Z; each line: its text, its output, the wrapper's rc (the line's last command) and wall time
+$ (line 1)
+export LC_ALL=C; W=/home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681; PIN=16dbac5211eea7e70db7394372033be2be7df829; G=/usr/bin/grep; C=8ebaf8daad; MB=cada856d86
+[line 1] rc=0 2 ms
+$ (line 2)
+D=$(pwd); export TMPDIR=/workspace/tmp/m6-t34/tmp; mkdir -p "$TMPDIR"; df -i /workspace | tail -n 1
+/dev/nvme1n1   244195328 61616697 182578631   26% /workspace
+[line 2] rc=0 5 ms
+$ (line 3)
+FILES=$(cat .qa-scratch/t34/paths.txt)
+[line 3] rc=0 3 ms
+
+# the scope (expect 80; cpp 38; h 42; other 0)
+$ (line 5)
+printf '%s\n' $FILES | $G -c .; printf '%s\n' $FILES | $G -c '\.cpp$'; printf '%s\n' $FILES | $G -c '\.h$'; printf '%s\n' $FILES | $G -c -v -E '\.(cpp|h)$'
+80
+38
+42
+0
+[line 5] rc=1 4 ms
+
+# the ES worktree at the pin, clean; the bases; the counts (expect the pin; 0; cada856d86; f6c542872e; b2ceb55a7e; 1750dded8c; 725; 14; 1; 15)
+$ (line 7)
+git -C "$W" rev-parse HEAD | cut -c1-10; git -C "$W" status --short | wc -l; git -C "$W" merge-base "$PIN" rocknix/master | cut -c1-10; git -C "$W" rev-parse rocknix/master | cut -c1-10; git -C "$W" rev-parse batocera/master | cut -c1-10; g
+16dbac5211
+0
+cada856d86
+f6c542872e
+b2ceb55a7e
+1750dded8c
+725
+14
+1
+15
+[line 7] rc=0 59 ms
+
+# the lines two ways (expect wc -l 21971; grep -c 21984; no trailing newline: 13, the files § 2 names)
+$ (line 9)
+for p in $FILES; do git -C "$W" show "$PIN:$p" | wc -l; done | awk '{s+=$1} END {print "wc -l", s}'; for p in $FILES; do git -C "$W" show "$PIN:$p" | $G -c ''; done | awk '{s+=$1} END {print "grep -c", s}'; n=0; for p in $FILES; do a=$(git 
+wc -l 21971
+grep -c 21984
+no newline: es-core/src/components/AsyncNotificationComponent.h 77/78
+no newline: es-core/src/components/ComponentTab.cpp 436/437
+no newline: es-core/src/components/GridTileComponent.cpp 1595/1596
+no newline: es-core/src/components/HelpComponent.cpp 330/331
+no newline: es-core/src/components/ImageComponent.cpp 1399/1400
+no newline: es-core/src/components/NinePatchComponent.cpp 494/495
+no newline: es-core/src/components/RatingComponent.cpp 294/295
+no newline: es-core/src/components/ScrollbarComponent.cpp 214/215
+no newline: es-core/src/components/StackPanelComponent.cpp 225/226
+no newline: es-core/src/components/TextComponent.cpp 856/857
+no newline: es-core/src/components/VolumeInfoComponent.h 29/30
+no newline: es-core/src/components/WebImageComponent.cpp 264/265
+no newline: es-core/src/components/WebImageComponent.h 39/40
+no trailing newline: 13
+[line 9] rc=0 460 ms
+
+# the fork's delta (expect `21 files changed, 591 insertions(+), 114 deletions(-)` three times; A 0; M 21; the 21 numstat rows of § 2; 33 commits, 33 non-merge, no merges)
+$ (line 11)
+git -C "$W" diff --shortstat bccd715707 "$PIN" -- $FILES; git -C "$W" diff --shortstat "$MB" "$PIN" -- $FILES; git -C "$W" diff --shortstat rocknix/master "$PIN" -- $FILES; git -C "$W" diff --diff-filter=A --name-only bccd715707 "$PIN" -- $
+ 21 files changed, 591 insertions(+), 114 deletions(-)
+ 21 files changed, 591 insertions(+), 114 deletions(-)
+ 21 files changed, 591 insertions(+), 114 deletions(-)
+0
+added rc=1
+128	17	es-core/src/components/AsyncNotificationComponent.cpp
+23	2	es-core/src/components/AsyncNotificationComponent.h
+38	2	es-core/src/components/ComponentGrid.cpp
+3	0	es-core/src/components/ComponentGrid.h
+5	0	es-core/src/components/ComponentList.cpp
+14	0	es-core/src/components/ComponentList.h
+3	2	es-core/src/components/ComponentTab.cpp
+22	0	es-core/src/components/GridTileComponent.cpp
+16	0	es-core/src/components/GridTileComponent.h
+25	7	es-core/src/components/HelpComponent.cpp
+58	4	es-core/src/components/ImageComponent.cpp
+16	0	es-core/src/components/ImageComponent.h
+19	0	es-core/src/components/ImageGridComponent.h
+86	49	es-core/src/components/MenuComponent.cpp
+9	0	es-core/src/components/MenuComponent.h
+58	26	es-core/src/components/MultiLineMenuEntry.cpp
+19	0	es-core/src/components/MultiLineMenuEntry.h
+13	3	es-core/src/components/SwitchComponent.cpp
+9	1	es-core/src/components/SwitchComponent.h
+2	0	es-core/src/components/TextComponent.h
+25	1	es-core/src/components/WebImageComponent.cpp
+33
+33
+0
+merges rc=1
+[line 11] rc=0 94 ms
+
+# upstream's delta: the merge-debt record (expect 0 rc=1; 0 rc=1; identical to rocknix/master: 59; identical to cada856d86: 59; MB-vs-master identical: 80; batocera commits on the 80: 8; batocera files: 10; both-changed: 7)
+$ (line 13)
+git -C "$W" log --format=%h "$MB"..rocknix/master -- $FILES | $G -c .; rc=$?; echo "upstream commits rc=$rc"; git -C "$W" diff --numstat "$MB" rocknix/master -- $FILES | $G -c .; rc=$?; echo "upstream numstat rc=$rc"; n=0; for p in $FILES; 
+0
+upstream commits rc=1
+0
+upstream numstat rc=1
+identical to rocknix/master: 59
+identical to cada856d86: 59
+MB-vs-master identical: 80
+8
+10
+7
+[line 13] rc=0 290 ms
+
+# the other lanes' deltas inside the 80 (expect every stat line empty for the eight -- T33's `dd86d7ce20a5`, read 2026-10-30 -- or the rows named as a collision)
+$ (line 15)
+for b in m6-es-launch-path-649 m6-es-cloud-pages-665 m6-es-achievements-pages-667 m6-es-state-and-bridge-668 m6-es-guimenu-673 m6-es-pages-678 m6-es-app-views-scrapers-679 m6-es-app-system-680; do echo "== $b"; git -C "$W" diff --stat "$PIN
+== m6-es-launch-path-649
+== m6-es-cloud-pages-665
+== m6-es-achievements-pages-667
+== m6-es-state-and-bridge-668
+== m6-es-guimenu-673
+== m6-es-pages-678
+== m6-es-app-views-scrapers-679
+== m6-es-app-system-680
+[line 15] rc=0 23 ms
+
+# the strings, two ways (expect `_(" lines TOTAL 22 in 12 files`; occurrences 27; per file BusyComponent 1, CarouselComponent 2, ComponentGrid 3, ComponentList 2, ComponentTab 1, DateTimeComponent 1, ImageComponent 1, OptionListComponent.h 6, SliderComponent 1, SwitchComponent 1, TextEditComponent 2, VideoComponent 1)
+$ (line 17)
+git -C "$W" grep -c -F '_("' "$PIN" -- $FILES | sed "s/^$PIN://" | awk -F: '{s+=$NF} END {print "_(\" lines TOTAL", s, "in", NR, "files"}'; git -C "$W" grep -o -F '_("' "$PIN" -- $FILES | wc -l; git -C "$W" grep -c -F '_("' "$PIN" -- $FILES
+_(" lines TOTAL 22 in 12 files
+27
+BusyComponent.cpp:1 CarouselComponent.cpp:2 ComponentGrid.cpp:3 ComponentList.cpp:2 ComponentTab.cpp:1 DateTimeComponent.cpp:1 ImageComponent.cpp:1 OptionListComponent.h:6 SliderComponent.cpp:1 SwitchComponent.cpp:1 TextEditComponent.cpp:2 VideoComponent.cpp:1 
+[line 17] rc=0 14 ms
+
+# the threads and the lifetimes (expect `std::thread` 1 at VideoVlcComponent.cpp:91; `.detach(` 1 at :95; `delete this` 4 at OptionListComponent.h:96 :145 :158 :195; `postToUiThread` 2 at TextEditComponent.cpp:39 :47)
+$ (line 19)
+git -C "$W" grep -n -F 'std::thread' "$PIN" -- $FILES | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo; git -C "$W" grep -n -F '.detach(' "$PIN" -- $FILES | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo; git -C "$W" grep -n -F 
+es-core/src/components/VideoVlcComponent.cpp:91 
+es-core/src/components/VideoVlcComponent.cpp:95 
+es-core/src/components/OptionListComponent.h:96 es-core/src/components/OptionListComponent.h:145 es-core/src/components/OptionListComponent.h:158 es-core/src/components/OptionListComponent.h:195 
+es-core/src/components/TextEditComponent.cpp:39 es-core/src/components/TextEditComponent.cpp:47 
+[line 19] rc=0 17 ms
+
+# the reads and the network (expect `exists( lines TOTAL 10 in 5 files`; occurrences 10; uncached: 0 rc=1; HttpReq lines `WebImageComponent.cpp:5 WebImageComponent.h:2`)
+$ (line 21)
+git -C "$W" grep -c -F 'exists(' "$PIN" -- $FILES | sed "s/^$PIN://" | awk -F: '{s+=$NF} END {print "exists( lines TOTAL", s, "in", NR, "files"}'; git -C "$W" grep -o -F 'exists(' "$PIN" -- $FILES | wc -l; git -C "$W" grep -n -E 'exists\([^
+exists( lines TOTAL 10 in 5 files
+10
+0
+uncached rc=1
+WebImageComponent.cpp:5 WebImageComponent.h:2 
+[line 21] rc=0 15 ms
+
+# the input and the help bar (expect getHelpPrompts definitions in .cpp: 12; inline in OptionListComponent.h: 2 at :202 :636; `input(` definitions 14; `canMoveCursor` callers outside ComponentGrid.cpp: 0 rc=1)
+$ (line 23)
+git -C "$W" grep -n -E '::getHelpPrompts\(\)' "$PIN" -- $FILES | $G -c .; git -C "$W" grep -n -E 'getHelpPrompts\(\) *(override)? *$|getHelpPrompts\(\)\s*(override)?\s*\{' "$PIN" -- es-core/src/components/OptionListComponent.h | sed "s/^$PI
+12
+202 636 
+14
+0
+canMoveCursor outside rc=1
+[line 23] rc=0 22 ms
+
+# the constants (expect nine lines: MenuComponent.cpp:6 :14; AsyncNotificationComponent.cpp:31; ComponentList.cpp:11; ComponentList.h:25; HelpComponent.cpp:13 :16 and :130 (`const float entryWidth`, a use); GuiTextEditPopupKeyboard.cpp:14 the second copy at 0.0052083333 -- the uses at AsyncNotificationComponent.cpp:64 :112 :276 and ComponentList.h:26 are dropped by the `#define|const ` filter)
+$ (line 25)
+git -C "$W" grep -n -E 'BUTTON_GRID_(HORIZ|VERT)_PADDING|NOTIFICATION_OPACITY|DIMMED_ALPHA|TOTAL_HORIZONTAL_PADDING_PX|ICON_TEXT_SPACING|ENTRY_SPACING' "$PIN" -- $FILES es-core/src/guis/GuiTextEditPopupKeyboard.cpp | sed "s/^$PIN://" | $G -
+es-core/src/components/AsyncNotificationComponent.cpp:31:#define NOTIFICATION_OPACITY  255
+es-core/src/components/ComponentList.cpp:11:#define TOTAL_HORIZONTAL_PADDING_PX 20
+es-core/src/components/ComponentList.h:25:	const unsigned char DIMMED_ALPHA = 0x50;
+es-core/src/components/HelpComponent.cpp:13:#define ICON_TEXT_SPACING Renderer::getScreenWidth() * 0.0042f
+es-core/src/components/HelpComponent.cpp:16:#define ENTRY_SPACING (ICON_TEXT_SPACING * 2.0f)
+es-core/src/components/HelpComponent.cpp:130:		const float entryWidth = icon->getSize().x() + lbl->getSize().x() + ICON_TEXT_SPACING + ENTRY_SPACING;
+es-core/src/components/MenuComponent.cpp:6:#define BUTTON_GRID_VERT_PADDING  (Renderer::getScreenHeight()*0.0296296)
+es-core/src/components/MenuComponent.cpp:14:#define BUTTON_GRID_HORIZ_PADDING (Renderer::getScreenWidth()*0.022)
+es-core/src/guis/GuiTextEditPopupKeyboard.cpp:14:#define BUTTON_GRID_HORIZ_PADDING (Renderer::getScreenWidth()*0.0052083333)
+[line 25] rc=0 7 ms
+
+# the pixel constants (expect 2 lines, both comments, MenuComponent.cpp:11 and :13; screen-relative lines 86; fontScale 0 rc=1)
+$ (line 27)
+git -C "$W" grep -n -E '[0-9]+px|\b(640|480|1280|800|1920|1080)\b' "$PIN" -- $FILES | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo; git -C "$W" grep -c -E 'getScreen(Width|Height|Proportion)' "$PIN" -- $FILES | sed "s/^$PIN://" | aw
+es-core/src/components/MenuComponent.cpp:11 es-core/src/components/MenuComponent.cpp:13 
+screen-relative 86
+0
+fontScale rc=1
+[line 27] rc=0 16 ms
+
+# the includes (expect quoted include lines 352; angle 37; es-app 1 at AsyncNotificationComponent.cpp:12; outside includers 274 lines in 112 files; CMake: 42 headers named at :49-90, 38 sources at :186-223, named-0-times 0, `if(` at 278 287)
+$ (line 29)
+git -C "$W" grep -h -E '^\s*#\s*include\s*"' "$PIN" -- $FILES | $G -c .; git -C "$W" grep -h -E '^\s*#\s*include\s*<' "$PIN" -- $FILES | $G -c .; git -C "$W" grep -n -E '^\s*#\s*include\s*"\.\./' "$PIN" -- $FILES | sed "s/^$PIN://"; B=$(pri
+352
+37
+es-core/src/components/AsyncNotificationComponent.cpp:12:#include "../../es-app/src/CloudText.h"
+274
+112
+named-0-times (or more than once): 0
+278 287 
+[line 29] rc=0 338 ms
+
+# the in-source gates (expect the twelve lines § 4 Q7 names)
+$ (line 31)
+git -C "$W" grep -n -E '^\s*#\s*(if|ifdef|ifndef|elif)\b.*(_RPI_|WIN32|USE_OPENGLES_30|LIBVLC_VERSION_MAJOR|BATOCERA)' "$PIN" -- $FILES | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo
+es-core/src/components/GridTileComponent.cpp:11 es-core/src/components/NinePatchComponent.cpp:415 es-core/src/components/VideoComponent.cpp:22 es-core/src/components/VideoPlayerComponent.cpp:1 es-core/src/components/VideoPlayerComponent.h:1 es-core/src/components/VideoVlcComponent.cpp:17 es-core/src/components/VideoVlcComponent.cpp:485 es-core/src/components/VideoVlcComponent.cpp:592 es-core/src/components/VideoVlcComponent.cpp:668 es-core/src/components/VideoVlcComponent.cpp:779 es-core/src/components/VideoVlcComponent.cpp:836 es-core/src/components/VideoVlcComponent.cpp:874 es-core/src/components/VideoVlcComponent.cpp:875 
+[line 31] rc=0 8 ms
+
+# the non-ASCII byte (expect `git grep -P` 1 rc=0 under the block's LC_ALL=C; in a UTF-8 locale (`LC_ALL=C.UTF-8`) it prints nothing, rc=1 -- the UTF-mode miss; the C-locale loop `VideoVlcComponent.cpp:1`, `files with a non-ascii byte: 1`, and the comment-line form the same 1; the 21 fork-modified files 0)
+$ (line 33)
+git -C "$W" grep -n -P '[^\x00-\x7F]' "$PIN" -- $FILES | $G -c .; rc=$?; echo "git grep -P rc=$rc"; n=0; for f in $FILES; do c=$(git -C "$W" show "$PIN:$f" | LC_ALL=C $G -c -P '[^\x00-\x7F]'); [ "$c" != 0 ] && { echo "${f#es-core/src/compon
+1
+git grep -P rc=0
+VideoVlcComponent.cpp:1
+files with a non-ascii byte: 1
+1
+0000000  \t   /   /       u   s   e       :       v   l   c     226   l
+0000020   o   n   g   -   h   e   l   p  \n  \t   /   /       W   I   N
+0000040   3   2       ?       l   i   b   v   l   c   _   m   e   d   i
+0000060   a   _   a   d   d   _   o   p   t   i   o   n   (   m   M   e
+[line 33] rc=0 139 ms
+
+# the French (expect `4929:msgid "SWITCH TAB"` with `msgstr "CHANGER D’ONGLET"` after it; `3708:msgid "up/down"` with `msgstr "haut/bas"`; `^msgid ` lines 2207; the slider's "Auto" at SliderComponent.cpp:282 outside _(); es-untranslated the two tree-wide lines T33 printed, rc 0 each)
+$ (line 35)
+git -C "$W" grep -n -E '^msgid "(SWITCH TAB|up/down|CHOOSE|CHANGE|SELECT|WORKING\.\.\.)"$' "$PIN" -- locale/lang/fr/LC_MESSAGES/emulationstation2.po | sed "s/^$PIN://" | cut -d: -f2,3 | tr '\n' ' '; echo; git -C "$W" show "$PIN:locale/lang/
+167:msgid "SELECT" 212:msgid "CHOOSE" 3708:msgid "up/down" 3711:msgid "WORKING..." 3735:msgid "CHANGE" 3809:msgid "SELECT" 4929:msgid "SWITCH TAB" 
+msgid "up/down"
+msgstr "haut/bas"
+msgid "SWITCH TAB"
+msgstr "CHANGER D’ONGLET"
+locale/lang/fr/LC_MESSAGES/emulationstation2.po:2207
+es-core/src/components/SliderComponent.cpp:282:			ss << "Auto";  // Display "AUTO"
+[line 35] rc=0 18 ms
+$ (line 36)
+out=$(tools/es-untranslated --es-src "$W" --upstream bccd715707 2>&1); rc=$?; printf '%s\n' "$out" | $G -m1 'fork string'; echo "es-untranslated rc=$rc"
+es-untranslated: 706 fork string(s) in the source, 706 with French, 0 without
+es-untranslated rc=0
+[line 36] rc=0 299 ms
+$ (line 37)
+out=$(tools/es-untranslated --es-src "$W" --upstream "$MB" 2>&1); rc=$?; printf '%s\n' "$out" | $G -m1 'fork string'; echo "es-untranslated(cada) rc=$rc"
+es-untranslated: 703 fork string(s) in the source, 703 with French, 0 without
+es-untranslated(cada) rc=0
+[line 37] rc=0 290 ms
+
+# the FAIL-at-pin lines (expect MultiLineMenuEntry `74 75` for the two setRowHeightPerc; TextComponent `486` for the doubled .y(); ComponentList `568` for the _("up/down"); HelpComponent setOpacity and mGrid `208 210 212 213 251`; Carousel moveCursorFast `74`; WebImage `81 190 197` -- `:134` tests a local `localFile`, not `mLocalFile`)
+$ (line 39)
+git -C "$W" grep -n -F 'setRowHeightPerc' "$PIN" -- es-core/src/components/MultiLineMenuEntry.cpp | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo; git -C "$W" grep -n -F 'mPadding.y() - mPadding.y()' "$PIN" -- es-core/src/components/Te
+74 75 
+486
+568
+208 210 212 213 251 
+74
+81 190 197 
+[line 39] rc=0 25 ms
+
+# the setOpacity callers (expect: no `mHelp->setOpacity` in Window.cpp -- its mHelp-> lines 745 1001 1009 1011 1012 1077 1397 1398; the tree-wide `setOpacity` lines 107 in es-core/src and es-app/src, the caller list the lane's, § 4 Q7)
+$ (line 41)
+git -C "$W" grep -n -F 'mHelp->' "$PIN" -- es-core/src/Window.cpp | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo; git -C "$W" grep -n -F 'setOpacity' "$PIN" -- es-core/src es-app/src | sed "s/^$PIN://" | $G -c .
+745 1001 1009 1011 1012 1077 1397 1398 
+107
+[line 41] rc=0 14 ms
+
+# the menu map (expect `55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing` rc 0 -- T33's proof's line at the same pin on the map at ce8608e38f, 989 lines; the map unchanged since)
+$ (line 43)
+out=$(tools/es-menu-map-check --es-src "$W" --ref "$PIN" 2>&1); rc=$?; printf '%s\n' "$out" | tail -n 1; echo "es-menu-map-check rc=$rc"; wc -l docs/es-menu-map.md
+55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing
+es-menu-map-check rc=0
+989 docs/es-menu-map.md
+[line 43] rc=0 128 ms
+
+# the compile (expect `es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)` rc 2; plain g++ on MenuComponent.cpp: rc 1 and `es-core/src/InputConfig.h:6:10: fatal error: SDL_joystick.h: No such file or directory`; with the fakes and the pugixml root the stand-in check over the 37, rc per file)
+$ (line 45)
+F=es-core/src/components/MenuComponent.cpp; out=$(ES_BUILD_ROOT=/nonexistent tools/es-syntax-check --tree "$W" "$F" 2>&1); rc=$?; printf '%s\n' "$out" | tail -n 1; echo "es-syntax-check rc=$rc"
+es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)
+es-syntax-check rc=2
+[line 45] rc=0 4 ms
+$ (line 46)
+out=$(g++ -std=c++17 -fsyntax-only -DHAVE_INTL -I "$W/es-app/src" -I "$W/es-core/src" -I "$W/external" "$W/$F" 2>&1); rc=$?; printf '%s\n' "$out" | $G -m1 -E 'fatal error|error:'; echo "plain g++ rc=$rc"
+/home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src/InputConfig.h:6:10: fatal error: SDL_joystick.h: No such file or directory
+plain g++ rc=1
+[line 46] rc=0 52 ms
+$ (line 47)
+PUGI=/workspace/cache/rocknix-sources/emulationstation/emulationstation-$PIN/external; test -d "$PUGI/pugixml/src" && echo "pugixml root present"
+pugixml root present
+[line 47] rc=0 2 ms
+
+# STAGE C -- the lane's scripts, which do not exist at stage A (expect the include script's last lines: 352 quoted, 37 angle, es-app 1, 274 outside lines in 112 files; and the build script's own `TOTAL: N test cases in B binaries` with 0 failed, `components-tests` among the binaries, and before any fix the seven FAIL-at-pin cases reported FAIL by name)
+NOT RUN (stage C; the script does not exist at stage A): python3 -I docs/audits/*-epic-m6-es-core-components/tools/t34-includes.py "$W" "$PIN" .qa-scratch/t34/paths.txt | tail -n 4
+NOT RUN (stage C; the script does not exist at stage A): bash docs/audits/*-epic-m6-es-core-components/tools/t34-build-tests.sh "$W" 2>&1 | tail -n 10
+
+# STAGE A, after the pointer is read -- the removal check: TIPHASH is the lane's own tip the pointer and the dispatch comment name (MERGE_HASH at stage A); the literal word fails with `fatal: bad revision 'TIPHASH'` (expect empty) and the ES diff against the pin (expect empty before stage E)
+$ (line 52, TIPHASH = MERGE_HASH 00d490e654 at stage A)
+[line 52] rc=0 4 ms
+$ (line 52, TIPHASH = the lane tip dff4fbd61d)
+[line 52] rc=0 4 ms
