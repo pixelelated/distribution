@@ -1,0 +1,23 @@
+# S5 after (#680; #1273, #1290) -- 2026-10-30T09:51:09Z, ES d370ac62e
+
+$ python3 -I stage-c/l07-search-builder.py <W>/components/ScraperSearchComponent.cpp drop
+drop: a search started on the builder's thread; the page stops it at once (searchHandle.reset(), :358-361)
+drop: the search's 200 ms are over: nothing wrote into the freed builder
+rc=0
+
+$ python3 -I stage-c/l07-search-builder.py <W>/components/ScraperSearchComponent.cpp engine
+engine: the engine deleted while its search ran; the search read nothing freed
+rc=0
+
+$ python3 -I stage-c/l07-search-builder.py <W>/components/ScraperSearchComponent.cpp l08
+l08: the second search (:656-658) ran on another thread
+rc=0
+
+$ ... --control drop   (D-WORKFLOW-211: guarded CANNOT once its rewrite targets are gone)
+CANNOT: --control rewrites the pin's lines, which this file no longer has (S5: the default run is the positive)
+rc=2
+
+$ python3 -I stage-c/s5-bluetooth.py <W>/es-app/src
+bluetooth: two start()s a scan apart: 2 scan(s) ran, 0 refused as already running; running now: no
+formatter: two start()s a format apart: 2 format(s) ran, 0 refused; running now: no
+rc=0

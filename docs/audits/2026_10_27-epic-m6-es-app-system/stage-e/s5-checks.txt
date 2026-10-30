@@ -1,0 +1,29 @@
+# T33 S5 checks at ES d370ac62e, 09:51:13Z
+
+es-app/src/components/ScraperSearchComponent.cpp: rc 0
+es-app/src/ThreadedBluetooth.cpp: rc 0
+es-app/src/guis/GuiControllersSettings.cpp: rc 0
+rc=0
+(GuiControllersSettings.cpp is T31's, read, not changed: it calls ThreadedBluetooth::isRunning(), now defined out of line.)
+
+## generators (D-WORKFLOW-210): S5 moves none
+$ t33-reads.py <W> d370ac62e <paths> uncached=18
+generated, asserted: 83 lines, 86 calls, 18 uncached, in 11 files
+rc=0
+$ t33-writes.py <W> d370ac62e <paths> lines=2
+generated, asserted: 2 lines (0 live, 2 dead) in 2 files
+rc=0
+$ t33-words.py <W> d370ac62e <paths> msgids=199
+generated, asserted: 179 lines, 226 calls, 199 distinct msgids in 12 files; 0 with an empty French msgstr, 0 with no msgid
+rc=0
+
+## the ES .githooks/pre-push-test at d370ac62e: PASS, then pushed: origin/feature/m6-es-app-system-680 = d370ac62ec135c9e8cea3c32d80bbffef0fe0e2f
+## non-ASCII in the added lines: 0
+## the builder's params, beyond the brief: ScraperSearch declares params after searchHandle (components/ScraperSearchComponent.h), so deleting an engine destroys its params before the builder, and a builder that joins in its destructor would wait while search() reads destroyed params. The engine case shows it: stage C's proposal (--control: join, atomic flag) FAILs it at the pin with a heap-use-after-free in Scraper::search, and the fix, which copies the params into the builder, passes. The product's builder is made with an empty name, which a destroyed std::string keeps inside the object, so the read is undefined but out of ASan's sight; the case holds the name on the heap to make it visible.
+## the join's bound (ruling 6): search()'s ROM hash plus the token request's 10 s connect bound, with no stall bound at the pin or on this branch. A back press during a single game's search (stop()) and closing the page (~ScraperSearchComponent) freeze the interface for that long at most; T32's S2 stall bound on ensureToken (T32's ES tip b52245036) shortens it at the integration (es-code-traps.md section "A pooled connection with the link gone").
+## L-08: both synchronous searches (the pin's :652 and :658) now go through a new builder; update() reads it as it reads the first. The :652 path is reached only by a builder whose handle was already taken, which update()'s status makes unreachable (ASYNC_DONE is set only with a handle); changed with :658 for one shape.
+## Bluetooth (EP-47): start() runs on the interface thread alone and a worker only clears, so the check (isRunning, under the lock) and the publish are two steps with nothing between them that can set mInstance; the publish and the thread's start are one step under the lock, so a worker cannot clear before the publish. Upstream's habits kept (D-UI-079, L-10): the self-delete, the std::thread handle never deleted (the fixture runs with leak checking off for it), and the card closed from the worker. The formatter follows the same rule.
+## guest half: a back press during one game's search cannot be timed on the guest, and the guest has no Bluetooth adapter; the fixtures are the proof (the bugs' VM lines).
+## Already written: PL-03 nothing inherited (no file is written by the window); EP-47 nothing inherited (the object lives in memory only).
+## #585: two lines at the hand-back (batocera, then ROCKNIX): the builder's ownership and second search, and the scan's publish.
+## time to play: not on the launch path (the scraper page and the controller settings).

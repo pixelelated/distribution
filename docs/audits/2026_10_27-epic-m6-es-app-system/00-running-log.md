@@ -171,3 +171,7 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
   - **The lock's why** (`ANOTHER CLOUD SYNC IS RUNNING`) is missing from CloudText's table, so `outcomeFor` gives it French itself; the table row is named for the cloud slice.
   - **The l321 fakes** are completed with `AtomicFileUtil.h` (D-WORKFLOW-211).
   - **T20's collision** is named: no shared line.
+- **S5, 09:51 UTC (ES `d370ac62e`; #1273, #1290)**
+  - **`l07` extended:** `engine` deletes the engine while its search runs, and `l08` records which thread the second search runs on. At the pin, `drop` and `engine` FAIL with heap-use-after-free and `l08` FAILs on the calling thread. Stage C's control passes `drop` and FAILs `engine`, reading destroyed params, so the builder now copies its params.
+  - **The new `stage-c/s5-bluetooth.py`** FAILs at the pin with heap-use-after-free in the constructor.
+  - **After:** `drop`, `engine` and `l08` all PASS. The Bluetooth fixture runs 2 scans and 2 formats with 0 refused. `l07`'s control is guarded `CANNOT`; stand-in rc 0; generators unchanged.

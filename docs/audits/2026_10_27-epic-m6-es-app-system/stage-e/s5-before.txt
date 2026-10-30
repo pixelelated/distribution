@@ -1,0 +1,26 @@
+# S5 before (#680; #1273, #1290) -- 2026-10-30T09:49:16Z: the pin's ScraperSearchComponent.cpp and ThreadedBluetooth.{cpp,h} (unchanged on the branch since the pin)
+
+$ python3 -I stage-c/l07-search-builder.py <W>/components/ScraperSearchComponent.cpp drop
+drop: a search started on the builder's thread; the page stops it at once (searchHandle.reset(), :358-361)
+SUMMARY: AddressSanitizer: heap-use-after-free (/usr/lib/x86_64-linux-gnu/libstdc++.so.6+0xf5ef8) (BuildId: 3a7a8c6bd922e6314edb7a710fdc0293265c2c42) 
+FAIL l07: rc 1 fa fa fa fa fa fa fa fa
+
+$ python3 -I stage-c/l07-search-builder.py <W>/components/ScraperSearchComponent.cpp engine
+SUMMARY: AddressSanitizer: heap-use-after-free (/usr/lib/x86_64-linux-gnu/libstdc++.so.6+0xf5ef8) (BuildId: 3a7a8c6bd922e6314edb7a710fdc0293265c2c42) 
+FAIL l07: rc 1 fa fa fa fa fa fa fa fa
+
+$ python3 -I stage-c/l07-search-builder.py <W>/components/ScraperSearchComponent.cpp l08
+l08: the second search (:656-658) ran on the calling thread, the interface's
+FAIL L-08: the search with no results is searched again on the interface thread
+
+$ ... --control drop   (stage C's proposal: a joining destructor and an atomic flag)
+drop: a search started on the builder's thread; the page stops it at once (searchHandle.reset(), :358-361)
+drop: the search's 200 ms are over: nothing wrote into the freed builder
+
+$ ... --control engine   (stage C's proposal: a joining destructor and an atomic flag)
+SUMMARY: AddressSanitizer: heap-use-after-free a.cpp:23 in Scraper::search(ScraperSearchParams const&)
+FAIL l07: rc 1 fa fa fa fa fa fa fa fa
+
+$ python3 -I stage-c/s5-bluetooth.py <W>/es-app/src
+SUMMARY: AddressSanitizer: heap-use-after-free a.cpp:94 in ThreadedBluetooth::ThreadedBluetooth(Window*)
+FAIL s5-bt: rc 1 fa fa fa fa fa fa fa fa
