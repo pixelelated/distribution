@@ -1,0 +1,22 @@
+== T16 host lead G-20 RCLONE_OUTER from the conf -- 2026-10-30T14:23:30Z
+donor root: /workspace/artifacts/m6-donor/1a0266484423/image/system (BUILD_ID 1a0266484423); sha256sum -c ../../SHA256SUMS:
+  usr/bin/busybox: OK
+  usr/bin/rclone: OK
+  etc/os-release: OK
+the scripts and /usr/config: git show 8ebaf8daad, 12 of 12 sha256-equal to the guest's installed bytes (guest-cycle/installed.sha256)
+from the donor: busybox v1.36.1 (146 applet links), rclone v1.75.2
+host stand-ins (not in the donor): bash 5.3.9(1)-release (image: 5.3), timeout (GNU coreutils) 9.7 (image: 9.4), grep (GNU grep) 3.12 (image: 3.9), python3 3.14.4, ip (iproute2)
+sandbox: /workspace/tmp/m6-t16/hl/sbx.sh (copied to host-leads/sandbox/) (bwrap, own pid namespace, host network); backend: cloud-test-backend at 3a653eaec4, WebDAV 127.0.0.1:9010, state /workspace/tmp/m6-t16/hl/state
+
+appended to the shipped conf: RCLONE_OUTER="/usr/bin/touch"
+conf_valid rc=0 (no reason)
+cloud_restore rc=69
+files created in /tmp (the cwd) after the run, by name: 
+-- the run's last lines:
+=>  CLOUD RESTORE
+====================================
+RESTORING YOUR GAME SAVES
+>>> unit SAVES||
+====================================
+[31mCouldn't finish: lost the network during the saves restore. Try again when you're online.[0m
+== end 2026-10-30T14:23:31Z

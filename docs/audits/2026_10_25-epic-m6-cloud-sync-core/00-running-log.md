@@ -164,3 +164,26 @@ time comes from `date -u`.
 - **The Argon refutation**, running since 09:48:28: the same command with `--member gemini-argon` and `gemini-argon-brief.md`.
   - The brief is 393,482 bytes: Argon's preamble, the Astra brief unchanged, and `04` § Second opinion appended. Scanned four ways: 0, 0, 0, 0.
   - **What watches it:** the record `.build-runs/20261030T094828Z-ae27bab7`, a monitor on its state, and the harness's background task.
+
+## 2026-10-30 09:58-14:27 UTC -- the fourth call; Argon graded; stage D's 05
+
+- **Argon refutation** finished 09:58:47 (`.build-runs/20261030T094828Z-ae27bab7/`): watch-build rc 0, `build.rc` 0, state finished.
+  - `attempt=1/4 ... model=google/gemini-4-argon providers=["Google"] effort=high reasoning=45099 content=19909b finish=stop outcome=success duration=614950ms`.
+  - Verification PASS (`provider_response`), provider PASS, effort PASS. Output sha256 `c763b62f47230c6e…`.
+  - Not cut: D-WORKFLOW-195's re-run case did not arise.
+- **Four keyed `invoke` calls in all**, a probe and a refutation per seat. None is owed.
+- **A gap:** the session's usage limit stopped it after the call ended. Grading resumed at about 14:20 UTC, from the outputs on disk; nothing ran meanwhile.
+- **Argon graded** in `04` § Second opinion; each item was re-read at its lines.
+  - **G-20 was run:** `guest-cycle/host-leads/g20-rclone-outer`. The shipped conf plus `RCLONE_OUTER` passes `conf_valid`, and a deliberate restore ran the program it names three times. A settings archive carries the conf (`backuptool:746-751`). **High (Security).**
+    - The cell's first cut named `/usr/bin/touch`, which refused rclone's options before creating anything (`out.touch`). The second names an executable under `/storage/.config`.
+  - **G-21 High** joins F-14: the next completed restore that replaces anything deletes the stopped run's copies.
+  - G-22 to G-27 Low, each joining its owner's item.
+  - **Corrections to this folder, from Argon:**
+    - G-04's row ("fails closed one run late"): it fails the same run, or never on a UUID mount;
+    - § Q2's "fails toward a send": the first time only.
+  - F-02 widened by three more reader forms.
+- **`review-plan.json`:** both reviewers complete, with their outputs' sha256.
+- **Stage D:** `05` holds 25 items: 3 High (F-03 with G-01; F-14 with G-21; G-20), 4 Medium (F-02, F-01, G-02, G-14 with F-15) and 18 Low.
+  - Each item's proposal is its last field. The bugs, the streams, #909, #1057, the ES slice and T13's harness are proposed, not filed, until the coordinator rules.
+  - `05` is generated from one item list, so its sections, gate and index agree.
+- `tools/lint-audit-artifacts <this folder> --phase pre-issue`: `PASS pre-issue artifacts (does not certify resolution)`.
