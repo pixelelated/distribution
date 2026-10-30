@@ -346,206 +346,206 @@ punch_index:
   category: Correctness
   question: Q3
   source_finding: "F-03, G-01"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#1298"
+  outcome: deferred:#1298
 - id: PL-02
   severity: High
   category: Correctness
   question: Q3
   source_finding: "F-14, G-21"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#1299"
+  outcome: deferred:#1299
 - id: PL-03
   severity: High
   category: Security
   question: Q3
   source_finding: "G-20"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#1300"
+  outcome: deferred:#1300
 - id: PL-04
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-02"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#1301"
+  outcome: deferred:#1301
 - id: PL-05
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-01"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#1302"
+  outcome: deferred:#1302
 - id: PL-06
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "G-02"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#1303"
+  outcome: deferred:#1303
 - id: PL-07
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "G-14, F-15"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#1304"
+  outcome: deferred:#1304
 - id: PL-08
   severity: Low
   category: Renovation
   question: Q5
   source_finding: "F-05"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#663"
+  outcome: deferred:#663
 - id: PL-09
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "F-06"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#663"
+  outcome: deferred:#663
 - id: PL-10
   severity: Low
   category: Renovation
   question: Q7
   source_finding: "F-09, G-19"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#663"
+  outcome: deferred:#663
 - id: PL-11
   severity: Low
   category: Standards
   question: Q2
   source_finding: "F-04"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#909"
+  outcome: deferred:#909
 - id: PL-12
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-07, G-05, G-06, G-11, G-16, G-27 (a, b)"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#663"
+  outcome: deferred:#663
 - id: PL-13
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-08, G-24"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#1057"
+  outcome: deferred:#1057
 - id: PL-14
   severity: Low
   category: Renovation
   question: Q4
   source_finding: "F-10, G-17"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#663"
+  outcome: deferred:#663
 - id: PL-15
   severity: Low
   category: Renovation
   question: Q1
   source_finding: "F-11"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#1297"
+  outcome: deferred:#1297
 - id: PL-16
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-12"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#663"
+  outcome: deferred:#663
 - id: PL-17
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-13"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#663"
+  outcome: deferred:#663
 - id: PL-18
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-03, G-04, G-25"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#1304"
+  outcome: deferred:#1304
 - id: PL-19
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-10, G-13, G-22"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#1299"
+  outcome: deferred:#1299
 - id: PL-20
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-09"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#663"
+  outcome: deferred:#663
 - id: PL-21
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-15, G-18, G-27 (c)"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#663"
+  outcome: deferred:#663
 - id: PL-22
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-12"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#663"
+  outcome: deferred:#663
 - id: PL-23
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-07, G-26"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#663"
+  outcome: deferred:#663
 - id: PL-24
   severity: Low
   category: Renovation
   question: Q3
   source_finding: "G-08"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#663"
+  outcome: resolved:#663
 - id: PL-25
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-23"
-  tracked: "pending the stage-D ruling"
-  outcome: "open"
+  tracked: "#663"
+  outcome: deferred:#663
 ```
 
 ## Phase 7 resolution gate
 
-Stage D: every item is open until the coordinator rules its owner at the stage-D pause on #663. Each one's proposal is its last field.
+From the coordinator's stage-D ruling on #663 (14:36 UTC 2026-10-30). A bug's item is Deferred to its issue until its stream's commit, then Resolved with it; an item in a stream without a bug of its own is Deferred to #663's stage-E stream. Each item's **Proposed** line above is the lane's proposal at the pause, kept as it was.
 
 | Item | Outcome | Tracked |
 | --- | --- | --- |
-| PL-01 | Open | proposed: a bug and a stream; the ES slice names the stop shape |
-| PL-02 | Open | proposed: a bug and a stream, with PL-04 |
-| PL-03 | Open | proposed: a bug and a stream |
-| PL-04 | Open | proposed: a bug, with PL-02 |
-| PL-05 | Open | proposed: a bug and a stream |
-| PL-06 | Open | proposed: a bug and a stream |
-| PL-07 | Open | proposed: a bug and a stream; F-15 to T13's harness |
-| PL-08 | Open | proposed: a stream; timings at the integration window |
-| PL-09 | Open | proposed: removals in a stream, as ruled |
-| PL-10 | Open | proposed: a stream |
-| PL-11 | Open | proposed: #909 and the ES slice |
-| PL-12 | Open | proposed: a stream |
-| PL-13 | Open | proposed: #1057 or a stream |
-| PL-14 | Open | proposed: a stream at the next bump |
-| PL-15 | Open | proposed: a design, as ruled |
-| PL-16 | Open | proposed: a stream |
-| PL-17 | Open | proposed: a stream |
-| PL-18 | Open | proposed: a stream, with PL-07 |
-| PL-19 | Open | proposed: a stream, with PL-02 |
-| PL-20 | Open | proposed: a stream |
-| PL-21 | Open | proposed: a stream |
-| PL-22 | Open | proposed: a stream |
-| PL-23 | Open | proposed: a stream |
-| PL-24 | Open | proposed: a design, as written |
-| PL-25 | Open | proposed: a stream |
+| PL-01 | Deferred | #1298 (a `bug`; stage-E stream: the stop reaches `timeout`'s own group, the copy kept, with #1299; the ES stop shape read at `16dbac5211`, `02` § The ES stop and the why texts) |
+| PL-02 | Deferred | #1299 (a `bug`; stage-E stream with #1301 and PL-19: the moved-aside saves stay until a restore completes; a completed restore clears only its own copies) |
+| PL-03 | Deferred | #1300 (a `bug`; stage-E stream under the ruling's register row (`2f10f96978`): `conf_valid` an allowlist of the documented keys, the three copies identical; #1297 their later consolidation) |
+| PL-04 | Deferred | #1301 (a `bug`; in #1299's stream: one reader, an empty or commented path refused before rclone with YOUR SAVES FOLDER ISN'T ON THIS DEVICE) |
+| PL-05 | Deferred | #1302 (a `bug`; one stream with #1303: a failed put-back is a failure) |
+| PL-06 | Deferred | #1303 (a `bug`; one stream with #1302: marked done only on sed's rc 0) |
+| PL-07 | Deferred | #1304 (a `bug`; a stream with PL-18: an empty record read as absent and re-derived); F-15 is the coordinator's Backlog #1296 |
+| PL-08 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit; the timings are lead (c)'s, `(window)`-pending for the integration window (`tools/time-to-play` on the image carrying the fix) |
+| PL-09 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit, with PL-10; each removal named in its commit with `git log -S` read first |
+| PL-10 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit, with PL-09 |
+| PL-11 | Deferred | #909 (the two sentences in no table, with their texts); the three texts recorded in `02` § The ES stop and the why texts: for rclone 3/4 and 7/8 the scripts and ES's fallback map agree and `es-player-text.md:270-272` differs, so the rule is the coordinator's to correct, named in the hand-back |
+| PL-12 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit, with PL-17 and PL-23, each seam fail closed |
+| PL-13 | Deferred | #1057 (the unchecked `jq` keep-list and the wall-clock grace, two lines there); no stream here |
+| PL-14 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit now, not at the next bump: the download kept, unzip's failure stopping the unpack; `tools/pkgcheck` after; a #585 line if the lines are upstream's |
+| PL-15 | Deferred | #1297 (the coordinator's Backlog: the twins' one library, recorded as a design); #1300's stream touches the three `conf_valid` copies identically and no more |
+| PL-16 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit: the capture honours TERM and its boot `--full` is bounded; a stage-E host fixture measures the bound, the image half `fix-walk-pending-image` |
+| PL-17 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit, with PL-12 and PL-23 |
+| PL-18 | Deferred | #1304's stream (the card's identity by device, `dev:unknown` refused, `check` after the folder exists, no boot-local number kept) |
+| PL-19 | Deferred | #1299's stream (a failed sweep writes no `restore-tree-clean`; the pattern never matches a cloud file; a cloud `.partial` swept on a clean tree) |
+| PL-20 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit, with PL-21: deadlines and waits on `/proc/uptime`; a stage-E host fixture with a `date` shim that steps the clock (the unfixed script FAILs, the fixed one does not) |
+| PL-21 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit, with PL-20: `--wait` read with `10#`, the bound including its `nmcli` calls |
+| PL-22 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit: the `-wal`, `-shm` and `-journal` sidecars excluded beside `*.sqlite*` |
+| PL-23 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit, with PL-12 and PL-17 |
+| PL-24 | Resolved | #663 (recorded as a design: a deliberate run is unbounded by D-CLOUD-113, which lets it take time and say so on its page; no stream) |
+| PL-25 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit: a change of cloud folder resets `last-backup`'s epoch, so the next exit sync sends everything once |

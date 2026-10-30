@@ -451,7 +451,7 @@ Every § 5 command of the brief, run at stage A as one script file
 | LINK1, LINK2, LINK6 (200k) | `3a653eaec4` | each exit 69 with `Couldn't finish: lost the network during the saves restore/backup. Try again ...`; no FAIL (`cells-3.out`, `cells-3/LINK*`) | the link cut ends in the sentinel and an outcome line, on the restore, the backup and the exit sync | guest |
 | KILL2 (200k) | `3a653eaec4` | 3 FAIL (`cells-3.out`, `cells-3/KILL2a`, `KILL2b`) | **2a** (TERM then KILL at 1.5 s) and **2b** (SIGKILL): two saves **absent** from `SAVESPATH` after the stop in each arm, while the previous version of each "is kept somewhere" and a re-run restores them; **2b**: three `*.partial` under `SAVESPATH` until the re-run sweeps them (the tree is clean at the cell's end). Read with the code at stage C before it is graded: the shape is `--backup-dir` moving the replaced save aside before the new copy lands | guest |
 
-**Graded at stage C** (§ The host leads, below): KILL15's FAIL is the harness's (F-15); KILL2's absent saves are F-14. The `.partial` FAIL's "nothing removes it" is the cell's word, not the code's: the re-run's `sweep_partials` removes them (`cloud_restore:1898-1913`; the cell's own last check reads the tree clean).
+**Graded at stage C** (§ The host leads, below): KILL15's FAIL is the harness's (F-15, the coordinator's Backlog #1296); KILL2's absent saves are F-14 (#1299). The `.partial` FAIL's "nothing removes it" is the cell's word, not the code's: the re-run's `sweep_partials` removes them (`cloud_restore:1898-1913`; the cell's own last check reads the tree clean).
 
 **Not run on the guest:**
 - leads (a) to (e) of the plan. (a), (b), (d) and (e) ran on the host at stage C (§ The host leads, below); (c) is `(window)`-pending;
@@ -504,7 +504,7 @@ The coordinator's ruling on #663 (05:15 UTC): no second window now. (a), (b), (d
 | `b-empty-savespath` (lead b) | `cloud_restore --yes --saves-only`, whole, in four arms. **ctl:** the shipped `SAVESPATH`. **ro:** `SAVESPATH=""`, `/` read-only. **rw:** `SAVESPATH=""`, `/` writable. **bk:** `cloud_backup --yes --saves-only` with `SAVESPATH=""` | **ctl:** rc 0, `Completed.`, both cloud saves under `/storage/roms`. **ro and rw:** rc 7; `mkdir: can't create directory ''` in the output; rclone `Failed to copy: destination and parameter to --backup-dir mustn't overlap`, a fatal error before any transfer; `>>> why YOUR CLOUD WOULDN'T TAKE THE FILES`; `Couldn't finish: your cloud wouldn't take the files. Try again.`; stamp `7`; **no file restored anywhere**. **bk:** rc 1, `YOUR SAVES FOLDER ISN'T ON THIS DEVICE` (`cloud_backup:1613`) | **F-02 re-graded.** Nothing is copied into `/`, whatever `/`'s mode: rclone's overlap check on `--backup-dir` refuses first. That guard is an accident. The player is told the cloud refused, and a retry cannot succeed. The backup twin refuses correctly; the restore has no such test | fixture |
 | `e-term-automatic` (lead e) | `cloud_restore --automatic --yes --saves-only`, whole, against the WebDAV at 100k (`CLOUD_QA_BWLIMIT`), one 6 MiB save to fetch. **term:** TERM to the script's pid at +5 s. **termkill:** TERM at +5 s, KILL at +9 s. **termkill-game:** the same, then at +11 s the "game" writes 10 bytes to the name the orphan is fetching (`out-game`). The 2 MiB first try (`out.2mib`) finished before +9 s | **term:** the trap ran at +41 s, when the foreground `timeout -k 3 90 rclone` returned. The save landed whole; exit 130, stamp `130`. **termkill:** after the KILL, `timeout` and `rclone` run on with ppid 1. A whole save landed 12-32 s after the script was gone, and the next was mid-transfer at +41 s. No stamp. **termkill-game:** at the end the game's file holds 6,291,456 bytes, the cloud's. **No file anywhere holds the game's 10 bytes** (a whole-content `cmp`), and nothing is under `replaced/` | **F-03 proved on the host, and worse than graded.** A TERM waits out the transfer (36 s here), and the run is then stamped "stopped" over a save that landed. A KILL to the script alone leaves the transfer running unlocked to its 90 s deadline, and **its rename replaces a save written after the stop, with no copy kept** | fixture |
 | `f14-backup-dir-order` (KILL2) | the donor rclone alone: `copy cloud/ saves/ --backup-dir replaced/run1 --bwlimit 200k --transfers 1`, three local saves to be replaced, SIGKILL at +1.5 s; then `lsf -R --filter-from <shipped rules>` on what is left | At +1.5 s, all three local saves are already in `replaced/run1` (`Moved (server-side)` ×3 logged before 220 KiB of the first copy), and `saves/` holds one `.partial`. After the kill, the same. The allowlist lists `savestates/f1.state.b2048630.partial` | **F-14.** rclone moves every file it will replace aside at check time, before the transfers. So a stopped restore leaves those saves absent (KILL2: two per arm, the third the game's), and the `.partial` a SIGKILL leaves is admitted to the next backup | fixture; guest (KILL2) |
-| `k15-at-the-run` (KILL15) | an empty saves-root record; `cloud_saves_root check` alone, then each twin `--yes --saves-only`, in the sandbox | check alone ends `If both cards are in the device, try again.` Both twins end `Couldn't finish: couldn't tell which card your saves are on. Try again.`, rc 1, stamp `1 COULDN'T_TELL_WHICH_CARD_YOUR_SAVES_ARE_ON`; the local save untouched | **KILL15's FAIL is the harness's.** `fx_kill15` (`tools/cloud-round-trip:7747-7772`) asserts a run's outcome line on a helper whose lines reach a player only through the twins, which end on an outcome sentence (F-15) | fixture |
+| `k15-at-the-run` (KILL15) | an empty saves-root record; `cloud_saves_root check` alone, then each twin `--yes --saves-only`, in the sandbox | check alone ends `If both cards are in the device, try again.` Both twins end `Couldn't finish: couldn't tell which card your saves are on. Try again.`, rc 1, stamp `1 COULDN'T_TELL_WHICH_CARD_YOUR_SAVES_ARE_ON`; the local save untouched | **KILL15's FAIL is the harness's.** `fx_kill15` (`tools/cloud-round-trip:7747-7772`) asserts a run's outcome line on a helper whose lines reach a player only through the twins, which end on an outcome sentence (F-15, #1296) | fixture |
 
 **Still `(window)`-pending (stage E and the integration window, `fix-walk-pending-image`):**
 - lead (c), every timing on the image (F-05);
@@ -512,6 +512,45 @@ The coordinator's ruling on #663 (05:15 UTC): no second window now. (a), (b), (d
 - how EmulationStation stops an automatic run, which is the ES slice's. A group kill gives F-14; a signal to the script alone gives F-03.
 
 **No second window is asked for.** No host lead found a fact that only the guest can settle, beyond the three named here.
+
+## The ES stop and the why texts (stage D, read at the ES pin)
+
+The ruling asks for these two reads; nothing in EmulationStation is changed here. **The pin:** the distribution's `emulationstation/package.mk` at `8ebaf8daad` names `PKG_VERSION="16dbac5211eea7e70db7394372033be2be7df829"`. That commit was read with `git show` from the local clone `~/Development/emulationstation-next`, with no fetch.
+
+**How STOP IT AND PLAY stops a sync** (#1298, PL-01):
+
+| What | Where (`16dbac5211`) | What it shows | proved: |
+| --- | --- | --- | --- |
+| the startup sync's command | `es-app/src/main.cpp:681-684` | `cloud_restore --yes --method=copy --update --saves-only --automatic`, then `cloud_backup ... --automatic`, in one shell | tree |
+| the exit sync's command | `es-app/src/FileData.cpp:1310`, `es-app/src/ProxyCards.cpp:34` | `cloud_backup --yes --saves-only --recent --automatic` | tree |
+| how every command runs | `es-app/src/ThreadedCloudSync.cpp:198-207` | `setsid sh -c 'echo ">>> pid $$"; <command>' 2>&1` through `popen`: the shell leads a process group, and its pid names it | tree |
+| which signal, to which pid | `ThreadedCloudSync.cpp:809-818`, `:845-850`, `:857-861` | SIGTERM to the group (`::kill(-pid, SIGTERM)`), SIGKILL to the group at 1.5 s | tree |
+| when the stop counts as done | `ThreadedCloudSync.cpp:820-833`, `:836-856` | only when `pclose` returns (every writer to the pipe gone), within 2 s; otherwise `false` | tree |
+| STOP IT AND PLAY's branch | `es-app/src/FileData.cpp:993-1006` | `cancelForLaunch(&again, true)`; on `false`, `launchWhenGone` | tree |
+| the wait behind the spinner | `FileData.cpp:812-850` | STOPPING IT SO YOU CAN PLAY... up to 20 s for `isRunning()` to clear; then IT DIDN'T STOP IN TIME. TRY AGAIN IN A MOMENT., and no launch | tree |
+
+**What that means with #1298's defect:**
+- The automatic call's `timeout` and `rclone` are outside the shell's group (`host-leads/g01-timeout-pgid`), so neither signal reaches them.
+- They hold the pipe, so `pclose` waits for them. **At the pin the gate holds the launch until the orphan's transfer ends:** the player waits up to 20 s, or is refused.
+- The stop stops nothing, and the run's stamp says it was stopped.
+- The host's `out-game` arm (a game writing under the orphan) needs a launch this gate does not hold. None was found at the pin.
+
+**The why texts** (PL-11; the ruling's rule: the six rc-keyed sentences change on both sides or on neither):
+
+| rclone rc | The scripts (`8ebaf8daad`) | ES's fallback map (`16dbac5211`) | `es-player-text.md` (`.claude/rules/`, on this branch) |
+| --- | --- | --- | --- |
+| 3, 4 | `COULDN'T FIND YOUR CLOUD FOLDER` (`cloud_restore:836`, `cloud_backup:830`) | `COULDN'T FIND YOUR CLOUD FOLDER` (`ThreadedCloudSync.cpp:84`; `CloudText.cpp:439`) | `YOUR CLOUD FOLDER WASN'T FOUND` (`:270-271`) |
+| 7, 8 | `YOUR CLOUD WOULDN'T TAKE THE FILES` (`cloud_restore:839`, `cloud_backup:833`) | `YOUR CLOUD WOULDN'T TAKE THE FILES` (`ThreadedCloudSync.cpp:86`; `CloudText.cpp:441`) | `YOUR CLOUD REFUSED THE TRANSFER` (`:271-272`). The rule's own D-UI-031 table at `:228` gives `WOULDN'T TAKE THE FILES` as the replacement |
+| the sign-in check | `COULDN'T REACH YOUR CLOUD - CHECK YOUR SIGN-IN` (`cloud_restore:1032`, `cloud_backup:979`) | the same (`CloudText.cpp:426`) | `COULDN'T REACH YOUR CLOUD. YOU MAY NEED TO SIGN IN AGAIN` (`:272-273`) |
+| the ceiling (124) | `THE CLOUD TOOK TOO LONG - IT'LL TRY AGAIN NEXT TIME` (`cloud_restore:846`, `cloud_backup:840`) | the same (`CloudText.cpp:443`) | in no table |
+
+**The outcome, under the ruling:**
+- For 3/4 and 7/8, **the scripts and ES's map agree, and the rule differs**. So the rule is the coordinator's to correct, named in the hand-back.
+- The two sentences F-04 found in no table go to #909 with their texts:
+  - the ceiling's;
+  - the sign-in check's, whose exact words the rule does not carry. The scripts and ES agree on it; the rule words it otherwise (`:272-273`).
+
+KILL15's FAIL (F-15) is the coordinator's Backlog #1296.
 
 ## Leads for stage C and the window
 

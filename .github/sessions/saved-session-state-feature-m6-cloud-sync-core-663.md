@@ -16,20 +16,16 @@
 
 ## Current focus
 
-**Stage D's pause (2026-10-30). Waiting for the coordinator's ruling on #663; nothing runs until it.**
+**Stage D done (2026-10-30). Waiting for the coordinator's stream brief (`t16-streams.md`) and the stage-E dispatch.**
 
-- **The seats are done:** four keyed calls, each PASS (`second-opinions/`). Both are graded at the lines in `04` § Second opinion.
-- **`05` holds 25 items:** 3 High, 4 Medium, 18 Low.
-  - PL-01: F-03 with G-01, a stop over an automatic restore.
-  - PL-02: F-14 with G-21, a stopped restore's absent saves and their pruned copies.
-  - PL-03: G-20, the conf naming the program root runs.
-- **The audit issue is #1295**, a sub-issue of #663: 25 checkboxes, `box-check` 0 fail. The pre-issue lint PASS.
-- **Next, after the ruling:**
-  - record each item's outcome in `05` § Phase 7 resolution gate and its YAML;
-  - file the bugs the ruling names, each with its trace, `Already written:` line and VM line from `04` § Q3;
-  - tick #1295 as each outcome is recorded;
-  - wait for any stream brief (stage E).
-- **Scratch to retire at close-out** (literal paths): `/workspace/tmp/m6-t16/hl/` (the sandbox roots, the cells, and `state/` with the QA backend's throwaway sign-in), `/workspace/tmp/m6-t16/packet*`, and `/workspace/tmp/m6-t16/g01.pids`.
+- **The ruling is applied:** the 25 outcomes are in `05` and on #1295 (25 ticked).
+- **The seven bugs:** #1298 (PL-01), #1299 (PL-02), #1300 (PL-03), #1301 (PL-04), #1302 (PL-05), #1303 (PL-06), #1304 (PL-07).
+- **Elsewhere:** #909 (PL-11), #1057 (PL-13), #1297 (PL-15) and #1296 (F-15). PL-24 is a design.
+- **ES read at `16dbac5211`** in `02` § The ES stop and the why texts. The rule's rc 3/4 and 7/8 sentences are the coordinator's to correct; name that in the hand-back.
+- **Next:** stage E under the stream brief.
+  - **Window-pending, at the integration window (`fix-walk-pending-image`):** lead (c)'s timings, and F-03's image half.
+  - **Stage-E host fixtures:** the capture's TERM, and the clock step.
+- **Scratch to retire at close-out** (literal paths): `/workspace/tmp/m6-t16/hl/`, `/workspace/tmp/m6-t16/packet*`, `/workspace/tmp/m6-t16/bugs/` and `/workspace/tmp/m6-t16/g01.pids`.
 
 ## Next commands
 
@@ -76,3 +72,4 @@ host's swap, another lane's worktree, or a guest.
 - 2026-10-29: merge `1bb8ad08e7`; window START 18:10:18Z, RETURN 22:31:21 (overrun 3 h 46 min, session cut); disks retired; record committed
 - 2026-10-30: the leads ruled (05:15); the host leads (05:24-05:35); KILL2 graded F-14, KILL15 F-15, F-02 re-graded, F-03 proved; three corrections; next, the packet and the seats
 - 2026-10-30: packet `552a6b525c`; Astra graded `4ee3eaba1f`; Argon graded and 05 `4853bdbd5c`; #1295 `9cdcc98bec`; stage-D pause posted
+- 2026-10-30: the stage-D ruling applied; bugs #1298-#1304; #1295 ticked

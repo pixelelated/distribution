@@ -191,3 +191,32 @@ time comes from `date -u`.
   - `gh issue create` first failed with a GraphQL error (14:28:39Z). The issue list showed no issue made. It was created by the REST API instead, and read back (state, labels, milestone, 25 checkboxes).
   - The push of `4853bdbd5c` first failed with `Permission denied (publickey)`. `ssh -T github-blitterbot` then authenticated, and the retry went through: a transient failure, not a key change.
 - `05` names #1295 in its opening. The generator reproduces the file byte for byte (`cmp`).
+
+## 2026-10-30 14:36-14:44 UTC -- the stage-D ruling applied: seven bugs, 25 outcomes, the ES stop read
+
+- **The ruling** (coordinator, #663, 14:36 UTC):
+  - owners for all 25 items;
+  - a register row for PL-03 (the coordinator's `2f10f96978`, on its branch);
+  - two Backlogs: #1296 (F-15, T13's harness) and #1297 (the twins' one library);
+  - the four guest facts split. Lead (c)'s timings and F-03's image half go to the integration window; the capture's TERM and the clock step become stage-E host fixtures.
+  - My refusals of F-07's and F-08's raises stand.
+- **Seven bugs**, one per item the ruling calls a `bug`, each with its code trace, criteria and `Already written:` line. Each was created by the REST API, and `tools/box-check --issue N` reads 0 fail for every one:
+  - #1298 (PL-01);
+  - #1299 (PL-02);
+  - #1300 (PL-03);
+  - #1301 (PL-04);
+  - #1302 (PL-05);
+  - #1303 (PL-06);
+  - #1304 (PL-07).
+  - Their cross-references were filled in after creation, and a re-read shows no placeholder left.
+- **One claim corrected before filing:** #1298's sibling line first called `cloud_restore:521`'s `evtest` timeout dead code. `controller_confirm` (`:557`) reaches it from the duplicate prompt (`:1309`). Only `:662` is in the uncalled `controller_menu`.
+- **The two sibling facts the bugs carry for the stream:**
+  - `cloud_backup:1863-1891` keeps a remote `--backup-dir` of #1299's shape;
+  - the helper leaves its five renamed keys in place (`cloud_sync_helper:377-378,392-396`), which #1300's allowlist must not refuse.
+- **ES read at its pin `16dbac5211`** (`git show` from `~/Development/emulationstation-next`, no fetch), into `02` § The ES stop and the why texts.
+  - STOP IT AND PLAY signals the `setsid` group: SIGTERM, then SIGKILL at 1.5 s.
+  - It launches only once `pclose` returns, else waits 20 s and refuses.
+  - So at the pin the orphan of #1298 delays or refuses the launch, rather than writing under a running game.
+- **PL-11's three texts:** for rclone 3/4 and 7/8 the scripts and ES's map agree, and `es-player-text.md:270-272` differs. That makes the rule the coordinator's to correct, for the hand-back. The two sentences in no table go to #909.
+- **`05`:** every item's outcome is in § Phase 7 resolution gate and the YAML index, from the generator. #1295's 25 checkboxes are ticked (25 ticked, 0 open; box-check 0 fail).
+- **Checks:** `lint-audit-artifacts --phase pre-issue` PASS, and the default resolution lint PASS.
