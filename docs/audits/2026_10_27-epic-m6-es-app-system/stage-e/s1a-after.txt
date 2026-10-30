@@ -1,0 +1,22 @@
+# T33 S1a (#680; #1271, #1285): the positives at ES d0d92dda6, 05:19:33Z. <W> = the ES worktree at d0d92dda6.
+
+$ python3 -I stage-c/l313-update-gamelist.py <W>/es-app/src/Gamelist.cpp <pugixml>
+startup: gamelist.xml absent (the session's first answer, remembered)
+outside ES: gamelist.xml written with Bravo's entry
+after the save: Alpha present, Bravo present; inode new (replaced)
+rc=0
+$ ... --control   (guarded: the pin's rewrite targets are gone)
+CANNOT: --control rewrites the pin's lines, which this file no longer has (S1a: the default run is the positive)
+rc=2
+
+$ python3 -I stage-c/l313-gamelist-save.py <W>/es-app/src/Gamelist.cpp <pugixml>
+outside: Alpha present, Bravo present
+inode: new (replaced)
+unparsed: the file kept its bytes
+recovery: after packGamelist the record is still there for parseGamelist
+media: the restored picture's reference kept
+record: after a write killed at its start the previous record is whole
+kill updateGamelist: the previous file whole
+kill packGamelist: the previous file whole
+kill cleanupGamelist: the previous file whole
+rc=0

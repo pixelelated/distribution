@@ -1,0 +1,38 @@
+# T33 S1a (#680; #1271, #1285): the positives at the pin, 05:17:31Z. <pin> = /workspace/tmp/m6-t33/pin/es-app/src (git show 16dbac5211).
+
+$ python3 -I stage-c/l313-update-gamelist.py <pin>/Gamelist.cpp <pugixml>
+startup: gamelist.xml absent (the session's first answer, remembered)
+outside ES: gamelist.xml written with Bravo's entry
+after the save: Alpha present, Bravo absent; inode the same (written in place)
+FAIL 3.13: the entry that arrived from outside was lost by the save (L-05)
+FAIL 3.13: gamelist.xml written in place, no temp-and-rename (D-CLOUD-078)
+rc=1
+
+$ python3 -I stage-c/l313-gamelist-save.py <pin>/Gamelist.cpp <pugixml>   (all seven cases)
+outside: Alpha present, Bravo absent
+FAIL outside: the entry that arrived from outside was lost by the save (L-05)
+inode: the same (written in place)
+FAIL inode: gamelist.xml written in place (D-CLOUD-078)
+unparsed: the file was written over
+FAIL unparsed: a gamelist.xml that did not parse was written over with the dirty entry alone (EP-1)
+recovery: after packGamelist the record is gone
+FAIL recovery: recovery cleared before parse (EP-2)
+media: the restored picture's reference removed
+FAIL media: CLEAN GAMELISTS removed the reference to a picture restored after the session's first look (3.15)
+record: after a write killed at its start the previous record is gone or cut
+FAIL record: saveToXml removed the previous recovery record before its write (EP-3)
+kill updateGamelist: the previous file cut
+FAIL kill updateGamelist: a write killed half-way left a cut gamelist.xml (D-CLOUD-078)
+kill packGamelist: the previous file cut
+FAIL kill packGamelist: a write killed half-way left a cut gamelist.xml (D-CLOUD-078)
+kill cleanupGamelist: the previous file cut
+FAIL kill cleanupGamelist: a write killed half-way left a cut gamelist.xml (D-CLOUD-078)
+FAIL S1: 9 case(s)
+rc=1
+
+$ python3 -I tools/t33-reads.py <W> 16dbac5211 <paths> lines=83,calls=86,uncached=4
+generated, asserted: 83 lines, 86 calls, 4 uncached, in 11 files
+rc=0
+$ python3 -I tools/t33-writes.py <W> 16dbac5211 <paths> lines=11
+generated, asserted: 11 lines (9 live, 2 dead) in 7 files
+rc=0

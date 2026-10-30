@@ -109,3 +109,14 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
 - **Two of mine, fixed before anything was misfiled:** the item lookup in `stage-c/punch-items.py` was built before PL-21 to PL-26 were appended (a `KeyError` stopped the render; the lookup was rebuilt); and `tools/box-check` takes one `--issue` per run (run per issue).
 - **Not filed, and asked on #680:** PL-13 (L-27) and PL-18's 3.5 were put as "recorded or a bug?" and are not in the ruling's list. The ruling's "twenty-one proposed" counts differently from `05`'s fifteen titles proposing a bug.
 - **The last ruling** (20:15 UTC, #680 comment 6452522368): PL-13 and PL-18's 3.5 are bugs under rule 6. **Filed as #1291 and #1292** by `tools/t33-file-bugs.py --second`, with their traces, `Already written:` lines (3.5's: what earlier scrapes blanked stays blanked; nothing to migrate) and VM lines; box-check 0 fail on each. Before filing, the first 20 bodies were re-rendered and compared with the filed ones: the only difference is the **Bug:** line `05` gained after filing.
+
+## Stage E (05:19 UTC 2026-10-30 onward; the brief `t33-streams.md` at the coordinator's `31561429a2`, the dispatch #680 comment 6515550000)
+
+- **S1a** (ES `d0d92dda6`, #1271, #1285):
+  - **Before:** at the pin, `stage-c/l313-gamelist-save.py` (l313's extension) FAILs all nine checks across its seven cases (outside, inode, unparsed, recovery, media, record, kill ×3), and l313 FAILs both its lines.
+  - **After:** all rc 0. l313's `--control` is guarded `CANNOT`, and its fixture was completed (D-WORKFLOW-211: the helper's extract and two doubles; no assertion changed).
+  - **Generators** (D-WORKFLOW-210): `t33-reads.py` 4 → 16 uncached; `t33-writes.py` 11 → 7 lines. `t33-writes.py` now reports a file whose every write line was replaced instead of failing. Each was drift-tested.
+  - **Stand-in:** `Gamelist.cpp` rc 0.
+  - **The `getGamelistPath` patch** is `stage-e/patches/s1a-SystemData-getGamelistPath.patch`: it applies to the pin, and the scratch copy passes the stand-in.
+  - **Read:** `PackGamelists` defaults to false (`Settings.cpp:209`), so EP-2's clear needed that setting on.
+  - The ES pre-push test passes; the branch is pushed.

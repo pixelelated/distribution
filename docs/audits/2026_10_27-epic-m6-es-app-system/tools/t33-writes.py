@@ -14,7 +14,9 @@ writer reads as to the code at the pin.
 
 Exits 1 when a line has no row, a row names a line with no match, or the
 count differs from the one given. At another commit a line takes the row of
-the pin's line of the same order in its file (D-WORKFLOW-210).
+the pin's line of the same order in its file (D-WORKFLOW-210); a file
+whose every write line a stream replaced (S1a's `Gamelist.cpp`) prints its
+pin rows as replaced and counts none of them.
 """
 import os
 import re
@@ -63,12 +65,16 @@ def read_lines(rev):
 
 lines = read_lines(commit)
 shown = {}
+gone = set()   # D-WORKFLOW-210 (S1a, #1271): a file whose every write line a stream replaced
 if not commit.startswith(PIN):
     pin = read_lines(PIN)
     remap = {}
     for f in sorted(set(f for f, _ in pin) | set(f for f, _ in lines)):
         a_ = [l for g, l in pin if g == f]
         b_ = [l for g, l in lines if g == f]
+        if a_ and not b_:
+            gone.add(f)
+            continue
         if len(a_) != len(b_):
             print("FAIL t33-writes: %s has %d write lines at the pin and %d at %s" % (f, len(a_), len(b_), commit))
             sys.exit(1)
@@ -78,6 +84,8 @@ if not commit.startswith(PIN):
 fail = []
 rows = {(r[0], r[1]): r for r in ROWS}
 for k in rows:
+    if k[0] in gone:
+        continue
     if k not in lines:
         fail.append("a row names %s:%d, where no write matches" % k)
 for k in lines:
@@ -88,6 +96,8 @@ print("| --- | --- | --- | --- | --- | --- |")
 for f, l in lines:
     r = rows.get((f, l), (f, l, "?", "?", "?", "?", "?"))
     print("| `%s:%d` | %s | %s | %s | %s | %s |" % (f, shown.get((f, l), l), r[2], r[3], r[4], r[5], r[6]))
+for k in sorted(r for r in rows if r[0] in gone):
+    print("| `%s:%d` (the pin's line) | %s | **replaced at this commit**: written through `AtomicFile::writeText` | -- | -- | resolved by the stream |" % (k[0], k[1], rows[k][2]))
 live = sum(1 for f, l in lines if rows.get((f, l), (0,) * 4)[3] not in ("dead text", "dead inside `#if WIN32`"))
 print()
 print("generated, asserted: %d lines (%d live, %d dead) in %d files" % (len(lines), live, len(lines) - live, len(set(f for f, _ in lines))))

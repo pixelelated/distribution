@@ -27,6 +27,12 @@ from t33extract import function, run  # noqa: E402
 src = Path(sys.argv[1]).read_text()
 pugi = sys.argv[2]
 fn = function(src, r"^void updateGamelist\(SystemData\* system\)", "3.13")
+# S1a (D-WORKFLOW-211): the fixed file's write helper, extracted when present.
+helper = re.search(r"^static bool writeXmlDocument\(.*?^\}\n", src, re.S | re.M)
+fn = (helper.group(0) + "\n" if helper else "") + fn
+if "--control" in sys.argv and "Utils::FileSystem::exists(xmlReadPath)" not in fn:
+    print("CANNOT: --control rewrites the pin's lines, which this file no longer has (S1a: the default run is the positive)")
+    sys.exit(2)
 if "--control" in sys.argv:
     fn = fn.replace("Utils::FileSystem::exists(xmlReadPath)", "Utils::FileSystem::exists(xmlReadPath, false)")
     fn = fn.replace("!doc.save_file(WINSTRINGW(xmlWritePath).c_str())", "!(doc.save_file((xmlWritePath + \".tmp\").c_str()) && std::rename((xmlWritePath + \".tmp\").c_str(), xmlWritePath.c_str()) == 0)")
@@ -54,7 +60,11 @@ namespace Utils { namespace FileSystem {
     std::string resolveRelativePath(const std::string& p, const std::string& rel, bool) { return p.rfind("./", 0) == 0 ? rel + "/" + p.substr(2) : p; }
     std::string getParent(const std::string& p) { return p.substr(0, p.rfind('/')); }
     bool createDirectory(const std::string&) { return true; }
-} }
+    struct FileSystemCache { static void reset(const std::string& p) { gCache.erase(p); } };   // S1a, D-WORKFLOW-211
+}
+  namespace AtomicFile { bool writeText(const std::string& p, const std::string& t, int = -1) {   // S1a: temp and rename, as AtomicFileUtil.h:30-41
+    std::string tmp = p + ".tmp.t33"; { std::ofstream o(tmp, std::ios::binary); o << t; } return std::rename(tmp.c_str(), p.c_str()) == 0; } }
+}
 struct Settings { static bool IgnoreGamelist() { return false; } static bool HiddenSystemsShowGames() { return true; } };
 struct SystemData;
 struct MD { bool changed = false; bool wasChanged() { return changed; } };

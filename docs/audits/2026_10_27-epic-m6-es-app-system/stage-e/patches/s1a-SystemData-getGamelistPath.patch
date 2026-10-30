@@ -1,0 +1,16 @@
+--- a/es-app/src/SystemData.cpp
++++ b/es-app/src/SystemData.cpp
+@@ -1650,11 +1650,11 @@
+ 	std::string filePath;
+ 
+ 	filePath = mRootFolder->getPath() + "/gamelist.xml";
+-	if(Utils::FileSystem::exists(filePath))
++	if(Utils::FileSystem::exists(filePath, false))
+ 		return filePath;
+ 
+ 	std::string localPath = Paths::getUserEmulationStationPath() + "/gamelists/" + mMetadata.name + "/gamelist.xml";
+-	if (Utils::FileSystem::exists(localPath))
++	if (Utils::FileSystem::exists(localPath, false))
+ 		return localPath;
+ 
+ 	if (forWrite)

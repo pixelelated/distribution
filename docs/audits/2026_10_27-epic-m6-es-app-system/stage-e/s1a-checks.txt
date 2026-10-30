@@ -1,0 +1,30 @@
+# T33 S1a checks at ES d0d92dda6, 05:19:35Z
+
+## the stand-in syntax check over the edited .cpp
+es-app/src/Gamelist.cpp: rc 0
+rc=0
+
+## the generators, D-WORKFLOW-210 (the expectations the stream reverses), each with a drift run
+$ t33-reads.py <W> d0d92dda6 <paths> uncached=16
+generated, asserted: 83 lines, 86 calls, 16 uncached, in 11 files
+rc=0
+$ t33-reads.py <W> d0d92dda6 <paths> uncached=4
+generated, asserted: 83 lines, 86 calls, 16 uncached, in 11 files
+FAIL t33-reads: uncached 16, expected 4
+rc=1
+$ t33-writes.py <W> d0d92dda6 <paths> lines=7
+generated, asserted: 7 lines (5 live, 2 dead) in 6 files
+rc=0
+$ t33-writes.py <W> d0d92dda6 <paths> lines=11
+generated, asserted: 7 lines (5 live, 2 dead) in 6 files
+FAIL t33-writes: lines 7, expected 11
+rc=1
+
+## the getGamelistPath patch (T2's file, for the integration): stage-e/patches/s1a-SystemData-getGamelistPath.patch
+applies to the pin's SystemData.cpp (patch --dry-run); the patched scratch copy through the stand-in: es-app/src/SystemData.cpp: rc 0
+
+## read: PackGamelists defaults to false (es-core/src/Settings.cpp:209), so EP-2's clear before parse needed the setting on; SaveGamelistsOnExit defaults to true (:205)
+
+## non-ASCII in the added lines
+0
+## time to play: saveToXml writes the launch's %GAMEINFOXML% file (FileData.cpp:639): a temp file and one rename where there was a remove and a save; nothing else on the launch path
