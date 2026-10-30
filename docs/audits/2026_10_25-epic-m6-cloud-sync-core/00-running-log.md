@@ -187,3 +187,7 @@ time comes from `date -u`.
   - Each item's proposal is its last field. The bugs, the streams, #909, #1057, the ES slice and T13's harness are proposed, not filed, until the coordinator rules.
   - `05` is generated from one item list, so its sections, gate and index agree.
 - `tools/lint-audit-artifacts <this folder> --phase pre-issue`: `PASS pre-issue artifacts (does not certify resolution)`.
+- **The audit issue is #1295** (`Audit: M6 T16 the cloud sync core -- 25 findings (0 critical, 3 high)`, labels `audit` and `punch-list`, milestone `M6: Codebase renovation`), attached as a sub-issue of #663. It has 25 checkboxes; `tools/box-check --issue 1295`: 0 fail.
+  - `gh issue create` first failed with a GraphQL error (14:28:39Z). The issue list showed no issue made. It was created by the REST API instead, and read back (state, labels, milestone, 25 checkboxes).
+  - The push of `4853bdbd5c` first failed with `Permission denied (publickey)`. `ssh -T github-blitterbot` then authenticated, and the retry went through: a transient failure, not a key change.
+- `05` names #1295 in its opening. The generator reproduces the file byte for byte (`cmp`).

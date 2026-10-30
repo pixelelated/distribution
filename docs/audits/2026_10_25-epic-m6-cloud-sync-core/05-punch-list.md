@@ -1,6 +1,6 @@
 # Punch list (Phases 5 and 6) — M6.P2 T16, the cloud sync core (#663)
 
-There is one item per finding of `04` after both seats' grading (`04` § Second opinion), with the severities graded there. A seat's item that extends a finding sits under that finding's item; one that stands alone has its own. Every file of the 14 is the fork's own, so a defect is a `bug` with its trace and `Already written:` line (`04` § Q3), fixed only under a stream brief the coordinator writes. Each item's **Proposed** line is this lane's proposal; the coordinator's ruling goes in § Phase 7 resolution gate.
+The audit issue is #1295, a sub-issue of #663, with one checkbox per item. There is one item per finding of `04` after both seats' grading (`04` § Second opinion), with the severities graded there. A seat's item that extends a finding sits under that finding's item; one that stands alone has its own. Every file of the 14 is the fork's own, so a defect is a `bug` with its trace and `Already written:` line (`04` § Q3), fixed only under a stream brief the coordinator writes. Each item's **Proposed** line is this lane's proposal; the coordinator's ruling goes in § Phase 7 resolution gate.
 
 **Carried for the stream brief, not an item:** D-CLOUD-185 (#663, 2026-10-26 07:38Z). The twins' `RCLONE_NET_OPTS` split (`cloud_restore:1406-1411`, `cloud_backup:1367-1371`) takes the same allowlist, with T17's `tools/t17-content-fixture.py` as the model.
 
