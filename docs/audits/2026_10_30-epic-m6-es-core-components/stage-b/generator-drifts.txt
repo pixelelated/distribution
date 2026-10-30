@@ -62,3 +62,11 @@ ASSERT: L leads: 23; unanswered []; answered without a cell ['L-13']
 rc=1
 $ python3 -B -I tools/t34-leads.py (the brief)
 rc=0
+
+## t34-packet.py (the scan)
+$ T34_PACKET_DROP=VideoVlcComponent.cpp:866 python3 -B -I tools/t34-packet.py <W> <scratch>
+ASSERT: credential-shaped words with no class: [(11690, ('VideoVlcComponent.cpp', 866), "  866  \t\tfor (auto token : Utils::String::split(options, ' '))")]
+rc=1; written: 0 file(s)
+$ python3 -B -I tools/t34-packet.py <W> .qa-scratch/t34/packet-draft
+t34-packet: 507508 bytes, 12810 lines, 92 sources (1 docs), sha256 2b26c9671f986f03; forbidden-terms-check: 0 hits on stdin; 0 line(s) match; 93 credential-shaped word(s), each classed; 0 a value
+rc=0
