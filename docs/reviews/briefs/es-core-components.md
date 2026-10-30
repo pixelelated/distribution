@@ -1738,3 +1738,8 @@ restated lanes, the block preamble's second description of the heredoc,
 and the "Version 1" section, replaced by this one; the § 2 table, the
 L-table, the floor's table and the runs block are kept whole, each being
 the one copy the lane reads from.
+
+## Errata before dispatch (2026-10-30)
+
+- § 3 item 2 and § 10's register row name D-CLOUD-186, D-UI-128 and D-UI-129 as the highest rows; at the dispatch the highest decided row per area is read from the table at COHASH (D-CLOUD-187 exists since 2026-10-27; D-WORKFLOW-213 is this slice's ownership row, the § 1 rulings as one row), and the pointer's Register line is filled from that reading, never from this brief.
+- The slice is dispatched to the T3 session (`m6-t3-emulators`), free since T15's close-out of 2026-10-30; the T5 session takes T35 after T33. Where this brief or the pointer seed names the T5 session, this line governs.
