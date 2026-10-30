@@ -673,30 +673,39 @@ proved: tool-run (`stage-a/runs.out`; L-29).
 
 Stage A's runs are in `stage-a/runs.out` (brief § 5's block, each expectation met; the two errata accepted on #680 at 18:43 UTC) and `stage-a/syntax-check.out`.
 
-| Run | Figure | A FAIL would mean | Where |
-| --- | --- | --- | --- |
-| the scope | 77; 31 `.cpp`, 41 `.h`, 5 other | a path dropped or added since the brief | `stage-a/runs.out` |
-| the delta, three ways | `31 files changed, 2689 insertions(+), 7 deletions(-)` three times; 27 added; 4 modified; 72 commits, 68 non-merge | the bases disagree: the tiers would need two tables | `stage-a/runs.out` |
-| upstream's delta | 0 rc=1, 0 rc=1; 46 identical twice | merge debt this slice would owe | `stage-a/runs.out` |
-| the other lanes' deltas | T21 10/11/13 lines, T20 99/52; the rest empty | an unnamed collision at stage E | `stage-a/runs.out` |
-| the strings | 176 lines in 11 files, 223 calls; 196 msgids, 0 empty, 0 missing | an untranslated or missing msgid | `stage-a/runs.out`; `tools/t33-words.py` |
-| the French, both bases | `es-untranslated` 706/706 and 703/703, rc 0 | a fork string without French | `stage-a/runs.out` |
-| the reads | 83 lines, 86 calls, 4 uncached | a read the table does not name | `tools/t33-reads.py` |
-| the writes | 11 lines (9 compiled, 2 dead) | a writer the table does not name | `tools/t33-writes.py` |
-| the bounds | 4 http, 6 process, 4 waits; 1 bounded, 7 dead (EP-14: the log read is not bounded) | a wait the table does not name | `tools/t33-bounds.py` |
-| the library | 11 units, each cited caller line holding its call | a fact read off a moved line | `tools/t33-library.py` |
-| the helpers | 17 units in 27 files; 12 with a case, 7 built | a unit with a case nobody runs, unnamed | `tools/t33-helpers.py` |
-| the map | `55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing` rc 0 | an undeclared screen | `stage-a/runs.out` |
-| the compile | `es-syntax-check` rc 2 (no build root); plain `g++` rc 1 at `pugixml/src/pugixml.hpp`; the stand-in check 29/29 rc 0 | a class (a)-(d) file the host's g++ refuses | `stage-a/runs.out`, `stage-a/syntax-check.out` |
-| the include graph | (stage C) `t33-includes.py` | -- | stage C |
-| the unit build | (stage C) `t33-build-tests.sh`'s `TOTAL:` line, with `app-unit-tests` | -- | stage C |
-| the generators' drifts | each exits 1 on a wrong count and on a paths list with its file dropped | a generator that cannot fail | `stage-b/generators.txt` |
+| Run | Figure | rc | A FAIL would mean | Where |
+| --- | --- | --- | --- | --- |
+| the scope | 77; 31 `.cpp`, 41 `.h`, 5 other | -- | a path dropped or added since the brief | `stage-a/runs.out` |
+| the delta, three ways | `31 files changed, 2689 insertions(+), 7 deletions(-)` three times; 27 added; 4 modified; 72 commits, 68 non-merge | -- | the bases disagree: the tiers would need two tables | `stage-a/runs.out` |
+| upstream's delta | 0 commits, 0 numstat lines; 46 identical twice | 1, 1 (the empty result, as expected) | merge debt this slice would owe | `stage-a/runs.out` |
+| the other lanes' deltas | T21 10/11/13 lines, T20 99/52; the rest empty | -- | an unnamed collision at stage E | `stage-a/runs.out` |
+| the strings | 176 lines in 11 files, 223 calls; 196 msgids, 0 empty, 0 missing | 0 (`t33-words.py`) | an untranslated or missing msgid | `stage-a/runs.out`; `tools/t33-words.py` |
+| the dialogs and pages built | `new Gui` 10 in 3 files: 7 `GuiMsgBox`, 1 `GuiTextEditPopupKeyboard`, 1 `GuiTextEditPopup`, 1 `GuiLoading` | -- | a dialog whose buttons were not read in order | `stage-a/runs.out` |
+| the threads and the lifetimes | `std::thread` 9 lines in 6 files; 5 constructions, 3 `delete this` | -- | a worker whose owner is unnamed | `stage-a/runs.out` |
+| the posts | `postToUiThread` 7 lines in 3 files (`AppWindow.h` 1, `NetworkThread.cpp` 5, `SystemScreenSaver.cpp` 1) | -- | a post past the closing gate, unnamed | `stage-a/runs.out` |
+| the process starts | 6 lines: `CloudOffer.cpp:37`, and `Win32ApiSystem.cpp:314`, `:340`, `:1264` and `Win32ApiSystem.h:55`, `:56` (dead on every image) | -- | a script whose output nobody reads, unnamed | `stage-a/runs.out` |
+| the parses | `gamelist.xml` 6 lines in 3 files; the parse loop's own: `std::stoi(` 0, `std::stoul(` 0, `atoi(` 3 in 3 files, `toInteger(` 17 in 6, `atol(` 0, `strtol` 2 in 2, `strtoll` 1 in 1 | -- | a number read without a range, unnamed | `stage-a/runs.out` |
+| the French, both bases | `es-untranslated` 706/706 and 703/703 | 0, 0 | a fork string without French | `stage-a/runs.out` |
+| the tag names in the catalog | the pin: six `msgid` lines (po 717, 3576, 3579, 3582, 3585, 3588), none for IN PROGRESS, DROPPED or ON HOLD; the ES tip `f802c55c6`: nine (717, 3576, 3579, 3582, 3585, 3588, 3591, 3594, 3597) | -- | a tag a player reads in English (L-25) | `stage-a/runs.out`; `git show f802c55c6:locale/...` (S6) |
+| the non-ASCII comments | the pin: 0 files, the adjacency grep 0; the lines added from the pin to `f802c55c6`, outside the catalog: 0 | 1 (the adjacency grep's empty result) | an xgettext stop at the image build | `stage-a/runs.out`; `stage-e/handback-checks.txt` |
+| the reads | 83 lines, 86 calls, 4 uncached | 0; the drifts 1 | a read the table does not name | `tools/t33-reads.py`; `stage-b/generators.txt` |
+| the writes | 11 lines (9 compiled, 2 dead) | 0; the drifts 1 | a writer the table does not name | `tools/t33-writes.py`; `stage-b/generators.txt` |
+| the bounds | 4 http, 6 process, 4 waits; 1 bounded, 7 dead (EP-14: the log read is not bounded) | 0; the drifts 1 | a wait the table does not name | `tools/t33-bounds.py`; `stage-b/generators.txt` |
+| the library | 11 units, each cited caller line holding its call | 0; the drifts 1 | a fact read off a moved line | `tools/t33-library.py`; `stage-b/generators.txt` |
+| the helpers | 17 units in 27 files; 12 with a case, 7 built | 0; the drifts 1 | a unit with a case nobody runs, unnamed | `tools/t33-helpers.py`; `stage-b/generators.txt` |
+| the map | `55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing`; the filter rows' grep 0 | 0; 1 | an undeclared screen | `stage-a/runs.out` |
+| the compile | `es-syntax-check`: **CANNOT** (rc 2, `no build root at /nonexistent (ES_BUILD_ROOT, --root)`, #1137); plain `g++` stops at `pugixml/src/pugixml.hpp`; the stand-in 29/29 at the pin, and the 14 `.cpp` edited at stage E at the tip | 2; 1; 0 | a class (a)-(d) file the host's g++ refuses | `stage-a/runs.out`, `stage-a/syntax-check.out`, `stage-e/handback-checks.txt` |
+| the include graph | inbound 150 include lines from 66 files outside the slice; outbound 380; `es-core edges 134 of 380` | 0; the drift 1 | an edge the table does not name | `stage-c/includes.out:50-56` |
+| the unit build | `TOTAL: 239 test cases in 5 binaries` at the pin; `TOTAL: 245 test cases in 5 binaries` at the ES tip `f802c55c6`; 0 failed in every binary at both | 0 | a case that fails, or one built nowhere | `stage-c/build-pin.txt`; `stage-e/handback-checks.txt` |
+| the generators' drifts | each exits 1 on a wrong count and on a paths list with its file dropped | 1 each, by design | a generator that cannot fail | `stage-b/generators.txt` |
+
+`--` in the rc column: `runs.out`'s block printed the figure and no rc, and the figure met the brief's expectation. No per-command wall time was recorded, so the rc column stands for it.
 
 ## The guest cycle
 
 One window, planned in `stage-b/window-plan.md` (brief § 5 item 2): 25 minutes plus 5 of grace, for a plan of 1,260 s.
 
-Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6451000093). The guest was stopped by `tools/vm-stop` on its pidfile at 19:14:06 UTC (rc 0), 13 minutes into the 25. The image is M7's composition, so every frame below is `image`. Records and frames are under `guest-cycle/`.
+Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6451000093). RETURN 19:15:07 UTC (comment 6451273341, posted at 19:15:08), with its census: qemu 0, compilers 0. The window's lines in the shared host file were lost with `/tmp` at the 2026-10-28 reboot (the file was then `/tmp/m7-m6-host-coordination-20261023.txt`), so the START and RETURN posts are the record. The guest was stopped by `tools/vm-stop` on its pidfile at 19:14:06 UTC (rc 0), 13 minutes into the 25. The image is M7's composition, so every frame below is `image`. Records and frames are under `guest-cycle/`.
 
 | G | Result | proved: |
 | --- | --- | --- |

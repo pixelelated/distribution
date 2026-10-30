@@ -87,6 +87,8 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
 - **The packet** (`stage-c/packet.py`, T32's adapted): 201 sections, 539,134 bytes, sha256 in `second-opinions/packet-manifest.json`. The forbidden-terms check found 0 sections with hits and was proven to run on a clean line. `SECRET_PATTERNS` found 0 lines and was proven to fire on a run-time fake. The words scan left 0 for review: 35 code hits and 4 prose hits were dispositioned by `(file, line)` after a masked read. 6,399 of 16,276 slice lines were sent, 29 files whole. `astra-brief.md` is the packet.
 - **Keyed call 1 of 2, the probe** (19:31:25 to 19:31:43 UTC, rc 0): `READY unknown`, served `openai/gpt-6-astra` by OpenAI at `max`; identity, effort and provider verification PASS.
 - **Keyed call 2 of 2, the refutation** (19:41:52 to 20:01:31 UTC, rc 0): served `openai/gpt-6-astra` by OpenAI at `max`; identity, effort and provider verification PASS; 167,998 prompt tokens and 43,931 completion tokens. **Exactly two keyed invokes, and no others.**
+- **The council runtime:** `npm install --offline` in `tools/council` at 19:30:56 UTC on 2026-10-27, rc 0. `node_modules` was absent before it, and it was installed from the local cache; npm's only notes were its install-scripts warning for `esbuild`'s postinstall, which did not run. No network fetch.
+- **Every council call but the seat's two ran with `COUNCIL_ENV_FILE=/nonexistent`:** `tools/council/run efforts` and `tools/council/run invoke --help`, at 19:31:13 UTC. The two keyed invokes are the probe and the refutation above (`stage-c/keyed-calls.txt`). The keyless calls were read back from the session's own transcript at the close-out (2026-10-30), since no file recorded them at the time.
 - **The grades** (`stage-c/astra-grades.md`): 47 items, all accepted, each checked at the pin's lines.
   - **Corrections to this reader, fixed in place:**
     - L-06's bundle route is not established (EP-5);
@@ -225,3 +227,4 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
   - #1270 is closed as completed (19:25:59Z). `tools/write-completion.py` wrote `audit-completion.json`, `tracker-completion.json` and `tracker-final-readback.json` from its readback: 26 ticked, 0 open, completed_at 19:26:08Z.
   - The lint passes both ways, and `ceremony-check` reads the audit marker `ok`.
   - The pointer is idle.
+- **The closing census**, the RETURN line on `/workspace/tmp/m7-m6-host-coordination.txt` at 2026-10-30T14:40:02Z, quoted in the hand-back (#680 comment 6525454771): cc1plus 0, qemu 0. No runtime reservation was held at stage E, and the guest window of 2026-10-27 returned at 19:15:07 with qemu 0 and compilers 0 (comment 6451273341).
