@@ -17,7 +17,8 @@
 
 ## Current focus
 
-**Idle. T33 is complete (2026-10-30); nothing runs and nothing is owed by this lane.**
+**Idle. T33 is ACCEPTED at `077393ef23` (#680 comment 6532606694, 2026-10-30): the 21 criteria are ticked and #1270 is closed. Nothing runs and nothing is owed by this lane.**
+- **Next for this session:** T35 (#682), when its brief reaches version 2.
 - **Accepted** on #680 (comment 6525576831). #1270 is closed as completed at 19:25:59Z, and `audit-completion.json` is written from its readback by `tools/write-completion.py`. The lint passes both ways.
 - **The tips:** ES `f802c55c6` on `feature/m6-es-app-system-680` (pixelelated/emulationstation); distribution: this branch's close-out commit, posted on #680.
 - **Left to others:**
@@ -81,6 +82,7 @@ granted window.
 
 ## Checkpoints
 
+- accepted, 2026-10-30: T33 accepted at `077393ef23` (#680 comment 6532606694); the 21 criteria ticked; the pointer idle
 - close-out, 2026-10-30 19:2x UTC: #1270 closed as completed; `audit-completion.json` from its readback; the lint both ways PASS; the pointer idle
 - hand-back, 2026-10-30 14:3x UTC: stage F `e3cb92c7d6`. `05` at Phase 7 (23/3), the lint PASS, #1270 26 of 26 ticked, the 22 bugs' `fixed-at-es`, the retro `docs/retros/2026-10-30-m6-es-app-system.md`, `stage-e/handback-checks.txt` (`TOTAL: 245 test cases in 5 binaries`, 30 runs 0 unexpected), then the coordinator's branch merged and the post on #680
 - stage E, 2026-10-30 05:19-09:54 UTC: S1a to S7 landed (ES `d0d92dda6` to `f802c55c6`; S7 distribution `75f696b22d`), one checkpoint each on #680; two usage-limit pauses (05:41, 09:56)
