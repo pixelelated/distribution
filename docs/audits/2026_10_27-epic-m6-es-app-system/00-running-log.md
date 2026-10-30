@@ -204,3 +204,9 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
   - #1270's 26 checkboxes are ticked from the Phase 7 table, and `box-check --issue 1270` reads 0 open and 0 fail.
   - The 22 bugs carry `fixed-at-es: f802c55c6` with their stream's commit (22 of 22 read back), and `box-check` reads 0 fail on each.
   - The retro is `docs/retros/2026-10-30-m6-es-app-system.md`; the pointer and the work log are at the hand-back.
+- **14:45 UTC, at acceptance (the coordinator's 14:42 ruling, #680 comment 6525495300): PL-25 filed as #1305.**
+  - The body carries its code trace, `Already written:` nothing inherited, and `stage-c/pl25-screensaver.py` as its VM line. Medium is proposed from the trace: a crash reachable only with a non-default screensaver over a match that removes ROMs.
+  - `box-check --issue 1305` reads 0 fail.
+  - `02` § The merge debt names #1305, with `SystemData.cpp`'s half for the integration and `Window.cpp`'s for T35. § The streams' recorded line and #585 line 21 name it too.
+  - `05`: PL-25 is Medium, its bug is #1305, and its Phase 7 row is Deferred: #1305. The lint reads PASS.
+  - #1270's PL-25 row carries the bug; `box-check` reads 0 fail.

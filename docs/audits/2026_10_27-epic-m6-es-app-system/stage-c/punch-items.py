@@ -376,8 +376,10 @@ RES = {
  "PL-22": ("Resolved", "Resolved in `4e9a7d166` (ES, S2) under #1287: `clearIndex` by reference (`resetIndex` `:148-162`, corrected); a #585 line"),
  "PL-23": ("Resolved", "Resolved in `b902cc8ba` (ES, S4a) under #1288: the answer applied only to the credentials it was asked with and only while the switch is on; the save tests the switch and the account; no generation (ruling 5: sameacct passes)"),
  "PL-24": ("Resolved", "Resolved in `a5273390e` (ES, S4b) under #1289: the turns cached only after a checked write; the record known by mtime to the nanosecond, size and inode"),
- "PL-25": ("Deferred", "Deferred: #585 -- a lead for the rescan's owner (T2, #649) and es-core's `Window.cpp`: the list is not cleared on the transfer's rescan, `stage-c/pl25-screensaver.py` FAILs at the pin and the tip (`stage-e/pl25-read.txt`); severity the coordinator's word"),
+ "PL-25": ("Deferred", "Deferred: #1305 -- filed at acceptance on the coordinator's ruling (#680 comment 6525495300), Medium proposed: the list is not cleared on the transfer's rescan, `stage-c/pl25-screensaver.py` FAILs at the pin and the tip (`stage-e/pl25-read.txt`); the fix is the integration's (`SystemData.cpp`, a `stage-e/` patch for T2's file) and T35's (`Window.cpp`); #585 line 21"),
  "PL-26": ("Deferred", "Deferred: #585 -- recorded, line 18 of `02`'s stage-E table"),
 }
 for i in ITEMS:
     i["res"] = RES[i["id"]]
+I["PL-25"]["bug"] = "#1305 (filed 2026-10-30 at acceptance, with its code trace; the coordinator's ruling, #680 comment 6525495300)"
+I["PL-25"]["sev"] = "Medium"   # raised from Low at acceptance: #1305's trace (a reachable heap-use-after-free), the coordinator's ruling 6525495300

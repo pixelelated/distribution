@@ -501,7 +501,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 
 ## PL-25: the screensaver keeps `FileData` pointers the rescan does not retire (a lead; upstream's screensaver, outside the lanes)
 
-- **Severity:** Low
+- **Severity:** Medium
 - **Category:** Correctness
 - **Question:** Q1
 - **Family:** a lifetime or a thread
@@ -516,6 +516,7 @@ Written by the first reader (Opus 5.5) at stage C, and rendered by `tools/t33-05
 - **Acceptance:**
   - [ ] A read of the rescan's invalidation paths names whether the screensaver's list is cleared (`stage-e/`), and a fixture follows if it is not.
 - **Disposition (proposed for the stage-D pause):** question: recorded as a lead for the rescan's owner?
+- **Bug:** #1305 (filed 2026-10-30 at acceptance, with its code trace; the coordinator's ruling, #680 comment 6525495300)
 
 ## PL-26: a mouse-only key map loads and saves but is called invalid (recorded; upstream's, outside the lanes)
 
@@ -565,7 +566,7 @@ Stage E's hand-back, 2026-10-30: every item at its outcome, the table and the in
 | PL-22 | Resolved | Resolved in `4e9a7d166` (ES, S2) under #1287: `clearIndex` by reference (`resetIndex` `:148-162`, corrected); a #585 line |
 | PL-23 | Resolved | Resolved in `b902cc8ba` (ES, S4a) under #1288: the answer applied only to the credentials it was asked with and only while the switch is on; the save tests the switch and the account; no generation (ruling 5: sameacct passes) |
 | PL-24 | Resolved | Resolved in `a5273390e` (ES, S4b) under #1289: the turns cached only after a checked write; the record known by mtime to the nanosecond, size and inode |
-| PL-25 | Deferred | Deferred: #585 -- a lead for the rescan's owner (T2, #649) and es-core's `Window.cpp`: the list is not cleared on the transfer's rescan, `stage-c/pl25-screensaver.py` FAILs at the pin and the tip (`stage-e/pl25-read.txt`); severity the coordinator's word |
+| PL-25 | Deferred | Deferred: #1305 -- filed at acceptance on the coordinator's ruling (#680 comment 6525495300), Medium proposed: the list is not cleared on the transfer's rescan, `stage-c/pl25-screensaver.py` FAILs at the pin and the tip (`stage-e/pl25-read.txt`); the fix is the integration's (`SystemData.cpp`, a `stage-e/` patch for T2's file) and T35's (`Window.cpp`); #585 line 21 |
 | PL-26 | Deferred | Deferred: #585 -- recorded, line 18 of `02`'s stage-E table |
 
 ```yaml
@@ -715,7 +716,7 @@ punch_index:
   source_finding: "EP-40, EP-41, L-03"
   outcome: "resolved"
 - id: PL-25
-  severity: "Low"
+  severity: "Medium"
   category: Correctness
   question: Q1
   source_finding: "EP-38, EP-8"

@@ -666,7 +666,7 @@ proved: tool-run (`stage-a/runs.out`; L-29).
 - **`es-core/src/watchers/WatchersManager.cpp`** (es-core): no patch. S4a's worker removes the network call from `check()`; the lock's shape is recorded for the es-core slice (#585 line 20).
 - **`ViewController.*`** (T2's): the pair S2 calls (`dropGameListView`, `remakeGameListView`), unchanged.
 - **`es-app/CMakeLists.txt` and `WifiText.*`** (T21's): untouched here.
-- **`SystemData.cpp:459-473`, `Window.cpp:1107-1117`:** PL-25's lead, no patch (#585 line 21).
+- **#1305 (PL-25), `SystemData.cpp:378-512` and `Window.cpp:1107-1117`:** filed at acceptance on the coordinator's ruling (#680 comment 6525495300). The rescan must empty the screensaver's game list before `vanished` deletes. `SystemData.cpp`'s half is a `stage-e/` patch for the integration (T2's file, closed); `Window.cpp`'s half goes to T35's brief. The proof is `stage-c/pl25-screensaver.py` (#585 line 21).
 - **The catalog** (`locale/lang/fr/LC_MESSAGES/emulationstation2.po`): S3, S4b and S6 add 6 entries, the KEY sentence, the CloudOffer sentence and the lock's why, and the three tags. Any other lane's catalog hunk meets them by msgid, beside SLOW's and beside the cloud box's entries.
 
 ## The runs
@@ -739,7 +739,7 @@ Stage E, under the coordinator's brief `docs/reviews/briefs/t33-streams.md` at `
 A handheld is slower by a factor the host cannot know. The harness's AtomicFile double does not fsync, and the real `writeText` fsyncs the file and its directory, so that cost is not priced here. The exit save runs at QUIT and restart and from `/updategames`, not on the launch path. Time to play: only S1a's `saveToXml` touches the launch path, with one `rename(2)` where there was a remove and a save.
 
 **Recorded, no stream (the brief's § Recorded):**
-- **PL-25 has a fixture.** The screensaver's list is not cleared on the transfer's rescan path, and `stage-c/pl25-screensaver.py` FAILs at the pin and at the tip (heap-use-after-free in the next pick). Its read is `stage-e/pl25-read.txt`. It is a lead for the rescan's owner, T2's `SystemData.cpp`, and es-core's `Window.cpp`; severity is the coordinator's word.
+- **PL-25 has a fixture and a bug, #1305.** The screensaver's list is not cleared on the transfer's rescan path, and `stage-c/pl25-screensaver.py` FAILs at the pin and at the tip (heap-use-after-free in the next pick). Its read is `stage-e/pl25-read.txt`. Filed at acceptance on the coordinator's ruling, Medium proposed. The fix is the integration's (`SystemData.cpp`) and T35's (`Window.cpp`); see § The merge debt.
 - **PL-20** goes to Backlog #1235 and **PL-18's 3.20 sibling** to #771, both by comment (`stage-e/comment-links.md`).
 - **PL-14's update check** is not moved: `canUpdate` returns for `pixelelated` at `ApiSystem.cpp:455-456`. Together with the lock's own shape, it is recorded for the es-core slice, and #1283 keeps that checkbox open. **PL-23's generation** is not needed: the sameacct case passes.
 - **The two gaps** are open items to test at the integration window: the French frames (S6) and the index toast with INDEX NEW GAMES on (G-03's half).
@@ -801,7 +801,7 @@ Q7's six candidates, for the coordinator to weigh. These are what the slice carr
 | 18 | the same, recorded | `KeyboardMapping.cpp:499-509` | PL-26: a mouse-only map called invalid | PL-26 |
 | 19 | the same, recorded | `PlatformId.cpp:28`, `:171`; `MetaData.cpp:313`, `:392-404`; `FileFilterIndex.cpp:579-580`; `Gamelist.cpp:177`; `LangParser.cpp:225-226`; `SystemRandomPlaylist.cpp:28-30` | PL-18's rest: 3.1, 3.3's prefix, 3.4, 3.10's aside, 3.14, 3.32, 3.34 | `stage-c/floor.md` |
 | 20 | ROCKNIX's es-core, then batocera | `es-core/src/watchers/WatchersManager.cpp:181-199` | `check()` outside `mWatchersLock`, the `WatcherInfo` kept alive across it (EP-13) | S4a's record |
-| 21 | T2's slice first (`SystemData.cpp`), then upstream | `SystemData.cpp:459-473`, `Window.cpp:1107-1117` | PL-25: the rescan tells the screensaver before it deletes | `stage-c/pl25-screensaver.py`, `stage-e/pl25-read.txt` |
+| 21 | T2's slice first (`SystemData.cpp`), then upstream | `SystemData.cpp:459-473`, `Window.cpp:1107-1117` | PL-25 (#1305): the rescan tells the screensaver before it deletes | `stage-c/pl25-screensaver.py`, `stage-e/pl25-read.txt` |
 
 The fork's own files carry no #585 line: `NetworkThread.*`, `OfflineAchievementsText.*`, `RunLock.h`, `CloudOffer.cpp`, `CaptureRotation.cpp`, `TextFit.h` and `DisplayAspect.cpp`. PL-19's `CaptureRotation.cpp:146-163` (EP-14, the log read with no size bound) and `DisplayAspect.cpp:74-87` (L-04) are recorded against the integration image's time to play.
 
