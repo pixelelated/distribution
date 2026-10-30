@@ -1,0 +1,28 @@
+# S4a after (#680; #1276, #1288, #1283) -- 2026-10-30T09:30:17Z, ES b902cc8ba
+
+$ python3 -I stage-c/l12-network-posts.py <W>/NetworkThread.cpp <W>/AppWindow.h
+NetworkThread.cpp: 0 direct post(s) at -; 5 through AppWindow::post
+after closing(): the direct post queued (1 task(s) no loop will run); AppWindow::post refused
+rc=0
+
+$ ... --control   (D-WORKFLOW-211: guarded CANNOT once its rewrite targets are gone)
+CANNOT: --control rewrites the pin's lines, which this file no longer has (S4a: the default run is the positive)
+rc=2
+
+$ python3 -I stage-c/s4a-token-check.py <W>/es-app/src
+extracted: the class, 8 member(s) (enabled, ~CheckCheevosTokenComponent, joinWorker, check, takeSignIn, startSignIn, applySignIn, setOnline), the token branch, droppedAfterClosing
+PASS switchoff (i) PL-23: sign-in entered yes; token writes after the page's change: none; stored token ""
+PASS account (ii) PL-23: sign-in entered yes; token writes after the page's change: tok-carol; stored token "tok-carol"; the drop logged
+PASS sameacct ruling 5: sign-in entered yes; token writes after the page's change: tok-erin; stored token "tok-erin" (a fresh check writes tok-erin)
+PASS reset (iii) PL-14: sign-in entered yes; ResetComponent waited 0 ms; the latch still held when it returned
+PASS closing (iv) EP-7: after closing(): 0 task(s) queued that no loop will run; the drop logged
+rc=0
+
+$ python3 -I stage-c/s4a-token-check.py <W>/es-app/src --tsan
+extracted: the class, 8 member(s) (enabled, ~CheckCheevosTokenComponent, joinWorker, check, takeSignIn, startSignIn, applySignIn, setOnline), the token branch, droppedAfterClosing
+PASS switchoff (i) PL-23: sign-in entered yes; token writes after the page's change: none; stored token ""
+PASS account (ii) PL-23: sign-in entered yes; token writes after the page's change: tok-carol; stored token "tok-carol"; the drop logged
+PASS sameacct ruling 5: sign-in entered yes; token writes after the page's change: tok-erin; stored token "tok-erin" (a fresh check writes tok-erin)
+PASS reset (iii) PL-14: sign-in entered yes; ResetComponent waited 0 ms; the latch still held when it returned
+PASS closing (iv) EP-7: after closing(): 0 task(s) queued that no loop will run; the drop logged
+rc=0

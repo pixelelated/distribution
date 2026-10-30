@@ -154,3 +154,10 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
   - **Stand-in:** five `.cpp` rc 0.
   - **PL-12's toast patch** for T31's `GuiKeyMappingEditor.cpp` is in `stage-e/patches/`; the patched scratch copy is rc 0.
   - **#1291's `Already written:`** takes ruling 3's sentence, edited with S3's checkpoint.
+- **S4a, 09:30 UTC (ES `b902cc8ba`; #1276, #1288, #1283)** -- resumed after the 05:41 usage-limit pause (#680 comment 6515896420).
+  - **The fixture** `stage-c/s4a-token-check.py` (new) extracts the token component, the token branch and the helper as each tree has them, over doubles with the pin's lock shape. At the pin, `switchoff`, `account`, `reset` and `closing` FAIL; `sameacct` PASSes. `l12` FAILs at the pin with 5 direct posts. All of these are in `stage-e/s4a-before.txt`.
+  - **After:** all five PASS under ASan and under TSan. `l12` reads `0 direct post(s) at -; 5 through AppWindow::post`, and its `--control` is guarded `CANNOT`. `ResetComponent` waited 0 ms, against 1999 ms at the pin.
+  - **The brief's worker, changed:** there is no `ResetComponent` from the worker (the deadlock posted at 05:41). The component polls at 1000 ms while a sign-in is out, and a function-local static joins the worker before HttpReq's statics go.
+  - **PL-23's test** adds the password, so a page's check for the same account after a password edit is not absorbed by the sign-in in flight. Ruling 5: no generation patch.
+  - **Ruling 7:** the update check is not moved, because `canUpdate` returns for `pixelelated` at `ApiSystem.cpp:455-456`. It is recorded for the es-core slice, and #1283 keeps that checkbox open.
+  - **Checks:** generators unchanged (18, 5, 197); stand-in rc 0; pre-push-test PASS.

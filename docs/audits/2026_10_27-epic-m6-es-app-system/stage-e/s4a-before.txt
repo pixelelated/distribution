@@ -1,0 +1,22 @@
+# S4a before (#680; #1276, #1288, #1283) -- 2026-10-30T09:27:37Z, the pin's NetworkThread.cpp/.h (byte-equal to the ES branch's at S3's 0b369b44b: diff empty)
+
+$ python3 -I stage-c/l12-network-posts.py <pin>/NetworkThread.cpp <pin>/AppWindow.h
+NetworkThread.cpp: 5 direct post(s) at :206, :237, :251, :257, :266; 0 through AppWindow::post
+after closing(): the direct post queued (1 task(s) no loop will run); AppWindow::post refused
+FAIL L-12: 5 NetworkThread post(s) bypass the closing gate
+rc=1
+
+$ python3 -I stage-c/l12-network-posts.py ... --control
+NetworkThread.cpp: 0 direct post(s) at -; 5 through AppWindow::post
+after closing(): the direct post queued (1 task(s) no loop will run); AppWindow::post refused
+rc=0
+
+$ python3 -I stage-c/s4a-token-check.py <pin>   (the stub against the unfixed code)
+extracted: the class, 3 member(s) (enabled, check, setOnline), the token branch
+FAIL switchoff (i) PL-23: sign-in entered yes; token writes after the page's change: tok-alice; stored token "tok-alice"
+FAIL account (ii) PL-23: sign-in entered yes; token writes after the page's change: tok-bob; stored token "tok-bob"; no drop logged
+PASS sameacct ruling 5: sign-in entered yes; token writes after the page's change: tok-erin; stored token "tok-erin" (a fresh check writes tok-erin)
+FAIL reset (iii) PL-14: sign-in entered yes; ResetComponent waited 1999 ms; the latch already let go when it returned
+FAIL closing (iv) EP-7: after closing(): 1 task(s) queued that no loop will run; the drop not logged
+FAIL S4a: 4 case(s)
+rc=1

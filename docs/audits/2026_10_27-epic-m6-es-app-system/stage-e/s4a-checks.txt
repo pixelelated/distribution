@@ -1,0 +1,28 @@
+# T33 S4a checks at ES b902cc8ba, 09:30:19Z
+
+es-app/src/NetworkThread.cpp: rc 0
+rc=0
+
+## generators (D-WORKFLOW-210): S4a moves none (no write line, no uncached read, no msgid; the new log lines are not _())
+$ t33-reads.py <W> b902cc8ba <paths> uncached=18
+generated, asserted: 83 lines, 86 calls, 18 uncached, in 11 files
+rc=0
+$ t33-writes.py <W> b902cc8ba <paths> lines=5
+generated, asserted: 5 lines (3 live, 2 dead) in 4 files
+rc=0
+$ t33-words.py <W> b902cc8ba <paths> msgids=197
+generated, asserted: 177 lines, 224 calls, 197 distinct msgids in 12 files; 0 with an empty French msgstr, 0 with no msgid
+rc=0
+
+## the ES .githooks/pre-push-test at b902cc8ba: PASS (rc 0), then pushed: origin/feature/m6-es-app-system-680 = b902cc8badef3e4b5731ddcb00479fdbbd52bdf5
+## non-ASCII in the added .cpp/.h lines: 0
+## the brief's worker, changed (posted on #680 at 05:41Z, comment 6515896420): the worker never calls WatchersManager::ResetComponent. WatchersManager::run calls check() and NotifyComponentChanged under mWatchersLock (WatchersManager.cpp:181-199); a worker taking that lock while check() joins it under the same lock is a deadlock. Instead updateTime() returns SignInPollMs (1000 ms, the run loop's own wake, :170) while a sign-in is out, and check() joins only a worker that has left its answer (takeSignIn reads mWorkerExited before the answer).
+## PL-23's tests: the brief's account and switch, plus the password: a page that changes the password for the same account asks for a check (GuiRetroAchievementsSettings.cpp:805-806); at the pin that check ran after the one in flight (ResetComponent waited, then set the time), and with the worker the in-flight answer would otherwise absorb it. A dropped answer asks the current credentials at once.
+## ruling 5: no generation. sameacct PASSes at the pin and after: a switch off and on again for the same account writes tok-erin, the value a fresh check writes. No patch for GuiRetroAchievementsSettings.cpp:795-796.
+## (iii)'s bound: ResetComponent from a second thread returned in 0 ms on the host (ASan and TSan runs), the latch still held; at the pin it waited 1999 ms, the latch's own 2 s.
+## exit: at the pin WatchersManager::stop() (main.cpp:1330) takes mWatchersLock in its destructor and so waits for a sign-in in flight under check(), bounded by the request's 10 s connect and no stall bound (ruling 6's words for the same request). After the fix stop() waits for a quick pass; the worker is joined by a function-local static in startSignIn, made at the first sign-in after HttpReq's namespace statics (HttpReq.cpp:19-23: mMutex, s_multi_handle, s_requests a std::map) and so destroyed before them. The exit's wait for an in-flight sign-in moves from stop() to the static teardown, the same bound; NetworkThread is never deleted (main.cpp:898), so the destructor's join is not that path.
+## the update check (ruling 7): not moved. ApiSystem::canUpdate (ApiSystem.cpp:451-456) returns false for OS_NAME pixelelated before popen("rocknix-update check"), so on this distribution CheckUpdatesComponent::check holds mWatchersLock for a name comparison; an upstream build runs the script under the lock. Recorded for the es-core slice with the lock's shape (02); #1283 keeps that checkbox open. The pads check (a local script) stays.
+## the update toast (NetworkThread.cpp OnWatcherChanged's first branch): mWindow->displayNotificationMessage, not a post; a push under the window's mNotificationMessagesLock (Window.cpp:311-321) into a window that outlives WatchersManager::stop() (main.cpp:1322-1330, the window a local of main); a toast dropped at exit is nothing to repeat. Not one of l12's five; left as it is, recorded.
+## drain policy: in the file's comment at droppedAfterClosing; logged once.
+## guest half: G-09 stays CANNOT (no account, D-QA-016); the fixture is the proof.
+## time to play: not on the launch path (the watchers' thread and its worker).

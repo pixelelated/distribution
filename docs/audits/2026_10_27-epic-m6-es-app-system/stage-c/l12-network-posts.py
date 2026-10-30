@@ -25,6 +25,9 @@ from t33extract import run  # noqa: E402
 
 src = Path(sys.argv[1]).read_text()
 hdr = Path(sys.argv[2]).read_text()
+if "--control" in sys.argv and "mWindow->postToUiThread(" not in src:
+    print("CANNOT: --control rewrites the pin's lines, which this file no longer has (S4a: the default run is the positive)")
+    sys.exit(2)
 if "--control" in sys.argv:
     src, n = re.subn(r"mWindow->postToUiThread\(", "AppWindow::post(mWindow, ", src)
     assert n == 5, n
