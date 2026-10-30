@@ -41,7 +41,7 @@ No guest, build, fetch or keyed call before the grant.
 - `tools/t34-build-tests.sh`, with the seven FAIL-at-pin cases first, and the stand-in syntax check over the 37;
 - the pre-issue lint.
 
-**Pushing:** \`git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push <https URL> <branch>\` while the SSH agent is absent.
+**Pushing:** `git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push <https URL> <branch>` while the SSH agent is absent.
 
 ## Earlier focus (seeded): not started
 
