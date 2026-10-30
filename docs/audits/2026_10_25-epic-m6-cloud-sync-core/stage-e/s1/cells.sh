@@ -23,6 +23,7 @@ mk legacy-SYNCPATH "$(printf 'SAVES_REMOTE="/pixelelated/Saves"\nSYNCPATH="/GAME
 mk legacy-SYNCPATH_BACKUP "$(printf 'SETTINGS_REMOTE="/pixelelated/Backups"\nSYNCPATH_BACKUP="/GAMES/backup"')" 0
 mk legacy-CONTENTPATH "$(printf 'CONTENT_REMOTE="/pixelelated/Content"\nCONTENTPATH="/GAMES"')" 0
 mk legacy-RESTOREPATH 'RESTOREPATH="/storage/roms"' 0
+mk legacy-LAYOUT_KEEP 'LAYOUT_KEEP="/pixelelated/Saves"' 0
 cat > "${D}/keys.sh" <<'EOD'
 for f in cloud_backup cloud_restore cloud_sync_helper; do sed -n '/^conf_valid() {/,/^}/p' "/usr/bin/${f}" > "/tmp/cv-${f}"; done
 echo "-- the three conf_valid bodies: cloud_backup $(wc -l < /tmp/cv-cloud_backup) lines; cmp restore $(cmp -s /tmp/cv-cloud_backup /tmp/cv-cloud_restore && echo same || echo DIFFERS); cmp helper $(cmp -s /tmp/cv-cloud_backup /tmp/cv-cloud_sync_helper && echo same || echo DIFFERS)"

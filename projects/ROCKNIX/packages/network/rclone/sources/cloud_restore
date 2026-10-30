@@ -1222,9 +1222,12 @@ conf_valid() {
             # keys the helper renamed (migrate_key) and RESTOREPATH, admitted as known
             # legacy keys read by nothing but the refusal RESTOREPATH has of its own, so a conf
             # the helper could not rewrite is not refused for them (D-CLOUD-189,
-            # 2026-10-30; their removal is #1297). Never the value in the reason.
+            # 2026-10-30; their removal is #1297). LAYOUT_KEEP likewise: the
+            # retired cloud_migrate_layout --keep wrote it on images of
+            # 2026-10-01 to 10-08 (48c2df30a9 to e6645cb5ea), and nothing reads it
+            # now. Never the value in the reason.
             if (key !~ /^(SAVESPATH|SETTINGS_BACKUPS|SAVES_REMOTE|SETTINGS_REMOTE|CONTENT_REMOTE|LOG_LEVEL|RCLONEOPTS|RCLONE_NET_OPTS|RCLONE_SYNC_NET_OPTS|SYNC_CEILING_SECONDS|BACKUPMETHOD|CLOUD_BACKUP_KEEP|BACKUPFILE_BACKUP_OPTION|RESTOREMETHOD|BACKUPFILE_RESTORE_OPTION|RSYNCRMDIR)$/ \
-                && key !~ /^(BACKUPPATH|BACKUPFOLDER|SYNCPATH|SYNCPATH_BACKUP|CONTENTPATH|RESTOREPATH)$/) bad("a key the fork does not document (" key ")")
+                && key !~ /^(BACKUPPATH|BACKUPFOLDER|SYNCPATH|SYNCPATH_BACKUP|CONTENTPATH|RESTOREPATH|LAYOUT_KEEP)$/) bad("a key the fork does not document (" key ")")
             c = substr(s, i, 1)
             if (c == "\"") {
                 j = dq(s, i + 1)

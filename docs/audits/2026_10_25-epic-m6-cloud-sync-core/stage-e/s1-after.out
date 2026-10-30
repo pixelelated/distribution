@@ -1,14 +1,14 @@
-== T16 host lead S1 conf_valid's allowlist -- 2026-10-30T20:08:04Z
+== T16 host lead S1 conf_valid's allowlist -- 2026-10-30T20:22:15Z
 donor root: /workspace/artifacts/m6-donor/1a0266484423/image/system (BUILD_ID 1a0266484423); sha256sum -c ../../SHA256SUMS:
   usr/bin/busybox: OK
   usr/bin/rclone: OK
   etc/os-release: OK
-the scripts and /usr/config: /workspace/tmp/m6-t16/hl/root-s1 (tree), 9 of 12 sha256-equal to the guest's installed bytes at 8ebaf8daad (guest-cycle/installed.sha256)
+the scripts and /usr/config: /workspace/tmp/m6-t16/hl/root-s1b (tree), 9 of 12 sha256-equal to the guest's installed bytes at 8ebaf8daad (guest-cycle/installed.sha256)
 from the donor: busybox v1.36.1 (146 applet links), rclone v1.75.2
 host stand-ins (not in the donor): bash 5.3.9(1)-release (image: 5.3), timeout (GNU coreutils) 9.7 (image: 9.4), grep (GNU grep) 3.12 (image: 3.9), python3 3.14.4, ip (iproute2)
 sandbox: stage-e/tools/sbx.sh (bwrap, own pid namespace, host network); backend: cloud-test-backend at 3a653eaec4, WebDAV 127.0.0.1:9010, state /workspace/tmp/m6-t16/hl/state
 
--- the three conf_valid bodies: cloud_backup 95 lines; cmp restore same; cmp helper same
+-- the three conf_valid bodies: cloud_backup 98 lines; cmp restore same; cmp helper same
 conf                           backup   restore  helper   want  verdict
 00-shipped                     rc=0     rc=0     rc=0     0     PASS
 01-doc-SAVESPATH               rc=0     rc=0     rc=0     0     PASS
@@ -38,6 +38,7 @@ conf                           backup   restore  helper   want  verdict
 25-legacy-SYNCPATH_BACKUP      rc=0     rc=0     rc=0     0     PASS
 26-legacy-CONTENTPATH          rc=0     rc=0     rc=0     0     PASS
 27-legacy-RESTOREPATH          rc=0     rc=0     rc=0     0     PASS
+28-legacy-LAYOUT_KEEP          rc=0     rc=0     rc=0     0     PASS
 
 == S1-upgraded: the helper whole on a pre-rename conf (BACKUPPATH, no SAVESPATH)
 before: 1 path keys: BACKUPPATH= 
@@ -45,5 +46,5 @@ helper rc=0
 conf_valid (the copy in cloud_backup) rc=0 
 after: path keys: SAVESPATH="/storage/roms" 
 .bak: BACKUPPATH= 
-the helper's log lines on the keys: [2026-10-30 20:08:05] [INFO] [cloud_sync_helper] Carried BACKUPPATH across to SAVESPATH ("/storage/roms")|[2026-10-30 20:08:05] [INFO] [cloud_sync_helper] Removed BACKUPPATH; SAVESPATH carries it now|
-== end 2026-10-30T20:08:05Z
+the helper's log lines on the keys: [2026-10-30 20:22:16] [INFO] [cloud_sync_helper] Carried BACKUPPATH across to SAVESPATH ("/storage/roms")|[2026-10-30 20:22:16] [INFO] [cloud_sync_helper] Removed BACKUPPATH; SAVESPATH carries it now|
+== end 2026-10-30T20:22:16Z

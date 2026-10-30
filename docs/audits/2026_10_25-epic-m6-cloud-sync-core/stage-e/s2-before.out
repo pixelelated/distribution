@@ -1,0 +1,66 @@
+== T16 host lead S2 the stop, the stamp, the kept copies, the sweep, the readers -- 2026-10-30T20:11:43Z
+donor root: /workspace/artifacts/m6-donor/1a0266484423/image/system (BUILD_ID 1a0266484423); sha256sum -c ../../SHA256SUMS:
+  usr/bin/busybox: OK
+  usr/bin/rclone: OK
+  etc/os-release: OK
+the scripts and /usr/config: /workspace/tmp/m6-t16/hl/root-pin (8ebaf8daad), 12 of 12 sha256-equal to the guest's installed bytes at 8ebaf8daad (guest-cycle/installed.sha256)
+from the donor: busybox v1.36.1 (146 applet links), rclone v1.75.2
+host stand-ins (not in the donor): bash 5.3.9(1)-release (image: 5.3), timeout (GNU coreutils) 9.7 (image: 9.4), grep (GNU grep) 3.12 (image: 3.9), python3 3.14.4, ip (iproute2)
+sandbox: stage-e/tools/sbx.sh (bwrap, own pid namespace, host network); backend: cloud-test-backend at 3a653eaec4, WebDAV 127.0.0.1:9010, state /workspace/tmp/m6-t16/hl/state
+
+== S2-group: cloud_restore --automatic as EmulationStation starts it (setsid sh -c), SIGTERM to the group at +5 s, SIGKILL at +6.5 s (2026-10-30T20:11:43Z)
+group 4
++5s SIGTERM to the group
++7s SIGKILL to the group
++9s alive:     303 timeout -k 3 89 rclone copy  /var/log/cloud_sync.log;    304 rclone copy  /var/log/cloud_sync.log   INFO  --exclu;
++39s the saves tree: ./gba/b2.srm ./savestates/b1.state ./savestates/e-term.state ./savestates/e-termkill-game.state.1c0fbb98.partial 
+stamp last-restore: none
+
+== S2-stamp: an automatic restore, one small save landed, then TERM to the script's pid alone at +5 s (2026-10-30T20:12:22Z)
++5s TERM to 4; landed then: ./gba/b2.srm ./savestates/a-201143.state ./savestates/b1.state 
++90s the script ended, rc 130
+alive after it: 0 timeout/rclone
+stamp last-restore: 1793391232 130
+the saves tree: ./gba/b2.srm ./savestates/a-201143.state ./savestates/b1.state ./savestates/e-term.state 
+
+== S2-kept: three local saves to be replaced; restore 1 (KILL2's deliberate shape, under setsid) stopped by SIGTERM then SIGKILL to its group after the small one lands; a fourth save then newer in the cloud; restore 2 completes; restore 3 completes (2026-10-30T20:13:53Z)
+  after restore 1, stopped at +4 s -- saves: a-201143.state(cloud) b1.state(cloud) k4-201143.state(v1) 
+     replaced/: ./2026_10_30-201354/savestates/k1-201143.state ./2026_10_30-201354/savestates/k2-201143.state ./2026_10_30-201354/savestates/k3-201143.state 
+  restore 2 rc=0
+  after restore 2 (completed) -- saves: a-201143.state(cloud) b1.state(cloud) e-term.state(cloud) e-termkill-game.state(cloud) e-termkill.state(cloud) g-201143.state(cloud) k1-201143.state(cloud) k2-201143.state(cloud) k3-201143.state(cloud) k4-201143.state(cloud) z-201143.state(cloud) 
+     replaced/: ./2026_10_30-201404/savestates/k4-201143.state 
+  restore 3 rc=0
+  after restore 3 (completed) -- saves: a-201143.state(cloud) b1.state(cloud) e-term.state(cloud) e-termkill-game.state(cloud) e-termkill.state(cloud) g-201143.state(cloud) k1-201143.state(cloud) k2-201143.state(cloud) k3-201143.state(cloud) k4-201143.state(cloud) z-201143.state(cloud) 
+     replaced/: ./2026_10_30-201404/savestates/k4-201143.state 
+
+== S2-sweep (a): what the shipped rules admit, the donor's rclone lsf over a tree with a .partial (2026-10-30T20:19:30Z)
+  listed: savestates/n.state savestates/n.state.abcdefgh.partial 
+== S2-sweep (b): a restore that completes over a dirty tree whose savestates folder refuses the removal (2026-10-30T20:19:30Z)
+  restore rc=1
+  the partial: /storage/roms/savestates/x.state.abcdefgh.partial 
+  restore-tree-clean: PRESENT
+  the log: 2026/10/30 20:19:31 ERROR : savestates/a-201143.state: Failed to copy: open /storage/roms/savestates/a-201143.state.c278|2026/10/30 20:19:31 ERROR : savestates/b1.state: Failed to copy: open /storage/roms/savestates/b1.state.0cee2ab5.partial|2026/10/30 20:19:31 ERROR : savestates/e-term.state: Failed to copy: open /storage/roms/savestates/e-term.state.cfedb2b3|2026/10/30 20:19:31 ERROR : savestates/e-termkill-game.state: Failed to copy: open /storage/roms/savestates/e-termkill-g|2026/10/30 20:19:31 ERROR : savestates/e-termkill.state: Failed to copy: open /storage/roms/savestates/e-termkill.state.|2026/10/30 20:19:31 ERROR : savestates/g-201143.state: Failed to copy: open /storage/roms/savestates/g-201143.state.f052|2026/10/30 20:19:31 ERROR : savestates/k1-201143.state: Failed to copy: open /storage/roms/savestates/k1-201143.state.a2|2026/10/30 20:19:31 ERROR : savestates/k2-201143.state: Failed to copy: open /storage/roms/savestates/k2-201143.state.f6|2026/10/30 20:19:31 ERROR : savestates/k4-201143.state: Failed to copy: open /storage/roms/savestates/k4-201143.state.46|2026/10/30 20:19:32 ERROR : savestates/k3-201143.state: Failed to copy: open /storage/roms/savestates/k3-201143.state.69|2026/10/30 20:19:33 ERROR : savestates/z-201143.state: Failed to copy: open /storage/roms/savestates/z-201143.state.1367|2026/10/30 20:19:33 ERROR : Attempt 1/1 failed with 11 errors and: open /storage/roms/savestates/z-201143.state.1367742b|2026/10/30 20:19:33 NOTICE: Failed to copy with 11 errors: last error was: open /storage/roms/savestates/z-201143.state.|
+
+== S2-readers: SAVESPATH as the twins read it (the helper, then source) and as cloud_saves_root and cloud_capture read it alone (2026-10-30T20:19:33Z)
+  form                                             twins                              cloud_saves_root                   cloud_capture                      verdict
+  double quotes, default                           '/storage/roms'                    '/storage/roms'                    '/storage/roms'                    PASS
+  double quotes, a trailing comment                '/storage/games-external/roms'     '/storage/roms'                    '/storage/roms'                    FAIL
+  single quotes                                    '/storage/games-external/roms'     ''/storage/games-external/roms''   ''/storage/games-external/roms''   FAIL
+  single quotes, a trailing comment                '/storage/games-external/roms'     ''/storage/games-external/roms' # card' ''/storage/games-external/roms' # card' FAIL
+  unquoted, a trailing comment                     '/storage/games-external/roms'     '/storage/games-external/roms # card' '/storage/games-external/roms # card' FAIL
+  BACKUPPATH only (before the helper migrates)     '/storage/games-external/roms'     '/storage/games-external/roms'     '/storage/games-external/roms'     PASS
+  assigned twice (the last wins under source)      '/storage/games-external/roms'     '/storage/roms'                    '/storage/roms'                    FAIL
+  empty                                            ''                                 '/storage/roms'                    '/storage/roms'                    PASS (the twins refuse it: refused)
+
+== S2-remote: does a zero-byte marker object land on the QA WebDAV and read back (rclone touch, then lsf) (2026-10-30T20:19:34Z)
+  touch rc=0
+  lsf of the folder: .completed 
+  one listing for every marker: t-201143/.completed 
+
+== S2-g01f: g01-timeout-pgid's shape with --foreground, as the fixed wrapper calls timeout (2026-10-30T20:19:34Z; timeout (GNU coreutils) 9.7)
+  script pid 1618353 pgid 1618353; timeout pid 1618355 pgid 1618353; child 1618357 pgid 1618353
+  SIGKILL to the script's group -1618353
+s2/cells.sh: line 117: 1618353 Killed                     setsid bash -c 'gnutimeout --foreground 6 sleep 5 & T=$!; sleep 0.3; C=$(pgrep -P $T); printf "%s %s\n" "$T" "$C" > "$1"; echo "  script pid $$ pgid $(ps -o pgid= -p $$ | tr -d " "); timeout pid $T pgid $(ps -o pgid= -p $T | tr -d " "); child $C pgid $(ps -o pgid= -p $C | tr -d " ")"; wait' _ "${P}"
+  after: timeout gone; child gone
+
+== end 2026-10-30T20:19:35Z
