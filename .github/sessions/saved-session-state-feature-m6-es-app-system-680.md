@@ -11,11 +11,19 @@
 > **Depth:** Independent -- **one seat, GPT-6 Astra at `max`** over a trimmed, scanned packet (D-WORKFLOW-195: the 27 fork-added files whole less the Windows residue, the fork's hunks of the 4 modified files, and of the 46 upstream-carried files only the ranges the questions cite; `Win32ApiSystem.cpp` and `EmulationStation.aps` never whole; the credential macros are the top-level `CMakeLists.txt`'s, outside the 77, and no value goes anywhere), a probe then one refutation; **exactly two keyed `tools/council/run invoke` calls**, every other council call with `COUNCIL_ENV_FILE=/nonexistent`.
 > **The lens:** cost against value over the 77 paths the `rest` selector leaves at the pin (16,276 lines; 27 fork-added and 4 fork-modified, +2,689/-7; 46 byte-identical to ROCKNIX's master; 0 upstream commits on the 77 since the merge base `cada856d86`, so the merge debt is a one-line record): the game lists, collections, metadata and filter library, the fork's 29 helper units whose pages live in other slices, and the Windows residue no image compiles; seven questions in the brief's § 4 (lifetime and threads; bounded calls; reads that read as success; uncached reads and in-place writes; the words and the French; the library's cost; the structure, the map and the merge debt), with the floor's pure leads in the brief.
 > **The rule:** **the lane changes nothing under the distribution's `packages/`, `projects/` or `tools/` at any stage, and nothing in the ES worktree outside the 77 paths at stages A to D**; `ApiSystem.*` and `main.cpp` are T21's, `FileData.*`/`SystemData.*`/`ViewController.*` T2's, `CloudText.*` T18's, `guis/` T31's, `views/`/`scrapers/`/`services/` T32's, `es-core/` the es-core slices' -- the globs decide; T21's and T20's ES tips are read for their deltas in `es-app/CMakeLists.txt`, `WifiText.*` and `OfflineAchievementsText.*` and each is recorded as inherited, every collision named in the hand-back; a defect is a `bug` with its trace, its `Already written:` line and its VM line (D-WORKFLOW-050, `bugs-are-agent-first.md`); a lead outside the 77 is a Backlog the coordinator files.
-> **The host:** M6's and M7's by the shared log `/tmp/m7-m6-host-coordination-20261023.txt` (M7 writes timestamped lines, not `== ` blocks: read the whole tail); this slice runs **one guest window**, asked for on #680 with its plan and bound after stage B and granted in the host file's queue: one GENERIC_X64 guest from M6's `069fc2704421` copy at `/workspace/artifacts/m6-t2-20261023/`, started at 640x480 (`generic-x64-vm run --res`; `vm-pair` has no option, #1141), the post contract `START HH:MM:SS UTC` / `RETURN HH:MM:SS UTC` as each post's first line with the census, the stop by pidfile at bound plus grace, the disk retired after with path, size and sha; the fork pages' walks with their strings read back, the wizard's transitions, the confirmations' back-button landing, the rows' stores read from both files after a page close; **the QA accounts only** (`tools/qa-accounts`, never printed; D-QA-016), never the owner's (D-QA-015)
+> **The host:** M6's and M7's by the shared log `/workspace/tmp/m7-m6-host-coordination.txt` (moved there at the 2026-10-29 reboot; it was `/tmp/m7-m6-host-coordination-20261023.txt`) (M7 writes timestamped lines, not `== ` blocks: read the whole tail); this slice runs **one guest window**, asked for on #680 with its plan and bound after stage B and granted in the host file's queue: one GENERIC_X64 guest from M6's `069fc2704421` copy at `/workspace/artifacts/m6-t2-20261023/`, started at 640x480 (`generic-x64-vm run --res`; `vm-pair` has no option, #1141), the post contract `START HH:MM:SS UTC` / `RETURN HH:MM:SS UTC` as each post's first line with the census, the stop by pidfile at bound plus grace, the disk retired after with path, size and sha; the fork pages' walks with their strings read back, the wizard's transitions, the confirmations' back-button landing, the rows' stores read from both files after a page close; **the QA accounts only** (`tools/qa-accounts`, never printed; D-QA-016), never the owner's (D-QA-015)
 > **Register:** the rows this brief cites are on the coordinator's branch, merged here; D-WORKFLOW-212, D-NET-017 and D-CLOUD-186 the last three decided rows (D-WORKFLOW-188 on the P1 branch only); a row this slice forces (none expected) takes an ID the coordinator assigns on #680
 > **The brief:** `docs/reviews/briefs/es-app-system.md` at `c48f8b387e` (version 2, after a stranger's proof of version 1 -- its corrections listed at its end); #680's body carries its § 7 checkboxes; where the two differ the body wins and the coordinator corrects the brief
 
 ## Current focus
+
+**Stage E done and stage F recorded; the hand-back is on #680 (2026-10-30).**
+- **The tips:** ES `f802c55c6` (S1a `d0d92dda6` to S6, pushed); distribution: the hand-back merge on this branch, named in #680's header.
+- **`05` at Phase 7:** 23 resolved, 3 deferred. The resolution lint reads PASS. #1270's 26 checkboxes are ticked, `box-check` reads 0 fail, and the 22 bugs carry `fixed-at-es`. The bugs stay open until the pin moves on `next`.
+- **Waiting on the coordinator:** acceptance, PL-25's severity (a reachable use-after-free; the lead goes to T2 and es-core), and the integration window's guest halves.
+- **The lane's next step:** the close-out once #1270 is closed: `audit-completion.json` from #1270's readback, the full lint, the pointer idle.
+
+**History, stages A to D:**
 
 **Stage A done and accepted (18:43 UTC, #680; the two errata are the coordinator's). Stage B in progress (18:44 UTC).** The coordinator's instruction: stage B -- `02-forward-audit.md` with its sections, every table generated by a tool under the audit folder's `tools/` that asserts its counts and was seen to exit 1 on a constructed drift -- then the window request on #680 with its plan and bound (the host is free); a turn ends on a post or a commit.
 
@@ -37,16 +45,15 @@
 ## Next commands
 
 ```bash
-D=/workspace/repos/pixelelated/distribution.worktrees/m6-es-app-system-680
-cd "$D"   # no fetch of any kind: 651150fc88 and c445081a59 are already in the repository
-git merge-base --is-ancestor 2174265e9c HEAD && echo stacked-on-P1
-git diff --stat 8ebaf8daad HEAD -- packages projects | tail -1                     # empty
-test -f docs/reviews/inventory.json && echo inventory
-grep -c 'D-RA-050' docs/decision-register.md                                       # 1 or more: the coordinator's tip is merged
+D=/workspace/repos/pixelelated/distribution.worktrees/m6-es-app-system-680; A=$D/docs/audits/2026_10_27-epic-m6-es-app-system
 W=/home/max/Development/emulationstation-next.worktrees/m6-es-app-system-680
-git -C "$W" rev-parse HEAD; git -C "$W" status --short | wc -l                      # the pin; 0
-tail -n 6 /tmp/m7-m6-host-coordination-20261023.txt | cut -c1-200; pgrep -x qemu-system-x86 -r R,S,D,T | wc -l
-sed -n '1,150p' docs/reviews/briefs/es-app-system.md
+git -C "$W" rev-parse --short HEAD; git -C "$W" status --short | wc -l            # f802c55c6; 0
+gh api repos/pixelelated/emulationstation/branches/feature/m6-es-app-system-680 --jq .commit.sha   # the ES tip on origin
+cd "$A" && . stage-a/env.sh && bash stage-e/handback-run.sh | tail -1                # handback-run: 0 unexpected
+cd "$D" && tools/lint-audit-artifacts --phase resolution --issue 1270 docs/audits/2026_10_27-epic-m6-es-app-system | tail -1   # PASS
+tools/box-check --issue 1270 | tail -1                                               # 0 fail
+gh issue view 1270 --repo pixelelated/distribution --json state --jq .state          # CLOSED -> the close-out
+tail -n 6 /workspace/tmp/m7-m6-host-coordination.txt | cut -c1-200
 ```
 
 ## Merge notes
@@ -71,6 +78,8 @@ granted window.
 
 ## Checkpoints
 
+- hand-back, 2026-10-30 14:3x UTC: stage F `e3cb92c7d6`. `05` at Phase 7 (23/3), the lint PASS, #1270 26 of 26 ticked, the 22 bugs' `fixed-at-es`, the retro `docs/retros/2026-10-30-m6-es-app-system.md`, `stage-e/handback-checks.txt` (`TOTAL: 245 test cases in 5 binaries`, 30 runs 0 unexpected), then the coordinator's branch merged and the post on #680
+- stage E, 2026-10-30 05:19-09:54 UTC: S1a to S7 landed (ES `d0d92dda6` to `f802c55c6`; S7 distribution `75f696b22d`), one checkpoint each on #680; two usage-limit pauses (05:41, 09:56)
 - stage D pause, 2026-10-27 20:08:31 UTC: #1270 filed (26 items), the pause posted on #680
 - window, 2026-10-27 19:01-19:14 UTC: G-01..G-10 run (G-05/07/09 CANNOT); L-05 and L-28 reproduced on the image; RETURN posted; distribution `d680658464`
 - stage B, 2026-10-27 18:58 UTC: `02` composed (16 sections; the five generated tables and the words, each asserted and drift-tested); the window plan; the request posted on #680

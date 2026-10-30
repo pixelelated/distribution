@@ -200,3 +200,7 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
   - generators at 18, 2, 202 and the bounds line;
   - `stage-e/handback-run.sh`: 30 runs, 0 unexpected.
 - **Commands:** the build script is `tools/t33-build-tests.sh <W> <dir>`, and each fixture's command is in `stage-e/handback-run.sh`.
+- **14:35 UTC:**
+  - #1270's 26 checkboxes are ticked from the Phase 7 table, and `box-check --issue 1270` reads 0 open and 0 fail.
+  - The 22 bugs carry `fixed-at-es: f802c55c6` with their stream's commit (22 of 22 read back), and `box-check` reads 0 fail on each.
+  - The retro is `docs/retros/2026-10-30-m6-es-app-system.md`; the pointer and the work log are at the hand-back.
