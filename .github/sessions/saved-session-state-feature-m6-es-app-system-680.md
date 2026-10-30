@@ -17,13 +17,14 @@
 
 ## Current focus
 
-**Stage E done and stage F recorded; the hand-back is on #680 (2026-10-30).**
-- **The tips:** ES `f802c55c6` (S1a `d0d92dda6` to S6, pushed); distribution: the hand-back merge on this branch, named in #680's header.
-- **`05` at Phase 7:** 23 resolved, 3 deferred. The resolution lint reads PASS. #1270's 26 checkboxes are ticked, `box-check` reads 0 fail, and the 22 bugs carry `fixed-at-es`. The bugs stay open until the pin moves on `next`.
-- **Waiting on the coordinator:** acceptance, PL-25's severity (a reachable use-after-free; the lead goes to T2 and es-core), and the integration window's guest halves.
-- **Accepted** (#680 comment 6525576831, 14:46 UTC).
-- **The close-out so far:** the two record lines; PL-25's bug #1305 in the merge debt; the ES worktree and `/workspace/tmp/m6-t33/` retired, 148,075,531 bytes (`stage-e/retirement.txt`).
-- **The lane's last step:** once #1270 is closed, `python3 -I docs/audits/2026_10_27-epic-m6-es-app-system/tools/write-completion.py .` (it refuses while #1270 is open), then the lint both ways, this pointer idle, and the tip posted on #680.
+**Idle. T33 is complete (2026-10-30); nothing runs and nothing is owed by this lane.**
+- **Accepted** on #680 (comment 6525576831). #1270 is closed as completed at 19:25:59Z, and `audit-completion.json` is written from its readback by `tools/write-completion.py`. The lint passes both ways.
+- **The tips:** ES `f802c55c6` on `feature/m6-es-app-system-680` (pixelelated/emulationstation); distribution: this branch's close-out commit, posted on #680.
+- **Left to others:**
+  - the 22 bugs (#1271 to #1292) stay open until the integration moves the pin on `next`;
+  - #1305 (PL-25) waits on the integration's `SystemData.cpp` patch and T35's `Window.cpp` half;
+  - the guest halves are the coordinator's at the integration window.
+- **Retired:** the ES worktree and `/workspace/tmp/m6-t33/` (`stage-e/retirement.txt`).
 
 **History, stages A to D:**
 
@@ -80,6 +81,7 @@ granted window.
 
 ## Checkpoints
 
+- close-out, 2026-10-30 19:2x UTC: #1270 closed as completed; `audit-completion.json` from its readback; the lint both ways PASS; the pointer idle
 - hand-back, 2026-10-30 14:3x UTC: stage F `e3cb92c7d6`. `05` at Phase 7 (23/3), the lint PASS, #1270 26 of 26 ticked, the 22 bugs' `fixed-at-es`, the retro `docs/retros/2026-10-30-m6-es-app-system.md`, `stage-e/handback-checks.txt` (`TOTAL: 245 test cases in 5 binaries`, 30 runs 0 unexpected), then the coordinator's branch merged and the post on #680
 - stage E, 2026-10-30 05:19-09:54 UTC: S1a to S7 landed (ES `d0d92dda6` to `f802c55c6`; S7 distribution `75f696b22d`), one checkpoint each on #680; two usage-limit pauses (05:41, 09:56)
 - stage D pause, 2026-10-27 20:08:31 UTC: #1270 filed (26 items), the pause posted on #680

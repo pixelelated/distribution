@@ -221,3 +221,7 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
   - **Retired under D-INFRA-022** (`stage-e/retirement.txt`): the ES worktree (47,501,898 bytes, `git worktree remove` without `--force`, the branch kept at `f802c55c6` and on origin) and `/workspace/tmp/m6-t33/` (100,573,633 bytes).
   - **`tools/write-completion.py`** (T32's, its folder and issue changed) refuses while #1270 is open, and writes nothing.
   - **Lint:** both ways PASS (`--phase resolution --issue 1270` and the folder alone).
+- **19:26 UTC, the close-out's end:**
+  - #1270 is closed as completed (19:25:59Z). `tools/write-completion.py` wrote `audit-completion.json`, `tracker-completion.json` and `tracker-final-readback.json` from its readback: 26 ticked, 0 open, completed_at 19:26:08Z.
+  - The lint passes both ways, and `ceremony-check` reads the audit marker `ok`.
+  - The pointer is idle.
