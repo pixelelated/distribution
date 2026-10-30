@@ -70,3 +70,8 @@
 - **The pre-issue lint** (`stage-c/lint-pre-issue.txt`):
   - on the committed tree: rc 1, one failure, the missing reply (the lint hashes it against the receipt, `tools/lint-audit-artifacts:105-110`);
   - with the held reply copied in for the run and removed straight after: `PASS pre-issue artifacts (does not certify resolution)`, rc 0. The reply was not left in the tree (`git status` after).
+
+## [Stage D] 20:25 UTC 2026-10-30 — the audit issue; the pause
+
+- **The audit issue:** #1307, `Audit: M6 T34 EmulationStation's core components -- 43 findings (0 critical, 1 high)`. Labels `audit` and `punch-list`, milestone M6, a sub-issue of #681. Its 43 checkboxes are generated from `05`. `tools/box-check --issue 1307`: `43 open checkbox(es), 0 fail`, rc 0. PL-27's line names no mechanism.
+- **The pause** is posted on #681. The lane waits for the coordinator's dispositions, the four register rows, the channel for PL-27, the bug list and the unit build's timing.

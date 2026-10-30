@@ -15,6 +15,15 @@
 > **Register:** the rows this brief cites are on the coordinator's branch, merged here; D-CLOUD-187 D-INFRA-031 D-LAUNCH-007 D-NET-017 D-QA-063 D-RA-052 D-SYS-014 D-UI-129 D-WORKFLOW-213 are the highest rows of their areas on the coordinator's branch (computed from the decided table at `200a9a032d`), with the ownership row of the brief's § 1 written at dispatch (D-WORKFLOW-188 on the P1 branch only; the merge unites them); the four rows the brief's § 9 expects are put to the coordinator at the pause, never decided by the lane, and a row this slice forces takes an ID the coordinator assigns on #681
 > **The brief:** `docs/reviews/briefs/es-core-components.md` at `a6e14fed86` (version 2 of 2026-10-30, after a stranger's proof of version 1 `a728d04c95` -- its corrections listed at its end, `## Corrections in version 2`); #681's body carries its § 7 checkboxes; where the two differ the body wins and the coordinator corrects the brief
 
+## Current focus (20:25 UTC 2026-10-30 update): the stage-D pause
+
+- **Stage C ran:** the guest window (19:28 to 19:39), the packet and its scan, and the seat (two keyed invokes, both PASS). The seat's G-1 to G-16 were each verified at the pin.
+- **The pre-issue lint:** PASS with the held reply present; one failure on the committed tree, the reply.
+- **The punch list:** 43 items in \`05\` and **#1307** (the audit issue, a sub-issue of #681).
+- **The pause** is posted on #681. The lane waits for the coordinator's dispositions and any stream brief.
+- **PL-27 is security-sensitive:** the seat's reply is held at \`/workspace/tmp/m6-t34/held/gpt-audit.md\` (mode 600, sha256 \`609c488c...\`). It is never committed or posted until the maintainer names the channel.
+- **Owed before or at stage E:** \`tools/t34-build-tests.sh\` and the 34 seam cases, the seven FAIL-at-pin first; the sanitizer cases; the stand-in syntax check over the 37.
+
 ## Earlier focus (14:24 UTC 2026-10-30 update): stage A done; stage B next
 
 **Stage A is recorded** in `docs/audits/2026_10_30-epic-m6-es-core-components/`:
@@ -31,7 +40,7 @@ Every expectation of § 1, § 2 and § 5 printed as the brief says, with one err
 
 No guest, build, fetch or keyed call before the grant.
 
-## Current focus (14:46 UTC 2026-10-30 update): stage B done; the window asked for
+## Earlier focus (14:46 UTC 2026-10-30 update): stage B done; the window asked for
 
 `02-forward-audit.md` is composed from the nine generators under `tools/` (`tools/t34-02.py <W>` regenerates it). The window plan is `stage-b/window-plan.md`. The window is asked for on #681 and in the host file, and runs only on the coordinator's grant, after every M7 window.
 
@@ -98,5 +107,6 @@ or a guest outside the one granted window.
 
 ## Checkpoints
 
+- Stage C and D, 20:25 UTC 2026-10-30: the window, the packet, the seat, #1307, the pause; ES `16dbac5211` (the pin, clean).
 - Stage B, 14:46 UTC 2026-10-30: 02 composed, the window asked for; ES `16dbac5211` (the pin, clean).
 - Stage A, 14:24 UTC 2026-10-30: distribution `22c0d5a2c2` plus the stage-A close commit that carries this line; ES `16dbac5211` (the pin, clean).
