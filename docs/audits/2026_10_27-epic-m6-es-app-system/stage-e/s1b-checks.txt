@@ -1,0 +1,21 @@
+# T33 S1b checks, 05:24:36Z
+
+## the stand-in over the edited .cpp
+es-app/src/MetaData.cpp: rc 0
+es-app/src/Gamelist.cpp: rc 0
+rc=0
+
+## setDirty()'s callers (the nodes still rebuilt whole)
+es-app/src/Gamelist.cpp:239:				mdl.setDirty();
+es-app/src/SystemData.cpp:259:						it->getMetadata().setDirty();
+es-app/src/services/HttpServerThread.cpp:682:			file->getMetadata().setDirty();
+es-app/src/services/HttpServerThread.cpp:686:				file->getMetadata().setDirty();
+
+## a doctest: not written. MetaData.cpp includes SystemData.h, Settings.h and ImageIO.h, which tests/app-unit/fakes/ do not carry (FileData.h, LocaleES.h, Log.h are there); the extract (stage-c/l313-gamelist-merge.py) is the positive, as the brief allows.
+
+## the cost against D-CLOUD-119 (3 s): one dirty game in N entries, read, parse, overlay or rebuild, write, rename, on the host at -O2 (s1b-before.txt, s1b-after.txt): pin 0.7 ms / 6.5-7.0 ms; S1a 0.8-0.9 / 8.0-8.3; S1b 0.8-0.9 / 8.4-8.5 for N = 1,000 / 10,000. The handheld is slower by a factor the host cannot know; the harness's AtomicFile double does not fsync, the real writeText fsyncs the file and its directory (AtomicFileUtil.h:30-35), a cost the host does not price. The exit save runs at QUIT/restart and from /updategames, not on the launch path.
+
+## the lost update not closed: a restore that replaces gamelist.xml between updateGamelist's read (the uncached exists and load_file) and its rename is overwritten by the save; rclone renames per file, so the restore's write is atomic on its side; the window is one function's span.
+
+## non-ASCII in the added lines
+0

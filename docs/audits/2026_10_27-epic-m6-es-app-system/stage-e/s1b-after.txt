@@ -1,0 +1,23 @@
+# T33 S1b (#680; #1271): the positives after, 05:24:08Z. <W> = the ES worktree with S1b over d0d92dda6.
+
+$ python3 -I stage-c/l313-gamelist-merge.py <W>/Gamelist.cpp <W>/MetaData.cpp <W>/MetaData.h <pugixml>
+same: desc kept, image kept, favorite written, Bravo kept
+desc: desc the session's, image kept
+default: favorite removed, desc kept
+whole: a node marked dirty whole is rebuilt from memory (the pin's rule for setDirty)
+rc=0
+
+$ python3 -I stage-c/l313-gamelist-save.py <W>/Gamelist.cpp <pugixml>   (S1a's cases, the fixture completed: overlayXML's double returns false, the rebuild path those cases assume)
+kill cleanupGamelist: the previous file whole
+rc=0
+$ python3 -I stage-c/l313-update-gamelist.py <W>/Gamelist.cpp <pugixml>
+after the save: Alpha present, Bravo present; inode new (replaced)
+rc=0
+
+## the cost after (-O2, the host; three runs each; the overlay path)
+S1b N=1000: cost: one dirty game in a list of 1000: 0.8 ms (read, parse, overlay, write, rename)
+S1b N=1000: cost: one dirty game in a list of 1000: 0.8 ms (read, parse, overlay, write, rename)
+S1b N=1000: cost: one dirty game in a list of 1000: 0.9 ms (read, parse, overlay, write, rename)
+S1b N=10000: cost: one dirty game in a list of 10000: 8.5 ms (read, parse, overlay, write, rename)
+S1b N=10000: cost: one dirty game in a list of 10000: 8.4 ms (read, parse, overlay, write, rename)
+S1b N=10000: cost: one dirty game in a list of 10000: 8.5 ms (read, parse, overlay, write, rename)

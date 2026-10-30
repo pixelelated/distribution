@@ -120,3 +120,20 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
   - **The `getGamelistPath` patch** is `stage-e/patches/s1a-SystemData-getGamelistPath.patch`: it applies to the pin, and the scratch copy passes the stand-in.
   - **Read:** `PackGamelists` defaults to false (`Settings.cpp:209`), so EP-2's clear needed that setting on.
   - The ES pre-push test passes; the branch is pushed.
+- **S1b** (ES `dd86d7ce2`, #1271, D-CLOUD-187):
+  - **The harness:** `stage-c/l313-gamelist-merge.py`, l313's merge extension, extracts `updateGamelist`, `addFileDataNode` and MetaDataList's `set`, `appendToXML`, `overlayXML`, the changed-flag functions and `setDirty` as written.
+  - **Before:** at S1a's code the cases `same`, `desc` and `default` FAIL; at the pin `same` FAILs; the `whole` control passes.
+  - **After:** all four pass.
+  - **Fixtures completed** (D-WORKFLOW-211): S1a's harness and l313 got an `overlayXML` double returning false, the rebuild path their cases assume; no assertion changed.
+  - **Cost** on the host at `-O2`, against D-CLOUD-119's 3 s, with one dirty game:
+
+    | Entries | Pin | S1a | S1b |
+    | ---: | --- | --- | --- |
+    | 1,000 | 0.7 ms | 0.8–0.9 ms | 0.8–0.9 ms |
+    | 10,000 | 6.5–7.0 ms | 8.0–8.3 ms | 8.4–8.5 ms |
+
+    The device's factor is unknown, and the harness's double does not fsync.
+  - **Not done:** a doctest; `MetaData.cpp`'s includes are beyond the app-unit fakes.
+  - **The lost update** inside the read-to-rename span is recorded, not closed.
+  - **`setDirty()`'s callers:** `Gamelist.cpp:239`, `SystemData.cpp:259`, `services/HttpServerThread.cpp:682`, `:686`.
+  - **Stand-in:** `MetaData.cpp` and `Gamelist.cpp` rc 0.

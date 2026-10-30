@@ -1,0 +1,32 @@
+# T33 S1b (#680; #1271, D-CLOUD-187, EP-36): the positives before, 05:22:29Z. <S1a> = the ES worktree at d0d92dda6; <pin> = 16dbac5211.
+
+$ python3 -I stage-c/l313-gamelist-merge.py <S1a>/Gamelist.cpp <S1a>/MetaData.cpp <S1a>/MetaData.h <pugixml>
+same: desc LOST, image LOST, favorite written, Bravo kept
+FAIL same: the dirty game's restored fields were lost by the save (EP-36)
+desc: desc the session's, image LOST
+FAIL desc: a field changed this session did not win, or the file's picture was lost
+default: favorite removed, desc LOST
+FAIL default: a field set back to its default was not removed, or the file's description was lost
+whole: a node marked dirty whole is rebuilt from memory (the pin's rule for setDirty)
+FAIL S1b: 3 case(s)
+rc=1
+
+$ ... the same at the pin
+same: desc LOST, image LOST, favorite written, Bravo LOST
+FAIL same: the dirty game's restored fields were lost by the save (EP-36)
+FAIL S1b: 1 case(s)
+rc=1
+
+## the cost (-O2, the host; three runs each)
+pin N=1000: cost: one dirty game in a list of 1000: 0.7 ms (read, parse, rebuild, write, rename)
+pin N=1000: cost: one dirty game in a list of 1000: 0.7 ms (read, parse, rebuild, write, rename)
+pin N=1000: cost: one dirty game in a list of 1000: 0.7 ms (read, parse, rebuild, write, rename)
+S1a N=1000: cost: one dirty game in a list of 1000: 0.8 ms (read, parse, rebuild, write, rename)
+S1a N=1000: cost: one dirty game in a list of 1000: 0.9 ms (read, parse, rebuild, write, rename)
+S1a N=1000: cost: one dirty game in a list of 1000: 0.9 ms (read, parse, rebuild, write, rename)
+pin N=10000: cost: one dirty game in a list of 10000: 7.0 ms (read, parse, rebuild, write, rename)
+pin N=10000: cost: one dirty game in a list of 10000: 6.5 ms (read, parse, rebuild, write, rename)
+pin N=10000: cost: one dirty game in a list of 10000: 7.0 ms (read, parse, rebuild, write, rename)
+S1a N=10000: cost: one dirty game in a list of 10000: 8.0 ms (read, parse, rebuild, write, rename)
+S1a N=10000: cost: one dirty game in a list of 10000: 8.3 ms (read, parse, rebuild, write, rename)
+S1a N=10000: cost: one dirty game in a list of 10000: 8.3 ms (read, parse, rebuild, write, rename)

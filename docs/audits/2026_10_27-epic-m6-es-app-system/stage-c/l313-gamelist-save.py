@@ -109,7 +109,7 @@ struct Settings { static Settings* getInstance() { static Settings s; return &s;
 struct Paths { static std::string gHome; static std::string getUserEmulationStationPath() { return gHome; } };
 std::string Paths::gHome;
 struct SystemData;
-struct MD { bool changed = false; bool wasChanged() { return changed; } };
+struct MD { bool changed = false; bool wasChanged() { return changed; } bool overlayXML(pugi::xml_node&, bool, const std::string&, bool = false) { return false; } };   // S1b (D-WORKFLOW-211): the rebuild path, as these cases assume
 struct FileData { std::string path; SystemData* sys; MD md; FileType type = GAME;
     SystemData* getSystem() { return sys; } MD& getMetadata() { return md; } std::string getPath() { return path; } FileType getType() { return type; }
     std::string getDisplayName() { auto f = Utils::FileSystem::getFileName(path); return f.substr(0, f.rfind('.')); }

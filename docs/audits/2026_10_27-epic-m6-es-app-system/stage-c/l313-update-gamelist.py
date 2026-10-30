@@ -67,7 +67,7 @@ namespace Utils { namespace FileSystem {
 }
 struct Settings { static bool IgnoreGamelist() { return false; } static bool HiddenSystemsShowGames() { return true; } };
 struct SystemData;
-struct MD { bool changed = false; bool wasChanged() { return changed; } };
+struct MD { bool changed = false; bool wasChanged() { return changed; } bool overlayXML(pugi::xml_node&, bool, const std::string&, bool = false) { return false; } };   // S1b (D-WORKFLOW-211): the rebuild path, as these cases assume
 struct FileData { std::string path; SystemData* sys; MD md; FileType type = GAME;
     SystemData* getSystem() { return sys; } MD& getMetadata() { return md; } std::string getPath() { return path; } FileType getType() { return type; } };
 struct FolderData { std::vector<FileData*> files; std::vector<FileData*> getFilesRecursive(int, bool, void*, bool) { return files; } };
