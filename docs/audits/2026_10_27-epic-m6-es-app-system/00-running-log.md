@@ -179,3 +179,7 @@ Granted on #680 at 19:00 UTC (comment 6450973084). START 19:01:31 UTC (comment 6
   - **Before:** `l329` reads `9 tag names, 3 without` and FAILs. `es-untranslated` reads 706 of 706 and cannot see the three.
   - **After:** `l329` reads `9 tag names, 0 without` (rc 0), and its control is guarded `CANNOT`. `t33-words` moves from 199 to 202 msgids; `es-untranslated` reads 709 of 709; stand-in rc 0.
   - **The words:** EN COURS, ABANDONNÉ, EN PAUSE.
+- **S7, 09:54 UTC (distribution; #1270 checkbox 17, PL-17)**
+  - `docs/es-menu-map.md` takes UPDATE GAMELISTS under GAME SETTINGS > TOOLS, and a new `## Game list filters` section for FILTER GAMELIST BY and EDIT DYNAMIC COLLECTION FILTERS.
+  - **Checker:** `es-menu-map-check` reads `0 missing` before and after, because the pages stay invisible to it.
+  - **The grep** goes from 0 to 5. Recorded in `stage-e/s7-checks.txt`.

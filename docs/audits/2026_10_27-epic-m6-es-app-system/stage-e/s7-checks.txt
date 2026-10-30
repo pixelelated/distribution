@@ -1,0 +1,17 @@
+# S7 (#680, #1270 checkbox 17, PL-17) -- 2026-10-30T09:53:55Z: docs/es-menu-map.md on the distribution branch
+
+## before (the map at the lane's tip before this commit, git show HEAD:docs/es-menu-map.md)
+$ tools/es-menu-map-check --es-src <W> --ref f802c55c6
+55 screen(s) at f802c55c6, 31 in the map, 24 declared unmapped, 0 missing
+$ grep -c -E "FILTER GAMELIST BY|EDIT DYNAMIC COLLECTION FILTERS|UPDATE GAMELISTS" <HEAD map>
+0
+
+## after (the working map)
+$ tools/es-menu-map-check --es-src <W> --ref f802c55c6
+55 screen(s) at f802c55c6, 31 in the map, 24 declared unmapped, 0 missing
+rc=0
+$ grep -c -E "FILTER GAMELIST BY|EDIT DYNAMIC COLLECTION FILTERS|UPDATE GAMELISTS" docs/es-menu-map.md
+5
+
+## the checker's line is unchanged: the two filter titles stay invisible to it (member-initialized, mMenu(window, _(...)), which none of its patterns reads); its blind spot is the coordinator's note on #965, not a change under tools/ (the ruling's 7). The UPDATE GAMELISTS line names GAME SETTINGS > TOOLS as its one handheld home. Every file:line cited was read at ES f802c55c6; guis/ and ThreadedHasher.cpp are unchanged there since the pin, and FileFilterIndex.cpp's writer is at :1328 after S2 and S3.
+## Already written: nothing inherited (a document).

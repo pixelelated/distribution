@@ -147,6 +147,40 @@ Two placement rules the existing tree already follows:
 - **Destructive and system-level operations sit behind ADVANCED**, inside SYSTEM
   SETTINGS → SYSTEM MANAGEMENT AND RESET, where every row confirms first.
 
+**UPDATE GAMELISTS** has one home on a handheld: GAME SETTINGS > TOOLS
+(`guis/GuiMenu.cpp:5756`; seen on the guest, G-03 of #680). It asks REALLY
+UPDATE GAMELISTS? -- with offline achievements on, after a sentence saying it
+also checks new games for them -- and then reloads the game lists. While a
+scrape or the game hasher runs, it asks to stop that instead and returns
+(`GuiMenu.cpp:8501-8517`). Its second entry, in GAME COLLECTION SETTINGS >
+OPTIONS (`guis/GuiCollectionSystemsOptions.cpp:366-369`), is inside
+`#if defined(WIN32) && !defined(_DEBUG)` and on no handheld (EP-25). The game
+index's toast, INDEXING COMPLETED. UPDATE GAMELISTS TO APPLY CHANGES.
+(`ThreadedHasher.cpp:146`), points at this row; the map promises no toast.
+
+## Game list filters
+
+Two titles, one page (`guis/GuiGamelistFilter.cpp`), mapped here because
+`tools/es-menu-map-check` cannot see either: both are built in a member
+initializer, `mMenu(window, _("..."))`, which none of its patterns reads (#680,
+PL-17). A page the checker cannot see is mapped, not declared.
+
+- **FILTER GAMELIST BY** (`GuiGamelistFilter.cpp:11`) -- a game list's VIEW
+  OPTIONS (SELECT) > NAVIGATION > OTHER FILTERS
+  (`guis/GuiGamelistOptions.cpp:77-79`, `:435`). Each row is a facet of the
+  system's `FileFilterIndex`. BACK applies the choice to the index in memory
+  (`applyFilters`, `GuiGamelistFilter.cpp:39`, `:226-263`); the page saves
+  nothing for an ordinary filter (EP-26).
+- **EDIT DYNAMIC COLLECTION FILTERS** (`GuiGamelistFilter.cpp:17`) -- the same
+  page over a dynamic collection's index. It opens from that collection's VIEW
+  OPTIONS > DYNAMIC COLLECTION (`guis/GuiGamelistOptions.cpp:174-176`, `:603`),
+  and from GAME COLLECTION SETTINGS > CREATE CUSTOM COLLECTION > CREATE NEW
+  DYNAMIC COLLECTION (`guis/GuiCollectionSystemsOptions.cpp:227`, `:495`), where
+  closing it reloads the new collection (`:495-504`). Its choices are written to
+  the collection's `.xcc`, temp-and-rename since T33's S2
+  (`FileFilterIndex.cpp:1328` at ES `f802c55c6`). Until EP-43's patch lands, the
+  page closes as saved whatever `save()` returned (`GuiGamelistFilter.cpp:262-270`).
+
 ## Save state manager
 
 A game's long-press menu > SAVE STATES, or before every launch under GAME
