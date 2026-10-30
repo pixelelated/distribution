@@ -41,3 +41,17 @@ ASSERT: font-height reads: 14, expected 19
 rc=1
 $ python3 -B -I tools/t34-layouts.py <W> (the 80)
 rc=0
+
+## t34-words.py
+$ python3 -B -I tools/t34-words.py <W> <stage-a/paths.txt less OptionListComponent.h> (79 paths)
+ASSERT: _(" lines: 16, expected 22
+rc=1
+$ python3 -B -I tools/t34-words.py <W> (the 80)
+rc=0
+
+## t34-includes.py
+$ python3 -B -I tools/t34-includes.py <W> <pin> <stage-a/paths.txt less AsyncNotificationComponent.cpp> (79 paths)
+ASSERT: quoted include lines: 343, expected 352
+rc=1
+$ python3 -B -I tools/t34-includes.py <W> <pin> (the 80)
+rc=0
