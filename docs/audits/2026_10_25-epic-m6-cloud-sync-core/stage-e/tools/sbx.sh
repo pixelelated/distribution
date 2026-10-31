@@ -10,6 +10,10 @@ DONOR=/workspace/artifacts/m6-donor/1a0266484423/image/system
 mkdir -p "${CELL}/storage" "${CELL}/log" "${CELL}/varrun" "${CELL}/run"
 RO_ARGS=()
 [ "${RO:-0}" = 1 ] && RO_ARGS=(--remount-ro /)
+# SBX_EXTRA: more bwrap mounts after the binds, word-split (stage E: a full card is
+# "--size 32768 --tmpfs /storage/.config", a tmpfs the cell then fills).
+EXTRA=()
+[ -n "${SBX_EXTRA:-}" ] && read -r -a EXTRA <<< "${SBX_EXTRA}"
 exec bwrap --die-with-parent --unshare-pid --tmpfs / \
     --ro-bind /usr /host/usr --ro-bind "${DONOR}" /donor \
     --tmpfs /usr --ro-bind /usr/lib /usr/lib --ro-bind /usr/lib64 /usr/lib64 --ro-bind /usr/share /usr/share \
@@ -20,6 +24,7 @@ exec bwrap --die-with-parent --unshare-pid --tmpfs / \
     --ro-bind "${DONOR}/etc/os-release" /etc/os-release \
     --bind "${CELL}/storage" /storage --bind "${CELL}/log" /var/log --bind "${CELL}/varrun" /var/run \
     --bind "${CELL}/run" /run --ro-bind-try "${CELL}/drv" /drv \
+    "${EXTRA[@]}" \
     --dev /dev --proc /proc --tmpfs /tmp \
     --clearenv --setenv PATH /usr/bin:/usr/sbin --setenv HOME /storage --setenv TZ UTC --setenv TERM dumb \
     "${RO_ARGS[@]}" "$@"

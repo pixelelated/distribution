@@ -1,0 +1,47 @@
+== T16 host lead S3 load_config's put-back, the helper's migrations -- 2026-10-31T00:45:41Z
+donor root: /workspace/artifacts/m6-donor/1a0266484423/image/system (BUILD_ID 1a0266484423); sha256sum -c ../../SHA256SUMS:
+  usr/bin/busybox: OK
+  usr/bin/rclone: OK
+  etc/os-release: OK
+the scripts and /usr/config: /workspace/tmp/m6-t16/hl/root-s3 (tree), 5 of 12 sha256-equal to the guest's installed bytes at 8ebaf8daad (guest-cycle/installed.sha256)
+from the donor: busybox v1.36.1 (146 applet links), rclone v1.75.2
+host stand-ins (not in the donor): bash 5.3.9(1)-release (image: 5.3), timeout (GNU coreutils) 9.7 (image: 9.4), grep (GNU grep) 3.12 (image: 3.9), python3 3.14.4, ip (iproute2)
+sandbox: stage-e/tools/sbx.sh (bwrap, own pid namespace, host network); backend: cloud-test-backend at 3a653eaec4, WebDAV 127.0.0.1:9010, state /workspace/tmp/m6-t16/hl/state
+
+== S3-fallback (2026-10-31T00:45:41Z)
+-- cloud_backup
+  cp-works: rc=0 sourced_refused=no conf_now_valid=yes tmp_left=0
+      LOG[WARN] cloud_sync.conf does not parse; putting back the copy taken before this run's update
+      load_config returned 0
+  cp-fails: rc=1 sourced_refused=no conf_now_valid=no tmp_left=0
+      LOG[WARN] cloud_sync.conf does not parse; putting back the copy taken before this run's update
+      clean_exit 1
+-- cloud_restore
+  cp-works: rc=0 sourced_refused=no conf_now_valid=yes tmp_left=0
+      LOG[WARN] cloud_sync.conf does not parse; putting back the copy taken before this run's update
+      load_config returned 0
+  cp-fails: rc=1 sourced_refused=no conf_now_valid=no tmp_left=0
+      LOG[WARN] cloud_sync.conf does not parse; putting back the copy taken before this run's update
+      clean_exit 1
+
+== S3-sed: the helper on a full card, then with room (2026-10-31T00:45:41Z)
+  full: an empty file still fits (0 KiB free)
+  full: a copy of the conf does not fit
+  helper on the full card: rc=0
+  after the run on the full card:
+    .cloud_sync-copy-default-applied           absent
+    .cloud_sync-net-opts-retries-applied       absent
+    .cloud_sync-sync-net-opts-five-applied     absent
+    BACKUPMETHOD="sync"
+    low-level-retries 2
+    max-duration 20s
+  helper with room again: rc=0
+  after the run with room:
+    .cloud_sync-copy-default-applied           PRESENT
+    .cloud_sync-net-opts-retries-applied       PRESENT
+    .cloud_sync-sync-net-opts-five-applied     PRESENT
+    BACKUPMETHOD="copy"
+    low-level-retries 10
+    max-duration 90s
+  the log's migration lines:  [WARN] [cloud_sync_helper] could not copy the config to work on| [INFO] [cloud_sync_helper] BACKUPMETHOD was 'sync', which deletes other devices' saves from the shared folder; set to 'copy'. Pr| [INFO] [cloud_sync_helper] RCLONE_NET_OPTS still held the two-low-level-retry bound, which fails a Dropbox backup whenever a sav| [INFO] [cloud_sync_helper] RCLONE_SYNC_NET_OPTS held the first-cut automatic bound; set to today's: five low-level retries, one | [WARN] [cloud_sync_helper] could not copy the config to work on| [WARN] [cloud_sync_helper] BACKUPMETHOD is still 'sync': the change to 'copy' could not be written; the next run tries again| [WARN] [cloud_sync_helper] RCLONE_NET_OPTS could not be rewritten; the next run tries again| [INFO] [cloud_sync_helper] RCLONE_NET_OPTS still held the two-low-level-retry bound, which fails a Dropbox backup whenever a sav| [WARN] [cloud_sync_helper] RCLONE_SYNC_NET_OPTS could not be rewritten; the next run tries again| [INFO] [cloud_sync_helper] RCLONE_SYNC_NET_OPTS held the first-cut automatic bound; set to today's: five low-level retries, one | [INFO] [cloud_sync_helper] BACKUPMETHOD was 'sync', which deletes other devices' saves from the shared folder; set to 'copy'. Pr| [INFO] [cloud_sync_helper] RCLONE_NET_OPTS still held the two-low-level-retry bound, which fails a Dropbox backup whenever a sav| [INFO] [cloud_sync_helper] RCLONE_SYNC_NET_OPTS held the first-cut automatic bound; set to today's: five low-level retries, one |
+== end 2026-10-31T00:45:41Z

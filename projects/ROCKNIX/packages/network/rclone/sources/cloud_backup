@@ -1255,14 +1255,32 @@ load_config() {
     # unset means remote:/). The helper's copy from before this run's
     # update is the fallback; with no good copy the run refuses and says so
     # (D-CLOUD-078, #105).
-    local conf="/storage/.config/cloud_sync.conf"
+    local conf="/storage/.config/cloud_sync.conf" rc=1 t
+    # A temp a failed put-back left beside the conf (#1302): removed, under the
+    # cloud lock this run holds.
+    for t in "${conf}".tmp.*; do
+        [ -e "${t}" ] && rm -f "${t}" 2>/dev/null
+    done
     if ! conf_valid "${conf}"; then
         # Which line, and what about it -- never the value (PL-015).
         log_message "cloud_sync.conf is not run with: ${CONF_WHY}" "false" "WARN"
         if [ -f "${conf}.bak" ] && conf_valid "${conf}.bak"; then
             log_message "cloud_sync.conf does not parse; putting back the copy taken before this run's update" "false" "WARN"
-            cp -f "${conf}.bak" "${conf}.tmp.$$" && mv -f "${conf}.tmp.$$" "${conf}"
-        else
+            # A put-back that fails is a failure, not a fallback (#1302): a copy
+            # the card could not write left the refused file in place, and the
+            # source below ran it as root. The file put back is judged again.
+            cp -f "${conf}.bak" "${conf}.tmp.$$" 2>/dev/null
+            rc=$?
+            if [ "${rc}" -eq 0 ]; then
+                mv -f "${conf}.tmp.$$" "${conf}" 2>/dev/null
+                rc=$?
+            fi
+            if [ "${rc}" -eq 0 ] && ! conf_valid "${conf}"; then
+                rc=1
+            fi
+            [ "${rc}" -eq 0 ] || log_message "the copy could not be put back whole; nothing is run" "false" "WARN"
+        fi
+        if [ "${rc}" -ne 0 ]; then
             rm -f "${conf}.tmp.$$" 2>/dev/null
             log_message "Your cloud sync settings couldn't be read, and there's no good copy to fall back on.\nNothing was changed. Set up cloud storage again under GAME SETTINGS > MANAGE CLOUD STORAGE." "true" "ERROR"
             say_why "YOUR CLOUD SYNC SETTINGS COULDN'T BE READ"

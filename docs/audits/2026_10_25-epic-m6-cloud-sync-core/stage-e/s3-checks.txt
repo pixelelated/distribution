@@ -1,0 +1,9 @@
+S3 checks 2026-10-31T00:46:03Z
+bash -n cloud_backup: ok
+bash -n cloud_restore: ok
+bash -n cloud_sync_helper: ok
+load_config's put-back: the same lines in both twins (diff of the edited span empty)
+section d's 'load_config on a torn conf falls back to the .bak and goes on': kept -- the fixture's cp-works arm returns 0 with the conf valid (s3-after.out); S3 adds the check, as the brief says
+vocabulary-check: not run -- S3 adds log lines only (log_message ... false, log_to_file), no line a screen shows
+added lines with a QEMU, VM, port or loopback word: 0
+S3-sed models the full card with a 256 KiB tmpfs filled by dd (an empty marker fits, a temp copy does not): the brief's read-only folder would refuse the marker's touch too, so the pin would show no defect; a 32 KiB first try was too small for the helper's own copies (s3 cells, first run, not kept)
