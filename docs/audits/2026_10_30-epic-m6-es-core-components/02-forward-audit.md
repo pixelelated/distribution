@@ -123,23 +123,23 @@ The brief's L-01 to L-21 and floor rows 3.1 to 3.34, plus three the read found (
 | L-22 | `AsyncNotificationComponent.cpp:117-121`, `:261-299`; h `:72`, `:74` | a lifetime or a thread | T34 (a lane surface); the holders T18's and T20's | **new:** `close()` writes `mClosing` and `mFadeTime` unlocked from the holders' threads while `update()` reads them on the interface thread; a host ThreadSanitizer case at stage C; a `bug` at stage D if it fires; § 1 (b)'s component half beside it | tree | Q4 |
 | L-23 | `RatingComponent.cpp:262-266` | a player sentence outside the vocabulary or without French | T34 (upstream's line) | **new:** the rating's OK prompt `"add star"` is outside `_()`; contained under rule 6 with its French in the same commit; a #585 line | tree | Q6 |
 | L-24 | `VideoComponent.cpp:347-351` | a prompt where the key moves nothing | T34 (upstream's line) | **new:** a focused video component's help bar names BACK as `SELECT`; reached only where a video component holds focus; recorded, contained under rule 6 if the pause opens it | tree | Q3, Q6 |
-| 3.1 | `ComponentGrid.cpp:396-414` | a prompt where the key moves nothing | T34 | a case at stage C; expected PASS (D-UI-034's fix) | pending: fixture at stage C | Q3 |
-| 3.2 | `ComponentGrid.cpp:519-553` | a prompt where the key moves nothing | T34 | a case at stage C; expected PASS | pending: fixture at stage C | Q3 |
-| 3.3 | `ComponentGrid.cpp:329-379` | a prompt where the key moves nothing | T34 | a case at stage C; expected PASS | pending: fixture at stage C | Q3 |
+| 3.1 | `ComponentGrid.cpp:396-414` | a prompt where the key moves nothing | T34 | a case at stage C; expected PASS (D-UI-034's fix) | S4: PASS at the pin and after, one case for 3.1-3.3 (`stage-e/s4-before.txt`, `s4-after.txt`) | Q3 |
+| 3.2 | `ComponentGrid.cpp:519-553` | a prompt where the key moves nothing | T34 | a case at stage C; expected PASS | S4: PASS at the pin and after, with 3.1 and 3.3 | Q3 |
+| 3.3 | `ComponentGrid.cpp:329-379` | a prompt where the key moves nothing | T34 | a case at stage C; expected PASS | S4: PASS at the pin and after, with 3.1 and 3.2 | Q3 |
 | **3.4** | `MultiLineMenuEntry.cpp:50-80` (**`:74-75`**) | layout from what it produced / a moving number | T34 | FAIL at the pin (L-03); 300 `setDescription` calls hold the height (#241) | S3: FAIL at the pin (stage D), PASS after `db12b1598` (`stage-e/s3-after.txt`) | Q1 |
 | 3.5 | `TextComponent.cpp:315-340` | layout from what it produced / a moving number | T34 | L-17's case: the measured height one line short | S3: FAIL at the pin (28 against 48, 20 against 40), PASS after `db12b1598` (`stage-e/s3-before.txt`, `s3-after.txt`) | Q1 |
 | **3.6** | `TextComponent.cpp:486` | layout from what it produced / a moving number | T34 | FAIL at the pin: the limit 20 px too large | S3: FAIL at the pin (stage D), PASS after `db12b1598` (`stage-e/s3-after.txt`) | Q1 |
-| **3.7** | `SliderComponent.cpp:44-58`, `:271-319` (**`:282`**) | a player sentence outside the vocabulary or without French | T34 | FAIL at the pin: `"Auto"`; the precision cases expected PASS | pending: fixture at stage C | Q6 |
+| **3.7** | `SliderComponent.cpp:44-58`, `:271-319` (**`:282`**) | a player sentence outside the vocabulary or without French | T34 | FAIL at the pin: `"Auto"`; the precision cases expected PASS | S4: FAIL at the pin (stage D, `Auto`), PASS after `a9017ff50` (`stage-e/s4-after.txt`) | Q6 |
 | **3.8** | `CarouselComponent.cpp:74-90` with `:113`, `:119`; `IList.h:376-400` | a prompt where the key moves nothing | T34 | FAIL candidate: `listInput(-7)` on a size-3 carousel; the landing index asserted in `[0, sz)` per loop type | pending: fixture at stage C | Q3 |
 | 3.9 | `ImageGridComponent.h:1437-1468` | layout from what it produced / a moving number | T34 | a case; a 0 tile size is guarded only by a `LOG` | pending: fixture at stage C | Q1 |
 | 3.10 | `ImageGridComponent.h` from `:1065` (`:1162-1186`) | layout from what it produced / a moving number | T34 | a case on the partial last row | pending: fixture at stage C | Q1 |
 | 3.11 | `TextListComponent.h:262-269` | layout from what it produced / a moving number | T34 | a case on the extra row past the cutoff | S0: PASS at the pin (`stage-e/s0-before.txt`) | Q1 |
-| 3.12 | `DateTimeEditComponent.cpp:124-160` | a structure or merge-debt fact | T34 | a case on the date steps (an extraction or a fake `InputConfig`) | pending: fixture at stage C | Q7 |
-| 3.13 | `DateTimeEditComponent.cpp:251-260` | a player sentence outside the vocabulary or without French | T34 | PASS at the pin as written: a blank, not `<NOT SET>`; a style question for the pause | pending: fixture at stage C | Q6 |
+| 3.12 | `DateTimeEditComponent.cpp:124-160` | a structure or merge-debt fact | T34 | a case on the date steps (an extraction or a fake `InputConfig`) | S4: PASS at the pin and after (`stage-e/s4-before.txt`, `s4-after.txt`) | Q7 |
+| 3.13 | `DateTimeEditComponent.cpp:251-260` | a player sentence outside the vocabulary or without French | T34 | PASS at the pin as written: a blank, not `<NOT SET>`; a style question for the pause | S4 (PL-25, #1322): FAIL at the pin (a blank), PASS after `a9017ff50`: `<NOT SET>` through `_()` | Q6 |
 | 3.14 | `ScrollableContainer.cpp:62-107`, `:110-124`, `:126-131` | a structure or merge-debt fact | T34 | a case; `:69`'s unused `680.0f` is lint | S0: PASS at the pin; its PL-40 half (content 10 px narrower) FAIL: `-10 >= 0` and the vertical scroll never moves (`stage-e/s0-before.txt`) | Q7 |
 | 3.15 | `IList.h:267-330`, `:376-400` | a prompt where the key moves nothing | T34 | a case, the landing index for 3.8 | S0: PASS at the pin (`stage-e/s0-before.txt`) | Q3 |
-| **3.16** | `HelpComponent.cpp:73-130`, `:121-169`, `:176-200` | a player sentence outside the vocabulary or without French | T34 | FAIL at the pin: `haut/bas` -> `nullptr` and the `Unknown help icon` line (L-01) | pending: fixture at stage C | Q3, Q6 |
-| 3.17 | `ComponentTab.cpp:77-96`, `:320-345` | a prompt where the key moves nothing | T34 | a case; expected PASS | pending: fixture at stage C | Q3 |
+| **3.16** | `HelpComponent.cpp:73-130`, `:121-169`, `:176-200` | a player sentence outside the vocabulary or without French | T34 | FAIL at the pin: `haut/bas` -> `nullptr` and the `Unknown help icon` line (L-01) | S4: FAIL at the pin (`0 == 1`), PASS after `a9017ff50`; since S4 the case reads the list's own line through a catalog double (`stage-e/s4-checks.txt`) | Q3, Q6 |
+| 3.17 | `ComponentTab.cpp:77-96`, `:320-345` | a prompt where the key moves nothing | T34 | a case; expected PASS | S4: PASS at the pin and after (`stage-e/s4-before.txt`, `s4-after.txt`) | Q3 |
 | 3.18 | `AsyncNotificationComponent.cpp:136-145`, `:63-65` | a house constant a surface does not keep | T34 | a case: the width handed to `chooseThatFits` is the row's cell, never 0.9 W | S2: PASS at the pin, written before the fix and run again after it (`stage-e/s2-before.txt`, `s2-after.txt`) | Q6 |
 | 3.19 | `OptionListComponent.h:88-100`, `:140-160`, `:188-200` (ASan) | a lifetime or a thread | T34 | ASan over an extracted popup (L-11) | pending: fixture at stage C | Q4 |
 | 3.20 | `TextEditComponent.cpp:39`, `:47` | a lifetime or a thread | T34 | post, delete, drain (L-12) | pending: fixture at stage C | Q4 |
@@ -153,10 +153,10 @@ The brief's L-01 to L-21 and floor rows 3.1 to 3.34, plus three the read found (
 | 3.28 | `ComponentList.cpp:295-319` | layout from what it produced / a moving number | T34 | a case incl. the signed/unsigned compare | S3: PASS at the pin and after (`stage-e/s3-before.txt`, `s3-after.txt`) | Q1 |
 | 3.29 | `TextListComponent.h:591-608` | layout from what it produced / a moving number | T34 | the same for the game list | S0: PASS at the pin (`stage-e/s0-before.txt`) | Q1 |
 | 3.30 | `SwitchComponent.cpp:50-80`, `:118-138` | a prompt where the key moves nothing | T34 | a case on the tri-state cycle | pending: fixture at stage C | Q3 |
-| 3.31 | `SliderComponent.cpp:234-257` | a house constant a surface does not keep | T34 | a case on the clamp and the sentinel | pending: fixture at stage C | Q3 |
-| 3.32 | `RatingComponent.cpp:192-204` | a structure or merge-debt fact | T34 | a case on the accumulation's drift | pending: fixture at stage C | Q7 |
+| 3.31 | `SliderComponent.cpp:234-257` | a house constant a surface does not keep | T34 | a case on the clamp and the sentinel | S4: PASS at the pin and after | Q3 |
+| 3.32 | `RatingComponent.cpp:192-204` | a structure or merge-debt fact | T34 | a case on the accumulation's drift | S4: PASS at the pin and after; five presses reach 1.0 exactly in float | Q7 |
 | 3.33 | `TextEditComponent.cpp:267-271` | a structure or merge-debt fact | T34 | a case on a cursor inside a UTF-8 sequence (T21's `moveCursor`) | S2: PASS at the pin, written before the fix and run again after it (`stage-e/s2-before.txt`, `s2-after.txt`) | Q7 |
-| 3.34 | `CarouselComponent.cpp:183-200` | a prompt where the key moves nothing | T34 | a case incl. a count of 1 and a divide by 0 | pending: fixture at stage C | Q3 |
+| 3.34 | `CarouselComponent.cpp:183-200` | a prompt where the key moves nothing | T34 | a case incl. a count of 1 and a divide by 0 | S4: PASS at the pin and after, one entry and none included | Q3 |
 
 **The brief's § 1 rulings, each with its row:**
 
@@ -173,7 +173,7 @@ The brief's L-01 to L-21 and floor rows 3.1 to 3.34, plus three the read found (
 | (i) `ComponentList.cpp:568`'s `_("up/down")` | § The words, L-01, and § The input, `ComponentList.cpp:548` |
 | (j) the two lanes' `AsyncNotificationComponent.h` doubles | § The structure: a header change in T34 is named as a collision at the hand-back; the fakes are not the lane's |
 
-Generated, asserted by `tools/t34-leads.py`: 24 L leads (the brief's 21 and the read's L-22 to L-24), 34 floor rows (the seven FAIL-at-pin in bold), each answered, 4 run at the pin in S0 and 7 in the streams; 10 rulings, each with its row.
+Generated, asserted by `tools/t34-leads.py`: 24 L leads (the brief's 21 and the read's L-22 to L-24), 34 floor rows (the seven FAIL-at-pin in bold), each answered, 4 run at the pin in S0 and 18 in the streams; 10 rulings, each with its row.
 
 ## The layouts
 
@@ -398,8 +398,8 @@ Generated, asserted by `tools/t34-reads.py`: 33 rows -- 10 `exists(` lines in 5 
 
 | Site | Text | Disposition | proved |
 | --- | --- | --- | --- |
-| `SliderComponent.cpp:282` | `"Auto"`, the AUTO sentinel's value text | **3.7:** neither `_()` nor the placeholder `AUTO` (`es-ui-style-guide.md:164`); upstream's line; the contained fix `_("AUTO")` with its French in the same commit; G-09 if an auto slider is reachable | tree |
-| `RatingComponent.cpp:265` | `"add star"`, the rating's OK prompt | **L-23 (new):** a help label outside `_()`, English under every language; upstream's line; contained under rule 6 | tree |
+| `SliderComponent.cpp:282` | `"Auto"`, the AUTO sentinel's value text | **3.7:** neither `_()` nor the placeholder `AUTO` (`es-ui-style-guide.md:164`); upstream's line; the contained fix `_("AUTO")` with its French in the same commit; G-09 if an auto slider is reachable; S4 `a9017ff50` (#1316): `_("AUTO")`, 3.7 PASS after, FAIL before | tree |
+| `RatingComponent.cpp:265` | `"add star"`, the rating's OK prompt | **L-23 (new):** a help label outside `_()`, English under every language; upstream's line; contained under rule 6; S4 `a9017ff50` (#1317): `_("ADD STAR")` with `AJOUTER UNE ÉTOILE`, PL-10's case PASS after, FAIL before | tree |
 
 **L-01:** `ComponentList.cpp:568`'s `_("up/down")` is an icon key, not a label: the catalog translates it (`haut/bas`), `InputConfig::buttonLabel` returns it unchanged (`es-core/src/InputConfig.cpp:353-366`, T35's), and `HelpComponent::getIconTexture`'s `ICON_PATH_MAP` has no such key (`:190-194`): a null icon and `Unknown help icon "haut/bas"` under French on every settings list. The fork's own key sites write it untranslated (`ComponentTab.cpp:341`, `ComponentGrid.cpp:546-550`). The contained fix drops the `_()`; whether the catalog's orphan `msgid "up/down"` stays is one of the four rows put to the pause.
 

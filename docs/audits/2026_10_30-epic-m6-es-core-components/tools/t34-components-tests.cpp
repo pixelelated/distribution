@@ -7,12 +7,33 @@
 #include "doctest/doctest.h"
 #include <atomic>
 #include <functional>
+#include <cassert>
+#include <cmath>
+#include <ctime>
 #include <map>
 #include <memory>
+#include <set>
 #include <sstream>
 #include <string>
 #include <utility>
 #include <vector>
+
+// The catalog double (S4): _() records each msgid it is asked for and, under
+// gFrench, answers with the pin's French for the two these cases reach (po
+// :3708-3709 and CHOOSE's, read at stage A); every other msgid is returned as
+// it came. And the prompt type and the two button names the lines use.
+static bool gFrench = false;
+static std::set<std::string> gSeen;
+static std::string t34_tr(const char* s) {
+	static const std::map<std::string, std::string> fr = {{"up/down", "haut/bas"}, {"CHOOSE", "CHOISIR"}};
+	gSeen.insert(s);
+	if (gFrench) { auto it = fr.find(s); if (it != fr.end()) return it->second; }
+	return s;
+}
+#define _(x) t34_tr(x)
+struct HelpPrompt { std::string first, second; HelpPrompt(const std::string& b, const std::string& l) : first(b), second(l) {} };
+static const char* BUTTON_OK = "a";
+static const char* BUTTON_BACK = "b";
 
 // 3.4: MultiLineMenuEntry.cpp:72-75, the two rows' shares.
 struct Shares {
@@ -97,13 +118,20 @@ TEST_CASE("3.8 a carousel's page up or down lands inside the list for every loop
 				}
 }
 
-// 3.16: HelpComponent.cpp:18-33, the icon key the list passes under French.
+// 3.16: the list's move prompt (ComponentList.cpp:568 at the pin), its key
+// under French, against HelpComponent.cpp:18-33. Since S4 the key is read
+// from the list's own line through the catalog double; at stage D it was the
+// catalog's translation written into the case.
 #include "x_help_map.inc"
+struct ListPrompts { std::vector<HelpPrompt> prompts; bool addMovePrompt = true;
+	void run() {
+#include "x_list_prompt.inc"
+	} };
 TEST_CASE("3.16 the list's CHOOSE key resolves to an icon under French (ComponentList.cpp:568; HelpComponent.cpp:18-33, :190-194)") {
-	// _("up/down") under the pin's French catalog (po :3708-3709, read at stage A)
-	const std::map<std::string, std::string> fr = {{"up/down", "haut/bas"}};
+	gFrench = true; ListPrompts l; l.run(); gFrench = false;
+	REQUIRE(l.prompts.size() == 1);
 	CHECK(ICON_PATH_MAP.count("up/down") == 1);
-	CHECK(ICON_PATH_MAP.count(fr.at("up/down")) == 1);
+	CHECK(ICON_PATH_MAP.count(l.prompts[0].first) == 1);
 }
 
 // 3.26: MenuComponent.cpp:14 and :547-552, the bar's width against the menu's.
@@ -419,4 +447,212 @@ TEST_CASE("3.28 the menu list's camera: the last row at the bottom, the first at
 	c.mCursor = 15; c.mSelectorBarOffset = 15 * 30; c.update(); CHECK(c.mCameraOffset == doctest::Approx(300));
 	c.mCursor = 0; c.mSelectorBarOffset = 0; c.update(); CHECK(c.mCameraOffset == doctest::Approx(0));
 	c.mCursor = -1; c.update(); CHECK(c.mCameraOffset == doctest::Approx(0)); // the signed/unsigned compare reads -1 as past the end
+}
+
+// ---- S4 (stage E): the words and the prompts ----
+
+// PL-10 (#1317): RatingComponent.cpp:262-267, the rating's OK prompt.
+static std::vector<HelpPrompt> ratingPrompts() {
+#include "x_rating_prompts.inc"
+}
+TEST_CASE("PL-10 the rating's prompt is a translated upper-case verb (RatingComponent.cpp:262-267)") {
+	gSeen.clear(); auto p = ratingPrompts();
+	REQUIRE(p.size() == 1);
+	CHECK(gSeen.count(p[0].second) == 1);
+	CHECK(p[0].second == "ADD STAR");
+}
+
+// PL-11 (#1318): VideoComponent.cpp:347-352; the component takes no input.
+static std::vector<HelpPrompt> videoPrompts() {
+#include "x_video_prompts.inc"
+}
+TEST_CASE("PL-11 a video component offers no prompt, since it takes no input (VideoComponent.cpp:347-352)") {
+	auto p = videoPrompts();
+	CHECK(p.empty());
+	for (auto& h : p) CHECK_FALSE((h.first == BUTTON_BACK && h.second == "SELECT"));
+}
+
+// PL-19 (#1321): CarouselComponent.cpp:354-364 and OptionListComponent.h:636-644.
+struct CarouselP { enum class CarouselType { HORIZONTAL, VERTICAL, VERTICAL_WHEEL, HORIZONTAL_WHEEL }; CarouselType mType = CarouselType::HORIZONTAL; int n = 1;
+	int size() const { return n; }
+	std::vector<HelpPrompt> prompts() {
+#include "x_carousel_prompts.inc"
+	} };
+struct OptionP { bool mMultiSelect = false; std::vector<int> mEntries;
+	std::vector<HelpPrompt> prompts() {
+#include "x_option_prompts.inc"
+	} };
+TEST_CASE("PL-19 a one-entry carousel and a one-value option row offer no direction (CarouselComponent.cpp:358-361, OptionListComponent.h:639-640)") {
+	CarouselP one; CHECK(one.prompts().empty());
+	CarouselP three; three.n = 3; CHECK(three.prompts().size() == 1);
+	OptionP o; o.mEntries = {1};
+	for (auto& h : o.prompts()) CHECK(h.first != "left/right");
+	OptionP o2; o2.mEntries = {1, 2}; CHECK(o2.prompts().size() == 2);
+}
+
+// 3.13 / PL-25 (#1322): DateTimeEditComponent.cpp:251-260, an unset date.
+enum DisplayModeD { DISP_DATE, DISP_RELATIVE_TO_NOW };
+struct TimeD { long t = 0; long getTime() const { return t; } };
+namespace Utils { namespace Time {
+	std::string getElapsedSinceString(long) { return "AGO"; }
+	std::string timeToString(const TimeD& t, const std::string&) { return std::to_string(t.t); }
+	int daysInMonth(int year, int month) { static const int d[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}; return month == 2 && ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) ? 29 : d[month - 1]; }
+} }
+struct DateD { DisplayModeD mDisplayMode = DISP_DATE; TimeD mTime; std::string mDateFormat = "%Y";
+	std::string getDisplayString() const {
+#include "x_date_display.inc"
+	} };
+TEST_CASE("3.13 PL-25 an unset date reads <NOT SET> (DateTimeEditComponent.cpp:251-260)") {
+	DateD d; gSeen.clear();
+	CHECK(d.getDisplayString() == "<NOT SET>");
+	CHECK(gSeen.count("<NOT SET>") == 1);
+	d.mTime.t = 42; CHECK(d.getDisplayString() == "42");
+}
+
+// PL-29 (#1325): HelpComponent.cpp:95-156 (the fit and the grid) and
+// :208-214 (setOpacity), over doubles that record a grid built with no
+// column and a dereference of a null grid instead of crashing.
+namespace helpns {
+static bool gZeroColumnGrid = false;
+namespace Math { inline float round(float v) { return std::floor(v + 0.5f); } }
+namespace Renderer { inline int getScreenWidth() { return 640; } }
+#include "x_help_spacing.inc"
+struct Window {};
+struct FontH { float getLetterHeight() const { return 16; } Vec2f sizeText(const std::string& t) const { return Vec2f(10.0f * t.size(), 20); } };
+struct ImageComponent { float w = 0; ImageComponent(Window*, bool) {} void setIsLinear(bool) {} void setImage(int) {} void setColorShift(unsigned) {} void setResize(float, float h) { w = h; } Vec2f getSize() const { return Vec2f(w, w); } void setOpacity(unsigned char) {} };
+struct TextComponent { std::string text; float w; TextComponent(Window*, const std::string& t, const std::shared_ptr<FontH>& f, unsigned) : text(t), w(f->sizeText(t).x()) {}
+	Vec2f getSize() const { return Vec2f(w, 20); } void setSize(float nw, float) { w = nw; } void setGlowSize(int) {} void setGlowColor(unsigned) {} void setGlowOffset(float, float) {} void setOpacity(unsigned char) {} };
+struct InputConfig { static std::string buttonLabel(const std::string& b) { return b; } };
+struct Vector2i { int a, b; Vector2i(int x, int y) : a(x), b(y) {} int x() const { return a; } int y() const { return b; } };
+struct Child { void setOpacity(unsigned char) {} };
+struct ComponentGrid { int cols; std::vector<Child> kids;
+	ComponentGrid(Window*, const Vector2i& d) : cols(d.x()) { if (d.x() <= 0) gZeroColumnGrid = true; kids.resize(cols > 0 ? cols : 0); }
+	void setSize(float, float) {} int getChildCount() const { return (int)kids.size(); } Child* getChild(int i) { return &kids[i]; } };
+struct GridPtr { std::shared_ptr<ComponentGrid> p; bool nullDeref = false;
+	GridPtr& operator=(std::shared_ptr<ComponentGrid> q) { p = q; return *this; } void reset() { p.reset(); } explicit operator bool() const { return (bool)p; }
+	ComponentGrid* operator->() { static ComponentGrid dummy(nullptr, Vector2i(1, 1)); if (!p) { nullDeref = true; return &dummy; } return p.get(); } };
+struct Style { std::shared_ptr<FontH> font = std::make_shared<FontH>(); unsigned iconColor = 0, textColor = 0, glowColor = 0; int glowSize = 0; Vec2f glowOffset; };
+struct GuiBase { void setOpacity(unsigned char) {} };
+struct HelpD : GuiBase { using GuiComponent = GuiBase;
+	Window* mWindow = nullptr; Style mStyle; GridPtr mGrid; std::vector<std::pair<std::string, std::string>> mPrompts;
+	int getIconTexture(const std::string&) { return 0; }
+	size_t kept = 0; float firstWidth = -1;
+	void fit(int maxWidth) {
+		std::shared_ptr<FontH>& font = mStyle.font;
+		std::vector<std::pair<std::shared_ptr<ImageComponent>, std::shared_ptr<TextComponent>>> items;
+		bool is43screen = false;
+#include "x_help_fit.inc"
+		kept = items.size(); if (!items.empty()) firstWidth = items[0].second->getSize().x();
+	}
+	void setOpacity(unsigned char opacity) {
+#include "x_help_opacity.inc"
+	}
+};
+}
+TEST_CASE("PL-29 a first prompt wider than the bar is kept and clipped, and a bar with no grid takes an opacity (HelpComponent.cpp:95-156, :208-214)") {
+	helpns::gZeroColumnGrid = false;
+	helpns::HelpD h; h.mPrompts = {{"a", "A LABEL FAR WIDER THAN THIS BAR CAN EVER HOLD"}, {"b", "BACK"}};
+	h.fit(200);
+	CHECK(h.kept == 1);
+	CHECK_FALSE(helpns::gZeroColumnGrid);
+	CHECK(h.firstWidth < 200);
+	helpns::HelpD none; none.mGrid.reset(); none.setOpacity(128);
+	CHECK_FALSE(none.mGrid.nullDeref);
+}
+
+// 3.1-3.3: ComponentGrid.cpp:329-379 (moveCursor), :396-414 (canMoveCursor), :519-553 (getHelpPrompts).
+namespace gridns {
+struct Vector2i { int a, b; Vector2i(int x = 0, int y = 0) : a(x), b(y) {} int x() const { return a; } int y() const { return b; }
+	Vector2i operator+(const Vector2i& o) const { return Vector2i(a + o.a, b + o.b); } Vector2i& operator+=(const Vector2i& o) { a += o.a; b += o.b; return *this; } };
+struct Comp { std::vector<HelpPrompt> p; std::vector<HelpPrompt> getHelpPrompts() { return p; } };
+struct GridEntry { bool canFocus; Comp* component; };
+struct Grid { Vector2i mGridSize, mCursor; std::map<std::pair<int, int>, GridEntry> cells; int moved = 0;
+	const GridEntry* getCellAt(const Vector2i& c) const { auto it = cells.find({c.x(), c.y()}); return it == cells.end() ? nullptr : &it->second; }
+	void onCursorMoved(Vector2i, Vector2i) { moved++; }
+	bool moveCursor(Vector2i dir) {
+#include "x_grid_move.inc"
+	}
+	bool canMoveCursor(const Vector2i& dir) const {
+#include "x_grid_canmove.inc"
+	}
+	std::vector<HelpPrompt> getHelpPrompts() {
+#include "x_grid_prompts.inc"
+	} };
+}
+TEST_CASE("3.1-3.3 the grid offers a direction only where a focusable cell lies, and moves there (ComponentGrid.cpp:329-414, :519-553)") {
+	gridns::Comp c; gridns::Grid g; g.mGridSize = gridns::Vector2i(3, 1);
+	g.cells[{0, 0}] = {true, &c}; g.cells[{1, 0}] = {false, &c}; g.cells[{2, 0}] = {true, &c};
+	CHECK(g.canMoveCursor(gridns::Vector2i(1, 0)));
+	CHECK_FALSE(g.canMoveCursor(gridns::Vector2i(-1, 0)));
+	CHECK_FALSE(g.canMoveCursor(gridns::Vector2i(0, 1)));
+	auto p = g.getHelpPrompts(); REQUIRE(p.size() == 1); CHECK(p[0].first == "left/right");
+	CHECK(g.moveCursor(gridns::Vector2i(1, 0))); CHECK(g.mCursor.x() == 2); CHECK(g.moved == 1);
+	CHECK_FALSE(g.moveCursor(gridns::Vector2i(1, 0))); CHECK(g.mCursor.x() == 2);
+	gridns::Grid one; one.mGridSize = gridns::Vector2i(1, 1); one.cells[{0, 0}] = {true, &c};
+	CHECK(one.getHelpPrompts().empty());
+}
+
+// 3.12: DateTimeEditComponent.cpp:124-160, a step through the date.
+struct DateStep { tm mTime{}; int mEditIndex = 0, mMonthIndex = 0, mDayIndex = 1, mYearIndex = 2, cache = 0;
+	void updateTextCache() { cache++; }
+	void step(int incDir) {
+#include "x_date_step.inc"
+	} };
+TEST_CASE("3.12 the date steps wrap the month and the day and keep the day inside its month (DateTimeEditComponent.cpp:124-160)") {
+	DateStep d; d.mTime.tm_year = 124; d.mTime.tm_mon = 0; d.mTime.tm_mday = 31; // 31 January 2024
+	d.mEditIndex = d.mMonthIndex; d.step(1); CHECK(d.mTime.tm_mon == 1); CHECK(d.mTime.tm_mday == 29);
+	d.mEditIndex = d.mMonthIndex; d.step(-1); d.step(-1); CHECK(d.mTime.tm_mon == 11);
+	d.mEditIndex = d.mDayIndex; d.mTime.tm_mday = 1; d.step(-1); CHECK(d.mTime.tm_mday == 31);
+	d.mEditIndex = d.mYearIndex; d.mTime.tm_year = 0; d.step(-1); CHECK(d.mTime.tm_year == 0);
+}
+
+// 3.17: ComponentTab.cpp:320-345, the strip's prompts.
+struct TabP { struct Elem { gridns::Comp* component; }; struct Data { std::vector<Elem> elements; }; struct Entry { Data data; };
+	std::vector<Entry> mEntries; int mCursor = 0;
+	int size() const { return (int)mEntries.size(); }
+	std::vector<HelpPrompt> prompts() {
+#include "x_tab_prompts.inc"
+	} };
+TEST_CASE("3.17 the tab strip offers SWITCH TAB only with two tabs and no sideways prompt of its own (ComponentTab.cpp:320-345)") {
+	gridns::Comp c; TabP one; one.mEntries = {TabP::Entry{{{TabP::Elem{&c}}}}};
+	CHECK(one.prompts().empty());
+	TabP two = one; two.mEntries.push_back(two.mEntries[0]);
+	auto p = two.prompts(); REQUIRE(p.size() == 1); CHECK(p[0].second == "SWITCH TAB");
+	gridns::Comp side; side.p = {HelpPrompt("left/right", "CHANGE")};
+	TabP s2; s2.mEntries = {TabP::Entry{{{TabP::Elem{&side}}}}, TabP::Entry{{{TabP::Elem{&side}}}}};
+	CHECK(s2.prompts().size() == 1);
+}
+
+// 3.31: SliderComponent.cpp:234-257, the clamp and the AUTO sentinel.
+struct SliderSet { float mValue = 0, mMin = 0, mMax = 100, mSingleIncrement = 1; bool mIsAutoMode = false;
+	void set(float value) {
+#include "x_slider_set.inc"
+	} };
+TEST_CASE("3.31 the slider clamps to its range and keeps its AUTO sentinel only in auto mode (SliderComponent.cpp:234-257)") {
+	SliderSet s; s.set(-5); CHECK(s.mValue == 0); s.set(250); CHECK(s.mValue == 100); s.set(42); CHECK(s.mValue == 42);
+	s.set(-1); CHECK(s.mValue == 0);
+	SliderSet a; a.mIsAutoMode = true; a.set(-1); CHECK(a.mValue == -1);
+}
+
+// 3.32: RatingComponent.cpp:192-204, five presses make five stars.
+#define NUM_RATING_STARS 5
+struct RatingStep { float mValue = 0; int verts = 0; void updateVertices() { verts++; }
+	void press() {
+#include "x_rating_step.inc"
+	} };
+TEST_CASE("3.32 five presses reach five stars and the sixth wraps to none (RatingComponent.cpp:192-204)") {
+	RatingStep r; for (int i = 0; i < 5; i++) r.press();
+	CHECK(r.mValue == doctest::Approx(1.0f)); r.press(); CHECK(r.mValue == doctest::Approx(0.0f));
+}
+
+// 3.34: CarouselComponent.cpp:183-202, the shortest way round.
+struct CarouselPath { float mCamOffset = 0; int mCursor = 0; std::vector<int> mEntries; float endPosOut = -99;
+	void path() {
+#include "x_carousel_path.inc"
+		endPosOut = endPos;
+	} };
+TEST_CASE("3.34 the carousel takes the shortest way round, with one entry and with none (CarouselComponent.cpp:183-202)") {
+	CarouselPath c; c.mEntries.assign(10, 0); c.mCamOffset = 9; c.mCursor = 0; c.path(); CHECK(c.endPosOut == doctest::Approx(10));
+	CarouselPath one; one.mEntries.assign(1, 0); one.path(); CHECK(one.endPosOut == doctest::Approx(0));
+	CarouselPath none; none.path(); CHECK(none.endPosOut == doctest::Approx(0));
 }

@@ -77,6 +77,17 @@ SE.update({
  "3.6": "S3: FAIL at the pin (stage D), PASS after `db12b1598` (`stage-e/s3-after.txt`)",
  "3.25": "S3: PASS at the pin and after (`stage-e/s3-before.txt`, `s3-after.txt`)",
  "3.28": "S3: PASS at the pin and after (`stage-e/s3-before.txt`, `s3-after.txt`)",
+ "3.1": "S4: PASS at the pin and after, one case for 3.1-3.3 (`stage-e/s4-before.txt`, `s4-after.txt`)",
+ "3.2": "S4: PASS at the pin and after, with 3.1 and 3.3",
+ "3.3": "S4: PASS at the pin and after, with 3.1 and 3.2",
+ "3.7": "S4: FAIL at the pin (stage D, `Auto`), PASS after `a9017ff50` (`stage-e/s4-after.txt`)",
+ "3.12": "S4: PASS at the pin and after (`stage-e/s4-before.txt`, `s4-after.txt`)",
+ "3.13": "S4 (PL-25, #1322): FAIL at the pin (a blank), PASS after `a9017ff50`: `<NOT SET>` through `_()`",
+ "3.16": "S4: FAIL at the pin (`0 == 1`), PASS after `a9017ff50`; since S4 the case reads the list's own line through a catalog double (`stage-e/s4-checks.txt`)",
+ "3.17": "S4: PASS at the pin and after (`stage-e/s4-before.txt`, `s4-after.txt`)",
+ "3.31": "S4: PASS at the pin and after",
+ "3.32": "S4: PASS at the pin and after; five presses reach 1.0 exactly in float",
+ "3.34": "S4: PASS at the pin and after, one entry and none included",
 })
 R = [  # (ruling, the 02 row)
  ("(a) T32 PL-07 / #1263, the caller's half", "§ The reads, `ImageComponent.cpp:408`"),

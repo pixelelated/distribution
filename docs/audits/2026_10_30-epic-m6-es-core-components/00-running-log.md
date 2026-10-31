@@ -178,3 +178,22 @@
 - **`GuiMsgBox`'s workaround** is `stage-e/s3-msgbox.patch` (T35's), proven on a scratch copy of the pin's file; the lane's keyboard fake gained `SDLK_SPACE`.
 - **The build script's gap, fixed:** a refused extraction left the previous binary to run and report. The first after-run's counts matched the before-run exactly, which is how it showed. Friction-log line written.
 - **Specs moved and added:** each named with its before and after in `stage-e/s3-checks.txt`. The layouts and constants generators carry S3's outcome.
+
+## [Stage E] 06:21 UTC 2026-10-31 — S4 (#1312, #1316, #1317, #1318, #1321, #1322, #1325): the words and the prompts, `a9017ff50`
+
+- **The cases came first, run at `db12b1598`** (`stage-e/s4-before.txt`):
+  - FAIL: 3.7, 3.16, PL-10, PL-11, PL-19, 3.13 (PL-25) and PL-29;
+  - PASS: the floor's 3.1-3.3, 3.12, 3.17, 3.31, 3.32 and 3.34;
+  - `TOTAL: 271 test cases in 6 binaries`.
+- **The fix**, one ES commit on eight sources and the French catalog. The subject follows ruling 4 rather than the drafted subject. Changes:
+  - the icon key leaves `_()` (D-UI-133);
+  - AUTO, ADD STAR and <NOT SET> go through it, and ADD STAR gains its French;
+  - the video component offers no prompt (ruling 7);
+  - one entry offers no direction;
+  - the help bar keeps and clips its first prompt, builds no grid only when nothing fits, and takes batocera's `setOpacity` guard (ruling 4).
+- **After:** every S4 case PASS; `TOTAL: 271 test cases in 6 binaries`.
+  - `es-untranslated`: 704 fork strings, 0 without French.
+  - `t34-words.py --at`: 24 lines in 13 files, 28 occurrences at the tip (22, 12 and 27 at the pin).
+  - The input counts are unchanged (14 and 12).
+  - The stand-in passes all 37.
+- **3.16's setup** now reads the list's own line through a catalog double; its assertion is unchanged (D-WORKFLOW-211). Seventeen specs added, eight of them moved by the fix, each named in `s4-checks.txt`.

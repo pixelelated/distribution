@@ -8,8 +8,12 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from t34lib import PIN, COMP, die, show, paths
 
 W = sys.argv[1]
-files = paths(sys.argv[2] if len(sys.argv) > 2 else None)
-po = subprocess.run(["git", "-C", W, "show", PIN + ":locale/lang/fr/LC_MESSAGES/emulationstation2.po"], capture_output=True, check=True).stdout.decode("utf-8")
+AT = None  # stage E: `t34-words.py <tree> --at <ref>` prints only the counts at that ref, asserting each msgid has French there
+if len(sys.argv) > 3 and sys.argv[2] == "--at":
+    AT = sys.argv[3]; files = paths(None)
+else:
+    files = paths(sys.argv[2] if len(sys.argv) > 2 else None)
+po = subprocess.run(["git", "-C", W, "show", (AT or PIN) + ":locale/lang/fr/LC_MESSAGES/emulationstation2.po"], capture_output=True, check=True).stdout.decode("utf-8")
 
 def unq(s):
     return bytes(s, "utf-8").decode("unicode_escape").encode("latin-1").decode("utf-8")
@@ -31,12 +35,19 @@ if cur is not None and key == "msgstr":
 rx = re.compile(r'_\("((?:[^"\\]|\\.)*)"\)')
 lines, occ, per = [], 0, {}
 for f in files:
-    for n, l in enumerate(show(W, f).split("\n"), 1):
+    for n, l in enumerate(show(W, f, AT or PIN).split("\n"), 1):
         if '_("' in l:
             ids = rx.findall(l)
             lines.append(("%s:%d" % (f[len(COMP):], n), ids))
             occ += l.count('_("'); per[f] = per.get(f, 0) + 1
 distinct = sorted({i for _, ids in lines for i in ids})
+if AT:
+    missing = [i for i in distinct if not cat.get(i)]
+    if missing:
+        die("msgids with no French at %s: %s" % (AT, missing))
+    print("t34-words --at %s: _(\" lines %d in %d files, %d occurrences, %d distinct msgids, each with French there; per file: %s" % (
+        AT[:10], len(lines), len(per), occ, len(distinct), ", ".join("%s %d" % (f[len(COMP):], per[f]) for f in sorted(per))))
+    sys.exit(0)
 for what, have, want in [("_(\" lines", len(lines), 22), ("files", len(per), 12), ("occurrences", occ, 27), ("distinct msgids", len(distinct), 17)]:
     if have != want:
         die("%s: %d, expected %d" % (what, have, want))
@@ -46,8 +57,8 @@ for i in distinct:
 if cat.get("up/down") != "haut/bas" or cat.get("SWITCH TAB") != "CHANGER D’ONGLET":
     die("the catalog's up/down or SWITCH TAB no longer reads as the brief says")
 OUT = [  # (file, line, must hold, the text, disposition)
- ("SliderComponent.cpp", 282, 'ss << "Auto"', '`"Auto"`, the AUTO sentinel\'s value text', "**3.7:** neither `_()` nor the placeholder `AUTO` (`es-ui-style-guide.md:164`); upstream's line; the contained fix `_(\"AUTO\")` with its French in the same commit; G-09 if an auto slider is reachable"),
- ("RatingComponent.cpp", 265, '"add star"', "`\"add star\"`, the rating's OK prompt", "**L-23 (new):** a help label outside `_()`, English under every language; upstream's line; contained under rule 6"),
+ ("SliderComponent.cpp", 282, 'ss << "Auto"', '`"Auto"`, the AUTO sentinel\'s value text', "**3.7:** neither `_()` nor the placeholder `AUTO` (`es-ui-style-guide.md:164`); upstream's line; the contained fix `_(\"AUTO\")` with its French in the same commit; G-09 if an auto slider is reachable; S4 `a9017ff50` (#1316): `_(\"AUTO\")`, 3.7 PASS after, FAIL before"),
+ ("RatingComponent.cpp", 265, '"add star"', "`\"add star\"`, the rating's OK prompt", "**L-23 (new):** a help label outside `_()`, English under every language; upstream's line; contained under rule 6; S4 `a9017ff50` (#1317): `_(\"ADD STAR\")` with `AJOUTER UNE ÉTOILE`, PL-10's case PASS after, FAIL before"),
 ]
 FMT = [  # (file, line, must hold, the formatter)
  ("MenuComponent.cpp", 205, "toUpper", "`addWithLabel`'s label (the brief's `addGroup`; corrected by the seat, read at `:197`)"),

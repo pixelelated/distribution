@@ -1,0 +1,66 @@
+# S4 (stage E, #681; #1312, #1316, #1317, #1318, #1321, #1322, #1325): checks, written 2026-10-31T06:21:15Z
+
+## The ES commit
+a9017ff502d375b1bf7f82ef9f710adfb17533cb on feature/m6-es-core-components-681 (parent db12b1598, S3), pushed to origin over HTTPS by remote name; D-UI-133 cited in its body.
+     es-core/src/components/CarouselComponent.cpp     | 12 ++++++++----
+     es-core/src/components/ComponentList.cpp         |  2 +-
+     es-core/src/components/DateTimeEditComponent.cpp |  3 ++-
+     es-core/src/components/HelpComponent.cpp         | 23 +++++++++++++++++++++--
+     es-core/src/components/OptionListComponent.h     |  2 +-
+     es-core/src/components/RatingComponent.cpp       |  3 ++-
+     es-core/src/components/SliderComponent.cpp       |  2 +-
+     es-core/src/components/VideoComponent.cpp        |  3 ++-
+     locale/lang/fr/LC_MESSAGES/emulationstation2.po  |  3 +++
+     9 files changed, 41 insertions(+), 12 deletions(-)
+Non-ASCII on the added lines of the eight source files: none; the French lives in the catalog (AJOUTER UNE ÉTOILE).
+The subject follows ruling 4, not the brief's drafted subject: the help bar keeps its first prompt clipped, and builds no grid only when nothing fits at all.
+
+## Before and after (tools/t34-build-tests.sh's own lines)
+Before, at db12b1598 (the eight files are the pin's there, ComponentList.cpp moved by S3):
+    RUN components-tests: rc 1; [doctest] test cases: 32 | 23 passed | 9 failed | 0 skipped [doctest] assertions: 392 | 376 passed | 16 failed | 
+    TOTAL: 271 test cases in 6 binaries
+    FAIL: 3.7 (Auto), 3.16 (0 == 1), PL-10 (not through _(), 'add star'), PL-11 (BACK named SELECT), PL-19 (CHOOSE on one entry; CHANGE on one value), 3.13 / PL-25 (a blank), PL-29 (no prompt kept; a grid of no columns; setOpacity through a null grid)
+    PASS: 3.1-3.3, 3.12, 3.17, 3.31, 3.32, 3.34
+After, at a9017ff50:
+    RUN components-tests: rc 1; [doctest] test cases: 32 | 30 passed | 2 failed | 0 skipped [doctest] assertions: 390 | 387 passed | 3 failed | 
+    SAN tsan-card (-fsanitize=thread): rc 0; no sanitizer report
+    SAN asan-textedit (-fsanitize=address): rc 0; no sanitizer report
+    SAN asan-popup (-fsanitize=address): rc 0; no sanitizer report
+    SAN asan-card-handle (-fsanitize=address): rc 0; no sanitizer report
+    TOTAL: 271 test cases in 6 binaries
+    every S4 case PASS; the two FAILs left are 3.26 (PL-14, recorded; may_fail at the hand-back, ruling 9) and 3.14's PL-40 half (recorded)
+
+## The stand-in, the words, the input
+    rc=0 CarouselComponent.cpp
+    rc=0 ComponentList.cpp
+    rc=0 DateTimeComponent.cpp
+    rc=0 DateTimeEditComponent.cpp
+    rc=0 HelpComponent.cpp
+    rc=0 RatingComponent.cpp
+    rc=0 SliderComponent.cpp
+    rc=0 VideoComponent.cpp
+    CANNOT VideoVlcComponent.cpp: <vlc/vlc.h> and <vlc/libvlc_version.h> (:8-9) have no fake
+    t34-syntax-check: 37 file(s) checked, 37 rc 0, 0 not
+    OptionListComponent.h through its includers (ComponentList.cpp among the 37).
+    t34-words --at 16dbac5211: _(" lines 22 in 12 files, 27 occurrences, 17 distinct msgids, each with French there; per file: BusyComponent.cpp 1, CarouselComponent.cpp 2, ComponentGrid.cpp 3, ComponentList.cpp 2, ComponentTab.cpp 1, DateTimeComponent.cpp 1, ImageComponent.cpp 1, OptionListComponent.h 6, SliderComponent.cpp 1, SwitchComponent.cpp 1, TextEditComponent.cpp 2, VideoComponent.cpp 1
+    t34-words --at a9017ff502: _(" lines 24 in 13 files, 28 occurrences, 19 distinct msgids, each with French there; per file: BusyComponent.cpp 1, CarouselComponent.cpp 2, ComponentGrid.cpp 3, ComponentList.cpp 2, ComponentTab.cpp 1, DateTimeComponent.cpp 1, DateTimeEditComponent.cpp 1, ImageComponent.cpp 1, OptionListComponent.h 6, RatingComponent.cpp 1, SliderComponent.cpp 2, SwitchComponent.cpp 1, TextEditComponent.cpp 2
+    (the msgids moved as the brief expected: ComponentList.cpp's line keeps one _( fewer, VideoComponent.cpp leaves, the slider, the rating and the date editor each gain one)
+    es-untranslated: 704 fork string(s) in the source, 704 with French, 0 without (703 at the pin, stage-a/runs.txt:231; ADD STAR the one added)
+    t34-input.py's counts at the tip, by git grep: 14 ::input(InputConfig, 12 ::getHelpPrompts(), as at the pin
+
+## Specs (D-WORKFLOW-210)
+New in S4, with the pin's lines (s4-before) and the tip's (s4-after): list_prompt ComponentList.cpp:571-572 (the key '_("up/down")' -> '"up/down"'); rating_prompts RatingComponent.cpp:264-266 -> :265-267; rating_step :196-198 -> :197-199; video_prompts VideoComponent.cpp:349-351 -> :351-352; carousel_prompts CarouselComponent.cpp:356-363 -> :356-367; carousel_path :188-202 (unchanged); option_prompts OptionListComponent.h:638-643 (unchanged lines, the guard); date_display DateTimeEditComponent.cpp:253-259 -> :254-260; date_step :124-160 -> :125-161; help_spacing HelpComponent.cpp:12-16 (unchanged); help_fit :95-156 -> :95-172; help_opacity :210-213 -> :226-232; grid_move ComponentGrid.cpp:331-378, grid_canmove :398-413, grid_prompts :521-552, tab_prompts ComponentTab.cpp:322-344, slider_set SliderComponent.cpp:236-251 (all unchanged).
+slider_text SliderComponent.cpp:276-299 and help_map HelpComponent.cpp:18-33 keep their ranges; the slider's line :282 now reads _("AUTO").
+3.16's setup (D-WORKFLOW-211): at stage D the case wrote the catalog's translation of up/down into itself; since S4 it reads the key from the list's own line through the catalog double. Its assertion, ICON_PATH_MAP.count(<the key>) == 1, is unchanged.
+tools/t34-words.py gained --at <ref> (counts only, French asserted at that ref); without it the tool reads the pin as before. Its OUT rows SliderComponent.cpp:282 and RatingComponent.cpp:265 carry S4's outcome.
+
+## The merge debt this stream adds
+batocera's 9dbd4b9bf setOpacity guard is now carried (HelpComponent.cpp:229-230): at the reconciliation, that hunk is already here. Its overlap with the fork's 7dc8bf373 in HelpComponent::updateGrid() (#210) is named for the integration.
+
+## The #585 lines
+Six, as the brief lists: L-01 (the translated icon key), 3.7 (Auto), L-23 (add star), L-24 (the video's SELECT), L-13 (the one-entry direction), 3.13 (the unset date): batocera, then ROCKNIX. None for PL-29 (the fork's fit, 7dc8bf373).
+
+## Other checks
+ES .githooks/pre-push-test: PASS.
+Already written (#1312, #1316, #1317, #1318, #1321, #1322, #1325): nothing inherited; a prompt is built on a page change, not stored.
+The guest half (fix-walk-pending-image): a list's bar under French at 640x480, a rating row's bar and the metadata editor's date row in French.
