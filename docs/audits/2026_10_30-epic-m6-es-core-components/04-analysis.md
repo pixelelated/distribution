@@ -15,35 +15,35 @@ The 80 paths of `es-core/src/components/**` at the pin `16dbac5211` were read wh
 - **The sanitizer cases** for PL-01 and PL-03.
 - **The stand-in syntax check** over the 37 sources.
 
-Each proof below is `tree` or `guest` until those run. They are named as owed in § Coverage boundary and on #681.
+Each proof below is `tree` or `guest` until those run. They are named as owed in § Coverage boundary and on #681. **Stage E ran them:** the unit build, the sanitizer cases (with a fourth, `asan-card-handle`) and the stand-in, each recorded in `stage-e/`.
 
 ## Acceptance-criteria scorecard
 
-#681's 21 criteria, as they stand at the stage-D pause:
+#681's 21 criteria, as they stand at the hand-back (`8adf428981`, amended at `d60c88966a` and after); the stage-D state is in this file's history:
 
-| # | Criterion (short) | State at the pause | Evidence |
+| # | Criterion (short) | State at the hand-back | Evidence |
 | --- | --- | --- | --- |
-| 1 | the audit folder's files and directories | partial: `stage-d/`, `stage-e/` owed | `ls` at the hand-back |
-| 2 | the lint at both phases and with `--issue` | pre-issue PASS owed this stage; resolution at close | `tools/lint-audit-artifacts` |
+| 1 | the audit folder's files and directories | met: `stage-a/` to `stage-e/`, `second-opinions/`, `tools/`, `guest-cycle/` | `ls` at the hand-back |
+| 2 | the lint at both phases and with `--issue` | pre-issue PASS at stage C; resolution PASS at the hand-back with the held reply copied in for the run and removed (the carry, #1308) | `tools/lint-audit-artifacts` |
 | 3 | `review-plan.json` and the two provenance files | met: probe and refutation PASS, served `openai/gpt-6-astra` at `max`; the refutation's reply held off the tree (PL-27), its receipt committed and binding its sha256 | `second-opinions/` |
-| 4 | the punch-list issue at Phase 7 | the issue at stage D; outcomes at stage F | `05` |
-| 5 | the four header fields | `reviewed-at:` at the hand-back | #681's body |
+| 4 | the punch-list issue at Phase 7 | met: #1307 with 43 items; `05` at Phase 7, 26 Resolved, 14 Deferred, 3 Withdrawn | `05` |
+| 5 | the four header fields | met: `d446c4c6c3`, `16dbac5211`, `8adf428981`, `52f0ff512` | #681's body |
 | 6 | `01` § Scope with the block's lines | met | `01-research-notes.md` |
 | 7 | the coverage table's 80 rows | met | `02` § Coverage |
 | 8 | `02` § The runs with both counting rules | met | `02` § The runs |
 | 9 | the generated sections, each drift-proven | met | `stage-b/generator-drifts.txt` |
-| 10 | § The layouts' rows and the reproducer | rows met; the #585 reproducer owed (3.5) | `02` § The layouts |
-| 11 | § The constants' rows and frames at both sizes | met for the bar and the dim; the card's frame CANNOT (G-02) | `02`, `guest-cycle/` |
+| 10 | § The layouts' rows and the reproducer | met: the rows, and the reproducer 3.5 FAIL at the pin, PASS at `db12b1598` | `02` § The layouts |
+| 11 | § The constants' rows and frames at both sizes | met for the bar (14 px, 28 px) and the dim (0.314); the card's frames `CANNOT` (G-02, a harness no), moved to the integration window | `02`, `guest-cycle/` |
 | 12 | § The merge debt's one line | met | `02` § The merge debt |
-| 13 | § The runs: every command, the unit build's `TOTAL:` | the unit build owed | `02` § The runs |
-| 14 | § The guest cycle | the window's record; `02` § The guest cycle filled at stage E's recompose | `guest-cycle/`, #681 START and RETURN |
+| 13 | § The runs: every command, the unit build's `TOTAL:` | met: `TOTAL: 246 test cases in 6 binaries` at the pin, `TOTAL: 285 test cases in 6 binaries` at the ES tip | `02` § The runs |
+| 14 | § The guest cycle | met: `02` § The guest cycle, G-01 to G-12 as run | `guest-cycle/`, #681 START and RETURN |
 | 15 | `00` shows no build, fetch, device or account | met so far | `00-running-log.md` |
 | 16 | `04` answers Q1 to Q7; bugs with their three lines | this file; bugs filed at stage D | this file |
-| 17 | every proof's `proved:` cell; § What T35 to T37 inherit | met in `02`; owed cells marked `pending:` | `02` |
-| 18 | the retro | stage G | - |
+| 17 | every proof's `proved:` cell; § What T35 to T37 inherit | met: every floor cell leads with `fix-unit-test` or `tool-run`; no `pending:` cell left | `02` |
+| 18 | the retro | met: `docs/retros/2026-10-31-m6-es-core-components.md`, posted on #681 | the retro |
 | 19 | the map rows | no row proposed; the checker's line quoted | `02` § The structure |
-| 20 | the five checkers and the ES pre-push test | at the hand-back | - |
-| 21 | the unit build's `TOTAL:` line with 0 failed | owed | - |
+| 20 | the five checkers and the ES pre-push test | met: `stage-e/handback-checks.txt` | the checkers' exit lines |
+| 21 | the unit build's `TOTAL:` line with 0 failed | met: `TOTAL: 285 test cases in 6 binaries`, 0 failed test cases in every binary; the 3 failed assertions are the two `may_fail` cases | `stage-e/handback-build.txt` |
 
 ## Risk assessment
 
@@ -51,7 +51,7 @@ Each proof below is `tree` or `guest` until those run. They are named as owed in
 - **The card's closing race (PL-01)** sits under every automatic sync and every achievements card. Its likely symptom is a fade that starts late, not a crash, but it is undefined behaviour. The fix is small and the covering case is a host ThreadSanitizer run.
 - **The holders' raw pointers (PL-02)** are the larger risk. A worker that outlives its card writes into freed memory. The component cannot refuse the call; only a handle the window keeps alive can. That is a design ruling across T34, T35, T18 and T20, so it waits for the pause.
 - **The image is M7's composition, not the pin.** PL-04 did not reproduce there, and PL-05 appeared only there. Neither is a finding about the pin until the pin's code is read for it.
-- **No proof yet runs the components' own code.** Every case is owed to the unit build. Until it runs, a `tree` proof is a reading, and the seven FAIL-at-pin leads are expectations.
+- **At the stage-D pause, no proof yet ran the components' own code** (stage E ran them all; this risk is closed). Every case was owed to the unit build. Until it runs, a `tree` proof is a reading, and the seven FAIL-at-pin leads are expectations.
 
 ## Coverage boundary
 
@@ -117,21 +117,21 @@ There is no merge debt. Batocera's eight commits are a reconciliation list, with
 | T32 S4 / #1266 | the grid's contract after `clear()` | `02` § The lifetimes |
 | T32 PL-16, T31 PL-26 | not reached on the image (no grid theme, G-08) | `guest-cycle/g01-identity.txt` |
 | T32 PL-10 / #1265 | read; the views' fix | - |
-| #585 / #48 | PL-08, the reproducer owed | `05` |
+| #585 / #48 | PL-08: the reproducer written and run (3.5): FAIL at the pin, measured 28 against drawn 48; PASS at `db12b1598` (S3) | `05`; `stage-e/s3-before.txt`, `s3-after.txt` |
 | #182 | the dim measured on the image | `guest-cycle/g04-1-cloud-hub-en.png` |
 | #325 | the wrap shown (G-05) | `guest-cycle/g05-4-after-up-up.png` |
 | #210 | the bar's fit; read | `02` § The layouts |
 | #27 | read; no grid theme | - |
-| #243 | 3.22, 3.23 owed | `02` § The leads |
+| #243 | 3.22, 3.23 (and 3.24) run in S5: PASS at the pin and after `568ef099d`, the turn's fit swapped and four turns the identity | `02` § The leads; `stage-e/s5-before.txt`, `s5-after.txt` |
 | #157 | read | - |
 | #1112 | read-only context | - |
 | T21 L-11 / #1199 | read; `SystemConf`'s | - |
 | T21 PL-26 / #1192 | the field's masking named for T35's pause | - |
 | T18's double | a collision named at the hand-back | `02` § The structure |
-| T20's SCAN GAMES row | 3.4 owed | `02` § The leads |
-| T31's func-form rows | the per-frame cost, priced in the retro | - |
+| T20's SCAN GAMES row | 3.4 run in S3: FAIL at the pin (`0.986957`, `1.01304`), PASS at `db12b1598`; the row's refresh measured from its fonts (#241's fix) is unchanged | `02` § The leads; `stage-e/s3-after.txt` |
+| T31's func-form rows | `CANNOT` with the harness's reason: the window's tools capture frames, not frame times, and the guest exposes no per-frame counter, so neither `ComponentList::render`'s re-tint nor the three func-form rows' per-frame updates could be priced there; the last figure on record is `docs/vm-qa-log.md:171` (2026-10-06, `7afa9efcfc0`: 0.603 s to the first pixels, 1.33 s exit with backup, 1.017 s rapid relaunch), from before this slice; the retro and `03` § 3.6 say what stage E did to the two numbers | the retro; `03` § 3.6 |
 | `es-ui-style-guide.md:202` | read as it stands | - |
-| #585 | the lines owed | `02` § The #585 lines owed |
+| #585 | the lines written out, one per item | `02` § The #585 lines owed |
 
 ## Renovation face
 

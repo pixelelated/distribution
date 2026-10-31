@@ -25,8 +25,21 @@
 
 ### Adjustments to remaining work
 - **The integration window owes:** Window's and the holders' patches together (`s2-window.patch`, `s2-holders.patch`), `s3-msgbox.patch` when `frame-diff` holds, the coordinator's `es-code-traps.md` paragraph, and each stream's guest half (`02` § The streams).
-- **T35 (#682)** inherits `Window`'s ownership patch and the second copy of the button gap.
+- **T35 (#682)** inherits `Window`'s ownership patch and the second copy of the button gap. **T36 (#683)** inherits the texture-cache contract and one held note. **T37 (#684)**, the recipe that moves the pin, inherits the eight ES commits and the patches the integration applies with them.
+- **What T35 to T37 inherit** is written out in `02` § What T35 to T37 inherit.
+- **The holders' patch has its owners by last change.** T20 owns `ProxyCards.cpp` and `ThreadedHasher.h`, T18 `ThreadedCloudSync.h`, T33 `ThreadedBluetooth.h`, T31 `GuiUpdate.h`. `ProxyCards.cpp`'s hunk 3 does not apply over T2's tip (#649) and is re-made by hand there (`02` § The merge debt).
 - **T18 (#665)** inherits the fake header's `handle()`, only if a holder test reaches it.
+
+### Time to play
+
+Nothing this slice changed is on the launch path's length. Stream by stream (`03` § 3.6):
+- S2 adds one atomic load per card `update()` and one lock per holder call.
+- S3's unchanged-size exit removes a second resize on pages that size an image twice, the game list's grid among them.
+- S5 adds two string clears per bind; S6 a map clear per reset, an erase per image change and a compare.
+- S7 fixes `mUpdateType` at `UPDATE_ALWAYS`, the value the observed lists already ran with.
+- S1 fetches each web image once more after the update (achievements and scraper pages, not a launch); S4 rebuilds a bar only on a page change.
+
+`ComponentList::render`'s per-frame re-tint, the func-form rows and the card were not priced: `CANNOT`, because the window's tools capture frames, not frame times. The last figure on record is `docs/vm-qa-log.md:171` (2026-10-06: 0.603 s to the first pixels, 1.33 s exit with backup, 1.017 s rapid relaunch). The integration image's `tools/time-to-play` run is the first to read the slice.
 
 ### Scoped audit findings (Step 2.5)
 - **AC conformance: PARTIAL.** Every unit criterion is met at `fixed-at-es`. The guest halves and #1310's second checkbox wait on the integration, as the brief places them.

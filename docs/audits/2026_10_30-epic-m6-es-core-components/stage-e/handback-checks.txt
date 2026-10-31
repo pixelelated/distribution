@@ -102,3 +102,30 @@ Distribution before the hand-back merge: 7c4a940bdb8c6e817488dab652f9c2eed24ee2e
 
 ## The merge debt and the guest halves
     02 § The merge debt (the table after the streams) and § The streams' guest-half column, every one fix-walk-pending-image.
+
+## The five checkers at the tip (the acceptance map's item 7, 2026-10-31T11:27:37Z)
+Run on the tree of the second amendment's commit (staged, before committing), each command's exit read on its own line, never after a pipe:
+
+    $ tools/register-check
+    register-check: 705 IDs, each once; every citation in the live documents names a row
+    rc=0
+    $ tools/work-log-index --check
+    work-log index: current
+    rc=0
+    $ tools/rules-check --quiet
+    (no output: --quiet prints only failures)
+    rc=0
+    $ tools/forbidden-terms-check .
+    forbidden-terms-check: 0 hits in 133605 tracked files
+    rc=0
+    $ .githooks/hooks-test
+    PASS
+    rc=0
+
+## The holders' patch over the other lanes' tips (the map's item 8)
+patch -p1 --dry-run on scratch copies of the six holder files read by git show at each lane's ES tip:
+    T2 feature/m6-es-launch-path-649 55158d2a6: ProxyCards.cpp hunks 1, 2, 4 succeed (offsets 1, 1, 11); hunk 3 FAILED at 235 (T2's dce0b9b6b changed the attach lambda)
+    T18 feature/m6-es-cloud-pages-665 d55235d4b: ThreadedCloudSync.h hunk 1 at 194 (offset 6)
+    T20 feature/m6-es-achievements-pages-667 5c0ddaaee: ThreadedHasher.h at 48 (offset 1); ProxyCards.cpp hunk 3 at 241 (offset 6), hunk 4 at 524 (offset 13)
+    T33 feature/m6-es-app-system-680 f802c55c6: ThreadedBluetooth.h at 18 and 42 (offsets 1, 2)
+    The owners by last change are in 02 § The merge debt.

@@ -123,40 +123,40 @@ The brief's L-01 to L-21 and floor rows 3.1 to 3.34, plus three the read found (
 | L-22 | `AsyncNotificationComponent.cpp:117-121`, `:261-299`; h `:72`, `:74` | a lifetime or a thread | T34 (a lane surface); the holders T18's and T20's | **new:** `close()` writes `mClosing` and `mFadeTime` unlocked from the holders' threads while `update()` reads them on the interface thread; a host ThreadSanitizer case at stage C; a `bug` at stage D if it fires; § 1 (b)'s component half beside it | tree | Q4 |
 | L-23 | `RatingComponent.cpp:262-266` | a player sentence outside the vocabulary or without French | T34 (upstream's line) | **new:** the rating's OK prompt `"add star"` is outside `_()`; contained under rule 6 with its French in the same commit; a #585 line | tree | Q6 |
 | L-24 | `VideoComponent.cpp:347-351` | a prompt where the key moves nothing | T34 (upstream's line) | **new:** a focused video component's help bar names BACK as `SELECT`; reached only where a video component holds focus; recorded, contained under rule 6 if the pause opens it | tree | Q3, Q6 |
-| 3.1 | `ComponentGrid.cpp:396-414` | a prompt where the key moves nothing | T34 | a case at stage C; expected PASS (D-UI-034's fix) | S4: PASS at the pin and after, one case for 3.1-3.3 (`stage-e/s4-before.txt`, `s4-after.txt`) | Q3 |
-| 3.2 | `ComponentGrid.cpp:519-553` | a prompt where the key moves nothing | T34 | a case at stage C; expected PASS | S4: PASS at the pin and after, with 3.1 and 3.3 | Q3 |
-| 3.3 | `ComponentGrid.cpp:329-379` | a prompt where the key moves nothing | T34 | a case at stage C; expected PASS | S4: PASS at the pin and after, with 3.1 and 3.2 | Q3 |
-| **3.4** | `MultiLineMenuEntry.cpp:50-80` (**`:74-75`**) | layout from what it produced / a moving number | T34 | FAIL at the pin (L-03); 300 `setDescription` calls hold the height (#241) | S3: FAIL at the pin (stage D), PASS after `db12b1598` (`stage-e/s3-after.txt`) | Q1 |
-| 3.5 | `TextComponent.cpp:315-340` | layout from what it produced / a moving number | T34 | L-17's case: the measured height one line short | S3: FAIL at the pin (28 against 48, 20 against 40), PASS after `db12b1598` (`stage-e/s3-before.txt`, `s3-after.txt`) | Q1 |
-| **3.6** | `TextComponent.cpp:486` | layout from what it produced / a moving number | T34 | FAIL at the pin: the limit 20 px too large | S3: FAIL at the pin (stage D), PASS after `db12b1598` (`stage-e/s3-after.txt`) | Q1 |
-| **3.7** | `SliderComponent.cpp:44-58`, `:271-319` (**`:282`**) | a player sentence outside the vocabulary or without French | T34 | FAIL at the pin: `"Auto"`; the precision cases expected PASS | S4: FAIL at the pin (stage D, `Auto`), PASS after `a9017ff50` (`stage-e/s4-after.txt`) | Q6 |
-| **3.8** | `CarouselComponent.cpp:74-90` with `:113`, `:119`; `IList.h:376-400` | a prompt where the key moves nothing | T34 | FAIL candidate: `listInput(-7)` on a size-3 carousel; the landing index asserted in `[0, sz)` per loop type | pending: fixture at stage C | Q3 |
-| 3.9 | `ImageGridComponent.h:1437-1468` | layout from what it produced / a moving number | T34 | a case; a 0 tile size is guarded only by a `LOG` | S6: PASS at the pin and after, with 3.10: the dimensions of three grids (`stage-e/s6-before.txt`, `s6-after.txt`) | Q1 |
-| 3.10 | `ImageGridComponent.h` from `:1065` (`:1162-1186`) | layout from what it produced / a moving number | T34 | a case on the partial last row | S6: PASS at the pin and after: a partial last row read, and a whole one | Q1 |
-| 3.11 | `TextListComponent.h:262-269` | layout from what it produced / a moving number | T34 | a case on the extra row past the cutoff | S0: PASS at the pin (`stage-e/s0-before.txt`) | Q1 |
-| 3.12 | `DateTimeEditComponent.cpp:124-160` | a structure or merge-debt fact | T34 | a case on the date steps (an extraction or a fake `InputConfig`) | S4: PASS at the pin and after (`stage-e/s4-before.txt`, `s4-after.txt`) | Q7 |
-| 3.13 | `DateTimeEditComponent.cpp:251-260` | a player sentence outside the vocabulary or without French | T34 | PASS at the pin as written: a blank, not `<NOT SET>`; a style question for the pause | S4 (PL-25, #1322): FAIL at the pin (a blank), PASS after `a9017ff50`: `<NOT SET>` through `_()` | Q6 |
-| 3.14 | `ScrollableContainer.cpp:62-107`, `:110-124`, `:126-131` | a structure or merge-debt fact | T34 | a case; `:69`'s unused `680.0f` is lint | S0: PASS at the pin; its PL-40 half (content 10 px narrower) FAIL: `-10 >= 0` and the vertical scroll never moves (`stage-e/s0-before.txt`) | Q7 |
-| 3.15 | `IList.h:267-330`, `:376-400` | a prompt where the key moves nothing | T34 | a case, the landing index for 3.8 | S0: PASS at the pin (`stage-e/s0-before.txt`) | Q3 |
-| **3.16** | `HelpComponent.cpp:73-130`, `:121-169`, `:176-200` | a player sentence outside the vocabulary or without French | T34 | FAIL at the pin: `haut/bas` -> `nullptr` and the `Unknown help icon` line (L-01) | S4: FAIL at the pin (`0 == 1`), PASS after `a9017ff50`; since S4 the case reads the list's own line through a catalog double (`stage-e/s4-checks.txt`) | Q3, Q6 |
-| 3.17 | `ComponentTab.cpp:77-96`, `:320-345` | a prompt where the key moves nothing | T34 | a case; expected PASS | S4: PASS at the pin and after (`stage-e/s4-before.txt`, `s4-after.txt`) | Q3 |
-| 3.18 | `AsyncNotificationComponent.cpp:136-145`, `:63-65` | a house constant a surface does not keep | T34 | a case: the width handed to `chooseThatFits` is the row's cell, never 0.9 W | S2: PASS at the pin, written before the fix and run again after it (`stage-e/s2-before.txt`, `s2-after.txt`) | Q6 |
-| 3.19 | `OptionListComponent.h:88-100`, `:140-160`, `:188-200` (ASan) | a lifetime or a thread | T34 | ASan over an extracted popup (L-11) | pending: fixture at stage C | Q4 |
-| 3.20 | `TextEditComponent.cpp:39`, `:47` | a lifetime or a thread | T34 | post, delete, drain (L-12) | pending: fixture at stage C | Q4 |
-| **3.21** | `WebImageComponent.cpp:134`, `:190`, `:197-200`; `utils/FileSystemUtil.cpp:144` | a read of a file another process writes | T34 | first half a candidate that PASSes at the pin (L-09); second half: the 204 then 200 is never asked again (L-08, by design) | S5: the first half PASS at the pin and after; the second (PL-13, #1319): the pin already re-asks on the next bind, and its one FAIL, the cache path kept, PASS after `568ef099d` | Q5 |
-| 3.22 | `ImageComponent.cpp:85-180` | layout from what it produced / a moving number | T34 | a case on the fit after a turn | S5: PASS at the pin and after, with 3.23 and 3.24 (`stage-e/s5-before.txt`, `s5-after.txt`) | Q5 |
-| 3.23 | `ImageComponent.cpp:273-291` | layout from what it produced / a moving number | T34 | a case; turn 1 four times is identity | S5: PASS at the pin and after: four turns are the identity | Q5 |
-| 3.24 | `ImageComponent.cpp:491-499`, `GridTileComponent.cpp:1055-1063` | layout from what it produced / a moving number | T34 | a case on the normaliser | S5: PASS at the pin and after: -1, 4, 5 and 0 normalise to 3, 0, 1 and 0 | Q5 |
-| 3.25 | `ComponentList.h:26` | a house constant a surface does not keep | T34 | a case; expected PASS | S3: PASS at the pin and after (`stage-e/s3-before.txt`, `s3-after.txt`) | Q2 |
-| **3.26** | `MenuComponent.cpp:543-562`; `ButtonComponent.cpp:10` | a house constant a surface does not keep | T34 | FAIL candidate: five 128 px buttons at 640 overhang (L-04) | pending: fixture at stage C | Q2 |
-| 3.27 | `MenuComponent.cpp:396-424` | layout from what it produced / a moving number | T34 | a case on the strict `<` | S7: PASS at the pin and after: a row that would end exactly at the cap is left out by the strict `<` (277 of 300), recorded | Q1 |
-| 3.28 | `ComponentList.cpp:295-319` | layout from what it produced / a moving number | T34 | a case incl. the signed/unsigned compare | S3: PASS at the pin and after (`stage-e/s3-before.txt`, `s3-after.txt`) | Q1 |
-| 3.29 | `TextListComponent.h:591-608` | layout from what it produced / a moving number | T34 | the same for the game list | S0: PASS at the pin (`stage-e/s0-before.txt`) | Q1 |
-| 3.30 | `SwitchComponent.cpp:50-80`, `:118-138` | a prompt where the key moves nothing | T34 | a case on the tri-state cycle | S7: PASS at the pin and after: auto, on, off and back, and a plain toggle | Q3 |
-| 3.31 | `SliderComponent.cpp:234-257` | a house constant a surface does not keep | T34 | a case on the clamp and the sentinel | S4: PASS at the pin and after | Q3 |
-| 3.32 | `RatingComponent.cpp:192-204` | a structure or merge-debt fact | T34 | a case on the accumulation's drift | S4: PASS at the pin and after; five presses reach 1.0 exactly in float | Q7 |
-| 3.33 | `TextEditComponent.cpp:267-271` | a structure or merge-debt fact | T34 | a case on a cursor inside a UTF-8 sequence (T21's `moveCursor`) | S2: PASS at the pin, written before the fix and run again after it (`stage-e/s2-before.txt`, `s2-after.txt`) | Q7 |
-| 3.34 | `CarouselComponent.cpp:183-200` | a prompt where the key moves nothing | T34 | a case incl. a count of 1 and a divide by 0 | S4: PASS at the pin and after, one entry and none included | Q3 |
+| 3.1 | `ComponentGrid.cpp:396-414` | a prompt where the key moves nothing | T34 | a case at stage C; expected PASS (D-UI-034's fix) | tool-run; S4: PASS at the pin and after, one case for 3.1-3.3 (`stage-e/s4-before.txt`, `s4-after.txt`) | Q3 |
+| 3.2 | `ComponentGrid.cpp:519-553` | a prompt where the key moves nothing | T34 | a case at stage C; expected PASS | tool-run; S4: PASS at the pin and after, with 3.1 and 3.3 | Q3 |
+| 3.3 | `ComponentGrid.cpp:329-379` | a prompt where the key moves nothing | T34 | a case at stage C; expected PASS | tool-run; S4: PASS at the pin and after, with 3.1 and 3.2 | Q3 |
+| **3.4** | `MultiLineMenuEntry.cpp:50-80` (**`:74-75`**) | layout from what it produced / a moving number | T34 | FAIL at the pin (L-03); 300 `setDescription` calls hold the height (#241) | fix-unit-test; S3: FAIL at the pin (stage D), PASS after `db12b1598` (`stage-e/s3-after.txt`) | Q1 |
+| 3.5 | `TextComponent.cpp:315-340` | layout from what it produced / a moving number | T34 | L-17's case: the measured height one line short | fix-unit-test; S3: FAIL at the pin (28 against 48, 20 against 40), PASS after `db12b1598` (`stage-e/s3-before.txt`, `s3-after.txt`) | Q1 |
+| **3.6** | `TextComponent.cpp:486` | layout from what it produced / a moving number | T34 | FAIL at the pin: the limit 20 px too large | fix-unit-test; S3: FAIL at the pin (stage D), PASS after `db12b1598` (`stage-e/s3-after.txt`) | Q1 |
+| **3.7** | `SliderComponent.cpp:44-58`, `:271-319` (**`:282`**) | a player sentence outside the vocabulary or without French | T34 | FAIL at the pin: `"Auto"`; the precision cases expected PASS | fix-unit-test; S4: FAIL at the pin (stage D, `Auto`), PASS after `a9017ff50` (`stage-e/s4-after.txt`) | Q6 |
+| **3.8** | `CarouselComponent.cpp:74-90` with `:113`, `:119`; `IList.h:376-400` | a prompt where the key moves nothing | T34 | FAIL candidate: `listInput(-7)` on a size-3 carousel; the landing index asserted in `[0, sz)` per loop type | tool-run; stage D: PASS at the pin for every size 1 to 12 and every loop type (`stage-d/components-tests.run.log`), PL-24 withdrawn; PASS at every stage-E tip | Q3 |
+| 3.9 | `ImageGridComponent.h:1437-1468` | layout from what it produced / a moving number | T34 | a case; a 0 tile size is guarded only by a `LOG` | tool-run; S6: PASS at the pin and after, with 3.10: the dimensions of three grids (`stage-e/s6-before.txt`, `s6-after.txt`) | Q1 |
+| 3.10 | `ImageGridComponent.h` from `:1065` (`:1162-1186`) | layout from what it produced / a moving number | T34 | a case on the partial last row | tool-run; S6: PASS at the pin and after: a partial last row read, and a whole one | Q1 |
+| 3.11 | `TextListComponent.h:262-269` | layout from what it produced / a moving number | T34 | a case on the extra row past the cutoff | tool-run; S0: PASS at the pin (`stage-e/s0-before.txt`) | Q1 |
+| 3.12 | `DateTimeEditComponent.cpp:124-160` | a structure or merge-debt fact | T34 | a case on the date steps (an extraction or a fake `InputConfig`) | tool-run; S4: PASS at the pin and after (`stage-e/s4-before.txt`, `s4-after.txt`) | Q7 |
+| 3.13 | `DateTimeEditComponent.cpp:251-260` | a player sentence outside the vocabulary or without French | T34 | PASS at the pin as written: a blank, not `<NOT SET>`; a style question for the pause | fix-unit-test; S4 (PL-25, #1322): FAIL at the pin (a blank), PASS after `a9017ff50`: `<NOT SET>` through `_()` | Q6 |
+| 3.14 | `ScrollableContainer.cpp:62-107`, `:110-124`, `:126-131` | a structure or merge-debt fact | T34 | a case; `:69`'s unused `680.0f` is lint | tool-run; S0: PASS at the pin; its PL-40 half (content 10 px narrower) FAIL: `-10 >= 0` and the vertical scroll never moves (`stage-e/s0-before.txt`) | Q7 |
+| 3.15 | `IList.h:267-330`, `:376-400` | a prompt where the key moves nothing | T34 | a case, the landing index for 3.8 | tool-run; S0: PASS at the pin (`stage-e/s0-before.txt`) | Q3 |
+| **3.16** | `HelpComponent.cpp:73-130`, `:121-169`, `:176-200` | a player sentence outside the vocabulary or without French | T34 | FAIL at the pin: `haut/bas` -> `nullptr` and the `Unknown help icon` line (L-01) | fix-unit-test; S4: FAIL at the pin (`0 == 1`), PASS after `a9017ff50`; since S4 the case reads the list's own line through a catalog double (`stage-e/s4-checks.txt`) | Q3, Q6 |
+| 3.17 | `ComponentTab.cpp:77-96`, `:320-345` | a prompt where the key moves nothing | T34 | a case; expected PASS | tool-run; S4: PASS at the pin and after (`stage-e/s4-before.txt`, `s4-after.txt`) | Q3 |
+| 3.18 | `AsyncNotificationComponent.cpp:136-145`, `:63-65` | a house constant a surface does not keep | T34 | a case: the width handed to `chooseThatFits` is the row's cell, never 0.9 W | tool-run; S2: PASS at the pin, written before the fix and run again after it (`stage-e/s2-before.txt`, `s2-after.txt`) | Q6 |
+| 3.19 | `OptionListComponent.h:88-100`, `:140-160`, `:188-200` (ASan) | a lifetime or a thread | T34 | ASan over an extracted popup (L-11) | tool-run; stage D: `SAN asan-popup (-fsanitize=address): rc 0; no sanitizer report` over a double of the popup's shape (not its lines), at the pin and at every stage-E tip | Q4 |
+| 3.20 | `TextEditComponent.cpp:39`, `:47` | a lifetime or a thread | T34 | post, delete, drain (L-12) | fix-unit-test; S2 (#1311): `SAN asan-textedit` rc 1, heap-use-after-free, at the pin; rc 0 after `2cbb62d7b` (`stage-e/s2-before.txt`, `s2-after.txt`) | Q4 |
+| **3.21** | `WebImageComponent.cpp:134`, `:190`, `:197-200`; `utils/FileSystemUtil.cpp:144` | a read of a file another process writes | T34 | first half a candidate that PASSes at the pin (L-09); second half: the 204 then 200 is never asked again (L-08, by design) | fix-unit-test; S5: the first half PASS at the pin and after; the second (PL-13, #1319): the pin already re-asks on the next bind, and its one FAIL, the cache path kept, PASS after `568ef099d` | Q5 |
+| 3.22 | `ImageComponent.cpp:85-180` | layout from what it produced / a moving number | T34 | a case on the fit after a turn | tool-run; S5: PASS at the pin and after, with 3.23 and 3.24 (`stage-e/s5-before.txt`, `s5-after.txt`) | Q5 |
+| 3.23 | `ImageComponent.cpp:273-291` | layout from what it produced / a moving number | T34 | a case; turn 1 four times is identity | tool-run; S5: PASS at the pin and after: four turns are the identity | Q5 |
+| 3.24 | `ImageComponent.cpp:491-499`, `GridTileComponent.cpp:1055-1063` | layout from what it produced / a moving number | T34 | a case on the normaliser | tool-run; S5: PASS at the pin and after: -1, 4, 5 and 0 normalise to 3, 0, 1 and 0 | Q5 |
+| 3.25 | `ComponentList.h:26` | a house constant a surface does not keep | T34 | a case; expected PASS | tool-run; S3: PASS at the pin and after (`stage-e/s3-before.txt`, `s3-after.txt`) | Q2 |
+| **3.26** | `MenuComponent.cpp:543-562`; `ButtonComponent.cpp:10` | a house constant a surface does not keep | T34 | FAIL candidate: five 128 px buttons at 640 overhang (L-04) | tool-run; stage D: FAIL at the pin, `710.4 <= 576` (four buttons fit); PL-14 recorded, not fixed; `doctest::may_fail` with PL-14 named since the hand-back (ruling 9) | Q2 |
+| 3.27 | `MenuComponent.cpp:396-424` | layout from what it produced / a moving number | T34 | a case on the strict `<` | tool-run; S7: PASS at the pin and after: a row that would end exactly at the cap is left out by the strict `<` (277 of 300), recorded | Q1 |
+| 3.28 | `ComponentList.cpp:295-319` | layout from what it produced / a moving number | T34 | a case incl. the signed/unsigned compare | tool-run; S3: PASS at the pin and after (`stage-e/s3-before.txt`, `s3-after.txt`) | Q1 |
+| 3.29 | `TextListComponent.h:591-608` | layout from what it produced / a moving number | T34 | the same for the game list | tool-run; S0: PASS at the pin (`stage-e/s0-before.txt`) | Q1 |
+| 3.30 | `SwitchComponent.cpp:50-80`, `:118-138` | a prompt where the key moves nothing | T34 | a case on the tri-state cycle | tool-run; S7: PASS at the pin and after: auto, on, off and back, and a plain toggle | Q3 |
+| 3.31 | `SliderComponent.cpp:234-257` | a house constant a surface does not keep | T34 | a case on the clamp and the sentinel | tool-run; S4: PASS at the pin and after | Q3 |
+| 3.32 | `RatingComponent.cpp:192-204` | a structure or merge-debt fact | T34 | a case on the accumulation's drift | tool-run; S4: PASS at the pin and after; five presses reach 1.0 exactly in float | Q7 |
+| 3.33 | `TextEditComponent.cpp:267-271` | a structure or merge-debt fact | T34 | a case on a cursor inside a UTF-8 sequence (T21's `moveCursor`) | tool-run; S2: PASS at the pin, written before the fix and run again after it (`stage-e/s2-before.txt`, `s2-after.txt`) | Q7 |
+| 3.34 | `CarouselComponent.cpp:183-200` | a prompt where the key moves nothing | T34 | a case incl. a count of 1 and a divide by 0 | tool-run; S4: PASS at the pin and after, one entry and none included | Q3 |
 
 **The brief's § 1 rulings, each with its row:**
 
@@ -173,7 +173,7 @@ The brief's L-01 to L-21 and floor rows 3.1 to 3.34, plus three the read found (
 | (i) `ComponentList.cpp:568`'s `_("up/down")` | § The words, L-01, and § The input, `ComponentList.cpp:548` |
 | (j) the two lanes' `AsyncNotificationComponent.h` doubles | § The structure: a header change in T34 is named as a collision at the hand-back; the fakes are not the lane's |
 
-Generated, asserted by `tools/t34-leads.py`: 24 L leads (the brief's 21 and the read's L-22 to L-24), 34 floor rows (the seven FAIL-at-pin in bold), each answered, 4 run at the pin in S0 and 26 in the streams; 10 rulings, each with its row.
+Generated, asserted by `tools/t34-leads.py`: 24 L leads (the brief's 21 and the read's L-22 to L-24), 34 floor rows (the seven FAIL-at-pin in bold), each answered, 4 run at the pin in S0 and 30 in the streams; 10 rulings, each with its row.
 
 ## The layouts
 
@@ -224,36 +224,36 @@ Generated, asserted by `tools/t34-layouts.py`: 19 font-height reads (13 layout, 
 
 | Value | Its one definition | Value at the panels | Every reader in the 80 | The frame that shows it | Disposition | proved |
 | --- | --- | --- | --- | --- | --- | --- |
-| `BUTTON_GRID_HORIZ_PADDING` | `MenuComponent.cpp:14` | 0.022 W (14.08 px at 640, 28.16 at 1280) | `MenuComponent.cpp:547`, `MenuComponent.cpp:555` | G-03 (640), G-11 (1280): the gap between YES's and NO's nine-patch edges, read in the frame's columns | D-UI-012; L-04 (a bar wider than its cell overhangs: 3.26), L-05 (the second copy, below) | tree |
+| `BUTTON_GRID_HORIZ_PADDING` | `MenuComponent.cpp:14` | 0.022 W (14.08 px at 640, 28.16 at 1280) | `MenuComponent.cpp:547`, `MenuComponent.cpp:555` | G-03 (640), G-11 (1280): the gap between YES's and NO's nine-patch edges, read in the frame's columns | D-UI-012; L-04 (a bar wider than its cell overhangs: 3.26), L-05 (the second copy, below) | guest (`image`): 14 px at 640x480 (panel colour x 313-326 between YES and NO, `g03-4-yesno.png`), 28 px at 1280x800 (x 626-653, `g11-2-yesno-1280.png`); the house value 14.08 and 28.16 |
 | `BUTTON_GRID_VERT_PADDING` | `MenuComponent.cpp:6` | 0.0296 H (14.2 px at 480) | `MenuComponent.cpp:393`, `MenuComponent.cpp:558` | G-03 | upstream's; recorded | tree |
-| `NOTIFICATION_OPACITY` | `AsyncNotificationComponent.cpp:31` | 255 | `AsyncNotificationComponent.cpp:114`, `AsyncNotificationComponent.cpp:276` | G-02: a pixel inside the card over the game art equals the panel colour, not a blend | D-UI-016; sound | tree |
-| `DIMMED_ALPHA` | `ComponentList.h:25` | 0x50 of 0xFF | `ComponentList.h:26` | G-04: the unconfigured rows' text against the selectable rows' over one panel | #182's mechanism (`dimmed()` h `:26`, applied in each element's own `setColor`); 3.25 | tree |
+| `NOTIFICATION_OPACITY` | `AsyncNotificationComponent.cpp:31` | 255 | `AsyncNotificationComponent.cpp:114`, `AsyncNotificationComponent.cpp:276` | G-02 `CANNOT` in the window (the RETURN post, comment 6531938082): the card needs a startup sync, and the guest had no remote and no network under `restrict=on` -- a harness no, not a physical one; moved to the integration window; there, a pixel inside the card over the game art equals the panel colour, not a blend | D-UI-016; sound | `CANNOT` (G-02, the harness's reason in the frame cell); the integration window |
+| `DIMMED_ALPHA` | `ComponentList.h:25` | 0x50 of 0xFF | `ComponentList.h:26` | G-04: the unconfigured rows' text against the selectable rows' over one panel | #182's mechanism (`dimmed()` h `:26`, applied in each element's own `setColor`); 3.25 | guest (`image`): a dimmed label's brightest pixel 91 over the panel's 16 against a header's 255, `(91-16)/(255-16) = 0.314`, which is `0x50/0xFF` (`g04-1-cloud-hub-en.png`) |
 | `TOTAL_HORIZONTAL_PADDING_PX` | `ComponentList.cpp:11` | 20 px (10 a side) | `ComponentList.cpp:92`, `ComponentList.cpp:493`, `ComponentList.cpp:508`, `ComponentList.cpp:521` | G-04 (640), G-11 (1280): the row inset | L-06: upstream's pixel constant the fork exported through `rowInset()` to two pages; a screen fraction is the pause's | tree |
 | `ICON_TEXT_SPACING` | `HelpComponent.cpp:13` | 0.0042 W (2.7 px at 640) | `HelpComponent.cpp:16`, `HelpComponent.cpp:130`, `HelpComponent.cpp:164` | G-03, G-04, G-11: the help bar | upstream's; sound | tree |
 | `ENTRY_SPACING` | `HelpComponent.cpp:16` | 0.0084 W | `HelpComponent.cpp:79`, `HelpComponent.cpp:130`, `HelpComponent.cpp:151`, `HelpComponent.cpp:166` | the same | upstream's; the last entry's trailing spacer 0 (fork `7dc8bf373`, #210) | tree |
-| the card's width | `AsyncNotificationComponent.cpp:64` | 0.9 W | - | the card's width, `max(sizeText(30 chars), 0.9 W)` (`:63-65`); G-02: edges at x 32 and x 608 at 640 (0.9 W centred); L-19: the measured floor never binds on a panel 640 or wider, dead text | D-UI-016; sound | tree |
-| the card's position | `AsyncNotificationComponent.cpp:112` | 0.9 W | - | the card centred at the top (`:112-113`); `Window::renderAsyncNotifications` re-applies the position every frame (`Window.cpp:1183`, `:1192`, T35's, cited); G-02 | D-UI-016; sound | tree |
+| the card's width | `AsyncNotificationComponent.cpp:64` | 0.9 W | - | the card's width, `max(sizeText(30 chars), 0.9 W)` (`:63-65`); G-02 `CANNOT` in the window (the RETURN post, comment 6531938082): the card needs a startup sync, and the guest had no remote and no network under `restrict=on` -- a harness no, not a physical one; moved to the integration window; there, edges at x 32 and x 608 at 640 (0.9 W centred); L-19: the measured floor never binds on a panel 640 or wider, dead text | D-UI-016; sound | `CANNOT` (G-02); the integration window |
+| the card's position | `AsyncNotificationComponent.cpp:112` | 0.9 W | - | the card centred at the top (`:112-113`); `Window::renderAsyncNotifications` re-applies the position every frame (`Window.cpp:1183`, `:1192`, T35's, cited); G-02 `CANNOT` in the window (the RETURN post, comment 6531938082): the card needs a startup sync, and the guest had no remote and no network under `restrict=on` -- a harness no, not a physical one; moved to the integration window | D-UI-016; sound | `CANNOT` (G-02); the integration window |
 | `BUTTON_GRID_HORIZ_PADDING`, the second copy | `guis/GuiTextEditPopupKeyboard.cpp:14` (T35's) | 0.0052083333 W (3.3 px at 640) | that popup's key buttons (`:220`) | - | **L-05:** `MenuComponent.cpp:7-13` says the gap is defined in "the one place"; the keyboard popup keeps its own at the old value; recorded, not deleted (`engineering-practices.md:576`); the comment is this slice's, the popup T35's | tree |
 
 **The pixel constants** (`es-native-ui.md:299`: fractions, never pixel constants; each with its share of a 640 and a 1920 panel's width):
 
-| Site | Pixels | Share of 640 / 1920 | What it sizes | Disposition |
-| --- | ---: | --- | --- | --- |
-| `ComponentList.cpp:11` | 20 | 3.1% / 1.0% | every row's horizontal inset | L-06; read by two fork pages through `rowInset()`; S3 `db12b1598` (#1320): `ROW_INSET_FRACTION 0.015625`, PL-15's case PASS after (10 at 640, 20 at 1280), FAIL before |
-| `TextEditComponent.cpp:8` | 10 | 1.6% / 0.5% | the text field's horizontal padding | upstream's; outside the lanes unless a fork page reads it (the Wi-Fi and cloud key fields do, through the popups, T35's) |
-| `TextEditComponent.cpp:9` | 2 | 0.3% / 0.1% | the text field's vertical padding | as `:8` |
-| `TextEditComponent.cpp:31` | 4096 | 640.0% / 213.3% | the field's initial width, replaced by its owner's layout | harmless: a placeholder width |
-| `ButtonComponent.cpp:10` | 12 | 1.9% / 0.6% | a button's text padding floor, `max(12, 0.014 W)`: the 12 wins below 857 px | upstream's; G-03's bar at 640 is built on it |
-| `GridTileComponent.cpp:56` | 16 | 2.5% / 0.8% | a grid tile's default padding | upstream's; G-08 if a grid theme exists |
-| `GridTileComponent.h:148` | 16 | 2.5% / 0.8% | a tile frame's corner size | upstream's |
-| `MenuComponent.cpp:167` | 10 | 1.6% / 0.5% | the spacer before a row's right-hand component | upstream's |
-| `MenuComponent.cpp:192` | 10 | 1.6% / 0.5% | the same, the second builder | upstream's |
-| `VideoVlcComponent.cpp:782` | 400 | 62.5% / 20.8% | a video's default max size | upstream surface outside the lanes; recorded |
-| `NinePatchComponent.cpp:177` | 50 | 7.8% / 2.6% | the post-process shader's margin | upstream's; recorded |
-| `AsyncNotificationComponent.cpp:94` | 32 | 5.0% / 1.7% | the card's nine-patch corner (`fitTo(..., -32, -32)`) | the corner of every framed surface; outside a fraction by design (the frame image's corner) |
-| `MenuComponent.cpp:453` | 32 | 5.0% / 1.7% | the menu's background corner | as above |
-| `VolumeInfoComponent.cpp:45` | 32 | 5.0% / 1.7% | the volume overlay's corner | as above |
-| `TextEditComponent.cpp:53` | 32 | 5.0% / 1.7% | the text field's frame corner (`-34, -32 - 2`) | as above |
+| Site | Pixels | Share of 640 / 1920 | What it sizes | The panel it is right on | Disposition |
+| --- | ---: | --- | --- | --- | --- |
+| `ComponentList.cpp:11` | 20 | 3.1% / 1.0% | every row's horizontal inset | 640 (10 px a side, 0.0156 W); since S3 a fraction, right on every panel | L-06; read by two fork pages through `rowInset()`; S3 `db12b1598` (#1320): `ROW_INSET_FRACTION 0.015625`, PL-15's case PASS after (10 at 640, 20 at 1280), FAIL before |
+| `TextEditComponent.cpp:8` | 10 | 1.6% / 0.5% | the text field's horizontal padding | 640, where 10 px is the 0.0156 W the row inset uses | upstream's; outside the lanes unless a fork page reads it (the Wi-Fi and cloud key fields do, through the popups, T35's) |
+| `TextEditComponent.cpp:9` | 2 | 0.3% / 0.1% | the text field's vertical padding | none in particular: 2 px is the field's hairline, a few per cent of a line on every panel | as `:8` |
+| `TextEditComponent.cpp:31` | 4096 | 640.0% / 213.3% | the field's initial width, replaced by its owner's layout | none: a placeholder width its owner's layout replaces | harmless: a placeholder width |
+| `ButtonComponent.cpp:10` | 12 | 1.9% / 0.6% | a button's text padding floor, `max(12, 0.014 W)`: the 12 wins below 857 px | 857 (where 0.014 W reaches 12 px); below it the floor wins, above it the fraction | upstream's; G-03's bar at 640 is built on it |
+| `GridTileComponent.cpp:56` | 16 | 2.5% / 0.8% | a grid tile's default padding | a theme's: the default padding a grid theme overrides; none ships on the image (G-08) | upstream's; G-08 if a grid theme exists |
+| `GridTileComponent.h:148` | 16 | 2.5% / 0.8% | a tile frame's corner size | every panel: a frame image's corner, not a layout length | upstream's |
+| `MenuComponent.cpp:167` | 10 | 1.6% / 0.5% | the spacer before a row's right-hand component | 640 (1.6% of the width), the smallest panel | upstream's |
+| `MenuComponent.cpp:192` | 10 | 1.6% / 0.5% | the same, the second builder | 640, as `:167` | upstream's |
+| `VideoVlcComponent.cpp:782` | 400 | 62.5% / 20.8% | a video's default max size | none on a handheld: a default the theme replaces | upstream surface outside the lanes; recorded |
+| `NinePatchComponent.cpp:177` | 50 | 7.8% / 2.6% | the post-process shader's margin | every panel: the shader's margin around a frame, not a layout length | upstream's; recorded |
+| `AsyncNotificationComponent.cpp:94` | 32 | 5.0% / 1.7% | the card's nine-patch corner (`fitTo(..., -32, -32)`) | every panel: the frame image's corner | the corner of every framed surface; outside a fraction by design (the frame image's corner) |
+| `MenuComponent.cpp:453` | 32 | 5.0% / 1.7% | the menu's background corner | every panel: the frame image's corner | as above |
+| `VolumeInfoComponent.cpp:45` | 32 | 5.0% / 1.7% | the volume overlay's corner | every panel: the frame image's corner | as above |
+| `TextEditComponent.cpp:53` | 32 | 5.0% / 1.7% | the text field's frame corner (`-34, -32 - 2`) | every panel: the frame image's corner | as above |
 
 Generated, asserted by `tools/t34-constants.py`: 7 house values, each defined once in the 80 with 18 readers in all; the card's width and position; the keyboard popup's second copy and `MenuComponent.cpp`'s one-place claim, both asserted present; 15 pixel constants, each cited line asserted to hold its code.
 
@@ -443,16 +443,17 @@ Generated, asserted by `tools/t34-includes.py`: 352 quoted include lines over 91
 | File | Owner | What is owed | Where |
 | --- | --- | --- | --- |
 | `es-core/src/Window.h:99`, `:123`; `Window.cpp:1152-1169`, `:1242-1252` | T35 | S2's ownership: cards as `std::shared_ptr`, `createAsyncNotificationComponent` returning the card's weak handle, a retired list drained on the interface thread, a deleter that hands an off-thread last release back to it | `stage-e/s2-window.patch` |
-| the thirteen holder lines: `ContentInstaller.h:45` (and its forward declaration, now the include), `guis/GuiUpdate.h:59` | T31 | `AsyncNotificationComponent::Handle` for the pointer; no call site changes (the handle forwards) | `stage-e/s2-holders.patch` |
-| `ProxyCards.cpp:125`, `:215`, `:238`, `:244`, `:250`, `:257`, `:514`; `ThreadedCloudSync.h:191` | T18 | the same | `stage-e/s2-holders.patch` |
-| `ThreadedBluetooth.h:20`, `:43` | T20 | the same | `stage-e/s2-holders.patch` |
-| `ThreadedHasher.h:50` | the hasher's owner (T33's lane reads it) | the same | `stage-e/s2-holders.patch` |
+| `ProxyCards.cpp:125`, `:215`, `:238`, `:244`, `:250`, `:257`, `:514` | T20 (#667), the last to change it (`d7a30f0c6`, 2026-10-26), and T2 (#649, `dce0b9b6b` and `55158d2a6`, 2026-10-23) | the seven pointer lines become `AsyncNotificationComponent::Handle`; no call site changes (the handle forwards) | `stage-e/s2-holders.patch`: applies over T20's tip with offsets (hunk 3 at `:241`, hunk 4 at `:524`). **It does not apply over T2's tip:** hunk 3 FAILED at `:235`, because T2's `dce0b9b6b` added `screenFree` to the `attach` lambda's capture (`:249`) and a check in the posted lambda that calls `made->set_value(nullptr)`. On T2's tip the hunk's four lines are `:239`, `:249`, `:255`, `:271`, re-made by hand; `set_value(nullptr)` converts to the handle. Hunks 1, 2 and 4 apply with offsets 1, 1 and 11 |
+| `ThreadedCloudSync.h:191` | T18 (#665), the last to change it (`f63ad4de4`, 2026-10-26) | the same | `stage-e/s2-holders.patch`: applies over T18's tip with offset 6 |
+| `ThreadedBluetooth.h:20`, `:43` | T33 (#680), the last to change it (`d370ac62e`, 2026-10-30) | the same | `stage-e/s2-holders.patch`: applies over T33's tip with offsets 1 and 2 |
+| `ThreadedHasher.h:50` | T20 (#667), the last to change it (`61d7152b0`, 2026-10-26) | the same | `stage-e/s2-holders.patch`: applies over T20's tip with offset 1 |
+| `ContentInstaller.h:45` (and its forward declaration, now the include), `guis/GuiUpdate.h:59` | no lane has changed either since the pin; by the order's globs `GuiUpdate.h` is T31's (#678) and `ContentInstaller.h` falls only to the catch-alls (T33 #680, T44) | the same | `stage-e/s2-holders.patch`: applies over every lane's tip unchanged |
 | `tests/app-unit/fakes/components/AsyncNotificationComponent.h` | T18 | a collision only if a holder's tests reach `handle()`: the fake gains it then | named, no patch |
 | `es-core/src/guis/GuiMsgBox.cpp:167-202` | T35 | S3's workaround removal, applied when `frame-diff` holds | `stage-e/s3-msgbox.patch` |
 | `.claude/rules/es-code-traps.md` § TextComponent measures at its full width | the coordinator | D-UI-130's update: the root is fixed in `TextComponent` (`db12b1598`) | ruling 2 |
 | `HelpComponent::updateGrid()` | the integration | batocera's `09f5f708f` against the fork's `7dc8bf373`; `9dbd4b9bf`'s `setOpacity` hunk is now carried (S4, `a9017ff50`) | this table |
 
-Both patches together compile the eight sources they touch on a full scratch tree (`stage-e/s2-checks.txt`, `handback-checks.txt`).
+Both patches together compile the eight sources they touch on a full scratch tree at the pin's holders (`stage-e/s2-holders-check.txt`). The owners above are by which lane last changed each file, read on the ES branches since the pin (`git log -1 16dbac5211..<lane tip> -- <file>`), each lane's tip dry-run with `patch -p1 --dry-run` on scratch copies read by `git show`; where the brief, this table at the first hand-back and the hand-back post named other owners, this row is the one in force.
 
 ## The runs
 
@@ -484,12 +485,31 @@ Stage A's runs are in `stage-a/first-commands.txt` (the brief's § 1) and `stage
 | the compile | `es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)` rc 2; plain `g++`: `.../es-core/src/InputConfig.h:6:10: fatal error: SDL_joystick.h: No such file or directory` rc 1; `pugixml root present` | a toolchain on the host, or a header found | `stage-a/runs.txt` |
 | the removal check | empty against `00d490e654` and against `dff4fbd61d`; the ES diff against the pin empty | a change under `packages/`, `projects/` or `tools/`, or the ES tree off the pin | `stage-a/runs.txt` |
 | the generators' drifts | each of the nine generators exit 1 on its constructed drift, rc 0 on the 80 | a table trusted before its check fired | `stage-b/generator-drifts.txt` |
-| the stand-in syntax check over the 37 | pending: stage C (the fakes, the tenth `SDL_power.h`, the pugixml root) | a component's own C++ that does not parse | - |
-| the unit build | pending: stage C (`tools/t34-build-tests.sh`, its `TOTAL:` line) | a pure seam's defect | - |
+| the stand-in syntax check over the 37 | stage D: `t34-syntax-check: 37 file(s) checked, 37 rc 0, 0 not` with `CANNOT VideoVlcComponent.cpp: <vlc/vlc.h> and <vlc/libvlc_version.h> (:8-9) have no fake` (35 of 37 on the first run, until the fakes gained the SDL names); at the ES tip `52f0ff512` the same line, the 16 `.cpp` the streams edited each `rc=0` | a component's own C++ that does not parse | `stage-a/syntax-check.sh`; `stage-d/syntax-check.txt`; `stage-e/handback-checks.txt` |
+| the unit build | at the pin (stage D): `TOTAL: 246 test cases in 6 binaries`, `components-tests` 7 cases, 2 passed, 5 failed, and the seven FAIL-at-pin leads: 3.4 FAIL (`0.986957` and `1.01304 == Approx(1)`), 3.6 FAIL (`80 == 60`), 3.7 FAIL (`Auto == AUTO`), 3.8 PASS (every loop type lands in range: PL-24 refuted), 3.16 FAIL (`0 == 1` for `haut/bas`), 3.21 (its first half PASS at the pin; the second, PL-13's uncached state, FAIL at S5's before-run), 3.26 FAIL (`710.4 <= 576`); the sanitizers `tsan-card` rc 66, `asan-textedit` rc 1, `asan-popup` rc 0. At the ES tip `52f0ff512`: `TOTAL: 285 test cases in 6 binaries`, the script's rc 0, 0 failed test cases in every binary, `components-tests` 46 cases, 46 passed, 0 failed with two `may_fail` (3.26 for PL-14, 3.14's PL-40 half), all four sanitizers rc 0 | a pure seam's defect | `stage-d/build-tests.txt`; `stage-e/handback-build.txt` |
 
 ## The guest cycle
 
-Not yet run. The window is asked for on #681 at stage B's end, with its plan and bound (`stage-b/window-plan.md`), and it runs only on the coordinator's grant there and in the host file's queue. The host file's 14:21 entry places T34's window after every M7 window.
+The window ran once, at stage C, under the coordinator's grant (#681 comment 6531663912, 19:24 UTC 2026-10-30): START 19:28:13 (comment 6531735817; the host file's `2026-10-30T19:28:15Z` line, acknowledged at 19:28) to RETURN 19:39:23 (comment 6531938082; the host file's `2026-10-30T19:39:24Z` line, acknowledged at 19:39), about 11 minutes inside the 30 + 5 bound (`stage-b/window-plan.md`, a 1,410 s plan). The running log's stage-C entry (`00-running-log.md:43-48`) is the narrative; `guest-cycle/` holds the frames and reads.
+
+- **The image:** `/workspace/artifacts/m6-t2-20261023/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261022T235948Z.g069fc2704421-from-ROCKNIX.img.gz` (2,122,289,964 bytes, sha256 `6b4c3079bd...`, `guest-cycle/helpers/prepare.txt`), `BUILD_ID="069fc270442134fe771258418adf4e666e0473fb"`, `BUILD_BRANCH="build/m7-signin-20261022-07"` (`guest-cycle/g01-identity.txt`): M7's composition, so every frame is `image`, never `pin-binary`.
+- **The guest:** one disk, two boots: 640x480 (QEMU pid 743737, 19:27:41 to 19:35:30) and 1280x800 (pid 797892, 19:35:30 to 19:38:58), `restrict=on` on the user netdev through `guest-cycle/helpers/qemu-wrap` (read back from `/proc/<pid>/cmdline`). The detached stop timer was PID 743756, set for 20:02:42, stopped with its child by recorded PIDs, unfired.
+- **The censuses:** at START `qemu 1, compilers 0, listeners 2` (the guest's own loopback ports); at RETURN `qemu 0, compilers 0, listeners 0`. The disk was retired after the RETURN (`guest-cycle/retired.txt`: 2,310,471,680 bytes, sha256 `27c138ada2...`, present now 0 files).
+
+| Check | As run | Frames and reads (all `image`) |
+| --- | --- | --- |
+| G-01 | identity and side: the `BUILD_ID` above, `fbset` 640x480, theme `es-theme-art-book-next`, `grid files: 0`; the pin's lines not shown unchanged in the binary | `g01-identity.txt` |
+| G-02 | `CANNOT`: no startup sync card on a guest with no remote and no network under `restrict=on` -- a harness no, not a physical one; moved to the integration window | - |
+| G-03 | the bar's gap at 640: **14 px** (panel colour x 313-326 between YES and NO); one CHOOSE on the YES/NO box | `g03-0` to `g03-4` |
+| G-04 | the dim: **0.314** (`(91-16)/(255-16)`, which is `0x50/0xFF`), descriptions kept; under French no help bar draws over a menu at 640; 0 `Unknown help icon` lines (L-01 not reproduced on the image) | `g04-1` to `g04-3`, `g04-log-fr.txt`, `g04-settings.txt` |
+| G-05 | the strip as a focus stop: first row, `up` to the first tab (x 0-102), `right` to OPTIONS (x 103-202), `down` back, `up up` to the buttons; the reopened page's pair identical (L-02) | `g05-0` to `g05-5` |
+| G-06 | `CANNOT`: no OK-only dialog in reach (SCRAPEUR > COMPTES has no SIGN IN), and at 640 no bar draws over a menu | `g06-0-accounts.png` |
+| G-07 | `CANNOT` as planned; the proof is 3.4 | - |
+| G-08 | `CANNOT`: no grid theme on the image (G-01's `grid files: 0`) | - |
+| G-09 | `60%`, `100%` and `10s`, the suffix glued; one `right` moved one increment; no auto slider reachable | `g09-0`, `g09-1` |
+| G-10 | `CANNOT` as planned (no media); the detached thread is § The lifetimes' read | - |
+| G-11 | 1280x800: the gap **28 px** (x 626-653); the MAIN MENU's bar one `CHOISIR` with its icon; L-25 (the tabbed SCRAPEUR page's bar `FERMER` and `RETOUR` only, identical with a row or the strip focused) | `g11-0` to `g11-5`, `g11-catalog.txt`, `g11-log-fr.txt` |
+| G-12 | close: `tools/vm-stop` on the pidfile for both boots; the disk's size and sha; `qemu 0, compilers 0` | `retired.txt` |
 
 ## The streams
 
@@ -498,7 +518,7 @@ Stage E, one ES commit per stream on `feature/m6-es-core-components-681` (S2 wit
 | Stream | Items | Before | ES commit | After | `Already written:` | The guest half | Patches and collisions |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | S0 | 3.11, 3.14, 3.15, 3.29 (floor) | at the pin: all PASS but 3.14's PL-40 half | none (`2568e64dc6`, record only) | - | - | - | PL-40's half `may_fail` at the hand-back |
-| S1 | PL-27 (#1323), held | the held case 2 of 5 FAIL | `dbe4c2db0` | 5 of 5 PASS (7 of 7 with the two after-only cases; 7 of 7 again at `52f0ff512`) | nothing read: the earlier cache files stay, unread under the new names, and each image is fetched once more | a badge on the image after the fix | a private report owed upstream |
+| S1 | PL-27 (#1323), held | the held case 2 of 5 FAIL | `dbe4c2db0` | 5 of 5 PASS (7 of 7 with the two after-only cases; 7 of 7 again at `52f0ff512`) | not read; left in place: the cache files earlier builds wrote stay under their old names, and each image is fetched once more | a badge on the image after the fix | a private report owed upstream |
 | S2 | PL-01 (#1309), PL-02 (#1310), PL-03 (#1311) | PL-01's interleaving FAIL; `asan-card-handle` heap-use-after-free; tsan rc 66; asan-textedit rc 1 | `2cbb62d7b`, addendum `52f0ff512` | all PASS, every sanitizer rc 0; 2 of 2 late calls refused | nothing inherited: a component writes no file | none on the guest: a worker's late close cannot be timed there; the doubles are the proof | `s2-window.patch` (T35), `s2-holders.patch` (T18, T20, T31, the hasher's); the fake header (T18) |
 | S3 | PL-07 (#1314), PL-08 (#1315), PL-06 (#1313), PL-15 (#1320) with PL-16, PL-30 (#1326) | 3.4, PL-07, 3.5, 3.6, PL-15, PL-30 FAIL | `db12b1598` | all PASS | nothing inherited: a label is drawn, not stored | a cloud page's rows at 640x480 and 1280x800; `frame-diff` at both sizes; the message box after the patch | `s3-msgbox.patch` (T35); `es-code-traps.md` (the coordinator) |
 | S4 | PL-04 (#1312), PL-09 (#1316), PL-10 (#1317), PL-11 (#1318), PL-19 (#1321), PL-25 (#1322), PL-29 (#1325) | 3.7, 3.16, PL-10, PL-11, PL-19, 3.13, PL-29 FAIL | `a9017ff50` | all PASS; 704 fork strings with French | nothing inherited: a prompt is built on a page change | the French bar at 640x480; a rating row; the date row | `9dbd4b9bf`'s hunk carried |
@@ -552,15 +572,30 @@ One line per upstream-carried defect closed under rule 6, in the shape the lane 
 - **L-23**, `RatingComponent.cpp:265`: the OK prompt `"add star"` is outside `_()`.
 - **L-17**, `TextComponent.cpp:338` against `:350`: the auto height is measured at the full width and the text drawn at the padded one; the reproducer is written here at stage C.
 
-**Stage E: the lines the streams closed or recorded, each owed as one upstream line (batocera, then ROCKNIX), none sent:**
-- S3: 3.6, L-17 (both sites), and the shares' formula (`th*0.9/h`, `sh*1.1/h` past 1).
-- S4: L-01, 3.7, L-23, L-24 (the video's SELECT), L-13 (one entry, one value), 3.13 (the unset date).
-- S2: PL-01 (`ad9802f44`'s close) and PL-03 (`2f5ec7d33`'s posts), upstream's per `git log -S` against the brief's expectation; PL-02's ownership goes with them.
-- S5: PL-31 (`f8c645805`) and PL-32 (`dbdbcde6c`, `231cf5b22`).
-- S6: PL-33 and PL-35 (`f992b5ca0`), PL-34 (`aee3fc657`).
-- S7: PL-28, PL-36 (`dd263264f`, `d7e17cd4e`), PL-37 (`58db8412c`).
-- Recorded, not fixed: PL-14, PL-18, PL-38, PL-40, PL-42.
-- PL-27: a private report owed, through the private channel; nothing public names it.
+**Stage E: the lines owed upstream, one each (batocera, then ROCKNIX), in the shape the lane writes, none sent.** Each names the line at the pin, the defect and the fix's shape; the fix commits are the fork's ES branch.
+
+- **3.6**, `TextComponent.cpp:486`: the vertical marquee's limit subtracts the top padding twice; it should subtract the top and the bottom (`mPadding.w()`), as `:351` and `:428` do.
+- **L-17**, `TextComponent.cpp:338` and `:483`: the automatic height and the marquee's length are measured at the full width and drawn at the padded one; measure at `getSize().x() - mPadding.x() - mPadding.z()`.
+- **The shares**, `MultiLineMenuEntry.cpp:74-75`: `th*0.9/h` and `sh*1.1/h` sum to 1 only when the two fonts match, and a long description's share passes 1; use `th/h` and `sh/h`.
+- **L-01**, `ComponentList.cpp:568`: the `up/down` icon key goes through `_()`, so a translated catalog turns it into a key the help bar does not know; pass the key as an identifier.
+- **3.7**, `SliderComponent.cpp:282`: the AUTO value prints `Auto`, outside `_()`; print `_("AUTO")`.
+- **L-23**, `RatingComponent.cpp:265`: the OK prompt `add star` is outside `_()`; `_("ADD STAR")`.
+- **L-24**, `VideoComponent.cpp:350`: the component takes no input and labels BACK as SELECT; return no prompt.
+- **L-13**, `CarouselComponent.cpp:358-361` and `OptionListComponent.h:639-640`: a one-entry carousel offers CHOOSE and a one-value option row offers CHANGE; offer a direction only with more than one.
+- **3.13**, `DateTimeEditComponent.cpp:257`: an unset date reads blank; `_("<NOT SET>")`.
+- **PL-01**, `AsyncNotificationComponent.cpp:119-120` (`ad9802f44`): `close()` writes the card's closing state from the holders' threads with no lock; make it one atomic request the interface thread turns into the fade.
+- **PL-02**, `Window.cpp:1168-1169`, `:1248`: every holder keeps the raw pointer the window deletes once the card stops running; the window owns the card through a `shared_ptr` and hands out a weak handle.
+- **PL-03**, `TextEditComponent.cpp:39`, `:47` (`2f5ec7d33`): the focus handlers post raw `this`; the posts check a weak token the field owns.
+- **PL-31**, `WebImageComponent.cpp:162-164` (`f8c645805`): a rebind to a local or cached image leaves the previous URL queued, and its picture lands over the new one; clear the queue on every bind.
+- **PL-32**, `ImageComponent.cpp:436`, `:455` (`dbdbcde6c`, `231cf5b22`): an image set from memory or a shared texture does not cancel a pending load from an earlier path; cancel it as the path overload does.
+- **PL-33**, `ImageGridComponent.h:1381-1383` (`f992b5ca0`): `resetGrid()` leaves the loop-copy tiles that `render` draws; clear them.
+- **PL-34**, `ImageGridComponent.h:530` (`aee3fc657`): changing an entry's image drops its tile without taking it out of the visible list; retire it as an out-of-range tile is.
+- **PL-35**, `ImageGridComponent.h:1151` (`f992b5ca0`): `mLastCursor = -9999` assigns where the drag's sentinel is compared, starting a video and skipping the cursor callback; compare.
+- **PL-28**, `ComponentList.h:143` upstream (`:157` at the pin), `GridTileComponent.h:312`, `:77-90`: three members are read before anything sets them; initialise them, and force the constructor's `setSelected(false)`.
+- **PL-36**, `SwitchComponent.cpp:17` (`dd263264f`), `:152-154` (`d7e17cd4e`): a switch built ON draws OFF, and `setAutoState` leaves the old image; draw the held state through one path.
+- **PL-37**, `MenuComponent.cpp:305` (`58db8412c`): setting the title image again (as `setSubTitle` does) inserts a second header entry for it; remove the held entry first.
+- **Recorded, not fixed here:** PL-14 (`MenuComponent.cpp:543-562`: five 128 px buttons overhang a 576 px menu at 640), PL-18 (`VideoVlcComponent.cpp:53-61`, `:84-96`: VLC's thread reads `ctx->component` while the interface thread nulls it), PL-38 (`ComponentList.cpp:541-553`: right-to-left layout picks a different element in three places), PL-40 (`ScrollableContainer.cpp:78-96`: narrow content gets a negative X and never scrolls down), PL-42 (`GridTileComponent.cpp:565`: the tile padding's test checks Y twice and never Z).
+- **PL-27:** a private report owed, through the private channel; nothing public names it.
 
 The six fork candidates the brief names for the coordinator (none sent; `engineering-practices.md` § Consider contributing every applicable fix upstream): `aa8c5da4c` (the grid's `canMoveCursor`, the strongest), `7c7ffab43` (the row measured from the fonts), `b6eb26980`, `8927b1760` with `f1ae6bc25` as a pair (the strip as a focus stop), `7dc8bf373` only after the RTL reconciliation (the help bar's fit), and `2088eadb9` (the tile label's multi-line).
 

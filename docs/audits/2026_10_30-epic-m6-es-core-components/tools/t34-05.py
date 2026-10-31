@@ -121,7 +121,7 @@ PH7 = {
  "PL-20": ("Deferred", "recorded as written on #1307: the dead `_RPI_` and `WIN32` blocks and the unused `widthMod`, a dead-end table that removes nothing (D-WORKFLOW-209)"),
  "PL-21": ("Deferred", "#665 and #682: the es-app include is T18's and T35's call"),
  "PL-22": ("Deferred", "#673 and #678: the pages' `onFinalize` clearing"),
- "PL-23": ("Deferred", "#1307, recorded: the coordinator's `tools/vocabulary-check` rule, for a Backlog the coordinator files"),
+ "PL-23": ("Deferred", "#1336, the coordinator's Backlog for the `tools/vocabulary-check` rule (the brand inside the up-casing builders' arguments)"),
  "PL-24": ("Withdrawn", "the stage-D ruling: `IList::scroll` clamps or wraps; 3.8 PASS at the pin for every size and loop type"),
  "PL-25": R("a9017ff50", 1322, "; 3.13 PASS"),
  "PL-26": ("Deferred", "#673: `UntintedImageComponent` lives at `GuiMenu.cpp:6401`; lifting an untinted mode is a question for that slice"),
