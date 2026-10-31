@@ -63,7 +63,16 @@
 - **The exit sync:** S5 takes the helper off it under `--recent`, and S7 replaces two `date` forks with `/proc/uptime` reads.
 - **The first exit sync after the update** on every device is one full pass, because there is no `last-backup-dest` yet (PL-25).
 - **The startup sync:** S5 drops the restore's probe, and the 3 s grace when the link is already up.
-- `cloud_net_ready` ends no later than before. The figures are lead (c)'s, at the integration window, by `tools/time-to-play --vm`.
+- `cloud_net_ready` ends no later than before.
+- **The exit sync's median against D-CLOUD-119's 3 s:** none measured. No guest ran in stage E, and none is cited (`04` § Q5 says the same). The figures are lead (c)'s, at the integration window, by `tools/time-to-play --vm`, where PL-08 is re-graded against the 3 s.
+
+## What T17 (#664) inherits
+
+- **`conf_valid` is an allowlist** of the 16 documented keys and the seven legacy ones (D-CLOUD-188, 189, 191), in all three copies. A key `cloud_setup` writes into `cloud_sync.conf` must be on it, or every twin run refuses the conf.
+- **`allowed_opts` is T17's `content_net_opts`** with the flag list as arguments (ruling 10). A change to T17's list or its value kinds is a change here too.
+- **The helper moves a player's filter flags into the rules file once** (D-CLOUD-192). A setup page that writes `RCLONEOPTS` should not write a filter flag.
+- **`cloud_saves_root accept`** (behind `cloud_setup --accept-saves-root`) refuses with no identity, and on a `dev:` identity clears the record rather than keeping a number.
+- **`last-backup-dest`** sits beside `last-backup`. A change of saves folder through setup makes the next exit sync one full pass.
 
 ## What the integration window inherits
 
