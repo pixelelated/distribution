@@ -1,0 +1,93 @@
+--- a/es-core/src/Window.h	2026-10-31 05:57:46.263143908 +0000
++++ b/es-core/src/Window.h	2026-10-31 05:57:57.419098087 +0000
+@@ -9,6 +9,7 @@
+ #include "math/Vector2i.h"
+ #include <memory>
+ #include <functional>
++#include <thread>
+ 
+ class FileData;
+ class Font;
+@@ -96,7 +97,9 @@
+ 
+ 	std::shared_ptr<BatteryIndicatorComponent>	getBatteryIndicator() { return mBatteryIndicator; }
+ 
+-	AsyncNotificationComponent* createAsyncNotificationComponent(bool actionLine = false);
++	// #1310: the window owns the card; a holder keeps this handle, whose
++	// lock() fails once the window has let the card go.
++	std::weak_ptr<AsyncNotificationComponent> createAsyncNotificationComponent(bool actionLine = false);
+ 	// Includes queued, lingering and fading cards until the window removes them.
+ 	bool hasAsyncNotifications();
+ 
+@@ -120,7 +123,12 @@
+ 	void processPostedFunctions();
+ 	void renderSindenBorders();
+ 
+-	std::vector<AsyncNotificationComponent*> mAsyncNotificationComponent;
++	std::vector<std::shared_ptr<AsyncNotificationComponent>> mAsyncNotificationComponent;
++	// Cards that stopped running while a holder may still have one locked:
++	// dropped by updateAsyncNotifications once the window holds the last
++	// reference, so the card's destructor (which frees GL textures) runs here.
++	std::vector<std::shared_ptr<AsyncNotificationComponent>> mRetiredAsyncNotifications;
++	std::thread::id mUiThread;
+ 	void updateAsyncNotifications(int deltaTime);
+ 	void renderAsyncNotifications(const Transform4x4f& trans);
+ 	
+--- a/es-core/src/Window.cpp	2026-10-31 05:57:46.265143928 +0000
++++ b/es-core/src/Window.cpp	2026-10-31 05:58:10.417417144 +0000
+@@ -36,6 +36,7 @@
+ Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
+   mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mClockElapsed(0), mMouseCapture(nullptr), mMenuBackgroundShaderTextureCache(-1)
+ {			
++	mUiThread = std::this_thread::get_id();
+ 	mTransitionOffset = 0;
+ 
+ 	mHelp = new HelpComponent(this);
+@@ -1149,7 +1150,7 @@
+ 	return !mAsyncNotificationComponent.empty();
+ }
+ 
+-AsyncNotificationComponent* Window::createAsyncNotificationComponent(bool actionLine)
++std::weak_ptr<AsyncNotificationComponent> Window::createAsyncNotificationComponent(bool actionLine)
+ {
+ 	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+ 
+@@ -1165,7 +1166,15 @@
+ 		stopNotificationPopups();
+ 	}
+ 
+-	AsyncNotificationComponent* pc = new AsyncNotificationComponent(this, actionLine);
++	// #1310: a last release on a holder's thread hands the delete back to
++	// the interface thread, where the card's GL textures may be freed.
++	std::shared_ptr<AsyncNotificationComponent> pc(new AsyncNotificationComponent(this, actionLine), [this](AsyncNotificationComponent* p)
++	{
++		if (std::this_thread::get_id() == mUiThread)
++			delete p;
++		else
++			postToUiThread([p] { delete p; });
++	});
+ 	mAsyncNotificationComponent.push_back(pc);
+ 	
+ 	if (mAsyncNotificationComponent.size() == 1)
+@@ -1245,7 +1254,8 @@
+ 
+ 		if (!mAsyncNotificationComponent[i]->isRunning())
+ 		{
+-			delete mAsyncNotificationComponent[i];
++			// #1310: retired, not deleted: a holder may have it locked.
++			mRetiredAsyncNotifications.push_back(mAsyncNotificationComponent[i]);
+ 
+ 			auto it = mAsyncNotificationComponent.begin();
+ 			std::advance(it, i);
+@@ -1255,6 +1265,11 @@
+ 		}
+ 	}
+ 
++	// Each retired card goes once the window holds its last reference.
++	for (int i = mRetiredAsyncNotifications.size() - 1; i >= 0; i--)
++		if (mRetiredAsyncNotifications[i].use_count() == 1)
++			mRetiredAsyncNotifications.erase(mRetiredAsyncNotifications.begin() + i);
++
+ 	if (changed && mAsyncNotificationComponent.size() == 0)
+ 		PowerSaver::resume();
+ }

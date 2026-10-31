@@ -5,6 +5,8 @@
 // pin is a FAIL here, the case's "seen to FAIL against the unfixed extract".
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest/doctest.h"
+#include <atomic>
+#include <functional>
 #include <map>
 #include <memory>
 #include <sstream>
@@ -201,4 +203,73 @@ TEST_CASE("3.15 IList clamps under NEVER_LOOP and under PAUSE_AT_END past one st
 	ListScroll pause1; pause1.n = 5; pause1.mCursor = 4; pause1.mLoopType = LIST_PAUSE_AT_END; CHECK(pause1.land(1) == 0);
 	ListScroll pause2; pause2.n = 5; pause2.mCursor = 4; pause2.mLoopType = LIST_PAUSE_AT_END; CHECK(pause2.land(3) == 4); CHECK(pause2.mScrollVelocity == 0);
 	ListScroll always; always.n = 5; always.mCursor = 4; always.mLoopType = LIST_ALWAYS_LOOP; CHECK(always.land(3) == 2);
+}
+
+// ---- S2 (stage E): the card's close, the floor's 3.18 and 3.33 ----
+
+// PL-01 (#1309): update() run inside close(), at the interleaving the seat
+// named. The double's flags call update() once, the first time close() writes
+// a true -- between its two writes at the pin -- and record whether a closing
+// frame was drawn before the fade's opacity was captured.
+#define NOTIFICATION_OPACITY 255
+struct CardGui { unsigned char opacity = 255; void update(int) {} unsigned char getOpacity() const { return opacity; } void setOpacity(unsigned char o) { opacity = o; } };
+struct CardI;
+struct HookBool { CardI* c = nullptr; bool v = false; HookBool& operator=(bool b); operator bool() const { return v; } };
+struct HookReq { CardI* c = nullptr; bool v = false; void store(bool b, std::memory_order = std::memory_order_seq_cst); bool load(std::memory_order = std::memory_order_seq_cst) const { return v; } };
+struct CardI : CardGui {
+	using GuiComponent = CardGui;
+	bool mRunning = true; HookBool mClosing; float mFadeOut = 0; int mFadeTime = 300; int mFadeOutOpacity = -999; HookReq mCloseRequested;
+	bool inClose = false, hooked = false, earlyFrame = false;
+	CardI() { mClosing.c = this; mCloseRequested.c = this; }
+	void hook() { if (inClose && !hooked) { hooked = true; update(16); } }
+	void setOpacity(unsigned char o) { if (mClosing && mFadeOutOpacity == -999) earlyFrame = true; CardGui::setOpacity(o); }
+	void close() {
+		inClose = true;
+#include "x_card_close.inc"
+		inClose = false;
+	}
+	void update(int deltaTime) {
+#include "x_card_update_full.inc"
+	}
+};
+HookBool& HookBool::operator=(bool b) { v = b; if (b) c->hook(); return *this; }
+void HookReq::store(bool b, std::memory_order) { v = b; if (b) c->hook(); }
+TEST_CASE("PL-01 the card's fade starts from its captured opacity whenever update() sees the close (AsyncNotificationComponent.cpp:117-121, :261-306)") {
+	CardI c; c.close();
+	CHECK(c.hooked);
+	CHECK(!c.earlyFrame);
+	for (int i = 0; i < 40 && c.mRunning; i++) c.update(16);
+	CHECK(!c.mRunning);
+}
+
+// 3.18: AsyncNotificationComponent.cpp:136-145, the width chooseThatFits is given.
+struct FontD { Vec2f sizeText(const std::string& s) const { return Vec2f(10.0f * s.size(), 20); } };
+struct TextComponent { Vec2f size; std::shared_ptr<FontD> font; Vec2f getSize() const { return size; } std::shared_ptr<FontD> getFont() const { return font; } };
+namespace CloudText { float gWidth = -1;
+	std::string chooseThatFits(const std::vector<std::string>& c, float w, std::function<float(const std::string&)> m) {
+		gWidth = w; for (auto& x : c) if (!m || m(x) <= w) return x; return c.empty() ? "" : c.back(); } }
+struct AsyncNotificationComponent { static std::string chooseThatFits(const std::shared_ptr<TextComponent>& row, const std::vector<std::string>& candidates); };
+#include "x_card_choose.inc"
+TEST_CASE("3.18 the card's chooser is given the row's cell, never 0.9 W (AsyncNotificationComponent.cpp:136-145)") {
+	auto row = std::make_shared<TextComponent>(); row->size = Vec2f(300, 20); row->font = std::make_shared<FontD>();
+	auto got = AsyncNotificationComponent::chooseThatFits(row, {"A LONG SENTENCE THAT IS TOO WIDE", "SHORT"});
+	CHECK(CloudText::gWidth == doctest::Approx(300)); CHECK(got == "SHORT");
+	CHECK(AsyncNotificationComponent::chooseThatFits(nullptr, {"X"}) == "X"); CHECK(CloudText::gWidth == doctest::Approx(0));
+}
+
+// 3.33: TextEditComponent.cpp:267-281 over StringUtil.cpp:278-327 (T21's, read only).
+namespace Utils { namespace String {
+#include "x_str_cursor.inc"
+} }
+struct TextEditComponent { std::string mText; unsigned int mCursor = 0; int changed = 0; void onCursorChanged() { changed++; }
+	void moveCursor(int amt); void setCursor(size_t pos); };
+#include "x_textedit_move.inc"
+TEST_CASE("3.33 the text field's cursor moves by whole UTF-8 sequences (TextEditComponent.cpp:267-281)") {
+	TextEditComponent t; t.mText = "a\xC3\xA9" "b"; // a, e-acute (two bytes), b
+	t.moveCursor(1); CHECK(t.mCursor == 1);
+	t.moveCursor(1); CHECK(t.mCursor == 3);
+	t.moveCursor(-1); CHECK(t.mCursor == 1);
+	t.setCursor(std::string::npos); CHECK(t.mCursor == 4);
+	t.mCursor = 2; t.moveCursor(1); CHECK(t.mCursor == 3); // from inside the sequence, the next whole boundary
+	t.mCursor = 2; t.moveCursor(-1); CHECK(t.mCursor == 1);
 }

@@ -2,7 +2,9 @@
 // (TextEditComponent.cpp:44-47), posting raw this to a queue that drains
 // later, as Window::postToUiThread does; the field is deleted before the
 // drain. Built with -fsanitize=address: a use after free is the positive.
+// S2 (#1311): the double also carries the token the fixed lines check.
 #include <functional>
+#include <memory>
 #include <string>
 #include <vector>
 struct Window { std::vector<std::function<void()>> q;
@@ -13,7 +15,7 @@ struct MenuThemeT { IconsT Icons; };
 namespace ThemeData { inline MenuThemeT* getMenuTheme() { static MenuThemeT t; return &t; } }
 struct Box { void setImagePath(const std::string&) {} };
 struct TextEdit {
-	Window* mWindow; bool mFocused = true; Box mBox; std::string mText = "a name"; bool mEditing = true;
+	Window* mWindow; bool mFocused = true; Box mBox; std::string mText = "a name"; bool mEditing = true; std::shared_ptr<void> mAlive = std::make_shared<int>(0);
 	void stopEditing() { mEditing = false; mText.clear(); }
 	void onFocusLost() {
 #include "x_textedit_focuslost.inc"

@@ -1,0 +1,78 @@
+# S2 (stage E, #681; #1309, #1310, #1311): checks, written 2026-10-31T06:00:52Z
+
+## The ES commit
+2cbb62d7bdd479d7d7e9ce35124a385716c2840d on feature/m6-es-core-components-681 (parent dbe4c2db0, S1), pushed to origin over HTTPS by remote name.
+     es-core/src/components/AsyncNotificationComponent.cpp | 13 +++++++++++--
+     es-core/src/components/AsyncNotificationComponent.h   | 13 ++++++++++++-
+     es-core/src/components/TextEditComponent.cpp          |  4 ++--
+     es-core/src/components/TextEditComponent.h            |  3 +++
+     4 files changed, 28 insertions(+), 5 deletions(-)
+Non-ASCII on the added lines of the four files: none.
+
+## Before and after (tools/t34-build-tests.sh's own lines)
+Before, at dbe4c2db0, whose card and text-field files are the pin's byte for byte (S1 touched only WebImageComponent.cpp):
+    RUN components-tests: rc 1; [doctest] test cases: 15 | 8 passed | 7 failed | 0 skipped [doctest] assertions: 324 | 315 passed | 9 failed | 
+    SAN tsan-card (-fsanitize=thread): rc 66; WARNING: ThreadSanitizer: data race (pid=1910791)
+    SAN asan-textedit (-fsanitize=address): rc 1; ==1911245==ERROR: AddressSanitizer: heap-use-after-free on address 0x74f1591e00c0 at pc 0x56a75f211f50 bp 0x7fff63862050 sp 0x7fff63862040
+    SAN asan-popup (-fsanitize=address): rc 0; no sanitizer report
+    SAN asan-card-handle (-fsanitize=address): rc 1; ==1911958==ERROR: AddressSanitizer: heap-use-after-free on address 0x73dfa8de00d8 at pc 0x56bbaf4257a4 bp 0x7ffdafdd95b0 sp 0x7ffdafdd95a0
+    TOTAL: 254 test cases in 6 binaries
+    PL-01's interleaving case: FAIL (a closing frame drawn before the fade's opacity was captured); 3.18 PASS; 3.33 PASS
+After, at 2cbb62d7b:
+    RUN components-tests: rc 1; [doctest] test cases: 15 | 9 passed | 6 failed | 0 skipped [doctest] assertions: 324 | 316 passed | 8 failed | 
+    SAN tsan-card (-fsanitize=thread): rc 0; no sanitizer report
+    SAN asan-textedit (-fsanitize=address): rc 0; no sanitizer report
+    SAN asan-popup (-fsanitize=address): rc 0; no sanitizer report
+    SAN asan-card-handle (-fsanitize=address): rc 0; no sanitizer report
+    TOTAL: 254 test cases in 6 binaries
+    PL-01's interleaving case: PASS; 3.18 PASS; 3.33 PASS
+    asan-card-handle's own line: late calls refused: 2 of 2; kept while held: 1, after the drain: 0; deletes handed back to the window's thread: 1
+The components-tests FAILs after are stage D's five plus S0's PL-40 half: 3.4, 3.6, 3.7 AUTO, 3.16, 3.26, 3.14 PL-40.
+
+## The stand-in
+    rc=0 AsyncNotificationComponent.cpp
+    rc=0 TextEditComponent.cpp
+    CANNOT VideoVlcComponent.cpp: <vlc/vlc.h> and <vlc/libvlc_version.h> (:8-9) have no fake
+    t34-syntax-check: 37 file(s) checked, 37 rc 0, 0 not
+The two headers through their includers, g++ -fsyntax-only with the stand-in's flags against the edited tree: GuiTextEditPopup.cpp, GuiTextEditPopupKeyboard.cpp, es-app ThreadedCloudSync.cpp, ProxyCards.cpp, ThreadedBluetooth.cpp rc 0. Window.cpp (the pin's) rc 0 once the lane's keyboard fake declared the seven SDL names Window.cpp reads (SDLK_g, SDLK_i, SDLK_m, SDLK_t, KMOD_LCTRL, SDL_GetModState, SDL_ShowCursor); before that its eight errors were those names only.
+
+## Window's half: stage-e/s2-window.patch (T35's to apply)
+Written on scratch copies of the pin's Window.h and Window.cpp read by git show 16dbac5211; the patch applies to them with patch -p1 --dry-run (both files); the patched Window.cpp passes g++ -fsyntax-only with the stand-in's flags against the S2 tree (rc 0).
+What it does: the cards are std::shared_ptr; createAsyncNotificationComponent returns std::weak_ptr<AsyncNotificationComponent> (the card's Handle); a card that stops running moves to mRetiredAsyncNotifications and is dropped there once the window holds the last reference; a deleter hands a last release on another thread back to the interface thread (postToUiThread). The destructor chain touches GL: NinePatchComponent::~NinePatchComponent calls Renderer::destroyTexture (NinePatchComponent.cpp:21-27), so the retired list (ruling 1) is kept and the deleter covers the one interleaving the list's count cannot see.
+Proof of the protocol: stage-e/asan-card-handle.cpp, a double of the patch's shape over the card's lifted handle lines (2 of 2 late calls refused; 1 off-thread release handed back).
+
+## The holders: merge debt, by owner (#1310's second checkbox ticks at the integration, not here)
+git grep -c -E 'AsyncNotificationComponent\s*\*' 16dbac5211 -- es-app/src: 13 lines in 6 files (the brief's 13):
+    es-app/src/ContentInstaller.h:45:	AsyncNotificationComponent* mWndNotification;
+    es-app/src/ProxyCards.cpp:125:	void runSend(Window* window, AsyncNotificationComponent* card)
+    es-app/src/ProxyCards.cpp:215:			AsyncNotificationComponent* card = window->createAsyncNotificationComponent();
+    es-app/src/ProxyCards.cpp:238:		AsyncNotificationComponent* card = nullptr;
+    es-app/src/ProxyCards.cpp:244:		auto attach = [window]() -> AsyncNotificationComponent*
+    es-app/src/ProxyCards.cpp:250:			auto made = std::make_shared<std::promise<AsyncNotificationComponent*>>();
+    es-app/src/ProxyCards.cpp:257:				AsyncNotificationComponent* c = window->createAsyncNotificationComponent(true);
+    es-app/src/ProxyCards.cpp:514:				AsyncNotificationComponent* card = window->createAsyncNotificationComponent(true);
+    es-app/src/ThreadedBluetooth.h:20:	AsyncNotificationComponent* mWndNotification;
+    es-app/src/ThreadedBluetooth.h:43:	AsyncNotificationComponent* mWndNotification;
+    es-app/src/ThreadedCloudSync.h:191:	AsyncNotificationComponent* mWndNotification;
+    es-app/src/ThreadedHasher.h:50:	AsyncNotificationComponent* mWndNotification;
+    es-app/src/guis/GuiUpdate.h:59:  AsyncNotificationComponent* mWndNotification;
+Each member becomes AsyncNotificationComponent::Handle (or std::weak_ptr<AsyncNotificationComponent>), each call 'if (auto c = h.lock()) c->...'. They land with Window's patch: once createAsyncNotificationComponent returns a handle, a holder that still stores the pointer does not compile. Owners: ContentInstaller and GuiUpdate (T31's pages), ProxyCards and ThreadedCloudSync (T18's), ThreadedBluetooth (T20's), ThreadedHasher (its owner's). T18's fake header tests/app-unit/fakes/components/AsyncNotificationComponent.h gains handle() when a holder's tests need it: the collision is named here and at the hand-back.
+
+## Specs (D-WORKFLOW-210), before -> after
+    card_close          AsyncNotificationComponent.cpp:119-120 'mClosing = true;'..'mFadeTime = -1;' -> :122-122 'mCloseRequested.store(true, std::memory_order_release);'
+    card_update         :267-274 'if (mClosing && mFadeTime == -1)'..'mFadeTime += deltaTime;' -> :268-283 'if (!mClosing && mCloseRequested.load(std::memory_order_acquire))'..'mFadeTime += deltaTime;'
+    card_update_full    (new in S2, at the pin :263-305) -> :265-314
+    card_choose         (new in S2, at the pin :136-145) -> :138-147
+    textedit_focuslost  TextEditComponent.cpp:44-47, last line 'postToUiThread([this]() { stopEditing(); });' -> the same lines, last line with the weak token
+    card_handle         (new after S2) AsyncNotificationComponent.h:53-54
+    textedit_move :267-281 and str_cursor StringUtil.cpp:278-327 (T21's, read only): new in S2, unchanged by it
+    tools/t34-lifetimes.py: the proved cells of TextEditComponent.cpp:39, :47 and AsyncNotificationComponent.cpp:119, :123 from 'tree' to S2's outcome; the rows' lines still hold at the pin, which the generator reads.
+D-WORKFLOW-211: the sanitizer doubles stage-d/tsan-card.cpp and stage-d/asan-textedit.cpp gained the members the fixed lines read (mCloseRequested; mAlive), unused by the pin's lines; no assertion changed.
+
+## The #585 line
+The brief expected none ('the fork's card and the fork's posts'). git log -S says otherwise: 'mFadeTime = -1;' in AsyncNotificationComponent.cpp first appears in ad9802f44 (Fabrice CARUSO, 2020-08-22, Add animations on notification components), and 'postToUiThread([this]() { stopEditing(); });' in TextEditComponent.cpp in 2f5ec7d33 (Fabrice CARUSO, 2020-12-28). Both are upstream's lines (batocera, carried by ROCKNIX), so PL-01 and PL-03 get #585 lines, and PL-02's ownership (Window's raw pointers) goes with them.
+
+## Other checks
+ES .githooks/pre-push-test: PASS. es-untranslated: not run; S2 changes no player string.
+Already written (#1309, #1310, #1311): nothing inherited; a component writes no file.
+Time to play: one atomic load per card update() and one lock() per holder call; the text field is the keyboard popups', off the launch path.

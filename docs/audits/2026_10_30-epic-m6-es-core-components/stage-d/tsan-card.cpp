@@ -2,9 +2,12 @@
 // (AsyncNotificationComponent.cpp:119-120, :267-274), called from two threads
 // as the holders and the interface thread call them. Built with
 // -fsanitize=thread: a reported data race is the defect's positive.
+// S2 (#1309): the double also carries the request the fixed lines read, so
+// the same source runs the pin's lines and the fixed ones.
+#include <atomic>
 #include <thread>
 struct Card {
-	bool mClosing = false; int mFadeTime = 0; unsigned char mFadeOutOpacity = 0;
+	bool mClosing = false; int mFadeTime = 0; unsigned char mFadeOutOpacity = 0; std::atomic<bool> mCloseRequested{false};
 	unsigned char getOpacity() const { return 255; }
 	void close() {
 #include "x_card_close.inc"

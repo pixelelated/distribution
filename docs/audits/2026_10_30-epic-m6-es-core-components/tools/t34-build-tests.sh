@@ -163,6 +163,8 @@ san() { # <name> <sanitizer> <source>
 san tsan-card thread "${HERE}/../stage-d/tsan-card.cpp"
 san asan-textedit address "${HERE}/../stage-d/asan-textedit.cpp"
 san asan-popup address "${HERE}/../stage-d/asan-popup.cpp"
+AUD="$(dirname "${HERE}")"
+san asan-card-handle address "${AUD}/stage-e/asan-card-handle.cpp"
 # The total, from the binaries' own summary lines: a record quotes this line
 # rather than a sum written by hand (T21 stage E: totals written without
 # adding were found 2 to 53 cases high, S2 to S13).

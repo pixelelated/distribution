@@ -129,3 +129,31 @@
   - the count is 2 of 5, not the predicted 3 of 4: the stream's four cases plus one more.
 - **The #585 line:** a private report owed upstream; the held notes carry it.
 - **The host file:** S1's START and END lines written.
+
+## [Stage E] 06:01 UTC 2026-10-31 — S2 (#1309, #1310, #1311): the card's close, its handle and the field's posts, `2cbb62d7b`
+
+- **The cases came first, run at `dbe4c2db0`** (the card's and field's files are the pin's there; `stage-e/s2-before.txt`):
+  - PL-01's interleaving case in `components-tests`: `update()` runs between the pin's two writes. FAIL: a closing frame was drawn before the fade's opacity was captured.
+  - `asan-card-handle`, the new program (`stage-e/asan-card-handle.cpp`): heap-use-after-free, rc 1.
+  - tsan-card rc 66 and asan-textedit rc 1, as at stage D.
+  - 3.18 and 3.33 PASS.
+  - `TOTAL: 254 test cases in 6 binaries`.
+- **The fix**, one ES commit on four files:
+  - `close()` is one release store to `mCloseRequested`, and `update()` turns it;
+  - the card derives `enable_shared_from_this` and offers `Handle handle()`;
+  - the text field's posts check a weak token made before the constructor's first `onFocusLost()`.
+- **After, at `2cbb62d7b`** (`stage-e/s2-after.txt`):
+  - PL-01's case PASS;
+  - tsan-card rc 0 and asan-textedit rc 0;
+  - asan-card-handle rc 0, with 2 of 2 late calls refused and 1 off-thread release handed back;
+  - `TOTAL: 254 test cases in 6 binaries`.
+- **Window's half is `stage-e/s2-window.patch`** (T35's), written on scratch copies of the pin's two files and proven there:
+  - it applies cleanly to both;
+  - the patched `Window.cpp` passes the stand-in's compile;
+  - the lane's keyboard fake gained the seven SDL names `Window.cpp` reads.
+
+  The card's destructor chain frees GL textures, so ruling 1's retired list is kept.
+- **The 13 holder lines** (`git grep -c` agrees with the brief) are merge debt by owner, listed in `stage-e/s2-checks.txt`. #1310's second checkbox ticks at the integration.
+- **Specs moved (D-WORKFLOW-210):** `card_close`, `card_update` and `textedit_focuslost`, each named with its before and after in `s2-checks.txt`. New: `card_update_full`, `card_choose`, `textedit_move`, `str_cursor` and `card_handle`. The extractor now takes tree paths and clears stale extracts.
+- **`t34-lifetimes.py`:** the four rows carry S2's outcome.
+- **One correction to the brief:** it expected no #585 line. `git log -S` puts both the card's close writes and the field's post shape in batocera's 2020 commits (`ad9802f44`, `2f5ec7d33`), so PL-01 and PL-03 get #585 lines.
