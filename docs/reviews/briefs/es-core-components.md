@@ -1,25 +1,21 @@
 # Review brief: M6.P2 T34, EmulationStation's core components: the rows, grids, menus, lists, cards, images, videos and text every page is built from (#681)
 
-**Version 1, drafted 2026-10-27 from the five research files; not yet proved.**
-(D-WORKFLOW-189; `docs/reviews/plan-for-the-plan.md` § 6b, § 6c, § 7.) The
-five read-only digests this version is drafted from (membership, fork
-changes, upstream delta, inherit, floor) are the coordinator's scratch
-files, not in any tree, so every figure they gave is reproduced by a command
-below at the hash it names, with `/usr/bin/grep` and never the shell's
+**Version 2, 2026-10-30, after a stranger's proof of version 1 (`a728d04c95`); the
+corrections are the last section.** (D-WORKFLOW-189;
+`docs/reviews/plan-for-the-plan.md` § 6b, § 6c, § 7.) Version 1 was drafted
+from five read-only digests (membership, fork changes, upstream delta,
+inherit, floor) that are in no tree, so every figure here is reproduced by a
+command at the hash it names, with `/usr/bin/grep` and never the shell's
 function (#1138: on this host `grep` is a function and prints nothing for
-the one slice file holding a non-UTF-8 byte). The drafter ran the membership
-block once against the P1 research clone at `2174265e9c` (output to the
-terminal, nothing written), five `git -C` reads against the `qa-integration`
-checkout at the pin, and host reads of the rules, the registers, the tracker
-and the lanes' branches; where a figure is in no digest and was not produced
-by one of those reads it is marked `[unverified: run <command>]`, and the
-stranger's proof settles each. The structure is T33's brief
-(`es-app-system.md`, version 2 at `b0c7e3f059` on the coordinator's branch);
-every T33-specific paragraph is replaced. The rule, register, menu-map and
-blindspot line numbers are the coordinator worktree's at `a8fe371b0a`: the
-one change since T33's `ce8608e38f` is `es-ui-style-guide.md:202`, the
-Waiting table's card row, fixed at `a8fe371b0a` from this slice's own
-research (`git diff --stat ce8608e38f a8fe371b0a -- .claude/rules
+the one slice file holding a non-UTF-8 byte); the proof ran every block
+below at the pin by `git -C` and at `2174265e9c` by `git show`, and carries
+no `[unverified]` bracket. The structure is T33's brief (`es-app-system.md`,
+version 2 at `c48f8b387e`; the same blob through `b0c7e3f059` and
+`a8fe371b0a`); every T33-specific paragraph is replaced. The rule, register,
+menu-map and blindspot line numbers are the coordinator worktree's at
+`a8fe371b0a`, unchanged through `a728d04c95`: the one change since T33's
+`ce8608e38f` is `es-ui-style-guide.md:202`, the Waiting table's card row
+(`git diff --stat ce8608e38f a8fe371b0a -- .claude/rules
 docs/decision-register.md docs/es-menu-map.md docs/blindspot-register.md`
 prints that one file, `1 insertion(+), 1 deletion(-)`).
 
@@ -38,16 +34,16 @@ prints that one file, `1 insertion(+), 1 deletion(-)`).
   coordinator worktree; the drafter read them in the P1 research clone
   `/workspace/tmp/m6-coordinator/t11-research/tree` at
   `2174265e9cc1b248c0fbe27fa101875984d46d6b`, `git status --porcelain`
-  empty; its § T34 at `order.md:623-631`: *"80 paths, 21,984 lines, 21,984
-  read, of which 9,541 fork-own; 0 patch and config lines; reach shipped
-  80"*; its `why`: *"`es-core/src/components` (21,984 lines, 9,541
-  fork-own): the rows, grids, menus and cards every page is built from"*;
-  **kind currency; lens cost against value**; read before none; depth
-  Independent, *"an ordinary code slice"*; interacting subsystems *"every
-  page; `es-code-traps.md`"*; closing evidence *"audit folder, lint PASS,
-  punch list through Phase 7"*). The selector is one object with one
-  positive glob and no negative one: `[{"globs":
-  ["es:es-core/src/components/**"]}]`, area `interface`, no `rest`. (The
+  empty; its § T34 at `order.md:623-631`: 80 paths, 21,984 lines, 21,984 read,
+  9,541 fork-own, 0 patch and config lines, reach shipped 80; its `why`
+  *"`es-core/src/components` (21,984 lines, 9,541 fork-own): the rows,
+  grids, menus and cards every page is built from"*; **kind currency; lens
+  cost against value**; read before none; depth Independent, *"an ordinary
+  code slice"*; interacting subsystems *"every page; `es-code-traps.md`"*;
+  closing evidence *"audit folder, lint PASS, punch list through Phase
+  7"*). The selector is one object with one positive glob and no negative
+  one, `{"globs": ["es:es-core/src/components/**"]}` (not a list; the
+  block wraps it), area `interface`, no `rest`. (The
   `| T34 | T13 | cloud-harness |` row at `order.md:179` is the old-to-new
   numbering table, not this slice.) **Epic:** #700 `M6.P2 E339: Area epic:
   the interface, EmulationStation (T2, T18, T20, T21, T26, T31 to T37,
@@ -55,11 +51,9 @@ prints that one file, `1 insertion(+), 1 deletion(-)`).
   #679 are **accepted, and their issues stay open** until the integration
   moves the pin on `next` (§ 10); T32 was accepted 2026-10-27 (its errata are
   the futro's `:954` and `es-app-views-scrapers.md` § Errata at
-  acceptance); T33 #680 is in flight (dispatched 2026-10-27; its guest window
-  posted `START 19:01:31 UTC` with a stop no later than 19:31:31 UTC, the
-  host file's last lines at 19:04:26 UTC being the lane's START and the
-  coordinator's mirror, census `qemu 1, listeners 1, compilers 0`); this
-  slice; T35 #682, T36 #683, T37 #684 and T44 after. The futro
+  acceptance); T33 #680 is in flight (dispatched 2026-10-27; its distribution branch at
+  `0ee735862d6a` and its ES branch at `dd86d7ce20a5` on 2026-10-30, the
+  proof's read); this slice; T35 #682, T36 #683, T37 #684 and T44 after. The futro
   `docs/futros/2026-10-23-m6-interface.md` (956 lines) takes a T34 kickoff
   addendum written by the coordinator with this version, after the T33
   kickoff addendum at `:936`, the T33 proof errata at `:950` and the T32
@@ -67,11 +61,11 @@ prints that one file, `1 insertion(+), 1 deletion(-)`).
   T20, T21, T26, T31, T32 and T33 each routed items here by name or named a
   component file as context; every one is listed with its lines and its
   disposition in § 2 under *Already found; do not re-find; take up*, which
-  points back at the rulings below. **Beside it:** T33's lane, which holds
-  the running session and, at the time of this draft, the guest; the host
-  shared through `/tmp/m7-m6-host-coordination-20261023.txt`; a window for
-  this slice is asked for on #681 and granted there and in that file's queue
-  (§ 5 item 2 says how).
+  points back at the rulings below. **Beside it:** T33's
+  lane; the host shared through `/workspace/tmp/m7-m6-host-coordination.txt`
+  (the durable successor of `/tmp/m7-m6-host-coordination-20261023.txt`,
+  which the reboot of 2026-10-28 removed); a window for this slice is asked
+  for on #681 and granted there and in that file's queue (§ 5 item 2).
 - **The order's sentence is true of the membership, and this brief says
   what the title does not.** The glob and the title agree: the 80 are
   exactly `es-core/src/components/**`, 38 `.cpp` and 42 `.h`, every one
@@ -214,19 +208,15 @@ prints that one file, `1 insertion(+), 1 deletion(-)`).
   `3ae9610b0f`, T26 `757f5370ea`, T31 `95852f8736`, T32 `b52245036f`) `git
   diff --stat PIN <tip> -- es-core/src/components` is empty, so the
   integration has no lane-on-lane collision inside the slice. **T33's ES
-  branch is not yet in the checkout's refs** (`git -C <qa-integration>
-  rev-parse --verify origin/feature/m6-es-app-system-680` printed `fatal:
-  Needed a single revision` on 2026-10-27 after 19:04 UTC, while its
-  distribution branch resolves to `373e99281dce` in the coordinator
-  worktree): the lane runs the same diff against T33's ES tip at stage A if
-  it exists by then, and again at the hand-back, recording the result either
-  way. The other ES checkouts under
-  `~/Development/emulationstation-next.worktrees/` are other lanes' and
-  M7's: read with `git -C <checkout> show <hash>:<path>` only;
-  `rocknix/master` and `batocera/master` are read from the shared refs,
-  never fetched (`upstream/master` in that repository is a stale copy 15
-  commits behind, § 2). Until the dispatch comment exists the pointer is
-  not seeded and nothing starts.
+  branch** `origin/feature/m6-es-app-system-680` resolves to `dd86d7ce20a5`
+  in the checkout at the proof's read (2026-10-30; `fatal: Needed a single
+  revision` on 2026-10-27), and `git diff --stat PIN dd86d7ce20a5 --
+  es-core/src/components` is empty: the lane runs the same diff at stage A
+  and again at the hand-back, recording the result either way. The other ES checkouts under
+  `~/Development/emulationstation-next.worktrees/` are read with `git -C
+  <checkout> show <hash>:<path>` only, and nothing is fetched (§ 10; the
+  stale `upstream/master` is § 2's). Until the dispatch comment exists the
+  pointer is not seeded and nothing starts.
 - **Depth: Independent** -- one seat from another lab (plan § 6c,
   D-WORKFLOW-137; `adversarial-council.md`: an Anthropic-led audit's
   reviewer is pinned GPT-6 Astra; no Gemini seat): Astra at `max` over a
@@ -250,8 +240,8 @@ prints that one file, `1 insertion(+), 1 deletion(-)`).
   `es-core/src/utils/OfflineProxyUrl.h:29`, a header name, not a value),
   `TextEditComponent.cpp`'s `SDLK_*` key constants and any `isPassword`-shaped
   member of the text field, `ComponentGrid`'s and `IList`'s `key` words in
-  comments `[unverified: run the packet scan at stage A and list the hits]`
-  -- so `packet-manifest.json` records **every scan hit dispositioned by
+  comments (the lane's scan at stage A is the list; the proof read none) --
+  so `packet-manifest.json` records **every scan hit dispositioned by
   file:line** (library plumbing / macro name / identifier / setting name /
   value), and a hit that is a value stops the packet; no value ever reaches
   the packet or an artifact.
@@ -278,22 +268,19 @@ git -C "$W" merge-base "$PIN" rocknix/master | cut -c1-10                     # 
 git -C "$W" rev-parse --verify rocknix/master | cut -c1-10                    # f6c542872e, read from the shared refs
 git -C "$W" rev-parse --verify batocera/master | cut -c1-10                   # b2ceb55a7e, read from the shared refs; context only
 git -C "$W" merge-base "$PIN" batocera/master | cut -c1-10                    # 1750dded8c: ROCKNIX has merged nothing from batocera since 2026-09-13
-for b in m6-es-launch-path-649 m6-es-cloud-pages-665 m6-es-achievements-pages-667 m6-es-state-and-bridge-668 m6-es-guimenu-673 m6-es-pages-678 m6-es-app-views-scrapers-679 m6-es-app-system-680; do printf '%s ' "$b"; git -C "$W" rev-parse --verify "origin/feature/$b" 2>&1 | cut -c1-10; done   # seven tips; the eighth `fatal:` until T33 pushes
+for b in m6-es-launch-path-649 m6-es-cloud-pages-665 m6-es-achievements-pages-667 m6-es-state-and-bridge-668 m6-es-guimenu-673 m6-es-pages-678 m6-es-app-views-scrapers-679 m6-es-app-system-680; do printf '%s ' "$b"; git -C "$W" rev-parse --verify "origin/feature/$b" 2>&1 | cut -c1-10; done   # eight tips (T33's `dd86d7ce20a5` since 2026-10-30)
 tools/register-check >/dev/null && echo register-ok
-date -u +%H:%M:%S; tail -n 3 /tmp/m7-m6-host-coordination-20261023.txt | cut -c1-200   # who holds the host, with the time of the read: no guest before a grant on #681
+date -u +%H:%M:%S; tail -n 6 /workspace/tmp/m7-m6-host-coordination.txt | cut -c1-200   # who holds the host, with the time of the read (M7 writes timestamped lines: read the whole tail); no guest before a grant on #681
 ```
 
 Every line above except the first `cat` and the two `rev-parse` of the
-lane's own worktree ran on 2026-10-27 in the coordinator worktree and
-`qa-integration` (the ES lines), by the drafter or by one of the digests,
-and printed what its comment says; the `cat` cannot run before the pointer
+lane's own worktree printed what its comment says on 2026-10-27 (the
+drafter, the digests) and again at the proof of 2026-10-30 (the ES lines by
+`git -C` against `qa-integration`); the `cat` cannot run before the pointer
 is seeded, and `W` does not exist before dispatch. The host file's tail is
-whatever the host is doing at the moment of the read -- at the drafter's
-read, 19:04:26 UTC, its last two lines were T33's `START 19:01:31 UTC ...
-stop no later than 19:31:31 UTC` and the coordinator's `T33 GUEST START
-mirrored ... census now: qemu 1, listeners 1, compilers 0` -- so the lane
-records the time beside the lines, and a sentence about what the tail
-"shows today" is never written into an artifact without one.
+whatever the host is doing at the moment of the read, so the lane records
+the time beside the lines; a sentence about what the tail "shows today" is
+never written into an artifact without one.
 
 ## 2. Scope
 
@@ -302,17 +289,14 @@ distribution worktree, stacked on the P1 branch, which holds
 `docs/reviews/{inventory.json,slices.json}`; the script is T33's
 `membership.py` with three lines changed -- the slice id in `hits`, the
 `named` list and the `ES-CORE BY SLICE` prefix -- a rewrite of
-`tools/renovation-inventory`'s `glob_body` grammar (`**/`, `**`, `*`, `?`,
-`{a,b}`) and of its rest semantics; two `sort`/`sorted` keyword arguments
-are spaced `key = lambda` so this file carries no key-equals token. It takes a
-paths file as its one argument and prints. **The heredoc is saved once, as
-`.qa-scratch/t34/membership.py`, and run twice** -- first against
-`/dev/null` to make the paths file from its own TSV, then against that file
-to prove equality; the drafter ran the second pass against the digests'
-paths file from the P1 clone on 2026-10-27 and the lines below are that
-run's. The awk reads columns 1 and 2, `tree` and `path`, which the script's
-own `columns:` line confirms are the inventory's first two at
-`2174265e9c`):
+`tools/renovation-inventory`'s `glob_body` grammar and rest semantics; two
+keyword arguments are spaced `key = lambda` so this file carries no
+key-equals token. **The heredoc is saved once and run twice** -- first
+against `/dev/null` to make the paths file from its own TSV, then against
+that file to prove equality; the proof of 2026-10-30 ran both passes with
+the two JSONs read by `git show 2174265e9c:`, and the lines below are that
+run's, byte for byte. The awk reads columns 1 and 2, `tree` and `path`, the
+inventory's first two by its own `columns:` line):
 
 ```bash
 mkdir -p .qa-scratch/t34
@@ -406,10 +390,9 @@ git -C "$W" diff --shortstat "$MB" "$PIN" -- $(cat .qa-scratch/t34/paths.txt)   
 git -C "$W" diff --shortstat bccd715707 "$PIN" -- $(cat .qa-scratch/t34/paths.txt)     # the same line
 ```
 
-Expected, at `2174265e9c` (the drafter's second pass from the P1 research
-clone on 2026-10-27, against the digests' 80-path file, printed these five
-lines byte for byte; the first pass, against `/dev/null`, prints `mine: 80
-paths.txt: 0 equal: False` with every path under `only-mine`):
+Expected, at `2174265e9c` (the first pass, against `/dev/null`, prints
+`mine: 80 paths.txt: 0 equal: False` with every path under `only-mine`; the
+second prints these five lines byte for byte -- the proof's run):
 
 ```
 mine: 80 paths.txt: 80 equal: True
@@ -420,7 +403,7 @@ fork-own lines: 9541
 read lines: 21984
 ```
 
-then, under `CLAIMS`, the 25 named paths with their claimant (the drafter's
+then, under `CLAIMS`, the 25 named paths with their claimant (the proof's
 run): the four components `in-T34 non-rest [('es-core-components', 34)]`
 (`MenuComponent.cpp` and `AsyncNotificationComponent.cpp` tier fork-own, 574
 and 306 lines; `VideoVlcComponent.cpp` and `OptionListComponent.h`
@@ -494,8 +477,8 @@ repository's `upstream/master` ref was never fetched and still points there
 (`rev-list --count upstream/master..rocknix/master` = 15). For this slice the
 difference is nothing: `git log --oneline bccd715707..cada856d86 -- <80>`
 prints 0 lines and `git diff --stat bccd715707 cada856d86 -- <80>` prints
-nothing. `batocera/master` is `b2ceb55a7e3d205a11f055b7d93c8be50cd6f9c9` and
-its merge base with the pin **and** with `rocknix/master` is
+nothing. `batocera/master` is `b2ceb55a7e3d205a11f055b7d93c8be50cd6f9c9`
+(2026-10-21, *update po*) and its merge base with the pin **and** with `rocknix/master` is
 `1750dded8c0fdff70630026f756a69fcad0bb995` (2026-09-13, *update po*), so
 ROCKNIX has merged nothing from batocera since then. This paragraph is the
 one statement of the bases; § 1's comments, § 5's expectations and § 7's
@@ -526,9 +509,10 @@ lists in the background and fix asan errors*; `OptionListComponent.h`
 7/0): `10 files changed, 233 insertions(+), 22 deletions(-)`, seven of the
 ten also fork-modified (`7 files changed, 117 insertions(+), 18
 deletions(-)` restricted to those). **One real overlap by hunk range:**
-`HelpComponent.cpp`, where batocera's `09f5f708f` and the fork's `7dc8bf373`
-both rewrite `updateGrid()` at base lines 142-150 (`-142` and `-145,4` in
-both); the other six pairs share no base line. **One item runs the other
+`HelpComponent.cpp`, where batocera's `09f5f708f` (hunks `-8,6`, `-119,7`,
+`-139,16`, `-310,4`) and the fork's `7dc8bf373` (`-121,10`, `-135,17`) both
+rewrite `updateGrid()`, overlapping at base lines 121-125 and 139-151; the
+other six pairs share no base line (the digest's reading, not re-derived). **One item runs the other
 way:** `9dbd4b9bf` guards `HelpComponent::setOpacity` against a null `mGrid`
 (*"null when ShowHelpPrompts is disabled or there are no prompts"*); at the
 pin `HelpComponent.cpp:208-213` and `:251` dereference `mGrid` with no guard
@@ -552,79 +536,66 @@ upstream-carried grouped by what they are):
 
 | File | Lines | +/- | Fork commits (newest first) | What it is at the pin |
 | --- | ---: | ---: | --- | --- |
-| `AsyncNotificationComponent.cpp` / `.h` | 306 / 78 | 128/17, 23/2 | `38e08cdc6 460102b91 22b15531c 0c06ad548 81231b377 016385b52 f7d12ffb5 fa26307e1 dca520faa`; `.h` `460102b91 22b15531c` | the top-centred progress card (the third surface tier): **`:12 #include "../../es-app/src/CloudText.h"`** (the one es-core to es-app include, `38e08cdc6`; the comment `:9-11` says why; used once at `:144 CloudText::chooseThatFits`); `#define NOTIFICATION_OPACITY 255` `:31` (the 200 it replaced in `:18-30`; used `:114`, `:276`); the width `max(sizeText("TEXT FOR SIZE CALCULATION TEST"), 0.9 * W)` `:63-65` (reasoning `:46-62`); the edge colour from the theme and the comment refusing a drawn rim `:79-89`; centred at the top `:112-113`; `static chooseThatFits(row, candidates)` `:136-144`; three `updateText` overloads `:147`, `:157`, `:168` under `mMutex` (h `:67`; cpp `:149`, `:159`, `:170`, `:182`, `:189`, `:196`), each leaving at least one candidate (`push_back("")` `:151`, `:161`, `:163`); `render` re-chooses a row only when its joined candidates change `:204-223` (keys h `:55-58`); `mFrame = new NinePatchComponent` `:78`, `mGrid = new ComponentGrid` `:97`, both deleted `:125-126`; callers of `updateText(` outside the slice: 24 lines in 7 files (`ThreadedCloudSync.cpp:48,167,184,425,700`, `ProxyCards.cpp:131,180,217,259,286,382,516`, `ThreadedBluetooth.cpp:17,36,74,93`, `GuiUpdate.cpp:200,219,224,234`, `ContentInstaller.cpp:97,102`, `ThreadedHasher.cpp:177`, `guis/GuiMenu.cpp:11718`); the vector overloads used by `ThreadedCloudSync.cpp:184,425,700` and `ProxyCards.cpp:180,382`; unit cases `es-app/tests/unit/CloudTextTests.cpp:832-854` (9 `CHECK`s on `chooseThatFits`) and `:1597-1598` |
+| `AsyncNotificationComponent.cpp` / `.h` | 306 / 78 | 128/17, 23/2 | `38e08cdc6 460102b91 22b15531c 0c06ad548 81231b377 016385b52 f7d12ffb5 fa26307e1 dca520faa`; `.h` `460102b91 22b15531c` | the top-centred progress card (the third surface tier): **`:12 #include "../../es-app/src/CloudText.h"`** (the one es-core to es-app include, `38e08cdc6`; the comment `:9-11` says why; used once at `:144 CloudText::chooseThatFits`); `#define NOTIFICATION_OPACITY 255` `:31` (the 200 it replaced in `:18-30`; used `:114`, `:276`); the width `max(sizeText("TEXT FOR SIZE CALCULATION TEST"), 0.9 * W)` `:63-65` (reasoning `:46-62`); the edge colour from the theme and the comment refusing a drawn rim `:79-89`; centred at the top `:112-113`; `static chooseThatFits(row, candidates)` `:136-144`; three `updateText` overloads `:147`, `:157`, `:168` under `mMutex` (h `:67`; cpp `:149`, `:159`, `:170`, `:182`, `:189`, `:196`), each leaving at least one candidate (`push_back("")` `:165`, `:174`, `:177`); `render` `:194` re-chooses a row only when its joined candidates change `:200-224` (keys h `:55-58`); `mFrame = new NinePatchComponent` `:78`, `mGrid = new ComponentGrid` `:97`, both deleted `:125-126`; callers of `updateText(` outside the slice: 24 lines in 7 files (`ThreadedCloudSync.cpp:48,167,184,425,700`, `ProxyCards.cpp:131,180,217,259,286,382,516`, `ThreadedBluetooth.cpp:17,36,74,93`, `GuiUpdate.cpp:200,219,224,234`, `ContentInstaller.cpp:97,102`, `ThreadedHasher.cpp:177`, `guis/GuiMenu.cpp:11718`); the vector overloads used by `ThreadedCloudSync.cpp:184,425,700` and `ProxyCards.cpp:180,382`; unit cases `es-app/tests/unit/CloudTextTests.cpp:832-854` (8 `CHECK`s on `chooseThatFits`) and `:1597-1598` |
 | `ComponentGrid.cpp` / `.h` | 553 / 150 | 38/2, 3/0 | `aa8c5da4c` | the cell grid every dialog and page is laid on: `bool canMoveCursor(const Vector2i&) const` `:396-412` (h `:63`; the comment `:380-395` naming #115 and `OK CHOOSE CHOOSE`), the same linear scan as `moveCursor` `:329-379` (`:347-357`; the reverse scan commented out `:358-372`) with nothing moved; `getHelpPrompts` `:519-553` offers up/down and left/right only when the scan finds a focusable cell other than the current one `:527-528` (was `mGridSize.y() > 1` / `.x() > 1`); three upstream prompt lines `:546`, `:548`, `:550` (`CHOOSE`, icon keys untranslated); `canMoveCursor` called from nowhere else in `es-app` or `es-core` |
 | `ComponentList.cpp` / `.h` | 728 / 169 | 5/0, 14/0 | `551c5a762`; `.h` `551c5a762 d9fa93bf2` | the row list under every settings page: `static float rowInset()` `:491-494` (h `:109-113`) returning `TOTAL_HORIZONTAL_PADDING_PX / 2`, where **`#define TOTAL_HORIZONTAL_PADDING_PX 20` `:11`** is upstream's pixel constant used by `updateElementPosition` `:508` and `updateElementSize` `:521`; `ComponentListFlags::DIMMED_ALPHA = 0x50` and `inline dimmed(color)` h `:25-26` (comment h `:19-24`: `render` recolours every element every frame, so a dim must live inside the element's `setColor`, #182); `render` `:321`, `setColor` at `:391`, `:394`, `:398`, `:400` every frame; upstream `_()` at `:276` (`ENABLED`/`DISABLED`) and **`:568` (`_("up/down")`, `_("CHOOSE")`, L-01)**; `updateCameraOffset` `:295-319`; callers of `rowInset()` `guis/GuiMenu.cpp:4091,4097`, `guis/GuiWifi.cpp:103`; of `dimmed()` `MultiLineMenuEntry.cpp:84`, `SwitchComponent.cpp:30` |
 | `ComponentTab.cpp` (`.h` upstream, 82) | 437 | 3/2 | `8927b1760` | the tab strip over a tabbed menu (D-UI-021): `getHelpPrompts` `:320-345` de-duplicates on `left/right` `:332` and pushes `HelpPrompt("left/right", _("SWITCH TAB"))` `:341` (was `HelpPrompt(_("up/down"), _("CHOOSE"))`; the slice's one changed `_("` line; msgid `SWITCH TAB` at `locale/lang/fr/LC_MESSAGES/emulationstation2.po:4929-4930`, `CHANGER D’ONGLET`); `input` returns on `size() == 0` `:79-80`; `getHelpPrompts` empty on `!size()` `:322-323`; `setColor` `:193`; `addTab` uppercases at display time (#63) |
-| `GridTileComponent.cpp` / `.h` | 1,596 / 332 | 22/0, 16/0 | `12de21757 3b7265f33 2088eadb9` (both) | one tile of the image grid: `GridTextProperties::multiLine` read from the theme `:700-701` (h `:135`; declared `ThemeData.cpp:267` as `STRING // auto, true, false`) and applied as MULTILINE / SINGLELINE / AUTO h `:107-116` (the comment on the 1.8-line moving threshold; #27, D-UI-050); `setDisplayAspect(float)` `:1048-1053` and `setDisplayRotation(int)` normalising `((q % 4) + 4) % 4` `:1055-1063`, re-applied by `setImage` `:1042-1043` (`:1043` indented one level deeper than `:1042`, L-14), stored h `:305-306` (API h `:233-236`); `:11 #ifdef _RPI_`; `Padding = Vector4f(16, 16, 16, 16)` `:56`, `cornerSize = Vector2f(16, 16)` h `:148`; raw `new`/`delete` of the sub-images upstream's (`:39`, `:85-100`, `:490-540`, `:777-934`); callers through a tile decorator `guis/GuiSaveState.cpp:80-81`, `views/gamelist/GridGameListView.cpp:45-46`, `guis/GuiImageViewer.cpp:284-285`; batocera's launch zoom touches `:1529-1532` and h `:254`, `:261` (context) |
-| `HelpComponent.cpp` (`.h` upstream, 44) | 331 | 25/7 | `7dc8bf373` | the bottom help bar (#210): an entry's width is measured first and kept only if `width + entryWidth < maxWidth` `:121-138` (the old code added before testing); the grid's box `rowWidth = width - ENTRY_SPACING` floored at 1 `:143-152`; the last entry's trailing spacer 0 `:159-165`; unchanged around it: `width = 0` `:95`, `maxWidth = W - ENTRY_SPACING` `:79` or `W - size.x()` of the right-hand component `:90`, the label split for 4:3 screens `:110-120`, `getIconTexture` `:176-200` (the theme's icon map, then `ICON_PATH_MAP` with keys `up/down left/right up/down/left/right a b x y l r lr start select F1`, else `LogError "Unknown help icon"` and `nullptr` `:190-194`); **`setOpacity` `:208-213` and `:251` dereference `mGrid` unguarded** (batocera `9dbd4b9bf`); `ICON_TEXT_SPACING W*0.0042f` `:13`, `ENTRY_SPACING` x2 `:16`; `mPrompts.empty()` returns `:67-70` |
+| `GridTileComponent.cpp` / `.h` | 1,596 / 332 | 22/0, 16/0 | `12de21757 3b7265f33 2088eadb9` (both) | one tile of the image grid: `GridTextProperties::multiLine` read from the theme `:700-701` (h `:135`; declared `ThemeData.cpp:267` as `STRING // auto, true, false`) and applied as MULTILINE / SINGLELINE / AUTO h `:107-116` (the comment on the 1.8-line moving threshold; #27, D-UI-050); `setDisplayAspect(float)` `:1048-1053` and `setDisplayRotation(int)` normalising `((q % 4) + 4) % 4` `:1055-1063`, re-applied by `setImage` `:1042-1043` (`:1043` indented one level deeper than `:1042`, L-14), stored h `:305-306` (API h `:233-236`); `:11 #ifdef _RPI_`; `Padding = Vector4f(16.0f, 16.0f, 16.0f, 16.0f)` `:56`, `cornerSize = Vector2f(16, 16)` h `:148`; raw `new`/`delete` of the sub-images upstream's (`:39`, `:85-100`, `:490-540`, `:777-934`); callers through a tile decorator `guis/GuiSaveState.cpp:80-81`, `views/gamelist/GridGameListView.cpp:45-46`, `guis/GuiImageViewer.cpp:284-285`; batocera's launch zoom touches `:1529-1532` and h `:254`, `:261` (context) |
+| `HelpComponent.cpp` (`.h` upstream, 44) | 331 | 25/7 | `7dc8bf373` | the bottom help bar (#210): an entry's width is measured first and kept only if `width + entryWidth < maxWidth` `:121-138` (the old code added before testing); the grid's box `rowWidth = width - ENTRY_SPACING` floored at 1 `:143-152`; the last entry's trailing spacer 0 (`isLast` `:160`, `:166`); unchanged around it: `width = 0` `:95`, `maxWidth = W - ENTRY_SPACING` `:79` or `W - size.x()` of the right-hand component `:90`, the label split for 4:3 screens `:110-120`, `getIconTexture` `:176-200` (the theme's icon map, then `ICON_PATH_MAP` with keys `up/down left/right up/down/left/right a b x y l r lr start select F1`, else `LogError "Unknown help icon"` and `nullptr` `:190-194`); **`setOpacity` `:208-213` and `:251` dereference `mGrid` unguarded** (batocera `9dbd4b9bf`); `ICON_TEXT_SPACING W*0.0042f` `:13`, `ENTRY_SPACING` x2 `:16`; `mPrompts.empty()` returns `:67-70` |
 | `ImageComponent.cpp` / `.h` | 1,400 / 220 | 58/4, 16/0 | `b49d85448 1ce55ceef 12de21757 4e4ab0647 c437fe77f 3b7265f33`; `.h` `12de21757 3b7265f33` | the image drawer: `resize` fits the quad at `(physical.y * mDisplayAspect, physical.y)` when an aspect is set `:91-97` and swaps the fitted width and height when `mDisplayRotation % 2` `:98-101`; the crop branches follow the turn `:156-159`, `:167-170`; `updateVertices` permutes the four texture corners for turns 1, 2, 3 `:273-291`; `setDisplayAspect` clamps negatives to 0 and resizes on change `:481-489`; `setDisplayRotation` normalises `:491-499`; getters and members h `:133-140`, `:194-195`; **h `:76` `virtual void setColor(unsigned int color) { setColorShift(color); }`** (`es-native-ui.md:302`); **`:408` asks `TextureResource::get` by path** (T26 #1221, T32 #1263: the caller's half, § 1 a); `_()` at `:1060` (`SELECT`); cached `exists(value.s)` `:1232` (a theme path); `getHelpPrompts` `:1057`; the two diagnostic `LOG` commits (`c437fe77f` +2, `1ce55ceef` +1) are removed by `4e4ab0647` and `b49d85448`: **0 added `LOG(` lines net**; callers of the aspect and turn `DisplayAspect.cpp:147-148`, `guis/GuiImageViewer.cpp:680-681`, `views/gamelist/DetailedContainer.cpp:1070-1071` |
-| `ImageGridComponent.h` | 1,705 | 19/0 | `217872e32 bb79e4fc4 12de21757 3b7265f33` | header-only template, the tile grid behind the grid view and the save-state manager: `#include <functional>` `:2` above the include guard `:3` (L-14); `setTileDecorator(std::function<void(GridTileComponent*, const T&)>)` `:100` (comment `:94-99`), `mTileDecorator` `:181`, called at the three tile-creation sites `:309` (`preloadTiles`), `:381` (`ensureVisibleTileExist`, indented two levels short of its block) and `:422` (the scroll-loop copy, audit #258 PL-017, comment `:418-421`); `calcGridDimension()` `:1437-1468` (`LOG(LogError)` guards `<1` `:1449-1452`); `onCursorChanged`'s `mStartPosition` `:1096-1200` (`:1162-1186`); `clear()` / `resetGrid()` (#207, #1266's contract, § 1 e); callers of the decorator `guis/GuiImageViewer.cpp:281`, `guis/GuiSaveState.cpp:77`, `views/gamelist/GridGameListView.cpp:42`, each before its first add |
+| `ImageGridComponent.h` | 1,705 | 19/0 | `217872e32 bb79e4fc4 12de21757 3b7265f33` | header-only template, the tile grid behind the grid view and the save-state manager: `#include <functional>` `:2` above the include guard `:3` (L-14); `setTileDecorator(std::function<void(GridTileComponent*, const T&)>)` `:100` (comment `:94-99`), `mTileDecorator` `:181`, called at the three tile-creation sites `:309` (`preloadTiles`), `:381` (`ensureVisibleTileExist`, indented two levels short of its block) and `:422` (the scroll-loop copy, audit #258 PL-017, comment `:418-421`); `calcGridDimension()` `:1437-1468` (`LOG(LogError)` guards `<1` `:1449-1452`); `onCursorChanged` (from `:1065`), its `mStartPosition` `:1162-1186`; `clear()` / `resetGrid()` (#207, #1266's contract, § 1 e); callers of the decorator `guis/GuiImageViewer.cpp:281`, `guis/GuiSaveState.cpp:77`, `views/gamelist/GridGameListView.cpp:42`, each before its first add |
 | `MenuComponent.cpp` / `.h` | 574 / 122 | 86/49, 9/0 | `f1ae6bc25 b6eb26980 a846b4c69 8927b1760 082edc223`; `.h` `7b18c4489 a846b4c69` | the title, tab strip, rows and button bar every settings page is: **`#define BUTTON_GRID_HORIZ_PADDING (Renderer::getScreenWidth()*0.022)` `:14`** (the 0.0052 it replaced in the comment `:7-13`, *"the one place it is defined"*; used by `makeButtonGrid` `:547`, `:555`; D-UI-012), `BUTTON_GRID_VERT_PADDING (H*0.0296296)` `:6`; the wrap callback `:80-101` (down past the buttons to the strip when it has tabs, else the first row; up past the top to the buttons with the last row armed); the strip entered non-focusable at construction `:115`/`:117-118` and re-entered focusable on the first `addTab` (`removeEntry` `:143`, `setEntry(..., true, ...)` `:144`; comment `:109-115` citing #325); the page opens on its first row `setCursorTo(mList)` `:123`; `input` is `GuiComponent::input` alone `:126-131` (#65); `updateSize` `:396-447` keeps the row-fit loop and lets the title-image alignment block run in both modes (`pad = W*0.012`, `setPadding` `:438`, `:443`; #160); `setCursorToButton(int)` `:506-515` (h `:53-56`: the inner `ComponentGrid` cursor first, then the outer focus, then `updateHelpPrompts`; **`static_pointer_cast<ComponentGrid>(mButtonGrid)` while `setButtonGrid` `:492-503` accepts any `GuiComponent`**, L-15); `getSubTitle()` h `:85-89`; `clearButtons` `:478-483` and `updateGrid` `:517-529` (`removeEntry` then `makeButtonGrid` `:543-562`); the up-casing formatters `:205` (`addGroup`), `:233`, `:236` (`addWithDescription`/`addEntry`), `:283` (`setTitle`), `:487` (`addButton`); `spacer->setSize(10, 0)` `:167`, `:192`; `fitTo(..., Vector2f(-32, -32))` `:453`; `getHelpPrompts` `:531-533` returns `mGrid.getHelpPrompts()`; `_()`: none; callers `setCursorToButton` `guis/GuiMenu.cpp:4542`, `guis/GuiWifi.cpp:153`; `getSubTitle` `guis/GuiGameAchievements.cpp:234,278`; `setButtonGrid` with a non-grid `guis/GuiMenu.cpp:591` (`mVersion`) |
-| `MultiLineMenuEntry.cpp` / `.h` | 153 / 46 | 58/26, 19/0 | `7c7ffab43 daafb69f1 d9fa93bf2 48d43c0fb`; `.h` `217872e32 daafb69f1 d9fa93bf2 48d43c0fb` | the label + description row: `static naturalHeight(text)` = `font->getHeight() + padding.y + padding.w` `:50-56` (the comment `:38-49` on #241 and the 0.9/1.1 cells); `layoutRows()` `:58-77` from the constructor `:36`, from `setDescription` in single-line mode `:118` and from `onSizeChanged` in multi-line mode `:132`; **the row percentages `(th*0.9)/h` and `(sh*1.1)/h` `:72-73`, upstream's formula carried whole (L-03)**; `mColor`/`mDimmed` `:18`, `:21` (h `:40-43`), `setColor` applying `dimmed()` `:79-86` (`:84`), `setDimmed` `:89-93`, `setPadding` reaching both texts `:100-105`; `setDescription` re-lays `:112-119`; `onSizeChanged` under the `mSizeChanging` guard `:121-136`; the list re-laid only on `GuiSettings::updateSize` (h `:26-28`); callers of `setDimmed` `guis/GuiMenu.cpp:4094,5478,6302,6318`, `guis/GuiRetroAchievementsSettings.cpp:262,375`; of `setPadding` `guis/GuiMenu.cpp:6341`; `Font::getHeight(lineSpacing)` is `mMaxGlyphHeight * lineSpacing` (`es-core/src/resources/Font.cpp:754-756`, grown in `getGlyph` for ASCII 32..127 only `:420-421`, from 0 `:107`; T36's file, cited) |
+| `MultiLineMenuEntry.cpp` / `.h` | 153 / 46 | 58/26, 19/0 | `7c7ffab43 daafb69f1 d9fa93bf2 48d43c0fb`; `.h` `217872e32 daafb69f1 d9fa93bf2 48d43c0fb` | the label + description row: `static naturalHeight(text)` = `font->getHeight() + padding.y + padding.w` `:50-56` (the comment `:38-49` on #241 and the 0.9/1.1 cells); `layoutRows()` `:58-77` from the constructor `:36`, from `setDescription` in single-line mode `:118` and from `onSizeChanged` in multi-line mode `:132`; **the row percentages `(th*0.9)/h` and `(sh*1.1)/h` `:74-75`, upstream's formula carried whole (L-03)**; `mDimmed`/`mColor` `:18`, `:21` (h `:40-43`), `setColor` applying `dimmed()` `:79-86` (`:84`), `setDimmed` `:89-93`, `setPadding` reaching both texts `:100-105`; `setDescription` re-lays `:112-119`; `onSizeChanged` under the `mSizeChanging` guard `:121-136`; the list re-laid only on `GuiSettings::updateSize` (h `:26-28`); callers of `setDimmed` `guis/GuiMenu.cpp:4094,5478,6302,6318`, `guis/GuiRetroAchievementsSettings.cpp:262,375`; of `setPadding` `guis/GuiMenu.cpp:6341`; `Font::getHeight(lineSpacing)` is `mMaxGlyphHeight * lineSpacing` (`es-core/src/resources/Font.cpp:754-756`, grown in `getGlyph` for ASCII 32..127 only `:420-421`, from 0 `:107`; T36's file, cited) |
 | `SwitchComponent.cpp` / `.h` | 175 / 60 | 13/3, 9/1 | `d9fa93bf2` (both) | the on/off row: `mDimmed(false), mColor(0)` `:8-9` (h `:55-57`), `mColor = menuTheme->Text.color` `:16`, `setColor` storing and applying the dim `:27-31` (`:30`; `override` h `:33`), `setDimmed` `:33-37`, `isDimmed` h `:37`; **the constructor reads `menuTheme->Text.font->getHeight(1.1f)` for the image height `:14`** (L-16); the tri-state cycle `:50-80`, `getValue`/`setValue` `:118-138`; `_()` `:168` (`CHANGE`); `getHelpPrompts` `:165`; callers of `setDimmed` `guis/GuiRetroAchievementsSettings.cpp:472,488`; batocera's `ac4baceaf` touches the constructor at `-17,3` beside the fork's `-15` (context) |
 | `TextComponent.h` (`.cpp` upstream, 857) | 141 | 2/0 | `b6eb26980 7b18c4489` | two getters, `getLineSpacing()` `:48` and `getHorizontalAlignment()` `:49`, read by `guis/GuiGameAchievements.cpp:238,240,291,299,302` (#160); **`TextComponent.cpp` is unchanged by the fork: `:338` `sizeWrappedText(..., getSize().x(), ...)` against `:350` `sx = mSize.x() - mPadding.x() - mPadding.z()` (#48's root, L-17); `:486` `int limit = mSize.y() - mPadding.y() - mPadding.y();` where `:428` and `:351` subtract `.w()` (3.6)**; `onTextChanged` `:315-340` (SINGLELINE with `"a\nb"` measures `"a"` `:325-327`); batocera's `b728ac99d` changes `TextComponent.cpp` 9/3 for RTL (context) |
-| `WebImageComponent.cpp` (`.h` upstream, 40) | 265 | 25/1 | `0ec3f43ae c13119bfb` | an image fetched over HTTP and cached: `#include "utils/OfflineProxyUrl.h"` `:7`; after `REQ_SUCCESS` and `exists(mLocalFile)` `:190` (upstream, cached), **a file of size 0 (`getFileSize` `:197`, an uncached `stat64`) is removed and the update returns `:197-200`** (comment `:191-196`, #180; `mUrlToLoad` was cleared when the request went out `:244`, so the component never asks again, L-08); the request carries `X-RA-Store-Only` when the URL is the offline proxy's `:239-243` (`Utils::OfflineProxy::isProxyUrl`, `StoreOnlyHeader`; #199); `HttpReqOptions options(mLocalFile)` on the stack handed by pointer `:243` (consumed in `HttpReq::HttpReq` before it returns, `es-core/src/HttpReq.cpp:119-123`, `:131-132`, `:172-176`; L-21); cached `exists` at `:81` (destructor), `:134` (`setImage`'s cache check), `:190`, `:228` (the directory); `removeFile` erases the cache key (`FileSystemUtil.cpp:185-195`); 7 `HttpReq` lines (`:3`, `:178`, `:190`, `:239`, `:243`; h `:6`, `:27`) |
+| `WebImageComponent.cpp` (`.h` upstream, 40) | 265 | 25/1 | `0ec3f43ae c13119bfb` | an image fetched over HTTP and cached: `#include "utils/OfflineProxyUrl.h"` `:7`; after `REQ_SUCCESS` and `exists(mLocalFile)` `:190` (upstream, cached), **a file of size 0 (`getFileSize` `:197`, an uncached `stat64`) is removed and the update returns `:197-200`** (comment `:191-196`, #180; `mUrlToLoad` was cleared when the request went out `:244`, so the component never asks again, L-08); the request carries `X-RA-Store-Only` when the URL is the offline proxy's `:239-243` (`Utils::OfflineProxy::isProxyUrl`, `StoreOnlyHeader`; #199); `HttpReqOptions options(mLocalFile)` on the stack `:239`, handed by pointer `:243` (consumed in `HttpReq::HttpReq` before it returns, `es-core/src/HttpReq.cpp:119-123`, `:131-132`, `:172-176`; L-21); cached `exists` at `:81` (destructor), `:134` (`setImage`'s cache check), `:190`, `:228` (the directory); `removeFile` erases the cache key (`FileSystemUtil.cpp:185-195`); 7 `HttpReq` lines (`:3`, `:178`, `:190`, `:239`, `:243`; h `:6`, `:27`) |
 | the lists: `IList.h`; `TextListComponent.h`; `CarouselComponent.cpp` / `.h`; `ComponentTab.h`; `ScrollbarComponent.cpp` / `.h` | 431; 981; 1,128 / 183; 82; 215 / 64 | 0/0 | -- | `IList.h`: `template <typename EntryData, typename UserData> class IList : public GuiComponent` `:60-61`, the scrolling-list base of `ComponentList`, `ComponentTab`, `CarouselComponent`, `ImageGridComponent`, `TextListComponent`; `listInput` `:267-290`, `listUpdate`'s tier maths `:292-329` (`:313`, `:320`), `setCursorIndex` `:138-147`, `scroll` `:376-400` (`LIST_NEVER_LOOP` clamps and zeroes velocity and tier `:388-399`). `TextListComponent.h`: the game list's text list, `:34-35`; the visible range in `render` `:262-269`; `updateCameraOffset` `:591-608`; `Font::getHeight` reads `:613`, `:725` (L-16). `CarouselComponent.cpp`: the themed carousel (the `gamecarousel` view's, not `SystemView`'s); **`moveCursorFast` `:74-90` with `:113`, `:119` (3.8)**; the shortest-path target `:183-200`; `getHelpPrompts` `:354-361` offers `up/down` or `left/right CHOOSE` by carousel type alone (L-13); cached `exists` `:765` (`marqueePath`); `CAROUSEL_MOUSE_SPEED 100.0f` `:898`; 12 `isMappedLike`; 2 `_("`. `ComponentTab.h`: `:31`, structs `:8`, `:18`. `ScrollbarComponent`: the list scrollbar, no outside includer |
-| the rows and editors: `OptionListComponent.h`; `SliderComponent.cpp` / `.h`; `ButtonComponent.cpp` / `.h`; `DateTimeEditComponent.cpp` / `.h`; `RatingComponent.cpp` / `.h`; `TextEditComponent.cpp` / `.h`; `ScrollableContainer.cpp` / `.h`; `StackPanelComponent.cpp` / `.h` | 661; 408 / 67; 225 / 73; 363 / 77; 295 / 63; 400 / 72; 132 / 32; 226 / 37 | 0/0 | -- | `OptionListComponent.h`: the choose-one / multi-select row and its popup, header-only; **four `delete this` `:96`, `:145`, `:158`, `:195`** (each the lambda's last statement `:97`, `:146` or followed by `return true` `:196`; L-11); **`:310-311`, `:323-324` return straight after the callback (T31's invariant, § 1 d)**; `getHelpPrompts` `:202` (the popup) and `:636-643` (`left/right CHANGE` whenever `!mMultiSelect`, L-13); `Font::getHeight` reads `:255`, `:276`; 6 `_("`; `tests/gpu-governor-save.py:14` lifts four of its methods as text (`:26-29`); batocera's `ab218fba1` adds a 100-line background loader (context). `SliderComponent.cpp`: `calculatePrecision(step)` `:44-58`; `setValue`'s clamp and the AUTO sentinel `:234-257`; the value text in `onValueChanged()` `:271-319` (**`"Auto"` at `:282`, outside `_()` and not the placeholder `AUTO`, 3.7**; the suffix glued `:295-296`, `:316-318`); `getHelpPrompts` `:337`; 1 `_("`. `ButtonComponent.cpp`: a button owning its callback; `TEXT_PADDING Math::max(12, W*0.014)` `:10` (12 px wins below 857 px); the `toUpper` `:73`; `:80`; `getHelpPrompts` `:186`. `DateTimeEditComponent.cpp`: the month/day/year steps inside `input()` `:116-164` (`:131-132`, `:144-145`, `:152-153`, `:156-158`); `getDisplayString()` `:251-260` (`getTime() == 0` -> `""` `:256-257`). `RatingComponent.cpp`: the OK-press accumulation `+= 1/5` `:192-204`; `getHelpPrompts` `:262`. `TextEditComponent.cpp`: the field under the on-screen keyboard; **two `postToUiThread([this] ...)` `:39`, `:47`** (`startEditing`/`stopEditing` on focus; L-12); `TEXT_PADDING_HORIZ 10`, `TEXT_PADDING_VERT 2` `:8-9`; `setSize(4096, ...)` `:31` (a `Font::getHeight` read, L-16); `fitTo(..., -34, -32 - TEXT_PADDING_VERT)` `:53`; `moveCursor` `:267-271` through `Utils::String::moveCursor`; `applyChanges` `:176-185` (T21 #1199's writer, fixed in `SystemConf`); `getHelpPrompts` `:390`; 2 `_("`; `SDLK_*` and `SDL_StartTextInput` symbols. `ScrollableContainer.cpp`: `update` `:62-107` (**`:69 const float widthMod = (680.0f / getSize().x());` computed and never used**), `getContentSize` `:110-124`, `reset` `:126-131`, `AUTO_SCROLL_RESET_DELAY` `:6`. `StackPanelComponent`: a horizontal/vertical stack |
-| the images and the video: `AnimatedImageComponent.cpp` / `.h`; `NinePatchComponent.cpp` / `.h`; `RectangleComponent.cpp` / `.h`; `PostProcessShaderComponent.cpp` / `.h`; `VideoComponent.cpp` / `.h`; `VideoPlayerComponent.cpp` / `.h`; `VideoVlcComponent.cpp` / `.h`; `WebImageComponent.h` | 86 / 47; 495 / 88; 166 / 37; 105 / 28; 657 / 228; 274 / 42; 1,113 / 170; 40 | 0/0 | -- | `AnimatedImageComponent`: the busy spinner's frames (no outside includer; `BusyComponent.cpp` and itself). `NinePatchComponent.cpp`: the stretched frame behind menus, cards and dialogs; `int margin = 50` `:177`; `:415 #if defined(USE_OPENGLES_30)`. `VideoComponent.cpp`: the video base (`setScreensaverMode`, play/stop, delay); `:22 #if WIN32`; cached `exists` `:327` (the theme's video path), `:591` (a property) (L-20); `getHelpPrompts` `:347`; `255.0f` `:223`, `1000.0f` `:282`; batocera's `0806a0c5c` adds 7 lines to `VideoComponent.h` (context). `VideoPlayerComponent`: the whole unit under `:1 #ifdef _RPI_` (omxplayer; `<fcntl.h> <unistd.h> <wait.h>` `:9-11`), the slice's one `TODO`. `VideoVlcComponent.cpp`: the libvlc player; **the slice's only `std::thread` `:91` and `.detach()` `:95` inside `mediaplayer_release_async` `:84-96`, which sets `ctx->component = nullptr` on the interface thread without the lock `:89` while VLC's thread reads it in `display` `:53-61` and locks `c->mutexes[frame]` in `lock`/`unlock` `:28-49`; `render` locks the same mutex `:491-494`; `stopVideo` `:897-930` calls it at `:911`, else `delete mContext` `:915`; the destructor is `stopVideo()` `:98-100`** (L-10); gates `:17`, `:485`, `:592`, `:668`, `:779`, `:836`, `:874` (`LIBVLC_VERSION_MAJOR >= 3`), `:875`; `maxSize = Vector2f(400, 300)` `:782`; cached `exists` `:605`, `:639` (the Windows plugin check); **the slice's one non-ASCII byte, 0x96 at `:859`** in the comment `// use: vlc<0x96>long-help` (a Windows-1252 en dash, not UTF-8; `file -` reads the file as `Non-ISO extended-ASCII text`); `std::mutex mutexes[2]` in `VideoContext` h `:40`, `:14`; `:2` the include guard. `WebImageComponent.h`: `class HttpReq;` `:6`, `HttpReq* mRequest = nullptr;` `:27` |
+| the rows and editors: `OptionListComponent.h`; `SliderComponent.cpp` / `.h`; `ButtonComponent.cpp` / `.h`; `DateTimeEditComponent.cpp` / `.h`; `RatingComponent.cpp` / `.h`; `TextEditComponent.cpp` / `.h`; `ScrollableContainer.cpp` / `.h`; `StackPanelComponent.cpp` / `.h` | 661; 408 / 67; 225 / 73; 363 / 77; 295 / 63; 400 / 72; 132 / 32; 226 / 37 | 0/0 | -- | `OptionListComponent.h`: the choose-one / multi-select row and its popup, header-only; **four `delete this` `:96`, `:145`, `:158`, `:195`** (each the lambda's last statement `:97`, `:146` or followed by `return true` `:196`; L-11); **`:310-311`, `:323-324` return straight after the callback (T31's invariant, § 1 d)**; `getHelpPrompts` `:202` (the popup) and `:636-643` (`left/right CHANGE` whenever `!mMultiSelect`, L-13); `Font::getHeight` reads `:255`, `:276`; 6 `_("`; `tests/gpu-governor-save.py:14` lifts four of its methods as text (`:26-29`); batocera's `ab218fba1` adds a 100-line background loader (context). `SliderComponent.cpp`: `calculatePrecision(step)` `:44-58`; `setValue`'s clamp and the AUTO sentinel `:234-257`; the value text in `onValueChanged()` `:271-319` (**`"Auto"` at `:282`, outside `_()` and not the placeholder `AUTO`, 3.7**; the suffix glued `:295-296`, `:312-313`); `getHelpPrompts` `:337`; 1 `_("`. `ButtonComponent.cpp`: a button owning its callback; `TEXT_PADDING Math::max(12, W*0.014)` `:10` (12 px wins below 857 px); the `toUpper` `:73`; `:80`; `getHelpPrompts` `:186`. `DateTimeEditComponent.cpp`: the month/day/year steps inside `input()` `:116-164` (`:131-132`, `:144-145`, `:152-153`, `:156-158`); `getDisplayString()` `:251-260` (`getTime() == 0` -> `""` `:256-257`). `RatingComponent.cpp`: the OK-press accumulation `+= 1/5` `:192-204`; `getHelpPrompts` `:262`. `TextEditComponent.cpp`: the field under the on-screen keyboard; **two `postToUiThread([this] ...)` `:39`, `:47`** (`startEditing`/`stopEditing` on focus; L-12); `TEXT_PADDING_HORIZ 10`, `TEXT_PADDING_VERT 2` `:8-9`; `setSize(4096, ...)` `:31` (a `Font::getHeight` read, L-16); `fitTo(..., -34, -32 - TEXT_PADDING_VERT)` `:53`; `moveCursor` `:267-271` through `Utils::String::moveCursor`; `input()`'s keyboard-RETURN branch `:176-189` (`textInput("\n")` `:180` when multiline, else `stopEditing()` `:184`; no `applyChanges` symbol exists in the file at the pin -- T21 #1199's writer is `SystemConf`'s, where it was fixed); `getHelpPrompts` `:390`; 2 `_("`; `SDLK_*` and `SDL_StartTextInput` symbols. `ScrollableContainer.cpp`: `update` `:62-107` (**`:69 const float widthMod = (680.0f / getSize().x());` computed and never used**), `getContentSize` `:110-124`, `reset` `:126-131`, `AUTO_SCROLL_RESET_DELAY` `:6`. `StackPanelComponent`: a horizontal/vertical stack |
+| the images and the video: `AnimatedImageComponent.cpp` / `.h`; `NinePatchComponent.cpp` / `.h`; `RectangleComponent.cpp` / `.h`; `PostProcessShaderComponent.cpp` / `.h`; `VideoComponent.cpp` / `.h`; `VideoPlayerComponent.cpp` / `.h`; `VideoVlcComponent.cpp` / `.h`; `WebImageComponent.h` | 86 / 47; 495 / 88; 166 / 37; 105 / 28; 657 / 228; 274 / 42; 1,113 / 170; 40 | 0/0 | -- | `AnimatedImageComponent`: the busy spinner's frames (no outside includer; `BusyComponent.cpp` and itself). `NinePatchComponent.cpp`: the stretched frame behind menus, cards and dialogs; `int margin = 50` `:177`; `:415 #if defined(USE_OPENGLES_30)`. `VideoComponent.cpp`: the video base (`setScreensaverMode`, play/stop, delay); `:22 #if WIN32`; cached `exists` `:327` (the theme's video path), `:591` (a property) (L-20); `getHelpPrompts` `:347`; `255.0f` `:223`, `1000.0f` `:282`; batocera's `0806a0c5c` adds 7 lines to `VideoComponent.h` (context). `VideoPlayerComponent`: the whole unit under `:1 #ifdef _RPI_` (omxplayer; `<fcntl.h> <unistd.h> <wait.h>` `:9-11`), the slice's one `TODO`. `VideoVlcComponent.cpp`: the libvlc player; **the slice's only `std::thread` `:91` and `.detach()` `:95` inside `mediaplayer_release_async` `:84-96`, which sets `ctx->component = nullptr` on the interface thread without the lock `:89` while VLC's thread reads it in `display` `:53-61` and locks `c->mutexes[frame]` in `lock`/`unlock` `:28-49`; `render` locks the same mutex `:491-494`; `stopVideo` `:897-930` calls it at `:911`, else `delete mContext` `:915`; the destructor is `stopVideo()` `:98-100`** (L-10); gates `:17`, `:485`, `:592`, `:668`, `:779`, `:836`, `:874` (`LIBVLC_VERSION_MAJOR >= 3`), `:875`; `maxSize = Vector2f(400, 300)` `:782`; cached `exists` `:605`, `:639` (the Windows plugin check); **the slice's one non-ASCII byte, 0x96 at `:859`** in the comment `// use: vlc<0x96>long-help` (a Windows-1252 en dash, not UTF-8; `file -` reads the file as `Non-ISO extended-ASCII text`); `std::mutex mutexes[2]` in `VideoContext` h `:40`, `:14`; h `:1-3` `#pragma once` over an `#ifndef` guard. `WebImageComponent.h`: `class HttpReq;` `:6`, `HttpReq* mRequest = nullptr;` `:27` |
 | the status glyphs and the rest: `BatteryIconComponent.cpp` / `.h`; `BatteryIndicatorComponent.cpp` / `.h`; `BatteryTextComponent.cpp` / `.h`; `BusyComponent.cpp` / `.h`; `ClockComponent.cpp` / `.h`; `ControllerActivityComponent.cpp` / `.h`; `DateTimeComponent.cpp` / `.h`; `HelpComponent.h`; `IExternalActivity.cpp` / `.h`; `NetworkIconComponent.cpp` / `.h`; `VolumeInfoComponent.cpp` / `.h` | 101 / 38; 56 / 19; 64 / 30; 134 / 41; 52 / 24; 603 / 135; 110 / 41; 44; 3 / 14; 79 / 34; 143 / 30 | 0/0 | -- | the battery glyph, percentage and indicator (`BatteryIndicatorComponent.cpp:7 <SDL_power.h>`, the one SDL header T31's fakes lack), the clock (`ClockComponent`; D-UI-058; `tools/vm-walks/masks.txt` masks its minute), the network glyph, the pad/battery/network strip (`ControllerActivityComponent`; `getScreenHeight() / 200.0f`, `/ 100.0f`, `/ 280.0f` `:62-67`), the date text (`DateTimeComponent`; 1 `_("`), the volume overlay (`VolumeInfoComponent`; `fitTo(-32, -32)` `:45`; `255.0f` `:127`), `IExternalActivity` (an interface, three lines of `.cpp`), the spinner `BusyComponent` (`BusyComponent(window, text)`: `setText("")` is a no-op against the empty initial state, `es-code-traps.md:56`; `SDL_CreateMutex`/`SDL_DestroyMutex`, `SDL_GetTicks`; #1112 asks it for a contrast edge, M7's, read-only), `HelpComponent.h` |
 
 **The 33 fork commits on the 80** (`git log --oneline bccd715707..PIN --
-<80> | wc -l` = 33; `--no-merges` = 33; one author; `--diff-filter=A` 0),
+<80> | wc -l` = 33; `--no-merges` = 33; one author by `%an`, two addresses
+by `%ae`; `--diff-filter=A` 0),
 from `48d43c0fb` 2026-08-28 *Cloud setup: align prose rows and let the
 details group breathe* to `551c5a762` 2026-10-01 *cloud: the dimmed SETTINGS
 row keeps the rows' inset (fork #349)*; the fork-changes digest reads 20 of
 the 33 subjects as fixes, 2 as diagnostics (both removed again by the pin,
 net 0 `LOG(` lines), 1 as a refactor (`38e08cdc6`, the es-app include), 7 as
 features and 3 as styling or text -- its reading of the subjects, not a
-tool's line. The 21 distinct issue numbers the subjects and bodies cite:
-#245 (3), #243 (3), #65, #258, #210, #199, #191, #160, #115 (2 each), and
+tool's line. The 21 distinct issue numbers the subjects and bodies cite, counted by
+occurrence (`git log --format='%s%n%b' bccd715707..PIN -- <80> | grep -o -E
+'#[0-9]+' | sort | uniq -c`): #245 (3), #243 (3), #65, #258, #210, #199, #191, #160, #115 (2 each), and
 once each #63, #53, #349, #325, #27, #250, #241, #198, #182, #180, #120,
 #105. The lane's `02` § Coverage quotes the 33 subjects from its own `git
 log`, never from here.
 
 **What the digests checked and found sound, beyond what the table and
-§ 5's expectations already carry, so the lane confirms rather than
-hunts:** `ComponentGrid::canMoveCursor` is `moveCursor`'s scan with nothing
-moved (`:347-357` against `:400-410`); the strip's re-entry on the first tab
-moves its cell to the end of `mCells` with no cursor change
-(`ComponentGrid.cpp:150-163`); the tile decorator reaches every tile
-because each caller sets it before its first add; `AsyncNotificationComponent::render`
-holds `mMutex` for the frame including the glyph measure, bounded by one
-measure per candidate change; `updateText`'s three overloads cannot leave a
-row with no candidate; `HelpComponent`'s `rowWidth` is floored at 1 and
-`mPrompts.empty()` returns early; `OptionListComponent.h`'s four `delete
-this` are each the last statement of their handler at the pin; the stack
-`HttpReqOptions` at `WebImageComponent.cpp:243` is consumed before the
-constructor returns; **the 17 distinct msgids across the 80's 22 `_("`
-lines every one have a `msgid` line in
+§ 5 carry, so the lane confirms rather than hunts:** the strip's re-entry
+on the first tab moves its cell to the end of `mCells` with no cursor
+change (`ComponentGrid.cpp:150-163`); **the 17 distinct msgids across the
+80's 22 `_("` lines every one have a `msgid` line in
 `locale/lang/fr/LC_MESSAGES/emulationstation2.po` at the pin with a
-non-empty translation** (the fork-changes digest's catalog read: `WORKING...`,
-`CHOOSE`, `Unknown`, `accept`, `BACK`, `CHANGE`, `SELECT`, `select all`,
-`SELECT ALL`, `select none`, `SELECT NONE`, `EDIT`, `MOVE CURSOR`,
-`DISABLED`, `ENABLED`, `up/down`, `SWITCH TAB`); and the catalog's own
+non-empty translation** (`WORKING...`, `CHOOSE`, `Unknown`, `accept`,
+`BACK`, `CHANGE`, `SELECT`, `select all`, `SELECT ALL`, `select none`,
+`SELECT NONE`, `EDIT`, `MOVE CURSOR`, `DISABLED`, `ENABLED`, `up/down`,
+`SWITCH TAB`; the proof's parser, 2026-10-30), and the catalog's own
 figures at the pin are T33's (`grep -c '^msgid '` 2,207; 2,188 distinct
 msgids with 0 empty translations once continuation lines are joined). The
 one translation that is itself the defect is `up/down` -> `haut/bas` at
-po `:3708-3709` (L-01, read by the drafter): a correct French line for a
-string that should never have been a msgid.
+po `:3708-3709` (L-01): a correct French line for a string that should
+never have been a msgid.
 
 **What they found instead -- the leads, one line each.** § 4 carries each
 lead's disposition and the question it serves, citing this table rather
-than restating its lines; the lines are the pin's, read by the fork-changes
-digest from the diff and the files, and nine of them read again by the
-upstream-delta and floor digests (`MultiLineMenuEntry.cpp:72-73`,
-`TextComponent.cpp:338`/`:350`/`:486`, `ComponentList.cpp:568`,
-`MenuComponent.cpp:14`/`:547-558`, `WebImageComponent.cpp:134`/`:190`/`:197-200`,
-`OptionListComponent.h:96`/`:145`/`:158`/`:195`, `TextEditComponent.cpp:39`/`:47`,
-`VideoVlcComponent.cpp:84-96`, `HelpComponent.cpp:208-213`).
+than restating its lines; the lines are the pin's, every one read again by
+the stranger's proof of 2026-10-30 (its corrections are the last section).
 
 | Lead | Lines at the pin | Shape | Q |
 | --- | --- | --- | --- |
 | L-01 | `ComponentList.cpp:568`; `HelpComponent.cpp:102-104`, `:190-194`; `es-core/src/InputConfig.cpp:353-366`; fr po `:3708-3709` | the one icon key in the tree that goes through `_()`: the catalog translates `up/down` to `haut/bas`, `InputConfig::buttonLabel` returns the key unchanged, `ICON_PATH_MAP` has no such key, so under French every settings list's CHOISIR prompt draws with a null icon and logs `Unknown help icon "haut/bas"`; the fork's own strip line `ComponentTab.cpp:341` and `ComponentGrid.cpp:546-550` write the key untranslated | Q3, Q6 |
 | L-02 | `MultiLineMenuEntry.cpp:52-56`; `resources/Font.cpp:754-756`, `:420-421`, `:107` | the entry's row height is `mMaxGlyphHeight * 1.5` + padding: the tallest ASCII glyph rasterised so far, 0 at construction; a row built before the font has drawn its tallest glyph is laid out a few px shorter than one refreshed after; the list is re-laid only on `GuiSettings::updateSize` | Q1 |
-| L-03 | `MultiLineMenuEntry.cpp:72-73` | `setRowHeightPerc(0, th*0.9/h)` and `(1, sh*1.1/h)` sum to 1 only when `th == sh`; a taller Text font underfills (a gap under the line), a taller TextSmall overflows by `0.1*(sh-th)/h`; upstream's formula moved whole into `layoutRows` | Q1 |
+| L-03 | `MultiLineMenuEntry.cpp:74-75` | `setRowHeightPerc(0, th*0.9/h)` and `(1, sh*1.1/h)` sum to 1 only when `th == sh`; a taller Text font underfills (a gap under the line), a taller TextSmall overflows by `0.1*(sh-th)/h`; upstream's formula moved whole into `layoutRows` | Q1 |
 | L-04 | `MenuComponent.cpp:14`, `:547-558`, `:527`; `ComponentGrid.cpp:174-175`, `:194`; `ButtonComponent.cpp:10`, `:80` | the bar is `sum(text + max(12, 0.014W)) + N * 0.022W` wide and its cell does not resize it (`resize = false`), so a wider bar is centred on the cell and overhangs both edges of the menu; the gap grew 4.2x (3 px to 14 px at 640); candidates `guis/GuiMenu.cpp` (14 `addButton` sites), `GuiBluetoothDeviceOptions.cpp` (4), `GuiWifi.cpp` (3), `GuiInstallStart.cpp` (3) | Q2 |
 | L-05 | `MenuComponent.cpp:7-13` against `es-core/src/guis/GuiTextEditPopupKeyboard.cpp:14`, `:220` | the comment says the gap is defined in "the one place"; the keyboard popup keeps its own `BUTTON_GRID_HORIZ_PADDING (W*0.0052083333)` for its key buttons; two definitions, one claim (the popup is T35's file; the claim is this slice's comment) | Q2, Q7 |
 | L-06 | `ComponentList.cpp:11`, `:491-494`; `guis/GuiMenu.cpp:4091`, `:4097`; `guis/GuiWifi.cpp:103` | `rowInset()` exports upstream's `TOTAL_HORIZONTAL_PADDING_PX 20` (10 px a side at every panel) to two fork pages: 1.6 % of a 640 panel, 0.5 % of 1920 | Q2 |
@@ -646,7 +617,8 @@ upstream-delta and floor digests (`MultiLineMenuEntry.cpp:72-73`,
 
 **The neighbours, and whose they are:** `es-core/src/guis/` (`GuiMsgBox`,
 `GuiTextEditPopup`, `GuiTextEditPopupKeyboard`, `GuiInfoPopup`,
-`GuiLoading`), `Window.cpp` (`renderAsyncNotifications` positions the card
+`GuiInputConfig`, `GuiDetectDevice`; `GuiLoading.h` is
+`es-app/src/guis/`'s, T31's by the block), `Window.cpp` (`renderAsyncNotifications` positions the card
 every frame; `postToUiThread`; `renderHelpPromptsEarly`; the one floating
 surface at a time, D-UI-093), `ThemeData.cpp` (`GridTextProperties::multiLine`
 declared `:267`; 13 include lines of slice headers, the top including
@@ -700,7 +672,7 @@ as given, not as a finding, except the one line L-07 names.
 | T31 L-26 / #1245 (OPEN, fixed `95852f873`; `02:429`, `04:205`) | `HelpComponent` draws the bar; `renderHelpPromptsEarly()` is `Window`'s | read; the checker proposal is the coordinator's, not T34's |
 | T31 retro `:81`, T26 `02:828`; `es-code-traps.md:22` | `MenuComponent::clearButtons()` `:478-483` destroys the running callback | the rule restated in `02` beside the lines; no component-side guard exists, said so |
 | T32 S4 / #1266 (OPEN, `bug`, fixed `1655e2f4c`; `02:436`, `05:474`); #207 (CLOSED) | `ImageGridComponent.h` `clear()` / `resetGrid()` | the grid's contract after `clear()`, Q4 (§ 1 e); T32's `s4-views.py` the harness shape |
-| T32 PL-16 (`05:331`), T31 PL-26 (`02:645`, `05:507`) | `GridTileComponent` under a tile decorator computing `DisplayAspect::forScreenshot` per tile (`GridGameListView.cpp:131-153`) | recorded; not reached on the shipped theme (T32 G-02); G-08 asks the image |
+| T32 PL-16 (`05:331`), T31 PL-26 (`02:645`, `05:507`) | `GridTileComponent` under a tile decorator computing `DisplayAspect::forScreenshot` per tile (`GridGameListView.cpp:42-46`, `forScreenshot` `:44`; `:131-153` is `getImagePath`) | recorded; not reached on the shipped theme (T32 G-02); G-08 asks the image |
 | T32 PL-10 / #1265 (OPEN, fixed `1655e2f4c`) | `HelpComponent` (what the bar shows); `updateHelpPrompts()` on a cursor change | read; the fix is the views' |
 | #585's comment from #1116 / UI-02; #48 (CLOSED); `es-code-traps.md:91` | `TextComponent.cpp:338`, `:350` | Q1 (§ 1 f): the reproducer and frames; the root fix a stage-D ruling |
 | #182 (CLOSED, `bug`; ES `d9fa93bf2`) | `ComponentList.h:23-26`, `SwitchComponent.cpp:30`, `:33`, `MultiLineMenuEntry.cpp:84`, `:89` | the dim mechanism the cloud rows and T20's SCAN GAMES row depend on; G-04's frame |
@@ -710,7 +682,7 @@ as given, not as a finding, except the one line L-07 names.
 | #243 (CLOSED; `es-code-traps.md:164`) | `ImageComponent::setMaxSize`, `resize` | 3.22, 3.23's cases |
 | #157 (CLOSED, D-UI-108; T18 `02:209`) | `AsyncNotificationComponent` has no animation; the two-half bar is `ThreadedCloudSync.cpp:186-196` | read; G-02's frames |
 | #1112 (OPEN, `enhancement`, M7.P5) | `BusyComponent` asks for a contrast edge where D-UI-016 forbids a drawn border | read-only context; T34 does not re-decide D-UI-016 |
-| T21 L-11 / #1199 (OPEN, fixed `ba0e82c1f`) | `TextEditComponent.cpp:176-185` `applyChanges` | read; the guard is `SystemConf`'s |
+| T21 L-11 / #1199 (OPEN, fixed `ba0e82c1f`) | `TextEditComponent.cpp:176-189`, `input()`'s RETURN branch ending in `stopEditing()` `:184` (no `applyChanges` at the pin) | read; the guard is `SystemConf`'s |
 | T21 PL-26 / Backlog #1192 (OPEN) | the popups' masking mode (es-core `guis/`, T35's); the field is `TextEditComponent` | read; a masking mode on the field is named for T35's pause if T34's read finds the field is where it belongs |
 | T18 `02:61`; T33's brief `:1194` | `tests/app-unit/fakes/components/AsyncNotificationComponent.h` (24 lines) doubled by two lanes' builds | a header change named as a collision (§ 1 j) |
 | T20 `02:74` | SCAN GAMES FOR OFFLINE ACHIEVEMENTS, a `MultiLineMenuEntry` dimmed by gates with a hidden 1 s refresher (`GuiRetroAchievementsSettings.cpp:282-305`) | blindspot 44's shape; 3.4's case is the proof (G-07 `CANNOT`) |
@@ -854,7 +826,7 @@ which were read (`working-principles.md` § Pre-flight):
    step vocabulary: `settle`, `wait-for-change`, `wake`, `dismiss-dialogs`),
    `:144` (*"`up` from a page's first row lands on its BACK button before it
    wraps to the last row"*, the grid wrap this slice owns), the 18
-   `*.steps` (`to-manage-cloud-storage.steps` for G-04,
+   top-level `*.steps` (22 with `docs/`; `to-manage-cloud-storage.steps` for G-04,
    `ui-settings-toggle.steps` for the vocabulary, `wake.steps` whose one
    step is `wake`), `suite.txt:77` (`default-pre`, which stops `essway` and
    seeds the settings before every walk's reboot), `claims.txt:30`
@@ -896,8 +868,8 @@ which were read (`working-principles.md` § Pre-flight):
    `:82`, `tools/t32-build-tests.sh`, `stage-e/s0-syntax-pin.txt`,
    `stage-e/handback-checks.txt:45` `TOTAL: 225 test cases in 4 binaries`,
    `02` § What T33 to T37 inherit at `:479`); **T33**
-   `origin/feature/m6-es-app-system-680` (`373e99281dce` at this draft; ES
-   branch unpushed), in flight -- its `02` § What T34 to T37 inherit (its
+   `origin/feature/m6-es-app-system-680` (`0ee735862d6a`, ES `dd86d7ce20a5`
+   at the proof's read, 2026-10-30), in flight -- its `02` § What T34 to T37 inherit (its
    brief's § 5 item 3: the provenance table, the cached-read table, the
    write table, the thread table, the bounds table, the `app-unit-tests`
    recipe) read at dispatch if it has landed, else mid-run when it does.
@@ -940,10 +912,8 @@ leads are § 2's L-01 to L-21, cited here by number (their lines are the
 table's and are not restated), and the floor's pure leads tabled at the end
 of this section; each is read at its lines before it is called anything,
 and the seven that FAIL at the pin (§ 5) get their `git log -S` first
-(`engineering-practices.md:83`). Upstream-carried surfaces outside the
-lanes -- the video components, the carousel, the rating, the date editor,
-the text list -- are read and recorded, fixed only where rule 6's
-containment holds (D-UI-079).
+(`engineering-practices.md:83`); the upstream surfaces outside the lanes are
+§ 1's list, read and recorded, fixed only under rule 6 (D-UI-079).
 
 - **Q1 Layout: computed from what it last produced, or from a moving
   number** (`es-native-ui.md:324`; `es-code-traps.md:91`, `:118`;
@@ -1086,7 +1056,7 @@ containment holds (D-UI-079).
   (`SliderComponent.cpp:282`): 3.7's case, G-09's frame, the contained fix
   `_("AUTO")` with its French in the same commit (the placeholder word the
   style guide names) -- upstream's line, rule 6, a #585 line; **the slider's
-  suffix** glued (`:295-296`, `:316-318`) read against `es-ui-style-guide.md:88`
+  suffix** glued (`:295-296`, `:312-313`) read against `es-ui-style-guide.md:88`
   and framed; **3.13**: a row with no date reads blank, not `<NOT SET>`
   (`DateTimeEditComponent.cpp:256-257`), recorded against `:164`, a style
   question for the pause; **L-18**: the five up-casing formatters tabled
@@ -1149,13 +1119,13 @@ Each is a case in `CloudText`'s shape (§ 5 item 1) with a `Window` or
 | 3.1 | `ComponentGrid.cpp:396-414` | `canMoveCursor(dir)` | a 2x2 whose only focusable cell is one row answers false in all four directions; an Nx2 button row with a 2 px spacer row answers left/right true, up/down false; `(0,0)` false (`:398-399`) |
 | 3.2 | `ComponentGrid.cpp:519-553` | `getHelpPrompts()` | a child prompt named `up/down` suppresses the grid's vertical CHOOSE (`:536-538`); `up/down/left/right` both (`:532-535`); otherwise exactly one of the three (`:546-551`) |
 | 3.3 | `ComponentGrid.cpp:329-379` | `moveCursor(dir)` | from the only focusable cell every direction returns false and `mCursor` is unchanged (`:377-378`); in a 1x3 with (0,2) the only other focusable, down from (0,0) lands on (0,2); the reverse scan (`:359-373`) stays off |
-| **3.4** | `MultiLineMenuEntry.cpp:50-80` (**`:72-73`**) | `naturalHeight`, `layoutRows()` | font height 20, padding 0: label only -> rows 20 and 0; with a substring -> `0.9*20/40`, `1.1*20/40`; **`rowPercs(26, 20)` -> 0.987 and `(20, 26)` -> 1.013, a sum other than 1 (L-03)**; 300 `setDescription` calls leave `size.y` at 40 (#241) |
+| **3.4** | `MultiLineMenuEntry.cpp:50-80` (**`:74-75`**) | `naturalHeight`, `layoutRows()` | font height 20, padding 0: label only -> rows 20 and 0; with a substring -> `0.9*20/40`, `1.1*20/40`; **`rowPercs(26, 20)` -> 0.987 and `(20, 26)` -> 1.013, a sum other than 1 (L-03)**; 300 `setDescription` calls leave `size.y` at 40 (#241) |
 | 3.5 | `TextComponent.cpp:315-340` | `onTextChanged()` | SINGLELINE with `"a\nb"` measures `"a"` (`:325-327`); with padding 32 px on a 640 px box and a word at the wrap point the measured height is one line short (`:338` against `:350`, L-17) |
 | **3.6** | `TextComponent.cpp:486` | `update()`'s vertical marquee limit | **`int limit = mSize.y() - mPadding.y() - mPadding.y();` where `:428` and `:351` subtract `.w()`: with padding (0,10,0,30) the limit is 20 px too large** -- the lines `:480-500` read whole before the stub |
 | **3.7** | `SliderComponent.cpp:44-58`, `:271-319` (**`:282`**) | `calculatePrecision(step)`, the value text | step 0.1 -> `1.5%`; step 1 -> `15%` (suffix glued); step 0.25 -> 2; **AUTO prints `"Auto"`, neither `_()` nor the placeholder `AUTO`**; `std::to_string(step)` prints six decimals so a step under 1e-6 yields 0 |
 | **3.8** | `CarouselComponent.cpp:74-90` with `:113`, `:119`; `IList.h:376-400` | `moveCursorFast(forward)` | **size 3, cursor 0, `pageup`: `count=-10`, `value = -10 + 3 = -7` after one `+= sz` (`:84-85`), `listInput(-7)`**; the case asserts the landing index is in `[0, sz)` for every loop type (3.15) |
 | 3.9 | `ImageGridComponent.h:1437-1468` | `calcGridDimension()` | 640x480, tile 100x100, margin 10 -> x 5, y `ceil(4.45)` = 5, `mLastRowPartial`; a tile size of 0 when `mTileSize + mMargin` is 0 (only `LOG(LogError)` guards `<1`, `:1449-1452`) |
-| 3.10 | `ImageGridComponent.h:1096-1200` (`:1162-1186`) | `onCursorChanged`'s `mStartPosition` | first, middle and last row -> 0, `(col - centralCol) * dimOpposite`, `lastScroll * dimOpposite`; an off-by-one on the partial last row |
+| 3.10 | `ImageGridComponent.h` from `:1065` (`:1162-1186`) | `onCursorChanged`'s `mStartPosition` | first, middle and last row -> 0, `(col - centralCol) * dimOpposite`, `lastScroll * dimOpposite`; an off-by-one on the partial last row |
 | 3.11 | `TextListComponent.h:262-269` | the visible range in `render` | offset 0, row 20, height 480 -> `screenCount` 24, `lastEntry min(n, 25)`, `listCutoff` 24; the extra row past the cutoff (the arithmetic extracted first) |
 | 3.12 | `DateTimeEditComponent.cpp:124-160` | the month/day/year step inside `input()` | 31 Jan +1 month -> 28/29 Feb (`:156-158`); Dec +1 -> Jan (`:131-132`); day 1 -1 -> days in month (`:144-145`); `tm_year` 0 -1 -> 0 (`:152-153`); a fake `InputConfig` or an extraction |
 | 3.13 | `DateTimeEditComponent.cpp:251-260` | `getDisplayString()` | `getTime() == 0` -> `""` (`:256-257`): a row with no date reads blank, not `<NOT SET>` (Q6) |
@@ -1163,11 +1133,11 @@ Each is a case in `CloudText`'s shape (§ 5 item 1) with a `Window` or
 | 3.15 | `IList.h:267-330`, `:376-400` | `listInput`, `scroll` | `LIST_NEVER_LOOP` clamps and zeroes velocity and tier (`:388-399`); `LIST_PAUSE_AT_END` clamps only at tier > 0 or `\|amt\| > 1`; else wraps -- the landing index for 3.8 |
 | **3.16** | `HelpComponent.cpp:73-130`, `:121-169`, `:176-200` | the prompt row's layout; `getIconTexture` | `maxWidth = width - ENTRY_SPACING` (`:79`), the clock's width subtracted (`:89-90`), height `round(letterHeight * 1.25)` (`:96`); `[100, 100, 100]` at max 250 -> 2 kept; `[300]` -> 0 kept, `rowWidth = 1`; **a key `haut/bas` -> `nullptr` and the `Unknown help icon` line (L-01)** |
 | 3.17 | `ComponentTab.cpp:77-96`, `:320-345` | `input` left/right, `getHelpPrompts` | a child prompt already naming `left/right` or `up/down/left/right` gets no second SWITCH TAB (`:332-341`); a one-tab strip offers none |
-| 3.18 | `AsyncNotificationComponent.cpp:130-145`, `:63-65` | the width handed to `chooseThatFits` | `getScreenWidth() * 0.9f` less the grid's padding; a card line fitted to the screen, not the card (the chooser itself is `CloudTextTests.cpp:832-854`) |
+| 3.18 | `AsyncNotificationComponent.cpp:136-145`, `:63-65` | the width handed to `chooseThatFits` | the row's own `getSize().x()` (`:138`; 0 for a null row), measured with the row's font (`:142`): a row the grid has not sized yet gets the first candidate, the full form (`:133-135`); the case asserts the width is the row's cell, never the screen's 0.9 W (`:64`) (the chooser itself is `CloudTextTests.cpp:832-854`) |
 | 3.19 | `OptionListComponent.h:88-100`, `:140-160`, `:188-200` (ASan) | the popup's four `delete this` | select a row (`:96`), press BACK (`:158`), the back button (`:195`): the popup is gone and nothing touches it after; the `cloud-oauth-lifetime.py` shape |
 | 3.20 | `TextEditComponent.cpp:39`, `:47` | the two posted raw `this` | post, delete the component, drain the queue: `startEditing()` on freed memory (the fakes' `Window.h` queues posts) |
 | **3.21** | `WebImageComponent.cpp:134`, `:190`, `:197-200`; `utils/FileSystemUtil.cpp:144` | the cached `exists` around a download; the 0-byte answer | **the miss cached at `:134`, the file written, `:190` asserted true**; **a 204 then a 200 on the same URL: the second never asked (L-08)** -- `queryCacheEntry :203-220` and `Settings::UseFileCache()`'s default read first |
-| 3.22 | `ImageComponent.cpp:87-180` | `resize`'s fit (aspect, turn, min/max modes) | `256x240` at `4/3` -> `320x240`; turned -> `240x320`; a crop applied to the wrong axis after a turn (`:156-159`, `:167-170`); an aspect of 0 changing anything |
+| 3.22 | `ImageComponent.cpp:85-180` | `resize`'s fit (aspect, turn, min/max modes) | `256x240` at `4/3` -> `320x240`; turned -> `240x320`; a crop applied to the wrong axis after a turn (`:156-159`, `:167-170`); an aspect of 0 changing anything |
 | 3.23 | `ImageComponent.cpp:273-291` | the texture-corner permutation | turn 1 applied four times is identity; turn 2 is turn 1 twice; turn 3 its inverse |
 | 3.24 | `ImageComponent.cpp:491-499`, `GridTileComponent.cpp:1055-1063` | the quarter-turn normaliser | `-1 -> 3`, `5 -> 1`, `-4 -> 0`; a negative record left negative |
 | 3.25 | `ComponentList.h:26` | `ComponentListFlags::dimmed` | `dimmed(0xAABBCCFF) == 0xAABBCC50`; idempotent |
@@ -1230,10 +1200,10 @@ Each is a case in `CloudText`'s shape (§ 5 item 1) with a `Window` or
    commit 61c944895e071872370219cadade8423dc6e04dc external/pugixml`), so
    an archive, a `git show` or a fresh clone carries no pugixml, and plain
    `g++` on any component `.cpp` with `-I es-app/src -I es-core/src -I
-   external` dies on the first header that reaches `ThemeData.h` or
-   `InputManager.h` `[unverified: run § 5's compile line on
-   MenuComponent.cpp and quote its first `fatal error` whole]`. The one
-   root that works is the pin's extracted source,
+   external` dies at `es-core/src/InputConfig.h:6:10: fatal error: SDL_joystick.h: No
+   such file or directory` (rc 1, g++ 15.2.0, run by the proof over a `git
+   archive` of the pin: the SDL header through `GuiComponent.h` ->
+   `InputConfig.h`, before any pugixml line). The one root that works is the pin's extracted source,
    `/workspace/cache/rocknix-sources/emulationstation/emulationstation-16dbac5211eea7e70db7394372033be2be7df829/external`
    (the directory exists on this host; T31's and T32's scripts took
    `PUGIXML_INCLUDE_DIR` from it). **The one cross-tree include resolves
@@ -1253,7 +1223,7 @@ Each is a case in `CloudText`'s shape (§ 5 item 1) with a `Window` or
    `bookkeeper-tests` (`:92-98`), none naming a component source; the one
    component name in a test tree is the double
    `tests/app-unit/fakes/components/AsyncNotificationComponent.h`; of the
-   15 `tests/*.py`, eight invoke `g++ -fsanitize` and none names a
+   15 `tests/*.py`, seven name `fsanitize` and none names a
    `components/*.cpp`; `tests/gpu-governor-save.py:14` lifts four
    `OptionListComponent.h` methods as text. **In the coordinator worktree
    nothing exercises a component by name:** `tools/vm-qa:63`'s sixteen
@@ -1314,11 +1284,14 @@ Each is a case in `CloudText`'s shape (§ 5 item 1) with a `Window` or
    second boot is inside it; T33's window was 25 + 5 for a 21-minute plan),
    granted explicitly by the coordinator on #681 and in the shared log's
    queue. **The queue is the shared file's own lines**,
-   `/tmp/m7-m6-host-coordination-20261023.txt`: a request is a line that
-   names the slice, its plan and its bound; the grant is the coordinator's
-   line answering it; the lane's START and RETURN each add a line with the
-   census; the file is read before any guest starts (§ 1's last command,
-   with the time of the read), and at this draft T33 holds the host.
+   `/workspace/tmp/m7-m6-host-coordination.txt` (the durable successor of
+   `/tmp/m7-m6-host-coordination-20261023.txt`, gone with the reboot of
+   2026-10-28; M7 writes timestamped lines, so the whole tail is read): a
+   request is a line that names the slice, its plan and its bound; the
+   grant is the coordinator's line answering it; the lane's START and
+   RETURN each add a line with the census; the file is read before any
+   guest starts (§ 1's last command, with the time of the read), and who
+   holds the host is read there, with the time.
    **The conditions, stated here once -- T13's (#660, the first M6 lane to
    hold a guest window, whose shape every later window kept), beyond the
    rule file's own (§ 3's `generic-x64-vm-testing.md` rows):** one boot of
@@ -1394,8 +1367,9 @@ time except where it says `rc=$?`; the lane wraps each run in its own
 that cannot be made is `CANNOT` with its reason). From the distribution
 worktree after the membership block; `W` the ES worktree (§ 1) -- **before
 dispatch, `W` is the `qa-integration` checkout at the pin, read by `git
--C` only, and every expectation below was printed there on 2026-10-27 by
-one of the five digests or by the drafter, except the four marked** --
+-C` only, and every expectation below printed at the pin on 2026-10-30 by the
+stranger's proof, by `git -C` against `qa-integration`, except the tool
+lines marked by stage** --
 `PIN` the pin, `MB` the merge base, `FILES` the 80 from the block's paths
 file; counts by `/usr/bin/grep` (#1138); **every grep for `_("` is `-F`**
 (the basic-regex form with `\(` was T31's stage-A erratum and is not
@@ -1419,7 +1393,7 @@ for p in $FILES; do git -C "$W" show "$PIN:$p" | wc -l; done | awk '{s+=$1} END 
 git -C "$W" diff --shortstat bccd715707 "$PIN" -- $FILES; git -C "$W" diff --shortstat "$MB" "$PIN" -- $FILES; git -C "$W" diff --shortstat rocknix/master "$PIN" -- $FILES; git -C "$W" diff --diff-filter=A --name-only bccd715707 "$PIN" -- $FILES | $G -c .; rc=$?; echo "added rc=$rc"; git -C "$W" diff --diff-filter=M --numstat bccd715707 "$PIN" -- $FILES; git -C "$W" log --format=%h bccd715707.."$PIN" -- $FILES | $G -c .; git -C "$W" log --no-merges --format=%h bccd715707.."$PIN" -- $FILES | $G -c .; git -C "$W" log --merges --format=%h bccd715707.."$PIN" -- $FILES | $G -c .; rc=$?; echo "merges rc=$rc"
 # upstream's delta: the merge-debt record (expect 0 rc=1; 0 rc=1; identical to rocknix/master: 59; identical to cada856d86: 59; MB-vs-master identical: 80; batocera commits on the 80: 8; batocera files: 10; both-changed: 7)
 git -C "$W" log --format=%h "$MB"..rocknix/master -- $FILES | $G -c .; rc=$?; echo "upstream commits rc=$rc"; git -C "$W" diff --numstat "$MB" rocknix/master -- $FILES | $G -c .; rc=$?; echo "upstream numstat rc=$rc"; n=0; for p in $FILES; do git -C "$W" diff --quiet rocknix/master "$PIN" -- "$p" && n=$((n+1)); done; echo "identical to rocknix/master: $n"; n=0; for p in $FILES; do git -C "$W" diff --quiet "$MB" "$PIN" -- "$p" && n=$((n+1)); done; echo "identical to cada856d86: $n"; n=0; for p in $FILES; do git -C "$W" diff --quiet "$MB" rocknix/master -- "$p" && n=$((n+1)); done; echo "MB-vs-master identical: $n"; git -C "$W" log --format=%h 1750dded8c..batocera/master -- $FILES | $G -c .; git -C "$W" diff --name-only 1750dded8c batocera/master -- $FILES | $G -c .; comm -12 <(git -C "$W" diff --name-only 1750dded8c batocera/master -- $FILES | sort) <(git -C "$W" diff --name-only "$MB" "$PIN" -- $FILES | sort) | $G -c .
-# the other lanes' deltas inside the 80 (expect every stat line empty for the seven; the eighth `fatal:` until T33's ES branch is pushed, then empty or the rows named as a collision)
+# the other lanes' deltas inside the 80 (expect every stat line empty for the eight -- T33's `dd86d7ce20a5`, read 2026-10-30 -- or the rows named as a collision)
 for b in m6-es-launch-path-649 m6-es-cloud-pages-665 m6-es-achievements-pages-667 m6-es-state-and-bridge-668 m6-es-guimenu-673 m6-es-pages-678 m6-es-app-views-scrapers-679 m6-es-app-system-680; do echo "== $b"; git -C "$W" diff --stat "$PIN" "origin/feature/$b" -- $FILES 2>&1 | tail -n 1; done
 # the strings, two ways (expect `_(" lines TOTAL 22 in 12 files`; occurrences 27; per file BusyComponent 1, CarouselComponent 2, ComponentGrid 3, ComponentList 2, ComponentTab 1, DateTimeComponent 1, ImageComponent 1, OptionListComponent.h 6, SliderComponent 1, SwitchComponent 1, TextEditComponent 2, VideoComponent 1)
 git -C "$W" grep -c -F '_("' "$PIN" -- $FILES | sed "s/^$PIN://" | awk -F: '{s+=$NF} END {print "_(\" lines TOTAL", s, "in", NR, "files"}'; git -C "$W" grep -o -F '_("' "$PIN" -- $FILES | wc -l; git -C "$W" grep -c -F '_("' "$PIN" -- $FILES | sed "s/^$PIN:es-core\/src\/components\///" | tr '\n' ' '; echo
@@ -1429,7 +1403,7 @@ git -C "$W" grep -n -F 'std::thread' "$PIN" -- $FILES | sed "s/^$PIN://" | cut -
 git -C "$W" grep -c -F 'exists(' "$PIN" -- $FILES | sed "s/^$PIN://" | awk -F: '{s+=$NF} END {print "exists( lines TOTAL", s, "in", NR, "files"}'; git -C "$W" grep -o -F 'exists(' "$PIN" -- $FILES | wc -l; git -C "$W" grep -n -E 'exists\([^)]*, *false\)' "$PIN" -- $FILES | $G -c .; rc=$?; echo "uncached rc=$rc"; git -C "$W" grep -c -F 'HttpReq' "$PIN" -- $FILES | sed "s/^$PIN:es-core\/src\/components\///" | tr '\n' ' '; echo
 # the input and the help bar (expect getHelpPrompts definitions in .cpp: 12; inline in OptionListComponent.h: 2 at :202 :636; `input(` definitions 14; `canMoveCursor` callers outside ComponentGrid.cpp: 0 rc=1)
 git -C "$W" grep -n -E '::getHelpPrompts\(\)' "$PIN" -- $FILES | $G -c .; git -C "$W" grep -n -E 'getHelpPrompts\(\) *(override)? *$|getHelpPrompts\(\)\s*(override)?\s*\{' "$PIN" -- es-core/src/components/OptionListComponent.h | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo; git -C "$W" grep -n -E '::input\(InputConfig' "$PIN" -- $FILES | $G -c .; git -C "$W" grep -n -F 'canMoveCursor' "$PIN" -- es-core/src es-app/src | $G -v 'components/ComponentGrid\.' | $G -c .; rc=$?; echo "canMoveCursor outside rc=$rc"
-# the constants (expect the six lines quoted: MenuComponent.cpp:6 :14; AsyncNotificationComponent.cpp:31 :64 :112 :276; ComponentList.h:25-26 and :11; HelpComponent.cpp:13 :16; GuiTextEditPopupKeyboard.cpp:14 the second copy at 0.0052083333)
+# the constants (expect nine lines: MenuComponent.cpp:6 :14; AsyncNotificationComponent.cpp:31; ComponentList.cpp:11; ComponentList.h:25; HelpComponent.cpp:13 :16 and :130 (`const float entryWidth`, a use); GuiTextEditPopupKeyboard.cpp:14 the second copy at 0.0052083333 -- the uses at AsyncNotificationComponent.cpp:64 :112 :276 and ComponentList.h:26 are dropped by the `#define|const ` filter)
 git -C "$W" grep -n -E 'BUTTON_GRID_(HORIZ|VERT)_PADDING|NOTIFICATION_OPACITY|DIMMED_ALPHA|TOTAL_HORIZONTAL_PADDING_PX|ICON_TEXT_SPACING|ENTRY_SPACING' "$PIN" -- $FILES es-core/src/guis/GuiTextEditPopupKeyboard.cpp | sed "s/^$PIN://" | $G -E '#define|const ' | cut -c1-160
 # the pixel constants (expect 2 lines, both comments, MenuComponent.cpp:11 and :13; screen-relative lines 86; fontScale 0 rc=1)
 git -C "$W" grep -n -E '[0-9]+px|\b(640|480|1280|800|1920|1080)\b' "$PIN" -- $FILES | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo; git -C "$W" grep -c -E 'getScreen(Width|Height|Proportion)' "$PIN" -- $FILES | sed "s/^$PIN://" | awk -F: '{s+=$NF} END {print "screen-relative", s}'; git -C "$W" grep -c -F 'fontScale' "$PIN" -- $FILES | $G -c .; rc=$?; echo "fontScale rc=$rc"
@@ -1437,19 +1411,19 @@ git -C "$W" grep -n -E '[0-9]+px|\b(640|480|1280|800|1920|1080)\b' "$PIN" -- $FI
 git -C "$W" grep -h -E '^\s*#\s*include\s*"' "$PIN" -- $FILES | $G -c .; git -C "$W" grep -h -E '^\s*#\s*include\s*<' "$PIN" -- $FILES | $G -c .; git -C "$W" grep -n -E '^\s*#\s*include\s*"\.\./' "$PIN" -- $FILES | sed "s/^$PIN://"; B=$(printf '%s\n' $FILES | sed 's|.*/||; s|\.h$||' | $G -v '\.cpp$' | paste -sd'|'); git -C "$W" grep -n -E "^\s*#\s*include\s*[<\"]([a-z/]*/)?($B)\.h[>\"]" "$PIN" -- . ':!es-core/src/components' | sed "s/^$PIN://" > "$TMPDIR/includers.txt"; wc -l < "$TMPDIR/includers.txt"; cut -d: -f1 "$TMPDIR/includers.txt" | sort -u | wc -l; n=0; for p in $FILES; do b=${p#es-core/src/}; git -C "$W" grep -c -F "$b" "$PIN" -- es-core/CMakeLists.txt | sed "s/^$PIN://" | $G -q ':1$' || { echo "not once: $p"; n=$((n+1)); }; done; echo "named-0-times (or more than once): $n"; git -C "$W" grep -n -E '^\s*if\s*\(' "$PIN" -- es-core/CMakeLists.txt | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo
 # the in-source gates (expect the twelve lines § 4 Q7 names)
 git -C "$W" grep -n -E '^\s*#\s*(if|ifdef|ifndef|elif)\b.*(_RPI_|WIN32|USE_OPENGLES_30|LIBVLC_VERSION_MAJOR|BATOCERA)' "$PIN" -- $FILES | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo
-# the non-ASCII byte (expect `git grep -P` 0 rc=1 -- the UTF-mode miss; the C-locale loop `VideoVlcComponent.cpp:1`, `files with a non-ascii byte: 1`, and the comment-line form the same 1; the 21 fork-modified files 0)
+# the non-ASCII byte (expect `git grep -P` 1 rc=0 under the block's LC_ALL=C; in a UTF-8 locale (`LC_ALL=C.UTF-8`) it prints nothing, rc=1 -- the UTF-mode miss; the C-locale loop `VideoVlcComponent.cpp:1`, `files with a non-ascii byte: 1`, and the comment-line form the same 1; the 21 fork-modified files 0)
 git -C "$W" grep -n -P '[^\x00-\x7F]' "$PIN" -- $FILES | $G -c .; rc=$?; echo "git grep -P rc=$rc"; n=0; for f in $FILES; do c=$(git -C "$W" show "$PIN:$f" | LC_ALL=C $G -c -P '[^\x00-\x7F]'); [ "$c" != 0 ] && { echo "${f#es-core/src/components/}:$c"; n=$((n+1)); }; done; echo "files with a non-ascii byte: $n"; git -C "$W" show "$PIN:es-core/src/components/VideoVlcComponent.cpp" | LC_ALL=C $G -c -P '^\s*//.*[^\x00-\x7F]'; git -C "$W" show "$PIN:es-core/src/components/VideoVlcComponent.cpp" | sed -n '859,860p' | LC_ALL=C od -c | head -n 4
 # the French (expect `4929:msgid "SWITCH TAB"` with `msgstr "CHANGER D’ONGLET"` after it; `3708:msgid "up/down"` with `msgstr "haut/bas"`; `^msgid ` lines 2207; the slider's "Auto" at SliderComponent.cpp:282 outside _(); es-untranslated the two tree-wide lines T33 printed, rc 0 each)
 git -C "$W" grep -n -E '^msgid "(SWITCH TAB|up/down|CHOOSE|CHANGE|SELECT|WORKING\.\.\.)"$' "$PIN" -- locale/lang/fr/LC_MESSAGES/emulationstation2.po | sed "s/^$PIN://" | cut -d: -f2,3 | tr '\n' ' '; echo; git -C "$W" show "$PIN:locale/lang/fr/LC_MESSAGES/emulationstation2.po" | sed -n '3708,3709p;4929,4930p'; git -C "$W" grep -c -E '^msgid ' "$PIN" -- locale/lang/fr/LC_MESSAGES/emulationstation2.po | sed "s/^$PIN://"; git -C "$W" grep -n -F '"Auto"' "$PIN" -- $FILES | sed "s/^$PIN://"
 out=$(tools/es-untranslated --es-src "$W" --upstream bccd715707 2>&1); rc=$?; printf '%s\n' "$out" | $G -m1 'fork string'; echo "es-untranslated rc=$rc"
 out=$(tools/es-untranslated --es-src "$W" --upstream "$MB" 2>&1); rc=$?; printf '%s\n' "$out" | $G -m1 'fork string'; echo "es-untranslated(cada) rc=$rc"
-# the FAIL-at-pin lines (expect MultiLineMenuEntry `72 73` for the two setRowHeightPerc; TextComponent `486` for the doubled .y(); ComponentList `568` for the _("up/down"); HelpComponent setOpacity `208 212 251`; Carousel moveCursorFast `74`; WebImage `134 190 197`)
+# the FAIL-at-pin lines (expect MultiLineMenuEntry `74 75` for the two setRowHeightPerc; TextComponent `486` for the doubled .y(); ComponentList `568` for the _("up/down"); HelpComponent setOpacity and mGrid `208 210 212 213 251`; Carousel moveCursorFast `74`; WebImage `81 190 197` -- `:134` tests a local `localFile`, not `mLocalFile`)
 git -C "$W" grep -n -F 'setRowHeightPerc' "$PIN" -- es-core/src/components/MultiLineMenuEntry.cpp | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo; git -C "$W" grep -n -F 'mPadding.y() - mPadding.y()' "$PIN" -- es-core/src/components/TextComponent.cpp | sed "s/^$PIN://" | cut -d: -f2; git -C "$W" grep -n -F '_("up/down")' "$PIN" -- es-core/src/components/ComponentList.cpp | sed "s/^$PIN://" | cut -d: -f2; git -C "$W" grep -n -E 'setOpacity|mGrid->getChildCount' "$PIN" -- es-core/src/components/HelpComponent.cpp | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo; git -C "$W" grep -n -F '::moveCursorFast' "$PIN" -- es-core/src/components/CarouselComponent.cpp | sed "s/^$PIN://" | cut -d: -f2; git -C "$W" grep -n -E 'exists\(mLocalFile\)|getFileSize\(mLocalFile\)' "$PIN" -- es-core/src/components/WebImageComponent.cpp | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo
-# the setOpacity callers (expect: no `mHelp->setOpacity` in Window.cpp -- its mHelp-> lines 745 1001 1009 1011 1012 1077 1397 1398; the tree-wide caller list is the lane's, § 4 Q7)
+# the setOpacity callers (expect: no `mHelp->setOpacity` in Window.cpp -- its mHelp-> lines 745 1001 1009 1011 1012 1077 1397 1398; the tree-wide `setOpacity` lines 107 in es-core/src and es-app/src, the caller list the lane's, § 4 Q7)
 git -C "$W" grep -n -F 'mHelp->' "$PIN" -- es-core/src/Window.cpp | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo; git -C "$W" grep -n -F 'setOpacity' "$PIN" -- es-core/src es-app/src | sed "s/^$PIN://" | $G -c .
 # the menu map (expect `55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing` rc 0 -- T33's proof's line at the same pin on the map at ce8608e38f, 989 lines; the map unchanged since)
 out=$(tools/es-menu-map-check --es-src "$W" --ref "$PIN" 2>&1); rc=$?; printf '%s\n' "$out" | tail -n 1; echo "es-menu-map-check rc=$rc"; wc -l docs/es-menu-map.md
-# the compile (expect `es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)` rc 2; plain g++ on MenuComponent.cpp: rc 1 and its first `fatal error` line, quoted whole [unverified: the header it names]; with the fakes and the pugixml root the stand-in check over the 37, rc per file)
+# the compile (expect `es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)` rc 2; plain g++ on MenuComponent.cpp: rc 1 and `es-core/src/InputConfig.h:6:10: fatal error: SDL_joystick.h: No such file or directory`; with the fakes and the pugixml root the stand-in check over the 37, rc per file)
 F=es-core/src/components/MenuComponent.cpp; out=$(ES_BUILD_ROOT=/nonexistent tools/es-syntax-check --tree "$W" "$F" 2>&1); rc=$?; printf '%s\n' "$out" | tail -n 1; echo "es-syntax-check rc=$rc"
 out=$(g++ -std=c++17 -fsyntax-only -DHAVE_INTL -I "$W/es-app/src" -I "$W/es-core/src" -I "$W/external" "$W/$F" 2>&1); rc=$?; printf '%s\n' "$out" | $G -m1 -E 'fatal error|error:'; echo "plain g++ rc=$rc"
 PUGI=/workspace/cache/rocknix-sources/emulationstation/emulationstation-$PIN/external; test -d "$PUGI/pugixml/src" && echo "pugixml root present"
@@ -1460,14 +1434,13 @@ bash docs/audits/*-epic-m6-es-core-components/tools/t34-build-tests.sh "$W" 2>&1
 git diff --stat TIPHASH HEAD -- packages projects tools | tail -n 1; git -C "$W" diff --stat "$PIN" HEAD | tail -n 1
 ```
 
-The four expectations the drafter did not see printed: the `getHelpPrompts`
-and `input(` definition counts by these exact patterns (the floor counted
-12 and 14 by its own grep, whose pattern it did not quote), the
-`named-0-times` loop (the membership digest's figure was by its own loop),
-the `setOpacity` tree-wide count (the lane's, Q7) and the plain `g++`
-first error (`[unverified]` above). The include-graph figures in the STAGE
-C comment are the floor's and the membership digest's Python passes over
-`git grep` output; the lane's `t34-includes.py` is the first tool line.
+Settled by the proof of 2026-10-30 from the block's own lines:
+`getHelpPrompts` 12 and inline `202 636`, `input(` 14, `named-0-times` 0,
+the tree-wide `setOpacity` count 107, and the plain `g++` first error
+quoted in its comment. The include-graph figures in the STAGE C comment are
+the floor's and the membership digest's Python passes over `git grep`
+output, reproduced by the includes run; the lane's `t34-includes.py` is the
+first tool line.
 
 ## 6. Outputs
 
@@ -1542,7 +1515,7 @@ hand-back's words.
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | /usr/bin/grep -c -E '^\| `'`` prints `80`; its tier columns read fork-added 0 / fork-modified 21 / upstream-carried 59 and inventory 21 / 59.
 - [ ] `02` § The runs records the counts with both rules where they differ -- `_("` 22 lines in 12 files and 27 occurrences, 17 distinct msgids; `exists(` 10 lines in 5 files, 10 occurrences, 0 uncached; `std::thread` 1 and `.detach(` 1 (`VideoVlcComponent.cpp:91`, `:95`); `delete this` 4 (`OptionListComponent.h`); `postToUiThread` 2 (`TextEditComponent.cpp`); `HttpReq` 7 lines in 2 files; `getHelpPrompts` 12 `.cpp` definitions plus 2 inline; quoted includes 352 over 91 headers, angle 37, es-core to es-app 1; 274 outside include lines in 112 files; the 42 headers and 38 sources each named once in `es-core/CMakeLists.txt` -- each as a command's own output line, or the lane's figure with the command that differs named.
 - [ ] `02` § The layouts, § The constants, § The input, § The lifetimes and § The reads are each generated or asserted by a script under the audit folder's `tools/` that names its row count ("generated, asserted"), and `02` § The runs records each script seen to exit 1 on a constructed drift before it was trusted.
-- [ ] `02` § The layouts has one row per size computed from a size the pass wrote and per layout read of `Font::getHeight` (the eight: `MultiLineMenuEntry.cpp:52-56`, `SwitchComponent.cpp:14`, `OptionListComponent.h:255`, `:276`, `TextEditComponent.cpp:31`, `MenuComponent.cpp:393`, `TextListComponent.h:613`, `:725`), each with the surface that shows it and a disposition; `MultiLineMenuEntry.cpp:72-73`'s percentages and `TextComponent.cpp:338`/`:350` among them with the reproducer for #585.
+- [ ] `02` § The layouts has one row per size computed from a size the pass wrote and per layout read of `Font::getHeight` (the eight: `MultiLineMenuEntry.cpp:52-56`, `SwitchComponent.cpp:14`, `OptionListComponent.h:255`, `:276`, `TextEditComponent.cpp:31`, `MenuComponent.cpp:393`, `TextListComponent.h:613`, `:725`), each with the surface that shows it and a disposition; `MultiLineMenuEntry.cpp:74-75`'s percentages and `TextComponent.cpp:338`/`:350` among them with the reproducer for #585.
 - [ ] `02` § The constants has one row per house value (`BUTTON_GRID_HORIZ_PADDING` 0.022, `NOTIFICATION_OPACITY` 255, the card's 0.9 W centred, `DIMMED_ALPHA` 0x50) with its one definition, every reader and the frame that shows it at 640x480 and, for the bar and the card, at 1280x800; and one row per pixel constant in the 80 with the panel it is right on; `GuiTextEditPopupKeyboard.cpp:14`'s second copy recorded against `MenuComponent.cpp:7-13`'s claim.
 - [ ] `02` § The merge debt is one line naming `cada856d86`, `rocknix/master` (`f6c542872e`), `bccd715707` as its parent and the stale `upstream/master`, the 0 upstream commits on the 80 of 14 since the base, 80 of 80 blobs identical between the base and master, 59 of 80 between the pin and master, and batocera's eight commits since `1750dded8c` on ten files (seven of them fork-modified, the one `updateGrid()` overlap, the `setOpacity` guard) as the reconciliation list only; T33's ES tip's delta inside the 80 recorded (empty, or named).
 - [ ] `02` § The runs records every § 5 command with exit, wall time, the figure and *a FAIL would mean ...*; a run that cannot be made is `CANNOT` with its reason; the menu-map check's line, both `es-untranslated` lines, the catalog lines for `SWITCH TAB` and `up/down`, the C-locale non-ASCII count (1, `VideoVlcComponent.cpp:859`) beside `git grep -P`'s 0, the plain-`g++` first error quoted whole, the stand-in syntax check's rc per file over the 37 with the tenth fake and the pugixml root (VLC's two headers `CANNOT` or faked), and the unit build's `TOTAL: N test cases in B binaries` line with 0 failed are among them; every unit case the lane wrote has its FAIL-then-PASS pair recorded against the unfixed extract first, the seven FAIL-at-pin leads by name (3.4, 3.6, 3.7, 3.8, 3.16, 3.21, 3.26), and a candidate that PASSes at the pin is recorded as such, not as a defect.
@@ -1593,17 +1566,16 @@ the coordinator -- and are not restated here. What is this slice's:
   never decided by the lane** (the ownership ruling of § 1 is the
   coordinator's own row, written at dispatch): whether the
   `TextComponent` padded-height root is fixed in the component or recorded
-  with its reproducer (§ 1 f); whether `MultiLineMenuEntry.cpp:72-73`'s
+  with its reproducer (§ 1 f); whether `MultiLineMenuEntry.cpp:74-75`'s
   percentages are made to sum to 1 in the component or the gap is
   recorded (L-03); whether `ComponentList.cpp:11`'s 20 px becomes a screen
   fraction under D-UI-012's family or stays upstream's constant (L-06);
   and whether the `_("up/down")` fix leaves or removes the catalog's
-  orphan `msgid "up/down"` (L-01). **The highest IDs the register on the
-  coordinator's branch names at this version are D-CLOUD-186 (`:755`),
-  D-UI-128 (`:756`) and D-UI-129 (`:757`), after D-WORKFLOW-212 (`:753`)
-  and D-NET-017 (`:754`)**; `tools/register-check` is the proof;
-  D-WORKFLOW-188 is on the P1 branch only and the merge unites them; a row
-  this slice forces takes an ID the coordinator assigns on #681.
+  orphan `msgid "up/down"` (L-01). The highest IDs are § 3 item 2's (D-CLOUD-186, D-UI-128,
+  D-UI-129 after D-WORKFLOW-212 and D-NET-017); `tools/register-check` is
+  the proof; D-WORKFLOW-188 is on the P1 branch only and the merge unites
+  them; a row this slice forces takes an ID the coordinator assigns on
+  #681.
 - **The same-commit rules, stated once:** a row added, moved or renamed
   updates `docs/es-menu-map.md` in the same commit and
   `tools/es-menu-map-check` passes before it (D-UI-039; this slice expects
@@ -1689,9 +1661,8 @@ before going on:
 
 **The readings before dispatch** (plan § 3, principle 3): the interface
 epic's futro takes a T34 kickoff addendum written by the coordinator with
-this version; the stranger's proof of version 1 runs and its findings
-become the last section of version 2. This brief's hash at dispatch is
-`V2HASH`.
+this version; the stranger's proof of version 1 ran on 2026-10-30 and its findings
+are the last section. This brief's hash at dispatch is `V2HASH`.
 
 **What never runs in this slice:** an image build, a compiler beyond the
 host's `g++ -fsyntax-only` (plain or with the fakes and the pugixml root)
@@ -1708,51 +1679,67 @@ folder except under a stream brief, a move of the pin, a line in
 deletion of `GuiTextEditPopupKeyboard.cpp:14`'s second constant, and a
 fix to `VideoVlcComponent.cpp:859`'s byte.
 
-## Version 1: what the drafting read did not settle
+## Corrections in version 2
 
-Written from the five digests and the drafter's own reads; the stranger's
-proof settles each, and version 2 carries the corrections in this
-section's place.
+A stranger's proof of version 1 (`a728d04c95`) on 2026-10-30 -- eleven commands,
+every figure read at the pin by `git -C ... show|grep|diff|log|ls-tree|archive`
+against the `qa-integration` checkout, at `2174265e9c` by `git show`, and at
+`a8fe371b0a` for the rules, registers and map; 817 line checks, nothing
+written to either tree, nothing posted; its record is the coordinator's
+`t34-proof.md` -- found these, each corrected above in place (the line is
+version 1's):
 
-1. **The membership block's `TSV` rows and the two `.cpp`/`.h` sub-rows
-   of `CLAIMS`** were not read back line by line (the drafter's run was
-   filtered to the summary lines, the 25 `CLAIMS` lines and the four
-   `ES-CORE BY SLICE` rows, which are quoted as printed); the first pass
-   against `/dev/null` was not run.
-2. **Four § 5 expectations the drafter did not see printed**, marked in
-   the block's closing paragraph: the `getHelpPrompts` and `input(`
-   definition counts by the block's exact patterns (the floor's 12 and 14
-   came from a pattern it did not quote; `::getHelpPrompts\(\)` may also
-   match a call), the `named-0-times` loop (the membership digest's own
-   loop printed 0), the tree-wide `setOpacity` count, and plain `g++`'s
-   first `fatal error` on `MenuComponent.cpp` (the header it names depends
-   on include order: `ThemeData.h`'s pugixml or `InputConfig.h`'s SDL).
-3. **The packet scan's hits** inside the 80 (§ 1 Depth) are the drafter's
-   expectation, not a run: the `X-RA-Store-Only` header name, the `SDLK_*`
-   constants and any `isPassword`-shaped member are named as the likely
-   hits; the lane's manifest is the list.
-4. **The French catalog line numbers** `:4929-4930` (`SWITCH TAB`) and
-   `:3708-3709` (`up/down`) are the fork-changes digest's; the drafter
-   re-read `:3708-3709` and not `:4929-4930`.
-5. **The eight `Font::getHeight` layout reads** (L-02, L-16) are the
-   fork-changes digest's grep; the floor did not re-read them; the lane
-   confirms each line before the layouts table claims eight.
-6. **`tests/gpu-governor-save.py:14`, `:26-29`** and T31's
-   `s0-pin-checks.txt:20` are the floor's reads at their refs; not re-read.
-7. **The vm-qa-log row numbers** (`:36` to `:188-190`) and the four
-   `docs/qa-logs/` lines are the floor's at `045dfe80df`; `docs/vm-qa-log.md`
-   is 361 lines today and the diff since shows no change to it, so the
-   rows stand, but the proof re-reads two.
-8. **The `named` list of the block** drops `es-core/src/guis/GuiLoading.h`,
-   which the drafter's run printed as `NOT IN INVENTORY`; whether that is
-   the inventory's gap or the path's is the coordinator's question for
-   #1235, not this brief's.
-9. **The count of this file** stands above the 1,100 to 1,300 lines aimed
-   at (the `wc -l` at writing is in the summary); as with T33's version 2,
-   the § 2 file table, the L-table, the floor's table and the runs block
-   are kept whole because each is the one copy the lane reads from; the
-   proof's advice on what prose to cut is taken in version 2.
-10. **The T33 ES branch's delta inside the 80** could not be read (the
-    branch is not in the checkout's refs at this draft); § 1 and § 5 carry
-    the command and the lane runs it; T33's own `02` § What T34 to T37
-    inherit is read when it lands.
+1. `:17`: T33's brief "version 2 at `b0c7e3f059`" -> version 2's commit is `c48f8b387e`; the blob is the same through `b0c7e3f059` and `a8fe371b0a`.
+2. `:49-50`: the selector written as a list `[{...}]` -> one object, `{"globs": ["es:es-core/src/components/**"]}`.
+3. `:649`, Version 1 item 8 (`:1746-1749`): `GuiLoading` under `es-core/src/guis/` as T35's -> `es-app/src/guis/GuiLoading.h`, in the inventory (upstream-carried, 143 lines), T31's by the block; `es-core/src/guis/` holds twelve files and no `GuiLoading`.
+4. `:564`, `:617`, `:627`, `:1152`, `:1446`, `:1545`, `:1596`: `MultiLineMenuEntry.cpp:72-73` for the two `setRowHeightPerc` -> `:74-75` (`:72` is `float h = th + sh;`).
+5. `:564`: "`mColor`/`mDimmed` `:18`, `:21`" -> `mDimmed` `:18`, `mColor` `:21`.
+6. `:555`: the card's `push_back("")` at `:151`, `:161`, `:163` -> `:165`, `:174`, `:177`.
+7. `:555`: `render` re-chooses "`:204-223`" -> `render` `:194`, the two blocks `:200-224`.
+8. `:1166` (3.18): the width handed to `chooseThatFits` "`getScreenWidth() * 0.9f` less the grid's padding" at `:130-145` -> the row's own `getSize().x()` (`:138`), measured with its font (`:142`), `:136-145`; `0.9` is only `:55` and `:64`.
+9. `:560`: the help bar's trailing spacer "`:159-165`" -> `isLast` `:160`, the spacer `:166`.
+10. `:569`, `:1089`: the slider's second glued suffix "`:316-318`" -> `:312-313`.
+11. `:569`, `:713`: `TextEditComponent.cpp`'s `applyChanges` `:176-185` -> no such symbol at the pin; `:176-189` is `input()`'s keyboard-RETURN branch ending in `stopEditing()` `:184`.
+12. `:567`: `HttpReqOptions` "on the stack handed by pointer `:243`" -> built `:239`, handed `:243`.
+13. `:1446`: the WebImage expectation `134 190 197` -> the grep prints `81 190 197` (`:134` tests a local `localFile`).
+14. `:1446`: the HelpComponent expectation `208 212 251` -> `208 210 212 213 251`, § 2's own list.
+15. `:1432`: "the six lines quoted" -> the command prints nine, `HelpComponent.cpp:130` among them; the uses at ANC `:64 :112 :276` and `ComponentList.h:26` are filtered out.
+16. `:1440`: "`git grep -P` 0 rc=1 -- the UTF-mode miss" -> `1` rc 0 under the block's own `LC_ALL=C`; the miss is a UTF-8 locale's.
+17. `:530`: the `updateGrid()` overlap "at base lines 142-150 (`-142` and `-145,4` in both)" -> hunks `-121,10` and `-135,17` (fork) against `-8,6`, `-119,7`, `-139,16`, `-310,4` (batocera): base lines 121-125 and 139-151.
+18. `:555`: `CloudTextTests.cpp:832-854` "9 `CHECK`s" -> 8.
+19. `:570`: `VideoVlcComponent.cpp` "`:2` the include guard" -> the `.h`'s `:1-3`; the `.cpp`'s `:2` is blank.
+20. `:562`, `:1158`: `onCursorChanged` "`:1096-1200`" -> from `:1065`; `:1096` is a brace; `mStartPosition` `:1162-1186` stands.
+21. `:703`: the decorator's `forScreenshot` "`GridGameListView.cpp:131-153`" -> `:42-46` (`:44`); `:131-153` is `getImagePath`.
+22. `:217-223`, `:899`, `:1422`: T33's ES branch "not yet in the checkout's refs", its distribution branch `373e99281dce` -> on 2026-10-30 ES `dd86d7ce20a5`, distribution `0ee735862d6a`; empty inside the 80.
+23. `:72`, `:283`, `:291-294`, `:1317`: the host file `/tmp/m7-m6-host-coordination-20261023.txt` -> absent since the reboot of 2026-10-28; `/workspace/tmp/m7-m6-host-coordination.txt` is the durable successor.
+24. `:1234`, `:1452`: the plain `g++` first error `[unverified]` -> `es-core/src/InputConfig.h:6:10: fatal error: SDL_joystick.h: No such file or directory`, rc 1 (g++ 15.2.0), from a `git archive` of the pin: SDL before pugixml.
+25. `:1256`: "eight invoke `g++ -fsanitize`" -> seven of the 15 name `fsanitize`.
+26. `:559`: "`Vector4f(16, 16, 16, 16)`" -> `Vector4f(16.0f, 16.0f, 16.0f, 16.0f)`.
+27. `:1170` (3.22): `resize` "`:87-180`" -> defined `:85`, body from `:87`.
+28. `:856`: "the 18 `*.steps`" -> 18 at the top level, 22 with `tools/vm-walks/docs/`.
+29. `:1463-1470`, `:253`, Version 1 item 2: the four unprinted expectations and the scan's bracket -> settled: `getHelpPrompts` 12 and `202 636`, `input(` 14, `named-0-times` 0, `setOpacity` 107 tree-wide.
+30. `:581-585`: the 21 issue numbers' counts, with no rule -> by occurrence over subjects and bodies (the rule is now written; per commit #258, #210, #199, #191 are one each).
+31. `:93`, `:574`: "one author" -> one by `%an`, two addresses by `%ae`.
+32. `:497`: `batocera/master`'s hash with no date -> 2026-10-21, *update po*.
+
+Everything else held -- the membership block's lines, the bases, the
+80 lengths and the two line rules, the fork's and upstream's and
+batocera's deltas, the lanes' tips, every other § 5 expectation, the 17
+msgids, every rule, register, map, blindspot, futro, vm-qa-log, walk,
+caller, test-tree and lane-audit line cited, the menu-map check's line at
+the pin (the proof's held list is the record). Not checked: the tracker's
+states, the host file's tail, the packet scan, the digests' reading of
+the 33 subjects, `tools/es-untranslated` (T33's lines; a working tree),
+the window plan's sum, "the other six pairs share no base line". Cut on
+the proof's advice: the header's provenance story, the T33
+guest-window status, § 2's "found sound" list (now the two facts the table
+and § 5 do not carry), the nine-line re-citation before the L-table, § 4's
+restated lanes, the block preamble's second description of the heredoc,
+and the "Version 1" section, replaced by this one; the § 2 table, the
+L-table, the floor's table and the runs block are kept whole, each being
+the one copy the lane reads from.
+
+## Errata before dispatch (2026-10-30)
+
+- § 3 item 2 and § 10's register row name D-CLOUD-186, D-UI-128 and D-UI-129 as the highest rows; at the dispatch the highest decided row per area is read from the table at COHASH (D-CLOUD-187 exists since 2026-10-27; D-WORKFLOW-213 is this slice's ownership row, the § 1 rulings as one row), and the pointer's Register line is filled from that reading, never from this brief.
+- The slice is dispatched to the T3 session (`m6-t3-emulators`), free since T15's close-out of 2026-10-30; the T5 session takes T35 after T33. Where this brief or the pointer seed names the T5 session, this line governs.
