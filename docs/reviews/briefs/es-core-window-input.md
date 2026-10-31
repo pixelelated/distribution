@@ -1,28 +1,36 @@
 # Review brief: M6.P2 T35, EmulationStation's window, input, settings and the rest of es-core: the window and its floating surfaces, the input manager and its config file, the es-core dialogs, the theme parser, the script runner, the watchers, the log (#682)
 
-**Version 1, 2026-10-30, the coordinator's draft** (D-WORKFLOW-189;
-`docs/reviews/plan-for-the-plan.md` § 6b, § 6c, § 7; the stranger's proof
-runs before dispatch and version 2 records what it finds). Written from five
+**Version 2, 2026-10-31, after the stranger's proof of version 1 (`d402dc252f`)**
+(D-WORKFLOW-189; `docs/reviews/plan-for-the-plan.md` § 6b, § 6c, § 7; the
+proof is `/workspace/tmp/m6-coordinator/kit/t35-proof.md`, 12 commands, and
+`## Corrections in version 2` at the end records what it found). Written from five
 read-only research files -- R1 membership and provenance, R2 the code read at
 the pin, R3 tests, build and harness, R4 the inherited items, R5 the model and
 the ceremony (`/workspace/tmp/m6-coordinator/kit/t35-research/`, in no tree)
 -- and nothing else: every figure here is one of their quoted tool lines,
 cited as `R<n> C<m>` (R1's commands), `R2 cmd <m>`, `R3 cmd <m>`, `R4 § <n>`
 or `R5 § <letter>`, or a line the drafter printed on 2026-10-30 in the
-coordinator worktree and says so; **`[unverified]` marks what no tool line
-settles, with what would settle it**, and the last section lists every one.
+coordinator worktree and says so; **`[unverified]` marks what no tool line settles, with what would settle
+it**; version 1 carried 22 such lines, the proof settled all but one
+question (`UDEV_FOUND`, Q7 and § 5 item 1, `CANNOT` on this host with G-01's
+read named), and the last section lists it.
 Counts by `/usr/bin/grep`, never the shell's function (#1138). The structure
 is T34's brief (`docs/reviews/briefs/es-core-components.md`, version 2 at
 `a6e14fed86`, its errata section committed in `200a9a032d`); every
 T34-specific paragraph is replaced and every boilerplate paragraph R5 § A
 marks *copy* is copied with the slice's names, numbers and placeholders.
 The rule, register, menu-map and blindspot line numbers are the coordinator
-worktree's at **`7a32dff771`** (`feature/m6-renovation-plan-346`, read
-2026-10-30T14:38:04Z): `git diff --stat a8fe371b0a HEAD -- .claude/rules
-docs/decision-register.md docs/es-menu-map.md docs/blindspot-register.md`
-prints one file, `docs/decision-register.md | 3 +++`, so every rule, map and
-blindspot line T34's brief cites holds here, and the register's rows past
-`:758` moved by three (`## Open decisions` opens at `:762`).
+worktree's at **`a00b3354d5`** (`feature/m6-renovation-plan-346`, read by
+the stranger's proof on 2026-10-31): `git diff --stat 7a32dff771 a00b3354d5
+-- .claude/rules docs/decision-register.md docs/es-menu-map.md
+docs/blindspot-register.md docs/futros` prints
+`.claude/rules/es-player-text.md | 8 +-` (its lines from `:273` on moved by
++4, `30c3c402fd`), `docs/decision-register.md` (seven rows after
+D-WORKFLOW-213 `:759`: D-CLOUD-190 `:762`, D-UI-130 to D-UI-133 `:763-766`,
+D-CLOUD-191 `:767`) and `docs/futros/2026-10-23-m6-interface.md | 4 +`; the
+map (989 lines) and the blindspots (1,250) are unchanged since `a8fe371b0a`,
+so every map and blindspot line T34's brief cites holds here; the register's
+`## Open decisions` opens at `:769`.
 
 ## 1. Identity
 
@@ -40,9 +48,9 @@ blindspot line T34's brief cites holds here, and the register's rows past
   `inventory.json` are the P1 branch's, which the lane's worktree is stacked
   on; not on `next`, not in the coordinator worktree; the research read them
   in the P1 research clone `/workspace/tmp/m6-coordinator/t11-research/tree`
-  at `2174265e9cc1b248c0fbe27fa101875984d46d6b` by `git show`, R1 C02; its
-  § T35 line range in `order.md` is `[unverified]` -- read on the P1 clone at
-  dispatch, as T34's `:623-631` was). #682's body (R5 § D): *"96 paths,
+  at `2174265e9cc1b248c0fbe27fa101875984d46d6b` by `git show`, R1 C02; its § T35 is `order.md:633-641` (`:635` the id, kind and lens; `:637` the
+paths line; `:641` the closing evidence; `:643` opens § T36), read on the P1
+clone by the proof). #682's body (R5 § D): *"96 paths,
   22,575 lines; 22,575 lines read, 6,759 of them fork-own (inventory at
   `eb4763e3cc`)"*; **Provenance tiers:** fork-own 13, upstream-carried 83;
   its `why` *"`Window.cpp` (one floating surface at a time, D-UI-093),
@@ -50,28 +58,29 @@ blindspot line T34's brief cites holds here, and the register's rows past
   trap), `GunManager` and es-core's own pages"*; **kind currency; lens cost
   against value**; read before none (D-WORKFLOW-187); depth Independent;
   interacting subsystems *"every page; `es-code-traps.md` (the pooled
-  connection, `exists` caching, fonts)"*; closing evidence `[unverified]`
-  (R5 § D did not quote the line; T34's reads *"audit folder, lint PASS,
-  punch list through Phase 7"* and the P1 generator wrote every slice's).
+  connection, `exists` caching, fonts)"*; closing evidence *"audit folder, lint PASS, punch list through Phase 7"*
+(`order.md:641` at `2174265e9c`; #682's body carries its four generated
+checkboxes in its place, read by `gh` on 2026-10-31).
   The selector is one object, `{"globs": ["es:es-core/**"], "rest": true}`
   (R1 C09), area `interface`. **Epic:** #700 `M6.P2 E339: Area epic: the
   interface, EmulationStation (T2, T18, T20, T21, T26, T31 to T37, T44)`:
   T2 #649, T18 #665, T20 #667, T21 #668, T26 #673, T31 #678 and T32 #679
   are **accepted, and their issues stay open** until the integration moves
-  the pin on `next` (§ 10); T33 #680 handed back at 14:40 UTC 2026-10-30
-  (its merged distribution tip `947ace1966`, its ES tip `f802c55c62`; the
-  coordinator's acceptance run started 14:42 UTC, #680's comments at this
-  read) and its PL-25 bug **#1305** (filed 14:45 UTC on #680) routes a half
-  here (§ 2's take-up table, § 4 Q4); T34 #681 is in flight (dispatched
-  2026-10-30; at stage B by the coordinator's `7a32dff771`; its ES branch
-  `feature/m6-es-core-components-681` at the pin, 0 commits ahead, R1 C19,
-  C20); this slice; T36 #683, T37 #684 and T44 after. The futro
-  `docs/futros/2026-10-23-m6-interface.md` (974 lines by `/usr/bin/grep -c
-  ''`) takes a T35 kickoff addendum written by the coordinator with this
-  version, after the T34 kickoff addendum at `:958` and the T34 proof errata
-  at `:972`. **Milestone:** M6. **Predecessors:** T2, T20, T21, T26, T31,
-  T32, T33 and T34 each routed items here by name or named one of the 96 as
-  context; every one is listed with its lines and its disposition in § 2
+  the pin on `next` (§ 10); T33 #680 handed back at 14:40 UTC 2026-10-30 (its merged distribution tip
+`947ace1966`, its ES tip `f802c55c62`) and **accepted** the same day
+(`17f2bcea8d`; its audit issue #1270 CLOSED at the proof's read), its PL-25
+bug **#1305** (filed 14:45 UTC on #680) routing a half here (§ 2's take-up
+table, § 4 Q4); T34 #681 is in flight (dispatched 2026-10-30; its punch list
+**#1307** -- *43 findings (0 critical, 1 high)* -- filed, and its stage D
+ruled by the coordinator's `4e754f89c7` with D-UI-130 to D-UI-133 as its
+four pause rulings; its ES branch `feature/m6-es-core-components-681` at the
+pin, 0 commits ahead, R1 C19, C20; #1307's PL-04 and PL-05 route here, § 2's
+take-up table, § 4 Q6); this slice; T36 #683, T37 #684 and T44 after. The futro `docs/futros/2026-10-23-m6-interface.md` (978 lines by
+`/usr/bin/grep -c ''` at `a00b3354d5`; its last heading `:976`) takes a T35
+kickoff addendum written by the coordinator with this version, after the T34
+kickoff addendum at `:958` and the T34 proof errata at `:972`. **Milestone:** M6. **Predecessors:** T2, T20, T21, T26, T31, T32, T33 and T34 (its #1307 PL-04
+and PL-05, inherited as L-28 and L-29) each routed items here by name or
+named one of the 96 as context; every one is listed with its lines and its disposition in § 2
   under *Already found; do not re-find; take up*, which points back at the
   rulings below. **Beside it:** T34's lane, the other es-core slice, in
   flight on the same host; the host shared through
@@ -122,10 +131,9 @@ blindspot line T34's brief cites holds here, and the register's rows past
   `TextureResource.cpp`, `Font.cpp`, `FileSystemUtil.cpp` and
   `OfflineProxyUrl.cpp` are T36's (#683); `HttpReq`, `Settings`,
   `SystemConf` and `AtomicFileUtil` are T21's (#668); `CloudText.*` is T18's
-  (#665); `ScraperSearchComponent.cpp` is T33's (#680)"*; **T35's own
-  ownership row is the coordinator's, written at dispatch** (T34's errata
-  `:1743`; the pointer's `Register:` line is filled from the table at
-  `COHASH`, § 10). The deltas R4 § 8 found where a source named another
+  (#665); `ScraperSearchComponent.cpp` is T33's (#680)"*; **T35's own ownership row is the coordinator's, written at dispatch** (T34's
+errata `:1744`; the pointer's `Register:` line is filled from the table at
+`COHASH`, § 10). The deltas R4 § 8 found where a source named another
   owner, ruled here: (a) **T2 FD-7 posted `InputManager::configureEmulators`'s
   controllers blob "for T36"** (T2 `02:62`): `InputManager.cpp` is T35's by
   the selector (R1 C08 `in-T35 rest`), so the blob's quoting half is this
@@ -234,18 +242,15 @@ blindspot line T34's brief cites holds here, and the register's rows past
   branch at dispatch, version 2 after the proof; version 1 has no dispatch
   hash). The dispatch comment on #682 and the seeded pointer carry their
   values; the lane reads them there, never guesses them, and § 9's
-  placeholder check names all four. **One earlier lane's ES branch touches
-  one of the 96** (R1 C20, each tip's `git diff --name-only PIN <tip> --
-  es-core/` filtered through the paths file): T18 `d55235d4b3` none (no
-  es-core change); T20 `5c0ddaaeef` none of the 96 (`HttpReq.cpp`,
-  `HttpReq.h`, `utils/FileSystemUtil.cpp` -- T21's and T36's); **T21
-  `3ae9610b0f`: `es-core/CMakeLists.txt`** (ruling (h) above; its other 14
-  es-core files are its own, five new files and T36's `FileSystemUtil.cpp`);
-  T26 `757f5370ea` none (`utils/Platform.cpp`, T36's); T31 `95852f8736`,
-  T32 `b52245036f`, T33 `f802c55c62` none; T34's
-  `feature/m6-es-core-components-681` at the pin itself (0 ahead, no
-  `origin/` ref at R1's read). So the integration has one lane-on-lane
-  hunk inside the slice, named and not a stop (§ 8). The other ES checkouts
+  placeholder check names all four. **One earlier lane's ES branch touches one of the 96** (R1 C20; the proof's
+re-read of 2026-10-31 the same): of the nine tips only **T21 `3ae9610b0f`**
+differs inside the 96, in `es-core/CMakeLists.txt` (`1 file changed, 5
+insertions(+)`, ruling (h) above; its other 14 es-core files are its own,
+five new files and T36's `FileSystemUtil.cpp`); T20's and T26's es-core
+changes are T21's and T36's files; T34's `feature/m6-es-core-components-681`
+is the pin itself (0 ahead; its `origin/` ref prints `fatal:`, recorded). So
+the integration has one lane-on-lane hunk inside the slice, named and not a
+stop (§ 8). The other ES checkouts
   under `~/Development/emulationstation-next.worktrees/` are read with `git
   -C <checkout> show <hash>:<path>` only, and nothing is fetched (§ 10; the
   stale `upstream/master` is § 2's). Until the dispatch comment exists the
@@ -311,10 +316,9 @@ date -u +%H:%M:%S; tail -n 6 /workspace/tmp/m7-m6-host-coordination.txt | cut -c
 
 Every ES line above printed what its comment says on 2026-10-30 by `git -C`
 against `qa-integration` (R1 C15, C17, C19); the `cat` cannot run before the
-pointer is seeded, and `W` does not exist before dispatch; the `stacked`,
-`upstream-next-is-here` and `register-ok` lines are T34's brief's reads of
-the same commits and the drafter did not re-run them (`[unverified]` as
-lines of this worktree; the proof runs them). The host file's tail is
+pointer is seeded, and `W` does not exist before dispatch; the `stacked`, `upstream-next-is-here` and `register-ok` lines printed for
+the proof on 2026-10-31 (in the P1 clone and the coordinator worktree; the
+lane prints its own). The host file's tail is
 whatever the host is doing at the moment of the read, so the lane records
 the time beside the lines; a sentence about what the tail "shows today" is
 never written into an artifact without one.
@@ -441,27 +445,20 @@ fork-own lines: 6759
 read lines: 22575
 ```
 
-then, under `CLAIMS`, the 30 named paths with their claimant (R1 C08): the
-thirteen of this slice `in-T35 rest [('es-core-window-input', 35)]`
-(`Window.cpp` fork-own 1656, `Window.h` fork-own 197, `InputManager.cpp`
-fork-own 1552, `InputConfig.cpp` fork-own 446, `GuiComponent.cpp`
-upstream-carried 1540, `ThemeData.cpp` upstream-carried 2891,
-`Scripting.cpp` fork-own 209, `Log.cpp` fork-own 322, `guis/GuiMsgBox.cpp`
-fork-own 299, `guis/GuiTextEditPopupKeyboard.cpp` fork-own 533,
-`guis/GuiInfoPopup.cpp` upstream-carried 115, `watchers/WatchersManager.cpp`
-upstream-carried 203, `es-core/CMakeLists.txt` fork-own 303); `Settings.cpp`
-723, `Settings.h` 165, `SystemConf.cpp` 494, `HttpReq.cpp` 644, `HttpReq.h`
-180, `utils/AtomicFileUtil.cpp` 829, `utils/AtomicFileUtil.h` 215
-`not-in-T35 non-rest [('es-state-and-bridge', 21)]`;
-`components/MenuComponent.cpp` 574 and
-`components/AsyncNotificationComponent.cpp` 306 `not-in-T35 non-rest
-[('es-core-components', 34)]`; `utils/FileSystemUtil.cpp` 1805,
-`utils/StringUtil.cpp` 1706, `resources/Font.cpp` 1311,
-`renderers/Renderer.cpp` 1170, `utils/OfflineProxyUrl.cpp` 21 `not-in-T35
-non-rest [('es-core-utils-resources', 36)]`; `es-app/src/CloudText.cpp` 1409
-`[('es-cloud-pages', 18)]`, `es-app/src/main.cpp` 1368 `[('es-launch-path',
-2)]`, `es-app/src/ApiSystem.cpp` 3519 `[('es-state-and-bridge', 21)]`; and
-under `ES-CORE BY SLICE` the four rows of § 1. Then the ES lines: `wc -l
+then, under `CLAIMS`, the 30 named paths with their claimant (R1 C08; the
+proof re-printed every row): the thirteen of this slice `in-T35 rest
+[('es-core-window-input', 35)]` (their tiers and lines are the table's),
+`Settings.cpp`, `Settings.h`, `SystemConf.cpp`, `HttpReq.cpp`, `HttpReq.h`,
+`utils/AtomicFileUtil.{cpp,h}` and `es-app/src/ApiSystem.cpp` `not-in-T35
+non-rest [('es-state-and-bridge', 21)]`, `components/MenuComponent.cpp` and
+`components/AsyncNotificationComponent.cpp` `[('es-core-components', 34)]`,
+`utils/FileSystemUtil.cpp`, `utils/StringUtil.cpp`, `resources/Font.cpp`,
+`renderers/Renderer.cpp` and `utils/OfflineProxyUrl.cpp`
+`[('es-core-utils-resources', 36)]`, `es-app/src/CloudText.cpp`
+`[('es-cloud-pages', 18)]`, `es-app/src/main.cpp` `[('es-launch-path', 2)]`,
+`es-app/src/guis/GuiLoading.h` `[('es-pages', 31)]` and
+`es-core/src/guis/GuiLoading.h` `NOT IN INVENTORY`; and under `ES-CORE BY
+SLICE` the four rows of § 1. Then the ES lines: `wc -l
 22567`, `grep -c 22575`, the two `cat-file` counts, and the shortstat line
 twice.
 
@@ -489,15 +486,13 @@ file (R1 C10: *"fork-own is `git diff --name-only <merge-base> HEAD`"*), so
 whole (1552) for 7, `GunManager.cpp` whole (1057) for 2 (R1 § 2); the
 fork's own change over the 96 is **`13 files changed, 247 insertions(+),
 71 deletions(-)`** (R1 C13 against `cada856d86`, C15 the same line against
-`bccd715707`; `--name-status` `1 A` + `12 M`, R1 C15). The 13 by the stat's
-own columns (R1 C13; the `+/-` split per file is the lane's `--numstat`
-line): `es-core/CMakeLists.txt | 7 +++`, `GunManager.cpp | 2 +`,
-`InputConfig.cpp | 9 ++-`, `InputManager.cpp | 7 ++-`, `Log.cpp | 59
-+++++++------------`, `LogPolicy.h | 55 ++++++++++++++++++` (new),
-`Scripting.cpp | 6 +-`, `Splash.h | 5 +-`, `Window.cpp | 55
-++++++++++++++++--`, `Window.h | 2 +`, `guis/GuiMsgBox.cpp | 81
-++++++++++++++++++++++++-`, `guis/GuiTextEditPopup.cpp | 2 +-`,
-`guis/GuiTextEditPopupKeyboard.cpp | 28 ++++-----`. **`ThemeData.cpp`,
+`bccd715707`; `--name-status` `1 A` + `12 M`, R1 C15). The 13 by the stat's own columns are the table's *Fork stat* column (R1
+C13); the `+/-` split per file by `--numstat` (the proof): `CMakeLists.txt`
+7/0, `GunManager.cpp` 2/0, `InputConfig.cpp` 8/1, `InputManager.cpp` 5/2,
+`Log.cpp` 19/40, `LogPolicy.h` 55/0, `Scripting.cpp` 3/3, `Splash.h` 4/1,
+`Window.cpp` 49/6, `Window.h` 2/0, `guis/GuiMsgBox.cpp` 78/3,
+`guis/GuiTextEditPopup.cpp` 1/1, `guis/GuiTextEditPopupKeyboard.cpp` 14/14.
+**`ThemeData.cpp`,
 `GuiComponent.cpp`, `GuiInfoPopup.cpp`, `GuiInputConfig.cpp`,
 `GuiDetectDevice.cpp` and `watchers/WatchersManager.cpp` carry no fork
 hunk** (R2 § 0). Six pairs have one half modified and the other not
@@ -533,9 +528,9 @@ Y Y`, R1 C12; `IDENTICAL to rocknix/master 83`), and what separates the pin
 from `rocknix/master` is the fork's own 13 files reversed (`13 files
 changed, 71 insertions(+), 247 deletions(-)`, R1 C14; `--name-status` `1 D`
 + `12 M`, R1 C15), so upstream has moved none of the 96 since
-`cada856d86`; the count of upstream commits on the 96 since the base is
-`[unverified]` as a printed line (R1 ran no `git log cada856d86..rocknix/master
--- <96>`; § 5's run prints it, expected 0 by the symmetry above). The
+`cada856d86`; the count of upstream commits on the 96 since the base is **0** (`git log
+--format=%h cada856d86..rocknix/master -- <96> | grep -c .` prints `0`, rc 1
+-- the proof; 14 commits on any path). The
 record in `02` § The merge debt is one line (§ 6), not a table.
 **Batocera's twelve commits on the 96 since `1750dded8c`** (R1 C17: `12`;
 35 on `es-core/` as a whole) are **a reconciliation list for the
@@ -574,11 +569,12 @@ the tool's line.
 
 **The files, read whole** (lines at the pin by `grep -c ''`, the
 inventory's rule, R1 C07/C11; the fork's stat column from R1 C13, which
-equals the base's for every row; every `.cpp` of this slice is named in
-`es-core/CMakeLists.txt` unconditionally -- the top-level sources at
-`:147-171` and the subdirectories' entries the lane's own `grep`, the only
-`if(` at `:278` (GLES 3.0) and `:287` (MSVC), R3 cmd 21 -- so no per-file
-CMake column; the per-file fork-commit list is the lane's `git log
+equals the base's for every row; every `.cpp` of this slice is named once in `es-core/CMakeLists.txt`
+unconditionally -- `CORE_SOURCES` `:146-276`, the top-level sources at
+`:147-172`, the only `if(` at `:278` (GLES 3.0) and `:287` (MSVC), R3 cmd
+21; seven entries carry a trailing `# batocera` comment and two headers,
+`HelpPrompt.h` and `Scripting.h`, are registered nowhere (the proof) -- so
+no per-file CMake column; the per-file fork-commit list is the lane's `git log
 --oneline bccd715707..PIN -- <file>` (R1 C16 attributes the 19 subjects by
 their text, which the table repeats where it does); the 13 fork-touched
 files one row each, the 83 upstream-carried grouped by what they are; a
@@ -587,19 +583,19 @@ appears):
 
 | File | Lines | Fork stat | Fork commits R1 C16 attributes | What it is at the pin |
 | --- | ---: | ---: | --- | --- |
-| `es-core/CMakeLists.txt` | 303 | 7 + | `0ec3f43ae` (the offline proxy's store, `OfflineProxyUrl` registered), the `AtomicFileUtil`/`TimeText` registrations (`b0e417df3`, `8b7340f5b` by subject) | `CORE_HEADERS`/`CORE_SOURCES`: the fork adds `LogPolicy.h`, `utils/AtomicFileUtil.{h,cpp}`, `utils/TimeText.{h,cpp}`, `utils/OfflineProxyUrl.{h,cpp}` (hunks at `@@ -14`, `@@ -118`, `@@ -250`, R2 § 0; the utils files are T36's, the list lines this slice's); every T35 source named once and unconditionally (R3 cmd 21); `if(UDEV_FOUND) add_definitions(-DHAVE_UDEV)` is the top-level `CMakeLists.txt:256-258`, not this file (R3 § 2.2); **T21's `3ae9610b0` adds five lines** (§ 1 h) |
-| `Window.cpp` / `Window.h` | 1656 / 197 | 55 ++- / 2 + | `c1c0d6ddc` (D-UI-093, fork #283), `fc465b126` (boot pointers settled before sync, cards waited for), `016385b52` (one card near full width) | the frame: `update` `:450-560` (posted functions `:464`, toasts `:466`, the top GUI alone `:542-543`, cards `:556-557`) and `render` `:689-937` (bottom and top of the stack only `:695-737`; a `GuiMsgBox` or a `"popup"`-tagged top draws the page beneath `:722-727`; **the help bar only when `mGuiStack.size() < 2 \|\| !fullScreenMenus()` `:743-745`**; popups then cards while no screensaver `:782-788`); the surface queue (§ 4 Q1): one file-static mutex `:293`, `notificationDuration` `:298-309`, `displayNotificationMessage` `:311-321`, `processNotificationMessages` `:324-351` (**returns while any card is up `:336-337`; pops one from the back `:339-340`**), `layoutNotificationPopups` `:396-416`, `createAsyncNotificationComponent` `:1152-1175` (**re-queues a running toast's words with a fresh default duration `:1164`**, stops the popups `:1165`), `hasAsyncNotifications` `:1146-1150` (h `:97-98`), `renderAsyncNotifications` `:1177-1234` (**centred `posX = W*0.5 - w*0.5` `:1192`**, stacked `:1194`, `:1231`, the slide-up `:1203-1215`, the fade-in `:1217-1221`), `updateAsyncNotifications` `:1236-1260` (**the one place a card is freed `:1246-1248`**); `deinit` `:188-207` and `~Window` `:49-63` **never touch the cards, the popups or the queue**; input `:215-290` (`FirstJoystickOnly` `:220-232`, screensaver controls `:234-260`, **four keyboard-only Ctrl debug toggles with the `"Debug"` gate commented out `:262-281`**, the top GUI alone `:287-288`); the help prompts `setHelpPrompts` `:1005-1078`, `renderHelpPromptsEarly` `:999-1003`; the screensaver hooks `:777-779`, `:803-813`, `:1081-1144` (§ 4 Q4, #1305); `postToUiThread` `:1276-1290`, `processPostedFunctions` `:1292-1307`, **`unregisterPostedFunctions` `:1262-1274` without the lock**; `processStorageRequest` `:1493-1656` with **four `std::thread(...).detach()` capturing `this`** and **`#include "../es-app/src/ApiSystem.h"` `:29`**, its dialogs in upstream's sentence case (D-UI-079); the containers `Window.h:123`, `:135`, `:153-154` (R2 § 1) |
-| `InputManager.cpp` (`.h` upstream, 109) | 1552 | 7 ++- | `e6e1e4d0f` (udev scans released), `80f52e500` (masked log lines by subject) | `init` `:76-105`, `deinit` `:153-196`; `parseEvent` `:643-887` (**`SDL_JOYDEVICEADDED` rebuilds every joystick `:849-853` then toasts `%s connected` `:854-860`; `REMOVED` toasts then rebuilds `:864-877`**; F4 pushes `SDL_QUIT` with a `new SDL_Event()` never freed `:792-800`); `rebuildAllJoysticks` `:374-630` (**`mJoysticksLock` held `:485-623`; `writeDeviceConfig` called from inside the hot-plug rebuild `:605`** under `#if !defined(BATOCERA) \|\| !defined(ROCKNIX)` `:585`); the config file (§ 4 Q2): `loadInputConfig` `:1113-1141`, `tryLoadInputConfig` `:889-972` (cached `exists` `:893`; the two "Approximative device found" logs read a null node `:946`, `:960`), **`writeDeviceConfig` `:1179-1240` writing `es_input.cfg` and `es_last_input.cfg` in place by pugixml `save_file` `:1225`, `:1232`** after a merge gated on cached `exists` `:1187`, firing `config-changed`/`controls-changed` `:1234-1235`, **`doOnFinish` `:1242-1284` running every `<inputAction type="onfinish">` `<command>` synchronously on the UI thread through `ProcessStartInfo(...).run()` `:1272`**; `loadFromSdlMapping` `:1004-1111` (`select` copied to `hotkey` `:1101-1108`); player assignment `computePlayersConfigs` `:1341-1472`; the fork's udev null guard and `udev_enumerate_unref` `:120`, `:145`, masked lines `:1270`, `:1486`; the file-static `mJoysticksLock` `:52`; `<SDL.h>` `:11`, `<libudev.h>` `:26` under `HAVE_UDEV` (R2 § 2; R3 § 2.2) |
+| `es-core/CMakeLists.txt` | 303 | 7 + | `0ec3f43ae` (the offline proxy's store, `OfflineProxyUrl` registered), `469441d4d` (`LogPolicy.h`), the `AtomicFileUtil`/`TimeText` registrations (`b0e417df3`, `8b7340f5b`), the merge `2dae87308` (the per-file log, the proof) | `CORE_HEADERS`/`CORE_SOURCES`: the fork adds `LogPolicy.h`, `utils/AtomicFileUtil.{h,cpp}`, `utils/TimeText.{h,cpp}`, `utils/OfflineProxyUrl.{h,cpp}` (hunks at `@@ -14`, `@@ -118`, `@@ -250`, R2 § 0; the utils files are T36's, the list lines this slice's); every T35 `.cpp` named once and unconditionally (R3 cmd 21; the named-once loop prints 9 for seven `# batocera` comments and the two unregistered headers, the proof); `find_package(udev)` / `if(UDEV_FOUND) add_definitions(-DHAVE_UDEV)` is the top-level `CMakeLists.txt:255-258`, not this file (R3 § 2.2); **T21's `3ae9610b0` adds five lines** (§ 1 h) |
+| `Window.cpp` / `Window.h` | 1656 / 197 | 55 ++- / 2 + | `c1c0d6ddc` (D-UI-093, fork #283), `fc465b126` (boot pointers settled before sync, cards waited for), `016385b52` (one card near full width) | the frame: `update` `:450-560` (posted functions `:464`, toasts `:466`, the top GUI alone `:542-543`, cards `:556-557`) and `render` `:689-937` (bottom and top of the stack only `:695-737`; a `GuiMsgBox` or a `"popup"`-tagged top draws the page beneath `:722-727`; **the help bar only when `mGuiStack.size() < 2 \|\| !fullScreenMenus()` `:743-745`**; popups then cards while no screensaver `:782-788`); the surface queue (§ 4 Q1): one file-static mutex `:293`, `notificationDuration` `:298-309`, `displayNotificationMessage` `:311-321`, `processNotificationMessages` `:324-351` (**returns while any card is up `:336-337`; pops one from the back `:339-340`**), `layoutNotificationPopups` `:396-416`, `createAsyncNotificationComponent` `:1152-1175` (**re-queues a running toast's words with a fresh default duration `:1164`**, stops the popups `:1165`), `hasAsyncNotifications` `:1146-1150` (h `:101`), `renderAsyncNotifications` `:1177-1234` (**centred `posX = W*0.5 - w*0.5` `:1192`**, stacked `:1194`, `:1231`, the slide-up `:1203-1215`, the fade-in `:1217-1221`), `updateAsyncNotifications` `:1236-1260` (**the one place a card is freed `:1246-1248`**); `deinit` `:188-207` and `~Window` `:49-63` **never touch the cards, the popups or the queue**; input `:215-290` (`FirstJoystickOnly` `:220-232`, screensaver controls `:234-260`, **four keyboard-only Ctrl debug toggles with the `"Debug"` gate commented out `:262-281`**, the top GUI alone `:287-288`); the help prompts `setHelpPrompts` `:1005-1078`, `renderHelpPromptsEarly` `:999-1003`; the screensaver hooks `:777-779`, `:803-813`, `:1081-1144` (§ 4 Q4, #1305); `postToUiThread` `:1276-1290`, `processPostedFunctions` `:1292-1307`, **`unregisterPostedFunctions` `:1262-1274` without the lock**; `processStorageRequest` `:1493-1656` with **four `std::thread(...).detach()` capturing `this`** and **`#include "../es-app/src/ApiSystem.h"` `:29`**, its dialogs in upstream's sentence case (D-UI-079); the containers `Window.h:123`, `:135`, `:153-154` (R2 § 1) |
+| `InputManager.cpp` (`.h` upstream, 109) | 1552 | 7 ++- | `e6e1e4d0f` (udev scans released), `80f52e500` (masked log lines), the merge `370ebe416` | `init` `:76-105`, `deinit` `:153-196`; `parseEvent` `:643-887` (**`SDL_JOYDEVICEADDED` rebuilds every joystick `:849-853` then toasts `%s connected` `:854-860`; `REMOVED` toasts then rebuilds `:864-877`**; F4 pushes `SDL_QUIT` with a `new SDL_Event()` never freed `:792-800`); `rebuildAllJoysticks` `:374-630` (**`mJoysticksLock` held `:485-623`; `writeDeviceConfig` called from inside the hot-plug rebuild `:605`** under `#if !defined(BATOCERA) \|\| !defined(ROCKNIX)` `:585`); the config file (§ 4 Q2): `loadInputConfig` `:1113-1141`, `tryLoadInputConfig` `:889-972` (cached `exists` `:893`; the two "Approximative device found" logs read a null node `:946`, `:960`), **`writeDeviceConfig` `:1179-1240` writing `es_input.cfg` and `es_last_input.cfg` in place by pugixml `save_file` `:1225`, `:1232`** after a merge gated on cached `exists` `:1187`, firing `config-changed`/`controls-changed` `:1234-1235`, **`doOnFinish` `:1242-1284` running every `<inputAction type="onfinish">` `<command>` synchronously on the UI thread through `ProcessStartInfo(...).run()` `:1272`**; `loadFromSdlMapping` `:1004-1111` (`select` copied to `hotkey` `:1101-1108`); player assignment `computePlayersConfigs` `:1341-1472`; the fork's udev null guard and `udev_enumerate_unref` `:120`, `:145`, masked lines `:1270`, `:1486`; the file-static `mJoysticksLock` `:52`; `<SDL.h>` `:11`, `<libudev.h>` `:26` under `HAVE_UDEV` (R2 § 2; R3 § 2.2) |
 | `InputConfig.cpp` (`.h` upstream, 176) | 446 | 9 ++- | `e6e1e4d0f` | the per-device mapping: the constructor calls udev twice per device on `HAVE_UDEV` (`isWheel` `:131`, `getDeviceParentSyspath` `:132`) with the fork's guards on every return (`:72`, `:89`, `:100`, `:109`, `:114`, `:148`, `:169`); `mapInput` lower-cases (`hotkeyenable`, `:186-189`); `isMappedTo` `:210-231`, `isMappedLike` `:233-248`, `getMappedTo` `:250-283`; `loadFromXML` `:285-309` (unknown type skipped with `LogError` `:297`, value 0 warned `:305`), `writeToXML` `:311-345`; `BUTTON_OK`/`BUTTON_BACK` mutable globals `:347-351` swapped by `AssignActionButtons` `:403-414`; **`buttonLabel` `:353-366` returns the key unchanged** (T34 L-01's chain); `.h:6` `<SDL_joystick.h>`, `:7` `<SDL_keyboard.h>`, `:5` `<CECInput.h>` -- the header every stand-in run meets first (R4 item 25) |
 | `GunManager.cpp` (`.h` upstream, 155) | 1057 | 2 + | `e6e1e4d0f` | the light guns over udev: the monitor `:167-193`, `updateGuns(Window*)` `:514` polling `poll(..., 0)` `:922-930`, `readGunEvents` `:206`, `isReplacingMouse` `:855` (read by `InputManager.cpp:757`, `:770`), `udev_addGun` opening the evdev node `O_RDONLY \| O_NONBLOCK` `:974` and six `ioctl`s `:978-991`, `udev_closeGun` `:1011-1012`; connected/disconnected toasts `:686`, `:703`, `:724`, `:734`, `:1004`, `:1031` (six of the 86 `_("` lines); the fork's guard and unref in `udev_initial_gunsList` `:941`, `:960`; **no thread** (R2 cmd 10); `<SDL_syswm.h>` `:25` under `#elif WIN32` (R3 § 2.2); batocera's 83-line change here is the largest of its nine (R1 C18) |
 | `Log.cpp` / `LogPolicy.h` (`Log.h` upstream, 56) | 322 / 55 | 59 ++--- / 55 +++ (new) | `469441d4d` (fork #178) | the async logger: `AsyncLogger::workerLoop` on `std::thread` `:60`, `:180`; **the file flushed every batch** (the comment *"Every batch reaches the file before the worker sleeps again"*, R2 § 0); `std::ofstream mFile` `:179`; `LogPolicy.h:1-55` whole: `levelTag`, `parseLogLevel`, `mirrorToStderr` (WARNING and ERROR always to stderr, every line at debug) pulled into a header so a unit test can hold them -- **the one of the 96 with a direct test** (`es-app/tests/unit/LogPolicyTests.cpp:13`, R1 C24, R3 § 1.1); `<SDL_timer.h>` `:11`; `Log.h` is doubled by `tests/app-unit/fakes/Log.h` (§ 1 i); the signal handler's backtrace of #246 is this file's (R3 § 2.2's "natural first T35 binary") |
 | `Scripting.cpp` (`.h` upstream, 13) | 209 | 6 +- | `80f52e500` (fork #177) | the event hooks: `fireEvent` `:153-208` -- **per-event directories `:158-179`** (`<user ES>/scripts/<event>`, `<exe dir>/scripts/<event>`, `/var/run/emulationstation/scripts/<event>` `:160-164`; **every entry runs, the extension filter `:172-176` is WIN32-only**), then **single scripts `:182-207`** filtered to `.exe .cmd .bat .ps1 .sh .py` `:151`, `:201-203`, called with the event name first `:205`, the directory's `exists` cached `:193`; `executeScript` `:88-149` **quotes the script path only when it has a space `:92-93`, strips `"` from arguments and quotes them only when they contain a space `:98-113`**, `waitForExit` only for `quit` `:142`, stdout/stderr to `es_script_stdout.log`/`es_script_stderr.log` `:145-146`, `psi.run()` `:147` (`ProcessStartInfo` is `utils/Platform`, T36's); the fork masks the three WIN32-branch log lines `:49`, `:122`, `:129`, the Linux branch `:138` logs the path only; the WIN32 queue thread `:17-73` (R2 § 5.1; T2 FD-9/FD-19) |
-| `Splash.h` (`.cpp` upstream, 337) | 44 | 5 +- | `4d0c7a686` (lowercase pixelelated, the LCD wordmark) | `#if defined(ROCKNIX)` -> `DEFAULT_SPLASH_IMAGE ":/pixelelated-wordmark.svg"`, `OLD_SPLASH_LAYOUT true` `:10-12` (R2 § 0); `Splash.cpp:7` `<SDL_events.h>`; the one `-DROCKNIX` branch R3 § 3.2 asks the lane to grep for sits here |
-| `guis/GuiMsgBox.cpp` (`.h` upstream, 61) | 299 | 81 +++- | `471e7e2e8` (measured at the drawn width, #48), `9854e7bc5` (the wide box past four lines) | the one-to-three-button dialog: **the back-button accelerator `:116-134`** (one button -> it `:117-120`; else the first whose upper-cased text equals `_("OK")` or `_("NO")` `:123-130`; **else the last `:132-133`**), fired by an unconfigured keyboard's RETURN/ESC/SPACE `:249-254`, `BUTTON_BACK`, or any `TYPE_BUTTON` from an unconfigured pad `:257-261`; `MSGBOX_WIDTH` 0.6 / `MSGBOX_WIDE_WIDTH` 0.8 / `MSGBOX_WIDE_LINES` 4 `:21-23`, `minWidth` 0.3 `:53`, the `tailscale.com` message at 0.9 and no icon `:88-92` (upstream ROCKNIX), icon selection `:59-86`, none on a small screen `:93`; the wide switch measured with the message's font `:140-150`; **the height measured at the drawn width `:198-203`** (`es-code-traps.md:96-98`) with the 1.225 factor `:204`; taller than the screen -> vertical autoscroll and full-screen size `:206-224`; `deleteMeAndCall` `:286-294` copies the callback, `delete this` `:290`, then calls it (T26's invariant); `getHelpPrompts` `:296-299` -> `mGrid.getHelpPrompts()` (the D-UI-034 fix is `ComponentGrid`'s, T34's); `TextToSpeech::say` twice `:44`, `:234` (R2 § 4.1) |
+| `Splash.h` (`.cpp` upstream, 337) | 44 | 5 +- | `4d0c7a686` (lowercase pixelelated, the LCD wordmark), `975235429` (Rasteratops and manual updates) | `#if defined(ROCKNIX)` -> `DEFAULT_SPLASH_IMAGE ":/pixelelated-wordmark.svg"`, `OLD_SPLASH_LAYOUT true` `:10-12` (R2 § 0); `Splash.cpp:7` `<SDL_events.h>`; the one `-DROCKNIX` branch R3 § 3.2 asks the lane to grep for sits here |
+| `guis/GuiMsgBox.cpp` (`.h` upstream, 61) | 299 | 81 +++- | `471e7e2e8` (measured at the drawn width, #48), `9854e7bc5` (the wide box past four lines), `62e45ea6f` (the restore page) | the one-to-three-button dialog: **the back-button accelerator `:116-134`** (one button -> it `:117-120`; else the first whose upper-cased text equals `_("OK")` or `_("NO")` `:123-130`; **else the last `:132-133`**), fired by an unconfigured keyboard's RETURN/ESC/SPACE `:249-254`, `BUTTON_BACK`, or any `TYPE_BUTTON` from an unconfigured pad `:257-261`; `MSGBOX_WIDTH` 0.6 / `MSGBOX_WIDE_WIDTH` 0.8 / `MSGBOX_WIDE_LINES` 4 `:21-23`, `minWidth` 0.3 `:53`, the `tailscale.com` message at 0.9 and no icon `:88-91` (upstream ROCKNIX), icon selection `:59-86`, none on a small screen `:92`; the wide switch measured with the message's font `:140-150`; **the height measured at the drawn width `:198-203`** (`es-code-traps.md:96-98`) with the 1.225 factor `:204`; taller than the screen -> vertical autoscroll and full-screen size `:206-224`; `deleteMeAndCall` `:286-294` copies the callback, `delete this` `:289`, then calls it (T26's invariant); `getHelpPrompts` `:296-299` -> `mGrid.getHelpPrompts()` (the D-UI-034 fix is `ComponentGrid`'s, T34's); `TextToSpeech::say` three times in the constructor: `:44` and `:234` the text, `:240` the focused button's label (R2 § 4.1; the proof) |
 | `guis/GuiTextEditPopup.cpp` (`.h` upstream, 33) | 86 | 2 +- | `c8dc72cf9` (`RESET` -> `CLEAR`) | the plain text popup: tag `"popup"` `:12`; buttons accept / `CLEAR` / `CANCEL` `:33-35`; grid 1x3 `:10`; 0.5 W `:48`; `BACK` deletes `:72-76`; `getHelpPrompts` `:81-86`; **no masking mode** (`.h:15-16`; T21 PL-26 / #1192) |
-| `guis/GuiTextEditPopupKeyboard.cpp` (`.h` upstream, 57) | 533 | 28 ++--- | `c8dc72cf9` (`RESET` -> `CLEAR` in the three layouts, the help prompt and `makeButton`); the `.h`'s `1593c299f` touch is no longer a difference (R1 C12) | the on-screen keyboard: **its own `#define BUTTON_GRID_HORIZ_PADDING (Renderer::getScreenWidth()*0.0052083333)` `:14`, used at `:220`** as a quarter per side of each key's padding, against `MenuComponent.cpp:14`'s 0.022 (T34 L-05); `OSK_WIDTH`/`OSK_HEIGHT` full-screen under `fullScreenMenus()` else 0.78 / 0.60 `:8-9`; tag `"popup"` `:103`; `kbUs` `:17-43`, `kbFr` `:45-70`, `kbKr` `:72-97` chosen from `system.language` `:141-152`; glyphs for DEL, OK, newline `:169-192`; `_()` on multi-letter keys `:198-204`; `input` `:335-400`: `start` = OK `:341-348`, keyboard ESC closes `:350-354`, `BUTTON_BACK` closes `:357-361`, `leftshoulder` backspace `:364-373`, `rightshoulder` space `:376-386`, `y` shift `:389-390`, **`x` commits `""` and deletes the popup with no confirmation `:392-397`** (its prompt reads `CLEAR` `:453-454`); `makeButton` `:464-533`; **no masking mode** (`.h:13-14`; #1192) (R2 § 4.3) |
+| `guis/GuiTextEditPopupKeyboard.cpp` (`.h` upstream, 57) | 533 | 28 ++--- | `c8dc72cf9` (`RESET` -> `CLEAR` in the three layouts, the help prompt and `makeButton`), `1593c299f`, `6d8764ec6` (the hostname keyboard); the `.h`'s two touches (`1593c299f`, `6d8764ec6`) are no longer a difference (R1 C12) | the on-screen keyboard: **its own `#define BUTTON_GRID_HORIZ_PADDING (Renderer::getScreenWidth()*0.0052083333)` `:14`, used at `:220`** as a quarter per side of each key's padding, against `MenuComponent.cpp:14`'s 0.022 (T34 L-05); `OSK_WIDTH`/`OSK_HEIGHT` full-screen under `fullScreenMenus()` else 0.78 / 0.60 `:8-9`; tag `"popup"` `:103`; `kbUs` `:17-43`, `kbFr` `:45-70`, `kbKr` `:72-97` chosen from `system.language` `:141-152`; glyphs for DEL, OK, newline `:169-192`; `_()` on multi-letter keys `:198-204`; `input` `:335-400`: `start` = OK `:341-348`, keyboard ESC closes `:350-354`, `BUTTON_BACK` closes `:357-361`, `leftshoulder` backspace `:364-373`, `rightshoulder` space `:376-386`, `y` shift `:389-390`, **`x` commits `""` and deletes the popup with no confirmation `:392-397`** (its prompt reads `CLEAR` `:453-454`); `makeButton` `:464-533`; **no masking mode** (`.h:13-14`; #1192) (R2 § 4.3) |
 | the dialogs upstream-carried: `guis/GuiInfoPopup.cpp` / `.h`; `guis/GuiInputConfig.cpp` / `.h`; `guis/GuiDetectDevice.cpp` / `.h` | 115 / 37; 433 / 72; 149 / 37 | -- | -- | `GuiInfoPopup`: the toast -- `maxWidth = W * 0.9f` `:17`, `maxHeight = H * 0.2f` `:18` (D-UI-105's cap), `FONT_SIZE_MINI` `:22`, measured `:27-39`, padding 0.03 W / 0.02 H `:42-45`, top-centred `posY = H * 0.02` `:47-50`, `FADE_DURATION 250` ms `:98`, fade in/out `:103-109`, `easeOutCubic` `:111`, past `mDuration` `mRunning = false` `:90-96` (the Window deletes it at `Window.cpp:375`); `<SDL_timer.h>` `:6`. `GuiInputConfig`: the 14 prompt rows `:49-78` (`HotKeyEnable` `:73`), `HOLD_TO_SKIP_MS 1000` `:45`, hold-to-skip `:327-353`, the per-row handler `:171-241`, `assign` refusing a mapping already used except `HotKeyEnable` `:401-423`, **the `SET SELECT AS HOTKEY` / `DO NOT ASSIGN HOTKEY` box `:264-286`** (writes `hotkeyenable`, against the SDL fallback's `hotkey`), full-screen under `fullScreenMenus()` `:293-296`, **`GAMEPAD %i` with `getDeviceId() + 1` `:134` -- the SDL instance id, not the player number**; two `pgettext("joystick", ...)` families `:11-40`, `:163`, `ngettext` `:347`. `GuiDetectDevice`: the five strings `:32`, `:46`, `:52` (HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT), `:56`, `:58`; ESC skips after the first run `:94`; `exists(es_input.cfg)` on first run `:127` (R2 § 4.4-4.5; R3 § 4) |
-| the component base and the theme: `GuiComponent.cpp` / `.h`; `ThemeData.cpp` / `.h`; `ThemeVariables.cpp` / `.h`; `HelpPrompt.h`; `HelpStyle.cpp` / `.h`; `BindingManager.cpp` / `.h` | 1540 / 298; 2891 / 599; 44 / 15; 27; 87 / 31; 522 / 118 | -- | -- | `GuiComponent`: `mOpacity`/`mAmbientOpacity` 255 `:20`, `getOpacity` the product `:391-397`, `setOpacity`/`setAmbientOpacity` pushed to every child `:399-423`; the animation slots `:489-584`, `animateTo` `:977-1038` honouring `PowerSaverMode`/`TransitionStyle == "instant"` `:992`; `~GuiComponent` `:28-52` (**`mWindow->removeGui(this)` first `:30`**, `EXTRACHILDREN` deleted, the rest detached `:43-51`); `input` `:54-63` and `updateChildren` `:80-93` iterate with a saved `next_it` under `TRYCATCH`; `updateHelpPrompts` `:909-922` only when `mWindow->peekGui()` is this and the tag is not `GuiLoading` `:917`; the one `LOG` `:337`. `ThemeData`: `loadFile` `:745-856` **throws** on a missing file (cached `exists` `:752-753`), a parse error `:814-816`, a missing `<theme>` `:819-821`, a missing `<formatVersion>` `:824-826`, an old version `:828-829`; `parseInclude` `:1094-1150` only **warns** (`:1120`, `:1126`, `:1139`, `:1146`); `getDefault` catches to `LogError` `:2246-2262`, `appendFile` to `LogWarning` `:2779-2798`; `ThemeFileCache` `:719-743` under a mutex; `GridTextProperties::multiLine` declared `:267` (T34's tile reads it); 25 `LOG(Log` lines, no fork hunk; `ThemeData.h:16` pugixml; its 13 component-header includes (T34's `:623-624`). `BindingManager`: 2 `_("` lines `:136`, `:150`. `HelpStyle`: `resources/Font.h` -> `ft2build.h` (R3 § 3.3). (R2 § 5) |
+| the component base and the theme: `GuiComponent.cpp` / `.h`; `ThemeData.cpp` / `.h`; `ThemeVariables.cpp` / `.h`; `HelpPrompt.h`; `HelpStyle.cpp` / `.h`; `BindingManager.cpp` / `.h` | 1540 / 298; 2891 / 599; 44 / 15; 27; 87 / 31; 522 / 118 | -- | -- | `GuiComponent`: `mOpacity`/`mAmbientOpacity` 255 `:20`, `getOpacity` the product `:391-397`, `setOpacity`/`setAmbientOpacity` pushed to every child `:399-423`; the animation slots `:489-584`, `animateTo` `:977-1038` honouring `PowerSaverMode`/`TransitionStyle == "instant"` `:992`; `~GuiComponent` `:28-52` (**`mWindow->removeGui(this)` first `:30`**, `EXTRACHILDREN` deleted, the rest detached `:43-51`); `input` `:54-63` and `updateChildren` `:80-93` iterate with a saved `next_it` under `TRYCATCH`; `updateHelpPrompts` `:909-922` only when `mWindow->peekGui()` is this and the tag is not `GuiLoading` `:917`; the one `LOG` `:337`. `ThemeData`: `loadFile` `:745-856` **throws** on a missing file (cached `exists` `:752-753`), a parse error `:814-816`, a missing `<theme>` `:819-821`, a missing `<formatVersion>` `:824-826`, an old version `:828-829`; `parseInclude` `:1094-1150` only **warns** (`:1120`, `:1126`, `:1139`, `:1146`); `getDefault` catches to `LogError` `:2246-2262`, `appendFile` to `LogWarning` `:2779-2798`; `ThemeFileCache` `:719-743` under a mutex; `:267` the parser's `{ "multiLine", STRING }` property entry (T34's tile reads it; `GridTextProperties::multiLine` itself is declared in T34's `GridTileComponent.h`, and `ThemeData.h` carries no `multiLine` -- the proof); 25 `LOG(Log` lines, no fork hunk; `ThemeData.h:16` pugixml; its 13 component-header includes (T34's `:623-624`). `BindingManager`: 2 `_("` lines `:136`, `:150`. `HelpStyle.cpp:3`: `resources/Font.h` -> `ft2build.h` (`Font.h:10`; the `.h` includes only `math/Vector2f.h` and three std headers; R3 § 3.3). (R2 § 5) |
 | the device and audio layer: `AudioManager.cpp` / `.h`; `Sound.cpp` / `.h`; `VolumeControl.cpp` / `.h`; `CECInput.cpp` / `.h`; `TextToSpeech.cpp` / `.h`; `PowerSaver.cpp` / `.h`; `FavoriteMusicManager.cpp` / `.h`; `playlists/M3uPlaylist.cpp` / `.h`; `playlists/AnimatedGifPlaylist.cpp` / `.h` | 749 / 86; 115 / 38; 668 / 61; 376 / 38; 284 / 64; 122 / 84; 127 / 27; 87 / 26; 33 / 18 | -- | -- | `AudioManager`: `<SDL.h>` `:7`, `.h:5 <SDL_audio.h>`, `.h:8 "SDL_mixer.h"` (quoted), `id3v2lib` from `external/`; `fopen(song.c_str(), "r")` `:539`, `:610`; 19 `LOG` lines. `Sound.h:5 "SDL_mixer.h"`. `VolumeControl`: **`<pulse/pulseaudio.h>` `:14` under `_ENABLE_PULSE_`, which the image build takes (`package.mk:23 -DENABLE_PULSE=1`), the ALSA branch (`.h:9-12 <alsa/asoundlib.h>`) what the host parses**; a thread `:32`, `:203`; 32 `LOG` lines, the most in the slice. `CECInput`: `<libcec/cec.h>` under `HAVE_LIBCEC`, off in the image (`package.mk:22 -DCEC=0`); `SDL_PushEvent` `:43`. `TextToSpeech`: `<espeak/speak_lib.h>` `:54` under `_ENABLE_TTS_`, off; a thread `:92`, `.h:47`; 1 `_("` `:177`. `PowerSaver`: `<SDL.h>` `:5`, `SDL_PushEvent` `:29`. **`FavoriteMusicManager`: the favourites file appended `:71` and truncated-then-rewritten `:115`** (a kill between leaves an empty file; R2 § 2.2). The playlists: `utils/StringUtil.h`, `utils/FileSystemUtil.h` (T36's) (R3 § 2.2, § 3.3; R2 § 6) |
 | the rest: `LocaleES.cpp` / `.h`; `gettext.h`; `Paths.cpp` / `.h`; `MameNames.cpp` / `.h`; `ImageIO.cpp` / `.h`; `MultiStateInput.cpp` / `.h`; `AsyncHandle.h`; `anim/StoryboardAnimator.cpp` / `.h`; `anim/ThemeAnimation.h`; `anim/ThemeStoryboard.cpp` / `.h`; `animations/Animation.h`; `animations/AnimationController.cpp` / `.h`; `animations/LambdaAnimation.h`; `math/Misc.cpp` / `.h`; `math/Transform4x4f.cpp` / `.h`; `math/Vector2f.cpp` / `.h`; `math/Vector2i.cpp` / `.h`; `math/Vector3f.cpp` / `.h`; `math/Vector4f.cpp` / `.h` | 427 / 83; 300; 363 / 112; 461 / 62; 394 / 54; 53 / 19; 57; 237 / 192; 146; 242 / 28; 12; 38 / 35; 27; 159 / 40; 329 / 53; 39 / 73; 1 / 61; 21 / 104; 107 / 101 | -- | -- | `LocaleES` takes glibc's `<libintl.h>` under `-DHAVE_INTL` (the stand-in's flag); `LocaleES.h` is doubled by `tests/app-unit/fakes/LocaleES.h` (§ 1 i). `Paths` through `utils/Platform.h` (T36's). `MameNames` and `anim/ThemeStoryboard` parse with pugixml (`MameNames.cpp:6`, `anim/ThemeStoryboard.h:5`). `ImageIO.cpp:4 <FreeImage.h>` (a fake). `MultiStateInput` includes `Window.h` (the fakes' double if copied beside it, R3 § 2.2). The `math/`, `animations/AnimationController`, `ThemeVariables` and the playlists are **pure: they link and run on the host today** (R3 § 2.2's first class); `math/Vector2i.cpp` is one line. (R3 § 2.2, § 3.3) |
 | the watchers: `watchers/WatchersManager.cpp` / `.h`; `watchers/BatteryLevelWatcher.cpp` / `.h`; `watchers/NetworkStateWatcher.cpp` / `.h` | 203 / 92; 9 / 21; 21 / 25 | -- | -- | `WatchersManager::run` `:159-203`: per iteration `mThreadLock` + condvar (`wait` while paused, `wait_for(1 s)`) `:164-177`, then **`std::unique_lock<std::mutex> lock(mWatchersLock)` `:181` held for the whole walk `:185-200` -- `item->component->check()` `:196` inside it**, `NotifyComponentChanged` `:197` taking `mNotificationLock` `:128` (lock order `mWatchersLock` -> `mNotificationLock`), notifications **on the watcher thread** `:130-131`; every static entry point blocks on `mWatchersLock` meanwhile: `GetComponent<T>()` `.h:35`, `RegisterComponent` `:66`, `UnregisterComponent` `:78`, **`ResetComponent` `:92-104`** (sets `nextCheckTime = now`, cannot run `check()` itself), the destructor `:143`; `WatcherInfo` `.h:67-73` allocated `:68-73`, freed on unregister `:85-86` (EP-13) and in the destructor `:143-149`, the `IWatcher*` not owned; `new std::thread(&WatchersManager::run, this)` `:61`, `join` `:154`, `stop()` `:20-27` deletes the singleton; **`mRunning` and `mPaused` plain `bool`s `.h:85-86`, `mRunning = false` written `:151` outside any lock, read `:161`, `:172`, `:187`**; 2 `LOG` lines `:57`, `:139`; no fork hunk (R2 § 3; T33 PL-14 / #1283) |
@@ -607,50 +603,28 @@ appears):
 **The 19 fork commits on the 96** (`git log --format='%h %ad %an %s'
 --date=short cada856d86..PIN -- <96> | nl -ba` ends at 19; `rev-list
 --count bccd715707..PIN -- <96>` 19; two merges among them, `370ebe416` and
-`2dae87308`; R1 C16), newest first: `c8dc72cf9` 2026-10-11 *emulationstation:
-manage cloud connections and network recovery*; `4d0c7a686` 2026-10-04
-*identity: use lowercase pixelelated and the LCD wordmark*; `e6e1e4d0f`
-2026-10-03 *input: release device scans and return unused heap pages*;
-`975235429` 2026-10-02 *identity: show Rasteratops and manual updates (#337,
-#383)*; `fc465b126` 2026-10-02 *cloud: settle boot pointers before sync and
-wait for cards (#363, #365)*; `c1c0d6ddc` 2026-09-25 *Window.cpp: one
-floating surface at a time -- a toast waits for the card, a card takes the
-toast's place and re-queues it (fork #283, D-UI-093)*; `370ebe416`
-2026-09-25 (merge of `rocknix/master`); `0ec3f43ae` 2026-09-15
-*WebImageComponent.cpp, OfflineProxyUrl.cpp, OfflineAchievementsText.cpp: an
-image asked of the offline proxy asks for its store only (fork #199)*;
-`2dae87308` 2026-09-15 (merge of `feature/es-logging-rc11`); `469441d4d`
-2026-09-15 *Log.cpp, LogPolicy.h: the file is flushed every batch, and
-WARNING lines reach stderr as ERROR lines do (fork #178)*; `80f52e500`
-2026-09-15 *StringUtil.cpp, Platform.cpp, ApiSystem.cpp: a credential's
-value never reaches the log; every logged command line goes through
-maskSecrets (fork #177)*; `8b7340f5b` 2026-09-15 *TimeUtil.cpp, TimeText.cpp,
-TimeTextTests.cpp, GuiSaveState.cpp: the save state manager's times follow
-SHOW CLOCK IN 12-HOUR FORMAT (fork #195, D-UI-058)*; `471e7e2e8` 2026-09-10
-*GuiMsgBox: measure the message at the width it is drawn at*; `1593c299f`
-2026-09-10 *The device name is the player's; the network name is shown, not
-enforced*; `6d8764ec6` 2026-09-10 *HOSTNAME row: the keyboard takes letters,
-digits and hyphens, and says so as you type*; `b0e417df3` 2026-09-10
-*Settings, SystemConf: write through a temporary and keep the last known
-good (D-CLOUD-079)*; `9854e7bc5` 2026-09-07 *GuiMsgBox: a message that wraps
-past four lines gets the wide box*; `016385b52` 2026-09-02 *Cloud: one card,
-near full width, where the message already appears*; `62e45ea6f` 2026-08-27
-*restore page: explain the rows, gate the cloud check, keep LATER's
-promise*. Two authors by `%an` (`blitterbot`, `Max Engel`; R1 C16's lines).
-The `--no-merges` count, the per-file attribution and the issue-number
-counts by occurrence are the lane's own lines (R1 ran none); the lane's
-`02` § Coverage quotes the subjects from its own `git log`, never from here.
+`2dae87308`; R1 C16), 17 without merges and 2 merges (`370ebe416` 2026-09-25, of `rocknix/master`;
+`2dae87308` 2026-09-15, of `feature/es-logging-rc11`), the newest
+`c8dc72cf9` 2026-10-11 *emulationstation: manage cloud connections and
+network recovery*, the oldest `62e45ea6f` 2026-08-27 *restore page: explain
+the rows, gate the cloud check, keep LATER's promise*; the table's column
+names the rest by subject. Two authors by `%an` (`Max Engel` 14,
+`blitterbot` 5; three addresses by `%ae`). The issue numbers over the 19
+subjects and bodies, counted by occurrence (`git log --format='%s%n%b'
+bccd715707..PIN -- <96> | grep -o -E '#[0-9]+' | sort | uniq -c`): #178 and
+#175 three each, #383, #199, #106 and #102 twice, the rest once (the proof's
+lines). The lane's `02` § Coverage quotes the subjects from its own `git
+log`, never from here.
 
 **What the research checked and found sound, beyond what the table and § 5
 carry, so the lane confirms rather than hunts:** the 83 upstream-carried
 files are byte-identical to `rocknix/master` and to the merge base (R1
 C12); every T35 source is named once and unconditionally in
-`es-core/CMakeLists.txt` (R3 cmd 21); the two `_("` strings of the
-keyboard's CLEAR and the dialogs' French in the catalog are **not
-checked** (R2 counted the lines, no research parsed
-`locale/lang/fr/LC_MESSAGES/emulationstation2.po` for this slice's
-msgids): the lane's own parser run, in T34's proof's shape, is the
-figure, `[unverified]` here.
+`es-core/CMakeLists.txt` (R3 cmd 21); the French of every msgid in the 96 **is checked** (the proof's parser,
+2026-10-31, at the pin): 61 distinct `_("` msgids over the ten files, every
+one with a non-empty French `msgstr`, the 25 `pgettext` pairs and the 2
+`ngettext` pairs too, and the fork's own added msgid is one, `CLEAR` ->
+`EFFACER` (po `:6923`); the lane re-runs the parser as its own line.
 
 **What they found instead -- the leads, one line each.** § 4 carries each
 lead's disposition and the question it serves, citing this table rather
@@ -668,16 +642,16 @@ more.
 | L-04 | `Window.cpp:1554-1563`, `:1572-1575`, `:1608-1619`, `:1634-1637`; `:29` | four `std::thread(...).detach()` bodies in `processStorageRequest` capture `this` and call `ApiSystem`; es-core includes es-app for it (`#include "../es-app/src/ApiSystem.h"`), the sibling of T34 L-07's `CloudText.h` include; upstream ROCKNIX's, outside the lanes | Q4, Q7 |
 | L-05 | `Window.cpp:262-281` | four keyboard-only Ctrl debug toggles (G/T/I/M) with the `Settings "Debug"` gate commented out on each line: on an image with a keyboard attached a chord changes the screen with no setting; cost against value | Q7 |
 | L-06 | `InputManager.cpp:1225`, `:1232`; `FavoriteMusicManager.cpp:115`; `utils/AtomicFileUtil.h:42` (T21's) | `es_input.cfg` and `es_last_input.cfg` are written in place by pugixml `save_file`, the favourites file by truncate-then-write; **zero** `AtomicFile::writeText` calls in the slice (R2 cmd 13: 7 write sites, none atomic) while the API the fork registered in this slice's CMake exists for exactly this (D-CLOUD-078's family) | Q2 |
-| L-07 | `InputManager.cpp:893`, `:1187`, `:1225`, `:1239`; `utils/FileSystemUtil.h:35` (T36's) | a hypothesis to verify against T36's cache: `exists(path)` caches a miss for the session (`es-code-traps.md:127`); on a device whose `es_input.cfg` does not exist yet the first `writeDeviceConfig` caches the miss, writes the file, and a **second pad configured in the same session** reads `exists` false at `:1187`, skips the merge and `save_file` replaces the file with the second device alone; 41 `exists(` lines in the slice, 0 pass `false` (R2 cmd 12) | Q2 |
+| L-07 | `InputManager.cpp:893`, `:1187` (the reads), `:1225` (the write), `:1250` (`doOnFinish`'s read; `:420` reads the SDL mapping files); `utils/FileSystemUtil.h:35` (T36's) | a hypothesis to verify against T36's cache: `exists(path)` caches a miss for the session (`es-code-traps.md:127`); on a device whose `es_input.cfg` does not exist yet the first `writeDeviceConfig` caches the miss, writes the file, and a **second pad configured in the same session** reads `exists` false at `:1187`, skips the merge and `save_file` replaces the file with the second device alone; 41 `exists(` lines in the slice, 0 pass `false` (R2 cmd 12) | Q2 |
 | L-08 | `InputManager.cpp:1242-1284` (`:1262`, `:1272`, `:1277`) | `doOnFinish` re-reads `es_input.cfg`, finds every `<inputAction type="onfinish">` and runs each `<command>` text **synchronously on the UI thread** through `ProcessStartInfo(...).run()`; a non-zero exit is a warning; the fork masks the logged line `:1270` | Q2 |
-| L-09 | `InputManager.cpp:1101-1108` against `GuiInputConfig.cpp:73`, `:270-281`; `InputConfig.cpp:186-189` | two names for the pad hotkey -- the SDL-mapping fallback writes `hotkey`, the configuration page writes `hotkeyenable` (`mapInput` lower-cases); which one the launch scripts read is outside the slice (T3's templates); the inconsistency is a fact of these lines | Q2, Q6 |
+| L-09 | `InputManager.cpp:1101-1108` against `GuiInputConfig.cpp:73`, `:270-281`; `InputConfig.cpp:186-189` | two names for the pad hotkey -- the SDL-mapping fallback writes `hotkey`, the configuration page maps `HotKeyEnable` (`GuiInputConfig.cpp:273`, `:279`), stored lower-cased as `hotkeyenable` by `mapInput` (`InputConfig.cpp:188`); which one the launch scripts read is outside the slice (T3's templates); the inconsistency is a fact of these lines | Q2, Q6 |
 | L-10 | `InputManager.cpp:946`, `:960` | the two "Approximative device found" `LogInfo` lines read `configNode.attribute(...)` before `configNode = item` is assigned, so they print empty attributes (pugi's null node is safe; the line is uninformative) | Q2 |
 | L-11 | `watchers/WatchersManager.cpp:181-199`, `:92-104`, `:151`, `:161`, `:172`, `:187`, `:130-131`; the callers `es-app/src/NetworkThread.cpp:87-95`, `:58` (T33's) | `mWatchersLock` held across every `check()`; `ResetComponent`, `GetComponent`, `Register`/`UnregisterComponent` and the destructor wait on the UI thread for a network or battery probe; `mRunning` is an unsynchronised `bool`; notifications run on the watcher thread (T33 PL-14 / #1283's es-core half, EP-13's `WatcherInfo` lifetime; R4 items 1-2) | Q3 |
 | L-12 | `guis/GuiMsgBox.cpp:116-134`, `:246-264` | the back-button accelerator: the only button; else the first named `OK` or `NO`; **else the last** -- a dialog without an `OK`/`NO` button binds back to whatever is last (T26 L-22's TRY AGAIN / CANCEL SIGN-IN; `es-ui-style-guide.md:178`); fired also by any `TYPE_BUTTON` from an **unconfigured pad** `:257-261` | Q6 |
 | L-13 | `guis/GuiTextEditPopupKeyboard.cpp:14`, `:220` against `components/MenuComponent.cpp:14` (T34's) | the second `BUTTON_GRID_HORIZ_PADDING`, 0.0052083333 against the house 0.022 (`es-native-ui.md:179-183`); two definitions, one macro name, two files; T34 L-05 recorded the claim's side, this slice owns the define (R4 item 6) | Q6 |
 | L-14 | `guis/GuiTextEditPopupKeyboard.cpp:392-397`, `:453-454`, `:491-496` | `x` on the keyboard, and the CLEAR button, commit `""` and delete the popup with no confirmation: one press empties a cloud folder path, a hostname or a Wi-Fi key and submits it (`es-ui-style-guide.md` § Confirmations: a consequential action asks) | Q6 |
 | L-15 | `guis/GuiTextEditPopup.h:15-16`, `guis/GuiTextEditPopupKeyboard.h:13-14`; `es-app/src/guis/GuiWifi.cpp:365`, `:367` (T21's) | neither popup class takes a masking mode; the WI-FI KEY popup types in the clear (T21 PL-26, Backlog #1192; R4 item 7); the field under it is `TextEditComponent` (T34's) | Q6 |
-| L-16 | `guis/GuiMsgBox.cpp:44`, `:234` | `TextToSpeech::getInstance()->say(text)` twice in one constructor | Q6 |
+| L-16 | `guis/GuiMsgBox.cpp:44`, `:234`, `:240` | `TextToSpeech::getInstance()->say(text)` twice in one constructor, and a third `say(btn->getText(), true)` for the focused button | Q6 |
 | L-17 | `guis/GuiInputConfig.cpp:134` | the subtitle `GAMEPAD %i` prints `getDeviceId() + 1`, the SDL instance id, not the player number: the third pad plugged in reads GAMEPAD 3 whatever its seat | Q6 |
 | L-18 | `Scripting.cpp:88-149` (`:92-93`, `:98-113`, `:142`), `:169-178` (`:172-176`) | `executeScript` quotes the script path only when it has a space, strips `"` from every argument and quotes an argument only when it contains a space -- a ROM `a$(id)b.zip` or a scraped name with a backtick reaches `sh` unquoted when any script sits in a hooks directory (T2 FD-9/FD-19; R4 item 18); on the device **every file** in `scripts/<event>/` runs (the extension filter is WIN32-only), fire-and-forget except `quit` | Q5 |
 | L-19 | `Scripting.cpp:158-207`; `watchers/WatchersManager.cpp:29-53` | `fireEvent("game-start")` scans three per-event directories and three single-script directories on every launch, empty or not (the directory's `exists` cached `:193`); `WatchersManager::pause` on the launch path (T2 `02:83`; `time-to-play.md`) | Q7 |
@@ -688,7 +662,9 @@ more.
 | L-24 | `InputManager.cpp:792-800` (`:795`) | F4 pushes `SDL_QUIT` through a `new SDL_Event()` never freed (`SDL_PushEvent` copies); one event per press | Q7 |
 | L-25 | `guis/GuiTextEditPopupKeyboard.h` (R1 C07's `last_fork_commit 1593c299f3` against C12's `Y Y`) | the inventory records a fork commit on a file that is byte-identical to the merge base: the touch was undone or merged away; a provenance footnote for § The merge debt, nothing to fix | Q7 |
 | L-26 | `es-core/CMakeLists.txt` at T21's `3ae9610b0` (`@@ -9`, `@@ -124`, `@@ -151`, `@@ -259`, R1 C21) | the one lane-on-lane hunk inside the 96, and two of the five files it registers (`HttpText.{cpp,h}`, `RecoveryOutcome.h`) fall to this slice's `rest` at T21's tip: a collision the integration owns and the hand-back names (§ 1 h) | Q7 |
-| L-27 | `Window.cpp:777-779`, `:1091-1105`, `:1107-1138` (`:1117`), `:234-260`, `:792`; `es-app/src/SystemScreenSaver.cpp:342-358`, `:378-380`, `:538-548` (T33's); `SystemData.cpp:459-473` (T2's) | **#1305 (T33 PL-25):** a slideshow screensaver that starts during a transfer fills its `FileData` list; the transfer's rescan deletes a game gone from disk; the next pick reads freed memory -- `stage-c/pl25-screensaver.py` FAILs at the pin and T33's tip with a heap-use-after-free in `selectGameMedia` (T33's record at `947ace1966`); the list is cleared only when the screensaver stops (`resetCounts` from `cancelScreenSaver`, `Window.cpp:1117`); nothing in the window holds the screensaver off while `GuiCloudTransfer` runs (`:777-779`) -- the window's half of a three-sided fix (R4 § 1's item 31, below) | Q4 |
+| L-27 | `Window.cpp:777-779`, `:1091-1105`, `:1107-1138` (`:1117`), `:234-260`, `:792`; `es-app/src/SystemScreenSaver.cpp:342-358`, `:378-380`, `:538-548` (T33's) ; `SystemData.cpp:459-473` (T2's) | **#1305 (T33 PL-25):** a slideshow screensaver that starts during a transfer fills its `FileData` list; the transfer's rescan deletes a game gone from disk; the next pick reads freed memory -- `stage-c/pl25-screensaver.py` FAILs at the pin and T33's tip with a heap-use-after-free in `selectGameMedia` (T33's record at `947ace1966`); the list is cleared only when the screensaver stops (`resetCounts` from `cancelScreenSaver`, `Window.cpp:1117`); nothing in the window holds the screensaver off while `GuiCloudTransfer` runs (`:777-779`) -- the window's half of a three-sided fix (R4 § 1's item 31, below) | Q4 |
+| L-28 | `Window.cpp:743-745`, `:1005-1078` (`:1031-1041`, `:1050-1075`); the components' chain `ComponentTab.cpp:341`, `ComponentGrid.cpp:493`, `:522-552`, `MenuComponent.cpp:533` (T34's) | **T34 PL-05 (#1307, inherited):** on the image at 1280x800 the tabbed SCRAPEUR page's help bar carried only FERMER and RETOUR -- no SWITCH TAB and no row prompt -- pixel-identical with a row or the strip focused; T34's seat traced SWITCH TAB through the pin's components, so the empty bar is the window's bar collection (`setHelpPrompts`, T35's) or the image's composition -- this slice reads which | Q6 |
+| L-29 | `Window.cpp:1005-1078` (`:1031-1041` the merge by icon); `ComponentList.cpp:568` (T34's; D-UI-133) | **T34 PL-04 / D-UI-133 (#1307, inherited):** at 1280x800 the list's CHOISIR prompt drew its icon with 0 `Unknown help icon` lines in `es_log.txt` though the catalog carries `haut/bas` for `up/down` (po `:3708-3709`, T34's proof); why the window's bar did not show the component's `_()`-wrapped key is this slice's read of what `setHelpPrompts` does to a key it does not know | Q6 |
 
 **The neighbours, and whose they are:** `es-core/src/components/**` --
 `MenuComponent.cpp:14` (the house `BUTTON_GRID_HORIZ_PADDING` 0.022 and its
@@ -709,21 +685,12 @@ are **T34's** (#681, in flight; R4 item 24-27's lines); `HttpReq.{cpp,h}`
 the cloud threads **T18's** (#665); `ProxyCards`, `ThreadedHasher` **T20's**
 (#667); `guis/GuiMenu.*` **T26's** (#673); every other page under
 `es-app/src/guis/` (`GuiLoading.h` included) **T31's** (#678); the views and
-`HttpServerThread.cpp` (the `/quit` and `/messagebox` routes, R4 item 30)
-**T32's** (#679); `AppWindow.h`, `NetworkThread.cpp`, `SystemScreenSaver.cpp`,
+`services/HttpServerThread.cpp` (the `/quit` `:219` and `/messagebox` `:545` routes, each posting its `GuiMsgBox` through `postToUiThread` `:229`, `:559`, R4 item 30) **T32's** (#679); `AppWindow.h`, `NetworkThread.cpp`, `SystemScreenSaver.cpp`,
 `main.cpp`'s exit order (`:1322` `closing()`, `:1330` `WatchersManager::stop()`,
-`:1358` `window.deinit()`, R4 § 2) **T33's** and **T2's** (#680, #649). The
-include reach the lane measures (R3 § 2.2 for the slice-wide list): **18
-SDL angle includes over the 101 es-core files outside T34's and T36's
-directories** (R3 cmd 4; two of them T21's `HttpReq.cpp:9`,
-`SystemConf.cpp:17`), **2 quoted `"SDL_mixer.h"`** (`AudioManager.h:8`,
-`Sound.h:5`, R3 cmd 16), **51 non-standard angle includes** over the same
-101 (R3 cmd 14; the table in R3 § 2.2: `<libcec/*>` under `HAVE_LIBCEC`,
-`<libudev.h>` x3 under `HAVE_UDEV`, `<pulse/pulseaudio.h>` under
-`_ENABLE_PULSE_`, `<espeak/speak_lib.h>` under `_ENABLE_TTS_`,
-`<FreeImage.h>`, the WIN32 set); `Window.cpp:29` the one es-core to es-app
-include in the slice; the outside-includer count per header is the lane's
-run (no research line).
+`:1358` `window.deinit()`, R4 § 2) **T33's** and **T2's** (#680, #649). The include reach is § 5 item 1's (18 SDL angle lines over the 101, 2 quoted
+`"SDL_mixer.h"`, 51 non-standard angle includes with their guards,
+`Window.cpp:29` the one es-core to es-app include); the outside-includer
+count per header is the lane's run (no research line).
 
 **Already found; do not re-find; take up.** Each is cited at its lines in
 `02` with a disposition; the states are as R4 read them on 2026-10-30 (R4
@@ -763,7 +730,9 @@ ruling the table names by letter is § 1's. The audit folders are § 3 item
 | T34's brief `:623-624` | `ThemeData.cpp:267` and its 13 component-header includes | **read**: the contract T34's tile text (#27, D-UI-050, ES `2088eadb9`) reads from the theme (R4 item 27) -- Q7 |
 | D-UI-021 (register `:78`); `es-native-ui.md:138-141`; T34's brief `:671`; #63, #65 (OPEN) | `Window.cpp:287-288`; `GuiComponent.cpp:54-63` | **read**: the component half is T34's (its G-05), the pages T31's; this slice states how the window hands a key to the top page and nothing else (R4 item 28) -- Q6 |
 | #1178 (OPEN, `bug`; T20 `02:158`) | `GuiMsgBox.cpp` as the surface | **no T35 action**: the box shows what it is given (`GuiMsgBox text: [std::exception]`, T20's fixture); recorded so the lane does not re-find it (R4 item 29) |
-| T32 `02:180`, `:196`, `:378` | `GuiMsgBox.cpp` as the surface; `HttpServerThread.cpp` (T32's) | **no T35 action** unless the read finds the box assumes the interface thread: the `/quit` and `/messagebox` routes open a YES/NO box from the pool thread (R4 item 30) -- Q4 |
+| T32 `02:180`, `:196`, `:378` | `GuiMsgBox.cpp` as the surface; `services/HttpServerThread.cpp:219`, `:229`, `:545`, `:559` (T32's) | **no T35 action**: at the pin both routes post their box through `mWindow->postToUiThread`, so it is built on the interface thread (the proof; R4 item 30) -- Q4 |
+| **T34 PL-05 (#1307, OPEN `audit` `punch-list`; body line 11, *tracked: the stage-D pause*)** | `Window.cpp:743-745`, `:1005-1078`; the components' chain (T34's) | **read**: the window's bar collection against the components' prompts on a tabbed page at 1280x800 (G-11 frames one), and where SWITCH TAB and the row prompt are dropped -- L-28, Q6 |
+| **T34 PL-04 / D-UI-133 (#1307; body line 10)** | `Window.cpp:1005-1078` (`:1031-1041`); `ComponentList.cpp:568` (T34's) | **read**: what `setHelpPrompts` does to a translated icon key, and why no `Unknown help icon` line was written for `haut/bas` -- L-29, Q6 |
 | **T33 PL-25 / #1305** (OPEN, `bug`, filed 14:45 UTC 2026-10-30 on #680; T33 `05:502-513`, `02:61` EP-38; `stage-c/pl25-screensaver.py` at `947ace1966`, `t33extract.py` beside it) | `Window.cpp:777-779`, `:1091-1138` (`:1117`), `:234-260`, `:792`; `SystemScreenSaver.cpp:342-358` (T33's); `SystemData.cpp:459-473` (T2's) | **read** then **pause**: the window's half -- whether the screensaver may start while a transfer page owns the screen (`:777-779` reads only `mTimeSinceLastInput`), whether `cancelScreenSaver`'s `resetCounts` (`:1117`) is the only path that clears the list, and what the window does to the screensaver on a rescan or a `removeGui`; T2's rescan patch and T33's screensaver retirement are the other two halves, named for their owners at the pause; the script is the FAIL-at-pin harness this slice re-runs unchanged (§ 5, 3.27) -- L-27, Q4 |
 | #585 (OPEN; body 125 lines, 0 es-core matches; 33 comment lines, 0, R4 § 5) | -- | the lines this slice owes start with T33's never-posted candidate (`WatchersManager.cpp` L-01 for `rocknix/master`) and R4 § 5's four: the lock, `Scripting`'s quoting, the controllers blob, the second padding constant if deleted -- each a line for the coordinator to post, never the lane's (Q7) |
 
@@ -773,14 +742,11 @@ In this order, each read in this session, and `01-research-notes.md` says
 which were read (`working-principles.md` § Pre-flight):
 
 1. **The rules**, each at the section named, with the question it serves;
-   the section's own sentence is not repeated here -- open it (the line
-   numbers are the coordinator worktree's at `7a32dff771`, the header's
-   hash, by `grep -n '^## '`; the drafter re-read the headings at
-   `547cdb831a` on 2026-10-30 at 20:01 UTC: every heading below holds
-   there except `es-player-text.md`'s lines from `:273` on, which moved by
-   +4 (`30c3c402fd`, hunk `@@ -271,2 +271,6`), so `:326` reads at `:330`
-   at that tip; the register's `## Open decisions` opens at `:764` there,
-   two rows later than the header's `:762`):
+   the section's own sentence is not repeated here -- open it (the line numbers are the coordinator worktree's at `a00b3354d5`, the
+header's hash, by `grep -n '^## '`; the stranger's proof read every one
+there on 2026-10-31: `es-player-text.md`'s lines from `:273` on moved by +4
+since `7a32dff771` (`30c3c402fd`, hunk `@@ -271,2 +271,6`), so T34's `:326`
+reads `:330` here; the register's `## Open decisions` opens at `:769`):
 
    | Rule | Line | Section | Serves |
    | --- | ---: | --- | --- |
@@ -811,9 +777,9 @@ which were read (`working-principles.md` § Pre-flight):
    | | `:232` | Buttons: BACK last; gate by existence | Q6 |
    | | `:296-304` | Interaction rules: cardinal positions, South confirms, East cancels; `getHelpPrompts()` is how players learn the assignments | Q6 |
    | `es-player-text.md` | `:25` | the brand stays lowercase (D-WORKFLOW-144) | Q6 |
-   | | `:29`, `:31` | Conventions: every label through `_()`; a toast is one line at 0.9 of the screen (D-UI-105) | Q6, Q1 |
+   | | `:29`, `:31`, `:135` | Conventions (`:29`): every label through `_()` (`:31`); a toast is one line at 0.9 of the screen (`:135`, D-UI-105) | Q6, Q1 |
    | | `:141` | Every fork string ships in English and French (D-UI-051) | Q6, § 9 |
-   | | `:264`, `:326` (`:330` at `547cdb831a`) | the capture-failure toast follows the card (D-UI-093); TRY AGAIN on a page's help bar | Q1, Q6 |
+   | | `:264`, `:330` | the capture-failure toast follows the card (D-UI-093); TRY AGAIN on a page's help bar | Q1, Q6 |
    | `engineering-practices.md` | `:12` | Change stays inside the fork's lanes (D-UI-079): § 1's lane and upstream-surface lists | every Q |
    | | `:28` | Check upstream early (D-WORKFLOW-162): batocera's twelve (§ 2), `9dbd4b9bf`'s `setOpacity` guard (item 12) | Q7 |
    | | `:83` | Verify design intent (`git log -S` before each FAIL-at-pin lead: the LIFO pop, the second constant, the quoting) | § 4, § 5 |
@@ -836,7 +802,7 @@ which were read (`working-principles.md` § Pre-flight):
    | `player-language.md`, `least-surprise.md`, `time-to-play.md` | whole | | Q6, Q7, § 6 |
 
 2. **The register.** The rows that name a file or behaviour here (the
-   coordinator's branch at `7a32dff771`; the line is the table's; R2 cmd 14
+   coordinator's branch at `a00b3354d5`; the line is the table's; R2 cmd 14
    printed 18 matching lines, R4 § 3 the 16 of its own pattern): D-UI-016
    `:56` (no drawn border; `NOTIFICATION_OPACITY` 255 -- the card this
    window places), **D-UI-021** `:78` (the strip is a focus stop; the window
@@ -859,18 +825,22 @@ which were read (`working-principles.md` § Pre-flight):
    D-UI-042, D-UI-045, D-WORKFLOW-155/156, 164/165, D-CLOUD-078 (the last
    known good state, L-06's family), D-CLOUD-119 (the exit sync's 3 s).
    **The highest decided IDs per area, read from the table above `## Open
-   decisions` at `547cdb831a` on 2026-10-30 (the drafter's line, the kit's
-   command restricted to the decided table): D-CLOUD-190, D-INFRA-031,
-   D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-129,
-   D-WORKFLOW-213**; D-SYS-014 is an open decision (`:770`), not a row;
-   R5 § G's reading at `50e94e0e7f` (D-CLOUD-187, D-SYS-014) predates
-   D-CLOUD-188 to 190 and counted the open table. The pointer's
+decisions` (`:769`) at `a00b3354d5` on 2026-10-31 by the stranger's proof
+(an `awk` over the decided table): D-CLOUD-191, D-INFRA-031, D-LAUNCH-007,
+D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-133, D-WORKFLOW-213** --
+D-CLOUD-190 `:762`, D-UI-130 to D-UI-133 `:763-766` (T34's four pause
+rulings: `TextComponent` measures at its drawn width; a two-line row's
+shares sum to 1; the row inset is a screen fraction; a help-icon key never
+goes through `_()`, L-29's row) and D-CLOUD-191 `:767` landed after version
+1; D-SYS-014 is an open decision (`:775`), not a row; R5 § G's reading at
+`50e94e0e7f` (D-CLOUD-187, D-SYS-014) predates D-CLOUD-188 to 191 and
+counted the open table. The pointer's
    `Register:` line is filled from the same command at `COHASH`, never from
    here (§ 10); `tools/register-check` is the proof. The lane reads the
    card, toast, accelerator and lock rows by `tools/archaeology 'floating
    surface'`, `'toast'`, `'back-button'` and `'WatchersManager'` before
    calling anything pending.
-3. **The menu map** (`docs/es-menu-map.md`, 989 lines at `547cdb831a` by
+3. **The menu map** (`docs/es-menu-map.md`, 989 lines at `a00b3354d5` by
    `/usr/bin/grep -c ''`, unchanged since `a8fe371b0a` by the header's
    diff): `:134` (CONTROLLER & BLUETOOTH: SETTINGS · BLUETOOTH · DISPLAY
    OPTIONS · BEHAVIOR · PLAYER ASSIGNMENTS -- **no row names the
@@ -890,14 +860,15 @@ which were read (`working-principles.md` § Pre-flight):
    _("TITLE"))`, a direct `GuiSettings(` and `MenuComponent(window,
    _("TITLE"))` as screen titles, and its `SOURCE_DIRS` at `:58` are
    `["es-app/src/guis", "es-core/src/guis"]` (the drafter's read at
-   `547cdb831a`; R3 § 6 left the glob open) -- so the six es-core dialogs
+   `547cdb831a`, held at `a00b3354d5` by the proof -- the checker last changed
+   at `d52e3d81c7`; R3 § 6 left the glob open) -- so the six es-core dialogs
    are scanned and, building on `ComponentGrid`/`NinePatchComponent` rather
    than `MenuComponent` (R2 § 4), are expected to contribute 0 titles; the
    lane prints the checker's per-file count before citing that 0, and § 7's
    checkbox is worded on the rows a stream adds, with the checker's line
    quoted, red if it cannot see them.
 4. **The blindspots** (`docs/blindspot-register.md`, 1,250 lines at
-   `547cdb831a`, unchanged since `a8fe371b0a`; R4 § 7's grep for the
+   `a00b3354d5`, unchanged since `a8fe371b0a`; R4 § 7's grep for the
    window's words printed `1`, `:722`, a font line): 4 (`:13`: `close()`
    inside a page's own handler -- `GuiMsgBox::deleteMeAndCall`
    `:286-294` is the invariant that keeps it, item 9), 5 (`:14`:
@@ -920,7 +891,9 @@ which were read (`working-principles.md` § Pre-flight):
    T34 § 3 item 5), `es-app/tests/unit/CMakeLists.txt` (159 lines; the four
    targets, R3 § 1.1; `:30` the one comment naming a slice file,
    `LogPolicy.h`; `:114-117` the `es-conf-tests` doubles comment; `:126`
-   its `fakes` root first), **`es-app/tests/unit/LogPolicyTests.cpp:13`**
+   its `fakes` root first; `:142-158` `es-file-tests-win32`, the executable
+   `:146`; `es-app/tests/unit/fakes/` holds `SDL_timer.h` alone, the proof's
+   `ls-tree`), **`es-app/tests/unit/LogPolicyTests.cpp:13`**
    (the one of the 96 a test exercises directly, R1 C24; its cases are the
    model for a `Log.cpp` binary), `SystemConfTests.cpp:18-20` (the real
    `Log.h`, `Paths.h`, `Settings.h` with their bodies defined in the test
@@ -971,22 +944,27 @@ which were read (`working-principles.md` § Pre-flight):
    an input tool for this slice (R3 § 4: `wifictl` under bubblewrap and the
    phone page's JavaScript; 0 lines of `sendkey`, the monitor, `emulationstation`
    or `screendump`).
-7. **The French**: 86 `_("` lines in 13 files (R2 cmd 8; the per-file
-   lines are § 2's), 77 of them in the seven files R3 cmd 23 counted
-   (`Window.cpp` 37, `GuiInputConfig.cpp` 14, `GuiTextEditPopupKeyboard.cpp`
-   11, `GuiDetectDevice.cpp` 5, `InputManager.cpp` 4, `GuiMsgBox.cpp` 3,
-   `GuiTextEditPopup.cpp` 3), the pattern missing `pgettext("joystick",
-   ...)` (`GuiInputConfig.cpp:11-40`, `:163`) and `ngettext` (`:347`);
-   **no research parsed the French catalog for this slice's msgids**
-   (§ 2): the lane's parser run in T34's proof's shape -- every msgid of the
-   fork's lines (`CLEAR` at `GuiTextEditPopup.cpp:34`, the keyboard's
-   `:454`, `:491`; the `Window.cpp` fork lines) against
-   `locale/lang/fr/LC_MESSAGES/emulationstation2.po` -- is the figure,
-   `[unverified]` here, and `tools/es-untranslated`'s two tree-wide lines
-   are T33's at this pin as T34's brief `:841-843` cites them (`706 fork
-   string(s) ... 0 without` against `bccd715707`, `703 ... 0 without`
-   against `cada856d86`), unchanged by this slice since it adds no msgid
-   T33's run did not count; the tool sees only `_("...")` literals.
+7. **The French**: 86 `_("` lines in 10 files (R2 cmd 8's 86; the proof's
+   per-file line: `Window.cpp` 37, `GuiInputConfig.cpp` 14,
+   `GuiTextEditPopupKeyboard.cpp` 11, `GunManager.cpp` 6,
+   `GuiDetectDevice.cpp` 5, `InputManager.cpp` 4, `GuiMsgBox.cpp` 3,
+   `GuiTextEditPopup.cpp` 3, `BindingManager.cpp` 2, `TextToSpeech.cpp` 1;
+   97 occurrences; 61 distinct msgids), the pattern missing
+   `pgettext("joystick", ...)` (`GuiInputConfig.cpp:11-40`, `:163`; 27
+   `pgettext`/`ngettext` lines there and `GuiDetectDevice.cpp:42`'s
+   `ngettext`) and `ngettext` (`:347`); **the French catalog is parsed for
+   this slice's msgids** (the proof, 2026-10-31, at the pin): every one of
+   the 61 has a non-empty `msgstr`, the 25 `pgettext` pairs and the 2
+   `ngettext` pairs too, and the fork's own added msgid is one, `CLEAR`
+   (`GuiTextEditPopup.cpp:34`, the keyboard's `:454`, `:491`) -> `EFFACER`
+   (po `:6923`) -- the `Window.cpp` fork hunks add no `_("` literal; the
+   lane re-runs the parser as its own line. `tools/es-untranslated`'s two
+   tree-wide lines at this pin are `706 fork string(s) in the source, 706
+   with French, 0 without` rc 0 against `bccd715707` and `703 fork string(s)
+   in the source, 703 with French, 0 without` rc 0 against `cada856d86` (the
+   proof, over the `qa-integration` checkout at the pin, `status --short`
+   0), unchanged by this slice since it adds no msgid T33's run did not
+   count; the tool sees only `_("...")` literals.
 8. **The audits**, each on its lane's branch and in its folder, named here
    once and cited by section elsewhere (the tips are R1 C19's and R4 § 10's
    of 2026-10-30): **T2** `origin/feature/m6-es-launch-path-649`
@@ -1015,7 +993,8 @@ which were read (`working-principles.md` § Pre-flight):
    `stage-a/env.sh`, `stage-a/fakes/` the 13, `stage-c/pl25-screensaver.py`,
    `t33-streams.md:81`, `:147`, `:188`, `:203`); **T34**
    `feature/m6-es-core-components-681` (in flight; its folder at
-   `22c0d5a2c2` held `00` and `stage-a/` only at R4's read, R4 § 9), whose
+   `22c0d5a2c2` held `00` and `stage-a/` only at R4's read, R4 § 9; its
+   punch list is #1307), whose
    `02` § What T35 to T37 inherit (its brief `:1346-1355`: the `setOpacity`
    callers' read for this slice, the `components-tests` recipe, the tenth
    fake) is read mid-run when it lands; the older milestone audits'
@@ -1023,12 +1002,15 @@ which were read (`working-principles.md` § Pre-flight):
    `2026_09_25 02:199` F-ES-24). Read with `git -C <worktree> show
    <branch>:<path>`, never a checkout.
 9. **The issues**: #682's own body; #1283, #1276, #1212, #1192, #1178,
-   #54, #1270, #1305 (R4 § 4 and § 1's (g)); #585 (0 es-core lines in its
+   #54, #1270, #1305, #1307 (R4 § 4 and § 1's (g)); #585 (0 es-core lines in its
    body and comments, R4 § 5); #63, #65, #115, #149, #177, #178, #246,
    #283, #299, #48, #1137, #1138, #1141, #1192, #1195, #1245; #700, #680,
    #681. States as R4 read them on 2026-10-30: #1283, #1276, #1212, #1178
-   OPEN `bug`; #1192 OPEN Backlog; #54 OPEN, no label; #1270 OPEN `audit`;
-   #1305 OPEN `bug` (§ 1); #585 OPEN; #682 OPEN, 0 comments at 14:38 UTC.
+   OPEN `bug`; #1192 OPEN Backlog; #54 OPEN, no label; #1270 CLOSED (T33's
+   audit issue, closed at its acceptance -- the proof's `gh` read of
+   2026-10-31); #1307 OPEN `audit` `punch-list` (T34's, 43 findings; its
+   PL-04 and PL-05 at body lines 10-11); #1305 OPEN `bug` (§ 1); #585 OPEN;
+   #682 OPEN, 0 comments at the proof's read.
    The lane re-reads each with `gh --repo pixelelated/distribution issue
    view` at stage A and records the states it saw.
 10. **Time to play**: `docs/vm-qa-log.md:9-18` (the three headline
@@ -1075,7 +1057,7 @@ nothing*; the 86 `_("` lines and `GAMEPAD %i` are *a player sentence*;
 
 - **Q1 The window's queue and its surfaces: one floating surface at a
   time** (`es-native-ui.md:144`, `:189-194`, `:207-222`;
-  `es-player-text.md:31`, `:264`; D-UI-093, D-UI-105, D-UI-106, D-UI-109;
+  `es-player-text.md:135`, `:264`; D-UI-093, D-UI-105, D-UI-106, D-UI-109;
   the surfaces run). **L-01**: 3.14's extract seen to FAIL at the pin if
   two toasts queued under a card drain newest first (`back()`/`pop_back()`
   `:339-340`) against the comment's *"the order is the order things
@@ -1242,17 +1224,19 @@ nothing*; the 86 `_("` lines and `GAMEPAD %i` are *a player sentence*;
   calls it -- the invariant T26's and T31's pages rest on; stated and kept.
   **Item 17 / #1212**: `:542-543` updates and `:287-288` feeds only the
   top page -- the invariant a T21 bug's "no wrong outcome" rests on;
-  stated. **Item 30**: T32's `/quit` and `/messagebox` routes open a
-  `GuiMsgBox` from the pool thread (`HttpServerThread.cpp`, T32's): whether
-  `GuiMsgBox`'s constructor assumes the interface thread (it reads fonts,
-  the theme and `Renderer::getScreenWidth()` `:21-23`, `:53`, and pushes
-  itself? -- read at `:24-110`); recorded, a line for T32 if it does.
+  stated. **Item 30**: T32's `/quit` and `/messagebox` routes
+  (`services/HttpServerThread.cpp:219`, `:545`) post their `GuiMsgBox`
+  through `mWindow->postToUiThread` (`:229`, `:559`), so the constructor
+  (fonts, the theme, `Renderer::getScreenWidth()` `:21-23`, `:53`) runs on
+  the interface thread; recorded, no line for T32 (the proof).
   **L-24**: F4's `new SDL_Event()` never freed `:795`: one event per press,
   recorded (rule 6 if the pause wants it; a #585 line). A table: every
   `std::thread` (R2 cmd 10's 18 lines), every `.detach(` (4, all
-  `Window.cpp`), every `delete this` in the slice (the popups: `GuiMsgBox.cpp:290`,
-  `GuiTextEditPopup.cpp:72-76`, `GuiTextEditPopupKeyboard.cpp:350-361`,
-  `:392-397` -- the lane's grep), every `postToUiThread` and its owner
+  `Window.cpp`), every `delete this` in the slice (17 lines, the proof's grep:
+  `GuiDetectDevice.cpp:99`, `:132`, `:145`; `GuiInputConfig.cpp:262`,
+  `:288`; `GuiMsgBox.cpp:289`; `GuiTextEditPopup.cpp:33-35`, `:74`;
+  `GuiTextEditPopupKeyboard.cpp:346`, `:352`, `:359`, `:395`, `:477`,
+  `:494`, `:499`), every `postToUiThread` and its owner
   token, every raw pointer the window hands out (`createAsyncNotificationComponent`
   `:1169`) or holds (`mScreenSaver` `.h:147`, `mHelp`), who joins or frees
   it, what it touches on the interface thread.
@@ -1319,8 +1303,9 @@ nothing*; the 86 `_("` lines and `GAMEPAD %i` are *a player sentence*;
   **L-15 / item 7 (#1192)**: neither popup class takes a masking mode
   (`.h:15-16`, `.h:13-14`); the field under them is `TextEditComponent`
   (T34's); the Backlog is the coordinator's, the lane states where the
-  mode belongs. **L-16**: `TextToSpeech::say` twice in one constructor
-  `:44`, `:234` (3.20): a one-line fix under rule 6, a #585 line. **L-17**:
+  mode belongs. **L-16**: `TextToSpeech::say` three times in one constructor -- `:44` and
+  `:234` say the text, `:240` the focused button's label (3.20): the second
+  `say(text)` is a one-line fix under rule 6, a #585 line. **L-17**:
   `GAMEPAD %i` with `getDeviceId() + 1` `GuiInputConfig.cpp:134` -- the
   SDL instance id, not the player's seat (3.21): a player sentence that
   misleads; the fix (the player number from `computePlayersConfigs`, or
@@ -1334,8 +1319,25 @@ nothing*; the 86 `_("` lines and `GAMEPAD %i` are *a player sentence*;
   `:1077`, `:1397`, `:1398`) call no `setOpacity`, so batocera's `9dbd4b9bf`
   guard has no caller here -- the callers' read is T34's for this slice
   (its § 5 item 3), taken up for the eight lines under D-WORKFLOW-162;
-  G-04 and G-11 read which pages show a bar at 640 and 1280. **Item 28**:
-  `Window::input` `:215-290` hands a key to `peekGui()` alone `:287-288`
+  G-04 and G-11 read which pages show a bar at 640 and 1280. **L-28 / T34 PL-05 (#1307, inherited)**: on the image at 1280x800 the
+  tabbed SCRAPEUR page's help bar carried only FERMER and RETOUR, no SWITCH
+  TAB and no row prompt, pixel-identical with a row or the strip focused;
+  T34's seat traced SWITCH TAB through the pin's components
+  (`ComponentTab.cpp:341`, `ComponentGrid.cpp:493`, `:522-552`,
+  `MenuComponent.cpp:533`), so the empty bar is the window's bar collection
+  (`setHelpPrompts` `:1005-1078`, the gate `:743-745`) or the image's
+  composition: 3.16's extract over `setHelpPrompts` with a tabbed page's
+  prompt list, and G-11's frame of a tabbed page's bar at 1280x800, say
+  which -- the window's half is this slice's, the components' T34's. **L-29
+  / T34 PL-04 / D-UI-133 (#1307, inherited)**: at 1280x800 the list's
+  CHOISIR prompt drew its icon with 0 `Unknown help icon` lines in
+  `es_log.txt` though the catalog carries `haut/bas` for `up/down` (po
+  `:3708-3709`, T34's proof); why the window's bar did not show the
+  component's `_()`-wrapped key (`ComponentList.cpp:568`, T34's fix site) is
+  this slice's read: what `setHelpPrompts` `:1031-1041` does to a key it
+  does not know (merged by icon, dropped, or passed through), stated for
+  T34's fix. **Item 28**: `Window::input` `:215-290` hands a key to
+  `peekGui()` alone `:287-288`
   after the `FirstJoystickOnly` filter `:220-232` and the screensaver block
   `:234-260`; `GuiComponent::input` `:54-63` iterates children with a
   saved `next_it`: the window's half of D-UI-021 stated, the strip T34's,
@@ -1343,13 +1345,18 @@ nothing*; the 86 `_("` lines and `GAMEPAD %i` are *a player sentence*;
   catalog (item 7 of § 3; the parser run is the figure), the fork's own
   (`CLEAR` x3, the `Window.cpp` card lines) read for the four tiers and the
   two verbs (`es-player-text.md` § Conventions), `GuiDetectDevice.cpp:52`
-  (HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT) and `GuiInputConfig`'s 14
+  (HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT., with its period; po
+  `:3779`) and `GuiInputConfig`'s 14
   prompts in both languages on the guest (G-07, G-08); `processStorageRequest`'s
   sentence-case dialogs `:1547-1548`, `:1601-1602` recorded as upstream's
-  dialect (D-UI-079); the 0 non-ASCII **comment** lines in the 12
-  fork-modified files and the glyph literals (`InputManager.cpp:856`,
-  `:869`; `GuiTextEditPopupKeyboard.cpp:169-192`) recorded as literals,
-  which `es-code-traps.md:60` allows. A table: every `getHelpPrompts` and
+  dialect (D-UI-079); the non-ASCII lines (the proof, `LC_ALL=C`): 28 lines in four files -- the
+  keyboard's 22 glyph literals (`GuiTextEditPopupKeyboard.cpp:169-192`,
+  which `es-code-traps.md:60` allows) and six upstream **comment** lines,
+  `AudioManager.cpp:352`, `:362`, `:383`, `GunManager.cpp:145`,
+  `InputManager.cpp:393`, `:1437` -- none on a line the fork added (its
+  `-U0` diff against `cada856d86` adds 0), recorded and not fixed as
+  `es-code-traps.md:60` says of an upstream hit; `InputManager.cpp:856`,
+  `:869` are plain ASCII. A table: every `getHelpPrompts` and
   `input()` in the slice with the condition under which it offers or
   consumes a key; every `_("` line with its msgid and its French.
 - **Q7 Cost against value, the structure and the merge debt**
@@ -1373,7 +1380,7 @@ nothing*; the 86 `_("` lines and `GAMEPAD %i` are *a player sentence*;
   broken include is a silent fallback, a broken root a logged one;
   upstream's parser, read for brittleness and recorded (no fork hunk, 25
   `LOG(Log` lines), `ThemeFileCache` `:719-743` under its mutex; **item
-  27** `:267`'s `GridTextProperties::multiLine` read for T34's tile; the
+  27** `:267`'s `{ "multiLine", STRING }` entry read for T34's tile; the
   gun manager's `poll(..., 0)` every `updateGuns` `:922-930` and six
   `ioctl`s per gun `:978-991` on a device with no gun (the udev monitor
   idle); `VolumeControl`'s thread `:32`, `:203` and 32 `LOG` lines, the
@@ -1387,19 +1394,22 @@ nothing*; the 86 `_("` lines and `GAMEPAD %i` are *a player sentence*;
   51 non-standard angle includes with their guards -- `<libudev.h>` x3
   under `HAVE_UDEV`, `<pulse/pulseaudio.h>` under `_ENABLE_PULSE_` which
   the image takes (`package.mk:23`), `<libcec/*>` and `<espeak/*>` off);
-  **whether `UDEV_FOUND` holds in the image build is `[unverified]`** (R3
-  § 2.2: `package.mk:13` names no udev package; a `CMakeCache.txt` read
-  from a build root settles it, or `CANNOT` with the root named); every
+  **whether `UDEV_FOUND` holds in the image build is `[unverified]`** (R3 §
+  2.2: `package.mk:13` names no udev package; the proof found no
+  `CMakeCache.txt` of an EmulationStation build under any
+  `*/build.*/build/emulationstation-*/` on this host and M7's roots are
+  never read, so the read that settles it is G-01's `ldd
+  /usr/bin/emulationstation | grep -c udev` on the guest, `image` side --
+  `CANNOT` until then); every
   T35 source named once and unconditionally in `es-core/CMakeLists.txt`
   (R3 cmd 21: `:147-171`, `if(` at `:278`, `:287`); **L-26** T21's
   `3ae9610b0` adds five registrations (R1 C21) -- the one lane-on-lane hunk
   inside the 96, the integration's, with `HttpText.{cpp,h}` and
   `RecoveryOutcome.h` falling to `rest` at T21's tip (§ 1 h); **L-25**
-  `GuiTextEditPopupKeyboard.h`'s provenance footnote; the `-DROCKNIX` gate
-  at `Splash.h:10-12` and `#if !defined(BATOCERA) || !defined(ROCKNIX)` at
-  `InputManager.cpp:585` -- the lane's `git grep -n 'ROCKNIX' PIN -- <96>`
-  is the list (R3 § 3.2 asks for it; no research printed it,
-  `[unverified]` as a count). **Merge debt: none** on the 96 (§ 2's one
+  `GuiTextEditPopupKeyboard.h`'s provenance footnote; the three `ROCKNIX` lines in the 96 (the proof's `git grep -n 'ROCKNIX'
+  PIN -- <96>`): `Splash.h:10` `#if defined(ROCKNIX)`,
+  `InputManager.cpp:585` `#if !defined(BATOCERA) || !defined(ROCKNIX)` and
+  `Paths.cpp:76` `#if defined(ROCKNIX)` (R3 § 3.2 asked for the list). **Merge debt: none** on the 96 (§ 2's one
   line); **batocera's twelve** since `1750dded8c` on nine files, six of
   them fork-modified (R1 C17, C18; § 2), as the reconciliation list -- the
   input configs written for the launcher (`dbabd1adf`) against the fork's
@@ -1454,7 +1464,7 @@ is the one FAIL the research holds** (T33's record at `947ace1966`).
 | 3.17 | `Window.cpp:1262-1274` against `:1276-1290`, `:1292-1307` | `unregisterPostedFunctions` | TSan over an extract: unregister on one thread while `postToUiThread` runs on another (L-03); the fix takes the lock |
 | 3.18 | `guis/GuiMsgBox.cpp:116-134`, `:246-264` | the back-button accelerator, lifted as text | the three branches present in the text (one button; `OK`/`NO`; the last); the behaviour is G-04's and G-05's (L-12) |
 | **3.19** | `guis/GuiTextEditPopupKeyboard.cpp:14` against `components/MenuComponent.cpp:14` | the two `#define BUTTON_GRID_HORIZ_PADDING` | **a grep-shaped case: the macro defined in two files of the pin with the factors `0.0052083333` and `0.022` (L-13)**; the fix leaves one definition or two names |
-| 3.20 | `guis/GuiMsgBox.cpp:44`, `:234` | `TextToSpeech::say` in the constructor | the text count of `say(` in the constructor is 2 (L-16); 1 after the fix |
+| 3.20 | `guis/GuiMsgBox.cpp:44`, `:234`, `:240` | `TextToSpeech::say` in the constructor | the text count of `say(` in the constructor is 3 (L-16: the text twice, the focused button once); 2 after the fix |
 | 3.21 | `guis/GuiInputConfig.cpp:134` | the `GAMEPAD %i` subtitle, lifted as text | `getDeviceId() + 1` is the argument (L-17); the fix's argument is the player's seat or the name |
 | 3.22 | `guis/GuiInfoPopup.cpp:88-111` (`:98`, `:103-109`) | the fade, extracted | alpha 0 at t 0, 255 at 250 ms, falling from `duration - 250`, `mRunning` false past `mDuration`; `maxWidth` 0.9 W (`:17`) |
 | 3.23 | `Log.cpp:60`, `:180`, `LogPolicy.h:1-55` | `AsyncLogger` against real files (the `SDL_timer.h` fake, `Settings`/`Paths` doubles as `SystemConfTests.cpp`) | every batch reaches the file before the worker sleeps (#178); WARNING and ERROR to stderr (`LogPolicyTests.cpp` holds the header's three functions already) -- the natural first binary (R3 § 2.2) |
@@ -1488,8 +1498,9 @@ is the one FAIL the research holds** (T33's record at `947ace1966`).
    includes** over the same 101 (R3 cmd 14) with their guards: `<libudev.h>`
    x3 under `HAVE_UDEV` (`GunManager.h:10`, `InputConfig.cpp:9`,
    `InputManager.cpp:26`; **whether `UDEV_FOUND` holds in the image build
-   is `[unverified]`**, `CMakeLists.txt:256-258` and `package.mk:13` read,
-   a `CMakeCache.txt` settles it), `<pulse/pulseaudio.h>` under
+   is Q7's `[unverified]`**, `CMakeLists.txt:255-258` and `package.mk:13`
+   read; no `CMakeCache.txt` is reachable on this host (the proof), G-01's
+   `ldd` settles it), `<pulse/pulseaudio.h>` under
    `_ENABLE_PULSE_` (`VolumeControl.cpp:14`; the image takes it,
    `package.mk:23 -DENABLE_PULSE=1`; the host parses the ALSA branch),
    `<libcec/*>` under `HAVE_LIBCEC` (off: `package.mk:22 -DCEC=0`),
@@ -1518,7 +1529,13 @@ is the one FAIL the research holds** (T33's record at `947ace1966`).
    six `guis/*`), 44 in all; the risk in (e) is an `SDLK_*` or
    `SDL_*Mutex` symbol used in a **body** that no header needed
    (`GuiMsgBox.cpp:250`, `GuiDetectDevice.cpp:94`,
-   `GuiTextEditPopupKeyboard.cpp:350`), which the first rc 1 names. **The
+   `GuiTextEditPopupKeyboard.cpp:350`), which the first rc 1 names; the
+   proof's plain `g++` over a `git archive` of the pin: `GuiMsgBox.cpp` and
+   `Window.cpp` die at `es-core/src/InputConfig.h:6:10: fatal error:
+   SDL_joystick.h: No such file or directory`, `InputManager.cpp` at
+   `InputManager.h:5:10` (the same header), while `WatchersManager.cpp`,
+   `Scripting.cpp` and `math/Vector2f.cpp` parse plain, rc 0 -- classes (a)
+   and (b) confirmed for three, `Scripting.cpp` needing no fake at all. **The
    SDL symbols the fakes must declare**: T21's `SDL_joystick.h` already
    carries `SDL_JoystickID`, `SDL_Keycode`, `SDL_Joystick`,
    `SDL_GameController`, `SDL_JoystickGUID`, the event ids,
@@ -1560,25 +1577,21 @@ is the one FAIL the research holds** (T33's record at `947ace1966`).
    relative to the file is `es-core/es-app/src/ApiSystem.h`, which does not
    exist; `-I es-core/src` plus `../` is the tree root, which the stand-in
    supplies (R3 § 3.2).
-   **The harness that exists, described once: nothing compiles one of the
-   96.** `es-app/tests/unit/CMakeLists.txt` defines `es-unit-tests` (16 test
-   files; es-core sources `utils/StringUtil.cpp`, `utils/TimeText.cpp`,
-   `utils/OfflineProxyUrl.cpp`, `:62-64`, T36's), `es-file-tests`
-   (`utils/AtomicFileUtil.cpp`, `:98`, T21's), `es-conf-tests`
-   (`SystemConf.cpp`, `:122-123`, with `fakes/` first `:126`, T21's) and
-   `es-file-tests-win32` (`:142`); `tests/app-unit/CMakeLists.txt` defines
-   `app-unit-tests` (no `fakes/`), `proxycards-tests`, `jobs-tests` and
-   `bookkeeper-tests` (each with `fakes/` `BEFORE`, each copying the source
-   under test into the build tree) (R3 § 1.1; R1 C22-C24): **a T35 source
-   compiled by a test target at the pin: 0 of 44**; the one of the 96 a
-   test names is a comment, `es-app/tests/unit/CMakeLists.txt:30` (`#
-   log's header-only rules (es-core/src/LogPolicy.h,`), and the one a test
-   includes directly is `LogPolicy.h` (`LogPolicyTests.cpp:13`); three
-   fakes double this slice's headers (`Window.h`, `Log.h`, `LocaleES.h`;
-   § 1 i), written for ProxyCards' tests by ES `1cf15dead` (R3 cmd 17);
-   whether `es-app/tests/unit/fakes/` holds a `Log.h` or `Paths.h` beside
-   its `SDL_timer.h` is **`[unverified]`** (R1 C24: *"not enumerated
-   here"*; `git ls-tree` of the directory settles it). **In the
+   **The harness that exists: nothing compiles one of the 96.** The eight
+   test targets of the two trees are § 3 item 5's (`es-unit-tests`,
+   `es-file-tests`, `es-conf-tests`, `es-file-tests-win32`;
+   `app-unit-tests`, `proxycards-tests`, `jobs-tests`, `bookkeeper-tests` --
+   the last three with `fakes/` `BEFORE`, each copying the source under test
+   into the build tree; R3 § 1.1, R1 C22-C24): **a T35 source compiled by a
+   test target at the pin: 0 of 44**; the one of the 96 a test names is a
+   comment (`es-app/tests/unit/CMakeLists.txt:30`) and the one a test
+   includes directly is `LogPolicy.h` (`LogPolicyTests.cpp:13`); three fakes
+   double this slice's headers (`Window.h`, `Log.h`, `LocaleES.h`; § 1 i),
+   written for ProxyCards' tests by ES `1cf15dead` (R3 cmd 17);
+   `es-app/tests/unit/fakes/` holds `SDL_timer.h` alone (`git ls-tree` at
+   the pin, the proof; R1 C24 had not enumerated it), so a T35 binary under
+   `es-app/tests/unit/` defines its own `Log`/`Paths` bodies as
+   `SystemConfTests.cpp` does. **In the
    coordinator worktree nothing exercises a window or input surface by
    name:** `tools/vm-qa:63`'s sixteen suites name none; the 18 walks drive
    menus by key through `Window::input`; `tools/es-menu-map-check:50-58`
@@ -1587,7 +1600,7 @@ is the one FAIL the research holds** (T33's record at `947ace1966`).
    `ProxyCards:|AsyncNotification`; `tools/time-to-play` measures the
    card's linger and the g2g dialog's answer (R3 § 4); the prior guest
    evidence is `docs/vm-qa-log.md:78`'s 21 card frames at 640x480 and
-   `:104`, `:107`'s help bar (`70 / 71` px at 640x480, `118 / 118` at
+   `:107`'s help bar (`70 / 71` px at 640x480, `118 / 118` at
    1280x800), `claims.txt:59`, `:63`, `:67-68`'s keyboard boxes at
    1280x800; **not on record anywhere**: a 640x480 keyboard frame, a
    toast queued under a card, a dialog's back accelerator landing on its
@@ -1686,14 +1699,14 @@ is the one FAIL the research holds** (T33's record at `947ace1966`).
 
    | G | Behaviour only the running image shows | Walk or serial command | Expected frame or line | Bound (s) |
    | --- | --- | --- | --- | ---: |
-   | G-01 | identity and side; the theme and the face; the input file | `vm-serial sh 'cat /etc/os-release; fbset; ls /usr/share/themes; find /usr/share -name "*.ttf" \| head; ls -l /storage/.config/emulationstation/es_input.cfg /usr/config/emulationstation/es_input.cfg 2>&1; grep -c inputAction /usr/config/emulationstation/es_input.cfg'`; the ES binary's digest against the pin's lines (T26's `g01-identity.txt` shape) | `BUILD_ID=...`, `640x480`; the theme; the face path for `tools/font-stems`; whether the user `es_input.cfg` exists before any configuration (L-07's precondition) and how many `inputAction` lines the shipped one carries (L-08's); every frame labelled `image` or `pin-binary` | 60 |
+   | G-01 | identity and side; the theme and the face; the input file | `vm-serial sh 'cat /etc/os-release; fbset; ls /usr/share/themes; find /usr/share -name "*.ttf" \| head; ls -l /storage/.config/emulationstation/es_input.cfg /usr/config/emulationstation/es_input.cfg 2>&1; grep -c inputAction /usr/config/emulationstation/es_input.cfg; ldd /usr/bin/emulationstation | grep -c udev'`; the ES binary's digest against the pin's lines (T26's `g01-identity.txt` shape) | `BUILD_ID=...`, `640x480`; the theme; the face path for `tools/font-stems`; whether the user `es_input.cfg` exists before any configuration (L-07's precondition) and how many `inputAction` lines the shipped one carries (L-08's); whether `libudev` is linked (1 or 0: the `UDEV_FOUND` answer, Q7's `[unverified]`, `image` side); every frame labelled `image` or `pin-binary` | 60 |
    | G-02 | a toast queued under a card, drawn in turn (D-UI-093, `Window.cpp:336-337`, `:1164`); the card at 0.9 W centred (`:1192`) | `default-pre` (`suite.txt:77`) with the WebDAV stanza seeded; reboot; the startup sync card over the carousel (`vm-qa-log:78`'s 21 frames are the precedent); a toast provoked while the card is up -- the games-list toast `Window.cpp:1505` by UPDATE GAMELISTS pressed from the menu, or the REBOOT REQUIRED toast of a setting toggled (the lane names which in its START post); `shot` at 0.4 s intervals for 6 s | the toast absent while the card is up, drawn after it leaves with its words intact; the card's left edge at x 32 and right at x 608 (0.9 x 640 = 576, centred; a stdlib `zlib` PNG reader, never by eye) -- `image` side | 240 |
    | G-03 | two toasts queued under a card shown newest first (L-01, `:339-340`) | -- | `CANNOT` in this window: no two-toast source the guest's keyboard can fire inside one card's lifetime (the pad connect/disconnect pair of `InputManager.cpp:856`, `:869` needs a pad, G-10); the proof is 3.14's extract | 0 |
    | G-04 | a YES/NO `GuiMsgBox`: back lands on NO (`GuiMsgBox.cpp:123-130`); the help bar under a second page (`Window.cpp:743-745`) | MAIN MENU > QUIT > RESTART EMULATIONSTATION; `shot`; press B (`z`); `shot`; the QUIT page itself framed for its bar | the dialog gone and EmulationStation still running (`vm-serial sh 'pgrep -c emulationstation'` unchanged across the press); the help bar carrying one CHOOSE (T34's G-03 measures the gap; this slice reads the outcome); on the QUIT page, a second-level page at 640 with full-screen menus, no bar from the Window (or the bar, and the page named) -- `image` side | 120 |
    | G-05 | a two-button dialog with neither OK nor NO: back lands on the **last** button (`:132-133`) | the lane picks one such dialog reachable on the unseeded guest and names it in its START post (T26 L-22's TRY AGAIN / CANCEL SIGN-IN needs a provider; a cloud row's refusal with a second verb, or `processStorageRequest`'s pair, read from the map first); `shot`; press B (`z`); `shot` | the last button's action taken by B -- the frame after names what happened; else `CANNOT: no two-button dialog without OK/NO is reachable without an account`, the candidates listed -- `image` side | 120 |
    | G-06 | the on-screen keyboard at 640x480: its layout, per-key gap (`GuiTextEditPopupKeyboard.cpp:14`, `:220`), START submits, ESC cancels, `x` clears and commits (`:392-397`) | `to-change-cloud-folder` then `confirm-cloud-folder` (their steps as written: START submits once); reopen the keyboard; `key esc`; `shot`; reopen; `key s` (= X); `shot` the PATHS page | the keyboard's frame with its key gap measured in columns (0.0052083333 x 640 = 3.33 px per quarter-pad, against the bar's 14); START closes it with the value kept; ESC closes it unchanged; **after `s` the popup is gone and the row's value is empty with no question asked** (L-14's positive) -- `image` side; the guest's SAVES FOLDER pointer is reseeded by `default-pre` after | 180 |
    | G-07 | the dialogs and the keyboard under French (D-UI-051): `kbFr` (`:45-70`), the YES/NO box, the detect page's sentence | `systemctl stop essway`; `system.language` set to `fr_FR` over serial (`generic-x64-vm-testing.md:1145`); ES started; G-04's dialog, G-06's keyboard, G-08's detect page; `shot` each | OUI/NON on the box; the French key labels and EFFACER (or the catalog's word for CLEAR, read from the `.po` first); the detect page's sentence in French at 640 without clipping -- `image` side | 120 |
-   | G-08 | the input-config flow: HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT (`GuiDetectDevice.cpp:52`), the hold, `GuiInputConfig`'s 14 prompts and `GAMEPAD %i` (`:134`) | CONTROLLER & BLUETOOTH SETTINGS (menu map `:134`): the configure row the lane reads from the page and names in its START post; `shot` the detect page; the hold: `sendkey x 1000` by hand over the monitor socket (the harness has no `hold` step, R3 § 4); `shot`; if the flow starts, each prompt row in turn with `key` presses, `shot` the subtitle | the sentence at 640 in both languages; whether a 1 s monitor hold registers (the detect page advances) -- if not, `CANNOT: the monitor cannot hold a key; harness gap named` under rule 3; if yes, the 14 prompts and the subtitle's number against the device id (L-17) -- `image` side | 180 |
+   | G-08 | the input-config flow: HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT. (`GuiDetectDevice.cpp:52`, with its period), the hold, `GuiInputConfig`'s 14 prompts and `GAMEPAD %i` (`:134`) | CONTROLLER & BLUETOOTH SETTINGS (menu map `:134`): the configure row the lane reads from the page and names in its START post; `shot` the detect page; the hold: `sendkey x 1000` by hand over the monitor socket (the harness has no `hold` step, R3 § 4); `shot`; if the flow starts, each prompt row in turn with `key` presses, `shot` the subtitle | the sentence at 640 in both languages; whether a 1 s monitor hold registers (the detect page advances) -- if not, `CANNOT: the monitor cannot hold a key; harness gap named` under rule 3; if yes, the 14 prompts and the subtitle's number against the device id (L-17) -- `image` side | 180 |
    | G-09 | the screensaver's timer and the eaten wake press (`Window.cpp:777-779`, `:259-260`); #1305's window half: the screensaver over a page that owns the screen | UI SETTINGS > SCREENSAVER SETTINGS > SCREENSAVER AFTER to its minimum (T34's G-09 reaches the slider; the page is `## Not mapped` `:699`); wait; `shot`; `key shift` (ignored, the wake); `shot`; `key down`; `shot`; then with the stanza seeded: BACK UP SAVES TO THE CLOUD on the transfer page, left on its outcome, wait the timeout; `shot` | the dim or slideshow frame after the timeout; the carousel back and unmoved after `shift`; moved after the second key -- the eaten press made visible; **the screensaver starting over `GuiCloudTransfer`'s page, or not** (`:777-779` reads only idle time): the frame is #1305's window-half observation -- `image` side | 240 |
    | G-10 | a pad connected and disconnected: the two toasts (`InputManager.cpp:854-873`), the rebuild, the hot-plug `writeDeviceConfig` (`:605`) | -- | `CANNOT`: the guest offers no gamepad device and its keyboard is already configured; the paths are an `open item to test` with the harness gap named (a QEMU HID gamepad, if one exists, is the harness work to file) | 0 |
    | G-11 | the second size: the keyboard at 0.78 x 0.60 or full-screen (`:8-9`), the wide box (`GuiMsgBox.cpp:21-23`), the card at 1280x800 | `tools/vm-stop`; `generic-x64-vm run --headless --daemonize --res 1280x800` on the same disk; `vm-serial wait`; G-06's keyboard and G-04's dialog again; `shot` each | the keyboard's size against `fullScreenMenus()` at 1280x800 (the rule decides which branch); the dialog's width 0.6 or 0.8 of 1280 measured; the card not re-framed (`vm-qa-log:78`'s three frames stand) -- `image` side | 180 |
@@ -1729,12 +1742,11 @@ and *a FAIL would mean ...* -- **the block below captures neither exit nor
 time except where it says `rc=$?`; the lane wraps each run in its own
 `rc=$?` line and a `date +%s` pair, or records that it did not**; a run
 that cannot be made is `CANNOT` with its reason). From the distribution
-worktree after the membership block; `W` the ES worktree (§ 1) -- **before
-dispatch, `W` is the `qa-integration` checkout at the pin, read by `git
--C` only, and every expectation below is a line R1, R2 or R3 printed at
-the pin on 2026-10-30 by `git -C` against `qa-integration`, cited by its
-command, except the ones marked `[unverified]` (no research printed them;
-the stranger's proof prints them) and the tool lines marked by stage** --
+worktree after the membership block; `W` the ES worktree (§ 1) -- **before dispatch, `W` is the `qa-integration` checkout at the pin, read by
+`git -C` only, and every expectation below is a line R1, R2 or R3 printed at
+the pin on 2026-10-30 by `git -C` against `qa-integration`, or the
+stranger's proof printed on 2026-10-31 the same way, cited by its comment,
+except the tool lines marked by stage** --
 `PIN` the pin, `MB` the merge base, `FILES` the 96 from the block's paths
 file; counts by `/usr/bin/grep` (#1138); **every grep for `_("` is `-F`**;
 `rc=$?` on its own line, never after a pipe; **no `cut` truncates an
@@ -1748,47 +1760,47 @@ D=$(pwd); export TMPDIR=/workspace/tmp/m6-t35/tmp; mkdir -p "$TMPDIR"; df -i /wo
 FILES=$(cat .qa-scratch/t35/paths.txt)
 # the scope (expect 96; cpp 44; h 51; other 1 -- es-core/CMakeLists.txt; R1 C06)
 printf '%s\n' $FILES | $G -c .; printf '%s\n' $FILES | $G -c '\.cpp$'; printf '%s\n' $FILES | $G -c '\.h$'; printf '%s\n' $FILES | $G -c -v -E '\.(cpp|h)$'
-# the ES worktree at the pin, clean; the bases; the counts (expect the pin; 0; cada856d86; f6c542872e; b2ceb55a7e; 1750dded8c -- R1 C15, C17; then 725; 14; 1; 15 -- T34's brief `:1389` at the same pin and refs, not re-run by R1: [unverified] as this draft's lines)
+# the ES worktree at the pin, clean; the bases; the counts (expect the pin; 0; cada856d86; f6c542872e; b2ceb55a7e; 1750dded8c -- R1 C15, C17; then 725; 14; 1; 15 -- printed by the proof on 2026-10-31 at the same pin and refs; 531 without merges)
 git -C "$W" rev-parse HEAD | cut -c1-10; git -C "$W" status --short | wc -l; git -C "$W" merge-base "$PIN" rocknix/master | cut -c1-10; git -C "$W" rev-parse rocknix/master | cut -c1-10; git -C "$W" rev-parse batocera/master | cut -c1-10; git -C "$W" merge-base "$PIN" batocera/master | cut -c1-10; git -C "$W" rev-list --count bccd715707.."$PIN"; git -C "$W" rev-list --count "$MB"..rocknix/master; git -C "$W" rev-list --count bccd715707.."$MB"; git -C "$W" rev-list --count upstream/master..rocknix/master
 # the lines two ways (expect wc -l 22567; grep -c 22575; no trailing newline: 8, the files § 2 names; R1 C11)
 for p in $FILES; do git -C "$W" show "$PIN:$p" | wc -l; done | awk '{s+=$1} END {print "wc -l", s}'; for p in $FILES; do git -C "$W" show "$PIN:$p" | $G -c ''; done | awk '{s+=$1} END {print "grep -c", s}'; n=0; for p in $FILES; do a=$(git -C "$W" show "$PIN:$p" | wc -l); b=$(git -C "$W" show "$PIN:$p" | $G -c ''); [ "$a" != "$b" ] && { n=$((n+1)); echo "no newline: $p $a/$b"; }; done; echo "no trailing newline: $n"
-# the fork's delta (expect `13 files changed, 247 insertions(+), 71 deletions(-)` three times -- R1 C13, C15, and C14 read from master's side; A 1; M 12 -- R1 C15's name-status; the 12 numstat rows; 19 commits with merges -- R1 C16; the --no-merges and --merges counts are the lane's first lines, R1 C16 names two merge subjects among the 19 but printed no count: [unverified])
+# the fork's delta (expect `13 files changed, 247 insertions(+), 71 deletions(-)` three times -- R1 C13, C15, and C14 read from master's side; A 1; M 12 -- R1 C15's name-status; the 12 numstat rows; 19 commits with merges, 17 without, 2 merges -- R1 C16, the proof's lines)
 git -C "$W" diff --shortstat bccd715707 "$PIN" -- $FILES; git -C "$W" diff --shortstat "$MB" "$PIN" -- $FILES; git -C "$W" diff --shortstat rocknix/master "$PIN" -- $FILES; git -C "$W" diff --diff-filter=A --name-only bccd715707 "$PIN" -- $FILES | $G -c .; rc=$?; echo "added rc=$rc"; git -C "$W" diff --diff-filter=M --numstat bccd715707 "$PIN" -- $FILES; git -C "$W" log --format=%h bccd715707.."$PIN" -- $FILES | $G -c .; git -C "$W" log --no-merges --format=%h bccd715707.."$PIN" -- $FILES | $G -c .; git -C "$W" log --merges --format=%h bccd715707.."$PIN" -- $FILES | $G -c .; rc=$?; echo "merges rc=$rc"
-# upstream's delta: the merge-debt record (expect upstream commits 0 rc=1 and numstat 0 rc=1 -- [unverified] as printed lines, by R1 C12/C14's symmetry; identical to rocknix/master: 83 -- R1 C12; identical to cada856d86: 83 -- R1 C12's CLASS upstream-carried; MB-vs-master identical: 96 -- [unverified] as a printed line, R1 C14's "the same 13, reversed"; batocera commits on the 96: 12 -- R1 C17; batocera files: 9 -- R1 C18; both-changed: 6 -- R1 § 3's reading of C13 against C18, the comm line itself [unverified])
+# upstream's delta: the merge-debt record (expect upstream commits 0 rc=1 and numstat 0 rc=1; identical to rocknix/master: 83; identical to cada856d86: 83; MB-vs-master identical: 96; batocera commits on the 96: 12; batocera files: 9; both-changed: 6 -- R1 C12, C14, C17, C18 and R1 § 3, every line printed by the proof on 2026-10-31)
 git -C "$W" log --format=%h "$MB"..rocknix/master -- $FILES | $G -c .; rc=$?; echo "upstream commits rc=$rc"; git -C "$W" diff --numstat "$MB" rocknix/master -- $FILES | $G -c .; rc=$?; echo "upstream numstat rc=$rc"; n=0; for p in $FILES; do git -C "$W" diff --quiet rocknix/master "$PIN" -- "$p" && n=$((n+1)); done; echo "identical to rocknix/master: $n"; n=0; for p in $FILES; do git -C "$W" diff --quiet "$MB" "$PIN" -- "$p" && n=$((n+1)); done; echo "identical to cada856d86: $n"; n=0; for p in $FILES; do git -C "$W" diff --quiet "$MB" rocknix/master -- "$p" && n=$((n+1)); done; echo "MB-vs-master identical: $n"; git -C "$W" log --format=%h 1750dded8c..batocera/master -- $FILES | $G -c .; git -C "$W" diff --name-only 1750dded8c batocera/master -- $FILES | $G -c .; comm -12 <(git -C "$W" diff --name-only 1750dded8c batocera/master -- $FILES | sort) <(git -C "$W" diff --name-only "$MB" "$PIN" -- $FILES | sort) | $G -c .
-# the other lanes' deltas inside the 96 (expect every stat line empty except T21's `es-core/CMakeLists.txt` -- R1 C20; its line reads `1 file changed, 5 insertions(+)` by C21's five added lines, the stat line itself [unverified]; T34's `origin/` ref may print `fatal:` -- recorded, not a stop, R1 C19)
+# the other lanes' deltas inside the 96 (expect every stat line empty except T21's `es-core/CMakeLists.txt`, `1 file changed, 5 insertions(+)` -- R1 C20, C21, the proof's line; T34's `origin/` ref prints `fatal: bad revision` -- recorded, not a stop, R1 C19)
 for b in m6-es-launch-path-649 m6-es-cloud-pages-665 m6-es-achievements-pages-667 m6-es-state-and-bridge-668 m6-es-guimenu-673 m6-es-pages-678 m6-es-app-views-scrapers-679 m6-es-app-system-680 m6-es-core-components-681; do echo "== $b"; git -C "$W" diff --stat "$PIN" "origin/feature/$b" -- $FILES 2>&1 | tail -n 1; done
-# the strings, two ways (expect `_(" lines TOTAL 86 in 13 files` -- R2 cmd 8's 86 and its listing's 13 files; the per-file -c for seven of them: Window.cpp 37, guis/GuiInputConfig.cpp 14, guis/GuiTextEditPopupKeyboard.cpp 11, guis/GuiDetectDevice.cpp 5, InputManager.cpp 4, guis/GuiMsgBox.cpp 3, guis/GuiTextEditPopup.cpp 3 -- R3 cmd 23; BindingManager.cpp, GunManager.cpp, TextToSpeech.cpp by their listed lines, the count the lane's; the occurrence count is the lane's first line)
+# the strings, two ways (expect `_(" lines TOTAL 86 in 10 files` -- R2 cmd 8's 86, the proof's 10; the per-file -c: Window.cpp 37, guis/GuiInputConfig.cpp 14, guis/GuiTextEditPopupKeyboard.cpp 11, GunManager.cpp 6, guis/GuiDetectDevice.cpp 5, InputManager.cpp 4, guis/GuiMsgBox.cpp 3, guis/GuiTextEditPopup.cpp 3, BindingManager.cpp 2, TextToSpeech.cpp 1 -- R3 cmd 23 and the proof; the occurrence count 97)
 git -C "$W" grep -c -F '_("' "$PIN" -- $FILES | sed "s/^$PIN://" | awk -F: '{s+=$NF} END {print "_(\" lines TOTAL", s, "in", NR, "files"}'; git -C "$W" grep -o -F '_("' "$PIN" -- $FILES | wc -l; git -C "$W" grep -c -F '_("' "$PIN" -- $FILES | sed "s/^$PIN:es-core\/src\///" | tr '\n' ' '; echo
 # the log lines (expect `LOG(Log lines TOTAL 158 in 20 files` -- R2 cmd 9; VolumeControl.cpp 32, ThemeData.cpp 25, InputManager.cpp 20, AudioManager.cpp 19 the four largest)
 git -C "$W" grep -c 'LOG(Log' "$PIN" -- $FILES | sed "s/^$PIN://" | awk -F: '{s+=$NF} END {print "LOG(Log lines TOTAL", s, "in", NR, "files"}'
-# the threads and the lifetimes (expect 18 matching lines -- R2 cmd 10: Log.cpp 60 180; Scripting.cpp 18 68; TextToSpeech.cpp 92, .h 47; VolumeControl.cpp 32 203; Window.cpp 1554 1563 1572 1575 1608 1619 1634 1637; watchers/WatchersManager.cpp 61, .h 88; `.detach(` 4 in Window.cpp -- R2 § 6; whether Scripting.cpp:68's WIN32 line is a fifth is [unverified], R2 cmd 10 lists the line without naming its pattern; `postToUiThread` definitions and calls in the slice the lane's first line)
+# the threads and the lifetimes (expect 18 matching lines -- R2 cmd 10: Log.cpp 60 180; Scripting.cpp 18 68; TextToSpeech.cpp 92, .h 47; VolumeControl.cpp 32 203; Window.cpp 1554 1563 1572 1575 1608 1619 1634 1637; watchers/WatchersManager.cpp 61, .h 88; `.detach(` 4, all Window.cpp -- R2 § 6; Scripting.cpp:68 is `new std::thread(&executeCommandsThread)` under WIN32, not a detach (the proof); `postToUiThread`: Window.cpp:1276 the definition, :1556 :1574 :1612 :1636 the calls, Window.h:91 (the proof))
 git -C "$W" grep -n -E 'std::thread|\.detach\(|new std::thread|std::async' "$PIN" -- $FILES | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo; git -C "$W" grep -n -E 'std::thread|\.detach\(|new std::thread|std::async' "$PIN" -- $FILES | $G -c .; git -C "$W" grep -n -F '.detach(' "$PIN" -- $FILES | $G -c .; git -C "$W" grep -n -F 'postToUiThread' "$PIN" -- $FILES | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo
 # the process spawns (expect 4, all ProcessStartInfo: InputManager.cpp:1272, Scripting.cpp:43 :131 :140 -- R2 cmd 11; system( / popen( / runSystemCommand( 0 rc=1)
 git -C "$W" grep -n -E '(^|[^A-Za-z_:])system\(|popen\(|runSystemCommand\(|ProcessStartInfo' "$PIN" -- $FILES | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo; git -C "$W" grep -n -E '(^|[^A-Za-z_:])system\(|popen\(|runSystemCommand\(' "$PIN" -- $FILES | $G -c .; rc=$?; echo "shell spawns rc=$rc"
-# the writes (expect 7 lines -- R2 cmd 13: InputManager.cpp:1225 :1232 save_file; FavoriteMusicManager.cpp:71 :115 ofstream; Log.cpp:179; AudioManager.cpp:539 :610 fopen; AtomicFile 0 rc=1)
+# the writes (expect 9 lines -- R2 cmd 13's seven write sites, InputManager.cpp:1225 :1232 save_file; FavoriteMusicManager.cpp:71 :115 ofstream; Log.cpp:179; AudioManager.cpp:539 :610 fopen; plus es-core/CMakeLists.txt:122 :257, the `AtomicFileUtil` registrations the alternation matches (the proof); AtomicFile:: 0 rc=1)
 git -C "$W" grep -n -E 'std::ofstream|ofstream|AtomicFile|save_file\(|fopen\(|writeText|writeFile|std::rename|rename\(' "$PIN" -- $FILES | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo; git -C "$W" grep -n -E 'std::ofstream|ofstream|AtomicFile|save_file\(|fopen\(|writeText|writeFile|std::rename|rename\(' "$PIN" -- $FILES | $G -c .; git -C "$W" grep -n -F 'AtomicFile::' "$PIN" -- $FILES | $G -c .; rc=$?; echo "atomic rc=$rc"
 # the reads (expect `FileSystem::exists(` 41; uncached 0 rc=1 -- R2 cmd 12; the per-file list R2 § 2.3 names)
 git -C "$W" grep -n -E 'FileSystem::exists\(' "$PIN" -- $FILES | $G -c .; git -C "$W" grep -n -E 'FileSystem::exists\([^)]*,[[:space:]]*false' "$PIN" -- $FILES | $G -c .; rc=$?; echo "uncached rc=$rc"
-# the input and the help bar (expect `getHelpPrompts` definitions in the slice's .cpp and `input(` definitions: the lane's first lines [unverified]; the eight `mHelp->` lines in Window.cpp: 745 1001 1009 1011 1012 1077 1397 1398 -- T34's brief `:1422`, R4 item 12; `mHelp->setOpacity` 0 rc=1)
+# the input and the help bar (expect `getHelpPrompts` definitions 3 -- guis/GuiMsgBox.cpp:296, guis/GuiTextEditPopup.cpp:81, guis/GuiTextEditPopupKeyboard.cpp:449 -- and `input(InputConfig` definitions 6 -- GuiComponent.cpp:54, Window.cpp:215, guis/GuiDetectDevice.cpp:87, guis/GuiMsgBox.cpp:246, guis/GuiTextEditPopup.cpp:66, guis/GuiTextEditPopupKeyboard.cpp:335 (the proof); the eight `mHelp->` lines in Window.cpp: 745 1001 1009 1011 1012 1077 1397 1398 -- T34's brief `:1422`, R4 item 12; `mHelp->setOpacity` 0 rc=1)
 git -C "$W" grep -n -E '::getHelpPrompts\(\)' "$PIN" -- $FILES | $G -c .; git -C "$W" grep -n -E '::input\(InputConfig' "$PIN" -- $FILES | $G -c .; git -C "$W" grep -n -F 'mHelp->' "$PIN" -- es-core/src/Window.cpp | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo; git -C "$W" grep -n -F 'mHelp->setOpacity' "$PIN" -- es-core/src/Window.cpp | $G -c .; rc=$?; echo "mHelp setOpacity rc=$rc"
 # the constants (expect the two BUTTON_GRID_HORIZ_PADDING definitions: components/MenuComponent.cpp:14 at 0.022 and guis/GuiTextEditPopupKeyboard.cpp:14 at 0.0052083333 -- R2 cmd 20; the keyboard's use at :220; GuiMsgBox.cpp:21-23 MSGBOX_WIDTH 0.6 / WIDE 0.8 / LINES 4; GuiInfoPopup.cpp:17-18 0.9f / 0.2f; Window.cpp:1181 PADDING_H, :1183 :1192 the card's position -- R2 § 1.3, § 4)
 git -C "$W" grep -n -E 'BUTTON_GRID_HORIZ_PADDING' "$PIN" -- es-core/src/components/MenuComponent.cpp es-core/src/guis/GuiTextEditPopupKeyboard.cpp | sed "s/^$PIN://" | cut -c1-160; git -C "$W" grep -n -E 'MSGBOX_(WIDTH|WIDE_WIDTH|WIDE_LINES)|maxWidth|maxHeight|PADDING_H|posX = ' "$PIN" -- es-core/src/guis/GuiMsgBox.cpp es-core/src/guis/GuiInfoPopup.cpp es-core/src/Window.cpp | sed "s/^$PIN://" | $G -E '#define|const |float |posX' | cut -c1-160
-# the includes (expect SDL/VLC/GL angle lines over the 101: 18 -- R3 cmd 4; quoted SDL: 2 -- R3 cmd 16; the cross-tree include: Window.cpp:29 -- R2 § 1.7; every T35 source and header named once in es-core/CMakeLists.txt: 0 not-once -- R3 cmd 21; `if(` at 278 287 -- R3 cmd 21)
+# the includes (expect SDL/VLC/GL angle lines over the 101: 18 -- R3 cmd 4; quoted SDL: 2 -- R3 cmd 16; the cross-tree include: Window.cpp:29 -- R2 § 1.7; the named-once loop prints `named-0-times (or more than once): 9` -- seven entries named once with a trailing `# batocera` comment the anchor rejects (LocaleES.cpp, LocaleES.h, gettext.h, guis/GuiInfoPopup.cpp, guis/GuiInfoPopup.h, guis/GuiTextEditPopupKeyboard.cpp, guis/GuiTextEditPopupKeyboard.h) and two headers registered nowhere (HelpPrompt.h, Scripting.h); every .cpp of the 44 named once (the proof; R3 cmd 21's claim held for the sources); `if(` at 278 287 -- R3 cmd 21)
 git -C "$W" grep -n -E '#include <SDL|#include <vlc|#include <GL' "$PIN" -- es-core/src | $G -v -E 'components|utils|resources|renderers' | $G -c .; git -C "$W" grep -n -E '#include "(SDL|vlc|GL|curl|libudev)' "$PIN" -- $FILES | $G -c .; git -C "$W" grep -n -E '^\s*#\s*include\s*"\.\./' "$PIN" -- $FILES | sed "s/^$PIN://"; n=0; for p in $FILES; do [ "$p" = es-core/CMakeLists.txt ] && continue; b=${p#es-core/}; git -C "$W" grep -c -E "/${b}[[:space:]]*\$" "$PIN" -- es-core/CMakeLists.txt | sed "s/^$PIN://" | $G -q ':1$' || { echo "not once: $p"; n=$((n+1)); }; done; echo "named-0-times (or more than once): $n"; git -C "$W" grep -n -E '^\s*if\s*\(' "$PIN" -- es-core/CMakeLists.txt | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo
-# the in-source gates (expect the lane's first line [unverified]: the ROCKNIX, BATOCERA, WIN32, HAVE_UDEV, _ENABLE_PULSE_, HAVE_LIBCEC, _ENABLE_TTS_ guards of R3 § 2.2 and R2 § 0 among them -- Splash.h:10, InputManager.cpp:585, VolumeControl.cpp:14, CECInput.h:8, TextToSpeech.cpp:54)
+# the in-source gates (expect 128 lines (the proof), the ROCKNIX, BATOCERA, WIN32, HAVE_UDEV, _ENABLE_PULSE_, HAVE_LIBCEC, _ENABLE_TTS_ guards of R3 § 2.2 and R2 § 0 among them -- Splash.h:10, InputManager.cpp:585, VolumeControl.cpp:11 (its include :14), CECInput.h:7 (:8), TextToSpeech.cpp:53 (:54); `git grep -n ROCKNIX` over the 96: 3 lines, InputManager.cpp:585, Paths.cpp:76, Splash.h:10)
 git -C "$W" grep -n -E '^\s*#\s*(if|ifdef|ifndef|elif)\b.*(ROCKNIX|BATOCERA|WIN32|HAVE_UDEV|_ENABLE_PULSE_|HAVE_LIBCEC|_ENABLE_TTS_|_RPI_)' "$PIN" -- $FILES | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo
-# the non-ASCII bytes (expect the lane's first lines [unverified]: a count above 0 from the glyph literals -- InputManager.cpp:856 :869, GuiTextEditPopupKeyboard.cpp:169-192, R2 § 2.1, § 4.3 -- which es-code-traps.md:60 allows; the comment-line form over the 12 fork-modified files is the figure that matters)
+# the non-ASCII bytes (expect 28 lines rc=0 under LC_ALL=C; files with a non-ascii byte: 4 -- AudioManager.cpp 3, GunManager.cpp 1, InputManager.cpp 2, guis/GuiTextEditPopupKeyboard.cpp 22, the glyph literals es-code-traps.md:60 allows; files with a non-ascii comment line: 3 -- AudioManager.cpp:352 :362 :383, GunManager.cpp:145, InputManager.cpp:393 :1437, every one upstream's: the fork's -U0 diff against cada856d86 adds 0 (the proof); InputManager.cpp:856 :869 are ASCII)
 git -C "$W" grep -n -P '[^\x00-\x7F]' "$PIN" -- $FILES | $G -c .; rc=$?; echo "git grep -P rc=$rc"; n=0; for f in $FILES; do c=$(git -C "$W" show "$PIN:$f" | LC_ALL=C $G -c -P '[^\x00-\x7F]'); [ "$c" != 0 ] && { echo "${f#es-core/src/}:$c"; n=$((n+1)); }; done; echo "files with a non-ascii byte: $n"; n=0; for f in $FILES; do c=$(git -C "$W" show "$PIN:$f" | LC_ALL=C $G -c -P '^\s*//.*[^\x00-\x7F]'); [ "$c" != 0 ] && { echo "comment: ${f#es-core/src/}:$c"; n=$((n+1)); }; done; echo "files with a non-ascii comment line: $n"
-# the French (expect the slice's fork msgids each with a non-empty msgstr -- the lane's parser run [unverified]; `^msgid ` lines 2207 -- T34's brief `:1416` at the same pin; es-untranslated the two tree-wide lines T33 printed, rc 0 each -- T34's `:841-843`, a working tree: [unverified] as this draft's)
-git -C "$W" grep -n -E '^msgid "(CLEAR|CANCEL|HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT|HOTKEY ENABLE|GAMEPAD %i|SET SELECT AS HOTKEY|DO NOT ASSIGN HOTKEY)"$' "$PIN" -- locale/lang/fr/LC_MESSAGES/emulationstation2.po | sed "s/^$PIN://" | cut -d: -f2,3 | tr '\n' ' '; echo; git -C "$W" grep -c -E '^msgid ' "$PIN" -- locale/lang/fr/LC_MESSAGES/emulationstation2.po | sed "s/^$PIN://"
+# the French (expect six lines -- CANCEL 49, GAMEPAD %i 3898, SET SELECT AS HOTKEY 3915, DO NOT ASSIGN HOTKEY 3918, the detect sentence with its period 3779, CLEAR 6923 (the proof; HOTKEY ENABLE is no msgid, the key is the identifier HotKeyEnable); `^msgid ` lines 2207 -- T34's brief `:1416` at the same pin; es-untranslated `706 fork string(s) in the source, 706 with French, 0 without` rc 0 and `703 ... 0 without` rc 0 -- the proof, over the qa-integration checkout at the pin)
+git -C "$W" grep -n -E '^msgid "(CLEAR|CANCEL|HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT\.|GAMEPAD %i|SET SELECT AS HOTKEY|DO NOT ASSIGN HOTKEY)"$' "$PIN" -- locale/lang/fr/LC_MESSAGES/emulationstation2.po | sed "s/^$PIN://" | cut -d: -f2,3 | tr '\n' ' '; echo; git -C "$W" grep -c -E '^msgid ' "$PIN" -- locale/lang/fr/LC_MESSAGES/emulationstation2.po | sed "s/^$PIN://"
 out=$(tools/es-untranslated --es-src "$W" --upstream bccd715707 2>&1); rc=$?; printf '%s\n' "$out" | $G -m1 'fork string'; echo "es-untranslated rc=$rc"
 out=$(tools/es-untranslated --es-src "$W" --upstream "$MB" 2>&1); rc=$?; printf '%s\n' "$out" | $G -m1 'fork string'; echo "es-untranslated(cada) rc=$rc"
 # the candidate lines (expect Window.cpp `339 340` for back()/pop_back(); `1164` for notificationDuration(-1); WatchersManager.cpp `181` for the unique_lock and `196` for check(); Scripting.cpp `92 93` and `109 112` for the quoting; InputManager.cpp `946 960` for the two approximate logs, `1225 1232` save_file; GuiMsgBox.cpp `44 234` say; GuiInputConfig.cpp `134` -- R2 §§ 1-5)
 git -C "$W" grep -n -E 'mNotificationMessages\.(back|pop_back)\(' "$PIN" -- es-core/src/Window.cpp | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo; git -C "$W" grep -n -F 'notificationDuration(-1)' "$PIN" -- es-core/src/Window.cpp | sed "s/^$PIN://" | cut -d: -f2; git -C "$W" grep -n -E 'unique_lock<std::mutex> lock\(mWatchersLock\)|component->check\(\)' "$PIN" -- es-core/src/watchers/WatchersManager.cpp | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo; git -C "$W" grep -n -F 'Approximative device found' "$PIN" -- es-core/src/InputManager.cpp | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo; git -C "$W" grep -n -F 'save_file(' "$PIN" -- es-core/src/InputManager.cpp | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo; git -C "$W" grep -n -F 'TextToSpeech::getInstance()->say(' "$PIN" -- es-core/src/guis/GuiMsgBox.cpp | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo; git -C "$W" grep -n -F 'getDeviceId() + 1' "$PIN" -- es-core/src/guis/GuiInputConfig.cpp | sed "s/^$PIN://" | cut -d: -f2
 # the menu map (expect `55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing` rc 0 -- T34's brief `:1424` at the same pin, the map 989 lines and unchanged since; the checker's SOURCE_DIRS at its :58 include es-core/src/guis)
 out=$(tools/es-menu-map-check --es-src "$W" --ref "$PIN" 2>&1); rc=$?; printf '%s\n' "$out" | tail -n 1; echo "es-menu-map-check rc=$rc"; wc -l docs/es-menu-map.md; sed -n '58p' tools/es-menu-map-check
-# the compile (expect `es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)` rc 2 -- R3 cmd 12, #1137; plain g++ on GuiMsgBox.cpp rc 1 with `es-core/src/InputConfig.h:6:10: fatal error: SDL_joystick.h: No such file or directory` by R4 item 25 and T31 `02:565` (the same header first in every TU that reaches GuiComponent.h) -- [unverified] for this file; the pugixml root present -- R3 cmd 17; then the stand-in check over the 44 with the fakes, rc per file, R3 § 3.3's classes the prediction)
+# the compile (expect `es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)` rc 2 -- R3 cmd 12, #1137; plain g++ on GuiMsgBox.cpp rc 1 with `es-core/src/InputConfig.h:6:10: fatal error: SDL_joystick.h: No such file or directory` -- printed by the proof for this file over a `git archive` of the pin (g++ 15.2.0; Window.cpp the same line, InputManager.cpp at InputManager.h:5:10; WatchersManager.cpp, Scripting.cpp, math/Vector2f.cpp rc 0 plain), as R4 item 25 and T31 `02:565` predicted; the pugixml root present -- R3 cmd 17; then the stand-in check over the 44 with the fakes, rc per file, R3 § 3.3's classes the prediction)
 F=es-core/src/guis/GuiMsgBox.cpp; out=$(ES_BUILD_ROOT=/nonexistent tools/es-syntax-check --tree "$W" "$F" 2>&1); rc=$?; printf '%s\n' "$out" | tail -n 1; echo "es-syntax-check rc=$rc"
 out=$(g++ -std=c++17 -fsyntax-only -DHAVE_INTL -I "$W/es-app/src" -I "$W/es-core/src" -I "$W/external" "$W/$F" 2>&1); rc=$?; printf '%s\n' "$out" | $G -m1 -E 'fatal error|error:'; echo "plain g++ rc=$rc"
 PUGI=/workspace/cache/rocknix-sources/emulationstation/emulationstation-$PIN/external; test -d "$PUGI/pugixml/src" && echo "pugixml root present"
@@ -1800,15 +1812,15 @@ python3 -I docs/audits/*-epic-m6-es-core-window-input/stage-c/pl25-screensaver.p
 git diff --stat TIPHASH HEAD -- packages projects tools | tail -n 1; git -C "$W" diff --stat "$PIN" HEAD | tail -n 1
 ```
 
-Not settled by any research line, and so the stranger's proof's to print
-before dispatch (each marked above): the four `rev-list` counts T34's brief
-holds, the `--no-merges` count, the upstream-delta zeros and the
-MB-vs-master 96, the `comm -12` 6, T21's stat line, the occurrence counts,
-the `getHelpPrompts`/`input(` definition counts, the in-source gate list,
-the non-ASCII counts, the catalog lines for this slice's msgids, the
-`es-untranslated` lines, and the plain-`g++` first error for `GuiMsgBox.cpp`.
-Every other expectation is a research file's printed line, cited in its
-comment.
+Every expectation above is a research file's printed line or the stranger's
+proof's of 2026-10-31, cited in its comment; the proof's own are the four
+`rev-list` counts, the `--no-merges`/`--merges` counts, the upstream-delta
+zeros and the MB-vs-master 96, the `comm -12` 6, T21's stat line, the
+occurrence count, the `getHelpPrompts`/`input(` definition counts, the gate
+and `ROCKNIX` lists, the non-ASCII counts, the catalog lines, the
+`es-untranslated` lines and the plain-`g++` first error. The lane re-runs
+every one as its own line; a line that differs is recorded beside the
+expectation, not argued with.
 
 ## 6. Outputs
 
@@ -1862,7 +1874,7 @@ host did not parse, the unconditional CMake lists and T21's hunk, the
 checker line and per-file count), § The merge debt (one line: `cada856d86`
 the base against `rocknix/master` `f6c542872e`, `bccd715707` its parent
 and the stale `upstream/master`, the upstream commit count on the 96 of
-14, 83 of 96 blobs identical pin to master and 96 of 96 base to master,
+0 (14 on any path), 83 of 96 blobs identical pin to master and 96 of 96 base to master,
 batocera's twelve since `1750dded8c` on nine files, six fork-modified, as
 the reconciliation list only), § The runs, § The guest cycle, § The
 streams (stage E: **written by the coordinator after stage D, as for T21,
@@ -1890,11 +1902,11 @@ hand-back's words.
 - [ ] `reviewed-at:`, `reviewed-at-es:`, `fixed-at:` and `fixed-at-es:` in #682's header carry the lane's commits; the ES read is on the pin's bytes for the 96 files (`git -C <W> diff --stat 16dbac5211 <reviewed-at-es> -- $(cat .qa-scratch/t35/paths.txt)` empty before stage E) and nothing under the distribution's `packages/`, `projects/` or `tools/` changed at any stage against the lane's own dispatch tip (the pointer's merge hash, never `2174265e9c`).
 - [ ] `01-research-notes.md` § Scope records § 2's block with its exact output lines (`mine: 96 paths.txt: 96 equal: True`; `lines: 22575 reach: {'shipped': 96} tier: {'fork-own': 13, 'upstream-carried': 83} lang: {'cmake': 1, 'c-header': 51, 'c++': 44}`; `fork-own lines: 6759`; `read lines: 22575`; `wc -l 22567` and `grep -c 22575` with the eight files without a trailing newline; 95 at the merge base and 95 at the base (`LogPolicy.h` absent from both); `13 files changed, 247 insertions(+), 71 deletions(-)` three times -- or the deltas beside them) and names `cada856d86` as the merge base against `rocknix/master` with `bccd715707` as its parent and `1750dded8c` as the base against `batocera/master`.
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | /usr/bin/grep -c -E '^\| `'`` prints `96`; its tier columns read fork-added 1 / fork-modified 12 / upstream-carried 83 and inventory 13 / 83.
-- [ ] `02` § The runs records the counts with both rules where they differ -- `_("` 86 lines in 13 files and the occurrence count; `LOG(Log` 158 lines in 20 files; `FileSystem::exists(` 41 lines, 0 uncached; thread lines 18 with `.detach(` 4 (`Window.cpp:1563`, `:1575`, `:1619`, `:1637`; a fifth at `Scripting.cpp:68` under WIN32 if the grep says so) and `std::thread` at `Log.cpp:60`, `VolumeControl.cpp:32`, `TextToSpeech.cpp:92`, `WatchersManager.cpp:61`; `ProcessStartInfo` 4 and shell spawns 0; write sites 7 and `AtomicFile::` 0; SDL angle includes 18 over the 101 and quoted 2; the cross-tree include `Window.cpp:29`; every T35 file named once in `es-core/CMakeLists.txt` with `if(` at `:278`, `:287` -- each as a command's own output line, or the lane's figure with the command that differs named.
+- [ ] `02` § The runs records the counts with both rules where they differ -- `_("` 86 lines in 10 files and 97 occurrences; `LOG(Log` 158 lines in 20 files; `FileSystem::exists(` 41 lines, 0 uncached; thread lines 18 with `.detach(` 4 (`Window.cpp:1563`, `:1575`, `:1619`, `:1637`; `Scripting.cpp:68` is a `new std::thread` under WIN32, not a fifth) and `std::thread` at `Log.cpp:60`, `VolumeControl.cpp:32`, `TextToSpeech.cpp:92`, `WatchersManager.cpp:61`; `ProcessStartInfo` 4 and shell spawns 0; the writes grep 9 lines (7 write sites and the 2 CMake registrations) and `AtomicFile::` 0; SDL angle includes 18 over the 101 and quoted 2; the cross-tree include `Window.cpp:29`; every T35 `.cpp` named once in `es-core/CMakeLists.txt` (the two unregistered headers, `HelpPrompt.h` and `Scripting.h`, and the seven `# batocera` lines recorded) with `if(` at `:278`, `:287` -- each as a command's own output line, or the lane's figure with the command that differs named.
 - [ ] `02` § The surfaces, § The input, § The locks, § The lifetimes and § The scripts are each generated or asserted by a script under the audit folder's `tools/` that names its row count ("generated, asserted"), and `02` § The runs records each script seen to exit 1 on a constructed drift before it was trusted.
 - [ ] `02` § The surfaces has one row per enqueue, dequeue, layout and free of the toast queue and the card vector (`Window.cpp:311`, `:324`, `:353`, `:365`, `:396`, `:418`, `:1152`, `:1177`, `:1236`) with the invariant it keeps and the frame that shows it; the queue's order (`:339-340`) and the re-queued toast's duration (`:1164`) each with a disposition and, where a bug, 3.14's FAIL line; `:1183`, `:1192` read against `AsyncNotificationComponent.cpp:64`, `:112`; F-ES-24 dispositioned.
 - [ ] `02` § The input has one row per write site (the seven of R2 cmd 13) with its mechanism, atomic or not, and what a truncated file reads as; one row per `FileSystem::exists(` of `es_input.cfg`/`es_last_input.cfg` (`InputManager.cpp:893`, `:1187`, `:1250`; `GuiDetectDevice.cpp:127`) with 3.11's answer; the two hotkey names (`:1101-1108`; `GuiInputConfig.cpp:73`, `:270-281`) stated; `doOnFinish`'s `<command>` (`:1272`) with the shipped `es_input.cfg`'s `inputAction` count from G-01; the controllers blob's quoting named for T3's half.
-- [ ] `02` § The merge debt is one line naming `cada856d86`, `rocknix/master` (`f6c542872e`), `bccd715707` as its parent and the stale `upstream/master`, the upstream commit count on the 96 of 14 since the base, 96 of 96 blobs identical between the base and master, 83 of 96 between the pin and master, and batocera's twelve commits since `1750dded8c` on nine files (six of them fork-modified: `GunManager.cpp`, `InputManager.cpp`, `Log.cpp`, `Window.cpp`, `Window.h`, `GuiMsgBox.cpp`) as the reconciliation list only; T21's `3ae9610b0` hunk in `es-core/CMakeLists.txt` recorded as the integration's, and T34's ES tip's delta inside the 96 (empty, or named).
+- [ ] `02` § The merge debt is one line naming `cada856d86`, `rocknix/master` (`f6c542872e`), `bccd715707` as its parent and the stale `upstream/master`, the upstream commit count on the 96 of 0 since the base (14 on any path), 96 of 96 blobs identical between the base and master, 83 of 96 between the pin and master, and batocera's twelve commits since `1750dded8c` on nine files (six of them fork-modified: `GunManager.cpp`, `InputManager.cpp`, `Log.cpp`, `Window.cpp`, `Window.h`, `GuiMsgBox.cpp`) as the reconciliation list only; T21's `3ae9610b0` hunk in `es-core/CMakeLists.txt` recorded as the integration's, and T34's ES tip's delta inside the 96 (empty, or named).
 - [ ] `02` § The runs records every § 5 command with exit, wall time, the figure and *a FAIL would mean ...*; a run that cannot be made is `CANNOT` with its reason; the menu-map check's line and the checker's `:58`, both `es-untranslated` lines, the catalog lines for this slice's msgids, the C-locale non-ASCII counts (bytes and comment lines) beside `git grep -P`'s, the plain-`g++` first error quoted whole, the stand-in syntax check's rc per file over the 44 with the fakes and the pugixml root (the udev and pulse branches named as not parsed, or faked), and the unit build's `TOTAL: N test cases in B binaries` line with 0 failed are among them; every unit case the lane wrote has its FAIL-then-PASS pair recorded against the unfixed extract first, the seven candidates by name (3.1, 3.4, 3.5, 3.10, 3.11, 3.14, 3.19) and 3.27's script, and a candidate that PASSes at the pin is recorded as such, not as a defect.
 - [ ] `02` § The guest cycle records the window the coordinator granted on #682 (the comment's time; the START and RETURN posts with their first-line contract, the timer that stops the guest or the sentence that nothing does, and censuses, and the host file's lines beside them), the image by file name and `BUILD_ID` read from the guest at 640x480, G-01 to G-12 with their frames read back at EN and FR and each frame labelled by side (`image` or `pin-binary`), G-02's two edge reads, G-04's process count across the press, G-05's named dialog or its `CANNOT`, G-06's three keyboard frames with the key gap measured by a reader and the empty row after `s`, G-07's French frames, G-08's hold outcome or its `CANNOT`, G-09's three screensaver frames and the transfer-page frame, G-03 and G-10 as `CANNOT` with the reason, the second boot at 1280x800, the disk retired with path, size and sha, the leftover check (`qemu 0, compilers 0`), and the window closed inside its bound plus grace.
 - [ ] `00-running-log.md` shows no image build, no fetch (the council runtime from `npm install --offline`; `rocknix/master`, `batocera/master` and the lanes' ES tips read from the shared refs), no handheld, the owner's accounts never named or used, no hosted account, no M7 root, worktree or prep directory, the guest only inside the granted window, two keyed invokes and every other council call keyless, and nothing written under the ES worktree before stage E (`00`'s own closing census).
@@ -1957,9 +1969,9 @@ the coordinator -- and are not restated here. What is this slice's:
   T26 L-22). Two more may follow from the proofs and are named as such, not
   counted: the lock's fix shape if T33's named shape does not fit (L-11),
   and CLEAR's confirmation (L-14); the masking mode is #1192's Backlog, the
-  coordinator's. The highest IDs are § 3 item 2's (D-CLOUD-190, D-INFRA-031,
-  D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-129,
-  D-WORKFLOW-213 at `547cdb831a`; re-read at `COHASH`); `tools/register-check`
+  coordinator's. The highest IDs are § 3 item 2's (D-CLOUD-191, D-INFRA-031,
+  D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-133,
+  D-WORKFLOW-213 at `a00b3354d5`; re-read at `COHASH`); `tools/register-check`
   is the proof; D-WORKFLOW-188 is on the P1 branch only and the merge
   unites them; a row this slice forces takes an ID the coordinator assigns
   on #682.
@@ -2054,15 +2066,16 @@ before going on:
 | `The lens:` | cost against value over 96 paths, `es-core/**` as `rest` -- the window, the input manager and its config, the es-core dialogs, the theme parser, the script runner, the watchers, the log | `es-core/src/components/**`, 80 paths |
 | `The rule:` | nothing under the distribution's `packages/`, `projects/` or `tools/`; nothing in the ES worktree at stages A to D; nothing outside the 96 at stage E | "nothing outside the 80" |
 | `The host:` | the shared log and one guest window of 30 + 5 minutes with two boots, the START post naming the timer that stops the guest at bound plus grace or saying nothing does | a 30 + 5 window whose plan is the components' (the strip, the grid, the slider) |
-| `Register:` | the highest decided row per area read from the table at `COHASH` (at `547cdb831a`: D-CLOUD-190, D-INFRA-031, D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-129, D-WORKFLOW-213), plus **this slice's ownership row, which the coordinator writes at dispatch and whose ID is assigned then** | T34's triple (D-CLOUD-186, D-UI-128, D-UI-129), or D-WORKFLOW-213 named as this slice's own row |
+| `Register:` | the highest decided row per area read from the table at `COHASH` (at `a00b3354d5`: D-CLOUD-191, D-INFRA-031, D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-133, D-WORKFLOW-213), plus **this slice's ownership row, which the coordinator writes at dispatch and whose ID is assigned then** | T34's triple (D-CLOUD-186, D-UI-128, D-UI-129), or D-WORKFLOW-213 named as this slice's own row |
 | `The brief:` | `docs/reviews/briefs/es-core-window-input.md` at `V2HASH` (§ 1: filled by the dispatch comment; version 1 has no dispatch hash) | `es-core-components.md`, or the literal word `V2HASH` |
 
 **The readings before dispatch** (plan § 3, principle 3): the interface
 epic's futro (`docs/futros/2026-10-23-m6-interface.md`, 978 lines at
-`547cdb831a` by `/usr/bin/grep -c ''`; its last heading `:976` Errata from
+`a00b3354d5` by `/usr/bin/grep -c ''`; its last heading `:976` Errata from
 T33's acceptance) takes a T35 kickoff addendum written by the coordinator
-with this version; the stranger's proof of version 1 is still to run, and
-version 2 records what it finds. This brief's hash at dispatch is
+with this version; the stranger's proof of version 1 ran on 2026-10-31
+(`/workspace/tmp/m6-coordinator/kit/t35-proof.md`) and `## Corrections in
+version 2` records what it found. This brief's hash at dispatch is
 `V2HASH`.
 
 **What never runs in this slice:** an image build, a compiler beyond the
@@ -2084,3 +2097,24 @@ queue before `c1c0d6ddc`'s `git log -S` is read, a `scripts/<event>/`
 hook written on the guest outside 3.5's sandbox, an edit to
 `es-core/CMakeLists.txt`'s lines T21's `3ae9610b0` touches, and an
 `es_input.cfg` written on the guest by hand.
+
+## Corrections in version 2
+
+The stranger's proof of version 1 (2026-10-31, `/workspace/tmp/m6-coordinator/kit/t35-proof.md`: 12 commands, 904 batch checks over `git show` output, the membership block re-run, the § 5 runs block re-run through `git -C` against the pin, the French catalog parsed, a `git archive` of the pin compiled plain, two `gh` reads) found every correction below; each names the section it changed. The rule, register, map, blindspot, futro and tool lines are read at the coordinator worktree's `a00b3354d5` (2026-10-31T01:03:54Z); the branch moved from `4e754f89c7` to `a00b3354d5` during the proof, so the lane re-reads them at `COHASH` and records a line that moved beside the one cited here.
+
+1. Header, § 3 items 1 to 4, § 9, § 10 -- the lines were fixed at `7a32dff771`; they are now `a00b3354d5`'s: `es-player-text.md` +4 from `:273` (`:326` -> `:330`; the toast sentence is `:135`, the `_( )` bullet `:31`, `## Conventions` `:29`), the register's `## Open decisions` at `:769` (not `:762`/`:764`), D-SYS-014 at `:775`, and the highest decided rows D-CLOUD-191, D-UI-133 (D-CLOUD-190 `:762`, D-UI-130 to D-UI-133 `:763-766`, D-CLOUD-191 `:767` landed after version 1); the map, the blindspots and every other cited line unchanged.
+2. § 1, § 10 -- the futro is 978 lines (§ 1 said 974); T34's errata ownership line is `:1744` (not `:1743`); T34's brief's version 2 is 1,740 lines at `a6e14fed86` and 1,745 at HEAD.
+3. § 1 -- T33 is accepted (`17f2bcea8d`, #1270 CLOSED); T34's punch list #1307 (43 findings, 0 critical, 1 high) is filed and its stage D ruled (D-UI-130 to D-UI-133); #1307's PL-04 and PL-05 are carried here as L-28 and L-29 (§ 2's lead and take-up tables, § 4 Q6).
+4. § 1 -- the `order.md` § T35 range is `:633-641` and the closing evidence is its `:641` (*audit folder, lint PASS, punch list through Phase 7*); the per-lane ES deltas re-read: only T21's `es-core/CMakeLists.txt` differs (`1 file changed, 5 insertions(+)`), T34's local branch is the pin.
+5. § 2, § 3 item 7, § 5, § 7 -- `_("` is 86 lines in **10** files (not 13: `GunManager.cpp` 6, `BindingManager.cpp` 2, `TextToSpeech.cpp` 1 join the seven), 97 occurrences, 61 distinct msgids, every one with a non-empty French `msgstr` at the pin (25 `pgettext` pairs and 2 `ngettext` pairs too); the fork's own added msgid is one, `CLEAR` (`Window.cpp`'s fork hunks add no literal); the detect sentence is `HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT.` with a period and `HOTKEY ENABLE` is no msgid (the § 5 grep's regex corrected to six lines); `tools/es-untranslated`'s two lines printed (`706 ... 0 without`, `703 ... 0 without`, rc 0 each).
+6. § 2 table, § 5, § 7 -- the named-once loop prints 9, not 0: seven `# batocera` trailing comments and two headers registered nowhere (`HelpPrompt.h`, `Scripting.h`); every `.cpp` is named once; the top-level sources are `:147-172`, `CORE_SOURCES` `:146-276`; the writes grep prints 9 lines (7 write sites, 2 `AtomicFileUtil` registrations at `:122`, `:257`); the upstream commit count on the 96 since the base is 0 (14 on any path), § 6 and § 7 said 14.
+7. § 2 table, L-07, L-09, L-16, 3.20, § 4 -- `Window.h:101` for `hasAsyncNotifications` (not `:97-98`); `InputManager.cpp`'s `exists` lines are `:420`, `:893`, `:1187`, `:1250` (not `:1225`, `:1239`); the page maps `HotKeyEnable` (`GuiInputConfig.cpp:273`, `:279`), lower-cased by `mapInput` (`InputConfig.cpp:188`); `say(` three times in `GuiMsgBox`'s constructor (`:44`, `:234`, `:240`), `delete this` `:289` (not `:290`), `isSmallScreen` `:92` (not `:93`); `ThemeData.cpp:267` is the parser's `{ "multiLine", STRING }` entry, not a `GridTextProperties` declaration (that is T34's `GridTileComponent.h`); `HelpStyle.cpp:3` (not the `.h`) includes `resources/Font.h`; the 17 `delete this` lines listed.
+8. § 2 neighbours, take-up table, § 4 Q4 item 30 -- `HttpServerThread.cpp` is `es-app/src/services/HttpServerThread.cpp`, and both routes post their `GuiMsgBox` through `mWindow->postToUiThread` (`:229`, `:559`): the box is built on the interface thread, no line for T32.
+9. § 4 Q6, § 5 -- the non-ASCII lines: 28 in four files, 22 of them the keyboard's glyph literals; six upstream **comment** lines in `AudioManager.cpp`, `GunManager.cpp:145`, `InputManager.cpp:393`, `:1437` (two fork-modified files, 0 fork-added lines); `InputManager.cpp:856`, `:869` are ASCII; the in-source gate lines are `VolumeControl.cpp:11`, `CECInput.h:7`, `TextToSpeech.cpp:53` (the includes one line below); the `ROCKNIX` lines are three, `Paths.cpp:76` the third.
+10. § 3 items 5, 9, 10, § 5 item 1 -- `es-file-tests-win32` is `:142-158` (executable `:146`); `es-app/tests/unit/fakes/` holds `SDL_timer.h` alone; `docs/vm-qa-log.md:107` alone carries the help-bar figures; `Scripting.cpp:68` is a `new std::thread`, not a fifth `.detach(`; the plain-`g++` first error printed for `GuiMsgBox.cpp` (and `Window.cpp`; `InputManager.cpp` one header earlier; three files parse plain, rc 0).
+11. § 2 (the 19 commits), § 2 table -- authors `Max Engel` 14, `blitterbot` 5 (three addresses by `%ae`); the issue numbers by occurrence stated with their rule; the per-file commit lists completed (`Splash.h` + `975235429`; `GuiMsgBox.cpp` + `62e45ea6f`; the keyboard + `1593c299f`, `6d8764ec6`; `CMakeLists.txt` + `469441d4d`, `2dae87308`; `InputManager.cpp` + `370ebe416`).
+12. § 5 item 2 -- G-01 adds `ldd /usr/bin/emulationstation | grep -c udev`, the read that settles `UDEV_FOUND` (no `CMakeCache.txt` of an EmulationStation build is reachable on this host; M7's roots are never read).
+
+**The `[unverified]` marks.** Version 1 carried 22; one question remains, `UDEV_FOUND` in the image build (§ 4 Q7 and § 5 item 1, `CANNOT` on this host, G-01's read named); every other mark is settled by a printed line cited where it stood.
+
+**The cuts** (version 1 was 2,086 lines; version 2's count is the kit's `grep -c ''` line): § 2's `CLAIMS` paragraph (the 30 claimant rows named without their per-file lines, which the table and the block's own output carry); § 2's thirteen stat rows (the table's *Fork stat* column; the `--numstat` split kept); § 5 item 1's harness paragraph (the eight targets are § 3 item 5's; the `0 of 44` and the three doubles kept); § 2's list of the 19 fork commits by subject (the count, the two merges, the newest and oldest, the authors and the issue-number rule remain; the table's column carries the per-file subjects); § 1's per-lane ES-delta listing (now one sentence, T21's line kept); § 2's duplicated include-reach paragraph in the neighbours (now a pointer at § 5 item 1, where the figures live); § 2's French sentence under *What the research checked* (now the parser's result); § 5's closing paragraph on the unsettled expectations (now the proof's list). Every edited file:line, every criterion, the four tables (the files, the leads, the take-up, the floor) and the runs block stay whole.
