@@ -1,0 +1,34 @@
+# T36 stage B: the table generator's constructed drifts, run at 20:59:31Z against the generator as committed (sha256 9bce2a4e670459a0)
+== --print coverage --expect coverage=57
+ASSERT coverage: expected 57, the pin gives 58
+rc=1
+== --print coverage --expect upstream-carried=44
+ASSERT upstream-carried: expected 44, the pin gives 43
+rc=1
+== --print leads --expect leads=18
+ASSERT leads: expected 18, the pin gives 19
+rc=1
+== --print leads --expect floor=25
+ASSERT floor: expected 25, the pin gives 26
+rc=1
+== --print filecache --expect cache-erasing-lines=7
+ASSERT cache-erasing-lines: expected 7, the pin gives 8
+rc=1
+== --print filecache --expect linesets=16
+ASSERT linesets: expected 16, the pin gives 17
+rc=1
+== --print processes --expect spawn-linux=12
+ASSERT spawn-linux: expected 12, the pin gives 11
+rc=1
+== --print writes --expect write-sites-linux=9
+ASSERT write-sites-linux: expected 9, the pin gives 10
+rc=1
+== --print paths --expect path-transforms=21
+ASSERT path-transforms: expected 21, the pin gives 22
+rc=1
+== --check on a copy of 02 with Platform.cpp's line count edited to 955
+DRIFT: /workspace/tmp/m6-t36/02-drift.md's generated blocks differ from the pin's tables
+rc=1
+== --check on 02 as committed
+check: 6 blocks match the pin
+rc=0

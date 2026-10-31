@@ -20,3 +20,29 @@
 - **Read for stage B:** the coordinator's acceptance on #683 (comment 6546249036, ruling (h) as (a)); the brief's § 6 and § 7 (:1641-1770), D-WORKFLOW-215, the leads table and the take-up table (:694-818), and § 4's floor leads 3.1 to 3.25 (:1235-1285).
 - **Written for stage B: nothing.** No generator, no `02`, no `stage-b/`; the two reads (`ZipFile::extract` and its caller whole; `getCanonicalPath`'s callers whole) not begun, so nothing is weighed and nothing is held; `/workspace/tmp/m6-t36/held/` not created; no window asked for. The ES worktree at the pin, 0 changes.
 - **Next, in this order:** `02` in § 6's order with its generators under the audit folder's `tools/`, each seen to exit 1 on a constructed drift; the two reads weighed under D-WORKFLOW-215; the window plan under `stage-b/`; the window request on #683 and its host-file line; the stage-B checkpoint.
+
+## 2026-10-31 20:45-20:59 UTC (the first stamped artifact, h1, at 20:45; the reads before it unstamped) -- stage B: `02`, the two reads and a third weighed under D-WORKFLOW-215, the window plan
+
+- **Resumed after the usage limit** from `74422be97a` (above). The brief's § 5 item 2 (`:1462-1545`) and its G table were read, with the coordinator's `kit/t35-vm.txt` for the request's shape.
+- **The pin's slice files** were exported read-only to `/workspace/tmp/m6-t36/pin/` (`git archive` of the three directories, 60 files: the 58 and `AtomicFileUtil.*`). Nothing was written in the ES worktree, which stays at the pin with 0 changes.
+- **`02-forward-audit.md`:**
+  - Its sixteen sections are in § 6's order.
+  - Its six generated tables are written by `tools/t36-tables.py`: coverage 58, the leads 19 and the floor 26, the file cache 9, 6, 9 and 17, the processes 16, the writes 18, the paths 22. Each asserts its counts against the pin by `git show`.
+  - The generator was seen to exit 1 on ten constructed drifts, nine `--expect` overrides and one hand-edited copy of `02` under `--check`, and `--check` passes on `02` as committed (`stage-b/tables-drift.out`).
+- **L-19, new at stage B** (`proved: tree`):
+  - `removeFile` erases the path's entry (`FileSystemUtil.cpp:1067`), calls `isDirectory(_path)`, which stats the still-present file and stores `exists = true` (`:1080`), then unlinks (`:1084`). The deleted path answers present until a reset. ROCKNIX `f6c542872e` and batocera `b2ceb55a7e` have the same order.
+  - It reaches #1263's `TextureData.cpp:336-339`: an expired video thumbnail is removed and then read as present, so it is not re-extracted. A first extraction's snapshot (`:402`, libvlc) is read as the miss `:331` stored, so `:410` returns `false`.
+  - It contradicts the premise that only an outside writer leaves a stale entry (#1263's body `:13`; the brief's take-up row for the erasing writers). Its case is 3.26 at stage C.
+- **#1271's question, answered:** `isRegularFile` and `exists` share one entry. A symlinked file answers `false` from a listing's entry and `true` from a stat's.
+- **The holds (D-WORKFLOW-215).** Each read was weighed before anything about it was written on the tree or posted, and each met the test: a concrete mechanism in shipped code, with an input anyone can place. The records are off the tree in `/workspace/tmp/m6-t36/held/` (directory mode 700, files mode 600), each with the pin's lines, the reach read whole, the upstream comparison, what reading cannot prove, the stage-C case, a fix shape and a neutral public title:
+  - `h1-archive-extraction.md`: the archive extraction path and its caller, read whole. sha256 `226dbe97e424da89bdf10299e9246ec8bd7afe4505c669a62c0a8e38464594cf`.
+  - `h2-canonical-path.md`: the scoped lead of ruling (k), every caller of `getCanonicalPath` read whole (34 call lines). sha256 `245fcc8192376ad27cd1ad428d48fcdc6208dfd2e8bc24a9295bc3d76917d78b`.
+  - `h3-escaped-path.md`: Q3's read of `getEscapedPath`'s list (R4 item 15, 3.19), met while writing § The paths. sha256 `7fe2568d4e92ec349a17a09a6ff51d6ce531bf96196893627cd60d3d09e1164f`.
+  - `SHA256SUMS` beside them.
+  - Neither the T34 nor any other lane's held directory was opened.
+- **Line numbers corrected while writing.** Read back against the pin: the cache's map `:331-337`, `S_ISLNK` at `:298` and `:152`, `preloaded` `:1766`, the texture map's erase `:133-134` and sweep `:76-81`, the battery statics `:445-449` and listing `:458`, and `GetShOutputLines` `:907-935`. In the holds: `:758`, `:760` and `:679`. The records were rehashed after each correction; the sums above are the last.
+- **The window plan** (`stage-b/window-plan.md`):
+  - One guest from M6's `069fc2704421` copy, on a fresh qcow2 under `/workspace/tmp/m6-t36/`, at 640x480 and then 1280x800 on the same disk.
+  - G-01 to G-10 at 1,080 s by the lane's own command; 25 minutes proposed, plus 5 of grace. G-08 and G-09 are `CANNOT`; ES's VRAM counters in G-05 are `CANNOT`.
+  - G-07 reads `SigIgn` first (the errata). G-03's page is #1263's MANUAL row and G-04's the play-time field (`DetailedContainer.cpp:1049`, the only es-app caller of `secondsToString`).
+- **The host file,** read at 20:56:51 UTC: its last lines were T35's (#682) stage-E S4 compiles START/END with the coordinator's automatic acknowledgements. M7's #1293 standing-functional START (14:17:08) has its RETURN (14:18:21), and M7's 18:16 compile allocation request has no START line. The coordinator's 16:45 line says the T36 window request waits for its resume. **Census: qemu 0, cc1plus 0, cc1 0, ninja 0** (exact-name `pgrep -x` at 20:56:57; an earlier `pgrep -f` count of 3 matched the census command's own shell).

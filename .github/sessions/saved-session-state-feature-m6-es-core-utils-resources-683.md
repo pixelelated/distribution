@@ -15,22 +15,21 @@
 > **Register:** the rows this brief cites are on the coordinator's branch, merged here; D-CLOUD-193 D-INFRA-031 D-LAUNCH-007 D-NET-017 D-QA-063 D-RA-052 D-SYS-013 D-UI-137 D-WORKFLOW-216 are the highest rows of their areas on the coordinator's branch (computed from the decided table at `4bc59b6000`; at `acc4674006` on 2026-10-31 the brief read D-CLOUD-193, D-INFRA-031, D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-133, D-WORKFLOW-215, and the kit's read at `ea8a4f52dd` printed D-UI-137 in D-UI-133's place, T35's stage-E rows D-UI-134 to D-UI-137), with this slice's ownership row of the brief's § 1, **D-WORKFLOW-216**, written at dispatch (D-WORKFLOW-188 on the P1 branch only; the merge unites them); the four rows the brief's § 9 expects are put to the coordinator at the pause, never decided by the lane, and a row this slice forces takes an ID the coordinator assigns on #683
 > **The brief:** `docs/reviews/briefs/es-core-utils-resources.md` at `b1f34ce658` (version 2 of 2026-10-31, after a stranger's proof of version 1 -- its corrections listed under `## Corrections in version 2`, and what the proof left open under `## What version 2 does not settle`), **with its errata before dispatch at `e29a2966bc`** (`## Errata before dispatch`, eight items appended after the version line, version 2's text unchanged; where a section and that list differ, the list wins); #683's body carries its § 7 checkboxes, which the errata leave unchanged; where the two differ the body wins and the coordinator corrects the brief
 
-## Current focus (16:42 UTC 2026-10-31 update): stage A done
+## Current focus (20:59 UTC 2026-10-31 update): stage B done, the window asked for
 
-**Stage A is done; stage B next (the audit folder is `docs/audits/2026_10_31-epic-m6-es-core-utils-resources/`).**
+**Stage B is done; stage C next, once the coordinator answers the stage-B checkpoint on #683 (the guest waits for the grant there and in the host file).**
 
-- **The pointer's eleven keys** were read against the brief's § 10 table: none names T35. § 9's placeholder grep over this file is `0`.
-- **Done at stage A** (`00` and `01` § Scope; the scripts and outputs in `stage-a/`):
-  - the first commands, with the ten lanes' ES tips (T35's `453dffd0a2`);
-  - the membership block (its fourteen lines exactly as expected);
-  - the 23 § 5 runs (every line as expected; the stage-C ones not run);
-  - the angle includes under the lane's own list (33 non-standard of 241);
-  - the three lanes' fixes read as collisions (T20 `d9afa5c7c`, T21 `f7c16144d`, T26 S8 `a5d2d3756`).
-- **Stage B:**
-  - `02` with its sections in § 6's order;
-  - `ZipFile::extract` (`ZipFile.cpp:253-260`) and its caller read whole, and weighed under D-WORKFLOW-215's test before anything about them is posted;
-  - the scoped `getCanonicalPath` lead (the dispatch's ruling (k) paragraph) read whole and weighed the same way;
-  - then the window request on #683, with its plan and bound.
+- **Done at stage B** (`00`'s stage-B entry; `02`; `stage-b/`; `tools/t36-tables.py`):
+  - `02` in § 6's order. Its six tables are generated and asserted by `tools/t36-tables.py`, seen to exit 1 on ten constructed drifts (`stage-b/tables-drift.out`), and `--check` passes.
+  - A new lead, **L-19**: `removeFile` leaves the path it deletes cached as present (`FileSystemUtil.cpp:1067`, `:1080`, `:1084`). It reaches #1263's `TextureData.cpp:336-339`; its case is 3.26.
+  - **Three holds under D-WORKFLOW-215**, in `/workspace/tmp/m6-t36/held/` at mode 600 with `SHA256SUMS`: the archive extraction path, `getCanonicalPath`'s callers (ruling (k)), and `getEscapedPath`'s list (Q3, found while writing § The paths). Only a neutral line is public; never open another lane's held directory.
+  - The window plan (`stage-b/window-plan.md`, 25 + 5 minutes for 1,080 s), asked for on #683 and in the host file.
+- **Stage C:**
+  - the `utils-resources-tests` build;
+  - cases 3.1 to 3.26 (3.19's and 3.20's output, and any case for h1, into the held directory only);
+  - T35's 3.11 re-run from T35's tips of that minute, named with the time and T35's stage (ruling (h) as (a));
+  - the stand-in over the 25 `.cpp` files;
+  - compile START/END lines in the host file.
 - **The ES worktree stays at the pin until stage E.** Scratch goes under `/workspace/tmp/m6-t36/`.
 
 ## Next commands
@@ -76,3 +75,4 @@ or a guest outside the one granted window.
 ## Checkpoints
 
 - stage A, 16:42 UTC 2026-10-31: the distribution at the stage-A commit (named in the checkpoint on #683; `3740ce4a0d` before it), the ES worktree at the pin `16dbac5211`, unchanged
+- stage B, 20:59 UTC 2026-10-31: the distribution at the stage-B commit (named in the checkpoint on #683), the ES worktree at the pin `16dbac5211`, unchanged; three holds at `/workspace/tmp/m6-t36/held/` (mode 600, `SHA256SUMS`)
