@@ -1,0 +1,65 @@
+g++: g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0; fakes: 14 files
+rc=1 AudioManager.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/AudioManager.cpp:35:90: error: ‘MIX_MAX_VOLUME’ was not declared in this scope
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/AudioManager.cpp:71:31: error: ‘SDL_INIT_AUDIO’ was not declared in this scope
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/AudioManager.cpp:71:13: error: ‘SDL_InitSubSystem’ was not declared in this scope
+rc=0 BindingManager.cpp
+rc=0 CECInput.cpp
+rc=0 FavoriteMusicManager.cpp
+rc=0 GuiComponent.cpp
+rc=0 GunManager.cpp
+rc=0 HelpStyle.cpp
+rc=1 ImageIO.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/ImageIO.cpp:32:9: error: ‘FIMEMORY’ was not declared in this scope
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/ImageIO.cpp:32:20: error: ‘fiMemory’ was not declared in this scope
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/ImageIO.cpp:32:53: error: ‘BYTE’ was not declared in this scope
+rc=0 InputConfig.cpp
+rc=1 InputManager.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/InputManager.cpp:573:26: error: missing binary operator before token ‘(’
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/InputManager.cpp:694:24: error: missing binary operator before token ‘(’
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/InputManager.cpp:188:32: error: ‘SDL_DISABLE’ was not declared in this scope
+rc=0 LocaleES.cpp
+rc=0 Log.cpp
+rc=0 MameNames.cpp
+rc=0 MultiStateInput.cpp
+rc=0 Paths.cpp
+rc=1 PowerSaver.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/PowerSaver.cpp:25:32: error: ‘SDL_RegisterEvents’ was not declared in this scope
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/PowerSaver.cpp:29:13: error: ‘SDL_PushEvent’ was not declared in this scope; did you mean ‘SDL_PollEvent’?
+rc=0 Scripting.cpp
+rc=1 Sound.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/Sound.cpp:74:23: error: ‘Mix_LoadWAV’ was not declared in this scope
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/Sound.cpp:77:94: error: ‘SDL_GetError’ was not declared in this scope
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/Sound.cpp:88:9: error: ‘Mix_FreeChunk’ was not declared in this scope; did you mean ‘Mix_Chunk’?
+rc=1 Splash.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/Splash.cpp:242:9: error: ‘SDL_GL_SetSwapInterval’ was not declared in this scope
+rc=0 TextToSpeech.cpp
+rc=0 ThemeData.cpp
+rc=0 ThemeVariables.cpp
+rc=1 VolumeControl.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/VolumeControl.cpp:288:17: error: ‘snd_mixer_selem_id_alloca’ was not declared in this scope; did you mean ‘snd_mixer_selem_id_t’?
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/VolumeControl.cpp:290:17: error: ‘snd_mixer_selem_id_set_index’ was not declared in this scope; did you mean ‘snd_mixer_selem_id_t’?
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/VolumeControl.cpp:291:17: error: ‘snd_mixer_selem_id_set_name’ was not declared in this scope; did you mean ‘snd_mixer_selem_id_t’?
+rc=0 Window.cpp
+rc=0 anim/StoryboardAnimator.cpp
+rc=0 anim/ThemeStoryboard.cpp
+rc=0 animations/AnimationController.cpp
+rc=0 guis/GuiDetectDevice.cpp
+rc=0 guis/GuiInfoPopup.cpp
+rc=0 guis/GuiInputConfig.cpp
+rc=0 guis/GuiMsgBox.cpp
+rc=0 guis/GuiTextEditPopup.cpp
+rc=0 guis/GuiTextEditPopupKeyboard.cpp
+rc=0 math/Misc.cpp
+rc=0 math/Transform4x4f.cpp
+rc=0 math/Vector2f.cpp
+rc=0 math/Vector2i.cpp
+rc=0 math/Vector3f.cpp
+rc=0 math/Vector4f.cpp
+rc=0 playlists/AnimatedGifPlaylist.cpp
+rc=0 playlists/M3uPlaylist.cpp
+rc=0 watchers/BatteryLevelWatcher.cpp
+rc=0 watchers/NetworkStateWatcher.cpp
+rc=0 watchers/WatchersManager.cpp
+t35-syntax-check: 44 file(s) checked, 37 rc 0, 7 not
+rc=1 wall=11s

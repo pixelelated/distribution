@@ -21,7 +21,7 @@ one() {  # name expect-args wrong-key dropped-file
 date -u +%FT%TZ
 one t35-coverage.py "rows=96 added=1 modified=12 upstream=83 inv_fork=13 inv_up=83 lines=22575" "rows=95" es-core/src/Window.cpp
 one t35-leads.py "leads=29 cases=27" "cases=26" es-core/src/Window.cpp
-one t35-surfaces.py "rows=21 containers=5 sites=15" "sites=14" es-core/src/Window.cpp
+one t35-surfaces.py "rows=22 containers=5 sites=15" "sites=14" es-core/src/Window.cpp
 one t35-input.py "writes=9 real_writes=5 reads_counted=2 exists=5 rows=12" "real_writes=7" es-core/src/InputManager.cpp
 one t35-locks.py "lines=67 files=11 locks=10 weak=2 includes=4" "lines=66" es-core/src/Window.cpp
 one t35-lifetimes.py "threads=18 detach=4 delete_this=17 posts=6 raw=8 rows=52" "detach=5" es-core/src/Window.cpp

@@ -1,4 +1,4 @@
-2026-10-31T06:40:25Z
+2026-10-31T06:55:30Z
 == t35-coverage.py
 clean rc=0
 generated, asserted: 96 rows, 22575 lines (grep -c rule); read tiers fork-added 1 / fork-modified 12 / upstream-carried 83; inventory fork-own 13 / upstream-carried 83
@@ -25,7 +25,7 @@ FAIL t35-leads: es-core/src/Window.cpp:1248 does not carry /delete mAsyncNotific
 33
 == t35-surfaces.py
 clean rc=0
-generated, asserted: 21 rows: 5 containers and the lock, 15 sites (one of them T34's component's, outside the 96), and T34's held patch
+generated, asserted: 22 rows: 5 containers and the lock, 15 sites (one of them T34's component's, outside the 96), and T34's two held patches
 (a) sites=14 rc=1
 FAIL t35-surfaces: sites 15, expected 14
 (b) without es-core/src/Window.cpp rc=1
@@ -34,7 +34,7 @@ FAIL t35-surfaces: es-core/src/Window.cpp is not in the paths list
 (c) at bccd715707 rc=1
 FAIL t35-surfaces: es-core/src/Window.h:123 does not carry /std::vector<AsyncNotificationComponent\*> mAsyncNotificationComponent/ (reads: 'void renderAsyncNotifications(const Transform4x4f& trans);')
 FAIL t35-surfaces: es-core/src/Window.h:133 does not carry /std::vector<PostedFunction> mFunctions/ (reads: 'std::vector<GuiInfoPopup*> mNotificationPopups;')
-19
+20
 == t35-input.py
 clean rc=0
 generated, asserted: 7 write-site rows (5 writes, 2 reads the grep counts), 5 exists rows; the writes grep 9 hits
@@ -107,4 +107,4 @@ FAIL t35-includes: cpp_named_once 43, expected 44
 FAIL t35-includes: es-core/src/LogPolicy.h not at bccd715707
 FAIL t35-includes: es-core/CMakeLists.txt:278 does not carry /^if\(\$\{GLSystem\} MATCHES "OpenGL ES 3\.0"\)/ (reads: '')
 6
-2026-10-31T06:40:31Z
+2026-10-31T06:55:37Z

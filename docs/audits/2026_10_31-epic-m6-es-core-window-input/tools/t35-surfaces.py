@@ -83,5 +83,15 @@ rows.append(["T34's `stage-e/s2-window.patch` (#1310)", "held patch", "createAsy
              "would make the card's free safe against a holder's late use (L-02's half); **changes `createAsyncNotificationComponent`'s return type**, so the 10 callers in es-app (`ContentInstaller.cpp:60`, `ProxyCards.cpp:215`, `:257`, `:514`, `ThreadedBluetooth.cpp:15`, `:72`, `ThreadedCloudSync.cpp:46`, `ThreadedHasher.cpp:126`, `guis/GuiMenu.cpp:11717`, `guis/GuiUpdate.cpp:162`: five lanes) and the three doubles (`tests/app-unit/fakes/Window.h:11`, `ProxyCardsTests.cpp:154`, `tests/hasher-offline-index.py:65`) change with it",
              "proposed for the pause: adopted into a stage-E stream only with its callers' half named for their owners, else a collision named (§ 1 i)", "design"])
 cnt["rows"] += 1
+P3 = "docs/audits/2026_10_30-epic-m6-es-core-components/stage-e/s3-msgbox.patch"
+r3 = subprocess.run(["git", "-C", T34, "show", f"feature/m6-es-core-components-681:{P3}"], capture_output=True, text=True)
+if r3.returncode or "-\t\tdrawnHeight = mMsg->getFont()->sizeWrappedText(text, drawnWidth)" not in r3.stdout or "(#1315)" not in r3.stdout:
+    c.fail.append("T34's s3-msgbox.patch not read, or its shape changed")
+c.need("es-core/src/guis/GuiMsgBox.cpp", 202, r"drawnHeight = mMsg->getFont\(\)->sizeWrappedText\(text, drawnWidth\)")
+rows.append(["T34's `stage-e/s3-msgbox.patch` (S3, 06:12; Q6)", "held patch", "`GuiMsgBox` constructor", "-- (the dialog's height)", "--",
+             "removes `GuiMsgBox`'s #48 workaround -- the height measured again at the drawn width (`guis/GuiMsgBox.cpp:167-202` at the pin) -- because T34's `TextComponent` fix (#1315, D-UI-130) measures at the width it draws at; proven by T34 on a scratch copy of the pin's file, not applied",
+             "**ordered after #1315**: applied without T34's `TextComponent` change it returns #48 (the OK button over the message on a small panel); it touches one of the 96 and depends on a file of T34's 80, so it lands with T34's fix or after it, at the integration",
+             "a collision named for the pause (§ 1 i's family): not adopted by this lane; G-04 and G-11 frame the pin's dialog either way", "design"])
+cnt["rows"] += 1
 print(table(["Site", "Kind", "Function", "Container", "Lock", "What it does", "Invariant", "Proof or frame", "proved:"], rows))
-c.finish("t35-surfaces", cnt, f"{cnt['rows']} rows: {cnt['containers']} containers and the lock, {cnt['sites']} sites (one of them T34's component's, outside the 96), and T34's held patch")
+c.finish("t35-surfaces", cnt, f"{cnt['rows']} rows: {cnt['containers']} containers and the lock, {cnt['sites']} sites (one of them T34's component's, outside the 96), and T34's two held patches")

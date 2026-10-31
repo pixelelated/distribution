@@ -1,0 +1,8 @@
+# python3 -I stage-c/pl25-screensaver.py <W>/es-app/src/SystemScreenSaver.cpp (unchanged from 947ace1966: sha256 d4c6851fa0ccff41..., t33extract.py 42ad6477046e6fc5...; T33's scratch /workspace/tmp/m6-t33/tmp re-made empty for this run and removed after) at 2026-10-31T06:54:22Z; ES at 16dbac521
+  Right alloca redzone:    cb
+==1035503==ABORTING
+
+rc=1 wall=1s
+# the full run's lines that name the outcome (rc=1):
+SUMMARY: AddressSanitizer: heap-use-after-free a.cpp:14 in FileData::getImagePath[abi:cxx11]()
+FAIL pl25: rc 1 fa fa fa fa fa fa fa fa

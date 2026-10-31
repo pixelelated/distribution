@@ -16,7 +16,7 @@ L-01 to L-29 are the brief's § 2 lead table. L-28 and L-29 are T34's PL-05 and 
 
 ## The surfaces
 
-<!-- GEN t35-surfaces.py rows=21 containers=5 sites=15 -->
+<!-- GEN t35-surfaces.py rows=22 containers=5 sites=15 -->
 
 **The queue's order (`:339-340`).** The queue drains **newest first**. The pop is upstream's: the base `bccd715707` pops from the back at its `:322-323`. **D-UI-093's decided row says it plainly** (`decision-register.md:404`: *Nothing is dropped; the order is the order things happened.*), as does the fork's comment (`c1c0d6ddc`, `:334-335`). The fork's own re-queue comment (`:1159-1160`) relies on the opposite. **Disposition: a defect against a decided row, contained in `processNotificationMessages`**, the order cited and not re-argued (`decision-register.md` § Read it when), proposed for the pause as a rule-6 fix (pop the front, and reverse the re-queue loop so a returned toast keeps its place). 3.14's FAIL line at stage C is the evidence. G-03 is `CANNOT`.
 
