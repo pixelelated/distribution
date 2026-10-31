@@ -1,0 +1,63 @@
+# tools/archaeology 'back-button' at 2026-10-31T06:37:49Z
+archaeology: back-button
+
+== The decision register (1)
+  2026-09-12  register decided D-WORKFLOW-007  The EmulationStation UI style guide is a rule file, not a `docs/` document. Maintainer, #147: *"I think it makes sense to make the style guide into an instruction rules …
+
+== The blindspot register (0)
+
+== Work logs (1)
+  2026-09-12  work-log 19:10                the instruction-file sweep (#147): what was written, what loaded, what was checked
+
+== Rules (2)
+              rule es-native-ui.md          The other files that carry the interface law
+              rule es-ui-style-guide.md     Confirmations
+
+== Git history (-G, on this checkout) (12)
+  2026-08-19  git aaa0acfc63                docs: map the EmulationStation menus and codify its UI conventions
+  2026-09-12  git 0fe108bc96                rules: close the gaps the sweep found -- four homeless rules, two dead globs, three contradictions
+  2026-09-12  git 310d0b0203                docs: register rows for the three calls, and every pointer to match (#147)
+  2026-09-12  git 438f14bfff                docs: the instruction-file sweep (#147) -- every rule, its trigger, its row, its check
+  2026-09-12  git b79ba6c588                rules: split es-native-ui.md into mechanics, player text and traps (#147)
+  2026-10-23  git 289a95eb05                docs: the three documents 55ea579bcf, 40f6257f1e and 4cb05330c5 named but did not carry: T2's brief v1, the interface epic's futro, T1's stream brief…
+  2026-10-26  git 3f3ba01e01                docs: T18's brief, version 1 (EmulationStation's cloud pages, cards and text), and the interface futro's T18 addendum (#665, #700)
+  2026-10-26  git a71f833ea0                docs: T26's brief, version 1, from the four research digests, and the futro's T26 addendum (#673)
+  2026-10-27  git 8bf46970db                docs: T31's brief, version 1, and the interface futro's T31 addendum (#678)
+  2026-10-27  git a728d04c95                docs: T34's brief, version 1 -- EmulationStation's core components (#681)
+  2026-10-31  git 8b5d9b9b62                docs: T35's brief, version 2 -- a stranger's proof of version 1 (12 commands, 904 line checks, 31 corrections, 21 of 22 marks settled) applied; the t…
+  2026-10-31  git d402dc252f                docs: T35's brief, version 1 -- EmulationStation's window, input, settings and the rest of es-core (#682)
+
+== Issues (30)
+  2026-07-26  issue #26 open                cloud: fresh-handheld end-to-end journey (restore everything → play → back up)
+  2026-08-31  issue #54 open                cloud sign-in: ES keeps reading the gamepad while the browser is open
+  2026-09-05  issue #65 open                ES: tab strips steal left/right from every row; scraper options cannot be cycled in place
+  2026-09-06  issue #77 closed closed 2026-09-11  cloud content: game content is a class on the transfer page; CONTINUE opens the systems page; the game list moves with it
+  2026-09-09  issue #104 open               Handhelds keep no evidence across a power cycle: persistent logs, watchdog, crash store
+  2026-09-18  issue #210 closed closed 2026-09-25  Help bar: SAVE STATES offered where it cannot apply, and the row is centred on a box that includes the prompt it dropped
+  2026-09-20  issue #236 open               RC round on the RG35XX SP, now at 664ad9ac64: the soak, then the candidate is called; the RG SP and the Nova after it (D-QA-046)
+  2026-09-28  issue #316 open               Open items waiting on the maintainer (2026-09-28): #315's call, the CI secret, #260's edits, the history rewrite, the RG35XX SP
+  2026-09-29  issue #323 open               Release notes, the wiki pages in the site's own voice, screenshots from the VM, and a technical appendix for sync and the offline proxy
+  2026-09-29  issue #330 open               cloud_oauth: the phone keyboard page on the Nova stays at Checking…, taps do nothing, Show overflows
+  2026-09-30  issue #344 open               M7: pixelelated 0.0.1 release contract
+  2026-10-07  issue #511 open               Ops: Define and launch the pixelelated site with setup guides
+  2026-10-11  issue #536 closed closed 2026-10-11  M7.P5: Investigate phone-controlled browser links that will not click
+  2026-10-11  issue #539 closed closed 2026-10-11  M7.P5: Restore Back navigation in the sign-in browser
+  2026-10-11  issue #544 closed closed 2026-10-11  M7.P5: Account for approved cloud menu and CLEAR frame changes
+  2026-10-20  issue #623 open               M7.P5: Clarify incomplete sign-in, retry and dialog actions
+  2026-10-23  issue #650 open               M6.P2 E798/T3: emulators-and-cores: RetroArch and the libretro cores
+  2026-10-23  issue #667 open               M6.P2 E700/T20: interface: EmulationStation's RetroAchievements and offline pages
+  2026-10-23  issue #673 open               M6.P2 E700/T26: interface: EmulationStation's GuiMenu
+  2026-10-23  issue #677 open               M6.P2 E798/T30: emulators-and-cores: the standalone emulators
+  2026-10-23  issue #678 open               M6.P2 E700/T31: interface: EmulationStation's other pages
+  2026-10-23  issue #679 open               M6.P2 E700/T32: interface: EmulationStation's game list views, scrapers and services
+  2026-10-23  issue #681 open               M6.P2 E700/T34: interface: EmulationStation's core components
+  2026-10-23  issue #701 open               Audit: M6 T1 the OS scripts: launch, control and state -- 81 findings (0 critical, 2 high)
+  2026-10-23  issue #763 open               M7.P5: Return declined sign-in retry to Manage cloud connections
+  2026-10-25  issue #1042 open              M7.P5: Make Dropbox Allow respond reliably to phone taps
+  2026-10-26  issue #1146 open              Bug: the CANCEL confirmation over a running match promises that the next backup or restore finishes it
+  2026-10-27  issue #1245 open              Bug: EmulationStation: BIOS CHECK draws no help bar under full-screen menus; DETAILS and START (REFRESH) are never shown (T31 PL-10)
+  2026-10-30  issue #1307 open              Audit: M6 T34 EmulationStation's core components -- 43 findings (0 critical, 1 high)
+  2026-10-30  issue #1318 open              Bug: EmulationStation: a focused video component labels BACK as SELECT (T34 PL-11)
+
+46 line(s). A decision listed as pending without a register OPEN row above is a claim to check.
+rc=0 wall=40s

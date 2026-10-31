@@ -1,0 +1,110 @@
+2026-10-31T06:40:25Z
+== t35-coverage.py
+clean rc=0
+generated, asserted: 96 rows, 22575 lines (grep -c rule); read tiers fork-added 1 / fork-modified 12 / upstream-carried 83; inventory fork-own 13 / upstream-carried 83
+(a) rows=95 rc=1
+FAIL t35-coverage: rows 96, expected 95
+(b) without es-core/src/Window.cpp rc=1
+FAIL t35-coverage: rows 95, expected 96
+FAIL t35-coverage: modified 11, expected 12
+(c) at bccd715707 rc=1
+FAIL t35-coverage: es-core/CMakeLists.txt: 296 lines at bccd715707, inventory 303
+FAIL t35-coverage: es-core/src/GunManager.cpp: 1055 lines at bccd715707, inventory 1057
+15
+== t35-leads.py
+clean rc=0
+generated, asserted: 29 leads (24 confirmed at the tree, 1 contradicted, the rest read or supported), 27 floor cases anchored
+(a) cases=26 rc=1
+FAIL t35-leads: cases 27, expected 26
+(b) without es-core/src/Window.cpp rc=1
+FAIL t35-leads: es-core/src/Window.cpp is not in the paths list
+FAIL t35-leads: es-core/src/Window.cpp is not in the paths list
+(c) at bccd715707 rc=1
+FAIL t35-leads: es-core/src/Window.cpp:339 does not carry /mNotificationMessages\.back\(\)/ (reads: 'return;')
+FAIL t35-leads: es-core/src/Window.cpp:1248 does not carry /delete mAsyncNotificationComponent\[i\];/ (reads: '')
+33
+== t35-surfaces.py
+clean rc=0
+generated, asserted: 21 rows: 5 containers and the lock, 15 sites (one of them T34's component's, outside the 96), and T34's held patch
+(a) sites=14 rc=1
+FAIL t35-surfaces: sites 15, expected 14
+(b) without es-core/src/Window.cpp rc=1
+FAIL t35-surfaces: es-core/src/Window.cpp is not in the paths list
+FAIL t35-surfaces: es-core/src/Window.cpp is not in the paths list
+(c) at bccd715707 rc=1
+FAIL t35-surfaces: es-core/src/Window.h:123 does not carry /std::vector<AsyncNotificationComponent\*> mAsyncNotificationComponent/ (reads: 'void renderAsyncNotifications(const Transform4x4f& trans);')
+FAIL t35-surfaces: es-core/src/Window.h:133 does not carry /std::vector<PostedFunction> mFunctions/ (reads: 'std::vector<GuiInfoPopup*> mNotificationPopups;')
+19
+== t35-input.py
+clean rc=0
+generated, asserted: 7 write-site rows (5 writes, 2 reads the grep counts), 5 exists rows; the writes grep 9 hits
+(a) real_writes=7 rc=1
+FAIL t35-input: real_writes 5, expected 7
+(b) without es-core/src/InputManager.cpp rc=1
+FAIL t35-input: es-core/src/InputManager.cpp is not in the paths list
+FAIL t35-input: es-core/src/InputManager.cpp:1225 is not among the writes grep's hits
+(c) at bccd715707 rc=1
+FAIL t35-input: es-core/src/LogPolicy.h not at bccd715707
+FAIL t35-input: es-core/src/InputManager.cpp:1225 does not carry /doc\.save_file\(WINSTRINGW\(path\)/ (reads: 'pugi::xml_document lastdoc;')
+31
+== t35-locks.py
+clean rc=0
+generated, asserted: 67 lock lines in 11 files (4 includes, 2 `weak_ptr::lock`), 10 locks summarised, 7 threads
+(a) lines=66 rc=1
+FAIL t35-locks: lines 67, expected 66
+(b) without es-core/src/Window.cpp rc=1
+FAIL t35-locks: lines 55, expected 67
+FAIL t35-locks: files 10, expected 11
+(c) at bccd715707 rc=1
+FAIL t35-locks: es-core/src/LogPolicy.h not at bccd715707
+FAIL t35-locks: es-core/src/InputManager.cpp:485 does not carry /mJoysticksLock\.lock\(\);/ (reads: '')
+15
+== t35-lifetimes.py
+clean rc=0
+generated, asserted: 18 thread rows (4 detaches), 17 `delete this`, 6 posts, 8 raw pointers, 3 halves of #1305
+(a) detach=5 rc=1
+FAIL t35-lifetimes: detach 4, expected 5
+(b) without es-core/src/Window.cpp rc=1
+FAIL t35-lifetimes: es-core/src/Window.cpp is not in the paths list
+FAIL t35-lifetimes: es-core/src/Window.cpp is not in the paths list
+(c) at bccd715707 rc=1
+FAIL t35-lifetimes: es-core/src/LogPolicy.h not at bccd715707
+FAIL t35-lifetimes: Log.cpp:59 is a thread line with no row
+33
+== t35-scripts.py
+clean rc=0
+generated, asserted: 4 sites (4 `ProcessStartInfo` lines in the 96), direct shell spawns 0
+(a) shell_direct=1 rc=1
+FAIL t35-scripts: shell_direct 0, expected 1
+(b) without es-core/src/Scripting.cpp rc=1
+FAIL t35-scripts: es-core/src/Scripting.cpp is not in the paths list
+FAIL t35-scripts: es-core/src/Scripting.cpp is not in the paths list
+(c) at bccd715707 rc=1
+FAIL t35-scripts: es-core/src/LogPolicy.h not at bccd715707
+FAIL t35-scripts: es-core/src/InputManager.cpp:1272 does not carry /int exitCode = Utils::Platform::ProcessStartInfo\(tocall\)\.run\(\);/ (reads: 'if(exitCode != 0)')
+2
+== t35-words.py
+clean rc=0
+generated, asserted: 86 lines in 10 files, 97 occurrences, 61 msgids, 0 without French; 27 glyph lines; 28 `pgettext`/`ngettext` lines, 0 without French
+(a) msgids=62 rc=1
+FAIL t35-words: msgids 61, expected 62
+(b) without es-core/src/Window.cpp rc=1
+FAIL t35-words: lines 49, expected 86
+FAIL t35-words: files 9, expected 10
+(c) at bccd715707 rc=1
+FAIL t35-words: es-core/src/LogPolicy.h not at bccd715707
+FAIL t35-words: fr_missing 1, expected 0
+2
+== t35-includes.py
+clean rc=0
+generated, asserted: 51 headers' reach, 12 guard macros, 44 `.cpp` named once, 2 headers unregistered, 9 `# batocera` lines, 2 CMake `if(`, 3 `ROCKNIX` lines, 0 map titles
+(a) rocknix=4 rc=1
+FAIL t35-includes: rocknix 3, expected 4
+(b) without es-core/src/Window.cpp rc=1
+FAIL t35-includes: es-core/src/Window.cpp is not in the paths list
+FAIL t35-includes: cpp_named_once 43, expected 44
+(c) at bccd715707 rc=1
+FAIL t35-includes: es-core/src/LogPolicy.h not at bccd715707
+FAIL t35-includes: es-core/CMakeLists.txt:278 does not carry /^if\(\$\{GLSystem\} MATCHES "OpenGL ES 3\.0"\)/ (reads: '')
+6
+2026-10-31T06:40:31Z

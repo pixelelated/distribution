@@ -1,0 +1,11 @@
+composed docs/audits/2026_10_31-epic-m6-es-core-window-input/02-forward-audit.md: 10 generated sections, coverage rows 96, placeholders 0
+  t35-coverage.py: generated, asserted: 96 rows, 22575 lines (grep -c rule); read tiers fork-added 1 / fork-modified 12 / upstream-carried 83; inventory fork-own 13 / upstream-carried 83
+  t35-leads.py: generated, asserted: 29 leads (24 confirmed at the tree, 1 contradicted, the rest read or supported), 27 floor cases anchored
+  t35-surfaces.py: generated, asserted: 21 rows: 5 containers and the lock, 15 sites (one of them T34's component's, outside the 96), and T34's held patch
+  t35-input.py: generated, asserted: 7 write-site rows (5 writes, 2 reads the grep counts), 5 exists rows; the writes grep 9 hits
+  t35-locks.py: generated, asserted: 67 lock lines in 11 files (4 includes, 2 `weak_ptr::lock`), 10 locks summarised, 7 threads
+  t35-lifetimes.py: generated, asserted: 18 thread rows (4 detaches), 17 `delete this`, 6 posts, 8 raw pointers, 3 halves of #1305
+  t35-scripts.py: generated, asserted: 4 sites (4 `ProcessStartInfo` lines in the 96), direct shell spawns 0
+  t35-words.py: generated, asserted: 86 lines in 10 files, 97 occurrences, 61 msgids, 0 without French; 27 glyph lines; 28 `pgettext`/`ngettext` lines, 0 without French
+  t35-includes.py: generated, asserted: 51 headers' reach, 12 guard macros, 44 `.cpp` named once, 2 headers unregistered, 9 `# batocera` lines, 2 CMake `if(`, 3 `ROCKNIX` lines, 0 map titles
+  t35-runs.py: generated, asserted: 25 run blocks, 9 generators with three drifts each

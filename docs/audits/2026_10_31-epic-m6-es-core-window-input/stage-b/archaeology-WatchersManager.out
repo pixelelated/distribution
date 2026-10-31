@@ -1,0 +1,40 @@
+# tools/archaeology 'WatchersManager' at 2026-10-31T06:38:29Z
+archaeology: WatchersManager
+
+== The decision register (2)
+  2026-10-30  register decided D-WORKFLOW-213  T34 (#681) owns `es-core/src/components/`, the 80 paths, and nothing else. The neighbours' owners by the selectors at `2174265e9c`: the popups under `es-core/src/guis/`,…
+  2026-10-31  register decided D-WORKFLOW-214  T35 (#682) owns `es-core/` as `rest` -- the 96 paths -- and nothing else. The neighbours' owners by the selectors at `2174265e9c`, as D-WORKFLOW-213 names them from the …
+
+== The blindspot register (0)
+
+== Work logs (1)
+  2026-09-25  work-log 06:10                ES merged with ROCKNIX master (66 commits, pin 370ebe416); the IP row keeps both designs (D-UI-091); upstream now pauses the watchers during a game
+
+== Rules (0)
+
+== Git history (-G, on this checkout) (15)
+  2026-10-15  git 64cc45ece8                m7: retain source and notice proof and primary audit (#528, #603)
+  2026-10-22  git 31af3b387d                docs: the revised order, its ledgers regenerated, and the preliminary review's synthesis (#641)
+  2026-10-22  git 475cbc9fa0                docs: the M6 renovation inventory, pass 1 of the survey (#641)
+  2026-10-23  git a2cfa82233                docs: the order's third version, the build process first and two shipped devices (#641)
+  2026-10-27  git a728d04c95                docs: T34's brief, version 1 -- EmulationStation's core components (#681)
+  2026-10-27  git c48f8b387e                docs: T33's brief, version 2, after a stranger's proof of version 1 (#680)
+  2026-10-27  git c93ce05a52                docs: the interface futro's T33 kickoff addendum and proof errata (#680)
+  2026-10-27  git f462dfcda7                docs: T33's brief, version 1 -- EmulationStation's system layer, the rest of es-app (#680)
+  2026-10-30  git 200a9a032d                docs: D-WORKFLOW-213, T34's ownership (the 80 paths and nothing else; the neighbours' owners); the brief's errata before dispatch (#681)
+  2026-10-30  git 31561429a2                docs: T33's stream brief, stage E: the draft carried whole with the coordinator's ten rulings (#680, #1270)
+  2026-10-31  git 06760f1f1d                docs: the interface futro's T35 kickoff addendum and the errata from the stranger's proof of T35's brief (#682)
+  2026-10-31  git 6c632c7cb3                docs: T35 stage A: the running log, 01 Scope with the membership block, the first commands and the § 5 runs under stage-a, the pointer and the work l…
+  2026-10-31  git 8b5d9b9b62                docs: T35's brief, version 2 -- a stranger's proof of version 1 (12 commands, 904 line checks, 31 corrections, 21 of 22 marks settled) applied; the t…
+  2026-10-31  git be119338ff                docs: D-WORKFLOW-214, T35's ownership of es-core's rest and its neighbours' owners, written at dispatch (#682)
+  2026-10-31  git d402dc252f                docs: T35's brief, version 1 -- EmulationStation's window, input, settings and the rest of es-core (#682)
+
+== Issues (5)
+  2026-09-14  issue #175 closed closed 2026-09-20  RetroAchievements master switch flipped 1->0 on a boot whose first login attempt ran before the network was up
+  2026-10-23  issue #680 open               M6.P2 E700/T33: interface: EmulationStation's system layer: game lists, collections, metadata, and the fork's helper units
+  2026-10-23  issue #682 open               M6.P2 E700/T35: interface: EmulationStation's window, input, settings and the rest of es-core
+  2026-10-27  issue #1276 open              Bug: EmulationStation: NetworkThread posts straight to the window, past the closing gate the fork wrote for exactly this (T33 PL-06)
+  2026-10-27  issue #1283 open              Bug: EmulationStation: closing a RetroAchievements page waits on the watcher lock while a network check holds it (T33 PL-14)
+
+23 line(s). A decision listed as pending without a register OPEN row above is a claim to check.
+rc=0 wall=40s

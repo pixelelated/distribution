@@ -1,0 +1,130 @@
+# tools/archaeology 'toast' at 2026-10-31T06:37:10Z
+archaeology: toast
+
+== The decision register (11)
+  2026-09-13  register decided D-RA-003     The proxy's synthetic "Warning: Casual Only" achievement (upstream RAOfflineProxy injects it into every cached set; RetroArch then awards it with a toast at every proxie…
+  2026-09-16  register decided D-RA-022     The offline login toast keeps RetroArch's phrase with a suffix: `RetroAchievements: Logged in as "Name" (offline).` The maintainer chose it over `Playing offline as` and…
+  2026-09-16  register decided D-UI-068     MANAGE SAVED NETWORKS' remaining words stand as built: `IN USE`, the two-sentence FORGET dialog, the FORGOTTEN toasts, `COULDN'T FORGET <name>. TRY AGAIN.` #200 item 5.
+  2026-09-25  register decided D-UI-093     One floating surface at a time: a toast waits while a progress card is up, and a card created while a toast is up takes its place and puts the toast's words back on the …
+  2026-09-27  register decided D-RA-035     The offline achievements' top-up is two things (settles D-RA-034): at the link's return, one question -- was a game played since the last attempt (RetroArch's history ne…
+  2026-09-27  register decided D-RA-036     The hash library's fetch is bounded in silence, not in length -- thirty seconds without a byte ends it (`HttpReqOptions::stallTimeout`, `CURLOPT_LOW_SPEED_*`) -- and the…
+  2026-09-27  register decided D-UI-104     A game list updated offline with offline achievements on says so once, as a toast: `YOU'RE NOT ONLINE. NEW GAMES GET THEIR OFFLINE ACHIEVEMENTS NEXT TIME YOU'RE CONNECTE…
+  2026-09-27  register decided D-UI-105     The offline index's toast reads `YOU'RE NOT ONLINE. NEW GAMES GET OFFLINE ACHIEVEMENTS ONCE YOU ARE.` -- D-UI-104's sentence, `...GET THEIR OFFLINE ACHIEVEMENTS NEXT TIM…
+  2026-09-27  register decided D-UI-106     The offline-update notice is a card, not a toast: the trophy and `RETROACHIEVEMENTS (OFFLINE)` as the title, `NEWLY ADDED GAMES WILL BE ENABLED ONCE YOU RECONNECT.` unde…
+  2026-09-27  register decided D-UI-107     Every fork card's title names the thing and its line says what happened; no word is said twice across them, and the words are crisp, clear and warm. The send card: `RETR…
+  2026-09-27  register decided D-UI-109     At the link's return the owed saves sync goes first, then the RetroAchievements work as one batch (the send card, the top-up); with no saves owed the batch runs at once.…
+
+== The blindspot register (1)
+  2026-09-24  blindspot                     54. A measurement on a guest whose renderer was not the device's (2026-09-24)
+
+== Work logs (47)
+  2026-07-24  work-log 16:20                L2: background cloud sync + native credential re-entry
+  2026-09-02  work-log                      Device-testing round: copy, contrast, and an operation that never said how it went
+  2026-09-13  work-log 22:30                #166's owed half on guest d: an offline unlock, recorded on reconnect
+  2026-09-15  work-log 05:47                #194: the login toast says "(offline)" through the proxy, and a toast's backdrop follows its font (`feature/ra-login-toast`)
+  2026-09-15  work-log 06:40                RC-11 under way; the proof scripts guarded
+  2026-09-15  work-log 07:10                RC-11 build 1 (`66bfd20330`) built; the suites and the guest-d proofs running
+  2026-09-15  work-log 07:45                Correction: the 134 s was my timer, not the proxy; RC-11 build 1 green; build 2 building
+  2026-09-15  work-log 08:20                RC-11 build 2 `a6d032bf5e` proven on the VM; frames filed; what is left for the maintainer
+  2026-09-15  work-log 14:20                RC-11 build 2 on the RG SP
+  2026-09-15  work-log 20:00                RC-12 build 2 `0242500826` VM-complete; H700 filed, not staged
+  2026-09-15  work-log 22:50                #203 proven on guest d (build 4), one gap found and closed in build 5
+  2026-09-15  work-log 23:15                #203 proven on build 5, both paths; build 4's suites PASSED
+  2026-09-16  work-log 02:15                The RC-12 round's eleven decisions, one at a time
+  2026-09-17  work-log 05:42                Build 13 `91cfa8a2b1`: nine suites PASSED; #208's words proven in frames on guest d; a fixture lesson about bandwidth limits
+  2026-09-18  work-log 00:55                Two more notes from the round: the help bar (#210, fixed) and a crash on FBNeo (#79 entry 2, armed)
+  2026-09-18  work-log 01:20                The crash is read: RetroArch segfaults 8 ms after an offline award's badge (#211); #209 confirmed on the device
+  2026-09-21  work-log 23:41                long work is a foreground page with CANCEL (D-UI-078)
+  2026-09-22  work-log 01:25                #241 built and proven on the VM; a row-layout defect found under it
+  2026-09-22  work-log 15:20                the maintainer confirms #242 on the device
+  2026-09-24  work-log 00:50                #251 measured: stroke width against the grid, and the hinting lever that did nothing
+  2026-09-24  work-log 01:10                #251 decided: option 2, a 14 px floor for the message queue (D-UI-084); the seventeenth cut building
+  2026-09-24  work-log 01:25                The seventeenth cut's toast measured at 14 px; one false alarm on the way
+  2026-09-24  work-log 02:30                The seventeenth cut on the RG35XX SP
+  2026-09-25  work-log                      00:40 UTC (2026-09-26) — The four proofs made to run: five harness lessons, and #249's second half
+  2026-09-25  work-log                      20:50 UTC (2026-09-27) — #303: the card sweep built on the maintainer's conditional yes (D-UI-107)
+  2026-09-25  work-log                      01:40 UTC (2026-09-26) — #283 proven on the final image and closed; the records, the catalog and the changelog for a8175c6193; the preflight
+  2026-09-25  work-log                      19:05 UTC (2026-09-27) — `c9f5aa7de0` green (vm-qa 62, proof 35/35), staged on the maintainer's yes; the toast clips at 640x480, cut to fit (D-UI-105)
+  2026-09-25  work-log                      18:30 UTC (2026-09-27) — #300: `48f940aa06` proven but for one check, which found the reload's second index start; `636065877` drops it
+  2026-09-25  work-log                      18:00 UTC (2026-09-26) — #292, #293: the offline achievements' own cards and a launch that asks over them; the first two proofs
+  2026-09-25  work-log                      01:30 UTC (2026-09-26) — Chain-8: the final candidate a8175c6193 green on every VM proof; the device round's five bugs closed
+  2026-09-25  work-log                      21:25 UTC (2026-09-26) — `d72084ccad` on the RG35XX SP; the "stacked alerts"; the running change log brought up to date (#294)
+  2026-09-25  work-log                      19:40 UTC (2026-09-27) — `ed0fc38a22` green: the toast whole on the frame (D-UI-105); #299 and #300 closed; the device waits on a yes of its own
+  2026-09-25  work-log                      17:40 UTC (2026-09-27) — #299: the offline index held the interface twelve minutes on a stalled fetch; the stall bound and the hasher's own word (D-R…
+  2026-09-25  work-log                      04:00 UTC (2026-09-26) — The cut rebuilt with #288, `3f93dc4683`: proven on the VM, staged on the RG35XX SP on the maintainer's yes; the reboot asked…
+  2026-09-25  work-log                      19:58 UTC (2026-09-27) — `ed0fc38a22` on the RG35XX SP on the maintainer's yes; the round's cuts are on the device
+  2026-09-25  work-log                      00:05 UTC (2026-09-26) — The maintainer's two calls implemented (90 s ceiling, one surface at a time); the scripts suite refuses a shell background j…
+  2026-09-25  work-log                      05:50 UTC (2026-09-26) — #290: leaving a game, the interface is back before the capture runs (D-LAUNCH-006); the cut `86dc949300` proven on the VM; t…
+  2026-09-25  work-log                      22:40 UTC (2026-09-27) — #305 and #306: the third card was the send card twice, and the wake check read a file the device never had
+  2026-09-25  work-log                      20:25 UTC (2026-09-27) — #302: the offline notice becomes a card on the maintainer's words (D-UI-106); #303 files the general rule
+  2026-09-25  work-log                      19:20 UTC (2026-09-26) — the copy held: the capture-failure toast goes in, RAOfflineProxy bumped, a cut after `64a0934a5d`
+  2026-09-25  work-log                      19:35 UTC (2026-09-26) — #293 item 3 proven: the toast after the card; the `d72084ccad` cut built
+  2026-09-25  work-log 02:30                The sweep's first stretch: thirteen issues closed on their VM frames (#266 group 1, D-QA-044); box-check down to 38
+  2026-09-25  work-log 04:12                #194 re-taken on `664ad9ac64` on a 1:1 surface; `tools/ra-offline-test` learns the GL swap; the guest's widget scale is 0.4, not the H700's 1.0
+  2026-09-25  work-log 23:40                The device round: four reports from the soak, three bugs fixed (#249, #279, #280), one turned into a decision (#282); the candidate rebuilt as 8db904…
+  2026-10-26  work-log 10:16                T19's brief, version 2 (`110943c58c`): the stranger's proof found the tarball line wrong; #666's body rewritten; the dispatch waits on a session
+  2026-10-27  work-log 20:12                #680: T33's stage C and the stage-D ruling (D-CLOUD-187); #681: T34's proof
+  2026-10-30  work-log 05:17                #346: resumed after the credit stop; M7's VM window granted; T33's stage E dispatched (#680); T16's leads ruled (#663)
+
+== Rules (9)
+              rule es-native-ui.md          Anti-patterns (observed, avoid)
+              rule es-native-ui.md          Spacing (house style)
+              rule es-native-ui.md          Core patterns (use these, don't invent)
+              rule es-player-text.md        Conventions
+              rule es-player-text.md        Outcome vocabulary (D-UI-028)
+              rule es-ui-style-guide.md     Waiting
+              rule es-ui-style-guide.md     Reboot-required
+              rule generic-x64-vm-testing.md  Driving EmulationStation blind: what the 2026-09-21 walks taught
+              rule player-language.md       How to apply
+
+== Git history (-G, on this checkout) (15)
+  2026-10-27  git 1010359737                docs: T32's stream brief for stage E (six streams) with the coordinator's rulings on its questions (#679)
+  2026-10-27  git 17be18bde5                docs: T31's stream brief for stage E (fourteen streams) with the coordinator's rulings on its questions (#678)
+  2026-10-27  git 1dac12c17c                docs: T33's stage C and stage-D ruling; T34's proof; the pointer (#680, #681)
+  2026-10-27  git 2ed286145d                docs: T32's brief, version 1 -- EmulationStation's game list views, scrapers and services (#679)
+  2026-10-27  git 85307da3b3                docs: T32's brief, version 2, after a stranger's proof of version 1 (#679)
+  2026-10-27  git a728d04c95                docs: T34's brief, version 1 -- EmulationStation's core components (#681)
+  2026-10-27  git c48f8b387e                docs: T33's brief, version 2, after a stranger's proof of version 1 (#680)
+  2026-10-27  git f462dfcda7                docs: T33's brief, version 1 -- EmulationStation's system layer, the rest of es-app (#680)
+  2026-10-30  git 31561429a2                docs: T33's stream brief, stage E: the draft carried whole with the coordinator's ten rulings (#680, #1270)
+  2026-10-30  git a7341face9                docs: the coordinator resumed after the credit stop; M7's VM window granted; T33's stage E dispatched and T16's leads ruled; the pointer (#346, #680,…
+  2026-10-31  git 06760f1f1d                docs: the interface futro's T35 kickoff addendum and the errata from the stranger's proof of T35's brief (#682)
+  2026-10-31  git 6c632c7cb3                docs: T35 stage A: the running log, 01 Scope with the membership block, the first commands and the § 5 runs under stage-a, the pointer and the work l…
+  2026-10-31  git 8b5d9b9b62                docs: T35's brief, version 2 -- a stranger's proof of version 1 (12 commands, 904 line checks, 31 corrections, 21 of 22 marks settled) applied; the t…
+  2026-10-31  git b1f2908a55                docs: T35 pointer seeded for the T5 session (#682)
+  2026-10-31  git d402dc252f                docs: T35's brief, version 1 -- EmulationStation's window, input, settings and the rest of es-core (#682)
+
+== Issues (30)
+  2026-06-27  issue #14 open                cloud-sync: QOL polish (dry-run, run summary, retries/bwlimit, lock, remote picker, non-interactive, log rotation)
+  2026-06-27  issue #15 open                cloud-sync: port to a native EmulationStation experience (spike + phased L1→L3)
+  2026-08-19  issue #37 open                ES: restore saves from the save state manager at game launch
+  2026-09-13  issue #159 open               Remember and forget wireless networks: a known-networks list on the Wi-Fi page, keys held back from backups
+  2026-09-13  issue #163 open               Epic: offline RetroAchievements through RAOfflineProxy, system-wide or per emulator
+  2026-09-13  issue #168 open               RA offline, phase 5: docs and contributing back
+  2026-09-13  issue #173 open               RA offline, phase 2b: tell the player at exit and at reconnect what happened to an offline award
+  2026-09-15  issue #191 open               NETWORK SETTINGS shows the last configured Wi-Fi SSID, not the network the device is on; remembered networks need a page to manage them
+  2026-09-15  issue #201 open               Wi-Fi like a phone: the WI-FI SSID row is the network you are on; the picker marks and joins saved networks in range
+  2026-09-20  issue #236 open               RC round on the RG35XX SP, now at 664ad9ac64: the soak, then the candidate is called; the RG SP and the Nova after it (D-QA-046)
+  2026-09-21  issue #237 open               The RC round's VM boxes as vm-qa suites: every moved checklist item becomes a run with a PASS line
+  2026-09-23  issue #251 open               The RetroAchievements sign-in banner is harder to read than the achievement banner: its font is 20 against 32 at the same scale
+  2026-09-24  issue #255 open               Widget font sizes that land on the pixel grid per panel: snap the computed size to the nearest sharp size inside a band (from #251's measurements)
+  2026-09-24  issue #263 open               GENERIC_X64: RetroArch's fullscreen surface is the core's size, scaled up by sway -- every widget and OSD frame measured on a guest was an upscaled i…
+  2026-09-25  issue #278 open               VM harness: the five gaps the agent-first rule turned up (a PSP title on the guest, a two-guest multicast LAN, a refuse-then-accept backend, a typing…
+  2026-09-25  issue #283 closed closed 2026-09-26  One floating surface at a time: a toast waits for the card, a card waits for the toast -- the SENT toast drew over the sync card (D-UI-093)
+  2026-09-26  issue #293 open               Every automatic process in the saves and achievements lanes is shown while it runs, and a launch over it asks the same question a sync gets: the prox…
+  2026-09-26  issue #294 closed closed 2026-09-26  Change log: note the one-at-a-time alerts, and bring the running change log fully up to date (maintainer, 2026-09-26)
+  2026-09-27  issue #300 closed closed 2026-09-27  An offline game list update holds the interface on a stalled hash-library fetch until the link returns (found by #299's proof)
+  2026-09-27  issue #301 open               Move the hash-library fetch off the interface thread (the offline index's forty seconds on LOADING)
+  2026-09-27  issue #302 closed closed 2026-09-27  The offline-update notice is a card: RETROACHIEVEMENTS (OFFLINE) over the maintainer's sentence (maintainer, 2026-09-27)
+  2026-09-27  issue #303 open               Cards in general: the icon, a title, and a body that does not repeat it -- a sweep of every fork card and toast (maintainer, 2026-09-27)
+  2026-10-23  issue #680 open               M6.P2 E700/T33: interface: EmulationStation's system layer: game lists, collections, metadata, and the fork's helper units
+  2026-10-26  issue #1178 open              Bug: the RetroAchievements pages show std::exception and other tools' words to the player
+  2026-10-27  issue #1194 open              Bug: EmulationStation: `wifictl` exits 0 with no Wi-Fi device (T21 PL-06)
+  2026-10-27  issue #1209 open              Bug: the OS scripts' half of T21 PL-06: `wifictl` exits 0 with no Wi-Fi device (T21 PL-06)
+  2026-10-27  issue #1228 open              Bug: EmulationStation: the MANUAL UPDATES dialog is sentence-case prose, in the fork's own code (T26 PL-14)
+  2026-10-27  issue #1229 open              Bug: EmulationStation: the Wi-Fi verdict is said three ways (T26 PL-16)
+  2026-10-27  issue #1232 open              Bug: EmulationStation: FINISH ignores a failed marker removal and says nothing (T26 PL-28)
+  2026-10-27  issue #1282 open              Bug: EmulationStation: a key map's refused trigger drops the whole mapping with no word, and the loader reads strings unchecked (T33 PL-12)
+
+113 line(s). A decision listed as pending without a register OPEN row above is a claim to check.
+rc=0 wall=39s

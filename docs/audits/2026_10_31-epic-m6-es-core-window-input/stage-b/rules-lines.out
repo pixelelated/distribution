@@ -1,0 +1,83 @@
+# § 3 item 1's rule lines, read in this worktree (HEAD b1f2908a55 + stage A) at 2026-10-31T06:37:21Z: each cited line's own text and the `## ` heading above it
+es-native-ui.md:22 | ## Where things live | ## Where things live
+es-native-ui.md:26 | ## Where things live | - `es-core/src/guis/` — primitives: `GuiMsgBox` (1–3 button dialog), `GuiTextEditPopup` /
+es-native-ui.md:30 | ## Where things live |   (spinner), `AsyncNotificationComponent` (top-right progress card).
+es-native-ui.md:32 | ## The other files that carry the interface law | ## The other files that carry the interface law
+es-native-ui.md:81 | ## Core patterns (use these, don't invent) | ## Core patterns (use these, don't invent)
+es-native-ui.md:91 | ## Core patterns (use these, don't invent) | - **Confirmation**: `GuiMsgBox(window, _("TEXT"), _("YES"), cb, _("NO"), nullptr)`.
+es-native-ui.md:93 | ## Core patterns (use these, don't invent) | - **Toast**: `window->displayNotificationMessage(_("..."), ms)`.
+es-native-ui.md:94 | ## Core patterns (use these, don't invent) | - **Background job with progress card, for fast work only (D-UI-078)**: `window->createAsyncNotificationCompon
+es-native-ui.md:107 | ## Core patterns (use these, don't invent) | - **A file another process writes is read uncached.** `Utils::FileSystem::exists`
+es-native-ui.md:117 | ## Core patterns (use these, don't invent) | - **OS event hooks**: `Scripting::fireEvent("game-start"/"game-end"/...)` executes
+es-native-ui.md:121 | ## Tabbed pages: the strip is a focus stop | ## Tabbed pages: the strip is a focus stop
+es-native-ui.md:144 | ## The cards at the link's return: saves first, then one bat | ## The cards at the link's return: saves first, then one batch (D-UI-101, D-UI-109)
+es-native-ui.md:175 | ## Spacing (house style) | ## Spacing (house style)
+es-native-ui.md:179 | ## Spacing (house style) | - **Buttons on a menu's button bar**: `BUTTON_GRID_HORIZ_PADDING` in
+es-native-ui.md:189 | ## Spacing (house style) | - **Rows on a cloud-setup page**: `CLOUD_SETUP_ROW_PADDING` in `GuiMenu.cpp`.
+es-native-ui.md:199 | ## Spacing (house style) |   The four **surface** tiers, so a new surface picks the right one (not
+es-native-ui.md:214 | ## Spacing (house style) |   **One floating surface at a time (D-UI-093, 2026-09-25).** The toast and
+es-native-ui.md:350 | ## Code conventions | - Pages provide `getHelpPrompts()` so the bottom help bar stays accurate.
+es-native-ui.md:358 | ## Code conventions | - Lambda capture: `Window* window = mWindow;` then capture `window` (menu may be deleted).
+es-native-ui.md:377 | ## Anti-patterns (observed, avoid) | ## Anti-patterns (observed, avoid)
+es-native-ui.md:384 | ## Anti-patterns (observed, avoid) |   `GuiInfoPopup` two hundred pixels away.
+es-native-ui.md:405 | ## Before the pin moves, the compiler has seen the edit | ## Before the pin moves, the compiler has seen the edit
+es-code-traps.md:22 | ## Never rebuild a button bar from inside one of its buttons | ## Never rebuild a button bar from inside one of its buttons
+es-code-traps.md:60 | ## Comments near a translatable string must be ASCII | ## Comments near a translatable string must be ASCII
+es-code-traps.md:79 | ## The help bar offers a direction only where it moves somet | ## The help bar offers a direction only where it moves something
+es-code-traps.md:91 | ## TextComponent measures at its full width and draws at its | ## TextComponent measures at its full width and draws at its padded one
+es-code-traps.md:96 | ## TextComponent measures at its full width and draws at its | a 640x480 `GuiMsgBox` -- so any wrap point in that band costs a line the
+es-code-traps.md:104 | ## Three things a font is not (2026-09-13, #27) | ## Three things a font is not (2026-09-13, #27)
+es-code-traps.md:127 | ## Three things a font is not (2026-09-13, #27) | - **`Utils::FileSystem::exists(path)` caches for the session** by default
+es-code-traps.md:134 | ## Three things a font is not (2026-09-13, #27) | `Window::render` draws no help prompts while a second page is open. A page
+es-code-traps.md:139 | ## Pure text has a home, and a test | ## Pure text has a home, and a test
+es-code-traps.md:191 | ## A rescan that deletes FileData drops the view first (2026 | ## A rescan that deletes FileData drops the view first (2026-09-22, #246)
+es-code-traps.md:238 | ## A pooled connection with the link gone is silent for a qu | ## A pooled connection with the link gone is silent for a quarter of an hour (2026-09-27, #299)
+es-code-traps.md:266 | ## A pooled connection with the link gone is silent for a qu | ### A taller GuiSettings menu keeps its old top offset (#540)
+es-ui-style-guide.md:32 | ## Keep the flow and its visual evidence together | ## Keep the flow and its visual evidence together
+es-ui-style-guide.md:141 | ## Text | ## Text
+es-ui-style-guide.md:144 | ## Text | component only upper-cases four of eleven cases — notably `addEntry` labels,
+es-ui-style-guide.md:164 | ## Text | Placeholders: `AUTO` for "system decides", `NONE` for explicitly nothing,
+es-ui-style-guide.md:169 | ## Confirmations | ## Confirmations
+es-ui-style-guide.md:171 | ## Confirmations | The shape, with **YES first** — there is no counter-example in the tree:
+es-ui-style-guide.md:197 | ## Waiting | ## Waiting
+es-ui-style-guide.md:232 | ## Buttons | ## Buttons
+es-ui-style-guide.md:296 | ## Interaction rules (from upstream) | ## Interaction rules (from upstream)
+es-player-text.md:25 | (no heading) | The project name **pixelelated** always stays lowercase, including labels and
+es-player-text.md:29 | ## Conventions | ## Conventions
+es-player-text.md:31 | ## Conventions | - Every label through `_( )` (localized, UPPERCASE by convention).
+es-player-text.md:135 | ## Conventions |   A toast is one line at 0.9 of the screen and ends in an ellipsis past
+es-player-text.md:141 | ## Every fork string ships in English and French (D-UI-051) | ## Every fork string ships in English and French (D-UI-051)
+es-player-text.md:264 | ## Outcome vocabulary (D-UI-028) | as a toast after the sync card (D-UI-093): COULDN'T RECORD THIS SESSION'S
+es-player-text.md:330 | ## Outcome vocabulary (D-UI-028) | **Recover**: the page offers `TRY AGAIN` (the confirm button, south) beside `CLOSE` (the back button, east; bu
+engineering-practices.md:12 | ## Change stays inside the fork's lanes | ## Change stays inside the fork's lanes
+engineering-practices.md:28 | ## Check upstream early when troubleshooting | ## Check upstream early when troubleshooting
+engineering-practices.md:83 | ## Verify design intent before "fixing" an apparent bug | ## Verify design intent before "fixing" an apparent bug
+engineering-practices.md:111 | ## Verify the artifact, not the report | ## Verify the artifact, not the report
+engineering-practices.md:194 | ## A name is not a behaviour, and a summary is not the sourc | ## A name is not a behaviour, and a summary is not the source
+engineering-practices.md:250 | ## A name is not a behaviour, and a summary is not the sourc |   **A total is the tool's line, never a sum made in the head:** T21's lane posted
+engineering-practices.md:419 | ## Guards must fail closed | ## Guards must fail closed
+engineering-practices.md:478 | ## Guards must fail closed | **Capture `rc=$?` on its own line, directly after the command (2026-10-25,
+engineering-practices.md:548 | ## Guards must fail closed | - **The first PASS of anything new is the one to distrust.** Construct the
+engineering-practices.md:576 | ## Before deleting a duplicate, diff its behaviours, not its | ## Before deleting a duplicate, diff its behaviours, not its purpose
+bugs-are-agent-first.md:41 | ## The three classes, and the label each carries | ## The three classes, and the label each carries
+bugs-are-agent-first.md:53 | ## The rules | ## The rules
+bugs-are-agent-first.md:76 | ## The rules | 6. **A bug we find in upstream's code is still ours to close** when the fix is
+issue-tracking.md:129 | ## A criterion is agent-first (D-QA-044) | ## A criterion is agent-first (D-QA-044)
+issue-tracking.md:180 | ## Ticking an acceptance criterion | ## Ticking an acceptance criterion
+upgrade-and-install.md:40 | ## Fixing forward is not enough | ## Fixing forward is not enough
+upgrade-and-install.md:58 | ## Every fix answers what was already written (D-WORKFLOW-05 | ## Every fix answers what was already written (D-WORKFLOW-050)
+upgrade-and-install.md:74 | ## Every fix answers what was already written (D-WORKFLOW-05 | Already written: <what the code before the fix had written on devices and
+generic-x64-vm-testing.md:100 | ## Headless, on a build host with no desktop | ## Headless, on a build host with no desktop
+generic-x64-vm-testing.md:108 | ## Headless, on a build host with no desktop | $VM_TOOL run --headless --daemonize target/ROCKNIX-GENERIC_X64.x86_64-<date>.qcow2
+generic-x64-vm-testing.md:215 | ## Headless, on a build host with no desktop | **A handheld's panel size is a flag.** `run --headless --res 640x480 …`
+generic-x64-vm-testing.md:221 | ## Headless, on a build host with no desktop | 1280×800, then again with `--res 640x480`; `tools/vm-visual-qa` and the
+generic-x64-vm-testing.md:325 | ## A launch, a START or a walk waits for the interface to be | ## A launch, a START or a walk waits for the interface to be idle (D-QA-057)
+generic-x64-vm-testing.md:365 | ## Driving EmulationStation from the monitor | - **After five idle minutes the first key only wakes the screensaver.** Send
+generic-x64-vm-testing.md:382 | ## Driving EmulationStation from the monitor | - **A restarted EmulationStation comes back on the last game list, not the
+generic-x64-vm-testing.md:393 | ## Driving EmulationStation from the monitor | - **After an ES restart, `screendump` can serve the previous ES's last frame
+generic-x64-vm-testing.md:448 | ## Frame at the handheld's size, not only the pair's | ## Frame at the handheld's size, not only the pair's
+generic-x64-vm-testing.md:486 | ## Driving EmulationStation blind: what the 2026-09-21 walks | - **`dismiss-dialogs` ends on the carousel where it was**, not on the first
+generic-x64-vm-testing.md:959 | ## Automated visual QA (`tools/vm-visual-qa`) | ## Automated visual QA (`tools/vm-visual-qa`)
+generic-x64-vm-testing.md:1145 | ## A settings change made from the shell is invisible to the | ## A settings change made from the shell is invisible to the running interface
+generic-x64-vm-testing.md:1432 | ## The guest is the candidate image, not the read tree: comp | ## The guest is the candidate image, not the read tree: compare the file before trusting the verdict
+lines read: 81

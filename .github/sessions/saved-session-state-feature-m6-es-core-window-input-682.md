@@ -17,11 +17,13 @@
 
 ## Current focus
 
-**Stage A done (2026-10-31); stage B next: `02` with its sections in § 6's order, then the window request on #682 with its plan and bound.**
-- The audit folder is `docs/audits/2026_10_31-epic-m6-es-core-window-input/`: `00` (model, effort, `reviewed-at` `b1f2908a55` with the pin beside it, the host's tail and census at 06:00:08Z), `01` § Scope (the block's lines byte for byte, the § 5 figures), and `stage-a/` (first commands, membership, runs, host, issues).
-- **Every figure is as the brief expects, with record-only deltas:** T34's ES ref resolves now (`dbe4c2db0f`, empty inside the 96); the block prints 30 claims (the prose's two `GuiLoading.h` rows are not in its `named` list); the lock grep prints six lines and `say(` three.
-- The pointer's eleven keys read against § 10: none names T34. This worktree's six newer rule files were read.
-- **Owed at stage B,** before `02`: § 3's line-cited reads (rules, register and `archaeology`, map, blindspots, tests, walks, French parser, audits, time to play), named in `01` as each is read.
+**Stage B done (2026-10-31); the window is asked for on #682. Stage C next (the host's cases and builds, a host-file line at each compile's start and end), and the guest only inside the coordinator's grant.**
+- `02-forward-audit.md` is composed by `tools/t35-02.py` from `stage-b/02-template.md`: 16 sections in § 6's order, coverage 96, placeholders 0. Ten generators under `tools/` (`t35-coverage`, `-leads`, `-surfaces`, `-input`, `-locks`, `-lifetimes`, `-scripts`, `-words`, `-includes`, `-runs`, over `t35lib.py`) each assert their counts and cited lines. Each was seen to exit 1 on three constructed drifts (`stage-b/generators.txt`), and the composer refuses on a failing one (`stage-b/compose-drift.out`).
+- **Recompose after any change:** `python3 -I docs/audits/2026_10_31-epic-m6-es-core-window-input/tools/t35-02.py "$W" 16dbac5211 .qa-scratch/t35/paths.txt docs/audits/2026_10_31-epic-m6-es-core-window-input/stage-b/02-template.md docs/audits/2026_10_31-epic-m6-es-core-window-input/02-forward-audit.md`. Re-run `bash .../stage-b/drift.sh` after a generator edit.
+- **What stage B found:** L-20 contradicted (no device name in the controllers blob); L-07 supported (the cache stores misses); `InputManager.cpp:420` is WIN32-only; the seven write sites are five writes and two reads; the queue's LIFO pop is upstream's against the fork's D-UI-093 comment; T34's `s2-window.patch` (#1310) is named a collision for the pause (10 es-app callers, 3 doubles).
+- **T34's ES tip, read twice so far:** local `db12b1598a` / `origin` `2cbb62d7bd` at 06:08:37Z, then `568ef099d` / `a9017ff50` at 06:29:09Z, both empty inside the 96. The hand-back reads it a third time (`git -C ... show`/`diff` only).
+- **Owed at stage C** (before `04`): § 3 items 5-8 (the tests, the walks before START, the French parser, the audits), the stand-in syntax check over the 44, `tools/t35-build-tests.sh` with `window-input-tests`, the seven candidates' FAIL-at-pin lines, and 3.27. `01` § Read in this session names what is read.
+- **The window:** `stage-b/window-plan.md`, 30 + 5 minutes, 1,560 s, G-01 to G-12. Nothing starts before the coordinator's grant line on #682 and in the host file. At START, name the detached timer's PID.
 - The ES worktree stays at the pin until stage E. Scratch is `/workspace/tmp/m6-t35/tmp`.
 
 ## Next commands
@@ -66,3 +68,4 @@ or a guest outside the one granted window.
 ## Checkpoints
 
 - stage A, 2026-10-31 06:03 UTC: distribution HEAD at the commit that carries this line (posted on #682), ES at the pin `16dbac5211` (clean); the block and the § 5 runs as the brief expects with record-only deltas
+- stage B, 2026-10-31 06:38 UTC: distribution HEAD at the commit that carries this line (posted on #682), ES at the pin `16dbac5211` (clean); `02` composed (16 sections, coverage 96, placeholders 0) from ten generators each seen to exit 1 on three constructed drifts; the window plan (30 + 5 min, 1,560 s) asked for on #682 and in the host file.

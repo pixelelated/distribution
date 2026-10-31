@@ -1,0 +1,20 @@
+ `es-core/src/math/Vector2i.cpp` | 1 | upstream-carried | upstream-carried | -- | the math | tree |
+| `es-core/src/math/Vector2i.h` | 61 | upstream-carried | upstream-carried | -- | the math | tree |
+| `es-core/src/math/Vector3f.cpp` | 21 | upstream-carried | upstream-carried | -- | the math | tree |
+| `es-core/src/math/Vector3f.h` | 104 | upstream-carried | upstream-carried | -- | the math | tree |
+| `es-core/src/math/Vector4f.cpp` | 107 | upstream-carried | upstream-carried | -- | the math | tree |
+| `es-core/src/math/Vector4f.h` | 101 | upstream-carried | upstream-carried | -- | the math | tree |
+| `es-core/src/playlists/AnimatedGifPlaylist.cpp` | 33 | upstream-carried | upstream-carried | -- | the playlists | tree |
+| `es-core/src/playlists/AnimatedGifPlaylist.h` | 18 | upstream-carried | upstream-carried | -- | the playlists | tree |
+| `es-core/src/playlists/M3uPlaylist.cpp` | 87 | upstream-carried | upstream-carried | -- | the playlists | tree |
+| `es-core/src/playlists/M3uPlaylist.h` | 26 | upstream-carried | upstream-carried | -- | the playlists | tree |
+| `es-core/src/watchers/BatteryLevelWatcher.cpp` | 9 | upstream-carried | upstream-carried | -- | the watchers | tree |
+| `es-core/src/watchers/BatteryLevelWatcher.h` | 21 | upstream-carried | upstream-carried | -- | the watchers | tree |
+| `es-core/src/watchers/NetworkStateWatcher.cpp` | 21 | upstream-carried | upstream-carried | -- | the watchers | tree |
+| `es-core/src/watchers/NetworkStateWatcher.h` | 25 | upstream-carried | upstream-carried | -- | the watchers | tree |
+| `es-core/src/watchers/WatchersManager.cpp` | 203 | upstream-carried | upstream-carried | -- | the watchers | tree |
+| `es-core/src/watchers/WatchersManager.h` | 92 | upstream-carried | upstream-carried | -- | the watchers | tree |
+
+generated, asserted: 96 rows, 22575 lines (grep -c rule); read tiers fork-added 1 / fork-modified 12 / upstream-carried 83; inventory fork-own 13 / upstream-carried 83
+FAIL t35-coverage: rows 96, expected 95
+t35-02: t35-coverage.py exited 1; nothing written
