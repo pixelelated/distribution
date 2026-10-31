@@ -21,6 +21,8 @@ SPECS = [  # name, file, first, last, the first line holds, the last line holds
     ("menu_pad", "components/MenuComponent.cpp", 14, 14, "#define BUTTON_GRID_HORIZ_PADDING", "0.022"),
     ("fs_cache", "utils/FileSystemUtil.cpp", 48, 341, "struct FileCache", "std::shared_mutex FileCache::mFileCacheMutex;"),
     ("fs_exists", "utils/FileSystemUtil.cpp", 1122, 1147, "bool exists(const std::string& _path, bool enableCache)", "} // exists"),
+    ("posts_unreg", "Window.cpp", 1262, 1274, "void Window::unregisterPostedFunctions(void* data)", "}"),
+    ("posts_post", "Window.cpp", 1276, 1290, "void Window::postToUiThread(const std::function<void()>& func, void* data)", "}"),
 ]
 got = {}
 for name, f, a, b, first, last in SPECS:

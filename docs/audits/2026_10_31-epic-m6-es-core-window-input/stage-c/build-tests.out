@@ -57,7 +57,7 @@ RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 ski
 RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
 RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
 RUN app-unit-tests: rc 0; [doctest] test cases: 18 | 18 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
-t35-extract: 10 extracts at 16dbac5211eea7e70db7394372033be2be7df829
+t35-extract: 12 extracts at 16dbac5211eea7e70db7394372033be2be7df829
 $ g++ -std=c++17 -O0 -g0 -pthread -I /workspace/tmp/m6-t35/build/full/x -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/external -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/tests/app-unit/fakes -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src -I /workspace/cache/rocknix-sources/emulationstation/emulationstation-16dbac5211eea7e70db7394372033be2be7df829/external <2 sources> -o window-input-tests
     /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-window-input-682/docs/audits/2026_10_31-epic-m6-es-core-window-input/tools/t35-window-input-tests.cpp
     /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/watchers/WatchersManager.cpp
@@ -88,8 +88,10 @@ RUN window-input-tests: rc 1; [doctest] test cases: 10 | 3 passed | 7 failed | 0
     /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-window-input-682/docs/audits/2026_10_31-epic-m6-es-core-window-input/tools/t35-window-input-tests.cpp:209: ERROR: CHECK( Utils::FileSystem::exists(p) ) is NOT correct!
       values: CHECK( false )
     TEST CASE:  3.1 ResetComponent from another thread does not wait for a running probe (watchers/WatchersManager.cpp:92-104 against :181-199)
-    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-window-input-682/docs/audits/2026_10_31-epic-m6-es-core-window-input/tools/t35-window-input-tests.cpp:237: MESSAGE: ResetComponent returned after 1495 ms
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-window-input-682/docs/audits/2026_10_31-epic-m6-es-core-window-input/tools/t35-window-input-tests.cpp:237: MESSAGE: ResetComponent returned after 1496 ms
     /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-window-input-682/docs/audits/2026_10_31-epic-m6-es-core-window-input/tools/t35-window-input-tests.cpp:238: ERROR: CHECK( ms < 300 ) is NOT correct!
-      values: CHECK( 1495 <  300 )
+      values: CHECK( 1496 <  300 )
+SAN tsan-posts (-fsanitize=thread): rc 66; WARNING: ThreadSanitizer: data race (pid=2543734)
+SAN tsan-watchers (-fsanitize=thread): rc 66; WARNING: ThreadSanitizer: data race (pid=2543757)
 TOTAL: 249 test cases in 6 binaries
 rc=1 wall=41s

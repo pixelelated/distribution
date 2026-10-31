@@ -148,6 +148,21 @@ for t in ${WT}; do
   grep -E '^TEST CASE:|ERROR: CHECK|MESSAGE:|  values: CHECK|ResetComponent returned' "${B}/${t}.run.log" | sed 's/^/    /' | head -n 40
   [ "${rc}" -eq 0 ] || FAIL=1
 done
+# T35 (#682): the two sanitizer programs (their sources under ../stage-c/), each run
+# and its first report line kept: 3.17 over the posted functions, 3.3 over the watchers.
+san() { # <name> <sanitizer> <source> [extra sources...]
+  local n=$1 f=$2 src=$3; shift 3
+  rm -f -- "${B:?}/${n:?}" "${B:?}/${n:?}.run.log"
+  if g++ -std=c++17 -O1 -g -fno-omit-frame-pointer -fsanitize="$f" -pthread -I "${X}" -I "${ES}/tests/app-unit/fakes" -I "${ES}/es-core/src" "${src}" "$@" -o "${B}/${n}" > "${B}/${n}.build.log" 2>&1; then
+    "${B}/${n}" > "${B}/${n}.run.log" 2>&1; local rc=$?
+    echo "SAN ${n} (-fsanitize=${f}): rc ${rc}; $(grep -m1 -E 'ERROR: AddressSanitizer|WARNING: ThreadSanitizer|SUMMARY:' "${B}/${n}.run.log" || echo 'no sanitizer report')"
+  else
+    echo "SAN ${n}: BUILD FAIL"; tail -n 8 "${B}/${n}.build.log"
+  fi
+}
+AUD="$(dirname "${HERE}")"
+san tsan-posts thread "${AUD}/stage-c/tsan-posts.cpp"
+san tsan-watchers thread "${AUD}/stage-c/tsan-watchers.cpp" "${ES}/es-core/src/watchers/WatchersManager.cpp"
 # The total, from the binaries' own summary lines: a record quotes this line
 # rather than a sum written by hand (T21 stage E: totals written without
 # adding were found 2 to 53 cases high, S2 to S13).

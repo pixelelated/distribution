@@ -11,8 +11,8 @@ reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
 - **Lines at the pin:** `watchers/WatchersManager.cpp:181-199` against `:66`, `:78`, `:94`, `:143`, `.h:35`
 - **Owner:** T35 (#1283's es-core half; the observers es-app's)
 - **What is wrong:** `run()` holds `mWatchersLock` across every `check()` (a network or battery probe) and then takes `mNotificationLock` inside it; `RegisterComponent`, `UnregisterComponent`, `ResetComponent`, `GetComponent` and the destructor take the same lock from the interface thread. 3.1 at the pin: `ResetComponent` returned after **1,491 ms** behind a 1.5 s probe. A real probe's bound is its network timeout.
-- **Proposed disposition:** a `bug` under rule 6: snapshot the due watchers under the lock, probe outside it, re-validate before writing back (EP-13's `WatcherInfo` lifetime kept); 3.1 the covering case, 3.2 (ASan) and 3.3 (TSan) beside it
-- **proved:** fixture (3.1 FAIL at the pin)
+- **Proposed disposition:** a `bug` under rule 6: snapshot the due watchers under the lock, probe outside it, re-validate before writing back (EP-13's `WatcherInfo` lifetime kept), and make `mRunning`/`mPaused` atomic; 3.1 the covering case, 3.3 (TSan) beside it, 3.2 (ASan) owed
+- **proved:** fixture (3.1 FAIL at the pin; 3.3 TSan: `WatchersManager.cpp:151` writes `mRunning` while `:161` reads it)
 
 ## PL-02: The toast queue drains newest first, against D-UI-093's decided row
 
@@ -72,7 +72,7 @@ reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
 - **Owner:** T35
 - **What is wrong:** `postToUiThread` and `processPostedFunctions` take `mNotificationMessagesLock`; the erase loop does not. A worker posting while a page unregisters races the vector.
 - **Proposed disposition:** a `bug` under rule 6: take the lock; 3.17 (TSan) the covering case
-- **proved:** tree (3.17 owed)
+- **proved:** fixture (3.17 TSan at the pin: the erase loop's read against the post's reallocation under the mutex)
 
 ## PL-08: The input files are written in place, none atomically
 

@@ -99,6 +99,8 @@ m_wit = re.search(r"^RUN window-input-tests: rc (\d+); \[doctest\] test cases: +
 tree_bins = re.findall(r"^RUN (es-unit-tests|es-file-tests|es-conf-tests|es-file-tests-win32|app-unit-tests): rc (\d+); \[doctest\] test cases: +(\d+) \| +(\d+) passed \| +(\d+) failed", bt, re.M)
 failed_cases = re.findall(r"^    TEST CASE:  (3\.\d+)", bt, re.M)
 m_pl = re.search(r"SUMMARY: AddressSanitizer: (heap-use-after-free[^\n]*)", pl)
+sans = re.findall(r"^SAN (tsan-posts|tsan-watchers) \(-fsanitize=thread\): rc (\d+); (WARNING: ThreadSanitizer: data race)", bt, re.M)
+if len(sans) != 2: fail.append(f"the two TSan lines: {sans}")
 if not (m_sx and m_sx.groups() == ("44", "44", "0")): fail.append(f"the stand-in's last line is not 44/44/0: {m_sx and m_sx.groups()}")
 if not (m_tot and m_tot.groups() == ("249", "6")): fail.append(f"TOTAL is not 249 in 6: {m_tot and m_tot.groups()}")
 if not (m_wit and m_wit.group(4) == "7"): fail.append(f"window-input-tests' failed count is not 7: {m_wit and m_wit.groups()}")
@@ -112,10 +114,12 @@ stc = [
      f"`TOTAL: {m_tot.group(1)} test cases in {m_tot.group(2)} binaries`" if m_tot else "--", "; ".join(f"{n} {c}/{c}" for n, rc, c, p_, f_ in tree_bins)],
     ["`window-input-tests` before any fix", m_wit.group(1) if m_wit else "--", "in the above",
      f"`{m_wit.group(2)} cases, {m_wit.group(3)} passed, {m_wit.group(4)} failed`" if m_wit else "--", "the seven candidates FAIL at the pin: " + ", ".join(sorted(set(failed_cases), key=lambda x: float(x[2:]))) + "; 3.11's first ordering passed because the uncached read rewrites the entry (`FileSystemUtil.cpp:161-162`), now made second"],
+    ["3.17 and 3.3 under ThreadSanitizer (`stage-c/tsan-posts.cpp` over the extracts; `stage-c/tsan-watchers.cpp` over the pin's `WatchersManager.cpp`)", "66, 66", "in the build", "; ".join(f"`{n}`: {w}" for n, rc, w in sans), "posts: the erase loop's read (thread T2) against the post's reallocation under the mutex (T1); watchers: `WatchersManager.cpp:151` (the destructor's write) against `:161` (`run()`'s read)"],
     ["3.27, T33's `stage-c/pl25-screensaver.py` unchanged from `947ace1966`", "1", "1 s", f"`{m_pl.group(1)[:90]}`" if m_pl else "--", "FAIL at the pin as #1305 says; the script takes `SystemScreenSaver.cpp`'s path, not the worktree the brief's line passes"],
 ]
 owed = [
-    ["ThreadSanitizer for 3.3 and 3.17, ASan for 3.2", "stage E (the covering cases of PL-01 and PL-07)", "a sanitizer report before the fix, none after"],
+    ["ASan for 3.2 (unregister during a running probe)", "stage E (PL-01's covering cases)", "a report before the fix, none after"],
+    ["3.3 and 3.17 after their fixes", "stage E", "no ThreadSanitizer report"],
     ["the PASS halves of the seven", "stage E", "each candidate's PASS line after its fix"],
     ["the guest window G-01 to G-12", "slot 3 on the host", "§ The guest cycle"],
 ]
