@@ -1,0 +1,44 @@
+## rules (2026-10-31 05:58:44Z): git diff --stat next -- .claude CLAUDE.md AGENTS.md
+ .claude/skills/council/IMPORTED-FROM.md            | 25 +++++++++
+ .../skills/mini-retro/references/scoped-audit.md   |  7 +++
+ 11 files changed, 211 insertions(+), 11 deletions(-)
+8ebaf8daad
+
+## the first commands (brief § 1), 05:58:44Z
+$ git status --short | wc -l
+0
+$ git log --oneline -3; merge-base 8ebaf8daad
+b1f2908a55 docs: T35 pointer seeded for the T5 session (#682)
+b51dd8a805 Merge the coordinator's branch at be119338ff into feature/m6-es-core-window-input-682 for T35's dispatch (#682)
+be119338ff docs: D-WORKFLOW-214, T35's ownership of es-core's rest and its neighbours' owners, written at dispatch (#682)
+stacked
+$ git diff --stat 8ebaf8daad HEAD -- packages projects | tail -1
+(empty above means empty)
+upstream-next-is-here
+$ ES worktree
+16dbac5211eea7e70db7394372033be2be7df829
+0
+cada856d86
+f6c542872e
+b2ceb55a7e
+1750dded8c
+$ the nine tips
+m6-es-launch-path-649 55158d2a64
+m6-es-cloud-pages-665 d55235d4b3
+m6-es-achievements-pages-667 5c0ddaaeef
+m6-es-state-and-bridge-668 3ae9610b0f
+m6-es-guimenu-673 757f5370ea
+m6-es-pages-678 95852f8736
+m6-es-app-views-scrapers-679 b52245036f
+m6-es-app-system-680 f802c55c62
+m6-es-core-components-681 dbe4c2db0f
+register-ok
+$ the dispatch hashes
+stacked-on-P1
+coordinator-tip-merged
+b1f2908a55
+b51dd8a805 Merge the coordinator's branch at be119338ff into feature/m6-es-core-window-input-682 for T35's dispatch (#68
+(empty above means empty)
+inventory
+$ the pointer placeholder check (brief § 9)
+0

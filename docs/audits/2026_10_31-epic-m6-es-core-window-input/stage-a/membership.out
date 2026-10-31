@@ -1,0 +1,51 @@
+96 .qa-scratch/t35/paths.txt
+mine: 96 paths.txt: 96 equal: True
+only-mine: []
+only-paths.txt: []
+lines: 22575 reach: {'shipped': 96} tier: {'fork-own': 13, 'upstream-carried': 83} lang: {'cmake': 1, 'c-header': 51, 'c++': 44}
+fork-own lines: 6759
+read lines: 22575
+wc -l 22567
+grep -c 22575
+95
+95
+ 13 files changed, 247 insertions(+), 71 deletions(-)
+ 13 files changed, 247 insertions(+), 71 deletions(-)
+
+## block-2.txt from CLAIMS on (the second pass, .qa-scratch/t35/block-2.txt)
+CLAIMS
+es-core/src/Window.cpp in-T35 rest [('es-core-window-input', 35)] tier fork-own lines 1656 area interface
+es-core/src/Window.h in-T35 rest [('es-core-window-input', 35)] tier fork-own lines 197 area interface
+es-core/src/InputManager.cpp in-T35 rest [('es-core-window-input', 35)] tier fork-own lines 1552 area interface
+es-core/src/InputConfig.cpp in-T35 rest [('es-core-window-input', 35)] tier fork-own lines 446 area interface
+es-core/src/GuiComponent.cpp in-T35 rest [('es-core-window-input', 35)] tier upstream-carried lines 1540 area interface
+es-core/src/ThemeData.cpp in-T35 rest [('es-core-window-input', 35)] tier upstream-carried lines 2891 area interface
+es-core/src/Scripting.cpp in-T35 rest [('es-core-window-input', 35)] tier fork-own lines 209 area interface
+es-core/src/Log.cpp in-T35 rest [('es-core-window-input', 35)] tier fork-own lines 322 area interface
+es-core/src/guis/GuiMsgBox.cpp in-T35 rest [('es-core-window-input', 35)] tier fork-own lines 299 area interface
+es-core/src/guis/GuiTextEditPopupKeyboard.cpp in-T35 rest [('es-core-window-input', 35)] tier fork-own lines 533 area interface
+es-core/src/guis/GuiInfoPopup.cpp in-T35 rest [('es-core-window-input', 35)] tier upstream-carried lines 115 area interface
+es-core/src/watchers/WatchersManager.cpp in-T35 rest [('es-core-window-input', 35)] tier upstream-carried lines 203 area interface
+es-core/CMakeLists.txt in-T35 rest [('es-core-window-input', 35)] tier fork-own lines 303 area interface
+es-core/src/Settings.cpp not-in-T35 non-rest [('es-state-and-bridge', 21)] tier fork-own lines 723 area interface
+es-core/src/Settings.h not-in-T35 non-rest [('es-state-and-bridge', 21)] tier fork-own lines 165 area interface
+es-core/src/SystemConf.cpp not-in-T35 non-rest [('es-state-and-bridge', 21)] tier fork-own lines 494 area interface
+es-core/src/HttpReq.cpp not-in-T35 non-rest [('es-state-and-bridge', 21)] tier fork-own lines 644 area interface
+es-core/src/HttpReq.h not-in-T35 non-rest [('es-state-and-bridge', 21)] tier fork-own lines 180 area interface
+es-core/src/utils/AtomicFileUtil.cpp not-in-T35 non-rest [('es-state-and-bridge', 21)] tier fork-own lines 829 area interface
+es-core/src/utils/AtomicFileUtil.h not-in-T35 non-rest [('es-state-and-bridge', 21)] tier fork-own lines 215 area interface
+es-core/src/components/MenuComponent.cpp not-in-T35 non-rest [('es-core-components', 34)] tier fork-own lines 574 area interface
+es-core/src/components/AsyncNotificationComponent.cpp not-in-T35 non-rest [('es-core-components', 34)] tier fork-own lines 306 area interface
+es-core/src/utils/FileSystemUtil.cpp not-in-T35 non-rest [('es-core-utils-resources', 36)] tier upstream-carried lines 1805 area interface
+es-core/src/utils/StringUtil.cpp not-in-T35 non-rest [('es-core-utils-resources', 36)] tier fork-own lines 1706 area interface
+es-core/src/resources/Font.cpp not-in-T35 non-rest [('es-core-utils-resources', 36)] tier fork-own lines 1311 area interface
+es-core/src/renderers/Renderer.cpp not-in-T35 non-rest [('es-core-utils-resources', 36)] tier upstream-carried lines 1170 area interface
+es-core/src/utils/OfflineProxyUrl.cpp not-in-T35 non-rest [('es-core-utils-resources', 36)] tier fork-own lines 21 area interface
+es-app/src/CloudText.cpp not-in-T35 non-rest [('es-cloud-pages', 18)] tier fork-own lines 1409 area interface
+es-app/src/main.cpp not-in-T35 non-rest [('es-launch-path', 2)] tier fork-own lines 1368 area interface
+es-app/src/ApiSystem.cpp not-in-T35 non-rest [('es-state-and-bridge', 21)] tier fork-own lines 3519 area interface
+ES-CORE BY SLICE
+96 paths 22575 lines (('es-core-window-input',), 'rest')
+80 paths 21984 lines (('es-core-components',), 'non-rest')
+58 paths 50840 lines (('es-core-utils-resources',), 'non-rest')
+8 paths 3344 lines (('es-state-and-bridge',), 'non-rest')

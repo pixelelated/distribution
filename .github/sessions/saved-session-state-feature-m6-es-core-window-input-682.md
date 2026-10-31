@@ -17,20 +17,12 @@
 
 ## Current focus
 
-Not started. Before the first command after `cat`, the eleven keys of this
-pointer are read against the brief's § 10 table, and any that names the
-predecessor slice (T34's `es-core-components`, the 80 paths, the T3
-session) is reported on #682 before going on. The first commit on the
-distribution branch is the running log's header (the model, the effort,
-`reviewed-at` the distribution HEAD with the pin beside it, the host
-file's last lines with the time of the read, the census),
-`01-research-notes.md` § Scope (the block of brief § 2 with its output and
-the § 5 runs' figures), this pointer updated, and the day's work-log entry
-headed `#682` (prose through a quoted heredoc or the Write tool). The ES
-worktree stays at the pin until stage E. `.qa-scratch/` is gitignored and
-`git status --short` is read before every `git add -A`; anything temporary
-goes under `/workspace/tmp/m6-t35/`, never `/tmp`. No network is used
-except the seat's two keyed invokes.
+**Stage A done (2026-10-31); stage B next: `02` with its sections in § 6's order, then the window request on #682 with its plan and bound.**
+- The audit folder is `docs/audits/2026_10_31-epic-m6-es-core-window-input/`: `00` (model, effort, `reviewed-at` `b1f2908a55` with the pin beside it, the host's tail and census at 06:00:08Z), `01` § Scope (the block's lines byte for byte, the § 5 figures), and `stage-a/` (first commands, membership, runs, host, issues).
+- **Every figure is as the brief expects, with record-only deltas:** T34's ES ref resolves now (`dbe4c2db0f`, empty inside the 96); the block prints 30 claims (the prose's two `GuiLoading.h` rows are not in its `named` list); the lock grep prints six lines and `say(` three.
+- The pointer's eleven keys read against § 10: none names T34. This worktree's six newer rule files were read.
+- **Owed at stage B,** before `02`: § 3's line-cited reads (rules, register and `archaeology`, map, blindspots, tests, walks, French parser, audits, time to play), named in `01` as each is read.
+- The ES worktree stays at the pin until stage E. Scratch is `/workspace/tmp/m6-t35/tmp`.
 
 ## Next commands
 
@@ -73,4 +65,4 @@ or a guest outside the one granted window.
 
 ## Checkpoints
 
-- (none yet; the executor appends one line per stage: the stage, both tips, the time)
+- stage A, 2026-10-31 06:03 UTC: distribution HEAD at the commit that carries this line (posted on #682), ES at the pin `16dbac5211` (clean); the block and the § 5 runs as the brief expects with record-only deltas

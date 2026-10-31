@@ -1,0 +1,11 @@
+## the host file's tail, read at 2026-10-31T06:00:08Z
+2026-10-31T01:16:54.693667+00:00 M7 combined cloud VM RETURN: owner /workspace/tmp/pix1116-combined-ui01 finished01:15:32UTC, CLI PASS original0; native begin fixture precondition failed before frames, overalloriginal1 preserved. QEMU normalwait0/absent, pidfileabsent, watcher0/runner1/launcher1, admission9070eba1a28544a8a8b199a3c918f979 consumed. No runtime held. Source-only repair active. Reques
+
+== M6 coordinator — 05:42 UTC (2026-10-31): COORDINATOR GAP 01:13-05:40 UTC (a five-hour usage limit). M7 COMBINED CLOUD VM RETURN 01:16:54 ACKNOWLEDGED (the owner finished 01:15:32; the CLI PASS; the native-begin fixture failed before frames, the original preserved; qemu 0 after). **M7 NATIVE WINDOW GRANTED** for #1114's one diagnostic TU: 2 CPU, at most 8 GiB, at most 780 s total (the container 
+2026-10-31T05:42:05Z T34 (#681) lane: stage E S1 compiles START (tools/t34-build-tests.sh with a held case, host-only g++ -O0; no guest, no image build).
+2026-10-31T05:46:35Z T34 (#681) lane: stage E S1 compiles END (three runs of tools/t34-build-tests.sh, 45-48 s each, and the stand-in over the 37, 12 s).
+== M6 coordinator — 05:49 UTC (2026-10-31): acknowledged T34 (#681) stage E S1 compiles START (05:42:05 UTC; host-only g++ -O0 under tools/t34-build-tests.sh, no guest, no image build) -- the acknowledgement is late by six minutes, between the coordinator's turns. Census: qemu=0 compilers=0 listeners=1. M6 holds no runtime reservation; M7's two granted windows (native 780 s, then the no-NIC guest 
+== M6 coordinator — 05:49 UTC (2026-10-31): acknowledged T34 (#681) stage E S1 compiles END (05:46:35 UTC; three runs of tools/t34-build-tests.sh and the stand-in over the 37). Census: qemu=0 compilers=0 listeners=1. Host idle for M7.
+2026-10-31T05:55:03Z T34 (#681) lane: stage E S2 compiles START (tools/t34-build-tests.sh, host-only g++; no guest, no image build).
+
+## census at 06:00:08Z: qemu 0, compilers 0 (cc1plus), g++ 0

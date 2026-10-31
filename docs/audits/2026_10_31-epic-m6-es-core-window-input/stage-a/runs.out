@@ -1,0 +1,235 @@
+/dev/nvme1n1   244195328 63190573 181004755   26% /workspace
+
+# the scope (expect 96; cpp 44; h 51; other 1 -- es-core/CMakeLists.txt; R1 C06)
+96
+44
+51
+1
+run rc=0 wall=0s
+
+# the ES worktree at the pin, clean; the bases; the counts (expect the pin; 0; cada856d86; f6c542872e; b2ceb55a7e; 1750dded8c -- R1 C15, C17; then 725; 14; 1; 15 -- printed by the proof on 2026-10-31 at the same pin and refs; 531 without merges)
+16dbac5211
+0
+cada856d86
+f6c542872e
+b2ceb55a7e
+1750dded8c
+725
+14
+1
+15
+run rc=0 wall=0s
+
+# the lines two ways (expect wc -l 22567; grep -c 22575; no trailing newline: 8, the files § 2 names; R1 C11)
+wc -l 22567
+grep -c 22575
+no newline: es-core/src/MultiStateInput.cpp 52/53
+no newline: es-core/src/MultiStateInput.h 18/19
+no newline: es-core/src/anim/StoryboardAnimator.cpp 236/237
+no newline: es-core/src/anim/ThemeAnimation.h 145/146
+no newline: es-core/src/anim/ThemeStoryboard.cpp 241/242
+no newline: es-core/src/math/Vector2f.cpp 38/39
+no newline: es-core/src/math/Vector4f.cpp 106/107
+no newline: es-core/src/watchers/BatteryLevelWatcher.cpp 8/9
+no trailing newline: 8
+run rc=0 wall=1s
+
+# the fork's delta (expect `13 files changed, 247 insertions(+), 71 deletions(-)` three times -- R1 C13, C15, and C14 read from master's side; A 1; M 12 -- R1 C15's name-status; the 12 numstat rows; 19 commits with merges, 17 without, 2 merges -- R1 C16, the proof's lines)
+ 13 files changed, 247 insertions(+), 71 deletions(-)
+ 13 files changed, 247 insertions(+), 71 deletions(-)
+ 13 files changed, 247 insertions(+), 71 deletions(-)
+1
+added rc=0
+7	0	es-core/CMakeLists.txt
+2	0	es-core/src/GunManager.cpp
+8	1	es-core/src/InputConfig.cpp
+5	2	es-core/src/InputManager.cpp
+19	40	es-core/src/Log.cpp
+3	3	es-core/src/Scripting.cpp
+4	1	es-core/src/Splash.h
+49	6	es-core/src/Window.cpp
+2	0	es-core/src/Window.h
+78	3	es-core/src/guis/GuiMsgBox.cpp
+1	1	es-core/src/guis/GuiTextEditPopup.cpp
+14	14	es-core/src/guis/GuiTextEditPopupKeyboard.cpp
+19
+17
+2
+merges rc=0
+run rc=0 wall=0s
+
+# upstream's delta: the merge-debt record (expect upstream commits 0 rc=1 and numstat 0 rc=1; identical to rocknix/master: 83; identical to cada856d86: 83; MB-vs-master identical: 96; batocera commits on the 96: 12; batocera files: 9; both-changed: 6 -- R1 C12, C14, C17, C18 and R1 § 3, every line printed by the proof on 2026-10-31)
+0
+upstream commits rc=1
+0
+upstream numstat rc=1
+identical to rocknix/master: 83
+identical to cada856d86: 83
+MB-vs-master identical: 96
+12
+9
+6
+run rc=0 wall=0s
+
+# the other lanes' deltas inside the 96 (expect every stat line empty except T21's `es-core/CMakeLists.txt`, `1 file changed, 5 insertions(+)` -- R1 C20, C21, the proof's line; T34's `origin/` ref prints `fatal: bad revision` -- recorded, not a stop, R1 C19)
+== m6-es-launch-path-649
+== m6-es-cloud-pages-665
+== m6-es-achievements-pages-667
+== m6-es-state-and-bridge-668
+ 1 file changed, 5 insertions(+)
+== m6-es-guimenu-673
+== m6-es-pages-678
+== m6-es-app-views-scrapers-679
+== m6-es-app-system-680
+== m6-es-core-components-681
+run rc=0 wall=0s
+
+# the strings, two ways (expect `_(" lines TOTAL 86 in 10 files` -- R2 cmd 8's 86, the proof's 10; the per-file -c: Window.cpp 37, guis/GuiInputConfig.cpp 14, guis/GuiTextEditPopupKeyboard.cpp 11, GunManager.cpp 6, guis/GuiDetectDevice.cpp 5, InputManager.cpp 4, guis/GuiMsgBox.cpp 3, guis/GuiTextEditPopup.cpp 3, BindingManager.cpp 2, TextToSpeech.cpp 1 -- R3 cmd 23 and the proof; the occurrence count 97)
+_(" lines TOTAL 86 in 10 files
+97
+BindingManager.cpp:2 GunManager.cpp:6 InputManager.cpp:4 TextToSpeech.cpp:1 Window.cpp:37 guis/GuiDetectDevice.cpp:5 guis/GuiInputConfig.cpp:14 guis/GuiMsgBox.cpp:3 guis/GuiTextEditPopup.cpp:3 guis/GuiTextEditPopupKeyboard.cpp:11 
+run rc=0 wall=0s
+
+# the log lines (expect `LOG(Log lines TOTAL 158 in 20 files` -- R2 cmd 9; VolumeControl.cpp 32, ThemeData.cpp 25, InputManager.cpp 20, AudioManager.cpp 19 the four largest)
+LOG(Log lines TOTAL 158 in 20 files
+run rc=0 wall=0s
+
+# the threads and the lifetimes (expect 18 matching lines -- R2 cmd 10: Log.cpp 60 180; Scripting.cpp 18 68; TextToSpeech.cpp 92, .h 47; VolumeControl.cpp 32 203; Window.cpp 1554 1563 1572 1575 1608 1619 1634 1637; watchers/WatchersManager.cpp 61, .h 88; `.detach(` 4, all Window.cpp -- R2 § 6; Scripting.cpp:68 is `new std::thread(&executeCommandsThread)` under WIN32, not a detach (the proof); `postToUiThread`: Window.cpp:1276 the definition, :1556 :1574 :1612 :1636 the calls, Window.h:91 (the proof))
+es-core/src/Log.cpp:60 es-core/src/Log.cpp:180 es-core/src/Scripting.cpp:18 es-core/src/Scripting.cpp:68 es-core/src/TextToSpeech.cpp:92 es-core/src/TextToSpeech.h:47 es-core/src/VolumeControl.cpp:32 es-core/src/VolumeControl.cpp:203 es-core/src/Window.cpp:1554 es-core/src/Window.cpp:1563 es-core/src/Window.cpp:1572 es-core/src/Window.cpp:1575 es-core/src/Window.cpp:1608 es-core/src/Window.cpp:1619 es-core/src/Window.cpp:1634 es-core/src/Window.cpp:1637 es-core/src/watchers/WatchersManager.cpp:61 es-core/src/watchers/WatchersManager.h:88 
+18
+4
+es-core/src/Window.cpp:1276 es-core/src/Window.cpp:1556 es-core/src/Window.cpp:1574 es-core/src/Window.cpp:1612 es-core/src/Window.cpp:1636 es-core/src/Window.h:91 
+run rc=0 wall=0s
+
+# the process spawns (expect 4, all ProcessStartInfo: InputManager.cpp:1272, Scripting.cpp:43 :131 :140 -- R2 cmd 11; system( / popen( / runSystemCommand( 0 rc=1)
+es-core/src/InputManager.cpp:1272 es-core/src/Scripting.cpp:43 es-core/src/Scripting.cpp:131 es-core/src/Scripting.cpp:140 
+0
+shell spawns rc=1
+run rc=0 wall=0s
+
+# the writes (expect 9 lines -- R2 cmd 13's seven write sites, InputManager.cpp:1225 :1232 save_file; FavoriteMusicManager.cpp:71 :115 ofstream; Log.cpp:179; AudioManager.cpp:539 :610 fopen; plus es-core/CMakeLists.txt:122 :257, the `AtomicFileUtil` registrations the alternation matches (the proof); AtomicFile:: 0 rc=1)
+es-core/CMakeLists.txt:122 es-core/CMakeLists.txt:257 es-core/src/AudioManager.cpp:539 es-core/src/AudioManager.cpp:610 es-core/src/FavoriteMusicManager.cpp:71 es-core/src/FavoriteMusicManager.cpp:115 es-core/src/InputManager.cpp:1225 es-core/src/InputManager.cpp:1232 es-core/src/Log.cpp:179 
+9
+0
+atomic rc=1
+run rc=0 wall=0s
+
+# the reads (expect `FileSystem::exists(` 41; uncached 0 rc=1 -- R2 cmd 12; the per-file list R2 § 2.3 names)
+41
+0
+uncached rc=1
+run rc=0 wall=0s
+
+# the input and the help bar (expect `getHelpPrompts` definitions 3 -- guis/GuiMsgBox.cpp:296, guis/GuiTextEditPopup.cpp:81, guis/GuiTextEditPopupKeyboard.cpp:449 -- and `input(InputConfig` definitions 6 -- GuiComponent.cpp:54, Window.cpp:215, guis/GuiDetectDevice.cpp:87, guis/GuiMsgBox.cpp:246, guis/GuiTextEditPopup.cpp:66, guis/GuiTextEditPopupKeyboard.cpp:335 (the proof); the eight `mHelp->` lines in Window.cpp: 745 1001 1009 1011 1012 1077 1397 1398 -- T34's brief `:1422`, R4 item 12; `mHelp->setOpacity` 0 rc=1)
+3
+6
+745 1001 1009 1011 1012 1077 1397 1398 
+0
+mHelp setOpacity rc=1
+run rc=0 wall=0s
+
+# the constants (expect the two BUTTON_GRID_HORIZ_PADDING definitions: components/MenuComponent.cpp:14 at 0.022 and guis/GuiTextEditPopupKeyboard.cpp:14 at 0.0052083333 -- R2 cmd 20; the keyboard's use at :220; GuiMsgBox.cpp:21-23 MSGBOX_WIDTH 0.6 / WIDE 0.8 / LINES 4; GuiInfoPopup.cpp:17-18 0.9f / 0.2f; Window.cpp:1181 PADDING_H, :1183 :1192 the card's position -- R2 § 1.3, § 4)
+es-core/src/components/MenuComponent.cpp:14:#define BUTTON_GRID_HORIZ_PADDING (Renderer::getScreenWidth()*0.022)
+es-core/src/components/MenuComponent.cpp:547:	float buttonGridWidth = (float)BUTTON_GRID_HORIZ_PADDING * buttons.size(); // initialize to padding
+es-core/src/components/MenuComponent.cpp:555:		buttonGrid->setColWidthPerc(i, (buttons.at(i)->getSize().x() + BUTTON_GRID_HORIZ_PADDING) / buttonGridWidth);
+es-core/src/guis/GuiTextEditPopupKeyboard.cpp:14:#define BUTTON_GRID_HORIZ_PADDING (Renderer::getScreenWidth()*0.0052083333)
+es-core/src/guis/GuiTextEditPopupKeyboard.cpp:220:				button->setPadding(Vector4f(BUTTON_GRID_HORIZ_PADDING / 4.0f, BUTTON_GRID_HORIZ_PADDING / 4.0f, BUTTON_GRI
+es-core/src/Window.cpp:1181:#define PADDING_H  (Renderer::getScreenWidth()*0.01)
+es-core/src/Window.cpp:1192:		float posX = Renderer::getScreenWidth() * 0.5f - child->getSize().x() * 0.5f;
+es-core/src/Window.cpp:1194:		float offset = child->getSize().y() + PADDING_H;
+es-core/src/Window.cpp:1210:					(int)trans.translation()[0] + posX - PADDING_H, 
+es-core/src/guis/GuiInfoPopup.cpp:17:	float maxWidth = Renderer::getScreenWidth() * 0.9f;
+es-core/src/guis/GuiInfoPopup.cpp:18:	float maxHeight = Renderer::getScreenHeight() * 0.2f;
+es-core/src/guis/GuiInfoPopup.cpp:47:	float posX = Renderer::getScreenWidth()*0.5f - mSize.x()*0.5f;
+es-core/src/guis/GuiMsgBox.cpp:21:#define MSGBOX_WIDTH           (Renderer::getScreenWidth() * 0.6f)
+es-core/src/guis/GuiMsgBox.cpp:22:#define MSGBOX_WIDE_WIDTH      (Renderer::getScreenWidth() * 0.8f)
+es-core/src/guis/GuiMsgBox.cpp:23:#define MSGBOX_WIDE_LINES      4
+es-core/src/guis/GuiMsgBox.cpp:52:	float width = MSGBOX_WIDTH; // max width
+run rc=0 wall=0s
+
+# the includes (expect SDL/VLC/GL angle lines over the 101: 18 -- R3 cmd 4; quoted SDL: 2 -- R3 cmd 16; the cross-tree include: Window.cpp:29 -- R2 § 1.7; the named-once loop prints `named-0-times (or more than once): 9` -- seven entries named once with a trailing `# batocera` comment the anchor rejects (LocaleES.cpp, LocaleES.h, gettext.h, guis/GuiInfoPopup.cpp, guis/GuiInfoPopup.h, guis/GuiTextEditPopupKeyboard.cpp, guis/GuiTextEditPopupKeyboard.h) and two headers registered nowhere (HelpPrompt.h, Scripting.h); every .cpp of the 44 named once (the proof; R3 cmd 21's claim held for the sources); `if(` at 278 287 -- R3 cmd 21)
+18
+2
+es-core/src/Window.cpp:29:#include "../es-app/src/ApiSystem.h"
+not once: es-core/src/HelpPrompt.h
+not once: es-core/src/LocaleES.cpp
+not once: es-core/src/LocaleES.h
+not once: es-core/src/Scripting.h
+not once: es-core/src/gettext.h
+not once: es-core/src/guis/GuiInfoPopup.cpp
+not once: es-core/src/guis/GuiInfoPopup.h
+not once: es-core/src/guis/GuiTextEditPopupKeyboard.cpp
+not once: es-core/src/guis/GuiTextEditPopupKeyboard.h
+named-0-times (or more than once): 9
+278 287 
+run rc=0 wall=0s
+
+# the in-source gates (expect 128 lines (the proof), the ROCKNIX, BATOCERA, WIN32, HAVE_UDEV, _ENABLE_PULSE_, HAVE_LIBCEC, _ENABLE_TTS_ guards of R3 § 2.2 and R2 § 0 among them -- Splash.h:10, InputManager.cpp:585, VolumeControl.cpp:11 (its include :14), CECInput.h:7 (:8), TextToSpeech.cpp:53 (:54); `git grep -n ROCKNIX` over the 96: 3 lines, InputManager.cpp:585, Paths.cpp:76, Splash.h:10)
+es-core/src/AudioManager.cpp:22 es-core/src/CECInput.cpp:3 es-core/src/CECInput.cpp:8 es-core/src/CECInput.cpp:23 es-core/src/CECInput.cpp:53 es-core/src/CECInput.cpp:94 es-core/src/CECInput.cpp:95 es-core/src/CECInput.cpp:154 es-core/src/CECInput.cpp:162 es-core/src/CECInput.cpp:175 es-core/src/CECInput.cpp:196 es-core/src/CECInput.cpp:281 es-core/src/CECInput.h:7 es-core/src/CECInput.h:24 es-core/src/GunManager.cpp:15 es-core/src/GunManager.cpp:22 es-core/src/GunManager.cpp:163 es-core/src/GunManager.cpp:180 es-core/src/GunManager.cpp:197 es-core/src/GunManager.cpp:208 es-core/src/GunManager.cpp:311 es-core/src/GunManager.cpp:319 es-core/src/GunManager.cpp:516 es-core/src/GunManager.cpp:556 es-core/src/GunManager.cpp:774 es-core/src/GunManager.cpp:794 es-core/src/GunManager.cpp:857 es-core/src/GunManager.cpp:865 es-core/src/GunManager.cpp:891 es-core/src/GunManager.cpp:920 es-core/src/GunManager.h:9 es-core/src/GunManager.h:11 es-core/src/GunManager.h:73 es-core/src/GunManager.h:76 es-core/src/GunManager.h:104 es-core/src/GunManager.h:109 es-core/src/GunManager.h:138 es-core/src/GunManager.h:147 es-core/src/ImageIO.cpp:279 es-core/src/ImageIO.cpp:328 es-core/src/ImageIO.cpp:348 es-core/src/InputConfig.cpp:8 es-core/src/InputConfig.cpp:60 es-core/src/InputConfig.cpp:130 es-core/src/InputConfig.cpp:137 es-core/src/InputConfig.cpp:418 es-core/src/InputConfig.cpp:440 es-core/src/InputConfig.h:12 es-core/src/InputConfig.h:170 es-core/src/InputManager.cpp:25 es-core/src/InputManager.cpp:86 es-core/src/InputManager.cpp:110 es-core/src/InputManager.cpp:184 es-core/src/InputManager.cpp:245 es-core/src/InputManager.cpp:384 es-core/src/InputManager.cpp:404 es-core/src/InputManager.cpp:489 es-core/src/InputManager.cpp:535 es-core/src/InputManager.cpp:565 es-core/src/InputManager.cpp:585 es-core/src/InputManager.cpp:632 es-core/src/InputManager.cpp:649 es-core/src/InputManager.cpp:764 es-core/src/InputManager.cpp:792 es-core/src/InputManager.cpp:839 es-core/src/InputManager.cpp:849 es-core/src/InputManager.cpp:1117 es-core/src/InputManager.cpp:1166 es-core/src/InputManager.cpp:1205 es-core/src/LocaleES.cpp:6 es-core/src/LocaleES.h:5 es-core/src/Log.cpp:20 es-core/src/Log.cpp:170 es-core/src/Log.cpp:200 es-core/src/Log.cpp:218 es-core/src/Log.cpp:284 es-core/src/Paths.cpp:12 es-core/src/Paths.cpp:24 es-core/src/Paths.cpp:40 es-core/src/Paths.cpp:48 es-core/src/Paths.cpp:76 es-core/src/Paths.cpp:149 es-core/src/Paths.cpp:185 es-core/src/Paths.cpp:286 es-core/src/Paths.cpp:303 es-core/src/Scripting.cpp:17 es-core/src/Scripting.cpp:77 es-core/src/Scripting.cpp:115 es-core/src/Scripting.cpp:162 es-core/src/Scripting.cpp:172 es-core/src/Scripting.cpp:186 es-core/src/Splash.cpp:103 es-core/src/Splash.cpp:331 es-core/src/Splash.h:10 es-core/src/Splash.h:13 es-core/src/TextToSpeech.cpp:5 es-core/src/TextToSpeech.cpp:53 es-core/src/TextToSpeech.cpp:90 es-core/src/TextToSpeech.cpp:94 es-core/src/TextToSpeech.cpp:120 es-core/src/TextToSpeech.cpp:138 es-core/src/TextToSpeech.cpp:197 es-core/src/TextToSpeech.cpp:246 es-core/src/TextToSpeech.cpp:268 es-core/src/TextToSpeech.h:8 es-core/src/TextToSpeech.h:44 es-core/src/ThemeData.cpp:2369 es-core/src/VolumeControl.cpp:7 es-core/src/VolumeControl.cpp:11 es-core/src/VolumeControl.cpp:217 es-core/src/VolumeControl.cpp:234 es-core/src/VolumeControl.cpp:243 es-core/src/VolumeControl.cpp:269 es-core/src/VolumeControl.cpp:378 es-core/src/VolumeControl.cpp:460 es-core/src/VolumeControl.cpp:471 es-core/src/VolumeControl.cpp:492 es-core/src/VolumeControl.cpp:533 es-core/src/VolumeControl.cpp:593 es-core/src/VolumeControl.cpp:621 es-core/src/VolumeControl.cpp:660 es-core/src/VolumeControl.cpp:665 es-core/src/VolumeControl.h:13 es-core/src/VolumeControl.h:33 es-core/src/Window.cpp:32 es-core/src/Window.cpp:873 es-core/src/Window.cpp:982 es-core/src/Window.cpp:1432 
+run rc=0 wall=1s
+
+# the non-ASCII bytes (expect 28 lines rc=0 under LC_ALL=C; files with a non-ascii byte: 4 -- AudioManager.cpp 3, GunManager.cpp 1, InputManager.cpp 2, guis/GuiTextEditPopupKeyboard.cpp 22, the glyph literals es-code-traps.md:60 allows; files with a non-ascii comment line: 3 -- AudioManager.cpp:352 :362 :383, GunManager.cpp:145, InputManager.cpp:393 :1437, every one upstream's: the fork's -U0 diff against cada856d86 adds 0 (the proof); InputManager.cpp:856 :869 are ASCII)
+28
+git grep -P rc=0
+AudioManager.cpp:3
+GunManager.cpp:1
+InputManager.cpp:2
+guis/GuiTextEditPopupKeyboard.cpp:22
+files with a non-ascii byte: 4
+comment: AudioManager.cpp:3
+comment: GunManager.cpp:1
+comment: InputManager.cpp:2
+files with a non-ascii comment line: 3
+run rc=0 wall=0s
+
+# the French (expect six lines -- CANCEL 49, GAMEPAD %i 3898, SET SELECT AS HOTKEY 3915, DO NOT ASSIGN HOTKEY 3918, the detect sentence with its period 3779, CLEAR 6923 (the proof; HOTKEY ENABLE is no msgid, the key is the identifier HotKeyEnable); `^msgid ` lines 2207 -- T34's brief `:1416` at the same pin; es-untranslated `706 fork string(s) in the source, 706 with French, 0 without` rc 0 and `703 ... 0 without` rc 0 -- the proof, over the qa-integration checkout at the pin)
+49:msgid "CANCEL" 3779:msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT." 3898:msgid "GAMEPAD %i" 3915:msgid "SET SELECT AS HOTKEY" 3918:msgid "DO NOT ASSIGN HOTKEY" 6923:msgid "CLEAR" 
+locale/lang/fr/LC_MESSAGES/emulationstation2.po:2207
+es-untranslated: 706 fork string(s) in the source, 706 with French, 0 without
+es-untranslated rc=0
+es-untranslated: 703 fork string(s) in the source, 703 with French, 0 without
+es-untranslated(cada) rc=0
+run rc=0 wall=0s
+
+# the candidate lines (expect Window.cpp `339 340` for back()/pop_back(); `1164` for notificationDuration(-1); WatchersManager.cpp `181` for the unique_lock and `196` for check(); Scripting.cpp `92 93` and `109 112` for the quoting; InputManager.cpp `946 960` for the two approximate logs, `1225 1232` save_file; GuiMsgBox.cpp `44 234` say; GuiInputConfig.cpp `134` -- R2 §§ 1-5)
+339 340 
+1164
+66 78 94 143 181 196 
+946 960 
+1225 1232 
+44 234 240 
+134
+run rc=0 wall=0s
+
+# the menu map (expect `55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing` rc 0 -- T34's brief `:1424` at the same pin, the map 989 lines and unchanged since; the checker's SOURCE_DIRS at its :58 include es-core/src/guis)
+55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing
+es-menu-map-check rc=0
+989 docs/es-menu-map.md
+SOURCE_DIRS = ["es-app/src/guis", "es-core/src/guis"]
+run rc=0 wall=1s
+
+# the compile (expect `es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)` rc 2 -- R3 cmd 12, #1137; plain g++ on GuiMsgBox.cpp rc 1 with `es-core/src/InputConfig.h:6:10: fatal error: SDL_joystick.h: No such file or directory` -- printed by the proof for this file over a `git archive` of the pin (g++ 15.2.0; Window.cpp the same line, InputManager.cpp at InputManager.h:5:10; WatchersManager.cpp, Scripting.cpp, math/Vector2f.cpp rc 0 plain), as R4 item 25 and T31 `02:565` predicted; the pugixml root present -- R3 cmd 17; then the stand-in check over the 44 with the fakes, rc per file, R3 § 3.3's classes the prediction)
+es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)
+es-syntax-check rc=2
+/home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/InputConfig.h:6:10: fatal error: SDL_joystick.h: No such file or directory
+plain g++ rc=1
+pugixml root present
+run rc=0 wall=0s
+
+# STAGE C -- the lane's scripts, which do not exist at stage A (expect the stand-in's `<file>: rc N` line per .cpp, 44 lines; the build script's own `TOTAL: N test cases in B binaries` with 0 failed and `window-input-tests` among the binaries; before any fix the candidates' FAIL lines by name and 3.27's script FAILing at the pin)
+CANNOT at stage A: the three scripts below are the lane's stage-C inputs (stage-a/syntax-check.sh, tools/t35-build-tests.sh, stage-c/pl25-screensaver.py) and do not exist yet; each runs at stage C
+  (not run) bash docs/audits/*-epic-m6-es-core-window-input/stage-a/syntax-check.sh 2>&1 | tail -n 46
+  (not run) bash docs/audits/*-epic-m6-es-core-window-input/tools/t35-build-tests.sh "$W" 2>&1 | tail -n 10
+  (not run) python3 -I docs/audits/*-epic-m6-es-core-window-input/stage-c/pl25-screensaver.py "$W" 2>&1 | tail -n 3
+
+# STAGE A, after the pointer is read -- the removal check: the lane's own tip, b51dd8a805 at stage A (the merge commit the dispatch comment and the pointer name, filling the brief's placeholder) (expect empty) and the ES diff against the pin (expect empty before stage E)
+(the lane's own tip is b51dd8a805 at stage A: the merge commit the dispatch comment and the pointer name)
+run rc=0 wall=0s
+
+# (added at stage A) the ROCKNIX lines over the 96, which the gates run's expectation names and the block does not run (expect 3: InputManager.cpp:585, Paths.cpp:76, Splash.h:10)
+es-core/src/InputManager.cpp:585 es-core/src/Paths.cpp:76 es-core/src/Splash.h:10 
+3
+run rc=0 wall=0s
+
+# (added at stage A) the gates run's line count, which the block prints as one line (expect 128)
+128
