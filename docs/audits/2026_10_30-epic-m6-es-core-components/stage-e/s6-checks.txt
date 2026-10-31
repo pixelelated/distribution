@@ -1,0 +1,45 @@
+# S6 (stage E, #681; #1329, #1330, #1331): checks, written 2026-10-31T06:36:02Z
+
+## The ES commit
+6050b8419fe7edbeff7e304fcdf49c005925dfbd on feature/m6-es-core-components-681 (parent 568ef099d, S5), pushed to origin over HTTPS by remote name.
+     es-core/src/components/ImageGridComponent.h | 19 ++++++++++++++++++-
+     1 file changed, 18 insertions(+), 1 deletion(-)
+Non-ASCII on the added lines: none. git grep -n 'mLastCursor = -9999)' -- es-core/src/components prints nothing (rc 1).
+
+## PL-35's intent read, posted before the commit (ruling 12)
+issuecomment-6540110468 on #681. git log -S'-9999' names f992b5ca0 (Fabrice CARUSO, 2022-06-19, Mouse/TouchScreen support), which writes the sentinel at :1606-1607 (a drag ending on the same entry) and compares it at :1200 and :1213. :1151's branch restarts the selected tile's video on that call. A comparison was meant, so the line is '==', not 'else'.
+
+## The harness
+ImageGridComponent<T> is a template over IList; the cases lift each member's body into a double of the grid in components-tests (namespace igrid), not a Python harness. Where a body's first line names the template (setImage's static_cast at :525), the lift starts on the next line, with 'list' bound to the double.
+
+## Before and after (tools/t34-build-tests.sh's own lines)
+Before, at 568ef099d (ImageGridComponent.h is the pin's there):
+    RUN components-tests: rc 1; [doctest] test cases: 41 | 36 passed | 5 failed | 0 skipped [doctest] assertions: 433 | 424 passed | 9 failed | 
+    TOTAL: 280 test cases in 6 binaries
+    PL-33 FAIL (the loop-copy tiles survive clear()); PL-34 FAIL (4 tiles visible after three image changes, not 1); PL-35 FAIL (no cursor callback; a video started on a plain move); 3.9 and 3.10 PASS
+After, at 6050b8419:
+    RUN components-tests: rc 1; [doctest] test cases: 41 | 39 passed | 2 failed | 0 skipped [doctest] assertions: 433 | 430 passed | 3 failed | 
+    SAN tsan-card (-fsanitize=thread): rc 0; no sanitizer report
+    SAN asan-textedit (-fsanitize=address): rc 0; no sanitizer report
+    SAN asan-popup (-fsanitize=address): rc 0; no sanitizer report
+    SAN asan-card-handle (-fsanitize=address): rc 0; no sanitizer report
+    TOTAL: 280 test cases in 6 binaries
+    PL-33, PL-34, PL-35, 3.9 and 3.10 PASS; the two FAILs left are 3.26 (PL-14) and 3.14's PL-40 half, both recorded
+
+## The stand-in and the header's instantiations
+    CANNOT VideoVlcComponent.cpp: <vlc/vlc.h> and <vlc/libvlc_version.h> (:8-9) have no fake
+    t34-syntax-check: 37 file(s) checked, 37 rc 0, 0 not
+    The template is instantiated outside the 37, so three of its includers were compiled with the stand-in's flags against the S6 tree: es-app/src/views/gamelist/GridGameListView.cpp, es-app/src/guis/GuiSaveState.cpp and es-app/src/guis/GuiImageViewer.cpp, each rc 0.
+
+## Specs (D-WORKFLOW-210)
+New in S6, with the pin's lines (s6-before) and the tip's (s6-after): grid_calcdim ImageGridComponent.h:1441-1467 -> :1458-1484; grid_reset :1383-1434 -> :1399-1451; grid_setimage :526-533 -> :526-549; grid_select :1124-1153 -> :1140-1169; grid_callback :1198-1217 -> :1214-1233.
+tools/t34-lifetimes.py: ImageGridComponent.h:91's proved cell carries S6's outcome. tools/t34-leads.py: 3.9 and 3.10 are in the stage-E table.
+
+## The #585 lines
+PL-35: upstream's line (f992b5ca0). PL-33: the loop-copy tiles are f992b5ca0's too. PL-34: the dropped tile is aee3fc657 (Fabrice CARUSO, 2022-07-05, 'GridView : better management & fix when image changes'). All three get #585 lines.
+
+## Other checks
+ES .githooks/pre-push-test: PASS. es-untranslated: not run; S6 changes no player string.
+Already written (#1329, #1330, #1331): nothing inherited; the tiles live in memory.
+Time to play: a map clear per reset, an erase per image change and a compare. The grid view is the launch's origin surface, and none of this lengthens the path.
+The guest half (fix-walk-pending-image): the game list in grid mode after a system change, and the save-state manager's grid after a delete.

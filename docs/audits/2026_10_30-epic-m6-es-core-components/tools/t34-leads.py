@@ -92,6 +92,8 @@ SE.update({
  "3.22": "S5: PASS at the pin and after, with 3.23 and 3.24 (`stage-e/s5-before.txt`, `s5-after.txt`)",
  "3.23": "S5: PASS at the pin and after: four turns are the identity",
  "3.24": "S5: PASS at the pin and after: -1, 4, 5 and 0 normalise to 3, 0, 1 and 0",
+ "3.9": "S6: PASS at the pin and after, with 3.10: the dimensions of three grids (`stage-e/s6-before.txt`, `s6-after.txt`)",
+ "3.10": "S6: PASS at the pin and after: a partial last row read, and a whole one",
 })
 R = [  # (ruling, the 02 row)
  ("(a) T32 PL-07 / #1263, the caller's half", "§ The reads, `ImageComponent.cpp:408`"),

@@ -69,6 +69,11 @@ SPECS = [  # name, file, first, last, the first line holds, the last line holds
  ("img_turn_fit", "ImageComponent.cpp", 103, 109, "Vector2f textureSize = (mDisplayAspect > 0.0f && physicalSize.y() > 0.0f)", "textureSize = Vector2f(textureSize.y(), textureSize.x());"),
  ("img_turn_corners", "ImageComponent.cpp", 287, 297, "if (mDisplayRotation != 0)", "}"),
  ("img_turn_norm", "ImageComponent.cpp", 516, 516, "quarterTurns = ((quarterTurns % 4) + 4) % 4;", "quarterTurns"),
+ ("grid_calcdim", "ImageGridComponent.h", 1458, 1484, "Vector2f gridDimension = (mSize + mMargin) / (mTileSize + mMargin);", "}"),
+ ("grid_reset", "ImageGridComponent.h", 1399, 1451, "mVisibleTiles.clear();", "onCursorChanged(CURSOR_STOPPED);"),
+ ("grid_setimage", "ImageGridComponent.h", 526, 549, "auto entry = list->findEntry(obj);", "}"),
+ ("grid_select", "ImageGridComponent.h", 1140, 1169, "if (mCursor >= 0 && mCursor < mEntries.size() && mEntries[mCursor].data.tile != nullptr)", "}"),
+ ("grid_callback", "ImageGridComponent.h", 1214, 1233, "auto lastCursor = mLastCursor;", "}"),
  ("card_handle", "AsyncNotificationComponent.h", 53, 54, "using Handle = std::weak_ptr<AsyncNotificationComponent>;", "Handle handle() { return weak_from_this(); }"),
 ]
 os.makedirs(OUT, exist_ok=True)

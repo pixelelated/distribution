@@ -806,3 +806,91 @@ TEST_CASE("3.22-3.24 a quarter turn swaps the fitted size, four turns are the id
 	CHECK(c.mVertices[0].tex == Vec2f(0, 0)); CHECK(c.mVertices[1].tex == Vec2f(0, 1)); CHECK(c.mVertices[2].tex == Vec2f(1, 0)); CHECK(c.mVertices[3].tex == Vec2f(1, 1));
 	CHECK(t.norm(-1) == 3); CHECK(t.norm(5) == 1); CHECK(t.norm(4) == 0); CHECK(t.norm(0) == 0);
 }
+
+// ---- S6 (stage E): the image grid ----
+// The template ImageGridComponent<T> (ImageGridComponent.h) is not compiled
+// whole; each case lifts the member's body into a double of the grid with
+// its tiles, its entries and the fields that body reads.
+namespace igrid {
+#define EXTRAITEMS 2
+#define ALLOWANIMATIONS (gAnimations)
+static bool gAnimations = true;
+enum CursorState { CURSOR_STOPPED, CURSOR_SCROLLING };
+enum class CenterSelection { NEVER, ALWAYS, PARTIAL };
+namespace Math {
+	template <typename A, typename B> auto max(A a, B b) -> decltype(a + b) { return a > b ? a : b; }
+	inline float floorf(float v) { return std::floor(v); } inline float ceilf(float v) { return std::ceil(v); } }
+struct V2f { float a = 0, b = 0; V2f(float x = 0, float y = 0) : a(x), b(y) {} float& x() { return a; } float& y() { return b; } float x() const { return a; } float y() const { return b; }
+	V2f operator+(const V2f& o) const { return V2f(a + o.a, b + o.b); } V2f operator/(const V2f& o) const { return V2f(a / o.a, b / o.b); } V2f operator/(float d) const { return V2f(a / d, b / d); } };
+struct V2i { int a = 0, b = 0; V2i(int x = 0, int y = 0) : a(x), b(y) {} int& x() { return a; } int& y() { return b; } int x() const { return a; } int y() const { return b; } operator V2f() const { return V2f(a, b); } };
+struct V3f { float a = 0, b = 0, c = 0; V3f(float x = 0, float y = 0, float z = 0) : a(x), b(y), c(z) {} static V3f Zero() { return V3f(); } bool operator==(const V3f& o) const { return a == o.a && b == o.b && c == o.c; } };
+struct V4f { float p[4] = {0, 0, 0, 0}; float x() const { return p[0]; } float y() const { return p[1]; } float z() const { return p[2]; } float w() const { return p[3]; } };
+struct Tile { bool visible = true, selected = false, item = true; int videos = 0, id = 0;
+	bool isVisible() const { return visible; } void setVisible(bool v) { visible = v; } bool isSelected() const { return selected; }
+	void setSelected(bool s, bool = true, V3f* = nullptr, bool = false) { selected = s; } bool hasItemTemplate() const { return item; } void startVideo() { videos++; } V3f getBackgroundPosition() const { return V3f(); } void render(int) {} };
+struct Data { std::shared_ptr<Tile> tile; std::string texturePath; };
+struct Entry { Data data; int object = 0; };
+struct Grid {
+	using Vector2f = V2f; using Vector2i = V2i; using Vector3f = V3f;
+	std::vector<Entry> mEntries; std::vector<std::shared_ptr<Tile>> mVisibleTiles; std::map<int, std::shared_ptr<Tile>> mScrollLoopTiles;
+	int mCursor = 0, mLastCursor = -1, mStartPosition = 0; CursorState mLastCursorState = CURSOR_STOPPED; bool mEntriesDirty = false, mScrollLoop = false, mAnimateSelection = false, mLastRowPartial = false, vertical = true;
+	float mCameraOffset = 0; V2f mSize = V2f(640, 480), mMargin = V2f(10, 10), mTileSize = V2f(100, 100); V2i mGridDimension, mGridSizeOverride, mAutoLayout; V4f mPadding;
+	CenterSelection mCenterSelection = CenterSelection::NEVER; int callbacks = 0; std::function<void(CursorState)> mCursorChangedCallback = [this](CursorState) { callbacks++; };
+	bool isVertical() const { return vertical; } void onCursorChanged(CursorState) {}
+	std::shared_ptr<Tile> getSelectedTile() { for (auto& t : mVisibleTiles) if (t->isSelected()) return t; for (auto& e : mEntries) if (e.data.tile && e.data.tile->isSelected()) return e.data.tile; return nullptr; }
+	void calcGridDimension() {
+#include "x_grid_calcdim.inc"
+	}
+	void resetGrid() {
+#include "x_grid_reset.inc"
+	}
+	// IList's findEntry and end, for setImage
+	std::vector<Entry>::iterator findEntry(int obj) { for (auto it = mEntries.begin(); it != mEntries.end(); ++it) if (it->object == obj) return it; return mEntries.end(); }
+	std::vector<Entry>::iterator end() { return mEntries.end(); }
+	void setImage(const std::string& imagePath, int obj) {
+		Grid* list = this;
+#include "x_grid_setimage.inc"
+	}
+	// ensureVisibleTileExist's tile made for an entry with none (:373-384), as a remake
+	void remake() { static int ids = 0; for (auto& e : mEntries) if (!e.data.tile) { e.data.tile = std::make_shared<Tile>(); e.data.tile->id = ++ids; mVisibleTiles.push_back(e.data.tile); } mEntriesDirty = false; }
+	void cursorSelection() {
+		Vector3f oldPos = Vector3f::Zero();
+#include "x_grid_select.inc"
+	}
+	void cursorCallback(CursorState state) {
+		float newCameraOffset = mCameraOffset;
+#include "x_grid_callback.inc"
+	}
+	void cursorMoved(CursorState state) { cursorSelection(); cursorCallback(state); mLastCursor = mCursor; }
+};
+}
+TEST_CASE("PL-33 a reset grid keeps no loop-copy tile to draw (ImageGridComponent.h:505-509, :1381-1435, :762-763)") {
+	igrid::Grid g; g.mScrollLoop = true; g.mEntries.resize(3); g.mScrollLoopTiles[-1] = std::make_shared<igrid::Tile>(); g.mScrollLoopTiles[3] = std::make_shared<igrid::Tile>();
+	g.mEntries.clear(); g.resetGrid(); // clear(): IList's clear, then resetGrid()
+	CHECK(g.mScrollLoopTiles.empty());
+	CHECK(g.mVisibleTiles.empty());
+}
+TEST_CASE("PL-34 an entry's image changed three times leaves one tile in the visible list (ImageGridComponent.h:522-534)") {
+	igrid::Grid g; g.mEntries.resize(1); g.mEntries[0].object = 7; g.remake();
+	for (auto p : {"a.png", "b.png", "c.png"}) { g.setImage(p, 7); g.remake(); }
+	CHECK(g.mVisibleTiles.size() == 1);
+	CHECK(g.mVisibleTiles[0] == g.mEntries[0].data.tile);
+}
+TEST_CASE("PL-35 the cursor reaching an already selected tile still runs the cursor callback (ImageGridComponent.h:1124-1153, :1198-1217)") {
+	igrid::gAnimations = true;
+	igrid::Grid g; g.mEntries.resize(3); g.remake();
+	g.mLastCursor = 0; g.mCursor = 1; g.mEntries[1].data.tile->selected = true; // the tile kept its selected state
+	g.cursorMoved(igrid::CURSOR_STOPPED);
+	CHECK(g.callbacks == 1);
+	CHECK(g.mEntries[1].data.tile->videos == 0); // the restart is the drag's, on the -9999 sentinel only
+	g.mLastCursor = -9999; g.mEntries[1].data.tile->selected = true; g.cursorSelection();
+	CHECK(g.mEntries[1].data.tile->videos == 1);
+}
+TEST_CASE("3.9 3.10 the grid's dimensions and its partial last row (ImageGridComponent.h:1439-1468)") {
+	igrid::Grid g; g.calcGridDimension();
+	CHECK(g.mGridDimension.x() == 5); CHECK(g.mGridDimension.y() == 5 + 2 * EXTRAITEMS); CHECK(g.mLastRowPartial);
+	igrid::Grid h; h.mSize = igrid::V2f(650, 440); h.calcGridDimension(); // 660/110 = 6, 450/110 = 4.09
+	CHECK(h.mGridDimension.x() == 6); CHECK(h.mGridDimension.y() == 5 + 2 * EXTRAITEMS); CHECK(h.mLastRowPartial);
+	igrid::Grid e; e.mSize = igrid::V2f(540, 430); e.calcGridDimension(); // 550/110 = 5, 440/110 = 4: no partial row
+	CHECK(e.mGridDimension.y() == 4 + 2 * EXTRAITEMS); CHECK_FALSE(e.mLastRowPartial);
+}

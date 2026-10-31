@@ -215,3 +215,15 @@
 - **After:** every S5 case PASS; `TOTAL: 276 test cases in 6 binaries`; the stand-in passes all 37.
 - **Specs moved:** each named in `s5-checks.txt`. S3's double gained the helper the fixed lines call (D-WORKFLOW-211). The reads and leads generators re-disposition L-08.
 - **#585 lines:** PL-31 and PL-32 (upstream's lines, per `git log -S`); none for PL-13 (the fork's).
+
+## [Stage E] 06:36 UTC 2026-10-31 — S6 (#1329, #1330, #1331): the image grid, `6050b8419`
+
+- **PL-35's intent read was posted before the commit** (issuecomment-6540110468, ruling 12). The sentinel is the drag's, written at `:1606` and compared at `:1200` and `:1213` in the same 2022 commit, so `:1151` becomes `==`.
+- **The cases came first, run at `568ef099d`** (`stage-e/s6-before.txt`), over a double of the grid template:
+  - PL-33 FAIL (loop-copy tiles survive `clear()`);
+  - PL-34 FAIL (4 visible tiles after three image changes);
+  - PL-35 FAIL (no cursor callback, and a video started on a plain move);
+  - 3.9 and 3.10 PASS.
+- **The fix** is one ES commit on `ImageGridComponent.h`: `resetGrid()` clears the loop-copy tiles, `setImage` retires the old tile, and `:1151` compares.
+- **After:** all five PASS; `TOTAL: 280 test cases in 6 binaries`. The stand-in passes all 37, and the template compiles through three es-app includers.
+- **#585 lines:** all three, upstream's lines per `git log -S`.
