@@ -1,0 +1,104 @@
+# T34 stage E hand-back checks (#681), written 2026-10-31T10:46:12Z
+
+## The tips
+ES: 52f0ff5128cf96bfcdec9082ded75347ecea11e6 on feature/m6-es-core-components-681 (pixelelated/emulationstation; ls-remote: 52f0ff5128cf)
+Distribution before the hand-back merge: 7c4a940bdb8c6e817488dab652f9c2eed24ee2e2 (the coordinator's tip, merged after this file, is named in the merge commit and the hand-back post)
+
+## The ES branch against the pin
+    52f0ff512 es-core: the progress card's handle forwards a holder's calls and keeps the pointer's null, so t
+    5908888b5 es-core: a switch draws the state it is built with and keeps its image with its state, a subtitl
+    6050b8419 es-core: the image grid clears its loop-copy tiles on reset, retires an entry's old tile when it
+    568ef099d es-core: a web image clears its queued URL on every rebind and keeps no cache path for a 0-byte 
+    a9017ff50 es-core: the up/down icon key leaves _(), the slider's AUTO, the rating's ADD STAR and the unset
+    db12b1598 es-core: a two-line row's shares sum to 1, TextComponent measures at its drawn width, the marque
+    2cbb62d7b es-core: the progress card takes its close as one atomic request and turns it on the interface t
+    dbe4c2db0 es-core: WebImageComponent names its cache files by a safe key and keeps every file operation in
+     25 files changed, 241 insertions(+), 59 deletions(-)
+    es-core/src/components/AsyncNotificationComponent.cpp
+    es-core/src/components/AsyncNotificationComponent.h
+    es-core/src/components/CarouselComponent.cpp
+    es-core/src/components/ComponentList.cpp
+    es-core/src/components/ComponentList.h
+    es-core/src/components/DateTimeEditComponent.cpp
+    es-core/src/components/GridTileComponent.cpp
+    es-core/src/components/GridTileComponent.h
+    es-core/src/components/HelpComponent.cpp
+    es-core/src/components/ImageComponent.cpp
+    es-core/src/components/ImageComponent.h
+    es-core/src/components/ImageGridComponent.h
+    es-core/src/components/MenuComponent.cpp
+    es-core/src/components/MultiLineMenuEntry.cpp
+    es-core/src/components/OptionListComponent.h
+    es-core/src/components/RatingComponent.cpp
+    es-core/src/components/SliderComponent.cpp
+    es-core/src/components/SwitchComponent.cpp
+    es-core/src/components/SwitchComponent.h
+    es-core/src/components/TextComponent.cpp
+    es-core/src/components/TextEditComponent.cpp
+    es-core/src/components/TextEditComponent.h
+    es-core/src/components/VideoComponent.cpp
+    es-core/src/components/WebImageComponent.cpp
+    locale/lang/fr/LC_MESSAGES/emulationstation2.po
+    Outside es-core/src/components/: 1 path(s): locale/lang/fr/LC_MESSAGES/emulationstation2.po (S4's French entry, D-UI-051)
+    Non-ASCII on the added source lines (pin to tip, .cpp and .h): 0
+
+## The build at the ES tip (tools/t34-build-tests.sh's own lines, stage-e/handback-build.txt)
+    RUN es-unit-tests: rc 0; [doctest] test cases: 185 | 185 passed | 0 failed | 0 skipped [doctest] assertions: 4795 | 4795 passed | 0 failed | 
+    RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3389 | 3389 passed | 0 failed | 
+    RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+    RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+    RUN app-unit-tests: rc 0; [doctest] test cases: 18 | 18 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+    RUN components-tests: rc 0; [doctest] test cases: 46 | 46 passed | 0 failed | 0 skipped [doctest] assertions: 453 | 450 passed | 3 failed | 
+    SAN tsan-card (-fsanitize=thread): rc 0; no sanitizer report
+    SAN asan-textedit (-fsanitize=address): rc 0; no sanitizer report
+    SAN asan-popup (-fsanitize=address): rc 0; no sanitizer report
+    SAN asan-card-handle (-fsanitize=address): rc 0; no sanitizer report
+    TOTAL: 285 test cases in 6 binaries
+    The script's rc: 0. 0 failed test cases in each of the six binaries. components-tests' 3 failed assertions belong to its 2 may_fail cases: 3.26 (PL-14, recorded; ruling 9) and 3.14's PL-40 half (recorded with a #585 line; marked as ruling 9 marks 3.26, kept at the coordinator's word, 10:40).
+    The held case at the tip: 7 of 7 PASS (held/pl27-tip.txt, sha256 bc13ec820c83d24864a7529af6fc3b534cea4c6f0f51fe55d71098cea2c34ef4).
+
+## The ES pre-push-test at the tip
+    rc 0; last line: PASS
+
+## The stand-in at the ES tip (one line per .cpp the streams edited)
+    rc=0 AsyncNotificationComponent.cpp
+    rc=0 TextEditComponent.cpp
+    rc=0 MultiLineMenuEntry.cpp
+    rc=0 TextComponent.cpp
+    rc=0 ComponentList.cpp
+    rc=0 MenuComponent.cpp
+    rc=0 ImageComponent.cpp
+    rc=0 WebImageComponent.cpp
+    rc=0 SliderComponent.cpp
+    rc=0 RatingComponent.cpp
+    rc=0 VideoComponent.cpp
+    rc=0 CarouselComponent.cpp
+    rc=0 DateTimeEditComponent.cpp
+    rc=0 HelpComponent.cpp
+    rc=0 SwitchComponent.cpp
+    rc=0 GridTileComponent.cpp
+    CANNOT VideoVlcComponent.cpp: <vlc/vlc.h> and <vlc/libvlc_version.h> (:8-9) have no fake
+    t34-syntax-check: 37 file(s) checked, 37 rc 0, 0 not
+    Headers through their includers: OptionListComponent.h (ComponentList.cpp); ImageGridComponent.h, a template, through es-app GridGameListView.cpp, GuiSaveState.cpp and GuiImageViewer.cpp, rc 0 at S6 (stage-e/s6-checks.txt).
+
+## es-untranslated at the ES tip
+    es-untranslated: 704 fork string(s) in the source, 704 with French, 0 without
+
+## The lint and the checkboxes
+    tools/lint-audit-artifacts --phase resolution --issue 1307: PASS (stage-e/handback-lint.txt), with the held reply copied into second-opinions/ for the run and removed straight after; without it the carry stands (#1308).
+    tools/box-check --issue 1307: box-check: 1 issue(s), 43 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+    tools/box-check --issue 1319: box-check: 1 issue(s), 2 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+    tools/box-check --issue 1325: box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+    tools/box-check --issue 1332: box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+    tools/register-check: register-check: 695 IDs, each once; every citation in the live documents names a row
+
+## Criterion 28
+    git diff --name-only 00d490e654 HEAD -- packages projects tools: 0 path(s) (00d490e654 is the dispatch merge of the coordinator's 200a9a032d).
+    reviewed-at-es is the pin, so the ES read's diff against it is empty by construction.
+
+## The issues
+    #681's header: reviewed-at d446c4c6c3, reviewed-at-es 16dbac5211, fixed-at (moved to the hand-back merge after it), fixed-at-es 52f0ff512.
+    The 25 bugs #1309 to #1333 each open with their fixed-at-es line, read back. #1319's, #1325's and #1332's first checkboxes were re-derived to rulings 5, 4 and 13 in the same edit. The bugs stay open until the pin moves on next.
+
+## The merge debt and the guest halves
+    02 § The merge debt (the table after the streams) and § The streams' guest-half column, every one fix-walk-pending-image.

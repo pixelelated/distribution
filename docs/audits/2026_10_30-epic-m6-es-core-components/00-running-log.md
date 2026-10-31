@@ -245,3 +245,19 @@
   - `autoScroll` starts false.
 - **After:** all PASS; `TOTAL: 285 test cases in 6 binaries`. The stand-in passes all 37.
 - **`button_width`** moved with MenuComponent's five lines; the extractor refused it and the run read "not built". The build script now also drops each binary's old run log before compiling.
+
+## [Stage E] 10:46 UTC 2026-10-31 — the hand-back
+
+- **The S2 addendum** `52f0ff512`: the handle is a forwarding class, and the holders' patch is the 13 lines plus one include. `stage-e/s2-holders.patch` and `s2-window.patch` together compile the eight touched sources on a full scratch tree (`stage-e/s2-holders-check.txt`).
+- **The build at the ES tip** (`stage-e/handback-build.txt`, the command `tools/t34-build-tests.sh <W> /workspace/tmp/m6-t34/build`):
+  - rc 0, `TOTAL: 285 test cases in 6 binaries`;
+  - 0 failed test cases in every binary; 3.26 and PL-40's half `may_fail`;
+  - the four sanitizer programs, each `g++ -std=c++17 -O1 -g -fno-omit-frame-pointer -fsanitize=<thread|address>` over its `stage-d/` or `stage-e/` source, all rc 0.
+
+  The held case passes 7 of 7 at the tip.
+- **`05` at Phase 7:** 26 Resolved, 14 Deferred, 3 Withdrawn. PL-43 is withdrawn by its read.
+  - The lint `--phase resolution --issue 1307` PASS, with the held reply copied in for the run and removed.
+  - `box-check --issue 1307` 0 fail.
+- **The issues:** #681's four header fields are filled. The 25 bugs carry `fixed-at-es`, and #1319's, #1325's and #1332's first checkboxes were re-derived to rulings 5, 4 and 13.
+- **The retro** is `stage-e/retro.md`, posted whole on #681.
+- **The checks:** `stage-e/handback-checks.txt`. Next: the merge of the coordinator's tip and the hand-back post.
