@@ -106,6 +106,13 @@ if not (m_tot and m_tot.groups() == ("249", "6")): fail.append(f"TOTAL is not 24
 if not (m_wit and m_wit.group(4) == "7"): fail.append(f"window-input-tests' failed count is not 7: {m_wit and m_wit.groups()}")
 if sorted(set(failed_cases)) != ["3.1", "3.10", "3.11", "3.14", "3.19", "3.4", "3.5"]: fail.append(f"the failing cases are {sorted(set(failed_cases))}")
 if any(r[1] != "0" or r[4] != "0" for r in tree_bins) or len(tree_bins) != 5: fail.append(f"the tree's binaries: {tree_bins}")
+s7b, s7a = rd("stage-e/s7-before.txt"), rd("stage-e/s7-after.txt")
+m7b = re.search(r"^RUN log-tests: rc (\d+); \[doctest\] test cases: +(\d+) \| +(\d+) passed \| +(\d+) failed", s7b, re.M)
+m7a = re.search(r"^RUN log-tests: rc (\d+); \[doctest\] test cases: +(\d+) \| +(\d+) passed \| +(\d+) failed", s7a, re.M)
+if not (m7b and m7b.group(4) == "1" and re.search(r"5 of 5 rounds lost their last line", s7b)): fail.append("S7 before: log-tests' PL-27 case not seen to FAIL (5 of 5)")
+if not (m7a and m7a.group(4) == "0" and re.search(r"0 of 5 rounds lost their last line", s7a)): fail.append("S7 after: log-tests' PL-27 case not PASS")
+s7row = (["S7: `log-tests` (3.23 and PL-27 over Log.cpp's AsyncLogger lifted whole), before and after", f"{m7b.group(1) if m7b else '--'}, {m7a.group(1) if m7a else '--'}", "in the build",
+            f"before `{m7b.group(2)} cases, {m7b.group(3)} passed, {m7b.group(4)} failed` (5 of 5 rounds lost their last line); after `{m7a.group(2)} cases, {m7a.group(3)} passed, {m7a.group(4)} failed` (0 of 5)" if (m7b and m7a) else "--", "a new binary: the TOTAL line counts 8 from S7"])
 s5a = rd("stage-e/s5-after.txt")
 if not re.search(r"^    may_fail case: 3\.5 .*PL-18 recorded, may_fail\)$", s5a, re.M) or not re.search(r"^    may_fail: 1$", s5a, re.M): fail.append("S5 after: 3.5 not listed as the one may_fail case (rulings 9, 20)")
 if not m_pl: fail.append("3.27's ASan summary line is missing")
@@ -159,6 +166,7 @@ STREAMS = {  # stream: (cases, failed before, failed after, the failing names go
     "S4": (23, 7, 5, ["3.1 ResetComponent from another thread", "S4 a second watcher's ResetComponent"], ("273", "7"), {"tsan-watchers": ("66", "0"), "asan-watchers": ("0", "0")}),
     "S5": (25, 7, 3, ["3.4 an argument reaches the shell quoted", "S5 an argument that starts with a double quote", "S5 the script path and the event name"], ("275", "7"), {}),
     "S6": (27, 4, 1, ["3.10 the approximate-match log", "3.11 two configurations in one session", "S6 a reader polling es_input.cfg"], ("277", "7"), {"lsan-f4": ("1", "0")}),
+    "S7": (27, 1, 1, [], ("279", "8"), {"tsan-log-close": ("66", "0"), "tsan-log-flush": ("66", "0")}),
 }
 for sn, (cases, fb, fa, gone, tot, sx) in STREAMS.items():
     got = {}
@@ -187,6 +195,7 @@ for sn, (cases, fb, fa, gone, tot, sx) in STREAMS.items():
         ste.append([f"{sn} {ph} (`stage-e/{sn.lower()}-{ph}.txt`, {head.group(1) if head else '--'}, ES `{head.group(2)[:9] if head else '--'}`)", w.group(1) if w else "--", "in the build",
                     f"`window-input-tests`: `{w.group(2)} cases, {w.group(3)} passed, {w.group(4)} failed`; `TOTAL: {tt.group(1)} test cases in {tt.group(2)} binaries`" if (w and tt) else "--",
                     ("the stream's cases failing: " if ph == "before" else "the stream's cases all pass; ") + "; ".join(sorted(g for g in gone)) + ("" if ph == "before" else " no longer fail") + "; " + "; ".join(f"`SAN {n}` rc {rc}" for n, f_, rc, _ in sanl)])
+ste.append(s7row)
 ste.append(["3.27 at S3's tip (`stage-e/s3-pl25.txt`; T33's script unchanged)", "1", "0 s", f"`{m_pl3.group(1)[:90]}`" if m_pl3 else "--", "still FAIL, as ruling 12 says, until T33's (`SystemScreenSaver.cpp`) or T2's (`SystemData.cpp`) half lands; S3's hold changes neither file"])
 print("\n**Stage E's runs** (read from their records, each figure asserted):\n")
 print(table(["Run", "Exit", "Wall", "Figure", "Note"], ste))

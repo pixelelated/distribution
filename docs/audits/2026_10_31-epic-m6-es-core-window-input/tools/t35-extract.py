@@ -81,6 +81,10 @@ SPECS = [  # name, file, first, last, the first line holds, the last line holds
     # and the floor's im_hotkey (1101-1108 -> 1104-1111) and im_onfinish (1244-1283 -> 1258-1298).
     ("im_writecfg", "InputManager.cpp", 1182, 1254, "void InputManager::writeDeviceConfig(InputConfig* config)", "}"),
     ("im_f4", "InputManager.cpp", 794, 802, "#if !WIN32", "#endif"),
+    # S7 (stage E, ruling 10; #1343, #1356): the logger's AsyncLogger class, file-local in Log.cpp.
+    # D-WORKFLOW-210: 29-196 at S6's tip, 29-205 at S7's (ES 425fbd4af: the drain, the stop flag,
+    # the handler's flush gone).
+    ("log_async", "Log.cpp", 29, 205, "class AsyncLogger", "};"),
 ]
 got = {}
 for name, f, a, b, first, last in SPECS:

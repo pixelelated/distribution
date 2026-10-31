@@ -283,3 +283,24 @@
 - **D-WORKFLOW-210:** `im_writecfg` 1179-1240 -> 1182-1254, `im_f4` 792-800 -> 794-802, `approx` 939-965 -> 942-968; the floor's `im_hotkey` 1101-1108 -> 1104-1111 and `im_onfinish` 1244-1283 -> 1258-1298.
 - **Whose:** every changed line is upstream's (`stage-e/s6-checks.txt`). The #585 lines for PL-04, PL-09 and PL-10 are in `02`, with none for PL-08 (the fork's `AtomicFile`).
 - **Time to play:** `exists(..., false)` is one `stat` at each configuration-time read, none on the launch path. `writeText` adds two fsyncs per save on the interface thread, at a configuration's OK and on an SDL-mapped device's hot-plug write. They are priced on the integration image (G-10 `CANNOT` for the hot-plug).
+
+## [Stage E, S7] 21:14 to 21:24 UTC 2026-10-31 — PL-27 (#1343), PL-28 (#1356): the logger (ruling 10)
+
+- **The method:** `Log.cpp`'s `AsyncLogger` is file-local, so a new binary, `log-tests` (`tools/t35-log-tests.cpp`), and two ThreadSanitizer programs (`stage-e/tsan-log-close.cpp`, `stage-e/tsan-log-flush.cpp`) lift the class whole (`log_async`, `Log.cpp:29-196`) beside the tree's `Log.h` and `LogPolicy.h`. `Log::init`'s `Settings` and `Paths` are not on either item's path. The TOTAL line counts 8 binaries from here.
+- **Two first shapes did not fail at the pin, and were reshaped before any fix** (kept outside the record):
+  - PL-27's case with 200,000 short lines and then the last lost 0 of 5: the worker kept pace and was asleep when the last line came. One 64 MiB line keeps it draining while the last line is enqueued and `close()` runs.
+  - `tsan-log-close` with the worker idle before `close()` reported nothing, because the wait's own lock orders the two. A 16 MiB line has `close()` write the flag mid-drain.
+  - Their first build failed because `san` puts the app-unit fakes first, so `Log.h` arrived twice. The programs now include `LogPolicy.h` alone.
+- **Before, at S6's tip** (`stage-e/s7-before.txt`):
+  - `log-tests` 2 cases, 1 failed. 3.23 passes; PL-27 gives `5 of 5 rounds lost their last line`.
+  - `SAN tsan-log-close ... rc 66`: the worker's read at `:152` against `close()`'s write at `:71`.
+  - `SAN tsan-log-flush ... rc 66`: the handler thread's `write` of the file buffer (`std::__basic_file<char>::xsputn`) against the worker's `memcpy` into it, the buffer `basic_filebuf::_M_allocate_internal_buffer`'s.
+- **Ruling 10's (b) runs:** PL-28 was filed as #1356 (`t35-file-bugs.py --only PL-28`; `box-check` 0 fail; a sub-issue of #1337) and posted on #682 before the commit.
+- **The fix,** ES `425fbd4af` (`Log.cpp`; on origin; pre-push-test `PASS`):
+  - `close()` swaps and drains after the join.
+  - The worker copies `mShutdown` under the lock after its swap.
+  - `emergencyFlush`'s own `mFile.flush()` is gone, and the handler's limits are written beside `crashHandler`.
+  - The stand-in: 44 of 44.
+- **After** (`stage-e/s7-after.txt`): `log-tests` 2 cases, 0 failed (`0 of 5`). `SAN tsan-log-close (-fsanitize=thread): rc 0; no sanitizer report`, `SAN tsan-log-flush (-fsanitize=thread): rc 0; no sanitizer report`. `TOTAL: 279 test cases in 8 binaries`.
+- **A correction:** the logger is upstream's (`e478a1eda4`, *[Logger] Threaded logging*, an ancestor of `cada856d86`), and only the per-batch flush is the fork's (`469441d4d6`, #178). `05`, #1343 and the brief called it the fork's logger. Under ruling 19 the #585 lines for PL-27 and PL-28 are therefore owed, and they are in `02`.
+- **Time to play:** `close()` runs at exit and drains at most one more buffer, and the handler runs at a crash. Neither is on the launch path.

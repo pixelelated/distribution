@@ -149,6 +149,10 @@ if [ -d "${X}" ]; then
   # over their own lifts; the pin's InputConfig.h with SDL from stage-a/fakes.
   WT="${WT} floor-tests"
   build floor-tests "-DT35_X=\"${X}\"" -I "${X}" -I "${ES}/external" -I "${ES}/tests/app-unit/fakes" -I "$(dirname "${HERE}")/stage-a/fakes" -I "${ES}/es-core/src" -I "${PX}" -- "${HERE}/t35-floor-tests.cpp" || true
+  # T35 (#682) stage E S7 (ruling 10): log-tests, 3.23 and PL-27 over Log.cpp's AsyncLogger
+  # lifted whole (the class is file-local, so a lift is the way to its close() and worker).
+  WT="${WT} log-tests"
+  build log-tests "-DT35_X=\"${X}\"" -I "${X}" -I "${ES}/external" -I "${ES}/es-core/src" -- "${HERE}/t35-log-tests.cpp" || true
 fi
 for t in ${WT}; do
   [ -x "${B}/${t}" ] || { echo "RUN ${t}: not built"; FAIL=1; continue; }
@@ -187,6 +191,9 @@ san tsan-watchers thread "${AUD}/stage-c/tsan-watchers.cpp" "${ES}/es-core/src/w
 san asan-watchers address "${AUD}/stage-c/asan-watchers.cpp" "${ES}/es-core/src/watchers/WatchersManager.cpp"
 # Stage E S6 (PL-10, #1350): F4's event under LeakSanitizer, over the lifted :792-800.
 san lsan-f4 address "${AUD}/stage-e/lsan-f4.cpp"
+# Stage E S7 (PL-27, #1343; PL-28 under ruling 10): the logger's close and its crash flush.
+san tsan-log-close thread "${AUD}/stage-e/tsan-log-close.cpp"
+san tsan-log-flush thread "${AUD}/stage-e/tsan-log-flush.cpp"
 # The total, from the binaries' own summary lines: a record quotes this line
 # rather than a sum written by hand (T21 stage E: totals written without
 # adding were found 2 to 53 cases high, S2 to S13).

@@ -155,6 +155,17 @@ B = [
      "Yes -- host-only (the ThreadSanitizer program in `tools/t35-build-tests.sh`).",
      ["`tools/t35-build-tests.sh` prints `SAN tsan-posts (-fsanitize=thread): rc 0; no sanitizer report` with the idle-state extension in the program (its report at the pin quoted beside it)"],
      "nothing inherited -- the idle counter and the sleep flag live in memory for the session."),
+    # Stage E S7, ruling 10 (b): filed once tsan-log-flush reported the race on mFile at the pin.
+    ("PL-28", "Bug: EmulationStation: the crash handler flushes the log stream while the logger's worker writes it (T35 PL-28)",
+     "`Log.cpp:84-99` (`emergencyFlush`, its flush `:98`), `:237-242` (`crashHandler`), `:282-285` (the registrations) against the worker `:117-162`",
+     "`crashHandler`, registered for SIGABRT and SIGTERM, calls `emergencyFlush`, which sets `mEmergency`, notifies the worker, waits up to 200 x 50 us for it, and then calls `mFile.flush()` itself, on the handler's thread. The worker may be writing the same `std::ofstream` at that moment (`drainBuffer`/`writeLine`, and its own flush at `:147`), and nothing orders the two: a data race on the stream's buffer, which can garble the log's last lines or fault inside the handler. `notify_one` and `sleep_for` are not async-signal-safe either.",
+     "T35's audit (#682): the independent seat's G-4, verified at the pin; PL-28 in `" + AUD + "/05-punch-list.md` and #1337. Ruled at the stage-D pause (ruling 10): the handler's own flush goes only if a ThreadSanitizer program shows the race on `mFile` at the pin; it did, so this bug is filed before the stream's commit (ruling 15).",
+     "`SAN tsan-log-flush (-fsanitize=thread): rc 66; WARNING: ThreadSanitizer: data race` (`stage-e/s7-before.txt`, `stage-e/tsan-log-flush.cpp` over `Log.cpp:29-196` lifted verbatim): the handler thread's `write` of the file buffer (`std::__basic_file<char>::xsputn`) against the worker's `memcpy` into it (`std::basic_streambuf<char>::xsputn` under `AsyncLogger::workerLoop`), the buffer allocated by `std::basic_filebuf<char>::_M_allocate_internal_buffer`.",
+     "how often a crash lands while the worker writes on a device.",
+     "Yes -- host-only (the ThreadSanitizer program in `tools/t35-build-tests.sh`).",
+     ["`tools/t35-build-tests.sh` prints `SAN tsan-log-flush (-fsanitize=thread): rc 0; no sanitizer report` (rc 66 and the race at the pin)",
+      "the handler's remaining limits (`notify_one` and `sleep_for` are not async-signal-safe; the wait is bounded at 200 x 50 us) are written beside `crashHandler`; the diff quoted"],
+     "nothing inherited -- the log (`es_log.txt`) is rewritten at each start and nothing reads it back; what a crash garbled was never read."),
 ]
 
 

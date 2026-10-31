@@ -1,0 +1,45 @@
+# S7 (PL-27 #1343, PL-28 #1356; ruling 10): the checks. ES tip 425fbd4af, from S6's f5a698915; 2026-10-31T21:22:44Z
+## whose the logger's lines are (ruling 19: a #585 line only if git log -S shows them upstream's)
+close :63,82 -> e478a1eda4 2026-04-10 [Logger] Threaded logging: upstream (an ancestor of cada856d86)
+emergencyFlush :84,99 -> 8ec8598f38 2026-04-24 [Logs] Fix ES very slow when Logs are disabled si: upstream (an ancestor of cada856d86)
+emergencyFlush :84,99 -> e478a1eda4 2026-04-10 [Logger] Threaded logging: upstream (an ancestor of cada856d86)
+workerLoop :117,154 -> 469441d4d6 2026-09-15 Log.cpp, LogPolicy.h: the file is flushed every b: the fork's
+workerLoop :117,154 -> e478a1eda4 2026-04-10 [Logger] Threaded logging: upstream (an ancestor of cada856d86)
+crashHandler :237,242 -> e478a1eda4 2026-04-10 [Logger] Threaded logging: upstream (an ancestor of cada856d86)
+git log -S'emergencyFlush' (oldest first):
+e478a1eda 2026-04-10 [Logger] Threaded logging
+425fbd4af 2026-10-31 es-core: the logger drains its last batch after the join and reads its stop flag under the lock, and the crash handler leaves the stream to the worker
+e478a1eda: upstream
+## the method: Log.cpp's AsyncLogger is file-local, so log-tests and the two programs lift it whole (log_async) beside the tree's Log.h and LogPolicy.h; Log::init's Settings and Paths are not on PL-27's or PL-28's path
+## the files f5a698915..425fbd4af changes (nothing outside the 96; the French catalog only for a changed sentence)
+in the 96: es-core/src/Log.cpp
+ 1 file changed, 14 insertions(+), 2 deletions(-)
+## added lines' non-ASCII bytes in the .cpp/.h (+ lines of git diff -U0)
+non-ASCII added lines: 0
+## the stand-in over the 44 with the edit (stage-a/syntax-check.sh)
+rc=0 Log.cpp
+t35-syntax-check: 44 file(s) checked, 44 rc 0, 0 not
+## es-syntax-check: CANNOT on this host (the stand-in is the check)
+es-core/src/Log.cpp: es-syntax-check: no build root at /workspace/repos/rocknix.worktrees/generic-x64/build.ROCKNIX-GENERIC_X64.x86_64 (ES_BUILD_ROOT, --root) (rc=2)
+## the words (tools/es-untranslated against both bases, as stage A ran it)
+es-untranslated: 706 fork string(s) in the source, 706 with French, 0 without
+es-untranslated rc=0
+es-untranslated: 703 fork string(s) in the source, 703 with French, 0 without
+es-untranslated(cada) rc=0
+## the three doubles (§ 1 (i)): Window.h's postToUiThread and createAsyncNotificationComponent, Log.h's LogLevel, LocaleES.h's macros, pin against 425fbd4af
+unchanged: es-core/src/Window.h lines with 'postToUiThread(' (6a3344338f42)
+unchanged: es-core/src/Window.h lines with 'createAsyncNotificationComponent(' (5f1054884455)
+unchanged: es-core/src/Log.h lines with 'Log' (c30ad23d7478)
+unchanged: es-core/src/LocaleES.h lines with '#define' (68d69442e945)
+every line the stream's range changes in those three headers:
+(none)
+## PL-27's case and the two ThreadSanitizer programs, before and after
+t35-log-tests.cpp:63: MESSAGE: 5 of 5 rounds lost their last line
+t35-log-tests.cpp:63: MESSAGE: 0 of 5 rounds lost their last line
+SAN tsan-log-close (-fsanitize=thread): rc 66; WARNING: ThreadSanitizer: data race (pid=906981)
+SAN tsan-log-flush (-fsanitize=thread): rc 66; WARNING: ThreadSanitizer: data race (pid=907001)
+SAN tsan-log-close (-fsanitize=thread): rc 0; no sanitizer report
+SAN tsan-log-flush (-fsanitize=thread): rc 0; no sanitizer report
+## the first shapes that did not fail at the pin (kept outside the record): 200,000 short lines then the last one (0 of 5 lost: the worker kept pace and was asleep when the last line came); tsan-log-close with the worker idle before close (no report: the wait's own lock orders the two)
+## the ES fork's .githooks/pre-push-test before the push
+PASS
