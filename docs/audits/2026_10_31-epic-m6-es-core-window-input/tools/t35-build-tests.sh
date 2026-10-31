@@ -144,7 +144,7 @@ if [ -d "${X}" ]; then
   PX="${PUGIXML_INCLUDE_DIR:-${ES}/external}"
   [ -r "${PX}/pugixml/src/pugixml.hpp" ] || { echo "t35-build-tests: pugixml/src/pugixml.hpp not under PUGIXML_INCLUDE_DIR='${PX}'"; exit 2; }
   echo "pugixml (window-input-tests, floor-tests): ${PX} (pugixml.hpp $(sha256sum < "${PX}/pugixml/src/pugixml.hpp" | cut -c1-16))"
-  build window-input-tests "-DT35_X=\"${X}\"" -I "${X}" -I "${ES}/external" -I "${ES}/tests/app-unit/fakes" -I "${ES}/es-core/src" -I "${PX}" -- "${HERE}/t35-window-input-tests.cpp" "${ES}/es-core/src/watchers/WatchersManager.cpp" || true
+  build window-input-tests "-DT35_X=\"${X}\"" -I "${X}" -I "${ES}/external" -I "${ES}/tests/app-unit/fakes" -I "${ES}/es-core/src" -I "${PX}" -- "${HERE}/t35-window-input-tests.cpp" "${ES}/es-core/src/watchers/WatchersManager.cpp" "${ES}/es-core/src/utils/AtomicFileUtil.cpp" || true
   # T35 (#682) stage E S0 (ruling 21): floor-tests, the floor cases no stream holds,
   # over their own lifts; the pin's InputConfig.h with SDL from stage-a/fakes.
   WT="${WT} floor-tests"
@@ -185,6 +185,8 @@ AUD="$(dirname "${HERE}")"
 san tsan-posts thread "${AUD}/stage-c/tsan-posts.cpp"
 san tsan-watchers thread "${AUD}/stage-c/tsan-watchers.cpp" "${ES}/es-core/src/watchers/WatchersManager.cpp"
 san asan-watchers address "${AUD}/stage-c/asan-watchers.cpp" "${ES}/es-core/src/watchers/WatchersManager.cpp"
+# Stage E S6 (PL-10, #1350): F4's event under LeakSanitizer, over the lifted :792-800.
+san lsan-f4 address "${AUD}/stage-e/lsan-f4.cpp"
 # The total, from the binaries' own summary lines: a record quotes this line
 # rather than a sum written by hand (T21 stage E: totals written without
 # adding were found 2 to 53 cases high, S2 to S13).

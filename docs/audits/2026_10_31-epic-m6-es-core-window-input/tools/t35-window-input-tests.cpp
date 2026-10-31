@@ -9,7 +9,9 @@
 #include <algorithm>
 #include <atomic>
 #include <chrono>
+#include <cassert>
 #include <cstdio>
+#include <cstring>
 #include <fstream>
 #include <functional>
 #include <memory>
@@ -29,6 +31,7 @@
 #include "pugixml/src/pugixml.hpp"
 #include "watchers/WatchersManager.h"
 #include "HelpPrompt.h"
+#include "utils/AtomicFileUtil.h"
 
 // tests/app-unit/fakes/Log.h's two definitions (the double keeps every line).
 namespace FakeLog
@@ -221,21 +224,10 @@ namespace Utils { namespace FileSystem {
 	#include "x_fs_exists.inc"
 } }
 
-TEST_CASE("3.11 a file written by pugixml's save_file after a cached miss reads as present (InputManager.cpp:1187 with utils/FileSystemUtil.cpp, T36's)")
-{
-	char dir[] = "/workspace/tmp/m6-t35/tmp/t311-XXXXXX";
-	REQUIRE(mkdtemp(dir) != nullptr);
-	std::string p = std::string(dir) + "/es_input.cfg";
-	CHECK_FALSE(Utils::FileSystem::exists(p));          // the first check, as tryLoadInputConfig :893 makes at startup
-	pugi::xml_document doc;
-	doc.append_child("inputList");
-	REQUIRE(doc.save_file(p.c_str()));                   // the write, as writeDeviceConfig :1225 makes it
-	CHECK(Utils::FileSystem::exists(p));                // the cached read, as :1187 makes it next: the merge depends on it
-	CHECK(Utils::FileSystem::exists(p, false));         // the file is there (the uncached read, which also rewrites the entry, :161-162)
-	CHECK(Utils::FileSystem::exists(p));                // after that rewrite the cached read agrees (recorded)
-	unlink(p.c_str());
-	rmdir(dir);
-}
+// 3.11 is reshaped in S6 (D-WORKFLOW-211) and moved below, after the writer's double: as
+// stage C wrote it, it asserted the cache's own answer after a save_file (exists(p) false
+// after the write, the uncached read true), which S6 does not change; it now reads through
+// writeDeviceConfig's lifted :1187, #1340's first checkbox.
 
 // ---- 3.1: a probe holds the list lock (L-11, #1283's es-core half) ------------
 struct SlowWatcher : IWatcher
@@ -529,4 +521,137 @@ TEST_CASE("S4 a reset during a probe is not lost: the watcher is probed again at
 	CHECK(w.probes >= 2);
 	WatchersManager::UnregisterComponent(&w);
 	WatchersManager::stop();
+}
+
+// ---- S6, PL-04 (#1340) and PL-08 (#1348): the input file's writer ---------------
+// writeDeviceConfig (InputManager.cpp:1179-1240) lifted whole into an InputManager double
+// whose paths are a temporary directory's; the exists cache is 3.11's lift above, and
+// utils/AtomicFileUtil.cpp (T21's) is linked.
+namespace im6
+{
+	enum LogLevel { LogError };
+	struct Line { template <class T> Line& operator<<(const T&) { return *this; } };
+	#define LOG(l) im6::Line()
+	#define WINSTRINGW(x) (x)
+	namespace Scripting { static void fireEvent(const std::string&) {} }
+	struct InputConfig
+	{
+		std::string guid, name;
+		int inputs = 1;
+		std::string getDeviceGUIDString() { return guid; }
+		std::string getDeviceName() { return name; }
+		void writeToXML(pugi::xml_node& parent)
+		{
+			pugi::xml_node cfg = parent.append_child("inputConfig");
+			cfg.append_attribute("type") = "joystick";
+			cfg.append_attribute("deviceName") = name.c_str();
+			cfg.append_attribute("deviceGUID") = guid.c_str();
+			for (int i = 0; i < inputs; i++)
+			{
+				pugi::xml_node in = cfg.append_child("input");
+				in.append_attribute("name") = ("b" + std::to_string(i)).c_str();
+				in.append_attribute("type") = "button";
+				in.append_attribute("id") = i;
+				in.append_attribute("value") = 1;
+			}
+		}
+	};
+	struct InputManager
+	{
+		static std::string& cfg() { static std::string p; return p; }
+		static std::string& last() { static std::string p; return p; }
+		static std::string getConfigPath() { return cfg(); }
+		static std::string getTemporaryConfigPath() { return last(); }
+		bool initialized() const { return true; }
+		void doOnFinish() {}
+		bool loadInputConfig(InputConfig*) { return true; }
+		void writeDeviceConfig(InputConfig* config);
+	};
+	#include "x_im_writecfg.inc"
+	#undef LOG
+	#undef WINSTRINGW
+
+	static std::string tmpdir(const char* tag)
+	{
+		std::string d = std::string("/workspace/tmp/m6-t35/tmp/") + tag + "-XXXXXX";
+		std::vector<char> b(d.begin(), d.end());
+		b.push_back(0);
+		return mkdtemp(b.data()) ? std::string(b.data()) : std::string();
+	}
+	static void paths(const std::string& d) { InputManager::cfg() = d + "/es_input.cfg"; InputManager::last() = d + "/es_last_input.cfg"; }
+	static void tidy(const std::string& d, const std::vector<std::string>& extra = {})
+	{
+		unlink(InputManager::cfg().c_str());
+		unlink(InputManager::last().c_str());
+		for (auto& e : extra) unlink((d + "/" + e).c_str());
+		rmdir(d.c_str());
+	}
+	static std::string slurp(const std::string& p) { std::ifstream f(p, std::ios::binary); std::stringstream ss; ss << f.rdbuf(); return ss.str(); }
+	static int entries(const std::string& p)
+	{
+		pugi::xml_document d;
+		if (!d.load_file(p.c_str())) return -1;
+		int n = 0;
+		for (auto c = d.child("inputList").child("inputConfig"); c; c = c.next_sibling("inputConfig")) n++;
+		return n;
+	}
+}
+
+TEST_CASE("3.11 two configurations in one session both reach es_input.cfg when the file was absent at startup (InputManager.cpp:1187 through the lifted writeDeviceConfig; PL-04, #1340; reshaped in S6)")
+{
+	std::string d = im6::tmpdir("t311");
+	REQUIRE(!d.empty());
+	im6::paths(d);
+	CHECK_FALSE(Utils::FileSystem::exists(im6::InputManager::cfg()));   // the startup check, as tryLoadInputConfig :893 makes it
+	im6::InputManager m;
+	im6::InputConfig a{ "0300aaaa", "Pad A" }, b{ "0300bbbb", "Pad B" };
+	m.writeDeviceConfig(&a);
+	m.writeDeviceConfig(&b);
+	CHECK(im6::entries(im6::InputManager::cfg()) == 2);
+	im6::tidy(d);
+}
+
+TEST_CASE("S6 the input files' bytes are save_file's for one document (InputManager.cpp:1225, :1232; PL-08, #1348; PASS at the pin, the format's guard)")
+{
+	std::string d = im6::tmpdir("s6bytes");
+	REQUIRE(!d.empty());
+	im6::paths(d);
+	im6::InputManager m;
+	im6::InputConfig a{ "0300aaaa", "Pad A", 40 };
+	m.writeDeviceConfig(&a);
+	pugi::xml_document ref;
+	pugi::xml_node root = ref.append_child("inputList");
+	a.writeToXML(root);
+	REQUIRE(ref.save_file((d + "/ref.cfg").c_str()));
+	CHECK(im6::slurp(im6::InputManager::cfg()) == im6::slurp(d + "/ref.cfg"));
+	CHECK(im6::slurp(im6::InputManager::last()) == im6::slurp(d + "/ref.cfg"));
+	im6::tidy(d, { "ref.cfg" });
+}
+
+TEST_CASE("S6 a reader polling es_input.cfg while it is rewritten sees only whole documents (InputManager.cpp:1225; PL-08, #1348)")
+{
+	std::string d = im6::tmpdir("s6poll");
+	REQUIRE(!d.empty());
+	im6::paths(d);
+	im6::InputManager m;
+	im6::InputConfig a{ "0300aaaa", "Pad A", 3000 };
+	m.writeDeviceConfig(&a);
+	std::atomic<bool> done{ false };
+	std::atomic<int> reads{ 0 }, shorts{ 0 };
+	std::thread reader([&] {
+		while (!done)
+		{
+			std::string s = im6::slurp(im6::InputManager::cfg());
+			reads++;
+			if (s.size() < 13 || s.compare(s.size() - 13, 13, "</inputList>\n") != 0)
+				shorts++;
+		}
+	});
+	for (int i = 0; i < 60; i++)
+		m.writeDeviceConfig(&a);
+	done = true;
+	reader.join();
+	MESSAGE("the reader made " << reads.load() << " reads, " << shorts.load() << " of a short file");
+	CHECK(shorts.load() == 0);
+	im6::tidy(d);
 }

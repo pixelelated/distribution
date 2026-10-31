@@ -17,7 +17,7 @@ SPECS = [  # name, file, first, last, the first line holds, the last line holds
     ("queue_pop", "Window.cpp", 339, 340, "NotificationMessage msg = mNotificationMessages.front();", "mNotificationMessages.erase(mNotificationMessages.begin());"),
     ("queue_requeue", "Window.cpp", 1173, 1176, "std::vector<NotificationMessage> returned;", "mNotificationMessages.insert(mNotificationMessages.begin(), returned.begin(), returned.end());"),
     ("duration", "Window.cpp", 298, 309, "static int notificationDuration(int duration)", "}"),
-    ("approx", "InputManager.cpp", 939, 965, "// Search for exact match guid", "}"),
+    ("approx", "InputManager.cpp", 942, 968, "// Search for exact match guid", "}"),
     # D-WORKFLOW-210, S5 (ES c0ab63bf2): exec_cmd lifted the pin's 90-113 (the one shell form) and lifts
     # 90-136, the WIN32 form kept and the single-quoted one beside it (the double compiles the latter);
     # event_pass 169-178 -> 192-201 and sc_single 182-207 -> 205-230 move +23.
@@ -35,8 +35,8 @@ SPECS = [  # name, file, first, last, the first line holds, the last line holds
     ("ic_ctor", "InputConfig.cpp", 124, 135, "InputConfig::InputConfig(int deviceId", "}"),
     ("ic_map", "InputConfig.cpp", 176, 345, "void InputConfig::clear()", "}"),
     ("ic_buttons", "InputConfig.cpp", 347, 414, 'static char ABUTTON[2] = "a";', "}"),
-    ("im_hotkey", "InputManager.cpp", 1101, 1108, "if (isConfigured)", "}"),
-    ("im_onfinish", "InputManager.cpp", 1244, 1283, "if (!initialized())", "}"),
+    ("im_hotkey", "InputManager.cpp", 1104, 1111, "if (isConfigured)", "}"),
+    ("im_onfinish", "InputManager.cpp", 1258, 1298, "if (!initialized())", "}"),
     ("sc_single", "Scripting.cpp", 205, 230, "std::vector<std::string> paths =", "}"),
     ("mb_ctor", "guis/GuiMsgBox.cpp", 34, 244, "GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,", "}"),
     ("ip_fade", "guis/GuiInfoPopup.cpp", 85, 111, "int curTime = SDL_GetTicks();", "alpha = (int) (Math::easeOutCubic(alpha / 255.0f) * 255.0f);"),
@@ -75,6 +75,12 @@ SPECS = [  # name, file, first, last, the first line holds, the last line holds
     ("ss_start", "Window.cpp", 1092, 1113, "void Window::startScreenSaver()", "}"),
     # S5 (stage E, rule 6; #1339): es-core's own shell quoting, T36's utils/StringUtil.cpp (used, never changed)
     ("str_shellquote", "utils/StringUtil.cpp", 426, 444, "std::string shellQuote(const std::string& _string)", "} // shellQuote"),
+    # S6 (stage E, rulings 7 and 15; #1340, #1348, #1349, #1350): the input file's writer, and F4's event.
+    # D-WORKFLOW-210, S6 (ES f5a698915): at S5's tip im_writecfg was 1179-1240 and im_f4 792-800; the
+    # tip's two includes, the comments and the AtomicFile write move them, approx (939-965 -> 942-968),
+    # and the floor's im_hotkey (1101-1108 -> 1104-1111) and im_onfinish (1244-1283 -> 1258-1298).
+    ("im_writecfg", "InputManager.cpp", 1182, 1254, "void InputManager::writeDeviceConfig(InputConfig* config)", "}"),
+    ("im_f4", "InputManager.cpp", 794, 802, "#if !WIN32", "#endif"),
 ]
 got = {}
 for name, f, a, b, first, last in SPECS:

@@ -158,6 +158,7 @@ STREAMS = {  # stream: (cases, failed before, failed after, the failing names go
     "S3": (21, 7, 6, ["S3 a top page that holds the screensaver"], ("271", "7"), {}),
     "S4": (23, 7, 5, ["3.1 ResetComponent from another thread", "S4 a second watcher's ResetComponent"], ("273", "7"), {"tsan-watchers": ("66", "0"), "asan-watchers": ("0", "0")}),
     "S5": (25, 7, 3, ["3.4 an argument reaches the shell quoted", "S5 an argument that starts with a double quote", "S5 the script path and the event name"], ("275", "7"), {}),
+    "S6": (27, 4, 1, ["3.10 the approximate-match log", "3.11 two configurations in one session", "S6 a reader polling es_input.cfg"], ("277", "7"), {"lsan-f4": ("1", "0")}),
 }
 for sn, (cases, fb, fa, gone, tot, sx) in STREAMS.items():
     got = {}

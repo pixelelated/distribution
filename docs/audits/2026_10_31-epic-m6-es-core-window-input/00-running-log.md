@@ -262,3 +262,24 @@
 - **PL-17's intent, read before its line** (ruling 8): `git log -S'waitForExit = (eventName'` names `d85f6a98f` (2023-10-29, *Make "quit" event waitable*) and `4da07ecfc`, both upstream. The recorded-only #585 line is in `02`.
 - **Whose:** the quoting is upstream's (`76a413bba5`, `097b811e4f`, `1c1432ff7d`), so PL-03's #585 line stands.
 - **Time to play:** `fireEvent` runs on the launch events. The quoting is one string pass per word, and the directory scans are unchanged (L-19).
+
+## [Stage E, S6] 21:05 to 21:13 UTC 2026-10-31 — PL-04 (#1340), PL-08 (#1348), PL-09 (#1349), PL-10 (#1350): the input manager (rulings 7 and 15)
+
+- **The cases, written first:**
+  - 3.11, reshaped (D-WORKFLOW-211; its old shape is quoted in the test file's comment). It now runs through `writeDeviceConfig` lifted whole (`im_writecfg`) into an `InputManager` double over 3.11's cache lift: two pads configured after a startup miss must both reach the file.
+  - PL-08's bytes case: the written file equals `save_file`'s for one document. This is the format's guard and passes at the pin.
+  - PL-08's polling reader: a 3,000-input document rewritten 60 times while a thread reads the file whole.
+  - PL-10's `stage-e/lsan-f4.cpp` over the lifted `:792-800` (`im_f4`), run by `san` as `lsan-f4`.
+  - `window-input-tests` now links `utils/AtomicFileUtil.cpp` (T21's, self-contained).
+- **Before, at S5's tip** (`stage-e/s6-before.txt`): 27 cases, 4 failed. 3.10 fails; 3.11 gives `values: CHECK( 1 == 2 )`; the reader saw `13321 reads, 3838 of a short file`. `SAN lsan-f4 (-fsanitize=address): rc 1; SUMMARY: AddressSanitizer: 24 byte(s) leaked in 3 allocation(s).`
+- **The fix,** ES `f5a698915` (`InputManager.cpp`, `guis/GuiDetectDevice.cpp`; on origin; pre-push-test `PASS`):
+  - `exists(path, false)` at `:893`, `:1187` and `:1250`, and at the detect page's first-run skip `:127` (it reads the same file through the same cache, only while a button is held).
+  - Both input files are written as pugixml's `save` to a stream (`save_file`'s defaults) through `Utils::AtomicFile::writeText`, a failure logged. `AtomicFileUtil.*` are byte-identical to the pin's (used, never changed).
+  - The approximate-match logs read `item`.
+  - F4's event is a stack `SDL_Event`.
+  - The stand-in: 44 of 44.
+- **After** (`stage-e/s6-after.txt`): 27 cases, 1 failed (3.19), `may_fail: 1`. The reader saw `110283 reads, 0 of a short file`, and the bytes still equal. `SAN lsan-f4 ... rc 0; no sanitizer report`. `floor-tests` 11 of 11. `TOTAL: 277 test cases in 7 binaries`.
+- **D-WORKFLOW-211:** the first after-run left `floor-tests` unbuilt, because 3.13's `exists` double took one argument and the lifted `doOnFinish` now passes two. The script said `RUN floor-tests: not built` and `TOTAL: 266 test cases in 6 binaries`, so the miss was loud. The double now takes the flag. That run is kept outside the record.
+- **D-WORKFLOW-210:** `im_writecfg` 1179-1240 -> 1182-1254, `im_f4` 792-800 -> 794-802, `approx` 939-965 -> 942-968; the floor's `im_hotkey` 1101-1108 -> 1104-1111 and `im_onfinish` 1244-1283 -> 1258-1298.
+- **Whose:** every changed line is upstream's (`stage-e/s6-checks.txt`). The #585 lines for PL-04, PL-09 and PL-10 are in `02`, with none for PL-08 (the fork's `AtomicFile`).
+- **Time to play:** `exists(..., false)` is one `stat` at each configuration-time read, none on the launch path. `writeText` adds two fsyncs per save on the interface thread, at a configuration's OK and on an SDL-mapped device's hot-plug write. They are priced on the integration image (G-10 `CANNOT` for the hot-plug).

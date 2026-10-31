@@ -148,7 +148,9 @@ namespace f13
 	static std::vector<int> codes;
 	namespace Utils
 	{
-		namespace FileSystem { static bool exists(const std::string& p) { struct stat st; return stat(p.c_str(), &st) == 0; } }
+		// D-WORKFLOW-211 (S6, #1340): the real exists(path, enableCache = true); S6's doOnFinish
+		// passes false, so the double takes the flag (a stat either way: it keeps no cache).
+		namespace FileSystem { static bool exists(const std::string& p, bool = true) { struct stat st; return stat(p.c_str(), &st) == 0; } }
 		namespace String { static std::string maskSecrets(const std::string& s) { return s; } }
 		namespace Platform
 		{
