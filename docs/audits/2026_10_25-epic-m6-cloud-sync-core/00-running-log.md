@@ -220,3 +220,33 @@ time comes from `date -u`.
 - **PL-11's three texts:** for rclone 3/4 and 7/8 the scripts and ES's map agree, and `es-player-text.md:270-272` differs. That makes the rule the coordinator's to correct, for the hand-back. The two sentences in no table go to #909.
 - **`05`:** every item's outcome is in § Phase 7 resolution gate and the YAML index, from the generator. #1295's 25 checkboxes are ticked (25 ticked, 0 open; box-check 0 fail).
 - **Checks:** `lint-audit-artifacts --phase pre-issue` PASS, and the default resolution lint PASS.
+
+## 2026-10-30 19:56 UTC -- 2026-10-31 06:2x UTC -- stage E: seven streams, the follow-ups, ruling 14
+
+- **The dispatch:** the brief `t16-streams.md` at the coordinator's `2597b8a272` and its thirteen rulings (#663, comment 6532268004). Ruling 14 (D-CLOUD-192, comment 6539938614) answered S6's question.
+- **The streams and their commits:**
+  - S1: `f05f5727e0`, `d2fab0e07a`
+  - S2: `3a30c99736`, `38cf8c9d10`
+  - S3: `f86fb5cf1a`
+  - S4: `100eaa4b57`
+  - S5: `9df834d183`
+  - S6: `02d19b0787`, `61f8fcc5b2`, `23dfd53c0e`
+  - S7: `a174a2dcbf`, `b367ebcf48`, `b2833a6919`
+  - Each has a checkpoint post on #663, and `02` § The streams has its row.
+- **The cells:** `stage-e/s1/cells.sh` to `stage-e/s7/cells.sh`, `stage-e/s6/move-cells.sh` and `stage-e/cells/e-term-automatic.cmd.sh`.
+  - Each ran on the unfixed root (8ebaf8daad) and then the fixed one: `stage-e/sN-before*.out` and `sN-after*.out`, with each stream's `sN-checks.txt`.
+  - The tools are `stage-e/tools/` (mkroot, sbx, lib, rerun).
+  - The cloud was the QA WebDAV on 127.0.0.1:9010. Its START and closing lines are in the shared host file.
+- **The suite** (`tools/last-good-scripts-test` whole, `QA_SYSTEM_ROOT` the donor, 0 SKIP):
+  - before: PASSED, 1313 / 0 (`stage-e/suite-before.out`);
+  - after each stream: `suite-after-s1.out.2` to `suite-after-s7.out`, read in `02` § The runs;
+  - after, at `23dfd53c0e`: `stage-e/suite-after.out`.
+  - The fixture completions under D-WORKFLOW-210/211 are in `stage-e/patches/last-good-scripts-test.patch` (A18, A4, A23, d, h, S315), T15's merge debt.
+- **Found on the way:**
+  - The `git archive` snapshot's 16 false FAILs; a `git clone --shared` snapshot replaced it.
+  - `LAYOUT_KEEP`, a seventh legacy key (D-CLOUD-191).
+  - The suite's lifted spans need self-contained functions (S7's repair).
+  - `/usr/bin/sh` is bash on the image (`mkroot.sh` corrected).
+  - `cloud_backup`'s `check` ran before its folder test (the brief read it the other way).
+  - PL-015's `--exclude "*.tmp"` never excluded anything at the pin: rclone got its quotes literally.
+- **`05`** is at Phase 7: 21 items Resolved at their commits, PL-24 recorded as a design, and PL-11 (#909), PL-13 (#1057) and PL-15 (#1297) Deferred to their issues. `punch_index` agrees, and `lint-audit-artifacts --phase resolution --issue 1295` passes.

@@ -1,5 +1,7 @@
 # Punch list (Phases 5 and 6) — M6.P2 T16, the cloud sync core (#663)
 
+reviewed-at: `8ebaf8daad` (the slice's pin) · fixed-at: `23dfd53c0e` (`feature/m6-cloud-sync-core-663`, stage E's last fix; the hand-back tip follows it with the record and the coordinator's branch merged)
+
 The audit issue is #1295, a sub-issue of #663, with one checkbox per item. There is one item per finding of `04` after both seats' grading (`04` § Second opinion), with the severities graded there. A seat's item that extends a finding sits under that finding's item; one that stands alone has its own. Every file of the 14 is the fork's own, so a defect is a `bug` with its trace and `Already written:` line (`04` § Q3), fixed only under a stream brief the coordinator writes. Each item's **Proposed** line is this lane's proposal; the coordinator's ruling goes in § Phase 7 resolution gate.
 
 **Carried for the stream brief, not an item:** D-CLOUD-185 (#663, 2026-10-26 07:38Z). The twins' `RCLONE_NET_OPTS` split (`cloud_restore:1406-1411`, `cloud_backup:1367-1371`) takes the same allowlist, with T17's `tools/t17-content-fixture.py` as the model.
@@ -76,7 +78,7 @@ The audit issue is #1295, a sub-issue of #663, with one checkbox per item. There
 - **Category:** Correctness
 - **Question:** Q3
 - **Source Finding:** G-02
-- **Owner area:** cloud_sync_helper (`:569-577`, `:590-597`, `:609-616`)
+- **Owner area:** cloud_sync_helper (`:569-579`, `:590-598`, `:609-617`)
 - **Where:** `04-analysis.md` § Risk Assessment, § Q3 and § Second opinion (G-02; file:line at `8ebaf8daad`); `02-forward-audit.md` § Positives
 - **Can this be done on the VM?** Yes: the helper whole in the sandbox with `sed -i` failing, then the guest at stage E
 - **Already written:** a device may hold `sync` with the marker and no `cloud_sync.conf.pre-copy-default`; the fix reads the value, migrates that case once more, and touches the marker after a re-read
@@ -154,7 +156,7 @@ The audit issue is #1295, a sub-issue of #663, with one checkbox per item. There
 - **Category:** Correctness
 - **Question:** Q3
 - **Source Finding:** F-07, G-05, G-06, G-11, G-16, G-27 (a, b)
-- **Owner area:** cloud_sync_helper (`:79-98`, `:119-177`, `:462`, `:536-544`, `:569-577`)
+- **Owner area:** cloud_sync_helper (`:79-98`, `:119-177`, `:462`, `:536-544`, `:569-579`)
 - **Where:** `04-analysis.md` § Risk Assessment, § Q3 and § Second opinion (F-07, G-05, G-06, G-11, G-16, G-27; file:line at `8ebaf8daad`); `02-forward-audit.md` § Positives
 - **Can this be done on the VM?** Yes: the helper run whole in the sandbox on each planted conf (a comment naming a key, a `-v` with a double-spaced folder, a full `/tmp`, a cut rules file, a fresh `sync`)
 - **Already written:** a conf missing a key some comment names; a conf whose folder lost a double space; rules merged from a cut file (the last whole copy is the `.bak`); a fix reads each
@@ -245,7 +247,7 @@ The audit issue is #1295, a sub-issue of #663, with one checkbox per item. There
 - **Category:** Correctness
 - **Question:** Q3
 - **Source Finding:** G-10, G-13, G-22
-- **Owner area:** cloud_restore (`:1595-1597`, `:1908-1913`)
+- **Owner area:** cloud_restore (`:1595-1598`, `:1908-1913`)
 - **Where:** `04-analysis.md` § Risk Assessment, § Q3 and § Second opinion (G-10, G-13, G-22; file:line at `8ebaf8daad`); `02-forward-audit.md` § Positives
 - **Can this be done on the VM?** Yes: a read-only saves tree in the sandbox, the marker read after; a cloud file of the pattern's shape restored
 - **Already written:** a `restore-tree-clean` written over partials a failed sweep left; the fix removes the marker when the sweep fails
@@ -347,70 +349,70 @@ punch_index:
   question: Q3
   source_finding: "F-03, G-01"
   tracked: "#1298"
-  outcome: deferred:#1298
+  outcome: resolved:#1298
 - id: PL-02
   severity: High
   category: Correctness
   question: Q3
   source_finding: "F-14, G-21"
   tracked: "#1299"
-  outcome: deferred:#1299
+  outcome: resolved:#1299
 - id: PL-03
   severity: High
   category: Security
   question: Q3
   source_finding: "G-20"
   tracked: "#1300"
-  outcome: deferred:#1300
+  outcome: resolved:#1300
 - id: PL-04
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-02"
   tracked: "#1301"
-  outcome: deferred:#1301
+  outcome: resolved:#1301
 - id: PL-05
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-01"
   tracked: "#1302"
-  outcome: deferred:#1302
+  outcome: resolved:#1302
 - id: PL-06
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "G-02"
   tracked: "#1303"
-  outcome: deferred:#1303
+  outcome: resolved:#1303
 - id: PL-07
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "G-14, F-15"
   tracked: "#1304"
-  outcome: deferred:#1304
+  outcome: resolved:#1304
 - id: PL-08
   severity: Low
   category: Renovation
   question: Q5
   source_finding: "F-05"
   tracked: "#663"
-  outcome: deferred:#663
+  outcome: resolved:#663
 - id: PL-09
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "F-06"
   tracked: "#663"
-  outcome: deferred:#663
+  outcome: resolved:#663
 - id: PL-10
   severity: Low
   category: Renovation
   question: Q7
   source_finding: "F-09, G-19"
   tracked: "#663"
-  outcome: deferred:#663
+  outcome: resolved:#663
 - id: PL-11
   severity: Low
   category: Standards
@@ -424,7 +426,7 @@ punch_index:
   question: Q3
   source_finding: "F-07, G-05, G-06, G-11, G-16, G-27 (a, b)"
   tracked: "#663"
-  outcome: deferred:#663
+  outcome: resolved:#663
 - id: PL-13
   severity: Low
   category: Correctness
@@ -438,7 +440,7 @@ punch_index:
   question: Q4
   source_finding: "F-10, G-17"
   tracked: "#663"
-  outcome: deferred:#663
+  outcome: resolved:#663
 - id: PL-15
   severity: Low
   category: Renovation
@@ -452,56 +454,56 @@ punch_index:
   question: Q3
   source_finding: "F-12"
   tracked: "#663"
-  outcome: deferred:#663
+  outcome: resolved:#663
 - id: PL-17
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-13"
   tracked: "#663"
-  outcome: deferred:#663
+  outcome: resolved:#663
 - id: PL-18
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-03, G-04, G-25"
   tracked: "#1304"
-  outcome: deferred:#1304
+  outcome: resolved:#1304
 - id: PL-19
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-10, G-13, G-22"
   tracked: "#1299"
-  outcome: deferred:#1299
+  outcome: resolved:#1299
 - id: PL-20
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-09"
   tracked: "#663"
-  outcome: deferred:#663
+  outcome: resolved:#663
 - id: PL-21
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-15, G-18, G-27 (c)"
   tracked: "#663"
-  outcome: deferred:#663
+  outcome: resolved:#663
 - id: PL-22
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-12"
   tracked: "#663"
-  outcome: deferred:#663
+  outcome: resolved:#663
 - id: PL-23
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-07, G-26"
   tracked: "#663"
-  outcome: deferred:#663
+  outcome: resolved:#663
 - id: PL-24
   severity: Low
   category: Renovation
@@ -515,37 +517,37 @@ punch_index:
   question: Q3
   source_finding: "G-23"
   tracked: "#663"
-  outcome: deferred:#663
+  outcome: resolved:#663
 ```
 
 ## Phase 7 resolution gate
 
-From the coordinator's stage-D ruling on #663 (14:36 UTC 2026-10-30). A bug's item is Deferred to its issue until its stream's commit, then Resolved with it; an item in a stream without a bug of its own is Deferred to #663's stage-E stream. Each item's **Proposed** line above is the lane's proposal at the pause, kept as it was.
+From the coordinator's stage-D ruling on #663 (14:36 UTC 2026-10-30); moved at the hand-back of stage E (2026-10-31): each stream's items Resolved at its commits, the bugs open until their guest halves run at the integration window and the branch reaches `next`. A bug's item is Deferred to its issue until its stream's commit, then Resolved with it; an item in a stream without a bug of its own is Deferred to #663's stage-E stream. Each item's **Proposed** line above is the lane's proposal at the pause, kept as it was.
 
 | Item | Outcome | Tracked |
 | --- | --- | --- |
-| PL-01 | Deferred | #1298 (a `bug`; stage-E stream: the stop reaches `timeout`'s own group, the copy kept, with #1299; the ES stop shape read at `16dbac5211`, `02` § The ES stop and the why texts) |
-| PL-02 | Deferred | #1299 (a `bug`; stage-E stream with #1301 and PL-19: the moved-aside saves stay until a restore completes; a completed restore clears only its own copies) |
-| PL-03 | Deferred | #1300 (a `bug`; stage-E stream under the ruling's register row (`2f10f96978`): `conf_valid` an allowlist of the documented keys, the three copies identical; #1297 their later consolidation) |
-| PL-04 | Deferred | #1301 (a `bug`; in #1299's stream: one reader, an empty or commented path refused before rclone with YOUR SAVES FOLDER ISN'T ON THIS DEVICE) |
-| PL-05 | Deferred | #1302 (a `bug`; one stream with #1303: a failed put-back is a failure) |
-| PL-06 | Deferred | #1303 (a `bug`; one stream with #1302: marked done only on sed's rc 0) |
-| PL-07 | Deferred | #1304 (a `bug`; a stream with PL-18: an empty record read as absent and re-derived); F-15 is the coordinator's Backlog #1296 |
-| PL-08 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit; the timings are lead (c)'s, `(window)`-pending for the integration window (`tools/time-to-play` on the image carrying the fix) |
-| PL-09 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit, with PL-10; each removal named in its commit with `git log -S` read first |
-| PL-10 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit, with PL-09 |
+| PL-01 | **Resolved** `3a30c99736`, `38cf8c9d10` (S2): ES's group stop leaves nothing alive 2 s after it, a TERM to the script alone ends at +6 s, the game's save stands (`stage-e/s2-after-e-term*.out`); the guest arms `fix-walk-pending-image` | #1298 (open until the guest half and `next`) |
+| PL-02 | **Resolved** `3a30c99736` (S2): the absent saves put back, `.completed`/`.recovered` decide the prune, local and remote (`s2-after.out`, `s2-rprune-s2.out`); KILL2's arms `fix-walk-pending-image` | #1299 (open until the guest half and `next`) |
+| PL-03 | **Resolved** `f05f5727e0`, `d2fab0e07a` (S1, D-CLOUD-188/189/191): undocumented keys refused by name in all three copies, legacy keys read both and migrated (`s1-after.out`); the archive case `fix-walk-pending-image` | #1300 (open until the guest half and `next`) |
+| PL-04 | **Resolved** `3a30c99736`, `38cf8c9d10` (S2): one `SAVESPATH` reader; an empty folder refused before rclone with YOUR SAVES FOLDER ISN'T ON THIS DEVICE (`s2-after-b-empty.out`) | #1301 (open until `next`) |
+| PL-05 | **Resolved** `f86fb5cf1a` (S3): a failed put-back is `clean_exit 1`, nothing sourced (`s3-after.out`); the full card on the guest `fix-walk-pending-image` | #1302 (open until the guest half and `next`) |
+| PL-06 | **Resolved** `f86fb5cf1a` (S3): no marker on a full card, the values migrated once there is room (`s3-after.out`); ruling 5's already-written line on #1303 | #1303 (open until the guest half and `next`) |
+| PL-07 | **Resolved** `100eaa4b57` (S4): an empty record read as none and rewritten by the completed run, `check` passing after (`s4-after.out`); KILL15's plant `fix-walk-pending-image`; F-15 is #1296 | #1304 (open until the guest half and `next`) |
+| PL-08 | **Resolved** `9df834d183` (S5): no helper under `--recent`, no grace on connected/full (4 ms), the probes gone (`s5-after.out`); the timings lead (c)'s, `(window)`-pending | #663 |
+| PL-09 | **Resolved** `9df834d183` (S5): three functions, three probes, two drop lines and `logged_moved`'s dead half removed, `git log -S` read first; uncalled none | #663 |
+| PL-10 | **Resolved** `9df834d183` (S5): the four comments say what the code does | #663 |
 | PL-11 | Deferred | #909 (the two sentences in no table, with their texts); the three texts recorded in `02` § The ES stop and the why texts: for rclone 3/4 and 7/8 the scripts and ES's fallback map agree and `es-player-text.md:270-272` differs, so the rule is the coordinator's to correct, named in the hand-back |
-| PL-12 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit, with PL-17 and PL-23, each seam fail closed |
+| PL-12 | **Resolved** `02d19b0787`, `61f8fcc5b2`, `23dfd53c0e` (S6 and its two follow-ups, rulings 10 and 14): each seam fails closed, the allowlist, the filter flags moved into the rules file once (`s6-after.out`, `s6-move-after.out`) | #663 |
 | PL-13 | Deferred | #1057 (the unchecked `jq` keep-list and the wall-clock grace, two lines there); no stream here |
-| PL-14 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit now, not at the next bump: the download kept, unzip's failure stopping the unpack; `tools/pkgcheck` after; a #585 line if the lines are upstream's |
+| PL-14 | **Resolved** `9df834d183` (S5): the download kept, a broken zip stops the unpack; `tools/pkgcheck rclone` rc 0 (`s5-after.out`) | #663 |
 | PL-15 | Deferred | #1297 (the coordinator's Backlog: the twins' one library, recorded as a design); #1300's stream touches the three `conf_valid` copies identically and no more |
-| PL-16 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit: the capture honours TERM and its boot `--full` is bounded; a stage-E host fixture measures the bound, the image half `fix-walk-pending-image` |
-| PL-17 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit, with PL-12 and PL-23 |
-| PL-18 | Deferred | #1304's stream (the card's identity by device, `dev:unknown` refused, `check` after the folder exists, no boot-local number kept) |
-| PL-19 | Deferred | #1299's stream (a failed sweep writes no `restore-tree-clean`; the pattern never matches a cloud file; a cloud `.partial` swept on a clean tree) |
-| PL-20 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit, with PL-21: deadlines and waits on `/proc/uptime`; a stage-E host fixture with a `date` shim that steps the clock (the unfixed script FAILs, the fixed one does not) |
-| PL-21 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit, with PL-20: `--wait` read with `10#`, the bound including its `nmcli` calls |
-| PL-22 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit: the `-wal`, `-shm` and `-journal` sidecars excluded beside `*.sqlite*` |
-| PL-23 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit, with PL-12 and PL-17 |
+| PL-16 | **Resolved** `a174a2dcbf`, `b367ebcf48` (S7, D-CLOUD-190): TERM a clean stop between files (rc 143, the manifest as planted), the `--full` bound, the retire unit finished first (`s7-after*.out`); the image half `fix-walk-pending-image` | #663 |
+| PL-17 | **Resolved** `02d19b0787` (S6): `--wait` with no value refuses (rc 64 in 1 ms); `mkdir -p "${SETTINGS_BACKUPS}"` quoted | #663 |
+| PL-18 | **Resolved** `100eaa4b57` (S4): the card by its device in `mountinfo`, no identity refused, `check` after the folder test, no `dev:` kept (`s4-after.out`) | #1304 |
+| PL-19 | **Resolved** `3a30c99736` (S2): a failed sweep writes no `restore-tree-clean`, `*.partial` excluded both ways (`s2-after.out`) | #1299 |
+| PL-20 | **Resolved** `a174a2dcbf`, `b2833a6919` (S7): deadlines and waits on `/proc/uptime`; a +3600 s step changes nothing (`s7-after.out`) | #663 |
+| PL-21 | **Resolved** `a174a2dcbf` (S7): `--wait 010` is 10 s, a slow `nmcli` bounded (3 s), uptime 0.08 read (`s7-after.out`) | #663 |
+| PL-22 | **Resolved** `a174a2dcbf` (S7): the six sidecars excluded in both rules files (`s7-after.out`) | #663 |
+| PL-23 | **Resolved** `02d19b0787` (S6): the cleanup reads continuations as bash does (`s6-after.out`) | #663 |
 | PL-24 | Resolved | #663 (recorded as a design: a deliberate run is unbounded by D-CLOUD-113, which lets it take time and say so on its page; no stream) |
-| PL-25 | Deferred | #663's stage-E stream (the ruling's stream brief); resolved with its commit: a change of cloud folder resets `last-backup`'s epoch, so the next exit sync sends everything once |
+| PL-25 | **Resolved** `a174a2dcbf` (S7): `last-backup-dest`; a changed folder takes one full pass, then the window (`s7-after.out`); the guest half `fix-walk-pending-image` | #663 |

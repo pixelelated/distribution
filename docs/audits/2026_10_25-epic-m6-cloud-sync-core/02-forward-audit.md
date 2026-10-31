@@ -425,6 +425,14 @@ Every § 5 command of the brief, run at stage A as one script file
 | r25 | all-time commits and the first | 151; 9f1fab30f6 ROCKNIX Team 2025-07-13 | 0 | 214 ms | the history's start is not upstream's import | tool-run |
 | r26 | T13's branch tip | 0b72904621 | 0 | 3 ms | the oracle was read from a branch that moved after its acceptance | tool-run |
 
+**Stage E's suite runs** (`tools/last-good-scripts-test` whole, `QA_SYSTEM_ROOT=/workspace/artifacts/m6-donor/1a0266484423/image/system`, 0 SKIP throughout). The verdicts are in `stage-e/suite-*.out`, and the counts are the suite's own `    PASS  ` and `    FAIL  ` lines.
+- **Before**, at the dispatch tip: PASSED, 1313 / 0.
+- **The snapshot method.** The first after-S1 run (`suite-after-s1.out`) read the scripts from a `git archive` snapshot through `LAST_GOOD_SOURCE_ROOT`. It had no `.git`, so 16 git-reading checks failed besides A18: the method's failures, not the tree's.
+  - Every later run reads a `git clone --shared` snapshot checked out at the stream's commit (`/workspace/tmp/m6-t16/snapgit`).
+  - That snapshot's `tools/last-good-scripts-test` has `stage-e/patches/last-good-scripts-test.patch` applied: A18, A4, A23, d, h and S315, each a fixture completion under D-WORKFLOW-210/211 and T15's merge debt.
+- **After each stream:** S1 1313 / 0 (`suite-after-s1.out.2`); S2 1311 / 2 (section e and A4, fixed in `38cf8c9d10` and the patch); S3 1313 / 0; S4 1313 / 0; S5 1313 / 0; S6 1312 / 1 (A6, fixed in `61f8fcc5b2`); S7 1310 / 3 (section h's two and S315, repaired in `b2833a6919` and the patch).
+- **After, at the fixes' tip `23dfd53c0e`:** `suite-after.out`.
+
 ## The guest cycle
 
 **The windows.**
@@ -603,3 +611,30 @@ with no constructed FAIL says so.
 F-04, F-05, F-07, F-08, F-10 to F-13 have no constructed FAIL: they are
 read at their lines (`04`). F-05's cost on the device is lead (c)'s, and
 `(window)`-pending.
+
+## The streams (stage E, 2026-10-30 and 2026-10-31)
+
+The dispatch's seven streams, in the brief's order (`docs/reviews/briefs/t16-streams.md` at `2597b8a272`), with the coordinator's thirteen rulings and ruling 14 (D-CLOUD-192).
+
+**How the cells ran:**
+- Each stream's cells are `stage-e/sN/cells.sh`, run in the bwrap sandbox (`stage-e/tools/sbx.sh`).
+- The "before" root holds the unfixed bytes from `8ebaf8daad` (`root-pin`, and `root-pin4` from S4 on). The "after" root holds the tree at the stream's commit. Both are built by `stage-e/tools/mkroot.sh`.
+- **From the donor:** the busybox (146 applet links) and rclone 1.75.2.
+- **Host stand-ins**, named in each cell's header: bash 5.3.9, GNU timeout, grep 3.12, python3, iproute2's `ip`, jq. `/usr/bin/sh` is bash, as on the image; it was the host's dash before S7, whose `s7-checks.txt` names the cells that met it.
+- **Per-cell stand-ins**, named in their cells: a `blkid` table (S4, S7), an `nmcli` (S5, S7), and an argv-recording `rclone`, a slow `sha256sum`, a stepping `date` and a slow `mv` (S6, S7).
+- **The cloud** is the QA WebDAV on loopback.
+- `proved: fixture` for the cells; `proved: tool-run` where the donor's binaries were asked directly. Every guest half is `fix-walk-pending-image`, owed at the integration window.
+
+| Stream | Items | Commits | Before (`8ebaf8daad`) | After | Already written | Guest half |
+| --- | --- | --- | --- | --- | --- | --- |
+| S1 | PL-03 (#1300) | `f05f5727e0`, `d2fab0e07a` | `RCLONE_OUTER`, `PARTIALS_CLEAN`, `LOG_FILE`, `AUTOMATIC`, `savespath` pass `conf_valid` (rc 0) in all three copies; g20's conf-named program runs (`s1-before.out`) | each refused by name; the 16 keys and the seven legacy keys (D-CLOUD-189, `LAYOUT_KEEP` by D-CLOUD-191) pass; the helper migrates `BACKUPPATH` under its `.bak` (`s1-after.out`, `s1-after-g20.out`) | read both and migrated (#1300's line) | a settings archive carrying a conf and an executable (the window) |
+| S2 | PL-01 (#1298), PL-02 (#1299), PL-04 (#1301), PL-19 | `3a30c99736`, `38cf8c9d10` | ES's group stop left `timeout` and rclone alive, and the game's save was replaced by the cloud's; a stopped restore's moved-aside saves pruned by the next; the remote prune purged a stopped run's folder; `SAVESPATH` read five ways; a failed sweep wrote `restore-tree-clean` (`s2-before.out`) | nothing alive 2 s after the stop; a TERM to the script alone ends it at +6 s, not +41 s; the save stands; `130 gaps IT WAS STOPPED`; the absent saves are put back, and `.completed`/`.recovered` markers decide the prune, local and on WebDAV; one `SAVESPATH` reader; the sweep's failure kept (`s2-after*.out`) | per #1298, #1299, #1301 | `e-term-automatic`'s three arms under the image's bash and coreutils; KILL2's two arms |
+| S3 | PL-05 (#1302), PL-06 (#1303) | `f86fb5cf1a` | a failed put-back sources the refused conf (`sourced_refused=YES`, rc 0); on a full card the three one-time markers are written over unchanged values (`s3-before.out`) | `clean_exit 1`, nothing sourced; no marker on the full card, the three values migrated once there is room (`s3-after.out`) | #1303: nothing inherited the fix can tell apart (ruling 5) | a full `/storage` by `fallocate`, the helper on the guest |
+| S4 | PL-07 (#1304), PL-18 | `100eaa4b57` | an empty record refuses every run for good; a symlinked folder reads as the card under the link; a missing folder records the card's UUID or `dev:unknown`; `check` ran before the folder test; `dev:66304` kept (`s4-before.out`) | the record is written after a completed run and `check` passes; `dev:129` for the tmpfs; no identity refuses; the folder first; no `dev:` kept, and `accept` clears it (`s4-after.out`) | read both: an empty record is read as none once; an old `dev:`/prefix record is compared and refuses with the existing sentence | KILL15's plant, then a restore that completes |
+| S5 | PL-08, PL-09, PL-10, PL-14 | `9df834d183` | 3 and 5 probe lines; `gensub` works against the comment; two uncalled functions; the exit sync's helper ran (5 lines); a 3 s grace on a link already up; the recipe deleted the cache's download, and a broken zip returned 0 (`s5-before.out`) | 0 probes; the comment corrected; uncalled none; 0 helper lines under `--recent`; 4 ms on connected/full; the download kept, and a broken zip stops the unpack (rc 1 or 9); `tools/pkgcheck rclone` rc 0 before and after (`s5-after.out`) | nothing inherited | lead (c)'s timings by `tools/time-to-play --vm` |
+| S6 | PL-12, PL-17, PL-23; D-CLOUD-185 (ruling 10), D-CLOUD-192 (ruling 14) | `02d19b0787`, `61f8fcc5b2`, `23dfd53c0e` | a comment stood in for its key; a folder's "-v " and double space edited; `/tmp` read-only dropped the player's rules; a cut file merged; the last rule without a newline lost; a `.new` left; a fresh device's `sync` overruled; `--wait` looped (124); the cleanup deleted a key twice; `--delete-excluded` and `--fast-list` reached rclone; PL-015's `--exclude "*.tmp"` reached rclone with its quotes and the `.tmp` was sent (`s6-before.out`, `s6-move-before.out`) | each seam fails closed (`s6-after.out`); the allowlist drops a refused flag with its WARN by position; `--error-on-no-transfer` and `--filters-file` admitted; the filter flags move into the rules file once as the player's rules, the second run byte for byte; the refusal path keeps the line (`s6-move-after.out`) | read both for PL-12 and the moved flags; nothing inherited for PL-17 and PL-23 | none named by the brief |
+| S7 | PL-16, PL-20, PL-21, PL-22, PL-25 | `a174a2dcbf`, `b367ebcf48`, `b2833a6919` | a group TERM ignored (rc 0, 8202 ms on); no `--full` bound; a +3600 s clock step ended the automatic run (124) and the card wait (10 ms); `--wait 010` read as 8 s; slow `nmcli` held 17 s; uptime 0.08 was an arithmetic error; the sqlite sidecars listed; `--recent` kept its window after a folder change (`s7-before*.out`) | rc 143 1 s after the TERM, the manifest as planted; too-slow at the bound; a TERM inside the retire unit finishes it (rc 0); the clock step changes nothing (COMPLETED, 15 s wait); 10 s; 3 s; starts; the sidecars excluded; one full pass, then the window (`s7-after*.out`); `tools/cloud-capture-stamp-test` PASSED (15) both | nothing inherited for PL-16, PL-20 and PL-21; read both for PL-22 and PL-25 | the capture's TERM and `--full` bound on the image (fact 3); a `SAVES_REMOTE` change, then an exit sync |
+
+**The ES stop (S2)** was read at `16dbac5211`. Its group signals land once `timeout` runs with `--foreground`, so no ES patch is needed.
+
+**Lines corrected by the brief's § Lines:** the rows above cite lines at the stream's own commit. `05`'s `:1595-1597` is `:1595-1598`, and `:569-577` is `:569-579`, both at `8ebaf8daad`.
