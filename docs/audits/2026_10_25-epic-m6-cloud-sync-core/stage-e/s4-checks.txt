@@ -1,0 +1,15 @@
+S4 checks 2026-10-31T01:05:32Z
+bash -n cloud_saves_root: ok
+bash -n cloud_backup: ok
+bash -n cloud_restore: ok
+tools/vocabulary-check rc=0: vocabulary-check: 163 string(s) with back up / backup, save state or Wi-Fi judged, 0 wrong
+added lines with a QEMU, VM, port-forward or loopback word: 0
+player sentences removed: 2 (cloud_saves_root's empty-record refusal: "We can't tell which card your saves were last synced from, so nothing was transferred." / "If both cards are in the device, try again."); added: 0 (the no-identity refusal reuses the existing >>> why COULDN'T TELL WHICH CARD YOUR SAVES ARE ON)
+cloud_restore: unchanged by S4 -- S2's refusal and mkdir -p (3a30c99736) already run before check (s4-after.out, S4-order: check with the folder present)
+cloud_backup: the folder test moved above the card check -- at 8ebaf8daad check was :1606 and the folder test :1613 (the brief's 'already after' read the order the other way)
+blkid: a stand-in in root-pin4 and root-s4 (usr/sbin/blkid, sha256 62206c7de6820d99...), named in s4/cells.sh; the recipe builds util-linux --enable-blkid; the donor root carries busybox and rclone only
+the suite: A23's fixture completed (D-WORKFLOW-211) in stage-e/patches/last-good-scripts-test.patch -- a blkid stand-in for its section, then SA_EXTRA=(); its sandbox has no blkid on PATH, so the record a good run wrote was dev:<N>, which S4 no longer keeps; no assertion changed
+the QA WebDAV's data reset (cloud-test-backend reset: endpoint is empty) between s4-before.out and s4-after.out: S2's 33 MB of seeds took the unfixed restore five minutes at 100k
+S4-border (cloud_backup with the folder absent): a first pair of single-cell runs started in the same second, and new_cell names a cell by the second, so the second reused the first's cell; both were discarded, and s4-before.out and s4-after.out carry the cell from whole runs in cells of their own (s4border.010630, s4border.010636)
+accept on a dev:<N> (no UUID): clears the record and keeps no number -- ruling 13's uuid-only applied to the owner's command too; refusing instead would leave a dev:unknown record no command could clear (s4-after.out, S4-nouuid: accept, the record absent, check rc 0)
+the suite after S3 (f86fb5cf1a, git clone --shared snapshot, the A18/A4 patch): PASSED, 1313 PASS / 0 FAIL (suite-after-s3.out, 521 s)

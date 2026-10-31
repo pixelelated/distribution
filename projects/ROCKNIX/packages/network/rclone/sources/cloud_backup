@@ -1695,6 +1695,14 @@ backup_game_saves() {
     log_message "Starting backup from ${SAVESPATH} to ${REMOTENAME}${SAVES_REMOTE}" "false"
     log_message "Backup started at $(date)" "false"
 
+    # The saves folder is there before its card is asked about (PL-18).
+    if [ ! -d "${SAVESPATH}" ]; then
+        log_message "the saves folder ${SAVESPATH} is not on this device" "false" "ERROR"
+        log_message "Your saves folder isn't on this device." "true" "ERROR"
+        say_why "YOUR SAVES FOLDER ISN'T ON THIS DEVICE"
+        return 1
+    fi
+
     # Which card is the saves folder on? A two-card device flips /storage/roms
     # to the internal card when the second one is missing at boot, and a stale
     # tree would then be pushed as this device's newest saves (#83). Refuse
@@ -1713,14 +1721,6 @@ backup_game_saves() {
             relay_refusal "${saves_root_id}"
             return 1
         fi
-    fi
-    
-    # Check if local backup path exists and has content
-    if [ ! -d "${SAVESPATH}" ]; then
-        log_message "the saves folder ${SAVESPATH} is not on this device" "false" "ERROR"
-        log_message "Your saves folder isn't on this device." "true" "ERROR"
-        say_why "YOUR SAVES FOLDER ISN'T ON THIS DEVICE"
-        return 1
     fi
     
     # Check if we have any files to backup (excluding directories we'll skip anyway)

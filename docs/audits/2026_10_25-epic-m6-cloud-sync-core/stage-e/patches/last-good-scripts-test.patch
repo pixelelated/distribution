@@ -1,5 +1,5 @@
---- tools/last-good-scripts-test	2026-10-25 11:15:03.300544867 +0000
-+++ tools/last-good-scripts-test	2026-10-31 00:42:31.479899053 +0000
+--- tools/last-good-scripts-test
++++ tools/last-good-scripts-test
 @@ -9296,6 +9296,7 @@
  mkdir -p "${PR}/storage/roms/gb" "${PR}/cloud/pixelelated/Saves/gb" "${PR}/cloud/pixelelated/Saves-replaced/2099_01_01-000000/gb"
  echo "the save as played here" > "${PR}/storage/roms/gb/A.srm"; echo "the cloud's older copy" > "${PR}/cloud/pixelelated/Saves/gb/A.srm"
@@ -16,3 +16,23 @@
  sed -i '/^RSYNCRMDIR=/d' "${RH}/storage/.config/cloud_sync.conf"
  rh_run
  grep -q '^RSYNCRMDIR=' "${RH}/storage/.config/cloud_sync.conf" && [ -e "${RH}/storage/.config/cloud_sync.conf.bak" ]; check $? "a run that does add a missing key still takes its .bak first and adds it" "RSYNCRMDIR $(grep -c '^RSYNCRMDIR=' "${RH}/storage/.config/cloud_sync.conf") line(s); .bak $([ -e "${RH}/storage/.config/cloud_sync.conf.bak" ] && echo taken || echo missing)"
+@@ -9943,6 +9943,11 @@
+ echo "    A23. #308 gpt F-CS-20: the saves-root record is written by a good run, and a failed write says so"
+ SR=$(sa_new gcs20); sa_script "${SR}" cloud_saves_root cloud_backup
+ printf 'SAVESPATH="/storage/roms"\n' > "${SR}/storage/.config/cloud_sync.conf"
++# The card has a UUID, as a real card does: the image's blkid (util-linux,
++# --enable-blkid) stands in. A dev:<N> is this boot's number and is never
++# recorded (#1304, PL-18), so the record is a UUID's (D-WORKFLOW-211).
++printf '#!/bin/sh\necho 5a7e0000-0000-4000-8000-00000000a023\n' > "${SR}/blkid"; chmod 755 "${SR}/blkid"
++SA_EXTRA=(--overlay-src /usr/bin --tmp-overlay /usr/bin --ro-bind "${SR}/blkid" /usr/bin/blkid)
+ mkdir -p "${SR}/storage/roms/gb"; chmod 555 "${SR}/storage/.cache/cloud_sync"
+ sa_run "${SR}" cloud_saves_root record
+ sr_rc=${RC}
+@@ -9957,6 +9962,7 @@
+ [ "${RC}" -ne 0 ] && [ ! -e "${SR}/storage/.cache/cloud_sync/saves-root" ]; check $? "a saves backup whose transfer failed (7) records no card (rc ${RC})" "saves-root after a failed transfer: $(cat "${SR}/storage/.cache/cloud_sync/saves-root" 2>/dev/null) -- a failed first run established the card as if it had succeeded"
+ sa_run "${SR}" cloud_backup --yes --saves-only
+ [ "${RC}" -eq 0 ] && [ -s "${SR}/storage/.cache/cloud_sync/saves-root" ]; check $? "and the next run that moves the saves records it (rc ${RC})" "saves-root: $(cat "${SR}/storage/.cache/cloud_sync/saves-root" 2>/dev/null)"
++SA_EXTRA=()
+ 
+ # A24. #308 gpt F-CS-26 (the script's half; the done page's wording is
+ #      EmulationStation's): `>>> removed` reports the files a match actually

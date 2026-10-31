@@ -1,0 +1,100 @@
+== T16 host lead S4 the saves-root record and the card's identity -- 2026-10-31T01:06:32Z
+donor root: /workspace/artifacts/m6-donor/1a0266484423/image/system (BUILD_ID 1a0266484423); sha256sum -c ../../SHA256SUMS:
+  usr/bin/busybox: OK
+  usr/bin/rclone: OK
+  etc/os-release: OK
+the scripts and /usr/config: /workspace/tmp/m6-t16/hl/root-s4 (tree), 5 of 12 sha256-equal to the guest's installed bytes at 8ebaf8daad (guest-cycle/installed.sha256)
+from the donor: busybox v1.36.1 (146 applet links), rclone v1.75.2
+host stand-ins (not in the donor): bash 5.3.9(1)-release (image: 5.3), timeout (GNU coreutils) 9.7 (image: 9.4), grep (GNU grep) 3.12 (image: 3.9), python3 3.14.4, ip (iproute2)
+sandbox: stage-e/tools/sbx.sh (bwrap, own pid namespace, host network); backend: cloud-test-backend at 3a653eaec4, WebDAV 127.0.0.1:9010, state /workspace/tmp/m6-t16/hl/state
+
+== S4-k15 / S4-empty, cloud_backup: an empty record; check, the twin, the record, check (2026-10-31T01:06:32Z)
+  the record planted:  (0 bytes)
+  check: rc=0
+    | uuid:5a7e0000-0000-4000-8000-0000000000c1
+      cloud_backup --yes --saves-only: rc=0
+    BACKUP SUMMARY:
+    Game saves: COMPLETED
+    Settings backup: SKIPPED - SAVES ONLY
+    Completed.
+    ====================================
+  the record after the twin: uuid:5a7e0000-0000-4000-8000-0000000000c1 (42 bytes)
+  stamp: 1793408793 0
+  check again: rc=0
+    | uuid:5a7e0000-0000-4000-8000-0000000000c1
+  the blkid stand-in was asked: 4 blkid -o value -s UUID /dev/nvme1n1;
+
+== S4-k15 / S4-empty, cloud_restore: an empty record; check, the twin, the record, check (2026-10-31T01:06:33Z)
+  the record planted:  (0 bytes)
+  check: rc=0
+    | uuid:5a7e0000-0000-4000-8000-0000000000c1
+      cloud_restore --yes --saves-only: rc=0
+    RESTORE SUMMARY:
+    Game saves: COMPLETED
+    Completed.
+    ====================================
+  the record after the twin: uuid:5a7e0000-0000-4000-8000-0000000000c1 (42 bytes)
+  stamp: 1793408795 0
+  check again: rc=0
+    | uuid:5a7e0000-0000-4000-8000-0000000000c1
+  the blkid stand-in was asked: 4 blkid -o value -s UUID /dev/nvme1n1;
+
+== S4-symlink: SAVESPATH /storage/roms a symlink to /mnt/card2, a tmpfs (the second card) (2026-10-31T01:06:35Z)
+  /storage/roms -> /mnt/card2; mountinfo: 259:0 /storage /dev/nvme1n1;0:129 /mnt/card2 tmpfs;
+  stat -c %d: /storage 66304, /mnt/card2 129
+  cloud_saves_root identity: dev:129
+  with no symlink, the card /storage is on: uuid:5a7e0000-0000-4000-8000-0000000000c1
+
+== S4-missing (standin): SAVESPATH=/storage/nosaves, absent (2026-10-31T01:06:35Z)
+  identity: rc=0 out: 
+    the record: absent
+  check: rc=1 out: >>> why COULDN'T TELL WHICH CARD YOUR SAVES ARE ON|
+    the record: absent
+  record: rc=1 out: >>> why COULDN'T TELL WHICH CARD YOUR SAVES ARE ON|
+    the record: absent
+  accept: rc=1 out: >>> why COULDN'T TELL WHICH CARD YOUR SAVES ARE ON|
+    the record: absent
+== S4-missing (none): SAVESPATH=/storage/nosaves, absent (2026-10-31T01:06:35Z)
+  identity: rc=0 out: 
+    the record: absent
+  check: rc=1 out: >>> why COULDN'T TELL WHICH CARD YOUR SAVES ARE ON|
+    the record: absent
+  record: rc=1 out: >>> why COULDN'T TELL WHICH CARD YOUR SAVES ARE ON|
+    the record: absent
+  accept: rc=1 out: >>> why COULDN'T TELL WHICH CARD YOUR SAVES ARE ON|
+    the record: absent
+
+== S4-order: cloud_restore --yes --saves-only, no saves folder (2026-10-31T01:06:35Z)
+      cloud_restore: rc=0
+    RESTORE SUMMARY:
+    Game saves: COMPLETED
+    Completed.
+    ====================================
+  the calls, in order:
+    cloud_saves_root check --wait 15: the folder /storage/roms present; identity 'uuid:5a7e0000-0000-4000-8000-0000000000c1'
+    cloud_saves_root record uuid:5a7e0000-0000-4000-8000-0000000000c1: the folder /storage/roms present; identity 'uuid:5a7e0000-0000-4000-8000-0000000000c1'
+  the record: uuid:5a7e0000-0000-4000-8000-0000000000c1 (42 bytes); the folder: /workspace/tmp/m6-t16/hl/cells/s4order.010635/storage/roms
+
+== S4-border: cloud_backup --yes --saves-only, the saves folder absent (2026-10-31T01:06:36Z)
+      cloud_backup: rc=1
+    >>> why YOUR SAVES FOLDER ISN'T ON THIS DEVICE
+    Game saves: COULDN'T FINISH
+  the calls, in order:
+    none
+  the record: absent
+
+== S4-nouuid: no UUID anywhere (BLKID_NONE=1) (2026-10-31T01:06:36Z)
+  check: rc=0 out: dev:66304|
+      cloud_backup --yes --saves-only: rc=0
+    Game saves: COMPLETED
+  the record after a completed backup: absent
+  a record an older build wrote: dev:unknown (12 bytes)
+  check (BLKID_NONE=1): rc=1 out: >>> why YOUR SAVES ARE ON A DIFFERENT CARD|Your saves are on a different card than the last time they were synced.|Nothing was transferred. If your second card is missing, put it back and try again.|
+    the record: dev:unknown (12 bytes)
+  check (the stand-in answering): rc=1 out: >>> why YOUR SAVES ARE ON A DIFFERENT CARD|Your saves are on a different card than the last time they were synced.|Nothing was transferred. If your second card is missing, put it back and try again.|
+    the record: dev:unknown (12 bytes)
+  accept (BLKID_NONE=1): rc=0 out: Saves folder accepted: dev:66304|
+    the record: absent
+  check after accept (BLKID_NONE=1): rc=0 out: dev:66304|
+
+== end 2026-10-31T01:06:38Z
