@@ -1699,3 +1699,15 @@ prose (now a table), and the "Version 1" section, replaced by this one.
 The § 2 table, the L-table, the floor's table and the runs block are kept
 whole, each being the one copy the lane reads from, which is why the
 count stands above the 1,300 aimed at.
+
+## Errata at acceptance (2026-10-30)
+
+From T33's hand-back (`947ace1966`, ES `f802c55c6`), its close-out (`33aca89ef5`) and the acceptance run (`/workspace/tmp/m6-coordinator/accept-t33.out`, 23 sections PASS; `TOTAL: 245 test cases in 5 binaries`, 0 failed):
+
+1. The order's title named `ApiSystem`; the slice's 77 are the game lists, collections, metadata and the fork's helper units (the retitle at dispatch, already in § 1); `ScraperCmdLine.*` and the Windows residue went to Backlog #1235 (the hand-back's comment there).
+2. § Lines: `Genres.cpp:304` is `:305` (the return through the end iterator), `LangParser.cpp:148` is `:150`, `KeyboardMapping.cpp:292` is `:293-294`, `resetIndex` opens at `:148` with its `clearIndex` calls at `:154-162` and clears 20 facets, `FileFilterIndex.cpp:321-340` opens at `:322`, `OfflineAchievementsText.cpp:229` is `:230`; `tools/es-menu-map-check:48-55` is `:49-56`.
+3. The checker's fourth blind shape: a title in a member initializer (`mMenu(window, _("FILTER GAMELIST BY"))`, `GuiGamelistFilter.cpp:11`, `:17`) matches none of its three patterns; noted on #965; the map takes the two filter pages by hand (S7).
+4. L-05 was sharper than the brief read it: a game list the cloud restored while EmulationStation runs was overwritten whole at the next save (`:449-459`), not only re-read late; D-CLOUD-187 and S1b.
+5. The ES fixtures for the ruled bugs ran under `-DNDEBUG` as the image builds (`config/functions:384-388`), so a `.keys` shape that aborts under the asserts was shown as the image's SEGV.
+6. The acceptance script's two defects found by this run, fixed in the kit's template: `dist-tip` counted the coordinator's own merged commits against #680; the bug-body header check ignored its narrowing to `fixed-at-es`.
+7. The stream departures are in `t33-streams.md` § Superseded at acceptance; PL-25 is #1305.

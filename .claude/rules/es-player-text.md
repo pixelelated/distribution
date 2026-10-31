@@ -268,8 +268,12 @@ sentence ship in the cut than wait, `player-language.md`).
 
 **Why** comes from a `>>> why <sentence>` line the scripts print at the point
 of failure (rclone's own taxonomy stays in the log), else from rc: rclone 3/4
-`YOUR CLOUD FOLDER WASN'T FOUND`; 5 `YOUR CLOUD STOPPED ANSWERING`; 7/8 `YOUR
-CLOUD REFUSED THE TRANSFER`; the sign-in check `COULDN'T REACH YOUR CLOUD. YOU
+`COULDN'T FIND YOUR CLOUD FOLDER`; 5 `YOUR CLOUD STOPPED ANSWERING`; 7/8 `YOUR
+CLOUD WOULDN'T TAKE THE FILES` (the shipped sentences since the plain-language
+pass #108, in the scripts at `cloud_backup:830-833` and in
+`ThreadedCloudSync.cpp:84-86` alike; this paragraph carried the pre-#108
+`YOUR CLOUD FOLDER WASN'T FOUND` and `YOUR CLOUD REFUSED THE TRANSFER` until
+2026-10-30, when T16's PL-11 read all three texts, #663); the sign-in check `COULDN'T REACH YOUR CLOUD. YOU
 MAY NEED TO SIGN IN AGAIN`; the saves-root guard `YOUR SAVES ARE ON A
 DIFFERENT CARD`; a 130 that was not a launch cancel `IT WAS STOPPED`; anything
 else `SOMETHING WENT WRONG`. The six rc-keyed sentences are duplicated
