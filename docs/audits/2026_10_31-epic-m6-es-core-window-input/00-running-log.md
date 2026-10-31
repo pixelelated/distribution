@@ -217,3 +217,29 @@
 - **`02`:** S3's row, and § The merge debt names the patch for T18 and T31 (it needs S3's `GuiComponent.h` first). `tools/t35-runs.py` asserts S3's before and after lines and 3.27's FAIL at the tip. The pre-issue lint with `--issue 1337` passes.
 - **Time to play:** one virtual call per frame while idle past the setting, off the launch path.
 - **A command refused by the harness's safety check** (it contained no removal; the parser could not read its quoting) was rewritten as a script file, `/workspace/tmp/m6-t35/tmp/s3-checks.sh`, which writes the same record.
+
+## [Stage E, S4] 20:47 to 20:55 UTC 2026-10-31 — PL-01 (#1283's es-core half): the watchers probe outside the list lock (ruling 13)
+
+- **The cases, written first:**
+  - In `window-input-tests`, against the tree's `WatchersManager.cpp`:
+    - A second watcher's `ResetComponent` while the first probes.
+    - A reset during a probe is not lost (the guard for the semantics the fix keeps).
+  - `stage-c/asan-watchers.cpp` (3.2) extended: a due watcher, not yet probed, unregistered and freed while the first probes, then the probing one.
+- **Before, at S3's tip** (`stage-e/s4-before.txt`, 54 s):
+  - `window-input-tests` 23 cases, 7 failed. 3.1 gives `ResetComponent returned after 1492 ms` and the second watcher `... 1491 ms`; the reset guard passes.
+  - `SAN tsan-watchers ... rc 66`; `SAN asan-watchers ... rc 0; no sanitizer report` with the extension (2 notifications).
+- **The fix,** ES `1d5d3e0db` (`WatchersManager.cpp`, `.h`; on origin; pre-push-test `PASS`):
+  - `run()` snapshots the due records under `mWatchersLock` and marks each `probing`. Each `check()` and its notification run outside the lock, and the next check time is written back under it.
+  - `UnregisterComponent` waits on `mProbeDone` for its own record's probe alone and searches again after the wait.
+  - A reset during a probe sets `resetPending` and is applied when the probe ends.
+  - The notification never runs under the list lock.
+  - `mRunning` is atomic and set under `mThreadLock`. The destructor now joins the thread before it frees the records.
+  - The stand-in: 44 of 44.
+- **After** (`stage-e/s4-after.txt`, 54 s): 23 cases, 5 failed (3.4, 3.5, 3.10, 3.11, 3.19). 3.1 and the second watcher give `0 ms`. `SAN tsan-watchers (-fsanitize=thread): rc 0; no sanitizer report`, `SAN asan-watchers (-fsanitize=address): rc 0; no sanitizer report`. `TOTAL: 273 test cases in 7 binaries`.
+- **The wait left** (ruling 13: recorded beside 3.1's figure). `stage-e/s4-unregister-wait.cpp` was built against `WatchersManager.cpp`/`.h` read by `git show` at both tips (`stage-e/s4-unregister-wait.txt`).
+  - Another watcher's unregister went from 1494 ms to 0 ms.
+  - The probing watcher's own unregister went from 0 ms to 1493 ms, bounded by its own probe (1500 ms). At S3's tip it was 0 only because the first call had already waited out the whole pass.
+- **A script fault found and fixed:** the build script's untruncated failing-case list read doctest's `TEST CASE:` headers, which doctest also prints for a passing case's `MESSAGE`. So the first after-run listed 3.1 and the S4 case as failing while the summary said 5 failed (that run is kept at `/workspace/tmp/m6-t35/tmp/s4-after-first.txt`, outside the record).
+  - The list is now `failed case:`, one name per case with an `ERROR` line under its header, and `t35-runs.py` reads it. S1 to S3's `failing:` lines named 3.1 for its message too, but 3.1 was failing there anyway, so their assertions stand.
+- **#1283:** its checkbox for this slice (*`check()` called with `mWatchersLock` released, a line-cited read*) ticks from `stage-e/s4-checks.txt`, where the fixed `run()` shows the lock block at `:205-219` and `check()` at `:223`. Whose: `1da12fc7b6` and `5974280a95`, both upstream, so the #585 line (T33's candidate and this slice's) stands in `02`.
+- **Time to play:** the interface thread no longer waits for another watcher's probe (3.1's 1,492 ms, gone). `WatchersManager::pause` (on the launch path, L-19) is byte-identical to the pin's.

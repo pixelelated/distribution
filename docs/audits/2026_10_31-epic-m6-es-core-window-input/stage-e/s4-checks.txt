@@ -1,0 +1,88 @@
+# S4 (PL-01, #1283's es-core half; ruling 13): the checks. ES tip 1d5d3e0db, from S3's 5d7707790; 2026-10-31T20:54:17Z
+## whose the probe loop and the unregister are (git blame at the pin; ruling 19)
+run :181,199 -> 1da12fc7b6 2023-11-11 [WatchersManager] Use a unified thread to perform all watch: upstream (an ancestor of cada856d86)
+run :181,199 -> 5974280a95 2026-08-21 improve-watchers: upstream (an ancestor of cada856d86)
+Unregister :76,90 -> 1da12fc7b6 2023-11-11 [WatchersManager] Use a unified thread to perform all watch: upstream (an ancestor of cada856d86)
+mRunning-write :151,151 -> 1da12fc7b6 2023-11-11 [WatchersManager] Use a unified thread to perform all watch: upstream (an ancestor of cada856d86)
+## the files 5d7707790..1d5d3e0db changes (nothing outside the 96; the French catalog only for a changed sentence)
+in the 96: es-core/src/watchers/WatchersManager.cpp
+in the 96: es-core/src/watchers/WatchersManager.h
+ 2 files changed, 64 insertions(+), 24 deletions(-)
+## added lines' non-ASCII bytes in the .cpp/.h (+ lines of git diff -U0)
+non-ASCII added lines: 0
+## the stand-in over the 44 with the edit (stage-a/syntax-check.sh)
+rc=0 watchers/WatchersManager.cpp
+t35-syntax-check: 44 file(s) checked, 44 rc 0, 0 not
+## es-syntax-check: CANNOT on this host (the stand-in is the check)
+es-core/src/watchers/WatchersManager.cpp: es-syntax-check: no build root at /workspace/repos/rocknix.worktrees/generic-x64/build.ROCKNIX-GENERIC_X64.x86_64 (ES_BUILD_ROOT, --root) (rc=2)
+## the words (tools/es-untranslated against both bases, as stage A ran it)
+es-untranslated: 706 fork string(s) in the source, 706 with French, 0 without
+es-untranslated rc=0
+es-untranslated: 703 fork string(s) in the source, 703 with French, 0 without
+es-untranslated(cada) rc=0
+## the three doubles (§ 1 (i)): Window.h's postToUiThread and createAsyncNotificationComponent, Log.h's LogLevel, LocaleES.h's macros, pin against 1d5d3e0db
+unchanged: es-core/src/Window.h lines with 'postToUiThread(' (6a3344338f42)
+unchanged: es-core/src/Window.h lines with 'createAsyncNotificationComponent(' (5f1054884455)
+unchanged: es-core/src/Log.h lines with 'Log' (c30ad23d7478)
+unchanged: es-core/src/LocaleES.h lines with '#define' (68d69442e945)
+every line the stream's range changes in those three headers:
+(none)
+## 3.1 and the second watcher, before (s4-before.txt) and after (s4-after.txt)
+t35-window-input-tests.cpp:240: MESSAGE: ResetComponent returned after 1492 ms
+t35-window-input-tests.cpp:481: MESSAGE: the second watcher's ResetComponent returned after 1491 ms
+t35-window-input-tests.cpp:240: MESSAGE: ResetComponent returned after 0 ms
+t35-window-input-tests.cpp:481: MESSAGE: the second watcher's ResetComponent returned after 0 ms
+## 3.3 (tsan-watchers) before: the first report's two accesses (from the before run's log, kept in s4-before.txt's SAN line); after
+SAN tsan-watchers (-fsanitize=thread): rc 66; WARNING: ThreadSanitizer: data race (pid=660641)
+SAN asan-watchers (-fsanitize=address): rc 0; no sanitizer report
+SAN tsan-watchers (-fsanitize=thread): rc 0; no sanitizer report
+SAN asan-watchers (-fsanitize=address): rc 0; no sanitizer report
+## 3.2 extended (asan-watchers): a second, due watcher unregistered and freed while the first probes, then the first unregistered and freed mid-probe
+asan-watchers: done, 2 notification(s)
+## the wait left (ruling 13), stage-e/s4-unregister-wait.txt: another watcher's unregister returns at once; the probing watcher's own waits for its probe alone, bounded by that probe
+at 5d7707790: s4-unregister-wait: another watcher's unregister 1494 ms; the probing watcher's own unregister 0 ms (its probe takes 1500 ms)
+at 1d5d3e0db: s4-unregister-wait: another watcher's unregister 0 ms; the probing watcher's own unregister 1493 ms (its probe takes 1500 ms)
+## WatchersManager::pause (on the launch path, L-19) untouched: the pin's :29-40 against the tip
+unchanged (55caacf76801)
+## the ES fork's .githooks/pre-push-test before the push
+PASS
+## #1283's checkbox for this slice: check() called with mWatchersLock released -- the fixed run() at 1d5d3e0db, line-cited (git show | cat -n)
+   198	
+   199			// The due records are taken under the list lock and marked in flight;
+   200			// each probe and its notification run outside it, so Register, Reset,
+   201			// Get and every other watcher's Unregister return at once, and the
+   202			// next check time is written back under the lock (#1283).
+   203			std::vector<WatcherInfo*> due;
+   204			auto now = std::chrono::steady_clock::now();
+   205			{
+   206				std::unique_lock<std::mutex> lock(mWatchersLock);
+   207	
+   208				for (auto item : mWatchers)
+   209				{
+   210					if (!item->component->enabled())
+   211						continue;
+   212	
+   213					if (now < item->nextCheckTime)
+   214						continue;
+   215	
+   216					item->probing = true;
+   217					due.push_back(item);
+   218				}
+   219			}
+   220	
+   221			for (auto item : due)
+   222			{
+   223				if (mRunning && item->component->check())
+   224					NotifyComponentChanged(item->component);
+   225	
+   226				std::unique_lock<std::mutex> lock(mWatchersLock);
+   227				item->nextCheckTime = item->resetPending ? std::chrono::steady_clock::now() : now + std::chrono::milliseconds(item->component->updateTime());
+   228				item->resetPending = false;
+   229				item->probing = false;
+   230				mProbeDone.notify_all();
+   231			}
+   232	
+   233			if (!mRunning)
+   234				return;
+   235		}
+   236	}

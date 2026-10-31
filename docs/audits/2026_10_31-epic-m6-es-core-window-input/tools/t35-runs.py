@@ -121,7 +121,6 @@ stc = [
     ["3.27, T33's `stage-c/pl25-screensaver.py` unchanged from `947ace1966`", "1", "1 s", f"`{m_pl.group(1)[:90]}`" if m_pl else "--", "FAIL at the pin as #1305 says; the script takes `SystemScreenSaver.cpp`'s path, not the worktree the brief's line passes"],
 ]
 owed = [
-    ["3.3 after its fix (3.17's came with S2: `SAN tsan-posts ... rc 0`)", "stage E, S4", "no ThreadSanitizer report"],
     ["the PASS halves of the seven", "stage E", "each candidate's PASS line after its fix"],
     ["the streams' guest halves (`fix-walk-pending-image`)", "the coordinator's integration window", "S1's dialog after `z`, S2's toasts and French bar, S3's held screensaver, S5's argv file, S6's reconfigured file, S8's CLEAR and subtitle"],
 ]
@@ -155,6 +154,7 @@ STREAMS = {  # stream: (cases, failed before, failed after, the failing names go
     "S1": (16, 10, 7, ["S1 back on GAME DRIVE DETECTED with an id", "S1 back on NEW DRIVE DETECTED with an id", "S1 back on NEW DRIVE DETECTED without an id"], ("266", "7"), {}),
     "S2": (19, 10, 6, ["3.14 the toast queue drains in the order things happened", "S2 a toast a card takes off the screen", "3.16 an unrelated prompt sharing the action text", "3.16 the dpad's two halves"], ("269", "7"), {"tsan-posts": ("66", "0")}),
     "S3": (21, 7, 6, ["S3 a top page that holds the screensaver"], ("271", "7"), {}),
+    "S4": (23, 7, 5, ["3.1 ResetComponent from another thread", "S4 a second watcher's ResetComponent"], ("273", "7"), {"tsan-watchers": ("66", "0"), "asan-watchers": ("0", "0")}),
 }
 for sn, (cases, fb, fa, gone, tot, sx) in STREAMS.items():
     got = {}
@@ -163,7 +163,9 @@ for sn, (cases, fb, fa, gone, tot, sx) in STREAMS.items():
         w = re.search(r"^RUN window-input-tests: rc (\d+); \[doctest\] test cases: +(\d+) \| +(\d+) passed \| +(\d+) failed", t, re.M)
         tt = re.search(r"^TOTAL: (\d+) test cases in (\d+) binaries$", t, re.M)
         head = re.search(r"^# \S+, (.*?)\. ES HEAD ([0-9a-f]{40})", t, re.M)
-        names = set(re.findall(r"^    TEST CASE:  (.*)$", t, re.M))
+        # S4 on: the `failed case:` lines (an ERROR under the header); before them the excerpt's
+        # TEST CASE headers, which also name a case that only logged a MESSAGE
+        names = set(re.findall(r"^    failed case: (.*)$", t, re.M)) or set(re.findall(r"^    TEST CASE:  (.*)$", t, re.M))
         sanl = re.findall(r"^SAN (\S+) \(-fsanitize=(\w+)\): rc (\d+); (.*?)(?: \(pid=\d+\))?$", t, re.M)
         got[ph] = (w, tt, head, names, sanl)
         for sname, rcs in sx.items():

@@ -155,8 +155,10 @@ for t in ${WT}; do
   "${B}/${t}" > "${B}/${t}.run.log" 2>&1; rc=$?
   echo "RUN ${t}: rc ${rc}; $(grep -E '^\[doctest\] (test cases|assertions):' "${B}/${t}.run.log" | tr -s ' ' | tr '\n' ' ')"
   grep -E '^TEST CASE:|ERROR: CHECK|MESSAGE:|  values: CHECK|ResetComponent returned' "${B}/${t}.run.log" | sed 's/^/    /' | head -n 40
-  # every failing case by name, untruncated (stage E S1 on: the 40-line excerpt above can cut one)
-  grep -E '^TEST CASE:' "${B}/${t}.run.log" | sed 's/^TEST CASE: */    failing: /' | sort -u
+  # every failed case by name, untruncated (stage E S1 on: the 40-line excerpt above can cut
+  # one). A case counts only when an ERROR line follows its header: doctest prints the header
+  # for a MESSAGE too, and S1-S3's `failing:` lines named 3.1 for its message as well (S4).
+  awk '/^TEST CASE:/{tc=$0; sub(/^TEST CASE: */, "", tc)} /ERROR:/{if (tc != "") {print "    failed case: " tc; tc = ""}}' "${B}/${t}.run.log" | sort -u
   [ "${rc}" -eq 0 ] || FAIL=1
 done
 # T35 (#682): the two sanitizer programs (their sources under ../stage-c/), each run

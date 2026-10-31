@@ -452,3 +452,60 @@ TEST_CASE("S3 a top page that does not hold it lets the screensaver start, as ev
 	CHECK(w.saver.started);
 	CHECK(page.activated);
 }
+
+// ---- S4, PL-01 (#1283's es-core half): the watchers probe outside the list lock -----
+// The pin's watchers/WatchersManager.cpp, linked as for 3.1.
+struct QuickWatcher : IWatcher
+{
+	std::atomic<int> probes{ 0 };
+	bool enabled() override { return true; }
+	int updateTime() override { return 60000; }
+	int initialUpdateTime() override { return 60000; }
+	bool check() override { probes++; return false; }
+};
+
+TEST_CASE("S4 a second watcher's ResetComponent returns at once while the first's probe runs (watchers/WatchersManager.cpp:92-104 against :181-199; PL-01, #1283)")
+{
+	static SlowWatcher slow;
+	static QuickWatcher other;
+	slow.started = false;
+	WatchersManager::getInstance();
+	WatchersManager::RegisterComponent(&slow);
+	WatchersManager::RegisterComponent(&other);
+	for (int i = 0; i < 400 && !slow.started; i++)
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
+	REQUIRE(slow.started);
+	auto t0 = std::chrono::steady_clock::now();
+	WatchersManager::ResetComponent(&other);
+	auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - t0).count();
+	MESSAGE("the second watcher's ResetComponent returned after " << ms << " ms");
+	CHECK(ms < 300);
+	WatchersManager::UnregisterComponent(&other);
+	WatchersManager::UnregisterComponent(&slow);
+	WatchersManager::stop();
+}
+
+struct ResetWatcher : IWatcher
+{
+	std::atomic<int> probes{ 0 };
+	bool enabled() override { return true; }
+	int updateTime() override { return 60000; }
+	int initialUpdateTime() override { return 0; }
+	bool check() override { probes++; if (probes == 1) std::this_thread::sleep_for(std::chrono::milliseconds(600)); return false; }
+};
+
+TEST_CASE("S4 a reset during a probe is not lost: the watcher is probed again at the next pass, not after its update time (WatchersManager.cpp:92-104, :199; PL-01, #1283; PASS at the pin, the guard)")
+{
+	static ResetWatcher w;
+	WatchersManager::getInstance();
+	WatchersManager::RegisterComponent(&w);
+	for (int i = 0; i < 400 && w.probes == 0; i++)
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
+	REQUIRE(w.probes >= 1);
+	WatchersManager::ResetComponent(&w);   // during the first, 600 ms probe
+	for (int i = 0; i < 400 && w.probes < 2; i++)
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
+	CHECK(w.probes >= 2);
+	WatchersManager::UnregisterComponent(&w);
+	WatchersManager::stop();
+}

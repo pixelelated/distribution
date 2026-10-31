@@ -3,6 +3,9 @@
 // tests/app-unit/fakes/Log.h. At the pin the list lock spans the probe, so the unregister waits
 // and the WatcherInfo is freed only between iterations: no report is expected at the pin. The
 // case is the guard PL-01's fix (a probe outside the lock) must keep passing (EP-13: re-validate).
+// Stage E S4 extends it: a second watcher, due in the same pass and not yet probed, is unregistered
+// and freed while the first one's probe runs -- the fix must keep that record (and its watcher)
+// out of reach until its own probe has run, so the snapshot marks every due record in flight.
 #include <atomic>
 #include <chrono>
 #include <cstdio>
@@ -24,15 +27,27 @@ struct Slow : IWatcher
 	int initialUpdateTime() override { return 0; }
 	bool check() override { started = true; std::this_thread::sleep_for(std::chrono::milliseconds(400)); return true; }
 };
+struct Quick : IWatcher
+{
+	std::atomic<int> probes{ 0 };
+	bool enabled() override { return true; }
+	int updateTime() override { return 1; }
+	int initialUpdateTime() override { return 0; }
+	bool check() override { probes++; return true; }
+};
 struct Obs : IWatcherNotify { std::atomic<int> n{ 0 }; void OnWatcherChanged(IWatcher*) override { n++; } };
 int main()
 {
 	auto* w = new Slow();
+	auto* q = new Quick();
 	static Obs o;
 	WatchersManager::getInstance();
 	WatchersManager::RegisterNotify(&o);
 	WatchersManager::RegisterComponent(w);
+	WatchersManager::RegisterComponent(q);
 	for (int i = 0; i < 400 && !w->started; i++) std::this_thread::sleep_for(std::chrono::milliseconds(10));
+	WatchersManager::UnregisterComponent(q);   // due in the same pass, behind the slow probe (S4)
+	delete q;
 	WatchersManager::UnregisterComponent(w);   // during the probe
 	delete w;                                  // the caller frees its watcher once unregistered
 	std::this_thread::sleep_for(std::chrono::milliseconds(1500));
