@@ -1,0 +1,109 @@
+# T16 hand-back checks (2026-10-31T06:36:19Z), the branch at d500a0908c; <W> is the lane worktree
+
+$ git status --short | grep -v '^??' | wc -l
+0
+rc=0
+
+$ git merge-base --is-ancestor 8476d6e889 HEAD && echo '8476d6e889 (the coordinator tip) is an ancestor of HEAD'
+8476d6e889 (the coordinator tip) is an ancestor of HEAD
+rc=0
+
+$ git grep -n -I -E '^(<<<<<<<|>>>>>>>)( |$)' | wc -l
+0
+rc=0
+
+$ echo reviewed-at aeebe31248: $(git diff --stat 8ebaf8daad aeebe31248 -- $(cat .qa-scratch/t16/paths.txt) | wc -l) diff lines on the 14 against 8ebaf8daad
+reviewed-at aeebe31248: 0 diff lines on the 14 against 8ebaf8daad
+rc=0
+
+$ echo fixed-at 23dfd53c0e: $(git diff --shortstat 8ebaf8daad 23dfd53c0e -- projects/ROCKNIX/packages/network/rclone)
+fixed-at 23dfd53c0e: 13 files changed, 1183 insertions(+), 355 deletions(-)
+rc=0
+
+$ echo stage E commits on the first-parent line touching tools/: $(git log --first-parent --no-merges --format=%h f05f5727e0^..HEAD -- tools | wc -l)
+stage E commits on the first-parent line touching tools/: 0
+rc=0
+
+$ echo paths the first-parent commits of the lane changed since stage E began outside the rclone package, the audit folder, its retro and the work logs: $(git log --first-parent --no-merges --name-only --format= f05f5727e0^..HEAD | sort -u | grep -v '^$' | grep -v -e '^projects/ROCKNIX/packages/network/rclone/' -e '^docs/audits/2026_10_25-epic-m6-cloud-sync-core/' -e '^docs/retros/2026-10-31-m6-cloud-sync-core.md$' -e '^docs/work-logs/' | wc -l)
+paths the first-parent commits of the lane changed since stage E began outside the rclone package, the audit folder, its retro and the work logs: 0
+rc=0
+
+$ for f in cloud_backup cloud_restore cloud_sync_helper cloud_saves_root cloud_capture cloud_sync_cleanup_duplicates.sh cloud_net_ready; do bash -n projects/ROCKNIX/packages/network/rclone/sources/$f && echo "bash -n $f: ok"; done; bash -n projects/ROCKNIX/packages/network/rclone/autostart/102-cloud-saves && echo 'bash -n 102-cloud-saves: ok'; /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox sh -n projects/ROCKNIX/packages/network/rclone/sources/cloud_net_ready && echo 'busybox sh -n cloud_net_ready: ok'
+bash -n cloud_backup: ok
+bash -n cloud_restore: ok
+bash -n cloud_sync_helper: ok
+bash -n cloud_saves_root: ok
+bash -n cloud_capture: ok
+bash -n cloud_sync_cleanup_duplicates.sh: ok
+bash -n cloud_net_ready: ok
+bash -n 102-cloud-saves: ok
+busybox sh -n cloud_net_ready: ok
+rc=0
+
+$ tools/pkgcheck rclone
+projects/ROCKNIX/packages/network/rclone/package.mk...
+rc=0
+
+$ python3 tools/vocabulary-check | tail -1
+vocabulary-check: 163 string(s) with back up / backup, save state or Wi-Fi judged, 0 wrong
+rc=0
+
+$ tools/register-check
+register-check: 705 IDs, each once; every citation in the live documents names a row
+rc=0
+
+$ tools/work-log-index --check
+work-log index: current
+rc=0
+
+$ tools/rules-check --quiet; echo rules-check done
+rules-check done
+rc=0
+
+$ python3 tools/lint-audit-artifacts docs/audits/2026_10_25-epic-m6-cloud-sync-core | tail -1
+PASS
+rc=0
+
+$ python3 tools/lint-audit-artifacts docs/audits/2026_10_25-epic-m6-cloud-sync-core --phase resolution --issue 1295 | tail -1
+PASS
+rc=0
+
+$ for n in 1295 1298 1299 1300 1301 1302 1303 1304; do echo "#$n $(tools/box-check --issue $n 2>&1 | tail -1)"; done
+#1295 box-check: 1 issue(s), 0 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+#1298 box-check: 1 issue(s), 4 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+#1299 box-check: 1 issue(s), 3 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+#1300 box-check: 1 issue(s), 3 open checkbox(es), 0 fail, 1 issue(s) with rows to re-derive against
+#1301 box-check: 1 issue(s), 2 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+#1302 box-check: 1 issue(s), 2 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+#1303 box-check: 1 issue(s), 2 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+#1304 box-check: 1 issue(s), 2 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+rc=0
+
+$ TMPDIR=/workspace/tmp/m6-t16/tmp tools/cloud-capture-stamp-test projects/ROCKNIX/packages/network/rclone/sources/cloud_capture | tail -1
+PASSED
+rc=0
+
+$ tools/forbidden-terms-check | tail -2
+forbidden-terms-check: 0 hits in 133631 tracked files
+rc=0
+
+$ .githooks/hooks-test 2>&1 | tail -3
+  ok    no wordlist at all: refused
+  ok    a tip this clone does not have: refused
+PASS
+rc=0
+
+$ grep -h -E '^(PASSED|[0-9]+ CHECK)' docs/audits/2026_10_25-epic-m6-cloud-sync-core/stage-e/suite-before.out docs/audits/2026_10_25-epic-m6-cloud-sync-core/stage-e/suite-after.out; for f in docs/audits/2026_10_25-epic-m6-cloud-sync-core/stage-e/suite-before.out docs/audits/2026_10_25-epic-m6-cloud-sync-core/stage-e/suite-after.out; do echo "$f: $(head -1 $f | cut -c1-70) ... PASS $(grep -c '^    PASS  ' $f) FAIL $(grep -c '^    FAIL  ' $f) SKIP $(grep -c '^    SKIP  ' $f); $(tail -1 $f)"; done
+PASSED
+PASSED
+docs/audits/2026_10_25-epic-m6-cloud-sync-core/stage-e/suite-before.out: start 2026-10-30T19:58:33Z tree aeebe31248 QA_SYSTEM_ROOT=/workspace/a ... PASS 1313 FAIL 0 SKIP 0; rc=0 wall=515s end 2026-10-30T20:07:08Z
+docs/audits/2026_10_25-epic-m6-cloud-sync-core/stage-e/suite-after.out: start 2026-10-31T06:18:29Z scripts: 23dfd53c0e (S7's repair and ruling ... PASS 1313 FAIL 0 SKIP 0; rc=0 wall=516s end 2026-10-31T06:27:05Z
+rc=0
+
+$ tools/ceremony-check | tail -3
+  ok    hygiene   no issue closed completed since 2026-09-21 carries an open checkbox
+nothing overdue.
+rc=0
+
+
+(This file is the third run of stage-e/tools/handback-checks.sh. The first ended one check early: a ';' inside its echo text, my own quoting, rc 127, and the check never ran. The second counted the coordinator's commits brought in by the merge 164029a00f as the lane's (12 paths) and broke two reworded lines on an apostrophe. Both counts now follow the first-parent line.)
