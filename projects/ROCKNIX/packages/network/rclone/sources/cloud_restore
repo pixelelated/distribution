@@ -337,10 +337,10 @@ bounded_rclone() {
 # read; what it logs is how RCLONE_MOVED is known for it (the audit of the
 # fixes, claude G-A-01: the game-exit sync stamped a bare 69, SKIPPED, over
 # saves that went up).
-logged_moved() { # <offset into LOG_FILE> [file]
+logged_moved() { # <offset into LOG_FILE, or "" for none> [file]
     local now
     {
-        now=$(stat -c %s "${LOG_FILE}" 2>/dev/null) && [ "${now}" -gt "$1" ] 2>/dev/null \
+        [ -n "$1" ] && now=$(stat -c %s "${LOG_FILE}" 2>/dev/null) && [ "${now}" -gt "$1" ] 2>/dev/null \
             && tail -c +$(( $1 + 1 )) "${LOG_FILE}" 2>/dev/null
         [ -n "${2:-}" ] && cat "$2" 2>/dev/null
     } | grep -qE ': (Copied|Moved) \(|: Deleted$'
@@ -633,86 +633,6 @@ controller_confirm() {
     done
 }
 
-# Get available input devices for controller monitoring
-get_controller_devices() {
-    INPUT_DEVICES=()
-    for DEV in /dev/input/event*; do
-        unset SUPPORTS
-        SUPPORTS=$(udevadm info ${DEV} | awk '/ID_INPUT_KEY=|ID_INPUT_JOYSTICK=/ {print $2}')
-        if [ -n "${SUPPORTS}" ]; then
-            DEVICE=$(udevadm info ${DEV} | awk 'BEGIN {FS="="} /DEVNAME=/ {print $2}')
-            if [[ "${SUPPORTS}" =~ ID_INPUT_JOYSTICK ]]; then
-                INPUT_DEVICES+=("${DEVICE}")
-            fi
-        fi
-    done
-}
-
-# Controller-friendly menu with evtest-based input handling
-# Parameters: $1=title, $@=options
-controller_menu() {
-    local title="$1"
-    shift
-    local options=("$@")
-    local selected=0
-    local choice_made=false
-    local user_choice=""
-    
-    get_controller_devices
-    
-    while [ "$choice_made" = false ]; do
-        # Display menu
-        clear
-        echo -e "\e[36m${title}\e[0m"
-        echo "Use D-Pad to navigate, A button to confirm, B button to cancel"
-        echo ""
-        
-        for i in "${!options[@]}"; do
-            if [ $i -eq $selected ]; then
-                echo -e "> \e[32m${options[$i]}\e[0m"
-            else
-                echo "  ${options[$i]}"
-            fi
-        done
-        echo ""
-        echo "Controls: D-Pad=Navigate, A=Confirm, B=Cancel"
-        
-        # Monitor controller input with timeout
-        (
-            for INPUT_DEVICE in ${INPUT_DEVICES[@]}; do
-                timeout 1 evtest "${INPUT_DEVICE}" 2>&1 &
-            done
-            wait
-        ) | while read line; do
-            case ${line} in
-                (${UP_EVENT}|${UP_ALT_EVENT})
-                    selected=$(( (selected - 1 + ${#options[@]}) % ${#options[@]} ))
-                    break
-                ;;
-                (${DOWN_EVENT}|${DOWN_ALT_EVENT})
-                    selected=$(( (selected + 1) % ${#options[@]} ))
-                    break
-                ;;
-                (${CONFIRM_EVENT})
-                    user_choice="${options[$selected]}"
-                    choice_made=true
-                    break
-                ;;
-                (${CANCEL_EVENT})
-                    user_choice=""
-                    choice_made=true
-                    break
-                ;;
-            esac
-        done
-        
-        # Small delay to prevent rapid menu updates
-        sleep 0.1
-    done
-    
-    echo "$user_choice"
-}
-
 # Somebody who starts a restore and walks away has no way to learn how it went:
 # the progress card is gone by the time they come back, and the toast that
 # reported the outcome went with it. Leave the answer where the menu can read
@@ -787,8 +707,8 @@ say_why() {
 # Names on stdin within a typo of the one wanted -- two edits, one for a
 # name under five characters -- compared without case: Savez, saves, Save,
 # Saves2 against Saves (#127). The exact name is never among them, since it
-# is the folder that was found missing. busybox awk: no gensub, no
-# multi-dimensional array syntax beyond SUBSEP, both avoided.
+# is the folder that was found missing. Written without gensub and with
+# SUBSEP arrays only, which any awk has (busybox 1.36.1's has gensub too).
 near_names() {
     awk -v want="$1" '
     function lev(a, b,    i, j, la, lb, cost, ai, bj, best) {
@@ -1302,7 +1222,12 @@ conf_valid() {
 load_config() {
     # The helper first: it carries renamed keys across (D-UI-022) and appends
     # new defaults, and the values sourced below must be the migrated ones.
-    if [ -f "/usr/bin/cloud_sync_helper" ]; then
+    # Not on a --recent run, the game-exit sync (PL-08): the startup sync and
+    # post-update run it, so a changed default has reached the conf before
+    # an exit sync reads it. cloud_restore has no --recent; RECENT is unset.
+    if [ "${RECENT:-0}" -eq 1 ]; then
+        log_message "rules and config not updated on a --recent run; the startup sync updates them" "false"
+    elif [ -f "/usr/bin/cloud_sync_helper" ]; then
         log_message "Updating cloud sync rules and config" "false"
         /usr/bin/cloud_sync_helper ${LOG_FILE}
     fi
@@ -1547,17 +1472,6 @@ device_id_tool() {
     [ -x "${tool}" ] && echo "${tool}"
 }
 
-# This device's folder in the cloud. cloud_device_id owns the derivation --
-# one implementation, because backup and restore disagreeing here means a
-# device cannot find the archive it wrote.
-device_folder() {
-    local id="" tool
-    tool=$(device_id_tool)
-    [ -n "${tool}" ] && id=$("${tool}" 2>/dev/null | tr -cd 'A-Za-z0-9_.-')
-    [ -z "${id}" ] && id="device-unknown"
-    echo "${id}"
-}
-
 # What this device's archives are named after. backuptool writes
 # <stamp>-<label>-ROCKNIX_SETTINGS.tar.gz with the label cloud_device_id
 # derives from the device tree ("Anbernic-RG-SP"), so an archive's name says
@@ -1634,8 +1548,9 @@ execute_rclone_with_error_handling() {
     rclone "${method}" "${extra_opts[@]}" "${RCLONE_NET_OPTS_ARRAY[@]}" "${source}" "${dest}" 2>"$stderr_file"
     local rclone_exit_code=$?
     # With no --log-file in the options rclone's own lines, the ones that
-    # say what moved, are on stderr (claude G-A-01).
-    logged_moved "$(stat -c %s "${LOG_FILE}" 2>/dev/null || echo 0)" "$stderr_file" && RCLONE_MOVED=1
+    # say what moved, are on stderr (claude G-A-01). Its stderr alone: an
+    # offset into LOG_FILE taken here, after the transfer, read nothing (PL-09).
+    logged_moved "" "$stderr_file" && RCLONE_MOVED=1
     
     # Log any stderr output for debugging
     if [ -s "$stderr_file" ]; then
@@ -2067,11 +1982,6 @@ restore_game_saves() {
         log_message "the remote keeps modtimes or hashes: rclone's own comparison" "false"
     fi
 
-    # Check if the rclone version supports the terminal width flag
-    if rclone help | grep -q progress-terminal-width; then
-        all_opts+=("--progress-terminal-width=80")
-    fi
-    
     recover_replaced_local "${replaced_root}" "${replaced_stamp}"
     REPLACED_DIR="${replaced_root}/${replaced_stamp}"
 
@@ -2219,11 +2129,6 @@ restore_system_files() {
         # download at the moment someone is already waiting for their data.
         backup_opts+=("--ignore-times")
 
-        # Check if the rclone version supports the terminal width flag
-        if rclone help | grep -q progress-terminal-width; then
-            backup_opts+=("--progress-terminal-width=80")
-        fi
-        
         # Read both layouts, and write only the new one (cloud_backup does
         # that). Archives made before per-device folders sit at the root of
         # SETTINGS_REMOTE, and they are still someone's only backup -- a device
@@ -2360,12 +2265,6 @@ restore_system_files() {
                 --include|--exclude|--filter|--filter-from)
                     skip_next=1; continue ;;
                 --include=*|--exclude=*|--filter*) continue ;;
-                # The guard that adds this greps `rclone help`, which mentions
-                # the flag on builds that do not accept it -- so it reaches the
-                # command line and rclone exits with "unknown flag", having
-                # transferred nothing while the run still reported success. It
-                # only shapes the progress display, so nothing is lost here.
-                --progress-terminal-width*) continue ;;
             esac
             fetch_opts+=("${opt}")
         done

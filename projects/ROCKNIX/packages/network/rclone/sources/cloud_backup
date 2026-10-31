@@ -67,8 +67,12 @@ RCLONE_NET_OPTS_ARRAY=()
 #                   (the game-exit sync); always copies, never tidies
 #
 # Exit codes the UI names: EXIT_LOCK_HELD (75) = skipped, another cloud sync
-# holds the lock; EXIT_NO_NETWORK (69) = skipped, no network. Neither writes a
-# last-run stamp -- nothing ran. Defined below, with why those two numbers.
+# holds the lock; EXIT_NO_NETWORK (69) = skipped, no network. 75 writes no
+# last-run stamp: it leaves before anything runs. 69 writes none when there is
+# no network before the run; when the network goes during it
+# (network_lost_during_run, through clean_exit) the stamp is <epoch> 69, with
+# gaps and YOU WENT OFFLINE PART-WAY THROUGH when a file had moved. Defined
+# below, with why those two numbers.
 ASSUME_YES=0
 METHOD_OVERRIDE=""
 EXTRA_UPDATE=0
@@ -347,10 +351,10 @@ bounded_rclone() {
 # read; what it logs is how RCLONE_MOVED is known for it (the audit of the
 # fixes, claude G-A-01: the game-exit sync stamped a bare 69, SKIPPED, over
 # saves that went up).
-logged_moved() { # <offset into LOG_FILE> [file]
+logged_moved() { # <offset into LOG_FILE, or "" for none> [file]
     local now
     {
-        now=$(stat -c %s "${LOG_FILE}" 2>/dev/null) && [ "${now}" -gt "$1" ] 2>/dev/null \
+        [ -n "$1" ] && now=$(stat -c %s "${LOG_FILE}" 2>/dev/null) && [ "${now}" -gt "$1" ] 2>/dev/null \
             && tail -c +$(( $1 + 1 )) "${LOG_FILE}" 2>/dev/null
         [ -n "${2:-}" ] && cat "$2" 2>/dev/null
     } | grep -qE ': (Copied|Moved) \(|: Deleted$'
@@ -1244,7 +1248,12 @@ conf_valid() {
 load_config() {
     # The helper first: it carries renamed keys across (D-UI-022) and appends
     # new defaults, and the values sourced below must be the migrated ones.
-    if [ -f "/usr/bin/cloud_sync_helper" ]; then
+    # Not on a --recent run, the game-exit sync (PL-08): the startup sync and
+    # post-update run it, so a changed default has reached the conf before
+    # an exit sync reads it. cloud_restore has no --recent; RECENT is unset.
+    if [ "${RECENT:-0}" -eq 1 ]; then
+        log_message "rules and config not updated on a --recent run; the startup sync updates them" "false"
+    elif [ -f "/usr/bin/cloud_sync_helper" ]; then
         log_message "Updating cloud sync rules and config" "false"
         /usr/bin/cloud_sync_helper ${LOG_FILE}
     fi
@@ -1603,8 +1612,9 @@ execute_rclone_with_error_handling() {
     rclone "${method}" "${extra_opts[@]}" "${RCLONE_NET_OPTS_ARRAY[@]}" "${source}" "${dest}" 2>"$stderr_file"
     local rclone_exit_code=$?
     # With no --log-file in the options rclone's own lines, the ones that
-    # say what moved, are on stderr (claude G-A-01).
-    logged_moved "$(stat -c %s "${LOG_FILE}" 2>/dev/null || echo 0)" "$stderr_file" && RCLONE_MOVED=1
+    # say what moved, are on stderr (claude G-A-01). Its stderr alone: an
+    # offset into LOG_FILE taken here, after the transfer, read nothing (PL-09).
+    logged_moved "" "$stderr_file" && RCLONE_MOVED=1
     
     # Log any stderr output for debugging
     if [ -s "$stderr_file" ]; then
@@ -1999,8 +2009,6 @@ backup_game_saves() {
             ;;
     esac
 
-    # Check if the rclone version supports the terminal width flag
-
     # Execute rclone with enhanced error handling
     execute_rclone_with_error_handling \
         "${BACKUPMETHOD}" \
@@ -2156,11 +2164,6 @@ backup_system_files() {
             "--stats" "1s"
         )
 
-        # Check if the rclone version supports the terminal width flag
-        if rclone help | grep -q progress-terminal-width; then
-            backup_opts+=("--progress-terminal-width=80")
-        fi
-        
         # rclone decides whether to send a file by comparing it with the one
         # already there. Given neither modification times nor hashes it falls
         # back to size alone, and plenty of remotes offer neither -- a WebDAV
@@ -2268,12 +2271,6 @@ backup_system_files() {
                 --include|--exclude|--filter|--filter-from)
                     skip_next=1; continue ;;
                 --include=*|--exclude=*|--filter*) continue ;;
-                # The guard that adds this greps `rclone help`, which mentions
-                # the flag on builds that do not accept it -- so it reaches the
-                # command line and rclone exits with "unknown flag", having
-                # transferred nothing while the run still reported success. It
-                # only shapes the progress display, so nothing is lost here.
-                --progress-terminal-width*) continue ;;
             esac
             copy_opts+=("${opt}")
         done

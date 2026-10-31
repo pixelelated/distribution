@@ -1,0 +1,15 @@
+S5 checks 2026-10-31T05:43:23Z
+bash -n cloud_backup: ok
+bash -n cloud_restore: ok
+busybox sh -n cloud_net_ready: ok
+bash -n autostart/102-cloud-saves: ok
+tools/pkgcheck rclone, before (the recipe unchanged since 8ebaf8daad): rc 0, the one line it iterates: projects/ROCKNIX/packages/network/rclone/package.mk... (no finding)
+tools/pkgcheck rclone, after: rc 0, the same line: projects/ROCKNIX/packages/network/rclone/package.mk... (no finding); the brief's path form matched nothing (the coordinator's correction, 00:47)
+tools/vocabulary-check rc=0: vocabulary-check: 163 string(s) with back up / backup, save state or Wi-Fi judged, 0 wrong
+added lines with a QEMU, VM, port-forward or loopback word: 0
+player sentences: none added or changed; two log lines added (cloud_backup/cloud_restore load_config under --recent, cloud_net_ready's first look), neither on a screen
+the twins: load_config's head and logged_moved byte-identical in both (diff empty)
+git log -S: controller_menu() and get_controller_devices() arrived in 9f1fab30f6 (2025-07-13, upstream's 'projects: add modifications for ROCKNIX'), where controller_menu is named once, its definition -- never called; get_controller_devices is called only by it. device_folder() arrived in b132442778 (2026-08-29); its last caller in cloud_restore went in f864baac02 (#383, 2026-10-02). cloud_backup's device_folder stays (called at the settings phase)
+the helper: one start per twin run before S5 (S4's cell logs: 1 'Updating cloud sync rules and config' per run) -- no second run inside a twin run; the second conf_valid is load_config's own (S3). S5 skips it under --recent (ruling 7): s5-after.out, 0 helper lines on the exit sync's flags, 5 on a deliberate run
+scripts/unpack's errexit: on -- config/options sources config/path, whose line 4 is set -e, and pkg_call runs unpack() as a plain statement; s5 runs both (errexit off and on)
+t16-functions.py after: uncalled none; its count deltas (cloud_capture 41, shared 38) are S2's conf_value and S5's device_folder removal against its 8ebaf8daad counts, not findings

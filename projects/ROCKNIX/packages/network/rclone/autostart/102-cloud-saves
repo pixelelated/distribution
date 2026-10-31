@@ -37,14 +37,16 @@
 # Only a device that has turned cloud saves on runs it: a device with both
 # toggles off has no consumer for the manifest, and boot time is not ours to
 # spend (#84, D-CLOUD-057). Detached and niced, so it never delays boot and
-# never holds the autostart runner; it needs no network and takes no lock.
+# never holds the autostart runner; it needs no network and takes no cloud
+# lock (only the capture's own, while it commits).
 #
 # Two residuals of running it detached, both accepted (D-CLOUD-064):
 # - It can still be finishing when the first game exits, so the two are
-#   concurrent writers of one manifest. Capture takes no lock; the loser sees
-#   the file change under it and, for an exit capture, re-runs once against
-#   the winner's document, so the first version a game wrote is not lost to
-#   the race. --full itself never retries.
+#   concurrent writers of one manifest. Each commits under the capture's own
+#   lock (.capture.lock, PL-067), never cloud_sync.lock; the loser sees the
+#   file change under it and, for an exit capture, re-runs once against the
+#   winner's document, so the first version a game wrote is not lost to the
+#   race. --full itself never retries.
 # - On a two-card device that has never synced there is no saves-root record,
 #   so `cloud_saves_root check --wait` returns at once and this pass may hash
 #   the internal card's copies before the automount binds the second card;

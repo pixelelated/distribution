@@ -1,0 +1,50 @@
+== T16 host lead S5 the exit path's cost, the dead code, the comments, the recipe's unpack -- 2026-10-31T05:42:58Z
+donor root: /workspace/artifacts/m6-donor/1a0266484423/image/system (BUILD_ID 1a0266484423); sha256sum -c ../../SHA256SUMS:
+  usr/bin/busybox: OK
+  usr/bin/rclone: OK
+  etc/os-release: OK
+the scripts and /usr/config: /workspace/tmp/m6-t16/hl/root-s5 (tree), 2 of 12 sha256-equal to the guest's installed bytes at 8ebaf8daad (guest-cycle/installed.sha256)
+from the donor: busybox v1.36.1 (146 applet links), rclone v1.75.2
+host stand-ins (not in the donor): bash 5.3.9(1)-release (image: 5.3), timeout (GNU coreutils) 9.7 (image: 9.4), grep (GNU grep) 3.12 (image: 3.9), python3 3.14.4, ip (iproute2)
+sandbox: stage-e/tools/sbx.sh (bwrap, own pid namespace, host network); backend: cloud-test-backend at 3a653eaec4, WebDAV 127.0.0.1:9010, state /workspace/tmp/m6-t16/hl/state
+
+== S5-probe (2026-10-31T05:42:58Z)
+  cloud_backup: lines naming --progress-terminal-width: 0
+  cloud_restore: lines naming --progress-terminal-width: 0
+  donor rclone help | grep -c progress-terminal-width: 0
+  donor rclone version --progress-terminal-width=80: rc=2 Error: unknown flag: --progress-terminal-width
+
+== S5-awk: the donor's awk (2026-10-31T05:42:58Z)
+  awk -> busybox; gensub: a<b>c rc=0
+  cloud_restore's line: 710:# is the folder that was found missing. Written without gensub and with
+
+== S5-fns: tools/t16-functions.py over the root's scripts (2026-10-31T05:42:58Z)
+  by script {'cloud_backup': 45, 'cloud_restore': 47, 'cloud_capture': 41} | uncalled none | the tool's count deltas (it counts 8ebaf8daad) ['cloud_capture 41 != 40', 'shared 38 != 39']
+
+== S5-recent: cloud_backup --yes --saves-only --recent --automatic (2026-10-31T05:42:59Z)
+  rc=0
+Game saves: COMPLETED
+  the log's helper lines: 0
+  its lines on the rules and config:  [INFO] [cloud_backup] rules and config not updated on a --recent run; the startup sync updates them|
+== S5-recent: cloud_backup --yes --saves-only (2026-10-31T05:43:00Z)
+  rc=0
+Game saves: COMPLETED
+  the log's helper lines: 5
+  its lines on the rules and config:  [INFO] [cloud_backup] Updating cloud sync rules and config|
+
+== S5-grace: cloud_net_ready, NetworkManager's answer from a stand-in (2026-10-31T05:43:01Z)
+  default route here: default via 192.168.1.1
+  connected, connectivity full: rc=0 after 4 ms; stdout: nothing
+  connected, connectivity limited: rc=0 after 3034 ms; stdout: >>> doing network
+  connected (site only), connectivity limited: rc=0 after 3046 ms; stdout: >>> doing network
+  the log:  [INFO] [cloud_net_ready] network up at the first look (connected, connectivity full), ready after 0s| [INFO] [cloud_net_ready] network settled (connected, connectivity limited), held 3s, ready after 3s| [INFO] [cloud_net_ready] network settled (connected (site only), connectivity limited), held 3s, ready after 3s|
+
+== S5-unpack: the recipe's unpack() from tree (2026-10-31T05:43:07Z)
+  the function: 14 lines, sha256 5533ce080dee49eb
+  good zip, errexit off: the shell rc=0 (returned 0 ); sources/rclone: rclone-1.75.2.zip rclone-1.75.2.zip.sha256 ; build: ./rclone-v1.75.2-linux-amd64/rclone 
+  good zip, errexit on: the shell rc=0 (returned 0 ); sources/rclone: rclone-1.75.2.zip rclone-1.75.2.zip.sha256 ; build: ./rclone-v1.75.2-linux-amd64/rclone 
+  broken zip, errexit off: the shell rc=1 (); sources/rclone: rclone-1.75.2.zip rclone-1.75.2.zip.sha256 ; build: 
+  broken zip, errexit on: the shell rc=9 (); sources/rclone: rclone-1.75.2.zip rclone-1.75.2.zip.sha256 ; build: 
+  host unzip: UnZip 6.00 of 20 April 2009, by Debian.  (the build container's runs the recipe)
+
+== end 2026-10-31T05:43:07Z

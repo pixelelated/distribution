@@ -48,14 +48,18 @@ PKG_URL="https://downloads.rclone.org/v${PKG_VERSION}/rclone-v${PKG_VERSION}-lin
 PKG_RCLONE="rclone-v${PKG_VERSION}-linux-${RCLONE_ARCH}/rclone"
 
 unpack() {
-  # Create build directory
+  # The download stays as scripts/get left it: sources/ is a content-addressed
+  # cache shared by every build (device-builds.md), so it is neither renamed
+  # nor removed here, and the next build does not fetch it again (PL-14).
+  # unzip's status is read on its own line: a broken download stops the
+  # unpack. scripts/unpack runs this under config/path's set -e as well.
   mkdir -p ${PKG_BUILD}
-  # Rename the downloaded zip to include architecture for better tracking
-  mv ${SOURCES}/rclone/rclone-${PKG_VERSION}.zip ${SOURCES}/rclone/rclone-${PKG_VERSION}-${RCLONE_ARCH}.zip
-  # Extract the binary package to the build directory
-  unzip ${SOURCES}/rclone/rclone-${PKG_VERSION}-${RCLONE_ARCH}.zip -d ${PKG_BUILD}/
-  # Remove downloaded zip files to conserve space
-  rm -f ${SOURCES}/rclone/rclone-${PKG_VERSION}*
+  unzip ${SOURCES}/rclone/rclone-${PKG_VERSION}.zip -d ${PKG_BUILD}/
+  local rc=$?
+  if [ ${rc} -ne 0 ]; then
+    echo "rclone: unzip of ${SOURCES}/rclone/rclone-${PKG_VERSION}.zip failed (${rc})" >&2
+    exit 1
+  fi
 }
 
 makeinstall_target() {

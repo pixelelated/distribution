@@ -7,9 +7,11 @@
 # Usage: cloud_net_ready [--wait N]
 #
 #   exit 0    NetworkManager reports the connection up (STATE connected,
-#             in any connected state -- its connectivity word is only logged) and it
-#             has stayed up for GRACE seconds with a default route the
-#             whole time
+#             in any connected state -- its connectivity word is otherwise only
+#             logged) and it has stayed up for GRACE seconds with a default
+#             route the whole time; or its first answer, with a default
+#             route, is connected with connectivity full: a link already up is
+#             not held for the grace again (PL-08)
 #   exit 69   no network: there is no default route and nothing is coming
 #             up -- at once, without waiting (D-CLOUD-072: a device booted
 #             with its radio off never holds the card); or a link that was
@@ -126,6 +128,7 @@ ANNOUNCED=0
 FALLBACK_SAID=0
 STATE=""
 CONN=""
+FIRST_LOOK=1
 
 while :; do
     NOW=$(uptime_cs)
@@ -156,6 +159,7 @@ while :; do
             exit "${EXIT_NO_NETWORK}"
         fi
         SETTLED_SINCE=""
+        FIRST_LOOK=0
         if [ "${ANNOUNCED}" = 0 ]; then
             echo ">>> doing network"
             ANNOUNCED=1
@@ -167,6 +171,15 @@ while :; do
     STATE=$(nm_state)
     if [ -n "${STATE}" ]; then
         CONN=$(nm_connectivity)
+        # The first look, with a route: the whole stack already agrees the
+        # link is up, so it is not held again. The grace was counted from
+        # this script's own first look, and a startup sync on a link up for
+        # hours waited three seconds for nothing (PL-08). Any other first
+        # answer -- connecting, limited, site only -- keeps the grace.
+        if [ "${FIRST_LOOK}" = 1 ] && [ "${STATE}" = connected ] && [ "${CONN}" = full ]; then
+            log "network up at the first look (connected, connectivity full), ready after $(((NOW - START) / 100))s"
+            exit 0
+        fi
         # Any "connected" state settles -- "connected", "connected (site
         # only)", "connected (local only)" -- once the default route above
         # has held for GRACE seconds. NetworkManager's connectivity word is
@@ -209,6 +222,7 @@ while :; do
         fi
     fi
 
+    FIRST_LOOK=0
     if [ "${ANNOUNCED}" = 0 ]; then
         echo ">>> doing network"
         ANNOUNCED=1
