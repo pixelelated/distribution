@@ -1,0 +1,68 @@
+# T35 amended hand-back: the checks. Distribution 25406e2170 (after the refreshed merge of the coordinator's 978cd73da6), ES b7fdb3a24 (on origin); 2026-10-31T23:09:29Z
+## the five on the distribution branch
+register-check: 712 IDs, each once; every citation in the live documents names a row
+register-check rc=0
+work-log index: current
+work-log-index --check rc=0
+(rules-check --quiet prints nothing when it passes)
+rules-check --quiet rc=0
+forbidden-terms-check: 0 hits in 133734 tracked files
+forbidden-terms-check rc=0
+PASS
+hooks-test rc=0
+## the ES fork's .githooks/pre-push-test at the ES tip
+PASS
+pre-push-test rc=0
+## the lint, both ways, and the audit issue
+PASS
+lint (resolution) rc=0
+PASS
+lint --issue 1337 rc=0
+box-check: 1 issue(s), 0 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+box-check --issue 1337 rc=0
+## the words and the map at the ES tip
+es-untranslated: 707 fork string(s) in the source, 707 with French, 0 without
+es-untranslated rc=0
+es-untranslated: 704 fork string(s) in the source, 704 with French, 0 without
+es-untranslated(cada) rc=0
+55 screen(s) at b7fdb3a24, 31 in the map, 24 declared unmapped, 0 missing
+es-menu-map-check rc=0
+## the stand-in at the tip (handback2-standin.txt), one line per edited .cpp and the total
+rc=0 InputManager.cpp
+rc=0 Log.cpp
+rc=0 PowerSaver.cpp
+rc=0 Scripting.cpp
+rc=0 Window.cpp
+rc=0 guis/GuiDetectDevice.cpp
+rc=0 guis/GuiInputConfig.cpp
+rc=0 guis/GuiTextEditPopup.cpp
+rc=0 guis/GuiTextEditPopupKeyboard.cpp
+rc=0 watchers/WatchersManager.cpp
+t35-syntax-check: 44 file(s) checked, 44 rc 0, 0 not
+es-syntax-check: CANNOT on this host for each of the 10 edited .cpp (es-syntax-check: no build root at /workspace/repos/rocknix.worktrees/generic-x64/build.ROCKNIX-GENERIC_X64.x86_64 (ES_BUILD_ROOT, --root); rc 2)
+## the collisions at the new tip
+unchanged: es-core/src/Window.h lines with 'postToUiThread('
+unchanged: es-core/src/Window.h lines with 'createAsyncNotificationComponent('
+unchanged: es-core/src/Log.h lines with 'enum'
+unchanged: es-core/src/LocaleES.h lines with '#define'
+es-core/CMakeLists.txt lines changed pin..tip: 0
+T34's ES tip: 52f0ff512, its delta inside the 96 against the pin: 0 files
+patch --dry-run -p1 of T34's s2-window.patch over T35's ES tip b7fdb3a24:
+checking file es-core/src/Window.h
+Hunk #1 succeeded at 10 with fuzz 1 (offset 1 line).
+Hunk #2 succeeded at 98 (offset 1 line).
+Hunk #3 succeeded at 124 (offset 1 line).
+checking file es-core/src/Window.cpp
+Hunk #1 succeeded at 36.
+Hunk #2 succeeded at 1158 (offset 8 lines).
+Hunk #3 succeeded at 1178 (offset 12 lines).
+Hunk #4 succeeded at 1266 (offset 12 lines).
+Hunk #5 succeeded at 1277 (offset 12 lines).
+patch --dry-run -p1 of T34's s3-msgbox.patch over T35's ES tip b7fdb3a24:
+checking file es-core/src/guis/GuiMsgBox.cpp
+Hunk #1 succeeded at 164.
+## the lane's own commits since the dispatch merge b51dd8a805 touch nothing under packages/, projects/ or tools/
+first-parent commits: 0
+every non-merge commit in the range: fb9258ba61 (the coordinator's, brought in by the hand-back merges)
+## the merge-marker check over every file the refreshed merge changed
+files with a marker: 0

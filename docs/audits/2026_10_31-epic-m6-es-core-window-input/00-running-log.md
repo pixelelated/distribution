@@ -392,3 +392,18 @@
   - From the hold, no compile runs until M7's `RETURN slot2`.
   - The scratch runners (`tb.sh`, `standin.sh`) now refuse while M7's last host-file line is a START. Seen to refuse: `refused: M7's slot is open ...`, rc 3, no START written.
 - **Time to play:** none on the launch path. The atomic's load in `pushRefreshEvent` is one per post.
+
+## [Stage H, amended] 23:06 to 23:12 UTC 2026-10-31 — the hand-back amended for S9
+
+- **The coordinator's branch** is refreshed to `978cd73da6` (merge `25406e2170`, nine commits on from `0f9f8f69fe`). The day's log and its index conflicted and were united by whole entries (16 in the conflicted span), the index regenerated, 0 markers. `register-check` reads 712 IDs.
+- **After M7's `RETURN slot2`** (23:06:36 on the host file; the coordinator's notice, #682 comment 6550368955), the amended hand-back's build and stand-in ran at the new tips, ES `b7fdb3a24` and distribution `25406e2170`, each with its host-file lines (`stage-e/handback2-build.txt`, `handback2-standin.txt`).
+  - The build: `rc=0`, `TOTAL: 283 test cases in 8 binaries`, every binary at 0 failed, `may_fail: 1` (3.5, PL-18). All seven `SAN` lines are `rc 0; no sanitizer report`, `tsan-powersaver` included.
+  - The stand-in: `44 rc 0`.
+- **The checks** (`stage-e/handback2-checks.txt`):
+  - The five checkers, the ES `pre-push-test`, the lint both ways and `box-check --issue 1337` pass.
+  - `es-untranslated` 707 and 704, 0 without; `es-menu-map-check` 0 missing.
+  - The doubles' signatures unchanged; `es-core/CMakeLists.txt` untouched.
+  - T34's tip `52f0ff512` still at 0 files inside the 96. Its two patches dry-run over `b7fdb3a24` exactly as over `d0e5b3432` (`Window.h` hunk 1 at fuzz 1).
+  - The lane's first-parent commits touch nothing under `packages/`, `projects/` or `tools/`.
+- **After this commit:** `fixed-at` (this commit) and `fixed-at-es` (`b7fdb3a24`) move in #682's header. #1357's body gets its `fixed-at-es` and its one criterion ticked from `stage-e/s9-after.txt`. Then the amended hand-back post.
+- **The other fifteen bugs' `fixed-at-es` stays `d0e5b3432`**: their fixes are unchanged, and `d0e5b3432` is an ancestor of the new tip.
