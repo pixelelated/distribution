@@ -28,7 +28,11 @@ struct AsyncNotificationComponent
 #endif
 	std::mutex mMutex; std::string mText; bool mClosing = false, mRunning = true; int mFadeTime = 0;
 	void close() { mClosing = true; }
-	void updateText(const std::string& t) { std::unique_lock<std::mutex> lock(mMutex); mText = t; }
+	void updateText(const std::string& t, const std::string& = "") { std::unique_lock<std::mutex> lock(mMutex); mText = t; }
+	void updateText(const std::string& t, const std::vector<std::string>&) { updateText(t); }
+	void updateText(const std::vector<std::string>& t, const std::vector<std::string>&) { updateText(t.empty() ? "" : t[0]); }
+	void updateTitle(const std::string&) {}
+	void updatePercent(int) {}
 	void update(int dt) { if (mClosing && (mFadeTime += dt) > 500) mRunning = false; }
 	bool isRunning() { return mRunning; }
 };
@@ -66,6 +70,11 @@ int main() {
 	int refused = 0;
 	if (auto c = h.lock()) c->close(); else refused++;
 	if (auto c = h.lock()) c->updateText("COMPLETED"); else refused++;
+	// The holders' own form since the S2 addendum: -> forwards, each call locks.
+	h->close(); h->updateText("LATE"); h->updatePercent(100);
+	// == nullptr keeps the pointer's meaning: never given a card.
+	AsyncNotificationComponent::Handle none;
+	bool nullMeaning = (none == nullptr) && !(h == nullptr);
 	// A holder mid-call when the card retires: the retired list keeps it
 	// until the window holds the last reference, then drops it on its thread.
 	auto h2 = w.createAsyncNotificationComponent();
@@ -86,7 +95,7 @@ int main() {
 	size_t posted = w.mFunctions.size();
 	for (auto& f : w.mFunctions) f();
 	std::printf("late calls refused: %d of 2; kept while held: %zu, after the drain: %zu; deletes handed back to the window's thread: %zu\n", refused, keptWhileHeld, afterDrain, posted);
-	return refused == 2 && keptWhileHeld == 1 && afterDrain == 0 && postedAfterDrain == 0 && posted == 1 ? 0 : 1;
+	return refused == 2 && nullMeaning && keptWhileHeld == 1 && afterDrain == 0 && postedAfterDrain == 0 && posted == 1 ? 0 : 1;
 }
 #else
 struct WindowD {

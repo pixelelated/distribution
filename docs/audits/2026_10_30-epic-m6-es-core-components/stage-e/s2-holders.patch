@@ -1,0 +1,133 @@
+--- a/es-app/src/ContentInstaller.h	2026-10-31 06:46:26.826350433 +0000
++++ b/es-app/src/ContentInstaller.h	2026-10-31 06:46:26.849070979 +0000
+@@ -7,7 +7,7 @@
+ #include <utility>
+ 
+ class Window;
+-class AsyncNotificationComponent;
++#include "components/AsyncNotificationComponent.h" // the handle needs the class (#1310)
+ 
+ class IContentInstalledNotify
+ {
+@@ -42,7 +42,7 @@
+ 	void threadUpdate();
+ 
+ private:
+-	AsyncNotificationComponent* mWndNotification;
++	AsyncNotificationComponent::Handle mWndNotification;
+ 	Window*						mWindow;
+ 	std::thread*				mHandle;
+ 
+--- a/es-app/src/ThreadedBluetooth.h	2026-10-31 06:46:26.828696816 +0000
++++ b/es-app/src/ThreadedBluetooth.h	2026-10-31 06:46:26.849121184 +0000
+@@ -17,7 +17,7 @@
+ 	~ThreadedBluetooth();
+ 
+ 	Window*						mWindow;
+-	AsyncNotificationComponent* mWndNotification;
++	AsyncNotificationComponent::Handle mWndNotification;
+ 
+ 	std::thread*				mHandle;
+ 	static ThreadedBluetooth*	mInstance;
+@@ -40,7 +40,7 @@
+ 	~ThreadedFormatter();
+ 
+ 	Window*						mWindow;
+-	AsyncNotificationComponent* mWndNotification;
++	AsyncNotificationComponent::Handle mWndNotification;
+ 
+ 	std::thread*				mHandle;
+ 	static ThreadedFormatter*	mInstance;
+--- a/es-app/src/ThreadedCloudSync.h	2026-10-31 06:46:26.830581949 +0000
++++ b/es-app/src/ThreadedCloudSync.h	2026-10-31 06:46:26.849172565 +0000
+@@ -188,7 +188,7 @@
+ 	long						mFilesTotal{-1};
+ 
+ 	Window*						mWindow;
+-	AsyncNotificationComponent* mWndNotification;
++	AsyncNotificationComponent::Handle mWndNotification;
+ 
+ 	static std::atomic<ThreadedCloudSync*> mInstance;
+ 	// Every change to mInstance, and every use of the object it names, is
+--- a/es-app/src/ThreadedHasher.h	2026-10-31 06:46:26.832400976 +0000
++++ b/es-app/src/ThreadedHasher.h	2026-10-31 06:46:26.849210633 +0000
+@@ -47,7 +47,7 @@
+ 	std::unordered_set<FileData*> mLookupOnly;
+ 
+ 	Window* mWindow;
+-	AsyncNotificationComponent* mWndNotification;
++	AsyncNotificationComponent::Handle mWndNotification;
+ 	std::string		mCurrentAction;
+ 
+ 	std::vector<std::string> mErrors;
+--- a/es-app/src/guis/GuiUpdate.h	2026-10-31 06:46:26.834228861 +0000
++++ b/es-app/src/guis/GuiUpdate.h	2026-10-31 06:46:26.849237608 +0000
+@@ -56,7 +56,7 @@
+ 
+ private:
+   std::thread*				mHandle;
+-  AsyncNotificationComponent* mWndNotification;
++  AsyncNotificationComponent::Handle mWndNotification;
+   Window*						mWindow;
+ 
+   void threadUpdate_network();
+--- a/es-app/src/ProxyCards.cpp	2026-10-31 06:46:26.836210181 +0000
++++ b/es-app/src/ProxyCards.cpp	2026-10-31 06:46:26.849301574 +0000
+@@ -122,7 +122,7 @@
+ 	// The send card's worker: follows the proxy's queue to its end, says the
+ 	// outcome in the sync card's words, stamps it, and hands over to the
+ 	// saves when they are owed.
+-	void runSend(Window* window, AsyncNotificationComponent* card)
++	void runSend(Window* window, AsyncNotificationComponent::Handle card)
+ 	{
+ 		int pending = OfflineAchievements::pendingAwards();
+ 		const auto started = std::chrono::steady_clock::now();
+@@ -212,7 +212,7 @@
+ 	{
+ 		AppWindow::post(window, [window]
+ 		{
+-			AsyncNotificationComponent* card = window->createAsyncNotificationComponent();
++			AsyncNotificationComponent::Handle card = window->createAsyncNotificationComponent();
+ 			card->updateTitle(TROPHY + _("RETROACHIEVEMENTS (OFFLINE)"));
+ 			card->updateText(_("NEWLY ADDED GAMES WILL BE ENABLED ONCE YOU RECONNECT."));
+ 			std::thread([card]
+@@ -235,26 +235,26 @@
+ 			finished = true;
+ 		});
+ 
+-		AsyncNotificationComponent* card = nullptr;
++		AsyncNotificationComponent::Handle card = nullptr;
+ 		bool sawWork = false;
+ 		// A card is made on the interface thread and handed back here. When
+ 		// the loop that runs posted tasks is not turning -- a game has the
+ 		// screen -- the run goes on without a card, and the lambda, run
+ 		// later, makes none.
+-		auto attach = [window]() -> AsyncNotificationComponent*
++		auto attach = [window]() -> AsyncNotificationComponent::Handle
+ 		{
+ 			// `wanted` is flipped once, by whichever side gets there
+ 			// first: the lambda, which then makes the card and hands it
+ 			// over; or this thread on giving up, after which the lambda
+ 			// makes nothing. A card is never made for nobody.
+-			auto made = std::make_shared<std::promise<AsyncNotificationComponent*>>();
++			auto made = std::make_shared<std::promise<AsyncNotificationComponent::Handle>>();
+ 			auto wanted = std::make_shared<std::atomic<bool>>(true);
+ 			auto got = made->get_future();
+ 			AppWindow::post(window, [window, made, wanted]
+ 			{
+ 				if (!wanted->exchange(false))
+ 					return;
+-				AsyncNotificationComponent* c = window->createAsyncNotificationComponent(true);
++				AsyncNotificationComponent::Handle c = window->createAsyncNotificationComponent(true);
+ 				c->updateTitle(TROPHY + _("RETROACHIEVEMENTS (OFFLINE)"));
+ 				c->updateText(_("STARTING..."));
+ 				c->updatePercent(-1);
+@@ -511,7 +511,7 @@
+ 					sSendRunning = false;   // the proxy sends anyway; the screen is taken
+ 					return;
+ 				}
+-				AsyncNotificationComponent* card = window->createAsyncNotificationComponent(true);
++				AsyncNotificationComponent::Handle card = window->createAsyncNotificationComponent(true);
+ 				card->updateTitle(TROPHY + _("RETROACHIEVEMENTS"));
+ 				card->updateText(_("STARTING..."));
+ 				card->updatePercent(-1);

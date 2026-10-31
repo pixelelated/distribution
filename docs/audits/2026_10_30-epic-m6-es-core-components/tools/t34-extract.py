@@ -88,7 +88,7 @@ SPECS = [  # name, file, first, last, the first line holds, the last line holds
  ("tile_autoscroll", "GridTileComponent.h", 135, 135, "bool autoScroll", "autoScroll"),
  ("tile_textprops", "GridTileComponent.h", 79, 90, "Loaded = false;", "autoScroll = false;"),
  ("tile_ctor_select", "GridTileComponent.cpp", 49, 49, "setSelected(false", "setSelected(false"),
- ("card_handle", "AsyncNotificationComponent.h", 53, 54, "using Handle = std::weak_ptr<AsyncNotificationComponent>;", "Handle handle() { return weak_from_this(); }"),
+ ("card_handle", "AsyncNotificationComponent.h", 56, 79, "class Handle", "Handle handle() { return Handle(weak_from_this()); }"),
 ]
 os.makedirs(OUT, exist_ok=True)
 for old in os.listdir(OUT):  # nothing a spec no longer names survives into this build

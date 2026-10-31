@@ -95,20 +95,71 @@ I = [  # (title, severity, category, question, source finding, lines at the pin,
   "`setSubTitle` builds its text from `getFileName(text)`.", "read the update path; `getFileName` dropped if no caller relies on it", "tree"),
 ]
 ids = ["PL-%02d" % (i + 1) for i in range(len(I))]
+ES_TIP = "52f0ff5128cf96bfcdec9082ded75347ecea11e6"
+# Phase 7 (stage E): each item's outcome, with the commit or the issue it rests on.
+R = lambda c, b, more="": ("Resolved", "`%s` (#%d)%s" % (c, b, more))
+PH7 = {
+ "PL-01": R("2cbb62d7b", 1309, "; `tsan-card` rc 0, the interleaving case PASS"),
+ "PL-02": R("2cbb62d7b", 1310, ", `52f0ff512` (the handle forwards); Window's half `stage-e/s2-window.patch` (T35's, #682) and the holders' `stage-e/s2-holders.patch` (#665, #667, #678, #680), merge debt"),
+ "PL-03": R("2cbb62d7b", 1311, "; `asan-textedit` rc 0"),
+ "PL-04": R("a9017ff50", 1312, "; 3.16 PASS"),
+ "PL-05": ("Withdrawn", "the stage-D ruling (the seat's trace of SWITCH TAB through the pin's chain); the image's empty bar a lead for T35 (#682)"),
+ "PL-06": R("db12b1598", 1313, "; 3.6 PASS"),
+ "PL-07": R("db12b1598", 1314, "; 3.4 and the long-description case PASS"),
+ "PL-08": R("db12b1598", 1315, "; 3.5 PASS; `GuiMsgBox`'s workaround `stage-e/s3-msgbox.patch` (T35's, #682) and `es-code-traps.md` (the coordinator's), merge debt"),
+ "PL-09": R("a9017ff50", 1316, "; 3.7 PASS"),
+ "PL-10": R("a9017ff50", 1317, "; ADD STAR / AJOUTER UNE ÉTOILE"),
+ "PL-11": R("a9017ff50", 1318, "; an empty prompt list (ruling 7)"),
+ "PL-12": ("Deferred", "recorded as written: the invariant beside `MenuComponent.h:53-56` in `02` § The lifetimes; the cast that relies on it is `GuiMenu.cpp:591`, #673's"),
+ "PL-13": R("568ef099d", 1319, "; no timer (ruling 5): the pin already re-asks on the next bind, the fix is the uncached state"),
+ "PL-14": ("Deferred", "#585, and the pages' labels to #673 and #678; 3.26 `may_fail` with PL-14 named (ruling 9)"),
+ "PL-15": R("db12b1598", 1320, "; `ROW_INSET_FRACTION`, D-UI-132"),
+ "PL-16": ("Resolved", "`db12b1598`: the comment names the keyboard popup's second copy; the copy is T35's (#682)"),
+ "PL-17": ("Deferred", "an open item to test (the moving font height; `Font.cpp` is #683's)"),
+ "PL-18": ("Deferred", "#585; an open item to test (D-QA-051 rule 4: no media on the guest)"),
+ "PL-19": R("a9017ff50", 1321),
+ "PL-20": ("Deferred", "recorded as written on #1307: the dead `_RPI_` and `WIN32` blocks and the unused `widthMod`, a dead-end table that removes nothing (D-WORKFLOW-209)"),
+ "PL-21": ("Deferred", "#665 and #682: the es-app include is T18's and T35's call"),
+ "PL-22": ("Deferred", "#673 and #678: the pages' `onFinalize` clearing"),
+ "PL-23": ("Deferred", "#1307, recorded: the coordinator's `tools/vocabulary-check` rule, for a Backlog the coordinator files"),
+ "PL-24": ("Withdrawn", "the stage-D ruling: `IList::scroll` clamps or wraps; 3.8 PASS at the pin for every size and loop type"),
+ "PL-25": R("a9017ff50", 1322, "; 3.13 PASS"),
+ "PL-26": ("Deferred", "#673: `UntintedImageComponent` lives at `GuiMenu.cpp:6401`; lifting an untinted mode is a question for that slice"),
+ "PL-27": R("dbe4c2db0", 1323, "; held: the case's counts only, `stage-e/s1-checks.txt`"),
+ "PL-28": R("5908888b5", 1324, "; `UPDATE_ALWAYS` after reading every caller (ruling 11)"),
+ "PL-29": R("a9017ff50", 1325, "; the first prompt kept and clipped (ruling 4), batocera's `9dbd4b9bf` guard taken"),
+ "PL-30": R("db12b1598", 1326, "; the unchanged-size exit (ruling 3)"),
+ "PL-31": R("568ef099d", 1327),
+ "PL-32": R("568ef099d", 1328),
+ "PL-33": R("6050b8419", 1329),
+ "PL-34": R("6050b8419", 1330),
+ "PL-35": R("6050b8419", 1331, "; the intent read posted before the commit (ruling 12)"),
+ "PL-36": R("5908888b5", 1332, "; auto kept in force (ruling 13)"),
+ "PL-37": R("5908888b5", 1333),
+ "PL-38": ("Deferred", "#585: outside English and French"),
+ "PL-39": ("Deferred", "recorded as written: the fork's turn (`3b7265f33`); 3.22 says what the pin does, PASS before and after"),
+ "PL-40": ("Deferred", "#585; 3.14's half `may_fail` with PL-40 named, as ruling 9 marks 3.26"),
+ "PL-41": ("Deferred", "recorded as written on #1307: the mouse path only"),
+ "PL-42": ("Deferred", "#585"),
+ "PL-43": ("Withdrawn", "the read (`stage-e/s7-checks.txt`): `setSubTitle` sets the full text at `:365` in the same call, before any draw, so the `getFileName` text at `:358-360` is never shown"),
+}
+if set(PH7) != set(ids):
+    print("ASSERT: Phase 7 outcomes for %s, items %s" % (sorted(set(ids) - set(PH7)), sorted(set(PH7) - set(ids))), file=sys.stderr); sys.exit(1)
 for t in I:
     if t[1] not in SEV or not re.fullmatch(r"Q[1-7]", t[3]):
         print("ASSERT: a bad severity or question in %r" % t[0], file=sys.stderr); sys.exit(1)
 out = ["# Punch list (Phases 5 and 6) — M6.P2 T34, EmulationStation's core components (#681)", "",
-       "Written by `tools/t34-05.py` from one item table, so the sections, the Phase 7 gate and the `punch_index` agree. `question:` is the brief's § 4 numbering (Q1 layout, Q2 constants, Q3 input, Q4 lifetime, Q5 reads, Q6 words, Q7 structure); `04` § Renovation face maps them to the plan's seven. Every item is Open until the stage-D pause disposes it.", ""]
+       "Written by `tools/t34-05.py` from one item table, so the sections, the Phase 7 gate and the `punch_index` agree. `question:` is the brief's § 4 numbering (Q1 layout, Q2 constants, Q3 input, Q4 lifetime, Q5 reads, Q6 words, Q7 structure); `04` § Renovation face maps them to the plan's seven. At Phase 7 (stage E) every item has its outcome below.", "", "reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829", "fixed-at-es: %s" % ES_TIP, ""]
 for pl, (title, sev, cat, q, src, lines, own, what, disp, proved) in zip(ids, I):
     out += ["## %s: %s" % (pl, title), "", "- **Severity:** %s; **category:** %s; **question:** %s" % (sev, cat, q), "- **Source finding:** %s" % src,
             "- **Lines at the pin:** %s" % lines, "- **Owner:** %s" % own, "- **What is wrong:** %s" % what, "- **Proposed disposition:** %s" % disp, "- **proved:** %s" % proved, ""]
 out += ["## Phase 7 resolution gate", "", "| Item | Outcome | Evidence |", "| --- | --- | --- |"]
-out += ["| %s | Open | proposed: %s |" % (pl, t[8]) for pl, t in zip(ids, I)]
+out += ["| %s | **%s** | %s |" % (pl, PH7[pl][0], PH7[pl][1]) for pl in ids]
 out += ["", "## punch_index", "", "```yaml", "punch_index:"]
 for pl, t in zip(ids, I):
-    out += ["- id: %s" % pl, "  severity: \"%s\"" % t[1], "  category: %s" % t[2], "  question: %s" % t[3], "  source_finding: \"%s\"" % t[4].replace('"', "'"), "  outcome: \"open\""]
+    out += ["- id: %s" % pl, "  severity: \"%s\"" % t[1], "  category: %s" % t[2], "  question: %s" % t[3], "  source_finding: \"%s\"" % t[4].replace('"', "'"), "  outcome: \"%s\"" % PH7[pl][0].lower()]
 out += ["```", ""]
 open(os.path.join(os.path.dirname(HERE), "05-punch-list.md"), "w", encoding="utf-8").write("\n".join(out))
 c = {s: sum(1 for t in I if t[1] == s) for s in SEV}
-print("t34-05: %d items (%s), every one Open" % (len(I), ", ".join("%d %s" % (c[s], s) for s in SEV)))
+o = {w: sum(1 for v in PH7.values() if v[0] == w) for w in ("Resolved", "Deferred", "Withdrawn")}
+print("t34-05: %d items (%s); Phase 7: %s" % (len(I), ", ".join("%d %s" % (c[s], s) for s in SEV), ", ".join("%d %s" % (o[w], w) for w in o)))

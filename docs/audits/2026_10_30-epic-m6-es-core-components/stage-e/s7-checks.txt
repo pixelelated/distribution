@@ -52,3 +52,6 @@ ES .githooks/pre-push-test: PASS. es-untranslated: not run; S7 changes no player
 Already written (#1332, #1333, #1324): nothing inherited.
 Time to play: none on the launch path.
 The guest half (fix-walk-pending-image): an on/off row a fork page builds with its state, at 640x480; a page with a title image and a subtitle.
+
+## PL-43's read (the brief's § Recorded: the read in S7's record, nothing changed)
+MenuComponent.cpp setSubTitle (:338-384 at 5908888b5): a first subtitle is constructed from toUpper(getFileName(text)) (:358-360), and the same call sets mSubtitle->setText(text) at :365 before returning. No draw falls between them, so the getFileName text, the one that keeps only what follows the last '/', is never shown; a later call takes :365 alone. Nothing changed; Phase 7 records PL-43 Withdrawn by this read.
