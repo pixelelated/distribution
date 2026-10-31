@@ -121,6 +121,16 @@ update_cloud_sync_rules() {
         fi
       fi
     done < "${src}"
+    # RCLONEOPTS's filter flags (D-CLOUD-192): the player's rules too, after
+    # the ones already in the file; one already there, or among the
+    # defaults, is not written twice.
+    if [ -n "${MOVE_RULES}" ] && [ -s "${MOVE_RULES}" ]; then
+      while IFS= read -r line || [ -n "${line}" ]; do
+        grep -Fxq -e "${line}" "${user}" && continue
+        grep -Fxq -e "${line}" /usr/config/cloud_sync-rules.txt.defaults && continue
+        echo "${line}" >> "${user}" || wrote=0
+      done < "${MOVE_RULES}"
+    fi
     if [ "${wrote}" != 1 ]; then
       rm -f "${user}" "${inert}"
       log_to_file "${log_file}" "a scratch write under ${TMPDIR:-/tmp} failed; the rules file was left as it was" "WARN"
@@ -582,6 +592,144 @@ update_cloud_sync_config() {
   return 0
 }
 
+# RCLONEOPTS's filter flags, moved into the rules file once as the player's
+# rules (D-CLOUD-192, ruling 14 on #663). The twins' allowlist drops a
+# player's --include, --exclude and --filter at run time (D-CLOUD-185), and
+# a dropped exclusion sends what it excluded: PL-015's device has --exclude
+# "*.tmp" written in its conf. So, read both and write the new one: --exclude
+# P becomes "- P", --include P "+ P", --filter R stays R, and an
+# --exclude-from, --include-from or --filter-from F becomes F's lines in the
+# same forms where F is readable -- through the merge that already puts a
+# player's rules first -- and the flag leaves the conf line under the .bak.
+# The managed rules file's own --filter-from stays. Fail closed on the move,
+# never on the run: when the rules file cannot be rebuilt whole, or the
+# line's other words cannot be written back as they are, nothing moves; the
+# twins drop the flags with their WARN, and the next run tries again.
+#
+# filter_flags_from_conf sets MOVE_RULES (a scratch file of rule lines),
+# MOVE_SHAPE (what moved, by flag and count, never a value) and MOVE_KEEP
+# (the line's other words); all empty when there is nothing to move.
+MOVE_RULES="" MOVE_SHAPE="" MOVE_KEEP=""
+filter_flags_from_conf() {
+  local log_file="$1" conf=/storage/.config/cloud_sync.conf managed=/storage/.config/cloud_sync-rules.txt
+  local value w flag val q f line rule n_rules=0 ok=1 i=0
+  local -a words=() keep=()
+  local -A count=()
+  # Only a line with a filter flag besides the managed file's own is read.
+  [ -f "${conf}" ] || return 0
+  sed 's|--filter-from[ =]/storage/.config/cloud_sync-rules.txt||g' "${conf}" 2>/dev/null \
+    | grep -qE -- '--(include|exclude|filter)' || return 0
+  conf_valid "${conf}" || return 0
+  # The value as the twins read it: the conf sourced in a subshell (it passed
+  # conf_valid: assignments of text only), continuations as spaces, no glob.
+  value=$( . "${conf}" >/dev/null 2>&1; printf '%s' "${RCLONEOPTS:-}" )
+  read -r -a words <<< "$(printf '%s' "${value}" | tr '\n\\' '  ')"
+  MOVE_RULES=$(mktemp "${TMPDIR:-/tmp}/cloud_sync-move.XXXXXX" 2>/dev/null) || { MOVE_RULES=""; return 0; }
+  while [ "${i}" -lt "${#words[@]}" ]; do
+    w="${words[${i}]}"; i=$((i + 1))
+    case "${w}" in
+      --include=*|--exclude=*|--filter=*|--include-from=*|--exclude-from=*|--filter-from=*)
+        flag="${w%%=*}"; val="${w#*=}" ;;
+      --include|--exclude|--filter|--include-from|--exclude-from|--filter-from)
+        flag="${w}"; val="${words[${i}]:-}"; i=$((i + 1)) ;;
+      *) keep+=("${w}"); continue ;;
+    esac
+    # A quoted value split at its spaces is one value again, its quotes off.
+    case "${val}" in
+      \"*|\'*)
+        q="${val:0:1}"
+        while { [ "${#val}" -lt 2 ] || [ "${val: -1}" != "${q}" ]; } && [ "${i}" -lt "${#words[@]}" ]; do
+          val="${val} ${words[${i}]}"; i=$((i + 1))
+        done
+        [ "${#val}" -ge 2 ] && [ "${val: -1}" = "${q}" ] && val="${val:1:${#val}-2}" ;;
+    esac
+    rule=""
+    case "${flag}" in
+      --exclude) [ -n "${val}" ] && rule="- ${val}" ;;
+      --include) [ -n "${val}" ] && rule="+ ${val}" ;;
+      --filter)  case "${val}" in "+ "?*|"- "?*) rule="${val}" ;; esac ;;
+      *)
+        f=$(readlink -f -- "${val}" 2>/dev/null || printf '%s' "${val}")
+        if [ "${flag}" = --filter-from ] && [ "${f}" = "${managed}" ]; then
+          if [ "${w}" = "${flag}" ]; then keep+=("${w}" "${val}"); else keep+=("${w}"); fi
+          continue
+        fi
+        if [ -n "${val}" ] && [ -r "${val}" ]; then
+          while IFS= read -r line || [ -n "${line}" ]; do
+            case "${line}" in ''|'#'*|';'*) continue ;; esac
+            case "${flag}" in
+              --exclude-from) printf -- '- %s\n' "${line}" >> "${MOVE_RULES}" || ok=0 ;;
+              --include-from) printf -- '+ %s\n' "${line}" >> "${MOVE_RULES}" || ok=0 ;;
+              *) printf '%s\n' "${line}" >> "${MOVE_RULES}" || ok=0 ;;
+            esac
+            n_rules=$((n_rules + 1))
+          done < "${val}"
+          count["${flag}"]=$(( ${count["${flag}"]:-0} + 1 ))
+          continue
+        fi ;;
+    esac
+    if [ -z "${rule}" ]; then
+      # Nothing a rules file can hold (no value, an unreadable file, a
+      # --filter that is not "+ P" or "- P"): left on the line, for the run's
+      # allowlist to drop.
+      if [ "${w}" = "${flag}" ]; then keep+=("${w}" "${val}"); else keep+=("${w}"); fi
+      continue
+    fi
+    printf '%s\n' "${rule}" >> "${MOVE_RULES}" || ok=0
+    n_rules=$((n_rules + 1))
+    count["${flag}"]=$(( ${count["${flag}"]:-0} + 1 ))
+  done
+  # Every word left must be writable back as it is, unquoted; or nothing moves.
+  for w in ${keep[@]+"${keep[@]}"}; do
+    [[ "${w}" =~ ^[A-Za-z0-9._/:=,+@%-]+$ ]] || ok=0
+  done
+  if [ "${ok}" != 1 ] || [ "${n_rules}" -eq 0 ]; then
+    [ "${ok}" = 1 ] || log_to_file "${log_file}" "RCLONEOPTS carries filter flags that could not be moved into the rules file this run; left on the line for the run's allowlist" "WARN"
+    rm -f "${MOVE_RULES}"; MOVE_RULES=""
+    return 0
+  fi
+  MOVE_KEEP="${keep[*]}"
+  MOVE_SHAPE=""
+  for f in "${!count[@]}"; do MOVE_SHAPE="${MOVE_SHAPE}${MOVE_SHAPE:+, }${f} x${count[${f}]}"; done
+}
+
+# Once every moved rule is in the whole live rules file, the flags leave the
+# conf line: the line rewritten with its other words, the conf checked by
+# conf_valid, its copy kept as the .bak, then renamed over. Otherwise the
+# line stays as it is, and the next run tries again.
+strip_moved_flags() {
+  local log_file="$1" conf=/storage/.config/cloud_sync.conf rules=/storage/.config/cloud_sync-rules.txt
+  local line rc=0 tmp=/storage/.config/cloud_sync.conf.move.$$
+  [ -n "${MOVE_RULES}" ] || return 0
+  if rules_whole "${rules}"; then
+    while IFS= read -r line || [ -n "${line}" ]; do
+      grep -Fxq -e "${line}" "${rules}" || { rc=1; break; }
+    done < "${MOVE_RULES}"
+  else
+    rc=1
+  fi
+  if [ "${rc}" -ne 0 ]; then
+    rm -f "${MOVE_RULES}"; MOVE_RULES=""
+    log_to_file "${log_file}" "RCLONEOPTS's filter flags (${MOVE_SHAPE}) could not be moved: the rules file was not rebuilt with them; the line was left as it is, and the next run tries again" "WARN"
+    return 1
+  fi
+  awk -v new="RCLONEOPTS=\"${MOVE_KEEP}\"" '
+    skip { skip = ($0 ~ /\\$/); next }
+    !done && /^RCLONEOPTS=/ { print new; done = 1; skip = ($0 ~ /\\$/); next }
+    { print }
+  ' "${conf}" > "${tmp}" 2>/dev/null
+  rc=$?
+  if [ "${rc}" -eq 0 ] && conf_valid "${tmp}" \
+     && cp -f "${conf}" "${conf}.bak.tmp" && mv -f "${conf}.bak.tmp" "${conf}.bak" \
+     && mv -f "${tmp}" "${conf}"; then
+    log_to_file "${log_file}" "moved RCLONEOPTS's filter flags into the rules file as the player's rules (${MOVE_SHAPE}); the previous config kept as cloud_sync.conf.bak"
+  else
+    rm -f "${tmp}" "${conf}.bak.tmp"
+    log_to_file "${log_file}" "RCLONEOPTS's filter flags (${MOVE_SHAPE}) are in the rules file, but the conf line could not be rewritten; it was left as it is" "WARN"
+  fi
+  rm -f "${MOVE_RULES}"; MOVE_RULES=""
+}
+
 # Main function that handles all updates
 # The log lives on /storage since fork #104 (var-log.mount binds /var/log
 # there), so it must not grow without bound -- every run appends and nothing
@@ -608,9 +756,13 @@ main() {
   local log_file="${1:-/var/log/cloud_sync.log}"
   trim_cloud_log "${log_file}"
 
-  # Update both rules and config
+  # Update both rules and config -- with RCLONEOPTS's filter flags, if any,
+  # merged into the rules as the player's and then taken off the conf line
+  # (D-CLOUD-192).
+  filter_flags_from_conf "${log_file}"
   update_cloud_sync_rules "${log_file}"
   update_cloud_sync_config "${log_file}"
+  strip_moved_flags "${log_file}"
   
   # Remove conflicting --verbose flags from existing user config to prevent parameter conflicts
   # This is needed for users upgrading from older versions where --verbose was used

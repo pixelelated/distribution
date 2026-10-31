@@ -1,0 +1,34 @@
+== T16 host lead S6's second follow-up: RCLONEOPTS's filter flags into the rules file (ruling 14) -- 2026-10-31T06:17:31Z
+donor root: /workspace/artifacts/m6-donor/1a0266484423/image/system (BUILD_ID 1a0266484423); sha256sum -c ../../SHA256SUMS:
+  usr/bin/busybox: OK
+  usr/bin/rclone: OK
+  etc/os-release: OK
+the scripts and /usr/config: /workspace/tmp/m6-t16/hl/root-s6c (tree), 1 of 12 sha256-equal to the guest's installed bytes at 8ebaf8daad (guest-cycle/installed.sha256)
+from the donor: busybox v1.36.1 (146 applet links), rclone v1.75.2
+host stand-ins (not in the donor): bash 5.3.9(1)-release (image: 5.3), timeout (GNU coreutils) 9.7 (image: 9.4), grep (GNU grep) 3.12 (image: 3.9), python3 3.14.4, ip (iproute2)
+sandbox: stage-e/tools/sbx.sh (bwrap, own pid namespace, host network); backend: cloud-test-backend at 3a653eaec4, WebDAV 127.0.0.1:9010, state /workspace/tmp/m6-t16/hl/state
+
+== S6-move (2026-10-31T06:17:32Z)
+  the conf's RCLONEOPTS: RCLONEOPTS="--progress \|--exclude \"*.tmp\" \|--log-file /var/log/cloud_sync.log \|--filter-from /storage/.config/cloud_sync-rules.txt"|
+  the helper: rc=0
+  after one run: RCLONEOPTS RCLONEOPTS="--progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt"|
+    the rules file: '- *.tmp' on line 6 ; the catch-all on line 116; the player's section heads line 2
+    cloud_sync.conf.bak: kept, its RCLONEOPTS RCLONEOPTS="--progress \|--exclude \"*.tmp\" \|--log-file /var/log/cloud_sync.log \|--filter-from /storage/.config/cloud_sync-rules.txt"|
+    the log:  [INFO] [cloud_sync_helper] moved RCLONEOPTS's filter flags into the rules file as the player's rules (--exclude x1); the previous config kept as cloud_sync.conf.bak|
+    rclone lsf with these rules over the saves: rc=0 savestates/m-061732-move.state 
+  the helper: rc=0
+  the second run: conf and rules byte for byte as after the first (b31f638a38eedec7 143f32bfa119589d )
+  cloud_backup --yes --saves-only: rc=0, Game saves: COMPLETED
+    the copy's argv: --filter-from /storage/.config/cloud_sync-rules.txt --exclude=bios/** --exclude=backup/** 
+    in the cloud: m-061732-move.state 
+
+== S6-refuse: the rules file cut before its catch-all, no .bak (2026-10-31T06:17:33Z)
+  the helper: rc=0
+  the conf after the helper: as it was (d57c429ecf0e1715); RCLONEOPTS RCLONEOPTS="--progress \|--exclude \"*.tmp\" \|--log-file /var/log/cloud_sync.log \|--filter-from /storage/.config/cloud_sync-rules.txt"|
+    the helper's log:  [WARN] [cloud_sync_helper] the rules file has no catch-all line and no whole .bak; it was left as it was| [WARN] [cloud_sync_helper] RCLONEOPTS's filter flags (--exclude x1) could not be moved: the rules file was not rebuilt with them; the line was left as it is, and the next run tri|
+  cloud_backup --yes --saves-only: rc=1, Game saves: COULDN'T FINISH
+    the copy's argv: 
+    in the cloud: 
+    the run's log:  [WARN] [cloud_backup] RCLONEOPTS: left out, not on the allowlist (D-CLOUD-185): word 2 --exclude word 3 (not a flag)|
+
+== end 2026-10-31T06:17:34Z

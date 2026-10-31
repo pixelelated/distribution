@@ -13,3 +13,11 @@ unquoted expansions on the twins' mkdir/rm/cp/mv lines (each double- and single-
 the cut rules file: the fixed helper merges from the .bak when the live file is cut and the .bak is whole (the last whole copy, D-CLOUD-078); with neither whole it returns 1 and touches nothing, and the twins' own refusal (cloud_backup: 'the rules file ... has no catch-all line; refusing the saves backup') stands until a whole file is back
 stage-e/tools/sbx.sh: SBX_LATE added -- bwrap arguments after the sandbox's own /tmp (a read-only /tmp for S6-tmpro)
 the suite after S5 (9df834d183): PASSED, 1313 PASS / 0 FAIL (suite-after-s5.out); sections h, i and n among them
+
+S6's second follow-up (ruling 14, D-CLOUD-192), 2026-10-31T06:18:11Z:
+bash -n cloud_sync_helper: ok
+the cell: s6/move-cells.sh on root-pin4 (8ebaf8daad) and root-s6c (the tree at this commit's parent plus the helper): s6-move-before.out, s6-move-after.out
+at the pin: the flag reaches rclone as --exclude "*.tmp" with the quotes literal (argv), which matches nothing -- the .tmp is sent (in the cloud: m-<run>-move.state and .tmp). PL-015's exclusion was already inert before ruling 10's drop
+after: one helper run moves it (- *.tmp on line 6 among the player's rules, the catch-all on 116), RCLONEOPTS without it, the .bak with it, the log line naming --exclude x1; rclone lsf with the rules lists the save, not the .tmp; a second run leaves the conf and the rules byte for byte; the backup's argv carries no --exclude and the cloud holds the save alone
+the refusal path: the rules file cut before its catch-all, no .bak -- the merge returns 1, the conf as it was, the helper's WARN; the run's allowlist WARN (word 2 --exclude, word 3 not a flag), and the twins' existing refusal of a cut rules file (COULDN'T FINISH)
+the readings: --filter-from naming the managed rules file stays on the line; another --filter-from F, an --include-from or --exclude-from F is moved as F's lines when F is readable; a --filter that is not '+ P' or '- P', a flag with no value or an unreadable F stays for the run's allowlist; a line whose other words cannot be written back unquoted moves nothing (fail closed on the move); a moved rule already among the defaults is not written twice
