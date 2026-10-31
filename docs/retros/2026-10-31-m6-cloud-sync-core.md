@@ -64,7 +64,10 @@
 - **The first exit sync after the update** on every device is one full pass, because there is no `last-backup-dest` yet (PL-25).
 - **The startup sync:** S5 drops the restore's probe, and the 3 s grace when the link is already up.
 - `cloud_net_ready` ends no later than before.
-- **The exit sync's median against D-CLOUD-119's 3 s:** none measured. No guest ran in stage E, and none is cited (`04` § Q5 says the same). The figures are lead (c)'s, at the integration window, by `tools/time-to-play --vm`, where PL-08 is re-graded against the 3 s.
+- **The exit sync against D-CLOUD-119's 3 s:** the last logged figure is **0.97 s**, the exit sync's stamp in x64 run 44 at `664ad9ac64` (2026-09-24, `docs/vm-qa-log.md:131`). The runs before it logged 0.97 s and 0.84 s (`:129-130`).
+  - That is about 2 s under the 3 s. The same run logged the game's first frame at 1.09 s and the next game's at 1.51 s.
+  - It predates this slice's streams. S5 and S7 only take work off the path: the helper under `--recent`, and two `date` forks. S2 runs the same rclone call in the background and waits for it.
+  - No guest ran in stage E. This tree's own figures are lead (c)'s, measured at the integration window by `tools/time-to-play --vm`, where PL-08 is re-graded against the 3 s.
 
 ## What T17 (#664) inherits
 
