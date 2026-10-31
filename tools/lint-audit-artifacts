@@ -17,6 +17,11 @@ Both are mechanically checkable. Manual verification is not.
 The explicit pre-issue phase permits honestly open findings before Phase 6
 creates their tracker. The default resolution phase still requires outcomes;
 pre-issue success never certifies a completed audit or release gate (#470).
+
+A seat reply too sensitive for a public tree may be held off it (#1308, T34's
+PL-27): its receipt still binds the reply's sha256, and
+second-opinions/<reply>.held.json declares the hold. The lint then prints a
+HELD line and never opens the held path; it hashes only a copy put back.
 """
 import argparse, hashlib, json, pathlib, re, subprocess, sys
 
@@ -32,6 +37,44 @@ def check_review_plan(d, milestone, bad, ok):
     def require(condition, detail):
         if not condition:
             raise ValueError(detail)
+
+    def held_declaration(name, receipt):
+        """#1308: the hold declared beside a receipt, or None when nothing is held.
+
+        The declaration lives in <reply>.held.json, never in the Facilitator's
+        receipt: a result file belongs to its producer (#597). path_at_hold is
+        a record, not an input -- nothing here opens it.
+        """
+        require('held' not in receipt, f'a hold belongs in {name}.held.json, not in the Facilitator receipt')
+        sidecar = root / (name + '.held.json')
+        require(sidecar.resolve().parent == root.resolve(), 'hold declaration escaped evidence folder')
+        if not sidecar.exists():
+            return None
+        held = json.loads(sidecar.read_text())
+        require(isinstance(held, dict) and held.get('schema_version') == 1, 'unsupported hold schema')
+        require(held.get('reply') == name, 'hold declaration names another reply')
+        sha = held.get('sha256')
+        require(isinstance(sha, str) and re.fullmatch(r'[0-9a-f]{64}', sha), 'hold declares no sha256 of 64 hex')
+        require(isinstance(held.get('reason'), str) and held['reason'].strip(), 'hold declares no reason')
+        where = pathlib.PurePosixPath(held.get('path_at_hold') or '')
+        require(where.is_absolute() and '..' not in where.parts
+                and not any(where.is_relative_to(x) for x in (d.absolute(), d.resolve())),
+                'hold declares no absolute path_at_hold outside the audit folder')
+        require(held.get('mode') is None or (isinstance(held['mode'], str)
+                                             and re.fullmatch(r'0?[0-7]{3}', held['mode'])),
+                'hold mode is not an octal string')
+        require(sha == receipt['final']['file_artifact_sha256']
+                and receipt.get('output_file_sha256', sha) == sha,
+                'held sha256 differs from the digest its receipt records')
+        recorded = held.get('recorded_in', [])
+        require(isinstance(recorded, list), 'hold recorded_in is not a list')
+        for rel in recorded:
+            require(isinstance(rel, str) and not pathlib.PurePosixPath(rel).is_absolute()
+                    and '..' not in pathlib.PurePosixPath(rel).parts
+                    and (d / rel).resolve().is_relative_to(d.resolve()), 'hold record escaped the audit folder')
+            require(sha in (d / rel).read_text(), f'hold record {rel} does not carry the held sha256')
+        return held
+
     root = d / 'second-opinions'
     try:
         plan = json.loads((root / 'review-plan.json').read_text())
@@ -54,6 +97,7 @@ def check_review_plan(d, milestone, bad, ok):
         if depth == 'local':
             require('-issue-' in d.name or tier_exception, 'local-only cannot satisfy Epic/Milestone')
         labs, members, outputs = ({primary['lab']}, set(), set())
+        held_off, held_copies = ([], [])
         for reviewer in reviewers:
             member, model, lab = (reviewer[k] for k in ('member', 'model', 'lab'))
             require(member in ('claude', 'gpt', 'gemini', 'gemini-argon', 'kimi', 'muse'), 'reviewer is not an installed active member')
@@ -102,13 +146,25 @@ def check_review_plan(d, milestone, bad, ok):
                     expected_provider = 'OpenAI' if member == 'gpt' else 'Google'
                     require(provider['observed_providers'] == [expected_provider],
                             'reviewer served outside its installed provider pin')
+                held = held_declaration(name, receipt)
+                if held is not None and not output.exists() and not output.is_symlink():
+                    held_off.append((name, held['sha256']))
+                    continue
                 content = output.read_bytes()
                 require(content.strip(), 'empty reviewer output')
                 digest = hashlib.sha256(content).hexdigest()
+                if held is not None:
+                    require(digest == held['sha256'], 'the copy of a held reply differs from its held sha256')
+                    held_copies.append(name)
                 require(final['file_artifact_sha256'] == digest, 'review output digest differs')
                 if 'output_file_sha256' in receipt:
                     require(receipt['output_file_sha256'] == digest, 'legacy output digest differs')
         ok(f'review plan: {depth}, {1 + count} model perspectives, {len(outputs)} verified external calls')
+        for name, sha in held_off:
+            ok(f'HELD second-opinions/{name} (off-tree; sha256 bound): held off the tree, sha256 recorded, PASS'
+               f' -- its content is not checked here (receipt and hold agree on {sha})')
+        for name in held_copies:
+            ok(f'HELD second-opinions/{name}: the copy present matches its held sha256 (content checked here)')
         if tier_exception:
             ok(f"review-plan: local at epic tier under D-WORKFLOW-184 ({plan['reason'].strip()})")
     except (OSError, ValueError, KeyError, TypeError, AttributeError, AssertionError) as e:
