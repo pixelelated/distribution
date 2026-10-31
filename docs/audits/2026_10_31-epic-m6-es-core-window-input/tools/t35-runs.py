@@ -119,7 +119,7 @@ stc = [
     ["3.27, T33's `stage-c/pl25-screensaver.py` unchanged from `947ace1966`", "1", "1 s", f"`{m_pl.group(1)[:90]}`" if m_pl else "--", "FAIL at the pin as #1305 says; the script takes `SystemScreenSaver.cpp`'s path, not the worktree the brief's line passes"],
 ]
 owed = [
-    ["3.3 and 3.17 after their fixes", "stage E", "no ThreadSanitizer report"],
+    ["3.3 after its fix (3.17's came with S2: `SAN tsan-posts ... rc 0`)", "stage E, S4", "no ThreadSanitizer report"],
     ["the PASS halves of the seven", "stage E", "each candidate's PASS line after its fix"],
     ["the streams' guest halves (`fix-walk-pending-image`)", "the coordinator's integration window", "S1's dialog after `z`, S2's toasts and French bar, S3's held screensaver, S5's argv file, S6's reconfigured file, S8's CLEAR and subtitle"],
 ]
@@ -149,10 +149,11 @@ ste = [
 # The streams' before/after pairs (stage-e/sN-before.txt at the pin or the previous
 # stream's tip, sN-after.txt at the stream's tip): window-input-tests' line, the cases
 # that failed by name, the TOTAL line and the SAN lines, each asserted.
-STREAMS = {  # stream: (cases, failed before, failed after, the failing names gone after, TOTAL)
-    "S1": (16, 10, 7, ["S1 back on GAME DRIVE DETECTED with an id", "S1 back on NEW DRIVE DETECTED with an id", "S1 back on NEW DRIVE DETECTED without an id"], ("266", "7")),
+STREAMS = {  # stream: (cases, failed before, failed after, the failing names gone after, TOTAL, {SAN: (rc before, rc after)})
+    "S1": (16, 10, 7, ["S1 back on GAME DRIVE DETECTED with an id", "S1 back on NEW DRIVE DETECTED with an id", "S1 back on NEW DRIVE DETECTED without an id"], ("266", "7"), {}),
+    "S2": (19, 10, 6, ["3.14 the toast queue drains in the order things happened", "S2 a toast a card takes off the screen", "3.16 an unrelated prompt sharing the action text", "3.16 the dpad's two halves"], ("269", "7"), {"tsan-posts": ("66", "0")}),
 }
-for sn, (cases, fb, fa, gone, tot) in STREAMS.items():
+for sn, (cases, fb, fa, gone, tot, sx) in STREAMS.items():
     got = {}
     for ph in ("before", "after"):
         t = rd(f"stage-e/{sn.lower()}-{ph}.txt")
@@ -162,6 +163,10 @@ for sn, (cases, fb, fa, gone, tot) in STREAMS.items():
         names = set(re.findall(r"^    TEST CASE:  (.*)$", t, re.M))
         sanl = re.findall(r"^SAN (\S+) \(-fsanitize=(\w+)\): rc (\d+); (.*?)(?: \(pid=\d+\))?$", t, re.M)
         got[ph] = (w, tt, head, names, sanl)
+        for sname, rcs in sx.items():
+            want_rc = rcs[0] if ph == "before" else rcs[1]
+            hit = [x for x in sanl if x[0] == sname]
+            if not (hit and hit[0][2] == want_rc): fail.append(f"{sn} {ph}: SAN {sname} {hit and hit[0][2]}, expected rc {want_rc}")
         want = fb if ph == "before" else fa
         if not (w and int(w.group(2)) == cases and int(w.group(4)) == want): fail.append(f"{sn} {ph}: window-input-tests {w and w.groups()}, expected {cases} cases, {want} failed")
         if not (tt and tt.groups() == tot): fail.append(f"{sn} {ph}: TOTAL {tt and tt.groups()}, expected {tot}")

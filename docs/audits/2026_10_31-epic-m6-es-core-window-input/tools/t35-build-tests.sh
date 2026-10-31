@@ -133,6 +133,10 @@ done
 # and pugixml header-only from PUGIXML_INCLUDE_DIR.
 HERE="$(cd "$(dirname "$0")" && pwd)"
 X="${B}/x"
+# A refused extraction must leave nothing to build against: the directory is
+# cleared first, so an earlier run's extracts are never compiled (stage E S2:
+# a refused run built window-input-tests from the previous run's x/).
+rm -rf -- "${B:?}/x"
 python3 -B -I "${HERE}/t35-extract.py" "${ES}" "$(git -C "${ES}" rev-parse HEAD)" "${X}" || { echo "t35-build-tests: the extracts were refused; window-input-tests not built"; FAIL=1; }
 WT=""
 if [ -d "${X}" ]; then

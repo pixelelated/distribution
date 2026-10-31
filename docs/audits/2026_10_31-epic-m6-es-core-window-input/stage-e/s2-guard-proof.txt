@@ -1,0 +1,10 @@
+# S2: the refused-extract guard seen to fire (2026-10-31T16:38:12Z). A scratch copy of tools/, stage-a/ and stage-c/ under /workspace/tmp/m6-t35/tmp/guardproof/aud with queue_pop's first-line text made wrong; run into /workspace/tmp/m6-t35/build/full, which held the 36 extracts of the S2-after run. Before this change the script built window-input-tests from that stale x/ after the refusal (stage-e/s2-after-refused.txt). The lines:
+RUN es-unit-tests: rc 0; [doctest] test cases: 185 | 185 passed | 0 failed | 0 skipped [doctest] assertions: 4795 | 4795 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3389 | 3389 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN app-unit-tests: rc 0; [doctest] test cases: 18 | 18 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+t35-extract: Window.cpp:339-340 no longer holds its code (first 'NotificationMessage msg = mNotificationMessages.front();', last 'mNotificationMessages.erase(mNotificationMessages.begin());'); nothing written
+t35-build-tests: the extracts were refused; window-input-tests not built
+TOTAL: 239 test cases in 5 binaries
+ls x/ after: ls: cannot access '/workspace/tmp/m6-t35/build/full/x': No such file or directory

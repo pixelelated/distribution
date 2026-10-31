@@ -157,3 +157,37 @@
 - **Time to play:** off the launch path (a drive event's dialog).
 - **The build script** now also prints every failing case by name, untruncated (`failing:`), because its 40-line excerpt can cut one. `tools/t35-runs.py` asserts each stream's before and after lines from `stage-e/sN-*.txt`.
 - **A slip, recorded:** the stand-in (`stage-a/syntax-check.sh`, `g++ -fsyntax-only` over the 44, about 11 s, between the two builds) ran without its own host-file START/END lines; only the two unit builds carry them. From S2 the stand-in runs through a wrapper that writes both.
+
+## [Stage E, S2] 16:25 to 16:40 UTC 2026-10-31 — PL-02 (#1338), PL-07 (#1341), PL-25 (#1354), PL-26 (#1355): the window's queue, posts and help bar
+
+- **The intent reads** (ruling 19; `stage-e/s2-checks.txt`), by `git blame` at the pin and `git log -S'pop_back'`:
+  - The pop is `49efd94495`, which came from `ac0fbeac8`. The unregister is `c5ceca49a8`, the wake `d1106f674a` and `8c25e2b086`, the dpad compare `8d7fb7b3e8`. All are ancestors of `cada856d86`, upstream's, so #585 lines are written in `02`.
+  - The re-queue is the fork's `c1c0d6ddcf`, so that half gets no line.
+- **Figure 8:** `unregisterPostedFunctions` has one caller, `DetailedContainerHost::~DetailedContainerHost` (`es-app/src/views/gamelist/DetailedContainer.cpp:1351`), on the interface thread. The lock is `Window.cpp`'s file-static (`:293`), held only inside `Window`'s own functions (`:313`, `:326`, `:427`, `:1148`, `:1154`, `:1179`, `:1238`, `:1278`, `:1296-1303`), none of which deletes a `DetailedContainerHost`. So taking the lock in the unregister cannot deadlock.
+- **The cases, written first:**
+  - The interruption case: A on screen, B and C queued, a card. Three toasts, so a fix of the pop alone fails it too.
+  - 3.16's two cases, over the whole of `setHelpPrompts` lifted (`help_prompts`).
+  - `stage-c/tsan-posts.cpp` extended with the interface thread: the drain (`posts_drain`), update's `:540` (`upd_idle`) and `isSleeping` (`Window.h:69`), with the members taken from `Window.h`'s own lines (`win_idle`) so the double's types follow the tree.
+  - The program runs in two phases, the wake first, because a first try with all three threads at once crashed at the pin (rc 134, `bad_function_call`): 3.17's corruption hid PL-26's report.
+- **Before, at S1's tip** (`stage-e/s2-before.txt`, 43 s): `window-input-tests` 19 cases, 10 failed (the seven candidates' 3.14 and the three new). `SAN tsan-posts (-fsanitize=thread): rc 66`. Its first report is the post's write of `mTimeSinceLastInput` (`x_posts_post.inc:13`) against update's (`x_upd_idle.inc:2`), and 3.17's race is warning 2 (the erase loop's read against the post's `push_back`). `TOTAL: 269 test cases in 7 binaries`.
+- **The fix,** ES `453dffd0a` (`Window.cpp`, `Window.h`; on origin):
+  - The pop takes the front, and the re-queue inserts the returned words at the front in their on-screen order. The comments say so, and the duration is unchanged (D-UI-134).
+  - The unregister takes the lock.
+  - The post marks `mWakePosted` under the lock and the drain applies the two writes.
+  - The dpad compare is `==`.
+- **The one departure from the brief's words:** the refresh event stays with the post, because only an event ends the main loop's `SDL_WaitEventTimeout` (`main.cpp:1183-1188`). `mSleeping` becomes `std::atomic<bool>` for the post's read. The reasoning is in `s2-checks.txt`, and es-app's `main.cpp` parses against it (`isSleeping()`, rc 0).
+- **The extractor's refusal, and a guard that did not fail closed:**
+  - The first after-run (`stage-e/s2-after-refused.txt`) refused the S1 dialog specs, which S2 had moved by 22 lines.
+  - The script then built `window-input-tests` and `floor-tests` from the previous run's `x/` anyway, while printing *window-input-tests not built*.
+  - `tools/t35-build-tests.sh` now clears `x/` before extracting. It was seen to fire: with one spec made wrong in a scratch copy, the run printed the refusal, built neither binary and left no `x/` (`TOTAL: 239 test cases in 5 binaries`, `stage-e/s2-guard-proof.txt`).
+- **After, at the tip** (`stage-e/s2-after.txt`, 43 s): 19 cases, 6 failed (3.1, 3.4, 3.5, 3.10, 3.11, 3.19). `SAN tsan-posts (-fsanitize=thread): rc 0; no sanitizer report`. `TOTAL: 269 test cases in 7 binaries`.
+- **D-WORKFLOW-210:**
+  - `queue_pop` (the same lines, `front()`/`erase(begin())`), `queue_requeue` (1163-1164 -> 1166-1169), `posts_unreg` (-> 1267-1282), `posts_post` (-> 1284-1302), `help_prompts` (-> 1005-1079), `posts_drain` (-> 1304-1329), `win_issleeping` (-> `Window.h:70`), `win_idle` (-> `Window.h:175-177`).
+  - The S1 dialog specs moved +22.
+- **The checks:**
+  - Two files changed, inside the 96; 0 non-ASCII added lines; the stand-in 44 of 44.
+  - `es-untranslated` 706 and 703 with French, 0 without.
+  - The four signatures the doubles rely on are unchanged. `Window.h` gains `<atomic>`, the atomic flag and `mWakePosted` only.
+  - The ES `pre-push-test` `PASS`. Host-file START/END at every compile, the stand-in, the lone TSan try, es-app's syntax check and the guard proof included.
+- **A lead, not fixed, read not run:** `PowerSaver::pushRefreshEvent` (`PowerSaver.cpp:19-31`, one of the 96) reads and writes the static `mHasPushedEvent` from the posting worker, while `resetRefreshEvent` writes it on the interface thread. Neither is locked or atomic, and the punch list does not carry it. Put to the coordinator in the checkpoint.
+- **Time to play:** the front pop is an erase over a few entries per toast, and the unregister takes one lock per page close. The wake is applied at the next update's drain, and the refresh event still ends the wait at once, so the launch path's length does not change.

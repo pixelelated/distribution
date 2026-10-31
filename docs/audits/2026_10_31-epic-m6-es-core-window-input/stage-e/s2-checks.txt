@@ -1,0 +1,61 @@
+# S2 (PL-02 #1338, PL-07 #1341, PL-25 #1354, PL-26 #1355; rulings 1, 2, 15): the checks. ES tip 453dffd0a, from S1's 56aa398b8; 2026-10-31T16:38:41Z
+## the intent read the brief names: git log -S'pop_back' -- es-core/src/Window.cpp (oldest first)
+ac0fbeac8 2015-02-06 message update available ok
+453dffd0a 2026-10-31 es-core: the toast queue drains in the order things happened and a returned toast keeps its place, the posted functions' unregister takes their lock, a worker's wake is applied on the interface thread, and the help bar merges only the dpad's two halves
+## whose each changed line is (git blame at the pin; ruling 19), and whether it is upstream's
+PL-02-pop :339,340 -> 49efd94495 2019-09-18 - Customizable Log level + added logging for debug level. -: upstream (an ancestor of cada856d86)
+PL-02-requeue :1163,1164 -> c1c0d6ddcf 2026-09-25 Window.cpp: one floating surface at a time -- a toast waits: the fork's (not in cada856d86)
+PL-07 :1262,1274 -> c5ceca49a8 2021-05-13 Fix potential crash with gameslists: upstream (an ancestor of cada856d86)
+PL-26 :1284,1289 -> 8c25e2b086 2022-02-06 Reset the mTimeSinceLastInput to 0 so that the screensaver : upstream (an ancestor of cada856d86)
+PL-26 :1284,1289 -> d1106f674a 2022-02-05 Fix issue where /launch while sleeping will not launch the : upstream (an ancestor of cada856d86)
+PL-25 :1032,1033 -> 8d7fb7b3e8 2019-04-25 the big merge: upstream (an ancestor of cada856d86)
+## figure 8: unregisterPostedFunctions' callers, and the lock's holders (the PL-07 precondition)
+es-app/src/views/gamelist/DetailedContainer.cpp:1351:	mWindow->unregisterPostedFunctions(this);
+es-core/src/Window.cpp:1262:void Window::unregisterPostedFunctions(void* data)
+es-core/src/Window.h:92:	void unregisterPostedFunctions(void* data);
+the lock is Window.cpp's file-static (:293 at the pin); held at:
+es-core/src/Window.cpp:313:	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+es-core/src/Window.cpp:326:	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+es-core/src/Window.cpp:427:				std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+es-core/src/Window.cpp:1148:	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+es-core/src/Window.cpp:1154:	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+es-core/src/Window.cpp:1179:	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+es-core/src/Window.cpp:1238:	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+es-core/src/Window.cpp:1278:	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+es-core/src/Window.cpp:1296:	mNotificationMessagesLock.lock();
+es-core/src/Window.cpp:1303:	mNotificationMessagesLock.unlock();
+none of those sites deletes a DetailedContainerHost: they delete GuiInfoPopup (:427's path, stopNotificationPopups at :1165) and AsyncNotificationComponent (:1238's path); the one caller runs on the interface thread, outside every one of them
+## es-app's main.cpp, the one es-app reader of isSleeping(), syntax-only against the atomic flag (stand-in flags)
+rc=0 0 diagnostic line(s)
+## the files 56aa398b8..453dffd0a changes (nothing outside the 96; the French catalog only for a changed sentence)
+in the 96: es-core/src/Window.cpp
+in the 96: es-core/src/Window.h
+ 2 files changed, 35 insertions(+), 11 deletions(-)
+## added lines' non-ASCII bytes in the .cpp/.h (+ lines of git diff -U0)
+non-ASCII added lines: 0
+## the stand-in over the 44 with the edit (stage-a/syntax-check.sh)
+rc=0 Window.cpp
+t35-syntax-check: 44 file(s) checked, 44 rc 0, 0 not
+## es-syntax-check: CANNOT on this host (the stand-in is the check)
+es-core/src/Window.cpp: es-syntax-check: no build root at /workspace/repos/rocknix.worktrees/generic-x64/build.ROCKNIX-GENERIC_X64.x86_64 (ES_BUILD_ROOT, --root) (rc=2)
+## the words (tools/es-untranslated against both bases, as stage A ran it)
+es-untranslated: 706 fork string(s) in the source, 706 with French, 0 without
+es-untranslated rc=0
+es-untranslated: 703 fork string(s) in the source, 703 with French, 0 without
+es-untranslated(cada) rc=0
+## the three doubles (§ 1 (i)): Window.h's postToUiThread and createAsyncNotificationComponent, Log.h's LogLevel, LocaleES.h's macros, pin against 453dffd0a
+unchanged: es-core/src/Window.h lines with 'postToUiThread(' (6a3344338f42)
+unchanged: es-core/src/Window.h lines with 'createAsyncNotificationComponent(' (5f1054884455)
+unchanged: es-core/src/Log.h lines with 'Log' (c30ad23d7478)
+unchanged: es-core/src/LocaleES.h lines with '#define' (68d69442e945)
+every line the stream's range changes in those three headers:
++#include <atomic>
+-	bool mSleeping;
++	std::atomic<bool> mSleeping; // read by a worker's post (#1355)
++	bool mWakePosted = false; // guarded by the queue's lock (#1355)
+## the fix's one departure from the brief's words (PL-26)
+the brief: processPostedFunctions applies mSleeping = false, mTimeSinceLastInput = 0 and PowerSaver::pushRefreshEvent(). The refresh event stays with the post: es-app/src/main.cpp:1183-1188 waits in SDL_WaitEventTimeout when the screensaver or the power saver's standby is on, and only an event ends that wait; processPostedFunctions runs from Window::update (:464), after the wait. Pushed from the drain, it would never be pushed while the loop waits, and a worker's post would wait for the timeout. SDL_PushEvent is thread-safe. The post still reads mSleeping to decide (as the pin does), so mSleeping is std::atomic<bool>; the two writes move to the drain.
+## a lead found while reading, not in the punch list (read, not run; not fixed)
+PowerSaver::pushRefreshEvent (es-core/src/PowerSaver.cpp:19-31, one of the 96) reads and writes the static mHasPushedEvent and reads mState from the posting worker; resetRefreshEvent (:33-36) writes mHasPushedEvent on the interface thread (main.cpp:1194). Neither is under a lock or atomic. No case was run; put to the coordinator on #682.
+## the ES fork's .githooks/pre-push-test before the push
+PASS

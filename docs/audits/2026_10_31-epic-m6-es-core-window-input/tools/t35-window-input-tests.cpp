@@ -28,6 +28,7 @@
 #define PUGIXML_HEADER_ONLY
 #include "pugixml/src/pugixml.hpp"
 #include "watchers/WatchersManager.h"
+#include "HelpPrompt.h"
 
 // tests/app-unit/fakes/Log.h's two definitions (the double keeps every line).
 namespace FakeLog
@@ -333,4 +334,68 @@ TEST_CASE("S1 back on ARE YOU SURE? binds NO by name (ruling 5: stays NO / YES; 
 {
 	REQUIRE(mb::labels("x_dlg_sure.inc").size() == 2);
 	CHECK(mb::backOn("x_dlg_sure.inc") == "NO");
+}
+
+// ---- S2, PL-02 (#1338): a toast a card takes off the screen keeps its place ---
+// q::WindowQ's requeue() runs the lifted re-queue and next() the lifted pop; the
+// case clears the popups as stopNotificationPopups does. Three toasts, so a fix
+// of the pop alone (B, C, A) fails as the pin's pop does (A, C, B).
+TEST_CASE("S2 a toast a card takes off the screen shows before the toasts queued after it (Window.cpp:339-340 with :1163-1164; PL-02, #1338)")
+{
+	q::WindowQ w;
+	q::Popup a{"A on screen"};
+	w.mNotificationPopups.push_back(&a);
+	w.mNotificationMessages.push_back({"B queued", 3000});
+	w.mNotificationMessages.push_back({"C queued", 3000});
+	w.requeue();
+	w.mNotificationPopups.clear();
+	CHECK(w.next().first == "A on screen");
+	CHECK(w.next().first == "B queued");
+	CHECK(w.next().first == "C queued");
+}
+
+// ---- 3.16, PL-25 (#1354): the help bar's dpad merge ---------------------------
+// The pin's setHelpPrompts (Window.cpp:1005-1078) lifted whole into a window
+// double whose help component keeps the prompts it is given.
+namespace hp
+{
+	struct HelpStyle {};
+	static char* BUTTON_OK = (char*)"a";
+	static char* BUTTON_BACK = (char*)"b";
+	struct Help
+	{
+		std::vector<HelpPrompt> prompts;
+		void* getGrid() { return nullptr; }
+		void clearPrompts() { prompts.clear(); }
+		void setStyle(const HelpStyle&) {}
+		void setPrompts(const std::vector<HelpPrompt>& p) { prompts = p; }
+	};
+	struct Window
+	{
+		Help help; Help* mHelp = &help; int mClockElapsed = 0;
+		void setHelpPrompts(const std::vector<HelpPrompt>& prompts, const HelpStyle& style);
+	};
+	#include "x_help_prompts.inc"
+	static std::string bar(const std::vector<HelpPrompt>& in)
+	{
+		Window w;
+		w.setHelpPrompts(in, HelpStyle());
+		std::string out;
+		for (auto& p : w.mHelp->prompts)
+			out += (out.empty() ? "" : " | ") + p.first + " " + p.second;
+		return out;
+	}
+}
+
+TEST_CASE("3.16 the dpad's two halves with one action merge into up/down/left/right, either order (Window.cpp:1031-1041; PL-25, #1354)")
+{
+	CHECK(hp::bar({ HelpPrompt("up/down", "CHOOSE"), HelpPrompt("left/right", "CHOOSE") }) == "up/down/left/right CHOOSE");
+	CHECK(hp::bar({ HelpPrompt("left/right", "CHOOSE"), HelpPrompt("up/down", "CHOOSE") }) == "up/down/left/right CHOOSE");
+}
+
+TEST_CASE("3.16 an unrelated prompt sharing the action text is kept, not replaced (Window.cpp:1031-1041; PL-25, #1354)")
+{
+	auto b = hp::bar({ HelpPrompt("a", "CHOOSE"), HelpPrompt("up/down", "CHOOSE") });
+	CHECK(b.find("a CHOOSE") != std::string::npos);
+	CHECK(b.find("up/down CHOOSE") != std::string::npos);
 }

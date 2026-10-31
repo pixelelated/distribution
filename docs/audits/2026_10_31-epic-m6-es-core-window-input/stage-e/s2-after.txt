@@ -1,0 +1,106 @@
+# S2, at the tip 453dffd0a, after the fix. ES HEAD 453dffd0a2394a0432dac30369e40149bb9bfaf5, status lines 0; 2026-10-31T16:36:20Z
+# command: PUGIXML_INCLUDE_DIR=/workspace/cache/rocknix-sources/emulationstation/emulationstation-16dbac5211eea7e70db7394372033be2be7df829/external RAPIDJSON_INCLUDE_DIR=/workspace/tmp/m6-t35/rj/rapidjson-1.1.0/include bash docs/audits/2026_10_31-epic-m6-es-core-window-input/tools/t35-build-tests.sh /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682 /workspace/tmp/m6-t35/build/full
+g++: g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+rapidjson: /workspace/tmp/m6-t35/rj/rapidjson-1.1.0/include (document.h a8c29c92d1e89279)
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/external -I /workspace/tmp/m6-t35/rj/rapidjson-1.1.0/include <28 sources> -o es-unit-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/tests/unit/CloudTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/tests/unit/CloudFolderValidationTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/tests/unit/CheevosRetryTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/tests/unit/OfflineAchievementsTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/tests/unit/CheevosIndexTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/tests/unit/TimeTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/tests/unit/MaskSecretsTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/tests/unit/LogPolicyTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/tests/unit/WifiTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/tests/unit/OfflineProxyUrlTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/tests/unit/SaveStateJobQueueTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/tests/unit/CaptureRotationTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/tests/unit/DisplayAspectTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/tests/unit/CommandLineTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/tests/unit/TabStopsTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/tests/unit/LaunchCommandTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/src/CloudText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/src/CloudFolderValidation.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/src/CheevosRetry.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/src/OfflineAchievementsText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/src/CheevosIndex.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/src/WifiText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/src/SaveStateJobQueue.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/src/CaptureRotationText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/src/DisplayAspectText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/utils/StringUtil.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/utils/TimeText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/utils/OfflineProxyUrl.cpp
+built es-unit-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/external -DES_ROOT_DIR="/home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682" <2 sources> -o es-file-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/tests/unit/AtomicFileTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/utils/AtomicFileUtil.cpp
+built es-file-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/tests/unit/fakes -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/external <3 sources> -o es-conf-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/tests/unit/SystemConfTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/SystemConf.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/utils/AtomicFileUtil.cpp
+built es-conf-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -g -fno-omit-frame-pointer -fsanitize=address,undefined -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/external <6 sources> -o app-unit-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/tests/app-unit/main.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/tests/app-unit/JourneyTiersTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/tests/app-unit/FolderMergeTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/tests/app-unit/RunLockTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/tests/app-unit/TextFitTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/tests/app-unit/AppWindowTests.cpp
+built app-unit-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -D_WIN32 -c /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/utils/AtomicFileUtil.cpp -o atomicfile-win32-branch.o
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/external <2 sources> -o es-file-tests-win32
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-app/tests/unit/AtomicFileWin32Tests.cpp
+    /workspace/tmp/m6-t35/build/full/atomicfile-win32-branch.o
+built es-file-tests-win32
+RUN es-unit-tests: rc 0; [doctest] test cases: 185 | 185 passed | 0 failed | 0 skipped [doctest] assertions: 4795 | 4795 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3389 | 3389 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN app-unit-tests: rc 0; [doctest] test cases: 18 | 18 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+t35-extract: 36 extracts at 453dffd0a2394a0432dac30369e40149bb9bfaf5
+pugixml (window-input-tests, floor-tests): /workspace/cache/rocknix-sources/emulationstation/emulationstation-16dbac5211eea7e70db7394372033be2be7df829/external (pugixml.hpp 8c1b9d5092c86a80)
+$ g++ -std=c++17 -O0 -g0 -pthread -DT35_X="/workspace/tmp/m6-t35/build/full/x" -I /workspace/tmp/m6-t35/build/full/x -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/external -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/tests/app-unit/fakes -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src -I /workspace/cache/rocknix-sources/emulationstation/emulationstation-16dbac5211eea7e70db7394372033be2be7df829/external <2 sources> -o window-input-tests
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-window-input-682/docs/audits/2026_10_31-epic-m6-es-core-window-input/tools/t35-window-input-tests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src/watchers/WatchersManager.cpp
+built window-input-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -DT35_X="/workspace/tmp/m6-t35/build/full/x" -I /workspace/tmp/m6-t35/build/full/x -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/external -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/tests/app-unit/fakes -I /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-window-input-682/docs/audits/2026_10_31-epic-m6-es-core-window-input/stage-a/fakes -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-window-input-682/es-core/src -I /workspace/cache/rocknix-sources/emulationstation/emulationstation-16dbac5211eea7e70db7394372033be2be7df829/external <1 sources> -o floor-tests
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-window-input-682/docs/audits/2026_10_31-epic-m6-es-core-window-input/tools/t35-floor-tests.cpp
+built floor-tests
+RUN window-input-tests: rc 1; [doctest] test cases: 19 | 13 passed | 6 failed | 0 skipped [doctest] assertions: 53 | 45 passed | 8 failed | 
+    TEST CASE:  3.10 the approximate-match log names the device it found (InputManager.cpp:946, :960)
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-window-input-682/docs/audits/2026_10_31-epic-m6-es-core-window-input/tools/t35-window-input-tests.cpp:115: ERROR: CHECK( im::logged[0].find("guid=0300abcd") != std::string::npos ) is NOT correct!
+      values: CHECK( 18446744073709551615 != 18446744073709551615 )
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-window-input-682/docs/audits/2026_10_31-epic-m6-es-core-window-input/tools/t35-window-input-tests.cpp:120: ERROR: CHECK( im::logged[0].find("name=Pad X") != std::string::npos ) is NOT correct!
+      values: CHECK( 18446744073709551615 != 18446744073709551615 )
+    TEST CASE:  3.4 an argument reaches the shell quoted so that $( ) and backticks stay text (Scripting.cpp:98-113)
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-window-input-682/docs/audits/2026_10_31-epic-m6-es-core-window-input/tools/t35-window-input-tests.cpp:152: ERROR: CHECK( c.find("'/storage/roms/nes/a$(id)b.zip'") != std::string::npos ) is NOT correct!
+      values: CHECK( 18446744073709551615 != 18446744073709551615 )
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-window-input-682/docs/audits/2026_10_31-epic-m6-es-core-window-input/tools/t35-window-input-tests.cpp:154: ERROR: CHECK( t.find("'x`id`y.zip'") != std::string::npos ) is NOT correct!
+      values: CHECK( 18446744073709551615 != 18446744073709551615 )
+    TEST CASE:  3.5 a non-script file in a per-event folder is not run (Scripting.cpp:169-178, the filter WIN32-only)
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-window-input-682/docs/audits/2026_10_31-epic-m6-es-core-window-input/tools/t35-window-input-tests.cpp:167: ERROR: CHECK( std::find(sc::ran.begin(), sc::ran.end(), "/storage/.config/emulationstation/scripts/game-start/notes.txt") == sc::ran.end() ) is NOT correct!
+      values: CHECK( {?} == {?} )
+    TEST CASE:  3.19 BUTTON_GRID_HORIZ_PADDING means one thing (guis/GuiTextEditPopupKeyboard.cpp:14 against components/MenuComponent.cpp:14)
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-window-input-682/docs/audits/2026_10_31-epic-m6-es-core-window-input/tools/t35-window-input-tests.cpp:188: ERROR: CHECK( kbPad() == doctest::Approx(menuPad()) ) is NOT correct!
+      values: CHECK( 3.33333 == Approx( 14.08 ) )
+    TEST CASE:  3.11 a file written by pugixml's save_file after a cached miss reads as present (InputManager.cpp:1187 with utils/FileSystemUtil.cpp, T36's)
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-window-input-682/docs/audits/2026_10_31-epic-m6-es-core-window-input/tools/t35-window-input-tests.cpp:212: ERROR: CHECK( Utils::FileSystem::exists(p) ) is NOT correct!
+      values: CHECK( false )
+    TEST CASE:  3.1 ResetComponent from another thread does not wait for a running probe (watchers/WatchersManager.cpp:92-104 against :181-199)
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-window-input-682/docs/audits/2026_10_31-epic-m6-es-core-window-input/tools/t35-window-input-tests.cpp:240: MESSAGE: ResetComponent returned after 1493 ms
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-window-input-682/docs/audits/2026_10_31-epic-m6-es-core-window-input/tools/t35-window-input-tests.cpp:241: ERROR: CHECK( ms < 300 ) is NOT correct!
+      values: CHECK( 1493 <  300 )
+    failing: 3.10 the approximate-match log names the device it found (InputManager.cpp:946, :960)
+    failing: 3.11 a file written by pugixml's save_file after a cached miss reads as present (InputManager.cpp:1187 with utils/FileSystemUtil.cpp, T36's)
+    failing: 3.19 BUTTON_GRID_HORIZ_PADDING means one thing (guis/GuiTextEditPopupKeyboard.cpp:14 against components/MenuComponent.cpp:14)
+    failing: 3.1 ResetComponent from another thread does not wait for a running probe (watchers/WatchersManager.cpp:92-104 against :181-199)
+    failing: 3.4 an argument reaches the shell quoted so that $( ) and backticks stay text (Scripting.cpp:98-113)
+    failing: 3.5 a non-script file in a per-event folder is not run (Scripting.cpp:169-178, the filter WIN32-only)
+RUN floor-tests: rc 0; [doctest] test cases: 11 | 11 passed | 0 failed | 0 skipped [doctest] assertions: 71 | 71 passed | 0 failed | 
+SAN tsan-posts (-fsanitize=thread): rc 0; no sanitizer report
+SAN tsan-watchers (-fsanitize=thread): rc 66; WARNING: ThreadSanitizer: data race (pid=2446148)
+SAN asan-watchers (-fsanitize=address): rc 0; no sanitizer report
+TOTAL: 269 test cases in 7 binaries
+rc=1 wall=43s
