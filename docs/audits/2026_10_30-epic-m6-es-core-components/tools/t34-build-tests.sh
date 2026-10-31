@@ -48,7 +48,7 @@ build() { # <name> <flags...> -- <sources...>
   local name=$1; shift; local flags=() ; while [ "$1" != -- ]; do flags+=("$1"); shift; done; shift
   echo "\$ ${CXX[*]} ${flags[*]} <$# sources> -o ${name}"
   # A failed compile must leave no binary behind for the run below (T34 S3).
-  rm -f -- "${B:?}/${name:?}"
+  rm -f -- "${B:?}/${name:?}" "${B:?}/${name:?}.run.log"
   printf '    %s\n' "$@"
   if ! "${CXX[@]}" "${flags[@]}" "$@" -o "${B}/${name}" > "${B}/${name}.build.log" 2>&1; then
     echo "BUILD FAIL ${name}:"; tail -n 15 "${B}/${name}.build.log"; FAIL=1; return 1

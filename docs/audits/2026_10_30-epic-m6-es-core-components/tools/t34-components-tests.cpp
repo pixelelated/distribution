@@ -10,7 +10,9 @@
 #include <cassert>
 #include <cmath>
 #include <cstdio>
+#include <cstring>
 #include <functional>
+#include <new>
 #include <ctime>
 #include <map>
 #include <memory>
@@ -893,4 +895,128 @@ TEST_CASE("3.9 3.10 the grid's dimensions and its partial last row (ImageGridCom
 	CHECK(h.mGridDimension.x() == 6); CHECK(h.mGridDimension.y() == 5 + 2 * EXTRAITEMS); CHECK(h.mLastRowPartial);
 	igrid::Grid e; e.mSize = igrid::V2f(540, 430); e.calcGridDimension(); // 550/110 = 5, 440/110 = 4: no partial row
 	CHECK(e.mGridDimension.y() == 4 + 2 * EXTRAITEMS); CHECK_FALSE(e.mLastRowPartial);
+}
+
+// ---- S7 (stage E): the switch and the menu ----
+
+// PL-36 (#1332), 3.30: SwitchComponent.cpp's constructor (:10-24), its
+// value (:118-138), the image path (:156-163) and the OK press (:54-65).
+namespace swns {
+static const int FONT_SIZE_MEDIUM = 1;
+struct FontS { float getLetterHeight() const { return 16; } float getHeight(float) const { return 20; } };
+struct Font { static std::shared_ptr<FontS> get(int) { return std::make_shared<FontS>(); } };
+struct MenuTheme { struct { std::shared_ptr<FontS> font = std::make_shared<FontS>(); unsigned color = 0xFFFFFFFF; } Text; struct { std::string on = "on.svg", off = "off.svg", onoffauto = "auto.svg"; } Icons; };
+namespace ThemeData { inline std::shared_ptr<MenuTheme> getMenuTheme() { static auto t = std::make_shared<MenuTheme>(); return t; } }
+namespace EsLocale { inline bool isRTL() { return false; } }
+struct Img { std::string path; void setImage(const std::string& p) { path = p; } void setColorShift(unsigned) {} void setResize(float, float) {} void setFlipX(bool) {} Vec2f getSize() const { return Vec2f(40, 20); } };
+struct Switch { Img mImage; bool mState, mHasAuto, mAutoState; unsigned mColor = 0; Vec2f mSize; std::function<void()> mOnChangedCallback;
+	Switch(bool state, bool hasAuto = false, bool autoState = false) : mState(state), mHasAuto(hasAuto), mAutoState(autoState) {
+#include "x_sw_ctor.inc"
+	}
+	void updateImage() {
+#if __has_include("x_sw_updateimage.inc")
+#include "x_sw_updateimage.inc"
+#endif
+	}
+	void onStateChanged() {
+#include "x_sw_statechanged.inc"
+	}
+	std::string getValue() const {
+#include "x_sw_getvalue.inc"
+	}
+	void setValue(const std::string& statestring) {
+#include "x_sw_setvalue.inc"
+	}
+	void setAutoState(bool bAuto) {
+#include "x_sw_setauto.inc"
+	}
+	void press() {
+#include "x_sw_press.inc"
+		onStateChanged();
+	} };
+}
+TEST_CASE("PL-36 a switch shows the state it holds: built ON, and after setAutoState (SwitchComponent.cpp:7-25, :152-154)") {
+	swns::Switch on(true); CHECK(on.mImage.path == "on.svg");
+	swns::Switch off(false); CHECK(off.mImage.path == "off.svg");
+	swns::Switch a(false, true, false); a.setAutoState(true); CHECK(a.mImage.path == "auto.svg");
+	// ruling 13: auto stays in force as upstream reads it
+	swns::Switch b(false, true, true); b.setValue("true"); CHECK(b.getValue() == "auto"); CHECK(b.mImage.path == "auto.svg");
+}
+TEST_CASE("3.30 the switch's OK press cycles auto, on, off and back, and toggles without auto (SwitchComponent.cpp:50-80)") {
+	swns::Switch s(false, true, true);
+	s.press(); CHECK(s.getValue() == "true"); s.press(); CHECK(s.getValue() == "false"); s.press(); CHECK(s.getValue() == "auto");
+	swns::Switch t(false); t.press(); CHECK(t.getValue() == "true"); t.press(); CHECK(t.getValue() == "false");
+}
+
+// PL-37 (#1333): MenuComponent.cpp:290-336, a title image set again, as
+// setSubTitle does (:375-376), into a header grid whose setEntry counts.
+namespace menuns {
+#define TITLE_HEIGHT 40.0f
+namespace Renderer { inline int getScreenWidth() { return 640; } inline int getScreenHeight() { return 480; } }
+struct V2iM { int a, b; V2iM(int x, int y) : a(x), b(y) {} };
+struct ImgT { void setPadding(float) {} void setMaxSize(float, float) {} };
+struct Label { void setVisible(bool) {} };
+struct Header { std::vector<ImgT*> cells; void setEntry(const std::shared_ptr<ImgT>& c, V2iM, bool, bool, V2iM = V2iM(1, 1)) { cells.push_back(c.get()); }
+	void removeEntry(const std::shared_ptr<ImgT>& c) { cells.erase(std::remove(cells.begin(), cells.end(), c.get()), cells.end()); } void setColWidthPerc(int, float) {} };
+struct Menu { using Vector2i = V2iM; std::shared_ptr<Header> mHeaderGrid = std::make_shared<Header>(); std::shared_ptr<ImgT> mTitleImage; std::shared_ptr<Label> mTitle = std::make_shared<Label>(), mSubtitle; Vec2f mSize = Vec2f(576, 400);
+	void updateSize() {}
+	void setTitleImage(std::shared_ptr<ImgT> titleImage, bool replaceTitle = false) {
+#include "x_menu_titleimage.inc"
+	} };
+}
+TEST_CASE("PL-37 a subtitle update keeps one header entry for the title image (MenuComponent.cpp:290-336, :375-376)") {
+	menuns::Menu m; auto img = std::make_shared<menuns::ImgT>();
+	m.setTitleImage(img); m.setTitleImage(m.mTitleImage); // setSubTitle's re-run
+	CHECK(m.mHeaderGrid->cells.size() == 1);
+	m.setTitleImage(img, true); CHECK(m.mHeaderGrid->cells.size() == 1);
+	m.setTitleImage(nullptr); CHECK(m.mHeaderGrid->cells.empty());
+}
+
+// PL-28 (#1324): three members read before anything wrote them. Each
+// double is built over a buffer of 0xAB bytes, as a heap block the
+// allocator reused would be; a member the code initialises reads its value.
+namespace ComponentListFlags { enum UpdateType { UPDATE_ALWAYS, UPDATE_WHEN_SELECTED, UPDATE_NEVER }; }
+namespace pl28 {
+using Vector2f = Vec2f;
+struct Vector4f { float p[4]; static Vector4f Zero() { return Vector4f{{0, 0, 0, 0}}; } };
+struct ListMembers { int before = 1;
+#include "x_list_updatetype.inc"
+	ListMembers() {} };
+struct TileMembers { int before = 1;
+#include "x_tile_selected.inc"
+	TileMembers() {} };
+struct TextProps { bool Loaded, Visible; Vector2f pos, size; unsigned color, backColor, glowColor; float fontSize, glowSize; Vector4f padding;
+#include "x_tile_autoscroll.inc"
+	TextProps() {
+#include "x_tile_textprops.inc"
+	} };
+struct Tile { bool mSelected = false; int looks = 0;
+	void setSelected(bool selected, bool = true, void* = nullptr, bool force = false, bool = false) { if (mSelected == selected && !force) return; mSelected = selected; looks++; }
+	void construct() {
+#include "x_tile_ctor_select.inc"
+	} };
+template <typename T> unsigned char byteOf(const T& member) { unsigned char b; std::memcpy(&b, &member, 1); return b; }
+}
+TEST_CASE("PL-28 a list's update type, a tile's selected flag and a label's autoscroll start with a value (ComponentList.h:157, GridTileComponent.h:312, :77-90, :134, GridTileComponent.cpp:49)") {
+	alignas(16) unsigned char buf[256];
+	std::memset(buf, 0xAB, sizeof buf); auto* l = new (buf) pl28::ListMembers();
+	int ut; std::memcpy(&ut, &l->mUpdateType, sizeof ut); CHECK(ut == ComponentListFlags::UPDATE_ALWAYS); l->~ListMembers();
+	std::memset(buf, 0xAB, sizeof buf); auto* t = new (buf) pl28::TileMembers();
+	CHECK(pl28::byteOf(t->mSelected) == 0); t->~TileMembers();
+	std::memset(buf, 0xAB, sizeof buf); auto* p = new (buf) pl28::TextProps();
+	CHECK(pl28::byteOf(p->autoScroll) == 0); p->~TextProps();
+	pl28::Tile tile; tile.construct(); CHECK(tile.looks == 1); // the unselected look applied at construction
+}
+
+// 3.27: MenuComponent.cpp:410-423, the rows that fit a capped menu.
+struct MenuFit { std::vector<float> rows; float getButtonGridHeight() const { return 30; } int size() const { return (int)rows.size(); } float getRowHeight(int i) const { return rows[i]; }
+	MenuFit* mList = this;
+	float fit(float height, float maxHeight) {
+#include "x_menu_fit.inc"
+		return height;
+	} };
+TEST_CASE("3.27 a capped menu takes the rows that fit strictly under its height (MenuComponent.cpp:396-424)") {
+	MenuFit m; m.rows.assign(20, 25);
+	float h = m.fit(9999, 300); CHECK(h <= 300); CHECK(h == doctest::Approx(40 + 30 + 9 * 25)); // 295: a tenth row would make 320
+	MenuFit e; e.rows.assign(20, 23); float g = e.fit(9999, 300); CHECK(g == doctest::Approx(40 + 30 + 9 * 23)); // a tenth row would end at 300 exactly: the strict < leaves it out, 23 px under the cap
 }

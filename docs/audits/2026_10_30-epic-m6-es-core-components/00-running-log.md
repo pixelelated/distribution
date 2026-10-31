@@ -227,3 +227,21 @@
 - **The fix** is one ES commit on `ImageGridComponent.h`: `resetGrid()` clears the loop-copy tiles, `setImage` retires the old tile, and `:1151` compares.
 - **After:** all five PASS; `TOTAL: 280 test cases in 6 binaries`. The stand-in passes all 37, and the template compiles through three es-app includers.
 - **#585 lines:** all three, upstream's lines per `git log -S`.
+
+## [Stage E] 06:44 UTC 2026-10-31 — S7 (#1332, #1333, #1324): the switch and the menu, `5908888b5`
+
+- **The cases came first, run at `6050b8419`** (`stage-e/s7-before.txt`):
+  - PL-36 FAIL;
+  - PL-37 FAIL (2, then 3 header cells);
+  - PL-28 FAIL, with each double built over 0xAB bytes: the update type read `0xABABABAB`, two flags read `0xAB`, and the constructor's `setSelected(false)` returned early;
+  - 3.30 PASS.
+
+  3.27's FAIL there was my expectation, not the pin: its values line shows the pin computing 277, which the corrected case expects.
+- **The fix**, one ES commit on six files:
+  - the switch's image follows its state through `updateImage()`, and auto stays in force (ruling 13);
+  - `setTitleImage` removes the entry it holds before setting it again;
+  - `mUpdateType` starts at `UPDATE_ALWAYS`, chosen after reading every caller (ruling 11);
+  - `mSelected` starts false, with the constructor's call forced;
+  - `autoScroll` starts false.
+- **After:** all PASS; `TOTAL: 285 test cases in 6 binaries`. The stand-in passes all 37.
+- **`button_width`** moved with MenuComponent's five lines; the extractor refused it and the run read "not built". The build script now also drops each binary's old run log before compiling.

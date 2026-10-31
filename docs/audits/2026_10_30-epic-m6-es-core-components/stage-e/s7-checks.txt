@@ -1,0 +1,54 @@
+# S7 (stage E, #681; #1332, #1333, #1324): checks, written 2026-10-31T06:44:10Z
+
+## The ES commit
+5908888b5 on feature/m6-es-core-components-681 (parent 6050b8419, S6): 5908888b50713a95bf6000247590b7cda8abf15e, pushed to origin over HTTPS by remote name.
+     es-core/src/components/ComponentList.h       |  2 +-
+     es-core/src/components/GridTileComponent.cpp |  2 +-
+     es-core/src/components/GridTileComponent.h   |  3 ++-
+     es-core/src/components/MenuComponent.cpp     |  5 +++++
+     es-core/src/components/SwitchComponent.cpp   | 14 ++++++++++++--
+     es-core/src/components/SwitchComponent.h     |  1 +
+     6 files changed, 22 insertions(+), 5 deletions(-)
+Non-ASCII on the added lines: none. The subject follows ruling 13 rather than the brief's 'an explicit value leaves auto'.
+
+## Before and after (tools/t34-build-tests.sh's own lines)
+Before, at 6050b8419 (the six files are the pin's there; MenuComponent.cpp and ComponentList.* moved by S3 and S4):
+    RUN components-tests: rc 1; [doctest] test cases: 46 | 40 passed | 6 failed | 0 skipped [doctest] assertions: 453 | 441 passed | 12 failed | 
+    TOTAL: 285 test cases in 6 binaries
+    PL-36 FAIL (built ON draws off.svg; setAutoState leaves the image); PL-37 FAIL (2, then 3 header cells for one image); PL-28 FAIL (the update type reads 0xABABABAB, mSelected and autoScroll read 0xAB, and the constructor's setSelected(false) returned early, so no unselected look was applied); 3.30 PASS
+    3.27 shows FAIL in s7-before.txt: my expectation, not the pin. I wrote the eleventh row where the tenth is the one a strict < leaves out. The before-run's own values line, 'CHECK( 277 == Approx( 300 ) )', is the pin computing 277, which the corrected case expects. Corrected before the fix; PASS after.
+After, at 5908888b5:
+    RUN components-tests: rc 1; [doctest] test cases: 46 | 44 passed | 2 failed | 0 skipped [doctest] assertions: 453 | 450 passed | 3 failed | 
+    SAN tsan-card (-fsanitize=thread): rc 0; no sanitizer report
+    SAN asan-textedit (-fsanitize=address): rc 0; no sanitizer report
+    SAN asan-popup (-fsanitize=address): rc 0; no sanitizer report
+    SAN asan-card-handle (-fsanitize=address): rc 0; no sanitizer report
+    TOTAL: 285 test cases in 6 binaries
+    PL-36, PL-37, PL-28, 3.27 and 3.30 PASS. Ruling 13's assertion holds before and after: setValue('true') under auto reads 'auto'. The two FAILs left are 3.26 (PL-14) and 3.14's PL-40 half, both recorded.
+
+## The reads the brief asked for
+PL-28's mUpdateType (ruling 11): batocera master and ROCKNIX master leave it uninitialised too. update() (ComponentList.cpp:200-211) refreshes every row on UPDATE_ALWAYS, the selected row on UPDATE_WHEN_SELECTED, and none on any other value. The setUpdateType callers: GuiBatoceraStore.cpp:57, GuiBios.cpp:76, GuiGameAchievements.cpp:133, GuiRetroAchievements.cpp:337, GuiThemeInstaller.cpp:61 and MenuComponent.cpp:232 (a one-line description row) all ask for UPDATE_ALWAYS; GuiWifi.cpp:82 asks for UPDATE_WHEN_SELECTED. UPDATE_ALWAYS is the enum's zero and the superset, so no row that animates today stops. It is set at the declaration, with the same effect as the constructor.
+PL-36's hasAuto rows (ruling 13): the fork's one auto row is GuiMenu.cpp:3664-3677, the switchauto preset: setHasAuto(true), setAutoState(stored == ""), setState(stored == "1"), saving getAutoState() ? "" : state. It keeps its meaning: auto stays in force, and its image now matches from setAutoState on.
+PL-37 and PL-28's selected tile: getSelectedTile() is a search, and no other pointer to the header's image is held.
+
+## The stand-in
+    rc=0 ComponentList.cpp
+    rc=0 GridTileComponent.cpp
+    rc=0 MenuComponent.cpp
+    rc=0 SwitchComponent.cpp
+    CANNOT VideoVlcComponent.cpp: <vlc/vlc.h> and <vlc/libvlc_version.h> (:8-9) have no fake
+    t34-syntax-check: 37 file(s) checked, 37 rc 0, 0 not
+    The headers (SwitchComponent.h, ComponentList.h, GridTileComponent.h) are proved through their includers among the 37.
+
+## Specs (D-WORKFLOW-210)
+New in S7, with the pin's lines (s7-before) and the tip's (s7-after): sw_ctor SwitchComponent.cpp:10-24 (its :17 now updateImage()); sw_getvalue :120-121; sw_setvalue :126-137; sw_statechanged :158-162 -> :169-172; sw_updateimage (new after S7) :163-164; sw_press :54-65; sw_setauto :153 -> :154-155; menu_titleimage MenuComponent.cpp:292-335 -> :292-340; menu_fit :410-423 -> :415-428; list_updatetype ComponentList.h:157; tile_selected GridTileComponent.h:312 -> :313; tile_autoscroll :134 -> :135; tile_textprops :79-89 -> :79-90; tile_ctor_select GridTileComponent.cpp:49.
+Moved by S7: button_width MenuComponent.cpp:548-553 -> :553-558. The extractor refused the first after-run on it, and the build script reported 'not built'. The script now also removes each binary's old run log before compiling, so nothing read afterwards can be a previous run's.
+
+## The #585 lines
+PL-28: upstream's lines (the update type from f8c645805, per git log -S, mSelected from 8d7fb7b3e 'the big merge', autoScroll from a424cd744). PL-37: 58db8412c (MenuComponent title image, 2019). PL-36's OFF image: dd263264f (2023). The on/auto/off states are d7e17cd4e (2024). All four get #585 lines.
+
+## Other checks
+ES .githooks/pre-push-test: PASS. es-untranslated: not run; S7 changes no player string.
+Already written (#1332, #1333, #1324): nothing inherited.
+Time to play: none on the launch path.
+The guest half (fix-walk-pending-image): an on/off row a fork page builds with its state, at 640x480; a page with a title image and a subtitle.

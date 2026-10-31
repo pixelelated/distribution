@@ -149,10 +149,10 @@ The brief's L-01 to L-21 and floor rows 3.1 to 3.34, plus three the read found (
 | 3.24 | `ImageComponent.cpp:491-499`, `GridTileComponent.cpp:1055-1063` | layout from what it produced / a moving number | T34 | a case on the normaliser | S5: PASS at the pin and after: -1, 4, 5 and 0 normalise to 3, 0, 1 and 0 | Q5 |
 | 3.25 | `ComponentList.h:26` | a house constant a surface does not keep | T34 | a case; expected PASS | S3: PASS at the pin and after (`stage-e/s3-before.txt`, `s3-after.txt`) | Q2 |
 | **3.26** | `MenuComponent.cpp:543-562`; `ButtonComponent.cpp:10` | a house constant a surface does not keep | T34 | FAIL candidate: five 128 px buttons at 640 overhang (L-04) | pending: fixture at stage C | Q2 |
-| 3.27 | `MenuComponent.cpp:396-424` | layout from what it produced / a moving number | T34 | a case on the strict `<` | pending: fixture at stage C | Q1 |
+| 3.27 | `MenuComponent.cpp:396-424` | layout from what it produced / a moving number | T34 | a case on the strict `<` | S7: PASS at the pin and after: a row that would end exactly at the cap is left out by the strict `<` (277 of 300), recorded | Q1 |
 | 3.28 | `ComponentList.cpp:295-319` | layout from what it produced / a moving number | T34 | a case incl. the signed/unsigned compare | S3: PASS at the pin and after (`stage-e/s3-before.txt`, `s3-after.txt`) | Q1 |
 | 3.29 | `TextListComponent.h:591-608` | layout from what it produced / a moving number | T34 | the same for the game list | S0: PASS at the pin (`stage-e/s0-before.txt`) | Q1 |
-| 3.30 | `SwitchComponent.cpp:50-80`, `:118-138` | a prompt where the key moves nothing | T34 | a case on the tri-state cycle | pending: fixture at stage C | Q3 |
+| 3.30 | `SwitchComponent.cpp:50-80`, `:118-138` | a prompt where the key moves nothing | T34 | a case on the tri-state cycle | S7: PASS at the pin and after: auto, on, off and back, and a plain toggle | Q3 |
 | 3.31 | `SliderComponent.cpp:234-257` | a house constant a surface does not keep | T34 | a case on the clamp and the sentinel | S4: PASS at the pin and after | Q3 |
 | 3.32 | `RatingComponent.cpp:192-204` | a structure or merge-debt fact | T34 | a case on the accumulation's drift | S4: PASS at the pin and after; five presses reach 1.0 exactly in float | Q7 |
 | 3.33 | `TextEditComponent.cpp:267-271` | a structure or merge-debt fact | T34 | a case on a cursor inside a UTF-8 sequence (T21's `moveCursor`) | S2: PASS at the pin, written before the fix and run again after it (`stage-e/s2-before.txt`, `s2-after.txt`) | Q7 |
@@ -173,7 +173,7 @@ The brief's L-01 to L-21 and floor rows 3.1 to 3.34, plus three the read found (
 | (i) `ComponentList.cpp:568`'s `_("up/down")` | § The words, L-01, and § The input, `ComponentList.cpp:548` |
 | (j) the two lanes' `AsyncNotificationComponent.h` doubles | § The structure: a header change in T34 is named as a collision at the hand-back; the fakes are not the lane's |
 
-Generated, asserted by `tools/t34-leads.py`: 24 L leads (the brief's 21 and the read's L-22 to L-24), 34 floor rows (the seven FAIL-at-pin in bold), each answered, 4 run at the pin in S0 and 24 in the streams; 10 rulings, each with its row.
+Generated, asserted by `tools/t34-leads.py`: 24 L leads (the brief's 21 and the read's L-22 to L-24), 34 floor rows (the seven FAIL-at-pin in bold), each answered, 4 run at the pin in S0 and 26 in the streams; 10 rulings, each with its row.
 
 ## The layouts
 
