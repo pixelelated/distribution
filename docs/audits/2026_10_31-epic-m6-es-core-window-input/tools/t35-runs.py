@@ -84,14 +84,44 @@ for name, rc0, label, akey, arc, afail, drop, brc, bfail, crc, cfail in gens:
     gr.append([f"`tools/{name}`", rc0, f"`{label}`", f"`{akey}` -> {arc}: `{(afail or '').strip()[:110]}`", f"without `{drop.replace('es-core/src/', '')}` -> {brc}: `{(bfail or '').strip()[:110]}`", f"at `bccd715707` -> {crc}: `{(cfail or '').strip()[:110]}`", "tool-run"])
 print("\n**The generators, each seen to exit 1 on a constructed drift before it was trusted** (`stage-b/drift.sh` -> `stage-b/generators.txt`; (a) a wrong expectation, (b) the paths list with a cited file dropped, (c) the pin's paths read at the base, where the cited lines have moved):\n")
 print(table(["Generator", "Clean", "Its last line", "(a)", "(b)", "(c)", "proved:"], gr))
-owed = [
-    ["the stand-in syntax check over the 44 (`stage-a/syntax-check.sh`, the 13 fakes, the pugixml root; the udev and pulse branches named as not parsed)", "stage C", "a `<file>: rc N` line per `.cpp`"],
-    ["the unit build (`tools/t35-build-tests.sh`, `window-input-tests` among the binaries)", "stage C", "`TOTAL: N test cases in B binaries`, 0 failed"],
-    ["the seven candidates' FAIL lines (3.1, 3.4, 3.5, 3.10, 3.11, 3.14, 3.19) against the unfixed extracts, or their PASS-at-pin record", "stage C", "one line each"],
-    ["3.27, T33's `stage-c/pl25-screensaver.py` re-run unchanged", "stage C", "its FAIL line at the pin"],
-    ["the guest window G-01 to G-12", "after the grant on #682", "§ The guest cycle"],
+# Stage C's runs, read from their records (each figure asserted).
+def rd(p):
+    try:
+        return open(f"{A}/{p}").read()
+    except OSError:
+        fail.append(f"{p} unreadable")
+        return ""
+sx = rd("stage-a/syntax-check.out"); sx1 = rd("stage-a/syntax-check-first.out"); bt = rd("stage-c/build-tests.out"); pl = rd("stage-c/pl25-screensaver.out")
+m_sx = re.search(r"t35-syntax-check: (\d+) file\(s\) checked, (\d+) rc 0, (\d+) not", sx)
+m_sx1 = re.search(r"t35-syntax-check: (\d+) file\(s\) checked, (\d+) rc 0, (\d+) not", sx1)
+m_tot = re.search(r"^TOTAL: (\d+) test cases in (\d+) binaries$", bt, re.M)
+m_wit = re.search(r"^RUN window-input-tests: rc (\d+); \[doctest\] test cases: +(\d+) \| +(\d+) passed \| +(\d+) failed", bt, re.M)
+tree_bins = re.findall(r"^RUN (es-unit-tests|es-file-tests|es-conf-tests|es-file-tests-win32|app-unit-tests): rc (\d+); \[doctest\] test cases: +(\d+) \| +(\d+) passed \| +(\d+) failed", bt, re.M)
+failed_cases = re.findall(r"^    TEST CASE:  (3\.\d+)", bt, re.M)
+m_pl = re.search(r"SUMMARY: AddressSanitizer: (heap-use-after-free[^\n]*)", pl)
+if not (m_sx and m_sx.groups() == ("44", "44", "0")): fail.append(f"the stand-in's last line is not 44/44/0: {m_sx and m_sx.groups()}")
+if not (m_tot and m_tot.groups() == ("249", "6")): fail.append(f"TOTAL is not 249 in 6: {m_tot and m_tot.groups()}")
+if not (m_wit and m_wit.group(4) == "7"): fail.append(f"window-input-tests' failed count is not 7: {m_wit and m_wit.groups()}")
+if sorted(set(failed_cases)) != ["3.1", "3.10", "3.11", "3.14", "3.19", "3.4", "3.5"]: fail.append(f"the failing cases are {sorted(set(failed_cases))}")
+if any(r[1] != "0" or r[4] != "0" for r in tree_bins) or len(tree_bins) != 5: fail.append(f"the tree's binaries: {tree_bins}")
+if not m_pl: fail.append("3.27's ASan summary line is missing")
+stc = [
+    ["the stand-in over the 44 (`stage-a/syntax-check.sh`, the fakes under `stage-a/fakes/`, the pugixml root and rapidjson; udev, pulse, TTS, CEC and WIN32 not parsed)", "0", "11 s",
+     f"`t35-syntax-check: {m_sx.group(1)} file(s) checked, {m_sx.group(2)} rc 0, {m_sx.group(3)} not`" if m_sx else "--", "the first run (`syntax-check-first.out`) printed " + (f"`{m_sx1.group(2)} rc 0, {m_sx1.group(3)} not`" if m_sx1 else "--") + ": the seven stopped at the fakes' gaps, closed by `t35-sdl-more.h` and the T35 sections"],
+    ["the unit build (`tools/t35-build-tests.sh`)", "1 (window-input-tests' candidates, by design)", "41 s",
+     f"`TOTAL: {m_tot.group(1)} test cases in {m_tot.group(2)} binaries`" if m_tot else "--", "; ".join(f"{n} {c}/{c}" for n, rc, c, p_, f_ in tree_bins)],
+    ["`window-input-tests` before any fix", m_wit.group(1) if m_wit else "--", "in the above",
+     f"`{m_wit.group(2)} cases, {m_wit.group(3)} passed, {m_wit.group(4)} failed`" if m_wit else "--", "the seven candidates FAIL at the pin: " + ", ".join(sorted(set(failed_cases), key=lambda x: float(x[2:]))) + "; 3.11's first ordering passed because the uncached read rewrites the entry (`FileSystemUtil.cpp:161-162`), now made second"],
+    ["3.27, T33's `stage-c/pl25-screensaver.py` unchanged from `947ace1966`", "1", "1 s", f"`{m_pl.group(1)[:90]}`" if m_pl else "--", "FAIL at the pin as #1305 says; the script takes `SystemScreenSaver.cpp`'s path, not the worktree the brief's line passes"],
 ]
-print("\n**Owed at stage C and the window** (not run at stage B):\n")
+owed = [
+    ["ThreadSanitizer for 3.3 and 3.17, ASan for 3.2", "stage E (the covering cases of PL-01 and PL-07)", "a sanitizer report before the fix, none after"],
+    ["the PASS halves of the seven", "stage E", "each candidate's PASS line after its fix"],
+    ["the guest window G-01 to G-12", "slot 3 on the host", "§ The guest cycle"],
+]
+print("\n**Stage C's runs** (read from their records, each figure asserted):\n")
+print(table(["Run", "Exit", "Wall", "Figure", "Note"], stc))
+print("\n**Still owed:**\n")
 print(table(["Run", "When", "Figure expected"], owed))
 cnt = {"runs": len(blocks), "generators": len(gens)}
 for k, v in expect.items():

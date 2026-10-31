@@ -1,0 +1,52 @@
+2026-10-31T10:49:42Z npm install --offline --prefix tools/council
+rc=0
+npm warn install-scripts
+npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+2026-10-31T10:49:43Z COUNCIL_ENV_FILE=/nonexistent tools/council/run verify-pins
+OK - verifier pins match current files and every re-pin is accountable.
+rc=0
+2026-10-31T10:49:43Z COUNCIL_ENV_FILE=/nonexistent tools/council/run invoke --help
+Council Facilitator — direct-API dispatcher for council member invocations
+
+Usage:
+  npx tsx scripts/council-invoke.ts --member <id> \
+    (--prompt-file <path> | --prompt "inline") \
+    --output <path> [options]
+
+Required:
+  --member <claude|gemini|gemini-argon|gpt|kimi|muse|grok|deepseek|mistral>
+  --output <path>                       Where assistant text content is written
+  --prompt-file <path>  OR  --prompt "inline"
+
+Options:
+  --provenance <path>                   default: <output>.provenance.json
+  --system-prompt-file <path>
+  --source-manifest <path>              embed and verify source files before provider call
+  --provider default|openrouter|direct|azure|bedrock   default=OpenRouter for all; direct=max-independence fallback; Azure/Bedrock are Mistral-only backups
+  --transport default|buffered|sse|eventstream
+                                      default: member preference; Kimi defaults to SSE; Bedrock defaults to EventStream
+  --max-tokens N                        member default if omitted
+  --max-retries N                       default 3 (0 disables retries)
+  --retry-base-ms N                     default 1000 (exp. backoff base)
+  --no-retry                            convenience for --max-retries=0
+  --per-attempt-timeout-ms N            default 360000
+  --total-timeout-ms N                  default 1800000
+  --staged-attempt-config FILE          opt-in independent durable-attempt bindings
+  --staged-counter-module FILE          separately selected reviewed counter module
+  --staged-counter-sha256 SHA256        required entry pin for staged capture
+  --staged-spend-module FILE            independent reviewed spend evaluator for v2 controlled attempts
+  --staged-spend-sha256 SHA256           required evaluator entry pin for v2 controlled attempts
+  --staged-counter-dependencies FILE    independent JSON array of request-counter dependency pins
+  --staged-spend-dependencies FILE      independent JSON array of spend-evaluator dependency pins
+
+Exit codes:
+  0  success
+  1  retries_exhausted_transient
+  2  retries_exhausted_empty_content
+  3  model_mismatch_no_retry  (NEVER auto-retried)
+  4  local_config_error  (provenance NOT written; pre-call error)
+  5  permanent_provider_error
+  6  model_identity_unverifiable (content captured; HALT, never auto-retried)
+  7  provider_mismatch_no_retry  (a pinned seat served outside its pin; NEVER auto-retried)
+  8  content_filtered_no_retry  (explicit provider filtering; NEVER auto-retried)
+

@@ -722,15 +722,22 @@ generated, asserted: 51 headers' reach, 12 guard macros, 44 `.cpp` named once, 2
 | `tools/t35-words.py` | 0 | `generated, asserted: 86 lines in 10 files, 97 occurrences, 61 msgids, 0 without French; 27 glyph lines; 28 `pgettext`/`ngettext` lines, 0 without French` | `msgids=62` -> 1: `FAIL t35-words: msgids 61, expected 62` | without `Window.cpp` -> 1: `FAIL t35-words: lines 49, expected 86` | at `bccd715707` -> 1: `FAIL t35-words: es-core/src/LogPolicy.h not at bccd715707` | tool-run |
 | `tools/t35-includes.py` | 0 | `generated, asserted: 51 headers' reach, 12 guard macros, 44 `.cpp` named once, 2 headers unregistered, 9 `# batocera` lines, 2 CMake `if(`, 3 `ROCKNIX` lines, 0 map titles` | `rocknix=4` -> 1: `FAIL t35-includes: rocknix 3, expected 4` | without `Window.cpp` -> 1: `FAIL t35-includes: es-core/src/Window.cpp is not in the paths list` | at `bccd715707` -> 1: `FAIL t35-includes: es-core/src/LogPolicy.h not at bccd715707` | tool-run |
 
-**Owed at stage C and the window** (not run at stage B):
+**Stage C's runs** (read from their records, each figure asserted):
+
+| Run | Exit | Wall | Figure | Note |
+| --- | --- | --- | --- | --- |
+| the stand-in over the 44 (`stage-a/syntax-check.sh`, the fakes under `stage-a/fakes/`, the pugixml root and rapidjson; udev, pulse, TTS, CEC and WIN32 not parsed) | 0 | 11 s | `t35-syntax-check: 44 file(s) checked, 44 rc 0, 0 not` | the first run (`syntax-check-first.out`) printed `37 rc 0, 7 not`: the seven stopped at the fakes' gaps, closed by `t35-sdl-more.h` and the T35 sections |
+| the unit build (`tools/t35-build-tests.sh`) | 1 (window-input-tests' candidates, by design) | 41 s | `TOTAL: 249 test cases in 6 binaries` | es-unit-tests 185/185; es-file-tests 24/24; es-conf-tests 10/10; es-file-tests-win32 2/2; app-unit-tests 18/18 |
+| `window-input-tests` before any fix | 1 | in the above | `10 cases, 3 passed, 7 failed` | the seven candidates FAIL at the pin: 3.1, 3.4, 3.5, 3.10, 3.11, 3.14, 3.19; 3.11's first ordering passed because the uncached read rewrites the entry (`FileSystemUtil.cpp:161-162`), now made second |
+| 3.27, T33's `stage-c/pl25-screensaver.py` unchanged from `947ace1966` | 1 | 1 s | `heap-use-after-free a.cpp:14 in FileData::getImagePath[abi:cxx11]()` | FAIL at the pin as #1305 says; the script takes `SystemScreenSaver.cpp`'s path, not the worktree the brief's line passes |
+
+**Still owed:**
 
 | Run | When | Figure expected |
 | --- | --- | --- |
-| the stand-in syntax check over the 44 (`stage-a/syntax-check.sh`, the 13 fakes, the pugixml root; the udev and pulse branches named as not parsed) | stage C | a `<file>: rc N` line per `.cpp` |
-| the unit build (`tools/t35-build-tests.sh`, `window-input-tests` among the binaries) | stage C | `TOTAL: N test cases in B binaries`, 0 failed |
-| the seven candidates' FAIL lines (3.1, 3.4, 3.5, 3.10, 3.11, 3.14, 3.19) against the unfixed extracts, or their PASS-at-pin record | stage C | one line each |
-| 3.27, T33's `stage-c/pl25-screensaver.py` re-run unchanged | stage C | its FAIL line at the pin |
-| the guest window G-01 to G-12 | after the grant on #682 | § The guest cycle |
+| ThreadSanitizer for 3.3 and 3.17, ASan for 3.2 | stage E (the covering cases of PL-01 and PL-07) | a sanitizer report before the fix, none after |
+| the PASS halves of the seven | stage E | each candidate's PASS line after its fix |
+| the guest window G-01 to G-12 | slot 3 on the host | § The guest cycle |
 
 generated, asserted: 25 run blocks, 9 generators with three drifts each
 

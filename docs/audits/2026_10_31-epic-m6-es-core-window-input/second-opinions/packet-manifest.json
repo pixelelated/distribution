@@ -1,0 +1,2899 @@
+{
+ "schema": "t35-packet-manifest-1",
+ "pin": "16dbac5211eea7e70db7394372033be2be7df829",
+ "sources": [
+  {
+   "section": 1,
+   "title": "CMakeLists.txt (whole, fork-modified, at the pin)",
+   "path": "es-core/CMakeLists.txt",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "407502b180b9c9018e77258ab00551fb000180fd20ed8f88adeecf58b0e5de43",
+   "bytes": 16685
+  },
+  {
+   "section": 2,
+   "title": "src/AudioManager.cpp `:1-11` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/AudioManager.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "d539493a594a9c6c65dffc79d567918628b7ac2f6d6ae440a4ecd2933aa42dfc",
+   "bytes": 342
+  },
+  {
+   "section": 3,
+   "title": "src/AudioManager.cpp `:14-30` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/AudioManager.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "c8cf06826c4e07d6c88509d6039b7f023a986b1bf21bebd7bb81cc0c818553d3",
+   "bytes": 439
+  },
+  {
+   "section": 4,
+   "title": "src/AudioManager.cpp `:531-547` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/AudioManager.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "cbae3ccabce1c31067bde4ff4784c58049d3775201d5dcfb7581125c68838432",
+   "bytes": 646
+  },
+  {
+   "section": 5,
+   "title": "src/AudioManager.cpp `:602-618` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/AudioManager.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "3e408c9df3691b0e77b6d669006330c6faffa57d6cfbfbdd62e88ef2943a12d1",
+   "bytes": 576
+  },
+  {
+   "section": 6,
+   "title": "src/BindingManager.cpp `:1-10` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/BindingManager.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "003cb671ce5aa1eb2e5b3d7f7dc8e14483c3f63c9b5c953071289f13cbb6b015",
+   "bytes": 341
+  },
+  {
+   "section": 7,
+   "title": "src/BindingManager.cpp `:128-158` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/BindingManager.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "339c09c1498bce5647aff5d37af7a8dbfe13024114779a2d6eeb535b9dce3bc6",
+   "bytes": 1354
+  },
+  {
+   "section": 8,
+   "title": "src/CECInput.cpp `:1-31` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/CECInput.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "0ba2bcc3e8d14f751d4f060a740bbe8a0fa757641c2162270969bf8e78a31398",
+   "bytes": 1063
+  },
+  {
+   "section": 9,
+   "title": "src/CECInput.cpp `:45-61` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/CECInput.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "a7e6943bc9300b653c925f82c92d1681a124944bf0b8daf3a80c6b874a9475f3",
+   "bytes": 612
+  },
+  {
+   "section": 10,
+   "title": "src/CECInput.cpp `:86-103` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/CECInput.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "ceb9e6bb452e960bff8a9507fcc69b04bc08b5d176a4f5cc1d679b463c35ea58",
+   "bytes": 494
+  },
+  {
+   "section": 11,
+   "title": "src/CECInput.cpp `:146-183` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/CECInput.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "999bedc5441b8bd599fbad3607ea2bc8961bfea9a7378b12fee733b182dbb5e9",
+   "bytes": 1313
+  },
+  {
+   "section": 12,
+   "title": "src/CECInput.cpp `:188-204` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/CECInput.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "974b95eb4894a3b6fc8b616695a6e51432f1291c8cfbb06fb2280a56d0259fe7",
+   "bytes": 1104
+  },
+  {
+   "section": 13,
+   "title": "src/CECInput.cpp `:273-289` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/CECInput.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "53e3a9617ebc81415d8220664787c140a0f1c64394cdd487f99436f94d0d1f4d",
+   "bytes": 1160
+  },
+  {
+   "section": 14,
+   "title": "src/CECInput.h `:1-32` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/CECInput.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "e3ea2588848dcd764f0e3d0796db0681c0a90f680faf1748955bcfa1de0ae0d3",
+   "bytes": 893
+  },
+  {
+   "section": 15,
+   "title": "src/FavoriteMusicManager.cpp `:26-42` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/FavoriteMusicManager.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "d023055cbcefb35b757b04622e6d6c6933119f842c73b9772815a372fe493877",
+   "bytes": 667
+  },
+  {
+   "section": 16,
+   "title": "src/FavoriteMusicManager.cpp `:63-79` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/FavoriteMusicManager.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "a0fdc271793fdfcc27f6c35c28193af86dc7ead0ec947d3ca89750ac0af9e9f1",
+   "bytes": 385
+  },
+  {
+   "section": 17,
+   "title": "src/FavoriteMusicManager.cpp `:81-127` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/FavoriteMusicManager.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "f14762f42b8306a18cb6813a2dfb0fa147bbdb45754e0eb03150dfa43d177493",
+   "bytes": 1493
+  },
+  {
+   "section": 18,
+   "title": "src/GuiComponent.cpp `:22-38` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/GuiComponent.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "49381d246a9199c4d54c9b2b3cb9dd6f54fbdee3e24dc8876217f418cd431459",
+   "bytes": 678
+  },
+  {
+   "section": 19,
+   "title": "src/GunManager.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/GunManager.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "fd526abc9703c8f3be3e6595ed57c9326d4e2a75dac76eddb87e76fe640b7f6f",
+   "bytes": 36908
+  },
+  {
+   "section": 20,
+   "title": "src/InputConfig.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/InputConfig.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "1ff60550674e56adaa7340dcf530ea3146b35a3a74e9b68ec90e41bb9a6fbcfa",
+   "bytes": 14712
+  },
+  {
+   "section": 21,
+   "title": "src/InputConfig.h `:1-14` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/InputConfig.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "9e10f5b17f15739323e4870f9227a45b81f1fb0a0899d96a5dc2d427ec3d4d46",
+   "bytes": 360
+  },
+  {
+   "section": 22,
+   "title": "src/InputManager.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/InputManager.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "0a8425cbb38ea9f60c6a48306c48c8c7bdd9fd4ac34c5ba105af7e6f14555058",
+   "bytes": 57735
+  },
+  {
+   "section": 23,
+   "title": "src/Log.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/Log.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "ef42300c378885064858e8a5d4f5b885134e69d981b4fcc59c282ec20be57f7a",
+   "bytes": 10386
+  },
+  {
+   "section": 24,
+   "title": "src/LogPolicy.h (whole, fork-added, at the pin)",
+   "path": "es-core/src/LogPolicy.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "849e427b4d1767059c4046e522a55384cf4975ae55ad5726cd151b40a4477e14",
+   "bytes": 2196
+  },
+  {
+   "section": 25,
+   "title": "src/MameNames.cpp `:1-14` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/MameNames.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "371b6610cd04f71001e91aba5d52bc6ede245f96f89733e9250beac98a6f9a81",
+   "bytes": 394
+  },
+  {
+   "section": 26,
+   "title": "src/Paths.cpp `:11-56` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/Paths.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "da6e418016dac9a1444b489359480d24235fbc2fc549434b392e6803c6791b83",
+   "bytes": 1695
+  },
+  {
+   "section": 27,
+   "title": "src/Paths.cpp `:68-84` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/Paths.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "6c632b332ab1aea4f0e47d162dd0f7f148b948e20e0c95d8bcf021455229837b",
+   "bytes": 736
+  },
+  {
+   "section": 28,
+   "title": "src/Paths.cpp `:88-106` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/Paths.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "34185b5650859214c9ba6dff4d30b067d7fb28331d7773b3b8bcdac9c3bafe11",
+   "bytes": 967
+  },
+  {
+   "section": 29,
+   "title": "src/Paths.cpp `:152-168` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/Paths.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "2a52e28cf10edfa268978a0b689dfe7e1d30a6dea4692064776ec79d3318547c",
+   "bytes": 657
+  },
+  {
+   "section": 30,
+   "title": "src/Paths.cpp `:221-239` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/Paths.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "a8fc0421db817f0db5ef7b68b87507702d96062b8a5b501ced897d59b91a6b24",
+   "bytes": 570
+  },
+  {
+   "section": 31,
+   "title": "src/Paths.cpp `:270-295` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/Paths.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "be4cc654af1e58bbfe026172b58edebc5d2614af7367d191bb0010dc203ec59d",
+   "bytes": 722
+  },
+  {
+   "section": 32,
+   "title": "src/Scripting.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/Scripting.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "2648a36cd8c6f892adfe8aca7d9e3df9a7c41e4d2566d8f3d9e0e4e8261706ce",
+   "bytes": 8500
+  },
+  {
+   "section": 33,
+   "title": "src/Splash.cpp `:95-111` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/Splash.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "18c715e6a4078e23f3c470c453ff7f7282aa16c7e723d23f5fba07a46e20e22e",
+   "bytes": 561
+  },
+  {
+   "section": 34,
+   "title": "src/Splash.cpp `:323-337` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/Splash.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "451f2cc93855c50434e1e8ab5aadee3bf97814ad12f72e6149b565b4e3c2804c",
+   "bytes": 373
+  },
+  {
+   "section": 35,
+   "title": "src/Splash.h (whole, fork-modified, at the pin)",
+   "path": "es-core/src/Splash.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "2fe75567c6023213a2636249a5aa9cfffd23763ec00ae1d10e3f494d0afdebca",
+   "bytes": 1313
+  },
+  {
+   "section": 36,
+   "title": "src/TextToSpeech.cpp `:1-9` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/TextToSpeech.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "19bb3501ca9fe68f3b8f2e3315d72de48e030ebcd5755b3b6d0fbf9141ff6698",
+   "bytes": 232
+  },
+  {
+   "section": 37,
+   "title": "src/TextToSpeech.cpp `:19-61` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/TextToSpeech.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "bc152ee57c0523c27d3f2f1cf42d8bb2d60fd23a8e6438f909c20260095b4237",
+   "bytes": 1210
+  },
+  {
+   "section": 38,
+   "title": "src/TextToSpeech.cpp `:68-102` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/TextToSpeech.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "972fa5a7d5307bd5d9f72bb03d3858b06a32b6da0967404a3b5402497f8d5a35",
+   "bytes": 1105
+  },
+  {
+   "section": 39,
+   "title": "src/TextToSpeech.cpp `:120-146` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/TextToSpeech.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "896d079244bb523f1f40eee8907f6ee57139bc00adf2c77cef8ae18f6086316b",
+   "bytes": 637
+  },
+  {
+   "section": 40,
+   "title": "src/TextToSpeech.cpp `:169-185` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/TextToSpeech.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "98db6fc3fc59aafb5e3692a1fdb6a64938a8f811017251765c53446acede109d",
+   "bytes": 345
+  },
+  {
+   "section": 41,
+   "title": "src/TextToSpeech.cpp `:189-205` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/TextToSpeech.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "0a4da1b7719d597eaaad1c85e6bd2b0fa1b36d12373c03628515a37808329b00",
+   "bytes": 575
+  },
+  {
+   "section": 42,
+   "title": "src/TextToSpeech.cpp `:248-276` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/TextToSpeech.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "deac41e056e7ba5feaedcad58a03a6772a64368819403bf1425e86533baa854e",
+   "bytes": 937
+  },
+  {
+   "section": 43,
+   "title": "src/TextToSpeech.h `:4-35` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/TextToSpeech.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "c67acc3d35da358b5b90989c7b49fe4976ee1ed98a87f691b213084b097f57c6",
+   "bytes": 845
+  },
+  {
+   "section": 44,
+   "title": "src/TextToSpeech.h `:39-57` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/TextToSpeech.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "f6da93af1720b5dd72bc47f45d11ad4c70bd76d88cb1d520f19dad038316813e",
+   "bytes": 412
+  },
+  {
+   "section": 45,
+   "title": "src/ThemeData.cpp `:708-864` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/ThemeData.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "6638c750d7b7b41cc1fd939939280592bb5c354c9515f42581839c475866d7e3",
+   "bytes": 5934
+  },
+  {
+   "section": 46,
+   "title": "src/ThemeData.cpp `:1086-1158` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/ThemeData.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "c21b5805521404e7116e169df648c23f8b6933504aeebf2ec10347cfe9cc4d42",
+   "bytes": 2320
+  },
+  {
+   "section": 47,
+   "title": "src/ThemeData.h `:586-599` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/ThemeData.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "380b5074a6d3f8968a27443deeae7e1d7b28dd2303f36ea332a793390f61577a",
+   "bytes": 345
+  },
+  {
+   "section": 48,
+   "title": "src/VolumeControl.cpp `:3-21` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/VolumeControl.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "64c50629c131a22f770f3347096ca7de1ddf17fb13f430de5ce8714555497fad",
+   "bytes": 478
+  },
+  {
+   "section": 49,
+   "title": "src/VolumeControl.cpp `:24-40` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/VolumeControl.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "de9d37e55e368c21516872f9ef1ea3c3f993b7c173914c4450efc699b7a00902",
+   "bytes": 411
+  },
+  {
+   "section": 50,
+   "title": "src/VolumeControl.cpp `:60-81` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/VolumeControl.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "7caf501d1631c73e3185b3a7b3c786973a72442b2cc43f88e581b77d05378067",
+   "bytes": 517
+  },
+  {
+   "section": 51,
+   "title": "src/VolumeControl.cpp `:191-277` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/VolumeControl.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "4d204cfa9df448783c36936a27ac21d25e77a90eca33f671483fd48a5990cde7",
+   "bytes": 2509
+  },
+  {
+   "section": 52,
+   "title": "src/VolumeControl.cpp `:370-386` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/VolumeControl.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "4016483b8fc06f4f0d5360e84297471f7dd0f4d7d880982ede42df49d24f41c1",
+   "bytes": 598
+  },
+  {
+   "section": 53,
+   "title": "src/VolumeControl.cpp `:448-500` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/VolumeControl.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "583bdd7a3ca8678daede9b635b5116ec83b0de278c0a598c89f976c33d8424d4",
+   "bytes": 1379
+  },
+  {
+   "section": 54,
+   "title": "src/VolumeControl.cpp `:525-541` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/VolumeControl.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "3047f03a3ea5e586ae62df3e9cee1fe6819f63f390eea55ac9bee2d0b12c0946",
+   "bytes": 761
+  },
+  {
+   "section": 55,
+   "title": "src/VolumeControl.cpp `:581-601` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/VolumeControl.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "4ac2fb384d1af252b4809be5728eb4b4c70f913bdc29870934a45fde4211d90d",
+   "bytes": 508
+  },
+  {
+   "section": 56,
+   "title": "src/Window.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/Window.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "5a1cb6168e56c672988a219cbacdfadb7700b4e1c4b2a0409c12bd4ba6f11b91",
+   "bytes": 58758
+  },
+  {
+   "section": 57,
+   "title": "src/Window.h (whole, fork-modified, at the pin)",
+   "path": "es-core/src/Window.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "ea734506110e468ffaecb748b907198b46fcede4ae1de4072c01061e34c8399d",
+   "bytes": 7024
+  },
+  {
+   "section": 58,
+   "title": "src/guis/GuiDetectDevice.cpp `:1-13` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/guis/GuiDetectDevice.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "4b0b91cde6434971b2a91388dce839be51b9bdc60160b8ff4062a6bbd35c2119",
+   "bytes": 389
+  },
+  {
+   "section": 59,
+   "title": "src/guis/GuiDetectDevice.cpp `:24-66` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/guis/GuiDetectDevice.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "edd027a5c06faddc136e155a0a52e10c97bf2fc515003762aa5a473d2796009a",
+   "bytes": 2076
+  },
+  {
+   "section": 60,
+   "title": "src/guis/GuiDetectDevice.cpp `:91-107` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/guis/GuiDetectDevice.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "2478b31c594f2de6e589838bcdf11c7cfdcce8c07a49fb4c1220b65b91217d9a",
+   "bytes": 649
+  },
+  {
+   "section": 61,
+   "title": "src/guis/GuiDetectDevice.cpp `:119-149` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/guis/GuiDetectDevice.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "b1edb61805b8b01c0aaefddb6d55d08f36ad0c0042ee979f0dc79e73ebd764e6",
+   "bytes": 1053
+  },
+  {
+   "section": 62,
+   "title": "src/guis/GuiInfoPopup.cpp `:90-106` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/guis/GuiInfoPopup.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "fd80e45a4e0b65781273942383b61706c7ed95400c6e311fb174e04c91b33fb8",
+   "bytes": 573
+  },
+  {
+   "section": 63,
+   "title": "src/guis/GuiInputConfig.cpp `:3-48` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/guis/GuiInputConfig.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "0a289b64b399b324a7cb709f203089921208b9393a35942700090aef40e1bc92",
+   "bytes": 2435
+  },
+  {
+   "section": 64,
+   "title": "src/guis/GuiInputConfig.cpp `:65-81` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/guis/GuiInputConfig.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "20f8f41ea8b275d86eba875771da706f4af0fab27f32c6fce54d5d4b30c53c60",
+   "bytes": 1251
+  },
+  {
+   "section": 65,
+   "title": "src/guis/GuiInputConfig.cpp `:117-147` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/guis/GuiInputConfig.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "1ea198f09f5ef70ca41fd06e62f80d67a714b6ad6f2f8e7a9746279f86d21d0d",
+   "bytes": 1478
+  },
+  {
+   "section": 66,
+   "title": "src/guis/GuiInputConfig.cpp `:155-174` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/guis/GuiInputConfig.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "903270d2312599d93d4d1f9795027bc95524b6e9683379b8bc057b3350160db7",
+   "bytes": 1054
+  },
+  {
+   "section": 67,
+   "title": "src/guis/GuiInputConfig.cpp `:250-296` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/guis/GuiInputConfig.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "69d6ad3c668e9c788caf0c1a601414bb8622f6c66d27166728d8bdccb2b684dd",
+   "bytes": 2194
+  },
+  {
+   "section": 68,
+   "title": "src/guis/GuiInputConfig.cpp `:339-355` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/guis/GuiInputConfig.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "4f505995e0b734e7c9842a717b1538d71e2284521a51a291f370e01147ac75b3",
+   "bytes": 639
+  },
+  {
+   "section": 69,
+   "title": "src/guis/GuiInputConfig.cpp `:371-405` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/guis/GuiInputConfig.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "436af6db16d5087fdb739359a820c1d03121054e206b9a43683dabe4763052c1",
+   "bytes": 1177
+  },
+  {
+   "section": 70,
+   "title": "src/guis/GuiMsgBox.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/guis/GuiMsgBox.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "2590fe99ac8445419e6bfdbebc074e747adfa3f0525238c78997345c949a3048",
+   "bytes": 13660
+  },
+  {
+   "section": 71,
+   "title": "src/guis/GuiTextEditPopup.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/guis/GuiTextEditPopup.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "03ce32afdd293f6022d66dd2eece7802765f77cc4809cf2d74b988835c219b9d",
+   "bytes": 3768
+  },
+  {
+   "section": 72,
+   "title": "src/guis/GuiTextEditPopup.h `:7-24` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/guis/GuiTextEditPopup.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "072ee0f5a43b30ac8cd4c20f96bbc941bbfb25da5d130177b1b7ddbfb0313616",
+   "bytes": 657
+  },
+  {
+   "section": 73,
+   "title": "src/guis/GuiTextEditPopupKeyboard.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/guis/GuiTextEditPopupKeyboard.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "d8d6da625985d1b08a2d0a8113735f0586ab1368b8403efcfd2c717cfa0ce4f2",
+   "bytes": 21996
+  },
+  {
+   "section": 74,
+   "title": "src/guis/GuiTextEditPopupKeyboard.h `:5-22` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/guis/GuiTextEditPopupKeyboard.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "70ee6ac3e958bb3e273f14efb5f961abb757ee9c8cd87b43cdf56755e08c7baa",
+   "bytes": 752
+  },
+  {
+   "section": 75,
+   "title": "src/watchers/WatchersManager.cpp `:1-203` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/watchers/WatchersManager.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "b56e86835165d595506408cc7db5a0463f08032c9f858b8815b7c9b71e2be51c",
+   "bytes": 5368
+  },
+  {
+   "section": 76,
+   "title": "src/watchers/WatchersManager.h `:1-12` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/watchers/WatchersManager.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "d1e686360eb7e4364b02d1dedf17b390e97d16321855ced22bc80f148341a325",
+   "bytes": 250
+  },
+  {
+   "section": 77,
+   "title": "src/watchers/WatchersManager.h `:27-56` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/watchers/WatchersManager.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "45c3b576b5dacdb3264b71fd383344b03036e8e3c9caa38c4fd38042d214cc7f",
+   "bytes": 857
+  },
+  {
+   "section": 78,
+   "title": "src/watchers/WatchersManager.h `:69-92` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/watchers/WatchersManager.h",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "735fce354e15bdfdc4fcc828cb1f406aa90acd49684eb7d0d8bdb0dcf1784142",
+   "bytes": 770
+  },
+  {
+   "section": 79,
+   "title": "The first reader's 02-forward-audit.md (whole)",
+   "path": "docs/audits/2026_10_31-epic-m6-es-core-window-input/02-forward-audit.md",
+   "ref": "worktree",
+   "kind": "analysis",
+   "sha256": "fff2812052b310ca6d1043ab099671e7ea502f3cd03051a69761de181f1529cf",
+   "bytes": 107670
+  },
+  {
+   "section": 80,
+   "title": "The first reader's 03-retrospective.md (whole)",
+   "path": "docs/audits/2026_10_31-epic-m6-es-core-window-input/03-retrospective.md",
+   "ref": "worktree",
+   "kind": "analysis",
+   "sha256": "6e34909dd07de6a198ac9d2db09189f72a5f9c77f0a066adaff710739e89aa47",
+   "bytes": 2609
+  },
+  {
+   "section": 81,
+   "title": "The first reader's 04-analysis.md (whole)",
+   "path": "docs/audits/2026_10_31-epic-m6-es-core-window-input/04-analysis.md",
+   "ref": "worktree",
+   "kind": "analysis",
+   "sha256": "ff61d70d090d98a4a23e58c27fafa8a610d301d06b879eae22041904e7acaeef",
+   "bytes": 18436
+  },
+  {
+   "section": 82,
+   "title": "The first reader's 05-punch-list.md (whole)",
+   "path": "docs/audits/2026_10_31-epic-m6-es-core-window-input/05-punch-list.md",
+   "ref": "worktree",
+   "kind": "analysis",
+   "sha256": "a0f340ecefa5f4ef305bc63b42972b07a0e300558ffa7b55792522f5a61e7ad3",
+   "bytes": 19921
+  },
+  {
+   "section": 83,
+   "title": "The brief's \u00a7 4, the questions",
+   "path": "docs/reviews/briefs/es-core-window-input.md",
+   "ref": "worktree",
+   "kind": "brief",
+   "sha256": "3e255f619c6058f100c867897c9779a0652614a74dcc48dd29b90ed9d0a2ab72",
+   "bytes": 36263
+  }
+ ],
+ "scan": {
+  "forbidden": [],
+  "secret_patterns": [],
+  "mask": [],
+  "words": [
+   {
+    "file": "src/GunManager.cpp",
+    "file_line": 215,
+    "line": 985,
+    "word": "key",
+    "class": "prose: a comment (a keyboard key, the player, or the verb to pass)"
+   },
+   {
+    "file": "src/GunManager.cpp",
+    "file_line": 592,
+    "line": 1362,
+    "word": "pass",
+    "class": "prose: a comment (a keyboard key, the player, or the verb to pass)"
+   },
+   {
+    "file": "src/InputConfig.cpp",
+    "file_line": 26,
+    "line": 1858,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/InputConfig.cpp",
+    "file_line": 42,
+    "line": 1874,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/InputManager.cpp",
+    "file_line": 411,
+    "line": 2713,
+    "word": "User",
+    "class": "prose: a comment (a keyboard key, the player, or the verb to pass)"
+   },
+   {
+    "file": "src/InputManager.cpp",
+    "file_line": 411,
+    "line": 2713,
+    "word": "user",
+    "class": "prose: a comment (a keyboard key, the player, or the verb to pass)"
+   },
+   {
+    "file": "src/InputManager.cpp",
+    "file_line": 709,
+    "line": 3011,
+    "word": "pass",
+    "class": "prose: a comment (a keyboard key, the player, or the verb to pass)"
+   },
+   {
+    "file": "src/InputManager.cpp",
+    "file_line": 786,
+    "line": 3088,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/InputManager.cpp",
+    "file_line": 789,
+    "line": 3091,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/InputManager.cpp",
+    "file_line": 793,
+    "line": 3095,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/InputManager.cpp",
+    "file_line": 802,
+    "line": 3104,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/InputManager.cpp",
+    "file_line": 806,
+    "line": 3108,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/InputManager.cpp",
+    "file_line": 882,
+    "line": 3184,
+    "word": "user",
+    "class": "identifier: SDL's user event (`ev.user.code`)"
+   },
+   {
+    "file": "src/InputManager.cpp",
+    "file_line": 1015,
+    "line": 3317,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/InputManager.cpp",
+    "file_line": 1018,
+    "line": 3320,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/InputManager.cpp",
+    "file_line": 1030,
+    "line": 3332,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/InputManager.cpp",
+    "file_line": 1031,
+    "line": 3333,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/InputManager.cpp",
+    "file_line": 1131,
+    "line": 3433,
+    "word": "user",
+    "class": "prose: a comment (a keyboard key, the player, or the verb to pass)"
+   },
+   {
+    "file": "src/InputManager.cpp",
+    "file_line": 1144,
+    "line": 3446,
+    "word": "user",
+    "class": "prose: a comment (a keyboard key, the player, or the verb to pass)"
+   },
+   {
+    "file": "src/Window.cpp",
+    "file_line": 1159,
+    "line": 6728,
+    "word": "pass",
+    "class": "prose: a comment (a keyboard key, the player, or the verb to pass)"
+   },
+   {
+    "file": "src/guis/GuiInputConfig.cpp",
+    "file_line": 265,
+    "line": 7728,
+    "word": "user",
+    "class": "prose: a comment (a keyboard key, the player, or the verb to pass)"
+   },
+   {
+    "file": "src/guis/GuiInputConfig.cpp",
+    "file_line": 277,
+    "line": 7740,
+    "word": "key",
+    "class": "prose: a comment (a keyboard key, the player, or the verb to pass)"
+   },
+   {
+    "file": "src/guis/GuiTextEditPopupKeyboard.cpp",
+    "file_line": 208,
+    "line": 8452,
+    "word": "key",
+    "class": "prose: a comment (a keyboard key, the player, or the verb to pass)"
+   },
+   {
+    "file": "src/guis/GuiTextEditPopupKeyboard.cpp",
+    "file_line": 250,
+    "line": 8494,
+    "word": "keys",
+    "class": "prose: a comment (a keyboard key, the player, or the verb to pass)"
+   },
+   {
+    "file": "src/guis/GuiTextEditPopupKeyboard.cpp",
+    "file_line": 427,
+    "line": 8671,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/guis/GuiTextEditPopupKeyboard.cpp",
+    "file_line": 435,
+    "line": 8679,
+    "word": "keys",
+    "class": "prose: a comment (a keyboard key, the player, or the verb to pass)"
+   },
+   {
+    "file": "src/guis/GuiTextEditPopupKeyboard.cpp",
+    "file_line": 435,
+    "line": 8679,
+    "word": "user",
+    "class": "prose: a comment (a keyboard key, the player, or the verb to pass)"
+   },
+   {
+    "file": "src/guis/GuiTextEditPopupKeyboard.cpp",
+    "file_line": 464,
+    "line": 8708,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/guis/GuiTextEditPopupKeyboard.cpp",
+    "file_line": 466,
+    "line": 8710,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/guis/GuiTextEditPopupKeyboard.cpp",
+    "file_line": 466,
+    "line": 8710,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/guis/GuiTextEditPopupKeyboard.cpp",
+    "file_line": 466,
+    "line": 8710,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/guis/GuiTextEditPopupKeyboard.cpp",
+    "file_line": 468,
+    "line": 8712,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/guis/GuiTextEditPopupKeyboard.cpp",
+    "file_line": 468,
+    "line": 8712,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/guis/GuiTextEditPopupKeyboard.cpp",
+    "file_line": 481,
+    "line": 8725,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/guis/GuiTextEditPopupKeyboard.cpp",
+    "file_line": 481,
+    "line": 8725,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/guis/GuiTextEditPopupKeyboard.cpp",
+    "file_line": 486,
+    "line": 8730,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/guis/GuiTextEditPopupKeyboard.cpp",
+    "file_line": 486,
+    "line": 8730,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/guis/GuiTextEditPopupKeyboard.cpp",
+    "file_line": 491,
+    "line": 8735,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/guis/GuiTextEditPopupKeyboard.cpp",
+    "file_line": 497,
+    "line": 8741,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/guis/GuiTextEditPopupKeyboard.cpp",
+    "file_line": 521,
+    "line": 8765,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "file": "src/guis/GuiTextEditPopupKeyboard.cpp",
+    "file_line": 530,
+    "line": 8774,
+    "word": "key",
+    "class": "identifier: a keyboard key or an input type (`key`), not a secret"
+   },
+   {
+    "line": 9222,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9237,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9248,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9248,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9249,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9250,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9250,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9251,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9254,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9255,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9257,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9258,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9260,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9264,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9265,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9278,
+    "word": "token",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9288,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9291,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9295,
+    "word": "token",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9328,
+    "word": "user",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9334,
+    "word": "user",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9340,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9424,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9424,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9424,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9493,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9500,
+    "word": "token",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9537,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9537,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9541,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9541,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9642,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9642,
+    "word": "keys",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9676,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9824,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9953,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9953,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9967,
+    "word": "user",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9994,
+    "word": "token",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 9998,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10002,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10002,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10014,
+    "word": "token",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10033,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10036,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10037,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10041,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10069,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10089,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10136,
+    "word": "user",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10147,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10215,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10228,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10266,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10266,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10277,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10529,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10546,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10599,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10626,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10692,
+    "word": "token",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10694,
+    "word": "token",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10732,
+    "word": "token",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10752,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10784,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10785,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10790,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10828,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10829,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10831,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10853,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10944,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10944,
+    "word": "user",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10944,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10945,
+    "word": "pass",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10947,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10947,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10947,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10950,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 10966,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   }
+  ]
+ },
+ "summary": {
+  "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin",
+  "secret_patterns": "0 line(s) match",
+  "mask": "0 value(s) masked",
+  "words": "121 credential-shaped word(s), each classed; 0 a value",
+  "review": 0,
+  "slice": "13 fork-added and fork-modified whole, 22 upstream-carried by cited ranges"
+ },
+ "slice_files": {
+  "CMakeLists.txt": {
+   "sent": [
+    [
+     1,
+     303
+    ]
+   ],
+   "trimmed": [],
+   "lines": 303
+  },
+  "src/AsyncHandle.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     57
+    ]
+   ],
+   "lines": 57
+  },
+  "src/AudioManager.cpp": {
+   "sent": [
+    [
+     1,
+     11
+    ],
+    [
+     14,
+     30
+    ],
+    [
+     531,
+     547
+    ],
+    [
+     602,
+     618
+    ]
+   ],
+   "trimmed": [
+    [
+     12,
+     13
+    ],
+    [
+     31,
+     530
+    ],
+    [
+     548,
+     601
+    ],
+    [
+     619,
+     749
+    ]
+   ],
+   "lines": 749
+  },
+  "src/AudioManager.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     86
+    ]
+   ],
+   "lines": 86
+  },
+  "src/BindingManager.cpp": {
+   "sent": [
+    [
+     1,
+     10
+    ],
+    [
+     128,
+     158
+    ]
+   ],
+   "trimmed": [
+    [
+     11,
+     127
+    ],
+    [
+     159,
+     522
+    ]
+   ],
+   "lines": 522
+  },
+  "src/BindingManager.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     118
+    ]
+   ],
+   "lines": 118
+  },
+  "src/CECInput.cpp": {
+   "sent": [
+    [
+     1,
+     31
+    ],
+    [
+     45,
+     61
+    ],
+    [
+     86,
+     103
+    ],
+    [
+     146,
+     183
+    ],
+    [
+     188,
+     204
+    ],
+    [
+     273,
+     289
+    ]
+   ],
+   "trimmed": [
+    [
+     32,
+     44
+    ],
+    [
+     62,
+     85
+    ],
+    [
+     104,
+     145
+    ],
+    [
+     184,
+     187
+    ],
+    [
+     205,
+     272
+    ],
+    [
+     290,
+     376
+    ]
+   ],
+   "lines": 376
+  },
+  "src/CECInput.h": {
+   "sent": [
+    [
+     1,
+     32
+    ]
+   ],
+   "trimmed": [
+    [
+     33,
+     38
+    ]
+   ],
+   "lines": 38
+  },
+  "src/FavoriteMusicManager.cpp": {
+   "sent": [
+    [
+     26,
+     42
+    ],
+    [
+     63,
+     79
+    ],
+    [
+     81,
+     127
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     25
+    ],
+    [
+     43,
+     62
+    ],
+    [
+     80,
+     80
+    ]
+   ],
+   "lines": 127
+  },
+  "src/FavoriteMusicManager.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     27
+    ]
+   ],
+   "lines": 27
+  },
+  "src/GuiComponent.cpp": {
+   "sent": [
+    [
+     22,
+     38
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     21
+    ],
+    [
+     39,
+     1540
+    ]
+   ],
+   "lines": 1540
+  },
+  "src/GuiComponent.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     298
+    ]
+   ],
+   "lines": 298
+  },
+  "src/GunManager.cpp": {
+   "sent": [
+    [
+     1,
+     1057
+    ]
+   ],
+   "trimmed": [],
+   "lines": 1057
+  },
+  "src/GunManager.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     155
+    ]
+   ],
+   "lines": 155
+  },
+  "src/HelpPrompt.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     27
+    ]
+   ],
+   "lines": 27
+  },
+  "src/HelpStyle.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     87
+    ]
+   ],
+   "lines": 87
+  },
+  "src/HelpStyle.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     31
+    ]
+   ],
+   "lines": 31
+  },
+  "src/ImageIO.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     394
+    ]
+   ],
+   "lines": 394
+  },
+  "src/ImageIO.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     54
+    ]
+   ],
+   "lines": 54
+  },
+  "src/InputConfig.cpp": {
+   "sent": [
+    [
+     1,
+     446
+    ]
+   ],
+   "trimmed": [],
+   "lines": 446
+  },
+  "src/InputConfig.h": {
+   "sent": [
+    [
+     1,
+     14
+    ]
+   ],
+   "trimmed": [
+    [
+     15,
+     176
+    ]
+   ],
+   "lines": 176
+  },
+  "src/InputManager.cpp": {
+   "sent": [
+    [
+     1,
+     1552
+    ]
+   ],
+   "trimmed": [],
+   "lines": 1552
+  },
+  "src/InputManager.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     109
+    ]
+   ],
+   "lines": 109
+  },
+  "src/LocaleES.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     427
+    ]
+   ],
+   "lines": 427
+  },
+  "src/LocaleES.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     83
+    ]
+   ],
+   "lines": 83
+  },
+  "src/Log.cpp": {
+   "sent": [
+    [
+     1,
+     322
+    ]
+   ],
+   "trimmed": [],
+   "lines": 322
+  },
+  "src/Log.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     56
+    ]
+   ],
+   "lines": 56
+  },
+  "src/LogPolicy.h": {
+   "sent": [
+    [
+     1,
+     55
+    ]
+   ],
+   "trimmed": [],
+   "lines": 55
+  },
+  "src/MameNames.cpp": {
+   "sent": [
+    [
+     1,
+     14
+    ]
+   ],
+   "trimmed": [
+    [
+     15,
+     461
+    ]
+   ],
+   "lines": 461
+  },
+  "src/MameNames.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     62
+    ]
+   ],
+   "lines": 62
+  },
+  "src/MultiStateInput.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     53
+    ]
+   ],
+   "lines": 53
+  },
+  "src/MultiStateInput.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     19
+    ]
+   ],
+   "lines": 19
+  },
+  "src/Paths.cpp": {
+   "sent": [
+    [
+     11,
+     56
+    ],
+    [
+     68,
+     84
+    ],
+    [
+     88,
+     106
+    ],
+    [
+     152,
+     168
+    ],
+    [
+     221,
+     239
+    ],
+    [
+     270,
+     295
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     10
+    ],
+    [
+     57,
+     67
+    ],
+    [
+     85,
+     87
+    ],
+    [
+     107,
+     151
+    ],
+    [
+     169,
+     220
+    ],
+    [
+     240,
+     269
+    ],
+    [
+     296,
+     363
+    ]
+   ],
+   "lines": 363
+  },
+  "src/Paths.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     112
+    ]
+   ],
+   "lines": 112
+  },
+  "src/PowerSaver.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     122
+    ]
+   ],
+   "lines": 122
+  },
+  "src/PowerSaver.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     84
+    ]
+   ],
+   "lines": 84
+  },
+  "src/Scripting.cpp": {
+   "sent": [
+    [
+     1,
+     209
+    ]
+   ],
+   "trimmed": [],
+   "lines": 209
+  },
+  "src/Scripting.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     13
+    ]
+   ],
+   "lines": 13
+  },
+  "src/Sound.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     115
+    ]
+   ],
+   "lines": 115
+  },
+  "src/Sound.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     38
+    ]
+   ],
+   "lines": 38
+  },
+  "src/Splash.cpp": {
+   "sent": [
+    [
+     95,
+     111
+    ],
+    [
+     323,
+     337
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     94
+    ],
+    [
+     112,
+     322
+    ]
+   ],
+   "lines": 337
+  },
+  "src/Splash.h": {
+   "sent": [
+    [
+     1,
+     44
+    ]
+   ],
+   "trimmed": [],
+   "lines": 44
+  },
+  "src/TextToSpeech.cpp": {
+   "sent": [
+    [
+     1,
+     9
+    ],
+    [
+     19,
+     61
+    ],
+    [
+     68,
+     102
+    ],
+    [
+     120,
+     146
+    ],
+    [
+     169,
+     185
+    ],
+    [
+     189,
+     205
+    ],
+    [
+     248,
+     276
+    ]
+   ],
+   "trimmed": [
+    [
+     10,
+     18
+    ],
+    [
+     62,
+     67
+    ],
+    [
+     103,
+     119
+    ],
+    [
+     147,
+     168
+    ],
+    [
+     186,
+     188
+    ],
+    [
+     206,
+     247
+    ],
+    [
+     277,
+     284
+    ]
+   ],
+   "lines": 284
+  },
+  "src/TextToSpeech.h": {
+   "sent": [
+    [
+     4,
+     35
+    ],
+    [
+     39,
+     57
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     3
+    ],
+    [
+     36,
+     38
+    ],
+    [
+     58,
+     64
+    ]
+   ],
+   "lines": 64
+  },
+  "src/ThemeData.cpp": {
+   "sent": [
+    [
+     708,
+     864
+    ],
+    [
+     1086,
+     1158
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     707
+    ],
+    [
+     865,
+     1085
+    ],
+    [
+     1159,
+     2891
+    ]
+   ],
+   "lines": 2891
+  },
+  "src/ThemeData.h": {
+   "sent": [
+    [
+     586,
+     599
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     585
+    ]
+   ],
+   "lines": 599
+  },
+  "src/ThemeVariables.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     44
+    ]
+   ],
+   "lines": 44
+  },
+  "src/ThemeVariables.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     15
+    ]
+   ],
+   "lines": 15
+  },
+  "src/VolumeControl.cpp": {
+   "sent": [
+    [
+     3,
+     21
+    ],
+    [
+     24,
+     40
+    ],
+    [
+     60,
+     81
+    ],
+    [
+     191,
+     277
+    ],
+    [
+     370,
+     386
+    ],
+    [
+     448,
+     500
+    ],
+    [
+     525,
+     541
+    ],
+    [
+     581,
+     601
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     2
+    ],
+    [
+     22,
+     23
+    ],
+    [
+     41,
+     59
+    ],
+    [
+     82,
+     190
+    ],
+    [
+     278,
+     369
+    ],
+    [
+     387,
+     447
+    ],
+    [
+     501,
+     524
+    ],
+    [
+     542,
+     580
+    ],
+    [
+     602,
+     668
+    ]
+   ],
+   "lines": 668
+  },
+  "src/VolumeControl.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     61
+    ]
+   ],
+   "lines": 61
+  },
+  "src/Window.cpp": {
+   "sent": [
+    [
+     1,
+     1656
+    ]
+   ],
+   "trimmed": [],
+   "lines": 1656
+  },
+  "src/Window.h": {
+   "sent": [
+    [
+     1,
+     197
+    ]
+   ],
+   "trimmed": [],
+   "lines": 197
+  },
+  "src/anim/StoryboardAnimator.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     237
+    ]
+   ],
+   "lines": 237
+  },
+  "src/anim/StoryboardAnimator.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     192
+    ]
+   ],
+   "lines": 192
+  },
+  "src/anim/ThemeAnimation.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     146
+    ]
+   ],
+   "lines": 146
+  },
+  "src/anim/ThemeStoryboard.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     242
+    ]
+   ],
+   "lines": 242
+  },
+  "src/anim/ThemeStoryboard.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     28
+    ]
+   ],
+   "lines": 28
+  },
+  "src/animations/Animation.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     12
+    ]
+   ],
+   "lines": 12
+  },
+  "src/animations/AnimationController.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     38
+    ]
+   ],
+   "lines": 38
+  },
+  "src/animations/AnimationController.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     35
+    ]
+   ],
+   "lines": 35
+  },
+  "src/animations/LambdaAnimation.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     27
+    ]
+   ],
+   "lines": 27
+  },
+  "src/gettext.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     300
+    ]
+   ],
+   "lines": 300
+  },
+  "src/guis/GuiDetectDevice.cpp": {
+   "sent": [
+    [
+     1,
+     13
+    ],
+    [
+     24,
+     66
+    ],
+    [
+     91,
+     107
+    ],
+    [
+     119,
+     149
+    ]
+   ],
+   "trimmed": [
+    [
+     14,
+     23
+    ],
+    [
+     67,
+     90
+    ],
+    [
+     108,
+     118
+    ]
+   ],
+   "lines": 149
+  },
+  "src/guis/GuiDetectDevice.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     37
+    ]
+   ],
+   "lines": 37
+  },
+  "src/guis/GuiInfoPopup.cpp": {
+   "sent": [
+    [
+     90,
+     106
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     89
+    ],
+    [
+     107,
+     115
+    ]
+   ],
+   "lines": 115
+  },
+  "src/guis/GuiInfoPopup.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     37
+    ]
+   ],
+   "lines": 37
+  },
+  "src/guis/GuiInputConfig.cpp": {
+   "sent": [
+    [
+     3,
+     48
+    ],
+    [
+     65,
+     81
+    ],
+    [
+     117,
+     147
+    ],
+    [
+     155,
+     174
+    ],
+    [
+     250,
+     296
+    ],
+    [
+     339,
+     355
+    ],
+    [
+     371,
+     405
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     2
+    ],
+    [
+     49,
+     64
+    ],
+    [
+     82,
+     116
+    ],
+    [
+     148,
+     154
+    ],
+    [
+     175,
+     249
+    ],
+    [
+     297,
+     338
+    ],
+    [
+     356,
+     370
+    ],
+    [
+     406,
+     433
+    ]
+   ],
+   "lines": 433
+  },
+  "src/guis/GuiInputConfig.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     72
+    ]
+   ],
+   "lines": 72
+  },
+  "src/guis/GuiMsgBox.cpp": {
+   "sent": [
+    [
+     1,
+     299
+    ]
+   ],
+   "trimmed": [],
+   "lines": 299
+  },
+  "src/guis/GuiMsgBox.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     61
+    ]
+   ],
+   "lines": 61
+  },
+  "src/guis/GuiTextEditPopup.cpp": {
+   "sent": [
+    [
+     1,
+     86
+    ]
+   ],
+   "trimmed": [],
+   "lines": 86
+  },
+  "src/guis/GuiTextEditPopup.h": {
+   "sent": [
+    [
+     7,
+     24
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     6
+    ],
+    [
+     25,
+     33
+    ]
+   ],
+   "lines": 33
+  },
+  "src/guis/GuiTextEditPopupKeyboard.cpp": {
+   "sent": [
+    [
+     1,
+     533
+    ]
+   ],
+   "trimmed": [],
+   "lines": 533
+  },
+  "src/guis/GuiTextEditPopupKeyboard.h": {
+   "sent": [
+    [
+     5,
+     22
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     4
+    ],
+    [
+     23,
+     57
+    ]
+   ],
+   "lines": 57
+  },
+  "src/math/Misc.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     159
+    ]
+   ],
+   "lines": 159
+  },
+  "src/math/Misc.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     40
+    ]
+   ],
+   "lines": 40
+  },
+  "src/math/Transform4x4f.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     329
+    ]
+   ],
+   "lines": 329
+  },
+  "src/math/Transform4x4f.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     53
+    ]
+   ],
+   "lines": 53
+  },
+  "src/math/Vector2f.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     39
+    ]
+   ],
+   "lines": 39
+  },
+  "src/math/Vector2f.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     73
+    ]
+   ],
+   "lines": 73
+  },
+  "src/math/Vector2i.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     1
+    ]
+   ],
+   "lines": 1
+  },
+  "src/math/Vector2i.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     61
+    ]
+   ],
+   "lines": 61
+  },
+  "src/math/Vector3f.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     21
+    ]
+   ],
+   "lines": 21
+  },
+  "src/math/Vector3f.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     104
+    ]
+   ],
+   "lines": 104
+  },
+  "src/math/Vector4f.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     107
+    ]
+   ],
+   "lines": 107
+  },
+  "src/math/Vector4f.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     101
+    ]
+   ],
+   "lines": 101
+  },
+  "src/playlists/AnimatedGifPlaylist.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     33
+    ]
+   ],
+   "lines": 33
+  },
+  "src/playlists/AnimatedGifPlaylist.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     18
+    ]
+   ],
+   "lines": 18
+  },
+  "src/playlists/M3uPlaylist.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     87
+    ]
+   ],
+   "lines": 87
+  },
+  "src/playlists/M3uPlaylist.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     26
+    ]
+   ],
+   "lines": 26
+  },
+  "src/watchers/BatteryLevelWatcher.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     9
+    ]
+   ],
+   "lines": 9
+  },
+  "src/watchers/BatteryLevelWatcher.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     21
+    ]
+   ],
+   "lines": 21
+  },
+  "src/watchers/NetworkStateWatcher.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     21
+    ]
+   ],
+   "lines": 21
+  },
+  "src/watchers/NetworkStateWatcher.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     25
+    ]
+   ],
+   "lines": 25
+  },
+  "src/watchers/WatchersManager.cpp": {
+   "sent": [
+    [
+     1,
+     203
+    ]
+   ],
+   "trimmed": [],
+   "lines": 203
+  },
+  "src/watchers/WatchersManager.h": {
+   "sent": [
+    [
+     1,
+     12
+    ],
+    [
+     27,
+     56
+    ],
+    [
+     69,
+     92
+    ]
+   ],
+   "trimmed": [
+    [
+     13,
+     26
+    ],
+    [
+     57,
+     68
+    ]
+   ],
+   "lines": 92
+  }
+ },
+ "packet": {
+  "file": "t35-packet.md",
+  "bytes": 511237,
+  "sha256": "1fe7fb64ae211c76cf1dbb613d91b506e3fae3c51063811a1e4b88ce4aeb5db4"
+ }
+}

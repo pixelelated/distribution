@@ -1,0 +1,10 @@
+#!/bin/bash
+# T35 (#682): the window's guest gets no network beyond the loopback SSH forward and one
+# guestfwd to the host's own WebDAV (127.0.0.1:9010, the QA backend), at 10.0.2.100:9010:
+# restrict=on on the user netdev, then the real QEMU (T34's qemu-wrap, adapted).
+args=()
+for a in "$@"; do
+  case "$a" in user,id=net0,*) a="user,id=net0,restrict=on,guestfwd=tcp:10.0.2.100:9010-tcp:127.0.0.1:9010,${a#user,id=net0,}" ;; esac
+  args+=("$a")
+done
+exec /usr/bin/qemu-system-x86_64 "${args[@]}"
