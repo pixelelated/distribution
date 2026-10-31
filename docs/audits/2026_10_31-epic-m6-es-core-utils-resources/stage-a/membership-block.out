@@ -1,0 +1,14 @@
+58 .qa-scratch/t36/paths.txt
+mine: 58 paths.txt: 58 equal: True
+only-mine: []
+only-paths.txt: []
+lines: 50840 reach: {'shipped': 58} tier: {'upstream-carried': 43, 'fork-own': 15} lang: {'c++': 25, 'c-header': 32, 'c++-header': 1}
+fork-own lines: 6212
+read lines: 50840
+ls-tree at the pin = paths.txt
+wc -l 50827
+grep -c 50840
+52
+52
+ 15 files changed, 1032 insertions(+), 60 deletions(-)
+ 15 files changed, 1032 insertions(+), 60 deletions(-)

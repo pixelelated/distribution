@@ -1,0 +1,34 @@
+CLAIMS
+es-core/src/utils/FileSystemUtil.cpp in-T36 non-rest [('es-core-utils-resources', 36)] tier upstream-carried lines 1805 area interface
+es-core/src/utils/StringUtil.cpp in-T36 non-rest [('es-core-utils-resources', 36)] tier fork-own lines 1706 area interface
+es-core/src/utils/Platform.cpp in-T36 non-rest [('es-core-utils-resources', 36)] tier fork-own lines 956 area interface
+es-core/src/utils/OfflineProxyUrl.cpp in-T36 non-rest [('es-core-utils-resources', 36)] tier fork-own lines 21 area interface
+es-core/src/utils/TimeText.cpp in-T36 non-rest [('es-core-utils-resources', 36)] tier fork-own lines 83 area interface
+es-core/src/utils/TimeUtil.cpp in-T36 non-rest [('es-core-utils-resources', 36)] tier fork-own lines 634 area interface
+es-core/src/utils/CommandLineUtil.h in-T36 non-rest [('es-core-utils-resources', 36)] tier fork-own lines 104 area interface
+es-core/src/utils/zip_file.hpp in-T36 non-rest [('es-core-utils-resources', 36)] tier upstream-carried lines 10011 area interface
+es-core/src/resources/Font.cpp in-T36 non-rest [('es-core-utils-resources', 36)] tier fork-own lines 1311 area interface
+es-core/src/resources/TabStops.h in-T36 non-rest [('es-core-utils-resources', 36)] tier fork-own lines 49 area interface
+es-core/src/resources/TextureResource.cpp in-T36 non-rest [('es-core-utils-resources', 36)] tier upstream-carried lines 348 area interface
+es-core/src/renderers/Renderer.cpp in-T36 non-rest [('es-core-utils-resources', 36)] tier upstream-carried lines 1170 area interface
+es-core/src/utils/AtomicFileUtil.cpp not-in-T36 non-rest [('es-state-and-bridge', 21)] tier fork-own lines 829 area interface
+es-core/src/utils/AtomicFileUtil.h not-in-T36 non-rest [('es-state-and-bridge', 21)] tier fork-own lines 215 area interface
+es-core/src/utils/DownloadFile.cpp NOT IN INVENTORY
+es-core/src/Settings.cpp not-in-T36 non-rest [('es-state-and-bridge', 21)] tier fork-own lines 723 area interface
+es-core/src/SystemConf.cpp not-in-T36 non-rest [('es-state-and-bridge', 21)] tier fork-own lines 494 area interface
+es-core/src/HttpReq.cpp not-in-T36 non-rest [('es-state-and-bridge', 21)] tier fork-own lines 644 area interface
+es-core/src/components/TextComponent.cpp not-in-T36 non-rest [('es-core-components', 34)] tier upstream-carried lines 857 area interface
+es-core/src/components/MenuComponent.cpp not-in-T36 non-rest [('es-core-components', 34)] tier fork-own lines 574 area interface
+es-core/src/ImageIO.cpp not-in-T36 rest [('es-core-window-input', 35)] tier upstream-carried lines 394 area interface
+es-core/src/Log.cpp not-in-T36 rest [('es-core-window-input', 35)] tier fork-own lines 322 area interface
+es-core/src/Window.cpp not-in-T36 rest [('es-core-window-input', 35)] tier fork-own lines 1656 area interface
+es-core/CMakeLists.txt not-in-T36 rest [('es-core-window-input', 35)] tier fork-own lines 303 area interface
+es-app/src/CloudText.cpp not-in-T36 non-rest [('es-cloud-pages', 18)] tier fork-own lines 1409 area interface
+es-app/src/ApiSystem.cpp not-in-T36 non-rest [('es-state-and-bridge', 21)] tier fork-own lines 3519 area interface
+es-app/src/guis/GuiMenu.cpp not-in-T36 non-rest [('es-guimenu', 26)] tier fork-own lines 11747 area interface
+es-app/tests/unit/CMakeLists.txt not-in-T36 non-rest [('es-cloud-pages', 18)] tier fork-own lines 159 area interface
+ES-CORE BY SLICE
+96 paths 22575 lines (('es-core-window-input',), 'rest')
+80 paths 21984 lines (('es-core-components',), 'non-rest')
+58 paths 50840 lines (('es-core-utils-resources',), 'non-rest')
+8 paths 3344 lines (('es-state-and-bridge',), 'non-rest')

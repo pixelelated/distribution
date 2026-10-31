@@ -1,0 +1,240 @@
+run at 2026-10-31T16:40:14Z
+/dev/nvme1n1   244195328 64354478 179840850   27% /workspace
+
+=== r01 (brief :1577) the scope (expect 58; cpp 25; h 32; hpp 1; 14 renderers, 11 resources, 33 utils -- R1 C05)
+58
+25
+32
+1
+     14 renderers
+     11 resources
+     33 utils
+rc=0 wall=0s
+
+=== r02 (brief :1579) the ES worktree at the pin, clean; the bases (expect the pin; 0; cada856d86; f6c542872e; b2ceb55a7e; 1750dded8c; bccd715707 the merge base's parent -- R1 C01; 14 commits cada856d86..rocknix/master on 
+16dbac5211
+0
+cada856d86
+f6c542872e
+b2ceb55a7e
+1750dded8c
+bccd715707
+14
+0
+rc=0 wall=0s
+
+=== r03 (brief :1581) the lines two ways (expect wc -l 50827; grep -c 50840; no trailing newline: 13, the files § 2 names; han.h + zip_file.hpp grep -c 30934 -- R1 C09)
+wc -l 50827
+grep -c 50840
+no newline: es-core/src/renderers/Renderer_GL21.h 52/53
+no newline: es-core/src/renderers/Renderer_GLES10.h 52/53
+no newline: es-core/src/renderers/Renderer_GLES20.h 66/67
+no newline: es-core/src/renderers/Shader.cpp 641/642
+no newline: es-core/src/resources/TextureResource.cpp 347/348
+no newline: es-core/src/utils/ConcurrentVector.h 91/92
+no newline: es-core/src/utils/HtmlColor.cpp 247/248
+no newline: es-core/src/utils/MathExpr.cpp 1015/1016
+no newline: es-core/src/utils/MathExpr.h 74/75
+no newline: es-core/src/utils/StringListLock.cpp 60/61
+no newline: es-core/src/utils/VectorEx.h 169/170
+no newline: es-core/src/utils/md5.cpp 368/369
+no newline: es-core/src/utils/md5.h 94/95
+no trailing newline: 13
+han.h + zip_file.hpp grep -c 30934
+rc=0 wall=0s
+
+=== r04 (brief :1583) the fork's delta (expect `15 files changed, 1032 insertions(+), 60 deletions(-)` against bccd715707 and against cada856d86 -- R1 C07, C11; `15 files changed, 60 insertions(+), 1032 deletions(-)` from 
+ 15 files changed, 1032 insertions(+), 60 deletions(-)
+ 15 files changed, 1032 insertions(+), 60 deletions(-)
+ 15 files changed, 60 insertions(+), 1032 deletions(-)
+      6 A
+      9 M
+118	47	es-core/src/resources/Font.cpp
+10	0	es-core/src/resources/Font.h
+49	0	es-core/src/resources/TabStops.h
+49	1	es-core/src/resources/TextureData.cpp
+104	0	es-core/src/utils/CommandLineUtil.h
+21	0	es-core/src/utils/OfflineProxyUrl.cpp
+40	0	es-core/src/utils/OfflineProxyUrl.h
+67	9	es-core/src/utils/Platform.cpp
+13	0	es-core/src/utils/Platform.h
+359	0	es-core/src/utils/StringUtil.cpp
+1	0	es-core/src/utils/StringUtil.h
+83	0	es-core/src/utils/TimeText.cpp
+57	0	es-core/src/utils/TimeText.h
+51	3	es-core/src/utils/TimeUtil.cpp
+10	0	es-core/src/utils/TimeUtil.h
+19
+2
+19
+rc=0 wall=0s
+
+=== r05 (brief :1585) upstream's delta: the merge-debt record (expect upstream commits 0 rc=1 -- R1 C13; blob-identical to rocknix/master 43 -- R1 C10; batocera on the 58: 13 commits and `9 files changed, 668 insertions(+)
+0
+upstream commits rc=1
+identical to rocknix/master: 43
+13
+ 9 files changed, 668 insertions(+), 386 deletions(-)
+es-core/src/resources/Font.cpp
+es-core/src/resources/Font.h
+es-core/src/resources/TextureData.cpp
+es-core/src/utils/Platform.cpp
+rc=0 wall=1s
+
+=== r06 (brief :1587) the other lanes' deltas inside the 58 (expect T20 `1 file changed, 4 insertions(+)`; T26 `1 file changed, 15 insertions(+), 5 deletions(-)`; T21's stat naming utils/FileSystemUtil.cpp, and with the tw
+== m6-es-launch-path-649
+== m6-es-cloud-pages-665
+== m6-es-achievements-pages-667
+ es-core/src/utils/FileSystemUtil.cpp | 4 ++++
+ 1 file changed, 4 insertions(+)
+== m6-es-state-and-bridge-668
+ es-core/src/utils/FileSystemUtil.cpp | 17 +++++++++++------
+ 1 file changed, 11 insertions(+), 6 deletions(-)
+== m6-es-guimenu-673
+ es-core/src/utils/Platform.cpp | 20 +++++++++++++++-----
+ 1 file changed, 15 insertions(+), 5 deletions(-)
+== m6-es-pages-678
+== m6-es-app-views-scrapers-679
+== m6-es-app-system-680
+== m6-es-core-components-681
+== m6-es-core-window-input-682
+ 3 files changed, 101 insertions(+), 6 deletions(-)
+rc=0 wall=0s
+
+=== r07 (brief :1589) the collisions' commits (expect d9afa5c7c to resolve, an ancestor of T20's tip, its stat `FileSystemUtil.cpp | 4` -- proof U-8, CMD3; f7c16144d's stat `FileSystemUtil.cpp | 17` with the path given, it
+d9afa5c7c 2026-10-26 FileSystemUtil: readAllText reads a file under three bytes (Refs #667, #1177)
+
+ es-core/src/utils/FileSystemUtil.cpp | 4 ++++
+ 1 file changed, 4 insertions(+)
+f7c16144d 2026-10-27 es-core: a download replaces its target only after the whole artifact arrived, and renameFile fails on an absent source (Refs #668, #1191)
+
+ es-core/src/utils/FileSystemUtil.cpp | 17 +++++++++++------
+ 1 file changed, 11 insertions(+), 6 deletions(-)
+a5d2d3756 es-app, es-core: the cloud pages read a command's whole output, parse a status once, and quote through one function (Refs #673, #1225)
+rc=0 wall=0s
+
+=== r08 (brief :1591) the strings, two ways (expect `_(" lines TOTAL 11 in 2 files` -- R2 cmd 28, R3 cmd 17, proof K-148 -- MathExpr.cpp and TimeUtil.cpp; the occurrence count 12, MathExpr.cpp:95 carrying two strings -- R2
+_(" lines TOTAL 11 in 2 files
+12
+es-core/src/utils/MathExpr.cpp:95 es-core/src/utils/TimeUtil.cpp:517 es-core/src/utils/TimeUtil.cpp:544 es-core/src/utils/TimeUtil.cpp:548 es-core/src/utils/TimeUtil.cpp:552 es-core/src/utils/TimeUtil.cpp:560 es-core/src/utils/TimeUtil.cpp:569 es-core/src/utils/TimeUtil.cpp:573 es-core/src/utils/TimeUtil.cpp:578 es-core/src/utils/TimeUtil.cpp:580 es-core/src/utils/TimeUtil.cpp:588 
+rc=0 wall=0s
+
+=== r09 (brief :1593) the French of the seven msgids (expect each with a non-empty msgstr: never jamais, %d d %d j, %d h %d h, %d mn %d mn, %d sec %d sec, Unknown Inconnu, None Aucun, at po :143 :1673 :3554 :4007 :4011 :40
+locale/lang/fr/LC_MESSAGES/emulationstation2.po:143:msgid "Unknown"
+locale/lang/fr/LC_MESSAGES/emulationstation2.po-144-msgstr "Inconnu"
+--
+locale/lang/fr/LC_MESSAGES/emulationstation2.po:1673:msgid "never"
+locale/lang/fr/LC_MESSAGES/emulationstation2.po-1674-msgstr "jamais"
+--
+locale/lang/fr/LC_MESSAGES/emulationstation2.po:3554:msgid "None"
+locale/lang/fr/LC_MESSAGES/emulationstation2.po-3555-msgstr "Aucun"
+--
+locale/lang/fr/LC_MESSAGES/emulationstation2.po:4007:msgid "%d d"
+locale/lang/fr/LC_MESSAGES/emulationstation2.po-4008-msgstr "%d j"
+--
+locale/lang/fr/LC_MESSAGES/emulationstation2.po:4011:msgid "%d h"
+locale/lang/fr/LC_MESSAGES/emulationstation2.po-4012-msgstr "%d h"
+--
+locale/lang/fr/LC_MESSAGES/emulationstation2.po:4015:msgid "%d mn"
+locale/lang/fr/LC_MESSAGES/emulationstation2.po-4016-msgstr "%d mn"
+--
+locale/lang/fr/LC_MESSAGES/emulationstation2.po:4019:msgid "%d sec"
+locale/lang/fr/LC_MESSAGES/emulationstation2.po-4020-msgstr "%d sec"
+rc=0 wall=0s
+es-untranslated: 706 fork string(s) in the source, 706 with French, 0 without
+es-untranslated rc=0
+rc=0 wall=0s
+
+=== r10 (brief :1596) the log lines (expect `LOG(Log lines TOTAL 99 in 16 files` -- R2 cmd 28, proof K-149)
+LOG(Log lines TOTAL 99 in 16 files
+rc=0 wall=0s
+
+=== r11 (brief :1598) the threads and the lifetimes (expect `threads count: 10` -- TextureDataManager.cpp 217 222 234, .h 45; FileSystemUtil.cpp 1788 1797; ThreadPool.cpp 26 84 91, .h 68 -- and one `.detach(`, FileSystemUt
+es-core/src/resources/TextureDataManager.cpp:217 es-core/src/resources/TextureDataManager.cpp:222 es-core/src/resources/TextureDataManager.cpp:234 es-core/src/resources/TextureDataManager.h:45 es-core/src/utils/FileSystemUtil.cpp:1788 es-core/src/utils/FileSystemUtil.cpp:1797 es-core/src/utils/ThreadPool.cpp:26 es-core/src/utils/ThreadPool.cpp:84 es-core/src/utils/ThreadPool.cpp:91 es-core/src/utils/ThreadPool.h:68 
+10
+1
+es-core/src/resources/Font.cpp:30 es-core/src/resources/Font.cpp:177 es-core/src/resources/Font.h:92 es-core/src/resources/ResourceManager.cpp:229 es-core/src/resources/ResourceManager.cpp:238 es-core/src/resources/ResourceManager.h:34 es-core/src/resources/ResourceManager.h:35 es-core/src/resources/ResourceManager.h:56 es-core/src/resources/TextureResource.cpp:12 es-core/src/resources/TextureResource.cpp:146 es-core/src/resources/TextureResource.h:70 
+0
+delete this rc=1
+rc=0 wall=0s
+
+=== r12 (brief :1600) the locks (expect 63 lines: ResourceManager.cpp 2, TextureData.cpp 7, TextureData.h 1, TextureDataManager.cpp 12, TextureDataManager.h 7, ConcurrentVector.h 9, FileSystemUtil.cpp 14, StringListLock.cp
+resources/ResourceManager.cpp:2 resources/TextureData.cpp:7 resources/TextureData.h:1 resources/TextureDataManager.cpp:12 resources/TextureDataManager.h:7 utils/ConcurrentVector.h:9 utils/FileSystemUtil.cpp:14 utils/StringListLock.cpp:5 utils/StringListLock.h:3 utils/ThreadPool.h:3 
+63
+rc=0 wall=0s
+
+=== r13 (brief :1602) the process spawns (expect `spawn count: 16`, every line in utils/Platform.cpp -- R2 cmd 17, § 5)
+es-core/src/utils/Platform.cpp:167 es-core/src/utils/Platform.cpp:172 es-core/src/utils/Platform.cpp:175 es-core/src/utils/Platform.cpp:178 es-core/src/utils/Platform.cpp:179 es-core/src/utils/Platform.cpp:199 es-core/src/utils/Platform.cpp:201 es-core/src/utils/Platform.cpp:208 es-core/src/utils/Platform.cpp:210 es-core/src/utils/Platform.cpp:248 es-core/src/utils/Platform.cpp:858 es-core/src/utils/Platform.cpp:861 es-core/src/utils/Platform.cpp:864 es-core/src/utils/Platform.cpp:865 es-core/src/utils/Platform.cpp:894 es-core/src/utils/Platform.cpp:911 
+16
+rc=0 wall=0s
+
+=== r14 (brief :1604) the writes (expect the `fopen(... "w"` lines FileSystemUtil.cpp 1432 1434 1490 1492 -- R2 cmd 28's corrected listing, the first pattern's 8 having missed them, R2 § 5; zip_file.hpp's `fopen\(|ofstream
+es-core/src/utils/FileSystemUtil.cpp:1432 es-core/src/utils/FileSystemUtil.cpp:1434 es-core/src/utils/FileSystemUtil.cpp:1490 es-core/src/utils/FileSystemUtil.cpp:1492 
+6
+rc=0 wall=0s
+
+=== r15 (brief :1606) the helpers' reach over es-app/src and es-core/src (expect runSystemCommand\( 80, ProcessStartInfo 13, GetShOutput\( 27, GetShOutputLines\( 9, writeAllText\( 27, renameFile\( 17, copyFile\( 12, readAl
+runSystemCommand\( 80
+ProcessStartInfo 13
+GetShOutput\( 27
+GetShOutputLines\( 9
+writeAllText\( 27
+renameFile\( 17
+copyFile\( 12
+readAllText\( 38
+readAllLines\( 5
+AtomicFile:: 41
+rc=0 wall=0s
+
+=== r16 (brief :1608) the includes and the gates (expect the angle-include line count 241 -- proof CMD4; of them 41 non-standard by R3 cmd 9's rule (NON-STD ANGLE INCLUDES: 41), whose standard list is unstated, so the lane
+241
+es-core/src/resources/Font.h:11:#include FT_FREETYPE_H
+0
+ROCKNIX gates rc=1
+es-core/src/renderers/GlExtensions.h:5 es-core/src/renderers/GlExtensions.h:64 es-core/src/renderers/GlExtensions.h:88 es-core/src/renderers/Renderer.cpp:959 es-core/src/renderers/Renderer.h:99 es-core/src/renderers/Renderer.h:128 es-core/src/renderers/Renderer.h:208 es-core/src/renderers/Renderer_GLES30.cpp:361 es-core/src/renderers/Renderer_GLES30.cpp:1009 es-core/src/renderers/Renderer_GLES30.cpp:1023 es-core/src/renderers/Renderer_GLES30.cpp:1032 es-core/src/renderers/Renderer_GLES30.cpp:1039 es-core/src/renderers/Renderer_GLES30.cpp:1126 es-core/src/renderers/Renderer_GLES30.cpp:1153 es-core/src/renderers/Renderer_GLES30.cpp:1214 es-core/src/renderers/Renderer_GLES30.cpp:1246 es-core/src/renderers/Renderer_GLES30.cpp:1270 es-core/src/renderers/Renderer_GLES30.cpp:1966 es-core/src/renderers/Renderer_GLES30.cpp:2150 es-core/src/renderers/Renderer_GLES30.cpp:2172 es-core/src/renderers/Renderer_GLES30.h:5 es-core/src/renderers/Renderer_GLES30.h:67 es-core/src/renderers/Shader.cpp:11 es-core/src/renderers/Shader.cpp:95 es-core/src/renderers/Shader.cpp:103 es-core/src/renderers/Shader.cpp:152 es-core/src/renderers/Shader.cpp:253 es-core/src/renderers/Shader.cpp:297 es-core/src/renderers/Shader.cpp:338 es-core/src/renderers/Shader.cpp:349 es-core/src/renderers/Shader.cpp:364 es-core/src/renderers/Shader.cpp:443 es-core/src/renderers/Shader.cpp:452 es-core/src/renderers/Shader.cpp:559 es-core/src/renderers/Shader.cpp:567 es-core/src/renderers/Shader.cpp:626 es-core/src/renderers/Shader.h:47 es-core/src/renderers/Shader.h:90 
+3
+GLES3 macro rc=0
+rc=0 wall=0s
+
+=== r17 (brief :1610) the non-ASCII bytes (expect files with a non-ASCII byte 3 -- FileSystemUtil.cpp 3 (`//` comments 225 287 718), StringUtil.cpp 2 (1406 1407, trailing comments after code), StringUtil.h 7 (62-68, string
+utils/FileSystemUtil.cpp:3
+utils/StringUtil.cpp:2
+utils/StringUtil.h:7
+files with a non-ascii byte: 3
+es-core/src/utils/FileSystemUtil.cpp:225 es-core/src/utils/FileSystemUtil.cpp:287 es-core/src/utils/FileSystemUtil.cpp:718 es-core/src/utils/StringUtil.cpp:1406 es-core/src/utils/StringUtil.cpp:1407 es-core/src/utils/StringUtil.h:62 es-core/src/utils/StringUtil.h:63 es-core/src/utils/StringUtil.h:64 es-core/src/utils/StringUtil.h:65 es-core/src/utils/StringUtil.h:66 es-core/src/utils/StringUtil.h:67 es-core/src/utils/StringUtil.h:68 
+rc=0 wall=0s
+
+=== r18 (brief :1612) the candidate lines (expect `text[pos] +=` at StringUtil.cpp `359 400`, inside 359-361 and 400-402 -- R2 § 1.1, proof K-157; `head -300` at Platform.cpp `162` and `164`, the second the log-off variant
+359 400 
+162
+164
+115
+1773 
+331 339 410 
+1:		int runSystemCommand(const std::string& cmd_utf8, const std::string& name, Window* window)
+27:			return 0;
+rc=0 wall=0s
+
+=== r19 (brief :1614) the pipe's literal, 3.5, in two forms (expect `seq 400 rc=0` -- 1,492 bytes held whole by the pipe, the PASS-at-pin control -- and `seq 200000 rc=141` -- output past the pipe buffer, the FAIL-at-pin c
+seq 400 rc=0
+seq 200000 rc=141
+1492
+/usr/bin/dash
+rc=0 wall=0s
+
+=== r20 (brief :1616) the menu map (expect the checker's line, and its SOURCE_DIRS at :58 naming es-app/src/guis and es-core/src/guis, no slice directory -- R3 § 5)
+55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing
+es-menu-map-check rc=0
+SOURCE_DIRS = ["es-app/src/guis", "es-core/src/guis"]
+rc=0 wall=1s
+
+=== r21 (brief :1618) the compile (expect `es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)` rc 2 -- R3 § 5, cmd 19, #1137)
+es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)
+es-syntax-check rc=2
+rc=0 wall=0s
+
+=== r22 (brief :1620) STAGE C -- the lane's scripts, which do not exist at stage A (expect the stand-in's `rc=N <file>` line per .cpp, 25 lines, with the renderer positives -- nonzero with -DUSE_OPENGLES_30, zero without -
+not run at stage A: the lane's stage-C scripts (stage-a/syntax-check.sh, tools/t36-build-tests.sh) do not exist yet
+
+=== r23 (brief :1623) STAGE A, after the pointer is read -- the removal check: TIPHASH is the lane's own tip the pointer and the dispatch comment name (MERGE_HASH at stage A); the literal word fails with `fatal: bad revisi
+rc=0 wall=0s

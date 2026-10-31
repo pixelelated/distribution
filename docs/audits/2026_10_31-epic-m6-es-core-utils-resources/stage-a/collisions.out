@@ -1,0 +1,276 @@
+run at 2026-10-31T16:41:02Z
+
+######## T20 d9afa5c7c on origin/feature/m6-es-achievements-pages-667 (5c0ddaaeef), es-core/src/utils/FileSystemUtil.cpp
+d9afa5c7c is an ancestor of the tip
+--- git show d9afa5c7c -- es-core/src/utils/FileSystemUtil.cpp
+d9afa5c7cfc0665b16bc29edb0742055797022b8
+blitterbot 2026-10-26 19:59:52 +0000
+FileSystemUtil: readAllText reads a file under three bytes (Refs #667, #1177)
+
+skipUtf8Bom reads three bytes to look for a byte-order mark and seeks back
+when there is none. On a file shorter than three bytes the read fails the
+stream, and seekg on a failed stream does nothing, so readAllText and
+readAllLines returned nothing for it: the offline achievements' export
+holding one one-digit game id (two bytes, "7\n") read as no games ready.
+
+The stream's state is cleared before the seek. A bug in upstream-carried
+code, contained to the one line (es-code-traps.md, "A file under three
+bytes"); the change is offered upstream with the fork's other fixes.
+
+es-file-tests compiles the shipped FileSystemUtil.cpp now, with the four
+things a read never reaches as stand-ins in FileSystemReadTests.cpp: the
+1- and 2-byte files read as "" and readAllLines found no line before (3
+assertions), and every size reads whole now, a BOM still skipped.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+
+diff --git a/es-core/src/utils/FileSystemUtil.cpp b/es-core/src/utils/FileSystemUtil.cpp
+index ba62f7e74..40cc13ec5 100644
+--- a/es-core/src/utils/FileSystemUtil.cpp
++++ b/es-core/src/utils/FileSystemUtil.cpp
+@@ -1375,6 +1375,10 @@ namespace Utils
+ 			if (file.read(bom, 3) && bom[0] == '\xEF' && bom[1] == '\xBB' && bom[2] == '\xBF')			
+ 				return;
+ 			
++			// A file under three bytes failed the read above, and seekg does
++			// nothing on a failed stream: without the clear, such a file read
++			// as empty (pixelelated #1177).
++			file.clear();
+ 			file.seekg(0);
+ 		}
+ 
+--- git diff PIN tip -- es-core/src/utils/FileSystemUtil.cpp (the tip's whole change to the file against the pin)
+diff --git a/es-core/src/utils/FileSystemUtil.cpp b/es-core/src/utils/FileSystemUtil.cpp
+index ba62f7e74..40cc13ec5 100644
+--- a/es-core/src/utils/FileSystemUtil.cpp
++++ b/es-core/src/utils/FileSystemUtil.cpp
+@@ -1375,6 +1375,10 @@ namespace Utils
+ 			if (file.read(bom, 3) && bom[0] == '\xEF' && bom[1] == '\xBB' && bom[2] == '\xBF')			
+ 				return;
+ 			
++			// A file under three bytes failed the read above, and seekg does
++			// nothing on a failed stream: without the clear, such a file read
++			// as empty (pixelelated #1177).
++			file.clear();
+ 			file.seekg(0);
+ 		}
+ 
+--- commits on the tip touching the file since the pin
+d9afa5c7c 2026-10-26 FileSystemUtil: readAllText reads a file under three bytes (Refs #667, #1177)
+
+######## T21 f7c16144d on origin/feature/m6-es-state-and-bridge-668 (3ae9610b0f), es-core/src/utils/FileSystemUtil.cpp
+f7c16144d is an ancestor of the tip
+--- git show f7c16144d -- es-core/src/utils/FileSystemUtil.cpp
+f7c16144dfc2cbd39c47b7df3439bac751909422
+blitterbot 2026-10-27 00:58:11 +0000
+es-core: a download replaces its target only after the whole artifact arrived, and renameFile fails on an absent source (Refs #668, #1191)
+
+- es-core/src/utils/DownloadFile.{h,cpp}: a file-mode download's start
+  (a temporary of its own, <path>.tmp.<pid>.<n>, the target untouched),
+  its close (the flush's and the close's results) and its finish (the
+  temporary over the target only when the stream closed cleanly and
+  the temporary is there; otherwise it is removed).
+- es-core/src/HttpReq.{h,cpp}: uses them; a failed flush or close is
+  mStreamFailed; the destination is no longer removed at the start.
+- es-core/src/utils/FileSystemUtil.cpp: renameFile returns false for an
+  absent source and, on POSIX, no longer removes the destination before
+  rename(2).
+- es-app/tests/unit: es-fs-tests (FileSystemTests.cpp), six of its eight
+  cases failing on the pin's behaviour.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+
+diff --git a/es-core/src/utils/FileSystemUtil.cpp b/es-core/src/utils/FileSystemUtil.cpp
+index ba62f7e74..27f93d91b 100644
+--- a/es-core/src/utils/FileSystemUtil.cpp
++++ b/es-core/src/utils/FileSystemUtil.cpp
+@@ -1447,19 +1447,24 @@ namespace Utils
+ 
+ 		bool renameFile(const std::string& src, const std::string& dst, bool overWrite)
+ 		{
+-			std::string path = getGenericPath(src);			
++			std::string path = getGenericPath(src);
++			// Nothing to move is a failure (T21 PL-04, #1191): it answered
++			// true, and a download whose temporary was gone was called done.
+ 			if (!exists(path, false))
+-				return true;
+-
+-			if (overWrite && exists(dst, false))
+-				removeFile(dst);
++				return false;
+ 
+ 			FileCache::remove(path);
+ 			FileCache::remove(dst);
+ 
+-#if WIN32			
++#if WIN32
++			if (overWrite && exists(dst, false))
++				removeFile(dst);
++
+ 			return MoveFileW(Utils::String::convertToWideString(path).c_str(), Utils::String::convertToWideString(dst).c_str());
+ #else
++			// rename(2) replaces an existing destination in one step; removing
++			// it first left a moment with neither file (T21 PL-04, #1191).
++			(void) overWrite;
+ 			return std::rename(src.c_str(), dst.c_str()) == 0;
+ #endif
+ 		}
+--- git diff PIN tip -- es-core/src/utils/FileSystemUtil.cpp (the tip's whole change to the file against the pin)
+diff --git a/es-core/src/utils/FileSystemUtil.cpp b/es-core/src/utils/FileSystemUtil.cpp
+index ba62f7e74..27f93d91b 100644
+--- a/es-core/src/utils/FileSystemUtil.cpp
++++ b/es-core/src/utils/FileSystemUtil.cpp
+@@ -1447,19 +1447,24 @@ namespace Utils
+ 
+ 		bool renameFile(const std::string& src, const std::string& dst, bool overWrite)
+ 		{
+-			std::string path = getGenericPath(src);			
++			std::string path = getGenericPath(src);
++			// Nothing to move is a failure (T21 PL-04, #1191): it answered
++			// true, and a download whose temporary was gone was called done.
+ 			if (!exists(path, false))
+-				return true;
+-
+-			if (overWrite && exists(dst, false))
+-				removeFile(dst);
++				return false;
+ 
+ 			FileCache::remove(path);
+ 			FileCache::remove(dst);
+ 
+-#if WIN32			
++#if WIN32
++			if (overWrite && exists(dst, false))
++				removeFile(dst);
++
+ 			return MoveFileW(Utils::String::convertToWideString(path).c_str(), Utils::String::convertToWideString(dst).c_str());
+ #else
++			// rename(2) replaces an existing destination in one step; removing
++			// it first left a moment with neither file (T21 PL-04, #1191).
++			(void) overWrite;
+ 			return std::rename(src.c_str(), dst.c_str()) == 0;
+ #endif
+ 		}
+--- commits on the tip touching the file since the pin
+f7c16144d 2026-10-27 es-core: a download replaces its target only after the whole artifact arrived, and renameFile fails on an absent source (Refs #668, #1191)
+
+######## T26 a5d2d3756 on origin/feature/m6-es-guimenu-673 (757f5370ea), es-core/src/utils/Platform.cpp
+a5d2d3756 is an ancestor of the tip
+--- git show a5d2d3756 -- es-core/src/utils/Platform.cpp
+a5d2d37564df4a090574c7b0142ce8e4f3b59d92
+blitterbot 2026-10-27 11:10:10 +0000
+es-app, es-core: the cloud pages read a command's whole output, parse a status once, and quote through one function (Refs #673, #1225)
+
+T26 PL-11:
+- Utils::Platform::GetShOutput (es-core) cut the last byte off every
+  fgets chunk: the newline of a short line, but a real character of each
+  255-byte piece of a long one and of a last line with no newline; and it
+  read from popen's result without testing it. It now drops only a
+  newline -- its callers' contract, the lines joined without them, is
+  kept -- and a command that cannot start gives "". A contained fix of
+  es-core's code under bugs-are-agent-first.md rule 6, a #585 line.
+- A cloud_remote change's "OK=<name>" was parsed two ways over the
+  joined text: anywhere in it (create), at its start (select, remove),
+  and the name could run on into the next line. The changes are read
+  whole (cloudRemoteRun: every line and the exit status; not
+  executeScriptLegacy, which echoes each line to stdout unmasked, where a
+  create's credentials could land), and success is a whole "OK=<name>"
+  line with a zero exit (cloudRemoteOkName), in one place.
+- FINISH RESTORE PROCESS's CHECK CONNECTION read an empty `echo $?` as 0,
+  YOUR CLOUD IS ANSWERING. An empty or garbled status is now a failure
+  (cloudExitStatus), which says the not-answering sentence.
+
+T26 PL-21: cloudShellQuote was es-core's Utils::String::shellQuote under
+another name. tests/shell-quote-equality.py showed them byte-equal over
+20 values (quotes, $( ), backticks, backslashes, newlines, UTF-8, the
+empty string) first, and fires on a copy one character off; then the 16
+call sites moved to shellQuote and the copy went. The test now checks
+that the shell gives every value back through shellQuote.
+credential-quoting: 8 sites, 8 quoted, as before.
+
+tests/command-readers.py runs the extracted GetShOutput against real
+commands and a failed popen, and the extracted parse and status reader
+over their cases: FAIL at 16dbac521 on all five points (a 300-byte line
+back as 299, CONNECTE, a crash on the failed popen, two parses, atoi),
+PASS here, and FAIL on two constructed copies. cloud-set-systems-quoting
+and cloud-content-selection extract the one quoting function now: 5 of
+5 and 14 of 14, at the pin and here.
+
+Already written: nothing -- reads, parses and quoting; no stored state.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+
+diff --git a/es-core/src/utils/Platform.cpp b/es-core/src/utils/Platform.cpp
+index 68625f04d..f80f57a72 100644
+--- a/es-core/src/utils/Platform.cpp
++++ b/es-core/src/utils/Platform.cpp
+@@ -890,14 +890,24 @@ namespace Utils
+ 
+ 		std::string GetShOutput(const std::string& mStr)
+ 		{
+-			std::string result, file;
+-			FILE* pipe{popen(mStr.c_str(), "r")};
++			// The output's lines joined without their newlines, as callers
++			// have always read it. Each chunk lost its last byte whatever it
++			// was -- the newline of a short line, but a real character of every
++			// 255-byte piece of a long one, and of a last line with no newline
++			// -- and a failed popen was read from (T26 PL-11, #1225). Now only
++			// a newline is dropped, and a command that cannot start gives "".
++			std::string result;
++			FILE* pipe = popen(mStr.c_str(), "r");
++			if (pipe == nullptr)
++				return result;
+ 			char buffer[256];
+ 
+-			while(fgets(buffer, sizeof(buffer), pipe) != NULL)
++			while (fgets(buffer, sizeof(buffer), pipe) != NULL)
+ 			{
+-				file = buffer;
+-				result += file.substr(0, file.size() - 1);
++				std::string chunk = buffer;
++				if (!chunk.empty() && chunk.back() == '\n')
++					chunk.pop_back();
++				result += chunk;
+ 			}
+ 
+ 			pclose(pipe);
+--- git diff PIN tip -- es-core/src/utils/Platform.cpp (the tip's whole change to the file against the pin)
+diff --git a/es-core/src/utils/Platform.cpp b/es-core/src/utils/Platform.cpp
+index 68625f04d..f80f57a72 100644
+--- a/es-core/src/utils/Platform.cpp
++++ b/es-core/src/utils/Platform.cpp
+@@ -890,14 +890,24 @@ namespace Utils
+ 
+ 		std::string GetShOutput(const std::string& mStr)
+ 		{
+-			std::string result, file;
+-			FILE* pipe{popen(mStr.c_str(), "r")};
++			// The output's lines joined without their newlines, as callers
++			// have always read it. Each chunk lost its last byte whatever it
++			// was -- the newline of a short line, but a real character of every
++			// 255-byte piece of a long one, and of a last line with no newline
++			// -- and a failed popen was read from (T26 PL-11, #1225). Now only
++			// a newline is dropped, and a command that cannot start gives "".
++			std::string result;
++			FILE* pipe = popen(mStr.c_str(), "r");
++			if (pipe == nullptr)
++				return result;
+ 			char buffer[256];
+ 
+-			while(fgets(buffer, sizeof(buffer), pipe) != NULL)
++			while (fgets(buffer, sizeof(buffer), pipe) != NULL)
+ 			{
+-				file = buffer;
+-				result += file.substr(0, file.size() - 1);
++				std::string chunk = buffer;
++				if (!chunk.empty() && chunk.back() == '\n')
++					chunk.pop_back();
++				result += chunk;
+ 			}
+ 
+ 			pclose(pipe);
+--- commits on the tip touching the file since the pin
+a5d2d3756 2026-10-27 es-app, es-core: the cloud pages read a command's whole output, parse a status once, and quote through one function (Refs #673, #1225)

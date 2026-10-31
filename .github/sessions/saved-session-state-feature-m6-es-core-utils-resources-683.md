@@ -15,24 +15,23 @@
 > **Register:** the rows this brief cites are on the coordinator's branch, merged here; D-CLOUD-193 D-INFRA-031 D-LAUNCH-007 D-NET-017 D-QA-063 D-RA-052 D-SYS-013 D-UI-137 D-WORKFLOW-216 are the highest rows of their areas on the coordinator's branch (computed from the decided table at `4bc59b6000`; at `acc4674006` on 2026-10-31 the brief read D-CLOUD-193, D-INFRA-031, D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-133, D-WORKFLOW-215, and the kit's read at `ea8a4f52dd` printed D-UI-137 in D-UI-133's place, T35's stage-E rows D-UI-134 to D-UI-137), with this slice's ownership row of the brief's § 1, **D-WORKFLOW-216**, written at dispatch (D-WORKFLOW-188 on the P1 branch only; the merge unites them); the four rows the brief's § 9 expects are put to the coordinator at the pause, never decided by the lane, and a row this slice forces takes an ID the coordinator assigns on #683
 > **The brief:** `docs/reviews/briefs/es-core-utils-resources.md` at `b1f34ce658` (version 2 of 2026-10-31, after a stranger's proof of version 1 -- its corrections listed under `## Corrections in version 2`, and what the proof left open under `## What version 2 does not settle`), **with its errata before dispatch at `e29a2966bc`** (`## Errata before dispatch`, eight items appended after the version line, version 2's text unchanged; where a section and that list differ, the list wins); #683's body carries its § 7 checkboxes, which the errata leave unchanged; where the two differ the body wins and the coordinator corrects the brief
 
-## Current focus
+## Current focus (16:42 UTC 2026-10-31 update): stage A done
 
-Not started. Before the first command after `cat`, the eleven keys of this
-pointer are read against the brief's § 10 table, and any that names the
-predecessor slice (T35's `es-core-window-input`, the 96 paths, the T5
-session) is reported on #683 before going on. The first commit on the
-distribution branch is the running log's header (the model, the effort,
-`reviewed-at` the distribution HEAD with the pin beside it, the host
-file's last lines with the time of the read, the census),
-`01-research-notes.md` § Scope (the block of brief § 2 with its output and
-the § 5 runs' figures), this pointer updated, and the day's work-log entry
-headed `#683` (prose through a quoted heredoc or the Write tool). The three
-lanes' fixes already in this slice's files (T20's `d9afa5c7c`, T21's
-`f7c16144d`, T26's S8) are read at stage A as collisions, never re-made.
-The ES worktree stays at the pin until stage E. `.qa-scratch/` is
-gitignored and `git status --short` is read before every `git add -A`;
-anything temporary goes under `/workspace/tmp/m6-t36/`, never `/tmp`. No
-network is used except the seat's two keyed invokes.
+**Stage A is done; stage B next (the audit folder is `docs/audits/2026_10_31-epic-m6-es-core-utils-resources/`).**
+
+- **The pointer's eleven keys** were read against the brief's § 10 table: none names T35. § 9's placeholder grep over this file is `0`.
+- **Done at stage A** (`00` and `01` § Scope; the scripts and outputs in `stage-a/`):
+  - the first commands, with the ten lanes' ES tips (T35's `453dffd0a2`);
+  - the membership block (its fourteen lines exactly as expected);
+  - the 23 § 5 runs (every line as expected; the stage-C ones not run);
+  - the angle includes under the lane's own list (33 non-standard of 241);
+  - the three lanes' fixes read as collisions (T20 `d9afa5c7c`, T21 `f7c16144d`, T26 S8 `a5d2d3756`).
+- **Stage B:**
+  - `02` with its sections in § 6's order;
+  - `ZipFile::extract` (`ZipFile.cpp:253-260`) and its caller read whole, and weighed under D-WORKFLOW-215's test before anything about them is posted;
+  - the scoped `getCanonicalPath` lead (the dispatch's ruling (k) paragraph) read whole and weighed the same way;
+  - then the window request on #683, with its plan and bound.
+- **The ES worktree stays at the pin until stage E.** Scratch goes under `/workspace/tmp/m6-t36/`.
 
 ## Next commands
 
@@ -76,4 +75,4 @@ or a guest outside the one granted window.
 
 ## Checkpoints
 
-- (none yet; the executor appends one line per stage: the stage, both tips, the time)
+- stage A, 16:42 UTC 2026-10-31: the distribution at the stage-A commit (named in the checkpoint on #683; `3740ce4a0d` before it), the ES worktree at the pin `16dbac5211`, unchanged
