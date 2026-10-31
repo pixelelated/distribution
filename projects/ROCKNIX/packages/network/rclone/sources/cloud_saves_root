@@ -66,10 +66,8 @@ conf_value() {
 saves_path() {
     local p
     if [ -n "${CLOUD_SAVESPATH:-}" ]; then
-        echo "${CLOUD_SAVESPATH}"
-        return 0
-    fi
-    if grep -q '^SAVESPATH=' "${CONF}" 2>/dev/null; then
+        p="${CLOUD_SAVESPATH}"
+    elif grep -q '^SAVESPATH=' "${CONF}" 2>/dev/null; then
         p=$(conf_value SAVESPATH)
     else
         p=$(conf_value BACKUPPATH)
