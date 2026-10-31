@@ -13,11 +13,14 @@
 #  wait     cloud_net_ready with an nmcli stand-in: --wait 010 with NetworkManager disconnected;
 #           --wait 3 with an nmcli that takes 4 s to answer; and an uptime of 0.08 s (a file bound
 #           over /proc/uptime -- static, so the run is ended by the cell's timeout 5)
+#  retire   (ruling 8) the same manifest; cloud_capture --retire --unlink of one save in its own
+#           group, an mv stand-in sleeping 2 s before each rename, TERM to the group at +1 s --
+#           inside the unit (the row, then the file): does the unit finish?
 #  sidecars the donor's rclone lsf --filter-from <the root's rules> over a planted tree
 #  recent   a last-backup stamp of rc 0 a minute old, SAVES_REMOTE changed to a new folder, an old
 #           save and a new one: cloud_backup --yes --saves-only --recent --automatic, twice
 . "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/tools/lib.sh"
-CELLS="${*:-term full clock wait sidecars recent}"
+CELLS="${*:-term full retire clock wait sidecars recent}"
 header "S7 the capture's TERM and bound, monotonic time, --wait, the sidecars, the saves folder's record"
 RUN=$(date -u +%H%M%S)
 DATA=${CLOUD_QA_STATE}/data
@@ -55,6 +58,22 @@ full)
   capture_cell s7full; before=$(sha256sum "${MAN}" | cut -c1-16)
   "${SBX}" bash -c 't0=${EPOCHREALTIME}; PATH=/drv/bin:${PATH} CLOUD_CAPTURE_FULL_BOUND=5 cloud_capture --full > /tmp/f.out 2>&1; rc=$?; t1=${EPOCHREALTIME}; echo "  cloud_capture --full (CLOUD_CAPTURE_FULL_BOUND=5): rc=${rc} after $(( (${t1/./} - ${t0/./}) / 1000 )) ms"; echo "  its last-capture line for full: $(grep " full" /storage/.cache/cloud_sync/last-capture | cut -d" " -f2-4)"; echo "  its log: $(grep -E "bound|recorded" /var/log/cloud_sync.log | tail -1 | cut -c22-220)"' 2>&1
   echo "  the manifest after: $([ "$(sha256sum "${MAN}" | cut -c1-16)" = "${before}" ] && echo "byte for byte as planted" || echo "rewritten")"
+  echo ;;
+retire)
+  echo "== S7-retire: a TERM inside the retire unit ($(now))"
+  capture_cell s7retire; before=$(sha256sum "${MAN}" | cut -c1-16)
+  printf '#!/bin/sh\nsleep 2\nexec /usr/bin/mv "$@"\n' > "${CELL}/drv/bin/mv"; chmod 755 "${CELL}/drv/bin/mv"
+  cat > "${CELL}/drv/r.sh" <<'EOD'
+t0=${EPOCHREALTIME}
+PATH=/drv/bin:${PATH} setsid cloud_capture --retire --unlink /storage/roms/gb/G3.srm > /tmp/r.out 2>&1 &
+pid=$!
+sleep 1; t1=${EPOCHREALTIME}; kill -TERM -- "-${pid}" 2>/dev/null; echo "  TERM to the group at +$(( (${t1/./} - ${t0/./}) / 1000 )) ms"
+wait "${pid}"; rc=$?; t2=${EPOCHREALTIME}
+echo "  cloud_capture --retire --unlink: rc=${rc}, ended $(( (${t2/./} - ${t1/./}) / 1000 )) ms after the TERM"
+echo "  the save: $([ -e /storage/roms/gb/G3.srm ] && echo "still there" || echo unlinked); its log: $(grep -E 'retired|unlinked|stopped' /var/log/cloud_sync.log | tail -2 | cut -c22-160 | tr '\n' '|')"
+EOD
+  "${SBX}" bash /drv/r.sh 2>&1
+  echo "  the manifest: $([ "$(sha256sum "${MAN}" | cut -c1-16)" = "${before}" ] && echo "as planted" || echo "rewritten"); gb/G3.srm retired: $(jq -r '.retired | map(.path) | index("gb/G3.srm") != null' "${MAN}" 2>/dev/null); an entry still: $(jq -r '.entries["gb/G3.srm"] != null' "${MAN}" 2>/dev/null)"
   echo ;;
 clock)
   echo "== S7-clock: the clock steps 3600 s ahead after the first date +%s ($(now))"

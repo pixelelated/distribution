@@ -1,0 +1,18 @@
+== T16 host lead S7 the capture's TERM and bound, monotonic time, --wait, the sidecars, the saves folder's record -- 2026-10-31T06:08:46Z
+donor root: /workspace/artifacts/m6-donor/1a0266484423/image/system (BUILD_ID 1a0266484423); sha256sum -c ../../SHA256SUMS:
+  usr/bin/busybox: OK
+  usr/bin/rclone: OK
+  etc/os-release: OK
+the scripts and /usr/config: /workspace/tmp/m6-t16/hl/root-pin4 (8ebaf8daad), 12 of 12 sha256-equal to the guest's installed bytes at 8ebaf8daad (guest-cycle/installed.sha256)
+from the donor: busybox v1.36.1 (146 applet links), rclone v1.75.2
+host stand-ins (not in the donor): bash 5.3.9(1)-release (image: 5.3), timeout (GNU coreutils) 9.7 (image: 9.4), grep (GNU grep) 3.12 (image: 3.9), python3 3.14.4, ip (iproute2)
+sandbox: stage-e/tools/sbx.sh (bwrap, own pid namespace, host network); backend: cloud-test-backend at 3a653eaec4, WebDAV 127.0.0.1:9010, state /workspace/tmp/m6-t16/hl/state
+
+== S7-retire: a TERM inside the retire unit (2026-10-31T06:08:46Z)
+  the manifest: manifest-GENERIC-X64-unknown.json, 12 entries, sha256 baee8a3802a3a4d7
+  TERM to the group at +1001 ms
+  cloud_capture --retire --unlink: rc=0, ended 3071 ms after the TERM
+  the save: unlinked; its log:  [INFO] [cloud_capture] recorded 1 retired, 0 thumbnail(s) dropped from members (--retire --unlink, 2070 ms)| [INFO] [cloud_capture] unlinked 1 file(s) after the retire (--unlink)|
+  the manifest: rewritten; gb/G3.srm retired: true; an entry still: false
+
+== end 2026-10-31T06:08:51Z
