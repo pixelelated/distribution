@@ -126,7 +126,24 @@ may be `unknown` if its lab is established, with the evidence source stated):
 }
 ```
 
-Use `depth: local`, `reviewers: []` only for an explicitly local Issue audit.
+A Local Epic-tier slice (D-WORKFLOW-184, #810) adds the two optional keys; the
+lint accepts `local` outside an `-issue-` folder only with both:
+
+```json
+{
+  "schema_version": 1,
+  "depth": "local",
+  "primary": {"harness": "Claude Code", "model": "anthropic/claude-opus-5.5",
+              "lab": "anthropic", "identity_source": "session metadata"},
+  "reviewers": [],
+  "tier_exception": "D-WORKFLOW-184",
+  "reason": "plan § 6c: a doctrine read is Local"
+}
+```
+
+Use `depth: local`, `reviewers: []` only for an explicitly local Issue audit,
+or for an Epic-tier slice whose plan row says Local (D-WORKFLOW-184) with
+`tier_exception` and `reason` in the plan file.
 Extended depth has two reviewers from labs distinct from each other and the
 primary. Model recipes come from the installed roster, never this example alone.
 
