@@ -126,7 +126,7 @@ for t in es-unit-tests es-file-tests es-conf-tests es-file-tests-win32 ${FS} ${S
 done
 # T34 (#681): components-tests, the seams' cases over the pin's lines lifted
 # verbatim by t34-extract.py (refused unless each range holds its code), and
-# the three sanitizer programs, each run and its first report line kept.
+# the three sanitizer programs (their sources under ../stage-d/), each run and its first report line kept.
 HERE="$(cd "$(dirname "$0")" && pwd)"
 X="${B}/x"
 python3 -B -I "${HERE}/t34-extract.py" "${ES}" "$(git -C "${ES}" rev-parse HEAD)" "${X}" || { echo "t34-build-tests: the extracts were refused; components-tests not built"; FAIL=1; }
@@ -151,9 +151,9 @@ san() { # <name> <sanitizer> <source>
     echo "SAN ${n}: BUILD FAIL"; tail -n 8 "${B}/${n}.build.log"
   fi
 }
-san tsan-card thread "${HERE}/t34-tsan-card.cpp"
-san asan-textedit address "${HERE}/t34-asan-textedit.cpp"
-san asan-popup address "${HERE}/t34-asan-popup.cpp"
+san tsan-card thread "${HERE}/../stage-d/tsan-card.cpp"
+san asan-textedit address "${HERE}/../stage-d/asan-textedit.cpp"
+san asan-popup address "${HERE}/../stage-d/asan-popup.cpp"
 # The total, from the binaries' own summary lines: a record quotes this line
 # rather than a sum written by hand (T21 stage E: totals written without
 # adding were found 2 to 53 cases high, S2 to S13).

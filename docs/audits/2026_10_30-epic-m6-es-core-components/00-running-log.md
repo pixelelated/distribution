@@ -98,3 +98,10 @@
     - 3.19 (a double of the popup's shape, not its lines): clean, rc 0.
 - **Not yet written:** 3.21, the other 26 seam cases, and the new items' own cases. They follow the bugs.
 - **20:44 UTC, the bugs filed:** 25, #1309 to #1333 (`stage-d/bugs-filed.txt`, `tools/t34-file-bugs.py`). Each has its trace, its family, its VM line, `Already written:` and criteria an agent can tick; `tools/box-check` reports 0 fail on each. PL-27 (#1323) carries only its fix's shape and the held trace's path and sha256 (`46d9494e...`); the trace is at `/workspace/tmp/m6-t34/held/pl27-trace.md`, mode 600, beside the coordinator's `pl27-stream.md`.
+
+## [Stage D] 00:48 UTC 2026-10-31 — the stand-in and the sanitizer sources moved to the paths the acceptance reads
+
+- **The coordinator, 00:47 (comment 6536721649), asked for these files to be committed;** they were already in the tree at `be881e95bc` (committed in `f6d5d2ffa9`), at other paths: `tools/t34-syntax-check.sh`, `tools/t34-build-tests.sh`, `stage-a/fakes/` (14 files: T31's 13 and `SDL_power.h`), and `tools/t34-{tsan-card,asan-textedit,asan-popup}.cpp`. `git ls-tree -r --name-only be881e95bc` lists each.
+- **Moved with `git mv`, one copy each:** `tools/t34-syntax-check.sh` to `stage-a/syntax-check.sh`, and the three sources to `stage-d/tsan-card.cpp`, `stage-d/asan-textedit.cpp` and `stage-d/asan-popup.cpp`. `tools/t34-build-tests.sh` names the new paths, and the stand-in's usage line its own.
+- **Checked without running anything:** both scripts pass `bash -n`; the build script's three source paths resolve from `tools/`; the stand-in resolves its 14 fakes from `stage-a/`.
+- **Not run since the move:** no compile ran, because the ruling says nothing runs before the stream brief. Both scripts' last runs were from the old paths, recorded at `stage-d/syntax-check.txt` and `stage-d/build-tests.txt`. The `tools/t34-syntax-check.sh` named in the 20:3x entry above is now `stage-a/syntax-check.sh`.

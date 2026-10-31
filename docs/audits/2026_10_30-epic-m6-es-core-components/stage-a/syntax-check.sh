@@ -7,7 +7,7 @@
 # <vlc/libvlc_version.h>, which no fake supplies: CANNOT, named. It checks a
 # file's own C++ and proves nothing about SDL, VLC or curl. rc per file;
 # exit 0 when every one of the 37 is rc 0, 1 otherwise, 2 when it cannot start.
-#   PUGIXML_INCLUDE_DIR=<dir> RAPIDJSON_INCLUDE_DIR=<dir> t34-syntax-check.sh <es tree> <paths file>
+#   PUGIXML_INCLUDE_DIR=<dir> RAPIDJSON_INCLUDE_DIR=<dir> stage-a/syntax-check.sh <es tree> <paths file>
 set -uo pipefail
 ES=${1:?es tree}; PF=${2:?paths file}
 F="$(cd "$(dirname "$0")/../stage-a/fakes" && pwd)" || exit 2
