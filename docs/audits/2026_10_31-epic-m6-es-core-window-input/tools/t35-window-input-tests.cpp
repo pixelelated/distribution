@@ -194,11 +194,14 @@ TEST_CASE("3.5 a non-script file in a per-event folder is not run (Scripting.cpp
 
 // ---- 3.19: one name, one value (L-13) -----------------------------------------
 namespace Renderer { static int getScreenWidth() { return 640; } }
+// The text of a lift (T35_X/<inc>), for a case that asserts a definition rather than runs it.
+static std::string t35_slurpX(const std::string& inc) { std::ifstream in(std::string(T35_X) + "/" + inc); std::stringstream ss; ss << in.rdbuf(); return ss.str(); }
+// S8 (D-WORKFLOW-211): the keyboard's value read from its line's text (the factor after
+// getScreenWidth()*), so the case holds whatever the line's macro is called.
 static double kbPad() {
-	#include "x_kb_pad.inc"
-	double v = BUTTON_GRID_HORIZ_PADDING;
-	#undef BUTTON_GRID_HORIZ_PADDING
-	return v;
+	std::string l = t35_slurpX("x_kb_pad.inc");
+	auto i = l.find("getScreenWidth()*");
+	return i == std::string::npos ? -1.0 : 640.0 * std::stod(l.substr(i + 17));
 }
 static double menuPad() {
 	#include "x_menu_pad.inc"
@@ -207,9 +210,17 @@ static double menuPad() {
 	return v;
 }
 
-TEST_CASE("3.19 BUTTON_GRID_HORIZ_PADDING means one thing (guis/GuiTextEditPopupKeyboard.cpp:14 against components/MenuComponent.cpp:14)")
+// 3.19, re-shaped under ruling 3 (D-UI-135; D-WORKFLOW-211): stage C asserted the two values
+// equal (`kbPad() == doctest::Approx(menuPad())`, 3.33333 against 14.08 at the pin), which
+// fitted one definition read by both. The ruling keeps the keyboard's value under its own
+// name, so the case asserts the name is defined once, in MenuComponent.cpp, and the value kept.
+TEST_CASE("3.19 BUTTON_GRID_HORIZ_PADDING is defined once, in MenuComponent.cpp; the keyboard's key inset keeps its value under its own name (guis/GuiTextEditPopupKeyboard.cpp:14, :220 against components/MenuComponent.cpp:14; PL-11, #1351)")
 {
-	CHECK(kbPad() == doctest::Approx(menuPad()));
+	CHECK(t35_slurpX("x_menu_pad.inc").find("#define BUTTON_GRID_HORIZ_PADDING") != std::string::npos);
+	CHECK(t35_slurpX("x_kb_pad.inc").find("BUTTON_GRID_HORIZ_PADDING") == std::string::npos);
+	CHECK(t35_slurpX("x_kb_pad_use.inc").find("BUTTON_GRID_HORIZ_PADDING") == std::string::npos);
+	CHECK(kbPad() == doctest::Approx(640 * 0.0052083333));
+	CHECK(menuPad() == doctest::Approx(640 * 0.022));
 }
 
 // ---- 3.11: the exists cache after a writer outside Utils::FileSystem (L-07) ---
@@ -654,4 +665,100 @@ TEST_CASE("S6 a reader polling es_input.cfg while it is rewritten sees only whol
 	MESSAGE("the reader made " << reads.load() << " reads, " << shorts.load() << " of a short file");
 	CHECK(shorts.load() == 0);
 	im6::tidy(d);
+}
+
+// ---- S8, PL-12 (#1352): CLEAR and the keyboard's x ---------------------------
+// The text popup's CLEAR button (guis/GuiTextEditPopup.cpp:34), the keyboard's x
+// (GuiTextEditPopupKeyboard.cpp:392-397) and its CLEAR key (:491-496), each lifted
+// verbatim into a popup double that counts its deletions and its OK callback's calls.
+namespace pp
+{
+	static std::string _(const std::string& s) { return s; }
+	static int deleted = 0, committed = 0;
+	struct Text { std::string v; size_t cursor = 99; void setValue(const std::string& s) { v = s; } std::string getValue() const { return v; } void setCursor(size_t c) { cursor = c; } };
+	struct Window {};
+	struct ButtonComponent
+	{
+		std::string label; std::function<void()> f;
+		ButtonComponent(Window*, const std::string& l, const std::string&, const std::function<void()>& fn) : label(l), f(fn) {}
+	};
+	struct Input { int value = 1; };
+	struct Config { bool isMappedTo(const std::string& n, Input) { return n == "x"; } };
+	struct Popup
+	{
+		Window* mWindow = nullptr;
+		std::shared_ptr<Text> mText = std::make_shared<Text>();
+		std::function<void(const std::string&)> mOkCallback;
+		std::vector<std::shared_ptr<ButtonComponent>> buttons;
+		explicit Popup(const std::function<void(const std::string&)>& okCallback) : mOkCallback(okCallback)
+		{
+			mText->setValue("my-cloud-folder");
+			#include "x_pp_clear.inc"
+		}
+		~Popup() { deleted++; }
+		bool x(Config* config, Input input)
+		{
+			#include "x_kb_x.inc"
+			return false;
+		}
+		void key(const std::string& key)
+		{
+			if (key == "not a key") {}
+			#include "x_kb_clear.inc"
+		}
+	};
+	static Popup* fresh() { deleted = 0; committed = 0; return new Popup([](const std::string&) { committed++; }); }
+}
+
+TEST_CASE("S8 CLEAR on the text popup empties the field and keeps the popup open, committing nothing (guis/GuiTextEditPopup.cpp:34; PL-12, #1352)")
+{
+	pp::Popup* p = pp::fresh();
+	REQUIRE(p->buttons.size() == 1);
+	auto press = p->buttons[0]->f;   // a copy: at the pin the press deletes the popup and its button
+	press();
+	CHECK(pp::committed == 0);
+	CHECK(pp::deleted == 0);
+	if (pp::deleted == 0)
+	{
+		CHECK(p->mText->getValue() == "");
+		delete p;
+	}
+}
+
+TEST_CASE("S8 the keyboard's x empties the field and keeps the keyboard open (guis/GuiTextEditPopupKeyboard.cpp:392-397; PL-12, #1352)")
+{
+	pp::Popup* p = pp::fresh();
+	pp::Config c;
+	CHECK(p->x(&c, pp::Input()));
+	CHECK(pp::committed == 0);
+	CHECK(pp::deleted == 0);
+	if (pp::deleted == 0)
+	{
+		CHECK(p->mText->getValue() == "");
+		CHECK(p->mText->cursor == 0);
+		delete p;
+	}
+}
+
+TEST_CASE("S8 the keyboard's CLEAR key empties the field and keeps the keyboard open (guis/GuiTextEditPopupKeyboard.cpp:491-496; PL-12, #1352)")
+{
+	pp::Popup* p = pp::fresh();
+	p->key("CLEAR");
+	CHECK(pp::committed == 0);
+	CHECK(pp::deleted == 0);
+	if (pp::deleted == 0)
+	{
+		CHECK(p->mText->getValue() == "");
+		CHECK(p->mText->cursor == 0);
+		delete p;
+	}
+}
+
+// ---- 3.21, PL-16 (#1353): the configuration page's subtitle (lifted as text) --
+TEST_CASE("3.21 the configuration page's subtitle names the pad being configured, GAMEPAD when it has no name (guis/GuiInputConfig.cpp:128-136; PL-16, #1353)")
+{
+	std::string t = t35_slurpX("x_cfg_subtitle.inc");
+	CHECK(t.find("getDeviceName()") != std::string::npos);
+	CHECK(t.find("getDeviceId() + 1") == std::string::npos);
+	CHECK(t.find("_(\"GAMEPAD\")") != std::string::npos);
 }

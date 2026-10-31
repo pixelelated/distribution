@@ -113,6 +113,9 @@ if not (m7b and m7b.group(4) == "1" and re.search(r"5 of 5 rounds lost their las
 if not (m7a and m7a.group(4) == "0" and re.search(r"0 of 5 rounds lost their last line", s7a)): fail.append("S7 after: log-tests' PL-27 case not PASS")
 s7row = (["S7: `log-tests` (3.23 and PL-27 over Log.cpp's AsyncLogger lifted whole), before and after", f"{m7b.group(1) if m7b else '--'}, {m7a.group(1) if m7a else '--'}", "in the build",
             f"before `{m7b.group(2)} cases, {m7b.group(3)} passed, {m7b.group(4)} failed` (5 of 5 rounds lost their last line); after `{m7a.group(2)} cases, {m7a.group(3)} passed, {m7a.group(4)} failed` (0 of 5)" if (m7b and m7a) else "--", "a new binary: the TOTAL line counts 8 from S7"])
+s8a = rd("stage-e/s8-after.txt")
+if not re.search(r"^rc=0 wall=", s8a, re.M): fail.append("S8 after: the unit build is not rc 0")
+if re.search(r"^RUN \S+: rc [1-9]", s8a, re.M) or re.search(r"^SAN \S+ \(-fsanitize=\w+\): rc [1-9]", s8a, re.M): fail.append("S8 after: a binary or a SAN line is not rc 0")
 s5a = rd("stage-e/s5-after.txt")
 if not re.search(r"^    may_fail case: 3\.5 .*PL-18 recorded, may_fail\)$", s5a, re.M) or not re.search(r"^    may_fail: 1$", s5a, re.M): fail.append("S5 after: 3.5 not listed as the one may_fail case (rulings 9, 20)")
 if not m_pl: fail.append("3.27's ASan summary line is missing")
@@ -167,6 +170,7 @@ STREAMS = {  # stream: (cases, failed before, failed after, the failing names go
     "S5": (25, 7, 3, ["3.4 an argument reaches the shell quoted", "S5 an argument that starts with a double quote", "S5 the script path and the event name"], ("275", "7"), {}),
     "S6": (27, 4, 1, ["3.10 the approximate-match log", "3.11 two configurations in one session", "S6 a reader polling es_input.cfg"], ("277", "7"), {"lsan-f4": ("1", "0")}),
     "S7": (27, 1, 1, [], ("279", "8"), {"tsan-log-close": ("66", "0"), "tsan-log-flush": ("66", "0")}),
+    "S8": (31, 5, 0, ["3.19 BUTTON_GRID_HORIZ_PADDING is defined once", "3.21 the configuration page's subtitle", "S8 CLEAR on the text popup", "S8 the keyboard's x", "S8 the keyboard's CLEAR key"], ("283", "8"), {}),
 }
 for sn, (cases, fb, fa, gone, tot, sx) in STREAMS.items():
     got = {}

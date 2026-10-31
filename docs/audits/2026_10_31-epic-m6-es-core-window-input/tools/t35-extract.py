@@ -23,7 +23,9 @@ SPECS = [  # name, file, first, last, the first line holds, the last line holds
     # event_pass 169-178 -> 192-201 and sc_single 182-207 -> 205-230 move +23.
     ("exec_cmd", "Scripting.cpp", 90, 136, "#if WIN32", "#endif"),
     ("event_pass", "Scripting.cpp", 192, 201, "auto scripts = Utils::FileSystem::getDirContent(dir);", "}"),
-    ("kb_pad", "guis/GuiTextEditPopupKeyboard.cpp", 14, 14, "#define BUTTON_GRID_HORIZ_PADDING", "0.0052083333"),
+    # D-WORKFLOW-210, S8 (ES d0e5b3432): kb_pad asserted `#define BUTTON_GRID_HORIZ_PADDING` at the
+    # pin's :14 and asserts the keyboard's own `#define OSK_KEY_PADDING` at :16, the value kept.
+    ("kb_pad", "guis/GuiTextEditPopupKeyboard.cpp", 16, 16, "#define OSK_KEY_PADDING", "0.0052083333"),
     ("menu_pad", "components/MenuComponent.cpp", 14, 14, "#define BUTTON_GRID_HORIZ_PADDING", "0.022"),
     ("fs_cache", "utils/FileSystemUtil.cpp", 48, 341, "struct FileCache", "std::shared_mutex FileCache::mFileCacheMutex;"),
     ("fs_exists", "utils/FileSystemUtil.cpp", 1122, 1147, "bool exists(const std::string& _path, bool enableCache)", "} // exists"),
@@ -85,6 +87,14 @@ SPECS = [  # name, file, first, last, the first line holds, the last line holds
     # D-WORKFLOW-210: 29-196 at S6's tip, 29-205 at S7's (ES 425fbd4af: the drain, the stop flag,
     # the handler's flush gone).
     ("log_async", "Log.cpp", 29, 205, "class AsyncLogger", "};"),
+    # S8 (stage E, rulings 3, 4, 14; #1351, #1352, #1353): the keyboard's inset's use, CLEAR, x, the subtitle
+    # S8's before run (s8-before.txt) lifted kb_pad_use :220, pp_clear :34, kb_x :392-397, kb_clear
+    # :491-496 and cfg_subtitle :128-136; at S8's tip they are :222, :35, :395-400, :494-500, :128-139.
+    ("kb_pad_use", "guis/GuiTextEditPopupKeyboard.cpp", 222, 222, "button->setPadding(Vector4f(", "));"),
+    ("pp_clear", "guis/GuiTextEditPopup.cpp", 35, 35, 'buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CLEAR"), _("CLEAR"),', "}));"),
+    ("kb_x", "guis/GuiTextEditPopupKeyboard.cpp", 395, 400, 'if (config->isMappedTo("x", input) && input.value && mOkCallback != nullptr)', "}"),
+    ("kb_clear", "guis/GuiTextEditPopupKeyboard.cpp", 494, 500, 'else if (key == _("CLEAR"))', "}"),
+    ("cfg_subtitle", "guis/GuiInputConfig.cpp", 128, 139, "char strbuf[256];", "mSubtitle1 = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(strbuf)"),
 ]
 got = {}
 for name, f, a, b, first, last in SPECS:

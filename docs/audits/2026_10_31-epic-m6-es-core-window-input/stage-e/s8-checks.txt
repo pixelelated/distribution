@@ -1,0 +1,60 @@
+# S8 (PL-11 #1351, PL-12 #1352, PL-16 #1353; rulings 3, 4, 14): the checks. ES tip d0e5b3432, from S7's 425fbd4af; 2026-10-31T21:30:28Z
+## whose each changed line is (git blame at the pin; ruling 19)
+PL-11-define guis/GuiTextEditPopupKeyboard.cpp:14,14 -> 56263b82db 2020-10-28 - Redesigned OnScreen Keyboard - Add Quick search: upstream (an ancestor of cada856d86)
+PL-12-x guis/GuiTextEditPopupKeyboard.cpp:392,397 -> 3688936b96 2019-10-20 OSK : Add x pad button to "reset" & validate ( us: upstream (an ancestor of cada856d86)
+PL-12-clearkey guis/GuiTextEditPopupKeyboard.cpp:491,496 -> 56263b82db 2020-10-28 - Redesigned OnScreen Keyboard - Add Quick search: upstream (an ancestor of cada856d86)
+PL-12-clearkey guis/GuiTextEditPopupKeyboard.cpp:491,496 -> c8dc72cf9e 2026-10-11 emulationstation: manage cloud connections and ne: the fork's
+PL-12-clearbutton guis/GuiTextEditPopup.cpp:34,34 -> c8dc72cf9e 2026-10-11 emulationstation: manage cloud connections and ne: the fork's
+PL-16 guis/GuiInputConfig.cpp:134,134 -> c3d400a3af 2022-01-14 Refactorize all used paths into a unique class - : upstream (an ancestor of cada856d86)
+## the files 425fbd4af..d0e5b3432 changes (nothing outside the 96; the French catalog only for a changed sentence)
+in the 96: es-core/src/guis/GuiInputConfig.cpp
+in the 96: es-core/src/guis/GuiTextEditPopup.cpp
+in the 96: es-core/src/guis/GuiTextEditPopupKeyboard.cpp
+the French catalog: locale/lang/fr/LC_MESSAGES/emulationstation2.po
+ 4 files changed, 19 insertions(+), 8 deletions(-)
+## added lines' non-ASCII bytes in the .cpp/.h (+ lines of git diff -U0)
+non-ASCII added lines: 0
+## the stand-in over the 44 with the edit (stage-a/syntax-check.sh)
+rc=0 guis/GuiInputConfig.cpp
+rc=0 guis/GuiTextEditPopup.cpp
+rc=0 guis/GuiTextEditPopupKeyboard.cpp
+t35-syntax-check: 44 file(s) checked, 44 rc 0, 0 not
+## es-syntax-check: CANNOT on this host (the stand-in is the check)
+es-core/src/guis/GuiInputConfig.cpp: es-syntax-check: no build root at /workspace/repos/rocknix.worktrees/generic-x64/build.ROCKNIX-GENERIC_X64.x86_64 (ES_BUILD_ROOT, --root) (rc=2)
+es-core/src/guis/GuiTextEditPopup.cpp: es-syntax-check: no build root at /workspace/repos/rocknix.worktrees/generic-x64/build.ROCKNIX-GENERIC_X64.x86_64 (ES_BUILD_ROOT, --root) (rc=2)
+es-core/src/guis/GuiTextEditPopupKeyboard.cpp: es-syntax-check: no build root at /workspace/repos/rocknix.worktrees/generic-x64/build.ROCKNIX-GENERIC_X64.x86_64 (ES_BUILD_ROOT, --root) (rc=2)
+## the words (tools/es-untranslated against both bases, as stage A ran it)
+es-untranslated: 707 fork string(s) in the source, 707 with French, 0 without
+es-untranslated rc=0
+es-untranslated: 704 fork string(s) in the source, 704 with French, 0 without
+es-untranslated(cada) rc=0
+## the three doubles (§ 1 (i)): Window.h's postToUiThread and createAsyncNotificationComponent, Log.h's LogLevel, LocaleES.h's macros, pin against d0e5b3432
+unchanged: es-core/src/Window.h lines with 'postToUiThread(' (6a3344338f42)
+unchanged: es-core/src/Window.h lines with 'createAsyncNotificationComponent(' (5f1054884455)
+unchanged: es-core/src/Log.h lines with 'Log' (c30ad23d7478)
+unchanged: es-core/src/LocaleES.h lines with '#define' (68d69442e945)
+every line the stream's range changes in those three headers:
+(none)
+## the French entry the commit adds (D-UI-051), and the orphan left to msgmerge
++msgid "GAMEPAD"
++msgstr "MANETTE"
+3898:msgid "GAMEPAD %i"
+3899-msgstr "MANETTE %i"
+## tools/es-menu-map-check --es-src <W> --ref d0e5b3432 (no row added; the slice's dialogs contribute no titles)
+55 screen(s) at d0e5b3432, 31 in the map, 24 declared unmapped, 0 missing
+es-menu-map-check rc=0
+## BUTTON_GRID_HORIZ_PADDING's definitions at the tip (es-core): one, the menu bar's (D-UI-135)
+es-core/src/components/MenuComponent.cpp:14:#define BUTTON_GRID_HORIZ_PADDING (Renderer::getScreenWidth()*0.022)
+## the whole unit build at S8's tip (s8-after.txt): every binary's test-case summary
+RUN es-unit-tests: rc 0; [doctest] test cases: 185 | 185 passed | 0 failed | 0 skipped 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped 
+RUN app-unit-tests: rc 0; [doctest] test cases: 18 | 18 passed | 0 failed | 0 skipped 
+RUN window-input-tests: rc 0; [doctest] test cases: 31 | 31 passed | 0 failed | 0 skipped 
+RUN floor-tests: rc 0; [doctest] test cases: 11 | 11 passed | 0 failed | 0 skipped 
+RUN log-tests: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped 
+TOTAL: 283 test cases in 8 binaries
+rc=0 wall=59s
+## the ES fork's .githooks/pre-push-test before the push
+PASS

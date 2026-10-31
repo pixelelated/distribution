@@ -304,3 +304,27 @@
 - **After** (`stage-e/s7-after.txt`): `log-tests` 2 cases, 0 failed (`0 of 5`). `SAN tsan-log-close (-fsanitize=thread): rc 0; no sanitizer report`, `SAN tsan-log-flush (-fsanitize=thread): rc 0; no sanitizer report`. `TOTAL: 279 test cases in 8 binaries`.
 - **A correction:** the logger is upstream's (`e478a1eda4`, *[Logger] Threaded logging*, an ancestor of `cada856d86`), and only the per-batch flush is the fork's (`469441d4d6`, #178). `05`, #1343 and the brief called it the fork's logger. Under ruling 19 the #585 lines for PL-27 and PL-28 are therefore owed, and they are in `02`.
 - **Time to play:** `close()` runs at exit and drains at most one more buffer, and the handler runs at a crash. Neither is on the launch path.
+
+## [Stage E, S8] 21:25 to 21:31 UTC 2026-10-31 — PL-11 (#1351), PL-12 (#1352), PL-16 (#1353): the keyboard, the text popup, the configuration page (rulings 3, 4, 14)
+
+- **The cases, written first:**
+  - 3.19, re-shaped under ruling 3 (D-WORKFLOW-211; the old assertion is quoted in the test file): `BUTTON_GRID_HORIZ_PADDING` defined only in `MenuComponent.cpp`, the keyboard's value kept. It is read from the lifts' text: `kb_pad` and the new `kb_pad_use`, the value parsed from the line so the case holds whatever the macro is called.
+  - PL-12's three cases: the text popup's CLEAR button (`pp_clear`), the keyboard's `x` (`kb_x`) and its CLEAR key (`kb_clear`), each lifted into a popup double that counts its deletions and its OK callback's calls.
+  - 3.21: the subtitle lifted as text (`cfg_subtitle`).
+- **Before, at S7's tip** (`stage-e/s8-before.txt`): `window-input-tests` 31 cases, 5 failed, all five of these.
+- **The fix,** ES `d0e5b3432` (three `.cpp` and the French catalog; on origin; pre-push-test `PASS`):
+  - The keyboard's inset is `OSK_KEY_PADDING`, its value kept.
+  - CLEAR (both popups) and `x` set the text to `""` and the cursor to 0, and keep the popup open. No word changes.
+  - The subtitle is `getDeviceName()`, falling back to `_("GAMEPAD")`, with `msgid "GAMEPAD"` / `msgstr "MANETTE"` in the same commit (D-UI-051). The orphaned `GAMEPAD %i` is left to `msgmerge`.
+  - The stand-in: 44 of 44.
+- **After** (`stage-e/s8-after.txt`): 31 cases, 0 failed, `may_fail: 1` (3.5). **The whole unit build exits rc 0:** every binary at 0 failed, every `SAN` line `rc 0; no sanitizer report`, `TOTAL: 283 test cases in 8 binaries`.
+  - `es-untranslated`: 707 and 704 with French, 0 without.
+  - `es-menu-map-check --ref d0e5b3432`: `55 screen(s) at d0e5b3432, 31 in the map, 24 declared unmapped, 0 missing`.
+  - One `#define BUTTON_GRID_HORIZ_PADDING` in es-core, the menu bar's.
+- **D-WORKFLOW-210:**
+  - `kb_pad` asserted `#define BUTTON_GRID_HORIZ_PADDING` at the pin's `:14` and asserts `#define OSK_KEY_PADDING` at `:16`.
+  - The new specs moved: `kb_pad_use` 220 -> 222, `pp_clear` 34 -> 35, `kb_x` 392-397 -> 395-400, `kb_clear` 491-496 -> 494-500, `cfg_subtitle` 128-136 -> 128-139.
+  - A first after-run was refused by the extractor (`kb_x` given to 401, a blank line): the S2 guard built nothing and printed the refusal. That run is kept outside the record.
+- **Whose:** PL-16's `:134` is upstream's (`c3d400a3af`), so its #585 line is in `02`. There are no lines for PL-11 (a rename) or PL-12 (a design choice; the popup's CLEAR is the fork's `c8dc72cf9e`).
+- **Merge debt:** T34's `MenuComponent.cpp:9-10` sentence about the keyboard's second copy is now false (ruling 3, the integration's).
+- **Time to play:** none on the launch path.
