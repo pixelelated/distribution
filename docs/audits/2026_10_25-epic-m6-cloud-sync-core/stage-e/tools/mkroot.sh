@@ -29,6 +29,10 @@ for p in "${DONOR}"/usr/bin/*; do
     fi
 done
 ln -sfn /donor/usr/bin/busybox "${OUT}/usr/bin/busybox"
+# /usr/bin/sh is bash on the image (projects/ROCKNIX/packages/sysutils/busybox/package.mk's
+# post_install relinks it), not busybox and not the host's dash (stage E, S7: found when
+# cloud_net_ready's 10# met dash).
+ln -sfn /host/usr/bin/bash "${OUT}/usr/bin/sh"
 ln -sfn /donor/usr/bin/rclone "${OUT}/usr/bin/rclone"
 for s in cloud_backup cloud_restore cloud_capture cloud_net_ready cloud_saves_root cloud_sync_helper \
          cloud_sync_cleanup_duplicates.sh rasteratops-settings-archive cloud_remote cloud_device_id \

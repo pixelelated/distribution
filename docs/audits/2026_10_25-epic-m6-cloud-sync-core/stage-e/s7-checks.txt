@@ -1,0 +1,18 @@
+S7 checks 2026-10-31T06:06:20Z
+bash -n cloud_backup: ok
+bash -n cloud_restore: ok
+bash -n cloud_capture: ok
+bash -n cloud_saves_root: ok
+bash -n cloud_net_ready: ok (the image's /usr/bin/sh is bash)
+busybox sh -n cloud_net_ready: ok
+tools/vocabulary-check rc=0: vocabulary-check: 163 string(s) with back up / backup, save state or Wi-Fi judged, 0 wrong
+added lines with a QEMU, VM, port-forward or loopback word: 0
+player sentences: none added or changed; the new lines are log lines and the stamps' shape is unchanged (record_last_run writes last-backup as before, and last-backup-dest beside it)
+tools/cloud-capture-stamp-test: PASSED, 15 PASS lines, on 8ebaf8daad's cloud_capture and on the tree's (finish()'s stamp unchanged)
+date +%s left in the twins: the stamps (record_last_run) and --recent's now, which is compared with a stamp's epoch -- a record, not a deadline
+the capture's units: --retire and --adopt keep ignoring TERM (set with the mode, STOP reset), so the retire unit finishes first (ruling 8) and an adopt's copy is never cut; exit, rescan and full stop between files
+finish(): a failure while a stop is pending is reported as the stop (143 stopped) -- a child the same group TERM ended fails its step first; usage errors (2) are left as they are
+CLOUD_CAPTURE_FULL_BOUND: new with the fix, beside CLOUD_CAPTURE_EXIT_BOUND, for the harness; S7-full uses 5 s (the shipped bound is 300 s, D-CLOUD-190)
+stage-e/tools/mkroot.sh: /usr/bin/sh now links to bash, as the image's busybox post_install does (projects/ROCKNIX/packages/sysutils/busybox/package.mk:170-174). Found here: the fixed cloud_net_ready's 10# met the host's dash. The roots of S1 to S6 linked sh to the host's dash. Their cells that met sh: S2-group and S2-kept start the run with setsid sh -c (as EmulationStation does), S5-grace runs cloud_net_ready, and the stand-ins are #!/bin/sh. Not rerun under bash: what they read -- the group's signals reaching every process, the first look and the grace -- is not a feature of the shell, and the integration window's guest runs the image's own sh. root-pin4 and root-s7 were relinked by hand the same way
+S7-wait, the 0.08 s uptime: a file bound over /proc/uptime (SBX_LATE, its host path), so uptime never advances; the fixed run is ended by the cell's timeout 5 (rc 124) -- the evidence is that it starts, where the unfixed one dies on 008
+the suite after S6 (02d19b0787): 1312 PASS / 1 FAIL (suite-after-s6.out) -- A6 (PL-028), fixed by 61f8fcc5b2 (S6's follow-up: --error-on-no-transfer and --filters-file admitted)

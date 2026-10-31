@@ -1,0 +1,51 @@
+== T16 host lead S7 the capture's TERM and bound, monotonic time, --wait, the sidecars, the saves folder's record -- 2026-10-31T06:04:12Z
+donor root: /workspace/artifacts/m6-donor/1a0266484423/image/system (BUILD_ID 1a0266484423); sha256sum -c ../../SHA256SUMS:
+  usr/bin/busybox: OK
+  usr/bin/rclone: OK
+  etc/os-release: OK
+the scripts and /usr/config: /workspace/tmp/m6-t16/hl/root-pin4 (8ebaf8daad), 12 of 12 sha256-equal to the guest's installed bytes at 8ebaf8daad (guest-cycle/installed.sha256)
+from the donor: busybox v1.36.1 (146 applet links), rclone v1.75.2
+host stand-ins (not in the donor): bash 5.3.9(1)-release (image: 5.3), timeout (GNU coreutils) 9.7 (image: 9.4), grep (GNU grep) 3.12 (image: 3.9), python3 3.14.4, ip (iproute2)
+sandbox: stage-e/tools/sbx.sh (bwrap, own pid namespace, host network); backend: cloud-test-backend at 3a653eaec4, WebDAV 127.0.0.1:9010, state /workspace/tmp/m6-t16/hl/state
+
+== S7-term (2026-10-31T06:04:12Z)
+  the manifest: manifest-GENERIC-X64-unknown.json, 12 entries, sha256 5c5644a3aca6db34
+  TERM to the group at +4000 ms
+  cloud_capture --full: rc=0, ended 8202 ms after the TERM, 12203 ms in all
+  its last-capture line for full: 0 full -
+  its log:  [INFO] [cloud_capture] recorded 1 new, 0 moved, 0 metadata, 0 retired for gb:G11 (core gambatte, build unknown, exit 0, 70 ms)| [INFO] [cloud_capture] recorded 1 new, 0 moved, 0 metadata, 0 retired for gb:G12 (core gambatte, build unknown, exit 0, 70 ms)|
+  the manifest after: byte for byte as planted (5c5644a3aca6db34)
+
+== S7-full (2026-10-31T06:04:25Z)
+  the manifest: manifest-GENERIC-X64-unknown.json, 12 entries, sha256 2c9bbd7eef0331a6
+  cloud_capture --full (CLOUD_CAPTURE_FULL_BOUND=5): rc=0 after 12220 ms
+  its last-capture line for full: 0 full -
+  its log:  [INFO] [cloud_capture] recorded 1 new, 0 moved, 0 metadata, 0 retired for gb:G12 (core gambatte, build unknown, exit 0, 70 ms)
+  the manifest after: byte for byte as planted
+
+== S7-clock: the clock steps 3600 s ahead after the first date +%s (2026-10-31T06:04:38Z)
+  cloud_backup --automatic: rc=124, 
+  its log:  [INFO] [cloud_backup] automatic run: --contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1; ceiling 90s fr| [INFO] [cloud_backup] rclone mkdir not started: the automatic ceiling had passed| [INFO] [cloud_backup] rclone lsd not started: the automatic ceiling had passed| [INFO] [cloud_backup] the reachability probe was ended by the automatic ceiling; reporting that|
+  the save in the cloud: 0
+  cloud_saves_root check --wait 15 (a record of another card): rc=1 after 10 ms; The saves folder is not on its usual card yet; waiting up to 15s for it.
+
+== S7-wait: cloud_net_ready (2026-10-31T06:04:38Z)
+  --wait 010, disconnected: rc=69 after 8088 ms; Skipped: your network didn't come up in time. Try again when you're online.
+  --wait 3, nmcli answering after 4 s: rc=69 after 17026 ms; Skipped: your network didn't come up in time. Try again when you're online.
+  /proc/uptime reads 0.08
+  --wait 1 at an uptime of 0.08 s: rc=1 after 1 ms; /usr/bin/cloud_net_ready: line 122: 008: value too great for base (error token is "008")
+
+== S7-sidecars: the donor's rclone lsf with the root's rules (2026-10-31T06:05:04Z)
+  rc=0; listed: savefiles/psp/a.sqlite-journal savefiles/psp/a.sqlite-shm savefiles/psp/a.sqlite-wal savefiles/psp/b.sqlite3-journal savefiles/psp/b.sqlite3-shm savefiles/psp/b.sqlite3-wal savefiles/psp/game.srm 
+
+== S7-recent: SAVES_REMOTE changed, a last-backup stamp of rc 0 a minute old (2026-10-31T06:05:04Z)
+  the first run: rc=0, Game saves: COMPLETED
+    its recent line:  [INFO] [cloud_backup] recent: only files changed in the last 660s, since the last successful backup
+    the new folder holds: ./savestates/new-060412.state 
+    last-backup-dest: none; last-backup: 0
+  the second run: rc=0, Game saves: COMPLETED
+    its recent line:  [INFO] [cloud_backup] recent: only files changed in the last 600s, since the last successful backup
+    the new folder holds: ./savestates/new-060412.state 
+    last-backup-dest: none; last-backup: 0
+
+== end 2026-10-31T06:05:04Z

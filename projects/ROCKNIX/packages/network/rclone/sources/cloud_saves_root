@@ -122,11 +122,19 @@ write_record() {
 
 # Re-read the identity once a second until it equals $1 or $2 seconds pass;
 # print what it is at the end.
+# Whole seconds since boot: a wait on the wall clock ended at once when the
+# clock stepped forward at boot, the moment this waits for (PL-20).
+uptime_s() {
+    local up
+    read -r up _ < /proc/uptime 2>/dev/null || up=0
+    echo $(( 10#${up%.*} ))
+}
+
 wait_for() {
     local want="$1" deadline now
-    deadline=$(( $(date +%s) + ${2} ))
+    deadline=$(( $(uptime_s) + 10#${2} ))
     now=$(identity)
-    while [ "${now}" != "${want}" ] && [ "$(date +%s)" -lt "${deadline}" ]; do
+    while [ "${now}" != "${want}" ] && [ "$(uptime_s)" -lt "${deadline}" ]; do
         sleep 1
         now=$(identity)
     done

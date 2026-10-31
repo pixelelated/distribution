@@ -5,7 +5,16 @@
 # Script configuration and global variables
 SCRIPT_NAME=$(basename "$0")
 LOG_FILE="/var/log/cloud_sync.log"
-START_TIME=$(date +%s)
+# Whole seconds since boot, from the kernel: a deadline or a wait counted on
+# the wall clock ends at once, or never, when NTP or the RTC steps it -- at
+# boot, when the startup sync runs (PL-20). The stamps keep date +%s: they
+# are a record of when, not a deadline.
+uptime_s() {
+    local up
+    read -r up _ < /proc/uptime 2>/dev/null || up=0
+    echo $(( 10#${up%.*} ))
+}
+START_TIME=$(uptime_s)
 
 # The exit that means "nothing ran: another cloud sync holds the lock", which
 # EmulationStation names (SKIPPED - ANOTHER CLOUD SYNC IS RUNNING). It was 3
@@ -270,7 +279,7 @@ bounded_rclone() {
     command rclone "${args[@]}" > "${fifo}" &
     pid=$!
     RCLONE_CHILD="${pid}"
-    since=$(date +%s)
+    since=$(uptime_s)
     while child_running "${pid}"; do
         sleep 0.25
         ticks=$((ticks + 1))
@@ -278,10 +287,10 @@ bounded_rclone() {
         mark=$(progress_mark "${trace}")
         if new=$(advance_mark "${mark}" "${high}"); then
             high="${new}"
-            since=$(date +%s)
+            since=$(uptime_s)
             continue
         fi
-        now=$(date +%s)
+        now=$(uptime_s)
         if [ $((now - since)) -ge "${DELIBERATE_CEILING_SECONDS}" ]; then
             ended=1
             kill -TERM "${pid}" 2>/dev/null
@@ -349,7 +358,7 @@ logged_moved() { # <offset into LOG_FILE, or "" for none> [file]
 rclone() {
     if [ "${AUTOMATIC}" -eq 1 ]; then
         if [ "${SYNC_DEADLINE}" -gt 0 ]; then
-            local left=$(( SYNC_DEADLINE - $(date +%s) ))
+            local left=$(( SYNC_DEADLINE - $(uptime_s) ))
             # Past the ceiling nothing more is started (#308 gpt F-CS-34): each
             # call used to be given a second more and three to die in, so a
             # run that met its ceiling went on for as many seconds again as it
@@ -898,7 +907,7 @@ run_outcome_line() {
 #   $1: Exit code to return
 clean_exit() {
     local exit_code=$1
-    local duration=$(($(date +%s) - START_TIME))
+    local duration=$(( $(uptime_s) - START_TIME ))
 
     # A deliberate run's rclone runs in the background under the stall
     # ceiling; a signal that reached the script mid-copy ends it here rather

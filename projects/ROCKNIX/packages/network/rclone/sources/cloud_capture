@@ -127,13 +127,18 @@ JQ="/usr/bin/jq"
 
 SCRIPT_NAME="cloud_capture"
 # systemd stops EmulationStation's cgroup with one SIGTERM to every process in
-# it (essway.service, KillMode control-group), and a deletion this recorder is
-# asked to finish (--retire --unlink) is one unit: the row, then the files.
-# Ignored here and, since exec keeps SIG_IGN, in every jq, sha256sum and mv
-# this starts; systemd's SIGKILL comes only at the stop timeout, long after a
-# run this short has exited (fork #205, D-CLOUD-133). A terminal's Ctrl-C
-# (SIGINT) still ends it.
-trap '' TERM
+# it (essway.service, KillMode control-group). A TERM is a stop between two
+# files (PL-16, D-CLOUD-190, reversing D-CLOUD-133's ignore): the per-file
+# loops test STOP, and a run that stops commits nothing and ends 143 -- the
+# manifest is committed whole or not at all, temp-and-rename under the
+# commit lock, so a stop never lands mid-write. The boot --full pass used to
+# run on until systemd's SIGKILL. A deletion this recorder is asked to finish
+# (--retire --unlink: the row, then the files) and an --adopt (the copy,
+# then the row) are each one unit, and still ignore TERM -- set once the mode
+# is known, so every jq, sha256sum and mv they start inherits SIG_IGN. A
+# terminal's Ctrl-C (SIGINT) still ends any run.
+STOP=0
+trap 'STOP=1' TERM
 ECHO_TO_SCREEN="false"
 read -r _UP0 _ < /proc/uptime 2>/dev/null || _UP0="0"
 _UP0_MS=$(( 10#${_UP0/./}0 ))
@@ -251,6 +256,30 @@ past_exit_bound() {
     [ "${MODE}" = "exit" ] && [ "$(elapsed_ms)" -ge "${EXIT_BOUND_MS}" ]
 }
 
+# The boot --full pass's bound (PL-16, D-CLOUD-190): 300 s, after which it
+# ends as an exit capture past its bound does -- too-slow, nothing
+# committed, the manifest as it was. --full never retries; the next boot's
+# pass starts over. CLOUD_CAPTURE_FULL_BOUND (whole seconds) shortens it for
+# the harness, as CLOUD_CAPTURE_EXIT_BOUND does the exit's.
+FULL_BOUND_MS=300000
+case "${CLOUD_CAPTURE_FULL_BOUND:-}" in
+    ''|*[!0-9]*) ;;
+    *) FULL_BOUND_MS=$(( 10#${CLOUD_CAPTURE_FULL_BOUND} * 1000 )) ;;
+esac
+
+# Between two files, and before the commit: a TERM stops the run, and the
+# boot pass stops at its bound. Nothing is half-written at these points.
+between_files() {
+    if [ "${STOP}" = 1 ]; then
+        log_info "stopped by TERM between two files after $(elapsed_ms) ms; nothing was recorded, the manifest is as it was"
+        finish 143 "stopped"
+    fi
+    if [ "${MODE}" = "full" ] && [ "$(elapsed_ms)" -ge "${FULL_BOUND_MS}" ]; then
+        log_error "this boot pass has run $(( $(elapsed_ms) / 1000 )) s, past its $(( FULL_BOUND_MS / 1000 )) s bound; nothing was recorded, the manifest is as it was"
+        finish 1 "too-slow"
+    fi
+}
+
 # ---------------------------------------------------------------------------
 # The durable stamp, on EVERY run (D-CLOUD-027), one line per mode
 # (D-CLOUD-070). /var/log dies with the boot; /storage/.cache is device-local,
@@ -301,6 +330,11 @@ capture_unlock() {
 
 finish() {
     local rc="${1:-${RC}}" reason="${2:-${REASON}}" now emu core mode
+    # A child the same TERM ended (sha256sum, jq) fails the step it was in;
+    # that failure is the stop's, and says so (PL-16).
+    if [ "${STOP:-0}" = 1 ] && [ "${rc}" != 0 ] && [ "${rc}" != 2 ]; then
+        rc=143; reason="stopped"
+    fi
     now="$(date +%s)"
     mkdir -p "${CACHE}" 2>/dev/null
     # The first four fields keep their positions; the launch's exit as passed
@@ -436,6 +470,7 @@ while [ $# -gt 0 ]; do
 done
 
 [ -n "${MODE}" ] || MODE="exit"
+case "${MODE}" in retire|adopt) trap '' TERM; STOP=0 ;; esac
 
 case "${MODE}" in
     exit)
@@ -1202,6 +1237,7 @@ fi
 
 if [ "${MODE}" = "exit" ] || [ "${MODE}" = "rescan" ] || [ "${MODE}" = "full" ]; then
     for _m in "${SORTED[@]}"; do
+        between_files
         [ -n "${_m}" ] || continue
         _u="${M_UNIT[${_m}]}"
         if [ -z "${SCANNED_UNIT_SEEN[${_u}]}" ]; then
@@ -1610,6 +1646,8 @@ if [ ! -s "${TMP}" ] || ! "${JQ}" -e . "${TMP}" >/dev/null 2>&1; then
     log_error "the new manifest for ${MANIFEST} did not render; the previous manifest is intact"
     finish 1 "render-failed"
 fi
+
+between_files
 
 # The check, the rename and the GC below are one step under the commit lock
 # (PL-067); detection still decides who wins. A run that cannot have the

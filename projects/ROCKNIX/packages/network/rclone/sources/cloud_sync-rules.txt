@@ -13,6 +13,12 @@
 - /**/*.db-journal
 - /**/*.sqlite
 - /**/*.sqlite3
+- /**/*.sqlite-wal
+- /**/*.sqlite-shm
+- /**/*.sqlite-journal
+- /**/*.sqlite3-wal
+- /**/*.sqlite3-shm
+- /**/*.sqlite3-journal
 # rclone's temporary copy of a file in flight: never sent, never fetched (PL-19).
 - /**/*.partial
 

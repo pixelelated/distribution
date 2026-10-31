@@ -5,7 +5,16 @@
 # Script configuration and global variables
 SCRIPT_NAME=$(basename "$0")
 LOG_FILE="/var/log/cloud_sync.log"
-START_TIME=$(date +%s)
+# Whole seconds since boot, from the kernel: a deadline or a wait counted on
+# the wall clock ends at once, or never, when NTP or the RTC steps it -- at
+# boot, when the startup sync runs (PL-20). The stamps keep date +%s: they
+# are a record of when, not a deadline.
+uptime_s() {
+    local up
+    read -r up _ < /proc/uptime 2>/dev/null || up=0
+    echo $(( 10#${up%.*} ))
+}
+START_TIME=$(uptime_s)
 
 # The two exits that mean "nothing ran", which EmulationStation names
 # (SKIPPED - ANOTHER CLOUD SYNC IS RUNNING / SKIPPED - NO NETWORK CONNECTION).
@@ -284,7 +293,7 @@ bounded_rclone() {
     command rclone "${args[@]}" > "${fifo}" &
     pid=$!
     RCLONE_CHILD="${pid}"
-    since=$(date +%s)
+    since=$(uptime_s)
     while child_running "${pid}"; do
         sleep 0.25
         ticks=$((ticks + 1))
@@ -292,10 +301,10 @@ bounded_rclone() {
         mark=$(progress_mark "${trace}")
         if new=$(advance_mark "${mark}" "${high}"); then
             high="${new}"
-            since=$(date +%s)
+            since=$(uptime_s)
             continue
         fi
-        now=$(date +%s)
+        now=$(uptime_s)
         if [ $((now - since)) -ge "${DELIBERATE_CEILING_SECONDS}" ]; then
             ended=1
             kill -TERM "${pid}" 2>/dev/null
@@ -363,7 +372,7 @@ logged_moved() { # <offset into LOG_FILE, or "" for none> [file]
 rclone() {
     if [ "${AUTOMATIC}" -eq 1 ]; then
         if [ "${SYNC_DEADLINE}" -gt 0 ]; then
-            local left=$(( SYNC_DEADLINE - $(date +%s) ))
+            local left=$(( SYNC_DEADLINE - $(uptime_s) ))
             # Past the ceiling nothing more is started (#308 gpt F-CS-34): each
             # call used to be given a second more and three to die in, so a
             # run that met its ceiling went on for as many seconds again as it
@@ -762,6 +771,14 @@ record_last_run() {
         why=" gaps $(why_for 130)"
     fi
     write_stamp "/storage/.cache/cloud_sync/last-${name}" "$(date +%s) ${exit_code}${why}"
+    # Where the saves went, beside the stamp (PL-25): --recent's window is
+    # true only of the folder it was measured against. A completed saves
+    # backup writes it; the stamp's own shape is untouched (EmulationStation
+    # reads it).
+    case "${exit_code}" in
+        0|9) [ "${name}" = "backup" ] && [ -n "${REMOTENAME}${SAVES_REMOTE}" ] \
+                 && write_stamp "/storage/.cache/cloud_sync/last-backup-dest" "${REMOTENAME}${SAVES_REMOTE}" ;;
+    esac
 }
 
 # Is this settings archive whole? tar lists every member or fails. For a zip,
@@ -986,7 +1003,7 @@ run_outcome_line() {
 #   $1: Exit code to return
 clean_exit() {
     local exit_code=$1
-    local duration=$(($(date +%s) - START_TIME))
+    local duration=$(( $(uptime_s) - START_TIME ))
 
     # A deliberate run's rclone runs in the background under the stall
     # ceiling; a signal that reached the script mid-copy ends it here rather
@@ -1977,10 +1994,17 @@ backup_game_saves() {
     # would weigh deleting whatever the filter hid.
     if [ "${RECENT}" -eq 1 ]; then
         local stamp_file=/storage/.cache/cloud_sync/last-backup
-        local stamp_epoch="" stamp_rc="" now
+        local stamp_epoch="" stamp_rc="" now dest_last=""
         now=$(date +%s)
         [ -r "${stamp_file}" ] && read -r stamp_epoch stamp_rc < "${stamp_file}"
-        if [ "${stamp_rc}" = "0" ] && [ "${stamp_epoch:-0}" -gt 0 ] 2>/dev/null \
+        # The window is the folder's it was measured against (PL-25): after
+        # a change of saves folder, or with no record of where the last one
+        # went (every device before this), one full pass, and the record.
+        [ -r /storage/.cache/cloud_sync/last-backup-dest ] \
+            && IFS= read -r dest_last < /storage/.cache/cloud_sync/last-backup-dest
+        if [ "${dest_last}" != "${REMOTENAME}${SAVES_REMOTE}" ]; then
+            log_message "recent: the saves folder changed (or no record), doing a full pass" "false"
+        elif [ "${stamp_rc}" = "0" ] && [ "${stamp_epoch:-0}" -gt 0 ] 2>/dev/null \
            && [ "${stamp_epoch}" -le "${now}" ]; then
             local age=$(( now - stamp_epoch + 600 ))
             all_opts+=("--max-age" "${age}s" "--no-traverse")

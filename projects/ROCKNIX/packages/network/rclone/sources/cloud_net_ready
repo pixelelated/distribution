@@ -90,7 +90,9 @@ log() {
 uptime_cs() {
     local up
     read -r up _ < /proc/uptime
-    echo "${up%.*}${up#*.}"
+    # In base 10 (PL-21): the first seconds of uptime read 0.08 -> 008,
+    # which the arithmetic took for a bad octal number.
+    echo $(( 10#${up%.*}${up#*.} ))
 }
 
 # The same test cloud_backup's check_network_link makes: reads the kernel's
@@ -106,8 +108,16 @@ has_default_route() {
 # NetworkManager does not answer within 5 s -- nmcli talks over D-Bus, and
 # an unanswered D-Bus call would otherwise wait forever, which in a tool
 # whose job is to bound a wait is the one failure it may not have.
-nm_state()        { timeout 5 nmcli -g STATE general 2>/dev/null; }
-nm_connectivity() { timeout 5 nmcli -g CONNECTIVITY general 2>/dev/null; }
+# Each call is bounded by what is left of the wait as well (PL-21): two 5 s
+# calls a poll carried the exit past the deadline.
+nm_bound() {
+    local left=$(( (DEADLINE - $(uptime_cs)) / 100 ))
+    [ "${left}" -gt 5 ] && left=5
+    [ "${left}" -lt 1 ] && left=1
+    echo "${left}"
+}
+nm_state()        { timeout "$(nm_bound)" nmcli -g STATE general 2>/dev/null; }
+nm_connectivity() { timeout "$(nm_bound)" nmcli -g CONNECTIVITY general 2>/dev/null; }
 
 # The stand-in when NetworkManager cannot be asked: some interface other
 # than loopback has a carrier.
@@ -121,7 +131,7 @@ carrier_up() {
 }
 
 START=$(uptime_cs)
-DEADLINE=$((START + WAIT * 100))
+DEADLINE=$((START + 10#${WAIT} * 100))
 GRACE_CS=$((GRACE * 100))
 SETTLED_SINCE=""
 ANNOUNCED=0
@@ -143,6 +153,7 @@ while :; do
         # once as before: on the plane the card ends in a successful sync's
         # time (D-CLOUD-072, D-CLOUD-112).
         STATE=$(nm_state)
+        NOW=$(uptime_cs)
         case "${STATE}" in
             connecting*) COMING_UP=1 ;;
             '') if carrier_up; then COMING_UP=1; else COMING_UP=0; fi ;;
@@ -206,6 +217,9 @@ while :; do
         fi
         if carrier_up; then SETTLED=1; else SETTLED=0; fi
     fi
+    # After NetworkManager's answers, so the tests below see the time they
+    # took (PL-21).
+    NOW=$(uptime_cs)
 
     if [ "${SETTLED}" = 1 ]; then
         [ -n "${SETTLED_SINCE}" ] || SETTLED_SINCE=${NOW}

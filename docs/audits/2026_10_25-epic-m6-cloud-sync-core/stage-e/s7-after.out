@@ -1,0 +1,51 @@
+== T16 host lead S7 the capture's TERM and bound, monotonic time, --wait, the sidecars, the saves folder's record -- 2026-10-31T06:05:04Z
+donor root: /workspace/artifacts/m6-donor/1a0266484423/image/system (BUILD_ID 1a0266484423); sha256sum -c ../../SHA256SUMS:
+  usr/bin/busybox: OK
+  usr/bin/rclone: OK
+  etc/os-release: OK
+the scripts and /usr/config: /workspace/tmp/m6-t16/hl/root-s7 (tree), 1 of 12 sha256-equal to the guest's installed bytes at 8ebaf8daad (guest-cycle/installed.sha256)
+from the donor: busybox v1.36.1 (146 applet links), rclone v1.75.2
+host stand-ins (not in the donor): bash 5.3.9(1)-release (image: 5.3), timeout (GNU coreutils) 9.7 (image: 9.4), grep (GNU grep) 3.12 (image: 3.9), python3 3.14.4, ip (iproute2)
+sandbox: stage-e/tools/sbx.sh (bwrap, own pid namespace, host network); backend: cloud-test-backend at 3a653eaec4, WebDAV 127.0.0.1:9010, state /workspace/tmp/m6-t16/hl/state
+
+== S7-term (2026-10-31T06:05:04Z)
+  the manifest: manifest-GENERIC-X64-unknown.json, 12 entries, sha256 d4edf6ee148e4314
+  TERM to the group at +4001 ms
+  cloud_capture --full: rc=143, ended 1028 ms after the TERM, 5029 ms in all
+  its last-capture line for full: 143 full -
+  its log:  [INFO] [cloud_capture] recorded 1 new, 0 moved, 0 metadata, 0 retired for gb:G12 (core gambatte, build unknown, exit 0, 90 ms)| [INFO] [cloud_capture] stopped by TERM between two files after 5020 ms; nothing was recorded, the manifest is as it was|
+  the manifest after: byte for byte as planted (d4edf6ee148e4314)
+
+== S7-full (2026-10-31T06:05:10Z)
+  the manifest: manifest-GENERIC-X64-unknown.json, 12 entries, sha256 c0f98a559d2fc29b
+  cloud_capture --full (CLOUD_CAPTURE_FULL_BOUND=5): rc=1 after 5120 ms
+  its last-capture line for full: 1 full -
+  its log:  [ERROR] [cloud_capture] this boot pass has run 5 s, past its 5 s bound; nothing was recorded, the manifest is as it was
+  the manifest after: byte for byte as planted
+
+== S7-clock: the clock steps 3600 s ahead after the first date +%s (2026-10-31T06:05:17Z)
+  cloud_backup --automatic: rc=0, Game saves: COMPLETED
+  its log:  [INFO] [cloud_backup] automatic run: --contimeout 5s --timeout 5s --retries 1 --max-duration 90s --low-level-retries 5 --transfers 1; ceiling 90s fr|
+  the save in the cloud: 1
+  cloud_saves_root check --wait 15 (a record of another card): rc=1 after 15269 ms; The saves folder is not on its usual card yet; waiting up to 15s for it.
+
+== S7-wait: cloud_net_ready (2026-10-31T06:05:32Z)
+  --wait 010, disconnected: rc=69 after 10162 ms; Skipped: your network didn't come up in time. Try again when you're online.
+  --wait 3, nmcli answering after 4 s: rc=69 after 3016 ms; Skipped: your network didn't come up in time. Try again when you're online.
+  /proc/uptime reads 0.08
+  --wait 1 at an uptime of 0.08 s: rc=124 after 5001 ms; 
+
+== S7-sidecars: the donor's rclone lsf with the root's rules (2026-10-31T06:05:51Z)
+  rc=0; listed: savefiles/psp/game.srm 
+
+== S7-recent: SAVES_REMOTE changed, a last-backup stamp of rc 0 a minute old (2026-10-31T06:05:51Z)
+  the first run: rc=0, Game saves: COMPLETED
+    its recent line:  [INFO] [cloud_backup] recent: the saves folder changed (or no record), doing a full pass
+    the new folder holds: ./savestates/new-060504.state ./savestates/old-060504.state 
+    last-backup-dest: <remote>:/pixelelated/Saves-060504; last-backup: 0
+  the second run: rc=0, Game saves: COMPLETED
+    its recent line:  [INFO] [cloud_backup] recent: only files changed in the last 600s, since the last successful backup
+    the new folder holds: ./savestates/new-060504.state ./savestates/old-060504.state 
+    last-backup-dest: <remote>:/pixelelated/Saves-060504; last-backup: 0
+
+== end 2026-10-31T06:05:51Z
