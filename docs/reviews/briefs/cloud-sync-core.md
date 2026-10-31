@@ -578,3 +578,7 @@ named held. The corrections:
 16. The retro's *What T16 inherits* is a bold line at `:42`, not a heading.
 17. #663's body still carried P1's five checkboxes and "under epic #339":
     rewritten at dispatch with § 7's seventeen and the VM line.
+
+## Errata at acceptance
+
+The errata found at T16's acceptance (11:02 UTC 2026-10-31), against this brief and the stream brief alike, are listed in `t16-streams.md` § Superseded at acceptance; this brief's own are among them: the `check` run before its folder test (`cloud_backup:1606` against `:1613`), `tools/pkgcheck` taking a package name, "133" in § 10 where 132 is right, `last-run` naming no stamp file (the family is `last-<name>`), and version 2's "there is no `last-restore`".

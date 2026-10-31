@@ -161,3 +161,52 @@ The draft above was written on 2026-10-31 at T34's stage-D close (`t34-streams-d
 12. **PL-35: the intent read first, posted before the commit.** `engineering-practices.md` § Verify design intent: `git log -S` on the line and its callers; `==` only if the reading says a comparison was meant; otherwise the line stays and the bug records the reading.
 13. **PL-36: auto kept in force as upstream reads it; the fix limited to the displayed image matching the held state** (the constructor's image and every state change through one path). `setValue("true")` leaving auto would change what the fork's `hasAuto` rows mean; the lane greps those rows and records them.
 14. **The extractor's specs and generators: updated per stream under D-WORKFLOW-210, as written**, the pin's FAIL retained in `stage-d/` and `stage-e/sN-before.txt`; one script, the tip's lines.
+
+## Superseded at acceptance
+
+Appended at T34's acceptance (11:44 UTC 2026-10-31; #681, the acceptance post issuecomment-6542929434), never edited into the sections above. The errata against this stream brief and against `es-core-components.md` alike, from the pointer seed, the lane's stage posts and the coordinator's acceptance map (`kit/t34-ticks.md`):
+
+- The pointer seed's Register line named D-SYS-014, a row of `## Open decisions`; the decided table's highest SYS row is D-SYS-013 (the kit's fill command read the whole register; fix: stop at `## Open decisions`). Found by the lane at stage A, 2026-10-30 14:26.
+- § 9's placeholder grep counted its own check line on the seeded pointer (printed 1, the line's five placeholders filled); the lane rewrote the line so it cannot count itself.
+- § 4 Q7's gates command prints 13 lines (`VideoPlayerComponent.{cpp,h}:1` is two lines), not the comment's "twelve".
+
+- **From S2 (comment 6539850008, 06:01 UTC 2026-10-31):** the lane's `git log -S` puts the card's close writes (`ad9802f44`) and the field's post shape (`2f5ec7d33`) in upstream's 2020 commits, so PL-01 and PL-03 carry #585 lines; the brief's provenance for those two is corrected at acceptance. `Window`'s half of the interleaving fix is `stage-e/s2-window.patch`, T35's (#682), proven on scratch copies and not applied -- a collision T35's hand-back names against T34's ES tip, and the integration reconciles.
+- **From S3 (comment 6539945559, 06:12 UTC 2026-10-31):** `GuiMsgBox`'s workaround is held as `stage-e/s3-msgbox.patch` (T35's, #682), proven on a scratch copy of the pin's file and not applied -- the second held half for T35 after S2's `s2-window.patch`; the lane's own tool fix (a refused extraction had let `tools/t34-build-tests.sh` run the previous binary; each binary now removed before its compile) is recorded for the acceptance script's unit-build section.
+
+## From the acceptance map (11:14 UTC 2026-10-31; `kit/t34-ticks.md`)
+
+1. **§ 7 criterion 6 says "three times"; the § 2 block prints the shortstat `21 files changed, 591 insertions(+), 114 deletions(-)` twice.**
+   - The two are against the merge base and against the base: `01-research-notes.md:61-62`, and the re-run's `the shortstat line twice` (`accept-t34-rerun0.out:541`).
+   - The third is § 5's fork-delta run (`01:113`).
+2. **§ 7 criterion 13's "`git grep -P`'s 0" holds only in a UTF-8 locale.**
+   - § 5's block runs `LC_ALL=C` and prints 1 (`stage-a/runs.txt:203`), as the block's own comment says. No UTF-8 run is in the record.
+3. **§ 10's "§ The reads' 10 rows" is out of date.**
+   - `02` § The reads has 33 rows (`t34-reads.py`'s asserted line, `02:366`); the 10 `exists(` rows are among them.
+4. **§ 10's "§ The merge debt's one line" is out of date.**
+   - Since stage E the section is the one-line `**None:**` paragraph plus the by-file table that `t34-streams.md` § The hand-back asks for (`02:439`, `:443-455`).
+5. **§ 4 and § 5 say "the seven that FAIL at the pin"; five FAILed at stage D.**
+   - The five are 3.4, 3.6, 3.7, 3.16 and 3.26 (`stage-d/build-tests.txt:64`, `7 | 2 passed | 5 failed`).
+   - 3.8 PASSed at every size and loop type, and PL-24 was withdrawn on it.
+   - 3.21 was written in S5. Its first half PASSes at the pin; the second's only FAIL was the cache path kept (PL-13, ruling 5).
+6. **`t34-streams.md` § The rules every stream keeps names the stand-in and the sanitizer sources at their pre-move paths.**
+   - It says `tools/t34-syntax-check.sh` and the `tools/t34-*san*.cpp` files.
+   - They are `stage-a/syntax-check.sh` and `stage-d/*.cpp` since `d446c4c6c3`, as the lane noted at `00:111`.
+7. **The holders' owners disagree across three records.**
+   - `t34-streams.md` gives `ProxyCards.cpp` to T20, and `ThreadedBluetooth.h` and `ContentInstaller.h` to T33.
+   - `02:443-455` and the hand-back give `ProxyCards.cpp` to T18, `ThreadedBluetooth.h` to T20, and `ContentInstaller.h` to T31.
+   - By the lanes' ES tips: `ProxyCards.cpp` is changed by T2 #649 and T20 #667; `ThreadedCloudSync.*` by T18 #665; `ThreadedHasher.h` by T20; `ThreadedBluetooth.*` by T33 #680; `ContentInstaller.h` and `guis/GuiUpdate.h` by none.
+   - **`s2-holders.patch`'s hunk 3 does not apply over T2's `ProxyCards.cpp`** (`patch --dry-run`: `Hunk #3 FAILED at 235`; T2's `dce0b9b6b` changed the `attach` lambda). Neither brief nor the hand-back names this collision.
+8. **`t34-streams.md` ruling 9 expected "`1 may_fail: PL-14`"; the tip carries 2.**
+   - The second is 3.14's PL-40 half, marked by the lane as ruling 9 marks 3.26 and kept by the coordinator (comment 6542482240).
+9. **§ 7 criterion 21's "0 failed in every binary's summary" reads true only of the test-case summary.**
+   - doctest's assertion summary counts the `may_fail` cases' assertions as failed: `components-tests`, `453 | 450 passed | 3 failed`. The correction is in `kit/t34-ticks.md` under criterion 21.
+10. **§ 7 criterion 3's hit classes ("library plumbing / macro name / identifier / setting name") did not foresee hits in the packet's own prose.**
+    - The manifest's 108 word hits carry eight classes; 92 are `prose (the analysis or the brief)`. None is a value.
+11. **§ 7 criteria 11 and 14 assume G-02's card and G-06's one-button dialog were reachable in the window.**
+    - G-02 needs a startup sync card. The plan named a WebDAV stanza (`stage-b/window-plan.md:17`), but the lane ran `restrict=on` with no remote.
+    - G-06 found no OK-only dialog in reach on that image.
+    - Both are `CANNOT` in the RETURN post (6531938082). The card's frames move to the integration window.
+12. **The § 7 retro criterion asks for time to play "priced from the guest, or `CANNOT` with the harness's reason".**
+    - `t34-streams.md` asked each stream's record for one clause instead.
+    - S2, S3, S5, S6 and S7 have one (`stage-e/sN-checks.txt`); S1 and S4 do not.
+    - Neither the retro nor `03` carries the slice's line. `04:132`'s take-up row promised the per-frame price "in the retro".

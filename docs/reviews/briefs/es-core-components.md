@@ -1743,3 +1743,7 @@ the one copy the lane reads from.
 
 - § 3 item 2 and § 10's register row name D-CLOUD-186, D-UI-128 and D-UI-129 as the highest rows; at the dispatch the highest decided row per area is read from the table at COHASH (D-CLOUD-187 exists since 2026-10-27; D-WORKFLOW-213 is this slice's ownership row, the § 1 rulings as one row), and the pointer's Register line is filled from that reading, never from this brief.
 - The slice is dispatched to the T3 session (`m6-t3-emulators`), free since T15's close-out of 2026-10-30; the T5 session takes T35 after T33. Where this brief or the pointer seed names the T5 session, this line governs.
+
+## Errata at acceptance
+
+The errata found at T34's acceptance (11:44 UTC 2026-10-31), against this brief and the stream brief alike, are listed in `t34-streams.md` § Superseded at acceptance; this brief's own are among them: § 5's `fatal:` expectation on T35's remote branch, the gates command printing 13 lines not twelve, the § 2 block's shortstat printed twice not three times, five leads failing at the pin not seven, § 10's row counts, and the lock grep's six lines.
