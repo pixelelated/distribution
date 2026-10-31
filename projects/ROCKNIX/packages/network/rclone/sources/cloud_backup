@@ -8,7 +8,9 @@ LOG_FILE="/var/log/cloud_sync.log"
 # Whole seconds since boot, from the kernel: a deadline or a wait counted on
 # the wall clock ends at once, or never, when NTP or the RTC steps it -- at
 # boot, when the startup sync runs (PL-20). The stamps keep date +%s: they
-# are a record of when, not a deadline.
+# are a record of when, not a deadline. The functions that count a deadline
+# or a wait (rclone, bounded_rclone, clean_exit) read /proc/uptime the same
+# way themselves, so each stands alone where it is lifted by its span.
 uptime_s() {
     local up
     read -r up _ < /proc/uptime 2>/dev/null || up=0
@@ -265,7 +267,7 @@ advance_mark() {
 # printed afterwards overtakes rclone's last block.
 bounded_rclone() {
     local dir="${CEILING_DIR_ROOT}/cloud_sync.${$}.${RANDOM}" fifo trace pid tee_pid rc
-    local mark high="0 0 0 0 0" new since now ticks=0 ended=0 n progress_verb=0
+    local mark high="0 0 0 0 0" new since now ticks=0 ended=0 n progress_verb=0 up
     if ! mkdir -p "${dir}" 2>/dev/null || ! mkfifo "${dir}/fifo" 2>/dev/null; then
         # Nowhere to trace through. On a device /var/run is tmpfs and this
         # does not happen; when it does, the call runs as it did before the
@@ -293,7 +295,7 @@ bounded_rclone() {
     command rclone "${args[@]}" > "${fifo}" &
     pid=$!
     RCLONE_CHILD="${pid}"
-    since=$(uptime_s)
+    read -r up _ < /proc/uptime 2>/dev/null || up=0; since=$(( 10#${up%.*} ))
     while child_running "${pid}"; do
         sleep 0.25
         ticks=$((ticks + 1))
@@ -301,10 +303,10 @@ bounded_rclone() {
         mark=$(progress_mark "${trace}")
         if new=$(advance_mark "${mark}" "${high}"); then
             high="${new}"
-            since=$(uptime_s)
+            read -r up _ < /proc/uptime 2>/dev/null || up=0; since=$(( 10#${up%.*} ))
             continue
         fi
-        now=$(uptime_s)
+        read -r up _ < /proc/uptime 2>/dev/null || up=0; now=$(( 10#${up%.*} ))
         if [ $((now - since)) -ge "${DELIBERATE_CEILING_SECONDS}" ]; then
             ended=1
             kill -TERM "${pid}" 2>/dev/null
@@ -372,7 +374,9 @@ logged_moved() { # <offset into LOG_FILE, or "" for none> [file]
 rclone() {
     if [ "${AUTOMATIC}" -eq 1 ]; then
         if [ "${SYNC_DEADLINE}" -gt 0 ]; then
-            local left=$(( SYNC_DEADLINE - $(uptime_s) ))
+            local left up
+            read -r up _ < /proc/uptime 2>/dev/null || up=0
+            left=$(( SYNC_DEADLINE - 10#${up%.*} ))
             # Past the ceiling nothing more is started (#308 gpt F-CS-34): each
             # call used to be given a second more and three to die in, so a
             # run that met its ceiling went on for as many seconds again as it
@@ -1003,7 +1007,9 @@ run_outcome_line() {
 #   $1: Exit code to return
 clean_exit() {
     local exit_code=$1
-    local duration=$(( $(uptime_s) - START_TIME ))
+    local up duration
+    read -r up _ < /proc/uptime 2>/dev/null || up=0
+    duration=$(( 10#${up%.*} - START_TIME ))
 
     # A deliberate run's rclone runs in the background under the stall
     # ceiling; a signal that reached the script mid-copy ends it here rather

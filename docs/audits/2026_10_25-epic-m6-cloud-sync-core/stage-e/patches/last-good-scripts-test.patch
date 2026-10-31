@@ -1,6 +1,28 @@
 --- tools/last-good-scripts-test
 +++ tools/last-good-scripts-test
-@@ -9296,6 +9296,7 @@
+@@ -688,7 +688,9 @@
+ ! bash -n "${DS}/.config/cloud_sync.conf" 2>/dev/null; check $? "and the helper left the torn conf as it was rather than appending to it" "the helper wrote onto a torn conf: $(tail -1 "${DS}/.config/cloud_sync.conf")"
+ # load_config, lifted from cloud_backup: falls back to the .bak, or refuses.
+ {
+-    awk '/^(log_message|write_stamp|record_last_run|say_why|why_for|clean_exit|conf_valid|load_config)\(\) *\{/{p=1} p{print} p&&/^\}/{p=0}' "${D}/repo/cloud_backup"
++    # allowed_opts: load_config's option allowlist since #663's S6 (D-CLOUD-185),
++    # lifted with it so the span runs whole (D-WORKFLOW-211).
++    awk '/^(log_message|write_stamp|record_last_run|say_why|why_for|clean_exit|conf_valid|load_config|allowed_opts)\(\) *\{/{p=1} p{print} p&&/^\}/{p=0}' "${D}/repo/cloud_backup"
+     cat <<'EOS'
+ SCRIPT_NAME=cloud_backup; LOG_FILE=/tmp/cloud_sync.log; START_TIME=$(date +%s); SYSTEM_ONLY=0; ASSUME_YES=1
+ EXIT_LOCK_HELD=75; EXIT_NO_NETWORK=69; RCLONE_NET_OPTS_FALLBACK="--contimeout 15s"; METHOD_OVERRIDE=""; EXTRA_UPDATE=0; LOG_LEVEL=INFO
+@@ -869,7 +871,9 @@
+ } > "${H}/wrapper.sh"
+ grep -q 'command timeout' "${H}/wrapper.sh"; check $? "the wrapper is lifted from cloud_backup" "no rclone() wrapper found in cloud_backup"
+ t0=$(date +%s)
+-RC_H=$(PATH="${H}/shim:${PATH}" bash -c ". '${H}/wrapper.sh'; AUTOMATIC=1; SYNC_DEADLINE=\$(( \$(date +%s) + 3 )); RCLONE_SYNC_NET_OPTS_ARRAY=(--retries 1); rclone lsd x: ; echo \$?" 2>/dev/null | tail -1)
++# The deadline on the clock the wrapper counts on: seconds since boot since
++# #663's S7 (PL-20); a wall-clock deadline is never reached (D-WORKFLOW-211).
++RC_H=$(PATH="${H}/shim:${PATH}" bash -c ". '${H}/wrapper.sh'; AUTOMATIC=1; read -r up _ < /proc/uptime; SYNC_DEADLINE=\$(( 10#\${up%.*} + 3 )); RCLONE_SYNC_NET_OPTS_ARRAY=(--retries 1); rclone lsd x: ; echo \$?" 2>/dev/null | tail -1)
+ dt=$(( $(date +%s) - t0 ))
+ [ "${RC_H}" = "124" ]; check $? "an automatic run's stalled rclone returns 124 (timeout)" "returned '${RC_H}'"
+ [ "${dt}" -le 10 ]; check $? "and within the ceiling (${dt}s)" "took ${dt}s"
+@@ -9296,6 +9300,7 @@
  mkdir -p "${PR}/storage/roms/gb" "${PR}/cloud/pixelelated/Saves/gb" "${PR}/cloud/pixelelated/Saves-replaced/2099_01_01-000000/gb"
  echo "the save as played here" > "${PR}/storage/roms/gb/A.srm"; echo "the cloud's older copy" > "${PR}/cloud/pixelelated/Saves/gb/A.srm"
  echo "a device whose clock runs ahead" > "${PR}/cloud/pixelelated/Saves-replaced/2099_01_01-000000/gb/Z.srm"
@@ -8,7 +30,7 @@
  sa_run "${PR}" cloud_backup --yes --saves-only
  kept=$(grep -rlx "the cloud's older copy" "${PR}/cloud/pixelelated/Saves-replaced" 2>/dev/null | head -1)
  [ -n "${kept}" ] && [ "${RC}" -eq 0 ]; check $? "a future-dated sibling folder (2099) does not outrank the run's own: the copy this run replaced is still kept (rc ${RC})" "rc ${RC}; replaced root holds: $(cd "${PR}/cloud/pixelelated/Saves-replaced" 2>/dev/null && find . -type f | tr '\n' ' '); the run's own folder was pruned because 2099_... sorts after it (F-CS-06 gpt, F-CS-10 claude)"
-@@ -9873,7 +9874,6 @@
+@@ -9873,7 +9878,6 @@
  rh_run
  c1=$(stat -c '%i %Y %s' "${RH}/storage/.config/cloud_sync.conf"); r1=$(stat -c '%i %Y %s' "${RRULES}")
  [ "${c0}" = "${c1}" ] && [ "${r0}" = "${r1}" ] && [ ! -e "${RH}/storage/.config/cloud_sync.conf.bak" ] && [ ! -e "${RRULES}.bak" ] && grep -q 'Checking cloud sync rules file' "${RH}/out"; check $? "a second run over a settled config leaves the conf and the rules file untouched and takes no .bak (rc ${RC})" "conf ${c0} -> ${c1}; rules ${r0} -> ${r1}; .bak: $(ls "${RH}/storage/.config" | grep -c '\.bak$') -- every run rewrote them (F-CS-18)"
@@ -16,7 +38,7 @@
  sed -i '/^RSYNCRMDIR=/d' "${RH}/storage/.config/cloud_sync.conf"
  rh_run
  grep -q '^RSYNCRMDIR=' "${RH}/storage/.config/cloud_sync.conf" && [ -e "${RH}/storage/.config/cloud_sync.conf.bak" ]; check $? "a run that does add a missing key still takes its .bak first and adds it" "RSYNCRMDIR $(grep -c '^RSYNCRMDIR=' "${RH}/storage/.config/cloud_sync.conf") line(s); .bak $([ -e "${RH}/storage/.config/cloud_sync.conf.bak" ] && echo taken || echo missing)"
-@@ -9943,6 +9943,11 @@
+@@ -9943,6 +9947,11 @@
  echo "    A23. #308 gpt F-CS-20: the saves-root record is written by a good run, and a failed write says so"
  SR=$(sa_new gcs20); sa_script "${SR}" cloud_saves_root cloud_backup
  printf 'SAVESPATH="/storage/roms"\n' > "${SR}/storage/.config/cloud_sync.conf"
@@ -28,7 +50,7 @@
  mkdir -p "${SR}/storage/roms/gb"; chmod 555 "${SR}/storage/.cache/cloud_sync"
  sa_run "${SR}" cloud_saves_root record
  sr_rc=${RC}
-@@ -9957,6 +9962,7 @@
+@@ -9957,6 +9966,7 @@
  [ "${RC}" -ne 0 ] && [ ! -e "${SR}/storage/.cache/cloud_sync/saves-root" ]; check $? "a saves backup whose transfer failed (7) records no card (rc ${RC})" "saves-root after a failed transfer: $(cat "${SR}/storage/.cache/cloud_sync/saves-root" 2>/dev/null) -- a failed first run established the card as if it had succeeded"
  sa_run "${SR}" cloud_backup --yes --saves-only
  [ "${RC}" -eq 0 ] && [ -s "${SR}/storage/.cache/cloud_sync/saves-root" ]; check $? "and the next run that moves the saves records it (rc ${RC})" "saves-root: $(cat "${SR}/storage/.cache/cloud_sync/saves-root" 2>/dev/null)"
@@ -36,3 +58,14 @@
  
  # A24. #308 gpt F-CS-26 (the script's half; the done page's wording is
  #      EmulationStation's): `>>> removed` reports the files a match actually
+@@ -13611,7 +13621,9 @@
+ printf '{"Features":{"BucketBased":false}}\n' > "${SZ}/ctl/provider-features"
+ sz_copy() { grep -E '^(copy|sync) ' "${SZ}/ctl/argv" | grep -v -- '--files-from' | tail -1; }
+ sz_conf() { printf '[qa]\ntype = %s\n%s' "$1" "${2:-}" > "${SZ}/storage/.config/rclone/rclone.conf"; : > "${SZ}/ctl/argv"; }
+-sz_stamp() { printf '%s 0\n' "$(( $(date +%s) - 60 ))" > "${SZ}/storage/.cache/cloud_sync/last-backup"; }
++# A completed backup writes where its saves went beside the stamp since #663's
++# S7 (PL-25), and --recent's window holds only for that folder (D-WORKFLOW-211).
++sz_stamp() { printf '%s 0\n' "$(( $(date +%s) - 60 ))" > "${SZ}/storage/.cache/cloud_sync/last-backup"; printf 'qa:/pixelelated/Saves\n' > "${SZ}/storage/.cache/cloud_sync/last-backup-dest"; }
+ sz_has() { printf '%s' "$1" | grep -q -- "$2"; }
+ sz_count() { printf '%s\n' "$1" | tr ' ' '\n' | grep -c -x -- "$2"; }
+ sz_run() { # <script> [args]: the run, then c = its copy line (a missing copy line is its own FAIL, gpt F-SS-05)
