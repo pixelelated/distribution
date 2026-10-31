@@ -121,10 +121,33 @@ stc = [
 owed = [
     ["3.3 and 3.17 after their fixes", "stage E", "no ThreadSanitizer report"],
     ["the PASS halves of the seven", "stage E", "each candidate's PASS line after its fix"],
-    ["the guest window G-01 to G-12", "slot 3 on the host", "§ The guest cycle"],
+    ["the streams' guest halves (`fix-walk-pending-image`)", "the coordinator's integration window", "S1's dialog after `z`, S2's toasts and French bar, S3's held screensaver, S5's argv file, S6's reconfigured file, S8's CLEAR and subtitle"],
 ]
 print("\n**Stage C's runs** (read from their records, each figure asserted):\n")
 print(table(["Run", "Exit", "Wall", "Figure", "Note"], stc))
+# Stage E's runs (S0 onward), read from their records (each figure asserted).
+s0 = rd("stage-e/s0-floor.txt")
+m0_tot = re.search(r"^TOTAL: (\d+) test cases in (\d+) binaries$", s0, re.M)
+m0_fl = re.search(r"^RUN floor-tests: rc (\d+); \[doctest\] test cases: +(\d+) \| +(\d+) passed \| +(\d+) failed", s0, re.M)
+m0_as = re.search(r"^SAN asan-watchers \(-fsanitize=address\): rc (\d+); (no sanitizer report)", s0, re.M)
+m0_ms = re.search(r"ResetComponent returned after (\d+) ms", s0)
+mut = rd("stage-e/s0-mutations.txt")
+muts = re.findall(r"^mutation (\S+) .*?: rc (\d+) .*?failing: (3\.\d+)", mut, re.M)
+if not (m0_tot and m0_tot.groups() == ("260", "7")): fail.append(f"S0's TOTAL is not 260 in 7: {m0_tot and m0_tot.groups()}")
+if not (m0_fl and m0_fl.group(4) == "0" and m0_fl.group(2) == "11"): fail.append(f"S0's floor-tests: {m0_fl and m0_fl.groups()}")
+if not (m0_as and m0_as.group(1) == "0"): fail.append("S0's SAN asan-watchers line is missing or not rc 0")
+if sorted(m[2] for m in muts) != ["3.20", "3.22", "3.7"] or any(m[1] != "1" for m in muts): fail.append(f"the S0 mutations: {muts}")
+ste = [
+    ["S0: the floor cases no stream holds (`floor-tests`, `tools/t35-floor-tests.cpp`, ruling 21), at the pin", m0_fl.group(1) if m0_fl else "--", "in the build",
+     f"`{m0_fl.group(2)} cases, {m0_fl.group(3)} passed, {m0_fl.group(4)} failed`" if m0_fl else "--", "3.6, 3.7 (two), 3.8, 3.9, 3.12, 3.13, 3.20, 3.22, 3.24, 3.25 PASS at the pin as the floor table expects; 3.26 no host case"],
+    ["S0: each floor case seen to fail on a constructed mutation (`stage-e/s0-mutations.txt`)", "1, 1, 1", "--", "; ".join(f"{m[0]} -> {m[2]} fails" for m in muts), "toLower made a no-op; one say( call's text removed; FADE_DURATION 250 -> 500"],
+    ["S0: the unit build at the pin (`stage-e/s0-floor.txt`)", "1 (window-input-tests' seven candidates, by design)", "49 s",
+     f"`TOTAL: {m0_tot.group(1)} test cases in {m0_tot.group(2)} binaries`" if m0_tot else "--", "the rapidjson root re-made from the source cache's tarball with the package's two header patches (document.h a8c29c92d1e89279, stage C's); the pugixml root printed"],
+    ["S0: 3.2's own `SAN` line at the pin (the brief's figure 2)", m0_as.group(1) if m0_as else "--", "in the build", f"`SAN asan-watchers (-fsanitize=address): rc 0; {m0_as.group(2)}`" if m0_as else "--", "the line the stage-C record lacked"],
+    ["S0: 3.1's figure at the pin (the brief's figure 1)", "--", "--", f"`ResetComponent returned after {m0_ms.group(1)} ms`" if m0_ms else "--", "1,496 ms in `stage-c/build-tests.out`; the 1,491 ms the stage-C record quoted was the first direct run's console line, not kept; the records now quote the kept lines"],
+]
+print("\n**Stage E's runs** (read from their records, each figure asserted):\n")
+print(table(["Run", "Exit", "Wall", "Figure", "Note"], ste))
 print("\n**Still owed:**\n")
 print(table(["Run", "When", "Figure expected"], owed))
 cnt = {"runs": len(blocks), "generators": len(gens)}

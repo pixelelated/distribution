@@ -139,7 +139,12 @@ if [ -d "${X}" ]; then
   WT=window-input-tests
   PX="${PUGIXML_INCLUDE_DIR:-${ES}/external}"
   [ -r "${PX}/pugixml/src/pugixml.hpp" ] || { echo "t35-build-tests: pugixml/src/pugixml.hpp not under PUGIXML_INCLUDE_DIR='${PX}'"; exit 2; }
+  echo "pugixml (window-input-tests, floor-tests): ${PX} (pugixml.hpp $(sha256sum < "${PX}/pugixml/src/pugixml.hpp" | cut -c1-16))"
   build window-input-tests -I "${X}" -I "${ES}/external" -I "${ES}/tests/app-unit/fakes" -I "${ES}/es-core/src" -I "${PX}" -- "${HERE}/t35-window-input-tests.cpp" "${ES}/es-core/src/watchers/WatchersManager.cpp" || true
+  # T35 (#682) stage E S0 (ruling 21): floor-tests, the floor cases no stream holds,
+  # over their own lifts; the pin's InputConfig.h with SDL from stage-a/fakes.
+  WT="${WT} floor-tests"
+  build floor-tests "-DT35_X=\"${X}\"" -I "${X}" -I "${ES}/external" -I "${ES}/tests/app-unit/fakes" -I "$(dirname "${HERE}")/stage-a/fakes" -I "${ES}/es-core/src" -I "${PX}" -- "${HERE}/t35-floor-tests.cpp" || true
 fi
 for t in ${WT}; do
   [ -x "${B}/${t}" ] || { echo "RUN ${t}: not built"; FAIL=1; continue; }

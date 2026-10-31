@@ -8,7 +8,7 @@ The slice is `es-core/**` as `rest`: 96 paths (1 fork-added, 12 fork-modified, 8
 
 **Thirty-four findings, 0 Critical, 1 High, 8 Medium, 25 Low** (`05`; PL-15 re-graded High as data safety at the stage-D ruling), after the independent review (§ Second opinion) and the guest window (`02` § The guest cycle). The first reader's Medium findings are each proven by a case that **fails at the pin** in `window-input-tests`, by T33's unchanged harness, or by a frame of the image:
 
-1. **The watchers' lock** (PL-01, #1283's es-core half): a probe holds the list lock and five interface-thread entry points wait for it -- `ResetComponent` returned after **1,491 ms** behind a 1.5 s probe (3.1).
+1. **The watchers' lock** (PL-01, #1283's es-core half): a probe holds the list lock and five interface-thread entry points wait for it -- `ResetComponent` returned after **1,496 ms** behind a 1.5 s probe (3.1, `stage-c/build-tests.out`; 1,495 ms in S0's run).
 2. **The toast queue drains newest first** (PL-02), against D-UI-093's decided row *the order is the order things happened* (3.14).
 3. **Script arguments reach `/bin/sh` unquoted** (PL-03): `$( )` and backticks in a ROM or scraped name expand whenever an event folder holds a hook (3.4).
 4. **The `exists` cache keeps a miss after `save_file`** (PL-04, 3.11): **lowered to Low** after G-01 showed the image's first boot copies `es_input.cfg` into place, so the startup miss needs a removed user file.
@@ -75,7 +75,7 @@ Five writes, none atomic (`InputManager.cpp:1225`, `:1232`; `FavoriteMusicManage
 
 ### Q3 `WatchersManager`'s lock
 
-`run()` holds `mWatchersLock` across every `check()` and takes `mNotificationLock` inside it (`WatchersManager.cpp:181-199`, `:128`): the order is list then observers, and the observers run on the watcher thread. Five entry points the interface thread calls wait for a probe (PL-01, 3.1 FAIL at 1,491 ms). `mRunning` is a plain `bool` read outside any lock (`:161`, `:172`, `:187`; `mPaused` is under `mThreadLock`): **3.3 under ThreadSanitizer reports the destructor's write at `:151` against `run()`'s read at `:161`**. An observer's callback that calls a list-locking entry point would deadlock on the same non-recursive mutex (the seat's note); no observer in the slice does, and the es-app observers are outside it. The thread is joined at `WatchersManager::stop()` (`main.cpp:1330`) before `window.deinit()`.
+`run()` holds `mWatchersLock` across every `check()` and takes `mNotificationLock` inside it (`WatchersManager.cpp:181-199`, `:128`): the order is list then observers, and the observers run on the watcher thread. Five entry points the interface thread calls wait for a probe (PL-01, 3.1 FAIL at 1,496 ms, `stage-c/build-tests.out`; 1,495 ms in S0). `mRunning` is a plain `bool` read outside any lock (`:161`, `:172`, `:187`; `mPaused` is under `mThreadLock`): **3.3 under ThreadSanitizer reports the destructor's write at `:151` against `run()`'s read at `:161`**. An observer's callback that calls a list-locking entry point would deadlock on the same non-recursive mutex (the seat's note); no observer in the slice does, and the es-app observers are outside it. The thread is joined at `WatchersManager::stop()` (`main.cpp:1330`) before `window.deinit()`.
 
 ### Q4 Lifetimes
 

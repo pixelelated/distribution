@@ -12,7 +12,7 @@ reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
 - **Source finding:** L-11, 3.1, #1283's es-core half
 - **Lines at the pin:** `watchers/WatchersManager.cpp:181-199` against `:66`, `:78`, `:94`, `:143`, `.h:35`
 - **Owner:** T35 (#1283's es-core half; the observers es-app's)
-- **What is wrong:** `run()` holds `mWatchersLock` across every `check()` (a network or battery probe) and then takes `mNotificationLock` inside it; `RegisterComponent`, `UnregisterComponent`, `ResetComponent`, `GetComponent` and the destructor take the same lock from the interface thread. 3.1 at the pin: `ResetComponent` returned after **1,491 ms** behind a 1.5 s probe. A real probe's bound is its network timeout.
+- **What is wrong:** `run()` holds `mWatchersLock` across every `check()` (a network or battery probe) and then takes `mNotificationLock` inside it; `RegisterComponent`, `UnregisterComponent`, `ResetComponent`, `GetComponent` and the destructor take the same lock from the interface thread. 3.1 at the pin: `ResetComponent` returned after **1,496 ms** (`stage-c/build-tests.out`) and **1,495 ms** (`stage-e/s0-floor.txt`) behind a 1.5 s probe. A real probe's bound is its network timeout.
 - **Proposed disposition:** a `bug` under rule 6: snapshot the due watchers under the lock, probe outside it with both the record and its `IWatcher` kept alive through the probe (re-validating alone is not enough -- the seat, verified), and make `mRunning` atomic (`mPaused` is already under `mThreadLock`); 3.1 the covering case, 3.3 (TSan) beside it, 3.2 (ASan, clean at the pin) the guard
 - **proved:** fixture (3.1 FAIL at the pin; 3.3 TSan: `WatchersManager.cpp:151` writes `mRunning` while `:161` reads it)
 

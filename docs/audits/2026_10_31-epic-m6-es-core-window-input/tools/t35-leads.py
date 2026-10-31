@@ -119,11 +119,31 @@ F3 = [
     ("3.26", S + "ThemeData.cpp", 1094, r"void ThemeData::parseInclude\(", "parse-only; the asymmetry recorded", "no host case (L-23)"),
     ("**3.27**", W, 778, r"mTimeSinceLastInput >= screensaverTime", "T33's `pl25-screensaver.py`, unchanged", "FAIL at the pin expected (#1305)"),
 ]
+# What each case did when run (stage C: `stage-c/`; S0: `stage-e/s0-floor.txt`); a case no run holds yet stays `design`.
+RUN = {
+    "**3.1**": "FAIL at the pin, stage C and S0 (`ResetComponent returned after 1496 ms` / `1495 ms`)",
+    "3.2": "PASS at the pin, no report (`SAN asan-watchers (-fsanitize=address): rc 0`, S0)",
+    "3.3": "FAIL at the pin, a race (`SAN tsan-watchers ... rc 66`)",
+    "**3.4**": "FAIL at the pin", "**3.5**": "FAIL at the pin (recorded: PL-18, ruling 9)", "3.6": "PASS at the pin (S0)",
+    "3.7": "PASS at the pin (S0, two cases)", "3.8": "PASS at the pin (S0)", "3.9": "PASS at the pin (S0)",
+    "**3.10**": "FAIL at the pin", "**3.11**": "FAIL at the pin", "3.12": "PASS at the pin (S0)", "3.13": "PASS at the pin (S0)",
+    "**3.14**": "FAIL at the pin (the order); the duration case PASS (the contract, ruling 2)", "3.15": "PASS at the pin",
+    "3.17": "FAIL at the pin, a race (`SAN tsan-posts ... rc 66`)", "**3.19**": "FAIL at the pin (re-shaped in S8, ruling 3)",
+    "3.20": "PASS at the pin, recorded (S0)", "3.22": "PASS at the pin (S0)", "3.24": "PASS at the pin, recorded (S0)",
+    "3.25": "PASS at the pin, recorded (S0)", "3.26": "no host case (parse-only), recorded",
+    "**3.27**": "FAIL at the pin (`heap-use-after-free ... FileData::getImagePath`); stays FAIL until T33's or T2's half (ruling 12)",
+}
+OWNER = {"3.16": "S2", "3.18": "S1", "3.21": "S8", "3.23": "S7"}
 fr = []
 for cid, f, n, needle, what, expect in F3:
     c.need(f, n, needle)
     cnt["cases"] += 1
-    fr.append([cid, f"`{f.replace(S, '')}:{n}`", what, expect, "stage C", "design"])
-print("\n**The floor's cases** (the seven candidates and 3.27 in bold; every case runs at stage C against the unfixed extract first; `proved: design` until it has):\n")
-print(table(["Case", "Anchor", "What it checks", "Expected at the pin", "When", "proved:"], fr))
-c.finish("t35-leads", cnt, f"{cnt['leads']} leads ({cnt['confirmed']} confirmed at the tree, {cnt['contradicted']} contradicted, the rest read or supported), {cnt['cases']} floor cases anchored")
+    key = cid.strip("*")
+    if cid in RUN:
+        fr.append([cid, f"`{f.replace(S, '')}:{n}`", what, expect, RUN[cid], "tool-run" if not RUN[cid].startswith("no host") else "design"])
+    else:
+        fr.append([cid, f"`{f.replace(S, '')}:{n}`", what, expect, f"stage E {OWNER.get(key, '--')}", "design"])
+cnt["run"] = sum(1 for r in fr if r[5] == "tool-run")
+print("\n**The floor's cases** (the seven candidates and 3.27 in bold; each run against the unfixed extract first -- stage C wrote twelve, S0 the ten no stream holds (`stage-e/s0-floor.txt`, each seen to fail on a constructed mutation, `stage-e/s0-mutations.txt`); `proved: design` until a run holds it):\n")
+print(table(["Case", "Anchor", "What it checks", "Expected at the pin", "Run", "proved:"], fr))
+c.finish("t35-leads", cnt, f"{cnt['leads']} leads ({cnt['confirmed']} confirmed at the tree, {cnt['contradicted']} contradicted, the rest read or supported), {cnt['cases']} floor cases anchored, {cnt['run']} run")

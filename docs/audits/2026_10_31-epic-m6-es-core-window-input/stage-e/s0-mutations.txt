@@ -1,0 +1,3 @@
+mutation ic_utils (toLower made a no-op): rc 1 -- [doctest] test cases: 11 | 10 passed | 1 failed | 0 skipped -- failing: 3.7 mapInput lower-cases the name; a hat matches by bitmask,
+mutation mb_ctor (the first say( call's text removed): rc 1 -- [doctest] test cases: 11 | 10 passed | 1 failed | 0 skipped -- failing: 3.20 GuiMsgBox's constructor calls TextToSpeech::say three t
+mutation ip_fade (FADE_DURATION 250 -> 500): rc 1 -- [doctest] test cases: 11 | 10 passed | 1 failed | 0 skipped -- failing: 3.22 the toast fades in over 250 ms, holds, fades out over i

@@ -143,39 +143,39 @@ L-01 to L-29 are the brief's § 2 lead table. L-28 and L-29 are T34's PL-05 and 
 | L-28 | `Window.cpp:743-745`, `:1005-1078`; T34's chain | help bar | read; the pause with G-11 | **read, then seen:** the window's collection drops a repeated icon (`:1023`), and its dpad merge compares the wrong way (`:1032-1033`, the seat's G-1, verified: two complementary halves do not merge, and an unrelated icon sharing the action text is replaced); it adds no prompt. G-11 framed the tabbed SCRAPEUR page with only FERMER and RETOUR while the non-tabbed PARAMÈTRES AUDIO page shows CHANGER and CHOISIR through the same window: the prompts are lost before the window | 3.16; G-11 | tree; guest (image) |
 | L-29 | `Window.cpp:1005-1078`; `ComponentList.cpp:568` (T34's) | help bar | read | **read:** a key `setHelpPrompts` does not know passes through untouched and sorts with index 0 (`:1062-1074`); it neither translates nor drops it -- whether its icon draws is `HelpComponent`'s (T34's) | 3.16 | tree |
 
-**The floor's cases** (the seven candidates and 3.27 in bold; every case runs at stage C against the unfixed extract first; `proved: design` until it has):
+**The floor's cases** (the seven candidates and 3.27 in bold; each run against the unfixed extract first -- stage C wrote twelve, S0 the ten no stream holds (`stage-e/s0-floor.txt`, each seen to fail on a constructed mutation, `stage-e/s0-mutations.txt`); `proved: design` until a run holds it):
 
-| Case | Anchor | What it checks | Expected at the pin | When | proved: |
+| Case | Anchor | What it checks | Expected at the pin | Run | proved: |
 | --- | --- | --- | --- | --- | --- |
-| **3.1** | `watchers/WatchersManager.cpp:196` | a probe that sleeps; `ResetComponent` from a second thread waits for it | FAIL at the pin expected (L-11) | stage C | design |
-| 3.2 | `watchers/WatchersManager.cpp:86` | ASan: unregister during a running probe | PASS at the pin (the lock spans the probe); the guard PL-01's fix keeps | stage C | design |
-| 3.3 | `watchers/WatchersManager.cpp:151` | TSan: `mRunning` written and read unsynchronised | a race report expected | stage C | design |
-| **3.4** | `Scripting.cpp:109` | `a$(id)b.zip` unquoted, `a b.zip` quoted, `"` stripped | FAIL expected (L-18) | stage C | design |
-| **3.5** | `Scripting.cpp:172` | a `notes.txt` in a per-event folder handed to the executor | FAIL expected (L-18) | stage C | design |
-| 3.6 | `Scripting.cpp:202` | the single-script pass filters by extension | PASS expected (contract) | stage C | design |
-| 3.7 | `InputConfig.cpp:188` | `mapInput` lower-cases; the XML round trip keeps every mapping | PASS expected (contract) | stage C | design |
-| 3.8 | `InputConfig.cpp:353` | `buttonLabel` returns an unknown key unchanged | PASS expected (contract) | stage C | design |
-| 3.9 | `InputConfig.cpp:347` | `AssignActionButtons` swaps once and is idempotent | PASS expected (contract) | stage C | design |
-| **3.10** | `InputManager.cpp:960` | the two lines print empty attributes | FAIL expected (L-10) | stage C | design |
-| **3.11** | `InputManager.cpp:893` | miss, `save_file`, `exists` again: false while the miss is cached | FAIL expected if the cache holds (L-07) | stage C | design |
-| 3.12 | `InputManager.cpp:1107` | `select` copied to `hotkey` | PASS expected (documents the two names) | stage C | design |
-| 3.13 | `InputManager.cpp:1262` | every `onfinish` command handed to the executor, synchronously | PASS expected (contract) | stage C | design |
-| **3.14** | `Window.cpp:340` | queue [A, B] under a card: B then A; the re-queued duration | FAIL expected (L-01) | stage C | design |
-| 3.15 | `Window.cpp:298` | the duration's three branches | PASS expected (contract) | stage C | design |
-| 3.16 | `Window.cpp:1036` | the dedup, the merge, the sort | PASS expected (contract) | stage C | design |
-| 3.17 | `Window.cpp:1267` | TSan: unregister against a post | a race report expected (L-03) | stage C | design |
-| 3.18 | `guis/GuiMsgBox.cpp:125` | the three accelerator branches in the text | PASS expected (text) | stage C | design |
-| **3.19** | `guis/GuiTextEditPopupKeyboard.cpp:220` | the macro defined in two files with two factors | FAIL expected (L-13) | stage C | design |
-| 3.20 | `guis/GuiMsgBox.cpp:240` | three `say(` in the constructor | recorded (L-16) | stage C | design |
-| 3.21 | `guis/GuiInputConfig.cpp:134` | `getDeviceId() + 1` is the argument | recorded (L-17) | stage C | design |
-| 3.22 | `guis/GuiInfoPopup.cpp:98` | the fade's alpha curve and `mRunning` | PASS expected (contract) | stage C | design |
-| 3.23 | `Log.cpp:60` | every batch reaches the file (#178) | PASS expected (the natural first binary) | stage C | design |
-| 3.24 | `FavoriteMusicManager.cpp:115` | the rewrite is truncate-then-write | recorded (L-06) | stage C | design |
-| 3.25 | `MameNames.cpp:6` | a malformed file: warned or thrown | recorded | stage C | design |
-| 3.26 | `ThemeData.cpp:1094` | parse-only; the asymmetry recorded | no host case (L-23) | stage C | design |
-| **3.27** | `Window.cpp:778` | T33's `pl25-screensaver.py`, unchanged | FAIL at the pin expected (#1305) | stage C | design |
+| **3.1** | `watchers/WatchersManager.cpp:196` | a probe that sleeps; `ResetComponent` from a second thread waits for it | FAIL at the pin expected (L-11) | FAIL at the pin, stage C and S0 (`ResetComponent returned after 1496 ms` / `1495 ms`) | tool-run |
+| 3.2 | `watchers/WatchersManager.cpp:86` | ASan: unregister during a running probe | PASS at the pin (the lock spans the probe); the guard PL-01's fix keeps | PASS at the pin, no report (`SAN asan-watchers (-fsanitize=address): rc 0`, S0) | tool-run |
+| 3.3 | `watchers/WatchersManager.cpp:151` | TSan: `mRunning` written and read unsynchronised | a race report expected | FAIL at the pin, a race (`SAN tsan-watchers ... rc 66`) | tool-run |
+| **3.4** | `Scripting.cpp:109` | `a$(id)b.zip` unquoted, `a b.zip` quoted, `"` stripped | FAIL expected (L-18) | FAIL at the pin | tool-run |
+| **3.5** | `Scripting.cpp:172` | a `notes.txt` in a per-event folder handed to the executor | FAIL expected (L-18) | FAIL at the pin (recorded: PL-18, ruling 9) | tool-run |
+| 3.6 | `Scripting.cpp:202` | the single-script pass filters by extension | PASS expected (contract) | PASS at the pin (S0) | tool-run |
+| 3.7 | `InputConfig.cpp:188` | `mapInput` lower-cases; the XML round trip keeps every mapping | PASS expected (contract) | PASS at the pin (S0, two cases) | tool-run |
+| 3.8 | `InputConfig.cpp:353` | `buttonLabel` returns an unknown key unchanged | PASS expected (contract) | PASS at the pin (S0) | tool-run |
+| 3.9 | `InputConfig.cpp:347` | `AssignActionButtons` swaps once and is idempotent | PASS expected (contract) | PASS at the pin (S0) | tool-run |
+| **3.10** | `InputManager.cpp:960` | the two lines print empty attributes | FAIL expected (L-10) | FAIL at the pin | tool-run |
+| **3.11** | `InputManager.cpp:893` | miss, `save_file`, `exists` again: false while the miss is cached | FAIL expected if the cache holds (L-07) | FAIL at the pin | tool-run |
+| 3.12 | `InputManager.cpp:1107` | `select` copied to `hotkey` | PASS expected (documents the two names) | PASS at the pin (S0) | tool-run |
+| 3.13 | `InputManager.cpp:1262` | every `onfinish` command handed to the executor, synchronously | PASS expected (contract) | PASS at the pin (S0) | tool-run |
+| **3.14** | `Window.cpp:340` | queue [A, B] under a card: B then A; the re-queued duration | FAIL expected (L-01) | FAIL at the pin (the order); the duration case PASS (the contract, ruling 2) | tool-run |
+| 3.15 | `Window.cpp:298` | the duration's three branches | PASS expected (contract) | PASS at the pin | tool-run |
+| 3.16 | `Window.cpp:1036` | the dedup, the merge, the sort | PASS expected (contract) | stage E S2 | design |
+| 3.17 | `Window.cpp:1267` | TSan: unregister against a post | a race report expected (L-03) | FAIL at the pin, a race (`SAN tsan-posts ... rc 66`) | tool-run |
+| 3.18 | `guis/GuiMsgBox.cpp:125` | the three accelerator branches in the text | PASS expected (text) | stage E S1 | design |
+| **3.19** | `guis/GuiTextEditPopupKeyboard.cpp:220` | the macro defined in two files with two factors | FAIL expected (L-13) | FAIL at the pin (re-shaped in S8, ruling 3) | tool-run |
+| 3.20 | `guis/GuiMsgBox.cpp:240` | three `say(` in the constructor | recorded (L-16) | PASS at the pin, recorded (S0) | tool-run |
+| 3.21 | `guis/GuiInputConfig.cpp:134` | `getDeviceId() + 1` is the argument | recorded (L-17) | stage E S8 | design |
+| 3.22 | `guis/GuiInfoPopup.cpp:98` | the fade's alpha curve and `mRunning` | PASS expected (contract) | PASS at the pin (S0) | tool-run |
+| 3.23 | `Log.cpp:60` | every batch reaches the file (#178) | PASS expected (the natural first binary) | stage E S7 | design |
+| 3.24 | `FavoriteMusicManager.cpp:115` | the rewrite is truncate-then-write | recorded (L-06) | PASS at the pin, recorded (S0) | tool-run |
+| 3.25 | `MameNames.cpp:6` | a malformed file: warned or thrown | recorded | PASS at the pin, recorded (S0) | tool-run |
+| 3.26 | `ThemeData.cpp:1094` | parse-only; the asymmetry recorded | no host case (L-23) | no host case (parse-only), recorded | design |
+| **3.27** | `Window.cpp:778` | T33's `pl25-screensaver.py`, unchanged | FAIL at the pin expected (#1305) | FAIL at the pin (`heap-use-after-free ... FileData::getImagePath`); stays FAIL until T33's or T2's half (ruling 12) | tool-run |
 
-generated, asserted: 29 leads (24 confirmed at the tree, 1 contradicted, the rest read or supported), 27 floor cases anchored
+generated, asserted: 29 leads (24 confirmed at the tree, 1 contradicted, the rest read or supported), 27 floor cases anchored, 22 run
 
 ## The surfaces
 
@@ -713,7 +713,7 @@ generated, asserted: 51 headers' reach, 12 guard macros, 44 `.cpp` named once, 2
 | Generator | Clean | Its last line | (a) | (b) | (c) | proved: |
 | --- | --- | --- | --- | --- | --- | --- |
 | `tools/t35-coverage.py` | 0 | `generated, asserted: 96 rows, 22575 lines (grep -c rule); read tiers fork-added 1 / fork-modified 12 / upstream-carried 83; inventory fork-own 13 / upstream-carried 83` | `rows=95` -> 1: `FAIL t35-coverage: rows 96, expected 95` | without `Window.cpp` -> 1: `FAIL t35-coverage: rows 95, expected 96` | at `bccd715707` -> 1: `FAIL t35-coverage: es-core/CMakeLists.txt: 296 lines at bccd715707, inventory 303` | tool-run |
-| `tools/t35-leads.py` | 0 | `generated, asserted: 29 leads (24 confirmed at the tree, 1 contradicted, the rest read or supported), 27 floor cases anchored` | `cases=26` -> 1: `FAIL t35-leads: cases 27, expected 26` | without `Window.cpp` -> 1: `FAIL t35-leads: es-core/src/Window.cpp is not in the paths list` | at `bccd715707` -> 1: `FAIL t35-leads: es-core/src/Window.cpp:339 does not carry /mNotificationMessages\.back\(\)/ (reads: 'return;')` | tool-run |
+| `tools/t35-leads.py` | 0 | `generated, asserted: 29 leads (24 confirmed at the tree, 1 contradicted, the rest read or supported), 27 floor cases anchored, 22 run` | `cases=26` -> 1: `FAIL t35-leads: cases 27, expected 26` | without `Window.cpp` -> 1: `FAIL t35-leads: es-core/src/Window.cpp is not in the paths list` | at `bccd715707` -> 1: `FAIL t35-leads: es-core/src/Window.cpp:339 does not carry /mNotificationMessages\.back\(\)/ (reads: 'return;')` | tool-run |
 | `tools/t35-surfaces.py` | 0 | `generated, asserted: 22 rows: 5 containers and the lock, 15 sites (one of them T34's component's, outside the 96), and T34's two held patches` | `sites=14` -> 1: `FAIL t35-surfaces: sites 15, expected 14` | without `Window.cpp` -> 1: `FAIL t35-surfaces: es-core/src/Window.cpp is not in the paths list` | at `bccd715707` -> 1: `FAIL t35-surfaces: es-core/src/Window.h:123 does not carry /std::vector<AsyncNotificationComponent\*> mAsyncNo` | tool-run |
 | `tools/t35-input.py` | 0 | `generated, asserted: 7 write-site rows (5 writes, 2 reads the grep counts), 5 exists rows; the writes grep 9 hits` | `real_writes=7` -> 1: `FAIL t35-input: real_writes 5, expected 7` | without `InputManager.cpp` -> 1: `FAIL t35-input: es-core/src/InputManager.cpp is not in the paths list` | at `bccd715707` -> 1: `FAIL t35-input: es-core/src/LogPolicy.h not at bccd715707` | tool-run |
 | `tools/t35-locks.py` | 0 | `generated, asserted: 67 lock lines in 11 files (4 includes, 2 `weak_ptr::lock`), 10 locks summarised, 7 threads` | `lines=66` -> 1: `FAIL t35-locks: lines 67, expected 66` | without `Window.cpp` -> 1: `FAIL t35-locks: lines 55, expected 67` | at `bccd715707` -> 1: `FAIL t35-locks: es-core/src/LogPolicy.h not at bccd715707` | tool-run |
@@ -733,13 +733,23 @@ generated, asserted: 51 headers' reach, 12 guard macros, 44 `.cpp` named once, 2
 | 3.2 under AddressSanitizer (`stage-c/asan-watchers.cpp`, the pin's `WatchersManager.cpp`) | 0 | 1 s | `asan-watchers: done, 1 notification(s)`, no report (`stage-c/asan-watchers.out`) | PASS at the pin: the list lock spans the probe; the guard PL-01's fix must keep passing |
 | 3.27, T33's `stage-c/pl25-screensaver.py` unchanged from `947ace1966` | 1 | 1 s | `heap-use-after-free a.cpp:14 in FileData::getImagePath[abi:cxx11]()` | FAIL at the pin as #1305 says; the script takes `SystemScreenSaver.cpp`'s path, not the worktree the brief's line passes |
 
+**Stage E's runs** (read from their records, each figure asserted):
+
+| Run | Exit | Wall | Figure | Note |
+| --- | --- | --- | --- | --- |
+| S0: the floor cases no stream holds (`floor-tests`, `tools/t35-floor-tests.cpp`, ruling 21), at the pin | 0 | in the build | `11 cases, 11 passed, 0 failed` | 3.6, 3.7 (two), 3.8, 3.9, 3.12, 3.13, 3.20, 3.22, 3.24, 3.25 PASS at the pin as the floor table expects; 3.26 no host case |
+| S0: each floor case seen to fail on a constructed mutation (`stage-e/s0-mutations.txt`) | 1, 1, 1 | -- | ic_utils -> 3.7 fails; mb_ctor -> 3.20 fails; ip_fade -> 3.22 fails | toLower made a no-op; one say( call's text removed; FADE_DURATION 250 -> 500 |
+| S0: the unit build at the pin (`stage-e/s0-floor.txt`) | 1 (window-input-tests' seven candidates, by design) | 49 s | `TOTAL: 260 test cases in 7 binaries` | the rapidjson root re-made from the source cache's tarball with the package's two header patches (document.h a8c29c92d1e89279, stage C's); the pugixml root printed |
+| S0: 3.2's own `SAN` line at the pin (the brief's figure 2) | 0 | in the build | `SAN asan-watchers (-fsanitize=address): rc 0; no sanitizer report` | the line the stage-C record lacked |
+| S0: 3.1's figure at the pin (the brief's figure 1) | -- | -- | `ResetComponent returned after 1495 ms` | 1,496 ms in `stage-c/build-tests.out`; the 1,491 ms the stage-C record quoted was the first direct run's console line, not kept; the records now quote the kept lines |
+
 **Still owed:**
 
 | Run | When | Figure expected |
 | --- | --- | --- |
 | 3.3 and 3.17 after their fixes | stage E | no ThreadSanitizer report |
 | the PASS halves of the seven | stage E | each candidate's PASS line after its fix |
-| the guest window G-01 to G-12 | slot 3 on the host | § The guest cycle |
+| the streams' guest halves (`fix-walk-pending-image`) | the coordinator's integration window | S1's dialog after `z`, S2's toasts and French bar, S3's held screensaver, S5's argv file, S6's reconfigured file, S8's CLEAR and subtitle |
 
 generated, asserted: 25 run blocks, 9 generators with three drifts each
 
