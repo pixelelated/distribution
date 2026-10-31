@@ -115,10 +115,10 @@ stc = [
     ["`window-input-tests` before any fix", m_wit.group(1) if m_wit else "--", "in the above",
      f"`{m_wit.group(2)} cases, {m_wit.group(3)} passed, {m_wit.group(4)} failed`" if m_wit else "--", "the seven candidates FAIL at the pin: " + ", ".join(sorted(set(failed_cases), key=lambda x: float(x[2:]))) + "; 3.11's first ordering passed because the uncached read rewrites the entry (`FileSystemUtil.cpp:161-162`), now made second"],
     ["3.17 and 3.3 under ThreadSanitizer (`stage-c/tsan-posts.cpp` over the extracts; `stage-c/tsan-watchers.cpp` over the pin's `WatchersManager.cpp`)", "66, 66", "in the build", "; ".join(f"`{n}`: {w}" for n, rc, w in sans), "posts: the erase loop's read (thread T2) against the post's reallocation under the mutex (T1); watchers: `WatchersManager.cpp:151` (the destructor's write) against `:161` (`run()`'s read)"],
+    ["3.2 under AddressSanitizer (`stage-c/asan-watchers.cpp`, the pin's `WatchersManager.cpp`)", "0", "1 s", "`asan-watchers: done, 1 notification(s)`, no report (`stage-c/asan-watchers.out`)", "PASS at the pin: the list lock spans the probe; the guard PL-01's fix must keep passing"],
     ["3.27, T33's `stage-c/pl25-screensaver.py` unchanged from `947ace1966`", "1", "1 s", f"`{m_pl.group(1)[:90]}`" if m_pl else "--", "FAIL at the pin as #1305 says; the script takes `SystemScreenSaver.cpp`'s path, not the worktree the brief's line passes"],
 ]
 owed = [
-    ["ASan for 3.2 (unregister during a running probe)", "stage E (PL-01's covering cases)", "a report before the fix, none after"],
     ["3.3 and 3.17 after their fixes", "stage E", "no ThreadSanitizer report"],
     ["the PASS halves of the seven", "stage E", "each candidate's PASS line after its fix"],
     ["the guest window G-01 to G-12", "slot 3 on the host", "§ The guest cycle"],

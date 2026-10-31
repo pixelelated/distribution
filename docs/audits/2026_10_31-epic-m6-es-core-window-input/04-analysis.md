@@ -57,7 +57,7 @@ The stand-in syntax check passes **44 of 44** at rc 0 with the fakes the first e
 
 - **Read:** the 96 at the pin, whole for the 13 fork files, by line for the 83 where `02` cites them; the outside lines each generator asserts as `outside` (T36's `FileSystemUtil.cpp` and `Platform.cpp`, T34's components, es-app's `main.cpp`, `NetworkThread.cpp`, `FileData.cpp`, `SystemScreenSaver.cpp`).
 - **Run on the host:** the stand-in over the 44 (`HAVE_UDEV`, `_ENABLE_PULSE_`, `_ENABLE_TTS_`, `HAVE_LIBCEC` and the WIN32 branches not parsed); the tree's five unit binaries; `window-input-tests` (10 cases); T33's PL-25 harness.
-- **Run under ThreadSanitizer:** 3.3 and 3.17, each reporting a data race at the pin. **Not run:** the ASan case for 3.2 (owed, named in `05`); the guest (queued); the pad's hot-plug, hold and axis paths (G-10 `CANNOT`, no pad on the guest -- an open item to test).
+- **Run under ThreadSanitizer:** 3.3 and 3.17, each reporting a data race at the pin. **Run under AddressSanitizer:** 3.2, clean at the pin (the guard for PL-01's fix). **Not run:** the guest (queued); the pad's hot-plug, hold and axis paths (G-10 `CANNOT`, no pad on the guest -- an open item to test).
 - **Outside the slice by ownership:** the holders of the card (T18, T20, T34), the rescan (T2), the screensaver's list (T33), the sign-in window (T18), the launch templates (T3), the file cache (T36).
 
 ## The questions
@@ -171,4 +171,4 @@ Pending at the time of writing: depth `independent`, one reviewer (`gpt`, `opena
 - Every count in `02` is a tool's line, asserted by a generator seen to fail on a constructed drift.
 - Every Medium finding has a case that fails at the pin, run on the host; none rests on a reading alone.
 - One lead was contradicted by the tree and is withdrawn (L-20); one read was corrected (`:420`); 3.11's first ordering passed for a reason the case now records.
-- Not done at the time of writing: the guest's rows, the ASan case 3.2, the PASS halves (after stage E).
+- Not done at the time of writing: the guest's rows and the PASS halves (after stage E).

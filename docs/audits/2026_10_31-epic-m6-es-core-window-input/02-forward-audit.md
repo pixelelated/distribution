@@ -730,13 +730,13 @@ generated, asserted: 51 headers' reach, 12 guard macros, 44 `.cpp` named once, 2
 | the unit build (`tools/t35-build-tests.sh`) | 1 (window-input-tests' candidates, by design) | 41 s | `TOTAL: 249 test cases in 6 binaries` | es-unit-tests 185/185; es-file-tests 24/24; es-conf-tests 10/10; es-file-tests-win32 2/2; app-unit-tests 18/18 |
 | `window-input-tests` before any fix | 1 | in the above | `10 cases, 3 passed, 7 failed` | the seven candidates FAIL at the pin: 3.1, 3.4, 3.5, 3.10, 3.11, 3.14, 3.19; 3.11's first ordering passed because the uncached read rewrites the entry (`FileSystemUtil.cpp:161-162`), now made second |
 | 3.17 and 3.3 under ThreadSanitizer (`stage-c/tsan-posts.cpp` over the extracts; `stage-c/tsan-watchers.cpp` over the pin's `WatchersManager.cpp`) | 66, 66 | in the build | `tsan-posts`: WARNING: ThreadSanitizer: data race; `tsan-watchers`: WARNING: ThreadSanitizer: data race | posts: the erase loop's read (thread T2) against the post's reallocation under the mutex (T1); watchers: `WatchersManager.cpp:151` (the destructor's write) against `:161` (`run()`'s read) |
+| 3.2 under AddressSanitizer (`stage-c/asan-watchers.cpp`, the pin's `WatchersManager.cpp`) | 0 | 1 s | `asan-watchers: done, 1 notification(s)`, no report (`stage-c/asan-watchers.out`) | PASS at the pin: the list lock spans the probe; the guard PL-01's fix must keep passing |
 | 3.27, T33's `stage-c/pl25-screensaver.py` unchanged from `947ace1966` | 1 | 1 s | `heap-use-after-free a.cpp:14 in FileData::getImagePath[abi:cxx11]()` | FAIL at the pin as #1305 says; the script takes `SystemScreenSaver.cpp`'s path, not the worktree the brief's line passes |
 
 **Still owed:**
 
 | Run | When | Figure expected |
 | --- | --- | --- |
-| ASan for 3.2 (unregister during a running probe) | stage E (PL-01's covering cases) | a report before the fix, none after |
 | 3.3 and 3.17 after their fixes | stage E | no ThreadSanitizer report |
 | the PASS halves of the seven | stage E | each candidate's PASS line after its fix |
 | the guest window G-01 to G-12 | slot 3 on the host | § The guest cycle |

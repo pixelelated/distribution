@@ -163,6 +163,7 @@ san() { # <name> <sanitizer> <source> [extra sources...]
 AUD="$(dirname "${HERE}")"
 san tsan-posts thread "${AUD}/stage-c/tsan-posts.cpp"
 san tsan-watchers thread "${AUD}/stage-c/tsan-watchers.cpp" "${ES}/es-core/src/watchers/WatchersManager.cpp"
+san asan-watchers address "${AUD}/stage-c/asan-watchers.cpp" "${ES}/es-core/src/watchers/WatchersManager.cpp"
 # The total, from the binaries' own summary lines: a record quotes this line
 # rather than a sum written by hand (T21 stage E: totals written without
 # adding were found 2 to 53 cases high, S2 to S13).
