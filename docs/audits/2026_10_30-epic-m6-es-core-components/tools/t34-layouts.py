@@ -75,8 +75,14 @@ print("**Every size computed from a size a pass wrote, or measured at one width 
 print()
 print("| Site | What it computes, and from what | The surface | Disposition | proved |")
 print("| --- | --- | --- | --- | --- |")
+SE = {  # stage E: the size rows a stream fixed, by the pin's line
+ "MultiLineMenuEntry.cpp:74": "S3 `db12b1598` (#1314): `th / h`, `sh / h`; 3.4 and PL-07's case PASS after, FAIL before",
+ "TextComponent.cpp:338": "S3 `db12b1598` (#1315): measured at the drawn width; 3.5 PASS after, FAIL before",
+ "TextComponent.cpp:483": "S3 `db12b1598` (#1315), as `:338`",
+ "TextComponent.cpp:486": "S3 `db12b1598` (#1313): `mPadding.w()`; 3.6 PASS after, FAIL before",
+}
 for f, n, must, what, surf, disp in SIZE:
-    print("| `%s:%d` | %s | %s | %s | tree |" % (f, n, what, surf, disp))
+    print("| `%s:%d` | %s | %s | %s | %s |" % (f, n, what, surf, disp, SE.get("%s:%d" % (f, n), "tree")))
 print()
 print("Generated, asserted by `tools/t34-layouts.py`: %d font-height reads (%d layout, %d render or scroll), the brief's eight among the layout rows; %d size rows, each cited line asserted to hold its code or be non-blank." % (
     len(got), sum(1 for v in FONT.values() if v[0].startswith("layout")), sum(1 for v in FONT.values() if not v[0].startswith("layout")), len(SIZE)))

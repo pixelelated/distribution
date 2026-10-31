@@ -1,0 +1,48 @@
+--- a/es-core/src/guis/GuiMsgBox.cpp	2026-10-31 06:07:32.226899502 +0000
++++ b/es-core/src/guis/GuiMsgBox.cpp	2026-10-31 06:07:32.235615635 +0000
+@@ -164,42 +164,10 @@
+ 	// now that we know width, we can find height
+ 	mMsg->setSize(width, 0); // mMsg->getSize.y() now returns the proper length
+ 
+-	// ...except that it does not, and on a small panel the difference puts
+-	// the OK button on top of the message (#48).
+-	//
+-	// A TextComponent measures its automatic height by wrapping at its full
+-	// width -- onTextChanged() calls sizeWrappedText(text, getSize().x()) --
+-	// and draws by wrapping at its width minus its own horizontal padding:
+-	// buildTextCache() lays the glyphs out at sx = mSize.x() - mPadding.x()
+-	// - mPadding.z(). mMsg carries 0.015 of the screen on each side, so on a
+-	// 640-wide panel the glyphs wrap at 364.8px in a box measured at 384 --
+-	// 5% narrower than the height was measured for, 3.75% in the wide box --
+-	// and the drawn text gains a line whenever a wrap point falls in that
+-	// band.
+-	//
+-	// Nothing catches the extra line: a TextComponent with no autoscroll
+-	// pushes no clip rect, so it paints straight through whatever is under
+-	// it, which here is the button row.
+-	//
+-	// The 1.225 below is what hid it. It buys 0.225 of a line per line, so
+-	// a message of five drawn lines or more absorbs one extra line and a
+-	// shorter one does not -- and how many lines a message has depends on
+-	// the panel, since the box is a fraction of the screen and the font is
+-	// not scaled with it in the same proportion. That is why the same
+-	// dialog is fine on a 1080p VM and has its button sitting on the text
+-	// of an RG35XX SP. The bug is not the small screen; it is that the
+-	// dialog measured one thing and drew another.
+-	//
+-	// So measure the height at the width the glyphs are actually laid out
+-	// at. sizeWrappedText is sizeText(wrapText(text, xLen)) and
+-	// buildTextCache is buildTextCache(wrapText(text, sx)), so the two agree
+-	// exactly once they are given the same xLen. This is also the width the
+-	// wide-box test above already measures at.
+-	const Vector4f msgPadding = mMsg->getPadding();
+-	const float drawnWidth = width - msgPadding.x() - msgPadding.z();
++	// TextComponent measures its automatic height at the width it draws at
++	// (#1315), so the height read here is the drawn one; the workaround that
++	// measured it again at the drawn width here (#48) is no longer needed.
+ 	float drawnHeight = mMsg->getSize().y();
+-	if (mMsg->getFont() != nullptr && drawnWidth > 0)
+-		drawnHeight = mMsg->getFont()->sizeWrappedText(text, drawnWidth).y() + msgPadding.y() + msgPadding.w();
+ 
+ 	float msgHeight = Math::max(Font::get(FONT_SIZE_LARGE)->getHeight(), drawnHeight*1.225f);
+ 	

@@ -22,7 +22,7 @@ HOUSE = [  # (name, defining file, must hold, value, frame at 640x480 and 1280x8
 CARD = [("AsyncNotificationComponent.cpp", 64, "getScreenWidth() * 0.9f", "the card's width, `max(sizeText(30 chars), 0.9 W)` (`:63-65`)", "G-02: edges at x 32 and x 608 at 640 (0.9 W centred); L-19: the measured floor never binds on a panel 640 or wider, dead text"),
         ("AsyncNotificationComponent.cpp", 112, "getScreenWidth() * 0.5f - mSize.x() * 0.5f", "the card centred at the top (`:112-113`); `Window::renderAsyncNotifications` re-applies the position every frame (`Window.cpp:1183`, `:1192`, T35's, cited)", "G-02")]
 PIXEL = [  # (file, line, must hold, px, axis, what it sizes, disposition)
- ("ComponentList.cpp", 11, "20", 20, "w", "every row's horizontal inset", "L-06; read by two fork pages through `rowInset()`"),
+ ("ComponentList.cpp", 11, "20", 20, "w", "every row's horizontal inset", "L-06; read by two fork pages through `rowInset()`; S3 `db12b1598` (#1320): `ROW_INSET_FRACTION 0.015625`, PL-15's case PASS after (10 at 640, 20 at 1280), FAIL before"),
  ("TextEditComponent.cpp", 8, "10", 10, "w", "the text field's horizontal padding", "upstream's; outside the lanes unless a fork page reads it (the Wi-Fi and cloud key fields do, through the popups, T35's)"),
  ("TextEditComponent.cpp", 9, "2", 2, "h", "the text field's vertical padding", "as `:8`"),
  ("TextEditComponent.cpp", 31, "4096", 4096, "w", "the field's initial width, replaced by its owner's layout", "harmless: a placeholder width"),

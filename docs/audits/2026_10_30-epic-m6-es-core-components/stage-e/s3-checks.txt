@@ -1,0 +1,66 @@
+# S3 (stage E, #681; #1314, #1315, #1313, #1320, #1326): checks, written 2026-10-31T06:11:54Z
+
+## The ES commit
+db12b1598a4f227abb24bfed57a6d0a4d10ccad3 on feature/m6-es-core-components-681 (parent 2cbb62d7b, S2), pushed to origin over HTTPS by remote name; D-UI-130, D-UI-131 and D-UI-132 cited in its body.
+     es-core/src/components/ComponentList.cpp      | 14 +++++++++-----
+     es-core/src/components/ImageComponent.cpp     |  7 +++++++
+     es-core/src/components/MenuComponent.cpp      |  7 ++++---
+     es-core/src/components/MultiLineMenuEntry.cpp |  7 ++++---
+     es-core/src/components/TextComponent.cpp      |  8 +++++---
+     5 files changed, 29 insertions(+), 14 deletions(-)
+Non-ASCII on the added lines of the five files: none.
+
+## Before and after (tools/t34-build-tests.sh's own lines)
+Before, at 2cbb62d7b (these five files are the pin's there; WebImageComponent.cpp's resize lines are the pin's, moved by S1):
+    RUN components-tests: rc 1; [doctest] test cases: 21 | 11 passed | 10 failed | 0 skipped [doctest] assertions: 344 | 328 passed | 16 failed | 
+    TOTAL: 260 test cases in 6 binaries
+    PL-07 FAIL (sum 1.08182 at ten times; 1.04762 > 1 at twenty); 3.5 FAIL (measured 28 against drawn 48; marquee 20 against 40); PL-15 FAIL (10 at 1280); PL-30 FAIL (depth 5, twice); 3.4 and 3.6 FAIL as at stage D; 3.25 PASS; 3.28 PASS
+After, at db12b1598:
+    RUN components-tests: rc 1; [doctest] test cases: 21 | 17 passed | 4 failed | 0 skipped [doctest] assertions: 344 | 339 passed | 5 failed | 
+    SAN tsan-card (-fsanitize=thread): rc 0; no sanitizer report
+    SAN asan-textedit (-fsanitize=address): rc 0; no sanitizer report
+    SAN asan-popup (-fsanitize=address): rc 0; no sanitizer report
+    SAN asan-card-handle (-fsanitize=address): rc 0; no sanitizer report
+    TOTAL: 260 test cases in 6 binaries
+    3.4, 3.5, 3.6, PL-07, PL-15, PL-30 (depth 1; a new texture at the same size still resizes) PASS; 3.25 and 3.28 PASS
+The components-tests FAILs after: 3.7 AUTO and 3.16 (S4's), 3.26 (PL-14, recorded), 3.14's PL-40 half (recorded).
+
+## The stand-in
+    rc=0 AnimatedImageComponent.cpp
+    rc=0 BatteryTextComponent.cpp
+    rc=0 ComponentList.cpp
+    rc=0 ImageComponent.cpp
+    rc=0 MenuComponent.cpp
+    rc=0 MultiLineMenuEntry.cpp
+    rc=0 TextComponent.cpp
+    CANNOT VideoVlcComponent.cpp: <vlc/vlc.h> and <vlc/libvlc_version.h> (:8-9) have no fake
+    rc=0 WebImageComponent.cpp
+    t34-syntax-check: 37 file(s) checked, 37 rc 0, 0 not
+ComponentList.h unchanged (rowInset()'s declaration keeps its signature); its two es-app readers, GuiMenu.cpp:4091, :4097 and GuiWifi.cpp:103, keep compiling against it.
+
+## GuiMsgBox's workaround: stage-e/s3-msgbox.patch (T35's, applied at the integration when the frames hold)
+Written on a scratch copy of the pin's es-core/src/guis/GuiMsgBox.cpp read by git show 16dbac5211: lines 167-202 (the #48 comment and the measure at the drawn width) become one read of mMsg->getSize().y(). The patch applies to the pin's copy (patch -p1 --dry-run); the patched file and the pin's both pass g++ -fsyntax-only with the stand-in's flags against the S3 tree (rc 0), after the lane's keyboard fake gained SDLK_SPACE. The 1.225 at :204 stays.
+es-code-traps.md's paragraph (TextComponent measures at its full width) is the coordinator's (ruling 2).
+
+## Specs (D-WORKFLOW-210), before -> after
+    mlme_shares         MultiLineMenuEntry.cpp:72-75 '...(sh * 1.1) / h);' -> :72-76 'setRowHeightPerc(1, sh / h);'
+    text_limit          TextComponent.cpp:486 '- mPadding.y() - mPadding.y()' -> :488 '- mPadding.y() - mPadding.w()'
+    text_measure        (new in S3, at the pin :338 'getSize().x(), mLineSpacing)') -> :340 'getSize().x() - mPadding.x() - mPadding.z(), mLineSpacing)'
+    text_drawn          (new, :350) -> :352;  text_marquee_len (new, :483) -> :485, the drawn width
+    list_inset_define   (new, ComponentList.cpp:11 '#define TOTAL_HORIZONTAL_PADDING_PX 20') -> :15 '#define ROW_INSET_FRACTION 0.015625'
+    list_inset          (new, :491-494) -> :495-498;  list_camera (new, :298-318) -> :302-322;  list_dimmed ComponentList.h:25-26 (new, unchanged)
+    image_setsize       (new, ImageComponent.cpp:67-82) -> :67-89;  image_settexture (new, :457-466) -> :464-473
+    web_resize          (new, WebImageComponent.cpp:101-112, S1's lines) unchanged
+    button_pad          MenuComponent.cpp:14 -> :15; button_width :547-552 -> :548-553 (moved by the comment's one added line)
+    tools/t34-layouts.py: the proved cells of MultiLineMenuEntry.cpp:74 and TextComponent.cpp:338, :483, :486 from 'tree' to S3's outcome; tools/t34-constants.py: ComponentList.cpp:11's disposition carries S3's outcome. Both still assert the pin's lines, which they read.
+
+## The build script's guard
+The first after-run's extracts were refused (the comment's added line moved button_pad), and the script then ran the previous run's components-tests binary and reported its counts. tools/t34-build-tests.sh now removes each binary before it compiles it and each sanitizer binary and run log before it builds it, so a failed compile reads 'not built'. The second after-run above is the one recorded.
+
+## The #585 lines
+3.6's limit, L-17's measure (#48's root) and the shares' formula, batocera then ROCKNIX, as the brief lists. The guest half: a cloud page's rows at 640x480 and 1280x800 (#1314, #1320); frame-diff over the fork's walks at both sizes (#1315); the message box after the patch: fix-walk-pending-image.
+
+## Other checks
+ES .githooks/pre-push-test: PASS. es-untranslated: not run; S3 changes no player string.
+Already written (#1313, #1314, #1315, #1320, #1326): nothing inherited; a label is drawn, not stored.
+Time to play: none on the launch path; the unchanged-size exit removes a second resize on pages that size an image twice, the game list's grid among them.

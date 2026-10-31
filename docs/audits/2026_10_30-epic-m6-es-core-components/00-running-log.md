@@ -157,3 +157,24 @@
 - **Specs moved (D-WORKFLOW-210):** `card_close`, `card_update` and `textedit_focuslost`, each named with its before and after in `s2-checks.txt`. New: `card_update_full`, `card_choose`, `textedit_move`, `str_cursor` and `card_handle`. The extractor now takes tree paths and clears stale extracts.
 - **`t34-lifetimes.py`:** the four rows carry S2's outcome.
 - **One correction to the brief:** it expected no #585 line. `git log -S` puts both the card's close writes and the field's post shape in batocera's 2020 commits (`ad9802f44`, `2f5ec7d33`), so PL-01 and PL-03 get #585 lines.
+
+## [Stage E] 06:12 UTC 2026-10-31 — S3 (#1314, #1315, #1313, #1320, #1326): the layout, `db12b1598`
+
+- **The cases came first, run at `2cbb62d7b`** (`stage-e/s3-before.txt`):
+  - PL-07 FAIL;
+  - 3.5 FAIL, measured one line short at both sites;
+  - PL-15 FAIL (10 at 1280);
+  - PL-30 FAIL (the grid sizes the image again from its own notice, depth 5);
+  - 3.4 and 3.6 FAIL as at stage D;
+  - 3.25 and 3.28 PASS.
+- **The fix**, one ES commit on five files (D-UI-130/131/132):
+  - the shares are `th / h` and `sh / h`;
+  - TextComponent measures at its drawn width, at both sites;
+  - the marquee's limit takes `mPadding.w()`;
+  - `ROW_INSET_FRACTION 0.015625` is read through `rowInset()` everywhere;
+  - MenuComponent's comment names the second copy;
+  - `ImageComponent::setSize` returns on an unchanged target size.
+- **After, at `db12b1598`** (`stage-e/s3-after.txt`): all eight cases PASS. `TOTAL: 260 test cases in 6 binaries`. The stand-in passes all 37.
+- **`GuiMsgBox`'s workaround** is `stage-e/s3-msgbox.patch` (T35's), proven on a scratch copy of the pin's file; the lane's keyboard fake gained `SDLK_SPACE`.
+- **The build script's gap, fixed:** a refused extraction left the previous binary to run and report. The first after-run's counts matched the before-run exactly, which is how it showed. Friction-log line written.
+- **Specs moved and added:** each named with its before and after in `stage-e/s3-checks.txt`. The layouts and constants generators carry S3's outcome.

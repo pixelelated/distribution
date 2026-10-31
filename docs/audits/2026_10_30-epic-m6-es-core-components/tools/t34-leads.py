@@ -72,6 +72,11 @@ SE = dict(S0)  # every stage-E result by row: S0's four, then each stream's floo
 SE.update({
  "3.18": "S2: PASS at the pin, written before the fix and run again after it (`stage-e/s2-before.txt`, `s2-after.txt`)",
  "3.33": "S2: PASS at the pin, written before the fix and run again after it (`stage-e/s2-before.txt`, `s2-after.txt`)",
+ "3.4": "S3: FAIL at the pin (stage D), PASS after `db12b1598` (`stage-e/s3-after.txt`)",
+ "3.5": "S3: FAIL at the pin (28 against 48, 20 against 40), PASS after `db12b1598` (`stage-e/s3-before.txt`, `s3-after.txt`)",
+ "3.6": "S3: FAIL at the pin (stage D), PASS after `db12b1598` (`stage-e/s3-after.txt`)",
+ "3.25": "S3: PASS at the pin and after (`stage-e/s3-before.txt`, `s3-after.txt`)",
+ "3.28": "S3: PASS at the pin and after (`stage-e/s3-before.txt`, `s3-after.txt`)",
 })
 R = [  # (ruling, the 02 row)
  ("(a) T32 PL-07 / #1263, the caller's half", "§ The reads, `ImageComponent.cpp:408`"),

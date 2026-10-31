@@ -273,3 +273,150 @@ TEST_CASE("3.33 the text field's cursor moves by whole UTF-8 sequences (TextEdit
 	t.mCursor = 2; t.moveCursor(1); CHECK(t.mCursor == 3); // from inside the sequence, the next whole boundary
 	t.mCursor = 2; t.moveCursor(-1); CHECK(t.mCursor == 1);
 }
+
+// ---- S3 (stage E): the layout ----
+
+// PL-07 (#1314): MultiLineMenuEntry.cpp:72-75 again, a description far taller
+// than its label; ComponentGrid.cpp:93 asserts each share is in [0, 1].
+TEST_CASE("PL-07 a long description keeps both shares in [0, 1] and their sum at 1 (MultiLineMenuEntry.cpp:72-75)") {
+	for (float k : {10.0f, 20.0f}) {
+		Shares s; s.layout(26, 26 * k);
+		CAPTURE(k);
+		CHECK(s.p0 >= 0); CHECK(s.p1 <= 1.0f);
+		CHECK(s.p0 + s.p1 == doctest::Approx(1.0f));
+	}
+}
+
+// 3.5 / PL-08 (#1315): TextComponent.cpp:338 (the automatic height), :350
+// (the width the glyphs are laid out at, :413) and :483 (the marquee's
+// length). A font that wraps words greedily at a width, 10 px a character.
+namespace Utils { namespace String { std::string toUpper(const std::string& s) { std::string r = s; for (auto& c : r) if (c >= 'a' && c <= 'z') c = c - 'a' + 'A'; return r; } } }
+struct WrapFont {
+	float cw = 10, lh = 20;
+	std::string wrapText(const std::string& t, float w) const {
+		std::string out, line, word; std::istringstream in(t);
+		while (in >> word) {
+			std::string next = line.empty() ? word : line + " " + word;
+			if (!line.empty() && next.size() * cw > w) { out += line + "\n"; line = word; } else line = next;
+		}
+		return out + line;
+	}
+	Vec2f sizeWrappedText(const std::string& t, float w, float = 1.5f) const {
+		auto s = wrapText(t, w); int n = 1; for (char c : s) n += c == '\n'; return Vec2f(w, n * lh);
+	}
+};
+struct TextMeasure {
+	Vec2f mSize; V4 mPadding; std::shared_ptr<WrapFont> mFont = std::make_shared<WrapFont>(); bool mUppercase = false; std::string mText; float mLineSpacing = 1.5f; int mTextLength = -1;
+	Vec2f getSize() const { return mSize; }
+	void measure() {
+#include "x_text_measure.inc"
+	}
+	int drawnWidth() {
+#include "x_text_drawn.inc"
+		return sx;
+	}
+	void marqueeLength() {
+#include "x_text_marquee_len.inc"
+	}
+	float drawnLines() { return mFont->sizeWrappedText(mText, drawnWidth()).y(); }
+};
+TEST_CASE("3.5 PL-08 a padded text is measured at the width it is drawn at (TextComponent.cpp:338, :350, :483)") {
+	TextMeasure t; t.mSize = Vec2f(640, 0); t.mPadding = V4{16, 4, 16, 4};
+	t.mText = "abcdefgh abcdefgh abcdefgh abcdefgh abcdefgh abcdefgh abcdefgh"; // 620 px: one line at 640, two at 608
+	t.measure();
+	CHECK(t.mSize.y() == doctest::Approx(t.drawnLines() + 4 + 4));
+	t.marqueeLength();
+	CHECK((float)t.mTextLength == doctest::Approx(t.drawnLines()));
+}
+
+// PL-15 (#1320): ComponentList.cpp:11 and :491-494, the row inset.
+#include "x_list_inset_define.inc"
+struct ComponentList { static float rowInset(); };
+#include "x_list_inset.inc"
+TEST_CASE("PL-15 the row inset is 10 px at 640 and scales with the panel (ComponentList.cpp:11, :491-494)") {
+	gW = 640; CHECK(ComponentList::rowInset() == doctest::Approx(10));
+	gW = 1280; CHECK(ComponentList::rowInset() == doctest::Approx(20));
+	gW = 640;
+}
+
+// PL-30 (#1326): ImageComponent.cpp:67-82 (setSize) under
+// WebImageComponent.cpp's resize(), in a resizing cell of a grid whose
+// onSizeChanged sizes the cell again (ComponentGrid.cpp:174-175).
+inline bool operator==(const Vec2f& a, const Vec2f& b) { return a.x() == b.x() && a.y() == b.y(); }
+inline bool operator!=(const Vec2f& a, const Vec2f& b) { return !(a == b); }
+struct Rect4 { float v[4]; bool operator!=(const Rect4& o) const { for (int i = 0; i < 4; i++) if (v[i] != o.v[i]) return true; return false; } };
+struct ComponentGrid;
+struct ImgBase {
+	Vec2f mSize; std::vector<int> mChildren; ComponentGrid* parent = nullptr; int baseResizes = 0;
+	void setSize(float w, float h) { mSize = Vec2f(w, h); }
+	Rect4 getClientRect() const { return Rect4{{0, 0, mSize.x(), mSize.y()}}; }
+	void recalcChildrenLayout() {}
+	void onSizeChanged() {}
+	void resize() { baseResizes++; }
+	ComponentGrid* getParent() const { return parent; }
+};
+struct ComponentGrid {
+	struct WebImg* cell = nullptr; Vec2f cellSize = Vec2f(200, 150); int depth = 0, most = 0;
+	template <typename T> bool isKindOf() const { return true; }
+	void onSizeChanged();
+};
+struct TexD { void setRequired(bool) {} bool isLoaded() const { return true; } };
+struct BusyD { void setSize(const Vec2f&) {} };
+struct WebImg : ImgBase {
+	using GuiComponent = ImgBase; using ImageComponent = ImgBase; using Vector2f = Vec2f;
+	std::shared_ptr<TexD> mTexture = std::make_shared<TexD>(); bool mTextureLoaded = false; Vec2f mTargetSize; BusyD* mBusyAnim = nullptr;
+	bool isShowing() const { return true; }
+	void setSize(float w, float h) {
+#include "x_image_setsize.inc"
+	}
+	void setImage(const std::shared_ptr<TexD>& texture) {
+#include "x_image_settexture.inc"
+	}
+	void resize() {
+#include "x_web_resize.inc"
+	}
+	void onSizeChanged() {}
+};
+void ComponentGrid::onSizeChanged() {
+	depth++; if (depth > most) most = depth;
+	if (depth <= 4) cell->setSize(cellSize.x(), cellSize.y()); // the cell's setSize (ComponentGrid.cpp:174-175)
+	depth--;
+}
+TEST_CASE("PL-30 an image in a resizing cell is sized once, not again from its own notice (ImageComponent.cpp:65-83)") {
+	ComponentGrid g; WebImg img; img.parent = &g; g.cell = &img;
+	img.setSize(200, 150);
+	CHECK(g.most <= 2);
+	// ruling 3: a texture change at the same size still resizes (setImage calls resize() itself, ImageComponent.cpp:455-467)
+	g.most = 0; int before = img.baseResizes;
+	img.setImage(std::make_shared<TexD>());
+	CHECK(img.baseResizes > before); CHECK(g.most <= 2);
+	// a new size still sizes the image (the grid then sizes it back to its cell)
+	int r = img.baseResizes; img.setSize(300, 150); CHECK(img.baseResizes > r);
+}
+
+// 3.25: ComponentList.h:25-26, the dim.
+namespace ComponentListFlagsD {
+#include "x_list_dimmed.inc"
+}
+TEST_CASE("3.25 a dimmed colour keeps its RGB and takes alpha 0x50 (ComponentList.h:25-26)") {
+	CHECK(ComponentListFlagsD::dimmed(0xFFFFFFFF) == 0xFFFFFF50u);
+	CHECK(ComponentListFlagsD::dimmed(0x11223344) == 0x11223350u);
+	CHECK(ComponentListFlagsD::DIMMED_ALPHA == 0x50);
+}
+
+// 3.28: ComponentList.cpp:298-318, updateCameraOffset.
+struct ListCamera {
+	struct Row { float h; }; struct Entry { Row data; };
+	std::vector<Entry> mEntries; int mCursor = 0; float mSelectorBarOffset = 0, mCameraOffset = -1; Vec2f mSize = Vec2f(300, 300);
+	float getRowHeight(const Row& r) const { return r.h; }
+	float getTotalRowHeight() const { float t = 0; for (auto& e : mEntries) t += e.data.h; return t; }
+	void update() {
+#include "x_list_camera.inc"
+	}
+};
+TEST_CASE("3.28 the menu list's camera: the last row at the bottom, the first at 0, a cursor of -1 at 0 (ComponentList.cpp:295-319)") {
+	ListCamera c; c.mEntries.assign(20, ListCamera::Entry{{30}});
+	c.mCursor = 15; c.mSelectorBarOffset = 15 * 30; c.update(); CHECK(c.mCameraOffset == doctest::Approx(300));
+	c.mCursor = 0; c.mSelectorBarOffset = 0; c.update(); CHECK(c.mCameraOffset == doctest::Approx(0));
+	c.mCursor = -1; c.update(); CHECK(c.mCameraOffset == doctest::Approx(0)); // the signed/unsigned compare reads -1 as past the end
+}

@@ -47,6 +47,8 @@ FAIL=0
 build() { # <name> <flags...> -- <sources...>
   local name=$1; shift; local flags=() ; while [ "$1" != -- ]; do flags+=("$1"); shift; done; shift
   echo "\$ ${CXX[*]} ${flags[*]} <$# sources> -o ${name}"
+  # A failed compile must leave no binary behind for the run below (T34 S3).
+  rm -f -- "${B:?}/${name:?}"
   printf '    %s\n' "$@"
   if ! "${CXX[@]}" "${flags[@]}" "$@" -o "${B}/${name}" > "${B}/${name}.build.log" 2>&1; then
     echo "BUILD FAIL ${name}:"; tail -n 15 "${B}/${name}.build.log"; FAIL=1; return 1
@@ -153,6 +155,7 @@ for t in ${CT}; do
 done
 san() { # <name> <sanitizer> <source>
   local n=$1 f=$2 src=$3
+  rm -f -- "${B:?}/${n:?}" "${B:?}/${n:?}.run.log"
   if g++ -std=c++17 -O1 -g -fno-omit-frame-pointer -fsanitize="$f" -pthread -I "${X}" "${src}" -o "${B}/${n}" > "${B}/${n}.build.log" 2>&1; then
     "${B}/${n}" > "${B}/${n}.run.log" 2>&1; local rc=$?
     echo "SAN ${n} (-fsanitize=${f}): rc ${rc}; $(grep -m1 -E 'ERROR: AddressSanitizer|WARNING: ThreadSanitizer|SUMMARY:' "${B}/${n}.run.log" || echo 'no sanitizer report')"

@@ -10,12 +10,12 @@ C = "es-core/src/components/"
 def where(f):  # a component by its name; anything else (read only, other lanes' files) by its tree path
     return f if f.startswith("es-") else C + f
 SPECS = [  # name, file, first, last, the first line holds, the last line holds
- ("mlme_shares", "MultiLineMenuEntry.cpp", 72, 75, "float h = th + sh;", "setRowHeightPerc(1, (sh * 1.1) / h);"),
- ("text_limit", "TextComponent.cpp", 486, 486, "int limit = mSize.y() - mPadding.y() - mPadding.y();", "int limit"),
+ ("mlme_shares", "MultiLineMenuEntry.cpp", 72, 76, "float h = th + sh;", "setRowHeightPerc(1, sh / h);"),
+ ("text_limit", "TextComponent.cpp", 488, 488, "int limit = mSize.y() - mPadding.y() - mPadding.w();", "int limit"),
  ("slider_text", "SliderComponent.cpp", 276, 299, "std::stringstream ss;", "const std::string val = ss.str();"),
  ("slider_precision", "SliderComponent.cpp", 44, 59, "int calculatePrecision(float step)", "}"),
- ("button_pad", "MenuComponent.cpp", 14, 14, "#define BUTTON_GRID_HORIZ_PADDING", "0.022"),
- ("button_width", "MenuComponent.cpp", 547, 552, "float buttonGridWidth = (float)BUTTON_GRID_HORIZ_PADDING * buttons.size();", "}"),
+ ("button_pad", "MenuComponent.cpp", 15, 15, "#define BUTTON_GRID_HORIZ_PADDING", "0.022"),
+ ("button_width", "MenuComponent.cpp", 548, 553, "float buttonGridWidth = (float)BUTTON_GRID_HORIZ_PADDING * buttons.size();", "}"),
  ("carousel_fast", "CarouselComponent.cpp", 76, 89, "int value = mCursor;", "return value;"),
  ("ilist_scroll", "IList.h", 381, 406, "int cursor = mCursor + amt;", "}"),
  ("textlist_range", "TextListComponent.h", 262, 269, "float entrySize = getRowHeight();", "listCutoff = size();"),
@@ -31,6 +31,16 @@ SPECS = [  # name, file, first, last, the first line holds, the last line holds
  ("textedit_move", "TextEditComponent.cpp", 267, 281, "void TextEditComponent::moveCursor(int amt)", "}"),
  ("str_cursor", "es-core/src/utils/StringUtil.cpp", 278, 327, "size_t nextCursor(const std::string& _string, const size_t _cursor)", "} // moveCursor"),
  ("textedit_focuslost", "TextEditComponent.cpp", 44, 47, "mFocused = false;", "mWindow->postToUiThread([this, alive = std::weak_ptr<void>(mAlive)]() { if (alive.lock()) stopEditing(); });"),
+ ("text_measure", "TextComponent.cpp", 340, 340, "mSize[1] = mFont->sizeWrappedText(", "getSize().x() - mPadding.x() - mPadding.z(), mLineSpacing).y() + mPadding.y() + mPadding.w();"),
+ ("text_drawn", "TextComponent.cpp", 352, 352, "int sx = mSize.x() - mPadding.x() - mPadding.z();", "int sx"),
+ ("text_marquee_len", "TextComponent.cpp", 485, 485, "mTextLength = mFont->sizeWrappedText(", "getSize().x() - mPadding.x() - mPadding.z(), mLineSpacing).y();"),
+ ("list_inset_define", "ComponentList.cpp", 15, 15, "#define ROW_INSET_FRACTION 0.015625", "#define"),
+ ("list_inset", "ComponentList.cpp", 495, 498, "float ComponentList::rowInset()", "}"),
+ ("list_dimmed", "ComponentList.h", 25, 26, "const unsigned char DIMMED_ALPHA = 0x50;", "inline unsigned int dimmed(unsigned int color)"),
+ ("list_camera", "ComponentList.cpp", 302, 322, "const float totalHeight = getTotalRowHeight();", "mCameraOffset = 0;"),
+ ("image_setsize", "ImageComponent.cpp", 67, 89, "if (!mTexture)", "recalcChildrenLayout();"),
+ ("image_settexture", "ImageComponent.cpp", 464, 473, "if (mTexture != nullptr)", "resize();"),
+ ("web_resize", "WebImageComponent.cpp", 101, 112, "ImageComponent::resize();", "getParent()->onSizeChanged();"),
  ("card_handle", "AsyncNotificationComponent.h", 53, 54, "using Handle = std::weak_ptr<AsyncNotificationComponent>;", "Handle handle() { return weak_from_this(); }"),
 ]
 os.makedirs(OUT, exist_ok=True)

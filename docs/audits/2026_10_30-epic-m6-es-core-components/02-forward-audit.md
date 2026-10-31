@@ -126,9 +126,9 @@ The brief's L-01 to L-21 and floor rows 3.1 to 3.34, plus three the read found (
 | 3.1 | `ComponentGrid.cpp:396-414` | a prompt where the key moves nothing | T34 | a case at stage C; expected PASS (D-UI-034's fix) | pending: fixture at stage C | Q3 |
 | 3.2 | `ComponentGrid.cpp:519-553` | a prompt where the key moves nothing | T34 | a case at stage C; expected PASS | pending: fixture at stage C | Q3 |
 | 3.3 | `ComponentGrid.cpp:329-379` | a prompt where the key moves nothing | T34 | a case at stage C; expected PASS | pending: fixture at stage C | Q3 |
-| **3.4** | `MultiLineMenuEntry.cpp:50-80` (**`:74-75`**) | layout from what it produced / a moving number | T34 | FAIL at the pin (L-03); 300 `setDescription` calls hold the height (#241) | pending: fixture at stage C | Q1 |
-| 3.5 | `TextComponent.cpp:315-340` | layout from what it produced / a moving number | T34 | L-17's case: the measured height one line short | pending: fixture at stage C | Q1 |
-| **3.6** | `TextComponent.cpp:486` | layout from what it produced / a moving number | T34 | FAIL at the pin: the limit 20 px too large | pending: fixture at stage C | Q1 |
+| **3.4** | `MultiLineMenuEntry.cpp:50-80` (**`:74-75`**) | layout from what it produced / a moving number | T34 | FAIL at the pin (L-03); 300 `setDescription` calls hold the height (#241) | S3: FAIL at the pin (stage D), PASS after `db12b1598` (`stage-e/s3-after.txt`) | Q1 |
+| 3.5 | `TextComponent.cpp:315-340` | layout from what it produced / a moving number | T34 | L-17's case: the measured height one line short | S3: FAIL at the pin (28 against 48, 20 against 40), PASS after `db12b1598` (`stage-e/s3-before.txt`, `s3-after.txt`) | Q1 |
+| **3.6** | `TextComponent.cpp:486` | layout from what it produced / a moving number | T34 | FAIL at the pin: the limit 20 px too large | S3: FAIL at the pin (stage D), PASS after `db12b1598` (`stage-e/s3-after.txt`) | Q1 |
 | **3.7** | `SliderComponent.cpp:44-58`, `:271-319` (**`:282`**) | a player sentence outside the vocabulary or without French | T34 | FAIL at the pin: `"Auto"`; the precision cases expected PASS | pending: fixture at stage C | Q6 |
 | **3.8** | `CarouselComponent.cpp:74-90` with `:113`, `:119`; `IList.h:376-400` | a prompt where the key moves nothing | T34 | FAIL candidate: `listInput(-7)` on a size-3 carousel; the landing index asserted in `[0, sz)` per loop type | pending: fixture at stage C | Q3 |
 | 3.9 | `ImageGridComponent.h:1437-1468` | layout from what it produced / a moving number | T34 | a case; a 0 tile size is guarded only by a `LOG` | pending: fixture at stage C | Q1 |
@@ -147,10 +147,10 @@ The brief's L-01 to L-21 and floor rows 3.1 to 3.34, plus three the read found (
 | 3.22 | `ImageComponent.cpp:85-180` | layout from what it produced / a moving number | T34 | a case on the fit after a turn | pending: fixture at stage C | Q5 |
 | 3.23 | `ImageComponent.cpp:273-291` | layout from what it produced / a moving number | T34 | a case; turn 1 four times is identity | pending: fixture at stage C | Q5 |
 | 3.24 | `ImageComponent.cpp:491-499`, `GridTileComponent.cpp:1055-1063` | layout from what it produced / a moving number | T34 | a case on the normaliser | pending: fixture at stage C | Q5 |
-| 3.25 | `ComponentList.h:26` | a house constant a surface does not keep | T34 | a case; expected PASS | pending: fixture at stage C | Q2 |
+| 3.25 | `ComponentList.h:26` | a house constant a surface does not keep | T34 | a case; expected PASS | S3: PASS at the pin and after (`stage-e/s3-before.txt`, `s3-after.txt`) | Q2 |
 | **3.26** | `MenuComponent.cpp:543-562`; `ButtonComponent.cpp:10` | a house constant a surface does not keep | T34 | FAIL candidate: five 128 px buttons at 640 overhang (L-04) | pending: fixture at stage C | Q2 |
 | 3.27 | `MenuComponent.cpp:396-424` | layout from what it produced / a moving number | T34 | a case on the strict `<` | pending: fixture at stage C | Q1 |
-| 3.28 | `ComponentList.cpp:295-319` | layout from what it produced / a moving number | T34 | a case incl. the signed/unsigned compare | pending: fixture at stage C | Q1 |
+| 3.28 | `ComponentList.cpp:295-319` | layout from what it produced / a moving number | T34 | a case incl. the signed/unsigned compare | S3: PASS at the pin and after (`stage-e/s3-before.txt`, `s3-after.txt`) | Q1 |
 | 3.29 | `TextListComponent.h:591-608` | layout from what it produced / a moving number | T34 | the same for the game list | S0: PASS at the pin (`stage-e/s0-before.txt`) | Q1 |
 | 3.30 | `SwitchComponent.cpp:50-80`, `:118-138` | a prompt where the key moves nothing | T34 | a case on the tri-state cycle | pending: fixture at stage C | Q3 |
 | 3.31 | `SliderComponent.cpp:234-257` | a house constant a surface does not keep | T34 | a case on the clamp and the sentinel | pending: fixture at stage C | Q3 |
@@ -173,7 +173,7 @@ The brief's L-01 to L-21 and floor rows 3.1 to 3.34, plus three the read found (
 | (i) `ComponentList.cpp:568`'s `_("up/down")` | § The words, L-01, and § The input, `ComponentList.cpp:548` |
 | (j) the two lanes' `AsyncNotificationComponent.h` doubles | § The structure: a header change in T34 is named as a collision at the hand-back; the fakes are not the lane's |
 
-Generated, asserted by `tools/t34-leads.py`: 24 L leads (the brief's 21 and the read's L-22 to L-24), 34 floor rows (the seven FAIL-at-pin in bold), each answered, 4 run at the pin in S0 and 2 in the streams; 10 rulings, each with its row.
+Generated, asserted by `tools/t34-leads.py`: 24 L leads (the brief's 21 and the read's L-22 to L-24), 34 floor rows (the seven FAIL-at-pin in bold), each answered, 4 run at the pin in S0 and 7 in the streams; 10 rulings, each with its row.
 
 ## The layouts
 
@@ -205,11 +205,11 @@ Generated, asserted by `tools/t34-leads.py`: 24 L leads (the brief's 21 and the 
 
 | Site | What it computes, and from what | The surface | Disposition | proved |
 | --- | --- | --- | --- | --- |
-| `MultiLineMenuEntry.cpp:74` | the two rows' shares, `th*0.9/h` and `sh*1.1/h` of `h = th + sh` (`:72-75`), measured from the fonts since #241 (`7c7ffab43`), not from the cells | every two-line row | **L-03**: the shares sum to 1 only when `th == sh`: a taller Text font underfills, a taller TextSmall overflows by `0.1*(sh-th)/h`; upstream's formula moved whole into `layoutRows`; 3.4's `rowPercs(26, 20)` and `(20, 26)` FAIL at the pin; the fix (a pair that sums to 1) is the pause's | tree |
+| `MultiLineMenuEntry.cpp:74` | the two rows' shares, `th*0.9/h` and `sh*1.1/h` of `h = th + sh` (`:72-75`), measured from the fonts since #241 (`7c7ffab43`), not from the cells | every two-line row | **L-03**: the shares sum to 1 only when `th == sh`: a taller Text font underfills, a taller TextSmall overflows by `0.1*(sh-th)/h`; upstream's formula moved whole into `layoutRows`; 3.4's `rowPercs(26, 20)` and `(20, 26)` FAIL at the pin; the fix (a pair that sums to 1) is the pause's | S3 `db12b1598` (#1314): `th / h`, `sh / h`; 3.4 and PL-07's case PASS after, FAIL before |
 | `MultiLineMenuEntry.cpp:71` | in multi-line mode, the description's height read back from the text (`:71`) | the multi-line rows (re-laid in `onSizeChanged`, `:121-136`) | the rule's shape (a size the text's own auto pass wrote); stable while the width is: 3.4's 300 `setDescription` calls at stage C | tree |
-| `TextComponent.cpp:338` | the auto height, wrapped at the full width `getSize().x()` | every padded auto-height text that is not a `GuiMsgBox` | **L-17** (#48's root): drawn at `mSize.x() - padding` (`:350`), so a wrap in that band paints a line the height never budgeted; 3.5's case; a 640x480 frame of a padded auto-height text; the reproducer for #585; the root fix the pause's (§ 1 f) | tree |
-| `TextComponent.cpp:483` | the vertical marquee's text length, wrapped at the full width | a vertically scrolling text with padding | L-17's second site: the same full-width measure | tree |
-| `TextComponent.cpp:486` | the vertical marquee's limit, `mSize.y() - mPadding.y() - mPadding.y()` | a vertically scrolling text with unequal top and bottom padding | **3.6**: `:351` and `:428` subtract `.y()` and `.w()`; with padding (0,10,0,30) the limit is 20 px too large; a contained one-token fix under rule 6 and a #585 line | tree |
+| `TextComponent.cpp:338` | the auto height, wrapped at the full width `getSize().x()` | every padded auto-height text that is not a `GuiMsgBox` | **L-17** (#48's root): drawn at `mSize.x() - padding` (`:350`), so a wrap in that band paints a line the height never budgeted; 3.5's case; a 640x480 frame of a padded auto-height text; the reproducer for #585; the root fix the pause's (§ 1 f) | S3 `db12b1598` (#1315): measured at the drawn width; 3.5 PASS after, FAIL before |
+| `TextComponent.cpp:483` | the vertical marquee's text length, wrapped at the full width | a vertically scrolling text with padding | L-17's second site: the same full-width measure | S3 `db12b1598` (#1315), as `:338` |
+| `TextComponent.cpp:486` | the vertical marquee's limit, `mSize.y() - mPadding.y() - mPadding.y()` | a vertically scrolling text with unequal top and bottom padding | **3.6**: `:351` and `:428` subtract `.y()` and `.w()`; with padding (0,10,0,30) the limit is 20 px too large; a contained one-token fix under rule 6 and a #585 line | S3 `db12b1598` (#1313): `mPadding.w()`; 3.6 PASS after, FAIL before |
 | `MenuComponent.cpp:396` | `updateSize`'s row-fit loop: rows added while `height + rowHeight < maxHeight` (`:396-424`) | every settings page's height | 3.27: the strict `<` drops a row that fits exactly; a case at stage C | tree |
 | `ComponentList.cpp:521` | each element's width from the list's own width less the inset | every row | sound: from the parent's size, not the element's | tree |
 | `HelpComponent.cpp:143` | the bar's grid width from the entries kept (`:143-152`), floored at 1 | the help bar | sound since `7dc8bf373` (#210): measured before an entry is added; 3.16 | tree |
@@ -239,7 +239,7 @@ Generated, asserted by `tools/t34-layouts.py`: 19 font-height reads (13 layout, 
 
 | Site | Pixels | Share of 640 / 1920 | What it sizes | Disposition |
 | --- | ---: | --- | --- | --- |
-| `ComponentList.cpp:11` | 20 | 3.1% / 1.0% | every row's horizontal inset | L-06; read by two fork pages through `rowInset()` |
+| `ComponentList.cpp:11` | 20 | 3.1% / 1.0% | every row's horizontal inset | L-06; read by two fork pages through `rowInset()`; S3 `db12b1598` (#1320): `ROW_INSET_FRACTION 0.015625`, PL-15's case PASS after (10 at 640, 20 at 1280), FAIL before |
 | `TextEditComponent.cpp:8` | 10 | 1.6% / 0.5% | the text field's horizontal padding | upstream's; outside the lanes unless a fork page reads it (the Wi-Fi and cloud key fields do, through the popups, T35's) |
 | `TextEditComponent.cpp:9` | 2 | 0.3% / 0.1% | the text field's vertical padding | as `:8` |
 | `TextEditComponent.cpp:31` | 4096 | 640.0% / 213.3% | the field's initial width, replaced by its owner's layout | harmless: a placeholder width |
