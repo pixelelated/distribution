@@ -233,14 +233,17 @@ time comes from `date -u`.
   - S6: `02d19b0787`, `61f8fcc5b2`, `23dfd53c0e`
   - S7: `a174a2dcbf`, `b367ebcf48`, `b2833a6919`
   - Each has a checkpoint post on #663, and `02` § The streams has its row.
-- **The cells:** `stage-e/s1/cells.sh` to `stage-e/s7/cells.sh`, `stage-e/s6/move-cells.sh` and `stage-e/cells/e-term-automatic.cmd.sh`.
-  - Each ran on the unfixed root (8ebaf8daad) and then the fixed one: `stage-e/sN-before*.out` and `sN-after*.out`, with each stream's `sN-checks.txt`.
+- **The record is `stage-e/`** in this folder: the cells, their outputs, the suite's runs, the patch, the tools and `stage-e/handback-checks.txt`.
+- **The cells (each a fixture run in the sandbox):** `stage-e/s1/cells.sh` to `stage-e/s7/cells.sh`, `stage-e/s6/move-cells.sh` (ruling 14) and `stage-e/cells/e-term-automatic.cmd.sh`.
+  - Each ran on the unfixed root (8ebaf8daad) and then the fixed one.
+  - The outputs, before and after: `stage-e/s1-before.out`/`s1-after.out` (and `s1-*-g20.out`); `s2-before.out`/`s2-after.out` (and `s2-*-e-term*.out`, `s2-after-b-empty.out`, `s2-rprune-*.out`); `s3-before.out`/`s3-after.out`; `s4-before.out`/`s4-after.out`; `s5-before.out`/`s5-after.out`; `s6-before.out`/`s6-after.out` and `s6-move-before.out`/`s6-move-after.out`; `s7-before.out`/`s7-after.out` and `s7-before-retire.out`/`s7-after-retire.out`.
+  - Each stream also has its `sN-checks.txt`.
   - The tools are `stage-e/tools/` (mkroot, sbx, lib, rerun).
   - The cloud was the QA WebDAV on 127.0.0.1:9010. Its START and closing lines are in the shared host file.
 - **The suite** (`tools/last-good-scripts-test` whole, `QA_SYSTEM_ROOT` the donor, 0 SKIP):
-  - before: PASSED, 1313 / 0 (`stage-e/suite-before.out`);
+  - before, at `aeebe31248`: `PASSED`, 1313 PASS / 0 FAIL / 0 SKIP, rc 0, 515 s (`stage-e/suite-before.out`);
   - after each stream: `suite-after-s1.out.2` to `suite-after-s7.out`, read in `02` § The runs;
-  - after, at `23dfd53c0e`: `stage-e/suite-after.out`.
+  - after, at `23dfd53c0e`, with `stage-e/patches/last-good-scripts-test.patch`: `PASSED`, 1313 PASS / 0 FAIL / 0 SKIP, rc 0, 516 s (`stage-e/suite-after.out`).
   - The fixture completions under D-WORKFLOW-210/211 are in `stage-e/patches/last-good-scripts-test.patch` (A18, A4, A23, d, h, S315), T15's merge debt.
 - **Found on the way:**
   - The `git archive` snapshot's 16 false FAILs; a `git clone --shared` snapshot replaced it.
