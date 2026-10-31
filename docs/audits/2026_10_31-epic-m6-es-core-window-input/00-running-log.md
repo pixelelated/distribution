@@ -328,3 +328,21 @@
 - **Whose:** PL-16's `:134` is upstream's (`c3d400a3af`), so its #585 line is in `02`. There are no lines for PL-11 (a rename) or PL-12 (a design choice; the popup's CLEAR is the fork's `c8dc72cf9e`).
 - **Merge debt:** T34's `MenuComponent.cpp:9-10` sentence about the keyboard's second copy is now false (ruling 3, the integration's).
 - **Time to play:** none on the launch path.
+
+## [Stage F] 21:33 to 21:33 UTC 2026-10-31 — Phase 7: every punch item at an outcome
+
+- **`tools/t35-05.py` writes the outcomes from one table** (`OUT`), so the gate table and `punch_index` agree. Both come from `t35-streams.md`'s rulings and the streams' commits. **17 Resolved:** PL-01, PL-02, PL-03, PL-04, PL-05's window half, PL-07, PL-08, PL-09, PL-10, PL-11, PL-12, PL-15, PL-16, PL-25, PL-26, PL-27 and PL-28, each with its ES commit and bug. **17 Deferred:**
+  - PL-06 to #1310.
+  - PL-13 and PL-14 recorded as written (D-UI-134).
+  - PL-17, PL-29, PL-31 and PL-32 to #585.
+  - PL-18 recorded, 3.5 `may_fail`.
+  - PL-19, PL-21, PL-24 and PL-33 recorded under D-UI-079.
+  - PL-20 and PL-30 to #1347.
+  - PL-22 to #1346.
+  - PL-23 the coordinator's sweep.
+  - PL-34 recorded as the card tier's design (#1345).
+  - 0 Withdrawn.
+- **`05`** carries `fixed-at-es: d0e5b3432...`, and PL-27 and PL-28's owner cells carry S7's correction (the logger is upstream's).
+- **`tools/lint-audit-artifacts <folder>`** passes on its default `resolution` phase, and with `--issue 1337`.
+- **`02` § Positives** gains stage E's: the build at S8's tip exits 0 (`TOTAL: 283 test cases in 8 binaries`, `may_fail: 1`, every `SAN` line rc 0), the seven candidates' FAIL-then-PASS, and the script's two guards.
+- **#1337's checkboxes** are ticked against the committed `05` rows (next).

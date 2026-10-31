@@ -1,7 +1,8 @@
 """Write 05-punch-list.md (#682) from one item table: each item's section, the Phase 7
-resolution gate (every item Open before stage D's issue exists), and the punch_index YAML
-(question: in the brief's § 4 numbering). T34's t34-05.py's shape. Asserts unique ids, a
-known severity and question per item, and the three views agreeing.
+resolution gate, and the punch_index YAML (question: in the brief's § 4 numbering). T34's
+t34-05.py's shape. Asserts unique ids, a known severity and question per item, an outcome
+per item (stage F: Resolved with its commit and bug, Deferred with its issue, as
+t35-streams.md's rulings dispose them), and the three views agreeing.
     t35-05.py"""
 import os
 import re
@@ -111,11 +112,11 @@ I = [
      "`postToUiThread` writes `mSleeping` and `mTimeSinceLastInput` under the queue's mutex from worker threads; `update`, `render` and `cancelScreenSaver` read and write them without it. Low: the consequence is an idle counter reset or kept (the seat proposed Medium).",
      "apply the wake on the interface thread (a flag the drain reads); 3.17's program extended", "tree"),
     ("The logger can lose its final batch at close, and reads its stop flag unlocked", "Medium", "Lifetimes", "Q4", "the seat's G-3, verified",
-     "`Log.cpp:63-82`, `:117-162`", "T35 (the fork's logger, #178)",
+     "`Log.cpp:63-82`, `:117-162`", "T35 (the logger is upstream's, `e478a1eda4`; only its per-batch flush is the fork's, #178 -- corrected at stage E S7)",
      "Entries enqueued after the worker's last swap and before `close()` sets `mShutdown` stay in the write buffer: the worker breaks at `:152` and `close()` re-drains the cleared drain buffer (`:79`). `mShutdown` is written under the mutex and read outside it at `:152`. #178's promise is that every batch reaches the file.",
      "drain the write buffer after the join, and read the flag under the mutex; 3.23's binary the covering case", "tree"),
     ("The crash handler flushes a C++ stream from a signal", "Low", "Lifetimes", "Q4", "the seat's G-4, verified",
-     "`Log.cpp:84-99`, `:237-242`, `:282-285`", "T35 (the fork's logger)",
+     "`Log.cpp:84-99`, `:237-242`, `:282-285`", "T35 (upstream's logger, `e478a1eda4`, `8ec8598f38` -- corrected at stage E S7)",
      "`emergencyFlush` (condition variable, `mFile.flush()`) runs from the SIGABRT and SIGTERM handlers; neither is async-signal-safe, and the worker may write the same stream.",
      "recorded for the pause: a signal-safe path, or the handler's limits written beside it", "tree"),
     ("A stick moved from one extreme to the other without a neutral sample sends nothing", "Low", "Input", "Q2", "the seat's G-5, verified",
@@ -144,24 +145,68 @@ I = [
      "a pause ruling: a card held while a full-screen popup owns the screen, or recorded as the card tier's design", "guest (image)"),
 ]
 ids = ["PL-%02d" % (i + 1) for i in range(len(I))]
+# Stage F (Phase 7): each item's outcome, from t35-streams.md's rulings (0f9f8f69fe on the
+# coordinator's branch; #682 comment 6545778560) and the streams' ES commits on
+# feature/m6-es-core-window-input-682. The evidence names the commit or the issue the lint reads.
+R = "#682 comment 6545778560"
+OUT = {
+    "PL-01": ("Resolved", "`1d5d3e0db` (#1283's es-core half, S4): 3.1 `0 ms`, the second watcher `0 ms`, `tsan-watchers` rc 0; the wait left is a watcher's own probe (`stage-e/s4-unregister-wait.txt`)"),
+    "PL-02": ("Resolved", "`453dffd0a` (#1338, S2): 3.14 and the interruption case PASS"),
+    "PL-03": ("Resolved", "`c0ab63bf2` (#1339, S5): 3.4 and the two S5 cases PASS"),
+    "PL-04": ("Resolved", "`f5a698915` (#1340, S6): 3.11 (reshaped through the writer) PASS; the detect page's read uncached too"),
+    "PL-05": ("Resolved", "`5d7707790` (#1305's window half, S3): the hold case PASS; the pages' overrides `stage-e/s3-pages.patch` for T18 (#665) and T31 (#678), merge debt; 3.27 FAIL until T33's or T2's half lands (ruling 12)"),
+    "PL-06": ("Deferred", "#1310 at the integration (ruling 6): no window teardown change in stage E; the hand-back dry-runs T34's patches"),
+    "PL-07": ("Resolved", "`453dffd0a` (#1341, S2): `tsan-posts` rc 0"),
+    "PL-08": ("Resolved", "`f5a698915` (#1348, S6): the polling reader 0 short of 110,283, the bytes `save_file`'s; the favourites file and the log recorded (ruling 7)"),
+    "PL-09": ("Resolved", "`f5a698915` (#1349, S6): 3.10 PASS"),
+    "PL-10": ("Resolved", "`f5a698915` (#1350, S6): `lsan-f4` rc 0"),
+    "PL-11": ("Resolved", "`d0e5b3432` (#1351, S8; D-UI-135): 3.19 re-shaped PASS"),
+    "PL-12": ("Resolved", "`d0e5b3432` (#1352, S8; D-UI-136): the three CLEAR/x cases PASS"),
+    "PL-13": ("Deferred", "recorded as written (ruling 2, D-UI-134's second sentence; " + R + "): a returned toast whole, with its default duration; 3.14's duration case the contract"),
+    "PL-14": ("Deferred", "recorded as written (ruling 1, D-UI-134; " + R + "): a toast waits as long as any card runs; a long card is its owner's, #1345 for the startup sync's 100 s"),
+    "PL-15": ("Resolved", "`56aa398b8` (#1342, S1): the drive dialogs' cases PASS; es-core's three-button count in `02`, es-app's #1344"),
+    "PL-16": ("Resolved", "`d0e5b3432` (#1353, S8): 3.21 PASS; `GAMEPAD` -> `MANETTE` in the same commit"),
+    "PL-17": ("Deferred", "#585 (ruling 8): recorded, its intent read (`d85f6a98f`); the recorded-only line in `02`"),
+    "PL-18": ("Deferred", "recorded as written (ruling 9; " + R + "): 3.5 `may_fail` with PL-18 named (ruling 20); no #585 line"),
+    "PL-19": ("Deferred", "recorded under D-UI-079 (ruling 16; " + R + "): the shipped `es_input.cfg` has 0 `inputAction` lines (G-01)"),
+    "PL-20": ("Deferred", "#1347 (ruling 17): the templates' half for T3 (#650)"),
+    "PL-21": ("Deferred", "recorded under D-UI-079 (ruling 16; " + R + "): a debugging aid outside the lanes"),
+    "PL-22": ("Deferred", "#1346 (ruling 16): the coordinator's Backlog, with its #585 line"),
+    "PL-23": ("Deferred", "the coordinator's, at acceptance (ruling 18; " + R + "): `tools/archaeology --reversal 'top-right'` and `es-native-ui.md:30`"),
+    "PL-24": ("Deferred", "recorded under D-UI-079 (ruling 16; " + R + "): TTS is compiled out on the image"),
+    "PL-25": ("Resolved", "`453dffd0a` (#1354, S2): 3.16's two cases PASS"),
+    "PL-26": ("Resolved", "`453dffd0a` (#1355, S2): `tsan-posts`' wake phase rc 0; the refresh event kept with the post"),
+    "PL-27": ("Resolved", "`425fbd4af` (#1343, S7): `log-tests`' PL-27 case 0 of 5 lost, `tsan-log-close` rc 0"),
+    "PL-28": ("Resolved", "`425fbd4af` (#1356, S7; ruling 10 (b) once `tsan-log-flush` showed the race): `tsan-log-flush` rc 0"),
+    "PL-29": ("Deferred", "#585 (ruling 16): no pad on the guest (G-10 `CANNOT`)"),
+    "PL-30": ("Deferred", "#1347 (ruling 17): an open item to test (G-10 `CANNOT`)"),
+    "PL-31": ("Deferred", "#585 (ruling 16): the `HAVE_UDEV` branch is not parsed on the host"),
+    "PL-32": ("Deferred", "#585 (ruling 16): checking the result changes which themes load"),
+    "PL-33": ("Deferred", "recorded under D-UI-079 (ruling 16; " + R + "): WIN32-only, not on the fork's images"),
+    "PL-34": ("Deferred", "recorded as the card tier's design (ruling 11; D-UI-095): the startup card's 100 s is #1345"),
+}
+if sorted(OUT) != ids:
+    print("ASSERT: the outcomes do not cover the items exactly", file=sys.stderr); sys.exit(1)
 if len(set(t[0] for t in I)) != len(I):
     print("ASSERT: duplicate titles", file=sys.stderr); sys.exit(1)
 for t in I:
     if t[1] not in SEV or not re.fullmatch(r"Q[1-7]", t[3]):
         print("ASSERT: a bad severity or question in %r" % t[0], file=sys.stderr); sys.exit(1)
 out = ["# Punch list (Phases 5 and 6) — M6.P2 T35, EmulationStation's window, input and the rest of es-core (#682)", "",
-       "Written by `tools/t35-05.py` from one item table, so the sections, the Phase 7 gate and the `punch_index` agree. `question:` is the brief's § 4 numbering (Q1 the queue and its surfaces, Q2 the input's writes and commands, Q3 the watchers' lock, Q4 lifetimes, Q5 scripts and the shell, Q6 the popups and the words, Q7 cost, structure and merge debt). Every item is **Open** until the stage-D pause disposes it.", "",
+       "Written by `tools/t35-05.py` from one item table, so the sections, the Phase 7 gate and the `punch_index` agree. `question:` is the brief's § 4 numbering (Q1 the queue and its surfaces, Q2 the input's writes and commands, Q3 the watchers' lock, Q4 lifetimes, Q5 scripts and the shell, Q6 the popups and the words, Q7 cost, structure and merge debt). Phase 7 (stage F) records each item's outcome from the stage-D pause's rulings (`docs/reviews/briefs/t35-streams.md` at `0f9f8f69fe`, #682 comment 6545778560) and the streams' commits.", "",
        "reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829", "",
+       "fixed-at-es: d0e5b3432e1c4c1ea7eb08edf7210e06befba199 (`feature/m6-es-core-window-input-682`, pixelelated/emulationstation; S1 `56aa398b8` to S8 `d0e5b3432`)", "",
        "**Filed at stage D** (2026-10-31): the audit issue #1337 (a sub-issue of #682); the bugs PL-02 #1338, PL-03 #1339, PL-04 #1340, PL-07 #1341, PL-15 #1342, PL-27 #1343; T35's code traces on the existing bugs #1283 (PL-01's es-core half) and #1305 (PL-05's window half). PL-15 re-graded High as data safety at the coordinator's ruling (#682 comment 6542863818).", ""]
 for pl, (title, sev, cat, q, src, lines, own, what, disp, proved) in zip(ids, I):
     out += ["## %s: %s" % (pl, title), "", "- **Severity:** %s; **category:** %s; **question:** %s" % (sev, cat, q), "- **Source finding:** %s" % src,
             "- **Lines at the pin:** %s" % lines, "- **Owner:** %s" % own, "- **What is wrong:** %s" % what, "- **Proposed disposition:** %s" % disp, "- **proved:** %s" % proved, ""]
 out += ["## Phase 7 resolution gate", "", "| Item | Outcome | Evidence |", "| --- | --- | --- |"]
-out += ["| %s | Open | the stage-D pause disposes it |" % pl for pl in ids]
+out += ["| %s | **%s** | %s |" % (pl, OUT[pl][0], OUT[pl][1]) for pl in ids]
 out += ["", "## punch_index", "", "```yaml", "punch_index:"]
 for pl, t in zip(ids, I):
-    out += ["- id: %s" % pl, "  severity: \"%s\"" % t[1], "  category: %s" % t[2], "  question: %s" % t[3], "  source_finding: \"%s\"" % t[4].replace('"', "'"), "  outcome: \"open\""]
+    out += ["- id: %s" % pl, "  severity: \"%s\"" % t[1], "  category: %s" % t[2], "  question: %s" % t[3], "  source_finding: \"%s\"" % t[4].replace('"', "'"), "  outcome: \"%s\"" % OUT[pl][0].lower()]
 out += ["```", ""]
 open(os.path.join(os.path.dirname(HERE), "05-punch-list.md"), "w", encoding="utf-8").write("\n".join(out))
 c = {s: sum(1 for t in I if t[1] == s) for s in SEV}
-print("t35-05: %d items (%s); all Open before stage D" % (len(I), ", ".join("%d %s" % (c[s], s) for s in SEV)))
+w = {k: sum(1 for v in OUT.values() if v[0] == k) for k in ("Resolved", "Deferred", "Withdrawn")}
+print("t35-05: %d items (%s); Phase 7: %d Resolved, %d Deferred, %d Withdrawn" % (len(I), ", ".join("%d %s" % (c[s], s) for s in SEV), w["Resolved"], w["Deferred"], w["Withdrawn"]))

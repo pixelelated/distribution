@@ -829,6 +829,13 @@ At stage B the lane left this heading for the pause with the following, which th
 - All 61 msgids and all 28 `pgettext`/`ngettext` entries have their French at the pin. `proved: tool-run`.
 - The logger and the watcher thread are joined (`Log.cpp:76-77` from `onExit`; `WatchersManager.cpp:154` from `stop()`). Every `.cpp` of the 96 is registered once in `es-core/CMakeLists.txt`. `proved: tree`.
 
+
+**Stage E's positives, each a tool's line** (the before and after pairs are § The streams' rows, asserted by `tools/t35-runs.py` in § The runs' stage-E table from `stage-e/sN-before.txt` and `sN-after.txt`):
+
+- At S8's tip the whole unit build exits 0: `TOTAL: 283 test cases in 8 binaries`, every binary's test-case summary at 0 failed, `may_fail: 1` (3.5, PL-18 recorded under rulings 9 and 20), and every `SAN` line `rc 0; no sanitizer report` -- `tsan-posts`, `tsan-watchers`, `asan-watchers`, `lsan-f4`, `tsan-log-close`, `tsan-log-flush` (`stage-e/s8-after.txt`). `proved: fix-unit-test`.
+- The seven candidates' FAIL lines at the pin (3.1, 3.4, 3.5, 3.10, 3.11, 3.14, 3.19) each have their PASS (or 3.5's `may_fail`) in a stream's after-file; 3.11 and 3.19 were reshaped, each record saying so; 3.27 stays FAIL with its reason (ruling 12, `stage-e/s3-pl25.txt`). `proved: fix-unit-test`.
+- The build script refuses to build against stale extracts (seen to fire, `stage-e/s2-guard-proof.txt`) and lists a failed case only under an `ERROR` line and an allowed one apart (`may_fail case:`). `proved: tool-run`.
+
 ## The #585 lines owed
 
 One line per upstream-carried defect closed under rule 6, in the lane's shape, **never sent** (D-WORKFLOW-164, D-WORKFLOW-165). At stage B none is closed yet, so each is a line owed **if** the pause rules its fix. They are listed for the coordinator, beginning with T33's never-posted candidate:

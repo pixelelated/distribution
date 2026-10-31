@@ -1,8 +1,10 @@
 # Punch list (Phases 5 and 6) — M6.P2 T35, EmulationStation's window, input and the rest of es-core (#682)
 
-Written by `tools/t35-05.py` from one item table, so the sections, the Phase 7 gate and the `punch_index` agree. `question:` is the brief's § 4 numbering (Q1 the queue and its surfaces, Q2 the input's writes and commands, Q3 the watchers' lock, Q4 lifetimes, Q5 scripts and the shell, Q6 the popups and the words, Q7 cost, structure and merge debt). Every item is **Open** until the stage-D pause disposes it.
+Written by `tools/t35-05.py` from one item table, so the sections, the Phase 7 gate and the `punch_index` agree. `question:` is the brief's § 4 numbering (Q1 the queue and its surfaces, Q2 the input's writes and commands, Q3 the watchers' lock, Q4 lifetimes, Q5 scripts and the shell, Q6 the popups and the words, Q7 cost, structure and merge debt). Phase 7 (stage F) records each item's outcome from the stage-D pause's rulings (`docs/reviews/briefs/t35-streams.md` at `0f9f8f69fe`, #682 comment 6545778560) and the streams' commits.
 
 reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
+
+fixed-at-es: d0e5b3432e1c4c1ea7eb08edf7210e06befba199 (`feature/m6-es-core-window-input-682`, pixelelated/emulationstation; S1 `56aa398b8` to S8 `d0e5b3432`)
 
 **Filed at stage D** (2026-10-31): the audit issue #1337 (a sub-issue of #682); the bugs PL-02 #1338, PL-03 #1339, PL-04 #1340, PL-07 #1341, PL-15 #1342, PL-27 #1343; T35's code traces on the existing bugs #1283 (PL-01's es-core half) and #1305 (PL-05's window half). PL-15 re-graded High as data safety at the coordinator's ruling (#682 comment 6542863818).
 
@@ -271,7 +273,7 @@ reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
 - **Severity:** Medium; **category:** Lifetimes; **question:** Q4
 - **Source finding:** the seat's G-3, verified
 - **Lines at the pin:** `Log.cpp:63-82`, `:117-162`
-- **Owner:** T35 (the fork's logger, #178)
+- **Owner:** T35 (the logger is upstream's, `e478a1eda4`; only its per-batch flush is the fork's, #178 -- corrected at stage E S7)
 - **What is wrong:** Entries enqueued after the worker's last swap and before `close()` sets `mShutdown` stay in the write buffer: the worker breaks at `:152` and `close()` re-drains the cleared drain buffer (`:79`). `mShutdown` is written under the mutex and read outside it at `:152`. #178's promise is that every batch reaches the file.
 - **Proposed disposition:** drain the write buffer after the join, and read the flag under the mutex; 3.23's binary the covering case
 - **proved:** tree
@@ -281,7 +283,7 @@ reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
 - **Severity:** Low; **category:** Lifetimes; **question:** Q4
 - **Source finding:** the seat's G-4, verified
 - **Lines at the pin:** `Log.cpp:84-99`, `:237-242`, `:282-285`
-- **Owner:** T35 (the fork's logger)
+- **Owner:** T35 (upstream's logger, `e478a1eda4`, `8ec8598f38` -- corrected at stage E S7)
 - **What is wrong:** `emergencyFlush` (condition variable, `mFile.flush()`) runs from the SIGABRT and SIGTERM handlers; neither is async-signal-safe, and the worker may write the same stream.
 - **Proposed disposition:** recorded for the pause: a signal-safe path, or the handler's limits written beside it
 - **proved:** tree
@@ -350,40 +352,40 @@ reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | the stage-D pause disposes it |
-| PL-02 | Open | the stage-D pause disposes it |
-| PL-03 | Open | the stage-D pause disposes it |
-| PL-04 | Open | the stage-D pause disposes it |
-| PL-05 | Open | the stage-D pause disposes it |
-| PL-06 | Open | the stage-D pause disposes it |
-| PL-07 | Open | the stage-D pause disposes it |
-| PL-08 | Open | the stage-D pause disposes it |
-| PL-09 | Open | the stage-D pause disposes it |
-| PL-10 | Open | the stage-D pause disposes it |
-| PL-11 | Open | the stage-D pause disposes it |
-| PL-12 | Open | the stage-D pause disposes it |
-| PL-13 | Open | the stage-D pause disposes it |
-| PL-14 | Open | the stage-D pause disposes it |
-| PL-15 | Open | the stage-D pause disposes it |
-| PL-16 | Open | the stage-D pause disposes it |
-| PL-17 | Open | the stage-D pause disposes it |
-| PL-18 | Open | the stage-D pause disposes it |
-| PL-19 | Open | the stage-D pause disposes it |
-| PL-20 | Open | the stage-D pause disposes it |
-| PL-21 | Open | the stage-D pause disposes it |
-| PL-22 | Open | the stage-D pause disposes it |
-| PL-23 | Open | the stage-D pause disposes it |
-| PL-24 | Open | the stage-D pause disposes it |
-| PL-25 | Open | the stage-D pause disposes it |
-| PL-26 | Open | the stage-D pause disposes it |
-| PL-27 | Open | the stage-D pause disposes it |
-| PL-28 | Open | the stage-D pause disposes it |
-| PL-29 | Open | the stage-D pause disposes it |
-| PL-30 | Open | the stage-D pause disposes it |
-| PL-31 | Open | the stage-D pause disposes it |
-| PL-32 | Open | the stage-D pause disposes it |
-| PL-33 | Open | the stage-D pause disposes it |
-| PL-34 | Open | the stage-D pause disposes it |
+| PL-01 | **Resolved** | `1d5d3e0db` (#1283's es-core half, S4): 3.1 `0 ms`, the second watcher `0 ms`, `tsan-watchers` rc 0; the wait left is a watcher's own probe (`stage-e/s4-unregister-wait.txt`) |
+| PL-02 | **Resolved** | `453dffd0a` (#1338, S2): 3.14 and the interruption case PASS |
+| PL-03 | **Resolved** | `c0ab63bf2` (#1339, S5): 3.4 and the two S5 cases PASS |
+| PL-04 | **Resolved** | `f5a698915` (#1340, S6): 3.11 (reshaped through the writer) PASS; the detect page's read uncached too |
+| PL-05 | **Resolved** | `5d7707790` (#1305's window half, S3): the hold case PASS; the pages' overrides `stage-e/s3-pages.patch` for T18 (#665) and T31 (#678), merge debt; 3.27 FAIL until T33's or T2's half lands (ruling 12) |
+| PL-06 | **Deferred** | #1310 at the integration (ruling 6): no window teardown change in stage E; the hand-back dry-runs T34's patches |
+| PL-07 | **Resolved** | `453dffd0a` (#1341, S2): `tsan-posts` rc 0 |
+| PL-08 | **Resolved** | `f5a698915` (#1348, S6): the polling reader 0 short of 110,283, the bytes `save_file`'s; the favourites file and the log recorded (ruling 7) |
+| PL-09 | **Resolved** | `f5a698915` (#1349, S6): 3.10 PASS |
+| PL-10 | **Resolved** | `f5a698915` (#1350, S6): `lsan-f4` rc 0 |
+| PL-11 | **Resolved** | `d0e5b3432` (#1351, S8; D-UI-135): 3.19 re-shaped PASS |
+| PL-12 | **Resolved** | `d0e5b3432` (#1352, S8; D-UI-136): the three CLEAR/x cases PASS |
+| PL-13 | **Deferred** | recorded as written (ruling 2, D-UI-134's second sentence; #682 comment 6545778560): a returned toast whole, with its default duration; 3.14's duration case the contract |
+| PL-14 | **Deferred** | recorded as written (ruling 1, D-UI-134; #682 comment 6545778560): a toast waits as long as any card runs; a long card is its owner's, #1345 for the startup sync's 100 s |
+| PL-15 | **Resolved** | `56aa398b8` (#1342, S1): the drive dialogs' cases PASS; es-core's three-button count in `02`, es-app's #1344 |
+| PL-16 | **Resolved** | `d0e5b3432` (#1353, S8): 3.21 PASS; `GAMEPAD` -> `MANETTE` in the same commit |
+| PL-17 | **Deferred** | #585 (ruling 8): recorded, its intent read (`d85f6a98f`); the recorded-only line in `02` |
+| PL-18 | **Deferred** | recorded as written (ruling 9; #682 comment 6545778560): 3.5 `may_fail` with PL-18 named (ruling 20); no #585 line |
+| PL-19 | **Deferred** | recorded under D-UI-079 (ruling 16; #682 comment 6545778560): the shipped `es_input.cfg` has 0 `inputAction` lines (G-01) |
+| PL-20 | **Deferred** | #1347 (ruling 17): the templates' half for T3 (#650) |
+| PL-21 | **Deferred** | recorded under D-UI-079 (ruling 16; #682 comment 6545778560): a debugging aid outside the lanes |
+| PL-22 | **Deferred** | #1346 (ruling 16): the coordinator's Backlog, with its #585 line |
+| PL-23 | **Deferred** | the coordinator's, at acceptance (ruling 18; #682 comment 6545778560): `tools/archaeology --reversal 'top-right'` and `es-native-ui.md:30` |
+| PL-24 | **Deferred** | recorded under D-UI-079 (ruling 16; #682 comment 6545778560): TTS is compiled out on the image |
+| PL-25 | **Resolved** | `453dffd0a` (#1354, S2): 3.16's two cases PASS |
+| PL-26 | **Resolved** | `453dffd0a` (#1355, S2): `tsan-posts`' wake phase rc 0; the refresh event kept with the post |
+| PL-27 | **Resolved** | `425fbd4af` (#1343, S7): `log-tests`' PL-27 case 0 of 5 lost, `tsan-log-close` rc 0 |
+| PL-28 | **Resolved** | `425fbd4af` (#1356, S7; ruling 10 (b) once `tsan-log-flush` showed the race): `tsan-log-flush` rc 0 |
+| PL-29 | **Deferred** | #585 (ruling 16): no pad on the guest (G-10 `CANNOT`) |
+| PL-30 | **Deferred** | #1347 (ruling 17): an open item to test (G-10 `CANNOT`) |
+| PL-31 | **Deferred** | #585 (ruling 16): the `HAVE_UDEV` branch is not parsed on the host |
+| PL-32 | **Deferred** | #585 (ruling 16): checking the result changes which themes load |
+| PL-33 | **Deferred** | recorded under D-UI-079 (ruling 16; #682 comment 6545778560): WIN32-only, not on the fork's images |
+| PL-34 | **Deferred** | recorded as the card tier's design (ruling 11; D-UI-095): the startup card's 100 s is #1345 |
 
 ## punch_index
 
@@ -394,203 +396,203 @@ punch_index:
   category: Locks
   question: Q3
   source_finding: "L-11, 3.1, #1283's es-core half"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-02
   severity: "Medium"
   category: Surfaces
   question: Q1
   source_finding: "L-01, 3.14"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-03
   severity: "Medium"
   category: Scripts
   question: Q5
   source_finding: "L-18, 3.4, T2 FD-9/FD-19"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-04
   severity: "Low"
   category: Input
   question: Q2
   source_finding: "L-07, 3.11"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-05
   severity: "Medium"
   category: Lifetimes
   question: Q4
   source_finding: "L-27, 3.27, #1305"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-06
   severity: "Medium"
   category: Lifetimes
   question: Q4
   source_finding: "L-02, T2 PC-1"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-07
   severity: "Medium"
   category: Lifetimes
   question: Q4
   source_finding: "L-03, 3.17"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-08
   severity: "Low"
   category: Input
   question: Q2
   source_finding: "L-06"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-09
   severity: "Low"
   category: Input
   question: Q2
   source_finding: "L-10, 3.10"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-10
   severity: "Low"
   category: Input
   question: Q2
   source_finding: "L-24"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-11
   severity: "Low"
   category: Words
   question: Q6
   source_finding: "L-13, 3.19, T34 PL-16"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-12
   severity: "Low"
   category: Words
   question: Q6
   source_finding: "L-14"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-13
   severity: "Low"
   category: Surfaces
   question: Q1
   source_finding: "L-01, 3.14 (second case)"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-14
   severity: "Low"
   category: Surfaces
   question: Q1
   source_finding: "F-ES-24, brief § 9"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-15
   severity: "High"
   category: Data safety
   question: Q6
   source_finding: "L-12, 3.18"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-16
   severity: "Low"
   category: Words
   question: Q6
   source_finding: "L-17, 3.21"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-17
   severity: "Low"
   category: Scripts
   question: Q5
   source_finding: "L-18"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-18
   severity: "Low"
   category: Scripts
   question: Q5
   source_finding: "L-18, 3.5"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-19
   severity: "Low"
   category: Locks
   question: Q3
   source_finding: "L-08, 3.13"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-20
   severity: "Low"
   category: Input
   question: Q2
   source_finding: "L-09, 3.12"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-21
   severity: "Low"
   category: Structure
   question: Q7
   source_finding: "L-05"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-22
   severity: "Medium"
   category: Structure
   question: Q7
   source_finding: "L-04"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-23
   severity: "Low"
   category: Structure
   question: Q7
   source_finding: "L-22"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-24
   severity: "Low"
   category: Words
   question: Q6
   source_finding: "L-16, 3.20"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-25
   severity: "Low"
   category: Words
   question: Q6
   source_finding: "the seat's G-1, verified"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-26
   severity: "Low"
   category: Lifetimes
   question: Q4
   source_finding: "the seat's G-2, verified"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-27
   severity: "Medium"
   category: Lifetimes
   question: Q4
   source_finding: "the seat's G-3, verified"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-28
   severity: "Low"
   category: Lifetimes
   question: Q4
   source_finding: "the seat's G-4, verified"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-29
   severity: "Low"
   category: Input
   question: Q2
   source_finding: "the seat's G-5, verified"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-30
   severity: "Low"
   category: Input
   question: Q2
   source_finding: "the seat's G-6, verified"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-31
   severity: "Low"
   category: Lifetimes
   question: Q4
   source_finding: "the seat's G-11, verified"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-32
   severity: "Low"
   category: Structure
   question: Q7
   source_finding: "the seat's G-14, verified"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-33
   severity: "Low"
   category: Structure
   question: Q7
   source_finding: "the seat's G-7, G-8, G-9, G-10, G-12, G-13, verified"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-34
   severity: "Low"
   category: Surfaces
   question: Q1
   source_finding: "G-06 (the guest)"
-  outcome: "open"
+  outcome: "deferred"
 ```
