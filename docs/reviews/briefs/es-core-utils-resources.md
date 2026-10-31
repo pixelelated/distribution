@@ -1,17 +1,23 @@
 # Review brief: M6.P2 T36, EmulationStation's utilities, resources and renderers: the file helpers and their cache, the process and shell helpers, the string and time helpers, the fonts, the texture cache and its loader, the GL renderers (#683)
 
-**Version 1, 2026-10-31, for the stranger's proof** (D-WORKFLOW-189;
-`docs/reviews/plan-for-the-plan.md` § 6b, § 6c, § 7). Written from five
+**Version 2, 2026-10-31, after the stranger's proof of version 1 (`e52274caf9`)**
+(D-WORKFLOW-189; `docs/reviews/plan-for-the-plan.md` § 6b, § 6c, § 7; the
+proof is `/workspace/tmp/m6-coordinator/kit/t36-proof.md`, 18 commands and
+170 check rows -- 149 ok, 17 citing a correction, 4 notes -- and `##
+Corrections in version 2` at the end records its sixteen corrections, cited
+in the body as `proof C<n>` and its commands as `proof CMD<n>`). Written from five
 read-only research files -- R1 membership and provenance, R2 the code read at
 the pin, R3 tests, build and harness, R4 the inherited items, R5 the model and
 the ceremony (`/workspace/tmp/m6-coordinator/kit/t36-research/`, in no tree)
 -- and nothing else: every figure here is one of their quoted tool lines,
 cited as `R1 C<nn>` (R1's commands C01 to C23), `R2 cmd <n>` or `R2 § <n>`,
 `R3 cmd <n>` or `R3 § <n>`, `R4 item <n>` or `R4 § <n>`, `R5 C<n>` or
-`R5 § <letter>`, or a line the drafter printed on 2026-10-31 in the
-coordinator worktree and says so; **`[unverified]` marks what no tool line
-settles, with what would settle it**, and `## Version 1: what the drafting
-read did not settle` at the end lists every one. Counts by `/usr/bin/grep`,
+`R5 § <letter>`, or a line the stranger's proof printed (`proof CMD<n>`), or
+a line the drafter printed on 2026-10-31 in the coordinator worktree and says
+so; **`[unverified]` marks what no tool line settles, with what would settle
+it**, and `## What version 2 does not settle` near the end lists every one
+(version 1 listed nine; the proof settled four, narrowed four and left one,
+proof U-1 to U-9). Counts by `/usr/bin/grep`,
 never the shell's function (#1138). The structure is T35's brief
 (`docs/reviews/briefs/es-core-window-input.md`, version 2 at `8b5d9b9b62`,
 2,120 lines by `grep -c ''`, R5 C3); every T35-specific paragraph is replaced
@@ -29,12 +35,16 @@ at `153ca325b3` on 2026-10-31 at 11:30 UTC: `git diff --stat 4536815b6b
 docs/blindspot-register.md docs/futros docs/reviews/briefs` printed no line,
 the decided table's highest IDs printed R5 § G's nine, and `## Open
 decisions` opens at `:773`. At `acc4674006` (11:39 UTC, the coordinator's
-tip while this version was drafted) the same `awk` printed D-WORKFLOW-215
+tip while version 1 was drafted) the same `awk` printed D-WORKFLOW-215
 (`:771`) in place of D-WORKFLOW-214, `## Open decisions` at `:774`, and
 `git diff --stat 153ca325b3 acc4674006 -- .claude/rules docs/es-menu-map.md
 docs/blindspot-register.md docs/futros docs/reviews/briefs` printed no line
 -- so every rule line cited here holds at all three, every register line up
-to `:770` holds, and the lane re-reads them at `COHASH`.
+to `:770` holds, and the lane re-reads them at `COHASH`. The proof read the
+rules again at `e52274caf9` (`rules diff 4536815b6b..e52274caf9: []`, proof
+CMD8) and the register at four hashes (`## Open decisions` `:774` at
+`acc4674006` and `e52274caf9`, proof CMD9); the coordinator's tip at dispatch
+is read then, as `COHASH`.
 
 ## 1. Identity
 
@@ -76,13 +86,17 @@ to `:770` holds, and the lane re-reads them at `COHASH`.
   interface, EmulationStation (T2, T18, T20, T21, T26, T31 to T37, T44)`
   (R5 § F): T2 #649, T18 #665, T20 #667, T21 #668, T26 #673, T31 #678, T32
   #679 and T33 #680 are accepted and their issues stay open until the
-  integration moves the pin on `next` (§ 10); **T34 #681** is at acceptance
-  (*"T34's acceptance re-run at 28 of 28"*, commit `4536815b6b`'s subject,
-  R5 C10; its ES branch `feature/m6-es-core-components-681` at `52f0ff5128`,
-  8 ahead of the pin, touching none of the 58, R1 C17); **T35 #682** is in
-  flight (9 comments, R5 C8; its distribution tip `bb1754e581`, R4 cmd 2,
-  R3 cmd 1; its ES branch at the pin, 0 ahead, R1 C17, with no `origin/` ref,
-  R5 C12); this slice; T37 #684 and T44 after. The futro
+  integration moves the pin on `next` (§ 10); **T34 #681** is complete (the
+  coordinator's commit *"T34 (#681) complete at 308d0f7571"*, proof K-170;
+  its distribution tip now `49c6b43f27`, *"T34's held reply declared by its
+  receipt's sha256 for the lint's held mode"*, the drafter's `git log -1` on
+  2026-10-31; its ES branch `feature/m6-es-core-components-681` unchanged at
+  `52f0ff5128`, 8 ahead of the pin, touching none of the 58, R1 C17, proof
+  K-031); **T35 #682** is at stage E, its distribution branch moving, so
+  **its tip is read at stage A**, never copied from here (`bb1754e581` at
+  R4's read, `5d7650c1dc` at the proof's, proof K-170); its ES branch is at
+  the pin, 0 ahead, with no `origin/` ref (R1 C17; R5 C12; proof K-032);
+  this slice; T37 #684 and T44 after. The futro
   `docs/futros/2026-10-23-m6-interface.md` (996 lines at `4536815b6b`, R5 C5,
   C10; its last heading `:994`, *Errata from the stranger's proof of T35's
   brief*) takes a **T36 kickoff addendum** written by the coordinator with
@@ -204,9 +218,11 @@ to `:770` holds, and the lane re-reads them at `COHASH`.
   (h) **T35's case 3.11 already FAILs at the pin in T35's harness** -- *"a
   file written by pugixml's save_file after a cached miss reads as present
   (InputManager.cpp:1187 with utils/FileSystemUtil.cpp, T36's)"*, one of the
-  seven `TEST CASE:` failure lines of `window-input-tests: rc 1; 10 | 3 passed
-  | 7 failed`, lifting `FileSystemUtil.cpp:48-341` and `:1122-1147` verbatim
-  (R3 § 1.4, cmd 14, cmd 15). **T36 owns the fix (the cache); T35 owns the
+  seven `TEST CASE:` failure lines of `RUN window-input-tests: rc 1; [doctest]
+  test cases: 10 | 3 passed | 7 failed ...` (T35 `stage-c/build-tests.out:65`,
+  the line's tail abridged here; proof C8, CMD15), lifting
+  `FileSystemUtil.cpp:48-341` and `:1122-1147` verbatim (R3 § 1.4, cmd 14,
+  cmd 15). **T36 owns the fix (the cache); T35 owns the
   case.** A stage-E stream that changes the cache's answer re-runs T35's
   case unchanged from T35's tip and records its line; the coordination is
   the coordinator's, at both lanes' pauses (§ 5 item 4).
@@ -315,8 +331,11 @@ to `:770` holds, and the lane re-reads them at `COHASH`.
   `StringUtil.cpp:446-804` -- the credential words it matches
   (password, pass, token, key, secret, psk, pin), `setrootpass`, `wifictl
   connect/enable`, `?y=`, `&t=`, `&p=` (R2 § 0; its name list `:513`, R4 item
-  25) -- and `OfflineProxyUrl.h`'s `StoreOnlyHeader` (*"a header name, not a
-  value"*, `:29`) beside the loopback `Base` (`:22`) (R2 § 0; R4 item 35); so
+  25) -- and `OfflineProxyUrl.h:29`, `const char* const StoreOnlyHeader =
+  "X-RA-Store-Only: 1";` under `:27-28`'s *"As HttpReqOptions::customHeaders
+  takes it, name and value in one line."* -- a fixed header line whose value
+  is `1`, dispositioned *a fixed header line, no credential* -- beside the
+  loopback `Base` (`:22`) (proof C5, CMD5, CMD7; R2 § 0); so
   `packet-manifest.json` records **every scan hit dispositioned by file:line**
   (library plumbing / macro name / identifier / setting name / value), and a
   hit that is a value stops the packet; no value ever reaches the packet or
@@ -365,7 +384,8 @@ what the tail "shows today" is never written into an artifact without one.
 **The membership, by the block that defines it** (run from the lane's
 distribution worktree, stacked on the P1 branch, which holds
 `docs/reviews/{inventory.json,slices.json}` at `2174265e9c` -- sha256
-prefixes `49bc2745664e52f4` and `d17b9cac4b2c2245`, R1 C06; the script is
+prefixes `d17b9cac4b2c2245` (`inventory.json`) and `49bc2745664e52f4`
+(`slices.json`), R1 C06, proof C3, CMD2; the script is
 T35's `membership.py` with three lines changed -- the slice id in `hits`, the
 `named` list (28 paths: twelve of this slice's, then the neighbours the brief
 excludes or points at, `utils/DownloadFile.cpp` among them, expected to print
@@ -556,10 +576,17 @@ are **fork-added 6** (`resources/TabStops.h`, `utils/CommandLineUtil.h`,
 and **upstream-carried 43** (R1 C10's `CLASS` lines), and `02` § Coverage
 carries both tiers. Unlike T35's 96, no file carries a fork commit while
 matching the merge base: the inventory's 15 fork-own and git's 15 changed are
-the same set (R1 C19: `in one but not the other: 0`). Only three fork lines sit
-inside upstream functions -- `Font.cpp:1-2` (the include), the
-`TextureData.cpp` hunks and `Platform.cpp:855` (the masked log line);
-everything else the fork added is new functions or new files (R2 § 0). (3)
+the same set (R1 C19: `in one but not the other: 0`). **The fork lines that
+sit inside upstream functions** (the `-U0` hunks against `cada856d86`, proof
+C4, CMD5): `Font.cpp:2` (the include) and `buildTextCache`'s
+`:1027-1029` and `:1105` (hunks `-913 +1027,3`, `-916,45 +1031,0`, `-1034
++1105`); the `TextureData.cpp` hunks; `Platform.cpp:855` (the masked log
+line) and `:343`, `:367` (the two `isLinkInterface` calls inside
+`queryIPAddresses`, hunks `-329,3 +343` and `-356,3 +367`); and
+`TimeUtil.cpp`'s `toLocalTimeString` rewrite (`-189,3 +190,50`, three
+upstream lines replaced); everything else the fork added is new functions
+or new files (R2 § 0). The split decides § 1's line between a fork defect
+and an upstream one under rule 6. (3)
 **The bases** (R1 C01). `rocknix/master` is `f6c542872e` (2026-10-23, *Merge
 pull request #54 from porschemad911/s922x-suspend*); the pin's merge base
 with it is `cada856d86e3115fbbf0bce09dd761b0ee8fa9fd` (2026-09-23, *Refactor
@@ -642,14 +669,14 @@ pin unless the cell names R3 or R4):
 | `resources/TabStops.h` | 49 | 49 + (new) | `a82dcdf4c` | `TabStops::fromColumns` `:26-46`: stop k = previous stop + gap + widest column k; header-only and tested (`TabStopsTests.cpp:6`, R3 § 1.2; `es-app/tests/unit/CMakeLists.txt:33` names it in a comment, R1 C22) |
 | `resources/TextureData.cpp` (`.h` upstream, 126) | 739 | 50 ++- | `20824cc29` (a shared SVG is rasterised at the largest size any consumer asks for, #181) | `initSVGFromMemory` records the clamped raster size `:194-195`; `setMaxSize` before load keeps the larger box per axis for an SVG `:621-634` (writes `:630`, `:632`); `rasterizeAt` grows `mMaxSize` to the request `:687-707` (write `:705`); **`mMutex` (`TextureData.h:103`) is taken by `initSVGFromMemory` `:95`, `initFromRGBA` `:254`, `updateFromExternalRGBA` `:284`, `isLoaded` `:541`, `uploadAndBind` `:551`, `releaseVRAM` `:594`, `releaseRAM` `:607` -- not by `setMaxSize` `:615-645` or `rasterizeAt` `:670-725`** (L-10); **the cached `exists(localFile)` at `:331`, `:339`, `:410`** (#1263's half, ruling (i); R4 item 1); `toLower` on extensions `:460`, `:504`; `<vlc/vlc.h>` `:12` with **no guard**, `libvlc_instance_t`, `libvlc_media_t`, `libvlc_media_player_t` `:343-345`; `<nanosvg/nanosvg.h>`, `<nanosvg/nanosvgrast.h>` `:8-9` resolved in the tree (`external/nanosvg` a tree, R3 § 2.2) |
 | `utils/CommandLineUtil.h` | 104 | 104 + (new) | `2f5fd6332` (a core is swapped only in the command's own word, not the ROM's) | `wordEnd` `:19-48`, `replaceOptionValue` `:60-100` (#308 F-CS-33), `value` inserted unquoted `:95`, `:98` (its callers pass a core name); header-only and tested (`CommandLineTests.cpp:7`, `LaunchCommandTests.cpp:10`, R3 § 1.2) |
-| `utils/OfflineProxyUrl.cpp` / `.h` | 21 / 40 | 21 + / 40 + (new) | `0ec3f43ae` (an image asked of the offline proxy asks for its store only, fork #199) | `Base`, the loopback proxy address `.h:22`; `StoreOnlyHeader` `.h:29` (*"a header name, not a value"*, R4 item 35); `isProxyUrl` `.cpp:6-21` (case-insensitive prefix, then end, `/`, `?` or `#`), which rejects a host that merely begins with the base `.h:31-37`; compiled by `es-unit-tests` (`CMakeLists.txt:64`), four cases in `OfflineProxyUrlTests.cpp` (R4 item 35); included by `WebImageComponent.cpp:7` (T34's) |
+| `utils/OfflineProxyUrl.cpp` / `.h` | 21 / 40 | 21 + / 40 + (new) | `0ec3f43ae` (an image asked of the offline proxy asks for its store only, fork #199) | `Base`, the loopback proxy address `.h:22`; `StoreOnlyHeader` `.h:29`, `const char* const StoreOnlyHeader = "X-RA-Store-Only: 1";` under `:27-28`'s *"As HttpReqOptions::customHeaders takes it, name and value in one line."* -- a fixed header line, its value `1` (proof C5, CMD5, CMD7); `isProxyUrl` `.cpp:6-21` (case-insensitive prefix, then end, `/`, `?` or `#`), which rejects a host that merely begins with the base `.h:31-37`; compiled by `es-unit-tests` (`CMakeLists.txt:64`), four cases in `OfflineProxyUrlTests.cpp` (R4 item 35); included by `WebImageComponent.cpp:7` (T34's) |
 | `utils/Platform.cpp` / `.h` | 956 / 100 | 76 ++- / 13 + | `4e34bc2d1` (multi-line command output), `80f52e500` (a credential's value never reaches the log, #177), `0cc13be61` (a link is not a tunnel, #279, #280) | **`ProcessStartInfo`**: both constructors default `waitForExit` to true `:40`, `:52`; `run` `:60-194` wraps the command as `((((<cmd> 2> <log>/es_launch_stderr.log ; echo $? >&3) \| head -300 > <log>/es_launch_stdout.log) 3>&1) \| (read xs; exit $xs))` `:162` (`/dev/null` for both when the log is off `:163-164`), then `system()` and `WEXITSTATUS` `:166-168`, or without waiting a double fork and `execl("/bin/sh", "sh", "-c", ...)` returning 0 `:172-192` (L-05); **`runSystemCommand` `:853-880`**: the log line through `maskSecrets` `:855` (the fork's), a double fork, `execl("/usr/bin/sh", "sh", "-c", cmd)` `:864`, waits `:868`, `:876`, **returns 0 always `:879`**, `name` and `window` unused (L-13); **`GetShOutput` `:891-905`** (unchecked `popen` `:894`, `fgets` `:897`, `substr(0, size - 1)` `:900`; L-06) and the fork's **`GetShOutputLines` `:907-935`**; **quit**: `quitES` fires `quit` and pushes a heap `SDL_Event` never freed `:235-237` (L-18), `processQuitMode` touches `/tmp/restart.please`, `/tmp/reboot.please` or `/tmp/shutdown.please` `:241-250`, `:263-274`, `system("shutdown ...")` `:196-211`; the fork's `isLinkInterface` `:285-297` used by `queryIPAddresses` `:299-378` (`:343`, `:367`) and the new `queryInterfaceAddresses` `:380-398`; all 16 spawn lines of the slice are here (R2 cmd 17, § 5); `<SDL_events.h>` `:3`, `<ifaddrs.h>`, `<net/if.h>`, `<netinet/in.h>`, `<arpa/inet.h>` `:11-15` (R3 § 2.2); **`Platform.h` is SDL-free and `Platform.cpp` is not** (`Window.h`, `Scripting.h`, `renderers/Renderer.h`, R3 § 2.4); D-INFRA-011's text names `Platform.cpp:830` (R5 § G), the row's line at its date -- the masked log line at the pin is `:855` |
 | `utils/StringUtil.cpp` / `.h` | 1706 / 96 | 359 + / 1 + | `80f52e500` (#177), `217872e32` (#258's comments), `dcf7fa8c7`, `b036967fc`, `3157d1a69`, `107597312`, `893a81403` (the masking rounds, #308 F-ES-09, PL-010, G2-E-core-01, G3-E-01) | **`maskSecrets`**, the hunk `@@ -443,6 +443,365 @@` (added lines `:446-804`): a key or flag kept and its value replaced by `<redacted>`, a value one shell word across quotes and escapes, `setrootpass` masking the rest of the line, `wifictl connect/enable` the second word, a flag or `name=` ending in a credential word, `?y=`/`&t=`/`&p=`; its name list `:513`, the `wifictl` rule `:764-784`, `--key` absent on purpose (#177; R4 item 25) (L-14); **the case helpers**: `toLower` `:329-368`, `toUpper` `:370-408`, ASCII in place, else `chars2Unicode` `:202` and a `bsearch` over two parallel tables (`tolowerUnicode` `:184-191`, `toupperUnicode` `:193-200`); **the 2-byte branch assigns (`:354-355`, `:395-396`), the 3-byte branch adds (`text[pos] += ...` `:359-361`, `:400-402`)**, the tables carrying 3-byte pairs (`0x1EA1` `:76`, `0x1EA0` `:153`, `0xFF41` `:93`, `0xFF21` `:170`, R2 cmd 16) (L-01); **`shellQuote` `:426-444`**, the fix shape of four lanes (R4 item 24); compiled by `es-unit-tests` (`:62`) and three `tests/app-unit/` targets (`:55`, `:77`, `:97`, R1 C22); `StringUtil.cpp:1406-1407` two trailing comments carrying Hangul after code, `StringUtil.h:62-68` Hangul string literals (R3 § 5) |
 | `utils/TimeText.cpp` / `.h` | 83 / 57 | 83 + / 57 + (new) | `8b7340f5b` (#195, D-UI-058), `5067f7a1b` (D-UI-087), `296aa5966` (D-UI-089) | `clockText`, `dayRelation`, `whenText`, `shortYear` -- pure, not read line by line by R2 (R2 § 0); compiled by `es-unit-tests` (`:63`), `TimeTextTests.cpp:12` (R3 § 1.2) |
-| `utils/TimeUtil.cpp` / `.h` | 634 / 99 | 54 ++- / 10 + | the same three | the fork's hunk `@@ -186,9 +187,56 @@`: `toLocalTimeString` = the locale's `%x` + `localClockText` (the 12-hour switch read per call, `strftime` lengths taken from the return); new `localClockText`, `toShortLocalDateString`, `toRelativeLocalTimeString`; **ten of the slice's eleven `_("` lines**, upstream's: `:517` and `:588` (`never`), `:544` (`%d d`), `:548`, `:569` (`%d h`), `:552`, `:560`, `:573`, `:578` (`%d mn`), `:580` (`%d sec`) (R2 § 7); `<langinfo.h>` `:10` under `__linux__` (R3 § 2.2) |
-| the file helpers: `utils/FileSystemUtil.cpp` / `.h` | 1805 / 103 | -- | -- | **no fork hunk** (R2 § 1.3); **the cache** `:48-341`: an `unordered_map<size_t, FileCache>` under a `shared_mutex` `:331-332`; reads through `queryCacheEntry` `:200-216` only while `Settings::UseFileCache()` `:203`; **a miss is stat'ed and stored** `:213-215` (via `insertEntry` `:313-324`); **a cached directory listing (`path + "/*"`, added at `:364`, `:479`) makes every path under it with no entry read as absent without a stat** (`getCacheEntry` `:277-282`); **`exists(path, false)` `:1122-1147` stats through `fromStat64`, whose Linux branch writes the entry unconditionally `:161-162`**; invalidation (`remove` `:183-198`, the entry and every ancestor's `/*`) called only by this file's writers -- `removeDirectory` `:1051`, `removeFile` `:1067`, `createDirectory` `:1097`, `writeAllText` `:1445`, `renameFile` `:1457-1458`, `copyFile` `:1506-1507`; the only full reset `FileSystemCache::reset` `:343-346`; **the reads**: `skipUtf8Bom` `:1369-1379`, `readAllBytes` `:1381-1398` (no BOM skip), `readAllLines` `:1400-1416`, `readAllText` `:1418-1427` (L-02); **the writers**: `writeAllText` `:1429-1446` (`fopen(..., "wb")` `:1434`, `fwrite`/`fclose` unchecked `:1442-1443`, `void`), `renameFile` `:1448-1465` (`true` on an absent source `:1451-1452`; `overWrite`, the default at `FileSystemUtil.h:74`, removes the destination first `:1454-1455`; `std::rename` `:1463`), `copyFile` `:1467-1510` (`true` on an absent source `:1472-1474`; truncation `:1492`; `fwrite`/`fclose` unchecked `:1500-1504`), `createDirectory` `:1089-1120` (EEXIST from a concurrent creator at `:1116`) (L-03, L-04, L-16); **`preloadFileSystemCache` `:1758-1798`**: a function-static `std::set` `:1766` unlocked `:1768-1771`, a `[&]` lambda `:1773` reading the parameter `trySaveStates` `:1775` on a detached thread `:1788`, `:1797` (L-15); `getCanonicalPath`'s fold `:726` (T2's line, not re-read, R4 item 16), the relative path by prefix `:986` (R4 item 17), `getEscapedPath` (R4 item 15, lines the lane's); three em-dash comment lines `:225`, `:287`, `:718` (R3 § 5); 13 lock lines (R2 cmd 17) |
+| `utils/TimeUtil.cpp` / `.h` | 634 / 99 | 54 ++- / 10 + | the same three | the fork's two hunks by `-U0` (proof C11, CMD5; numstat `51 3`): `-1,0 +2`, a line-2 addition, and `-189,3 +190,50`, the rewrite in which `toLocalTimeString` = the locale's `%x` + `localClockText` (the 12-hour switch read per call, `strftime` lengths taken from the return); new `localClockText`, `toShortLocalDateString`, `toRelativeLocalTimeString`; **ten of the slice's eleven `_("` lines**, upstream's: `:517` and `:588` (`never`), `:544` (`%d d`), `:548`, `:569` (`%d h`), `:552`, `:560`, `:573`, `:578` (`%d mn`), `:580` (`%d sec`) (R2 § 7); `<langinfo.h>` `:10` under `__linux__` (R3 § 2.2) |
+| the file helpers: `utils/FileSystemUtil.cpp` / `.h` | 1805 / 103 | -- | -- | **no fork hunk** (R2 § 1.3); **the cache** `:48-341`: an `unordered_map<size_t, FileCache>` under a `shared_mutex` `:331-332`; reads through `queryCacheEntry` `:200-216` only while `Settings::UseFileCache()` `:203`; **a miss is stat'ed and stored** `:213-215` (via `insertEntry` `:313-324`); **a cached directory listing (`path + "/*"`, added at `:364`, `:479`) makes every path under it with no entry read as absent without a stat** (`getCacheEntry` `:277-282`); **`exists(path, false)` `:1122-1147` stats through `fromStat64`, whose Linux branch writes the entry unconditionally `:161-162`**; invalidation (`remove` `:183-198`, the entry and every ancestor's `/*`) called only by this file's writers -- `removeDirectory` `:1051`, `removeFile` `:1067`, `createDirectory` `:1097`, `writeAllText` `:1445`, `renameFile` `:1457-1458`, `copyFile` `:1506-1507`; the only full reset `FileSystemCache::reset` `:343-346`; **the reads**: `skipUtf8Bom` `:1369-1379`, `readAllBytes` `:1381-1398` (no BOM skip), `readAllLines` `:1400-1416`, `readAllText` `:1418-1427` (L-02); **the writers**: `writeAllText` `:1429-1446` (`fopen(..., "wb")` `:1434`, `fwrite`/`fclose` unchecked `:1442-1443`, `void`), `renameFile` `:1448-1465` (`true` on an absent source `:1451-1452`; `overWrite`, the default at `FileSystemUtil.h:74`, removes the destination first `:1454-1455`; `std::rename` `:1463`), `copyFile` `:1467-1510` (`true` on an absent source `:1472-1474`; truncation `:1492`; `fwrite`/`fclose` unchecked `:1500-1504`), `createDirectory` `:1089-1120` (EEXIST from a concurrent creator at `:1116`) (L-03, L-04, L-16); **`preloadFileSystemCache` `:1758-1798`**: a function-static `std::set` `:1766` unlocked `:1768-1771`, a `[&]` lambda `:1773` reading the parameter `trySaveStates` `:1775` on a detached thread `:1788`, `:1797` (L-15); `getCanonicalPath`'s fold `:726` (T2's line, not re-read, R4 item 16), the relative path by prefix `:986` (R4 item 17), `getEscapedPath` (R4 item 15, lines the lane's); three em-dash comment lines `:225`, `:287`, `:718` (R3 § 5); 14 lock lines by § 5's pattern (proof C2, CMD4, CMD6; R2 cmd 17 printed 13) |
 | the texture cache and the resources: `resources/TextureResource.cpp` / `.h`; `resources/TextureDataManager.cpp` / `.h`; `resources/ResourceManager.cpp` / `.h` | 348 / 74; 381 / 108; 258 / 64 | -- | -- | **`TextureResource::get` `:100-165`**: the key at `:100` = `(canonicalPath, tile, linear, shareId)` (R4 item 2), a static map of `weak_ptr` `:12`, `:146` with no lock, and with `OptimizeVRAM` and a max size a shared, loaded texture whose size is no longer valid **released and reloaded synchronously on the caller's thread** `:110-127` (T26 L-02 / #1221 and T32 PL-07 / #1263 carry `:100-131`); **`TextureDataManager`**: an MRU list plus lookup under a `recursive_mutex` `:21-100` (`.h:100`), `cleanupVRAM` `:135-194` releasing reloadable, non-required, loaded textures until under `MaxVRAM` MiB `:139-163` and on 32-bit a 250 MiB RAM cap `:166-193`; **`TextureLoader`**: `hardware_concurrency() / 2` threads, at least 2 `:215-223`, each waiting on `!paused && (mExit \|\| !queue.empty())` `:252-253` and loading outside the lock `:269-274`; **the destructor clears the queue, sets the atomic `mExit` and `notify_all`s without holding `mLoaderLock` `:231-232`, then joins `:234-235`**; `paused` a static atomic `:284` (`.h:34`) set by `es-app/src/views/SystemView.cpp:198` (T32's) and cleared at `:226` with no notify (L-11); `ResourceManager`: `weak_ptr` lines `:229`, `:238` (`.h:34-35`, `:56`), not read further (R2 § 2.3); `MaxVRAM` 128/256/384/512 by total RAM is `Settings.cpp:233-246`, T21's (R3 § 4) |
-| the renderers: `renderers/GlExtensions.cpp` / `.h`; `Renderer.cpp` / `.h`; `Renderer_GL21.cpp` / `.h`; `Renderer_GLES10.cpp` / `.h`; `Renderer_GLES20.cpp` / `.h`; `Renderer_GLES30.cpp` / `.h`; `Shader.cpp` / `.h` | 140 / 88; 1170 / 263; 459 / 53; 422 / 53; 1420 / 67; 2291 / 69; 642 / 146 | -- | -- | **no fork hunk in any of the 14** (R1 C08, C11); a GL context per renderer (`Renderer_GL21.cpp:106-107`, `Renderer_GLES10.cpp:102-103`, `Renderer_GLES20.cpp:558-577` with two fallbacks, `Renderer_GLES30.cpp:1197-1237` checking `SDL_GL_MakeCurrent`); the clip stack a file-static `std::stack<Rect>` `Renderer.cpp:31-32`, `pushClipRect` `:520-566`, `popClipRect` logging an underflow `:568-594`; `glScissor` flipped per backend; only GLES20 checks a texture create `:724-728`; **no thread check anywhere in `renderers/`** (R2 § 3); **the selection** (R3 § 2.2): `-DGLES3=1` on every device (`package.mk:25`) -> `add_definitions(-DUSE_OPENGLES_30)` (`CMakeLists.txt:361-367`); `es-core/CMakeLists.txt:278-284` appends `Renderer_GLES30.cpp` (else `Renderer_GLES20.cpp`); `Renderer_GL21.cpp` and `Renderer_GLES10.cpp` are in the unconditional list (`:244-245`) with bodies under `RENDERER_OPENGL_21` / `RENDERER_OPENGLES_10` (`Renderer_GL21.h:6-8`, `Renderer_GLES10.h:6-8`); `RENDERER_GLES_30` from `USE_OPENGLES_30` (`Renderer_GLES30.h:5-7`); `Renderer.cpp:823-872` instantiates `GLES30Renderer`; `Renderer.h` branches on `USE_OPENGLES_30` at `:99`, `:128`, `:208`; `GlExtensions.h:6` `<GLES3/gl3.h>` under `USE_OPENGLES_30`, `:8` `<SDL_opengles2.h>`, `:10-11` the desktop branch; `ScreenSettings::fontScale()` `Renderer.cpp:1149` |
+| the renderers: `renderers/GlExtensions.cpp` / `.h`; `Renderer.cpp` / `.h`; `Renderer_GL21.cpp` / `.h`; `Renderer_GLES10.cpp` / `.h`; `Renderer_GLES20.cpp` / `.h`; `Renderer_GLES30.cpp` / `.h`; `Shader.cpp` / `.h` | 140 / 88; 1170 / 263; 459 / 53; 422 / 53; 1420 / 67; 2291 / 69; 642 / 146 | -- | -- | **no fork hunk in any of the 14** (R1 C08, C11); a GL context per renderer (`Renderer_GL21.cpp:106-107`, `Renderer_GLES10.cpp:102-103`, `Renderer_GLES20.cpp:558-577` with two fallbacks, `Renderer_GLES30.cpp:1197-1237` checking `SDL_GL_MakeCurrent`); the clip stack a file-static `std::stack<Rect>` `Renderer.cpp:31-32`, `pushClipRect` `:520-566`, `popClipRect` logging an underflow `:568-594`; `glScissor` flipped per backend; only GLES20 checks a texture create `:724-728`; **no thread check anywhere in `renderers/`** (R2 § 3); **the selection** (R3 § 2.2): `-DGLES3=1` on every device (`package.mk:25`) -> `add_definitions(-DUSE_OPENGLES_30)` (`CMakeLists.txt:361-367`); `es-core/CMakeLists.txt:278-284` appends `Renderer_GLES30.cpp` (else `Renderer_GLES20.cpp`); `Renderer_GL21.cpp` and `Renderer_GLES10.cpp` are in the unconditional list (`:244-245`) with bodies under `RENDERER_OPENGL_21` / `RENDERER_OPENGLES_10` (`Renderer_GL21.h:6-8`, `Renderer_GLES10.h:6-8`); `RENDERER_GLES_30` from `USE_OPENGLES_30` (`Renderer_GLES30.h:5-7`); `Renderer.cpp:823-872` is the selection chain, `:823` `#if defined(RENDERER_GLES_30)` to `:872` the GL21 branch's `OpenGL21Renderer rd;`, the `GLES30Renderer` instantiated inside it (proof K-077); `Renderer.h` branches on `USE_OPENGLES_30` at `:99`, `:128`, `:208`; `GlExtensions.h:6` `<GLES3/gl3.h>` under `USE_OPENGLES_30`, `:8` `<SDL_opengles2.h>`, `:10-11` the desktop branch; `ScreenSettings::fontScale()` `Renderer.cpp:1149` |
 | the rest of `utils/`: `ThreadPool.cpp` / `.h`; `ZipFile.cpp` / `.h`; `zip_file.hpp`; `MathExpr.cpp` / `.h`; `md5.cpp` / `.h`; `HtmlColor.cpp` / `.h`; `Randomizer.cpp` / `.h`; `StringListLock.cpp` / `.h`; `ConcurrentVector.h`; `VectorEx.h`; `Uri.h`; `Delegate.h`; `han.h` | 230 / 77; 369 / 51; 10011; 1016 / 75; 369 / 95; 248 / 18; 53 / 19; 61 / 30; 92; 170; 144; 27; 20923 | -- | -- | `ThreadPool` threads `:26` (count `hardware_concurrency() * mThreadByCore`, or `abs()` of a negative), `:84` (start), `:91` (join), not read further; `MathExpr.cpp:61` (the theme `upper()`), `:73-80` (list compare) the only callers of `toUpper` in the 58, `:95` `_("Unknown")` and `_("None")` on one line; `zip_file.hpp`'s six write-shaped lines (`fopen\(\|ofstream`) and three `<utime.h>` (`:4536`, `:4551`, `:4568`) not read; #256's body: *"a vendored header (backup archives) -- its own PR"* (R4 item 27); `md5.cpp` is not #585's MD5 line, which is `libretro-common`'s (R4 item 40); the rest **not opened by R2** (its header names each) -- the lane reads them for the lens, `han.h` and `zip_file.hpp` by cited range only (§ 1 Depth) |
 
 **The 19 fork commits on the 58** (`git log --oneline cada856d86..PIN --
@@ -676,9 +703,10 @@ rejects a host that merely begins with the base (`OfflineProxyUrl.h:31-37`)
 (R2 § 8's positives); `maskSecrets` keeps quotes and escapes whole, reads a
 value inside an `sh -c '...'` string as the inner shell would, leaves `<...>`
 placeholders, and a second pass is a no-op (R2 § 1.1); the three sources
-`es-unit-tests` compiles pass there, `es-unit-tests: rc 0; 185 | 185 passed`
-in T34's `stage-d/build-tests.txt` and in T35's `stage-c/build-tests.out` (R3
-§ 1.2, cmds 14, 20).
+`es-unit-tests` compiles pass there -- `RUN es-unit-tests: rc 0; [doctest]
+test cases: 185 | 185 passed | 0 failed | 0 skipped ...` in T34's
+`stage-d/build-tests.txt:55` and in T35's `stage-c/build-tests.out:55` (the
+line's tail abridged here; R3 § 1.2, cmds 14, 20; proof C8, CMD15).
 
 **What they found instead -- the leads, one line each.** § 4 carries each
 lead's disposition and the question it serves, citing this table rather than
@@ -693,7 +721,7 @@ lines until the lane's proof says more. **`proved:`** is R2 § 8's column.
 | L-02 | `utils/FileSystemUtil.cpp:1369-1379`, `:1400-1427` | a one- or two-byte file reads as `""` and as no lines: `file.read(bom, 3)` fails and `seekg(0)` does not clear `failbit` (`es-code-traps.md:212`, #245) -- recorded as a trap and **unfixed at the pin**; T20's `d9afa5c7c` fixes it on T20's branch (#1177; ruling (d)); `proved:` by reading and the trap's own record | Q5 |
 | L-03 | `utils/FileSystemUtil.cpp:1451-1452`, `:1454-1455`, `:1463`; `:1472-1474`, `:1492`, `:1500-1504` | **`renameFile` and `copyFile` return `true` over an absent source; `copyFile` returns `true` over a short write; `renameFile(..., overWrite)` deletes the destination before an atomic rename, and `overWrite = false` does not protect on POSIX**; the callers that branch on the return: `HttpReq.cpp:479` then `:505-506` (`REQ_SUCCESS`, T21's) with `copyFile` as the fallback `:501-502`, `es-app/src/scrapers/Scraper.cpp:672`, `es-app/src/SaveState.cpp:154-155` (the new slot's MD5 after a `copyFile` that may have copied nothing), `es-app/src/guis/GuiMetaDataEd.cpp:483`, `es-app/src/Win32ApiSystem.cpp:745`, `:877` (R2 cmd 14); T21's `f7c16144d` fixes `renameFile` on T21's branch (#1191; ruling (d)), `copyFile` is not named by any lane (R4 items 13, 14); `proved:` by reading, the consequences unproved | Q5 |
 | L-04 | `utils/FileSystemUtil.cpp:1429-1446`; `es-app/src/ThreadedCloudSync.cpp:943-948` (T18's) | **`writeAllText` cannot report a failure** (`void`, `fopen "wb"`, `fwrite` and `fclose` unchecked): **T21 PL-20 / Backlog #1186** (OPEN; `docs/reviews/briefs/es-app-system.md:654`), whose ruling moves the call sites, not the function (R4 item 14); the cloud stamp's temp-and-rename at `ThreadedCloudSync.cpp:943-948` publishes a short write over the last good stamp (D-CLOUD-078, `decision-register.md:144`); 25 call sites (R2 cmd 13: 27 lines less the definition and declaration); `proved:` by reading | Q5 |
-| L-05 | `utils/Platform.cpp:40`, `:52`, `:162-168` | **`run()` pipes the command's stdout through `head -300`**: after 300 lines `head` exits and the command's next write raises SIGPIPE (status 141 read back unless the command ignores SIGPIPE); `waitForExit` true at the launch (`es-app/src/FileData.cpp:1100-1103`), `es-app/src/main.cpp:540`, `InputManager.cpp:1272`, `Scripting.cpp:133`, `:142` (quit only), false at `Scripting.cpp:45`; the log path concatenated unquoted, `2>` binding only the last simple command of a compound `<cmd>`, the two log files overwritten by every run; **whether the launch wrapper redirects its own stdout before it reaches this pipe was not established** (the only `runemu.sh` R2 found is a QA-log copy whose `:40` sets `LOG_FILE="exec.log"`, R2 cmd 28); `proved:` the literal's shell behaviour is a stage-A run (§ 5), the launch's reach unproved | Q4 |
+| L-05 | `utils/Platform.cpp:40`, `:52`, `:162-168` | **`run()` pipes the command's stdout through `head -300`**: once the command's output outruns the pipe buffer, `head` exits after 300 lines and the command's next write raises SIGPIPE (status 141 read back unless the command ignores SIGPIPE) -- **a short output is held whole and exits 0**: the literal with `seq 1 400` (1,492 bytes) printed `rc=0` on the host's `/usr/bin/dash`, and with `seq 1 200000` printed `rc=141` (proof C1, CMD4, CMD12; R2's 141 was reasoned, `R2-code-read.md:93`, never run), timing-dependent in principle, one run one observation; `waitForExit` true at the launch (`es-app/src/FileData.cpp:1100-1103`), `es-app/src/main.cpp:540`, `InputManager.cpp:1272`, `Scripting.cpp:133`, `:142` (quit only), false at `Scripting.cpp:45`; the log path concatenated unquoted, `2>` binding only the last simple command of a compound `<cmd>`, the two log files overwritten by every run; **the launch wrapper, read from the source** (`projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh` at `e52274caf9`, proof C15, CMD8): `:40` `LOG_FILE="exec.log"`, the emulator run with its output appended to the log (`:491` `"${ROMNAME}" &>>${OUTPUT_LOG}`, `:500` `eval ${RUNTHIS} &>>${OUTPUT_LOG}`), and the script's own log lines sent to stdout as well (`:84` `... 2>&1 \| tee -a ${LOG_DIRECTORY}/${LOG_FILE}`) -- so the emulator's output does not reach `run()`'s pipe and the wrapper's `tee`'d log lines do; that ES's launch command is this script is **not** traced (`[unverified]`: no `es_systems` line in the recipes the proof searched, CMD13, CMD17 -- the lane's trace of the command `FileData.cpp:1100-1103` builds); `proved:` the literal's shell behaviour is a stage-A run (§ 5), the wrapper's redirects `tree`, G-07 the image's copy | Q4 |
 | L-06 | `utils/Platform.cpp:891-905` | `GetShOutput`: `popen` unchecked `:894`; each 256-byte `fgets` chunk loses its last byte `:900`, so a line of 256 bytes or more loses bytes mid-line, a final line without a newline loses its last character, and lines are joined with no separator; 25 call sites in `es-app` (R2 cmd 13), the cloud ones `GuiMenu.cpp:5579`, `:5589`, `:6639`, `:6749`, `:7060`, `:7407`, `:7995`, `:8445` (T26's); **T26's S8 fixes it on T26's branch** (#1225; ruling (d)); `proved:` by reading and hand arithmetic | Q4 |
 | L-07 | `resources/Font.cpp:1238`, `:1255`, `:165-166`, `:99-101` | `getFromTheme` re-scales an already scaled size when a theme element sets `fontPath` without `fontSize` -- the double scale `es-code-traps.md:109` warns about for `getSize()`, inside `Font.cpp` itself; whether the shipped theme has such an element was not checked; `proved:` by reading | Q2 |
 | L-08 | `resources/Font.cpp:107`, `:115-117`, `:420-421`; `es-code-traps.md:118`; T34 L-02 (`es-core-components.md:597`) | **a rule erratum, not a code defect:** the constructor rasterises ASCII 32..127, and only ASCII raises `mMaxGlyphHeight`, so `getHeight()` is fixed after construction unless a glyph failed to load -- against `es-code-traps.md:118`'s *"the tallest glyph rasterised so far ... Measured before a label has drawn, it under-reports"*, against T34's L-02 premise (*"0 at construction"*) and against T34 PL-17 deferred as an open item to test on the same premise (R4 item 4); `proved:` by reading, `git log -S` dating the preload to 2014 | Q2 |
@@ -796,10 +824,10 @@ which were read (`working-principles.md` § Pre-flight):
 1. **The rules**, each at the section named, with the question it serves;
    the section's own sentence is not repeated here -- open it. The line
    numbers are the coordinator worktree's at `4536815b6b` where a research
-   file printed them, or at `153ca325b3` where the drafter printed them
-   (no rule changed between the two, the header's diff); a row without a
-   line names the section by heading, and the lane prints its line with
-   `grep -n '^## '` at `COHASH`:
+   file printed them, at `153ca325b3` where the drafter printed them, or at
+   `e52274caf9` where the proof printed them (proof U-9, CMD8, CMD11; no rule
+   changed between the three, the header's diffs); the lane re-reads each
+   with `grep -n '^## '` at `COHASH`:
 
    | Rule | Line | Section | Serves |
    | --- | ---: | --- | --- |
@@ -809,25 +837,25 @@ which were read (`working-principles.md` § Pre-flight):
    | | `:127` | the third: `Utils::FileSystem::exists(path)` caches for the session | Q1 (L-12) |
    | | `:212` | A file under three bytes reads as empty (#245); R2 cites `:212-215`, R4 `:212-222` | Q5 (L-02) |
    | | `:224-236`, `:238-265` | the curl callback's length; the pooled connection -- `HttpReq`'s, **T21's**, context only (R4 § 6) | Q7 |
-   | | § Pure text has a home, and a test | `CloudText`'s shape for every unit case | § 5 |
+   | | `:139` | Pure text has a home, and a test: `CloudText`'s shape for every unit case | § 5 |
    | `es-native-ui.md` | `:103` | Core patterns: *"`runSystemCommand(cmd, name, window)` -- passing `window` shows a splash while it runs"* -- **false at the pin** (L-13; the drafter's `grep -n` at `153ca325b3`) | Q4, Q7 |
    | | `:107` | Core patterns: *"A file another process writes is read uncached"* (R5 § G; the drafter's `grep -n`; R2 cites `:108`) | Q1 |
-   | | § Before the pin moves, the compiler has seen the edit | `tools/es-syntax-check`, exit 2 here | § 5, § 9 |
-   | `es-player-text.md` | § Conventions; § Every fork string ships in English and French | every label through `_()`; the brand lowercase (D-WORKFLOW-144); D-UI-051 | Q6, § 9 |
-   | `es-ui-style-guide.md` | § Keep the flow and its visual evidence together | the frames a stream's change carries | § 5, § 7 |
-   | `engineering-practices.md` | § Change stays inside the fork's lanes | D-UI-079: § 1's lane and upstream-surface lists | every Q |
-   | | § Check upstream early when troubleshooting | D-WORKFLOW-162: batocera's thirteen (§ 2), the lanes' fixes | Q7 |
-   | | § Verify design intent before "fixing" an apparent bug | `git log -S` before each FAIL-at-pin lead (the `+=`, `head -300`, the `[&]`) | § 4, § 5 |
-   | | § Verify the artifact, not the report; § A name is not a behaviour | `copyFile`'s `true`, `runSystemCommand`'s 0 (L-03, L-13); a total is the tool's line | § 5 |
-   | | § Guards must fail closed | **a stand-in that compiles an empty translation unit has checked nothing** (§ 5 item 1); `rc=$?` on its own line; the first PASS is the one to distrust | § 5 |
-   | | § Fail gracefully | the last known good state (D-CLOUD-078): L-03, L-04 | Q5 |
-   | `bugs-are-agent-first.md` | § The three classes; § The rules (rule 6) | | every bug |
-   | `issue-tracking.md` | § A criterion is agent-first (D-QA-044); § Ticking an acceptance criterion | | § 7 |
-   | `upgrade-and-install.md` | § Fixing forward is not enough; § Every fix answers what was already written (D-WORKFLOW-050) | **this slice writes files only through its helpers** (`writeAllText`, `copyFile`, `renameFile`, `createDirectory`, the quit flag files `/tmp/*.please`, `es_launch_stdout.log`/`es_launch_stderr.log`): a bug in a helper argues its `Already written:` line for what its callers left; the rest argue *nothing inherited* | every bug |
-   | `generic-x64-vm-testing.md` | `:284-325` | The guests render in hardware: `--gl auto` (virgl), `--gl none` (llvmpipe), frames over VNC (R3 § 4) | § 5 (every frame) |
+   | | `:405` | Before the pin moves, the compiler has seen the edit: `tools/es-syntax-check`, exit 2 here | § 5, § 9 |
+   | `es-player-text.md` | `:29`, `:141` | Conventions; Every fork string ships in English and French: every label through `_()`; the brand lowercase (D-WORKFLOW-144); D-UI-051 | Q6, § 9 |
+   | `es-ui-style-guide.md` | `:32` | Keep the flow and its visual evidence together: the frames a stream's change carries | § 5, § 7 |
+   | `engineering-practices.md` | `:12` | Change stays inside the fork's lanes: D-UI-079, § 1's lane and upstream-surface lists | every Q |
+   | | `:28` | Check upstream early when troubleshooting: D-WORKFLOW-162, batocera's thirteen (§ 2), the lanes' fixes | Q7 |
+   | | `:83` | Verify design intent before "fixing" an apparent bug: `git log -S` before each FAIL-at-pin lead (the `+=`, `head -300`, the `[&]`) | § 4, § 5 |
+   | | `:111`, `:194` | Verify the artifact, not the report; A name is not a behaviour: `copyFile`'s `true`, `runSystemCommand`'s 0 (L-03, L-13); a total is the tool's line | § 5 |
+   | | `:419` | Guards must fail closed: **a stand-in that compiles an empty translation unit has checked nothing** (§ 5 item 1); `rc=$?` on its own line; the first PASS is the one to distrust | § 5 |
+   | | `:806` | Fail gracefully: the last known good state (D-CLOUD-078), L-03, L-04 | Q5 |
+   | `bugs-are-agent-first.md` | `:41`, `:53` | The three classes; The rules (rule 6) | every bug |
+   | `issue-tracking.md` | `:129`, `:180` | A criterion is agent-first (D-QA-044); Ticking an acceptance criterion | § 7 |
+   | `upgrade-and-install.md` | `:40`, `:58` | Fixing forward is not enough; Every fix answers what was already written (D-WORKFLOW-050): **this slice writes files only through its helpers** (`writeAllText`, `copyFile`, `renameFile`, `createDirectory`, the quit flag files `/tmp/*.please`, `es_launch_stdout.log`/`es_launch_stderr.log`): a bug in a helper argues its `Already written:` line for what its callers left; the rest argue *nothing inherited* | every bug |
+   | `generic-x64-vm-testing.md` | `:285-324` | The guests render in hardware (proof C13): `--gl auto` (virgl), `--gl none` (llvmpipe), frames over VNC (R3 § 4) | § 5 (every frame) |
    | | `:215`, `:448-455` | font scale 1.31 under 720 px, 1.5 under 320; frame at the handheld's size (R3 § 4) | § 5 (G-02, G-06) |
    | | `:941` | a guest costs about 2 GB of RAM (R3 § 4) | § 5 |
-   | | § Headless; § A settings change from the shell is invisible to the running interface | `run --headless --daemonize`, `tools/vm-serial`, the pidfile; `essway` stopped before a settings edit | § 5 |
+   | | `:100`, `:1145` | Headless, on a build host with no desktop; A settings change made from the shell is invisible to the running interface (proof C12): `run --headless --daemonize`, `tools/vm-serial`, the pidfile; `essway` stopped before a settings edit | § 5 |
    | `handheld-evidence.md` | whole | what a hang is not -- `runSystemCommand` blocking its caller for the command's run is that shape (L-13) | Q4 |
    | `vm-first.md`, `time-to-play.md`, `player-language.md`, `least-surprise.md` | whole | | § 5, Q6, Q7 |
 
@@ -837,7 +865,8 @@ which were read (`working-principles.md` § Pre-flight):
    ownership rows of § 1); **D-INFRA-011** `:280` (*"A credential's value
    never reaches a log or a support bundle, and one helper decides what a
    credential looks like"*; its text names `Platform.cpp:830`, R1 C20, R5 §
-   G -- the constraint `maskSecrets` and `runSystemCommand`'s log line keep);
+   G, which is an `#endif` at the pin, the masked log line being `:855`,
+   proof K-061 -- the constraint `maskSecrets` and `runSystemCommand`'s log line keep);
    **D-UI-050** `:246` (a size computed *"from a font whose glyphs have been
    rasterised first"*, L-08's family); **D-UI-130** to **D-UI-133** `:763-766`
    (T34's pause rulings: `TextComponent` measures at its drawn width; a
@@ -883,9 +912,13 @@ which were read (`working-principles.md` § Pre-flight):
    stand-in of § 5), a measurement on a guest whose renderer was not the
    device's (every frame's side), a corpus read on the wrong tree (every
    count at the hash), the self-matching kill pattern and the guard with no
-   observed positive (`engineering-practices.md`) -- each read at its line,
-   which the lane prints (`[unverified]`: no research file read the
-   register's lines for this slice).
+   observed positive (`engineering-practices.md`) -- at the lines the proof
+   printed by heading (proof U-4, CMD13, CMD17): 39 `:326` (a PASS over
+   dashes, the first PASS), 44 `:445` (proven at a fixture's size), 49 `:590`
+   (blind to the compiler), 54 `:720` (a renderer not the device's), 63
+   `:944` (llvmpipe and softpipe), 75 `:1206` (a corpus on the wrong tree);
+   **the self-matching kill pattern's entry was not found by heading**
+   (`[unverified]`: the lane's `grep -n` for its words).
 5. **The tests at the pin.** § 5 item 1 describes what exists; read whole
    before a case is written: `es-app/tests/unit/CMakeLists.txt` (159 lines,
    R1 C15; `es-unit-tests` compiles `utils/StringUtil.cpp`,
@@ -904,15 +937,18 @@ which were read (`working-principles.md` § Pre-flight):
    es-core/src/utils/FileSystemUtil.h: each test program says what exists"*,
    four functions; ruling (g); R3 § 1.3) and the three tests that include it
    (`BookkeeperTests.cpp:12`, `JobsTests.cpp:11`, `ProxyCardsTests.cpp:16`);
-   **T20's `FileSystemReadTests.cpp`** (64 lines, 3 `TEST_CASE`; doubles
+   **T20's `FileSystemReadTests.cpp`** (70 lines by `grep -c ''`, 3
+   `TEST_CASE`, proof C7, CMD13; doubles
    `bool Settings::_UseFileCache = false;`, `Paths::_instance`,
    `Paths::Paths()`, `Paths::getHomePath()`) and **T21's `FileSystemTests.cpp`**
-   (158 lines, 8 `TEST_CASE`; the real `Paths.h`, `Settings.h`,
+   (177 lines by `grep -c ''`, 8 `TEST_CASE`, proof C7, CMD13; the real
+   `Paths.h`, `Settings.h`,
    `utils/TimeUtil.h`, `utils/ZipFile.h`, `Paths::_instance` defined) on their
    ES branches (R3 § 1.4, cmd 23) -- the precedent for linking
    `FileSystemUtil.cpp` whole; **T35's `t35-extract.py` and
-   `t35-window-input-tests.cpp`** at T35's tip (`bb1754e581`; the 3.11 region
-   with its doubles, R3 § 3, cmd 15).
+   `t35-window-input-tests.cpp`** at T35's tip, read at stage A (`bb1754e581`
+   at R3's read, `5d7650c1dc` at the proof's; the 3.11 region with its
+   doubles, R3 § 3, cmd 15).
 6. **The walks and the frames.** `tools/vm-walks/` (18 top-level `.steps`,
    R3 cmd 20; `claims.txt`, `masks.txt`, `suite.txt`); `tools/vm-visual-qa`
    (frames over VNC, monitor `sendkey`); `tools/frame-diff` against the
@@ -934,13 +970,16 @@ which were read (`working-principles.md` § Pre-flight):
    `tools/es-untranslated` reads `_("...")` in `es-app/src` and
    `es-core/src` (`:66-72`) and lists only strings the upstream base lacks,
    so **the slice's contribution is expected 0** unless a stream adds a
-   sentence (R3 § 5). **Whether the French catalog carries a non-empty
-   `msgstr` for each of these msgids is `[unverified]`** (R2 § 7: *"French
-   coverage of these msgids was not checked"*); the lane parses the catalog
-   for them as its own line (§ 5).
+   sentence (R3 § 5). **The French catalog carries a non-empty `msgstr` for
+   all seven msgids at the pin** (proof U-3, CMD4): `never` -> `jamais`, `%d
+   d` -> `%d j`, `%d h` -> `%d h`, `%d mn` -> `%d mn`, `%d sec` -> `%d sec`,
+   `Unknown` -> `Inconnu`, `None` -> `Aucun` (`.po` `:143`, `:1673`, `:3554`,
+   `:4007`, `:4011`, `:4015`, `:4019`); the lane re-runs the catalog read as
+   its own line (§ 5).
 8. **The audits**, each on its lane's branch and in its folder, named here
    once and cited by section elsewhere (the distribution tips are R4 cmd
-   2's of 2026-10-31; the ES tips R1 C17's): **T2**
+   2's of 2026-10-31 except T34's and T35's, refreshed below; the ES tips R1
+   C17's): **T2**
    `docs/audits/2026_10_23-epic-m6-es-launch-path/` (`7041b0d710`; ES
    `55158d2a64`); **T18** (`6a560b9fbd`; ES `d55235d4b3`); **T20**
    `docs/audits/2026_10_26-epic-m6-es-achievements-pages/` (`ffb6b686cb`; ES
@@ -950,8 +989,11 @@ which were read (`working-principles.md` § Pre-flight):
    `docs/audits/2026_10_27-epic-m6-es-guimenu/` (`bcfad2144b`; ES
    `757f5370ea`); **T31** (`6ec4dda203`; ES `95852f8736`); **T32**
    (`1dd3093853`; ES `b52245036f`); **T33** (`5e3cf605df`; ES `f802c55c62`);
-   **T34** (`d60c88966a`; ES `52f0ff5128`; its 14 fakes and
-   `t34-build-tests.sh`, R3 cmd 3); **T35** (`bb1754e581`; ES at the pin;
+   **T34** (complete; `49c6b43f27`, the held reply's sidecar commit --
+   `d60c88966a` at R4's read, `308d0f7571` at the proof's, proof K-170; ES
+   `52f0ff5128`; its 14 fakes and `t34-build-tests.sh`, R3 cmd 3); **T35**
+   (at stage E, its tip read at stage A -- `bb1754e581` at R4's read,
+   `5d7650c1dc` at the proof's; ES at the pin;
    its 15 fakes, `stage-a/syntax-check.sh`, `stage-c/` cases,
    `t35-extract.py`, `t35-build-tests.sh`, R3 cmd 3, cmd 13, cmd 14) -- the
    folders' paths the lane reads from each branch's `ls-tree`. Read with `git
@@ -1077,13 +1119,18 @@ the lens's).
   holds it.
 - **Q4 Processes and the shell: what `run()`, `runSystemCommand` and
   `GetShOutput` promise** (`handheld-evidence.md`; #1220; ruling (j); the
-  spawns run). **L-05**: `run()`'s wrap -- `head -300` of stdout, SIGPIPE
-  on the next write, status 141; the log path unquoted; `2>` binding only
-  the last simple command; both logs overwritten -- with **the literal's
-  host-shell run at stage A** (3.5) and the image's shell on the guest
-  (G-07), and **whether the launch's stdout reaches the pipe** read from
-  the image's launch wrapper (G-07; R2: not established); the callers with
-  `waitForExit` true named. **L-13**: `runSystemCommand` returns 0 always,
+  spawns run). **L-05**: `run()`'s wrap -- `head -300` of stdout, and
+  SIGPIPE with status 141 **only once the command's output outruns the pipe
+  buffer** (a 400-line output, 1,492 bytes, is held whole and exits 0; 200,000
+  lines printed 141, proof C1, CMD4, CMD12); the log path unquoted; `2>`
+  binding only the last simple command; both logs overwritten -- with **the
+  literal's two host-shell runs at stage A** (3.5) and the image's busybox
+  shell on the guest (G-07); **the launch wrapper's redirects read from the
+  source** (`runemu.sh:491`, `:500` append the emulator's output to its log;
+  `:84` `tee`s the wrapper's own log lines to stdout, so those reach the
+  pipe, proof C15) and the image's copy confirmed in G-07; that ES's launch
+  command is this script is the lane's trace (proof C15: not settled); the
+  callers with `waitForExit` true named. **L-13**: `runSystemCommand` returns 0 always,
   blocks its caller for the command's whole run, and ignores `name` and
   `window` -- 78 call sites, none reading the return; **the rule erratum**:
   `es-native-ui.md:103` says passing `window` shows a splash, and nothing
@@ -1161,11 +1208,11 @@ the lens's).
   body of** (`Renderer_GL21`, `Renderer_GLES10`, `Renderer_GLES20`: in the
   unconditional CMake list, empty under the image's defines -- a structure
   fact, R3 § 2.2, § 4); `fribidi`'s branch (`HAVE_FRIBIDI`, **whether the
-  image build takes it is `[unverified]`**: no fribidi package in
-  `PKG_DEPENDS_TARGET`, `package.mk:13`, R3 § 2.2 -- G-01's `ldd` settles
-  it, `image` side); `vlc/vlc.h` unguarded in `TextureData.cpp:12`; **0
-  `#if...ROCKNIX` lines in the 58** (R3 cmd 17); the include reach (41
-  non-standard angle includes, 0 quoted external, one macro include, R3 cmd
+  image build takes it is `[unverified]`**: ES's `CMakeLists.txt:236-241` defines it when `pkg_check_modules(FRIBIDI QUIET fribidi)` finds the library, `package.mk` names no fribidi, `vlc` is built `--disable-fribidi` (`vlc/package.mk:98`), and the tree's `packages/devel/fribidi` is a dependency of `pango` (`pango/package.mk:11`), so whether it is in the sysroot when ES configures is build order, not source (proof U-1, CMD4, CMD8, CMD12, CMD13) -- G-01's `ldd`
+  settles it, `image` side); `vlc/vlc.h` unguarded in `TextureData.cpp:12`; **0
+  `#if...ROCKNIX` lines in the 58** (R3 cmd 17); the include reach (241
+  angle-include lines, proof CMD4, of which 41 non-standard by R3's rule
+  with its standard list unstated; 0 quoted external, one macro include, R3 cmd
   9). **The structure**: the 43 identical to `rocknix/master`; T21's
   `utils/DownloadFile.*` falling under the glob at T21's tip (ruling (b));
   the three lane fixes in two of the 58 (ruling (d)); the fakes' double
@@ -1214,7 +1261,7 @@ time"*).
 | **3.2** | `utils/FileSystemUtil.cpp:1451-1455`, `:1463`; `:1472-1474`, `:1492`, `:1500-1504` | `renameFile`, `copyFile`, `FileSystemUtil.cpp` linked whole (T21's `es-fs-tests` shape) | **`CHECK_FALSE(renameFile(<absent>, <tmp>))`, `CHECK_FALSE(copyFile(<absent>, <tmp>))`; `renameFile(<a>, <existing>, false)` keeps the existing file -- FAIL at the pin (L-03)**; T21's merged fix turns the `renameFile` half green, `copyFile`'s stays this slice's |
 | **3.3** | `utils/FileSystemUtil.cpp:1429-1446` | `writeAllText` | **at the pin there is no return to test** (R2 L-04): a text case records `void` and the unchecked `fwrite`/`fclose`; the fix's case `CHECK_FALSE(writeAllText("/dev/full", "x"))` written for whatever the pause rules (T21 PL-20 / #1186) |
 | **3.4** | `utils/FileSystemUtil.cpp:1369-1379`, `:1400-1427` | `readAllText`, `readAllLines` | **write `1\n`; `CHECK(readAllText(p) == "1\n")`, `CHECK(readAllLines(p).size() == 1)` FAIL at the pin (L-02)** -- the control T20's `d9afa5c7c` turns green at the integration, never re-fixed here |
-| **3.5** | `utils/Platform.cpp:162-164` | the wrap's literal, run by the host's shell | **`sh -c '((((seq 1 400 2> /dev/null ; echo $? >&3) \| head -300 > /dev/null) 3>&1) \| (read xs; exit $xs))'; echo $?` prints `141` at the pin, `0` wanted (L-05; R2 § 8)** -- stage A's run (§ 5); the image's shell on the guest is G-07 |
+| **3.5** | `utils/Platform.cpp:162-164` | the wrap's literal, run by the host's shell | **with a producer that outlives the pipe buffer, `sh -c '((((seq 1 200000 2> /dev/null ; echo $? >&3) \| head -300 > /dev/null) 3>&1) \| (read xs; exit $xs))'; echo $?` printed `141` on the host's `/usr/bin/dash`, `0` wanted (L-05; proof C1, CMD12)**; the same literal with `seq 1 400` (1,492 bytes, held whole by the pipe) printed `0` (proof CMD4) and is recorded as the PASS-at-pin control -- one run is one observation, the 141 timing-dependent in principle; stage A's runs (§ 5); the image's shell on the guest is G-07 |
 | **3.6** | `utils/FileSystemUtil.cpp:1758-1798` (`:1773`, `:1775`, `:1788`, `:1797`) | `preloadFileSystemCache` under ASan | **with `ASAN_OPTIONS=detect_stack_use_after_return=1`, call it and return: a stack-use-after-return report at the pin (L-15)**; the fix captures by value |
 | **3.7** | `utils/Platform.cpp:853-880` (`:879`) | `runSystemCommand`, lifted as text | **the body returns `0` at `:879` and reads neither `name` nor `window`** (L-13): the rule erratum's proof (`proved: tree`); no caller reads the return (R2 cmd 14) |
 | **3.8** | `resources/Font.cpp:107`, `:115-117`, `:420-421`, `:754-757` | `getHeight` (FreeType and renderer stand-ins) | **a positive, not a FAIL**: `h = getHeight(); sizeText(<ASCII 32..126>); CHECK(getHeight() == h)` -- PASS at the pin is L-08's proof against `es-code-traps.md:118` |
@@ -1223,7 +1270,7 @@ time"*).
 | 3.11 | `resources/TextureData.cpp:615-645`, `:670-725` against `:92-195` | a `san tsan-...` stand-in | one thread `initSVGFromMemory`, the main thread `setMaxSize`: a TSan report at the pin (L-10); `vlc/vlc.h` faked, `nanosvg` from the tree |
 | 3.12 | `resources/TextureDataManager.cpp:215-235`, `:252-253`, `:284` | `TextureLoader`'s teardown, with a timeout | construct, set `paused`, destroy: the join does not return inside the timeout (L-11) |
 | 3.13 | `utils/FileSystemUtil.cpp:48-341`, `:1122-1147`, `:161-162` | the cache, extracted in T35's `fs_cache`/`fs_exists` shape | a positive: `exists(p)` miss, `p` written by `std::ofstream`, `exists(p, false)` true and then `exists(p)` true (the entry rewritten, L-12); a listing's wildcard then a file written under it: `exists` false without a stat |
-| **3.14** | T35's `window-input-tests` case 3.11 at T35's tip (`InputManager.cpp:1187` with `FileSystemUtil.cpp`) | re-run unchanged, never edited (ruling (h)) | **FAIL at the pin** (`window-input-tests: rc 1; 10 \| 3 passed \| 7 failed`, R3 § 1.4); PASS only when the cache's fix or T35's caller fix lands |
+| **3.14** | T35's `window-input-tests` case 3.11 at T35's tip (`InputManager.cpp:1187` with `FileSystemUtil.cpp`) | re-run unchanged, never edited (ruling (h)) | **FAIL at the pin** (`RUN window-input-tests: rc 1; [doctest] test cases: 10 \| 3 passed \| 7 failed ...`, T35 `stage-c/build-tests.out:65`, the tail abridged here; R3 § 1.4; proof C8, CMD15); PASS only when the cache's fix or T35's caller fix lands |
 | 3.15 | `utils/FileSystemUtil.cpp:1089-1120` | `createDirectory` | two threads create one path: either returns `false` while the directory exists (L-16) |
 | 3.16 | `resources/Font.cpp:99`, `:161-165`, `:1238`, `:1255`; `Renderer.cpp:1149` doubled | the scaling, extracted | `getFromTheme(elem{fontPath only}, ..., orig)->getSize() == orig->getSize()` (L-07); `fontScale()` 1.31 under 720 px, 1.5 under 320 (R3 § 4) |
 | 3.17 | `resources/Font.cpp:714-752`, `:1044-1078` | `sizeText` against the cache's last vertex (stand-ins) | a substitutable code point measured wider than it is drawn; the newline's advance counted (L-09) |
@@ -1258,7 +1305,7 @@ time"*).
    `<ft2build.h>` and `FT_FREETYPE_H` unguarded (`freetype` in
    `PKG_DEPENDS_TARGET`; absent on the host, `pkg-config freetype2` not
    found); `<fribidi.h>` under `HAVE_FRIBIDI` (**whether the image takes it
-   is `[unverified]`**, G-01's `ldd`); `<nanosvg/*>` resolved in the tree;
+   is `[unverified]`**: build order, not source, proof U-1 -- G-01's `ldd`); `<nanosvg/*>` resolved in the tree;
    **`<vlc/vlc.h>` unguarded** (`vlc` in `PKG_DEPENDS_TARGET`; absent on the
    host); the POSIX network headers and `<langinfo.h>` from glibc; the
    `<Windows.h>` family never reached (R3 § 2.2, cmd 19). **`-DROCKNIX` is
@@ -1301,15 +1348,22 @@ time"*).
    `Renderer_GL21.cpp` and `Renderer_GLES10.cpp` as empty translation units
    -- rc 0, checking nothing** -- while `GlExtensions.h` takes the desktop
    branch (R3 § 2.2). So **the stand-in passes `-DUSE_OPENGLES_30`** (the
-   macro the sources test: `GlExtensions.h:6`, `Renderer_GLES30.h:5-7`,
-   `Renderer.h:99`, `:128`, `:208`); `-DGLES3=1` is the package's CMake
-   option, which CMake turns into that macro, and **R3 § 2.2's guard list
-   names no source testing `GLES3` itself** -- `[unverified]` until § 5's
-   `git grep -n -w GLES3` prints, and if it prints nothing, `-DGLES3=1` alone
-   on the `g++` line would check nothing too. **An rc 0 on a renderer file
+   macro the sources test: `GlExtensions.h:5` `#if defined(USE_OPENGLES_30)`
+   with the include at `:6`, `Renderer_GLES30.h:5` with the `#define` at
+   `:7`, `Renderer.h:99`, `:128`, `:208`, and at least `GlExtensions.h:64`,
+   `:88`, `Renderer.cpp:959`, `Renderer_GLES30.cpp:361` to `:2172`,
+   `Renderer_GLES30.h:67`, `Shader.cpp:11` to `:626` and `Shader.h:47`,
+   `:90` -- proof C9, CMD4, CMD6); `-DGLES3=1` is the package's CMake option,
+   which CMake turns into that macro, and **no `#if` in `es-core/src` tests
+   `GLES3`**: `git grep -n -w GLES3` prints `3`, rc 0 -- `GlExtensions.h:6`
+   (the include path `<GLES3/gl3.h>`) and `Renderer_GLES30.cpp:776`, `:1364`
+   (two string literals) -- and `GLES3` is tested only in the top-level
+   `CMakeLists.txt` (`:5`, `:9`, `:15`, `:164`, `:205`) (proof C14, U-2,
+   CMD4), so `-DGLES3=1` alone on the `g++` line checks nothing. **An rc 0 on a renderer file
    is evidence only beside a positive**: the record carries, per renderer
    `.cpp`, the preprocessed TU's count of a name only its image branch
-   defines (`GLES30Renderer`, `Renderer.cpp:823-872`) with the define and
+   defines (`GLES30Renderer`, inside `Renderer.cpp:823-872`'s selection
+   chain) with the define and
    without it -- nonzero with, zero without -- and records `Renderer_GL21`,
    `Renderer_GLES10` and `Renderer_GLES20` as **empty under the image's
    defines** (not image code), or checks them in a second, named,
@@ -1325,11 +1379,14 @@ time"*).
    `GlExtensions`); empty under the image's defines 3 -- *"25 in all"*.
    T26 recorded `Platform.cpp` as `CANNOT` under T21's fakes (the SDL fake
    lacked `SDL_PushEvent`, R4 item 33) where R3 predicts rc 0 under T35's;
-   the first run decides, and the record says which fake carried the name.
+   T35's fakes carry the name (`files 15 PushEvent: 1` at `bb1754e581` and at
+   `5d7650c1dc`, proof U-6, CMD13), the compile not run -- the first run
+   decides, and the record says which fake carried the name.
    **The harness that exists** (R3 § 1.2-1.4): **3 of the 25 `.cpp` are
    compiled and run by a test target at the pin** (`StringUtil`, `TimeText`,
-   `OfflineProxyUrl`, in `es-unit-tests`; `es-unit-tests: rc 0; 185 | 185
-   passed` in T34's and T35's records), 2 headers tested header-only
+   `OfflineProxyUrl`, in `es-unit-tests`; `RUN es-unit-tests: rc 0;
+   [doctest] test cases: 185 | 185 passed | 0 failed | 0 skipped ...` in
+   T34's and T35's records, the tail abridged here, proof C8, CMD15), 2 headers tested header-only
    (`CommandLineUtil.h`, `TabStops.h`), **0 of `resources/` beyond
    `TabStops.h` and 0 of `renderers/`**; T34's run closed `TOTAL: 246 test
    cases in 6 binaries` and T35's `TOTAL: 249 test cases in 6 binaries` (R3
@@ -1344,17 +1401,21 @@ time"*).
    **The host floor is the lane's own: unit cases for the 25 seams** of §
    4's table in `CloudText`'s shape -- **first the FAIL-at-pin candidates**
    (3.1 the 3-byte pairs, 3.2 the false successes, 3.3 `writeAllText`'s
-   missing return, 3.5 the pipe's literal, 3.6 the dead parameter, 3.7
-   `runSystemCommand`'s 0, 3.8 the height's positive; then the collision
-   controls 3.4 and 3.9, 3.10 the mask's JSON shape, 3.14 T35's case),
+   missing return, 3.6 the dead parameter, 3.7 `runSystemCommand`'s 0, 3.8
+   the height's positive; then 3.5 the pipe's literal in its two forms --
+   output past the pipe buffer, `141`, and 400 lines held whole, `0`, the
+   PASS-at-pin control (proof C1); then the collision controls 3.4 and 3.9,
+   3.10 the mask's JSON shape, 3.14 T35's case),
    each seen to FAIL against the unfixed code before it is trusted, the stub
    checked against the unfixed code first (`engineering-practices.md` §
    Guards must fail closed), a candidate that PASSes at the pin recorded as
    such -- then the rest. **The cases are built by
    `docs/audits/<audit>/tools/t36-build-tests.sh`** (R3 § 6, described, not
    written): `git show` T35's `t35-build-tests.sh` from
-   `feature/m6-es-core-window-input-682` at its accepted tip (`bb1754e581`
-   at R3's read), renamed, the lineage line prepended (T36 <- T35 <- T34 <-
+   `feature/m6-es-core-window-input-682` at the tip read at stage A (T35 is
+   at stage E and moving; `bb1754e581` at R3's read, `5d7650c1dc` at the
+   proof's, proof K-170) -- the tip T35's acceptance names, if it has one by
+   then -- renamed, the lineage line prepended (T36 <- T35 <- T34 <-
    T33 ...); **kept unchanged**: the refusals (no rapidjson or no `g++`:
    exit 2, nothing built), the `python3 -I` parse of
    `es-app/tests/unit/CMakeLists.txt` into `sources.txt`, `build()` deleting
@@ -1449,13 +1510,13 @@ time"*).
 
    | G | Behaviour only the running image shows | Walk or serial command | Expected frame or line | Bound (s) |
    | --- | --- | --- | --- | ---: |
-   | G-01 | identity and side; the face, the theme, the libraries, the renderer | `vm-serial sh 'cat /etc/os-release; fbset; ls /usr/share/themes; find /usr/share -name "*.ttf" \| head; ldd /usr/bin/emulationstation \| grep -c -E "fribidi\|vlc\|freetype"; ldd /usr/bin/emulationstation \| grep -E "fribidi\|vlc\|freetype"'`; the theme's XML grepped for a `fontPath` without a `fontSize` (L-07's reach); the ES binary's digest against the pin's lines (T26's `g01-identity.txt` shape); `vm-qa`'s renderer line | `BUILD_ID=...`, `640x480`; the face path for `tools/font-stems`; whether `libfribidi` is linked (the `HAVE_FRIBIDI` answer, Q7's `[unverified]`, `image` side) and `libvlc` and `libfreetype` with it; L-07's element present or absent; Mesa's virgl renderer line; every frame labelled `image` or `pin-binary` | 60 |
+   | G-01 | identity and side; the face, the theme, the libraries, the renderer | `vm-serial sh 'cat /etc/os-release; fbset; ls /usr/share/themes; find /usr/share -name "*.ttf" \| head; ldd /usr/bin/emulationstation \| grep -c -E "fribidi\|vlc\|freetype"; ldd /usr/bin/emulationstation \| grep -E "fribidi\|vlc\|freetype"'`; the theme's XML grepped for a `fontPath` without a `fontSize` (L-07's reach); the ES binary's digest against the pin's lines (T26's `g01-identity.txt` shape); `vm-qa`'s renderer line | `BUILD_ID=...`, `640x480`; the face path for `tools/font-stems`; whether `libfribidi` is linked (the `HAVE_FRIBIDI` answer, Q7's `[unverified]`, build order not source per proof U-1, `image` side) and `libvlc` and `libfreetype` with it; L-07's element present or absent; Mesa's virgl renderer line; every frame labelled `image` or `pin-binary` | 60 |
    | G-02 | the font's scale at 640x480 (`Font.cpp:99-101`, `:161-180`; `Renderer.cpp:1149`) | the carousel and one menu page with a help bar; `shot` each | the help bar's height and a row's text height measured by a reader (a stdlib `zlib` PNG reader, never by eye) against T34's 70/71 px precedent (R3 § 4) and `tools/font-stems`' stems for the face at the scaled size -- `image` side | 120 |
    | G-03 | the `exists` cache after a file written by another process (`FileSystemUtil.cpp:213-215`, `:277-282`; `es-native-ui.md:107`) | with ES running, a stamp or file a page reads written over `tools/vm-serial` (the lane names the page and the path in its START post, from the pages that read a script-written stamp -- *"NOT DONE ON THIS DEVICE YET after a run had stamped"*, R3 § 4); open the page; `shot`; leave and reopen; `shot` | the row's frame before and after: the remembered miss shown, or the file seen -- the unit case (3.13, 3.14) is the proof and the frame the confirmation -- `image` side | 180 |
    | G-04 | the 11 strings in English and French (`TimeUtil.cpp:517-588`; `MathExpr.cpp:95`) | the page that shows an elapsed time (the lane reads which from the callers of `TimeUtil`'s relative strings before the window and names it in START); `shot`; `systemctl stop essway`; `system.language` set to `fr_FR` over serial; ES started; the same page; `shot` | each duration string drawn at 640 in both languages without clipping, the French the catalog's (§ 5's parse) -- `image` side | 240 |
    | G-05 | the renderer through Mesa virgl (`Renderer_GLES30.cpp`; the texture cache under a scroll) | `vm-qa`'s display and renderer lines read; a gamelist with art scrolled the length of its list; `tools/es-launch-memory` before and after for RSS | frames without a missing texture or a torn clip; RSS before and after; **ES's VRAM counters `CANNOT`** (no tool reads them); the eviction (`cleanupVRAM`) is 3.23's unit case -- `image` side | 120 |
    | G-06 | the second size: the font's scale at 1280x800 | `tools/vm-stop`; `generic-x64-vm run --headless --daemonize --res 1280x800` on the same disk; `vm-serial wait`; G-02's page again; `shot` | the same measures at `fontScale()` 1 against T34's 118/118 px precedent (R3 § 4); the two sizes' ratio stated as the reader's line -- `image` side | 180 |
-   | G-07 | the pipe under the image's shell, and whether the launch's stdout reaches it (`Platform.cpp:162-168`; L-05) | `vm-serial sh 'sh -c "((((seq 1 400 2> /dev/null ; echo \$? >&3) \| head -300 > /dev/null) 3>&1) \| (read xs; exit \$xs))"; echo $?; readlink -f $(command -v sh)'`; the image's launch wrapper (the command `FileData.cpp:1100-1103` builds) read for its stdout redirects with `grep -n` | the exit the image's busybox shell prints (141 on the host is 3.5's); the shell's path; whether the wrapper sends its stdout to its own log before `run()`'s pipe sees it -- R2's *"not established"* settled, `image` side | 60 |
+   | G-07 | the pipe under the image's shell, and the image's copy of the launch wrapper (`Platform.cpp:162-168`; L-05) | `vm-serial sh 'for n in 400 200000; do sh -c "((((seq 1 $n 2> /dev/null ; echo \$? >&3) \| head -300 > /dev/null) 3>&1) \| (read xs; exit \$xs))"; echo "seq $n rc=$?"; done; readlink -f $(command -v sh)'`; the image's `runemu.sh` read with `grep -n -E 'LOG_FILE=\|OUTPUT_LOG\|tee -a'` against the source's `:40`, `:84`, `:491`, `:500` (proof C15) | the two exits the image's busybox shell prints, each recorded as it prints (the host's dash printed `0` for 400 lines and `141` for 200,000, proof C1); the shell's path; the image's wrapper appending the emulator's output to its log and `tee`ing its own lines to stdout, or the difference named -- `image` side | 60 |
    | G-08 | `Renderer_GL21`, `Renderer_GLES10`, `Renderer_GLES20` | -- | `CANNOT`: no image compiles their bodies (`-DGLES3=1` on every device, R3 § 2.2); a structure fact recorded in `02` § The structure | 0 |
    | G-09 | the handhelds' GL drivers (panfrost on H700, Adreno on SM8550) | -- | `CANNOT`: a device no (`vm-first.md`); a driver-specific defect is an `open item to test` with the physical fact named | 0 |
    | G-10 | close | `tools/vm-stop` on the pidfile; the disk's size and sha; `qemu 0, compilers 0` | `retired.txt`; the leftover check; the RETURN post inside bound plus grace | 120 |
@@ -1502,8 +1563,9 @@ cannot be made is `CANNOT` with its reason). From the distribution worktree
 after the membership block; `W` the ES worktree (§ 1) -- **before dispatch,
 `W` is the `qa-integration` checkout at the pin, read by `git -C` only, and
 every expectation below is a line R1, R2 or R3 printed at the pin on
-2026-10-31 by `git -C` against `qa-integration`, cited by its comment,
-except the lines marked `[unverified]` or by stage** -- `PIN` the pin, `MB`
+2026-10-31 by `git -C` against `qa-integration`, or one the stranger's
+proof printed the same way that day (proof CMD3, CMD4), cited by its
+comment, except the lines marked by stage** -- `PIN` the pin, `MB`
 the merge base, `FILES` the 58 from the block's paths file; counts by
 `/usr/bin/grep` (#1138); **every grep for `_("` is `-F`**; `rc=$?` on its
 own line, never after a pipe; **no `cut` truncates an expected error line**:
@@ -1524,18 +1586,18 @@ git -C "$W" diff --shortstat bccd715707 "$PIN" -- $FILES; git -C "$W" diff --sho
 git -C "$W" log --format=%h "$MB"..rocknix/master -- $FILES | $G -c .; rc=$?; echo "upstream commits rc=$rc"; n=0; for p in $FILES; do [ "$(git -C "$W" rev-parse "$PIN:$p")" = "$(git -C "$W" rev-parse -q --verify "rocknix/master:$p")" ] && n=$((n+1)); done; echo "identical to rocknix/master: $n"; git -C "$W" rev-list --count 1750dded8c..batocera/master -- $FILES; git -C "$W" diff --shortstat 1750dded8c batocera/master -- $FILES; comm -12 <(git -C "$W" diff --name-only "$MB" "$PIN" -- $FILES | sort) <(git -C "$W" diff --name-only 1750dded8c batocera/master -- $FILES | sort)
 # the other lanes' deltas inside the 58 (expect T20 `1 file changed, 4 insertions(+)`; T26 `1 file changed, 15 insertions(+), 5 deletions(-)`; T21's stat naming utils/FileSystemUtil.cpp, and with the two DownloadFile paths `3 files changed, 101 insertions(+), 6 deletions(-)`; every other tip empty -- R1 C17; T35's ref: whichever line prints, recorded -- R5 C12 printed `fatal: Needed a single revision` for its `rev-parse --verify`)
 for b in m6-es-launch-path-649 m6-es-cloud-pages-665 m6-es-achievements-pages-667 m6-es-state-and-bridge-668 m6-es-guimenu-673 m6-es-pages-678 m6-es-app-views-scrapers-679 m6-es-app-system-680 m6-es-core-components-681 m6-es-core-window-input-682; do echo "== $b"; git -C "$W" diff --stat "$PIN" "origin/feature/$b" -- $FILES 2>&1 | tail -n 2; done; git -C "$W" diff --shortstat "$PIN" origin/feature/m6-es-state-and-bridge-668 -- $FILES es-core/src/utils/DownloadFile.cpp es-core/src/utils/DownloadFile.h
-# the collisions' commits (expect T20's d9afa5c7c and T21's f7c16144d each to name utils/FileSystemUtil.cpp -- R4 items 12, 13, T21's found by `log --all` in R3 cmd 6; T26's S8 is the lane's read of 757f5370ea's log, R4 item 23 naming no hash; a hash that does not resolve in the shared store prints `fatal:`, recorded, not a stop)
-git -C "$W" show --stat --format='%h %ad %s' --date=short d9afa5c7c -- es-core/src/utils/ 2>&1 | head -n 4; git -C "$W" show --stat --format='%h %ad %s' --date=short f7c16144d -- es-core/src/utils/ 2>&1 | head -n 4; git -C "$W" log --oneline "$PIN"..origin/feature/m6-es-guimenu-673 -- es-core/src/utils/Platform.cpp 2>&1
-# the strings, two ways (expect `_(" lines TOTAL 11` -- R2 cmd 28, R3 cmd 17 -- over the files R3 § 5 lists, MathExpr.cpp and TimeUtil.cpp; the occurrence count the lane's line, MathExpr.cpp:95 carrying two strings -- R2 § 7)
+# the collisions' commits (expect d9afa5c7c to resolve, an ancestor of T20's tip, its stat `FileSystemUtil.cpp | 4` -- proof U-8, CMD3; f7c16144d's stat `FileSystemUtil.cpp | 17` with the path given, its whole stat naming 8 files -- proof C6, CMD4; R4 items 12, 13; T26's S8 is the lane's read of 757f5370ea's log, R4 item 23 naming no hash)
+git -C "$W" show --stat --format='%h %ad %s' --date=short d9afa5c7c -- es-core/src/utils/FileSystemUtil.cpp 2>&1; git -C "$W" show --stat --format='%h %ad %s' --date=short f7c16144d -- es-core/src/utils/FileSystemUtil.cpp 2>&1; git -C "$W" log --oneline "$PIN"..origin/feature/m6-es-guimenu-673 -- es-core/src/utils/Platform.cpp 2>&1
+# the strings, two ways (expect `_(" lines TOTAL 11 in 2 files` -- R2 cmd 28, R3 cmd 17, proof K-148 -- MathExpr.cpp and TimeUtil.cpp; the occurrence count 12, MathExpr.cpp:95 carrying two strings -- R2 § 7, proof K-148)
 git -C "$W" grep -c -F '_("' "$PIN" -- $FILES | sed "s/^$PIN://" | awk -F: '{s+=$NF} END {print "_(\" lines TOTAL", s, "in", NR, "files"}'; git -C "$W" grep -o -F '_("' "$PIN" -- $FILES | wc -l; git -C "$W" grep -n -F '_("' "$PIN" -- $FILES | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo
-# the French of the seven msgids (`[unverified]`: R2 § 7 did not check; the lane records each msgid's msgstr, empty or not) and es-untranslated (expect the slice's contribution 0 -- R3 § 5; the tree-wide lines are the lane's)
+# the French of the seven msgids (expect each with a non-empty msgstr: never jamais, %d d %d j, %d h %d h, %d mn %d mn, %d sec %d sec, Unknown Inconnu, None Aucun, at po :143 :1673 :3554 :4007 :4011 :4015 :4019 -- proof U-3, CMD4) and es-untranslated (expect the slice's contribution 0 -- R3 § 5; the tree-wide lines are the lane's)
 git -C "$W" grep -n -A1 -E '^msgid "(never|%d d|%d h|%d mn|%d sec|Unknown|None)"$' "$PIN" -- locale/lang/fr/LC_MESSAGES/emulationstation2.po | sed "s/^$PIN://"
 out=$(tools/es-untranslated --es-src "$W" --upstream bccd715707 2>&1); rc=$?; printf '%s\n' "$out" | $G -m1 'fork string'; echo "es-untranslated rc=$rc"
-# the log lines (expect 99 -- R2 cmd 28)
+# the log lines (expect `LOG(Log lines TOTAL 99 in 16 files` -- R2 cmd 28, proof K-149)
 git -C "$W" grep -c 'LOG(Log' "$PIN" -- $FILES | sed "s/^$PIN://" | awk -F: '{s+=$NF} END {print "LOG(Log lines TOTAL", s, "in", NR, "files"}'
 # the threads and the lifetimes (expect `threads count: 10` -- TextureDataManager.cpp 217 222 234, .h 45; FileSystemUtil.cpp 1788 1797; ThreadPool.cpp 26 84 91, .h 68 -- and one `.detach(`, FileSystemUtil.cpp:1797; weak_ptr in Font.cpp 30 177, Font.h 92, ResourceManager.cpp 229 238, .h 34 35 56, TextureResource.cpp 12 146, .h 70; `delete this` 0 rc=1 -- R2 cmd 17, § 4)
 git -C "$W" grep -n -E 'std::thread|\.detach\(|std::async|pthread_create' "$PIN" -- $FILES | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo; git -C "$W" grep -n -E 'std::thread|\.detach\(|std::async|pthread_create' "$PIN" -- $FILES | $G -c .; git -C "$W" grep -n -F '.detach(' "$PIN" -- $FILES | $G -c .; git -C "$W" grep -n -F 'weak_ptr' "$PIN" -- $FILES | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo; git -C "$W" grep -n -F 'delete this' "$PIN" -- $FILES | $G -c .; rc=$?; echo "delete this rc=$rc"
-# the locks (expect 60 lines: ResourceManager.cpp 2, TextureData.cpp 7, TextureData.h 1, TextureDataManager.cpp 12, TextureDataManager.h 6, ConcurrentVector.h 8, FileSystemUtil.cpp 13, StringListLock.cpp 5, StringListLock.h 3, ThreadPool.h 3 -- R2 cmd 17)
+# the locks (expect 63 lines: ResourceManager.cpp 2, TextureData.cpp 7, TextureData.h 1, TextureDataManager.cpp 12, TextureDataManager.h 7, ConcurrentVector.h 9, FileSystemUtil.cpp 14, StringListLock.cpp 5, StringListLock.h 3, ThreadPool.h 3 -- proof C2, CMD4; the same pattern without std::atomic prints 58, proof CMD6, so R2 cmd 17's 60 is neither)
 git -C "$W" grep -c -E 'std::mutex|shared_mutex|recursive_mutex|lock_guard|unique_lock|shared_lock|condition_variable|std::atomic' "$PIN" -- $FILES | sed "s/^$PIN:es-core\/src\///" | tr '\n' ' '; echo; git -C "$W" grep -n -E 'std::mutex|shared_mutex|recursive_mutex|lock_guard|unique_lock|shared_lock|condition_variable|std::atomic' "$PIN" -- $FILES | $G -c .
 # the process spawns (expect `spawn count: 16`, every line in utils/Platform.cpp -- R2 cmd 17, § 5)
 git -C "$W" grep -n -E 'system\(|popen\(|execl|execv|fork\(' "$PIN" -- $FILES | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo; git -C "$W" grep -n -E 'system\(|popen\(|execl|execv|fork\(' "$PIN" -- $FILES | $G -c .
@@ -1543,14 +1605,14 @@ git -C "$W" grep -n -E 'system\(|popen\(|execl|execv|fork\(' "$PIN" -- $FILES | 
 git -C "$W" grep -n -E 'fopen\(.*"[wa]' "$PIN" -- es-core/src/utils/FileSystemUtil.cpp es-core/src/utils/Platform.cpp | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo; git -C "$W" grep -n -E 'fopen\(|ofstream' "$PIN" -- es-core/src/utils/zip_file.hpp | $G -c .
 # the helpers' reach over es-app/src and es-core/src (expect runSystemCommand\( 80, ProcessStartInfo 13, GetShOutput\( 27, GetShOutputLines\( 9, writeAllText\( 27, renameFile\( 17, copyFile\( 12, readAllText\( 38, readAllLines\( 5, AtomicFile:: 41 -- R2 cmd 13; none of the runSystemCommand lines reads the return -- R2 cmd 14)
 for pat in 'runSystemCommand\(' 'ProcessStartInfo' 'GetShOutput\(' 'GetShOutputLines\(' 'writeAllText\(' 'renameFile\(' 'copyFile\(' 'readAllText\(' 'readAllLines\(' 'AtomicFile::'; do printf '%s ' "$pat"; git -C "$W" grep -n -E "$pat" "$PIN" -- es-app/src es-core/src | $G -c .; done
-# the includes and the gates (expect the angle-include line count the lane's own; of them 41 non-standard by R3 cmd 9's rule (NON-STD ANGLE INCLUDES: 41), the lane's standard-header list written beside its filtered count; quoted external 0; the macro include Font.h:11; `#if...ROCKNIX` 0 rc=1 -- R3 cmd 17; USE_OPENGLES_30 at GlExtensions.h:6, Renderer.h:99 :128 :208, Renderer_GLES30.h:5-7 -- R3 § 2.2; `GLES3` as a whole word in es-core/src: `[unverified]`, R3 § 2.2's guards name none)
+# the includes and the gates (expect the angle-include line count 241 -- proof CMD4; of them 41 non-standard by R3 cmd 9's rule (NON-STD ANGLE INCLUDES: 41), whose standard list is unstated, so the lane writes its own beside its filtered count; quoted external 0; the macro include Font.h:11; `#if...ROCKNIX` 0 rc=1 -- R3 cmd 17; USE_OPENGLES_30 at least at GlExtensions.h:5 :64 :88, Renderer.cpp:959, Renderer.h:99 :128 :208, Renderer_GLES30.cpp:361 to :2172, Renderer_GLES30.h:5 :67, Shader.cpp:11 to :626, Shader.h:47 :90 -- proof C9, CMD4, CMD6; `GLES3` as a whole word in es-core/src 3 rc=0 -- GlExtensions.h:6 the include path, Renderer_GLES30.cpp:776 :1364 string literals, no `#if` -- proof C14, CMD4)
 git -C "$W" grep -n -E '^\s*#\s*include\s*<' "$PIN" -- $FILES | $G -c .; git -C "$W" grep -n -E '^\s*#\s*include\s+[A-Z_]+' "$PIN" -- $FILES | sed "s/^$PIN://"; git -C "$W" grep -n -E '^\s*#\s*(if|ifdef|ifndef|elif)\b.*ROCKNIX' "$PIN" -- $FILES | $G -c .; rc=$?; echo "ROCKNIX gates rc=$rc"; git -C "$W" grep -n -F 'USE_OPENGLES_30' "$PIN" -- es-core/src/renderers | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo; git -C "$W" grep -n -w 'GLES3' "$PIN" -- es-core/src | $G -c .; rc=$?; echo "GLES3 macro rc=$rc"
 # the non-ASCII bytes (expect files with a non-ASCII byte 3 -- FileSystemUtil.cpp 3 (`//` comments 225 287 718), StringUtil.cpp 2 (1406 1407, trailing comments after code), StringUtil.h 7 (62-68, string literals); a non-ASCII comment within three lines before a `_(` 0 -- R3 cmd 17, § 5)
 n=0; for f in $FILES; do c=$(git -C "$W" show "$PIN:$f" | LC_ALL=C $G -c -P '[^\x00-\x7F]'); [ "$c" != 0 ] && { echo "${f#es-core/src/}:$c"; n=$((n+1)); }; done; echo "files with a non-ascii byte: $n"; git -C "$W" grep -n -P '[^\x00-\x7F]' "$PIN" -- $FILES | sed "s/^$PIN://" | cut -d: -f1,2 | tr '\n' ' '; echo
-# the candidate lines (expect `text[pos] +=` inside StringUtil.cpp 359-361 and 400-402 -- R2 § 1.1; `head -300` at Platform.cpp:162 -- R2 § 1.2; `return 0;` closing runSystemCommand at :879 -- R2 § 1.2; "always initialize ASCII" at Font.cpp:115 -- R2 § 2.1; the `[&]` lambda at FileSystemUtil.cpp:1773 -- R2 § 1.3; the three `exists(localFile` at TextureData.cpp 331 339 410 -- R4 item 1)
+# the candidate lines (expect `text[pos] +=` at StringUtil.cpp `359 400`, inside 359-361 and 400-402 -- R2 § 1.1, proof K-157; `head -300` at Platform.cpp `162` and `164`, the second the log-off variant -- R2 § 1.2, proof C10; `return 0;` closing runSystemCommand at :879 -- R2 § 1.2; "always initialize ASCII" at Font.cpp:115 -- R2 § 2.1; the `[&]` lambda at FileSystemUtil.cpp:1773 -- R2 § 1.3; the three `exists(localFile` at TextureData.cpp 331 339 410 -- R4 item 1)
 git -C "$W" grep -n -F 'text[pos] +=' "$PIN" -- es-core/src/utils/StringUtil.cpp | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo; git -C "$W" grep -n -F 'head -300' "$PIN" -- es-core/src/utils/Platform.cpp | sed "s/^$PIN://" | cut -d: -f2; git -C "$W" grep -n -i -F 'always initialize ascii' "$PIN" -- es-core/src/resources/Font.cpp | sed "s/^$PIN://" | cut -d: -f2; git -C "$W" grep -n -F '[&]' "$PIN" -- es-core/src/utils/FileSystemUtil.cpp | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo; git -C "$W" grep -n -F 'exists(localFile' "$PIN" -- es-core/src/resources/TextureData.cpp | sed "s/^$PIN://" | cut -d: -f2 | tr '\n' ' '; echo; git -C "$W" show "$PIN:es-core/src/utils/Platform.cpp" | sed -n '853,880p' | $G -n -E 'return|name|window'
-# the pipe's literal, 3.5 (expect 141 at the pin, 0 wanted -- R2 L-05; the host's sh named beside it)
-sh -c '((((seq 1 400 2> /dev/null ; echo $? >&3) | head -300 > /dev/null) 3>&1) | (read xs; exit $xs))'; rc=$?; echo "pipe literal rc=$rc"; readlink -f "$(command -v sh)"
+# the pipe's literal, 3.5, in two forms (expect `seq 400 rc=0` -- 1,492 bytes held whole by the pipe, the PASS-at-pin control -- and `seq 200000 rc=141` -- output past the pipe buffer, the FAIL-at-pin case, 0 wanted -- each printed on the host's /usr/bin/dash by proof C1, CMD4, CMD12; one run is one observation, the 141 timing-dependent in principle; the host's sh named beside them)
+for n in 400 200000; do sh -c "((((seq 1 $n 2> /dev/null ; echo \$? >&3) | head -300 > /dev/null) 3>&1) | (read xs; exit \$xs))"; rc=$?; echo "seq $n rc=$rc"; done; seq 1 400 | wc -c; readlink -f "$(command -v sh)"
 # the menu map (expect the checker's line, and its SOURCE_DIRS at :58 naming es-app/src/guis and es-core/src/guis, no slice directory -- R3 § 5)
 out=$(tools/es-menu-map-check --es-src "$W" --ref "$PIN" 2>&1); rc=$?; printf '%s\n' "$out" | tail -n 1; echo "es-menu-map-check rc=$rc"; sed -n '58p' tools/es-menu-map-check
 # the compile (expect `es-syntax-check: no build root at /nonexistent (ES_BUILD_ROOT, --root)` rc 2 -- R3 § 5, cmd 19, #1137)
@@ -1562,12 +1624,17 @@ bash docs/audits/*-epic-m6-es-core-utils-resources/tools/t36-build-tests.sh "$W"
 git diff --stat TIPHASH HEAD -- packages projects tools | tail -n 1; git -C "$W" diff --stat "$PIN" HEAD | tail -n 1
 ```
 
-Every expectation above is a research file's printed line, cited in its
-comment, or marked `[unverified]` or by stage. The ones no research file
-printed and the lane prints first: the occurrence count of `_("`, the
-catalog's lines for the seven msgids, `es-untranslated`'s tree-wide line,
-the menu-map checker's line, the `GLES3` word count, the angle-include count
-under the lane's own standard list, and the non-ASCII listing's exact lines.
+Every expectation above is a research file's printed line or the stranger's
+proof's of 2026-10-31, cited in its comment, or marked by stage; the proof
+re-ran the block's host lines through `git -C` against `qa-integration` at
+the pin (proof CMD3, CMD4). The proof's own are the occurrence count of `_("`
+and the log line's file count, the catalog's seven lines, the 63 lock lines,
+the angle-include total, the `USE_OPENGLES_30` positions, the `GLES3` count,
+the collisions' stat lines and the pipe's two forms (the drafter re-ran that
+loop on 2026-10-31 and it printed `seq 400 rc=0`, `seq 200000 rc=141`,
+`1492` and `/usr/bin/dash`). The lane prints first: `es-untranslated`'s
+tree-wide line, the menu-map checker's line, the angle-include count under
+its own standard list, and the non-ASCII listing's exact lines.
 The lane re-runs every one as its own line; a line that differs is recorded
 beside the expectation, not argued with.
 
@@ -1656,17 +1723,17 @@ hand-back's words.
 - [ ] `reviewed-at:`, `reviewed-at-es:`, `fixed-at:` and `fixed-at-es:` in #683's header carry the lane's commits; the ES read is on the pin's bytes for the 58 files (`git -C <W> diff --stat 16dbac5211 <reviewed-at-es> -- $(cat .qa-scratch/t36/paths.txt)` empty before stage E) and nothing under the distribution's `packages/`, `projects/` or `tools/` changed at any stage against the lane's own dispatch tip (the pointer's merge hash, never `2174265e9c`).
 - [ ] `01-research-notes.md` § Scope records § 2's block with its exact output lines (`mine: 58 paths.txt: 58 equal: True`; `lines: 50840 reach: {'shipped': 58} tier: {'upstream-carried': 43, 'fork-own': 15} lang: {'c++': 25, 'c-header': 32, 'c++-header': 1}`; `fork-own lines: 6212`; `read lines: 50840`; `ls-tree at the pin = paths.txt`; `wc -l 50827` and `grep -c 50840` with the thirteen files without a trailing newline; 52 at the merge base and 52 at the base; `15 files changed, 1032 insertions(+), 60 deletions(-)` twice -- or the deltas beside them) and names `cada856d86` as the merge base against `rocknix/master` with `bccd715707` as its parent and `1750dded8c` as the base against `batocera/master`.
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | /usr/bin/grep -c -E '^\| `'`` prints `58`; its tier columns read fork-added 6 / fork-modified 9 / upstream-carried 43 and inventory 15 / 43.
-- [ ] `02` § The runs records the counts with both rules where they differ, each as a command's own output line or the lane's figure with the command that differs named -- `_("` 11 lines and its occurrence count; `LOG(Log` 99 lines; thread lines 10 with `.detach(` 1 (`FileSystemUtil.cpp:1797`); lock lines 60 with the per-file counts; spawn lines 16, all `Platform.cpp`; the `fopen(... "w"` lines `FileSystemUtil.cpp:1432`, `:1434`, `:1490`, `:1492`; the helpers' reach (R2 cmd 13's ten figures); the 41 non-standard angle includes with the lane's standard list; 0 `ROCKNIX` gates; the `USE_OPENGLES_30` lines and the `GLES3` word count; the three files with a non-ASCII byte and 0 non-ASCII comments before a `_(`.
+- [ ] `02` § The runs records the counts with both rules where they differ, each as a command's own output line or the lane's figure with the command that differs named -- `_("` 11 lines and its occurrence count; `LOG(Log` 99 lines; thread lines 10 with `.detach(` 1 (`FileSystemUtil.cpp:1797`); lock lines 63 with the per-file counts (`TextureDataManager.h` 7, `ConcurrentVector.h` 9, `FileSystemUtil.cpp` 14; proof C2); spawn lines 16, all `Platform.cpp`; the `fopen(... "w"` lines `FileSystemUtil.cpp:1432`, `:1434`, `:1490`, `:1492`; the helpers' reach (R2 cmd 13's ten figures); the angle-include total (241, proof CMD4) and the 41 non-standard with the lane's standard list; 0 `ROCKNIX` gates; the `USE_OPENGLES_30` lines and the `GLES3` word count; the three files with a non-ASCII byte and 0 non-ASCII comments before a `_(`.
 - [ ] `02` § The file cache, § The texture and font caches, § The paths, § The processes and § The writes and reads are each generated or asserted by a script under the audit folder's `tools/` that names its row count ("generated, asserted"), and `02` § The runs records each script seen to exit 1 on a constructed drift before it was trusted.
 - [ ] `02` § The file cache has one row per cache entry point (`queryCacheEntry`, `insertEntry`, `getCacheEntry`, `remove`, `reset`, the `fromStat64` write) and per erasing writer (`FileSystemUtil.cpp:1051`, `:1067`, `:1097`, `:1445`, `:1457-1458`, `:1506-1507`) with its lock and its answer to a file another process wrote; the five earlier line sets mapped onto the pin's; #1271's `isRegularFile` question answered at its lines; T34 L-09's answer cited; L-12 and L-15 dispositioned (3.6's ASan line, 3.13's positive); T35's 3.11 re-run's line and ruling (h)'s coordination recorded.
 - [ ] `02` § The texture and font caches has #1263's three reads (`TextureData.cpp:331`, `:339`, `:410`) with a disposition and G-03's frame or the unit case cited; the texture key's contract (`TextureResource.cpp:100-131`); L-07, L-09, L-10 (3.11's TSan line), L-11 (3.12's line), L-17 (the threads named, or the question left with its reason) dispositioned; **L-08 recorded as a rule erratum with 3.8's PASS line against `es-code-traps.md:118`** and T34 PL-17 named beside it for the coordinator.
-- [ ] `02` § The processes has one row per spawn line (the 16) with its shell, whether it waits, what it returns and its callers' thread; L-05 with 3.5's host-shell rc and G-07's image-shell rc and the launch wrapper's redirect lines; **L-13 recorded as a rule erratum against `es-native-ui.md:103`** with 3.7's text case; L-06 recorded as T26's collision with 3.9's control line; 3.18's `shellQuote` contract; L-14 with 3.10's line and the grep of the logged call sites.
+- [ ] `02` § The processes has one row per spawn line (the 16) with its shell, whether it waits, what it returns and its callers' thread; L-05 with 3.5's two host-shell rcs (400 lines and past the pipe buffer) and G-07's two image-shell rcs, and the launch wrapper's redirect lines from the source (`runemu.sh:40`, `:84`, `:491`, `:500`) beside the image's copy; **L-13 recorded as a rule erratum against `es-native-ui.md:103`** with 3.7's text case; L-06 recorded as T26's collision with 3.9's control line; 3.18's `shellQuote` contract; L-14 with 3.10's line and the grep of the logged call sites.
 - [ ] `02` § The writes and reads has one row per write site with its mechanism, atomicity, what an interrupted write leaves and what its return claims; L-03 with 3.2's FAIL lines (`renameFile`'s half named T21's collision, `copyFile`'s this slice's, its branching callers named for their owners); L-04 with 3.3's record and #1186; L-02 with 3.4's FAIL line as T20's collision control; L-16 with 3.15's line.
 - [ ] `02` § The merge debt is one line naming `cada856d86`, `rocknix/master` (`f6c542872e`), `bccd715707` as its parent, the upstream commit count on the 58 of 0 since the base (14 on any path), 43 of 58 blobs identical between the pin and master, and batocera's thirteen commits since `1750dded8c` on nine files (four of them fork-modified: `Font.cpp`, `Font.h`, `TextureData.cpp`, `Platform.cpp`) as the reconciliation list only; then the collisions, each with its owner and its read line: T20's `d9afa5c7c` (#1177), T21's `f7c16144d` (#1191) and `utils/DownloadFile.{cpp,h}`, T26's S8 (#1225), and T34's and T35's ES tips' delta inside the 58 (empty, or named).
 - [ ] `02` § The runs records every § 5 command with exit, wall time, the figure and *a FAIL would mean ...*; a run that cannot be made is `CANNOT` with its reason; the `es-syntax-check` line (rc 2) quoted whole, the stand-in syntax check's rc per file over the 25 with the fakes, the pugixml root and `-DUSE_OPENGLES_30`, **beside each renderer file's preprocessed-TU positive with and without the define**, and `Renderer_GL21`, `Renderer_GLES10`, `Renderer_GLES20` recorded as empty under the image's defines or checked in a named second pass; every unit case the lane wrote has its FAIL-then-PASS pair recorded against the unfixed code first, the FAIL-at-pin candidates by name (3.1 to 3.10, 3.14), and a candidate that PASSes at the pin recorded as such, not as a defect.
 - [ ] `02` § The guest cycle records the window the coordinator granted on #683 (the comment's time; the START and RETURN posts with their first-line contract, the timer that stops the guest or the sentence that nothing does, and censuses, and the host file's lines beside them), the image by file name and `BUILD_ID` read from the guest at 640x480, G-01 to G-10 with their frames read back at EN and FR and each labelled by side (`image` or `pin-binary`), G-01's `ldd` lines (the `HAVE_FRIBIDI` answer), G-02's and G-06's measures by a reader beside `tools/font-stems`' numbers, G-03's two frames, G-04's French frames, G-05's renderer line and RSS with the VRAM counters `CANNOT`, G-07's image-shell rc and wrapper lines, G-08 and G-09 as `CANNOT` with the reason, the second boot at 1280x800, the disk retired with path, size and sha, the leftover check (`qemu 0, compilers 0`), and the window closed inside its bound plus grace.
 - [ ] `00-running-log.md` shows no image build, no fetch (the council runtime from `npm install --offline`; `rocknix/master`, `batocera/master` and the lanes' ES tips read from the shared refs), no handheld, the owner's accounts never named or used, no hosted account, no M7 root, worktree or prep directory, no held directory opened, the guest only inside the granted window, two keyed invokes and every other council call keyless, and nothing written under the ES worktree before stage E (`00`'s own closing census).
-- [ ] `04-analysis.md` § Q1 to Q7 are answered at their lines; every `bug` states its trace, its `Already written:` line (argued for the helpers' writes -- what `copyFile`, `writeAllText` and `renameFile` left for their callers on devices and in clouds -- and as *nothing inherited* where the code writes no file) and its VM line in one of the named families and passes `tools/box-check --issue N`; every #585 line owed is written in `02` in the shape the lane writes; every row of § 2's take-up table has a disposition at its lines; the § 1 rulings (a) to (k) each have their `02` row; #1263's, #1271's and #1186's bodies are read to their last comment before their rows are written.
+- [ ] `04-analysis.md` § Q1 to Q7 are answered at their lines; every `bug` states its trace, its `Already written:` line (argued for the helpers' writes -- what `copyFile`, `writeAllText` and `renameFile` left for their callers on devices and in clouds -- and as *nothing inherited* where the code writes no file) and its VM line in one of the named families and passes `tools/box-check --issue N`; every #585 line owed is written in `02` in the shape the lane writes; every row of § 2's take-up table has a disposition at its lines; the § 1 rulings (a) to (k) each have their `02` row; each of #1263's, #1271's and #1186's rows in `02` quotes the id or the time of the issue's last comment as the lane read it (proof C16).
 - [ ] Every proof in `02` carries a `proved:` cell reading `tree`, `history`, `tool-run`, `fixture`, `guest`, `fix-unit-test`, `fix-walk-pending-image` or `design`; every punch item carries `question:`; `02` § What T37 inherits lists § 5 item 3's items with their lines.
 - [ ] The retro exists at `docs/retros/<date>-m6-es-core-utils-resources.md`, is posted on #683 with its heading's time from `date -u` in the posting command, says what the slice did to the two time-to-play numbers (the launch through `ProcessStartInfo::run` and `runSystemCommand`'s blocking priced from the guest, or `CANNOT` with the harness's reason; cited from `docs/vm-qa-log.md`), and what T37 inherits.
 - [ ] The map: **the rows a stream added, the checker's line quoted, red if it cannot see them** -- `tools/es-menu-map-check` reads no slice file (its `SOURCE_DIRS` at `:58`, R3 § 5), so this slice contributes no title; if a stage-E stream adds, moves or renames a row on a page it touches, `docs/es-menu-map.md` changes in the same commit (D-UI-039) and `tools/es-menu-map-check --es-src <W> --ref <reviewed-at-es>` prints `0 missing` on the branch as handed back, with its full output line quoted in `02` § The structure.
@@ -1782,7 +1849,11 @@ restated here. What is this slice's:
   friction 2026-10-27 12:02 UTC, as T35's brief records; the pattern is
   written in pieces here so that this line does not count itself, and the
   four names it matches are § 1's; on the filled dispatch comment only the
-  `__[A-Z]+__` half must print 0, R5 § B item 2).
+  `__[A-Z]+__` half must print 0, R5 § B item 2). This brief carries the four
+  names as its own words -- the full pattern printed `15` on version 1 and
+  the `__[A-Z]+__` half `0` (proof K-166, CMD12), and on this version the
+  drafter's `grep -c` prints `16` and `0` -- so it is never copied into an
+  artifact unfilled.
 - Commit messages `docs: ...` on the distribution branch, with `Refs #683`;
   on the ES branch the package's convention, `Refs #683, #<bug>`; no closing
   keyword before an issue number while a criterion is open (`issue-tracking.md`).
@@ -1882,48 +1953,184 @@ T35's `window-input-tests` cases, a re-making of T20's `d9afa5c7c`, T21's
 written on the guest outside G-03's named path, and a theme or font changed
 on the guest's image.
 
-## Version 1: what the drafting read did not settle
+## What version 2 does not settle
 
-The `[unverified]` marks, each with the read that settles it:
+The `[unverified]` marks left after the proof, each with the read that
+settles it (proof U-1 to U-9; version 1 listed nine items, the proof
+settled U-2, U-3, U-8 and U-9 and their marks are gone):
 
-1. **`HAVE_FRIBIDI` in the image build** (Q7; § 5 item 1): no fribidi package
-   in `PKG_DEPENDS_TARGET` (`package.mk:13`) and no `CMakeCache.txt` read (R3
-   § 2.2) -- G-01's `ldd` line, `image` side.
-2. **Whether any source tests a `GLES3` macro** (§ 5 item 1): R3 § 2.2's
-   guard list names `USE_OPENGLES_30` only -- § 5's `git grep -n -w GLES3`.
-3. **The French of the seven msgids** (§ 3 item 7): R2 § 7 did not check the
-   catalog -- § 5's `git grep -A1` of the `.po`.
-4. **The blindspot register's lines** for the shapes § 3 item 4 names: no
-   research file read them -- the lane's `grep -n`.
-5. **Whether the launch's stdout reaches `run()`'s pipe** (L-05): R2 found
-   only a QA-log copy of the wrapper -- G-07's read of the image's wrapper.
-6. **`Platform.cpp` under the stand-in**: R3 § 2.4 predicts rc 0 under
-   T35's fakes, T26 recorded `CANNOT` under T21's (R4 item 33) -- the first
-   run, the fake that carried `SDL_PushEvent` named.
-7. **R3 § 2.4's class table and R3 § 6's include-order trap are
-   predictions from includes**, not runs -- the stand-in's and the build
-   script's first records.
-8. **Whether `d9afa5c7c` resolves in the shared object store** (§ 5's
-   collisions run): R3 cmd 6 found `f7c16144d` by `log --all`; no research
-   command resolved T20's hash -- the run's line, `fatal:` recorded if so.
-9. **The rule rows given by heading, not line** (§ 3 item 1): no research
-   file printed them -- the lane's `grep -n '^## '` at `COHASH`.
+1. **`HAVE_FRIBIDI` in the image build** (Q7; § 5 item 1; G-01) --
+   narrowed: ES's `CMakeLists.txt:236-241` defines it when the library is
+   found, `package.mk` names no fribidi, `vlc` is built
+   `--disable-fribidi`, and `pango` depends on the tree's
+   `packages/devel/fribidi`, so it is build order, not source (proof U-1) --
+   G-01's `ldd` line, `image` side.
+2. **The blindspot entry for the self-matching kill pattern** (§ 3 item 4)
+   -- partly: the six other entries' lines are the proof's (U-4); this one
+   was not found by heading -- the lane's `grep -n` for its words.
+3. **That ES's launch command is `runemu.sh`** (L-05; Q4) -- partly: the
+   wrapper's redirects are read from the source (proof C15, U-5); the
+   command `FileData.cpp:1100-1103` builds is not traced -- the lane's trace
+   and G-07's read of the image's copy.
+4. **`Platform.cpp` under the stand-in** (§ 5 item 1) -- partly: T35's fakes
+   carry `SDL_PushEvent`, the name T26's lacked (proof U-6); the compile was
+   not run -- the first run, the fake that carried the name recorded.
+5. **R3 § 2.4's class table and R3 § 6's include-order trap** (§ 5 item 1)
+   -- predictions from includes; they need a compiler (proof U-7) -- the
+   stand-in's and the build script's first records.
 
-**Where the research files disagree, and what this version took:** R2 § 2.1
-and L-08 (the constructor rasterises ASCII, so the height is fixed) against
-R4 item 4 (the height *"a moving number"*, after `es-code-traps.md:118` and
+**What the proof did not check, and why** (proof § Not checked): the
+tracker's states (#683's body, #700, #1263, #1271, #1186 and R4's `union
+count: 55`), which the lane re-reads at stage A (§ 3 item 9); the tools that
+run in a checkout or reach the tracker (`es-untranslated`,
+`es-menu-map-check`, `es-syntax-check`, `register-check`, `box-check`,
+`pkgcheck`), whose source lines it read instead; the compiler-bound figures
+(`NON-STD ANGLE INCLUDES: 41` with its standard list unstated, `GL
+IDENTIFIERS: 173`, the SDL counts 78 / 109 / 67), quoted here as R3's lines
+and nothing more; the lanes' audit folders beyond T34's and T35's records;
+the image copy `069fc2704421`, a kit file and not a source by hash; and
+behaviour beyond line anchors (L-09's `yTop/2`, L-14's `=` test, the
+`glScissor` flips, `getEscapedPath`'s list, `ResourceManager`'s internals),
+which are the lane's reads.
+
+**Where the sources disagree, and what this version took:** R2 § 2.1 and
+L-08 (the constructor rasterises ASCII, so the height is fixed) against R4
+item 4 (the height *"a moving number"*, after `es-code-traps.md:118` and
 T34's PL-17) -- this version carries R2's reading as a rule erratum with a
 positive case (3.8) and leaves PL-17's closure to the pause; R2 § 1.3's
-`es-native-ui.md:108` against R5 § G's `:107` -- the drafter's `grep -n` at
-`153ca325b3` printed `:107`; R3 § 1.1 and § 1.5 (*"T21's file in T36's
+`es-native-ui.md:108` against R5 § G's `:107` -- the drafter's and the
+proof's `grep -n` printed `:107`; R3 § 1.1 and § 1.5 (*"T21's file in T36's
 directory"*) against R1 C16, R4 item 20 and R5 § G (D-WORKFLOW-214 names
 `utils/DownloadFile.*` T36's) -- ruling (b), the coordinator's, makes it a
-collision for the integration; R3 § 1.4's table (T35's script 177 lines,
-T34's 181) against its command 4's listing (*"177, 181, 113"* in T34, T35,
-T21 order) -- neither figure is quoted here; R4 § 1's cache lines
-(`:144`, `:185-195`, `:203-220`) against R2 § 1.3's (`:183-198`,
-`:200-216`) -- Q1's reconciled table is the lane's; R5 § G's next free
-WORKFLOW ID (215) against the register at `acc4674006` (215 written by the
-coordinator at 11:37 UTC) -- this slice's row is D-WORKFLOW-216.
+collision for the integration; R3 § 1.4's table against its command 4 on
+the two build scripts' line counts -- neither figure is quoted here; R4 §
+1's cache lines against R2 § 1.3's -- Q1's reconciled table is the lane's;
+R5 § G's next free WORKFLOW ID (215) against the register at `acc4674006`
+-- this slice's row is D-WORKFLOW-216; R2 cmd 17's `locks total lines: 60`
+against § 5's pattern (`63`) and the same pattern without `std::atomic`
+(`58`) -- `63` taken, the command's own line (proof C2); R2's *"status 141
+read back"* (`R2-code-read.md:93`, reasoned, never run) against the host's
+run (`rc=0` for 400 lines) -- both forms carried (proof C1); R1's sha256
+prefixes (`R1-membership-provenance.md:243-244`, right) against version 1's
+§ 2 (swapped) -- R1's taken (proof C3).
 
-Version 1, 2026-10-31 11:46 UTC, from R1 to R5
+## Corrections in version 2
+
+The stranger's proof of version 1 (2026-10-31,
+`/workspace/tmp/m6-coordinator/kit/t36-proof.md`: 18 commands, 170 check rows
+-- 149 ok, 17 citing a correction, 4 notes -- and 9 rows on the
+`[unverified]` items) found the sixteen corrections below, numbered as the
+proof numbers them; each names version 1's lines (`e52274caf9`), the old
+words, the new words and the command that settles them. Beside them,
+version 2 settled four `[unverified]` items (U-2, U-3, U-8, U-9) and narrowed
+four (U-1, U-4, U-5, U-6) as the section above says, took the proof's notes
+K-077 (`Renderer.cpp:823-872` is the selection chain) and K-166 (the brief
+carries the four placeholder names, so it is never copied unfilled), and
+refreshed the moving tips K-170 named: T34 complete with its distribution
+tip `49c6b43f27` and its ES branch unchanged at `52f0ff5128`; T35's tip read
+at stage A, never copied; the coordinator's tip read at dispatch as
+`COHASH`.
+
+1. **C1, the pipe literal** -- v1 `:696` (L-05), `:1100-1101` (Q4), `:1217`
+   (3.5), `:1346` (§ 5 item 1's order), `:1458` (G-07), `:1552-1553` (the
+   run). Old: *"after 300 lines `head` exits and the command's next write
+   raises SIGPIPE"*; 3.5 *"`seq 1 400` ... prints `141` at the pin, `0`
+   wanted"*; *"(expect 141 at the pin, 0 wanted -- R2 L-05 ...)"*; G-07
+   *"(141 on the host is 3.5's)"*. New: SIGPIPE and 141 only once the
+   output outruns the pipe buffer; 3.5 in two forms, `seq 1 200000` printing
+   `141` (the FAIL-at-pin case) and `seq 1 400` printing `0` (1,492 bytes
+   held whole, the PASS-at-pin control); the run a loop over both; G-07 the
+   same two forms under busybox; 3.5 moved after the other FAIL-at-pin
+   candidates in § 5 item 1's order. Command: proof CMD4 (`pipe literal
+   rc=0`, `/usr/bin/dash`), CMD12 (`seq 200000 rc=141`, `1492`); the drafter's
+   re-run of the new loop printed the same four lines.
+2. **C2, the lock count** -- v1 `:650` (the files table), `:1538` (the run),
+   `:1659` (§ 7). Old: *"13 lock lines (R2 cmd 17)"*; *"expect 60 lines:
+   ... TextureDataManager.h 6, ConcurrentVector.h 8, FileSystemUtil.cpp
+   13"*; *"lock lines 60 with the per-file counts"*. New: `14` for
+   `FileSystemUtil.cpp`; `63` with `TextureDataManager.h 7`,
+   `ConcurrentVector.h 9`, `FileSystemUtil.cpp 14`; the pattern without
+   `std::atomic` printing `58`, so R2's 60 is neither. Command: proof CMD4,
+   CMD6.
+3. **C3, the sha256 prefixes** -- v1 `:367-368`. Old: *"sha256 prefixes
+   `49bc2745664e52f4` and `d17b9cac4b2c2245`"* after
+   `{inventory.json,slices.json}`. New: `d17b9cac4b2c2245` (`inventory.json`)
+   and `49bc2745664e52f4` (`slices.json`). Command: proof CMD2 (`inventory
+   sha: d17b9cac4b2c2245  slices sha: 49bc2745664e52f4`).
+4. **C4, the fork lines inside upstream functions** -- v1 `:560-563`. Old:
+   *"Only three fork lines sit inside upstream functions -- `Font.cpp:1-2`
+   (the include), the `TextureData.cpp` hunks and `Platform.cpp:855`"*. New:
+   the include at `Font.cpp:2` and `buildTextCache`'s `:1027-1029`, `:1105`;
+   the `TextureData.cpp` hunks; `Platform.cpp:855`, `:343`, `:367`;
+   `TimeUtil.cpp`'s `-189,3 +190,50` rewrite. Command: proof CMD5 (`-U0`
+   against `cada856d86`).
+5. **C5, `OfflineProxyUrl.h:29`** -- v1 `:317-319` (§ 1 Depth), `:645` (the
+   files table). Old: *"`StoreOnlyHeader` (*"a header name, not a value"*,
+   `:29`)"*. New: `const char* const StoreOnlyHeader = "X-RA-Store-Only:
+   1";` under `:27-28`'s *"As HttpReqOptions::customHeaders takes it, name
+   and value in one line."*, dispositioned *a fixed header line, no
+   credential*; the old words were T34's brief's (`es-core-components.md:240`).
+   Command: proof CMD5, CMD7 (`git grep -F 'not a value'` in `utils/`: no
+   line), CMD11.
+6. **C6, the collisions run** -- v1 `:1527-1528`. Old: `show --stat ... --
+   es-core/src/utils/ 2>&1 | head -n 4` for both hashes, expecting each to
+   name `FileSystemUtil.cpp`. New: the path `--
+   es-core/src/utils/FileSystemUtil.cpp` and no `head`; expect `| 4` for
+   `d9afa5c7c` and `| 17` for `f7c16144d`. Command: proof CMD3, CMD4.
+7. **C7, the lanes' test files** -- v1 `:908`, `:910`. Old: *"64 lines, 3
+   `TEST_CASE`"*; *"158 lines, 8 `TEST_CASE`"*. New: 70 and 177 lines by
+   `grep -c ''`. Command: proof CMD13.
+8. **C8, the abridged record strings** -- v1 `:208` (ruling (h)), `:680`
+   (positives), `:1227` (3.14), `:1332` (§ 5 item 1). Old: `es-unit-tests:
+   rc 0; 185 | 185 passed`; `window-input-tests: rc 1; 10 | 3 passed | 7
+   failed`. New: `RUN es-unit-tests: rc 0; [doctest] test cases: 185 | 185
+   passed | 0 failed | 0 skipped ...` (T34 `stage-d/build-tests.txt:55`, T35
+   `stage-c/build-tests.out:55`) and `RUN window-input-tests: rc 1; [doctest]
+   test cases: 10 | 3 passed | 7 failed ...` (T35 `stage-c/build-tests.out:65`),
+   each marked abridged at its tail. Command: proof CMD14, CMD15.
+9. **C9, the `USE_OPENGLES_30` lines** -- v1 `:1304-1305`, `:1546`. Old:
+   *"the macro the sources test: `GlExtensions.h:6`, `Renderer_GLES30.h:5-7`,
+   `Renderer.h:99`, `:128`, `:208`"*. New: the test at `GlExtensions.h:5`
+   (the include at `:6`) and `Renderer_GLES30.h:5` (the `#define` at `:7`),
+   and the run's expectation "at least" the positions the proof printed
+   (`GlExtensions.h:64`, `:88`, `Renderer.cpp:959`, `Renderer_GLES30.cpp:361`
+   to `:2172`, `Renderer_GLES30.h:67`, `Shader.cpp:11` to `:626`,
+   `Shader.h:47`, `:90`). Command: proof CMD4, CMD6.
+10. **C10, `head -300`** -- v1 `:1550`. Old: *"`head -300` at
+    Platform.cpp:162"*. New: `162` and `164`, the second the log-off
+    variant. Command: proof CMD4, CMD5.
+11. **C11, `TimeUtil.cpp`'s hunks** -- v1 `:649`. Old: *"the fork's hunk
+    `@@ -186,9 +187,56 @@`"*. New: two hunks by `-U0`, `-1,0 +2` (a line-2
+    addition) and `-189,3 +190,50` (the rewrite; numstat `51 3`). Command:
+    proof CMD3, CMD5.
+12. **C12, a rule heading** -- v1 `:830`. Old: *"§ A settings change from
+    the shell is invisible to the running interface"*. New: *"A settings
+    change made from the shell is invisible to the running interface"*,
+    `generic-x64-vm-testing.md:1145`. Command: proof CMD11.
+13. **C13, a rule range** -- v1 `:827`. Old: `:284-325`. New: `:285-324`
+    (`:285` the heading, `:325` the next). Command: proof CMD8, CMD11.
+14. **C14, the `GLES3` test** -- v1 `:1307-1309` (and `:1546`, `:1911-1912`).
+    Old: *"`[unverified]` until § 5's `git grep -n -w GLES3` prints, and if
+    it prints nothing, `-DGLES3=1` alone on the `g++` line would check
+    nothing too"*. New: the grep prints `3`, rc 0 -- an include path and two
+    string literals -- so no `#if` in `es-core/src` tests `GLES3` (it is
+    tested only in the top-level `CMakeLists.txt`), and `-DGLES3=1` on `g++`
+    checks nothing; the mark is removed (U-2). Command: proof CMD4.
+15. **C15, the launch wrapper's redirects** -- v1 `:696-698` (L-05),
+    `:1899-1900` (version 1's item 5). Old: *"whether the launch wrapper
+    redirects its own stdout before it reaches this pipe was not established
+    (the only `runemu.sh` R2 found is a QA-log copy ...)"*. New: from the
+    product copy `projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh`
+    -- `:40`, `:491`, `:500` append the emulator's output to its log, `:84`
+    `tee`s the wrapper's own lines to stdout -- so the emulator's output does
+    not reach `run()`'s pipe and the wrapper's log lines do; G-07 reads the
+    image's copy; that ES's launch command is this script stays
+    `[unverified]`. Command: proof CMD8, CMD13, CMD17.
+16. **C16, a § 7 clause with no artifact** -- v1 `:1669`. Old: *"#1263's,
+    #1271's and #1186's bodies are read to their last comment before their
+    rows are written"*. New: *"each of #1263's, #1271's and #1186's rows in
+    `02` quotes the id or the time of the issue's last comment as the lane
+    read it"*. Command: proof CMD12 (24 checkboxes, this clause the one
+    naming no artifact).
+
+Version 2, 2026-10-31 16:13 UTC, after the stranger's proof of version 1 (e52274caf9)
