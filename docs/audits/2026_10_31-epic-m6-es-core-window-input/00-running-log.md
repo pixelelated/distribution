@@ -372,3 +372,23 @@
   - After it, every checker again passes, and `register-check` reads 711 IDs.
   - The lane's first-parent commits since `b51dd8a805` touch nothing under `packages/`, `projects/` or `tools/`. The one non-merge commit in the range that does, `fb9258ba61`, is the coordinator's, brought in by the merge.
 - **After this commit** (`fixed-at`): `fixed-at-es` is written into each fixed bug's body (#1338 to #1343, #1348 to #1356), a comment carrying it goes on #1283 and #1305, the four header lines go into #682's body, then the hand-back comment and the host file's RETURN line.
+
+## [Stage E, S9] 22:58 to 23:06 UTC 2026-10-31 — PL-35 (#1357): PowerSaver's pushed-event flag (the coordinator's disposition of S2's lead)
+
+- **What was missed:** the coordinator disposed S2's `PowerSaver` lead at 16:41 UTC (#682 comment 6546220910): a `bug` in #1338's shape, the atomic fix in S7 only if a ThreadSanitizer program shows the race. The lane did not read that comment, and the hand-back of 21:50 listed the lead as the coordinator's. The coordinator's hand-back read (comment 6550283972) asked for it as S9.
+- **The positive, written first:** `stage-e/tsan-powersaver.cpp` over `PowerSaver.cpp:15-36` (`ps_push`) and `PowerSaver.h:68-69` (`ps_members`), lifted verbatim. A worker pushes while the interface thread resets. Run by `san` as `tsan-powersaver`.
+- **Before, at S8's tip** (`PowerSaver.*` the pin's bytes; `stage-e/s9-before.txt`): `SAN tsan-powersaver (-fsanitize=thread): rc 66; WARNING: ThreadSanitizer: data race`, the reset's write against `pushRefreshEvent`'s read at `x_ps_push.inc:8` (`PowerSaver.cpp:21`). The rest of the build was as at S8: `TOTAL: 283 test cases in 8 binaries`, every other `SAN` line rc 0.
+- **The bug:** #1357 (PL-35), filed with `t35-file-bugs.py --only PL-35` (`box-check` 0 fail, a sub-issue of #1337). It was posted on #682 in one line (comment 6550313690) before the fix.
+- **The fix,** ES `b7fdb3a24` (`PowerSaver.h`, `PowerSaver.cpp`; on origin; pre-push-test `PASS`): `std::atomic<bool> mHasPushedEvent`, with `<atomic>` included after the guard. The reads and writes keep their shape.
+  - The stand-in: 44 of 44.
+  - es-app's `main.cpp` parses at rc 0.
+- **After** (`stage-e/s9-after.txt`, at `b7fdb3a24`): `SAN tsan-powersaver (-fsanitize=thread): rc 0; no sanitizer report`, the build `rc=0`, `TOTAL: 283 test cases in 8 binaries`.
+- **The record:**
+  - D-WORKFLOW-210: `ps_members` moved to `:70-71`; `ps_push` asserts the atomic definition on its line.
+  - `05` gains PL-35 (35 items: 18 Resolved, 17 Deferred) and `fixed-at-es: b7fdb3a24`. #1337 gains PL-35's checkbox, ticked.
+  - `02` gains S9's row and its #585 line (`b878df9f14`, `c09d2a9128`, upstream).
+  - The lint passes both ways; `box-check --issue 1337` 0 fail.
+- **The host file:** M7 STARTed its slot 2 at 23:02:03. Three of S9's compiles started after it and before the coordinator's hold (#682 comment 6550330459, 23:03:29): the stand-in (23:02:25-36), `main.cpp`'s syntax check (23:02:36-37) and the after-the-fix run (23:02:57-23:03:55, let finish by the hold). The lane had not read the file's tail before them.
+  - From the hold, no compile runs until M7's `RETURN slot2`.
+  - The scratch runners (`tb.sh`, `standin.sh`) now refuse while M7's last host-file line is a START. Seen to refuse: `refused: M7's slot is open ...`, rc 3, no START written.
+- **Time to play:** none on the launch path. The atomic's load in `pushRefreshEvent` is one per post.

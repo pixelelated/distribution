@@ -95,6 +95,12 @@ SPECS = [  # name, file, first, last, the first line holds, the last line holds
     ("kb_x", "guis/GuiTextEditPopupKeyboard.cpp", 395, 400, 'if (config->isMappedTo("x", input) && input.value && mOkCallback != nullptr)', "}"),
     ("kb_clear", "guis/GuiTextEditPopupKeyboard.cpp", 494, 500, 'else if (key == _("CLEAR"))', "}"),
     ("cfg_subtitle", "guis/GuiInputConfig.cpp", 128, 139, "char strbuf[256];", "mSubtitle1 = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(strbuf)"),
+    # S9 (the coordinator's disposition of S2's lead, #682 comment 6546220910): PowerSaver's push flag
+    # D-WORKFLOW-210, S9 (ES b7fdb3a24): ps_members asserted `static bool mHasPushedEvent;` at the pin's
+    # PowerSaver.h:68-69 and asserts the atomic at :70-71 (the include above it); ps_push asserted the
+    # plain definition at PowerSaver.cpp:15 and asserts the atomic one on the same line.
+    ("ps_members", "PowerSaver.h", 70, 71, "static std::atomic<bool> mHasPushedEvent;", "static int  mPushEventID;"),
+    ("ps_push", "PowerSaver.cpp", 15, 36, "std::atomic<bool> PowerSaver::mHasPushedEvent(false);", "}"),
 ]
 got = {}
 for name, f, a, b, first, last in SPECS:

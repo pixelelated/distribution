@@ -194,6 +194,8 @@ san lsan-f4 address "${AUD}/stage-e/lsan-f4.cpp"
 # Stage E S7 (PL-27, #1343; PL-28 under ruling 10): the logger's close and its crash flush.
 san tsan-log-close thread "${AUD}/stage-e/tsan-log-close.cpp"
 san tsan-log-flush thread "${AUD}/stage-e/tsan-log-flush.cpp"
+# Stage E S9 (the coordinator's disposition of S2's lead): PowerSaver's push flag.
+san tsan-powersaver thread "${AUD}/stage-e/tsan-powersaver.cpp"
 # The total, from the binaries' own summary lines: a record quotes this line
 # rather than a sum written by hand (T21 stage E: totals written without
 # adding were found 2 to 53 cases high, S2 to S13).

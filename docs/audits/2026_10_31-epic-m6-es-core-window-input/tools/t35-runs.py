@@ -171,6 +171,7 @@ STREAMS = {  # stream: (cases, failed before, failed after, the failing names go
     "S6": (27, 4, 1, ["3.10 the approximate-match log", "3.11 two configurations in one session", "S6 a reader polling es_input.cfg"], ("277", "7"), {"lsan-f4": ("1", "0")}),
     "S7": (27, 1, 1, [], ("279", "8"), {"tsan-log-close": ("66", "0"), "tsan-log-flush": ("66", "0")}),
     "S8": (31, 5, 0, ["3.19 BUTTON_GRID_HORIZ_PADDING is defined once", "3.21 the configuration page's subtitle", "S8 CLEAR on the text popup", "S8 the keyboard's x", "S8 the keyboard's CLEAR key"], ("283", "8"), {}),
+    "S9": (31, 0, 0, [], ("283", "8"), {"tsan-powersaver": ("66", "0")}),
 }
 for sn, (cases, fb, fa, gone, tot, sx) in STREAMS.items():
     got = {}

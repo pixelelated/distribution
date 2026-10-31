@@ -166,6 +166,16 @@ B = [
      ["`tools/t35-build-tests.sh` prints `SAN tsan-log-flush (-fsanitize=thread): rc 0; no sanitizer report` (rc 66 and the race at the pin)",
       "the handler's remaining limits (`notify_one` and `sleep_for` are not async-signal-safe; the wait is bounded at 200 x 50 us) are written beside `crashHandler`; the diff quoted"],
      "nothing inherited -- the log (`es_log.txt`) is rewritten at each start and nothing reads it back; what a crash garbled was never read."),
+    # Stage E S9 (the coordinator's disposition of S2's lead, #682 comment 6546220910): PL-35.
+    ("PL-35", "Bug: EmulationStation: PowerSaver's pushed-event flag is written by posting workers and the interface thread unsynchronized (T35 PL-35)",
+     "`PowerSaver.cpp:15`, `:19-36` (`pushRefreshEvent`, `resetRefreshEvent`); `PowerSaver.h:68` against `Window.cpp`'s `postToUiThread` (the worker's push) and `es-app/src/main.cpp:1194` (the interface thread's reset)",
+     "`pushRefreshEvent` reads and writes the static `mHasPushedEvent` (`:21`, `:30`) and runs on any thread that posts to the interface (`Window::postToUiThread`); `resetRefreshEvent` writes it (`:35`) on the interface thread each time the main loop's `SDL_WaitEventTimeout` returns an event. The flag is a plain `bool` with no lock or atomic between the two: a data race, so a push can be skipped or doubled, and the main loop may sleep through a post until its timeout.",
+     "T35's audit (#682), stage E S2, read beside PL-26's wake (`stage-e/s2-checks.txt`, a lead); disposed by the coordinator under D-WORKFLOW-132 and rule 6 (#682 comment 6546220910): a `bug`, the atomic fix only if a ThreadSanitizer program shows the race at the pin. Not in `05` at stage D; added as PL-35.",
+     "`SAN tsan-powersaver (-fsanitize=thread): rc 66; WARNING: ThreadSanitizer: data race` (`stage-e/s9-before.txt`, `stage-e/tsan-powersaver.cpp` over `PowerSaver.cpp:15-36` and `PowerSaver.h:68-69` lifted verbatim): the interface thread's write in `resetRefreshEvent` against the worker's read in `pushRefreshEvent` (`x_ps_push.inc:8`, `PowerSaver.cpp:21`).",
+     "how often a post lands while the main loop resets the flag on a device, and what a skipped wake costs there (the power saver's timeout).",
+     "Yes -- host-only (the ThreadSanitizer program in `tools/t35-build-tests.sh`).",
+     ["`tools/t35-build-tests.sh` prints `SAN tsan-powersaver (-fsanitize=thread): rc 0; no sanitizer report` (rc 66 and the race at the pin)"],
+     "nothing inherited -- the flag lives in memory for the session; nothing is written or read back."),
 ]
 
 

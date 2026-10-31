@@ -1,0 +1,75 @@
+# S9 (PL-35 #1357; the coordinator's disposition of S2's lead, #682 comment 6546220910): the checks. ES tip b7fdb3a24, from S8's d0e5b3432; 2026-10-31T23:05:06Z
+## the flag's users in es-core and es-app (git grep at the pin)
+es-app/src/main.cpp:1194:			TRYCATCH("resetRefreshEvent", PowerSaver::resetRefreshEvent());
+es-core/src/PowerSaver.cpp:15:bool PowerSaver::mHasPushedEvent = false;
+es-core/src/PowerSaver.cpp:19:void PowerSaver::pushRefreshEvent()
+es-core/src/PowerSaver.cpp:21:	if (mHasPushedEvent || !mState)
+es-core/src/PowerSaver.cpp:30:		mHasPushedEvent = true;
+es-core/src/PowerSaver.cpp:33:void PowerSaver::resetRefreshEvent()
+es-core/src/PowerSaver.cpp:35:	mHasPushedEvent = false;
+es-core/src/PowerSaver.cpp:106:		pushRefreshEvent(); // Exit SDL_WaitEventTimeout loop by sending an event
+es-core/src/PowerSaver.h:10:	static void pushRefreshEvent();
+es-core/src/PowerSaver.h:11:	static void resetRefreshEvent();
+es-core/src/PowerSaver.h:68:	static bool mHasPushedEvent;
+es-core/src/Window.cpp:1288:		PowerSaver::pushRefreshEvent();
+## whose the lines are (git blame at the pin, PowerSaver.cpp:15-36; ruling 19)
+b878df9f14 2019-09-16 Video components : lot of fixes !!: upstream (an ancestor of cada856d86)
+c09d2a9128 2026-08-22 Update PowerSaver.cpp: upstream (an ancestor of cada856d86)
+## tsan-powersaver, before (s9-before.txt, at S8's tip, PowerSaver.* the pin's bytes) and after (s9-after.txt, at b7fdb3a24)
+SAN tsan-powersaver (-fsanitize=thread): rc 66; WARNING: ThreadSanitizer: data race (pid=2102340)
+SAN tsan-powersaver (-fsanitize=thread): rc 0; no sanitizer report
+  Write of size 1 at 0x555555558028 by thread T2:
+    #0 operator() /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-window-input-682/docs/audits/2026_10_31-epic-m6-es-core-window-input/stage-e/tsan-powersaver.cpp:26
+  Previous read of size 1 at 0x555555558028 by thread T1:
+    #0 PowerSaver::pushRefreshEvent() x_ps_push.inc:8
+## the files d0e5b3432..b7fdb3a24 changes (nothing outside the 96; the French catalog only for a changed sentence)
+in the 96: es-core/src/PowerSaver.cpp
+in the 96: es-core/src/PowerSaver.h
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+## added lines' non-ASCII bytes in the .cpp/.h (+ lines of git diff -U0)
+non-ASCII added lines: 0
+## the stand-in over the 44 with the edit (stage-a/syntax-check.sh)
+rc=0 PowerSaver.cpp
+t35-syntax-check: 44 file(s) checked, 44 rc 0, 0 not
+## es-syntax-check: CANNOT on this host (the stand-in is the check)
+es-core/src/PowerSaver.cpp: es-syntax-check: no build root at /workspace/repos/rocknix.worktrees/generic-x64/build.ROCKNIX-GENERIC_X64.x86_64 (ES_BUILD_ROOT, --root) (rc=2)
+## the words (tools/es-untranslated against both bases, as stage A ran it)
+es-untranslated: 707 fork string(s) in the source, 707 with French, 0 without
+es-untranslated rc=0
+es-untranslated: 704 fork string(s) in the source, 704 with French, 0 without
+es-untranslated(cada) rc=0
+## the three doubles (§ 1 (i)): Window.h's postToUiThread and createAsyncNotificationComponent, Log.h's LogLevel, LocaleES.h's macros, pin against b7fdb3a24
+unchanged: es-core/src/Window.h lines with 'postToUiThread(' (6a3344338f42)
+unchanged: es-core/src/Window.h lines with 'createAsyncNotificationComponent(' (5f1054884455)
+unchanged: es-core/src/Log.h lines with 'Log' (c30ad23d7478)
+unchanged: es-core/src/LocaleES.h lines with '#define' (68d69442e945)
+every line the stream's range changes in those three headers:
+(none)
+## the stand-in's line for the header's other includers: PowerSaver.h's direct includers in the 96 (all compiled by the stand-in)
+es-core/src/PowerSaver.cpp
+es-core/src/Window.cpp
+es-core/src/anim/StoryboardAnimator.cpp
+es-core/src/guis/GuiDetectDevice.cpp
+## es-app's main.cpp, the interface thread's reset, syntax-only against the atomic flag (stand-in flags)
+rc=0 0 diagnostic line(s)
+## the host file: S9's compiles against M7's slot-2 START (23:02:03) and the coordinator's hold (#682 comment 6550330459, 23:03:29)
+2026-10-31T23:00:21Z T35 (#682) lane: stage E S9 compiles START (tools/t35-build-tests.sh, at S8's tip d0e5b3432 (PowerSaver.* the pin's byt
+== M6 coordinator — 23:00 UTC (2026-10-31): acknowledged T35 (#682) lane: stage E S9 compiles START (2026-10-31T23:00:21Z; host-only compile
+2026-10-31T23:01:18Z T35 (#682) lane: stage E S9 compiles END (tools/t35-build-tests.sh, at S8's tip d0e5b3432 (PowerSaver.* the pin's bytes
+== M6 coordinator — 23:01 UTC (2026-10-31): acknowledged T35 (#682) lane: stage E S9 compiles END (2026-10-31T23:01:18Z; host-only compile, 
+2026-10-31T23:02:03.039851+00:00 M7 START slot2 /workspace/tmp/pix-m7-combined-copy-native-20261031-02 per23:00 3000s inclusive grant.2CPU8G
+2026-10-31T23:02:25Z T35 (#682) lane: stage E S9 compiles START (the stand-in, stage-a/syntax-check.sh over the 44, g++ -fsyntax-only; host-
+== M6 coordinator — 23:02 UTC (2026-10-31): acknowledged T35 (#682) lane: stage E S9 compiles START (2026-10-31T23:02:25Z; host-only compile
+2026-10-31T23:02:36Z T35 (#682) lane: stage E S9 compiles END (the stand-in, 11 s, rc 0).
+2026-10-31T23:02:36Z T35 (#682) lane: stage E S9 compiles START (g++ -fsyntax-only over es-app's main.cpp, the interface thread's reset, aga
+== M6 coordinator — 23:02 UTC (2026-10-31): acknowledged T35 (#682) lane: stage E S9 compiles END (2026-10-31T23:02:36Z; host-only compile, 
+== M6 coordinator — 23:02 UTC (2026-10-31): acknowledged T35 (#682) lane: stage E S9 compiles START (2026-10-31T23:02:36Z; host-only compile
+2026-10-31T23:02:37Z T35 (#682) lane: stage E S9 compiles END (es-app main.cpp syntax-only, rc 0).
+== M6 coordinator — 23:02 UTC (2026-10-31): acknowledged T35 (#682) lane: stage E S9 compiles END (2026-10-31T23:02:37Z; host-only compile, 
+2026-10-31T23:02:57Z T35 (#682) lane: stage E S9 compiles START (tools/t35-build-tests.sh, at the tip b7fdb3a24, after the fix; host-only co
+== M6 coordinator — 23:02 UTC (2026-10-31): acknowledged T35 (#682) lane: stage E S9 compiles START (2026-10-31T23:02:57Z; host-only compile
+2026-10-31T23:03:55Z T35 (#682) lane: stage E S9 compiles END (tools/t35-build-tests.sh, at the tip b7fdb3a24, after the fix, 58 s).
+== M6 coordinator — 23:03 UTC (2026-10-31): acknowledged T35 (#682) lane: stage E S9 compiles END (2026-10-31T23:03:55Z; host-only compile, 
+three of S9's compiles started after M7's START and before the hold was posted -- the stand-in (23:02:25-36), main.cpp's syntax check (23:02:36-37) and the after-the-fix run (23:02:57-23:03:55, let finish by the hold) -- the lane had not read the host file's tail before them; from the hold no compile runs until M7's RETURN slot2
+## the ES fork's .githooks/pre-push-test before the push
+PASS

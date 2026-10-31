@@ -143,6 +143,10 @@ I = [
      "`Window.cpp:782-788` (the cards drawn after every page)", "the pause",
      "At 640 the startup sync card covered the keyboard's field while a value was being edited: the player cannot see what they type until the card leaves.",
      "a pause ruling: a card held while a full-screen popup owns the screen, or recorded as the card tier's design", "guest (image)"),
+    ("PowerSaver's pushed-event flag is written by posting workers and the interface thread unsynchronized", "Low", "Lifetimes", "Q4", "stage E S2's lead (read beside PL-26), disposed by the coordinator (#682 comment 6546220910)",
+     "`PowerSaver.cpp:15`, `:19-36`; `PowerSaver.h:68`; against `Window.cpp`'s `postToUiThread` and `es-app/src/main.cpp:1194`", "T35 (upstream's lines, rule 6)",
+     "`pushRefreshEvent` reads and writes the static `mHasPushedEvent` on any thread that posts to the interface; `resetRefreshEvent` writes it on the interface thread when the main loop's wait returns. A plain `bool`, no lock: a push skipped or doubled, a post slept through until the power saver's timeout. Not in the punch list at stage D; added at stage E S9.",
+     "a `bug` under rule 6: the flag `std::atomic<bool>`, only if a ThreadSanitizer program shows the race at the pin (the coordinator's disposition)", "fixture (`tsan-powersaver` rc 66 at the pin)"),
 ]
 ids = ["PL-%02d" % (i + 1) for i in range(len(I))]
 # Stage F (Phase 7): each item's outcome, from t35-streams.md's rulings (0f9f8f69fe on the
@@ -184,6 +188,7 @@ OUT = {
     "PL-32": ("Deferred", "#585 (ruling 16): checking the result changes which themes load"),
     "PL-33": ("Deferred", "recorded under D-UI-079 (ruling 16; " + R + "): WIN32-only, not on the fork's images"),
     "PL-34": ("Deferred", "recorded as the card tier's design (ruling 11; D-UI-095): the startup card's 100 s is #1345"),
+    "PL-35": ("Resolved", "`b7fdb3a24` (#1357, S9; the coordinator's disposition, #682 comment 6546220910): `tsan-powersaver` rc 0 (rc 66 at the pin)"),
 }
 if sorted(OUT) != ids:
     print("ASSERT: the outcomes do not cover the items exactly", file=sys.stderr); sys.exit(1)
@@ -195,7 +200,8 @@ for t in I:
 out = ["# Punch list (Phases 5 and 6) — M6.P2 T35, EmulationStation's window, input and the rest of es-core (#682)", "",
        "Written by `tools/t35-05.py` from one item table, so the sections, the Phase 7 gate and the `punch_index` agree. `question:` is the brief's § 4 numbering (Q1 the queue and its surfaces, Q2 the input's writes and commands, Q3 the watchers' lock, Q4 lifetimes, Q5 scripts and the shell, Q6 the popups and the words, Q7 cost, structure and merge debt). Phase 7 (stage F) records each item's outcome from the stage-D pause's rulings (`docs/reviews/briefs/t35-streams.md` at `0f9f8f69fe`, #682 comment 6545778560) and the streams' commits.", "",
        "reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829", "",
-       "fixed-at-es: d0e5b3432e1c4c1ea7eb08edf7210e06befba199 (`feature/m6-es-core-window-input-682`, pixelelated/emulationstation; S1 `56aa398b8` to S8 `d0e5b3432`)", "",
+       "fixed-at-es: b7fdb3a24c859ce91f9fd381bb0956901b8d23cb (`feature/m6-es-core-window-input-682`, pixelelated/emulationstation; S1 `56aa398b8` to S9 `b7fdb3a24`; the hand-back of 21:50 UTC named S8's `d0e5b3432`, amended for S9)", "",
+       "**Filed at stage E** (2026-10-31): PL-08 #1348, PL-09 #1349, PL-10 #1350, PL-11 #1351, PL-12 #1352, PL-16 #1353, PL-25 #1354, PL-26 #1355 (ruling 15, before S1); PL-28 #1356 (ruling 10 (b), before S7); PL-35 #1357 (S9, the coordinator's disposition of S2's lead).", "",
        "**Filed at stage D** (2026-10-31): the audit issue #1337 (a sub-issue of #682); the bugs PL-02 #1338, PL-03 #1339, PL-04 #1340, PL-07 #1341, PL-15 #1342, PL-27 #1343; T35's code traces on the existing bugs #1283 (PL-01's es-core half) and #1305 (PL-05's window half). PL-15 re-graded High as data safety at the coordinator's ruling (#682 comment 6542863818).", ""]
 for pl, (title, sev, cat, q, src, lines, own, what, disp, proved) in zip(ids, I):
     out += ["## %s: %s" % (pl, title), "", "- **Severity:** %s; **category:** %s; **question:** %s" % (sev, cat, q), "- **Source finding:** %s" % src,

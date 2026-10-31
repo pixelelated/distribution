@@ -83,3 +83,4 @@ or a guest outside the one granted window.
 - stage E S8 done, 2026-10-31 21:31 UTC: ES d0e5b3432 on origin; the unit build rc 0, TOTAL 283 in 8 binaries, may_fail 1; next stages F, G, H.
 - stages F and G done, 2026-10-31 21:37 UTC: Phase 7 at 53113b8bfa; the retro posted (#682 comment 6549449227); next stage H, the hand-back.
 - stage H, 2026-10-31 21:47 UTC: the hand-back's record at the commit that carries this line; ES d0e5b3432; idle after the hand-back comment.
+- stage E S9, 2026-10-31 23:06 UTC: ES b7fdb3a24 on origin (PL-35 #1357); next: the coordinator's 978cd73da6 merged, the hand-back's build and stand-in after M7's RETURN slot2, then the amended hand-back post.
