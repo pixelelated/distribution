@@ -74,3 +74,4 @@ or a guest outside the one granted window.
 - stage E S0, 2026-10-31 16:11 UTC: distribution HEAD at the commit that carries this line; floor-tests 11/11 at the pin; TOTAL: 260 test cases in 7 binaries; ES at the pin.
 - stage E S1, 2026-10-31 16:26 UTC: ES 56aa398b8 on origin; window-input-tests 16 cases, 7 failed (the candidates); TOTAL: 266 test cases in 7 binaries.
 - stage E S2, 2026-10-31 16:40 UTC: ES 453dffd0a on origin; window-input-tests 19 cases, 6 failed; SAN tsan-posts rc 0; TOTAL: 269 test cases in 7 binaries.
+- stage E S3 in progress, 2026-10-31 16:45 UTC: ES 5d7707790 on origin (the hold and its cases pass); next: s3-pages.patch for T18/T31, s3-checks, 02 row, t35-runs S3, checkpoint; then S4 to S8, F, G, H.

@@ -399,3 +399,56 @@ TEST_CASE("3.16 an unrelated prompt sharing the action text is kept, not replace
 	CHECK(b.find("a CHOOSE") != std::string::npos);
 	CHECK(b.find("up/down CHOOSE") != std::string::npos);
 }
+
+// ---- S3, PL-05 (#1305's window half): a page that owns the screen holds the screensaver
+// render's start (Window.cpp:777-779) and startScreenSaver lifted verbatim into a
+// window double: a gui stack of page doubles, a screensaver that records its start.
+namespace ss
+{
+	struct Settings { static int ScreenSaverTime() { return 1000; } };
+	struct GuiComponent
+	{
+		bool hold = false, activated = false;
+		bool allowScreenSaver() { return !hold; }
+		void onScreenSaverActivate() { activated = true; }
+	};
+	struct ScreenSaver { bool started = false; void startScreenSaver() { started = true; } };
+	struct Window
+	{
+		ScreenSaver saver; ScreenSaver* mScreenSaver = &saver; bool mRenderScreenSaver = false;
+		std::vector<GuiComponent*> mScreenExtras, mGuiStack;
+		unsigned int mTimeSinceLastInput = 0;
+		GuiComponent* peekGui() { return mGuiStack.empty() ? nullptr : mGuiStack.back(); }
+		void startScreenSaver();
+		void frame(unsigned int idle)
+		{
+			mTimeSinceLastInput = idle;
+			#include "x_ss_render.inc"
+		}
+	};
+	#include "x_ss_start.inc"
+}
+
+TEST_CASE("S3 a top page that holds the screensaver keeps it off past the idle time, and it starts once the page lets go (Window.cpp:777-779, startScreenSaver; PL-05, #1305)")
+{
+	ss::GuiComponent menu, job;
+	job.hold = true;
+	ss::Window w;
+	w.mGuiStack = { &menu, &job };
+	w.frame(5000);
+	CHECK_FALSE(w.saver.started);
+	CHECK_FALSE(job.activated);
+	job.hold = false;
+	w.frame(5016);
+	CHECK(w.saver.started);
+}
+
+TEST_CASE("S3 a top page that does not hold it lets the screensaver start, as every upstream page does (the guard; PASS before and after)")
+{
+	ss::GuiComponent menu, page;
+	ss::Window w;
+	w.mGuiStack = { &menu, &page };
+	w.frame(5000);
+	CHECK(w.saver.started);
+	CHECK(page.activated);
+}

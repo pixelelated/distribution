@@ -1,0 +1,4 @@
+# 3.27 at S3's tip 5d7707790 (ruling 12: stays FAIL until T33's or T2's half lands): python3 -I stage-c/pl25-screensaver.py <W>/es-app/src/SystemScreenSaver.cpp, the script sha256 d4c6851fa0ccff41... (stage C's d4c6851fa0ccff41...), T33's scratch /workspace/tmp/m6-t33/tmp re-made empty for the run and removed after; 2026-10-31T16:45:27Z; ES at 5d7707790
+SUMMARY: AddressSanitizer: heap-use-after-free a.cpp:14 in FileData::getImagePath[abi:cxx11]()
+FAIL pl25: rc 1 fa fa fa fa fa fa fa fa
+rc=1 wall=0s

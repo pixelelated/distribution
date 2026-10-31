@@ -191,3 +191,12 @@
   - The ES `pre-push-test` `PASS`. Host-file START/END at every compile, the stand-in, the lone TSan try, es-app's syntax check and the guard proof included.
 - **A lead, not fixed, read not run:** `PowerSaver::pushRefreshEvent` (`PowerSaver.cpp:19-31`, one of the 96) reads and writes the static `mHasPushedEvent` from the posting worker, while `resetRefreshEvent` writes it on the interface thread. Neither is locked or atomic, and the punch list does not carry it. Put to the coordinator in the checkpoint.
 - **Time to play:** the front pop is an erase over a few entries per toast, and the unregister takes one lock per page close. The wake is applied at the next update's drain, and the refresh event still ends the wait at once, so the launch path's length does not change.
+
+## [Stage E, S3, in progress] 16:39 to 16:45 UTC 2026-10-31 — PL-05 (#1305's window half): the fix and its cases; the pages' patch not yet written
+
+- **Figure 9:** `onScreenSaverActivate` is declared at `GuiComponent.h:209` (pin read; `GuiComponent.cpp:959` defines it).
+- **The cases** (`namespace ss`, the lifted `ss_render` `:777-779` and `ss_start`): at S2's tip (`stage-e/s3-before.txt`) 21 cases, 7 failed. The S3 hold case gives `CHECK_FALSE( w.saver.started )` -> true, and the guard (a page that does not hold) passes.
+- **The fix,** ES `5d7707790` (on origin; pre-push-test `PASS`): `GuiComponent::allowScreenSaver()` defaults to true, and `startScreenSaver` returns while the top page holds. No class in the tree already had that name (`git grep` rc 1). The stand-in gives 44 of 44.
+- **After** (`stage-e/s3-after.txt`): 21 cases, 6 failed (3.1, 3.4, 3.5, 3.10, 3.11, 3.19), and `TOTAL: 271 test cases in 7 binaries`. Every `Window.cpp` spec below `startScreenSaver` moved +7 (D-WORKFLOW-210, named in the extractor).
+- **3.27 at the tip** (`stage-e/s3-pl25.txt`): still `heap-use-after-free a.cpp:14 in FileData::getImagePath`, rc 1, as ruling 12 expects until T33's or T2's half lands.
+- **Not yet done:** `stage-e/s3-pages.patch` for the owners. `GuiCloudTransfer` and `GuiOfflineScan` are T18's (`origin/feature/m6-es-cloud-pages-665` at `d55235d4b`), and `GuiScraperRun` is T31's (`origin/feature/m6-es-pages-678` at `95852f873`). Each page's override is `bool allowScreenSaver() override { return mShownFinished; }` (`mShownFinished` is false while its job runs). It is to be proven by `git apply --check` on copies read by `git show` at those tips. Also still owed: `s3-checks.txt`, `02`'s S3 row, `t35-runs`' S3 entry and S3's checkpoint on #682.
