@@ -66,10 +66,10 @@ I = [
      "`Window.cpp:336-337`", "the pause",
      "The hasher's minutes-long card holds every toast behind it (D-UI-079 keeps that card as upstream has it). Recorded Low on 2026-09-25 and never dispositioned.",
      "a pause ruling: stands, or a bound (brief § 9's first register row)", "tree"),
-    ("Back on a dialog without OK or NO takes the last button, and an unconfigured pad's any button fires it", "Medium", "Words", "Q6", "L-12, 3.18",
+    ("Back on a dialog without OK or NO takes the last button, and an unconfigured pad's any button fires it", "High", "Data safety", "Q6", "L-12, 3.18",
      "`guis/GuiMsgBox.cpp:116-134`, `:257`", "upstream's; the callers choose labels",
      "The accelerator's third branch binds the last button; `:257` fires it for any button of an unconfigured pad. **At the pin this makes back merge a drive:** GAME DRIVE DETECTED with a drive id offers NO, IGNORE THIS TIME / NO, IGNORE FOREVER / YES, MERGE DRIVE (`Window.cpp:1568-1578`) -- none named exactly `OK` or `NO`, so back takes YES, MERGE DRIVE (the seat, verified). The format path asks again with NO first (`:1622-1625`).",
-     "a `bug` under rule 6 for the drive dialogs (name the safe button `NO` or put it last), with the component's fall-through put to the pause; G-04 and G-07 framed back landing on NO/NON; G-05 `CANNOT`", "tree; guest (image): G-04, G-07"),
+     "**High, data safety (the coordinator's stage-D ruling, #682 comment 6542863818):** the back button, the safe key, lands on MERGE DRIVE on a dialog any player with a second card meets (`es-ui-style-guide.md` § Confirmations). A `bug`: a button named exactly `NO` (or the accelerator bound to the non-destructive choice), and the buttons ordered with the safe one last; the component's fall-through put to the pause; G-04 and G-07 framed back landing on NO/NON elsewhere; G-05 `CANNOT`", "tree; guest (image): G-04, G-07"),
     ("The configuration page's subtitle numbers the SDL instance, not the seat", "Low", "Words", "Q6", "L-17, 3.21",
      "`guis/GuiInputConfig.cpp:134`", "T35 (upstream's line, rule 6)",
      "`GAMEPAD %i` prints `getDeviceId() + 1`; a third pad plugged in reads GAMEPAD 3 whatever its seat.",
@@ -151,7 +151,8 @@ for t in I:
         print("ASSERT: a bad severity or question in %r" % t[0], file=sys.stderr); sys.exit(1)
 out = ["# Punch list (Phases 5 and 6) — M6.P2 T35, EmulationStation's window, input and the rest of es-core (#682)", "",
        "Written by `tools/t35-05.py` from one item table, so the sections, the Phase 7 gate and the `punch_index` agree. `question:` is the brief's § 4 numbering (Q1 the queue and its surfaces, Q2 the input's writes and commands, Q3 the watchers' lock, Q4 lifetimes, Q5 scripts and the shell, Q6 the popups and the words, Q7 cost, structure and merge debt). Every item is **Open** until the stage-D pause disposes it.", "",
-       "reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829", ""]
+       "reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829", "",
+       "**Filed at stage D** (2026-10-31): the audit issue #1337 (a sub-issue of #682); the bugs PL-02 #1338, PL-03 #1339, PL-04 #1340, PL-07 #1341, PL-15 #1342, PL-27 #1343; T35's code traces on the existing bugs #1283 (PL-01's es-core half) and #1305 (PL-05's window half). PL-15 re-graded High as data safety at the coordinator's ruling (#682 comment 6542863818).", ""]
 for pl, (title, sev, cat, q, src, lines, own, what, disp, proved) in zip(ids, I):
     out += ["## %s: %s" % (pl, title), "", "- **Severity:** %s; **category:** %s; **question:** %s" % (sev, cat, q), "- **Source finding:** %s" % src,
             "- **Lines at the pin:** %s" % lines, "- **Owner:** %s" % own, "- **What is wrong:** %s" % what, "- **Proposed disposition:** %s" % disp, "- **proved:** %s" % proved, ""]
