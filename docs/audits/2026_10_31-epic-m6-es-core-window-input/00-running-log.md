@@ -353,3 +353,22 @@
 - **Time to play:** stream by stream, nothing lengthens the launch path. The two numbers are `CANNOT` here (no guest after stage C's window, the fixes in no image yet) and are for `tools/time-to-play` on the integration image. The last figure on record is `docs/vm-qa-log.md:171`, and the window's one reading is the startup card's ~100 s (#1345).
 - **The cornerstone read:** `git diff --name-only b51dd8a805 HEAD -- packages projects tools` prints nothing (`b51dd8a805`, the dispatch merge).
 - **Two friction lines, written late** (`docs/friction-log.md`): S2's stale extracts and S4's message headers, each with its guard. They should have been written when each slowed the work, and were not.
+
+## [Stage H] 21:37 to 21:47 UTC 2026-10-31 — the hand-back
+
+- **The final run at both tips** (`stage-e/handback-build.txt`; ES `d0e5b3432` on origin, status 0 lines): `rc=0`. Every binary is at 0 failed, `window-input-tests` 31 cases with `may_fail: 1` (3.5, PL-18), and every `SAN` line `rc 0; no sanitizer report`. `TOTAL: 283 test cases in 8 binaries`. The stand-in at the tip: `t35-syntax-check: 44 file(s) checked, 44 rc 0, 0 not` (`stage-e/handback-standin.txt`). Host-file START/END for both.
+- **The checks** (`stage-e/handback-checks.txt`), each with its own `rc=`:
+  - The five distribution checkers, and the ES `pre-push-test`.
+  - The lint, `PASS` both ways; `box-check --issue 1337` 0 fail.
+  - `es-untranslated` 707 and 704 with French, 0 without; `es-menu-map-check` 0 missing.
+  - The stand-in per edited `.cpp`; `es-syntax-check` `CANNOT` with the host's line.
+  - The doubles' four signatures unchanged. `Window.h` gains members only. `GuiComponent.h`'s 9 direct includers in the 96 are named.
+  - `es-core/CMakeLists.txt` untouched (T21's hunk is the integration's).
+- **T34's ES tip, read a third time:** `52f0ff512`, 0 files inside the 96. `patch --dry-run -p1` over T35's tip:
+  - `s2-window.patch`: every hunk succeeds. `Window.h` hunk 1 needs fuzz 1, because S2's `#include <atomic>` sits in its context; `Window.cpp`'s hunks apply at offsets 8 to 12, beside S2's re-queue edit, without fuzz.
+  - `s3-msgbox.patch`: succeeds clean at 164.
+- **The hand-back merge** of the coordinator's `0f9f8f69fe` (`21b53250c4`) brings `t35-streams.md` and D-UI-134 to D-UI-137.
+  - Three ledgers conflicted and were united by whole entries in time order: 4 friction lines, 26 day entries, the index regenerated. 0 markers remain.
+  - After it, every checker again passes, and `register-check` reads 711 IDs.
+  - The lane's first-parent commits since `b51dd8a805` touch nothing under `packages/`, `projects/` or `tools/`. The one non-merge commit in the range that does, `fb9258ba61`, is the coordinator's, brought in by the merge.
+- **After this commit** (`fixed-at`): `fixed-at-es` is written into each fixed bug's body (#1338 to #1343, #1348 to #1356), a comment carrying it goes on #1283 and #1305, the four header lines go into #682's body, then the hand-back comment and the host file's RETURN line.

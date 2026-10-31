@@ -1,0 +1,98 @@
+# T35 stage H: the hand-back's checks. Distribution c90bc02c15 (feature/m6-es-core-window-input-682), ES d0e5b3432 (on origin); 2026-10-31T21:39:38Z
+## the five on the distribution branch
+register-check: 704 IDs, each once; every citation in the live documents names a row
+register-check rc=0
+work-log index: current
+work-log-index --check rc=0
+
+(rules-check --quiet prints nothing when it passes)
+rules-check --quiet rc=0
+forbidden-terms-check: 0 hits in 133722 tracked files
+forbidden-terms-check rc=0
+PASS
+hooks-test rc=0
+## the ES fork's .githooks/pre-push-test at the ES tip
+PASS
+pre-push-test rc=0
+## the lint, both ways
+PASS
+lint (resolution) rc=0
+PASS
+lint --issue 1337 rc=0
+box-check: 1 issue(s), 0 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+box-check --issue 1337 rc=0
+## the words and the map at the ES tip
+es-untranslated: 707 fork string(s) in the source, 707 with French, 0 without
+es-untranslated rc=0
+es-untranslated: 704 fork string(s) in the source, 704 with French, 0 without
+es-untranslated(cada) rc=0
+55 screen(s) at d0e5b3432, 31 in the map, 24 declared unmapped, 0 missing
+es-menu-map-check rc=0
+## the stand-in at the tip, one line per edited .cpp and the total
+rc=0 InputManager.cpp
+rc=0 Log.cpp
+rc=0 Scripting.cpp
+rc=0 Window.cpp
+rc=0 guis/GuiDetectDevice.cpp
+rc=0 guis/GuiInputConfig.cpp
+rc=0 guis/GuiTextEditPopup.cpp
+rc=0 guis/GuiTextEditPopupKeyboard.cpp
+rc=0 watchers/WatchersManager.cpp
+t35-syntax-check: 44 file(s) checked, 44 rc 0, 0 not
+es-core/src/InputManager.cpp: es-syntax-check rc=2 (CANNOT: es-syntax-check: no build root at /workspace/repos/rocknix.worktrees/generic-x64/build.ROCKNIX-GENERIC_X64.x86_64 (ES_BUILD_ROOT, --root))
+es-core/src/Log.cpp: es-syntax-check rc=2 (CANNOT: es-syntax-check: no build root at /workspace/repos/rocknix.worktrees/generic-x64/build.ROCKNIX-GENERIC_X64.x86_64 (ES_BUILD_ROOT, --root))
+es-core/src/Scripting.cpp: es-syntax-check rc=2 (CANNOT: es-syntax-check: no build root at /workspace/repos/rocknix.worktrees/generic-x64/build.ROCKNIX-GENERIC_X64.x86_64 (ES_BUILD_ROOT, --root))
+(the same line for each of the 9 edited .cpp)
+## the collisions
+### the three doubles' headers, pin against the tip (Window.h's two signatures, Log.h's LogLevel, LocaleES.h's macros)
+unchanged: es-core/src/Window.h lines with 'postToUiThread('
+unchanged: es-core/src/Window.h lines with 'createAsyncNotificationComponent('
+unchanged: es-core/src/Log.h lines with 'enum'
+unchanged: es-core/src/LocaleES.h lines with '#define'
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+Window.h's changed lines (members only):
++#include <atomic>
+-	bool mSleeping;
++	std::atomic<bool> mSleeping; // read by a worker's post (#1355)
++	bool mWakePosted = false; // guarded by the queue's lock (#1355)
+GuiComponent.h (S3; no double stands in for it): its direct includers in the 96: 9
+### T21's es-core/CMakeLists.txt hunk (3ae9610b0): no stream touches the file
+es-core/CMakeLists.txt lines changed pin..tip: 0
+### T34's ES tip, read a third time: origin/feature/m6-es-core-components-681 at 52f0ff512
+its delta inside the 96 against the pin: 0 files
+patch --dry-run -p1 of T34's s2-window.patch (read by git show from its branch) over T35's ES tip d0e5b3432:
+checking file es-core/src/Window.h
+Hunk #1 succeeded at 10 with fuzz 1 (offset 1 line).
+Hunk #2 succeeded at 98 (offset 1 line).
+Hunk #3 succeeded at 124 (offset 1 line).
+checking file es-core/src/Window.cpp
+Hunk #1 succeeded at 36.
+Hunk #2 succeeded at 1158 (offset 8 lines).
+Hunk #3 succeeded at 1178 (offset 12 lines).
+Hunk #4 succeeded at 1266 (offset 12 lines).
+Hunk #5 succeeded at 1277 (offset 12 lines).
+patch --dry-run -p1 of T34's s3-msgbox.patch (read by git show from its branch) over T35's ES tip d0e5b3432:
+checking file es-core/src/guis/GuiMsgBox.cpp
+Hunk #1 succeeded at 164.
+the fuzz in s2-window.patch's Window.h hunk 1 is S2's #include <atomic> between the hunk's context lines; the patch still adds <thread> after <functional>
+
+## after the hand-back merge of the coordinator's 0f9f8f69fe: distribution 21b53250c4; 2026-10-31T21:44:19Z
+register-check: 711 IDs, each once; every citation in the live documents names a row
+register-check rc=0
+work-log index: current
+work-log-index --check rc=0
+(rules-check --quiet prints nothing when it passes)
+rules-check --quiet rc=0
+forbidden-terms-check: 0 hits in 133726 tracked files
+forbidden-terms-check rc=0
+PASS
+hooks-test rc=0
+PASS
+lint (resolution) rc=0
+PASS
+lint --issue 1337 rc=0
+## the lane's own commits since the dispatch merge b51dd8a805 touch nothing under packages/, projects/ or tools/
+the lane's first-parent commits (git log --no-merges --first-parent b51dd8a805..HEAD -- packages projects tools): 0
+every non-merge commit in the range: 1, `fb9258ba61` (tools: lint-audit-artifacts accepts a held seat reply..., #1308), on the coordinator's branch (an ancestor of 0f9f8f69fe), brought in by the hand-back merge -- the coordinator's, not the lane's
+## the merge-marker check over every file the merge commit changed
+files with a marker: 0
