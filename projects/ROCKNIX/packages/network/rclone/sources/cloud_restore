@@ -1448,8 +1448,12 @@ load_config() {
     log_message "After final cleanup: ${RCLONEOPTS}" "false"
     
     # Through the allowlist (D-CLOUD-185, ruling 10): every flag a shipped
-    # RCLONEOPTS has carried that a run still uses.
-    allowed_opts RCLONEOPTS "${RCLONEOPTS}" "" --progress:none --log-file:path --filter-from:path
+    # RCLONEOPTS has carried that a run still uses, and the two this script
+    # handles when a player adds them -- --error-on-no-transfer, whose 9 is
+    # a completion here (PL-028), and --filters-file, read as a rules file
+    # beside --filter-from.
+    allowed_opts RCLONEOPTS "${RCLONEOPTS}" "" --progress:none --log-file:path --filter-from:path \
+        --filters-file:path --error-on-no-transfer:none
     RCLONE_OPTS_ARRAY=("${OPTS_ALLOWED[@]}")
     log_message "Options array has ${#RCLONE_OPTS_ARRAY[@]} elements" "false"
 
