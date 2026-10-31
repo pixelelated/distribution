@@ -116,7 +116,7 @@ summary = [
     ["`mNotificationLock` (`WatchersManager.cpp:5`)", "observers", ", ".join(by_lock["mNotificationLock"]),
      "inner to `mWatchersLock` when taken from `run()`", "`UnregisterNotify` `:114` waits for a callback in flight"],
     ["`mThreadLock` (`WatchersManager.h:83`)", "pause and wake", ", ".join(by_lock["mThreadLock"]),
-     "its own scope before `mWatchersLock` in `run()` (`:164-171`), never nested with it; `mRunning` and `mPaused` are plain `bool`s read outside it (`:161`, `:187`; 3.3)", "`pause` `:35` and `resume` `:48` take it briefly"],
+     "its own scope before `mWatchersLock` in `run()` (`:164-171`), never nested with it; `mPaused` is read and written under it, while **`mRunning` is a plain `bool` written at `:151` and read at `:161`, `:172`, `:187` outside any lock** (3.3's ThreadSanitizer race)", "`pause` `:35` and `resume` `:48` take it briefly"],
     ["`mMutex` (`Log.cpp:187`)", "the log buffer", ", ".join(by_lock["mMutex@Log"]), "none nested", "any thread's `LOG(...)` takes it briefly to enqueue"],
     ["`mScriptQueueLock` (`Scripting.cpp:20`)", "script queue", ", ".join(by_lock["mScriptQueueLock"]), "WIN32 only", "--"],
     ["`mMutex` (`TextToSpeech.h:48`)", "speech queue", ", ".join(by_lock["mMutex@TTS"]), "the speak thread is WIN32 only; TTS is compiled out on the image (§ 5)", "--"],
@@ -146,7 +146,7 @@ threads = [
     ["the watcher thread", "`WatchersManager.cpp:61`, on the first `getInstance()` (`:15`)", "`WatchersManager::stop()` at `main.cpp:1330` joins (`:154`) -- **before** `window.deinit()`; the join waits for a probe in flight and the 1 s `wait_for` (`:170`)", "tree"],
     ["the PulseAudio loop", "`VolumeControl.cpp:32` (`_ENABLE_PULSE_`)", "`exit()` joins (`:68-73`) from `~PulseAudioControl`", "tree (branch not parsed)"],
     ["the speak thread", "`TextToSpeech.cpp:92` (**WIN32**)", "`:128`", "tree"],
-    ["the script queue", "`Scripting.cpp:68` (**WIN32**, `new std::thread`, not a detach)", "`exitScriptingEngine` (`main.cpp:1347`)", "tree"],
+    ["the script queue", "`Scripting.cpp:68` (**WIN32**, `new std::thread`, not a detach)", "**not joined**: `exitScriptingEngine` (`main.cpp:1347`) only sets the flag and notifies (`Scripting.cpp:75-82`, the seat's G-7)", "tree"],
     ["four storage workers", "`Window.cpp:1554`, `:1572`, `:1608`, `:1634` (`processStorageRequest`)", "**detached** (`:1563`, `:1575`, `:1619`, `:1637`); each captures `this` and posts back (L-04); nothing joins them", "tree"],
     ["`NetworkThread` (es-app's)", "`main.cpp:898`", "not deleted at exit; named for its owner, outside the 96", "tree"],
 ]

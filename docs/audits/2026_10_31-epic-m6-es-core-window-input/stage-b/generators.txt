@@ -1,4 +1,4 @@
-2026-10-31T06:55:30Z
+2026-10-31T11:34:18Z
 == t35-coverage.py
 clean rc=0
 generated, asserted: 96 rows, 22575 lines (grep -c rule); read tiers fork-added 1 / fork-modified 12 / upstream-carried 83; inventory fork-own 13 / upstream-carried 83
@@ -107,4 +107,4 @@ FAIL t35-includes: cpp_named_once 43, expected 44
 FAIL t35-includes: es-core/src/LogPolicy.h not at bccd715707
 FAIL t35-includes: es-core/CMakeLists.txt:278 does not carry /^if\(\$\{GLSystem\} MATCHES "OpenGL ES 3\.0"\)/ (reads: '')
 6
-2026-10-31T06:55:37Z
+2026-10-31T11:34:24Z

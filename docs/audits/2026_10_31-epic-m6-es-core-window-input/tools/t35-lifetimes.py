@@ -26,8 +26,8 @@ cnt = {"threads": len(thr), "detach": len(det), "delete_this": len(dts), "posts"
 T = {
     ("Log.cpp", 60): ("start: the logger's worker", "`AsyncLogger::close` joins (`:76-77`), from `onExit` at exit", "nothing; it writes the file"),
     ("Log.cpp", 180): ("the member `std::thread mThread`", "as above", "--"),
-    ("Scripting.cpp", 18): ("the member `std::thread* mScriptQueueThread` (**WIN32**)", "`exitScriptingEngine`", "--"),
-    ("Scripting.cpp", 68): ("start: `new std::thread(&executeCommandsThread)` (**WIN32**; not a detach)", "`exitScriptingEngine` (`:75-81`)", "nothing"),
+    ("Scripting.cpp", 18): ("the member `std::thread* mScriptQueueThread` (**WIN32**)", "**nobody** (`exitScriptingEngine` sets the flag and notifies, `:75-82`; the seat's G-7)", "--"),
+    ("Scripting.cpp", 68): ("start: `new std::thread(&executeCommandsThread)` (**WIN32**; not a detach)", "**nobody**: never joined or deleted (`:75-82`; G-7)", "nothing"),
     ("TextToSpeech.cpp", 92): ("start: the speak thread (**WIN32**)", "`~TextToSpeech` (`:128`)", "nothing"),
     ("TextToSpeech.h", 47): ("the member `std::thread* mSpeakThread`", "as above", "--"),
     ("VolumeControl.cpp", 32): ("start: `PulseAudioControl::run` (`_ENABLE_PULSE_`)", "`exit()` (`:68-73`)", "nothing; the volume is read under `mLock`"),

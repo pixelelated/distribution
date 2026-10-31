@@ -11,7 +11,7 @@ reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
 - **Lines at the pin:** `watchers/WatchersManager.cpp:181-199` against `:66`, `:78`, `:94`, `:143`, `.h:35`
 - **Owner:** T35 (#1283's es-core half; the observers es-app's)
 - **What is wrong:** `run()` holds `mWatchersLock` across every `check()` (a network or battery probe) and then takes `mNotificationLock` inside it; `RegisterComponent`, `UnregisterComponent`, `ResetComponent`, `GetComponent` and the destructor take the same lock from the interface thread. 3.1 at the pin: `ResetComponent` returned after **1,491 ms** behind a 1.5 s probe. A real probe's bound is its network timeout.
-- **Proposed disposition:** a `bug` under rule 6: snapshot the due watchers under the lock, probe outside it, re-validate before writing back (EP-13's `WatcherInfo` lifetime kept), and make `mRunning`/`mPaused` atomic; 3.1 the covering case, 3.3 (TSan) beside it, 3.2 (ASan) owed
+- **Proposed disposition:** a `bug` under rule 6: snapshot the due watchers under the lock, probe outside it with both the record and its `IWatcher` kept alive through the probe (re-validating alone is not enough -- the seat, verified), and make `mRunning` atomic (`mPaused` is already under `mThreadLock`); 3.1 the covering case, 3.3 (TSan) beside it, 3.2 (ASan, clean at the pin) the guard
 - **proved:** fixture (3.1 FAIL at the pin; 3.3 TSan: `WatchersManager.cpp:151` writes `mRunning` while `:161` reads it)
 
 ## PL-02: The toast queue drains newest first, against D-UI-093's decided row
@@ -21,8 +21,8 @@ reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
 - **Lines at the pin:** `Window.cpp:339-340` against `:334-335` and `decision-register.md:404`; `:1159-1160`
 - **Owner:** T35 (upstream's pop, the fork's rule)
 - **What is wrong:** `processNotificationMessages` takes `back()` and `pop_back()`; D-UI-093 says *the order is the order things happened*. Two toasts queued under a card (a pad connected then disconnected) show in reverse. 3.14 at the pin: B shown before A.
-- **Proposed disposition:** a `bug` under rule 6: pop the front, and reverse the re-queue loop at `:1163-1164` so a returned toast keeps its place; 3.14 the covering case; a #585 line
-- **proved:** fixture (3.14 FAIL at the pin)
+- **Proposed disposition:** a `bug` under rule 6: pop the front, **and insert returned toasts at the front of the queue** (`:1163-1164` appends them behind newer ones; the seat's counterexample, verified: A visible, B queued, a card returns A behind B); 3.14 extended with that interruption case; a #585 line
+- **proved:** fixture (3.14 FAIL at the pin); guest (image): G-03's frame, T35 TOAST B above T35 TOAST A after the card left
 
 ## PL-03: A script argument reaches /bin/sh unquoted, so $( ) and backticks in a file name run
 
@@ -30,17 +30,17 @@ reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
 - **Source finding:** L-18, 3.4, T2 FD-9/FD-19
 - **Lines at the pin:** `Scripting.cpp:92-113`, `:137-148`; `utils/Platform.cpp:162-181` (T36's)
 - **Owner:** T35 with T2 (the callers' arguments)
-- **What is wrong:** `executeScript` quotes an argument only when it contains a space and strips every `"`; `ProcessStartInfo::run` hands the line to `system()` or `/bin/sh -c`. A ROM `a$(id)b.zip` or a scraped name with a backtick is expanded by the shell whenever any script sits in an event folder. 3.4 at the pin: the argument arrives unquoted. Medium because it needs a hook present; G-01 reads whether the image ships one under `/usr/bin/scripts/`.
+- **What is wrong:** `executeScript` quotes an argument only when it contains a space -- and then in double quotes, where `$( )` and backticks still expand -- and strips every `"`; `:104` tests `startsWith` twice where the second should be `endsWith`, so an argument that starts with `"` loses its last character (the seat, verified); `ProcessStartInfo::run` hands the line to `system()` or `/bin/sh -c`. A ROM `a$(id)b.zip` or a scraped name with a backtick is expanded by the shell whenever any script sits in an event folder. 3.4 at the pin: the argument arrives unquoted. Medium because it needs a hook present: G-01 found none shipped (`/usr/bin/scripts` absent, no user scripts folder) -- an added hook makes it live.
 - **Proposed disposition:** a `bug` under rule 6: single-quote every argument (with `'` escaped) and the script path; 3.4 the covering case; a #585 line
 - **proved:** fixture (3.4 FAIL at the pin)
 
 ## PL-04: A file written by pugixml after a cached miss reads as absent for the rest of the session
 
-- **Severity:** Medium; **category:** Input; **question:** Q2
+- **Severity:** Low; **category:** Input; **question:** Q2
 - **Source finding:** L-07, 3.11
 - **Lines at the pin:** `InputManager.cpp:893`, `:1187`, `:1225`, `:1239`, `:1250`; `utils/FileSystemUtil.cpp:296`, `:323` (T36's)
 - **Owner:** T35 (the three reads); the cache T36's
-- **What is wrong:** With the cache on, a first `exists(es_input.cfg)` that misses is remembered; `save_file` writes through `fopen`, so the cache never learns of the file. On a device whose user `es_input.cfg` did not exist at startup, the second pad configured in the session skips the merge at `:1187` and its save keeps that pad alone; `loadInputConfig` after the write (`:1239`) and `doOnFinish` (`:1250`) read the same miss. 3.11 at the pin: the cached read stays false after the write.
+- **What is wrong:** With the cache on, a first `exists(es_input.cfg)` that misses is remembered; `save_file` writes through `fopen`, so the cache never learns of the file. On a device whose user `es_input.cfg` did not exist at startup, the second pad configured in the session skips the merge at `:1187` and its save keeps that pad alone; `loadInputConfig` after the write (`:1239`) and `doOnFinish` (`:1250`) read the same miss. 3.11 at the pin: the cached read stays false after the write. **Lowered to Low by G-01:** the image's first boot copies the shipped `es_input.cfg` into place (117,859 bytes), so the startup miss needs a user file that was removed; the seat graded it `cannot tell` without the cache's source, which the extract carries.
 - **Proposed disposition:** a `bug` under rule 6: `exists(path, false)` at `:893`, `:1187`, `:1250` (the `es-code-traps.md` § Three things a font is not rule); 3.11 the covering case; G-01 reads the precondition on the image
 - **proved:** fixture (3.11 FAIL at the pin)
 
@@ -52,7 +52,7 @@ reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
 - **Owner:** T35 (the window's half); T33's and T2's halves
 - **What is wrong:** The screensaver starts from `render()` on idle time alone; each page is told and cannot refuse; the slideshow's `FileData` list is cleared only when it stops. A transfer's rescan then deletes a game the next pick reads. 3.27 at the pin: `heap-use-after-free ... in FileData::getImagePath`.
 - **Proposed disposition:** #1305 (open, `bug`): the window's half proposed for the pause (a start the top page can hold off); T33's and T2's halves named for their owners; 3.27 PASS when one half lands
-- **proved:** fixture (3.27 FAIL at the pin)
+- **proved:** fixture (3.27 FAIL at the pin); guest (image): G-09, the screensaver over VÉRIFICATION DE VOTRE CLOUD while its job ran (11:29:33 running, 11:29:49 black)
 
 ## PL-06: The window's teardown frees no card and no popup, and the holders keep raw pointers
 
@@ -60,13 +60,13 @@ reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
 - **Source finding:** L-02, T2 PC-1
 - **Lines at the pin:** `Window.cpp:188-207`, `:49-63`, `:1246-1248`; the holders in es-app (§ The surfaces)
 - **Owner:** T35 (the teardown); the holders T18's, T20's, T34's
-- **What is wrong:** `deinit` and `~Window` leave `mAsyncNotificationComponent` and `mNotificationPopups` as they are; the one free is `:1248`. A card alive at `deinit` is drawn again at the next `init()`; a holder's late call after `:1248` is a use after free the card cannot detect.
+- **What is wrong:** `deinit` and `~Window` leave `mAsyncNotificationComponent` and `mNotificationPopups` as they are; the one free is `:1248`. A card alive at `deinit` can be drawn again at the next `init()` (unless the first update retires it, `:1244-1252`); a holder's late call after `:1248` is a use after free the card cannot detect, and deleting cards in `deinit` alone does not make those holders safe (the seat's narrowing, verified).
 - **Proposed disposition:** a design ruling at the pause: T34's `s2-window.patch` (#1310) is a collision (10 es-app callers, 3 doubles); the window-side alternative frees cards and popups in `deinit` and refuses a close after it
 - **proved:** tree
 
 ## PL-07: `unregisterPostedFunctions` walks the posted functions without their lock
 
-- **Severity:** Low; **category:** Lifetimes; **question:** Q4
+- **Severity:** Medium; **category:** Lifetimes; **question:** Q4
 - **Source finding:** L-03, 3.17
 - **Lines at the pin:** `Window.cpp:1262-1274` against `:1278`, `:1296`
 - **Owner:** T35
@@ -80,7 +80,7 @@ reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
 - **Source finding:** L-06
 - **Lines at the pin:** `InputManager.cpp:1225`, `:1232`; `FavoriteMusicManager.cpp:71`, `:115`
 - **Owner:** T35
-- **What is wrong:** Five writes, `AtomicFile::` 0. A cut `es_input.cfg` fails to parse: the pad reads as unconfigured and the next save keeps one device. The grep's seven sites include two read-mode `fopen`s.
+- **What is wrong:** Five writes, `AtomicFile::` 0. A cut `es_input.cfg` fails to parse: the pad reads as unconfigured, and the next save keeps what pugixml salvaged of the partial tree plus this device (the seat's narrowing). The grep's seven sites include two read-mode `fopen`s.
 - **Proposed disposition:** a pause ruling (D-CLOUD-078's family): `es_input.cfg` through the fork's `AtomicFile`, the rest recorded
 - **proved:** tree
 
@@ -121,8 +121,8 @@ reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
 - **Lines at the pin:** `guis/GuiTextEditPopupKeyboard.cpp:392-397`, `:491-496`; `guis/GuiTextEditPopup.cpp:34`
 - **Owner:** the pause (the lanes' fields: the cloud folder, the Wi-Fi key)
 - **What is wrong:** One press empties the field and submits it; `es-ui-style-guide.md` § Confirmations asks a consequential action to ask.
-- **Proposed disposition:** a pause ruling (a register row); G-06 frames it on the image
-- **proved:** tree; guest owed
+- **Proposed disposition:** a pause ruling (a register row)
+- **proved:** tree; guest (image): not shown -- with the keyboard device `s` types into the field rather than acting as X (G-06)
 
 ## PL-13: The re-queued toast returns with a fresh default duration
 
@@ -146,13 +146,13 @@ reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
 
 ## PL-15: Back on a dialog without OK or NO takes the last button, and an unconfigured pad's any button fires it
 
-- **Severity:** Low; **category:** Words; **question:** Q6
+- **Severity:** Medium; **category:** Words; **question:** Q6
 - **Source finding:** L-12, 3.18
 - **Lines at the pin:** `guis/GuiMsgBox.cpp:116-134`, `:257`
 - **Owner:** upstream's; the callers choose labels
-- **What is wrong:** The accelerator's third branch binds the last button; `:257` fires it for any button of an unconfigured pad.
-- **Proposed disposition:** recorded; G-04 and G-05 frame the behaviour
-- **proved:** tree; guest owed
+- **What is wrong:** The accelerator's third branch binds the last button; `:257` fires it for any button of an unconfigured pad. **At the pin this makes back merge a drive:** GAME DRIVE DETECTED with a drive id offers NO, IGNORE THIS TIME / NO, IGNORE FOREVER / YES, MERGE DRIVE (`Window.cpp:1568-1578`) -- none named exactly `OK` or `NO`, so back takes YES, MERGE DRIVE (the seat, verified). The format path asks again with NO first (`:1622-1625`).
+- **Proposed disposition:** a `bug` under rule 6 for the drive dialogs (name the safe button `NO` or put it last), with the component's fall-through put to the pause; G-04 and G-07 framed back landing on NO/NON; G-05 `CANNOT`
+- **proved:** tree; guest (image): G-04, G-07
 
 ## PL-16: The configuration page's subtitle numbers the SDL instance, not the seat
 
@@ -216,12 +216,12 @@ reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
 
 ## PL-22: es-core reaches into es-app, and four detached workers capture the window
 
-- **Severity:** Low; **category:** Structure; **question:** Q7
+- **Severity:** Medium; **category:** Structure; **question:** Q7
 - **Source finding:** L-04
 - **Lines at the pin:** `Window.cpp:29`, `:1554-1637`
 - **Owner:** upstream ROCKNIX's (outside the lanes)
 - **What is wrong:** `#include "../es-app/src/ApiSystem.h"`; `processStorageRequest`'s workers capture `this` and post back; nothing joins them.
-- **Proposed disposition:** recorded (D-UI-079); `Window.cpp:29`'s disposition
+- **Proposed disposition:** recorded for the layering (D-UI-079); the lifetime half Medium: a worker still running a merge or a format at exit posts into a destroyed window (the seat's grade, verified); `Window.cpp:29`'s disposition
 - **proved:** tree
 
 ## PL-23: A rule sentence still calls the card top-right
@@ -243,6 +243,106 @@ reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
 - **What is wrong:** Three `say(` calls in the constructor (TTS compiled out on the image).
 - **Proposed disposition:** recorded
 - **proved:** tree
+
+## PL-25: The help bar's dpad merge compares the wrong way
+
+- **Severity:** Low; **category:** Words; **question:** Q6
+- **Source finding:** the seat's G-1, verified
+- **Lines at the pin:** `Window.cpp:1031-1041`
+- **Owner:** T35 (upstream's lines, rule 6)
+- **What is wrong:** `it->first == "up/down" && ...first != "left/right"` merges when the existing prompt is anything but the other half: two complementary halves stay apart, and an unrelated prompt sharing the action text (an `a` CHOOSE) is replaced by `up/down/left/right`.
+- **Proposed disposition:** `==` for the complementary half; 3.16 written with both cases; a #585 line
+- **proved:** tree
+
+## PL-26: A worker's post writes the window's idle state that the interface thread reads unlocked
+
+- **Severity:** Low; **category:** Lifetimes; **question:** Q4
+- **Source finding:** the seat's G-2, verified
+- **Lines at the pin:** `Window.cpp:1284-1288` against `:540`, `:778`, `:1111`
+- **Owner:** T35
+- **What is wrong:** `postToUiThread` writes `mSleeping` and `mTimeSinceLastInput` under the queue's mutex from worker threads; `update`, `render` and `cancelScreenSaver` read and write them without it. Low: the consequence is an idle counter reset or kept (the seat proposed Medium).
+- **Proposed disposition:** apply the wake on the interface thread (a flag the drain reads); 3.17's program extended
+- **proved:** tree
+
+## PL-27: The logger can lose its final batch at close, and reads its stop flag unlocked
+
+- **Severity:** Medium; **category:** Lifetimes; **question:** Q4
+- **Source finding:** the seat's G-3, verified
+- **Lines at the pin:** `Log.cpp:63-82`, `:117-162`
+- **Owner:** T35 (the fork's logger, #178)
+- **What is wrong:** Entries enqueued after the worker's last swap and before `close()` sets `mShutdown` stay in the write buffer: the worker breaks at `:152` and `close()` re-drains the cleared drain buffer (`:79`). `mShutdown` is written under the mutex and read outside it at `:152`. #178's promise is that every batch reaches the file.
+- **Proposed disposition:** drain the write buffer after the join, and read the flag under the mutex; 3.23's binary the covering case
+- **proved:** tree
+
+## PL-28: The crash handler flushes a C++ stream from a signal
+
+- **Severity:** Low; **category:** Lifetimes; **question:** Q4
+- **Source finding:** the seat's G-4, verified
+- **Lines at the pin:** `Log.cpp:84-99`, `:237-242`, `:282-285`
+- **Owner:** T35 (the fork's logger)
+- **What is wrong:** `emergencyFlush` (condition variable, `mFile.flush()`) runs from the SIGABRT and SIGTERM handlers; neither is async-signal-safe, and the worker may write the same stream.
+- **Proposed disposition:** recorded for the pause: a signal-safe path, or the handler's limits written beside it
+- **proved:** tree
+
+## PL-29: A stick moved from one extreme to the other without a neutral sample sends nothing
+
+- **Severity:** Low; **category:** Input; **question:** Q2
+- **Source finding:** the seat's G-5, verified
+- **Lines at the pin:** `InputManager.cpp:727-742`
+- **Owner:** upstream's
+- **What is wrong:** The boundary test compares only whether old and new exceed the deadzone; a direct reversal leaves the direction stale until the next crossing.
+- **Proposed disposition:** recorded; contained under rule 6 if the pause opens it
+- **proved:** tree
+
+## PL-30: The SDL fallback's stick names are not the ones the menus match
+
+- **Severity:** Low; **category:** Input; **question:** Q2
+- **Source finding:** the seat's G-6, verified
+- **Lines at the pin:** `InputManager.cpp:993-996`, `:1096` against `InputConfig.cpp:233-247`
+- **Owner:** upstream's; T3 reads the names
+- **What is wrong:** The fallback writes `joystick1left`/`joystick1up`/`joystick2left`/`joystick2up`; `isMappedLike` knows `leftanalogleft` and its siblings, so an auto-mapped stick does not move the menus.
+- **Proposed disposition:** recorded for T3 and the pause
+- **proved:** tree
+
+## PL-31: A gun removed through udev leaks the removal event's reference
+
+- **Severity:** Low; **category:** Lifetimes; **question:** Q4
+- **Source finding:** the seat's G-11, verified
+- **Lines at the pin:** `GunManager.cpp:544-553`, `:1011-1014`, `:1033`
+- **Owner:** upstream's
+- **What is wrong:** A handled removal skips the caller's `udev_device_unref(dev)` while the removal frees only the gun's own reference. libudev is linked on the image (G-01).
+- **Proposed disposition:** unref the event after a removal; recorded
+- **proved:** tree
+
+## PL-32: A theme file's XML parse failure is ignored
+
+- **Severity:** Low; **category:** Structure; **question:** Q7
+- **Source finding:** the seat's G-14, verified
+- **Lines at the pin:** `ThemeData.cpp:807-810` with `:714-733`
+- **Owner:** upstream's
+- **What is wrong:** The file branch discards `load_buffer`'s result, and the cache's own parse check is commented out (`:721-729`): a malformed file is partly applied with no error.
+- **Proposed disposition:** check the result as the string branch does (`:814-816`); recorded
+- **proved:** tree
+
+## PL-33: Six defects in WIN32-only code, recorded
+
+- **Severity:** Low; **category:** Structure; **question:** Q7
+- **Source finding:** the seat's G-7, G-8, G-9, G-10, G-12, G-13, verified
+- **Lines at the pin:** `Scripting.cpp:67-82`; `InputManager.cpp:381-402`, `:849-850`; `GunManager.cpp:425`, `:637-653`; `TextToSpeech.cpp:122-128`, `:258-264`
+- **Owner:** upstream's (not on the image)
+- **What is wrong:** The script queue's thread is never joined; repeated hot-plugs stack joystick-subsystem references; two gun paths drop devices or motion; the speech queue leaks items and races its stop flag.
+- **Proposed disposition:** recorded, not on the fork's images
+- **proved:** tree
+
+## PL-34: A progress card draws over the full-screen keyboard's text field
+
+- **Severity:** Low; **category:** Surfaces; **question:** Q1
+- **Source finding:** G-06 (the guest)
+- **Lines at the pin:** `Window.cpp:782-788` (the cards drawn after every page)
+- **Owner:** the pause
+- **What is wrong:** At 640 the startup sync card covered the keyboard's field while a value was being edited: the player cannot see what they type until the card leaves.
+- **Proposed disposition:** a pause ruling: a card held while a full-screen popup owns the screen, or recorded as the card tier's design
+- **proved:** guest (image)
 
 ## Phase 7 resolution gate
 
@@ -272,6 +372,16 @@ reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
 | PL-22 | Open | the stage-D pause disposes it |
 | PL-23 | Open | the stage-D pause disposes it |
 | PL-24 | Open | the stage-D pause disposes it |
+| PL-25 | Open | the stage-D pause disposes it |
+| PL-26 | Open | the stage-D pause disposes it |
+| PL-27 | Open | the stage-D pause disposes it |
+| PL-28 | Open | the stage-D pause disposes it |
+| PL-29 | Open | the stage-D pause disposes it |
+| PL-30 | Open | the stage-D pause disposes it |
+| PL-31 | Open | the stage-D pause disposes it |
+| PL-32 | Open | the stage-D pause disposes it |
+| PL-33 | Open | the stage-D pause disposes it |
+| PL-34 | Open | the stage-D pause disposes it |
 
 ## punch_index
 
@@ -296,7 +406,7 @@ punch_index:
   source_finding: "L-18, 3.4, T2 FD-9/FD-19"
   outcome: "open"
 - id: PL-04
-  severity: "Medium"
+  severity: "Low"
   category: Input
   question: Q2
   source_finding: "L-07, 3.11"
@@ -314,7 +424,7 @@ punch_index:
   source_finding: "L-02, T2 PC-1"
   outcome: "open"
 - id: PL-07
-  severity: "Low"
+  severity: "Medium"
   category: Lifetimes
   question: Q4
   source_finding: "L-03, 3.17"
@@ -362,7 +472,7 @@ punch_index:
   source_finding: "F-ES-24, brief § 9"
   outcome: "open"
 - id: PL-15
-  severity: "Low"
+  severity: "Medium"
   category: Words
   question: Q6
   source_finding: "L-12, 3.18"
@@ -404,7 +514,7 @@ punch_index:
   source_finding: "L-05"
   outcome: "open"
 - id: PL-22
-  severity: "Low"
+  severity: "Medium"
   category: Structure
   question: Q7
   source_finding: "L-04"
@@ -420,5 +530,65 @@ punch_index:
   category: Words
   question: Q6
   source_finding: "L-16, 3.20"
+  outcome: "open"
+- id: PL-25
+  severity: "Low"
+  category: Words
+  question: Q6
+  source_finding: "the seat's G-1, verified"
+  outcome: "open"
+- id: PL-26
+  severity: "Low"
+  category: Lifetimes
+  question: Q4
+  source_finding: "the seat's G-2, verified"
+  outcome: "open"
+- id: PL-27
+  severity: "Medium"
+  category: Lifetimes
+  question: Q4
+  source_finding: "the seat's G-3, verified"
+  outcome: "open"
+- id: PL-28
+  severity: "Low"
+  category: Lifetimes
+  question: Q4
+  source_finding: "the seat's G-4, verified"
+  outcome: "open"
+- id: PL-29
+  severity: "Low"
+  category: Input
+  question: Q2
+  source_finding: "the seat's G-5, verified"
+  outcome: "open"
+- id: PL-30
+  severity: "Low"
+  category: Input
+  question: Q2
+  source_finding: "the seat's G-6, verified"
+  outcome: "open"
+- id: PL-31
+  severity: "Low"
+  category: Lifetimes
+  question: Q4
+  source_finding: "the seat's G-11, verified"
+  outcome: "open"
+- id: PL-32
+  severity: "Low"
+  category: Structure
+  question: Q7
+  source_finding: "the seat's G-14, verified"
+  outcome: "open"
+- id: PL-33
+  severity: "Low"
+  category: Structure
+  question: Q7
+  source_finding: "the seat's G-7, G-8, G-9, G-10, G-12, G-13, verified"
+  outcome: "open"
+- id: PL-34
+  severity: "Low"
+  category: Surfaces
+  question: Q1
+  source_finding: "G-06 (the guest)"
   outcome: "open"
 ```

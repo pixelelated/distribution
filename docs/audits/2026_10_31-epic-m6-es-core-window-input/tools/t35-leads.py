@@ -75,7 +75,7 @@ L = [
     ("L-27", (W, 779, r"startScreenSaver\(\);", False), "`Window.cpp:777-779`, `:1091-1138`; T33's and T2's", "lifetimes", "this lane's half, T33's, T2's",
      "**confirmed (the window's half):** the start from `render()` on idle time alone, with no way for a page to refuse; § The lifetimes' three halves", "3.27; G-09", "tree"),
     ("L-28", (W, 1023, r"if\(inputSeenMap\.emplace\(it->first, true\)\.second\)", False), "`Window.cpp:743-745`, `:1005-1078`; T34's chain", "help bar", "read; the pause with G-11",
-     "**read:** the window's collection drops only a repeated icon (`:1023`) and merges the two dpad halves (`:1031-1041`); it adds nothing and drops no other prompt, so an empty bar comes from the prompts it was given -- the components or the image's composition. G-11 frames the page", "3.16; G-11", "tree"),
+     "**read, then seen:** the window's collection drops a repeated icon (`:1023`), and its dpad merge compares the wrong way (`:1032-1033`, the seat's G-1, verified: two complementary halves do not merge, and an unrelated icon sharing the action text is replaced); it adds no prompt. G-11 framed the tabbed SCRAPEUR page with only FERMER and RETOUR while the non-tabbed PARAMÈTRES AUDIO page shows CHANGER and CHOISIR through the same window: the prompts are lost before the window", "3.16; G-11", "tree; guest (image)"),
     ("L-29", (W, 1067, r"if\(a\.first == map\[i\]\)", False), "`Window.cpp:1005-1078`; `ComponentList.cpp:568` (T34's)", "help bar", "read",
      "**read:** a key `setHelpPrompts` does not know passes through untouched and sorts with index 0 (`:1062-1074`); it neither translates nor drops it -- whether its icon draws is `HelpComponent`'s (T34's)", "3.16", "tree"),
 ]
@@ -92,7 +92,7 @@ print(table(["Lead", "Lines", "Family", "Owner", "Disposition (stage B)", "Proof
 # The floor's cases: each anchored; all run at stage C.
 F3 = [
     ("**3.1**", WM, 196, r"if \(item->component->check\(\)\)", "a probe that sleeps; `ResetComponent` from a second thread waits for it", "FAIL at the pin expected (L-11)"),
-    ("3.2", WM, 86, r"delete info;", "ASan: unregister during a running probe", "FAIL expected (EP-13)"),
+    ("3.2", WM, 86, r"delete info;", "ASan: unregister during a running probe", "PASS at the pin (the lock spans the probe); the guard PL-01's fix keeps"),
     ("3.3", WM, 151, r"mRunning = false;", "TSan: `mRunning` written and read unsynchronised", "a race report expected"),
     ("**3.4**", SC, 109, r'if \(data\.find\(" "\) != std::string::npos\)', "`a$(id)b.zip` unquoted, `a b.zip` quoted, `\"` stripped", "FAIL expected (L-18)"),
     ("**3.5**", SC, 172, r"^#if WIN32", "a `notes.txt` in a per-event folder handed to the executor", "FAIL expected (L-18)"),

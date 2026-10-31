@@ -140,7 +140,7 @@ L-01 to L-29 are the brief's § 2 lead table. L-28 and L-29 are T34's PL-05 and 
 | L-25 | `guis/GuiTextEditPopupKeyboard.h` | record | § The merge debt | **confirmed:** byte-identical to `cada856d86`; a footnote | -- | tree |
 | L-26 | `es-core/CMakeLists.txt` at T21's `3ae9610b0` | structure | the integration (§ 1 h) | **confirmed:** five added lines in four hunks; named in the hand-back | -- | tree |
 | L-27 | `Window.cpp:777-779`, `:1091-1138`; T33's and T2's | lifetimes | this lane's half, T33's, T2's | **confirmed (the window's half):** the start from `render()` on idle time alone, with no way for a page to refuse; § The lifetimes' three halves | 3.27; G-09 | tree |
-| L-28 | `Window.cpp:743-745`, `:1005-1078`; T34's chain | help bar | read; the pause with G-11 | **read:** the window's collection drops only a repeated icon (`:1023`) and merges the two dpad halves (`:1031-1041`); it adds nothing and drops no other prompt, so an empty bar comes from the prompts it was given -- the components or the image's composition. G-11 frames the page | 3.16; G-11 | tree |
+| L-28 | `Window.cpp:743-745`, `:1005-1078`; T34's chain | help bar | read; the pause with G-11 | **read, then seen:** the window's collection drops a repeated icon (`:1023`), and its dpad merge compares the wrong way (`:1032-1033`, the seat's G-1, verified: two complementary halves do not merge, and an unrelated icon sharing the action text is replaced); it adds no prompt. G-11 framed the tabbed SCRAPEUR page with only FERMER and RETOUR while the non-tabbed PARAMÈTRES AUDIO page shows CHANGER and CHOISIR through the same window: the prompts are lost before the window | 3.16; G-11 | tree; guest (image) |
 | L-29 | `Window.cpp:1005-1078`; `ComponentList.cpp:568` (T34's) | help bar | read | **read:** a key `setHelpPrompts` does not know passes through untouched and sorts with index 0 (`:1062-1074`); it neither translates nor drops it -- whether its icon draws is `HelpComponent`'s (T34's) | 3.16 | tree |
 
 **The floor's cases** (the seven candidates and 3.27 in bold; every case runs at stage C against the unfixed extract first; `proved: design` until it has):
@@ -148,7 +148,7 @@ L-01 to L-29 are the brief's § 2 lead table. L-28 and L-29 are T34's PL-05 and 
 | Case | Anchor | What it checks | Expected at the pin | When | proved: |
 | --- | --- | --- | --- | --- | --- |
 | **3.1** | `watchers/WatchersManager.cpp:196` | a probe that sleeps; `ResetComponent` from a second thread waits for it | FAIL at the pin expected (L-11) | stage C | design |
-| 3.2 | `watchers/WatchersManager.cpp:86` | ASan: unregister during a running probe | FAIL expected (EP-13) | stage C | design |
+| 3.2 | `watchers/WatchersManager.cpp:86` | ASan: unregister during a running probe | PASS at the pin (the lock spans the probe); the guard PL-01's fix keeps | stage C | design |
 | 3.3 | `watchers/WatchersManager.cpp:151` | TSan: `mRunning` written and read unsynchronised | a race report expected | stage C | design |
 | **3.4** | `Scripting.cpp:109` | `a$(id)b.zip` unquoted, `a b.zip` quoted, `"` stripped | FAIL expected (L-18) | stage C | design |
 | **3.5** | `Scripting.cpp:172` | a `notes.txt` in a per-event folder handed to the executor | FAIL expected (L-18) | stage C | design |
@@ -332,7 +332,7 @@ generated, asserted: 7 write-site rows (5 writes, 2 reads the grep counts), 5 ex
 | `mJoysticksLock` (`InputManager.cpp:52`) | joysticks, input configs | `:200`, `:227`, `:485`, `:1343`, `:1494` | three manual lock/unlock pairs (`:227-242`, `:485-623`, `:1494-1520`) with no `return` between them (read), and no RAII; the rebuild's pair spans `writeDeviceConfig` (`:605`), which fires two events (`:1234-1235`) and runs `doOnFinish`'s commands **synchronously** (`:1272`) with the lock held | interface thread only: SDL events, the launch path's `computePlayersConfigs` (`:1343`), and `updateBatteryLevel` posted from `NetworkThread.cpp:206`; no second thread takes it |
 | `mWatchersLock` (`WatchersManager.cpp:7`) | the watcher list | `:66`, `:78`, `:94`, `:143`, `:181`, `.h:35` | **held across every `check()`** (`:181`, `:196`) and then `mNotificationLock` inside it (`:197` -> `:128`): order **mWatchersLock -> mNotificationLock**, and the observers' `OnWatcherChanged` runs on the watcher thread under both | **`RegisterComponent` `:66`, `UnregisterComponent` `:78`, `ResetComponent` `:94`, `GetComponent` `.h:35` and the destructor `:143` wait for a running probe** (L-11, #1283's es-core half; 3.1 at stage C) |
 | `mNotificationLock` (`WatchersManager.cpp:5`) | observers | `:108`, `:114`, `:128` | inner to `mWatchersLock` when taken from `run()` | `UnregisterNotify` `:114` waits for a callback in flight |
-| `mThreadLock` (`WatchersManager.h:83`) | pause and wake | `:35`, `:48`, `:165` | its own scope before `mWatchersLock` in `run()` (`:164-171`), never nested with it; `mRunning` and `mPaused` are plain `bool`s read outside it (`:161`, `:187`; 3.3) | `pause` `:35` and `resume` `:48` take it briefly |
+| `mThreadLock` (`WatchersManager.h:83`) | pause and wake | `:35`, `:48`, `:165` | its own scope before `mWatchersLock` in `run()` (`:164-171`), never nested with it; `mPaused` is read and written under it, while **`mRunning` is a plain `bool` written at `:151` and read at `:161`, `:172`, `:187` outside any lock** (3.3's ThreadSanitizer race) | `pause` `:35` and `resume` `:48` take it briefly |
 | `mMutex` (`Log.cpp:187`) | the log buffer | `:70`, `:104`, `:122` | none nested | any thread's `LOG(...)` takes it briefly to enqueue |
 | `mScriptQueueLock` (`Scripting.cpp:20`) | script queue | `:29`, `:60`, `:78` | WIN32 only | -- |
 | `mMutex` (`TextToSpeech.h:48`) | speech queue | `:27`, `:256` | the speak thread is WIN32 only; TTS is compiled out on the image (§ 5) | -- |
@@ -347,7 +347,7 @@ generated, asserted: 7 write-site rows (5 writes, 2 reads the grep counts), 5 ex
 | the watcher thread | `WatchersManager.cpp:61`, on the first `getInstance()` (`:15`) | `WatchersManager::stop()` at `main.cpp:1330` joins (`:154`) -- **before** `window.deinit()`; the join waits for a probe in flight and the 1 s `wait_for` (`:170`) | tree |
 | the PulseAudio loop | `VolumeControl.cpp:32` (`_ENABLE_PULSE_`) | `exit()` joins (`:68-73`) from `~PulseAudioControl` | tree (branch not parsed) |
 | the speak thread | `TextToSpeech.cpp:92` (**WIN32**) | `:128` | tree |
-| the script queue | `Scripting.cpp:68` (**WIN32**, `new std::thread`, not a detach) | `exitScriptingEngine` (`main.cpp:1347`) | tree |
+| the script queue | `Scripting.cpp:68` (**WIN32**, `new std::thread`, not a detach) | **not joined**: `exitScriptingEngine` (`main.cpp:1347`) only sets the flag and notifies (`Scripting.cpp:75-82`, the seat's G-7) | tree |
 | four storage workers | `Window.cpp:1554`, `:1572`, `:1608`, `:1634` (`processStorageRequest`) | **detached** (`:1563`, `:1575`, `:1619`, `:1637`); each captures `this` and posts back (L-04); nothing joins them | tree |
 | `NetworkThread` (es-app's) | `main.cpp:898` | not deleted at exit; named for its owner, outside the 96 | tree |
 
@@ -361,8 +361,8 @@ generated, asserted: 67 lock lines in 11 files (4 includes, 2 `weak_ptr::lock`),
 | --- | --- | --- | --- | --- |
 | `Log.cpp:60` | start: the logger's worker | `AsyncLogger::close` joins (`:76-77`), from `onExit` at exit | nothing; it writes the file | tree |
 | `Log.cpp:180` | the member `std::thread mThread` | as above | -- | tree |
-| `Scripting.cpp:18` | the member `std::thread* mScriptQueueThread` (**WIN32**) | `exitScriptingEngine` | -- | tree |
-| `Scripting.cpp:68` | start: `new std::thread(&executeCommandsThread)` (**WIN32**; not a detach) | `exitScriptingEngine` (`:75-81`) | nothing | tree |
+| `Scripting.cpp:18` | the member `std::thread* mScriptQueueThread` (**WIN32**) | **nobody** (`exitScriptingEngine` sets the flag and notifies, `:75-82`; the seat's G-7) | -- | tree |
+| `Scripting.cpp:68` | start: `new std::thread(&executeCommandsThread)` (**WIN32**; not a detach) | **nobody**: never joined or deleted (`:75-82`; G-7) | nothing | tree |
 | `TextToSpeech.cpp:92` | start: the speak thread (**WIN32**) | `~TextToSpeech` (`:128`) | nothing | tree |
 | `TextToSpeech.h:47` | the member `std::thread* mSpeakThread` | as above | -- | tree |
 | `VolumeControl.cpp:32` | start: `PulseAudioControl::run` (`_ENABLE_PULSE_`) | `exit()` (`:68-73`) | nothing; the volume is read under `mLock` | tree |
@@ -745,7 +745,27 @@ generated, asserted: 25 run blocks, 9 generators with three drifts each
 
 ## The guest cycle
 
-**Not run at stage B.** The window is asked for on #682 at stage B's end, with the plan and bound in `stage-b/window-plan.md`: 30 minutes plus 5 of grace, a 1,560 s plan, G-01 to G-12, two boots. It lands here once granted: the grant's time, the START and RETURN posts with their first lines, the timer's PID and the censuses, the host file's lines, the image's `BUILD_ID` read at 640x480, every frame read back at EN and FR and labelled by side, the second boot, the disk retired with path, size and sha, and the leftover check.
+- **The grant:** #682 comment 6540234733 (06:45 UTC), queued behind M7. The coordinator's 10:42 block fixed the order (slot 1 M7 native, slot 2 M7's RA guest, slot 3 T35, slot 4 M7's cloud-native guest). M7's slot 2 returned at 11:06:57. **START 11:07:40 UTC** (#682 comment 6542598902; the host file read at 11:07:26; the host-file line with the census `qemu 0, compilers 0, listeners 0`). **RETURN 11:31:00 UTC** (#682 comment 6542812230; the census `qemu 0, compilers 0, listeners 0`), inside the 11:42:40 bound.
+- **The timer:** pid 3085742 armed at START for 11:42:41. It carried `--timeout 90`, which `tools/vm-stop` refuses (at most 60 s). That was found when my own stop failed at 11:24:57 (the first boot still up, the second boot refused the disk), then replaced by its PID with pid 3339644 at the same deadline and `--timeout 60` (`guest-cycle/helpers/stop-timer.sh`). It was stopped by its PID at the RETURN, unfired. Supervision was continuous, never 60 s apart.
+- **The image:** `pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261022T235948Z.g069fc2704421-from-ROCKNIX.img.gz` (sha256 matching its `.sha256`), read from the guest as `BUILD_ID=069fc270442134fe771258418adf4e666e0473fb`, `BUILD_BRANCH=build/m7-signin-20261022-07`, at `640x480-0` (`guest-cycle/g01-identity.txt`). Every frame is **`image`** side (ES sha256 `25155163...1226`, M7's composition).
+- **The network:** `restrict=on` plus `guestfwd=tcp:10.0.2.100:9010-tcp:127.0.0.1:9010`, read back from `/proc`. A `tcp:` guestfwd is one connection opened at QEMU's start, so after rclone's first connection the WebDAV did not answer (`curl` rc 28). G-02 and G-09 ran on the unreachable cloud's bounded outcomes, which still draw the card and the page.
+- **G-01:** `640x480-0`; theme `es-theme-art-book-next`. The user `es_input.cfg` exists before any configuration (117,859 bytes, the shipped copy: PL-04 lowered). The shipped file has 0 `inputAction` lines. libudev is linked (1). No `/usr/bin/scripts` and no user scripts folder (PL-03 needs an added hook). `curl` is present. `proved: guest`.
+- **G-02 and G-03:** under SYNCING SAVES AT STARTUP (`g02-01.png` RECEIVING · STARTING..., `g02-29.png` SENDING · STARTING..., 11:11:51 to 11:12:34), `POST /notify` sent T35 TOAST A then T35 TOAST B at 11:11:48 (guest clock). No toast was drawn while the card was up. After it left, **both appeared together, B above A** (`g02b-001.png`, 11:13:37): newest first, L-01/PL-02 on the image. The card's solid run is x 23 to 616 at row 60 (`tools/t35-png.py`), centred at 319.5 -- 0.9 W plus, by inference, the frame image's outset. `proved: guest`.
+- **G-04:** REALLY RESTART EMULATIONSTATION? YES / NO (`g04-2-dialog.png`). B closed it and ES stayed pid 1605 (`g04-pids.txt`). MAIN MENU and QUIT at 640 draw no window help bar (`g04-0-menu-bottom.png`, `g04-1-quit-page.png`, L-21). `proved: guest`.
+- **G-05: `CANNOT`.** REMOVE CONNECTION refuses with one OK while the automatic save syncs are on (`g05-4-dialog.png`), and a serial `set_setting cloudsaves.startup 0` did not reach ES's own copy (`g05-6-dialog2.png`). The two-button dialog was not reached. The candidates stay: REMOVE CONNECTION / CANCEL (`GuiMenu.cpp:8057-8058`), USE CONNECTION / CANCEL (`:8025`).
+- **G-06:** the keyboard is full-screen at 640 (`g06-walk/03-folder-editor.png`). ESC closes it with SAVES FOLDER unchanged (`g06-1-after-esc.png`). `s` with the keyboard device types into the field rather than acting as X, so L-14's clear-and-commit is not shown by this route (`g06-3-after-s.png`). The startup card drew over the keyboard's field (PL-34). `proved: guest`.
+- **G-07 (French):** VRAIMENT REDÉMARRER EMULATIONSTATION ? OUI / NON (`g07-1-quit-dialog-fr.png`). B kept ES pid 6597. The detect page fits at 640 (`g07-4-detect-fr.png`). The AZERTY keyboard shows EFFACER / ANNULER (`g07-walk/03-folder-editor.png`). `proved: guest`.
+- **G-08:** HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT. at 640 (`g08-2-detect-page.png`). **One `sendkey x 1000` over the monitor held a key, and the page advanced** to CONFIGURING / KEYBOARD (`g08-3-after-hold.png`): the harness gap is closed. `proved: guest`.
+- **G-09:**
+  - The screensaver came up after about five idle minutes (`g02b-115.png`, 11:16:42). `shift` woke it with the carousel unmoved (`g09-2-after-shift.png`), and `down` then moved it (`g09-3-after-down.png`).
+  - With SCREENSAVER AFTER at 60 s, **the screensaver started over VÉRIFICATION DE VOTRE CLOUD while its job ran** (`g09-4-page-t30.png` at 11:29:33, ÉCOULÉ 0:47; `g09-4-page-t45.png` black at 11:29:49): #1305's window half on the image. `proved: guest`.
+- **G-10: `CANNOT`** (no pad).
+- **G-11 (1280x800, `1280x800-0`):**
+  - The keyboard is a box of about 0.78 W x 0.6 H with the help bar under it (`g11-walk/03-folder-editor.png`). The QUIT box is about 0.6 W wide, with OUI / NON (`g11-1-quit-dialog-1280.png`).
+  - **T34 PL-05 reproduced:** the tabbed SCRAPEUR page's bar reads FERMER and RETOUR with a row and with the strip focused (`g11-4-scrapeur-row.png`, `g11-5-scrapeur-strip.png`).
+  - The non-tabbed PARAMÈTRES AUDIO page shows FERMER, RETOUR, CHANGER and CHOISIR through the same window (`g11-3-scraper-tabs.png`), so the prompts are lost before the window (L-28). `proved: guest`.
+- **G-12:** the disk retired (`guest-cycle/retired.txt`): `/workspace/tmp/m6-t35/guest/disk.qcow2`, 2,312,372,224 bytes, sha256 `c98ec34b491ff866f9d2e135af5374e7bb6cb7f34e695c42b3a77a6c4d1385e7`, now absent. The host's WebDAV is down by its pidfile. Leftover check: `qemu 0, compilers 0, listeners 0`.
+- **Time to play** (for the retro): on the unreachable cloud the startup card stayed at STARTING... for about 100 s while the hub row reads AT STARTUP - SKIPPED, NO NETWORK (`g05-0-hub-bottom.png`). That is the cloud lane's bounded sync, recorded for its owner.
 
 ## The streams
 
