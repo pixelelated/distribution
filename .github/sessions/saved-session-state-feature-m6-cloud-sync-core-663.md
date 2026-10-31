@@ -14,7 +14,32 @@
 > **Register:** D-WORKFLOW-209 is the highest Decided row on the coordinator's branch (D-WORKFLOW-188 on the P1 branch only; the merge unites them); other lanes may take the next IDs; a row this slice forces (none expected) takes an ID the coordinator assigns on #663
 > **The brief:** `docs/reviews/briefs/cloud-sync-core.md` at `2cc743efd6` (version 2, after a stranger's proof of version 1); #663's body carries its § 7 checkboxes; where the two differ the body wins and the coordinator corrects the brief
 
-## Current focus
+## Current focus (11:05 UTC 2026-10-31 update): idle, accepted
+
+**The lane is IDLE.**
+- **Accepted:** T16 was accepted on #663 at `ce3242e14f` (comment 6542546936): `kit/t16-accept.sh` `SUMMARY: pass 28, fail 0`, and 16 of 17 criteria ticked. Criterion 13 is left open as the record of the two guest overruns.
+- **#1295** is closed `completed`.
+- **The commits:** `reviewed-at` `aeebe31248`, `fixed-at` `23dfd53c0e`, and the coordinator's `8476d6e889` merged at `164029a00f`.
+- **The close-out commit** (this file, and `audit-completion.json` with its two receipts) is the branch's final tip, named in the close-out post on #663.
+
+**The record:**
+- `audit-completion.json` is written from #1295's closed read-back (11:01:43Z close; verified 2026-10-31T11:04:13.613793Z).
+- `tools/lint-audit-artifacts` prints `PASS` at the default phase and with `--phase resolution --issue 1295`, and `tools/ceremony-check` takes the marker as the last audit.
+- Stage E's evidence is `docs/audits/2026_10_25-epic-m6-cloud-sync-core/stage-e/`: the cells, their before and after outputs, the suite's runs, the patch, the tools and `handback-checks.txt`.
+
+**The scratch is retired** (D-INFRA-022): `/workspace/tmp/m6-t16/`, 4,700,288,471 bytes by `du`, removed at 11:05 UTC.
+- It held the suite's clone snapshots (`snapgit`, `snap-s1`), the sandbox roots and cells, the QA WebDAV's state, the harness copy and the kits.
+- Free space rose by 5,879,037,952 bytes by `df`, which counts whole blocks and does not exclude other lanes' writes.
+- Commands in `02` and `stage-e/` that name `/workspace/tmp/m6-t16/` are provenance, not live paths. The pin's files come back with `git show 8ebaf8daad:<path>`, and a root with `stage-e/tools/mkroot.sh`.
+
+**Nothing is running and nothing is owed by this lane.** The WebDAV was stopped at 06:39:25, with its closing line on the host file. The coordinator owns:
+- the merge to `next`;
+- the seven bugs #1298 to #1304, open until the branch reaches `next` and their six guest halves (`fix-walk-pending-image`) run at the integration window;
+- the merge debt carried to #909, #1296, #662 and #42.
+
+**If a new brief arrives on #663,** read it, then `00-running-log.md`'s tail, then this file's earlier sections. The host file is `/workspace/tmp/m7-m6-host-coordination.txt`.
+
+## Earlier focus (2026-10-30, stage D done)
 
 **Stage D done (2026-10-30). Waiting for the coordinator's stream brief (`t16-streams.md`) and the stage-E dispatch.**
 
@@ -25,7 +50,7 @@
 - **Next:** stage E under the stream brief.
   - **Window-pending, at the integration window (`fix-walk-pending-image`):** lead (c)'s timings, and F-03's image half.
   - **Stage-E host fixtures:** the capture's TERM, and the clock step.
-- **Scratch to retire at close-out** (literal paths): `/workspace/tmp/m6-t16/hl/`, `/workspace/tmp/m6-t16/packet*`, `/workspace/tmp/m6-t16/bugs/` and `/workspace/tmp/m6-t16/g01.pids`.
+- **Scratch to retire at close-out** (literal paths): `/workspace/tmp/m6-t16/hl/`, `/workspace/tmp/m6-t16/packet*`, `/workspace/tmp/m6-t16/bugs/` and `/workspace/tmp/m6-t16/g01.pids` -- retired with the whole of `/workspace/tmp/m6-t16/` on 2026-10-31 (the current focus above).
 
 ## Next commands
 
