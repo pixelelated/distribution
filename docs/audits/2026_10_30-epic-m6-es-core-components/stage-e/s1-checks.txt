@@ -1,0 +1,40 @@
+# S1 (stage E, #681, #1323): checks, written 2026-10-31T05:47:47Z
+
+The stream is held: its case source, its before and after outputs and their build logs stay in the held directory beside the trace. This file carries their sha256s and counts only.
+
+## The ES commit
+dbe4c2db0fdfd3302af120e0973b14a4bd140086 on feature/m6-es-core-components-681, the branch's first push (origin, over HTTPS); parent 16dbac5211 (the pin).
+File: es-core/src/components/WebImageComponent.cpp (1 file changed, 52 insertions(+), 22 deletions(-))
+Non-ASCII on the added lines: none (grep -P '[^\x00-\x7F]' over the + lines, rc 1).
+
+## The held case
+Five held cases over the cache-key lines, compiled into components-tests through tools/t34-build-tests.sh's held hook (T34_HELD_CASES, T34_HELD_INC) into a build directory beside them, run with -tc='held*':
+- before (the pin's lines, lifted verbatim, refused unless each range holds its code): 2 of 5 FAIL at the pin.
+- after (dbe4c2db0's lines, lifted the same way): 5 of 5 PASS, and both after-only cases PASS, the name's shape and the containment guard seen to refuse (7 of 7).
+The held stream's four cases and one more; the held notes say why the count differs from the stream's prediction.
+sha256 of the held files:
+    520f1e5ee005d657dc604ab89bbd947d0fe47e3b9782709a017bd9f93dc303b0  pl27-before.txt
+    de8ad313dd4552c35d03226b622074627be07efc18018d265eb721c07d8ac076  pl27-after.txt
+    df7b0d0021cbbf085e16f4ec3937f454e3dfea4be57a0bd996df352a0cfbf11c  pl27-before-build.txt
+    9236b5cfcac5258d851b0a7595ed6af2b1b115ae006b52ce500b412ecb396b42  pl27-after-build.txt
+    3cb10578bf70f86911f10d8985996b376de3b6e0badb92eddec5824259838421  pl27-case.cpp
+    e780b6fdf6599f23f87eba4da8e13d41613ab965dd96536e5aaea61a30eda3c6  pl27-extract.py
+    8ae25cadc00f369fa8fa58f1a7424e72f99f4b31089d6fa07e6a311438fe36e7  pl27-run.sh
+    e7dc62da4198797bbc6024b464de33028ad7cb5d603380992067e8d67c954428  pl27-notes.md
+
+## The public build after S1
+RUN components-tests: rc 1; [doctest] test cases: 12 | 6 passed | 6 failed | 0 skipped [doctest] assertions: 311 | 303 passed | 8 failed | 
+TOTAL: 251 test cases in 6 binaries
+Unchanged from S0 (no public case or extract covers the lines S1 changed).
+
+## The stand-in over the 37
+CANNOT VideoVlcComponent.cpp: <vlc/vlc.h> and <vlc/libvlc_version.h> (:8-9) have no fake
+rc=0 WebImageComponent.cpp
+t34-syntax-check: 37 file(s) checked, 37 rc 0, 0 not
+
+## Other checks
+ES .githooks/pre-push-test: PASS (rc 0). The pre-push guard refused a bare-URL push, because a URL names no remote, so it read 8192 commits. The push by remote name with an HTTPS push URL read 1 commit and passed.
+es-untranslated: not run; S1 changes no player string (one LOG line).
+Specs (D-WORKFLOW-210): no public spec or generator asserts the lines S1 changed. The generators read the pin through t34lib.show, which is unchanged.
+tools/t34-build-tests.sh gained the held hook; a run without T34_HELD_CASES builds what it built before (the public TOTAL above).
+The #585 line: a private report owed upstream; the held notes carry it.

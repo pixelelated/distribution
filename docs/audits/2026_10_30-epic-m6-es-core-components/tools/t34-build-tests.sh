@@ -133,7 +133,16 @@ python3 -B -I "${HERE}/t34-extract.py" "${ES}" "$(git -C "${ES}" rev-parse HEAD)
 CT=""
 if [ -d "${X}" ]; then
   CT=components-tests
-  build components-tests -I "${X}" -I "${ES}/external" -- "${HERE}/t34-components-tests.cpp" || true
+  # A held case (#1323): T34_HELD_CASES names sources kept outside the tree,
+  # compiled into components-tests beside the lane's cases, and T34_HELD_INC
+  # their extracts. A run with them uses a build directory beside them, so its
+  # logs never reach the audit folder; without them nothing here changes.
+  HELD=(); HELDF=()
+  if [ -n "${T34_HELD_CASES:-}" ]; then
+    read -r -a HELD <<< "${T34_HELD_CASES}"
+    HELDF=(-I "${T34_HELD_INC:?T34_HELD_INC names the held extracts}" -I "${ES}/es-core/src")
+  fi
+  build components-tests -I "${X}" -I "${ES}/external" "${HELDF[@]}" -- "${HERE}/t34-components-tests.cpp" "${HELD[@]}" || true
 fi
 for t in ${CT}; do
   [ -x "${B}/${t}" ] || { echo "RUN ${t}: not built"; FAIL=1; continue; }

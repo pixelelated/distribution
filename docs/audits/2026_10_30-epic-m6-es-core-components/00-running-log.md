@@ -117,3 +117,15 @@
 - **3.14's first run FAILed on my own arithmetic**, not the pin. The first step lands at the delay itself, because `reset()` starts the accumulator at `-delay + speed`. The case was corrected before the record.
 - **PL-40 keeps its ruled disposition** (a #585 line). The case shows a consequence its entry does not name: content narrower than its container never scrolls down. Reach at the pin: the detailed list's description container, whose child takes the container's width. This is put to the coordinator in the S0 checkpoint, not filed: the line is PL-40's.
 - **The host file:** START 01:02:54, END 01:08:37.
+
+## [Stage E] 05:48 UTC 2026-10-31 — S1 (#1323, held): the ES branch's first commit, `dbe4c2db0`
+
+- **The held stream section** was read after its sha256 was checked against the brief (`766afe21...`, three matches in the brief). Its case, outputs and notes stay in the held directory. `stage-e/s1-checks.txt` carries their sha256s and counts, nothing else.
+- **The case first.** Five held cases over the pin's cache-key lines, lifted verbatim, were run through `tools/t34-build-tests.sh`'s new held hook into a build directory beside them: **2 of 5 FAIL at the pin**. The fix followed. After it: **5 of 5 PASS**, plus the two after-only cases (7 of 7), one of them the containment guard seen to refuse.
+- **The commit:** `es-core: WebImageComponent names its cache files by a safe key and keeps every file operation inside the cache directory`, body `Refs #681, #1323`, one file. The stand-in over the 37: 37 rc 0, `WebImageComponent.cpp` among them. The public build: `TOTAL: 251 test cases in 6 binaries`, unchanged.
+- **The push.** ES `pre-push-test` PASS. The guard refused a bare-URL push (a URL names no remote, so it read 8192 commits). The push by remote name over HTTPS passed with 1 commit read. Friction-log line written.
+- **Two departures from the held stream**, both explained in the held notes:
+  - the digest is es-core's md5, because es-core carries no sha256;
+  - the count is 2 of 5, not the predicted 3 of 4: the stream's four cases plus one more.
+- **The #585 line:** a private report owed upstream; the held notes carry it.
+- **The host file:** S1's START and END lines written.
