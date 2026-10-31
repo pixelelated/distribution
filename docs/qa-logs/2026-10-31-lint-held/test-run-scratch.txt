@@ -1,0 +1,52 @@
+test-lint-held: 2026-10-31T15:56:18Z; coordinator 5e6fe74466; T34 308d0f7571; patch ed8fe248af6e8139
+
+== regression: the unchanged folder, both tools
+  ok    R0 patched on the existing folder: rc=0, last line 'PASS'
+  ok    R0 patched and unpatched print identical output on it
+
+== the six cases
+  ok    1 held + sidecar, no reply: rc=0, last line 'PASS'
+          ok    HELD second-opinions/claude-audit.md (off-tree; sha256 bound): held off the tree, sha256 recorded, PASS -- its content is not checked here (receipt and hold agree on 70a514ac75f70cecceacf753f6a80cbbcd28189c995862f1eb2a356568bbe7d2)
+  ok    2 held, the reply present and matching: rc=0, last line 'PASS'
+          ok    HELD second-opinions/claude-audit.md: the copy present matches its held sha256 (content checked here)
+  ok    3 held, the reply present and differing: rc=1, last line '1 CONTRACT FAILURE(S)'
+          FAIL  second-opinions/review-plan.json or its call evidence is invalid: the copy of a held reply differs from its held sha256
+  ok    4 held without sha256: rc=1, last line '1 CONTRACT FAILURE(S)'
+          FAIL  second-opinions/review-plan.json or its call evidence is invalid: hold declares no sha256 of 64 hex
+  ok    5 no hold, no reply (patched): rc=1, last line '1 CONTRACT FAILURE(S)'
+          FAIL  second-opinions/review-plan.json or its call evidence is invalid: [Errno 2] No such file or directory: '/workspace/tmp/m6-coordinator/kit/t1308/work/case5/docs/audits/2026_10_11-epic-553-post-review-344/second-opinions/claude-audit.md'
+  ok    5 the patched FAIL is byte-identical to the unpatched tool's on the same folder
+  ok    6 the unpatched tool on case 1 (the positive before the fix): rc=1, last line '1 CONTRACT FAILURE(S)'
+          FAIL  second-opinions/review-plan.json or its call evidence is invalid: [Errno 2] No such file or directory: '/workspace/tmp/m6-coordinator/kit/t1308/work/case6/docs/audits/2026_10_11-epic-553-post-review-344/second-opinions/claude-audit.md'
+
+== the declaration's other refusals
+  ok    7 held without a reason: rc=1, last line '1 CONTRACT FAILURE(S)'
+          FAIL  second-opinions/review-plan.json or its call evidence is invalid: hold declares no reason
+  ok    8 the hold's sha256 is not the receipt's: rc=1, last line '1 CONTRACT FAILURE(S)'
+          FAIL  second-opinions/review-plan.json or its call evidence is invalid: held sha256 differs from the digest its receipt records
+  ok    9 'held' written into the Facilitator receipt: rc=1, last line '1 CONTRACT FAILURE(S)'
+          FAIL  second-opinions/review-plan.json or its call evidence is invalid: a hold belongs in claude-audit.md.held.json, not in the Facilitator receipt
+  ok    10 recorded_in names a file without the sha256: rc=1, last line '1 CONTRACT FAILURE(S)'
+          FAIL  second-opinions/review-plan.json or its call evidence is invalid: hold record 03-retrospective.md does not carry the held sha256
+  ok    11 path_at_hold inside the audit folder: rc=1, last line '1 CONTRACT FAILURE(S)'
+          FAIL  second-opinions/review-plan.json or its call evidence is invalid: hold declares no absolute path_at_hold outside the audit folder
+
+== tools/ceremony-check's marker validation (the same lint, through its own functions)
+  ok    M1 patched root, BASE held off the scratch tree: rc=0, last line 'audit marker valid: #553 docs/audits/2026_10_11-epic-553-post-review-344/audit-completion.json, completed 2026-10-11T22:14:08.836041+00:00'
+  ok    M2 unpatched root, the same folder: rc=1, last line 'audit marker invalid: docs/audits/2026_10_11-epic-553-post-review-344/audit-completion.json: resolution lint failed:   PL-002 index and table agree (resolved)   ok    PL-003 index and table agree (resolved)   ok    PL-004 index and table agree (resolved)  1 CONTRACT FAILURE(S)'
+          audit marker invalid: docs/audits/2026_10_11-epic-553-post-review-344/audit-completion.json: resolution lint failed:   PL-002 index and table agree (resolved)   ok    PL-003 index and table agree (resolved)   ok    PL-004 index and table agree (resolved)  1 CONTRACT FAILURE(S)
+          audit marker invalid: docs/audits/2026_10_11-epic-553-post-review-344/audit-completion.json: resolution lint failed:   PL-002 index and table agree (resolved)   ok    PL-003 index and table agree (resolved)   ok    PL-004 index and table agree (resolved)  1 CONTRACT FAILURE(S)
+
+== T34's folder at 308d0f7571, its reply absent as committed
+  ok    T1 no sidecar: the contract fails as on next today: rc=1, last line '1 CONTRACT FAILURE(S)'
+          FAIL  second-opinions/review-plan.json or its call evidence is invalid: [Errno 2] No such file or directory: '/workspace/tmp/m6-coordinator/kit/t1308/work/t34/docs/audits/2026_10_30-epic-m6-es-core-components/second-opinions/gpt-audit.md'
+  ok    T2 no sidecar: the ceremony marker invalid: rc=1, last line 'audit marker invalid: docs/audits/2026_10_30-epic-m6-es-core-components/audit-completion.json: resolution lint failed: 8 answers Q3   ok    PL-39 answers Q1   ok    PL-40 answers Q1   ok    PL-41 answers Q3   ok    PL-42 answers Q2   ok    PL-43 answers Q6  1 CONTRACT FAILURE(S)'
+          audit marker invalid: docs/audits/2026_10_30-epic-m6-es-core-components/audit-completion.json: resolution lint failed: 8 answers Q3   ok    PL-39 answers Q1   ok    PL-40 answers Q1   ok    PL-41 answers Q3   ok    PL-42 answers Q2   ok    PL-43 answers Q6  1 CONTRACT FAILURE(S)
+  ok    T3 with the sidecar, T34's patched lint: rc=0, last line 'PASS'
+          ok    HELD second-opinions/gpt-audit.md (off-tree; sha256 bound): held off the tree, sha256 recorded, PASS -- its content is not checked here (receipt and hold agree on 609c488c93cd7848dfb76d34587094eaf01313056262d4b301e9c9e2b7e02dcb)
+  ok    T4 with the sidecar, the coordinator's patched lint: rc=0, last line 'PASS'
+          ok    HELD second-opinions/gpt-audit.md (off-tree; sha256 bound): held off the tree, sha256 recorded, PASS -- its content is not checked here (receipt and hold agree on 609c488c93cd7848dfb76d34587094eaf01313056262d4b301e9c9e2b7e02dcb)
+  ok    T5 with the sidecar: the ceremony marker valid: rc=0, last line 'audit marker valid: #1307 docs/audits/2026_10_30-epic-m6-es-core-components/audit-completion.json, completed 2026-10-31T11:45:09.769007+00:00'
+          audit marker valid: #1307 docs/audits/2026_10_30-epic-m6-es-core-components/audit-completion.json, completed 2026-10-31T11:45:09.769007+00:00
+
+TOTAL: 21 of 21 checks as expected
