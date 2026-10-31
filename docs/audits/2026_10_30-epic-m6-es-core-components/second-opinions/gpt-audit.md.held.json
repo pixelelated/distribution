@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "reply": "gpt-audit.md",
+  "sha256": "609c488c93cd7848dfb76d34587094eaf01313056262d4b301e9c9e2b7e02dcb",
+  "path_at_hold": "/workspace/tmp/m6-t34/held/gpt-audit.md",
+  "mode": "0600",
+  "reason": "one finding (PL-27, #1323) is security-sensitive and this repository is public; the reply stays off the tree until the maintainer decides where its details go (#681 stage-D post)",
+  "recorded_in": [
+    "second-opinions/gpt-audit.md.provenance.json",
+    "second-opinions/review-plan.json",
+    "04-analysis.md"
+  ],
+  "refs": [
+    "#681",
+    "#1307",
+    "#1308"
+  ]
+}
