@@ -243,3 +243,22 @@
   - The list is now `failed case:`, one name per case with an `ERROR` line under its header, and `t35-runs.py` reads it. S1 to S3's `failing:` lines named 3.1 for its message too, but 3.1 was failing there anyway, so their assertions stand.
 - **#1283:** its checkbox for this slice (*`check()` called with `mWatchersLock` released, a line-cited read*) ticks from `stage-e/s4-checks.txt`, where the fixed `run()` shows the lock block at `:205-219` and `check()` at `:223`. Whose: `1da12fc7b6` and `5974280a95`, both upstream, so the #585 line (T33's candidate and this slice's) stands in `02`.
 - **Time to play:** the interface thread no longer waits for another watcher's probe (3.1's 1,492 ms, gone). `WatchersManager::pause` (on the launch path, L-19) is byte-identical to the pin's.
+
+## [Stage E, S5] 20:58 to 21:04 UTC 2026-10-31 — PL-03 (#1339): the script runner's quoting; PL-17 and PL-18 recorded
+
+- **The helper first:** `git grep -E 'shellQuote|quoteArg'` at the pin finds es-core's own `Utils::String::shellQuote` (`utils/StringUtil.cpp:426-444`, T36's file, used and never changed). It is lifted verbatim for the case (`str_shellquote`). No caller passes a pre-quoted argument (25 `fireEvent` lines, 0 with an escaped double quote).
+- **The cases, written first:** `:104`'s case (`"abc` keeps its `c`), and the script path and event name single-quoted. Before, at S4's tip (`stage-e/s5-before.txt`): 3.4 and both fail; the case recording the pin's shapes passes. `window-input-tests` 25 cases, 7 failed.
+- **The fix,** ES `c0ab63bf2` (`Scripting.cpp`; on origin; pre-push-test `PASS`):
+  - On the shell branch the path, the event name and every argument go through `shellQuote`. A caller's surrounding double quotes are taken off and every other byte is kept: the strip at `:107` and the unwrap's own inner strip both go, so a `"` reaches the hook intact.
+  - `:104`'s second test is `endsWith`.
+  - The WIN32 branch keeps its double-quote form, because its `ProcessStartInfo` does not read single quotes. It takes the `endsWith` fix only.
+  - The stand-in: 44 of 44.
+- **After** (`stage-e/s5-after.txt`): 25 cases, 3 failed (3.10, 3.11, 3.19) with `may_fail: 1`. 3.5 is marked `doctest::may_fail` with PL-18 named (rulings 9 and 20): doctest prints *Allowed to fail so marking it as not failed*, and its assertions still count (erratum 9). 3.4 and both S5 cases pass. `floor-tests` 11 of 11. `TOTAL: 275 test cases in 7 binaries`.
+- **D-WORKFLOW-210/211:**
+  - `exec_cmd` lifted the pin's 90-113 and now lifts 90-136 (both forms; the double compiles the shell one).
+  - `event_pass` and `sc_single` moved +23.
+  - The recorded-shapes case now holds the fixed shapes, with the pin's quoted in its comment and in `s5-before.txt`.
+- **The build script** lists a case doctest allows to fail as `may_fail case:` with a `may_fail: N` line (the hand-back's quote). `tools/t35-runs.py` asserts 3.5 as the one.
+- **PL-17's intent, read before its line** (ruling 8): `git log -S'waitForExit = (eventName'` names `d85f6a98f` (2023-10-29, *Make "quit" event waitable*) and `4da07ecfc`, both upstream. The recorded-only #585 line is in `02`.
+- **Whose:** the quoting is upstream's (`76a413bba5`, `097b811e4f`, `1c1432ff7d`), so PL-03's #585 line stands.
+- **Time to play:** `fireEvent` runs on the launch events. The quoting is one string pass per word, and the directory scans are unchanged (L-19).

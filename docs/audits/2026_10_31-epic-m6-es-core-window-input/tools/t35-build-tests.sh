@@ -158,7 +158,15 @@ for t in ${WT}; do
   # every failed case by name, untruncated (stage E S1 on: the 40-line excerpt above can cut
   # one). A case counts only when an ERROR line follows its header: doctest prints the header
   # for a MESSAGE too, and S1-S3's `failing:` lines named 3.1 for its message as well (S4).
-  awk '/^TEST CASE:/{tc=$0; sub(/^TEST CASE: */, "", tc)} /ERROR:/{if (tc != "") {print "    failed case: " tc; tc = ""}}' "${B}/${t}.run.log" | sort -u
+  # A case doctest allows to fail ("Allowed to fail so marking it as not failed", rulings 9 and
+  # 20) is listed as `may_fail case:`, with the count the hand-back quotes (S5).
+  awk 'function flush() { if (tc != "" && err) print (ok ? "    may_fail case: " : "    failed case: ") tc }
+       /^TEST CASE:/ { flush(); tc = $0; sub(/^TEST CASE: */, "", tc); err = 0; ok = 0 }
+       /ERROR:/ { err = 1 }
+       /^Allowed to fail so marking it as not failed/ { ok = 1 }
+       END { flush() }' "${B}/${t}.run.log" | sort -u > "${B}/${t}.cases"
+  cat "${B}/${t}.cases"
+  echo "    may_fail: $(grep -c '^    may_fail case:' "${B}/${t}.cases")"
   [ "${rc}" -eq 0 ] || FAIL=1
 done
 # T35 (#682): the two sanitizer programs (their sources under ../stage-c/), each run

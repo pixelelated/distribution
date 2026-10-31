@@ -106,6 +106,8 @@ if not (m_tot and m_tot.groups() == ("249", "6")): fail.append(f"TOTAL is not 24
 if not (m_wit and m_wit.group(4) == "7"): fail.append(f"window-input-tests' failed count is not 7: {m_wit and m_wit.groups()}")
 if sorted(set(failed_cases)) != ["3.1", "3.10", "3.11", "3.14", "3.19", "3.4", "3.5"]: fail.append(f"the failing cases are {sorted(set(failed_cases))}")
 if any(r[1] != "0" or r[4] != "0" for r in tree_bins) or len(tree_bins) != 5: fail.append(f"the tree's binaries: {tree_bins}")
+s5a = rd("stage-e/s5-after.txt")
+if not re.search(r"^    may_fail case: 3\.5 .*PL-18 recorded, may_fail\)$", s5a, re.M) or not re.search(r"^    may_fail: 1$", s5a, re.M): fail.append("S5 after: 3.5 not listed as the one may_fail case (rulings 9, 20)")
 if not m_pl: fail.append("3.27's ASan summary line is missing")
 m_pl3 = re.search(r"SUMMARY: AddressSanitizer: (heap-use-after-free[^\n]*)", pl3)
 if not (m_pl3 and re.search(r"^rc=1 ", pl3, re.M)): fail.append("3.27 at S3's tip: not the expected FAIL (ruling 12)")
@@ -155,6 +157,7 @@ STREAMS = {  # stream: (cases, failed before, failed after, the failing names go
     "S2": (19, 10, 6, ["3.14 the toast queue drains in the order things happened", "S2 a toast a card takes off the screen", "3.16 an unrelated prompt sharing the action text", "3.16 the dpad's two halves"], ("269", "7"), {"tsan-posts": ("66", "0")}),
     "S3": (21, 7, 6, ["S3 a top page that holds the screensaver"], ("271", "7"), {}),
     "S4": (23, 7, 5, ["3.1 ResetComponent from another thread", "S4 a second watcher's ResetComponent"], ("273", "7"), {"tsan-watchers": ("66", "0"), "asan-watchers": ("0", "0")}),
+    "S5": (25, 7, 3, ["3.4 an argument reaches the shell quoted", "S5 an argument that starts with a double quote", "S5 the script path and the event name"], ("275", "7"), {}),
 }
 for sn, (cases, fb, fa, gone, tot, sx) in STREAMS.items():
     got = {}

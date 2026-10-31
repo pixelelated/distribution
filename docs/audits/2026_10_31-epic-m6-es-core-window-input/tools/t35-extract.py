@@ -18,8 +18,11 @@ SPECS = [  # name, file, first, last, the first line holds, the last line holds
     ("queue_requeue", "Window.cpp", 1173, 1176, "std::vector<NotificationMessage> returned;", "mNotificationMessages.insert(mNotificationMessages.begin(), returned.begin(), returned.end());"),
     ("duration", "Window.cpp", 298, 309, "static int notificationDuration(int duration)", "}"),
     ("approx", "InputManager.cpp", 939, 965, "// Search for exact match guid", "}"),
-    ("exec_cmd", "Scripting.cpp", 90, 113, "std::string command = script;", "}"),
-    ("event_pass", "Scripting.cpp", 169, 178, "auto scripts = Utils::FileSystem::getDirContent(dir);", "}"),
+    # D-WORKFLOW-210, S5 (ES c0ab63bf2): exec_cmd lifted the pin's 90-113 (the one shell form) and lifts
+    # 90-136, the WIN32 form kept and the single-quoted one beside it (the double compiles the latter);
+    # event_pass 169-178 -> 192-201 and sc_single 182-207 -> 205-230 move +23.
+    ("exec_cmd", "Scripting.cpp", 90, 136, "#if WIN32", "#endif"),
+    ("event_pass", "Scripting.cpp", 192, 201, "auto scripts = Utils::FileSystem::getDirContent(dir);", "}"),
     ("kb_pad", "guis/GuiTextEditPopupKeyboard.cpp", 14, 14, "#define BUTTON_GRID_HORIZ_PADDING", "0.0052083333"),
     ("menu_pad", "components/MenuComponent.cpp", 14, 14, "#define BUTTON_GRID_HORIZ_PADDING", "0.022"),
     ("fs_cache", "utils/FileSystemUtil.cpp", 48, 341, "struct FileCache", "std::shared_mutex FileCache::mFileCacheMutex;"),
@@ -34,7 +37,7 @@ SPECS = [  # name, file, first, last, the first line holds, the last line holds
     ("ic_buttons", "InputConfig.cpp", 347, 414, 'static char ABUTTON[2] = "a";', "}"),
     ("im_hotkey", "InputManager.cpp", 1101, 1108, "if (isConfigured)", "}"),
     ("im_onfinish", "InputManager.cpp", 1244, 1283, "if (!initialized())", "}"),
-    ("sc_single", "Scripting.cpp", 182, 207, "std::vector<std::string> paths =", "}"),
+    ("sc_single", "Scripting.cpp", 205, 230, "std::vector<std::string> paths =", "}"),
     ("mb_ctor", "guis/GuiMsgBox.cpp", 34, 244, "GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,", "}"),
     ("ip_fade", "guis/GuiInfoPopup.cpp", 85, 111, "int curTime = SDL_GetTicks();", "alpha = (int) (Math::easeOutCubic(alpha / 255.0f) * 255.0f);"),
     ("fm_app", "FavoriteMusicManager.cpp", 71, 71, "std::ofstream ofs(favoritesFile, std::ios::app);", "std::ios::app"),
@@ -70,6 +73,8 @@ SPECS = [  # name, file, first, last, the first line holds, the last line holds
     # 1311-1336, the five dialogs 1591.. -> 1598..).
     ("ss_render", "Window.cpp", 777, 779, "unsigned int screensaverTime = (unsigned int)Settings::ScreenSaverTime();", "startScreenSaver();"),
     ("ss_start", "Window.cpp", 1092, 1113, "void Window::startScreenSaver()", "}"),
+    # S5 (stage E, rule 6; #1339): es-core's own shell quoting, T36's utils/StringUtil.cpp (used, never changed)
+    ("str_shellquote", "utils/StringUtil.cpp", 426, 444, "std::string shellQuote(const std::string& _string)", "} // shellQuote"),
 ]
 got = {}
 for name, f, a, b, first, last in SPECS:

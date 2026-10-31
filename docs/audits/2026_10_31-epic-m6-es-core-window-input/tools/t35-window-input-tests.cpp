@@ -127,6 +127,8 @@ namespace sc
 		bool startsWith(const std::string& s, const std::string& p) { return s.compare(0, p.size(), p) == 0; }
 		std::string replace(std::string s, const std::string& a, const std::string& b) { size_t i = 0; while ((i = s.find(a, i)) != std::string::npos) { s.replace(i, a.size(), b); i += b.size(); } return s; }
 		std::string toLower(std::string s) { for (auto& c : s) c = (char)tolower(c); return s; }
+		bool endsWith(const std::string& s, const std::string& e) { return s.size() >= e.size() && s.compare(s.size() - e.size(), e.size(), e) == 0; }
+		#include "x_str_shellquote.inc"
 	} }
 	std::string command_for(const std::string& script, const std::string& eventName, const std::string& arg1, const std::string& arg2 = "", const std::string& arg3 = "") {
 		#include "x_exec_cmd.inc"
@@ -154,13 +156,32 @@ TEST_CASE("3.4 an argument reaches the shell quoted so that $( ) and backticks s
 	CHECK(t.find("'x`id`y.zip'") != std::string::npos);
 }
 
-TEST_CASE("3.4 the shapes at the pin, recorded: a space quoted with double quotes, a double quote stripped")
+// D-WORKFLOW-211 (S5, #1339): at the pin this case recorded the pin's shapes -- `/s/hook.sh
+// game-start "a b.zip"` and `/s/hook.sh game-start ab.zip` (a space in double quotes, a double
+// quote stripped), PASS in stage-e/s5-before.txt. From S5 it holds the fixed shapes.
+TEST_CASE("3.4 the shapes, recorded: each word single-quoted, a double quote kept, a single quote escaped (were: a space in double quotes, a double quote stripped)")
 {
-	CHECK(sc::command_for("/s/hook.sh", "game-start", "a b.zip") == "/s/hook.sh game-start \"a b.zip\"");
-	CHECK(sc::command_for("/s/hook.sh", "game-start", "a\"b.zip") == "/s/hook.sh game-start ab.zip");
+	CHECK(sc::command_for("/s/hook.sh", "game-start", "a b.zip") == "'/s/hook.sh' 'game-start' 'a b.zip'");
+	CHECK(sc::command_for("/s/hook.sh", "game-start", "a\"b.zip") == "'/s/hook.sh' 'game-start' 'a\"b.zip'");
+	CHECK(sc::command_for("/s/hook.sh", "game-start", "it's.zip") == "'/s/hook.sh' 'game-start' 'it'\\''s.zip'");
 }
 
-TEST_CASE("3.5 a non-script file in a per-event folder is not run (Scripting.cpp:169-178, the filter WIN32-only)")
+TEST_CASE("S5 an argument that starts with a double quote keeps its last character (Scripting.cpp:104; PL-03, #1339)")
+{
+	std::string c = sc::command_for("/s/hook.sh", "game-start", "\"abc");
+	CHECK(c.find("abc") != std::string::npos);
+}
+
+TEST_CASE("S5 the script path and the event name reach the shell single-quoted (Scripting.cpp:90-96; PL-03, #1339)")
+{
+	std::string c = sc::command_for("/s/my hook$(id).sh", "game-start", "x");
+	CHECK(c.rfind("'/s/my hook$(id).sh' 'game-start' ", 0) == 0);
+}
+
+// Rulings 9 and 20 (stage E S5): PL-18 is recorded, not fixed -- on the device a file runs only
+// with its execute bit, and the filter would silently stop a player's working hook after an
+// update -- so 3.5 stays as written and is marked may_fail with PL-18 named.
+TEST_CASE("3.5 a non-script file in a per-event folder is not run (Scripting.cpp:169-178, the filter WIN32-only; PL-18 recorded, may_fail)" * doctest::may_fail())
 {
 	sc::ran.clear();
 	sc::per_event("/storage/.config/emulationstation/scripts/game-start", "game-start", "", "", "");

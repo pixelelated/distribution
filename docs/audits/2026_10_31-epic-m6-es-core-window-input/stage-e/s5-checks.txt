@@ -1,0 +1,47 @@
+# S5 (PL-03, #1339; rule 6; PL-17 and PL-18 recorded, rulings 8 and 9): the checks. ES tip c0ab63bf2, from S4's 1d5d3e0db; 2026-10-31T21:03:42Z
+## whose the quoting is (git blame at the pin, Scripting.cpp:90-113; ruling 19)
+097b811e4f 2025-08-05 [Win32/Scripting] Fix commandline + Make it possible to for: upstream (an ancestor of cada856d86)
+1c1432ff7d 2025-11-24 [Scripting/Win32] Fix script paths when one parent folder h: upstream (an ancestor of cada856d86)
+76a413bba5 2023-10-22 [Scripting] Support generic scripts (at root of script fold: upstream (an ancestor of cada856d86)
+## an existing helper first (the brief): git grep -n -E 'shellQuote|quoteArg' 16dbac5211 -- es-core/src
+es-core/src/utils/StringUtil.cpp:426:		std::string shellQuote(const std::string& _string)
+es-core/src/utils/StringUtil.cpp:444:		} // shellQuote
+es-core/src/utils/StringUtil.cpp:478:		// unquoted space, &, ; or | (#308 F-ES-09) -- shellQuote's '\'' escape
+-> Utils::String::shellQuote (utils/StringUtil.cpp:426-444, T36's file: used, never changed; lifted verbatim for the case as str_shellquote)
+## the callers pass no pre-quoted argument (fireEvent lines carrying an escaped double quote, es-app and es-core)
+fireEvent lines: 25; with an escaped double quote: 0
+## WIN32 (the brief: the same quoting only if its ProcessStartInfo reads it the same way)
+not the same: the WIN32 branch hands the line to CreateProcess or the queue (Scripting.cpp:138-159 at the tip), where single quotes do not quote; its double-quote form is kept, with only :104's endsWith fix (the defect is not the shell's). Not parsed on the host (02 § The structure).
+## PL-17's intent, read before its line is quoted (ruling 8): git log -S'waitForExit = (eventName' -- es-core/src/Scripting.cpp
+d85f6a98f 2023-10-29 [Scripting] Make "quit" event waitable, as some processings can take time & are interupted by shutdown command
+4da07ecfc 2024-01-03 [Win32/Scripting] Fix scripts are not always run in the good order ( since they are threaded )
+4da07ecfc: upstream
+d85f6a98f: upstream
+## the files 1d5d3e0db..c0ab63bf2 changes (nothing outside the 96; the French catalog only for a changed sentence)
+in the 96: es-core/src/Scripting.cpp
+ 1 file changed, 24 insertions(+), 1 deletion(-)
+## added lines' non-ASCII bytes in the .cpp/.h (+ lines of git diff -U0)
+non-ASCII added lines: 0
+## the stand-in over the 44 with the edit (stage-a/syntax-check.sh)
+rc=0 Scripting.cpp
+t35-syntax-check: 44 file(s) checked, 44 rc 0, 0 not
+## es-syntax-check: CANNOT on this host (the stand-in is the check)
+es-core/src/Scripting.cpp: es-syntax-check: no build root at /workspace/repos/rocknix.worktrees/generic-x64/build.ROCKNIX-GENERIC_X64.x86_64 (ES_BUILD_ROOT, --root) (rc=2)
+## the words (tools/es-untranslated against both bases, as stage A ran it)
+es-untranslated: 706 fork string(s) in the source, 706 with French, 0 without
+es-untranslated rc=0
+es-untranslated: 703 fork string(s) in the source, 703 with French, 0 without
+es-untranslated(cada) rc=0
+## the three doubles (§ 1 (i)): Window.h's postToUiThread and createAsyncNotificationComponent, Log.h's LogLevel, LocaleES.h's macros, pin against c0ab63bf2
+unchanged: es-core/src/Window.h lines with 'postToUiThread(' (6a3344338f42)
+unchanged: es-core/src/Window.h lines with 'createAsyncNotificationComponent(' (5f1054884455)
+unchanged: es-core/src/Log.h lines with 'Log' (c30ad23d7478)
+unchanged: es-core/src/LocaleES.h lines with '#define' (68d69442e945)
+every line the stream's range changes in those three headers:
+(none)
+## 3.5 under rulings 9 and 20 (s5-after.txt): marked may_fail with PL-18 named; doctest's test-case summary counts it as passed, its assertions still as failed (T34's acceptance erratum 9)
+# S5, at the tip c0ab63bf2, after the fix, 3.5 may_fail (rulings 9, 20). ES HEAD c0ab63bf2c27802b72e70f475e35ab1435a0d884, status lines 0; 2026-10-31T21:02:21Z
+    TEST CASE:  3.5 a non-script file in a per-event folder is not run (Scripting.cpp:169-178, the filter WIN32-only; PL-18 recorded, may_fail)
+    may_fail case: 3.5 a non-script file in a per-event folder is not run (Scripting.cpp:169-178, the filter WIN32-only; PL-18 recorded, may_fail)
+## the ES fork's .githooks/pre-push-test before the push
+PASS
