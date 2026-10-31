@@ -77,25 +77,55 @@ update_cloud_sync_rules() {
     # every later merge. From then on a rule anywhere is the player's and
     # goes first, as the merge intends.
     local marker=/storage/.config/.cloud_sync-rules-user-first-applied first_merge=0 past_catch_all=0
+    local src="${rules}" user="" inert="" wrote=1
     [ -e "${marker}" ] || first_merge=1
-    : > /tmp/cloud_sync-rules.user
-    : > /tmp/cloud_sync-rules.inert
-    while IFS= read -r line; do
+    # A rules file cut before its catch-all is not merged from (PL-12): its
+    # last line may be half a rule, which the merge would then keep as the
+    # player's for good. Its .bak is the last whole copy, and the merge
+    # reads that; with neither whole, nothing is touched.
+    if ! rules_whole "${rules}"; then
+      if rules_whole "${rules}.bak"; then
+        src="${rules}.bak"
+        log_to_file "${log_file}" "the rules file has no catch-all line; merged from its .bak, the last whole copy" "WARN"
+      else
+        log_to_file "${log_file}" "the rules file has no catch-all line and no whole .bak; it was left as it was" "WARN"
+        return 1
+      fi
+    fi
+    # The scratch files are this run's own, and a write to them that fails
+    # stops the merge before anything is installed (PL-12): a /tmp that
+    # could not be written left them empty, and the merge then installed the
+    # defaults alone over the player's own rules.
+    user=$(mktemp "${TMPDIR:-/tmp}/cloud_sync-rules.user.XXXXXX" 2>/dev/null) || user=""
+    inert=$(mktemp "${TMPDIR:-/tmp}/cloud_sync-rules.inert.XXXXXX" 2>/dev/null) || inert=""
+    if [ -z "${user}" ] || [ -z "${inert}" ]; then
+      [ -n "${user}" ] && rm -f "${user}"
+      [ -n "${inert}" ] && rm -f "${inert}"
+      log_to_file "${log_file}" "no scratch file could be made under ${TMPDIR:-/tmp}; the rules file was left as it was" "WARN"
+      return 1
+    fi
+    # The last line is read whether or not it ends in a newline.
+    while IFS= read -r line || [ -n "${line}" ]; do
       case "${line}" in
-        "# inert: "*) echo "${line#\# inert: }" >> /tmp/cloud_sync-rules.inert; continue ;;
+        "# inert: "*) echo "${line#\# inert: }" >> "${inert}" || wrote=0; continue ;;
         "- /**") past_catch_all=1 ;;
       esac
       if [[ "$line" != \#* ]] && [[ -n "$line" ]]; then
         if ! grep -Fxq -e "$line" /usr/config/cloud_sync-rules.txt.defaults; then
           if [ "${first_merge}" = 1 ] && [ "${past_catch_all}" = 1 ]; then
-            echo "$line" >> /tmp/cloud_sync-rules.inert
+            echo "$line" >> "${inert}" || wrote=0
             log_to_file "${log_file}" "rule '${line}' sat below the catch-all and never took effect; kept, commented out, as it was" "WARN"
           else
-            echo "$line" >> /tmp/cloud_sync-rules.user
+            echo "$line" >> "${user}" || wrote=0
           fi
         fi
       fi
-    done < "${rules}"
+    done < "${src}"
+    if [ "${wrote}" != 1 ]; then
+      rm -f "${user}" "${inert}"
+      log_to_file "${log_file}" "a scratch write under ${TMPDIR:-/tmp} failed; the rules file was left as it was" "WARN"
+      return 1
+    fi
 
     # User rules go FIRST, then the defaults. rclone filters are
     # first-match-wins, so position is the only thing that grants precedence:
@@ -117,20 +147,20 @@ update_cloud_sync_rules() {
     # rename made that the live allowlist -- one that admits the ROMs.
     local built=0
     : > "${rules}.new" && built=1
-    if [ "${built}" = 1 ] && [ -s /tmp/cloud_sync-rules.user ]; then
+    if [ "${built}" = 1 ] && [ -s "${user}" ]; then
       {
         echo "# ----------------------------------------------------------------"
         echo "# Your own rules, kept across updates."
         echo "# These come first because rclone uses the first matching rule,"
         echo "# so anything here takes precedence over the defaults below."
         echo "# ----------------------------------------------------------------"
-        cat /tmp/cloud_sync-rules.user
+        cat "${user}"
         echo
         echo "# ----------------------------- defaults -------------------------"
       } >> "${rules}.new" || built=0
     fi
     [ "${built}" = 1 ] && { cat /usr/config/cloud_sync-rules.txt.defaults >> "${rules}.new" || built=0; }
-    if [ "${built}" = 1 ] && [ -s /tmp/cloud_sync-rules.inert ]; then
+    if [ "${built}" = 1 ] && [ -s "${inert}" ]; then
       {
         echo
         echo "# ----------------------------------------------------------------"
@@ -138,10 +168,10 @@ update_cloud_sync_rules() {
         echo "# never took effect. Kept as they were: to use one, write it again"
         echo "# at the top of this file."
         echo "# ----------------------------------------------------------------"
-        sed 's/^/# inert: /' /tmp/cloud_sync-rules.inert
+        sed 's/^/# inert: /' "${inert}"
       } >> "${rules}.new" || built=0
     fi
-    rm -f /tmp/cloud_sync-rules.user /tmp/cloud_sync-rules.inert
+    rm -f "${user}" "${inert}"
     if [ "${built}" != 1 ] || ! rules_whole "${rules}.new"; then
       rm -f "${rules}.new"
       log_to_file "${log_file}" "the merged rules file was not whole (a write failed before its catch-all line); it was not installed and the rules file was left as it was" "WARN"
@@ -490,8 +520,10 @@ update_cloud_sync_config() {
         # Strip the DEFAULT_ prefix
         var_name="${key#DEFAULT_}"
         
-        # Check if this variable exists in the user config - FIX the grep pattern to avoid space issues
-        if ! grep -qF "${var_name}=" "${work}"; then
+        # Is the key itself there -- at the start of a line, the whole key?
+        # Anywhere in a line matched a comment naming it (PL-12), and then
+        # the key was never added.
+        if ! grep -qE "^${var_name}=" "${work}"; then
           # Public ROCKNIX has no content-library selection to inherit.
           # A missing key takes the fresh default; never infer a library or
           # the account root from SAVES_REMOTE. An existing CONTENT_REMOTE,
@@ -524,8 +556,27 @@ update_cloud_sync_config() {
     # No existing config file, create one with defaults
     log_to_file "${log_file}" "No existing config file, creating from template"
     
-    # Strip the DEFAULT_ prefix; sed preserves multi-line backslash-continued values
-    sed 's/^DEFAULT_//' /usr/config/cloud_sync.conf.defaults > "${work}" && mv -f "${work}" "${conf}"
+    # Strip the DEFAULT_ prefix; sed preserves multi-line backslash-continued
+    # values. Each step's status on its own line, and no .new left behind
+    # (PL-12). A conf made from today's defaults already says copy and
+    # already carries the current network options, so the three one-time
+    # migrations in main are marked done here: a player who sets sync on a
+    # fresh device afterwards is not overruled by them (G-16).
+    local crc
+    sed 's/^DEFAULT_//' /usr/config/cloud_sync.conf.defaults > "${work}"
+    crc=$?
+    if [ "${crc}" -eq 0 ]; then
+      mv -f "${work}" "${conf}"
+      crc=$?
+    fi
+    if [ "${crc}" -ne 0 ]; then
+      rm -f "${work}"
+      log_to_file "${log_file}" "the config could not be created from its template; none was installed" "WARN"
+      return 1
+    fi
+    touch /storage/.config/.cloud_sync-copy-default-applied \
+          /storage/.config/.cloud_sync-net-opts-retries-applied \
+          /storage/.config/.cloud_sync-sync-net-opts-five-applied 2>/dev/null
   fi
   
   return 0
@@ -565,14 +616,31 @@ main() {
   # This is needed for users upgrading from older versions where --verbose was used
   # Only when there is one: sed -i rewrites the file whether or not it
   # matched (#308 claude F-CS-18).
+  #
+  # On the three option lines and their continuations only (PL-12): over
+  # the whole file the edits took a "-v " out of a folder's name and a
+  # double space out of a value. Written beside the conf and renamed, each
+  # status read; a pass that changes nothing writes nothing.
+  local vrc ctmp=/storage/.config/cloud_sync.conf.verbose.$$
   if [ -f "/storage/.config/cloud_sync.conf" ] \
      && grep -qE -- '--verbose|-v ' /storage/.config/cloud_sync.conf; then
-    log_to_file "${log_file}" "Removing conflicting --verbose flags from configuration"
-    sed -i 's/--verbose//g' /storage/.config/cloud_sync.conf
-    sed -i 's/-v / /g' /storage/.config/cloud_sync.conf
-    # Clean up any double spaces left by removal
-    sed -i 's/  \+/ /g' /storage/.config/cloud_sync.conf
-    log_to_file "${log_file}" "Configuration cleaned of conflicting flags"
+    awk '
+      !cont && /^(RCLONEOPTS|RCLONE_NET_OPTS|RCLONE_SYNC_NET_OPTS)=/ { opt = 1 }
+      opt { gsub(/--verbose/, ""); gsub(/-v /, " "); gsub(/  +/, " ") }
+      { print; cont = ($0 ~ /\\$/); if (!cont) opt = 0 }
+    ' /storage/.config/cloud_sync.conf > "${ctmp}" 2>/dev/null
+    vrc=$?
+    if [ "${vrc}" -ne 0 ]; then
+      rm -f "${ctmp}"
+      log_to_file "${log_file}" "--verbose could not be removed from the option lines; the config was left as it was" "WARN"
+    elif cmp -s "${ctmp}" /storage/.config/cloud_sync.conf; then
+      rm -f "${ctmp}"
+    elif mv -f "${ctmp}" /storage/.config/cloud_sync.conf; then
+      log_to_file "${log_file}" "Configuration cleaned of conflicting flags on its option lines"
+    else
+      rm -f "${ctmp}"
+      log_to_file "${log_file}" "--verbose could not be removed from the option lines; the config was left as it was" "WARN"
+    fi
   fi
 
   # Turn an existing mirror backup into a copy.

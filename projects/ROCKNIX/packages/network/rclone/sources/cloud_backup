@@ -875,6 +875,61 @@ why_for() {
 # The value of --timeout among rclone options, in whole seconds: 30s, 1m,
 # 2h, a bare number (seconds, as rclone reads one), or --timeout=30s.
 # Nothing when it is absent or not a shape this knows.
+# The words of a player-editable option string that are on its allowlist
+# (D-CLOUD-185), into OPTS_ALLOWED. cloud_content_transfer's
+# content_net_opts (T17, 1def91bdfc) with the list as arguments: the twins
+# split three strings, each with its own flags. Each flag passes with a
+# value of its own kind -- a duration, a count, a rate, an absolute path, or
+# none -- as `--flag value` or `--flag=value`. Anything else is left out and
+# the run goes on; one WARN names each by its word's position and the flag's
+# name alone, never a value. Read without globbing: the `for opt in ${X}`
+# this replaces expanded a `*` against the working directory. Nothing left
+# means <fallback>, as an empty line always has.
+allowed_opts() { # <label> <value> <fallback> <--flag:kind>...
+    local label="$1" value="$2" fallback="$3" words w flag val kind spec ok dropped="" i=0 n
+    shift 3
+    read -r -a words <<< "${value}"
+    OPTS_ALLOWED=()
+    while [ "${i}" -lt "${#words[@]}" ]; do
+        w="${words[${i}]}"; i=$((i + 1)); n="${i}"
+        case "${w}" in
+            --*=*) flag="${w%%=*}"; val="${w#*=}" ;;
+            --*)   flag="${w}"; val="" ;;
+            *)     dropped="${dropped} word ${n} (not a flag)"; continue ;;
+        esac
+        kind=""
+        for spec in "$@"; do
+            [ "${spec%%:*}" = "${flag}" ] && kind="${spec#*:}"
+        done
+        if [ -z "${kind}" ]; then
+            dropped="${dropped} word ${n} $(printf '%s' "${flag}" | tr -c 'A-Za-z0-9-' '?' | cut -c1-40)"
+            continue
+        fi
+        if [ "${kind}" != none ] && [ "${w}" = "${flag}" ] && [ "${i}" -lt "${#words[@]}" ] \
+           && [ "${words[${i}]#--}" = "${words[${i}]}" ]; then
+            val="${words[${i}]}"; i=$((i + 1))
+        fi
+        case "${kind}" in
+            none)  [ "${w}" = "${flag}" ] ;;
+            dur)   [[ "${val}" =~ ^[0-9]+(ms|s|m|h)?$ ]] ;;
+            count) [[ "${val}" =~ ^[0-9]{1,3}$ ]] ;;
+            rate)  [[ "${val}" =~ ^(off|[0-9]+(\.[0-9]+)?[KkMmGg]?(:[0-9]+(\.[0-9]+)?[KkMmGg]?)?)$ ]] ;;
+            path)  [[ "${val}" =~ ^/[A-Za-z0-9._/-]+$ ]] ;;
+            *)     false ;;
+        esac
+        ok=$?
+        if [ "${ok}" -eq 0 ]; then
+            if [ "${kind}" = none ]; then OPTS_ALLOWED+=("${flag}"); else OPTS_ALLOWED+=("${flag}" "${val}"); fi
+        else
+            dropped="${dropped} word ${n} ${flag} (its value is not a ${kind})"
+        fi
+    done
+    [ -z "${dropped}" ] || log_message "${label}: left out, not on the allowlist (D-CLOUD-185):${dropped}" "false" "WARN"
+    if [ "${#OPTS_ALLOWED[@]}" -eq 0 ] && [ -n "${fallback}" ]; then
+        read -r -a OPTS_ALLOWED <<< "${fallback}"
+    fi
+}
+
 idle_timeout_seconds() {
     local v="" prev="" a
     for a in "$@"; do
@@ -1255,7 +1310,7 @@ load_config() {
         log_message "rules and config not updated on a --recent run; the startup sync updates them" "false"
     elif [ -f "/usr/bin/cloud_sync_helper" ]; then
         log_message "Updating cloud sync rules and config" "false"
-        /usr/bin/cloud_sync_helper ${LOG_FILE}
+        /usr/bin/cloud_sync_helper "${LOG_FILE}"
     fi
     log_message "Loading configuration from cloud_sync.conf" "false"
     # A config that does not parse is not run with. `source` used to be
@@ -1428,10 +1483,10 @@ load_config() {
     log_message "After final cleanup: ${RCLONEOPTS}" "false"
     
     # Convert to array to ensure proper word splitting
-    RCLONE_OPTS_ARRAY=()
-    for opt in ${RCLONEOPTS}; do
-        RCLONE_OPTS_ARRAY+=("$opt")
-    done
+    # Through the allowlist (D-CLOUD-185, ruling 10): every flag a shipped
+    # RCLONEOPTS has carried that a run still uses.
+    allowed_opts RCLONEOPTS "${RCLONEOPTS}" "" --progress:none --log-file:path --filter-from:path
+    RCLONE_OPTS_ARRAY=("${OPTS_ALLOWED[@]}")
     log_message "Options array has ${#RCLONE_OPTS_ARRAY[@]} elements" "false"
 
     # The network bound, as an array like RCLONEOPTS above. It goes on the
@@ -1443,11 +1498,10 @@ load_config() {
     local net_opts
     net_opts=$(echo "${RCLONE_NET_OPTS:-}" | tr '\n\\' '  ' | tr -s ' ' | sed 's/^ //; s/ $//')
     [ -n "${net_opts}" ] || net_opts="${RCLONE_NET_OPTS_FALLBACK}"
-    RCLONE_NET_OPTS_ARRAY=()
-    for opt in ${net_opts}; do
-        RCLONE_NET_OPTS_ARRAY+=("$opt")
-    done
-    log_message "rclone network bound: ${net_opts}" "false"
+    # T17's list for the same line (D-CLOUD-185).
+    allowed_opts RCLONE_NET_OPTS "${net_opts}" "${RCLONE_NET_OPTS_FALLBACK}" --contimeout:dur --timeout:dur --low-level-retries:count --retries:count --bwlimit:rate
+    RCLONE_NET_OPTS_ARRAY=("${OPTS_ALLOWED[@]}")
+    log_message "rclone network bound: ${RCLONE_NET_OPTS_ARRAY[*]}" "false"
 
     # The deliberate run's ceiling, from the idle timeout in that bound
     # (D-CLOUD-126): --timeout is when rclone gives a stalled link up; the
@@ -1471,14 +1525,13 @@ load_config() {
         local sync_opts ceiling
         sync_opts=$(echo "${RCLONE_SYNC_NET_OPTS:-}" | tr '\n\\' '  ' | tr -s ' ' | sed 's/^ //; s/ $//')
         [ -n "${sync_opts}" ] || sync_opts="${RCLONE_SYNC_NET_OPTS_FALLBACK}"
-        RCLONE_SYNC_NET_OPTS_ARRAY=()
-        for opt in ${sync_opts}; do
-            RCLONE_SYNC_NET_OPTS_ARRAY+=("$opt")
-        done
+        allowed_opts RCLONE_SYNC_NET_OPTS "${sync_opts}" "${RCLONE_SYNC_NET_OPTS_FALLBACK}" \
+            --contimeout:dur --timeout:dur --low-level-retries:count --retries:count --bwlimit:rate --max-duration:dur --transfers:count
+        RCLONE_SYNC_NET_OPTS_ARRAY=("${OPTS_ALLOWED[@]}")
         ceiling="${SYNC_CEILING_SECONDS:-}"
         [[ "${ceiling}" =~ ^[0-9]+$ ]] && [ "${ceiling}" -ge 1 ] || ceiling="${SYNC_CEILING_SECONDS_FALLBACK}"
         SYNC_DEADLINE=$(( START_TIME + ceiling ))
-        log_message "automatic run: ${sync_opts}; ceiling ${ceiling}s from start" "false"
+        log_message "automatic run: ${RCLONE_SYNC_NET_OPTS_ARRAY[*]}; ceiling ${ceiling}s from start" "false"
     fi
 
     # Apply command-line overrides

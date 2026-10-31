@@ -14,6 +14,10 @@ RO_ARGS=()
 # "--size 32768 --tmpfs /storage/.config", a tmpfs the cell then fills).
 EXTRA=()
 [ -n "${SBX_EXTRA:-}" ] && read -r -a EXTRA <<< "${SBX_EXTRA}"
+# SBX_LATE: bwrap arguments after the sandbox's own /dev, /proc and /tmp (stage E's S6: a
+# read-only /tmp is "--remount-ro /tmp", which must follow the --tmpfs /tmp it remounts).
+LATE=()
+[ -n "${SBX_LATE:-}" ] && read -r -a LATE <<< "${SBX_LATE}"
 exec bwrap --die-with-parent --unshare-pid --tmpfs / \
     --ro-bind /usr /host/usr --ro-bind "${DONOR}" /donor \
     --tmpfs /usr --ro-bind /usr/lib /usr/lib --ro-bind /usr/lib64 /usr/lib64 --ro-bind /usr/share /usr/share \
@@ -25,6 +29,6 @@ exec bwrap --die-with-parent --unshare-pid --tmpfs / \
     --bind "${CELL}/storage" /storage --bind "${CELL}/log" /var/log --bind "${CELL}/varrun" /var/run \
     --bind "${CELL}/run" /run --ro-bind-try "${CELL}/drv" /drv \
     "${EXTRA[@]}" \
-    --dev /dev --proc /proc --tmpfs /tmp \
+    --dev /dev --proc /proc --tmpfs /tmp "${LATE[@]}" \
     --clearenv --setenv PATH /usr/bin:/usr/sbin --setenv HOME /storage --setenv TZ UTC --setenv TERM dumb \
     "${RO_ARGS[@]}" "$@"

@@ -1,0 +1,15 @@
+S6 checks 2026-10-31T05:52:54Z
+bash -n cloud_backup: ok
+bash -n cloud_restore: ok
+bash -n cloud_sync_helper: ok
+bash -n cloud_saves_root: ok
+bash -n cloud_sync_cleanup_duplicates.sh: ok
+tools/vocabulary-check rc=0: vocabulary-check: 163 string(s) with back up / backup, save state or Wi-Fi judged, 0 wrong
+added lines with a QEMU, VM, port-forward or loopback word: 0
+player sentences: none added or changed -- the new lines are log lines (log_to_file, log_message ... "false") and one usage line on stderr
+allowed_opts: byte-identical in both twins (diff of the function empty); T17's content_net_opts (1def91bdfc) with the flag list as arguments and log_message's "false" "WARN" -- the twins' log_message prints to the screen without them, so T17's call shape cannot be carried byte for byte
+the allowlists, from every value a shipped conf or defaults ever carried (git log -G over both files): RCLONEOPTS --progress, --log-file, --filter-from (the retired --delete-excluded and --verbose are stripped before it as before); RCLONE_NET_OPTS T17's five (--contimeout --timeout --low-level-retries --retries --bwlimit); RCLONE_SYNC_NET_OPTS those and --max-duration, --transfers
+unquoted expansions on the twins' mkdir/rm/cp/mv lines (each double- and single-quoted segment removed, a $ left): cloud_restore's mkdir -p ${SETTINGS_BACKUPS} alone; quoted, with load_config's cloud_sync_helper ${LOG_FILE} in both twins
+the cut rules file: the fixed helper merges from the .bak when the live file is cut and the .bak is whole (the last whole copy, D-CLOUD-078); with neither whole it returns 1 and touches nothing, and the twins' own refusal (cloud_backup: 'the rules file ... has no catch-all line; refusing the saves backup') stands until a whole file is back
+stage-e/tools/sbx.sh: SBX_LATE added -- bwrap arguments after the sandbox's own /tmp (a read-only /tmp for S6-tmpro)
+the suite after S5 (9df834d183): PASSED, 1313 PASS / 0 FAIL (suite-after-s5.out); sections h, i and n among them

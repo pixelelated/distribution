@@ -1,0 +1,84 @@
+== T16 host lead S6 the helper's seams, the twins' quoting and allowlist, --wait, the cleanup -- 2026-10-31T05:52:34Z
+donor root: /workspace/artifacts/m6-donor/1a0266484423/image/system (BUILD_ID 1a0266484423); sha256sum -c ../../SHA256SUMS:
+  usr/bin/busybox: OK
+  usr/bin/rclone: OK
+  etc/os-release: OK
+the scripts and /usr/config: /workspace/tmp/m6-t16/hl/root-s6 (tree), 1 of 12 sha256-equal to the guest's installed bytes at 8ebaf8daad (guest-cycle/installed.sha256)
+from the donor: busybox v1.36.1 (146 applet links), rclone v1.75.2
+host stand-ins (not in the donor): bash 5.3.9(1)-release (image: 5.3), timeout (GNU coreutils) 9.7 (image: 9.4), grep (GNU grep) 3.12 (image: 3.9), python3 3.14.4, ip (iproute2)
+sandbox: stage-e/tools/sbx.sh (bwrap, own pid namespace, host network); backend: cloud-test-backend at 3a653eaec4, WebDAV 127.0.0.1:9010, state /workspace/tmp/m6-t16/hl/state
+
+== S6-keytest (2026-10-31T05:52:34Z)
+  before: 0 SAVES_REMOTE= lines, 1 comment naming it
+  helper rc=0
+  after: SAVES_REMOTE= lines: 1 (SAVES_REMOTE="/pixelelated/Saves")
+    log:  [INFO] [cloud_sync_helper] Added new configuration option: SAVES_REMOTE
+
+== S6-vedit (2026-10-31T05:52:34Z)
+  before: SAVES_REMOTE="/My  Saves/dev -v box" | RCLONEOPTS="--progress --verbose \
+  helper rc=0
+  after:  SAVES_REMOTE="/My  Saves/dev -v box" | RCLONEOPTS="--progress \
+    log:  [INFO] [cloud_sync_helper] Configuration cleaned of conflicting flags on its option lines
+
+== S6-tmpro: /tmp read-only (2026-10-31T05:52:34Z)
+  before: the player's rule on line 1; sha256 77d973f91863a065
+  helper rc=0
+  after:  the player's rule: 1 line(s); sha256 77d973f91863a065; .bak: absent; .new: absent
+    log:  [INFO] [cloud_sync_helper] Checking cloud sync rules file...
+    log:  [WARN] [cloud_sync_helper] no scratch file could be made under /tmp; the rules file was left as it was
+
+== S6-cutrules: the rules file cut inside the player's rules, its .bak whole (2026-10-31T05:52:35Z)
+  the cut file: + /my-own-folder/**|+ /sec; .bak: whole, with both of the player's rules (2 lines)
+  helper rc=0
+  after: catch-all 1; '+ /my-own-folder/**' 1, '+ /second-rule/**' 1, '+ /sec' 0; the file replaced; .bak present
+    log:  [WARN] [cloud_sync_helper] the rules file has no catch-all line; merged from its .bak, the last whole copy
+    log:  [WARN] [cloud_sync_helper] rules file has no catch-all line; not taking a .bak from it
+    log:  [INFO] [cloud_sync_helper] Updated cloud_sync-rules.txt with new defaults while preserving custom rules
+== S6-cutrules: the rules file cut inside the player's rules, its .bak none (2026-10-31T05:52:35Z)
+  the cut file: + /my-own-folder/**|+ /sec; .bak: none
+  helper rc=0
+  after: catch-all 0; '+ /my-own-folder/**' 1, '+ /second-rule/**' 0, '+ /sec' 1; the file as it was (cut); .bak none
+    log:  [WARN] [cloud_sync_helper] the rules file has no catch-all line and no whole .bak; it was left as it was
+
+== S6-nonl: the last line with no newline (2026-10-31T05:52:35Z)
+  before: the last bytes  \n + / l a t e - r u l e / * *
+  helper rc=0
+  after: '+ /late-rule/**' on line(s) 6 
+
+== S6-createro: no conf, /storage/.config a full card (2026-10-31T05:52:35Z)
+  helper rc=0
+    log:  [INFO] [cloud_sync_helper] No existing config file, creating from template
+    log:  [WARN] [cloud_sync_helper] the config could not be created from its template; none was installed
+
+== S6-freshsync (2026-10-31T05:52:35Z)
+  helper rc=0
+  created: BACKUPMETHOD="copy"; markers: 4
+  set by hand: BACKUPMETHOD="sync"
+  helper rc=0
+  after the next run: BACKUPMETHOD="sync"
+
+== S6-waitlast: cloud_saves_root check --wait, no value (2026-10-31T05:52:35Z)
+  rc=64 after 1 ms; out: usage: cloud_saves_root identity|check [--wait N]|record [IDENTITY]|accept|
+
+== S6-cleanup (2026-10-31T05:52:35Z)
+  g07 before: LOG_LEVEL="info"|LOG_LEVEL="debug" # set by hand on the console \|SAVES_REMOTE="/pixelelated/Saves"|SETTINGS_REMOTE="/pixelelated/Backups"|
+  rc=0
+  g07 after:  LOG_LEVEL="info"|SAVES_REMOTE="/pixelelated/Saves"|SETTINGS_REMOTE="/pixelelated/Backups"|
+  bash -n: ok
+  sourced: LOG_LEVEL=info SAVES_REMOTE=/pixelelated/Saves CONTENT_REMOTE=unset
+  g26 before: RCLONEOPTS="--progress \|CONTENT_REMOTE=x \|--log-file /var/log/cloud_sync.log"|CONTENT_REMOTE="/pixelelated/Content"|LOG_LEVEL="info"|LOG_LEVEL="info"|
+  rc=0
+  g26 after:  RCLONEOPTS="--progress \|CONTENT_REMOTE=x \|--log-file /var/log/cloud_sync.log"|CONTENT_REMOTE="/pixelelated/Content"|LOG_LEVEL="info"|
+  bash -n: ok
+  sourced: LOG_LEVEL=info SAVES_REMOTE=unset CONTENT_REMOTE=/pixelelated/Content
+
+== S6-netopts (2026-10-31T05:52:35Z)
+  rc=0
+Game saves: COMPLETED
+  the copy's argv: copy --progress --log-file /var/log/cloud_sync.log --filter-from /storage/.config/cloud_sync-rules.txt --log-level INFO --stats 1s --exclude=bios/** --update --exclude=backup/** --backup-dir=qa-cloud:/pixelelated/Saves-replaced/2026_10_31-055236 --contimeout 1
+  --delete-excluded in any argv: 0; --fast-list: 0
+    log:  [WARN] [cloud_backup] RCLONEOPTS: left out, not on the allowlist (D-CLOUD-185): word 2 --fast-list
+    log:  [WARN] [cloud_backup] RCLONE_NET_OPTS: left out, not on the allowlist (D-CLOUD-185): word 9 --delete-excluded
+    log:  [INFO] [cloud_backup] rclone network bound: --contimeout 15s --timeout 30s --low-level-retries 10 --retries 1 --bwlimit 1M
+
+== end 2026-10-31T05:52:37Z
