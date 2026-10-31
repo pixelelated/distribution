@@ -116,7 +116,7 @@ for pl, (title, sev, cat, q, src, lines, own, what, disp, proved) in zip(ids, I)
     out += ["## %s: %s" % (pl, title), "", "- **Severity:** %s; **category:** %s; **question:** %s" % (sev, cat, q), "- **Source finding:** %s" % src,
             "- **Lines at the pin:** %s" % lines, "- **Owner:** %s" % own, "- **What is wrong:** %s" % what, "- **Proposed disposition:** %s" % disp, "- **proved:** %s" % proved, ""]
 out += ["## Phase 7 resolution gate", "", "| Item | Outcome | Evidence |", "| --- | --- | --- |"]
-out += ["| %s | **Open** | the stage-D pause disposes it |" % pl for pl in ids]
+out += ["| %s | Open | the stage-D pause disposes it |" % pl for pl in ids]
 out += ["", "## punch_index", "", "```yaml", "punch_index:"]
 for pl, t in zip(ids, I):
     out += ["- id: %s" % pl, "  severity: \"%s\"" % t[1], "  category: %s" % t[2], "  question: %s" % t[3], "  source_finding: \"%s\"" % t[4].replace('"', "'"), "  outcome: \"open\""]

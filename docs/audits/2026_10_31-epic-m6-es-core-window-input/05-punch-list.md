@@ -248,30 +248,30 @@ reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | **Open** | the stage-D pause disposes it |
-| PL-02 | **Open** | the stage-D pause disposes it |
-| PL-03 | **Open** | the stage-D pause disposes it |
-| PL-04 | **Open** | the stage-D pause disposes it |
-| PL-05 | **Open** | the stage-D pause disposes it |
-| PL-06 | **Open** | the stage-D pause disposes it |
-| PL-07 | **Open** | the stage-D pause disposes it |
-| PL-08 | **Open** | the stage-D pause disposes it |
-| PL-09 | **Open** | the stage-D pause disposes it |
-| PL-10 | **Open** | the stage-D pause disposes it |
-| PL-11 | **Open** | the stage-D pause disposes it |
-| PL-12 | **Open** | the stage-D pause disposes it |
-| PL-13 | **Open** | the stage-D pause disposes it |
-| PL-14 | **Open** | the stage-D pause disposes it |
-| PL-15 | **Open** | the stage-D pause disposes it |
-| PL-16 | **Open** | the stage-D pause disposes it |
-| PL-17 | **Open** | the stage-D pause disposes it |
-| PL-18 | **Open** | the stage-D pause disposes it |
-| PL-19 | **Open** | the stage-D pause disposes it |
-| PL-20 | **Open** | the stage-D pause disposes it |
-| PL-21 | **Open** | the stage-D pause disposes it |
-| PL-22 | **Open** | the stage-D pause disposes it |
-| PL-23 | **Open** | the stage-D pause disposes it |
-| PL-24 | **Open** | the stage-D pause disposes it |
+| PL-01 | Open | the stage-D pause disposes it |
+| PL-02 | Open | the stage-D pause disposes it |
+| PL-03 | Open | the stage-D pause disposes it |
+| PL-04 | Open | the stage-D pause disposes it |
+| PL-05 | Open | the stage-D pause disposes it |
+| PL-06 | Open | the stage-D pause disposes it |
+| PL-07 | Open | the stage-D pause disposes it |
+| PL-08 | Open | the stage-D pause disposes it |
+| PL-09 | Open | the stage-D pause disposes it |
+| PL-10 | Open | the stage-D pause disposes it |
+| PL-11 | Open | the stage-D pause disposes it |
+| PL-12 | Open | the stage-D pause disposes it |
+| PL-13 | Open | the stage-D pause disposes it |
+| PL-14 | Open | the stage-D pause disposes it |
+| PL-15 | Open | the stage-D pause disposes it |
+| PL-16 | Open | the stage-D pause disposes it |
+| PL-17 | Open | the stage-D pause disposes it |
+| PL-18 | Open | the stage-D pause disposes it |
+| PL-19 | Open | the stage-D pause disposes it |
+| PL-20 | Open | the stage-D pause disposes it |
+| PL-21 | Open | the stage-D pause disposes it |
+| PL-22 | Open | the stage-D pause disposes it |
+| PL-23 | Open | the stage-D pause disposes it |
+| PL-24 | Open | the stage-D pause disposes it |
 
 ## punch_index
 
