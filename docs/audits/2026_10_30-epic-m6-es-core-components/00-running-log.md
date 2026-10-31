@@ -261,3 +261,19 @@
 - **The issues:** #681's four header fields are filled. The 25 bugs carry `fixed-at-es`, and #1319's, #1325's and #1332's first checkboxes were re-derived to rulings 5, 4 and 13.
 - **The retro** is `stage-e/retro.md`, posted whole on #681.
 - **The checks:** `stage-e/handback-checks.txt`. Next: the merge of the coordinator's tip and the hand-back post.
+
+## [Close-out] 11:47 UTC 2026-10-31 — T34 accepted at `edb946a386` (the coordinator, 11:44, comment 6542929434); #1307 closed
+
+- **The completion marker:** `audit-completion.json` was written by `tools/t34-write-completion.py` (T3's `write-completion.py`, copied by `git show` from `5f737500ce`, unchanged) from #1307's read-back. The issue was closed and completed at 11:43:31Z with 43 of 43 ticked, verified at 11:45:09Z (`tracker-final-readback.json`, `tracker-completion.json`). The marker hash-binds `04`, `05` and both receipts.
+- **The lint, both ways**, with the held reply copied in for the runs and removed straight after:
+  - `tools/lint-audit-artifacts --issue 1307`: PASS, rc 0;
+  - the default (resolution) phase: PASS, rc 0;
+  - without the reply, rc 1 on its contract alone (the carry, #1308).
+- **`tools/ceremony-check`:** with the reply in, rc 0, the audit read as `last 2026-10-31T11:45:09.769007+00:00 via #1307`. Without it, the check re-runs the lint and calls this marker invalid on that same carry (`[CI] audit`). On `next` the marker reads red until #1308 gives the lint its held mode. The outputs are `stage-e/closeout-*.txt`.
+- **The scratch, retired under D-INFRA-022:** 28,560,839 bytes freed from `/workspace/tmp/m6-t34/` (46,459,316 before, 17,898,477 after). Gone:
+  - eight directories, `bodies`, `bugs`, `build`, `checkers`, `guest`, `rj`, `scratch` and `tmp`, each one literal-path `rm -rf`;
+  - 118 top-level files.
+
+  Each one's compact record is in this folder or on #681.
+- **`held/` stays as it is, untouched:** the directory at mode 700, its files at 600, the three named files' sha256s as recorded (`609c488c...`, `46d9494e...`, `766afe21...`).
+- **The pointer** is at idle.

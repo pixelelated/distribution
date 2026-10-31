@@ -15,7 +15,14 @@
 > **Register:** the rows this brief cites are on the coordinator's branch, merged here; D-CLOUD-187 D-INFRA-031 D-LAUNCH-007 D-NET-017 D-QA-063 D-RA-052 D-SYS-014 D-UI-129 D-WORKFLOW-213 are the highest rows of their areas on the coordinator's branch (computed from the decided table at `200a9a032d`), with the ownership row of the brief's § 1 written at dispatch (D-WORKFLOW-188 on the P1 branch only; the merge unites them); the four rows the brief's § 9 expects are put to the coordinator at the pause, never decided by the lane, and a row this slice forces takes an ID the coordinator assigns on #681
 > **The brief:** `docs/reviews/briefs/es-core-components.md` at `a6e14fed86` (version 2 of 2026-10-30, after a stranger's proof of version 1 `a728d04c95` -- its corrections listed at its end, `## Corrections in version 2`); #681's body carries its § 7 checkboxes; where the two differ the body wins and the coordinator corrects the brief
 
-## Current focus (10:46 UTC 2026-10-31 update): stage E handed back, waiting on acceptance
+## Current focus (11:47 UTC 2026-10-31 update): idle -- T34 accepted and closed out
+
+- **Accepted** by the coordinator at `edb946a386` (comment 6542929434; 21 of 21 ticked, #1307 closed). The ES tip `52f0ff512` is `fixed-at-es`. The 25 bugs stay open until the pin moves on `next`.
+- **The final tip:** the close-out commit over `edb946a386`, named in the idle post on #681. It carries `audit-completion.json` (#1307's read-back, verified 11:45:09Z) and the lint both ways.
+- **The scratch** is retired (28,560,839 bytes freed); `/workspace/tmp/m6-t34/held/` stays untouched, mode 700, files 600.
+- **Idle:** this lane does nothing further until the coordinator dispatches again. The integration owes the stage-E patches and the guest halves (`02` § The merge debt, § The streams).
+
+## Earlier focus (10:46 UTC 2026-10-31 update): stage E handed back, waiting on acceptance
 
 - **Stage E is done:** S0 to S7 and the S2 addendum. ES `feature/m6-es-core-components-681` at `52f0ff512`. The distribution's record ends in the hand-back merge of the coordinator's tip, named in the hand-back post on #681.
 - **The record:** `stage-e/` (each stream's before, after and checks; `handback-checks.txt`; `retro.md`, posted whole on #681), `02` § The streams, `05` at Phase 7, and the 25 bugs' `fixed-at-es` lines.
