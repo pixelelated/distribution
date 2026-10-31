@@ -1,6 +1,6 @@
 # Punch list (Phases 5 and 6) — M6.P2 T16, the cloud sync core (#663)
 
-reviewed-at: `8ebaf8daad` (the slice's pin) · fixed-at: `23dfd53c0e` (`feature/m6-cloud-sync-core-663`, stage E's last fix; the hand-back tip follows it with the record and the coordinator's branch merged)
+reviewed-at: `aeebe31248` (the stage-D record; its 14 paths are `8ebaf8daad`'s bytes) · fixed-at: `23dfd53c0e` (`feature/m6-cloud-sync-core-663`, stage E's last fix; the hand-back tip follows it with the record and the coordinator's branch merged)
 
 The audit issue is #1295, a sub-issue of #663, with one checkbox per item. There is one item per finding of `04` after both seats' grading (`04` § Second opinion), with the severities graded there. A seat's item that extends a finding sits under that finding's item; one that stands alone has its own. Every file of the 14 is the fork's own, so a defect is a `bug` with its trace and `Already written:` line (`04` § Q3), fixed only under a stream brief the coordinator writes. Each item's **Proposed** line is this lane's proposal; the coordinator's ruling goes in § Phase 7 resolution gate.
 
@@ -159,7 +159,7 @@ The audit issue is #1295, a sub-issue of #663, with one checkbox per item. There
 - **Owner area:** cloud_sync_helper (`:79-98`, `:119-177`, `:462`, `:536-544`, `:569-579`)
 - **Where:** `04-analysis.md` § Risk Assessment, § Q3 and § Second opinion (F-07, G-05, G-06, G-11, G-16, G-27; file:line at `8ebaf8daad`); `02-forward-audit.md` § Positives
 - **Can this be done on the VM?** Yes: the helper run whole in the sandbox on each planted conf (a comment naming a key, a `-v` with a double-spaced folder, a full `/tmp`, a cut rules file, a fresh `sync`)
-- **Already written:** a conf missing a key some comment names; a conf whose folder lost a double space; rules merged from a cut file (the last whole copy is the `.bak`); a fix reads each
+- **Already written:** a conf missing a key some comment names; a conf whose folder lost a double space; rules merged from a cut file (the last whole copy is the `.bak`); a fix reads each At the hand-back (ruling 14, D-CLOUD-192): a player's filter flag already in `RCLONEOPTS` -- PL-015's `--exclude "*.tmp"` among them, which at `8ebaf8daad` reached rclone with its quotes and excluded nothing -- is **read both** and moved once into the rules file as the player's rule, the line stripped under the `.bak`; fail closed on the move (`stage-e/s6/move-cells.sh`, `s6-move-before.out`, `s6-move-after.out`).
 - **Acceptance:** the owner's criteria once ruled; the VM proof named above, its line quoted on the owning issue
 - **Proposed:** a stream
 
