@@ -1,0 +1,85 @@
+g++: g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+rapidjson: /workspace/tmp/m6-t34/rj/rapidjson-1.1.0/include (document.h a8c29c92d1e89279)
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/external -I /workspace/tmp/m6-t34/rj/rapidjson-1.1.0/include <28 sources> -o es-unit-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/CloudTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/CloudFolderValidationTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/CheevosRetryTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/OfflineAchievementsTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/CheevosIndexTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/TimeTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/MaskSecretsTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/LogPolicyTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/WifiTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/OfflineProxyUrlTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/SaveStateJobQueueTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/CaptureRotationTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/DisplayAspectTextTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/CommandLineTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/TabStopsTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/LaunchCommandTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src/CloudText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src/CloudFolderValidation.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src/CheevosRetry.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src/OfflineAchievementsText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src/CheevosIndex.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src/WifiText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src/SaveStateJobQueue.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src/CaptureRotationText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src/DisplayAspectText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src/utils/StringUtil.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src/utils/TimeText.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src/utils/OfflineProxyUrl.cpp
+built es-unit-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/external -DES_ROOT_DIR="/home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681" <2 sources> -o es-file-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/AtomicFileTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src/utils/AtomicFileUtil.cpp
+built es-file-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/fakes -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/external <3 sources> -o es-conf-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/SystemConfTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src/SystemConf.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src/utils/AtomicFileUtil.cpp
+built es-conf-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -g -fno-omit-frame-pointer -fsanitize=address,undefined -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/external <6 sources> -o app-unit-tests
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/tests/app-unit/main.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/tests/app-unit/JourneyTiersTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/tests/app-unit/FolderMergeTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/tests/app-unit/RunLockTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/tests/app-unit/TextFitTests.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/tests/app-unit/AppWindowTests.cpp
+built app-unit-tests
+$ g++ -std=c++17 -O0 -g0 -pthread -D_WIN32 -c /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src/utils/AtomicFileUtil.cpp -o atomicfile-win32-branch.o
+$ g++ -std=c++17 -O0 -g0 -pthread -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/external <2 sources> -o es-file-tests-win32
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/es-app/tests/unit/AtomicFileWin32Tests.cpp
+    /workspace/tmp/m6-t34/build/atomicfile-win32-branch.o
+built es-file-tests-win32
+RUN es-unit-tests: rc 0; [doctest] test cases: 185 | 185 passed | 0 failed | 0 skipped [doctest] assertions: 4795 | 4795 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3389 | 3389 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN app-unit-tests: rc 0; [doctest] test cases: 18 | 18 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+t34-extract: 59 extracts, each holding its first and last line: mlme_shares MultiLineMenuEntry.cpp:72-76; text_limit TextComponent.cpp:488-488; slider_text SliderComponent.cpp:276-299; slider_precision SliderComponent.cpp:44-59; button_pad MenuComponent.cpp:15-15; button_width MenuComponent.cpp:548-553; carousel_fast CarouselComponent.cpp:76-89; ilist_scroll IList.h:381-406; textlist_range TextListComponent.h:262-269; textlist_camera TextListComponent.h:593-607; scroll_defines ScrollableContainer.cpp:6-8; scroll_update ScrollableContainer.cpp:64-104; scroll_reset ScrollableContainer.cpp:128-131; help_map HelpComponent.cpp:18-33; card_close AsyncNotificationComponent.cpp:122-122; card_update AsyncNotificationComponent.cpp:268-283; card_update_full AsyncNotificationComponent.cpp:265-314; card_choose AsyncNotificationComponent.cpp:138-147; textedit_move TextEditComponent.cpp:267-281; str_cursor es-core/src/utils/StringUtil.cpp:278-327; textedit_focuslost TextEditComponent.cpp:44-47; text_measure TextComponent.cpp:340-340; text_drawn TextComponent.cpp:352-352; text_marquee_len TextComponent.cpp:485-485; list_inset_define ComponentList.cpp:15-15; list_inset ComponentList.cpp:495-498; list_dimmed ComponentList.h:25-26; list_camera ComponentList.cpp:302-322; image_setsize ImageComponent.cpp:67-89; image_settexture ImageComponent.cpp:464-473; web_resize WebImageComponent.cpp:101-112; list_prompt ComponentList.cpp:571-572; rating_prompts RatingComponent.cpp:265-267; rating_step RatingComponent.cpp:197-199; video_prompts VideoComponent.cpp:351-352; carousel_prompts CarouselComponent.cpp:356-367; carousel_path CarouselComponent.cpp:188-202; option_prompts OptionListComponent.h:638-643; date_display DateTimeEditComponent.cpp:254-260; date_step DateTimeEditComponent.cpp:125-161; help_spacing HelpComponent.cpp:12-16; help_fit HelpComponent.cpp:95-172; help_opacity HelpComponent.cpp:226-232; grid_move ComponentGrid.cpp:331-378; grid_canmove ComponentGrid.cpp:398-413; grid_prompts ComponentGrid.cpp:521-552; tab_prompts ComponentTab.cpp:322-344; slider_set SliderComponent.cpp:236-251; web_url WebImageComponent.cpp:14-43; web_key WebImageComponent.cpp:50-84; web_setimage WebImageComponent.cpp:130-194; web_update WebImageComponent.cpp:199-235; web_render_req WebImageComponent.cpp:255-282; img_setmem ImageComponent.cpp:445-459; img_watch ImageComponent.cpp:823-839; img_turn_fit ImageComponent.cpp:103-109; img_turn_corners ImageComponent.cpp:287-297; img_turn_norm ImageComponent.cpp:500-500; card_handle AsyncNotificationComponent.h:53-54
+$ g++ -std=c++17 -O0 -g0 -pthread -I /workspace/tmp/m6-t34/build/x -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-components-681/external <1 sources> -o components-tests
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp
+built components-tests
+RUN components-tests: rc 1; [doctest] test cases: 37 | 32 passed | 5 failed | 0 skipped [doctest] assertions: 418 | 407 passed | 11 failed | 
+    TEST CASE:  3.26 a button bar fits the menu at 640 (MenuComponent.cpp:543-562)
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:156: ERROR: CHECK( barWidth(five) <= menu ) is NOT correct!
+    TEST CASE:  3.14 PL-40: content narrower than the container still scrolls down (ScrollableContainer.cpp:78-96)
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:226: ERROR: CHECK( s.mScrollPos.x() >= 0 ) is NOT correct!
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:227: ERROR: CHECK( most > 1 ) is NOT correct!
+    TEST CASE:  3.21 PL-13 a 0-byte answer is not kept as done: the page asks nothing more, and the next bind asks again (WebImageComponent.cpp:220-231)
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:728: ERROR: CHECK( w.mLocalFile.empty() ) is NOT correct!
+    TEST CASE:  PL-31 a rebind to a local or cached image leaves no queued URL behind (WebImageComponent.cpp:128-195)
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:736: ERROR: CHECK( webns::gAsked.empty() ) is NOT correct!
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:736: ERROR: CHECK( w.shown == "/roms/x.png" ) is NOT correct!
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:741: ERROR: CHECK( webns::gAsked.empty() ) is NOT correct!
+    TEST CASE:  PL-32 an image set from memory or a shared texture is not replaced by an earlier path's pending load (ImageComponent.cpp:443-474, :821-839)
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:772: ERROR: CHECK( i.mTexture == set ) is NOT correct!
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:773: ERROR: CHECK( i.mTexture != pending ) is NOT correct!
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:772: ERROR: CHECK( i.mTexture == set ) is NOT correct!
+    /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-components-681/docs/audits/2026_10_30-epic-m6-es-core-components/tools/t34-components-tests.cpp:773: ERROR: CHECK( i.mTexture != pending ) is NOT correct!
+SAN tsan-card (-fsanitize=thread): rc 0; no sanitizer report
+SAN asan-textedit (-fsanitize=address): rc 0; no sanitizer report
+SAN asan-popup (-fsanitize=address): rc 0; no sanitizer report
+SAN asan-card-handle (-fsanitize=address): rc 0; no sanitizer report
+TOTAL: 276 test cases in 6 binaries

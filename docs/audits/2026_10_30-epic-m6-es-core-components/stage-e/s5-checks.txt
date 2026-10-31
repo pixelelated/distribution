@@ -1,0 +1,54 @@
+# S5 (stage E, #681; #1319, #1327, #1328): checks, written 2026-10-31T06:30:10Z
+
+## The ES commit
+568ef099deec219a47de738efd9a61ac716bf5e3 on feature/m6-es-core-components-681 (parent a9017ff50, S4), pushed to origin over HTTPS by remote name.
+     es-core/src/components/ImageComponent.cpp    | 16 ++++++++++++++++
+     es-core/src/components/ImageComponent.h      |  1 +
+     es-core/src/components/WebImageComponent.cpp |  9 +++++++++
+     3 files changed, 26 insertions(+)
+Non-ASCII on the added lines: none. The subject follows ruling 5, not the brief's drafted subject: no bounded retry, no timer.
+
+## Before and after (tools/t34-build-tests.sh's own lines)
+Before, at a9017ff50 (WebImageComponent.cpp is S1's and S3's there, ImageComponent.cpp S3's; the lines S5 changes are the pin's):
+    RUN components-tests: rc 1; [doctest] test cases: 37 | 32 passed | 5 failed | 0 skipped [doctest] assertions: 418 | 407 passed | 11 failed | 
+    TOTAL: 276 test cases in 6 binaries
+    3.21's first half (a cached miss, then the image arrives): PASS, as L-09 read it
+    3.21's second half, PL-13's stub: a 204 then a 200 on the same URL. The page asks nothing more without a rebind, at the pin and after; that is ruling 5's no-timer behaviour, asserted. The next bind asks again at the pin already: the removal erases the existence cache's key (FileSystemUtil.cpp:1067), so the rebind re-stats, finds no file and queues the URL. The case's one FAIL at the pin: the component kept the cache path for the answer it removed (mLocalFile not empty)
+    PL-31: FAIL, twice. A URL queued before a rebind to a local image was fetched, and its picture replaced the local one (shown '/es/tmp/<key>.png' against '/roms/x.png'). A URL queued before a rebind to a cached image was fetched.
+    PL-32: FAIL for both overloads: the earlier path's pending texture was installed over the image set from memory or a shared texture
+    3.22-3.24: PASS
+After, at 568ef099d:
+    RUN components-tests: rc 1; [doctest] test cases: 37 | 35 passed | 2 failed | 0 skipped [doctest] assertions: 418 | 415 passed | 3 failed | 
+    SAN tsan-card (-fsanitize=thread): rc 0; no sanitizer report
+    SAN asan-textedit (-fsanitize=address): rc 0; no sanitizer report
+    SAN asan-popup (-fsanitize=address): rc 0; no sanitizer report
+    SAN asan-card-handle (-fsanitize=address): rc 0; no sanitizer report
+    TOTAL: 276 test cases in 6 binaries
+    3.21 both halves, PL-31 and PL-32 PASS; 3.22-3.24 PASS. The two FAILs left are 3.26 (PL-14) and 3.14's PL-40 half, both recorded
+
+## #1319's first checkbox, re-derived (ruling 5)
+The stub shows that the pin already re-asks on the next bind, so the fix is the uncached state alone: a 0-byte answer leaves no cache path in the component, and the next bind asks again. Nothing is asked again on the same page without a rebind. The guest half, tools/ra-ui-test's 204-then-200 fixture, is fix-walk-pending-image.
+
+## The stand-in
+    rc=0 AnimatedImageComponent.cpp
+    rc=0 ImageComponent.cpp
+    CANNOT VideoVlcComponent.cpp: <vlc/vlc.h> and <vlc/libvlc_version.h> (:8-9) have no fake
+    rc=0 WebImageComponent.cpp
+    t34-syntax-check: 37 file(s) checked, 37 rc 0, 0 not
+    ImageComponent.h, with its new private cancelPendingLoad(), is proved through its includers among the 37.
+
+## Specs (D-WORKFLOW-210)
+New in S5, with the pin's lines (s5-before) and the tip's (s5-after): web_url WebImageComponent.cpp:14-43 (unchanged); web_key :50-84 (unchanged); web_setimage :130-194 -> :130-200; web_update :199-235 -> :205-244; web_render_req :255-282 -> :264-291; img_setmem ImageComponent.cpp:445-459 -> :457-473, which now begins with the cancel; img_cancel (new after S5) :448-452; img_watch :823-839 -> :839-855; img_turn_fit :103-109 and img_turn_corners :287-297 (unchanged); img_turn_norm :500 -> :516.
+Moved by S5: image_settexture ImageComponent.cpp:464-473 'if (mTexture != nullptr)' -> :478-489 'cancelPendingLoad();'.
+D-WORKFLOW-211: S3's PL-30 double, which shares image_settexture, gained mLoadingTexture, mLoadingTextureLoaded, a TextureResource::cancelAsync double and cancelPendingLoad() over img_cancel. The pin's lines leave them unused; no assertion changed.
+tools/t34-reads.py: WebImageComponent.cpp:190's and :197's proved cells carry S5's outcome, and :197's disposition (L-08) is re-dispositioned. tools/t34-leads.py: L-08 re-dispositioned, with 3.21-3.24 in the stage-E table.
+
+## The #585 lines
+PL-31: the queue is upstream's (git log -S 'mUrlToLoad = path;': f8c645805, Fabrice CARUSO, 2020-11-28, 'Created WebImageComponent').
+PL-32: the overload is Aloshi's (dbdbcde6c, 2014) and the pending install batocera's (231cf5b22, 2019-09-06, async loading). Both get #585 lines.
+PL-13: the 0-byte branch is the fork's (c13119bfb, #180); no #585 line.
+
+## Other checks
+ES .githooks/pre-push-test: PASS. es-untranslated: not run; S5 changes no player string.
+Already written: #1319, nothing inherited; the 0-byte file is removed as before, and a cache file under the pre-S1 name is S1's, left in place. #1327 and #1328: nothing inherited.
+Time to play: off the launch path; two string clears per bind and one cancel per overload call.

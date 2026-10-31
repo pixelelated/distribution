@@ -26,7 +26,7 @@ L = {  # id -> (family, question, owners, disposition, proved)
  "L-05": (2, "Q2, Q7", "the comment T34's; the popup T35's", "recorded, not deleted (`engineering-practices.md:576`); the comment corrected or the claim kept at the pause", "tree"),
  "L-06": (2, "Q2", "T34 (upstream's constant); `rowInset()`'s two fork pages T26's and T31's", "framed at both sizes (G-04, G-11); a screen fraction under D-UI-012's family is a register row for the pause", "tree"),
  "L-07": (7, "Q7", "T34 (the include line); `CloudText` T18's, the CMake T35's", "recorded with how it resolves; a `CloudText` that moves to es-core is T18's and T35's call", "tree"),
- "L-08": (5, "Q5", "T34", "by design per `:191-196`; the player sees a blank badge for the page's life with no word; a re-ask on the next page build, or a word on the row, is the pause's; `tools/ra-ui-test`'s fixture shape at stage C", "tree"),
+ "L-08": (5, "Q5", "T34", "by design per `:191-196`; the player sees a blank badge until the page's next bind, which asks again (the stub at the pin, S5); ruling 5: no timer; the uncached state is S5's fix (#1319); `tools/ra-ui-test`'s 204-then-200 fixture is the guest half", "S5 `568ef099d`: `stage-e/s5-before.txt`, `s5-after.txt`"),
  "L-09": (5, "Q5", "T34; `HttpReq` T21's, `FileSystemUtil` T36's, cited", "sound at the pin: the writer's `removeFile` (`HttpReq.cpp:344`) and `renameFile` (`:479` -> `FileSystemUtil.cpp:1457-1458`) erase the cached miss before `:190` asks; 3.21's first half a candidate that PASSes at the pin", "tree"),
  "L-10": (4, "Q4", "T34 (upstream surface, outside the lanes)", "a data race on `ctx->component` and a call into a component being destroyed; recorded with the two threads named (§ The lifetimes); G-10 `CANNOT` (no media); a contained fix (an atomic, or a wait) under rule 6 only if the pause opens it", "tree"),
  "L-11": (4, "Q4", "T34", "sound by the invariant: each `delete this` is the last thing its handler does; 3.19's ASan harness at stage C", "tree"),
@@ -88,6 +88,10 @@ SE.update({
  "3.31": "S4: PASS at the pin and after",
  "3.32": "S4: PASS at the pin and after; five presses reach 1.0 exactly in float",
  "3.34": "S4: PASS at the pin and after, one entry and none included",
+ "3.21": "S5: the first half PASS at the pin and after; the second (PL-13, #1319): the pin already re-asks on the next bind, and its one FAIL, the cache path kept, PASS after `568ef099d`",
+ "3.22": "S5: PASS at the pin and after, with 3.23 and 3.24 (`stage-e/s5-before.txt`, `s5-after.txt`)",
+ "3.23": "S5: PASS at the pin and after: four turns are the identity",
+ "3.24": "S5: PASS at the pin and after: -1, 4, 5 and 0 normalise to 3, 0, 1 and 0",
 })
 R = [  # (ruling, the 02 row)
  ("(a) T32 PL-07 / #1263, the caller's half", "§ The reads, `ImageComponent.cpp:408`"),

@@ -5,10 +5,12 @@
 // pin is a FAIL here, the case's "seen to FAIL against the unfixed extract".
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest/doctest.h"
+#include <algorithm>
 #include <atomic>
-#include <functional>
 #include <cassert>
 #include <cmath>
+#include <cstdio>
+#include <functional>
 #include <ctime>
 #include <map>
 #include <memory>
@@ -389,11 +391,19 @@ struct ComponentGrid {
 	void onSizeChanged();
 };
 struct TexD { void setRequired(bool) {} bool isLoaded() const { return true; } };
+// S5 (#1328): the fixed setImage(texture) also cancels a pending load; the
+// double carries what those lines read, unused by the pin's lines.
+struct TextureResource { static void cancelAsync(const std::shared_ptr<TexD>&) {} };
 struct BusyD { void setSize(const Vec2f&) {} };
 struct WebImg : ImgBase {
 	using GuiComponent = ImgBase; using ImageComponent = ImgBase; using Vector2f = Vec2f;
-	std::shared_ptr<TexD> mTexture = std::make_shared<TexD>(); bool mTextureLoaded = false; Vec2f mTargetSize; BusyD* mBusyAnim = nullptr;
+	std::shared_ptr<TexD> mTexture = std::make_shared<TexD>(), mLoadingTexture; bool mTextureLoaded = false, mLoadingTextureLoaded = false; Vec2f mTargetSize; BusyD* mBusyAnim = nullptr;
 	bool isShowing() const { return true; }
+	void cancelPendingLoad() {
+#if __has_include("x_img_cancel.inc")
+#include "x_img_cancel.inc"
+#endif
+	}
 	void setSize(float w, float h) {
 #include "x_image_setsize.inc"
 	}
@@ -655,4 +665,144 @@ TEST_CASE("3.34 the carousel takes the shortest way round, with one entry and wi
 	CarouselPath c; c.mEntries.assign(10, 0); c.mCamOffset = 9; c.mCursor = 0; c.path(); CHECK(c.endPosOut == doctest::Approx(10));
 	CarouselPath one; one.mEntries.assign(1, 0); one.path(); CHECK(one.endPosOut == doctest::Approx(0));
 	CarouselPath none; none.path(); CHECK(none.endPosOut == doctest::Approx(0));
+}
+
+// ---- S5 (stage E): the web image ----
+
+// 3.21, PL-13 (#1319), PL-31 (#1327): WebImageComponent's setImage, update
+// and render's request, over a file system whose exists() caches its
+// answers and whose writes and removals erase the cached one (FileCache,
+// FileSystemUtil.cpp:144, :182-197), and a server scripted per request.
+struct LogD { template <typename T> LogD& operator<<(const T&) { return *this; } };
+#define LOG(level) LogD()
+namespace webns {
+std::map<std::string, std::string> gFiles; std::map<std::string, bool> gExistsCache; std::vector<std::string> gAsked, gAnswers;
+std::string md5(const std::string& s) { char b[32]; snprintf(b, sizeof b, "%016zx", std::hash<std::string>()(s)); return b; }
+struct Paths { static std::string getUserEmulationStationPath() { return "/es"; } };
+namespace Utils {
+	namespace String { bool startsWith(const std::string& s, const std::string& p) { return s.rfind(p, 0) == 0; } }
+	namespace FileSystem {
+		bool exists(const std::string& p) { auto it = gExistsCache.find(p); if (it != gExistsCache.end()) return it->second; bool e = gFiles.count(p) > 0 || p == "/es/tmp"; gExistsCache[p] = e; return e; }
+		bool removeFile(const std::string& p) { gFiles.erase(p); gExistsCache.erase(p); return true; }
+		void serverWrite(const std::string& p, const std::string& bytes) { gFiles[p] = bytes; gExistsCache.erase(p); } // HttpReq's .tmp then renameFile
+		size_t getFileSize(const std::string& p) { return gFiles.count(p) ? gFiles[p].size() : 0; }
+		std::string getGenericPath(const std::string& p) { return p; }
+		std::string getCanonicalPath(const std::string& p) { return p; }
+		std::string getParent(const std::string& p) { auto i = p.find_last_of('/'); return i == std::string::npos ? "" : p.substr(0, i); }
+		bool createDirectory(const std::string&) { return true; }
+		long getFileCreationDate(const std::string&) { return 0; }
+	}
+	namespace Time { struct DateTime { static DateTime now() { return DateTime(); } double elapsedSecondsSince(long) const { return 0; } }; }
+	namespace OfflineProxy { inline bool isProxyUrl(const std::string&) { return false; } const std::string StoreOnlyHeader = "X-Store-Only: 1"; }
+}
+struct HttpReqOptions { std::string out; std::vector<std::string> customHeaders; HttpReqOptions(const std::string& o) : out(o) {} };
+struct HttpReq { enum Status { REQ_IN_PROGRESS, REQ_SUCCESS, REQ_FAILED }; Status st = REQ_SUCCESS;
+	HttpReq(const std::string& url, HttpReqOptions* o) { gAsked.push_back(url); std::string a = gAnswers.empty() ? "" : gAnswers.front(); if (!gAnswers.empty()) gAnswers.erase(gAnswers.begin()); Utils::FileSystem::serverWrite(o->out, a); }
+	Status status() const { return st; } };
+struct MaxSizeInfo { bool e = true; bool empty() const { return e; } };
+struct BusyComponent { BusyComponent(void*, const std::string&) {} void setBackgroundVisible(bool) {} void setSize(const Vec2f&) {} void update(int) {} };
+#include "x_web_url.inc"
+#include "x_web_key.inc"
+struct WebBase { std::string shown = "-"; void setImage(const std::string& p, bool = false, const MaxSizeInfo& = MaxSizeInfo(), bool = true, bool = false) { shown = p; }
+	void setImage(const char*, size_t) { shown = ""; } void update(int) {} };
+struct WebD : WebBase { using ImageComponent = WebBase;
+	HttpReq* mRequest = nullptr; std::string mUrlToLoad, mLocalFile; MaxSizeInfo mMaxSize; double mKeepInCacheDuration = -1; bool mWaitLoaded = false; BusyComponent* mBusyAnim = nullptr; void* mWindow = nullptr; Vec2f mSize = Vec2f(64, 64);
+	void resize() {}
+	void setImage(const std::string& path, bool tile = false, const MaxSizeInfo& maxSize = MaxSizeInfo(), bool checkFileExists = true, bool allowMultiImagePlaylist = false) {
+#include "x_web_setimage.inc"
+	}
+	void update(int deltaTime) {
+#include "x_web_update.inc"
+	}
+	void renderRequest() {
+#include "x_web_render_req.inc"
+	}
+	void frame() { renderRequest(); update(16); }
+};
+void reset() { gFiles.clear(); gExistsCache.clear(); gAsked.clear(); gAnswers.clear(); }
+}
+TEST_CASE("3.21 a badge the cache missed once is shown when the image arrives (WebImageComponent.cpp:164, :220; L-09)") {
+	webns::reset(); webns::gAnswers = {"PNG"};
+	webns::WebD w; w.setImage("http://h/b/1.png"); w.frame();
+	CHECK(webns::gAsked.size() == 1); CHECK(w.shown != "-"); CHECK(w.shown != "");
+}
+TEST_CASE("3.21 PL-13 a 0-byte answer is not kept as done: the page asks nothing more, and the next bind asks again (WebImageComponent.cpp:220-231)") {
+	webns::reset(); webns::gAnswers = {"", "PNG"};
+	webns::WebD w; w.setImage("http://h/b/1.png"); w.frame();
+	CHECK(webns::gAsked.size() == 1); CHECK(w.shown == "-");
+	CHECK(w.mLocalFile.empty()); // the uncached state: the component keeps no cache path for an answer it did not keep
+	w.frame(); w.frame(); CHECK(webns::gAsked.size() == 1); // ruling 5: no timer on the page
+	w.setImage("http://h/b/1.png"); w.frame();
+	CHECK(webns::gAsked.size() == 2); CHECK(w.shown != "-");
+}
+TEST_CASE("PL-31 a rebind to a local or cached image leaves no queued URL behind (WebImageComponent.cpp:128-195)") {
+	webns::reset(); webns::gAnswers = {"PNG", "PNG"};
+	webns::WebD w; w.setImage("http://h/b/1.png"); w.setImage("/roms/x.png"); w.frame();
+	CHECK(webns::gAsked.empty()); CHECK(w.shown == "/roms/x.png");
+	webns::reset(); webns::gAnswers = {"PNG"};
+	webns::WebD seed; seed.setImage("http://h/b/2.png"); seed.frame(); // 2.png now in the cache
+	webns::gAsked.clear();
+	webns::WebD v; v.setImage("http://h/b/3.png"); v.setImage("http://h/b/2.png"); v.frame();
+	CHECK(webns::gAsked.empty());
+}
+
+// PL-32 (#1328): ImageComponent.cpp's two setImage overloads (from memory
+// and from a shared texture) against a load pending from an earlier path,
+// then watchTextureLoading's install (:821-839).
+namespace imgns {
+struct TexR { bool loaded = false, required = false; int id = 0; void setRequired(bool r) { required = r; } bool isLoaded() const { return loaded; } void initFromMemory(const char*, size_t) { loaded = true; } };
+std::vector<int> gCancelled;
+struct TextureResource { static std::shared_ptr<TexR> get(const std::string&, bool) { auto t = std::make_shared<TexR>(); t->id = 99; return t; } static void cancelAsync(const std::shared_ptr<TexR>& t) { gCancelled.push_back(t->id); } };
+struct ImgD { std::string mPath = "/old.png"; std::shared_ptr<TexR> mTexture, mLoadingTexture; bool mTextureLoaded = false, mLoadingTextureLoaded = false;
+	bool isShowing() const { return true; } void resize() {} void updateVertices() {} void updateColors() {}
+	void cancelPendingLoad() {
+#if __has_include("x_img_cancel.inc")
+#include "x_img_cancel.inc"
+#endif
+	}
+	void setImageMem(const char* path, size_t length, bool tile = false) {
+#include "x_img_setmem.inc"
+	}
+	void setImageTex(const std::shared_ptr<TexR>& texture) {
+#include "x_image_settexture.inc"
+	}
+	bool watch() {
+#include "x_img_watch.inc"
+		return false;
+	} };
+}
+TEST_CASE("PL-32 an image set from memory or a shared texture is not replaced by an earlier path's pending load (ImageComponent.cpp:443-474, :821-839)") {
+	for (int overload = 0; overload < 2; overload++) {
+		CAPTURE(overload);
+		imgns::ImgD i; auto pending = std::make_shared<imgns::TexR>(); pending->id = 7; i.mLoadingTexture = pending;
+		auto mine = std::make_shared<imgns::TexR>(); mine->id = 5; mine->loaded = true;
+		if (overload == 0) i.setImageMem("bytes", 5); else i.setImageTex(mine);
+		auto set = i.mTexture;
+		pending->loaded = true; i.watch();
+		CHECK(i.mTexture == set);
+		CHECK(i.mTexture != pending);
+	}
+}
+
+// 3.22-3.24: ImageComponent.cpp:103-109 (the size a turn fits), :287-297
+// (the corners' turn), :500 (the normaliser).
+struct TurnD { using Vector2f = Vec2f; float mDisplayAspect = 0; int mDisplayRotation = 0; struct V { Vec2f tex; } mVertices[4];
+	Vec2f fitSize(Vec2f physicalSize) {
+#include "x_img_turn_fit.inc"
+		return textureSize;
+	}
+	void corners() {
+#include "x_img_turn_corners.inc"
+	}
+	int norm(int quarterTurns) {
+#include "x_img_turn_norm.inc"
+		return quarterTurns;
+	} };
+TEST_CASE("3.22-3.24 a quarter turn swaps the fitted size, four turns are the identity, and turns normalise to 0-3 (ImageComponent.cpp:103-109, :287-297, :500)") {
+	TurnD t; t.mDisplayRotation = 1; Vec2f s = t.fitSize(Vec2f(320, 240)); CHECK(s.x() == 240); CHECK(s.y() == 320);
+	t.mDisplayAspect = 4.0f / 3.0f; s = t.fitSize(Vec2f(256, 224)); CHECK(s.x() == doctest::Approx(224)); CHECK(s.y() == doctest::Approx(224 * 4.0f / 3.0f));
+	TurnD c; c.mDisplayRotation = 1; c.mVertices[0].tex = Vec2f(0, 0); c.mVertices[1].tex = Vec2f(0, 1); c.mVertices[2].tex = Vec2f(1, 0); c.mVertices[3].tex = Vec2f(1, 1);
+	for (int k = 0; k < 4; k++) c.corners();
+	CHECK(c.mVertices[0].tex == Vec2f(0, 0)); CHECK(c.mVertices[1].tex == Vec2f(0, 1)); CHECK(c.mVertices[2].tex == Vec2f(1, 0)); CHECK(c.mVertices[3].tex == Vec2f(1, 1));
+	CHECK(t.norm(-1) == 3); CHECK(t.norm(5) == 1); CHECK(t.norm(4) == 0); CHECK(t.norm(0) == 0);
 }

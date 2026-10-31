@@ -197,3 +197,21 @@
   - The input counts are unchanged (14 and 12).
   - The stand-in passes all 37.
 - **3.16's setup** now reads the list's own line through a catalog double; its assertion is unchanged (D-WORKFLOW-211). Seventeen specs added, eight of them moved by the fix, each named in `s4-checks.txt`.
+
+## [Stage E] 06:30 UTC 2026-10-31 — S5 (#1319, #1327, #1328): the web image, `568ef099d`
+
+- **The cases came first, run at `a9017ff50`** (`stage-e/s5-before.txt`):
+  - 3.21's first half PASS (L-09).
+  - PL-13's stub: the pin already re-asks on the next bind. Its one FAIL was the cache path kept. Under ruling 5 the fix is the uncached state alone, and #1319's first checkbox says so.
+  - PL-31 FAIL: a stale queued URL's picture replaced a local one.
+  - PL-32 FAIL for both overloads.
+  - 3.22-3.24 PASS.
+- **The fix**, one ES commit on three files:
+  - `setImage` clears the queue on every bind;
+  - a 0-byte answer keeps no cache path;
+  - the memory and shared-texture overloads cancel a pending load through the new `cancelPendingLoad()`.
+
+  The subject follows ruling 5 rather than the drafted "bounded retry".
+- **After:** every S5 case PASS; `TOTAL: 276 test cases in 6 binaries`; the stand-in passes all 37.
+- **Specs moved:** each named in `s5-checks.txt`. S3's double gained the helper the fixed lines call (D-WORKFLOW-211). The reads and leads generators re-disposition L-08.
+- **#585 lines:** PL-31 and PL-32 (upstream's lines, per `git log -S`); none for PL-13 (the fork's).
