@@ -1,0 +1,7 @@
+# G-02 / G-06 font measurement, by a reader (tools/t36-measure.py, stdlib zlib), 2026-10-31T23:47:10Z
+method: contiguous run of light-on-dark rows in a text band = cap height. Cap height, not T34's row-height metric.
+640x480 MAIN MENU title cap height: 13 px (g02-01-menu.png y15-27)
+1280x800 MENU PRINCIPAL title cap height: 17 px (g06-02-menu.png y146-162); ratio 17/13 = 1.31
+640x480 help-bar text: 11 px (g01-carousel.png)
+1280x800 help-bar text: 15 px (g06-01-carousel.png)
+note: fontScale() is 1.31 under 720px and 1 at 1280x800; at 1280 the menu floats (es-code-traps #540's fullScreenMenus threshold), at 640 it is full-screen.

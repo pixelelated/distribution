@@ -433,11 +433,22 @@ generated, asserted: 18 rows (`tools/t36-tables.py --print writes`)
 ## The runs
 
 - **Stage A:** 23 runs, each as the brief expected (`stage-a/runs.out`, `00`).
-- **Stage C:** `pending stage C`. The `utils-resources-tests` build, the cases 3.1 to 3.26, T35's 3.11 re-run under ruling (h) as (a), and the stand-in over the 25 `.cpp` files.
+- **Stage C (host):**
+  - **`utils-resources-tests`** (`stage-c/build-tests.out`): 15 cases, 11 passed, 4 failed; the 4 FAILs are the FAIL-at-pin candidates, each proving its defect at the pin (`proved: fix-unit-test`): **3.1 (L-01)**, **3.2 (L-03)**, **3.4 (L-02)** and **3.26 (L-19)** -- 3.26 FAILs `CHECK(exists(p)==false)` with `true == false`, confirming the stale cache. The 11 that pass are the controls, the positives and the text-read seams.
+  - **T35's 3.11 re-run** (ruling (h) as (a), `stage-c/t35-311-rerun.out`): `window-input-tests` at distribution `4f7d98b2ed` / ES `b7fdb3a24` (T35 stage H, read 23:44:37Z) -- rc 0, 31/31 passed. 3.11 PASSES at the amended tip (T35's caller fix landed), where it FAILs at the pin; T36 owns the cache's half.
+  - **the stand-in** (`stage-c/syntax-check-probe.out`): T35's fakes over the 25 `.cpp`, 20 rc 0; the 5 that need the T36 fakes (Font/FreeType, TextureData/vlc, the 3 renderers/GL) and the renderers positive under `-DUSE_OPENGLES_30` are the remaining stage-C compile item.
+  - **the packet and the seat's probe** (`second-opinions/`): packet 352,038 bytes / 36 sources / sha256 `c3b14889`, scan clean (138 words classed, 0 a value); probe PASS (served `openai/gpt-6-astra`, OpenAI, max); refutation in `04`.
 
 ## The guest cycle
 
-`pending window`. The plan is `stage-b/window-plan.md`, asked for on #683 at stage B with its bound.
+Slot 3, START 23:09:19 to RETURN 23:22:05 UTC, inside the bound; the detached timer (pid 2238851) stopped unfired; disk retired (sha256 `65d4dc4e...`), census `qemu 0, compilers 0`. Full record in `00` and `guest-cycle/`.
+- **G-01:** `BUILD_ID=069fc27044...`, 640x480, art-book-next; **`libfribidi` not linked** (freetype and vlc are) -- Q7's `HAVE_FRIBIDI` answered: the image did not take it.
+- **G-02/G-06:** carousel + menu at 640x480 and 1280x800; cap heights 13 px and 17 px (`guest-cycle/g02-g06-measure.txt`); at 1280 the menu floats, at 640 it is full-screen (#540's threshold).
+- **G-03:** the guest ships no game with a manual; the frame was not stageable, the proof is unit cases 3.13/3.26 (`es-native-ui.md`).
+- **G-04:** `secondsToString` panel needs scraped media the guest lacks; the thresholds are host-read and the French catalog renders cleanly on the chrome (accents, the typographic apostrophe). An open item for a media-scraped guest.
+- **G-05:** driver `virtio-pci` (virgl, not softpipe); art clean, RSS stable; VRAM counters `CANNOT`.
+- **G-07:** `SigIgn=0x1000` (SIGPIPE ignored) -- the launch gets EPIPE past the pipe buffer, not a signal; `sh`->bash; `seq 400`->0, `seq 200000`->255; the image's `runemu.sh` keeps the emulator's output out of `run()`'s pipe.
+- **G-08, G-09:** `CANNOT` as planned.
 
 ## The streams
 

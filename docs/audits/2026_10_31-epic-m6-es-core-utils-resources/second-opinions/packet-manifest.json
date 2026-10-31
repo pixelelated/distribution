@@ -1,0 +1,1991 @@
+{
+ "schema": "t36-packet-manifest-1",
+ "pin": "16dbac5211eea7e70db7394372033be2be7df829",
+ "sources": [
+  {
+   "section": 1,
+   "title": "src/renderers/Renderer.cpp `:1141-1157` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/renderers/Renderer.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "3667cb7a6137a682322fb46b3bbd60dd5e3f5c0a7b8f092e59669a4dd0291319",
+   "bytes": 468
+  },
+  {
+   "section": 2,
+   "title": "src/resources/Font.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/resources/Font.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "cb13b002f17c6890a38e331ce55068d81348cf452ff8a725bb53f179e917bb1d",
+   "bytes": 44800
+  },
+  {
+   "section": 3,
+   "title": "src/resources/Font.h (whole, fork-modified, at the pin)",
+   "path": "es-core/src/resources/Font.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "a6184c69f913e0410ece8df78711b5d84b5a74a9515a2c94c7b22f87f690d4c9",
+   "bytes": 9209
+  },
+  {
+   "section": 4,
+   "title": "src/resources/TabStops.h (whole, fork-added, at the pin)",
+   "path": "es-core/src/resources/TabStops.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "3f6a64963f47643258b688fdbca8d800c657b1eda1038c86114e550bef2fab40",
+   "bytes": 2153
+  },
+  {
+   "section": 5,
+   "title": "src/resources/TextureData.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/resources/TextureData.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "16cdca3d411e1d70cf56a1d4fcd2e9d6ec5abd4001dac9ac8792b7312e12fa5b",
+   "bytes": 26602
+  },
+  {
+   "section": 6,
+   "title": "src/resources/TextureDataManager.cpp `:127-178` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/resources/TextureDataManager.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "62b31ff535093b94b5bc78da3f323caf81e95b7ed2de83d0289293afb84272d8",
+   "bytes": 1962
+  },
+  {
+   "section": 7,
+   "title": "src/resources/TextureDataManager.cpp `:207-261` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/resources/TextureDataManager.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "a42b056719117e127c4f5c61b3a17ef20c6a2f3d6eb2d18c02f02f84395f66bc",
+   "bytes": 1525
+  },
+  {
+   "section": 8,
+   "title": "src/resources/TextureDataManager.cpp `:276-292` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/resources/TextureDataManager.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "217b3e3665103d87568b57053b7a24ace04468e38cefcf8e3213cfefd7fc0c2a",
+   "bytes": 414
+  },
+  {
+   "section": 9,
+   "title": "src/resources/TextureResource.cpp `:4-20` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/resources/TextureResource.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "6f42fb858b43afeffd514ce5e14a097ddf2cde16b6dcde807f4fd391fea37063",
+   "bytes": 862
+  },
+  {
+   "section": 10,
+   "title": "src/resources/TextureResource.cpp `:68-173` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/resources/TextureResource.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "f5c6b0864c6fb0335525fa5d789a320c5d937f739e6754a9ad3fe75528158649",
+   "bytes": 3734
+  },
+  {
+   "section": 11,
+   "title": "src/utils/CommandLineUtil.h (whole, fork-added, at the pin)",
+   "path": "es-core/src/utils/CommandLineUtil.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "a58357ab278a3163ad53fd7168d3e66a8d2ed99a57ed20cc2b7d268bb8a5098e",
+   "bytes": 4050
+  },
+  {
+   "section": 12,
+   "title": "src/utils/FileSystemUtil.cpp `:30-372` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/utils/FileSystemUtil.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "c5da5f7e685434f080c65e53250eab6f8f837dc452bb0cb98ab3a821b12aac76",
+   "bytes": 12194
+  },
+  {
+   "section": 13,
+   "title": "src/utils/FileSystemUtil.cpp `:425-441` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/utils/FileSystemUtil.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "c75cc2fd8cd3862b3e24e2f6781c2f38c9f807406fe53d1f03d6071036bd0faa",
+   "bytes": 559
+  },
+  {
+   "section": 14,
+   "title": "src/utils/FileSystemUtil.cpp `:471-487` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/utils/FileSystemUtil.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "f288b8344a98f271616f69367ee7b02952dee99d019d7f3dffe225f6a75cc52a",
+   "bytes": 532
+  },
+  {
+   "section": 15,
+   "title": "src/utils/FileSystemUtil.cpp `:567-583` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/utils/FileSystemUtil.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "75672d7f64d1adb5ec695212446c7046a919a154a5055523b526f0a2be115164",
+   "bytes": 528
+  },
+  {
+   "section": 16,
+   "title": "src/utils/FileSystemUtil.cpp `:1043-1209` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/utils/FileSystemUtil.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "d8556dc0b0dba67f51e357dde93d3d3d9e15a495b89de39102c1a084d862c91d",
+   "bytes": 5370
+  },
+  {
+   "section": 17,
+   "title": "src/utils/FileSystemUtil.cpp `:1222-1238` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/utils/FileSystemUtil.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "da1181b4cc8d53a4b775ae3300a9b4f4e9c4a7a2f0d436a5bb792370e20a4e89",
+   "bytes": 471
+  },
+  {
+   "section": 18,
+   "title": "src/utils/FileSystemUtil.cpp `:1361-1387` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/utils/FileSystemUtil.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "e33f9fa266fc7e0e91ed5b52c44a5b851f4028b0b65b60dd7d3e095122470b21",
+   "bytes": 854
+  },
+  {
+   "section": 19,
+   "title": "src/utils/FileSystemUtil.cpp `:1392-1539` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/utils/FileSystemUtil.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "3b576b5e556ef66499f7630f3a94d3c39d63b876c8fbb0109a8efedb9c2df40b",
+   "bytes": 4421
+  },
+  {
+   "section": 20,
+   "title": "src/utils/FileSystemUtil.cpp `:1750-1805` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/utils/FileSystemUtil.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "2585247e5c56936b204956e6cace63fee3692884ab64e003a3d796872a3b7053",
+   "bytes": 1671
+  },
+  {
+   "section": 21,
+   "title": "src/utils/MathExpr.cpp `:87-103` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/utils/MathExpr.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "bf702b682af2565cfbb68beb369bc755a03ba2d96a47e7d153ff863a8840666f",
+   "bytes": 2042
+  },
+  {
+   "section": 22,
+   "title": "src/utils/OfflineProxyUrl.cpp (whole, fork-added, at the pin)",
+   "path": "es-core/src/utils/OfflineProxyUrl.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "94e696cc00f26520f82d43f7a5e04499422c8ac8318702638ebe789f251ac578",
+   "bytes": 666
+  },
+  {
+   "section": 23,
+   "title": "src/utils/OfflineProxyUrl.h (whole, fork-added, at the pin)",
+   "path": "es-core/src/utils/OfflineProxyUrl.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "254136420db2862fa86a1b13f2a3a6cc42c2f1d16db4d0d379f781f0014ae7e7",
+   "bytes": 2032
+  },
+  {
+   "section": 24,
+   "title": "src/utils/Platform.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/utils/Platform.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "5138d5cc23bbd35f60e4ec4ea44f24fb4d38816883a9563a426867e571b2dece",
+   "bytes": 29669
+  },
+  {
+   "section": 25,
+   "title": "src/utils/Platform.h (whole, fork-modified, at the pin)",
+   "path": "es-core/src/utils/Platform.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "45cce1aa24c11568b4b3f7596013d6aca4b99c39593e17c5a433e27c6a76e41b",
+   "bytes": 3217
+  },
+  {
+   "section": 26,
+   "title": "src/utils/StringUtil.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/utils/StringUtil.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "bc7bed6857ef7de0ebd4e684ce08fb2fe3176ee1f05c88689cbc384265d61a6e",
+   "bytes": 75497
+  },
+  {
+   "section": 27,
+   "title": "src/utils/StringUtil.h (whole, fork-modified, at the pin)",
+   "path": "es-core/src/utils/StringUtil.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "a342b21c878023c08a80b4f6662b75a8eee7b967214ddfb37475d764bf5331f4",
+   "bytes": 6143
+  },
+  {
+   "section": 28,
+   "title": "src/utils/ThreadPool.cpp `:18-34` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/utils/ThreadPool.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "05f2106f628829df20fb3abeab3e03af5fd999923bce449799be54622f89917e",
+   "bytes": 480
+  },
+  {
+   "section": 29,
+   "title": "src/utils/ThreadPool.cpp `:76-99` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/utils/ThreadPool.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "221f1682a7e83aa44c8c12db048de81cce07f9b436e1d891c6ce137e30b987ed",
+   "bytes": 620
+  },
+  {
+   "section": 30,
+   "title": "src/utils/TimeText.cpp (whole, fork-added, at the pin)",
+   "path": "es-core/src/utils/TimeText.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "0948aa05f71118f750a529fb074b761c846b652e7770288a21f14f7e7a455e97",
+   "bytes": 3336
+  },
+  {
+   "section": 31,
+   "title": "src/utils/TimeText.h (whole, fork-added, at the pin)",
+   "path": "es-core/src/utils/TimeText.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "61cc0a578a8f7a92e2ee824f7370a84be7d02bbbb0c1a64d447a4a5b4a5f1a2d",
+   "bytes": 3286
+  },
+  {
+   "section": 32,
+   "title": "src/utils/TimeUtil.cpp (whole, fork-modified, at the pin)",
+   "path": "es-core/src/utils/TimeUtil.cpp",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "99bc671f1fdd1c9b715c16e5aff6faf3a07cb0a8964e926d53dcbda14addc3d8",
+   "bytes": 20198
+  },
+  {
+   "section": 33,
+   "title": "src/utils/TimeUtil.h (whole, fork-modified, at the pin)",
+   "path": "es-core/src/utils/TimeUtil.h",
+   "ref": "16dbac5211",
+   "kind": "whole",
+   "sha256": "498cccff841ef49960de7920facbd9f8d66f40fdf3f1132bf5ba15d496cc8c7e",
+   "bytes": 4144
+  },
+  {
+   "section": 34,
+   "title": "src/utils/ZipFile.cpp `:251-267` (an excerpt, upstream-carried, at the pin)",
+   "path": "es-core/src/utils/ZipFile.cpp",
+   "ref": "16dbac5211",
+   "kind": "excerpt",
+   "sha256": "682b4d95ab3553fae2f2eb27df0245192f98b6807269bd122a0ef0b89318ce04",
+   "bytes": 555
+  },
+  {
+   "section": 35,
+   "title": "The first reader's 02-forward-audit.md (whole)",
+   "path": "docs/audits/2026_10_31-epic-m6-es-core-utils-resources/02-forward-audit.md",
+   "ref": "worktree",
+   "kind": "analysis",
+   "sha256": "d92fcfe29af73f0313c5b780190c891fd7f7ec4f7503d6e941a9cc517c0b9505",
+   "bytes": 51487
+  },
+  {
+   "section": 36,
+   "title": "The brief's \u00a7 4, the questions",
+   "path": "docs/reviews/briefs/es-core-utils-resources.md",
+   "ref": "worktree",
+   "kind": "brief",
+   "sha256": "03afe6a889f580e42691e253ef8bf949abeafd62f720d2d321b32f35ea34b05f",
+   "bytes": 23399
+  }
+ ],
+ "scan": {
+  "forbidden": [],
+  "secret_patterns": [],
+  "mask": [],
+  "words": [
+   {
+    "file": "src/resources/TextureDataManager.cpp",
+    "file_line": 152,
+    "line": 2390,
+    "word": "pass",
+    "class": "identifier: a render-pass index in a comment (pass == 0), not a credential"
+   },
+   {
+    "file": "src/resources/TextureResource.cpp",
+    "file_line": 100,
+    "line": 2558,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/resources/TextureResource.cpp",
+    "file_line": 102,
+    "line": 2560,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/resources/TextureResource.cpp",
+    "file_line": 103,
+    "line": 2561,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/resources/TextureResource.cpp",
+    "file_line": 139,
+    "line": 2597,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/resources/TextureResource.cpp",
+    "file_line": 146,
+    "line": 2604,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 93,
+    "line": 2809,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 100,
+    "line": 2816,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 110,
+    "line": 2826,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 117,
+    "line": 2833,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 138,
+    "line": 2854,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 141,
+    "line": 2857,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 144,
+    "line": 2860,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 146,
+    "line": 2862,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 156,
+    "line": 2872,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 162,
+    "line": 2878,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 168,
+    "line": 2884,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 174,
+    "line": 2890,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 183,
+    "line": 2899,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 190,
+    "line": 2906,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 192,
+    "line": 2908,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 201,
+    "line": 2917,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 206,
+    "line": 2922,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 209,
+    "line": 2925,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 213,
+    "line": 2929,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 215,
+    "line": 2931,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 218,
+    "line": 2934,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 220,
+    "line": 2936,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 223,
+    "line": 2939,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 226,
+    "line": 2942,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 231,
+    "line": 2947,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 235,
+    "line": 2951,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 238,
+    "line": 2954,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 240,
+    "line": 2956,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 243,
+    "line": 2959,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 245,
+    "line": 2961,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 248,
+    "line": 2964,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 250,
+    "line": 2966,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 253,
+    "line": 2969,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 255,
+    "line": 2971,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 255,
+    "line": 2971,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 255,
+    "line": 2971,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 265,
+    "line": 2981,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 268,
+    "line": 2984,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 277,
+    "line": 2993,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 288,
+    "line": 3004,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 291,
+    "line": 3007,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 294,
+    "line": 3010,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 302,
+    "line": 3018,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 313,
+    "line": 3029,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/FileSystemUtil.cpp",
+    "file_line": 319,
+    "line": 3035,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 448,
+    "line": 5206,
+    "word": "credential",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 450,
+    "line": 5208,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 452,
+    "line": 5210,
+    "word": "credential",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 454,
+    "line": 5212,
+    "word": "password",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 454,
+    "line": 5212,
+    "word": "pass",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 457,
+    "line": 5215,
+    "word": "credential",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 460,
+    "line": 5218,
+    "word": "password",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 463,
+    "line": 5221,
+    "word": "psk",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 464,
+    "line": 5222,
+    "word": "psk",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 465,
+    "line": 5223,
+    "word": "password",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 465,
+    "line": 5223,
+    "word": "credential",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 466,
+    "line": 5224,
+    "word": "token",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 466,
+    "line": 5224,
+    "word": "key",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 467,
+    "line": 5225,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 469,
+    "line": 5227,
+    "word": "password",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 469,
+    "line": 5227,
+    "word": "pass",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 469,
+    "line": 5227,
+    "word": "token",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 469,
+    "line": 5227,
+    "word": "credential",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 470,
+    "line": 5228,
+    "word": "key",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 470,
+    "line": 5228,
+    "word": "secret",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 470,
+    "line": 5228,
+    "word": "psk",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 471,
+    "line": 5229,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 471,
+    "line": 5229,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 473,
+    "line": 5231,
+    "word": "keys",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 473,
+    "line": 5231,
+    "word": "key",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 473,
+    "line": 5231,
+    "word": "token",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 474,
+    "line": 5232,
+    "word": "password",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 510,
+    "line": 5268,
+    "word": "credential",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 513,
+    "line": 5271,
+    "word": "password",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 513,
+    "line": 5271,
+    "word": "pass",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 513,
+    "line": 5271,
+    "word": "token",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 513,
+    "line": 5271,
+    "word": "key",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 513,
+    "line": 5271,
+    "word": "secret",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 513,
+    "line": 5271,
+    "word": "psk",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 573,
+    "line": 5331,
+    "word": "password",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 597,
+    "line": 5355,
+    "word": "password",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 612,
+    "line": 5370,
+    "word": "password",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 612,
+    "line": 5370,
+    "word": "password",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 618,
+    "line": 5376,
+    "word": "password",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 738,
+    "line": 5496,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 778,
+    "line": 5536,
+    "word": "secret",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 788,
+    "line": 5546,
+    "word": "key",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 905,
+    "line": 5663,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 906,
+    "line": 5664,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 912,
+    "line": 5670,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 934,
+    "line": 5692,
+    "word": "token",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 950,
+    "line": 5708,
+    "word": "token",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 951,
+    "line": 5709,
+    "word": "token",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 952,
+    "line": 5710,
+    "word": "token",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 961,
+    "line": 5719,
+    "word": "token",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 962,
+    "line": 5720,
+    "word": "token",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 963,
+    "line": 5721,
+    "word": "token",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 1523,
+    "line": 6281,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/StringUtil.cpp",
+    "file_line": 1527,
+    "line": 6285,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "file": "src/utils/StringUtil.h",
+    "file_line": 24,
+    "line": 6493,
+    "word": "credential",
+    "class": "maskSecrets' own vocabulary: the credential words/patterns it detects and masks, not a credential (StringUtil.cpp:446-804, R2 s0)"
+   },
+   {
+    "file": "src/utils/StringUtil.h",
+    "file_line": 32,
+    "line": 6501,
+    "word": "key",
+    "class": "identifier: a std::unordered_map / cache key (FileCache hash key, TextureKeyType), not a credential"
+   },
+   {
+    "line": 7640,
+    "word": "secret",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 7690,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 7690,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 7696,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 7697,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 7700,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 7702,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 7703,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 7734,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 7738,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 7744,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 7748,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 7749,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 7789,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 7790,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 7791,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 7792,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 7792,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 7953,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 8010,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 8064,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 8065,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 8067,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 8087,
+    "word": "key",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 8234,
+    "word": "credential",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 8236,
+    "word": "secret",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 8245,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 8248,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 8250,
+    "word": "token",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 8254,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   },
+   {
+    "line": 8258,
+    "word": "PASS",
+    "class": "prose (the analysis or the brief)"
+   }
+  ]
+ },
+ "summary": {
+  "forbidden_terms_check": "forbidden-terms-check: 0 hits on stdin",
+  "secret_patterns": "0 line(s) match",
+  "mask": "0 value(s) masked",
+  "words": "138 credential-shaped word(s), each classed; 0 a value",
+  "review": 0,
+  "slice": "15 fork-added and fork-modified whole, 7 upstream-carried by cited ranges"
+ },
+ "slice_files": {
+  "src/renderers/GlExtensions.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     140
+    ]
+   ],
+   "lines": 140
+  },
+  "src/renderers/GlExtensions.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     88
+    ]
+   ],
+   "lines": 88
+  },
+  "src/renderers/Renderer.cpp": {
+   "sent": [
+    [
+     1141,
+     1157
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     1140
+    ],
+    [
+     1158,
+     1170
+    ]
+   ],
+   "lines": 1170
+  },
+  "src/renderers/Renderer.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     263
+    ]
+   ],
+   "lines": 263
+  },
+  "src/renderers/Renderer_GL21.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     459
+    ]
+   ],
+   "lines": 459
+  },
+  "src/renderers/Renderer_GL21.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     53
+    ]
+   ],
+   "lines": 53
+  },
+  "src/renderers/Renderer_GLES10.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     422
+    ]
+   ],
+   "lines": 422
+  },
+  "src/renderers/Renderer_GLES10.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     53
+    ]
+   ],
+   "lines": 53
+  },
+  "src/renderers/Renderer_GLES20.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     1420
+    ]
+   ],
+   "lines": 1420
+  },
+  "src/renderers/Renderer_GLES20.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     67
+    ]
+   ],
+   "lines": 67
+  },
+  "src/renderers/Renderer_GLES30.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     2291
+    ]
+   ],
+   "lines": 2291
+  },
+  "src/renderers/Renderer_GLES30.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     69
+    ]
+   ],
+   "lines": 69
+  },
+  "src/renderers/Shader.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     642
+    ]
+   ],
+   "lines": 642
+  },
+  "src/renderers/Shader.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     146
+    ]
+   ],
+   "lines": 146
+  },
+  "src/resources/Font.cpp": {
+   "sent": [
+    [
+     1,
+     1311
+    ]
+   ],
+   "trimmed": [],
+   "lines": 1311
+  },
+  "src/resources/Font.h": {
+   "sent": [
+    [
+     1,
+     217
+    ]
+   ],
+   "trimmed": [],
+   "lines": 217
+  },
+  "src/resources/ResourceManager.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     258
+    ]
+   ],
+   "lines": 258
+  },
+  "src/resources/ResourceManager.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     64
+    ]
+   ],
+   "lines": 64
+  },
+  "src/resources/TabStops.h": {
+   "sent": [
+    [
+     1,
+     49
+    ]
+   ],
+   "trimmed": [],
+   "lines": 49
+  },
+  "src/resources/TextureData.cpp": {
+   "sent": [
+    [
+     1,
+     739
+    ]
+   ],
+   "trimmed": [],
+   "lines": 739
+  },
+  "src/resources/TextureData.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     126
+    ]
+   ],
+   "lines": 126
+  },
+  "src/resources/TextureDataManager.cpp": {
+   "sent": [
+    [
+     127,
+     178
+    ],
+    [
+     207,
+     261
+    ],
+    [
+     276,
+     292
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     126
+    ],
+    [
+     179,
+     206
+    ],
+    [
+     262,
+     275
+    ],
+    [
+     293,
+     381
+    ]
+   ],
+   "lines": 381
+  },
+  "src/resources/TextureDataManager.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     108
+    ]
+   ],
+   "lines": 108
+  },
+  "src/resources/TextureResource.cpp": {
+   "sent": [
+    [
+     4,
+     20
+    ],
+    [
+     68,
+     173
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     3
+    ],
+    [
+     21,
+     67
+    ],
+    [
+     174,
+     348
+    ]
+   ],
+   "lines": 348
+  },
+  "src/resources/TextureResource.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     74
+    ]
+   ],
+   "lines": 74
+  },
+  "src/utils/CommandLineUtil.h": {
+   "sent": [
+    [
+     1,
+     104
+    ]
+   ],
+   "trimmed": [],
+   "lines": 104
+  },
+  "src/utils/ConcurrentVector.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     92
+    ]
+   ],
+   "lines": 92
+  },
+  "src/utils/Delegate.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     27
+    ]
+   ],
+   "lines": 27
+  },
+  "src/utils/FileSystemUtil.cpp": {
+   "sent": [
+    [
+     30,
+     372
+    ],
+    [
+     425,
+     441
+    ],
+    [
+     471,
+     487
+    ],
+    [
+     567,
+     583
+    ],
+    [
+     1043,
+     1209
+    ],
+    [
+     1222,
+     1238
+    ],
+    [
+     1361,
+     1387
+    ],
+    [
+     1392,
+     1539
+    ],
+    [
+     1750,
+     1805
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     29
+    ],
+    [
+     373,
+     424
+    ],
+    [
+     442,
+     470
+    ],
+    [
+     488,
+     566
+    ],
+    [
+     584,
+     1042
+    ],
+    [
+     1210,
+     1221
+    ],
+    [
+     1239,
+     1360
+    ],
+    [
+     1388,
+     1391
+    ],
+    [
+     1540,
+     1749
+    ]
+   ],
+   "lines": 1805
+  },
+  "src/utils/FileSystemUtil.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     103
+    ]
+   ],
+   "lines": 103
+  },
+  "src/utils/HtmlColor.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     248
+    ]
+   ],
+   "lines": 248
+  },
+  "src/utils/HtmlColor.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     18
+    ]
+   ],
+   "lines": 18
+  },
+  "src/utils/MathExpr.cpp": {
+   "sent": [
+    [
+     87,
+     103
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     86
+    ],
+    [
+     104,
+     1016
+    ]
+   ],
+   "lines": 1016
+  },
+  "src/utils/MathExpr.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     75
+    ]
+   ],
+   "lines": 75
+  },
+  "src/utils/OfflineProxyUrl.cpp": {
+   "sent": [
+    [
+     1,
+     21
+    ]
+   ],
+   "trimmed": [],
+   "lines": 21
+  },
+  "src/utils/OfflineProxyUrl.h": {
+   "sent": [
+    [
+     1,
+     40
+    ]
+   ],
+   "trimmed": [],
+   "lines": 40
+  },
+  "src/utils/Platform.cpp": {
+   "sent": [
+    [
+     1,
+     956
+    ]
+   ],
+   "trimmed": [],
+   "lines": 956
+  },
+  "src/utils/Platform.h": {
+   "sent": [
+    [
+     1,
+     100
+    ]
+   ],
+   "trimmed": [],
+   "lines": 100
+  },
+  "src/utils/Randomizer.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     53
+    ]
+   ],
+   "lines": 53
+  },
+  "src/utils/Randomizer.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     19
+    ]
+   ],
+   "lines": 19
+  },
+  "src/utils/StringListLock.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     61
+    ]
+   ],
+   "lines": 61
+  },
+  "src/utils/StringListLock.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     30
+    ]
+   ],
+   "lines": 30
+  },
+  "src/utils/StringUtil.cpp": {
+   "sent": [
+    [
+     1,
+     1706
+    ]
+   ],
+   "trimmed": [],
+   "lines": 1706
+  },
+  "src/utils/StringUtil.h": {
+   "sent": [
+    [
+     1,
+     96
+    ]
+   ],
+   "trimmed": [],
+   "lines": 96
+  },
+  "src/utils/ThreadPool.cpp": {
+   "sent": [
+    [
+     18,
+     34
+    ],
+    [
+     76,
+     99
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     17
+    ],
+    [
+     35,
+     75
+    ],
+    [
+     100,
+     230
+    ]
+   ],
+   "lines": 230
+  },
+  "src/utils/ThreadPool.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     77
+    ]
+   ],
+   "lines": 77
+  },
+  "src/utils/TimeText.cpp": {
+   "sent": [
+    [
+     1,
+     83
+    ]
+   ],
+   "trimmed": [],
+   "lines": 83
+  },
+  "src/utils/TimeText.h": {
+   "sent": [
+    [
+     1,
+     57
+    ]
+   ],
+   "trimmed": [],
+   "lines": 57
+  },
+  "src/utils/TimeUtil.cpp": {
+   "sent": [
+    [
+     1,
+     634
+    ]
+   ],
+   "trimmed": [],
+   "lines": 634
+  },
+  "src/utils/TimeUtil.h": {
+   "sent": [
+    [
+     1,
+     99
+    ]
+   ],
+   "trimmed": [],
+   "lines": 99
+  },
+  "src/utils/Uri.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     144
+    ]
+   ],
+   "lines": 144
+  },
+  "src/utils/VectorEx.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     170
+    ]
+   ],
+   "lines": 170
+  },
+  "src/utils/ZipFile.cpp": {
+   "sent": [
+    [
+     251,
+     267
+    ]
+   ],
+   "trimmed": [
+    [
+     1,
+     250
+    ],
+    [
+     268,
+     369
+    ]
+   ],
+   "lines": 369
+  },
+  "src/utils/ZipFile.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     51
+    ]
+   ],
+   "lines": 51
+  },
+  "src/utils/han.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     20923
+    ]
+   ],
+   "lines": 20923
+  },
+  "src/utils/md5.cpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     369
+    ]
+   ],
+   "lines": 369
+  },
+  "src/utils/md5.h": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     95
+    ]
+   ],
+   "lines": 95
+  },
+  "src/utils/zip_file.hpp": {
+   "sent": [],
+   "trimmed": [
+    [
+     1,
+     10011
+    ]
+   ],
+   "lines": 10011
+  }
+ },
+ "packet": {
+  "file": "t36-packet.md",
+  "bytes": 352038,
+  "sha256": "c3b14889d28aee6d76df9339a4d14df59063566f21edadc1048142fb4f51da2f"
+ }
+}

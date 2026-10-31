@@ -1,0 +1,37 @@
+g++: g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0; fakes: 15 files
+rc=1 renderers/GlExtensions.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-utils-resources-683/es-core/src/renderers/GlExtensions.h:10:10: fatal error: SDL_opengl.h: No such file or directory
+rc=1 renderers/Renderer.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-utils-resources-683/es-core/src/renderers/Renderer.cpp:46:70: error: ‘SDL_WINDOWPOS_UNDEFINED’ was not declared in this scope
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-utils-resources-683/es-core/src/renderers/Renderer.cpp:46:95: error: ‘SDL_WINDOWPOS_UNDEFINED’ was not declared in this scope
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-utils-resources-683/es-core/src/renderers/Renderer.cpp:134:25: error: ‘SDL_Surface’ was not declared in this scope
+rc=0 renderers/Renderer_GL21.cpp
+rc=0 renderers/Renderer_GLES10.cpp
+rc=0 renderers/Renderer_GLES20.cpp
+rc=0 renderers/Renderer_GLES30.cpp
+rc=1 renderers/Shader.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-utils-resources-683/es-core/src/renderers/GlExtensions.h:10:10: fatal error: SDL_opengl.h: No such file or directory
+rc=1 resources/Font.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-utils-resources-683/es-core/src/resources/Font.cpp:35:19: error: ‘FT_New_Memory_Face’ was not declared in this scope
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-utils-resources-683/es-core/src/resources/Font.cpp:37:17: error: ‘FT_Set_Pixel_Sizes’ was not declared in this scope
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-utils-resources-683/es-core/src/resources/Font.cpp:45:17: error: ‘FT_Done_Face’ was not declared in this scope
+rc=0 resources/ResourceManager.cpp
+rc=1 resources/TextureData.cpp
+    /home/max/Development/emulationstation-next.worktrees/m6-es-core-utils-resources-683/es-core/src/resources/TextureData.cpp:12:10: fatal error: vlc/vlc.h: No such file or directory
+rc=0 resources/TextureDataManager.cpp
+rc=0 resources/TextureResource.cpp
+rc=0 utils/FileSystemUtil.cpp
+rc=0 utils/HtmlColor.cpp
+rc=0 utils/MathExpr.cpp
+rc=0 utils/OfflineProxyUrl.cpp
+rc=0 utils/Platform.cpp
+rc=0 utils/Randomizer.cpp
+rc=0 utils/StringListLock.cpp
+rc=0 utils/StringUtil.cpp
+rc=0 utils/ThreadPool.cpp
+rc=0 utils/TimeText.cpp
+rc=0 utils/TimeUtil.cpp
+rc=0 utils/ZipFile.cpp
+rc=0 utils/md5.cpp
+t35-syntax-check: 25 file(s) checked, 20 rc 0, 5 not
+t35-syntax-check: expected 44 files, checked 25

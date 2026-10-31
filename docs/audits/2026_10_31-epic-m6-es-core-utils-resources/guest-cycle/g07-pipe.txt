@@ -1,0 +1,10 @@
+# G-07 part 2: the pipe under the image's shell, and the launch wrapper 2026-10-31T23:12:35Z
+== the pipe literal (head -300) for 400 and 200000 lines
+seq 400 rc=0
+seq 200000 rc=255
+== runemu.sh redirects
+101:LOG_FILE="exec.log"
+107:OUTPUT_LOG="${LOG_DIRECTORY}/${LOG_FILE}"
+145:                redact_credentials "${SCRIPT_NAME}: $*" 2>&1 | tee -a ${LOG_DIRECTORY}/${LOG_FILE}
+552:        "${ROMNAME}" &>>${OUTPUT_LOG}
+561:        eval ${RUNTHIS} &>>${OUTPUT_LOG}

@@ -1,0 +1,22 @@
+# G-01 identity, read 2026-10-31T23:12:03Z
+== os-release
+VERSION="0.0.1-dev+20261022T235948Z.g069fc2704421"
+BUILD_ID="069fc270442134fe771258418adf4e666e0473fb"
+== fbset
+mode "640x480-0"
+	geometry 640 480 640 480 32
+endmode
+== themes
+[1;34mDefault[m                 [1;34mEmacs[m                   [1;34mes-theme-art-book-next[m
+== ttf (head)
+/usr/share/daphne/fonts/daphne.ttf
+/usr/share/daphne/fonts/default.ttf
+/usr/share/daphne/fonts/digital.ttf
+/usr/share/daphne/fonts/timewarp.ttf
+/usr/share/fonts/liberation/LiberationMono-Bold.ttf
+== ldd grep
+	libfreetype.so.6 => /usr/lib/libfreetype.so.6 (0x00007f8558c65000)
+	libvlc.so.5 => /usr/lib/libvlc.so.5 (0x00007f8558b1a000)
+	libvlccore.so.9 => /usr/lib/libvlccore.so.9 (0x00007f8557b9a000)
+== ldd count
+3

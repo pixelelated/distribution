@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "depth": "independent",
+  "scope": "epic",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "claude-opus-4-8",
+    "lab": "anthropic",
+    "identity_source": "the coordinator's dispatch on #683 (comment 6546167223) names the T1 session (m6-t1-os-launch) and the session's own model metadata"
+  },
+  "reviewers": [
+    {
+      "member": "gpt",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "max",
+      "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
+      "allow_fallbacks": false,
+      "probes": [ { "phase": "probe", "output": "gpt-probe.md" } ],
+      "calls": [ { "phase": "refutation", "output": "gpt-audit.md" } ],
+      "status": "probe PASS: http 200, served openai/gpt-6-astra by OpenAI at max, outcome success (gpt-probe.md.provenance.json); refutation launched 23:41Z, graded in 04 on return"
+    }
+  ],
+  "packet": { "file": "t36-packet.md", "manifest": "packet-manifest.json", "built_by": "tools/t36-packet.py", "bytes": 352038, "sha256": "c3b14889" },
+  "keyed_invokes": 2
+}

@@ -1,0 +1,38 @@
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:75:
+TEST CASE:  3.1 toUpper/toLower fold a 3-byte UTF-8 codepoint wrongly (StringUtil.cpp:357-362, :398-403) [L-01]
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:82: ERROR: CHECK( String::toUpper("\xE1\xBA\xA1") == "\xE1\xBA\xA0" ) is NOT correct!
+  values: CHECK( 
+tA == 
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:83: ERROR: CHECK( String::toLower("\xEF\xBC\xA1") == "\xEF\xBD\x81" ) is NOT correct!
+  values: CHECK( 
+y" == 
+===============================================================================
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:86:
+TEST CASE:  3.2 renameFile/copyFile return true over an absent source (FileSystemUtil.cpp:1451-1455, :1472-1474) [L-03]
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:90: ERROR: CHECK_FALSE( FileSystem::renameFile(s.at("nope"), s.at("dst"), false) ) is NOT correct!
+  values: CHECK_FALSE( true )
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:92: ERROR: CHECK_FALSE( FileSystem::copyFile(s.at("nope2"), s.at("dst2")) ) is NOT correct!
+  values: CHECK_FALSE( true )
+===============================================================================
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:96:
+TEST CASE:  3.3 writeAllText returns void and does not report a short write (FileSystemUtil.cpp:1429-1446) [L-04]
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:102: MESSAGE: writeAllText is void at the pin; a fix's CHECK_FALSE comes with #1186
+===============================================================================
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:105:
+TEST CASE:  3.4 readAllText/readAllLines read a file under three bytes as empty (FileSystemUtil.cpp:1369-1427) [L-02]
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:110: ERROR: CHECK( FileSystem::readAllText(p) == "1\n" ) is NOT correct!
+  values: CHECK(  == 1
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:111: ERROR: CHECK( FileSystem::readAllLines(p).size() == 1 ) is NOT correct!
+  values: CHECK( 0 == 1 )
+===============================================================================
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:117:
+TEST CASE:  3.26 removeFile leaves the deleted path cached as present (FileSystemUtil.cpp:1059-1087) [L-19, new]
+/workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:126: ERROR: CHECK( FileSystem::exists(p) == false ) is NOT correct!
+  values: CHECK( true == false )
+===============================================================================
+[doctest] test cases: 15 | 11 passed | 4 failed | 0 skipped
+[doctest] assertions: 48 | 41 passed | 7 failed |
+[doctest] Status: FAILURE!
