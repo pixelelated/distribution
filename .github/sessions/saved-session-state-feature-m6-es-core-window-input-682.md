@@ -81,3 +81,4 @@ or a guest outside the one granted window.
 - stage E S6 done, 2026-10-31 21:13 UTC: ES f5a698915 on origin; window-input-tests 27 cases, 1 failed (3.19), may_fail 1; next S7 (PL-27 #1343, PL-28 if its TSan shows the race).
 - stage E S7 done, 2026-10-31 21:24 UTC: ES 425fbd4af on origin; PL-28 filed #1356; log-tests 2/0; TOTAL 279 in 8 binaries; next S8 (PL-11 #1351, PL-12 #1352, PL-16 #1353).
 - stage E S8 done, 2026-10-31 21:31 UTC: ES d0e5b3432 on origin; the unit build rc 0, TOTAL 283 in 8 binaries, may_fail 1; next stages F, G, H.
+- stages F and G done, 2026-10-31 21:37 UTC: Phase 7 at 53113b8bfa; the retro posted (#682 comment 6549449227); next stage H, the hand-back.

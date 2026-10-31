@@ -346,3 +346,10 @@
 - **`tools/lint-audit-artifacts <folder>`** passes on its default `resolution` phase, and with `--issue 1337`.
 - **`02` § Positives** gains stage E's: the build at S8's tip exits 0 (`TOTAL: 283 test cases in 8 binaries`, `may_fail: 1`, every `SAN` line rc 0), the seven candidates' FAIL-then-PASS, and the script's two guards.
 - **#1337's checkboxes** are ticked against the committed `05` rows (next).
+
+## [Stage G] 21:35 to 21:37 UTC 2026-10-31 — the retro, with time to play
+
+- **`docs/retros/2026-10-31-m6-es-core-window-input.md`**, posted whole on #682 (comment 6549449227), its heading's time from `date -u` in the posting command. It carries the four questions, time to play, what T36 and T37 inherit, the scoped audit and the practice adjustments.
+- **Time to play:** stream by stream, nothing lengthens the launch path. The two numbers are `CANNOT` here (no guest after stage C's window, the fixes in no image yet) and are for `tools/time-to-play` on the integration image. The last figure on record is `docs/vm-qa-log.md:171`, and the window's one reading is the startup card's ~100 s (#1345).
+- **The cornerstone read:** `git diff --name-only b51dd8a805 HEAD -- packages projects tools` prints nothing (`b51dd8a805`, the dispatch merge).
+- **Two friction lines, written late** (`docs/friction-log.md`): S2's stale extracts and S4's message headers, each with its guard. They should have been written when each slowed the work, and were not.
