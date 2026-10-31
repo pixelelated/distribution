@@ -37,6 +37,16 @@ SPECS = [  # name, file, first, last, the first line holds, the last line holds
     ("fm_trunc", "FavoriteMusicManager.cpp", 115, 115, "std::ofstream ofs(favoritesFile, std::ios::trunc);", "std::ios::trunc"),
     ("mame_ops", "MameNames.cpp", 38, 51, "static ArcadeRomType& operator |=(ArcadeRomType& a, ArcadeRomType b)", "}"),
     ("mame_roms", "MameNames.cpp", 60, 124, "// Read mame games information", "}"),
+    # S1 (stage E, ruling 5; #1342): the accelerator, and the drive dialogs' calls read as text.
+    # D-WORKFLOW-210: at the pin the calls were 1568-1578, 1583-1586, 1623-1625, 1630-1640 and
+    # 1645-1648; S1's ES commit 56aa398b8 adds a comment line above three of them, so the tip's
+    # ranges below hold the same calls with the labels reordered (s1-before.txt ran the pin's).
+    ("mb_accel", "guis/GuiMsgBox.cpp", 116, 134, "// set accelerator automatically", "}"),
+    ("dlg_game_id", "Window.cpp", 1569, 1579, "auto* msg = new GuiMsgBox(this, message,", ");"),
+    ("dlg_game", "Window.cpp", 1584, 1587, "auto* msg = new GuiMsgBox(this, message,", ");"),
+    ("dlg_sure", "Window.cpp", 1624, 1626, 'this->pushGui(new GuiMsgBox(this, _("ARE YOU SURE?"),', "formatLambda));"),
+    ("dlg_new_id", "Window.cpp", 1632, 1642, "auto* msg = new GuiMsgBox(this, message,", ");"),
+    ("dlg_new", "Window.cpp", 1648, 1651, "auto* msg = new GuiMsgBox(this, message,", ");"),
 ]
 got = {}
 for name, f, a, b, first, last in SPECS:

@@ -742,6 +742,8 @@ generated, asserted: 51 headers' reach, 12 guard macros, 44 `.cpp` named once, 2
 | S0: the unit build at the pin (`stage-e/s0-floor.txt`) | 1 (window-input-tests' seven candidates, by design) | 49 s | `TOTAL: 260 test cases in 7 binaries` | the rapidjson root re-made from the source cache's tarball with the package's two header patches (document.h a8c29c92d1e89279, stage C's); the pugixml root printed |
 | S0: 3.2's own `SAN` line at the pin (the brief's figure 2) | 0 | in the build | `SAN asan-watchers (-fsanitize=address): rc 0; no sanitizer report` | the line the stage-C record lacked |
 | S0: 3.1's figure at the pin (the brief's figure 1) | -- | -- | `ResetComponent returned after 1495 ms` | 1,496 ms in `stage-c/build-tests.out`; the 1,491 ms the stage-C record quoted was the first direct run's console line, not kept; the records now quote the kept lines |
+| S1 before (`stage-e/s1-before.txt`, at the pin, before the fix, ES `16dbac521`) | 1 | in the build | `window-input-tests`: `16 cases, 6 passed, 10 failed`; `TOTAL: 266 test cases in 7 binaries` | the stream's cases failing: S1 back on GAME DRIVE DETECTED with an id; S1 back on NEW DRIVE DETECTED with an id; S1 back on NEW DRIVE DETECTED without an id; `SAN tsan-posts` rc 66; `SAN tsan-watchers` rc 66; `SAN asan-watchers` rc 0 |
+| S1 after (`stage-e/s1-after.txt`, at the tip 56aa398b8, after the fix, ES `56aa398b8`) | 1 | in the build | `window-input-tests`: `16 cases, 9 passed, 7 failed`; `TOTAL: 266 test cases in 7 binaries` | the stream's cases all pass; S1 back on GAME DRIVE DETECTED with an id; S1 back on NEW DRIVE DETECTED with an id; S1 back on NEW DRIVE DETECTED without an id no longer fail; `SAN tsan-posts` rc 66; `SAN tsan-watchers` rc 66; `SAN asan-watchers` rc 0 |
 
 **Still owed:**
 
@@ -779,12 +781,20 @@ generated, asserted: 25 run blocks, 9 generators with three drifts each
 
 ## The streams
 
-Stage E: **written by the coordinator after stage D**, as for T21, T26, T32, T33 and T34. The lane leaves this heading and puts the following to the pause:
+**Stage E, as the coordinator's stream brief orders it** (`docs/reviews/briefs/t35-streams.md` at `0f9f8f69fe` on the coordinator's branch; twenty-one rulings, D-UI-134 to D-UI-137, Backlogs #1344 to #1347). One row per stream, written as each lands; each before and after line is the build script's own (`stage-e/sN-before.txt`, `sN-after.txt`), asserted by `tools/t35-runs.py` in § The runs, and each stream's other checks are `stage-e/sN-checks.txt`. Every guest half is `fix-walk-pending-image`: the coordinator's, at the integration window, on the image that carries the fix.
 
-- **Four register rows expected** (brief § 9), each put to the coordinator and none decided by the lane: F-ES-24's toast behind a long card; the re-queued toast's duration (L-01, 3.14; the order itself is D-UI-093's, already decided, so the pause rules only whether the fix lands); the second `BUTTON_GRID_HORIZ_PADDING` (L-13); and the CLEAR without a question (L-14).
-- **Rule-6 candidates, contained:** L-01 (pop the front), L-03 (take the lock), L-10 (log `item`), L-11 (probe outside the list lock, #1283's es-core half), L-24 (a stack event), L-06's `es_input.cfg` through `AtomicFile`, and L-07's read with `exists(path, false)` once 3.11 has run.
-- **The collision:** T34's `s2-window.patch` (#1310), which changes `createAsyncNotificationComponent`'s return. It touches 10 es-app callers in five lanes and the three doubles, so § 1 i names it in the hand-back.
-- **#1305:** the window's half (a start the top page can refuse) beside T33's and T2's halves, named for their owners.
+| Stream | Items and bugs | Positive before | ES commit | Positive after | `Already written:` | proved: | The guest half; patches and collisions |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| S1 | PL-15, #1342 (ruling 5) | the drive dialogs' cases (`tools/t35-window-input-tests.cpp`, the pin's accelerator `guis/GuiMsgBox.cpp:116-134` over each call's labels read from `Window.cpp`): back binds YES, MERGE DRIVE on GAME DRIVE DETECTED with an id and YES, FORMAT & MERGE on both NEW DRIVE DETECTED forms -- `window-input-tests` 16 cases, 10 failed (the seven candidates and these three); 3.18 and the two NO-by-name guards PASS | `56aa398b8` (`Window.cpp`, 9 insertions, 6 deletions; the labels and their lambdas reordered, no word changed) | 16 cases, 7 failed (the seven candidates only): back binds NO, IGNORE THIS TIME (both with-id forms), NO, IGNORE, and NO by name; the stand-in 44 of 44; the lane's count 2 three-button calls without OK or NO in the 96, both now ending on the safe choice (es-app's 3 for #1344) | #1342's: a merge already applied by a back press is persisted for future boots and is indistinguishable from one chosen on purpose -- nothing migrated; the fix changes the dialog, not what an earlier press wrote | `fix-unit-test` | `fix-walk-pending-image`: `POST /storage/event` with a `REQUEST_MERGE` line, then `z`; a frame with the dialog closed and no `Merge requested` toast, and no merge request in the journal, at 640x480 and 1280x800 in English and French (the flow step: the drive dialog's back). No patch; no collision (`GuiMsgBox.cpp` untouched, so T34's `s3-msgbox.patch` is unaffected) |
+
+At stage B the lane left this heading for the pause with the following, which the brief's rulings now dispose:
+
+> Stage E: **written by the coordinator after stage D**, as for T21, T26, T32, T33 and T34. The lane leaves this heading and puts the following to the pause:
+>
+> - **Four register rows expected** (brief § 9), each put to the coordinator and none decided by the lane: F-ES-24's toast behind a long card; the re-queued toast's duration (L-01, 3.14; the order itself is D-UI-093's, already decided, so the pause rules only whether the fix lands); the second `BUTTON_GRID_HORIZ_PADDING` (L-13); and the CLEAR without a question (L-14).
+> - **Rule-6 candidates, contained:** L-01 (pop the front), L-03 (take the lock), L-10 (log `item`), L-11 (probe outside the list lock, #1283's es-core half), L-24 (a stack event), L-06's `es_input.cfg` through `AtomicFile`, and L-07's read with `exists(path, false)` once 3.11 has run.
+> - **The collision:** T34's `s2-window.patch` (#1310), which changes `createAsyncNotificationComponent`'s return. It touches 10 es-app callers in five lanes and the three doubles, so § 1 i names it in the hand-back.
+> - **#1305:** the window's half (a start the top page can refuse) beside T33's and T2's halves, named for their owners.
 
 ## Positives
 
@@ -809,6 +819,10 @@ One line per upstream-carried defect closed under rule 6, in the lane's shape, *
 - `es-core/src/InputManager.cpp:795`: a `new SDL_Event` per F4 press, never freed. Fix: a stack event.
 - `es-core/src/guis/GuiTextEditPopupKeyboard.cpp:14`: the second `BUTTON_GRID_HORIZ_PADDING`, **only if** the pause deletes or renames it.
 - **No line** for the controllers blob: at the pin it carries no device name (L-20, contradicted).
+
+**Stage E's lines, each stream's `git log -S` saying whose the line is** (ruling 19; never sent, the coordinator posts them after acceptance):
+
+- **S1, PL-15 (#1342):** `es-core/src/Window.cpp:1568-1578`, `:1630-1648` (`rocknix/master`): GAME DRIVE DETECTED and NEW DRIVE DETECTED list NO, IGNORE THIS TIME / NO, IGNORE FOREVER / YES, MERGE DRIVE (or YES, FORMAT & MERGE), and no name is OK or NO, so `GuiMsgBox`'s back falls through to the last button: a merge kept for future boots, or the format's confirmation. Fix: YES first and the choice that changes nothing last, no word changed. Evidence: the drive dialogs' cases. Whose: `git log -S'NO, IGNORE THIS TIME'` names `a8513aec1` and `eeaa8616a` (Daniel Martin, 2026-03-24 and 2025-12-08), both ancestors of `cada856d86`: upstream ROCKNIX's.
 
 ## What T36 and T37 inherit
 

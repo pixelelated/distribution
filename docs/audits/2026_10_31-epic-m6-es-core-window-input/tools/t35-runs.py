@@ -146,6 +146,33 @@ ste = [
     ["S0: 3.2's own `SAN` line at the pin (the brief's figure 2)", m0_as.group(1) if m0_as else "--", "in the build", f"`SAN asan-watchers (-fsanitize=address): rc 0; {m0_as.group(2)}`" if m0_as else "--", "the line the stage-C record lacked"],
     ["S0: 3.1's figure at the pin (the brief's figure 1)", "--", "--", f"`ResetComponent returned after {m0_ms.group(1)} ms`" if m0_ms else "--", "1,496 ms in `stage-c/build-tests.out`; the 1,491 ms the stage-C record quoted was the first direct run's console line, not kept; the records now quote the kept lines"],
 ]
+# The streams' before/after pairs (stage-e/sN-before.txt at the pin or the previous
+# stream's tip, sN-after.txt at the stream's tip): window-input-tests' line, the cases
+# that failed by name, the TOTAL line and the SAN lines, each asserted.
+STREAMS = {  # stream: (cases, failed before, failed after, the failing names gone after, TOTAL)
+    "S1": (16, 10, 7, ["S1 back on GAME DRIVE DETECTED with an id", "S1 back on NEW DRIVE DETECTED with an id", "S1 back on NEW DRIVE DETECTED without an id"], ("266", "7")),
+}
+for sn, (cases, fb, fa, gone, tot) in STREAMS.items():
+    got = {}
+    for ph in ("before", "after"):
+        t = rd(f"stage-e/{sn.lower()}-{ph}.txt")
+        w = re.search(r"^RUN window-input-tests: rc (\d+); \[doctest\] test cases: +(\d+) \| +(\d+) passed \| +(\d+) failed", t, re.M)
+        tt = re.search(r"^TOTAL: (\d+) test cases in (\d+) binaries$", t, re.M)
+        head = re.search(r"^# \S+, (.*?)\. ES HEAD ([0-9a-f]{40})", t, re.M)
+        names = set(re.findall(r"^    TEST CASE:  (.*)$", t, re.M))
+        sanl = re.findall(r"^SAN (\S+) \(-fsanitize=(\w+)\): rc (\d+); (.*?)(?: \(pid=\d+\))?$", t, re.M)
+        got[ph] = (w, tt, head, names, sanl)
+        want = fb if ph == "before" else fa
+        if not (w and int(w.group(2)) == cases and int(w.group(4)) == want): fail.append(f"{sn} {ph}: window-input-tests {w and w.groups()}, expected {cases} cases, {want} failed")
+        if not (tt and tt.groups() == tot): fail.append(f"{sn} {ph}: TOTAL {tt and tt.groups()}, expected {tot}")
+        for g in gone:
+            hit = any(n.startswith(g) for n in names)
+            if ph == "before" and not hit: fail.append(f"{sn} before: {g!r} not seen failing")
+            if ph == "after" and hit: fail.append(f"{sn} after: {g!r} still failing")
+    for ph, (w, tt, head, names, sanl) in got.items():
+        ste.append([f"{sn} {ph} (`stage-e/{sn.lower()}-{ph}.txt`, {head.group(1) if head else '--'}, ES `{head.group(2)[:9] if head else '--'}`)", w.group(1) if w else "--", "in the build",
+                    f"`window-input-tests`: `{w.group(2)} cases, {w.group(3)} passed, {w.group(4)} failed`; `TOTAL: {tt.group(1)} test cases in {tt.group(2)} binaries`" if (w and tt) else "--",
+                    ("the stream's cases failing: " if ph == "before" else "the stream's cases all pass; ") + "; ".join(sorted(g for g in gone)) + ("" if ph == "before" else " no longer fail") + "; " + "; ".join(f"`SAN {n}` rc {rc}" for n, f_, rc, _ in sanl)])
 print("\n**Stage E's runs** (read from their records, each figure asserted):\n")
 print(table(["Run", "Exit", "Wall", "Figure", "Note"], ste))
 print("\n**Still owed:**\n")

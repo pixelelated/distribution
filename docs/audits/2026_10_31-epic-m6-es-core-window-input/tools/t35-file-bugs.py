@@ -2,14 +2,16 @@
 each body carries its code trace, the positive before the fix, what reading cannot prove,
 the VM line, the acceptance criteria (agent-verifiable, D-QA-044) and its `Already
 written:` line (D-WORKFLOW-050). Writes the body files under <out dir> and, with --file,
-files each with gh and prints `PL-nn #N`.
-    t35-file-bugs.py <out dir> [--file]"""
+files each with gh and prints `PL-nn #N`. Stage E (ruling 15) adds the fixed items that had
+no bug; `--only PL-a,PL-b` writes and files those alone, so a filed bug is never filed twice.
+    t35-file-bugs.py <out dir> [--file] [--only PL-a,PL-b]"""
 import os
 import subprocess
 import sys
 
 OUT = sys.argv[1]
 FILE = "--file" in sys.argv
+ONLY = set(sys.argv[sys.argv.index("--only") + 1].split(",")) if "--only" in sys.argv else None
 AUD = "docs/audits/2026_10_31-epic-m6-es-core-window-input"
 TAIL = "Refs #682, #1337"
 B = [
@@ -75,6 +77,84 @@ B = [
      ["a `Log.cpp` case built by `tools/t35-build-tests.sh` enqueues lines while `close()` runs and finds every one of them in the file afterwards",
       "a ThreadSanitizer program over `close()` and the worker reports no race on `mShutdown` (`SAN ... rc 0; no sanitizer report`)"],
      "the log (`es_log.txt`) is rewritten at each start and nothing reads it back; what earlier exits lost was never written -- nothing inherited to read or migrate."),
+    # Stage E, ruling 15 (#682 comment 6545778560's brief, t35-streams.md): the items a stream fixes that had no bug.
+    ("PL-08", "Bug: EmulationStation: es_input.cfg and es_last_input.cfg are rewritten in place, so a cut write leaves a short file (T35 PL-08)",
+     "`InputManager.cpp:1225`, `:1232` (`writeDeviceConfig` `:1179-1240`; the hot-plug write `:605`); `utils/AtomicFileUtil.h:30-42` (T21's `AtomicFile::writeText`)",
+     "`writeDeviceConfig` saves the merged document with `doc.save_file(path)` (`:1225`) and the shareable copy with `lastdoc.save_file(lastpath)` (`:1232`). pugixml's `save_file` opens the destination for writing and truncates it before the first byte, so a write cut by power loss, a full card or a killed process leaves a short `es_input.cfg`. D-CLOUD-078 asks every writer to replace the last good state only after the new one is whole; the fork's `AtomicFile::writeText` (T21's, `AtomicFileUtil.h:42`: write a temporary, fsync, rename, fsync the directory; on failure the temporary is removed and the path untouched) is the house way, and `AtomicFile::` has 0 uses among the five writes the lane counted.",
+     "T35's audit of `es-core/**` as `rest` (#682): L-06, narrowed by the independent seat (a cut file reads as a parse error at load, and the next save keeps what pugixml salvaged plus this device); PL-08 in `" + AUD + "/05-punch-list.md` and #1337. Ruled at the stage-D pause (ruling 7): both input files through `AtomicFile::writeText`; the favourites file and the log recorded.",
+     "Read at the pin: both writes are `save_file` straight onto the destination. The case is written first in stage E's S6: the lifted `:1220-1232` with `AtomicFileUtil.cpp` linked, its bytes compared against `save_file`'s for one document, and a reader polling during repeated writes of a large document, which sees a short file at the pin.",
+     "how often a configuration's write is cut on a device in the field (a battery pulled while CONTROLLER MAPPING saves).",
+     "Yes -- host-only: the S6 case in `tools/t35-build-tests.sh` (the lifted lines and `AtomicFileUtil.cpp`). A cut write on a guest needs a kill timed inside `save_file`, which the case reproduces with a polling reader instead.",
+     ["a `window-input-tests` case shows the fixed write's bytes equal `save_file`'s for one document (the format on disk unchanged)",
+      "a case in which a reader polls the file during repeated writes of a large document sees only whole documents after the fix, and a short one at the pin (both run lines quoted)"],
+     "a cut `es_input.cfg` already on a device reads as a parse error at load and is rewritten at the next save with what pugixml salvaged plus this device -- read both: the fix writes the same bytes, whole, and does not repair what is there; `es_last_input.cfg` is read back by nothing in es-core or es-app, so nothing is inherited there."),
+    ("PL-09", "Bug: EmulationStation: the approximate input-match log reads the config node before it is assigned (T35 PL-09)",
+     "`InputManager.cpp:946`, `:960` (`loadInputConfig`'s two approximate passes, `:939-965`)",
+     "Both approximate passes log `configNode.attribute(\"deviceGUID\")` and `configNode.attribute(\"deviceName\")` one line before `configNode = item;`, while `configNode` is still the null node, so every `Approximative device found` line names no GUID and no name. The match itself works; the log line that is meant to say which entry was taken says nothing.",
+     "T35's audit (#682): L-10, with the covering case 3.10; PL-09 in `" + AUD + "/05-punch-list.md` and #1337. Upstream's lines, rule 6's contained fix (ruling 15).",
+     "`window-input-tests` (3.10, `InputManager.cpp:939-965` lifted verbatim): `ERROR: CHECK( im::logged[0].find(...) != std::string::npos )` at `:112` and `:117` -- no device named in either pass (`stage-c/build-tests.out:71-75`).",
+     "nothing more: the case runs the pin's lines, and the log is the only effect.",
+     "Yes -- host-only (3.10 in `tools/t35-build-tests.sh`).",
+     ["`window-input-tests`' 3.10 cases pass: the GUID pass's and the name pass's log lines each name the matched entry's GUID and name"],
+     "nothing inherited -- a log line, and the log is rewritten at each start; nothing reads an earlier one."),
+    ("PL-10", "Bug: EmulationStation: F4 leaks one SDL_Event per press (T35 PL-10)",
+     "`InputManager.cpp:792-800` (`:795`)",
+     "The F4 shortcut builds its quit event with `new SDL_Event()` and hands it to `SDL_PushEvent`, which copies the event into SDL's queue; the allocation is never freed. One event leaks per press.",
+     "T35's audit (#682): L-24; PL-10 in `" + AUD + "/05-punch-list.md` and #1337. Upstream's line, rule 6's contained fix (ruling 15).",
+     "Read at the pin (`:795`: `SDL_Event* quit = new SDL_Event();`, no `delete`). The case is written first in stage E's S6: the lifted `:792-800` with `SDL_Event`/`SDL_PushEvent` doubles under `-fsanitize=address`, where LeakSanitizer reports the event at the pin.",
+     "nothing more: the leak is one event per press, and F4 quits.",
+     "Yes -- host-only (the S6 sanitizer program in `tools/t35-build-tests.sh`).",
+     ["`tools/t35-build-tests.sh` prints the S6 leak program's `SAN` line at `rc 0; no sanitizer report` after the fix (LeakSanitizer's report at the pin quoted beside it)"],
+     "nothing inherited -- a leaked event lives in memory until exit; nothing is written."),
+    ("PL-11", "Bug: EmulationStation: the on-screen keyboard defines BUTTON_GRID_HORIZ_PADDING with a second value (T35 PL-11)",
+     "`guis/GuiTextEditPopupKeyboard.cpp:14`, `:220` against `components/MenuComponent.cpp:14` (T34's)",
+     "`BUTTON_GRID_HORIZ_PADDING` is `Renderer::getScreenWidth()*0.022` in the menu's button bar (`es-native-ui.md` § Spacing's house value, 14.08 px at 640) and `Renderer::getScreenWidth()*0.0052083333` in the keyboard (3.33 px), where `:220` uses a quarter of it as every key's inset. One name carries two meanings, and the next reader who reads the house rule's name in the keyboard is told the wrong value.",
+     "T35's audit (#682): L-13, with 3.19, and T34's PL-16; PL-11 in `" + AUD + "/05-punch-list.md` and #1337. Ruled at the stage-D pause (ruling 3, D-UI-135): the keyboard's inset gets its own name and keeps its value; the name is defined once, in `MenuComponent.cpp`.",
+     "`window-input-tests` (3.19 as stage C wrote it): `ERROR: CHECK( kbPad() == doctest::Approx(menuPad()) ) is NOT correct!` / `values: CHECK( 3.33333 == Approx( 14.08 ) )` (`stage-c/build-tests.out:84-86`). Under D-UI-135 the case is re-written first to assert the name is defined in one of the two files, which FAILs at the pin where both define it.",
+     "nothing more: the value stays; only the name changes.",
+     "Yes -- host-only (3.19 in `tools/t35-build-tests.sh`); the key grid is unchanged on screen, which the integration window's keyboard frame shows.",
+     ["`window-input-tests`' re-written 3.19 passes: `BUTTON_GRID_HORIZ_PADDING` is defined in `MenuComponent.cpp` alone, and the keyboard's inset constant keeps `0.0052083333`"],
+     "nothing inherited -- a padding is drawn, not stored."),
+    ("PL-12", "Bug: EmulationStation: CLEAR on the text popups commits an empty value in one press (T35 PL-12)",
+     "`guis/GuiTextEditPopupKeyboard.cpp:392-397` (the `x` button), `:491-496` (the CLEAR key); `guis/GuiTextEditPopup.cpp:34` (the CLEAR button)",
+     "On both text popups CLEAR calls `mOkCallback(\"\")` and closes the popup, and on the keyboard the `x` button does the same. One press therefore saves an empty value into whatever the popup edits -- the cloud folder, a host name, the Wi-Fi key -- with no question and no way back. `es-ui-style-guide.md` § Confirmations asks a consequential action to ask, and `least-surprise.md` expects CLEAR in a text editor to clear the text.",
+     "T35's audit (#682): L-14; PL-12 in `" + AUD + "/05-punch-list.md` and #1337. Ruled at the stage-D pause (ruling 4, D-UI-136): CLEAR empties the field and keeps the popup open; OK commits, CANCEL or back discards; no question and no new sentence. The change reaches every page that uses the two popups, upstream's included, as the surface's own behaviour.",
+     "Read at the pin (`:394`, `:493`, `GuiTextEditPopup.cpp:34`: `okCallback(\"\")` then `delete this`). The case is written first in stage E's S8: the lifted lines in a popup double, where CLEAR and `x` call the OK callback with an empty string at the pin. On the image the keyboard device's `s` typed into the field rather than acting as X (G-06), so the frame is owed to a pad or the CLEAR key.",
+     "which settings a player has emptied this way.",
+     "Yes -- host-only for the case; on a guest, G-06's walk to the cloud folder editor with the keyboard's CLEAR key pressed, then a frame of the field.",
+     ["a `window-input-tests` case shows CLEAR (both popups) and the keyboard's `x` empty the text and leave the popup open, with the OK callback not called",
+      "a guest frame after the keyboard's CLEAR key shows the field empty and the keyboard still open, and OK then commits (640x480 and 1280x800, English and French, frames labelled by side)"],
+     "a value an earlier CLEAR committed (an emptied folder path, host name or Wi-Fi key) is in the settings as the player left it -- read both: the fix changes what the next CLEAR does, not what one wrote, so an empty value reads as it does today."),
+    ("PL-16", "Bug: EmulationStation: the input configuration page's subtitle numbers the SDL device id, not the pad (T35 PL-16)",
+     "`guis/GuiInputConfig.cpp:128-136` (`:134`)",
+     "For a pad, the CONFIGURING page's subtitle formats `_(\"GAMEPAD %i\")` with `target->getDeviceId() + 1` (`:134`), upper-cased at `:136`. The SDL instance id grows with every plug-in, so a pad unplugged and plugged back in, or a third pad, reads GAMEPAD 3 or GAMEPAD 7 whatever pad is in the player's hand; the number matches nothing the player can see.",
+     "T35's audit (#682): L-17, with 3.21; PL-16 in `" + AUD + "/05-punch-list.md` and #1337. Ruled at the stage-D pause (ruling 14): the device's name, upper-cased by `:136`, falling back to a new msgid `GAMEPAD` with `MANETTE` in the same commit (D-UI-051).",
+     "Read at the pin (`:134`). The case is written first in stage E's S8: 3.21, the subtitle lifted as text, asserting the argument is the device's name; it FAILs at the pin (`getDeviceId() + 1`).",
+     "how SDL names the pads players own (the name is SDL's, from the pad).",
+     "Yes -- host-only for the case; on a guest, the detect page's hold (G-08) to CONFIGURING and a frame of the subtitle in English and French.",
+     ["`window-input-tests`' 3.21 passes: the subtitle's argument is the device's name, with `GAMEPAD` when the name is empty",
+      "`tools/es-untranslated` prints `0 without` on both of its lines with `GAMEPAD` / `MANETTE` in the French catalog",
+      "a guest frame of CONFIGURING shows the device's name as the subtitle, in English and French (frames labelled by side)"],
+     "nothing inherited -- a subtitle is drawn, not stored."),
+    ("PL-25", "Bug: EmulationStation: the help bar's dpad merge compares the wrong way (T35 PL-25)",
+     "`Window.cpp:1031-1041` (the compares `:1032-1033`; `setHelpPrompts` `:1005-1078`)",
+     "`setHelpPrompts` merges a dpad half into an existing prompt with the same action text when `it->first == \"up/down\" && addPrompts.at(...).first != \"left/right\"` (and the mirror). The `!=` merges when the existing prompt is anything but the other half: two complementary halves (`up/down` CHOOSE, `left/right` CHOOSE) stay as two prompts, and an unrelated prompt sharing the action text (an `a` CHOOSE) is replaced by `up/down/left/right`, so the help bar names a key that does not do what it says (D-UI-034).",
+     "T35's audit (#682): the independent seat's G-1, verified at the pin; PL-25 in `" + AUD + "/05-punch-list.md` and #1337. Upstream's lines, rule 6's contained fix (ruling 15).",
+     "Read at the pin (`:1032-1033`). The case is written first in stage E's S2: 3.16 over the lifted `:1005-1078`, with two complementary halves (merged at the fix) and an unrelated prompt with the same action text (kept at the fix); it FAILs at the pin.",
+     "which pages pass a dpad half and an `a` prompt with the same action text (es-app's).",
+     "Yes -- host-only for the case; on a guest, a list's help bar at 640x480 in French with the dpad prompt merged.",
+     ["`window-input-tests`' 3.16 cases pass: `up/down` and `left/right` with the same action merge into `up/down/left/right`, and an unrelated prompt sharing the action text is kept",
+      "a guest frame of a list's help bar at 640x480 in French shows the merged dpad prompt (frame labelled by side)"],
+     "nothing inherited -- the prompt list is built per page and kept nowhere."),
+    ("PL-26", "Bug: EmulationStation: a worker's post writes the window's idle state that the interface thread reads unlocked (T35 PL-26)",
+     "`Window.cpp:1284-1288` (`postToUiThread`) against `:540` (`update`), `:778` (`render`), `:1111` (`cancelScreenSaver`)",
+     "`postToUiThread` runs on worker threads and, under `mNotificationMessagesLock`, sets `mSleeping = false` and `mTimeSinceLastInput = 0`. The interface thread adds to `mTimeSinceLastInput` in `update` (`:540`), compares it in `render` (`:778`) and zeroes it in `cancelScreenSaver` (`:1111`) without that lock. A data race: the idle counter can be reset, kept or torn, so the screensaver may start or stay off for the wrong reason.",
+     "T35's audit (#682): the independent seat's G-2, verified at the pin; PL-26 in `" + AUD + "/05-punch-list.md` and #1337. Low: the consequence is an idle counter reset or kept.",
+     "Read at the pin. The case is written first in stage E's S2: `stage-c/tsan-posts.cpp` extended with `postToUiThread`'s writes against `update`'s read, which reports the race at the pin.",
+     "how often a post lands in the same frame as the idle check on a device.",
+     "Yes -- host-only (the ThreadSanitizer program in `tools/t35-build-tests.sh`).",
+     ["`tools/t35-build-tests.sh` prints `SAN tsan-posts (-fsanitize=thread): rc 0; no sanitizer report` with the idle-state extension in the program (its report at the pin quoted beside it)"],
+     "nothing inherited -- the idle counter and the sleep flag live in memory for the session."),
 ]
 
 
@@ -96,10 +176,12 @@ def body(t):
 
 os.makedirs(OUT, exist_ok=True)
 for t in B:
+    if ONLY is not None and t[0] not in ONLY:
+        continue
     open(os.path.join(OUT, t[0] + ".md"), "w").write(body(t))
     if FILE:
         r = subprocess.run(["gh", "issue", "create", "--repo", "pixelelated/distribution", "--title", t[1], "--label", "bug",
                             "--milestone", "M6: Codebase renovation", "--body-file", os.path.join(OUT, t[0] + ".md")], capture_output=True, text=True)
         url = (r.stdout.strip().split("\n") or [""])[-1]
         print(t[0], ("#" + url.rsplit("/", 1)[-1]) if r.returncode == 0 else ("FAILED " + r.stderr.strip()[:200]))
-print("t35-file-bugs: %d bodies written%s" % (len(B), ", filed" if FILE else ""))
+print("t35-file-bugs: %d bodies written%s" % (len([t for t in B if ONLY is None or t[0] in ONLY]), ", filed" if FILE else ""))

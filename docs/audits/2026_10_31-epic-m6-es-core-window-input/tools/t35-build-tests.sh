@@ -140,7 +140,7 @@ if [ -d "${X}" ]; then
   PX="${PUGIXML_INCLUDE_DIR:-${ES}/external}"
   [ -r "${PX}/pugixml/src/pugixml.hpp" ] || { echo "t35-build-tests: pugixml/src/pugixml.hpp not under PUGIXML_INCLUDE_DIR='${PX}'"; exit 2; }
   echo "pugixml (window-input-tests, floor-tests): ${PX} (pugixml.hpp $(sha256sum < "${PX}/pugixml/src/pugixml.hpp" | cut -c1-16))"
-  build window-input-tests -I "${X}" -I "${ES}/external" -I "${ES}/tests/app-unit/fakes" -I "${ES}/es-core/src" -I "${PX}" -- "${HERE}/t35-window-input-tests.cpp" "${ES}/es-core/src/watchers/WatchersManager.cpp" || true
+  build window-input-tests "-DT35_X=\"${X}\"" -I "${X}" -I "${ES}/external" -I "${ES}/tests/app-unit/fakes" -I "${ES}/es-core/src" -I "${PX}" -- "${HERE}/t35-window-input-tests.cpp" "${ES}/es-core/src/watchers/WatchersManager.cpp" || true
   # T35 (#682) stage E S0 (ruling 21): floor-tests, the floor cases no stream holds,
   # over their own lifts; the pin's InputConfig.h with SDL from stage-a/fakes.
   WT="${WT} floor-tests"
@@ -151,6 +151,8 @@ for t in ${WT}; do
   "${B}/${t}" > "${B}/${t}.run.log" 2>&1; rc=$?
   echo "RUN ${t}: rc ${rc}; $(grep -E '^\[doctest\] (test cases|assertions):' "${B}/${t}.run.log" | tr -s ' ' | tr '\n' ' ')"
   grep -E '^TEST CASE:|ERROR: CHECK|MESSAGE:|  values: CHECK|ResetComponent returned' "${B}/${t}.run.log" | sed 's/^/    /' | head -n 40
+  # every failing case by name, untruncated (stage E S1 on: the 40-line excerpt above can cut one)
+  grep -E '^TEST CASE:' "${B}/${t}.run.log" | sed 's/^TEST CASE: */    failing: /' | sort -u
   [ "${rc}" -eq 0 ] || FAIL=1
 done
 # T35 (#682): the two sanitizer programs (their sources under ../stage-c/), each run

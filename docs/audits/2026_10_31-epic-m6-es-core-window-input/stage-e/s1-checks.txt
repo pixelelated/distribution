@@ -1,0 +1,46 @@
+# S1 (PL-15, #1342; ruling 5): the checks. ES tip 56aa398b8 (origin), the distribution record at the commit that carries this file; 2026-10-31T16:25:18Z
+## the intent read (ruling 19): git log -S'NO, IGNORE THIS TIME' -- es-core/src/Window.cpp
+a8513aec1 2026-03-24 Daniel Martin fix missing includes & add merge prompt options
+eeaa8616a 2025-12-08 Daniel Martin add option to ignore formatting another drive which is used for something else - also provide more information about the drive for the format request
+a8513aec1 is an ancestor of cada856d86 (the merge base against rocknix/master): upstream ROCKNIX's order -> a #585 line
+eeaa8616a is an ancestor of cada856d86 (the merge base against rocknix/master): upstream ROCKNIX's order -> a #585 line
+## the files 16dbac521..56aa398b8 changes (nothing outside the 96; the French catalog only for a changed sentence)
+in the 96: es-core/src/Window.cpp
+ 1 file changed, 9 insertions(+), 6 deletions(-)
+## added lines' non-ASCII bytes in the .cpp/.h (+ lines of git diff -U0)
+non-ASCII added lines: 0
+## the stand-in over the 44 with the edit (stage-a/syntax-check.sh)
+rc=0 Window.cpp
+t35-syntax-check: 44 file(s) checked, 44 rc 0, 0 not
+## es-syntax-check: CANNOT on this host (the stand-in is the check)
+es-core/src/Window.cpp: es-syntax-check: no build root at /workspace/repos/rocknix.worktrees/generic-x64/build.ROCKNIX-GENERIC_X64.x86_64 (ES_BUILD_ROOT, --root) (rc=2)
+## the words (tools/es-untranslated against both bases, as stage A ran it)
+es-untranslated: 706 fork string(s) in the source, 706 with French, 0 without
+es-untranslated rc=0
+es-untranslated: 703 fork string(s) in the source, 703 with French, 0 without
+es-untranslated(cada) rc=0
+## the three doubles' headers untouched (Window.h, Log.h, LocaleES.h)
+lines changed: 0
+## the lane's count (ruling 5; the brief's figure 10): t35-msgbox-count.py over the 96
+### at the pin 16dbac5211
+es-core/src/Window.cpp:1568  _("NO, IGNORE THIS TIME") / _("NO, IGNORE FOREVER") / _("YES, MERGE DRIVE")  -> back: _("YES, MERGE DRIVE")
+es-core/src/Window.cpp:1630  _("NO, IGNORE THIS TIME") / _("NO, IGNORE FOREVER") / _("YES, FORMAT & MERGE")  -> back: _("YES, FORMAT & MERGE")
+es-core/src/Window.cpp:1645  _("NO, IGNORE") / _("YES, FORMAT & MERGE")  -> back: _("YES, FORMAT & MERGE") (two buttons)
+es-core/src/guis/GuiInputConfig.cpp:268  _("SET SELECT AS HOTKEY") / _("DO NOT ASSIGN HOTKEY")  -> back: _("DO NOT ASSIGN HOTKEY") (two buttons)
+t35-msgbox-count: 44 file(s) at 16dbac5211; 2 GuiMsgBox call(s) with three buttons, 2 with none named OK or NO
+t35-msgbox-count: 4 with two buttons, 2 with neither named OK or NO
+### at the tip 56aa398b8
+es-core/src/Window.cpp:1569  _("YES, MERGE DRIVE") / _("NO, IGNORE FOREVER") / _("NO, IGNORE THIS TIME")  -> back: _("NO, IGNORE THIS TIME")
+es-core/src/Window.cpp:1632  _("YES, FORMAT & MERGE") / _("NO, IGNORE FOREVER") / _("NO, IGNORE THIS TIME")  -> back: _("NO, IGNORE THIS TIME")
+es-core/src/Window.cpp:1648  _("YES, FORMAT & MERGE") / _("NO, IGNORE")  -> back: _("NO, IGNORE") (two buttons)
+es-core/src/guis/GuiInputConfig.cpp:268  _("SET SELECT AS HOTKEY") / _("DO NOT ASSIGN HOTKEY")  -> back: _("DO NOT ASSIGN HOTKEY") (two buttons)
+t35-msgbox-count: 44 file(s) at 56aa398b8; 2 GuiMsgBox call(s) with three buttons, 2 with none named OK or NO
+t35-msgbox-count: 4 with two buttons, 2 with neither named OK or NO
+### es-app at the pin, named for the coordinator's Backlog #1344 (never edited here)
+es-app/src/CloudOffer.cpp:51  _("CHANGE FOLDER") / _("CREATE ANYWAY") / _("NOT NOW")  -> back: _("NOT NOW")
+es-app/src/components/ScraperSearchComponent.cpp:468  _("RETRY") / _("SKIP") / _("CANCEL")  -> back: _("CANCEL")
+es-app/src/guis/GuiMetaDataEd.cpp:524  _("YES") / _("NO") / _("CANCEL")  -> back: the first OK/NO
+es-app/src/guis/GuiWifi.cpp:251  _("CONNECT") / _("FORGET") / _("CANCEL")  -> back: _("CANCEL")
+t35-msgbox-count: 114 file(s) at 16dbac5211; 4 GuiMsgBox call(s) with three buttons, 3 with none named OK or NO
+## the ES fork's .githooks/pre-push-test before the push
+PASS

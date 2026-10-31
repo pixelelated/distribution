@@ -131,3 +131,29 @@
 - **The rapidjson root was re-made.** T34's `/workspace/tmp/m6-t34/rj` is retired, and the first S0 run stopped at once (rc 2, *nothing built*). I extracted the source cache's `rapidjson-1.1.0.tar.gz` (sha256 `bf7ced29...`, matching its `.sha256`) into `/workspace/tmp/m6-t35/rj/` and applied the package's two header patches (`projects/ROCKNIX/packages/devel/rapidjson/patches/rapidjson-0002`, `-0003`). Its `document.h` hashes `a8c29c92d1e89279`, the same as stage C's root.
 - **`02`:** § The leads' floor rows show each run's result and `tool-run`; 3.16, 3.18, 3.21 and 3.23 stay `design` for S2, S1, S8 and S7. § The runs gains stage E's asserted rows. The drifts were re-run (9 clean at rc 0, 27 at rc 1), and the pre-issue lint with `--issue 1337` passes.
 - **Nothing in the ES worktree** (HEAD the pin, 0 status lines). No guest, no fetch, no keyed call.
+
+## [Stage E, before S1] 16:14 to 16:17 UTC 2026-10-31 — ruling 15's bugs
+
+- **Filed** with `tools/t35-file-bugs.py <out> --file --only ...` (the tool gained `--only`, so the six bugs filed at stage D are never filed again): PL-08 #1348, PL-09 #1349, PL-10 #1350, PL-11 #1351, PL-12 #1352, PL-16 #1353, PL-25 #1354, PL-26 #1355 (`stage-e/filed.txt`; bodies `stage-e/bugs/`). Each in #1338's shape: the code trace at the pin, the positive before, what reading cannot prove, the VM line, agent-verifiable criteria and `Already written:`.
+- **Checked:** `box-check --issue N` prints `0 fail` for each, and `forbidden-terms-check --stdin` over the eight bodies prints `0 hits`. All fourteen of T35's bugs are now sub-issues of #1337 (stage D's six had not been attached).
+- **Posted** in one line on #682 (comment 6545952298). PL-28's bug waits on ruling 10's ThreadSanitizer program, before S7.
+
+## [Stage E, S1] 16:17 to 16:26 UTC 2026-10-31 — PL-15 (#1342): back on the drive dialogs (ruling 5)
+
+- **The intent read first** (ruling 19): `git log -S'NO, IGNORE THIS TIME' -- es-core/src/Window.cpp` names `a8513aec1` and `eeaa8616a` (Daniel Martin, 2026-03-24 and 2025-12-08), both ancestors of `cada856d86`. The order is upstream ROCKNIX's, so a #585 line is owed (written in `02` § The #585 lines owed).
+- **The cases** (`tools/t35-window-input-tests.cpp`, `namespace mb`):
+  - The pin's accelerator `guis/GuiMsgBox.cpp:116-134` is lifted verbatim (`mb_accel`) into a box double whose buttons are built from each drive dialog's call. Each call is lifted as text (`dlg_game_id`, `dlg_game`, `dlg_sure`, `dlg_new_id`, `dlg_new`), and a label is a line that opens with `_("...")` and a comma.
+  - **3.18** runs the accelerator's three branches.
+  - `window-input-tests` is now built with `-DT35_X`, so it can read a lift as text.
+- **Before, at the pin** (`stage-e/s1-before.txt`, 49 s): `RUN window-input-tests: rc 1; [doctest] test cases: 16 | 6 passed | 10 failed`. The seven candidates fail, and so do the three drive cases: `values: CHECK( YES, MERGE DRIVE == NO, IGNORE THIS TIME )`, `values: CHECK( YES, FORMAT & MERGE == NO, IGNORE THIS TIME )`, and NEW DRIVE DETECTED without an id with NO, IGNORE first. 3.18, GAME DRIVE DETECTED without an id (NO by name) and ARE YOU SURE? (NO by name) pass. `TOTAL: 266 test cases in 7 binaries`.
+- **The fix,** ES `56aa398b8` (`Window.cpp`, 9 insertions, 6 deletions; on origin): each of the three calls lists YES first and the choice that changes nothing on this or a future boot last. Each lambda moves with its label, no word changes, and a one-line comment cites #1342. The fall-through, `:257` and ARE YOU SURE?'s NO / YES are untouched. The stand-in: `t35-syntax-check: 44 file(s) checked, 44 rc 0, 0 not`. `es-syntax-check` exits 2 on this host.
+- **After, at the tip** (`stage-e/s1-after.txt`, 42 s): `RUN window-input-tests: rc 1; [doctest] test cases: 16 | 9 passed | 7 failed`, and the failing cases are the seven candidates alone. `TOTAL: 266 test cases in 7 binaries`. The S1 cases run alone: `6 | 6 passed | 0 failed`.
+- **D-WORKFLOW-210:** the five dialog specs moved from the pin's 1568-1578, 1583-1586, 1623-1625, 1630-1640 and 1645-1648 to the tip's 1569-1579, 1584-1587, 1624-1626, 1632-1642 and 1648-1651. They hold the same calls, now reordered.
+- **The lane's count** (ruling 5; the brief's figure 10), by `tools/t35-msgbox-count.py`:
+  - In the 96: 2 three-button calls with none named OK or NO (the two with-id drive dialogs), and 2 two-button calls with neither (NEW DRIVE DETECTED without an id; `GuiInputConfig.cpp:268`'s hotkey question, whose back lands on DO NOT ASSIGN HOTKEY, which changes nothing).
+  - At the tip all three drive dialogs end on the safe choice.
+  - es-app at the pin: 4 three-button calls, 3 with none named OK or NO (`CloudOffer.cpp:51` back NOT NOW, `ScraperSearchComponent.cpp:468` back CANCEL, `GuiWifi.cpp:251` back CANCEL), named for #1344 and never edited here. The tool splits each call's arguments, skips comments, and counts buttons by argument count so a trailing icon is never read as a name.
+- **The checks** (`stage-e/s1-checks.txt`): one file changed, inside the 96; 0 non-ASCII added lines; `es-untranslated` 706 and 703 with French, 0 without; the three doubles' headers 0 lines changed; the ES `.githooks/pre-push-test` `PASS` before the push. Host-file START/END at both compiles.
+- **Time to play:** off the launch path (a drive event's dialog).
+- **The build script** now also prints every failing case by name, untruncated (`failing:`), because its 40-line excerpt can cut one. `tools/t35-runs.py` asserts each stream's before and after lines from `stage-e/sN-*.txt`.
+- **A slip, recorded:** the stand-in (`stage-a/syntax-check.sh`, `g++ -fsyntax-only` over the 44, about 11 s, between the two builds) ran without its own host-file START/END lines; only the two unit builds carry them. From S2 the stand-in runs through a wrapper that writes both.

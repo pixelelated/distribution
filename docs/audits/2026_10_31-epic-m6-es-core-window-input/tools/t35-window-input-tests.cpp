@@ -10,7 +10,9 @@
 #include <atomic>
 #include <chrono>
 #include <cstdio>
+#include <fstream>
 #include <functional>
+#include <memory>
 #include <map>
 #include <optional>
 #include <set>
@@ -238,4 +240,97 @@ TEST_CASE("3.1 ResetComponent from another thread does not wait for a running pr
 	CHECK(ms < 300);
 	WatchersManager::UnregisterComponent(&w);
 	WatchersManager::stop();
+}
+
+// ---- S1, PL-15 (#1342): back on the drive dialogs; 3.18 the accelerator ------
+// The pin's accelerator (guis/GuiMsgBox.cpp:116-134) runs over buttons built
+// from the labels each drive dialog's call passes, read in order from the
+// call's own lines (Window.cpp, lifted as text): a label is a line that opens
+// with _("...") and a comma, as every name argument in those calls does.
+namespace mb
+{
+	static std::string _(const std::string& s) { return s; }
+	namespace Utils { namespace String {
+		static std::string toUpper(const std::string& s) { std::string r = s; for (auto& c : r) c = (char)toupper((unsigned char)c); return r; }
+	} }
+	struct Button
+	{
+		std::string t; std::function<void()> f;
+		std::string getText() const { return t; }
+		std::function<void()> getPressedFunc() const { return f; }
+	};
+	struct Box
+	{
+		std::vector<std::shared_ptr<Button>> mButtons;
+		std::function<void()> mAcceleratorFunc;
+		std::string pressed;
+		explicit Box(const std::vector<std::string>& labels)
+		{
+			for (auto& l : labels)
+				mButtons.push_back(std::make_shared<Button>(Button{ l, [this, l] { pressed = l; } }));
+			#include "x_mb_accel.inc"
+		}
+		std::string back() { pressed.clear(); if (mAcceleratorFunc) mAcceleratorFunc(); return pressed; }
+	};
+	static std::vector<std::string> labels(const std::string& inc)
+	{
+		std::ifstream in(std::string(T35_X) + "/" + inc);
+		std::vector<std::string> out;
+		std::string line;
+		while (std::getline(in, line))
+		{
+			auto i = line.find_first_not_of(" \t");
+			if (i == std::string::npos || line.compare(i, 3, "_(\"") != 0)
+				continue;
+			auto e = line.find("\")", i + 3);
+			if (e != std::string::npos && line.find(',', e) != std::string::npos)
+				out.push_back(line.substr(i + 3, e - i - 3));
+		}
+		return out;
+	}
+	static std::string backOn(const std::string& inc) { Box b(labels(inc)); return b.back(); }
+}
+
+TEST_CASE("3.18 the accelerator's three branches: the only button, the first named OK or NO, else the last (guis/GuiMsgBox.cpp:116-134; recorded)")
+{
+	CHECK(mb::Box({ "CLOSE" }).back() == "CLOSE");
+	CHECK(mb::Box({ "YES", "NO", "MAYBE" }).back() == "NO");
+	CHECK(mb::Box({ "ok", "CANCEL" }).back() == "ok");
+	CHECK(mb::Box({ "A", "B", "C" }).back() == "C");
+}
+
+TEST_CASE("S1 back on GAME DRIVE DETECTED with an id lands on NO, IGNORE THIS TIME, with YES first (Window.cpp's call through guis/GuiMsgBox.cpp:116-134; PL-15, #1342)")
+{
+	auto l = mb::labels("x_dlg_game_id.inc");
+	REQUIRE(l.size() == 3);
+	CHECK(l.front().rfind("YES", 0) == 0);
+	CHECK(mb::backOn("x_dlg_game_id.inc") == "NO, IGNORE THIS TIME");
+}
+
+TEST_CASE("S1 back on NEW DRIVE DETECTED with an id lands on NO, IGNORE THIS TIME, with YES first (PL-15, #1342)")
+{
+	auto l = mb::labels("x_dlg_new_id.inc");
+	REQUIRE(l.size() == 3);
+	CHECK(l.front().rfind("YES", 0) == 0);
+	CHECK(mb::backOn("x_dlg_new_id.inc") == "NO, IGNORE THIS TIME");
+}
+
+TEST_CASE("S1 back on NEW DRIVE DETECTED without an id lands on NO, IGNORE, with YES first (PL-15, #1342)")
+{
+	auto l = mb::labels("x_dlg_new.inc");
+	REQUIRE(l.size() == 2);
+	CHECK(l.front().rfind("YES", 0) == 0);
+	CHECK(mb::backOn("x_dlg_new.inc") == "NO, IGNORE");
+}
+
+TEST_CASE("S1 back on GAME DRIVE DETECTED without an id binds NO by name (PL-15, #1342; the guard, PASS at the pin)")
+{
+	REQUIRE(mb::labels("x_dlg_game.inc").size() == 2);
+	CHECK(mb::backOn("x_dlg_game.inc") == "NO");
+}
+
+TEST_CASE("S1 back on ARE YOU SURE? binds NO by name (ruling 5: stays NO / YES; recorded)")
+{
+	REQUIRE(mb::labels("x_dlg_sure.inc").size() == 2);
+	CHECK(mb::backOn("x_dlg_sure.inc") == "NO");
 }
