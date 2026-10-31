@@ -123,3 +123,82 @@ TEST_CASE("3.26 a button bar fits the menu at 640 (MenuComponent.cpp:543-562)") 
 	CHECK(barWidth(four) <= menu);
 	CHECK(barWidth(five) <= menu);
 }
+
+// ---- S0 (stage E): the floor cases no stream's file holds, run at the pin ----
+namespace Math { template <typename T> T min(T a, T b) { return a < b ? a : b; } }
+struct Vec2f { float v[2]; Vec2f(float a = 0, float b = 0) { v[0] = a; v[1] = b; } float x() const { return v[0]; } float y() const { return v[1]; }
+	float& operator[](int i) { return v[i]; } Vec2f& operator+=(const Vec2f& o) { v[0] += o.v[0]; v[1] += o.v[1]; return *this; } };
+
+// 3.11: TextListComponent.h:262-269, the visible range in render.
+struct TextListRange {
+	float mCameraOffset = 0, rowH = 20; int mLineCount = 0; Vec2f mSize; std::vector<int> mEntries;
+	float getRowHeight() const { return rowH; } int size() const { return (int)mEntries.size(); }
+	struct R { int startEntry, screenCount, lastEntry, listCutoff; };
+	R range() {
+#include "x_textlist_range.inc"
+		return R{startEntry, screenCount, lastEntry, listCutoff};
+	}
+};
+TEST_CASE("3.11 the text list draws one row past its cutoff, never past the list (TextListComponent.h:262-269)") {
+	TextListRange a; a.mSize = Vec2f(300, 480); a.mEntries.assign(100, 0);
+	auto r = a.range(); CHECK(r.screenCount == 24); CHECK(r.lastEntry == 25); CHECK(r.listCutoff == 24);
+	TextListRange b; b.mSize = Vec2f(300, 480); b.mEntries.assign(10, 0);
+	auto q = b.range(); CHECK(q.lastEntry == 10); CHECK(q.listCutoff == 10);
+}
+
+// 3.29: TextListComponent.h:593-607, updateCameraOffset.
+struct TextListCamera {
+	float mCameraOffset = -1, rowH = 20; Vec2f mSize; std::vector<int> mEntries; int mCursor = 0;
+	float getRowHeight() const { return rowH; }
+	void update() {
+#include "x_textlist_camera.inc"
+	}
+};
+TEST_CASE("3.29 the game list's camera: the last row at the bottom, a short list at 0 (TextListComponent.h:591-608)") {
+	TextListCamera c; c.mSize = Vec2f(300, 480); c.mEntries.assign(100, 0); c.mCursor = 99; c.update();
+	CHECK(c.mCameraOffset == doctest::Approx(100 * 20 - 480));
+	TextListCamera s; s.mSize = Vec2f(300, 480); s.mEntries.assign(10, 0); s.mCursor = 9; s.update();
+	CHECK(s.mCameraOffset == doctest::Approx(0));
+	TextListCamera n; n.mSize = Vec2f(300, 480); n.mEntries.assign(100, 0); n.mCursor = -1; n.update();
+	CHECK(n.mCameraOffset == doctest::Approx(0)); // the signed/unsigned compare reads -1 as past the end
+}
+
+// 3.14: ScrollableContainer.cpp:6-8, :64-104, :128-131, the auto scroll's timing.
+#include "x_scroll_defines.inc"
+struct Scroller {
+	int mAutoScrollSpeed = AUTO_SCROLL_SPEED, mAutoScrollDelay = AUTO_SCROLL_DELAY, mAutoScrollAccumulator = 0, mAutoScrollResetAccumulator = 0;
+	bool mAtEnd = false; Vec2f mScrollPos, mScrollDir = Vec2f(0, 1), size_ = Vec2f(300, 480), content = Vec2f(300, 1000);
+	using Vector2f = Vec2f;
+	Vec2f getSize() const { return size_; } Vec2f getContentSize() const { return content; }
+	void reset() {
+#include "x_scroll_reset.inc"
+	}
+	void update(int deltaTime) {
+#include "x_scroll_update.inc"
+	}
+};
+TEST_CASE("3.14 the auto scroll starts after its delay and resets after the end (ScrollableContainer.cpp:62-131)") {
+	Scroller s; s.reset();
+	CHECK(s.mAutoScrollAccumulator == -AUTO_SCROLL_DELAY + AUTO_SCROLL_SPEED);
+	// reset() starts the accumulator at -delay + speed, so the first step lands at the delay itself
+	s.update(AUTO_SCROLL_DELAY - 1); CHECK(s.mScrollPos.y() == doctest::Approx(0));
+	s.update(1); CHECK(s.mScrollPos.y() == doctest::Approx(1));
+	for (int i = 0; i < 1000 && !s.mAtEnd; i++) s.update(AUTO_SCROLL_SPEED);
+	CHECK(s.mAtEnd); CHECK(s.mScrollPos.y() == doctest::Approx(1000 - 480));
+	s.update(AUTO_SCROLL_RESET_DELAY); CHECK(!s.mAtEnd); CHECK(s.mScrollPos.y() == doctest::Approx(0));
+}
+TEST_CASE("3.14 PL-40: content narrower than the container still scrolls down (ScrollableContainer.cpp:78-96)") {
+	Scroller s; s.content = Vec2f(290, 1000); s.reset();
+	float most = 0;
+	for (int t = 0; t < 10000; t += 16) { s.update(16); if (s.mScrollPos.y() > most) most = s.mScrollPos.y(); }
+	CHECK(s.mScrollPos.x() >= 0);
+	CHECK(most > 1);
+}
+
+// 3.15: IList.h:381-406, scroll's clamp or wrap per loop type (the extract 3.8 uses).
+TEST_CASE("3.15 IList clamps under NEVER_LOOP and under PAUSE_AT_END past one step, and wraps otherwise (IList.h:376-406)") {
+	ListScroll never; never.n = 5; never.mCursor = 4; never.mLoopType = LIST_NEVER_LOOP; CHECK(never.land(1) == 4); CHECK(never.mScrollVelocity == 0);
+	ListScroll pause1; pause1.n = 5; pause1.mCursor = 4; pause1.mLoopType = LIST_PAUSE_AT_END; CHECK(pause1.land(1) == 0);
+	ListScroll pause2; pause2.n = 5; pause2.mCursor = 4; pause2.mLoopType = LIST_PAUSE_AT_END; CHECK(pause2.land(3) == 4); CHECK(pause2.mScrollVelocity == 0);
+	ListScroll always; always.n = 5; always.mCursor = 4; always.mLoopType = LIST_ALWAYS_LOOP; CHECK(always.land(3) == 2);
+}

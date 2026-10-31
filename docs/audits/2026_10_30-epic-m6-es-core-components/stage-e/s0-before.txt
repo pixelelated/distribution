@@ -1,0 +1,36 @@
+# S0 (stage E, #681): the four floor cases no stream's file holds, run at the pin 16dbac5211eea7e70db7394372033be2be7df829
+
+Written 2026-10-31T01:08:37Z from tools/t34-build-tests.sh's own output (stage-e/s0-floor.txt) and the components-tests run log.
+Extract specs added (D-WORKFLOW-210, before: none for these files; after): textlist_range TextListComponent.h:262-269, textlist_camera :593-607, scroll_defines ScrollableContainer.cpp:6-8, scroll_update :64-104, scroll_reset :128-131. 3.15 reuses ilist_scroll (IList.h:381-406), unchanged.
+The build's first run since stage D's move of the sanitizer sources to stage-d/: the three SAN lines resolved their sources in stage-d/.
+
+## The script's lines
+RUN es-unit-tests: rc 0; [doctest] test cases: 185 | 185 passed | 0 failed | 0 skipped [doctest] assertions: 4795 | 4795 passed | 0 failed | 
+RUN es-file-tests: rc 0; [doctest] test cases: 24 | 24 passed | 0 failed | 0 skipped [doctest] assertions: 3389 | 3389 passed | 0 failed | 
+RUN es-conf-tests: rc 0; [doctest] test cases: 10 | 10 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN es-file-tests-win32: rc 0; [doctest] test cases: 2 | 2 passed | 0 failed | 0 skipped [doctest] assertions: 14 | 14 passed | 0 failed | 
+RUN app-unit-tests: rc 0; [doctest] test cases: 18 | 18 passed | 0 failed | 0 skipped [doctest] assertions: 119 | 119 passed | 0 failed | 
+RUN components-tests: rc 1; [doctest] test cases: 12 | 6 passed | 6 failed | 0 skipped [doctest] assertions: 311 | 303 passed | 8 failed | 
+SAN tsan-card (-fsanitize=thread): rc 66; WARNING: ThreadSanitizer: data race (pid=3792450)
+SAN asan-textedit (-fsanitize=address): rc 1; ==3792470==ERROR: AddressSanitizer: heap-use-after-free on address 0x7c44893e0050 at pc 0x5c0ad6ed1960 bp 0x7ffce55b50b0 sp 0x7ffce55b50a0
+SAN asan-popup (-fsanitize=address): rc 0; no sanitizer report
+TOTAL: 251 test cases in 6 binaries
+
+## The four cases
+3.11 TextListComponent.h:262-269: PASS (24 rows on a 480 px list of 20 px rows draw 25, the cutoff 24; a 10-entry list stops at 10)
+3.29 TextListComponent.h:591-608: PASS (the last of 100 rows at the bottom, 1520; a short list at 0; a cursor of -1 reads as past the end, 0)
+3.14 ScrollableContainer.cpp:6-8, :62-131: PASS (the first step lands at the delay itself, 6000 ms, since reset() starts the accumulator at -6000 + 150; the end clamps at 520; the reset after 6000 ms returns to 0)
+3.14 PL-40's half, ScrollableContainer.cpp:78-96: FAIL at the pin, on PL-40's lines:
+  values: CHECK( -10 >= 0 )
+  values: CHECK( 0 >  1 )
+    content 290 px wide in a 300 px container: x is set to -10 and mAtEnd to true on every update, so the reset accumulator reaches 6000 ms in the frame the first step lands and reset() returns y to 0; over 10 s of 16 ms frames y never passes 0.
+3.15 IList.h:376-406: PASS (NEVER_LOOP clamps at 4, velocity 0; PAUSE_AT_END wraps one step to 0 and clamps three at 4; ALWAYS_LOOP wraps three to 2)
+
+## Before S0 (stage D) and after
+components-tests: 7 cases, 2 passed, 5 failed (stage D) -> 12 cases, 6 passed, 6 failed (S0: +5 cases, +1 FAIL, PL-40's half)
+TOTAL: 246 test cases in 6 binaries (stage D) -> TOTAL: 251 test cases in 6 binaries (S0)
+The other FAILs are stage D's, unchanged: 3.4, 3.6, 3.7 AUTO, 3.16, 3.26.
+
+## The rows
+02's floor rows 3.11, 3.14, 3.15, 3.29: proved column from 'pending: fixture at stage C' to the S0 line (tools/t34-leads.py's S0 table, asserted to hold exactly these four).
+PL-40 keeps the brief's disposition (a #585 line); the case's second assertion shows a consequence its entry does not name (narrow content never scrolls down). Reach at the pin: the detailed game list's description container (es-app DetailedContainer, T18's/T26's surfaces), whose child is sized to the container's width, so not narrower unless a theme makes it so; not read on a frame (no guest in stage E).

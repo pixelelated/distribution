@@ -105,3 +105,15 @@
 - **Moved with `git mv`, one copy each:** `tools/t34-syntax-check.sh` to `stage-a/syntax-check.sh`, and the three sources to `stage-d/tsan-card.cpp`, `stage-d/asan-textedit.cpp` and `stage-d/asan-popup.cpp`. `tools/t34-build-tests.sh` names the new paths, and the stand-in's usage line its own.
 - **Checked without running anything:** both scripts pass `bash -n`; the build script's three source paths resolve from `tools/`; the stand-in resolves its 14 fakes from `stage-a/`.
 - **Not run since the move:** no compile ran, because the ruling says nothing runs before the stream brief. Both scripts' last runs were from the old paths, recorded at `stage-d/syntax-check.txt` and `stage-d/build-tests.txt`. The `tools/t34-syntax-check.sh` named in the 20:3x entry above is now `stage-a/syntax-check.sh`.
+
+## [Stage E] 01:08 UTC 2026-10-31 — S0: the four floor cases no stream's file holds, run at the pin (the 01:01 dispatch, comment 6536878915; the brief's ruling 10)
+
+- **The brief** is the coordinator's `65bd4d446d:docs/reviews/briefs/t34-streams.md`. It still names the stand-in and the sanitizer sources at their pre-move paths, `tools/t34-syntax-check.sh` and `tools/`; they are `stage-a/syntax-check.sh` and `stage-d/*.cpp` since `d446c4c6c3`.
+- **Four cases in `components-tests`**, over the pin's lines lifted by `tools/t34-extract.py`. Five specs were added (D-WORKFLOW-210): before, none for these files; after, `textlist_range`, `textlist_camera`, `scroll_defines`, `scroll_update` and `scroll_reset`. 3.15 reuses `ilist_scroll`.
+- **Results at the pin** (`stage-e/s0-before.txt`):
+  - PASS: 3.11, 3.29, 3.15 and 3.14.
+  - FAIL: 3.14's PL-40 half, on PL-40's lines (`-10 >= 0` and `0 > 1`).
+  - `TOTAL: 251 test cases in 6 binaries` (246 at stage D).
+- **3.14's first run FAILed on my own arithmetic**, not the pin. The first step lands at the delay itself, because `reset()` starts the accumulator at `-delay + speed`. The case was corrected before the record.
+- **PL-40 keeps its ruled disposition** (a #585 line). The case shows a consequence its entry does not name: content narrower than its container never scrolls down. Reach at the pin: the detailed list's description container, whose child takes the container's width. This is put to the coordinator in the S0 checkpoint, not filed: the line is PL-40's.
+- **The host file:** START 01:02:54, END 01:08:37.

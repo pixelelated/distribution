@@ -62,6 +62,12 @@ F = {  # floor row -> (family, question, disposition)
  "3.31": (2, "Q3", "a case on the clamp and the sentinel"), "3.32": (7, "Q7", "a case on the accumulation's drift"), "3.33": (7, "Q7", "a case on a cursor inside a UTF-8 sequence (T21's `moveCursor`)"),
  "3.34": (3, "Q3", "a case incl. a count of 1 and a divide by 0"),
 }
+S0 = {  # floor row -> its result at the pin, stage E's S0 (`stage-e/s0-before.txt`); the rest stay pending until their stream
+ "3.11": "S0: PASS at the pin (`stage-e/s0-before.txt`)",
+ "3.14": "S0: PASS at the pin; its PL-40 half (content 10 px narrower) FAIL: `-10 >= 0` and the vertical scroll never moves (`stage-e/s0-before.txt`)",
+ "3.15": "S0: PASS at the pin (`stage-e/s0-before.txt`)",
+ "3.29": "S0: PASS at the pin (`stage-e/s0-before.txt`)",
+}
 R = [  # (ruling, the 02 row)
  ("(a) T32 PL-07 / #1263, the caller's half", "§ The reads, `ImageComponent.cpp:408`"),
  ("(b) T2 PC-1, the card's half", "§ The lifetimes, `AsyncNotificationComponent.cpp:123`, with L-22 at `:119`"),
@@ -79,6 +85,8 @@ if len(Ls) != 24 or set(Ls) != set(L):
     die("L leads: %d; unanswered %s; answered without a cell %s" % (len(Ls), sorted(set(Ls) - set(L)), sorted(set(L) - set(Ls))))
 if len(Fs) != 34 or set(Fs) != set(F):
     die("floor rows: %d; unanswered %s" % (len(Fs), sorted(set(Fs) - set(F))))
+if set(S0) != {"3.11", "3.14", "3.15", "3.29"}:
+    die("S0 rows: %s" % sorted(S0))
 if len(R) != 10:
     die("rulings: %d, expected 10" % len(R))
 print("| Lead | Lines at the pin | Family | Owner | Disposition | proved | question: |")
@@ -88,7 +96,7 @@ for k in Ls:
     print("| %s | %s | %s | %s | %s | %s | %s |" % (k, cells[k], FAM[fam], own, disp, proved, q))
 for k in Fs:
     fam, q, disp = F[k]
-    print("| %s | %s | %s | T34 | %s | %s | %s |" % ("**%s**" % k if k in FAIL7 else k, cells[k], FAM[fam], disp, "pending: fixture at stage C", q))
+    print("| %s | %s | %s | T34 | %s | %s | %s |" % ("**%s**" % k if k in FAIL7 else k, cells[k], FAM[fam], disp, S0.get(k, "pending: fixture at stage C"), q))
 print()
 print("**The brief's § 1 rulings, each with its row:**")
 print()
@@ -97,4 +105,4 @@ print("| --- | --- |")
 for r, row in R:
     print("| %s | %s |" % (r, row))
 print()
-print("Generated, asserted by `tools/t34-leads.py`: %d L leads (the brief's 21 and the read's L-22 to L-24), %d floor rows (the seven FAIL-at-pin in bold), each answered; %d rulings, each with its row." % (len(Ls), len(Fs), len(R)))
+print("Generated, asserted by `tools/t34-leads.py`: %d L leads (the brief's 21 and the read's L-22 to L-24), %d floor rows (the seven FAIL-at-pin in bold), each answered, %d run at the pin in S0; %d rulings, each with its row." % (len(Ls), len(Fs), len(S0), len(R)))
