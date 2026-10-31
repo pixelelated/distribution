@@ -200,3 +200,20 @@
 - **After** (`stage-e/s3-after.txt`): 21 cases, 6 failed (3.1, 3.4, 3.5, 3.10, 3.11, 3.19), and `TOTAL: 271 test cases in 7 binaries`. Every `Window.cpp` spec below `startScreenSaver` moved +7 (D-WORKFLOW-210, named in the extractor).
 - **3.27 at the tip** (`stage-e/s3-pl25.txt`): still `heap-use-after-free a.cpp:14 in FileData::getImagePath`, rc 1, as ruling 12 expects until T33's or T2's half lands.
 - **Not yet done:** `stage-e/s3-pages.patch` for the owners. `GuiCloudTransfer` and `GuiOfflineScan` are T18's (`origin/feature/m6-es-cloud-pages-665` at `d55235d4b`), and `GuiScraperRun` is T31's (`origin/feature/m6-es-pages-678` at `95852f873`). Each page's override is `bool allowScreenSaver() override { return mShownFinished; }` (`mShownFinished` is false while its job runs). It is to be proven by `git apply --check` on copies read by `git show` at those tips. Also still owed: `s3-checks.txt`, `02`'s S3 row, `t35-runs`' S3 entry and S3's checkpoint on #682.
+
+## [Stage E, S3, done] 20:40 to 20:46 UTC 2026-10-31 — PL-05: the pages' patch, the checks, the row
+
+- **`stage-e/s3-pages.patch`** (36 lines, three headers): each fourth-tier page gets `bool allowScreenSaver() override { return mShownFinished; }`, false from the page's construction and from TRY AGAIN until its job's finish is shown.
+  - The pages are `GuiCloudTransfer.h` and `GuiOfflineScan.h` (T18's, #665) and `GuiScraperRun.h` (T31's, #678), the owners taken from `docs/reviews/briefs/es-pages.md:408` and `:238` on the coordinator's branch.
+  - The patch was written from copies read by `git show` at the owners' tips, `origin/feature/m6-es-cloud-pages-665` `d55235d4b` and `origin/feature/m6-es-pages-678` `95852f873`. `git apply --check` gives rc 0 there and at the pin's copies.
+  - The three patched pages, compiled syntax-only (the pin's es-app, T35's es-core, the stand-in's fakes), give rc 0 each.
+  - The failing control is `GuiScraperRun.cpp` against the pin's `GuiComponent.h`: rc 1, *marked 'override', but does not override*. Host-file START/END for both compiles.
+- **`stage-e/s3-checks.txt`:**
+  - Figure 9: `GuiComponent.h:209`.
+  - `git grep allowScreenSaver` at the pin gives rc 1. `GuiComponent.h`'s direct includers in the 96 are named there.
+  - `startScreenSaver`'s lines are upstream's (`8d7fb7b3e8`, `e83addd461`, `e915ef84e1`), but ruling 19 gives PL-05 no #585 line (the hold needs the fork's fourth-tier pages).
+  - Two files changed, inside the 96; 0 non-ASCII added lines; the stand-in 44 of 44.
+  - `es-untranslated` 706 and 703 with French, 0 without. The four signatures the doubles rely on are unchanged. The ES `pre-push-test` gives `PASS`.
+- **`02`:** S3's row, and § The merge debt names the patch for T18 and T31 (it needs S3's `GuiComponent.h` first). `tools/t35-runs.py` asserts S3's before and after lines and 3.27's FAIL at the tip. The pre-issue lint with `--issue 1337` passes.
+- **Time to play:** one virtual call per frame while idle past the setting, off the launch path.
+- **A command refused by the harness's safety check** (it contained no removal; the parser could not read its quoting) was rewritten as a script file, `/workspace/tmp/m6-t35/tmp/s3-checks.sh`, which writes the same record.

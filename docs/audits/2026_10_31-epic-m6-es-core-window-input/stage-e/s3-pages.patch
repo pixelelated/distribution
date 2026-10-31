@@ -1,0 +1,36 @@
+--- a/es-app/src/guis/GuiCloudTransfer.h
++++ b/es-app/src/guis/GuiCloudTransfer.h
+@@ -101,6 +101,9 @@
+ 
+ 	void render(const Transform4x4f& parentTrans) override;
+ 	bool input(InputConfig* config, Input input) override;
++	// The job owns the screen until it ends: the screensaver is held off while
++	// it runs (es-core's GuiComponent::allowScreenSaver; T35 #682 S3, #1305).
++	bool allowScreenSaver() override { return mShownFinished; }
+ 	std::vector<HelpPrompt> getHelpPrompts() override;
+ 	void update(int deltaTime) override;
+ 
+--- a/es-app/src/guis/GuiOfflineScan.h
++++ b/es-app/src/guis/GuiOfflineScan.h
+@@ -39,6 +39,9 @@
+ 
+ 	void render(const Transform4x4f& parentTrans) override;
+ 	bool input(InputConfig* config, Input input) override;
++	// The job owns the screen until it ends: the screensaver is held off while
++	// it runs (es-core's GuiComponent::allowScreenSaver; T35 #682 S3, #1305).
++	bool allowScreenSaver() override { return mShownFinished; }
+ 	std::vector<HelpPrompt> getHelpPrompts() override;
+ 	void update(int deltaTime) override;
+ 
+--- a/es-app/src/guis/GuiScraperRun.h
++++ b/es-app/src/guis/GuiScraperRun.h
+@@ -28,6 +28,9 @@
+ 
+ 	void render(const Transform4x4f& parentTrans) override;
+ 	bool input(InputConfig* config, Input input) override;
++	// The job owns the screen until it ends: the screensaver is held off while
++	// it runs (es-core's GuiComponent::allowScreenSaver; T35 #682 S3, #1305).
++	bool allowScreenSaver() override { return mShownFinished; }
+ 	std::vector<HelpPrompt> getHelpPrompts() override;
+ 	void update(int deltaTime) override;
+ 

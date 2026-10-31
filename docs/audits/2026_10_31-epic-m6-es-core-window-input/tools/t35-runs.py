@@ -91,7 +91,7 @@ def rd(p):
     except OSError:
         fail.append(f"{p} unreadable")
         return ""
-sx = rd("stage-a/syntax-check.out"); sx1 = rd("stage-a/syntax-check-first.out"); bt = rd("stage-c/build-tests.out"); pl = rd("stage-c/pl25-screensaver.out")
+sx = rd("stage-a/syntax-check.out"); sx1 = rd("stage-a/syntax-check-first.out"); bt = rd("stage-c/build-tests.out"); pl = rd("stage-c/pl25-screensaver.out"); pl3 = rd("stage-e/s3-pl25.txt")
 m_sx = re.search(r"t35-syntax-check: (\d+) file\(s\) checked, (\d+) rc 0, (\d+) not", sx)
 m_sx1 = re.search(r"t35-syntax-check: (\d+) file\(s\) checked, (\d+) rc 0, (\d+) not", sx1)
 m_tot = re.search(r"^TOTAL: (\d+) test cases in (\d+) binaries$", bt, re.M)
@@ -107,6 +107,8 @@ if not (m_wit and m_wit.group(4) == "7"): fail.append(f"window-input-tests' fail
 if sorted(set(failed_cases)) != ["3.1", "3.10", "3.11", "3.14", "3.19", "3.4", "3.5"]: fail.append(f"the failing cases are {sorted(set(failed_cases))}")
 if any(r[1] != "0" or r[4] != "0" for r in tree_bins) or len(tree_bins) != 5: fail.append(f"the tree's binaries: {tree_bins}")
 if not m_pl: fail.append("3.27's ASan summary line is missing")
+m_pl3 = re.search(r"SUMMARY: AddressSanitizer: (heap-use-after-free[^\n]*)", pl3)
+if not (m_pl3 and re.search(r"^rc=1 ", pl3, re.M)): fail.append("3.27 at S3's tip: not the expected FAIL (ruling 12)")
 stc = [
     ["the stand-in over the 44 (`stage-a/syntax-check.sh`, the fakes under `stage-a/fakes/`, the pugixml root and rapidjson; udev, pulse, TTS, CEC and WIN32 not parsed)", "0", "11 s",
      f"`t35-syntax-check: {m_sx.group(1)} file(s) checked, {m_sx.group(2)} rc 0, {m_sx.group(3)} not`" if m_sx else "--", "the first run (`syntax-check-first.out`) printed " + (f"`{m_sx1.group(2)} rc 0, {m_sx1.group(3)} not`" if m_sx1 else "--") + ": the seven stopped at the fakes' gaps, closed by `t35-sdl-more.h` and the T35 sections"],
@@ -152,6 +154,7 @@ ste = [
 STREAMS = {  # stream: (cases, failed before, failed after, the failing names gone after, TOTAL, {SAN: (rc before, rc after)})
     "S1": (16, 10, 7, ["S1 back on GAME DRIVE DETECTED with an id", "S1 back on NEW DRIVE DETECTED with an id", "S1 back on NEW DRIVE DETECTED without an id"], ("266", "7"), {}),
     "S2": (19, 10, 6, ["3.14 the toast queue drains in the order things happened", "S2 a toast a card takes off the screen", "3.16 an unrelated prompt sharing the action text", "3.16 the dpad's two halves"], ("269", "7"), {"tsan-posts": ("66", "0")}),
+    "S3": (21, 7, 6, ["S3 a top page that holds the screensaver"], ("271", "7"), {}),
 }
 for sn, (cases, fb, fa, gone, tot, sx) in STREAMS.items():
     got = {}
@@ -178,6 +181,7 @@ for sn, (cases, fb, fa, gone, tot, sx) in STREAMS.items():
         ste.append([f"{sn} {ph} (`stage-e/{sn.lower()}-{ph}.txt`, {head.group(1) if head else '--'}, ES `{head.group(2)[:9] if head else '--'}`)", w.group(1) if w else "--", "in the build",
                     f"`window-input-tests`: `{w.group(2)} cases, {w.group(3)} passed, {w.group(4)} failed`; `TOTAL: {tt.group(1)} test cases in {tt.group(2)} binaries`" if (w and tt) else "--",
                     ("the stream's cases failing: " if ph == "before" else "the stream's cases all pass; ") + "; ".join(sorted(g for g in gone)) + ("" if ph == "before" else " no longer fail") + "; " + "; ".join(f"`SAN {n}` rc {rc}" for n, f_, rc, _ in sanl)])
+ste.append(["3.27 at S3's tip (`stage-e/s3-pl25.txt`; T33's script unchanged)", "1", "0 s", f"`{m_pl3.group(1)[:90]}`" if m_pl3 else "--", "still FAIL, as ruling 12 says, until T33's (`SystemScreenSaver.cpp`) or T2's (`SystemData.cpp`) half lands; S3's hold changes neither file"])
 print("\n**Stage E's runs** (read from their records, each figure asserted):\n")
 print(table(["Run", "Exit", "Wall", "Figure", "Note"], ste))
 print("\n**Still owed:**\n")
