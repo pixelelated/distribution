@@ -12,7 +12,7 @@
 
 **Delta** (the tools' own lines):
 - `git diff --shortstat 8ebaf8daad 23dfd53c0e -- projects/ROCKNIX/packages/network/rclone`: `13 files changed, 1183 insertions(+), 355 deletions(-)`, in 12 commits.
-- `tools/last-good-scripts-test` whole, with `QA_SYSTEM_ROOT` the donor and 0 SKIP: PASSED 1313 / 0 before (`stage-e/suite-before.out`); the verdict after is `stage-e/suite-after.out`, read in `02` § The runs.
+- `tools/last-good-scripts-test` whole, with `QA_SYSTEM_ROOT` the donor and 0 SKIP: PASSED 1313 / 0 before (`stage-e/suite-before.out`) and PASSED 1313 / 0 after, at `23dfd53c0e` (`stage-e/suite-after.out`).
 - Stage E's commits touching `tools/`: 0. Paths changed outside the rclone package and the audit folder: 0.
 
 ## What worked well
@@ -85,7 +85,7 @@ Every guest half is `fix-walk-pending-image`, listed by stream in `02` § The st
   - Nothing outside the two folders.
 - **Interaction-defect scan:** PARTIAL. The suite's lifted spans met S6's and S7's top-level helpers, found by the suite and repaired. Ruling 14's move meets the rules merge and the twins' allowlist, and both orders are proved by `s6/move-cells.sh`.
 - **Futro prediction verification:** SKIP. No futro was run; the brief's rulings served as the plan.
-- **Housekeeping (full-suite scan):** the suite before and after each stream, read in `02` § The runs.
+- **Housekeeping (full-suite scan):** PASS. PASSED 1313 / 0 before and after, and after each stream as read in `02` § The runs.
 - **Harness self-coverage:** PASS. Every cell FAILed on the unfixed root before it PASSed, except where `s7-checks.txt` and `s6-checks.txt` say the pin already behaved: the retire unit, and the refusal path's twins.
 - **Documentation:** PARTIAL.
   - `rclone-cloud-sync.md` is #909's (T4's): the sweep, the sidecars, the `.completed` marker, the filter flags' move.

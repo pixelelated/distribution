@@ -431,7 +431,7 @@ Every § 5 command of the brief, run at stage A as one script file
   - Every later run reads a `git clone --shared` snapshot checked out at the stream's commit (`/workspace/tmp/m6-t16/snapgit`).
   - That snapshot's `tools/last-good-scripts-test` has `stage-e/patches/last-good-scripts-test.patch` applied: A18, A4, A23, d, h and S315, each a fixture completion under D-WORKFLOW-210/211 and T15's merge debt.
 - **After each stream:** S1 1313 / 0 (`suite-after-s1.out.2`); S2 1311 / 2 (section e and A4, fixed in `38cf8c9d10` and the patch); S3 1313 / 0; S4 1313 / 0; S5 1313 / 0; S6 1312 / 1 (A6, fixed in `61f8fcc5b2`); S7 1310 / 3 (section h's two and S315, repaired in `b2833a6919` and the patch).
-- **After, at the fixes' tip `23dfd53c0e`:** `suite-after.out`.
+- **After, at the fixes' tip `23dfd53c0e`:** PASSED, 1313 / 0 / 0 SKIP, 516 s (`suite-after.out`).
 
 ## The guest cycle
 
