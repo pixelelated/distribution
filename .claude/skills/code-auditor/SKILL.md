@@ -574,6 +574,13 @@ For each item in `05-punch-list.md`, one of three outcomes is required:
 | **(b) Deferred**  | An explicit follow-up issue exists with priority, owner/milestone, and a one-line rationale for the deferral. The Phase 6 audit issue's task list is updated to reference it. Deferrals are allowed but must be **named** — silent rollover into the next phase is banned. |
 | **(c) Withdrawn** | The finding was reconsidered and the team explicitly decided no action is needed. A short note in the audit issue records who decided and why. (Rare. Use sparingly.)                                                                                                      |
 
+**The completion marker.** When every item has its outcome and the audit
+issue is closed, write `docs/audits/<scope>/audit-completion.json` (#540). It
+hash-binds the analysis, the punch list and the closed issue's readback, and
+`tools/ceremony-check` reads it as the completed-audit marker
+(`ceremonies.md`). Run the lint on its default phase with `--issue <n>` before
+writing it.
+
 **Default pattern: resolve in the same session.** Most punch-list items are
 small administrative cleanups or codification edits and should land before
 the next phase begins. Only escalate to (b) Deferred when the fix is

@@ -144,6 +144,14 @@ lint accepts `local` outside an `-issue-` folder only with both:
 Use `depth: local`, `reviewers: []` only for an explicitly local Issue audit,
 or for an Epic-tier slice whose plan row says Local (D-WORKFLOW-184) with
 `tier_exception` and `reason` in the plan file.
+
+A reply that carries a finding held off the public tracker (D-WORKFLOW-215)
+stays off the tree, mode 600, in the lane's `held/` scratch directory. Only
+its receipt, `second-opinions/<member>-audit.md.provenance.json` with the
+reply's sha256, is committed. Until #1308 lets the receipt say `held: true`,
+the lint fails that one contract on the committed tree, and the acceptance
+copies the held reply in for its run and says so.
+
 Extended depth has two reviewers from labs distinct from each other and the
 primary. Model recipes come from the installed roster, never this example alone.
 
