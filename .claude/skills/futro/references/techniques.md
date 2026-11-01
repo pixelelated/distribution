@@ -1,8 +1,11 @@
 # Futro Techniques
 
 Deeper guidance for question 4 of a futro ("What could we be missing?").
-Four complementary techniques, ordered by primacy. Run them all; they
-surface different classes of risk.
+Question 4's five techniques, in SKILL.md's order of primacy: agent-execution
+simulation (§ 1), pre-mortem (§ 2), the blindspot check (§ 3), then the
+replaced-mechanism archetype and the honesty check on the simulation, which
+SKILL.md carries itself. § 4, pattern analysis, serves question 3. Run them
+all; they surface different classes of risk.
 
 ---
 
@@ -305,7 +308,7 @@ muscle memory as simulation.
 
 ---
 
-## Running all four
+## Running them all
 
 For a meaningful futro, run simulation first (it catches the most, most
 concretely), then pre-mortem (catches what simulation missed at the

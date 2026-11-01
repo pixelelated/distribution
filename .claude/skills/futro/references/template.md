@@ -65,7 +65,7 @@ If genuinely no applicable patterns: "No direct prior patterns; work is novel in
 
 ### 4. What could we be missing?
 
-Primary technique: agent-execution simulation. Complementary: pre-mortem, blindspot check.
+Primary technique: agent-execution simulation. Complementary: pre-mortem, blindspot check, the replaced-mechanism archetype, the honesty check on the simulation.
 
 **Agent-execution simulation ("what if?" walkthrough):**
 

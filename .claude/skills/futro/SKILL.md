@@ -288,7 +288,7 @@ Cite specific commits, phases, issues. Prior Mini Retros are a rich
 source.
 
 **4. What could we be missing?**
-The hidden-risk question. Apply four techniques, in order of primacy.
+The hidden-risk question. Apply five techniques, in order of primacy.
 The first is the workhorse; the others complement it.
 
 - **Agent-execution simulation** _(primary)_ — the "what if?" thought
