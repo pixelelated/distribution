@@ -476,7 +476,7 @@ skill's folder. Copy it to your project's docs directory (e.g. under
     question 4 live in
     [`working-principles.md`](../../rules/working-principles.md) and [`decision-register.md`](../../rules/decision-register.md).
   - Prior retros accumulate as issue comments on Epic umbrellas; discover
-    via `gh api repos/{owner}/{repo}/issues/{number}/comments --paginate -q '.[] | {author: .user.login, body: .body[0:300]}'`.
+    via `gh api repos/pixelelated/distribution/issues/{number}/comments --paginate -q '.[] | {author: .user.login, body: .body[0:300]}'`.
   - Blindspot register (when created) conventionally lives under `docs/`.
 
 - **Other repos:** if a similar instruction file exists, defer to it.
