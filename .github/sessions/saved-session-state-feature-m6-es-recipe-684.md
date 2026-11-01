@@ -17,8 +17,10 @@
 
 ## Current focus
 
-**Stage E done; the hand-back posted on #684; idle** until the coordinator
-accepts. Stage E ran under `docs/reviews/briefs/t37-streams.md` (S0, then
+**Stage E done; the second hand-back posted on #684; idle** until the
+coordinator accepts. The first hand-back (`c00c39ffe6`) drew the acceptance read's seven
+asks (comment 6553258188, 04:11 UTC); they are answered by the merge `52045e1b79` of the
+coordinator's `afe3bac032` and one amendment commit over it. Stage E ran under `docs/reviews/briefs/t37-streams.md` (S0, then
 S1), after the coordinator's `1f9327d496` was merged (`902e00987c`).
 S1's five recipe commits each changed only
 `projects/ROCKNIX/packages/ui/emulationstation/package.mk`:
@@ -26,7 +28,7 @@ S1's five recipe commits each changed only
 - PL-04 `39863d5af3` (#1383);
 - PL-05 `e1e99c5a7e` (#1384);
 - PL-07 `ce31abba74`;
-- PL-08 `c9e8d5a8df` (the last recipe commit; `fixed-at` is the hand-back tip that #684's header names).
+- PL-08 `c9e8d5a8df` (the last recipe commit; `05`'s `fixed-at` by the acceptance read's ruling; #684's header names the hand-back tip).
 
 Each has a record commit beside it. `fixed-at-es: none -- no ES change`.
 
@@ -99,3 +101,4 @@ outside the one granted window.
 - **Stage C** -- the stage-C commit over `8ce6f22b45` (its hash in the #684 checkpoint post), 02:1x UTC: the checker (tip exit 1, fixture exit 0, 15 of 15 mutations), 03-05, the packet, the probe and the refutation (two keyed invokes), 04 § Second opinion, the pre-issue lint PASS.
 - **Stage D** -- the stage-D commit over `703470bcca` (its hash in the #684 pause post), 02:2x UTC: #1381, #1382-#1384, the lines on #613 and #1072, `05`'s proposed dispositions, the lint PASS with `--issue 1381`; the pause.
 - **Stage E** -- dispatched 02:53 UTC (comment 6552560083); the merge `902e00987c`; S0 `7923d95594`; S1's recipe commits `c93b1cad7d`, `39863d5af3`, `e1e99c5a7e`, `ce31abba74`, `c9e8d5a8df` with their records `5cc3aa9911`, `61cc617e95`, `4db1e614bc`, `c6fa223e46`, `a22e13adee`; the hand-back commit over `a22e13adee` (its hash in the #684 hand-back post), 03:2x UTC: `05`'s outcomes, the checker at the tip, the FAIL-first re-run, the five checkers, the retro; census `qemu 0, compilers 0`; worktree build roots `0`; keyed invokes `0`; no guest; no compile START written.
+- **Stage E's amendment** -- the acceptance read (comment 6553258188, 04:11 UTC), seven asks: the merge `52045e1b79` of `afe3bac032`; one amendment commit over it (`05:7` `fixed-at: c9e8d5a8df`; `02` § The runs with checkbox 8's and 9's lines copied; G-01's `ldd` line in § The dependencies; the `SECRET_PATTERNS` count over the folder in § The recipe; the checker's commands in `00`); the second hand-back post names the tip.

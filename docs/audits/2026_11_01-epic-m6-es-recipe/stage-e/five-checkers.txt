@@ -16,3 +16,23 @@ box-check --issue 1381 rc=0: box-check: 1 issue(s), 0 open checkbox(es), 0 fail,
 box-check --issue 1382 rc=0: box-check: 1 issue(s), 0 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
 box-check --issue 1383 rc=0: box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
 box-check --issue 1384 rc=0: box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+
+== at the acceptance amendment, over the merge 52045e1b79 plus the amendment's working tree, 2026-11-01T04:21:05Z (each rc on its own line, from the command itself)
+register-check: 714 IDs, each once; every citation in the live documents names a row
+register-check rc=0
+work-log index: current
+work-log-index --check rc=0
+rules-check --quiet rc=0 (lines printed: 0)
+forbidden-terms-check: 0 hits in 133653 tracked files
+forbidden-terms-check rc=0
+PASS
+.githooks/hooks-test rc=0
+PASS
+lint-audit-artifacts rc=0
+PASS
+lint-audit-artifacts --issue 1381 rc=0
+box-check --issue 1381 rc=0: box-check: 1 issue(s), 0 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+box-check --issue 1382 rc=0: box-check: 1 issue(s), 0 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+box-check --issue 1383 rc=0: box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+box-check --issue 1384 rc=0: box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+secret patterns over the folder: 2026-11-01T04:20:52Z after the paragraph: compile rc=1; planted positive 1; 167 files, matching lines 0

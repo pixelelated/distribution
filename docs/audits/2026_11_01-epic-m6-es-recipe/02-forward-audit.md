@@ -223,6 +223,18 @@ defines none, but the observation is a build's -- recorded for #64, `CANNOT` her
 macro names do not survive compilation) and the state check runs on the host (§ The guest cycle).
 `proved: tree`.
 
+**No value in any artifact (checkbox 10).** The hooks' `SECRET_PATTERNS` was sourced from `.githooks/secret-patterns`
+and compile-checked as `.githooks/guard-lib`'s `guard_load` does (`printf '' | grep -E -e "$SECRET_PATTERNS"`, rc at most
+1). A planted positive was assembled at run time, and every file of the audit folder was counted with
+`grep -a -c -E -e` (never `grep -f` on that file). The command's own line, at the amendment, before this
+paragraph was added:
+
+```
+2026-11-01T04:20:36Z SECRET_PATTERNS from .githooks/secret-patterns: compile rc=1 (<= 1 compiles, guard-lib's test); planted positive 1; over docs/audits/2026_11_01-epic-m6-es-recipe: 167 files, matching lines 0, files with a match 0
+```
+
+The count re-run after the paragraph was added is in the second hand-back.
+
 ## The dependencies
 
 **Effective `PKG_DEPENDS_TARGET`**, sourced in the export (ruling (k)): GENERIC_X64 `boost
@@ -240,6 +252,13 @@ GENERIC_X64 and H700; it breaks if SDL2's `arm` branch or a device's `WINDOWMANA
 an `arm` plan builds no ES (`01` open item 5). `vlc` (local) declares no `libass` and no fribidi.
 **The candidate shipped without fribidi** (T36's G-01) -- the pause's question, with the decision
 D-WORKFLOW-216 hands here. `proved: tool-run`.
+
+**G-01's `ldd` line** (T36's guest read of the same candidate, `BUILD_ID=069fc270442134fe771258418adf4e666e0473fb`;
+T36's `00:54` at `775d0893fe`, read by hash and quoted here from that line, as `01:286-288` quotes it):
+*"`libfreetype.so.6` and `libvlc.so.5` linked, **`libfribidi` NOT linked** (the `ldd ... -c` count is 3: freetype, vlc, vlccore)"*. Fribidi's question stands on it. The pin's CMake links `${FRIBIDI_LIBRARIES}` when the `QUIET` find
+succeeds (`CMakeLists.txt:236-241`, `:375`, `:462`), so that build's find failed although ES's plan orders
+fribidi first. Why it failed is in that build's configure log, `CANNOT` here (#1385, `02` § What the integration
+inherits item 4).
 
 **udev**: `:13` names none; ES's plan reaches `systemd:target` through `SDL2` (trace.out), and
 `HAVE_UDEV` comes from `find_package(udev)` -- build order, as fribidi. **pugixml**:
@@ -447,6 +466,268 @@ A); stage A's open-item runs and stage B's are below.
 **The `CANNOT`s:** a stamp, the `USING:` lines, the gettext pass, the CMake cache (`HAVE_FRIBIDI`,
 `HAVE_INTL`, `HAVE_UDEV`), the tip's recipe output, the H700 and SM8550 branches and upstream's
 RK3566 patch need a build, which this slice never runs (§ 5 item 1); they are the integration's.
+
+### Checkbox 8's lines, as the commands printed them
+
+These are stage A's § 5 runs: `stage-a/s5-runs.sh` at `9fa740a91b`, ending `== done 2026-11-01T01:05:25Z;
+worktree build roots: 0`. The block is copied from `stage-a/s5-runs.out` by line range (`:168-266`,
+`:283-291`, `:298-335`), so the record reads without opening `stage-a/` (the acceptance read's
+ask 3). The file was written through the mask at stage A, so `***` stands where a value would be,
+and `:39` is in none of these lines.
+
+| Run | Exit | Wall | Figure | A FAIL would mean |
+| --- | --- | --- | --- | --- |
+| R11 `bash -n` on the seven | 0 | 0 s | `rc=0` for each of the seven | a recipe or script the build sources does not parse |
+| R12 `tools/pkgcheck` by name, each after its `find` line, the control last | 0 | 0 s | `rc=0`, `FAIL-lines=0` for the three recipes. The control also `rc=0`: pkgcheck does not refuse an unknown name (PL-10, #1385), so the control is not its positive, and the positive is the FAIL-first mutation `global-pkg-build` | a recipe that breaks late binding or the recipe shape |
+| R13 the scratch export | 0 | 5 s | `tip=9fa740a91b...`, path `/workspace/tmp/m6-t37/export`, `git-in-export: 0`, worktree build roots `0` | the sourced calls would run in a checkout, or write a `build.*` root here (ruling (k)) |
+| R14 the effective fields and stamps, GENERIC_X64 | 0 | 0 s | the named fields and one `STAMP=` per package | a field the read was built on is not the recipe's |
+| R15 the call's writes | 0 | 0 s | the two cache files under the export's `build.pixelelated-GENERIC_X64.x86_64/`; worktree build roots `0` | `config/options` wrote somewhere other than the export |
+| R16 the patch reach, GENERIC_X64 and H700 | 0 | 1 s | `patches/x86_64/: NOT REACHED` on both; the theme's `patches/: REACHED` | L-02 is not a defect, or the theme's patches never apply |
+| R18 the credential names, names and line numbers only | 0 | 0 s | `count lines: 5` | a credential name added, moved or dropped |
+| R20 the text checks over the 15, after planted positives | 0 | 0 s | planted `1`; `NON-ASCII FILES 0 SECRET-PATTERN FILES 0`; forbidden terms planted `rc=1`, then `rc=0`; `XML FAILS 0` | a value, a non-ASCII byte, a listed word or a broken XML file in the slice |
+| R21 `tools/fork-package-freshness --list`, both refs given | 0 | 0 s | `lines=48 ui=0`, judged from the output and never by the rc | the tool measured the slice's recipes; it reaches none of them (L-10, L-21) |
+
+R14's fields are GENERIC_X64's only. Both devices' stamps are the checker's: step 7 of every run
+below, and `stamps.txt` in each run's `--out` directory.
+
+```
+## R11 syntax: bash -n on the seven (expect rc=0 each)
+rc=0 emulationstation/package.mk
+rc=0 lowerdeck/package.mk
+rc=0 themes/es-theme-art-book-next/package.mk
+rc=0 emulationstation/sources/es_settings
+rc=0 emulationstation/sources/start_es.sh
+rc=0 emulationstation/sources/serial_number_check
+rc=0 emulationstation/autostart/001-emulationstation
+[R11] rc=0 wall=0s
+
+## R12 pkgcheck by name, positive first, control last
+find emulationstation: projects/ROCKNIX/packages/ui/emulationstation/package.mk 
+pkgcheck emulationstation rc=0 lines=0 FAIL-lines=0 WARN-lines=0
+find es-theme-art-book-next: projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/package.mk 
+pkgcheck es-theme-art-book-next rc=0 lines=0 FAIL-lines=0 WARN-lines=0
+find lowerdeck: projects/ROCKNIX/packages/ui/lowerdeck/package.mk 
+pkgcheck lowerdeck rc=0 lines=0 FAIL-lines=0 WARN-lines=0
+find es-theme-no-such-package: 
+pkgcheck es-theme-no-such-package rc=0 lines=0 FAIL-lines=0 WARN-lines=0
+stdout lines for emulationstation: 0
+[R12] rc=0 wall=0s
+
+## R13 the scratch export, ruling (k) (expect export rc=0, the tip, worktree build roots: 0)
+export rc=0 tip=9fa740a91ba9fcaa21a26cc72f0b50fac10f32df path=/workspace/tmp/m6-t37/export worktree build roots: 0
+export files: 133480 git-in-export: 0
+[R13] rc=0 wall=5s
+
+## R14 effective fields, GENERIC_X64, in the export (named fields only; masked)
+source rc=0 emulationstation
+PKG_VERSION=16dbac5211eea7e70db7394372033be2be7df829
+PKG_URL=https://github.com/pixelelated/emulationstation.git
+PKG_SHA256=
+PKG_DEPENDS_TARGET=boost toolchain SDL2 freetype curl freeimage bash rapidjson SDL2_mixer fping p7zip alsa vlc drm_tool poppler pugixml noto-sans-cjk zstd mesa
+PKG_CMAKE_OPTS_TARGET= -DROCKNIX=1                          -DDISABLE_KODI=1                          -DENABLE_FILEMANAGER=0                          -DCEC=0                          -DENABLE_PULSE=1                          -DUSE_SYSTEM_PUGIXML=1                          -DGLES3=1 -DSCREENSCRAPER_RUNTIME_DEV_LOGIN=***
+PKG_TOOLCHAIN=auto
+PKG_NEED_UNPACK=busybox
+PKG_BUILD_FLAGS=-gold
+PKG_PATCH_DIRS=
+PKG_ARCH=any
+TARGET_ARCH=x86_64
+BASE_ONLY=
+BATTERYPLUS_SUPPORT=
+VULKAN_SUPPORT=yes
+EMULATION_DEVICE=yes
+STAMP=9e618e4ac667083b0cab95798055c023e796104d60d20b471ec1b7579dab0ffe
+[call rc=0]
+source rc=0 es-theme-art-book-next
+PKG_VERSION=9a50ef366e750aabfab29e6915a2867607212971
+PKG_URL=https://github.com/anthonycaccese/art-book-next-es/archive/9a50ef366e750aabfab29e6915a2867607212971.tar.gz
+PKG_SHA256=7ee1e93f2c4e4f7385b78680ecfa3828acf12bc616e2111d23cc66a524231125
+PKG_DEPENDS_TARGET=toolchain noto-sans-cjk
+PKG_CMAKE_OPTS_TARGET=
+PKG_TOOLCHAIN=manual
+PKG_NEED_UNPACK=
+PKG_BUILD_FLAGS=
+PKG_PATCH_DIRS=
+PKG_ARCH=any
+TARGET_ARCH=x86_64
+BASE_ONLY=
+BATTERYPLUS_SUPPORT=
+VULKAN_SUPPORT=yes
+EMULATION_DEVICE=yes
+STAMP=e31c625d76929c463b78ada92d54e51c5abde99f07cc7f3bef06c866c5d6a776
+[call rc=0]
+source rc=0 lowerdeck
+PKG_VERSION=ab735114ab318a84e4d28c9c5f1b154e450a579a
+PKG_URL=https://github.com/bulzipke/lowerdeck/archive/ab735114ab318a84e4d28c9c5f1b154e450a579a.tar.gz
+PKG_SHA256=2677d3ce675b9704487f9f09f82728b56009f9fa7c36403086e9c655af108f42
+PKG_DEPENDS_TARGET=toolchain Python3 SDL2 SDL2_image SDL2_ttf
+PKG_CMAKE_OPTS_TARGET=
+PKG_TOOLCHAIN=manual
+PKG_NEED_UNPACK=
+PKG_BUILD_FLAGS=
+PKG_PATCH_DIRS=
+PKG_ARCH=any
+TARGET_ARCH=x86_64
+BASE_ONLY=
+BATTERYPLUS_SUPPORT=
+VULKAN_SUPPORT=yes
+EMULATION_DEVICE=yes
+STAMP=7dd9f9575727e9fa0082deca6d45084decd44f6adc1a0a3dc7c9e2cf3178d64a
+[call rc=0]
+[R14] rc=0 wall=0s
+
+## R15 the call's writes, named (expect the two cache files in the export; 0 build roots in the worktree)
+-rw------- 1 max max 76994 Nov  1 01:05 /workspace/tmp/m6-t37/export/build.pixelelated-GENERIC_X64.x86_64/.cache_package_global
+-rw------- 1 max max 45384 Nov  1 01:05 /workspace/tmp/m6-t37/export/build.pixelelated-GENERIC_X64.x86_64/.cache_package_local
+/workspace/tmp/m6-t37/export/build.pixelelated-GENERIC_X64.x86_64
+worktree build roots: 0
+[R15] rc=0 wall=0s
+
+## R16 the patch reach, GENERIC_X64 and H700, in the export (scripts/unpack:127-159's rule)
+GENERIC_X64/x86_64: emulationstation PATCH_ARCH=x86 PKG_PATCH_DIRS=[] -> patches/x86_64/: NOT REACHED
+GENERIC_X64/x86_64: es-theme-art-book-next PATCH_ARCH=x86 PKG_PATCH_DIRS=[] -> patches/: REACHED
+GENERIC_X64/x86_64: lowerdeck PATCH_ARCH=x86 PKG_PATCH_DIRS=[] -> no patches/ directory with a .patch
+H700/aarch64: emulationstation PATCH_ARCH=aarch64 PKG_PATCH_DIRS=[] -> patches/x86_64/: NOT REACHED
+H700/aarch64: es-theme-art-book-next PATCH_ARCH=aarch64 PKG_PATCH_DIRS=[] -> patches/: REACHED
+H700/aarch64: lowerdeck PATCH_ARCH=aarch64 PKG_PATCH_DIRS=[] -> no patches/ directory with a .patch
+[R16] rc=0 wall=1s
+## R18 the credential names, names and line numbers only (expect count lines: 5)
+count lines: 5
+30:SCREENSCRAPER_RUNTIME_DEV_LOGIN
+40:SCREENSCRAPER_DEV_LOGIN
+40:SCREENSCRAPER_DEV_LOGIN
+42:SCREENSCRAPER_DEV_LOGIN
+43:GAMESDB_APIKEY
+44:CHEEVOS_DEV_LOGIN
+[R18] rc=0 wall=0s
+## R20 the text checks over the 15, after planted positives
+secret-patterns compile rc=1 (at most 1 compiles)
+planted secret positive: 1 plain: 0
+planted non-ASCII positive: 1
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/autostart/001-emulationstation
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/config/common/es_features.cfg
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/config/common/es_input.cfg
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/config/common/es_savestates.cfg
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/config/common/es_settings.cfg
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/package.mk
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/sources/es_settings
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/sources/serial_number_check
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/sources/start_es.sh
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/system.d/emustation.service
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/system.d/essway.service
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/lowerdeck/package.mk
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/package.mk
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/sources/Tiny5-OFL.txt
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/sources/pixelelated-wordmark.svg
+NON-ASCII FILES 0 SECRET-PATTERN FILES 0
+the four: non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/patches/x86_64/cpugov.patch
+the four: non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/patches/0001-system-style-the-logo-text-for-fullscreen-artwork.patch
+the four: non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/patches/001-pixelelated-splash.patch
+the four: non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/patches/001-tools-always-show-image.patch
+forbidden-terms-check: 1 line(s) on stdin carry a listed word
+forbidden-terms planted positive (stand-in pattern) rc=1
+forbidden-terms-check: 0 hits on stdin
+forbidden-terms over the 15 rc=0
+xml ok projects/ROCKNIX/packages/ui/emulationstation/config/common/es_features.cfg
+xml ok projects/ROCKNIX/packages/ui/emulationstation/config/common/es_input.cfg
+xml ok projects/ROCKNIX/packages/ui/emulationstation/config/common/es_savestates.cfg
+xml ok projects/ROCKNIX/packages/ui/emulationstation/config/common/es_settings.cfg
+XML FAILS 0
+[R20] rc=0 wall=0s
+
+## R21 freshness --list, both refs given (expect lines=48 ui=0)
+freshness --list rc=0 lines=48 ui=0
+[R21] rc=0 wall=0s
+```
+
+### The checker's record (checkbox 9)
+
+These lines are copied, not moved, from § The streams and `00:84-85` (ask 4). Each is quoted from the tool's
+own output file.
+
+- **Stage C's FAIL-first run** (`tools/t37-failfirst.sh` at stage C, `stage-c/failfirst.out`, 01:52 UTC,
+  22 s): every line but the indented detail. Each mutation exits 1 naming its assertion, and the
+  unmutated fixed export exits 0 twice.
+
+```
+fixture: 6 changed lines in the ES recipe
+tip (unfixed) exit=1 TOTAL: 55 of 60 assertions fails: 5
+fixed fixture exit=0 TOTAL: 66 of 66 assertions fails: 0
+mutation global-pkg-build exit=1 names [pkgcheck emulationstation]: CAUGHT
+mutation theme-sha-empty exit=1 names [es-theme-art-book-next sha256]: CAUGHT
+mutation pin-abbreviated exit=1 names [emulationstation pin]: CAUGHT
+mutation install-link exit=1 names [(L-03)]: CAUGHT
+mutation rm-before-fill exit=1 names [(L-04)]: CAUGHT
+mutation bare-need-unpack exit=1 names [(L-19)]: CAUGHT
+mutation url-elsewhere exit=1 names [emulationstation url]: CAUGHT
+mutation no-gles3 exit=1 names [-DGLES3=1]: CAUGHT
+mutation empty-expansion exit=1 names [depends-no-empty-expansion]: CAUGHT
+mutation syntax-error exit=1 names [bash-n emulationstation/sources/serial_number_check]: CAUGHT
+mutation non-ascii exit=1 names [non-ascii-files]: CAUGHT
+mutation broken-xml exit=1 names [xml emulationstation/config/common/es_savestates.cfg]: CAUGHT
+mutation secret-line exit=1 names [secret-pattern-files]: CAUGHT
+mutation patch-dir-nowhere exit=1 names [patch-dir-reached patches/nowhere/]: CAUGHT
+mutation stamp-doctored exit=1 names [GENERIC_X64 lowerdeck stamp-moves-iff-touched]: CAUGHT
+refusal git-tree exit=2: REFUSED-AS-REQUIRED
+fixed fixture again exit=0 TOTAL: 66 of 66 assertions
+SUMMARY: tip exit 1; fixed fixture exit 0 then 0; 15 of 15 mutations caught; refusal exit 2
+```
+
+- **Stage C's run at the tip `2174265e9c`** (`bash tools/t37-checks.sh --tree /workspace/tmp/m6-t37/export
+  --repo <worktree> --commit 2174265e9c --expect-es-pin 16dbac5211eea7e70db7394372033be2be7df829 --devices "GENERIC_X64:x86_64 H700:aarch64" --out /workspace/tmp/m6-t37/checks-tip`,
+  `stage-c/checks-at-tip.out`): its FAIL, WARN and `TOTAL:` lines.
+
+```
+FAIL step 4 patch-dir-reached patches/x86_64/ (emulationstation): reached for 0 of the listed devices
+FAIL step 5 no-link-to-${INSTALL}-target (L-03): at emulationstation/package.mk:101 
+FAIL step 5 no-rm-before-its-directory-is-filled (L-04): at emulationstation/package.mk:79 makeinstall_target (filled at :81) 
+FAIL step 5 GENERIC_X64 PKG_NEED_UNPACK-words-are-directories (L-19): unresolved: busybox
+FAIL step 5 H700 PKG_NEED_UNPACK-words-are-directories (L-19): unresolved: busybox
+WARN step 5 or-true (L-07): emulationstation/package.mk:73
+WARN step 5 french-catalog-not-asserted (L-08): no line of the ES recipe names emulationstation2.mo
+TOTAL: 55 of 60 assertions
+```
+
+- **Stage E's FAIL-first runs**: the first (`stage-e/s1-failfirst.txt`), then the second, with a mutation for
+  each new assertion (`stage-e/s1-failfirst-2.txt`).
+
+```
+SUMMARY: tip exit 1; fixed fixture exit 0 then 0; 18 of 18 mutations caught; refusal exit 2
+SUMMARY: tip exit 1; fixed fixture exit 0 then 0; 20 of 20 mutations caught; refusal exit 2
+```
+
+- **Stage E's run at the tip** (`bash tools/t37-checks.sh --tree /workspace/tmp/m6-t37/e/c9e8d5a8df --repo
+  <worktree> --commit a22e13adee --expect-es-pin 16dbac5211eea7e70db7394372033be2be7df829 --devices "GENERIC_X64:x86_64 H700:aarch64" --out /workspace/tmp/m6-t37/e/tip-final`,
+  `stage-e/checks-at-tip.txt`): its FAIL, WARN and `TOTAL:` lines.
+
+```
+FAIL step 4 patch-dir-reached patches/x86_64/ (emulationstation): reached for 0 of the listed devices
+FAIL step 5 no-link-to-${INSTALL}-target (L-03): at emulationstation/package.mk:103 
+WARN step 5 or-true (L-07): emulationstation/package.mk:75
+TOTAL: 64 of 66 assertions
+```
+
+- **Per lead, at stage C's tip, then at stage E's tip:**
+
+  - L-02 (deferred to #1072):
+    - stage C: `FAIL step 4 patch-dir-reached patches/x86_64/ (emulationstation): reached for 0 of the listed devices`
+    - stage E: `FAIL step 4 patch-dir-reached patches/x86_64/ (emulationstation): reached for 0 of the listed devices`
+  - L-03 (deferred to #613):
+    - stage C: `FAIL step 5 no-link-to-${INSTALL}-target (L-03): at emulationstation/package.mk:101`
+    - stage E: `FAIL step 5 no-link-to-${INSTALL}-target (L-03): at emulationstation/package.mk:103`
+  - L-04 (PL-04, #1383):
+    - stage C: `FAIL step 5 no-rm-before-its-directory-is-filled (L-04): at emulationstation/package.mk:79 makeinstall_target (filled at :81)`
+    - stage E: `PASS step 5 no-rm-before-its-directory-is-filled (L-04)`
+  - L-07 (PL-12, recorded as written):
+    - stage C: `WARN step 5 or-true (L-07): emulationstation/package.mk:73`
+    - stage E: `WARN step 5 or-true (L-07): emulationstation/package.mk:75`
+  - L-08 (PL-07):
+    - stage C: `WARN step 5 french-catalog-not-asserted (L-08): no line of the ES recipe names emulationstation2.mo`
+    - stage E: `PASS step 4 french-catalog-guard (L-08): sourced=1 lines=1 failed-with=0 passed-without=0`
+
+  L-07's verdict is a WARN at both tips by design. The `|| true` is recorded as written (PL-12), so
+  the checker has no FAIL or PASS line for it. L-08's stage-C WARN (`french-catalog-not-asserted`)
+  is absent at stage E's tip, where the guard's own assertion passes.
+
 
 ## The guest cycle
 

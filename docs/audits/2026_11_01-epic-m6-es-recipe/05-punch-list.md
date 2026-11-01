@@ -4,7 +4,7 @@ Written by `tools/t37-05.py` from one item table, so the sections, the Phase 7 g
 
 reviewed-at: 9fa740a91ba9fcaa21a26cc72f0b50fac10f32df
 reviewed-at-es: none -- no ES change
-fixed-at: the hand-back tip, as #684's header names it (t37-streams.md § The hand-back; the last recipe commit is c9e8d5a8df, and the commits after it change no product path)
+fixed-at: c9e8d5a8df
 fixed-at-es: none -- no ES change
 
 ## PL-01: The `es_systems.cfg` fallback link points at a build-host path
