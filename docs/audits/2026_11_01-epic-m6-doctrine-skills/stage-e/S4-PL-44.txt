@@ -1,0 +1,26 @@
+# PL-44 (L-83), S4: begin-delivery: one step order (PL-44; Refs #685)
+parent: ef63791cf6 (export /workspace/tmp/m6-t38/e/ef63791cf6); fix: a908ebf769 (tree bcdd3af256, export /workspace/tmp/m6-t38/e/a908ebf769)
+check, run in each export's .claude/skills: B=begin-delivery/SKILL.md; echo "do not advance if deferred: $(grep -c "do \*\*not\*\* advance to Step 2 if the user defers" $B)"; echo "P0/P1 as futro inputs: $(grep -c "Any P0/P1 items" $B)"; echo "v2.3.0 as the lazy rule: $(grep -c "(this skill, v2.3.0)" $B)"; echo "Step 2 runs the pre-futro audit first: $(sed -n "/^### Step 2 /,/^### Step 2.5/p" $B | grep -c "pre-futro audit")"; echo "far-reaching: $(grep -c far-reaching $B)"
+FAIL at the parent (rc=0): do not advance if deferred: 1 ; P0/P1 as futro inputs: 1 ; v2.3.0 as the lazy rule: 1 ; Step 2 runs the pre-futro audit first: 0 ; far-reaching: 1
+PASS at the fix (rc=0): do not advance if deferred: 0 ; P0/P1 as futro inputs: 0 ; v2.3.0 as the lazy rule: 0 ; Step 2 runs the pre-futro audit first: 1 ; far-reaching: 0
+allowlists re-keyed: t38-rekey: 0 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit bcdd3af256):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       630 of 630 passed, 159 allowlisted
+ok    stale      122 of 122 passed, 121 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 55 of 55 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 16
+TOTAL: 971 of 971 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Already written: nothing inherited: no kickoff comment or plan here names this skill (04 Q6's begin-delivery row: no record kept), so no kickoff ran on the old order
+import-unchanged: yes (git log -S over .claude/skills/begin-delivery/SKILL.md at ef63791cf6 prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= a908ebf769:
+ .claude/skills/begin-delivery/SKILL.md | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
