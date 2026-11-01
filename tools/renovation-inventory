@@ -1,0 +1,1597 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+"""renovation-inventory -- every tracked path of the distribution and of the
+EmulationStation fork, with its area, provenance tier, language, lines, last
+commits and reachability by the images the Makefile builds (M6.P1, #641).
+
+  tools/renovation-inventory [--distribution DIR] [--es DIR]
+      [--areas docs/reviews/areas.json] [--plans DIR]
+      [--out docs/reviews/inventory.json] [--markdown docs/reviews/inventory.md]
+      [--inject-path PATH ...] [--no-write]
+  tools/renovation-inventory --self-test
+
+Prints, and exits 1 unless each pair agrees and both counters are 0:
+  paths: N (git ls-files: N)
+  es-paths: N (git ls-files: N)
+  patches: N (find: N)
+  unassigned: N
+  ambiguous: N
+
+Exit 2 when it cannot run (a git command, a plan, a missing input).
+
+Rules (docs/reviews/README.md, the futro of 2026-10-22):
+
+- The inventory reads committed trees: the distribution at its HEAD, the ES
+  checkout at its HEAD (a detached worktree at the pin). Each total is checked
+  against `git ls-files` there, so staged-but-uncommitted paths fail the run.
+- Areas: a glob is relative to the distribution unless prefixed `es:`; a glob
+  prefixed `!` excludes within its own area; `**` crosses `/`, `*` and `?`
+  stay inside a segment, `{a,b}` alternates globs (no nesting). A path must match
+  exactly one area: none counts as `unassigned`, two or more as `ambiguous`.
+  A bare `**` on the distribution is refused, since it would make
+  `unassigned` 0 whatever the tree held.
+- Tiers: fork-own is `git diff --name-only <merge-base> HEAD` (the merge base
+  with upstream/next, or on ES with rocknix/master); a fork-own path that
+  upstream also changed since the base carries `overlap`. Every other path is
+  upstream-carried. Every `*.patch` and kernel `linux*.conf` under packages/
+  or projects/ is vendor-carried, `tier_note: fork-written` when fork-own.
+- Reachability: `tools/viewplan` per device and arch the Makefile builds,
+  `image` for the 64-bit plans and `arm` (projects/ROCKNIX/packages/virtual/arm)
+  for 32-bit where the device's ENABLE_32BIT is true, with PROJECT, DEVICE
+  and ARCH always set, run by default in the build image the Makefile pins
+  by digest (it must be local; `--runner host` is the explicit alternative,
+  recorded in the header): the host lacks xmlstarlet, which
+  distributions/ROCKNIX/config/functions needs for SUBDEVICES, and a host plan
+  silently drops every subdevice bootloader. The checkout is mounted
+  read-only and BUILD_DIR sits in the container's /tmp; on the host BUILD_DIR
+  is a directory this tool owns. Either way the run fails if the checkout's
+  ignored set changes. Each package in a plan is
+  then sourced with config/functions' `source_package`, and its PKG_DIR,
+  PKG_VERSION and PKG_PATCH_DIRS give the patch directories scripts/unpack
+  would apply, by unpack's own rules. A path inside a package directory is
+  reached when that directory is a plan package's PKG_DIR (a patch only when
+  its directory is selected); a generic package.mk sourced by a reached
+  override is reached with it; a device's own files are reached by that
+  device's plans; projects/ROCKNIX's bootloader, filesystem, options and
+  config.xml by every plan; ES by the plans that build emulationstation; the
+  other projects/ and distributions/ (DISTRO is always ROCKNIX) by none.
+  `reach` is `shipped` (a shipped device's plan), `test` (the test image's
+  plan and no shipped device's), `unshipped` (only other devices' plans),
+  `unreached` (a package or project path no plan reaches),
+  or `n/a` (a path no image plan can hold: the engine, tools, doctrine,
+  records). Reachability errs toward reached: a file in a reached package is
+  reached even if its recipe installs it only for some devices.
+"""
+
+import argparse
+import concurrent.futures
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+import time
+from collections import Counter, defaultdict
+
+EMPTY_TREE = "4b825dc642cb6eb9a060e54bf8d69288fbee4904"
+SHIPPED = ("H700", "SM8550")  # D-WORKFLOW-185: the devices the fork ships
+TEST = ("GENERIC_X64",)  # D-WORKFLOW-185: the test image, built and proven on, never shipped
+EX_FAIL, EX_CANNOT = 1, 2
+COLUMNS = ["tree", "path", "area", "tier", "tier_note", "overlap", "language",
+           "lines", "patches", "last_fork_commit", "last_upstream_commit",
+           "reach", "reachable_by", "buildable_by", "shadowed_by"]
+
+SOURCE_HELPER = r'''
+. config/options "" >/dev/null 2>&1 || { echo "META-FAIL config/options"; exit 0; }
+printf 'META\t%s\t%s\n' "${ENABLE_32BIT}" "${ROOT}"
+while read -r name; do
+  [ -n "${name}" ] || continue
+  exited=0
+  exit() { exited=1; }
+  if source_package "${name}" >/dev/null 2>&1 && [ ${exited} -eq 0 ]; then
+    if [ "${TARGET_ARCH}" = "x86_64" ]; then
+      PATCH_ARCH="x86"
+    elif [ "${PKG_IS_KERNEL_PKG}" = "yes" ]; then
+      PATCH_ARCH="${TARGET_KERNEL_PATCH_ARCH:-${TARGET_ARCH}}"
+    else
+      PATCH_ARCH="${TARGET_PATCH_ARCH:-${TARGET_ARCH}}"
+    fi
+    printf 'PKG\t%s\t%s\t%s\t%s\t%s\t%s\n' "${name}" "${PKG_NAME}" "${PKG_DIR}" \
+      "${PKG_VERSION}" "${PATCH_ARCH}" "${PKG_PATCH_DIRS}"
+  else
+    printf 'SKIP\t%s\n' "${name}"
+  fi
+  unset -f exit
+done
+'''
+
+
+class CannotRun(Exception):
+    pass
+
+
+def git(repo, *args, text=True):
+    r = subprocess.run(["git", "-C", repo, "-c", "core.quotePath=false", *args],
+                       capture_output=True, text=text)
+    if r.returncode != 0:
+        raise CannotRun("git %s: %s" % (" ".join(args[:3]), (r.stderr or "").strip()[:300]))
+    return r.stdout
+
+
+def zsplit(out):
+    return [p for p in out.split("\0") if p]
+
+
+# ---- globs and areas -------------------------------------------------------
+
+def glob_re(g):
+    return re.compile(glob_body(g) + r"\Z")
+
+
+def glob_body(g):
+    out, i = "", 0
+    while i < len(g):
+        if g.startswith("**/", i):
+            out += "(?:.*/)?"
+            i += 3
+        elif g.startswith("**", i):
+            out += ".*"
+            i += 2
+        elif g[i] == "*":
+            out += "[^/]*"
+            i += 1
+        elif g[i] == "?":
+            out += "[^/]"
+            i += 1
+        elif g[i] == "{":  # each alternative is itself a glob (no nested braces)
+            j = g.index("}", i)
+            out += "(?:" + "|".join(glob_body(x) for x in g[i + 1:j].split(",")) + ")"
+            i = j + 1
+        else:
+            out += re.escape(g[i])
+            i += 1
+    return out
+
+
+def load_areas(areas):
+    """[(name, {tree: [include re]}, {tree: [exclude re]})]; refuses a catch-all."""
+    compiled = []
+    for a in areas:
+        inc, exc = defaultdict(list), defaultdict(list)
+        for g in a["globs"]:
+            neg = g.startswith("!")
+            g = g[1:] if neg else g
+            tree = "es" if g.startswith("es:") else "distribution"
+            g = g[3:] if tree == "es" else g
+            if not neg and tree == "distribution" and g == "**":
+                raise CannotRun("area %s: a bare ** on the distribution would hide every unassigned path" % a["area"])
+            (exc if neg else inc)[tree].append(glob_re(g))
+        compiled.append((a["area"], inc, exc))
+    return compiled
+
+
+def assign(compiled, tree, path):
+    hits = [name for name, inc, exc in compiled
+            if any(r.match(path) for r in inc.get(tree, ()))
+            and not any(r.match(path) for r in exc.get(tree, ()))]
+    return hits
+
+
+# ---- per-tree facts ----------------------------------------------------------
+
+def tracked(repo):
+    head = zsplit(git(repo, "ls-tree", "-r", "-z", "--name-only", "HEAD"))
+    index = zsplit(git(repo, "ls-files", "-z"))
+    return head, len(index)
+
+
+def line_counts(repo):
+    lines = {}
+    out = zsplit(git(repo, "diff-tree", "-r", "--numstat", "-z", "--no-renames", EMPTY_TREE, "HEAD"))
+    for rec in out:
+        added, _deleted, path = rec.split("\t", 2)
+        lines[path] = None if added == "-" else int(added)
+    return lines
+
+
+def last_commits(repo, rev):
+    """{path: "<hash10> <yyyy-mm-dd>"} for the newest commit in rev touching it."""
+    out = git(repo, "log", "--no-renames", "--format=%x01%H %cs", "--name-only", rev)
+    seen, current = {}, None
+    for line in out.split("\n"):
+        if line.startswith("\x01"):
+            h, d = line[1:].split(" ", 1)
+            current = "%s %s" % (h[:10], d)
+        elif line and current:
+            if line.startswith('"') and line.endswith('"'):
+                line = line[1:-1].encode("latin-1", "backslashreplace").decode("unicode_escape").encode("latin-1").decode("utf-8", "replace")
+            seen.setdefault(line, current)
+    return seen
+
+
+SHEBANGS = (("python", "python"), ("bash", "shell"), ("/sh", "shell"), ("busybox", "shell"),
+            ("env sh", "shell"), ("node", "javascript"), ("perl", "perl"), ("tsx", "typescript"))
+EXT = {
+    ".sh": "shell", ".bash": "shell", ".py": "python", ".mk": "make", ".patch": "patch",
+    ".diff": "patch", ".c": "c", ".h": "c-header", ".cpp": "c++", ".cc": "c++", ".hpp": "c++-header",
+    ".dts": "devicetree", ".dtsi": "devicetree", ".md": "markdown", ".json": "json", ".yml": "yaml",
+    ".yaml": "yaml", ".xml": "xml", ".conf": "config", ".cfg": "config", ".ini": "config",
+    ".service": "systemd", ".timer": "systemd", ".target": "systemd", ".mount": "systemd",
+    ".socket": "systemd", ".path": "systemd", ".rules": "udev", ".ts": "typescript", ".mjs": "javascript",
+    ".js": "javascript", ".html": "html", ".css": "css", ".txt": "text", ".po": "translation",
+    ".pot": "translation", ".png": "image", ".jpg": "image", ".jpeg": "image", ".svg": "image",
+    ".gif": "image", ".ttf": "font", ".otf": "font", ".log": "log", ".csv": "data", ".tsv": "data",
+    ".cmake": "cmake", ".glsl": "shader", ".lua": "lua", ".toml": "config", ".rs": "rust", ".go": "go",
+    ".java": "java", ".kt": "kotlin", ".asm": "assembly", ".s": "assembly", ".S": "assembly",
+}
+NAMES = {"package.mk": "recipe", "Makefile": "make", "Dockerfile": "docker", "CMakeLists.txt": "cmake",
+         "options": "shell", "Kconfig": "kconfig"}
+
+
+def language(root, path):
+    base = path.rsplit("/", 1)[-1]
+    if base in NAMES:
+        return NAMES[base]
+    if re.match(r"linux.*\.conf\Z", base) and (path.startswith("packages/") or path.startswith("projects/")):
+        return "kernel-config"
+    stem, dot, ext = base.rpartition(".")
+    if dot and stem and ext:
+        lang = EXT.get("." + ext) or EXT.get("." + ext.lower())
+        if lang:
+            return lang
+    full = os.path.join(root, path)
+    try:
+        if os.path.islink(full):
+            return "symlink"
+        with open(full, "rb") as f:
+            head = f.read(96)
+    except OSError:
+        return "unknown"
+    if head.startswith(b"#!"):
+        first = head.split(b"\n", 1)[0].decode("utf-8", "replace")
+        for key, lang in SHEBANGS:
+            if key in first:
+                return lang
+        return "script"
+    return "other" if dot else "none"
+
+
+def is_vendor(path):
+    if not (path.startswith("packages/") or path.startswith("projects/")):
+        return False
+    base = path.rsplit("/", 1)[-1]
+    return base.endswith(".patch") or bool(re.match(r"linux.*\.conf\Z", base))
+
+
+# ---- reachability ------------------------------------------------------------
+
+def makefile_configs(dist):
+    """[(device, arch)] in Makefile order, from its PROJECT=ROCKNIX DEVICE= ARCH= build_distro lines."""
+    with open(os.path.join(dist, "Makefile")) as f:
+        text = f.read()
+    seen = []
+    for dev, arch in re.findall(r"PROJECT=ROCKNIX DEVICE=(\S+) ARCH=(\S+) \./scripts/build_distro", text):
+        if (dev, arch) not in seen:
+            seen.append((dev, arch))
+    return seen
+
+
+def plan_env(dist, device, arch, build_dir):
+    env = {k: v for k, v in os.environ.items()
+           if k not in ("PROJECT", "DEVICE", "ARCH", "DEVICE_ROOT", "BUILD_DIR", "DISTRO")
+           and not k.startswith("_CACHE_PACKAGE") and not k.startswith("_DEBUG_")}
+    env.update(PROJECT="ROCKNIX", DEVICE=device, ARCH=arch, BUILD_DIR=build_dir)
+    for var in ("PROJECT", "DEVICE", "ARCH"):  # config/options defaults DEVICE to SM8550 when unset
+        if not env.get(var):
+            raise CannotRun("%s unset for a plan run" % var)
+    return env
+
+
+def pinned_image(dist):
+    """The build container the Makefile pins, by digest; it must already be local (never pulled here)."""
+    with open(os.path.join(dist, "Makefile")) as f:
+        m = re.search(r"DOCKER_IMAGE_DIGEST\s*:=\s*(sha256:[0-9a-f]{64})", f.read())
+    if not m:
+        raise CannotRun("no DOCKER_IMAGE_DIGEST in the Makefile")
+    r = subprocess.run(["docker", "image", "inspect", "--format", "{{.Id}}", m.group(1)], capture_output=True, text=True)
+    if r.returncode != 0 or r.stdout.strip() != m.group(1):
+        raise CannotRun("the pinned build image %s is not local (make docker-image-pull), or use --runner host" % m.group(1))
+    return m.group(1)
+
+
+class Runner:
+    """Runs a command in the build's own environment: the pinned container (default) or this host.
+
+    The container gets the checkout and the main repository's .git read-only at their own paths,
+    no network, the caller's uid, and BUILD_DIR in its own /tmp, so nothing it does can land in
+    the checkout. The host runner sets BUILD_DIR to a directory this tool owns."""
+
+    def __init__(self, mode, dist, scratch):
+        self.mode, self.dist, self.scratch = mode, dist, scratch
+        if mode == "container":
+            self.image = pinned_image(dist)
+            common = git(dist, "rev-parse", "--path-format=absolute", "--git-common-dir").strip()
+            self.mounts = ["-v", "%s:%s:ro" % (dist, dist), "-v", "%s:%s:ro" % (common, common)]
+        else:
+            self.image = None
+
+    def run(self, device, arch, argv, stdin=""):
+        if self.mode == "container":
+            env = plan_env(self.dist, device, arch, "/tmp/renovation-plan")
+            cmd = ["docker", "run", "--rm", "-i", "--network", "none", "--user", "%d:%d" % (os.getuid(), os.getgid()),
+                   *self.mounts, "-w", self.dist, "-e", "HOME=/tmp"]
+            for k in ("PROJECT", "DEVICE", "ARCH", "BUILD_DIR"):
+                cmd += ["-e", "%s=%s" % (k, env[k])]
+            return subprocess.run(cmd + [self.image] + argv, input=stdin, capture_output=True, text=True)
+        build_dir = tempfile.mkdtemp(prefix="plan-%s-%s-" % (device, arch), dir=self.scratch)
+        env = plan_env(self.dist, device, arch, build_dir)
+        return subprocess.run(argv, cwd=self.dist, env=env, input=stdin, capture_output=True, text=True)
+
+
+def one_plan(dist, device, arch, runner, plans_dir):
+    meta = runner.run(device, arch, ["bash", "-c", SOURCE_HELPER], "")
+    m = [l.split("\t") for l in meta.stdout.splitlines() if l.startswith("META")]
+    if not m or m[0][0] != "META":
+        raise CannotRun("config/options for %s-%s: %s" % (device, arch, meta.stdout[:200]))
+    enable32, root = m[0][1], m[0][2]
+    if os.path.realpath(root) != dist:  # PKG_DIR is reported under ROOT; a different ROOT reaches nothing
+        raise CannotRun("config/options ROOT %s is not the distribution %s" % (root, dist))
+    if arch == "arm" and enable32 != "true":
+        return {"config": "%s-%s" % (device, arch), "skipped": "ENABLE_32BIT=%s" % enable32}
+    root_pkg = "arm" if arch == "arm" else "image"
+    plan_file = os.path.join(plans_dir, "plan-%s-%s.txt" % (device, arch)) if plans_dir else None
+    if plan_file and os.path.exists(plan_file):
+        with open(plan_file) as f:
+            plan_text = f.read()
+    else:
+        r = runner.run(device, arch, ["tools/viewplan", root_pkg])
+        if r.returncode != 0:
+            raise CannotRun("viewplan %s for %s-%s exited %d: %s" % (root_pkg, device, arch, r.returncode, r.stderr[-300:]))
+        plan_text = r.stdout
+        if plan_file:
+            with open(plan_file, "w") as f:
+                f.write(plan_text)
+    names, actions = set(), Counter()
+    for line in plan_text.splitlines():
+        parts = line.split()
+        if len(parts) >= 2 and parts[0] in ("build", "install", "unpack"):
+            names.add(parts[1].split(":", 1)[0])  # "build openssl:host", "install rclone"
+            actions[parts[0]] += 1
+    if root_pkg not in names:  # "install image" in a 64-bit plan; "build arm" in a 32-bit one
+        raise CannotRun("plan for %s-%s has no install of %s (actions %s)" % (device, arch, root_pkg, dict(actions)))
+    r = runner.run(device, arch, ["bash", "-c", SOURCE_HELPER], "\n".join(sorted(names)) + "\n")
+    pkgs, skipped = {}, []
+    for line in r.stdout.splitlines():
+        f = line.split("\t")
+        if f[0] == "PKG":
+            if not f[3].startswith(dist + "/"):
+                raise CannotRun("%s-%s: PKG_DIR %s is outside the distribution" % (device, arch, f[3]))
+            pkgs[f[1]] = {"pkg_name": f[2], "dir": f[3], "version": f[4], "patch_arch": f[5], "patch_dirs": f[6].split()}
+        elif f[0] == "SKIP":
+            skipped.append(f[1])
+    if not pkgs:
+        raise CannotRun("no package of %s-%s could be sourced" % (device, arch))
+    return {"config": "%s-%s" % (device, arch), "device": device, "arch": arch,
+            "root": root_pkg, "packages": pkgs, "unsourced": sorted(skipped),
+            "plan_lines": len(plan_text.splitlines())}
+
+
+def selected_patch_dirs(info, device, root):
+    """The directories scripts/unpack globs *.patch in, as tree-relative paths."""
+    d, name = info["dir"], info["pkg_name"]
+    v, pa = info["version"], info["patch_arch"]
+    prj = os.path.join(root, "projects", "ROCKNIX")
+    dirs = [d + "/patches", d + "/patches/" + pa, d + "/patches/" + v, d + "/patches/%s/%s" % (v, pa),
+            prj + "/patches/" + name, prj + "/patches/%s/%s" % (name, pa), prj + "/patches/%s/%s" % (name, v),
+            prj + "/devices/%s/patches/%s" % (device, name)]
+    for p in info["patch_dirs"]:
+        if p.startswith("/"):
+            dirs.append(p)
+        else:
+            dirs += [d + "/patches/" + p, prj + "/patches/%s/%s" % (name, p),
+                     prj + "/devices/%s/patches/%s/%s" % (device, name, p)]
+    out = set()
+    for x in dirs:
+        x = os.path.normpath(x)
+        if x.startswith(root + "/"):
+            out.add(x[len(root) + 1:])
+    return out
+
+
+def package_dirs(paths):
+    return {p[:-len("/package.mk")] for p in paths if p.endswith("/package.mk")}
+
+
+def owning_dir(path, pkgdirs):
+    parts = path.split("/")
+    for i in range(len(parts) - 1, 0, -1):
+        cand = "/".join(parts[:i])
+        if cand in pkgdirs:
+            return cand
+    return None
+
+
+SOURCED = re.compile(r"\$\{?ROOT\}?/((?:packages|projects)/[^\s\"']*?)/package\.mk")
+
+
+def compute_reach(dist, paths, plans, devices):
+    """{path: set(configs)} for distribution paths; None for n/a paths."""
+    pkgdirs = package_dirs(paths)
+    sourced = {}
+    for d in pkgdirs:
+        try:
+            with open(os.path.join(dist, d, "package.mk"), errors="replace") as f:
+                sourced[d] = {m for m in SOURCED.findall(f.read()) if m in pkgdirs and m != d}
+        except OSError:
+            sourced[d] = set()
+    built = defaultdict(set)          # package name -> the PKG_DIRs plans resolved it to
+    reached_dir = defaultdict(set)    # package dir -> configs (non-patch files)
+    reached_pdir = defaultdict(set)   # patch directory -> configs
+    project_wide, by_device, es_configs = set(), defaultdict(set), set()
+    for p in plans:
+        if p.get("skipped"):
+            continue
+        cfg = p["config"]
+        project_wide.add(cfg)
+        by_device[p["device"]].add(cfg)
+        for name, info in p["packages"].items():
+            d = info["dir"]
+            rel = d[len(dist) + 1:] if d.startswith(dist + "/") else d
+            reached_dir[rel].add(cfg)
+            built[name].add(rel)
+            for s in sourced.get(rel, ()):
+                reached_dir[s + "/package.mk"].add(cfg)  # only the sourced recipe itself
+            for pd in selected_patch_dirs(info, p["device"], dist):
+                reached_pdir[pd].add(cfg)
+            if name == "emulationstation":
+                es_configs.add(cfg)
+    reach = {}
+    for path in paths:
+        if path.startswith("distributions/") and not path.startswith("distributions/ROCKNIX/"):
+            reach[path] = set()  # config/options: DISTRO defaults to ROCKNIX and nothing sets another
+            continue
+        if not (path.startswith("packages/") or path.startswith("projects/")):
+            reach[path] = None
+            continue
+        if path.startswith("projects/") and not path.startswith("projects/ROCKNIX/"):
+            reach[path] = set()  # other projects: no Makefile target sets their PROJECT
+            continue
+        if path.endswith(".patch"):
+            reach[path] = set(reached_pdir.get(path.rsplit("/", 1)[0], ()))
+            continue
+        own = owning_dir(path, pkgdirs)
+        if own:
+            got = set(reached_dir.get(own, ())) | set(reached_dir.get(path, ()))
+            reach[path] = got
+            continue
+        m = re.match(r"projects/ROCKNIX/devices/([^/]+)/", path)
+        if m:
+            reach[path] = set(by_device.get(m.group(1), ())) if m.group(1) in devices else set()
+            continue
+        if re.match(r"projects/ROCKNIX/(bootloader/|filesystem/|options\Z|config\.xml\Z)", path):
+            reach[path] = set(project_wide)
+            continue
+        reach[path] = None  # README, templates and other non-package paths under packages/
+    # A package directory whose name a plan builds from another directory is shadowed: the package
+    # is live, this copy of it is not (get_pkg_directory resolves the override). Removing a shadowed
+    # copy is a duplicate's removal (engineering-practices.md § Before deleting a duplicate).
+    shadow = {d: sorted(built[d.rsplit("/", 1)[-1]])[0] for d in pkgdirs
+              if built.get(d.rsplit("/", 1)[-1]) and d not in built[d.rsplit("/", 1)[-1]]}
+    return reach, es_configs, shadow
+
+
+def split_reach(configs):
+    """reach, reachable_by (the shipped and test configs), buildable_by (the rest)."""
+    shipped = sorted(c for c in configs if c.rsplit("-", 1)[0] in SHIPPED)
+    test = sorted(c for c in configs if c.rsplit("-", 1)[0] in TEST)
+    other = sorted(c for c in configs if c.rsplit("-", 1)[0] not in SHIPPED + TEST)
+    if shipped:
+        return "shipped", sorted(shipped + test), other
+    if test:
+        return "test", test, other
+    if other:
+        return "unshipped", [], other
+    return "unreached", [], []
+
+
+def ignored_set(repo):
+    return git(repo, "status", "--porcelain", "--ignored", "-z")
+
+
+# ---- assembly ---------------------------------------------------------------
+
+def build(args):
+    dist = os.path.realpath(args.distribution)
+    es = os.path.realpath(args.es)
+    with open(os.path.join(dist, args.areas) if not os.path.isabs(args.areas) else args.areas) as f:
+        compiled = load_areas(json.load(f))
+    t0 = time.time()
+
+    upstream = "upstream/next"
+    mb = git(dist, "merge-base", "HEAD", upstream).strip()
+    head = git(dist, "rev-parse", "HEAD").strip()
+    dpaths, d_index = tracked(dist)
+    dlines = line_counts(dist)
+    fork = set(zsplit(git(dist, "diff", "--name-only", "-z", "--no-renames", mb, "HEAD")))
+    up_only = set(zsplit(git(dist, "diff", "--name-only", "-z", "--no-renames", mb, upstream)))
+    d_last_fork = last_commits(dist, "%s..HEAD" % mb)
+    d_last_up = last_commits(dist, upstream)
+
+    es_head = git(es, "rev-parse", "HEAD").strip()
+    es_up = "rocknix/master"
+    emb = git(es, "merge-base", es_up, "HEAD").strip()
+    epaths, e_index = tracked(es)
+    elines = line_counts(es)
+    efork = set(zsplit(git(es, "diff", "--name-only", "-z", "--no-renames", emb, "HEAD")))
+    eup_only = set(zsplit(git(es, "diff", "--name-only", "-z", "--no-renames", emb, es_up)))
+    e_last_fork = last_commits(es, "%s..HEAD" % emb)
+    e_last_up = last_commits(es, es_up)
+    t_git = time.time() - t0
+
+    # reachability
+    configs = makefile_configs(dist)
+    devices = sorted({d for d, _ in configs})
+    before = ignored_set(dist)
+    scratch = tempfile.mkdtemp(prefix="renovation-inventory-")
+    plans = []
+    t1 = time.time()
+    try:
+        runner = Runner(args.runner, dist, scratch)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as ex:
+            futs = [ex.submit(one_plan, dist, d, a, runner, args.plans) for d, a in configs]
+            for fu in futs:
+                plans.append(fu.result())
+    finally:
+        shutil.rmtree(scratch, ignore_errors=True)
+    t_plans = time.time() - t1
+    if ignored_set(dist) != before:
+        raise CannotRun("the checkout's ignored set changed across the plan runs: something wrote into it")
+    reach, es_configs, shadow = compute_reach(dist, dpaths, plans, devices)
+    dirs_for_shadow = package_dirs(dpaths)
+
+    rows, unassigned, ambiguous = [], [], []
+    injected = list(args.inject_path or [])
+    for tree, paths, lines, forkset, uponly, lf, lu, root in (
+            ("distribution", dpaths + injected, dlines, fork, up_only, d_last_fork, d_last_up, dist),
+            ("es", epaths, elines, efork, eup_only, e_last_fork, e_last_up, es)):
+        for path in paths:
+            hits = assign(compiled, tree, path)
+            if not hits:
+                unassigned.append((tree, path))
+            elif len(hits) > 1:
+                ambiguous.append((tree, path, hits))
+            area = hits[0] if len(hits) == 1 else None
+            vendor = tree == "distribution" and is_vendor(path)
+            fork_own = path in forkset
+            tier = "vendor-carried" if vendor else ("fork-own" if fork_own else "upstream-carried")
+            note = "fork-written" if vendor and fork_own else None
+            if tree == "es":
+                rs, rb, bb = split_reach(es_configs)
+            else:
+                cfgs = reach.get(path)
+                if cfgs is None:
+                    rs, rb, bb = "n/a", [], []
+                else:
+                    rs, rb, bb = split_reach(cfgs)
+            sh = None
+            if tree == "distribution" and rs == "unreached":
+                own = owning_dir(path, dirs_for_shadow)
+                sh = shadow.get(own) if own else None
+            rows.append([tree, path, area, tier, note, bool(fork_own and path in uponly),
+                         language(root, path), lines.get(path), None, lf.get(path), lu.get(path),
+                         rs, rb, bb, sh])
+
+    # patches per package.mk: count of *.patch under its own directory
+    patch_paths = [r[1] for r in rows if r[0] == "distribution" and r[1].endswith(".patch")
+                   and (r[1].startswith("packages/") or r[1].startswith("projects/"))]
+    pkgdirs = package_dirs(dpaths)
+    per_dir = Counter()
+    for p in patch_paths:
+        own = owning_dir(p, pkgdirs)
+        if own:
+            per_dir[own] += 1
+    for r in rows:
+        if r[0] == "distribution" and r[1].endswith("/package.mk"):
+            r[8] = per_dir.get(r[1][:-len("/package.mk")], 0)
+
+    found = 0
+    for base in ("packages", "projects"):
+        for dp, _dn, fn in os.walk(os.path.join(dist, base)):
+            found += sum(1 for n in fn if n.endswith(".patch"))
+
+    header = {
+        "generated": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "generator": "tools/renovation-inventory",
+        "distribution": {"head": head, "upstream": upstream, "upstream_head": git(dist, "rev-parse", upstream).strip(),
+                         "merge_base": mb},
+        "es": {"head": es_head, "upstream": es_up, "upstream_head": git(es, "rev-parse", es_up).strip(),
+               "merge_base": emb, "batocera_master": git(es, "rev-parse", "batocera/master").strip()},
+        "configs": [{k: v for k, v in p.items() if k != "packages"} | ({"packages": len(p["packages"])} if "packages" in p else {})
+                    for p in plans],
+        "shipped_devices": list(SHIPPED),
+        "test_devices": list(TEST),
+        "plan_runner": {"mode": args.runner, "image": runner.image},
+        "seconds": {"git": round(t_git, 1), "plans": round(t_plans, 1)},
+    }
+    counts = {"paths": (len(dpaths) + len(injected), d_index), "es-paths": (len(epaths), e_index),
+              "patches": (len(patch_paths), found), "unassigned": len(unassigned), "ambiguous": len(ambiguous)}
+    return header, rows, counts, unassigned, ambiguous
+
+
+def secret_patterns(dist):
+    """The pre-commit and push guards' own credential patterns (.githooks/secret-patterns)."""
+    r = subprocess.run(["bash", "-c", '. .githooks/secret-patterns && printf %s "$SECRET_PATTERNS"'],
+                       cwd=dist, capture_output=True, text=True)
+    if r.returncode != 0 or not r.stdout:
+        raise CannotRun("cannot read .githooks/secret-patterns")
+    return re.compile(r.stdout)
+
+
+def json_rows(rows, guard):
+    """One JSON line per row. A tracked path whose name happens to match a credential
+    pattern (a kernel patch "ma-sk-..." name read as an API key) is written with its
+    hyphens as \\u002d: decoded, the path is byte-identical; at rest, no guard misreads a
+    file name as a secret. A line that still matches fails the run."""
+    out, escaped = [], []
+    for r in sorted(rows, key=lambda r: (r[0], r[1])):
+        line = json.dumps(r, separators=(",", ":"))
+        if guard.search(line):
+            line = line.replace("-", "\\u002d")
+            if guard.search(line) or json.loads(line) != r:
+                raise CannotRun("row %s:%s matches a credential pattern even escaped" % (r[0], r[1]))
+            escaped.append("%s:%s" % (r[0], r[1]))
+        out.append(line)
+    return out, escaped
+
+
+def write_json(path, header, lines, guard):
+    head = json.dumps(header, sort_keys=True)
+    if guard.search(head):  # escaped_rows names those paths too
+        head = head.replace("-", "\\u002d")
+        if guard.search(head) or json.loads(head) != json.loads(json.dumps(header)):
+            raise CannotRun("the header matches a credential pattern even escaped")
+    with open(path, "w") as f:
+        f.write('{"header": %s,\n "columns": %s,\n "rows": [\n' % (head, json.dumps(COLUMNS)))
+        f.write(",\n".join(lines))
+        f.write("\n]}\n")
+
+
+def unit_of(row):
+    tree, path = row[0], row[1]
+    if tree == "es":
+        return "es:" + "/".join(path.split("/")[:2])
+    parts = path.split("/")
+    if parts[0] == "projects" and len(parts) > 2 and parts[1] != "ROCKNIX":
+        return "/".join(parts[:2])
+    if path.endswith(".patch"):
+        return path.rsplit("/", 1)[0]
+    return None
+
+
+CODE = {"shell", "python", "recipe", "c", "c++", "c-header", "c++-header", "javascript", "typescript", "make",
+        "cmake", "systemd", "udev", "script", "perl", "lua", "rust", "go", "assembly", "shader", "docker",
+        "kconfig", "html", "css"}
+
+
+def read_unit(row, pkg_unit):
+    """The unit a slice is cut from: a package directory, a device, a tool, an ES source directory."""
+    tree, path = row[0], row[1]
+    parts = path.split("/")
+    if tree == "es":
+        return "es:" + "/".join(parts[:3]) if len(parts) > 3 else "es:" + path
+    if parts[0] in ("packages", "projects"):
+        if parts[0] == "projects" and len(parts) > 1 and parts[1] != "ROCKNIX":
+            return "/".join(parts[:2])
+        if len(parts) > 3 and parts[2] == "devices" and not pkg_unit.get(path):
+            return "/".join(parts[:4])
+        return pkg_unit.get(path) or "/".join(parts[:-1])
+    if parts[0] in ("tools", "scripts", ".github", ".claude", "docs", "config", "distributions", "research"):
+        return "/".join(parts[:2]) if len(parts) > 2 else path
+    return path
+
+
+def write_markdown(path, header, rows, counts, pkg_unit):
+    fmt = lambda n: "{:,}".format(n)
+    areas = defaultdict(lambda: Counter())
+    for r in rows:
+        a = r[2] or "(unassigned)"
+        c = areas[a]
+        c["paths"] += 1
+        ln = r[7] or 0
+        c["lines"] += ln
+        c["lines:" + r[3]] += ln
+        if r[7] is None:
+            c["binaries"] += 1
+        if r[1].endswith(".patch") and r[0] == "distribution":
+            c["patches"] += 1
+        c["reach:" + r[11]] += 1
+        c["reachlines:" + r[11]] += ln
+        if r[5]:
+            c["overlap"] += 1
+    out = []
+    w = out.append
+    w("# Renovation inventory: the summary")
+    w("")
+    w("Generated by `tools/renovation-inventory` at %s; never hand-edited (a hand edit is a bug in the "
+      "generator). The full table is `docs/reviews/inventory.json`, one row per tracked path." % header["generated"])
+    w("")
+    d, e = header["distribution"], header["es"]
+    w("| Tree | HEAD | Upstream | Merge base |")
+    w("| --- | --- | --- | --- |")
+    w("| distribution | `%s` | `%s` at `%s` | `%s` |" % (d["head"][:10], d["upstream"], d["upstream_head"][:10], d["merge_base"][:10]))
+    w("| EmulationStation | `%s` | `%s` at `%s` (batocera/master `%s`) | `%s` |" % (
+        e["head"][:10], e["upstream"], e["upstream_head"][:10], e["batocera_master"][:10], e["merge_base"][:10]))
+    w("")
+    w("The tool's own checks, as printed:")
+    w("")
+    w("```")
+    for k in ("paths", "es-paths"):
+        w("%s: %d (git ls-files: %d)" % (k, *counts[k]))
+    w("patches: %d (find: %d)" % counts["patches"])
+    w("unassigned: %d" % counts["unassigned"])
+    w("ambiguous: %d" % counts["ambiguous"])
+    w("```")
+    w("")
+    w("## Per area")
+    w("")
+    w("Lines are file lines including blanks (git's numstat against the empty tree); a binary has none. "
+      "`shipped`, `test`, `unshipped`, `unreached` and `n/a` count paths; their lines are in the sets below. *Overlap* counts fork-own paths "
+      "that upstream also changed since the merge base (each still belongs to one area). *Patches* counts `*.patch` "
+      "files wherever they sit; the `patches:` check above compares those under `packages/` and `projects/` with "
+      "`find packages projects -name '*.patch'`, so the records' and doctrine's patches are outside it.")
+    w("")
+    w("| Area | Paths | Lines | fork-own | upstream-carried | vendor-carried | Patches | Binaries | shipped | test | unshipped | unreached | n/a | Overlap |")
+    w("| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |")
+    tot = Counter()
+    for a in sorted(areas):
+        c = areas[a]
+        tot.update(c)
+        w("| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |" % (
+            a, fmt(c["paths"]), fmt(c["lines"]), fmt(c["lines:fork-own"]), fmt(c["lines:upstream-carried"]),
+            fmt(c["lines:vendor-carried"]), fmt(c["patches"]), fmt(c["binaries"]), fmt(c["reach:shipped"]),
+            fmt(c["reach:test"]), fmt(c["reach:unshipped"]), fmt(c["reach:unreached"]), fmt(c["reach:n/a"]), fmt(c["overlap"])))
+    w("| **total** | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |" % (
+        fmt(tot["paths"]), fmt(tot["lines"]), fmt(tot["lines:fork-own"]), fmt(tot["lines:upstream-carried"]),
+        fmt(tot["lines:vendor-carried"]), fmt(tot["patches"]), fmt(tot["binaries"]), fmt(tot["reach:shipped"]),
+        fmt(tot["reach:test"]), fmt(tot["reach:unshipped"]), fmt(tot["reach:unreached"]), fmt(tot["reach:n/a"]), fmt(tot["overlap"])))
+    w("")
+    w("## Read size per area")
+    w("")
+    w("What a slice reads line by line is code (`%s`); configuration, data, translations and Markdown are "
+      "read where a slice's questions need them. *Reached* is `shipped`, `test` or `n/a`; vendor-carried lines are the "
+      "provenance table's, never read." % "`, `".join(sorted(CODE)))
+    w("")
+    w("| Area | Code, fork-own | Code, upstream-carried, reached | Code, unshipped | Code, unreached | Other text | Vendor-carried |")
+    w("| --- | ---: | ---: | ---: | ---: | ---: | ---: |")
+    rs = defaultdict(Counter)
+    for r in rows:
+        c, ln = rs[r[2] or "(unassigned)"], r[7] or 0
+        if r[3] == "vendor-carried":
+            c["vendor"] += ln
+        elif r[6] not in CODE:
+            c["other"] += ln
+        elif r[11] == "unreached":
+            c["unreached"] += ln
+        elif r[11] == "unshipped":
+            c["unshipped"] += ln
+        elif r[3] == "fork-own":
+            c["fork"] += ln
+        else:
+            c["up"] += ln
+    for a in sorted(rs):
+        c = rs[a]
+        w("| %s | %s | %s | %s | %s | %s | %s |" % (a, fmt(c["fork"]), fmt(c["up"]), fmt(c["unshipped"]),
+                                                   fmt(c["unreached"]), fmt(c["other"]), fmt(c["vendor"])))
+    w("")
+    w("## Largest units per area (code lines)")
+    w("")
+    w("A unit is a package directory, a device directory, a tool or script, another project, or an "
+      "EmulationStation source directory (`es:` and its first three path parts). Fifteen per area by code lines; "
+      "the records area is not read and is left out.")
+    units = defaultdict(lambda: defaultdict(Counter))
+    for r in rows:
+        if r[2] == "records":
+            continue
+        u = units[r[2] or "(unassigned)"][read_unit(r, pkg_unit)]
+        u["paths"] += 1
+        u["lines"] += r[7] or 0
+        if r[6] in CODE and r[3] != "vendor-carried":
+            u["code"] += r[7] or 0
+            if r[3] == "fork-own":
+                u["fork"] += r[7] or 0
+        u["reach:" + r[11]] += 1
+    for a in sorted(units):
+        items = sorted(units[a].items(), key=lambda kv: (-kv[1]["code"], -kv[1]["lines"], kv[0]))
+        w("")
+        w("### %s (%s units)" % (a, fmt(len(items))))
+        w("")
+        w("| Unit | Paths | Lines | Code | of which fork-own | Reach |")
+        w("| --- | ---: | ---: | ---: | ---: | --- |")
+        for k, c in items[:15]:
+            reach = ", ".join("%s %d" % (x.split(":", 1)[1], n) for x, n in sorted(c.items()) if x.startswith("reach:"))
+            w("| `%s` | %s | %s | %s | %s | %s |" % (k, fmt(c["paths"]), fmt(c["lines"]), fmt(c["code"]), fmt(c["fork"]), reach))
+        rest = items[15:]
+        if rest:
+            w("| (%d more) | %s | %s | %s | %s | |" % (len(rest), fmt(sum(c["paths"] for _, c in rest)),
+                                                     fmt(sum(c["lines"] for _, c in rest)),
+                                                     fmt(sum(c["code"] for _, c in rest)), fmt(sum(c["fork"] for _, c in rest))))
+    w("")
+    w("## Languages per area (lines)")
+    w("")
+    lang = defaultdict(Counter)
+    for r in rows:
+        lang[r[2] or "(unassigned)"][r[6]] += r[7] or 0
+    w("| Area | Largest five |")
+    w("| --- | --- |")
+    for a in sorted(lang):
+        w("| %s | %s |" % (a, ", ".join("%s %s" % (k, fmt(v)) for k, v in lang[a].most_common(5))))
+    w("")
+    w("## The plans")
+    w("")
+    w("| Config | Root | Plan lines | Packages sourced | Unsourced | Note |")
+    w("| --- | --- | ---: | ---: | ---: | --- |")
+    for c in header["configs"]:
+        if c.get("skipped"):
+            w("| %s | -- | -- | -- | -- | skipped: %s |" % (c["config"], c["skipped"]))
+        else:
+            w("| %s | `%s` | %d | %d | %d | %s |" % (c["config"], c["root"], c["plan_lines"], c["packages"],
+                                                  len(c["unsourced"]), "shipped" if c["device"] in SHIPPED else "test image" if c["device"] in TEST else ""))
+    for label, key in (("unreached", "unreached"), ("unshipped", "unshipped")):
+        units = defaultdict(lambda: [0, 0, set(), set()])
+        for r in rows:
+            if r[11] != key:
+                continue
+            u = unit_of(r) or pkg_unit.get(r[1]) or r[1].rsplit("/", 1)[0]
+            units[u][0] += 1
+            units[u][1] += r[7] or 0
+            units[u][2].add(r[2])
+            if len(r) > 14 and r[14]:
+                units[u][3].add(r[14])
+        w("")
+        w("## The %s set (%s paths, %s lines, %s units)" % (
+            label, fmt(sum(v[0] for v in units.values())), fmt(sum(v[1] for v in units.values())), fmt(len(units))))
+        w("")
+        if key == "unreached":
+            w("A package or project path no plan reaches. A patch is listed by its directory, which `scripts/unpack` "
+              "never selects for any plan; a package by its directory; another project by its name. **A unit with a "
+              "*Shadowed by* entry is a copy of a package that is built**: every plan resolves that name to the override "
+              "named, so this copy's files are unused, and the package itself must not be removed (a duplicate's "
+              "removal, `engineering-practices.md` § Before deleting a duplicate).")
+        else:
+            w("Reached only by devices the fork neither ships nor tests on (D-WORKFLOW-185: it ships %s; %s is the "
+              "test image)." % (" and ".join(SHIPPED), ", ".join(TEST)))
+        w("")
+        w("| Unit | Area | Paths | Lines | Shadowed by (the package is built from) |")
+        w("| --- | --- | ---: | ---: | --- |")
+        for u, (n, ln, a, sh) in sorted(units.items(), key=lambda kv: (-kv[1][1], kv[0])):
+            w("| `%s` | %s | %s | %s | %s |" % (u, ", ".join(sorted(x or "(unassigned)" for x in a)), fmt(n), fmt(ln),
+                                             ", ".join("`%s`" % x for x in sorted(sh)) or "--"))
+    with open(path, "w") as f:
+        f.write("\n".join(out) + "\n")
+
+
+SECURITY_TOKENS = [  # brief § 4: the security lens's token grep
+    ("password", re.compile(r"password", re.I)), ("token", re.compile(r"token", re.I)),
+    ("secret", re.compile(r"secret", re.I)), ("key=", re.compile(r"key=")),
+    ("rclone.conf", re.compile(r"rclone\.conf")), ("curl", re.compile(r"\bcurl\b")),
+    ("wget", re.compile(r"\bwget\b")), ("tar x", re.compile(r"\btar\s+-?[a-zA-Z]*x")),
+    ("unzip", re.compile(r"\bunzip\b")), ("chmod", re.compile(r"\bchmod\b")),
+    ("sudo", re.compile(r"\bsudo\b")), ("systemctl", re.compile(r"\bsystemctl\b")),
+    ("nc -l", re.compile(r"\bnc\s+-[a-zA-Z]*l")), ("http.server", re.compile(r"http\.server")),
+    ("/dev/", re.compile(r"/dev/")),
+]
+STOP_IDS = {"package", "Makefile", "CMakeLists", "config", "options", "install", "sources", "common", "default",
+            "README", "utils", "index", "update", "settings", "system", "service", "scripts", "patches", "start",
+            "script", "linux", "files", "modules", "launch", "functions", "global", "device", "devices", "build",
+            "image", "tools", "network", "storage", "release", "version", "source", "systemd", "target", "plugins",
+            "drivers", "firmware", "manual", "platform", "helper", "license", "LICENSE", "CHANGELOG", "debian",
+            "Config", "include", "support", "android", "windows", "assets", "bootloader", "filesystem", "testing",
+            # names too common to be an edge (pass 4's first matrix): ES and recipe file names, the project's name
+            "CMakeLists.txt", "export", "format", "memory", "assert", "extract", "unpack", "generate", "banner",
+            "services", "resources", "volume", "dialog", "toolchain", "achievements", "pixelelated", "wordmark",
+            "headphones", "emulators", "EmulationStation", "RetroAchievements"}
+
+
+def gh_json(args):
+    r = subprocess.run(["gh", *args, "--repo", "pixelelated/distribution"], capture_output=True, text=True)
+    if r.returncode != 0:
+        raise CannotRun("gh %s: %s" % (" ".join(args[:3]), r.stderr.strip()[:200]))
+    return json.loads(r.stdout)
+
+
+def commits_by_path(repo, since):
+    """{path: set(commit)} from one git log pass."""
+    out = git(repo, "log", "--no-renames", "--since=" + since, "--format=%x01%H", "--name-only", "HEAD")
+    touched, cur = defaultdict(set), None
+    for line in out.split("\n"):
+        if line.startswith("\x01"):
+            cur = line[1:]
+        elif line and cur:
+            touched[line].add(cur)
+    return touched
+
+
+def numstat_by_path(repo, base):
+    """{path: (insertions, deletions)} from one git diff pass; binaries count 0."""
+    res = {}
+    for rec in zsplit(git(repo, "diff", "--numstat", "-z", "--no-renames", base, "HEAD")):
+        a, d, path = rec.split("\t", 2)
+        res[path] = (int(a) if a != "-" else 0, int(d) if d != "-" else 0)
+    return res
+
+
+def assess(args):
+    """docs/reviews/assessment.md: the six ordering lenses' evidence per area (plan § 6a, brief § 4)."""
+    dist, es = os.path.realpath(args.distribution), os.path.realpath(args.es)
+    with open(os.path.join(dist, args.out)) as f:
+        inv = json.load(f)
+    cols = inv["columns"]
+    rows = [dict(zip(cols, r)) for r in inv["rows"]]
+    mb, emb = inv["header"]["distribution"]["merge_base"], inv["header"]["es"]["merge_base"]
+    pkgdirs = package_dirs([r["path"] for r in rows if r["tree"] == "distribution"])
+    pkg_unit = {r["path"]: owning_dir(r["path"], pkgdirs) for r in rows if r["tree"] == "distribution"}
+    with open(os.path.join(dist, "docs/blindspot-register.md")) as f:
+        reg = f.read()
+    blind = [(m.group(1), m.group(0)) for m in re.finditer(r"(?m)^\| (\d+) \|.*$", reg)]
+    for m in re.finditer(r"(?ms)^## (\d+)\. .*?(?=^## \d+\. |\Z)", reg):
+        blind.append((m.group(1), m.group(0)))
+    with open(os.path.join(dist, "docs/friction-log.md")) as f:
+        friction = [l for l in f if l.startswith("- 20")]
+    bugs = gh_json(["issue", "list", "--label", "bug", "--state", "closed", "--limit", "500", "--json", "number,title,body"])
+    opens = gh_json(["issue", "list", "--state", "open", "--limit", "300", "--json", "number,title,body"])
+    if len(bugs) >= 500 or len(opens) >= 300:
+        raise CannotRun("an issue list reached its --limit; raise it")
+    named = {n: next((i for i in opens if i["number"] == n), None) for n in (336, 576, 509, 585)}
+    scratch = tempfile.mkdtemp(prefix="renovation-assess-")
+    out = []
+    touched = {"distribution": commits_by_path(dist, "2026-06-01"), "es": commits_by_path(es, "2026-06-01")}
+    numstat = {"distribution": numstat_by_path(dist, mb), "es": numstat_by_path(es, emb)}
+    try:
+        for area in sorted({r["area"] for r in rows}):
+            if area == "records":  # brief § 2: inventoried, never read for content, so not scored
+                continue
+            ar = [r for r in rows if r["area"] == area]
+            code = [r for r in ar if r["language"] in CODE and r["tier"] != "vendor-carried" and r["reach"] != "unreached"]
+            ids = set()
+            for r in code:
+                leaf = read_unit([r["tree"], r["path"]], pkg_unit).rsplit("/", 1)[-1]
+                stem = r["path"].rsplit("/", 1)[-1].split(".")[0]
+                for x in (leaf, stem):
+                    if len(x) >= 6 and x not in STOP_IDS and re.match(r"[A-Za-z][\w.-]*\Z", x):
+                        ids.add(x)
+            idre = re.compile(r"(?<![\w-])(?:%s)(?![\w-])" % "|".join(re.escape(i) for i in sorted(ids, key=len, reverse=True))) if ids else None
+            hit = lambda t: bool(idre and idre.search(t))
+            sec = Counter()
+            secfiles = set()
+            for r in code:
+                root = es if r["tree"] == "es" else dist
+                try:
+                    with open(os.path.join(root, r["path"]), errors="replace") as f:
+                        text = f.read()
+                except OSError:
+                    continue
+                for name, rx in SECURITY_TOKENS:
+                    if rx.search(text):
+                        sec[name] += 1
+                        secfiles.add(r["path"])
+            dpaths = [r["path"] for r in ar if r["tree"] == "distribution"]
+            commits, stat = set(), Counter()
+            for r in ar:
+                commits |= {(r["tree"], c) for c in touched[r["tree"]].get(r["path"], ())}
+                ins, dels = numstat[r["tree"]].get(r["path"], (0, 0))
+                stat["insertion"] += ins
+                stat["deletion"] += dels
+            churn = len(commits)
+            top = sorted(Counter(read_unit([r["tree"], r["path"]], pkg_unit) for r in code).items(),
+                         key=lambda kv: -sum(x["lines"] or 0 for x in code if read_unit([x["tree"], x["path"]], pkg_unit) == kv[0]))[:10]
+            callers = 0
+            names = [u.rsplit("/", 1)[-1] for u, _ in top if len(u.rsplit("/", 1)[-1]) >= 5]
+            if names:
+                g = subprocess.run(["git", "-C", dist, "grep", "-l", "-F", *sum((["-e", n] for n in names), []),
+                                    "--", "packages", "projects", "scripts", "tools", "config"], capture_output=True, text=True)
+                if g.returncode not in (0, 1):
+                    raise CannotRun("git grep for callers failed")
+                inarea = set(dpaths)
+                callers = sum(1 for l in g.stdout.splitlines() if l not in inarea)
+            readlines = sum(r["lines"] or 0 for r in code)
+            out.append({
+                "area": area, "paths": len(ar), "code_files": len(code), "read_lines": readlines,
+                "security_files": len(secfiles), "security_tokens": dict(sec),
+                "blindspots": sorted({n for n, t in blind if hit(t)}, key=int),
+                "friction": sum(1 for l in friction if hit(l)),
+                "bugs_closed": [i["number"] for i in bugs if hit((i["title"] or "") + "\n" + (i["body"] or ""))],
+                "churn_since_2026_06_01": churn,
+                "since_merge_base": "+%d -%d" % (stat["insertion"], stat["deletion"]),
+                "open_issues": [i["number"] for i in opens if hit((i["title"] or "") + "\n" + (i["body"] or ""))],
+                "named_planned": [n for n, i in named.items() if i and hit((i["title"] or "") + "\n" + (i["body"] or ""))],
+                "callers_of_top_units": callers, "top_units": [u for u, _ in top[:5]],
+                "unreached_paths": sum(1 for r in ar if r["reach"] == "unreached"),
+                "unreached_lines": sum(r["lines"] or 0 for r in ar if r["reach"] == "unreached"),
+                "unshipped_paths": sum(1 for r in ar if r["reach"] == "unshipped"),
+                "unshipped_lines": sum(r["lines"] or 0 for r in ar if r["reach"] == "unshipped"),
+                "identifiers": len(ids),
+            })
+    finally:
+        shutil.rmtree(scratch, ignore_errors=True)
+    fmt = lambda n: "{:,}".format(n)
+    w = []
+    w.append("# Renovation assessment: the six lenses' evidence per area")
+    w.append("")
+    w.append("Generated by `tools/renovation-inventory --assess` from `inventory.json` (distribution `%s`, ES `%s`) "
+             "and the tracker at %s; never hand-edited. Pass 3 of the survey scores each area from these numbers "
+             "(`p1-tracking.md`); a slice read confirms or overturns a score." % (
+                 inv["header"]["distribution"]["head"][:10], inv["header"]["es"]["head"][:10],
+                 time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())))
+    w.append("")
+    w.append("How each column is produced. Over the area's **code files** (code languages, not vendor-carried, not "
+             "unreached): *security* is the number of files matching any of the brief's tokens (%s); the area's "
+             "**identifiers** are its units' and code files' names (six characters or more, generic names excluded), "
+             "and *blindspots*, *friction*, *closed bugs* and *open issues* count the register entries, friction lines "
+             "and issues (`gh issue list --repo pixelelated/distribution`, closed `bug` limit 500 returned %d, open "
+             "limit 300 returned %d) naming one of them as a whole word -- a search, so a lead; *churn* is the commits since 2026-06-01 (`git log --since=2026-06-01 "
+             "--name-only HEAD`, one pass per tree) touching one of the area's paths; *since base* sums `git diff "
+             "--numstat <merge base> HEAD` over them; *callers* counts files outside the area under packages, projects, scripts, "
+             "tools and config naming one of its ten largest units." % (
+                 ", ".join("`%s`" % n for n, _ in SECURITY_TOKENS), len(bugs), len(opens)))
+    w.append("")
+    w.append("| Area | Read lines | Security files | Blindspots | Friction | Closed bugs | Churn | Since base | Open issues | #336/#576/#509/#585 | Callers | Unreached | Unshipped |")
+    w.append("| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | ---: | --- | ---: | --- | --- |")
+    for a in out:
+        w.append("| %s | %s | %d of %d | %d | %d | %d | %d | %s | %d | %s | %d | %s paths, %s lines | %s paths, %s lines |" % (
+            a["area"], fmt(a["read_lines"]), a["security_files"], a["code_files"], len(a["blindspots"]), a["friction"],
+            len(a["bugs_closed"]), a["churn_since_2026_06_01"], a["since_merge_base"], len(a["open_issues"]),
+            ", ".join("#%d" % n for n in a["named_planned"]) or "--", a["callers_of_top_units"],
+            fmt(a["unreached_paths"]), fmt(a["unreached_lines"]), fmt(a["unshipped_paths"]), fmt(a["unshipped_lines"])))
+    w.append("| records | not assessed: inventoried and never read for content (brief § 2) | | | | | | | | | | | |")
+    for a in out:
+        w.append("")
+        w.append("## %s" % a["area"])
+        w.append("")
+        w.append("- Identifiers searched: %d; largest units: %s" % (a["identifiers"], ", ".join("`%s`" % u for u in a["top_units"]) or "--"))
+        w.append("- Security tokens (files): %s" % (", ".join("`%s` %d" % kv for kv in sorted(a["security_tokens"].items(), key=lambda kv: -kv[1])) or "none"))
+        w.append("- Blindspot entries: %s" % (", ".join(a["blindspots"]) or "none"))
+        w.append("- Closed bugs: %s" % (", ".join("#%d" % n for n in a["bugs_closed"]) or "none"))
+        w.append("- Open issues: %s" % (", ".join("#%d" % n for n in a["open_issues"]) or "none"))
+    path = os.path.join(dist, "docs/reviews/assessment.md")
+    with open(path, "w") as f:
+        f.write("\n".join(w) + "\n")
+    print("wrote docs/reviews/assessment.md (%d areas; closed bugs %d, open issues %d, friction lines %d, blindspot entries %d)" % (
+        len(out), len(bugs), len(opens), len(friction), len(blind)))
+    return 0
+
+
+SHARED_STATE = [  # pass 4: state several areas may read or write (from the product's /storage paths and setting calls)
+    ("system.cfg / get_setting / set_setting", re.compile(r"system\.cfg|\b[gs]et_setting\b|SystemConf::")),
+    ("es_settings.cfg", re.compile(r"es_settings\.cfg|Settings::getInstance")),
+    ("cloud_sync.conf and its rules", re.compile(r"cloud_sync\.conf|cloud_sync-rules\.txt")),
+    ("cloud sync stamps and lock", re.compile(r"\.cache/cloud_sync|cloud_sync\.lock|last-sync-")),
+    ("rclone.conf", re.compile(r"rclone\.conf")),
+    ("retroarch.cfg and core options", re.compile(r"retroarch\.cfg|retroarch-core-options")),
+    ("raofflineproxy state", re.compile(r"\.config/raofflineproxy|raofflineproxy")),
+    ("backuptool.conf and settings archives", re.compile(r"backuptool\.conf|backuptool\b")),
+    ("/storage/.cache/services", re.compile(r"\.cache/services")),
+    ("the game-end and game-start hooks", re.compile(r"game-end|game-start|fireEvent")),
+    ("/storage/.cache/log and evidence", re.compile(r"\.cache/log|rocknix-evidence")),
+]
+
+
+def area_texts(rows, dist, es, pkg_unit):
+    """{area: [(path, text)]} over reached, non-vendor code files; {area: identifiers}."""
+    texts, ids = defaultdict(list), defaultdict(set)
+    for r in rows:
+        if r["area"] == "records" or r["language"] not in CODE or r["tier"] == "vendor-carried" or r["reach"] == "unreached":
+            continue
+        root = es if r["tree"] == "es" else dist
+        try:
+            with open(os.path.join(root, r["path"]), errors="replace") as f:
+                texts[r["area"]].append((r["path"], f.read()))
+        except OSError:
+            continue
+        leaf = read_unit([r["tree"], r["path"]], pkg_unit).rsplit("/", 1)[-1]
+        stem = r["path"].rsplit("/", 1)[-1].split(".")[0]
+        for x in (leaf, stem):
+            if len(x) >= 6 and x not in STOP_IDS and re.match(r"[A-Za-z][\w.-]*\Z", x):
+                ids[r["area"]].add(x)
+    return texts, ids
+
+
+def cross(args):
+    """docs/reviews/cross-reference.md: every area against every other (pass 4)."""
+    dist, es = os.path.realpath(args.distribution), os.path.realpath(args.es)
+    with open(os.path.join(dist, args.out)) as f:
+        inv = json.load(f)
+    rows = [dict(zip(inv["columns"], r)) for r in inv["rows"]]
+    pkgdirs = package_dirs([r["path"] for r in rows if r["tree"] == "distribution"])
+    pkg_unit = {r["path"]: owning_dir(r["path"], pkgdirs) for r in rows if r["tree"] == "distribution"}
+    texts, ids = area_texts(rows, dist, es, pkg_unit)
+    areas = sorted(texts)
+    owner = defaultdict(set)
+    for a in areas:
+        for i in ids[a]:
+            owner[i].add(a)
+    own = {a: {i for i in ids[a] if owner[i] == {a}} for a in areas}  # an identifier two areas share proves no edge
+    rx = {a: re.compile(r"(?<![\w-])(%s)(?![\w-])" % "|".join(re.escape(i) for i in sorted(own[a], key=len, reverse=True)))
+          for a in areas if own[a]}
+    matrix, evidence = {}, {}
+    for a in areas:
+        for b in areas:
+            if a == b or b not in rx:
+                continue
+            files, names = 0, Counter()
+            for path, text in texts[a]:
+                found = set(rx[b].findall(text))
+                if found:
+                    files += 1
+                    names.update(found)
+            matrix[(a, b)] = files
+            evidence[(a, b)] = [n for n, _ in names.most_common(3)]
+    # doctrine -> area: each rule's paths: globs resolved against the inventory (no paths: = every area)
+    area_of = {(r["tree"], r["path"]): r["area"] for r in rows}
+    rule_edges = Counter()
+    rules_dir = os.path.join(dist, ".claude/rules")
+    for fn in sorted(os.listdir(rules_dir)):
+        if not fn.endswith(".md"):
+            continue
+        with open(os.path.join(rules_dir, fn)) as f:
+            head = f.read().split("\n---", 1)[0]
+        globs = re.findall(r'(?m)^\s*-\s*"([^"]+)"', head) if "paths:" in head else []
+        hit_areas = set()
+        if not globs or "**" in globs:
+            hit_areas = set(areas)
+        else:
+            res = [glob_re(g) for g in globs]
+            hit_areas = {area_of[k] for k in area_of if k[0] == "distribution" and any(x.match(k[1]) for x in res)} & set(areas)
+        for a in hit_areas:
+            rule_edges[a] += 1
+    # patches -> area of the package they patch
+    patch_edges = Counter()
+    pkg_area = {r["path"][:-len("/package.mk")]: r["area"] for r in rows if r["tree"] == "distribution" and r["path"].endswith("/package.mk")}
+    for r in rows:
+        if r["tree"] == "distribution" and r["area"] == "patches-and-configs":
+            own = owning_dir(r["path"], pkgdirs)
+            m = re.match(r"projects/ROCKNIX/patches/([^/]+)/", r["path"])
+            if own:
+                patch_edges[pkg_area.get(own, "(unknown)")] += 1
+            elif m:  # projects/ROCKNIX/patches/<package>/: the area of that package's local or global recipe
+                cand = [d for d in pkg_area if d.rsplit("/", 1)[-1] == m.group(1)]
+                local = [d for d in cand if d.startswith("projects/ROCKNIX/")]
+                patch_edges[pkg_area[(local or cand)[0]] if cand else "(unknown)"] += 1
+            else:  # a device's or another project's own patch directory, or its kernel config
+                patch_edges["devices"] += 1
+    state = {}
+    for label, srx in SHARED_STATE:
+        state[label] = {a: sum(1 for _, t in texts[a] if srx.search(t)) for a in areas}
+    fmt = lambda n: "{:,}".format(n)
+    short = {a: a.split("-")[0] for a in areas}
+    w = ["# Renovation cross-reference: every area against every other", "",
+         "Generated by `tools/renovation-inventory --cross` from `inventory.json` (distribution `%s`, ES `%s`); never "
+         "hand-edited. Pass 4 of the survey draws slice boundaries from these edges (`p1-tracking.md`)." % (
+             inv["header"]["distribution"]["head"][:10], inv["header"]["es"]["head"][:10]), "",
+         "**Call edges.** A cell is the number of the row area's code files (reached, not vendor-carried) that name, "
+         "as a whole word, an identifier only the column area owns: its units' and code files' names, six characters "
+         "or more, generic names excluded, and an identifier two areas share dropped. A search, so a lead.", "",
+         "| from \\ to | " + " | ".join(short[b] for b in areas) + " |",
+         "| --- | " + " | ".join("---:" for _ in areas) + " |"]
+    for a in areas:
+        w.append("| %s | " % a + " | ".join("--" if a == b else fmt(matrix.get((a, b), 0)) for b in areas) + " |")
+    w += ["", "Column keys: " + ", ".join("`%s` %s" % (short[b], b) for b in areas) + ".", "",
+          "**The strongest edges**, each with the identifiers named most:", "",
+          "| From | To | Files | Named most |", "| --- | --- | ---: | --- |"]
+    for (a, b), n in sorted(matrix.items(), key=lambda kv: -kv[1]):
+        if n >= 3:
+            w.append("| %s | %s | %d | %s |" % (a, b, n, ", ".join("`%s`" % x for x in evidence[(a, b)])))
+    w += ["", "**Shared state.** Code files per area touching each piece of state several areas may read or write.", "",
+          "| State | " + " | ".join(short[a] for a in areas) + " |", "| --- | " + " | ".join("---:" for _ in areas) + " |"]
+    for label, _ in SHARED_STATE:
+        w.append("| %s | " % label + " | ".join(fmt(state[label][a]) or "0" for a in areas) + " |")
+    w += ["", "**Doctrine to area.** Rule files under `.claude/rules/` whose `paths:` globs match the area's paths "
+          "(a rule with no `paths:`, or `**`, governs every area):", "",
+          "| Area | Rules |", "| --- | ---: |"]
+    for a in areas:
+        w.append("| %s | %d |" % (a, rule_edges[a]))
+    w += ["", "**Patches to area.** Each `*.patch` and kernel config counted against the area of the package directory "
+          "it sits in:", "", "| Area of the patched package | Patches and configs |", "| --- | ---: |"]
+    for a, n in sorted(patch_edges.items(), key=lambda kv: -kv[1]):
+        w.append("| %s | %s |" % (a, fmt(n)))
+    w += ["", "**Areas with no edge either way:** %s" % (
+        ", ".join(a for a in areas if not any(matrix.get((a, b), 0) or matrix.get((b, a), 0) for b in areas if b != a)) or "none")]
+    with open(os.path.join(dist, "docs/reviews/cross-reference.md"), "w") as f:
+        f.write("\n".join(w) + "\n")
+    print("wrote docs/reviews/cross-reference.md (%d areas, %d directed pairs with an edge)" % (
+        len(areas), sum(1 for v in matrix.values() if v)))
+    return 0
+
+
+ORDER_BEGIN, ORDER_END = "<!-- renovation-inventory --order: begin -->", "<!-- renovation-inventory --order: end -->"
+
+
+def load_slices(dist, path="docs/reviews/slices.json"):
+    """slices.json: {"sensitive": {kind: [globs]}, "slices": [{k, id, area, title, lens, select, ...}]}.
+
+    A row belongs to a slice when its area is in select.areas (default: the slice's area), it
+    matches one of select.globs (default: all; `es:` for the ES tree; `!` excludes), its reach
+    is in select.reach and its tier in select.tier when those are given. select may be a list,
+    read as a union; a `rest` selector takes only rows no other selector claims."""
+    with open(os.path.join(dist, path)) as f:
+        doc = json.load(f)
+    out = []
+    for sl in doc["slices"]:
+        if "gate" in sl:  # D-WORKFLOW-187: the renovation gates no release; a stale field is refused, not dropped
+            sys.exit("renovation-inventory: slice %s carries a release gate; D-WORKFLOW-187 retired them "
+                     "(a reading-order prerequisite is `read_before`)" % sl.get("id"))
+        sels = sl.get("select", {})
+        compiled = []
+        for sel in (sels if isinstance(sels, list) else [sels]):  # a list is a union of selectors
+            globs = sel.get("globs")
+            compiled.append((set(sel.get("areas", [sl["area"]])),
+                             load_areas([{"area": sl["id"], "globs": globs}])[0] if globs else None,
+                             set(sel["reach"]) if sel.get("reach") else None, bool(sel.get("rest")),
+                             set(sel["tier"]) if sel.get("tier") else None))
+        out.append((sl, compiled))
+    return doc, out
+
+
+def slice_of(row, slices):
+    """The slices a row belongs to. A `rest` selector takes, within its areas, only rows no other selector claims."""
+    def match(areas, comp, reach, tier):
+        if row["area"] not in areas or (reach and row["reach"] not in reach) or (tier and row["tier"] not in tier):
+            return False
+        return not comp or bool(assign([comp], row["tree"], row["path"]))
+    hits = [sl["id"] for sl, sels in slices if any(not rest and match(a, c, r, t) for a, c, r, rest, t in sels)]
+    if hits:
+        return hits
+    return [sl["id"] for sl, sels in slices if any(rest and match(a, c, r, t) for a, c, r, rest, t in sels)]
+
+
+def order(args):
+    """Size every slice from inventory.json, check the slices partition the tree, render order.md's table."""
+    dist = os.path.realpath(args.distribution)
+    with open(os.path.join(dist, args.out)) as f:
+        inv = json.load(f)
+    rows = [dict(zip(inv["columns"], r)) for r in inv["rows"]]
+    doc, slices = load_slices(dist)
+    ks = [sl["k"] for sl, _ in slices]
+    if ks != list(range(1, len(ks) + 1)) or len({sl["id"] for sl, _ in slices}) != len(ks):
+        raise CannotRun("slices must be numbered 1..N in order, with unique ids")
+    size = defaultdict(Counter)
+    paths = defaultdict(list)
+    unassigned, ambiguous = [], []
+    for r in rows:
+        hits = slice_of(r, slices)
+        if not hits:
+            unassigned.append(r)
+            continue
+        if len(hits) > 1:
+            ambiguous.append((r, hits))
+            continue
+        c = size[hits[0]]
+        ln = r["lines"] or 0
+        c["paths"] += 1
+        c["lines"] += ln
+        if r["language"] in CODE and r["tier"] != "vendor-carried" and r["reach"] != "unreached":
+            c["read"] += ln
+            c["read:" + r["tier"]] += ln
+        if r["tier"] == "vendor-carried":
+            c["vendor"] += 1
+            c["vendor_lines"] += ln
+        c["reach:" + r["reach"]] += 1
+        paths[hits[0]].append(r["path"])
+    fmt = lambda n: "{:,}".format(n)
+    print("slices: %d" % len(slices))
+    print("rows: %d (inventory: %d)" % (sum(c["paths"] for c in size.values()), len(rows)))
+    print("unassigned: %d" % len(unassigned))
+    print("ambiguous: %d" % len(ambiguous))
+    for r in unassigned[:10]:
+        print("  unassigned %s %s:%s" % (r["area"], r["tree"], r["path"]))
+    for r, h in ambiguous[:10]:
+        print("  ambiguous %s:%s -> %s" % (r["tree"], r["path"], ", ".join(h)))
+    over, empty = [], []
+    for sl, _ in slices:
+        c, kind = size[sl["id"]], sl.get("kind", "read")
+        bound = {"read": c["read"], "currency": c["read:fork-own"], "prose": c["lines"]}.get(kind, 0)
+        print("%3d %-34s %-22s %6d paths %9s lines %8s read %8s fork-own %8s patch  %-8s%s" % (
+            sl["k"], sl["id"], sl["area"], c["paths"], fmt(c["lines"]), fmt(c["read"]), fmt(c["read:fork-own"]),
+            fmt(c["vendor_lines"]), kind, "  OVER 12,000" if bound > 12000 else ""))
+        if bound > 12000 and sl["k"] <= 3:
+            over.append(sl["id"])
+        if not c["paths"]:
+            empty.append(sl["id"])
+    for x in over:
+        print("  first-three slice %s reads more than 12,000 lines" % x)
+    for x in empty:
+        print("  slice %s holds no path" % x)
+    lines = [ORDER_BEGIN, "",
+             "Generated by `tools/renovation-inventory --order` from `slices.json` and `inventory.json` "
+             "(distribution `%s`, ES `%s`); edit `slices.json`, never this block. Every tracked path is in exactly one "
+             "slice: `unassigned: %d`, `ambiguous: %d` over %s rows. *Read* is code lines a slice reads line by line "
+             "(code languages, not vendor-carried, not unreached); a *currency* slice reads its fork-own files line by line "
+             "and checks the rest for reachability and currency (plan § 2), so its size is its fork-own lines; a table "
+             "slice reads rows, one per path, not lines; a *prose* slice (the doctrine) reads its text, so its size is its "
+             "lines. *Patch and config lines* are the vendor-carried files the slice "
+             "holds (fork-written ones are read with their code, the rest by provenance), counted apart from *Read*." % (
+                 inv["header"]["distribution"]["head"][:10], inv["header"]["es"]["head"][:10],
+                 len(unassigned), len(ambiguous), fmt(len(rows))), "",
+             "| k | Slice | Area | Kind | Lens | Paths | Lines | Read (fork-own) | Patch and config lines | Depth |",
+             "| ---: | --- | --- | --- | --- | ---: | ---: | --- | ---: | --- |"]
+    for sl, _ in slices:
+        c, kind = size[sl["id"]], sl.get("kind", "read")
+        lines.append("| %d | %s | %s | %s | %s | %s | %s | %s | %s | %s |" % (
+            sl["k"], sl["title"], sl["area"], kind, sl["lens"], fmt(c["paths"]), fmt(c["lines"]),
+            "-- (%s rows)" % fmt(c["paths"]) if kind == "table" else "%s of prose" % fmt(c["lines"]) if kind == "prose"
+            else "%s (%s)" % (fmt(c["read"]), fmt(c["read:fork-own"])),
+            fmt(c["vendor_lines"]), sl["depth"]))
+    def describe(sl):
+        sels = sl.get("select", {})
+        parts = []
+        for sel in (sels if isinstance(sels, list) else [sels]):
+            parts.append("areas %s; globs %s%s%s" % (
+                ", ".join("`%s`" % a for a in sel.get("areas", [sl["area"]])),
+                ", ".join("`%s`" % g for g in sel.get("globs", ["(all)"])),
+                ("; reach %s" % ", ".join("`%s`" % x for x in sel["reach"])) if sel.get("reach") else "",
+                "; the rest of these areas" if sel.get("rest") else ""))
+        return " **plus** ".join(parts)
+    for sl, _ in slices:
+        c = size[sl["id"]]
+        lines += ["", "### T%d. %s: %s" % (sl["k"], sl["area"], sl["title"]), "",
+                  "- **id**: `%s`; **kind**: %s; **lens**: %s" % (sl["id"], sl.get("kind", "read"), sl["lens"]),
+                  "- **why here**: %s" % sl["why"],
+                  "- **paths** (%s paths, %s lines, %s read, of which %s fork-own; %s patch and config lines; reach %s): %s" % (
+                      fmt(c["paths"]), fmt(c["lines"]),
+                      "--" if sl.get("kind") == "table" else fmt(c["read"]),
+                      "--" if sl.get("kind") == "table" else fmt(c["read:fork-own"]), fmt(c["vendor_lines"]),
+                      ", ".join("%s %d" % (x.split(":", 1)[1], n) for x, n in sorted(c.items()) if x.startswith("reach:")),
+                      describe(sl)),
+                  "- **read before**: %s" % ("%s (a reading order, D-WORKFLOW-187)" % sl["read_before"] if sl.get("read_before") else "none"),
+                  "- **depth**: %s -- %s" % (sl["depth"], sl["depth_reason"]),
+                  "- **interacting subsystems** (read-only context): %s" % sl["interacting"],
+                  "- **closing evidence**: %s" % sl["closing"]]
+    lines += ["", "### The security, state-preservation and launch-path files", "",
+              "`tools/renovation-drift` reads these globs from `slices.json` (`sensitive`): a closed slice whose drift "
+              "touches one re-opens at its depth, whatever its size (plan § 8)."]
+    for kind, globs in doc.get("sensitive", {}).items():
+        n = sum(1 for r in rows if any(x.match(r["path"]) for x in load_areas([{"area": kind, "globs": globs}])[0][1].get(
+            "es" if r["tree"] == "es" else "distribution", [])))
+        lines.append("- **%s** (%d paths): %s" % (kind, n, ", ".join("`%s`" % g for g in globs)))
+    lines += ["", ORDER_END]
+    target = os.path.join(dist, "docs/reviews/order.md")
+    if not args.no_write:
+        with open(target) as f:
+            text = f.read()
+        if ORDER_BEGIN not in text or ORDER_END not in text:
+            raise CannotRun("order.md has no generated block markers")
+        a, b = text.index(ORDER_BEGIN), text.index(ORDER_END) + len(ORDER_END)
+        with open(target, "w") as f:
+            f.write(text[:a] + "\n".join(lines) + text[b:])
+        print("wrote the generated block of docs/reviews/order.md")
+    return EX_FAIL if unassigned or ambiguous or over or empty else 0
+
+
+ISSUE_BODY = """Slice T{k} of the renovation order: `docs/reviews/order.md` § T{k}, id `{id}` in `docs/reviews/slices.json`. Phase M6.P2, under epic #339 until this area's epic is filed at its first dispatch (then re-parented and retitled `E<epic>/T{k}`, `milestone-phase-naming.md`). Proposed by the survey (#641); the order is {order_row}. Run under the per-slice procedure of `docs/reviews/plan-for-the-plan.md` § 6b, from the brief the planner writes before dispatch (§ 7).
+
+## Scope
+
+- **Area:** {area}; **kind:** {kind}; **lens:** {lens}
+- **Why here:** {why}
+- **Paths:** {desc}. {paths} paths, {lines} lines; {read} lines read, {fork} of them fork-own (inventory at `{head}`). The exact list is `tools/renovation-inventory --order`'s membership of `{id}`.
+- **Provenance tiers:** {tiers}
+- **Read before:** {read_before}
+- **Review depth:** {depth} -- {reason}
+- **Interacting subsystems (read-only context):** {inter}
+
+reviewed-at:
+fixed-at:
+
+{vm}
+
+## Acceptance criteria
+
+- [ ] `docs/audits/<date>-epic-m6-{id}/` holds `00-running-log.md` and `01-research-notes.md` to `05-punch-list.md`.
+- [ ] `tools/lint-audit-artifacts docs/audits/<date>-epic-m6-{id}/` prints `PASS`, the renovation face included: Q1 to Q7 answered in `04-analysis.md`, and every punch item's `question:` in the index.
+- [ ] {opinion}
+- [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue, or withdrawn with its reason.
+- [ ] `reviewed-at:` and `fixed-at:` above carry the commits the read and the fixes were made at (with `fixed-at-es:` for EmulationStation paths), and `tools/renovation-status` lists this slice as `closed`.
+"""
+
+
+def slice_issues(args, out):
+    """Write T<k>.title and T<k>.md for every slice: the slice issues' titles and bodies (pass 7; no tracker)."""
+    dist = os.path.realpath(args.distribution)
+    os.makedirs(out, exist_ok=True)
+    with open(os.path.join(dist, args.out)) as f:
+        inv = json.load(f)
+    rows = [dict(zip(inv["columns"], r)) for r in inv["rows"]]
+    doc, slices = load_slices(dist)
+    size = defaultdict(Counter)
+    for r in rows:
+        h = slice_of(r, slices)
+        if len(h) == 1:
+            c = size[h[0]]
+            ln = r["lines"] or 0
+            c["paths"] += 1
+            c["lines"] += ln
+            c["tier:" + r["tier"]] += 1
+            if r["language"] in CODE and r["tier"] != "vendor-carried" and r["reach"] != "unreached":
+                c["read"] += ln
+                if r["tier"] == "fork-own":
+                    c["fork"] += ln
+    fmt = lambda n: "{:,}".format(n)
+    head = inv["header"]["distribution"]["head"][:10]
+    for sl, _ in slices:
+        c = size[sl["id"]]
+        sels = sl.get("select", {})
+        desc = []
+        for sel in (sels if isinstance(sels, list) else [sels]):
+            desc.append("areas %s; globs %s%s%s" % (
+                ", ".join("`%s`" % a for a in sel.get("areas", [sl["area"]])),
+                ", ".join("`%s`" % g for g in sel.get("globs", ["(all)"])),
+                ("; reach %s" % ", ".join("`%s`" % x for x in sel["reach"])) if sel.get("reach") else "",
+                "; the rest of these areas" if sel.get("rest") else ""))
+        kind = sl.get("kind", "read")
+        vm = ("Can this be done on the VM? Yes -- every behaviour claim this slice makes is proven on the GENERIC_X64 "
+              "guest (`vm-first.md`, `generic-x64-vm-testing.md` § headless); reading and tables need no guest."
+              if kind != "table" else
+              "Can this be done on the VM? No test is proposed: a table slice is host analysis of the tree; a removal "
+              "it proposes is proven on the GENERIC_X64 guest before it is a punch item.")
+        if sl["depth"] == "Local":
+            opinion = ("The review depth is recorded as Local in `second-opinions/review-plan.json` (no reviewer: the "
+                       "lint and the counts are the check, plan § 6c).")
+        elif sl["depth"] == "Independent":
+            opinion = ("`second-opinions/review-plan.json` records Independent depth and one reviewer from another lab, "
+                       "and that reviewer's provenance names its served model (plan § 6c, D-WORKFLOW-137).")
+        else:
+            opinion = ("`second-opinions/review-plan.json` records Extended depth and two reviewers from two other labs, "
+                       "and each reviewer's provenance names its served model (plan § 6c, D-WORKFLOW-137).")
+        title = "M6.P2 E339/T%d: %s: %s" % (sl["k"], sl["area"], sl["title"])
+        body = ISSUE_BODY.format(
+            k=sl["k"], id=sl["id"], area=sl["area"], kind=kind, lens=sl["lens"], why=sl["why"],
+            desc=" **plus** ".join(desc), paths=fmt(c["paths"]), lines=fmt(c["lines"]), read=fmt(c["read"]),
+            fork=fmt(c["fork"]), head=head,
+            tiers=", ".join("%s %s" % (k.split(":", 1)[1], fmt(n)) for k, n in sorted(c.items()) if k.startswith("tier:")),
+            read_before=("%s (a reading order; the renovation gates no release, D-WORKFLOW-187)" % sl["read_before"]
+                         if sl.get("read_before") else "none (the renovation gates no release, D-WORKFLOW-187)"), depth=sl["depth"], reason=sl["depth_reason"], inter=sl["interacting"],
+            vm=vm, opinion=opinion, order_row=args.order_row)
+        with open(os.path.join(out, "T%d.title" % sl["k"]), "w") as f:
+            f.write(title)
+        with open(os.path.join(out, "T%d.md" % sl["k"]), "w") as f:
+            f.write(body)
+    print("wrote %d slice issue bodies to %s" % (len(slices), out))
+    return 0
+
+
+def self_test():
+    """The counters can fail: a path in no area, a path in two, a catch-all refused."""
+    areas = [{"area": "a", "globs": ["x/**", "!x/skip/**"]}, {"area": "b", "globs": ["x/both/*", "es:**"]}]
+    c = load_areas(areas)
+    cases = [("distribution", "y/none", 0), ("distribution", "x/skip/f", 0), ("distribution", "x/both/f", 2),
+             ("distribution", "x/one/f", 1), ("es", "anything/at/all", 1)]
+    bad = 0
+    for tree, p, want in cases:
+        got = len(assign(c, tree, p))
+        ok = got == want
+        bad += not ok
+        print("%s %s:%s -> %d area(s), want %d" % ("PASS" if ok else "FAIL", tree, p, got, want))
+    try:
+        load_areas([{"area": "all", "globs": ["**"]}])
+        print("FAIL a bare ** was accepted")
+        bad += 1
+    except CannotRun:
+        print("PASS a bare ** is refused")
+    g = glob_re("scripts/{council-*,verify-*.ts,owner-queue-lint.mjs}")
+    for p, want in (("scripts/council-invoke.ts", True), ("scripts/verify-pins.ts", True),
+                    ("scripts/owner-queue-lint.mjs", True), ("scripts/build", False)):
+        ok = bool(g.match(p)) == want
+        bad += not ok
+        print("%s brace glob %s" % ("PASS" if ok else "FAIL", p))
+    g = glob_re("{packages,projects}/**/linux*.conf")
+    for p, want in (("projects/ROCKNIX/devices/H700/linux/linux.aarch64.conf", True),
+                    ("packages/linux.conf", True), ("packages/a/linuxish.txt", False)):
+        ok = bool(g.match(p)) == want
+        bad += not ok
+        print("%s glob %s" % ("PASS" if ok else "FAIL", p))
+    for cfgs, want in ((["H700-aarch64", "GENERIC_X64-x86_64", "RK3566-aarch64"], "shipped"),  # D-WORKFLOW-185
+                       (["GENERIC_X64-x86_64", "RK3326-aarch64"], "test"), (["RK3566-aarch64"], "unshipped"), ([], "unreached")):
+        ok = split_reach(cfgs)[0] == want
+        bad += not ok
+        print("%s reach %s -> %s" % ("PASS" if ok else "FAIL", ",".join(cfgs) or "(no plan)", want))
+    print("self-test: %s" % ("PASS" if not bad else "FAIL (%d)" % bad))
+    return 0 if not bad else EX_FAIL
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    ap.add_argument("--distribution", default=".")
+    ap.add_argument("--es", default="/home/max/Development/emulationstation-next.worktrees/m6-p1-survey")
+    ap.add_argument("--areas", default="docs/reviews/areas.json")
+    ap.add_argument("--plans", help="read plan-<DEVICE>-<ARCH>.txt from here when present, write them when not")
+    ap.add_argument("--out", default="docs/reviews/inventory.json")
+    ap.add_argument("--markdown", default="docs/reviews/inventory.md")
+    ap.add_argument("--runner", choices=("container", "host"), default="container",
+                    help="where plans are computed: the Makefile's pinned build image (default), or this host, "
+                         "whose missing tools (xmlstarlet) silently shrink a plan")
+    ap.add_argument("--inject-path", action="append", help="a synthetic distribution path (the unassigned fixture)")
+    ap.add_argument("--no-write", action="store_true")
+    ap.add_argument("--self-test", action="store_true")
+    ap.add_argument("--assess", action="store_true", help="write docs/reviews/assessment.md from inventory.json")
+    ap.add_argument("--order", action="store_true", help="size the slices in slices.json, check they partition the "
+                    "tree, render order.md's generated block (--no-write: print only)")
+    ap.add_argument("--slice-issues", metavar="DIR", help="write each slice issue's title and body (T<k>.title, "
+                    "T<k>.md) into DIR from slices.json and inventory.json; touches no tracker")
+    ap.add_argument("--order-row", default="the order's register row",
+                    help="--slice-issues: the register row that records the order (pass it once the row exists)")
+    ap.add_argument("--cross", action="store_true", help="write docs/reviews/cross-reference.md from inventory.json")
+    args = ap.parse_args()
+    if args.self_test:
+        return self_test()
+    if args.slice_issues:
+        try:
+            return slice_issues(args, args.slice_issues)
+        except (CannotRun, OSError, ValueError, KeyError) as e:
+            print("renovation-inventory: cannot run: %s" % e, file=sys.stderr)
+            return EX_CANNOT
+    if args.order:
+        try:
+            return order(args)
+        except (CannotRun, OSError, ValueError, KeyError) as e:
+            print("renovation-inventory: cannot run: %s" % e, file=sys.stderr)
+            return EX_CANNOT
+    if args.cross:
+        try:
+            return cross(args)
+        except (CannotRun, OSError, ValueError) as e:
+            print("renovation-inventory: cannot run: %s" % e, file=sys.stderr)
+            return EX_CANNOT
+    if args.assess:
+        try:
+            return assess(args)
+        except (CannotRun, OSError, ValueError) as e:
+            print("renovation-inventory: cannot run: %s" % e, file=sys.stderr)
+            return EX_CANNOT
+    try:
+        header, rows, counts, unassigned, ambiguous = build(args)
+    except (CannotRun, OSError, ValueError) as e:
+        print("renovation-inventory: cannot run: %s" % e, file=sys.stderr)
+        return EX_CANNOT
+    for k in ("paths", "es-paths"):
+        print("%s: %d (git ls-files: %d)" % (k, *counts[k]))
+    print("patches: %d (find: %d)" % counts["patches"])
+    print("unassigned: %d" % counts["unassigned"])
+    print("ambiguous: %d" % counts["ambiguous"])
+    for tree, p in unassigned[:20]:
+        print("  unassigned %s:%s" % (tree, p))
+    for tree, p, hits in ambiguous[:20]:
+        print("  ambiguous %s:%s -> %s" % (tree, p, ", ".join(hits)))
+    print("seconds: git %.1f, plans %.1f" % (header["seconds"]["git"], header["seconds"]["plans"]))
+    failed = (counts["paths"][0] != counts["paths"][1] or counts["es-paths"][0] != counts["es-paths"][1]
+              or counts["patches"][0] != counts["patches"][1] or counts["unassigned"] or counts["ambiguous"])
+    if not args.no_write and not args.inject_path:
+        dist = os.path.abspath(args.distribution)
+        pkgdirs = package_dirs([r[1] for r in rows if r[0] == "distribution"])
+        pkg_unit = {r[1]: owning_dir(r[1], pkgdirs) for r in rows if r[0] == "distribution"}
+        try:
+            guard = secret_patterns(dist)
+            lines, escaped = json_rows(rows, guard)
+        except CannotRun as e:
+            print("renovation-inventory: cannot run: %s" % e, file=sys.stderr)
+            return EX_CANNOT
+        header["escaped_rows"] = escaped
+        print("escaped: %d (rows whose path matches a credential pattern, hyphens written as \\u002d)" % len(escaped))
+        try:
+            write_json(os.path.join(dist, args.out), header, lines, guard)
+        except CannotRun as e:
+            print("renovation-inventory: cannot run: %s" % e, file=sys.stderr)
+            return EX_CANNOT
+        write_markdown(os.path.join(dist, args.markdown), header, rows, counts, pkg_unit)
+        with open(os.path.join(dist, args.markdown)) as f:
+            hits = [i + 1 for i, l in enumerate(f) if guard.search(l)]
+        if hits:
+            print("renovation-inventory: %s lines %s match a credential pattern" % (args.markdown, hits[:5]), file=sys.stderr)
+            return EX_CANNOT
+        print("wrote %s (%d bytes), %s" % (args.out, os.path.getsize(os.path.join(dist, args.out)), args.markdown))
+    return EX_FAIL if failed else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

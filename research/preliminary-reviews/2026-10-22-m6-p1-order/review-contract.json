@@ -1,0 +1,46 @@
+{
+  "schema_version": "preliminary-review@1.0.0",
+  "review_kind": "preliminary-review",
+  "decision_authority": "advisory",
+  "formal_council_complete": false,
+  "version": "council-facilitator@1.14.0",
+  "provider": "openrouter",
+  "model_identity_policy": "facilitator-recipe",
+  "roster": [
+    "claude",
+    "gemini",
+    "gpt"
+  ],
+  "members": {
+    "claude": {
+      "id": "claude",
+      "slug": "anthropic/claude-fable-5.1",
+      "declared_model": "anthropic/claude-fable-5.1 (OpenRouter, effort=xhigh)",
+      "effort": "xhigh",
+      "maxOutputTokens": 128000
+    },
+    "gemini": {
+      "id": "gemini",
+      "slug": "google/gemini-3.8-flash",
+      "declared_model": "google/gemini-3.8-flash (OpenRouter, effort=high)",
+      "effort": "high",
+      "maxOutputTokens": 65536
+    },
+    "gpt": {
+      "id": "gpt",
+      "slug": "openai/gpt-6-astra",
+      "declared_model": "openai/gpt-6-astra (OpenRouter, via openai, effort=max)",
+      "effort": "max",
+      "maxOutputTokens": 128000,
+      "provider": {
+        "order": [
+          "openai"
+        ],
+        "allow_fallbacks": false
+      },
+      "served_providers": [
+        "OpenAI"
+      ]
+    }
+  }
+}

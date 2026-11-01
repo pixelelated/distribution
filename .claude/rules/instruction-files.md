@@ -185,13 +185,16 @@ both lists and to this table, or it is invisible.**
 | `vocabulary-check` | back up / backup, and the rest of the player vocabulary | `es-player-text.md` |
 | `forbidden-terms-check` | does a tree, or a set of lines, carry a word from the list kept outside every tree (D-WORKFLOW-061); the fork CI runs it | `fork-workflow.md` |
 | `register-check` | every decision ID once, every citation naming a real row | `decision-register.md` |
-| `lint-audit-artifacts` | the audit artifacts are well formed | `issue-tracking.md` |
+| `lint-audit-artifacts` | the audit artifacts are well formed, and an M6 renovation slice answers the seven questions (its renovation face, #641) | `issue-tracking.md`, `docs/reviews/README.md` |
 | `rules-check` | every rule file front-mattered per the standard, every file in this index, the counts in `CLAUDE.md` and `AGENTS.md` true, `AGENTS.md` within Codex's budget and naming every rule (D-WORKFLOW-045) | `instruction-files.md` |
 | `box-check` | is every open acceptance checkbox on the fork agent-verifiable -- names its artifact, and a physical fact when it asks for a device (D-QA-044; the checkbox checker, D-QA-045) | `issue-tracking.md` |
 | `prose-check` | does a rocknix.org draft read as the site's own writers write -- the tells the samples named, fail and warn; `--self-test` passes the maintainer's page and fails a machine-sounding draft (#323, D-WORKFLOW-068) | the `developer-relations` skill |
 | `release-catalog` | what each kept cut carried, what was proven on it and where it is, generated from the artifacts' RECORD.txt into `docs/releases/catalog.md` (D-WORKFLOW-044) | `issue-tracking.md` |
 | `rc-preflight` | may this tree be cut as a release candidate: packages current, the bases level with ROCKNIX, no bug without a disposition, the record clean -- or each finding accepted by a register row (#271, D-WORKFLOW-047) | `release-candidates.md` |
 | `pr-stack-check` | build the upstream series by content from `docs/pr-series/map.txt` in a throwaway worktree, and prove the last head equals `next` on every upstream-bound path (#322) | `fork-workflow.md` |
+| `renovation-inventory` | every tracked path of the distribution and the EmulationStation fork with its area, provenance tier, lines, last commits and reachability by the images the Makefile builds; fails when a count disagrees or a path is in no area or two (M6.P1, #641) | `docs/reviews/README.md` |
+| `renovation-drift` | what changed under each closed renovation slice since its fixes merged, as a share of its lines and whether a security, state or launch-path file was touched; exits 1 when one must re-open (plan § 8, #641) | `docs/reviews/README.md` |
+| `renovation-status` | one table of the renovation: every slice's size, depth, state, reviewed-at, fixed-at and drift, from the order, the inventory and the slice issues (#641) | `docs/reviews/README.md` |
 | `es-launch-memory` | capture stable-PID launch/exit memory and successful exit-sync stamps on an owned QA guest | `generic-x64-vm-testing.md` |
 | `build-identity-test` | execute actual image identity blocks and offline release plans with RC/release, engineering and tamper controls (#532) | `device-builds.md` |
 | `usb-gadget-test` | run actual USB preparation functions with old/new version metadata in a disposable configfs fixture; preserve descriptor identities and mode links (#531) | `generic-x64-vm-testing.md` |
