@@ -166,15 +166,11 @@ Five hard rules apply to every verdict at every tier:
 2. **Mechanical evidence outranks reading.** Where a check exists, RUN it and
    record the command, exit status and counts in the criterion entry. Reading
    a check's source is insufficient when the check itself can be run. What
-   exists in this repo:
-
-   | Check | Covers |
-   | --- | --- |
-   | `tools/pkgcheck <package>` | `package.mk` conventions — the only lint here; run after every recipe edit |
-   | `tools/cloud-round-trip --host …` | cloud sync end to end against a real device image |
-   | `tools/cloud-test-backend ls` | what a device *actually* uploaded, read from the endpoint rather than from logs |
-   | `tools/vm-visual-qa` | ES screens, driven headlessly |
-   | a device build | the real test that a package or image is sound |
+   exists in this repo is `instruction-files.md` § The fork's own tools, one
+   row per tool with the rule that documents it, plus upstream's
+   `tools/pkgcheck <package>` after every `package.mk` edit; a device build,
+   or `tools/vm-qa` on the GENERIC_X64 image, is the real test of a package
+   or an image.
 
 3. **Run it on a device, not on the host.** Host tools are not the tools on the
    device, and the gap hides real failures — Info-ZIP silently replaces a
