@@ -1873,3 +1873,15 @@ written:
 - `/usr/bin/grep -c ''` prints `1875`.
 
 Version 2, 2026-11-01 00:24:37 UTC, after the stranger's proof of version 1
+
+## Errata before dispatch
+
+Appended by the coordinator at dispatch (2026-11-01 00:5x UTC), never edited into the sections above; where a section and this list differ, this list and #684's body win (D-WORKFLOW-189):
+
+- **T35's state:** § 1 and § 10 say T35 (#682) was *handed back*; it was accepted at 00:24 UTC 2026-11-01 (`c9b2827eab`) and completed at `d828355e0a` / ES `b7fdb3a24` at 00:33 (comment 6551219075). Both lanes' tips are read at stage A as they stand.
+- **Checkbox numbers:** five citations name § 7's boxes by the wrong number -- `:1258` and `:1815`-`:1822` say boxes 13, 19 and 9 where § 7 (lines 1399-1419, box N at line 1398+N) has them at 14, 17 and 10. Read the box by its text in § 7; #684's body carries the same 21 in the same order.
+- **The theme's `fontPath` read** (T36's kickoff addendum, `docs/futros/2026-10-23-m6-interface.md`, routed the theme's `fontPath` read to T37; this brief has no line on it): lead **L-22** -- at stage A the lane reads where the shipped theme names its fonts (`es-theme-art-book-next`'s theme XML at the recipe's pinned source, read by hash; the `Tiny5-OFL.txt` licence beside `pixelelated-wordmark.svg` in the 15) and records whether a font file the theme names is absent from the image, as a `02` row with its command.
+- **Ruling (c)'s header shape, confirmed:** #684's header carries `reviewed-at:`, `reviewed-at-es: none -- no ES change`, `fixed-at:`, `fixed-at-es: none -- no ES change`; the two `-es` fields keep that literal to the hand-back, and a hash there is a stop (this slice changes no EmulationStation file).
+- **Open item 16 answered:** `/workspace/repos/rocknix` and `/workspace/repos/rocknix.worktrees/*` are the M7 lane's and are never entered; the candidate image's identity (`BUILD_ID`, digests, the `ui/` tree hash) is read from M6's own artifact copy under `/workspace/artifacts/m6-t2-20261023/` (its RECORD and identity sidecar) and from R3 § 2.3's recorded lines; the candidate's commit `069fc2704421` is not in the M6 repository, and that absence is recorded, not resolved.
+- **The host-file compile rule has nothing to govern here:** the brief forbids every compiler, package build and image build; a compile START written by this lane is a stop, not a line to acknowledge.
+- **The brief's own reach count stands:** 19 at the tip against 15 in `paths.txt`, with the four that are T40's and T42's named in § 2.
