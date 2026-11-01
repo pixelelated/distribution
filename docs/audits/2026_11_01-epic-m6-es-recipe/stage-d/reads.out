@@ -1,0 +1,30 @@
+== post-update links into /storage
+post-update:31: ### a fresh one in userconfig-setup, and the interface reads this path first.
+post-update:32: for es_cfg in es_features.cfg es_systems.cfg es_savestates.cfg
+post-update:33: do
+post-update:34:   mv /storage/.config/emulationstation/${es_cfg} /storage/.config/emulationstation/last_${es_cfg} >/dev/null 2>&1
+post-update:35:   ln -s /usr/config/emulationstation/${es_cfg} /storage/.config/emulationstation/${es_cfg}  >/dev/null 2>&1
+post-update:36: done
+== the shipped theme's XML naming logo.png (files): 0
+== the ARMSX2 feature
+es_features.cfg:1392:       <feature name="vulkan driver">
+es_features.cfg:1393:         <choice name="armsx2 turnip (default)" value="armsx2"/>
+es_features.cfg:1394:         <choice name="system mesa" value="system"/>
+es_features.cfg:1395:       </feature>
+== the launcher's driver choice
+start_armsx2.sh:47: VKDRIVER=$(get_setting vulkan_driver "${PLATFORM}" "${GAME}")
+start_armsx2.sh:213: #Vulkan driver: Adreno 6xx/7xx builds ship ARMSX2's own Turnip. Point the
+start_armsx2.sh:214: #loader at it for this process only, unless the system driver was chosen.
+start_armsx2.sh:215: ARMSX2_ICD="/usr/share/armsx2-sa/turnip/freedreno_icd.aarch64.json"
+start_armsx2.sh:216: if [ -f "${ARMSX2_ICD}" ] && [ "${VKDRIVER}" != "system" ]; then
+start_armsx2.sh:217:   export VK_DRIVER_FILES="${ARMSX2_ICD}"
+start_armsx2.sh:218: fi
+== armsx2-sa's Turnip predicate
+armsx2-sa/package.mk:25: # Ship ARMSX2's own Turnip build on the Adreno 6xx/7xx families. SM8750
+armsx2-sa/package.mk:26: # (Adreno 8xx) keeps the system driver.
+armsx2-sa/package.mk:27: case ${DEVICE} in
+armsx2-sa/package.mk:28:   SM4450|SM6115|SM8250|SM8550|SM8650)
+armsx2-sa/package.mk:29:     PKG_DEPENDS_TARGET+=" armsx2-turnip"
+armsx2-sa/package.mk:30:     ;;
+armsx2-sa/package.mk:31: esac
+== bare PKG_NEED_UNPACK words over packages/ and projects/: 1

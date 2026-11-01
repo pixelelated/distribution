@@ -480,8 +480,52 @@ pre-generated `en_US.UTF-8` (present) keeps off first boot.
 
 ## The streams
 
-Written by the coordinator after stage D, as for T21 to T36; the lane leaves this heading and the
-pause's dispositions.
+The coordinator's stream brief is `docs/reviews/briefs/t37-streams.md` at `1f9327d496` (two streams,
+eighteen rulings; dispatched on #684, comment 6552560083, 02:53 UTC 2026-11-01). The rulings are
+cited by number. S0 is record-only; S1's five recipe edits each get a row below as they land.
+
+| Stream | Commit | Positive before | Positive after | proved |
+| --- | --- | --- | --- | --- |
+| S0: the records, the deferrals, the #585 lines, `stage-d/`, the baseline | the S0 record commit | -- | the checker over the S0 tree (`--commit 902e00987c`, the stage-E start; the S0 commit changes nothing it reads): `TOTAL: 55 of 60 assertions`, the five FAIL lines of `stage-c/checks-at-tip.out`, its lines equal to stage C's (`diff` rc 0), its six stamps equal to `stage-c/stamps-at-tip.txt` (`stage-e/s0-baseline.txt`, `s0-stamps.txt`) | tree; tool-run |
+
+### Recorded, no stream
+
+- **PL-01** -- **Deferred to #613** (ruling 2), the M7 lane's. T37's line on #613 (comment
+  6552262443) is the record. The checker's `FAIL step 5 no-link-to-${INSTALL}-target (L-03): at
+  emulationstation/package.mk:101` stays FAIL by design; it flips when #613's fix reaches this
+  recipe. The candidate's link resolves (G-03).
+- **PL-02** -- **Deferred to #1072** (ruling 3). T40 corrects the patch's GPU call first, then
+  `PKG_PATCH_DIRS+=` or the rename. The seat's G-1 (the four `get_available_cpu_governors` calls) and
+  G-2 (the `+=` form) are recorded (`04` § Second opinion; comment 6552262614). The checker's
+  `FAIL step 4 patch-dir-reached patches/x86_64/` stays FAIL by design.
+- **PL-06** -- **Deferred to #1385** (ruling 4). Upstream's recipe declares no `fribidi` at the
+  base, the P1 tip or `upstream/next` (`stage-e/s0-fribidi-reads.txt`):
+  - `c445081a59: 10:PKG_DEPENDS_TARGET="boost toolchain SDL2 freetype curl freeimage bash rapidjson SDL2_mixer fping p7zip alsa vlc drm_tool poppler pugixml noto-sans-cjk ${OPENGLES}" fribidi=0`
+  - `2174265e9c: 13:PKG_DEPENDS_TARGET="... noto-sans-cjk zstd ${OPENGLES}" fribidi=0` (the fork's)
+  - `651150fc88: 10:PKG_DEPENDS_TARGET="... noto-sans-cjk ${OPENGLES}" fribidi=0`
+
+  So declaring it is a fork-only design change, not a currency fix. The candidate's `libfribidi NOT
+  linked` stays the integration's configure-log question, and the choice (declare it, or drop the
+  optional probe) is #1385's.
+- **PL-10** -- **Deferred to #1385** (ruling 6), with PL-16's tool half and PL-17's mask.
+- **PL-14** -- **Deferred to the distribution merge** (`release-candidates.md` step 0) **and #791**
+  (ruling 7).
+- **PL-15** -- **the coordinator's sweep** (ruling 8): the two rule errata, carried in `1f9327d496`
+  (`device-builds.md` § Iterating on EmulationStation; the per-device patches sentence in
+  `CLAUDE.md`, `AGENTS.md` and `packaging-and-patches.md`).
+- **Recorded** (ruling 5; each written `**Deferred** | recorded ...` in `05`'s gate, ruling 11):
+  - PL-09 kept with its reason (inert; the path held by `Paths.cpp:81`), with its #585 line.
+  - PL-11 as written, with its #585 line.
+  - PL-12 as written (a best-effort cache with a fallback).
+  - PL-13, the dated currency finding; the bump is the integration's under D-WORKFLOW-024 (a new
+    `PKG_SHA256` needs a fetch).
+  - PL-16, the tool note; its tool half is #1385's.
+  - PL-17 under D-INFRA-006; its mask is #1385's.
+  - PL-18 as written (upstream's legacy alias).
+  - PL-19 for upstream, with its #585 line.
+- **The leads with no punch item:** L-11 design (D-WORKFLOW-166); L-12 and L-13 notes outside the
+  lanes (D-UI-079); L-16 read (#990); L-20 design; L-22 sound. The seat's G-4, refuted. #64's `:54`
+  checkbox, `CANNOT` from this recipe. **Withdrawn:** none.
 
 ## Positives
 
@@ -502,12 +546,14 @@ pause's dispositions.
 
 ## The #585 lines owed
 
-One per upstream-carried defect the lane proves, in the lane's shape, never sent (D-WORKFLOW-164,
--165). At stage B, proposed pending the checker's FAIL at stage C:
+One per upstream-carried defect or improvement the lane proves, in the lane's shape, never sent
+(D-WORKFLOW-164, -165). At stage E: the checker FAILs at the tip on L-03 and L-19 (stage C), and the
+stream brief's rulings 5 and 17 name the rest.
 
 - **L-03** (ROCKNIX, `projects/ROCKNIX/packages/ui/emulationstation/package.mk`): the
   `es_systems.cfg` fallback link interpolates `${INSTALL}` into its target, so the image carries a
-  build-host path; the device path is `/usr/config/emulationstation/es_systems.cfg` (#613).
+  build-host path; the device path is `/usr/config/emulationstation/es_systems.cfg`. **Carried on
+  #613** (PL-01 deferred; the same words are in comment 6552262443).
 - **L-06** (ROCKNIX, the same recipe): `sed "s#-#_##g"` replaces only the first hyphen of `DEVICE`
   (`#g` is a comment); `s#-#_#g` is meant. No current device name has a hyphen.
 - **L-19** (ROCKNIX, the same recipe): `PKG_NEED_UNPACK="busybox"` is a bare word where
@@ -515,7 +561,21 @@ One per upstream-carried defect the lane proves, in the lane's shape, never sent
   busybox)` is the framework's own form.
 - **PL-029** (ROCKNIX, `start_es.sh` and `emustation.service`): `--log-path /var/log` is parsed by
   no ES argument branch; under `ROCKNIX` the path is `/var/log` by `Paths.cpp`. Offered as a tidy-up,
-  not a defect.
+  not a defect (PL-09).
+- **PL-19** (ROCKNIX, `projects/ROCKNIX/packages/ui/emulationstation/sources/serial_number_check:8-24`):
+  when the path is set and the read is empty, a stored serial differs from `""`, so the empty value
+  is stored and the warning raised. The contained guard is that an empty read skips the check.
+  Recorded under D-UI-079 (an upstream surface outside the fork's lanes).
+- **PL-04** (ROCKNIX, `emulationstation/package.mk`, `651150fc88:53` before `:55`): the `rm` of
+  `resources/logo.png` runs before `resources/` is made and filled, so the file it means to drop
+  ships; under `ROCKNIX` the default splash is `:/pixelelated-wordmark.svg`, so nothing reads it.
+  The `rm` belongs after the copy (ruling 17).
+- **PL-07** (ROCKNIX, the same recipe, `651150fc88:41-42`): the catalog is copied with no check that
+  the French `.mo` exists, so a build without the gettext tools ships no French silently. A line that
+  stops the install when the file is missing (ruling 17; an improvement, not a defect).
+- **PL-08** (ROCKNIX, the same recipe, `651150fc88:33`): upstream's credential loop prints each
+  value (`USING: ${key} = ${!key}`); the fork's prints names only and lacks `HFS_DEV_LOGIN`, which
+  `scripts/get_env` forwards. The names-only form with all four names (ruling 17).
 
 ## What the integration inherits
 
@@ -528,15 +588,20 @@ One per upstream-carried defect the lane proves, in the lane's shape, never sent
    them (L-08's loud line, if the pause takes it, then guards the image).
 3. **The define's three owners** (`:25` T37's, `es-core/CMakeLists.txt:278-283` T35's, the bodies
    T36's).
-4. **Fribidi** -- the pause's decision; and **why the candidate's `QUIET` find failed** although
-   ES's plan builds fribidi first, which only that build's configure log shows (L-09).
+4. **Fribidi** -- **#1385** holds the choice (declare it at `:13`, or drop the optional probe;
+   ruling 4); and **why the candidate's `QUIET` find failed** although ES's plan builds fribidi first,
+   which only that build's configure log shows (L-09).
 5. **The candidate's provenance** (ruling (h)): nine ES patches and the corrected link the tip's
    recipe lacks.
 6. **The identity sidecar** carries no ES pin (#1013).
 7. **The distribution merge on `ui/`** (upstream's 16 commits on 8 files) is
    `release-candidates.md` step 0's; **the ES 14** are #791's.
 8. **The fixes this slice proves**, each `fix-image-pending` until the first image built from the
-   fixed recipe shows it.
+   fixed recipe shows it: S1's five edits to `emulationstation/package.mk` (PL-03 none on an image,
+   the stamp never reaching one; PL-04 `ls` of `resources/logo.png` on the GENERIC_X64 guest; PL-05
+   the catalogue count from a non-Turnip image's `SYSTEM`; PL-07 the French catalog on the image;
+   PL-08 the build log's `HFS_DEV_LOGIN` line).
 9. **The state check's payload route on this host** needs `mcopy`, absent here; the `--root` route
-   over an extracted `SYSTEM` ran instead (stage B). A tool note for the coordinator, not a slice
-   fix.
+   over an extracted `SYSTEM` ran instead (stage B). A tool note, **#1385**'s, not a slice fix.
+10. **PL-17's mask on the verbose build path** (#1385) and **PL-13's `lowerdeck` bump** at the
+    integration (D-WORKFLOW-024; it needs a fetch for the new `PKG_SHA256`).

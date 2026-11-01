@@ -1,0 +1,17 @@
+# T37 stage D filing receipts, re-read 2026-11-01T02:55:54Z
+#1381 id=6142292328 state=open labels=[] title=Audit: M6 T37 the EmulationStation recipe and themes in the distribution -- 19 findings (independent; 4 checker-proven at the tip, 3 new bugs)
+#1382 id=6142301051 state=open labels=[bug] title=emulationstation: PKG_NEED_UNPACK="busybox" names no directory, so busybox never moves the ES stamp (package.mk:14, T37 PL-03)
+#1383 id=6142301218 state=open labels=[bug] title=emulationstation: the rm of resources/logo.png runs before the directory exists, so an unused file ships (package.mk:79, T37 PL-04)
+#1384 id=6142301394 state=open labels=[bug] title=emulationstation: four merges dropped upstream's ARMSX2 vulkan-driver filter, so a no-effect row shows off the Turnip devices (package.mk:125-129, T37 PL-05)
+#684 sub-issues:
+  #1381 id=6142292328
+box-check:
+  #1381: box-check: 1 issue(s), 19 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+  #1382: box-check: 1 issue(s), 3 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+  #1383: box-check: 1 issue(s), 3 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+  #1384: box-check: 1 issue(s), 3 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+pre-issue lint:
+  PASS pre-issue artifacts (does not certify resolution)
+  --issue 1381: PASS pre-issue artifacts (does not certify resolution)
+T37's lines: #613 comment 6552262443; #1072 comment 6552262614
+the punch-list post: #684 comment 6552279533 (stage-d/punch-list-post.md); the pause: #684 comment 6552281930 (stage-d/pause-post.md)
