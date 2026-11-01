@@ -1,0 +1,12 @@
+# T35 close-out: the checks after the merge of 4ef0442d24 (ce76a11c45), the 02 edits and audit-completion.json; 2026-11-01T00:28:47Z
+PASS
+lint (resolution) rc=0
+PASS
+lint --issue 1337 rc=0
+register-check: 712 IDs, each once; every citation in the live documents names a row
+register-check rc=0
+work-log index: current
+work-log-index --check rc=0
+  ok    audit     last 2026-11-01T00:28:28.921794+00:00 via #1337 docs/audits/2026_10_31-epic-m6-es-core-window-input/audit-completion.json; 0 of 12 closed issues, 0 of 14 days
+ceremony-check (no --gate) rc=0
+02's changes against the pre-close-out composition: 4 lines (116, 190, 209: G-03's wording; 245: G-01's count)

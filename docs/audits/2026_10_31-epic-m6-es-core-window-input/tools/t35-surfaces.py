@@ -34,7 +34,7 @@ R = [
     (WC, 311, r"void Window::displayNotificationMessage", "enqueue", "displayNotificationMessage", "the toast queue", "taken (`:313`)",
      "`push_back` of the words with `notificationDuration(duration)` (`:298-309`: `<= 0` is the display-titles setting within 2..120 s, else 10 s)", "kept: any thread may call it", "3.15", "tree", False),
     (WC, 324, r"void Window::processNotificationMessages", "dequeue", "processNotificationMessages (update `:466`)", "the queue -> the popups", "taken (`:326`)",
-     "returns while any card is up (`:336-337`); takes the **back** of the queue (`:339-340`), builds a `GuiInfoPopup`, lays out", "one surface at a time: kept; *the order is the order things happened* (`:334-335`): **not kept** -- the newest first (L-01)", "3.14; G-02 (the toast after the card); G-03 `CANNOT`", "tree", False),
+     "returns while any card is up (`:336-337`); takes the **back** of the queue (`:339-340`), builds a `GuiInfoPopup`, lays out", "one surface at a time: kept; *the order is the order things happened* (`:334-335`): **not kept** -- the newest first (L-01)", "3.14; G-02 (the toast after the card); G-03 (it ran: after the card left, the two toasts showed B above A, `g02b-001.png`)", "tree", False),
     (WC, 353, r"void Window::stopNotificationPopups", "free", "stopNotificationPopups", "the popups", "the caller's (`:1165` holds it)",
      "deletes every popup and clears the vector", "kept: called with the lock from the card's creation", "--", "tree", False),
     (WC, 365, r"void Window::updateNotificationPopups", "free", "updateNotificationPopups (update `:557`)", "the popups", "not taken",

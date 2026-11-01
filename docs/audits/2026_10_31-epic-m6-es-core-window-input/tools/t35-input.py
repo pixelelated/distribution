@@ -94,7 +94,7 @@ print("**The two hotkey names:** the SDL-mapping fallback copies `select` to **`
 # doOnFinish and the hot-plug.
 c.need(IM, 1262, r'find_child_by_attribute\("inputAction", "type", "onfinish"\)')
 c.need(IM, 1272, r"int exitCode = Utils::Platform::ProcessStartInfo\(tocall\)\.run\(\);")
-print("**`doOnFinish`'s `<command>`** (`:1242-1284`): every `<inputAction type=\"onfinish\">` `<command>` text runs through `ProcessStartInfo(tocall).run()` at `:1272`, **synchronously, on the interface thread**, from `writeDeviceConfig` (`:1238`); a non-zero exit is a `LogWarning` (`:1277`). The shipped `es_input.cfg`'s `inputAction` count is G-01's line (owed). `proved: tree`.\n")
+print("**`doOnFinish`'s `<command>`** (`:1242-1284`): every `<inputAction type=\"onfinish\">` `<command>` text runs through `ProcessStartInfo(tocall).run()` at `:1272`, **synchronously, on the interface thread**, from `writeDeviceConfig` (`:1238`); a non-zero exit is a `LogWarning` (`:1277`). The shipped `es_input.cfg`'s `inputAction` count is G-01's line: 0 (§ The guest cycle: *The shipped file has 0 `inputAction` lines*). `proved: tree`.\n")
 c.need(IM, 813, r"case SDL_JOYDEVICEADDED:")
 c.need(IM, 852, r"rebuildAllJoysticks\(\);")
 c.need(IM, 864, r"case SDL_JOYDEVICEREMOVED:")

@@ -407,3 +407,24 @@
   - The lane's first-parent commits touch nothing under `packages/`, `projects/` or `tools/`.
 - **After this commit:** `fixed-at` (this commit) and `fixed-at-es` (`b7fdb3a24`) move in #682's header. #1357's body gets its `fixed-at-es` and its one criterion ticked from `stage-e/s9-after.txt`. Then the amended hand-back post.
 - **The other fifteen bugs' `fixed-at-es` stays `d0e5b3432`**: their fixes are unchanged, and `d0e5b3432` is an ancestor of the new tip.
+
+## [Close-out] 00:25 to 00:30 UTC 2026-11-01 — accepted (20 of 21; #682 comment 6551129582): the merge, 02's two wordings, audit-completion.json, the scratch retired
+
+- **The merge** of the coordinator's `4ef0442d24` (`ce76a11c45`), by the fail-closed recipe: three conflicts, all in its set. `docs/friction-log.md` and the 2026-10-31 day log were united by `kit/ledger-union.py`; `INDEX.md` taken `--theirs` and regenerated. 0 markers in any staged file; `register-check` and `work-log-index --check` green.
+- **`02`, the two wordings and nothing else** (`stage-e/closeout-checks.txt`: 4 lines changed against the pre-close-out composition):
+  - **G-03:** it ran. `02:116` (§ The leads, `t35-leads.py`), `02:190` (§ The surfaces, `t35-surfaces.py`) and `02:209` (the template's queue paragraph) read G-03 with `g02b-001.png`, B above A after the card, where they read `CANNOT`.
+  - **§ The input's G-01 count:** `02:245` (`t35-input.py`) reads 0, with § The guest cycle's sentence, where it read "(owed)".
+  - The edits were made in their generators and the template, so `tools/t35-02.py` keeps them.
+- **A composition refused, and its cause:** `t35-includes.py` failed (`es-native-ui.md:30 no longer says top-right`) because the merge brought the coordinator's PL-23 sweep (`1c3c77e201`). It now reads the rule at `reviewed-at` `5d7650c1dc`, as the audit read it; its output text is unchanged.
+- **`audit-completion.json`** is written by `tools/t35-write-completion.py`, T34's `t34-write-completion.py` (`308d0f7571`) copied by `git show`, its code identical below the docstring. It reads #1337 back closed/completed with 35 ticked, writes `tracker-final-readback.json` and `tracker-completion.json`, and hash-binds them with `04` and `05` (`completed_at 2026-11-01T00:28:28.921794+00:00`). `tools/ceremony-check` (no `--gate`) gives `ok audit ... via #1337`.
+- **The checks** (`stage-e/closeout-checks.txt`): the lint `PASS` on `resolution` and with `--issue 1337`; `register-check` 712 IDs, each once; `work-log-index --check` current.
+- **Scratch retired under D-INFRA-022** (the ES worktree stays until the integration):
+  - **`/workspace/tmp/m6-t35/`**, 25,043,079 bytes in 292 files: the unit build tree, the rapidjson root, the guest window's helper logs, and the runners and post drafts.
+    - Kept here because a reader might look for them: the rapidjson root's `document.h` was `a8c29c92d1e89279741bec355ceec39502a9ace276e04bdb90ff31814a130e27`, re-made from the source cache's tarball and the package's two patches (S0's entry).
+    - The two boot logs (`bf5e562d5b3fef12...`, `cf1f787563577554...`) held only QEMU's two `pw.conf ... can't load config client.conf` lines each.
+    - `prepare.txt` has its copy at `guest-cycle/helpers/prepare.txt`.
+  - **`.qa-scratch/t35/`**, 96,337 bytes in 4 files (gitignored). `stage-a/membership.sh` re-makes it. `paths.txt` was `848eb5e06143ba13b0bd37e797527e515257184542f37a4cdf0a06a2052407b3` (96 lines), `membership.py` `53a88334c2d8bbf6...`, `block-1.txt` `771bec1736bee527...`, `block-2.txt` `04b0c3e0542877b4...`.
+  - **`/workspace/tmp/m6-t33/`**: an empty directory S3's 3.27 run left (its `tmp/` was removed then).
+  - **Verified:** none of the three paths exists. `/workspace`'s free space went from 1,459,192,496,128 to 1,459,218,329,600 bytes (25,833,472 recovered). No lane process was running (`pgrep` 0), and nothing held the tree open.
+  - The acceptance's clones are the coordinator's; the lane owns none.
+- **The pointer** is idle with the final tips. Push, then the final-tip post on #682.

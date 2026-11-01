@@ -101,7 +101,9 @@ c.need(S + "Window.cpp", 29, r'^#include "\.\./es-app/src/ApiSystem\.h"')
 rk = c.grep(r"\bROCKNIX\b")
 cnt["rocknix"] = len(rk)
 print(f"\n**`Window.cpp:29`** includes `../es-app/src/ApiSystem.h` for `processStorageRequest`'s four workers (`:1554-1637`): es-core depending on es-app, upstream ROCKNIX's, outside the lanes (D-UI-079); **recorded as upstream's, not changed** (L-04). **The `ROCKNIX` lines:** {', '.join(f'`{p.replace(S, chr(0)).replace(chr(0), S) if False else p}:{n}`' for p, n, _ in rk)} ({len(rk)}).")
-rule = subprocess.run(["sed", "-n", "30p", ".claude/rules/es-native-ui.md"], capture_output=True, text=True).stdout
+# The rule as the audit read it: at reviewed-at (5d7650c1dc), not the working tree, since the
+# coordinator's sweep 1c3c77e201 (PL-23, merged at the close-out) corrected the line.
+rule = subprocess.run(["git", "show", "5d7650c1dc:.claude/rules/es-native-ui.md"], capture_output=True, text=True).stdout.split("\n")[29]
 if "top-right progress card" not in rule:
     c.fail.append("es-native-ui.md:30 no longer says top-right")
 print("\n**L-22, the stale rule sentence:** `.claude/rules/es-native-ui.md:30` calls `AsyncNotificationComponent` the *top-right progress card*; the card is centred at the pin (`Window.cpp:1192`, the fork's hunk) and the same rule says so at `:191-197` and `:208`. For the coordinator's sweep (`tools/archaeology --reversal`), not the lane's edit.")
