@@ -1,0 +1,7 @@
+S3 checks 2026-11-01T01:29:19Z
+stand-in FileSystemUtil.cpp: rc 0
+non-ASCII added: 0
+50 copyFile/createDirectory call sites, other lanes' named not edited
+T34 L-09 (HttpReq copies): the erase placement after the copy is unchanged; stands
+renameFile (:1448, T21 #1191) and skipUtf8Bom (:1369, T20 #1177) not touched (ruling d)
+upstream copyFile shape: ROCKNIX 2, batocera 2 -- #585 owed

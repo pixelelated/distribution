@@ -171,6 +171,32 @@ TEST_CASE("3.15 createDirectory is idempotent and makes parents (FileSystemUtil.
 	CHECK(FileSystem::createDirectory(d));        // again: harmless, true
 }
 
+TEST_CASE("S3 PL-08: copyFile onto the same inode must not destroy the source (FileSystemUtil.cpp:1467-1510) [#1361]")
+{
+	Scratch s; std::string a = s.at("a"), ln = s.at("a.link");
+	writeFile(a, "important");
+	REQUIRE(link(a.c_str(), ln.c_str()) == 0);    // a hard link: same inode as a
+	// copy a onto its own hard link, and onto itself -- the source must survive.
+	CHECK_FALSE(FileSystem::copyFile(a, ln));      // FAIL at the pin (returns true, truncates a)
+	CHECK_FALSE(FileSystem::copyFile(a, a));
+	CHECK(FileSystem::readAllText(a) == "important");
+}
+
+TEST_CASE("S3 PL-02: copyFile reports a short write (FileSystemUtil.cpp:1500-1509) [#1363]")
+{
+	std::ofstream probe("/dev/full"); bool haveDevFull = probe.is_open(); probe.close();
+	if (!haveDevFull) { MESSAGE("no /dev/full; untestable"); return; }
+	Scratch s; std::string a = s.at("src"); writeFile(a, "some bytes");
+	CHECK_FALSE(FileSystem::copyFile(a, "/dev/full"));   // FAIL at the pin (returns true)
+}
+
+TEST_CASE("S3 PL-04: createDirectory refuses an existing file (FileSystemUtil.cpp:1093-1095) [#1365, G-15]")
+{
+	Scratch s; std::string f = s.at("afile"); writeFile(f, "x");
+	CHECK_FALSE(FileSystem::createDirectory(f));   // FAIL at the pin (returns true for a file)
+	CHECK(FileSystem::createDirectory(s.at("adir")));  // a real directory: true
+}
+
 TEST_CASE("3.18 shellQuote wraps in single quotes and escapes ' (StringUtil.cpp:426-444)")
 {
 	CHECK(String::shellQuote("a b") == "'a b'");
