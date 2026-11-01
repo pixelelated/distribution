@@ -137,17 +137,7 @@ sub-issues with measurable deliverables.
 
 ## After writing
 
-Don't stop at the artifact. Close the loop:
-
-1. **Post this as a comment** on the Epic / umbrella issue (or wherever the
-   next phase's kickoff will look)
-2. **Update the spec document** if this retro populates a placeholder in a
-   spec's phase section
-3. **Edit affected issue bodies** for every item in "Adjustments" — do not
-   leave adjustments unpropagated
-4. **Post a short comment** on each downstream issue that was adjusted,
-   linking back to this retro
-5. **Update the Milestone body** if task ordering changed
-6. **Close the Mini Retro issue** on the tracker if the milestone uses one
-
-Only then is the phase closed.
+Don't stop at the artifact. Close the loop with the skill's Step 5
+(propagate forward: issue bodies, comments, follow-up issues, skill and
+instruction edits, the milestone body) and Step 6 (close out). The skill's
+steps are the one list; only after both is the phase closed.

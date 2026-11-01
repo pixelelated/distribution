@@ -149,7 +149,9 @@ Also read:
 
 ### Step 2 — Answer the four questions
 
-Every retro has exactly these four sections. Do not invent new ones.
+Every retro answers exactly these four questions. The format in Step 4 adds
+the scoped audit's lines and the practice adjustments beside them, and no
+other section.
 
 **1. What worked well?** — Patterns, tools, sequencing, artifacts that were
 genuinely effective. Reinforce them for future phases.
@@ -184,9 +186,9 @@ A canonical template lives at `references/template.md` in this skill's folder
 
 ### Step 2.5 — Scoped audit (spot checks; see references/scoped-audit.md)
 
-After Step 1 (evidence gathering) and Step 2 (writing the four
-questions), run a lightweight **scoped audit** before committing the
-retro. The scoped audit is a 30-minute adversarial check that catches
+After Step 1 (evidence gathering) and before the four questions of
+Step 2 are answered, run a lightweight **scoped audit**; its findings
+feed questions 3 and 4. The scoped audit is a 30-minute adversarial check that catches
 defects the four questions don't naturally surface — AC-bullet
 drift, cornerstone violations, interaction defects, futro-prediction
 drift, pre-existing test failures, and (for UI work) visual / a11y /
@@ -353,7 +355,7 @@ Format on GitHub (adapt for other trackers):
 
 ### Scoped audit findings (Step 2.5)
 
-<Optional. See `references/scoped-audit.md`. Each check gets one line:>
+<Required, unless the phase is one Step 2.5 lets skip; then one line says which. See `references/scoped-audit.md`. Each check gets one line:>
 
 - **AC conformance:** PASS / PARTIAL / FAIL — <finding, if any>
 - **Cornerstone spot-check:** PASS / PARTIAL / FAIL — <finding, if any>
@@ -467,8 +469,7 @@ writing a fresh retro:
 - **Bar:** only for work that produces or should produce a durable
   artifact — not trivia. Same bar as the retro itself.
 
-The full rule (when / where / why-addendum-not-the-alternatives / how
-it gets read) is captured in Step 7 below. Addenda are retrieved at the
+Addenda are retrieved at the
 same event-triggered points as the retro itself — `begin-delivery`
 Step 1, the `futro` skill Step 1, and this skill's own Step 1
 "read prior 3–5 phase retros" (and a Discovery-Epic kickoff's Step 1,
