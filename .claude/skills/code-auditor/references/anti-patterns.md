@@ -23,7 +23,7 @@ Guardrails against the ways audits go wrong. Review before starting, and check a
 | **Silently skipping criteria**             | Missing rows in the scorecard = hidden gaps                     | Every AC gets a verdict, even if UNTESTABLE (document why)                                                             |
 | **Verdict from subagent summary**          | Subagents can fabricate plausible content (2026-05-19 incident) | Subagent output is a lead; re-read the primary artifact before any verdict                                             |
 | **Tracker-state-only PASS evidence**       | Issue closed / AC box checked proves intent, not implementation | Every PASS cites a primary artifact: file:line, command output, or commit diff                                         |
-| **Silently dropping mandatory sections**   | A missing scorecard/conformance/coverage section is invisible drift | The Quality Self-Check table in 04-analysis.md records present/absent per section; an artifact-contract lint enforces it (if the repo provides one) |
+| **Silently dropping mandatory sections**   | A missing scorecard/conformance/coverage section is invisible drift | The Quality Self-Check table in 04-analysis.md records present/absent per section; `tools/lint-audit-artifacts` enforces it (`--phase pre-issue` before Phase 6, the default phase after Phase 7) |
 
 ---
 

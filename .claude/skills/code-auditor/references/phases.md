@@ -580,10 +580,11 @@ Phase 4.6's confirmed items are punch items like any other (source finding
 `G-nn`), and its re-grades move items between the priority sections
 before this list is written -- the list is written once, after the seat.
 
-**Final step:** if the repo provides an artifact-contract lint (e.g. a
-`lint-audit-artifacts` script), run it and fix every finding before Phase 6;
-scaffold has none today, so verify folder naming, required files, mandatory
-sections, verdict vocabulary, and punch-index schema manually.
+**Final step:** run `tools/lint-audit-artifacts <folder> --phase pre-issue`
+and fix every finding before Phase 6. It checks folder naming, the required
+files, the mandatory sections, the review plan, the verdict vocabulary and the
+punch-index schema, and it accepts honestly open items; after Phase 7 the same
+tool runs on its default phase with `--issue <n>` (SKILL.md § Phase 6).
 
 ---
 
