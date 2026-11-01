@@ -318,13 +318,13 @@ looked hard enough at what was harder than expected.
 
 The retro has two homes:
 
-1. **In the spec document** (if the work is driven by a spec in
-   `docs/planning/<feature>/<feature>-spec.md` or similar) — replace the
-   `### Mini Retro: Phase N` placeholder with the populated retro
+1. **`docs/retros/<date>-<scope>.md`** (or a work-log heading that says
+   retro) — the file `tools/ceremony-check` reads as the retro's marker,
+   owed every five active days (`ceremonies.md`)
 2. **As a comment on the Epic / umbrella issue** — this is what the next
    phase's kickoff will read
 
-Write both. Spec is the long-term archive; issue comment is operational.
+Write both. The file is the long-term archive; the issue comment is operational.
 
 Format on GitHub (adapt for other trackers):
 

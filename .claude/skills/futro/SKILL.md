@@ -382,8 +382,9 @@ beat hand-waving.
 
 The futro has two homes (same pattern as mini-retro):
 
-1. **In the spec document** (if the work is spec-driven) — populate the
-   `### Futro: Phase N` placeholder at the start of the phase section
+1. **`docs/futros/<date>-<scope>.md`** (or a work-log heading that says
+   futro) — the file `tools/ceremony-check` reads as the futro's marker,
+   owed within three days of a new `epic` issue (`ceremonies.md`)
 2. **As a comment on the Epic / umbrella issue** — what future agents and
    the user will read when context-switching to execution
 

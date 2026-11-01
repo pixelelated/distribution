@@ -1,7 +1,7 @@
 # Mini Retro Template
 
-Copy this into the spec document phase section AND into the Epic issue
-comment. Replace every `<placeholder>` with real content. **Do not leave
+Copy this into `docs/retros/<date>-<scope>.md` (the file
+`tools/ceremony-check` reads) AND into the Epic issue comment. Replace every `<placeholder>` with real content. **Do not leave
 placeholders.** Do not invent new sections — the four-question structure is
 what makes retros cross-searchable for future agents.
 

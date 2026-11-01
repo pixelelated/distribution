@@ -1,7 +1,7 @@
 # Futro Template
 
-Copy this into the spec document phase section AND into the Epic issue
-comment. Replace every `<placeholder>` with real content. **Do not leave
+Copy this into `docs/futros/<date>-<scope>.md` (the file
+`tools/ceremony-check` reads) AND into the Epic issue comment. Replace every `<placeholder>` with real content. **Do not leave
 placeholders.** Do not invent new sections — the five-question structure
 is what makes futros cross-searchable for future agents.
 
