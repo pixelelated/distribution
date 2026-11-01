@@ -1,0 +1,13 @@
+== g07 2026-11-01T01:44:35Z
+qemu pid 426693 timer pid 426713
+down: owned QEMU exited (pid 426693)
+vm-stop rc=0
+qemu alive: no
+ 426713 bash /workspace/repos/pixelelated/distribution.workt
+timer kill rc=0
+timer alive: no
+timer log:
+census: qemu 0, compilers 0
+== end 2026-11-01T01:44:36Z
+timer's orphaned sleep 426715 (started 01:42:09, 'sleep 1199', parent 1 after the timer's bash was stopped) stopped by its PID at 2026-11-01T01:44:50Z
+sleep 426715 gone at 2026-11-01T01:45:05Z (ps found 0)

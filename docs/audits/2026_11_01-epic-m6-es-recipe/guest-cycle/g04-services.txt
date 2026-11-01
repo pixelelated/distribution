@@ -1,0 +1,81 @@
+== g04 2026-11-01T01:43:36Z
+-- host: the tree's script digests at 2174265e9c
+463acec36231a2230f311e0281fe80693c0046c531985bd75bd4c8d83b95161e  start_es.sh
+d6498b7f5dc09be4bd42615c48f7b98cdeec02b2fe4e8c25020854847bbfacc6  es_settings
+d7009b66bc6eec6a3fc414f24b2183f926fe46194de7cda01d4c826dc8a30e9b  serial_number_check
+-- guest
+ActiveState=active
+FragmentPath=/usr/lib/systemd/system/essway.service
+
+ActiveState=inactive
+FragmentPath=/usr/lib/systemd/system/emustation.service
+
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+# /usr/lib/systemd/system/essway.service
+[Unit]
+Description=EmulationStation-with-Sway
+# This path never exist on rk3566
+#ConditionPathExists=/var/lock/start.games
+Requires=sway.service
+After=sway.service
+
+[Service]
+Type=simple
+Environment=HOME=/storage
+EnvironmentFile=/etc/profile
+# Wait for usable Wayland; keep failure/retry owned by this frontend unit.
+ExecStartPre=/usr/bin/sway-ready
+TimeoutStartSec=20
+ExecStart=/usr/bin/start_es.sh
+WorkingDirectory=/storage
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=rocknix.target
+463acec36231a2230f311e0281fe80693c0046c531985bd75bd4c8d83b95161e  /usr/bin/start_es.sh
+d6498b7f5dc09be4bd42615c48f7b98cdeec02b2fe4e8c25020854847bbfacc6  /usr/bin/es_settings
+d7009b66bc6eec6a3fc414f24b2183f926fe46194de7cda01d4c826dc8a30e9b  /usr/bin/serial_number_check
+-rw-r--r--    1 root     root         14802 Oct 31 21:42 /var/log/es_log.txt
+es-pid=1659
+-- guest: the running ES's argv (masked)
+emulationstation --log-path /var/log --no-splash 
+-- guest: boot to interface (journal, filtered)
+[    1.397100] ROCKNIX systemd[1]: Reached target paths.target.
+[    1.397107] ROCKNIX systemd[1]: Reached target slices.target.
+[    1.397112] ROCKNIX systemd[1]: Reached target swap.target.
+[    1.398877] ROCKNIX systemd[1]: Reached target rpcbind.target.
+[    1.454664] ROCKNIX systemd[1]: Reached target local-fs-pre.target.
+[    1.457043] ROCKNIX systemd[1]: Reached target local-fs.target.
+[    1.484537] ROCKNIX systemd[1]: Reached target nss-lookup.target.
+[    1.518139] ROCKNIX systemd[1]: Reached target time-set.target.
+[    1.614289] ROCKNIX systemd[1]: Reached target sysinit.target.
+[    1.614336] ROCKNIX systemd[1]: Reached target timers.target.
+[    1.618684] ROCKNIX systemd[1]: Reached target sockets.target.
+[    1.618814] ROCKNIX systemd[1]: Reached target basic.target.
+[    1.631875] ROCKNIX systemd[1]: Started sway-touch.service.
+[    1.757756] ROCKNIX systemd[1]: Reached target sound.target.
+[    3.578569] GENERIC-X64-15ca systemd[1]: Reached target network.target.
+[    3.724486] GENERIC-X64-15ca systemd[1]: Reached target network-online.target.
+[    3.748494] GENERIC-X64-15ca systemd[1]: Reached target graphical.target.
+[    4.978653] GENERIC-X64-15ca systemd[1]: Reached target rocknix.target.
+[    4.982489] GENERIC-X64-15ca systemd[1]: Started sway.service.
+grep: write error: Broken pipe
+72.42 276.97
+== end 2026-11-01T01:43:37Z

@@ -449,10 +449,33 @@ RK3566 patch need a build, which this slice never runs (§ 5 item 1); they are t
 
 ## The guest cycle
 
-The window is requested at this stage's end (`stage-b/window-plan.md`; the request on #684 and in
-the host file). G-01 to G-07 are recorded here after the window, each labelled `ui-equal` or
-`candidate`; G-05's state check is `CANNOT -- the tool is not on the image and the window writes
-nothing`, its host half above.
+**The window:** granted as slot 1 at 01:40 UTC (comment 6551886156 and the host-file block); **START
+01:42:09 UTC** (comment 6551903971 and the host-file line), **RETURN inside the bound** (the
+guest stopped 01:44:35, bound 01:57:09, grace 02:02:09). One GENERIC_X64 guest from M6's
+`069fc2704421` copy (`ls -l` on the host: 2,122,289,964 bytes) on the fresh
+`/workspace/tmp/m6-t37/guest/disk.qcow2` (16 GiB), one boot at 640x480, isolated by T36's
+`qemu-wrap` (`guest-cycle/helpers/qemu-wrap`, sha256 `39a8bc357e84cfb281bd149875af2effc0c28aadb3c74cedfb5f13391b7b0a3b`,
+equal to `7978463093`'s blob; the running `-netdev` `user,id=net0,restrict=on,...`, `guestfwd`
+`0`). The detached stop timer, pid `426713`, set for 02:02:09, was stopped by its PID unfired
+(and its orphaned `sleep`, pid `426715`, by its own). Every row over `tools/vm-serial sh` through
+the device read filter; the guest's own first boot wrote what an image writes (the `system-theme`
+link below is one); this lane wrote nothing there. Records under `guest-cycle/` (terminal colour
+codes stripped after capture).
+
+| G | Side | Read | Proved |
+| --- | --- | --- | --- |
+| G-01 | candidate | `BUILD_ID="069fc270442134fe771258418adf4e666e0473fb"`, `BUILD_BRANCH="build/m7-signin-20261022-07"`, `BUILD_VERSION="0.0.1-dev+20261022T235948Z.g069fc2704421"`; `/usr/bin/emulationstation` `25155163fd7970f7da54b3f36d003b8c006111c894d4fe6f0c92d24d51831226` (R3 G2's). The `ldd` is T36's G-01 on this image, cited: `libfribidi` NOT linked (`g01-identity.txt`) | guest |
+| G-02 | ui-equal (the font file candidate) | ES themes `es-theme-art-book-next` (beside two non-ES directories, `Default`, `Emacs`); the wordmark and `Tiny5-OFL.txt` present; only `_inc/systems/artwork-default` left (the five removed, `:19`); removed includes `0` (`:20`); `zh` blocks `1` (`:21-27`); T42's lines present (`logoText` `2`, the `pixelelated` include `1`, the splash wordmark `1`, the Tools path `1`); the four bundled fonts; **`/usr/share/fonts/truetype/noto-cjk/NotoSansCJKsc-Regular.otf` present, 16,437,364 bytes** (L-22's one image read); `/etc/emulationstation/themes` -> `/storage/.config/emulationstation/themes` (`:100`); the seed the empty `<config>`; **the default (L-20):** the user `es_settings.cfg` (41 bytes) carries no `ThemeSet` line (`0`), and `/storage/.config/emulationstation/themes/system-theme` is a link, made at first boot, to `/usr/share/themes/es-theme-art-book-next` -- so ES's default `"system-theme"` resolves to the shipped theme (`g02-themes.txt`, `g02b-g04b-followup.txt`, `g02c-themes-dir.txt`) | guest |
+| G-03 | the cfgs ui-equal; the link candidate | the four cfg digests **equal to the tree's at `2174265e9c`** (es_features `588958bd...`, es_input `8e6033b5...`, es_savestates `93644274...`, es_settings `c93d8b29...`); vulkan lines `15`; **the candidate's link `/usr/config/emulationstation/es_systems.cfg`, `resolves rc=0`** (L-03's corrected form); modes `644` for the four seeds and `es_systems.cfg` (#1193's ES half); the French `.mo` present, 176,095 bytes (L-08); `/usr/share/locale` -> `/storage/.config/locale`, `/usr/lib/locale` -> `/usr/share/locale`; `/usr/config/locale/en_US.UTF-8` present (L-07); 36 locale entries (`g03-configs.txt`) | guest |
+| G-04 | ui-equal | `essway.service` `ActiveState=active` with the fork's three lines (`sway-ready`, `TimeoutStartSec=20`); `emustation.service` `inactive`; both `is-enabled` `disabled` and named in no `.wants` directory (a starter, `Starting[1502]: sway.service essway.service...` at 4.97 s, starts them); the three scripts' digests **equal to the tree's**; **PL-029: the running ES's argv is `emulationstation --log-path /var/log --no-splash` and `/var/log/es_log.txt` is written** (14,802 bytes, this boot) -- the flag inert, the path held by `Paths.cpp:81`; **boot to interface:** `essway.service` started at **5.37 s** (kernel monotonic), ES logging at **5.82 s**; `vm-serial wait` found ES running at 01:42:48, 39 s after START, firmware included (`g04-services.txt`, `g02b-g04b-followup.txt`) | guest |
+| G-05 | candidate | the two sources' heads read, not run; names in the binary `0`; the patch's string `0` (L-02: `cpugov.patch` not in the binary); `resources/logo.png` present, 283,835 bytes (L-04); `DroidSansFallbackFull.ttf` -> the noto-cjk file, resolving; **the state check: `CANNOT -- the tool is not on the image and the window writes nothing`**, its host half `status pass` (§ The runs) (`g05-sources.txt`) | guest |
+| G-06 | ui-equal | `/usr/share/lowerdeck` present, 12 entries (`main.py`, `ra_proxy.py` among them) (`g06-lowerdeck.txt`) | guest |
+| G-07 | -- | `tools/vm-stop` on the pidfile: `down: owned QEMU exited (pid 426693)`, `rc=0`; the timer stopped by PID, its log empty (unfired); the disk retired: `disk.qcow2` 2,308,440,064 bytes, sha256 `f334cde02be3802e3e994b5d6deb15645164f4cd47b686bc04f7118660fc392b`, with `disk.ovmf-vars.fd` and the logs (2,308,981,090 bytes in all), `disk.img` (4,333,764,608) removed before the boot; leftover census **`qemu 0, compilers 0`** (`g07-close.txt`, `retired.txt`) | guest |
+
+**Time to play:** boot to interface on this guest is `essway.service` at 5.37 s and ES at 5.82 s
+of kernel time; the slice changes nothing on that path at stage B (no fix yet), and the recipe's
+cost there is `sway-ready`'s bounded wait and `es_settings`' locale step, which L-07's
+pre-generated `en_US.UTF-8` (present) keeps off first boot.
 
 ## The streams
 

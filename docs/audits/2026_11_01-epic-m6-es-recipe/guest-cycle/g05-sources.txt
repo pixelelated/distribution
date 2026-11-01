@@ -1,0 +1,21 @@
+== g05 2026-11-01T01:43:37Z
+==> /usr/bin/es_settings <==
+#!/bin/bash
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2019-present Shanti Gilbert (https://github.com/shantigilbert)
+# Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)
+
+
+==> /usr/bin/serial_number_check <==
+#!/bin/bash
+
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2025-present ROCKNIX (https://github.com/ROCKNIX)
+
+names=0
+cpugov-string=0
+-rw-r--r--    1 root     root        283835 Oct 22 20:00 /usr/config/emulationstation/resources/logo.png
+cjk-link=/usr/share/fonts/truetype/noto-cjk/NotoSansCJKsc-Regular.otf
+cjk-resolves rc=0
+-- the state check on the guest: CANNOT -- the tool is not on the image and the window writes nothing (its host half: stage-b/state-check-root.out)
+== end 2026-11-01T01:43:38Z
