@@ -1,6 +1,6 @@
 ---
 name: begin-delivery
-description: Orchestrate the start of an Execution Epic — work with pre-defined outcomes that decomposes into actionable tasks (feature ship, refactor, fix, migration, integration, cleanup). Retrieves prior phase retros, invokes the futro skill for anticipatory analysis, loads granular tasks into the todo system, and runs an execution pre-flight checklist. Use when the user says "begin next phase", "start phase N", "move to phase X", "phase kickoff", "start the next epic", "begin delivery", or when a phase's completion retro just finished and the next Execution Epic is ready. Do NOT use for Discovery Epics whose execution is a single invocation of a methodology skill (e.g. `code-auditor` in fresh-audit mode) — use a Discovery-Epic kickoff path (e.g. `begin-exploration`) instead. Assumes a Milestone → Phased Epics → Issues structure (GitHub by default). Pairs with mini-retro (predecessor) and futro (delegate).
+description: Orchestrate the start of an Execution Epic — work with pre-defined outcomes that decomposes into actionable tasks (feature ship, refactor, fix, migration, integration, cleanup). Retrieves prior phase retros, invokes the futro skill for anticipatory analysis, loads granular tasks into the todo system, and runs an execution pre-flight checklist. Use when the user says "begin next phase", "start phase N", "move to phase X", "phase kickoff", "start the next epic", "begin delivery", or when a phase's completion retro just finished and the next Execution Epic is ready. Do NOT use for Discovery Epics whose execution is a single invocation of a methodology skill (e.g. `code-auditor` in fresh-audit mode) — start with the methodology skill directly instead. Assumes a Milestone → Phased Epics → Issues structure (GitHub by default). Pairs with mini-retro (predecessor) and futro (delegate).
 license: Apache-2.0
 metadata:
   execution: serial
@@ -47,9 +47,9 @@ milestone's current/next work and evidence before handing off.
 
 ## When NOT to use
 
-Use a Discovery-Epic kickoff path (e.g. a `begin-exploration` skill, if present)
-instead when the Epic's execution is a single invocation of a substantive
-methodology skill that produces **emergent** outcomes:
+Start with the methodology skill directly (`code-auditor` in fresh-audit mode,
+as every audit here has) instead when the Epic's execution is a single
+invocation of a substantive methodology skill that produces **emergent** outcomes:
 
 - A research-then-deliberate trial / re-run (e.g. a `council-research` skill, if present)
 - A deliberation on a contested decision with corpus already in hand (e.g. a `council` skill, if present)
@@ -65,7 +65,7 @@ The contamination paths that justify the split (from M64.P1.5 E6 #2952):
 | Step 3 — task decomposition                               | Pre-decomposes outcomes that should EMERGE from the methodology; pre-judges what the substantive skill produces.                                                                                                               |
 | Step 4 — pre-flight (cornerstone conformance, plan each step) | Presumes a plan to validate; surfaces hypotheses rather than a neutral substrate check.                                                                                                                                        |
 
-If the Epic's outcomes are emergent (what does R2 say? which substrate wins? what does the deliberation decide?) — that's Discovery, not Delivery. Use the Discovery-Epic kickoff path (e.g. `begin-exploration`, if present).
+If the Epic's outcomes are emergent (what does R2 say? which substrate wins? what does the deliberation decide?) — that's Discovery, not Delivery. Start with its methodology skill directly.
 
 ## Role: orchestrator
 
