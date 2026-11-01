@@ -554,8 +554,8 @@ Phase N+1 execution … (repeat) … last phase of Epic
    ▼
 code-auditor skill (Epic tier)
    │  Reads every phase retro's scoped-audit findings as input
-   │  Runs the full 6-phase methodology (research / forward audit /
-   │  retrospective / analysis / punch list)
+   │  Runs its whole lifecycle (research / forward audit / retrospective /
+   │  analysis / punch list / issue / resolution gate)
    │  Writes to `logs/audits/YYYY_MM_DD-epic-*/`
    │
    ▼

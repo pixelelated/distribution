@@ -84,8 +84,8 @@ lightweight scoped-audit step and feeds upward into this skill.
 | Tier          | Audit surface                                 | Skill                            | Artifact                                |
 | ------------- | --------------------------------------------- | -------------------------------- | --------------------------------------- |
 | **Phase**     | 5 spot checks inline in each phase retro      | `mini-retro` (Step 2.5)          | Retro comment § "Scoped audit findings" |
-| **Epic**      | Full 6-phase methodology over Epic scope      | **this skill** (Epic scope)      | `docs/audits/YYYY_MM_DD-epic-*/`        |
-| **Milestone** | Full 6-phase methodology over Milestone scope | **this skill** (Milestone scope) | `docs/audits/YYYY_MM_DD-milestone-*/`   |
+| **Epic**      | The whole § Audit lifecycle over Epic scope   | **this skill** (Epic scope)      | `docs/audits/YYYY_MM_DD-epic-*/`        |
+| **Milestone** | The whole § Audit lifecycle over Milestone scope | **this skill** (Milestone scope) | `docs/audits/YYYY_MM_DD-milestone-*/`   |
 
 **Choosing a tier.** The surface being audited decides it, not the size of the
 diff:
