@@ -6,7 +6,7 @@ metadata:
   execution: serial
   version: 1.13.0
   origin: 'Imported from birdwork-preflight .claude/skills/code-auditor; adapted for scaffold (bedrock→cornerstone; foreign refs softened). v1.7 platform-probe evidence floor adapted 2026-07-10 from birdwork/birdwork@e0ff051.'
-  adapted: 'v1.13 2026-10-06 continuous authorized execution across checkpoints, durable monitored long commands, and accurate background ownership (D-WORKFLOW-149, fork #466). v1.12 2026-10-02 cross-lab reviewer selection and explicit local/two-model/extended audit depth; five-seat council remains a separate release escalation (D-WORKFLOW-137, fork #378). v1.11 2026-09-24 the second opinion is a phase (4.6): the council GPT seat at max effort refutes and extends every Epic/Milestone audit, graded against the artifact, failing closed without the seat (fork #260; #186 had it by choice, #258 lacked it). v1.10 2026-08-24 gate hardening: mandatory tools/lint-audit-artifacts before Phase 6; Phase 7 outcomes re-derived from commands, not memory. v1.9 2026-08-24 earned from the first ROCKNIX run: Phase 0 stale-skill-copy check; dependent failures are UNTESTABLE not FAIL; one false tick voids the list; explicit tier-selection table (two or more epics => milestone). v1.8 2026-08-24 adapted to ROCKNIX: cornerstone rubric -> instruction files + blindspot register; docs/planning -> GitHub issues on maxengel/rocknix; logs/audits -> docs/audits; foreign mechanical checks -> pkgcheck / cloud-round-trip / vm-visual-qa; added the run-it-on-a-device and cannot-fail-is-not-evidence floors.'
+  adapted: 'Adapted to this fork, pixelelated/distribution (its rules, checks, issues and docs/audits); the version history is git log -p -- .claude/skills/code-auditor/.'
 ---
 
 # Code Auditor
