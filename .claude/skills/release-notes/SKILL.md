@@ -16,9 +16,11 @@ voice is `developer-relations`' (the site's); this file is the shape.
 
 ## The release note
 
-The body of a release on `pixelelated/distribution` (`tools/fork-publish-release`
-uploads the files; the note is written by hand and pasted with `gh release
-edit --notes-file`). Structure, in this order:
+The body of a release on `pixelelated/distribution`. `tools/fork-publish-release
+--prepare` emits a checked release plan from the exact candidate bytes and
+publishes nothing; publication waits on #265, #344 and #528 (`device-builds.md`
+§ Publishing). The note is written by hand and pasted with `gh release edit
+--notes-file`. Structure, in this order:
 
 ```
 One sentence saying what this build is and who it is for.
