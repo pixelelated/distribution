@@ -66,6 +66,7 @@ makeinstall_target() {
 
   mkdir -p ${INSTALL}/usr/config/locale
     cp -a ${PKG_BUILD}/locale/lang/* ${INSTALL}/usr/config/locale
+    [ -f ${INSTALL}/usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo ] || die "emulationstation: ${INSTALL}/usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo is missing; the French catalog was not built"
 
     # Pre-generate default (en_US.UTF-8) locale for lower-end devices to speed up first boot
     # This saves a minute or two on RK3326 in a cost of about 1 MB of SYSTEM size
