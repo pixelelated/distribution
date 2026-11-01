@@ -70,6 +70,12 @@ Use this exact template. Omit sections that genuinely have no content (do not le
 > **Branch**: <git branch>
 > **Repo**: <repo name or remote URL>
 
+## Start here
+
+<for an agent new to the project (`learning-capture.md` § 4): what the project
+is; what to read, in order; the rules that bind; the machine's paths; where the
+credentials live -- never their values>
+
 ## Current Focus
 
 <1–3 sentences: what the session was actively working on at the moment it stopped>
