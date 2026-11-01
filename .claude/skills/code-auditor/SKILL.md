@@ -424,8 +424,10 @@ row ✓/⚠/✗/·:
    and non-optional**. Read them from `next`, not from the feature worktree —
    a branch cut from an older base silently lacks files added since, so an
    audit run in the worktree can miss the rule it should be checking against.
-2. **Blindspot register** — `docs/blindspot-register.md`. Twelve recorded
-   failure modes this project has actually committed. Ask of each: *does this
+2. **Blindspot register** — `docs/blindspot-register.md`. The numbered
+   failure modes this project has actually committed; the last heading's
+   number is the count so far (`grep -E '^## [0-9]+\.' docs/blindspot-register.md
+   | tail -n 1`). Ask of each: *does this
    work repeat it?* This is the highest-yield face, because these are proven
    rather than hypothetical.
 3. **Project invariants** — the hard rules stated in the instruction files,
