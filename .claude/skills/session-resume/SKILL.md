@@ -23,7 +23,7 @@ Load the canonical session state, reconcile it with current evidence and the liv
 
 Default path: `.github/sessions/saved-session-state-{branch}.md` where `{branch}` is the current git branch (with `/` → `-`).
 
-**In this repository (D-WORKFLOW-133):** the canonical stash is `.github/sessions/saved-session-state-next.md` on `next`, and a working branch's own file is a pointer to it. Read the canonical one; from a worktree that has not merged `next` since, `git show next:.github/sessions/saved-session-state-next.md`.
+**In this repository (D-WORKFLOW-133):** the canonical stash is `.github/sessions/saved-session-state-next.md` on `next`. A working branch's own file points at it and carries that branch's own in-flight state when it has any -- a renovation lane's does, and #1014 reads its freshness. Read the canonical one, then the branch's; from a worktree that has not merged `next` since, `git show next:.github/sessions/saved-session-state-next.md`.
 
 If not found, try in this order:
 
