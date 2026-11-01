@@ -27,7 +27,9 @@ went to `es-player-text.md`, and the codebase's sharp edges to
   `GuiTextEditPopupKeyboard` (on-screen keyboard), `GuiInfoPopup`, `GuiInputConfig`.
 - `es-core/src/components/` — `MenuComponent`, `ComponentList`, `SwitchComponent`,
   `OptionListComponent`, `SliderComponent`, `ButtonComponent`, `BusyComponent`
-  (spinner), `AsyncNotificationComponent` (top-right progress card).
+  (spinner), `AsyncNotificationComponent` (the progress card: 0.9 of the screen
+  width, centred at the top -- § Spacing; it read "top-right" here until T35's
+  L-22 found the words stale against `Window.cpp:1192`, PL-23, 2026-11-01).
 
 ## The other files that carry the interface law
 
