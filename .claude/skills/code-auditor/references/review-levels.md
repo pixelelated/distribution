@@ -38,11 +38,6 @@ Existing recorded gates still apply. The broader inherited-codebase review stays
 progressive under D-WORKFLOW-102; a larger panel does not silently expand the
 source scope to the entire distribution.
 
-For #375 the completed local evidence remains a Milestone readiness review;
-its pending independent reviewer changes to Fable because the primary is
-OpenAI. No third reviewer or five-seat run has started. The actual 0.0.1 release
-qualification still needs its own frozen candidate and risk/depth selection.
-
 ## Selection and independence
 
 Prefer the other lab's installed frontier pin: OpenAI primary -> Anthropic
