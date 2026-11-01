@@ -1,6 +1,6 @@
 ---
 name: release-notes
-description: "Write a release note for the fork's releases page or a PR description for the upstream series: outcomes a player or a reviewer can act on, in the site's voice, with the plumbing (commits, issues, runs) in a details block underneath. Use for every release and every pr/* branch."
+description: "Write a release note for the fork's releases page or a PR description for the upstream series: outcomes a player or a reviewer can act on, in the site's voice; the plumbing (commits, issues, runs) goes in a release note's details block and never in a PR description. Use for every release and every pr/* branch."
 license: GPL-2.0-or-later
 metadata:
   version: 1.0.0
