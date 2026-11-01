@@ -1,0 +1,6 @@
+# S2 ASan: pin vs fixed, 2026-11-01T01:21:47Z
+S2 pin: rc 1; ==253224==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7408ff1f0380 at pc 0x61b3092caf89 bp 0x7ffd74942940 sp 0x7ffd74942930; 
+S2 tip: BUILD FAIL
+/workspace/tmp/m6-t36/s2/x_tip.inc:2:17: note: to match this ‘{’
+    2 |                 {
+      |                 ^

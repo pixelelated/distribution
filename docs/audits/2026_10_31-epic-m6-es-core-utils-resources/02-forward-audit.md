@@ -459,6 +459,7 @@ One row per stream: the positive before, the ES commit, the positive after, `Alr
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | S1 (PL-06 #1359, G-1) | `S1 pin: rc 1; ERROR: AddressSanitizer: attempting double-free` (`stage-e/s1-before.txt`; `getTextureForNewGlyph` pushed then deleted the atlas) | `4fc77caaa` | `S1 tip: rc 0; no sanitizer report` (`stage-e/s1-after.txt`; push only after `findEmpty` succeeds) | nothing on disk; a live-session memory error in the font cache (#1359) | fix-unit-test (ASan, the method lifted at pin vs tip) | none (#1359 VM line: a host ASan case) | #585 owed: `mTextures.push_back(tex)` is in ROCKNIX `f6c542872e` and batocera `b2ceb55a7e` |
 
+| S2 (PL-07 #1360, G-9) | `S2 pin: rc 1; stack-buffer-overflow` (`stage-e/s2-before.txt`; timeToString's `buf[256]`, unbounded `*s++`) | `f206e1375` | `S2 tip: rc 0; no sanitizer report; control '1970-01-01' unchanged` (`stage-e/s2-after.txt`; a bound at the loop top) | nothing on disk; a live stack overflow driven by a format string (#1360) | fix-unit-test (ASan, timeToString lifted at pin vs tip) | none (#1360 VM line) | #585 owed: `char buf[256]` in ROCKNIX `f6c542872e` and batocera `b2ceb55a7e`; secstostr spec -> 519-588, Font specs +2 (D-WORKFLOW-210) |
 ## Positives
 
 - **The cache's lock discipline:** `queryCacheEntry` stats outside the lock and `insertEntry` re-checks under the unique lock, so two threads that miss together store one answer (`:200-216`, `:313-324`; `proved: tree`, 3.25's TSan program at stage C).
