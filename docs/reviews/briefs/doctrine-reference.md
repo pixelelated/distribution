@@ -7,7 +7,7 @@ area: doctrine
 kind: table
 lens: cost against value
 depth: Local
-version: 1
+version: 2
 written: 2026-11-01
 author: the M6 coordinator lane (D-WORKFLOW-189)
 read_refs:
@@ -21,8 +21,9 @@ read_refs:
 
 # Review brief: M6.P2 T39, the reference documents: README, TRADEMARK, LICENSE and `licenses/`, `documentation/`, `plans/`, and the reference documents under `docs/`, tabled for what misleads a reader today (#686)
 
-**Version 1, 2026-11-01** (D-WORKFLOW-189; `docs/reviews/plan-for-the-plan.md`
-§ 6b, § 6c, § 7). Written from five read-only research files -- R1 membership
+**Version 2, 2026-11-01, after the stranger's proof of version 1**
+(D-WORKFLOW-189; `docs/reviews/plan-for-the-plan.md` § 6b, § 6c, § 7).
+Version 1 was written from five read-only research files -- R1 membership
 and provenance, R2 the documents read, R3 checks and harness, R4 the inherited
 items, R5 the model and the ceremony
 (`/workspace/tmp/m6-coordinator/kit/t39-research/`, in no tree) -- and nothing
@@ -31,12 +32,22 @@ else: **every figure here is one of their quoted tool lines**, cited as
 <n>", 1 to 27), `R2 § <n>` or `R2 L-<nn>` (R2's leads L-01 to L-20, never this
 brief's numbering); `R3 C<n>` (C1 to C24) or `R3 § <n>`; `R4 item <n>` (1 to
 68), `R4 § <n>` or `R4 C<n>` (R4's "command <n>", 1 to 28); `R5 C<n>` (C1 to
-C24), `R5 § <letter>` or `R5 § B item <n>`. **`[unverified]` marks what no
-tool line settles, with what would settle it**;
-`## Version 1: what the drafting read did not settle`, the last section, lists
-every one, then every place where the research files disagree and how this
-brief takes each, then the checks on this file. Counts by `/usr/bin/grep`,
-never the shell's function (#1138; R5 § B item 12).
+C24), `R5 § <letter>` or `R5 § B item <n>`. **Version 2** applies the
+stranger's proof of version 1 (`/workspace/tmp/m6-coordinator/kit/t39-proof.md`,
+in no tree, 443 lines; its totals `checks 125; PASS 107; MISMATCH 13; SETTLED
+3; NOTE 2; corrections 12`, read at `a0fb117b8b`, version 1's commit on the
+coordinator's branch), cited `proof K<nn>` (its checks K01 to K125), `proof
+X<nn>` (its corrections X01 to X12) or `proof C<n>` (its commands C1 to C17),
+and the coordinator's rulings on it (D-WORKFLOW-189); a figure version 2's
+drafting read re-ran is cited `v2 read` with its command, run by hash at
+`2174265e9c` or `a0fb117b8b`. **`[unverified]` marks what no tool line
+settles, with what would settle it**;
+`## Version 1: what the drafting read did not settle` lists every one with its
+state after the proof, then every place where the research files disagree and
+how this brief takes each, then the checks on version 1; the last section,
+`## Version 2: corrections from the proof`, lists each correction at its line,
+the open items' states and the checks on this file. Counts by
+`/usr/bin/grep`, never the shell's function (#1138; R5 § B item 12).
 
 **The structure is T38's brief** (`docs/reviews/briefs/doctrine-skills.md` at
 `3a9b0aec81`, its dispatch with `## Errata before dispatch`; 2,031 lines, R5
@@ -62,7 +73,7 @@ inventory's 38,598 beside the newline counts, each with its population (ruling
 (h)); § 10 copying § 1's, § 5's and § 9's figures from one place; a reading
 that would call a provider listed in the never-run list (§ 10); a row read
 before it is cited (§ 9); the locale stated beside each count (§ 5); one
-ownership row, D-WORKFLOW-219, cited everywhere (§ 9); and every count by
+ownership row, D-WORKFLOW-220, cited everywhere (§ 9); and every count by
 `/usr/bin/grep`. The rule, register and futro lines are the coordinator
 worktree's at **`e3fb3dfe00`** (R1's, R2's, R3's, R4's and R5's headers); the
 lane re-reads them at `COHASH`.
@@ -73,7 +84,13 @@ lane re-reads them at `COHASH`.
   milestone `M6: Codebase renovation`, no labels, 1 comment, already retitled;
   parent #807 by the API; REST id `5992346342`; R5 § A, C16). The pre-dispatch
   body is 27 lines with 5 generated checkboxes (sha256 prefix
-  `a4005afbd8130c72`, R5 C16). **Its sentences are cited here by content,
+  `a4005afbd8130c72` by
+  `gh api repos/pixelelated/distribution/issues/686 --jq .body | sha256sum`,
+  R5 C16; `gh issue view --json body --jq .body` hashes the same body to
+  `f4e17688f4350982`, proof K31; last updated `2026-10-24T15:21:21Z`). The
+  provenance and depth lines carry bold markup in the body
+  (`**Provenance tiers:** ...`, `**Review depth:** ...`), which the quotations
+  below drop, so a `grep -F` of their words prints 0 (proof K30). **Its sentences are cited here by content,
   never by line number**, because the kit rewrites the body from § 7 at
   dispatch and every line moves (ruling (i)): the why, *"tabled for what
   misleads a reader today"*; the paths sentence *"254 paths, 38,598 lines; 190
@@ -146,8 +163,12 @@ lane re-reads them at `COHASH`.
   upstream-carried row is `1476fe68a5` 2026-08-27 *RK3566: regenerate the
   supported-emulators table*, whose file is again blob-identical to the base
   (R1 C18, C12). The fork's commits on the 254 since the merge base: 663, 651
-  of them non-merges (R1 C11); 143 of the 254 have one commit in their whole
-  history, and the most edited are `docs/vm-qa-log.md` 184,
+  of them non-merges (R1 C11); 144 of the 254 have one commit in their whole
+  history (`one-commit paths: 144`, every commit at the P1 tip, by
+  `while IFS= read -r p; do git -C "$W" rev-list --count 2174265e9c -- "$p"; done < .qa-scratch/t39/paths.txt | awk '{c[$1]++} END {print "one-commit paths: " c[1]+0}'`
+  -- proof C3 and `v2 read`; R1 C09's non-merge rule, over the commits
+  reachable from `e3fb3dfe00`, prints 145 one-commit and 8 zero-commit paths,
+  proof C12; X09), and the most edited are `docs/vm-qa-log.md` 184,
   `docs/cloud-sync-changelog.md` 137, `docs/rasteratops/release-readiness.md`
   128, `docs/es-menu-map.md` 79, `docs/releases/next-candidate-work.md` 58 and
   `docs/releases/catalog.md` 51 (R1 C09).
@@ -158,8 +179,15 @@ lane re-reads them at `COHASH`.
   the read-only rows of rulings (j), (k) and (n) -- R1's
   `REFERENCE 239 paths 29057 lines` (R1 C16) counts the 90 among its 239, so
   the class sizes are the stage-A `CARVE` lines (§ 5), never a figure typed
-  here (`[unverified]`; the ruling's own wording is the last section's
-  disagreement 2). **The ledger rows** -- tabled in `02` as *"a ledger, not a
+  here: the proof printed version 1's at `a0fb117b8b` (K26, `CARVE total 254`;
+  open item 1 settled) and version 2's read re-ran them with
+  `p0-sweep-hits.txt` in the ledger -- `CARVE art-bytes 18`, `edit-scope 68`,
+  `edit-under-naming 1`, `ledger-binary 31`, `ledger-named 6`, `ledger-plan 1`,
+  `ledger-reviews 12`, `read-only-528 1`, `read-only-585 27`,
+  `read-only-upstream 88`, `tabled-generic-x64 1`, `CARVE total 254` (`v2
+  read`; version 1's lines read `edit-scope 69` and `ledger-named 5`); the
+  ruling's own wording is the Version 1 section's disagreement 2. **The ledger
+  rows** -- tabled in `02` as *"a ledger, not a
   reference"*, never edited here -- are: the coordinator's 12 files under
   `docs/reviews/**` (the program's own documents under D-WORKFLOW-189; R1's L1
   class, `CLASS L1-renovation-records 12 paths 5487 lines`, C16);
@@ -170,8 +198,16 @@ lane re-reads them at `COHASH`.
   `docs/releases/rc-accept.txt` (read by `tools/rc-preflight`, the RC round's;
   R5 § 0); `docs/vm-qa-log.md` (the VM cycles' ledger) and
   `docs/cloud-sync-changelog.md` (the running change log under
-  `change-log.md`; R1 § 4); `plans/` as one historical-plan row (ruling (d));
-  and the 31 binary files by name, size and sha256 (ruling (o)). **The 90
+  `change-log.md`; R1 § 4); `docs/rasteratops/p0-sweep-hits.txt` (the P0
+  sweep's generated classification baseline, which `NAMING.md:30` names so:
+  2,419 lines, of which 20 carry `maxengel/rocknix` -- the sweep's hits as it
+  found them, not references to correct; `v2 read`:
+  `git -C "$W" show 2174265e9c:docs/rasteratops/p0-sweep-hits.txt | /usr/bin/grep -c ''`
+  prints `2419` and `| /usr/bin/grep -c 'maxengel/rocknix'` `20`; read-only,
+  findings to the coordinator; open item 25, ruled at version 2); `plans/` as
+  one historical-plan row (ruling (d)); and the 31 binary files by name, size
+  and sha256 (ruling (o), which at version 2 also tables the 18 art text
+  files). **The 90
   upstream-carried are read-only**: a finding goes to #528 (the licences, and
   `licenses/AETHERSX2.pdf`, which upstream deleted for a licensing concern;
   L-44) or to upstream as a #585 line, never sent (D-WORKFLOW-164, -165).
@@ -235,8 +271,15 @@ lane re-reads them at `COHASH`.
   (m) **The futro addendum** goes in the doctrine futro after T38's (§ 10).
   (n) **`docs/upstream/`** (the contribution queue's prepared patches; 28
   paths, R1 C06) is #585's: read-only, findings to #585 (L-46).
-  (o) **The 31 binary files** are tabled by name, size and sha256, never
-  edited.
+  (o) **The 31 binary files and the 18 art text files** --
+  `docs/pixelelated/art/**`'s SVG, JSON, CSS, `generate.py` and the two
+  `Tiny5-OFL.txt`, and `docs/rasteratops/art/*.svg`: the stage-A
+  `CARVE art-bytes 18` class (proof K26; `v2 read`) -- are tabled by name, size
+  and sha256 and never edited by T39; the two art READMEs
+  (`docs/pixelelated/art/README.md`, `docs/rasteratops/art/README.md`) are that
+  area's reference documents; a finding in an art source is routed to the
+  splash repository (external), a licence text's to #528. (Widened at version
+  2 from the binaries alone: open item 21, the coordinator's ruling.)
   (p) **R2's L-01 is the coordinator's and is resolved at dispatch:**
   `docs/reviews/README.md` and `plan-for-the-plan.md` name P1's files and
   tools that live on `feature/m6-p1-survey-641` and not on the coordinator's
@@ -646,7 +689,15 @@ echo "(end split)"
 ```
 <!-- t39 split.sh end -->
 
-Expected with the defaults (`bash .qa-scratch/t39/split.sh`, R1 C16):
+Expected with the defaults, **under `LC_ALL=en_US.UTF-8`**
+(`LC_ALL=en_US.UTF-8 bash .qa-scratch/t39/split.sh`, R1 C16): the lines are
+that locale's, because `split.sh`'s `| sort` under `LC_ALL=C` puts the three
+upper-case `P1 grep -c group R` lines -- `LICENSE.md`, `README.md`,
+`TRADEMARK.md` -- before the lower-case groups (proof C2, C3; X01; `v2 read`:
+`diff` of this block against the run under `C` prints `29a30,32`, `38d40` and
+`41,42d42`, against the run under `en_US.UTF-8` nothing), so stage A runs the
+split under `en_US.UTF-8` while its `export LC_ALL=C` stays for the greps and
+the counts; `block.sh` prints the same under both (K04):
 
 <!-- t39 split expected p1 begin -->
 ```
@@ -725,14 +776,17 @@ at the tip the selector reaches: 328 paths; added since P1: 82 ; of the 254 abse
 <!-- t39 split expected e3fb end -->
 
 **At the lane's dispatch tip** the lane runs
-`G="$PWD" TIP=<MERGE_HASH's value> bash .qa-scratch/t39/split.sh`: every line
-before `tip:` is the P1 tree's and must match the defaults' (R1 § 6); the
+`LC_ALL=en_US.UTF-8 G="$PWD" TIP=<MERGE_HASH's value> bash .qa-scratch/t39/split.sh`:
+every line before `tip:` is the P1 tree's and must match the defaults' (R1 §
+6; both runs under `en_US.UTF-8`, X01); the
 `tip:` lines differ by whatever the coordinator's branch has moved. **By
 ruling (p) no line reads `absent` there** -- the P1 branch is merged, so the
 twelve `docs/reviews/` rows resolve -- and the selector's reach is the 254
 plus every brief added under `docs/reviews/briefs/` since P1 (82 at
-`e3fb3dfe00`, R1 C07); the exact lines are `[unverified]` until stage A prints
-them, and the lines that print are the record.
+`e3fb3dfe00`, R1 C07; 83 at `a0fb117b8b`, this brief among them --
+`selector reaches: 329 paths; added since P1: 83`, proof K19 -- so the
+dispatch tip prints at least 83); the exact lines are `[unverified]` until
+stage A prints them, and the lines that print are the record.
 
 **The tool's own row, from the worktree** (ruling (g); R1 C02 ran the same
 command from the clone):
@@ -742,7 +796,8 @@ with `50` lines, among them `slices: 46`, `rows: 134634 (inventory: 134634)`,
 `39 doctrine-reference doctrine 254 paths 38,598 lines 190 read 190 fork-own 0 patch table`
 (R1 C02, its spacing the tool's). Whether the worktree's copy prints the same
 as the clone's is `[unverified]` (R1 ran it with the clone as its working
-directory); the lane records what prints and whether
+directory; the proof's run from the clone reproduced R1 C02's lines with the
+status unchanged, K20); the lane records what prints and whether
 `git status --short --ignored` moved (R1 C02: the clone's two ignored lines
 before and after).
 
@@ -793,8 +848,8 @@ the dispatch comment may move it:
 | 2 | `TRADEMARK.md` | 1 | 38 | 1 / 0 | edit only where `NAMING.md` decides the word; findings #528 | legal and identity |
 | 3 | `LICENSE.md` | 1 | 18 | 1 / 0 | read-only; findings #528 (ruling (k)) | legal |
 | 4 | `docs/*` | 27 | 9,222 | 27 / 0 | edit scope less `docs/vm-qa-log.md` and `docs/cloud-sync-changelog.md` (ledger rows) | five families (R1 C17): `council-*` 9 / 1,463; `save-*`/`savestate-*` 7 / 1,129; `cloud-*` 3 / 3,921; `device-*` 2 / 656; other 6 / 2,053 (`es-menu-map` 989, `vm-qa-log` 361) |
-| 5 | `docs/pixelelated/` | 50 | 3,551 | 50 / 0 | edit scope for the prose; the art bytes and the binaries not (ruling (o); § 5's art rule) | the rename plan, the cloud-folder guide and review, the site plans, the art tree |
-| 6 | `docs/rasteratops/` | 15 | 4,906 | 15 / 0 | edit scope under `NAMING.md`'s historical clause (`docs/rasteratops/` keeps its name); the icon binary not | current release records (L-30), the P0 sweep's evidence, pre-D-CLOUD-175 cloud work |
+| 5 | `docs/pixelelated/` | 50 | 3,551 | 50 / 0 | edit scope for the prose (the two art READMEs and `wordmark-system.md`); the 18 art text files and the binaries not (ruling (o), widened at version 2) | the rename plan, the cloud-folder guide and review, the site plans, the art tree |
+| 6 | `docs/rasteratops/` | 15 | 4,906 | 15 / 0 | edit scope under `NAMING.md`'s historical clause (`docs/rasteratops/` keeps its name), less `p0-sweep-hits.txt` (a ledger row, open item 25) and the wordmark SVG and `Tiny5-OFL.txt` (ruling (o)); the icon binary not | current release records (L-30), the P0 sweep's evidence, pre-D-CLOUD-175 cloud work |
 | 7 | `docs/releases/` | 23 | 1,858 | 23 / 0 | edit scope less `catalog.md` and `rc-accept.txt` (ledger rows) | versioning, device facts, candidate records, release notes, the PR stubs |
 | 8 | `docs/ra-offline/` | 2 | 649 | 2 / 0 | edit scope | a dated design note, a rocknix.org draft |
 | 9 | `docs/pr-series/` | 2 | 323 | 2 / 0 | `map.txt` a ledger row (ruling (e)); `es-review-guide.md` edit scope | the closed upstream series |
@@ -872,7 +927,7 @@ re-reads each with `grep -n` at `COHASH`:
    | --- | --- | --- |
    | `NAMING.md` (T4's file, 60 lines, R3 C15) | `:3` (pixelelated lowercase); `:10-13` (pixelelated the OS name; ROCKNIX kept for retained labels, paths and upstream credit); `:14-18` (active Rasteratops folder names retired in reviewed batches, #509); `:19` (the character and the handle keep their names); `:30` (`p0-sweep-hits.txt` the baseline classification); `:31-32` (ROCKNIX assessed by consumer, not by grep); `:35` (the artifact-sweep allowlist); `:47-51` (the OS and the release are pixelelated; historical docs keep names and paths) (R2 L-06, L-11, L-19, § 0, § Identity; R3 § 2.2; R5 § A, § C, C21) | Q2, L-02, L-05, L-19 to L-23, L-25, L-30 |
    | `documentation-accuracy.md` | `:20-22` (the site is `ROCKNIX/rocknix.org`); `:48-52` (#42 *"the docs half of the upstream PR and blocks it"*) (R4 items 27, 55) | L-13, L-34 |
-   | `es-native-ui.md`, `es-ui-style-guide.md` | D-UI-039 and the map's ownership lines (`es-native-ui.md:46-47`, `:49-56`); `es-ui-style-guide.md:21` (*"`es-menu-map-check` detects missing screen titles, not stale copy or screenshot coverage"*), `:59` (the visual-evidence section is the entrypoint) (R4 items 57, 58) | L-08, L-32 |
+   | `es-native-ui.md`, `es-ui-style-guide.md` | D-UI-039 and the map's ownership lines (`es-native-ui.md:46-47`, `:49-56`); `es-ui-style-guide.md:59` (*"`es-menu-map-check` detects missing screen titles, not stale copy or screenshot coverage"*), `:66` (the visual-evidence section is the entrypoint) (R4 items 57, 58; the two lines by proof K96, X05) | L-08, L-32 |
    | `es-player-text.md` | § Conventions: the tiers and the banned words *configurations* and *everything* (D-UI-022) (R2 L-08) | L-07 |
    | `upgrade-and-install.md` | § Current cloud setup policy (D-CLOUD-175: no automatic cloud-folder migration) (R2's header) | L-04, L-10 |
    | `fork-workflow.md` | `docs/` and `plans/` are personal paths (`:17`, `:32`); the by-content recipe; `tools/pr-stack-check` builds from `docs/pr-series/map.txt` (`instruction-files.md:194`) (R4 item 61) | L-27, L-34 |
@@ -912,7 +967,7 @@ re-reads each with `grep -n` at `COHASH`:
    | `tools/es-menu-map-check` | `docs/es-menu-map.md`, against the EmulationStation source at the shipped pin, by `git ls-tree`/`show` only (R2 C15; R3 C12) | `55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing`, rc 0 (R3 C13; R2 C16) | screen titles only -- not rows, copy, order, French or frames (R3 § 2.4); not in fork CI (R3 C14); `CANNOT` without an ES checkout (exit 2) |
    | `tools/release-catalog --check` | `docs/releases/catalog.md` against `/workspace/artifacts/rocknix-images/*/RECORD.txt` (R3 C11) | `release-catalog: current (99 cuts)`, rc 0 (R3 C13) | a hand edit or a stale page, on this host only; `--write` is the only writer and **the lane never runs it** (ruling (a)) |
    | `tools/work-log-index --check` | not one of the 254 (`docs/work-logs/INDEX.md`) | `work-log index: current` (R3 C13) | the lane's own log entries |
-   | `tools/rasteratops-identity-check` | `LICENSE.md`, `TRADEMARK.md` for non-empty text; the wordmark SVG's sha256 against the ES and theme copies (R3 C12) | not run: it requires `--es` and writes a temporary work directory (R3 § 1, C11, C13) | **an edit to `docs/pixelelated/art/pixelelated-wordmark.svg` fails it**: the art bytes are not edited here (§ 5) |
+   | `tools/rasteratops-identity-check` | `LICENSE.md`, `TRADEMARK.md` for non-empty text; the wordmark SVG's sha256 against the ES and theme copies (R3 C12) | not run: it requires `--es` and writes a temporary work directory (R3 § 1, C11, C13) | **an edit to `docs/pixelelated/art/pixelelated-wordmark.svg` fails it**: the art bytes are not edited here (ruling (o), widened at version 2; § 5) |
    | `tools/prose-check` | a page it is given; strict under `docs/releases/` | `self-test: PASS`; over the three release-note drafts rc 0 each, the 0.0.1 draft `PASS (0 fail, 1 warn)` (R3 C13, C21) | the site's voice in a draft; run by nothing automatically (R3 C14) |
    | `tools/lint-audit-artifacts` | **no**: the lane's folder | `usage: lint-audit-artifacts [-h] [--issue ISSUE] [--repo REPO] [--phase {pre-issue,resolution}]`; Local plans under the tip's audit folders `0 of 8` (R3 C13, C21) | the slice's folder; the Local PASS shape is proven at stage A (ruling (q)) |
    | `tools/forbidden-terms-check --stdin` | yes | over the 215 text paths at the tip `forbidden-terms-check: 0 hits on stdin`, rc 0; empty input rc 0; a planted `FORBIDDEN_PATTERNS` token `1 line(s) on stdin carry a listed word`, rc 1 (R3 C20) | **rc 0 is evidence only beside its positive**: the tool honours `FORBIDDEN_PATTERNS` before reading the private list (R3 C12) |
@@ -957,7 +1012,9 @@ re-reads each with `grep -n` at `COHASH`:
     route (R3 § 6; ruling (b)).
 
 **The leads, one line each, in the brief's own numbering** -- `R2 L-<nn>` is
-R2's numbering, never this table's; R3's four real dead paths, R3's
+R2's numbering, never this table's; R3's four dead-path candidates (one real
+absent in-tree path, `packages/rocknix`, and three names ruled external, X02),
+R3's
 retired-procedure hits, R4's three documents most likely to change and R4's
 contradictions are folded in where they fall. Nothing here was tested by this
 lane; a lead is a fact of the lines until the lane's proof says more.
@@ -982,7 +1039,7 @@ set of § 6: `fix`, `inherited:<owner>`, `ledger`, `#528`, `#585`.**
 | **L-01** | `docs/reviews/README.md:10-12`, `plan-for-the-plan.md:15,223,224,234,245,258,259`, `briefs/p1-survey.md:60-61,306-337,380-381`, `build-path-read.md:147` (R2 L-01) | **the renovation's own README and plan name files and tools absent at `e3fb3dfe00`**: `order.md`, `inventory.json`, `status.md`, `slices.json`, `tools/renovation-inventory`, `-status`, `-drift`; present only at `2174265e9c`, which `e3fb3dfe00` does not contain (R2 C6, C10, C12) | tree | `for p in docs/reviews/{README.md,areas.json,assessment.md,briefs/p1-survey.md,build-path-read.md,cross-reference.md,inventory.md,order.md,p1-tracking.md,plan-for-the-plan.md,slices.json,status.md} tools/renovation-{inventory,status,drift}; do git cat-file -e "HEAD:$p" 2>/dev/null \|\| echo "MISSING $p"; done` -- R2's seven-name form printed seven `MISSING` at `e3fb3dfe00`; **at the dispatch tip it prints no line** (ruling (p)) | Q6 | **ledger**: the coordinator's, resolved at dispatch (ruling (p)); the line printed at stage A is the record |
 | **L-02** | `README.md:7-10` (R2 L-14; R4 item 16) | **the front page sends a player to a release with no pixelelated release**: *"Updates for this release are manual; use the instructions attached to the [release]"*, while `gh release list` printed `rc1-20260929`, `dev-20260827`, `dev-rk3326-20260819` (R2 C25) and the page carries seven ROCKNIX-era releases, the newest *ROCKNIX RC1 (2026-09-29)* (R4 C25); #344 OPEN (R2 C12) | tool-run, record | `git show HEAD:README.md \| $G -c 'instructions attached'` prints `1` at the tip and `0` after; the corrected sentence names the true state (no 0.0.1 release published yet; #344) beside `gh release list --repo pixelelated/distribution --limit 3`'s line at the fix's date | Q4, Q7 | **fix** (ruling (c)) |
 | **L-03** | `docs/device-testing-policy.md:5` (R2 L-05) | **a decided row called open**: *"**Open:** D-QA-016 (a dedicated QA handheld and accounts, #131)."*; D-QA-016 decided at `decision-register.md:249` (2026-09-13) and D-QA-027 at `:327` (2026-09-17: the RG35XX SP is the dedicated QA handheld); #131 `CLOSED 2026-09-20` (R2 C23, C26) | row vs doc | `git show HEAD:docs/device-testing-policy.md \| $G -c -E 'Open:.*D-QA-016'` prints `1` at the tip and `0` after | Q4 | **fix** (ruling (l)); `vm-first.md`'s sentence on D-QA-016 is T4's: **inherited:coordinator** |
-| **L-04** | `docs/rasteratops/cloud-layout.md:16`, `docs/releases/pr/08-saves.md:5` (R3 § 2.3, § 7 item 4) | **a retired script in the present tense**: *"`cloud_migrate_layout` derives the destination from the shipped defaults."*; *"... saves root, layout migration and log scrub scripts"*; the product tree has none (`product-tree hits for cloud_migrate_layout (projects packages scripts tools): 0`, R3 C24); D-CLOUD-175 retired it (`decision-register.md:642`, R4 item 13) | tree, row vs doc | `git grep -n -E 'cloud_migrate_layout\|layout migration' HEAD -- docs/rasteratops/cloud-layout.md docs/releases/pr/08-saves.md` prints the two lines; after the fix each file also carries a sentence naming the retirement: `git grep -c 'D-CLOUD-175' HEAD -- <the two files>` prints a count of at least 1 for each, where it printed none at the tip `[unverified]`. The other reference-class hits -- `docs/cloud-vocabulary-audit.md:189`, `docs/rasteratops/cloud-folder-state-table.md:46,61` (line-cited reads of the script), `docs/rasteratops/release-readiness.md:874`, `docs/pixelelated/cloud-folder-flow-review.md:272` (consistent with the retirement) -- and R3's join/follow heuristic's 10 reference lines are read and classed (R3 C18, C19; the 10 unread `[unverified]`) | Q1, Q3 | **fix** (ruling (l)) |
+| **L-04** | `docs/rasteratops/cloud-layout.md:16`, `docs/releases/pr/08-saves.md:5` (R3 § 2.3, § 7 item 4) | **a retired script in the present tense**: *"`cloud_migrate_layout` derives the destination from the shipped defaults."*; *"... saves root, layout migration and log scrub scripts"*; the product tree has none (`product-tree hits for cloud_migrate_layout (projects packages scripts tools): 0`, R3 C24); D-CLOUD-175 retired it (`decision-register.md:642`, R4 item 13) | tree, row vs doc | `git grep -n -E 'cloud_migrate_layout\|layout migration' HEAD -- docs/rasteratops/cloud-layout.md docs/releases/pr/08-saves.md` prints the two lines; after the fix each file also carries a sentence naming the retirement: `git grep -c 'D-CLOUD-175' HEAD -- <the two files>` prints a count of at least 1 for each, where it printed `0` and `0` at `a0fb117b8b` (proof K45; open item 7's first half settled). The other reference-class hits -- `docs/cloud-vocabulary-audit.md:189`, `docs/rasteratops/cloud-folder-state-table.md:46,61` (line-cited reads of the script), `docs/rasteratops/release-readiness.md:874`, and `docs/pixelelated/cloud-folder-flow-review.md:272`, a hit of R3's looser heuristic (*folder migration*: *"without scheduling a folder migration"*), consistent with the retirement and not of L-04's check words (proof K46, X11) -- and R3's join/follow heuristic's 10 reference lines are read and classed (R3 C18, C19; the 10 unread `[unverified]`) | Q1, Q3 | **fix** (ruling (l)) |
 | **L-05** | `docs/device-flashing-runbook.md:3`, `:5` and the rest of its 21 `ROCKNIX` lines (R2 L-06) | **the OS named ROCKNIX throughout**: `ROCKNIX` 21 lines, `pixelelated` 0 (R2 C20); last commit 2026-09-20, before D-WORKFLOW-144; *"Use this for every fresh ROCKNIX card"*, *"For devices already running ROCKNIX"*; `CLAUDE.md` names the runbook for physical flashing | tool-run, row vs doc | `git show HEAD:docs/device-flashing-runbook.md \| $G -c ROCKNIX` prints `21` and `\| $G -c pixelelated` prints `0` at the tip; after the fix the second is non-zero and every remaining `ROCKNIX` line is classed in `02` as a retained label, path or the upstream project (`NAMING.md:3,10-13`); D-INFRA-008 (`:94`, bench documentation) and #1100's SM8550 gap are cited, not fixed (R4 item 5) | Q2, Q4 | **fix** where `NAMING.md` decides the word; the rest recorded (ruling (l)) |
 | **L-06** | `docs/cloud-save-integrity.md:4` (R2 L-07) | **an M7 order of closed issues**: *"M7 order remains #515 -> #508 -> #507 -> assembled firmware..."*; each `CLOSED 2026-10-08` (R2 C12, C20); the milestone body owns order (`milestone-phase-naming.md`) | record | `git show HEAD:docs/cloud-save-integrity.md \| $G -c 'M7 order remains'` prints `1` at the tip and `0` after | Q4 | **fix** |
 | **L-07** | `docs/backup-contents.md:3-5` (R2 L-08) | **labels the pin does not ship, in banned words**, in a file that calls itself the *"source of truth for the user-facing docs on rocknix.org"*: **BACKUP CONFIGURATIONS**, **RESTORE FROM BACKUP**, **BACK UP / RESTORE EVERYTHING**, each `0` at the pin `16dbac5211` with the `_("` prefix (R2 C13, C20) | tool-run | `for s in 'BACKUP CONFIGURATIONS' 'RESTORE FROM BACKUP' 'RESTORE EVERYTHING' 'BACK UP / RESTORE'; do printf '%s %s\n' "$s" "$(git -C ~/Development/emulationstation-next grep -F -c "$s" 16dbac5211 -- es-app es-core \| awk -F: '{s+=$NF} END {print s+0}')"; done` -- the bare strings, which R2 did not grep (R2 L-08 asks for them before a label is called gone); after the fix every label the file names prints a non-zero count at the pin and *configurations* and *everything* are gone from it | Q2, Q4 | **fix** (labels re-derived from the pin) |
@@ -990,41 +1047,41 @@ set of § 6: `fix`, `inherited:<owner>`, `ledger`, `#528`, `#585`.**
 | **L-09** | `docs/releases/next-candidate-work.md:4` (R2 L-12) | **a superseded baseline**: *"the last tested device build, `0.0.1-dev+20261011T222153Z.gbc9dfe8141d9`"*, while `device-facts.md` records a 2026-10-16 transfer to `077197` and `support-matrix.md` says the three images *"share distribution source `077197e6cd`"* (R2 C14, C19, C26) | row vs doc | `git show HEAD:docs/releases/next-candidate-work.md \| $G -n 'baseline is'` prints `:4` at the tip; after the fix the line names the current baseline or the file is headed as the dated reconciliation it is | Q4 | **fix** |
 | **L-10** | `docs/pixelelated/cloud-folders.md:32-35` (R2 L-13; R4 item 13) | **the player's guide ends in internal release status**: *"Publish it with the qualified build ... The accepted H700 and SM8550 artifacts from earlier on 2026-10-07 still contain the previous migration flow"*; #508 `CLOSED 2026-10-08`; `site-plan.md:3-5` says the guides are published; `README.md:22` sends players here (R2 C23, C26) | tree, record | `git show HEAD:docs/pixelelated/cloud-folders.md \| $G -c 'prepared release documentation'` prints `1` at the tip and `0` after | Q7 | **fix** |
 | **L-11** | `docs/rasteratops/release-readiness.md` 122, `docs/releases/next-candidate-work.md` 46, `next-candidate-scope.md` 22, `docs/es-menu-map.md` 12, `cloud-folder-flow-review.md` 9, `support-matrix.md` 8, `docs/upstream/README.md` 8, `device-facts.md` 2, `versioning.md` 1, `0.0.1-release-preparation.md` 1 (R2 L-16) | **words and numbers run together** (*"approved8b511→bc9dfe"*, *"Candidate ESf7b71db0a"*, *"all18"*, *"October14"*): a heuristic, not a check (R2 C22) | tool-run | `$G -o -E '\b(approved\|completed\|verified\|primary\|about\|at\|on\|in\|of\|for\|and\|all\|with\|by\|from\|October\|Oct\|replacement\|glslang)[0-9]'` per file over `HEAD`'s text: the counts above at the tip; after the fix each hit in the edit scope is read and either spaced or kept as an identifier (`replacement02` in `rename-plan.md:16` is a name) with its class in `02` | Q7 | **fix** in the edit scope; `docs/upstream/README.md`'s 8 **#585**; `rc-accept.txt:17`'s `glslang16.6.0` **ledger** (L-26) |
-| **L-12** | `docs/council-limits.md` (54 lines), `docs/council-mistral-counter.md:3` (R2 L-20) | **council notes about a retired seat and with no reader**: `council-limits.md` has `0/0/0/0` inbound (R2 C21); the counter note documents `scripts/council-count-mistral.mjs` (`PRESENT`, R2 C26) for the Mistral seat, outside every run profile since scaffold#915 | tree | `git show HEAD:docs/council-mistral-counter.md \| $G -c -i -E 'sealed\|retired\|scaffold#915'` prints `0` at the tip `[unverified]` and at least `1` after the banner | Q5, Q6 | **fix**: a banner on the counter note; retiring `council-limits.md` is § 4 question 2 |
-| **L-13** | `docs/technical-appendix-cloud-sync-and-offline-achievements.md` (3 lines), `docs/pixelelated/site-plan.md:70`, `docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md:5`, `docs/ra-offline/rocknix-org-offline-achievements.md:3` (R2 L-18; R3 § 2.1, § 7 item 2) | **rocknix.org drafts naming pages this tree cannot check**: seven rocknix.org pages (R3 § 2.1's external class) and `docs/cloud-saves-native-wizard`, which R3 counts a candidate dead path and R2 another repository's path | tree | `git cat-file -e HEAD:docs/cloud-saves-native-wizard 2>/dev/null \|\| echo ABSENT` prints `ABSENT` (R3 C17); whether the pages exist in `ROCKNIX/rocknix.org` is `[unverified]` (outside the tree; a read of a local checkout, if one is present, by `git -C <it> ls-tree` at its default branch and never a fetch, settles it); after the fix each named page carries its repository and branch | Q6 | **fix**: the repository named beside each page; retiring the stubs (`rocknix-org-pr-...md` has `0/0/0/0` inbound, R2 C21) is § 4 question 2 |
-| **L-14** | `docs/pixelelated/art/README.md` (R3 § 2.1 candidate 1, § 7 item 1) | **a generator tool that is not in the tree**: `tools/pixelelated-wordmark`; the generator among the 254 is `docs/pixelelated/art/source/generate.py` (R3 C10, C17) | tree | `git cat-file -e HEAD:tools/pixelelated-wordmark 2>/dev/null \|\| echo ABSENT` prints `ABSENT`; `git log --oneline -S pixelelated-wordmark HEAD -- tools docs/pixelelated/art` read before the edit; after the fix the README names what exists | Q6 | **fix** (the README's prose; the art bytes untouched, § 5) |
+| **L-12** | `docs/council-limits.md` (54 lines), `docs/council-mistral-counter.md:3` (R2 L-20) | **council notes about a retired seat and with no reader**: `council-limits.md` has `0/0/0/0` inbound (R2 C21); the counter note documents `scripts/council-count-mistral.mjs` (`PRESENT`, R2 C26) for the Mistral seat, outside every run profile since scaffold#915 | tree | `git show HEAD:docs/council-mistral-counter.md \| $G -c -i -E 'sealed\|retired\|scaffold#915'` prints `0` at the tip (proof K54; open item 8 settled) and at least `1` after the banner | Q5, Q6 | **fix**: a banner on the counter note; retiring `council-limits.md` is § 4 question 2 |
+| **L-13** | `docs/technical-appendix-cloud-sync-and-offline-achievements.md` (3 lines), `docs/pixelelated/site-plan.md:70`, `docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md:5`, `docs/ra-offline/rocknix-org-offline-achievements.md:3` (R2 L-18; R3 § 2.1, § 7 item 2) | **rocknix.org drafts naming pages this tree cannot check**: seven rocknix.org pages (R3 § 2.1's external class) and `docs/cloud-saves-native-wizard`, a branch of the site checkout (`site-plan.md:69-70` *"clean on `docs/cloud-saves-native-wizard`"*; the appendix `:3` *"on the site checkout's `docs/cloud-saves-native-wizard` branch"*): an `allow-legit` `external` entry, not a dead path (proof K55, X02; disagreement 11 settles for R2) | tree | `git cat-file -e HEAD:docs/cloud-saves-native-wizard 2>/dev/null \|\| echo ABSENT` prints `ABSENT` (R3 C17; the name is the site repository's branch, `external`); whether the pages exist in `ROCKNIX/rocknix.org` is `[unverified]` (outside the tree; a read of a local checkout, if one is present, by `git -C <it> ls-tree` at its default branch and never a fetch, settles it); after the fix each named page carries its repository and branch | Q6 | **fix**: the repository named beside each page; retiring the stubs (`rocknix-org-pr-...md` has `0/0/0/0` inbound, R2 C21) is § 4 question 2 |
+| **L-14** | `docs/pixelelated/art/README.md:20-21` (R3 § 2.1 candidate 1, § 7 item 1) | **another repository's generator tool, named as such**: *"`pixelelated-wordmark.svg` is generated by `pixelelated/splash` `tools/pixelelated-wordmark` from the unmodified Tiny5 Duo LCD 2.007 font"* -- the splash repository's tool, not this tree's (proof K56, X02); the generator among the 254 is `docs/pixelelated/art/source/generate.py` (R3 C10, C17) | tree | `git cat-file -e HEAD:tools/pixelelated-wordmark 2>/dev/null \|\| echo ABSENT` prints `ABSENT`, and `git show HEAD:docs/pixelelated/art/README.md \| sed -n '20,21p'` prints the sentence naming `pixelelated/splash`; the `paths` step carries it as an `allow-legit` `external` entry | Q6 | **record**: a § Coverage row reading `none` -- the README already says where the tool lives (X02) |
 | **L-15** | `docs/releases/device-facts.md:7` and its rows (R2 L-03; R4 items 9, 38, 39) | **the device facts point to a catalog with none of their cuts, and their rows are cited by number**: *"The cuts themselves are [catalog.md]"*; `catalog-has-<hash>: 0` for `bc9dfe8141`, `077197`, `8b511`, `a0f60255ab` (R2 C15); the catalog's newest row `x64-all-20261002-b2378d9c33` (`catalog.md:11`), last regenerated `3d7c075f63` 2026-10-02, while `release-catalog: current (99 cuts)` (R3 C13) is current against the `RECORD.txt` files present (#964: *"395 kept folders ... without a `RECORD.txt`"*, R4 item 39); rows cited by number by #1100 (`L17-L19`) and #1126 (*"line 31"*), a row #1094 says is missing; **D-WORKFLOW-046** (`:390`, *"a tool says when they are not"*) against `release-candidates.md:38-40` (*"no tool yet (#270)"*) | tool-run, row vs doc | `for h in bc9dfe8141 077197 8b511 a0f60255ab; do git show HEAD:docs/releases/catalog.md \| $G -c "$h"; done` prints `0` four times; `git show HEAD:docs/releases/device-facts.md \| sed -n '7p;17,19p;31p'` recorded before and after any edit, so no line an issue cites by number moves | Q4, Q6 | **fix**: `device-facts.md:7`'s pointer says where the cuts after 2026-10-02 are recorded, written without moving a cited row; **inherited:#270** (the tool and the row-against-rule); **inherited:coordinator** (the catalog's regeneration and #964; the lane never runs `--write`) |
-| **L-16** | `docs/device-testing-policy.md:94` `## Reading a device's output` (R4 item 6, C21) | **a mask a reader copies**: whether the policy's long form carries `engineering-practices.md`'s widened mask, the flag form added 2026-10-30, is `[unverified]` (R4 item 6) | -- | `git show HEAD:docs/device-testing-policy.md \| $G -c -F -e '--(token'` prints `0` if the flag form is absent; then a reader masking a command line by the policy prints a credential | Q3 | **fix** if the check prints `0`; otherwise a `02` § Coverage row reading `none` |
-| **L-17** | `docs/conflict-wizard-ia.md` (323 lines) (R4 item 4) | **the wizard's IA against its decided rows**: D-CLOUD-024 (`:62`), -027 (`:67`), -032 (`:84`), -041 (`:98`, *"the cloud is the left column, so KEEP LEFT keeps the cloud copy"*) and #23's *"to be revised to rev 5 as listed in #134"*; the IA's text was not read `[unverified]`; its words are `KEEP BOTH`, `KEEP LEFT`, `KEEP RIGHT`, no `MERGE` (R2 C22) | -- | `git show HEAD:docs/conflict-wizard-ia.md \| $G -n -i -E 'rev(ision)? ?[0-9]'` prints its revision line, read against #134's list | Q4 | **fix** where a sentence contradicts a decided row and no screen change owns it; otherwise **inherited:the interface lanes** |
+| **L-16** | `docs/device-testing-policy.md:94` `## Reading a device's output` (R4 item 6, C21) | **a mask a reader copies, short of the flag form**: the policy's long form lacks `engineering-practices.md`'s widened mask -- the flag form added 2026-10-30 is absent at `a0fb117b8b` (`--(token` count `0`, proof K58; R4 item 6) -- so a reader masking a command line by the policy prints a credential | tool-run | `git show HEAD:docs/device-testing-policy.md \| $G -c -F -e '--(token'` prints `0` at the tip (K58) and at least `1` after the fix | Q3 | **fix** (the check printed `0`, K58; open item 10 settled) |
+| **L-17** | `docs/conflict-wizard-ia.md` (323 lines) (R4 item 4) | **the wizard's IA against its decided rows**: D-CLOUD-024 (`:62`), -027 (`:67`), -032 (`:84`), -041 (`:98`, *"the cloud is the left column, so KEEP LEFT keeps the cloud copy"*) and #23's *"to be revised to rev 5 as listed in #134"*; the IA is at **Rev 6 (2026-09-12)** (`:19`), past #23's rev 5 (`:29`; #23 still says `rev 5`), proof K59; its words are `KEEP BOTH` 5, `KEEP LEFT` 2, `KEEP RIGHT` 2, no `MERGE` (R2 C22; K59); the text against the four rows is unread `[unverified]` | tree | `git show HEAD:docs/conflict-wizard-ia.md \| $G -n -i -E 'rev(ision)? ?[0-9]'` prints `19:> **Rev 6 (2026-09-12).**` and `29:> **Rev 5 (2026-09-06).**` (K59), read against #134's list | Q4 | **fix** where a sentence contradicts a decided row and no screen change owns it; otherwise **inherited:the interface lanes** |
 | **L-18** | the 17 low-inbound reference documents (R2 § 3) | **the lens's sharpest rows**: `LOW-INBOUND-SUM files=17 lines=2135` (R2 C26) -- the plan (223), `backup-contents` (100), `save-manifest-alignment-review` (98), three save-history pieces (92/40/111), `savestate-compat-test` (117), `rules-sweep` (277), the technical appendix (3), `council-limits` (54), the rc1 note (38), `rocknix-org-pr-...` (13), `es-review-guide` (124), `candidate-source-plan` (80), the proxy design note (590, 15 backticked paths of another tree, R3 § 7 item 9), `rocknix-org-offline-achievements` (59), `cloud-layout` (116) | tool-run | the generator's `R/O/D/W` inbound columns re-derive R2 C21's counts at `HEAD`, and its line prints the number of documents with no inbound name and at most one `docs/` reference outside the ledgers (R2 C26's `files=17`); after the fixes every one of them that is a dated record says so in its first line | Q5, Q7 | **fix**: a dated first line where a record presents itself as current (R5 § A: *"a dated record misleads only where it presents itself as current"*); retirement is § 4 question 2 |
-| **L-19** | `docs/rasteratops/art/README.md` (R3 § 2.1 candidate 2) | **an absent tool in a historical artifact's README**: `tools/rasteratops-wordmark` (R3 C17); `NAMING.md`: historical docs and artifacts keep their names and paths | tree | `git cat-file -e HEAD:tools/rasteratops-wordmark 2>/dev/null \|\| echo ABSENT` prints `ABSENT` | Q6 | **ledger** (a historical artifact, kept) unless its README presents the tool as current: then **fix** (one sentence) |
+| **L-19** | `docs/rasteratops/art/README.md:8` (R3 § 2.1 candidate 2) | **another repository's tool in a historical artifact's README, named as such**: *"generated from Tiny5 Duo by `rasteratops/splash`'s `tools/rasteratops-wordmark`"* (proof K56, X02); `NAMING.md`: historical docs and artifacts keep their names and paths | tree | `git cat-file -e HEAD:tools/rasteratops-wordmark 2>/dev/null \|\| echo ABSENT` prints `ABSENT`, and `git show HEAD:docs/rasteratops/art/README.md \| sed -n 8p` prints the line naming `rasteratops/splash`; the `paths` step carries it as an `allow-legit` `external` entry | Q6 | **ledger** (a historical artifact, kept; the tool is the splash repository's, X02) |
 | **L-20** | `docs/rasteratops/p0-read.md`, `p0-sweep.md` (R3 § 2.1 candidate 4) | **a short path in dated P0 records**: `packages/rocknix` (R3 C17); `NAMING.md:30` names `p0-sweep-hits.txt` the baseline classification (R2 § 0) | tree | `git cat-file -e HEAD:packages/rocknix 2>/dev/null \|\| echo ABSENT` prints `ABSENT` | Q6 | **ledger** (a dated record) unless it presents itself as current |
 | **L-21** | `docs/rasteratops/raofflineproxy-refresh.md:180,188`, `docs/rasteratops/cloud-folder-state-table.md:38` (R3 § 2.2, § 7 item 5) | **Rasteratops as the OS's identity**: *"Rasteratops, so automatic account discovery could not find system.cfg"*, *"Rasteratops identity above"*; *"`N` is `/Rasteratops/Saves`"* (R3 C18, C19) | tree | `git show HEAD:docs/rasteratops/raofflineproxy-refresh.md \| sed -n '180p;188p'` and `git show HEAD:docs/rasteratops/cloud-folder-state-table.md \| sed -n 38p` print the lines | Q2 | **ledger** (a record of its date) unless its tense presents the identity as current: then **fix** (a sentence naming D-WORKFLOW-144) |
 | **L-22** | `docs/pixelelated/site-plan.md:72` and its `Development/rocknix` line (R2 § Identity; R3 § 2.2, § 7 item 3) | **a current plan naming a retired owner and path**: *"Remotes still name `maxengel/rocknix.org`"*; currency not settled (R2); #511 OPEN (R2 C20); the friction log's `:137` | tree, record | `git show HEAD:docs/pixelelated/site-plan.md \| $G -n -E 'maxengel\|Development/rocknix'` prints the two lines; #511's last comment read for the remote's state | Q4 | **fix** where the sentence misstates the present; otherwise **inherited:#511** |
-| **L-23** | `docs/cloud-sync-changelog.md:706-735` (R2 § 2 Not leads; R3 § 2.2) | **`maxengel/rocknix` links that resolve only by redirect** (`gh api repos/maxengel/rocknix` -> `pixelelated/distribution`, R2 C22): the four sit in the changelog's dated entries, a ledger row; `github.com/(rasteratops\|maxengel)` is `0/0` in R3's reference class and `4/1` in its ledger class (R3 C18) | tool-run | `xargs -d '\n' -a .qa-scratch/t39/paths.txt git grep -c -E 'github\.com/(rasteratops\|maxengel)' HEAD --` prints `HEAD:docs/cloud-sync-changelog.md:4` alone at the tip `[unverified]` (R3 counted by its classes, not over the 254's paths) | Q2 | **ledger**; ruling (l)'s fix applies to any instance the identity step finds in the edit scope; `rename-plan.md:24` (the account, allowed), `rules-sweep-2026-09-12.md:113` (dated) and `image-completeness/fix.patch:64` (**#585**, kept) are recorded (R2 § Identity) |
+| **L-23** | `docs/cloud-sync-changelog.md:706-735` (R2 § 2 Not leads; R3 § 2.2) | **`maxengel/rocknix` links that resolve only by redirect** (`gh api repos/maxengel/rocknix` -> `pixelelated/distribution`, R2 C22): the four sit in the changelog's dated entries, a ledger row; `github.com/(rasteratops\|maxengel)` is `0/0` in R3's reference class and `4/1` in its ledger class (R3 C18) | tool-run | `xargs -d '\n' -a .qa-scratch/t39/paths.txt git grep -c -E 'github\.com/(rasteratops\|maxengel)' HEAD --` prints `HEAD:docs/cloud-sync-changelog.md:4` alone (proof K64 over the 223 at P1: `2174265e9c:docs/cloud-sync-changelog.md:4`; open item 12 settled); the bare string `maxengel/rocknix` is on 27 lines in 5 files (K64: the changelog `:4`, `docs/pixelelated/site-plan.md` 1, `docs/rules-sweep-2026-09-12.md` 1, `docs/upstream/raofflineproxy/image-completeness/fix.patch` 1, and 20 in `docs/rasteratops/p0-sweep-hits.txt` -- the sweep's hits as it found them, a ledger row by open item 25) | Q2 | **ledger**; ruling (l)'s fix applies to any instance the identity step finds in the edit scope; `rename-plan.md:24` (the account, allowed), `rules-sweep-2026-09-12.md:113` (dated) and `docs/upstream/raofflineproxy/image-completeness/fix.patch:64` (**#585**, kept; the full path by X12) are recorded (R2 § Identity) |
 | **L-24** | `plans/conflict-resolution/vita-style-conflict-resolution.md:8-9`, `:13` (R2 L-10) | **the one plan, superseded and unmarked**: *"Choices: KEEP CLOUD / KEEP DEVICE / MERGE"*, *"Merge = re-slot"*, captured 2026-07-26; the IA's words have no `MERGE` (R2 C22); `_("KEEP CLOUD` and `_("KEEP DEVICE` `0` at the pin (R2 C20); no rule, root document, register line, map or IA names the plan (R2 C19); the superseding row is not settled (R2 C20) | tree, tool-run | `git show HEAD:docs/conflict-wizard-ia.md \| $G -o -E 'KEEP [A-Z]+\|MERGE' \| sort \| uniq -c` prints `KEEP BOTH`, `KEEP LEFT`, `KEEP RIGHT` and no `MERGE`; `tools/archaeology --no-gh 'KEEP CLOUD'` names the deciding row `[unverified]` (D-CLOUD-041, `:98`, is the candidate, R4 item 4) | Q1, Q5 | **ledger**: one historical-plan row naming the superseding row's ID (ruling (d)) |
 | **L-25** | `docs/releases/rc-accept.txt:13`, `:15` (R2 L-11) | **0.0.1 called *"the first Rasteratops release"*** in the RC ledger; `:15` sends the reader to `docs/rasteratops/release-readiness.md` (R2 C8); `NAMING.md:47-50` | tree | `git show HEAD:docs/releases/rc-accept.txt \| $G -n Rasteratops` prints `13:` | Q2 | **ledger**: **inherited:coordinator** (ruling (l)) |
-| **L-26** | `docs/releases/rc-accept.txt` (R4 items 41, 59) | **two stale acceptances kept as the record**: `zip` and `spirv-headers` (#963 `:10`; `:16` *"the acceptances in `rc-accept.txt` stay as the record"*); `rc-accept zip/spirv lines: 2  total non-comment: 9` (R4 C25); `release-candidates.md:38-40`: each acceptance cites a decided row | tool-run | `git show HEAD:docs/releases/rc-accept.txt \| $G -v '^#' \| $G -c .` prints `9` `[unverified]`: R4 does not print its command; each non-comment line's cited ID looked up in the decided table, the look-up's line recorded | Q4 | **ledger** |
+| **L-26** | `docs/releases/rc-accept.txt` (R4 items 41, 59) | **two stale acceptances kept as the record**: `zip` and `spirv-headers` (#963 `:10`; `:16` *"the acceptances in `rc-accept.txt` stay as the record"*); `rc-accept zip/spirv lines: 2  total non-comment: 9` (R4 C25); `release-candidates.md:38-40`: each acceptance cites a decided row | tool-run | `git show HEAD:docs/releases/rc-accept.txt \| $G -v '^#' \| $G -c .` prints `9` (proof K68, this command; open item 14 settled); each non-comment line's cited ID looked up in the decided table, the look-up's line recorded | Q4 | **ledger** |
 | **L-27** | `docs/pr-series/map.txt:112`, `:174` (R2 L-04) | **the upstream-series map names two deleted paths**: `.../rclone/sources/post-update`, `.../rclone/sources/cloud_migrate_layout`; the latest deletion over the pair `e6645cb5ea 2026-10-08` (R2 C11); `tools/pr-stack-check`'s failure on them inferred from its code, not observed (R2 L-04) | tree | `for p in projects/ROCKNIX/packages/network/rclone/sources/post-update projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout; do git cat-file -e "HEAD:$p" 2>/dev/null \|\| echo "GONE $p"; done` prints two `GONE` (R2 C10) | Q6 | **ledger**: **inherited:coordinator** (ruling (e)); never run `pr-stack-check` here (it makes a worktree) |
 | **L-28** | `docs/reviews/plan-for-the-plan.md:528` at `e3fb3dfe00`; `doctrine-rules.md:262-265` (R1 § 8 item 5; R3 § 7 item 7) | **the renovation's records listed apart, and a criterion true of no tree**: T4's brief keeps `docs/reviews/**` as *"P0's and P1's, the plan and the order"* while `areas.json` puts it in the doctrine and the `rest` gives T39 its 12 rows; the plan reads *"This file exists on `next` at `docs/reviews/plan-for-the-plan.md`"* while `next` has no `docs/reviews/` (R1 C10) | tree | `git ls-tree --name-only 8ebaf8daad docs/reviews/ \| $G -c ''` prints `0`; `git show HEAD:docs/reviews/plan-for-the-plan.md \| $G -n 'This file exists on'` prints the line | Q4 | **ledger**: **inherited:coordinator** (ruling (a) settles the ownership; every plan lead T38's hand-back names is a row here) |
 | **L-29** | `docs/reviews/order.md:792` at `2174265e9c` (R1 § 1, § 8 item 9) | **a preliminary number in the order**: *"split in three (T4, T33, T39)"*, T33 being today's T38 by the renumbering table (`:188`, R1 C01) | tree | `git -C "$W" show 2174265e9c:docs/reviews/order.md \| sed -n 792p` prints the line | Q7 | **ledger**: **inherited:coordinator** |
 | **L-30** | `docs/rasteratops/release-readiness.md` (990 lines, *"# pixelelated 0.0.1 release readiness"*), `support-matrix.md` (162) (R2 L-19) | **current release records under the retired name's folder**: changed 2026-10-16; the first is named by `rc-accept.txt:15`, and they are named by four and six `docs/` files outside the ledgers (R2 C19, C21); `NAMING.md:14-18` and `rename-plan.md:60` retire active folder names in reviewed batches; #509 OPEN (R2 C12) | tree, record | `git show HEAD:docs/rasteratops/release-readiness.md \| sed -n 1p` prints the title; `git grep -l -F 'docs/rasteratops/release-readiness.md' HEAD -- docs \| $G -c ''` prints its inbound count | Q2, Q7 | **inherited:#509** (a move is a reviewed rename batch, and it would change a ledger row's text) |
-| **L-31** | `documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md` (R2 L-17; ruling (j)) | **the fork's emulator table has drifted and has no generator**: against AMD64's `57 insertions(+), 66 deletions(-)` (R2 C18); fork-own from `a19831ebf6` 2026-08-21, never updated; only `tools/fork-worktree` names the file among `scripts/ tools/ config/ Makefile` (R2 C22); whether the differences are real is not settled | tool-run | `git diff --stat HEAD:documentation/PER_DEVICE_DOCUMENTATION/AMD64/SUPPORTED_EMULATORS_AND_CORES.md HEAD:documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md \| tail -n 1` prints the stat | Q5, Q6 | **inherited:coordinator**: a Backlog candidate -- generate it from the image's systems list, or drop it (ruling (j)) |
+| **L-31** | `documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md` (R2 L-17; ruling (j)) | **the fork's emulator table has drifted and has no generator**: against AMD64's `57 insertions(+), 66 deletions(-)` (R2 C18); fork-own, added by `a6b28a469f` and last changed by `a19831ebf6`, both 2026-08-21, not updated since (proof K36, X08; `v2 read`: `git log --format='%h %cs' 2174265e9c -- <the file>` prints 2 commits); only `tools/fork-worktree` names the file among `scripts/ tools/ config/ Makefile` (R2 C22); whether the differences are real is not settled | tool-run | `git diff --stat HEAD:documentation/PER_DEVICE_DOCUMENTATION/AMD64/SUPPORTED_EMULATORS_AND_CORES.md HEAD:documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md \| tail -n 1` prints the stat | Q5, Q6 | **inherited:coordinator**: a Backlog candidate -- generate it from the image's systems list, or drop it (ruling (j)) |
 | **L-32** | `docs/es-menu-map.md:134`, `:405`, `:595` (R4 item 37, § 8 item 2) | **the most-cited reference document, cited by line**: 26 open issues name the map (R4 C8); #682 `:42` (`:134`, the configure-a-controller flow), #1216 `:16` (`:405`, *"reading FINISH RESTORE PROCESS"*), #667 `:41` (`:595`, the scan page's entries); #965's 22 settings pages; a check that proves titles only (R4 items 2, 58) | record | `git show HEAD:docs/es-menu-map.md \| sed -n '134p;405p;595p'` printed beside each issue's quoted sentence; `tools/es-menu-map-check`'s line quoted | Q4 | **inherited:the interface lanes** (E700, ruling (b)): `02` records which lines still say what the issues cite |
 | **L-33** | #576 `:7`, #620 `:16` (R4 item 45) | **two open issues cite a document the tree lacks**: *"governed by `docs/graphics-memory-testing.md`"*, *"implemented and checked on October18: docs/graphics-memory-testing.md"*; `MISSING` at `e3fb3dfe00` and at `next`; added by `b5aad48cbe` 2026-10-18 on `remotes/legacy/m7-audit-integration-603` only (R4 C25 to C27) | tree, record | `git cat-file -e HEAD:docs/graphics-memory-testing.md 2>/dev/null \|\| echo MISSING` prints `MISSING` | Q6 | **inherited:coordinator** (the file is in no tree here, so in no slice) |
 | **L-34** | `docs/decision-register.md:239`, `:250`, `:368`, `:486`, `:490`, `:497`, `:502` against `:514`; `:797`; `documentation-accuracy.md:48-52` (R4 items 7, 21, 27) | **row against row**: D-WORKFLOW-011, -014 (*"The rocknix.org documentation (#42) is the last step before the upstream PR"*), -034, -064, -068, -071, -076 describe a series that **D-WORKFLOW-084** ended (*"nothing more is submitted to ROCKNIX beyond the small generic fixes"*; #333 `:1`: every PR of the series closed); D-WORKFLOW-080 open (*"How does the interface work go upstream in pieces a person can review?"*); `map.txt` still a live map; the rule's *"blocks it"* names that series | row vs doc | `git show HEAD:docs/decision-register.md \| sed -n '250p;514p;797p' \| cut -c1-160` prints the three rows | Q4 | **inherited:coordinator** (rows and a rule); `map.txt` is tabled as the record of a closed series (L-27) |
 | **L-35** | `.claude/rules/handheld-evidence.md`'s glob (R1 § 8 item 3; R4 item 50) | **a rule that loads for any record**: the `docs/**` glob loading `handheld-evidence.md` (`t4-streams.md:244-246`; T4 PL-24 withdrawn as this lead) | tree | `git show HEAD:.claude/rules/handheld-evidence.md \| sed -n '1,12p' \| $G -n 'docs/'` prints the glob line | Q5 | **inherited:coordinator** (T4's file); `02` lists which reference documents the glob reaches |
-| **L-36** | `CLAUDE.md:34`, `AGENTS.md:31`, `es-native-ui.md:37`, `instruction-files.md:122` (R4 items 51, 56) | **two documents or three**: two say *"Two more documents"* load nowhere; `instruction-files.md` says three, adding `docs/device-testing-policy.md` (T4 F-09) | row vs doc | `git show HEAD:.claude/rules/instruction-files.md \| sed -n 122p` and `git show HEAD:CLAUDE.md \| sed -n 34p` print the two | Q7 | **inherited:coordinator**; T39's half, whether the policy carries interface law, is a `02` § Coverage note |
+| **L-36** | `CLAUDE.md:34`, `AGENTS.md:31`, `es-native-ui.md:37`, `instruction-files.md:122` (R4 items 51, 56) | **two documents or three**: `CLAUDE.md:34` says *"Two more documents"* and `AGENTS.md:31` *"Two documents"* load nowhere (proof K76, X10); `instruction-files.md` says three, adding `docs/device-testing-policy.md` (T4 F-09) | row vs doc | `git show HEAD:.claude/rules/instruction-files.md \| sed -n 122p` and `git show HEAD:CLAUDE.md \| sed -n 34p` print the two | Q7 | **inherited:coordinator**; T39's half, whether the policy carries interface law, is a `02` § Coverage note |
 | **L-37** | #807's body `:15` (R5 C23; ruling (i)) | **an area sentence untrue of this slice**: *"its paths have no upstream (ROCKNIX carries none of them)"* against `upstream-carried 90` (R1 C16); #807's own T39 row `:11` carries the right tiers (R5 C23) | record | `gh --repo pixelelated/distribution issue view 807 --json body --jq .body \| $G -c 'no upstream'` read at stage A, after the coordinator's erratum | Q4 | **inherited:coordinator**: written at dispatch (ruling (i)); the lane reads it back |
-| **L-38** | the 53 reference files outside `register-check`'s `LIVE` (R3 § 2.7; R4 item 34) | **citations no tool checks**: `D-ID citations unread-by-register-check named=864 unresolved=0` in 53 files; inside `LIVE` `named=326 unresolved=0` (R3 C23); #947 `:9`: *"`LIVE` omits documents that cite IDs: `docs/conflict-wizard-ia.md`, `NAMING.md`, `docs/releases/device-facts.md` and four more"* | tool-run | § 5's `cites` step prints the unresolved IDs: none at the tip by R3 C23 (its population, not the 254's, `[unverified]`) | Q4 | **inherited:#947** (the guard); clean today, unguarded tomorrow |
-| **L-39** | `docs/releases/versioning.md` (138 lines) (R4 item 40) | **an open criterion on a reference document**: #1013 `:11`: *"`docs/releases/versioning.md` names the field (`git grep -c emulationstation next -- docs/releases/versioning.md` is 1 or more"* | -- | `git grep -c emulationstation HEAD -- docs/releases/versioning.md` printed at the lane's ref `[unverified]` | Q4 | **inherited:#1013** if it prints nothing; a § Coverage `none` otherwise |
+| **L-38** | the 53 reference files outside `register-check`'s `LIVE` (R3 § 2.7; R4 item 34) | **citations no tool checks**: `D-ID citations unread-by-register-check named=864 unresolved=0` in 53 files; inside `LIVE` `named=326 unresolved=0` (R3 C23); #947 `:9`: *"`LIVE` omits documents that cite IDs: `docs/conflict-wizard-ia.md`, `NAMING.md`, `docs/releases/device-facts.md` and four more"* | tool-run | § 5's `cites` step prints the unresolved IDs: over the 223 at P1 against the register at `a0fb117b8b` it prints `UNRESOLVED D-WORKFLOW-188` (`docs/reviews/p1-tracking.md:56`, `:500`; the row lives on P1's branch alone, proof C8, C12, X03); ruling (p)'s merge of `feature/m6-p1-survey-641` (`2174265e9c`) into the coordinator's branch before dispatch carries the row into the register -- the coordinator runs `tools/register-check` after the merge and records it -- so at the dispatch tip the step expects no line, and an `UNRESOLVED D-WORKFLOW-188` there is the coordinator's finding at dispatch, never the lane's | Q4 | **inherited:#947** (the guard); clean today, unguarded tomorrow |
+| **L-39** | `docs/releases/versioning.md` (138 lines) (R4 item 40) | **an open criterion on a reference document**: #1013 `:11`: *"`docs/releases/versioning.md` names the field (`git grep -c emulationstation next -- docs/releases/versioning.md` is 1 or more"* | tool-run | `git grep -c emulationstation HEAD -- docs/releases/versioning.md` prints nothing at `a0fb117b8b` (proof K80; open item 16 settled), re-run at the lane's ref | Q4 | **inherited:#1013** (the check printed nothing, K80) |
 | **L-40** | `worktrees.md`, `CLAUDE.md` against the machine (R3 § 7 item 8) | **a path word the machine retired**: the rules prescribe `../rocknix.worktrees/` and `/workspace/repos/rocknix`; the primary checkout is `/workspace/repos/pixelelated/distribution` and the worktrees sit under `distribution.worktrees/` (R3 C16); `rocknix.worktrees` in the reference class is `docs/rules-sweep-2026-09-12.md` alone, a dated record (R3 C18) | tool-run | `git worktree list \| $G -c 'distribution.worktrees'` beside `git show HEAD:.claude/rules/worktrees.md \| $G -c 'rocknix.worktrees'` | Q2 | **inherited:coordinator** (T4's rules); the identity step does not retire `rocknix.worktrees` until the coordinator rules (R3 § 2.2) |
 | **L-41** | `documentation/PER_DEVICE_DOCUMENTATION/*/SUPPORTED_EMULATORS_AND_CORES.md`, 13 of the 15 upstream-carried (R1 § 8 item 6; R3 § 2.5, § 7 item 6; R4 item 17) | **upstream's generated tables, behind upstream**: three regenerations since the merge base (R1 C11); 13 differ from `upstream/next` (R1 C12); the H700 Saturn row lacks upstream's `**retroarch:** yabadabadoo` (R3 C19); D-WORKFLOW-185 (`:720`): an unshipped device is a row in the unshipped tables | tool-run | `git diff --stat 651150fc88 HEAD -- documentation/ \| tail -n 1` prints the stat (R2 C16 printed ` 14 files changed, 152 insertions(+), 24 deletions(-)` from `651150fc88` to `2174265e9c`, the fourteenth the fork's GENERIC_X64 file; the same at the dispatch tip unless the dispatch moved `documentation/`) | Q1, Q4 | **inherited:the next upstream base merge** (`release-candidates.md` step 0, read-only by ruling (a)); not a #585 line, since upstream carries the regeneration already (R1 C11) |
 | **L-42** | #335 `:19` (R4 item 33) | **an open checkbox against the licence file and its row**: *"the CC BY-NC-SA attribution of the branding, per `LICENSE.md`"*, while `LICENSE.md` carries `BY-NC: 0` (R4 C24) and D-WORKFLOW-131 (`:572`) removed ROCKNIX's CC BY-NC-SA branding from this project | row vs doc | `git show HEAD:LICENSE.md \| $G -c 'BY-NC'` prints `0`; #335's body read through the mask | Q4 | **inherited:coordinator** (a stale checkbox: a tracker edit) |
 | **L-43** | `TRADEMARK.md:5-6`; `LICENSE.md:3`, `:13`, `:18` (R2 L-15) | **the licence statements disagree**: *"The code is free software under the GNU GPL version 2 (`LICENSE.md`)"* against *"This distribution includes components licensed for non-commercial use only"*; *"Copyright 2024 ROCKNIX"*; *"Modifications ... by the ROCKNIX team"*; nothing states the terms of the fork's own changes and tools; the wordmark's font licence sits in `docs/pixelelated/art/Tiny5-OFL.txt`, not `licenses/` (R2 C5, C18) | tree | `git show HEAD:TRADEMARK.md \| sed -n '5,6p'` and `git show HEAD:LICENSE.md \| sed -n '3p;13p;18p'` print the lines | Q2 | **#528** (a legal reading; never a fix here) |
 | **L-44** | `licenses/AETHERSX2.pdf` (R2 L-02; R1 § 8 item 7) | **a licence upstream dropped for a licensing concern**: `c4d353449e 2026-10-18 aethersx2: drop package due to licensing concern`; the fork carries the PDF and `21` paths matching `aethersx2` at `2174265e9c` and `e3fb3dfe00`, `0` at `upstream/next` (R1 C18; R2 C17, C18) | tree | `git log -1 --diff-filter=D --format='%h %cs %s' 651150fc88 -- licenses/AETHERSX2.pdf` prints the deletion; `git ls-tree -r --name-only HEAD \| $G -c -i aethersx2` prints `21` | Q1 | **#528** (the PDF row); the package is another slice's question |
-| **L-45** | #359 `:9`, `:13`, `:14` (R4 item 31) | **a qualified candidate's recorded licence bytes**: `LICENSE.md` `1a277de267611abc4242e6a1e08ac2abac54316e7abcbf8ae7afd0a1dc98ec6c` and `TRADEMARK.md` `d46db25cb845b021cd7f1c13dabcd98d04e77d89a45968527e58abc9e3788761` in candidate16's `/usr/share/licenses/pixelelated/`; the tree's hashes not computed (R4 § 8) | -- | `for f in LICENSE.md TRADEMARK.md; do git show "HEAD:$f" \| sha256sum; done` printed beside #359's two `[unverified]` | Q4 | **#528**; an edit to `TRADEMARK.md` under ruling (a) is preceded by this line and names it |
-| **L-46** | `docs/upstream/**` (28 paths) (ruling (n); R4 items 15, 29, 42) | **the contribution queue's drafts, read-only**: `docs/upstream/README.md` names #585 and D-WORKFLOW-165 (`:8`, `:45`, R2 § 1) and carries 8 run-together hits (R2 C22); `raofflineproxy/pixelelated-identity/README.md:15,23` describe the rejected identity; `image-completeness/fix.patch:64` carries `maxengel` (keep) (R2 § Identity); #585 `:60`, `:73`, `:79`; #645 `:22` (*"... `docs/upstream` on `next` matches nothing"*, R4 item 42) | tree, record | `git show HEAD:docs/upstream/README.md \| $G -n -E '#585\|D-WORKFLOW-165'` prints lines among them `8:` and `45:` (`#585` 4 times, R4 C21) | Q4 | **#585** |
+| **L-45** | #359 `:9`, `:13`, `:14` (R4 item 31) | **a qualified candidate's recorded licence bytes**: `LICENSE.md` `1a277de267611abc4242e6a1e08ac2abac54316e7abcbf8ae7afd0a1dc98ec6c` and `TRADEMARK.md` `d46db25cb845b021cd7f1c13dabcd98d04e77d89a45968527e58abc9e3788761` in candidate16's `/usr/share/licenses/pixelelated/`; the tree's hashes equal them at `a0fb117b8b` (proof K85) | tool-run | `for f in LICENSE.md TRADEMARK.md; do git show "HEAD:$f" \| sha256sum; done` printed beside #359's two: equal (K85; open item 17 settled), re-run at the lane's ref | Q4 | **#528**; an edit to `TRADEMARK.md` under ruling (a) is preceded by this line and names it |
+| **L-46** | `docs/upstream/**` (28 paths) (ruling (n); R4 items 15, 29, 42) | **the contribution queue's drafts, read-only**: `docs/upstream/README.md` names #585 and D-WORKFLOW-165 (`:8`, `:45`, R2 § 1) and carries 8 run-together hits (R2 C22); `raofflineproxy/pixelelated-identity/README.md:15,23` describe the rejected identity; `docs/upstream/raofflineproxy/image-completeness/fix.patch:64` carries `maxengel` (keep; the full path, X12) (R2 § Identity); #585 `:60`, `:73`, `:79`; #645 `:22` (*"... `docs/upstream` on `next` matches nothing"*, R4 item 42) | tree, record | `git show HEAD:docs/upstream/README.md \| $G -n -E '#585\|D-WORKFLOW-165'` prints lines among them `8:` and `45:` (`#585` 4 times, R4 C21) | Q4 | **#585** |
 
 **Not leads (checked, pass).** No reference document describes the retired
 `git rebase --onto` recipe as current, `rclonectl`, `.github/instructions/`,
@@ -1040,7 +1097,7 @@ C20). **Not a contradiction** on R4's read (R4 § 8): D-WORKFLOW-131's
 *"Rasterabot"* against `TRADEMARK.md:3` (the later rows -136 and -144 rule
 it); D-CLOUD-174's *"migration destination"* against `rename-plan.md:32-33`
 (D-CLOUD-175 rules it); D-WORKFLOW-073 and the three-line appendix pointer;
-D-WORKFLOW-145 and `README.md:20`.
+D-WORKFLOW-145 and `README.md:21` (`:20` is blank; proof K33, X06).
 
 ## 4. The questions
 
@@ -1064,7 +1121,7 @@ it, for what, and what a wrong sentence in it costs that reader.
 | Q3 Bugs | **A statement a reader acts on wrongly**: runs a retired tool or flag; follows a retired procedure (a cloud-folder migration, D-CLOUD-175); flashes or stages by a wrong instruction (L-05); trusts a licence or trademark statement the tree contradicts (L-43, L-44, L-42); copies a mask that prints a credential (L-16); follows a release instruction to a release that does not exist (L-02); trusts a policy that calls a decided row open (L-03) (R5 § C stage D). Each is a `bug` with its trace and its `Already written:` line -- what the statement has already caused: a brief, a release note, a rocknix.org draft or an issue that copied it. Everything else is a punch item resolved by an edit, an inherited item, or a ledger row | the statement quoted at its `path:line`; the artifact it misdescribes; the artifact the corrected statement must match |
 | Q4 Currency | Against the fork's own record and code: **(a) every decision ID a document cites** with its row's state (`named=864 unresolved=0` outside `LIVE`, `named=326 unresolved=0` inside, R3 C23; L-38); **(b) every tool named**, its existence (L-14, L-19, L-27); **(c) every issue cited as open, pending or ordered**, against its state (L-03, L-06, L-08, L-33, L-37, L-42); **(d) every path named**, resolved, in the classes of § 5's `paths` step (L-13, L-20, L-28, L-33); **(e) every baseline, catalog row or count** a document states, against the artifact (L-09, L-15, L-26, L-41); **(f) every line number an issue cites** in a reference document, against the line (L-15, L-32) | tables written by `tools/t39-tables.py` committed beside them (§ 6), each with its command and count |
 | Q5 Efficiency -- **the lens** | **What each reference document costs a reader and what it earns.** The cost: its lines, its last commit, whether a session must open it (`CLAUDE.md`, `AGENTS.md` or a rule names it) and whether a wrong sentence in it sends a reader somewhere wrong. The value: its inbound names from `.claude/`, the root documents, `docs/` outside the ledgers and the October work logs (R2 C21's `R/O/D/W` columns), its role (the procedure an agent runs, a player's guide, a redistributor's notice, a dated record). The sharpest rows: the 17 documents with no inbound name and at most one `docs/` reference (`LOW-INBOUND-SUM files=17 lines=2135`, R2 C26; L-18), the council notes (L-12), and at the heavy end the four that carry most of the reference lines -- the changelog (3,581, a ledger row), the map (989, a fifth of it the journal of L-08), `release-readiness.md` (990, L-11's 122 hits, L-30) and `next-candidate-work.md` (963, L-09) (R2 § 3). `licenses/` (7,817) and `documentation/` (2,160) are upstream's and cost nothing to read wrongly except through L-41, L-43 and L-44 (R2 § 3) | the Q5 table: one row per reference document proper (§ 6) |
-| Q6 Dead ends | Everything the documents point at that the tree lacks: the four dead backticked paths (`tools/pixelelated-wordmark`, `tools/rasteratops-wordmark`, `docs/cloud-saves-native-wizard`, `packages/rocknix`; R3 § 2.1; L-13, L-14, L-19, L-20), the two deleted map paths (L-27), the document two open issues cite (L-33), the GENERIC_X64 table with no generator (L-31), the 17 documents nobody names (L-18) | § 5's `paths` and `tools` steps; the inbound columns |
+| Q6 Dead ends | Everything the documents point at that the tree lacks: R3's four dead-path candidates -- one real absent in-tree path, `packages/rocknix` (L-20), and three names ruled external: the splash repositories' `tools/pixelelated-wordmark` and `tools/rasteratops-wordmark` (L-14, L-19) and the site checkout's branch `docs/cloud-saves-native-wizard` (L-13) (R3 § 2.1; X02), the two deleted map paths (L-27), the document two open issues cite (L-33), the GENERIC_X64 table with no generator (L-31), the 17 documents nobody names (L-18) | § 5's `paths` and `tools` steps; the inbound columns |
 | Q7 Clarity | Can a reader new to it tell what each document is for, and whether it is current, in one pass: a dated journal inside a reference (L-08); a player's guide ending in internal status (L-10); words and numbers run together (L-11); a record with no date in its first line (L-18); two counts of the documents that load nowhere (L-36); a preliminary slice number in the order (L-29) | the reader's pass (§ 5 rule 5) |
 
 **The ladder, applied to every finding** (`working-principles.md` §
@@ -1180,13 +1237,13 @@ git rev-parse --verify origin/feature/m6-doctrine-rules-651 2>&1             # r
 F=$(git ls-tree -d --name-only 6ec78bbf8c docs/audits/ | $G -E -e '-epic-m6-doctrine-rules$'); echo "T4 folder: $F"
 L=$T/lint-proof; mkdir -p "$L/pass" "$L/fail"
 git archive 6ec78bbf8c "$F" | tar -x -C "$L/pass"; git archive 6ec78bbf8c "$F" | tar -x -C "$L/fail"
-python3 -I -c 'import json,sys; d=json.load(open(sys.argv[1])); print("t4 plan:", d.get("depth"), d.get("tier_exception"), len(d.get("reviewers") or []))' "$L/pass/$F/second-opinions/review-plan.json"   # `t4 plan: local D-WORKFLOW-184 0` [unverified]: no research file for this brief read T4's plan; R3 § 3 says T38's ruling (m) re-ran the lint on it for the PASS shape
+python3 -I -c 'import json,sys; d=json.load(open(sys.argv[1])); print("t4 plan:", d.get("depth"), d.get("tier_exception"), len(d.get("reviewers") or []))' "$L/pass/$F/second-opinions/review-plan.json"   # `t4 plan: local D-WORKFLOW-184 0` (proof K111, on T4's folder exported from 6ec78bbf8c; open item 6 settled)
 python3 -I -c 'import json,sys; p=sys.argv[1]; d=json.load(open(p)); d.pop("tier_exception",None); json.dump(d,open(p,"w"),indent=2)' "$L/fail/$F/second-opinions/review-plan.json"
 tools/lint-audit-artifacts "$L/pass/$F" > "$T/tmp/lint-local-pass.out" 2>&1; rc=$?
-echo "lint, a Local plan, rc=$rc"; tail -n 3 "$T/tmp/lint-local-pass.out"   # rc=0 and a PASS line [unverified]: this line is the proof ruling (q) asks for
+echo "lint, a Local plan, rc=$rc"; tail -n 3 "$T/tmp/lint-local-pass.out"   # rc=0 and a line ending `PASS` (proof K111: `lint, a Local plan, rc=0`): this line is the proof ruling (q) asks for
 tools/lint-audit-artifacts "$L/fail/$F" > "$T/tmp/lint-local-fail.out" 2>&1; rc=$?
-echo "lint, tier_exception removed, rc=$rc"; $G -n 'FAIL' "$T/tmp/lint-local-fail.out"   # rc=1 and the plan's FAIL line [unverified] -- the PASS's FAIL-first
-# L-01, ruling (p): every file the renovation's README and plan name resolves in this worktree (R2's seven-name form printed seven MISSING at e3fb3dfe00, R2 C6, C10, C12; expect no line here)
+echo "lint, tier_exception removed, rc=$rc"; $G -n 'FAIL' "$T/tmp/lint-local-fail.out"   # rc=1 with `FAIL  second-opinions/review-plan.json or its call evidence is invalid: local-only cannot satisfy Epic/Milestone` and `1 CONTRACT FAILURE(S)` (proof K111) -- the PASS's FAIL-first
+# L-01, ruling (p): every file the renovation's README and plan name resolves in this worktree (R2's seven-name form printed seven MISSING at e3fb3dfe00, R2 C6, C10, C12; expect no line here: this fifteen-name loop printed `MISSING=0` at 2174265e9c, 11 at a0fb117b8b and e3fb3dfe00, 15 at 8ebaf8daad, proof K39)
 for p in docs/reviews/{README.md,areas.json,assessment.md,briefs/p1-survey.md,build-path-read.md,cross-reference.md,inventory.md,order.md,p1-tracking.md,plan-for-the-plan.md,slices.json,status.md} tools/renovation-{inventory,status,drift}; do git cat-file -e "HEAD:$p" 2>/dev/null || echo "MISSING $p"; done
 # the brief's own two blocks, extracted by their markers at V2HASH and checked, never retyped (§ 2)
 BR=V2HASH   # the pointer's value, never the literal word (§ 1's placeholders): unfilled, the show fails and nothing below runs
@@ -1203,15 +1260,15 @@ sha256sum .qa-scratch/t39/block.sh .qa-scratch/t39/split.sh | cut -c1-16; $G -c 
 # the membership (§ 2): expect § 2's lines byte for byte
 bash .qa-scratch/t39/block.sh > "$T/tmp/block.out" 2>&1; rc=$?
 echo "block rc=$rc"; cat "$T/tmp/block.out"
-bash .qa-scratch/t39/split.sh > "$T/tmp/split-p1.out" 2>&1; rc=$?
+LC_ALL=en_US.UTF-8 bash .qa-scratch/t39/split.sh > "$T/tmp/split-p1.out" 2>&1; rc=$?   # under en_US.UTF-8: § 2's expected lines are that locale's (X01); the C locale exported above stays for every other count
 echo "split (defaults) rc=$rc"; cat "$T/tmp/split-p1.out"
 TIP=MERGE_HASH   # the pointer's value, never the literal word: unfilled, every row prints `absent`
-G="$PWD" TIP="$TIP" bash .qa-scratch/t39/split.sh > "$T/tmp/split-tip.out" 2>&1; rc=$?
-echo "split (dispatch tip) rc=$rc"; sed -n '/^tip:/,$p' "$T/tmp/split-tip.out"   # no `absent` line (ruling (p)); the rest as it prints [unverified] (§ 2)
+LC_ALL=en_US.UTF-8 G="$PWD" TIP="$TIP" bash .qa-scratch/t39/split.sh > "$T/tmp/split-tip.out" 2>&1; rc=$?   # the same locale, so the diff below compares like with like (X01)
+echo "split (dispatch tip) rc=$rc"; sed -n '/^tip:/,$p' "$T/tmp/split-tip.out"   # no `absent` line (ruling (p)); the rest as it prints [unverified] (§ 2; at a0fb117b8b: 8 absent, 3 changed, 1 same, 329 reached, 83 added, proof K11, K19)
 diff <(sed -n '1,/^P1 grep -c total/p' "$T/tmp/split-p1.out") <(sed -n '1,/^P1 grep -c total/p' "$T/tmp/split-tip.out") && echo "the lines before tip: agree"
 ./tools/renovation-inventory --order --no-write --distribution "$W" > "$T/tmp/order.out" 2>&1; rc=$?
 echo "renovation-inventory --order rc=$rc lines=$($G -c '' "$T/tmp/order.out")"; $G -E '^(slices|rows|unassigned|ambiguous):|^ *39 doctrine-reference ' "$T/tmp/order.out"   # rc=0 lines=50; slices: 46; rows: 134634 (inventory: 134634); unassigned: 0; ambiguous: 0; the T39 row (R1 C02)
-# ruling (a)'s carve-out, from block-2.txt's TSV: the classes and their counts, printed by this command and quoted, never typed [unverified]: no research file printed ruling (a)'s classes
+# ruling (a)'s carve-out, from block-2.txt's TSV: the classes and their counts, printed by this command and quoted, never typed (proof K26 printed version 1's; open item 1 settled; the expected lines follow the command)
 python3 -I -c 'import collections
 rows=[]; ix=None; p=False
 for l in open(".qa-scratch/t39/block-2.txt"):
@@ -1220,7 +1277,7 @@ for l in open(".qa-scratch/t39/block-2.txt"):
     if l.startswith("TREE-SIDE"): break
     if p and ix is None: ix={k:i for i,k in enumerate(l.split("\t"))}; continue
     if p: f=l.split("\t"); rows.append({k:f[i] for k,i in ix.items()})
-NAMED={"docs/releases/catalog.md","docs/pr-series/map.txt","docs/releases/rc-accept.txt","docs/vm-qa-log.md","docs/cloud-sync-changelog.md"}
+NAMED={"docs/releases/catalog.md","docs/pr-series/map.txt","docs/releases/rc-accept.txt","docs/vm-qa-log.md","docs/cloud-sync-changelog.md","docs/rasteratops/p0-sweep-hits.txt"}
 def carve(r):
     p=r["path"]
     if r["lines"]=="None": return "ledger-binary"
@@ -1237,11 +1294,12 @@ def carve(r):
 c=collections.Counter(carve(r) for r in rows)
 for k in sorted(c): print("CARVE", k, c[k])
 print("CARVE total", sum(c.values()))'
+# expect (v2 read at 2174265e9c, with p0-sweep-hits.txt in NAMED; the proof's K26 lines at a0fb117b8b read edit-scope 69 and ledger-named 5): CARVE art-bytes 18; edit-scope 68; edit-under-naming 1; ledger-binary 31; ledger-named 6; ledger-plan 1; ledger-reviews 12; read-only-528 1; read-only-585 27; read-only-upstream 88; tabled-generic-x64 1; CARVE total 254
 # the checkers' baseline at the dispatch tip (R3 C13; their lines may move with the dispatch's own commits, so each line that prints is recorded beside the research's)
 tools/rules-check > "$T/tmp/rules-check.out" 2>&1; rc=$?
 echo "rules-check rc=$rc"; tail -n 1 "$T/tmp/rules-check.out"               # rc=0, `rules-check: 30 rule files, every one front-mattered and indexed` (R3 C13) -- no evidence for the 254 (§ 3 item 5)
 tools/register-check > "$T/tmp/register-check.out" 2>&1; rc=$?
-echo "register-check rc=$rc"; tail -n 1 "$T/tmp/register-check.out"         # rc=0, `register-check: 713 IDs, each once; ...` at e3fb3dfe00 (R3 C13); the dispatch's own row moves the count, so the line that prints is recorded
+echo "register-check rc=$rc"; tail -n 1 "$T/tmp/register-check.out"         # rc=0, `register-check: 713 IDs, each once; ...` at e3fb3dfe00 (R3 C13); the dispatch's own row D-WORKFLOW-220, T38's dispositions row D-WORKFLOW-219 and P1's D-WORKFLOW-188 (carried in by ruling (p)'s merge, X03) move the count, so the line that prints is recorded
 tools/es-menu-map-check > "$T/tmp/menumap.out" 2>&1; rc=$?
 echo "es-menu-map-check rc=$rc"; tail -n 1 "$T/tmp/menumap.out"             # rc=0, `55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing` (R3 C13); exit 2 is CANNOT, never a pass
 tools/release-catalog --check > "$T/tmp/catalog.out" 2>&1; rc=$?
@@ -1253,8 +1311,8 @@ echo "prose-check rc=$rc"; tail -n 1 "$T/tmp/prose.out"                     # `s
 tools/ceremony-check > "$T/tmp/ceremony-check.out" 2>&1; rc=$?
 echo "ceremony-check rc=$rc"; tail -n 1 "$T/tmp/ceremony-check.out"         # [unverified]: no research file for this brief ran it; what another lane owes is noted on #686, never paid here
 gh --repo pixelelated/distribution issue view 686 --json title,state,body --jq '.title, .state, (.body | split("\n") | length)'   # the title, OPEN, and the body's line count after the coordinator's fill (27 before it, R5 C16)
-gh --repo pixelelated/distribution issue view 807 --json body --jq .body | $G -n -i -E 'no upstream|errat' | cut -c1-160   # L-37: the sentence and the coordinator's erratum beside it (ruling (i)); the lines that print are recorded [unverified]
-H='<the host file the dispatch comment names>'   # filled from the dispatch comment; unfilled, the next line fails visibly
+gh --repo pixelelated/distribution issue view 807 --json body --jq .body | $G -n -i -E 'no upstream|errat' | cut -c1-160   # L-37: the sentence and the coordinator's erratum beside it (ruling (i)); the sentence prints and `errat` 0 before the dispatch (proof K78: `#807 errat lines: 0`); the erratum is written at dispatch, and the lines that print are recorded
+H=/workspace/tmp/m7-m6-host-coordination.txt   # named by T38's brief (:1106, :1674); 710 lines at the proof's read (C10); the dispatch comment confirms the path and records its line count (open item 23)
 date -u +%H:%M:%S; wc -l < "$H"; tail -n 6 "$H" | cut -c1-200   # read for the protocol only, with the time of the read and its line count beside the dispatch comment's; this slice writes no line there (§ 10)
 ```
 
@@ -1277,23 +1335,26 @@ read from an issue body goes through the mask `M`**:
 ```bash
 export LC_ALL=C; G=/usr/bin/grep; T=/workspace/tmp/m6-t39
 M='s/((token|key|pass(w[a-z]*)?|psk|user|login|apikey) *[=:] *)[^ "]*/\1***/Ig; s/(--(token|key|pass(w[a-z]*)?|psk|user)[= ]+)[^ ]+/\1***/Ig'   # the read mask, engineering-practices.md's two substitutions, widened as T38's was
-# the read tree, once: the 254 at the dispatch tip (246 present at e3fb3dfe00, R2 C6, R3 C20; 254 here by ruling (p) [unverified])
+# the read tree, once: the 254 at the dispatch tip (246 present at e3fb3dfe00, R2 C6, R3 C20; at P1 every one of the 254 is present, `of the 254 absent: 0`, proof C11; 254 here by ruling (p) [unverified])
 mkdir -p "$T/export" && xargs -d '\n' -a .qa-scratch/t39/paths.txt git archive HEAD -- | tar -x -C "$T/export"; find "$T/export" -type f | $G -c ''
 # the binaries, by name, size and sha256 (ruling (o)): expect 31 (R1 C19: gz 1, pdf 2, png 28)
 awk -F'\t' '/^TSV$/{p=1;getline;for(i=1;i<=NF;i++)ix[$i]=i;next} /^TREE-SIDE/{p=0} p && $1=="distribution" && $ix["lines"]=="None" {print $ix["path"]}' .qa-scratch/t39/block-2.txt > .qa-scratch/t39/binary.txt; $G -c '' .qa-scratch/t39/binary.txt
 while IFS= read -r p; do printf '%s\t%s\t%s\n' "$p" "$(git cat-file -s "HEAD:$p")" "$(git show "HEAD:$p" | sha256sum | cut -c1-64)"; done < .qa-scratch/t39/binary.txt > "$T/binaries-dispatch.tsv"; $G -c '' "$T/binaries-dispatch.tsv"
+# the 18 art text files, the same way (ruling (o), widened at version 2; the CARVE art-bytes class, 18 by proof K26 and v2 read)
+awk -F'\t' '/^TSV$/{p=1;getline;for(i=1;i<=NF;i++)ix[$i]=i;next} /^TREE-SIDE/{p=0} p && $1=="distribution" && $ix["lines"]!="None" && $ix["path"] ~ /\/art\// && $ix["path"] !~ /\.md$/ {print $ix["path"]}' .qa-scratch/t39/block-2.txt > .qa-scratch/t39/art-text.txt; $G -c '' .qa-scratch/t39/art-text.txt
+while IFS= read -r p; do printf '%s\t%s\t%s\n' "$p" "$(git cat-file -s "HEAD:$p")" "$(git show "HEAD:$p" | sha256sum | cut -c1-64)"; done < .qa-scratch/t39/art-text.txt > "$T/art-text-dispatch.tsv"; $G -c '' "$T/art-text-dispatch.tsv"
 # byte identity against the merge base and upstream (expect R1 C12: vs MB absent 162, differs 2, identical 90; vs UP absent 163, differs 15, identical 76 -- the docs/reviews rows are absent from both, so the dispatch moves nothing here unless it moved one of the 242)
 for B in c445081a59 651150fc88; do while IFS= read -r p; do if git cat-file -e "$B:$p" 2>/dev/null; then [ "$(git rev-parse "$B:$p")" = "$(git rev-parse "HEAD:$p")" ] && echo "vs $B identical" || echo "vs $B differs"; else echo "vs $B absent"; fi; done < .qa-scratch/t39/paths.txt | sort | uniq -c; done
-# the identity words over the text rows, case-sensitive, lines and files (R2 C8 over the 215 text files at e3fb3dfe00: Rasteratops 27, rasteratops 27, RASTERATOPS 4, ROCKNIX 5238, rocknix 1250, maxengel 28, JELOS 7, pixelelated 247, Pixelelated/PIXELELATED 0 -- whether R2's are lines or occurrences is unread [unverified]; the dispatch tip's 223 text rows add the eight docs/reviews files)
+# the identity words over the text rows, case-sensitive, lines and files (R2 C8 over the 215 text files at e3fb3dfe00: Rasteratops 27, rasteratops 27, RASTERATOPS 4, ROCKNIX 5238, rocknix 1250, maxengel 28, JELOS 7, pixelelated 247, Pixelelated/PIXELELATED 0 -- R2's are occurrences, proof K104: all nine equal the occurrence column over the 215 at e3fb3dfe00, open item 20 settled; this loop prints lines and files, over the 223 at P1: Rasteratops 27 / 11, rasteratops 31 / 20, ROCKNIX 3297 / 57, maxengel 28 / 6, pixelelated 243 / 51, rocknix.worktrees 4 / 3 (K103), so its ROCKNIX line is not R2's 5238; the dispatch tip's 223 text rows add the eight docs/reviews files)
 for w in Rasteratops rasteratops RASTERATOPS ROCKNIX rocknix maxengel JELOS pixelelated Pixelelated PIXELELATED; do printf '%s lines %s files %s\n' "$w" "$(cd "$T/export" && xargs -d '\n' -a "$OLDPWD/.qa-scratch/t39/text.txt" $G -h -c -e "$w" | awk '{s+=$1} END {print s+0}')" "$(cd "$T/export" && xargs -d '\n' -a "$OLDPWD/.qa-scratch/t39/text.txt" $G -l -e "$w" | $G -c '')"; done
 # the flashing runbook (L-05; R2 C20: ROCKNIX=21 pixelelated=0)
 git show HEAD:docs/device-flashing-runbook.md | $G -c ROCKNIX; git show HEAD:docs/device-flashing-runbook.md | $G -c pixelelated
 # the retired names over the text rows, case-insensitive (R3 C18 by class; R5 C22 at P1: cloud_migrate_layout 21 in 7, maxengel 28 in 6, rocknix.worktrees 4 in 3, rubber-duck 1 in 1, rclonectl 0, .github/instructions 0)
 for w in 'cloud_migrate_layout' 'migrate.?layout' 'rebase --onto' 'rclonectl' '\.github/instructions' 'copilot' 'rubber[- ]duck' '\brclone config\b' 'rocknix\.worktrees'; do printf '%s lines %s\n' "$w" "$(cd "$T/export" && xargs -d '\n' -a "$OLDPWD/.qa-scratch/t39/text.txt" $G -h -c -i -E -e "$w" | awk '{s+=$1} END {print s+0}')"; done
-# the decision IDs the text rows cite, against the register's rows (R3 C23: register IDs 713; named=864 unresolved=0 outside LIVE, named=326 unresolved=0 inside; a -0+ placeholder skipped): expect no unresolved line
+# the decision IDs the text rows cite, against the register's rows (R3 C23: register IDs 713; named=864 unresolved=0 outside LIVE, named=326 unresolved=0 inside; a -0+ placeholder skipped): expect no unresolved line at the dispatch tip -- over the 223 at P1 against the register at a0fb117b8b the line is `UNRESOLVED D-WORKFLOW-188` (p1-tracking.md:56, :500; a row on P1's branch alone, proof C8, C12), which ruling (p)'s merge of 2174265e9c carries into the register before dispatch, the coordinator running tools/register-check after the merge and recording it; a line here at dispatch is the coordinator's finding, never the lane's (X03)
 git show HEAD:docs/decision-register.md | $G -o -E '^[|] D-[A-Z]+-[0-9]+' | sed 's/^[|] //' | sort -u > "$T/tmp/ids.txt"; $G -c '' "$T/tmp/ids.txt"
 (cd "$T/export" && xargs -d '\n' -a "$OLDPWD/.qa-scratch/t39/text.txt" $G -h -o -E 'D-[A-Z]+-[0-9]+') | $G -v -E -e '-0+$' | sort -u | comm -23 - "$T/tmp/ids.txt" | sed 's/^/UNRESOLVED /'
-# the text checks over the 223, in the hooks' own form (R3 C20: `secret regex loaded (338 chars)`, `SECRET-PATTERN FILES: 0 LINES: 0`, the runtime-built positive matching 1; `NON-ASCII FILES: 78 LINES: 1359` over the 215; forbidden-terms rc 0, empty input rc 0, the planted positive rc 1)
+# the text checks over the 223, in the hooks' own form (R3 C20: `secret regex loaded (338 chars)`, `SECRET-PATTERN FILES: 0 LINES: 0`, the runtime-built positive matching 1; `NON-ASCII FILES: 78 LINES: 1359` over the 215, and `86` files over the 223 at P1, proof K113; forbidden-terms rc 0, empty input rc 0, the planted positive rc 1)
 ( P=$(mktemp "$T/tmp/sp.XXXXXX"); git show HEAD:.githooks/secret-patterns > "$P"; SECRET_PATTERNS=''; . "$P"; rm -f "${P:?}"
   printf '' | $G -E -e "$SECRET_PATTERNS" >/dev/null 2>&1; rc=$?
   echo "secret regex compile rc=$rc"
@@ -1308,7 +1369,7 @@ echo "forbidden-terms over empty input rc=$rc"   # rc=0 too (R3 C20): not eviden
 printf 'a zzqplantedzz line\n' > "$T/tmp/planted.txt"
 FORBIDDEN_PATTERNS='zzqplantedzz' tools/forbidden-terms-check --stdin < "$T/tmp/planted.txt"; rc=$?
 echo "forbidden-terms, a planted positive, rc=$rc"   # rc=1 and `forbidden-terms-check: 1 line(s) on stdin carry a listed word` (R3 C20's form): with FORBIDDEN_PATTERNS set the tool never reads the list
-# the licence files against #359's recorded bytes (L-45; R4 item 31) [unverified]
+# the licence files against #359's recorded bytes (L-45; R4 item 31): equal at a0fb117b8b (proof K85)
 for f in LICENSE.md TRADEMARK.md; do printf '%s %s\n' "$f" "$(git show "HEAD:$f" | sha256sum | cut -c1-64)"; done
 # the releases a reader of README.md:7-10 finds (L-02; R2 C25: rc1-20260929, dev-20260827, dev-rk3326-20260819)
 gh release list --repo pixelelated/distribution --limit 3
@@ -1321,7 +1382,7 @@ echo "box-check rc=$rc"; tail -n 1 "$T/tmp/box-check.out"     # once here, once 
 # STAGE C -- the lane's checker, which does not exist at stage A (expect its FAIL-first runs' exits, then at the tip exit 1 naming each stage-B finding, with its own `TOTAL:` line)
 A=$(ls -d docs/audits/*-epic-m6-doctrine-reference); bash "$A/tools/t39-checks.sh" --tree "$T/export" --repo "$PWD" --commit HEAD --since MERGE_HASH --paths .qa-scratch/t39/paths.txt --allow "$A/tools" --out "$T/checks" 2>&1 | tail -n 30
 # STAGE A and at every stage -- the removal check: nothing outside the edit scope moves (rulings (a), (k), (n), (o)); TIPHASH is the lane's own tip the pointer names (MERGE_HASH at stage A); the literal word fails with `fatal: bad revision`; expect no line at any stage
-git diff --stat MERGE_HASH TIPHASH -- docs/reviews docs/releases/catalog.md docs/pr-series/map.txt docs/releases/rc-accept.txt docs/vm-qa-log.md docs/cloud-sync-changelog.md plans licenses documentation LICENSE.md docs/upstream .claude CLAUDE.md AGENTS.md NAMING.md tools scripts packages projects | tail -n 1
+git diff --stat MERGE_HASH TIPHASH -- docs/reviews docs/releases/catalog.md docs/pr-series/map.txt docs/releases/rc-accept.txt docs/vm-qa-log.md docs/cloud-sync-changelog.md docs/rasteratops/p0-sweep-hits.txt plans licenses documentation LICENSE.md docs/upstream .claude CLAUDE.md AGENTS.md NAMING.md tools scripts packages projects | tail -n 1
 # the registers and the friction log take the procedure's appends only: expect 0 removed lines
 git diff MERGE_HASH TIPHASH -- docs/decision-register.md docs/blindspot-register.md docs/friction-log.md | $G -c -E '^-([^-]|$)'
 ```
@@ -1364,10 +1425,16 @@ steps, one `ok` / `FAIL` line each:
    `:N-M` suffix is stripped (R5 § B item 21) and placeholders (`<`, `>`, `{`,
    `}`, `*`, `$`, `[`, `]`, ASCII `...` and U+2026) are skipped (R3 § 2.1), or
    sits on `allow-legit.txt` in a class -- `external` (the seven rocknix.org
-   pages and the fifteen presumed RAOfflineProxy paths), `pattern`,
-   `historical` -- with its reason; R3 C17's baseline is `path-dead=40` (30
-   distinct) in its reference class, and the four candidates of L-13, L-14,
-   L-19 and L-20 FAIL until fixed or ruled.
+   pages, the fifteen presumed RAOfflineProxy paths, the two splash
+   repositories' wordmark tools of L-14 and L-19 and the site checkout's
+   branch of L-13, X02), `pattern`, `historical` -- with its reason; R3 C17's
+   baseline is `path-dead=40` (30 distinct) in its reference class; of its
+   four candidates three are ruled `external` and one is a real absent
+   in-tree path, `packages/rocknix` (L-20), which FAILs until ruled or
+   allowlisted `historical` with its reason, so the step's baseline is the
+   external classes plus that one candidate (the proof's own probe over the
+   edit scope: `backticked repo paths 363 dead 39 distinct 29`, over the 223
+   `2432 dead 41 distinct 31`, K102 -- its population, not R3's).
 5. **`tools`** -- every `tools/<name>` a text row names exists at `--commit`
    (L-14, L-19).
 6. **`identity`** -- no `Pixelelated` or `PIXELELATED` anywhere; no
@@ -1391,8 +1458,8 @@ steps, one `ok` / `FAIL` line each:
 10. **`generated`** -- `docs/releases/catalog.md` begins with its
     `Generated by` header (R3 C21) and is unchanged between `--since` and
     `--commit`.
-11. **`binaries`** -- the 31 binaries' sha256 at `--commit` equal those at
-    `--since` (ruling (o)).
+11. **`binaries`** -- the 31 binaries' and the 18 art text files' sha256 at
+    `--commit` equal those at `--since` (ruling (o), widened at version 2).
 
 **Three allowlists, committed beside it**, every entry
 `<path>:<line> <class> <reason>`: `allow-legit.txt` (what is not a defect:
@@ -1416,13 +1483,15 @@ pr/x` line and a planted *"cloud_migrate_layout runs at startup"* line in `docs/
 steps`, printed by the script and quoted, never summed by hand**. A planted credential-shaped value, if a mutation ever needs one, is assembled at run time, never a literal (`.githooks/pre-commit`
 refuses the literal).
 
-**The art bytes are not edited** (the drafter's application of ruling (o) and
-R3 § 1, `[unverified]` as a ruling: § 1 names the binaries only):
+**The art bytes are not edited** (ruling (o), widened at version 2 to the 18
+art text files of the `CARVE art-bytes` class -- open item 21, settled by the
+coordinator; R3 § 1 is the reason):
 `tools/rasteratops-identity-check` binds
 `docs/pixelelated/art/pixelelated-wordmark.svg`'s sha256 to the
 EmulationStation and theme copies (R3 C12), so an edit to the SVGs, the
 generator `docs/pixelelated/art/source/**`, the proofs or the font licence is
-outside any stream brief unless the coordinator rules otherwise; the two art
+outside any stream brief; a finding in an art source is routed to the splash
+repository (external), a licence text's (`Tiny5-OFL.txt`) to #528; the two art
 READMEs and `wordmark-system.md` are prose, in the edit scope.
 
 **A fix lands only under a stream brief** at the stage-D pause, on the slice
@@ -1456,11 +1525,11 @@ so never `none` -- takes one of `fix`, `inherited:<owner>`, `ledger`, `#528`,
 | --- | --- | --- | --- |
 | Running log | `.../00-running-log.md` | opened first: the model and effort that ran, the session, `reviewed-at` (the dispatch tip) with `2174265e9c` and `e3fb3dfe00` beside it, every command with its exit status and time; **every check that stands as a proof announced on a line that begins `PROOF:`** with its time and command; **each stage-B session's last line records `git status --short` empty for the 254** (no fix while reading); its closing census says no build, no compiler, no guest, no fetch, no council or keyed call, no held directory, no `--write` of a generated file, and names the export's path and its retirement at stage H | A onward |
 | Research notes | `.../01-research-notes.md` | § Scope: § 2's two blocks with their sha256 prefixes checked and their output, both line figures, the 31 binaries named, the split's lines at the dispatch tip, the `CARVE` lines, the tool's row, the 82 briefs as information; **§ Read order** (§ 2's table, and any move the dispatch comment made); § The reader's pass: what a stranger would have done on each document's strength, group by group, before any auditing (§ 5 rule 5) | A, B |
-| Forward audit | `.../02-forward-audit.md` | Phase 2 over #686's checklist, in this order: **§ Coverage** (254 rows: the path in backticks as the first cell, its group, tier, inventory lines, text or binary, ruling (a)'s class, the probes' hits -- dead links, unresolved paths, identity words, retired names, decision IDs with their rows' state, tools named and their existence -- Q1 to Q7 each answered or `n/a` with the reason, and its disposition from § 6's set); **§ The table** (one row per misleading statement: `path:line`, the sentence quoted, the artifact it names, what a reader acting on it would do, the owner, the lead number, the disposition); **§ Binaries** (31 rows: path, size, sha256 at the dispatch tip and at `fixed-at`); **§ The ledgers** (one row each, *"a ledger, not a reference"*, its misleading sentence if any and where it went); **§ The identity words** and **§ The retired names** (per term and per class, at the tip and after stage E, with the allowlists; generated, asserted); **§ The runs** (every § 5 run with exit, wall time, its figure and *a FAIL would mean ...*); **§ Proofs** with `proved:` cells; **§ The streams** (each fix with its check lines); **§ What the coordinator and the next slices inherit** | B to F |
+| Forward audit | `.../02-forward-audit.md` | Phase 2 over #686's checklist, in this order: **§ Coverage** (254 rows: the path in backticks as the first cell, its group, tier, inventory lines, text or binary, ruling (a)'s class, the probes' hits -- dead links, unresolved paths, identity words, retired names, decision IDs with their rows' state, tools named and their existence -- Q1 to Q7 each answered or `n/a` with the reason, and its disposition from § 6's set); **§ The table** (one row per misleading statement: `path:line`, the sentence quoted, the artifact it names, what a reader acting on it would do, the owner, the lead number, the disposition); **§ Binaries** (31 rows: path, size, sha256 at the dispatch tip and at `fixed-at`) and **§ Art bytes** (18 rows, the same columns; ruling (o)); **§ The ledgers** (one row each, *"a ledger, not a reference"*, its misleading sentence if any and where it went); **§ The identity words** and **§ The retired names** (per term and per class, at the tip and after stage E, with the allowlists; generated, asserted); **§ The runs** (every § 5 run with exit, wall time, its figure and *a FAIL would mean ...*); **§ Proofs** with `proved:` cells; **§ The streams** (each fix with its check lines); **§ What the coordinator and the next slices inherit** | B to F |
 | Retrospective | `.../03-retrospective.md` | Phase 3 with § 3.5's interaction audit for the seams § 2 names: the documents x the rules that cite them; the documents x the tools that read three of them (`pr-stack-check`, `rc-preflight`, `release-catalog`); the documents x the issues that cite their lines; the reference set x upstream's copies; and the doctrine futro's predictions checked | B |
 | Analysis | `.../04-analysis.md` | Phase 4, then § Finding Verification (4.5, in full: Local depth has no other reviewer), then **§ Renovation face** with one subsection per question Q1 to Q7 (the lint requires all seven): Q4's tables written by `tools/t39-tables.py`; **Q5's cost-against-value table, one row per reference document proper** (lines, last commit, the `R/O/D/W` inbound counts, its role, who reads it, and the verdict -- keep, date its first line, or § 4 question 2); Q6's dead-ends table; § Second opinions reads *not applicable at Local depth (plan § 6c)* | B, C |
 | Second opinions | `.../second-opinions/review-plan.json` | depth `local`, the primary in the form T4's plan writes it, lab `anthropic`, reviewers `[]`, `tier_exception` `D-WORKFLOW-184`, `reason` plan § 6c's row (ruling (q)); **no provenance file, no packet manifest, no held sidecar** | C |
-| Tools | `.../tools/` | `t39-checks.sh`, its three allowlists, and `t39-tables.py` (writes § Coverage, § Binaries and the Q4, Q5 and Q6 tables from `block-2.txt`, the probes and the export, and asserts their counts -- 254 coverage rows, 31 binaries, the dispositions summing to the table's row count by its own line -- so a missing row fails there rather than printing an empty cell, as T40's generator did); each seen to exit 1 on a constructed drift before its table is trusted | C |
+| Tools | `.../tools/` | `t39-checks.sh`, its three allowlists, and `t39-tables.py` (writes § Coverage, § Binaries and the Q4, Q5 and Q6 tables from `block-2.txt`, the probes and the export, and asserts their counts -- 254 coverage rows, 31 binaries, 18 art text rows, the dispositions summing to the table's row count by its own line -- so a missing row fails there rather than printing an empty cell, as T40's generator did); each seen to exit 1 on a constructed drift before its table is trusted | C |
 | Stages | `.../stage-a/` to `.../stage-e/` | the first commands and § 5's runs under `stage-a/`; the reader's pass notes under `stage-b/`; the checker's FAIL-first and tip runs under `stage-c/`; the streams' runs under `stage-e/`; **no `guest-cycle/`** | A to E |
 | Lint, before D | `tools/lint-audit-artifacts <folder> --phase pre-issue` | prints `PASS pre-issue artifacts (does not certify resolution)`; recorded in `00` | C to D |
 | Punch list | `.../05-punch-list.md` | Phase 5: every item with `question:`, severity, category (`Renovation` where it is not a defect), where (`file:line` at the dispatch tip), acceptance, **the ladder stage and the tool that would hold it at the next, or the words *no tool can***; the YAML `punch_index`; an inherited item marked with its owner (`inherit:coordinator`, `inherit:#528`, `inherit:#585`, ...) | D |
@@ -1494,14 +1563,14 @@ differ, #686 wins and the coordinator corrects the brief.
 - [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue (a `bug`, #528, #585, #509, #511, #270, #947, #1013, or a Backlog the coordinator files), withdrawn, or recorded as a ledger row with its reason; `tools/box-check --issue <audit issue>` prints 0 fail; the issue is closed by the coordinator at acceptance.
 - [ ] `reviewed-at:` and `fixed-at:` in #686's header carry the lane's commits, and no `-es` pair (nothing in the 254 is EmulationStation's); § 5's removal check with `MERGE_HASH` and `fixed-at` prints no line, the registers' line prints `0`, and `git log --no-merges --format=%h <merge hash>..<fixed-at>` lists only the lane's own commits.
 - [ ] `01-research-notes.md` § Scope records § 2's membership block, its sha256 prefix `e81453b6732cdea8` checked, with its exact output lines (`mine: 254 paths.txt: 254 equal: True`; `lines: 38598 reach: {'n/a': 254} tier: {'fork-own': 164, 'upstream-carried': 90}`; `fork-own lines: 28749 upstream-carried lines: 9849`; `read lines: 190 of which fork-own: 190` with its two rows; the two `TREE-SIDE` lines with `equal to mine: True`; `wc -l, the text rows at the P1 hash: 38674`; `grep -c, the text rows at the P1 hash: 38675`; `grep -c, the text rows at the inventory head: 38598`; `present at the merge base: 92`; the `MB..P1:` and `IH..P1:` shortstats -- or the deltas beside them) and both line figures of ruling (h) with the 31 binaries named.
-- [ ] `01` § Scope records § 2's split block, its sha256 prefix `afb1909c5cdc6c88` checked, with the defaults' lines through `P1 grep -c total 38675` and the dispatch tip's `tip:` lines with no `absent` line; the stage-A `CARVE` lines and their `CARVE total 254`; and the `renovation-inventory --order` row for `39 doctrine-reference` (or the lines that printed beside R1 C02's).
+- [ ] `01` § Scope records § 2's split block, its sha256 prefix `afb1909c5cdc6c88` checked, with the defaults' lines, run under `LC_ALL=en_US.UTF-8` (X01), through `P1 grep -c total 38675` and the dispatch tip's `tip:` lines with no `absent` line; the stage-A `CARVE` lines and their `CARVE total 254`; and the `renovation-inventory --order` row for `39 doctrine-reference` (or the lines that printed beside R1 C02's).
 - [ ] `00` records, at stage A and before any other check, the lint's `PASS` on a Local plan (T4's exported folder, `rc=0`) and its FAIL on the same plan with `tier_exception` removed (`rc=1`, the FAIL line quoted) -- ruling (q) -- and L-01's loop printing no `MISSING` line (ruling (p)); or, for either, the lines that printed and the question raised on #686 before stage C.
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | /usr/bin/grep -c -E '^\| `'`` prints `254`; each row names its ruling-(a) class and a disposition from § 6's Coverage set, and `t39-tables.py`'s own line prints the dispositions' counts and their total `254`.
-- [ ] `02` § The table carries one row per misleading statement with its `path:line`, the sentence quoted, the artifact it names, what a reader acting on it would do, its owner and a disposition from § 6's table set; every lead of § 3 appears in it or as a § Coverage `none` with its reason: ``/usr/bin/grep -o -E 'L-[0-9]{2}' 02-forward-audit.md | sort -u | /usr/bin/grep -c ''`` prints `46`; `t39-tables.py`'s line prints the counts by disposition and their total, equal to the section's row count.
-- [ ] `02` § Binaries carries exactly 31 rows (``awk '/^## Binaries/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | /usr/bin/grep -c -E '^\| `'`` prints `31`), each with its size and its sha256 at the dispatch tip and at `fixed-at`, the two equal; `t39-checks.sh`'s `binaries` step prints `ok` at `fixed-at` (ruling (o)).
-- [ ] The ledger rows are untouched: `git log --no-merges --format=%h <merge hash>..<fixed-at> -- docs/reviews docs/releases/catalog.md docs/pr-series/map.txt docs/releases/rc-accept.txt docs/vm-qa-log.md docs/cloud-sync-changelog.md plans` prints no line, and each of them has a `02` § The ledgers row reading *"a ledger, not a reference"* with its routed finding, if any (ruling (a)).
+- [ ] `02` § The table carries one row per misleading statement with its `path:line`, the sentence quoted, the artifact it names, what a reader acting on it would do, its owner and a disposition from § 6's table set; every lead of § 3 appears in it or as a § Coverage `none` with its reason: ``/usr/bin/grep -o -w -E 'L-[0-9]{2}' 02-forward-audit.md | sort -u | /usr/bin/grep -c ''`` prints `46` (`-w`, X04: without it the `711` of L-08's `MAP-TAIL-711-END` is read as a lead id); `t39-tables.py`'s line prints the counts by disposition and their total, equal to the section's row count.
+- [ ] `02` § Binaries carries exactly 31 rows (``awk '/^## Binaries/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | /usr/bin/grep -c -E '^\| `'`` prints `31`), each with its size and its sha256 at the dispatch tip and at `fixed-at`, the two equal; `t39-checks.sh`'s `binaries` step prints `ok` at `fixed-at` (ruling (o)); and `02` § Art bytes carries exactly 18 rows (the same `awk` with `## Art bytes` prints `18`), each with its size and its sha256 at the dispatch tip and at `fixed-at`, the two equal, and `git diff --stat <merge hash> <fixed-at> -- docs/pixelelated/art docs/rasteratops/art` names only `.md` files (ruling (o) as widened at version 2, open item 21).
+- [ ] The ledger rows are untouched: `git log --no-merges --format=%h <merge hash>..<fixed-at> -- docs/reviews docs/releases/catalog.md docs/pr-series/map.txt docs/releases/rc-accept.txt docs/vm-qa-log.md docs/cloud-sync-changelog.md docs/rasteratops/p0-sweep-hits.txt plans` prints no line, and each of them has a `02` § The ledgers row reading *"a ledger, not a reference"* with its routed finding, if any (ruling (a)).
 - [ ] The read-only paths are untouched: `git log --no-merges --format=%h <merge hash>..<fixed-at> -- licenses documentation LICENSE.md docs/upstream` prints no line; every finding in them is a `#528`, `#585` or `inherited:<owner>` row in `02` (rulings (a), (j), (k), (n)).
-- [ ] `02` § The runs records, each as a command's own output line with its exit: `tools/rules-check` (with the words *no evidence for the 254*), `tools/register-check`, `tools/release-catalog --check`, `tools/work-log-index --check`, `tools/prose-check --self-test`, `tools/ceremony-check`, `.githooks/hooks-test`, `tools/box-check`; the byte-identity lines against `c445081a59` and `651150fc88`; the identity and retired-name counts; the decision IDs with no `UNRESOLVED` line; the secret scan in the hooks' form (compile rc at most 1, the runtime-built positive `1`, then `0` files); the non-ASCII count; `tools/forbidden-terms-check` over the 223 and over empty input (`rc=0` both) and over the planted line through `FORBIDDEN_PATTERNS` (`rc=1`, its line quoted); #359's two hashes beside the tree's; `gh release list`'s three lines -- a check without its positive is recorded as such.
+- [ ] `02` § The runs records, each as a command's own output line with its exit: `tools/rules-check` (with the words *no evidence for the 254*), `tools/register-check`, `tools/release-catalog --check`, `tools/work-log-index --check`, `tools/prose-check --self-test`, `tools/ceremony-check`, `.githooks/hooks-test`, `tools/box-check`; the byte-identity lines against `c445081a59` and `651150fc88`; the identity and retired-name counts; the decision IDs with no `UNRESOLVED` line (D-WORKFLOW-188 carried into the register by ruling (p)'s merge, X03; a line naming it is the coordinator's finding at dispatch, recorded as such); the secret scan in the hooks' form (compile rc at most 1, the runtime-built positive `1`, then `0` files); the non-ASCII count; `tools/forbidden-terms-check` over the 223 and over empty input (`rc=0` both) and over the planted line through `FORBIDDEN_PATTERNS` (`rc=1`, its line quoted); #359's two hashes beside the tree's; `gh release list`'s three lines -- a check without its positive is recorded as such.
 - [ ] `tools/es-menu-map-check`'s line is quoted in `02` at the dispatch tip and at `fixed-at`, each `<N> screen(s) at <pin>, <M> in the map, <K> declared unmapped, 0 missing` with `rc=0` (at `e3fb3dfe00`: `55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing`, R3 C13), or `CANNOT` with exit 2 named; at `fixed-at` the map's #570 headings say closed: `git show <fixed-at>:docs/es-menu-map.md | /usr/bin/grep -c -E '^#+ Pending.*#570'` prints `0` (ruling (b)).
 - [ ] `tools/t39-checks.sh` exists under the audit folder's `tools/`; `02` § The runs quotes its four runs -- the baseline's exit 0, each mutation's exit 1 naming its own step (the stub checked against the unfixed text first), the tip's exit 1 with `allow-findings.txt` withheld naming each finding, and exit 0 after stage E with it withheld -- each with its `TOTAL:` line quoted from the script's own output; its refusals exit 2.
 - [ ] `02` § The identity words and § The retired names carry, per term, the count at the tip and after stage E, each a line of `t39-checks.sh` or a generator's; every allowlisted line sits in `tools/allow-legit.txt`, `tools/allow-inherited.txt` or `tools/allow-findings.txt` with its class and reason; `tools/allow-findings.txt` is empty at `fixed-at`, or each remaining line names its stream's disposition.
@@ -1523,7 +1592,8 @@ inherit carries each item as a row with its lines and its owner issue, and the
 hand-back names them (§ 7). No pin, no image and no other lane's branch is
 moved by this slice, so the list holds no integration step; T39's branch
 merges in the coordinator's turn, its exact place named by the coordinator at
-acceptance (`[unverified]`: no research file read the merge order for T39).
+acceptance (open item 22, the coordinator's: the order before dispatch is
+ruling (p)'s, and T39's place after acceptance is named then).
 
 1. **The coordinator's ledgers and tracker** -- L-01, resolved at dispatch
    (ruling (p)); `rc-accept.txt:13`'s identity (L-25); `map.txt`'s two deleted
@@ -1556,7 +1626,8 @@ acceptance (`[unverified]`: no research file read the merge order for T39).
    28).
 5. **#585** (the contribution queue): `docs/upstream/**`'s findings (L-46),
    L-11's eight hits in `docs/upstream/README.md`, and
-   `image-completeness/fix.patch:64`'s line (L-23) -- each a #585 line in the
+   `docs/upstream/raofflineproxy/image-completeness/fix.patch:64`'s line (L-23;
+   the full path, X12) -- each a #585 line in the
    shape the lane writes, **never sent** (D-WORKFLOW-164, -165).
 6. **The interface lanes (epic #700)**: the map's rows the issues cite by line
    (L-32) and any IA sentence a screen change owns (L-17), each with the
@@ -1578,7 +1649,10 @@ acceptance (`[unverified]`: no research file read the merge order for T39).
 
 **The register** (`docs/decision-register.md` at `e3fb3dfe00`: 797 lines,
 `## Decided` from `:15`, `## Open decisions` at `:780`, 13 open rows; R4 § 1,
-§ 2, C3, C6; R5 C20). Each row is read before it is cited (R5 § B item 8):
+§ 2, C3, C6; R5 C20; the same at `a0fb117b8b`, proof K87; at the coordinator's
+tip `b344408e46`, version 2's read, 798 lines, D-WORKFLOW-219 at `:779` and
+`## Open decisions` at `:781`, `v2 read`). Each row is read before it is cited
+(R5 § B item 8):
 
 | Row | Line | What it binds here |
 | --- | ---: | --- |
@@ -1593,44 +1667,48 @@ acceptance (`[unverified]`: no research file read the merge order for T39).
 | D-WORKFLOW-044, **-046** | `:382`, `:390` | the catalog generated, the device facts kept by hand, *"a tool says when they are not"* -- L-15 (R4 item 9) |
 | D-WORKFLOW-121, -131, -136, **-144** | `:562`, `:572`, `:587`, `:604` | the component inventory; the marks under `TRADEMARK.md`; Blitterbot; pixelelated -- L-25, L-42, L-43 (R4 item 10) |
 | D-CLOUD-174, D-WORKFLOW-151 | `:606`, `:644` | the `/pixelelated` folders; active Rasteratops remnants retired in reviewed batches -- L-30 (R4 item 11) |
-| D-WORKFLOW-145 | `:608` | Tiny5 Duo LCD; `README.md:20` agrees (R4 item 12) |
+| D-WORKFLOW-145 | `:608` | Tiny5 Duo LCD; `README.md:21` agrees (R4 item 12; `:21` by proof K33, X06) |
 | **D-CLOUD-175**; D-CLOUD-176 to -179, -181, -182 | `:642`; `:646`, `:648`, `:650`, `:662`, `:666`, `:668` | the cloud-folder migration engine retired -- ruling (l), L-04, L-10 (R4 item 13) |
-| D-WORKFLOW-157 to -160 | `:670`, `:672`, `:674`, `:676` | the build identity; `docs/releases/versioning.md` -- L-39 (R4 item 14) |
+| D-WORKFLOW-157 to -160 | `:670`, `:672`, `:676` (D-WORKFLOW-159), `:674` (D-WORKFLOW-160) | the build identity; `docs/releases/versioning.md` -- L-39 (R4 item 14; -159 and -160 by proof K92, X07) |
 | D-WORKFLOW-164, -165 | `:698`, `:700` | contributions considered and queued, never sent before the initial build -- ruling (n), L-46 (R4 item 15) |
 | D-WORKFLOW-167, -168 | `:706`, `:708` | credits and licence disclosures on the website; private owner testing apart from public release -- L-02 (R4 item 16) |
 | D-WORKFLOW-185 | `:720` | the shipped-device set; every other target a row in the unshipped tables -- L-41 (R4 item 17) |
 | D-WORKFLOW-088 | `:518` | the council toolchain is scaffold's export -- the `docs/council-*` notes describe it (R5 § B item 8) |
 | D-WORKFLOW-183, **-184**, **-189** | `:718`, `:719`, `:723` | fan-out is read-only research subagents; **Local for a dead-end table, a provenance table or a doctrine read**; planning and work items the coordinator's (R4 item 19) |
-| D-WORKFLOW-217; D-WORKFLOW-218 | `:777`; `:778` | T37's and T38's ownership rows, the last two decided rows at `e3fb3dfe00` (R5 § F) |
+| D-WORKFLOW-217; D-WORKFLOW-218; **D-WORKFLOW-219** | `:777`; `:778`; `:779` (at `b344408e46`) | T37's and T38's ownership rows, the last two decided rows at `e3fb3dfe00` (R5 § F); T38's stage-D pause dispositions (#685, #1394; 2026-11-01), the last decided row before T39's (`v2 read`) |
 | D-WORKFLOW-050, -187, -215 | read at `COHASH` | every bug's `Already written:` line; the renovation's bug shape; the hold test (below) |
 | D-UI-120 | `:796` (open) | sentence case for explanatory prose; touches a rule, not a reference document (R4 item 22) |
 
 **The highest decided IDs per area**, read from the table above
 `## Open decisions` only (R5 § F's `awk` at `e3fb3dfe00`): **D-CLOUD-193,
 D-INFRA-031, D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-137,
-D-WORKFLOW-218** (R5 C20); `| D-WORKFLOW-219 |` printed no line (R5 C20);
-`tools/register-check` printed *"713 IDs, each once; every citation in the
-live documents names a row"* (R3 C13). **This slice's ownership row is
-D-WORKFLOW-219**, written by the coordinator at dispatch before
-`## Open decisions`, its `<date>` checked on the appended line alone; if a
-WORKFLOW row lands between (T36's or T37's acceptance may take one), it is the
-next free WORKFLOW ID, and the row, the body fill and the pointer follow it
-(R5 § B item 1, § F). **The row, from R5 § F's draft with the coordinator's
-rulings applied** (the ledger list of ruling (a), the line figures of ruling
-(h)):
+D-WORKFLOW-218** (R5 C20); `| D-WORKFLOW-219 |` printed no line there (R5
+C20) and none at `a0fb117b8b` (proof K89). **Since then D-WORKFLOW-219 is
+T38's stage-D pause dispositions row** (#685, #1394; 2026-11-01), so the same
+`awk` at the coordinator's tip `b344408e46` prints `D-WORKFLOW-219` as its
+WORKFLOW line (`v2 read`); `tools/register-check` printed *"713 IDs, each
+once; every citation in the live documents names a row"* (R3 C13; K94 at
+`a0fb117b8b`). **This slice's ownership row is D-WORKFLOW-220**, written by
+the coordinator at dispatch before `## Open decisions`, its `<date>` checked
+on the appended line alone; if another WORKFLOW row lands between (as
+D-WORKFLOW-219 did between version 1 and version 2), it is the next free
+WORKFLOW ID, and the row, the body fill and the pointer follow it (R5 § B
+item 1, § F). **The row, from R5 § F's draft with the coordinator's rulings
+applied** (the ledger list of ruling (a), the line figures of ruling (h), the
+art text files of ruling (o) and `p0-sweep-hits.txt` of open item 25):
 
-> | D-WORKFLOW-219 | `<date>` | **T39 (#686) owns the reference documents proper among the 254 paths of `doctrine-reference` -- the inventory's area `doctrine` at `2174265e9c` less T4's 36 and T38's 52 (38,598 lines by the inventory's column; 38,675 by `grep -c` over its 223 text rows at the P1 tip, the 31 binaries uncounted) -- and tables the rest without editing it.** The coordinator's twelve documents under `docs/reviews/`, the generated `docs/releases/catalog.md`, the tool inputs `docs/pr-series/map.txt` and `docs/releases/rc-accept.txt`, the running ledgers `docs/vm-qa-log.md` and `docs/cloud-sync-changelog.md`, the one plan under `plans/` and the 31 binary files (by name, size and sha256) are tabled as *a ledger, not a reference*, one row each, their findings routed to their owners; the work logs, futros, retros, audit folders and qa-logs are area `records` and outside the slice. `licenses/` and `documentation/` (the 90 upstream-carried) and `LICENSE.md` are read-only, their findings for #528 or the next upstream base merge; `docs/upstream/` is #585's, read-only; the fork's GENERIC_X64 emulator table is tabled with a Backlog candidate. `README.md` and `TRADEMARK.md` change only where `NAMING.md` decides the word. The rules, `CLAUDE.md`, `AGENTS.md`, `NAMING.md` and the registers are the coordinator's (D-WORKFLOW-189; T4's read, #651): a rule erratum a document read turns up is an inherited item, never a fix on this branch; a menu-map row an interface change made stale is the interface lanes' (D-UI-039). Local depth, `tier_exception` D-WORKFLOW-184, no reviewer, no guest and no keyed call. | #686; #807; #651; #685; #528; #585; D-WORKFLOW-184; D-WORKFLOW-189; D-UI-039 |
+> | D-WORKFLOW-220 | `<date>` | **T39 (#686) owns the reference documents proper among the 254 paths of `doctrine-reference` -- the inventory's area `doctrine` at `2174265e9c` less T4's 36 and T38's 52 (38,598 lines by the inventory's column; 38,675 by `grep -c` over its 223 text rows at the P1 tip, the 31 binaries uncounted) -- and tables the rest without editing it.** The coordinator's twelve documents under `docs/reviews/`, the generated `docs/releases/catalog.md`, the tool inputs `docs/pr-series/map.txt` and `docs/releases/rc-accept.txt`, the running ledgers `docs/vm-qa-log.md` and `docs/cloud-sync-changelog.md`, the P0 sweep's generated baseline `docs/rasteratops/p0-sweep-hits.txt`, the one plan under `plans/`, the 31 binary files and the 18 art text files under `docs/pixelelated/art/` and `docs/rasteratops/art/` (by name, size and sha256; the two art READMEs stay reference documents) are tabled as *a ledger, not a reference*, one row each, their findings routed to their owners; the work logs, futros, retros, audit folders and qa-logs are area `records` and outside the slice. `licenses/` and `documentation/` (the 90 upstream-carried) and `LICENSE.md` are read-only, their findings for #528 or the next upstream base merge; `docs/upstream/` is #585's, read-only; the fork's GENERIC_X64 emulator table is tabled with a Backlog candidate. `README.md` and `TRADEMARK.md` change only where `NAMING.md` decides the word. The rules, `CLAUDE.md`, `AGENTS.md`, `NAMING.md` and the registers are the coordinator's (D-WORKFLOW-189; T4's read, #651): a rule erratum a document read turns up is an inherited item, never a fix on this branch; a menu-map row an interface change made stale is the interface lanes' (D-UI-039). Local depth, `tier_exception` D-WORKFLOW-184, no reviewer, no guest and no keyed call. | #686; #807; #651; #685; #528; #585; D-WORKFLOW-184; D-WORKFLOW-189; D-UI-039 |
 
 The pointer's `Register:` line is filled from the same `awk` at `COHASH`,
 never from here (§ 10).
 
 **Rows the pause may need, all put to the coordinator as questions, never
 decided by the lane:** the menu map's journal (§ 4 question 1); the
-low-inbound documents (§ 4 question 2); **the art bytes** -- whether ruling
-(o)'s *never edited* extends to the SVGs, the generator and its inputs, as § 5
-applies it; the device-facts pointer's wording against the rows issues cite by
+low-inbound documents (§ 4 question 2); the device-facts pointer's wording against the rows issues cite by
 number (L-15); the GENERIC_X64 table's Backlog (L-31); `t39-checks.sh`'s
-promotion (§ 8 item 3). A row this slice forces takes an ID the coordinator
+promotion (§ 8 item 3). (Version 1 also asked whether ruling (o)'s *never
+edited* reaches the art text files; the coordinator widened the ruling at
+version 2, open item 21.) A row this slice forces takes an ID the coordinator
 assigns on #686.
 
 **The ceremonies** every lane owes are the rules that load every session --
@@ -1801,13 +1879,15 @@ from that one place (R5 § B item 6):
 | `The lens:` | cost against value over the 254 of `doctrine-reference` -- the area's `rest`: `README.md`, `TRADEMARK.md`, `LICENSE.md`, `licenses/`, `documentation/`, `plans/` and the reference documents under `docs/` -- 38,598 lines by the inventory, 38,675 by `grep -c` over the 223 text rows at the P1 hash, 31 binaries uncounted | cost against value over the 52 of `.claude/**` less `.claude/rules/**` |
 | `The rule:` | the lane changes only the reference documents proper of ruling (a), only at stage E under a stream brief; **never** a ledger row, `licenses/`, `documentation/`, `LICENSE.md`, `docs/upstream/`, a binary, the art bytes, `.claude/**`, `CLAUDE.md`, `AGENTS.md`, `NAMING.md`, a register (beyond the appends the procedure owns), `tools/`, `scripts/`, `packages/` or `projects/`; no council, Facilitator or keyed call; no `--write` of a generated file (rulings (a), (k), (n), (o), (q)) | "the lane changes only the fork-adapted skills among the 52" |
 | `The host:` | **none**: no guest window and no compile; the host file read once at stage A for its protocol and its line count; no START, RETURN or compile line of this lane's in it at any stage | a line naming T38 or #685 |
-| `Register:` | the highest decided row per area read from the table at `COHASH` (at `e3fb3dfe00`: D-CLOUD-193, D-INFRA-031, D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-137, D-WORKFLOW-218), plus **this slice's ownership row, D-WORKFLOW-219, which the coordinator writes at dispatch** | D-WORKFLOW-218 named as this slice's own row |
+| `Register:` | the highest decided row per area read from the table at `COHASH` (at `e3fb3dfe00`: D-CLOUD-193, D-INFRA-031, D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-137, D-WORKFLOW-218; at `b344408e46` D-WORKFLOW-219, T38's dispositions row, is the WORKFLOW line), plus **this slice's ownership row, D-WORKFLOW-220, which the coordinator writes at dispatch** | D-WORKFLOW-218 or D-WORKFLOW-219 named as this slice's own row |
 | `The brief:` | `docs/reviews/briefs/doctrine-reference.md` at `V2HASH` (filled by the dispatch comment; version 1 has no dispatch hash, and no `docs/reviews/briefs/doctrine-reference.md` exists at `e3fb3dfe00`, R1 C18) | `doctrine-skills.md`, or the literal word `V2HASH` |
 
 **The host.** No guest window and no compile, so this slice holds no slot in
-the host file's queue: the file the dispatch comment names (T38's brief names
-`/workspace/tmp/m7-m6-host-coordination.txt`; no research file for this brief
-read it `[unverified]`, R5 § D) is read once at stage A, whole enough for its
+the host file's queue: the file the dispatch comment names
+(`/workspace/tmp/m7-m6-host-coordination.txt`, named by T38's brief `:1106`
+and `:1674`; it exists and held 710 lines at the proof's read, C10; open item
+23, confirmed by the dispatch comment with its line count) is read once at
+stage A, whole enough for its
 protocol and with the time of the read and its line count, which the dispatch
 comment also records; the lane writes no line in it and posts no
 `START HH:MM:SS UTC` on #686; **a START or a compile line of this lane's, in
@@ -1917,78 +1997,118 @@ with where the body carries the fact and its command, or **Open**).
 1. **Ruling (a)'s class sizes** (§ 1 (a), § 5's `CARVE` command, § 7) -- the
    edit scope, the ledger, read-only, binary, art and naming-restricted
    classes counted. Settles: the stage-A `CARVE` lines, quoted in `01`.
+   **Settled**: proof K26's `CARVE` lines at `a0fb117b8b` (`CARVE total 254`),
+   re-run for version 2 with `p0-sweep-hits.txt` in the ledger (§ 1 (a); the
+   expected lines beside § 5's command).
 2. **Which of the 254 claim a guest behaviour** (§ 1 (q), § 5 rule 3) -- R5 §
    D and R3 § 6 did not read every sentence. Settles: stage B's table, each
-   such sentence a `02` row with the proof a later slice could make.
+   such sentence a `02` row with the proof a later slice could make. **Open**:
+   the lane's stage B (§ 5 keeps its mark).
 3. **The dispatch tip's split lines and the selector's reach there** (§ 2,
    § 5) -- ruling (p) says no `absent` line; the counts of `changed` and of
    briefs added depend on the dispatch. Settles:
    `G="$PWD" TIP=<MERGE_HASH's value> bash .qa-scratch/t39/split.sh` at
-   stage A.
+   stage A. **Open**: no dispatch tip exists; at `a0fb117b8b` `8 ... absent`,
+   `3 ... changed`, `1 ... same` and `selector reaches: 329 paths; added since
+   P1: 83` (proof K11, K19; § 2); since version 2 the run is under
+   `LC_ALL=en_US.UTF-8` (X01).
 4. **Whether the worktree's `tools/renovation-inventory --order` prints R1
    C02's lines** (§ 2, § 5) -- R1 ran it from the clone's directory. Settles:
    the stage-A run, with `git status --short --ignored` before and after.
+   **Open** for the worktree; the proof's run from the clone reproduced R1 C02
+   with the status unchanged (K20; § 2).
 5. **`tools/box-check`, `tools/ceremony-check` and `.githooks/hooks-test` at
    the dispatch tip** (§ 3 item 5, § 5) -- no research file for this brief ran
-   them. Settles: their stage-A lines.
+   them. Settles: their stage-A lines. **Open**: not run by the proof either;
+   `box-check`'s predicate over § 7 printed `brief s7 boxes 27 fail 0` (K118).
 6. **The lint's Local proof** (§ 5's `# STAGE A`): T4's plan's three fields
    (`t4 plan: local D-WORKFLOW-184 0` expected), the PASS line and the FAIL
    line with `tier_exception` removed -- no research file for this brief ran
    the lint on a Local plan; R3 § 3 says T38's ruling (m) did. Settles: the
-   stage-A lines.
+   stage-A lines. **Settled**: `t4 plan: local D-WORKFLOW-184 0`, `rc=0`
+   ending `PASS`, `rc=1` with its FAIL line (proof K111; § 5's `# STAGE A`).
 7. **L-04**: whether the two files cite D-CLOUD-175 at the tip, and R3's
    join/follow heuristic's 10 unread reference lines (R3 C18). Settles: L-04's
-   check line and stage B's read.
+   check line and stage B's read. **Settled** for D-CLOUD-175: `0` and `0`
+   (proof K45; L-04); the ten join/follow lines stay **Open** (stage B).
 8. **L-12**: the counter note's banner words at the tip. Settles: L-12's check
-   line.
+   line. **Settled**: `0` (proof K54; L-12).
 9. **L-13**: whether the seven rocknix.org pages exist in
    `ROCKNIX/rocknix.org` (outside the tree; not fetched). Settles: a
    `git -C <a local checkout> ls-tree` at its default branch where one is
-   present, never a fetch; otherwise recorded as not settled.
+   present, never a fetch; otherwise recorded as not settled. **Open** (outside
+   the tree); the name itself is the site checkout's branch, an `external`
+   entry (X02; L-13).
 10. **L-16**: whether the policy's mask carries the flag form (R4 item 6).
-    Settles: L-16's check line.
+    Settles: L-16's check line. **Settled**: `0`, so **fix** (proof K58; L-16).
 11. **L-17**: the IA's text against D-CLOUD-024, -027, -032, -041 and #134's
     rev 5 (R4 item 4). Settles: stage B's read with the revision line.
+    **Settled in part**: the IA is at rev 6 (`:19`), past #23's rev 5 (proof
+    K59; L-17); the text against the four rows stays **Open** (stage B).
 12. **L-23**: the `maxengel/rocknix` links over the 254's paths rather than
-    R3's classes. Settles: L-23's `git grep -c` line.
+    R3's classes. Settles: L-23's `git grep -c` line. **Settled**: the changelog
+    alone (proof K64; L-23).
 13. **L-24**: which decided row superseded the plan's choices (R2 C20 found
     none; D-CLOUD-041 is the candidate). Settles:
     `tools/archaeology --no-gh 'KEEP CLOUD'` and the rows it names, read.
+    **Open**: `tools/archaeology` not run by the proof; the lane's stage B.
 14. **L-26**: whether this brief's non-comment count reproduces R4 C25's
     `total non-comment: 9` (R4 does not print its command). Settles: L-26's
-    check line.
+    check line. **Settled**: `9` (proof K68; L-26).
 15. **L-38**: the decision IDs over the 254's text rows (R3 C23 read its own
     population). Settles: § 5's `cites` command, no `UNRESOLVED` line
-    expected.
+    expected. **Settled with a finding**: `UNRESOLVED D-WORKFLOW-188` over the
+    223 at P1 against the register at `a0fb117b8b`; ruling (p)'s merge carries
+    the row, and a line at dispatch is the coordinator's (X03; L-38, § 5).
 16. **L-39**: #1013's criterion at the lane's ref. Settles: L-39's check line.
+    **Settled**: nothing printed, so **inherited:#1013** (proof K80; L-39).
 17. **L-45**: the tree's `LICENSE.md` and `TRADEMARK.md` sha256 against #359's
-    (R4 § 8). Settles: § 5's hash loop.
+    (R4 § 8). Settles: § 5's hash loop. **Settled**: equal to #359's (proof K85;
+    L-45, § 5).
 18. **L-37**: #807's sentence and the coordinator's erratum beside it (ruling
-    (i)). Settles: the stage-A `gh` read.
+    (i)). Settles: the stage-A `gh` read. **Settled in part**: the sentence
+    present and `errat` 0 (proof K78; L-37); the erratum is written at dispatch.
 19. **The export's file count at the dispatch tip** (§ 5's runs): `254` by
     ruling (p), against `246` at `e3fb3dfe00` (R2 C6; R3 C20). Settles: the
-    runs block's `find | grep -c` line.
+    runs block's `find | grep -c` line. **Open**: at P1 every one of the 254 is
+    present (`of the 254 absent: 0`, proof C11); the dispatch tip's line is the
+    lane's.
 20. **R2 C8's identity counts**: whether they count lines or occurrences (R2
     does not print its command). Settles: nothing here -- the lane's loop
     prints lines and files, recorded as its own figures beside R2's.
+    **Settled**: occurrences (proof K104); § 5's runs carry K103's line figures.
 21. **The art bytes as a ruling** (§ 5, § 9): the drafter extends ruling (o)'s
     *never edited* to the SVGs, the generator, the proofs and the font
     licence, because `tools/rasteratops-identity-check` binds the wordmark SVG
-    (R3 C12). Settles: the coordinator's dispatch comment.
+    (R3 C12). Settles: the coordinator's dispatch comment. **Settled** by the
+    coordinator at version 2: ruling (o) widened to the 18 art text files, the
+    two art READMEs the area's reference documents (§ 1 (o), § 5, § 7).
 22. **T39's merge order** (§ 8). Settles: the coordinator at acceptance.
+    **Settled** as the item says: the coordinator's, at acceptance; the order
+    before dispatch is ruling (p)'s (§ 8).
 23. **The host file's path** (§ 5, § 10): T38's brief names one; no research
     file for this brief read it (R5 § D). Settles: the dispatch comment, with
-    the file's line count.
+    the file's line count. **Settled**: `/workspace/tmp/m7-m6-host-coordination.txt`
+    (T38's brief `:1106`, `:1674`; 710 lines at the proof's read, C10); the
+    dispatch comment records its line count (§ 5, § 10).
 24. **The read order** (§ 2's table) is R5 § C stage B's proposal, which no
-    ruling names. Settles: the dispatch comment, which may move it.
+    ruling names. Settles: the dispatch comment, which may move it. **Settled**
+    at dispatch: the dispatch comment names the read order; § 2's table stands
+    unless it moves a row.
 25. **`docs/rasteratops/p0-sweep-hits.txt`** (2,419 lines, R1 § 2's list): R3
     C17 classes it a ledger and `NAMING.md:30` names it the baseline
     classification (R2 § 0), while ruling (a) does not list it, so it sits in
     the edit scope under `NAMING.md`'s historical clause. Settles: the
     coordinator's dispatch comment -- a ledger row, or an edit-scope row
-    expected to read `none`.
+    expected to read `none`. **Settled** by the coordinator at version 2: a
+    ledger row -- a generated classification baseline (`NAMING.md:30`), 2,419
+    lines, its 20 `maxengel/rocknix` lines the sweep's hits as it found them;
+    read-only, findings to the coordinator (§ 1 (a), § 5's `CARVE`, § 7).
 
-**Where the research files disagree, and how this brief takes each:**
+**Where the research files disagree, and how this brief takes each** (the
+proof confirmed 1, 5, 6, 8, 9, 10, 12, 13, 14, 16 and 17 as this brief takes
+them, K115, and settled 2, 3, 4, 7, 11 and 15, K116 and K117, each noted
+below):
 
 1. **The line figures are several measures, not one disagreement** (ruling
    (h)). R1 C16: the inventory's `38598`; over the 223 text rows at the P1
@@ -2007,13 +2127,18 @@ with where the body carries the fact and its command, or **Open**).
    239, and the non-upstream-carried are `fork-own 164` (R1 C16's tier line).
    **This brief writes the ruling's rule** -- the reference documents proper
    are the 254 less the 90 upstream-carried and less the ledger rows -- **and
-   leaves the count to the `CARVE` lines** (open mark 1).
+   leaves the count to the `CARVE` lines** (open mark 1). **Settled** (proof
+   K116): `REFERENCE 239` is the 254 less R1's `LEDGER 15` and holds the 90;
+   the reference documents proper are the `edit-scope` and `edit-under-naming`
+   lines of the `CARVE` (68 and 1 at version 2, `v2 read`).
 3. **`licenses/AETHERSX2.pdf`'s direction.** R3 § 2.5 calls it *"the fork's
    addition"* and R4 § 0 *"one added file ... (`Bin 0 -> 1005740 bytes`)"*,
    both reading a diff from `upstream/next` to the fork; R1 C11 and C12 show
    it byte-identical at the merge base and absent upstream, and R2 L-02 names
    upstream's deletion `c4d353449e` 2026-10-18. **This brief takes R1's and
-   R2's: upstream deleted a file the fork still carries** (L-44).
+   R2's: upstream deleted a file the fork still carries** (L-44). **Settled**
+   (proof K37): `c4d353449e` deleted the PDF upstream; the fork has not taken
+   the deletion.
 4. **Dead backticked paths, three extractors.** R2 C10
    `MISSING-BACKTICK-PATHS 88`; R3 C17 `path-dead=40` (30 distinct) in its
    reference class and `path-dead=87` in its total; R5 C22 `DEAD-PATHS 145` at
@@ -2021,7 +2146,8 @@ with where the body carries the fact and its command, or **Open**).
    the trees and the stripping differ. **This brief takes R3's classed list
    for the leads (its four candidates) and `t39-checks.sh`'s `paths` step for
    the baseline the lane records.** The three agree on dead relative links:
-   `0` (R2 C10, R3 C17, R5 C22).
+   `0` (R2 C10, R3 C17, R5 C22). **Settled** (proof K102, X02): the probe's
+   own lines are the baseline; three of the four candidates are ruled external.
 5. **The membership's inputs**: R3 C10 read `inventory.json` and `slices.json`
    at `00ca350666`, a lane-branch commit; R1, R2 and R5 at `2174265e9c`. Both
    print the same 254 and 38,598. **This brief follows ruling (g)**: the
@@ -2035,7 +2161,8 @@ with where the body carries the fact and its command, or **Open**).
    (`Rasteratops hits 61 files 27`, its case rule unread) -- different
    populations, trees and case rules. `maxengel` is `28` in R2 C8 and in R5
    C22 (`28 in 6`). **This brief quotes each with its population and has the
-   lane print its own** (open mark 20).
+   lane print its own** (open mark 20). **Settled** (proof K103, K104): R2 C8
+   counts occurrences.
 8. **What is a ledger.** R1 C16 classes 15 (L1 the 12 under `docs/reviews/`,
    L2 `vm-qa-log.md`, `cloud-sync-changelog.md`, `catalog.md`); R2 § 0's kinds
    put the queue-reconciliation packet beside `docs/reviews/`, the VM log and
@@ -2044,8 +2171,8 @@ with where the body carries the fact and its command, or **Open**).
    `generated`; R5 § 0 adds `map.txt` and `rc-accept.txt` as tool inputs.
    **Ruling (a) decides**: the twelve, the catalog, `map.txt`,
    `rc-accept.txt`, the two running logs, `plans/` and the 31 binaries;
-   `docs/upstream/` is read-only by ruling (n); `p0-sweep-hits.txt` is open
-   mark 25.
+   `docs/upstream/` is read-only by ruling (n); `p0-sweep-hits.txt` was open
+   mark 25, **settled** at version 2 as a ledger row.
 9. **What is a reference document.** R2 § 0's `49` reference documents proper
    (13,372 lines), R1 C16's `R-fork-reference 108 paths 17443 lines` and R3
    C17's `reference 81` are three classifications of different kinds. **This
@@ -2055,7 +2182,8 @@ with where the body carries the fact and its command, or **Open**).
     same set with and without `p1-survey.md`, a member. Not a disagreement.
 11. **`docs/cloud-saves-native-wizard`**: a candidate dead path in this tree
     for R3 (C17), another repository's path for R2 (L-18). **L-13 takes
-    both**: absent here, its existence there open (open mark 9).
+    both**: absent here, its existence there open (open mark 9). **Settled** for
+    R2 (X02): a branch of the site checkout, an `external` entry.
 12. **What R4 left open and R1 settles**: whether another `docs/reviews/**`
     path is among the 254 (R4 § 0) -- twelve are (R1 C06); and #686's *"190
     lines read"* (R4 § 0) -- the two `CODE` rows, `generate.py` and
@@ -2072,7 +2200,8 @@ with where the body carries the fact and its command, or **Open**).
     instances R2 and R3 found sit in `docs/cloud-sync-changelog.md`, a ledger
     row under ruling (a). **This brief applies (a) to the changelog and (l) to
     any instance the identity step finds in the edit scope** (L-23; none in R3
-    C18's reference class).
+    C18's reference class). **Settled** (proof K64): the links sit in the
+    changelog alone.
 16. **`README.md`'s release sentence**: `:9-10` for R2 (L-14), `:7-10` for R4
     (item 16). The same sentence; L-02's grep settles the line.
 17. **The binaries**: R1 C19's `31` by the inventory's `lines` `None` and R5
@@ -2091,8 +2220,9 @@ file as written to the kit, each command's own line):
   § 7's lines here (the tracker is not read): `boxes 27 fail 0`, after a planted two-checkbox file printed `boxes 2 fail 1`.
 - The open marks outside this section
   (`sed '/^## Version 1: what the drafting/,$d'` then `/usr/bin/grep -o` of
-  the mark, counted by `/usr/bin/grep -c ''`): `37`, the header's and §
-  5's two sentences explaining the mark among them; the open items listed
+  the mark, counted by `/usr/bin/grep -c ''`): `37` occurrences on `36` lines
+  (proof C12: `[unverified] lines 36 occurrences 37`), the header's and § 5's
+  two sentences explaining the mark among them; the open items listed
   above (`/usr/bin/grep -c -E '^[0-9]+\. \*\*'` between this section's heading
   and its second bold paragraph): `25`.
 - Unfilled placeholders (`/usr/bin/grep -c -E '__[A-Z0-9_]+__'`):
@@ -2109,3 +2239,151 @@ file as written to the kit, each command's own line):
 
 Version 1, 2026-11-01 03:48:37 UTC, written from the five research files for the
 coordinator's dispatch; the stranger's proof of it makes version 2
+
+## Version 2: corrections from the proof
+
+The stranger's proof of version 1 (`/workspace/tmp/m6-coordinator/kit/t39-proof.md`,
+in no tree, 443 lines) read the brief at `a0fb117b8b` by hash and closed on
+its own totals line `checks 125; PASS 107; MISMATCH 13; SETTLED 3; NOTE 2;
+corrections 12` (its C16; `K ids distinct 125, X ids distinct 12`). Each
+correction is applied in the body at the line the proof names, under the
+coordinator's rulings (D-WORKFLOW-189): the line is version 1's at
+`a0fb117b8b`, the words are the old and the new, and the command is the
+proof's.
+
+| X | Version 1 line(s) | Old words | New words | The proof's command |
+| --- | --- | --- | --- | --- |
+| **X01** | `:649`, `:728-729`, `:1206`, `:1209`, `:1497` | *"Expected with the defaults (`bash .qa-scratch/t39/split.sh`, R1 C16)"*; the two stage-A `split.sh` runs under `export LC_ALL=C` | the expected lines are `en_US.UTF-8`'s: both stage-A `split.sh` runs are prefixed `LC_ALL=en_US.UTF-8` (the ruling names `:1206`; the dispatch-tip run at `:1209` follows so the `diff` after them compares like with like), `export LC_ALL=C` stays for the greps and counts, § 2 says in one sentence why (`split.sh`'s `sort` under `C` puts the three upper-case `P1 grep -c group R` lines first), and § 7's criterion names the locale; `block.sh` unchanged (equal under both, K04) | C2: `split.sh` with the defaults under `LC_ALL=C`, its `diff` against `:653-704` printing `29a30,32`, `38d40`, `41,42d42`; C3: `LANG=en_US.UTF-8`, `SPLIT(defaults, default locale) = expected` (K06, K121); `v2 read`: the same diff and the same equality |
+| **X02** | `:960`, `:994`, `:995`, `:1000`, `:1067`, `:1369-1370`, `:1747` | *"R3's four real dead paths"*; L-14 *"a generator tool that is not in the tree"*, disposition **fix**; L-19 *"an absent tool in a historical artifact's README"*; Q6 *"the four dead backticked paths"*; *"the four candidates of L-13, L-14, L-19 and L-20 FAIL until fixed or ruled"* | one real absent in-tree path (`packages/rocknix`, L-20) and three names ruled external: L-14 and L-19 are `allow-legit` `external` entries (the splash repositories' wordmark tools, named on their own lines as another repository's), L-14's disposition **record** (a § Coverage `none`: the README already says where the tool lives), L-13's `docs/cloud-saves-native-wizard` `external` (a branch of the site checkout); disagreement 11 settles for R2; the `paths` step's baseline is the external classes plus the one real candidate | C7, C8: `docs/pixelelated/art/README.md:20-21` (*"generated by `pixelelated/splash` `tools/pixelelated-wordmark`"*), `docs/rasteratops/art/README.md:8` (*"by `rasteratops/splash`'s `tools/rasteratops-wordmark`"*), `docs/pixelelated/site-plan.md:69-70` and the appendix `:3` (K55, K56) |
+| **X03** | `:1019`, `:1244`, `:1293`, `:1504` | L-38 *"none at the tip by R3 C23"*; `cites` *"expect no unresolved line"*; the `713 IDs` comment *"the dispatch's own row moves the count"*; § 7 *"the decision IDs with no `UNRESOLVED` line"* | D-WORKFLOW-188 named in all four: the 223 at P1 cite it (`docs/reviews/p1-tracking.md:56`, `:500`) and its row lives on P1's branch alone; ruling (p)'s merge of `feature/m6-p1-survey-641` (`2174265e9c`) into the coordinator's branch before dispatch carries the row into the register, the coordinator runs `tools/register-check` after the merge and records it, so at the dispatch tip the `cites` step expects no line; an `UNRESOLVED D-WORKFLOW-188` at dispatch is the coordinator's finding, never the lane's | C8: `D-IDs named (distinct) 438 occurrences 1280 unresolved ['D-WORKFLOW-188']`; C10: the two citing lines; C12: `P1 register rows D-WORKFLOW-188: 1; a0fb rows: 0` (K79, K122) |
+| **X04** | `:1500` | ``/usr/bin/grep -o -E 'L-[0-9]{2}' 02-forward-audit.md`` prints `46` | ``/usr/bin/grep -o -w -E 'L-[0-9]{2}'`` (without `-w` the `711` of L-08's `MAP-TAIL-711-END` reads as a lead id) | C12, C13: `L-NN distinct anywhere 47` on the brief (K120) |
+| **X05** | `:875` | `es-ui-style-guide.md:21` (the checker sentence), `:59` (the entrypoint) | `es-ui-style-guide.md:59` and `:66` | C6, C10: `:21` the companion line, `:59` *"`es-menu-map-check` detects missing screen titles, not stale copy or screenshot"*, `:66` *"The menu map's visual-evidence section is the entrypoint."* (K96) |
+| **X06** | `:1043`, `:1596` | `README.md:20` | `README.md:21` (`:20` is blank) | C7, C8: `21:The next candidate uses the lowercase pixelelated wordmark in Tiny5 Duo LCD.` (K33) |
+| **X07** | `:1598` | D-WORKFLOW-157 to -160 at `:670`, `:672`, `:674`, `:676` | `:670`, `:672`, `:676` (D-WORKFLOW-159), `:674` (D-WORKFLOW-160) | C5: `D-WORKFLOW-159 676 676; D-WORKFLOW-160 674 674` (K92) |
+| **X08** | `:1012` | *"fork-own from `a19831ebf6` 2026-08-21, never updated"* | *"added by `a6b28a469f` and last changed by `a19831ebf6`, both 2026-08-21, not updated since"* | C3, C4: `--diff-filter=A` prints `a6b28a469f 2026-08-21 GENERIC_X64 - syslinux: install ldlinux.c32 (BIOS boot for syslinux 6.x)`; `a19831ebf6` changed it (`4 ++--`); 2 commits (K36); `v2 read`: `git log --format='%h %cs' 2174265e9c -- <the file>` prints 2 lines |
+| **X09** | `:149` | *"143 of the 254 have one commit in their whole history"* | *"144 of the 254 have one commit in their whole history (`one-commit paths: 144`, every commit at the P1 tip, ...)"*, the loop named in place; R1 C09's non-merge rule, over the commits reachable from `e3fb3dfe00`, prints 145 one-commit and 8 zero-commit paths | C3: `one-commit paths: 144`; C13: `non-merge one-commit paths at 2174265e9c: 144`; C12: `one-commit 145; zero 8` (K25); `v2 read`: the named loop prints `one-commit paths: 144` |
+| **X10** | `:1017` | *"two say "Two more documents" load nowhere"* | *"`CLAUDE.md:34` says "Two more documents" and `AGENTS.md:31` "Two documents" load nowhere"* | C6, C10: `CLAUDE.md:34` *"Two more documents carry interface law and load *nowhere*"*; `AGENTS.md:31` *"Two documents carry interface law and are loaded by no rule"* (K76) |
+| **X11** | `:985` | `docs/pixelelated/cloud-folder-flow-review.md:272` listed among the other reference-class hits as *"(consistent with the retirement)"* | a hit of R3's looser heuristic (*folder migration*), consistent with the retirement, not of L-04's check words | C7, C8: `cloud_migrate_layout at:` prints nothing for the file; `:272` reads *"... return to the caller without scheduling a folder migration."* (K46) |
+| **X12** | `:1004`, `:1559` (and `:1027`, L-46's same short form) | `image-completeness/fix.patch:64` | `docs/upstream/raofflineproxy/image-completeness/fix.patch:64` | C7, C8: `docs/upstream/image-completeness/fix.patch` does not exist; the file is under `raofflineproxy/`, its `:64` *"+    F-RA-12). Written for ROCKNIX (fork maxengel/rocknix#213)."* (K65) |
+
+Beside the twelve, **the register moved under the brief**: D-WORKFLOW-219,
+which version 1 reserved for this slice's ownership row, is T38's stage-D
+pause dispositions row (#685, #1394; written 2026-11-01), so every
+`D-WORKFLOW-219` that meant T39's row -- `:65`, `:1611-1614`, the draft row at
+`:1622`, the pointer's `Register:` key at `:1804` -- now reads
+**D-WORKFLOW-220**, and the places that list the highest decided IDs (§ 9, the
+pointer's `Register:` key, the register-check comment of § 5) name
+D-WORKFLOW-219 as T38's dispositions row. `v2 read` at the coordinator's tip
+`b344408e46`:
+`awk '/^## Open decisions/{exit} /^\| D-[A-Z]+-[0-9]+ /{print $2}' docs/decision-register.md | awk -F- '{n=$3+0; if(n>m[$2]) m[$2]=n} END{for(a in m) printf "D-%s-%03d\n", a, m[a]}' | sort`
+prints `D-CLOUD-193`, `D-INFRA-031`, `D-LAUNCH-007`, `D-NET-017`, `D-QA-063`,
+`D-RA-052`, `D-SYS-013`, `D-UI-137`, **`D-WORKFLOW-219`**, one per line; the
+register there is 798 lines, the row at `:779`, `## Open decisions` at `:781`.
+Two NOTEs of the proof for the coordinator at dispatch, not corrections: K39,
+`docs/reviews/README.md:10` differs between P1 (*"any reading-order
+prerequisite (the renovation gates no release, D-WORKFLOW-187)"*) and the
+coordinator's branch (*"the release it gates"*), so ruling (p)'s merge meets
+two versions of that row; and K19, the `rest` selector reaches `329` paths at
+`a0fb117b8b` (`83` briefs added), so the dispatch tip's split prints at least
+83.
+
+**The coordinator's two rulings on the open items that were theirs:**
+
+- **Open item 21, the art bytes** (ruling (o) in § 1; § 5's art paragraph and
+  runs block; `t39-checks.sh`'s `binaries` step; § 6's `02` row; § 7's
+  binaries criterion; § 9's row draft): the ruling is widened -- the 31
+  binaries **and** the 18 art text files (`docs/pixelelated/art/**`'s SVG,
+  JSON, CSS, `generate.py` and the two `Tiny5-OFL.txt`, and
+  `docs/rasteratops/art/*.svg`; the stage-A `CARVE art-bytes 18` class, proof
+  K26 and `v2 read`) are tabled by name, size and sha256 and never edited by
+  T39; the two art READMEs are that area's reference documents; a finding in
+  an art source is routed to the splash repository (external), a licence
+  text's to #528. The runs block tables the 18 beside the 31 (its `awk` over
+  the block's TSV prints `18`, `v2 read`), the `binaries` step covers both, and
+  `02` gains § Art bytes with 18 rows.
+- **Open item 25, `docs/rasteratops/p0-sweep-hits.txt`** (ruling (a)'s ledger
+  list; § 2's groups table; § 5's `CARVE` and removal check; § 7's ledger
+  criterion; § 9's row draft; L-23): moved from the edit scope to the ledger
+  class -- a generated classification baseline (`NAMING.md:30` names it so),
+  2,419 lines, whose 20 `maxengel/rocknix` lines are the sweep's hits as it
+  found them, not references to correct; tabled as a ledger, read-only,
+  findings to the coordinator. The carve's `NAMED` set gains the path and the
+  class sizes were re-derived by the command, never adjusted by hand (`v2
+  read` at `2174265e9c`, from the block's `block-2.txt`): `CARVE art-bytes 18`,
+  `edit-scope 68`, `edit-under-naming 1`, `ledger-binary 31`, `ledger-named 6`,
+  `ledger-plan 1`, `ledger-reviews 12`, `read-only-528 1`, `read-only-585 27`,
+  `read-only-upstream 88`, `tabled-generic-x64 1`, `CARVE total 254` --
+  version 1's lines, the proof's K26, read `edit-scope 69` and `ledger-named 5`.
+  `v2 read`: `git -C "$W" show 2174265e9c:docs/rasteratops/p0-sweep-hits.txt | /usr/bin/grep -c ''`
+  prints `2419` and `| /usr/bin/grep -c 'maxengel/rocknix'` prints `20`.
+
+**The 25 open items of version 1, their state after the proof and the
+rulings** (each is also annotated in place in the Version 1 section; the
+proof's partial settlements -- items 7, 11, 18, 23 -- are in the state column):
+
+| # | Item | State |
+| ---: | --- | --- |
+| 1 | ruling (a)'s class sizes | **Settled**: K26's `CARVE` lines (`CARVE total 254`); re-derived for version 2 with `p0-sweep-hits.txt` in the ledger (§ 1 (a), § 5) |
+| 2 | which of the 254 claim a guest behaviour | **Open**: the lane's stage B (§ 5 keeps its mark) |
+| 3 | the dispatch tip's split lines | **Open**: the lane's stage A, under `LC_ALL=en_US.UTF-8` (X01); at `a0fb117b8b` `8 absent`, `3 changed`, `1 same`, `329` reached, `83` added (K11, K19) |
+| 4 | the worktree's `renovation-inventory` | **Open**: the lane's stage A; the clone run reproduced R1 C02 with the status unchanged (K20) |
+| 5 | `box-check`, `ceremony-check`, `hooks-test` | **Open**: the lane's stage A; `box-check`'s predicate over § 7 printed `brief s7 boxes 27 fail 0` (K118) |
+| 6 | the lint's Local proof | **Settled**: K111's three lines, now § 5's `# STAGE A` expectations |
+| 7 | L-04 | **Settled** for D-CLOUD-175 (`0` and `0`, K45); the ten join/follow lines stay open, the lane's stage B |
+| 8 | L-12 | **Settled**: `0` (K54) |
+| 9 | L-13 | **Open** (outside the tree): the lane's stage B reads a local checkout where one is present, never a fetch; the name itself is `external` (X02) |
+| 10 | L-16 | **Settled**: `0`, so **fix** (K58) |
+| 11 | L-17 | **Settled in part**: the IA is at rev 6, past #23's rev 5 (K59); the text against the four rows is the lane's stage B |
+| 12 | L-23 | **Settled**: the changelog alone (K64) |
+| 13 | L-24 | **Open**: the lane's stage B (`tools/archaeology --no-gh 'KEEP CLOUD'`) |
+| 14 | L-26 | **Settled**: `9` (K68) |
+| 15 | L-38 | **Settled** with a finding: X03 |
+| 16 | L-39 | **Settled**: nothing printed, so **inherited:#1013** (K80) |
+| 17 | L-45 | **Settled**: equal to #359's two (K85) |
+| 18 | L-37 | **Settled in part**: the sentence present and `errat` 0 (K78); the erratum is written at dispatch and read back at stage A |
+| 19 | the export's count at the dispatch tip | **Open**: the lane's stage A; at P1 `of the 254 absent: 0` (C11) |
+| 20 | R2 C8 lines or occurrences | **Settled**: occurrences (K104); the lane's loop prints lines and files beside them |
+| 21 | the art bytes as a ruling | **Settled**: ruling (o) widened to the 18 art text files (above) |
+| 22 | T39's merge order | **Settled** at dispatch, as § 8 says: ruling (p)'s order before dispatch, the coordinator's at acceptance after |
+| 23 | the host file's path | **Settled**: `/workspace/tmp/m7-m6-host-coordination.txt` (T38's brief `:1106`, `:1674`; 710 lines at C10's read); the dispatch comment names it and records its line count |
+| 24 | the read order | **Settled** at dispatch: the dispatch comment names it; § 2's table stands unless it moves a row |
+| 25 | `docs/rasteratops/p0-sweep-hits.txt` | **Settled**: a ledger row (above) |
+
+By `/usr/bin/grep -c` over the rows above: `18` begin **Settled**
+(two of them, 11 and 18, in part; 7 for its first half), `7` begin
+**Open**. The disagreements' states are annotated in the Version 1 section:
+the proof confirmed 1, 5, 6, 8, 9, 10, 12, 13, 14, 16 and 17 as this brief
+takes them (K115) and settled 2, 3, 4, 7, 11 and 15 (K116, K117).
+
+**Not checked by the proof, kept as the research printed them and not
+marked** (its own list): L-07's labels and `CHANGE CLOUD FOLDER` at the pin
+`16dbac5211` (no EmulationStation checkout among its sources); L-13's seven
+pages in `ROCKNIX/rocknix.org`; L-24's deciding row (`tools/archaeology`);
+L-18's `R/O/D/W` inbound columns and `files=17` (the 17's line sum `2135`
+reproduces, K60; the proof's own pattern caught an eighteenth candidate,
+`save-history-consensus-amendment.md`, 116 lines -- the generator's inbound
+columns decide); `tools/box-check`, `tools/ceremony-check`,
+`.githooks/hooks-test` and `tools/prose-check --self-test` as runs; every
+dispatch-tip expectation; L-09's 2026-10-16 transfer to `077197`; L-33's
+`b5aad48cbe` on `remotes/legacy/m7-audit-integration-603`; T38's session name
+`m6-t5-build-engine`; T4's PL-24 row past 165 characters; R5's newline counts
+`46327` and `46404`; R3 C17's own `40` (`30` distinct) and R3 C18's class
+counts; the guest-behaviour sentences (open item 2).
+
+**Checks on this file, version 2**, each the command's own output, run from
+the coordinator's worktree on the file as written (`LC_ALL=C`, counts by
+`/usr/bin/grep`):
+
+- `/usr/bin/grep -c ''` prints `2389`.
+- The leads, in § 3's row shape (`/usr/bin/grep -c -E '^\| (\*\*)?L-[0-9]+(\*\*)? \|'`): `46` rows; `/usr/bin/grep -o -w -E 'L-[0-9]{2}' | sort -u | /usr/bin/grep -c ''`: `46` distinct IDs (without `-w`: `47`, X04's own case, the `711` of `MAP-TAIL-711-END`).
+- § 7's checkboxes (`awk '/^## 7\. /{p=1;next} /^## /{p=0} p' | /usr/bin/grep -c '^- \[ \]'`): `27`; `tools/box-check`'s own predicate, its `PERSON`, `DEVICE`, `FACT` and `BOX` patterns read from its source at `b344408e46` (`:44-47`) and applied as its `:92-93` apply them over § 7's lines here (the tracker is not read): `boxes 27 fail 0`, after a planted two-checkbox list printed `boxes 2 fail 1`.
+- The open marks (`/usr/bin/grep -c '\[unverified\]'`): `19` lines on this file, `18` of them outside the Version 1 section (version 1 had `36` lines, `37` occurrences): the two sentences that define the mark (the header, § 5 rule 3), the two *"or marked"* sentences (§ 5's `# STAGE A` intro and the runs' closing paragraph), and the open items' own marks -- ruling (q)'s guest sentence, § 2's dispatch-tip lines and the tool's row, § 3 item 5's three unrun checks, L-04's ten join/follow lines, L-13's pages, L-17's text, L-24's deciding row, § 5's guest claims, the split's `tip:` lines, `ceremony-check`, the export's count, `hooks-test` and `box-check`; inside the Version 1 section the one occurrence is the proof's quoted count line.
+- Unfilled placeholders (`/usr/bin/grep -c -E '__[A-Z0-9_]+__'`): `0`.
+- `D-WORKFLOW-220` on `7` lines (§ 1's header paragraph, § 5's register-check comment, § 9's text and row draft, the pointer's `Register:` key); `D-WORKFLOW-219` on `13` lines, each naming T38's dispositions row or the register's state, none this slice's.
+- § 2's two blocks, extracted from between their markers: `block.sh` 130 lines, sha256 prefix `e81453b6732cdea8`; `split.sh` 46 lines, `afb1909c5cdc6c88` -- byte-identical to version 1's and R1's; the three expected blocks byte-identical to version 1's (sha256 prefixes of the marked segments `9fdc39dffd7e429e`, `fd5c6b775ab8209d`, `a3956e5a2a2216d3`); `bash -n` over the file's `4` `bash` blocks: rc `0` each.
+- The `CARVE` python extracted from § 5's `# STAGE A` block and run in scratch against the block's `block-2.txt` prints the twelve expected lines written beside it, `CARVE total 254` last; `split.sh` extracted from § 2 and run with the defaults prints § 2's expected block under `LC_ALL=en_US.UTF-8` (`diff` empty) and three moved lines under `LC_ALL=C` (`29a30,32`, `38d40`, `41,42d42`); `block.sh` prints the same under both.
+- The hooks' credential regex, built as `.githooks/guard-lib` builds it -- `SECRET_PATTERNS=''`, then `.githooks/secret-patterns` sourced from `git show HEAD:` into a scratch file, then `grep -E -e "$SECRET_PATTERNS"`, never `-f`, never `guard_load` -- compile rc `1`, a private-key header line assembled at run time matched `1`, the file matched `0`.
+- `tools/forbidden-terms-check --stdin < <this file>` from the coordinator's worktree: `forbidden-terms-check: 0 hits on stdin`, rc `0`; the planted positive through `FORBIDDEN_PATTERNS`: `forbidden-terms-check: 1 line(s) on stdin carry a listed word`, rc `1` (the list itself never read).
+- `tools/register-check` from the coordinator's worktree: rc `0`, its line `register-check: 714 IDs, each once; every citation in the live documents names a row`.
+
+Version 2, 2026-11-01 04:48:47 UTC, after the stranger's proof of version 1
