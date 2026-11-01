@@ -1,0 +1,102 @@
+distribution head: eb4763e3cc9bcd729830cd85f1719bbd4f28db10
+distribution merge_base: c445081a59518f37d9776e5412dd7b14910696f7
+distribution upstream: upstream/next c1f1746828ca47dfc751ffe44bb47b6b259883d7
+columns: ['tree', 'path', 'area', 'tier', 'tier_note', 'overlap', 'language', 'lines', 'patches', 'last_fork_commit', 'last_upstream_commit', 'reach', 'reachable_by', 'buildable_by', 'shadowed_by']
+mine: 15 paths.txt: 0 equal: False
+only-mine: ['projects/ROCKNIX/packages/ui/emulationstation/autostart/001-emulationstation', 'projects/ROCKNIX/packages/ui/emulationstation/config/common/es_features.cfg', 'projects/ROCKNIX/packages/ui/emulationstation/config/common/es_input.cfg', 'projects/ROCKNIX/packages/ui/emulationstation/config/common/es_savestates.cfg', 'projects/ROCKNIX/packages/ui/emulationstation/config/common/es_settings.cfg', 'projects/ROCKNIX/packages/ui/emulationstation/package.mk', 'projects/ROCKNIX/packages/ui/emulationstation/sources/es_settings', 'projects/ROCKNIX/packages/ui/emulationstation/sources/serial_number_check', 'projects/ROCKNIX/packages/ui/emulationstation/sources/start_es.sh', 'projects/ROCKNIX/packages/ui/emulationstation/system.d/emustation.service', 'projects/ROCKNIX/packages/ui/emulationstation/system.d/essway.service', 'projects/ROCKNIX/packages/ui/lowerdeck/package.mk', 'projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/package.mk', 'projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/sources/Tiny5-OFL.txt', 'projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/sources/pixelelated-wordmark.svg']
+only-paths.txt: []
+lines: 4561 reach: {'shipped': 15} tier: {'upstream-carried': 9, 'fork-own': 6} lang: {'shell': 4, 'config': 4, 'recipe': 3, 'systemd': 2, 'text': 1, 'image': 1}
+fork-own lines: 572
+read lines: 327 of which fork-own: 190 vendor-carried lines: 0
+TSV
+tree	path	area	tier	tier_note	overlap	language	lines	patches	last_fork_commit	last_upstream_commit	reach	reachable_by	buildable_by	shadowed_by
+distribution	projects/ROCKNIX/packages/ui/emulationstation/autostart/001-emulationstation	interface	upstream-carried	None	False	shell	13	None	None	9f1fab30f6 2025-07-13	shipped	['GENERIC_X64-x86_64', 'H700-aarch64', 'SM8550-aarch64']	['AMD64-x86_64', 'RK3326-aarch64', 'RK3399-aarch64', 'RK3566-aarch64', 'RK3576-aarch64', 'RK3588-aarch64', 'S922X-aarch64', 'SM4450-aarch64', 'SM6115-aarch64', 'SM8250-aarch64', 'SM8650-aarch64', 'SM8750-aarch64']	None
+distribution	projects/ROCKNIX/packages/ui/emulationstation/config/common/es_features.cfg	interface	upstream-carried	None	False	config	2039	None	None	c4d353449e 2026-10-18	shipped	['GENERIC_X64-x86_64', 'H700-aarch64', 'SM8550-aarch64']	['AMD64-x86_64', 'RK3326-aarch64', 'RK3399-aarch64', 'RK3566-aarch64', 'RK3576-aarch64', 'RK3588-aarch64', 'S922X-aarch64', 'SM4450-aarch64', 'SM6115-aarch64', 'SM8250-aarch64', 'SM8650-aarch64', 'SM8750-aarch64']	None
+distribution	projects/ROCKNIX/packages/ui/emulationstation/config/common/es_input.cfg	interface	upstream-carried	None	False	config	1810	None	None	59d4771b90 2026-07-17	shipped	['GENERIC_X64-x86_64', 'H700-aarch64', 'SM8550-aarch64']	['AMD64-x86_64', 'RK3326-aarch64', 'RK3399-aarch64', 'RK3566-aarch64', 'RK3576-aarch64', 'RK3588-aarch64', 'S922X-aarch64', 'SM4450-aarch64', 'SM6115-aarch64', 'SM8250-aarch64', 'SM8650-aarch64', 'SM8750-aarch64']	None
+distribution	projects/ROCKNIX/packages/ui/emulationstation/config/common/es_savestates.cfg	interface	fork-own	None	False	config	26	None	efb8aec861 2026-09-24	None	shipped	['GENERIC_X64-x86_64', 'H700-aarch64', 'SM8550-aarch64']	['AMD64-x86_64', 'RK3326-aarch64', 'RK3399-aarch64', 'RK3566-aarch64', 'RK3576-aarch64', 'RK3588-aarch64', 'S922X-aarch64', 'SM4450-aarch64', 'SM6115-aarch64', 'SM8250-aarch64', 'SM8650-aarch64', 'SM8750-aarch64']	None
+distribution	projects/ROCKNIX/packages/ui/emulationstation/config/common/es_settings.cfg	interface	upstream-carried	None	False	config	3	None	None	9f1fab30f6 2025-07-13	shipped	['GENERIC_X64-x86_64', 'H700-aarch64', 'SM8550-aarch64']	['AMD64-x86_64', 'RK3326-aarch64', 'RK3399-aarch64', 'RK3566-aarch64', 'RK3576-aarch64', 'RK3588-aarch64', 'S922X-aarch64', 'SM4450-aarch64', 'SM6115-aarch64', 'SM8250-aarch64', 'SM8650-aarch64', 'SM8750-aarch64']	None
+distribution	projects/ROCKNIX/packages/ui/emulationstation/package.mk	interface	fork-own	None	True	recipe	141	1	f8636de1d1 2026-10-15	a94a2e0bde 2026-10-23	shipped	['GENERIC_X64-x86_64', 'H700-aarch64', 'SM8550-aarch64']	['AMD64-x86_64', 'RK3326-aarch64', 'RK3399-aarch64', 'RK3566-aarch64', 'RK3576-aarch64', 'RK3588-aarch64', 'S922X-aarch64', 'SM4450-aarch64', 'SM6115-aarch64', 'SM8250-aarch64', 'SM8650-aarch64', 'SM8750-aarch64']	None
+distribution	projects/ROCKNIX/packages/ui/emulationstation/sources/es_settings	interface	upstream-carried	None	False	shell	52	None	None	9f1fab30f6 2025-07-13	shipped	['GENERIC_X64-x86_64', 'H700-aarch64', 'SM8550-aarch64']	['AMD64-x86_64', 'RK3326-aarch64', 'RK3399-aarch64', 'RK3566-aarch64', 'RK3576-aarch64', 'RK3588-aarch64', 'S922X-aarch64', 'SM4450-aarch64', 'SM6115-aarch64', 'SM8250-aarch64', 'SM8650-aarch64', 'SM8750-aarch64']	None
+distribution	projects/ROCKNIX/packages/ui/emulationstation/sources/serial_number_check	interface	upstream-carried	None	False	shell	27	None	None	27b4e05b5e 2026-08-18	shipped	['GENERIC_X64-x86_64', 'H700-aarch64', 'SM8550-aarch64']	['AMD64-x86_64', 'RK3326-aarch64', 'RK3399-aarch64', 'RK3566-aarch64', 'RK3576-aarch64', 'RK3588-aarch64', 'S922X-aarch64', 'SM4450-aarch64', 'SM6115-aarch64', 'SM8250-aarch64', 'SM8650-aarch64', 'SM8750-aarch64']	None
+distribution	projects/ROCKNIX/packages/ui/emulationstation/sources/start_es.sh	interface	upstream-carried	None	False	shell	8	None	None	0c43a50420 2026-10-01	shipped	['GENERIC_X64-x86_64', 'H700-aarch64', 'SM8550-aarch64']	['AMD64-x86_64', 'RK3326-aarch64', 'RK3399-aarch64', 'RK3566-aarch64', 'RK3576-aarch64', 'RK3588-aarch64', 'S922X-aarch64', 'SM4450-aarch64', 'SM6115-aarch64', 'SM8250-aarch64', 'SM8650-aarch64', 'SM8750-aarch64']	None
+distribution	projects/ROCKNIX/packages/ui/emulationstation/system.d/emustation.service	interface	upstream-carried	None	False	systemd	20	None	None	a98a3066f5 2026-10-04	shipped	['GENERIC_X64-x86_64', 'H700-aarch64', 'SM8550-aarch64']	['AMD64-x86_64', 'RK3326-aarch64', 'RK3399-aarch64', 'RK3566-aarch64', 'RK3576-aarch64', 'RK3588-aarch64', 'S922X-aarch64', 'SM4450-aarch64', 'SM6115-aarch64', 'SM8250-aarch64', 'SM8650-aarch64', 'SM8750-aarch64']	None
+distribution	projects/ROCKNIX/packages/ui/emulationstation/system.d/essway.service	interface	fork-own	None	True	systemd	21	None	c6afa31db1 2026-10-09	a98a3066f5 2026-10-04	shipped	['GENERIC_X64-x86_64', 'H700-aarch64', 'SM8550-aarch64']	['AMD64-x86_64', 'RK3326-aarch64', 'RK3399-aarch64', 'RK3566-aarch64', 'RK3576-aarch64', 'RK3588-aarch64', 'S922X-aarch64', 'SM4450-aarch64', 'SM6115-aarch64', 'SM8250-aarch64', 'SM8650-aarch64', 'SM8750-aarch64']	None
+distribution	projects/ROCKNIX/packages/ui/lowerdeck/package.mk	interface	upstream-carried	None	False	recipe	17	0	None	e0a68c95bd 2026-08-25	shipped	['GENERIC_X64-x86_64', 'H700-aarch64', 'SM8550-aarch64']	['AMD64-x86_64', 'RK3326-aarch64', 'RK3399-aarch64', 'RK3566-aarch64', 'RK3576-aarch64', 'RK3588-aarch64', 'S922X-aarch64', 'SM4450-aarch64', 'SM6115-aarch64', 'SM8250-aarch64', 'SM8650-aarch64', 'SM8750-aarch64']	None
+distribution	projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/package.mk	interface	fork-own	None	False	recipe	28	3	a9af618398 2026-10-04	e0a68c95bd 2026-08-25	shipped	['GENERIC_X64-x86_64', 'H700-aarch64', 'SM8550-aarch64']	['AMD64-x86_64', 'RK3326-aarch64', 'RK3399-aarch64', 'RK3566-aarch64', 'RK3576-aarch64', 'RK3588-aarch64', 'S922X-aarch64', 'SM4450-aarch64', 'SM6115-aarch64', 'SM8250-aarch64', 'SM8650-aarch64', 'SM8750-aarch64']	None
+distribution	projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/sources/Tiny5-OFL.txt	interface	fork-own	None	False	text	93	None	3d7c075f63 2026-10-02	None	shipped	['GENERIC_X64-x86_64', 'H700-aarch64', 'SM8550-aarch64']	['AMD64-x86_64', 'RK3326-aarch64', 'RK3399-aarch64', 'RK3566-aarch64', 'RK3576-aarch64', 'RK3588-aarch64', 'S922X-aarch64', 'SM4450-aarch64', 'SM6115-aarch64', 'SM8250-aarch64', 'SM8650-aarch64', 'SM8750-aarch64']	None
+distribution	projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/sources/pixelelated-wordmark.svg	interface	fork-own	None	False	image	263	None	b137d8c373 2026-10-04	None	shipped	['GENERIC_X64-x86_64', 'H700-aarch64', 'SM8550-aarch64']	['AMD64-x86_64', 'RK3326-aarch64', 'RK3399-aarch64', 'RK3566-aarch64', 'RK3576-aarch64', 'RK3588-aarch64', 'S922X-aarch64', 'SM4450-aarch64', 'SM6115-aarch64', 'SM8250-aarch64', 'SM8650-aarch64', 'SM8750-aarch64']	None
+CLAIMS
+projects/ROCKNIX/packages/ui/emulationstation/autostart/001-emulationstation in-T37 non-rest [('es-recipe', 37)] tier upstream-carried lines 13 lang shell area interface
+projects/ROCKNIX/packages/ui/emulationstation/config/common/es_features.cfg in-T37 non-rest [('es-recipe', 37)] tier upstream-carried lines 2039 lang config area interface
+projects/ROCKNIX/packages/ui/emulationstation/config/common/es_input.cfg in-T37 non-rest [('es-recipe', 37)] tier upstream-carried lines 1810 lang config area interface
+projects/ROCKNIX/packages/ui/emulationstation/config/common/es_savestates.cfg in-T37 non-rest [('es-recipe', 37)] tier fork-own lines 26 lang config area interface
+projects/ROCKNIX/packages/ui/emulationstation/config/common/es_settings.cfg in-T37 non-rest [('es-recipe', 37)] tier upstream-carried lines 3 lang config area interface
+projects/ROCKNIX/packages/ui/emulationstation/package.mk in-T37 non-rest [('es-recipe', 37)] tier fork-own lines 141 lang recipe area interface
+projects/ROCKNIX/packages/ui/emulationstation/patches/x86_64/cpugov.patch not-in-T37 non-rest [('patches-dead', 40)] tier vendor-carried lines 27 lang patch area patches-and-configs
+projects/ROCKNIX/packages/ui/emulationstation/sources/es_settings in-T37 non-rest [('es-recipe', 37)] tier upstream-carried lines 52 lang shell area interface
+projects/ROCKNIX/packages/ui/emulationstation/sources/serial_number_check in-T37 non-rest [('es-recipe', 37)] tier upstream-carried lines 27 lang shell area interface
+projects/ROCKNIX/packages/ui/emulationstation/sources/start_es.sh in-T37 non-rest [('es-recipe', 37)] tier upstream-carried lines 8 lang shell area interface
+projects/ROCKNIX/packages/ui/emulationstation/system.d/emustation.service in-T37 non-rest [('es-recipe', 37)] tier upstream-carried lines 20 lang systemd area interface
+projects/ROCKNIX/packages/ui/emulationstation/system.d/essway.service in-T37 non-rest [('es-recipe', 37)] tier fork-own lines 21 lang systemd area interface
+projects/ROCKNIX/packages/ui/lowerdeck/package.mk in-T37 non-rest [('es-recipe', 37)] tier upstream-carried lines 17 lang recipe area interface
+projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/package.mk in-T37 non-rest [('es-recipe', 37)] tier fork-own lines 28 lang recipe area interface
+projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/patches/0001-system-style-the-logo-text-for-fullscreen-artwork.patch not-in-T37 rest [('patches-shipped', 42)] tier vendor-carried lines 20 lang patch area patches-and-configs
+projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/patches/001-pixelelated-splash.patch not-in-T37 rest [('patches-shipped', 42)] tier vendor-carried lines 31 lang patch area patches-and-configs
+projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/patches/001-tools-always-show-image.patch not-in-T37 rest [('patches-shipped', 42)] tier vendor-carried lines 11 lang patch area patches-and-configs
+projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/sources/Tiny5-OFL.txt in-T37 non-rest [('es-recipe', 37)] tier fork-own lines 93 lang text area interface
+projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/sources/pixelelated-wordmark.svg in-T37 non-rest [('es-recipe', 37)] tier fork-own lines 263 lang image area interface
+projects/ROCKNIX/packages/virtual/es-themes/package.mk not-in-T37 non-rest [('image-packages', 8)] tier upstream-carried lines 9 lang recipe area generic-packages
+projects/ROCKNIX/packages/virtual/image/package.mk not-in-T37 non-rest [('image-packages', 8)] tier upstream-carried lines 113 lang recipe area generic-packages
+docs/qa-logs/2026-10-14-screenscraper-provisioning/attempt02/inputs/baseline/package.mk not-in-T37 non-rest [('records', 46)] tier fork-own lines 135 lang recipe area records
+docs/qa-logs/2026-10-14-screenscraper-provisioning/attempt02/inputs/candidate/package.mk not-in-T37 non-rest [('records', 46)] tier fork-own lines 141 lang recipe area records
+tools/pkgcheck not-in-T37 non-rest [('build-engine-upstream-tools', 6)] tier fork-own lines 169 lang shell area build-engine
+tools/es-menu-map-check not-in-T37 non-rest [('tooling-guards', 10)] tier fork-own lines 200 lang python area tooling-and-guards
+DEPS
+toolchain packages/virtual/toolchain/package.mk non-rest [('generic-packages-reached', 7)] tier upstream-carried
+boost packages/devel/boost/package.mk non-rest [('packages-dead-ends', 23)] tier upstream-carried
+boost projects/ROCKNIX/packages/devel/boost/package.mk non-rest [('image-packages', 8)] tier upstream-carried
+SDL2 projects/ROCKNIX/packages/graphics/SDL2/package.mk non-rest [('image-packages', 8)] tier upstream-carried
+freetype packages/print/freetype/package.mk non-rest [('generic-packages-reached', 7)] tier upstream-carried
+curl packages/web/curl/package.mk non-rest [('generic-packages-reached', 7)] tier upstream-carried
+curl projects/ROCKNIX/packages/web/curl/package.mk non-rest [('image-packages', 8)] tier upstream-carried
+freeimage projects/ROCKNIX/packages/tools/freeimage/package.mk non-rest [('image-packages', 8)] tier upstream-carried
+bash projects/ROCKNIX/packages/sysutils/bash/package.mk non-rest [('os-system-services', 22)] tier upstream-carried
+rapidjson projects/ROCKNIX/packages/devel/rapidjson/package.mk non-rest [('image-packages', 8)] tier upstream-carried
+SDL2_mixer projects/ROCKNIX/packages/audio/SDL2_mixer/package.mk non-rest [('image-packages', 8)] tier upstream-carried
+fping projects/ROCKNIX/packages/network/fping/package.mk non-rest [('image-packages', 8)] tier upstream-carried
+p7zip projects/ROCKNIX/packages/compress/p7zip/package.mk non-rest [('image-packages', 8)] tier upstream-carried
+alsa packages/virtual/alsa/package.mk non-rest [('generic-packages-reached', 7)] tier upstream-carried
+vlc projects/ROCKNIX/packages/multimedia/vlc/package.mk non-rest [('image-packages', 8)] tier upstream-carried
+drm_tool projects/ROCKNIX/packages/sysutils/drm_tool/package.mk non-rest [('os-system-services', 22)] tier upstream-carried
+poppler projects/ROCKNIX/packages/print/poppler/package.mk non-rest [('image-packages', 8)] tier upstream-carried
+pugixml packages/textproc/pugixml/package.mk non-rest [('generic-packages-reached', 7)] tier upstream-carried
+noto-sans-cjk projects/ROCKNIX/packages/fonts/noto-sans-cjk/package.mk non-rest [('image-packages', 8)] tier upstream-carried
+zstd packages/compress/zstd/package.mk non-rest [('generic-packages-reached', 7)] tier upstream-carried
+Python3 packages/lang/Python3/package.mk non-rest [('generic-packages-reached', 7)] tier upstream-carried
+SDL2_image projects/ROCKNIX/packages/devel/SDL2_image/package.mk non-rest [('image-packages', 8)] tier upstream-carried
+SDL2_ttf projects/ROCKNIX/packages/devel/SDL2_ttf/package.mk non-rest [('image-packages', 8)] tier upstream-carried
+RECIPE TREES BY SLICE
+1551 paths 94592 lines ('packages/', 'packages-dead-ends', 'non-rest')
+529 paths 155844 lines ('packages/', 'patches-dead', 'non-rest')
+266 paths 7612 lines ('packages/', 'generic-packages-reached', 'non-rest')
+81 paths 2258 lines ('packages/', 'emulators-dead-ends', 'rest')
+79 paths 4936 lines ('packages/', 'patches-shipped', 'rest')
+40 paths 1174 lines ('packages/', 'devices-unshipped', 'non-rest')
+543 paths 157365 lines ('projects/ROCKNIX/packages/', 'emulators-standalone', 'non-rest')
+485 paths 20644 lines ('projects/ROCKNIX/packages/', 'image-packages', 'non-rest')
+422 paths 16604 lines ('projects/ROCKNIX/packages/', 'os-system-services', 'non-rest')
+344 paths 31961 lines ('projects/ROCKNIX/packages/', 'emulators-libretro', 'non-rest')
+333 paths 10175 lines ('projects/ROCKNIX/packages/', 'os-device-quirks', 'non-rest')
+302 paths 66306 lines ('projects/ROCKNIX/packages/', 'patches-shipped', 'rest')
+83 paths 13327 lines ('projects/ROCKNIX/packages/', 'os-launch-control-state', 'non-rest')
+55 paths 3925 lines ('projects/ROCKNIX/packages/', 'patches-unshipped', 'non-rest')
+53 paths 1300 lines ('projects/ROCKNIX/packages/', 'packages-dead-ends', 'non-rest')
+42 paths 985 lines ('projects/ROCKNIX/packages/', 'device-generic-x64-and-kernel', 'non-rest')
+27 paths 5369 lines ('projects/ROCKNIX/packages/', 'offline-achievements', 'non-rest')
+15 paths 1576 lines ('projects/ROCKNIX/packages/', 'patches-dead', 'non-rest')
+15 paths 1264 lines ('projects/ROCKNIX/packages/', 'devices-unshipped', 'non-rest')
+15 paths 2072 lines ('projects/ROCKNIX/packages/', 'patches-shipped-kernel', 'non-rest')
+15 paths 4561 lines ('projects/ROCKNIX/packages/', 'es-recipe', 'non-rest')
+14 paths 11180 lines ('projects/ROCKNIX/packages/', 'cloud-setup-content', 'non-rest')
+14 paths 8316 lines ('projects/ROCKNIX/packages/', 'cloud-sync-core', 'non-rest')
+5 paths 141 lines ('projects/ROCKNIX/packages/', 'emulators-dead-ends', 'rest')

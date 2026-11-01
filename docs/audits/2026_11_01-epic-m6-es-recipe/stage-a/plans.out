@@ -1,0 +1,9 @@
+plan x64-es (GENERIC_X64/x86_64, build emulationstation) rc=0 wall=0s json-bytes=328905 plan-lines=254
+plan x64-image (GENERIC_X64/x86_64, build image) rc=0 wall=1s json-bytes=328905 plan-lines=654
+plan h700-es (H700/aarch64, build emulationstation) rc=0 wall=1s json-bytes=328657 plan-lines=247
+plan rk3566-arm (RK3566/arm, build arm) rc=0 wall=0s json-bytes=329812 plan-lines=271
+worktree build roots: 0; export build roots: /workspace/tmp/m6-t37/export/build.pixelelated-GENERIC_X64.x86_64 /workspace/tmp/m6-t37/export/build.pixelelated-H700.aarch64 /workspace/tmp/m6-t37/export/build.pixelelated-RK3566.arm 
+x64-es keys list steps 254 emulationstation:target True gettext:host True fribidi:target True libass:target False pango:target True udev-ish ['systemd:target'] pugixml:target True
+x64-image keys list steps 654 emulationstation:target True gettext:host True fribidi:target True libass:target True pango:target True udev-ish ['systemd:target'] pugixml:target True
+h700-es keys list steps 247 emulationstation:target True gettext:host True fribidi:target True libass:target False pango:target True udev-ish ['systemd:target'] pugixml:target True
+rk3566-arm keys list steps 271 emulationstation:target False gettext:host True fribidi:target True libass:target True pango:target True udev-ish ['systemd:target'] pugixml:target False

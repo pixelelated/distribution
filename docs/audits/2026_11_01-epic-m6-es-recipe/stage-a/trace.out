@@ -1,0 +1,27 @@
+x64-es: emulationstation:target -> SDL2:target -> swaywm-env:target -> sway:target -> pango:target -> fribidi:target
+x64-es: emulationstation:target -> toolchain:target -> gcc:host -> autoconf:host -> gettext:host
+x64-es: emulationstation:target -> SDL2:target -> swaywm-env:target -> sway:target -> pango:target
+x64-es: emulationstation:target -> SDL2:target -> systemd:target
+x64-es: emulationstation:target -> pugixml:target
+x64-es: emulationstation:target -> mesa:target
+x64-es: emulationstation:target -> libass:target: NOT IN PLAN
+x64-es: emulationstation:target build wants (19): boost:target toolchain:target SDL2:target freetype:target curl:target freeimage:target bash:target rapidjson:target SDL2_mixer:target fping:target p7zip:target alsa:target vlc:target drm_tool:target poppler:target pugixml:target noto-sans-cjk:target zstd:target mesa:target
+h700-es: emulationstation:target -> SDL2:target -> swaywm-env:target -> sway:target -> pango:target -> fribidi:target
+h700-es: emulationstation:target -> toolchain:target -> gcc:host -> autoconf:host -> gettext:host
+h700-es: emulationstation:target -> SDL2:target -> swaywm-env:target -> sway:target -> pango:target
+h700-es: emulationstation:target -> SDL2:target -> systemd:target
+h700-es: emulationstation:target -> pugixml:target
+h700-es: emulationstation:target -> mesa:target
+h700-es: emulationstation:target -> libass:target: NOT IN PLAN
+h700-es: emulationstation:target build wants (19): boost:target toolchain:target SDL2:target freetype:target curl:target freeimage:target bash:target rapidjson:target SDL2_mixer:target fping:target p7zip:target alsa:target vlc:target drm_tool:target poppler:target pugixml:target noto-sans-cjk:target zstd:target mesa:target
+x64-image: image -> libass:target: NO CHAIN
+x64-image: image -> fribidi:target: NO CHAIN
+pkgjson libass global target: toolchain freetype fontconfig fribidi harfbuzz nasm:host | host: 
+pkgjson SDL2 local target: toolchain alsa-lib systemd dbus pulseaudio libdrm mesa glu mesa vulkan-loader vulkan-headers wayland swaywm-env | host: toolchain:host
+pkgjson gettext global target: autotools:host make:host gcc:host libxml2 | host: make:host
+pkgjson vlc local target: toolchain libdvbpsi gnutls ffmpeg libmpeg2 zlib flac libvorbis libxml2 pulseaudio SDL2 x264 x265 aom libogg | host: 
+pkgjson fribidi global target: toolchain | host: 
+pkgjson swaywm-env local target:  sway wlr-randr swayimg rocknix-screenshot | host: 
+pkgjson sway global target: toolchain wayland wayland-protocols libdrm libxkbcommon libinput cairo pango libjpeg-turbo dbus json-c wlroots gdk-pixbuf swaybg foot bemenu | host: 
+pkgjson pango global target: toolchain cairo freetype fontconfig fribidi glib json-glib harfbuzz | host: 
+pkgjson sway local target: toolchain bash busybox jq wlr-randr glib wayland wayland-protocols libdrm libxkbcommon libinput cairo pango libjpeg-turbo dbus json-c wlroots gdk-pixbuf swaybg foot bemenu xcb-util-wm xwayland xkbcomp xterm libthai | host: 

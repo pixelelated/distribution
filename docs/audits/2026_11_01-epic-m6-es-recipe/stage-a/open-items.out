@@ -1,0 +1,79 @@
+== item 2: does scripts/install or scripts/image rewrite an absolute link? (both read whole at the tip)
+scripts/install lines=196 link-or-rewrite-lines: 
+scripts/image lines=481 link-or-rewrite-lines: 127:ln -sfn /var/media ${INSTALL}/media;128:ln -sfn /usr/lib ${INSTALL}/lib;129:ln -sfn /usr/bin ${INSTALL}/bin;130:ln -sfn /usr/sbin ${INSTALL}/sbin;133:  ln -sfn /usr/lib ${INSTALL}/lib64;134:  ln -sfn /usr/lib ${INSTALL}/usr/lib64;224:ln -sT /run/kernel-overlays/modules ${INSTALL}/usr/lib/modules;227:ln -sT /run/kernel-overlays/firmware ${INSTALL}/usr/lib/firmware;
+scripts/install:164-185 tars PKG_INSTALL into INSTALL (tar keeps a symlink's target as written):
+if [ -n "${PKG_INSTALL}" -a -d "${PKG_INSTALL}" ]; then
+    -cf - . | tar -C "${INSTALL}" -xf -
+what INSTALL is in makeinstall_target:
+140:[ -n "${PKG_INSTALL}" ] && INSTALL="${PKG_INSTALL}" || unset INSTALL
+1380:      PKG_INSTALL="$BUILD/install_pkg/${PKG_NAME}-${PKG_VERSION}"
+scripts/image squashes ${BUILD}/image/system after a chown (no link pass between):
+90:echo "chown -R 0:0 ${INSTALL}" >>${FAKEROOT_SCRIPT}
+253:${TOOLCHAIN}/bin/fakeroot -- ${FAKEROOT_SCRIPT}
+the ES recipe's :101 (the link) as written:
+    ln -sf ${INSTALL}/usr/config/emulationstation/es_systems.cfg ${INSTALL}/etc/emulationstation/es_systems.cfg
+
+== item 13: the blindspot entries the rules name for a recipe's shapes (grep -n for their words)
+326:## 39. A new suite that passed over a table of dashes (2026-09-12)
+531:## 47. A dependency the build fetched for itself (2026-09-20)
+720:## 54. A measurement on a guest whose renderer was not the device's (2026-09-24)
+1200:## 74. A fixture or a stub that silently did not engage, so the case tested something other than what it named (2026-10-24)
+1206:## 75. A corpus read on the wrong tree (2026-10-24)
+558:- A pinned version in a recipe is a claim about the image only once the image
+23 344 376 (lines naming a guard with no observed positive)
+23:| 14 | **A guard stored inside what it guards** — a check that lives in the tree it p
+
+== item 15: tools/pixelelated-state-check's usage, and whether the image ships it
+874:    group.add_argument("--root", type=Path)
+875:    group.add_argument("--payload", type=Path)
+876:    parser.add_argument("--mode", choices=("clean-image", "first-boot", "retained-upgrade"))
+877:    parser.add_argument("--require-ready", action="store_true",
+packages/projects lines naming it at the tip: 0
+13:#   vm-serial sh 'uname -a; df -h /storage'        # one command, its output
+14:#   vm-serial script setup.sh                       # a whole file, run with sh
+
+== the lanes' tips (read at stage A, recorded whole)
+distribution origin/feature/m6-es-core-window-input-682 d828355e0ac3b9c639c394adbcf9aeb65c0db22c
+distribution origin/feature/m6-es-core-utils-resources-683 775d0893fe89781149e6f7aac9b8f56ff84608e1
+ES origin/feature/m6-es-core-window-input-682 b7fdb3a24c859ce91f9fd381bb0956901b8d23cb
+ES feature/m6-es-core-window-input-682 b7fdb3a24c859ce91f9fd381bb0956901b8d23cb
+ES origin/feature/m6-es-core-utils-resources-683 fatal: Needed a single revision
+ES feature/m6-es-core-utils-resources-683 16dbac5211eea7e70db7394372033be2be7df829
+ES origin/feature/m6-es-core-components-681 52f0ff5128cf96bfcdec9082ded75347ecea11e6
+ES T36 local branch ahead of the pin: 0
+ES T35 b7fdb3a24c ahead of the pin: 9
+T36's G-01 on the same image, at 775d0893fe89781149e6f7aac9b8f56ff84608e1 (its 00 line 54, the ldd part):
+BUILD_ID=069fc270442134fe771258418adf4e666e0473fb
+`libfreetype.so.6` and `libvlc.so.5` linked, **`libfribidi` NOT linked** (the `ldd ... -c` count is 3: freetype, vlc, vlccore)
+
+== L-22: where the shipped theme names its fonts, read by hash
+tarball sha256 7ee1e93f2c4e4f7385b78680ecfa3828acf12bc616e2111d23cc66a524231125
+recipe PKG_SHA256 PKG_SHA256="7ee1e93f2c4e4f7385b78680ecfa3828acf12bc616e2111d23cc66a524231125"
+xml extract rc=0 files=28 fonts-in-tarball=4
+_inc/fonts/ChangaOne-Italic.ttf
+_inc/fonts/Roboto-Bold.ttf
+_inc/fonts/Roboto-Light.ttf
+_inc/fonts/Roboto-Regular.ttf
+fontPath lines per file: ./aspect-ratio-1-1.xml:3 ./aspect-ratio-3-2.xml:3 ./aspect-ratio-4-3.xml:3 ./splash.xml:1 ./theme.xml:15 
+the variables the fontPath lines use: 19 <fontPath>${fontBold}</fontPath>;1 <fontPath>${fontLight}</fontPath>;2 <fontPath>${fontLogo}</fontPath>;2 <fontPath>${fontRegular}</fontPath>;1 <fontPath>./_inc/fonts/Roboto-Bold.ttf</fontPath>;
+their definitions:
+4:      <fontBold>./_inc/fonts/Roboto-Bold.ttf</fontBold>
+5:      <fontRegular>./_inc/fonts/Roboto-Regular.ttf</fontRegular>
+6:      <fontLight>./_inc/fonts/Roboto-Light.ttf</fontLight>
+7:      <fontLogo>./_inc/fonts/ChangaOne-Italic.ttf</fontLogo>
+fonts.xml:3:   <variables ifSubset="fonts:default|custom">
+resources/customizations/fonts.xml:3:   <variables ifSubset="fonts:custom">
+155:   <include>./fonts.xml</include>
+156:   <include ifSubset="fonts:custom">${themeCustomizationsPath}fonts.xml</include>
+_inc/fonts/Roboto-Bold.ttf in tarball: 1
+_inc/fonts/Roboto-Regular.ttf in tarball: 1
+_inc/fonts/Roboto-Light.ttf in tarball: 1
+_inc/fonts/ChangaOne-Italic.ttf in tarball: 1
+the recipe's zh block (themes/es-theme-art-book-next/package.mk:21-27) names:
+      4 /usr/share/fonts/truetype/noto-cjk/NotoSansCJKsc-Regular.otf
+the ES recipe's CJK fallback link (:83-85) names: /usr/share/fonts/truetype/noto-cjk/NotoSansCJKsc-Regular.otf
+T42's three patches, font lines: 0001-system-style-the-logo-text-for-fullscreen-artwork=2 001-pixelelated-splash=0 001-tools-always-show-image=0 
+12:+ <fontSize>0.1125</fontSize>
+13:+ <fontPath>${fontLogo}</fontPath>
+the wordmark SVG's font or text lines: 0
+elements with fontPath (tag-stack scan, tolerant of theme.xml:49's raw &&): 25 without a fontSize in the same element: 0

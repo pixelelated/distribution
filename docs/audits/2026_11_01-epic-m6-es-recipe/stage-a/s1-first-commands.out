@@ -1,0 +1,37 @@
+== date
+2026-11-01T01:01:27Z
+== cat pointer (lines)
+81
+== status
+0
+== log
+9fa740a91b docs: T37's session pointer seeded by the coordinator at dispatch (Refs #684)
+94d8ef8e7e merge: the coordinator's 566398105e (T37's brief at version 2 with its errata before dispatch, D-WORKFLOW-217, the futro's kickoff addendum) into feature/m6-es-recipe-684 (Refs #684)
+566398105e docs: T37 dispatched -- D-WORKFLOW-217 (the recipe slice owns projects/ROCKNIX/packages/ui/** less four patches), the brief's errata before dispatch (T35's state, the box numbers, the fontPath lead, the -es header shape, item 16), the futro's kickoff addendum (#684)
+stacked
+== ui stat vs next
+upstream-next-is-here
+== merge-base
+c445081a59518f37d9776e5412dd7b14910696f7
+pin-here
+== rocknix/master
+f6c542872e3850c5f432929ead219547a897cd4a
+== es merge-base
+cada856d86e3115fbbf0bce09dd761b0ee8fa9fd
+origin/feature/m6-es-core-window-input-682 b7fdb3a24c859ce91f9fd381bb0956901b8d23cb
+origin/feature/m6-es-core-utils-resources-683 fatal: Needed a single revision
+== pkgcheck
+projects/ROCKNIX/packages/ui/emulationstation/package.mk
+[Kprojects/ROCKNIX/packages/ui/emulationstation/package.mk...[Kpkgcheck emulationstation rc=0
+projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/package.mk
+[Kprojects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/package.mk...[Kpkgcheck es-theme-art-book-next rc=0
+projects/ROCKNIX/packages/ui/lowerdeck/package.mk
+[Kprojects/ROCKNIX/packages/ui/lowerdeck/package.mk...[Kpkgcheck lowerdeck rc=0
+register-check rc=0
+01:01:29
+2026-11-01T00:59:27Z T36 (#683) lane: stage C compiles END (S0 binary, rc 1).
+== M6 coordinator — 00:59 UTC (2026-11-01): acknowledged T36 (#683) lane: stage C compiles END (2026-11-01T00:59:27Z; host-only compile, no guest, no image build) -- automatic acknowledgement by kit/c
+2026-11-01T01:00:56Z T36 (#683) lane: stage C compiles START (S0: binary with 3.17/3.22/3.23; host-only).
+== M6 coordinator — 01:00 UTC (2026-11-01): acknowledged T36 (#683) lane: stage C compiles START (2026-11-01T01:00:56Z; host-only compile, no guest, no image build) -- automatic acknowledgement by kit
+2026-11-01T01:01:05Z T36 (#683) lane: stage C compiles END (S0 binary, rc 1).
+== M6 coordinator — 01:01 UTC (2026-11-01): acknowledged T36 (#683) lane: stage C compiles END (2026-11-01T01:01:05Z; host-only compile, no guest, no image build) -- automatic acknowledgement by kit/c

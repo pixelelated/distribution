@@ -1,0 +1,341 @@
+/dev/nvme1n1   244195328 64707574 179487754   27% /workspace
+
+## R01 scope: ls-tree of ui/ at P1, and paths.txt (expect 19, 15)
+19
+15
+[R01] rc=0 wall=0s
+
+## R02 lines two ways (expect wc -l 19: 4649; grep -c 19: 4650; grep -c 15: 4561)
+wc -l 19: 4649
+grep -c 19: 4650
+grep -c 15: 4561
+grep -c the four patches: 89 files: 4
+[R02] rc=0 wall=0s
+
+## R03 next against the tip on ui/ (expect no line)
+lines=0
+[R03] rc=0 wall=0s
+
+## R04 the fork's delta (expect 8 files changed, 463 insertions(+), 13 deletions(-); 251; 5; 246)
+ 8 files changed, 463 insertions(+), 13 deletions(-)
+251
+5
+246
+241
+[R04] rc=0 wall=0s
+
+## R05 upstream's delta (expect 16; 8 files changed, 72 insertions(+), 75 deletions(-); 14 files changed, 83 insertions(+), 536 deletions(-); the name-status)
+16
+ 8 files changed, 72 insertions(+), 75 deletions(-)
+ 14 files changed, 83 insertions(+), 536 deletions(-)
+M	projects/ROCKNIX/packages/ui/emulationstation/config/common/es_features.cfg
+M	projects/ROCKNIX/packages/ui/emulationstation/package.mk
+A	projects/ROCKNIX/packages/ui/emulationstation/patches/RK3566/fix_multistateinput.patch
+M	projects/ROCKNIX/packages/ui/emulationstation/sources/start_es.sh
+M	projects/ROCKNIX/packages/ui/emulationstation/system.d/emustation.service
+A	projects/ROCKNIX/packages/ui/emulationstation/system.d/emustation.service.d/20-thp.conf
+M	projects/ROCKNIX/packages/ui/emulationstation/system.d/essway.service
+A	projects/ROCKNIX/packages/ui/emulationstation/system.d/essway.service.d/20-thp.conf
+[R05] rc=0 wall=0s
+
+## R06 the 14 files by side (expect upstream-only 6 fork-only 6 both 2)
+upstream-only 6 fork-only 6 both 2
+both:
+projects/ROCKNIX/packages/ui/emulationstation/package.mk
+projects/ROCKNIX/packages/ui/emulationstation/system.d/essway.service
+[R06] rc=0 wall=0s
+
+## R07 the three recipes' pins at MB, UN and P1
+emulationstation @ c445081a59: PKG_VERSION="cada856d86e3115fbbf0bce09dd761b0ee8fa9fd" PKG_SITE="https://github.com/ROCKNIX/emulationstation-next" 
+emulationstation @ 651150fc88: PKG_VERSION="f6c542872e3850c5f432929ead219547a897cd4a" PKG_SITE="https://github.com/ROCKNIX/emulationstation-next" 
+emulationstation @ 2174265e9c: PKG_VERSION="16dbac5211eea7e70db7394372033be2be7df829" PKG_GIT_CLONE_BRANCH="test/qa-integration" PKG_SITE="https://github.com/pixelelated/emulationstation" 
+lowerdeck @ c445081a59: PKG_VERSION="ab735114ab318a84e4d28c9c5f1b154e450a579a" PKG_SITE="https://github.com/bulzipke/lowerdeck" 
+lowerdeck @ 651150fc88: PKG_VERSION="ab735114ab318a84e4d28c9c5f1b154e450a579a" PKG_SITE="https://github.com/bulzipke/lowerdeck" 
+lowerdeck @ 2174265e9c: PKG_VERSION="ab735114ab318a84e4d28c9c5f1b154e450a579a" PKG_SITE="https://github.com/bulzipke/lowerdeck" 
+themes/es-theme-art-book-next @ c445081a59: PKG_VERSION="9a50ef366e750aabfab29e6915a2867607212971" PKG_SITE="https://github.com/anthonycaccese/art-book-next-es" 
+themes/es-theme-art-book-next @ 651150fc88: PKG_VERSION="9a50ef366e750aabfab29e6915a2867607212971" PKG_SITE="https://github.com/anthonycaccese/art-book-next-es" 
+themes/es-theme-art-book-next @ 2174265e9c: PKG_VERSION="9a50ef366e750aabfab29e6915a2867607212971" PKG_SITE="https://github.com/anthonycaccese/art-book-next-es" 
+[R07] rc=0 wall=1s
+
+## R08 the ES side by hash (expect 14; 724; cada856d86...; the pin for both refs)
+14
+724
+cada856d86e3115fbbf0bce09dd761b0ee8fa9fd
+16dbac5211
+16dbac5211
+7
+[R08] rc=0 wall=0s
+
+## R09 what the define selects, by hash (GLES3 lines; es-core 278-283)
+5:option(GLES3 "Set to ON if targeting OpenGL ES 3.0" ${GLES3})
+9:foreach(OPENGL_OPTION GLES GLES2 GLES3 GL)
+15:    message(FATAL_ERROR "GLES, GLES2, GLES3, and GL are mutually exclusive; enable only one graphics API")
+161:    set(GLSystem "Embedded OpenGL" CACHE STRING "The OpenGL system to be used" FORCE)
+163:    set(GLSystem "OpenGL ES 2.0" CACHE STRING "The OpenGL system to be used" FORCE)
+164:elseif(GLES3)
+165:    set(GLSystem "OpenGL ES 3.0" CACHE STRING "The OpenGL system to be used" FORCE)
+167:    set(GLSystem "Desktop OpenGL" CACHE STRING "The OpenGL system to be used" FORCE)
+173:    set(GLSystem "Embedded OpenGL" CACHE STRING "The OpenGL system to be used")
+179:    set(GLSystem "Embedded OpenGL" CACHE STRING "The OpenGL system to be used")
+189:    set(GLSystem "Embedded OpenGL" CACHE STRING "The OpenGL system to be used")
+190:elseif(NOT GLSystem)
+198:    set(GLSystem "${_ES_DEFAULT_GLSYSTEM}" CACHE STRING "The OpenGL system to be used" FORCE)
+202:set_property(CACHE GLSystem PROPERTY STRINGS "Desktop OpenGL" "Embedded OpenGL" "OpenGL ES 2.0" "OpenGL ES 3.0")
+204:MESSAGE("-- Graphics API: ${GLSystem}")
+205:if(NOT GLES AND NOT GLES2 AND NOT GLES3 AND NOT GL)
+206:    MESSAGE("-- No graphics API selected; using ${GLSystem}. Pass -DGLES3=ON for the OpenGL ES 3.0 renderer.")
+211:if(${GLSystem} MATCHES "Desktop OpenGL")
+213:elseif(${GLSystem} MATCHES "OpenGL ES 3.0")
+214:    find_package(OpenGLES3 REQUIRED)
+215:elseif(${GLSystem} MATCHES "OpenGL ES 2.0")
+360:if(${GLSystem} MATCHES "Desktop OpenGL")
+362:elseif(${GLSystem} MATCHES "OpenGL ES 3.0")
+363:    add_definitions(-DUSE_OPENGLES_30)
+364:elseif(${GLSystem} MATCHES "OpenGL ES 2.0")
+427:    if(${GLSystem} MATCHES "Desktop OpenGL")
+431:    elseif(${GLSystem} MATCHES "OpenGL ES 3.0")
+433:            ${OPENGLES3_INCLUDE_DIR}
+435:    elseif(${GLSystem} MATCHES "OpenGL ES 2.0")
+521:    if(${GLSystem} MATCHES "Embedded OpenGL")
+523:    elseif(${GLSystem} MATCHES "OpenGL ES 3.0")
+524:      LIST(APPEND COMMON_LIBRARIES ${OPENGLES3_LIBRARIES})
+530:    if(${GLSystem} MATCHES "OpenGL ES 3.0")
+531:        LIST(APPEND COMMON_LIBRARIES ${OPENGLES3_LIBRARIES})
+532:    elseif(${GLSystem} MATCHES "OpenGL ES 2.0")
+543:    if(${GLSystem} MATCHES "Desktop OpenGL")
+547:    elseif(${GLSystem} MATCHES "OpenGL ES 3.0")
+550:            ${OPENGLES3_LIBRARIES}
+552:    elseif(${GLSystem} MATCHES "OpenGL ES 2.0")
+if(${GLSystem} MATCHES "OpenGL ES 3.0")
+	LIST(APPEND CORE_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/src/renderers/Renderer_GLES30.h)
+	LIST(APPEND CORE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/renderers/Renderer_GLES30.cpp)
+else()
+	LIST(APPEND CORE_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/src/renderers/Renderer_GLES20.h)
+	LIST(APPEND CORE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/renderers/Renderer_GLES20.cpp)
+[R09] rc=0 wall=0s
+
+## R10 FRIBIDI at 230-244; the build names at 303-330 through the mask; HFS_DEV_LOGIN's readers
+# FriBidi is only used to reorder right-to-left scripts (Arabic, Hebrew) at render time.
+# It is optional on purpose: when it is missing, Font.cpp falls back on tryFastBidi(), which
+# is what every build used before RTL support was added. pkg-config is a Unix mechanism and
+# the Windows dependency package does not ship FriBidi, so this must never be REQUIRED.
+find_package(PkgConfig QUIET)
+if(PKG_CONFIG_FOUND)
+	pkg_check_modules(FRIBIDI QUIET fribidi)
+endif()
+
+if(FRIBIDI_FOUND)
+	MESSAGE("-- FriBidi found, using it for right-to-left text reordering")
+	add_definitions(-DHAVE_FRIBIDI)
+else()
+	MESSAGE("-- FriBidi not found, falling back on the built-in right-to-left reordering")
+endif()
+if(DEFINED ENV{SCREENSCRAPER_SOFTNAME})
+    add_definitions(-DSCREENSCRAPER_SOFTNAME="$ENV{SCREENSCRAPER_SOFTNAME}")
+endif()
+
+if(DEFINED ENV{SCREENSCRAPER_DEV_LOGIN})
+    add_definitions(-DSCREENSCRAPER_DEV_LOGIN=***"$ENV{SCREENSCRAPER_DEV_LOGIN}")
+endif()
+
+# Enable runtime developer credentials for builds without a compiled pair.
+# Those builds show DEVELOPER ID and DEVELOPER PASSWORD under SCRAPER > ACCOUNTS.
+# Set from the package recipe (-DSCREENSCRAPER_RUNTIME_DEV_LOGIN=*** or environment.
+# A compiled-in SCREENSCRAPER_DEV_LOGIN takes precedence and hides the rows;
+# normal distribution builds supply that pair at build time (#566).
+if(SCREENSCRAPER_RUNTIME_DEV_LOGIN OR DEFINED ENV{SCREENSCRAPER_RUNTIME_DEV_LOGIN})
+    add_definitions(-DSCREENSCRAPER_RUNTIME_DEV_LOGIN=***
+endif()
+
+if(DEFINED ENV{GAMESDB_APIKEY})
+    add_definitions(-DGAMESDB_APIKEY=***"$ENV{GAMESDB_APIKEY}")
+endif()
+
+if(DEFINED ENV{CHEEVOS_DEV_LOGIN})
+    add_definitions(-DCHEEVOS_DEV_LOGIN=***"$ENV{CHEEVOS_DEV_LOGIN}")
+endif()
+
+if(DEFINED ENV{HFS_DEV_LOGIN})
+    add_definitions(-DHFS_DEV_LOGIN=***"$ENV{HFS_DEV_LOGIN}")
+endif()
+16dbac5211eea7e70db7394372033be2be7df829:es-app/src/scrapers/HfsDBScraper.cpp:1:HFS_DEV_LOGIN
+16dbac5211eea7e70db7394372033be2be7df829:es-app/src/scrapers/HfsDBScraper.cpp:181:HFS_DEV_LOGIN
+16dbac5211eea7e70db7394372033be2be7df829:es-app/src/scrapers/HfsDBScraper.cpp:190:HFS_DEV_LOGIN
+16dbac5211eea7e70db7394372033be2be7df829:es-app/src/scrapers/HfsDBScraper.h:6:HFS_DEV_LOGIN
+16dbac5211eea7e70db7394372033be2be7df829:es-app/src/scrapers/Scraper.cpp:33:HFS_DEV_LOGIN
+[R10] rc=0 wall=0s
+
+## R11 syntax: bash -n on the seven (expect rc=0 each)
+rc=0 emulationstation/package.mk
+rc=0 lowerdeck/package.mk
+rc=0 themes/es-theme-art-book-next/package.mk
+rc=0 emulationstation/sources/es_settings
+rc=0 emulationstation/sources/start_es.sh
+rc=0 emulationstation/sources/serial_number_check
+rc=0 emulationstation/autostart/001-emulationstation
+[R11] rc=0 wall=0s
+
+## R12 pkgcheck by name, positive first, control last
+find emulationstation: projects/ROCKNIX/packages/ui/emulationstation/package.mk 
+pkgcheck emulationstation rc=0 lines=0 FAIL-lines=0 WARN-lines=0
+find es-theme-art-book-next: projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/package.mk 
+pkgcheck es-theme-art-book-next rc=0 lines=0 FAIL-lines=0 WARN-lines=0
+find lowerdeck: projects/ROCKNIX/packages/ui/lowerdeck/package.mk 
+pkgcheck lowerdeck rc=0 lines=0 FAIL-lines=0 WARN-lines=0
+find es-theme-no-such-package: 
+pkgcheck es-theme-no-such-package rc=0 lines=0 FAIL-lines=0 WARN-lines=0
+stdout lines for emulationstation: 0
+[R12] rc=0 wall=0s
+
+## R13 the scratch export, ruling (k) (expect export rc=0, the tip, worktree build roots: 0)
+export rc=0 tip=9fa740a91ba9fcaa21a26cc72f0b50fac10f32df path=/workspace/tmp/m6-t37/export worktree build roots: 0
+export files: 133480 git-in-export: 0
+[R13] rc=0 wall=5s
+
+## R14 effective fields, GENERIC_X64, in the export (named fields only; masked)
+source rc=0 emulationstation
+PKG_VERSION=16dbac5211eea7e70db7394372033be2be7df829
+PKG_URL=https://github.com/pixelelated/emulationstation.git
+PKG_SHA256=
+PKG_DEPENDS_TARGET=boost toolchain SDL2 freetype curl freeimage bash rapidjson SDL2_mixer fping p7zip alsa vlc drm_tool poppler pugixml noto-sans-cjk zstd mesa
+PKG_CMAKE_OPTS_TARGET= -DROCKNIX=1                          -DDISABLE_KODI=1                          -DENABLE_FILEMANAGER=0                          -DCEC=0                          -DENABLE_PULSE=1                          -DUSE_SYSTEM_PUGIXML=1                          -DGLES3=1 -DSCREENSCRAPER_RUNTIME_DEV_LOGIN=***
+PKG_TOOLCHAIN=auto
+PKG_NEED_UNPACK=busybox
+PKG_BUILD_FLAGS=-gold
+PKG_PATCH_DIRS=
+PKG_ARCH=any
+TARGET_ARCH=x86_64
+BASE_ONLY=
+BATTERYPLUS_SUPPORT=
+VULKAN_SUPPORT=yes
+EMULATION_DEVICE=yes
+STAMP=9e618e4ac667083b0cab95798055c023e796104d60d20b471ec1b7579dab0ffe
+[call rc=0]
+source rc=0 es-theme-art-book-next
+PKG_VERSION=9a50ef366e750aabfab29e6915a2867607212971
+PKG_URL=https://github.com/anthonycaccese/art-book-next-es/archive/9a50ef366e750aabfab29e6915a2867607212971.tar.gz
+PKG_SHA256=7ee1e93f2c4e4f7385b78680ecfa3828acf12bc616e2111d23cc66a524231125
+PKG_DEPENDS_TARGET=toolchain noto-sans-cjk
+PKG_CMAKE_OPTS_TARGET=
+PKG_TOOLCHAIN=manual
+PKG_NEED_UNPACK=
+PKG_BUILD_FLAGS=
+PKG_PATCH_DIRS=
+PKG_ARCH=any
+TARGET_ARCH=x86_64
+BASE_ONLY=
+BATTERYPLUS_SUPPORT=
+VULKAN_SUPPORT=yes
+EMULATION_DEVICE=yes
+STAMP=e31c625d76929c463b78ada92d54e51c5abde99f07cc7f3bef06c866c5d6a776
+[call rc=0]
+source rc=0 lowerdeck
+PKG_VERSION=ab735114ab318a84e4d28c9c5f1b154e450a579a
+PKG_URL=https://github.com/bulzipke/lowerdeck/archive/ab735114ab318a84e4d28c9c5f1b154e450a579a.tar.gz
+PKG_SHA256=2677d3ce675b9704487f9f09f82728b56009f9fa7c36403086e9c655af108f42
+PKG_DEPENDS_TARGET=toolchain Python3 SDL2 SDL2_image SDL2_ttf
+PKG_CMAKE_OPTS_TARGET=
+PKG_TOOLCHAIN=manual
+PKG_NEED_UNPACK=
+PKG_BUILD_FLAGS=
+PKG_PATCH_DIRS=
+PKG_ARCH=any
+TARGET_ARCH=x86_64
+BASE_ONLY=
+BATTERYPLUS_SUPPORT=
+VULKAN_SUPPORT=yes
+EMULATION_DEVICE=yes
+STAMP=7dd9f9575727e9fa0082deca6d45084decd44f6adc1a0a3dc7c9e2cf3178d64a
+[call rc=0]
+[R14] rc=0 wall=0s
+
+## R15 the call's writes, named (expect the two cache files in the export; 0 build roots in the worktree)
+-rw------- 1 max max 76994 Nov  1 01:05 /workspace/tmp/m6-t37/export/build.pixelelated-GENERIC_X64.x86_64/.cache_package_global
+-rw------- 1 max max 45384 Nov  1 01:05 /workspace/tmp/m6-t37/export/build.pixelelated-GENERIC_X64.x86_64/.cache_package_local
+/workspace/tmp/m6-t37/export/build.pixelelated-GENERIC_X64.x86_64
+worktree build roots: 0
+[R15] rc=0 wall=0s
+
+## R16 the patch reach, GENERIC_X64 and H700, in the export (scripts/unpack:127-159's rule)
+GENERIC_X64/x86_64: emulationstation PATCH_ARCH=x86 PKG_PATCH_DIRS=[] -> patches/x86_64/: NOT REACHED
+GENERIC_X64/x86_64: es-theme-art-book-next PATCH_ARCH=x86 PKG_PATCH_DIRS=[] -> patches/: REACHED
+GENERIC_X64/x86_64: lowerdeck PATCH_ARCH=x86 PKG_PATCH_DIRS=[] -> no patches/ directory with a .patch
+H700/aarch64: emulationstation PATCH_ARCH=aarch64 PKG_PATCH_DIRS=[] -> patches/x86_64/: NOT REACHED
+H700/aarch64: es-theme-art-book-next PATCH_ARCH=aarch64 PKG_PATCH_DIRS=[] -> patches/: REACHED
+H700/aarch64: lowerdeck PATCH_ARCH=aarch64 PKG_PATCH_DIRS=[] -> no patches/ directory with a .patch
+[R16] rc=0 wall=1s
+
+## R17 the install text (masked, :39 withheld)
+14:PKG_NEED_UNPACK="busybox"
+75:      ${INSTALL}/usr/config/locale/en_US.UTF-8 || true
+79:    rm -f ${INSTALL}/usr/config/emulationstation/resources/logo.png
+83:    rm -f ${INSTALL}/usr/config/emulationstation/resources/DroidSansFallbackFull.ttf
+84:    ln -sf /usr/share/fonts/truetype/noto-cjk/NotoSansCJKsc-Regular.otf \
+93:    #ln -sf /storage/.config/emulationstation/resources ${INSTALL}/usr/bin/resources
+97:    ln -sf /storage/.cache/system_timezone ${INSTALL}/etc/timezone
+100:    ln -sf /storage/.config/emulationstation/themes ${INSTALL}/etc/emulationstation/themes
+101:    ln -sf ${INSTALL}/usr/config/emulationstation/es_systems.cfg ${INSTALL}/etc/emulationstation/es_systems.cfg
+134:    ln -sf /storage/.config/locale ${INSTALL}/usr/share/locale
+137:    ln -sf /usr/share/locale ${INSTALL}/usr/lib/locale
+140:    ln -sf /usr/share/locale  ${INSTALL}/usr/config/emulationstation/locale
+[R17] rc=0 wall=0s
+
+## R18 the credential names, names and line numbers only (expect count lines: 5)
+count lines: 5
+30:SCREENSCRAPER_RUNTIME_DEV_LOGIN
+40:SCREENSCRAPER_DEV_LOGIN
+40:SCREENSCRAPER_DEV_LOGIN
+42:SCREENSCRAPER_DEV_LOGIN
+43:GAMESDB_APIKEY
+44:CHEEVOS_DEV_LOGIN
+[R18] rc=0 wall=0s
+
+## R19 ARMSX2 and vulkan in the catalog (expect armsx2 at 1331 1333 1393; 15 vulkan lines)
+1331 1333 1393 
+15
+[R19] rc=0 wall=0s
+
+## R20 the text checks over the 15, after planted positives
+secret-patterns compile rc=1 (at most 1 compiles)
+planted secret positive: 1 plain: 0
+planted non-ASCII positive: 1
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/autostart/001-emulationstation
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/config/common/es_features.cfg
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/config/common/es_input.cfg
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/config/common/es_savestates.cfg
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/config/common/es_settings.cfg
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/package.mk
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/sources/es_settings
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/sources/serial_number_check
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/sources/start_es.sh
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/system.d/emustation.service
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/system.d/essway.service
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/lowerdeck/package.mk
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/package.mk
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/sources/Tiny5-OFL.txt
+non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/sources/pixelelated-wordmark.svg
+NON-ASCII FILES 0 SECRET-PATTERN FILES 0
+the four: non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/emulationstation/patches/x86_64/cpugov.patch
+the four: non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/patches/0001-system-style-the-logo-text-for-fullscreen-artwork.patch
+the four: non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/patches/001-pixelelated-splash.patch
+the four: non-ascii=0 secret=0 projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/patches/001-tools-always-show-image.patch
+forbidden-terms-check: 1 line(s) on stdin carry a listed word
+forbidden-terms planted positive (stand-in pattern) rc=1
+forbidden-terms-check: 0 hits on stdin
+forbidden-terms over the 15 rc=0
+xml ok projects/ROCKNIX/packages/ui/emulationstation/config/common/es_features.cfg
+xml ok projects/ROCKNIX/packages/ui/emulationstation/config/common/es_input.cfg
+xml ok projects/ROCKNIX/packages/ui/emulationstation/config/common/es_savestates.cfg
+xml ok projects/ROCKNIX/packages/ui/emulationstation/config/common/es_settings.cfg
+XML FAILS 0
+[R20] rc=0 wall=0s
+
+## R21 freshness --list, both refs given (expect lines=48 ui=0)
+freshness --list rc=0 lines=48 ui=0
+[R21] rc=0 wall=0s
+
+## R22 the removal check against TIP-HASH 94d8ef8e7e (expect no line before stage E)
+lines=0
+[R22] rc=0 wall=0s
+
+== done 2026-11-01T01:05:25Z; worktree build roots: 0
