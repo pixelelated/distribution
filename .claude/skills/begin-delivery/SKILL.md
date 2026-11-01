@@ -489,8 +489,6 @@ identityProviders`; `psql -c '\d table'` for column presence;
       precondition is absent or roadmap, **pause execution**, post a
       rescope/deferral comment on the sub-issue, and surface to the
       user. Do not let the gap travel into the granular task list.
-      (Origin: blindspot-register § "Substrate-precondition assumption
-      inherited from issue body".)
 - [ ] Per-issue micro-retro is mandatory — two goals:
   1. Revise previously completed work if learning reveals corrections
      are needed

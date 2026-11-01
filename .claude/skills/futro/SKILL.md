@@ -139,9 +139,7 @@ Before answering any of the five questions, gather:
   inherited a typo from a prior runbook).
 - **Schema-`required[]`-enumeration mandate** (P6+P7+P8 retros) — any
   PE asserting conformance to schema X must enumerate every field in
-  `spec.schema.required[X]` literally, not paraphrase. See blindspot
-  register § "Schema-`required[]`-enumeration miss" for the canonical
-  pattern.
+  `spec.schema.required[X]` literally, not paraphrase.
 - **Commit-hash citation discipline** (P8 retro Practice adjustment 3)
   — any commit-hash citation in the futro must be re-verified by
   `git log --oneline | grep <hash>` evidence at writing time, not
@@ -257,9 +255,7 @@ role, env var, third-party API, deployed adapter, etc. For each, name
 the verification evidence (`kcadm get realms/<r>`, `psql \d`, `curl
 /.well-known/<doc>`, `grep -rn <capability> <source-dir>`, `gh api …`). An
 unverified substrate assumption is the highest-frequency cause of
-"sub-issues that decompose cleanly but cannot execute." See
-blindspot-register § "Substrate-precondition assumption inherited
-from issue body" for the canonical instance (Epic #2647 / S1 #2648).
+"sub-issues that decompose cleanly but cannot execute."
 For the external platform's surfaces, generic existence evidence is insufficient:
 cite the verb-matched, multi-surface probe transcript required above.
 
