@@ -133,7 +133,7 @@ lint accepts `local` outside an `-issue-` folder only with both:
 {
   "schema_version": 1,
   "depth": "local",
-  "primary": {"harness": "Claude Code", "model": "anthropic/claude-opus-5.5",
+  "primary": {"harness": "Claude Code", "model": "anthropic/claude-opus-5-5",
               "lab": "anthropic", "identity_source": "session metadata"},
   "reviewers": [],
   "tier_exception": "D-WORKFLOW-184",
