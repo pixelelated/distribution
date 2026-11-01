@@ -65,9 +65,10 @@ Rules, from the estate's changelog skill and kept whole:
   "I", "my", "the two I have", never "we" or "our". Maintainer,
   2026-09-29: *"we're posting as me, so it should be first person singular.
   That should be a consistent policy for everything we do."*
-  `tools/prose-check` fails a plural.
+  `tools/prose-check` fails a plural in a file under `docs/releases/` or
+  with `PROSE_FIRST_PERSON=fail`, and warns on one elsewhere.
 
-Two heads in one release (as RC1 has) are said in the first sentence and in
+Two heads in one release are said in the first sentence and in
 the details block, with the diff between them in a clause: "the SM8550 and
 RK3566 images come from a head that adds only a build fix for a package
 those devices ship and the H700 does not."
@@ -119,13 +120,16 @@ on `upstream/next` by itself as one commit (D-WORKFLOW-079); a PR a person
 cannot read in a sitting is split before it is opened, and the interface
 work goes up as the review guide's buckets, one PR each.
 `tools/pr-stack-check` builds the branches, counts the commits, prints each
-PR's files and insertions, and refuses a description that carries any of
-the above.
+PR's files and insertions, and refuses a description that names an
+assistant or carries a decision ID, a `tools/` name or a plural (its
+`BANNED` and `PLURAL` patterns); it cannot see a template or a sales line,
+so read for those.
 
 ## Before it is shown
 
-`tools/prose-check` on the note or the description, with `PROSE_FIRST_PERSON=fail`
-for a PR description; `tools/pr-stack-check` for the series (the drafts'
+`tools/prose-check` on the note or the description (a file under `docs/releases/`
+is checked strictly already; elsewhere set `PROSE_FIRST_PERSON=fail` for a PR
+description); `tools/pr-stack-check` for the series (the drafts'
 scan); every bullet checked against the change log's entry and the run it
 names; the two-heads clause present whenever the files come from more than
 one build; and the footer the harness appends removed from every `gh pr
