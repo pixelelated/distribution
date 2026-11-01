@@ -2019,3 +2019,13 @@ written:
 - § 2's membership block, extracted from between its fences: `118` lines, sha256 prefix `7fa0430cf613e867`, byte-identical to version 1's; `bash -n` over the brief's `5` `bash` blocks: rc `0` for each.
 
 Version 2, 2026-11-01 02:11:23 UTC, after the stranger's proof of version 1
+
+## Errata before dispatch
+
+Appended by the coordinator at dispatch (2026-11-01 02:3x UTC), never edited into the sections above; where a section and this list differ, this list and #685's body win (D-WORKFLOW-189):
+
+- **§ 9's placeholder pattern misses two of the seeding's own placeholders:** `__[A-Z]+__|\b(CO|MERGE_|TIP|V2)HASH\b` catches neither `__V2HASH__` (a digit) nor `__REGISTER_IDS__` (an underscore). The check the lane runs at stage A, and the pointer's own self-check, use `__[A-Z0-9_]+__`; the seeding fills every placeholder before the first commit, and § 10's "seeding error" reads with the wider pattern.
+- **Criterion 19 has a baseline:** the dispatch comment records the host file's line count at dispatch (`__HOSTLINES__` in the kit), so "lines gained between the dispatch and the hand-back" is a subtraction of two recorded figures; the lane quotes both.
+- **Open item 1 is answered:** `developer-relations` and `release-notes` stay between the two clusters in the read order, as § 2's table places them (`release-notes` carries L-11, a ruling-(b) fix).
+- **#809's half:** the body fill corrects #685's paths sentence as #809 asks; #651's half and the tick are the coordinator's at acceptance.
+- **The header carries `reviewed-at:` and `fixed-at:` only** (no EmulationStation path in the 52): the acceptance accepts the `-es` pair as absent.
