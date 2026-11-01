@@ -280,12 +280,15 @@ edited, is stale. An audit grounded against an outdated rubric produces
 confident, wrongly-grounded verdicts.
 
 ```bash
-diff -q .claude/skills/code-auditor/SKILL.md \
-        <(git -C <main-checkout> show next:.claude/skills/code-auditor/SKILL.md)
+git diff --stat next -- .claude/skills/code-auditor   # the whole skill: SKILL.md and every reference
 ```
 
-Sync before proceeding if they differ, and log it — this happened on the
-2026-08-24 run and would have silently degraded that audit's own grounding.
+The check reads the whole directory, because a reference file can move while
+`SKILL.md` stays the same. If they differ, read the skill from `next`
+(`git show next:<path>`) and log it -- this happened on the 2026-08-24 run and
+would have silently degraded that audit's own grounding. A renovation lane is
+the exception: it reads the skill at the dispatch tip its brief names, records
+the difference from `next`, and does not sync.
 
 Then create the dated audit folder before any analysis:
 
