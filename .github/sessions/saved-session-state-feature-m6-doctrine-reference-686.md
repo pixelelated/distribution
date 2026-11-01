@@ -17,34 +17,39 @@
 
 ## Current focus
 
-Not started. Before the first command after `cat`, the eleven keys of this
-pointer are read against the brief's § 10 table, and any that names the
-predecessor slice (T38's `feature/m6-doctrine-skills-685`,
-`m6-doctrine-skills-685`, `m6-t5-build-engine`, `doctrine-skills.md`, the 52
-of `.claude/**`, D-WORKFLOW-218 as this slice's own row) is reported on #686
-before going on; the placeholder check below prints 0. The first check after
-the pointer is the lint's PASS on a Local plan and its FAIL with
-`tier_exception` removed (ruling (q)), recorded in `00` before anything else;
-then L-01's loop printing no `MISSING` line (ruling (p)); then the rest of
-§ 5's `# STAGE A` block, whole and in order -- § 2's two blocks extracted from
-the brief at the hash below by their markers and never retyped, `block.sh`
-and then `split.sh` with the defaults and at the dispatch tip (compare
-`split.sh`'s lines as a set, never a sequence: the proof's X01), the `CARVE`
-lines, the `--order` row, the checkers' baseline, the host file's last lines.
-The first commit on the distribution branch is the running log's header (the
-model, the effort, the session, `reviewed-at` the dispatch tip with
-`2174265e9c` and the coordinator's tip beside it, the lint's Local proof and
-L-01's loop, the host file's last lines with the time of the read),
-`01-research-notes.md` § Scope (both blocks with their output and their
-sha256 prefixes `e81453b6732cdea8` and `afb1909c5cdc6c88` checked, both line
-figures, the 31 binaries named, the `tip:` lines, the `CARVE` lines, the
-82 briefs as information), this pointer updated, and the day's work-log entry
-headed `#686` (prose through a quoted heredoc or the Write tool). There is no
-ES worktree, no guest and no compile. `.qa-scratch/` is gitignored and
-`git status --short` is read before every `git add -A`; anything temporary
-goes under `/workspace/tmp/m6-t39/`, never `/tmp`. No network is used beyond
-`gh --repo pixelelated/distribution` reads and the lane's own posts and
-issues.
+**Stage A complete; its checkpoint is posted on #686 (the turn-ender).** The
+eleven keys were read against the brief's § 10 table and all are T39's -- none
+names the predecessor T38 (reported clean on #686; the placeholder check and
+the hash-word check both print 0). In order: the lint's Local PASS (rc 0) with
+its FAIL-first (`tier_exception` removed, rc 1, `local-only cannot satisfy
+Epic/Milestone`), ruling (q); L-01's fifteen-name loop with no `MISSING` line
+(ruling (p), resolved by the P1 stacking); § 2's two blocks (`block.sh`
+sha256 `e81453b6732cdea8`, `split.sh` sha256 `afb1909c5cdc6c88`) extracted by
+marker and run -- 254 paths, 223 text, 164 fork-own / 90 upstream-carried,
+lines 38,598 (inventory col) / 38,674 (`wc -l`) / 38,675 (`grep -c ''`);
+`split.sh` defaults and at the dispatch tip (as a set, X01), `of the 254
+absent: 0` at both (ruling (p)); the `CARVE` lines (`edit-scope 68`,
+`edit-under-naming 1`, total 254, the brief's v2 figures to the byte -- the v1
+proof's `edit-scope 69`/`ledger-named 5` is the documented `p0-sweep-hits.txt`
+NAMED correction, not an erratum); the `--order` row (rc 0, 50 lines, the T39
+row present, `unassigned 0`); the checkers' baseline at the dispatch tip
+(`rules-check` 30, `register-check` **716 IDs**, `es-menu-map-check` 0 missing,
+`release-catalog` 99 cuts, `work-log-index` current, `prose-check` self-test
+PASS; `ceremony-check` `[unverified]`); the host file read once at 06:27:08Z
+(712 lines, 0 lines matching `T39|#686`). #807's ruling-(i) erratum is
+**absent** from its body (`grep -c 'no upstream'` prints the sentence, `errat`
+0) -- flagged on #686 as L-37 `inherited:coordinator`; no post on #807. All of
+this is in `00-running-log.md` and `01-research-notes.md` § Scope.
+
+**Next is stage B** -- read the 254 as a reader in § 2's read order
+(`README.md`, `TRADEMARK.md`, `LICENSE.md`, the `docs/` groups, then `plans/`,
+`docs/upstream/`, `documentation/`, `licenses/`, `docs/reviews/` and its
+briefs), each group once before it is read again as an auditor, the leads
+L-01..L-46 of § 3 noted against what each document says. No ES worktree, no
+guest, no compile, no host-file line at any stage. `.qa-scratch/` is
+gitignored and `git status --short` is read before every `git add`; anything
+temporary goes under `/workspace/tmp/m6-t39/`, never `/tmp`. No network beyond
+`gh --repo pixelelated/distribution` reads and the lane's own posts.
 
 ## Next commands
 
@@ -86,4 +91,4 @@ or the pins.
 
 ## Checkpoints
 
-- (none yet; the executor appends one line per stage: the stage, the tip, the time)
+- Stage A -- 2026-11-01 06:36:32 UTC -- base tip 86ebb6dffc (the dispatch merge); this commit carries 00-running-log.md, 01-research-notes.md § Scope, this pointer and the #686 work-log entry, and becomes the branch tip; checkpoint posted on #686.
