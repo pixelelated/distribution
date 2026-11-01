@@ -1,0 +1,29 @@
+rapidjson: present (unused here)
+g++: g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+rapidjson: /workspace/tmp/m6-t36/rj/rapidjson-1.1.0/include (document.h da02371e1747e869)
+$ g++ -std=c++17 -O0 -g0 -pthread -Wno-template-body -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-utils-resources-683/es-app/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-utils-resources-683/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-utils-resources-683/external -I /workspace/tmp/m6-t36/rj/rapidjson-1.1.0/include <28 sources> -o es-unit-tests
+built es-unit-tests
+t36-extract: 10 extracts at 16dbac5211eea7e70db7394372033be2be7df829
+$ g++ -std=c++17 -O0 -g0 -pthread -DT36_X="/workspace/tmp/m6-t36/build/x" -I /workspace/tmp/m6-t36/build/x -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-utils-resources-683/es-core/src -I /home/max/Development/emulationstation-next.worktrees/m6-es-core-utils-resources-683/external <4 sources> -o utils-resources-tests
+built utils-resources-tests
+RUN es-unit-tests: rc 0; [doctest] test cases: 185 | 185 passed | 0 failed | 0 skipped [doctest] assertions: 4795 | 4795 passed | 0 failed | 
+RUN utils-resources-tests: rc 1; [doctest] test cases: 15 | 11 passed | 4 failed | 0 skipped [doctest] assertions: 48 | 41 passed | 7 failed | 
+    TEST CASE:  3.1 toUpper/toLower fold a 3-byte UTF-8 codepoint wrongly (StringUtil.cpp:357-362, :398-403) [L-01]
+    TEST CASE:  3.2 renameFile/copyFile return true over an absent source (FileSystemUtil.cpp:1451-1455, :1472-1474) [L-03]
+    TEST CASE:  3.4 readAllText/readAllLines read a file under three bytes as empty (FileSystemUtil.cpp:1369-1427) [L-02]
+    TEST CASE:  3.26 removeFile leaves the deleted path cached as present (FileSystemUtil.cpp:1059-1087) [L-19, new]
+grep: /workspace/tmp/m6-t36/build/utils-resources-tests.run.log: binary file matches
+      /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:82: ERROR: CHECK( String::toUpper("\xE1\xBA\xA1") == "\xE1\xBA\xA0" ) is NOT correct!
+      /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:83: ERROR: CHECK( String::toLower("\xEF\xBC\xA1") == "\xEF\xBD\x81" ) is NOT correct!
+      /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:90: ERROR: CHECK_FALSE( FileSystem::renameFile(s.at("nope"), s.at("dst"), false) ) is NOT correct!
+        values: CHECK_FALSE( true )
+      /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:92: ERROR: CHECK_FALSE( FileSystem::copyFile(s.at("nope2"), s.at("dst2")) ) is NOT correct!
+        values: CHECK_FALSE( true )
+      /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:102: MESSAGE: writeAllText is void at the pin; a fix's CHECK_FALSE comes with #1186
+      /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:110: ERROR: CHECK( FileSystem::readAllText(p) == "1\n" ) is NOT correct!
+        values: CHECK(  == 1
+      /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:111: ERROR: CHECK( FileSystem::readAllLines(p).size() == 1 ) is NOT correct!
+        values: CHECK( 0 == 1 )
+      /workspace/repos/pixelelated/distribution.worktrees/m6-es-core-utils-resources-683/docs/audits/2026_10_31-epic-m6-es-core-utils-resources/tools/t36-utils-resources-tests.cpp:126: ERROR: CHECK( FileSystem::exists(p) == false ) is NOT correct!
+        values: CHECK( true == false )
+TOTAL: 200 test cases in 2 binaries

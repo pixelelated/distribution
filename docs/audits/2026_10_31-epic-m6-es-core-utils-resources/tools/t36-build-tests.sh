@@ -38,6 +38,26 @@ build() { # <name> <flags...> -- <sources...>
 # T35's es-unit-tests runs (185 cases, their records). utils-resources-tests needs no
 # rapidjson. The rapidjson gate below is kept for when a working copy is supplied.
 
+# es-unit-tests: the existing target (the slice's StringUtil/TimeText/OfflineProxyUrl among
+# its 28 sources), parsed from the CMakeLists. rapidjson 1.1.0 trips g++ 15's -Wtemplate-body
+# (a default-error, not -Werror), so -Wno-template-body (ruling 13, #683); the 3 linked files
+# then build and run. Needs a readable rapidjson.
+if [ -r "${RAPIDJSON_INCLUDE_DIR:-/nonexistent}/rapidjson/document.h" ]; then
+  mapfile -t EUT < <(python3 -I - "${CM}" "${ES}" <<'PY'
+import re, sys
+cm, es = sys.argv[1], sys.argv[2]
+text = re.sub(r"#[^\n]*", "", open(cm).read()); unit = cm.rsplit("/", 1)[0]
+m = re.search(r"add_executable\(\s*es-unit-tests\s+([^)]*)\)", text)
+for s in (m.group(1).split() if m else []):
+    print(s.replace("${CMAKE_CURRENT_SOURCE_DIR}", unit).replace("${ES_ROOT}", es))
+PY
+)
+  build es-unit-tests -Wno-template-body -I "${ES}/es-app/src" -I "${ES}/es-core/src" -I "${ES}/external" -I "${RAPIDJSON_INCLUDE_DIR}" -- "${EUT[@]}"
+  EUT_RAN=es-unit-tests
+else
+  echo "es-unit-tests: rapidjson absent, not built"; EUT_RAN=""
+fi
+
 # utils-resources-tests: the floor cases, over the lifted seams and the linked-whole sources.
 X="${B}/x"; rm -rf -- "${B:?}/x"
 python3 -B -I "${HERE}/t36-extract.py" "${ES}" "$(git -C "${ES}" rev-parse HEAD)" "${X}" \
@@ -51,7 +71,7 @@ if [ -d "${X}" ]; then
     "${ES}/es-core/src/utils/StringUtil.cpp" \
     "${ES}/es-core/src/utils/md5.cpp"
 fi
-for t in ${UR}; do
+for t in ${EUT_RAN} ${UR}; do
   [ -x "${B}/${t}" ] || { echo "RUN ${t}: not built"; FAIL=1; continue; }
   "${B}/${t}" > "${B}/${t}.run.log" 2>&1; rc=$?
   echo "RUN ${t}: rc ${rc}; $(grep -E '^\[doctest\] (test cases|assertions):' "${B}/${t}.run.log" | tr -s ' ' | tr '\n' ' ')"
@@ -62,7 +82,7 @@ for t in ${UR}; do
   fi
 done
 TOTAL=0; BINS=0
-for t in ${UR}; do
+for t in ${EUT_RAN} ${UR}; do
   [ -r "${B}/${t}.run.log" ] || continue
   n=$(grep -m1 -E '^\[doctest\] test cases:' "${B}/${t}.run.log" | grep -o -E '[0-9]+' | head -n 1)
   [ -n "${n}" ] && { TOTAL=$((TOTAL + n)); BINS=$((BINS + 1)); }
