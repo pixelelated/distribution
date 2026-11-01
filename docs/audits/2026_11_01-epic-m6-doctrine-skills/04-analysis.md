@@ -29,34 +29,34 @@ T38 read the 52 paths of `.claude/**` less `.claude/rules/**`: ten skills and ei
 
 ## Acceptance-criteria scorecard
 
-#685's 22 criteria at the end of stage D (stage B's verdicts are in `168bbba783`, stage C's in `8c76ca62d3`). Each is ticked by the coordinator at acceptance, from its artifact.
+#685's 22 criteria at the end of stage E (stage B's verdicts are in `168bbba783`, stage C's in `8c76ca62d3`, stage D's in `e93c13457e`). Each is ticked by the coordinator at acceptance, from its artifact.
 
-| Criterion | Verdict at stage D | Notes |
+| Criterion | Verdict at stage E | Notes |
 | --- | --- | --- |
-| 1 the folder's files | PARTIAL ⚠ | `00` to `05`, `second-opinions/`, `stage-a/` to `stage-d/` and `tools/` exist; `stage-e/` is stage E's |
-| 2 the lint `PASS`, Q1 to Q7, `question:` | PARTIAL ⚠ | the pre-issue lint `PASS`, every item with its `question:` (C-07), and with `--issue 1394` (D-05); the default phase runs at close |
+| 1 the folder's files | PARTIAL ⚠ | `00` to `05`, `second-opinions/`, `stage-a/` to `stage-e/` and `tools/` exist; `audit-completion.json` is stage F's |
+| 2 the lint `PASS`, Q1 to Q7, `question:` | PASS ✓ | the default phase `PASS`, and with `--issue 1394` (`stage-e/S0-closing-lint.out`, E-S0); every item with its `question:` |
 | 3 the Local plan | PASS ✓ | `review-plan.json` `local`, no reviewer, `tier_exception` `D-WORKFLOW-184` (C-01); no keyed call (`00`'s census) |
-| 4 the punch-list issue at Phase 7 | PARTIAL ⚠ | #1394 filed, `box-check` `0 fail` (D-03, D-04); every item at a Phase 7 outcome is stage F's, the close the coordinator's |
-| 5 `reviewed-at:` / `fixed-at:` | SKIP ○ | the hand-back's; the removal check prints no line (A-06) |
+| 4 the punch-list issue at Phase 7 | PARTIAL ⚠ | every item at a Phase 7 outcome in `05` (51 Resolved, 6 Deferred); #1394 `box-check` `0 fail`; its checkboxes and its close are the coordinator's, at acceptance |
+| 5 `reviewed-at:` / `fixed-at:` | PARTIAL ⚠ | `05` carries `reviewed-at: 87c2ab0fed` and `fixed-at: 420b845656`; #685's header is the hand-back's |
 | 6 `01` § Scope, the block and both totals | PASS ✓ | A-02, A-03 |
 | 7 `01` § Scope, the drift; § Read order | PASS ✓ | A-03, `stage-a/moved-commits.out`; `01` § Read order |
 | 8 `00`, the lint's Local proof first | PASS ✓ | A-01 |
 | 9 `02` § Coverage, 52 rows with origin | PASS ✓ | the `awk` of the criterion prints `52` |
 | 10 `02` § The runs | PASS ✓ | every run with its line and exit; `rules-check` *no evidence for the 52* |
-| 11 `tools/t38-checks.sh`, its four runs | PARTIAL ⚠ | runs 1 to 3 at stage C (C-02 to C-06); run 4 after stage E, stage F's |
-| 12 `02` § The names and the references | PARTIAL ⚠ | the tip's counts, the class counts and the three allowlists are in `02`; the counts after stage E are stage F's |
+| 11 `tools/t38-checks.sh`, its four runs | PARTIAL ⚠ | runs 1 to 3 at stage C; exit 0 at every stage-E commit, `TOTAL: 962 of 962` at `fixed-at`; run 4 (`--withhold findings`) is stage F's |
+| 12 `02` § The names and the references | PASS ✓ | the tip's counts, the class counts, the three allowlists and the counts after stage E (`stage-e/S0-closing-stale-counts.txt`) |
 | 13 `04` Q4's tables by a script | PASS ✓ | `tools/t38-tables.py q4`, its drift seen (B-19) |
 | 14 Q5, Q6, the two questions posted | PASS ✓ | the tables and the two questions are below; posted as `6553169705` on #685 and `6553118160` on #807, cited in `02` and read back (D-06) |
-| 15 every fix's lines in § The streams | SKIP ○ | stage E |
+| 15 every fix's lines in § The streams | PASS ✓ | eight stream rows and 60 fix-table rows, each lead FAIL at its parent and PASS at its fix (E-S0 to E-S7) |
 | 16 § What ... inherit | PASS ✓ | `02`'s table, each row naming its owner |
 | 17 the bugs, the ladder, the take-up rows, the rulings | PASS ✓ | #1389 to #1393, each with its trace, `Already written:` and VM line, `box-check` `0 fail` (D-01, D-02, D-07); the ladder in `05`; the take-up rows and the rulings in `02` |
-| 18 `proved:` equals `PROOF:` | PASS ✓ | `50` and `50` at this commit |
+| 18 `proved:` equals `PROOF:` | PASS ✓ | `58` and `58` at this commit |
 | 19 no host-file line of this lane's | PASS ✓ | 689 lines at 02:44, `0` of this lane's; re-counted at the hand-back |
 | 20 the retro | SKIP ○ | stage G |
 | 21 the checkers on the branch and the simulated merge | SKIP ○ | the hand-back's |
 | 22 the hand-back, one tip, `box-check --issue 685` | SKIP ○ | stage H |
 
-**Pass rate:** 12 of 22 met at stage D; 5 partial, each with its later stage named; 5 skipped as later stages' work (counted from the table by the command that wrote this line).
+**Pass rate:** 15 of 22 met at stage E; 4 partial, each with its later stage named; 3 skipped as later stages' work (counted from the table by the command that wrote this line).
 
 ## Code Quality Assessment
 

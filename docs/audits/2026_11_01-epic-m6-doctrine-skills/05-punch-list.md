@@ -2,6 +2,7 @@
 
 **Generated:** 2026-11-01, by `tools/t38-punch.py` from one list (the items, the Phase 7 table and the index cannot disagree)
 **Source Audit:** `04-analysis.md`; the leads are `02` § The leads
+**reviewed-at:** 87c2ab0fed; **fixed-at:** 420b845656 (the last fix commit; a file cannot name the commit that writes it)
 **Audit issue:** #1394, a sub-issue of #685; the bugs: #1389 (PL-01), #1390 (PL-02), #1391 (PL-03), #1392 (PL-04), #1393 (PL-05)
 **Total Items:** 57 (Critical: 0, High: 0, Medium: 16, Low: 41)
 
@@ -9,7 +10,7 @@
 
 ## Instructions for the executing stream
 
-Every item is **Open**: the stage-D pause's stream brief (`docs/reviews/briefs/t38-streams.md`, the coordinator's) decides each.
+Every item is at a Phase 7 outcome since stage E (the gate below): the stream brief `docs/reviews/briefs/t38-streams.md` at `95052eaf78`, the coordinator's, decided each.
 Items whose proposal reads `bug` are filed at stage D with their trace, their `Already written:` line and their VM line, *"Can this be done on
 the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in the fork-adapted skills, never in the council family
 (ruling (d)); each fix's commit records its acceptance line before and after and `tools/t38-checks.sh`'s exit.
@@ -27,6 +28,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** each names D-WORKFLOW-184's Local epic-tier exception as `templates.md:144-146` does; `grep -c 'D-WORKFLOW-184'` over the four files prints a count in each
 - **Ladder:** written -> audited by `tools/skills-check`'s contract step (#1373)
 - **Proposed:** bug #1389
+- **Phase 7:** Resolved, `09384b54fe` (S1)
 
 ## PL-02: scoped-audit's pre-existing check pops the shared stash and fetches vitest
 
@@ -39,6 +41,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the block uses a detached scratch worktree at `<base_sha>` and the repository's own checks; `sed -n '340,365p' | grep -c -E 'git stash( |$)|npx vitest'` prints `0`
 - **Ladder:** written -> audited by `tools/skills-check`'s stale step (a bare `git stash` and `npx` as terms)
 - **Proposed:** bug #1390
+- **Phase 7:** Resolved, `f95a86a878` (S2)
 
 ## PL-03: release-notes says fork-publish-release uploads the files
 
@@ -51,6 +54,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the sentence says the tool prepares a plan (`--prepare`) and that publication waits on #265, #344 and #528; `sed -n '19,20p' | grep -c uploads` prints `0`
 - **Ladder:** written -> no tool can (a sentence about another tool's behaviour)
 - **Proposed:** bug #1391
+- **Phase 7:** Resolved, `29b6e04aec` (S7)
 
 ## PL-04: code-auditor runs the lint with --issue before the issue exists, and never names --phase pre-issue
 
@@ -63,6 +67,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the paragraph runs `--phase pre-issue` before Phase 6 and the default phase with `--issue <n>` after Phase 7; `git grep -c 'pre-issue'` over the skill prints a count
 - **Ladder:** written -> audited by `tools/skills-check`'s contract step
 - **Proposed:** bug #1392
+- **Phase 7:** Resolved, `144b5bc6de` (S1)
 
 ## PL-05: futro's comment read uses gh api {owner}/{repo}
 
@@ -75,6 +80,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the command names `repos/pixelelated/distribution`; `grep -c -F '{owner}/{repo}'` prints `0`
 - **Ladder:** written -> audited by `tools/skills-check`'s stale step
 - **Proposed:** bug #1393
+- **Phase 7:** Resolved, `c77dd50b00` (S3)
 
 ## PL-06: the evidence floor says three rules and numbers five 1, 2, 3, 4, 3
 
@@ -87,6 +93,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** five rules numbered 1 to 5, the count said, both citations of the subagent rule moved; `sed -n '157,200p' | grep -c -E '^3\. \*\*'` prints `1`
 - **Ladder:** written -> audited by `tools/skills-check` (a numbered list's count against its sentence)
 - **Proposed:** punch
+- **Phase 7:** Resolved, `a442eb626e` (S1)
 
 ## PL-07: templates.md's scorecard heading fails the lint
 
@@ -99,6 +106,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** `## Acceptance-criteria scorecard`; `tools/t38-checks.sh`'s contract step passes without its allow-findings entry
 - **Ladder:** evidenced -> audited by `tools/t38-checks.sh`'s contract step, then #1373's
 - **Proposed:** punch
+- **Phase 7:** Resolved, `3e38f1a460` (S1)
 
 ## PL-08: the scoped audit's checks are counted ten, nine, six, nine and five
 
@@ -111,6 +119,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** one count; the format and the template list the ten checks; `tools/t38-tables.py q4` (c) prints `yes` for each row
 - **Ladder:** written -> audited by `tools/t38-tables.py q4`'s counts, then #1373's
 - **Proposed:** punch
+- **Phase 7:** Resolved, `e05a5d5eef` (S2)
 
 ## PL-09: phases.md says Epic tier trusts the retros while SKILL.md says re-derive two
 
@@ -123,6 +132,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** `phases.md` states the re-derivation quota as `SKILL.md` does
 - **Ladder:** written -> no tool can (two texts' meanings)
 - **Proposed:** punch
+- **Phase 7:** Resolved, `91f3095280` (S1)
 
 ## PL-10: phases.md says the repo has no artifact lint, so verify by hand
 
@@ -135,6 +145,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** Phase 5's final step runs `tools/lint-audit-artifacts --phase pre-issue`; `grep -c 'none today'` prints `0`
 - **Ladder:** written -> audited by `tools/skills-check`'s stale step
 - **Proposed:** punch
+- **Phase 7:** Resolved, `7066c9f299` (S1)
 
 ## PL-11: Phase 0's stale-copy check reads SKILL.md alone
 
@@ -147,6 +158,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the check compares the whole skill directory, and says a renovation lane reads the dispatch tip's skill; the block at this tip prints the `templates.md` difference
 - **Ladder:** written -> no tool can until #1373 checks the block
 - **Proposed:** punch
+- **Phase 7:** Resolved, `ea18cedfdc` (S1)
 
 ## PL-12: futro MUSTs a git fetch origin main this repository cannot run
 
@@ -159,6 +171,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the base-divergence check compares against `next` with no fetch; `grep -c 'origin/main'` prints `0`
 - **Ladder:** written -> audited by `tools/skills-check`'s stale step (`origin/main`)
 - **Proposed:** punch
+- **Phase 7:** Resolved, `0a3df2b3aa` (S3)
 
 ## PL-13: session-stash's exact template has no Start here
 
@@ -171,6 +184,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the template opens with `## Start here`; `grep -c '^## Start here'` over the skill prints `1`
 - **Ladder:** written -> audited by `tools/skills-check` (the template's headings against learning-capture.md § 4)
 - **Proposed:** punch
+- **Phase 7:** Resolved, `7f70e06051` (S5)
 
 ## PL-14: release-notes' description promises PR bodies a details block the body forbids
 
@@ -183,6 +197,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the description says the details block is the release note's only; its length recorded before and after
 - **Ladder:** written -> no tool can (the description's meaning)
 - **Proposed:** punch
+- **Phase 7:** Resolved, `a8cff74210` (S7)
 
 ## PL-15: mini-retro's order of Step 2.5 and its two closing lists
 
@@ -195,6 +210,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** one order for Step 2.5, one closing list, no self-referring Step 7
 - **Ladder:** written -> no tool can
 - **Proposed:** punch
+- **Phase 7:** Resolved, `629c6794c1` (S2)
 
 ## PL-16: code-auditor names no completion marker and no held-reply sidecar
 
@@ -207,6 +223,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** Phase 7 names `docs/audits/<scope>/audit-completion.json` (#540) and the layout names `<reply>.held.json` (#1308); the stage-A check prints a line each
 - **Ladder:** written -> audited by `tools/ceremony-check`'s completed-audit marker
 - **Proposed:** punch
+- **Phase 7:** Resolved, `1f5c88f86b` (S1)
 
 ## PL-17: futro and mini-retro write their artifacts to homes the ceremonies do not read
 
@@ -219,6 +236,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** each artifact step names `docs/futros/<date>-<scope>.md` or `docs/retros/<date>-<scope>.md` (or the work-log heading) and `tools/ceremony-check`
 - **Ladder:** written -> audited by `tools/ceremony-check`
 - **Proposed:** punch
+- **Phase 7:** Resolved, `adb1c37cfc` (S3)
 
 ## PL-18: code-auditor's Twelve recorded failure modes
 
@@ -231,6 +249,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** no number, or one a command prints; `grep -c 'Twelve recorded'` prints `0`
 - **Ladder:** written -> audited by `tools/t38-tables.py q4`'s counts
 - **Proposed:** punch
+- **Phase 7:** Resolved, `3829a87e18` (S1)
 
 ## PL-19: code-auditor's legacy worktree layout
 
@@ -243,6 +262,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the layout the lanes use, #640 named; `grep -c 'rocknix\.worktrees'` prints `0`
 - **Ladder:** written -> audited by `tools/skills-check`'s stale step
 - **Proposed:** punch
+- **Phase 7:** Resolved, `1055bfa6b8` (S1)
 
 ## PL-20: durations used as estimates
 
@@ -255,6 +275,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** every estimate gone or an ordering (D-WORKFLOW-091); the widened pattern prints `0`; `code-auditor/SKILL.md:3`'s length before and after
 - **Ladder:** written -> audited by `tools/skills-check`'s stale step (#342)
 - **Proposed:** punch
+- **Phase 7:** Resolved, `f5aea22c63` (S6)
 
 ## PL-21: a main branch this repository has not
 
@@ -267,6 +288,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the main rules gone; `git grep -c 'saved-session-state-main'` prints `0`
 - **Ladder:** written -> audited by `tools/t38-checks.sh`'s stale step (`state-main`)
 - **Proposed:** punch
+- **Phase 7:** Resolved, `9adaa017e1` (S5)
 
 ## PL-22: Copilot-era rule-file names and a missing agent-terminal-safety rule
 
@@ -279,6 +301,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** each points at its `.claude/rules/` successor or is dropped
 - **Ladder:** written -> audited by `tools/skills-check`'s refs step
 - **Proposed:** punch
+- **Phase 7:** Resolved, `a1bc03f615` (S6)
 
 ## PL-23: Copilot's mcp_github_* names and the advice to avoid gh
 
@@ -291,6 +314,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** one shared sentence with `mcp__github__*` and `gh --repo pixelelated/distribution`; the stale step's `copilot` count over the fork-adapted skills prints `0`
 - **Ladder:** written -> audited by `tools/t38-checks.sh`'s stale step
 - **Proposed:** punch
+- **Phase 7:** Resolved, `48bfbe0eed` (S6)
 
 ## PL-24: the source estate's checks, stacks and examples kept as this repository's
 
@@ -303,6 +327,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** each replaced with this repository's checks and examples or dropped, one stream per skill
 - **Ladder:** written -> audited by `tools/skills-check`'s stale step (the estate's terms)
 - **Proposed:** punch
+- **Phase 7:** Resolved, `919a0e0014`, `420b845656` (S6)
 
 ## PL-25: another estate's issue numbers cited as this tracker's
 
@@ -315,6 +340,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** each citation names its estate or is dropped; `#203` no longer cited as an audit
 - **Ladder:** written -> audited by `tools/skills-check` (a `#N` above the tracker's highest)
 - **Proposed:** punch
+- **Phase 7:** Resolved, `9d2aa63cd1` (S6)
 
 ## PL-26: version histories inside procedures
 
@@ -327,6 +353,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the histories in the commit log; the front matter's note shortened, its length recorded
 - **Ladder:** written -> no tool can
 - **Proposed:** punch
+- **Phase 7:** Resolved, `ef63791cf6` (S4)
 
 ## PL-27: futro's blindspot register 'when created'
 
@@ -339,6 +366,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the sentence names `docs/blindspot-register.md`; the starter stays a starter
 - **Ladder:** written -> no tool can
 - **Proposed:** punch
+- **Phase 7:** Resolved, `94c09ce50d` (S3)
 
 ## PL-28: session-stash's stranger's proof is stated in no step
 
@@ -351,6 +379,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** Step 3 carries the proof as a step
 - **Ladder:** written -> no tool can
 - **Proposed:** punch
+- **Phase 7:** Resolved, `37df2ac2b9` (S5)
 
 ## PL-29: templates.md's Local example writes anthropic/claude-opus-5.5
 
@@ -363,6 +392,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** `anthropic/claude-opus-5-5`; `grep -c -F 'anthropic/claude-opus-5.5'` prints `0`
 - **Ladder:** written -> audited by `tools/skills-check`'s stale step
 - **Proposed:** punch
+- **Phase 7:** Resolved, `cada93dfb7` (S1)
 
 ## PL-30: subagents do not inherit terminal access
 
@@ -375,6 +405,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the sentence says what the harness does
 - **Ladder:** written -> no tool can
 - **Proposed:** punch
+- **Phase 7:** Resolved, `641624e971` (S1)
 
 ## PL-31: Phase Z.6, PZ, Outcome A/B and P7, defined nowhere
 
@@ -387,6 +418,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** each defined or replaced with this repository's words
 - **Ladder:** written -> audited by `tools/skills-check` (an undefined token list)
 - **Proposed:** punch
+- **Phase 7:** Resolved, `20435e36ae` (S1)
 
 ## PL-32: templates.md's escaped fences
 
@@ -399,6 +431,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** a nested fence that copies as one
 - **Ladder:** written -> no tool can
 - **Proposed:** punch
+- **Phase 7:** Resolved, `38f6ee7266` (S1)
 
 ## PL-33: the criterion entry 'reproduced' in templates.md has drifted
 
@@ -411,6 +444,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** one copy, or `tools/t38-tables.py q7` prints no difference
 - **Ladder:** evidenced -> audited by `tools/t38-tables.py q7`
 - **Proposed:** punch
+- **Phase 7:** Resolved, `f72c9cd8ba` (S1)
 
 ## PL-34: the full 6-phase methodology
 
@@ -423,6 +457,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the phases named, not counted
 - **Ladder:** written -> audited by `tools/t38-tables.py q4`'s counts
 - **Proposed:** punch
+- **Phase 7:** Resolved, `411d93a585` (S2)
 
 ## PL-35: scoped-audit's reference/template.md and cornerstone-conformance.md
 
@@ -435,6 +470,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** each path resolves or is dropped; `tools/t38-checks.sh`'s refs step without the entry
 - **Ladder:** evidenced -> audited by `tools/t38-checks.sh`'s refs step
 - **Proposed:** punch
+- **Phase 7:** Resolved, `5f6d68c4f6` (S2)
 
 ## PL-36: futro's four techniques, five listed, three in the template
 
@@ -447,6 +483,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** one list and its count
 - **Ladder:** written -> audited by `tools/t38-tables.py q4`'s counts
 - **Proposed:** punch
+- **Phase 7:** Resolved, `1da407d664` (S3)
 
 ## PL-37: review-levels.md's status line for #375
 
@@ -459,6 +496,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the status line gone (#375 is closed)
 - **Ladder:** written -> no tool can
 - **Proposed:** punch
+- **Phase 7:** Resolved, `29b6a76b32` (S1)
 
 ## PL-38: code-auditor's list of the checks that exist here
 
@@ -471,6 +509,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the list points at `instruction-files.md`'s tool table
 - **Ladder:** written -> no tool can
 - **Proposed:** punch
+- **Phase 7:** Resolved, `6636d63f85` (S1)
 
 ## PL-39: the audit issue's checkbox shape (D-QA-044, #268)
 
@@ -483,6 +522,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** Phase 6 gives `- [ ] <behaviour> -- <artifact>` and `tools/box-check --issue N`
 - **Ladder:** written -> audited by `tools/box-check`
 - **Proposed:** punch
+- **Phase 7:** Resolved, `9c204cf2dc` (S1)
 
 ## PL-40: register sections futro and begin-delivery cite and no register has
 
@@ -495,6 +535,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** each cites an entry `docs/blindspot-register.md` holds, or drops the citation
 - **Ladder:** written -> audited by `tools/skills-check` (a register section named)
 - **Proposed:** punch
+- **Phase 7:** Resolved, `79102ab43a` (S3)
 
 ## PL-41: developer-relations' dash, split list and walk counts
 
@@ -507,6 +548,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** each read once by a no-context reader without the stumble
 - **Ladder:** written -> no tool can
 - **Proposed:** punch
+- **Phase 7:** Resolved, `88dde804a3` (S7)
 
 ## PL-42: release-notes' claims about its tools, and RC1
 
@@ -519,6 +561,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** each claim the tool's own (`prose-check`'s strict paths; `pr-stack-check`'s `BANNED`)
 - **Ladder:** written -> no tool can
 - **Proposed:** punch
+- **Phase 7:** Resolved, `4aa143ff5d` (S7)
 
 ## PL-43: futro's thresholds, the committed comment and the heading levels
 
@@ -531,6 +574,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** one threshold; the commit step said; the template's `## 1.` as the futros use
 - **Ladder:** written -> no tool can
 - **Proposed:** punch
+- **Phase 7:** Resolved, `3109d4882b` (S3)
 
 ## PL-44: begin-delivery's own history and step order
 
@@ -543,6 +587,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** one order, the history consistent
 - **Ladder:** written -> no tool can
 - **Proposed:** punch
+- **Phase 7:** Resolved, `a908ebf769` (S4)
 
 ## PL-45: the session skills' stat, staleness tiers and approval
 
@@ -555,6 +600,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** each sentence a reader can act on
 - **Ladder:** written -> no tool can
 - **Proposed:** punch
+- **Phase 7:** Resolved, `7d5399fdfd` (S5)
 
 ## PL-46: code-auditor's tiers, mode trigger and phase counts
 
@@ -567,6 +613,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** each said once
 - **Ladder:** written -> no tool can
 - **Proposed:** punch
+- **Phase 7:** Resolved, `f77d1c9708` (S1)
 
 ## PL-47: begin-exploration: write the skill or sweep the references
 
@@ -579,6 +626,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the maintainer's answer recorded on #685, then the stream that applies it
 - **Ladder:** routed -> audited by `tools/t38-checks.sh`'s refs step once swept
 - **Proposed:** question (the pause)
+- **Phase 7:** Resolved, `2dac7625fe`, `da2e20194d`, `1355c754e5`, `5f534f0f08` (S2/S3/S4)
 
 ## PL-48: the renovation face in code-auditor or in the plan
 
@@ -591,6 +639,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the coordinator's ruling recorded
 - **Ladder:** written -> no tool can
 - **Proposed:** question (the pause)
+- **Phase 7:** Deferred, recorded as written, the face stays in the plan (ruling 3; #685 comment 6553579374)
 
 ## PL-49: the levels' third lab and D-WORKFLOW-195
 
@@ -603,6 +652,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the coordinator's ruling recorded
 - **Ladder:** written -> no tool can
 - **Proposed:** question (the pause)
+- **Phase 7:** Resolved, `73de4fc76f` (S1)
 
 ## PL-50: the continuity section and the payload's pid
 
@@ -615,6 +665,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the coordinator's ruling recorded
 - **Ladder:** written -> no tool can
 - **Proposed:** question (the pause)
+- **Phase 7:** Resolved, `595da75108` (S1)
 
 ## PL-51: a working branch's session file: pointer or state
 
@@ -627,6 +678,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the coordinator's ruling recorded, then the stream
 - **Ladder:** written -> audited by #1014's freshness check
 - **Proposed:** question (the pause)
+- **Phase 7:** Resolved, `83891d77d9` (S5)
 
 ## PL-52: #645's checkbox against D-WORKFLOW-078
 
@@ -639,6 +691,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the coordinator's ruling on #645 recorded
 - **Ladder:** written -> no tool can
 - **Proposed:** question (the pause)
+- **Phase 7:** Resolved, `7d1ee17849`, `1279d8aad7` (S7)
 
 ## PL-53: the export's refresh list
 
@@ -651,6 +704,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** #911 carries the list; the export refreshed by copying
 - **Ladder:** written -> audited by `tools/skills-check` over the export (#1373)
 - **Proposed:** inherit:#911
+- **Phase 7:** Deferred, #911 (the export's refresh; the list stays in `02` § What ... inherit)
 
 ## PL-54: council-research kept or retired
 
@@ -663,6 +717,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the maintainer's answer on #807, then #911's refresh
 - **Ladder:** written -> no tool can
 - **Proposed:** inherit:#911
+- **Phase 7:** Deferred, #807 (comment 6553118160, the maintainer's answer), then #911
 
 ## PL-55: the rule errata
 
@@ -675,6 +730,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the coordinator's sweep
 - **Ladder:** written -> audited by `tools/archaeology --reversal`
 - **Proposed:** inherit:coordinator
+- **Phase 7:** Deferred, the coordinator's sweep `b344408e46`; L-23, D-QA-040 and L-50 open, the coordinator's (#685 comment 6553579374)
 
 ## PL-56: tools/skills-check's inputs
 
@@ -687,6 +743,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** #1373 carries them
 - **Ladder:** evidenced -> audited once #1373 is wired
 - **Proposed:** inherit:#1373
+- **Phase 7:** Deferred, #1373 (`tools/skills-check`'s inputs)
 
 ## PL-57: Backlog leads: the stash archive's tool and the roster's prose copies
 
@@ -699,6 +756,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Acceptance:** the coordinator files them
 - **Ladder:** written -> audited by the tool each Backlog asks for
 - **Proposed:** inherit:coordinator
+- **Phase 7:** Deferred, #1395 (L-18), #1396 (L-44)
 
 ## Pre-existing tracked scope (NOT punch items -- exempt from the Phase 7 gate)
 
@@ -719,65 +777,65 @@ Every one of the 85 leads in `02` § The leads is cited by an item above or list
 
 ## Phase 7 resolution gate
 
-| Item | Outcome | Proposed at stage B/C |
+| Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | bug #1389 |
-| PL-02 | Open | bug #1390 |
-| PL-03 | Open | bug #1391 |
-| PL-04 | Open | bug #1392 |
-| PL-05 | Open | bug #1393 |
-| PL-06 | Open | punch |
-| PL-07 | Open | punch |
-| PL-08 | Open | punch |
-| PL-09 | Open | punch |
-| PL-10 | Open | punch |
-| PL-11 | Open | punch |
-| PL-12 | Open | punch |
-| PL-13 | Open | punch |
-| PL-14 | Open | punch |
-| PL-15 | Open | punch |
-| PL-16 | Open | punch |
-| PL-17 | Open | punch |
-| PL-18 | Open | punch |
-| PL-19 | Open | punch |
-| PL-20 | Open | punch |
-| PL-21 | Open | punch |
-| PL-22 | Open | punch |
-| PL-23 | Open | punch |
-| PL-24 | Open | punch |
-| PL-25 | Open | punch |
-| PL-26 | Open | punch |
-| PL-27 | Open | punch |
-| PL-28 | Open | punch |
-| PL-29 | Open | punch |
-| PL-30 | Open | punch |
-| PL-31 | Open | punch |
-| PL-32 | Open | punch |
-| PL-33 | Open | punch |
-| PL-34 | Open | punch |
-| PL-35 | Open | punch |
-| PL-36 | Open | punch |
-| PL-37 | Open | punch |
-| PL-38 | Open | punch |
-| PL-39 | Open | punch |
-| PL-40 | Open | punch |
-| PL-41 | Open | punch |
-| PL-42 | Open | punch |
-| PL-43 | Open | punch |
-| PL-44 | Open | punch |
-| PL-45 | Open | punch |
-| PL-46 | Open | punch |
-| PL-47 | Open | question (the pause) |
-| PL-48 | Open | question (the pause) |
-| PL-49 | Open | question (the pause) |
-| PL-50 | Open | question (the pause) |
-| PL-51 | Open | question (the pause) |
-| PL-52 | Open | question (the pause) |
-| PL-53 | Open | inherit:#911 |
-| PL-54 | Open | inherit:#911 |
-| PL-55 | Open | inherit:coordinator |
-| PL-56 | Open | inherit:#1373 |
-| PL-57 | Open | inherit:coordinator |
+| PL-01 | **Resolved** | `09384b54fe` (S1) |
+| PL-02 | **Resolved** | `f95a86a878` (S2) |
+| PL-03 | **Resolved** | `29b6e04aec` (S7) |
+| PL-04 | **Resolved** | `144b5bc6de` (S1) |
+| PL-05 | **Resolved** | `c77dd50b00` (S3) |
+| PL-06 | **Resolved** | `a442eb626e` (S1) |
+| PL-07 | **Resolved** | `3e38f1a460` (S1) |
+| PL-08 | **Resolved** | `e05a5d5eef` (S2) |
+| PL-09 | **Resolved** | `91f3095280` (S1) |
+| PL-10 | **Resolved** | `7066c9f299` (S1) |
+| PL-11 | **Resolved** | `ea18cedfdc` (S1) |
+| PL-12 | **Resolved** | `0a3df2b3aa` (S3) |
+| PL-13 | **Resolved** | `7f70e06051` (S5) |
+| PL-14 | **Resolved** | `a8cff74210` (S7) |
+| PL-15 | **Resolved** | `629c6794c1` (S2) |
+| PL-16 | **Resolved** | `1f5c88f86b` (S1) |
+| PL-17 | **Resolved** | `adb1c37cfc` (S3) |
+| PL-18 | **Resolved** | `3829a87e18` (S1) |
+| PL-19 | **Resolved** | `1055bfa6b8` (S1) |
+| PL-20 | **Resolved** | `f5aea22c63` (S6) |
+| PL-21 | **Resolved** | `9adaa017e1` (S5) |
+| PL-22 | **Resolved** | `a1bc03f615` (S6) |
+| PL-23 | **Resolved** | `48bfbe0eed` (S6) |
+| PL-24 | **Resolved** | `919a0e0014`, `420b845656` (S6) |
+| PL-25 | **Resolved** | `9d2aa63cd1` (S6) |
+| PL-26 | **Resolved** | `ef63791cf6` (S4) |
+| PL-27 | **Resolved** | `94c09ce50d` (S3) |
+| PL-28 | **Resolved** | `37df2ac2b9` (S5) |
+| PL-29 | **Resolved** | `cada93dfb7` (S1) |
+| PL-30 | **Resolved** | `641624e971` (S1) |
+| PL-31 | **Resolved** | `20435e36ae` (S1) |
+| PL-32 | **Resolved** | `38f6ee7266` (S1) |
+| PL-33 | **Resolved** | `f72c9cd8ba` (S1) |
+| PL-34 | **Resolved** | `411d93a585` (S2) |
+| PL-35 | **Resolved** | `5f6d68c4f6` (S2) |
+| PL-36 | **Resolved** | `1da407d664` (S3) |
+| PL-37 | **Resolved** | `29b6a76b32` (S1) |
+| PL-38 | **Resolved** | `6636d63f85` (S1) |
+| PL-39 | **Resolved** | `9c204cf2dc` (S1) |
+| PL-40 | **Resolved** | `79102ab43a` (S3) |
+| PL-41 | **Resolved** | `88dde804a3` (S7) |
+| PL-42 | **Resolved** | `4aa143ff5d` (S7) |
+| PL-43 | **Resolved** | `3109d4882b` (S3) |
+| PL-44 | **Resolved** | `a908ebf769` (S4) |
+| PL-45 | **Resolved** | `7d5399fdfd` (S5) |
+| PL-46 | **Resolved** | `f77d1c9708` (S1) |
+| PL-47 | **Resolved** | `2dac7625fe`, `da2e20194d`, `1355c754e5`, `5f534f0f08` (S2/S3/S4) |
+| PL-48 | **Deferred** | recorded as written, the face stays in the plan (ruling 3; #685 comment 6553579374) |
+| PL-49 | **Resolved** | `73de4fc76f` (S1) |
+| PL-50 | **Resolved** | `595da75108` (S1) |
+| PL-51 | **Resolved** | `83891d77d9` (S5) |
+| PL-52 | **Resolved** | `7d1ee17849`, `1279d8aad7` (S7) |
+| PL-53 | **Deferred** | #911 (the export's refresh; the list stays in `02` § What ... inherit) |
+| PL-54 | **Deferred** | #807 (comment 6553118160, the maintainer's answer), then #911 |
+| PL-55 | **Deferred** | the coordinator's sweep `b344408e46`; L-23, D-QA-040 and L-50 open, the coordinator's (#685 comment 6553579374) |
+| PL-56 | **Deferred** | #1373 (`tools/skills-check`'s inputs) |
+| PL-57 | **Deferred** | #1395 (L-18), #1396 (L-44) |
 
 ## Machine-readable index
 
@@ -789,7 +847,7 @@ punch_index:
   question: Q3
   source_finding: "L-56"
   owner_area: "code-auditor"
-  outcome: open
+  outcome: resolved
   proposed: "bug #1389"
 - id: PL-02
   severity: Medium
@@ -797,7 +855,7 @@ punch_index:
   question: Q3
   source_finding: "L-10"
   owner_area: "mini-retro"
-  outcome: open
+  outcome: resolved
   proposed: "bug #1390"
 - id: PL-03
   severity: Medium
@@ -805,7 +863,7 @@ punch_index:
   question: Q3
   source_finding: "L-11"
   owner_area: "release-notes"
-  outcome: open
+  outcome: resolved
   proposed: "bug #1391"
 - id: PL-04
   severity: Low
@@ -813,7 +871,7 @@ punch_index:
   question: Q3
   source_finding: "L-52"
   owner_area: "code-auditor"
-  outcome: open
+  outcome: resolved
   proposed: "bug #1392"
 - id: PL-05
   severity: Low
@@ -821,7 +879,7 @@ punch_index:
   question: Q3
   source_finding: "L-13"
   owner_area: "futro"
-  outcome: open
+  outcome: resolved
   proposed: "bug #1393"
 - id: PL-06
   severity: Medium
@@ -829,7 +887,7 @@ punch_index:
   question: Q7
   source_finding: "L-02"
   owner_area: "code-auditor"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-07
   severity: Medium
@@ -837,7 +895,7 @@ punch_index:
   question: Q3
   source_finding: "L-60"
   owner_area: "code-auditor"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-08
   severity: Medium
@@ -845,7 +903,7 @@ punch_index:
   question: Q4
   source_finding: "L-63"
   owner_area: "mini-retro, begin-delivery"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-09
   severity: Medium
@@ -853,7 +911,7 @@ punch_index:
   question: Q7
   source_finding: "L-57"
   owner_area: "code-auditor"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-10
   severity: Medium
@@ -861,7 +919,7 @@ punch_index:
   question: Q1
   source_finding: "L-59"
   owner_area: "code-auditor"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-11
   severity: Medium
@@ -869,7 +927,7 @@ punch_index:
   question: Q3
   source_finding: "L-53"
   owner_area: "code-auditor"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-12
   severity: Medium
@@ -877,7 +935,7 @@ punch_index:
   question: Q3
   source_finding: "L-66"
   owner_area: "futro"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-13
   severity: Medium
@@ -885,7 +943,7 @@ punch_index:
   question: Q2
   source_finding: "L-69"
   owner_area: "session-stash"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-14
   severity: Medium
@@ -893,7 +951,7 @@ punch_index:
   question: Q5
   source_finding: "L-70"
   owner_area: "release-notes"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-15
   severity: Medium
@@ -901,7 +959,7 @@ punch_index:
   question: Q7
   source_finding: "L-81"
   owner_area: "mini-retro"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-16
   severity: Medium
@@ -909,7 +967,7 @@ punch_index:
   question: Q2
   source_finding: "L-06, L-07"
   owner_area: "code-auditor"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-17
   severity: Medium
@@ -917,7 +975,7 @@ punch_index:
   question: Q2
   source_finding: "L-08, L-20"
   owner_area: "futro, mini-retro"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-18
   severity: Low
@@ -925,7 +983,7 @@ punch_index:
   question: Q4
   source_finding: "L-03"
   owner_area: "code-auditor"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-19
   severity: Low
@@ -933,7 +991,7 @@ punch_index:
   question: Q1
   source_finding: "L-04"
   owner_area: "code-auditor"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-20
   severity: Low
@@ -941,7 +999,7 @@ punch_index:
   question: Q2
   source_finding: "L-05"
   owner_area: "code-auditor, mini-retro, begin-delivery, futro"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-21
   severity: Low
@@ -949,7 +1007,7 @@ punch_index:
   question: Q1
   source_finding: "L-09"
   owner_area: "session-stash, session-resume"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-22
   severity: Low
@@ -957,7 +1015,7 @@ punch_index:
   question: Q1
   source_finding: "L-12, L-73"
   owner_area: "code-auditor, mini-retro, begin-delivery"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-23
   severity: Low
@@ -965,7 +1023,7 @@ punch_index:
   question: Q1
   source_finding: "L-14, L-21"
   owner_area: "all six imported skills"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-24
   severity: Low
@@ -973,7 +1031,7 @@ punch_index:
   question: Q1
   source_finding: "L-15"
   owner_area: "all six imported skills"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-25
   severity: Low
@@ -981,7 +1039,7 @@ punch_index:
   question: Q6
   source_finding: "L-58"
   owner_area: "code-auditor, mini-retro, futro, begin-delivery"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-26
   severity: Low
@@ -989,7 +1047,7 @@ punch_index:
   question: Q5
   source_finding: "L-16"
   owner_area: "begin-delivery, code-auditor"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-27
   severity: Low
@@ -997,7 +1055,7 @@ punch_index:
   question: Q1
   source_finding: "L-17"
   owner_area: "futro"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-28
   severity: Low
@@ -1005,7 +1063,7 @@ punch_index:
   question: Q2
   source_finding: "L-19"
   owner_area: "session-stash"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-29
   severity: Low
@@ -1013,7 +1071,7 @@ punch_index:
   question: Q3
   source_finding: "L-51"
   owner_area: "code-auditor"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-30
   severity: Low
@@ -1021,7 +1079,7 @@ punch_index:
   question: Q1
   source_finding: "L-54"
   owner_area: "code-auditor"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-31
   severity: Low
@@ -1029,7 +1087,7 @@ punch_index:
   question: Q6
   source_finding: "L-55"
   owner_area: "code-auditor, mini-retro"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-32
   severity: Low
@@ -1037,7 +1095,7 @@ punch_index:
   question: Q7
   source_finding: "L-61"
   owner_area: "code-auditor"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-33
   severity: Low
@@ -1045,7 +1103,7 @@ punch_index:
   question: Q7
   source_finding: "L-62"
   owner_area: "code-auditor"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-34
   severity: Low
@@ -1053,7 +1111,7 @@ punch_index:
   question: Q4
   source_finding: "L-64"
   owner_area: "mini-retro, code-auditor"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-35
   severity: Low
@@ -1061,7 +1119,7 @@ punch_index:
   question: Q6
   source_finding: "L-65"
   owner_area: "mini-retro"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-36
   severity: Low
@@ -1069,7 +1127,7 @@ punch_index:
   question: Q4
   source_finding: "L-67"
   owner_area: "futro"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-37
   severity: Low
@@ -1077,7 +1135,7 @@ punch_index:
   question: Q4
   source_finding: "L-71"
   owner_area: "code-auditor"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-38
   severity: Low
@@ -1085,7 +1143,7 @@ punch_index:
   question: Q4
   source_finding: "L-72"
   owner_area: "code-auditor"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-39
   severity: Low
@@ -1093,7 +1151,7 @@ punch_index:
   question: Q2
   source_finding: "L-74"
   owner_area: "code-auditor"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-40
   severity: Low
@@ -1101,7 +1159,7 @@ punch_index:
   question: Q6
   source_finding: "L-75"
   owner_area: "futro, begin-delivery"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-41
   severity: Low
@@ -1109,7 +1167,7 @@ punch_index:
   question: Q7
   source_finding: "L-79"
   owner_area: "developer-relations"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-42
   severity: Low
@@ -1117,7 +1175,7 @@ punch_index:
   question: Q4
   source_finding: "L-80"
   owner_area: "release-notes"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-43
   severity: Low
@@ -1125,7 +1183,7 @@ punch_index:
   question: Q7
   source_finding: "L-82"
   owner_area: "futro"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-44
   severity: Low
@@ -1133,7 +1191,7 @@ punch_index:
   question: Q7
   source_finding: "L-83"
   owner_area: "begin-delivery"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-45
   severity: Low
@@ -1141,7 +1199,7 @@ punch_index:
   question: Q7
   source_finding: "L-84"
   owner_area: "session-resume, session-stash"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-46
   severity: Low
@@ -1149,7 +1207,7 @@ punch_index:
   question: Q7
   source_finding: "L-85"
   owner_area: "code-auditor"
-  outcome: open
+  outcome: resolved
   proposed: "punch"
 - id: PL-47
   severity: Medium
@@ -1157,7 +1215,7 @@ punch_index:
   question: Q6
   source_finding: "L-22"
   owner_area: "the maintainer, the coordinator"
-  outcome: open
+  outcome: resolved
   proposed: "question (the pause)"
 - id: PL-48
   severity: Low
@@ -1165,7 +1223,7 @@ punch_index:
   question: Q7
   source_finding: "L-24"
   owner_area: "the coordinator"
-  outcome: open
+  outcome: deferred
   proposed: "question (the pause)"
 - id: PL-49
   severity: Low
@@ -1173,7 +1231,7 @@ punch_index:
   question: Q4
   source_finding: "L-28"
   owner_area: "the coordinator"
-  outcome: open
+  outcome: resolved
   proposed: "question (the pause)"
 - id: PL-50
   severity: Low
@@ -1181,7 +1239,7 @@ punch_index:
   question: Q2
   source_finding: "L-29"
   owner_area: "the coordinator"
-  outcome: open
+  outcome: resolved
   proposed: "question (the pause)"
 - id: PL-51
   severity: Low
@@ -1189,7 +1247,7 @@ punch_index:
   question: Q7
   source_finding: "L-68"
   owner_area: "the coordinator"
-  outcome: open
+  outcome: resolved
   proposed: "question (the pause)"
 - id: PL-52
   severity: Low
@@ -1197,7 +1255,7 @@ punch_index:
   question: Q2
   source_finding: "L-27"
   owner_area: "the coordinator"
-  outcome: open
+  outcome: resolved
   proposed: "question (the pause)"
 - id: PL-53
   severity: Low
@@ -1205,7 +1263,7 @@ punch_index:
   question: Q6
   source_finding: "L-30 to L-50, L-76 to L-78"
   owner_area: "#911"
-  outcome: open
+  outcome: deferred
   proposed: "inherit:#911"
 - id: PL-54
   severity: Low
@@ -1213,7 +1271,7 @@ punch_index:
   question: Q5
   source_finding: "L-47"
   owner_area: "the maintainer, #911"
-  outcome: open
+  outcome: deferred
   proposed: "inherit:#911"
 - id: PL-55
   severity: Low
@@ -1221,7 +1279,7 @@ punch_index:
   question: Q1
   source_finding: "L-22's rule half, L-23, L-50, D-QA-040, worktrees.md, the lost spaces"
   owner_area: "the coordinator"
-  outcome: open
+  outcome: deferred
   proposed: "inherit:coordinator"
 - id: PL-56
   severity: Low
@@ -1229,7 +1287,7 @@ punch_index:
   question: Q2
   source_finding: "the checker's steps; register-check's LIVE"
   owner_area: "#1373"
-  outcome: open
+  outcome: deferred
   proposed: "inherit:#1373"
 - id: PL-57
   severity: Low
@@ -1237,6 +1295,6 @@ punch_index:
   question: Q6
   source_finding: "L-18, L-44"
   owner_area: "the coordinator"
-  outcome: open
+  outcome: deferred
   proposed: "inherit:coordinator"
 ```

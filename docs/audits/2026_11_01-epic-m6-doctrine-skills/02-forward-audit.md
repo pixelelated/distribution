@@ -311,6 +311,35 @@ contract: 2 allowlisted, 0 FAIL
 
 No entry of class D, H or I was needed at the tip. Run 3 withholds `allow-findings.txt` and leaves exactly that file's 19 keys failing: 26 FAIL lines (refs 12, stale 13, contract 1; `stage-c/per-class-withheld.out`). Stage F re-runs both commands after stage E, and each fix is seen as its entry excusing nothing.
 
+**After stage E** (S0's closing): § 5's counting run in stage A chunk 18's form, at `fixed-at` `420b845656` beside the dispatch tip (`stage-e/S0-closing-stale-counts.txt`):
+
+<!-- include: stage-e/S0-closing-stale-counts.txt -->
+```text
+# the stale names after stage E (stage A chunk 18's form, R3 C21's terms, case-insensitive), over the 52 at fixed-at 9d2aa63cd1 (05:39:17 UTC), beside the dispatch tip's
+rubber[- ]duck: 0 lines in 0 files at the tip; 0 lines in 0 files at fixed-at, 0 of them outside the export
+copilot: 42 lines in 12 files at the tip; 37 lines in 8 files at fixed-at, 0 of them outside the export
+\.github/instructions: 27 lines in 17 files at the tip; 27 lines in 17 files at fixed-at, 0 of them outside the export
+\.github/prompts: 3 lines in 3 files at the tip; 0 lines in 0 files at fixed-at, 0 of them outside the export
+test/qa-integration: 0 lines in 0 files at the tip; 0 lines in 0 files at fixed-at, 0 of them outside the export
+opus[- ]4[.]8|claude-opus-4: 6 lines in 2 files at the tip; 6 lines in 2 files at fixed-at, 0 of them outside the export
+gpt-5[.]5: 2 lines in 1 files at the tip; 2 lines in 1 files at fixed-at, 0 of them outside the export
+gpt-5[.]6: 5 lines in 3 files at the tip; 5 lines in 3 files at fixed-at, 0 of them outside the export
+mistral: 50 lines in 13 files at the tip; 50 lines in 13 files at fixed-at, 0 of them outside the export
+trio: 20 lines in 9 files at the tip; 20 lines in 9 files at fixed-at, 3 of them outside the export
+rasteratops: 5 lines in 4 files at the tip; 5 lines in 4 files at fixed-at, 0 of them outside the export
+state-main: 5 lines in 2 files at the tip; 0 lines in 0 files at fixed-at, 0 of them outside the export
+scaffold: 83 lines in 26 files at the tip; 76 lines in 26 files at fixed-at, 17 of them outside the export
+begin-exploration: 19 lines in 5 files at the tip; 1 lines in 1 files at fixed-at, 0 of them outside the export
+```
+
+- **Gone outside the export:** `copilot`, `.github/instructions`, `.github/prompts`, `state-main` and `begin-exploration` (19 -> 1, the export's `council/references/pipeline.md:497`, excused with L-22 and #911).
+- **`trio`'s 3 lines outside the export:** `futro/SKILL.md`'s literal-grep trap example, which quotes the old term on purpose; they are `allow-legit.txt`'s three provenance entries.
+- **`scaffold`'s 17 lines outside the export** are kept and read as this repository's:
+  - the four origin notes (provenance);
+  - `futro/SKILL.md`'s `scaffold#246` citation;
+  - the plain word *scaffolding*, four lines.
+- **The `refs` step at `fixed-at`:** 152 `refs` assertions excused, all by `allow-legit.txt` and `allow-inherited.txt`; `allow-findings.txt` holds 0 entries.
+
 ## Command blocks
 
 The 28 fenced blocks of the 52 tagged `bash`, `sh`, `shell` or `console` (`stage-b/blocks.sh`, `.out`; inline commands in prose are their leads'). A block that would call a provider, open a run directory, write under `.github/sessions/` or fetch is checked for its tool's existence and options and never run (ruling (k)).
@@ -370,7 +399,11 @@ Every § 5 command, run at stage A as its own line in one shell (`stage-a/runs.s
 | `tools/t38-checks.sh`, run 1: the tip, every allowlist | `rc=0` | `TOTAL: 947 of 947 assertions`; `allowlists 58 of 58 passed` | an assertion failing that no entry excuses, or an entry that excuses nothing |
 | run 2: the FAIL-first, a planted positive per probe | each at its wanted exit | nine probes `rc=1`, each with its FAIL line; the bundle `rc=0`, `BUNDLE match=51 diff=40`; seven refusals `rc=2` (`stage-c/run-2-firstfail.out`) | a probe at `rc=0` on its planted positive: run 2a found three, below |
 | run 3: the tip, `--withhold findings` | `rc=1` | `TOTAL: 902 of 928 assertions`; 26 FAIL lines over 19 keys, the 19 entries of `allow-findings.txt` | the record's FAIL at the tip: a finding already gone, or one with no entry |
-| run 4: after stage E | -- | stage F's | -- |
+| run 4: after stage E, `--withhold findings` | -- | stage F's (with `allow-findings.txt` empty at `fixed-at`, the withheld run reads the same three files) | -- |
+| stage E: the stale term `begin-exploration`, FAIL-first | `rc=1` | a scratch copy of `tools/t38-checks.py` with the term, on the parent `5f6d68c4f6`'s export: 18 FAIL lines; the export's `council/references/pipeline.md:497` excused by its `*` entry (`stage-e/S2-stale-term-failfirst.txt`) | the term committed without its FAIL seen |
+| stage E: every item's check, at its parent and at its fix | each FAIL then PASS | the fix table in § The streams, 60 rows (`tools/t38-streams.py fix`) | a check that passes at its parent proves nothing about its fix |
+| stage E: `tools/t38-checks.sh` at `fixed-at` `420b845656`, every allowlist | `rc=0` | `TOTAL: 962 of 962 assertions`; `allowlists 39 of 39 passed`; `allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 0` (`stage-e/S0-closing-checker-fixed-at.out`) | a finding left that no entry excuses, or an entry that excuses nothing |
+| stage E: the checker over the stage-A export with stage E's `tools/` | `rc=1` | `TOTAL: 892 of 947 assertions`: the 18 `begin-exploration` FAIL lines and the tip's findings back with their entries removed (`stage-e/S0-closing-checker-stage-a-export.out`) | the stage-E tools passing the unfixed tree: a check that cannot fail |
 | `tools/lint-audit-artifacts --phase pre-issue` | `rc=0` | `PASS pre-issue artifacts (does not certify resolution)`, `57 punch item(s)`, `0 verified external calls` | a `05` or a review plan the lint refuses |
 
 **Run 1** (`stage-c/run-1-baseline.out`):
@@ -446,7 +479,108 @@ TOTAL: 902 of 928 assertions
 
 **The pause's inputs (stage D, the lane's):** the audit issue #1394 (57 items, a sub-issue of #685), the bugs #1389 to #1393 (PL-01 to PL-05), and PL-47 to PL-52 put to the coordinator on #685.
 
-**The streams** (S0 to S7): the table is written at S0's close, one row per stream, then one row per fixed lead.
+**The streams** (S0 to S7), one row per stream, written at S0's close from the records `tools/t38-fix.sh` left under `stage-e/` (one `<SN>-<PL>.txt` per commit). Every fix's commit carries:
+- its check's FAIL at the parent's export and PASS at the fix's;
+- `tools/t38-checks.sh` exit 0 and its `TOTAL:` line;
+- `tools/rules-check --quiet` rc=0, and `tools/register-check` rc=0 from `1279d8aad7` on;
+- its `Already written:` answer and its `import-unchanged:` line.
+
+| Stream | Files | The positive before | Commits | The positive after | Already written | Proved |
+| --- | --- | --- | --- | --- | --- | --- |
+| S0 | the audit folder only: `02`, `00`, `05` by `tools/t38-punch.py`, `stage-e/`, `tools/t38-fix.sh`, `t38-rekey.py`, `t38-streams.py` | 57 gate rows `Open` (the pre-issue lint's `PASS pre-issue artifacts (does not certify resolution)`) | `1275cc9571` (the opening: PL-48 and PL-53 to PL-57 recorded, D-WORKFLOW-219's rulings); the closing record commit | 51 `**Resolved**` and 6 `**Deferred**`; `tools/lint-audit-artifacts` `PASS` on its default phase and with `--issue 1394` | nothing inherited: the record is this slice's own | proved: tree |
+| S1 | `code-auditor/SKILL.md`, `references/anti-patterns.md`, `phases.md`, `review-levels.md`, `templates.md` (and `mini-retro`'s three files for PL-31) | each item's check FAILs at its parent's export (21 items; the fix table) | `09384b54fe` PL-01, `144b5bc6de` PL-04, `a442eb626e` PL-06, `3e38f1a460` PL-07, `91f3095280` PL-09, `7066c9f299` PL-10, `ea18cedfdc` PL-11, `1f5c88f86b` PL-16, `3829a87e18` PL-18, `1055bfa6b8` PL-19, `cada93dfb7` PL-29, `641624e971` PL-30, `20435e36ae` PL-31, `38f6ee7266` PL-32, `f72c9cd8ba` PL-33, `29b6a76b32` PL-37, `6636d63f85` PL-38, `9c204cf2dc` PL-39, `f77d1c9708` PL-46, `73de4fc76f` PL-49, `595da75108` PL-50 | each PASSes at its fix; `tools/t38-checks.sh` exit 0 at every commit, `TOTAL: 951 of 951 assertions` at `595da75108`; D-WORKFLOW-184's Local exception and D-WORKFLOW-195's trimmed-packet re-run named (PL-01, PL-49) | #1389's and #1392's lines: nothing inherited (`stage-d/checks-bugs.out`); each other item's line in its record | proved: fix-tree |
+| S2 | `mini-retro/SKILL.md`, `references/scoped-audit.md`, `references/template.md` (and `begin-delivery`, `code-auditor` for PL-08 and PL-34; `tools/t38-checks.py` for the stale term) | each item's check FAILs at its parent's export (6 items; the fix table) | `f95a86a878` PL-02, `e05a5d5eef` PL-08, `629c6794c1` PL-15, `411d93a585` PL-34, `5f6d68c4f6` PL-35, `2dac7625fe` PL-47, `da2e20194d` PL-47 | each PASSes at its fix; `tools/t38-checks.sh` exit 0 at every commit, `TOTAL: 970 of 970 assertions` at `da2e20194d`; `begin-exploration` swept, the stale term FAIL-first (18 lines on the parent's export) | #1390's line: nothing inherited; `begin-exploration` never existed in any tree (`git log --all` 0 lines) | proved: fix-tree |
+| S3 | `futro/SKILL.md`, `references/techniques.md`, `template.md`, `blindspot-register.md` (and `mini-retro`, `session-stash` for PL-17; `begin-delivery` for PL-40) | each item's check FAILs at its parent's export (8 items; the fix table) | `c77dd50b00` PL-05, `0a3df2b3aa` PL-12, `adb1c37cfc` PL-17, `94c09ce50d` PL-27, `1da407d664` PL-36, `79102ab43a` PL-40, `3109d4882b` PL-43, `1355c754e5` PL-47 | each PASSes at its fix; `tools/t38-checks.sh` exit 0 at every commit, `TOTAL: 980 of 980 assertions` at `1355c754e5`; the futro and retro homes named where `tools/ceremony-check` reads them (PL-17) | #1393's line: nothing inherited; the 17 futros and 7 retros were written from `ceremonies.md` | proved: fix-tree |
+| S4 | `begin-delivery/SKILL.md` (and `code-auditor/SKILL.md:9` for PL-26) | each item's check FAILs at its parent's export (3 items; the fix table) | `ef63791cf6` PL-26, `a908ebf769` PL-44, `5f534f0f08` PL-47 | each PASSes at its fix; `tools/t38-checks.sh` exit 0 at every commit, `TOTAL: 965 of 965 assertions` at `5f534f0f08`; `begin-exploration` 0 outside the export after its five lines; the change log moved to the commit log | nothing inherited: the history is in `git log -p` | proved: fix-tree |
+| S5 | `session-stash/SKILL.md`, `session-resume/SKILL.md` | each item's check FAILs at its parent's export (5 items; the fix table) | `7f70e06051` PL-13, `9adaa017e1` PL-21, `37df2ac2b9` PL-28, `7d5399fdfd` PL-45, `83891d77d9` PL-51 | each PASSes at its fix; `tools/t38-checks.sh` exit 0 at every commit, `TOTAL: 950 of 950 assertions` at `83891d77d9`; D-WORKFLOW-133's intent kept: a branch's file points at the canonical stash and carries its own state (PL-51) | nothing inherited: 0 tracked `main` state files; the lane pointers carry state already | proved: fix-tree |
+| S6 | the eight imported skills' files the sweeps reach | each item's check FAILs at its parent's export (5 items; the fix table) | `f5aea22c63` PL-20, `a1bc03f615` PL-22, `48bfbe0eed` PL-23, `919a0e0014` PL-24, `9d2aa63cd1` PL-25, `420b845656` PL-24 | each PASSes at its fix; `tools/t38-checks.sh` exit 0 at every commit, `TOTAL: 962 of 962 assertions` at `420b845656`; D-WORKFLOW-091: durations are measurements (PL-20); the estate's terms 44 -> 0 lines (PL-24) | nothing inherited: the estate's names wrote nothing here | proved: fix-tree |
+| S7 | `release-notes/SKILL.md`, `developer-relations/SKILL.md` | each item's check FAILs at its parent's export (5 items; the fix table) | `29b6e04aec` PL-03, `a8cff74210` PL-14, `4aa143ff5d` PL-42, `7d1ee17849` PL-52, `88dde804a3` PL-41, `1279d8aad7` PL-52 | each PASSes at its fix; `tools/t38-checks.sh` exit 0 at every commit, `TOTAL: 953 of 953 assertions` at `1279d8aad7`; the PR description's four sections, the AI Assistance Disclosure with **Yes** ticked and no assistant named (PL-52) | #1391's line: nothing inherited; no PR has been opened (D-WORKFLOW-165) | proved: fix-tree |
+
+**The fix table**, one row per lead per commit, written by `tools/t38-streams.py fix` from the records, never by hand. An item with two leads takes two rows, and an item fixed in two commits takes a row per commit:
+
+| Item | Lead | The check at the parent | The check at the fix | Commit | Description |
+| --- | --- | --- | --- | --- | --- |
+| PL-01 | L-56 | FAIL: code-auditor/SKILL.md:0 ; code-auditor/references/phases.md:0 ; code-auditor/references/review-levels.md:0 | PASS: code-auditor/SKILL.md:2 ; code-auditor/references/phases.md:2 ; code-auditor/references/review-levels.md:1 | `09384b54fe` | -- |
+| PL-02 | L-10 | FAIL: the criterion range 340-365: 3 ; git stash lines: 2 ; npx in mini-retro: 3 ; a detached worktree: 0 ; fork-worktree remove: 0 | PASS: the criterion range 340-365: 0 ; git stash lines: 0 ; npx in mini-retro: 0 ; a detached worktree: 1 ; fork-worktree remove: 1 | `f95a86a878` | -- |
+| PL-03 | L-11 | FAIL: the criterion lines 17-24, uploads: 1 ; --prepare and #528 there: 0 ; the tool says: 1 | PASS: the criterion lines 17-24, uploads: 0 ; --prepare and #528 there: 2 ; the tool says: 1 | `29b6e04aec` | -- |
+| PL-04 | L-52 | FAIL: 0 | PASS: code-auditor/SKILL.md names pre-issue ; 1 | `144b5bc6de` | -- |
+| PL-05 | L-13 | FAIL: {owner}/{repo}: 1 ; pixelelated/distribution at the read: 0 | PASS: {owner}/{repo}: 0 ; pixelelated/distribution at the read: 1 | `c77dd50b00` | -- |
+| PL-06 | L-02 | FAIL: rule 3 headings: 2 ; the count: 1 Three hard rules ; code-auditor/SKILL.md cites rule 3: 1 ; code-auditor/references/phases.md cites rule 3: 1 | PASS: rule 3 headings: 1 ; the count: 1 Five hard rules ; code-auditor/SKILL.md cites rule 3: 0 ; code-auditor/references/phases.md cites rule 3: 0 | `a442eb626e` | -- |
+| PL-07 | L-60 | FAIL: the lint's lower-case comparison finds: 0 ; 23:## Acceptance Criteria Scorecard | PASS: the lint's lower-case comparison finds: 1 ; 23:## Acceptance-criteria scorecard | `3e38f1a460` | -- |
+| PL-08 | L-63 | FAIL: procedure 9 no ; format 6 no ; template 9 no ; begin-delivery 5 no | PASS: procedure 10 yes ; format 10 yes ; template 10 yes ; begin-delivery -- n/a: no number stated | `e05a5d5eef` | -- |
+| PL-09 | L-57 | FAIL: trust them: 1 ; the quota in phases.md: 0 ; the quota in SKILL.md: 1 | PASS: trust them: 0 ; the quota in phases.md: 1 ; the quota in SKILL.md: 1 | `91f3095280` | -- |
+| PL-10 | L-59 | FAIL: none today: 1 ; phases.md runs pre-issue: 0 ; anti-patterns.md names the tool: 0 | PASS: none today: 0 ; phases.md runs pre-issue: 1 ; anti-patterns.md names the tool: 1 | `7066c9f299` | -- |
+| PL-11 | L-53 | FAIL: the SKILL.md-only diff: 1 ; the directory diff: 0 ; sync before proceeding: 1 | PASS: the SKILL.md-only diff: 0 ; the directory diff: 1 ; sync before proceeding: 0 | `ea18cedfdc` | -- |
+| PL-12 | L-66 | FAIL: origin/main: 2 ; git fetch: 1 ; no such gate yet: 1 ; next in the check: 0 ; main and origin/main here: none none | PASS: origin/main: 0 ; git fetch: 0 ; no such gate yet: 0 ; next in the check: 1 ; main and origin/main here: none none | `0a3df2b3aa` | -- |
+| PL-13 | L-69 | FAIL: Start here in the template: 0 ; the canonical stash on next opens with it: 1 | PASS: Start here in the template: 1 ; the canonical stash on next opens with it: 1 | `7f70e06051` | -- |
+| PL-14 | L-70 | FAIL: details block: 1 ; never in a PR description: 0 ; the body forbids the plumbing in a PR: 1 | PASS: details block: 1 ; never in a PR description: 1 ; the body forbids the plumbing in a PR: 1 | `a8cff74210` | release-notes/SKILL.md: 277 -> 311 |
+| PL-15 | L-81 | FAIL: Step 2.5 after Step 2: 1 ; before the four questions, in both: 0 1 ; exactly these four sections: 1 ; Optional scoped audit: 1 ; Step 7 inside Step 7: 1 ; the template's own list: 1 | PASS: Step 2.5 after Step 2: 0 ; before the four questions, in both: 1 1 ; exactly these four sections: 0 ; Optional scoped audit: 0 ; Step 7 inside Step 7: 0 ; the template's own list: 0 | `629c6794c1` | -- |
+| PL-16 | L-06 | FAIL: code-auditor/SKILL.md: audit-completion 0, #1308 0, D-WORKFLOW-215 0 ; code-auditor/references/templates.md: audit-completion 0, #1308 0, D-WORKFLOW-215 0 | PASS: code-auditor/SKILL.md: audit-completion 1, #1308 0, D-WORKFLOW-215 0 ; code-auditor/references/templates.md: audit-completion 0, #1308 1, D-WORKFLOW-215 1 | `1f5c88f86b` | -- |
+| PL-16 | L-07 | FAIL: code-auditor/SKILL.md: audit-completion 0, #1308 0, D-WORKFLOW-215 0 ; code-auditor/references/templates.md: audit-completion 0, #1308 0, D-WORKFLOW-215 0 | PASS: code-auditor/SKILL.md: audit-completion 1, #1308 0, D-WORKFLOW-215 0 ; code-auditor/references/templates.md: audit-completion 0, #1308 1, D-WORKFLOW-215 1 | `1f5c88f86b` | -- |
+| PL-17 | L-08 | FAIL: futro names the homes and the tool: 0 ; mini-retro names the homes and the tool: 0 ; docs/planning in session-stash: 1 ; docs/planning in mini-retro SKILL.md: 1 ; the homes exist: yes | PASS: futro names the homes and the tool: 4 ; mini-retro names the homes and the tool: 4 ; docs/planning in session-stash: 0 ; docs/planning in mini-retro SKILL.md: 0 ; the homes exist: yes | `adb1c37cfc` | -- |
+| PL-17 | L-20 | FAIL: futro names the homes and the tool: 0 ; mini-retro names the homes and the tool: 0 ; docs/planning in session-stash: 1 ; docs/planning in mini-retro SKILL.md: 1 ; the homes exist: yes | PASS: futro names the homes and the tool: 4 ; mini-retro names the homes and the tool: 4 ; docs/planning in session-stash: 0 ; docs/planning in mini-retro SKILL.md: 0 ; the homes exist: yes | `adb1c37cfc` | -- |
+| PL-18 | L-03 | FAIL: twelve: 1 ; the command: 3 ; the register's last entry: ## 76. | PASS: twelve: 0 ; the command: 4 ; the register's last entry: ## 76. | `3829a87e18` | -- |
+| PL-19 | L-04 | FAIL: rocknix.worktrees: 1 ; distribution.worktrees: 0 ; #640: 0 | PASS: rocknix.worktrees: 0 ; distribution.worktrees: 1 ; #640: 1 | `1055bfa6b8` | -- |
+| PL-20 | L-05 | FAIL: the widened pattern: 10 ; <15min, 30-minute, ~30-minute: 4 ; the examples (1.5×, 2× in question 1): 2 | PASS: the widened pattern: 0 ; <15min, 30-minute, ~30-minute: 0 ; the examples (1.5×, 2× in question 1): 0 | `f5aea22c63` | code-auditor/SKILL.md: 878 -> 869 |
+| PL-21 | L-09 | FAIL: session-resume/SKILL.md:2 ; session-stash/SKILL.md:3 ; state-main files: 2 ; .github/prompts: 2 ; a main branch here: no; the tracked state-main files: 0 | PASS: state-main files: 0 ; .github/prompts: 0 ; a main branch here: no; the tracked state-main files: 0 | `9adaa017e1` | -- |
+| PL-22 | L-12 | FAIL: begin-delivery/SKILL.md:1 ; code-auditor/SKILL.md:3 ; mini-retro/references/scoped-audit.md:1 ; files: 3 ; the successors exist: yes | PASS: files: 0 ; the successors exist: yes | `a1bc03f615` | -- |
+| PL-22 | L-73 | FAIL: begin-delivery/SKILL.md:1 ; code-auditor/SKILL.md:3 ; mini-retro/references/scoped-audit.md:1 ; files: 3 ; the successors exist: yes | PASS: files: 0 ; the successors exist: yes | `a1bc03f615` | -- |
+| PL-23 | L-14 | FAIL: copilot lines: 5 ; mcp_github_ lines: 16 ; avoid gh: 5 ; the shared sentence: 0 | PASS: copilot lines: 0 ; mcp_github_ lines: 0 ; avoid gh: 0 ; the shared sentence: 7 | `48bfbe0eed` | -- |
+| PL-23 | L-21 | FAIL: copilot lines: 5 ; mcp_github_ lines: 16 ; avoid gh: 5 ; the shared sentence: 0 | PASS: copilot lines: 0 ; mcp_github_ lines: 0 ; avoid gh: 0 ; the shared sentence: 7 | `48bfbe0eed` | -- |
+| PL-24 | L-15 | FAIL: provenance 4 ; the fork's own 1 ; the term cornerstone 25 ; the estate's 44 | PASS: provenance 4 ; the fork's own 1 ; the term cornerstone 26 ; the estate's 0 | `919a0e0014` | -- |
+| PL-24 | L-15 | FAIL: the estate's facts as this repository's: 8 ; the visual evidence named: 0 | PASS: the estate's facts as this repository's: 0 ; the visual evidence named: 3 | `420b845656` | -- |
+| PL-25 | L-58 | FAIL: numbers above this tracker's highest, as #N: 20 ; audit #203: 1 ; the tracker's highest: 1396 | PASS: numbers above this tracker's highest, as #N: 0 ; audit #203: 0 ; the tracker's highest: 1396 | `9d2aa63cd1` | -- |
+| PL-26 | L-16 | FAIL: ## Change log: 1 ; begin-delivery lines: 618 ; code-auditor :9 bytes: 1293 ; the history in git: 6 commits | PASS: ## Change log: 0 ; begin-delivery lines: 548 ; code-auditor :9 bytes: 172 ; the history in git: 6 commits | `ef63791cf6` | -- |
+| PL-27 | L-17 | FAIL: when created: 1 ; the register if one exists: 2 ; names docs/blindspot-register.md: 0 ; the register exists: yes | PASS: when created: 0 ; the register if one exists: 0 ; names docs/blindspot-register.md: 4 ; the register exists: yes | `94c09ce50d` | -- |
+| PL-28 | L-19 | FAIL: no context, at: 32 ; in Step 3: 0 | PASS: no context, at: 32,130 ; in Step 3: 1 | `37df2ac2b9` | -- |
+| PL-29 | L-51 | FAIL: 5.5: 1 ; 5-5: 0 | PASS: 5.5: 0 ; 5-5: 1 | `cada93dfb7` | -- |
+| PL-30 | L-54 | FAIL: code-auditor/SKILL.md:2 ; code-auditor/references/anti-patterns.md:1 ; code-auditor/references/phases.md:1 ; files: 3 | PASS: files: 0 | `641624e971` | -- |
+| PL-31 | L-55 | FAIL: code-auditor/SKILL.md:2 ; mini-retro/SKILL.md:1 ; mini-retro/references/scoped-audit.md:13 ; mini-retro/references/template.md:1 ; files: 4 | PASS: files: 0 | `20435e36ae` | -- |
+| PL-32 | L-61 | FAIL: escaped fences: 2 ; four-backtick fences: 0 | PASS: escaped fences: 0 ; four-backtick fences: 2 | `38f6ee7266` | -- |
+| PL-33 | L-62 | FAIL: - two copies, 9 line(s) differ: ; t38-tables: 1 failure(s) ; the copy in templates.md: 1 | PASS: - one copy: `phases.md` § Phase 2; `templates.md` points at it ; t38-tables: 0 failure(s) ; the copy in templates.md: 0 | `f72c9cd8ba` | -- |
+| PL-34 | L-64 | FAIL: code-auditor/SKILL.md:2 ; mini-retro/SKILL.md:1 ; files: 2 ; q4: 6 no | PASS: files: 0 ; q4: -- n/a: no number stated | `411d93a585` | -- |
+| PL-35 | L-65 | FAIL: reference/template.md: 1 ; cornerstone-conformance.md: 1 ; references/template.md resolves: yes | PASS: reference/template.md: 0 ; cornerstone-conformance.md: 0 ; references/template.md resolves: yes | `5f6d68c4f6` | -- |
+| PL-36 | L-67 | FAIL: q4: 4 stated, 5 listed, no ; four in techniques.md: 2 ; the template lists: 1 commas | PASS: q4: 5 stated, 5 listed, yes ; four in techniques.md: 0 ; the template lists: 3 commas | `1da407d664` | -- |
+| PL-37 | L-71 | FAIL: for #375: 1 ; #375 on the tracker: CLOSED | PASS: for #375: 0 ; #375 on the tracker: CLOSED | `29b6a76b32` | -- |
+| PL-38 | L-72 | FAIL: the only lint here: 1 ; the tool table: 0 ; the rule holds the table: 1 | PASS: the only lint here: 0 ; the tool table: 1 ; the rule holds the table: 1 | `6636d63f85` | -- |
+| PL-39 | L-74 | FAIL: box-check: 0 ; the shape: 0 ; D-QA-044: 0 | PASS: box-check: 1 ; the shape: 1 ; D-QA-044: 1 | `9c204cf2dc` | -- |
+| PL-40 | L-75 | FAIL: required\[\]`-enumeration miss: skills 1, docs register 0, the starter 0 ; Substrate-precondition assumption: skills 3, docs register 0, the starter 0 ; in the change log: 1 | PASS: required\[\]`-enumeration miss: skills 0, docs register 0, the starter 0 ; Substrate-precondition assumption: skills 1, docs register 0, the starter 0 ; in the change log: 1 | `79102ab43a` | -- |
+| PL-41 | L-79 | FAIL: the double hyphen said: 0 ; lists in the Warn section: 2 ; two walks counted it: 1 ; a separate fact: 0 | PASS: the double hyphen said: 1 ; lists in the Warn section: 1 ; two walks counted it: 0 ; a separate fact: 1 | `88dde804a3` | -- |
+| PL-42 | L-80 | FAIL: carries any of (the above): 1 ; fails a plural, unconditionally: 1 ; as RC1 has: 1 ; the patterns named: 0 ; the tools: 1 1 1 | PASS: carries any of (the above): 0 ; fails a plural, unconditionally: 0 ; as RC1 has: 0 ; the patterns named: 1 ; the tools: 1 1 1 | `4aa143ff5d` | -- |
+| PL-43 | L-82 | FAIL: ### N. in the template: 5 ; ## Futro: in the template: 1 ; promoted at 2 instances: 1 ; a comment committed: 1 ; the futros' level:  16 ## 1. | PASS: ### N. in the template: 0 ; ## Futro: in the template: 0 ; promoted at 2 instances: 0 ; a comment committed: 0 ; the futros' level:  16 ## 1. | `3109d4882b` | -- |
+| PL-44 | L-83 | FAIL: do not advance if deferred: 1 ; P0/P1 as futro inputs: 1 ; v2.3.0 as the lazy rule: 1 ; Step 2 runs the pre-futro audit first: 0 ; far-reaching: 1 | PASS: do not advance if deferred: 0 ; P0/P1 as futro inputs: 0 ; v2.3.0 as the lazy rule: 0 ; Step 2 runs the pre-futro audit first: 1 ; far-reaching: 0 | `a908ebf769` | -- |
+| PL-45 | L-84 | FAIL: tofu apply: 1 ; stat the file: 1 ; staleness tier: 1 ; (if referenced): 1 ; this repository's is the next paragraph: 0 | PASS: tofu apply: 0 ; stat the file: 0 ; staleness tier: 0 ; (if referenced): 0 ; this repository's is the next paragraph: 1 | `7d5399fdfd` | -- |
+| PL-46 | L-85 | FAIL: two of the three: 1 ; mode invoked by: 1 ; always run it: 1 ; P3 items: 1 ; phases 0–7 in phases.md: 1 ; unnamed passes: 2 | PASS: two of the three: 0 ; mode invoked by: 0 ; always run it: 0 ; P3 items: 0 ; phases 0–7 in phases.md: 0 ; unnamed passes: 0 | `f77d1c9708` | -- |
+| PL-47 | L-22 | FAIL: mini-retro/SKILL.md:8 ; mini-retro/references/template.md:3 ; files: 2 ; the skill in any tree: 0 | PASS: files: 0 ; the skill in any tree: 0 | `2dac7625fe` | mini-retro/SKILL.md: 985 -> 1001 |
+| PL-47 | L-22 | FAIL: the description's Discovery clause: 1 ; begin-exploration in mini-retro: 0 | PASS: the description's Discovery clause: 0 ; begin-exploration in mini-retro: 0 | `da2e20194d` | mini-retro/SKILL.md: 1001 -> 923 |
+| PL-47 | L-22 | FAIL: futro/SKILL.md:2 ; files: 1 | PASS: files: 0 | `1355c754e5` | futro/SKILL.md: 906 -> 816 |
+| PL-47 | L-22 | FAIL: begin-delivery/SKILL.md:3 ; files: 1 ; outside the export: 1 ; L-22 entries left: 0 | PASS: files: 0 ; outside the export: 0 ; L-22 entries left: 0 | `5f534f0f08` | begin-delivery/SKILL.md: 909 -> 890 |
+| PL-49 | L-28 | FAIL: D-WORKFLOW-195: 0 ; the examples line: 1 ; a slug named: 0 | PASS: D-WORKFLOW-195: 1 ; the examples line: 1 ; a slug named: 0 | `73de4fc76f` | -- |
+| PL-50 | L-29 | FAIL: pidfile: 0 ; setsid: 0 ; the rule half, swept in b344408e46: 2 | PASS: pidfile: 1 ; setsid: 1 ; the rule half, swept in b344408e46: 2 | `595da75108` | -- |
+| PL-51 | L-68 | FAIL: is a pointer to it: 1 ; in-flight state: 0 ; the rule half, swept in b344408e46: 3 | PASS: is a pointer to it: 0 ; in-flight state: 1 ; the rule half, swept in b344408e46: 3 | `83891d77d9` | -- |
+| PL-52 | L-27 | FAIL: AI Assistance Disclosure: 0 ; the template named: 0 ; claude lines: 2 ; Yes ticked: 0 ; upstream's four, in order: Summary\|Testing & Verification\|Additional Context & Reviewer Notes\|AI Assistance Disclosure ; the skill's four, in order:  | PASS: AI Assistance Disclosure: 2 ; the template named: 1 ; claude lines: 2 ; Yes ticked: 1 ; upstream's four, in order: Summary\|Testing & Verification\|Additional Context & Reviewer Notes\|AI Assistance Disclosure ; the skill's four, in order: Summary`\|Testing & Verification`\|Additional Context & Reviewer Notes`\|AI Assistance Disclosure` | `7d1ee17849` | -- |
+| PL-52 | L-27 | FAIL: D-WORKFLOW-219 in release-notes: 1 ; the row in this branch's register: 0 ; the ruling cited by its issues: 0 | PASS: D-WORKFLOW-219 in release-notes: 0 ; the row in this branch's register: 0 ; the ruling cited by its issues: 1 | `1279d8aad7` | -- |
+
+60 rows: 56 commits over 51 items and 55 leads.
+
+**The description lengths (Q5)**, by `tools/t38-streams.py lengths`, the generator's unit with the line's beside it:
+
+| Item | Line | Before | After | Unit |
+| --- | --- | ---: | ---: | --- |
+| PL-14 (`a8cff74210`) | `release-notes/SKILL.md:3` | 277 | 311 | the scalar's characters (`t38-tables.py q5`) |
+| PL-14 (`a8cff74210`) | `release-notes/SKILL.md:3` | 293 | 327 | the line's bytes (`sed -n 3p \| wc -c`) |
+| PL-20 (`f5aea22c63`) | `code-auditor/SKILL.md:3` | 878 | 869 | the scalar's characters (`t38-tables.py q5`) |
+| PL-20 (`f5aea22c63`) | `code-auditor/SKILL.md:3` | 892 | 883 | the line's bytes (`sed -n 3p \| wc -c`) |
+| PL-47 (`2dac7625fe`) | `mini-retro/SKILL.md:3` | 985 | 1001 | the scalar's characters (`t38-tables.py q5`) |
+| PL-47 (`2dac7625fe`) | `mini-retro/SKILL.md:3` | 1003 | 1019 | the line's bytes (`sed -n 3p \| wc -c`) |
+| PL-47 (`da2e20194d`) | `mini-retro/SKILL.md:3` | 1001 | 923 | the scalar's characters (`t38-tables.py q5`) |
+| PL-47 (`da2e20194d`) | `mini-retro/SKILL.md:3` | 1019 | 941 | the line's bytes (`sed -n 3p \| wc -c`) |
+| PL-47 (`1355c754e5`) | `futro/SKILL.md:3` | 906 | 816 | the scalar's characters (`t38-tables.py q5`) |
+| PL-47 (`1355c754e5`) | `futro/SKILL.md:3` | 931 | 839 | the line's bytes (`sed -n 3p \| wc -c`) |
+| PL-47 (`5f534f0f08`) | `begin-delivery/SKILL.md:3` | 909 | 890 | the scalar's characters (`t38-tables.py q5`) |
+| PL-47 (`5f534f0f08`) | `begin-delivery/SKILL.md:3` | 931 | 912 | the line's bytes (`sed -n 3p \| wc -c`) |
+
+`code-auditor/SKILL.md:9`'s `adapted:` note (front matter, not the description; PL-26 `ef63791cf6`) went from 1293 to 172 bytes of the line (`sed -n 9p | wc -c`, `stage-e/S4-PL-26.txt`). Net, the five descriptions are shorter than at the dispatch tip but one: release-notes' (277 -> 311 characters), where the fix had to say the details block is the release note's alone.
 
 **Recorded, no stream** (rulings 3 and 8):
 - **PL-48:** recorded as written. The face stays in `docs/reviews/plan-for-the-plan.md`, `code-auditor` is unchanged, and no Backlog is filed.
@@ -455,7 +589,7 @@ TOTAL: 902 of 928 assertions
 - **PL-55:** the coordinator's sweep `b344408e46` covers the four lines ruling 8 names: the `begin-exploration` rule line, `learning-capture.md:67`, the pidfile sentence in `engineering-practices.md` § A promise is not a mechanism, and the two lost spaces. L-23, D-QA-040 and L-50 stay open, the coordinator's.
 - **PL-56:** #1373.
 - **PL-57:** #1395 (L-18) and #1396 (L-44).
-- **Withdrawn:** none so far; a stream that withdraws an item writes it here and in the gate.
+- **Withdrawn:** none.
 
 ## Positives
 
@@ -468,6 +602,8 @@ TOTAL: 902 of 928 assertions
 - **The canonical stash opens `## Start here`** (`checks-sessions.out`).
 - **The futros' and retros' markers exist in the record** (`17`, `7`), written from the rule.
 
+**Stage E's positives** (S0's closing): `tools/t38-checks.sh` at `fixed-at` `420b845656` prints `ok` for inventory, front, refs, stale, roster, pins, contract and the allowlists, with `allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 0` and `TOTAL: 962 of 962 assertions`. `tools/lint-audit-artifacts` `PASS` on its default phase and with `--issue 1394`.
+
 ## The #585 lines owed (scaffold's, never sent; D-WORKFLOW-164, -165)
 
 Each is for scaffold's next export, in the shape the lane writes. Each goes on #585 only by the coordinator, after the initial build:
@@ -475,6 +611,25 @@ Each is for scaffold's next export, in the shape the lane writes. Each goes on #
 - **The vote shapes:** `council/references/pipeline.md:416-417` names a four-ballot `2-1-1` and a `5-0` that `voting-rules.md:57-58` calls impossible (L-77).
 - **A tool the docs name and the bundle lacks:** `council-research` names five lint scripts, a summary script and three tests, and its SKILL says two pre-commit hooks enforce them; the bundle carries none of them (L-30). Either the export missed them or the text names tooling scaffold does not have.
 - **`council-member-gemini.agent.md:5-13`'s comment** describes the direct AI Studio identity above an OpenRouter `model:` line (L-40).
+
+**Stage E's, ruled *yes* by the stream brief** (§ Settled before dispatch, item 4: a fix to a sentence unchanged since the import owes a line). Each defect below is in the text as imported at `437ebd09af`, so scaffold's copy may share it: read at the import with `git show 437ebd09af:<path>` (each read is a line of `stage-e/S0-closing-import-reads.txt`). The reproducer is the item's check, in its record. None is sent (D-WORKFLOW-165):
+- **PL-02** (`mini-retro/references/scoped-audit.md`): the pre-existing-failure check stashes, checks out over the working tree and pops the stash -- the shared stash of every worktree -- and fetches its runner with `npx`; the fix checks the base commit in a detached scratch worktree. Fixed in `f95a86a878`; the reproducer is `stage-e/S2-PL-02.txt`'s check.
+- **PL-08** (`mini-retro/SKILL.md, references/template.md`): Step 2.5's procedure lists nine checks and its format six while `scoped-audit.md` has ten `### Check` headings (all three as imported); the fix counts and lists ten. Fixed in `e05a5d5eef`; the reproducer is `stage-e/S2-PL-08.txt`'s check.
+- **PL-09** (`code-auditor/references/phases.md`): *"Trust them; do not re-derive"* at Epic tier against SKILL.md's re-derive-two quota, both as imported; the fix states the quota. Fixed in `91f3095280`; the reproducer is `stage-e/S1-PL-09.txt`'s check.
+- **PL-15** (`mini-retro/SKILL.md, references/template.md`): Step 2.5 runs after Step 2 in SKILL.md and before it in `scoped-audit.md`; *"exactly these four sections"* against the format's extra sections; the scoped audit *"Optional"* against *"run the checks"*; Step 7 citing itself; two closing lists. Fixed in `629c6794c1`; the reproducer is `stage-e/S2-PL-15.txt`'s check.
+- **PL-30** (`code-auditor/SKILL.md, references/phases.md, anti-patterns.md`): *"subagents do not inherit terminal access"*, which a harness with shell-carrying subagents contradicts; the fix keeps the rule and says why (their output reaches the orchestrator only as a summary). Fixed in `641624e971`; the reproducer is `stage-e/S1-PL-30.txt`'s check.
+- **PL-32** (`code-auditor/references/templates.md`): a yaml fence escaped as \`\`\` inside the punch-list template, so a copy carries the backslashes; the fix nests it in a four-backtick fence. Fixed in `38f6ee7266`; the reproducer is `stage-e/S1-PL-32.txt`'s check.
+- **PL-33** (`code-auditor/references/templates.md`): the criterion entry copied from `phases.md` without its command-evidence line, drifted as imported; the fix keeps one copy and points at it. Fixed in `f72c9cd8ba`; the reproducer is `stage-e/S1-PL-33.txt`'s check.
+- **PL-34** (`code-auditor/SKILL.md, mini-retro/SKILL.md`): *"the full 6-phase methodology"* beside a lifecycle table of ten rows as imported; the fix names the phases. Fixed in `411d93a585`; the reproducer is `stage-e/S2-PL-34.txt`'s check.
+- **PL-35** (`mini-retro/references/scoped-audit.md:71`): `reference/template.md` for `references/template.md`, a path that resolves nowhere; the fix corrects it. Fixed in `5f6d68c4f6`; the reproducer is `stage-e/S2-PL-35.txt`'s check.
+- **PL-43** (`futro/SKILL.md`): an AC trap *"promoted at 2 instances"* beside the rule of three, and an Epic *comment* that "MUST be committed"; the fix keeps one threshold and says what is committed. Fixed in `3109d4882b`; the reproducer is `stage-e/S3-PL-43.txt`'s check.
+- **PL-44** (`begin-delivery/SKILL.md`): *"do not advance to Step 2 if the user defers"* beside the futro's entry for a deferred audit; a checkbox (*"Critical and foundational -- the implications are far-reaching"*) with nothing to tick; the fix keeps one order and a tickable checkbox. Fixed in `a908ebf769`; the reproducer is `stage-e/S4-PL-44.txt`'s check.
+- **PL-46** (`code-auditor/SKILL.md, references/phases.md`): the mode *"invoked by"* a request against *"always run it"* at Epic and Milestone scope, and *"passes 1-3"* naming no third pass, both as imported; the fix says each once. Fixed in `f77d1c9708`; the reproducer is `stage-e/S1-PL-46.txt`'s check.
+
+**Not owed, read** (21 of the 33 items `git log -S` marks *import-unchanged*):
+- **Right in the source estate**, which has the branch, the stack, the tools or the numbers they name: PL-05, PL-10, PL-12, PL-21, PL-22, PL-23, PL-24, PL-25, PL-27, PL-31, PL-45 and PL-47. Each is this fork's adaptation, not scaffold's defect.
+- **The fork's own defect** in an imported sentence: PL-06 (`9a09b76dd9` inserted two rules), PL-07 (the fork's lint), PL-13 and PL-17 (the fork's rules and markers), PL-16 (#540 and #1308), PL-20 (D-WORKFLOW-091), PL-26 (the fork's change-log convention), PL-36 (the fork's fifth technique, `3624e2e329`) and PL-39 (D-QA-044).
+- This split is the lane's reading. The coordinator may move an item between the lists at acceptance.
 
 ## What the coordinator, the export's refresh and the next slices inherit
 

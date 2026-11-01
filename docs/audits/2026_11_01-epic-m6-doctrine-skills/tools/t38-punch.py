@@ -201,19 +201,61 @@ if _t is not None:
     if set(BUGS) != _want:
         _sys.exit(f"t38-punch: refused: bugs.tsv names {sorted(BUGS)}, the items proposed as bugs are {sorted(_want)}")
 AUDIT = (_read("audit-issue.txt") or "").strip()
+# Stage E (S0's closing): every item's Phase 7 outcome. Resolved items cite their fix commits, read from the
+# stage-e records by tools/t38-streams.py (never retyped); the six ruled with no stream are Deferred to their owners
+# (the stream brief's rulings 3 and 8; the dispatch comment on #685 is 6553579374).
+import json as _json, subprocess as _sp
+DISPATCH = "6553579374"
+DEFERRED = {
+    "PL-48": f"recorded as written, the face stays in the plan (ruling 3; #685 comment {DISPATCH})",
+    "PL-53": "#911 (the export's refresh; the list stays in `02` § What ... inherit)",
+    "PL-54": "#807 (comment 6553118160, the maintainer's answer), then #911",
+    "PL-55": f"the coordinator's sweep `b344408e46`; L-23, D-QA-040 and L-50 open, the coordinator's (#685 comment {DISPATCH})",
+    "PL-56": "#1373 (`tools/skills-check`'s inputs)",
+    "PL-57": "#1395 (L-18), #1396 (L-44)",
+}
+OUTCOMES = {}
+if _read("bugs.tsv") is not None and _os.path.isdir(_os.path.join(_HERE, "..", "stage-e")):
+    _r = _sp.run([_sys.executable, "-I", _os.path.join(_HERE, "t38-streams.py"), "outcomes"], capture_output=True, text=True)
+    if _r.returncode:
+        _sys.exit("t38-punch: refused: t38-streams.py outcomes failed: " + _r.stderr.strip())
+    OUTCOMES = _json.loads(_r.stdout)
+    _stream = {}
+    for _f in sorted(_os.listdir(_os.path.join(_HERE, "..", "stage-e"))):
+        _m = _re.match(r"^(S\d)-(PL-\d\d)[b-f]?\.txt$", _f)
+        if _m:
+            _stream.setdefault(_m.group(2), set()).add(_m.group(1))
+    _all = {f"PL-{n:02d}" for n in range(1, len(ITEMS) + 1)}
+    _miss = sorted(_all - set(OUTCOMES) - set(DEFERRED))
+    _both = sorted(set(OUTCOMES) & set(DEFERRED))
+    if _miss or _both:
+        _sys.exit(f"t38-punch: refused: items with no outcome {_miss}, items both resolved and deferred {_both}")
+    _log = _sp.run(["git", "-C", _HERE, "rev-list", "--abbrev=10", "--abbrev-commit", "87c2ab0fed..HEAD"], capture_output=True, text=True).stdout.split()
+    _fixes = {c for cs in OUTCOMES.values() for c in cs}
+    FIXED_AT = next((c for c in _log if c in _fixes), None)
+    if FIXED_AT is None:
+        _sys.exit("t38-punch: refused: no fix commit is in the lane's history")
+def _outcome(k):
+    if k in OUTCOMES:
+        return "Resolved", ", ".join(f"`{c}`" for c in OUTCOMES[k]) + " (" + "/".join(sorted(_stream[k])) + ")"
+    if k in DEFERRED:
+        return "Deferred", DEFERRED[k]
+    return "Open", None
 def _prop(n, it):
     k = f"PL-{n:02d}"
     return f"bug #{BUGS[k]}" if k in BUGS else it[9]
 print("# Punch List — M6.P2 T38, the skills, agents and settings\n")
 print("**Generated:** 2026-11-01, by `tools/t38-punch.py` from one list (the items, the Phase 7 table and the index cannot disagree)")
 print("**Source Audit:** `04-analysis.md`; the leads are `02` § The leads")
+if OUTCOMES:
+    print(f"**reviewed-at:** 87c2ab0fed; **fixed-at:** {FIXED_AT} (the last fix commit; a file cannot name the commit that writes it)")
 if AUDIT:
     print(f"**Audit issue:** #{AUDIT}, a sub-issue of #685; the bugs: " + ", ".join(f"#{v} ({k})" for k, v in sorted(BUGS.items())))
 sev = {s: sum(1 for i in ITEMS if i[1] == s) for s in ("Critical", "High", "Medium", "Low")}
 print(f"**Total Items:** {len(ITEMS)} (Critical: {sev['Critical']}, High: {sev['High']}, Medium: {sev['Medium']}, Low: {sev['Low']})\n")
 print("---\n")
 print("## Instructions for the executing stream\n")
-print("Every item is **Open**: the stage-D pause's stream brief (`docs/reviews/briefs/t38-streams.md`, the coordinator's) decides each.")
+print("Every item is at a Phase 7 outcome since stage E (the gate below): the stream brief `docs/reviews/briefs/t38-streams.md` at `95052eaf78`, the coordinator's, decided each.")
 print("Items whose proposal reads `bug` are filed at stage D with their trace, their `Already written:` line and their VM line, *\"Can this be done on")
 print("the VM? No -- the tree, the tool or the register shows it\"*. A fix lands only in the fork-adapted skills, never in the council family")
 print("(ruling (d)); each fix's commit records its acceptance line before and after and `tools/t38-checks.sh`'s exit.\n")
@@ -228,7 +270,9 @@ for n, (title, s, cat, q, leads, owner, where, acc, ladder, prop) in enumerate(I
     print(f"- **Where:** {where} (lines at the dispatch tip `87c2ab0fed`)")
     print(f"- **Acceptance:** {acc}")
     print(f"- **Ladder:** {ladder}")
-    print(f"- **Proposed:** {_prop(n, ITEMS[n - 1])}\n")
+    print(f"- **Proposed:** {_prop(n, ITEMS[n - 1])}")
+    _w, _e = _outcome(f"PL-{n:02d}")
+    print(f"- **Phase 7:** {_w}" + (f", {_e}" if _e else "") + "\n")
 print("## Pre-existing tracked scope (NOT punch items -- exempt from the Phase 7 gate)\n")
 print(f"- #810 -- the lint's Local epic tier; closes when `templates.md`'s fix reaches `next` ({pl(56)} is outside its checkbox)")
 print(f"- #342 -- time-free estimates; {pl(5)} answers it for the fork-adapted skills")
@@ -241,10 +285,11 @@ for _n, _why in sorted(NO_ITEM.items()):
     print(f"- L-{_n:02d} -- {_why}")
 print()
 print("## Phase 7 resolution gate\n")
-print("| Item | Outcome | Proposed at stage B/C |")
+print("| Item | Outcome | Evidence |")
 print("| --- | --- | --- |")
 for n, it in enumerate(ITEMS, 1):
-    print(f"| PL-{n:02d} | Open | {_prop(n, it)} |")
+    _w, _e = _outcome(f"PL-{n:02d}")
+    print(f"| PL-{n:02d} | **{_w}** | {_e} |" if _e else f"| PL-{n:02d} | Open | {_prop(n, it)} |")
 print("\n## Machine-readable index\n")
 print("```yaml")
 print("punch_index:")
@@ -255,6 +300,6 @@ for n, (title, s, cat, q, leads, owner, where, acc, ladder, prop) in enumerate(I
     print(f"  question: {q}")
     print(f"  source_finding: \"{leads}\"")
     print(f"  owner_area: \"{owner}\"")
-    print(f"  outcome: open")
+    print(f"  outcome: {_outcome(f'PL-{n:02d}')[0].lower()}")
     print(f"  proposed: \"{_prop(n, ITEMS[n - 1])}\"")
 print("```")

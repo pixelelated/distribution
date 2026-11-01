@@ -462,3 +462,68 @@ No build, no compiler, no guest, no fetch, no council run, no Facilitator call, 
   - Its two refusals were seen first (`stage-e/S0-opening.txt`): no skill file staged gave `rc=2`; a planted line whose parent's count does not match gave `rc=1`, with nothing committed and the allowlists equal to HEAD.
 - **Before the first fix:** `git status --short -- .claude/agents .claude/skills` printed `0` lines, and HEAD is `e93c13457e`. The export `/workspace/tmp/m6-t38/e/e93c13457e` was made at 04:54:06 (`stage-e/exports.log`).
 - **Census:** no guest, no compile, no keyed call, no council call, no host-file line.
+
+### [Stage E] 04:55-05:07 — S1 code-auditor, 21 items in 21 commits
+
+- **The commits:** `09384b54fe` PL-01, `144b5bc6de` PL-04, `a442eb626e` PL-06, `3e38f1a460` PL-07, `91f3095280` PL-09, `7066c9f299` PL-10, `ea18cedfdc` PL-11, `1f5c88f86b` PL-16, `3829a87e18` PL-18, `1055bfa6b8` PL-19, `cada93dfb7` PL-29, `641624e971` PL-30, `20435e36ae` PL-31, `38f6ee7266` PL-32, `f72c9cd8ba` PL-33, `29b6a76b32` PL-37, `6636d63f85` PL-38, `9c204cf2dc` PL-39, `f77d1c9708` PL-46, `73de4fc76f` PL-49, `595da75108` PL-50.
+- **`tools/t38-checks.sh` at the stream's last commit `595da75108`:** `TOTAL: 951 of 951 assertions`, exit 0; `tools/rules-check --quiet` rc=0 at every commit.
+- **The covering case:** each item's check FAILed at its parent's export and PASSed at its fix's export, one case per lead and commit, 22 rows of `02` § The streams' fix table (`stage-e/S1-PL-NN.txt`).
+- **The exports:** the parent and the staged tree of every commit, made by `git archive` under `/workspace/tmp/m6-t38/e/`; each parent retired when its fix was committed (`stage-e/exports.log`).
+- **Census:** no guest, no compile, no keyed or council call, no host-file line; only the stream's skill files and the audit folder's allowlists and tools changed (each commit's `git show --stat` is in its record).
+
+### [Stage E] 05:09-05:14 — S2 mini-retro, 6 items in 7 commits
+
+- **The commits:** `f95a86a878` PL-02, `e05a5d5eef` PL-08, `629c6794c1` PL-15, `411d93a585` PL-34, `5f6d68c4f6` PL-35, `2dac7625fe` PL-47, `da2e20194d` PL-47.
+- **`tools/t38-checks.sh` at the stream's last commit `da2e20194d`:** `TOTAL: 970 of 970 assertions`, exit 0; `tools/rules-check --quiet` rc=0 at every commit.
+- **The covering case:** each item's check FAILed at its parent's export and PASSed at its fix's export, one case per lead and commit, 7 rows of `02` § The streams' fix table (`stage-e/S2-PL-NN.txt`).
+- **The exports:** the parent and the staged tree of every commit, made by `git archive` under `/workspace/tmp/m6-t38/e/`; each parent retired when its fix was committed (`stage-e/exports.log`).
+- **Census:** no guest, no compile, no keyed or council call, no host-file line; only the stream's skill files and the audit folder's allowlists and tools changed (each commit's `git show --stat` is in its record).
+
+### [Stage E] 05:14-05:19 — S3 futro, 8 items in 8 commits
+
+- **The commits:** `c77dd50b00` PL-05, `0a3df2b3aa` PL-12, `adb1c37cfc` PL-17, `94c09ce50d` PL-27, `1da407d664` PL-36, `79102ab43a` PL-40, `3109d4882b` PL-43, `1355c754e5` PL-47.
+- **`tools/t38-checks.sh` at the stream's last commit `1355c754e5`:** `TOTAL: 980 of 980 assertions`, exit 0; `tools/rules-check --quiet` rc=0 at every commit.
+- **The covering case:** each item's check FAILed at its parent's export and PASSed at its fix's export, one case per lead and commit, 9 rows of `02` § The streams' fix table (`stage-e/S3-PL-NN.txt`).
+- **The exports:** the parent and the staged tree of every commit, made by `git archive` under `/workspace/tmp/m6-t38/e/`; each parent retired when its fix was committed (`stage-e/exports.log`).
+- **Census:** no guest, no compile, no keyed or council call, no host-file line; only the stream's skill files and the audit folder's allowlists and tools changed (each commit's `git show --stat` is in its record).
+
+### [Stage E] 05:20-05:21 — S4 begin-delivery, 3 items in 3 commits
+
+- **The commits:** `ef63791cf6` PL-26, `a908ebf769` PL-44, `5f534f0f08` PL-47.
+- **`tools/t38-checks.sh` at the stream's last commit `5f534f0f08`:** `TOTAL: 965 of 965 assertions`, exit 0; `tools/rules-check --quiet` rc=0 at every commit.
+- **The covering case:** each item's check FAILed at its parent's export and PASSed at its fix's export, one case per lead and commit, 3 rows of `02` § The streams' fix table (`stage-e/S4-PL-NN.txt`).
+- **The exports:** the parent and the staged tree of every commit, made by `git archive` under `/workspace/tmp/m6-t38/e/`; each parent retired when its fix was committed (`stage-e/exports.log`).
+- **Census:** no guest, no compile, no keyed or council call, no host-file line; only the stream's skill files and the audit folder's allowlists and tools changed (each commit's `git show --stat` is in its record).
+
+### [Stage E] 05:22-05:24 — S5 the session pair, 5 items in 5 commits
+
+- **The commits:** `7f70e06051` PL-13, `9adaa017e1` PL-21, `37df2ac2b9` PL-28, `7d5399fdfd` PL-45, `83891d77d9` PL-51.
+- **`tools/t38-checks.sh` at the stream's last commit `83891d77d9`:** `TOTAL: 950 of 950 assertions`, exit 0; `tools/rules-check --quiet` rc=0 at every commit.
+- **The covering case:** each item's check FAILed at its parent's export and PASSed at its fix's export, one case per lead and commit, 5 rows of `02` § The streams' fix table (`stage-e/S5-PL-NN.txt`).
+- **The exports:** the parent and the staged tree of every commit, made by `git archive` under `/workspace/tmp/m6-t38/e/`; each parent retired when its fix was committed (`stage-e/exports.log`).
+- **Census:** no guest, no compile, no keyed or council call, no host-file line; only the stream's skill files and the audit folder's allowlists and tools changed (each commit's `git show --stat` is in its record).
+
+### [Stage E] 05:24-05:28 — S7 the writing pair, 5 items in 6 commits
+
+- **The commits:** `29b6e04aec` PL-03, `a8cff74210` PL-14, `4aa143ff5d` PL-42, `7d1ee17849` PL-52, `88dde804a3` PL-41, `1279d8aad7` PL-52.
+- **`tools/t38-checks.sh` at the stream's last commit `1279d8aad7`:** `TOTAL: 953 of 953 assertions`, exit 0; `tools/rules-check --quiet` rc=0 at every commit.
+- **The covering case:** each item's check FAILed at its parent's export and PASSed at its fix's export, one case per lead and commit, 6 rows of `02` § The streams' fix table (`stage-e/S7-PL-NN.txt`).
+- **The exports:** the parent and the staged tree of every commit, made by `git archive` under `/workspace/tmp/m6-t38/e/`; each parent retired when its fix was committed (`stage-e/exports.log`).
+- **Census:** no guest, no compile, no keyed or council call, no host-file line; only the stream's skill files and the audit folder's allowlists and tools changed (each commit's `git show --stat` is in its record).
+
+### [Stage E] 05:30-05:40 — S6 the cross-cutting sweeps, 5 items in 6 commits
+
+- **The commits:** `f5aea22c63` PL-20, `a1bc03f615` PL-22, `48bfbe0eed` PL-23, `919a0e0014` PL-24, `9d2aa63cd1` PL-25, `420b845656` PL-24.
+- **`tools/t38-checks.sh` at the stream's last commit `420b845656`:** `TOTAL: 962 of 962 assertions`, exit 0; `tools/rules-check --quiet` rc=0 at every commit.
+- **The covering case:** each item's check FAILed at its parent's export and PASSed at its fix's export, one case per lead and commit, 8 rows of `02` § The streams' fix table (`stage-e/S6-PL-NN.txt`).
+- **The exports:** the parent and the staged tree of every commit, made by `git archive` under `/workspace/tmp/m6-t38/e/`; each parent retired when its fix was committed (`stage-e/exports.log`).
+- **Census:** no guest, no compile, no keyed or council call, no host-file line; only the stream's skill files and the audit folder's allowlists and tools changed (each commit's `git show --stat` is in its record).
+
+PROOF: E-S0 (tree) -- S0's records: `05` regenerated with 51 `**Resolved**` and 6 `**Deferred**` gate rows, each citing a commit or an issue, and `tools/lint-audit-artifacts` `PASS` on its default phase and with `--issue 1394` (`stage-e/S0-closing-lint.out`). A FAIL would have been an item with no outcome, or an outcome the lint refuses.
+PROOF: E-S1 (fix-tree) -- S1's 21 items: every check FAILed at its parent's export and PASSed at its fix's (22 rows of the fix table), with `tools/t38-checks.sh` exit 0 at every commit (`TOTAL: 951 of 951 assertions` at `595da75108`). A FAIL would have been a check passing at its parent, or the checker failing at a fix.
+PROOF: E-S2 (fix-tree) -- S2's 6 items: every check FAILed at its parent's export and PASSed at its fix's (7 rows of the fix table), with `tools/t38-checks.sh` exit 0 at every commit (`TOTAL: 970 of 970 assertions` at `da2e20194d`). A FAIL would have been a check passing at its parent, or the checker failing at a fix.
+PROOF: E-S3 (fix-tree) -- S3's 8 items: every check FAILed at its parent's export and PASSed at its fix's (9 rows of the fix table), with `tools/t38-checks.sh` exit 0 at every commit (`TOTAL: 980 of 980 assertions` at `1355c754e5`). A FAIL would have been a check passing at its parent, or the checker failing at a fix.
+PROOF: E-S4 (fix-tree) -- S4's 3 items: every check FAILed at its parent's export and PASSed at its fix's (3 rows of the fix table), with `tools/t38-checks.sh` exit 0 at every commit (`TOTAL: 965 of 965 assertions` at `5f534f0f08`). A FAIL would have been a check passing at its parent, or the checker failing at a fix.
+PROOF: E-S5 (fix-tree) -- S5's 5 items: every check FAILed at its parent's export and PASSed at its fix's (5 rows of the fix table), with `tools/t38-checks.sh` exit 0 at every commit (`TOTAL: 950 of 950 assertions` at `83891d77d9`). A FAIL would have been a check passing at its parent, or the checker failing at a fix.
+PROOF: E-S7 (fix-tree) -- S7's 5 items: every check FAILed at its parent's export and PASSed at its fix's (6 rows of the fix table), with `tools/t38-checks.sh` exit 0 at every commit (`TOTAL: 953 of 953 assertions` at `1279d8aad7`). A FAIL would have been a check passing at its parent, or the checker failing at a fix.
+PROOF: E-S6 (fix-tree) -- S6's 5 items: every check FAILed at its parent's export and PASSed at its fix's (8 rows of the fix table), with `tools/t38-checks.sh` exit 0 at every commit (`TOTAL: 962 of 962 assertions` at `420b845656`). A FAIL would have been a check passing at its parent, or the checker failing at a fix.
