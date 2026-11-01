@@ -102,10 +102,14 @@ because they decide safety, not looks:
 - **Busy spinner while loading**: `GuiLoading<T>` (async worker + result callback), or a
   full-screen `GuiComponent` owning a `BusyComponent` + small state machine — see
   `GuiBackup.cpp` (batocera's native user-data backup).
-- **Run an OS command**: `Utils::Platform::runSystemCommand(cmd, name, window)` — passing
-  `window` shows a splash while it runs; `/usr/bin/run "<cmd>"` for fullscreen console
-  TUIs (current parity flows). Native pages should prefer headless backends + the async
-  patterns above over console hops.
+- **Run an OS command**: `Utils::Platform::runSystemCommand(cmd, name, window)` runs `cmd`
+  through `/usr/bin/sh -c` and blocks the calling thread until it exits (an interrupted
+  `waitpid` is not retried); it reads neither `name` nor `window`, so nothing is shown while
+  it runs, and it returns 0 whatever the command did (`Platform.cpp:853-880` at the pin
+  `16dbac5211`, T36 L-13). A call on the interface thread freezes the screen for the
+  command's whole run (#1220); a caller that needs the outcome reads it another way.
+  `/usr/bin/run "<cmd>"` for fullscreen console TUIs (current parity flows). Native pages
+  should prefer headless backends + the async patterns above over console hops.
 - **A file another process writes is read uncached.** `Utils::FileSystem::exists`
   remembers a miss while `UseFileCache` is on (the default) until a game launch
   or a restart clears the cache, so a stamp the scripts write, or the

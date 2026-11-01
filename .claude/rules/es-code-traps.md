@@ -115,15 +115,19 @@ to three facts about `Font` that nothing in the code says out loud:
   nobody noticed because at 1280x800 both scales are 1. Ask for
   `getSize() / fontScale()`, and measure text with the font object the
   component will actually use, not the theme's.
-- **`Font::getHeight()` is the tallest glyph rasterised *so far*.**
-  `mMaxGlyphHeight` starts at 0 and grows in `getGlyph`. Measured before a
-  label has drawn, it under-reports; `TextComponent`'s AUTO wrap threshold
-  (1.8 lines of the same moving number) is judged later, with more glyphs
-  loaded. A layout computed from it in a constructor can be right in the
-  constructor and wrong on screen. Rasterise the printable range first
-  (`font->sizeText(<ASCII 32..126>)`), or force the mode
-  (`<multiLine>true</multiLine>`, honoured by the grid tile's text since
-  ES `2088eadb9`).
+- **`Font::getHeight()` is the tallest ASCII glyph the font has loaded.**
+  The constructor rasterises ASCII 32..127 (`Font.cpp:115-117`, since
+  `9f040f4c7`, 2014) and only an ASCII glyph raises `mMaxGlyphHeight`
+  (`:419-421`), so after a successful preload the height does not move as
+  labels draw. Two things still break a layout computed from it: an ASCII
+  glyph that failed to load in the constructor (`getGlyph` returns NULL at
+  `:377-381`, `:385-389`, `:398-402`) raises it later, the first time it
+  loads; and a glyph outside ASCII -- an accented capital -- never raises
+  it, so a line of such text can stand taller than `getHeight()` says.
+  Measure with the font object the component draws with, and where the
+  wrap mode matters, force it (`<multiLine>true</multiLine>`, honoured by
+  the grid tile's text since ES `2088eadb9`). (T36 L-08, at the pin
+  `16dbac5211`.)
 - **`Utils::FileSystem::exists(path)` caches for the session** by default
   (`enableCache = true`), and caches its own answers. A marker written
   after startup reads as absent until restart. Pass `false` for anything
