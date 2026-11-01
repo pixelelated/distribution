@@ -86,6 +86,18 @@ TEST_CASE("3.1 toUpper/toLower fold a 3-byte UTF-8 codepoint wrongly (StringUtil
 	CHECK(String::toLower("\xEF\xBC\xA1") == "\xEF\xBD\x81");
 }
 
+TEST_CASE("3.1 G-8 toUpper/toLower map order-independently and can change byte length (StringUtil.cpp lookup) [G-8]")
+{
+	// An out-of-order pair the bsearch over the unsorted parallel tables mishandled:
+	// U+0178 (Y with diaeresis) <-> U+00FF (y with diaeresis).
+	CHECK(String::toLower("\xC5\xB8") == "\xC3\xBF");
+	CHECK(String::toUpper("\xC3\xBF") == "\xC5\xB8");
+	// The dotless i (U+0131, two bytes) upper-cases to the one-byte ASCII I; the pin's
+	// in-place re-encode could not shrink two bytes to one.
+	bool dotless = String::toUpper("\xC4\xB1") == "I";
+	CHECK(dotless);
+}
+
 // 3.2's renameFile half tests T21's fix (#1191, f7c16144d), outside T36's tree, so it stays
 // FAIL at T36's tip -- marked may_fail with its owner (ruling 12, T35's ruling 20 precedent).
 TEST_CASE("3.2 renameFile returns true over an absent source (FileSystemUtil.cpp:1451-1455) [L-03; T21 #1191 collision]"

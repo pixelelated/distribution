@@ -1,0 +1,6 @@
+stand-in: the tip build compiled StringUtil.cpp whole (rc 0); es-syntax-check CANNOT (StringUtil.cpp is linked whole by the test, not an extracted seam with a build-root command).
+non-ASCII over the added lines: clean (0 non-ASCII bytes).
+Already written: nothing inherited. The persisted folds are ASCII only -- CRC32/MD5/CheevosHash (hex, FileData.cpp:2138/2161/2183), MD_BOOL values "true"/"false" (MetaData.cpp:220/256), file extensions (Gamelist/SaveStateRepository) -- which the byte-wise bug never touched. Every fold of a multi-byte codepoint was transient: a displayed upper-cased label (TextComponent, never stored) or an in-memory sort/compare key (CollectionSystemManager hardware/manufacturer, Genres, startsWithIgnoreCase). None is written to a gamelist, a settings key or the cloud, so an upgraded device carries no corrupted fold.
+French: no msgid changed; the two-byte e-acute/E-acute control folds as before.
+guest half: fix-walk-pending-image CANNOT in stage E (no guest); an upper-cased label carrying a 3-byte codepoint at 640x480 and 1280x800, English and French, is captured at the integration window.
+time to play: a decode and an encode per codepoint where an upper-case label is built; off the launch path.
