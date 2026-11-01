@@ -46,6 +46,7 @@ cd "$REPO" || exit 2
 [ -z "$(git diff --cached --name-only)" ] || { echo "t38-fix: refused: something is already staged"; exit 2; }
 P=$(git rev-parse --short=10 HEAD) || exit 2
 REC="$AUD/stage-e/$SID-$PL.txt"
+for sfx in b c d e f; do [ -e "$REC" ] || break; REC="$AUD/stage-e/$SID-$PL$sfx.txt"; done  # a second commit for one item never overwrites the first record
 mkdir -p "$AUD/stage-e" "$E" || exit 2
 ALLOWS="$AUD/tools/allow-legit.txt $AUD/tools/allow-inherited.txt $AUD/tools/allow-findings.txt"
 now() { date -u +%H:%M:%S; }
