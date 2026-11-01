@@ -552,6 +552,11 @@ Issue shape:
 - Body from `05-punch-list.md` plus the executive summary and acceptance-criteria scorecard. Write the body to a file and pass it via `--body-file` (not heredoc).
 - **Always `--repo pixelelated/distribution`.** Issues are disabled on `ROCKNIX/distribution`, so an unqualified `gh issue create` from this checkout targets a repo that cannot accept it.
 - Linked to the original milestone/issues being audited
+- One checkbox per punch item, written for an agent to tick (D-QA-044):
+  `- [ ] <behaviour> -- <artifact>`, the artifact being the check line, file or
+  issue that shows the outcome. Run `tools/box-check --issue <n>` on the issue
+  after creating it and record its line; a checkbox that names a person or a
+  device without its physical fact fails it.
 
 If labels don't exist, create them first (`gh label create <name> --color <hex>`).
 
