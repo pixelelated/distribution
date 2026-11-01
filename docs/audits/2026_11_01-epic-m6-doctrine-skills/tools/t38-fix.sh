@@ -93,6 +93,8 @@ echo "$CSTEPS"
 [ $CRC -eq 0 ] || abort "tools/t38-checks.sh exited $CRC"
 tools/rules-check --quiet > /dev/null 2>&1; RRC=$?
 [ $RRC -eq 0 ] || abort "tools/rules-check --quiet exited $RRC"
+tools/register-check > /dev/null 2>&1; GRC=$?  # it reads .claude/skills for citations: a fix that cites a row this branch lacks fails here
+[ $GRC -eq 0 ] || abort "tools/register-check exited $GRC"
 git diff --cached -U0 | $G -E '^\+' | $G -v -E '^\+\+\+ ' | sed 's/^+//' | tools/forbidden-terms-check --stdin > /dev/null 2>&1; WRC=$?
 [ $WRC -eq 0 ] || abort "the wordlist over the added lines exited $WRC"
 # the description lengths
@@ -116,7 +118,7 @@ MSG=$(mktemp -p "$E" msg.XXXXXX)
   printf 'FAIL at the parent %s: %s\n' "$P" "$BJ"
   printf 'PASS at the fix: %s\n' "$AJ"
   printf 'tools/t38-checks.sh exit 0: %s\n' "$CTOTAL"
-  printf 'tools/rules-check --quiet rc=0\n'
+  printf 'tools/rules-check --quiet rc=0; tools/register-check rc=0\n'
   [ -n "$DL" ] && printf '%s' "$DL"
   [ -n "$NOTE" ] && printf '%s\n' "$NOTE"
   printf 'Already written: %s\n' "$ALREADY"
@@ -138,7 +140,7 @@ mv "$E/t-$TS" "$E/$C" && echo "$(now) made $E/$C (the fix of $PL, from tree $TS)
   echo "allowlists re-keyed: $(printf '%s' "$REKEY" | paste -sd';')"
   echo "tools/t38-checks.sh exit $CRC at the fix (--commit $TS):"
   printf '%s\n' "$CSTEPS"
-  echo "tools/rules-check --quiet rc=$RRC"
+  echo "tools/rules-check --quiet rc=$RRC; tools/register-check rc=$GRC"
   echo "the wordlist over the added lines rc=$WRC"
   [ -n "$DL" ] && printf '%s' "$DL"
   [ -n "$NOTE" ] && echo "$NOTE"
