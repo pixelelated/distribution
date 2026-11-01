@@ -77,6 +77,7 @@ adjustments); this section is the overview / audit receipt.>
 - **Check 7 — Harness self-coverage:** <verdict / SKIP "no new harness shipped"> — <finding or note>
 - **Check 8 — Documentation & glossary freshness:** <verdict / SKIP "no new nouns, no docs made stale"> — <finding or note>
 - **Check 9 — Build-vs-adopt honor check:** <verdict / SKIP "no new build/adopt surface"> — <recorded path vs. shipped + register row / ADR (if present)>
+- **Check 10 — Decision-propagation scan:** <verdict> — <finding or "no settled question re-opened, no row unswept">
 
 **OR** if the scoped audit was skipped (per `references/scoped-audit.md`
 § "When to skip"):

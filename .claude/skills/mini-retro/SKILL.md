@@ -250,6 +250,11 @@ Summary:
    mid-phase, record the reversal (append, don't edit). Skip with a
    one-line note for pure bugfix / docs / mechanical-migration phases, or
    when no build-vs-adopt answer was recorded.
+10. **Decision-propagation scan** — did the phase re-open a settled
+    decision without new evidence (the pull rule), or record one without
+    sweeping its old words (the push rule)? For each question the phase
+    framed as open, `tools/archaeology <terms>` against the register; for
+    each row it added, `tools/archaeology --reversal <old words>`.
 
 Each check produces a verdict (PASS / PARTIAL / FAIL / SKIP /
 UNTESTABLE) + optional finding. Findings feed the retro's Step 2
@@ -355,7 +360,11 @@ Format on GitHub (adapt for other trackers):
 - **Interaction-defect scan:** PASS / PARTIAL / UNTESTABLE — <finding>
 - **Futro prediction verification:** N/M confirmed (X%) — <table if useful>
 - **Housekeeping (full-suite scan):** PASS / PARTIAL / FAIL — <classification>
+- **UI-review artifact:** PASS / PARTIAL / FAIL / SKIP — <artifact path or "no UI surface touched">
 - **Harness self-coverage:** PASS / PARTIAL / FAIL / SKIP — <finding, if any>
+- **Documentation & glossary freshness:** PASS / PARTIAL / FAIL / SKIP — <finding, if any>
+- **Build-vs-adopt honor check:** PASS / PARTIAL / FAIL / SKIP — <finding, if any>
+- **Decision-propagation scan:** PASS / PARTIAL / FAIL — <finding, if any>
 
 ### Practice adjustments
 

@@ -167,7 +167,8 @@ the retro. Scan all comments after the retro, not just the retro itself.
 
 **Important:** a Mini Retro (as of `mini-retro` v2.0.0) includes a
 **§ Scoped audit findings** subsection — read this carefully. It
-contains the five phase-tier audit spot-check verdicts + findings
+contains a verdict and a finding for each of the scoped audit's checks
+(the `### Check` headings of `mini-retro/references/scoped-audit.md`)
 and often surfaces drift that the four retro questions understate.
 The futro (Step 2) consumes these findings as first-class input.
 
