@@ -34,13 +34,16 @@ PROVENANCE (owner-directed + adopted reference):
 3. **Do not build a pseudo-council.** Multiple ordinary subagents, one reviewer asked
    to role-play opposition, or unverified model calls do not satisfy this rule.
 4. **Fail closed when council is unavailable.** The session-skill substrate ships in
-   the corpus as of #260 (2026-08-02): the `council` / `council-research` /
-   `begin-exploration` skills, the `council-member-*` agent definitions, and the
+   the corpus as of #260 (2026-08-02): the `council` / `council-research`
+   skills, the `council-member-*` agent definitions, and the
    Facilitator (`scripts/council-invoke.ts`, OpenRouter route). The tooling is installed where that corpus is seeded; actual
    readiness requires fresh verification of all five members and request capacity
    through the `council` skill. Where the key is missing or a seat fails verification, pause
    and surface the missing prerequisite. Do not silently fall back to rubber-duck or
    another single-model critic. (#136 remains the CI/workflow-side adoption tracker.)
+   This list named a `begin-exploration` skill until 2026-11-01; no tree of this
+   repository has ever held one, and the fork-adapted skills' references to it are
+   swept under D-WORKFLOW-219 (T38 L-22, #685).
 
 Routine evidence work is unchanged: use direct inspection, the `code-review` specialist
 for focused diff bugs, and `code-auditor` for its defined Epic/Milestone methodology.

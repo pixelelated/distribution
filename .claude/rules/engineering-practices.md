@@ -350,7 +350,10 @@ Two more traps met arming it, both already in this project's records:
 `pgrep -f` on the job's name matched the session's own shell (blindspot: the
 self-matching pattern — anchor it: `^/bin/bash \./build-h700\.sh$`), and
 `pkill -f` on the watcher's command line killed the shell issuing it. Stop a
-watcher by the pid its status file records, never by pattern.
+watcher by the pid its status file records, never by pattern. And the pidfile
+is written by the payload itself, from inside the detached session: `$!` after
+`nohup setsid ... &` is `setsid`'s exited parent, and a stop by that pid stops
+nothing (the coordinator's wrapper, 2026-10-31; T38 L-29, #685).
 
 ### Say how the watch fails
 

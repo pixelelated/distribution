@@ -519,7 +519,7 @@ So, before a cold build:
 
 - **Disk:** measure the actual target's roots, source cache, temporary copy and
   artifact reserve before starting. The accepted October 2026 H700 roots used
-  about138 GB together and SM8550 about183 GB; a generic90 GB estimate is not
+  about 138 GB together and SM8550 about 183 GB; a generic 90 GB estimate is not
   a capacity gate. Recheck available space between sequential target builds.
 - **Time:** hours for a first build of a device; minutes once its root is warm.
 - Build sequentially. Parallel device builds contend for CPU and the sources

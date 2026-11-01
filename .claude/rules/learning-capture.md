@@ -64,8 +64,10 @@ all of the armatures in place to support that."*
 - **One canonical stash, on `next`:** `.github/sessions/saved-session-state-next.md`,
   written with the `session-stash` skill, the previous copy archived under
   `.github/sessions/archived/`. A working branch's own
-  `saved-session-state-<branch>.md` is a pointer to it, so a session started
-  anywhere reaches the same file, and `CLAUDE.md` and `AGENTS.md` name it near
+  `saved-session-state-<branch>.md` is a pointer to it -- carrying that
+  branch's own in-flight state when it has any, as a renovation lane's does
+  (#1014; D-WORKFLOW-219) -- so a session started anywhere reaches the same
+  file, and `CLAUDE.md` and `AGENTS.md` name it near
   their tops. Until 2026-10-02 the copy on `next` was from July.
 - **Written for a stranger.** It opens with *Start here*: what the project is,
   what to read and in what order, the rules that bind, the machine's paths,
