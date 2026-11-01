@@ -1,0 +1,7 @@
+S10 FAIL-at-pin, each harness against the pre-S10 copy:
+G-3  (Font::rebuildTextures, null face):        AddressSanitizer:DEADLYSIGNAL  rc 1
+G-6  (startsWithIgnoreCase past terminators):   ==2199549==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x724ee78f0100 at pc 0x61bfd7b8d5c1 bp 0x7ffd11367bc0 sp 0x7ffd11367bb0  rc 1
+G-7  (chars2Unicode length()-N underflow):      ==2279774==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x7bd57ebe0012 at pc 0x5caa0207b80d bp 0x7ffc9c99c690 sp 0x7ffc9c99c680  rc 1  [synthetic: lifted bounds over a 2-byte heap buffer modelling c_str; behaviour control over ""/"a" passes]
+G-10 (stringToTime literal desync):             ==2161083==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x7aad29de0055 at pc 0x64bcefee4ace bp 0x7fff9a49df10 sp 0x7fff9a49df00  rc 1
+G-14 (removeFile of a broken symlink):          S10 G-14: FAIL (the broken symlink was not unlinked)  rc 1
+G-20 (initSVGFromMemory oversized):             ==2216320==ERROR: AddressSanitizer: requested allocation size 0xfffffffe00000000 (0xfffffffe00001000 after adjustments for alignment, red zones etc.) exceeds maximum supported size of 0x10000000000 (thread T0)  rc 1

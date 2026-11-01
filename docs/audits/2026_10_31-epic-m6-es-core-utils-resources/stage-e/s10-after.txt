@@ -1,0 +1,8 @@
+S10 PASS-at-tip, each harness against the fixed file; main binary clean:
+G-3  S10 G-3: PASS (a glyph with a missing face is skipped)
+G-6  S10 G-6: PASS (abc,abc / abcdef,abc true; ab,abc false)
+G-7  S10 G-7 synthetic: PASS (no over-read; cp=1024 cursor=2); S10 G-7 behaviour: PASS
+G-10 S10 G-10: PASS (the literal kept the field bounds honest; no read past the input)
+G-14 S10 G-14: PASS  [lstat64 guard]
+G-20 S10 G-20: initSVGFromMemory=0 (want 0: oversized refused)
+main binary at the S10 tip: [doctest] test cases: 23 | 23 passed | 0 failed | 0 skipped
