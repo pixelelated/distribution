@@ -1,0 +1,5 @@
+register-check rc=0
+work-log-index --check rc=0
+rules-check --quiet rc=0
+forbidden-terms-check rc=0 (forbidden-terms-check: 0 hits in 133732 tracked files)
+hooks-test rc=0 (PASS)

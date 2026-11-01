@@ -158,7 +158,7 @@ descriptor, restoring the original mode even on failure; never chmod the
 store recursively or change payload modes. A partial batch retains its original
 failure and deletion journal. Resume only its verified remaining targets under
 a fresh watched owner, with the same source, preservation and dependency guards
-(#493; October12 cleanup02 records the executable controls).
+(#493; October 12 cleanup02 records the executable controls).
 
 D-INFRA-023 requires the next actual build to record memory peak, swap activity,
 memory/I/O pressure and build/cache/QA disk peaks through the watcher before a

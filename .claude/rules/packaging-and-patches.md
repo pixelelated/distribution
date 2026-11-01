@@ -76,8 +76,9 @@ Note that busybox provides `unzip` but **not** `zip`, and libzip's `ziptool` /
 ## Generating patches
 
 Patches in a package's `patches/` directory apply automatically after unpack.
-Scope one to a device with `patches/<DEVICE>/`, and add further patch sets with
-`PKG_PATCH_DIRS`.
+`patches/<arch>/` and `projects/<PROJECT>/devices/<DEVICE>/patches/<pkg>/` apply on
+their own; a per-device `patches/<DEVICE>/` inside the package applies only when the
+recipe adds it to `PKG_PATCH_DIRS` (`scripts/unpack:137-145`; T37 L-18, 2026-11-01).
 
 ```bash
 # non-git source: keep a pristine .orig alongside, edit, then diff
