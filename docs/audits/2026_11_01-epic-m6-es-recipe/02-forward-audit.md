@@ -488,6 +488,39 @@ cited by number. S0 is record-only; S1's five recipe edits each get a row below 
 | --- | --- | --- | --- | --- |
 | S0: the records, the deferrals, the #585 lines, `stage-d/`, the baseline | the S0 record commit | -- | the checker over the S0 tree (`--commit 902e00987c`, the stage-E start; the S0 commit changes nothing it reads): `TOTAL: 55 of 60 assertions`, the five FAIL lines of `stage-c/checks-at-tip.out`, its lines equal to stage C's (`diff` rc 0), its six stamps equal to `stage-c/stamps-at-tip.txt` (`stage-e/s0-baseline.txt`, `s0-stamps.txt`) | tree; tool-run |
 
+### S1 PL-03 (#1382): `PKG_NEED_UNPACK` names busybox's recipe directory
+
+- **Recipe commit `c93b1cad7d`** (`emulationstation: hash busybox's recipe directory in the stamp`;
+  its paths: the recipe only): `:14` reads `PKG_NEED_UNPACK="$(get_pkg_directory busybox)"`, the
+  framework's form (the vdr plugins' recipes). 141 lines by `grep -c ''`, unchanged.
+- **Positive before** (the parent `7923d95594`'s tree, `stage-e/s1-PL-03-before.txt`):
+  `FAIL step 5 GENERIC_X64 PKG_NEED_UNPACK-words-are-directories (L-19): unresolved: busybox` and the
+  H700 twin; `TOTAL: 55 of 60 assertions`.
+- **Positive after** (the fix's export, `--commit 7923d95594 --compare` the parent's stamps,
+  `stage-e/s1-PL-03-after.txt`): `PASS step 5 GENERIC_X64 PKG_NEED_UNPACK-words-are-directories
+  (L-19)` and the H700 twin; `TOTAL: 63 of 66 assertions`, its three FAIL lines L-02, L-03 (both
+  deferred) and L-04 (the next edit).
+- **The stamp compare:** `emulationstation` `moved=1 touched=1`, `es-theme-art-book-next` and
+  `lowerdeck` `moved=0 touched=0`, on both devices.
+- **The busybox pair** (#1382's criterion 2; `stage-e/s1-PL-03-busybox-pair.txt`; a comment line
+  appended to `projects/ROCKNIX/packages/sysutils/busybox/package.mk` in each export, then reverted,
+  sha256 equal): **at the parent** `emulationstation` `moved=0 touched=0` on both devices -- the
+  defect, the stamp did not move; **at the fix** `FAIL step 7 ... emulationstation
+  stamp-moves-iff-touched: moved=1 touched=0` on both devices -- **the expected FAIL** (busybox's
+  recipe now moves the ES stamp from outside ES's directory, PL-03's point; ruling 14, whose words
+  place the expected FAIL "before the fix" where the brief's S1 text and this run place it at the
+  fix); the theme and `lowerdeck` `moved=0 touched=0` in both runs.
+- **Checks** (`stage-e/s1-PL-03-checks.txt`): one `find` path, then `pkgcheck emulationstation rc=0
+  lines=0 FAIL-lines=0 WARN-lines=0`, the theme and `lowerdeck` the same, the control
+  `es-theme-no-such-package` `rc=0 lines=0` (the fail-open #1385 tracks); `bash -n recipe rc=0`;
+  added lines `1`, non-ASCII `0`, secret `0`, forbidden `rc=0`, each after its planted positive;
+  `:39 equal`; `PKG_VERSION/PKG_GIT_CLONE_BRANCH changed lines: 0`; worktree build roots `0`.
+- **`Already written:`** #1382's: nothing inherited -- the line decides which inputs move ES's stamp
+  in a build root; no image, device or cloud holds the stamp.
+- **proved:** fix-fixture. **fix-image-pending:** none -- the stamp never reaches an image.
+  **Time to play:** none; ES now rebuilds when busybox's recipe changes. **#585:** the L-19 line
+  below, its evidence this commit and the pair.
+
 ### Recorded, no stream
 
 - **PL-01** -- **Deferred to #613** (ruling 2), the M7 lane's. T37's line on #613 (comment
@@ -558,7 +591,7 @@ stream brief's rulings 5 and 17 name the rest.
   (`#g` is a comment); `s#-#_#g` is meant. No current device name has a hyphen.
 - **L-19** (ROCKNIX, the same recipe): `PKG_NEED_UNPACK="busybox"` is a bare word where
   `calculate_stamp` expects a path, so busybox's recipe never moves the stamp; `$(get_pkg_directory
-  busybox)` is the framework's own form.
+  busybox)` is the framework's own form. Fixed here by `c93b1cad7d`, its evidence the L-19 pair and the busybox stamp pair (§ The streams).
 - **PL-029** (ROCKNIX, `start_es.sh` and `emustation.service`): `--log-path /var/log` is parsed by
   no ES argument branch; under `ROCKNIX` the path is `/var/log` by `Paths.cpp`. Offered as a tidy-up,
   not a defect (PL-09).

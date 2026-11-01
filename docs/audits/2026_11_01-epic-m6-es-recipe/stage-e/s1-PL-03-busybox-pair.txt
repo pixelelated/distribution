@@ -1,0 +1,14 @@
+== parent: busybox's recipe + one comment line, --commit 7923d95594, --compare /workspace/tmp/m6-t37/e/pl03-before/stamps.txt; checker rc=1; reverted-sha-equal
+PASS step 7 GENERIC_X64 emulationstation stamp-moves-iff-touched: moved=0 touched=0
+PASS step 7 GENERIC_X64 es-theme-art-book-next stamp-moves-iff-touched: moved=0 touched=0
+PASS step 7 GENERIC_X64 lowerdeck stamp-moves-iff-touched: moved=0 touched=0
+PASS step 7 H700 emulationstation stamp-moves-iff-touched: moved=0 touched=0
+PASS step 7 H700 es-theme-art-book-next stamp-moves-iff-touched: moved=0 touched=0
+PASS step 7 H700 lowerdeck stamp-moves-iff-touched: moved=0 touched=0
+== fix: busybox's recipe + one comment line, --commit c93b1cad7d, --compare /workspace/tmp/m6-t37/e/pl03-after/stamps.txt; checker rc=1; reverted-sha-equal
+FAIL step 7 GENERIC_X64 emulationstation stamp-moves-iff-touched: moved=1 touched=0
+PASS step 7 GENERIC_X64 es-theme-art-book-next stamp-moves-iff-touched: moved=0 touched=0
+PASS step 7 GENERIC_X64 lowerdeck stamp-moves-iff-touched: moved=0 touched=0
+FAIL step 7 H700 emulationstation stamp-moves-iff-touched: moved=1 touched=0
+PASS step 7 H700 es-theme-art-book-next stamp-moves-iff-touched: moved=0 touched=0
+PASS step 7 H700 lowerdeck stamp-moves-iff-touched: moved=0 touched=0
