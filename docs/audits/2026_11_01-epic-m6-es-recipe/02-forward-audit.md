@@ -620,6 +620,54 @@ cited by number. S0 is record-only; S1's five recipe edits each get a row below 
   `CANNOT` here (it needs a build). **No screen changes.** **Time to play:** none; a build-time
   test. **#585:** PL-07's line (§ The #585 lines owed).
 
+### S1 PL-08 (#1381): `HFS_DEV_LOGIN` in the build log's names
+
+- **The checker's two new step-4 assertions** (named in its header; ruling 13's form): the recipe's
+  `for key in ... done` loop is extracted from its text (never `:39` or `:40`) and run with every
+  name `scripts/get_env:14`'s `KEEP` holds set to a placeholder value assembled at run time;
+  `using-lines-name-every-kept-credential (L-05)` PASSes when the `USING:` count equals the number
+  of kept names, `using-lines-print-no-value (L-05)` when no placeholder value is printed (a
+  control). Counts only are printed.
+- **Positive before** (parent `c6fa223e46`, `stage-e/s1-PL-08-before.txt`, read in full: every
+  other line equals PL-07's after, `diff` rc 0): `FAIL step 4 using-lines-name-every-kept-credential
+  (L-05): extracted=1 names=4 using=3 value-occurrences=0`; the control `PASS ... using=3
+  value-occurrences=0`; `TOTAL: 63 of 66 assertions`.
+- **Recipe commit `c9e8d5a8df`** (`emulationstation: name HFS_DEV_LOGIN in the build log`; the
+  recipe only): `:44` ends `CHEEVOS_DEV_LOGIN \` and `:45` is `             HFS_DEV_LOGIN; do`; 149
+  lines by `grep -c ''`; every later line moves by one (the deferred L-03 line is now `:103`).
+- **Positive after** (`stage-e/s1-PL-08-after.txt`): `PASS step 4
+  using-lines-name-every-kept-credential (L-05): extracted=1 names=4 using=4 value-occurrences=0`;
+  the control PASS again; `TOTAL: 70 of 72 assertions`, its two FAIL lines L-02 and L-03.
+- **The stamp compare:** `emulationstation` `moved=1 touched=1`; the theme and `lowerdeck`
+  `moved=0 touched=0`; both devices.
+- **Checks** (`stage-e/s1-PL-08-checks.txt`): `pkgcheck emulationstation rc=0` after its `find`
+  path (with the theme, `lowerdeck` and the control); `bash -n recipe rc=0`; two added lines,
+  non-ASCII `0`, secret `0`, forbidden `rc=0` after their positives; `:39 equal`; the pin lines `0`.
+- **`Already written:`** nothing inherited, argued: the loop writes only build-log lines; whether a
+  binary carries the HFS scraper is decided by the environment at the pin's `CMakeLists.txt:328-330`,
+  not by this line, so an image built from the old recipe is byte-identical in what the edit
+  touches; nothing on a device or in a cloud.
+- **proved:** fix-fixture. **fix-image-pending:** the integration build's log carries one line for
+  `HFS_DEV_LOGIN`, `USING:` or `WARNING:`, names only. **No screen changes.** **Time to play:** none;
+  a build-log line. **#585:** PL-08's line (§ The #585 lines owed).
+
+### S1's closing: the FAIL-first script for stage E's set
+
+- **`tools/t37-failfirst.sh`** (D-WORKFLOW-211): the fixed fixture is now an export of `c9e8d5a8df`
+  (S1's five edits as committed) plus two **fixture-only** lines -- PL-01's device link and PL-02's
+  `[ "${ARCH}" = "x86_64" ] && PKG_PATCH_DIRS+=" x86_64"` -- which are **not T37's fixes** (deferred
+  to #613 and #1072; rulings 2, 3, 12; the script's header says so); the unfixed tip is a fresh export
+  of the stage-D tip `264a39f6d7`; three mutations are added, one per new assertion group (the
+  ARMSX2 block removed, the catalog guard removed, `HFS_DEV_LOGIN` removed from the loop). No
+  assertion was changed.
+- **Its run** (`stage-e/s1-failfirst.txt`, `stage-e/failfirst/`): `SUMMARY: tip exit 1; fixed
+  fixture exit 0 then 0; 18 of 18 mutations caught; refusal exit 2`. The fixed fixture prints
+  `TOTAL: 72 of 72 assertions`, its stamps moving for `emulationstation` only.
+- **The checker over the fresh export of the stage-D tip** (`stage-e/checks-at-stage-D-tip.txt`):
+  `TOTAL: 57 of 66 assertions`, nine FAIL lines -- every new assertion but PL-08's control (the
+  ARMSX2 pair, the catalog guard, the `USING:` count) and the four stage-C defects (L-02, L-03, L-04,
+  L-19 twice) -- so the acceptance re-runs both directions from one script.
+
 ### Recorded, no stream
 
 - **PL-01** -- **Deferred to #613** (ruling 2), the M7 lane's. T37's line on #613 (comment

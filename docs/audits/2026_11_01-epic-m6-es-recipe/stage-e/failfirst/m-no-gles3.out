@@ -1,0 +1,71 @@
+PASS step 1 inventory-count: 19 at the commit, ui/ tree f672e3b69a0934df352f5ade08f214162b7de064
+PASS step 1 inventory-names: the tree's names equal the commit's
+PASS step 2 bash-n emulationstation/package.mk: rc=0
+PASS step 2 bash-n lowerdeck/package.mk: rc=0
+PASS step 2 bash-n themes/es-theme-art-book-next/package.mk: rc=0
+PASS step 2 bash-n emulationstation/sources/es_settings: rc=0
+PASS step 2 bash-n emulationstation/sources/start_es.sh: rc=0
+PASS step 2 bash-n emulationstation/sources/serial_number_check: rc=0
+PASS step 2 bash-n emulationstation/autostart/001-emulationstation: rc=0
+PASS step 3 find emulationstation: 1 match
+PASS step 3 pkgcheck emulationstation: rc=0 FAIL-lines=0 WARN-lines=0
+PASS step 3 find es-theme-art-book-next: 1 match
+PASS step 3 pkgcheck es-theme-art-book-next: rc=0 FAIL-lines=0 WARN-lines=0
+PASS step 3 find lowerdeck: 1 match
+PASS step 3 pkgcheck lowerdeck: rc=0 FAIL-lines=0 WARN-lines=0
+PASS step 3 control es-theme-no-such-package: 0 match (pkgcheck would pass it vacuously, L-21)
+PASS step 4 GENERIC_X64 emulationstation sourced
+PASS step 4 GENERIC_X64 emulationstation depends-no-empty-expansion
+PASS step 4 GENERIC_X64 es-theme-art-book-next sourced
+PASS step 4 GENERIC_X64 es-theme-art-book-next depends-no-empty-expansion
+PASS step 4 GENERIC_X64 lowerdeck sourced
+PASS step 4 GENERIC_X64 lowerdeck depends-no-empty-expansion
+PASS step 4 GENERIC_X64 emulationstation pin: 40 chars, equal-to-expected=yes
+PASS step 4 GENERIC_X64 emulationstation url
+PASS step 4 GENERIC_X64 es-theme-art-book-next sha256: 64 chars
+PASS step 4 GENERIC_X64 lowerdeck sha256: 64 chars
+FAIL step 4 GENERIC_X64 emulationstation -DGLES3=1
+PASS step 4 GENERIC_X64 emulationstation -DSCREENSCRAPER_RUNTIME_DEV_LOGIN=1
+INFO step 4 GENERIC_X64 PATCH_ARCH=x86 PKG_PATCH_DIRS=[ x86_64]
+PASS step 4 H700 emulationstation sourced
+PASS step 4 H700 emulationstation depends-no-empty-expansion
+PASS step 4 H700 es-theme-art-book-next sourced
+PASS step 4 H700 es-theme-art-book-next depends-no-empty-expansion
+PASS step 4 H700 lowerdeck sourced
+PASS step 4 H700 lowerdeck depends-no-empty-expansion
+PASS step 4 H700 emulationstation pin: 40 chars, equal-to-expected=yes
+PASS step 4 H700 emulationstation url
+PASS step 4 H700 es-theme-art-book-next sha256: 64 chars
+PASS step 4 H700 lowerdeck sha256: 64 chars
+FAIL step 4 H700 emulationstation -DGLES3=1
+PASS step 4 H700 emulationstation -DSCREENSCRAPER_RUNTIME_DEV_LOGIN=1
+INFO step 4 H700 PATCH_ARCH=aarch64 PKG_PATCH_DIRS=[]
+PASS step 4 french-catalog-guard (L-08): sourced=1 lines=1 failed-with=0 passed-without=0
+PASS step 4 using-lines-name-every-kept-credential (L-05): extracted=1 names=4 using=4 value-occurrences=0
+PASS step 4 using-lines-print-no-value (L-05): extracted=1 names=4 using=4 value-occurrences=0
+PASS step 4 patch-dir-reached patches/x86_64/ (emulationstation): reached for 1 of the listed devices
+PASS step 4 patch-dir-reached patches/ (es-theme-art-book-next): reached for 2 of the listed devices
+INFO step 4 lowerdeck has no patches/ directory
+PASS step 5 install-text-parsed: rc=0
+PASS step 5 no-link-to-${INSTALL}-target (L-03)
+PASS step 5 no-rm-before-its-directory-is-filled (L-04)
+PASS step 5 GENERIC_X64 PKG_NEED_UNPACK-words-are-directories (L-19)
+PASS step 5 H700 PKG_NEED_UNPACK-words-are-directories (L-19)
+PASS step 5 armsx2-filter-parsed: rc=0
+PASS step 5 armsx2-vulkan-driver-filter (L-01): found=1 inside=1 outside=0
+PASS step 5 armsx2-filter-matches-armsx2-turnip (L-01): recipe=5 turnip=5 equal=1
+WARN step 5 or-true (L-07): emulationstation/package.mk:76
+PASS step 6 slice-count: 15 files
+PASS step 6 planted-non-ascii-positive
+PASS step 6 non-ascii-files
+PASS step 6 secret-patterns-compile: rc=1
+PASS step 6 planted-secret-positive
+PASS step 6 secret-pattern-files
+PASS step 6 planted-forbidden-positive: rc=1
+PASS step 6 forbidden-terms: rc=0
+PASS step 6 xml emulationstation/config/common/es_features.cfg
+PASS step 6 xml emulationstation/config/common/es_input.cfg
+PASS step 6 xml emulationstation/config/common/es_savestates.cfg
+PASS step 6 xml emulationstation/config/common/es_settings.cfg
+PASS step 7 stamps-written: 6 stamps
+TOTAL: 64 of 66 assertions

@@ -16,6 +16,10 @@
 #   step 4 french-catalog-guard (L-08): the recipe's makeinstall_target lines naming the French
 #     catalog, run in the sourced environment against a tree with a planted empty catalog (must
 #     pass) and one without (must fail) -- PL-07.
+#   step 4 using-lines-name-every-kept-credential (L-05): the recipe's `for key in ... done` log loop
+#     (extracted, never :39 or :40), run with every name scripts/get_env keeps set to a placeholder
+#     value assembled at run time, prints one USING: line per kept name -- PL-08;
+#   step 4 using-lines-print-no-value (L-05): the same run prints no placeholder value (a control).
 set -u
 TREE= REPO= COMMIT= PIN= DEVICES= OUT= COMPARE=
 while [ $# -gt 0 ]; do
@@ -120,6 +124,22 @@ env -i HOME="$OUT/home" PATH=/usr/bin:/bin PROJECT=ROCKNIX DEVICE="${dv1%%:*}" A
   echo "CATALOG sourced=1 lines=$n failed-with=$w passed-without=$wo"' _ "$TREE" "$OUT" > "$OUT/catalog.txt" 2>&1
 cg=$(sed -n 's/^CATALOG //p' "$OUT/catalog.txt")
 check 4 "french-catalog-guard (L-08)" "$(case "$cg" in "sourced=1 lines="[1-9]*" failed-with=0 passed-without=0") echo 1;; *) echo 0;; esac)" "$cg"
+# stage E (PL-08): the recipe's credential log loop, extracted from its `for key in` line to its
+# `done` (never :39 or :40, ruling 13), run with every name scripts/get_env keeps set to a placeholder
+# value assembled here: the USING: lines must name every kept name, and no value may be printed
+keep=$(sed -n "s/^KEEP='^(\(.*\))\$'\$/\1/p" "$TREE/scripts/get_env" | head -n 1 | tr '|' ' ')
+awk '/^[[:space:]]*for key in /{f=1} f{print} f&&/^[[:space:]]*done[[:space:]]*$/{exit}' "$TREE/$U/emulationstation/package.mk" > "$OUT/loop.sh"
+env -i PATH=/usr/bin:/bin KEEP_NAMES="$keep" LOOP="$OUT/loop.sh" bash -c '
+  i=0; vals=
+  for n in $KEEP_NAMES; do i=$((i+1)); v=$(printf "t37%s%05d" placeholder "$i$RANDOM"); printf -v "$n" "%s" "$v"; vals+=" $v"; done
+  [ -s "$LOOP" ] || { echo "USING extracted=0"; exit 0; }
+  out=$(. "$LOOP" 2>&1)
+  c=$(printf "%s\n" "$out" | grep -c "^USING: "); o=0
+  for v in $vals; do o=$((o+$(printf "%s\n" "$out" | grep -c -F -e "$v"))); done
+  echo "USING extracted=1 names=$i using=$c value-occurrences=$o"' > "$OUT/using.txt" 2>&1
+ul=$(sed -n 's/^USING //p' "$OUT/using.txt"); un=$(printf '%s\n' "$ul" | sed -n 's/.*names=\([0-9]*\) using=\([0-9]*\).*/\1 \2/p')
+check 4 "using-lines-name-every-kept-credential (L-05)" "$(set -- $un; [ -n "${1:-}" ] && [ "$1" = "$2" ] && [ "$1" -gt 0 ] && echo 1 || echo 0)" "$ul"
+check 4 "using-lines-print-no-value (L-05)" "$(case "$ul" in "extracted=1 "*"value-occurrences=0") echo 1;; *) echo 0;; esac)" "$ul"
 for nm in $NAMES; do
   rel=$(sed -n "s/^[^ ]* $nm PKG_DIR_REL=//p" "$OUT/fields.txt" | head -n 1)
   [ -d "$TREE/$rel/patches" ] || { echo "INFO step 4 $nm has no patches/ directory"; continue; }

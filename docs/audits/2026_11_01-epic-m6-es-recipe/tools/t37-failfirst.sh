@@ -1,40 +1,41 @@
 #!/bin/bash
-# T37 (#684): the checker's FAIL-first positive (the brief's § 5 item 3 step 8). A scratch export of
-# the commit is fixed for the four defects the tip run FAILs on (L-03, L-04, L-19, L-02 -- a fixture,
-# never the slice's files), must pass, and must keep its stamps moving only for the package it
+# T37 (#684): the checker's FAIL-first positive (the brief's § 5 item 3 step 8), for stage E's set
+# (t37-streams.md § The rules, D-WORKFLOW-211). The fixed fixture is a scratch export of stage E's
+# recipe tip (FIXAT, S1's five edits as committed) plus TWO FIXTURE-ONLY LINES -- PL-01's device link
+# and PL-02's `PKG_PATCH_DIRS+=" x86_64"` -- so its exit-0 run holds. Those two are NOT T37's fixes:
+# PL-01 is deferred to #613 and PL-02 to #1072 (rulings 2, 3, 12). The unfixed tip is a fresh export
+# of the stage-D tip (TIPD). The fixture must pass and keep its stamps moving only for the package it
 # touched; then one mutation at a time is applied to it, the checker run, and the mutation reverted
 # (its file's sha256 checked back). Each mutation must exit 1 naming its assertion; the refusal case
 # must exit 2. Credential-shaped text is assembled at run time. Prints one line per case and SUMMARY.
 set -u
 D=/workspace/repos/pixelelated/distribution.worktrees/m6-es-recipe-684
 A=$D/docs/audits/2026_11_01-epic-m6-es-recipe; C=$A/tools/t37-checks.sh
-COMMIT=2174265e9c; PIN=16dbac5211eea7e70db7394372033be2be7df829; DEV="GENERIC_X64:x86_64 H700:aarch64"
-F=/workspace/tmp/m6-t37/fixed; O=/workspace/tmp/m6-t37/ff; U=projects/ROCKNIX/packages/ui
+FIXAT=c9e8d5a8df; TIPD=264a39f6d7; PIN=16dbac5211eea7e70db7394372033be2be7df829; DEV="GENERIC_X64:x86_64 H700:aarch64"
+F=/workspace/tmp/m6-t37/fixed; O=/workspace/tmp/m6-t37/ff; U=projects/ROCKNIX/packages/ui; TX=/workspace/tmp/m6-t37/e/$TIPD
 [ -e "$F" ] && { echo "STOP: $F exists"; exit 2; }
 mkdir -p "$F" "$O"
-( set -o pipefail; git -C "$D" archive "$COMMIT" | tar -x -C "$F" ) || { echo "STOP: export failed"; exit 2; }
+( set -o pipefail; git -C "$D" archive "$FIXAT" | tar -x -C "$F" ) || { echo "STOP: export failed"; exit 2; }
+[ -d "$TX/config" ] || { mkdir -p "$TX" && ( set -o pipefail; git -C "$D" archive "$TIPD" | tar -x -C "$TX" ) || { echo "STOP: tip export failed"; exit 2; }; }
 E=$F/$U/emulationstation/package.mk
-# the fixture: the four fixes, as the fix streams would shape them
-python3 -B -I - "$E" <<'PY'
+# the two fixture-only lines (not T37's fixes; #613 and #1072)
+python3 -B -I - "$E" <<'PY2'
 import sys
-p = sys.argv[1]; L = open(p).read().split("\n")
-assert L[13] == 'PKG_NEED_UNPACK="busybox"'
-L[13] = 'PKG_NEED_UNPACK="$(get_pkg_directory busybox)"'
-L.insert(14, '[ "${ARCH}" = "x86_64" ] && PKG_PATCH_DIRS="x86_64"')
-s = "\n".join(L)
+p = sys.argv[1]; s = open(p).read()
+a = 'PKG_NEED_UNPACK="$(get_pkg_directory busybox)"\n'
+assert s.count(a) == 1
+s = s.replace(a, a + '[ "${ARCH}" = "x86_64" ] && PKG_PATCH_DIRS+=" x86_64"\n')
 old = "ln -sf ${INSTALL}/usr/config/emulationstation/es_systems.cfg ${INSTALL}/etc/emulationstation/es_systems.cfg"
 assert s.count(old) == 1
 s = s.replace(old, "ln -sf /usr/config/emulationstation/es_systems.cfg ${INSTALL}/etc/emulationstation/es_systems.cfg")
-rm = "    rm -f ${INSTALL}/usr/config/emulationstation/resources/logo.png\n"
-assert s.count(rm) == 1
-s = s.replace(rm, "")
 open(p, "w").write(s)
-PY
+PY2
 [ $? = 0 ] || { echo "STOP: fixture edit failed"; exit 2; }
-echo "fixture: $(git -C "$D" show "$COMMIT:$U/emulationstation/package.mk" | diff - "$E" | grep -c '^[<>]') changed lines in the ES recipe"
-run() { bash "$C" --tree "$1" --repo "$D" --commit "$COMMIT" --expect-es-pin "$PIN" --devices "$DEV" --out "$O/$2" ${3:+--compare "$3"} > "$O/$2.out" 2>&1; echo $?; }
-bash "$C" --tree /workspace/tmp/m6-t37/export --repo "$D" --commit "$COMMIT" --expect-es-pin "$PIN" --devices "$DEV" --out "$O/tip" > "$O/tip.out" 2>&1; trc=$?
-echo "tip (unfixed) exit=$trc $(tail -n 1 "$O/tip.out") fails: $(grep -c '^FAIL' "$O/tip.out")"
+echo "fixture: $(git -C "$D" show "$FIXAT:$U/emulationstation/package.mk" | diff - "$E" | grep -c '^[<>]') changed lines in the ES recipe against $FIXAT (the two fixture-only lines)"
+run() { bash "$C" --tree "$1" --repo "$D" --commit "$FIXAT" --expect-es-pin "$PIN" --devices "$DEV" --out "$O/$2" ${3:+--compare "$3"} > "$O/$2.out" 2>&1; echo $?; }
+bash "$C" --tree "$TX" --repo "$D" --commit "$TIPD" --expect-es-pin "$PIN" --devices "$DEV" --out "$O/tip" > "$O/tip.out" 2>&1; trc=$?
+echo "tip $TIPD (unfixed) exit=$trc $(tail -n 1 "$O/tip.out") fails: $(grep -c '^FAIL' "$O/tip.out")"
+grep -E '^FAIL' "$O/tip.out" | sed 's/^/  tip: /'
 frc=$(run "$F" fixed "$O/tip/stamps.txt"); echo "fixed fixture exit=$frc $(tail -n 1 "$O/fixed.out") fails: $(grep -c '^FAIL' "$O/fixed.out")"
 grep -E '^(FAIL|WARN)|stamp-moves' "$O/fixed.out" | sed 's/^/  fixed: /'
 caught=0; cases=0
@@ -61,6 +62,9 @@ mut syntax-error "$F/$U/emulationstation/sources/serial_number_check" 's += "if 
 mut non-ascii "$F/$U/emulationstation/sources/start_es.sh" 's += "# " + chr(233) + "\n"' "non-ascii-files"
 mut broken-xml "$F/$U/emulationstation/config/common/es_savestates.cfg" 's += "<unclosed>\n"' "xml emulationstation/config/common/es_savestates.cfg"
 mut secret-line "$F/$U/emulationstation/sources/es_settings" "s += '# ' + '''$SEC''' + '\n'" "secret-pattern-files"
+mut armsx2-block-removed "$E" 'import re; s, k = re.subn(r"\n  #ARMSX2.s own Turnip ships only on these devices \(see armsx2-sa\)\n  case \$\{DEVICE\} in\n.*?\n  esac\n", "\n", s, flags=re.S); assert k == 1' "armsx2-vulkan-driver-filter (L-01)"
+mut catalog-guard-removed "$E" 'import re; s, k = re.subn(r"(?m)^    \[ -f \$\{INSTALL\}/usr/config/locale/fr/LC_MESSAGES/emulationstation2\.mo \][^\n]*\n", "", s); assert k == 1' "french-catalog-guard (L-08)"
+mut hfs-removed "$E" 's = s.replace("CHEEVOS_DEV_LOGIN \\\n             HFS_DEV_LOGIN; do", "CHEEVOS_DEV_LOGIN; do", 1); assert "HFS_DEV_LOGIN; do" not in s' "using-lines-name-every-kept-credential (L-05)"
 # a directory reached by no glob: added, run, removed
 cases=$((cases+1)); mkdir -p "$F/$U/emulationstation/patches/nowhere"; printf '%s\n' '--- a/x' '+++ b/x' > "$F/$U/emulationstation/patches/nowhere/0001-t37-probe.patch"
 rc=$(run "$F" m-patch-dir-nowhere); rm -r -- "${F:?}/$U/emulationstation/patches/nowhere"

@@ -1,0 +1,18 @@
+== 2026-11-01T03:06:40Z parent c6fa223e46 commit HEAD
+find emulationstation: projects/ROCKNIX/packages/ui/emulationstation/package.mk 
+pkgcheck emulationstation rc=0 lines=0 FAIL-lines=0 WARN-lines=0
+find es-theme-art-book-next: projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/package.mk 
+pkgcheck es-theme-art-book-next rc=0 lines=0 FAIL-lines=0 WARN-lines=0
+find lowerdeck: projects/ROCKNIX/packages/ui/lowerdeck/package.mk 
+pkgcheck lowerdeck rc=0 lines=0 FAIL-lines=0 WARN-lines=0
+find es-theme-no-such-package: 
+pkgcheck es-theme-no-such-package rc=0 lines=0 FAIL-lines=0 WARN-lines=0
+bash -n recipe rc=0; grep -c '' 149
+added lines: 2
+non-ascii planted 1, added 0
+secret compile rc=1 planted 1, added 0
+forbidden planted rc=1, added rc=0
+:39 equal
+PKG_VERSION/PKG_GIT_CLONE_BRANCH changed lines: 0
+commit paths: projects/ROCKNIX/packages/ui/emulationstation/package.mk 
+worktree build roots: 0

@@ -1,0 +1,40 @@
+fixture: 3 changed lines in the ES recipe against c9e8d5a8df (the two fixture-only lines)
+tip 264a39f6d7 (unfixed) exit=1 TOTAL: 57 of 66 assertions fails: 9
+  tip: FAIL step 4 french-catalog-guard (L-08): sourced=1 lines=0 failed-with=0 passed-without=0
+  tip: FAIL step 4 using-lines-name-every-kept-credential (L-05): extracted=1 names=4 using=3 value-occurrences=0
+  tip: FAIL step 4 patch-dir-reached patches/x86_64/ (emulationstation): reached for 0 of the listed devices
+  tip: FAIL step 5 no-link-to-${INSTALL}-target (L-03): at emulationstation/package.mk:101 
+  tip: FAIL step 5 no-rm-before-its-directory-is-filled (L-04): at emulationstation/package.mk:79 makeinstall_target (filled at :81) 
+  tip: FAIL step 5 GENERIC_X64 PKG_NEED_UNPACK-words-are-directories (L-19): unresolved: busybox
+  tip: FAIL step 5 H700 PKG_NEED_UNPACK-words-are-directories (L-19): unresolved: busybox
+  tip: FAIL step 5 armsx2-vulkan-driver-filter (L-01): found=0 inside=1 outside=1
+  tip: FAIL step 5 armsx2-filter-matches-armsx2-turnip (L-01): recipe=0 turnip=5 equal=0
+fixed fixture exit=0 TOTAL: 72 of 72 assertions fails: 0
+  fixed: WARN step 5 or-true (L-07): emulationstation/package.mk:76
+  fixed: PASS step 7 GENERIC_X64 emulationstation stamp-moves-iff-touched: moved=1 touched=1
+  fixed: PASS step 7 GENERIC_X64 es-theme-art-book-next stamp-moves-iff-touched: moved=0 touched=0
+  fixed: PASS step 7 GENERIC_X64 lowerdeck stamp-moves-iff-touched: moved=0 touched=0
+  fixed: PASS step 7 H700 emulationstation stamp-moves-iff-touched: moved=1 touched=1
+  fixed: PASS step 7 H700 es-theme-art-book-next stamp-moves-iff-touched: moved=0 touched=0
+  fixed: PASS step 7 H700 lowerdeck stamp-moves-iff-touched: moved=0 touched=0
+mutation global-pkg-build exit=1 names [pkgcheck emulationstation]: CAUGHT
+mutation theme-sha-empty exit=1 names [es-theme-art-book-next sha256]: CAUGHT
+mutation pin-abbreviated exit=1 names [emulationstation pin]: CAUGHT
+mutation install-link exit=1 names [(L-03)]: CAUGHT
+mutation rm-before-fill exit=1 names [(L-04)]: CAUGHT
+mutation bare-need-unpack exit=1 names [(L-19)]: CAUGHT
+mutation url-elsewhere exit=1 names [emulationstation url]: CAUGHT
+mutation no-gles3 exit=1 names [-DGLES3=1]: CAUGHT
+mutation empty-expansion exit=1 names [depends-no-empty-expansion]: CAUGHT
+mutation syntax-error exit=1 names [bash-n emulationstation/sources/serial_number_check]: CAUGHT
+mutation non-ascii exit=1 names [non-ascii-files]: CAUGHT
+mutation broken-xml exit=1 names [xml emulationstation/config/common/es_savestates.cfg]: CAUGHT
+mutation secret-line exit=1 names [secret-pattern-files]: CAUGHT
+mutation armsx2-block-removed exit=1 names [armsx2-vulkan-driver-filter (L-01)]: CAUGHT
+mutation catalog-guard-removed exit=1 names [french-catalog-guard (L-08)]: CAUGHT
+mutation hfs-removed exit=1 names [using-lines-name-every-kept-credential (L-05)]: CAUGHT
+mutation patch-dir-nowhere exit=1 names [patch-dir-reached patches/nowhere/]: CAUGHT
+mutation stamp-doctored exit=1 names [GENERIC_X64 lowerdeck stamp-moves-iff-touched]: CAUGHT
+refusal git-tree exit=2: REFUSED-AS-REQUIRED
+fixed fixture again exit=0 TOTAL: 72 of 72 assertions
+SUMMARY: tip exit 1; fixed fixture exit 0 then 0; 18 of 18 mutations caught; refusal exit 2
