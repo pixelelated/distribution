@@ -41,7 +41,8 @@ pre_configure_target() {
 
   for key in SCREENSCRAPER_DEV_LOGIN \
              GAMESDB_APIKEY \
-             CHEEVOS_DEV_LOGIN; do
+             CHEEVOS_DEV_LOGIN \
+             HFS_DEV_LOGIN; do
     if [ -z "${!key}" ]; then
       echo "WARNING: ${key} not declared, will not build support."
     else
