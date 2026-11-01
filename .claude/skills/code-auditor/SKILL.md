@@ -373,7 +373,7 @@ Entries are short (3–10 lines). Depth goes in the phase files; the log's value
 | **`gh` CLI for writes**                    | Acceptable for `gh issue create` (body-file), `gh label create`, `gh milestone create` — single-record writes. **Always use `--body-file`**, never heredoc (per repo `agent-terminal-safety` instructions).              |
 | **`gh` CLI list/search fallback**          | If MCP is unavailable, bound output: `--limit N --json <fields>` or pipe through `\| head`.                                                                                                                              |
 | **Git history**                            | `git log --oneline`, `git diff --stat`, `git show <sha>` — standard. Filter by date, path, author.                                                                                                                       |
-| **Terminal operations**                    | Never delegate `git`, `npm`, `gh` to subagents — subagents do not inherit terminal access. Run directly.                                                                                                                 |
+| **Terminal operations**                    | Never delegate `git`, `npm`, `gh` to subagents: a subagent has a shell, but what its commands printed reaches you only through its summary. Run them directly.                                                                                                                 |
 | **Subagent tool**                          | Useful for parallel read-only investigation. Not for terminal ops. Subagent output is a LEAD, never EVIDENCE — re-read every verdict-supporting fact from the primary artifact yourself (see Evidence floor rule 5).     |
 
 ---
@@ -695,7 +695,7 @@ Full list in [`references/anti-patterns.md`](references/anti-patterns.md). Top o
 - **Inventing acceptance criteria** — audit STATED criteria; suggest additions in punch list
 - **Tracker-state-only PASS** — issue closed / box checked is corroboration, never sole evidence
 - **Verdict from subagent summary** — subagent output is a lead; re-read the primary artifact
-- **Delegating terminal ops to subagents** — they don't inherit terminal access
+- **Delegating terminal ops to subagents** — a subagent has a shell, but its commands' output reaches you only through its summary, a lead
 - **Unbounded `gh` output** — always pass `--limit N --json <fields>`
 
 ---

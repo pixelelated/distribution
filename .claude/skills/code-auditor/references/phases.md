@@ -600,4 +600,4 @@ Covered in SKILL.md. After presenting the punch list to the user, create the Git
 
 If labels don't exist, create them first with `gh label create <name> --color <hex>`.
 
-**CRITICAL:** never delegate GitHub operations to subagents — they do not inherit terminal access. Use `bash` directly.
+**CRITICAL:** never delegate GitHub operations to subagents — a subagent's commands reach you only through its summary, and a tracker write is the orchestrator's own. Use `bash` directly.
