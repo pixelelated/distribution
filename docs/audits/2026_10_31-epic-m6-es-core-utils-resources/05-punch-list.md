@@ -4,7 +4,7 @@
 
 reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
 
-fixed-at-es: (pending stage E)
+fixed-at-es: 9c1bd5f093cfc1ccd42640282226b7b970442ef1
 
 **Filed at stage D** (2026-11-01): the audit issue #1358 (a sub-issue of #683) with the 10 punch items as its checklist; the bugs PL-01 #1362, PL-02 #1363, PL-03 #1364, PL-04 #1365, PL-05 #1366, PL-06 #1359, PL-07 #1360, PL-08 #1361, PL-09 #1367, PL-10 #1368; the three held findings as neutral public bugs #1369 (h1), #1370 (h2), #1371 (h3) — file and symptom class only, details held under D-WORKFLOW-215.
 
@@ -140,20 +140,20 @@ fixed-at-es: (pending stage E)
 
 ## Phase 7 resolution gate
 
-Pending stage D (the pause records the coordinator's rulings and any stream brief) and stage E (the fixes). No fix has landed; every outcome is **Pending**.
+All ten Resolved in stage E as rule-6 contained fixes, each unit case seen to FAIL at the pin and PASS after (`stage-e/s*-before.txt`, `s*-after.txt`); the bugs stay open until the pin moves on `next`.
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | 3.1 FAIL at the pin (`stage-c/build-tests.out`); fix + sorted-table/dotless-i cases at stage E |
-| PL-02 | Open | 3.2 FAIL at the pin; fix + cases at stage E |
-| PL-03 | Open | 3.26 FAIL at the pin (`exists(p)` reads true); unlink-first fix at stage E |
-| PL-04 | Open | read at the pin; race + file-collision cases at stage E |
-| PL-05 | Open | 3.13 passes, 3.26 shows the stale path; `exists(path,false)` fix at stage E |
-| PL-06 | Open | G-1 CONFIRMED at the pin (push_back precedes delete); ASan case at stage E |
-| PL-07 | Open | G-9 CONFIRMED at the pin (no bound on `s`); over-long-format case at stage E |
-| PL-08 | Open | G-16 CONFIRMED at the pin (no same-inode guard); hard-link case at stage E |
-| PL-09 | Open | G-4 CONFIRMED at the pin (`retval` unset); one-page fixture at stage E |
-| PL-10 | Open | G-2/3/5/6/7/10/12/13/14/20/21 read at the pin; one case per finding at stage E |
+| PL-01 | Resolved | S8 `e1468c1e8`: 3.1 FAIL at the pin -> PASS; whole-codepoint fold over an order-independent lookup (`stage-e/s8-after.txt`) |
+| PL-02 | Resolved | S3 `de6a1b935`: 3.2's copyFile half FAIL at the pin -> PASS (`stage-e/s3-after.txt`) |
+| PL-03 | Resolved | S4 `ed4e79a4f`: 3.26 FAIL at the pin -> PASS (remove before the cache entry; `stage-e/s4-after.txt`) |
+| PL-04 | Resolved | S3 `de6a1b935`: createDirectory refuses an existing file (PL-04 case PASS) |
+| PL-05 | Resolved | S4 `ed4e79a4f`: `exists(path,false)` on the thumbnail reads; 3.26 PASS |
+| PL-06 | Resolved | S1 `4fc77caaa`: G-1 ASan double-free FAIL at the pin -> rc 0 (`stage-e/s1-after.txt`) |
+| PL-07 | Resolved | S2 `f206e1375`: G-9 stack-buffer-overflow FAIL at the pin -> rc 0 (`stage-e/s2-after.txt`) |
+| PL-08 | Resolved | S3 `de6a1b935`: G-16 same-inode guard; the hard-link case FAIL at the pin -> PASS |
+| PL-09 | Resolved | S9 `3266f4443`: G-4 loadFromPdf returns its load result; FAIL at the pin -> PASS (`stage-e/s9-after.txt`) |
+| PL-10 | Resolved | S10 `9c1bd5f09`: the six G-items (G-6, G-7, G-10, G-14, G-20, G-3) FAIL at the pin -> PASS (`stage-e/s10-after.txt`); the five leaks/races/classifications (G-2, G-5, G-12, G-13, G-21) carried to Backlog #1372, out of this slice (the split is named here; [coordinator to confirm]) |
 
 ## punch_index
 
@@ -164,59 +164,59 @@ punch_index:
   category: Words
   question: Q6
   source_finding: "L-01, 3.1, G-8"
-  outcome: "open"
+  outcome: "Resolved"
 - id: PL-02
   severity: "Medium"
   category: Writes
   question: Q5
   source_finding: "L-03, 3.2"
-  outcome: "open"
+  outcome: "Resolved"
 - id: PL-03
   severity: "Medium"
   category: "File cache"
   question: Q1
   source_finding: "L-19, 3.26, G-11"
-  outcome: "open"
+  outcome: "Resolved"
 - id: PL-04
   severity: "Low"
   category: "File cache"
   question: Q1
   source_finding: "L-16, 3.15, G-15"
-  outcome: "open"
+  outcome: "Resolved"
 - id: PL-05
   severity: "Medium"
   category: "Texture/font cache"
   question: Q2
   source_finding: "L-12, 3.13, #1263"
-  outcome: "open"
+  outcome: "Resolved"
 - id: PL-06
   severity: "High"
   category: Lifetimes
   question: Q2
   source_finding: "G-1"
-  outcome: "open"
+  outcome: "Resolved"
 - id: PL-07
   severity: "High"
   category: Words
   question: Q6
   source_finding: "G-9"
-  outcome: "open"
+  outcome: "Resolved"
 - id: PL-08
   severity: "High"
   category: Writes
   question: Q5
   source_finding: "G-16"
-  outcome: "open"
+  outcome: "Resolved"
 - id: PL-09
   severity: "Medium"
   category: "Texture/font cache"
   question: Q2
   source_finding: "G-4"
-  outcome: "open"
+  outcome: "Resolved"
 - id: PL-10
   severity: "Medium"
   category: mixed
   question: Q5
   source_finding: "G-2, G-3, G-5, G-6, G-7, G-10, G-12, G-13, G-14, G-20, G-21"
-  outcome: "open"
+  outcome: "Resolved"
 ```

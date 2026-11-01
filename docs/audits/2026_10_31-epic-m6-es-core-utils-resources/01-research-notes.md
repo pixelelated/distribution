@@ -32,6 +32,8 @@ Under `CLAIMS` (`stage-a/membership-claims.out`): the twelve named paths of this
 
 **The 58** (`stage-a/paths.txt`): 25 `.cpp`, 32 `.h`, one `.hpp`; 14 under `renderers/`, 11 under `resources/`, 33 under `utils/` (r01). Tiers by the read: fork-added 6, fork-modified 9 (`6 A`, `9 M` against the merge base `cada856d86`, r04), upstream-carried 43, all 43 blob-identical to `rocknix/master` (r05).
 
+**The bases** (r02): the merge base `cada856d86`, ROCKNIX's master `f6c542872e`, `bccd715707` (the merge base's parent, R1 C01), and `1750dded8c` toward `batocera/master` (batocera has 13 commits since it on nine of the 58, four fork-modified -- the reconciliation list, r05/r06). **Thirteen of the 58 end without a trailing newline** (r03), so a patch adding a trailing line shows a `\ No newline at end of file` hunk: `es-core/src/renderers/Renderer_GL21.h`, `Renderer_GLES10.h`, `Renderer_GLES20.h`, `Shader.cpp`, `es-core/src/resources/TextureResource.cpp`, `es-core/src/utils/ConcurrentVector.h`, `HtmlColor.cpp`, `MathExpr.cpp`, `MathExpr.h`, `StringListLock.cpp`, `VectorEx.h`, `md5.cpp`, `md5.h`.
+
 ## The § 5 runs at stage A
 
 `stage-a/runs.sh` is the brief's run block (lines 1574-1624) verbatim, each command in its own subshell with an `rc=` line and a `date +%s` pair; `stage-a/runs.out` holds every line (run at 16:40:14Z, 2 s, 23 runs, every rc 0 as the subshell returns). Each figure below is the run's own line; every one equals the brief's expectation unless the last column says otherwise.

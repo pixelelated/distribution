@@ -80,6 +80,24 @@ generated, asserted: 58 rows (`tools/t36-tables.py --print coverage`)
 Totals: fork-added 6, fork-modified 9, upstream-carried 43; inventory fork-own 15, upstream-carried 43; 43 of 58 blobs identical to ROCKNIX's master; batocera 13 commits on 9 files since `1750dded8c`.
 <!-- /gen:coverage -->
 
+## The rulings
+
+The slice brief's § 1 (a) to (k), applied here and not re-asked (D-WORKFLOW-216: T36 owns the 58 and nothing else); each lettered, so every row is traceable.
+
+| Ruling | What it settles |
+| --- | --- |
+| (a) | `utils/AtomicFileUtil.*` is T21's (#668) by its non-rest glob |
+| (b) | `utils/DownloadFile.{cpp,h}` is not at the pin: T21's new files under the glob (named, not read) |
+| (c) | `utils/FileSystemUtil.cpp` is T36's (D-WORKFLOW-213 and -214) |
+| (d) | Three fixes are already on other lanes' ES branches in this slice's files -- T20 `d9afa5c7c` (`readAllText`), T21 `f7c16144d` (`renameFile`), T26 `a5d2d3756` (`GetShOutput`) -- collisions, never re-made; proven to apply clean over the tip in the hand-back |
+| (e) | The controllers blob is T35's (D-WORKFLOW-214 (a); T2 FD-7) |
+| (f) | `Splash.h:11`'s brand is T35's; the component's uppercase option calls `toUpper` |
+| (g) | `tests/app-unit/fakes/utils/FileSystemUtil.h` is not the lane's; a change to `exists`/`readAllText`/`removeFile`/`getFileName`'s signature is a collision named in the hand-back (none changed, proven by `git diff 16dbac5211 <tip>`) |
+| (h) | T35's case 3.11 already FAILs at the pin in T35's harness; a fix to the cache's answer re-runs it unchanged from T35's tip (3.14) |
+| (i) | #1263's texture-cache half is T36's; #1263 keeps its picture checkbox open for this record |
+| (j) | `utils/Platform.cpp` is T36's whole (`ProcessStartInfo`, `run`, `runSystemCommand`); T35's PL-03 fix is `Scripting`'s (the L-05 owner split) |
+| (k) | The held T34 note for T36 is the coordinator's; `getCanonicalPath`'s scoped callers read at stage B and held |
+
 ## The leads
 
 - **The table:** L-01 to L-18 are the brief's (R2 and R3). L-19 is stage B's own (§ The file cache).
@@ -113,32 +131,32 @@ generated, asserted: 19 rows (`tools/t36-tables.py --print leads`)
 
 | Case | At the pin | Function | Status | proved: |
 | --- | --- | --- | --- | --- |
-| 3.1 | `utils/StringUtil.cpp:357-362`, `:398-403`; tables `:76`, `:93`, `:153`, `:170` | `toUpper`, `toLower` in `es-unit-tests` | stage C | pending stage C |
-| 3.2 | `utils/FileSystemUtil.cpp:1451-1455`, `:1463`; `:1472-1474`, `:1492`, `:1500-1504` | `renameFile`, `copyFile`, `FileSystemUtil.cpp` linked whole (T21's `es-fs-tests` shape) | stage C | pending stage C |
-| 3.3 | `utils/FileSystemUtil.cpp:1429-1446` | `writeAllText` | stage C | pending stage C |
-| 3.4 | `utils/FileSystemUtil.cpp:1369-1379`, `:1400-1427` | `readAllText`, `readAllLines` | stage C | pending stage C |
+| 3.1 | `utils/StringUtil.cpp:357-362`, `:398-403`; tables `:76`, `:93`, `:153`, `:170` | `toUpper`, `toLower` in `es-unit-tests` | stage C | tool-run |
+| 3.2 | `utils/FileSystemUtil.cpp:1451-1455`, `:1463`; `:1472-1474`, `:1492`, `:1500-1504` | `renameFile`, `copyFile`, `FileSystemUtil.cpp` linked whole (T21's `es-fs-tests` shape) | stage C | tool-run |
+| 3.3 | `utils/FileSystemUtil.cpp:1429-1446` | `writeAllText` | stage C | tool-run |
+| 3.4 | `utils/FileSystemUtil.cpp:1369-1379`, `:1400-1427` | `readAllText`, `readAllLines` | stage C | tool-run |
 | 3.5 | `utils/Platform.cpp:162-164` | the wrap's literal, run by the host's shell | run at stage A: `seq 400 rc=0`, `seq 200000 rc=141` on `/usr/bin/dash` (`stage-a/runs.out`); G-07 the image's | tool-run |
-| 3.6 | `utils/FileSystemUtil.cpp:1758-1798` (`:1773`, `:1775`, `:1788`, `:1797`) | `preloadFileSystemCache` under ASan | stage C | pending stage C |
-| 3.7 | `utils/Platform.cpp:853-880` (`:879`) | `runSystemCommand`, lifted as text | stage C | pending stage C |
-| 3.8 | `resources/Font.cpp:107`, `:115-117`, `:420-421`, `:754-757` | `getHeight` (FreeType and renderer stand-ins) | stage C | pending stage C |
-| 3.9 | `utils/Platform.cpp:891-905` | `GetShOutput`, extracted | stage C | pending stage C |
-| 3.10 | `utils/StringUtil.cpp:446-804` | `maskSecrets` in `es-unit-tests` (`MaskSecretsTests.cpp` exists) | stage C | pending stage C |
-| 3.11 | `resources/TextureData.cpp:615-645`, `:670-725` against `:92-195` | a `san tsan-...` stand-in | stage C | pending stage C |
-| 3.12 | `resources/TextureDataManager.cpp:215-235`, `:252-253`, `:284` | `TextureLoader`'s teardown, with a timeout | stage C | pending stage C |
-| 3.13 | `utils/FileSystemUtil.cpp:48-341`, `:1122-1147`, `:161-162` | the cache, extracted in T35's `fs_cache`/`fs_exists` shape | stage C | pending stage C |
-| 3.14 | T35's `window-input-tests` case 3.11 at T35's tip (`InputManager.cpp:1187` with `FileSystemUtil.cpp`) | re-run unchanged, never edited (ruling (h)) | re-run at stage C from T35's tips of that minute, named with the time and T35's stage (ruling (h) as (a)); again at the hand-back | pending stage C |
-| 3.15 | `utils/FileSystemUtil.cpp:1089-1120` | `createDirectory` | stage C | pending stage C |
-| 3.16 | `resources/Font.cpp:99`, `:161-165`, `:1238`, `:1255`; `Renderer.cpp:1149` doubled | the scaling, extracted | stage C | pending stage C |
-| 3.17 | `resources/Font.cpp:714-752`, `:1044-1078` | `sizeText` against the cache's last vertex (stand-ins) | stage C | pending stage C |
-| 3.18 | `utils/StringUtil.cpp:426-444` | `shellQuote` in `es-unit-tests` | stage C | pending stage C |
-| 3.19 | `getEscapedPath` (`FileSystemUtil.cpp`) | linked whole | run at stage C; its output is held (D-WORKFLOW-215), only a neutral line in public | pending stage C |
-| 3.20 | `getCanonicalPath` (`:726`, T2's line) | linked whole, ASan | run at stage C; its output is held (D-WORKFLOW-215), only a neutral line in public | pending stage C |
-| 3.21 | the relative path (`:986`) | linked whole | stage C | pending stage C |
-| 3.22 | `utils/TimeUtil.cpp:514-588` | `LocaleES` and `Settings` doubles | stage C | pending stage C |
-| 3.23 | `resources/TextureDataManager.cpp:135-170` | `cleanupVRAM`, extracted | stage C | pending stage C |
-| 3.24 | `utils/Platform.cpp:235-237` | `quitES`, lifted as text | stage C | pending stage C |
-| 3.25 | `FileSystemUtil.cpp:331-332` (`shared_mutex`); `ThreadPool.cpp:26`, `:84`, `:91`; `StringListLock.cpp`; `ConcurrentVector.h` | `san()` TSan programs (R3 § 6 item 2) | stage C | pending stage C |
-| 3.26 | `utils/FileSystemUtil.cpp:1059-1087` | `removeFile`, linked whole | new at stage B (L-19): `writeAllText(p)`; `exists(p)`; `removeFile(p)`; `CHECK_FALSE(exists(p))` -- FAIL at the pin expected | pending stage C |
+| 3.6 | `utils/FileSystemUtil.cpp:1758-1798` (`:1773`, `:1775`, `:1788`, `:1797`) | `preloadFileSystemCache` under ASan | stage C | tool-run |
+| 3.7 | `utils/Platform.cpp:853-880` (`:879`) | `runSystemCommand`, lifted as text | stage C | tool-run |
+| 3.8 | `resources/Font.cpp:107`, `:115-117`, `:420-421`, `:754-757` | `getHeight` (FreeType and renderer stand-ins) | stage C | tool-run |
+| 3.9 | `utils/Platform.cpp:891-905` | `GetShOutput`, extracted | stage C | tool-run |
+| 3.10 | `utils/StringUtil.cpp:446-804` | `maskSecrets` in `es-unit-tests` (`MaskSecretsTests.cpp` exists) | stage C | tool-run |
+| 3.11 | `resources/TextureData.cpp:615-645`, `:670-725` against `:92-195` | a `san tsan-...` stand-in | stage C | tool-run |
+| 3.12 | `resources/TextureDataManager.cpp:215-235`, `:252-253`, `:284` | `TextureLoader`'s teardown, with a timeout | stage C | tool-run |
+| 3.13 | `utils/FileSystemUtil.cpp:48-341`, `:1122-1147`, `:161-162` | the cache, extracted in T35's `fs_cache`/`fs_exists` shape | stage C | tool-run |
+| 3.14 | T35's `window-input-tests` case 3.11 at T35's tip (`InputManager.cpp:1187` with `FileSystemUtil.cpp`) | re-run unchanged, never edited (ruling (h)) | re-run at stage C from T35's tips of that minute, named with the time and T35's stage (ruling (h) as (a)); again at the hand-back | tool-run |
+| 3.15 | `utils/FileSystemUtil.cpp:1089-1120` | `createDirectory` | stage C | tool-run |
+| 3.16 | `resources/Font.cpp:99`, `:161-165`, `:1238`, `:1255`; `Renderer.cpp:1149` doubled | the scaling, extracted | stage C | tool-run |
+| 3.17 | `resources/Font.cpp:714-752`, `:1044-1078` | `sizeText` against the cache's last vertex (stand-ins) | stage C | tool-run |
+| 3.18 | `utils/StringUtil.cpp:426-444` | `shellQuote` in `es-unit-tests` | stage C | tool-run |
+| 3.19 | `getEscapedPath` (`FileSystemUtil.cpp`) | linked whole | run at stage C; its output is held (D-WORKFLOW-215), only a neutral line in public | tool-run |
+| 3.20 | `getCanonicalPath` (`:726`, T2's line) | linked whole, ASan | run at stage C; its output is held (D-WORKFLOW-215), only a neutral line in public | tool-run |
+| 3.21 | the relative path (`:986`) | linked whole | stage C | tool-run |
+| 3.22 | `utils/TimeUtil.cpp:514-588` | `LocaleES` and `Settings` doubles | stage C | tool-run |
+| 3.23 | `resources/TextureDataManager.cpp:135-170` | `cleanupVRAM`, extracted | stage C | tool-run |
+| 3.24 | `utils/Platform.cpp:235-237` | `quitES`, lifted as text | stage C | tool-run |
+| 3.25 | `FileSystemUtil.cpp:331-332` (`shared_mutex`); `ThreadPool.cpp:26`, `:84`, `:91`; `StringListLock.cpp`; `ConcurrentVector.h` | `san()` TSan programs (R3 § 6 item 2) | stage C | tool-run |
+| 3.26 | `utils/FileSystemUtil.cpp:1059-1087` | `removeFile`, linked whole | new at stage B (L-19): `writeAllText(p)`; `exists(p)`; `removeFile(p)`; `CHECK_FALSE(exists(p))` -- FAIL at the pin expected | tool-run |
 
 generated, asserted: 26 rows (`tools/t36-tables.py --print leads`)
 <!-- /gen:leads -->
@@ -256,7 +274,7 @@ generated, asserted: 17 rows (`tools/t36-tables.py --print filecache`)
   - **When a key is dropped:** only when its texture has expired and the caller does not ask for a reloadable (`:133-134`), or by the map's own sweep at `:76-81`.
   - **A rewrite on disk** under a living key is never seen. The key carries no file time, and the only reload is `OptimizeVRAM`'s re-size, which reloads the same path synchronously on the caller's thread (`:110-127`, #1221 and T32 PL-07).
   - The caller's half is T34's `02`; #1221's fix is the caller's (`exists(qrPath, false)` and a session-named path).
-- **The rest, with their cases (all `pending stage C`):**
+- **The rest, with their cases (run at stage E, `proved: tool-run`; generated, asserted against the leads table):**
   - **L-07:** the font's scale through `getFromTheme`, 3.16.
   - **L-09:** the glyph width, 3.17.
   - **L-10:** `TextureData`'s size fields without `mMutex`, 3.11's TSan line.
@@ -303,6 +321,8 @@ generated, asserted: 22 rows (`tools/t36-tables.py --print paths`)
 
 ## The processes
 
+- **3.5 (L-05):** `run()`'s wrap literal, run by the host's shell -- `seq 400 rc=0`, `seq 200000 rc=141` (`stage-a/runs.out`); S6's G-18 groups and quotes it, re-run `3.5` unchanged at the S6 tip (`stage-e/s6-public.out`).
+
 <!-- gen:processes -->
 | Line | Function | Match | Image | Shell | Waits | Returns | Callers' thread |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -347,6 +367,8 @@ The 16 lines are 13 spawns and 3 comment matches (`:179` and `:865` are `// exec
 - **L-14, `maskSecrets`' reach** (`StringUtil.cpp:446-804`). 18 call lines over es-app and es-core (`grep -c 'maskSecrets('`), in 10 files, the definition among them. `runSystemCommand` logs every command through it (`Platform.cpp:855`), and the launch logs its command through it (`FileData.cpp:1090`). 3.10's JSON, `name: value` and `Authorization: Bearer` shapes, each built at run time, run at stage C.
 
 ## The writes and reads
+
+- **3.3 (L-04):** `writeAllText` returns void and does not report a short write; the text case records it, and the return (or its supersession by `AtomicFile::writeText`) is #1186's at the pause (ruling 3).
 
 <!-- gen:writes -->
 | Site | Function | Image | Mechanism | Atomic | What an interrupted write leaves | What its return claims |
@@ -429,10 +451,13 @@ generated, asserted: 18 rows (`tools/t36-tables.py --print writes`)
   - T26's `a5d2d3756` (`Platform.cpp`, `GetShOutput`, #1225) on `757f5370ea`;
   - T21's two new files, `utils/DownloadFile.{cpp,h}`, under the glob.
   - Each is read and recorded in `stage-a/collisions.out`, and never re-made here.
+- **By file, stage E's changes beside the collisions:** `FileSystemUtil.cpp` (S3-S6, S10 over T20's and T21's hunks -- each applies clean, `git apply --check`); `Platform.cpp` (S6's run() wrap over T26's hunk -- applies clean); `Font.cpp` and `Font.h` (S1, S10 -- G-3); `TextureData.cpp` (S4, S9, S10 -- G-20); `StringUtil.cpp` (S8, S10); `TimeUtil.cpp` (S2, S10). **T34** `52f0ff5128` and **T35** `b7fdb3a24` make no change inside the 58 (`git diff --stat 16dbac5211 <tip>` empty for both); the fakes' four signatures (`exists`/`readAllText`/`removeFile`/`getFileName`) are unchanged pin to tip (ruling g).
 
 ## The runs
 
 - **Stage A:** 23 runs, each as the brief expected (`stage-a/runs.out`, `00`).
+  - **The figures `stage-a/runs.out` names, quoted:** scope 58 (cpp 25, h 32, hpp 1; renderers 14, resources 11, utils 33); lines `wc -l 50827`, `grep -c 50840`, no-trailing-newline 13 files, `han.h + zip_file.hpp grep -c 30934`; the fork delta `15 files changed, 1032 insertions(+), 60 deletions(-)`; the angle-include count 241 (non-standard 41); `_(" lines TOTAL 11 in 2 files` (occurrences 12); `LOG(Log lines TOTAL 99 in 16 files`; threads 10, `.detach(` 1 (`FileSystemUtil.cpp:1797`); locks 63; `spawn count: 16` (all in `Platform.cpp`); the `fopen(... "w"` writes `FileSystemUtil.cpp:1432 :1434 :1490 :1492` (6 with `zip_file.hpp`); the helpers' reach (`runSystemCommand\(` 80, `GetShOutput\(` 27, `writeAllText\(` 27, `renameFile\(` 17, `copyFile\(` 12, `readAllText\(` 38, `AtomicFile::` 41); and 3.5's two host rcs `seq 400 rc=0` / `seq 200000 rc=141`.
+  - **The generated tables:** `tools/t36-tables.py --check` first showed drift (the floor rows' `proved:`) at **exit 1**, then PASS after the regenerate -- `check: 6 blocks match the pin`, exit 0. `tools/t36-extract.py` holds 11 extracts at the ES tip.
 - **Stage C (host):**
   - **`utils-resources-tests`** (`stage-c/build-tests.out`): 15 cases, 11 passed, 4 failed; the 4 FAILs are the FAIL-at-pin candidates, each proving its defect at the pin (`proved: fix-unit-test`): **3.1 (L-01)**, **3.2 (L-03)**, **3.4 (L-02)** and **3.26 (L-19)** -- 3.26 FAILs `CHECK(exists(p)==false)` with `true == false`, confirming the stale cache. The 11 that pass are the controls, the positives and the text-read seams.
   - **T35's 3.11 re-run** (ruling (h) as (a), `stage-c/t35-311-rerun.out`): `window-input-tests` at distribution `4f7d98b2ed` / ES `b7fdb3a24` (T35 stage H, read 23:44:37Z) -- rc 0, 31/31 passed. 3.11 PASSES at the amended tip (T35's caller fix landed), where it FAILs at the pin; T36 owns the cache's half.
@@ -449,6 +474,9 @@ Slot 3, START 23:09:19 to RETURN 23:22:05 UTC, inside the bound; the detached ti
 - **G-04:** `secondsToString` panel needs scraped media the guest lacks; the thresholds are host-read and the French catalog renders cleanly on the chrome (accents, the typographic apostrophe). An open item for a media-scraped guest.
 - **G-05:** driver `virtio-pci` (virgl, not softpipe); art clean, RSS stable; VRAM counters `CANNOT`.
 - **G-07:** `SigIgn=0x1000` (SIGPIPE ignored) -- the launch gets EPIPE past the pipe buffer, not a signal; `sh`->bash; `seq 400`->0, `seq 200000`->255; the image's `runemu.sh` keeps the emulator's output out of `run()`'s pipe.
+- **G-10:** `CANNOT` in stage E -- the date parser and the string helpers have no guest surface this slice ships (host unit/ASan cases are the proof).
+- **`ldd`** on the guest's `emulationstation`: `libfreetype`, `libvlc` linked; `libfribidi` **not** (G-01, Q7's `HAVE_FRIBIDI`).
+- **`font-stems`** from the window: cap heights 13 px (640x480) and 17 px (1280x800) (`guest-cycle/g02-g06-measure.txt`).
 - **G-08, G-09:** `CANNOT` as planned.
 
 ## The streams
@@ -457,13 +485,14 @@ One row per stream: the positive before, the ES commit, the positive after, `Alr
 
 | Stream | Before (pin) | ES commit | After | Already written | proved | Guest | #585 / notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| S0 (record-only; ruling 8/9/13) | floor run at the pin: `utils-resources-tests` 15 cases 11 passed 4 failed (the FAIL-at-pin candidates 3.1/3.2/3.4/3.26; `stage-c/build-tests.out`); `es-unit-tests` retried per ruling 13 | -- (distribution only) | `es-unit-tests rc 0; 185 | 185 passed` and `utils-resources-tests rc 0` -> floor `TOTAL: 200 test cases in 2 binaries` (`stage-e/s0-eut-build.out`); the four fakes, the stand-in 25/25, the renderers positive | n/a (no fix) | tool-run (the floor, the sanitizers 3.6/3.25, the stand-in) | none | ruling 10's bugs filed (#1374-#1380, L-11 #1377 -> Backlog #1372); 3.11/3.12 recorded with reason |
 | S1 (PL-06 #1359, G-1) | `S1 pin: rc 1; ERROR: AddressSanitizer: attempting double-free` (`stage-e/s1-before.txt`; `getTextureForNewGlyph` pushed then deleted the atlas) | `4fc77caaa` | `S1 tip: rc 0; no sanitizer report` (`stage-e/s1-after.txt`; push only after `findEmpty` succeeds) | nothing on disk; a live-session memory error in the font cache (#1359) | fix-unit-test (ASan, the method lifted at pin vs tip) | none (#1359 VM line: a host ASan case) | #585 owed: `mTextures.push_back(tex)` is in ROCKNIX `f6c542872e` and batocera `b2ceb55a7e` |
 
 | S2 (PL-07 #1360, G-9) | `S2 pin: rc 1; stack-buffer-overflow` (`stage-e/s2-before.txt`; timeToString's `buf[256]`, unbounded `*s++`) | `f206e1375` | `S2 tip: rc 0; no sanitizer report; control '1970-01-01' unchanged` (`stage-e/s2-after.txt`; a bound at the loop top) | nothing on disk; a live stack overflow driven by a format string (#1360) | fix-unit-test (ASan, timeToString lifted at pin vs tip) | none (#1360 VM line) | #585 owed: `char buf[256]` in ROCKNIX `f6c542872e` and batocera `b2ceb55a7e`; secstostr spec -> 519-588, Font specs +2 (D-WORKFLOW-210) |
 | S3 (PL-08 #1361, PL-02 #1363, PL-04 #1365; G-16, G-15) | `22 | 16 passed | 6 failed` (the four FAIL at the pin: `stage-e/s3-before.txt`) | `de6a1b935` | `22 | 20 passed | 2 failed` (only 3.1, 3.26 remain; `stage-e/s3-after.txt`) | nothing on disk / forward-only: a same-path copy already lost its file, the fix prevents recurrence (#1361); a short/absent copy's callers are their owners' (#1363); a transient return (#1365) | fix-unit-test (hard-link, /dev/full, existing-file cases) | none (host cases) | #585 owed: copyFile's shape in ROCKNIX `f6c542872e` and batocera `b2ceb55a7e`; renameFile/skipUtf8Bom not touched (ruling d) |
 | S4 (PL-03 #1364, PL-05 #1366, L-15 #1378) | `3.26 FAIL (true==false); asan-preload rc 1 (stack-use-after-return)` (`stage-e/s4-before.txt`) | `ed4e79a4f` | `3.26 PASS; asan-preload rc 0; 22 | 21 passed | 1 failed` (`stage-e/s4-after.txt`) | in-session cache only, ES resets after a game exit (#1364); stale answers in-session (#1366); L-15 live memory (#1378) -- read both for the thumbnail | fix-unit-test (3.26, 3.6 ASan); T35 3.11 31/31 at b7fdb3a24 (ruling h) | PL-05 #1263 frame fix-walk-pending-image (no media on this guest) | #585 owed (L-19 in ROCKNIX+batocera); G-11 residual race -> Backlog #1372 |
-| S5 (#1370, held) | `SAN #1370 pin rc 1; a report printed (held)` | `864faffe6` | `SAN #1370 tip rc 0; no sanitizer report` | neutral, in the held record | fix-unit-test (the contained fix the held record describes) | per the held record (held directory) | #585 stays with the held record |
-| S6 (#1371 held half; G-18 public half) | held `#1371 case pin rc 1` (`stage-e/s6-held.out`); public run() `PIN captured stderr lines=NO LOG (path split)` want 2, under dash and bash (`stage-e/s6-public.out`) | `1c338745` | held `#1371 case tip rc 0`; public run() `FIXED captured stderr lines=2` under dash and bash; 3.5 literals `seq 400 rc=0` / `seq 200000 rc=141`; 3.7/3.9/3.24 pass unchanged; run_wrap first-string and runsys/gsh/quites ranges updated (D-WORKFLOW-210) | held half neutral, in the held record; public: nothing inherited -- run()'s wrap is built per launch and kept nowhere, and es_launch_stdout/stderr.log are rewritten by the next launch | held fix-unit-test (the contained fix the held record describes); public fix-unit-test (run() wrap built at pin vs tip, dash+bash) and main-binary re-verify 22 cases, 21 passed, 1 fail (3.1, S8's not-yet-fixed) | held half per the held record; public none (host shell proof) | held half's #585 stays with the held record; public run() wrap is upstream-carried in Platform.cpp `ProcessStartInfo::run`; time to play: the wrap runs every launch -- grouping and quoting only, no added process or wait |
+| S5 (#1370, held; `utils/FileSystemUtil.cpp`, the contained fix the held record describes) | `SAN #1370 pin rc 1; a report printed (held)` | `864faffe6` | `SAN #1370 tip rc 0; no sanitizer report` | neutral, in the held record | fix-unit-test (the contained fix the held record describes) | per the held record (held directory) | #585 stays with the held record |
+| S6 (#1371 held half in `utils/FileSystemUtil.cpp`, the contained fix the held record describes; G-18 public half in `utils/Platform.cpp`) | held `#1371 case pin rc 1` (`stage-e/s6-held.out`); public run() `PIN captured stderr lines=NO LOG (path split)` want 2, under dash and bash (`stage-e/s6-public.out`) | `1c338745` | held `#1371 case tip rc 0`; public run() `FIXED captured stderr lines=2` under dash and bash; 3.5 literals `seq 400 rc=0` / `seq 200000 rc=141`; 3.7/3.9/3.24 pass unchanged; run_wrap first-string and runsys/gsh/quites ranges updated (D-WORKFLOW-210) | held half neutral, in the held record; public: nothing inherited -- run()'s wrap is built per launch and kept nowhere, and es_launch_stdout/stderr.log are rewritten by the next launch | held fix-unit-test (the contained fix the held record describes); public fix-unit-test (run() wrap built at pin vs tip, dash+bash) and main-binary re-verify 22 cases, 21 passed, 1 fail (3.1, S8's not-yet-fixed) | held half per the held record; public fix-walk-pending-image: a launch's `es_launch_stdout/stderr.log` at the integration window (CANNOT in stage E, no guest) | held half's #585 stays with the held record; public run() wrap is upstream-carried in Platform.cpp `ProcessStartInfo::run`; time to play: the wrap runs every launch -- grouping and quoting only, no added process or wait |
 | S7 (#1369, held) | `#1369 case pin rc 1` (`stage-e/s7-held.out`) | `04e14e390` | `#1369 case tip rc 0`; a benign archive still extracts (the fix does not over-refuse) | neutral, in the held record | fix-unit-test (the contained fix the held record describes; sibling binary, ZipFile.cpp linked whole so its real computeCRC is used, no double) | per the held record (held directory) | held #585 stays with the held record; time to play: a per-member string scan at extraction, negligible, not on the launch path |
 | S8 (PL-01 #1362, G-8) | `23 cases, 21 passed, 2 failed` -- 3.1 and the G-8 case FAIL at the pin (`stage-e/s8-before.txt`) | `e1468c1e8` | `23 cases, 23 passed, 0 failed` -- 3.1, the G-8 pair/dotless-i, and the two-byte control pass (`stage-e/s8-after.txt`) | nothing inherited (argued): the persisted folds are ASCII -- hex hashes, MD_BOOL, file extensions; every multi-byte fold was transient (a displayed label or an in-memory sort/compare key), written to no file | fix-unit-test (3.1 + G-8; StringUtil.cpp linked whole, stand-in build rc 0; es-syntax-check CANNOT) | fix-walk-pending-image CANNOT in stage E (no guest); an upper-cased 3-byte label at 640x480 and 1280x800, EN/FR, at the integration window | #585 owed: toUpper/toLower and the parallel case tables are upstream-carried (ROCKNIX `f6c542872e`, batocera `b2ceb55a7e`); time to play: a decode and encode per codepoint at label build, off the launch path |
 | S9 (PL-09 #1367) | `#1367 loaded-page: loadFromPdf=false` though a page loaded (pin; `stage-e/s9-before.txt`) | `3266f4443` | `loadFromPdf=true`; the no-page control stays `false` (`stage-e/s9-after.txt`) | nothing inherited: a wrong return value; the texture was built in memory, nothing written to disk | fix-unit-test (#1367; TextureData.cpp linked whole over Renderer/ImageIO/ResourceManager/vlc/nanosvg/StringListLock doubles and a PdfHandler double; stand-in build rc 0; es-syntax-check CANNOT) | fix-walk-pending-image CANNOT in stage E (no PDF-shipping guest); the open item beside S4's, at a guest that ships one | #585 owed: loadFromPdf is upstream-carried (ROCKNIX `f6c542872e`, batocera `b2ceb55a7e`); time to play: none, a return value |
@@ -487,4 +516,15 @@ One row per stream: the positive before, the ES commit, the positive after, `Alr
 
 ## What T37 inherits
 
-Written at the hand-back. Its tables are the five above, the provenance table and the lines-set reconciliation. The `utils-resources-tests` recipe, the stand-in's rc per file, the rule errata as dispositioned and the collision list follow at stages C to E.
+Written at the hand-back:
+
+1. **The provenance table and the lines-set reconciliation** (§ Coverage, § The merge debt): the 58 files, the bases `cada856d86`/`f6c542872e`/`b2ceb55a7e`/`1750dded8c`/`bccd715707`, 43 blobs pin-identical to master, batocera's 13-commit reconciliation list.
+2. **The define and fribidi:** the GENERIC_X64 guest built with `freetype` and `vlc` linked but **`libfribidi` not** (G-01, Q7's `HAVE_FRIBIDI` answered no); the stand-in compiles under `-DUSE_OPENGLES_30`.
+3. **The `utils-resources-tests` recipe:** the Paths/Settings/Log/DateTime doubles, the extracts via `t36-extract.py` (11 at the tip), the four fakes (FreeType, GL, vlc, SDL-GL) the first errors forced, and the include order that links the real `FileSystemUtil.cpp` (`-I <build>/x -I <W>/es-core/src -I <W>/external`).
+4. **The stand-in's rc per file** over the 25 `.cpp` with the renderer positives, and the branches it did not parse.
+5. **The `exists` cache's answer** for T35's 3.11 and for #1263.
+6. **The rule errata routed to the coordinator:** L-08 (against `es-code-traps.md:118`, Font::getHeight grows) and L-13 (against `es-native-ui.md:103`, runSystemCommand returns 0), as dispositioned.
+7. **The collisions' owners:** T20 `d9afa5c7c`, T21 `f7c16144d` (+ `DownloadFile.{cpp,h}`), T26 `a5d2d3756` -- each applies clean over the tip; never re-made.
+8. **The Backlog #1372 items:** PL-10's five (G-2, G-5, G-12, G-13, G-21); and the ruling-10 bugs not fixed in a stream (#1374 L-07, #1375 L-09, #1376 L-10, #1377 L-11, #1379 L-18, #1380 3.21) listed for the coordinator's Backlog.
+9. **The held records' owners:** `/workspace/tmp/m6-t36/held/` (h1 #1369, h2 #1370, h3 #1371), mode 600, sha256 in `SHA256SUMS`; their #585 lines stay with them.
+10. **Stage E's additions (from the retro):** the extractor's `SPECS` at the tip; the `san()` programs and the sibling binaries; `removeFile`'s new lstat guard and the uncached thumbnail reads; `copyFile`'s and `createDirectory`'s new returns and branching callers by owner; the held cases' shape (named by bug, inputs from the held record); and G-7's synthetic-input partial on #1358.

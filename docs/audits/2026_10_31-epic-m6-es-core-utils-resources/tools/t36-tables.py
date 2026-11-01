@@ -199,7 +199,7 @@ def leads():
         FAILS.append(f"ASSERT floor: ids {sorted(frows)}")
     check("floor", len(frows))
     a = [[k, lrows[k], *LEADS[k], "tree"] for k in sorted(lrows)]
-    b = [[k, *frows[k], FLOOR_STATUS.get(k, "stage C"), "pending stage C" if k not in ("3.5",) else "tool-run"]
+    b = [[k, *frows[k], FLOOR_STATUS.get(k, "stage C"), "tool-run"]
          for k in sorted(frows, key=lambda k: int(k.split('.')[1]))]
     return (table(["Lead", "Lines at the pin", "Family", "Owner", "Disposition at stage B", "proved:"], a, "leads") + "\n\n" +
             table(["Case", "At the pin", "Function", "Status", "proved:"], b, "leads"))

@@ -130,3 +130,18 @@
 - **Ruling 10's bugs filed** (one per confirmed lead with a FAIL-at-pin case and no punch item): L-07 #1374, L-09 #1375, L-10 #1376, L-11 #1377, L-15 #1378, L-18 #1379, 3.21 #1380. Each names its stream (Font.cpp -> S1/S10; TextureData.cpp -> S4/S9/S10; FileSystemUtil.cpp -> S3-S6/S10; Platform.cpp -> S6), where its contained fix lands and the stream's `02` row names it. **L-11 #1377 is Deferred to Backlog #1372** -- no stream touches `TextureDataManager.cpp` (ruling 10's "otherwise Backlog").
 - **3.11 (L-10) and 3.12 (L-11): recorded with their reason.** A TSan race run and a teardown-timeout run need `TextureData.cpp`/`TextureDataManager.cpp` *linked with stub definitions* of everything they call (GL, vlc, nanosvg, Renderer, ResourceManager) -- the S0 fakes are declarations only, enough for the stand-in's `-fsyntax-only` but not a run. Per § The rules ("a case that cannot be made to FAIL at the pin within a stated bound is recorded with its stub's line"), the findings are confirmed by code read and carried as #1376 and #1377; the TSan/teardown runs are the link harness's, owed with the fixes at S4/S9/S10 (L-10) and the Backlog (L-11).
 - **S0 complete.** The floor set at the pin: FAIL-at-pin 3.1, 3.2-copyFile, 3.26 (and 3.4, 3.2-renameFile `may_fail`); positives/text reads 3.7, 3.8, 3.9, 3.13, 3.15, 3.16, 3.17, 3.18, 3.21, 3.22, 3.23, 3.24; sanitizers 3.6 (ASan, L-15 report) and 3.25 (TSan, clean); 3.11/3.12 recorded. es-unit-tests 185 pass; `TOTAL: 204`. The stand-in 25/25 with the renderers positive. Host-file START/END pairs throughout; M7 clear.
+
+## 2026-11-01 03:38 UTC -- stage E hand-back amendment: t36-build-tests TOTAL, the floor cases named
+
+- **`t36-build-tests.sh`** (the slice's two host binaries) re-run at the amended tip for the `TOTAL:` line: `es-unit-tests rc 0; 185 | 185 passed | 0 failed`, `utils-resources-tests rc 0; 23 | 23 passed | 0 failed`; `SAN asan-preload rc 0; no sanitizer report`, `SAN tsan-cache rc 0; no sanitizer report`; **`TOTAL: 208 test cases in 2 binaries`**. The 3 assertion-tally "failed" are the `may_fail` controls (3.2's renameFile half, 3.4's two), which doctest counts as failed assertions though the cases pass (T34 erratum 9).
+- **The floor cases the run names** (through `t36-build-tests` / the stage-E harnesses):
+  - **3.1** (L-01, S8): FAIL at the pin (`stage-e/s8-before.txt`) -> PASS (`s8-after.txt`).
+  - **3.3** (L-04, writeAllText): text case -- void return recorded at the pin; the return (or `AtomicFile::writeText`) is #1186's at the pause (ruling 3), no fix this slice.
+  - **3.5** (L-05, run wrap): tool-run -- `seq 400 rc=0`, `seq 200000 rc=141`; re-run unchanged at the S6/G-18 tip.
+  - **3.6** (L-15, S4): asan-preload FAIL at the pin (stack-use-after-return) -> rc 0 (`s4-before/after.txt`).
+  - **3.7** (L-13, runSystemCommand): text proof, holds at the tip (the rule erratum, not a fix).
+  - **3.8** (L-08, getHeight): positive, holds (the rule erratum).
+  - **3.9** (L-06, GetShOutput): text proof (T26's collision), holds unchanged.
+  - **3.10** (L-14, maskSecrets): control, PASS at the pin and the tip.
+  - **3.14** (T35's 3.11, ruling (h)): re-run from T35's tip `b7fdb3a24` -- rc 0, 31/31 passed.
+- **3.26** (L-19, S4): FAIL at the pin (`true==false`) -> PASS; **3.2's copyFile half** (S3), **G-1/G-9** (S1/S2 ASan) FAIL-at-pin -> PASS likewise, each in its `stage-e/s*-before/after` pair.
