@@ -20,7 +20,7 @@ Authoritative templates for the Phase 4 analysis report and the Phase 5 punch li
 
 [2–3 paragraphs: what was audited, overall assessment, key findings]
 
-## Acceptance Criteria Scorecard
+## Acceptance-criteria scorecard
 
 | ID    | Criterion | Verdict   | Notes       |
 | ----- | --------- | --------- | ----------- |
