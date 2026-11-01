@@ -335,9 +335,8 @@ futro?
 - New blindspot entries (if the futro surfaced a systematic weakness
   not in the register yet)
 
-**AC-authoring discipline — the literal-grep trap** (M64 P1.5 E3
-AC #2, E4 AC-F2 — promoted at 2 instances per the E4 retro's
-threshold). Any AC the futro adds that asserts "OLD framing X is
+**AC-authoring discipline — the literal-grep trap** (the source
+estate's M64 P1.5 E3 AC #2 and E4 AC-F2). Any AC the futro adds that asserts "OLD framing X is
 gone" via a literal substring grep MUST be refined at futro-
 authoring time to distinguish the OLD framing from LEGITIMATE-
 new-context usage of the same tokens. The trap: a sweep-and-replace
@@ -401,16 +400,19 @@ Futro without propagation is half-done. For each adjustment in question 5:
 **Commit-ordering rule (P8 retro Practice adjustment 2):**
 
 If the work has any executable phase (any task that produces a code
-commit), the futro spec edit + Epic comment MUST be committed BEFORE
-the first task-execution commit. P8 demonstrated the consequence of
+commit), the futro's file (`docs/futros/<date>-<scope>.md`) MUST be
+committed, and its Epic comment posted, BEFORE the first task-execution
+commit. P8 demonstrated the consequence of
 NOT doing this: T1-T4 task commits landed before the futro commit, so
 `git log --oneline` reads as if T1-T4 happened with no futro context.
 The futro is the FIRST commit of a phase; subsequent task commits
 reference it.
 
 Implication for `begin-delivery` orchestration: Step 2 (futro) MUST
-include a commit step. Don't pass execution-control to Step 3 (load
-tasks) until the futro commit is in the history.
+include that commit: `git add docs/futros/<file>`, then
+`tools/ceremony-check --gate` before the push. Don't pass
+execution-control to Step 3 (load tasks) until the futro's commit is in
+the history.
 
 ### Step 6 — Close out
 

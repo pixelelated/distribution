@@ -7,7 +7,7 @@ is what makes futros cross-searchable for future agents.
 
 ---
 
-## Futro: <scope — e.g. "Phase N" or "Epic A Phase 2 (sub-issues #F through #H)">
+# Futro: <scope — e.g. "Phase N" or "Epic A Phase 2 (sub-issues #F through #H)">
 
 **Prepared:** <YYYY-MM-DD>
 **Scope of this futro:** <what work is about to begin. Name the out-of-scope boundary too — e.g. "Does not cover Phase N+2 work; that gets its own futro at its own kickoff.">
@@ -17,7 +17,7 @@ is what makes futros cross-searchable for future agents.
 
 ---
 
-### 1. What do we know and what are we assuming?
+## 1. What do we know and what are we assuming?
 
 **The plan (as written):**
 
@@ -35,7 +35,7 @@ is what makes futros cross-searchable for future agents.
 
 ---
 
-### 2. What known unknowns need investigation?
+## 2. What known unknowns need investigation?
 
 Things we know we don't know. Each gets one of two treatments: an
 investigation task (resolve before execution) or a documented "proceeding
@@ -51,7 +51,7 @@ If there are no known unknowns to list: "None identified at futro time."
 
 ---
 
-### 3. What patterns from prior work apply that we haven't named?
+## 3. What patterns from prior work apply that we haven't named?
 
 Positive pattern-matching. Cite specific past work.
 
@@ -63,7 +63,7 @@ If genuinely no applicable patterns: "No direct prior patterns; work is novel in
 
 ---
 
-### 4. What could we be missing?
+## 4. What could we be missing?
 
 Primary technique: agent-execution simulation. Complementary: pre-mortem, blindspot check, the replaced-mechanism archetype, the honesty check on the simulation.
 
@@ -95,7 +95,7 @@ If all techniques genuinely returned clean: state so explicitly, technique by te
 
 ---
 
-### 5. What adjustments or investigations must happen BEFORE execution?
+## 5. What adjustments or investigations must happen BEFORE execution?
 
 The output. Based on 1–4, what concrete changes?
 
