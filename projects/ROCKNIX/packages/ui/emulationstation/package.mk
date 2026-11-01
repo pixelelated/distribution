@@ -76,10 +76,10 @@ makeinstall_target() {
 
   mkdir -p ${INSTALL}/usr/config/emulationstation
     cp -a ${PKG_DIR}/config/common/*.cfg ${INSTALL}/usr/config/emulationstation
-    rm -f ${INSTALL}/usr/config/emulationstation/resources/logo.png
 
   mkdir -p ${INSTALL}/usr/config/emulationstation/resources
     cp -a ${PKG_BUILD}/resources/* ${INSTALL}/usr/config/emulationstation/resources
+    rm -f ${INSTALL}/usr/config/emulationstation/resources/logo.png
     rm -f ${INSTALL}/usr/config/emulationstation/resources/DroidSansFallbackFull.ttf
     ln -sf /usr/share/fonts/truetype/noto-cjk/NotoSansCJKsc-Regular.otf \
       ${INSTALL}/usr/config/emulationstation/resources/DroidSansFallbackFull.ttf
