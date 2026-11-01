@@ -137,3 +137,23 @@ No image build, package build or compiler (no compile START written); no `git fe
   - **The stage-D tip and the fixture**, inside `tools/t37-failfirst.sh` (its `run()`). Stage-D tip: `--tree $E/264a39f6d7 --commit 264a39f6d7 --out /workspace/tmp/m6-t37/ff/tip`, copied to `stage-e/checks-at-stage-D-tip.txt`. Fixture: `--tree /workspace/tmp/m6-t37/fixed --commit c9e8d5a8df --out .../ff/fixed --compare .../ff/tip/stamps.txt`. Each mutation: `--out .../ff/m-<name>`.
   - **At the tip** (03:11:27): `--tree $E/c9e8d5a8df --commit a22e13adee --out $E/tip-final > $A/stage-e/checks-at-tip.txt`.
   - The per-edit checks that ran beside them (`pkgcheck` by name, `bash -n`, the counts, `:39`, the pin lines, the paths) are `bash $A/tools/t37-edit-checks.sh <parent> HEAD > $A/stage-e/s1-PL-0N-checks.txt`, run once per recipe commit.
+
+## Stage H, the close-out (05:23 to 05:26 UTC)
+
+- **Accepted** at 05:23 (comment 6553885502): 21 of 21 criteria ticked at `d6dde340f9`; #1381 closed `completed` at 05:22:41Z with 19 of 19 checkboxes ticked.
+- **`audit-completion.json`** is written by `tools/t37-write-completion.py`. That is T35's `t35-write-completion.py` (`d828355e0a`) copied by `git show`; its code is identical below the docstring (`diff` rc 0), and only the docstring names this file. It read #1381 back closed/completed with 19 ticked (`write-completion: #1381 closed/completed, 19 ticked; verified 2026-11-01T05:25:12.033832+00:00`) and wrote three files:
+  - `tracker-final-readback.json`: 11,301 bytes, the issue as the API returned it, with `0` secret-pattern lines;
+  - `tracker-completion.json`;
+  - `audit-completion.json`, binding `04`, `05` and both receipts by sha256.
+- **The checks** are in `stage-e/closeout-checks.txt`: the lint PASS on the default phase and with `--issue 1381`; `ceremony-check`'s audit line naming this marker; `ceremony-check --gate` rc 0.
+- **The scratch is retired** under D-INFRA-022. Every export had already gone in stage E (`stage-e/retirements.txt`, the ledger copied here before its directory was removed).
+  - **`/workspace/tmp/m6-t37/`**, 3,430,872 bytes in 485 files:
+    - `e/` (301,033 bytes): the checker's `--out` directories, the pair's outputs and `bb.bak`;
+    - `stage-a/` (2,173,922 bytes): the scripts and outputs whose copies are in the record's `stage-a/`, plus the drafting pieces of `01` and the full plans. The plans' sha256: `x64-es.plan.json` `c38b47d2939ba4cc...`, `h700-es.plan.json` `33f2de0a78259a07...`, `rk3566-arm.plan.json` `33631183e602c201...`, `x64-image.plan.json` `96c8f8a8281d7aed...`. `stage-a/plans.sh` re-makes them from an export.
+    - `stage-b/` (47,124 bytes): post drafts;
+    - `tmp/` (908,793 bytes): the post and body drafts, the read-backs and the tool outputs.
+  - **`.qa-scratch/t37/`**, 44,030 bytes in 6 files (gitignored), then the empty `.qa-scratch/`: stage A's membership copies, re-made by `stage-a/membership.sh`.
+  - **Verified:** neither path exists, and worktree build roots read `0`. `/workspace`'s free space went from 1,425,093,521,408 to 1,425,098,780,672 bytes (5,259,264 bytes; the volume is shared, so this is approximate). Before the removal, no process had its working directory under the scratch, and `pgrep -f 'm6-t3[7]'` matched nothing.
+- **A correction:** at 05:24 an `rm -rf "$A"/tools/__pycache__` ran inside a longer command, outside the removal rule's form (no `:?`). `A` was set to the audit folder's relative path, and no `__pycache__` existed after it (`0`).
+- **And one more:** the close-out's added-lines gate used a bare `mktemp`, which put its file under `/tmp` instead of the lane's scratch. The file held only the close-out's added lines (`0` secret-pattern lines) and was removed by `rm -f -- "${AD:?}"` in the same command.
+- **The pointer** is idle with the final tip. Then the push, and the closing comment on #684.

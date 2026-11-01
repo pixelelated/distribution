@@ -17,40 +17,24 @@
 
 ## Current focus
 
-**Stage E done; the second hand-back posted on #684; idle** until the
-coordinator accepts. The first hand-back (`c00c39ffe6`) drew the acceptance read's seven
-asks (comment 6553258188, 04:11 UTC); they are answered by the merge `52045e1b79` of the
-coordinator's `afe3bac032` and one amendment commit over it. Stage E ran under `docs/reviews/briefs/t37-streams.md` (S0, then
-S1), after the coordinator's `1f9327d496` was merged (`902e00987c`).
-S1's five recipe commits each changed only
-`projects/ROCKNIX/packages/ui/emulationstation/package.mk`:
-- PL-03 `c93b1cad7d` (#1382);
-- PL-04 `39863d5af3` (#1383);
-- PL-05 `e1e99c5a7e` (#1384);
-- PL-07 `ce31abba74`;
-- PL-08 `c9e8d5a8df` (the last recipe commit; `05`'s `fixed-at` by the acceptance read's ruling; #684's header names the hand-back tip).
+**Idle (2026-11-01): T37 accepted, 21 of 21 criteria ticked at `d6dde340f9`** (#684 comment
+6553885502); the audit #1381 closed `completed`. **Final tip:** the distribution commit that carries
+this pointer's last line (`feature/m6-es-recipe-684`, on origin); there is no ES change and no ES
+worktree. #684's header reads `fixed-at: d6dde340f9b1268cff157580cf748bed1cbec814`, the accepted
+hand-back tip; `05:7` reads `fixed-at: c9e8d5a8df`, the last recipe commit.
 
-Each has a record commit beside it. `fixed-at-es: none -- no ES change`.
+Stage H is done:
+- `audit-completion.json` from #1381's closed read-back;
+- the lint PASS both ways;
+- the scratch retired (`/workspace/tmp/m6-t37/` and `.qa-scratch/t37/`; `00` § Stage H).
 
-The checker at the tip reads `TOTAL: 64 of 66 assertions`. The two FAILs
-are the deferred ones: L-02 (#1072) and L-03 (#613).
+**What the slice leaves:**
+- the bugs #1382, #1383 and #1384, fixed at `c9e8d5a8df` and open until the fixes reach `next`;
+- Backlog #1385;
+- the image halves (`fix-image-pending`), owed at the integration window.
 
-The FAIL-first script for stage E's set was re-run with two more
-mutations (`stage-e/s1-failfirst-2.txt`). `05` reads 5 Resolved and 14
-Deferred. #1381 has 19 of 19 checkboxes ticked; #1383 and #1384 keep
-their image checkboxes open (`fix-image-pending`).
-
-The retro is `docs/retros/2026-11-01-m6-es-recipe.md`.
-
-**Stage H, when accepted:** retire what is left under `/workspace/tmp/m6-t37/`:
-2,734,851 bytes at 03:22 UTC, in `stage-a/`, `stage-b/`, `e/` (the out
-directories) and `tmp/` (the bodies, `retirements.txt`). Record each path
-and size in `00`. Every export was retired by 03:21:44.
-
-What still binds:
-- every recipe read goes through the mask and withholds `:39`;
-- nothing is sourced in the worktree, and a `build.*` root here is a stop;
-- no compiler, build, guest or keyed call.
+The coordinator verifies on a fresh clone, and the T3 session is then free for T39. Nothing here runs
+until the coordinator dispatches.
 
 ## Next commands
 
@@ -102,3 +86,5 @@ outside the one granted window.
 - **Stage D** -- the stage-D commit over `703470bcca` (its hash in the #684 pause post), 02:2x UTC: #1381, #1382-#1384, the lines on #613 and #1072, `05`'s proposed dispositions, the lint PASS with `--issue 1381`; the pause.
 - **Stage E** -- dispatched 02:53 UTC (comment 6552560083); the merge `902e00987c`; S0 `7923d95594`; S1's recipe commits `c93b1cad7d`, `39863d5af3`, `e1e99c5a7e`, `ce31abba74`, `c9e8d5a8df` with their records `5cc3aa9911`, `61cc617e95`, `4db1e614bc`, `c6fa223e46`, `a22e13adee`; the hand-back commit over `a22e13adee` (its hash in the #684 hand-back post), 03:2x UTC: `05`'s outcomes, the checker at the tip, the FAIL-first re-run, the five checkers, the retro; census `qemu 0, compilers 0`; worktree build roots `0`; keyed invokes `0`; no guest; no compile START written.
 - **Stage E's amendment** -- the acceptance read (comment 6553258188, 04:11 UTC), seven asks: the merge `52045e1b79` of `afe3bac032`; one amendment commit over it (`05:7` `fixed-at: c9e8d5a8df`; `02` § The runs with checkbox 8's and 9's lines copied; G-01's `ldd` line in § The dependencies; the `SECRET_PATTERNS` count over the folder in § The recipe; the checker's commands in `00`); the second hand-back post names the tip.
+- **The third hand-back** -- `d6dde340f9` (the nine copied headings demoted, comment 6553652121); **accepted** 05:23 UTC (comment 6553885502), 21 of 21.
+- **Stage H** -- the close-out commit over `d6dde340f9`: `audit-completion.json`, the lint both ways, the scratch retired; this pointer idle; the closing comment on #684 names the final tip.

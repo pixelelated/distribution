@@ -1,0 +1,12 @@
+# T37 close-out: the checks after audit-completion.json and the scratch retirement; 2026-11-01T05:26:15Z (each rc on its own line, from the command itself)
+PASS
+lint (default phase) rc=0
+PASS
+lint --issue 1381 rc=0
+register-check: 714 IDs, each once; every citation in the live documents names a row
+register-check rc=0
+work-log index: current
+work-log-index --check rc=0
+  ok    audit     last 2026-11-01T05:25:12.033832+00:00 via #1381 docs/audits/2026_11_01-epic-m6-es-recipe/audit-completion.json; 0 of 12 closed issues, 0 of 14 days
+ceremony-check (no --gate) rc=0
+ceremony-check --gate rc=0
