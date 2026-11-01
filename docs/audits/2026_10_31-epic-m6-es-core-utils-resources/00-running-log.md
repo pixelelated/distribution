@@ -116,3 +116,11 @@
 - **3.25 (R3 s6), TSan** (`stage-e/tsan-cache.cpp`, concurrent `exists`/`reset` over the `shared_mutex`): `SAN tsan-cache (-fsanitize=thread): rc 0; no sanitizer report` -- **the positive: the cache's lock discipline is clean.**
 - Host-file START/END pairs; M7 clear. `TOTAL: 204` unchanged (the san programs are separate).
 - **S0 remaining:** 3.11 (TextureData TSan) and 3.12 (TextureDataManager teardown) with the four T36 fakes (FreeType, vlc, GLES3, SDL-GL); the stand-in with the renderers positive; ruling 10's bugs.
+
+## 2026-11-01 01:12 UTC -- S0 (cont.): the four fakes, the stand-in 25/25, the renderers positive
+
+- **The four T36 fakes** (`stage-a/fakes/`, beside T35's 15): `ft2build.h` (FreeType with the record types Font.cpp reads -- `FT_FaceRec_->glyph`, `FT_GlyphSlotRec_->bitmap`/`metrics`, the 6 functions), `GLES3/gl3.h` (generated from the 182 GL names the renderers use -- 6 types, 95 constants with *distinct* values so a switch has no duplicate case, 73 functions), `vlc/vlc.h` (the 16 libvlc symbols TextureData.cpp uses), `t36-sdl-gl.h` (the SDL GL + window/display/surface API Renderer.cpp uses, which T35's SDL.h lacks).
+- **The stand-in** (`stage-a/syntax-check.sh`, `-DUSE_OPENGLES_30`): over the 25 `.cpp`, **`t36-syntax-check: 25 file(s) checked, 25 rc 0, 0 not`** (`stage-a/syntax-check.out`). At stage C it was 20/25; the four fakes clear Font.cpp (FreeType), TextureData.cpp (vlc), and the three renderers (GLES3/SDL).
+- **The renderers positive** (`stage-a/renderers-positive.out`): `Renderer_GLES30: GLES30Renderer with -DUSE_OPENGLES_30 = 31, without = 0` -- the image's branch is real and an rc 0 without the define would be empty. `Renderer_GLES20/GL21/GLES10: ...Renderer = 0 with and without` -- **empty under the image's defines (G-08).** So an rc 0 on a renderer file is evidence beside its positive.
+- Host-file START/END pairs for each compile; M7 clear.
+- **S0 remaining:** 3.11 (TextureData size bookkeeping TSan) and 3.12 (TextureDataManager teardown) -- these need TextureData/Manager linked with stub definitions (the syntax fakes are declarations only); and ruling 10's bugs from the floor FAILs.
