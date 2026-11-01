@@ -249,10 +249,14 @@ phases 6–7 close the loop into the tracker.
 | 6     | Punch-list issue                | GitHub issue (`audit`, `punch-list`)  | Phase 6 below                                              |
 | 7     | Resolution gate                 | recorded outcome per item             | Phase 7 below                                              |
 
-**Before Phase 6, RUN `tools/lint-audit-artifacts <folder> --issue <n>`.** It
-checks the required files, the mandatory `04-analysis.md` sections, that every
-punch item has a Phase 7 outcome, that each outcome cites a commit or an issue
-rather than asserting one, and that the audit issue carries one checkbox per
+**Before Phase 6, RUN `tools/lint-audit-artifacts <folder> --phase pre-issue`.**
+No audit issue exists yet, so this phase accepts honestly open items (an
+explicit `Open` gate row with its index entry, #470) while it checks the
+required files, the mandatory `04-analysis.md` sections and the review plan; it
+never certifies a completed audit. **After Phase 7, RUN
+`tools/lint-audit-artifacts <folder> --issue <n>`** on its default `resolution`
+phase: every punch item has a Phase 7 outcome, each outcome cites a commit or an
+issue rather than asserting one, and the audit issue carries one checkbox per
 punch item.
 
 This is not optional and not a substitute for judgement — it exists because the
