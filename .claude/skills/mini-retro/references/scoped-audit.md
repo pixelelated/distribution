@@ -68,7 +68,7 @@ adding adversarial value. Origin: M22 FOUND-P4 (#2510, 2026-05-14).
 
 Each check takes ~5 minutes. Record the verdict + optional finding
 (one-liner with file:line reference) under each check heading in the
-retro. See `reference/template.md` § "Scoped audit findings (Step 2.5)".
+retro. See `references/template.md` § "Scoped audit findings (Step 2.5)".
 
 **Verdicts** (borrowed from `code-auditor`):
 
@@ -171,11 +171,10 @@ Remediation: <which retro question this feeds into — usually §4 adjustments>
 
 ### Check 2 — Cornerstone spot-check
 
-**Goal:** catch common cornerstone violations in new files. Full cornerstone
-conformance — the numbered rows in
-[`cornerstone-conformance.md`](../../../../docs/architecture/cornerstone-conformance.md)
-(doctrine, Accepted-ADR, development-principles, and the conditional
-Capability-authoring section) — stays at Epic and Milestone audits. This
+**Goal:** catch common cornerstone violations in new files. Full
+conformance — `code-auditor`'s Phase 3.2, against this repository's
+instruction files and blindspot register — stays at Epic and Milestone
+audits. This
 check is a bounded spot-check. (The `.kno` `REQ-*` / `PRO-*` format rules
 apply **only** when authoring a Capability `.kno`; for everything else those
 rows are `·`.)
