@@ -82,14 +82,30 @@ Commits prefix (`fork-workflow.md`).
 **It reads as the maintainer's own note to a reviewer**, because it is
 posted under their name (D-WORKFLOW-074) and because the ROCKNIX developers
 closed a whole series on 2026-09-29 for reading otherwise -- one asked for
-*"less AI"* in the submissions (D-WORKFLOW-078, #333). So: three or four
-short paragraphs of plain prose, first person singular, the way a person
-writes to a colleague they will meet again.
+*"less AI"* in the submissions (D-WORKFLOW-078, #333). So it carries the
+four sections of upstream's `.github/pull_request_template.md`, in upstream's
+order, with plain prose inside them, first person singular, the way a
+person writes to a colleague they will meet again:
 
-1. What this changes and why, as a player or a reviewer would say it.
-2. How I tested it: which devices, what I ran, what I saw. Plainly.
-3. What it touches and does not (kernel, bootloader or device tree named
-   if any), and what it depends on, in a sentence.
+1. `## Summary`: what this changes and why, as a player or a reviewer would
+   say it.
+2. `## Testing & Verification`: the devices tested, the build or commit, the
+   steps I ran, what I saw. Plainly.
+3. `## Additional Context & Reviewer Notes`: what it touches and does not
+   (kernel, bootloader or device tree named if any), and what it depends on,
+   in a sentence.
+4. `## AI Assistance Disclosure`: the template's three boxes, **Yes** ticked.
+   The box answers upstream's question and names no assistant; the
+   template's question sentence is not copied, because it names them
+   (D-WORKFLOW-219, the disclosure's answer).
+
+```markdown
+## AI Assistance Disclosure
+
+- [ ] **No** Written entirely without AI tools.
+- [ ] **Partially** AI was used for minor assistance (e.g., refactoring, writing tests, debugging, documentation).
+- [x] **Yes** AI generated a major portion of the code or implementation.
+```
 
 What it never carries:
 
@@ -97,9 +113,11 @@ What it never carries:
   `Co-Authored-By` for one, no Claude, Claude Code or Anthropic anywhere --
   in the body, the commit message, or a comment on the PR. The harness adds
   a footer on its own; delete it before the PR is opened.
-- **Templates.** No bold labels (`**What it carries.**`), no headings, no
-  bullet lists unless they list devices; a template reads generated because
-  it is.
+- **The fork's own template-sounding prose.** No bold labels (`**What it
+  carries.**`), no headings beyond upstream's four, no bullet lists unless
+  they list devices or upstream's template asks for them. Upstream's
+  headings are upstream's asks; anything added to them reads generated
+  because it is.
 - **The fork's plumbing.** No decision IDs, no `tools/…` names, no fork issue
   numbers, no run numbers, no session names, no register vocabulary. A
   reviewer cannot open any of it, and each one says a machine wrote this.
@@ -112,7 +130,7 @@ it matters and what it touches. A second test, from the closing: read it
 aloud as the maintainer; anything they would not say, cut.
 
 **The commit message** of the `pr/*` branch is the title, a blank line, and
-the first paragraph of the description in the same voice, 72 columns; no
+the Summary's paragraph in the same voice, 72 columns; no
 trailer of any kind.
 
 **One PR, one commit, one reviewable size.** Every `pr/*` branch is built
