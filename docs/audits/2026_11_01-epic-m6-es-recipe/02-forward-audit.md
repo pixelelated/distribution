@@ -491,7 +491,7 @@ R14's fields are GENERIC_X64's only. Both devices' stamps are the checker's: ste
 below, and `stamps.txt` in each run's `--out` directory.
 
 ```
-## R11 syntax: bash -n on the seven (expect rc=0 each)
+#### R11 syntax: bash -n on the seven (expect rc=0 each)
 rc=0 emulationstation/package.mk
 rc=0 lowerdeck/package.mk
 rc=0 themes/es-theme-art-book-next/package.mk
@@ -501,7 +501,7 @@ rc=0 emulationstation/sources/serial_number_check
 rc=0 emulationstation/autostart/001-emulationstation
 [R11] rc=0 wall=0s
 
-## R12 pkgcheck by name, positive first, control last
+#### R12 pkgcheck by name, positive first, control last
 find emulationstation: projects/ROCKNIX/packages/ui/emulationstation/package.mk 
 pkgcheck emulationstation rc=0 lines=0 FAIL-lines=0 WARN-lines=0
 find es-theme-art-book-next: projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/package.mk 
@@ -513,12 +513,12 @@ pkgcheck es-theme-no-such-package rc=0 lines=0 FAIL-lines=0 WARN-lines=0
 stdout lines for emulationstation: 0
 [R12] rc=0 wall=0s
 
-## R13 the scratch export, ruling (k) (expect export rc=0, the tip, worktree build roots: 0)
+#### R13 the scratch export, ruling (k) (expect export rc=0, the tip, worktree build roots: 0)
 export rc=0 tip=9fa740a91ba9fcaa21a26cc72f0b50fac10f32df path=/workspace/tmp/m6-t37/export worktree build roots: 0
 export files: 133480 git-in-export: 0
 [R13] rc=0 wall=5s
 
-## R14 effective fields, GENERIC_X64, in the export (named fields only; masked)
+#### R14 effective fields, GENERIC_X64, in the export (named fields only; masked)
 source rc=0 emulationstation
 PKG_VERSION=16dbac5211eea7e70db7394372033be2be7df829
 PKG_URL=https://github.com/pixelelated/emulationstation.git
@@ -575,14 +575,14 @@ STAMP=7dd9f9575727e9fa0082deca6d45084decd44f6adc1a0a3dc7c9e2cf3178d64a
 [call rc=0]
 [R14] rc=0 wall=0s
 
-## R15 the call's writes, named (expect the two cache files in the export; 0 build roots in the worktree)
+#### R15 the call's writes, named (expect the two cache files in the export; 0 build roots in the worktree)
 -rw------- 1 max max 76994 Nov  1 01:05 /workspace/tmp/m6-t37/export/build.pixelelated-GENERIC_X64.x86_64/.cache_package_global
 -rw------- 1 max max 45384 Nov  1 01:05 /workspace/tmp/m6-t37/export/build.pixelelated-GENERIC_X64.x86_64/.cache_package_local
 /workspace/tmp/m6-t37/export/build.pixelelated-GENERIC_X64.x86_64
 worktree build roots: 0
 [R15] rc=0 wall=0s
 
-## R16 the patch reach, GENERIC_X64 and H700, in the export (scripts/unpack:127-159's rule)
+#### R16 the patch reach, GENERIC_X64 and H700, in the export (scripts/unpack:127-159's rule)
 GENERIC_X64/x86_64: emulationstation PATCH_ARCH=x86 PKG_PATCH_DIRS=[] -> patches/x86_64/: NOT REACHED
 GENERIC_X64/x86_64: es-theme-art-book-next PATCH_ARCH=x86 PKG_PATCH_DIRS=[] -> patches/: REACHED
 GENERIC_X64/x86_64: lowerdeck PATCH_ARCH=x86 PKG_PATCH_DIRS=[] -> no patches/ directory with a .patch
@@ -590,7 +590,7 @@ H700/aarch64: emulationstation PATCH_ARCH=aarch64 PKG_PATCH_DIRS=[] -> patches/x
 H700/aarch64: es-theme-art-book-next PATCH_ARCH=aarch64 PKG_PATCH_DIRS=[] -> patches/: REACHED
 H700/aarch64: lowerdeck PATCH_ARCH=aarch64 PKG_PATCH_DIRS=[] -> no patches/ directory with a .patch
 [R16] rc=0 wall=1s
-## R18 the credential names, names and line numbers only (expect count lines: 5)
+#### R18 the credential names, names and line numbers only (expect count lines: 5)
 count lines: 5
 30:SCREENSCRAPER_RUNTIME_DEV_LOGIN
 40:SCREENSCRAPER_DEV_LOGIN
@@ -599,7 +599,7 @@ count lines: 5
 43:GAMESDB_APIKEY
 44:CHEEVOS_DEV_LOGIN
 [R18] rc=0 wall=0s
-## R20 the text checks over the 15, after planted positives
+#### R20 the text checks over the 15, after planted positives
 secret-patterns compile rc=1 (at most 1 compiles)
 planted secret positive: 1 plain: 0
 planted non-ASCII positive: 1
@@ -634,7 +634,7 @@ xml ok projects/ROCKNIX/packages/ui/emulationstation/config/common/es_settings.c
 XML FAILS 0
 [R20] rc=0 wall=0s
 
-## R21 freshness --list, both refs given (expect lines=48 ui=0)
+#### R21 freshness --list, both refs given (expect lines=48 ui=0)
 freshness --list rc=0 lines=48 ui=0
 [R21] rc=0 wall=0s
 ```
