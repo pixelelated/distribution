@@ -74,9 +74,9 @@ reviewer, not additional seats. See Phase 4.6 for selection and evidence.
 
 ## Scope tiers
 
-This skill operates at two of the three retro+audit tiers. The third
-(Phase-tier) lives in the `mini-retro` skill as a lightweight
-scoped-audit step and feeds upward into this skill.
+This skill operates at the Issue, Epic and Milestone tiers (*Choosing a
+tier*, below). The Phase tier lives in the `mini-retro` skill as a
+lightweight scoped-audit step and feeds upward into this skill.
 
 | Tier          | Audit surface                                 | Skill                            | Artifact                                |
 | ------------- | --------------------------------------------- | -------------------------------- | --------------------------------------- |
@@ -626,7 +626,7 @@ punch list is what everyone downstream trusts.
 - Closing the audit issue with checkboxes unticked. The Phase 6 audit
   issue stays open until every item is (a)/(b)/(c) and the checkbox is
   ticked accordingly.
-- Treating P3 items as auto-deferred. P3 items are usually <15min admin
+- Treating Low items as auto-deferred. Low items are usually <15min admin
   cleanups; resolve them in-session by default.
 
 The "complete phase → audit → resolve → begin next phase" loop is the
@@ -637,7 +637,7 @@ e.g. `.claude/rules/issue-tracking.md` — if present).
 
 ## Instruction-Recommendations Mode
 
-> **Mode invoked by:** a repo's product-spec audit phase (if the repo uses product specs), or explicit user request ("audit with instruction recommendations", "what instruction files would have prevented this").
+> **When it runs:** every Epic- and Milestone-scope audit, and on explicit request ("audit with instruction recommendations", "what instruction files would have prevented this").
 
 When invoked in this mode, the auditor adds a dedicated section to `04-analysis.md` titled **"Instruction File Recommendations"** that surfaces two categories of finding:
 
@@ -679,7 +679,7 @@ The auditor MUST NOT make instruction-file edits itself in this mode — recomme
 
 ### When to skip
 
-Skip this mode when the audit scope is a single issue or PR (the 3+ instances rule cannot be evaluated meaningfully at that scope). Always run it for milestone-scope and epic-scope audits — its presence is a row in the recorded quality self-check, so omission is visible drift (adherence had silently decayed to zero between 2026-05-22 and 2026-06-10).
+At a single issue or PR the 3+ instances rule cannot be evaluated meaningfully, so the mode does not run there. At Epic and Milestone scope its presence is a row in the recorded quality self-check, so omission is visible drift (adherence had silently decayed to zero between 2026-05-22 and 2026-06-10).
 
 ---
 

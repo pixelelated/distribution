@@ -1,6 +1,6 @@
 # Code Auditor — Phase Methodology
 
-Authoritative procedure for phases 0–7 (plus the Milestone-tier 2.5 cross-check and the 4.5 finding-verification pass). Load this when executing any phase of an audit.
+Authoritative procedure for every phase in SKILL.md's lifecycle table: 0 to 7, with the Milestone-tier 2.5 cross-check, 4.5's finding verification and 4.6's second opinion. Load this when executing any phase of an audit.
 
 ---
 
@@ -353,7 +353,7 @@ Sibling-A + Sibling-B) plus an **adjacent** instance in
 only the surfaced site would have left the same defect alive in 3+
 other locations.
 
-**Procedure** for every finding flagged in passes 1–3:
+**Procedure** for every finding flagged in Phases 1 to 3 (research, forward, retrospective):
 
 1. Distill the defect to its **shape** (predicate, anti-pattern,
    missing assertion) — not its surface text.
@@ -412,7 +412,7 @@ reference.
 
 ## Phase 4 — Synthesis
 
-**Goal:** Merge findings from all three passes into a single analysis document.
+**Goal:** Merge the findings of Phases 1 to 3 into a single analysis document.
 
 **Output:** `04-analysis.md` — the authoritative audit report.
 
