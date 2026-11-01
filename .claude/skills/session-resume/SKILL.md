@@ -37,12 +37,12 @@ Before trusting the saved state, check:
 
 | Check                                                              | Action if mismatch                                          |
 | ------------------------------------------------------------------ | ----------------------------------------------------------- |
-| Current git branch matches `Branch:` in the state file             | Warn, but proceed. Note the divergence in the briefing.     |
+| Current git branch matches `Branch:` in the state file (a lane reading `next`'s canonical stash is expected to differ) | Otherwise warn, but proceed. Note the divergence in the briefing. |
 | Files listed in "Key Files Modified" still exist                   | Flag any missing. Assume git history has the explanation.   |
-| Age of the state file (`stat` the file, compare with current time) | Report its age; verify live sources on every resume.      |
+| Age of the state (its `Saved:` line, or `git log -1 --format=%cI next -- <the file>` when it is read with `git show`) | Report its age; verify live sources on every resume.      |
 | Working tree is clean (no unrelated in-flight changes)             | Surface anything unexpected before resuming.                |
 | The worktree's rules are `next`'s (`git diff --quiet next -- .claude CLAUDE.md AGENTS.md`), in this repository | Read the rules from `next` before trusting a stale copy; integrate only by the worktree's recorded safe strategy: a session loads the rules of the worktree it starts in (#367). |
-| Issue tracker state (if referenced) has not diverged               | Re-query the tracker and note what changed since the stash. |
+| Issue tracker state has not diverged                               | Re-query the tracker and note what changed since the stash. |
 
 For the tracker check, read the live milestone body and owning issues, including later comments. Resolve current/next work using [`milestone-phase-naming.md`](../../rules/milestone-phase-naming.md); issue numbers and checkpoint age are not priority. If the tracker is unreachable, state that limitation and continue independent authorized work from the last verified plan.
 
@@ -109,7 +109,7 @@ it. The canonical milestone orders work; the snapshot supplies execution detail.
 
 ## Production-operations hardgate
 
-**Session-state "Next Steps" lists are drafts, not authoritative procedures.** Before executing any production-infrastructure operation from a resumed plan (`tofu apply`/`import`, deploy, DB migration on prod, secret rotation, DNS change, container restart on prod, Caddy/Keycloak op), run a five-step grounding: name the operation, find the canonical procedure (the repo's runbook / ADR / design doc), read it end-to-end, triangulate against current reality, and read the design-intent comments in the code being acted upon. The saved state may have missed gates or gone stale — this applies at ANY staleness tier, including `< 1 h`.
+**Session-state "Next Steps" lists are drafts, not authoritative procedures.** Before executing any production-infrastructure operation from a resumed plan (an image published, a device staged or rebooted, a push to an upstream repository, a deletion in someone's cloud), run a five-step grounding: name the operation, find the canonical procedure (the repo's runbook / ADR / design doc), read it end-to-end, triangulate against current reality, and read the design-intent comments in the code being acted upon. The saved state may have missed gates or gone stale — this applies however recent the snapshot is.
 
 ## When the file is malformed or incomplete
 

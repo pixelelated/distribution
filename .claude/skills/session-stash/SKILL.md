@@ -27,7 +27,7 @@ Default path: `.github/sessions/saved-session-state-{branch}.md`
 - Create the `.github/sessions/` directory if it does not exist
 - If the file already exists, you MUST move the old copy to `.github/sessions/archived/saved-session-state-{branch}-{timestamp}.md` before overwriting — this is the most-skipped step; silently overwriting destroys the prior handoff
 
-If the repo has a different convention (look for an existing `sessions/`, `handoff/`, or `.agent-state/` directory), prefer that.
+If the repo has a different convention (look for an existing `sessions/`, `handoff/`, or `.agent-state/` directory), prefer that; this repository's is the next paragraph.
 
 **In this repository (D-WORKFLOW-133, `.claude/rules/learning-capture.md` § 4):** write the full stash to `.github/sessions/saved-session-state-next.md` (committed on the working branch and integrated into `next` using the recorded safe strategy), opening with a **Start here** section for an agent new to the project; leave a pointer at each working branch's own path; then prove it by giving an agent with no context only the repository and asking it to resume.
 
