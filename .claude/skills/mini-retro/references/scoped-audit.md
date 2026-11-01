@@ -289,36 +289,33 @@ final confirmation ratio.
 stale references that surfaced during the phase but don't belong to
 its scope.
 
-**CRITICAL — scope of "full test suite":** "Full" means the **actual
-project-wide test runner output** (e.g. `npx vitest run` with no
-filename arguments for example-api), NOT a domain-scoped subset. Do
-NOT scope to "all tests for the phase's domain" — that's what got
-the M33 P3 retro (2026-04-25) to claim "897/898 passing in the full
-capability suite" while two `e2e-lifecycle-chain.test.ts` cases were
-silently broken in the actual full project suite of 4623 tests
-across 228 files. The Epic-tier audit caught it; the phase-tier
-scoped audit should have. **Always run the unfiltered project test
-runner.**
+**CRITICAL — scope of "full test suite":** "Full" means **every check
+this repository has for what the phase touched, unfiltered**, NOT a
+domain-scoped subset. There is no unit-test suite here (`CLAUDE.md`); the
+checks are the fork's tools in `instruction-files.md` § The fork's own
+tools -- `tools/pkgcheck` for each recipe touched, `tools/vm-qa` with every
+suite for an image, a touched tool's own `*-test`. A retro in the source
+estate reported 897 of 898 passing in a domain subset while two cases of
+the project-wide suite were broken; the Epic-tier audit caught it, and the
+phase-tier scoped audit should have. **Always run the unfiltered checks.**
 
 **Procedure:**
 
-1. Run the **full project test suite**, no filename filters. For
-   example-api: `cd services/example-api && npx vitest run`. For other
-   workspaces, use the equivalent project-wide invocation. Note the
-   total file/test counts in the retro so future readers can verify
+1. Run **every check for what the phase touched**, no filters (above).
+   Note the counts each prints in the retro so future readers can verify
    scope.
 2. Note every failure.
 3. Classify each failure:
    - **In scope** — must be fixed before retro signs off on the phase
-   - **Pre-existing, confirmed** — verified by stashing the phase's
-     edits and re-running against base commit. Documented; added to
-     retro § housekeeping
+   - **Pre-existing, confirmed** — verified by re-running the check at
+     the base commit (the verification protocol below). Documented; added
+     to retro § housekeeping
    - **Pre-existing, new instance** — existed before this phase but
      the phase's changes made it more visible or touched adjacent
      code. Documented; may warrant a housekeeping Backlog or punch-list entry
    - **NEW regression introduced by this phase** — verified by
-     stashing the phase's edits and confirming the test passes
-     against the base commit. **Must be fixed before retro signs off.**
+     confirming the check passes at the base commit (the protocol
+     below). **Must be fixed before retro signs off.**
 4. Grep for stale references in docs (e.g. old version numbers, old
    file paths, old API names) in files touched by the phase.
 5. Confirm any skipped/xfailed tests have active issues or
@@ -345,18 +342,20 @@ rule it out first.
 or commit history alone. The mechanical verification is:
 
 ```bash
-# 1. Stash current work
-git stash
-# 2. Check out the phase's base commit (commit BEFORE the phase started)
-git checkout <base_sha> -- <files_touched_by_phase>
-# 3. Re-run the failing tests
-npx vitest run <failing_test_files>
-# 4. If the test passed at base → NEW regression (must fix)
-#    If the test failed at base → pre-existing (document, defer)
-# 5. Restore working tree
-git checkout HEAD -- <files_touched>
-git stash pop
+# 1. A detached scratch worktree at the phase's base commit (the commit BEFORE the phase started)
+git worktree add --detach /workspace/tmp/<scope>/base <base_sha>
+# 2. Re-run the failing check there, exactly as it failed
+( cd /workspace/tmp/<scope>/base && <the failing check> )
+# 3. If the check passed at base -> NEW regression (must fix)
+#    If the check failed at base -> pre-existing (document, defer)
+# 4. Remove the scratch worktree
+tools/fork-worktree remove /workspace/tmp/<scope>/base
 ```
+
+Never the shared stash: it is shared with the main checkout and every
+worktree, and popping it can apply another session's changes. Never a
+checkout over the working tree, and never a package runner that fetches
+from a registry.
 
 This is mandatory for any failure flagged as "pre-existing." Skipping
 this verification is how regressions get mis-classified as pre-existing.
