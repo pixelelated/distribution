@@ -48,7 +48,10 @@ the frozen inputs, verify the watcher is live, record status/result paths,
 and actively consume completion, failure and stall observations. Provider
 calls remain through the Facilitator at their prescribed phase; making a call
 durable does not authorize concurrent phases or bypass identity checks.
-Submission success is not completion. Do not edit an in-flight tool.
+Submission success is not completion. Do not edit an in-flight tool. The
+owner's pidfile records the payload's own pid, written by the payload from
+inside the detached session: `$!` after `nohup setsid ... &` is `setsid`'s
+exited parent, so a liveness read or a stop by that pid sees nothing.
 
 Before reporting that work continues in the background, verify the named
 process/agent is actually live and state its result-delivery mechanism. A
