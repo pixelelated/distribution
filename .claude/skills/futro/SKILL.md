@@ -210,23 +210,25 @@ Before answering any of the five questions, gather:
   sequential number, a Capability `.kno` schema version, any file with a
   `> **Version:**` header or a changelog the project lints for
   provable-truth), the Step-1 inputs MUST include a divergence check
-  against the integration target: `git fetch origin main` then
-  compare the artifact's version / number on the branch vs. on
-  `origin/main`. A version number is a **claim about history** — if the
-  branch's base is stale, `main` may have independently authored the same
+  against the integration target, `next`, with no fetch: compare the
+  artifact's version / number on the branch with `git show next:<the
+  artifact>`, and read `git log --oneline HEAD..next -- <the artifact>`. A
+  version number is a **claim about history** — if the branch's base is
+  stale, `next` may have independently authored the same
   version (or ADR number) for a different change, and the collision is
   invisible until landing (or until a provable-truth lint flips WARN→FAIL
   on commit). The futro's question-1 assumption list MUST state the
   branch's base freshness explicitly ("this branch is N commits
-  behind `origin/main`; the latest ADR / version on `main` is …"), not
+  behind `next`; the latest row / version on `next` is …"), not
   assume it. **Origin:** a sibling project authored a new version of a
   shared versioned doc on a branch hundreds of commits behind `main`,
   where `main` had independently shipped the same version — caught only
   at the post-close landing review, not by the kickoff futro (whose
   substrate check verified the files _existed_ but never checked _base
   divergence_). In the origin project this was later enforced by a
-  changelog-collision lint; scaffold has no such gate yet, so this
-  mandate makes the futro surface it _anticipatorily_ so the collision
+  changelog-collision lint; here `tools/register-check` refuses a register
+  ID used twice and `tools/work-log-index --check` an index out of date, and
+  this mandate makes the futro surface the rest _anticipatorily_ so the collision
   is designed around, not discovered at landing.
 
 Don't fabricate from memory. A futro written without reading the plan is
