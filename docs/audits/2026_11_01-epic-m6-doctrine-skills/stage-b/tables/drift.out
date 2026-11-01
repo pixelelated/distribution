@@ -1,0 +1,10 @@
+coverage, the export                 rc=0 (want 0) 
+coverage, one file removed           rc=1 (want 1) FAIL the export holds 51 paths, not 52
+q4, the export                       rc=0 (want 0) 
+q4, one byte on an agent             rc=1 (want 1) FAIL pin: .claude/agents/council-member-gpt.agent.md
+q5, the export                       rc=0 (want 0) 
+q5, a description removed            rc=1 (want 1) FAIL q5: session-resume has no description
+q6, the export                       rc=0 (want 0) 
+q6, a skill renamed                  rc=1 (want 1) FAIL q6: the skills are ['begin-delivery', 'code-auditor', 'council', 'council-research', 'developer-relations
+q7, the export                       rc=0 (want 0) 
+q7, a shared section renamed         rc=1 (want 1) FAIL q7: futro has no section '## pixelelated continuation'

@@ -1,0 +1,97 @@
+2026-11-01T03:16:59Z
+== paths the family names, present or absent at HEAD
+absent  .github/agents/trio-council.agent.md
+absent  research/trio-runs
+present research/council-runs
+absent  research/council-research
+absent  docs/architecture/bedrock
+absent  research/council-research/2026-05-24-researcher-federation-substrate
+absent  .github/instructions
+absent  .claude/skills/council/references/step-prompts/step2-peer-review.md
+present .claude/skills/council/references/prompt-templates/step2-template.md
+present .claude/skills/council-research/references/phase-4-council-deliberation.md
+absent  .claude/skills/council/references/phase-4-council-deliberation.md
+5
+== the hooks council-research says enforce its gate
+0
+0
+== a register row for #636 or #638 (L-37)
+0
+== #1045: what it says is missing (L-48)
+1:**From T45's stage B (#692, 2026-10-25 03:16 UTC), filed by the coordinator (D-WORKFLOW-189): what the council toolchain's next export refresh must carry, and how a refresh is done.** D-WORKFLOW-088 makes the toolchain
+4:- **F-14 (Low):** no refresh procedure is written, and the export's pristine bytes are not kept -- only their SHA-256s in `COUNCIL-BUNDLE.SHA256SUMS`; the lane found that no commit of this repository ever held the expo
+7:- **F-07 (Low):** `council-seat-efforts.json`'s `refreshed_at` is 2026-09-28 (27 days at dispatch) and the branch's Argon entry is younger than the stamp; a refresh needs `OPENROUTER_API_KEY` (`lint-council-seat-effort
+10:**Can this be done on the VM?** Yes -- on the host: a written procedure, a kept copy of bytes, a register row, a refresh run by the key's holder; nothing needs a guest.
+15:- [ ] A refresh procedure exists under `.claude/skills/council/` (or `docs/`), naming: where the bundle comes from, the pristine bytes kept (a directory or an archive with its SUMS), the adaptations re-applied in orde
+16:- [ ] The export's pristine bytes for the current bundle are kept where the procedure says, and `sha256sum -c` against `COUNCIL-BUNDLE.SHA256SUMS` passes on them (output quoted here).
+== the wrapper's subcommands (tools/council/run, read from its source)
+33:    invoke)       s=council-invoke.ts ;;
+34:    lint)         s=lint-council-run.ts ;;
+35:    start)        s=council-run-start.ts ;;
+36:    prompt)       s=build-council-prompt.ts ;;
+37:    seal)         s=write-step-seal.ts ;;
+38:    summary)      s=council-run-summary.ts ;;
+39:    verify-pins)  s=verify-pins.ts ;;
+40:    verify-chain) s=verify-chain.ts ;;
+41:    verify-seals) s=verify-seals.ts ;;
+42:    efforts)      s=lint-council-seat-efforts.ts ;;
+43:    drift)        s=check-stale-blob-drift.ts ;;
+44:    test)
+== the Facilitator's options the blocks use (scripts/council-invoke.ts, T45's file, read only)
+--member 1
+--provider 1
+--prompt-file 1
+--prompt 1
+--output 2
+--max-tokens 2
+--max-retries 2
+--source-manifest 1
+--council-research-run-id 1
+--phase 1
+--invoker-agent-name 1
+4
+== the references' reduced-roster sentences (reader item 1)
+HEAD:.claude/skills/council-research/references/model-roster.md:6:there is no fallback to four or three.
+HEAD:.claude/skills/council-research/references/phase-1-independent-research.md:285:| Member's `corpus.provenance.json` is missing                              
+HEAD:.claude/skills/council-research/references/phase-3-adversarial-review.md:584:| Provenance sibling missing for one member's review                          
+HEAD:.claude/skills/council-research/references/phase-4-council-deliberation.md:59:| Active roster             | Inherited from council-research's Setup (do NOT
+HEAD:.claude/skills/council-research/references/phase-5-deliverable.md:172:- Active roster (3, 4, or 5 members; reachability evidence for
+HEAD:.claude/skills/council/references/output-conventions.md:452:- Active roster (3, 4, or 5) and reachability evidence
+== council's pipeline on one-at-a-time and the vote shapes (reader items 2, 7)
+156:2026-09-03 limits audit retired the "one at a time" guidance — it only
+395:- **Plurality winner (2-1-1-1, all five valid ballots):** summarize the reasoning,
+416:3-1-1, 3-2, 2-1-1, and other fragmented narrow wins. Skip by default
+417:for 4-1, 5-0, or any unambiguous wide majority unless the user opts in.
+57:Step 5 with dissent notes carried as supporting context. A 5-0 outcome
+58:is impossible without a self-vote.
+== L-36: the shadow profiles and the Mistral override (scripts/lib/council-roster.ts, T45's file, read only)
+10:  SHADOW_OPENROUTER_SEATS,
+19:// fifth seat. Mistral keeps its recipe for historical runs and a future re-qualification but
+20:// sits in no profile. The two shadows are the other candidates, non-binding by construction.
+22:export type MemberId = (typeof MEMBER_IDS)[number] | "mistral" | "grok" | "deepseek";
+25:  "grok-shadow": ["claude", "gemini", "gpt", "kimi", "grok"],
+26:  "deepseek-shadow": ["claude", "gemini", "gpt", "kimi", "deepseek"],
+35:export function decisionAuthority(profile: CouncilProfile): "definitive" | "non-binding" {
+36:  return profile === "definitive" ? "definitive" : "non-binding";
+59:  decision_authority: "definitive" | "non-binding";
+87:  // The legacy Mistral override remains available to explicit diagnostics, not
+88:  // to an anchored council. No profile carries Mistral since #915, but a set
+90:  if (process.env.OPENROUTER_MISTRAL_MODEL?.trim())
+== L-33, L-42, L-43 at their lines
+    ".claude/skills/council/references/step-prompts/step2-peer-review.md",
+HEAD:.claude/skills/council-research/SKILL.md:492:council skill's `research/trio-runs/` path.
+HEAD:.claude/skills/council-research/references/output-directory-structure.md:31:`research/trio-runs/YYYY-MM-DD-<topic>/`. council-research'
+HEAD:.claude/skills/council-research/references/output-directory-structure.md:36:  already exist) lands under `research/trio-runs/`. The cou
+HEAD:.claude/skills/council-research/references/output-directory-structure.md:53:   keep their natural home at `research/trio-runs/`
+HEAD:.claude/skills/council-research/references/phase-1-independent-research.md:268:  skill's `context-loading.md` makes for `research/trio-
+HEAD:.claude/skills/council-research/references/phase-4-council-deliberation.md:141:`research/trio-runs/YYYY-MM-DD-{topic}/`. For Phase 4 of
+HEAD:.claude/skills/council/references/context-loading.md:124:- `research/trio-runs/` — previous council outputs; reading prior
+HEAD:.claude/skills/council/references/output-conventions.md:25:`research/trio-runs/`. That directory is retained as-shipped for
+HEAD:.claude/skills/council/references/pipeline.md:82:(current council outputs), or `research/trio-runs/` (legacy council
+HEAD:.claude/skills/council-research/references/phase-5-deliverable.md:118:| 1   | `<example claim>`    | Phase 2 synthesis      | `phase-2-
+HEAD:.claude/skills/council-research/references/provenance-schema.md:429:    "docs/architecture/bedrock/kno-foundational-principles.md",
+HEAD:.claude/skills/council/references/context-loading.md:47:  `docs/architecture/bedrock/`
+HEAD:.claude/skills/council/references/context-loading.md:60:- `docs/architecture/bedrock/kno-foundational-principles.md` if the
+== L-47: the work logs' lines naming council-research
+work-log lines naming council-research: 3
+3

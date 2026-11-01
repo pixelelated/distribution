@@ -1,0 +1,30 @@
+2026-11-01T03:25:23Z
+== code-auditor/SKILL.md:278, run with <main-checkout> as this repository (the same objects)
+diff -q SKILL.md rc=0
+the same diff over templates.md, which the block does not read: rc=1
+== mini-retro/SKILL.md:129, run with <base-branch> and <base> as the P1 tip 2174265e9c
+519
+git log rc=0
+=== 463e70e8f5
+12
+=== b0415380ae
+12
+== scoped-audit.md:333's layout: a <service>/src/ tree
+0
+== the scripts the other 26 blocks call, at HEAD
+present scripts/verify-pins.ts
+present scripts/council-run-start.ts
+present scripts/council-invoke.ts
+present scripts/write-step-seal.ts
+present scripts/build-council-prompt.ts
+present scripts/council-run-summary.ts
+absent  scripts/lint-council-research-provenance.ts
+absent  scripts/summarize-council-research-lints.ts
+present tools/council/run
+from "./scripts/lib/council-roster.ts"
+from "node:fs"
+present scripts/lib/council-roster.ts
+absent  node:fs
+present scripts/lib/council-roster.ts
+== the consumer re-hash blocks (council-research/SKILL.md:302, provenance-schema.md:259): a run to hash
+0

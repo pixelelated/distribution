@@ -314,3 +314,57 @@ PROOF: A-08 (tool-run) -- every decision ID the 52 cite resolves in the decided 
 - **The placeholder check before the commit:** the widened pattern of the errata, `__[A-Z0-9_]+__` with the four hash words, written in pieces, prints `0` on the pointer, on this log, on `01` and on every file under this folder.
   - The brief's extracts carry their placeholders filled. In `stage-a/stage-a-block.sh` that is the `CO=` line and chunk 4's comment; in `stage-a/removal.sh`, the command and its comment. Each comment was filled after the run (a comment does not execute), and `stage-a/runs.sh` and `stage-a/membership.sh` equal the brief's `:1129-1218` and `:390-507`.
   - The day's work log's `:39`, in the coordinator's 02:16 entry, names the coordinator's-tip placeholder as a word. That line is the coordinator's; this lane's appended entry carries no match.
+
+### [Stage B] 03:00-03:30 — the reader's pass, then the auditor's read in ruling (j)'s order
+
+- **The coordinator's acceptance of stage A** (issuecomment-6552603604, 02:58 UTC) was read first: start stage B in the named order, a no-context reader per skill before the lane's own read, no edits.
+- **The reader's pass, 03:00:** eleven Explore-type subagents launched at once, each given one directory of the export and nothing else. Each report is saved verbatim as `stage-b/reader-*.md` (`01` § The reader's pass). Two readers say they ran one listing (`ls`, `find`) and nothing else; none ran a command that writes or calls out.
+- **The rules, 03:00-03:02:** read at `3a9b0aec81`. The four the lane's commands depend on were read in their changes at stage A. `council-substrate-integrity.md`, never loaded this session, was read by `git show` (`01` § Read order). The lint's own contract was read from its source at the tip; its `ANALYSIS_SECTIONS` comparison is `sec.lower() in analysis.lower()`, which settles open item 2.
+- **The auditor's read, 03:03-03:20,** each skill after its reader. The notes are `stage-b/notes-*.md`; each check a note called for is a script under `stage-b/` with its output, first line the `date -u` of the run:
+  - `checks-code-auditor` 03:06:18;
+  - `checks-mini-retro` 03:08:18;
+  - `checks-futro` 03:10:12;
+  - `checks-sessions` 03:11:25;
+  - `checks-writing-pair` 03:13:15;
+  - `checks-council` 03:16:59;
+  - `floor-reads` 03:18:53;
+  - `blocks` 03:25:23.
+
+  Each exited 0, except `blocks.sh`, whose last command is a `grep -c` printing `0`.
+- **The tables, 03:21-03:24:** `tools/t38-tables.py` (`coverage`, `q4`, `q5`, `q6`, `q7`), with outputs under `stage-b/tables/`.
+  - Each subcommand exited 0 on the export and 1 on its constructed drift (`tools/t38-tables-drift.sh`, `stage-b/tables/drift.out`, run at 03:24:02 and again after the `q6` fix).
+  - Two generator defects were met and fixed before any table was trusted: `q4`'s pattern for a phrase that wraps a line, and `q6`'s profiles, which omitted `definitive`.
+  - The drift script's first run printed a harness error (its scratch did not exist); fixed, and re-run whole.
+- **Corrected in the record before commit:**
+  - `notes-futro.md` had said #1556 and #1558 name other issues on this tracker; they are above 1385, and the note says so;
+  - `04`'s summary had typed two figures; both are now the computed `7,234` lines, ten descriptions, and `50` leads owned by the T38 stream (`stage-b/summary-figures.sh` and `.out`).
+
+PROOF: B-01 (tree) -- L-02: `code-auditor/SKILL.md`'s floor says three rules and numbers five 1, 2, 3, 4, 3 (`stage-a/runs.out` chunk 5); the import `437ebd09af` had three (`116:3.`), and `9a09b76dd9` inserted two without renumbering (`stage-b/checks-mini-retro.out`). A FAIL would have been a numbering of 1 to 5, or the count matching it.
+PROOF: B-02 (tree) -- L-11: `tools/fork-publish-release:6-7` at the tip says `No upload, tag creation, asset replacement or publication occurs.` (`stage-b/checks-writing-pair.out`). A FAIL would have been an upload path in the tool's source, making the skill's *uploads the files* true.
+PROOF: B-03 (tree) -- L-56: `phases.md:439`, `:486-491`, `SKILL.md:247`, `:508` and `review-levels.md:9` fail Phase 4.6 closed at epic tier, while `templates.md:129-146` and the lint accept Local there (A-01); #810's checkbox names `templates.md` alone (`stage-b/checks-code-auditor.out`). A FAIL would have been any of the five naming D-WORKFLOW-184's exception.
+PROOF: B-04 (tool-run) -- L-52: `git grep -c -E 'pre-issue|--phase'` over `code-auditor` printed nothing, rc 1. A FAIL would have been a line: the skill naming the pre-issue phase.
+PROOF: B-05 (tree) -- L-60: the lint compares `sec.lower() in analysis.lower()`, so `## Acceptance Criteria Scorecard` misses `Acceptance-criteria scorecard` and the other two headings pass by case. A FAIL would have been a normalising comparison, making all three pass.
+PROOF: B-06 (tool-run) -- L-10: the work logs, the friction log, the retros, the futros and the audit folders name `git stash pop` or `npx vitest` nowhere but this slice's stage-A output (`stage-b/checks-mini-retro.out`). A FAIL would have been a session's record of the block run: an `Already written:` to migrate.
+PROOF: B-07 (tool-run) -- L-13: `gh repo set-default --view` printed `No default remote repository has been set`, with `upstream` pointing at ROCKNIX (`stage-b/checks-futro.out`). A FAIL would have been a default of `pixelelated/distribution`, filling `{owner}/{repo}` correctly here.
+PROOF: B-08 (tool-run) -- L-66: `origin/main rc=1`, `main rc=1`. A FAIL would have been either at rc 0.
+PROOF: B-09 (tool-run) -- L-58: #2299, #2634, #2382, #2952, #3059, #2510, #2674, #2302, #2289, #2387, #1556, #1558, #2373, #2545, #2647 and #2648 resolve to nothing (the tracker's highest is 1385), and `#203` resolves to `Launching a game while saves sync ...`. A FAIL would have been an issue of this tracker that is the citation's.
+PROOF: B-10 (tree) -- L-30: `.githooks/` holds `0` council hooks and `0` files naming the council-research lints. A FAIL would have been the two hooks `council-research/SKILL.md:407-411` says exist.
+PROOF: B-11 (tree) -- L-32 withdrawn: `council-research/references/phase-4-council-deliberation.md` is present and `council/references/phase-4-council-deliberation.md` absent, and the sentence at `council/SKILL.md:188-190` names council-research as its subject. A FAIL would have been the path under council, or the sentence naming council.
+PROOF: B-12 (tree) -- L-35 narrowed: each agent's relative `references/member-roster.md` is named *"the council skill's"* in its sentence, and three write the repo-rooted path. A FAIL would have been a bare relative path.
+PROOF: B-13 (history) -- L-19 corrected: `session-stash/SKILL.md:32` reads `prove it by giving an agent with no context only the repository and asking it to resume`, from `d8df0877a4`. A FAIL would have been no such sentence.
+PROOF: B-14 (tree) -- L-08's delta: `docs/retrospective` is present at HEAD, the P1 tip, `next` and the coordinator's tip, holding one file, `carry-forward.md`. A FAIL would have been absent, as the brief records.
+PROOF: B-15 (tool-run) -- the counts a skill states, recomputed by `tools/t38-tables.py q4` (c): eight `no`, two `yes`. A FAIL would have been a stated count equal to its recomputation.
+PROOF: B-16 (tool-run) -- the duplicates by `tools/t38-tables.py q7`: *pixelelated continuation* `identical, 10 lines` twice, the criterion entry `9 line(s) differ`. A FAIL would have been a difference in the first, or none in the second.
+PROOF: B-17 (tree) -- L-69's Already written: the canonical stash on `next` opens `8:## Start here`. A FAIL would have been no *Start here*: a stash already written by the template's gap.
+PROOF: B-18 (tool-run) -- L-37: `0` register rows name #636 or #638. A FAIL would have been a row.
+PROOF: B-19 (tool-run) -- every table generator printed rc 0 on the export and rc 1 on its constructed drift, ten lines each at its wanted exit (`stage-b/tables/drift.out`). A FAIL would have been a drift a generator printed without failing.
+PROOF: B-20 (tool-run) -- L-53: Phase 0's `diff -q` over `SKILL.md` printed `rc=0` while the same diff over `templates.md` printed `rc=1` (`stage-b/blocks.out`). A FAIL would have been the check reading the references too.
+PROOF: B-21 (tool-run) -- the roster agrees across `adversarial-council.md:77-78`, `member-roster.md` and the five active agents, five `yes` (`tools/t38-tables.py q4` (e)). A FAIL would have been a `no`, which the generator exits 1 on.
+PROOF: B-22 (history) -- L-67: *"Apply four techniques"* came with `437ebd09af`, and the fifth bullet with `3624e2e329` (`stage-b/checks-futro.out`). A FAIL would have been the count moved with the bullet.
+PROOF: B-23 (tool-run) -- L-18: `0` files under `tools/` or `.githooks/` name `saved-session-state` or `sessions/archived`. A FAIL would have been a tool that archives or refuses.
+PROOF: B-24 (history) -- L-11's dates: the skill's sentence `9404f23c55` (2026-09-29), the tool's *no upload* `f10eec1306` (2026-10-09) (`stage-b/checks-writing-pair-2.out`). A FAIL would have been the tool's change before the skill's sentence: false from the day it was written.
+
+### [Stage B] census
+
+No build, no compiler, no guest, no fetch, no council run, no Facilitator call, no `tools/council/run`, no `npm install`, no keyed call, no skill invoked against a provider, no held directory opened, no line in the host file. The only writes are under this folder, `/workspace/tmp/m6-t38/` (the drift copies at `/workspace/tmp/m6-t38/drift/`, retired at stage H), and `.qa-scratch/t38/`. Nothing under `.claude/` was edited.
+- **The last line of stage B (`date -u` 03:33:20):** `git status --short -- .claude/agents .claude/skills` printed 0 lines.

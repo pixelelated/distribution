@@ -283,13 +283,56 @@ fa6bcdafa8
 
 ## § Read order
 
-**The order the dispatch fixes** (ruling (j); open item 1, answered by the dispatch and the errata):
-1. **Cluster 2's six:** `code-auditor`, `mini-retro`, `futro`, `session-resume`, `session-stash`, `begin-delivery`.
-2. **The writing pair,** between the two clusters: `developer-relations` and `release-notes`.
-3. **The council family:** `council`, `council-research` and the eight agents, read and never edited.
+**The two clusters** (R1 § 6, read again here):
+- **By path,** `council`, `council-research` and the eight agents name each other, and the six workflow skills name only themselves.
+- **By name,** `begin-delivery` <-> `futro` <-> `mini-retro` <-> `code-auditor` is one cluster, joined to the council family by a handful of lines. `stage-b/tables/q6.md`'s *Other skills naming it* counts each skill's name in the other skills' files: `code-auditor` 38, `council` 85, `futro` 27, `mini-retro` 23, `begin-delivery` 22.
+- **The writing pair** names only itself and `es-player-text.md`.
 
-Stage B records here the two clusters (R1 § 6) and the order the reading took, as it takes it.
+**The order the reading took** (ruling (j); open item 1 answered by the dispatch and the errata), each step after the reader's pass for that skill, every time from the export at the dispatch tip:
+1. `code-auditor` -- `SKILL.md`, `phases.md`, `templates.md`, `anti-patterns.md`, `review-levels.md`, whole (`stage-b/notes-code-auditor.md`, `checks-code-auditor.*`).
+2. `mini-retro` -- `SKILL.md`, `scoped-audit.md`, `template.md`, whole (`notes-mini-retro.md`, `checks-mini-retro.*`).
+3. `futro` -- `SKILL.md`, `techniques.md`, `template.md`, `blindspot-register.md`, whole (`notes-futro.md`, `checks-futro.*`).
+4. `session-resume`, then `session-stash`, whole (`notes-sessions.md`, `checks-sessions.*`).
+5. `begin-delivery`, whole (`notes-begin-delivery.md`).
+6. The writing pair: `developer-relations`, then `release-notes`, whole (`notes-writing-pair.md`, `checks-writing-pair*`).
+7. The council family, read and never edited (`notes-council-family.md`, `council-lines.*`, `checks-council.*`):
+   - `council/SKILL.md`, `IMPORTED-FROM.md`, `COUNCIL-BUNDLE.md` and `member-roster.md` whole;
+   - `council-research/SKILL.md` whole;
+   - the eight agents (`claude` whole, the four other active seats and `mistral` as their diffs against it, `deepseek` and `grok` whole);
+   - the other references at the lines the leads and the readers name.
+
+**The rules the work touches, read this session at `3a9b0aec81`:**
+- `adversarial-council.md` (`:36-38`, `:49-58`, `:77-78`), `release-candidates.md` (`:71-76`), `device-builds.md` (`:596-597`, and its changes since the session's start);
+- `ceremonies.md` (the marker table), `learning-capture.md` (§ 3, § 4), `issue-tracking.md`, `worktrees.md`, `engineering-practices.md` (its changes since the session's start: `rc=$?` on its own line, the widened mask, a count as a claim about one tree, a stub checked against the unfixed text);
+- `working-principles.md` § Enforcement depth, `instruction-files.md` (its changes), `decision-register.md`, `upgrade-and-install.md` § Every fix answers what was already written, `bugs-are-agent-first.md`, `vm-first.md`, `time-to-play.md`;
+- `council-substrate-integrity.md`, the one rule not loaded at the session's start, read by `git show` at the lines L-50 needs.
+
+The rules outside the 9 changed files equal the session's loaded copies byte for byte (`git diff --quiet 52e6794ba7 3a9b0aec81`, the list in `00`).
+
+**The rest of § 3's floor** (`stage-b/floor-reads.*`):
+- the blindspot register at `:4`, `:10`, `:18`, `:30`, `:36`, `:37`, `:915`, `:1089`, `:1134`, `:1215`;
+- the friction log at its ten lines;
+- T4's `05-punch-list.md:568` (`deferred:#685`);
+- T4's `04-analysis.md:705-892` (the table of every path a rule or register line cites: `15` rows name the 52);
+- the doctrine futro's T38 kickoff addendum (`:472` on);
+- #314 `:14`, #287 `:16` and L-27's checkboxes (`checks-writing-pair.out`).
 
 ## § The reader's pass
 
-Stage B's (§ 5 rule 5): one no-context read-only subagent per skill, given that skill's files at the dispatch tip and asked what it would have had to ask. Its questions are leads for Q7, each re-read by the lane before it becomes a row.
+Eleven no-context read-only subagents (Explore type), one per skill and one for the eight agents. Each was given only its directory of the export and asked what it would have had to ask (brief § 5 rule 5). Their reports are `stage-b/reader-*.md`, verbatim: leads, never evidence. Each item that became a row of `02` was re-read by the lane at its lines first; an item that did not is one the lane read and found answered by the text or the brief.
+
+| Skill | Reader's file | Items | Its one-sentence reading | The items that became leads |
+| --- | --- | ---: | --- | --- |
+| `code-auditor` | `reader-code-auditor.md` | 15 | verifies, with a second model, that work claimed complete meets its criteria and rules | 1 (L-02), 2, 3 (L-85), 4 (L-59), 5 (L-52), 6 (L-15), 8 (L-03), 9 (L-57), 10 (L-56), 11 (L-15), 14 (L-62), 15 (L-12) |
+| `mini-retro` | `reader-mini-retro.md` | 15 | turns a finished phase's lessons into edits, issues or comments | 1 (L-81), 2 (L-63), 4, 5, 6 (L-81), 7 (L-55), 9 (L-15), 10 (L-10), 11 (L-81), 15 (L-64, L-65) |
+| `futro` | `reader-futro.md` | 15 | finds a plan's traps before work starts | 1 (L-67), 2 (L-67), 3 (L-15, L-58), 4 (L-82), 5 (L-75), 6 (L-82), 9 (L-82), 10 (L-15), 14 (L-82) |
+| `session-resume` | `reader-session-resume.md` | 12 | decides which saved state is the handoff and how far to trust it | 4 (L-09), 5, 6, 7 (L-84), 10, 11 (L-84) |
+| `session-stash` | `reader-session-stash.md` | 12 | saves the session's state so a fresh agent can resume | 1 (L-68), 3 (L-19), 4 (L-69), 5 (L-84), 8 (L-84) |
+| `begin-delivery` | `reader-begin-delivery.md` | 15 | decides whether an Execution Epic may start and what it starts with | 3, 4, 6 (L-63), 8, 11 (L-83), 13 (L-12, L-83), 14 (L-15, L-58) |
+| `developer-relations` | `reader-developer-relations.md` | 12 | sets how a rocknix.org page reads, in the site's voice | 8, 9, 12 (L-79) |
+| `release-notes` | `reader-release-notes.md` | 12 | sets the shape of a release note and a PR description | 1 (L-70), 2, 3 (L-80), 6, 9 (L-80) |
+| `council` | `reader-council.md` | 15 | picks one plan of five through analysis, review, revision and votes | 1 (L-38), 2, 3, 7, 10, 15 (L-77); 4, 5 (L-38, L-39); 14 (L-76) |
+| `council-research` | `reader-council-research.md` | 15 | runs research across five models before a council deliberates | 1 (L-76), 3 (L-38), 14 (L-30, L-31) |
+| the agents | `reader-agents.md` | 15 | pin one provider model to each of five seats; three are historical | 1 (L-40), 3 (L-41), 10 (L-41), 15 (L-38) |
+
+The readers' first answers -- what each skill decides and when to open it -- all match the skills' own descriptions. The stumbles are where the bodies are not as clear as the descriptions. Four of the eleven asked which repository they were in (`code-auditor` 6, `mini-retro` 9, `futro` 10, `begin-delivery` 14), the strongest single signal for L-15.

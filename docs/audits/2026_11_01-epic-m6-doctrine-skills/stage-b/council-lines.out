@@ -1,0 +1,144 @@
+-- council/references/model-verification.md:16
+**Substrate-of-record:** direct-API via the **Council Facilitator**
+-- council/references/model-verification.md:63,69
+| Member  | Provider HTTPS endpoint                                                                                   | Model returned in response               |
+| ------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| claude  | `api.anthropic.com/v1/messages` (with `thinking.type=adaptive`, `output_config.effort=high`)              | `model: "claude-fable-5-1"`              |
+| gpt     | `cognitiveservices.azure.com/openai/deployments/gpt-5.5/chat/completions` (with `reasoning_effort=xhigh`) | `model: "gpt-5.5-<datecode>"`            |
+| gemini  | `generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent`                  | `modelVersion: "gemini-3.8-flash"` |
+| kimi    | `cognitiveservices.azure.com/openai/deployments/Kimi-K2.6/chat/completions`                               | `model: "Kimi-K2.6"`                     |
+| mistral | `cognitiveservices.azure.com/openai/deployments/Mistral-Large-3/chat/completions`                         | `model: "mistral-large-3"`               |
+-- council/references/model-verification.md:336,340
+| Mechanism                     | What it shows                                                                                                         | Where it lives                                                    
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------
+| **Cache Explorer** (Preview)  | Per-turn model name, cache hit %, duration, timestamp                                                                 | Agent Debug Log panel → Cache Explorer tab                      
+| **Agent Flow Chart**          | Visualises the subagent call tree for a turn                                                                          | Agent Debug Log panel → Agent Flow Chart tab                    
+| **Chat Debug view**           | Raw system prompt, user prompt, context, tool payloads                                                                | Right-click in Chat view → Diagnostics / Open Chat Debug        
+-- council/references/model-verification.md:385
+   `gpt-5.5-2026-04-24` PASSes against declared `gpt-5.5
+-- council/references/model-verification.md:538,542
+- [`.vscode/settings.json`](../../../../.vscode/settings.json) —
+  the two file-logging keys the legacy Copilot-subagent path depends on
+- the agent-file conventions reference (the source estate's repository, docs/reference/)
+  — documents the prioritized-array `model:` form repo-wide
+- [`scripts/lint-agent-model-arrays.ts`](../../../../scripts/lint-agent-model-arrays.ts)
+-- council/references/pipeline.md:62,64
+   Live publishing requires the in-tree Forge preflight to report `ready`,
+   selects that same machine credential by file reference, and reads back
+   the remote ref before recording `verification/anchor-receipt.json`.
+-- council/references/pipeline.md:155,157
+seat land. Each member reads identical input regardless of ordering (the
+2026-09-03 limits audit retired the "one at a time" guidance — it only
+added wall-clock). For each member:
+-- council/references/pipeline.md:202,206
+1. Write the Step 1 seal, then lint, then verify. The seal comes FIRST:
+   on genesis-anchored runs the ledger exists from the Setup probes
+   onward, so `lint-council-run --at-step N` requires the step seal to
+   already exist and fails with `seal-missing` if linted pre-seal
+   (observed 2026-08-17, q3q4 run, step 1 boundary).
+-- council/references/pipeline.md:458,460
+After the user selects (or accepts) a winning plan, the orchestrator creates
+or updates the corresponding **Forge** issue through the estate's approved
+machine route. Reconcile existing stories instead of creating duplicates;
+-- council/references/pipeline.md:468
+  `product-specs` skill conventions
+-- council/references/pipeline.md:496,497
+project's normal per-issue workflow (`issue-workflow.instructions.md`)
+and the `begin-delivery` / `begin-exploration` / `mini-retro` / `futro` skills.
+-- council/references/context-loading.md:47
+  `docs/architecture/bedrock/`
+-- council/references/context-loading.md:60
+- `docs/architecture/bedrock/kno-foundational-principles.md` if the
+-- council/references/context-loading.md:120,126
+Members MUST NOT read files under:
+
+- `research/archive/` — superseded research; reading it biases toward
+  abandoned approaches
+- `research/trio-runs/` — previous council outputs; reading prior
+  council deliberations biases the current one toward earlier
+  conclusions
+-- council/references/context-loading.md:198,199
+before treating a large-packet failure as a streaming defect. Search both
+`research/council-research/` and `research/council-runs/`, including relevant
+-- council/references/output-conventions.md:25
+`research/trio-runs/`. That directory is retained as-shipped for
+-- council/references/output-conventions.md:131
+  New runs use the installed `FACILITATOR_VERSION` (1.6.0 for this adoption),
+-- council/references/output-conventions.md:452
+- Active roster (3, 4, or 5) and reachability evidence
+-- council-research/references/methodology-primitives.md:224
+`scripts/lint-council-research-replay-metadata.ts`.
+-- council-research/references/phase-1-independent-research.md:107,122
+`scripts/council-invoke.ts` (the Council Facilitator). The orchestrator
+is **forbidden** from invoking members via `runSubagent`, `curl`,
+ad-hoc `fetch`, MCP provider tools, or any other path that bypasses the
+Facilitator. The Facilitator is the provenance and model-verification
+wrapper; bypassing it produces untrusted artifacts and silently
+collapses substrate diversity to the orchestrator's own model (see
+the 2026-05-22 model-identity-verification run log (the source estate's repository, research/council-runs/)
+Finding #1 — `runSubagent` cost-tier ceiling silently substitutes
+orchestrator substrate for pinned member substrate).
+
+The Facilitator runs in the orchestrator's terminal — not as a subagent
+— so the invocation surface for Phase 1 is `run_in_terminal` calling
+`npx tsx scripts/council-invoke.ts ...`. The five council-member
+`.agent.md` files are descriptive metadata (substrate pinning,
+identity, prompt-shaping conventions); they are NOT a dispatcher
+surface and `runSubagent` against them is the documented failure mode.
+-- council-research/references/phase-1-independent-research.md:142
+[`scripts/lint-council-research-provenance.ts`](../../../scripts/lint-council-research-provenance.ts)
+-- council-research/references/phase-1-independent-research.md:150,154
+| 1    | retries exhausted, transient         | pause; surface to user; consider falling back to (N-1) roster                           |
+| 2    | retries exhausted, empty content     | same as 1                                                                               |
+| 3    | model mismatch, no retry             | **HALT.** Substrate did not match pin. Do NOT proceed. Re-evaluate Facilitator routing. |
+| 4    | local config error (env vars, paths) | fix the local config; re-invoke                                                         |
+| 5    | permanent provider error             | pause; surface to user; consider falling back to (N-1)                                  |
+-- council-research/references/phase-1-independent-research.md:266,268
+- Any prior `research/council-research/<earlier-topic>/` directory
+  (would bias the current deliberation — same exclusion the council
+  skill's `context-loading.md` makes for `research/trio-runs/`)
+-- council-research/references/phase-1-independent-research.md:285
+| Member's `corpus.provenance.json` is missing                                              | File absence at end-of-invocation                                                                                             
+-- council-research/references/phase-2-clinical-synthesis.md:110
+(see [`.claude/agents/researcher.agent.md`](../../../agents/researcher.agent.md)
+-- council-research/references/phase-2-clinical-synthesis.md:246
+- [`.claude/agents/researcher.agent.md`](../../../agents/researcher.agent.md) — the Researcher Agent's full methodology
+-- council-research/references/phase-3-adversarial-review.md:104,111
+**Default for sequenced bedrock / registry runs.** When a new run belongs
+to a family that has already demonstrated semantic self-fingerprint, the
+orchestrator SHOULD start Phase 3 with the `R<N>-200+` semantic-neutral
+contract instead of waiting for another claim-card failure. If the
+orchestrator chooses the lighter claim-card contract anyway, the reason
+must be recorded in the Phase 3 replay plan or gate artifact before any
+member invocation. A bare "no prior failure in this exact run" rationale
+is insufficient once the failure class is known across the family.
+-- council-research/references/phase-3-adversarial-review.md:170
+`scripts/lint-council-research-replay-metadata.ts`:
+-- council-research/references/phase-3-adversarial-review.md:584
+| Provenance sibling missing for one member's review                                            | File absence                                                                                 | Pause; emit; if cannot, dec
+-- council-research/references/phase-4-council-deliberation.md:59
+| Active roster             | Inherited from council-research's Setup (do NOT re-detect mid-run; if Phase 1 used 5, 4, or 3 members and Phase 3 used that same locked roster, Phase 4 uses that roster)                     
+-- council-research/references/phase-5-deliverable.md:118
+| 1   | `<example claim>`    | Phase 2 synthesis      | `phase-2-synthesis/07-{topic}-synthesis.md` § Key Findings § Theme 1                   | `docs/architecture/bedrock/kno-foundational-principles.md` § P10    | St
+-- council-research/references/phase-5-deliverable.md:172
+- Active roster (3, 4, or 5 members; reachability evidence for
+-- council-research/references/model-roster.md:3,6
+Council-research requires the same **five verified members** as the council
+skill. The roster is locked at Setup for all member phases. A missing,
+incomplete or unverified member halts the run for diagnosis and repair;
+there is no fallback to four or three.
+-- council-research/references/model-roster.md:26,27
+Phase 2 (clinical synthesis) is executed by the **Researcher Agent**
+(`.claude/agents/researcher.agent.md`), NOT by the council-member-\* members.
+-- council-research/references/provenance-schema.md:424
+  "invoker_agent_name": "council-research orchestrator (Claude Opus 4.8 (copilot))",
+-- council-research/references/provenance-schema.md:587
+  "agent_name": "council-research orchestrator (Claude Opus 4.8 (copilot))",
+-- council-research/references/provenance-schema.md:594
+    ".claude/skills/council/references/step-prompts/step2-peer-review.md",
+-- council-research/references/provenance-schema.md:640
+  "agent_name": "council-research orchestrator (Claude Opus 4.8 (copilot))",
+-- council-research/references/output-directory-structure.md:36
+  already exist) lands under `research/trio-runs/`. The council skill
+-- council-research/references/output-directory-structure.md:53
+   keep their natural home at `research/trio-runs/`

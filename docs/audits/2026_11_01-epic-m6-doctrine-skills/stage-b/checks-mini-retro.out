@@ -1,0 +1,38 @@
+2026-11-01T03:08:18Z
+== L-02's history: when each floor rule arrived (code-auditor/SKILL.md)
+-- -S'Run it on a device, not on the host':
+9a09b76dd9 2026-08-24 skills: adapt code-auditor to this repo before running it
+-- -S'An assertion that cannot fail is not evidence':
+9a09b76dd9 2026-08-24 skills: adapt code-auditor to this repo before running it
+93:Three hard rules apply to every verdict at every tier:
+95:1. **Tracker state is never sole evidence.** Issue state, checked AC
+100:2. **Mechanical evidence outranks reading.** Where an AC is enforced
+116:3. **Subagent output is a LEAD, never EVIDENCE.** Per scaffold's development
+== the scoped audit's checks, per file
+10
+9
+6
+9
+== links and paths the read names
+absent  docs/architecture/cornerstone-conformance.md
+absent  .claude/skills/mini-retro/reference/template.md
+present .claude/skills/mini-retro/references/template.md
+present docs/retrospective
+absent  logs/audits
+absent  docs/planning
+== another estate's issue numbers
+GraphQL: Could not resolve to an issue or pull request with the number of 2510. (repository.issue)
+GraphQL: Could not resolve to an issue or pull request with the number of 2674. (repository.issue)
+GraphQL: Could not resolve to an issue or pull request with the number of 2302. (repository.issue)
+GraphQL: Could not resolve to an issue or pull request with the number of 2289. (repository.issue)
+GraphQL: Could not resolve to an issue or pull request with the number of 2387. (repository.issue)
+== the markers ceremonies.md reads, and how many the record holds
+7
+17
+== L-10's Already written: the record's mentions of the block's commands
+HEAD:docs/audits/2026_11_01-epic-m6-doctrine-skills/stage-a/runs.out:58:14:npx vitest run <failing_test_files>
+HEAD:docs/audits/2026_11_01-epic-m6-doctrine-skills/stage-a/runs.out:59:19:git stash pop
+HEAD:docs/audits/2026_11_01-epic-m6-doctrine-skills/stage-a/runs.sh:25:git show HEAD:.claude/skills/mini-retro/references/scoped-audit.md | sed -n '340,365p' | 
+2
+== the futro/mini-retro continuation sections, byte for byte
+futro :26-35 = mini-retro :26-35

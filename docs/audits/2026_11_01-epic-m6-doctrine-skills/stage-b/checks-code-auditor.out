@@ -1,0 +1,59 @@
+2026-11-01T03:06:18Z
+== intent, by git log -S (oldest last)
+-- -S'Three hard rules':
+437ebd09af 2026-07-25 skills: add six agent workflow skills to the personal overlay
+-- -S'Subagent output is a LEAD, never EVIDENCE':
+437ebd09af 2026-07-25 skills: add six agent workflow skills to the personal overlay
+-- -S'Twelve recorded':
+9a09b76dd9 2026-08-24 skills: adapt code-auditor to this repo before running it
+-- -S'randomly-chosen':
+437ebd09af 2026-07-25 skills: add six agent workflow skills to the personal overlay
+-- -S'Trust them; do not re-derive':
+437ebd09af 2026-07-25 skills: add six agent workflow skills to the personal overlay
+-- -S'scaffold has none today':
+437ebd09af 2026-07-25 skills: add six agent workflow skills to the personal overlay
+-- -S'tier_exception':
+fa6bcdafa8 2026-10-24 lint-audit-artifacts: accept Local depth at epic tier under D-WORKFLOW-184 (#810)
+-- -S'subagents do not inherit terminal access':
+437ebd09af 2026-07-25 skills: add six agent workflow skills to the personal overlay
+-- -S'agent-terminal-safety':
+437ebd09af 2026-07-25 skills: add six agent workflow skills to the personal overlay
+== where each string sits now
+HEAD:.claude/skills/code-auditor/SKILL.md:370:| **Subagent tool**                          | Useful for parallel read-on
+HEAD:.claude/skills/code-auditor/references/phases.md:60:  verdicts (Evidence floor rule 3). No terminal ops (`git`, `np
+pre-issue/--phase in code-auditor: grep rc=1 (1 = none)
+HEAD:.claude/skills/code-auditor/SKILL.md:9:  adapted: 'v1.13 2026-10-06 continuous authorized execution across checkpoints, durable monitored long co
+HEAD:.claude/skills/code-auditor/SKILL.md:62:starting. [Review levels](references/review-levels.md) defines local-only,
+HEAD:.claude/skills/code-auditor/references/phases.md:489:substitute a same-lab reviewer. Local-only Issue audits explicitly record Phase
+HEAD:.claude/skills/code-auditor/references/review-levels.md:9:| Local | Primary auditor only; no external calls | A bounded Issue/PR check during imp
+HEAD:.claude/skills/code-auditor/references/review-levels.md:33:| First fork release, storage/cloud migration, updater/boot-chain or security-boundary
+HEAD:.claude/skills/code-auditor/references/review-levels.md:41:For #375 the completed local evidence remains a Milestone readiness review;
+HEAD:.claude/skills/code-auditor/references/review-levels.md:59:to local-only, reuse the primary model in another role, or label two/three
+== agent-terminal-safety anywhere in the tree
+0
+HEAD:.claude/skills/code-auditor/SKILL.md
+HEAD:.claude/skills/council-research/references/phase-1-independent-research.md
+HEAD:.claude/skills/council-research/references/phase-3-adversarial-review.md
+== the duration the widened pattern misses
+HEAD:.claude/skills/begin-delivery/SKILL.md:256:- Treating P3 items as auto-deferred — they are usually <15min admin c
+HEAD:.claude/skills/code-auditor/SKILL.md:612:- Treating P3 items as auto-deferred. P3 items are usually <15min admin
+== the blindspot register's numbered entries at HEAD
+48
+## 76.
+== another estate's issue numbers, on this tracker
+GraphQL: Could not resolve to an issue or pull request with the number of 2299. (repository.issue)
+GraphQL: Could not resolve to an issue or pull request with the number of 2634. (repository.issue)
+GraphQL: Could not resolve to an issue or pull request with the number of 2382. (repository.issue)
+GraphQL: Could not resolve to an issue or pull request with the number of 2952. (repository.issue)
+GraphQL: Could not resolve to an issue or pull request with the number of 3059. (repository.issue)
+highest issue number: 1385
+== #810 and #375
+OPEN
+and `.claude/skills/code-auditor/references/templates.md` line 129: *"Use `depth: local`, `reviewers: []` only for an explicitly local Issue audit."*
+- [ ] `templates.md`'s sentence at its line 129 says the same: Local is for an explicitly local Issue audit, or for an Epic-tier slice whose plan row says Local (D-WORKFLOW-184) with `tier_exception` and `reason` in the 
+#375 CLOSED Review Rasteratops 0.0.1 code, VM failures and candidate readiness
+== tools/council/run: present, and its invoke options read from its source (never run)
+tools/council/run present
+10:#   invoke    scripts/council-invoke.ts        one member, one prompt, one output + provenance
+33:    invoke)       s=council-invoke.ts ;;
+46:        "$TSX" --test scripts/__tests__/council-invoke-routing.node-test.ts

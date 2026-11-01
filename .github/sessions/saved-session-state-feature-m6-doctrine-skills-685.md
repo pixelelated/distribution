@@ -17,32 +17,23 @@
 
 ## Current focus
 
-**Stage A is done; stage B is next, on the coordinator's read of the
-stage-A checkpoint on #685.** The audit folder is
-`docs/audits/2026_11_01-epic-m6-doctrine-skills/`. Its running log `00` holds
-the lint's Local proof first (A-01: `rc=0` `PASS`; with `tier_exception`
-removed, `rc=1` and the FAIL line), then the proofs A-02 to A-10. `01` §
-Scope holds § 2's block (sha256 prefix `7fa0430cf613e867`, checked on 01's
-own copy), its output equal to the brief's expected lines byte for byte,
-both totals (`12734` at the P1 hash, `dispatch tip: paths 52 lines 12783`),
-the drift and its five commits, and `0` settings paths.
+**Stage B is done (03:33 UTC); stage C is next, on the coordinator's read of the stage-B checkpoint on #685.**
 
-`stage-a/` holds every script and output. The read tree is exported at
-`/workspace/tmp/m6-t38/export/` (52 files) and the lint proof at
-`/workspace/tmp/m6-t38/lint-proof/`, both retired at stage H. The
-membership block's files are in `.qa-scratch/t38/`.
+What stage B produced, in `docs/audits/2026_11_01-epic-m6-doctrine-skills/`:
+- the reader's pass (11 reports, `stage-b/reader-*.md`) and the auditor's read in ruling (j)'s order (`stage-b/notes-*.md`, each with its `checks-*.sh` and `.out`);
+- `02` (the coverage table of 52 rows; leads L-01 to L-85, with proposed dispositions; the runs; the inherited list; the rulings; the proofs A-01 to A-10 and B-01 to B-24);
+- `03` (the seams, and the futro's predictions checked);
+- `04` (the renovation face Q1 to Q7, its tables written by `tools/t38-tables.py`, each seen to fail on its drift);
+- `01` § Read order and § The reader's pass.
 
-Stage B reads in ruling (j)'s order:
-1. cluster 2's six -- `code-auditor`, `mini-retro`, `futro`,
-   `session-resume`, `session-stash`, `begin-delivery`;
-2. the writing pair -- `developer-relations`, `release-notes`;
-3. the council family, read and never edited.
+Five sentences are proposed as `bug` for stage D: L-10, L-11, L-13, L-52, L-56.
 
-Each skill is read first by one no-context read-only subagent (§ 5 rule 5),
-then by the lane. The rules are read at `3a9b0aec81` by `git show`, never
-from the session's loaded copy: the session loaded T5's worktree's rules at
-`52e6794ba7`, 9 files stale. Each stage-B session ends with a line recording
-`git status --short -- .claude/agents .claude/skills` empty.
+**Stage C:**
+1. `tools/t38-checks.sh`, FAIL-first in its four runs (the baseline, one mutation per assertion, the tip with `allow-findings.txt` withheld, then after stage E), and its three allowlists;
+2. `second-opinions/review-plan.json` in T4's shape with `anthropic/claude-opus-5-5`;
+3. the pre-issue lint.
+
+Nothing under `.claude/` is edited before the stream brief.
 
 What the stage-A paragraph below asked:
 
@@ -105,6 +96,9 @@ provider, touches a device, a cloud account, a key file, the host's swap,
 another lane's worktree or an ES checkout, or edits a rule, `CLAUDE.md`,
 `AGENTS.md`, `NAMING.md`, the pins or the council family.
 
+**Stage B in progress (03:08 UTC):** the reader's pass is done for all 11 (10 skills and the agents), verbatim under `stage-b/reader-*.md`. The auditor's read has done `code-auditor` and `mini-retro`, its notes in `stage-b/notes-*.md` with their checks (`stage-b/checks-*.sh` and `.out`). Next: `futro`, `session-resume`, `session-stash`, `begin-delivery`, the writing pair, then the council family. After that `02`, `03`, `04` and `01` § Read order. Nothing under `.claude/` is edited.
+
 ## Checkpoints
 
 - Stage A, 02:53 UTC 2026-11-01: committed on `11fa8f95b8` (the commit carrying this line; its hash is in #685's stage-A checkpoint post). The lint's Local proof PASS rc 0 and FAIL rc 1; the membership block equal to the brief's lines byte for byte; 12,734 at the P1 hash and 12,783 at the dispatch tip; the 32 issues re-read; nothing under `.claude/` edited; no line in the host file.
+- Stage B, 03:33 UTC 2026-11-01: committed on `98019cea9f` (the commit carrying this line; its hash in #685's stage-B checkpoint post). The 52 read by a reader and the lane; `02`, `03`, `04` and `01` § Read order written; 34 proofs; nothing under `.claude/` edited.

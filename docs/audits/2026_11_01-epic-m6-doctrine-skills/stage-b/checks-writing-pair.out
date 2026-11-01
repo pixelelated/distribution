@@ -1,0 +1,43 @@
+2026-11-01T03:13:15Z
+== L-27: the open checkboxes the brief names, by issue and line
+-- #333 :17: - [ ] `.claude/skills/developer-relations/SKILL.md` carries a "PR descriptions and commit messages" section with the voice rules and the attribution ban; `tools/prose-check` runs over `docs/releases/pr/` with the plural rule failing and a new rule that fails a decision ID (`D-[A-Z]+-\d+`), a fork to
+   open checkboxes in #333: 10
+-- #326 :25: - [ ] `tools/prose-check` fails a first-person plural ("we", "we're", "we'll", "our", "us" as a pronoun) and is seen to fail on the note's old line; the live note revised (`gh release view rc1-20260929 --json body` carries no "we"); the release-notes and developer-relations skills state the policy.
+   open checkboxes in #326: 1
+-- #341 :19: - [ ] After the repositories are transferred (#338 Phase B), one change relaxes the rows above: the hook's `pr/*` scans keep only the personal-paths and credential checks the fork still wants, the checker's drafts scan and count become warnings, the skill's PR section says which rules are for other 
+   open checkboxes in #341: 2
+-- #645 :25: - [ ] The `release-notes` skill's PR-description shape carries the template's sections and the disclosure, read back from the skill file.
+   open checkboxes in #645: 5
+-- #953 :11: **Every sibling hunted:** the developer-relations and release-notes skills run it.
+   open checkboxes in #953: 2
+-- #955 :12: **Every sibling hunted:** the release-notes skill runs it; with today's `upstream/next` it exits 2 at its base check (R3).
+   open checkboxes in #955: 3
+-- #268 :17: - [ ] The issue template under `.github/` (or the skill that writes issues) carries the shape: `- [ ] <behaviour> -- <artifact that ticks it>`; a device checkbox: `-- device: <physical fact>`.
+   open checkboxes in #268: 4
+== L-11: tools/fork-publish-release's own usage lines (read from its source, never run)
+6:No upload, tag creation, asset replacement or publication occurs. The previous
+7:newest-file/date/undraft path is retired (#265, #530). Actual publication needs
+84:    # unsupported layouts refuse preparation. Keep the prepare-only contract.
+109:            raise ValueError("selected-state inspection refused a firmware asset")
+130:    parser.add_argument("--prepare", type=Path, required=True, metavar="BUNDLE")
+== the releases this repository has published
+ROCKNIX RC1 (2026-09-29): cloud sync, offline achievements, Wi-Fi	Pre-release	rc1-20260929	2026-09-29T10:14:30Z
+ROCKNIX dev build — 20260827	Latest	dev-20260827	2026-08-27T20:47:51Z
+RK3326 build — 20260819	Pre-release	dev-rk3326-20260819	2026-08-21T05:52:15Z
+H700 build — 20260819	Pre-release	dev-h700-20260819	2026-08-21T05:38:32Z
+RK3566 build — 20260819	Pre-release	dev-rk3566-20260819	2026-08-21T05:23:34Z
+== prose-check's PROSE_FIRST_PERSON default, and pr-stack-check's description scan
+32:# docs/releases/ (notes, PR descriptions) and with PROSE_FIRST_PERSON=fail; a warning
+59:    strict = "docs/releases/" in path.replace("\\", "/") or os.environ.get("PROSE_FIRST_PERSON") == "fail"
+43:# --drafts: where the PR descriptions live, NN-*.md per map entry (D-WORKFLOW-078's scan).
+128:BANNED='[Cc]laude|[Aa]nthropic|Generated with|Co-Authored-By|D-[A-Z]+-[0-9]+|tools/[a-z]'
+152:  # the description a reviewer reads (D-WORKFLOW-078, D-WORKFLOW-074): present, titled as the map, in the maintainer's voice
+154:  if [ -z "$d" ]; then fail "PR $((i+1)) has no description under ${DRAFTS} (NN-*.md)"; continue; fi
+155:  t="$(sed -n 's/^Title: //p' "$d" | head -1)"; [ "$t" = "${TITLES[$i]}" ] || fail "PR $((i+1))'s description is titled '$t', the map says '${TITL
+157:  h="$(printf '%s\n' "$body" | grep -n -E "${BANNED}" | head -3)"; [ -z "$h" ] || fail "PR $((i+1))'s description names an assistant, a decision I
+== paths named
+present tools/vm-walks/docs
+present tools/png-blackout
+present tools/prose-check
+present tools/pr-stack-check
+present docs/cloud-sync-changelog.md
