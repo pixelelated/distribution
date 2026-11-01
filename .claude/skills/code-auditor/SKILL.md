@@ -724,7 +724,7 @@ visible instead of silent:
 | **The spec**                   | GitHub issues — there is no `docs/planning/` here | `gh issue view <n> --repo pixelelated/distribution`. Issue bodies *are* the spec; epics link their children |
 | **The acceptance criteria**    | Issue bodies                          | The `- [ ]` checklists and any `Acceptance:` line                                               |
 | **The issues**                 | `pixelelated/distribution` (upstream has Issues disabled) | `gh issue list --repo pixelelated/distribution`                                                        |
-| **The code changes**           | Git history                           | `git log`, `git diff --stat`; note the fork layout — feature branches live in `../rocknix.worktrees/` |
+| **The code changes**           | Git history                           | `git log`, `git diff --stat`; note the fork layout — each lane's worktree is `/workspace/repos/pixelelated/distribution.worktrees/<name>` (the rules' older layout is #640's) |
 | **Prior findings**             | `docs/work-logs/<yyyy_mm>-work_logs/` | Dated running record of what was done and what went wrong; the closest thing to phase retros    |
 | **Blindspot register**         | `docs/blindspot-register.md`          | Proven recurring failure modes — check the work against every entry                             |
 | **Prior audits**               | `docs/audits/`                        | Grep by scope and item name                                                                     |
