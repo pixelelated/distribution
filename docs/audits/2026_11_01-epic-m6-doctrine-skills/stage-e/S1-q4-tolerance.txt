@@ -1,0 +1,14 @@
+# t38-tables.py q4 after PL-18: a stated count a fix removes prints as no number, 05:04:18 UTC
+== the committed generator (HEAD) on HEAD's export /workspace/tmp/m6-t38/e/f72c9cd8ba:
+rc=1
+AttributeError: 'NoneType' object has no attribute 'group'
+== the patched generator on the same export:
+rc=0
+t38-tables: 0 failure(s)
+| `code-auditor/SKILL.md`: the register's count | -- | 76 (the last numbered heading; 48 numbered headings) | n/a: no number stated |
+== the patched generator on the dispatch tip's export /workspace/tmp/m6-t38/export:
+rc=0
+(c) at the tip equal to stage-b/tables/q4.md
+== the drift script's q4 cases on HEAD's export:
+q4, the export                       rc=0 (want 0) 
+q4, one byte on an agent             rc=1 (want 1) FAIL pin: .claude/agents/council-member-gpt.agent.md

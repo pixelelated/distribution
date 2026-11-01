@@ -157,10 +157,12 @@ def q4(export, repo):
     print("#### (c) Every count the read found a skill stating, recomputed\n")
     print("| Where | Stated | Recomputed | Holds |")
     print("| --- | --- | --- | --- |")
-    words = {"three": 3, "four": 4, "five": 5, "six": 6, "twelve": 12}
+    words = {"three": 3, "four": 4, "five": 5, "six": 6, "ten": 10, "twelve": 12}
+    NONE = "--"  # stage E: a fix that drops the number leaves the sentence with no count to recompute
 
     def row(where, stated, got):
-        print(f"| {where} | {stated} | {got} | {'yes' if str(stated).split()[0] == str(got).split()[0] else 'no'} |")
+        holds = "n/a: no number stated" if stated == NONE else ('yes' if str(stated).split()[0] == str(got).split()[0] else 'no')
+        print(f"| {where} | {stated} | {got} | {holds} |")
     ca = text(export, "skills/code-auditor/SKILL.md")
     sec = ca[ca.index("## Evidence floor"):ca.index("\n## When to use")]
     m = re.search(r"(\w+) hard rules", sec)
@@ -169,12 +171,12 @@ def q4(export, repo):
     br = git(repo, "HEAD", "docs/blindspot-register.md")
     m = re.search(r"(\w+) recorded\s+failure modes", ca)
     heads = re.findall(r"^## (\d+)\.", br, re.M)
-    row("`code-auditor/SKILL.md`: *\"%s recorded failure modes\"*" % m.group(1), words[m.group(1).lower()],
+    row("`code-auditor/SKILL.md`: *\"%s recorded failure modes\"*" % m.group(1) if m else "`code-auditor/SKILL.md`: the register's count", words[m.group(1).lower()] if m else NONE,
         "%s (the last numbered heading; %d numbered headings)" % (heads[-1], len(heads)))
     lifecycle = re.findall(r"^\| (\d+(?:\.\d+)?)\s+\|", ca[ca.index("## Audit lifecycle"):ca.index("**Before Phase 6")], re.M)
     mr = text(export, "skills/mini-retro/SKILL.md")
     m = re.search(r"full (\d+)-phase methodology", mr)
-    row("`mini-retro/SKILL.md`: *\"the full %s-phase methodology\"*" % m.group(1), int(m.group(1)),
+    row("`mini-retro/SKILL.md`: *\"the full %s-phase methodology\"*" % m.group(1) if m else "`mini-retro/SKILL.md`: the methodology's phases", int(m.group(1)) if m else NONE,
         "%d (`code-auditor`'s lifecycle rows: %s)" % (len(lifecycle), ", ".join(lifecycle)))
     sa = text(export, "skills/mini-retro/references/scoped-audit.md")
     n_sa = len(re.findall(r"^### Check \d+ ", sa, re.M))
@@ -188,15 +190,18 @@ def q4(export, repo):
     row("`mini-retro/references/template.md`, `Check N` lines", n_tpl, n_sa)
     bd = text(export, "skills/begin-delivery/SKILL.md")
     m = re.search(r"contains the (\w+) phase-tier audit spot-check verdicts", bd)
-    row("`begin-delivery/SKILL.md`: *\"the %s phase-tier audit spot-check verdicts\"*" % m.group(1), words[m.group(1)], n_sa)
+    row("`begin-delivery/SKILL.md`: *\"the %s phase-tier audit spot-check verdicts\"*" % m.group(1) if m else "`begin-delivery/SKILL.md`: the phase-tier audit's checks", words[m.group(1)] if m else NONE, n_sa)
     fu = text(export, "skills/futro/SKILL.md")
     q4s = fu[fu.index("**4. What could we be missing?**"):fu.index("**5. What adjustments")]
     m = re.search(r"Apply (\w+) techniques", q4s)
     row("`futro/SKILL.md` question 4: *\"Apply %s techniques\"*" % m.group(1), words[m.group(1)], len(re.findall(r"^- \*\*", q4s, re.M)))
     rn = text(export, "skills/release-notes/SKILL.md")
     m = re.search(r"(\w+) or (\w+)\s+short paragraphs", rn)
-    pr = rn[rn.index(m.group(0)):rn.index("What it never carries")]
-    row("`release-notes/SKILL.md`: *\"%s\"*" % " ".join(m.group(0).split()), f"{words[m.group(1)]} or {words[m.group(2)]}", len(re.findall(r"^\d+\. ", pr, re.M)))
+    if m:
+        pr = rn[rn.index(m.group(0)):rn.index("What it never carries")]
+        row("`release-notes/SKILL.md`: *\"%s\"*" % " ".join(m.group(0).split()), f"{words[m.group(1)]} or {words[m.group(2)]}", len(re.findall(r"^\d+\. ", pr, re.M)))
+    else:
+        row("`release-notes/SKILL.md`: the PR description's paragraphs", NONE, "--")
     cb = text(export, "skills/council/COUNCIL-BUNDLE.md")
     sums = [l.split(None, 1) for l in text(export, "skills/council/COUNCIL-BUNDLE.SHA256SUMS").splitlines() if l.strip()]
     m_, d_, a_ = 0, 0, 0
