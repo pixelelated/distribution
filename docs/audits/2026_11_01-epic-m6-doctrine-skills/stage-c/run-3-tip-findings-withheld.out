@@ -1,0 +1,38 @@
+inventory: 52 paths, 12783 lines under /workspace/tmp/m6-t38/export/.claude
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+FAIL  refs       594 of 606 passed, 152 allowlisted
+      FAIL     .claude/skills/begin-delivery/SKILL.md:128  `docs/planning` does not resolve at HEAD
+      FAIL     .claude/skills/begin-delivery/SKILL.md:609  `.github/prompts/begin-phase.prompt.md` does not resolve at HEAD
+      FAIL     .claude/skills/code-auditor/SKILL.md:9  `docs/planning` does not resolve at HEAD
+      FAIL     .claude/skills/futro/SKILL.md:200  `docs/planning/m55-platform-contract-surface/futro-e2371-phase2-kickoff.md` does not resolve at HEAD
+      FAIL     .claude/skills/mini-retro/SKILL.md:315  `docs/planning` does not resolve at HEAD
+      FAIL     .claude/skills/mini-retro/references/scoped-audit.md:176  link `../../../../docs/architecture/cornerstone-conformance.md` (`docs/architecture/cornerstone-conformance.md`) does not resolve at HEAD
+      FAIL     .claude/skills/mini-retro/references/scoped-audit.md:561  `docs/architecture` does not resolve at HEAD
+      FAIL     .claude/skills/mini-retro/references/scoped-audit.md:561  `docs/design` does not resolve at HEAD
+      FAIL     .claude/skills/session-resume/SKILL.md:7  `.github/prompts/resume-work.prompt.md` does not resolve at HEAD
+      FAIL     .claude/skills/session-stash/SKILL.md:7  `.github/prompts/stash-work.prompt.md` does not resolve at HEAD
+      FAIL     .claude/skills/session-stash/SKILL.md:38  `.github/sessions/saved-session-state-main.md` does not resolve at HEAD
+      FAIL     .claude/skills/session-stash/SKILL.md:60  `docs/planning` does not resolve at HEAD
+FAIL  stale      106 of 119 passed, 105 allowlisted
+      FAIL     .claude/skills/begin-delivery/SKILL.md:609  retired term `.github/prompts`
+      FAIL     .claude/skills/code-auditor/SKILL.md:365  retired term `copilot`
+      FAIL     .claude/skills/code-auditor/references/phases.md:31  retired term `copilot`
+      FAIL     .claude/skills/futro/references/techniques.md:28  retired term `copilot`
+      FAIL     .claude/skills/futro/references/techniques.md:35  retired term `copilot`
+      FAIL     .claude/skills/futro/references/template.md:72  retired term `copilot`
+      FAIL     .claude/skills/session-resume/SKILL.md:7  retired term `.github/prompts`
+      FAIL     .claude/skills/session-resume/SKILL.md:7  retired term `state-main`
+      FAIL     .claude/skills/session-resume/SKILL.md:30  retired term `state-main`
+      FAIL     .claude/skills/session-stash/SKILL.md:7  retired term `.github/prompts`
+      FAIL     .claude/skills/session-stash/SKILL.md:7  retired term `state-main`
+      FAIL     .claude/skills/session-stash/SKILL.md:36  retired term `state-main`
+      FAIL     .claude/skills/session-stash/SKILL.md:38  retired term `state-main`
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+FAIL  contract   10 of 11 passed, 1 allowlisted
+      FAIL     .claude/skills/code-auditor/references/templates.md:23  ANALYSIS_SECTIONS `Acceptance-criteria scorecard` fails the lint's lower-case comparison
+ok    allowlists 39 of 39 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 0 (allow-findings.txt withheld)
+TOTAL: 902 of 928 assertions

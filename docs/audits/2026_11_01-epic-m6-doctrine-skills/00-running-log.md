@@ -368,3 +368,46 @@ PROOF: B-24 (history) -- L-11's dates: the skill's sentence `9404f23c55` (2026-0
 
 No build, no compiler, no guest, no fetch, no council run, no Facilitator call, no `tools/council/run`, no `npm install`, no keyed call, no skill invoked against a provider, no held directory opened, no line in the host file. The only writes are under this folder, `/workspace/tmp/m6-t38/` (the drift copies at `/workspace/tmp/m6-t38/drift/`, retired at stage H), and `.qa-scratch/t38/`. Nothing under `.claude/` was edited.
 - **The last line of stage B (`date -u` 03:33:20):** `git status --short -- .claude/agents .claude/skills` printed 0 lines.
+
+### [Stage C] 03:37-03:52 — the plan, the checker FAIL-first, the punch list, the pre-issue lint
+
+- **03:37:44 `second-opinions/review-plan.json`:**
+  - `depth` is `local`, `reviewers` is `[]`, and `tier_exception` is `D-WORKFLOW-184`, the reason plan § 6c.
+  - It was written before any call; this slice makes none.
+  - The model is `anthropic/claude-opus-5-5`, not the template's slug (L-51).
+- **The checker, `tools/t38-checks.sh` and `tools/t38-checks.py`:**
+  - **What it reads:**
+    - the read tree, `git archive HEAD .claude/agents .claude/skills` under `/workspace/tmp/m6-t38/export/`, never a checkout;
+    - the rule's rows, `verifier-pins.json` and the lint's constants, read by `git show HEAD:`. HEAD is `168bbba783`, whose `.claude` and `tools` equal the dispatch tip's (A-06).
+  - **The steps:** inventory, front, refs, stale, roster, pins and contract, then the allowlists themselves, with the bundle reported as information only.
+  - **The three allowlists:** 13 legit, 26 inherited and 19 findings. It writes only under `--out`.
+  - **Its refusals** exit 2 and check nothing.
+- **03:43:44-03:44:12, runs 1 to 3.** Each FAIL-first case puts a planted positive into the tip's unfixed text on a copy under `/workspace/tmp/m6-t38/mut/`. The text's own run 1 passes, so each FAIL belongs to the probe.
+  - **Run 2a** printed `rc=0` for three cases: roster, pins and contract.
+    - The inherited `path:*` entries excused the agents' integrity failures.
+    - The contract key `templates.md:0` collided with the legit entry for `01-research-notes.md`.
+  - **The fix:** `ALLOWABLE` admits only the text steps, and a contract item is keyed by its name and never matched by `*`. Runs 1, 2 and 3 were then made again.
+  - **This is Check 7 (harness self-coverage):** the guard's own FAIL-first found a guard that could not fail.
+- **03:45:53-03:48:33, `05-punch-list.md`.**
+  - It is written by `tools/t38-punch.py` from one list: 57 items, every one Open.
+  - The proposals are 5 bugs for stage D, 41 punch items, 6 questions for the pause, and 5 inherited, owned by #911, the coordinator or #1373.
+  - The generator refuses when a lead of `02` is neither cited nor listed. The first pass found three, L-01, L-25 and L-26, now listed with where each lives. The refusal was then proved by planting a gap.
+  - The pre-issue lint passes it.
+- **Stage C's corrections to the notes:**
+  - `02` § The names and the references: the provenance terms are left out of the `stale` step's terms, not allowlisted.
+  - `stage-b/notes-council-family.md`: the agents' `../../.github/instructions/` link resolves to the root's absent `.github/instructions/`; it does not climb out of the repository.
+  - `04`'s scorecard is re-verdicted at stage C, with its pass rate computed.
+
+PROOF: C-01 (tool-run) -- the Local plan: the pre-issue lint printed `ok    review-plan: local at epic tier under D-WORKFLOW-184 (...)` and `0 verified external calls` (`stage-c/run-4-lint-pre-issue.out`). A FAIL would have been a reviewer named, or a plan the lint refuses.
+PROOF: C-02 (tool-run) -- run 1, the tip with every allowlist: `rc=0`, `TOTAL: 947 of 947 assertions`, `allowlists 58 of 58 passed` (`stage-c/run-1-baseline.out`). A FAIL would have been an assertion no entry excuses, or an entry that excuses nothing.
+PROOF: C-03 (tool-run) -- run 2: nine planted positives, one per probe, each `want 1 rc=1` with its FAIL line; the bundle's `want 0 rc=0` with `BUNDLE match=51 diff=40` (`stage-c/run-2-firstfail.out`). A FAIL would have been a probe at `rc=0` on its positive.
+PROOF: C-04 (tool-run) -- run 2's seven refusals, each `want 2 rc=2` and `refused: ...; nothing checked`: no `--tree`, a checkout, no python3, the lint unreadable, an entry without its reason, a finding with `*`, an allowlist missing. A FAIL would have been a refusal case that checked something.
+PROOF: C-05 (tool-run) -- run 2a against run 2: `roster-gpt-slug`, `pins-one-byte` and `contract-05-removed` at `want 1 rc=0` before the fix, `rc=1` after (`stage-c/run-2a-firstfail-before-the-fix.out`). A FAIL would have been a case still at `rc=0` after the fix.
+PROOF: C-06 (tool-run) -- run 3, `--withhold findings`: `rc=1`, `TOTAL: 902 of 928 assertions`, 26 FAIL lines over 19 keys, equal to the 19 entries of `allow-findings.txt` (`stage-c/run-3-tip-findings-withheld.out`). A FAIL would have been a key with no entry, or an entry with no failing key.
+PROOF: C-07 (tool-run) -- `tools/lint-audit-artifacts --phase pre-issue`: `rc=0`, `PASS pre-issue artifacts (does not certify resolution)`, `57 punch item(s)`, and no FAIL line (`stage-c/run-4-lint-pre-issue.out`). A FAIL would have been an item without its Phase 7 row, its index entry or its `question:`.
+PROOF: C-08 (tool-run) -- `tools/t38-punch.py`: 85 leads in `02`, 82 cited by an item and 3 listed. The planted gap was refused: `t38-punch: refused: leads 85, uncited [25], unknown [99], both []` (`stage-c/punch-refusal-planted.err`). A FAIL would have been a `05` written with a lead unaccounted.
+
+### [Stage C] census
+
+No build, no compiler, no guest, no fetch, no council run, no Facilitator call, no `tools/council/run`, no `npm install`, no keyed call, no skill invoked against a provider, no held directory opened, no line in the host file. The writes are under this folder and `/workspace/tmp/m6-t38/`, where the checker's outputs are `checks-*` and the FAIL-first copies are `mut/`; both are retired at stage H. Nothing under `.claude/` was edited.
+- **The last line of stage C (`date -u` 03:52:02):** `git status --short -- .claude/agents .claude/skills` printed 0 lines.

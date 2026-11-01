@@ -1,0 +1,19 @@
+inventory-outside-skills           want 1 rc=1 | TOTAL: 947 of 948 assertions | FAIL     .claude/rules/zz-planted.md:0  a path outside .claude/agents and .claude/skills
+front-first-line-removed           want 1 rc=1 | TOTAL: 932 of 947 assertions | FAIL     .claude/skills/futro/SKILL.md:1  does not open ---
+front-name-not-directory           want 1 rc=1 | TOTAL: 946 of 947 assertions | FAIL     .claude/skills/release-notes/SKILL.md:2  name 'release-note' is not its directory 'release-notes'
+refs-no-such-reference             want 1 rc=1 | TOTAL: 947 of 948 assertions | FAIL     .claude/skills/session-resume/SKILL.md:123  `references/no-such-file.md` resolves under none of ['session-resum
+refs-no-such-tool                  want 1 rc=1 | TOTAL: 947 of 948 assertions | FAIL     .claude/skills/begin-delivery/SKILL.md:621  `tools/no-such-tool` does not resolve at HEAD
+stale-rubber-duck                  want 1 rc=1 | TOTAL: 947 of 948 assertions | FAIL     .claude/skills/futro/SKILL.md:485  retired term `rubber-duck`
+roster-gpt-slug                    want 1 rc=1 | TOTAL: 945 of 948 assertions | FAIL     .claude/agents/council-member-gpt.agent.md:14  ('openai/gpt-5.6-sol', 'max') against member-roster.md's ('opena
+pins-one-byte                      want 1 rc=1 | TOTAL: 946 of 947 assertions | FAIL     .claude/agents/council-member-claude.agent.md:0  sha256 8c16421f6ad5c09b against the pin dce34ed4cb3b864d
+contract-05-removed                want 1 rc=1 | TOTAL: 946 of 947 assertions | FAIL     .claude/skills/code-auditor/references/templates.md:05-punch-list.md  REQUIRED `05-punch-list.md` named nowhere
+bundle: one matching entry's sum replaced
+bundle-one-sum-changed             want 0 rc=0 | TOTAL: 947 of 947 assertions | 
+  (bundle line)                    info  bundle     BUNDLE match=51 diff=40 absent=3 (informational, never a FAIL)
+refuse-no-tree                     want 2 rc=2 |  | t38-checks: refused: no --tree; nothing checked
+refuse-a-checkout                  want 2 rc=2 |  | t38-checks: refused: --tree /workspace/tmp/m6-t38/mut/checkout is a checkout (it holds .git); nothing checked
+refuse-no-python3                  want 2 rc=2 | t38-checks: refused: python3 missing; nothing checked
+refuse-lint-unreadable             want 2 rc=2 |  | t38-checks: refused: the lint is unreadable at 0000000000; nothing checked
+refuse-entry-without-reason        want 2 rc=2 |  | t38-checks: refused: allow-findings.txt:21 is not `<path>:<line> <class> <reason>`; nothing checked
+refuse-finding-with-star           want 2 rc=2 |  | t38-checks: refused: allow-findings.txt:21: a finding is allowed at its exact line, never `*`; nothing checked
+refuse-allowlist-missing           want 2 rc=2 |  | t38-checks: refused: /workspace/tmp/m6-t38/mut/allow-gone/allow-findings.txt is missing (withhold it with --withhold fin

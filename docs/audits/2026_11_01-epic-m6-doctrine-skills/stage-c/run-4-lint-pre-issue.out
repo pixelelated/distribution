@@ -1,0 +1,189 @@
+== docs/audits/2026_11_01-epic-m6-doctrine-skills
+  ok    01-research-notes.md
+  ok    02-forward-audit.md
+  ok    03-retrospective.md
+  ok    04-analysis.md
+  ok    05-punch-list.md
+  ok    04 § Executive summary
+  ok    04 § Acceptance-criteria scorecard
+  ok    04 § Risk assessment
+  ok    04 § Coverage boundary
+  ok    04 § Quality self-check
+  ok    review plan: local, 1 model perspectives, 0 verified external calls
+  ok    review-plan: local at epic tier under D-WORKFLOW-184 (plan § 6c: a doctrine read is Local (the executor alone; the lint and the counts are the check), the depth slices.json k 38 records)
+  ok    04-analysis.md: the **Total** row sums from its 19 rows
+  ok    57 punch item(s): PL-01, PL-02, PL-03, PL-04, PL-05, PL-06, PL-07, PL-08, PL-09, PL-10, PL-11, PL-12, PL-13, PL-14, PL-15, PL-16, PL-17, PL-18, PL-19, PL-20, PL-21, PL-22, PL-23, PL-24, PL-25, PL-26, PL-27, PL-28, PL-29, PL-30, PL-31, PL-32, PL-33, PL-34, PL-35, PL-36, PL-37, PL-38, PL-39, PL-40, PL-41, PL-42, PL-43, PL-44, PL-45, PL-46, PL-47, PL-48, PL-49, PL-50, PL-51, PL-52, PL-53, PL-54, PL-55, PL-56, PL-57
+  ok    PL-01 explicitly open; resolution remains required
+  ok    PL-02 explicitly open; resolution remains required
+  ok    PL-03 explicitly open; resolution remains required
+  ok    PL-04 explicitly open; resolution remains required
+  ok    PL-05 explicitly open; resolution remains required
+  ok    PL-06 explicitly open; resolution remains required
+  ok    PL-07 explicitly open; resolution remains required
+  ok    PL-08 explicitly open; resolution remains required
+  ok    PL-09 explicitly open; resolution remains required
+  ok    PL-10 explicitly open; resolution remains required
+  ok    PL-11 explicitly open; resolution remains required
+  ok    PL-12 explicitly open; resolution remains required
+  ok    PL-13 explicitly open; resolution remains required
+  ok    PL-14 explicitly open; resolution remains required
+  ok    PL-15 explicitly open; resolution remains required
+  ok    PL-16 explicitly open; resolution remains required
+  ok    PL-17 explicitly open; resolution remains required
+  ok    PL-18 explicitly open; resolution remains required
+  ok    PL-19 explicitly open; resolution remains required
+  ok    PL-20 explicitly open; resolution remains required
+  ok    PL-21 explicitly open; resolution remains required
+  ok    PL-22 explicitly open; resolution remains required
+  ok    PL-23 explicitly open; resolution remains required
+  ok    PL-24 explicitly open; resolution remains required
+  ok    PL-25 explicitly open; resolution remains required
+  ok    PL-26 explicitly open; resolution remains required
+  ok    PL-27 explicitly open; resolution remains required
+  ok    PL-28 explicitly open; resolution remains required
+  ok    PL-29 explicitly open; resolution remains required
+  ok    PL-30 explicitly open; resolution remains required
+  ok    PL-31 explicitly open; resolution remains required
+  ok    PL-32 explicitly open; resolution remains required
+  ok    PL-33 explicitly open; resolution remains required
+  ok    PL-34 explicitly open; resolution remains required
+  ok    PL-35 explicitly open; resolution remains required
+  ok    PL-36 explicitly open; resolution remains required
+  ok    PL-37 explicitly open; resolution remains required
+  ok    PL-38 explicitly open; resolution remains required
+  ok    PL-39 explicitly open; resolution remains required
+  ok    PL-40 explicitly open; resolution remains required
+  ok    PL-41 explicitly open; resolution remains required
+  ok    PL-42 explicitly open; resolution remains required
+  ok    PL-43 explicitly open; resolution remains required
+  ok    PL-44 explicitly open; resolution remains required
+  ok    PL-45 explicitly open; resolution remains required
+  ok    PL-46 explicitly open; resolution remains required
+  ok    PL-47 explicitly open; resolution remains required
+  ok    PL-48 explicitly open; resolution remains required
+  ok    PL-49 explicitly open; resolution remains required
+  ok    PL-50 explicitly open; resolution remains required
+  ok    PL-51 explicitly open; resolution remains required
+  ok    PL-52 explicitly open; resolution remains required
+  ok    PL-53 explicitly open; resolution remains required
+  ok    PL-54 explicitly open; resolution remains required
+  ok    PL-55 explicitly open; resolution remains required
+  ok    PL-56 explicitly open; resolution remains required
+  ok    PL-57 explicitly open; resolution remains required
+  ok    PL-01 index and table agree (open)
+  ok    PL-02 index and table agree (open)
+  ok    PL-03 index and table agree (open)
+  ok    PL-04 index and table agree (open)
+  ok    PL-05 index and table agree (open)
+  ok    PL-06 index and table agree (open)
+  ok    PL-07 index and table agree (open)
+  ok    PL-08 index and table agree (open)
+  ok    PL-09 index and table agree (open)
+  ok    PL-10 index and table agree (open)
+  ok    PL-11 index and table agree (open)
+  ok    PL-12 index and table agree (open)
+  ok    PL-13 index and table agree (open)
+  ok    PL-14 index and table agree (open)
+  ok    PL-15 index and table agree (open)
+  ok    PL-16 index and table agree (open)
+  ok    PL-17 index and table agree (open)
+  ok    PL-18 index and table agree (open)
+  ok    PL-19 index and table agree (open)
+  ok    PL-20 index and table agree (open)
+  ok    PL-21 index and table agree (open)
+  ok    PL-22 index and table agree (open)
+  ok    PL-23 index and table agree (open)
+  ok    PL-24 index and table agree (open)
+  ok    PL-25 index and table agree (open)
+  ok    PL-26 index and table agree (open)
+  ok    PL-27 index and table agree (open)
+  ok    PL-28 index and table agree (open)
+  ok    PL-29 index and table agree (open)
+  ok    PL-30 index and table agree (open)
+  ok    PL-31 index and table agree (open)
+  ok    PL-32 index and table agree (open)
+  ok    PL-33 index and table agree (open)
+  ok    PL-34 index and table agree (open)
+  ok    PL-35 index and table agree (open)
+  ok    PL-36 index and table agree (open)
+  ok    PL-37 index and table agree (open)
+  ok    PL-38 index and table agree (open)
+  ok    PL-39 index and table agree (open)
+  ok    PL-40 index and table agree (open)
+  ok    PL-41 index and table agree (open)
+  ok    PL-42 index and table agree (open)
+  ok    PL-43 index and table agree (open)
+  ok    PL-44 index and table agree (open)
+  ok    PL-45 index and table agree (open)
+  ok    PL-46 index and table agree (open)
+  ok    PL-47 index and table agree (open)
+  ok    PL-48 index and table agree (open)
+  ok    PL-49 index and table agree (open)
+  ok    PL-50 index and table agree (open)
+  ok    PL-51 index and table agree (open)
+  ok    PL-52 index and table agree (open)
+  ok    PL-53 index and table agree (open)
+  ok    PL-54 index and table agree (open)
+  ok    PL-55 index and table agree (open)
+  ok    PL-56 index and table agree (open)
+  ok    PL-57 index and table agree (open)
+  ok    04 § Renovation face answers Q1 to Q7
+  ok    PL-01 answers Q3
+  ok    PL-02 answers Q3
+  ok    PL-03 answers Q3
+  ok    PL-04 answers Q3
+  ok    PL-05 answers Q3
+  ok    PL-06 answers Q7
+  ok    PL-07 answers Q3
+  ok    PL-08 answers Q4
+  ok    PL-09 answers Q7
+  ok    PL-10 answers Q1
+  ok    PL-11 answers Q3
+  ok    PL-12 answers Q3
+  ok    PL-13 answers Q2
+  ok    PL-14 answers Q5
+  ok    PL-15 answers Q7
+  ok    PL-16 answers Q2
+  ok    PL-17 answers Q2
+  ok    PL-18 answers Q4
+  ok    PL-19 answers Q1
+  ok    PL-20 answers Q2
+  ok    PL-21 answers Q1
+  ok    PL-22 answers Q1
+  ok    PL-23 answers Q1
+  ok    PL-24 answers Q1
+  ok    PL-25 answers Q6
+  ok    PL-26 answers Q5
+  ok    PL-27 answers Q1
+  ok    PL-28 answers Q2
+  ok    PL-29 answers Q3
+  ok    PL-30 answers Q1
+  ok    PL-31 answers Q6
+  ok    PL-32 answers Q7
+  ok    PL-33 answers Q7
+  ok    PL-34 answers Q4
+  ok    PL-35 answers Q6
+  ok    PL-36 answers Q4
+  ok    PL-37 answers Q4
+  ok    PL-38 answers Q4
+  ok    PL-39 answers Q2
+  ok    PL-40 answers Q6
+  ok    PL-41 answers Q7
+  ok    PL-42 answers Q4
+  ok    PL-43 answers Q7
+  ok    PL-44 answers Q7
+  ok    PL-45 answers Q7
+  ok    PL-46 answers Q7
+  ok    PL-47 answers Q6
+  ok    PL-48 answers Q7
+  ok    PL-49 answers Q4
+  ok    PL-50 answers Q2
+  ok    PL-51 answers Q7
+  ok    PL-52 answers Q2
+  ok    PL-53 answers Q6
+  ok    PL-54 answers Q5
+  ok    PL-55 answers Q1
+  ok    PL-56 answers Q2
+  ok    PL-57 answers Q6
+
+PASS pre-issue artifacts (does not certify resolution)

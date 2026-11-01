@@ -1,0 +1,13 @@
+inventory: 52 paths, 12783 lines under /workspace/tmp/m6-t38/mut/front2/.claude
+ok    inventory  52 of 52 passed
+FAIL  front      79 of 80 passed
+      FAIL     .claude/skills/release-notes/SKILL.md:2  name 'release-note' is not its directory 'release-notes'
+ok    refs       606 of 606 passed, 164 allowlisted
+ok    stale      119 of 119 passed, 118 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 2 allowlisted
+ok    allowlists 58 of 58 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 19
+TOTAL: 946 of 947 assertions

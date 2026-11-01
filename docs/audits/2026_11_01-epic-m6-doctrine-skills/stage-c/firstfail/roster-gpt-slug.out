@@ -1,0 +1,15 @@
+inventory: 52 paths, 12783 lines under /workspace/tmp/m6-t38/mut/roster/.claude
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       606 of 606 passed, 164 allowlisted
+ok    stale      120 of 120 passed, 119 allowlisted
+FAIL  roster     10 of 12 passed
+      FAIL     .claude/agents/council-member-gpt.agent.md:14  ('openai/gpt-5.6-sol', 'max') against member-roster.md's ('openai/gpt-6-astra', 'max')
+      FAIL     .claude/agents/council-member-gpt.agent.md:14  ('openai/gpt-5.6-sol', 'max') against adversarial-council.md's ('openai/gpt-6-astra', 'max')
+FAIL  pins       8 of 9 passed
+      FAIL     .claude/agents/council-member-gpt.agent.md:0  sha256 c91f814ead303a41 against the pin 5790193074f0d8a4
+ok    contract   11 of 11 passed, 2 allowlisted
+ok    allowlists 58 of 58 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 19
+TOTAL: 945 of 948 assertions

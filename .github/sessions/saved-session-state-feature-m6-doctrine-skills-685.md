@@ -17,23 +17,25 @@
 
 ## Current focus
 
-**Stage B is done (03:33 UTC); stage C is next, on the coordinator's read of the stage-B checkpoint on #685.**
+**Stage C is done (03:52 UTC); stage D is next, once the coordinator has read the stage-C checkpoint on #685.**
 
-What stage B produced, in `docs/audits/2026_11_01-epic-m6-doctrine-skills/`:
-- the reader's pass (11 reports, `stage-b/reader-*.md`) and the auditor's read in ruling (j)'s order (`stage-b/notes-*.md`, each with its `checks-*.sh` and `.out`);
-- `02` (the coverage table of 52 rows; leads L-01 to L-85, with proposed dispositions; the runs; the inherited list; the rulings; the proofs A-01 to A-10 and B-01 to B-24);
-- `03` (the seams, and the futro's predictions checked);
-- `04` (the renovation face Q1 to Q7, its tables written by `tools/t38-tables.py`, each seen to fail on its drift);
-- `01` § Read order and § The reader's pass.
+What stage C produced, in `docs/audits/2026_11_01-epic-m6-doctrine-skills/`:
+- `second-opinions/review-plan.json`: `local`, `reviewers` `[]`, `tier_exception` `D-WORKFLOW-184`, primary `anthropic/claude-opus-5-5`.
+- `tools/t38-checks.sh` and `.py`, with three allowlists (`tools/allow-{legit,inherited,findings}.txt`: 13, 26 and 19 entries), and its FAIL-first `tools/t38-checks-firstfail.sh`. The runs are in `stage-c/`:
+  - run 1: `TOTAL: 947 of 947 assertions`;
+  - run 2: nine probes `rc=1`, the bundle informational, seven refusals `rc=2`;
+  - run 2a: the harness defect, three probes silent before the fix;
+  - run 3: `--withhold findings`, `TOTAL: 902 of 928 assertions`, the 19 keys.
+- `05-punch-list.md`, written by `tools/t38-punch.py`: 57 items, all Open. The proposals are 5 bugs (L-10, L-11, L-13, L-52, L-56), 41 punch items, 6 questions and 5 inherited. The generator refuses an unaccounted lead.
+- The pre-issue lint: `PASS pre-issue artifacts (does not certify resolution)`.
+- `02` § The runs, § The names and the references (the per-class counts) and the proofs C-01 to C-08 (42 and 42); `04`'s scorecard at stage C, 10 of 22.
 
-Five sentences are proposed as `bug` for stage D: L-10, L-11, L-13, L-52, L-56.
+**Stage D:**
+1. The audit issue: the punch list posted.
+2. The five bugs filed, each with its trace, its `Already written:` line and its VM line.
+3. The pause, with the questions (PL-47 to PL-52).
 
-**Stage C:**
-1. `tools/t38-checks.sh`, FAIL-first in its four runs (the baseline, one mutation per assertion, the tip with `allow-findings.txt` withheld, then after stage E), and its three allowlists;
-2. `second-opinions/review-plan.json` in T4's shape with `anthropic/claude-opus-5-5`;
-3. the pre-issue lint.
-
-Nothing under `.claude/` is edited before the stream brief.
+The coordinator posts the `council-research` question on #807 at the pause, in `04` Q5's shape. Nothing under `.claude/` is edited before the stream brief (`docs/reviews/briefs/t38-streams.md`).
 
 What the stage-A paragraph below asked:
 
@@ -96,9 +98,8 @@ provider, touches a device, a cloud account, a key file, the host's swap,
 another lane's worktree or an ES checkout, or edits a rule, `CLAUDE.md`,
 `AGENTS.md`, `NAMING.md`, the pins or the council family.
 
-**Stage B in progress (03:08 UTC):** the reader's pass is done for all 11 (10 skills and the agents), verbatim under `stage-b/reader-*.md`. The auditor's read has done `code-auditor` and `mini-retro`, its notes in `stage-b/notes-*.md` with their checks (`stage-b/checks-*.sh` and `.out`). Next: `futro`, `session-resume`, `session-stash`, `begin-delivery`, the writing pair, then the council family. After that `02`, `03`, `04` and `01` § Read order. Nothing under `.claude/` is edited.
-
 ## Checkpoints
 
 - Stage A, 02:53 UTC 2026-11-01: committed on `11fa8f95b8` (the commit carrying this line; its hash is in #685's stage-A checkpoint post). The lint's Local proof PASS rc 0 and FAIL rc 1; the membership block equal to the brief's lines byte for byte; 12,734 at the P1 hash and 12,783 at the dispatch tip; the 32 issues re-read; nothing under `.claude/` edited; no line in the host file.
 - Stage B, 03:33 UTC 2026-11-01: committed on `98019cea9f` (the commit carrying this line; its hash in #685's stage-B checkpoint post). The 52 read by a reader and the lane; `02`, `03`, `04` and `01` § Read order written; 34 proofs; nothing under `.claude/` edited.
+- Stage C, 03:52 UTC 2026-11-01: committed on `168bbba783` (the commit carrying this line; its hash is in #685's stage-C checkpoint post). Run 1 of the checker 947 of 947; FAIL-first every probe at its wanted exit after run 2a's harness fix; the withheld tip 902 of 928 at the 19 keys; `05` with 57 Open items; the pre-issue lint PASS; 42 proofs; nothing under `.claude/` edited.

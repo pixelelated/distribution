@@ -257,11 +257,59 @@ state-main: 5 lines in 2 files
 scaffold: 83 lines in 26 files
 ```
 
-The terms that are provenance rather than defects -- `scaffold` (83 lines), `pfi-collaboration`, a historical roster line -- go to `tools/allow-legit.txt` at stage C with their class. The export's hits go to `tools/allow-inherited.txt`, naming their lead. This slice's own hits go to `tools/allow-findings.txt`, naming theirs.
+**Corrected at stage C.** The sentence here said the provenance terms (`scaffold`'s 83 lines, `pfi-collaboration`, a historical roster line) would go to `tools/allow-legit.txt`. The checker does it the other way: its `stale` step checks only the defect-shaped subset of the terms (`STALE` in `tools/t38-checks.py`).
+- It leaves out `scaffold`, `rasteratops` and the bare `mistral` and `trio`, whose hits are mostly provenance.
+- It narrows `mistral` to *an inactive seat as current* and `trio` to `trio-process` and `trio-runs`.
+- It adds `fable 5`.
+
+The table above stays § 5's counting run, and stage F re-runs it. What the `stale` step does flag is excused, line by line, in one of three files:
+- three lines of provenance in `tools/allow-legit.txt`;
+- the export's lines in `tools/allow-inherited.txt`, each naming its lead;
+- this slice's own lines in `tools/allow-findings.txt`, each naming its lead.
 
 **Per class, the unresolved references** (R1 C12's A to I): the `refs` step of `tools/t38-checks.sh` at stage C prints the count per class at the tip, and again after stage E. Stage B resolved these by reading:
 - L-32 withdrawn and L-35 narrowed: each resolves through the sentence's own naming of its skill;
 - the absent paths of L-30, L-31, L-33, L-42, L-43, L-65, L-73 and L-75 (`checks-*.out`).
+
+At stage C the checker's run 1 reads the tip with every allowlist. It excuses 164 `refs`, 118 `stale` and 2 `contract` assertions, and nothing fails. `stage-c/per-class.py` counts them by allowlist and by class (a lead, for the two lead-keyed files) from the run's own detail files (`stage-c/baseline/`):
+
+<!-- include: stage-c/per-class-baseline.out -->
+```text
+refs: 164 allowlisted, 0 FAIL
+  allow-findings.txt L-08: 2
+  allow-findings.txt L-09: 3
+  allow-findings.txt L-15: 4
+  allow-findings.txt L-16: 2
+  allow-findings.txt L-65: 1
+  allow-inherited.txt L-30: 46
+  allow-inherited.txt L-31: 10
+  allow-inherited.txt L-38: 34
+  allow-inherited.txt L-39: 23
+  allow-inherited.txt L-42: 17
+  allow-inherited.txt L-43: 12
+  allow-legit.txt A: 2
+  allow-legit.txt B: 6
+  allow-legit.txt C: 1
+  allow-legit.txt sentence: 1
+stale: 118 allowlisted, 0 FAIL
+  allow-findings.txt L-09: 7
+  allow-findings.txt L-14: 2
+  allow-findings.txt L-16: 1
+  allow-findings.txt L-21: 3
+  allow-inherited.txt L-30: 7
+  allow-inherited.txt L-31: 6
+  allow-inherited.txt L-34: 5
+  allow-inherited.txt L-38: 41
+  allow-inherited.txt L-39: 30
+  allow-inherited.txt L-42: 10
+  allow-inherited.txt L-43: 3
+  allow-legit.txt provenance: 3
+contract: 2 allowlisted, 0 FAIL
+  allow-findings.txt L-60: 1
+  allow-legit.txt contract: 1
+```
+
+No entry of class D, H or I was needed at the tip. Run 3 withholds `allow-findings.txt` and leaves exactly that file's 19 keys failing: 26 FAIL lines (refs 12, stale 13, contract 1; `stage-c/per-class-withheld.out`). Stage F re-runs both commands after stage E, and each fix is seen as its entry excusing nothing.
 
 ## Command blocks
 
@@ -319,7 +367,78 @@ Every § 5 command, run at stage A as its own line in one shell (`stage-a/runs.s
 | the contract | -- | `REQUIRED 5 missing in templates.md: ['01-research-notes.md']`; `ANALYSIS_SECTIONS 5 missing in templates.md: ['Acceptance-criteria scorecard', 'Coverage boundary', 'Quality self-check']` | settled at stage B by the lint's own comparison: one real (L-60), two by case only |
 | the lint, a Local plan | `rc=0` / `rc=1` | `PASS`; with `tier_exception` removed, `local-only cannot satisfy Epic/Milestone` (A-01) | a lint that cannot pass this slice's folder, or one that passes any Local plan |
 | the removal check | -- | no line (A-06) | an edit outside the 52 or in the council family: a stop |
-| `tools/t38-checks.sh` | -- | stage C: its four runs are quoted here then | -- |
+| `tools/t38-checks.sh`, run 1: the tip, every allowlist | `rc=0` | `TOTAL: 947 of 947 assertions`; `allowlists 58 of 58 passed` | an assertion failing that no entry excuses, or an entry that excuses nothing |
+| run 2: the FAIL-first, a planted positive per probe | each at its wanted exit | nine probes `rc=1`, each with its FAIL line; the bundle `rc=0`, `BUNDLE match=51 diff=40`; seven refusals `rc=2` (`stage-c/run-2-firstfail.out`) | a probe at `rc=0` on its planted positive: run 2a found three, below |
+| run 3: the tip, `--withhold findings` | `rc=1` | `TOTAL: 902 of 928 assertions`; 26 FAIL lines over 19 keys, the 19 entries of `allow-findings.txt` | the record's FAIL at the tip: a finding already gone, or one with no entry |
+| run 4: after stage E | -- | stage F's | -- |
+| `tools/lint-audit-artifacts --phase pre-issue` | `rc=0` | `PASS pre-issue artifacts (does not certify resolution)`, `57 punch item(s)`, `0 verified external calls` | a `05` or a review plan the lint refuses |
+
+**Run 1** (`stage-c/run-1-baseline.out`):
+
+<!-- include: stage-c/run-1-baseline.out -->
+```text
+inventory: 52 paths, 12783 lines under /workspace/tmp/m6-t38/export/.claude
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       606 of 606 passed, 164 allowlisted
+ok    stale      119 of 119 passed, 118 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 2 allowlisted
+ok    allowlists 58 of 58 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 19
+TOTAL: 947 of 947 assertions
+```
+
+**Run 2**, one line per case (`stage-c/run-2-firstfail.out`, made by `tools/t38-checks-firstfail.sh` on copies under `/workspace/tmp/m6-t38/mut/`). Each planted positive goes into the tip's unfixed text, whose run 1 passes, so each FAIL is the probe's and nothing else's:
+
+<!-- include: stage-c/run-2-firstfail.out match want -->
+```text
+inventory-outside-skills           want 1 rc=1 | TOTAL: 947 of 948 assertions | FAIL     .claude/rules/zz-planted.md:0  a path outside .claude/agents and .claude/skills
+front-first-line-removed           want 1 rc=1 | TOTAL: 932 of 947 assertions | FAIL     .claude/skills/futro/SKILL.md:1  does not open ---
+front-name-not-directory           want 1 rc=1 | TOTAL: 946 of 947 assertions | FAIL     .claude/skills/release-notes/SKILL.md:2  name 'release-note' is not its directory 'release-notes'
+refs-no-such-reference             want 1 rc=1 | TOTAL: 947 of 948 assertions | FAIL     .claude/skills/session-resume/SKILL.md:123  `references/no-such-file.md` resolves under none of ['session-resum
+refs-no-such-tool                  want 1 rc=1 | TOTAL: 947 of 948 assertions | FAIL     .claude/skills/begin-delivery/SKILL.md:621  `tools/no-such-tool` does not resolve at HEAD
+stale-rubber-duck                  want 1 rc=1 | TOTAL: 947 of 948 assertions | FAIL     .claude/skills/futro/SKILL.md:485  retired term `rubber-duck`
+roster-gpt-slug                    want 1 rc=1 | TOTAL: 945 of 948 assertions | FAIL     .claude/agents/council-member-gpt.agent.md:14  ('openai/gpt-5.6-sol', 'max') against member-roster.md's ('opena
+pins-one-byte                      want 1 rc=1 | TOTAL: 946 of 947 assertions | FAIL     .claude/agents/council-member-claude.agent.md:0  sha256 8c16421f6ad5c09b against the pin dce34ed4cb3b864d
+contract-05-removed                want 1 rc=1 | TOTAL: 946 of 947 assertions | FAIL     .claude/skills/code-auditor/references/templates.md:05-punch-list.md  REQUIRED `05-punch-list.md` named nowhere
+bundle-one-sum-changed             want 0 rc=0 | TOTAL: 947 of 947 assertions | 
+refuse-no-tree                     want 2 rc=2 |  | t38-checks: refused: no --tree; nothing checked
+refuse-a-checkout                  want 2 rc=2 |  | t38-checks: refused: --tree /workspace/tmp/m6-t38/mut/checkout is a checkout (it holds .git); nothing checked
+refuse-no-python3                  want 2 rc=2 | t38-checks: refused: python3 missing; nothing checked
+refuse-lint-unreadable             want 2 rc=2 |  | t38-checks: refused: the lint is unreadable at 0000000000; nothing checked
+refuse-entry-without-reason        want 2 rc=2 |  | t38-checks: refused: allow-findings.txt:21 is not `<path>:<line> <class> <reason>`; nothing checked
+refuse-finding-with-star           want 2 rc=2 |  | t38-checks: refused: allow-findings.txt:21: a finding is allowed at its exact line, never `*`; nothing checked
+refuse-allowlist-missing           want 2 rc=2 |  | t38-checks: refused: /workspace/tmp/m6-t38/mut/allow-gone/allow-findings.txt is missing (withhold it with --withhold fin
+```
+
+**Run 2a, the harness's own defect** (`stage-c/run-2a-firstfail-before-the-fix.out`). The FAIL-first's first pass printed `rc=0` for three planted positives: `roster-gpt-slug`, `pins-one-byte` and `contract-05-removed`. There were two causes:
+- `allow-inherited.txt`'s `path:*` entries for the eight agents also excused the agents' `roster` and `pins` failures.
+- The contract items were keyed `templates.md:0`, so the removed `05-punch-list.md` fell under the legit entry written for `01-research-notes.md`.
+
+The fix has two parts:
+- Only the text steps (`refs`, `stale`, `contract`) can be allowlisted.
+- A contract item is keyed by its name and never matched by `*`.
+
+Runs 1 to 3 were then made again. This is the harness self-coverage check doing its job: the guard's FAIL-first caught a guard that could not fail.
+
+**Run 3** (`stage-c/run-3-tip-findings-withheld.out`), the step lines:
+
+<!-- include: stage-c/run-3-tip-findings-withheld.out match ^(ok|FAIL|allowlists|TOTAL) -->
+```text
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+FAIL  refs       594 of 606 passed, 152 allowlisted
+FAIL  stale      106 of 119 passed, 105 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+FAIL  contract   10 of 11 passed, 1 allowlisted
+ok    allowlists 39 of 39 passed
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 0 (allow-findings.txt withheld)
+TOTAL: 902 of 928 assertions
+```
 
 ## The streams
 
@@ -422,3 +541,11 @@ Each is for scaffold's next export, in the shape the lane writes. Each goes on #
 | B-22 | L-67: the fifth technique is the fork's, the count the import's | `stage-b/checks-futro.out` | `3624e2e329`; `437ebd09af` | proved: history |
 | B-23 | L-18: no tool names the stash archive | `stage-b/checks-sessions.out` | `0` | proved: tool-run |
 | B-24 | L-11's dates: true when written, false ten days later | `stage-b/checks-writing-pair-2.out` | `9404f23c55` 2026-09-29; `f10eec1306` 2026-10-09 | proved: history |
+| C-01 | the Local plan names no reviewer, and the lint accepts it at epic tier | `second-opinions/review-plan.json`; `stage-c/run-4-lint-pre-issue.out` | `ok    review-plan: local at epic tier under D-WORKFLOW-184`; `0 verified external calls` | proved: tool-run |
+| C-02 | the checker passes the tip with every allowlist, and every entry excuses something | `tools/t38-checks.sh` run 1 | `rc=0`; `TOTAL: 947 of 947 assertions`; `allowlists 58 of 58 passed` | proved: tool-run |
+| C-03 | every probe fires on its planted positive | `tools/t38-checks-firstfail.sh` (run 2) | nine `want 1 rc=1`, each with its FAIL line; bundle `want 0 rc=0` | proved: tool-run |
+| C-04 | the checker refuses, checking nothing, when it cannot run | run 2's refusal cases | seven `want 2 rc=2`, each `refused: ...; nothing checked` | proved: tool-run |
+| C-05 | run 2a found three silent probes, and the fix made them fire | `stage-c/run-2a-firstfail-before-the-fix.out` against run 2 | `roster-gpt-slug want 1 rc=0`, `pins-one-byte want 1 rc=0`, `contract-05-removed want 1 rc=0`; then each `rc=1` | proved: tool-run |
+| C-06 | the tip fails without this slice's entries, and only at their keys | `tools/t38-checks.sh --withhold findings` (run 3) | `rc=1`; `TOTAL: 902 of 928 assertions`; 26 FAIL lines, 19 keys equal to the 19 entries | proved: tool-run |
+| C-07 | the punch list passes the pre-issue lint | `tools/lint-audit-artifacts --phase pre-issue` | `rc=0`; `PASS pre-issue artifacts (does not certify resolution)`; `57 punch item(s)` | proved: tool-run |
+| C-08 | every lead is accounted for in `05`, and the generator refuses one that is not | `tools/t38-punch.py`; `stage-c/punch-refusal-planted.err` | 85 leads: 82 cited, 3 listed; planted `t38-punch: refused: leads 85, uncited [25], unknown [99], both []` | proved: tool-run |

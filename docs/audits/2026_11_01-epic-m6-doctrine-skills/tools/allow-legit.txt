@@ -1,0 +1,14 @@
+# allow-legit.txt (T38, #685): what is not a defect. `<path>:<line> <class> <reason>`; the classes are in tools/t38-checks.py's docstring.
+.claude/skills/code-auditor/SKILL.md:708 C names docs/planning as absent on purpose: "there is no docs/planning/ here"
+.claude/skills/developer-relations/SKILL.md:41 B rocknix.org's page, in the site's own repository (~/Development/rocknix.org), not this tree
+.claude/skills/developer-relations/SKILL.md:42 B rocknix.org's page, in the site's own repository, not this tree
+.claude/skills/developer-relations/SKILL.md:43 B rocknix.org's page, in the site's own repository, not this tree
+.claude/skills/developer-relations/SKILL.md:44 B rocknix.org's page, in the site's own repository, not this tree
+.claude/skills/developer-relations/SKILL.md:45 B rocknix.org's page, in the site's own repository, not this tree
+.claude/skills/developer-relations/SKILL.md:58 B rocknix.org's image directory, in the site's own repository, not this tree
+.claude/skills/futro/SKILL.md:183 A tools/call and tools/list are MCP method names in a sentence about the protocol, not paths
+.claude/skills/futro/SKILL.md:345 provenance the AC-authoring trap's own example of an old term kept in migration history, written to be excluded
+.claude/skills/futro/SKILL.md:347 provenance the same example, continued
+.claude/skills/futro/SKILL.md:358 provenance the same example's corrected regex
+.claude/skills/code-auditor/references/templates.md:01-research-notes.md contract REQUIRED's 01-research-notes.md is named in SKILL.md:291 (the folder tree) and phases.md:12; templates.md holds the 04, 05 and 4.6 templates
+.claude/skills/council/SKILL.md:190 sentence L-32 withdrawn: the sentence's subject at :188 is council-research, whose file this is

@@ -1,0 +1,27 @@
+inventory: 52 paths, 12782 lines under /workspace/tmp/m6-t38/mut/front1/.claude
+ok    inventory  52 of 52 passed
+FAIL  front      76 of 80 passed
+      FAIL     .claude/skills/futro/SKILL.md:1  does not open ---
+      FAIL     .claude/skills/futro/SKILL.md:0  name '' is not its directory 'futro'
+      FAIL     .claude/skills/futro/SKILL.md:0  name not lowercase and hyphenated
+      FAIL     .claude/skills/futro/SKILL.md:0  no one-line description
+FAIL  refs       603 of 606 passed, 161 allowlisted
+      FAIL     .claude/skills/futro/SKILL.md:182  `tools/list` does not resolve at HEAD
+      FAIL     .claude/skills/futro/SKILL.md:182  `tools/call` does not resolve at HEAD
+      FAIL     .claude/skills/futro/SKILL.md:199  `docs/planning/m55-platform-contract-surface/futro-e2371-phase2-kickoff.md` does not resolve at HEAD
+FAIL  stale      116 of 119 passed, 115 allowlisted
+      FAIL     .claude/skills/futro/SKILL.md:344  retired term `trio-process`
+      FAIL     .claude/skills/futro/SKILL.md:346  retired term `trio-process`
+      FAIL     .claude/skills/futro/SKILL.md:357  retired term `trio-process`
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 2 allowlisted
+FAIL  allowlists 53 of 58 passed
+      FAIL     .claude/skills/futro/SKILL.md:183  allow-legit.txt:9 (A) excused nothing
+      FAIL     .claude/skills/futro/SKILL.md:345  allow-legit.txt:10 (provenance) excused nothing
+      FAIL     .claude/skills/futro/SKILL.md:347  allow-legit.txt:11 (provenance) excused nothing
+      FAIL     .claude/skills/futro/SKILL.md:358  allow-legit.txt:12 (provenance) excused nothing
+      FAIL     .claude/skills/futro/SKILL.md:200  allow-findings.txt:8 (L-15) excused nothing
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 19
+TOTAL: 932 of 947 assertions

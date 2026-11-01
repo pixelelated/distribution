@@ -29,13 +29,13 @@ T38 read the 52 paths of `.claude/**` less `.claude/rules/**`: ten skills and ei
 
 ## Acceptance-criteria scorecard
 
-#685's 22 criteria at the end of stage B. Each is ticked by the coordinator at acceptance, from its artifact.
+#685's 22 criteria at the end of stage C (stage B's verdicts are in `168bbba783`). Each is ticked by the coordinator at acceptance, from its artifact.
 
-| Criterion | Verdict at stage B | Notes |
+| Criterion | Verdict at stage C | Notes |
 | --- | --- | --- |
-| 1 the folder's files | PARTIAL ⚠ | `00` to `04`, `stage-a/`, `stage-b/` and `tools/` exist; `05`, `second-opinions/`, `stage-c/` to `stage-e/` are later stages' |
-| 2 the lint `PASS`, Q1 to Q7, `question:` | PARTIAL ⚠ | Q1 to Q7 below; the lint runs at stage C (pre-issue) and at close |
-| 3 the Local plan | SKIP ○ | stage C writes `review-plan.json`; no reviewer, no keyed call so far (`00`'s census) |
+| 1 the folder's files | PARTIAL ⚠ | `00` to `05`, `second-opinions/`, `stage-a/` to `stage-c/` and `tools/` exist; `stage-d/` and `stage-e/` are later stages' |
+| 2 the lint `PASS`, Q1 to Q7, `question:` | PARTIAL ⚠ | the pre-issue lint `PASS`, every item with its `question:` (C-07); the default phase runs at close |
+| 3 the Local plan | PASS ✓ | `review-plan.json` `local`, no reviewer, `tier_exception` `D-WORKFLOW-184` (C-01); no keyed call (`00`'s census) |
 | 4 the punch-list issue at Phase 7 | SKIP ○ | stages D to F |
 | 5 `reviewed-at:` / `fixed-at:` | SKIP ○ | the hand-back's; the removal check prints no line (A-06) |
 | 6 `01` § Scope, the block and both totals | PASS ✓ | A-02, A-03 |
@@ -43,20 +43,20 @@ T38 read the 52 paths of `.claude/**` less `.claude/rules/**`: ten skills and ei
 | 8 `00`, the lint's Local proof first | PASS ✓ | A-01 |
 | 9 `02` § Coverage, 52 rows with origin | PASS ✓ | the `awk` of the criterion prints `52` |
 | 10 `02` § The runs | PASS ✓ | every run with its line and exit; `rules-check` *no evidence for the 52* |
-| 11 `tools/t38-checks.sh`, its four runs | SKIP ○ | stage C (FAIL-first) and stage F |
-| 12 `02` § The names and the references | PARTIAL ⚠ | the tip's counts are here; the class counts and the allowlists are stage C's, the counts after stage E stage F's |
+| 11 `tools/t38-checks.sh`, its four runs | PARTIAL ⚠ | runs 1 to 3 at stage C (C-02 to C-06); run 4 after stage E, stage F's |
+| 12 `02` § The names and the references | PARTIAL ⚠ | the tip's counts, the class counts and the three allowlists are in `02`; the counts after stage E are stage F's |
 | 13 `04` Q4's tables by a script | PASS ✓ | `tools/t38-tables.py q4`, its drift seen (B-19) |
 | 14 Q5, Q6, the two questions posted | PARTIAL ⚠ | the tables and the two questions are below; their posting is the pause's |
 | 15 every fix's lines in § The streams | SKIP ○ | stage E |
 | 16 § What ... inherit | PASS ✓ | `02`'s table, each row naming its owner |
-| 17 the bugs, the ladder, the take-up rows, the rulings | PARTIAL ⚠ | the take-up rows and the rulings are in `02`; the bugs are filed at stage D, the ladder in `05` |
-| 18 `proved:` equals `PROOF:` | PASS ✓ | `34` and `34` at this commit |
+| 17 the bugs, the ladder, the take-up rows, the rulings | PARTIAL ⚠ | the take-up rows and the rulings are in `02`, the ladder in `05`; the bugs are filed at stage D |
+| 18 `proved:` equals `PROOF:` | PASS ✓ | `42` and `42` at this commit |
 | 19 no host-file line of this lane's | PASS ✓ | 689 lines at 02:44, `0` of this lane's; re-counted at the hand-back |
 | 20 the retro | SKIP ○ | stage G |
 | 21 the checkers on the branch and the simulated merge | SKIP ○ | the hand-back's |
 | 22 the hand-back, one tip, `box-check --issue 685` | SKIP ○ | stage H |
 
-**Pass rate:** 8 of 22 met at stage B; 6 partial, each with its later stage named; 8 skipped as later stages' work.
+**Pass rate:** 10 of 22 met at stage C; 6 partial, each with its later stage named; 6 skipped as later stages' work (counted from the table by the command that wrote this line).
 
 ## Code Quality Assessment
 
