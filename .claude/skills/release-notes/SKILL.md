@@ -97,7 +97,7 @@ person writes to a colleague they will meet again:
 4. `## AI Assistance Disclosure`: the template's three boxes, **Yes** ticked.
    The box answers upstream's question and names no assistant; the
    template's question sentence is not copied, because it names them
-   (D-WORKFLOW-219, the disclosure's answer).
+   (the coordinator's ruling for T38, on #685 and #645).
 
 ```markdown
 ## AI Assistance Disclosure
