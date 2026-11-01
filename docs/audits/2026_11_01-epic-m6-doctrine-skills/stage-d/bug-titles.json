@@ -1,0 +1,7 @@
+{
+ "PL-01": "Bug: code-auditor says Phase 4.6 halts an Epic-tier audit whose plan says Local (D-WORKFLOW-184)",
+ "PL-02": "Bug: scoped-audit's pre-existing-failure check pops the shared stash and fetches vitest",
+ "PL-03": "Bug: release-notes says tools/fork-publish-release uploads the files",
+ "PL-04": "Bug: code-auditor runs the artifact lint with --issue before the issue exists, and never names --phase pre-issue",
+ "PL-05": "Bug: futro's comment read uses gh api repos/{owner}/{repo}, which nothing in this checkout fills"
+}

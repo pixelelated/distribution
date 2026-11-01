@@ -109,7 +109,7 @@ Every lead, its lines at the tip, its family (§ 4's five), its owner and the di
 | L-19 | `session-stash/SKILL.md:32` | (corrected) | T38 stream | punch (Low), narrowed: the stranger's proof is stated (`d8df0877a4`) and in no step; the brief's *"does not say it in other words either"* is corrected | `checks-sessions.out` |
 | L-20 | `futro`, `mini-retro`, `begin-delivery` (`ceremony-check` named nowhere; `mini-retro/SKILL.md:598` names `ceremonies.md`) | names what is not there | T38 stream | punch with L-08: one line naming `tools/ceremony-check`; the numbers stay in `ceremonies.md` (D-QA-040 open) | `stage-a/runs.out` chunk 8 |
 | L-21 | `code-auditor` (one each), `futro/references/techniques.md:28`, `:35`, `futro/references/template.md:72` | a count or a name true once | T38 stream | punch with L-14 | `notes-futro.md` |
-| L-22 | 19 lines of the 52: `mini-retro/SKILL.md:3` (the description), `:364`, `:385`, `:466`, `:479`, `:499`, `:504`, `:528`; `mini-retro/references/template.md:90-93`, `:133`; `futro/SKILL.md:3`, `:457`; `begin-delivery/SKILL.md:3`, `:50`, `:68`, `:557`, `:562`; `council/references/pipeline.md:497`; and `adversarial-council.md:36-38` | names what is not there | the coordinator (rule half); the maintainer (skill half) | question: write the skill or sweep the references (§ 4, raised on #685 at the pause); the rule's line the coordinator's erratum | `stage-a/runs.out` chunk 13 |
+| L-22 | 19 lines of the 52: `mini-retro/SKILL.md:3` (the description), `:364`, `:385`, `:466`, `:479`, `:499`, `:504`, `:528`; `mini-retro/references/template.md:90-93`, `:133`; `futro/SKILL.md:3`, `:457`; `begin-delivery/SKILL.md:3`, `:50`, `:68`, `:557`, `:562`; `council/references/pipeline.md:497`; and `adversarial-council.md:36-38` | names what is not there | the coordinator (rule half); the maintainer (skill half) | question: write the skill or sweep the references (§ 4, raised on #685 at the pause, comment `6553169705`); the rule's line the coordinator's erratum | `stage-a/runs.out` chunk 13 |
 | L-23 | `release-candidates.md:71-76` against `review-levels.md:10` and `adversarial-council.md:49-58` | two texts that disagree | the coordinator | inherit: a rule erratum, both texts in § What ... inherit, no side taken | `stage-a/runs.out` chunk 11 |
 | L-24 | `code-auditor/**` (no renovation face named) | names what is not there | the coordinator | question: the face in the skill, or in the plan | `notes-code-auditor.md` |
 | L-25 | the 30 lines of `total` in 15 files | -- | read | read: no `TOTAL:` line a reader would compute by hand | brief § 3 |
@@ -134,7 +134,7 @@ Every lead, its lines at the tip, its family (§ 4's five), its owner and the di
 | L-44 | the three roster copies and the agents | -- | #1373, T45 | inherit: they agree today (a positive, `stage-b/tables/q4.md` (e)); the coordinator's Backlog lead | `stage-b/tables/q4.md` |
 | L-45 | `council/SKILL.md:25` and 4 more lines | a count or a name true once | #911 | inherit | stage A chunk 18 |
 | L-46 | `council-research/SKILL.md:21-22` | a cost no use repays | #911 | inherit: a version history of several thousand characters in front matter | `notes-council-family.md` |
-| L-47 | `council-research/**` (4,150 lines) | a cost no use repays | the maintainer, #911 | question, posted by the coordinator on #807: kept as the export copies it, or retired at the next refresh; `0` runs kept, `3` work-log lines (a delta: R2 read 2) | `stage-b/tables/q6.md` |
+| L-47 | `council-research/**` (4,150 lines) | a cost no use repays | the maintainer, #911 | question, posted by the coordinator on #807 (comment `6553118160`): kept as the export copies it, or retired at the next refresh; `0` runs kept, `3` work-log lines (a delta: R2 read 2) | `stage-b/tables/q6.md` |
 | L-48 | `council/IMPORTED-FROM.md:92-97` | -- | #1045 | inherit: the outline exists; #1045's *"no procedure"* is too strong, its *"no pristine bytes"* stands | `checks-council.out` |
 | L-49 | the family's prose | -- | #911 | read: no shadow-seat instruction in the 52 beyond the agents' history lines; `SHADOW_OPENROUTER_SEATS` outside | `checks-council.out` |
 | L-50 | `council-substrate-integrity.md` (T4's) against `IMPORTED-FROM.md` | two texts that disagree | #911, the coordinator | inherit: the skills' side is IMPORTED-FROM's adaptations list; the source estate stays unreachable here (`CANNOT` for its defences) | `notes-council-family.md` |
@@ -444,6 +444,8 @@ TOTAL: 902 of 928 assertions
 
 Written by the coordinator after stage D, from the punch list and the pause's dispositions; the lane leaves the heading.
 
+**The pause's inputs (stage D, the lane's):** the audit issue #1394 (57 items, a sub-issue of #685), the bugs #1389 to #1393 (PL-01 to PL-05), and PL-47 to PL-52 put to the coordinator on #685. The stream brief `docs/reviews/briefs/t38-streams.md` is the coordinator's.
+
 ## Positives
 
 - **The roster agrees across the rule, `member-roster.md` and the five agents** (`stage-b/tables/q4.md` (e)).
@@ -469,7 +471,7 @@ Each is for scaffold's next export, in the shape the lane writes. Each goes on #
 | --- | --- | --- |
 | The export's refresh list: L-30 (with #1044's loop and the absent hooks), L-31, L-33, L-34, L-35 narrowed, L-36, L-37, then L-38 to L-46, L-48, L-49, L-76, L-77, L-78 | `02` § The leads, each at its lines | #911 (PL-17) |
 | L-32 withdrawn, with its read | `council/SKILL.md:188-190` | #911, noted so it is not re-found |
-| The maintainer's two questions: `council-research` kept or retired (L-47), `begin-exploration` written or swept (L-22) | § 4 | the coordinator puts both (#807 for the first, #685 for the second) |
+| The maintainer's two questions: `council-research` kept or retired (L-47), `begin-exploration` written or swept (L-22) | § 4 | the coordinator puts both: `council-research`'s on #807, comment `6553118160` (the coordinator's, 03:56); `begin-exploration`'s on #685, comment `6553169705` (the lane's, 04:02); each read back by `gh api repos/pixelelated/distribution/issues/comments/<id>` (`stage-d/question-readback.out`, D-06) |
 | Rule erratum: `adversarial-council.md:36-38` *"ships in the corpus"* for `begin-exploration` | L-22 | the coordinator |
 | Rule erratum: the audit-seat texts, `release-candidates.md:71-76` against `adversarial-council.md:49-58` and `review-levels.md:10` | L-23 | the coordinator |
 | Rule erratum: D-QA-040 open while `ceremonies.md` states its numbers | § 2's take-up | the coordinator |
@@ -549,3 +551,11 @@ Each is for scaffold's next export, in the shape the lane writes. Each goes on #
 | C-06 | the tip fails without this slice's entries, and only at their keys | `tools/t38-checks.sh --withhold findings` (run 3) | `rc=1`; `TOTAL: 902 of 928 assertions`; 26 FAIL lines, 19 keys equal to the 19 entries | proved: tool-run |
 | C-07 | the punch list passes the pre-issue lint | `tools/lint-audit-artifacts --phase pre-issue` | `rc=0`; `PASS pre-issue artifacts (does not certify resolution)`; `57 punch item(s)` | proved: tool-run |
 | C-08 | every lead is accounted for in `05`, and the generator refuses one that is not | `tools/t38-punch.py`; `stage-c/punch-refusal-planted.err` | 85 leads: 82 cited, 3 listed; planted `t38-punch: refused: leads 85, uncited [25], unknown [99], both []` | proved: tool-run |
+| D-01 | the five bugs are filed as § 6 asks: label `bug`, no milestone, open, and not sub-issues | `stage-d/issues-readback.out`; `stage-d/sub-issues-685.out` | `1389` to `1393` each `labels=bug milestone=none`; #685's sub-issues list `1394` alone | proved: tool-run |
+| D-02 | every bug's checkboxes are agent-verifiable | `tools/box-check --issue N`, each bug | five `0 fail` lines (3, 3, 2, 3 and 2 open checkboxes; `stage-d/box-check-bugs.out`) | proved: tool-run |
+| D-03 | the audit issue carries § 6's labels, milestone and parent | `stage-d/issues-readback.out`; `stage-d/sub-issues-685.out` | `1394 OPEN labels=audit,punch-list milestone=M6: Codebase renovation`; `1394 open` under #685 | proved: tool-run |
+| D-04 | the audit issue's 57 checkboxes are agent-verifiable | `tools/box-check --issue 1394` | `57 open checkbox(es), 0 fail` | proved: tool-run |
+| D-05 | the punch list and the audit issue agree, item for item | `tools/lint-audit-artifacts --phase pre-issue --issue 1394` | `rc=0`; `issue #1394 carries a task list (57 items)`; `PASS pre-issue artifacts (does not certify resolution)` | proved: tool-run |
+| D-06 | § 4's two questions are posted as comments and read back by id | `gh api .../issues/comments/<id>` | `6553169705` on #685 and `6553118160` on #807, each with its first line (`stage-d/question-readback.out`) | proved: tool-run |
+| D-07 | each bug's `Already written:` line rests on a read | `stage-d/checks-bugs.sh` | the lint `grep rc=1 (1 = none)`; `0` records of the stash block; `0` other-repository comment citations; `rc1-20260929` the newest release; eight Local folders, `pending-lines=0` each | proved: tree |
+| D-08 | the generator refuses a bug list that disagrees with the items proposed as bugs | `tools/t38-punch.py` on a copy whose `bugs.tsv` lacks PL-05 | `t38-punch: refused: bugs.tsv names [...4], the items proposed as bugs are [...5]`; the real list `rc=0` (`stage-d/punch-refusal-bugs-planted.err`) | proved: tool-run |

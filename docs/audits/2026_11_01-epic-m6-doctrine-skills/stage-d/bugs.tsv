@@ -1,0 +1,5 @@
+PL-01	1389	Bug: code-auditor says Phase 4.6 halts an Epic-tier audit whose plan says Local (D-WORKFLOW-184)
+PL-02	1390	Bug: scoped-audit's pre-existing-failure check pops the shared stash and fetches vitest
+PL-03	1391	Bug: release-notes says tools/fork-publish-release uploads the files
+PL-04	1392	Bug: code-auditor runs the artifact lint with --issue before the issue exists, and never names --phase pre-issue
+PL-05	1393	Bug: futro's comment read uses gh api repos/{owner}/{repo}, which nothing in this checkout fills

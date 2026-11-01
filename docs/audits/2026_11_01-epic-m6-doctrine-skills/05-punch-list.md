@@ -2,6 +2,7 @@
 
 **Generated:** 2026-11-01, by `tools/t38-punch.py` from one list (the items, the Phase 7 table and the index cannot disagree)
 **Source Audit:** `04-analysis.md`; the leads are `02` § The leads
+**Audit issue:** #1394, a sub-issue of #685; the bugs: #1389 (PL-01), #1390 (PL-02), #1391 (PL-03), #1392 (PL-04), #1393 (PL-05)
 **Total Items:** 57 (Critical: 0, High: 0, Medium: 16, Low: 41)
 
 ---
@@ -23,9 +24,9 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Source finding:** L-56
 - **Owner area:** code-auditor
 - **Where:** `code-auditor/SKILL.md:247`, `:508`; `references/phases.md:439`, `:486-491`; `references/review-levels.md:9`; `references/templates.md:94`, `:164` (lines at the dispatch tip `87c2ab0fed`)
-- **Acceptance:** each names D-WORKFLOW-184's Local epic-tier exception as `templates.md:144-146` does; `grep -c 'D-WORKFLOW-184'` over the five files prints a count in each
+- **Acceptance:** each names D-WORKFLOW-184's Local epic-tier exception as `templates.md:144-146` does; `grep -c 'D-WORKFLOW-184'` over the four files prints a count in each
 - **Ladder:** written -> audited by `tools/skills-check`'s contract step (#1373)
-- **Proposed:** bug (stage D)
+- **Proposed:** bug #1389
 
 ## PL-02: scoped-audit's pre-existing check pops the shared stash and fetches vitest
 
@@ -37,7 +38,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Where:** `mini-retro/references/scoped-audit.md:347-359`, `:292-321` (lines at the dispatch tip `87c2ab0fed`)
 - **Acceptance:** the block uses a detached scratch worktree at `<base_sha>` and the repository's own checks; `sed -n '340,365p' | grep -c -E 'git stash( |$)|npx vitest'` prints `0`
 - **Ladder:** written -> audited by `tools/skills-check`'s stale step (a bare `git stash` and `npx` as terms)
-- **Proposed:** bug (stage D)
+- **Proposed:** bug #1390
 
 ## PL-03: release-notes says fork-publish-release uploads the files
 
@@ -49,7 +50,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Where:** `release-notes/SKILL.md:19-21` (lines at the dispatch tip `87c2ab0fed`)
 - **Acceptance:** the sentence says the tool prepares a plan (`--prepare`) and that publication waits on #265, #344 and #528; `sed -n '19,20p' | grep -c uploads` prints `0`
 - **Ladder:** written -> no tool can (a sentence about another tool's behaviour)
-- **Proposed:** bug (stage D)
+- **Proposed:** bug #1391
 
 ## PL-04: code-auditor runs the lint with --issue before the issue exists, and never names --phase pre-issue
 
@@ -61,7 +62,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Where:** `code-auditor/SKILL.md:252-256` (lines at the dispatch tip `87c2ab0fed`)
 - **Acceptance:** the paragraph runs `--phase pre-issue` before Phase 6 and the default phase with `--issue <n>` after Phase 7; `git grep -c 'pre-issue'` over the skill prints a count
 - **Ladder:** written -> audited by `tools/skills-check`'s contract step
-- **Proposed:** bug (stage D)
+- **Proposed:** bug #1392
 
 ## PL-05: futro's comment read uses gh api {owner}/{repo}
 
@@ -73,7 +74,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Where:** `futro/SKILL.md:479` (lines at the dispatch tip `87c2ab0fed`)
 - **Acceptance:** the command names `repos/pixelelated/distribution`; `grep -c -F '{owner}/{repo}'` prints `0`
 - **Ladder:** written -> audited by `tools/skills-check`'s stale step
-- **Proposed:** bug (stage D)
+- **Proposed:** bug #1393
 
 ## PL-06: the evidence floor says three rules and numbers five 1, 2, 3, 4, 3
 
@@ -720,11 +721,11 @@ Every one of the 85 leads in `02` § The leads is cited by an item above or list
 
 | Item | Outcome | Proposed at stage B/C |
 | --- | --- | --- |
-| PL-01 | Open | bug (stage D) |
-| PL-02 | Open | bug (stage D) |
-| PL-03 | Open | bug (stage D) |
-| PL-04 | Open | bug (stage D) |
-| PL-05 | Open | bug (stage D) |
+| PL-01 | Open | bug #1389 |
+| PL-02 | Open | bug #1390 |
+| PL-03 | Open | bug #1391 |
+| PL-04 | Open | bug #1392 |
+| PL-05 | Open | bug #1393 |
 | PL-06 | Open | punch |
 | PL-07 | Open | punch |
 | PL-08 | Open | punch |
@@ -789,7 +790,7 @@ punch_index:
   source_finding: "L-56"
   owner_area: "code-auditor"
   outcome: open
-  proposed: "bug (stage D)"
+  proposed: "bug #1389"
 - id: PL-02
   severity: Medium
   category: Code Quality
@@ -797,7 +798,7 @@ punch_index:
   source_finding: "L-10"
   owner_area: "mini-retro"
   outcome: open
-  proposed: "bug (stage D)"
+  proposed: "bug #1390"
 - id: PL-03
   severity: Medium
   category: Documentation Gap
@@ -805,7 +806,7 @@ punch_index:
   source_finding: "L-11"
   owner_area: "release-notes"
   outcome: open
-  proposed: "bug (stage D)"
+  proposed: "bug #1391"
 - id: PL-04
   severity: Low
   category: Documentation Gap
@@ -813,7 +814,7 @@ punch_index:
   source_finding: "L-52"
   owner_area: "code-auditor"
   outcome: open
-  proposed: "bug (stage D)"
+  proposed: "bug #1392"
 - id: PL-05
   severity: Low
   category: Code Quality
@@ -821,7 +822,7 @@ punch_index:
   source_finding: "L-13"
   owner_area: "futro"
   outcome: open
-  proposed: "bug (stage D)"
+  proposed: "bug #1393"
 - id: PL-06
   severity: Medium
   category: Documentation Gap

@@ -411,3 +411,36 @@ PROOF: C-08 (tool-run) -- `tools/t38-punch.py`: 85 leads in `02`, 82 cited by an
 
 No build, no compiler, no guest, no fetch, no council run, no Facilitator call, no `tools/council/run`, no `npm install`, no keyed call, no skill invoked against a provider, no held directory opened, no line in the host file. The writes are under this folder and `/workspace/tmp/m6-t38/`, where the checker's outputs are `checks-*` and the FAIL-first copies are `mut/`; both are retired at stage H. Nothing under `.claude/` was edited.
 - **The last line of stage C (`date -u` 03:52:02):** `git status --short -- .claude/agents .claude/skills` printed 0 lines.
+
+### [Stage D] 03:57-04:04 — the five bugs, the audit issue, the two questions
+
+- **03:57 accepted.** The coordinator accepted stage C (#685, 03:56) and said the five bugs go on as proposed. It posted the `council-research` question on #807 as comment `6553118160` (two options, the coordinator's reading B).
+- **The reads behind the `Already written:` lines** (`stage-d/checks-bugs.sh`, `.out`) and **the sibling hunt** (`stage-d/siblings.out`). Both are read-only. Two claims in the drafts were corrected against them before filing: the shared-stash rule now cites the brief's never-run list, not `CLAUDE.md`, and the completion markers are described without a claim about how each was written.
+- **04:00:23, the five bugs**, label `bug`, no milestone, not sub-issues. Each carries its code trace, its `Already written:` line and the VM line in § 6's shape. The bodies are in `stage-d/bug-PL-0N.md` and the numbers in `stage-d/bugs.tsv`:
+  - #1389 PL-01 (L-56);
+  - #1390 PL-02 (L-10);
+  - #1391 PL-03 (L-11);
+  - #1392 PL-04 (L-52);
+  - #1393 PL-05 (L-13).
+- **The punch list's generator** now reads `stage-d/bugs.tsv` and `stage-d/audit-issue.txt`. It refuses a bug list that differs from the items proposed as bugs, and the refusal was proved by planting a gap. PL-01's acceptance said *five files*; it is four, corrected in the generator.
+- **04:01:25, the audit issue #1394.**
+  - Title: `Audit: M6 T38 the skills, agents and settings -- 57 findings (0 critical, 0 high)`.
+  - Labels `audit` and `punch-list`, milestone M6.
+  - Attached as a sub-issue of #685 by its REST id, and read back.
+  - Its body is written from `05` by `stage-d/audit-issue-body.py`: one checkbox per item, in #837's shape.
+- **04:02:22, § 4's second question,** `begin-exploration`'s, on #685 as comment `6553169705`, in `04` Q5's shape with what a session sees. Both comments are read back by id, and `02`'s rows cite them (the inherit table, L-22's and L-47's lead rows).
+- `04`'s scorecard is re-verdicted at stage D (12 of 22), with its pass rate computed.
+
+PROOF: D-01 (tool-run) -- the five bugs: `1389` to `1393` each `OPEN labels=bug milestone=none`, and #685's sub-issues list `1394` alone (`stage-d/issues-readback.out`, `stage-d/sub-issues-685.out`). A FAIL would have been a bug with a milestone, another label, or attached under #685.
+PROOF: D-02 (tool-run) -- `tools/box-check --issue N` on each bug printed `0 fail`, over 3, 3, 2, 3 and 2 open checkboxes (`stage-d/box-check-bugs.out`). A FAIL would have been a checkbox naming a person or a device without its fact.
+PROOF: D-03 (tool-run) -- #1394 reads `OPEN labels=audit,punch-list milestone=M6: Codebase renovation`, and `1394 open` under #685's sub-issues. A FAIL would have been a label or the milestone missing, or no parent.
+PROOF: D-04 (tool-run) -- `tools/box-check --issue 1394`: `1 issue(s), 57 open checkbox(es), 0 fail` (`stage-d/box-check-1394.out`). A FAIL would have been any checkbox the checker refuses.
+PROOF: D-05 (tool-run) -- `tools/lint-audit-artifacts --phase pre-issue --issue 1394`: `rc=0`, `issue #1394 carries a task list (57 items)`, a `references PL-NN` line for each item, `PASS pre-issue artifacts (does not certify resolution)` (`stage-d/lint-pre-issue-1394.out`). A FAIL would have been an item in `05` the issue does not carry.
+PROOF: D-06 (tool-run) -- `gh api repos/pixelelated/distribution/issues/comments/<id>` read `6553169705` on #685 and `6553118160` on #807, each with its first line (`stage-d/question-readback.out`). A FAIL would have been an id that does not resolve, or one on the wrong issue.
+PROOF: D-07 (tree) -- the `Already written:` reads (`stage-d/checks-bugs.out`): the lint opens no file for writing (`grep rc=1`); `0` records name the stash block; `0` futros, retros or work logs cite another repository's issue comments; the newest release is `rc1-20260929`; the eight earlier Local epic-tier folders each have `pending-lines=0`. A FAIL would have been a record the old sentence left that the fix must migrate.
+PROOF: D-08 (tool-run) -- `tools/t38-punch.py` on a copy whose `bugs.tsv` lacks PL-05: `t38-punch: refused: bugs.tsv names ['PL-01', 'PL-02', 'PL-03', 'PL-04'], the items proposed as bugs are [...]`; the real list `rc=0` (`stage-d/punch-refusal-bugs-planted.err`). A FAIL would have been a `05` written with a bug item and no issue.
+
+### [Stage D] census
+
+No build, no compiler, no guest, no fetch, no council run, no Facilitator call, no `tools/council/run`, no `npm install`, no keyed call, no skill invoked against a provider, no held directory opened, and no line in the host file. Nothing was posted on #807, #911, #585 or #346. The tracker writes are the five bugs, #1394 with its sub-issue link, and two comments on #685: the `begin-exploration` question and, after this commit, the pause post. The tree writes are under this folder and `/workspace/tmp/m6-t38/`. Nothing under `.claude/` was edited.
+- **The last line of stage D (`date -u` 04:04:03):** `git status --short -- .claude/agents .claude/skills` printed 0 lines.

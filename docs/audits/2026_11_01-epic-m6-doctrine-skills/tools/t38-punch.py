@@ -7,7 +7,7 @@ pre-issue phase accepts an explicit Open row with its index entry (#470).
 ITEMS = [
  ("Phase 4.6 fails a Local epic-tier slice closed in four sentences and a table row", "Medium", "Spec Drift", "Q3", "L-56", "code-auditor",
   "`code-auditor/SKILL.md:247`, `:508`; `references/phases.md:439`, `:486-491`; `references/review-levels.md:9`; `references/templates.md:94`, `:164`",
-  "each names D-WORKFLOW-184's Local epic-tier exception as `templates.md:144-146` does; `grep -c 'D-WORKFLOW-184'` over the five files prints a count in each",
+  "each names D-WORKFLOW-184's Local epic-tier exception as `templates.md:144-146` does; `grep -c 'D-WORKFLOW-184'` over the four files prints a count in each",
   "written -> audited by `tools/skills-check`'s contract step (#1373)", "bug (stage D)"),
  ("scoped-audit's pre-existing check pops the shared stash and fetches vitest", "Medium", "Code Quality", "Q3", "L-10", "mini-retro",
   "`mini-retro/references/scoped-audit.md:347-359`, `:292-321`",
@@ -187,9 +187,28 @@ _rows = {int(_m) for _m in _re.findall(r"^\| L-(\d+) \|", open(_A02).read(), _re
 _gap = sorted(_rows - _cited - set(NO_ITEM)); _extra = sorted((_cited | set(NO_ITEM)) - _rows); _both = sorted(_cited & set(NO_ITEM))
 if not _rows or _gap or _extra or _both:
     _sys.exit(f"t38-punch: refused: leads {len(_rows)}, uncited {_gap}, unknown {_extra}, both {_both}")
+_HERE = _os.path.dirname(_os.path.abspath(__file__))
+def _read(name):  # stage D's records, once they exist: the bugs filed and the audit issue
+    f = _os.path.join(_HERE, "..", "stage-d", name)
+    return open(f).read() if _os.path.exists(f) else None
+BUGS = {}
+_t = _read("bugs.tsv")
+if _t is not None:
+    for _l in _t.splitlines():
+        _k, _n, _ = _l.split("\t", 2)
+        BUGS[_k] = int(_n)
+    _want = {f"PL-{n:02d}" for n, _it in enumerate(ITEMS, 1) if _it[9].startswith("bug")}
+    if set(BUGS) != _want:
+        _sys.exit(f"t38-punch: refused: bugs.tsv names {sorted(BUGS)}, the items proposed as bugs are {sorted(_want)}")
+AUDIT = (_read("audit-issue.txt") or "").strip()
+def _prop(n, it):
+    k = f"PL-{n:02d}"
+    return f"bug #{BUGS[k]}" if k in BUGS else it[9]
 print("# Punch List — M6.P2 T38, the skills, agents and settings\n")
 print("**Generated:** 2026-11-01, by `tools/t38-punch.py` from one list (the items, the Phase 7 table and the index cannot disagree)")
 print("**Source Audit:** `04-analysis.md`; the leads are `02` § The leads")
+if AUDIT:
+    print(f"**Audit issue:** #{AUDIT}, a sub-issue of #685; the bugs: " + ", ".join(f"#{v} ({k})" for k, v in sorted(BUGS.items())))
 sev = {s: sum(1 for i in ITEMS if i[1] == s) for s in ("Critical", "High", "Medium", "Low")}
 print(f"**Total Items:** {len(ITEMS)} (Critical: {sev['Critical']}, High: {sev['High']}, Medium: {sev['Medium']}, Low: {sev['Low']})\n")
 print("---\n")
@@ -209,7 +228,7 @@ for n, (title, s, cat, q, leads, owner, where, acc, ladder, prop) in enumerate(I
     print(f"- **Where:** {where} (lines at the dispatch tip `87c2ab0fed`)")
     print(f"- **Acceptance:** {acc}")
     print(f"- **Ladder:** {ladder}")
-    print(f"- **Proposed:** {prop}\n")
+    print(f"- **Proposed:** {_prop(n, ITEMS[n - 1])}\n")
 print("## Pre-existing tracked scope (NOT punch items -- exempt from the Phase 7 gate)\n")
 print(f"- #810 -- the lint's Local epic tier; closes when `templates.md`'s fix reaches `next` ({pl(56)} is outside its checkbox)")
 print(f"- #342 -- time-free estimates; {pl(5)} answers it for the fork-adapted skills")
@@ -225,7 +244,7 @@ print("## Phase 7 resolution gate\n")
 print("| Item | Outcome | Proposed at stage B/C |")
 print("| --- | --- | --- |")
 for n, it in enumerate(ITEMS, 1):
-    print(f"| PL-{n:02d} | Open | {it[9]} |")
+    print(f"| PL-{n:02d} | Open | {_prop(n, it)} |")
 print("\n## Machine-readable index\n")
 print("```yaml")
 print("punch_index:")
@@ -237,5 +256,5 @@ for n, (title, s, cat, q, leads, owner, where, acc, ladder, prop) in enumerate(I
     print(f"  source_finding: \"{leads}\"")
     print(f"  owner_area: \"{owner}\"")
     print(f"  outcome: open")
-    print(f"  proposed: \"{prop}\"")
+    print(f"  proposed: \"{_prop(n, ITEMS[n - 1])}\"")
 print("```")

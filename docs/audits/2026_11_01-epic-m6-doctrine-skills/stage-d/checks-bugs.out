@@ -1,0 +1,39 @@
+== L-52: does the lint write anything? (open for write, write_text, os.replace, mkdir)
+grep rc=1 (1 = none)
+== L-52: the lint's phases
+177:    ap.add_argument("--issue", type=int, help="audit issue number to check the task list")
+179:    ap.add_argument("--phase", choices=("pre-issue", "resolution"), default="resolution",
+== L-52: audit folders whose running log records a pre-issue run, and folders with a completion marker
+pre-issue recorded: 2
+6
+== L-13: gh's default here
+X No default remote repository has been set. To learn more about the default repository, run: gh repo set-default --help
+== L-13: futros and work logs citing another repository's issue comments
+0
+== L-13: the gh calls in the six imported skills that name no repository
+.claude/skills/futro/SKILL.md:479:    via `gh api repos/{owner}/{repo}/issues/{number}/comments --paginate -q '.[] | {au
+== L-11: the releases on the fork (newest five)
+ROCKNIX RC1 (2026-09-29): cloud sync, offline achievements, Wi-Fi	Pre-release	rc1-20260929	2026-09-2
+ROCKNIX dev build — 20260827	Latest	dev-20260827	2026-08-27T20:47:51Z
+RK3326 build — 20260819	Pre-release	dev-rk3326-20260819	2026-08-21T05:52:15Z
+H700 build — 20260819	Pre-release	dev-h700-20260819	2026-08-21T05:38:32Z
+RK3566 build — 20260819	Pre-release	dev-rk3566-20260819	2026-08-21T05:23:34Z
+== L-11: the tool's own words
+6:No upload, tag creation, asset replacement or publication occurs. The previous
+130:    parser.add_argument("--prepare", type=Path, required=True, metavar="BUNDLE")
+== L-56: review plans with tier_exception, in this tree
+docs/audits/2026_11_01-epic-m6-doctrine-skills/second-opinions/review-plan.json
+== L-56: 4.6 recorded not applicable in those folders' 04
+docs/audits/2026_11_01-epic-m6-doctrine-skills 2
+== L-10: records naming the block run (work logs, friction log, retros, futros, audits other than T38's)
+0
+== L-56: Local epic-tier plans on this repository's local refs (no fetch), each folder's 04 on 4.6
+docs/audits/2026_10_24-epic-m6-build-engine-upstream-tools @feature/m6-build-engine-upstream-tools-653 4.6-not-applicable-lines=1 pending-lines=0
+docs/audits/2026_10_24-epic-m6-doctrine-rules @feature/m6-doctrine-rules-651 4.6-not-applicable-lines=1 pending-lines=0
+docs/audits/2026_10_24-epic-m6-emulators-dead-ends @feature/m6-emulators-dead-ends-671 4.6-not-applicable-lines=0 pending-lines=0
+docs/audits/2026_10_24-epic-m6-generic-packages-reached @feature/m6-generic-packages-reached-654 4.6-not-applicable-lines=0 pending-lines=0
+docs/audits/2026_10_25-epic-m6-devices-unshipped @feature/m6-devices-unshipped-672 4.6-not-applicable-lines=0 pending-lines=0
+docs/audits/2026_10_25-epic-m6-generic-packages-dead-ends @feature/m6-packages-dead-ends-670 4.6-not-applicable-lines=0 pending-lines=0
+docs/audits/2026_10_25-epic-m6-patches-dead @feature/m6-patches-dead-687 4.6-not-applicable-lines=0 pending-lines=0
+docs/audits/2026_10_25-epic-m6-tooling-council @feature/m6-tooling-council-692 4.6-not-applicable-lines=0 pending-lines=0
+docs/audits/2026_11_01-epic-m6-doctrine-skills @feature/m6-doctrine-skills-685 4.6-not-applicable-lines=2 pending-lines=0

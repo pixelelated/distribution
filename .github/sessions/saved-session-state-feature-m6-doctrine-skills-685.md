@@ -17,25 +17,16 @@
 
 ## Current focus
 
-**Stage C is done (03:52 UTC); stage D is next, once the coordinator has read the stage-C checkpoint on #685.**
+**Stage D is done (04:04 UTC); the lane is at the pause.** It waits for the coordinator's stream brief, `docs/reviews/briefs/t38-streams.md`, and starts stage E only on it.
 
-What stage C produced, in `docs/audits/2026_11_01-epic-m6-doctrine-skills/`:
-- `second-opinions/review-plan.json`: `local`, `reviewers` `[]`, `tier_exception` `D-WORKFLOW-184`, primary `anthropic/claude-opus-5-5`.
-- `tools/t38-checks.sh` and `.py`, with three allowlists (`tools/allow-{legit,inherited,findings}.txt`: 13, 26 and 19 entries), and its FAIL-first `tools/t38-checks-firstfail.sh`. The runs are in `stage-c/`:
-  - run 1: `TOTAL: 947 of 947 assertions`;
-  - run 2: nine probes `rc=1`, the bundle informational, seven refusals `rc=2`;
-  - run 2a: the harness defect, three probes silent before the fix;
-  - run 3: `--withhold findings`, `TOTAL: 902 of 928 assertions`, the 19 keys.
-- `05-punch-list.md`, written by `tools/t38-punch.py`: 57 items, all Open. The proposals are 5 bugs (L-10, L-11, L-13, L-52, L-56), 41 punch items, 6 questions and 5 inherited. The generator refuses an unaccounted lead.
-- The pre-issue lint: `PASS pre-issue artifacts (does not certify resolution)`.
-- `02` § The runs, § The names and the references (the per-class counts) and the proofs C-01 to C-08 (42 and 42); `04`'s scorecard at stage C, 10 of 22.
+What stage D produced:
+- **The bugs**, label `bug`, no milestone, not sub-issues: #1389 PL-01 (L-56), #1390 PL-02 (L-10), #1391 PL-03 (L-11), #1392 PL-04 (L-52), #1393 PL-05 (L-13). Each has its trace, its `Already written:` line and its VM line, and passes `box-check` with `0 fail`.
+- **The audit issue #1394**, `Audit: M6 T38 the skills, agents and settings -- 57 findings (0 critical, 0 high)`: labels `audit` and `punch-list`, milestone M6, a sub-issue of #685, 57 checkboxes. `box-check` gives `0 fail`, and the lint with `--phase pre-issue --issue 1394` passes.
+- **The two questions:** `begin-exploration`'s on #685 (comment `6553169705`), and `council-research`'s on #807 (comment `6553118160`, the coordinator's). Both are cited in `02` and read back.
+- **The pause post** on #685, with PL-47 to PL-52 put to the coordinator.
+- **The records:** `stage-d/` holds the bodies, the reads, the readbacks and the planted refusal. Proofs D-01 to D-08 bring the count to 50 and 50, and `04`'s scorecard stands at 12 of 22.
 
-**Stage D:**
-1. The audit issue: the punch list posted.
-2. The five bugs filed, each with its trace, its `Already written:` line and its VM line.
-3. The pause, with the questions (PL-47 to PL-52).
-
-The coordinator posts the `council-research` question on #807 at the pause, in `04` Q5's shape. Nothing under `.claude/` is edited before the stream brief (`docs/reviews/briefs/t38-streams.md`).
+**Stage E** follows the stream brief alone. Fixes go only in the fork-adapted skills, each commit recording its acceptance line before and after and `tools/t38-checks.sh`'s exit. Nothing under `.claude/` is edited before then.
 
 What the stage-A paragraph below asked:
 
@@ -103,3 +94,4 @@ another lane's worktree or an ES checkout, or edits a rule, `CLAUDE.md`,
 - Stage A, 02:53 UTC 2026-11-01: committed on `11fa8f95b8` (the commit carrying this line; its hash is in #685's stage-A checkpoint post). The lint's Local proof PASS rc 0 and FAIL rc 1; the membership block equal to the brief's lines byte for byte; 12,734 at the P1 hash and 12,783 at the dispatch tip; the 32 issues re-read; nothing under `.claude/` edited; no line in the host file.
 - Stage B, 03:33 UTC 2026-11-01: committed on `98019cea9f` (the commit carrying this line; its hash in #685's stage-B checkpoint post). The 52 read by a reader and the lane; `02`, `03`, `04` and `01` § Read order written; 34 proofs; nothing under `.claude/` edited.
 - Stage C, 03:52 UTC 2026-11-01: committed on `168bbba783` (the commit carrying this line; its hash is in #685's stage-C checkpoint post). Run 1 of the checker 947 of 947; FAIL-first every probe at its wanted exit after run 2a's harness fix; the withheld tip 902 of 928 at the 19 keys; `05` with 57 Open items; the pre-issue lint PASS; 42 proofs; nothing under `.claude/` edited.
+- Stage D, 04:04 UTC 2026-11-01: committed on `8c76ca62d3` (the commit carrying this line; its hash is in #685's pause post). The bugs #1389 to #1393; the audit issue #1394 under #685 with 57 checkboxes, `box-check` 0 fail, the lint `--phase pre-issue --issue 1394` PASS; the questions `6553169705` and `6553118160` read back; 50 proofs; nothing under `.claude/` edited.

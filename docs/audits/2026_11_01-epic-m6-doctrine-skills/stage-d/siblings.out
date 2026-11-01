@@ -1,0 +1,22 @@
+== L-56: 4.6 named outside code-auditor (fork-adapted skills)
+== L-56: 'fails closed' or 'mandatory at Epic' in code-auditor
+.claude/skills/code-auditor/SKILL.md:247:| 4.6   | Independent review (selected depth; required for Epic/Milestone) | `04-analysis.md` § Second opinion + `seco
+.claude/skills/code-auditor/SKILL.md:508:9a. Second opinion (Phase 4.6 — the other lab's findings and refutations, each graded against the artifact; the comma
+.claude/skills/code-auditor/references/phases.md:439:## Phase 4.6 — Second opinion: a different model refutes and extends (mandatory at Epic and Milestone tie
+.claude/skills/code-auditor/references/phases.md:486:**Fails closed:** if the primary lab cannot be established, the selected
+== L-10: git stash in the 52
+.claude/skills/mini-retro/references/scoped-audit.md:349:git stash
+.claude/skills/mini-retro/references/scoped-audit.md:358:git stash pop
+== L-10: npx in the fork-adapted skills
+.claude/skills/mini-retro/references/scoped-audit.md:293:project-wide test runner output** (e.g. `npx vitest run` with no
+.claude/skills/mini-retro/references/scoped-audit.md:306:   example-api: `cd services/example-api && npx vitest run`. For other
+.claude/skills/mini-retro/references/scoped-audit.md:353:npx vitest run <failing_test_files>
+== L-11: fork-publish-release named in the 52
+.claude/skills/release-notes/SKILL.md:19:The body of a release on `pixelelated/distribution` (`tools/fork-publish-release`
+== L-52: the lint named in the 52
+.claude/skills/code-auditor/SKILL.md:9:  adapted: 'v1.13 2026-10-06 continuous authorized execution across checkpoints, durable monitored long commands, and acc
+.claude/skills/code-auditor/SKILL.md:252:**Before Phase 6, RUN `tools/lint-audit-artifacts <folder> --issue <n>`.** It
+.claude/skills/code-auditor/references/phases.md:575:`lint-audit-artifacts` script), run it and fix every finding before Phase 6;
+== L-13: gh api without --repo or a repos/<owner>/ path, in the fork-adapted skills
+.claude/skills/futro/SKILL.md:255:/.well-known/<doc>`, `grep -rn <capability> <source-dir>`, `gh api …`). An
+.claude/skills/futro/SKILL.md:479:    via `gh api repos/{owner}/{repo}/issues/{number}/comments --paginate -q '.[] | {author: .user.login, body: .body[0:300]}'`
