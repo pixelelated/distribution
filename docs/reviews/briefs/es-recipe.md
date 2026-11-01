@@ -1,7 +1,7 @@
 # Review brief: M6.P2 T37, the EmulationStation recipe and themes in the distribution: the pin and its build steps, the build options and the renderer define, the dependencies, the build credentials by name, the shipped theme and `lowerdeck`, the patch directories, and package currency against ROCKNIX's recipe (#684)
 
-**Version 1, 2026-10-31, before the stranger's proof** (D-WORKFLOW-189;
-`docs/reviews/plan-for-the-plan.md` § 6b, § 6c, § 7). Written from five
+**Version 2, 2026-11-01 00:24:37 UTC, after the stranger's proof of version 1** (D-WORKFLOW-189;
+`docs/reviews/plan-for-the-plan.md` § 6b, § 6c, § 7). Version 1 was written from five
 read-only research files -- R1 membership and provenance, R2 the recipes read
 at the P1 tip, R3 tests, build and harness, R4 the inherited items, R5 the
 model and the ceremony (`/workspace/tmp/m6-coordinator/kit/t37-research/`, in
@@ -9,9 +9,15 @@ no tree) -- and nothing else: every figure here is one of their quoted tool
 lines, cited as `R1 C<nn>` (R1's commands C01 to C23), `R2 cmd <n>` (1 to 28),
 `R2 § <n>` or `R2 L-<nn>`, `R3 cmd <n>` (1 to 24), `R3 § <n>` or `R3 G<n>`,
 `R4 item <n>`, `R4 § <n>` or `R4 cmd <n>`, `R5 C<n>` (C1 to C15) or
-`R5 § <letter>`; **`[unverified]` marks what no tool line settles, with what
-would settle it**, and `## Version 1: what the drafting read did not settle`
-near the end lists every one. Counts by `/usr/bin/grep`, never the shell's
+`R5 § <letter>`. **Version 2 adds the stranger's proof of version 1**,
+`/workspace/tmp/m6-coordinator/kit/t37-proof.md` (358 lines; its commands
+cited `proof C<n>`, C1 to C16, its corrections `proof Correction <n>`), with
+every correction applied at its line and every item it settled moved into
+the body with its command, and three lines of version 2's own drafting read
+at the same hashes, cited `v2 read`. **`[unverified]` marks what no tool line settles, with what
+would settle it**; `## Version 1: what the drafting read did not settle`
+near the end lists every one still open, and
+`## Version 2: corrections from the proof` lists the sixteen corrections. Counts by `/usr/bin/grep`, never the shell's
 function (#1138; R5 § B item 12). The structure is T36's brief
 (`docs/reviews/briefs/es-core-utils-resources.md`, version 2 at `b1f34ce658`
 with its errata before dispatch at `e29a2966bc`, 2,149 lines by `grep -c ''`,
@@ -35,8 +41,11 @@ D-WORKFLOW-217, cited everywhere (§ 1, § 9); each G-row's precondition named
 are the coordinator worktree's at **`de935d6ec6`**, which hold at
 **`7d43f340c5`** (`feature/m6-renovation-plan-346`; R5's header, C9, C15:
 `git diff --stat de935d6ec6 HEAD -- docs/decision-register.md docs/futros
-.claude/rules docs/reviews/briefs` printed no line at `7d43f340c5`); the lane
-re-reads them at `COHASH`.
+.claude/rules docs/reviews/briefs` printed no line at `7d43f340c5`), and hold
+at `563857ea02`, where version 1 was committed (proof C1, C10, C11), and at
+`960d581c12` (v2 read:
+`git diff --stat 563857ea02 960d581c12 -- docs/decision-register.md docs/futros .claude/rules docs/reviews/briefs`
+printed no line); the lane re-reads them at `COHASH`.
 
 ## 1. Identity
 
@@ -66,17 +75,21 @@ re-reads them at `COHASH`.
   `tools/pkgcheck`"* (R1 C03). `order.md`, `slices.json` and
   `inventory.json` are the P1 branch's at `2174265e9c`, which the lane's
   worktree is stacked on (R1 C01, C10; read in the P1 research clone
-  `/workspace/tmp/m6-coordinator/t11-research/tree` by `git -C`). Line 153
-  puts T37 last in the interface's run, *"then the recipe"* (R1 C04).
+  `/workspace/tmp/m6-coordinator/t11-research/tree` by `git -C`). Lines
+  153-155 put T37 last in the interface's run, *"then the recipe"* on `:155`
+  (R1 C04; proof C12, Correction 9).
   **`order.md:180` is not this slice:** `| T37 | T14 | tooling-state-tests |`
   is a row of the renumbering table (its header `| Second | Third | Slice |`),
   so a "T37" in the preliminary review's answers is today's **T14** (R1 C03,
   C04; R1 § 6 D10). **Epic:** #700 `M6.P2 E339: Area epic: the interface,
   EmulationStation (T2, T18, T20, T21, T26, T31 to T37, T44)` (R5 § F).
   **Predecessors:** T35 #682 has handed back (distribution `7321db61d3`, ES
-  `d0e5b3432`; R4 § 9, item 41; R5 § B item 3, C15); T36 #683 is in flight
-  (R4 § 9 read its folder at `3fc87774c1`, stage B), so **its tips are read
-  at stage A**, never copied from here; T44 after. The futro
+  `d0e5b3432` at the hand-back; R4 § 9, item 41; R5 § B item 3, C15), and its
+  ES ref has moved since: `origin/feature/m6-es-core-window-input-682` read
+  `b7fdb3a24c`, 9 commits ahead of the pin and containing `d0e5b3432`, at the
+  proof (C4, C15; Correction 4); T36 #683 is in flight (R4 § 9 read its
+  folder at `3fc87774c1`, stage B), so **both lanes' tips are read at stage
+  A**, never copied from here; T44 after. The futro
   `docs/futros/2026-10-23-m6-interface.md` (1012 lines, its last heading
   `:998`, *T36 kickoff addendum*; R5 § C, C4, C14) takes a **T37 kickoff
   addendum** written by the coordinator with version 2, after the last
@@ -125,10 +138,13 @@ re-reads them at `COHASH`.
 - **Ownership rulings, stated once; § 2's take-up table points here.**
   **T37 owns the 15 paths of `projects/ROCKNIX/packages/ui/**` that the
   inventory assigns it, and nothing else.** No decided row names
-  `projects/ROCKNIX/packages/ui/`, `es-recipe`, the theme or `lowerdeck`;
+  `projects/ROCKNIX/packages/ui/`, `es-recipe` or `lowerdeck`; **D-UI-090**
+  (`decision-register.md:391`) names the theme, by its upstream offer (§ 9);
   **D-WORKFLOW-216** (`docs/decision-register.md:776`, T36's row) is the
   only one that names T37, and it routes two items here (R1 C16, C18; R4 §
-  3; R5 § G). This slice's own ownership row is the coordinator's,
+  3; R5 § G; proof C12, Correction 2; v2 read at `563857ea02`:
+  `awk '/^## Open decisions/{exit} {print NR": "$0}' docs/decision-register.md | /usr/bin/grep -E 'T37|art-book|lowerdeck|es-recipe|packages/ui/'`
+  matches `391: | D-UI-090` and `776: | D-WORKFLOW-216` only). This slice's own ownership row is the coordinator's,
   **D-WORKFLOW-217**, written at dispatch (ruling (j)). The rulings are the
   coordinator's for this brief:
   (a) **The slice is the inventory's 15.** The four patches are named for
@@ -168,9 +184,11 @@ re-reads them at `COHASH`.
   (`tools/pkgcheck projects/ROCKNIX/packages/ui/emulationstation`: nothing,
   rc 0, R5 C11) **and so does a name that matches no recipe**
   (`es-theme-no-such-package`: 0 lines, rc 0, R3 § 1.1, cmd 10); the lane
-  names the second, and `tools/fork-package-freshness`'s like fail-open
-  (an unknown name prints the header row and exits 0, R3 § 1.3), in the
-  hand-back as a **Backlog lead for the coordinator** to file (L-21).
+  names the second, and `tools/fork-package-freshness`'s two like
+  fail-opens (an unknown name prints the header row and exits 0, R3 § 1.3;
+  a missing ref prints `fatal: bad revision 'upstream/next'` and exits 0,
+  proof C8, Correction 16), in the hand-back as a **Backlog lead for the
+  coordinator** to file (L-21).
   (e) **The upstream read is from the refs already in the repositories,
   dated as they stand, with no fetch:** `upstream/next` as fetched in the
   primary checkout, `651150fc88` (2026-10-24, *Merge pull request #3547 from
@@ -183,8 +201,10 @@ re-reads them at `COHASH`.
   `ab735114ab318a84e4d28c9c5f1b154e450a579a`), cited as R1's with its date and
   never refreshed by the lane: no `git ls-remote`, no `gh api`, no
   `rc-preflight` (its `base: emulationstation` fetches `rocknix/master`, R3
-  § 1.4), and of `tools/fork-package-freshness` only `--list`, which is pure
-  git (R3 § 1.3, cmd 12).
+  § 1.4), and of `tools/fork-package-freshness` only `--list` with both refs
+  given (`FRESHNESS_BASE=651150fc88 FRESHNESS_HEAD=<the tip>`, the tool's
+  `:42-43`), which is pure git and is judged by its output's counts, never
+  its rc (R3 § 1.3, cmd 12; proof C14, Correction 16).
   (f) **ES's top-level `CMakeLists.txt` is read for what the define does and
   is owned by no slice here -- it is named as the integration's.**
   `es-core/CMakeLists.txt` (the renderer source list) is T35's
@@ -204,9 +224,28 @@ re-reads them at `COHASH`.
   outside the slice.** The theme recipe is the slice's; the files of the
   author's tarball it installs are not.
   (j) **D-WORKFLOW-217 is the ownership row at dispatch** (R5 § G: no
-  `D-WORKFLOW-217` row at `7d43f340c5`, R5's header, C9, C15); **D-WORKFLOW-215
+  `D-WORKFLOW-217` row at `7d43f340c5`, R5's header, C9, C15; none at
+  `563857ea02`, proof C10: `D-WORKFLOW-217 ABSENT`); **D-WORKFLOW-215
   governs any hold** (`decision-register.md:771`, R5 § G), and none is
   expected in a recipe read.
+  (k) **The lane never sources `config/options` in its worktree** (proof
+  Correction 1). Sourcing it writes: `config/functions:801-802` set
+  `_CACHE_PACKAGE_LOCAL="${BUILD}/.cache_package_local"` and
+  `_CACHE_PACKAGE_GLOBAL="${BUILD}/.cache_package_global"`, so one call per
+  device creates `build.<distro>-<DEVICE>.<ARCH>/` holding both files. The
+  proof's call from inside the P1 research clone took
+  `git status --porcelain --ignored | wc -l` from `status-before=2` to
+  `status-after=4`, leaving `build.pixelelated-GENERIC_X64.x86_64/` and
+  `build.pixelelated-H700.aarch64/` there (C8, C9, C10, C15). So every
+  sourced-recipe call -- § 5's effective values, the patch reach, the
+  stamps, the checker's steps 4 and 7 -- runs in **a scratch export of the
+  tip**, `git -C <worktree> archive <tip> | tar -x -C /workspace/tmp/m6-t37/export/`,
+  never a checkout; § 5's block names the two cache files as the call's
+  writes there; **no `build.*` root in the worktree at any stage, and a
+  `build.*` root found there is a stop** (§ 10); `00`'s census records the
+  export's path and that it was retired at stage H, the plan's *Close*
+  (D-INFRA-022). The research clone is read by `git -C` only, as § 2's
+  block reads it.
   So the lane writes no line outside the 15 (a fix in a neighbour is named
   for its owner at the pause).
 - **The division of labour (D-WORKFLOW-189), inverted for a distribution
@@ -292,8 +331,11 @@ re-reads them at `COHASH`.
   `CHEEVOS_DEV_LOGIN`; R5 C10), each dispositioned *build-variable name*
   under D-INFRA-006, D-INFRA-007 and D-WORKFLOW-166, and `:39`'s value,
   masked before the packet is built; **a value that reaches the packet stops
-  it**. Whether `es_settings.cfg` or the scripts carry a credential-shaped
-  key is `[unverified]` (R5 § A) -- the lane's scan settles it.
+  it**. `es_settings.cfg`, the four scripts and the ES recipe carry no
+  credential-shaped line in the hooks' own form (§ 5 item 3): it counted `0`
+  on each of the six (proof C12) after a planted private-key header line
+  matched `1` and a plain line `0` (C13); the other nine of the 15 were not
+  scanned, and the lane's scan covers all 15.
   `packet-manifest.json` records every hit dispositioned by file:line; no
   value reaches the packet or an artifact.
 - **Model and effort:** Opus 5.5 at high effort, written into `00` at stage
@@ -317,9 +359,9 @@ git rev-parse --verify 651150fc88^{commit} >/dev/null && echo upstream-next-is-h
 git merge-base 2174265e9c 651150fc88                                        # c445081a59518f37d9776e5412dd7b14910696f7 (R1 C01, C02)
 Q=/home/max/Development/emulationstation-next.worktrees/qa-integration; PIN=16dbac5211eea7e70db7394372033be2be7df829
 git -C "$Q" cat-file -e "$PIN^{commit}" && echo pin-here                    # pin-here (R5 § A)
-git -C "$Q" rev-parse --verify rocknix/master | cut -c1-10                  # f6c542872e (R1 C15; R5 C11)
-git -C "$Q" merge-base "$PIN" rocknix/master | cut -c1-10                   # cada856d86 (R1 C15)
-for r in origin/feature/m6-es-core-window-input-682 origin/feature/m6-es-core-utils-resources-683; do printf '%s ' "$r"; git -C "$Q" rev-parse --verify "$r" 2>&1 | cut -c1-10; done   # T35's printed d0e5b3432e at R5 C15; T36's is read now; each line is recorded as it prints -- a hash or `fatal:` -- and neither is a stop (R5 § B item 3)
+git -C "$Q" rev-parse --verify rocknix/master                               # f6c542872e..., the whole line (R1 C15; R5 C11 printed the first ten)
+git -C "$Q" merge-base "$PIN" rocknix/master                                # cada856d86..., the whole line (R1 C15)
+for r in origin/feature/m6-es-core-window-input-682 origin/feature/m6-es-core-utils-resources-683; do printf '%s ' "$r"; git -C "$Q" rev-parse --verify "$r" 2>&1; done   # both read now: T35's printed d0e5b3432e at R5 C15 and b7fdb3a24c (9 ahead of the pin) at the proof's C4; T36's printed a `fatal:` line at the proof's C4; each line is recorded whole as it prints -- a hash or `fatal:`, no `cut` (proof Correction 4) -- and neither is a stop (R5 § B item 3)
 for n in emulationstation es-theme-art-book-next lowerdeck; do find packages projects -type f -path "*/$n/package.mk"; tools/pkgcheck "$n"; rc=$?
 echo "pkgcheck $n rc=$rc"; done                                              # one path each, then `rc=0` (R3 § 1.1, cmd 10)
 tools/register-check >/dev/null; rc=$?
@@ -359,7 +401,8 @@ first against `/dev/null` to make the paths file from its own TSV, then
 against that file to prove equality. **The text below is R1's `block.sh`
 byte for byte** (115 lines, sha256 prefix `f3ef373be6535467`, R1 C10); R1
 ran it unchanged on 2026-10-31 (`W` names a directory that exists) and the
-expected lines are that run's, byte for byte:
+expected lines are that run's, byte for byte; the proof re-ran it from this
+brief's own lines and every expected line printed byte for byte (C2):
 
 ```bash
 mkdir -p .qa-scratch/t37
@@ -571,14 +614,23 @@ matches the pin (`MultiStateInput.cpp:32-38`, `:50-53`) and which no fork
 commit carries; `start_es.sh`'s `prerotate_env` and `scanout_reset_stale`;
 `start.games` moving to `/run/rocknix/` in both units; the `20-thp.conf`
 drop-ins (`MemoryTHP=system`); 107 lines of `es_features.cfg`; and
-`essway.service`'s comment `:4`, three lines from the fork's hunk `:12-14`.
-Upstream's ES-recipe hunks are the distribution half of the same features
-as the 14 ES commits (batteryplus, the hidden cursor, the RP6 and Odin 3
-calibration, S922X's s2idle, the scaling settings), so **this recipe's
-currency moves with the ES merge, not separately** (R1 C15). The tip to
-`upstream/next` over `ui/` is `14 files changed, 83 insertions(+), 536
-deletions(-)`, quoted only as the tool's line (it mixes the fork's 8 with
-upstream's 8, R1 C14). **The theme's and `lowerdeck`'s pins are the same at
+`essway.service`'s comment `:4` -- over
+`projects/ROCKNIX/packages/ui/emulationstation/system.d/essway.service`,
+`git diff -U0 c445081a59 651150fc88` prints upstream's `@@ -4 +4 @@` and
+`git diff -U0 c445081a59 2174265e9c` the fork's `@@ -11,0 +12,3 @@` (proof
+C15, Correction 13). Upstream's ES-recipe hunks are the distribution half of
+the same features as the 14 ES commits (batteryplus, the hidden cursor, the
+RP6 and Odin 3 calibration, S922X's s2idle, the scaling settings; the 14
+also carry the ZRAM swap menu, `830d370cf` *GuiMenu: add a ZRAM swap menu*
+merged by `40343cf6e`, which has no distribution half under `ui/`, proof
+C13, Correction 12), so **this recipe's currency moves with the ES merge,
+not separately** (R1 C15). **The tip to `upstream/next` over `ui/`** is
+` 14 files changed, 83 insertions(+), 536 deletions(-)`
+(`git diff --shortstat 2174265e9c 651150fc88 -- projects/ROCKNIX/packages/ui/`,
+R1 C14, proof C3): upstream's 8 and the fork's 8, the two `overlap` files in
+both -- `upstream-only 6 fork-only 6 both 2` by § 5's `comm` line (v2 read)
+-- and **§ 7's currency rows count these 14 files, one row each** (proof
+Correction 6). **The theme's and `lowerdeck`'s pins are the same at
 all four hashes** (R1 C14). The ES half is § 8's.
 
 **The files** (lines at the tip by `grep -c ''`, the inventory's rule, R1
@@ -599,33 +651,45 @@ C07; tier and class R1 C11, C13; the fork's stat column R1 C13's `diff
 | `emulationstation/system.d/emustation.service` | 20 | upstream-carried; behind | -- | the non-sway unit |
 | `emulationstation/system.d/essway.service` | 21 | fork-own; fork-modified, overlap | 3 | the sway unit; `:12-14` `ExecStartPre=/usr/bin/sway-ready`, `TimeoutStartSec=20` (`c6afa31db1`, 2026-10-09); `sway-ready` installed by `projects/ROCKNIX/packages/wayland/compositor/sway/package.mk:46` (R2 cmd 12); no trailing newline (R1 C07) |
 | `lowerdeck/package.mk` | 17 | upstream-carried | -- | `bulzipke/lowerdeck` at `ab735114ab` with `PKG_SHA256`, `PKG_TOOLCHAIN="manual"`, the tree copied to `/usr/share/lowerdeck` (`:14-17`) |
-| `themes/es-theme-art-book-next/package.mk` | 28 | fork-own; fork-modified | 2 | `anthonycaccese/art-book-next-es` at `9a50ef366e` with `PKG_SHA256`, `PKG_LICENSE="CUSTOM"` (`:5-9`); installed to `/usr/share/themes/es-theme-art-book-next` (`:15-16`) with the wordmark and the licence (`:17-18`, the fork's), five artwork variants removed (`:19`), their includes deleted (`:20`), a `zh` font block appended to `fonts.xml` (`:21-27`) |
+| `themes/es-theme-art-book-next/package.mk` | 28 | fork-own; fork-modified | 2 | `anthonycaccese/art-book-next-es` at `9a50ef366e` with `PKG_SHA256`, `PKG_LICENSE="CUSTOM"` (`:5-9`); installed to `/usr/share/themes/es-theme-art-book-next` (`:15-16`) with the wordmark and the licence (`:17-18`, the fork's), five artwork variants removed (`:19`), four of their includes deleted (`:20`, `noir\|nintendont\|circuit\|outline`; `classic` has none, proof C5, Correction 14), a `zh` font block appended to `fonts.xml` (`:21-27`) |
 | `themes/es-theme-art-book-next/sources/Tiny5-OFL.txt` | 93 | fork-own; fork-added | 93 | the Tiny5 font licence |
 | `themes/es-theme-art-book-next/sources/pixelelated-wordmark.svg` | 263 | fork-own; fork-added | 263 | the wordmark |
 
-Outside the 15, named for their owners (R1 C07, C11, C13; ruling (a)):
-`emulationstation/patches/x86_64/cpugov.patch` (27, upstream-carried, T40),
+Outside the 15, named for their owners (R1 C07, C11, C13; ruling (a)), all
+four of inventory tier `vendor-carried`, git's class beside it (proof C2's
+`CLAIMS`, C3's name-status; Correction 10):
+`emulationstation/patches/x86_64/cpugov.patch` (27, `vendor-carried`; git
+upstream-carried; T40),
 `themes/.../patches/0001-system-style-the-logo-text-for-fullscreen-artwork.patch`
-(20, upstream-carried, T42), `themes/.../patches/001-pixelelated-splash.patch`
-(31, fork-added, T42) and `themes/.../patches/001-tools-always-show-image.patch`
-(11, fork-added, T42).
+(20, `vendor-carried`; git upstream-carried; T42),
+`themes/.../patches/001-pixelelated-splash.patch` (31, `vendor-carried`; git
+fork-added; T42) and `themes/.../patches/001-tools-always-show-image.patch`
+(11, `vendor-carried`; git fork-added; T42).
 
 **The fork's commits on `ui/`** (R1 C12, C13): **251 log lines since the
 merge base, 5 of them merges** -- all five the fork's merges of
 `upstream/next`, kept by history simplification -- **246 non-merge, 241 of
 which touch `emulationstation/package.mk`**: the recipe's history is the ES
-pin's. First `cb50b45f6e` 2026-08-19 (*qa: take upstream's ES recipe, keep
-the fork's source*), last `f8636de1d1` 2026-10-15. **The fork's change
+pin's. First in `git log --reverse` order is `cb50b45f6e` 2026-08-19 (*qa:
+take upstream's ES recipe, keep the fork's source*) -- by date the range's
+earliest are `6afeaa2681` (2026-07-06) and its revert `5da39f7adf`
+(2026-07-07), proof C3, Correction 15 -- and the last `f8636de1d1`
+2026-10-15. **The fork's change
 against the base: `8 files changed, 463 insertions(+), 13 deletions(-)`**
 (R1 C13). Paths added and later removed: `patches/GENERIC_X64/001-generic-x64-request-gles3-context.patch`
 (`6afeaa2681`, reverted by `5da39f7adf`), `sources/rasteratops-wordmark.svg`
 and `patches/001-rasteratops-splash.patch` (the identity rename,
-`3d7c075f63` then `a9af618398`) (R1 C13). **The fork's hunks in the ES
+`3d7c075f63` then `a9af618398`) (R1 C13):
+`git log --diff-filter=D c445081a59..2174265e9c -- projects/ROCKNIX/packages/ui/`
+prints `a9af618398` and `5da39f7adf`, and the splash patch's removal is a
+rename under git's detection, so it shows as no deletion (proof C3). **The fork's hunks in the ES
 recipe** (R2 § 0, cmd 4, attributed by commit message, not per hunk):
 `:5-13` the source moved from upstream's tarball to the fork's clone, with
 `zstd` appended to `:13` (by message `84ff94fb3d`) and `PKG_LICENSE`
-changed from `GPL` to `MIT AND BSD-3-Clause` at `:7` (commit not traced,
-L-16); `:27-30` the runtime ScreenScraper login (#566, D-WORKFLOW-166);
+changed at `:7` from `GPL` to `MIT` by `3d7c075f63` (2026-10-02) and to
+`MIT AND BSD-3-Clause` by `84ff94fb3d` (2026-10-13)
+(`git log -L7,7:projects/ROCKNIX/packages/ui/emulationstation/package.mk 2174265e9c`,
+proof C5; L-16); `:27-30` the runtime ScreenScraper login (#566, D-WORKFLOW-166);
 `:32` a comment over upstream's `BATTERYPLUS` line; `:36-40` the shared
 developer identity (`:39` a local whose value no research file reproduces,
 `:40` the default form built from it); `:48-50` the log loop printing
@@ -645,20 +709,35 @@ the generic recipes (`toolchain`, `freetype`, generic `curl`, `alsa`,
 `pugixml`, `zstd`, `Python3` and **`packages/devel/fribidi`**, 25 lines), **T22 `os-system-services`** `bash` and `drm_tool`, **T23
 `packages-dead-ends`** the generic `packages/devel/boost` the override
 shadows; `${OPENGLES}` is `mesa` at `projects/ROCKNIX/options:19` (R2 cmd
-7) and in the effective value on GENERIC_X64 (R3 § 1.5); the two copies of
+7) and in the effective value on GENERIC_X64 (R3 § 1.5), and under
+`projects/ROCKNIX/` it is set only there and at `devices/AMD64/options:32`,
+both `"mesa"`
+(`git grep -n -E '^[[:space:]]*OPENGLES=' 2174265e9c -- projects/ROCKNIX`,
+proof C14); the two copies of
 the ES recipe under
 `docs/qa-logs/2026-10-14-screenscraper-provisioning/attempt02/inputs/{baseline,candidate}/package.mk`
 (135 and 141 lines) are **T46 `records`**'s, read, if at all, through the
 mask (R1 § 5); `tools/pkgcheck` (169 lines) is **T6
 `build-engine-upstream-tools`**'s and `tools/es-menu-map-check` **T10
-`tooling-guards`**'s; the recipes of fribidi's chain (§ 3 L-09) --
-`projects/ROCKNIX/packages/virtual/swaywm-env`,
-`projects/ROCKNIX/packages/wayland/compositor/sway` and
-`packages/graphics/pango` -- have no owner line in the research
-(`[unverified]`: the block's `named` list with the three added settles it,
-R1 C20's `m2.py` shape); the ES tree is every `es-*` slice's, with
-`es-core/CMakeLists.txt` T35's and ES's top-level `CMakeLists.txt` the
-integration's (ruling (f)).
+`tooling-guards`**'s; the recipes of fribidi's chain (§ 3 L-09) are
+**T8's** `projects/ROCKNIX/packages/virtual/swaywm-env` and
+`projects/ROCKNIX/packages/wayland/compositor/sway` (fork-own, 71 lines),
+**T7's** `packages/graphics/pango` and `packages/devel/fribidi`, and **T8's**
+`projects/ROCKNIX/packages/graphics/SDL2` (`('image-packages', 8)` for
+`swaywm-env` and `sway`, `('generic-packages-reached', 7)` for `pango`: the
+block's `named` list extended through its second argument, proof C2); the
+three scripts outside the slice that use `lowerdeck` at run time (Q5) are
+the slices' that the same extended run prints for them; the ES tree is
+every `es-*` slice's, with `es-core/CMakeLists.txt` T35's and ES's top-level
+`CMakeLists.txt` the integration's (ruling (f)). **The extended run** is the
+block's script unchanged, the extra paths appended to its second argument:
+`named` is that argument plus the six, so only `CLAIMS` grows and the
+block's sha256 still checks; the lane records the eight lines it prints.
+
+```bash
+{ cat .qa-scratch/t37/tree.txt; printf '%s\n' projects/ROCKNIX/packages/virtual/swaywm-env/package.mk projects/ROCKNIX/packages/wayland/compositor/sway/package.mk packages/graphics/pango/package.mk packages/devel/fribidi/package.mk projects/ROCKNIX/packages/graphics/SDL2/package.mk projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh projects/ROCKNIX/packages/rocknix/sources/scripts/vertical-check projects/ROCKNIX/packages/wayland/compositor/sway/autostart/111-sway-init; } > .qa-scratch/t37/named-extra.txt
+python3 -I .qa-scratch/t37/membership.py .qa-scratch/t37/paths.txt .qa-scratch/t37/named-extra.txt | sed -n '/^CLAIMS$/,/^DEPS$/p' | /usr/bin/grep -E 'swaywm-env|compositor/sway/|graphics/pango|devel/fribidi|graphics/SDL2/|runemu|vertical-check|111-sway-init'
+```
 
 **Already found; do not re-find; take up.** Each is cited at its lines in
 `02` with a disposition; the states are as R4 read them on 2026-10-31,
@@ -685,8 +764,8 @@ re-find it); a ruling named by letter is § 1's.
 | The theme (D-UI-090, `decision-register.md:391`; R4 items 25, 28) | `themes/es-theme-art-book-next/package.mk:5`, `:7` | **read**: its pin is `upstream/next`'s and its author's `HEAD` at R1 C20's read; the theme draws its own picture (`es-code-traps.md` § The picture beside a game list); `CUSTOM` licence stated from its source -- Q5 |
 | **#69** (OPEN; `:52`'s checkbox, the upstream offer, open; D-UI-090; R4 item 26) | `themes/.../patches/001-tools-always-show-image.patch` (T42's text) | **read**: the offer's state; nothing is sent (D-WORKFLOW-165, #585) -- Q5 |
 | The splash wordmark (D-WORKFLOW-144, -145, -146; R4 item 27) | `themes/.../package.mk:17-18`; the two `sources/` files; T42's splash patch | **read**: the recipe's copy steps against the rows; the licence shipped with the font's use -- Q5 |
-| `lowerdeck` (R4 item 29) | `lowerdeck/package.mk` | **read**: currency (behind its author's `HEAD`, R1 C20) and why it is in `ui/` -- Q5, Q7 |
-| Currency against ROCKNIX's recipe (`release-candidates.md:29`; D-WORKFLOW-024, -162; #791 OPEN, Backlog; R4 item 30) | the 8 upstream files of § 2's merge debt | **read**: one row per difference -- upstream's change the fork lacks, the fork's own, or a merge pending -- and the ES pin's 14 as #791's input -- Q7 |
+| `lowerdeck` (R4 item 29) | `lowerdeck/package.mk` | **read**: currency (behind its author's `HEAD`, R1 C20) and why it is in `ui/`; installed by `PKG_UI` and used at run time by `runemu.sh:337-338`, `vertical-check:6-7`, `:143`, `:175`, `:180` and `111-sway-init:163-164`, their owners the extended run's (proof C6, Correction 11) -- Q5, Q7 |
+| Currency against ROCKNIX's recipe (`release-candidates.md:29`; D-WORKFLOW-024, -162; #791 OPEN, Backlog; R4 item 30) | the 14 files of the tip-to-`upstream/next` difference (§ 2's merge debt) | **read**: one row per file -- upstream moved it, the fork moved it, or both; upstream's change the fork lacks, the fork's own, or a merge pending -- and the ES pin's 14 as #791's input -- Q7 |
 | ES PRs through the distribution (D-WORKFLOW-012; #256, #322; R4 item 31) | the recipe | **read**: the recipe's part of the series' buckets -- Q7 |
 | The lanes that name the recipe (`es-launch-path.md:384`, `:389-392`; T18 `02:371`; R4 item 32); iterating on ES (`device-builds.md:634-670`; R4 item 33) | `:5`, `:6` | **read**: the pin each kept image carries, from its `os-release` or binary; the bump's steps in the pin table -- Q1 |
 | T36's § 5 item 3 and its stage-B lines (`es-core-utils-resources.md:1527-1541`; T36 `02-forward-audit.md:406`, `:461`; R4 items 34, 40) | `:25` | **read** when T36 hands back: the renderer positives and the collision list touch the recipe -- Q2 |
@@ -709,7 +788,7 @@ with `grep -n '^## '` at `COHASH`:
    | `packaging-and-patches.md` | `:20-24`, `:34-36`, `:76-97` | the fields (`PKG_SHA256` required for a download, n/a for a clone), late binding, generating and scoping patches (R2's header; R4 § 3) | Q1, Q6 |
    | `packages/README.md` | `:171`, `:188`, `:205`, `:280` | `configure_package`; late binding; the `pkgcheck` FAIL row (R2's header; R3 § 1.2) | every `package.mk` edit |
    | `device-builds.md` | `:528-578`, `:634-670` | § Build credentials; § Iterating on EmulationStation (`EMULATIONSTATION_SRC` only mounts; to ship, the merge into `PKG_GIT_CLONE_BRANCH` and the `PKG_VERSION` bump) (R4 § 3) | Q1, Q4 |
-   | | § After rebasing, item 3 | every field read as the build reads it, through `config/options <pkg>` with `PROJECT`, `DEVICE` and `ARCH` set (R3 § 1.5) | § 5 |
+   | | § After rebasing, item 3 | every field read as the build reads it, through `config/options <pkg>` with `PROJECT`, `DEVICE` and `ARCH` set (R3 § 1.5) -- in the scratch export, ruling (k) | § 5 |
    | `fork-workflow.md` | `:178-179` | a fork-introduced package at its latest release or pinned with a reason (D-WORKFLOW-024; R4 § 3) | Q7 |
    | `release-candidates.md` | `:29` | the EmulationStation pin level with ROCKNIX's master (R4 § 3) | Q1, Q7 |
    | `es-native-ui.md` | `:405-415` | Before the pin moves, the compiler has seen the edit -- the integration's, not this lane's (R4 § 3) | § 8 |
@@ -735,7 +814,10 @@ with `grep -n '^## '` at `COHASH`:
    f -path */<arg>/package.mk` at `:157`); `config/options` sourcing a recipe
    (197 lines; it reads `${ROOT}/.rocknix/options` at `:134` and
    `${HOME}/.rocknix/options` at `:138-139`, so it runs under `env -i` with
-   `HOME` in scratch); `calculate_stamp` (`config/functions:1109-1130`: every
+   `HOME` in scratch; and it writes
+   `build.<distro>-<DEVICE>.<ARCH>/.cache_package_{local,global}` through
+   `config/functions:801-802`, so it runs only in the scratch export, ruling
+   (k), proof Correction 1); `calculate_stamp` (`config/functions:1109-1130`: every
    regular non-dot file under the package's directories, so any edit to one
    of the files moves its own package's stamp and nothing else's); `tools/fork-package-freshness`
    and `tools/rc-preflight` (L-10, ruling (e)); `tools/es-syntax-check` exits
@@ -776,34 +858,36 @@ at its lines at `2174265e9c`; nothing here was tested, and a lead is a fact of
 the lines until the lane's proof says more. **`proved:`** is the research's
 column (R2 § 6). **The FAIL-first candidates come first** -- L-02's
 never-applied patch, L-03's link, the two fail-open steps L-07 and L-08,
-L-04's no-op `rm` -- and each gets its `git log -S` before it is called a
-defect (`engineering-practices.md` § Verify design intent). **Every check is a
+L-04's no-op `rm` -- and each gets its `git log -S` (for a word that is
+only a file's name, `git log --diff-filter=A` over the file, L-02) before it
+is called a defect (`engineering-practices.md` § Verify design intent). **Every check is a
 `tools/pkgcheck` run, a `bash -n`, a sourced-recipe assertion through
 `config/options` with `PROJECT=ROCKNIX DEVICE=GENERIC_X64 ARCH=x86_64`
-(and H700 where the row says), an install-text assertion over the recipe's
+(and H700 where the row says) in the scratch export (ruling (k)), an
+install-text assertion over the recipe's
 functions, a fixture in scratch, or a `git log -S` -- never a build.**
 
 | Lead | Lines at the tip | Shape | proved | Check | Q |
 | --- | --- | --- | --- | --- | --- |
-| **L-02** | `emulationstation/patches/x86_64/`; the recipe's patch directories; `scripts/unpack:127-128`, `:137-138`, `:150-160` | **`cpugov.patch` never applies**: for `TARGET_ARCH=x86_64` the arch directory searched is `x86`, and the recipe sets no `PKG_PATCH_DIRS` (nothing outside recipes does); its context matches the pin (`ApiSystem.cpp:1062-1069`), so it would apply if routed; its body maps GPU governors to `get_available_cpu_governors` in both branches (`cpugov.patch:20-23`, T40's text) (R2 § 3, L-02; R3 § 2.2 C3) | tree, tool-run (R3 § 8: `GENERIC_X64/x86_64: source rc=0 TARGET_ARCH=x86_64 PATCH_ARCH=x86 PKG_PATCH_DIRS=[] -> patches/x86_64/: NOT REACHED`, the same verdict for `H700/aarch64`) | **FAIL-first**: the sourced-recipe patch reach for GENERIC_X64 and H700 prints `NOT REACHED` at the tip, and `t37-checks.sh` step 4 FAILs naming the directory (R3 § 6); `git log -S cpugov` for intent (`40fce2a089`, 2026-08-20, *amd64: wip am64 changes*, R2 cmd 16); the build alone proves the patch applies to the pin (#1072 `:29`, R4 item 14) | Q6 |
-| **L-03** | `emulationstation/package.mk:101` (cf. `:100`, a device path) | **the `es_systems.cfg` link's target is a build-host path**: `ln -sf ${INSTALL}/usr/config/emulationstation/es_systems.cfg ${INSTALL}/etc/emulationstation/es_systems.cfg`, dangling on a device; upstream's form too (`upstream/next:75`, merge base `:74`); the M7 candidate's recipe had `/usr/config/...` and no commit in the tip's history carries it (R2 L-03; R3 § 2.2 C1, cmd 22, cmd 23); whether `scripts/install` or `scripts/image` rewrites absolute links was not read `[unverified]` | tree, history | **FAIL-first**: the install-text assertion "no `ln -s` whose target begins `${INSTALL}`" FAILs at `:101` (R3 § 6 step 5); `git log -S'ln -sf /usr/config/emulationstation/es_systems.cfg' 2174265e9c` prints no commit (R3 cmd 23); G-03 reads the candidate's link -- its fix, never the tip's behaviour (ruling (h)) | Q2 |
+| **L-02** | `emulationstation/patches/x86_64/`; the recipe's patch directories; `scripts/unpack:127-128`, `:137-138`, `:150-160` | **`cpugov.patch` never applies**: for `TARGET_ARCH=x86_64` the arch directory searched is `x86`, and the recipe sets no `PKG_PATCH_DIRS` (nothing outside recipes does); its context matches the pin (`ApiSystem.cpp:1062-1069`; the hunk `@@ -745`'s 12 old lines are found at `1061`, so with an offset, proof C14), so it would apply if routed; its body maps GPU governors to `get_available_cpu_governors` in both branches (`cpugov.patch:20-23`, T40's text) (R2 § 3, L-02; R3 § 2.2 C3) | tree, tool-run (R3 § 8: `GENERIC_X64/x86_64: source rc=0 TARGET_ARCH=x86_64 PATCH_ARCH=x86 PKG_PATCH_DIRS=[] -> patches/x86_64/: NOT REACHED`, the same verdict for `H700/aarch64`) | **FAIL-first**: the sourced-recipe patch reach for GENERIC_X64 and H700 prints `NOT REACHED` at the tip, and `t37-checks.sh` step 4 FAILs naming the directory (R3 § 6); `git log --format='%h %ad %s' --date=short --diff-filter=A 2174265e9c -- projects/ROCKNIX/packages/ui/emulationstation/patches/x86_64/cpugov.patch` for intent, which prints `40fce2a089 2026-08-20 amd64: wip am64 changes` (R2 cmd 16; proof C5; `git log -S cpugov` prints no commit, the word being the file's name and not its text, proof C3, Correction 5); the build alone proves the patch applies to the pin (#1072 `:29`, R4 item 14) | Q6 |
+| **L-03** | `emulationstation/package.mk:101` (cf. `:100`, a device path) | **the `es_systems.cfg` link's target is a build-host path**: `ln -sf ${INSTALL}/usr/config/emulationstation/es_systems.cfg ${INSTALL}/etc/emulationstation/es_systems.cfg`, dangling on a device; upstream's form too (`upstream/next:75`, merge base `:74`); the M7 candidate's recipe had `/usr/config/...` and no commit in the tip's history carries it (R2 L-03; R3 § 2.2 C1, cmd 22, cmd 23); whether `scripts/install` or `scripts/image` rewrites absolute links: a grep of both for `readlink`, `symlink` or `-type l` found none (proof C7), and neither was read whole `[unverified]` -- the lane's read of both at the tip settles it | tree, history | **FAIL-first**: the install-text assertion "no `ln -s` whose target begins `${INSTALL}`" FAILs at `:101` (R3 § 6 step 5); `git log -S'ln -sf /usr/config/emulationstation/es_systems.cfg' 2174265e9c` prints no commit (R3 cmd 23; proof C14: `[]`); G-03 reads the candidate's link -- its fix, never the tip's behaviour (ruling (h)) | Q2 |
 | **L-07** | `emulationstation/package.mk:73-75` (comment `:70-71`); `sources/es_settings:26-35` | **fail-open**: the `en_US.UTF-8` pre-generation by the host's `localedef` ends `\|\| true`, so a failure is silent and first boot pays for it (R2 L-07; R3 § 2.2 C6) | tree | **FAIL-first**: the install-text assertion lists each `\|\| true` with its line, a WARN the lane rules on (R3 § 6 step 5); G-03's `ls -d /usr/config/locale/en_US.UTF-8` (R3 G11) | Q2 |
-| **L-08** | the pin's `CMakeLists.txt:565-576`, `:614-615`; `locale/CMakeLists.txt:9`, `:25`, `:31`; the recipe's `makeinstall_target:67-68` | **fail-open**: with no `msgfmt`, `msgmerge` or `xgettext` on the build host ES prints *"Native language support disabled."* and no error, builds no `.mo`, and the recipe copies whatever `locale/lang/` holds -- French (D-UI-051) silently absent; the tools' provider on the build host was not found (R2 L-08, § 1; R3 § 2.1 steps 4-5) `[unverified]` | tree | **FAIL-first**: an install-text assertion that `makeinstall_target` refuses when the French `.mo` is missing (no such line at the tip); G-03's `ls -l /usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo` (R3 G6); ES's CMake is read by hash and changed by no one here (ruling (f)) | Q2 |
-| **L-04** | `emulationstation/package.mk:79` against `:81-82` | **the no-op `rm`**: `rm -f .../resources/logo.png` runs before `resources/` is created and filled, so it removes nothing and the pin's `resources/logo.png` ships (R2 L-04, cmd 6; R3 § 2.2 C5); its consumer is unread, so a question, not a defect yet | tree | **FAIL-first**: the install-text assertion "no `rm` of a path under a directory a later line of the same function creates or fills" FAILs at `:79` (R3 § 6 step 5); `git log -S'logo.png'` over the recipe for intent; G-05's `ls -l .../resources/logo.png` (R3 G9) | Q2 |
-| L-01 | `emulationstation/package.mk:125-129`; `es_features.cfg:1333`, `:1393`; `projects/ROCKNIX/packages/virtual/emulators/package.mk:47-49`, `:52-55`, `:58-60`, `:87-89`, `:92-94`, `:101-103` | **a merge dropped upstream's ARMSX2 block**: `b9a5d8caf1` (2026-09-24) deletes `armsx2-sa`'s *vulkan driver* feature except on `SM4450\|SM6115\|SM8250\|SM8550\|SM8650`; absent from `a06539d8ec`'s result (2026-09-29, *"Two conflicts, both resolved as the fork's file"*) while its upstream parent `6b344ab54d` had it, and again at `049765fba0`, `fa2990c1e7`, `f370dc8787`; `armsx2-sa` also ships on RK3399, RK3566/RK3576, RK3588, SM8750, S922X and AMD64, which then offer a Turnip driver that is not there -- of the fork's devices, RK3566 (R2 L-01, cmds 17-19) | history | a fixture: upstream's and the tip's two `xmlstarlet` commands over a scratch copy of `es_features.cfg` with `DEVICE=RK3566`, counting `//core[@name="armsx2-sa"]//feature[@name="vulkan driver"]` (upstream 0, tip 1, R2 § 6); whether the host has `xmlstarlet` outside the build container is `[unverified]` (`Dockerfile:27` installs it and `scripts/checkdeps:78` requires it, R2 cmd 22) -- else `python3 -I` with `xml.etree` | Q2, Q7 |
-| L-09 | `emulationstation/package.mk:13`; `projects/ROCKNIX/packages/graphics/SDL2/package.mk:47-55`; `.../virtual/swaywm-env/package.mk:14`; `.../wayland/compositor/sway/package.mk:7`; `packages/graphics/pango/package.mk:11`; the pin's `CMakeLists.txt:230-244` | **fribidi is declared only transitively**: ES finds it `QUIET` (`pkg_check_modules(FRIBIDI QUIET fribidi)` `:234-237`, `-DHAVE_FRIBIDI` `:239-241`, else the built-in reordering `:242-244`, never `REQUIRED`); `vlc` builds `--disable-fribidi` (`vlc/package.mk:98`); the chain `SDL2` (`DISPLAYSERVER=wl` and `ARCH` not `arm` add `${WINDOWMANAGER}`) -> `swaywm-env` -> `sway` -> `pango` -> `fribidi` holds on every 64-bit build -- all 15 device `options` set `DISPLAYSERVER="wl"`, every `WINDOWMANAGER` contains `swaywm-env` (14 `swaywm-env`, 1 `weston swaywm-env`) -- and breaks silently if SDL2's `arm` branch or a device's `WINDOWMANAGER` changes; T36's erratum is half right (R2 § 1, L-09, cmds 10-12, 16); whether an `arm` build compiles ES is `[unverified]` | tree | the sourced-recipe assertion of the effective `PKG_DEPENDS_TARGET` of `SDL2`, `swaywm-env`, `sway` and `pango` for GENERIC_X64 (`device-builds.md` § After rebasing item 3); G-01's `ldd` line; D-WORKFLOW-216 routes the decision here | Q3 |
-| L-05 | `emulationstation/package.mk:42-44`; `scripts/get_env:14`; the pin's `CMakeLists.txt:303-305`, `:328-330` | the log loop names three of the four forwarded build names: **`HFS_DEV_LOGIN` (and `SCREENSCRAPER_SOFTNAME`) compile without a log line** (R2 L-05) -- or **`HFS_DEV_LOGIN` is forwarded and consumed by nothing read** (R3 § 2.2 C7, whose read of the pin's CMake stopped at `:325`): **the two research files disagree** | tree | `[unverified]` until `git -C "$Q" show "$PIN":CMakeLists.txt \| sed -n 303,330p` is read through the mask (names only); then the recipe sourced in a sandbox with placeholder values for the four names, assembled at run time, counting `USING:` lines (R2 § 6: 4 for a loud recipe; 3 at the tip) | Q4 |
-| L-19 | `emulationstation/package.mk:14`; `config/functions:1114`, `:1322`, `:1328`, `:1333` | `PKG_NEED_UNPACK="busybox"` is a bare name: `calculate_stamp` adds it as a path, `find -L busybox` relative to `ROOT` finds nothing, and nothing in `scripts/` reads the variable, so busybox's recipe never moves ES's stamp (R3 § 2.2 C4, cmd 16); upstream's copy not read `[unverified]` | tree | the install-text assertion "`PKG_NEED_UNPACK` words resolve to directories" FAILs at the tip (R3 § 6 step 5); `git log -S'PKG_NEED_UNPACK'` over the recipe and upstream's line | Q3 |
+| **L-08** | the pin's `CMakeLists.txt:565-578` (the message at `:577`, proof C4, Correction 7), `:614-615`; `locale/CMakeLists.txt:9`, `:25`, `:31`; the recipe's `makeinstall_target:67-68` | **fail-open**: with no `msgfmt`, `msgmerge` or `xgettext` on the build host ES prints *"Native language support disabled."* and no error, builds no `.mo`, and the recipe copies whatever `locale/lang/` holds -- French (D-UI-051) silently absent; the tools' provider on the build host is named nowhere: `Dockerfile` and `scripts/checkdeps` carry no `gettext` or `msgfmt` line (proof C6), while `packages/devel/gettext/package.mk` exists and 8 recipes name `gettext:host` -- `packages/devel/autoconf`, `quilt`, `grub` and `shared-mime-info` among them, the ES recipe not (proof C7, C8) -- so the tools would reach ES's configure by build order like fribidi, if at all `[unverified]`: the ES recipe's effective dependency closure walked in the export for a `gettext:host` link settles it, and a build's configure log shows it (R2 L-08, § 1; R3 § 2.1 steps 4-5) | tree | **FAIL-first**: an install-text assertion that `makeinstall_target` refuses when the French `.mo` is missing (no such line at the tip); G-03's `ls -l /usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo` (R3 G6); ES's CMake is read by hash and changed by no one here (ruling (f)) | Q2 |
+| **L-04** | `emulationstation/package.mk:79` against `:81-82` | **the no-op `rm`**: `rm -f .../resources/logo.png` runs before `resources/` is created and filled, so it removes nothing and the pin's `resources/logo.png` ships (R2 L-04, cmd 6; R3 § 2.2 C5); its consumer is unread, so a question, not a defect yet | tree | **FAIL-first**: the install-text assertion "no `rm` of a path under a directory a later line of the same function creates or fills" FAILs at `:79` (R3 § 6 step 5); `git log -S'logo.png'` over the recipe for intent, which prints `9f1fab30f6 2025-07-13 projects: add modifications for ROCKNIX`, upstream's first line (proof C14); G-05's `ls -l .../resources/logo.png` (R3 G9) | Q2 |
+| L-01 | `emulationstation/package.mk:125-129`; `es_features.cfg:1333`, `:1393`; `projects/ROCKNIX/packages/virtual/emulators/package.mk:47-49`, `:52-55`, `:58-60`, `:87-89`, `:92-94`, `:101-103` | **a merge dropped upstream's ARMSX2 block**: `b9a5d8caf1` (2026-09-24) deletes `armsx2-sa`'s *vulkan driver* feature except on `SM4450\|SM6115\|SM8250\|SM8550\|SM8650`; absent from `a06539d8ec`'s result (2026-09-29, *"Two conflicts, both resolved as the fork's file"*) while its upstream parent `6b344ab54d` had it, and again at `049765fba0`, `fa2990c1e7`, `f370dc8787`; `armsx2-sa` also ships on RK3399, RK3566/RK3576, RK3588, SM8750, S922X and AMD64, which then offer a Turnip driver that is not there -- of the fork's devices, RK3566 (R2 L-01, cmds 17-19) | history | a fixture: upstream's and the tip's two `xmlstarlet` edits reproduced in `python3 -I` with `xml.etree` over a scratch copy of `es_features.cfg` with `DEVICE=RK3566`, counting `//core[@name="armsx2-sa"]//feature[@name="vulkan driver"]` (upstream 0, tip 1, R2 § 6; the proof's read-only count over the tip's catalogue printed `tip armsx2-sa vulkan driver features: 1`, C13): the host has no `xmlstarlet` outside the build container (`command -v xmlstarlet` found none, `xmlstarlet: []`, proof C14; `Dockerfile:27` installs it and `scripts/checkdeps:78` requires it, R2 cmd 22) | Q2, Q7 |
+| L-09 | `emulationstation/package.mk:13`; `projects/ROCKNIX/packages/graphics/SDL2/package.mk:47-55`; `.../virtual/swaywm-env/package.mk:14`; `.../wayland/compositor/sway/package.mk:7`; `packages/graphics/pango/package.mk:11`; the pin's `CMakeLists.txt:230-244` | **fribidi is declared only transitively**: ES finds it `QUIET` (`pkg_check_modules(FRIBIDI QUIET fribidi)` `:234-237`, `-DHAVE_FRIBIDI` `:239-241`, else the built-in reordering `:242-244`, never `REQUIRED`); `vlc` builds `--disable-fribidi` (`vlc/package.mk:98`); the chain `SDL2` (`DISPLAYSERVER=wl` and `ARCH` not `arm` add `${WINDOWMANAGER}`) -> `swaywm-env` -> `sway` -> `pango` -> `fribidi` holds on every 64-bit build -- all 15 device `options` set `DISPLAYSERVER="wl"`, every `WINDOWMANAGER` contains `swaywm-env` (14 `swaywm-env`, 1 `weston swaywm-env`) -- and breaks silently if SDL2's `arm` branch or a device's `WINDOWMANAGER` changes; T36's erratum is half right (R2 § 1, L-09, cmds 10-12, 16; the chain confirmed line by line, proof C6, C7); `packages/multimedia/libass/package.mk:11` also depends on fribidi, and whether `vlc` pulls `libass` is not read `[unverified]` -- `vlc`'s effective `PKG_DEPENDS_TARGET` in the export settles it; whether an `arm` build compiles ES is `[unverified]`: `Makefile:50`, `:55`, `:60` and `:65` run `ARCH=arm ./scripts/build_distro` for RK3588, RK3576, S922X and RK3566 (proof C14), and the sourced-recipe assertion for an `arm` plan, in the export, settles whether that plan reaches ES | tree | the sourced-recipe assertion of the effective `PKG_DEPENDS_TARGET` of `SDL2`, `swaywm-env`, `sway` and `pango` for GENERIC_X64, in the export (`device-builds.md` § After rebasing item 3); G-01's `ldd` line; D-WORKFLOW-216 routes the decision here | Q3 |
+| L-05 | `emulationstation/package.mk:42-44`; `scripts/get_env:14`; the pin's `CMakeLists.txt:303-305`, `:328-330`; the pin's `es-app/src/scrapers/HfsDBScraper.cpp:1`, `:190`, `HfsDBScraper.h:6`, `Scraper.cpp:33` | the log loop names three of the four forwarded build names: **`HFS_DEV_LOGIN` builds the HFS scraper with no `USING:` line** -- the pin's `CMakeLists.txt:328` `if(DEFINED ENV{HFS_DEV_LOGIN})` and `:329` `add_definitions(-DHFS_DEV_LOGIN=...`, consumed by `HfsDBScraper.cpp:1`, `:190`, `HfsDBScraper.h:6` and `Scraper.cpp:33`, forwarded by `scripts/get_env:14` -- and, by R2, `SCREENSCRAPER_SOFTNAME` (`:303-305`) has no log line either (R2 L-05, which was right; R3 § 2.2 C7's read stopped at `:325`; proof C4, C6, Correction 3) | tree | `git -C "$Q" show "$PIN":CMakeLists.txt \| sed -n 303,330p` through the mask and `git -C "$Q" grep -n -o HFS_DEV_LOGIN "$PIN" -- es-app/src` (names and lines only); then the recipe sourced in a sandbox in the export with placeholder values for the four names, assembled at run time, counting `USING:` lines (R2 § 6: 4 for a loud recipe; 3 at the tip) | Q4 |
+| L-19 | `emulationstation/package.mk:14`; `config/functions:1114`, `:1322`, `:1328`, `:1333` | `PKG_NEED_UNPACK="busybox"` is a bare name: `calculate_stamp` adds it as a path, `find -L busybox` relative to `ROOT` finds nothing, and nothing in `scripts/` reads the variable, so busybox's recipe never moves ES's stamp (R3 § 2.2 C4, cmd 16); **upstream's line**: `git show <h>:projects/ROCKNIX/packages/ui/emulationstation/package.mk \| /usr/bin/grep -n '^PKG_NEED_UNPACK='` prints `11:PKG_NEED_UNPACK="busybox"` at both `c445081a59` and `651150fc88`, and `git log -S'PKG_NEED_UNPACK'` names `9f1fab30f6` (2025-07-13, *projects: add modifications for ROCKNIX*) (proof C6, C14) -- a rule-6 candidate | tree, history | the install-text assertion "`PKG_NEED_UNPACK` words resolve to directories" FAILs at the tip (R3 § 6 step 5) | Q3 |
 | L-06 | `emulationstation/package.mk:54` | `sed "s#-#_##g"`: GNU sed reads `#g` as a comment, so only the first hyphen becomes `_`; no device name at the tip has one; upstream's line (R2 L-06) | tool-run (`echo a-b-c \| sed "s#-#_##g"` printed `a_b-c`, R2 cmd 10) | `bash -n` and that one-liner; recorded as upstream's, a rule-6 candidate | Q2 |
-| L-10 | `tools/fork-package-freshness:16-18`, `:44`, `:89-93` | **the freshness tool sees none of the three recipes**: it lists `package.mk` files absent on `upstream/next` plus `EXTRA_PACKAGES="projects/ROCKNIX/packages/network/rclone"`, and all three are present upstream (`--list`: 48 entries, none under `ui/`); were the ES recipe listed, its pin would be measured against `pixelelated/emulationstation`'s own default branch (R2 L-10; R3 § 1.3, cmd 12; R5 § A) | tree, tool-run | `tools/fork-package-freshness --list` (pure git); its rc 0 is no currency evidence here; whether the three belong in `EXTRA_PACKAGES` is a coordinator question | Q7 |
-| L-21 | `tools/pkgcheck:157`, `:169`; `tools/fork-package-freshness:95`, `:101` | **both checkers pass a name that matches nothing**: `tools/pkgcheck es-theme-no-such-package` prints nothing, rc 0; `fork-package-freshness --help` prints the header row and nothing else (R3 § 1.1, § 1.3, cmd 10) | tool-run | the control line beside every `pkgcheck` run (§ 5); a **Backlog lead** named in the hand-back for the coordinator to file (ruling (d)); both tools are T6's | Q7 |
-| L-20 | `emulationstation/config/common/es_settings.cfg:1-3` | the recipe's seed is an empty `<config>`, so the default theme is ES's own default, not the recipe's (R3 § 2.2 C9); ES's default theme at the pin was not read `[unverified]` | tree | the default read by hash at the pin (the lane names the source file); G-02's installed themes and setting | Q5 |
+| L-10 | `tools/fork-package-freshness:16-18`, `:42-44`, `:89-93` | **the freshness tool sees none of the three recipes**: it lists `package.mk` files absent on `upstream/next` plus `EXTRA_PACKAGES="projects/ROCKNIX/packages/network/rclone"`, and all three are present upstream (`--list`: 48 entries, none under `ui/`); were the ES recipe listed, its pin would be measured against `pixelelated/emulationstation`'s own default branch (R2 L-10; R3 § 1.3, cmd 12; R5 § A) | tree, tool-run | `FRESHNESS_BASE=651150fc88 FRESHNESS_HEAD=<the tip> tools/fork-package-freshness --list` (pure git), judged by `lines=48` and `ui=0` from its own output (proof C14), never by its rc, which is 0 even with a ref missing (L-21); its rc 0 is no currency evidence here; whether the three belong in `EXTRA_PACKAGES` is a coordinator question | Q7 |
+| L-21 | `tools/pkgcheck:157`, `:169`; `tools/fork-package-freshness:42-43`, `:95`, `:101` | **both checkers pass a name that matches nothing**: `tools/pkgcheck es-theme-no-such-package` prints nothing, rc 0; `fork-package-freshness --help` prints the header row and nothing else (R3 § 1.1, § 1.3, cmd 10); **and a missing ref is a third fail-open**: in a tree with neither `upstream/next` nor `next`, `--list` printed `fatal: bad revision 'upstream/next'` and the rclone line with `rc=0` (`:42` `HEAD_REF=${FRESHNESS_HEAD:-next}`, `:43` `BASE_REF=${FRESHNESS_BASE:-upstream/next}`; proof C8, Correction 16) | tool-run | the control line beside every `pkgcheck` run and the freshness counts with both refs given (§ 5); a **Backlog lead** naming the three fail-opens in the hand-back for the coordinator to file (ruling (d)); both tools are T6's | Q7 |
+| L-20 | `emulationstation/config/common/es_settings.cfg:1-3`; the pin's `es-core/src/Settings.cpp:252`, `es-app/src/CollectionSystemManager.cpp:1360-1366` | the recipe's seed is an empty `<config>`, so the default theme is ES's own default, not the recipe's (R3 § 2.2 C9): `mStringMap["ThemeSet"] = "system-theme";` at the pin's `Settings.cpp:252`, and with no set of that name installed `CollectionSystemManager.cpp:1360-1366` picks the first available (proof C13) | tree | `git -C "$Q" show "$PIN":es-core/src/Settings.cpp \| /usr/bin/grep -n '"ThemeSet"'` and `sed -n 1360,1366p` of `es-app/src/CollectionSystemManager.cpp`, both by hash; G-02's installed themes and setting | Q5 |
 | L-11 | `emulationstation/package.mk:30`, `:39-40`, `:46` | with `:30` and `:40` both always set, the runtime ScreenScraper rows never appear in a recipe-built image and `:46`'s warning is unreachable for that key -- **D-WORKFLOW-166's design, recorded so no lane "fixes" it** (R2 L-11) | tree | none (design) | Q4 |
 | L-12 | `emulationstation/sources/serial_number_check:12`, `:20` | an unquoted `cat ${DEVICE_SERIAL_NUMBER_PATH}`; a typo in a log line; its caller not read (R2 L-12) | tree | `bash -n`; upstream's, outside the lanes (D-UI-079) | Q2 |
 | L-13 | `emulationstation/sources/es_settings:12-13`, `:47-50` | two timezone files rewritten in place; unquoted words imported from `999-export` (R2 L-13) | tree | upstream's; a note only | Q2 |
-| L-16 | `emulationstation/package.mk:7` | `PKG_LICENSE` changed to `MIT AND BSD-3-Clause`, the commit not traced; the licence set's custody is #528's; #990's tool requires `MIT` (R2 L-16; R4 item 17) | history (diff only) | `git log -L7,7:projects/ROCKNIX/packages/ui/emulationstation/package.mk` | Q7 |
+| L-16 | `emulationstation/package.mk:7` | `PKG_LICENSE` changed from `GPL` to `MIT` by `3d7c075f63` (2026-10-02) and to `MIT AND BSD-3-Clause` by `84ff94fb3d` (2026-10-13) (proof C5); the licence set's custody is #528's; #990's tool requires `MIT` (R2 L-16; R4 item 17) | history | `git log -L7,7:projects/ROCKNIX/packages/ui/emulationstation/package.mk 2174265e9c`, which prints both (proof C5) | Q7 |
 | L-17 | `device-builds.md` § Iterating on EmulationStation against `emulationstation/package.mk:8` | the rule names `maxengel/emulationstation-next` and `~/Development/emulationstation-next`; `PKG_SITE` is `pixelelated/emulationstation` (R2 § 1, L-17) | tree | a rule fix, the coordinator's sweep, not the lane's edit | Q1 |
-| L-18 | `CLAUDE.md` against `scripts/unpack:137-145` | *"scope per device with `patches/<DEVICE>/`"* holds only where a recipe sets `PKG_PATCH_DIRS`; the tip's ES recipe sets none (R2 L-18) | tree | a doc fix (the coordinator's), or upstream's `PKG_PATCH_DIRS+=" ${DEVICE}"` adopted with the RK3566 patch (§ 2's merge debt) | Q6 |
+| L-18 | `CLAUDE.md` against `scripts/unpack:137-145`, `:159` | *"scope per device with `patches/<DEVICE>/`"* holds only where a recipe sets `PKG_PATCH_DIRS`; the tip's ES recipe sets none (R2 L-18); `scripts/unpack:159` also globs `${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/patches/${PKG_NAME}/*.patch` with no `PKG_PATCH_DIRS`, a device scope outside the package's directory (proof C7) | tree | a doc fix (the coordinator's), or upstream's `PKG_PATCH_DIRS+=" ${DEVICE}"` adopted with the RK3566 patch (§ 2's merge debt) | Q6 |
 
 **Not leads** -- recorded so the lane does not re-find them: `xmlstarlet` is
 a host tool missing from `PKG_DEPENDS_TARGET`, and the build host provides it
@@ -858,18 +942,25 @@ slice (Q1 to Q6 by subject, Q7 the lens's).
   `-DGLES3=1"`, and **the recipe carries no `-DUSE_OPENGLES_30`** -- ES's
   CMake derives it: the four graphics options are mutually exclusive
   (`CMakeLists.txt:3-16`), `GLES3` gives `GLSystem "OpenGL ES 3.0"`
-  (`:164-165`), `find_package(OpenGLES3 REQUIRED)` (`:213-214`) and
-  `-DUSE_OPENGLES_30` (`:362-363`), which compiles `Renderer_GLES30.{h,cpp}`
-  (`es-core/CMakeLists.txt:278-280`); `Renderer_GLES20` is never compiled
+  (`:164-165`) and `find_package(OpenGLES3 REQUIRED)` (`:213-214`), and that
+  one `GLSystem` value both adds `-DUSE_OPENGLES_30` (`:362-363`) and lists
+  `Renderer_GLES30.{h,cpp}` (`es-core/CMakeLists.txt:278-280`, whose `:278`
+  is `if(${GLSystem} MATCHES "OpenGL ES 3.0")`): the define does not compile
+  the source, `GLSystem` selects both (proof C4, Correction 8);
+  `Renderer_GLES20` is never compiled
   (`:281-283`, the else); `Renderer_GL21` and `Renderer_GLES10` are listed
   unconditionally (`:110-111`, `:244-245`) (R2 § 1, cmds 8-9). No device
   `case` surrounds `:25`, so every device builds the GLES 3.0 renderer (R2 §
-  1); which devices' `${OPENGLES}` provide GLES 3 headers was not read
-  `[unverified]` (R4 item 2). The bodies are T36's and the source list T35's
+  1); `${OPENGLES}` is `mesa` wherever `projects/ROCKNIX/` sets it
+  (`options:19`, `devices/AMD64/options:32`, proof C14), and which devices'
+  `mesa` builds provide GLES 3 headers was not read `[unverified]` (R4 item
+  2) -- mesa's effective options per device in the export, or an image
+  build, settle it. The bodies are T36's and the source list T35's
   (D-WORKFLOW-216); the lane names them for their owners. The effective
   options on GENERIC_X64: `BATTERYPLUS_SUPPORT` empty, `VULKAN_SUPPORT=yes`
-  (so `:126-128` keeps the vulkan choices), `EMULATION_DEVICE=yes` (no stub
-  `es_systems.cfg`, `:105-123`) (R3 § 1.5). `:54` exports `DEVICE`
+  (so `:126-128` keeps the vulkan choices; `no` on H700),
+  `EMULATION_DEVICE=yes` (no stub `es_systems.cfg`, `:105-123`) (R3 § 1.5;
+  proof C8). `:54` exports `DEVICE`
   upper-cased for `CMakeLists.txt:115-117` (L-06). Where NDEBUG comes from is
   the build type's, not a line of this recipe (R4 item 21). **The install
   steps, one row each** (R2 § 1's table): the RVZ licence files `:60-65`; the
@@ -883,12 +974,16 @@ slice (Q1 to Q6 by subject, Q7 the lens's).
   `:105-123`; the vulkan deletion `:126-128` and the lost ARMSX2 block
   (L-01); the locale links `:132-141`; with PL-029's `start_es.sh:8` flag and
   L-08's silent catalog beside them. The units and `autostart/` are installed
-  by the build system's directory conventions, not by the recipe (R2 § 1;
-  `scripts/install` not read, `[unverified]`).
+  by the build system's directory conventions, not by the recipe:
+  `scripts/install:96-99` copies `autostart/*` to `/usr/lib/autostart/common`
+  and `:107-109` `system.d/*.*` to `/usr/lib/systemd/system`
+  (`git show 2174265e9c:scripts/install | sed -n '96,99p;107,109p'`, proof
+  C7; R2 § 1).
 - **Q3 The dependencies** (`:13`; L-09, L-19). The effective
   `PKG_DEPENDS_TARGET` on GENERIC_X64 is `boost toolchain SDL2 freetype curl
   freeimage bash rapidjson SDL2_mixer fping p7zip alsa vlc drm_tool poppler
-  pugixml noto-sans-cjk zstd mesa` (`${OPENGLES}` = `mesa`, R3 § 1.5);
+  pugixml noto-sans-cjk zstd mesa` (`${OPENGLES}` = `mesa`, R3 § 1.5), and
+  the same on H700 (proof C8);
   **fribidi** is L-09's chain and D-WORKFLOW-216's question: declare it in
   `:13`, or record the transitive chain as the recipe's decision with the
   `QUIET` branch named -- a ruling put to the pause, never made by the lane,
@@ -898,14 +993,14 @@ slice (Q1 to Q6 by subject, Q7 the lens's).
   system package (`-DUSE_SYSTEM_PUGIXML=1`, `:24`, with `pugixml` in `:13`),
   where the lanes' harnesses used the ES gitlink's copy (R4 item 23). The
   owners of every dependency's recipe are § 2's neighbours, and `${OPENGLES}`
-  per device beyond `projects/ROCKNIX/options:19` was not read
-  `[unverified]` (R2 § 1).
+  under `projects/ROCKNIX/` is set only at `options:19` and
+  `devices/AMD64/options:32`, both `"mesa"` (§ 2; proof C14).
 - **Q4 The build credentials, by name** (`pre_configure_target:35-55`;
   `device-builds.md:528-578`; D-INFRA-006, D-INFRA-007, D-WORKFLOW-166).
   The recipe passes nothing to cmake explicitly: ES's CMake reads each name
   from the environment -- `SCREENSCRAPER_DEV_LOGIN` (`CMakeLists.txt:307-309`),
   `GAMESDB_APIKEY` (`:320-322`), `CHEEVOS_DEV_LOGIN` (`:324-326`),
-  `HFS_DEV_LOGIN` (`:328-330`, by R2; L-05's disagreement), plus
+  `HFS_DEV_LOGIN` (`:328-330`, consumed by the HFS scraper; L-05), plus
   `SCREENSCRAPER_SOFTNAME` (`:303-305`) and `SCREENSCRAPER_RUNTIME_DEV_LOGIN`
   (`:311-318`) (R2 § 1); `scripts/get_env:14` keeps exactly four names and
   `:15` drops the rest secret-shaped (R2 § 1; R3 § 2.2 C7, cmd 18); the log
@@ -932,10 +1027,21 @@ slice (Q1 to Q6 by subject, Q7 the lens's).
   `2677d3ce675b9704487f9f09f82728b56009f9fa7c36403086e9c655af108f42`,
   `GPL-2.0-or-later`, ROCKNIX's pin too (R1 C08, C14; R3 § 1.5; R4 § 0),
   and **behind its author's `HEAD` `8fefe16e9c`** at R1 C20's read, by a
-  number of commits nobody counted (no fetch, ruling (e)); `PKG_UI` lists it
-  for the image (`virtual/image/package.mk:18`, R1 C09), and whether that line
-  is device-conditional was not read `[unverified]` (R5 § A). **A bump of
-  either is a finding with its reason** (ruling (b)).
+  number of commits nobody counted (no fetch, ruling (e)). **`PKG_UI`
+  installs it**: `virtual/image/package.mk:18` assigns `PKG_UI` with no
+  device test and `:42` consumes it in the `else` of `:36`'s
+  `if [ "${BASE_ONLY}" = "true" ]`, and the effective `BASE_ONLY` is empty on
+  GENERIC_X64
+  (`git show 2174265e9c:projects/ROCKNIX/packages/virtual/image/package.mk | /usr/bin/grep -n -E 'PKG_UI|BASE_ONLY'`,
+  proof C7, C8; R1 C09). **Three scripts outside the slice use it at run
+  time** -- `projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh:337-338`
+  (`python3 /usr/share/lowerdeck/ra_proxy.py`), the same directory's
+  `vertical-check:6-7`, `:143`, `:175`, `:180`, and
+  `projects/ROCKNIX/packages/wayland/compositor/sway/autostart/111-sway-init:163-164`
+  (`git grep -n lowerdeck 2174265e9c -- projects packages`, proof C6,
+  Correction 11) -- each owned by the slice § 2's extended `named` run
+  gives its path. **A bump of either is a finding with its reason** (ruling
+  (b)).
 - **Q6 The patches and their directories** (`scripts/unpack:124-160`;
   `packaging-and-patches.md:76-97`; L-02, L-18). The reach of every
   `patches/` subdirectory of the three packages, computed per device from
@@ -943,7 +1049,8 @@ slice (Q1 to Q6 by subject, Q7 the lens's).
   quoted there whole), `PATCH_ARCH` `x86` for an `x86_64` target
   (`:127-128`), and the recipe's `PKG_PATCH_DIRS`, unset (R3 § 8: NOT
   REACHED for `patches/x86_64/` on GENERIC_X64 and on H700; the lane extends
-  it to every device in the plan). **T37's line is the recipe's patch
+  it to every device in the plan; `:159`'s device directory outside the
+  package, L-18). **T37's line is the recipe's patch
   directories; the patch's text and place are T40's** (ruling (a), #1072).
   Upstream's `PKG_PATCH_DIRS+=" ${DEVICE}"` with the RK3566 patch is the
   shape a recipe uses for device patches (§ 2's merge debt; L-18). The theme
@@ -952,8 +1059,12 @@ slice (Q1 to Q6 by subject, Q7 the lens's).
   the fork added and reverted is history only (R1 C13).
 - **Q7 Package currency against upstream's recipe, the structure and the
   #585 lines** (D-WORKFLOW-024, -162, -164, -165, -012; `time-to-play.md`).
-  **One row per difference** between the tip's `ui/` and `upstream/next`'s
-  (§ 2's merge debt): upstream's change the fork lacks (the RK3566 patch and
+  **One row per file of the tip-to-`upstream/next` difference over `ui/`**
+  (` 14 files changed, 83 insertions(+), 536 deletions(-)`, § 2; proof
+  Correction 6), each saying whether upstream moved it (one of the 8 of § 2's
+  merge debt), the fork moved it (one of the fork's 8), or both (the two
+  `overlap` files; `upstream-only 6 fork-only 6 both 2`, § 5): upstream's
+  change the fork lacks (the RK3566 patch and
   `PKG_PATCH_DIRS`, the THP drop-ins, `start_es.sh`'s two functions, the units'
   `start.games` path, `es_features.cfg`'s 107 lines, L-01's ARMSX2 block), the
   fork's own (§ 2's hunks), or a merge pending (the ES 14, #791's input) --
@@ -964,7 +1075,8 @@ slice (Q1 to Q6 by subject, Q7 the lens's).
   change reaches upstream as the package bump plus patches in the
   distribution). **The #585 lines owed**: one for each upstream-carried
   defect the lane proves -- L-03's link is upstream's form (R3 cmd 23), L-06's
-  `sed` upstream's line -- in the shape the lane writes, never sent
+  `sed` upstream's line, L-19's bare `PKG_NEED_UNPACK` upstream's line
+  (proof C6) -- in the shape the lane writes, never sent
   (D-WORKFLOW-164, -165). The cost of a recipe's choice to the player is
   boot to interface (§ 3 item 10).
 
@@ -1032,11 +1144,11 @@ slice (Q1 to Q6 by subject, Q7 the lens's).
    | G | What only the installed image shows | Serial command (over `tools/vm-serial sh`, filtered) | Expected line | Side | Bound (s) |
    | --- | --- | --- | --- | --- | ---: |
    | G-01 | identity; the binary; the libraries | the file name by `ls -l` on the host; `grep -E '^(BUILD_ID\|BUILD_BRANCH\|BUILD_VERSION)=' /etc/os-release`; `sha256sum /usr/bin/emulationstation`; `ldd /usr/bin/emulationstation \| grep -c -E 'fribidi\|vlc\|freetype'` and the same without `-c` | `BUILD_ID="069fc270442134fe771258418adf4e666e0473fb"`, `BUILD_BRANCH="build/m7-signin-20261022-07"`; the binary `25155163fd7970f7da54b3f36d003b8c006111c894d4fe6f0c92d24d51831226` (R3 § 2.3, G1, G2); the three libraries' lines as they print -- the `HAVE_FRIBIDI` answer for the candidate's build (L-09); **T36's G-01 reads the same `ldd`: if T36's RETURN record holds it for this image, T37 cites it and does not repeat it** (R5 § A) | candidate | 60 |
-   | G-02 | the themes installed, and the default | `ls /usr/share/themes/`; in `es-theme-art-book-next/`: `ls pixelelated-wordmark.svg Tiny5-OFL.txt`, `ls -d _inc/systems/artwork-*`, `grep -c -E 'include name="(noir\|nintendont\|circuit\|outline)"' theme.xml`, `grep -c 'lang="zh"' fonts.xml`, a line each fork patch adds; `readlink /etc/emulationstation/themes`; `cat /usr/config/emulationstation/es_settings.cfg`; `grep -i theme /storage/.config/emulationstation/es_settings.cfg` | the two fork files present; the five removed sets absent (`:19`); `0` (`:20`); `>= 1` (`:21-27`); both patches' lines present (R3 G3); `/storage/.config/emulationstation/themes` (`:100`); the empty `<config>`; the default the image chose (L-20; R3 G4) | ui-equal | 120 |
-   | G-03 | the configs, the link, the catalog and the locale | `sha256sum /usr/config/emulationstation/*.cfg` against the tree's `git show 2174265e9c:<path> \| sha256sum` on the host; `grep -c -i vulkan /usr/config/emulationstation/es_features.cfg`; `readlink /etc/emulationstation/es_systems.cfg` then `test -e /etc/emulationstation/es_systems.cfg; echo "resolves rc=$?"`; `stat -c '%a %n' /usr/config/emulationstation/*.cfg`; `ls -l /usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo`; `readlink /usr/share/locale /usr/lib/locale`; `ls -d /usr/config/locale/en_US.UTF-8` | the four cfg digests equal to the tree's -- `es_features.cfg` included if `:126-128` did not run on GENERIC_X64 (`VULKAN_SUPPORT=yes`, R3 § 1.5; R5 § A expected a difference: the line that prints is recorded); vulkan `> 0` (R3 G12); the candidate's `/usr/config/...` link, resolving (L-03; R3 G8); the seeds' modes (#1193); the catalog present (L-08; R3 G6); `/storage/.config/locale` (`:134`); the pre-generated locale present (L-07; R3 G11) | the cfgs ui-equal; the link candidate | 120 |
+   | G-02 | the themes installed, and the default | `ls /usr/share/themes/`; in `es-theme-art-book-next/`: `ls pixelelated-wordmark.svg Tiny5-OFL.txt`, `ls -d _inc/systems/artwork-*`, `grep -c -E 'include name="(noir\|nintendont\|circuit\|outline)"' theme.xml`, `grep -c 'lang="zh"' fonts.xml`, a line each fork patch adds; `readlink /etc/emulationstation/themes`; `cat /usr/config/emulationstation/es_settings.cfg`; `grep -i theme /storage/.config/emulationstation/es_settings.cfg` | the two fork files present; the five removed sets absent (`:19`); `0` (`:20`); `>= 1` (`:21-27`); both patches' lines present (R3 G3); `/storage/.config/emulationstation/themes` (`:100`); the empty `<config>`; the default the image chose (L-20: ES's `ThemeSet` default `system-theme`, else the first available set; R3 G4) | ui-equal | 120 |
+   | G-03 | the configs, the link, the catalog and the locale | `sha256sum /usr/config/emulationstation/*.cfg` against the tree's `git show 2174265e9c:<path> \| sha256sum` on the host; `grep -c -i vulkan /usr/config/emulationstation/es_features.cfg`; `readlink /etc/emulationstation/es_systems.cfg` then `test -e /etc/emulationstation/es_systems.cfg; echo "resolves rc=$?"`; `stat -c '%a %n' /usr/config/emulationstation/*.cfg`; `ls -l /usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo`; `readlink /usr/share/locale /usr/lib/locale`; `ls -d /usr/config/locale/en_US.UTF-8` | the four cfg digests equal to the tree's -- `es_features.cfg` included: the effective `VULKAN_SUPPORT=yes` on GENERIC_X64 (`no` on H700) means the tip's `:126-128` does not run there (R3 § 1.5; proof C5, C8), and the candidate's own recipe is another blob (`35e5f45e79`), so the line that prints is recorded; vulkan `> 0` (R3 G12); the candidate's `/usr/config/...` link, resolving (L-03; R3 G8); the seeds' modes (#1193); the catalog present (L-08; R3 G6); `/storage/.config/locale` (`:134`); the pre-generated locale present (L-07; R3 G11) | the cfgs ui-equal; the link candidate | 120 |
    | G-04 | the services, the start and boot to interface | `systemctl show -p ActiveState,FragmentPath essway.service emustation.service`; `systemctl cat essway.service`; the `.wants` links; `sha256sum /usr/bin/start_es.sh /usr/bin/es_settings /usr/bin/serial_number_check` against the tree's on the host; `ls -l /var/log/es_log.txt`; the running ES's `cmdline` through the masking `sed`; `journalctl -b` for the interface's start, filtered | the fork's three lines in `essway.service` (R3 G13; `is-enabled` reads `disabled` for image-linked units, per the rule); the three digests equal to the tree's (R3 G14); whether `--log-path` is passed and `es_log.txt` written (PL-029, R4 item 12); boot to interface in seconds, the guest's (time to play) | ui-equal | 180 |
    | G-05 | the sources, the binary's strings and the resources | `head -n 5 /usr/bin/es_settings /usr/bin/serial_number_check` (read, never run); `strings /usr/bin/emulationstation \| grep -c -E 'SCREENSCRAPER_DEV_LOGIN\|SCREENSCRAPER_RUNTIME_DEV_LOGIN\|GAMESDB_APIKEY\|CHEEVOS_DEV_LOGIN\|HFS_DEV_LOGIN'`; `strings /usr/bin/emulationstation \| grep -c 100-amd64-freqfunctions`; `tools/pixelelated-state-check` on the ready guest; `ls -l /usr/config/emulationstation/resources/logo.png`; `readlink /usr/config/emulationstation/resources/DroidSansFallbackFull.ttf` | **counts only, never a line**: the names `0` -- the macro names do not survive compilation, so the binary cannot show presence by name, and a compiled pair's presence is the state check's value-free line (R3 G5; #565; its guest invocation `[unverified]`); `0` for the patch's string (L-02's shape, R2 § 6); `logo.png` present (L-04; R3 G9); `.../noto-cjk/NotoSansCJKsc-Regular.otf` (`:83-85`; R3 G10) | candidate | 120 |
-   | G-06 | `lowerdeck` on GENERIC_X64 | `ls /usr/share/lowerdeck` | present or absent, as it prints: `PKG_UI` names it (`virtual/image/package.mk:18`, R1 C09), and whether that line is device-conditional was not read (R3 G16; R5 § A) | ui-equal | 60 |
+   | G-06 | `lowerdeck` on GENERIC_X64 | `ls /usr/share/lowerdeck` | present, by the tip's recipes: `PKG_UI` names it at `virtual/image/package.mk:18` with no device test, consumed at `:42` unless `BASE_ONLY` is `true`, and the effective `BASE_ONLY` is empty on GENERIC_X64 (Q5; proof C7, C8); the line that prints is recorded (R3 G16) | ui-equal | 60 |
    | G-07 | close | `tools/vm-stop` on the pidfile; the disk's size and sha; `qemu 0, compilers 0` | `retired.txt`; the leftover check; the RETURN post inside bound plus grace | -- | 120 |
 
    Sum of the bounds as written: 780 s, R5 C14's command over these seven
@@ -1054,7 +1166,9 @@ slice (Q1 to Q6 by subject, Q7 the lens's).
    the seven, one `rc=N <path>` line each; (3) for each recipe name, exactly
    one `find packages projects -path */<name>/package.mk` match, then
    `tools/pkgcheck <name>` rc 0 with no FAIL line; (4) the sourced-recipe
-   assertions per device under `env -i` with `HOME` in scratch -- the ES
+   assertions per device under `env -i` with `HOME` in scratch, in the tree
+   `--tree` names, which is the scratch export and never the worktree (ruling
+   (k)) -- the ES
    `PKG_VERSION` equal to the expected pin and 40 hex, `PKG_URL` on
    `github.com/pixelelated/`, the theme's and `lowerdeck`'s `PKG_SHA256` 64
    hex, no empty expansion in `PKG_DEPENDS_TARGET`, `PKG_CMAKE_OPTS_TARGET`
@@ -1073,12 +1187,13 @@ slice (Q1 to Q6 by subject, Q7 the lens's).
    `SECRET_PATTERNS` regex, compile-checked at `:40-42` (`printf '' | grep
    -E -e "$SECRET_PATTERNS"`, rc at most 1), and as a `-f` list it does not
    compile (`.githooks/secret-patterns:6: Unmatched ( or \(`, the drafter's
-   run on 2026-10-31) -- so the step is `( . .githooks/secret-patterns; grep
+   run on 2026-10-31, and the proof's, `rc=2`, C12) -- so the step is `( . .githooks/secret-patterns; grep
    -c -E -e "$SECRET_PATTERNS" <file> )` after the compile check, with a
-   positive assembled at run time seen to match first,
-   `tools/forbidden-terms-check --stdin` rc 0 after a planted positive,
+   positive assembled at run time seen to match first (in this form the
+   proof's planted private-key header line matched `1` and a plain line `0`,
+   C13), `tools/forbidden-terms-check --stdin` rc 0 after a planted positive,
    XML well-formedness of the four `.cfg` (`python3 -I` with `xml.etree`);
-   (7) `calculate_stamp` per package per device to `stamps.txt`, and with
+   (7) `calculate_stamp` per package per device, in the export, to `stamps.txt`, and with
    `--compare` each changed stamp belonging to a package whose directory the
    diff touched and no other moved (R3 § 1.6); (8) **the FAIL-first
    positive**: the script run against a scratch export (`git archive <commit>
@@ -1090,7 +1205,8 @@ slice (Q1 to Q6 by subject, Q7 the lens's).
    unmutated export**, the stub checked against the unfixed text first
    (`engineering-practices.md` § Guards must fail closed). Refusals exit 2,
    "nothing checked": no tree, no `config/options`, a `HOME` that is not
-   scratch, `bash` or `python3` missing. Each command's `rc=$?` on its own
+   scratch, a `--tree` that is a git worktree (a `.git` in it, ruling (k)),
+   `bash` or `python3` missing. Each command's `rc=$?` on its own
    line; the last line `TOTAL: <passed> of <checks> assertions` printed by
    the script, quoted, never summed by hand. **At the tip it is expected to
    FAIL on L-03, and on L-02, L-19 and L-04 if the lane's tracing confirms
@@ -1139,40 +1255,49 @@ git diff --stat 8ebaf8daad "$P1" -- "$U" | tail -n 1
 git diff --shortstat "$MB" "$P1" -- "$U"; git log --oneline "$MB..$P1" -- "$U" | wc -l; git log --oneline --merges "$MB..$P1" -- "$U" | wc -l; git rev-list --count --no-merges "$MB..$P1" -- "$U"
 # upstream's delta (expect 16; `8 files changed, 72 insertions(+), 75 deletions(-)`; `14 files changed, 83 insertions(+), 536 deletions(-)` -- R1 C14)
 git rev-list --count "$MB..$UN" -- "$U"; git diff --shortstat "$MB" "$UN" -- "$U"; git diff --shortstat "$P1" "$UN" -- "$U"; git diff --name-status "$MB" "$UN" -- "$U"
+# the 14 files of the tip-to-upstream/next difference by side, checkbox 13's rows (expect `upstream-only 6 fork-only 6 both 2` -- v2 read; LC_ALL=C is set above, so sort and comm agree)
+up() { git diff --name-only "$MB" "$UN" -- "$U" | sort; }; fk() { git diff --name-only "$MB" "$P1" -- "$U" | sort; }; echo "upstream-only $(comm -23 <(up) <(fk) | $G -c '') fork-only $(comm -13 <(up) <(fk) | $G -c '') both $(comm -12 <(up) <(fk) | $G -c '')"
 # the three recipes' pins at the base, upstream/next and the tip (expect R1 C14's lines: ES cada856d86 / f6c542872e / 16dbac5211 on test/qa-integration with the fork's PKG_SITE; lowerdeck ab735114ab and the theme 9a50ef366e at every hash)
 for f in emulationstation lowerdeck themes/es-theme-art-book-next; do for h in "$MB" "$UN" "$P1"; do echo "$f @ $h: $(git show "$h:$U$f/package.mk" | $G -E '^PKG_(VERSION|SITE|GIT_CLONE_BRANCH)=' | tr '\n' ' ')"; done; done
 # the ES side, by hash (expect 14; 724; cada856d86; the pin for both refs, read one at a time -- R1 C15; R3 cmd 12's two-ref rev-parse failed)
-git -C "$Q" rev-list --count "$PIN..rocknix/master"; git -C "$Q" rev-list --count "rocknix/master..$PIN"; git -C "$Q" merge-base "$PIN" rocknix/master | cut -c1-10
+git -C "$Q" rev-list --count "$PIN..rocknix/master"; git -C "$Q" rev-list --count "rocknix/master..$PIN"; git -C "$Q" merge-base "$PIN" rocknix/master
 git -C "$Q" rev-parse --short=10 test/qa-integration; git -C "$Q" rev-parse --short=10 origin/test/qa-integration
-# what the define selects, by hash (expect the GLES3 lines at CMakeLists.txt:164-165, :213-214, :362-363 and the renderer lines at es-core/CMakeLists.txt:278-283 -- R2 § 1, cmds 8-9); FRIBIDI at :230-244 (R2 § 1); L-05's names at :303-330, through the mask (R2 § 1 against R3 § 2.2 C7)
+# what the define selects, by hash (expect the GLES3 lines at CMakeLists.txt:164-165, :213-214, :362-363 and the renderer lines at es-core/CMakeLists.txt:278-283 -- R2 § 1, cmds 8-9); FRIBIDI at :230-244 (R2 § 1); L-05's names at :303-330 and HFS_DEV_LOGIN's readers in es-app/src (expect HfsDBScraper.cpp:1, :190, HfsDBScraper.h:6, Scraper.cpp:33 -- proof C4), through the mask
 git -C "$Q" show "$PIN:CMakeLists.txt" | $G -n -E 'GLES3|OPENGLES_30|GLSystem' ; git -C "$Q" show "$PIN:es-core/CMakeLists.txt" | sed -n '278,283p'
 git -C "$Q" show "$PIN:CMakeLists.txt" | sed -n '230,244p'; git -C "$Q" show "$PIN:CMakeLists.txt" | sed -n '303,330p' | sed -E "$M"
+git -C "$Q" grep -n -o HFS_DEV_LOGIN "$PIN" -- es-app/src
 # syntax (expect rc=0 for each of the seven -- R3 cmd 23); an empty read is a failure, not a pass
 for p in emulationstation/package.mk lowerdeck/package.mk themes/es-theme-art-book-next/package.mk emulationstation/sources/es_settings emulationstation/sources/start_es.sh emulationstation/sources/serial_number_check emulationstation/autostart/001-emulationstation; do git show "$P1:$U$p" > "$TMPDIR/one" || echo "SHOW FAILED $p"; [ -s "$TMPDIR/one" ] || echo "EMPTY $p"; bash -n "$TMPDIR/one"; rc=$?
 echo "rc=$rc $p"; done
-# lint by package name, the positive first, the control last (expect one path and rc=0 for each recipe; for es-theme-no-such-package no path, no line and rc=0 -- the fail-open, L-21 -- R3 § 1.1, cmd 10; R3 printed 0 lines per recipe where R5 C11 says each prints its path: the line that prints is recorded)
+# lint by package name, the positive first, the control last (expect one path and rc=0 for each recipe; for es-theme-no-such-package no path, no line and rc=0 -- the fail-open, L-21 -- R3 § 1.1, cmd 10; stdout carries no line for any name, proof C8, and the path goes to stderr behind a carriage return, `tools/pkgcheck:158`, cleared at `:168`, proof C7 -- so R3's 0 and R5 C11's path read different streams, and `lines=` is recorded as it prints)
 for n in emulationstation es-theme-art-book-next lowerdeck es-theme-no-such-package; do echo "find $n: $(find packages projects -type f -path "*/$n/package.mk" | tr '\n' ' ')"; tools/pkgcheck "$n" > "$TMPDIR/pk" 2>&1; rc=$?
 echo "pkgcheck $n rc=$rc lines=$(wc -l < "$TMPDIR/pk")"; done
-# the effective fields as the build reads them, GENERIC_X64 (expect `source rc=0` for each and R3 § 1.5's table: the pin; the clone URL and an empty PKG_SHA256; the theme's 7ee1e93f... and lowerdeck's 2677d3ce...; the ES depends ending `zstd mesa`; the ES cmake options ending `-DGLES3=1 -DSCREENSCRAPER_RUNTIME_DEV_LOGIN=1`; `auto` / `manual` / `manual`; `busybox` / `-gold`; the stamps 9e618e4a..., e31c625d..., 7dd9f957...); only the named fields are printed, never `set` or `env`
-test -e .rocknix/options && echo "STOP: a .rocknix/options in the tree"
-for n in emulationstation es-theme-art-book-next lowerdeck; do env -i HOME="$TMPDIR/home" PATH=/usr/bin:/bin PROJECT=ROCKNIX DEVICE=GENERIC_X64 ARCH=x86_64 bash -c '. config/options "$1" >/dev/null 2>&1; rc=$?
-echo "source rc=$rc $1"; for v in PKG_VERSION PKG_URL PKG_SHA256 PKG_DEPENDS_TARGET PKG_CMAKE_OPTS_TARGET PKG_TOOLCHAIN PKG_NEED_UNPACK PKG_BUILD_FLAGS PKG_PATCH_DIRS PKG_ARCH TARGET_ARCH; do printf "%s=%s\n" "$v" "${!v}"; done' _ "$n"; done
-# the patch reach (expect `GENERIC_X64/x86_64: ... PATCH_ARCH=x86 PKG_PATCH_DIRS=[] -> patches/x86_64/: NOT REACHED` and the H700/aarch64 line the same -- R3 § 8); PATCH_ARCH by scripts/unpack:127-133's rule, `x86` for an x86_64 target, else TARGET_PATCH_ARCH or the arch (R3 § 2.1 step 2)
+# the scratch export, ruling (k): every sourced-recipe call below runs there, never in the worktree (expect `export rc=0`, the tip's hash, and `worktree build roots: 0`)
+X=/workspace/tmp/m6-t37/export; mkdir -p "$X"; git rev-parse HEAD > "$TMPDIR/export-tip"
+( set -o pipefail; git -C "$PWD" archive HEAD | tar -x -C "$X" ); rc=$?
+echo "export rc=$rc tip=$(cat "$TMPDIR/export-tip") path=$X worktree build roots: $(ls -d build.* 2>/dev/null | wc -l)"
+# the effective fields as the build reads them, GENERIC_X64, in the export (expect `source rc=0` for each and R3 § 1.5's table, which the proof's C8 reproduced with this call: the pin; the clone URL and an empty PKG_SHA256; the theme's 7ee1e93f... and lowerdeck's 2677d3ce...; the ES depends ending `zstd mesa`; the ES cmake options ending `-DGLES3=1 -DSCREENSCRAPER_RUNTIME_DEV_LOGIN=1`; `auto` / `manual` / `manual`; `busybox` / `-gold`; the stamps 9e618e4a..., e31c625d..., 7dd9f957...; BASE_ONLY and BATTERYPLUS_SUPPORT empty, VULKAN_SUPPORT=yes, EMULATION_DEVICE=yes -- proof C8); only the named fields are printed, never `set` or `env`
+test -e "$X/.rocknix/options" && echo "STOP: a .rocknix/options in the export"
+for n in emulationstation es-theme-art-book-next lowerdeck; do env -i HOME="$TMPDIR/home" PATH=/usr/bin:/bin PROJECT=ROCKNIX DEVICE=GENERIC_X64 ARCH=x86_64 bash -c 'cd "$2" || exit 2; . config/options "$1" >/dev/null 2>&1; rc=$?
+echo "source rc=$rc $1"; for v in PKG_VERSION PKG_URL PKG_SHA256 PKG_DEPENDS_TARGET PKG_CMAKE_OPTS_TARGET PKG_TOOLCHAIN PKG_NEED_UNPACK PKG_BUILD_FLAGS PKG_PATCH_DIRS PKG_ARCH TARGET_ARCH BASE_ONLY BATTERYPLUS_SUPPORT VULKAN_SUPPORT EMULATION_DEVICE; do printf "%s=%s\n" "$v" "${!v}"; done' _ "$n" "$X"; done
+# the call's writes, named (config/functions:801-802: expect build.pixelelated-GENERIC_X64.x86_64/ in the export holding .cache_package_local and .cache_package_global, their sizes as they print -- proof C8, C10, Correction 1 -- and still `0` build roots in the worktree)
+ls -l "$X"/build.*/.cache_package_local "$X"/build.*/.cache_package_global; ls -d build.* 2>/dev/null | wc -l
+# the patch reach, computed in the export from the values above (expect `GENERIC_X64/x86_64: ... PATCH_ARCH=x86 PKG_PATCH_DIRS=[] -> patches/x86_64/: NOT REACHED` and the H700/aarch64 line the same -- R3 § 8); PATCH_ARCH by scripts/unpack:127-133's rule, `x86` for an x86_64 target, else TARGET_PATCH_ARCH or the arch (R3 § 2.1 step 2)
 # the install text (expect `:101` among the `ln -s ... ${INSTALL}` targets -- L-03; the `rm -f` at `:79` before `:81-82` -- L-04; `|| true` at `:73-75` -- L-07; PKG_NEED_UNPACK at `:14` -- L-19; no PKG_PATCH_DIRS line -- L-02 -- R2 § 1, R3 § 2.2); every other line printed is recorded
 git show "$P1:$E" | $G -n -E 'ln -sf? |rm -f|\|\| true|^PKG_NEED_UNPACK=|PKG_PATCH_DIRS' | sed -E "$M"
-# the credential names, names and line numbers only (expect `count lines: 5` -- :30, :40, :42, :43, :44 -- R5 C10; R1 C19's word-bounded pattern missed :30, see the open list)
+# the credential names, names and line numbers only (expect `count lines: 5` -- :30, :40, :42, :43, :44 -- R5 C10, proof C6; R1 C19's word-bounded pattern missed :30: `\bSCREENSCRAPER_RUNTIME_DEV_LOGIN` counts 0 against 1 without the `\b`, proof C6)
 git show "$P1:$E" | $G -c -E 'SCREENSCRAPER_RUNTIME_DEV_LOGIN|SCREENSCRAPER_DEV_LOGIN|CHEEVOS_DEV_LOGIN|GAMESDB_APIKEY|HFS_DEV_LOGIN'
 git show "$P1:$E" | $G -n -o -E 'SCREENSCRAPER_RUNTIME_DEV_LOGIN|SCREENSCRAPER_DEV_LOGIN|CHEEVOS_DEV_LOGIN|GAMESDB_APIKEY|HFS_DEV_LOGIN'
 # ARMSX2 and vulkan in the catalog (expect armsx2 at :1331 :1333 :1393; 15 vulkan lines -- R2 cmd 5)
 git show "$P1:${U}emulationstation/config/common/es_features.cfg" | $G -n -i armsx2 | cut -d: -f1 | tr '\n' ' '; echo; git show "$P1:${U}emulationstation/config/common/es_features.cfg" | $G -c -i vulkan
-# the text checks over the 15 (expect NON-ASCII FILES 0, SECRET-PATTERN FILES 0, forbidden-terms rc=0 -- R3 cmd 23, over the 19; no positive was constructed there, so the lane plants one line and sees each check fire before it trusts its 0; the secret scan sources .githooks/secret-patterns as .githooks/guard-lib does, never `grep -f` on it, § 5 item 3)
-# freshness, information only (expect 48 entries, none under ui/ -- R3 cmd 12; pure git; its rc 0 proves nothing for these three, L-10)
-tools/fork-package-freshness --list > "$TMPDIR/fr" 2>&1; rc=$?
+# the text checks over the 15 (expect NON-ASCII FILES 0, SECRET-PATTERN FILES 0, forbidden-terms rc=0 -- R3 cmd 23, over the 19; no positive was constructed there, so the lane plants one line and sees each check fire before it trusts its 0; the secret scan sources .githooks/secret-patterns as .githooks/guard-lib does, never `grep -f` on it, § 5 item 3; in that form the proof counted 0 on es_settings.cfg, the four scripts and the ES recipe after its planted positive matched 1, C12, C13, and the other nine are the lane's)
+# freshness, information only, both refs given (expect `lines=48 ui=0` -- R3 cmd 12, proof C14 with these two refs; pure git; the check is the two counts, never rc=0: without its refs it prints `fatal: bad revision 'upstream/next'` and exits 0, proof C8, Correction 16, L-21; its rc 0 proves nothing for these three, L-10)
+FRESHNESS_BASE="$UN" FRESHNESS_HEAD="$P1" tools/fork-package-freshness --list > "$TMPDIR/fr" 2>&1; rc=$?
 echo "freshness --list rc=$rc lines=$(wc -l < "$TMPDIR/fr") ui=$($G -c 'packages/ui/' "$TMPDIR/fr")"
 # the candidate's provenance, ruling (h) (expect the nine ES patches and a ui/ tree hash 9144dbe9a4d8 against the tip's 8f83424780, the theme, lowerdeck, cfgs, sources, units and autostart byte-identical -- R3 § 2.3, cmd 21)
 git -C /workspace/repos/rocknix ls-tree --name-only 069fc2704421 -- "${U}emulationstation/patches/"; git -C /workspace/repos/rocknix rev-parse 069fc2704421:projects/ROCKNIX/packages/ui; git rev-parse "$P1":projects/ROCKNIX/packages/ui
-# STAGE C -- the lane's checker, which does not exist at stage A (expect its FAIL-first run's `exit 1` naming each mutation, `exit 0` on the unmutated export, then at the tip FAIL naming L-03 and any of L-02, L-19, L-04 the tracing confirmed, with its own `TOTAL:` line)
-bash docs/audits/*-epic-m6-es-recipe/tools/t37-checks.sh --tree "$PWD" --commit "$P1" --expect-es-pin "$PIN" --devices "GENERIC_X64:x86_64 H700:aarch64" --out "$TMPDIR/checks" 2>&1 | tail -n 20
+# STAGE C -- the lane's checker, which does not exist at stage A; --tree is the scratch export (ruling (k)) and --repo the worktree, for its git reads (expect its FAIL-first run's `exit 1` naming each mutation, `exit 0` on the unmutated export, then at the tip FAIL naming L-03 and any of L-02, L-19, L-04 the tracing confirmed, with its own `TOTAL:` line)
+bash docs/audits/*-epic-m6-es-recipe/tools/t37-checks.sh --tree "$X" --repo "$PWD" --commit "$P1" --expect-es-pin "$PIN" --devices "GENERIC_X64:x86_64 H700:aarch64" --out "$TMPDIR/checks" 2>&1 | tail -n 20
 # STAGE A, after the pointer is read -- the removal check: TIPHASH is the lane's own tip the pointer and the dispatch comment name (MERGE_HASH at stage A); the literal word fails with `fatal: bad revision 'TIPHASH'` (expect no line before stage E; from stage E only paths under projects/ROCKNIX/packages/ui/)
 git diff --stat TIPHASH HEAD -- packages projects tools | tail -n 1
 ```
@@ -1183,10 +1308,11 @@ line that differs is recorded beside the expectation, not argued with.**
 Three of the lines are the lane's own to write, because the research
 printed their figures without the command that made them: the patch-reach
 computation (R3 § 8 printed the verdicts), the text checks over the 15 (R3
-cmd 23 ran them over the 19) and the effective-values call's exact form (R3
-cmd 16 printed the table; whether `. config/options "$1"` is the call R3
-made is `[unverified]`, and `calculate_stamp`'s invocation is the lane's to
-add). `/workspace/repos/rocknix` is read by hash only, as R3 cmd 21 did;
+cmd 23 ran them over the 19) and `calculate_stamp`'s invocation (R3 cmd 16
+printed the stamps). The effective-values call's form is no longer open: the
+proof's C8 ran `. config/options "$1"` under `env -i`, reproduced R3 § 1.5's
+values and the three stamps, and wrote the two cache files, so the call runs
+in the export (ruling (k)). `/workspace/repos/rocknix` is read by hash only, as R3 cmd 21 did;
 whether it is one of the M7 roots the never-run list forbids is the
 dispatch comment's to say (`[unverified]`), and if it is, the lane cites R3 §
 2.3 and runs nothing there.
@@ -1239,8 +1365,9 @@ that made it:**
 6. **§ The patches and their directories** -- Q6: one row per `patches/`
    subdirectory per device in the plan, reached or not by
    `scripts/unpack:150-160`'s globs (generated, asserted); L-02 and L-18.
-7. **§ The currency** -- Q7: one row per difference between the tip's `ui/`
-   and `upstream/next`'s (generated, asserted), with the 16 commits; the ES 14
+7. **§ The currency** -- Q7: one row per file of the tip-to-`upstream/next`
+   difference, 14 (generated, asserted), each upstream moved, the fork moved
+   or both, with the 16 commits; the ES 14
    as #791's input; L-10, L-16, L-21.
 8. **§ The structure** -- the 15 against the 19; the doc drifts L-17 and L-18
    for the coordinator's sweep; the candidate's provenance (ruling (h)).
@@ -1276,20 +1403,20 @@ slice that changes no ES file (ruling (c)).**
 - [ ] `reviewed-at:` and `fixed-at:` in #684's header carry the lane's commits and **`reviewed-at-es:` and `fixed-at-es:` read `none -- no ES change`**; nothing outside the 15 changed at any stage against the lane's own dispatch tip (the pointer's merge hash, never `2174265e9c`), and from stage E only paths under `projects/ROCKNIX/packages/ui/` (`git diff --stat <merge hash> <fixed-at> -- packages projects tools`); **no lane commit changes the ES recipe's `PKG_VERSION=` or `PKG_GIT_CLONE_BRANCH=` line** (`git log -p` over the lane's commits, `/usr/bin/grep -c -E '^[-+]PKG_(VERSION|GIT_CLONE_BRANCH)='` prints `0`, R5 § E).
 - [ ] `01-research-notes.md` § Scope records § 2's block, its sha256 prefix `f3ef373be6535467` checked, with its exact output lines (`mine: 15 paths.txt: 15 equal: True`; `lines: 4561 reach: {'shipped': 15} tier: {'upstream-carried': 9, 'fork-own': 6} lang: {'shell': 4, 'config': 4, 'recipe': 3, 'systemd': 2, 'text': 1, 'image': 1}`; `fork-own lines: 572`; `read lines: 327 of which fork-own: 190 vendor-carried lines: 0`; the two `diff`s naming the four patches; `wc -l, every path at the P1 hash: 4649`, `grep -c, every path at the P1 hash: 4650`, `grep -c, the inventory paths at its head: 4561`; `14`; ` 8 files changed, 463 insertions(+), 13 deletions(-)` -- or the deltas beside them) and names `c445081a59` as the merge base with `upstream/next` `651150fc88` and `cada856d86` as the pin's with `rocknix/master` `f6c542872e`.
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | /usr/bin/grep -c -E '^\| `'`` prints `15`; its tier columns read fork-own 6 / upstream-carried 9, with git's classes beside them; the four patches named after the table with T40 and T42.
-- [ ] `02` § The runs records, each as a command's own output line: `tools/pkgcheck <name>` for `emulationstation`, `es-theme-art-book-next` and `lowerdeck`, each after its `find` positive with rc 0, and the control `es-theme-no-such-package` beside them; `bash -n` rc for the seven; the effective fields and the stamps for GENERIC_X64 (and any other device run); the patch reach per device; the credential-name count (`5`) with names and line numbers only; the text checks over the 15 after a planted positive; `tools/fork-package-freshness --list`'s line; every run with exit, wall time, the figure and *a FAIL would mean ...*, a run that could not be made `CANNOT` with its reason.
+- [ ] `02` § The runs records, each as a command's own output line: `tools/pkgcheck <name>` for `emulationstation`, `es-theme-art-book-next` and `lowerdeck`, each after its `find` positive with rc 0, and the control `es-theme-no-such-package` beside them; `bash -n` rc for the seven; the scratch export's path and tip, the effective fields and the stamps for GENERIC_X64 (and any other device run) from it, the two cache files the calls wrote there named, and `0` `build.*` roots in the worktree (ruling (k)); the patch reach per device; the credential-name count (`5`) with names and line numbers only; the text checks over the 15 after a planted positive; `tools/fork-package-freshness --list`'s line with both refs given, judged by `lines=48` and `ui=0` from its output and never by its rc (L-10, L-21); every run with exit, wall time, the figure and *a FAIL would mean ...*, a run that could not be made `CANNOT` with its reason.
 - [ ] `tools/t37-checks.sh` exists under the audit folder's `tools/`; `02` § The runs records its FAIL-first run (exit 1 naming each mutation's assertion, exit 0 on the unmutated export, the stub checked against the unfixed text first), its run at the tip (FAIL naming L-03, and each of L-02, L-19 and L-04 the tracing confirmed) and its `TOTAL:` line quoted from its own output; every generator seen to exit 1 on a constructed drift before its table was trusted.
-- [ ] `02` § The recipe has one row per `-D` the recipe passes (`:19-25`, `:30`, `:33`) with its CMake test and branch at the pin; `:25`'s chain to `-DUSE_OPENGLES_30` and `Renderer_GLES30` with `Renderer_GL21`, `Renderer_GLES10` and `Renderer_GLES20` named for T35 (the list) and T36 (the bodies); one row per install step of `makeinstall_target` and `post_install` with its line, what it installs and how it fails; L-01, L-03, L-04, L-06, L-07 and L-08 dispositioned; PL-029 dispositioned with G-04's line; #613's and #1193's rows; the credentials by name and line (L-05's disagreement settled by the pin's `CMakeLists.txt:303-330` read through the mask; L-11 recorded as design; #64's open checkbox answered or recorded), and no value in any artifact (the hooks' `SECRET_PATTERNS`, sourced from `.githooks/secret-patterns` and compile-checked as `.githooks/guard-lib` does, counts `0` over the folder after a planted positive matched; never `grep -f` on that file, § 5 item 3).
+- [ ] `02` § The recipe has one row per `-D` the recipe passes (`:19-25`, `:30`, `:33`) with its CMake test and branch at the pin; `:25`'s chain through `GLSystem` to both `-DUSE_OPENGLES_30` and the `Renderer_GLES30` listing, with `Renderer_GL21`, `Renderer_GLES10` and `Renderer_GLES20` named for T35 (the list) and T36 (the bodies); one row per install step of `makeinstall_target` and `post_install` with its line, what it installs and how it fails; L-01, L-03, L-04, L-06, L-07 and L-08 dispositioned; PL-029 dispositioned with G-04's line; #613's and #1193's rows; the credentials by name and line (L-05 as § 3 states it, re-read at the pin's `CMakeLists.txt:303-330` through the mask with `HFS_DEV_LOGIN`'s readers; L-11 recorded as design; #64's open checkbox answered or recorded), and no value in any artifact (the hooks' `SECRET_PATTERNS`, sourced from `.githooks/secret-patterns` and compile-checked as `.githooks/guard-lib` does, counts `0` over the folder after a planted positive matched; never `grep -f` on that file, § 5 item 3).
 - [ ] `02` § The dependencies records the effective `PKG_DEPENDS_TARGET` per device read, L-09's chain with each link's effective value and fribidi's question put to the pause with G-01's `ldd` line beside it, udev and pugixml as build facts, and L-19.
 - [ ] `02` § The themes and `lowerdeck` records both pins with their `PKG_SHA256` and licences, the theme's install steps (`:14-28`), the three patches' apply order, #69's offer state under D-UI-090 (nothing sent), the wordmark against D-WORKFLOW-144 to -146, the default theme (L-20) and `lowerdeck`'s `HEAD` as R1 C20's dated read, with a bump of either recorded as a finding, never made.
 - [ ] `02` § The patches and their directories has one row per `patches/` subdirectory of the three packages per device in the plan, with `patches/x86_64/` NOT REACHED on GENERIC_X64 and H700 as R3 § 8 printed (or the line that differs), L-02's `PKG_PATCH_DIRS` named T37's line and the patch's content and #1072's shape T40's, and L-18.
-- [ ] `02` § The currency has one row per difference between the tip's `ui/` and `upstream/next` `651150fc88` (the 8 files and the 16 commits), each named upstream's change the fork lacks, the fork's own, or a merge pending; the ES pin's 14 named as #791's input; L-10, L-16 (#990) and L-21 dispositioned.
+- [ ] `02` § The currency has one row per file of the tip-to-`upstream/next` difference over `ui/` -- `git diff --shortstat 2174265e9c 651150fc88 -- projects/ROCKNIX/packages/ui/` prints ` 14 files changed, 83 insertions(+), 536 deletions(-)` -- each row saying which of the three it is: upstream moved (one of the 8 of ` 8 files changed, 72 insertions(+), 75 deletions(-)` over the 16 commits `c445081a59..651150fc88`), the fork moved (one of the fork's ` 8 files changed, 463 insertions(+), 13 deletions(-)` against the base), or both (§ 5's `comm` line, `upstream-only 6 fork-only 6 both 2`), with these tool lines quoted in `02`; each row named upstream's change the fork lacks, the fork's own, or a merge pending; the ES pin's 14 named as #791's input; L-10, L-16 (#990) and L-21 dispositioned.
 - [ ] `02` § The guest cycle records the window the coordinator granted on #684 (the comment's time; the START and RETURN posts with their first-line contract, the timer that stops the guest or the sentence that nothing does, and the censuses, with the host file's lines beside them), the fresh disk's path and the image by file name and `BUILD_ID` read from the guest at 640x480, G-01 to G-07 each labelled by side (`ui-equal` or `candidate`), G-05's string counts as counts only, the disk retired with path, size and sha, the leftover check (`qemu 0, compilers 0`), and the window closed inside its bound plus grace.
-- [ ] `00-running-log.md` shows no image build, no compiler, no fetch (no `git fetch`, `git ls-remote` or `gh api` of the authors' repositories, no `rc-preflight`, no real `fork-package-freshness` run; the council runtime from `npm install --offline`), no handheld, the owner's accounts never named or used, no hosted account, no M7 root, worktree or prep directory, no held directory opened, no ES worktree and no write in any ES checkout, the guest only inside the granted window and writing nothing, two keyed invokes and every other council call keyless, and nothing written outside the 15 at any stage (`00`'s own closing census).
-- [ ] `04-analysis.md` § Q1 to Q7 are answered at their lines; every `bug` states its trace, its `Already written:` line (what an image built from the old recipe left on the read-only image and in `/storage`, argued) and its VM line in one of the named families and passes `tools/box-check --issue N`; every #585 line owed is written in `02` in the shape the lane writes; every row of § 2's take-up table has a disposition at its lines; the § 1 rulings (a) to (j) each have their `02` row.
+- [ ] `00-running-log.md` shows no image build, no compiler, no fetch (no `git fetch`, `git ls-remote` or `gh api` of the authors' repositories, no `rc-preflight`, no real `fork-package-freshness` run; the council runtime from `npm install --offline`), no handheld, the owner's accounts never named or used, no hosted account, no M7 root, worktree or prep directory, no held directory opened, no ES worktree and no write in any ES checkout, the guest only inside the granted window and writing nothing, two keyed invokes and every other council call keyless, nothing written outside the 15 at any stage, no `build.*` root in the worktree at any stage, and the scratch export's path with its retirement at stage H (`00`'s own closing census; ruling (k)).
+- [ ] `04-analysis.md` § Q1 to Q7 are answered at their lines; every `bug` states its trace, its `Already written:` line (what an image built from the old recipe left on the read-only image and in `/storage`, argued) and its VM line in one of the named families and passes `tools/box-check --issue N`; every #585 line owed is written in `02` in the shape the lane writes; every row of § 2's take-up table has a disposition at its lines; the § 1 rulings (a) to (k) each have their `02` row.
 - [ ] Every proof in `02` carries a `proved:` cell reading `tree`, `history`, `tool-run`, `fixture`, `guest`, `fix-fixture`, `fix-image-pending` or `design`; every punch item carries `question:`; `02` § What the integration inherits lists § 8's items with their lines.
 - [ ] The retro exists at `docs/retros/<date>-m6-es-recipe.md`, is posted on #684 with its heading's time from `date -u` in the posting command, says what the slice did to the two time-to-play numbers (boot to interface priced from G-04, or `CANNOT` with the harness's reason) and what the integration inherits.
 - [ ] `tools/register-check`, `tools/work-log-index --check`, `tools/rules-check --quiet`, `tools/forbidden-terms-check` and `.githooks/hooks-test` pass on the distribution branch before the hand-back merge, and again on the coordinator's simulated merge; every fix has, recorded beside its commit, its `fix-fixture` FAIL line on the tip's text and PASS line on the fix's, `tools/pkgcheck <name>` by name, `bash -n` where a script changed, and the stamps compared, each fix moving only its own package's stamp.
-- [ ] The hand-back names every collision with its owner: the integration's pin-bump commit on `emulationstation/package.mk`; T35's `es-core/CMakeLists.txt` renderer list and T36's bodies beside `:25`; fribidi's decision; the candidate's nine ES patches and its link (ruling (h)); T40's `cpugov.patch` and T42's theme patches; T8's `virtual/image/package.mk`; and the Backlog leads L-10 and L-21 for the coordinator to file.
+- [ ] The hand-back names every collision with its owner: the integration's pin-bump commit on `emulationstation/package.mk`; T35's `es-core/CMakeLists.txt` renderer list and T36's bodies beside `:25`; fribidi's decision; the candidate's nine ES patches and its link (ruling (h)); T40's `cpugov.patch` and T42's theme patches; T8's `virtual/image/package.mk`; and the Backlog leads L-10 and L-21 (its three fail-opens) for the coordinator to file.
 
 ## 8. What the integration inherits
 
@@ -1305,9 +1432,10 @@ lanes' pointers, R4 item 4).
    6). At R4 cmd 21 the branches ahead of the pin were T2 `55158d2a6` (35),
    T21 `3ae9610b0` (17), T26 `757f5370e` (14), T31 `95852f873` (13), T20
    `5c0ddaaee` (11), T33 `f802c55c6` (8), T34 `52f0ff512` (8), T32
-   `b52245036` (6), T18 `d55235d4b` (6), with T36's at the pin (0); T35's is
-   now `d0e5b3432`, 8 ahead (R4 item 41, replacing item 6's T35 row) -- each
-   read at the integration's turn, never copied from here. **The steps**
+   `b52245036` (6), T18 `d55235d4b` (6), with T36's at the pin (0); T35's was
+   `d0e5b3432`, 8 ahead, at R4 item 41 (replacing item 6's T35 row), and
+   `b7fdb3a24c`, 9 ahead and containing `d0e5b3432`, at the proof (C4, C15)
+   -- each read at the integration's turn, never copied from here. **The steps**
    (`device-builds.md` § Iterating on EmulationStation, R4 item 33): the
    branches merged into the branch `:6` names, `:5` moved to that tip in the
    same integration commit, the stamp cleared; **before the pin lands on
@@ -1322,9 +1450,11 @@ lanes' pointers, R4 item 4).
    bumped, each slice's issues open as `remediating` until the first image
    carrying the pin proves each fix (R4 item 5, § 5).
 2. **The French catalog merges.** At R4 cmd 21, 9 of the 10 branches ahead
-   of the pin changed `locale/lang/fr`, T35's then at 0 (R4 item 7); T35's
-   tip `d0e5b3432` now changes it (`French-catalog files changed 1`, R4 item
-   41), so the count is read at the integration's turn. The merged catalog's
+   of the pin changed `locale/lang/fr`, T35's then at 0 (R4 item 7), each of
+   the nine changing `fr=1` file (proof C4); T35's `d0e5b3432` changes it
+   (`French-catalog files changed 1`, R4 item 41) and so does `b7fdb3a24c`
+   (`1` French file, proof C15), so the count is read at the integration's
+   turn. The merged catalog's
    msgids are checked against the sources (`tools/es-untranslated`) after the
    merges and before the pin moves (R4 item 7; `es-player-text.md` § Every
    fork string ships in English and French). No ruling on the merge order was
@@ -1392,7 +1522,9 @@ decisions` only (the register is 795 lines, `## Open decisions` at `:778`; the
 R5 C15): **D-CLOUD-193, D-INFRA-031, D-LAUNCH-007, D-NET-017, D-QA-063,
 D-RA-052, D-SYS-013, D-UI-137, D-WORKFLOW-216**; `tools/register-check`
 printed *"711 IDs, each once; every citation in the live documents names a
-row"* and, with `rc=$?` on its own line, `register-check rc=0` (R5 C9, C10).
+row"* and, with `rc=$?` on its own line, `register-check rc=0` (R5 C9, C10);
+the proof's `awk` over the register printed `ids decided 698 open 13` and did
+not run `tools/register-check` (C10).
 **This slice's ownership row is D-WORKFLOW-217**, written by the coordinator
 at dispatch after `:776` and before `## Open decisions`, its `<date>` checked
 on the appended line alone (R5 § D); if the table moves first it is the next
@@ -1453,10 +1585,13 @@ restated here. What is this slice's:
   `engineering-practices.md`'s), **`:39`'s value is never printed**, and after
   sourcing a recipe only the named fields are printed, never `set` or `env`;
   nothing under `~/.ROCKNIX/` or `~/.rocknix/` is read (`config/options`
-  under `env -i` with `HOME` in scratch, R3 § 1.5).
+  under `env -i` with `HOME` in scratch, R3 § 1.5, and only in the scratch
+  export, ruling (k)).
 - A merge with conflicts is checked for markers; the ledgers united by whole
   entries; **a commit names its paths**; anything temporary under
-  `/workspace/tmp/m6-t37/` after `df -i`, never `/tmp`; the window's record
+  `/workspace/tmp/m6-t37/` after `df -i`, never `/tmp`; the scratch export
+  `/workspace/tmp/m6-t37/export/` retired at stage H, its path and
+  retirement in `00`'s census (ruling (k)); the window's record
   kept on the branch, the guest disk retired after it with the retirement
   recorded in `00` (D-INFRA-022); **`rm -rf` only as `"${VAR:?}"/...` or a
   literal path, in its own short command, never inside a `bash -c` script**.
@@ -1490,11 +1625,14 @@ the generated sections' asserted counts; every Q bug with its three lines;
 **re-running on a clone of the distribution branch at its tip under
 `/workspace/tmp/m6-coordinator/`: the membership block, every § 5 run in
 full, `tools/t37-checks.sh` with its FAIL-first run** (no guest: the window's
-record is read, not repeated), through the coordinator's acceptance script
+record is read, not repeated; every sourced-recipe run in a scratch export
+of that clone, never the clone itself, ruling (k)), through the
+coordinator's acceptance script
 `t37-accept.sh`, derived from `t36-accept.sh` with T16's product-path
 sections ported (R5 § E: `product-paths` inverted, `pkgcheck` per package by
-name, `bash-n`, `freshness` for information, `effective-values`, and the
-no-pin-change check; the ES, unit-build, stand-in and renderer sections
+name, `bash-n`, `freshness` for information with both refs given,
+`effective-values` in a scratch export, the no-pin-change check and the
+no-`build.*`-root check; the ES, unit-build, stand-in and renderer sections
 dropped); `register-check` on a simulated merge with the coordinator's tip;
 the retro's answers; the five checkers' exit codes; the collisions named in §
 7's last checkbox; **the § 1 rulings' rows in `02`**. The lane posts one
@@ -1527,7 +1665,7 @@ predecessor on #684 before going on. Every figure in the *Must read* column is
 | `Epic:` | #700; T2, T18, T20, T21, T26, T31, T32, T33 accepted and open until the integration merge; T34 complete; T35 handed back; T36 at the state the dispatch comment names; T44 after | "T36 accepted" before it is, or "T35 in flight" |
 | `Depth:` | one seat, GPT-6 Astra at `max`; the 9 code files whole with `:39`'s value masked, `es_savestates.cfg` and `es_settings.cfg` whole, `es_features.cfg` and `es_input.cfg` by cited ranges, the OFL and the SVG named and not sent | the 15 fork-added and fork-modified files whole, the 43 upstream-carried by cited ranges |
 | `The lens:` | package currency over the 15 of `projects/ROCKNIX/packages/ui/**` -- the ES recipe, its sources, units and seeds, the theme and `lowerdeck`; the four patches T40's and T42's | cost against value over 58 paths, `es-core/src/{utils,resources,renderers}/**` |
-| `The rule:` | the lane changes only `projects/ROCKNIX/packages/ui/**` -- the 15 -- and only at stage E under a stream brief; never `PKG_VERSION` or `PKG_GIT_CLONE_BRANCH` of `emulationstation/package.mk`; nothing under `packages/` or `tools/`, nothing else under `projects/` (`virtual/image/package.mk` included); nothing in any ES checkout; `tools/pkgcheck <name>` by name after every `package.mk` edit | "nothing under the distribution's `packages/`, `projects/` or `tools/`; nothing in the ES worktree at stages A to D; nothing outside the 58 at stage E" |
+| `The rule:` | the lane changes only `projects/ROCKNIX/packages/ui/**` -- the 15 -- and only at stage E under a stream brief; never `config/options` sourced in the worktree, and no `build.*` root there (ruling (k)); never `PKG_VERSION` or `PKG_GIT_CLONE_BRANCH` of `emulationstation/package.mk`; nothing under `packages/` or `tools/`, nothing else under `projects/` (`virtual/image/package.mk` included); nothing in any ES checkout; `tools/pkgcheck <name>` by name after every `package.mk` edit | "nothing under the distribution's `packages/`, `projects/` or `tools/`; nothing in the ES worktree at stages A to D; nothing outside the 58 at stage E" |
 | `The host:` | the shared log and one guest window of 15 + 5 minutes, one boot at 640x480, on a fresh disk from the M6 copy of the candidate; the START post naming the timer that stops the guest at bound plus grace or saying nothing does; no START while an M7 standing or compile START is open (#1293) | a 25 + 5 window with two boots (640x480, then 1280x800) |
 | `Register:` | the highest decided row per area read from the table at `COHASH` (at `7d43f340c5`: D-CLOUD-193, D-INFRA-031, D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-137, D-WORKFLOW-216), plus **this slice's ownership row, D-WORKFLOW-217, which the coordinator writes at dispatch** | T36's nine at `acc4674006` (`... D-UI-133, D-WORKFLOW-215`), or D-WORKFLOW-216 named as this slice's own row |
 | `The brief:` | `docs/reviews/briefs/es-recipe.md` at `V2HASH` (§ 1: filled by the dispatch comment; version 1 has no dispatch hash) | `es-core-utils-resources.md`, or the literal word `V2HASH` |
@@ -1557,10 +1695,13 @@ Opus lane with only the brief that bumps `PKG_VERSION` because the lens says
 currency, bumps the theme without a fetch to compute `PKG_SHA256`, runs
 `tools/pkgcheck <path>` and reports PASS, cites `tools/fork-package-freshness`
 rc 0 as currency, edits `virtual/image/package.mk:18` for `lowerdeck`,
-"fixes" an ES `CMakeLists.txt` line the slice only reads, or disables fribidi
-without the image build that proves the text path; the adjustments (R5 § C).
-The stranger's proof of this version 1 is the next step, and its corrections
-make version 2. This brief's hash at dispatch is `V2HASH`.
+"fixes" an ES `CMakeLists.txt` line the slice only reads, sources
+`config/options` in its worktree and leaves a `build.*` root there (proof
+Correction 1), or disables fribidi without the image build that proves the
+text path; the adjustments (R5 § C). The stranger's proof of version 1
+(`/workspace/tmp/m6-coordinator/kit/t37-proof.md`) made this version 2; its
+corrections are `## Version 2: corrections from the proof`. This brief's
+hash at dispatch is `V2HASH`.
 
 **Stop only on:** every item of § 7 that is this lane's ticked and the branch
 pushed (the hand-back); the stage-D pause; an explicit maintainer pause on
@@ -1568,7 +1709,8 @@ pushed (the hand-back); the stage-D pause; an explicit maintainer pause on
 packet scan hit that is a value, two commands that disagree, a block whose
 output differs from § 2's beyond the deltas it records, a file of the 15 at
 the lane's tip differing from `2174265e9c` before stage E, a pointer line
-that names the predecessor slice); **not** the host's missing toolchain
+that names the predecessor slice, a `build.*` root in the worktree, ruling
+(k)); **not** the host's missing toolchain
 (nothing here compiles), **not** `tools/fork-package-freshness` printing
 nothing for the three recipes (L-10), **not** `tools/pkgcheck`'s vacuous pass
 (the control records it, L-21), **not** a `CANNOT` for what only a build
@@ -1583,13 +1725,16 @@ on a post that asks nothing**: a turn ends on a post or a commit, never on
 compiler; a fetch -- no `git fetch`, no `git ls-remote`, no `gh api` of the
 theme's or `lowerdeck`'s repositories, no `rc-preflight` (it fetches
 `rocknix/master`), no real `tools/fork-package-freshness` run (only
-`--list`); the council runtime from `npm install --offline`; a handheld; the
+`--list`, with both refs given); the council runtime from `npm install
+--offline`; a handheld; the
 owner's accounts or any hosted account; a host listener on a privileged
 port; a guest before a grant on #684; M7's roots, worktrees or prep
 directories; a held directory (D-WORKFLOW-215; `/workspace/tmp/m6-t34/held/`,
 `/workspace/tmp/m6-t36/held/`); anything under `~/.ROCKNIX/` or
 `~/.rocknix/`; a read of `emulationstation/package.mk` without the mask, a
-print of `:39`, or `set`/`env` after sourcing a recipe; an ES worktree, or a
+print of `:39`, or `set`/`env` after sourcing a recipe; `config/options`
+sourced in the worktree -- **no `build.*` root in the worktree at any stage;
+a `build.*` root found there is a stop** (ruling (k)); an ES worktree, or a
 write in any ES checkout; a change outside the 15; a change to the four
 patches' content; a change to `PKG_VERSION` or `PKG_GIT_CLONE_BRANCH` of the
 ES recipe; a pin or theme bump; `virtual/image/package.mk` or any
@@ -1602,89 +1747,129 @@ G-table writes none**; and a theme or font changed on the guest's image.
 
 ## Version 1: what the drafting read did not settle
 
-Every `[unverified]` mark above, with the read that settles it; then the
-places where the research files disagree, and how this brief takes each.
+Every `[unverified]` mark above, with the read that settles it, numbered as
+in version 1 so the proof's citations still resolve. Version 2 moved the
+items the proof settled -- 1, 4, 6, 7, 8, 10, 11, 12 and 14 -- into the body,
+each with its command, and narrowed 2, 3, 5, 9 and 17 by the proof's lines;
+then the one place where the research files still disagree.
 
-1. **Whether the pin's CMake reads `HFS_DEV_LOGIN`** (§ 3 L-05; Q4) --
-   R2 § 1 cites `CMakeLists.txt:328-330`; R3 § 2.2 C7 read `:307-325` and
-   found it consumed by nothing read. Settled by `git -C "$Q" show
-   "$PIN":CMakeLists.txt | sed -n 303,330p` through the mask (§ 5).
 2. **Whether `scripts/install` or `scripts/image` rewrites an absolute link**
-   (L-03) -- the lane's read of both scripts at the tip.
+   (L-03) -- a grep of both for `readlink`, `symlink` or `-type l` found
+   none (proof C7); the lane's read of both scripts whole at the tip settles
+   it.
 3. **The gettext tools' provider on the build host** (L-08) -- the
-   `Dockerfile` and `scripts/checkdeps` read for `gettext`.
-4. **Whether the host has `xmlstarlet` outside the build container** (L-01)
-   -- `command -v xmlstarlet`; else the fixture uses `python3 -I` with
-   `xml.etree`.
-5. **Whether an `arm` build compiles ES** (L-09) -- the sourced-recipe
-   assertion for an `arm` plan, and the device list's `ARCH` values.
-6. **`PKG_NEED_UNPACK`'s upstream form** (L-19) -- `git show
-   651150fc88:projects/ROCKNIX/packages/ui/emulationstation/package.mk`'s
-   `:14`-equivalent line.
-7. **ES's default theme at the pin** (L-20) -- the settings source that
-   names it, read by hash.
-8. **The owners of fribidi's chain recipes** (§ 2's neighbours:
-   `virtual/swaywm-env`, `wayland/compositor/sway`, `packages/graphics/pango`)
-   -- the block's `named` list with the three added (R1 C20's `m2.py` shape).
-9. **Which devices' `${OPENGLES}` provide GLES 3 headers, and `${OPENGLES}`
-   per device beyond `projects/ROCKNIX/options:19`** (Q2, Q3) -- the
-   sourced-recipe assertion per device.
-10. **How the units and the autostart file are installed** (Q2) --
-    `scripts/install`'s directory conventions read at the tip.
-11. **Whether `virtual/image/package.mk:18`'s `PKG_UI` is device-conditional**
-    (Q5; G-06) -- the file read whole at the tip (T8's, read only).
-12. **Whether `es_settings.cfg` or the four scripts carry a credential-shaped
-    key** (§ 1 Depth) -- the lane's packet scan.
+   `Dockerfile` and `scripts/checkdeps` carry no `gettext` or `msgfmt` line
+   (proof C6), and 8 recipes name `gettext:host`, the ES recipe not (C7,
+   C8); the ES recipe's effective dependency closure walked in the export
+   for a `gettext:host` link settles whether build order brings the tools,
+   and only a build's configure log shows that ES found them.
+5. **Whether an `arm` build compiles ES** (L-09) -- `Makefile:50`, `:55`,
+   `:60` and `:65` run `ARCH=arm ./scripts/build_distro` for RK3588, RK3576,
+   S922X and RK3566 (proof C14); the sourced-recipe assertion for an `arm`
+   plan, in the export, settles whether that plan reaches ES.
+9. **Which devices' `mesa` builds provide GLES 3 headers** (Q2) --
+   `${OPENGLES}` under `projects/ROCKNIX/` is `mesa` at `options:19` and
+   `devices/AMD64/options:32` only (proof C14); mesa's effective options per
+   device, in the export, or an image build settle it.
 13. **The blindspot entries' lines** (§ 3 item 4) -- the lane's `grep -n` for
-    their words.
-14. **The effective-values call's exact form and `calculate_stamp`'s
-    invocation** (§ 5's runs) -- R3 cmd 16 printed the table but its command
-    line is not in R3; the lane's call is checked against R3 § 1.5's values.
+    their words (not checked by the proof).
 15. **`tools/pixelelated-state-check` on a ready guest** (G-05) -- its own
-    usage line read on the host before the window.
+    usage line read on the host before the window (not checked by the
+    proof).
 16. **Whether `/workspace/repos/rocknix` is one of the M7 roots** the
-    never-run list forbids (§ 5's candidate read) -- the dispatch comment.
+    never-run list forbids (§ 5's candidate read) -- the dispatch comment
+    (not checked by the proof).
 17. **R3 cmd 23's `SECRET-PATTERN FILES: 0` over the 19** (§ 5's text
     checks) -- R3 § 6 names the `-f` form, which does not compile against
-    the patterns file (the drafter's run, above), and R3 does not print the
-    command it ran; until the lane's own scan in the hooks' form, with its
-    planted positive, prints its line, that 0 is not evidence (a check that
-    cannot run has not passed).
+    the patterns file (the drafter's run, and the proof's C12 with `rc=2`:
+    `grep: .githooks/secret-patterns:6: Unmatched ( or \(`), and R3 does not
+    print the command it ran. In the hooks' form, its planted positive
+    matched first (C13), the proof counted `0` on six of the 15 (C12); **for
+    the other nine and the four patches** that 0 is not evidence until the
+    lane's own scan in the hooks' form prints its line (a check that cannot
+    run has not passed).
 
-**Where the research files disagree:**
+**Where the research files still disagree:**
 
-- **15 against 19 paths.** R1 C10 and C11 prove the inventory's 15 are the
-  glob's 19 less the four patches; R2 § 0 guessed the four were data files
-  (*"two `.cfg` catalogues, the SVG, the OFL"*), R4 § 0 left them unsettled,
-  and R3 § 0 counted them right but reasoned the 4,561 against 4,560 by
-  `wc -l`, which R1 C07 proves (`essway.service`, 20 against 21). **Settled by
-  ruling (a)**, on R1's lines.
-- **`SCREENSCRAPER_RUNTIME_DEV_LOGIN` at `:30`.** R1 C08 says the recipe does
-  not name it; R2 § 0 (cmd 5), R3 § 1.5 (cmd 16's effective
-  `-DSCREENSCRAPER_RUNTIME_DEV_LOGIN=1`), R4 § 0 (cmd 20) and R5 C10 (`count
-  lines: 5`, `:30` among them) show it does. The drafter's reading, not a
-  tool line: R1's pattern put `\b` before the name, and `-DSCREENSCRAPER...`
-  has no word boundary between `D` and `S`. This brief takes the four, and §
-  5's patterns drop the leading `\b`.
-- **`HFS_DEV_LOGIN`** -- item 1 above (R2 § 1 against R3 § 2.2 C7).
-- **Whether `tools/pkgcheck <name>` prints its path.** R5 C11 says each name
-  prints its own `package.mk` path; R3 cmd 9 and cmd 10 printed 0 lines for
-  each. § 1 ruling (d) and § 5 make the `find` listing the positive, so the
-  check does not depend on which is right; the lane records the line that
-  prints.
-- **The installed `es_features.cfg` on GENERIC_X64.** R5 § A expects it to
-  differ from the tree's by the `xmlstarlet` vulkan deletion; R3 § 1.5 reads
-  `VULKAN_SUPPORT=yes` on GENERIC_X64, under which R2 § 1 says `:126-128` does
-  not delete. G-03 records the digest that prints.
 - **Fribidi's path into the sysroot.** R2 § 1 traced SDL2 -> `swaywm-env` ->
   `sway` -> `pango` -> `fribidi` and read `vlc`'s `--disable-fribidi`; R3 §
-  2.2 C8 guessed `vlc` -> `libass` (*"not traced"*). This brief takes R2's
-  trace (L-09).
-- **The French catalog count.** R4 item 7 counts 9 of the 10 branches ahead
-  changing `locale/lang/fr` at R4 cmd 21, T35's at 0; R4 item 41 reads T35's
-  later tip at 1. § 8 item 2 has the integration read the count at its turn.
-- **Who consumes `lowerdeck`.** R3 § 0 found no consumer (its grep was cut by
-  `head`); R1 C09 found `virtual/image/package.mk:18`'s `PKG_UI`. This brief
-  takes R1's line.
+  2.2 C8 guessed `vlc` -> `libass` (*"not traced"*). The proof confirmed R2's
+  chain line by line (C6, C7) and found
+  `packages/multimedia/libass/package.mk:11` depending on fribidi too, so R3's
+  path is not refuted: whether `vlc` pulls `libass` is L-09's open mark,
+  settled by `vlc`'s effective `PKG_DEPENDS_TARGET` in the export. This brief
+  takes R2's trace (L-09); either path is build order, D-WORKFLOW-216's
+  question.
 
-Version 1, 2026-10-31 23:29:02 UTC, from R1 to R5
+## Version 2: corrections from the proof
+
+The stranger's proof of version 1,
+`/workspace/tmp/m6-coordinator/kit/t37-proof.md` (358 lines), read version 1
+at `563857ea02` against the sources by hash: 16 corrections, 11 settled
+items, 7 partial, and *What I could not check*. Each correction is applied
+at its line, one line each below. The rulings on the three heavy ones are
+the coordinator's (D-WORKFLOW-189): ruling (k) for Correction 1, checkbox
+13's rows for Correction 6, and the freshness counts for Correction 16;
+where a fix offered two forms, the first is taken.
+
+1. **Sourcing `config/options` writes `build.<distro>-<DEVICE>.<ARCH>/.cache_package_{local,global}`** (`config/functions:801-802`; during the proof it wrote two such roots into the P1 research clone): ruling (k) in § 1, and checkbox 19's rulings now (a) to (k); § 3's rule table, item 5 and the leads' header; § 5's scratch export and effective-values block naming the two files, the checker's steps 4 and 7, its refusals and its `--tree`; checkboxes 8 and 16; § 9's mask and temporary bullets; § 10's hand-back, `The rule:` row, simulation, stops and never-run list.
+2. **D-UI-090 names the theme**: § 1's ownership rulings, with the decided-table command (no decided row names `ui/`, `es-recipe` or `lowerdeck`).
+3. **L-05 is a fact** -- `HFS_DEV_LOGIN` builds the HFS scraper with no `USING:` line (the pin's `CMakeLists.txt:328-330`, `HfsDBScraper.*`, `Scraper.cpp:33`, `scripts/get_env:14`; the loop at `:42-44` names three): § 3's L-05 row, Q4, § 5's CMake comment and `git grep` line, checkbox 9; out of the open list (item 1) and the disagreements.
+4. **No `cut` on the ES refs, and T35's ES ref has moved** (`b7fdb3a24c`, 9 ahead of the pin, at the proof; read at stage A): § 1's predecessors and first commands, § 5's merge-base line, § 8 items 1 and 2.
+5. **L-02's intent is `git log --diff-filter=A` over `cpugov.patch`** (`40fce2a089`), not `git log -S cpugov`, which prints nothing: § 3's leads header and L-02.
+6. **Checkbox 13 counts the 14 files** of ` 14 files changed, 83 insertions(+), 536 deletions(-)`, each upstream moved, the fork moved, or both, with both 8-file lines quoted: § 2's merge debt, the take-up table's currency row, Q7, § 5's `comm` line, § 6 item 7, checkbox 13.
+7. **L-08's CMake range is `:565-578`** (the message at `:577`): § 3's L-08 row.
+8. **`GLSystem` selects both `-DUSE_OPENGLES_30` and the `Renderer_GLES30` listing**; the define compiles nothing: Q2, checkbox 9.
+9. **`order.md:153-155`**, *"then the recipe"* on `:155`: § 1.
+10. **The four patches are inventory tier `vendor-carried`**, git's class beside it: § 2's list outside the 15.
+11. **`lowerdeck` has three run-time users outside the slice** (`runemu.sh:337-338`, `vertical-check:6-7,143,175,180`, `111-sway-init:163-164`) besides `PKG_UI`, owned by the slices § 2's extended `named` run gives them: § 2's neighbours and that run, the take-up table, Q5; out of the disagreements.
+12. **The ES 14 also carry the ZRAM swap menu**, with no distribution half under `ui/`: § 2's merge debt.
+13. **`essway.service`'s two hunk headers** (`@@ -4 +4 @@`, `@@ -11,0 +12,3 @@`) replace "three lines": § 2's merge debt.
+14. **The theme's `:20` deletes four includes** (`classic` has none): § 2's files table.
+15. **`cb50b45f6e` is first in `git log --reverse` order**, not by date: § 2's fork commits.
+16. **`tools/fork-package-freshness --list` fails open without its refs** (`fatal: bad revision 'upstream/next'`, `rc=0`): rulings (d) and (e), L-10, L-21's Backlog lead (a missing ref is the third fail-open, the proof's C8 its observation), § 5's freshness line (`FRESHNESS_BASE` and `FRESHNESS_HEAD` given, `lines=48` and `ui=0` checked, never `rc=0`), checkbox 8, § 10's never-run list.
+
+**Settled by the proof, now in the body with their commands:** open items
+1 (L-05), 4 (L-01's fixture in `python3 -I` with `xml.etree`), 6 (L-19's
+line is upstream's), 7 (L-20's `system-theme` default), 8 (fribidi's chain
+owners, § 2), 10 (Q2's units and autostart by `scripts/install`), 11
+(`PKG_UI` unconditional; Q5, G-06), 12 (the six files' credential scan, § 1)
+and 14 (the effective-values call, § 5, with ruling (k)); L-16's two commits
+(§ 2, L-16); and the disagreements on 15 against 19 (ruling (a), reproduced
+by the proof's C2), `SCREENSCRAPER_RUNTIME_DEV_LOGIN` at `:30` (§ 5's
+credential comment), `HFS_DEV_LOGIN` (L-05), `tools/pkgcheck`'s path (stderr
+behind a carriage return, § 5's lint comment), the installed
+`es_features.cfg` (G-03), the French count (§ 8 item 2) and `lowerdeck`'s
+consumers (Q5). From the proof's other checks: L-02's hunk found in the pin
+at `1061`, so it would apply with an offset; L-18's `scripts/unpack:159`
+device directory; the splash patch's removal shown as a rename (§ 2); and
+H700's `VULKAN_SUPPORT=no` (Q2).
+
+**Open after the proof:** items 2, 3, 5, 9, 13, 15, 16 and 17 of
+`## Version 1: what the drafting read did not settle`, and fribidi's `libass`
+path there; the owners of `lowerdeck`'s three run-time users, which the
+lane's extended `named` run prints (§ 2); and the proof's *What I could not
+check*, each the lane's to read at stage A or the dispatch comment's to
+give: the authors' `HEAD`s (R1 C20's network read, ruling (e)); #684's body
+and every issue state; the 80 `feature/m6-*` refs and `next` as a ref; the
+lane-branch audit files the take-up table cites; the M7 candidate and its
+image (G-01's `BUILD_ID`, the digests, the `ui/` tree hashes); the effective
+`PKG_CMAKE_OPTS_TARGET`'s printed tail (the proof's own cut; the recipe's
+`:19-25` and `:30` carry both options); and `tools/register-check`'s `711`
+against the decided table's `ids decided 698 open 13`.
+
+**Checks on this file**, each command's own output, run on this file as
+written:
+
+- `/usr/bin/grep -c -E '__[A-Z0-9]+__'` prints `0`.
+- The hooks' credential pattern, built as `.githooks/guard-lib` at
+  `563857ea02` builds it -- `.githooks/secret-patterns` sourced for its one
+  `SECRET_PATTERNS` regex and compile-checked by
+  `printf '' | grep -E -e "$SECRET_PATTERNS"` (rc at most 1), never `-f` --
+  matched `1` on a private-key header line assembled at run time, then
+  `grep -c -E -e "$SECRET_PATTERNS"` printed `0` on this file.
+- `/usr/bin/grep -c '\[unverified\]'` prints `19` on version 1 and `9` on
+  this file.
+- `/usr/bin/grep -c ''` prints `1875`.
+
+Version 2, 2026-11-01 00:24:37 UTC, after the stranger's proof of version 1
