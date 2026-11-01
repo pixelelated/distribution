@@ -1,6 +1,6 @@
 # T39 (#686) running log -- doctrine: the reference documents
 
-**Executor:** Opus 5.5 at high effort, session `m6-t1-os-launch` (ruling (f); freed from T36 #683) -- that is the dispatch's and the pointer's label; the session's own harness metadata reports the model id `claude-opus-4-8`. The two disagree, and the honest served-model identity is the coordinator's to reconcile before `second-opinions/review-plan.json` records `primary.model`/`identity_source` at stage C (L-38, `inherited:coordinator`; flagged on #686, never decided by the lane).
+**Executor:** session `m6-t1-os-launch` (ruling (f); freed from T36 #683). Model: the dispatch's and the pointer's label is "Opus 5.5 at high effort"; the session's own harness metadata reports the model id `claude-opus-4-8`. **L-38 settled by the coordinator on #686 (06:43 UTC):** `second-opinions/review-plan.json` records `primary.model` = `claude-opus-4-8` (the harness-reported id) with both the label and the id in `identity_source`, as T36 did. Written at stage C.
 **Depth:** Local (a table; D-WORKFLOW-184). One worktree, no EmulationStation worktree, no guest, no compile.
 **reviewed-at:** `86ebb6dffc` (the dispatch tip = the coordinator's branch merged into the lane's, `MERGE_HASH`), stacked on P1 `2174265e9c`, the coordinator's tip `86ebb6dffc` beside it (`COHASH` = `MERGE_HASH` here). Brief `89fd4e2610` (`V2HASH`, version 2, 2389 lines, sha256 `f2194b5326acdb57`).
 
@@ -25,6 +25,41 @@ The fifteen-name loop (`README.md`, `areas.json`, `assessment.md`, `briefs/p1-su
 
 ### #686 and #807
 - #686: `M6.P2 E807/T39: doctrine: the reference documents`, OPEN, body 87 lines (27 before the coordinator's fill, R5 C16).
-- #807 (ruling (i), L-37): `:15` reads *"its paths have no upstream (ROCKNIX carries none of them)"* -- untrue of the 90 upstream-carried, and contradicted by #807's own T39 row `:11` (`90 upstream-carried`). **`grep -c 'no upstream'` prints the sentence; `errat` 0 -- the ruling-(i) erratum the dispatch said was written at dispatch is NOT on #807's body.** L-37 is `inherited:coordinator`; recorded and flagged on #686. No post on #807 (never list).
+- #807 (ruling (i), L-37): `:15` reads *"its paths have no upstream (ROCKNIX carries none of them)"*. **L-37 settled by the coordinator on #686 (06:43 UTC): the ruling-(i) erratum IS present**, appended to the same long line 15 (*"(Erratum, 2026-11-01, at T39's dispatch: untrue of T39's 90 upstream-carried documents under ...)"*). My stage-A flag was a false alarm: `grep errat` was case-sensitive (the text is `Erratum`) and `cut -c1-160` truncated line 15 before the appended erratum. Corrected here (verify the artifact, not my own grep's report). No post on #807 (never list).
 
 See `01-research-notes.md` § Scope for the membership blocks, the carve, the tip lines and the issue states.
+
+## 2026-11-01 06:58 UTC -- stage B (the reader's pass and the leads)
+
+Read the 254 in § 2's order (the reader's pass is `01` § The reader's pass,
+group by group) and ran every lead's FAIL-first check at the lane's tip
+`f60c2c08bf`. The leads are `02` § The table (46 rows); the probes are `02`
+§ The identity words / § The retired names / § The runs; `02` § Coverage is
+generated at stage C by `tools/t39-tables.py` from the inputs gathered here.
+`LC_ALL=C` throughout; counts by `/usr/bin/grep`.
+
+PROOF: 06:58 UTC the membership exports 254 files at the tip (`git archive HEAD`); proved: tree
+PROOF: 06:58 UTC the carve classifier on `block-2.txt` prints edit-scope 68, edit-under-naming 1, total 254 (the v2 figures, brief `:1297`); proved: tool-run
+PROOF: 06:58 UTC 0 dead relative Markdown links over 511 scanned, resolved against the worktree; proved: tree
+PROOF: 06:58 UTC decision IDs: register 716, cited distinct 442, 0 unresolved (L-38; D-WORKFLOW-188 carried by the P1 merge); proved: tool-run
+PROOF: 06:58 UTC Pixelelated/PIXELELATED capitalised 0 (D-WORKFLOW-144 holds); proved: tree
+PROOF: 06:58 UTC each of the 46 leads prints its defect at the tip (see `02` § The table); proved: tree/tool-run/record
+PROOF: 06:58 UTC the 31 binaries and 18 art text files carry their recorded sha256 at the tip (ruling (o)); proved: tree
+PROOF: 06:58 UTC none of the 254 is modified; the removal check vs `86ebb6dffc` is empty (rulings (a),(k),(n),(o)); proved: tree
+
+A first-scoping note was corrected the moment it was found (verify the artifact,
+not my own probe's report): a dead-link scan resolved against the 254-only
+export read 417 dead; resolved against the full worktree it reads 0, which is
+the research's figure -- the 254 reference other paths of the tree that are not
+themselves in the slice. And the brief's R3 C24 `cloud_migrate_layout`
+product-tree figure includes `tools` and reads 0, while at the tip `tools/`
+carries 127 (fork-only QA tooling) and the shipped OS carries 0; L-04 stands,
+the parenthetical is a coordinator-owned brief-evidence erratum (flagged on
+#686, `02` § The runs).
+
+**Stage-B census (this session's last line):** `git status --short` shows only
+the audit folder (`00`, `01` modified; `02` new) -- **no fix to any of the
+254 while reading**. No build, no compiler, no guest, no fetch, no council or
+keyed call, no held directory opened, no `--write` of a generated file. The
+read tree is exported at `/workspace/tmp/m6-t39/export/` (254 files), retired
+at stage H. No line written to the host-coordination file or to #807.

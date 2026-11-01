@@ -37,3 +37,101 @@ The membership is the brief's § 2 two blocks, extracted from the brief at `89fd
 ### The issues (§ 3 item 9), re-read at `COHASH`, states recorded
 OPEN: #686, #807, #651, #685, #528, #585, #509, #511, #344, #42, #359, #360, #335, #334, #338, #947, #270, #964, #1094, #1100, #1126, #1013, #963, #273, #576, #620, #965, #682, #1216, #667, #11, #23, #134, #333, #256, #645.
 CLOSED/COMPLETED: #570, #131, #507, #508, #515, #533.
+
+## Read order
+
+§ 2's table, the 15 groups in R5 § C stage B's order (top-level files, the
+reference groups, then the read-only and ledger rows); the dispatch comment
+moved nothing:
+
+1 `README.md` (23) · 2 `TRADEMARK.md` (38) · 3 `LICENSE.md` (18) · 4 `docs/*`
+(27, 9,222 lines: `council-*` 9, `save-*`/`savestate-*` 7, `cloud-*` 3,
+`device-*` 2, other 6) · 5 `docs/pixelelated/` (50, 3,551) · 6
+`docs/rasteratops/` (15, 4,906) · 7 `docs/releases/` (23, 1,858) · 8
+`docs/ra-offline/` (2, 649) · 9 `docs/pr-series/` (2, 323) · 10 `plans/` (1,
+223) · 11 `docs/upstream/` (28, 2,323) · 12 `documentation/` (16, 2,160) · 13
+`licenses/` (75, 7,817) · 14 `docs/reviews/` (11, 5,101) · 15
+`docs/reviews/briefs/` (1, 386). `GROUPS TOTAL 254 38598 groups 15`.
+
+## The reader's pass
+
+What a stranger would take from each group on its strength, before any
+auditing -- read group by group from the export of the 254 at the dispatch
+tip. (Depth: the lead-bearing documents were read closely; the rest at the
+reader's-eye level the brief asks for -- opening sentences and structure.)
+
+- **1-3 Top-level (`README`, `TRADEMARK`, `LICENSE`).** The front page tells a
+  player this is pixelelated and sends them to a release for updates -- but to
+  a release that is not published (L-02). `TRADEMARK.md` is about the name, and
+  points at `LICENSE.md` for the code; `LICENSE.md` says GPL v2 in one place
+  and "non-commercial use only" / "Copyright 2024 ROCKNIX" in others, and never
+  states the fork's own terms (L-43). A reader cannot tell, from these three,
+  what licence the fork's own work is under, nor find a working release.
+
+- **4 `docs/*` (five families).** `council-*` (9) read as a durable record of
+  the staged-council substrate and the retired Mistral counter -- a stranger
+  meets a seat that is live on the page but retired in fact (L-12). `save-*`/
+  `savestate-*` (7) announce their own supersession in their first lines ("Superseded
+  2026-09-12 ... Kept as the record") -- honest dated records, the model to
+  hold the rest to. `cloud-*`: `cloud-save-integrity.md` carries a stale M7
+  order of closed issues (L-06); the changelog is a 3,581-line ledger with one
+  redirecting link (L-23). `device-*`: the flashing runbook names the OS
+  "ROCKNIX" throughout (L-05); the testing policy calls a decided QA-handheld
+  row open (L-03) and its mask is short of the flag form (L-16). `es-menu-map.md`
+  is the most-cited document (26 issues, by line) and carries three "pending"/
+  "under qualification" headings for closed work (L-08, L-32); `conflict-wizard-ia.md`
+  is at Rev 6 while #23 still says rev 5 (L-17).
+
+- **5 `docs/pixelelated/`.** The rename plan is the current identity plan
+  (D-WORKFLOW-144, lowercase throughout). The cloud-folder guide reads cleanly
+  for `/pixelelated` but ends in internal release status (L-10); the folder-flow
+  review and state table are dated contracts. The site plans name a retired
+  remote in one place (L-22). The art tree (READMEs, SVGs, generator) names
+  another repository's generator tool, correctly attributed (L-14) -- the 18
+  art text files and 28/2/1 binaries are never edited (ruling (o)).
+
+- **6 `docs/rasteratops/`.** Current release records -- `release-readiness.md`
+  ("# pixelelated 0.0.1 release readiness") and `support-matrix.md` -- live
+  under the retired-name folder (L-30, #509). The P0 sweep and its 2,419-line
+  hits file are the identity baseline (`NAMING.md:30`); `cloud-layout.md`
+  describes the retired `cloud_migrate_layout` in the present tense (L-04).
+  Several carry the retired name as the OS's identity in dated prose (L-21).
+
+- **7 `docs/releases/`.** `versioning.md` and `device-facts.md` are standing
+  references; `device-facts.md` points at a catalog that holds none of its cuts
+  (L-15). The candidate records (`next-candidate-work.md`, `-scope.md`) are
+  dated readiness tables that name a superseded baseline (L-09) and run words
+  into numbers (L-11). The PR stubs (`pr/01`..`pr/11`) read as finished
+  PR descriptions; `rc-accept.txt` is the RC ledger (L-25, L-26). `catalog.md`
+  and `rc-accept.txt` are ledger rows, never edited.
+
+- **8 `docs/ra-offline/`.** A dated phase-1 design note (590 lines, read from
+  upstream code) and a rocknix.org draft -- both present themselves as dated/
+  draft, so a reader is not misled about currency.
+
+- **9 `docs/pr-series/`.** The review guide and `map.txt` for the upstream
+  series D-WORKFLOW-084 ended; `map.txt` names two deleted paths (L-27) and is
+  a ledger row.
+
+- **10 `plans/`.** The one plan, the July conflict-wizard design, superseded by
+  the IA and unmarked (L-24) -- a ledger row with one historical-plan note owed.
+
+- **11 `docs/upstream/` (read-only, #585).** The contribution queue and ten
+  proxy patch drafts; `README.md` names #585 and D-WORKFLOW-165 and carries
+  run-together hits (L-46, L-11's share). A reader takes these as drafts for a
+  queue, which they are.
+
+- **12 `documentation/` (read-only).** Upstream's per-device emulator tables;
+  13 of 15 are behind upstream (L-41), and the one fork-own (GENERIC_X64) has
+  drifted with no generator (L-31). A reader reads a table a little behind
+  upstream's.
+
+- **13 `licenses/` (read-only, #528).** 75 upstream licence texts, two PDFs;
+  one (`AETHERSX2.pdf`) upstream dropped for a licensing concern (L-44). Legal
+  reading is #528's.
+
+- **14-15 `docs/reviews/` and its brief (ledger).** The renovation's own
+  records -- the README/plan name files present only via the P1 stacking
+  (L-01, resolved at dispatch), and carry a preliminary slice number and a
+  "This file exists on next" line that `next` does not bear out (L-28, L-29).
+  The coordinator's.

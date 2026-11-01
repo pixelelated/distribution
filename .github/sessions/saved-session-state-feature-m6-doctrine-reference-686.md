@@ -17,7 +17,8 @@
 
 ## Current focus
 
-**Stage A complete; its checkpoint is posted on #686 (the turn-ender).** The
+**Stage A and stage B complete; the stage-B checkpoint is posted on #686 (the
+turn-ender).** The
 eleven keys were read against the brief's § 10 table and all are T39's -- none
 names the predecessor T38 (reported clean on #686; the placeholder check and
 the hash-word check both print 0). In order: the lint's Local PASS (rc 0) with
@@ -36,19 +37,32 @@ row present, `unassigned 0`); the checkers' baseline at the dispatch tip
 (`rules-check` 30, `register-check` **716 IDs**, `es-menu-map-check` 0 missing,
 `release-catalog` 99 cuts, `work-log-index` current, `prose-check` self-test
 PASS; `ceremony-check` `[unverified]`); the host file read once at 06:27:08Z
-(712 lines, 0 lines matching `T39|#686`). #807's ruling-(i) erratum is
-**absent** from its body (`grep -c 'no upstream'` prints the sentence, `errat`
-0) -- flagged on #686 as L-37 `inherited:coordinator`; no post on #807. All of
-this is in `00-running-log.md` and `01-research-notes.md` § Scope.
+(712 lines, 0 lines matching `T39|#686`). **L-37 settled** by the coordinator
+06:43 UTC: #807's ruling-(i) erratum **is present** (appended to the same long
+`:15`; my stage-A `grep errat` was case-sensitive and `cut -c1-160` truncated
+before it). **L-38 resolved**: `second-opinions/review-plan.json` records
+`primary.model` = `claude-opus-4-8` with the label and the id in
+`identity_source`, at stage C. This is in `00` and `01` § Scope.
 
-**Next is stage B** -- read the 254 as a reader in § 2's read order
-(`README.md`, `TRADEMARK.md`, `LICENSE.md`, the `docs/` groups, then `plans/`,
-`docs/upstream/`, `documentation/`, `licenses/`, `docs/reviews/` and its
-briefs), each group once before it is read again as an auditor, the leads
-L-01..L-46 of § 3 noted against what each document says. No ES worktree, no
-guest, no compile, no host-file line at any stage. `.qa-scratch/` is
-gitignored and `git status --short` is read before every `git add`; anything
-temporary goes under `/workspace/tmp/m6-t39/`, never `/tmp`. No network beyond
+**Stage B complete** -- the 254 read in § 2's order (the reader's pass is `01`
+§ The reader's pass, group by group; `01` § Read order has the 15 groups), and
+all 46 leads of § 3 noted with their FAIL-first checks run at the tip
+`f60c2c08bf` (`02` § The table). `02` also carries § Binaries (31), § Art bytes
+(18), § The ledgers, § The identity words, § The retired names, § The runs (8
+PROOF lines in `00`) and the inherited list; **no fix touched any of the 254**
+(the census is `00`'s stage-B last line). Two self-corrections are recorded: a
+mis-scoped dead-link scan (417 against the export, 0 against the worktree) and
+the brief's R3 C24 `cloud_migrate_layout` figure (0 for the shipped OS, 127 in
+fork-only `tools/`; L-04 stands, the parenthetical is a coordinator erratum).
+
+**Next is stage C** -- write `tools/t39-checks.sh` (FAIL-first) and its three
+allowlists, `tools/t39-tables.py` (generates `02` § Coverage's 254 rows,
+§ Binaries, § Art bytes and the Q4/Q5/Q6 tables, asserting the counts), and
+`second-opinions/review-plan.json` (Local shape, `primary.model`
+`claude-opus-4-8` per L-38), then run the pre-issue lint. No ES worktree, no
+guest, no compile, no host-file line at any stage. `.qa-scratch/` is gitignored
+and `git status --short` is read before every `git add`; temporary files under
+`/workspace/tmp/m6-t39/`, never `/tmp`. No network beyond
 `gh --repo pixelelated/distribution` reads and the lane's own posts.
 
 ## Next commands
@@ -92,3 +106,4 @@ or the pins.
 ## Checkpoints
 
 - Stage A -- 2026-11-01 06:36:32 UTC -- base tip 86ebb6dffc (the dispatch merge); this commit carries 00-running-log.md, 01-research-notes.md § Scope, this pointer and the #686 work-log entry, and becomes the branch tip; checkpoint posted on #686.
+- Stage B -- 2026-11-01 06:59:45 UTC -- tip 86ebb6dffc (the dispatch merge); this commit carries 02-forward-audit.md (§ The table, 46 leads; § Binaries 31; § Art bytes 18; the probes and § The runs), 01 § Read order + § The reader's pass, 00's stage-B section (8 PROOF lines) and the #686 work-log entry; no fix to any of the 254; checkpoint posted on #686.
