@@ -17,17 +17,15 @@
 
 ## Current focus
 
-**Stage B done; the window requested; stage C next after the grant or
-beside it** (`tools/t37-checks.sh` in its eight steps with its FAIL-first run
-and its run at the tip; the packet trimmed and scanned with `:39` withheld
-by number; the plan, the seat, the pre-issue lint). Stage B's record:
-`02-forward-audit.md` (§ 6's order, 15 Coverage rows, three generated
-tables each seen to exit 1 on a drift), `stage-b/` (the reach on 15
-devices, the reads, L-01's merges, the state check's two routes -- the
-payload route `rc=2` for want of `mcopy`, the root route `status pass` --
-and `window-plan.md`). The window: one guest, one boot at 640x480, G-01 to
-G-07 at 780 s, 15 minutes plus 5 of grace, no START before the grant.
-Stage A's record follows. Stage A's record: `docs/audits/2026_11_01-epic-m6-es-recipe/`
+**Stage C done (its checkpoint on #684); stage D next** -- the audit issue
+as a sub-issue of #684 with the punch list, the bugs with their traces,
+and the pause. Stage C's record: `tools/t37-checks.sh` (the tip exit 1,
+`TOTAL: 55 of 60`; the fixed fixture exit 0, `66 of 66`; 15 of 15
+mutations caught; the `.git` refusal exit 2), `03`, `04`, `05` (16 items:
+4 Medium, 12 Low, each Open), the packet and its manifest (clean; `:39`
+withheld by number), the probe and the refutation (exactly two keyed
+invokes), the pre-issue lint. The window ran 01:42:09-01:44:35 UTC
+(G-01 to G-07, the disk retired). Stage B's and stage A's records follow. Stage A's record: `docs/audits/2026_11_01-epic-m6-es-recipe/`
 `00-running-log.md` (the model, the effort, `reviewed-at` `9fa740a91b`, the
 host file read at 01:01:29-01:01:40 UTC, census `qemu 0, compilers 0`, the
 export `/workspace/tmp/m6-t37/export/`), `01-research-notes.md` (§ Scope

@@ -1,0 +1,148 @@
+#!/usr/bin/env python3
+"""Write 05-punch-list.md (T37, #684) from one item table: each item's section, the Phase 7
+resolution gate (every item Open before stage D's issue exists) and the punch_index YAML
+(question: in the brief's § 4 numbering -- Q1 the pin, Q2 the build options and install steps, Q3
+the dependencies, Q4 the credentials, Q5 the themes and lowerdeck, Q6 the patches, Q7 currency and
+structure). Asserts unique ids, a known severity, question and proof per item, and the three views
+agreeing; exits 1 on a drift (--drift drops one item from the gate to show it fires).
+    python3 -B -I t37-05.py <audit folder> [--drift]"""
+import pathlib, re, sys
+
+SEV = ("Critical", "High", "Medium", "Low")
+PROVED = ("tree", "history", "tool-run", "fixture", "guest", "design")
+ITEMS = [
+ dict(id="PL-01", title="The `es_systems.cfg` fallback link points at a build-host path", sev="Medium", cat="Install step",
+      q="Q2", src="L-03; #613", lines="`emulationstation/package.mk:101`; `scripts/build:140`; `config/functions:1380`",
+      owner="T37 (the recipe's line, if the coordinator routes #613 here); upstream's form",
+      what="`ln -sf ${INSTALL}/usr/config/emulationstation/es_systems.cfg ${INSTALL}/etc/...`: in `makeinstall_target` `INSTALL` is `$BUILD/install_pkg/emulationstation-<pin>`, and neither `scripts/install` nor `scripts/image` rewrites a link, so an image built from the tip carries `/etc/emulationstation/es_systems.cfg` pointing into the build host. The candidate image's link is the corrected `/usr/config/...` and resolves (G-03), because its own recipe differs (ruling (h)).",
+      disp="take up as #613: the device path in this slice's stream if routed (`fix-fixture` by the checker's L-03 assertion, `fix-image-pending`); a #585 line",
+      proved="tool-run"),
+ dict(id="PL-02", title="`emulationstation/patches/x86_64/` is reached on no device", sev="Medium", cat="Patch directories",
+      q="Q6", src="L-02; #1072", lines="`emulationstation/patches/x86_64/`; `scripts/unpack:127-128`, `:137-160`",
+      owner="T37 (the recipe's `PKG_PATCH_DIRS`); T40 (the patch's content and place, #1072)",
+      what="`PATCH_ARCH` is `x86` for an `x86_64` target and the recipe sets no `PKG_PATCH_DIRS`, so `cpugov.patch` applies on none of the 15 devices (`stage-b/reach-15.out`); its string is absent from the candidate's binary (G-05). Added by `40fce2a089 2026-08-20 amd64: wip am64 changes`.",
+      disp="take up as #1072: the pause chooses T37's `[ \"${ARCH}\" = \"x86_64\" ] && PKG_PATCH_DIRS=\"x86_64\"` (the fixture form, which reaches it on the two `x86_64` devices only) or T40's rename to `patches/x86/`; only a build proves the patch applies",
+      proved="tool-run"),
+ dict(id="PL-03", title="`PKG_NEED_UNPACK=\"busybox\"` is a bare word, so busybox never moves the ES stamp", sev="Low", cat="Build order",
+      q="Q3", src="L-19", lines="`emulationstation/package.mk:14`; `config/functions:1114`, `:1126`",
+      owner="T37; upstream's line (`9f1fab30f6`)",
+      what="`calculate_stamp` adds the word to its `find -L` paths relative to the root, where `busybox` names nothing (`0` files); the framework and upstream recipes pass a directory (`$(get_pkg_directory vdr)` in the vdr plugins' recipes, `config/functions:1322-1333`).",
+      disp="rule 6: `PKG_NEED_UNPACK=\"$(get_pkg_directory busybox)\"` (the fixture passes `pkgcheck` and the checker with it), or the line dropped if no ES build needs busybox; a #585 line",
+      proved="tool-run"),
+ dict(id="PL-04", title="The `rm` of `resources/logo.png` runs before the directory exists", sev="Low", cat="Install step",
+      q="Q2", src="L-04", lines="`emulationstation/package.mk:79`, `:81-82`; the pin's `es-core/src/Splash.h:17`",
+      owner="T37; upstream's order (`9f1fab30f6`)",
+      what="The line removes nothing, so the pin's `logo.png` ships (G-05) -- ES's `DEFAULT_SPLASH_IMAGE`. Had it worked, it would remove the default splash.",
+      disp="a question at the pause: drop the line (the shipped behaviour unchanged) or record it as written with a #585 note",
+      proved="tree"),
+ dict(id="PL-05", title="Upstream's ARMSX2 *vulkan driver* block was dropped by four merges", sev="Medium", cat="Merge debt",
+      q="Q7", src="L-01", lines="`emulationstation/package.mk:125-129` (`651150fc88:104-108`); `es_features.cfg:1331`, `:1333`, `:1393`",
+      owner="T37",
+      what="`a06539d8ec`, `049765fba0`, `fa2990c1e7` and `f370dc8787` each had an upstream parent with the two ARMSX2 lines and a result without them (`stage-b/l01-merges.out`); the tip's catalogue keeps `armsx2-sa`'s *vulkan driver* feature on every device that ships `armsx2-sa`, so devices without ARMSX2's own Turnip offer it (RK3566 of the fork's).",
+      disp="a bug candidate for the pause: upstream's five lines restored after `:128` (moves only ES's stamp); the fixture with upstream's two edits reproduced in `xml.etree` at stage E",
+      proved="history"),
+ dict(id="PL-06", title="The candidate's ES does not link fribidi; the recipe declares it nowhere", sev="Medium", cat="Build order",
+      q="Q3", src="L-09; D-WORKFLOW-216; T36's G-01", lines="`emulationstation/package.mk:13`; the pin's `CMakeLists.txt:236-241`, `:462`",
+      owner="T37 (the declaration, D-WORKFLOW-216); the integration (why the find failed)",
+      what="ES's plan reaches fribidi only by `SDL2 -> swaywm-env -> sway -> pango -> fribidi`; T36's G-01 on the candidate reads `libfribidi` NOT linked, so its `QUIET` find failed and the built-in reordering shipped.",
+      disp="the pause's ruling under D-WORKFLOW-216 (declare `fribidi` at `:13`, or record the chain as the recipe's decision); the find's failure is the integration's configure log (`CANNOT` here)",
+      proved="tool-run"),
+ dict(id="PL-07", title="A missing French catalog would install silently", sev="Low", cat="Guard that fails open",
+      q="Q2", src="L-08", lines="`emulationstation/package.mk:67-68`; the pin's `CMakeLists.txt:565-578`",
+      owner="T37 (the install line); ES's CMake the integration's",
+      what="Without the gettext tools ES builds no `.mo` and says only `Native language support disabled.`; the recipe copies what is there. The tools reach the build by `toolchain -> gcc:host -> autoconf:host -> gettext:host`, and the candidate carries the French `.mo` (G-03).",
+      disp="a stream question at the pause (\"a loud catalog\"): a line that fails when `fr/LC_MESSAGES/emulationstation2.mo` is absent; the checker WARNs at the tip",
+      proved="tree"),
+ dict(id="PL-08", title="`HFS_DEV_LOGIN` builds a scraper with no `USING:` line", sev="Low", cat="Guard that fails open",
+      q="Q4", src="L-05", lines="`emulationstation/package.mk:42-44`; `scripts/get_env:14`; the pin's `CMakeLists.txt:328-330`",
+      owner="T37",
+      what="The log loop names three of the four names `get_env` forwards; `HFS_DEV_LOGIN` (read at the pin's `HfsDBScraper.cpp:1`, `:181`, `:190`, `HfsDBScraper.h:6`, `Scraper.cpp:33`) is the fourth.",
+      disp="a stream candidate: `HFS_DEV_LOGIN` added to the loop's list (names only)",
+      proved="tree"),
+ dict(id="PL-09", title="`--log-path /var/log` is passed to ES and parsed by nothing", sev="Low", cat="Install step",
+      q="Q2", src="T2 PL-029 (`deferred:#684`)", lines="`sources/start_es.sh:8`; `system.d/emustation.service:12`; the pin's `Paths.cpp:76-81`",
+      owner="T37 (upstream's two lines)",
+      what="`parseArgs` has no such branch; under `-DROCKNIX` the log path is `/var/log`, and the candidate writes `/var/log/es_log.txt` with the flag in its argv (G-04).",
+      disp="kept with the reason (inert; editing either file makes an upstream-carried file fork-modified, `start_es.sh` already behind upstream); a #585 line",
+      proved="guest"),
+ dict(id="PL-10", title="The two checkers that would measure these recipes pass over nothing", sev="Low", cat="Guard that fails open",
+      q="Q7", src="L-10, L-21", lines="`tools/pkgcheck:157`, `:169`; `tools/fork-package-freshness:16-18`, `:42-44`",
+      owner="T6 (the tools); the coordinator (`EXTRA_PACKAGES`)",
+      what="`pkgcheck` with a name that matches nothing prints nothing and exits 0; freshness prints its header for an unknown name and exits 0 with a missing ref, and its `--list` reaches none of the three (`lines=48 ui=0`).",
+      disp="a Backlog lead for the coordinator to file, naming the three fail-opens and the three recipes' reach",
+      proved="tool-run"),
+ dict(id="PL-11", title="`sed \"s#-#_##g\"` replaces only the first hyphen of `DEVICE`", sev="Low", cat="Install step",
+      q="Q2", src="L-06", lines="`emulationstation/package.mk:54`",
+      owner="T37; upstream's line",
+      what="`echo a-b-c | sed \"s#-#_##g\"` prints `a_b-c`; no device name has a hyphen today.",
+      disp="recorded as written, with a #585 line (`s#-#_#g`)",
+      proved="tool-run"),
+ dict(id="PL-12", title="The pre-generated locale's failure is silent", sev="Low", cat="Guard that fails open",
+      q="Q2", src="L-07", lines="`emulationstation/package.mk:70-75`; `sources/es_settings:26-35`",
+      owner="T37; upstream's (`96d387fffd`)",
+      what="`|| true` ends the `localedef` step; `es_settings` regenerates a missing locale at first start, so a failure costs first-boot time only. The candidate has the pre-generated locale (G-03).",
+      disp="recorded as written (a best-effort cache with a correct fallback); the checker's WARN",
+      proved="tree"),
+ dict(id="PL-13", title="`lowerdeck` is behind its author's `HEAD`", sev="Low", cat="Package currency",
+      q="Q5", src="R1 C20 (2026-10-31)", lines="`lowerdeck/package.mk:5-6`",
+      owner="T37 (a finding); a bump needs a fetch",
+      what="Pinned at `ab735114ab` (ROCKNIX's pin too); its author's `HEAD` was `8fefe16e9c` at R1's dated read, by a count nobody made.",
+      disp="a currency finding, never a bump here (ruling (b)): the bump, with its new `PKG_SHA256`, at the integration or with ROCKNIX's",
+      proved="tree"),
+ dict(id="PL-14", title="Upstream's six `ui/` changes and two overlaps wait for the distribution merge", sev="Low", cat="Merge debt",
+      q="Q7", src="§ The currency (14 rows)", lines="the 14 files of `2174265e9c..651150fc88` over `ui/`",
+      owner="`release-candidates.md` step 0 (the merge); #791 (the ES 14)",
+      what="`upstream-only 6 fork-only 6 both 2`: the RK3566 patch and `PKG_PATCH_DIRS+=\" ${DEVICE}\"`, the two THP drop-ins, `start_es.sh`'s two functions, `emustation.service`'s `start.games` path and 107 lines of `es_features.cfg` the fork lacks; the ES recipe and `essway.service` changed on both sides.",
+      disp="deferred to the distribution merge and #791 (a finding per row in `02` § The currency, never a merge here)",
+      proved="tool-run"),
+ dict(id="PL-15", title="Two rules describe the recipe as it is not", sev="Low", cat="Documentation",
+      q="Q1", src="L-17, L-18", lines="`device-builds.md` § Iterating on EmulationStation; `CLAUDE.md` (patches per device)",
+      owner="the coordinator's sweep",
+      what="The rule names `maxengel/emulationstation-next` where `:8` is `pixelelated/emulationstation`; `CLAUDE.md`'s `patches/<DEVICE>/` holds only where a recipe sets `PKG_PATCH_DIRS`.",
+      disp="the coordinator's doc sweep",
+      proved="tree"),
+ dict(id="PL-16", title="`tools/pixelelated-state-check --payload` cannot run on this host", sev="Low", cat="Tooling",
+      q="Q4", src="stage B (G-05's host half)", lines="`tools/pixelelated-state-check:767-792`",
+      owner="the coordinator (a tool note; the tool fails closed, as it should)",
+      what="The `.img.gz` route needs `mcopy`, absent here: `rc=2`, `input-invalid`. The `--root` route over an extracted `SYSTEM` ran instead and passed.",
+      disp="a tool note for the integration (§ What the integration inherits item 9); no slice fix",
+      proved="tool-run"),
+]
+
+def build(drift):
+    ids = [i["id"] for i in ITEMS]
+    assert len(ids) == len(set(ids)), "duplicate ids"
+    for i in ITEMS:
+        assert i["sev"] in SEV and re.fullmatch(r"Q[1-7]", i["q"]) and i["proved"] in PROVED, i["id"]
+    out = ["# Punch list (Phases 5 and 6) — M6.P2 T37, the EmulationStation recipe and themes in the distribution (#684)", "",
+           "Written by `tools/t37-05.py` from one item table, so the sections, the Phase 7 gate and the `punch_index` agree. `question:` is the brief's § 4 numbering (Q1 the pin, Q2 the build options and install steps, Q3 the dependencies, Q4 the credentials, Q5 the themes and `lowerdeck`, Q6 the patches, Q7 currency and structure); `04` § Renovation face maps them to the plan's seven. Every disposition is proposed; the stage-D pause rules them. At Phase 7 (stage E) every item has its outcome below.", "",
+           "reviewed-at: 9fa740a91ba9fcaa21a26cc72f0b50fac10f32df", "reviewed-at-es: none -- no ES change", ""]
+    for i in ITEMS:
+        out += [f"## {i['id']}: {i['title']}", "",
+                f"- **Severity:** {i['sev']}; **category:** {i['cat']}; **question:** {i['q']}",
+                f"- **Source finding:** {i['src']}",
+                f"- **Lines at the tip:** {i['lines']}",
+                f"- **Owner:** {i['owner']}",
+                f"- **What is wrong:** {i['what']}",
+                f"- **Proposed disposition:** {i['disp']}",
+                f"- **proved:** {i['proved']}", ""]
+    gate_items = ITEMS[1:] if drift else ITEMS
+    out += ["## Phase 7 resolution gate", "", "| Item | Outcome | Evidence |", "| --- | --- | --- |"]
+    out += [f"| {i['id']} | Open | before stage D's audit issue |" for i in gate_items]
+    out += ["", "## punch_index", "", "```yaml", "punch_index:"]
+    for i in ITEMS:
+        out += [f"- id: {i['id']}", f"  severity: \"{i['sev']}\"", f"  category: \"{i['cat']}\"", f"  question: {i['q']}",
+                f"  source_finding: \"{i['src'].replace(chr(34), chr(39))}\"", "  outcome: \"open\""]
+    out += ["```", ""]
+    text = "\n".join(out)
+    sec = re.findall(r"^## (PL-\d+):", text, re.M)
+    gate = re.findall(r"^\| (PL-\d+) \| Open \|", text, re.M)
+    idx = re.findall(r"^- id: (PL-\d+)$", text, re.M)
+    if not (sec == gate == idx == ids):
+        print(f"ASSERT FAIL: sections {len(sec)}, gate {len(gate)}, index {len(idx)}, items {len(ids)} disagree"); sys.exit(1)
+    return text
+
+d = pathlib.Path(sys.argv[1]); drift = "--drift" in sys.argv[2:]
+t = build(drift)
+(d / "05-punch-list.md").write_text(t)
+print(f"wrote 05-punch-list.md: {len(ITEMS)} items, generated, asserted (sections = gate = index)")

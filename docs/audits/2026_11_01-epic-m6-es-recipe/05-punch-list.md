@@ -1,0 +1,289 @@
+# Punch list (Phases 5 and 6) — M6.P2 T37, the EmulationStation recipe and themes in the distribution (#684)
+
+Written by `tools/t37-05.py` from one item table, so the sections, the Phase 7 gate and the `punch_index` agree. `question:` is the brief's § 4 numbering (Q1 the pin, Q2 the build options and install steps, Q3 the dependencies, Q4 the credentials, Q5 the themes and `lowerdeck`, Q6 the patches, Q7 currency and structure); `04` § Renovation face maps them to the plan's seven. Every disposition is proposed; the stage-D pause rules them. At Phase 7 (stage E) every item has its outcome below.
+
+reviewed-at: 9fa740a91ba9fcaa21a26cc72f0b50fac10f32df
+reviewed-at-es: none -- no ES change
+
+## PL-01: The `es_systems.cfg` fallback link points at a build-host path
+
+- **Severity:** Medium; **category:** Install step; **question:** Q2
+- **Source finding:** L-03; #613
+- **Lines at the tip:** `emulationstation/package.mk:101`; `scripts/build:140`; `config/functions:1380`
+- **Owner:** T37 (the recipe's line, if the coordinator routes #613 here); upstream's form
+- **What is wrong:** `ln -sf ${INSTALL}/usr/config/emulationstation/es_systems.cfg ${INSTALL}/etc/...`: in `makeinstall_target` `INSTALL` is `$BUILD/install_pkg/emulationstation-<pin>`, and neither `scripts/install` nor `scripts/image` rewrites a link, so an image built from the tip carries `/etc/emulationstation/es_systems.cfg` pointing into the build host. The candidate image's link is the corrected `/usr/config/...` and resolves (G-03), because its own recipe differs (ruling (h)).
+- **Proposed disposition:** take up as #613: the device path in this slice's stream if routed (`fix-fixture` by the checker's L-03 assertion, `fix-image-pending`); a #585 line
+- **proved:** tool-run
+
+## PL-02: `emulationstation/patches/x86_64/` is reached on no device
+
+- **Severity:** Medium; **category:** Patch directories; **question:** Q6
+- **Source finding:** L-02; #1072
+- **Lines at the tip:** `emulationstation/patches/x86_64/`; `scripts/unpack:127-128`, `:137-160`
+- **Owner:** T37 (the recipe's `PKG_PATCH_DIRS`); T40 (the patch's content and place, #1072)
+- **What is wrong:** `PATCH_ARCH` is `x86` for an `x86_64` target and the recipe sets no `PKG_PATCH_DIRS`, so `cpugov.patch` applies on none of the 15 devices (`stage-b/reach-15.out`); its string is absent from the candidate's binary (G-05). Added by `40fce2a089 2026-08-20 amd64: wip am64 changes`.
+- **Proposed disposition:** take up as #1072: the pause chooses T37's `[ "${ARCH}" = "x86_64" ] && PKG_PATCH_DIRS="x86_64"` (the fixture form, which reaches it on the two `x86_64` devices only) or T40's rename to `patches/x86/`; only a build proves the patch applies
+- **proved:** tool-run
+
+## PL-03: `PKG_NEED_UNPACK="busybox"` is a bare word, so busybox never moves the ES stamp
+
+- **Severity:** Low; **category:** Build order; **question:** Q3
+- **Source finding:** L-19
+- **Lines at the tip:** `emulationstation/package.mk:14`; `config/functions:1114`, `:1126`
+- **Owner:** T37; upstream's line (`9f1fab30f6`)
+- **What is wrong:** `calculate_stamp` adds the word to its `find -L` paths relative to the root, where `busybox` names nothing (`0` files); the framework and upstream recipes pass a directory (`$(get_pkg_directory vdr)` in the vdr plugins' recipes, `config/functions:1322-1333`).
+- **Proposed disposition:** rule 6: `PKG_NEED_UNPACK="$(get_pkg_directory busybox)"` (the fixture passes `pkgcheck` and the checker with it), or the line dropped if no ES build needs busybox; a #585 line
+- **proved:** tool-run
+
+## PL-04: The `rm` of `resources/logo.png` runs before the directory exists
+
+- **Severity:** Low; **category:** Install step; **question:** Q2
+- **Source finding:** L-04
+- **Lines at the tip:** `emulationstation/package.mk:79`, `:81-82`; the pin's `es-core/src/Splash.h:17`
+- **Owner:** T37; upstream's order (`9f1fab30f6`)
+- **What is wrong:** The line removes nothing, so the pin's `logo.png` ships (G-05) -- ES's `DEFAULT_SPLASH_IMAGE`. Had it worked, it would remove the default splash.
+- **Proposed disposition:** a question at the pause: drop the line (the shipped behaviour unchanged) or record it as written with a #585 note
+- **proved:** tree
+
+## PL-05: Upstream's ARMSX2 *vulkan driver* block was dropped by four merges
+
+- **Severity:** Medium; **category:** Merge debt; **question:** Q7
+- **Source finding:** L-01
+- **Lines at the tip:** `emulationstation/package.mk:125-129` (`651150fc88:104-108`); `es_features.cfg:1331`, `:1333`, `:1393`
+- **Owner:** T37
+- **What is wrong:** `a06539d8ec`, `049765fba0`, `fa2990c1e7` and `f370dc8787` each had an upstream parent with the two ARMSX2 lines and a result without them (`stage-b/l01-merges.out`); the tip's catalogue keeps `armsx2-sa`'s *vulkan driver* feature on every device that ships `armsx2-sa`, so devices without ARMSX2's own Turnip offer it (RK3566 of the fork's).
+- **Proposed disposition:** a bug candidate for the pause: upstream's five lines restored after `:128` (moves only ES's stamp); the fixture with upstream's two edits reproduced in `xml.etree` at stage E
+- **proved:** history
+
+## PL-06: The candidate's ES does not link fribidi; the recipe declares it nowhere
+
+- **Severity:** Medium; **category:** Build order; **question:** Q3
+- **Source finding:** L-09; D-WORKFLOW-216; T36's G-01
+- **Lines at the tip:** `emulationstation/package.mk:13`; the pin's `CMakeLists.txt:236-241`, `:462`
+- **Owner:** T37 (the declaration, D-WORKFLOW-216); the integration (why the find failed)
+- **What is wrong:** ES's plan reaches fribidi only by `SDL2 -> swaywm-env -> sway -> pango -> fribidi`; T36's G-01 on the candidate reads `libfribidi` NOT linked, so its `QUIET` find failed and the built-in reordering shipped.
+- **Proposed disposition:** the pause's ruling under D-WORKFLOW-216 (declare `fribidi` at `:13`, or record the chain as the recipe's decision); the find's failure is the integration's configure log (`CANNOT` here)
+- **proved:** tool-run
+
+## PL-07: A missing French catalog would install silently
+
+- **Severity:** Low; **category:** Guard that fails open; **question:** Q2
+- **Source finding:** L-08
+- **Lines at the tip:** `emulationstation/package.mk:67-68`; the pin's `CMakeLists.txt:565-578`
+- **Owner:** T37 (the install line); ES's CMake the integration's
+- **What is wrong:** Without the gettext tools ES builds no `.mo` and says only `Native language support disabled.`; the recipe copies what is there. The tools reach the build by `toolchain -> gcc:host -> autoconf:host -> gettext:host`, and the candidate carries the French `.mo` (G-03).
+- **Proposed disposition:** a stream question at the pause ("a loud catalog"): a line that fails when `fr/LC_MESSAGES/emulationstation2.mo` is absent; the checker WARNs at the tip
+- **proved:** tree
+
+## PL-08: `HFS_DEV_LOGIN` builds a scraper with no `USING:` line
+
+- **Severity:** Low; **category:** Guard that fails open; **question:** Q4
+- **Source finding:** L-05
+- **Lines at the tip:** `emulationstation/package.mk:42-44`; `scripts/get_env:14`; the pin's `CMakeLists.txt:328-330`
+- **Owner:** T37
+- **What is wrong:** The log loop names three of the four names `get_env` forwards; `HFS_DEV_LOGIN` (read at the pin's `HfsDBScraper.cpp:1`, `:181`, `:190`, `HfsDBScraper.h:6`, `Scraper.cpp:33`) is the fourth.
+- **Proposed disposition:** a stream candidate: `HFS_DEV_LOGIN` added to the loop's list (names only)
+- **proved:** tree
+
+## PL-09: `--log-path /var/log` is passed to ES and parsed by nothing
+
+- **Severity:** Low; **category:** Install step; **question:** Q2
+- **Source finding:** T2 PL-029 (`deferred:#684`)
+- **Lines at the tip:** `sources/start_es.sh:8`; `system.d/emustation.service:12`; the pin's `Paths.cpp:76-81`
+- **Owner:** T37 (upstream's two lines)
+- **What is wrong:** `parseArgs` has no such branch; under `-DROCKNIX` the log path is `/var/log`, and the candidate writes `/var/log/es_log.txt` with the flag in its argv (G-04).
+- **Proposed disposition:** kept with the reason (inert; editing either file makes an upstream-carried file fork-modified, `start_es.sh` already behind upstream); a #585 line
+- **proved:** guest
+
+## PL-10: The two checkers that would measure these recipes pass over nothing
+
+- **Severity:** Low; **category:** Guard that fails open; **question:** Q7
+- **Source finding:** L-10, L-21
+- **Lines at the tip:** `tools/pkgcheck:157`, `:169`; `tools/fork-package-freshness:16-18`, `:42-44`
+- **Owner:** T6 (the tools); the coordinator (`EXTRA_PACKAGES`)
+- **What is wrong:** `pkgcheck` with a name that matches nothing prints nothing and exits 0; freshness prints its header for an unknown name and exits 0 with a missing ref, and its `--list` reaches none of the three (`lines=48 ui=0`).
+- **Proposed disposition:** a Backlog lead for the coordinator to file, naming the three fail-opens and the three recipes' reach
+- **proved:** tool-run
+
+## PL-11: `sed "s#-#_##g"` replaces only the first hyphen of `DEVICE`
+
+- **Severity:** Low; **category:** Install step; **question:** Q2
+- **Source finding:** L-06
+- **Lines at the tip:** `emulationstation/package.mk:54`
+- **Owner:** T37; upstream's line
+- **What is wrong:** `echo a-b-c | sed "s#-#_##g"` prints `a_b-c`; no device name has a hyphen today.
+- **Proposed disposition:** recorded as written, with a #585 line (`s#-#_#g`)
+- **proved:** tool-run
+
+## PL-12: The pre-generated locale's failure is silent
+
+- **Severity:** Low; **category:** Guard that fails open; **question:** Q2
+- **Source finding:** L-07
+- **Lines at the tip:** `emulationstation/package.mk:70-75`; `sources/es_settings:26-35`
+- **Owner:** T37; upstream's (`96d387fffd`)
+- **What is wrong:** `|| true` ends the `localedef` step; `es_settings` regenerates a missing locale at first start, so a failure costs first-boot time only. The candidate has the pre-generated locale (G-03).
+- **Proposed disposition:** recorded as written (a best-effort cache with a correct fallback); the checker's WARN
+- **proved:** tree
+
+## PL-13: `lowerdeck` is behind its author's `HEAD`
+
+- **Severity:** Low; **category:** Package currency; **question:** Q5
+- **Source finding:** R1 C20 (2026-10-31)
+- **Lines at the tip:** `lowerdeck/package.mk:5-6`
+- **Owner:** T37 (a finding); a bump needs a fetch
+- **What is wrong:** Pinned at `ab735114ab` (ROCKNIX's pin too); its author's `HEAD` was `8fefe16e9c` at R1's dated read, by a count nobody made.
+- **Proposed disposition:** a currency finding, never a bump here (ruling (b)): the bump, with its new `PKG_SHA256`, at the integration or with ROCKNIX's
+- **proved:** tree
+
+## PL-14: Upstream's six `ui/` changes and two overlaps wait for the distribution merge
+
+- **Severity:** Low; **category:** Merge debt; **question:** Q7
+- **Source finding:** § The currency (14 rows)
+- **Lines at the tip:** the 14 files of `2174265e9c..651150fc88` over `ui/`
+- **Owner:** `release-candidates.md` step 0 (the merge); #791 (the ES 14)
+- **What is wrong:** `upstream-only 6 fork-only 6 both 2`: the RK3566 patch and `PKG_PATCH_DIRS+=" ${DEVICE}"`, the two THP drop-ins, `start_es.sh`'s two functions, `emustation.service`'s `start.games` path and 107 lines of `es_features.cfg` the fork lacks; the ES recipe and `essway.service` changed on both sides.
+- **Proposed disposition:** deferred to the distribution merge and #791 (a finding per row in `02` § The currency, never a merge here)
+- **proved:** tool-run
+
+## PL-15: Two rules describe the recipe as it is not
+
+- **Severity:** Low; **category:** Documentation; **question:** Q1
+- **Source finding:** L-17, L-18
+- **Lines at the tip:** `device-builds.md` § Iterating on EmulationStation; `CLAUDE.md` (patches per device)
+- **Owner:** the coordinator's sweep
+- **What is wrong:** The rule names `maxengel/emulationstation-next` where `:8` is `pixelelated/emulationstation`; `CLAUDE.md`'s `patches/<DEVICE>/` holds only where a recipe sets `PKG_PATCH_DIRS`.
+- **Proposed disposition:** the coordinator's doc sweep
+- **proved:** tree
+
+## PL-16: `tools/pixelelated-state-check --payload` cannot run on this host
+
+- **Severity:** Low; **category:** Tooling; **question:** Q4
+- **Source finding:** stage B (G-05's host half)
+- **Lines at the tip:** `tools/pixelelated-state-check:767-792`
+- **Owner:** the coordinator (a tool note; the tool fails closed, as it should)
+- **What is wrong:** The `.img.gz` route needs `mcopy`, absent here: `rc=2`, `input-invalid`. The `--root` route over an extracted `SYSTEM` ran instead and passed.
+- **Proposed disposition:** a tool note for the integration (§ What the integration inherits item 9); no slice fix
+- **proved:** tool-run
+
+## Phase 7 resolution gate
+
+| Item | Outcome | Evidence |
+| --- | --- | --- |
+| PL-01 | Open | before stage D's audit issue |
+| PL-02 | Open | before stage D's audit issue |
+| PL-03 | Open | before stage D's audit issue |
+| PL-04 | Open | before stage D's audit issue |
+| PL-05 | Open | before stage D's audit issue |
+| PL-06 | Open | before stage D's audit issue |
+| PL-07 | Open | before stage D's audit issue |
+| PL-08 | Open | before stage D's audit issue |
+| PL-09 | Open | before stage D's audit issue |
+| PL-10 | Open | before stage D's audit issue |
+| PL-11 | Open | before stage D's audit issue |
+| PL-12 | Open | before stage D's audit issue |
+| PL-13 | Open | before stage D's audit issue |
+| PL-14 | Open | before stage D's audit issue |
+| PL-15 | Open | before stage D's audit issue |
+| PL-16 | Open | before stage D's audit issue |
+
+## punch_index
+
+```yaml
+punch_index:
+- id: PL-01
+  severity: "Medium"
+  category: "Install step"
+  question: Q2
+  source_finding: "L-03; #613"
+  outcome: "open"
+- id: PL-02
+  severity: "Medium"
+  category: "Patch directories"
+  question: Q6
+  source_finding: "L-02; #1072"
+  outcome: "open"
+- id: PL-03
+  severity: "Low"
+  category: "Build order"
+  question: Q3
+  source_finding: "L-19"
+  outcome: "open"
+- id: PL-04
+  severity: "Low"
+  category: "Install step"
+  question: Q2
+  source_finding: "L-04"
+  outcome: "open"
+- id: PL-05
+  severity: "Medium"
+  category: "Merge debt"
+  question: Q7
+  source_finding: "L-01"
+  outcome: "open"
+- id: PL-06
+  severity: "Medium"
+  category: "Build order"
+  question: Q3
+  source_finding: "L-09; D-WORKFLOW-216; T36's G-01"
+  outcome: "open"
+- id: PL-07
+  severity: "Low"
+  category: "Guard that fails open"
+  question: Q2
+  source_finding: "L-08"
+  outcome: "open"
+- id: PL-08
+  severity: "Low"
+  category: "Guard that fails open"
+  question: Q4
+  source_finding: "L-05"
+  outcome: "open"
+- id: PL-09
+  severity: "Low"
+  category: "Install step"
+  question: Q2
+  source_finding: "T2 PL-029 (`deferred:#684`)"
+  outcome: "open"
+- id: PL-10
+  severity: "Low"
+  category: "Guard that fails open"
+  question: Q7
+  source_finding: "L-10, L-21"
+  outcome: "open"
+- id: PL-11
+  severity: "Low"
+  category: "Install step"
+  question: Q2
+  source_finding: "L-06"
+  outcome: "open"
+- id: PL-12
+  severity: "Low"
+  category: "Guard that fails open"
+  question: Q2
+  source_finding: "L-07"
+  outcome: "open"
+- id: PL-13
+  severity: "Low"
+  category: "Package currency"
+  question: Q5
+  source_finding: "R1 C20 (2026-10-31)"
+  outcome: "open"
+- id: PL-14
+  severity: "Low"
+  category: "Merge debt"
+  question: Q7
+  source_finding: "§ The currency (14 rows)"
+  outcome: "open"
+- id: PL-15
+  severity: "Low"
+  category: "Documentation"
+  question: Q1
+  source_finding: "L-17, L-18"
+  outcome: "open"
+- id: PL-16
+  severity: "Low"
+  category: "Tooling"
+  question: Q4
+  source_finding: "stage B (G-05's host half)"
+  outcome: "open"
+```

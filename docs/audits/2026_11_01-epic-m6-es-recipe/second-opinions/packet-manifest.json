@@ -1,0 +1,956 @@
+{
+  "schema_version": 1,
+  "built_by": "tools/t37-packet.py",
+  "packet": "t37-packet.md",
+  "packet_bytes": 181529,
+  "packet_sha256": "bdb085359c23c21d46f7da650cfebfa92a0ba24b17b2f716bfbe168b6f02a9d8",
+  "withheld": [
+    {
+      "source": "projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+      "line": 39,
+      "how": "replaced by '[:39 withheld by line number]' (W39, comment 6551707733 answer 3)"
+    }
+  ],
+  "sources": [
+    {
+      "kind": "slice",
+      "source": "projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+      "ranges": [
+        "1-141"
+      ],
+      "lines_sent": 141,
+      "lines_total": 141,
+      "why": "the ES recipe, whole, :39 withheld"
+    },
+    {
+      "kind": "slice",
+      "source": "projects/ROCKNIX/packages/ui/emulationstation/autostart/001-emulationstation",
+      "ranges": [
+        "1-13"
+      ],
+      "lines_sent": 13,
+      "lines_total": 13,
+      "why": "whole"
+    },
+    {
+      "kind": "slice",
+      "source": "projects/ROCKNIX/packages/ui/emulationstation/sources/es_settings",
+      "ranges": [
+        "1-52"
+      ],
+      "lines_sent": 52,
+      "lines_total": 52,
+      "why": "whole"
+    },
+    {
+      "kind": "slice",
+      "source": "projects/ROCKNIX/packages/ui/emulationstation/sources/serial_number_check",
+      "ranges": [
+        "1-27"
+      ],
+      "lines_sent": 27,
+      "lines_total": 27,
+      "why": "whole"
+    },
+    {
+      "kind": "slice",
+      "source": "projects/ROCKNIX/packages/ui/emulationstation/sources/start_es.sh",
+      "ranges": [
+        "1-8"
+      ],
+      "lines_sent": 8,
+      "lines_total": 8,
+      "why": "whole"
+    },
+    {
+      "kind": "slice",
+      "source": "projects/ROCKNIX/packages/ui/emulationstation/system.d/emustation.service",
+      "ranges": [
+        "1-20"
+      ],
+      "lines_sent": 20,
+      "lines_total": 20,
+      "why": "whole"
+    },
+    {
+      "kind": "slice",
+      "source": "projects/ROCKNIX/packages/ui/emulationstation/system.d/essway.service",
+      "ranges": [
+        "1-21"
+      ],
+      "lines_sent": 21,
+      "lines_total": 21,
+      "why": "whole"
+    },
+    {
+      "kind": "slice",
+      "source": "projects/ROCKNIX/packages/ui/lowerdeck/package.mk",
+      "ranges": [
+        "1-17"
+      ],
+      "lines_sent": 17,
+      "lines_total": 17,
+      "why": "whole"
+    },
+    {
+      "kind": "slice",
+      "source": "projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/package.mk",
+      "ranges": [
+        "1-28"
+      ],
+      "lines_sent": 28,
+      "lines_total": 28,
+      "why": "whole"
+    },
+    {
+      "kind": "slice",
+      "source": "projects/ROCKNIX/packages/ui/emulationstation/config/common/es_savestates.cfg",
+      "ranges": [
+        "1-26"
+      ],
+      "lines_sent": 26,
+      "lines_total": 26,
+      "why": "whole"
+    },
+    {
+      "kind": "slice",
+      "source": "projects/ROCKNIX/packages/ui/emulationstation/config/common/es_settings.cfg",
+      "ranges": [
+        "1-3"
+      ],
+      "lines_sent": 3,
+      "lines_total": 3,
+      "why": "whole"
+    },
+    {
+      "kind": "slice",
+      "source": "projects/ROCKNIX/packages/ui/emulationstation/config/common/es_features.cfg",
+      "ranges": [
+        "1320-1400"
+      ],
+      "lines_sent": 81,
+      "lines_total": 2039,
+      "why": "cited range: the armsx2 cores (PL-05)"
+    },
+    {
+      "kind": "neighbour",
+      "source": "projects/ROCKNIX/packages/ui/emulationstation/patches/x86_64/cpugov.patch (T40's)",
+      "ranges": [
+        "1-27"
+      ],
+      "lines_sent": 27,
+      "lines_total": 27,
+      "why": "PL-02 reaches it; T40's text"
+    },
+    {
+      "kind": "upstream",
+      "source": "651150fc88:projects/ROCKNIX/packages/ui/emulationstation/package.mk (ROCKNIX's recipe now)",
+      "ranges": [
+        "1-121"
+      ],
+      "lines_sent": 121,
+      "lines_total": 121,
+      "why": "PL-05, PL-14"
+    },
+    {
+      "kind": "es-pin",
+      "source": "ES 16dbac5211:CMakeLists.txt",
+      "ranges": [
+        "1-40",
+        "110-170",
+        "200-262",
+        "296-335",
+        "345-400",
+        "455-470",
+        "560-580"
+      ],
+      "lines_sent": 297,
+      "lines_total": 617,
+      "why": "the options, the GL system, the finds, the definitions, the link list, i18n"
+    },
+    {
+      "kind": "es-pin",
+      "source": "ES 16dbac5211:es-core/CMakeLists.txt",
+      "ranges": [
+        "240-246",
+        "276-284"
+      ],
+      "lines_sent": 16,
+      "lines_total": 303,
+      "why": "the renderer list"
+    },
+    {
+      "kind": "es-pin",
+      "source": "ES 16dbac5211:es-core/src/Paths.cpp",
+      "ranges": [
+        "70-85"
+      ],
+      "lines_sent": 16,
+      "lines_total": 363,
+      "why": "the ROCKNIX log path (PL-09)"
+    },
+    {
+      "kind": "es-pin",
+      "source": "ES 16dbac5211:es-core/src/Log.cpp",
+      "ranges": [
+        "255-290"
+      ],
+      "lines_sent": 36,
+      "lines_total": 322,
+      "why": "the log file (PL-09)"
+    },
+    {
+      "kind": "es-pin",
+      "source": "ES 16dbac5211:es-core/src/Splash.h",
+      "ranges": [
+        "1-25"
+      ],
+      "lines_sent": 25,
+      "lines_total": 44,
+      "why": "the default splash (PL-04)"
+    },
+    {
+      "kind": "es-pin",
+      "source": "ES 16dbac5211:es-app/src/main.cpp",
+      "ranges": [
+        "75-100",
+        "255-298"
+      ],
+      "lines_sent": 70,
+      "lines_total": 1368,
+      "why": "parseArgs (PL-09)"
+    },
+    {
+      "kind": "es-pin",
+      "source": "ES 16dbac5211:locale/CMakeLists.txt",
+      "ranges": [
+        "1-35"
+      ],
+      "lines_sent": 35,
+      "lines_total": 52,
+      "why": "the catalog build (PL-07)"
+    },
+    {
+      "kind": "distribution",
+      "source": "2174265e9c:scripts/unpack",
+      "ranges": [
+        "120-165"
+      ],
+      "lines_sent": 46,
+      "lines_total": 228,
+      "why": "the patch globs (PL-02)"
+    },
+    {
+      "kind": "distribution",
+      "source": "2174265e9c:scripts/install",
+      "ranges": [
+        "79-110",
+        "160-190"
+      ],
+      "lines_sent": 63,
+      "lines_total": 196,
+      "why": "the install copy (PL-01)"
+    },
+    {
+      "kind": "distribution",
+      "source": "2174265e9c:scripts/build",
+      "ranges": [
+        "135-175"
+      ],
+      "lines_sent": 41,
+      "lines_total": 646,
+      "why": "INSTALL and the build type"
+    },
+    {
+      "kind": "distribution",
+      "source": "2174265e9c:config/functions",
+      "ranges": [
+        "380-392",
+        "795-805",
+        "1105-1135",
+        "1315-1340"
+      ],
+      "lines_sent": 81,
+      "lines_total": 1936,
+      "why": "NDEBUG, the caches, calculate_stamp, PKG_NEED_UNPACK's framework uses"
+    },
+    {
+      "kind": "distribution",
+      "source": "2174265e9c:scripts/get_env",
+      "ranges": [
+        "1-22"
+      ],
+      "lines_sent": 22,
+      "lines_total": 22,
+      "why": "the four names kept (PL-08)"
+    },
+    {
+      "kind": "distribution",
+      "source": "2174265e9c:projects/ROCKNIX/packages/virtual/image/package.mk",
+      "ranges": [
+        "1-50"
+      ],
+      "lines_sent": 50,
+      "lines_total": 113,
+      "why": "PKG_UI"
+    },
+    {
+      "kind": "distribution",
+      "source": "2174265e9c:projects/ROCKNIX/packages/virtual/emulators/package.mk",
+      "ranges": [
+        "40-110"
+      ],
+      "lines_sent": 71,
+      "lines_total": 1777,
+      "why": "armsx2-sa's devices (PL-05)"
+    },
+    {
+      "kind": "lane",
+      "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+      "ranges": [
+        "1-541"
+      ],
+      "lines_sent": 541,
+      "lines_total": 541,
+      "why": "the lane's draft"
+    },
+    {
+      "kind": "lane",
+      "source": "docs/audits/2026_11_01-epic-m6-es-recipe/03-retrospective.md",
+      "ranges": [
+        "1-62"
+      ],
+      "lines_sent": 62,
+      "lines_total": 62,
+      "why": "the lane's draft"
+    },
+    {
+      "kind": "lane",
+      "source": "docs/audits/2026_11_01-epic-m6-es-recipe/04-analysis.md",
+      "ranges": [
+        "1-204"
+      ],
+      "lines_sent": 204,
+      "lines_total": 204,
+      "why": "the lane's draft"
+    },
+    {
+      "kind": "lane",
+      "source": "docs/audits/2026_11_01-epic-m6-es-recipe/05-punch-list.md",
+      "ranges": [
+        "1-289"
+      ],
+      "lines_sent": 289,
+      "lines_total": 289,
+      "why": "the lane's draft"
+    },
+    {
+      "kind": "brief",
+      "source": "docs/reviews/briefs/es-recipe.md \u00a7 4",
+      "ranges": [
+        "904-1082"
+      ],
+      "lines_sent": 179,
+      "lines_total": 1887,
+      "why": "the seven questions"
+    }
+  ],
+  "not_sent": [
+    {
+      "source": "projects/ROCKNIX/packages/ui/emulationstation/config/common/es_input.cfg",
+      "why": "1,810 lines; no question reaches it"
+    },
+    {
+      "source": "projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/sources/Tiny5-OFL.txt",
+      "why": "the OFL text; named only"
+    },
+    {
+      "source": "projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/sources/pixelelated-wordmark.svg",
+      "why": "the wordmark; named only"
+    },
+    {
+      "source": "projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/patches/0001-system-style-the-logo-text-for-fullscreen-artwork.patch",
+      "why": "T42's; no question reaches its text"
+    },
+    {
+      "source": "projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/patches/001-pixelelated-splash.patch",
+      "why": "T42's; no question reaches its text"
+    },
+    {
+      "source": "projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/patches/001-tools-always-show-image.patch",
+      "why": "T42's; no question reaches its text"
+    }
+  ],
+  "scan": {
+    "secret_patterns_planted": 1,
+    "secret_pattern_lines": 0,
+    "forbidden_terms_planted_rc": 1,
+    "forbidden_terms_rc": 0,
+    "line39_occurrences": 0,
+    "line39_value_occurrences": 0,
+    "credential_shaped_words": 92,
+    "credential_shaped_values": 0,
+    "es_recipe_credential_name_lines": [
+      30,
+      40,
+      42,
+      43,
+      44
+    ],
+    "hits": [
+      {
+        "source": "projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+        "line": 30,
+        "word": "DSCREENSCRAPER_RUNTIME_DEV_LOGIN",
+        "klass": "build-variable name"
+      },
+      {
+        "source": "projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+        "line": 40,
+        "word": "SCREENSCRAPER_DEV_LOGIN",
+        "klass": "build-variable name"
+      },
+      {
+        "source": "projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+        "line": 40,
+        "word": "SCREENSCRAPER_DEV_LOGIN",
+        "klass": "build-variable name"
+      },
+      {
+        "source": "projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+        "line": 40,
+        "word": "devid",
+        "klass": "build-variable name"
+      },
+      {
+        "source": "projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+        "line": 40,
+        "word": "devpassword",
+        "klass": "build-variable name"
+      },
+      {
+        "source": "projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+        "line": 42,
+        "word": "SCREENSCRAPER_DEV_LOGIN",
+        "klass": "build-variable name"
+      },
+      {
+        "source": "projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+        "line": 43,
+        "word": "GAMESDB_APIKEY",
+        "klass": "build-variable name"
+      },
+      {
+        "source": "projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+        "line": 44,
+        "word": "CHEEVOS_DEV_LOGIN",
+        "klass": "build-variable name"
+      },
+      {
+        "source": "projects/ROCKNIX/packages/ui/emulationstation/package.mk",
+        "line": 48,
+        "word": "password",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "651150fc88:projects/ROCKNIX/packages/ui/emulationstation/package.mk (ROCKNIX's recipe now)",
+        "line": 27,
+        "word": "SCREENSCRAPER_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "651150fc88:projects/ROCKNIX/packages/ui/emulationstation/package.mk (ROCKNIX's recipe now)",
+        "line": 28,
+        "word": "GAMESDB_APIKEY",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "651150fc88:projects/ROCKNIX/packages/ui/emulationstation/package.mk (ROCKNIX's recipe now)",
+        "line": 29,
+        "word": "CHEEVOS_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "ES 16dbac5211:CMakeLists.txt",
+        "line": 307,
+        "word": "SCREENSCRAPER_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "ES 16dbac5211:CMakeLists.txt",
+        "line": 308,
+        "word": "DSCREENSCRAPER_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "ES 16dbac5211:CMakeLists.txt",
+        "line": 308,
+        "word": "SCREENSCRAPER_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "ES 16dbac5211:CMakeLists.txt",
+        "line": 311,
+        "word": "credentials",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "ES 16dbac5211:CMakeLists.txt",
+        "line": 312,
+        "word": "PASSWORD",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "ES 16dbac5211:CMakeLists.txt",
+        "line": 313,
+        "word": "DSCREENSCRAPER_RUNTIME_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "ES 16dbac5211:CMakeLists.txt",
+        "line": 314,
+        "word": "SCREENSCRAPER_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "ES 16dbac5211:CMakeLists.txt",
+        "line": 316,
+        "word": "SCREENSCRAPER_RUNTIME_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "ES 16dbac5211:CMakeLists.txt",
+        "line": 316,
+        "word": "SCREENSCRAPER_RUNTIME_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "ES 16dbac5211:CMakeLists.txt",
+        "line": 317,
+        "word": "DSCREENSCRAPER_RUNTIME_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "ES 16dbac5211:CMakeLists.txt",
+        "line": 320,
+        "word": "GAMESDB_APIKEY",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "ES 16dbac5211:CMakeLists.txt",
+        "line": 321,
+        "word": "DGAMESDB_APIKEY",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "ES 16dbac5211:CMakeLists.txt",
+        "line": 321,
+        "word": "GAMESDB_APIKEY",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "ES 16dbac5211:CMakeLists.txt",
+        "line": 324,
+        "word": "CHEEVOS_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "ES 16dbac5211:CMakeLists.txt",
+        "line": 325,
+        "word": "DCHEEVOS_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "ES 16dbac5211:CMakeLists.txt",
+        "line": 325,
+        "word": "CHEEVOS_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "ES 16dbac5211:CMakeLists.txt",
+        "line": 328,
+        "word": "HFS_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "ES 16dbac5211:CMakeLists.txt",
+        "line": 329,
+        "word": "DHFS_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "ES 16dbac5211:CMakeLists.txt",
+        "line": 329,
+        "word": "HFS_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "2174265e9c:scripts/get_env",
+        "line": 3,
+        "word": "secret",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "2174265e9c:scripts/get_env",
+        "line": 6,
+        "word": "tokens",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "2174265e9c:scripts/get_env",
+        "line": 8,
+        "word": "credentials",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "2174265e9c:scripts/get_env",
+        "line": 9,
+        "word": "secret",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "2174265e9c:scripts/get_env",
+        "line": 11,
+        "word": "secret",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "2174265e9c:scripts/get_env",
+        "line": 14,
+        "word": "SCREENSCRAPER_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "2174265e9c:scripts/get_env",
+        "line": 14,
+        "word": "GAMESDB_APIKEY",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "2174265e9c:scripts/get_env",
+        "line": 14,
+        "word": "CHEEVOS_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "2174265e9c:scripts/get_env",
+        "line": 14,
+        "word": "HFS_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "2174265e9c:scripts/get_env",
+        "line": 15,
+        "word": "TOKEN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "2174265e9c:scripts/get_env",
+        "line": 15,
+        "word": "TOKENS",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "2174265e9c:scripts/get_env",
+        "line": 15,
+        "word": "SECRET",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "2174265e9c:scripts/get_env",
+        "line": 15,
+        "word": "SECRETS",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "2174265e9c:scripts/get_env",
+        "line": 15,
+        "word": "PASSWORD",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "2174265e9c:scripts/get_env",
+        "line": 15,
+        "word": "PASSWD",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "2174265e9c:scripts/get_env",
+        "line": 15,
+        "word": "CREDENTIAL",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "2174265e9c:scripts/get_env",
+        "line": 15,
+        "word": "CREDENTIALS",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "2174265e9c:scripts/get_env",
+        "line": 15,
+        "word": "APIKEY",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "2174265e9c:scripts/get_env",
+        "line": 15,
+        "word": "API_KEY",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "2174265e9c:scripts/get_env",
+        "line": 15,
+        "word": "PRIVATE",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 28,
+        "word": "credentials",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 66,
+        "word": "SCREENSCRAPER_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 66,
+        "word": "GAMESDB_APIKEY",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 66,
+        "word": "CHEEVOS_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 66,
+        "word": "HFS_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 66,
+        "word": "HFS_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 99,
+        "word": "credentials",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 99,
+        "word": "credentials",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 146,
+        "word": "DSCREENSCRAPER_RUNTIME_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 146,
+        "word": "DSCREENSCRAPER_RUNTIME_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 202,
+        "word": "credentials",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 206,
+        "word": "SCREENSCRAPER_RUNTIME_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 207,
+        "word": "SCREENSCRAPER_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 208,
+        "word": "GAMESDB_APIKEY",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 209,
+        "word": "CHEEVOS_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 210,
+        "word": "HFS_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 214,
+        "word": "credential",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 217,
+        "word": "SCREENSCRAPER_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 221,
+        "word": "credentials",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 371,
+        "word": "credentials",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 491,
+        "word": "credential",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/02-forward-audit.md",
+        "line": 495,
+        "word": "secret",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/03-retrospective.md",
+        "line": 21,
+        "word": "credentials",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/04-analysis.md",
+        "line": 53,
+        "word": "credential",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/04-analysis.md",
+        "line": 103,
+        "word": "credentials",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/04-analysis.md",
+        "line": 105,
+        "word": "credential",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/04-analysis.md",
+        "line": 107,
+        "word": "credential",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/04-analysis.md",
+        "line": 201,
+        "word": "credential",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/05-punch-list.md",
+        "line": 3,
+        "word": "credentials",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/05-punch-list.md",
+        "line": 78,
+        "word": "HFS_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/05-punch-list.md",
+        "line": 84,
+        "word": "HFS_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/audits/2026_11_01-epic-m6-es-recipe/05-punch-list.md",
+        "line": 85,
+        "word": "HFS_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/reviews/briefs/es-recipe.md \u00a7 4",
+        "line": 939,
+        "word": "DSCREENSCRAPER_RUNTIME_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/reviews/briefs/es-recipe.md \u00a7 4",
+        "line": 998,
+        "word": "credentials",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/reviews/briefs/es-recipe.md \u00a7 4",
+        "line": 1001,
+        "word": "SCREENSCRAPER_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/reviews/briefs/es-recipe.md \u00a7 4",
+        "line": 1002,
+        "word": "GAMESDB_APIKEY",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/reviews/briefs/es-recipe.md \u00a7 4",
+        "line": 1002,
+        "word": "CHEEVOS_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/reviews/briefs/es-recipe.md \u00a7 4",
+        "line": 1003,
+        "word": "HFS_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/reviews/briefs/es-recipe.md \u00a7 4",
+        "line": 1004,
+        "word": "SCREENSCRAPER_RUNTIME_DEV_LOGIN",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/reviews/briefs/es-recipe.md \u00a7 4",
+        "line": 1006,
+        "word": "secret-shaped",
+        "klass": "a name in code or prose (no value)"
+      },
+      {
+        "source": "docs/reviews/briefs/es-recipe.md \u00a7 4",
+        "line": 1013,
+        "word": "credentials",
+        "klass": "a name in code or prose (no value)"
+      }
+    ]
+  },
+  "verdict": "clean"
+}
