@@ -479,6 +479,7 @@ export async function reconcileControlledAttempt({
         declaredMatches: receipt.final.verification.match_kind !== "none",
         contentLength: attempt.content_length,
         wasTruncated: attempt.finish_reason === "length",
+        finishReason: attempt.finish_reason,
         ...(routing.contract === "current" && routingPolicy.bound
           ? {
               servedProviderObservations: attempt.served_provider_observations,

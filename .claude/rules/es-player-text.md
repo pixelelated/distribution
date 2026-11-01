@@ -248,7 +248,7 @@ partial run from a total one; no screen ever shows it.
 |---|---|---|---|---|
 | `COMPLETED` | every part of the run succeeded (rclone 9 counts as success) | `COMPLETED` | `COMPLETED` | `COMPLETED` |
 | `COULDN'T FINISH - <why>` | nothing succeeded and it is not a sentinel | `COULDN'T FINISH - YOUR CLOUD STOPPED ANSWERING` | `COULDN'T FINISH` | `COULDN'T FINISH, YOUR CLOUD STOPPED ANSWERING` |
-| `SKIPPED - <reason>` | only 69, 75, and the launch cancel | `SKIPPED - YOU'RE NOT ONLINE` / `SKIPPED - A SYNC IS ALREADY RUNNING` / `SKIPPED - YOU STARTED A GAME` | same | `SKIPPED, NO NETWORK` / `SKIPPED, ANOTHER SYNC WAS RUNNING` / `SKIPPED, A GAME WAS STARTED` |
+| `SKIPPED - <reason>` | only 69, 75, the launch cancel, and a player's own cancel of a run they started on a fourth-tier page (D-UI-129, 2026-10-27: the scrape page's `SKIPPED - YOU CANCELLED IT`) | `SKIPPED - YOU'RE NOT ONLINE` / `SKIPPED - A SYNC IS ALREADY RUNNING` / `SKIPPED - YOU STARTED A GAME` | same | `SKIPPED, NO NETWORK` / `SKIPPED, ANOTHER SYNC WAS RUNNING` / `SKIPPED, A GAME WAS STARTED` |
 
 The offline achievements' two cards (#292, #293; D-RA-030, D-UI-095) end in
 the same three words: the send card `COMPLETED` with OFFLINE ACHIEVEMENTS HAVE
@@ -268,8 +268,12 @@ sentence ship in the cut than wait, `player-language.md`).
 
 **Why** comes from a `>>> why <sentence>` line the scripts print at the point
 of failure (rclone's own taxonomy stays in the log), else from rc: rclone 3/4
-`YOUR CLOUD FOLDER WASN'T FOUND`; 5 `YOUR CLOUD STOPPED ANSWERING`; 7/8 `YOUR
-CLOUD REFUSED THE TRANSFER`; the sign-in check `COULDN'T REACH YOUR CLOUD. YOU
+`COULDN'T FIND YOUR CLOUD FOLDER`; 5 `YOUR CLOUD STOPPED ANSWERING`; 7/8 `YOUR
+CLOUD WOULDN'T TAKE THE FILES` (the shipped sentences since the plain-language
+pass #108, in the scripts at `cloud_backup:830-833` and in
+`ThreadedCloudSync.cpp:84-86` alike; this paragraph carried the pre-#108
+`YOUR CLOUD FOLDER WASN'T FOUND` and `YOUR CLOUD REFUSED THE TRANSFER` until
+2026-10-30, when T16's PL-11 read all three texts, #663); the sign-in check `COULDN'T REACH YOUR CLOUD. YOU
 MAY NEED TO SIGN IN AGAIN`; the saves-root guard `YOUR SAVES ARE ON A
 DIFFERENT CARD`; a 130 that was not a launch cancel `IT WAS STOPPED`; anything
 else `SOMETHING WENT WRONG`. The six rc-keyed sentences are duplicated

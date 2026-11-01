@@ -1031,17 +1031,21 @@ function validateReceiptEvidence(receipt, attempt, intent) {
     model_mismatch_no_retry: ["model_mismatch"],
     provider_mismatch_no_retry: ["provider_mismatch"],
     permanent_provider_error: ["permanent_provider_error"],
+    content_filtered_no_retry: ["content_filtered"],
   };
   need(
     outcomes[final.outcome]?.includes(attempt.outcome),
     "Final outcome contradicts the sole attempt"
   );
+  if (final.outcome === "content_filtered_no_retry")
+    need(attempt.finish_reason === "content_filter", "Filtered receipt lacks explicit filter evidence");
   if (final.outcome === "success") {
     need(
       attempt.http_status >= 200 &&
         attempt.http_status < 300 &&
         attempt.content_length > 0 &&
         attempt.finish_reason !== "length" &&
+        attempt.finish_reason !== "content_filter" &&
         attempt.error_phase === undefined &&
         attempt.response_body_parse_error === undefined &&
         identity.result !== "FAIL",
@@ -1171,6 +1175,7 @@ async function captureEvidence(state) {
       "model_mismatch_no_retry",
       "provider_mismatch_no_retry",
       "permanent_provider_error",
+      "content_filtered_no_retry",
     ].includes(receipt.final.outcome),
     "Receipt final outcome is invalid"
   );

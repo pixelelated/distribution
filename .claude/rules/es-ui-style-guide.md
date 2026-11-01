@@ -199,7 +199,7 @@ precondition is *fixable*, offer the fix instead of just refusing
 | Mechanism | Use when |
 |---|---|
 | `GuiLoading<T>` | seconds; the player must wait; result drives the next screen |
-| `AsyncNotificationComponent` | minutes; the player keeps using the UI |
+| `AsyncNotificationComponent` | seconds, for fast work the player keeps using the UI through (a two-second save sync, a Bluetooth scan); anything measured in minutes is a fourth-tier page with CANCEL, D-UI-078 (this row said "minutes" until 2026-10-27, a reversal-sweep miss found by T34's research) |
 | `displayNotificationMessage` | it finished; nothing to decide |
 | `BusyComponent` member | a bespoke screen with its own lifecycle |
 

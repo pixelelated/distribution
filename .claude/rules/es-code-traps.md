@@ -68,7 +68,13 @@ breaks the image build while `g++ -fsyntax-only` passes it (2026-09-08,
 `b44a715a9`: eight comment lines in `GuiCloudTransfer.cpp`). String
 literals may carry `·`; comments may not. Write `.`, `--`, `->`, `...`.
 Before bumping the ES pin, run `grep -nP '^\s*//.*[^\x00-\x7F]'` over the
-files you touched; a real image build is the only check that runs xgettext.
+files you touched; a real image build is the only check that runs xgettext. The grep over a whole touched file also
+flags upstream's own non-ASCII comments (three em dashes in
+`FileSystemUtil.cpp` at the pin did, T20's S8), so the check a stream runs
+before its commit judges the lines it added -- `git diff -U0 HEAD -- <file>`,
+its `+` lines, then the same pattern -- and the whole-file grep stays the
+image build's question; a hit in an upstream line is recorded, not fixed
+in the stream.
 
 ## The help bar offers a direction only where it moves something
 
@@ -109,15 +115,19 @@ to three facts about `Font` that nothing in the code says out loud:
   nobody noticed because at 1280x800 both scales are 1. Ask for
   `getSize() / fontScale()`, and measure text with the font object the
   component will actually use, not the theme's.
-- **`Font::getHeight()` is the tallest glyph rasterised *so far*.**
-  `mMaxGlyphHeight` starts at 0 and grows in `getGlyph`. Measured before a
-  label has drawn, it under-reports; `TextComponent`'s AUTO wrap threshold
-  (1.8 lines of the same moving number) is judged later, with more glyphs
-  loaded. A layout computed from it in a constructor can be right in the
-  constructor and wrong on screen. Rasterise the printable range first
-  (`font->sizeText(<ASCII 32..126>)`), or force the mode
-  (`<multiLine>true</multiLine>`, honoured by the grid tile's text since
-  ES `2088eadb9`).
+- **`Font::getHeight()` is the tallest ASCII glyph the font has loaded.**
+  The constructor rasterises ASCII 32..127 (`Font.cpp:115-117`, since
+  `9f040f4c7`, 2014) and only an ASCII glyph raises `mMaxGlyphHeight`
+  (`:419-421`), so after a successful preload the height does not move as
+  labels draw. Two things still break a layout computed from it: an ASCII
+  glyph that failed to load in the constructor (`getGlyph` returns NULL at
+  `:377-381`, `:385-389`, `:398-402`) raises it later, the first time it
+  loads; and a glyph outside ASCII -- an accented capital -- never raises
+  it, so a line of such text can stand taller than `getHeight()` says.
+  Measure with the font object the component draws with, and where the
+  wrap mode matters, force it (`<multiLine>true</multiLine>`, honoured by
+  the grid tile's text since ES `2088eadb9`). (T36 L-08, at the pin
+  `16dbac5211`.)
 - **`Utils::FileSystem::exists(path)` caches for the session** by default
   (`enableCache = true`), and caches its own answers. A marker written
   after startup reads as absent until restart. Pass `false` for anything
@@ -214,6 +224,20 @@ record beside them said one turn, and it took a diagnostic build to see
 `exists yes turns 0`. A stamp or record the interface writes and reads back
 is a line that says what it is (`turns=1`), never a bare digit, and a
 reader that gets `""` from a file that exists should suspect this first.
+
+## curl hands a header callback a length, not a string (2026-10-27, #1195)
+
+`CURLOPT_HEADERFUNCTION` is called with `buffer`, `size` and `nitems`, and
+the header occupies exactly `size * nitems` bytes of a buffer curl reuses:
+there is no terminating NUL. `HttpReq::header_callback` at the pin
+`16dbac5211` built a `std::string` from the pointer alone, so every
+response header of every request read on to the next NUL in curl's buffer
+and the bytes past the header landed in `mResponseHeaders` -- a
+heap-buffer-overflow under AddressSanitizer (T21's lifted fixture, S7).
+Write `std::string(buffer, size * nitems)`, and read any curl callback's
+payload by the length it gives. The same family: `CURLINFO_RESPONSE_CODE`
+writes a `long` through the pointer it is given, so an `int` there is four
+bytes short on every transfer (#1196).
 
 ## A pooled connection with the link gone is silent for a quarter of an hour (2026-09-27, #299)
 

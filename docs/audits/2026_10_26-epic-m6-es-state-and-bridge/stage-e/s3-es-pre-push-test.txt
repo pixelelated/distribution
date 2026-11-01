@@ -1,0 +1,23 @@
+  ok    a root commit with a secret, first push: refused
+  ok    a first push says how much it is reading: says "reading the 1 commit(s) origin is not known to hold"
+  ok    a clean root commit, first push: allowed
+  ok    a rename that adds a secret: refused
+  ok    a secret over a remote tip this clone lacks: refused
+  ok    history holding a secret, first push to another remote: refused
+  ok    a clean commit over a tip this clone has: allowed
+  ok    a secret in a file git prints in quotes, from a clone with diff.noprefix: refused
+  ok    a pr/* push with nothing personal in it: allowed
+  ok    a pr/* push with CLAUDE.md: refused
+  ok    the same commit to a feature branch: allowed
+  ok    a pr/* push carrying build-tests/es-unit-tests: refused
+  ok    a clean pr/* push, the ROCKNIX URL in another case: allowed
+  ok    a pr/* push with only the fork's master to compare with: refused
+  ok    a credential-shaped literal in a unit test, even beside maskSecrets( (no path is exempt since E1 split the fixture): refused
+  ok    a hook with no pattern file: refused
+  ok    a listed word added by a commit: refused
+  ok    the refusal never prints the word
+  ok    a listed word in a commit message: refused
+  ok    the message is named: says ":message:1"
+  ok    a credential list that does not compile: refused
+  ok    no wordlist at all: refused
+PASS

@@ -1085,3 +1085,181 @@ test("a known provider mismatch is terminal across transport statuses and cannot
     }), { shouldRetry: false, reason: "provider_mismatch", bumpMaxTokens: false });
   }
 });
+
+// pixelelated#636: provider filtering must never become an empty-output retry.
+for (const transport of ["buffered", "sse"] as const) {
+  for (const scenario of ["empty", "partial", "unknown-model", "wrong-model", "broken-stream"] as const) {
+    if (scenario === "broken-stream" && transport !== "sse") continue;
+    test(`content filter: ${transport} ${scenario} stops without resend`, async (t) => {
+      await mkdir(join(process.cwd(), ".work"), { recursive: true });
+      const directory = await mkdtemp(join(process.cwd(), ".work", "filter-636-"));
+      t.after(() => rm(directory, { recursive: true, force: true }));
+      const prior = process.env.OPENROUTER_API_KEY;
+      process.env.OPENROUTER_API_KEY = ["synthetic", "fixture", "636"].join("-");
+      t.after(() => {
+        if (prior === undefined) delete process.env.OPENROUTER_API_KEY;
+        else process.env.OPENROUTER_API_KEY = prior;
+      });
+      let calls = 0;
+      const member = transport === "sse" ? "mistral" : "claude";
+      const expectedModel = transport === "sse" ? "mistralai/mistral-large-2512" : "anthropic/claude-fable-5.1";
+      const model = scenario === "unknown-model" ? null : scenario === "wrong-model"
+        ? "different-model" : expectedModel;
+      const content = scenario === "partial" ? "Partial text must not be published" : "";
+      const usage = { prompt_tokens: 3, completion_tokens: 4, total_tokens: 7,
+        completion_tokens_details: { reasoning_tokens: 2 } };
+      t.mock.method(globalThis, "fetch", async (url: unknown, request: RequestInit) => {
+        assert.equal(String(url), "https://openrouter.ai/api/v1/chat/completions");
+        const body = JSON.parse(String(request.body));
+        assert.equal(body.model, expectedModel);
+        if (member === "claude") assert.equal(body.reasoning.effort, "xhigh");
+        calls++;
+        const response = { model, usage, choices: [{ finish_reason: "content_filter",
+          ...(transport === "sse" ? { delta: { content } } : { message: { content } }) }] };
+        if (transport === "buffered") return Response.json(response);
+        const bytes = new TextEncoder().encode(`data: ${JSON.stringify(response)}\n\n`);
+        if (scenario === "broken-stream") {
+          let emitted = false;
+          return new Response(new ReadableStream({ pull(controller) {
+            if (!emitted) { emitted = true; controller.enqueue(bytes); }
+            else controller.error(new Error("synthetic interruption after filter"));
+          }}), { headers: { "content-type": "text/event-stream" } });
+        }
+        // A later terminal frame cannot erase the explicit filtering witness.
+        const trailing = { model, choices: [{ delta: { content: "" }, finish_reason: "stop" }] };
+        return new Response(new TextDecoder().decode(bytes) +
+          `data: ${JSON.stringify(trailing)}\n\ndata: [DONE]\n\n`,
+          { headers: { "content-type": "text/event-stream" } });
+      });
+      const output = join(directory, "result.txt");
+      const exit = await runCouncilInvocation([
+        "--member", member, "--provider", "openrouter", "--transport", transport,
+        "--prompt", "Synthetic response classification only", "--output", output,
+        "--max-retries", "3", "--retry-base-ms", "1",
+      ]);
+      assert.equal(exit, scenario === "wrong-model" ? 3 : 8);
+      assert.equal(calls, 1, "explicit filtering must not resend even with retries enabled");
+      const receipt = JSON.parse(await readFile(output + ".provenance.json", "utf8"));
+      assert.equal(receipt.attempts.length, 1);
+      assert.equal(receipt.final.retries_used, 0);
+      assert.equal(receipt.attempts[0].finish_reason, "content_filter");
+      assert.equal(receipt.final.outcome, scenario === "wrong-model"
+        ? "model_mismatch_no_retry" : "content_filtered_no_retry");
+      assert.equal(receipt.final.verification.observed, model);
+      assert.equal(receipt.final.verification.result, scenario === "wrong-model" ? "FAIL"
+        : scenario === "unknown-model" ? "UNVERIFIABLE" : "PASS");
+      assert.equal(receipt.attempts[0].tokens.total, 7);
+      if (scenario !== "wrong-model") {
+        assert.equal(receipt.final.tokens.total, 7);
+        assert.match(receipt.attempts[0].error_message, /content_filter/);
+      }
+      if (scenario === "broken-stream")
+        assert.match(receipt.attempts[0].error_message, /synthetic interruption after filter/);
+      await assert.rejects(readFile(output), { code: "ENOENT" });
+    });
+  }
+}
+
+test("content filter: identity hard stops and unfiltered retry classes stay distinct", () => {
+  const base = { fetchError: null, httpStatus: 200, observedModel: "expected",
+    declaredMatches: true, contentLength: 0, wasTruncated: false };
+  assert.deepEqual(classifyAttempt({ ...base, finishReason: "content_filter",
+    servedProvider: "other", servedProviders: ["required"] }),
+    { shouldRetry: false, reason: "provider_mismatch", bumpMaxTokens: false });
+  assert.deepEqual(classifyAttempt({ ...base, finishReason: "content_filter",
+    declaredMatches: false, fetchError: new Error("later interruption") }),
+    { shouldRetry: false, reason: "model_mismatch", bumpMaxTokens: false });
+  assert.deepEqual(classifyAttempt({ ...base, finishReason: "stop" }),
+    { shouldRetry: true, reason: "empty_content", bumpMaxTokens: true });
+  assert.deepEqual(classifyAttempt({ ...base, contentLength: 4, wasTruncated: true,
+    finishReason: "length" }),
+    { shouldRetry: true, reason: "truncated_content", bumpMaxTokens: true });
+  assert.deepEqual(classifyAttempt({ ...base, fetchError: new Error("lost body"),
+    fetchErrorPhase: "response_body" }),
+    { shouldRetry: true, reason: "response_body_error", bumpMaxTokens: false });
+  assert.deepEqual(classifyAttempt({ ...base, httpStatus: 429 }),
+    { shouldRetry: true, reason: "rate_limited", bumpMaxTokens: false });
+  assert.deepEqual(classifyAttempt({ ...base, httpStatus: 402 }),
+    { shouldRetry: false, reason: "permanent_provider_error", bumpMaxTokens: false });
+});
+
+// #638: explicit audit-only Argon recipe, actual dispatcher with synthetic provider data.
+test("Argon is an explicit audit route; council profiles and Flash pin stay unchanged", async () => {
+  const { AUDIT_OPENROUTER_SEATS, OPENROUTER_SEATS } = await import("../council-invoke.js");
+  const { ROSTER_PROFILES } = await import("../lib/council-roster.js");
+  assert.equal(OPENROUTER_SEATS.gemini.slug, "google/gemini-3.8-flash");
+  assert.equal(Object.hasOwn(OPENROUTER_SEATS, "gemini-argon"), false);
+  for (const profile of Object.values(ROSTER_PROFILES)) assert.equal(profile.includes("gemini-argon" as never), false);
+  assert.equal(AUDIT_OPENROUTER_SEATS["gemini-argon"].maxOutputTokens, 65536);
+  assert.throws(() => selectRecipe({ member: "gemini-argon", provider: "direct" } as any), /only the explicit OpenRouter/);
+});
+
+for (const scenario of ["exact", "dated", "wrong-model", "wrong-provider", "filtered", "header-id"] as const) {
+  test(`Argon dispatcher: ${scenario}`, async (t) => {
+    const directory = await mkdtemp(join(process.cwd(), ".work", "argon-638-"));
+    t.after(() => rm(directory, { recursive: true, force: true }));
+    const prior = process.env.OPENROUTER_API_KEY;
+    process.env.OPENROUTER_API_KEY = ["synthetic", "fixture"].join("-");
+    t.after(() => { if (prior === undefined) delete process.env.OPENROUTER_API_KEY; else process.env.OPENROUTER_API_KEY = prior; });
+    let calls = 0;
+    const model = scenario === "wrong-model" ? "google/gemini-3.8-flash"
+      : scenario === "dated" ? "google/gemini-4-argon-20261013" : "google/gemini-4-argon";
+    t.mock.method(globalThis, "fetch", async (_url: unknown, request: RequestInit) => {
+      calls++;
+      const body = JSON.parse(String(request.body));
+      assert.equal(body.model, "google/gemini-4-argon");
+      assert.equal(body.max_tokens, 65536);
+      assert.deepEqual(body.reasoning, { effort: "high" });
+      assert.deepEqual(body.provider, { only: ["google-vertex/global"], order: ["google-vertex/global"], allow_fallbacks: false });
+      assert.equal(Object.hasOwn(body, "models"), false);
+      return Response.json({
+        ...(scenario === "header-id" ? {} : { id: "gen-synthetic-638" }), model,
+        provider: scenario === "wrong-provider" ? "Other" : "Google",
+        choices: [{ finish_reason: scenario === "filtered" ? "content_filter" : "stop",
+          native_finish_reason: scenario === "filtered" ? "SAFETY" : "STOP",
+          message: { content: scenario === "filtered" ? "" : "Synthetic review",
+            ...(scenario === "filtered" ? { refusal: "Synthetic refusal ".repeat(300) } : {}) } }],
+        usage: { prompt_tokens: 3, completion_tokens: 4, total_tokens: 7,
+          completion_tokens_details: { reasoning_tokens: 2 } },
+      }, { headers: { "x-generation-id": "gen-header-638" } });
+    });
+    const output = join(directory, "review.txt");
+    const rc = await runCouncilInvocation(["--member", "gemini-argon", "--provider", "openrouter",
+      "--prompt", "Synthetic audit fixture", "--output", output, "--max-retries", "3"]);
+    assert.equal(calls, 1);
+    assert.equal(rc, scenario === "wrong-model" ? 3 : scenario === "wrong-provider" ? 7 : scenario === "filtered" ? 8 : 0);
+    const receipt = JSON.parse(await readFile(output + ".provenance.json", "utf8"));
+    assert.equal(receipt.attempts[0].generation_id, scenario === "header-id" ? "gen-header-638" : "gen-synthetic-638");
+    assert.equal(receipt.attempts[0].native_finish_reason, scenario === "filtered" ? "SAFETY" : "STOP");
+    assert.equal(receipt.attempts[0].response_headers["x-generation-id"], "gen-header-638");
+    if (scenario === "filtered") {
+      assert.ok(receipt.attempts[0].refusal_preview.startsWith("Synthetic refusal"));
+      assert.ok(receipt.attempts[0].refusal_preview.length <= 2048 + "…[truncated]".length);
+      assert.equal(receipt.final.outcome, "content_filtered_no_retry");
+    } else assert.equal(Object.hasOwn(receipt.attempts[0], "refusal_preview"), false);
+    if (rc === 0) { assert.equal(await readFile(output, "utf8"), "Synthetic review"); assert.equal(receipt.final.verification.result, "PASS"); }
+    else await assert.rejects(readFile(output), { code: "ENOENT" });
+  });
+}
+
+test("SSE retains generation and native refusal diagnostics without publishing them", async (t) => {
+  const directory = await mkdtemp(join(process.cwd(), ".work", "refusal-638-"));
+  t.after(() => rm(directory, { recursive: true, force: true }));
+  const prior = process.env.OPENROUTER_API_KEY;
+  process.env.OPENROUTER_API_KEY = ["synthetic", "fixture"].join("-");
+  t.after(() => { if (prior === undefined) delete process.env.OPENROUTER_API_KEY; else process.env.OPENROUTER_API_KEY = prior; });
+  t.mock.method(globalThis, "fetch", async () => {
+    const frame = { id: "gen-sse-638", model: "mistralai/mistral-large-2512",
+      choices: [{ delta: { refusal: "Synthetic refusal ".repeat(300) }, finish_reason: "content_filter", native_finish_reason: "refusal" }] };
+    const stop = { choices: [{ delta: { content: "" }, finish_reason: "stop", native_finish_reason: "stop" }] };
+    return new Response(`data: ${JSON.stringify(frame)}\n\ndata: ${JSON.stringify(stop)}\n\ndata: [DONE]\n\n`, { headers: { "content-type": "text/event-stream" } });
+  });
+  const output = join(directory, "review.txt");
+  assert.equal(await runCouncilInvocation(["--member", "mistral", "--provider", "openrouter", "--transport", "sse",
+    "--prompt", "Synthetic fixture", "--output", output, "--no-retry"]), 8);
+  const receipt = JSON.parse(await readFile(output + ".provenance.json", "utf8"));
+  assert.equal(receipt.attempts[0].generation_id, "gen-sse-638");
+  assert.equal(receipt.attempts[0].native_finish_reason, "refusal");
+  assert.ok(receipt.attempts[0].refusal_preview.length <= 2048 + "…[truncated]".length);
+  await assert.rejects(readFile(output), { code: "ENOENT" });
+});

@@ -4,10 +4,10 @@
   "note": "Seeded by the scaffold corpus (class: adapted) with the sha256 of each corpus-shipped council verifier at the corpus version that delivered it. Repo-owned from the first seed: a repo that carries local verifiers (run-ledger lints, seal writers) pins them here too, and once it does \u2014 deleting the seeder's $adapt-me key \u2014 the cascade preserves this file and the repo re-pins moved corpus verifiers itself, with a reason. An unadapted copy refreshes with every cascade, so its pins track the corpus without hand work. The corpus manifest checksum is the fleet-wide pin of the same bytes; this file is the run-time working-tree gate (scripts/verify-pins.ts, run at council Setup).",
   "pins": {
     "scripts/council-invoke.ts": {
-      "sha": "15275395949e8e29a244b1cf487bbd292c8360bb0e5aaaadbcbe0fa52ec4dc94",
-      "repinned_at": "2026-10-04T02:00:09.903237Z",
+      "sha": "3ff7d81a6b70ba72000cea66e0fc9b2ca8fb9a7e2faadb8fdf61eda1675ce9f9",
+      "repinned_at": "2026-10-22T05:13:36.367192+00:00",
       "repinned_by": "blitterbot",
-      "repin_reason": "D-WORKFLOW-144, #409: update only the project organization URLs/remote scope to pixelelated. Model roster, efforts, verification and evidence contracts are unchanged."
+      "repin_reason": "pixelelated#638/#636: owner-selected separate Argon/high audit route, catalog-bound Google provider and synchronous output allowance; retain bounded generation/native-refusal diagnostics. Council profiles and current Gemini seat unchanged; terminal filters and identity checks retained."
     },
     "scripts/lib/council-verification.ts": {
       "sha": "4e8ad4fbdf56b9844b4f5de2af289f429f0b942249693a1130867a5fc440b79c",
@@ -16,10 +16,10 @@
       "repinned_by": "forge-automation"
     },
     "scripts/lint-council-seat-efforts.ts": {
-      "sha": "62ff38256a3fbc70b27230cf6ed0c0deba707b142e4965ebaaa255243c297eac",
-      "repin_reason": "scaffold#917: the Facilitator records the provider OpenRouter names as serving each call (served_provider on every attempt, final.provider_verification) and fails a pinned seat served outside its pin (provider_mismatch_no_retry, exit 7). The roster commits to each pin's served providers, checked against the catalogue endpoint lists now in council-seat-efforts.json; the run lint and preflight require the evidence. Facilitator 1.13.0, shipped with #915's roster in one release.",
-      "repinned_at": "2026-09-28T05:12:43.375Z",
-      "repinned_by": "forge-automation"
+      "sha": "07eeaa1115c5bbd22bed434f8c02f4d24c8ba6141ee0bdcf22abb8933bf803ba",
+      "repinned_at": "2026-10-22T05:13:36.367225+00:00",
+      "repinned_by": "blitterbot",
+      "repin_reason": "pixelelated#638/#636: owner-selected separate Argon/high audit route, catalog-bound Google provider and synchronous output allowance; retain bounded generation/native-refusal diagnostics. Council profiles and current Gemini seat unchanged; terminal filters and identity checks retained."
     },
     "scripts/verify-pins.ts": {
       "sha": "f6d6b4836fc3d599bfe94a6771c8292dc3d951a8153e82969e47065d6d58ed6f",
@@ -94,10 +94,10 @@
       "repinned_by": "forge-automation"
     },
     "council-seat-efforts.json": {
-      "sha": "7f2b618bc2058eb4772a319f797cd9fc56a44d5baaec511f5bfbc8cf6d6892a0",
-      "repin_reason": "scaffold#917: the Facilitator records the provider OpenRouter names as serving each call (served_provider on every attempt, final.provider_verification) and fails a pinned seat served outside its pin (provider_mismatch_no_retry, exit 7). The roster commits to each pin's served providers, checked against the catalogue endpoint lists now in council-seat-efforts.json; the run lint and preflight require the evidence. Facilitator 1.13.0, shipped with #915's roster in one release.",
-      "repinned_at": "2026-09-28T05:12:43.375Z",
-      "repinned_by": "forge-automation"
+      "sha": "d3f5d98816f54757345b97d44f6def135171210307968c7fdb3720c383609f5d",
+      "repinned_at": "2026-10-22T05:13:36.367241+00:00",
+      "repinned_by": "blitterbot",
+      "repin_reason": "pixelelated#638/#636: owner-selected separate Argon/high audit route, catalog-bound Google provider and synchronous output allowance; retain bounded generation/native-refusal diagnostics. Council profiles and current Gemini seat unchanged; terminal filters and identity checks retained."
     },
     "scripts/forge-write-status.mjs": {
       "sha": "33dd5225549e5f413c0f30397376ce6d4f8d176b0bdbc443fe8c5ba1e553531f",
@@ -164,6 +164,24 @@
       "repin_reason": "D-WORKFLOW-144, #409: update the project name in the inactive-recipe warning to pixelelated; recipe remains historical and forbidden, no seat or verification change.",
       "repinned_at": "2026-10-04T02:07:47.570930Z",
       "repinned_by": "blitterbot"
+    },
+    "scripts/lib/council-staged-controller.ts": {
+      "sha": "61b43923d60f0ee69ef11d3c95872a364cf175481ae9bf3a3c119d29fc9e0082",
+      "repinned_at": "2026-10-22T04:50:02.659379+00:00",
+      "repinned_by": "blitterbot",
+      "repin_reason": "pixelelated#636: local Facilitator 1.14.1-pixelelated.1 stops explicit content_filter without resending, preserves identity/provider hard stops and original usage, and keeps staged capture/readings fail-closed. Models, efforts and routes unchanged; original imported bundle and failed audit evidence retained."
+    },
+    "scripts/lib/council-staged-attempt-store.mjs": {
+      "sha": "b7d13648e82fc80a07f6594ee5cf5c442de36cef1e92dcee3a82b20fa1d77eac",
+      "repinned_at": "2026-10-22T04:50:02.659379+00:00",
+      "repinned_by": "blitterbot",
+      "repin_reason": "pixelelated#636: local Facilitator 1.14.1-pixelelated.1 stops explicit content_filter without resending, preserves identity/provider hard stops and original usage, and keeps staged capture/readings fail-closed. Models, efforts and routes unchanged; original imported bundle and failed audit evidence retained."
+    },
+    "scripts/lib/council-staged-readings.ts": {
+      "sha": "58c5e92a5e5980c48ee37b6516b6576fde5093d64bad5fb30c2a1be9ce0b806a",
+      "repinned_at": "2026-10-22T04:50:02.659379+00:00",
+      "repinned_by": "blitterbot",
+      "repin_reason": "pixelelated#636: local Facilitator 1.14.1-pixelelated.1 stops explicit content_filter without resending, preserves identity/provider hard stops and original usage, and keeps staged capture/readings fail-closed. Models, efforts and routes unchanged; original imported bundle and failed audit evidence retained."
     }
   }
 }

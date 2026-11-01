@@ -1,0 +1,51 @@
+{
+  "scope": "Offline classification replay only; original provenance unchanged; no provider dispatch",
+  "facilitator_version": "council-facilitator@1.14.1-pixelelated.1",
+  "original_sha256": "15380d5099110b9dcf583ceba3bb282b6ce7c56413f76dcbfa7863008354bfd6",
+  "results": [
+    {
+      "attempt": 1,
+      "original_outcome": "retry",
+      "original_reason": "empty_content",
+      "finish_reason": "content_filter",
+      "current_decision": {
+        "shouldRetry": false,
+        "reason": "content_filtered",
+        "bumpMaxTokens": false
+      }
+    },
+    {
+      "attempt": 2,
+      "original_outcome": "retry",
+      "original_reason": "empty_content",
+      "finish_reason": "content_filter",
+      "current_decision": {
+        "shouldRetry": false,
+        "reason": "content_filtered",
+        "bumpMaxTokens": false
+      }
+    },
+    {
+      "attempt": 3,
+      "original_outcome": "retry",
+      "original_reason": "empty_content",
+      "finish_reason": "content_filter",
+      "current_decision": {
+        "shouldRetry": false,
+        "reason": "content_filtered",
+        "bumpMaxTokens": false
+      }
+    },
+    {
+      "attempt": 4,
+      "original_outcome": "response_body_error",
+      "original_reason": null,
+      "finish_reason": null,
+      "current_decision": {
+        "shouldRetry": true,
+        "reason": "response_body_error",
+        "bumpMaxTokens": false
+      }
+    }
+  ]
+}

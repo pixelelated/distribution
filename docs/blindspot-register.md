@@ -1196,3 +1196,55 @@ nested calls reuse one private run. `.github/workflows/fork-checks.yml` runs
 lifecycle and entrypoint controls, including buffered-output and removed-hook
 failing controls. A suspected stall is no-log activity, not proof that a
 linker is hung; recorded status still does not deliver a notification.
+
+## 74. A fixture or a stub that silently did not engage, so the case tested something other than what it named (2026-10-24)
+
+**Observed.** T1's renovation slice (#648) made about sixteen faults in its own proof and harness code over 2026-10-23 and 24, each caught before a push or a tick and each costing a run: a stub `pactl` never reached because the profile puts `/usr/bin` first on `PATH`; a stub not made executable (#744); a `sed` that rewrote its own inserted path so the block under test was skipped (#740); a batch that sourced the image's `001-functions` rather than the tree's (#714); a lifter that excluded `name () {` (#755) and `name() { # comment` (`saved_state`, `disk_of`), so the cases that called those functions failed with "command not found"; cases run under the host's GNU `sed` rather than the image's busybox; `awk -v` stripping a pattern's backslashes. The retro's words: *"a fixture or a stub that silently does not engage, so the case tests something other than what it names. Each was found because the case's own output named the wrong thing."* Blindspot 65 is the neighbour (a substitute input passing where the real one fails); this is the fixture itself not being the thing the case claims to run, with the verdict reading as a product failure or a pass.
+
+**Guard.** Partial today: `tools/last-good-scripts-test`'s function lifter takes a brace line ending in a comment (T1's `6b426ea624` and its case `cd`, `02dc0eee78`, on the T1 branch until its merge). The rest is #797: the lifter refusing a name it did not lift, the harness refusing to run as a copy, `time-to-play --bind` printing the bound file's hash, and a proof template that prints each stub's call count and each bound file's sha256 before its verdict. Until #797 lands, the rule is plan § 6b E's sentence for stream briefs: a stub or a fixture is part of the claim, and a guest proof prints that the stub was called and that the bound file is the tree's before the verdict.
+
+## 75. A corpus read on the wrong tree (2026-10-24)
+
+**Observed.** A read pinned to a hash (`next` at `8ebaf8daad`) was briefed with counts and
+line numbers taken from the briefing session's own branch or from its
+memory: the always-loaded rule total, the register's row count, the
+blindspot register's entry count, the friction log's length, `CLAUDE.md`'s
+table lines, a tool's line number. Every renovation brief's version 1 did it
+(T3's stranger's proof found 13 wrong claims, T5's a code-class set and three
+line numbers, T4's draft ten counts and four line numbers before its own
+futro, and the proof after it 14 more of 113, one of them the slice's total
+line count, 11,414, which is the inventory's figure at P1's `eb4763e3cc` and
+not the hash's 11,394). The shape is blindspot 46 at the altitude of a
+number: a figure is an author's claim until the command that produces it has
+run on the tree the claim is about.
+
+**Guard.** `.claude/rules/engineering-practices.md` § A name is not a
+behaviour, its bullet *A count or a line number is a claim about one tree*
+(a figure is produced by a command run at the hash and marked *branch*
+otherwise), and the plan's two readings before every dispatch
+(`docs/reviews/plan-for-the-plan.md` § 3, principle 3): the stranger's proof
+reproduces each figure with its command, and version 2 records what it
+found. No tool reads a brief's prose for a number it can recompute; the
+proof is the audit.
+
+## 76. A merge chain that does not stop on its own check (2026-10-24)
+
+Twice in one day the coordinator's shell chain merged a branch into a lane
+worktree, met a conflict, printed the marker count it had been told to stop
+on, and went on to `git add -A` and the commit: at 08:05 (T6's worktree, two
+ledgers, #696's friction line) and at 13:40 (T24's worktree, `8fd13c3133`,
+the work-log index with `<<<<<<< HEAD` at line 5). Both were caught by a
+read of the output and fixed within minutes; neither was caught by anything
+that refuses. The rule said *stops on a non-empty marker grep before `git
+add`*; the chain was `a; b; c` and a printed count is not a stop. The shape
+is blindspot 8 (a check whose failure changes nothing) applied to an
+operator's own script, and `working-principles.md`'s ladder says a rule
+broken twice moves up a stage.
+
+**Guard.** `.githooks/pre-commit` refuses a commit whose staged diff adds a
+line beginning `<<<<<<< ` or `>>>>>>> `, naming the file and line, failing
+closed when its grep cannot run (#696); `.githooks/hooks-test` stages the
+three markers and sees the refusal, and stages a Markdown setext underline
+(`=======` alone) and sees it allowed. A merge chain's own `set -e` and an
+explicit stop remain the first line; the hook is the one that cannot be
+skipped by not reading.

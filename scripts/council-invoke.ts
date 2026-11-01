@@ -33,7 +33,7 @@
  * USAGE
  *
  *   npx tsx scripts/council-invoke.ts \
- *     --member <claude|gemini|gpt|kimi|muse|grok|deepseek|mistral> \
+ *     --member <claude|gemini|gemini-argon|gpt|kimi|muse|grok|deepseek|mistral> \
  *     --prompt-file <path>           OR  --prompt "inline string" \
  *     --output <path-to-write-content> \
  *     [--provenance <path>]          (default: <output>.provenance.json) \
@@ -93,7 +93,10 @@
  *                                  no provider is recorded UNVERIFIABLE, and the
  *                                  run gates refuse it (scaffold#917).
  *
- * Retry classes are codified in the FAILURE_RETRY_POLICY constant below.
+ *   8  content_filtered_no_retry — explicit provider content filtering; provenance
+ *                                  retained, no output published or automatic retry.
+ *
+ * Retry classes are codified in classifyAttempt below.
  * Per silent-failure-discipline.instructions.md Rule 8, every failure mode
  * has a distinct machine-readable class so reviewers / orchestrators / audit
  * trails can tell them apart.
@@ -270,9 +273,10 @@ export async function embedSourcesIntoPrompt(
 // OpenRouter seat. Mistral keeps its recipes for historical runs and a future
 // re-qualification, but sits in no profile (scaffold#915).
 type DirectMemberId = "claude" | "gemini" | "gpt" | "kimi" | "mistral";
-type OpenRouterOnlyMemberId = "muse" | "grok" | "deepseek";
+type OpenRouterOnlyMemberId = "muse" | "grok" | "deepseek" | "gemini-argon";
 type MemberId = DirectMemberId | OpenRouterOnlyMemberId;
 const OPENROUTER_ONLY_MEMBERS: ReadonlySet<string> = new Set<OpenRouterOnlyMemberId>([
+  "gemini-argon",
   "muse",
   "grok",
   "deepseek",
@@ -307,6 +311,7 @@ type AttemptOutcome =
   | "truncated_content"
   | "model_mismatch"
   | "provider_mismatch"
+  | "content_filtered"
   | "permanent_provider_error";
 
 type FinalOutcome =
@@ -315,6 +320,7 @@ type FinalOutcome =
   | "retries_exhausted_empty_content"
   | "model_mismatch_no_retry"
   | "provider_mismatch_no_retry"
+  | "content_filtered_no_retry"
   | "permanent_provider_error";
 
 interface MemberRecipe {
@@ -393,6 +399,9 @@ interface AttemptRecord {
   /** Every nonblank provider observation, in response order, including repeats (#943). */
   served_provider_observations?: string[];
   finish_reason?: string | null;
+  generation_id?: string;
+  native_finish_reason?: string;
+  refusal_preview?: string;
   content_length: number;
   content_sha256?: string;
   stream_events?: number;
@@ -841,7 +850,9 @@ const BEDROCK_MISTRAL_LARGE3_MODEL = "mistral.mistral-large-3-675b-instruct";
 // final.provider_verification, and fails a pinned seat served outside its pin
 // (provider_mismatch_no_retry, exit 7; scaffold#917). It ships with 1.12.0's roster in one release.
 // 1.14.0 preserves all provider observations and refuses unbound staged reconciliation (#943).
-export const FACILITATOR_VERSION = "council-facilitator@1.14.0";
+// pixelelated#636: stop explicit content-filter responses without resending;
+// model/effort/provider pins and the historical imported bundle remain unchanged.
+export const FACILITATOR_VERSION = "council-facilitator@1.14.1-pixelelated.2";
 
 function openRouterMistralModel(): string {
   const configured = process.env.OPENROUTER_MISTRAL_MODEL?.trim();
@@ -1515,11 +1526,27 @@ export const SHADOW_OPENROUTER_SEATS = {
   },
 } satisfies Record<"grok" | "deepseek", OpenRouterSeat>;
 
+// Owner-selected code-auditor alternative (#638), not a council roster change.
+// Argon ordinary synchronous output is 65536 in Google's October 2026 docs;
+// OpenRouter advertises 943718 for long decode. Keep the synchronous allowance
+// and ample input headroom, not an unqualified long-decode request. High is the
+// advertised ceiling. The catalog verifies this Vertex route reports "Google".
+export const AUDIT_OPENROUTER_SEATS = {
+  "gemini-argon": {
+    slug: "google/gemini-4-argon",
+    effort: "high",
+    maxOutputTokens: 65536,
+    provider: { only: ["google-vertex/global"], order: ["google-vertex/global"], allow_fallbacks: false },
+    servedProviders: ["Google"],
+  },
+} satisfies Record<"gemini-argon", OpenRouterSeat>;
+
 function isOpenRouterOnlyMember(id: string): id is OpenRouterOnlyMemberId {
   return OPENROUTER_ONLY_MEMBERS.has(id);
 }
 
 export const OPENROUTER_RECIPES: Record<MemberId, MemberRecipe> = {
+  "gemini-argon": openRouterRecipe("gemini-argon", AUDIT_OPENROUTER_SEATS["gemini-argon"]),
   muse: {
     ...openRouterRecipe("muse", OPENROUTER_SEATS.muse),
     supportsSse: true,
@@ -1598,6 +1625,8 @@ export function classifyAttempt(args: {
   declaredMatches: boolean;
   contentLength: number;
   wasTruncated: boolean;
+  /** Normalized provider finish reason, also retained after an interrupted stream. */
+  finishReason?: string | null;
   /**
    * scaffold#917. The provider the response named, and the names the seat's pin admits
    * (null/omitted for an unpinned seat). Omitting both keeps the pre-#917 classification,
@@ -1618,6 +1647,7 @@ export function classifyAttempt(args: {
     declaredMatches,
     contentLength,
     wasTruncated,
+    finishReason,
     servedProvider,
     servedProviderObservations,
     servedProviders,
@@ -1630,6 +1660,17 @@ export function classifyAttempt(args: {
       shouldRetry: false,
       // Preserve model-mismatch precedence when both independent witnesses contradict the seat.
       reason: hasUsableModelIdentity(observedModel) && !declaredMatches ? "model_mismatch" : "provider_mismatch",
+      bumpMaxTokens: false,
+    };
+
+  // An explicit filter is a terminal provider decision, even if transport later
+  // fails or partial text was received. Identity contradictions retain precedence.
+  // No automatic resend, token-budget increase or acceptance of partial output.
+  if (finishReason === "content_filter")
+    return {
+      shouldRetry: false,
+      reason: hasUsableModelIdentity(observedModel) && !declaredMatches
+        ? "model_mismatch" : "content_filtered",
       bumpMaxTokens: false,
     };
 
@@ -1774,6 +1815,7 @@ const DIAGNOSTIC_RESPONSE_HEADERS = [
   "content-type",
   "retry-after",
   "x-request-id",
+  "x-generation-id",
   "x-ms-request-id",
   "x-ms-error-code",
   "x-ratelimit-limit-requests",
@@ -1785,6 +1827,9 @@ const DIAGNOSTIC_RESPONSE_HEADERS = [
 ];
 
 interface OpenAiSseState {
+  generationId?: string;
+  nativeFinishReason?: string;
+  refusalText?: string;
   contentParts: string[];
   observedModel: string | null;
   servedProvider: string | null;
@@ -2360,6 +2405,9 @@ function appendOpenAiSseEvent(rawEvent: string, state: OpenAiSseState): void {
     state.errorMessage = asString(field(providerError, "message")) ?? JSON.stringify(providerError);
   }
 
+  const generationId = asString(field(parsed, "id"));
+  if (generationId) state.generationId = generationId;
+
   const observedModel = asString(field(parsed, "model"));
   if (observedModel) state.observedModel = observedModel;
 
@@ -2390,8 +2438,15 @@ function appendOpenAiSseEvent(rawEvent: string, state: OpenAiSseState): void {
       state.chunks += 1;
     }
 
+    const nativeReason = asString(field(choice, "native_finish_reason"));
+    if (nativeReason && state.finishReason !== "content_filter") state.nativeFinishReason = nativeReason;
+    const refusal = asString(fieldPath(choice, "delta", "refusal")) ??
+      asString(fieldPath(choice, "message", "refusal"));
+    if (refusal) state.refusalText = ((state.refusalText ?? "") + refusal).slice(0, RESPONSE_BODY_PREVIEW_CHARS);
+
     const finishReason = asString(field(choice, "finish_reason"));
-    if (finishReason !== null) state.finishReason = finishReason;
+    if (finishReason !== null && state.finishReason !== "content_filter")
+      state.finishReason = finishReason;
   }
 }
 
@@ -2413,12 +2468,14 @@ function consumeOpenAiSseBuffer(
 
 function buildSyntheticOpenAiResponse(state: OpenAiSseState): Record<string, unknown> {
   return {
+    ...(state.generationId ? { id: state.generationId } : {}),
     model: state.observedModel,
     ...(state.servedProvider !== null ? { provider: state.servedProvider } : {}),
     choices: [
       {
-        message: { content: state.contentParts.join("") },
+        message: { content: state.contentParts.join(""), ...(state.refusalText ? { refusal: state.refusalText } : {}) },
         finish_reason: state.finishReason,
+        ...(state.nativeFinishReason ? { native_finish_reason: state.nativeFinishReason } : {}),
       },
     ],
     ...(state.usage ? { usage: state.usage } : {}),
@@ -2874,7 +2931,7 @@ Usage:
     --output <path> [options]
 
 Required:
-  --member <claude|gemini|gpt|kimi|muse|grok|deepseek|mistral>
+  --member <claude|gemini|gemini-argon|gpt|kimi|muse|grok|deepseek|mistral>
   --output <path>                       Where assistant text content is written
   --prompt-file <path>  OR  --prompt "inline"
 
@@ -2908,6 +2965,7 @@ Exit codes:
   5  permanent_provider_error
   6  model_identity_unverifiable (content captured; HALT, never auto-retried)
   7  provider_mismatch_no_retry  (a pinned seat served outside its pin; NEVER auto-retried)
+  8  content_filtered_no_retry  (explicit provider filtering; NEVER auto-retried)
 `);
 }
 
@@ -2924,6 +2982,7 @@ const EXIT = {
   permanent_provider_error: 5,
   model_identity_unverifiable: 6,
   provider_mismatch_no_retry: 7,
+  content_filtered_no_retry: 8,
 } as const;
 
 function sha256(s: string): string {
@@ -3301,6 +3360,7 @@ export async function runCouncilInvocation(
       declaredMatches,
       contentLength: content.length,
       wasTruncated: truncated,
+      finishReason,
       servedProvider,
       servedProviderObservations,
       servedProviders: recipe.servedProviders ?? null,
@@ -3341,6 +3401,18 @@ export async function runCouncilInvocation(
     if (unavailableReason) record.usage_unavailable = unavailableReason;
     if (fetchResult.retryAfterMs !== null) record.retry_after_ms = fetchResult.retryAfterMs;
     if (fetchResult.responseHeaders) record.response_headers = fetchResult.responseHeaders;
+    // #636/#638: refusal text is diagnostics only, never extractContent/output.
+    // Keep bounded text rather than a full successful HTTP envelope or reasoning.
+    const generationId = asString(field(fetchResult.json, "id")) ??
+      fetchResult.responseHeaders?.["x-generation-id"];
+    if (generationId) record.generation_id = generationId.slice(0, 256);
+    const nativeFinishReason = asString(fieldPath(fetchResult.json, "choices", 0, "native_finish_reason"));
+    if (nativeFinishReason) record.native_finish_reason = nativeFinishReason.slice(0, 256);
+    const refusal = asString(fieldPath(fetchResult.json, "choices", 0, "message", "refusal"));
+    if (refusal) {
+      record.refusal_preview = previewResponseBody(refusal);
+    }
+
     if (fetchResult.responseBodySha256)
       record.response_body_sha256 = fetchResult.responseBodySha256;
     if (fetchResult.responseBodyPreview)
@@ -3354,6 +3426,11 @@ export async function runCouncilInvocation(
     else if (providerErrorMessage) record.error_message = providerErrorMessage;
     else if (fetchResult.responseBodyParseError) {
       record.error_message = fetchResult.responseBodyParseError;
+    }
+    if (decision.reason === "content_filtered") {
+      record.error_message = [record.error_message,
+        "Provider reported content_filter; automatic retries stopped. Review the provider response before further dispatch. No credit/capacity diagnosis is inferred.",
+      ].filter(Boolean).join("; ");
     }
     if (decision.reason === "model_mismatch" && fetchResult.json) {
       // Capture the mismatch detail for the audit trail
@@ -3378,7 +3455,7 @@ export async function runCouncilInvocation(
       (recipe.declaredEffort && recipe.declaredEffort !== "none"
         ? `effort=${recipe.declaredEffort} reasoning=${tokens?.reasoning ?? "n/a"} `
         : "") +
-      `content=${content.length}b ` +
+      `content=${content.length}b finish=${finishReason ?? "(none)"} ` +
       `outcome=${record.outcome}` +
       (record.outcome_reason ? `(${record.outcome_reason})` : "") +
       ` duration=${durationMs}ms`;
@@ -3410,6 +3487,13 @@ export async function runCouncilInvocation(
           : declaredMatches
             ? "PASS"
             : "FAIL";
+      } else if (decision.reason === "content_filtered") {
+        finalOutcome = "content_filtered_no_retry";
+        finalObservedModel = observedModel;
+        finalVerification = declaredMatches ? "PASS" : "UNVERIFIABLE";
+        finalUsage = usage;
+        finalTokens = tokens ?? null;
+        finalUsageUnavailable = unavailableReason;
       } else if (decision.reason === "permanent_provider_error") {
         finalOutcome = "permanent_provider_error";
         finalObservedModel = observedModel;
@@ -3681,6 +3765,8 @@ export async function runCouncilInvocation(
       return EXIT.retries_exhausted_empty_content;
     case "permanent_provider_error":
       return EXIT.permanent_provider_error;
+    case "content_filtered_no_retry":
+      return EXIT.content_filtered_no_retry;
     default:
       return EXIT.retries_exhausted_transient;
   }

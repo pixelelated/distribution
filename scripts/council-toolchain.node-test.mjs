@@ -44,6 +44,7 @@ import {
   OPENROUTER_RECIPES,
   openRouterModelMatches,
   OPENROUTER_SEATS,
+  AUDIT_OPENROUTER_SEATS,
   SHADOW_OPENROUTER_SEATS,
 } from "./council-invoke.ts";
 import { machineGitArgs } from "./council-run-start.ts";
@@ -398,11 +399,11 @@ test("five pins, requests, agent declarations, and catalog agree without SDKs or
       }
       continue;
     }
-    const seat =
+    const seat = member === "gemini-argon" ? AUDIT_OPENROUTER_SEATS[member] :
       member === "grok" || member === "deepseek"
         ? readRoster(ROOT, `${member}-shadow`).members[member]
         : roster.members[member];
-    for (const transport of ["buffered", "sse"]) {
+    for (const transport of member === "gemini-argon" ? ["buffered"] : ["buffered", "sse"]) {
       const body = recipe.buildBody({
         userPrompt: "synthetic",
         systemPrompt: null,
@@ -774,9 +775,9 @@ test("an exceeding seat ceiling fails only under --strict; an unpinned seat mode
   const snapshotFile = path.join(f.root, "council-seat-efforts.json");
   const lint = (...args) => invoke(f.root, "scripts/lint-council-seat-efforts.ts", args);
   // Derived from the installed seat tables, never a typed count: the lint must examine every seat
-  // the Facilitator can dispatch, definitive and shadow alike (seven since scaffold#915).
-  const installedSeats = Object.keys({ ...OPENROUTER_SEATS, ...SHADOW_OPENROUTER_SEATS }).length;
-  assert.equal(installedSeats, 7);
+  // the Facilitator can dispatch, including definitive, shadow and explicitly selected audit-only routes.
+  const installedSeats = Object.keys({ ...OPENROUTER_SEATS, ...SHADOW_OPENROUTER_SEATS, ...AUDIT_OPENROUTER_SEATS }).length;
+  assert.equal(installedSeats, 8);
   assert.match(
     ok(lint("--strict")).stderr,
     new RegExp(`^OK — ${installedSeats} council seat\\(s\\) checked`, "m")
