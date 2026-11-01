@@ -466,7 +466,7 @@ Each task should:
 ### Step 4 — Execution pre-flight
 
 Before marking any task in-progress, confirm the execution discipline with
-the user (or silently follow it if the repo's `.instructions.md` already
+the user (or silently follow it if the repo's `.claude/rules/` already
 codifies it):
 
 - [ ] The blast radius is stated: what the work changes, what depends on it,

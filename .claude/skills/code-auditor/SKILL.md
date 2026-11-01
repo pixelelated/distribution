@@ -369,7 +369,7 @@ Entries are short (3–10 lines). Depth goes in the phase files; the log's value
 | Tool                                       | Guidance                                                                                                                                                                                                                 |
 | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **GitHub reads** (issues, PRs, milestones) | Prefer the GitHub MCP issue/search tools (names vary by runtime — `mcp__github__*` in Claude Code, `mcp_github_*` in Copilot). Avoid `gh` CLI for list/search — bulk output has destabilised agent runners in this repo. |
-| **`gh` CLI for writes**                    | Acceptable for `gh issue create` (body-file), `gh label create`, `gh milestone create` — single-record writes. **Always use `--body-file`**, never heredoc (per repo `agent-terminal-safety` instructions).              |
+| **`gh` CLI for writes**                    | Acceptable for `gh issue create` (body-file), `gh label create`, `gh milestone create` — single-record writes. **Always use `--body-file`**, never heredoc.              |
 | **`gh` CLI list/search fallback**          | If MCP is unavailable, bound output: `--limit N --json <fields>` or pipe through `\| head`.                                                                                                                              |
 | **Git history**                            | `git log --oneline`, `git diff --stat`, `git show <sha>` — standard. Filter by date, path, author.                                                                                                                       |
 | **Terminal operations**                    | Never delegate `git`, `npm`, `gh` to subagents: a subagent has a shell, but what its commands printed reaches you only through its summary. Run them directly.                                                                                                                 |
@@ -430,14 +430,14 @@ row ✓/⚠/✗/·:
    work repeat it?* This is the highest-yield face, because these are proven
    rather than hypothetical.
 3. **Project invariants** — the hard rules stated in the instruction files,
-   notably from `rclone-cloud-sync.instructions.md`:
+   notably from `.claude/rules/rclone-cloud-sync.md`:
    - **Preserve player progress above all.** Conflict handling must never
      default to recency; a newer file can hold *less* progress.
    - Backups must never contain secrets (wifi keys, passwords, tokens).
    - The sync filter is an **allowlist**; `--delete-excluded` makes a filter
      mistake destructive to cloud data.
    - Every change ships onto devices that already have state — check the
-     upgrade path *and* the clean install (`upgrade-and-install.instructions.md`).
+     upgrade path *and* the clean install (`.claude/rules/upgrade-and-install.md`).
 
 Conformance is not a rubber stamp. Each row is individually evaluated for
 relevance; where the instruction files and this list disagree, **the instruction
