@@ -22,7 +22,7 @@ reviewed-at-es: none -- no ES change
 - **Lines at the tip:** `emulationstation/patches/x86_64/`; `scripts/unpack:127-128`, `:137-160`
 - **Owner:** T37 (the recipe's `PKG_PATCH_DIRS`); T40 (the patch's content and place, #1072)
 - **What is wrong:** `PATCH_ARCH` is `x86` for an `x86_64` target and the recipe sets no `PKG_PATCH_DIRS`, so `cpugov.patch` applies on none of the 15 devices (`stage-b/reach-15.out`); its string is absent from the candidate's binary (G-05). Added by `40fce2a089 2026-08-20 amd64: wip am64 changes`.
-- **Proposed disposition:** take up as #1072: the pause chooses T37's `[ "${ARCH}" = "x86_64" ] && PKG_PATCH_DIRS="x86_64"` (the fixture form, which reaches it on the two `x86_64` devices only) or T40's rename to `patches/x86/`; only a build proves the patch applies
+- **Proposed disposition:** take up as #1072, **after** T40 corrects the patch's GPU call (the seat's G-1, confirmed: its `+` lines call `get_available_cpu_governors` 4 times and `get_available_gpu_governors` 0 times, so reaching it as it is wires the CPU list into the GPU rows): the pause chooses T37's `[ "${ARCH}" = "x86_64" ] && PKG_PATCH_DIRS+=" x86_64"` (appending, the seat's G-2; `TARGET_ARCH="${ARCH}"` at `config/options:36`, so the test is the unpacker's) or T40's rename to `patches/x86/`; only a build proves the patch applies
 - **proved:** tool-run
 
 ## PL-03: `PKG_NEED_UNPACK="busybox"` is a bare word, so busybox never moves the ES stamp
@@ -41,8 +41,8 @@ reviewed-at-es: none -- no ES change
 - **Source finding:** L-04
 - **Lines at the tip:** `emulationstation/package.mk:79`, `:81-82`; the pin's `es-core/src/Splash.h:17`
 - **Owner:** T37; upstream's order (`9f1fab30f6`)
-- **What is wrong:** The line removes nothing, so the pin's `logo.png` ships (G-05) -- ES's `DEFAULT_SPLASH_IMAGE`. Had it worked, it would remove the default splash.
-- **Proposed disposition:** a question at the pause: drop the line (the shipped behaviour unchanged) or record it as written with a #585 note
+- **What is wrong:** The line removes nothing, so the pin's `logo.png` ships (G-05, 283,835 bytes). Corrected after the seat: under `ROCKNIX` the default splash is `:/pixelelated-wordmark.svg` (the pin's `Splash.h:10-11`); `:/logo.png` is the `else` branch's (`:16-17`), so the shipped file is the one the line meant to drop, and nothing in the build's splash reads it.
+- **Proposed disposition:** a contained fix for the pause: the `rm` moved after `:82` (it then does what it says and drops an unused file), or recorded as written with a #585 note
 - **proved:** tree
 
 ## PL-05: Upstream's ARMSX2 *vulkan driver* block was dropped by four merges
@@ -52,17 +52,17 @@ reviewed-at-es: none -- no ES change
 - **Lines at the tip:** `emulationstation/package.mk:125-129` (`651150fc88:104-108`); `es_features.cfg:1331`, `:1333`, `:1393`
 - **Owner:** T37
 - **What is wrong:** `a06539d8ec`, `049765fba0`, `fa2990c1e7` and `f370dc8787` each had an upstream parent with the two ARMSX2 lines and a result without them (`stage-b/l01-merges.out`); the tip's catalogue keeps `armsx2-sa`'s *vulkan driver* feature on every device that ships `armsx2-sa`, so devices without ARMSX2's own Turnip offer it (RK3566 of the fork's).
-- **Proposed disposition:** a bug candidate for the pause: upstream's five lines restored after `:128` (moves only ES's stamp); the fixture with upstream's two edits reproduced in `xml.etree` at stage E
+- **Proposed disposition:** a bug candidate for the pause: upstream's five lines restored after `:128` (moves only ES's stamp). The seat's G-3 asked for the capability: upstream's list `SM4450|SM6115|SM8250|SM8550|SM8650` is exactly `armsx2-sa`'s own `armsx2-turnip` predicate (`armsx2-sa/package.mk:25-29`; SM8750 *keeps the system driver*), so the block matches the installer. The fixture with upstream's two edits in `xml.etree` at stage E
 - **proved:** history
 
 ## PL-06: The candidate's ES does not link fribidi; the recipe declares it nowhere
 
-- **Severity:** Medium; **category:** Build order; **question:** Q3
+- **Severity:** Low; **category:** Build order; **question:** Q3
 - **Source finding:** L-09; D-WORKFLOW-216; T36's G-01
 - **Lines at the tip:** `emulationstation/package.mk:13`; the pin's `CMakeLists.txt:236-241`, `:462`
 - **Owner:** T37 (the declaration, D-WORKFLOW-216); the integration (why the find failed)
 - **What is wrong:** ES's plan reaches fribidi only by `SDL2 -> swaywm-env -> sway -> pango -> fribidi`; T36's G-01 on the candidate reads `libfribidi` NOT linked, so its `QUIET` find failed and the built-in reordering shipped.
-- **Proposed disposition:** the pause's ruling under D-WORKFLOW-216 (declare `fribidi` at `:13`, or record the chain as the recipe's decision); the find's failure is the integration's configure log (`CANNOT` here)
+- **Proposed disposition:** the pause's ruling under D-WORKFLOW-216 (declare `fribidi` at `:13`, the seat's choice, or record the chain as the recipe's decision); lowered to Low after the seat: the fallback is designed (`CMakeLists.txt:230-233`) and an `ldd` absence alone does not show which branch compiled; the find's failure is the integration's configure log (`CANNOT` here)
 - **proved:** tool-run
 
 ## PL-07: A missing French catalog would install silently
@@ -81,7 +81,7 @@ reviewed-at-es: none -- no ES change
 - **Source finding:** L-05
 - **Lines at the tip:** `emulationstation/package.mk:42-44`; `scripts/get_env:14`; the pin's `CMakeLists.txt:328-330`
 - **Owner:** T37
-- **What is wrong:** The log loop names three of the four names `get_env` forwards; `HFS_DEV_LOGIN` (read at the pin's `HfsDBScraper.cpp:1`, `:181`, `:190`, `HfsDBScraper.h:6`, `Scraper.cpp:33`) is the fourth.
+- **What is wrong:** The log loop names three of the four secret-shaped names `get_env` keeps by exception; `HFS_DEV_LOGIN` (read at the pin's `HfsDBScraper.cpp:1`, `:181`, `:190`, `HfsDBScraper.h:6`, `Scraper.cpp:33`) is the fourth. Corrected after the seat (G-5): `get_env:16-21` forwards every variable that is not secret-shaped, so `SCREENSCRAPER_SOFTNAME` (`CMakeLists.txt:303-305`) reaches a container build too, also unlogged.
 - **Proposed disposition:** a stream candidate: `HFS_DEV_LOGIN` added to the loop's list (names only)
 - **proved:** tree
 
@@ -121,7 +121,7 @@ reviewed-at-es: none -- no ES change
 - **Source finding:** L-07
 - **Lines at the tip:** `emulationstation/package.mk:70-75`; `sources/es_settings:26-35`
 - **Owner:** T37; upstream's (`96d387fffd`)
-- **What is wrong:** `|| true` ends the `localedef` step; `es_settings` regenerates a missing locale at first start, so a failure costs first-boot time only. The candidate has the pre-generated locale (G-03).
+- **What is wrong:** `|| true` ends the `localedef` step: a failure is silent in its status, though its verbose output still reaches the build log (the seat's narrowing); `es_settings:26-35` regenerates a missing locale at first start but checks neither that result nor the export after it. The candidate has the pre-generated locale (G-03).
 - **Proposed disposition:** recorded as written (a best-effort cache with a correct fallback); the checker's WARN
 - **proved:** tree
 
@@ -165,6 +165,36 @@ reviewed-at-es: none -- no ES change
 - **Proposed disposition:** a tool note for the integration (§ What the integration inherits item 9); no slice fix
 - **proved:** tool-run
 
+## PL-17: A verbose build prints the compiled-in pair in its compile commands
+
+- **Severity:** Low; **category:** Credentials; **question:** Q4
+- **Source finding:** G-6 (gpt)
+- **Lines at the tip:** `emulationstation/package.mk:40`; the pin's `CMakeLists.txt:307-309`, `:320-330`; `config/functions:378-382`
+- **Owner:** T37 (the recipe's comment); the build engine T6's
+- **What is wrong:** CMake turns each credential variable into a `-D` definition; a build with the `verbose` flag (default `no`, `config/functions:379`) prints every compile command, so the log carries the definitions the recipe's echo at `:48-50` keeps out. No disclosure is shown; D-INFRA-006 tolerates a value in a local build log.
+- **Proposed disposition:** recorded under D-INFRA-006 (a local build log), with a sentence beside `:48-50` naming the verbose route; judged outside D-WORKFLOW-215's hold test (not shipped code; an input only the builder sets)
+- **proved:** tree
+
+## PL-18: The autostart alias repairs neither a real directory nor a wrong link
+
+- **Severity:** Low; **category:** Install step; **question:** Q2
+- **Source finding:** G-7 (gpt)
+- **Lines at the tip:** `emulationstation/autostart/001-emulationstation:8-11`
+- **Owner:** T37; upstream's (JELOS)
+- **What is wrong:** A real `/storage/.emulationstation` directory passes `! -L`, and `ln -sf` then makes the link inside it; an existing symlink, right or wrong, is skipped. ES itself reads `/storage/.config/emulationstation` under `ROCKNIX` (`Paths.cpp:79`), so only the legacy alias is affected.
+- **Proposed disposition:** recorded as written (upstream's; the alias is legacy), or a contained `ln -sfn` with a directory test at the pause
+- **proved:** tree
+
+## PL-19: An empty serial-number read is treated as a changed device
+
+- **Severity:** Low; **category:** Guard that fails open; **question:** Q2
+- **Source finding:** G-8 (gpt)
+- **Lines at the tip:** `emulationstation/sources/serial_number_check:8-24`
+- **Owner:** T37; upstream's (D-UI-079: outside the fork's lanes)
+- **What is wrong:** When the path is set and the read is empty, a stored serial differs from `""`, so the empty value is stored and the warning raised (`:21-24`); the unquoted path at `:12` is L-12.
+- **Proposed disposition:** recorded for upstream (a #585 line); a contained guard (an empty read skips the check) only if the coordinator opens the lane
+- **proved:** tree
+
 ## Phase 7 resolution gate
 
 | Item | Outcome | Evidence |
@@ -185,6 +215,9 @@ reviewed-at-es: none -- no ES change
 | PL-14 | Open | before stage D's audit issue |
 | PL-15 | Open | before stage D's audit issue |
 | PL-16 | Open | before stage D's audit issue |
+| PL-17 | Open | before stage D's audit issue |
+| PL-18 | Open | before stage D's audit issue |
+| PL-19 | Open | before stage D's audit issue |
 
 ## punch_index
 
@@ -221,7 +254,7 @@ punch_index:
   source_finding: "L-01"
   outcome: "open"
 - id: PL-06
-  severity: "Medium"
+  severity: "Low"
   category: "Build order"
   question: Q3
   source_finding: "L-09; D-WORKFLOW-216; T36's G-01"
@@ -285,5 +318,23 @@ punch_index:
   category: "Tooling"
   question: Q4
   source_finding: "stage B (G-05's host half)"
+  outcome: "open"
+- id: PL-17
+  severity: "Low"
+  category: "Credentials"
+  question: Q4
+  source_finding: "G-6 (gpt)"
+  outcome: "open"
+- id: PL-18
+  severity: "Low"
+  category: "Install step"
+  question: Q2
+  source_finding: "G-7 (gpt)"
+  outcome: "open"
+- id: PL-19
+  severity: "Low"
+  category: "Guard that fails open"
+  question: Q2
+  source_finding: "G-8 (gpt)"
   outcome: "open"
 ```

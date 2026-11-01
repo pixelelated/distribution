@@ -21,8 +21,8 @@
 as a sub-issue of #684 with the punch list, the bugs with their traces,
 and the pause. Stage C's record: `tools/t37-checks.sh` (the tip exit 1,
 `TOTAL: 55 of 60`; the fixed fixture exit 0, `66 of 66`; 15 of 15
-mutations caught; the `.git` refusal exit 2), `03`, `04`, `05` (16 items:
-4 Medium, 12 Low, each Open), the packet and its manifest (clean; `:39`
+mutations caught; the `.git` refusal exit 2), `03`, `04`, `05` (19 items after the seat:
+3 Medium, 16 Low, each Open), the packet and its manifest (clean; `:39`
 withheld by number), the probe and the refutation (exactly two keyed
 invokes), the pre-issue lint. The window ran 01:42:09-01:44:35 UTC
 (G-01 to G-07, the disk retired). Stage B's and stage A's records follow. Stage A's record: `docs/audits/2026_11_01-epic-m6-es-recipe/`
@@ -93,3 +93,5 @@ outside the one granted window.
 
 - **Stage A** -- `2ce981005e` over `9fa740a91b`, 01:20 UTC 2026-11-01 (accepted 01:21, 6551707733): `00`, `01`, `stage-a/`, this pointer's fills, the day's work-log entry; census `qemu 0, compilers 0`; worktree build roots `0`; keyed invokes `0`.
 - **Stage B** -- the stage-B commit over `2ce981005e` (its hash in the #684 checkpoint post with the window request), 01:4x UTC 2026-11-01: `02`, `stage-b/`, `tools/t37-tables.py`, `00`'s stage-B entries; census `qemu 0, compilers 0`; worktree build roots `0`; keyed invokes `0`; no guest.
+- **The window** -- START 01:42:09, the guest stopped 01:44:35, RETURN 01:46:53 UTC, at `fc6ced43f4`; the disk retired.
+- **Stage C** -- the stage-C commit over `8ce6f22b45` (its hash in the #684 checkpoint post), 02:1x UTC: the checker (tip exit 1, fixture exit 0, 15 of 15 mutations), 03-05, the packet, the probe and the refutation (two keyed invokes), 04 § Second opinion, the pre-issue lint PASS.

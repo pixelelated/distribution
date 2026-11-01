@@ -1,0 +1,111 @@
+== PL-04: the pin's Splash.h:1-25
+1: #pragma once
+2: 
+3: #include <string>
+4: #include "components/ImageComponent.h"
+5: #include "components/TextComponent.h"
+6: 
+7: class Window;
+8: class TextureResource;
+9: 
+10: #if defined(ROCKNIX)
+11: #define DEFAULT_SPLASH_IMAGE ":/pixelelated-wordmark.svg"
+12: #define OLD_SPLASH_LAYOUT true
+13: #elif WIN32
+14: #define DEFAULT_SPLASH_IMAGE ":/splash.svg"
+15: #define OLD_SPLASH_LAYOUT true
+16: #else
+17: #define DEFAULT_SPLASH_IMAGE ":/logo.png"
+18: #define OLD_SPLASH_LAYOUT false
+19: #endif
+20: 
+21: class Splash
+22: {
+23: public:
+24: 	Splash(Window* window, const std::string image, bool fullScreenBackGround = true, IBindable* bindable = nullptr);
+25: 	~Splash();
+== PL-09: 'log-path' anywhere in the pin's sources
+(no line above = no file names it)
+== G-2: ARCH and TARGET_ARCH at recipe-load time
+60:if [ -f "config/arch.${TARGET_ARCH}" ]; then
+61:  . "config/arch.${TARGET_ARCH}"
+58:    TARGET_CONFIGURE_OPTS CMAKE_GENERATOR_NINJA TARGET_CMAKE_OPTS TARGET_MESON_OPTS \
+106:    ${TARGET_FUNCS} \
+153:TARGET_FUNCS="$(init_target_funcs)"
+== G-3: armsx2-sa's devices and its Turnip
+recipe: projects/ROCKNIX/packages/emulators/standalone/armsx2-sa/package.mk
+25:# Ship ARMSX2's own Turnip build on the Adreno 6xx/7xx families. SM8750
+27:case ${DEVICE} in
+28:  SM4450|SM6115|SM8250|SM8550|SM8650)
+29:    PKG_DEPENDS_TARGET+=" armsx2-turnip"
+116:    case ${DEVICE} in
+124:  case ${GRAPHICS_DRIVER} in
+virtual/emulators:85:     LIBRETRO_CORES+=" beetle-psx-lr beetle-saturn-lr bsnes-lr bsnes-hd-lr dolphin-lr kronos-lr uae4arm-lr"
+virtual/emulators:86:     ;;
+virtual/emulators:87:   SM8650|SM8750)
+virtual/emulators:88:     PKG_EMUS+=" aethersx2-sa ares-sa azahar-sa bigpemu-sa cemu-sa dolphin-sa gopher64-sa heroic mednafen melonds-sa nanoboyadvance-sa rpcs3-sa supermodel-sa \
+virtual/emulators:89:                 xemu-sa skyemu-sa steam vita3k-sa armsx2-sa"
+virtual/emulators:90:     LIBRETRO_CORES+=" beetle-psx-lr beetle-saturn-lr bsnes-lr bsnes-hd-lr dolphin-lr kronos-lr uae4arm-lr"
+virtual/emulators:91:     ;;
+virtual/emulators:92:   S922X)
+== G-4: the busybox override and the global
+7:PKG_VERSION="1.36.1"
+== G-5: get_env's selection
+get_env:8: # container. The four scraper and achievement credentials EmulationStation
+get_env:9: # compiles in are the exception -- they are the reason a build needs a secret
+get_env:10: # at all -- so they pass by name; everything else that looks like one is
+get_env:11: # dropped. Names, not values, are matched, so a variable holding a secret under
+get_env:12: # an innocent name still leaks: keep such things out of the shell that runs
+get_env:13: # make, or in ~/.ROCKNIX/options where only the build sees them.
+get_env:14: KEEP='^(SCREENSCRAPER_DEV_LOGIN|GAMESDB_APIKEY|CHEEVOS_DEV_LOGIN|HFS_DEV_LOGIN)$'
+get_env:15: DROP='(^|_)(KEY|KEYS|TOKEN|TOKENS|SECRET|SECRETS|PASSWORD|PASSWD|CREDENTIAL|CREDENTIALS|AUTH|APIKEY|API_KEY|PRIVATE)($|_)|^(AWS|GH|GITHUB|NPM|OPENAI|ANTHROPIC)_'
+get_env:16: for var in $(compgen -e); do
+get_env:17:   [[ "$var" == PATH ]] && continue
+get_env:18:   if [[ ! "$var" =~ $KEEP ]] && [[ "$var" =~ $DROP ]]; then
+get_env:19:     continue
+get_env:20:   fi
+get_env:21:   echo "$var=${!var}"
+get_env:22: done
+== G-6: when compile commands print
+config/functions:372:     MAKEFLAGS="-j$CONCURRENCY_MAKE_LEVEL"
+config/functions:373:   else
+config/functions:374:     NINJA_OPTS="-j1"
+config/functions:375:     MAKEFLAGS="-j1"
+config/functions:376:   fi
+config/functions:377: 
+config/functions:378:   # verbose flag
+config/functions:379:   if flag_enabled "verbose" "no"; then
+config/functions:380:     NINJA_OPTS+=" -v"
+config/functions:381:     MAKEFLAGS+=" V=1 VERBOSE=1"
+config/functions:382:   fi
+config/functions:383: 
+== G-7: the autostart step
+001-emulationstation:8: if [ ! -L "/storage/.emulationstation" ] && \
+001-emulationstation:9:    [ -d /storage/.config/emulationstation ]
+001-emulationstation:10: then
+001-emulationstation:11:   ln -sf /storage/.config/emulationstation /storage/.emulationstation
+001-emulationstation:12: fi
+001-emulationstation:13: 
+== G-8: the serial check's read
+serial_number_check:8: if [ -z "${DEVICE_SERIAL_NUMBER_PATH}" ]; then
+serial_number_check:9:   log $0 "SERIAL NUMBER CHECK: This device has no unique serial number to check, skipping and continue to Emulation Station"
+serial_number_check:10:   exit 0
+serial_number_check:11: else
+serial_number_check:12:   DEVICE_SERIAL_NUMBER="$(cat ${DEVICE_SERIAL_NUMBER_PATH})"
+serial_number_check:13:   log $0 "SERIAL NUMBER CHECK: DEVICE SERIAL NUMBER: ${DEVICE_SERIAL_NUMBER}"
+serial_number_check:14: fi
+serial_number_check:15: 
+serial_number_check:16: STORED_SERIAL_NUMBER=$(get_setting "device.serial.number")
+serial_number_check:17: if [ ! -n "${STORED_SERIAL_NUMBER}" ]; then
+serial_number_check:18:   set_setting "device.serial.number" "${DEVICE_SERIAL_NUMBER}"
+serial_number_check:19:   echo 1 > "/storage/serial_number_check_status"
+serial_number_check:20:   log $0 "SERIAL NUMBER CHECK: No storted serial number found, saving SOC serial number to system.cfg and show warning."
+serial_number_check:21: elif [ ! "${STORED_SERIAL_NUMBER}" == "${DEVICE_SERIAL_NUMBER}" ]; then
+serial_number_check:22:   set_setting "device.serial.number" "${DEVICE_SERIAL_NUMBER}"
+serial_number_check:23:   echo 1 > "/storage/serial_number_check_status"
+serial_number_check:24:   log $0 "SERIAL NUMBER CHECK: Device and stored serial numbers do not match, show warning."
+== G-9: 02's L-20 row
+72:| L-20 | `config/common/es_settings.cfg:1-3`; the pin's `Settings.cpp:252`, `CollectionSystemManager.cpp:1360-1366` | structure | -- | tree | the seed is an empty `<config>`, so `ThemeSet` starts at ES's `"system-theme"` and, with no such set installed, the first available set is chosen and saved (B10) | **design, recorded**; G-02 reads the installed themes and the setting the image chose |
+== G-1: the patch's two replacement lines (counts only)
+4
+0

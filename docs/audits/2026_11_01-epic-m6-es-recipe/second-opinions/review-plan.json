@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "depth": "independent",
+  "scope": "epic",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "anthropic/claude-opus-5-5",
+    "lab": "anthropic",
+    "identity_source": "the coordinator's dispatch on #684 (2026-11-01T00:57:51Z: 'the T3 session (m6-t3-emulators)', 'Opus 5.5 at high effort') and the session's own model metadata (claude-opus-5-5)"
+  },
+  "reviewers": [
+    {
+      "member": "gpt",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "max",
+      "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
+      "allow_fallbacks": false,
+      "calls": [
+        {
+          "phase": "refutation",
+          "output": "gpt-audit.md"
+        }
+      ],
+      "probes": [
+        {
+          "phase": "probe",
+          "output": "gpt-probe.md"
+        }
+      ],
+      "status": "complete: probe PASS 01:59:17-01:59:27Z; refutation PASS 01:59:36-02:08:53Z (23826 reasoning tokens), attempt 1 of 2, served openai/gpt-6-astra by OpenAI at max, outcome success; PL-01 to PL-16 graded (3 confirmed, 8 confirmed with narrowing, 5 cannot tell, 0 refuted, by the reply's own grade lines), PL-06 lowered to Low, G-1 to G-9 added and each read at its source (G-4 refuted; the rest carried into 05 as PL-17 to PL-19, into existing items, or as corrections to 02), in 04 \u00a7 Second opinion; its 'Sections I need' not sent: exactly two keyed invokes"
+    }
+  ],
+  "packet": {
+    "file": "gpt-brief.md",
+    "manifest": "packet-manifest.json",
+    "built_by": "tools/t37-packet.py"
+  },
+  "keyed_invokes": 2
+}

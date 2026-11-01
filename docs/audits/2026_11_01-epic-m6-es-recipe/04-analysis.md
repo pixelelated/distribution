@@ -14,9 +14,9 @@ catches and nothing caught before**: the `es_systems.cfg` link to a build-host p
 `cpugov.patch` reached on no device (PL-02, #1072), `PKG_NEED_UNPACK`'s bare word (PL-03) and a
 no-op `rm` (PL-04). Beside them: **upstream's ARMSX2 block lost in four merges** (PL-05), **fribidi
 not linked in the candidate though the plan supplies it** (PL-06), two quiet guards (PL-07, PL-08),
-an inert flag (PL-09), the checkers that do not reach these recipes (PL-10), and the currency and
-doc findings (PL-11 to PL-16). Sixteen items, none above Medium; every disposition is proposed for
-the stage-D pause.
+an inert flag (PL-09), the checkers that do not reach these recipes (PL-10), the currency and doc
+findings (PL-11 to PL-16), and three the seat added (PL-17 to PL-19). Nineteen items after the seat (3 Medium, 16 Low); every disposition is
+proposed for the stage-D pause.
 
 ## Acceptance-criteria scorecard
 
@@ -104,8 +104,9 @@ build order; pugixml is the system library; `busybox`'s word in `PKG_NEED_UNPACK
 
 Five lines name the build's credential variables (`:30`, `:40`, `:42`, `:43`, `:44`), each a
 *build-variable name*; `:39`'s value is never printed or sent, and `:40` carries only names and
-references. The recipe passes no credential to cmake; `get_env` forwards four names and the loop
-logs three (PL-08). The candidate's binary passes the state check with the one allowed shared
+references. The recipe passes no credential to cmake; `get_env` keeps four secret-shaped names by
+exception and passes every name that is not secret-shaped (`SCREENSCRAPER_SOFTNAME` among them,
+G-5, corrected); the loop logs three (PL-08). The candidate's binary passes the state check with the one allowed shared
 identity. #64's `:54` cannot be answered from this recipe (it always passes the runtime flag);
 #586 is not a current gate. PL-16 is the state check's host route.
 
@@ -189,8 +190,63 @@ Proposals for the coordinator (the lane edits no rule):
 
 ## Second opinion
 
-Pending at the time of writing: the probe and the refutation run at stage C's end; their outcome is
-written here before the pre-issue lint.
+**Depth: Independent** -- one seat, GPT-6 Astra (`openai/gpt-6-astra`, OpenAI, `max`), through the
+Facilitator `council-facilitator@1.14.1-pixelelated.2`; **exactly two keyed invokes**. The probe
+(01:59:17-01:59:27Z) answered `READY unknown`; the refutation (01:59:36-02:08:53Z, attempt 1 of 2,
+`finish=stop`, 17,249 bytes, 23,826 reasoning tokens) over `gpt-brief.md` (184,750 bytes, sha256
+`b5e04faf...2fce2`): served model, effort and provider PASS on both receipts
+(`second-opinions/*.provenance.json`); the reply's sha256 `591a43f8...20c9bd8` equals its receipt's.
+The reply was scanned before it was read: `0` secret-shaped lines (the planted positive `1`), forbidden
+terms `rc=0`, the `:39` line and its value `0`. Its *Sections I need* got no second packet; where a
+section was in the tree, the lane read it itself (`stage-c/verify-seat.sh`, `.out`).
+
+| Item | The seat | The lane's read (stage C) | Outcome |
+| --- | --- | --- | --- |
+| PL-01 | confirmed with narrowing (a bad staged link, not a failed boot) | agreed; the target `/usr/config/emulationstation/es_systems.cfg` exists on an emulation image (G-03: `644`) | holds, Medium |
+| PL-02 | confirmed | agreed, with G-1 and G-2 below | holds, Medium; the fix ordered behind T40's |
+| PL-03 | confirmed with narrowing (a stamp input, not build order) | agreed; G-4 refuted below | holds, Low |
+| PL-04 | confirmed with narrowing; **the splash claim wrong** | **verified**: `Splash.h:10-11` under `ROCKNIX` is the wordmark; `:16-17` the `else` | corrected in `02` and `05`; a contained fix |
+| PL-05 | confirmed with narrowing; the whitelist needs its capability | **verified**: the list equals `armsx2-sa/package.mk:27-29`'s `armsx2-turnip` predicate, SM8750 keeping the system driver (`:25-26`) | holds, Medium; restoring upstream's block is the installer's own list |
+| PL-06 | confirmed with narrowing; **Low** | agreed: the fallback is designed (`CMakeLists.txt:230-233`) | lowered to Low |
+| PL-07 | confirmed with narrowing (the `i18n` target's guard not sent) | `CANNOT` here beyond the cited lines; a build's log | holds, Low |
+| PL-08 | confirmed | agreed, widened by G-5 | holds, Low |
+| PL-09 | cannot tell (the parser's middle not sent) | **settled**: no file of the pin's `es-app` or `es-core` names `log-path` | holds, Low |
+| PL-10 | cannot tell (the tools' code not sent) | the control runs are R12 and R21's own lines | holds, Low |
+| PL-11 | confirmed | -- | holds, Low |
+| PL-12 | confirmed with narrowing (status, not diagnostics; regeneration unchecked) | agreed | narrowed in `05` |
+| PL-13 | cannot tell (dated reports only) | R1 C20's read is dated; no fetch here (ruling (e)) | holds, Low, as a dated finding |
+| PL-14 | confirmed with narrowing | the 14 rows are generated in `02` | holds, Low |
+| PL-15 | cannot tell (the docs not sent) | the rules are in the tree; the lane read them | holds, Low |
+| PL-16 | cannot tell | `stage-b/state-check-host.out` and `-root.out` | holds, Low |
+
+**The seat's added findings:**
+
+- **G-1 (Medium) -- confirmed, carried into PL-02.** The patch's `+` lines call
+  `get_available_cpu_governors` 4 times and `get_available_gpu_governors` 0 times (#1072's defect 2):
+  reaching the patch as it is would put the CPU list in the GPU rows, so T37's reach lands only after
+  T40's correction.
+- **G-2 (Medium) -- confirmed in part, carried into PL-02.** `PKG_PATCH_DIRS=` would replace other
+  selections; the fix appends (`+=`). The `ARCH` test is sound: `config/options:36` sets
+  `TARGET_ARCH="${ARCH}"`.
+- **G-3 (Medium) -- answered, carried into PL-05.** The list is `armsx2-sa`'s own predicate (above).
+- **G-4 (Low) -- refuted for this recipe.** `projects/ROCKNIX/packages/sysutils/busybox/package.mk`
+  sources no global recipe (`^\.` and `source` lines `0`), so `get_pkg_directory busybox` names the
+  whole of busybox's recipe.
+- **G-5 (Low) -- confirmed; `02` corrected.** `get_env:16-21` passes every variable that is not
+  secret-shaped; `SCREENSCRAPER_SOFTNAME` reaches a container build.
+- **G-6 (Medium as written) -- confirmed as a route, Low; PL-17.** A `verbose` build (default `no`,
+  `config/functions:379`) prints the compile commands carrying the credential definitions; D-INFRA-006
+  tolerates a value in a local build log. Judged outside D-WORKFLOW-215's hold test: not shipped code,
+  and the input is the builder's own flag.
+- **G-7 (Low) -- confirmed; PL-18.**
+- **G-8 (Medium as written) -- confirmed, Low; PL-19.** An empty read needs a configured serial path
+  whose file is empty; upstream's script.
+- **G-9 (Low) -- confirmed; `02`'s L-20 row corrected** to the guest's record.
+
+**The fixes the seat chose:** PL-01 the device path (as proposed); PL-02 T40's rename after G-1 (the
+pause chooses between the two); PL-03 the directory form (G-4 does not apply); PL-05 the installer's
+predicate (which is upstream's list); PL-06 a direct `fribidi` dependency, without making ES's probe
+`REQUIRED`. Each is recorded beside its item in `05`; none is decided by the lane.
 
 ## Quality self-check
 
