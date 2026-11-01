@@ -69,7 +69,7 @@ REKEY=$(python3 -I "$AUD/tools/t38-rekey.py" "$E/$P" "$REPO" $ALLOWS); rc=$?
 # 3. stage and export the staged tree
 # shellcheck disable=SC2086
 git add -- $FILES $ALLOWS || abort "git add failed" 2
-BAD=$(git diff --cached --name-only | $G -v -E '^(\.claude/skills/(code-auditor|mini-retro|futro|begin-delivery|session-stash|session-resume|release-notes|developer-relations)/|docs/audits/2026_11_01-epic-m6-doctrine-skills/tools/(allow-(legit|inherited|findings)\.txt|t38-checks\.py)$)')
+BAD=$(git diff --cached --name-only | $G -v -E '^(\.claude/skills/(code-auditor|mini-retro|futro|begin-delivery|session-stash|session-resume|release-notes|developer-relations)/|docs/audits/2026_11_01-epic-m6-doctrine-skills/tools/(allow-(legit|inherited|findings)\.txt|t38-checks\.py|t38-tables\.py|t38-tables-drift\.sh)$)')
 [ -z "$BAD" ] || abort "a staged path outside the lane's files: $BAD" 2
 [ -n "$(git diff --cached --name-only -- .claude/skills)" ] || abort "no skill file is staged" 2
 T=$(git write-tree) || abort "git write-tree failed" 2
