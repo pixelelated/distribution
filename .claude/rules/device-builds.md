@@ -634,7 +634,8 @@ checksums; the date and filename alone do not distinguish them.
 ## Iterating on EmulationStation
 
 **Upstream PRs for ES go through a different fork.** `~/Development/emulationstation-next`'s
-`origin` (`maxengel/emulationstation-next`) is a GitHub fork of
+`origin` (`pixelelated/emulationstation`, the repository the recipe clones: `PKG_SITE`,
+`projects/ROCKNIX/packages/ui/emulationstation/package.mk:8`) is a GitHub fork of
 *batocera-linux/batocera-emulationstation*, so it is outside ROCKNIX's fork
 network and GitHub refuses a PR from it into `ROCKNIX/emulationstation-next`
 ("Head repository can't be blank"). The fork that works is
@@ -642,7 +643,8 @@ network and GitHub refuses a PR from it into `ROCKNIX/emulationstation-next`
 worktrees under `~/Development/emulationstation-next.worktrees/`): branch from
 `upstream/master`, cherry-pick the commit, push there, then
 `gh pr create --repo ROCKNIX/emulationstation-next --base master --head maxengel:<branch>`
-(2026-09-07, ES PR #33).
+(2026-09-07, ES PR #33; the fork's name swept 2026-11-01 under T37 L-17 -- whether this PR
+route still holds for `pixelelated/emulationstation` is re-verified before the next ES PR).
 
 
 **`EMULATIONSTATION_SRC` only mounts the directory — it does not build from it.**
