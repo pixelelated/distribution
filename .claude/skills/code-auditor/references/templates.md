@@ -180,7 +180,7 @@ primary. Model recipes come from the installed roster, never this example alone.
 
 ## Phase 5 — Punch list (`05-punch-list.md`)
 
-```markdown
+````markdown
 # Punch List — [Item Name]
 
 **Generated:** YYYY-MM-DD
@@ -241,7 +241,7 @@ Work through items sequentially. For each item:
 
 ## Machine-readable index
 
-\`\`\`yaml
+```yaml
 punch_index:
 
 - id: PL-001
@@ -252,8 +252,8 @@ punch_index:
   where: services/example-api/src/lib/foo.ts:42
   acceptance: "<verifiable outcome>"
   outcome: open # open | resolved | deferred:#NNNN | withdrawn
-  \`\`\`
 ```
+````
 
 ---
 
