@@ -1,46 +1,57 @@
 # Review brief: M6.P2 T38, the skills, agents and settings: the ten skills the per-slice procedure and the sessions run, the council export and its eight agent definitions, and what each costs against what it is used for (#685)
 
-**Version 1, 2026-11-01, before the stranger's proof** (D-WORKFLOW-189;
-`docs/reviews/plan-for-the-plan.md` § 6b, § 6c, § 7). Written from five
-read-only research files -- R1 membership and provenance, R2 the 52 read,
-R3 checks and harness, R4 the inherited items, R5 the model and the
-ceremony (`/workspace/tmp/m6-coordinator/kit/t38-research/`, in no tree) --
-and nothing else: every figure here is one of their quoted tool lines, cited
-as `R1 C<nn>` (R1's commands C01 to C21) or `R1 § <n>`; `R2 C<n>` (R2's
+**Version 2, 2026-11-01, after the stranger's proof of version 1**
+(D-WORKFLOW-189; `docs/reviews/plan-for-the-plan.md` § 6b, § 6c, § 7).
+Version 1 was written from five read-only research files -- R1 membership
+and provenance, R2 the 52 read, R3 checks and harness, R4 the inherited
+items, R5 the model and the ceremony
+(`/workspace/tmp/m6-coordinator/kit/t38-research/`, in no tree) -- and
+nothing else: every figure here is one of their quoted tool lines, cited as
+`R1 C<nn>` (R1's commands C01 to C21) or `R1 § <n>`; `R2 C<n>` (R2's
 "command <n>", 1 to 28), `R2 § <n>` or `R2 L-<nn>` (R2's leads L-01 to
-L-27); `R3 C<n>` (C1 to C24) or `R3 § <n>`; `R4 item <n>` (1 to 64),
-`R4 § <n>` or `R4 C<n>` (R4's "command <n>", 1 to 28); `R5 C<n>` (C1 to
-C24) or `R5 § <letter>`. One figure is the drafting read's own, cited
-`v1 read` with its command: the count of briefs, because R5's "81" is its
-own erratum. **`[unverified]` marks what no tool line settles, with what
-would settle it**; `## Version 1: what the drafting read did not settle`
-near the end lists every one, then every place where the research files
-disagree. Counts by `/usr/bin/grep`, never the shell's function (#1138; R5
-§ B item 12). The structure is T37's brief (`docs/reviews/briefs/es-recipe.md`,
-version 2 at `926d1fbaee`, 1,875 lines by `grep -c ''`, R5 § A, C4), with
-R5 § A's copy, rewrite and drop applied: every paragraph R5 marks *copy* is
-copied with this slice's names; every T37-specific paragraph (the pin, the
-recipes, the packet, the seat, the guest window, the scratch export for
-`config/options`) is replaced or dropped, because this is a prose slice with
-no seat, no guest, no compile and no pin. **The Local-depth paragraphs and
-the shapes of § 5 and § 7 are T4's** (`docs/reviews/briefs/doctrine-rules.md`,
-#651, version 2 at `0921782112`, 811 lines, R5 § A, C8): the same area, the
-same kind, the same depth, the sibling glob. R5 § B's recurring errata are
-written out of it: the register line from the decided table only (§ 9); the
-placeholder check in pieces (§ 9); every other lane's ref recorded as
-whichever line prints (§ 3 item 8); a checker whose rc 0 covers nothing in
-the slice named as such (`tools/rules-check`, § 3 item 5); every figure as
-its tool prints it, 12,734 against 12,783 each with its tree (§ 1, § 2);
-§ 10 copying § 1's, § 5's and § 9's figures from one place; a block that
-would call a provider listed in the Q3 table and the never-run list
-together (§ 4, § 10); a row read before it is cited (§ 9); the locale
-stated beside each count (§ 5); one ownership row, D-WORKFLOW-218, cited
-everywhere (§ 1, § 9); every count by `/usr/bin/grep`; and the thirteenth,
-from T37's proof: **a skill does what it says when read as an instruction,
-so no council, Facilitator or keyed call runs and no skill is invoked
-against a provider** (ruling (k)). The rule, register and futro lines are
-the coordinator worktree's at **`926d1fbaee`** (R5's header, C3; R2's and
-R3's headers); the lane re-reads them at `COHASH`.
+L-27); `R3 C<n>` (C1 to C24) or `R3 § <n>`; `R4 item <n>` (1 to 64), `R4 §
+<n>` or `R4 C<n>` (R4's "command <n>", 1 to 28); `R5 C<n>` (C1 to C24) or
+`R5 § <letter>`. One figure is the drafting read's own, cited `v1 read` with
+its command: the count of briefs, because R5's "81" is its own erratum.
+**Version 2** applies the stranger's proof of version 1
+(`/workspace/tmp/m6-coordinator/kit/t38-proof.md`, in no tree; its tally
+`PASS 119 MISMATCH 14 SETTLED 41 NOT-CHECKED 9 checks(PASS|MISMATCH|SETTLED)
+174 corrections 11`), cited `proof Part <n>` or `proof correction <n>`, and
+the coordinator's rulings on it (D-WORKFLOW-189); a figure version 2's
+drafting read re-ran is cited `v2 read` with its command, run by hash at
+`2f42ff5ddf` (version 1's commit on the coordinator's branch, whose 52 equal
+`926d1fbaee`'s and the later `1fd77d0c4a`'s). **`[unverified]` marks what no
+tool line settles, with what would settle it**; `## Version 1: what the
+drafting read did not settle` near the end lists version 1's, each with its
+state after the proof, then every place where the research files disagree,
+and `## Version 2: corrections from the proof` lists the eleven corrections
+and the open items that remain. Counts by `/usr/bin/grep`, never the shell's
+function (#1138; R5 § B item 12). The structure is T37's brief
+(`docs/reviews/briefs/es-recipe.md`, version 2 at `926d1fbaee`, 1,875 lines
+by `grep -c ''`, R5 § A, C4), with R5 § A's copy, rewrite and drop applied:
+every paragraph R5 marks *copy* is copied with this slice's names; every
+T37-specific paragraph (the pin, the recipes, the packet, the seat, the
+guest window, the scratch export for `config/options`) is replaced or
+dropped, because this is a prose slice with no seat, no guest, no compile
+and no pin. **The Local-depth paragraphs and the shapes of § 5 and § 7 are
+T4's** (`docs/reviews/briefs/doctrine-rules.md`, #651, version 2 at
+`0921782112`, 811 lines, R5 § A, C8): the same area, the same kind, the same
+depth, the sibling glob. R5 § B's recurring errata are written out of it:
+the register line from the decided table only (§ 9); the placeholder check
+in pieces (§ 9); every other lane's ref recorded as whichever line prints (§
+3 item 8); a checker whose rc 0 covers nothing in the slice named as such
+(`tools/rules-check`, § 3 item 5); every figure as its tool prints it,
+12,734 against 12,783 each with its tree (§ 1, § 2); § 10 copying § 1's, §
+5's and § 9's figures from one place; a block that would call a provider
+listed in the Q3 table and the never-run list together (§ 4, § 10); a row
+read before it is cited (§ 9); the locale stated beside each count (§ 5);
+one ownership row, D-WORKFLOW-218, cited everywhere (§ 1, § 9); every count
+by `/usr/bin/grep`; and the thirteenth, from T37's proof: **a skill does
+what it says when read as an instruction, so no council, Facilitator or
+keyed call runs and no skill is invoked against a provider** (ruling (k)).
+The rule, register and futro lines are the coordinator worktree's at
+**`926d1fbaee`** (R5's header, C3; R2's and R3's headers); the lane re-reads
+them at `COHASH`.
 
 ## 1. Identity
 
@@ -48,21 +59,23 @@ R3's headers); the lane re-reads them at `COHASH`.
   settings` (OPEN, milestone `M6: Codebase renovation`, no labels, 3
   comments, already retitled; parent #807 `M6.P2 E339: Area epic: the
   doctrine (T4, T38, T39)` by the API; REST id `5992345710`; R5 § A, C10,
-  C11). The body is 27 lines with 5 generated checkboxes (sha256 prefix
-  `85c72399dfb303c3`, R5 C10): `:1` still carries the *"under epic #339
-  until this area's epic is filed"* anchor (R5 § A L-10; the retitle step is
-  done); the paths sentence *"52 paths, 12,734 lines; 0 lines read, 0 of
-  them fork-own"* (`:7` by R5 § A, `:8` by R4 item 30 `[unverified]` which:
-  the lane's `gh --repo pixelelated/distribution issue view 685` at stage A
-  settles it); *"Provenance tiers: fork-own 52"* (`:9`, R4 § 0); *"Review
-  depth: Local -- a doctrine read (plan § 6c)"* (`:10`, R5 § A);
-  `reviewed-at:` and `fixed-at:` blank (`:14-15`, R4 item 30); the generated
-  VM line *"Yes -- every behaviour claim this slice makes is proven on the
-  GENERIC_X64 guest"* (`:16`, R5 § A L-09); the slice's criteria *"added
-  here by the coordinator with its brief before dispatch"* (`:21`, R4 item
-  30); the audit folder `docs/audits/<date>-epic-m6-doctrine-skills/`
-  (`:22`, R5 § A). **The body fill at dispatch is the coordinator's**: the
-  anchor at `:1` and the VM line at `:16` replaced by § 5's answer, the
+  C11). The pre-dispatch body is 27 lines with 5 generated checkboxes
+  (sha256 prefix `85c72399dfb303c3` of the body with its trailing newline,
+  R5 C10; proof correction 3). **Its sentences are cited here by content,
+  never by line number**, because the kit rewrites the body from § 7 at
+  dispatch and every line moves (proof correction 3; the coordinator's
+  ruling): the anchor sentence *"under epic #339 until this area's epic is
+  filed"* (R5 § A L-10; the retitle step is done); the paths sentence *"52
+  paths, 12,734 lines; 0 lines read, 0 of them fork-own"* (R5 § A; R4 item
+  30); the provenance line *"Provenance tiers: fork-own 52"* (R4 § 0); the
+  depth line *"Review depth: Local -- a doctrine read (plan § 6c)"* (R5 §
+  A); the `reviewed-at:` and `fixed-at:` header lines, blank (R4 item 30);
+  the generated VM line *"Yes -- every behaviour claim this slice makes is
+  proven on the GENERIC_X64 guest"* (R5 § A L-09); the criteria sentence
+  *"added here by the coordinator with its brief before dispatch"* (R4 item
+  30); the audit-folder line `docs/audits/<date>-epic-m6-doctrine-skills/`
+  (R5 § A). **The body fill at dispatch is the coordinator's**: the anchor
+  sentence and the generated VM line replaced by § 5's answer, the
   "0 lines read" sentence corrected (#809's checkbox, R4 item 42), and § 7's
   criteria in place of the five generated ones, as T4's version 2 did on
   #651 (R5 § G (g)). Its three comments are leads (R5 C12): the evidence
@@ -83,10 +96,15 @@ R3's headers); the lane re-reads them at `COHASH`.
   punch-list issue resolved through Phase 7, `reviewed-at` and `fixed-at`
   set"* (R1 C01). `:156` puts T38 and T39 after the rules; `:230` names the
   size exception (*"T38 is 12,734 lines of skills, which cross-reference
-  each other"*); **`order.md:175` and `:187` are not this slice**: they are
-  rows of the renumbering table, where a "T38" of the preliminary review's
-  answers is today's T9 `tooling-build-supervision` (R1 C01, § 1; #644's
-  *"T38 `build supervision`"* is the same old number, R4 item 44).
+  each other"*); **`order.md:175` and `:187` are rows of the renumbering
+  table** (its header `:168` `| Second | Third | Slice |`): `:175` is not
+  this slice -- the second version's T38 is today's T9
+  `tooling-build-supervision` (R1 C01, § 1; #644's *"T38 `build
+  supervision`"* is that old number, R4 item 44) -- and **`:187` is**: *"|
+  T26 to T33 | T31 to T38 | the other interface slices, the recipe, the
+  skills |"* maps the second version's T33 to today's T38, the skills (proof
+  correction 4; v2 read: `git -C <the P1 clone> show
+  2174265e9c:docs/reviews/order.md | sed -n '168p;175p;187p'`).
   `order.md`, `slices.json` and `inventory.json` are the P1 branch's at
   `2174265e9c`, which the lane's worktree is stacked on (ruling (a)).
   **Epic:** #807. **Predecessor:** T4 #651 OPEN with 20 comments, its last
@@ -171,14 +189,18 @@ R3's headers); the lane re-reads them at `COHASH`.
   `code-auditor/SKILL.md`'s *"Three hard rules"* listing five with `3.`
   twice (`:159`, `:191`; L-02); *"Twelve recorded"* blindspots against the
   register's 76 (`:420`; L-03); `../rocknix.worktrees/` (`:711`; L-04); the
-  five duration lines against D-WORKFLOW-091 (L-05); the missing
+  ten duration lines L-05's widened pattern prints, against D-WORKFLOW-091
+  (L-05); the missing
   `audit-completion.json` (#540) and `.held.json` (#1308) mentions (L-06,
   L-07); `futro`'s and `mini-retro`'s absent `docs/planning/` spec against the
   markers `ceremonies.md` reads (L-08); `session-stash`'s
   `saved-session-state-main.md` (L-09); `scoped-audit.md`'s bare `git stash`
-  and `npx vitest run` (L-10); `release-notes`' retired publish path (L-11)
-  -- each a bug or a punch item per (c), each fixed by an edit with its
-  FAIL-first check line (§ 5's fix rule).
+  and `npx vitest run` (L-10); `release-notes`' retired publish path (L-11);
+  and `templates.md:136`'s primary slug `anthropic/claude-opus-5.5`, which a
+  lane copying the template writes into its plan against T4's plan's
+  `anthropic/claude-opus-5-5` (L-51, the coordinator's ruling on proof
+  correction 5) -- each a bug or a punch item per (c), each fixed by an edit
+  with its FAIL-first check line (§ 5's fix rule).
   (c) **A `bug` is a sentence a reader acts on wrongly; everything else is a
   punch item resolved by an edit** (R5 § C), and **the lane files the bugs**
   (D-WORKFLOW-189): each names the sentence, the artifact it misdescribes and
@@ -202,7 +224,9 @@ R3's headers); the lane re-reads them at `COHASH`.
   `council-research` (4,150 lines, no run ever kept) earns its place or is
   retired at the next refresh (L-47).
   (e) **The inactive agent files** (deepseek, grok, mistral) **stay**: pinned
-  by `verifier-pins.json`; recorded as written, with their cost (§ 4 Q5).
+  by `verifier-pins.json`; recorded as written, with their cost (§ 4 Q5:
+  descriptions of 90, 78 and 317 characters in every session's listing,
+  proof correction 9).
   (f) **`tools/skills-check` is Backlog #1373**, filed by the coordinator on
   2026-11-01 from R3 § 2.7's assertion list. T38 writes
   **`tools/t38-checks.sh`** FAIL-first as its own stage-C harness under the
@@ -218,7 +242,8 @@ R3's headers); the lane re-reads them at `COHASH`.
   references.
   (i) **The audit-seat disagreement between rules** (`release-candidates.md:71-76`
   against `code-auditor/references/review-levels.md:10` and
-  `adversarial-council.md:55`; R2 L-06) **is a rule erratum inherited by the
+  `adversarial-council.md:51-52`, the section `:49-58`; R2 L-06; proof
+  correction 8) **is a rule erratum inherited by the
   coordinator** (L-23); the brief records both texts and takes no side.
   (j) **The read order is cluster 2, then cluster 1**: the skills the
   procedure runs -- `code-auditor`, `mini-retro`, `futro`, `session-resume`,
@@ -232,17 +257,27 @@ R3's headers); the lane re-reads them at `COHASH`.
   run, and no `tools/council/run` call is made, keyless or not (R5 § B item
   13's keyless form is not taken); the stage-C check is the lint, the counts
   and `tools/t38-checks.sh`.
-  (l) **The register row D-WORKFLOW-218** (T37's dispatch takes -217) is
+  (l) **The register row D-WORKFLOW-218** (T37's dispatch took -217, `:777`
+  at `2f42ff5ddf`, proof Part 3) is
   written by the coordinator at dispatch from R5 § F's draft: T38 owns the 52
   paths and nothing else; the rules are the coordinator's; a rule erratum a
   skill read turns up is an inherited item (§ 9).
   (m) **Depth Local**: `second-opinions/review-plan.json` records `local` with
   no reviewer, in the lint's D-WORKFLOW-184 shape. No Local renovation folder
-  exists at `926d1fbaee` (R3 C11: 8 review plans, all `"depth":
-  "independent"`), so **the lane proves the lint's PASS on a Local plan in
-  stage A, before anything else, and records the line** (§ 5's `# STAGE A`).
+  exists at `926d1fbaee`: **9** files named `review-plan.json` under
+  `docs/audits/`, all `"depth": "independent"` (v2 read: `git ls-tree -r
+  --name-only 926d1fbaee -- docs/audits | /usr/bin/grep -E
+  '/review-plan\.json$'`, each file read with `git show` and its `depth`
+  printed, `9 independent`; R3 C11's 8 are those directly under a
+  `second-opinions/`, the ninth a superseded copy under
+  `superseded-untransmitted01/`; proof correction 11). So **the lane proves
+  the lint's PASS on a Local plan in stage A, before anything else, and
+  records the line** (§ 5's `# STAGE A`); the proof ran that block at
+  `2f42ff5ddf` and it printed the PASS and its FAIL-first (proof Part 4).
   (n) **The kickoff addendum goes in the doctrine futro after `:431`** at
-  dispatch; **nothing is posted on #807 beyond the retitle's read-back**.
+  dispatch; **at dispatch nothing is posted on #807 beyond the retitle's
+  read-back** (the stage-D pause's `council-research` question is posted
+  there later, by the coordinator: § 4, § 7 criterion 14).
 - **The division of labour (D-WORKFLOW-189).** This lane executes. It does
   not re-cut the slice, change a criterion, write a brief, move the M6 body,
   edit `slices.json`, `areas.json`, `order.md` or the plan, file a Backlog
@@ -276,21 +311,32 @@ R3's headers); the lane re-reads them at `COHASH`.
   carry their values; the lane reads them there, never guesses them, and
   § 9's placeholder check names all four. **No other lane's slice is these
   paths** -- every one of the 52 is claimed by T38 alone, non-rest, and the
-  neighbours sit in T4, T45, T10, T39 and T46 (R1 C07, § 5); whether any
-  `feature/m6-*` ref other than the coordinator's changes them against
-  `2174265e9c` was not read `[unverified]` -- the lane's `git for-each-ref
-  --format='%(refname)' 'refs/heads/feature/m6-*' 'refs/remotes/origin/feature/m6-*'`
-  with `git diff --quiet 2174265e9c <ref> -- .claude/agents .claude/skills`
-  per ref at stage A settles it, each line recorded as it prints. Until the
-  dispatch comment exists the pointer is not seeded and nothing starts.
+  neighbours sit in T4, T45, T10, T39 and T46 (R1 C07, § 5). **At
+  `2f42ff5ddf` no `feature/m6-*` ref carries a change of its own to them.**
+  Compared with the P1 tip, 80 of 82 refs differ only because they merged a coordinator tip
+  after the inventory, so **each ref is compared with the coordinator's tip
+  instead** (proof correction 1, the coordinator's ruling): at `2f42ff5ddf`,
+  44 refs equal it on the 52, 36 only lack its later edits (`161effca8f`,
+  and for some #810's `templates.md` change) and 2 are the P1 branch and its
+  origin (proof correction 1); and § 5's `# STAGE A` loop, which reads each
+  ref's 52 from its merge base with the tip (`git diff --quiet
+  "$CO...$r"`), printed **no line over 82 refs** with `2f42ff5ddf` standing
+  for `COHASH`, and fired (rc 1, ` 3 files changed, 50 insertions(+), 1
+  deletion(-)`) on the constructed case of the P1 tip as the base and the
+  coordinator's tip as the ref (v2 read). Until the dispatch comment exists
+  the pointer is not seeded and nothing starts.
 - **Review depth: Local** (plan § 6c: *"a dead-end table, a provenance table,
   a doctrine read | Local: the executor alone; the lint and the counts are
-  the check"*, R5 § A, C3; recorded on #685 at `:10`). **No external
+  the check"*, R5 § A, C3; recorded in #685's depth line). **No external
   reviewer, no `npm install`, no Facilitator call, no `tools/council/run`.**
-  `second-opinions/review-plan.json` is still written (`templates.md:126-146`
-  at the tip, R2 § 1: depth `local`, primary `anthropic/claude-opus-5-5`, lab
+  `second-opinions/review-plan.json` is still written, in **T4's plan's
+  shape** (`6ec78bbf8c:docs/audits/2026_10_24-epic-m6-doctrine-rules/second-opinions/review-plan.json`,
+  v2 read: depth `local`, primary `anthropic/claude-opus-5-5`, lab
   `anthropic`, reviewers `[]`, **`tier_exception` `D-WORKFLOW-184`** and a
-  `reason` naming plan § 6c's row), so the lint and the hand-back read one
+  `reason` naming plan § 6c's row; proof correction 5 -- the template's
+  Local example, `templates.md:129-146` at the tip with `:126-127` closing
+  the example before it, writes the primary as `anthropic/claude-opus-5.5`
+  at `:136`, which is L-51), so the lint and the hand-back read one
   shape for every slice; `tools/lint-audit-artifacts:94-98` at `926d1fbaee`
   accept `depth == 'local'` on an `-epic-` folder when the plan carries that
   `tier_exception` (R5 § A, C23; from `fa6bcdafa8`, merged at `18747fbc52` on
@@ -523,9 +569,9 @@ git ls-tree -r --name-only HEAD -- .claude/ | /usr/bin/grep -c -i settings; git 
 ```
 
 Expected: `dispatch tip: paths 52 lines 12783` (the figure R1 C13, R2 C1 and
-R3 C1 printed at `926d1fbaee`; equal at the dispatch tip only if nothing
-moved the 52 after `926d1fbaee` -- the dispatch tip does not exist yet
-`[unverified]`, and the line that prints is recorded); ` 3 files changed,
+R3 C1 printed at `926d1fbaee`, and these lines printed at `2f42ff5ddf`,
+proof Part 1; equal at the dispatch tip unless the dispatch moves the 52,
+and the line that prints is recorded); ` 3 files changed,
 50 insertions(+), 1 deletion(-)` twice (R1 C09; R4 C20); the numstat `18
 1 .claude/skills/code-auditor/references/templates.md`, `25 0
 .claude/skills/council/IMPORTED-FROM.md`, `7 0
@@ -553,9 +599,9 @@ of ruling (j)**:
 
 | Order | Directory under `.claude/` | Paths | Lines at `2174265e9c` | Lines at `926d1fbaee` | Origin | How the procedure runs it (R1 § 7) |
 | ---: | --- | ---: | ---: | ---: | --- | --- |
-| 1 | `skills/code-auditor` | 5 | 1,776 | 1,793 | imported and adapted | the slice runs under it: plan § 6b `:303`, stage B `:310`, § 6c `:376`, the evidence floor `:427`, execution discipline `:484`; 62 lines across the 80 briefs |
+| 1 | `skills/code-auditor` | 5 | 1,776 | 1,793 | imported and adapted | the slice runs under it: plan § 6b `:303`, stage B `:310`, § 6c `:376`, the evidence floor `:427`, execution discipline `:484` |
 | 2 | `skills/mini-retro` | 3 | 1,470 | 1,477 | imported and adapted | stage G `:315`; 58 lines across the briefs |
-| 3 | `skills/futro` | 4 | 1,051 | 1,051 | imported and adapted | the kickoff futro, `:252`, `:262`, `:353`; 176 lines across the briefs |
+| 3 | `skills/futro` | 4 | 1,051 | 1,051 | imported and adapted | the kickoff futro, `:252`, `:262`, `:353` |
 | 4 | `skills/session-resume` | 1 | 121 | 121 | imported and adapted | `:488` (D-WORKFLOW-140) |
 | 5 | `skills/session-stash` | 1 | 163 | 163 | imported and adapted | not named in the plan; 0 lines in the briefs |
 | 6 | `skills/begin-delivery` | 1 | 619 | 619 | imported and adapted | not named in the plan; 0 lines in the briefs |
@@ -575,11 +621,15 @@ family, read last and edited never (ruling (d)). **The two clusters** (R1
 § 6): by path, council, council-research and the agents name each other and
 the six workflow skills name only themselves (C19: the brief's grep, 80
 matches); by name, `begin-delivery` <-> `futro` <-> `mini-retro` <->
-`code-auditor` (mini-retro names code-auditor on 24 lines, begin-delivery
-names futro on 13), and only a handful of lines join the two clusters
+`code-auditor`, and only a handful of lines join the two clusters
 (`begin-delivery -> council` 1, `council -> futro` 1, `council ->
 mini-retro` 1, `code-auditor -> council` 1, `council-research ->
-code-auditor` 1) (R1 C10). **So the slice reviews the skills its own
+code-auditor` 1) (R1 C10). R1's counts of the lines inside cluster 2
+(mini-retro naming code-auditor, begin-delivery naming futro) and of the
+briefs' lines naming `code-auditor` and `futro` did not reproduce under any
+pattern the proof tried, and are removed (proof correction 10); the
+briefs' counts the table keeps (mini-retro 58, council-research 2,
+session-stash and begin-delivery 0) did. **So the slice reviews the skills its own
 procedure runs on, and two of the three moved files are in that procedure**
 (`templates.md`, `scoped-audit.md`): the lane reads, under code-auditor and
 mini-retro, the very text it is judging (R1 § 7).
@@ -617,9 +667,25 @@ two settings paths the title implies are not in the inventory and would fall
 to T38 by the glob if ever added (`.claude/settings.json NOT IN INVENTORY;
 globs: [('doctrine-skills', 38, 'non-rest')]`, R1 C07). The skills describe
 the Facilitator's behaviour; the lane reads it as context and does not
-review it. `docs/council-*.md` and `research/` are named by the skills;
-their owner was not read `[unverified]` (R5 § A) -- the block's `CLAIMS`
-with those paths added, as T37's extended `named` run did, settles it.
+review it. `docs/council-*.md` and `research/`, which the skills name, are
+**T39 `doctrine-reference`**'s (the area's `rest`) and **T46 `records`**'s:
+the block's own `hits()` over the inventory's rows prints `9
+('docs/council-*', ('doctrine-reference',), 'rest', 'doctrine')` and `717
+('research/', ('records',), 'non-rest', 'records')` (proof Part 5, item 5;
+v2 read, run after the block from the same directory with the inputs at
+`2174265e9c`):
+
+```bash
+python3 -I -c 'import sys,collections
+src=open(sys.argv[1]).read(); exec(src[:src.index("kof=")])
+c=collections.Counter()
+for r in rows:
+    if r["tree"]!="distribution": continue
+    for pre in ("docs/council-","research/"):
+        if r["path"].startswith(pre):
+            h,kind=hits(r); c[(pre+"*" if pre.endswith("-") else pre,tuple(h),kind,r["area"])]+=1
+for k,v in sorted(c.items()): print(v,k)' .qa-scratch/t38/membership.py | /usr/bin/grep -v -E '^(distribution |columns:)'
+```
 
 **Already found; do not re-find; take up.** Each is cited at its lines in
 `02` with a disposition; the states are as R4 read them on 2026-11-01,
@@ -635,7 +701,7 @@ re-find it); a ruling named by letter is § 1's.
 | T4 PL-17 (#911, Low, open): `t4-streams.md:218-224`, T4's `05-punch-list.md:568` `deferred:#685` (R1 C17; R4 items 32, 46) | `council/IMPORTED-FROM.md`, `COUNCIL-BUNDLE.md`; the rule `council-substrate-integrity.md` (T4's file) | **read** the skills' side of the re-review; **inherit** the rule's sentences and the export's (rulings (d), (l)): L-50 |
 | T4's boundary and its table of every skill path a rule or register line cites (`doctrine-rules.md:262-263`; T4 `04-analysis.md:705-892`, `01-research-notes.md:116`; R4 item 47) | -- | **read**: Q5 starts from T4's table, read at `6ec78bbf8c` by `git -C <worktree> show` |
 | #810 (OPEN; R4 item 31) | `code-auditor/references/templates.md:144` (the tip) against `next`'s `:129` | **read**: the lane's lint is the dispatch tip's; #810 closes when the fix reaches `next` -- L-01 |
-| #342 (OPEN; D-WORKFLOW-091; R4 item 36) | the five duration lines | **fix**: L-05 |
+| #342 (OPEN; D-WORKFLOW-091; R4 item 36) | the ten duration lines of L-05's widened pattern | **fix**: L-05 |
 | #640 (R4 item 35) | `code-auditor/SKILL.md:711` | **fix** under #640's naming of the current path: L-04 |
 | #540's completion marker and #1308's held sidecar (the coordinator's logs 2026-10-30 and 2026-10-31; R4 items 51, 52) | `code-auditor/**` | **fix**: L-06, L-07 |
 | #1044 (R4 item 33): its criterion's loop, `for p in $(grep -o -E 'scripts/[a-z-]+\.ts' <file>); do test -e "$p" \|\| echo MISSING $p; done` | `council-research/SKILL.md` and references | **read**: the loop run over the slice and its output recorded; **inherit** the fix (ruling (d)): L-30 |
@@ -667,7 +733,7 @@ the coordinator worktree's at `926d1fbaee` as the research printed them
 
    | Rule | Line or section | Serves |
    | --- | --- | --- |
-   | `adversarial-council.md` | `:23-24`, `:36-39` (the skill substrate, `begin-exploration`), `:55` (code audits: primary plus one external), `:77-78` (the seat floor) (R2's header; R2 § 4) | Q3, Q4, L-22, L-23 |
+   | `adversarial-council.md` | `:23-24`, `:36-39` (the skill substrate, `begin-exploration`), `:51-52` (code audits: primary plus one external; the section `:49-58`, proof correction 8), `:77-78` (the seat floor) (R2's header; R2 § 4) | Q3, Q4, L-22, L-23 |
    | `council-substrate-integrity.md` | read by grep (R2's header); its re-review is #911's, the rule T4's (R4 item 32) | L-50 |
    | `release-candidates.md` | `:71-76` (the two-agent upstream audit, D-QA-048; R2 L-06) | L-23 |
    | `device-builds.md` | `:596-597` (`fork-publish-release --prepare` emits a plan only; the old path retired; R2 § 7) | L-11 |
@@ -690,9 +756,14 @@ the coordinator worktree's at `926d1fbaee` as the research printed them
    `:915`, `:1089` (*"the code-auditor skill's Phase 5: every confirmed
    finding becomes an item or a named lead"*), `:1134` (*"the
    `release-notes` skill says what a PR body is"*), `:1215` (entry 75's
-   stranger's proofs) (R4 item 63); `:10`, `:30`, `:36` and `:37` matched past
-   the printed width, their terms unread `[unverified]` -- the lane's `grep
-   -n` with the same terms settles them.
+   stranger's proofs) (R4 item 63); and the four table rows R4 matched past
+   the printed width: `:10` entry 1 *"Assumed-undone"*, `:30` entry 21 *"A
+   boundary enforced at the wrong granularity"*, `:36` entry 27
+   *"Supersession that lives only in a comment"*, `:37` entry 28 *"Two
+   non-destructive one-way transfers composed into a two-way sync are a
+   recency resolver"* (v2 read: `git show
+   926d1fbaee:docs/blindspot-register.md | sed -n '10p;30p;36p;37p'`; proof
+   Part 5, item 6; which of R4's terms matched each is R4's).
 4. **The friction log** (`docs/friction-log.md`, 891 lines; 10 naming a
    skill, 57 a process, a ceremony or a brief; R4 C25): `:7`, `:25`, `:54`,
    `:58`, `:74` (*"three skills pointed to a missing naming rule"*), `:76`
@@ -712,8 +783,8 @@ the coordinator worktree's at `926d1fbaee` as the research printed them
    | `COUNCIL-BUNDLE.SHA256SUMS` | read by nothing that compares it with the tree (R3 § 1) | 94 entries; at `926d1fbaee` `BUNDLE match=52 diff=39 absent=3`; at `2174265e9c` 57 match, 34 mismatch, 3 absent (R3 C15; R1 C12) | a record of the import, not of the tree: L-34 |
    | `.githooks/pre-commit`, `commit-msg`, `pre-push` | added lines only: credential shapes and the private wordlist; `.claude/` is a personal path refused on `pr/*` (R3 C14, C22, C23) | not run | no semantic check |
    | `.github/workflows/fork-checks.yml`, `fork-wordlist.yml` | through `rules-check` and `ceremony-check`; the wordlist over the tree (R3 C14) | -- | **no CI step runs the lint, `verify-pins` or any `lint-council-*`** (R3 § 1) |
-   | `tools/forbidden-terms-check --stdin` | yes | over the 52 concatenated `rc=0`; over empty input `rc=0` (R3 C24) | **rc 0 is not yet evidence**: empty input exits 0 too, and no positive was constructed; whether the tool honours an environment override for a planted positive is not read `[unverified]` (R3 § 8) -- its source, read at stage A, settles it |
-   | `tools/register-check` | not established | `register-check: 711 IDs, each once; every citation in the live documents names a row` (R3 C24) | whether "the live documents" include `.claude/skills/` was not read `[unverified]` (R3 § 8) -- the tool's source settles it |
+   | `tools/forbidden-terms-check --stdin` | yes | over the 52 concatenated `rc=0`; over empty input `rc=0` (R3 C24) | **rc 0 is evidence only beside its positive**: empty input exits 0 too; the tool reads the wordlist only when `FORBIDDEN_PATTERNS` is empty (`tools/forbidden-terms-check:14`, `if [ -z "${FORBIDDEN_PATTERNS:-}" ]; then`, v2 read), so § 5 plants a line through that variable, never reading the list: it printed `forbidden-terms-check: 1 line(s) on stdin carry a listed word`, rc 1 (proof correction 6; v2 read) |
+   | `tools/register-check` | **the 44 skills, yes; the 8 agents, no**: its `LIVE` list names `"${ROOT}/.claude/rules" "${ROOT}/.claude/skills"` (`tools/register-check:49`, v2 read) and not `.claude/agents` (proof correction 6) | `register-check: 711 IDs, each once; every citation in the live documents names a row` (R3 C24); `712 IDs` at `2f42ff5ddf`, -217 added (proof Part 3) | a decision ID cited only in an agent file is checked by nothing: a line for #1373 (§ 8 item 4) |
    | `tools/ceremony-check` (no `--gate`) | no | `nothing overdue.` (R3 C24) | nothing in a skill |
 
    **There is no `tools/skills-check`** (`0` entries at `926d1fbaee`, R5
@@ -721,10 +792,21 @@ the coordinator worktree's at `926d1fbaee` as the research printed them
    value on its own line -- the slug is a one-item YAML list on the next
    line, so a one-line parser reads it as empty (8 of 8 print `model:` alone,
    R5 C23; `model=-` for all 8, R3 C17) -- and a roster check parses the whole
-   front matter (R5 § A L-08). Whether the code-auditor templates agree with
-   the lint's `REQUIRED` and `ANALYSIS_SECTIONS` constants today was not
-   checked `[unverified]` (R3 § 2.6) -- `t38-checks.sh`'s `contract` step
-   settles it.
+   front matter (R5 § A L-08). **The code-auditor templates and the lint's
+   constants disagree today by exact substring**: read from the lint at the
+   tip (`REQUIRED` at `:28`, `ANALYSIS_SECTIONS` at `:30`, parsed with
+   Python's `ast`, never retyped; § 5's `contract` read), the template names
+   none of `['01-research-notes.md']` among `REQUIRED`'s 5 and none of
+   `['Acceptance-criteria scorecard', 'Coverage boundary', 'Quality
+   self-check']` among `ANALYSIS_SECTIONS`' 5, where it writes `## Acceptance
+   Criteria Scorecard` (a space where the lint has a hyphen), `## Coverage
+   Boundary` and `## Quality Self-Check` (v2 read at `2f42ff5ddf`,
+   reproducing proof Part 4). Whether the lint compares those headings
+   case-insensitively, or normalises the hyphen, is unread `[unverified]` --
+   the lint's lines that use `ANALYSIS_SECTIONS` (`git grep -n
+   ANALYSIS_SECTIONS COHASH -- tools/lint-audit-artifacts`) settle it, and
+   `t38-checks.sh`'s `contract` step's FAIL-first is written against that
+   read.
 6. **T4's audit**, on its branch, read with `git -C <worktree> show
    6ec78bbf8c:<path>` (`origin/feature/m6-doctrine-rules-651` resolved to
    `6ec78bbf8c`, R5 C23; recorded at stage A as whichever line prints, R5 §
@@ -757,7 +839,8 @@ where they fall. Nothing here was tested; a lead is a fact of the lines until
 the lane's proof says more. **`proved:`** is the research's column (R2 § 9:
 `tree` read at the hash, `tool-run` a command's output shows it, `rule vs
 skill` two texts disagree). **The FAIL-first candidates come first** -- L-02
-to L-11, ruling (b)'s -- each with a check line that prints the defect at the
+to L-11, ruling (b)'s, with L-51, the proof's, at the table's end -- each
+with a check line that prints the defect at the
 tip and must print nothing (or the corrected count) after the fix, and each
 gets its `git log -S` (or `git log -L` over its lines) before it is called a
 defect (`engineering-practices.md` § Verify design intent). **Every check is
@@ -767,11 +850,11 @@ provider** (ruling (k)). **Asks**, as § 2's: *fix*, *read*, *inherit*.
 
 | Lead | Lines at the tip | Shape | proved | Check | Q | Asks |
 | --- | --- | --- | --- | --- | --- | --- |
-| **L-01** | `code-auditor/references/templates.md` (348), `council/IMPORTED-FROM.md` (127), `mini-retro/references/scoped-audit.md` (716) | **the three files the coordinator's branch moved after the inventory** (ruling (a)): `templates.md` gains the D-WORKFLOW-184 Local epic-tier keys (`:126-146`, `fa6bcdafa8`, #810; R2 § 0, § 1); `IMPORTED-FROM.md` gains the #636 retry correction and #638's `gemini-argon` audit route (R2 § 0; L-37); `scoped-audit.md` gains a question on whether a fix's positive exercised the job the fix could break -- `161effca8f`'s subject says *check 7* (#660, R1 C09; R4 item 60), R2 § 0 and § 3 read it as Check 10's question 5 (#1067), which `[unverified]`: the lane's `git show 161effca8f -- .claude/skills/mini-retro/references/scoped-audit.md` settles it; the slice reads two of the three under the skills it judges (R1 § 7; R5 § A L-05) | tool-run (R1 C09, C13; R4 C20) | `git diff 2174265e9c HEAD -- <the three>` and `git diff 8ebaf8daad HEAD -- <the three>`, each hunk with its commit by `git log -p 2174265e9c..HEAD -- <the three>` | Q1, Q4 | read; `templates.md` and `scoped-audit.md` in scope for a fix; `IMPORTED-FROM.md` inherit (ruling (d)) |
+| **L-01** | `code-auditor/references/templates.md` (348), `council/IMPORTED-FROM.md` (127), `mini-retro/references/scoped-audit.md` (716) | **the three files the coordinator's branch moved after the inventory** (ruling (a)): `templates.md` gains the D-WORKFLOW-184 Local epic-tier example (`:129-146`, `fa6bcdafa8`, #810; R2 § 0, § 1; proof correction 5), whose `:136` slug is L-51; `IMPORTED-FROM.md` gains the #636 retry correction and #638's `gemini-argon` audit route (R2 § 0; L-37); `scoped-audit.md` gains **item 5 of Check 7** (`### Check 7 — Harness self-coverage scan`, `:456`), on whether a fix's positive exercised the job the fix could break: the hunk `@@ -502,6 +502,13 @@` adds `5.` at `:505`, after items 1 to 4 (`:489` to `:502`) and before `### Check 8` (`:524`), as `161effca8f`'s subject says (#660; R1 C09; R4 item 60), not R2 § 0 and § 3's *Check 10's question 5* (#1067) (v2 read: `git show 161effca8f -- .claude/skills/mini-retro/references/scoped-audit.md \| /usr/bin/grep -n -E '^@@\|^\+[0-9]+\. '` and the file's headings at `2f42ff5ddf`; proof Part 2); the slice reads two of the three under the skills it judges (R1 § 7; R5 § A L-05) | tool-run (R1 C09, C13; R4 C20) | `git diff 2174265e9c HEAD -- <the three>` and `git diff 8ebaf8daad HEAD -- <the three>`, each hunk with its commit by `git log -p 2174265e9c..HEAD -- <the three>` | Q1, Q4 | read; `templates.md` and `scoped-audit.md` in scope for a fix; `IMPORTED-FROM.md` inherit (ruling (d)) |
 | **L-02** | `code-auditor/SKILL.md:157` (`## Evidence floor (all tiers)`), `:159` (*"Three hard rules"*), `:161` `1.`, `:166` `2.`, `:179` `3.`, `:186` `4.`, `:191` `3. **Subagent output is a LEAD, never EVIDENCE.**` | **a count and a numbering the list contradicts**: five rules, the fifth numbered `3.`, the same six lines at `2174265e9c` and `926d1fbaee`; five briefs re-number the floor around it (R1 C16, C17; R4 items 30, 48; R5 § A L-01) | tree (R1 C17) | **FAIL-first**: `git show HEAD:.claude/skills/code-auditor/SKILL.md \| sed -n '157,200p' \| /usr/bin/grep -c -E '^3\. \*\*'` prints `2` at the tip and `1` after; `git log -S'Three hard rules' -- .claude/skills/code-auditor/SKILL.md` for intent | Q3, Q7 | fix (ruling (b)) |
 | **L-03** | `code-auditor/SKILL.md:420` (*"Twelve recorded failure modes"*) | **a count true once**: the register's numbered headings run to `## 76.` beside 29 table rows (R4 item 62, C24, C26) | tree, tool-run | **FAIL-first**: `/usr/bin/grep -c 'Twelve recorded'` over the file at `HEAD` prints `1` at the tip, `0` after; the sentence names no number, or one a command prints (R4 item 62) | Q1, Q4 | fix |
 | **L-04** | `code-auditor/SKILL.md:711` (*"feature branches live in `../rocknix.worktrees/`"*) | **a retired layout**: the lanes live under `/workspace/repos/pixelelated/distribution.worktrees/` (R4 item 35, C2, C26); #640 owns the layout's drift, its `:26` row naming this file; `worktrees.md` still names the legacy path, a rule erratum the coordinator holds (T4's § 1 deferred the rules' text to #640) | tree | **FAIL-first**: `/usr/bin/grep -c 'rocknix\.worktrees'` over the file at `HEAD` prints `1` at the tip, `0` after; the corrected sentence names the layout the lanes use and #640 | Q1 | fix (ruling (b)), #640 named |
-| **L-05** | `begin-delivery/SKILL.md:398` (`~10 min`), `:429` (`~20 min/batch`), `code-auditor/SKILL.md:3` (the description's `~30 min`), `mini-retro/SKILL.md:67`, `mini-retro/references/scoped-audit.md:69` (*"Each check takes ~5 minutes"*) | **durations used as estimates** against D-WORKFLOW-091 (*"Time is not a planning factor ... the skills' briefs and the open plan issues are re-examined against this (#342), later"*); #342 OPEN asks the sweep of `.claude/skills/**` (R4 items 14, 36, C24) | tree | **FAIL-first**: a grep for a duration used as an estimate over the five files prints the five lines at the tip and none after (R4 C24 printed `durations 5` without its pattern `[unverified]`: the lane's pattern is recorded with its count); `code-auditor/SKILL.md:3` is the description every session lists, so its edit is also a Q5 load change, stated | Q2, Q5 | fix |
+| **L-05** | `begin-delivery/SKILL.md:398` (`~10 min`, twice), `:429` (`~20 min/batch`); `code-auditor/SKILL.md:3` (the description's `~30 min`), `:135` (*"prior audit returned all-PASS in 30 minutes"*, an example); `mini-retro/SKILL.md:67` to `:70` (the scope tiers' Timebox column: `~30 min`, `~2–4 hr`, `~4–8 hr`, `~1 day`); `mini-retro/references/scoped-audit.md:69` (*"Each check takes ~5 minutes"*), `:184` (*"Each should take 30 seconds to 2 minutes."*) | **durations used as estimates** against D-WORKFLOW-091 (*"Time is not a planning factor ... the skills' briefs and the open plan issues are re-examined against this (#342), later"*); #342 OPEN asks the sweep of `.claude/skills/**` (R4 items 14, 36, C24); version 1's five lines and its pattern's seven missed the tier table (proof correction 2) | tree (v2 read) | **FAIL-first**: § 5's widened pattern (`~N min`, `~N hr`, `~N–N hr`, `~1 day`, `N minutes`, `N seconds to N minutes`) over the eight fork-adapted skills prints these `10` lines at the tip (v2 read at `2f42ff5ddf`; the same 10 over all 52) and **none after, by the same pattern over the same skills**; `:135` is an example rather than an estimate, reworded like the rest or, if the lane argues it must stay, on `allow-legit.txt` with that reason and named in `02`; `code-auditor/SKILL.md:3` is the description every session lists, so its edit is also a Q5 load change, stated | Q2, Q5 | fix: every estimate line the widened pattern prints, gone or turned into the ordering D-WORKFLOW-091 allows |
 | **L-06** | `code-auditor/SKILL.md` Phase 7; `references/templates.md` | **no completion marker**: `audit-completion\|completion marker` `0` in the slice (R4 item 51, C23; R2 C24), while `ceremonies.md` names `docs/audits/<scope>/audit-completion.json` and every close-out since 2026-10-30 verifies it on a fresh clone (#540) | tool-run | **FAIL-first**: `git grep -c 'audit-completion' HEAD -- .claude/skills/code-auditor` prints nothing at the tip, a count after | Q2, Q3 | fix |
 | **L-07** | `code-auditor/references/templates.md`'s `second-opinions/` layout | **no held-reply sidecar**: `second-opinions/<reply>.held.json`, accepted by `tools/lint-audit-artifacts` since 2026-10-31 (#1308; the lint's held checks read at `926d1fbaee`, R3 C8, C9), is named in no code-auditor file (`1308\|held\|sidecar` 0, R2 C9; R4 item 52) | tool-run | **FAIL-first**: `git grep -n -E 'held\.json\|1308' HEAD -- .claude/skills/code-auditor` prints nothing at the tip, its line after | Q2 | fix |
 | **L-08** | `futro/SKILL.md:379-388` (the "two homes": a spec document's `### Futro: Phase N` placeholder and an Epic comment); `mini-retro/SKILL.md:70` (a `docs/retrospective/` dated set and a `retro-sweep` skill, both absent), `:310-320` (a spec in `docs/planning/<feature>/<feature>-spec.md` *"or similar"*) | **the ceremony markers the skills never write**: `ceremonies.md` reads `docs/futros/<date>-<scope>.md`, `docs/retros/<date>-<scope>.md` or a work-log heading; the skills name `docs/futros` 0 times and `ceremony-check` 0 times (R2 L-04, § 2, § 3, C19, C20); there are 16 entries in `docs/futros` and 6 in `docs/retros` (R2 C20); `code-auditor/SKILL.md:708` says correctly that there is no `docs/planning/` here | tool-run | **FAIL-first**: `git grep -c -E 'docs/futros\|docs/retros/' HEAD -- .claude/skills/futro .claude/skills/mini-retro` prints no match for the artifact steps at the tip (R2 L-04's test), and each step names its marker after | Q1, Q3 | fix |
@@ -785,28 +868,29 @@ provider** (ruling (k)). **Asks**, as § 2's: *fix*, *read*, *inherit*.
 | L-16 | `begin-delivery/SKILL.md:541-610` (a `## Change log` ending *"Initial conversion from `.github/prompts/begin-phase.prompt.md`"* at `:609`); `code-auditor/SKILL.md:9` (the `adapted:` note) | version histories inside procedures a session loads (R2 L-24, § 6; `sed -n '541,610p' \| wc -l` = 70, R2 C26) | tool-run | the file's line count before and after | Q5, Q7 | fix, or recorded as written with the reason; the export's is L-46 |
 | L-17 | `futro/SKILL.md:480` (*"Blindspot register (when created) conventionally lives under `docs/`"*); `futro/references/blindspot-register.md` (105 lines, 0 table rows) | the register exists, `docs/blindspot-register.md` (R2 L-26, C6); R4 item 64 reads the template as a starter, *"No drift"* -- the two dispositions disagree (§ Version 1) | tool-run | `git cat-file -e HEAD:docs/blindspot-register.md` succeeds | Q1, Q5 | fix the sentence; the template's fate a punch item |
 | L-18 | `session-stash/SKILL.md:28` (*"this is the most-skipped step"*, the archive move) | no file under `tools/` or `.githooks/` names `saved-session-state` (R2 C24), so the step the skill calls most skipped is prose only; 334 archived stashes and 242 commits, the most-run skill in the slice by record (R2 § 5, § 10) | tool-run | in scratch, a stash overwritten without archiving: nothing refuses (R2 L-19's test, not run) | Q5, Q6 | read; a **Backlog lead** for the coordinator (`learning-capture.md` § 3) |
-| L-19 | `session-stash/SKILL.md` | D-WORKFLOW-133's proof by a stranger: `stranger` `0` and `fresh reader\|fresh-reader\|never seen the project` `0` in the slice (R4 item 53, C23, C27); friction `:417` names the fresh-reader review as a guard; whether the skill says it in other words `[unverified]` -- the lane's read of the file whole settles it | tool-run | -- | Q2 | read; fix if absent |
+| L-19 | `session-stash/SKILL.md` | D-WORKFLOW-133's proof by a stranger: `stranger` `0` and `fresh reader\|fresh-reader\|never seen the project` `0` in the slice (R4 item 53, C23, C27); friction `:417` names the fresh-reader review as a guard; the skill does not say it in other words either: its only near lines are `:32`'s D-WORKFLOW-133 citation and `:111`'s template placeholder *"anything a fresh agent would need to know"*, and no step proves the stash by a stranger (v2 read: `git show 2f42ff5ddf:.claude/skills/session-stash/SKILL.md \| /usr/bin/grep -n -i -E 'stranger\|fresh\|never seen\|new agent\|D-WORKFLOW-133'`; proof Part 2) | tool-run | -- | Q2 | read; fix (absent) |
 | L-20 | `futro`, `mini-retro`, `begin-delivery` | **no cadence and no owner named**: `5 active days\|within 3 days\|12 completed\|14 days\|D-QA-040\|ceremony-check` printed nothing over the skills (R4 item 50, C26); mini-retro names `ceremonies.md` once (`:598`, R2 § 3); D-WORKFLOW-028 makes the tool the ceremonies' owner (R4 item 3) | tool-run | the same grep prints nothing at the tip | Q2 | fix with L-08: one line naming `tools/ceremony-check`; the numbers stay in `ceremonies.md` (D-QA-040 is open, R4 item 28) |
 | L-21 | `code-auditor/SKILL.md` and `references/phases.md` (one line each), `futro/references/techniques.md` (2), `futro/references/template.md` (1) | the fork-adapted files carrying a retired name -- Copilot, Opus 4.8, GPT-5.5 or GPT-5.6 (R3 C21's second block; the export's are L-38, L-39) | tool-run | `t38-checks.sh`'s `stale` step, each hit read as current or historical | Q1 | fix, or allowlist with its reason |
 | L-22 | `begin-delivery/SKILL.md:50`, `:557`, `:562`; `mini-retro/SKILL.md:364`, `:385`, `:466`, `:479`, `:499`, `:504`, `:528`; `futro/SKILL.md:457`; `mini-retro/references/template.md`; `council/references/pipeline.md:497`; and `adversarial-council.md:36-38` | **`begin-exploration`, a skill no tree has**: 19 lines of the 52 in 5 files and 1 line of the rules, absent at `2174265e9c`, `next` and `926d1fbaee` (R1 C13, C19; R2 L-07, C6, C14; R4 item 40); the skills hedge (*"if present"*, *"e.g."*), the rule does not (*"The session-skill substrate ships in the corpus as of #260 (2026-08-02): the `council` / `council-research` / `begin-exploration` skills"*); beside it `begin-delivery`'s optional `work-start-notice` *"if present"* (`:357-372`) and mini-retro's `retro-sweep` (`:70`), both absent (R2 § 3, § 6) | tool-run | `git ls-tree -d HEAD .claude/skills/begin-exploration` prints nothing (R2 L-07); the 19-line count (R1 C19) | Q6 | ruling (h): the rule half inherited by the coordinator; the skill half § 4's question; `pipeline.md:497` the export's |
-| L-23 | `release-candidates.md:71-76` against `code-auditor/references/review-levels.md:10`, `phases.md:452-471`, `code-auditor/SKILL.md:68-73`, `adversarial-council.md:55` | **who sits in a code audit**: the rule's step 4 reads *"by Fable 5.1 and GPT-6 Astra (D-QA-048), both through the council's Facilitator ... the native harness's Fable is for the session's own work"* (`:74-76`); the skill reads *"Primary plus one external reviewer from another lab"* (`review-levels.md:10`), which `adversarial-council.md:55`'s section agrees with (R2 L-06, § 1) | rule vs skill | both texts quoted in `02` (R2 L-06's test) | Q3, Q4 | ruling (i): a rule erratum the coordinator inherits; no side taken |
+| L-23 | `release-candidates.md:71-76` against `code-auditor/references/review-levels.md:10`, `phases.md:452-471`, `code-auditor/SKILL.md:68-73`, `adversarial-council.md:51-52` | **who sits in a code audit**: the rule's step 4 reads *"by Fable 5.1 and GPT-6 Astra (D-QA-048), both through the council's Facilitator ... the native harness's Fable is for the session's own work"* (`:74-76`); the skill reads *"Primary plus one external reviewer from another lab"* (`review-levels.md:10`), which `adversarial-council.md:51-52` agrees with, in its section `:49-58` (R2 L-06, § 1; proof correction 8: `:55` is the section's link line) | rule vs skill | both texts quoted in `02` (R2 L-06's test) | Q3, Q4 | ruling (i): a rule erratum the coordinator inherits; no side taken |
 | L-24 | `code-auditor/**` | the skill names no `renovation face`, `Q1 to Q7` or `plan-for-the-plan` (`0`, R4 item 56, C23), while plan § 6b's stage B carries the seven questions *"as its renovation face beside the skill's own"* (`plan-for-the-plan.md:310`, R1 C14; R4 item 56) | tool-run | -- | Q7 | read: whether the face belongs in the skill or stays in the plan, a question for the pause |
-| L-25 | `code-auditor/SKILL.md` § Evidence floor rule 2 | the TOTAL-picker lesson (the coordinator's log 2026-11-01 `:5`: a script took the first `TOTAL` line of a section that ends in the last run's; `engineering-practices.md` holds the `TOTAL:` rule); `TOTAL` occurs in 16 slice files, their sense unread `[unverified]` (R4 item 55, C23) -- the lane's read of the 16 settles it | tool-run | -- | Q2 | read; a lead, not a must |
+| L-25 | `code-auditor/SKILL.md` § Evidence floor rule 2 | the TOTAL-picker lesson (the coordinator's log 2026-11-01 `:5`: a script took the first `TOTAL` line of a section that ends in the last run's; `engineering-practices.md` holds the `TOTAL:` rule); **the upper-case `TOTAL` occurs on 0 lines of the 52**, and `total` in any case on 30 lines in 15 files (v2 read: `git grep -h -e TOTAL 2f42ff5ddf -- .claude/agents .claude/skills \| /usr/bin/grep -c ''` and its `-l` and `-i` forms: `TOTAL: lines 0 files 0`, `total, any case: lines 30 files 15`; proof correction 7; R4 C23's 16 files does not reproduce), so the `TOTAL:` shape the lesson is about appears nowhere in the slice; the 30 lines are read for a total a reader would compute by hand (R4 item 55) | tool-run | -- | Q2 | read; a lead, not a must |
 | L-26 | #314 `:14`, #287 `:16` | open checkboxes asking the code-auditor skill to carry what a retro said about packets, verdict carriage and the second-opinion passes, and its Phase 0 to record the route and the served model for every pass (R4 item 38) | tree | each checkbox against the skill's text | Q2 | read; ticked from an artifact or routed |
 | L-27 | `developer-relations/SKILL.md`, `release-notes/SKILL.md` | the writing skills' open checkboxes: #333 `:17`, #326 `:25`, #341 `:19`, #645 `:25`, #953 `:11`, #955 `:12` (the skills run `prose-check` and `pr-stack-check`; *"with today's `upstream/next` it exits 2 at its base check"*), #268 `:17` (R4 item 41) | tree | each checkbox against the text | Q2, Q4 | read |
-| L-28 | `code-auditor/references/review-levels.md`, `phases.md` | whether either names Gemini 4 Argon, the third lab plan § 6c names, or D-WORKFLOW-195's trimmed-packet re-run (`decision-register.md:728`) was not read `[unverified]` (R4 items 20, 25, § 8; `review-levels.md:49-51`, *"For extended depth choose a third lab ... Use verified current project recipes"*, R4 C26) -- the lane's grep of the two for `argon\|D-WORKFLOW-195\|trimmed` settles it | tree | -- | Q4 | read |
+| L-28 | `code-auditor/references/review-levels.md`, `phases.md` | **neither names** Gemini 4 Argon, the third lab plan § 6c names, or D-WORKFLOW-195's trimmed-packet re-run (`decision-register.md:728`): `git grep -n -i -E 'argon\|D-WORKFLOW-195\|trimmed' 2f42ff5ddf -- <the two>` prints nothing, rc 1 (v2 read; proof Part 2); `review-levels.md:11` reads *"... for example Gemini or Muse; choose and freeze it before dispatch."* and `:49-51` *"For extended depth choose a third lab ... Use verified current project recipes"* (R4 items 20, 25, § 8, C26) | tree | -- | Q4 | read: whether the levels should name the current third lab, a question for the pause |
 | L-29 | `code-auditor/SKILL.md:28-57` (continuity, D-WORKFLOW-149) | the wrapper lesson (*"The wrapper's pidfile had recorded `setsid`'s exited parent (`$!`)"*, the coordinator's log 2026-10-31; R4 item 59); `pidfile\|setsid` `0` in the slice (R4 C23); whether the section should carry *record the payload's pid* `[unverified]` -- a question for the pause | tool-run | -- | Q2 | read |
+| **L-51** | `code-auditor/references/templates.md:136` (`"primary": {"harness": "Claude Code", "model": "anthropic/claude-opus-5.5",`) | **a slug a reader copies wrongly**: the Local example (`:129-146`, #810's) writes the primary as `anthropic/claude-opus-5.5`, while T4's finished Local plan writes `anthropic/claude-opus-5-5` (`6ec78bbf8c:docs/audits/2026_10_24-epic-m6-doctrine-rules/second-opinions/review-plan.json:6`, v2 read) and § 7 criterion 3 asks that form, so a lane that copies the template misses the criterion (proof correction 5; the coordinator's ruling (b)) | tree (v2 read) | **FAIL-first**: `git show HEAD:.claude/skills/code-auditor/references/templates.md \| /usr/bin/grep -c -F 'anthropic/claude-opus-5.5'` prints `1` at the tip and `0` after, and the same with `-F 'anthropic/claude-opus-5-5'` prints `0` at the tip and `1` after; `git log -S'claude-opus-5.5' -- .claude/skills/code-auditor/references/templates.md` for intent | Q3 | fix (ruling (b)): a contained edit inside #810's example |
 
 **The council family's leads, inherited** (ruling (d)): read, recorded in
-`02` § What the coordinator and the export's refresh inherit with their
-lines, and **never edited here** -- a change to the export is a refresh by
+`02` § What the coordinator, the export's refresh and the next slices
+inherit with their lines, and **never edited here** -- a change to the export is a refresh by
 copying (D-WORKFLOW-088) or, where the defect is scaffold's own, a #585 line
 in the shape the lane writes (never sent, D-WORKFLOW-165). An agent file is
 also pinned (ruling (e)), so an edit would need a re-pin outside the 52.
 
 | Lead | Lines at the tip | Shape | proved | Check | Q |
 | --- | --- | --- | --- | --- | --- |
-| **L-30** | `council-research/SKILL.md:22`, `:145`, `:190`, `:233`, `:539`; `phase-1-independent-research.md:142`; `methodology-primitives.md:224`; `phase-3-adversarial-review.md:170`; `council/references/model-verification.md:542` | **an enforcement layer the tree does not have**: the skill names nine scaffold tooling paths the tree lacks -- `scripts/lint-council-research-{digests,gates,provenance,replay-metadata}.ts`, `scripts/summarize-council-research-lints.ts`, three test files under `scripts/`, and council's `scripts/lint-agent-model-arrays.ts` (R1 class G: 9 tokens, 27 occurrences) -- and an instruction file that *"provides the enforcement layer for authored artifacts"*; the tree's `scripts/lint-*` are `lint-council-run.ts` and `lint-council-seat-efforts.ts` (R2 L-01, § 4, C18; R3 § 2.2); #1044's loop is the criterion (§ 2) | tool-run | `git ls-tree -r --name-only HEAD scripts \| /usr/bin/grep lint-council-research` prints nothing (R2 L-01) | Q3, Q6 |
+| **L-30** | `council-research/SKILL.md:22`, `:145`, `:190`, `:233`, `:539`; `phase-1-independent-research.md:142`; `methodology-primitives.md:224`; `phase-3-adversarial-review.md:170`; `council/references/model-verification.md:542` | **an enforcement layer the tree does not have**: the skill names nine scaffold tooling paths the tree lacks -- `scripts/lint-council-research-{digests,gates,provenance,replay-metadata}.ts`, `scripts/summarize-council-research-lints.ts`, three test files under `scripts/`, and council's `scripts/lint-agent-model-arrays.ts` (R1 class G: 9 tokens, 27 occurrences) -- and an instruction file that *"provides the enforcement layer for authored artifacts"*; the tree's `scripts/lint-*` are `lint-council-run.ts` and `lint-council-seat-efforts.ts` (R2 L-01, § 4, C18; R3 § 2.2); #1044's loop is the criterion (§ 2), and its pattern `scripts/[a-z-]+\.ts` cannot reach `scripts/__tests__/`, so it prints six of the nine (`MISSING` for `scripts/lint-agent-model-arrays.ts` and the five council-research scripts, proof Part 2); whether the three test files are absent is `[unverified]` -- § 5's `cat-file` line over them settles it | tool-run | `git ls-tree -r --name-only HEAD scripts \| /usr/bin/grep lint-council-research` prints nothing (R2 L-01) | Q3, Q6 |
 | **L-31** | `council-research/references/model-roster.md:26-27`; `phase-2-clinical-synthesis.md:110`, `:246`; the skill's `agents:` front matter | Phase 2's "Researcher Agent", `.claude/agents/researcher.agent.md`, has no definition here, so council-research cannot run as written (R2 L-02; R1 class F) | tool-run | `git cat-file -e HEAD:.claude/agents/researcher.agent.md; echo "rc=$?"` on two lines prints a non-zero rc (R2 L-02) | Q3 |
 | **L-32** | `council/SKILL.md:190` (*"`references/phase-4-council-deliberation.md` for the handoff shape"*) | the file is council-research's, not council's (R1 class F; R3 § 2.2) | tool-run | `t38-checks.sh`'s `relative` step | Q3 |
 | **L-33** | `council-research/references/provenance-schema.md:594` | names `council/references/step-prompts/step2-peer-review.md`; the directory is `prompt-templates/`, the file `step2-template.md` (R1 class F, C11) | tool-run | the `refs` step | Q3 |
@@ -817,15 +901,15 @@ also pinned (ruling (e)), so an edit would need a re-pin outside the 52.
 | L-38 | 42 `Copilot` lines in 12 files (R2 C12; R3 C21); `council/SKILL.md:121-125` and both council skills' `model: "... (copilot)"` front matter; `council/references/model-verification.md:336-352`, `:538-539` (the VS Code substrate, `.vscode/settings.json`, absent); six agents' FACILITATOR-MANDATORY block linking `../../.github/instructions/council-substrate-integrity.instructions.md` and naming scaffold's issue #3059 (gemini `:19-25`); `council/references/pipeline.md:496`; council-research's five `.instructions.md` names | the Copilot-era surface `instruction-files.md` says is gone, and dead `.instructions.md` links (R2 L-10, L-11, § 4, § 8, C23) | tool-run | `git grep -c -i copilot HEAD -- .claude/skills .claude/agents` (R2 L-10) | Q1 |
 | L-39 | `council/SKILL.md:123-124` (the coordinator rows *"Claude Opus 5"* and *"GPT-5.6 Sol"*); `council-research/SKILL.md:17` (`Claude Opus 4.8 (copilot)`); `provenance-schema.md:424`, `:587`, `:640`; `model-verification.md:66`, `:385` (`deployments/gpt-5.5`, a `gpt-5.5-2026-04-24` PASS example) | stale model names for non-seat roles, among them models `adversarial-council.md`'s *Deprecated* bullet bars from the seats (R2 L-12, L-23) | tool-run | `git grep -n -E 'Opus 4\.8\|Opus 5\b\|GPT-5\.6' HEAD -- .claude/skills` (R2 L-12) | Q1, Q4 |
 | L-40 | `agents/council-member-gemini.agent.md:5-15` | the comment describes the direct-API identity (`ai-studio`, literal `modelVersion`) above `model: "google/gemini-3.8-flash (OpenRouter, effort=high)"` (R2 L-13) | tree | read `:5-15` | Q7 |
-| L-41 | all 8 agent files | the harness registers each as an invocable Agent type whose description opens *"Use when running multi-model analysis ..."* while the body bans direct invocation; all declare `tools: [readFile, edit, search]`, VS Code names (R2 L-14, § 8) -- a harness observation, not a tool line (R5 § A L-04, `[unverified]` by git); this drafting session's agent listing shows the same | -- | -- | Q5, Q6 |
+| L-41 | all 8 agent files | the harness registers each as an invocable Agent type whose description opens *"Use when running multi-model analysis ..."* while the body bans direct invocation; all declare `tools: [readFile, edit, search]`, VS Code names (R2 L-14, § 8) -- a harness observation, not a git read, recorded so by two sessions: the proof's session listed `council-member-claude`, `-deepseek`, `-gemini`, `-gpt`, `-grok`, `-kimi`, `-mistral` and `-muse` as invocable types, deepseek's and grok's descriptions reading *"Historical imported ... Inactive in pixelelated; do not invoke"* (proof Part 5, item 16), and version 2's drafting session lists the same eight, each `(Tools: readFile, edit, search)` (R5 § A L-04) | -- | -- | Q5, Q6 |
 | L-42 | `council/references/context-loading.md:124`, `output-conventions.md:25`, `pipeline.md:82`; `council-research/references/output-directory-structure.md:36`, `:53` | the output root is written `research/trio-runs/`; the runs are under `research/council-runs/` (5 entries, 34 commits) (R2 L-21, C20) | tool-run | `git ls-tree -d HEAD research/trio-runs` prints nothing | Q1 |
 | L-43 | `council/SKILL.md:191-192` (*"Replaces `.github/agents/trio-council.agent.md` (retained as a thin deprecation pointer)"*); `context-loading.md:47`, `:60` (`docs/architecture/bedrock/...`); `phase-5-deliverable.md:118` | origin pointers presented as current (R2 L-22; R1 classes D, H) | tool-run | `git cat-file -e HEAD:.github/agents/trio-council.agent.md` fails | Q1 |
-| L-44 | `council/references/member-roster.md:19-25`, `:35-36`; `council-research/references/model-roster.md:18-24`; the five active agents' `model:` lists | three prose copies of the roster mirror the Facilitator's table and **nothing checks that they agree -- they agree today**: the two seats `adversarial-council.md:77-78` names (Claude `anthropic/claude-fable-5.1` `xhigh` 1,000,000; GPT `openai/gpt-6-astra` `max` 1,050,000, the OpenAI provider pinned) and the other three across the copies (`google/gemini-3.8-flash` `high`, `moonshotai/kimi-k3` `max`, `meta/muse-spark-1.3` `max`, 1,048,576 each) (R2 L-25, § 4; R3 § 2.4, C18, C19); where `OPENROUTER_SEATS` is defined is unread `[unverified]` (R3 § 8) -- T45's read settles it | tree | the `roster` step (§ 5's checker) | Q4 |
+| L-44 | `council/references/member-roster.md:19-25`, `:35-36`; `council-research/references/model-roster.md:18-24`; the five active agents' `model:` lists | three prose copies of the roster mirror the Facilitator's table and **nothing checks that they agree -- they agree today**: the two seats `adversarial-council.md:77-78` names (Claude `anthropic/claude-fable-5.1` `xhigh` 1,000,000; GPT `openai/gpt-6-astra` `max` 1,050,000, the OpenAI provider pinned) and the other three across the copies (`google/gemini-3.8-flash` `high`, `moonshotai/kimi-k3` `max`, `meta/muse-spark-1.3` `max`, 1,048,576 each) (R2 L-25, § 4; R3 § 2.4, C18, C19); `OPENROUTER_SEATS` is defined at `scripts/council-invoke.ts:1362` (T45's file), beside `SHADOW_OPENROUTER_SEATS` (`:1510`) and `AUDIT_OPENROUTER_SEATS` (`:1534`) (v2 read: `git grep -n -E 'export const [A-Z_]*OPENROUTER_SEATS' 2f42ff5ddf -- scripts/council-invoke.ts`; proof Part 2) | tree | the `roster` step (§ 5's checker) | Q4 |
 | L-45 | `council/SKILL.md:25` (*"Rasteratops v1.4.1"*); 5 lines in 4 files | the project's old name in a revision note (D-WORKFLOW-144) (R2 L-27; R3 C21) | tool-run | `git grep -n -i rasteratops HEAD -- .claude/skills .claude/agents` | Q2 |
 | L-46 | `council-research/SKILL.md:21` (`metadata.revision_note`) | a version history inside a procedure (R2 L-24) | tree | -- | Q5 |
 | **L-47** | the 12 files of `council-research` (4,150 lines, the largest skill) | **no run retained**: `research/council-research/` has 0 entries and 0 commits at the tip; 2 work-log lines over 2 days (R2 L-03, § 10, C20; R1 class I); whether one ever ran was not checked (R1 § 9) | tool-run | `git ls-tree --name-only HEAD research/council-research/ \| /usr/bin/grep -c ''` prints `0` | Q5, Q6 |
 | L-48 | `council/IMPORTED-FROM.md` | where the export's refresh procedure lives: #1045 says none exists (T45's PL-14), #343 `:14` expects *"the refresh procedure in `.claude/skills/council/IMPORTED-FROM.md`"*, #850 `:14` that IMPORTED-FROM *"records the local change against the import"* (R4 item 34) | tree | read the file whole | Q1, Q6 |
-| L-49 | council's `SKILL.md`, references and `IMPORTED-FROM.md`; council-research's output-directory reference; the agents | D-WORKFLOW-135 removed the shadow-seat instructions; `shadow` occurs once in the slice, in the sums (R4 item 18, C27); prose residue in other words is unread `[unverified]` -- the lane's read of the family settles it | tool-run | -- | Q4 |
+| L-49 | council's `SKILL.md`, references and `IMPORTED-FROM.md`; council-research's output-directory reference; the agents | D-WORKFLOW-135 removed the shadow-seat instructions; `shadow` occurs once in the slice, in the sums, case-insensitively too (R4 item 18, C27; proof Part 2); outside the 52 the Facilitator still exports `SHADOW_OPENROUTER_SEATS` (`scripts/council-invoke.ts:1510`, L-44's read), beside the roster's two shadow profiles (L-36); prose residue in the 52 in other words is unread `[unverified]` -- the lane's read of the family settles it | tool-run | -- | Q4 |
 | **L-50** | `.claude/rules/council-substrate-integrity.md` (T4's) against `council/IMPORTED-FROM.md` and `COUNCIL-BUNDLE.md` | **#911**: the rule *"names defences this tree does not have, and heads them "all in place" (`:131`)"*; its re-review against its source estate is T38's read (T4's PL-17); the source estate is not reachable from this tree (R4 items 32, 46, § 8) | tree | the skills' side only: which defences the Facilitator has, read from the skills and IMPORTED-FROM, each `CANNOT` where only the source estate shows it | Q1, Q4 |
 
 **Not leads** -- recorded so the lane does not re-find them: `rubber-duck`
@@ -867,9 +951,9 @@ it been used for.
 | --- | --- | --- |
 | Q1 Modernize | A skill written against a mechanism the tree retired or never had: the Copilot surfaces and `.github/instructions/` and `.github/prompts/` names (L-12, L-14, L-21, L-38); a `main` branch (L-09); a `docs/planning/` spec and a `docs/retrospective/` set (L-08); the retired publish path (L-11); the legacy worktree layout (L-04); `research/trio-runs/` (L-42); origin pointers presented as current (L-43); the source estate's adaptations left half done (L-15); a count true when written (L-02, L-03) | the register row or commit that retired it, cited; the tool's `--help` or source beside the sentence; the count recomputed by a command |
 | Q2 Standards | The doctrine's standards, applied to the skills: **there is no fork front-matter standard for a skill** -- `instruction-files.md`'s is for rules (R2 § 0; R3 § 2.1) -- so the shape is recorded as it stands (`name` equal to the directory, `description`, `license`, `metadata`; the council pair's VS Code keys `tools`, `agents`, `model`, `argument-hint`) and any proposal is #1373's; the rules a skill must itself obey: `issue-tracking.md`'s `--repo` (L-13, L-14), `engineering-practices.md` (a bare `git stash`, L-10; a total is the tool's line, L-25), D-WORKFLOW-091's time (L-05), D-WORKFLOW-144's lowercase name (L-45), `ceremonies.md`'s markers and tool (L-06, L-07, L-08, L-20), D-WORKFLOW-133's stranger (L-19); the open checkboxes about the skills' own text (L-26, L-27) | `t38-checks.sh`'s `front` step and the rule's section cited beside each miss |
-| Q3 Bugs | **A skill that lies**: a path that does not exist (L-31, L-32, L-33, L-35), a command that does not run as written or runs to another's cost (L-10, L-13), a count wrong today (L-02, L-03), a gate a skill says a tool enforces and nothing does (L-30), a publish step the tree retired (L-11), two texts that contradict (L-23, a rule erratum), a roster that would send a run to a retired seat (none found, L-44). **Every command block in the 52 is a Q3 case**: run where it runs on the host without a build, a guest, a device, a cloud, a provider or a write outside scratch (a `git` read, a tool's `--help`, a `grep`), or **checked for its tool's existence and options** where it does not -- every council invoke, every provider call, every session-stash write under `.github/sessions/`, every tracker post, every `research/` run directory (ruling (k); R5 § B items 7, 13) | the artifact: `git cat-file -e` the path, the tool's options read, the count recomputed, the section read; a `bug` (ruling (c)) names the sentence, the artifact it misdescribes and the artifact the corrected sentence must match |
+| Q3 Bugs | **A skill that lies**: a path that does not exist (L-31, L-32, L-33, L-35), a command that does not run as written or runs to another's cost (L-10, L-13), a count wrong today (L-02, L-03), a slug a reader copies into a plan in the form the renovation's plans do not use (L-51), a gate a skill says a tool enforces and nothing does (L-30), a publish step the tree retired (L-11), two texts that contradict (L-23, a rule erratum), a roster that would send a run to a retired seat (none found, L-44). **Every command block in the 52 is a Q3 case**: run where it runs on the host without a build, a guest, a device, a cloud, a provider or a write outside scratch (a `git` read, a tool's `--help`, a `grep`), or **checked for its tool's existence and options** where it does not -- every council invoke, every provider call, every session-stash write under `.github/sessions/`, every tracker post, every `research/` run directory (ruling (k); R5 § B items 7, 13) | the artifact: `git cat-file -e` the path, the tool's options read, the count recomputed, the section read; a `bug` (ruling (c)) names the sentence, the artifact it misdescribes and the artifact the corrected sentence must match |
 | Q4 Currency | Against the fork's own record and code: **(a) every decision ID the 52 cite** with its row's state (`cited-ids=16`, all resolving, R2 C24) -- decided, open, or superseded by a later row on the same subject (`tools/archaeology --reversal` the sweep); **(b) every tool named**, its existence and its options (R3 C20: `XREF tools named=35 ok=32 missing=3`, the three noise); **(c) every count a skill states** recomputed (L-02, L-03, L-34's 94); **(d) every path named**, resolved, in the classes R1 C12 names (A to I) with the allowlist (§ 5's checker); **(e) the roster** against `adversarial-council.md:77-78`, `member-roster.md` and the agents (L-44); **(f) the pins**, the eight agents' sha256 against `verifier-pins.json` (8 of 8 MATCH, R3 C15) | one table per sub-question in `04`, written by a script committed beside them under the audit folder's `tools/`, never a hand table; the counts of each class |
-| Q5 Efficiency -- **the lens** | **What the slice costs a session and what it earns.** Every session lists each skill's description and each agent's (the descriptions run from 270 to 998 characters across three counts that differ in method -- R1 C18: 285 to 998; R2 C23: 272 to 985; R3 C17: 270 to 985 -- so the lane states its unit; § Version 1) and loads a skill's body when it runs; per skill: files and lines (§ 2's table), the records it has made (R2 § 10: `docs/audits/` 22 directories and 175 commits for code-auditor, `docs/futros/` 16 entries and 88 commits, `docs/retros/` 6 and 7, `research/council-runs/` 5 and 34, `.github/sessions/archived/` 334 and 242, `research/council-research/` 0 and 0; `log retros+futros+audits: 268`, R2 C20), and how the procedure runs it (§ 2; R1 § 7: begin-delivery and session-stash 0 lines in the 80 briefs). The questions the lens puts: **council-research's 4,150 lines with no run kept** (L-47: § 4's first maintainer question); mini-retro's 1,477 lines, 716 of them the scoped audit, against 6 retros, when `ceremonies.md` also accepts a work-log heading; council's 2,750 lines, 94 of them a digest list and 127 an import record, carrying the Copilot and direct-provider substrates (L-38, L-39); the three inactive agents' descriptions in every session's listing (ruling (e): recorded as written, cost stated); the version histories inside procedures (L-16, L-46); and the cheapest skill by record, session-stash, without the tool it asks for (L-18) (R2 § 10). **This slice does not touch time to play**: the retro says so in those words | the load table in `04` Q5, one row per skill and one per agent: files, lines, the description's length with its unit stated, the records, the procedure's use; a proposal to retire, merge or shorten is a Q5 `Renovation` item with its reader cost stated, decided by a stream brief or the maintainer, never applied at stage B |
+| Q5 Efficiency -- **the lens** | **What the slice costs a session and what it earns.** Every session lists each skill's description and each agent's (**the skills'** run from 270 to 998 characters across four counts that differ in method -- R1 C18: 285 to 998; R2 C23: 272 to 985; R3 C17: 270 to 985; the proof's, the YAML value as written with its quotes: 272 to 989 -- and **the agents'**, given separately, from 78 (grok) to 317 (mistral) by the proof's count: deepseek 90, gpt, claude, gemini and kimi 251 to 263, muse 316; proof correction 9; so the lane states its unit) and loads a skill's body when it runs; per skill: files and lines (§ 2's table), the records it has made (R2 § 10: `docs/audits/` 22 directories and 175 commits for code-auditor, `docs/futros/` 16 entries and 88 commits, `docs/retros/` 6 and 7, `research/council-runs/` 5 and 34, `.github/sessions/archived/` 334 and 242, `research/council-research/` 0 and 0; `log retros+futros+audits: 268`, R2 C20), and how the procedure runs it (§ 2; R1 § 7: begin-delivery and session-stash 0 lines in the 80 briefs). The questions the lens puts: **council-research's 4,150 lines with no run kept** (L-47: § 4's first maintainer question); mini-retro's 1,477 lines, 716 of them the scoped audit, against 6 retros, when `ceremonies.md` also accepts a work-log heading; council's 2,750 lines, 94 of them a digest list and 127 an import record, carrying the Copilot and direct-provider substrates (L-38, L-39); the three inactive agents' descriptions in every session's listing (90, 78 and 317 characters; ruling (e): recorded as written, cost stated); the version histories inside procedures (L-16, L-46); and the cheapest skill by record, session-stash, without the tool it asks for (L-18) (R2 § 10). **This slice does not touch time to play**: the retro says so in those words | the load table in `04` Q5, one row per skill and one per agent: files, lines, the description's length with its unit stated, the records, the procedure's use; a proposal to retire, merge or shorten is a Q5 `Renovation` item with its reader cost stated, decided by a stream brief or the maintainer, never applied at stage B |
 | Q6 Dead ends | Everything the 52 point at that the tree lacks: `begin-exploration`, `work-start-notice` and `retro-sweep` (L-22); `researcher.agent.md` (L-31); the nine scaffold tooling paths (L-30); `research/council-research/` with no run (L-47); `shadow-experiments.md` in the sums (L-34); the shadow profiles that still reach the inactive seats (L-36); and the stash archive's missing tool (L-18). Reachability: each skill's triggers (its description's *"Use when"* or *"Use for"* clause, R2 § 0) against what invokes it (the plan, the briefs, the record: R1 § 7, R2 § 10); the three inactive agents, recorded as written (ruling (e)) | the reachability table in `04` Q6, one row per skill and per agent, with its command; every row marked dead carries an `Already written:` line -- what sessions already did on the sentence's strength (the friction log's `:74` and `:76` are that record for two such sentences, § 3 item 4) |
 | Q7 Clarity | Can a reader new to it tell what each skill decides and when to open it, in one pass: the description against the body; the evidence floor's count (L-02); the procedures carrying their own histories (L-16); the continuation section futro and mini-retro share word for word (`futro/SKILL.md:26-35`, `mini-retro/SKILL.md:26-35`, R2 § 2); the bundle's sums read as a record of the tree (L-34); a comment that contradicts its own line (L-40); and a sentence a stranger read twice (the reader's pass, § 5 rule 5). **The clusters** (§ 2; R1 § 6) are recorded as the fact behind the order's *"kept whole because the skills cross-reference each other"*: by path one cluster and by name another, joined by a handful of lines. **T38 is not split** (ruling (j)); the record is for the next order | the sentence or section named with what the reader stumbled on; a duplicate named with its original and the diff of their words |
 
@@ -884,7 +968,10 @@ not only the rewrite.
 
 **The questions for the maintainer, framed here and put by the coordinator**
 (the lane raises each on #685 at the stage-D pause with its evidence; it does
-not ask the maintainer itself). Put in terms of what a session would see
+not ask the maintainer itself; the coordinator posts the `council-research`
+question as a comment on the doctrine epic #807 with its two options, and
+`02`'s row for it cites that comment's id, § 7 criterion 14). Put in terms
+of what a session would see
 (`player-language.md` § How to apply: *"A decision is put in terms of what
 they would see"*):
 
@@ -896,7 +983,7 @@ they would see"*):
    largest skill of the ten, with no run kept under `research/council-research/`
    and 2 work-log lines (R2 L-03, § 10). Keeping it is the export as copied;
    retiring it is a choice at the refresh, under #911 (PL-17), not a T38
-   edit.
+   edit. The two options go on #807 as one comment (§ 7 criterion 14).
 2. **`begin-exploration`: write the skill, or sweep the references?** (ruling
    (h), L-22) Today 19 lines of the 52 tell a session to use a skill that
    no tree has, hedged *"if present"*; `adversarial-council.md:36-38` says it
@@ -949,9 +1036,10 @@ with the proof a later slice could make**, checked against the tool's options
 and `docs/vm-qa-log.md` first, and **never brought to a guest by this lane**.
 Which of the 52 carry such a sentence was not read `[unverified]` (R5 § D; R3
 § 6 found none in the front matter, paths and names, and did not read every
-sentence) -- the Q3 table finds them. Nothing in this slice touches a
+sentence; the proof did not either) -- the lane's stage-B read finds them,
+each a `02` row, and the Q3 table carries them. Nothing in this slice touches a
 handheld, a person's cloud, a shared QA backend or a QA guest another lane
-owns. **This paragraph is the VM line #685's body takes in place of `:16`'s
+owns. **This paragraph is the VM line #685's body takes in place of its
 generated one** (L-09 of R5 § A; ruling (k)), as T4's version 2 did on #651.
 
 - **The host handoff is not this slice's concern** beyond the protocol: the
@@ -993,21 +1081,25 @@ test -d /workspace/tmp/m6-coordinator/t11-research/tree && echo clone-here   # c
 git rev-parse --verify origin/feature/m6-doctrine-rules-651 2>&1             # 6ec78bbf8c... at R5 C23; recorded whole as it prints, a hash or `fatal:` (R5 § B item 3)
 F=docs/audits/2026_10_24-epic-m6-doctrine-rules; L=$T/lint-proof; mkdir -p "$L/pass" "$L/fail"
 git archive 6ec78bbf8c "$F" | tar -x -C "$L/pass"; git archive 6ec78bbf8c "$F" | tar -x -C "$L/fail"
-python3 -I -c 'import json,sys; d=json.load(open(sys.argv[1])); print("t4 plan:", d.get("depth"), d.get("tier_exception"), len(d.get("reviewers") or []))' "$L/pass/$F/second-opinions/review-plan.json"   # `t4 plan: local D-WORKFLOW-184 0` [unverified]: T4's brief asked for that shape (doctrine-rules.md § 1); no research file read the file
+python3 -I -c 'import json,sys; d=json.load(open(sys.argv[1])); print("t4 plan:", d.get("depth"), d.get("tier_exception"), len(d.get("reviewers") or []))' "$L/pass/$F/second-opinions/review-plan.json"   # `t4 plan: local D-WORKFLOW-184 0` (the proof's run of this block at 2f42ff5ddf, proof Part 4)
 python3 -I -c 'import json,sys; p=sys.argv[1]; d=json.load(open(p)); d.pop("tier_exception",None); json.dump(d,open(p,"w"),indent=2)' "$L/fail/$F/second-opinions/review-plan.json"
 tools/lint-audit-artifacts "$L/pass/$F" > "$T/tmp/lint-local-pass.out" 2>&1; rc=$?
-echo "lint, a Local plan, rc=$rc"; tail -n 3 "$T/tmp/lint-local-pass.out"   # rc=0 and a `PASS` line [unverified]: no research file ran the lint on a Local folder (R3 C11, § 8) -- this line is the proof ruling (m) asks for
+echo "lint, a Local plan, rc=$rc"; tail -n 3 "$T/tmp/lint-local-pass.out"   # rc=0, the output ending `PASS` (proof Part 4, at 2f42ff5ddf) -- this line is the proof ruling (m) asks for
 tools/lint-audit-artifacts "$L/fail/$F" > "$T/tmp/lint-local-fail.out" 2>&1; rc=$?
-echo "lint, tier_exception removed, rc=$rc"; $G -n 'FAIL' "$T/tmp/lint-local-fail.out"   # rc=1 and a FAIL on the Local depth at epic tier (the lint's :94-98, R5 C23) -- the PASS's FAIL-first
+echo "lint, tier_exception removed, rc=$rc"; $G -n 'FAIL' "$T/tmp/lint-local-fail.out"   # rc=1, `FAIL  second-opinions/review-plan.json or its call evidence is invalid: local-only cannot satisfy Epic/Milestone` and `1 CONTRACT FAILURE(S)` (proof Part 4; the lint's :94-98, R5 C23) -- the PASS's FAIL-first
 # the three moved files, against the P1 tip and against next (ruling (a), L-01): ` 3 files changed, 50 insertions(+), 1 deletion(-)` both (R1 C09; R4 C20)
 X=':(exclude).claude/rules/'; git diff --shortstat 2174265e9c HEAD -- .claude/ "$X"; git diff --shortstat 8ebaf8daad HEAD -- .claude/ "$X"
-# other lanes' refs that move the 52 against the P1 tip [unverified] (§ 1): the coordinator's branch and this lane's are expected; any other is recorded and named on #685
-for r in $(git for-each-ref --format='%(refname:short)' 'refs/heads/feature/m6-*' 'refs/remotes/origin/feature/m6-*'); do git diff --quiet 2174265e9c "$r" -- .claude/agents .claude/skills || echo "moves the 52: $r"; done
+# other lanes' refs (proof correction 1, § 1): each ref's 52 read from its merge base with the coordinator's tip, so a ref that only lacks later coordinator edits prints nothing; expect `refs scanned:` with the count that prints (82 at 2f42ff5ddf) and no `own change` line (none over 82 refs with 2f42ff5ddf for COHASH -- v2 read); any line is a ref that moved the 52 itself, recorded and named on #685
+CO=COHASH   # the pointer's value, never the literal word (§ 1's placeholders): unfilled, every ref prints and the positive below exits 128, not 1
+R=$(git for-each-ref --format='%(refname:short)' 'refs/heads/feature/m6-*' 'refs/remotes/origin/feature/m6-*'); printf '%s\n' "$R" | $G -c '' | sed 's/^/refs scanned: /'
+for r in $R; do git diff --quiet "$CO...$r" -- .claude/agents .claude/skills || echo "own change to the 52: $r"; done
+git diff --quiet "2174265e9c...$CO" -- .claude/agents .claude/skills; rc=$?
+echo "the loop's positive, the P1 tip as base and the coordinator's tip as the ref: rc=$rc"   # rc=1 (the coordinator's three files; v2 read at 2f42ff5ddf): the comparison can fire
 # the checkers' baseline at the dispatch tip (R3 C6, C24; their lines may move with the dispatch's own commits, so each line that prints is recorded beside the research's)
 tools/rules-check > "$T/tmp/rules-check.out" 2>&1; rc=$?
 echo "rules-check rc=$rc"; tail -n 1 "$T/tmp/rules-check.out"               # rc=0, `rules-check: 30 rule files, every one front-mattered and indexed` (R3 C6) -- no evidence for the 52 (§ 3 item 5)
 tools/register-check > "$T/tmp/register-check.out" 2>&1; rc=$?
-echo "register-check rc=$rc"; tail -n 1 "$T/tmp/register-check.out"         # rc=0, `register-check: 711 IDs, each once; every citation in the live documents names a row` at 926d1fbaee (R3 C24); the dispatch's rows -217 and -218 move the count, so the line that prints is recorded
+echo "register-check rc=$rc"; tail -n 1 "$T/tmp/register-check.out"         # rc=0, `register-check: 711 IDs, each once; every citation in the live documents names a row` at 926d1fbaee (R3 C24), `712 IDs` at 2f42ff5ddf with -217 (proof Part 3); the dispatch's -218 moves it again, so the line that prints is recorded
 tools/ceremony-check > "$T/tmp/ceremony-check.out" 2>&1; rc=$?
 echo "ceremony-check rc=$rc"; tail -n 1 "$T/tmp/ceremony-check.out"         # `nothing overdue.` at 926d1fbaee (R3 C24); what another lane owes is noted on #685, never paid here
 gh --repo pixelelated/distribution issue view 685 --json title,state,body --jq '.title, .state, (.body | split("\n") | length)'   # the title, OPEN, and the body's line count after the coordinator's fill (27 before it, R5 C10)
@@ -1015,12 +1107,13 @@ date -u +%H:%M:%S; tail -n 6 /workspace/tmp/m7-m6-host-coordination.txt | cut -c
 ```
 
 Then § 2's membership block and its dispatch-tip lines, then the runs below.
-**If the Local plan's PASS does not print**, the lane records the lint's
-lines in `00`, names it on #685 as one question before stage C (the lane's
-own folder cannot pass criterion 2 until the shape is known), and goes on
-with stage B's reading, which does not depend on it (the drafter's call
-`[unverified]`: ruling (m) asks for the proof first and does not say what a
-FAIL does).
+**The Local plan's PASS printed at `2f42ff5ddf`** (proof Part 4), so what
+follows is a contingency for a lint that moves before dispatch: **if it
+does not print**, the lane records the lint's lines in `00`, names it on
+#685 as one question before stage C (the lane's own folder cannot pass
+criterion 2 until the shape is known), and goes on with stage B's reading,
+which does not depend on it (the drafter's call; ruling (m) asks for the
+proof first and does not say what a FAIL does).
 
 **The runs** (every one in `02` § The runs with exit, wall time, the figure
 and *a FAIL would mean ...*; **the block below captures exit only where it
@@ -1037,17 +1130,20 @@ export LC_ALL=C; G=/usr/bin/grep; T=/workspace/tmp/m6-t38; X=':(exclude).claude/
 M='s/((token|key|pass(w[a-z]*)?|psk|user|login|apikey) *[=:] *)[^ "]*/\1***/Ig; s/(--(token|key|pass(w[a-z]*)?|psk|user)[= ]+)[^ ]+/\1***/Ig'   # the read mask, engineering-practices.md's two substitutions widened as T37's was
 # the read tree, once (expect 52 -- R1 C05; R2 C1; R3 C1)
 mkdir -p "$T/export" && git archive HEAD .claude/agents .claude/skills | tar -x -C "$T/export"; find "$T/export" -type f | $G -c ''
-# L-01: the moved files' commits and the scoped-audit hunk's check (expect the five commits of § 2 -- R1 C09; the check number is L-01's open mark)
+# L-01: the moved files' commits and the scoped-audit hunk (expect the five commits of § 2 -- R1 C09, proof Part 1; then `@@ -502,6 +502,13 @@` and the added `+5. For each fix that landed with a positive, ...`, and the headings `456:### Check 7` and `524:### Check 8`: item 5 of Check 7 -- v2 read at 2f42ff5ddf)
 git log --format='%h %ad %s' --date=short 2174265e9c..HEAD -- .claude/skills/code-auditor/references/templates.md .claude/skills/council/IMPORTED-FROM.md .claude/skills/mini-retro/references/scoped-audit.md | sed -E "$M"
-git show 161effca8f -- .claude/skills/mini-retro/references/scoped-audit.md | $G -n -E '^@@|Check [0-9]+'
+git show 161effca8f -- .claude/skills/mini-retro/references/scoped-audit.md | $G -n -E '^@@|^\+[0-9]+\. '
+git show HEAD:.claude/skills/mini-retro/references/scoped-audit.md | $G -n -E '^### Check (7|8)'
 # front matter (expect `FRONT-MATTER 18 NONE 34` -- R3 C17: the 10 SKILL.md and the 8 agents carry it)
 find "$T/export" -type f -print0 | python3 -I -c 'import sys; fs=[f for f in sys.stdin.buffer.read().split(b"\0") if f]; n=sum(1 for f in fs if open(f,"rb").readline().rstrip(b"\r\n")==b"---"); print("FRONT-MATTER", n, "NONE", len(fs)-n)'
 # L-02: the evidence floor (expect 157 the heading, 159 `Three hard rules`, then 161, 166, 179, 186 and 191, the last two numbered 4 and 3 -- R1 C17; R4 item 30)
 git show HEAD:.claude/skills/code-auditor/SKILL.md | $G -n -E '^## Evidence floor|Three hard rules|^[0-9]+\. \*\*' | awk -F: '$1>=155 && $1<=200'
 # L-03, L-04 (expect `420:` and `711:` -- R4 C24, C26)
 git show HEAD:.claude/skills/code-auditor/SKILL.md | $G -n -E 'Twelve recorded|rocknix\.worktrees'
-# L-05: durations used as estimates (expect at least the five lines of L-05 -- R4 item 36; R4 C24's pattern is not printed, so this one is the lane's and its count is recorded)
-git grep -n -E '~ ?[0-9]+ ?(min|minute|minutes|hour|hours|h)([^a-z]|$)|[0-9]+ minutes' HEAD -- .claude/skills/begin-delivery .claude/skills/code-auditor/SKILL.md .claude/skills/mini-retro
+# L-05: durations used as estimates, by the widened pattern (`~N min`, `~N hr`, `~N–N hr`, `~1 day`, `N minutes`, `N seconds to N minutes`; proof correction 2) over the eight fork-adapted skills: expect 10 lines -- begin-delivery/SKILL.md :398, :429; code-auditor/SKILL.md :3, :135; mini-retro/SKILL.md :67 to :70; mini-retro/references/scoped-audit.md :69, :184 -- then `10` (v2 read at 2f42ff5ddf; the same 10 over all 52; version 1's narrower pattern printed 7); after stage E the same two lines print no line and `0` (L-05)
+P5='~ ?[0-9]+((-|–)[0-9]+)? ?(min|mins|minute|minutes|hr|hrs|hour|hours|h|day|days)([^a-z]|$)|[0-9]+ (seconds|minutes)([^a-z]|$)'
+S8=(.claude/skills/begin-delivery .claude/skills/code-auditor .claude/skills/futro .claude/skills/mini-retro .claude/skills/session-resume .claude/skills/session-stash .claude/skills/developer-relations .claude/skills/release-notes)
+git grep -n -E "$P5" HEAD -- "${S8[@]}" | cut -d: -f2,3; git grep -n -E "$P5" HEAD -- "${S8[@]}" | $G -c ''
 # L-06, L-07, L-08, L-20: what the skills do not name (expect no line from either, the second's rc 1 -- R2 C9, C19, C24; R4 C23, C26)
 git grep -n -E 'audit-completion|\.held\.json|1308' HEAD -- .claude/skills/code-auditor
 git grep -c -E 'docs/futros|docs/retros/|ceremony-check' HEAD -- .claude/skills/futro .claude/skills/mini-retro .claude/skills/begin-delivery
@@ -1057,8 +1153,8 @@ git grep -n 'saved-session-state-main' HEAD -- .claude/skills
 git show HEAD:.claude/skills/mini-retro/references/scoped-audit.md | sed -n '340,365p' | $G -n -E 'git stash|npx vitest'
 git show HEAD:.claude/skills/release-notes/SKILL.md | sed -n '19,20p'; git show HEAD:.claude/rules/device-builds.md | sed -n '596,597p'
 git show HEAD:.claude/skills/futro/SKILL.md | $G -n -F '{owner}/{repo}'
-# L-23: the two texts, quoted whole into 02 (expect release-candidates.md:74-76 and review-levels.md:10 as R2 L-06 quotes them)
-git show HEAD:.claude/rules/release-candidates.md | sed -n '71,76p'; git show HEAD:.claude/skills/code-auditor/references/review-levels.md | sed -n '9,12p'; git show HEAD:.claude/rules/adversarial-council.md | sed -n '53,56p'
+# L-23: the two texts, quoted whole into 02 (expect release-candidates.md:74-76 and review-levels.md:10 as R2 L-06 quotes them, and adversarial-council.md's section :49-58 with the sentence at :51-52 -- proof correction 8)
+git show HEAD:.claude/rules/release-candidates.md | sed -n '71,76p'; git show HEAD:.claude/skills/code-auditor/references/review-levels.md | sed -n '9,12p'; git show HEAD:.claude/rules/adversarial-council.md | sed -n '49,58p'
 # the brief's grep (expect `80` -- R1 C19)
 git grep -n -o -E '\.claude/(skills|agents)/[A-Za-z0-9_./-]+' HEAD -- .claude/ "$X" | $G -c ''
 # L-22 (expect `19`, `1`, and no line -- R1 C13, C19)
@@ -1068,8 +1164,9 @@ git ls-tree -r --name-only HEAD scripts | $G lint-council-research
 git cat-file -e HEAD:.claude/agents/researcher.agent.md; rc=$?
 echo "researcher agent rc=$rc"
 git ls-tree --name-only HEAD research/council-research/ | $G -c ''
-# #1044's loop over the slice, its criterion's pattern (R4 item 33): every MISSING line recorded; L-30 names the nine paths R1 class G found
+# #1044's loop over the slice, its criterion's pattern (R4 item 33): every MISSING line recorded -- six at 2f42ff5ddf (proof Part 2): the pattern cannot reach scripts/__tests__/, so the line after it reads the three test paths L-30 names (their absence is L-30's open mark)
 git grep -h -o -E 'scripts/[a-z-]+\.ts' HEAD -- .claude/skills .claude/agents | sort -u | while read -r p; do git cat-file -e "HEAD:$p" 2>/dev/null || echo "MISSING $p"; done
+git grep -h -o -E 'scripts/__tests__/[A-Za-z0-9_.-]+' HEAD -- .claude/skills .claude/agents | sort -u | while read -r p; do git cat-file -e "HEAD:$p" 2>/dev/null && echo "PRESENT $p" || echo "MISSING $p"; done
 # L-34: the bundle's sums against the tree (expect `BUNDLE match=52 diff=39 absent=3` -- R3 C15; R1 C12)
 git show HEAD:.claude/skills/council/COUNCIL-BUNDLE.SHA256SUMS | python3 -I -c 'import sys,subprocess,hashlib
 m=d=a=0
@@ -1081,16 +1178,25 @@ for ln in sys.stdin.read().splitlines():
     elif hashlib.sha256(r.stdout).hexdigest()==h: m+=1
     else: d+=1
 print("BUNDLE match=%d diff=%d absent=%d" % (m,d,a))'
-# the pins (expect 8 MATCH -- R3 C15): the entry shape read first, because no research file printed it `[unverified]` (R5 § E; R3 C14 read it and named the key `sha`) -- the recompute is then written against that shape, offline, never by running scripts/verify-pins.ts
-python3 -I -c 'import json; d=json.load(open("verifier-pins.json")); print(type(d).__name__, sorted(d)[:8] if isinstance(d,dict) else len(d))'
+# the pins, recomputed offline, never by running scripts/verify-pins.ts (expect eight MATCH lines and `pins MATCH 8 of 8` -- R3 C15, proof Part 4, v2 read at 2f42ff5ddf): the file's top level is `['created_at', 'note', 'pins', 'schema_version']` and an entry's `['repin_reason', 'repinned_at', 'repinned_by', 'sha']` (proof Part 4; v2 read), so each pin is `d["pins"][path]["sha"]`, the sha256 of the file's bytes; 8 of the 30 pins are under .claude/
+git show HEAD:verifier-pins.json | python3 -I -c 'import sys,json,hashlib,subprocess
+d=json.load(sys.stdin)["pins"]; ps=sorted(p for p in d if p.startswith(".claude/")); m=0
+for p in ps:
+    b=subprocess.run(["git","show","HEAD:"+p],capture_output=True,check=True).stdout
+    ok=hashlib.sha256(b).hexdigest()==d[p]["sha"]; m+=ok; print("MATCH" if ok else "DIFF", p)
+print("pins MATCH %d of %d" % (m,len(ps)))'
 # the stale names (R3 C21's terms, case-insensitive; expect its table: rubber[- ]duck 0/0, copilot 42/12, \.github/instructions 27/17, \.github/prompts 3/3, test/qa-integration 0/0, opus 4.8 6/2, gpt-5[.]5 2/1, gpt-5[.]6 5/3, mistral 50/13, trio 20/9, rasteratops 5/4, state-main 5/2, scaffold 83/26 -- lines/files)
 for t in 'rubber[- ]duck' 'copilot' '\.github/instructions' '\.github/prompts' 'test/qa-integration' 'opus[- ]4[.]8|claude-opus-4' 'gpt-5[.]5' 'gpt-5[.]6' 'mistral' 'trio' 'rasteratops' 'state-main' 'scaffold'; do printf '%s: %s lines in %s files\n' "$t" "$(git grep -h -i -E -e "$t" HEAD -- .claude/ "$X" | $G -c '')" "$(git grep -l -i -E -e "$t" HEAD -- .claude/ "$X" | $G -c '')"; done
 # the IDs the 52 cite (expect 16, each resolving -- R2 C24; R2's loop is not printed, so the lane's look-up of each in the decided and open tables is recorded beside it)
 git grep -h -o -E 'D-[A-Z]+-[0-9]+' HEAD -- .claude/ "$X" | sort -u | $G -c ''
 # the roster's rows in the rule (expect the Claude and GPT rows of adversarial-council.md:77-78 -- R2 § 4; R3 C18)
 git show HEAD:.claude/rules/adversarial-council.md | sed -n '75,80p'
-# the lint's constants the templates describe (R3 § 2.6, `[unverified]` today): read from the lint, never retyped
-$G -n -E '^(REQUIRED|ANALYSIS_SECTIONS)' tools/lint-audit-artifacts
+# the contract read: the lint's constants against the templates (R3 § 2.6), parsed from the lint at the tip with Python's ast, never retyped; expect `28:REQUIRED = [...` and `30:ANALYSIS_SECTIONS = [...`, then `REQUIRED 5 missing in templates.md: ['01-research-notes.md']` and `ANALYSIS_SECTIONS 5 missing in templates.md: ['Acceptance-criteria scorecard', 'Coverage boundary', 'Quality self-check']` by exact substring (v2 read at 2f42ff5ddf; proof Part 4); the case rule is § 3 item 5's open mark
+$G -n -E '^(REQUIRED|ANALYSIS_SECTIONS) ' tools/lint-audit-artifacts | cut -c1-40
+git show HEAD:tools/lint-audit-artifacts | python3 -I -c 'import sys,ast,subprocess
+src=sys.stdin.read(); t=subprocess.run(["git","show","HEAD:.claude/skills/code-auditor/references/templates.md"],capture_output=True,check=True).stdout.decode()
+c={n.targets[0].id: ast.literal_eval(n.value) for n in ast.parse(src).body if isinstance(n,ast.Assign) and isinstance(n.targets[0],ast.Name) and n.targets[0].id in ("REQUIRED","ANALYSIS_SECTIONS")}
+for k in ("REQUIRED","ANALYSIS_SECTIONS"): print(k, len(c[k]), "missing in templates.md:", [v for v in c[k] if v not in t])'
 # the text checks over the 52, in the hooks' own form (expect the compile rc at most 1, the planted positive `1`, then `0` files; NON-ASCII 48 files; forbidden-terms rc=0 twice -- R3 C24)
 ( P=$(mktemp "$T/tmp/sp.XXXXXX"); git show HEAD:.githooks/secret-patterns > "$P"; SECRET_PATTERNS=''; . "$P"; rm -f "${P:?}"
   printf '' | $G -E -e "$SECRET_PATTERNS" >/dev/null 2>&1; rc=$?
@@ -1102,9 +1208,12 @@ find "$T/export" -type f -print0 | sort -z | xargs -0 cat > "$T/tmp/the52.txt"
 tools/forbidden-terms-check --stdin < "$T/tmp/the52.txt"; rc=$?
 echo "forbidden-terms over the 52 rc=$rc"
 tools/forbidden-terms-check --stdin < /dev/null; rc=$?
-echo "forbidden-terms over empty input rc=$rc"   # rc=0 too (R3 C24): not evidence until a positive fires; the tool's source is read for an override first (§ 3 item 5)
+echo "forbidden-terms over empty input rc=$rc"   # rc=0 too (R3 C24): not evidence until the positive below fires
+printf 'a zzqplantedzz line\n' > "$T/tmp/planted.txt"
+FORBIDDEN_PATTERNS='zzqplantedzz' tools/forbidden-terms-check --stdin < "$T/tmp/planted.txt"; rc=$?
+echo "forbidden-terms, a planted positive, rc=$rc"   # rc=1 and `forbidden-terms-check: 1 line(s) on stdin carry a listed word` (proof Part 4; v2 read): with FORBIDDEN_PATTERNS set the tool never reads the list (its :14)
 .githooks/hooks-test > "$T/tmp/hooks-test.out" 2>&1; rc=$?
-echo "hooks-test rc=$rc"; tail -n 1 "$T/tmp/hooks-test.out"   # no research file ran it at this tip: the line that prints is recorded
+echo "hooks-test rc=$rc"; tail -n 1 "$T/tmp/hooks-test.out"   # neither this, `tools/box-check` below nor stage A's `tools/ceremony-check` was run by the proof `[unverified]`: the lines that print at stage A are the record
 tools/box-check > "$T/tmp/box-check.out" 2>&1; rc=$?
 echo "box-check rc=$rc"; tail -n 1 "$T/tmp/box-check.out"     # once here, once at hand-back, and --issue N once per issue this lane files (T4's § 5)
 # STAGE C -- the lane's checker, which does not exist at stage A (expect its FAIL-first run's exit 1 naming each mutation and exit 0 on the baseline, then at the tip exit 1 naming each stage-B finding, with its own `TOTAL:` line)
@@ -1116,10 +1225,13 @@ git diff --stat TIPHASH HEAD -- .claude/rules CLAUDE.md AGENTS.md NAMING.md veri
 Every expectation above is a research file's printed line, cited in its
 comment, or marked by stage. **The lane re-runs every one as its own line; a
 line that differs is recorded beside the expectation, not argued with.**
-Four of the lines are the lane's own to write, because the research printed
-their figures without the command that made them: the durations' pattern
-(R4 C24), the IDs' look-up (R2 C24), the pins' recompute (R3 C15; R5 § E),
-and the front-matter count's exact rule (R3 C17 printed the counts).
+One line is the lane's own to write, because neither the research nor the
+proof printed the command that made its figure: the look-up of each cited
+ID in the decided and open tables (R2 C24's `16`; the proof's `count 16`,
+each `dec:1 open:0`). Version 2 wrote the other three version 1 left to
+the lane: the durations' widened pattern (proof correction 2), the pins'
+recompute against the shape the proof read, and the front-matter line,
+whose run printed `FRONT-MATTER 18 NONE 34` (proof Part 4).
 
 **The lane's checker, `tools/t38-checks.sh`** (stage C; ruling (f); R3 §
 2.7's assertion list, scaled to what the slice needs, its findings feeding
@@ -1163,12 +1275,14 @@ Its steps, one `ok` / `FAIL` line each:
    `adversarial-council.md:77-78`'s two rows; all five equal
    `council/references/member-roster.md`'s (R3 § 2.4; L-44).
 6. **`pins`** -- each agent file's sha256 equals its `verifier-pins.json`
-   entry, read in the shape the stage-A read found (`verify-pins`' first
+   entry, read as `pins[path].sha` (§ 5's recompute; `verify-pins`' first
    gate, offline, no Node; R3 C15).
 7. **`contract`** -- `code-auditor/references/templates.md` names every file
    in the lint's `REQUIRED` and every `ANALYSIS_SECTIONS` heading, the two
    read from `tools/lint-audit-artifacts` at the commit, never retyped (R3
-   § 2.6, § 2.7).
+   § 2.6, § 2.7); at the tip it FAILs on `01-research-notes.md` and the
+   three sections by exact substring (§ 3 item 5), so its rule follows the
+   lint's own comparison, read first.
 8. **`bundle`** -- informational: `COUNCIL-BUNDLE.SHA256SUMS` against the
    tree, the three counts printed (L-34); never a FAIL (ruling (d)).
 
@@ -1228,24 +1342,24 @@ As T37's § 6 and T4's, scaled for a prose slice: no packet, no seat, no
 guest, no compile (R5 § A); § 7 is this section as checkboxes. All in the
 worktree, committed on its branch with messages that cite `#685` (`Refs
 #685` while any criterion is open, never a closing keyword). The folder
-**`docs/audits/<yyyy_mm_dd>-epic-m6-doctrine-skills/`** (#685 `:22`; T4's
+**`docs/audits/<yyyy_mm_dd>-epic-m6-doctrine-skills/`** (#685's audit-folder line; T4's
 date form, `2026_10_24-...`, R5 § A, C22):
 
 | Output | Path | Shape | Stage |
 | --- | --- | --- | --- |
 | Running log | `.../00-running-log.md` | opened first: the model and effort that ran, the session, `reviewed-at` (the dispatch tip) with `2174265e9c` and `8ebaf8daad` beside it and the three moved files listed, every command with its exit status and time; **every check that stands as a proof announced on a line that begins `PROOF:`** with its time and command; **each stage-B session's last line records `git status --short -- .claude/agents .claude/skills` empty** (no fix while reading, T4's A2); its closing census says no build, no compiler, no guest, no fetch, no council or keyed call, no held directory, and names the export's path and its retirement at stage H | A onward |
 | Research notes | `.../01-research-notes.md` | § Scope: § 2's block with its sha256 prefix checked and its output, both totals, the drift with its five commits, the 0 settings paths; **§ Read order: the two clusters and the order taken** (§ 2's table); § The reader's pass: what a stranger stumbled on, skill by skill, before any auditing (rule 5) | A, B |
-| Forward audit | `.../02-forward-audit.md` | Phase 2 over #685's checklist, in this order: **§ Coverage** (52 rows, the path in backticks as the first cell, its origin class beside the inventory's tier, its read order, Q1 to Q7 each answered or `n/a` with the reason); **§ The leads** (L-01 to L-50, each with its lines, its family, its owner and its disposition); **§ The procedure's skills** (cluster 2: the ruling-(b) fixes, the markers, the Q3 rows); **§ The writing pair**; **§ The export** (cluster 1, read only: the roster table, the pins, the sums, the inherited list's evidence); **§ The names and the references** (per term and per class, at the tip and after stage E, with the allowlists; generated, asserted); **§ Command blocks** (every block in the 52 with its file:line and a verdict -- run and passed, run and failed, checked for its tool's existence and options, not runnable here with the reason); **§ The runs** (every § 5 command with exit, wall time, the figure and *a FAIL would mean ...*); **§ The streams** (written by the coordinator after stage D; the lane leaves the heading and the pause's dispositions); **§ Positives**; **§ The #585 lines owed** (scaffold-side defects in the shape the lane writes, never sent); **§ What the coordinator and the export's refresh inherit** (§ 8, with lines); **§ The rulings** ((a) to (n), one row each); every proof with its `proved:` cell | B onward |
+| Forward audit | `.../02-forward-audit.md` | Phase 2 over #685's checklist, in this order: **§ Coverage** (52 rows, the path in backticks as the first cell, its origin class beside the inventory's tier, its read order, Q1 to Q7 each answered or `n/a` with the reason); **§ The leads** (L-01 to L-51, each with its lines, its family, its owner and its disposition); **§ The procedure's skills** (cluster 2: the ruling-(b) fixes, the markers, the Q3 rows); **§ The writing pair**; **§ The export** (cluster 1, read only: the roster table, the pins, the sums, the inherited list's evidence); **§ The names and the references** (per term and per class, at the tip and after stage E, with the allowlists; generated, asserted); **§ Command blocks** (every block in the 52 with its file:line and a verdict -- run and passed, run and failed, checked for its tool's existence and options, not runnable here with the reason); **§ The runs** (every § 5 command with exit, wall time, the figure and *a FAIL would mean ...*); **§ The streams** (written by the coordinator after stage D; the lane leaves the heading and the pause's dispositions); **§ Positives**; **§ The #585 lines owed** (scaffold-side defects in the shape the lane writes, never sent); **§ What the coordinator, the export's refresh and the next slices inherit** (§ 8: one row per item with its lines, each naming its owner issue); **§ The rulings** ((a) to (n), one row each); every proof with its `proved:` cell | B onward |
 | Retrospective | `.../03-retrospective.md` | Phase 3 with § 3.5's interaction audit for the seams § 2 names: the skills x the plan's procedure (the slice reviews the skills it runs on); the skills x the rules they cite; the skills x the lint and `ceremony-check` that read their artifacts; the export x its pins, its sums and the Facilitator; and the doctrine futro's predictions checked | B |
 | Analysis | `.../04-analysis.md` | Phase 4, then § Finding Verification (4.5, in full: Local depth has no other reviewer), then **§ Renovation face** with one subsection per question Q1 to Q7 (the lint requires all seven): Q4's tables written by a script committed beside them, Q5's load table, Q6's reachability table, Q7's duplicates with their diffs; § Second opinions reads *not applicable at Local depth (plan § 6c)* | B, C |
-| Second opinions | `.../second-opinions/review-plan.json` | depth `local`, primary `anthropic/claude-opus-5-5`, lab `anthropic`, reviewers `[]`, `tier_exception` `D-WORKFLOW-184`, `reason` plan § 6c's row (ruling (m)); **no provenance file, no packet manifest, no held sidecar** | C |
+| Second opinions | `.../second-opinions/review-plan.json` | depth `local`, primary `anthropic/claude-opus-5-5` (T4's plan's form, not the template's `:136`, L-51), lab `anthropic`, reviewers `[]`, `tier_exception` `D-WORKFLOW-184`, `reason` plan § 6c's row (ruling (m)); **no provenance file, no packet manifest, no held sidecar** | C |
 | Tools | `.../tools/` | `t38-checks.sh`, its three allowlists, and every table generator, each seen to exit 1 on a constructed drift before its table is trusted | C |
 | Stages | `.../stage-a/` to `.../stage-e/` | the first commands and § 5's runs under `stage-a/`; the reader's pass notes under `stage-b/`; the checker's FAIL-first and tip runs under `stage-c/`; the streams' runs under `stage-e/`; **no `guest-cycle/`** | A to E |
 | Lint, before D | `tools/lint-audit-artifacts <folder> --phase pre-issue` | prints `PASS pre-issue artifacts (does not certify resolution)`; recorded in `00` | C to D |
 | Punch list | `.../05-punch-list.md` | Phase 5: every item with `question:`, severity, category (`Renovation` where it is not a defect), where (file:line at the dispatch tip), acceptance, **the ladder stage and the tool that would hold it at the next, or the words *no tool can***; the YAML `punch_index`; an inherited item marked with its owner (`inherit:#911`, the coordinator, #1373) | D |
 | Audit issue | GitHub, labels `audit`, `punch-list`, milestone M6, a sub-issue of #685 | `Audit: M6 T38 the skills, agents and settings -- N findings (X critical, Y high)`; one checkbox per item, each agent-verifiable (D-QA-044); `tools/box-check --issue N` run on it and its line recorded | D |
 | Bug issues | GitHub, label `bug`, title `Bug: ...`, milestone-less and not sub-issues (`milestone-phase-naming.md` § Reactive) | one per sentence a reader acts on wrongly (ruling (c); D-WORKFLOW-187, D-QA-051): the code-trace shape with *the sentence* as the defect's source and *the artifact it misdescribes* as the evidence; *"Can this be done on the VM? No -- the tree, the tool or the register shows it"*; a criterion naming the artifact the corrected sentence must match; `Already written:` | D |
-| **The stage-D pause** | #685 | the punch list posted with the audit issue's and the bugs' numbers and § 4's two maintainer questions; **the lane waits** while the coordinator writes the stream brief `docs/reviews/briefs/t38-streams.md` (D-WORKFLOW-189; plan § 6b stage E: the verdict's lines, the fix as a specification, the test first, the `Already written:` line, the files owned, the commit shape; R5 § C) | D to E |
+| **The stage-D pause** | #685 | the punch list posted with the audit issue's and the bugs' numbers and § 4's two questions (the coordinator posts `council-research`'s on #807, § 7 criterion 14); **the lane waits** while the coordinator writes the stream brief `docs/reviews/briefs/t38-streams.md` (D-WORKFLOW-189; plan § 6b stage E: the verdict's lines, the fix as a specification, the test first, the `Already written:` line, the files owned, the commit shape; R5 § C) | D to E |
 | Verification | `02` appended; `.../audit-completion.json` | every claim proven where the tree, a tool or the register can show it; every proof's `proved:` cell one of `tree`, `tool-run`, `history`, `fix-tree`, `fix-pending-session` (T4's five); the Phase 7 gate in `05` | F |
 | Retro | `docs/retros/<yyyy-mm-dd>-m6-doctrine-skills.md`, and the same text as a comment on #685 | the mini-retro skill's four answers with its scoped audit, in Instruction-Recommendations mode (plan § 6b G), its *adjustments* written as proposals for the coordinator; **what the slice did to the two time-to-play numbers: nothing, said in those words** | G |
 | Hand-back | #685 | `reviewed-at:` and `fixed-at:` written into #685's body by the executor; one comment naming **the one tip** and each artifact by path, the six checker exit codes, and per fix its `proved:` class | H |
@@ -1268,31 +1382,32 @@ from the artifacts, never from the hand-back's words; where this section and
 
 - [ ] `docs/audits/<date>-epic-m6-doctrine-skills/` holds `00-running-log.md` and `01-research-notes.md` to `05-punch-list.md`, `second-opinions/`, `stage-a/` to `stage-e/` and `tools/`, and no `guest-cycle/` (`ls` of the folder in the hand-back).
 - [ ] `tools/lint-audit-artifacts docs/audits/<date>-epic-m6-doctrine-skills/` prints `PASS` (its default `resolution` phase, at close; before stage D the same command with `--phase pre-issue` prints `PASS pre-issue artifacts (does not certify resolution)`), and the same with `--issue <audit issue>` prints `PASS`; Q1 to Q7 are answered in `04-analysis.md` and every punch item carries `question:` in the index.
-- [ ] `second-opinions/review-plan.json` records `depth: local`, primary `anthropic/claude-opus-5-5`, lab `anthropic`, reviewers `[]`, `tier_exception: D-WORKFLOW-184` and plan § 6c's row as the reason (plan § 6c, D-WORKFLOW-137, D-WORKFLOW-184); `ls second-opinions/` lists that file alone; `00`'s closing census shows no `tools/council/run`, no Facilitator, no `npm install` and no keyed call.
+- [ ] `second-opinions/review-plan.json` records `depth: local`, primary `anthropic/claude-opus-5-5` (the form of T4's plan at `6ec78bbf8c`; the template's `:136` writes `5.5`, L-51), lab `anthropic`, reviewers `[]`, `tier_exception: D-WORKFLOW-184` and plan § 6c's row as the reason (plan § 6c, D-WORKFLOW-137, D-WORKFLOW-184); `ls second-opinions/` lists that file alone; `00`'s closing census shows no `tools/council/run`, no Facilitator, no `npm install` and no keyed call.
 - [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue (a `bug`, #911 for the export, #1373, #342, #540, #1308, #640, #1044, #1045, #585, or a Backlog the coordinator files), withdrawn, or recorded as written with its reason; `tools/box-check --issue <audit issue>` prints 0 fail; the issue is closed by the coordinator at acceptance.
 - [ ] `reviewed-at:` and `fixed-at:` in #685's header carry the lane's commits (the read made at the dispatch tip's bytes, its 52 equal to `2174265e9c`'s except the three files of § 2; no EmulationStation path here, so no `fixed-at-es:`); `git diff --stat <merge hash> <fixed-at> -- .claude/rules CLAUDE.md AGENTS.md NAMING.md verifier-pins.json scripts tools .claude/skills/council .claude/skills/council-research .claude/agents` prints no line, and `git diff --stat <merge hash> <fixed-at> -- .claude/skills` shows only stage-E commits.
 - [ ] `01-research-notes.md` § Scope records § 2's block, its sha256 prefix `7fa0430cf613e867` checked, with its exact output lines (`mine: 52 paths.txt: 52 equal: True`; `lines: 12734 reach: {'n/a': 52} tier: {'fork-own': 52} lang: {'markdown': 51, 'other': 1}`; `fork-own lines: 12734`; `read lines: 0 of which fork-own: 0 vendor-carried lines: 0`; `overlap: 0 last_upstream_commit set: 0`; the two equality lines; `12734` three times; `0`; ` 52 files changed, 12734 insertions(+)` -- or the deltas beside them) and **both totals**: the dispatch tip's `dispatch tip: paths 52 lines 12783` (or the line that prints) beside the block's 12,734.
 - [ ] `01` § Scope records the drift as tool lines: ` 3 files changed, 50 insertions(+), 1 deletion(-)` against `2174265e9c` and against `8ebaf8daad`, the three files' numstat (`18 1`, `25 0`, `7 0`), their commits from `git log`, and `0` settings paths with `0` commits in history; and `01` § Read order records the two clusters (R1 § 6) and the order the reading took (§ 2's table: cluster 2's six, the writing pair, then the council family).
 - [ ] `00` records, at stage A and before any other check, the lint's `PASS` on a Local plan (T4's exported folder, `rc=0`) and its FAIL on the same plan with `tier_exception` removed (`rc=1`, the FAIL line quoted) -- ruling (m); or, if the PASS did not print, the lint's lines and the question raised on #685 before stage C.
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | /usr/bin/grep -c -E '^\| `'`` prints `52`; each row names its origin class (the export, imported and adapted, synthesized here) beside the inventory's `fork-own`.
-- [ ] `02` § The runs records, each as a command's own output line with its exit: `tools/rules-check` (with the words *no evidence for the 52*), `tools/register-check`, `tools/ceremony-check`, `.githooks/hooks-test`, `tools/box-check`; the front-matter count (`FRONT-MATTER 18 NONE 34`); the pins (`8` MATCH, in the shape the stage-A read found); the sums (`BUNDLE match=52 diff=39 absent=3`, or the line that prints); the brief's grep (`80`); `begin-exploration` (`19`, `1`, no directory); the cited IDs (`16`, each looked up); #1044's loop with every `MISSING` line; the secret scan in the hooks' form (compile rc at most 1, the planted positive `1`, then `0` files); the non-ASCII count; `tools/forbidden-terms-check` over the 52 and over empty input, with a positive that fired or `CANNOT` for the positive with the reason -- a check that could not run recorded as such, never as a pass.
+- [ ] `02` § The runs records, each as a command's own output line with its exit: `tools/rules-check` (with the words *no evidence for the 52*), `tools/register-check`, `tools/ceremony-check`, `.githooks/hooks-test`, `tools/box-check`; the front-matter count (`FRONT-MATTER 18 NONE 34`); the pins (`pins MATCH 8 of 8`, § 5's recompute); the sums (`BUNDLE match=52 diff=39 absent=3`, or the line that prints); the brief's grep (`80`); `begin-exploration` (`19`, `1`, no directory); the cited IDs (`16`, each looked up); #1044's loop with every `MISSING` line; the secret scan in the hooks' form (compile rc at most 1, the planted positive `1`, then `0` files); the non-ASCII count; `tools/forbidden-terms-check` over the 52 and over empty input (`rc=0` both) and over § 5's planted line through `FORBIDDEN_PATTERNS` (`forbidden-terms-check: 1 line(s) on stdin carry a listed word`, `rc=1`) -- a check that could not run recorded as such, never as a pass.
 - [ ] `tools/t38-checks.sh` exists under the audit folder's `tools/`; `02` § The runs quotes its four runs -- the baseline's exit 0, each mutation's exit 1 naming its own assertion (the stub checked against the unfixed text first), the tip's exit 1 with `allow-findings.txt` withheld naming each finding, and exit 0 after stage E with it withheld -- each with its `TOTAL:` line quoted from the script's own output; its refusals exit 2.
 - [ ] `02` § The names and the references carries, per retired term (§ 5's checker, step 4), the count at the tip and after stage E, and per class (R1 C12's A to I) the unresolved-reference count, each a line of `t38-checks.sh` or a generator's; every allowlisted line sits in `tools/allow-legit.txt`, `tools/allow-inherited.txt` or `tools/allow-findings.txt` with its class and reason; `tools/allow-findings.txt` is empty at `fixed-at`, or each remaining line names its stream's disposition.
 - [ ] `04-analysis.md` § Renovation face Q4 carries the currency tables, written by a script committed beside them: (a) every decision ID the 52 cite with its row's state; (b) every tool named with its existence and whether the options the skill states are the tool's; (c) every count a skill states with its recomputation (L-02, L-03 included); (d) every path named, resolved, in its class; (e) the roster against `adversarial-council.md:77-78`, `member-roster.md` and the agents; (f) the pins; with the class counts.
-- [ ] `04` § Renovation face Q5 carries the load table (one row per skill and per agent: files, lines, the description's length with its unit, the records, the procedure's use) and names the two time-to-play numbers as untouched; Q6 carries the reachability table, each dead row with an `Already written:` line; § 4's two maintainer questions are written there in the shape § 4 gives and raised on #685 at the pause.
+- [ ] `04` § Renovation face Q5 carries the load table (one row per skill and per agent: files, lines, the description's length with its unit, the records, the procedure's use) and names the two time-to-play numbers as untouched; Q6 carries the reachability table, each dead row with an `Already written:` line; § 4's two questions are written there in the shape § 4 gives and posted as comments -- `begin-exploration`'s on #685 at the pause, `council-research`'s on the doctrine epic #807 with its two options (kept as the export copies it; retired at the next refresh under #911) -- and `02`'s row for each cites its comment's id, which `gh api repos/pixelelated/distribution/issues/comments/<id> --jq .body` reads back.
 - [ ] Every fix has, recorded in `02` § The streams beside its commit, its lead's check line FAILing on the tip's text and PASSing on the fix's (both lines quoted), `t38-checks.sh`'s exit 0 at the fix's commit, `tools/rules-check --quiet` rc 0, and, where a description changed, its length before and after.
-- [ ] `02` § What the coordinator and the export's refresh inherit lists ruling (d)'s items for #911 (L-30 to L-37) with R2's other council-side leads (L-38 to L-46), L-47 to L-50, each at its file:line; the rule errata (L-22's rule half, L-23's two texts, D-QA-040's mismatch); the inputs for #1373; the #585 lines owed, never sent.
+- [ ] `02` § What the coordinator, the export's refresh and the next slices inherit lists ruling (d)'s items for #911 (L-30 to L-37) with R2's other council-side leads (L-38 to L-46), L-47 to L-50, each at its file:line; the rule errata (L-22's rule half, L-23's two texts, D-QA-040's mismatch); the inputs for #1373; the #585 lines owed, never sent.
 - [ ] Every bug states its trace, its `Already written:` line and its VM line and passes `tools/box-check --issue N`; every punch item carries the ladder stage and the tool that would hold it at the next, or *no tool can*; every row of § 2's take-up table has a disposition at its lines; the § 1 rulings (a) to (n) each have their `02` row.
 - [ ] Every proof in `02` carries a `proved:` cell reading `tree`, `tool-run`, `history`, `fix-tree` or `fix-pending-session`; ``/usr/bin/grep -c 'proved:' 02-forward-audit.md`` equals ``/usr/bin/grep -c '^PROOF:' 00-running-log.md``.
 - [ ] **The host file carries no line of this lane's**: `/usr/bin/grep -c -E 'T38|#685'` over the lines `/workspace/tmp/m7-m6-host-coordination.txt` gained between the dispatch and the hand-back prints `0` -- no START, no RETURN, no compile line (a prose slice compiles nothing, and a compile START here is a stop, § 10).
 - [ ] The retro exists at `docs/retros/<date>-m6-doctrine-skills.md`, is posted on #685 with its heading's time from `date -u` in the posting command, and says what the slice did to the two time-to-play numbers (nothing, in those words).
 - [ ] `tools/register-check`, `tools/work-log-index --check`, `tools/rules-check --quiet`, `tools/forbidden-terms-check` and `.githooks/hooks-test` pass on the slice branch before the hand-back merge, and again on the coordinator's simulated merge; `tools/lint-audit-artifacts` prints `PASS` on the folder; the six exit codes pasted on #685.
-- [ ] The hand-back is one comment on #685 naming **one tip** and each artifact by path, with the collisions named and their owners: the coordinator's rule errata (L-22, L-23, L-50's rule half), the export's refresh (#911), tooling-council's pins (no agent edited, so no re-pin), #1373's checker, and T39's documents if any lead reached them.
+- [ ] The hand-back is one comment on #685 naming **one tip** and each artifact by path; every inherited item is a row of `02` § What the coordinator, the export's refresh and the next slices inherit naming its owner issue -- #911 for the export's refresh, #1373 for the checker, the coordinator for the rule errata (L-22, L-23, L-50's rule half), reached through #685, #686 for T39's documents if any lead reached them, and the row for the pins saying no agent was edited, so no re-pin -- and `tools/box-check --issue 685` prints 0 fail.
 
 ## 8. What the coordinator, the export's refresh and the next slices inherit
 
-Written, not done here; `02` § What the coordinator and the export's refresh
-inherit carries each item with its lines, and the hand-back names them. No
+Written, not done here; `02` § What the coordinator, the export's refresh
+and the next slices inherit carries each item as a row with its lines and
+its owner issue, and the hand-back names them (§ 7 criterion 22). No
 pin, no image and no other lane's branch is moved by this slice, so unlike
 T37's this list holds no integration step; **T38's branch merges in the
 coordinator's turn, the doctrine's edits after the engine's** (T4's § 10:
@@ -1316,12 +1431,13 @@ read the merge order for T38).
    (T45, `verifier-pins.json`; ruling (e)).
 2. **The maintainer's two answers** (§ 4): council-research kept or retired at
    the next refresh (L-47); `begin-exploration` written or swept (L-22). The
-   coordinator puts both; a stream brief carries the sweep if that is the
-   answer.
+   coordinator puts both -- `council-research`'s as a comment on #807 with
+   its two options, `02`'s row citing its id (§ 7 criterion 14) -- and a
+   stream brief carries the sweep if that is the answer.
 3. **The rule errata a skill read turned up, the coordinator's** (ruling
    (l); T4's rules): `adversarial-council.md:36-38`'s *"ships in the corpus"*
    for `begin-exploration` (L-22); the audit-seat disagreement,
-   `release-candidates.md:71-76` against `adversarial-council.md:55` and
+   `release-candidates.md:71-76` against `adversarial-council.md:51-52` and
    `review-levels.md:10`, both texts in `02` (L-23, ruling (i)); D-QA-040
    open while `ceremonies.md` presents its numbers as decided (R4 item 28);
    `worktrees.md`'s legacy layout beside L-04's corrected sentence (#640);
@@ -1333,6 +1449,10 @@ read the merge order for T38).
    check has been seen to FAIL once on its constructed case, and adding it
    changes `.githooks/pre-push`'s `PERSONAL_PATTERNS`, `fork-workflow.md`'s
    list and `instruction-files.md`'s tool table in the same change (R3 § 2.7).
+   One line more for it: `tools/register-check`'s `LIVE` list names
+   `.claude/skills` and not `.claude/agents` (`:49`), so a decision ID cited
+   only in an agent file is checked by nothing today (§ 3 item 5; proof
+   correction 6).
 5. **Backlog leads the hand-back names for the coordinator to file**: the
    stash archive's tool (L-18; `learning-capture.md` § 3); the roster's prose
    copies checked against the Facilitator's table (L-44, with #1373 or T45);
@@ -1383,9 +1503,13 @@ before it is cited (R5 § B item 8):
 decisions` only (R5 § F's `awk` at `926d1fbaee`): **D-CLOUD-193, D-INFRA-031,
 D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-137,
 D-WORKFLOW-216**; `| D-WORKFLOW-217 |` and `| D-WORKFLOW-218 |` printed no
-line (R5 C17); T37's dispatch writes -217 (`kit/t37-ownrow.md`, R5 C18);
+line at `926d1fbaee` (R5 C17); T37's dispatch wrote -217 (`kit/t37-ownrow.md`,
+R5 C18), at `:777` at `2f42ff5ddf`, where -218 is still absent (v2 read:
+`git grep -n 'D-WORKFLOW-217 |' 2f42ff5ddf -- docs/decision-register.md`,
+and the same for -218 printing nothing, rc 1; proof Part 3);
 `tools/register-check` printed *"711 IDs, each once; every citation in the
-live documents names a row"* (R3 C24). **This slice's ownership row is
+live documents names a row"* (R3 C24), and `712 IDs` at `2f42ff5ddf`
+(proof Part 3). **This slice's ownership row is
 D-WORKFLOW-218** (ruling (l)), written by the coordinator at dispatch after
 T37's -217 and before `## Open decisions`, its `<date>` checked on the
 appended line alone; if the table moves first it is the next free WORKFLOW
@@ -1504,8 +1628,9 @@ R5 § E's new sections (`product-paths` inverted, `front-matter`,
 evidence for the 52, `forbidden`, `no-keyed-call`), each with a FAIL fixture
 under `selftest/accept-t38/` seen to fail before it is trusted (R5 § E);
 `register-check` on a simulated merge with the coordinator's tip; the
-retro's answers; the six checkers' exit codes; the collisions named in § 7's
-last checkbox; **the § 1 rulings' rows in `02`**. The lane posts one
+retro's answers; the six checkers' exit codes; the inherited items' rows
+and their owner issues, with `tools/box-check --issue 685`'s line (§ 7's
+last checkbox); **the § 1 rulings' rows in `02`**. The lane posts one
 hand-back comment naming **its one tip** and each artifact by path, writes
 `reviewed-at:` and `fixed-at:` into #685's body, then says it is idle. **The
 hand-back's hashes are § 1's placeholders, filled**: `reviewed-at:` is the
@@ -1542,8 +1667,8 @@ is § 1's, § 5's or § 9's, copied from that one place (R5 § B item 6):
 | `The lens:` | cost against value over the 52 of `.claude/**` less `.claude/rules/**` -- the ten skills and the eight agent definitions -- 12,734 lines at the P1 hash and 12,783 at the dispatch tip | package currency over the 15 of `projects/ROCKNIX/packages/ui/**` (the 15 / 19, 4,561 / 4,650) |
 | `The rule:` | the lane changes only the fork-adapted skills among the 52, only at stage E under a stream brief; **never** `.claude/rules/**`, `CLAUDE.md`, `AGENTS.md`, `NAMING.md`, a register (beyond the appends the procedure owns), `verifier-pins.json`, `scripts/`, `tools/`, or anything under `council/`, `council-research/` or `.claude/agents/` (rulings (d), (e), (l)); no council, Facilitator or keyed call (ruling (k)) | "the lane changes only `projects/ROCKNIX/packages/ui/**`"; `tools/pkgcheck <name>` after every edit |
 | `The host:` | **none**: no guest window and no compile; the host file read once at stage A for its protocol; no START, RETURN or compile line of this lane's in it at any stage | a 15 + 5 minute window, one boot at 640x480, on a fresh disk |
-| `Register:` | the highest decided row per area read from the table at `COHASH` (at `926d1fbaee`: D-CLOUD-193, D-INFRA-031, D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-137, D-WORKFLOW-216, with T37's -217 after its dispatch), plus **this slice's ownership row, D-WORKFLOW-218, which the coordinator writes at dispatch** | D-WORKFLOW-217 named as this slice's own row |
-| `The brief:` | `docs/reviews/briefs/doctrine-skills.md` at `V2HASH` (§ 1: filled by the dispatch comment; version 1 has no dispatch hash; the file does not exist at `926d1fbaee`, R1 C14, and its name follows the slice id as T4's and T37's do `[unverified]` -- the coordinator's commit names it) | `es-recipe.md`, or the literal word `V2HASH` |
+| `Register:` | the highest decided row per area read from the table at `COHASH` (at `926d1fbaee`: D-CLOUD-193, D-INFRA-031, D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-137, D-WORKFLOW-216, with T37's -217 since its dispatch, `:777` at `2f42ff5ddf`), plus **this slice's ownership row, D-WORKFLOW-218, which the coordinator writes at dispatch** | D-WORKFLOW-217 named as this slice's own row |
+| `The brief:` | `docs/reviews/briefs/doctrine-skills.md` at `V2HASH` (§ 1: filled by the dispatch comment; version 1 has no dispatch hash; the file is absent at `926d1fbaee`, R1 C14, and version 1 is committed under this name at `2f42ff5ddf`, byte-identical to the kit's `t38-brief-v1.md`: proof Part 5, item 26; v2 read, `git show 2f42ff5ddf:docs/reviews/briefs/doctrine-skills.md \| cmp - <the kit's file>`) | `es-recipe.md`, or the literal word `V2HASH` |
 
 **The host.** No guest window and no compile, so this slice holds no slot in
 `/workspace/tmp/m7-m6-host-coordination.txt`'s queue: the file is read once
@@ -1634,71 +1759,109 @@ in a fixture.
 
 ## Version 1: what the drafting read did not settle
 
-Every `[unverified]` mark above, with the read that settles it; then the
-places where the research files disagree, and how this brief takes each;
-then the checks on this file.
+Every `[unverified]` mark of version 1, with the read that settles it and,
+since version 2, its state after the stranger's proof: **Settled**, with
+where the body now carries the fact and its command, or **Open**, where the
+body keeps its mark; then the places where the research files disagree, and
+how this brief takes each; then the checks on version 1.
 
 1. **#685's body line for the paths sentence** (§ 1) -- `:7` by R5 § A, `:8`
    by R4 item 30; the lane's `gh --repo pixelelated/distribution issue view
-   685` at stage A, after the coordinator's fill.
+   685` at stage A, after the coordinator's fill. **Settled**: the
+   pre-dispatch body carries it at `:7` (proof Part 5); since version 2 the
+   body is cited by content (proof correction 3, § 1).
 2. **Whether any `feature/m6-*` ref other than the coordinator's and the
    lane's moves the 52 against `2174265e9c`** (§ 1, § 5's `# STAGE A`) -- the
-   `for-each-ref` loop there.
+   `for-each-ref` loop there. **Settled**: no ref moves them against the
+   coordinator's tip; the loop now compares with `COHASH` (proof correction
+   1; § 1, § 5).
 3. **The dispatch tip's total** (§ 2) -- 12,783 at `926d1fbaee`; the
    dispatch tip does not exist yet; § 2's dispatch-tip lines print it.
+   **Settled**: those lines printed `12783` at `2f42ff5ddf` (proof Part 1);
+   the dispatch tip's line is recorded as it prints (§ 2).
 4. **The writing pair's place in the read order** (§ 2's table) -- ruling (j)
    names cluster 2 and cluster 1 only; the dispatch comment may move rows 7
-   and 8.
+   and 8. **Open**: the coordinator's (§ 2's table keeps its mark).
 5. **The owner of `docs/council-*.md` and `research/`** (§ 2's neighbours) --
-   the membership block's `CLAIMS` with those paths added.
+   the membership block's `CLAIMS` with those paths added. **Settled**:
+   T39's and T46's, by the block's `hits()` (§ 2, with its command).
 6. **The blindspot register's `:10`, `:30`, `:36` and `:37`** (§ 3 item 3) --
-   the lane's `grep -n` with R4's terms.
+   the lane's `grep -n` with R4's terms. **Settled**: entries 1, 21, 27
+   and 28 (§ 3 item 3, with its command).
 7. **Whether `tools/forbidden-terms-check` honours an environment override
    for a planted positive** (§ 3 item 5, § 5) -- the tool's source, read at
-   stage A; without one, the positive is `CANNOT`.
+   stage A; without one, the positive is `CANNOT`. **Settled**: it honours
+   `FORBIDDEN_PATTERNS`, so the positive is demanded (proof correction 6; § 3
+   item 5, § 5, criterion 10).
 8. **Whether `tools/register-check`'s "live documents" include
-   `.claude/skills/`** (§ 3 item 5) -- the tool's source.
+   `.claude/skills/`** (§ 3 item 5) -- the tool's source. **Settled**: the
+   skills, yes; the agents, no (`:49`; § 3 item 5, § 8 item 4).
 9. **Whether `code-auditor/references/templates.md` agrees with the lint's
    `REQUIRED` and `ANALYSIS_SECTIONS` today** (§ 3 item 5, § 5) --
-   `t38-checks.sh`'s `contract` step.
+   `t38-checks.sh`'s `contract` step. **Settled in part**: by exact
+   substring the template lacks one `REQUIRED` file and three sections (§ 3
+   item 5, with its command); the lint's own comparison stays **Open**.
 10. **Which check `161effca8f`'s hunk lands in** (L-01) -- `git show
     161effca8f -- .claude/skills/mini-retro/references/scoped-audit.md`, § 5.
+    **Settled**: item 5 of Check 7 (L-01, with its command).
 11. **The durations' pattern** (L-05) -- R4 C24 printed `durations 5` without
-    it; § 5's pattern and count are the lane's.
+    it; § 5's pattern and count are the lane's. **Settled**: the widened
+    pattern prints 10 lines (proof correction 2; L-05, § 5).
 12. **Whether `session-stash` states D-WORKFLOW-133's stranger in other words**
-    (L-19) -- the file read whole.
+    (L-19) -- the file read whole. **Settled**: it does not (L-19, with
+    its command).
 13. **The sense of the 16 slice files' `TOTAL` hits** (L-25) -- the lane's
-    read of them.
+    read of them. **Settled** by correction: `TOTAL` on 0 lines, `total`
+    on 30 lines in 15 files (proof correction 7; L-25).
 14. **Whether `review-levels.md` or `phases.md` name Gemini 4 Argon or
     D-WORKFLOW-195's trimmed packet** (L-28) -- the lane's grep of the two.
+    **Settled**: neither does (L-28, with its command).
 15. **Whether code-auditor's continuity section should carry *record the
-    payload's pid*** (L-29) -- a question for the pause.
+    payload's pid*** (L-29) -- a question for the pause. **Open** (L-29
+    keeps its mark).
 16. **The agents' registration as invocable types** (L-41) -- a harness
     observation (R2 § 8; R5 § A L-04), not a git read; the agent listing of
-    the lane's own session, recorded as such.
+    the lane's own session, recorded as such. **Settled** as a harness
+    observation two sessions recorded (L-41).
 17. **Where `OPENROUTER_SEATS` is defined** (L-44) -- T45's read of
-    `scripts/lib/`.
+    `scripts/lib/`. **Settled**: `scripts/council-invoke.ts:1362` (L-44,
+    with its command).
 18. **Shadow-seat residue in other words** (L-49) -- the lane's read of the
-    council family.
+    council family. **Settled in part**: `SHADOW_OPENROUTER_SEATS` outside
+    the 52; residue in the 52 in other words stays **Open** (L-49).
 19. **Which of the 52 carry a sentence that claims a guest behaviour** (§ 5's
     VM answer) -- the Q3 table; each is recorded with the proof a later slice
-    could make (ruling (k)).
+    could make (ruling (k)). **Open**: the lane's stage-B read, each a
+    `02` row (§ 5 keeps its mark).
 20. **T4's `review-plan.json` shape** (§ 5's `# STAGE A`) -- the file read
-    there; no research file printed it.
+    there; no research file printed it. **Settled**: `t4 plan: local
+    D-WORKFLOW-184 0` (proof Part 4; § 5).
 21. **The lint's PASS on a Local plan** (§ 5's `# STAGE A`, ruling (m)) -- the
     stage-A run; no research file ran the lint on a Local folder (R3 C11,
-    § 8).
+    § 8). **Settled**: PASS rc 0, FAIL rc 1 (proof Part 4; ruling (m),
+    § 5).
 22. **What the lane does if that PASS does not print** (§ 5) -- the
     drafter's call (a question on #685 before stage C); ruling (m) does not
-    say.
+    say. **Settled**: moot, the PASS printed; the contingency stays,
+    unmarked (§ 5).
 23. **`verifier-pins.json`'s entry shape** (§ 5's runs) -- the stage-A read;
     R3 C14 read it and named the key `sha` without printing the shape.
+    **Settled**: `pins[path].sha` (§ 5, with the recompute).
 24. **The harness's skill-description limit** (§ 5's checker, step 2) -- the
-    harness's own documentation, cited; R2 and R3 recalled it.
+    harness's own documentation, cited; R2 and R3 recalled it. **Open**
+    (§ 5's checker keeps its mark).
 25. **T38's place in the merge order** (§ 8) -- the coordinator's, at
-    acceptance.
+    acceptance. **Open** (§ 8 keeps its mark).
 26. **This brief's name under `docs/reviews/briefs/`** (§ 10's pointer) --
-    the coordinator's commit at dispatch.
+    the coordinator's commit at dispatch. **Settled**:
+    `docs/reviews/briefs/doctrine-skills.md`, version 1 at `2f42ff5ddf` (§ 10).
+
+**Re-counted after the proof:** of the 26, **19 settled whole** (1 to 3, 5
+to 8, 10 to 14, 16, 17, 20 to 23 and 26; 13 through the proof's MISMATCH,
+which correction 7 answers), **2 in part** (9 and 18) and **5 open** (4, 15,
+19, 24 and 25). Version 2 adds two open marks of its own, both from what
+the proof could not check: L-30's three test paths and the three checkers
+it did not run (§ 5). `## Version 2` lists all nine open items.
 
 **Where the research files disagree, and how this brief takes each:**
 
@@ -1708,15 +1871,17 @@ then the checks on this file.
   only, so R3 § 0's *"The 12,734 in the brief is not reproduced"* names the
   other tree. Ruling (a) records both.
 - **#685's paths sentence**: `:7` (R5 § A) against `:8` (R4 item 30) -- item
-  1 above.
+  1 above. Settled: `:7` (proof Part 5).
 - **The scoped-audit hunk**: *check 7* (`161effca8f`'s subject, R1 C09; R4
   item 60) against *Check 10's question 5* (#1067; R2 § 0, § 3) -- item 10
-  above; L-01 carries both.
+  above. Settled: item 5 of Check 7, which L-01 now carries (proof Part 2).
 - **The descriptions' lengths**: R1 C18 285 to 998 characters; R2 C23 272 to
   985 (developer-relations 272, release-notes 279, futro 909); R3 C17 270 to
   985 (developer-relations 270, release-notes 277, futro 907, council-research
   752). Three methods (the YAML value with or without its quotes, characters
-  or bytes) not stated by any of them; Q5's table states its unit.
+  or bytes) not stated by any of them; Q5's table states its unit. These are
+  the skills' ranges; the agents' run 78 to 317 by the proof's count (proof
+  correction 9).
 - **The stale names**: R2 C12 and R3 C21 agree on `Copilot` (42 lines in 12
   files) and `.github/instructions` (27 in 17), and differ where their
   patterns differ -- `mistral` 27 / 9 against 50 / 13, Opus 4.8 4 / 2 against
@@ -1761,8 +1926,13 @@ then the checks on this file.
 - **R1's date for `437ebd09af`**: 2026-08-19 in the inventory's column (C07)
   against the commit's 2026-07-25 (C08) -- R1's own, immaterial here.
 
-**Checks on this file**, each command's own output, run on this file as
-written:
+**Re-counted after the proof:** the list holds **14** bullets, not 15
+(proof Part 9: `disagreements 14`); the proof settled 12 from the source
+and left two, R5's untaken proposals and R4's self-declared limits, as
+decisions rather than figures (proof Part 5).
+
+**Checks on version 1**, each command's own output, run on version 1 as
+written (version 2's are the next section's):
 
 - `/usr/bin/grep -c -E '__[A-Z0-9]+__'` prints `0`, under `LC_ALL=C` and
   under the drafting shell's locale alike.
@@ -1780,4 +1950,72 @@ written:
 - `/usr/bin/grep -c '\[unverified\]'` prints `32`.
 - `/usr/bin/grep -c ''` prints `1783`.
 
-Version 1, 2026-11-01 01:23:27 UTC, from R1 to R5
+## Version 2: corrections from the proof
+
+The stranger's proof of version 1 (`/workspace/tmp/m6-coordinator/kit/t38-proof.md`,
+in no tree) read the brief at `2f42ff5ddf` by hash and closed on the tally
+line `PASS 119 MISMATCH 14 SETTLED 41 NOT-CHECKED 9
+checks(PASS|MISMATCH|SETTLED) 174 corrections 11`. Each correction is
+applied at its line under the coordinator's rulings (D-WORKFLOW-189); one
+line each here, what changed and where:
+
+1. **The stage-A refs loop names every lane** -- § 1's worktree paragraph and § 5's `# STAGE A`: each `feature/m6-*` ref's 52 read from its merge base with `COHASH` (`git diff --quiet "$CO...$r"`), not against the P1 tip, so a ref that only lacks later coordinator edits prints nothing; expect no line (none over 82 refs at `2f42ff5ddf`, where the proof found 44 refs equal and 36 only behind), with a constructed positive that fires rc 1.
+2. **L-05's duration lines** -- ruling (b), § 2's take-up row, L-05 and § 5's runs: the pattern widened to `~N min`, `~N hr`, `~N–N hr`, `~1 day`, `N minutes` and `N seconds to N minutes`, printing 10 lines at `2f42ff5ddf` (the proof's 7 and the tier table's `mini-retro/SKILL.md:68` to `:70`); the fix is every estimate line gone or turned into the ordering D-WORKFLOW-091 allows, and "none after" is the same pattern.
+3. **#685's body cited by content** -- § 1's issue paragraph and depth bullet, § 5's VM paragraph and § 6's folder line: no body line number, since the kit rewrites the body from § 7 at dispatch (version 1's `:9`, `:14-15`, `:21` and the proof's `:8`, `:13-14`, `:20` both number the pre-dispatch body).
+4. **`order.md:187` is this slice** -- § 1: `:175` maps the second version's T38 to today's T9, and `:187` maps its T33 to today's T38, the skills.
+5. **The template's slug** -- § 1's depth bullet, § 6's second-opinions row and criterion 3 cite T4's plan's `anthropic/claude-opus-5-5`; the Local example is `templates.md:129-146`, and its `:136` `anthropic/claude-opus-5.5` is the new lead **L-51** under ruling (b), with its FAIL-first check line.
+6. **The wordlist positive and `register-check`'s reach** -- § 3 item 5's table, § 5's runs and criterion 10: the planted positive through `FORBIDDEN_PATTERNS` is demanded and the `CANNOT` branch dropped; `register-check` reads the 44 skills and not the 8 agents (`:49`), a line for #1373 in § 8 item 4.
+7. **L-25's `TOTAL`** -- L-25: the upper-case word on 0 lines of the 52, `total` in any case on 30 lines in 15 files.
+8. **`adversarial-council.md:51-52`** -- ruling (i), § 3 item 1's rules table, L-23, § 5's L-23 read and § 8 item 3: the "primary plus one external" sentence, in its section `:49-58`; `:55` is the section's link line.
+9. **The descriptions' ranges** -- ruling (e) and Q5: the skills' 270 to 998 across four counts, and the agents' 78 to 317 by the proof's count, given separately.
+10. **R1's counts that do not reproduce** -- § 2's table and the clusters paragraph: the briefs' 62 lines for code-auditor and 176 for futro, and mini-retro naming code-auditor on 24 lines and begin-delivery futro on 13, removed.
+11. **Nine review plans** -- ruling (m): 9 files named `review-plan.json` under `docs/audits/` at `926d1fbaee`, all `"depth": "independent"`, with the command; R3 C11's 8 leave out a superseded copy.
+
+Beside the eleven, the coordinator's rulings on the proof. **Criteria 14
+and 22 are rewritten so an agent ticks them** (`issue-tracking.md` § A
+criterion is agent-first, D-QA-044): the `council-research` question is a
+comment on #807 with its two options, whose id `02`'s row cites (§ 4,
+ruling (n)), and every inherited item is a row of `02` § What the
+coordinator, the export's refresh and the next slices inherit naming its
+owner issue, ticked by `tools/box-check --issue 685` printing 0 fail (the
+`02` section takes § 8's title throughout). **Every settled mark is written
+into the body as a fact with its command**: `161effca8f` as item 5 of
+Check 7 (L-01); the pins as `pins[path].sha` (§ 5's recompute);
+`docs/council-*` T39's and `research/` T46's (§ 2); `OPENROUTER_SEATS` at
+`scripts/council-invoke.ts:1362` (L-44); the lint's Local PASS and its
+FAIL-first (ruling (m), § 5); and the rest the Version 1 list marks
+**Settled** -- 19 of its 26 items whole and 2 in part.
+
+**The open items that remain**, nine, each keeping its mark in the body
+with the read that settles it:
+
+1. The writing pair's place in the read order (§ 2's table) -- the coordinator's dispatch comment.
+2. How the lint compares `ANALYSIS_SECTIONS` with a template's headings, in case and hyphen (§ 3 item 5) -- the lint's lines that use it, read at `COHASH`.
+3. Whether code-auditor's continuity section should carry *record the payload's pid* (L-29) -- a question for the pause.
+4. L-30's three `scripts/__tests__/` files, present or absent (L-30) -- § 5's `cat-file` line over them.
+5. Shadow-seat residue in the 52 in other words (L-49) -- the lane's read of the council family.
+6. Which of the 52 claim a guest behaviour (§ 5's VM answer) -- the lane's stage-B read, each a `02` row.
+7. `tools/ceremony-check`, `.githooks/hooks-test` and `tools/box-check` at the dispatch tip (§ 5) -- the lane's stage-A runs, each line recorded.
+8. The harness's skill-description limit (§ 5's checker, step 2) -- the harness's own documentation, cited.
+9. T38's place in the merge order (§ 8) -- the coordinator's, at acceptance.
+
+**Kept as the research printed them**, not reproduced by the proof (whose
+terms or loops the research did not print) and not marked: § 3 item 3's
+*"10 matching a skill or a ceremony"* and item 4's *"10 naming a skill, 57
+a process, a ceremony or a brief"* (R4 C25), and L-47's *"2 work-log lines
+over 2 days"* (R2 § 10).
+
+**Checks on this file**, each command's own output, run on version 2 as
+written:
+
+- `/usr/bin/grep -c -E '__[A-Z0-9]+__'` prints `0`, under `LC_ALL=C`.
+- The hooks' credential pattern, built as `.githooks/guard-lib` builds it (`:31-33`: `.githooks/secret-patterns`, read with `git show HEAD:`, sourced for its one `SECRET_PATTERNS` regex; `:40-42`: compile-checked by `printf '' | grep -E -e "$SECRET_PATTERNS"`; never `-f`, never `guard_load`): compile rc `1`; a private-key header line assembled at run time matched `1`; then `grep -c -E -e "$SECRET_PATTERNS"` printed `0` on this file.
+- `tools/forbidden-terms-check --stdin < <this file>`, run from the coordinator's worktree, printed `forbidden-terms-check: 0 hits on stdin` and exited `0`; beside it a planted line through `FORBIDDEN_PATTERNS` printed `forbidden-terms-check: 1 line(s) on stdin carry a listed word` and exited `1`, so the 0 is evidence (the list itself never read).
+- `/usr/bin/grep -c '\[unverified\]'` printed `32` on version 1 and `13` on this file: the four that define or name the mark (the header, ruling (k), § 5's VM paragraph and the Version 1 list's opening) and the nine open items.
+- `/usr/bin/grep -c ''` prints `2021`.
+- The leads, in § 3's row shape (`/usr/bin/grep -c -E '^\| (\*\*)?L-[0-9]+(\*\*)? \|'`): `51` rows and `51` distinct IDs.
+- § 7's checkboxes (`/usr/bin/grep -c '^- \[ \]'`): `22`.
+- `tools/box-check`'s own predicate, its `PERSON`, `DEVICE`, `FACT` and `BOX` patterns read from its source (`git show HEAD:tools/box-check`, `:44-47`) and applied as its `:92-93` apply them to § 7's lines here (the tracker is not read): `boxes 22 fail 0`.
+- § 2's membership block, extracted from between its fences: `118` lines, sha256 prefix `7fa0430cf613e867`, byte-identical to version 1's; `bash -n` over the brief's `5` `bash` blocks: rc `0` for each.
+
+Version 2, 2026-11-01 02:11:23 UTC, after the stranger's proof of version 1
