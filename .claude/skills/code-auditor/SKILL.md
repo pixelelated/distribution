@@ -156,7 +156,7 @@ lower tiers structurally couldn't.
 
 ## Evidence floor (all tiers)
 
-Three hard rules apply to every verdict at every tier:
+Five hard rules apply to every verdict at every tier:
 
 1. **Tracker state is never sole evidence.** Issue state, checked AC
    boxes, and retro summaries may corroborate but can never be the
@@ -188,7 +188,7 @@ Three hard rules apply to every verdict at every tier:
    passes trivially when nothing was uploaded at all; "the marker is gone"
    passes when it was never created. If no failing input exists, the check
    proves nothing and must be strengthened or dropped (blindspots 6, 8).
-3. **Subagent output is a LEAD, never EVIDENCE.** Per scaffold's development
+5. **Subagent output is a LEAD, never EVIDENCE.** Per scaffold's development
    principles ("Verify sub-agent outputs against primary artifacts" — project
    ORC-5): every fact that supports a verdict must be re-read directly from the
    primary artifact before the verdict is written. Fan out subagents for research;
@@ -371,7 +371,7 @@ Entries are short (3–10 lines). Depth goes in the phase files; the log's value
 | **`gh` CLI list/search fallback**          | If MCP is unavailable, bound output: `--limit N --json <fields>` or pipe through `\| head`.                                                                                                                              |
 | **Git history**                            | `git log --oneline`, `git diff --stat`, `git show <sha>` — standard. Filter by date, path, author.                                                                                                                       |
 | **Terminal operations**                    | Never delegate `git`, `npm`, `gh` to subagents — subagents do not inherit terminal access. Run directly.                                                                                                                 |
-| **Subagent tool**                          | Useful for parallel read-only investigation. Not for terminal ops. Subagent output is a LEAD, never EVIDENCE — re-read every verdict-supporting fact from the primary artifact yourself (see Evidence floor rule 3).     |
+| **Subagent tool**                          | Useful for parallel read-only investigation. Not for terminal ops. Subagent output is a LEAD, never EVIDENCE — re-read every verdict-supporting fact from the primary artifact yourself (see Evidence floor rule 5).     |
 
 ---
 

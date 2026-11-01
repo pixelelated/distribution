@@ -57,7 +57,7 @@ At Milestone tier the research surface (spec + every issue + git history
   retros; output: a structured provenance entry with exact file paths and
   quoted ACs). Run them concurrently, then read the named primary artifacts
   yourself before any verdict — fan-out yields leads and paths, NEVER
-  verdicts (Evidence floor rule 3). No terminal ops (`git`, `npm`, `gh`) in
+  verdicts (Evidence floor rule 5). No terminal ops (`git`, `npm`, `gh`) in
   subagents.
 
 ### 1.5 Read prior phase retros, Epic audits, and Tier B findings
