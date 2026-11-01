@@ -72,7 +72,7 @@ work, **read first**:
 - Any referenced upstream retros (issue comments, spec sections)
 - The spec / epic / issue body
 - Recent commits touching related files (`git log --oneline -30 -- <path>`)
-- The project's blindspot register if one exists (see § Blindspot register)
+- The project's blindspot register, `docs/blindspot-register.md` (see § Blindspot register)
 
 ## Tooling
 
@@ -125,8 +125,9 @@ Before answering any of the five questions, gather:
   questions summarize loosely
 - **Similar past work** — prior phases' retros, closely-related closed
   issues, grep for analogous patterns in the codebase
-- The project's **blindspot register** if one exists (this skill ships a
-  starter template at `references/blindspot-register.md`)
+- The project's **blindspot register**, `docs/blindspot-register.md` (this
+  skill's `references/blindspot-register.md` is only a starter, for a
+  project that has none)
 
 **Verification mandates at futro authoring time:**
 
@@ -433,9 +434,11 @@ phases.
 Each futro's question 4 consults the register. Each futro that surfaces a
 NEW blindspot adds an entry.
 
-A starter template lives at `references/blindspot-register.md` in this
-skill's folder. Copy it to your project's docs directory (e.g. under
-`docs/`) when your first futro surfaces a blindspot worth cataloguing.
+This project's register is `docs/blindspot-register.md`, its numbered
+entries the failure modes actually committed here; read it, and add an
+entry where a futro surfaces a new one (from entry 52 on, an entry names its
+guard, `ceremonies.md`). The `references/blindspot-register.md` in this
+skill's folder is a starter template, for a project that has no register.
 
 ## Notes
 
@@ -480,7 +483,7 @@ skill's folder. Copy it to your project's docs directory (e.g. under
     [`working-principles.md`](../../rules/working-principles.md) and [`decision-register.md`](../../rules/decision-register.md).
   - Prior retros accumulate as issue comments on Epic umbrellas; discover
     via `gh api repos/pixelelated/distribution/issues/{number}/comments --paginate -q '.[] | {author: .user.login, body: .body[0:300]}'`.
-  - Blindspot register (when created) conventionally lives under `docs/`.
+  - The blindspot register is `docs/blindspot-register.md`.
 
 - **Other repos:** if a similar instruction file exists, defer to it.
   Otherwise, the five-question structure is a reasonable default.
