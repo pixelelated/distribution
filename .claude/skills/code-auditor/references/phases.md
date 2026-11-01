@@ -190,7 +190,7 @@ While evaluating each criterion, also assess:
 
 ### Call-site count verification
 
-When a finding or punch-list item names a **count of call sites** to migrate, refactor, or audit (e.g., "migrate the three existing call sites"), run a literal code search (Grep / ripgrep) for the function/symbol and confirm the count **before publishing the punch list**. Don't trust the analysis pass alone — historically audit call-site counts undercount by ~1 (M55 #2299 invite paths: audit said 2, reality was 8; #2634 PL-04 outcome-emission: audit said 3, reality was 4). Write the verified count plus the grep query into the finding so the resolver can reproduce it.
+When a finding or punch-list item names a **count of call sites** to migrate, refactor, or audit (e.g., "migrate the three existing call sites"), run a literal code search (Grep / ripgrep) for the function/symbol and confirm the count **before publishing the punch list**. Don't trust the analysis pass alone — historically audit call-site counts undercount by ~1 (the source estate's M55 issue 2299 invite paths: audit said 2, reality was 8; its issue 2634 PL-04 outcome-emission: audit said 3, reality was 4). Write the verified count plus the grep query into the finding so the resolver can reproduce it.
 
 ### Forward-audit checkpoint
 
@@ -347,7 +347,7 @@ addressed every occurrence of the underlying defect class — not just
 the one site that surfaced.
 
 This check exists because Q-COL-14 INV-Z2 found a silent-skip
-anti-pattern duplicated across **3** migration phases (#2382 +
+anti-pattern duplicated across **3** migration phases (the source estate's 2382 +
 Sibling-A + Sibling-B) plus an **adjacent** instance in
 `projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool` (Adjacent-C, filed as an issue). Fixing
 only the surfaced site would have left the same defect alive in 3+

@@ -62,7 +62,7 @@ Delegation is the right move when an Epic-tier audit ran AT the phase
 boundary (e.g. final phase of an Epic produces both the phase retro
 and the Epic audit in the same session). Re-deriving the same cornerstone
 conformance table or interaction-defect scan duplicates work without
-adding adversarial value. Origin: M22 FOUND-P4 (#2510, 2026-05-14).
+adding adversarial value. Origin: M22 FOUND-P4 (the source estate's issue 2510, 2026-05-14).
 
 ## The checks
 
@@ -129,7 +129,7 @@ evidence in the phase's commits.
    the closeout comment, listing each deviation with its
    classification and supplanting/replacing mechanism. The mini-retro
    then links the reconciliation comment from Check 1's finding row.
-   Origin: M22 #2674 Phase B (2026-05-13) — DD-A2A-01 Path X migration
+   Origin: M22, the source estate's issue 2674, Phase B (2026-05-13) — DD-A2A-01 Path X migration
    surfaced 3 ACs (AC1 partial-by-design, AC3 supplanted by AB-014
    fail-loud, AC4 supplanted by charter drift-guard) whose original
    failure modes had been replaced by stronger guards. The reconciliation
@@ -152,7 +152,7 @@ evidence in the phase's commits.
   (e.g. `"Internal server error"`) is the trigger for the audit, not
   its scope. Always sweep the category (e.g. every `, 5\d\d\)`
   return, every `c.json(... 4\d\d)`, every `Response.json(..., {status:`)
-  and inspect each match. **Origin:** R2 #2302 futro almost missed 11
+  and inspect each match. **Origin:** the source estate's R2 issue 2302 futro almost missed 11
   non-bare incomplete envelopes + 1 `_diagnostic` raw-error leak
   because the initial grep targeted only the known bad string.
 
@@ -318,7 +318,7 @@ git diff <base_sha>..HEAD -- '<service>/src/**/*.ts' | grep -E 'sql\`|FROM |WHER
 ```
 
 If a new predicate exists that the failing test's mock doesn't track,
-the failure is a mock-drift (#2387 Bucket I), not a fixture-isolation
+the failure is a mock-drift (the source estate's issue 2387, Bucket I), not a fixture-isolation
 bug. Fixing the fixture would mask the real defect. Production-call-
 count verification is cheaper than fixture-isolation refactoring;
 rule it out first.

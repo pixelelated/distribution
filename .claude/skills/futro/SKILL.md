@@ -148,7 +148,7 @@ Before answering any of the five questions, gather:
   through the futro until execution-time verification caught it.
   Same family as the PE-authoring grep mandate at the commit-hash
   layer.
-- **Artifact-inspection mandate** (#2545 Phase B AD11) — any futro
+- **Artifact-inspection mandate** (the source estate's issue 2545, Phase B AD11) — any futro
   proposing to **operate on** an artifact (state file, snapshot, dump,
   config, lockfile, generated bundle) MUST inspect that artifact's
   current shape before drafting adjustments. Minimum inspection:
@@ -157,16 +157,16 @@ Before answering any of the five questions, gather:
   `jq '. | keys'`, etc.). Adjustments drafted from the plan's
   description of the artifact, rather than the artifact itself, are a
   recurring source of phantom-requirement futro adjustments. AD6 of
-  #2545 proposed a "zero-diff `tofu plan` gate" against a 0-byte state
+  Issue 2545 there proposed a "zero-diff `tofu plan` gate" against a 0-byte state
   file; one `wc -c` would have prevented it.
 - **Pairing-coherence probe mandate** (E253 retro Practice adjustment,
-  2026-07-22; deferred PL-04 of audit #203) — when a plan consumes a
+  2026-07-22; deferred PL-04 of the source estate's audit 203) — when a plan consumes a
   MULTI-ENDPOINT platform surface (e.g. OIDC discovery + token +
   userinfo; publish + install; mint + verify), per-endpoint existence
   probes (a row of 200s) are INSUFFICIENT: the E253 login work burned
   4 debugging loops on endpoints that each answered 200 but rejected
   each other's artifacts (discovery advertised endpoints whose tokens
-  userinfo refused — an external issue #3281). The futro's probe plan MUST include
+  userinfo refused — an external issue, 3281 in the source estate's tracker). The futro's probe plan MUST include
   at least one END-TO-END transaction across the paired endpoints
   (e.g. mint a token via the discovery doc's token endpoint, then
   spend it at the paired verification endpoint), not per-endpoint

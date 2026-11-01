@@ -101,7 +101,7 @@ The output. Based on 1–4, what concrete changes?
 
 **Plan edits applied:**
 
-- <edit — e.g. "Added AC to #1558: 'Gate invokes isDependencySatisfied() inside withCapabilityLifecycleLock() (recheck-before-commit)'">
+- <edit — e.g. "Added AC to #F: 'Gate invokes isDependencySatisfied() inside withCapabilityLifecycleLock() (recheck-before-commit)'">
 - <edit>
 
 **Investigation tasks opened:**

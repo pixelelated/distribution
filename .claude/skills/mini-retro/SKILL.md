@@ -298,7 +298,7 @@ Delegation is the right move when an Epic-tier audit ran AT the phase
 boundary (e.g. final phase of an Epic produces both the phase retro
 and the Epic audit in the same session). Re-deriving the same cornerstone
 conformance table or interaction-defect scan duplicates work without
-adding adversarial value. Origin: M22 FOUND-P4 (#2510, 2026-05-14).
+adding adversarial value. Origin: M22 FOUND-P4 (the source estate's issue 2510, 2026-05-14).
 
 ### Step 3 — Be specific
 

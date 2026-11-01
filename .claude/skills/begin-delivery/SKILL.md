@@ -56,7 +56,7 @@ invocation of a substantive methodology skill that produces **emergent** outcome
 - A [`code-auditor`](../code-auditor/SKILL.md) fresh audit at Epic / Milestone close
 - A DS-scale design review (e.g. a `design-reviewer` skill, if present)
 
-The contamination paths that justify the split (from M64.P1.5 E6 #2952):
+The contamination paths that justify the split (from the source estate's M64.P1.5 E6, its issue 2952):
 
 | `begin-delivery` ceremony                                 | Why it contaminates Discovery work                                                                                                                                                                                             |
 | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -443,7 +443,7 @@ Pre-futro audit  →  Futro  →  Post-futro audit  →  Execute
 4. For the **next** batch to execute, run the pre-futro audit checklist to expand its stub into a full body before proceeding to Step 2.
 5. For later batches, expand their bodies at their respective batch starts.
 
-**Origin:** 2026-05-12 mid-Epic #2635 process review. The lazy-drafting rule caused demonstrable context-resume disorientation (agent lost the Epic's sub-issue enumeration because future sub-issues did not exist as tracked artifacts). The Epic body promising "we'll get to G2.4" is structurally weaker than 5 issues existing with the right titles and parent link.
+**Origin:** 2026-05-12 mid-Epic process review in the source estate (its issue 2635). The lazy-drafting rule caused demonstrable context-resume disorientation (agent lost the Epic's sub-issue enumeration because future sub-issues did not exist as tracked artifacts). The Epic body promising "we'll get to G2.4" is structurally weaker than 5 issues existing with the right titles and parent link.
 
 Task granularity guidance:
 
