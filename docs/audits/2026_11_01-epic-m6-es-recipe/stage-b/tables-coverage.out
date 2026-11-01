@@ -1,0 +1,19 @@
+| File under `projects/ROCKNIX/packages/ui/` | Lines (`grep -c ''`) | Inventory tier | Git class against the base (`c445081a59`; behind: equal to the base and not to `upstream/next`) | Fork stat | What it is |
+| --- | ---: | --- | --- | ---: | --- |
+| `emulationstation/autostart/001-emulationstation` | 13 | upstream-carried | upstream-carried | -- | boot step: links /storage/.emulationstation to /storage/.config/emulationstation |
+| `emulationstation/config/common/es_features.cfg` | 2039 | upstream-carried | upstream-carried, behind | -- | per-emulator feature catalogue |
+| `emulationstation/config/common/es_input.cfg` | 1810 | upstream-carried | upstream-carried | -- | controller database |
+| `emulationstation/config/common/es_savestates.cfg` | 26 | fork-own | fork-added | 26 | save-state layout (retroarch) |
+| `emulationstation/config/common/es_settings.cfg` | 3 | upstream-carried | upstream-carried | -- | an empty <config> seed |
+| `emulationstation/package.mk` | 141 | fork-own | fork-modified, overlap | 47 | the ES recipe: clone of the fork's ES at the pin; depends, cmake options, credentials by name, install steps |
+| `emulationstation/sources/es_settings` | 52 | upstream-carried | upstream-carried | -- | ExecStartPre: timezone, locale, environment import |
+| `emulationstation/sources/serial_number_check` | 27 | upstream-carried | upstream-carried | -- | the serial number check |
+| `emulationstation/sources/start_es.sh` | 8 | upstream-carried | upstream-carried, behind | -- | sources es_settings and runs ES |
+| `emulationstation/system.d/emustation.service` | 20 | upstream-carried | upstream-carried, behind | -- | the non-sway unit |
+| `emulationstation/system.d/essway.service` | 21 | fork-own | fork-modified, overlap | 3 | the sway unit, with sway-ready before start |
+| `lowerdeck/package.mk` | 17 | upstream-carried | upstream-carried | -- | lowerdeck at its pin, copied to /usr/share/lowerdeck |
+| `themes/es-theme-art-book-next/package.mk` | 28 | fork-own | fork-modified | 2 | the theme at its pin, with the wordmark, the licence, five artwork sets removed, a zh font block |
+| `themes/es-theme-art-book-next/sources/Tiny5-OFL.txt` | 93 | fork-own | fork-added | 93 | the Tiny5 font licence |
+| `themes/es-theme-art-book-next/sources/pixelelated-wordmark.svg` | 263 | fork-own | fork-added | 263 | the wordmark |
+
+generated, asserted: rows 15, lines 4561, inventory fork-own 6 upstream-carried 9, git classes {'fork-added': 3, 'fork-modified': 3, 'upstream-carried': 9}

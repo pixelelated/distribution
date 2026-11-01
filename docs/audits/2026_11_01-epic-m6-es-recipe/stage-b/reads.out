@@ -1,0 +1,124 @@
+
+## B01 L-02 intent: the patch's addition (git log --diff-filter=A) and -S cpugov
+40fce2a089 2026-08-20 amd64: wip am64 changes
+rc=0
+-S cpugov commits: 0
+PKG_PATCH_DIRS outside recipes (scripts, config): 2 lines: scripts/unpack:137 scripts/unpack:138 
+5:@@ -745,12 +745,20 @@ std::vector<std::string> ApiSystem::getAvailableChannels()
+
+## B02 L-03 intent: -S for the device-path form, and the link's line history
+-S 'ln -sf /usr/config/emulationstation/es_systems.cfg' commits: 0
+c445081a59: 74:    ln -sf ${INSTALL}/usr/config/emulationstation/es_systems.cfg ${INSTALL}/etc/emulationstation/es_systems.cfg
+651150fc88: 75:    ln -sf ${INSTALL}/usr/config/emulationstation/es_systems.cfg ${INSTALL}/etc/emulationstation/es_systems.cfg
+who installs /usr/config/emulationstation/es_systems.cfg (lines naming it, outside ui/):
+2174265e9c:projects/ROCKNIX/packages/hardware/quirks/autostart/020-configs:14:    rsync -a --exclude={es_features.cfg,es_systems.cfg} /usr/lib/autostart/quirks/platforms/"${HW_DEVICE}"/config/* /stora
+2174265e9c:projects/ROCKNIX/packages/hardware/quirks/autostart/020-configs:22:    rsync -a --exclude={es_features.cfg,es_systems.cfg} /usr/lib/autostart/quirks/devices/"${QUIRK_DEVICE}"/config/* /stor
+2174265e9c:projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:306:# The interface's own folder: es_systems.cfg, and the two places its game
+2174265e9c:projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:349:# es_systems.cfg uses on this image, both spellings where two images differ
+2174265e9c:projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:1250:# as it reads them: the base es_systems.cfg (custom, user or image copy) and
+2174265e9c:projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:1291:    es_systems_custom.cfg, the user's es_systems.cfg, the one beside the
+2174265e9c:projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:1299:    for cfg in (es_dir / "es_systems_custom.cfg", es_dir / "es_systems.cfg",
+2174265e9c:projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl:1300:                Path("/usr/bin/es_systems.cfg"), Path("/etc/emulationstation/es_systems.cfg"),
+
+## B03 L-04 intent: -S logo.png over the recipe; the pin's resources/logo.png
+9f1fab30f6 2025-07-13 projects: add modifications for ROCKNIX
+pin resources/logo.png: blob
+pin readers of logo.png (es-app, es-core): 16dbac5211eea7e70db7394372033be2be7df829:es-core/src/Splash.h 
+
+## B04 L-07 intent: -S localedef over the recipe
+96d387fffd 2025-12-22 emulationstation: pre-generate locale to spped up first boot on lower-end devices
+c445081a59 localedef lines: 1
+651150fc88 localedef lines: 1
+
+## B05 L-08: the catalog step and the pin's locale CMake
+  mkdir -p ${INSTALL}/usr/config/locale
+    cp -a ${PKG_BUILD}/locale/lang/* ${INSTALL}/usr/config/locale
+locale/CMakeLists.txt:9:     COMMAND find "${dir}/es-app" "${dir}/es-core" -name "*.cpp" -o -name "*.h" | ${XGETTEXT_EXECUTABLE} --add-comments=TRANSLATION -f - -o ${es_POT} --no-location --keyword=_
+locale/CMakeLists.txt:25:             COMMAND ${MSGMERGE_EXECUTABLE} -U --no-fuzzy-matching ${es_PO_INPUT}/LC_MESSAGES/emulationstation2.po ${es_POT}
+locale/CMakeLists.txt:31:             COMMAND basename ${es_PO_INPUT} && ${MSGFMT_EXECUTABLE} -o ${es_MO_OUTPUT} ${es_PO_INPUT}/LC_MESSAGES/emulationstation2.po
+pin French catalog: blob
+
+## B06 L-16: the licence line's history
+84ff94fb3d 2026-10-13 emulationstation: prepare RVZ hash dependency and evidence
+3d7c075f63 2026-10-02 identity: prepare Rasteratops 0.0.1 source inputs (#337, #383)
+9f1fab30f6 2025-07-13 projects: add modifications for ROCKNIX
+-PKG_LICENSE="MIT"
++PKG_LICENSE="MIT AND BSD-3-Clause"
+-PKG_LICENSE="GPL"
++PKG_LICENSE="MIT"
++PKG_LICENSE="GPL"
+
+## B07 L-19: PKG_NEED_UNPACK and where scripts read it
+c445081a59: 11:PKG_NEED_UNPACK="busybox"
+651150fc88: 11:PKG_NEED_UNPACK="busybox"
+2174265e9c: 14:PKG_NEED_UNPACK="busybox"
+scripts/ readers: 0
+2174265e9c:config/functions:1114:  [ -n "$PKG_NEED_UNPACK" ] && stamp+=" $PKG_NEED_UNPACK"
+2174265e9c:config/functions:1322:      [ "$PKG_ADDON_IS_STANDALONE" != "yes" ] && PKG_NEED_UNPACK="${PKG_NEED_UNPACK} $(get_pkg_directory $MEDIACENTER)"
+2174265e9c:config/functions:1328:      PKG_NEED_UNPACK="${LINUX_DEPENDS} ${PKG_NEED_UNPACK}"
+2174265e9c:config/functions:1333:        PKG_NEED_UNPACK+=" $(get_pkg_directory ${_p})"
+9f1fab30f6 2025-07-13 projects: add modifications for ROCKNIX
+find -L busybox from the root finds: 0 (the package's directory: packages/sysutils/busybox projects/ROCKNIX/packages/sysutils/busybox )
+
+## B08 L-06: the sed
+a_b-c
+device names with a hyphen: 0
+c445081a59: 36:  export DEVICE=$(echo ${DEVICE^^} | sed "s#-#_##g")
+651150fc88: 37:  export DEVICE=$(echo ${DEVICE^^} | sed "s#-#_##g")
+
+## B09 L-05: the log loop's names and the forwarded four
+  for key in SCREENSCRAPER_DEV_LOGIN \
+             GAMESDB_APIKEY \
+             CHEEVOS_DEV_LOGIN; do
+KEEP='^(SCREENSCRAPER_DEV_LOGIN|GAMESDB_APIKEY|CHEEVOS_DEV_LOGIN|HFS_DEV_LOGIN)$'
+DROP='(^|_)(KEY|KEYS|TOKEN|TOKENS|SECRET|SECRETS|PASSWORD|PASSWD|CREDENTIAL|CREDENTIALS|AUTH|APIKEY|API_KEY|PRIVATE)($|_)|^(AWS|GH|GITHUB|NPM|OPENAI|ANTHROPIC)_'
+
+## B10 L-20: the default theme at the pin
+252:	mStringMap["ThemeSet"] = "system-theme";
+	std::map<std::string, ThemeSet>::const_iterator set = themeSets.find(Settings::getInstance()->getString("ThemeSet"));
+	if(set == themeSets.cend())
+	{
+		// currently selected theme set is missing, so just pick the first available set
+		set = themeSets.cbegin();
+		Settings::getInstance()->setString("ThemeSet", set->first);
+	}
+
+## B11 #1193: the four seeds' git modes and the install step
+100644 projects/ROCKNIX/packages/ui/emulationstation/config/common/es_features.cfg
+100644 projects/ROCKNIX/packages/ui/emulationstation/config/common/es_input.cfg
+100644 projects/ROCKNIX/packages/ui/emulationstation/config/common/es_savestates.cfg
+100644 projects/ROCKNIX/packages/ui/emulationstation/config/common/es_settings.cfg
+  mkdir -p ${INSTALL}/usr/config/emulationstation
+    cp -a ${PKG_DIR}/config/common/*.cfg ${INSTALL}/usr/config/emulationstation
+
+## B12 PL-029: start_es.sh:8, its sibling, and the pin's log path
+emulationstation --log-path /var/log --no-splash
+ExecStart=/usr/bin/emulationstation --log-path /var/log --no-splash
+pin main.cpp lines naming log-path: 0
+Paths.cpp:76: #if defined(ROCKNIX)
+Paths.cpp:77: 	mRootPath = "/storage";
+Paths.cpp:78: 	mEmulationStationPath = getExePath();
+Paths.cpp:79: 	mUserEmulationStationPath = "/storage/.config/emulationstation";
+Paths.cpp:80: 
+Paths.cpp:81: 	mLogPath = "/var/log";
+c445081a59 start_es.sh: 8:emulationstation --log-path /var/log --no-splash
+651150fc88 start_es.sh: 14:emulationstation --log-path /var/log --no-splash
+
+## B13 L-01: the tip's catalogue count of armsx2-sa vulkan driver features (the fixture's half without xmlstarlet)
+tip armsx2-sa vulkan driver features: 1
+armsx2-sa's devices (virtual/emulators):
+49:    PKG_EMUS+=" aethersx2-sa armsx2-sa dolphin-sa drastic-sa mednafen melonds-sa nanoboyadvance-sa"
+55:    PKG_EMUS+=" aethersx2-sa armsx2-sa azahar-sa dolphin-sa drastic-sa mednafen melonds-sa vita3k-sa"
+60:    PKG_EMUS+=" aethersx2-sa armsx2-sa azahar-sa dolphin-sa drastic-sa mednafen melonds-sa supermodel-sa vita3k-sa"
+65:    PKG_EMUS+=" aethersx2-sa azahar-sa dolphin-sa drastic-sa mednafen melonds-sa supermodel-sa vita3k-sa armsx2-sa"
+72:                skyemu-sa steam vita3k-sa armsx2-sa"
+78:                xemu-sa skyemu-sa steam vita3k-sa armsx2-sa"
+84:                xemu-sa skyemu-sa steam vita3k-sa armsx2-sa"
+89:                xemu-sa skyemu-sa steam vita3k-sa armsx2-sa"
+94:    PKG_EMUS+=" aethersx2-sa azahar-sa bigpemu-sa dolphin-sa drastic-sa duckstation-sa melonds-sa vita3k-sa armsx2-sa"
+103:                xemu-sa skyemu-sa vita3k-sa armsx2-sa"
+1214:    add_emu_core ps2 armsx2 armsx2-sa true
+1219:    add_emu_core ps2 armsx2 armsx2-sa true
+
+## B14 the register rows section 9 names, at HEAD
+D-WORKFLOW-012 :240 D-WORKFLOW-024 :335 D-WORKFLOW-162 :690 D-WORKFLOW-164 :698 D-WORKFLOW-165 :700 D-WORKFLOW-166 :702 D-INFRA-006 :75 D-INFRA-007 :76 D-WORKFLOW-213 :760 D-WORKFLOW-214 :769 D-WORKFLOW-215 :772 D-WORKFLOW-216 :777 D-WORKFLOW-217 :778 D-UI-090 :391 D-WORKFLOW-191 :785 D-WORKFLOW-187 :722 D-WORKFLOW-189 :724 D-WORKFLOW-195 :729 D-WORKFLOW-212 :754 D-WORKFLOW-047 :394 D-WORKFLOW-050 :408 D-UI-079 :345 D-WORKFLOW-144 :604 D-WORKFLOW-145 :608 D-WORKFLOW-146 :610 

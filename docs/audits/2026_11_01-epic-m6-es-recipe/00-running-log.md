@@ -56,3 +56,13 @@ No image build, package build or compiler (no compile START written); no `git fe
 - **01:12 UTC** -- the issues re-read (`stage-a/issues.out`).
 - **01:14 UTC** -- open items 2, 13 and 15, L-22, the lanes' tips and T36's G-01 line (`stage-a/open-items.{sh,out}`, `rc=0`).
 - **01:15 UTC** -- `00`, `01` § Scope, the pointer and the work log written for stage A's commit.
+
+## Stage B
+
+- **01:21 UTC** -- stage A accepted on #684 (6551707733) with three answers: the shared download cache is in bounds for reads (the tarball path and sha256 stand in `01` § L-22); G-05's state check is `CANNOT` on the guest and runs on the host against M6's artifact copy; the `W39` form is confirmed and the brief's "through the mask" is an erratum.
+- **01:22 UTC** -- the nine code files read whole at `2174265e9c` (the ES recipe through the mask with `:39` withheld by number); the pin's `CMakeLists.txt`, `main.cpp`, `Paths.cpp`, `Log.cpp`, `Splash.h`, `es-core/CMakeLists.txt` by hash; `scripts/build:145-174`, `config/functions:380-392` in the export.
+- **01:25 UTC** -- `stage-b/reach-15.sh` (the patch reach on all 15 devices, in the export, `reach rc=0`); `tools/t37-tables.py` written, each table seen to exit 1 on its constructed drift and then run (`rc=0` each); `stage-b/reads.sh` (B01-B14) and `stage-b/l01-merges.sh`.
+- **01:30 UTC** -- G-05's host half. The payload route (`stage-b/state-check-host.sh`): the artifact's sha256 equal to its `.sha256`; the check `rc=2`, `input-invalid`, because `mcopy` is absent on the host. The root route (`stage-b/state-check-root.sh`): the image unpacked into `/workspace/tmp/m6-t37/state/`, `SYSTEM` taken from partition 1 with `7z` and unsquashed there, then `tools/pixelelated-state-check --root <tree> --mode clean-image`: `status pass`, 279 checks, 278 `clear`, 1 `allowed` (`/usr/bin/emulationstation approved-shared-developer-identity`). The artifact was read only.
+- **01:33 UTC** -- `/workspace/tmp/m6-t37/state/` retired (D-INFRA-022): `disk.img` 4,333,764,608, `part1.fat` 4,294,967,296, `SYSTEM` 2,073,284,608 (sha256 `ade55e79...e6982`), the tree 6,962,961,490 bytes (`stage-b/state-retired.txt`); the result JSON kept in scratch.
+- **01:36 UTC** -- census `qemu 0, compilers 0`; export build roots `16`, worktree build roots `0`; the host file 641 lines, M7's own last line still 531 (RETURN owner10, 00:48:41), the tail T36's compile pairs. `02-forward-audit.md` written in § 6's order (15 Coverage rows by the checkbox's `awk`); `stage-b/window-plan.md` (G-01 to G-07, `780` s; 15 minutes plus 5 of grace).
+- **Keyed invokes so far: 0.** No guest started; the window is requested on #684 and in the host file at this stage's end.

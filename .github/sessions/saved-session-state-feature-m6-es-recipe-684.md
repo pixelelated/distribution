@@ -17,9 +17,17 @@
 
 ## Current focus
 
-**Stage A done; stage B next** (`02-forward-audit.md` in the brief's § 6
-order, then the window request on #684 with its plan and bound, and a line
-in the host file). Stage A's record: `docs/audits/2026_11_01-epic-m6-es-recipe/`
+**Stage B done; the window requested; stage C next after the grant or
+beside it** (`tools/t37-checks.sh` in its eight steps with its FAIL-first run
+and its run at the tip; the packet trimmed and scanned with `:39` withheld
+by number; the plan, the seat, the pre-issue lint). Stage B's record:
+`02-forward-audit.md` (§ 6's order, 15 Coverage rows, three generated
+tables each seen to exit 1 on a drift), `stage-b/` (the reach on 15
+devices, the reads, L-01's merges, the state check's two routes -- the
+payload route `rc=2` for want of `mcopy`, the root route `status pass` --
+and `window-plan.md`). The window: one guest, one boot at 640x480, G-01 to
+G-07 at 780 s, 15 minutes plus 5 of grace, no START before the grant.
+Stage A's record follows. Stage A's record: `docs/audits/2026_11_01-epic-m6-es-recipe/`
 `00-running-log.md` (the model, the effort, `reviewed-at` `9fa740a91b`, the
 host file read at 01:01:29-01:01:40 UTC, census `qemu 0, compilers 0`, the
 export `/workspace/tmp/m6-t37/export/`), `01-research-notes.md` (§ Scope
@@ -85,4 +93,5 @@ outside the one granted window.
 
 ## Checkpoints
 
-- **Stage A** -- the stage-A commit over `9fa740a91b` (its hash in the #684 checkpoint post), 01:2x UTC 2026-11-01: `00`, `01`, `stage-a/`, this pointer's fills, the day's work-log entry; census `qemu 0, compilers 0`; worktree build roots `0`; keyed invokes `0`.
+- **Stage A** -- `2ce981005e` over `9fa740a91b`, 01:20 UTC 2026-11-01 (accepted 01:21, 6551707733): `00`, `01`, `stage-a/`, this pointer's fills, the day's work-log entry; census `qemu 0, compilers 0`; worktree build roots `0`; keyed invokes `0`.
+- **Stage B** -- the stage-B commit over `2ce981005e` (its hash in the #684 checkpoint post with the window request), 01:4x UTC 2026-11-01: `02`, `stage-b/`, `tools/t37-tables.py`, `00`'s stage-B entries; census `qemu 0, compilers 0`; worktree build roots `0`; keyed invokes `0`; no guest.

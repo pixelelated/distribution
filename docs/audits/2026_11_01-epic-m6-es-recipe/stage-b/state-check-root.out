@@ -1,0 +1,13 @@
+gunzip rc=0 bytes=4333764608 wall=7s
+sfdisk rc=0 partition1 start=8192 size=8388608
+dd rc=0
+7z list rc=0 SYSTEM entries=1
+7z extract rc=0 SYSTEM bytes=2073284608 sha256=ade55e79f85d8896610a7ffecb228193c8ce651f65640c67479d64ca4c6e6982
+unsquashfs rc=0 wall=3s files=61766 errors=0
+BUILD_ID line: BUILD_ID="069fc270442134fe771258418adf4e666e0473fb"
+state-check --root --mode clean-image rc=0 wall=0s
+status pass mode clean-image error_count 0 checks 279
+by status {'clear': 278, 'allowed': 1}
+   /usr/bin/emulationstation approved-shared-developer-identity allowed count 1
+  es: /usr/bin/emulationstation developer-service-identity clear count 0
+  es: /usr/bin/emulationstation approved-shared-developer-identity allowed count 1

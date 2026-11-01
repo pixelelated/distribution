@@ -1,0 +1,18 @@
+| File under `projects/ROCKNIX/packages/ui/` | Side | Upstream commits `c445081a59..651150fc88` | Fork non-merge commits `c445081a59..2174265e9c` | Tip to `upstream/next` | What it is |
+| --- | --- | ---: | ---: | --- | --- |
+| `emulationstation/config/common/es_features.cfg` | upstream moved | 4 | 0 | +36 -71 | upstream's change the fork lacks |
+| `emulationstation/config/common/es_savestates.cfg` | fork moved | 0 | 2 | +0 -26 | the fork's own (absent upstream) |
+| `emulationstation/package.mk` | both | 8 | 241 | +14 -34 | both moved: a merge pending |
+| `emulationstation/patches/RK3566/fix_multistateinput.patch` | upstream moved | 1 | 0 | +21 -0 | upstream's change the fork lacks (absent at the tip) |
+| `emulationstation/sources/start_es.sh` | upstream moved | 1 | 0 | +6 -0 | upstream's change the fork lacks |
+| `emulationstation/system.d/emustation.service` | upstream moved | 1 | 0 | +1 -1 | upstream's change the fork lacks |
+| `emulationstation/system.d/emustation.service.d/20-thp.conf` | upstream moved | 1 | 0 | +2 -0 | upstream's change the fork lacks (absent at the tip) |
+| `emulationstation/system.d/essway.service` | both | 1 | 1 | +1 -4 | both moved: a merge pending |
+| `emulationstation/system.d/essway.service.d/20-thp.conf` | upstream moved | 1 | 0 | +2 -0 | upstream's change the fork lacks (absent at the tip) |
+| `themes/es-theme-art-book-next/package.mk` | fork moved | 0 | 2 | +0 -2 | the fork's own |
+| `themes/es-theme-art-book-next/patches/001-pixelelated-splash.patch` | fork moved | 0 | 2 | +0 -31 | the fork's own (absent upstream) |
+| `themes/es-theme-art-book-next/patches/001-tools-always-show-image.patch` | fork moved | 0 | 1 | +0 -11 | the fork's own (absent upstream) |
+| `themes/es-theme-art-book-next/sources/Tiny5-OFL.txt` | fork moved | 0 | 1 | +0 -93 | the fork's own (absent upstream) |
+| `themes/es-theme-art-book-next/sources/pixelelated-wordmark.svg` | fork moved | 0 | 2 | +0 -263 | the fork's own (absent upstream) |
+
+generated, asserted: rows 14; upstream-only 6 fork-only 6 both 2

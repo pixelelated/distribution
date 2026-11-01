@@ -1,0 +1,13 @@
+c445081a59 armsx2 lines: 2
+651150fc88 armsx2 lines: 2
+2174265e9c armsx2 lines: 0
+b9a5d8caf1 2026-09-24 armsx2-turnip: ship ARMSX2's Turnip build for Adreno 6xx/7xx
+a06539d8ec 2026-09-29 parents: eb4fbe9b2c=0 6b344ab54d=2 result=0
+049765fba0 2026-09-29 parents: 64c5134c12=0 cd582e422d=2 result=0
+fa2990c1e7 2026-09-29 parents: 2908e4af4b=0 9fd38fa870=2 result=0
+f370dc8787 2026-10-12 parents: ca5d034488=0 c445081a59=2 result=0
+651150fc88:104:   #ARMSX2's own Turnip ships only on these devices (see armsx2-sa)
+651150fc88:105:   case ${DEVICE} in
+651150fc88:106:     SM4450|SM6115|SM8250|SM8550|SM8650) ;;
+651150fc88:107:     *) xmlstarlet ed --inplace -d '//core[@name="armsx2-sa"]//feature[@name="vulkan driver"]' ${INSTALL}/usr/config/emulationstation/es_features.cfg ;;
+651150fc88:108:   esac

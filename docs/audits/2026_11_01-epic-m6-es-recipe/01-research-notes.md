@@ -292,7 +292,7 @@ repository); the stage-C checker line is not run; the removal check names `94d8e
 
 ## L-22: where the shipped theme names its fonts
 
-Read by hash (errata): the theme's tarball from the shared download cache, its sha256
+Read by hash (errata): the theme's tarball from the shared download cache, `/workspace/cache/rocknix-sources/es-theme-art-book-next/es-theme-art-book-next-9a50ef366e750aabfab29e6915a2867607212971.tar.gz` (in bounds for reads, the coordinator's answer 1 of 6551707733; read only), its sha256
 `7ee1e93f2c4e4f7385b78680ecfa3828acf12bc616e2111d23cc66a524231125` equal to the recipe's
 `PKG_SHA256`; its 28 XML members extracted to scratch (`stage-a/open-items.out`).
 
