@@ -46,7 +46,7 @@ Before trusting the saved state, check:
 
 For the tracker check, read the live milestone body and owning issues, including later comments. Resolve current/next work using [`milestone-phase-naming.md`](../../rules/milestone-phase-naming.md); issue numbers and checkpoint age are not priority. If the tracker is unreachable, state that limitation and continue independent authorized work from the last verified plan.
 
-For API access: use whatever API the repo uses. For GitHub repos, prefer the GitHub MCP tools (`mcp_github_search_issues`, `mcp_github_issue_read`). Avoid `gh` CLI list/search for bulk queries — it has destabilised agent runners.
+For API access: use whatever API the repo uses. For the tracker, use `gh --repo pixelelated/distribution` with bounded output (`--limit N --json <fields>`; `--body-file` for a write), or Claude Code's GitHub MCP tools (`mcp__github__*`); every call names the repository (`issue-tracking.md`).
 
 ### Step 3 — Produce the briefing
 

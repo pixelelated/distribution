@@ -76,10 +76,10 @@ work, **read first**:
 
 ## Tooling
 
-For GitHub-backed work, prefer MCP tools (`mcp_github_issue_read`,
-`mcp_github_issue_write`, `mcp_github_add_issue_comment`,
-`mcp_github_search_issues`, `mcp_github_list_issues`). The `gh` CLI also
-works; always bound list/search output.
+For the tracker, use `gh --repo pixelelated/distribution` with bounded output
+(`--limit N --json <fields>`; `--body-file` for a write), or Claude Code's
+GitHub MCP tools (`mcp__github__*`); every call names the repository
+(`issue-tracking.md`).
 
 For pattern analysis (question 3), `git log`, `grep`, and reading related
 past issues are the primary tools.
@@ -109,8 +109,8 @@ documented in question 4.
 Before answering any of the five questions, gather:
 
 - The **plan** — spec section, epic body, sub-issue bodies in scope
-- The **upstream retro**, if one exists — `mcp_github_issue_read` on the
-  parent epic + `get_comments` for any retro comments; `git log --oneline
+- The **upstream retro**, if one exists — `gh issue view <epic> --repo
+  pixelelated/distribution --comments` for any retro comments; `git log --oneline
 --grep="Mini Retro\|retro:" <branch>..HEAD`
 - **Any retro addenda** — a phase that produced substantial work after
   its retro records it as a `Mini-Retro Addendum: …` follow-up comment

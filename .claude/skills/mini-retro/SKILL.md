@@ -113,10 +113,10 @@ commits and file diffs first**. Writing a retro from nothing is not acceptable.
 
 ## Tooling
 
-For GitHub-backed work, prefer the GitHub MCP tools
-(`mcp_github_add_issue_comment`, `mcp_github_issue_read`,
-`mcp_github_issue_write`). The `gh` CLI also works; always bound list/search
-output with `--limit N --json <fields>`.
+For the tracker, use `gh --repo pixelelated/distribution` with bounded output
+(`--limit N --json <fields>`; `--body-file` for a write), or Claude Code's
+GitHub MCP tools (`mcp__github__*`); every call names the repository
+(`issue-tracking.md`).
 
 For other trackers, apply the same pattern conceptually.
 

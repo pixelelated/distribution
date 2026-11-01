@@ -69,7 +69,7 @@ Primary technique: agent-execution simulation. Complementary: pre-mortem, blinds
 
 **Agent-execution simulation ("what if?" walkthrough):**
 
-> Archetype simulated: <name one — e.g. "Fresh AI agent with only the issue body and repo access"; "Future-me two weeks from now"; "A parallel-channel Copilot CLI agent handed #F as a background task">
+> Archetype simulated: <name one — e.g. "Fresh AI agent with only the issue body and repo access"; "Future-me two weeks from now"; "A parallel-channel agent handed #F as a background task">
 
 - **Step <N> (<what the agent will try to do>):** <what if they interpret / skip / state-assume / depend-on X? Where do they most-likely trip?>
   **Plan change / AC addition:** <specific concrete change to the plan that prevents the trap>

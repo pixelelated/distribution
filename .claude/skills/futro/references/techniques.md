@@ -28,14 +28,14 @@ other three combined.
 
 Pick a specific agent archetype to simulate:
 
-- **Fresh-context AI agent** (Crush, Claude Code, Copilot) arriving
+- **Fresh-context AI agent** (Crush, Claude Code) arriving
   cold with only the issue body, spec section, and repo access
 - **Future-you, two weeks from now**, remembering only the high-level
   shape
 - **Another human developer** familiar with the codebase but not this
   feature
 - **A parallel-channel agent** handed the issue as a background task
-  via `/copilot` or similar
+  (a subagent, or a second session)
 
 The choice matters: a fresh AI agent will read the issue body literally
 and grep for patterns, while a colleague will ask implicit questions

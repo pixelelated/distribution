@@ -45,7 +45,7 @@ Collect from the live environment, not the conversation:
    - `git log --oneline -n 10` (recent commits on this branch)
 4. **Modified files** — cross-reference `git status` with files mentioned in conversation
 5. **Issue tracker context** (if applicable):
-   - If the repo uses GitHub issues/milestones: prefer the GitHub MCP tools (`mcp_github_search_issues`, `mcp_github_list_issues`, `mcp_github_issue_read`). Avoid `gh` CLI for list/search operations — bulk output can destabilise some agent runners.
+   - If the repo uses GitHub issues/milestones: For the tracker, use `gh --repo pixelelated/distribution` with bounded output (`--limit N --json <fields>`; `--body-file` for a write), or Claude Code's GitHub MCP tools (`mcp__github__*`); every call names the repository (`issue-tracking.md`).
    - If it uses another tracker (Jira, Linear, Plane): use whatever MCP / API is available, or skip this step and note it
    - Identify the active Milestone/Epic/Sprint from branch name or conversation
 6. **Active plan** — the milestone body (the ordered execution plan, `milestone-phase-naming.md`) and the work's brief under `docs/reviews/briefs/` where one exists; note both

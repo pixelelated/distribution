@@ -133,12 +133,10 @@ it takes precedence over this skill for per-issue protocol.
 
 ## Tooling
 
-For GitHub-backed workflows, prefer the GitHub MCP tools
-(`mcp_github_issue_read`, `mcp_github_issue_write`,
-`mcp_github_search_issues`, `mcp_github_list_issues`). Avoid the `gh`
-CLI for list/search operations — bulk output has destabilised agent
-runners. `gh` for single-record writes is fine when MCP doesn't cover
-the operation.
+For the tracker, use `gh --repo pixelelated/distribution` with bounded output
+(`--limit N --json <fields>`; `--body-file` for a write), or Claude Code's
+GitHub MCP tools (`mcp__github__*`); every call names the repository
+(`issue-tracking.md`).
 
 For other trackers, use whatever API / MCP is available and apply the
 same steps conceptually.
@@ -151,7 +149,7 @@ Find the mini-retro that closed the previous phase (if one exists).
 Candidate locations:
 
 - Comment on the parent Epic / umbrella issue (most common —
-  `mcp_github_issue_read` + `get_comments`)
+  `gh issue view <n> --repo pixelelated/distribution --comments`)
 - Section in the spec document (`### Mini Retro: Phase N`)
 - Dedicated retro issue (if the Milestone uses one)
 - Commit message of the phase's last commit
@@ -282,8 +280,9 @@ futro:
 
 1. **Inventory done-state.** List the Milestone's **closed** issues and, for
    each relevant to the upcoming phase, its landed deliverable (commit SHA,
-   doc path, schema, endpoint). `mcp_github_search_issues` with
-   `milestone:"<name>" state:closed`, plus `git log` for the deliverables.
+   doc path, schema, endpoint). `gh issue list --repo
+   pixelelated/distribution --milestone "<name>" --state closed --limit 200
+   --json number,title`, plus `git log` for the deliverables.
 2. **Assumed-undone scan.** For every AC about to enter execution, ask: _does
    this AC assume something is still to-do that is actually already done?_
    Check the upcoming issue bodies against the done-state inventory. Pay
@@ -440,7 +439,7 @@ Pre-futro audit  →  Futro  →  Post-futro audit  →  Execute
 
 1. Read the Epic body's decomposition.
 2. Create thin stubs for every not-yet-filed sub-issue with: title, batch number, link to Epic, "DRAFT — pre-futro audit pending" placeholder body.
-3. Link each stub under the Epic via `mcp_github_sub_issue_write method=add` (serial, never parallel).
+3. Link each stub under the Epic via `gh api -X POST repos/pixelelated/distribution/issues/<epic>/sub_issues -F sub_issue_id=<REST id>` (serial, never parallel; `issue-tracking.md`).
 4. For the **next** batch to execute, run the pre-futro audit checklist to expand its stub into a full body before proceeding to Step 2.
 5. For later batches, expand their bodies at their respective batch starts.
 

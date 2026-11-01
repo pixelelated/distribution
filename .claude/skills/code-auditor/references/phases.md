@@ -28,7 +28,7 @@ Covered in SKILL.md. Key points recap:
 
 ### 1.2 Read the issues
 
-Use the GitHub MCP issue/search tools (runtime-specific names: `mcp__github__*` in Claude Code, `mcp_github_*` in Copilot). Avoid `gh` CLI for list/search.
+For the tracker, use `gh --repo pixelelated/distribution` with bounded output (`--limit N --json <fields>`; `--body-file` for a write), or Claude Code's GitHub MCP tools (`mcp__github__*`); every call names the repository (`issue-tracking.md`).
 
 - Find issues by milestone, labels, or numbers
 - Read each issue body completely — acceptance criteria, discussion, linked PRs
