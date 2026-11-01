@@ -1,0 +1,29 @@
+# PL-15 (L-81), S2: mini-retro: one order for Step 2.5 and one closing list (PL-15; Refs #685)
+parent: e05a5d5eef (export /workspace/tmp/m6-t38/e/e05a5d5eef); fix: 629c6794c1 (tree b3f30f6e49, export /workspace/tmp/m6-t38/e/629c6794c1)
+check, run in each export's .claude/skills: S=mini-retro/SKILL.md; echo "Step 2.5 after Step 2: $(grep -c "and Step 2 (writing the four" $S)"; echo "before the four questions, in both: $(grep -c "before the four" $S) $(grep -c "before the four retro questions" mini-retro/references/scoped-audit.md)"; echo "exactly these four sections: $(grep -c "exactly these four sections" $S)"; echo "Optional scoped audit: $(grep -c "<Optional. See" $S)"; echo "Step 7 inside Step 7: $(grep -c "captured in Step 7 below" $S)"; echo "the template's own list: $(grep -c "^6\. \*\*Close the Mini Retro issue" mini-retro/references/template.md)"
+FAIL at the parent (rc=0): Step 2.5 after Step 2: 1 ; before the four questions, in both: 0 1 ; exactly these four sections: 1 ; Optional scoped audit: 1 ; Step 7 inside Step 7: 1 ; the template's own list: 1
+PASS at the fix (rc=0): Step 2.5 after Step 2: 0 ; before the four questions, in both: 1 1 ; exactly these four sections: 0 ; Optional scoped audit: 0 ; Step 7 inside Step 7: 0 ; the template's own list: 0
+allowlists re-keyed: rekeyed allow-findings.txt: .claude/skills/mini-retro/SKILL.md:320 -> :322;t38-rekey: 1 entry moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit b3f30f6e49):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       616 of 616 passed, 164 allowlisted
+ok    stale      119 of 119 passed, 118 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 57 of 57 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 18
+TOTAL: 956 of 956 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Step 7's heading stays (it is a step of the procedure); its self-reference goes, so the brief's 'grep -c Step 7' reads 1, the heading, not 0.
+Already written: nothing inherited: the retros here (docs/retros/, 7) follow the order they were written in, and a retro's sections are its record
+import-unchanged: yes (git log -S over .claude/skills/mini-retro/SKILL.md at e05a5d5eef prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 629c6794c1:
+ .claude/skills/mini-retro/SKILL.md                     | 15 ++++++++-------
+ .claude/skills/mini-retro/references/template.md       | 18 ++++--------------
+ .../tools/allow-findings.txt                           |  2 +-
+ 3 files changed, 13 insertions(+), 22 deletions(-)

@@ -1,0 +1,29 @@
+# PL-08 (L-63), S2: mini-retro, begin-delivery: the scoped audit's ten checks, counted once (PL-08; Refs #685)
+parent: f95a86a878 (export /workspace/tmp/m6-t38/e/f95a86a878); fix: e05a5d5eef (tree 819f21faea, export /workspace/tmp/m6-t38/e/e05a5d5eef)
+check, run in each export's .claude/skills: python3 -I "$AUD/tools/t38-tables.py" q4 "$X" "$REPO" 2>/dev/null | awk -F"|" "/Step 2.5.s procedure/ {k=\"procedure\"} /Scoped audit findings\* lines/ {k=\"format\"} /Check N. lines/ {k=\"template\"} /begin-delivery\/SKILL.md/ {k=\"begin-delivery\"} k {gsub(/^ +| +\$/,\"\",\$3); gsub(/^ +| +\$/,\"\",\$5); print k\" \"\$3\" \"\$5; k=\"\"}"
+FAIL at the parent (rc=0): procedure 9 no ; format 6 no ; template 9 no ; begin-delivery 5 no
+PASS at the fix (rc=0): procedure 10 yes ; format 10 yes ; template 10 yes ; begin-delivery -- n/a: no number stated
+allowlists re-keyed: rekeyed allow-findings.txt: .claude/skills/begin-delivery/SKILL.md:609 -> :610;rekeyed allow-findings.txt: .claude/skills/mini-retro/SKILL.md:315 -> :320;t38-rekey: 2 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit 819f21faea):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       616 of 616 passed, 164 allowlisted
+ok    stale      119 of 119 passed, 118 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 57 of 57 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 18
+TOTAL: 956 of 956 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Already written: nothing inherited: a retro written with six lines is a record; docs/retros/ (7) were written from the rule and the template
+import-unchanged: yes (git log -S over .claude/skills/begin-delivery/SKILL.md at f95a86a878 prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= e05a5d5eef:
+ .claude/skills/begin-delivery/SKILL.md                           | 3 ++-
+ .claude/skills/mini-retro/SKILL.md                               | 9 +++++++++
+ .claude/skills/mini-retro/references/template.md                 | 1 +
+ .../2026_11_01-epic-m6-doctrine-skills/tools/allow-findings.txt  | 4 ++--
+ 4 files changed, 14 insertions(+), 3 deletions(-)

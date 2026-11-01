@@ -1,0 +1,32 @@
+# PL-47 (L-22), S2: mini-retro: a Discovery Epic starts with its methodology skill; begin-exploration swept (PL-47; Refs #685)
+parent: 5f6d68c4f6 (export /workspace/tmp/m6-t38/e/5f6d68c4f6); fix: 2dac7625fe (tree ff8393558a, export /workspace/tmp/m6-t38/e/2dac7625fe)
+check, run in each export's .claude/skills: grep -r -c begin-exploration mini-retro | grep -v ":0$" | LC_ALL=C sort; echo "files: $(grep -r -l begin-exploration mini-retro | wc -l)"; echo "the skill in any tree: $(git -C "$REPO" log --all --oneline -- .claude/skills/begin-exploration | wc -l)"
+FAIL at the parent (rc=0): mini-retro/SKILL.md:8 ; mini-retro/references/template.md:3 ; files: 2 ; the skill in any tree: 0
+PASS at the fix (rc=0): files: 0 ; the skill in any tree: 0
+allowlists re-keyed: t38-rekey: 0 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit ff8393558a):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       616 of 616 passed, 163 allowlisted
+ok    stale      127 of 127 passed, 126 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 63 of 63 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 24
+TOTAL: 970 of 970 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Description, mini-retro/SKILL.md:3: 985 -> 1001 characters of the scalar (tools/t38-tables.py q5); 1003 -> 1019 bytes of the line (sed -n 3p | wc -c)
+The stale term begin-exploration joins tools/t38-checks.py's STALE in this commit, seen FAIL-first on the parent's export: 18 FAIL lines, the export's pipeline.md:497 excused by its * entry (stage-e/S2-stale-term-failfirst.txt). futro's 2 and begin-delivery's 5 lines are excused in allow-findings.txt as L-22 swept in S3 / S4 until those streams land.
+Already written: nothing inherited: every line hedged 'if present', and the skill never existed in any tree (git log --all prints 0 lines), so no session invoked it
+import-unchanged: yes (git log -S over .claude/skills/mini-retro/SKILL.md at 5f6d68c4f6 prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 2dac7625fe:
+ .claude/skills/mini-retro/SKILL.md                 | 25 +++++++++-------------
+ .claude/skills/mini-retro/references/template.md   |  8 +++----
+ .../tools/allow-findings.txt                       |  7 ++++++
+ .../tools/allow-inherited.txt                      |  2 +-
+ .../tools/t38-checks.py                            |  2 +-
+ 5 files changed, 22 insertions(+), 22 deletions(-)

@@ -1,0 +1,28 @@
+# PL-35 (L-65), S2: mini-retro: scoped-audit's two paths resolve (PL-35; Refs #685)
+parent: 411d93a585 (export /workspace/tmp/m6-t38/e/411d93a585); fix: 5f6d68c4f6 (tree 45cd70b2c4, export /workspace/tmp/m6-t38/e/5f6d68c4f6)
+check, run in each export's .claude/skills: S=mini-retro/references/scoped-audit.md; echo "reference/template.md: $(grep -c -F "\`reference/template.md\`" $S)"; echo "cornerstone-conformance.md: $(grep -c cornerstone-conformance.md $S)"; echo "references/template.md resolves: $(test -f mini-retro/references/template.md && echo yes)"
+FAIL at the parent (rc=0): reference/template.md: 1 ; cornerstone-conformance.md: 1 ; references/template.md resolves: yes
+PASS at the fix (rc=0): reference/template.md: 0 ; cornerstone-conformance.md: 0 ; references/template.md resolves: yes
+allowlists re-keyed: dropped allow-findings.txt: .claude/skills/mini-retro/references/scoped-audit.md:176 (its line is gone);rekeyed allow-findings.txt: .claude/skills/mini-retro/references/scoped-audit.md:560 -> :559;t38-rekey: 2 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit 45cd70b2c4):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       616 of 616 passed, 163 allowlisted
+ok    stale      119 of 119 passed, 118 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 56 of 56 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 17
+TOTAL: 955 of 955 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+allow-findings.txt's scoped-audit.md:176 L-65 entry is dropped with its line; the checker's refs step passes without it (run 3 had it failing with the entry withheld).
+Already written: nothing inherited: a reader who followed either path found nothing and wrote nothing
+import-unchanged: yes (git log -S over .claude/skills/mini-retro/references/scoped-audit.md at 411d93a585 prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 5f6d68c4f6:
+ .claude/skills/mini-retro/references/scoped-audit.md          | 11 +++++------
+ .../tools/allow-findings.txt                                  |  3 +--
+ 2 files changed, 6 insertions(+), 8 deletions(-)

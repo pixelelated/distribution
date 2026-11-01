@@ -1,0 +1,25 @@
+# the stale term begin-exploration, FAIL-first (05:13:22 UTC): a scratch copy of tools/t38-checks.py with the term, run on the parent's export /workspace/tmp/m6-t38/e/5f6d68c4f6 with HEAD's allowlists
+rc=1
+FAIL  stale      120 of 138 passed, 119 allowlisted
+TOTAL: 956 of 974 assertions
+FAIL lines naming the term: 18
+FAIL     .claude/skills/begin-delivery/SKILL.md:3  retired term `begin-exploration`
+FAIL     .claude/skills/begin-delivery/SKILL.md:50  retired term `begin-exploration`
+FAIL     .claude/skills/begin-delivery/SKILL.md:68  retired term `begin-exploration`
+FAIL     .claude/skills/begin-delivery/SKILL.md:558  retired term `begin-exploration`
+FAIL     .claude/skills/begin-delivery/SKILL.md:563  retired term `begin-exploration`
+FAIL     .claude/skills/futro/SKILL.md:3  retired term `begin-exploration`
+FAIL     .claude/skills/futro/SKILL.md:457  retired term `begin-exploration`
+FAIL     .claude/skills/mini-retro/SKILL.md:3  retired term `begin-exploration`
+FAIL     .claude/skills/mini-retro/SKILL.md:375  retired term `begin-exploration`
+FAIL     .claude/skills/mini-retro/SKILL.md:396  retired term `begin-exploration`
+FAIL     .claude/skills/mini-retro/SKILL.md:476  retired term `begin-exploration`
+FAIL     .claude/skills/mini-retro/SKILL.md:489  retired term `begin-exploration`
+FAIL     .claude/skills/mini-retro/SKILL.md:509  retired term `begin-exploration`
+FAIL     .claude/skills/mini-retro/SKILL.md:514  retired term `begin-exploration`
+FAIL     .claude/skills/mini-retro/SKILL.md:538  retired term `begin-exploration`
+FAIL     .claude/skills/mini-retro/references/template.md:91  retired term `begin-exploration`
+FAIL     .claude/skills/mini-retro/references/template.md:93  retired term `begin-exploration`
+FAIL     .claude/skills/mini-retro/references/template.md:134  retired term `begin-exploration`
+the export's line, excused by its existing * entry: 1
+allowed  .claude/skills/council/references/pipeline.md:497  retired term `begin-exploration`  [allow-inherited.txt:15 L-38]

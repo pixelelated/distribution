@@ -1,0 +1,27 @@
+# PL-34 (L-64), S2: mini-retro, code-auditor: name the phases, do not count them (PL-34; Refs #685)
+parent: 629c6794c1 (export /workspace/tmp/m6-t38/e/629c6794c1); fix: 411d93a585 (tree d3a0f4d6c3, export /workspace/tmp/m6-t38/e/411d93a585)
+check, run in each export's .claude/skills: grep -r -c "6-phase" mini-retro code-auditor | grep -v ":0$" | LC_ALL=C sort; echo "files: $(grep -r -l "6-phase" mini-retro code-auditor | wc -l)"; echo "q4: $(python3 -I "$AUD/tools/t38-tables.py" q4 "$X" "$REPO" 2>/dev/null | grep -E "methodology" | awk -F"|" "{gsub(/^ +| +\$/,\"\",\$3); gsub(/^ +| +\$/,\"\",\$5); print \$3\" \"\$5}")"
+FAIL at the parent (rc=0): code-auditor/SKILL.md:2 ; mini-retro/SKILL.md:1 ; files: 2 ; q4: 6 no
+PASS at the fix (rc=0): files: 0 ; q4: -- n/a: no number stated
+allowlists re-keyed: t38-rekey: 0 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit d3a0f4d6c3):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       616 of 616 passed, 164 allowlisted
+ok    stale      119 of 119 passed, 118 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 57 of 57 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 18
+TOTAL: 956 of 956 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Already written: nothing inherited: a count in a tier table and a diagram wrote nothing
+import-unchanged: yes (git log -S over .claude/skills/code-auditor/SKILL.md at 629c6794c1 prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 411d93a585:
+ .claude/skills/code-auditor/SKILL.md | 4 ++--
+ .claude/skills/mini-retro/SKILL.md   | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)

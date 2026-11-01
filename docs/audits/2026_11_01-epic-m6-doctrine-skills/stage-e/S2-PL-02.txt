@@ -1,0 +1,27 @@
+# PL-02 (L-10), S2: mini-retro: the pre-existing-failure check uses a scratch worktree, never the shared stash (PL-02; Refs #685, #1390)
+parent: 82de4931a7 (export /workspace/tmp/m6-t38/e/82de4931a7); fix: f95a86a878 (tree 9dceef3634, export /workspace/tmp/m6-t38/e/f95a86a878)
+check, run in each export's .claude/skills: S=mini-retro/references/scoped-audit.md; echo "the criterion range 340-365: $(sed -n "340,365p" $S | grep -c -E "git stash( |$)|npx")"; echo "git stash lines: $(grep -c -E "^git stash( |$)" $S)"; echo "npx in mini-retro: $(grep -r -w -o npx mini-retro | wc -l)"; echo "a detached worktree: $(grep -c "git worktree add --detach" $S)"; echo "fork-worktree remove: $(grep -c "tools/fork-worktree remove" $S)"
+FAIL at the parent (rc=0): the criterion range 340-365: 3 ; git stash lines: 2 ; npx in mini-retro: 3 ; a detached worktree: 0 ; fork-worktree remove: 0
+PASS at the fix (rc=0): the criterion range 340-365: 0 ; git stash lines: 0 ; npx in mini-retro: 0 ; a detached worktree: 1 ; fork-worktree remove: 1
+allowlists re-keyed: rekeyed allow-findings.txt: .claude/skills/mini-retro/references/scoped-audit.md:561 -> :560;t38-rekey: 1 entry moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit 9dceef3634):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       614 of 614 passed, 164 allowlisted
+ok    stale      119 of 119 passed, 118 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 57 of 57 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 18
+TOTAL: 954 of 954 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Already written: #1390's: no work log, friction-log line, retro, futro or other audit folder names git stash pop or npx vitest (stage-d/checks-bugs.out; B-06) -- nothing inherited
+import-unchanged: yes (git log -S over .claude/skills/mini-retro/references/scoped-audit.md at 82de4931a7 prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= f95a86a878:
+ .../skills/mini-retro/references/scoped-audit.md   | 59 +++++++++++-----------
+ .../tools/allow-findings.txt                       |  2 +-
+ 2 files changed, 30 insertions(+), 31 deletions(-)
