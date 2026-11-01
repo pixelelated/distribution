@@ -521,6 +521,32 @@ cited by number. S0 is record-only; S1's five recipe edits each get a row below 
   **Time to play:** none; ES now rebuilds when busybox's recipe changes. **#585:** the L-19 line
   below, its evidence this commit and the pair.
 
+### S1 PL-04 (#1383): the `rm` of `logo.png` after `resources/` is filled
+
+- **Recipe commit `39863d5af3`** (`emulationstation: drop logo.png after resources/ is filled`; the
+  recipe only): the line moved from `:79` to `:82`, directly after the resources copy (`:81`) and
+  before `:83`'s `rm` of `DroidSansFallbackFull.ttf`; net zero lines (141 by `grep -c ''`); the
+  `rm` line counted `1` before and after.
+- **Positive before** (parent `5cc3aa9911`, `stage-e/s1-PL-04-before.txt`): `FAIL step 5
+  no-rm-before-its-directory-is-filled (L-04): at emulationstation/package.mk:79 makeinstall_target
+  (filled at :81)`; `TOTAL: 57 of 60 assertions`.
+- **Positive after** (`stage-e/s1-PL-04-after.txt`): `PASS step 5
+  no-rm-before-its-directory-is-filled (L-04)`; `TOTAL: 64 of 66 assertions`, its two FAIL lines
+  L-02 and L-03 (both deferred).
+- **The stamp compare:** `emulationstation` `moved=1 touched=1`; the theme and `lowerdeck`
+  `moved=0 touched=0`; both devices.
+- **Checks** (`stage-e/s1-PL-04-checks.txt`): `pkgcheck emulationstation rc=0` after its `find`
+  path (the theme, `lowerdeck` and the control beside it); `bash -n recipe rc=0`; the added line's
+  non-ASCII `0`, secret `0`, forbidden `rc=0` after their positives; `:39 equal`; the pin lines `0`;
+  build roots `0`.
+- **`Already written:`** #1383's: every image built from the old recipe carries
+  `/usr/config/emulationstation/resources/logo.png` on its read-only system; the next image built
+  from the fix replaces the system and the file goes with it; nothing is in `/storage` or a cloud.
+- **proved:** fix-fixture. **fix-image-pending:** #1383's criterion 2 -- `ls` of the path on the
+  GENERIC_X64 guest of the first image built from `fixed-at`. **Time to play:** none on the launch
+  or boot path; `SYSTEM` 283,835 bytes smaller. **No screen changes** (nothing reads the file under
+  `ROCKNIX`). **#585:** PL-04's line (§ The #585 lines owed).
+
 ### Recorded, no stream
 
 - **PL-01** -- **Deferred to #613** (ruling 2), the M7 lane's. T37's line on #613 (comment
