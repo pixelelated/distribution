@@ -108,3 +108,11 @@
 - **3.8's comment corrected** (ruling 11): it stated the erratum backwards; now "the height is stable only after a successful ASCII preload" (the seat's narrowing).
 - **Run:** `RUN utils-resources-tests: rc 1; 19 | 16 passed | 3 failed` (the 3 hard failures 3.1, 3.2-copyFile, 3.26; the two `may_fail` controls not counted), with `es-unit-tests` `185 | 185 passed` -> `TOTAL: 204 test cases in 2 binaries` (`stage-e/s0-floor.out`). 0 non-ASCII added. Host-file START/END pairs; M7 clear.
 - **S0 continues:** the sanitizer floor cases 3.6 (ASan, `preloadFileSystemCache`), 3.11 (TSan, `TextureData`), 3.12 (teardown, `TextureDataManager`), 3.25 (TSan, cache/pool/list) via `san()` programs; the four T36 fakes and the stand-in with the renderers positive; ruling 10's bugs.
+
+## 2026-11-01 01:04 UTC -- S0 (cont.): the sanitizer floor cases 3.6 and 3.25
+
+- **`san()` added to the build script** (T35's shape): a source under `stage-e/` linked with `FileSystemUtil.cpp`/`StringUtil.cpp`/`md5.cpp`, built `-fsanitize`, run, first report line kept.
+- **3.6 (L-15), ASan** (`stage-e/asan-preload.cpp`, `ASAN_OPTIONS=detect_stack_use_after_return=1`): `SAN asan-preload (-fsanitize=address): rc 1; ==...==ERROR: AddressSanitizer: stack-use-after-return` -- **the `[&]` lambda reads `trySaveStates` on the detached thread after `preloadFileSystemCache` returned. L-15 confirmed on the VM** (`stage-e/s0-asan-preload.txt`).
+- **3.25 (R3 s6), TSan** (`stage-e/tsan-cache.cpp`, concurrent `exists`/`reset` over the `shared_mutex`): `SAN tsan-cache (-fsanitize=thread): rc 0; no sanitizer report` -- **the positive: the cache's lock discipline is clean.**
+- Host-file START/END pairs; M7 clear. `TOTAL: 204` unchanged (the san programs are separate).
+- **S0 remaining:** 3.11 (TextureData TSan) and 3.12 (TextureDataManager teardown) with the four T36 fakes (FreeType, vlc, GLES3, SDL-GL); the stand-in with the renderers positive; ruling 10's bugs.

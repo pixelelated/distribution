@@ -81,6 +81,26 @@ for t in ${EUT_RAN} ${UR}; do
     grep -E 'ERROR|CHECK' "${B}/${t}.run.log" | head -n 30 | sed 's/^/      /'
   fi
 done
+# S0's sanitizer programs (T35's san() shape): a source under ../stage-e/ linked with the
+# slice sources, built with -fsanitize and run, its first report line kept. ASAN_OPTIONS for
+# 3.6's stack-use-after-return. A clean TSan run is 3.25's positive.
+AUD="$(dirname "${HERE}")"
+san() { # <name> <sanitizer> <source> [env]
+  local n=$1 f=$2 src=$3 env=${4:-}
+  rm -f -- "${B:?}/${n:?}" "${B:?}/${n:?}.run.log"
+  if g++ -std=c++17 -O1 -g -fno-omit-frame-pointer -fsanitize="$f" -pthread \
+      -I "${ES}/es-core/src" -I "${ES}/external" \
+      "${src}" "${ES}/es-core/src/utils/FileSystemUtil.cpp" "${ES}/es-core/src/utils/StringUtil.cpp" "${ES}/es-core/src/utils/md5.cpp" \
+      -o "${B}/${n}" > "${B}/${n}.build.log" 2>&1; then
+    env ${env} "${B}/${n}" > "${B}/${n}.run.log" 2>&1; local rc=$?
+    echo "SAN ${n} (-fsanitize=${f}): rc ${rc}; $(grep -m1 -E 'ERROR: AddressSanitizer|WARNING: ThreadSanitizer|SUMMARY:' "${B}/${n}.run.log" || echo 'no sanitizer report')"
+  else
+    echo "SAN ${n}: BUILD FAIL"; tail -n 8 "${B}/${n}.build.log"
+  fi
+}
+san asan-preload address "${AUD}/stage-e/asan-preload.cpp" "ASAN_OPTIONS=detect_stack_use_after_return=1"
+san tsan-cache thread "${AUD}/stage-e/tsan-cache.cpp"
+
 TOTAL=0; BINS=0
 for t in ${EUT_RAN} ${UR}; do
   [ -r "${B}/${t}.run.log" ] || continue

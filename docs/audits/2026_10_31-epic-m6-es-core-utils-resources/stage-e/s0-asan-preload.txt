@@ -1,0 +1,20 @@
+=================================================================
+==3684700==ERROR: AddressSanitizer: stack-use-after-return on address 0x76061a1f2c30 at pc 0x6230bf0d0480 bp 0x760618ffe950 sp 0x760618ffe940
+READ of size 1 at 0x76061a1f2c30 thread T1
+    #0 0x6230bf0d047f in operator() /home/max/Development/emulationstation-next.worktrees/m6-es-core-utils-resources-683/es-core/src/utils/FileSystemUtil.cpp:1775
+    #1 0x6230bf0d0fcb in __invoke_impl<void, Utils::FileSystem::preloadFileSystemCache(const std::string&, bool)::<lambda(std::string*)>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*> /usr/include/c++/15/bits/invoke.h:63
+    #2 0x6230bf0d0fcb in __invoke<Utils::FileSystem::preloadFileSystemCache(const std::string&, bool)::<lambda(std::string*)>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*> /usr/include/c++/15/bits/invoke.h:98
+    #3 0x6230bf0d0fcb in _M_invoke<0, 1> /usr/include/c++/15/bits/std_thread.h:303
+    #4 0x6230bf0d0fcb in operator() /usr/include/c++/15/bits/std_thread.h:310
+    #5 0x6230bf0d0fcb in _M_run /usr/include/c++/15/bits/std_thread.h:255
+    #6 0x7a061c4f5ef8  (/usr/lib/x86_64-linux-gnu/libstdc++.so.6+0xf5ef8) (BuildId: 3a7a8c6bd922e6314edb7a710fdc0293265c2c42)
+    #7 0x7a061c863a80 in asan_thread_start ../../../../src/libsanitizer/asan/asan_interceptors.cpp:246
+    #8 0x7a061c0a3df9  (/usr/lib/x86_64-linux-gnu/libc.so.6+0xa3df9) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+    #9 0x7a061c1375cb  (/usr/lib/x86_64-linux-gnu/libc.so.6+0x1375cb) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
+Address 0x76061a1f2c30 is located in stack of thread T0 at offset 48 in frame
+    #0 0x6230bf0c4c2c in Utils::FileSystem::preloadFileSystemCache(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool) /home/max/Development/emulationstation-next.worktrees/m6-es-core-utils-resources-683/es-core/src/utils/FileSystemUtil.cpp:1759
+  This frame has 13 object(s):
+    [32, 33) '<unknown>'
+    [48, 49) 'trySaveStates' (line 1758) <== Memory access at offset 48 is inside this variable
+    [64, 72) '<unknown>'
+    [96, 104) '<unknown>'
