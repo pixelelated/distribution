@@ -1,0 +1,42 @@
+02:50:01
+removal check: the lines above are its output (none expected); its rc is tail's
+open decisions heading at :780
+D-WORKFLOW-003 dec:1 open:0
+D-WORKFLOW-009 dec:1 open:0
+D-WORKFLOW-068 dec:1 open:0
+D-WORKFLOW-074 dec:1 open:0
+D-WORKFLOW-078 dec:1 open:0
+D-WORKFLOW-079 dec:1 open:0
+D-WORKFLOW-088 dec:1 open:0
+D-WORKFLOW-089 dec:1 open:0
+D-WORKFLOW-090 dec:1 open:0
+D-WORKFLOW-102 dec:1 open:0
+D-WORKFLOW-109 dec:1 open:0
+D-WORKFLOW-133 dec:1 open:0
+D-WORKFLOW-135 dec:1 open:0
+D-WORKFLOW-137 dec:1 open:0
+D-WORKFLOW-149 dec:1 open:0
+D-WORKFLOW-184 dec:1 open:0
+-- highest decided per area above :780 at 3a9b0aec81:
+D-CLOUD-193 D-INFRA-031 D-LAUNCH-007 D-NET-017 D-QA-063 D-RA-052 D-SYS-013 D-UI-137 D-WORKFLOW-218 
+register rows at 2f42ff5ddf: 712
+register rows at 3a9b0aec81: 713
+register rows at HEAD: 714
++| D-WORKFLOW-188 | 2026-10-23 | **The r
+-- the three moved files, lines at the P1 tip, at next and at HEAD (grep -c ''):
+.claude/skills/code-auditor/references/templates.md 331 331 348
+.claude/skills/council/IMPORTED-FROM.md 102 102 127
+.claude/skills/mini-retro/references/scoped-audit.md 709 709 716
+-- the rules this session loaded (52e6794ba7) against the coordinator's tip:
+ .claude/rules/device-builds.md          | 12 +++++++
+ .claude/rules/engineering-practices.md  | 58 +++++++++++++++++++++++++++++++--
+ .claude/rules/es-code-traps.md          | 44 +++++++++++++++++++------
+ .claude/rules/es-native-ui.md           | 16 ++++++---
+ .claude/rules/es-player-text.md         | 10 ++++--
+ .claude/rules/es-ui-style-guide.md      |  2 +-
+ .claude/rules/fork-workflow.md          |  2 +-
+ .claude/rules/generic-x64-vm-testing.md | 53 ++++++++++++++++++++++++++++++
+ .claude/rules/instruction-files.md      |  5 +--
+ 9 files changed, 175 insertions(+), 27 deletions(-)
+-- this lane's ref:
+feature/m6-doctrine-skills-685 11fa8f95b8

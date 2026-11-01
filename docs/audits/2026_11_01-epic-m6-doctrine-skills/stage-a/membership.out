@@ -1,0 +1,21 @@
+  52 .qa-scratch/t38/paths.txt
+  52 .qa-scratch/t38/tree.txt
+ 104 total
+distribution head: eb4763e3cc9bcd729830cd85f1719bbd4f28db10
+distribution merge_base: c445081a59518f37d9776e5412dd7b14910696f7
+distribution upstream: upstream/next c1f1746828ca47dfc751ffe44bb47b6b259883d7
+mine: 52 paths.txt: 52 equal: True
+only-mine: []
+only-paths.txt: []
+lines: 12734 reach: {'n/a': 52} tier: {'fork-own': 52} lang: {'markdown': 51, 'other': 1}
+fork-own lines: 12734
+read lines: 0 of which fork-own: 0 vendor-carried lines: 0
+overlap: 0 last_upstream_commit set: 0
+ls-tree at the inventory's head = paths.txt
+paths.txt = ls-tree at 2174265e9c
+wc -l, every path at the P1 hash: 12734
+grep -c, every path at the P1 hash: 12734
+grep -c, the inventory paths at its head: 12734
+0
+ 52 files changed, 12734 insertions(+)
+(end)

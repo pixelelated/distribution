@@ -17,7 +17,36 @@
 
 ## Current focus
 
-Not started. Before the first command after `cat`, the eleven keys of this
+**Stage A is done; stage B is next, on the coordinator's read of the
+stage-A checkpoint on #685.** The audit folder is
+`docs/audits/2026_11_01-epic-m6-doctrine-skills/`. Its running log `00` holds
+the lint's Local proof first (A-01: `rc=0` `PASS`; with `tier_exception`
+removed, `rc=1` and the FAIL line), then the proofs A-02 to A-10. `01` §
+Scope holds § 2's block (sha256 prefix `7fa0430cf613e867`, checked on 01's
+own copy), its output equal to the brief's expected lines byte for byte,
+both totals (`12734` at the P1 hash, `dispatch tip: paths 52 lines 12783`),
+the drift and its five commits, and `0` settings paths.
+
+`stage-a/` holds every script and output. The read tree is exported at
+`/workspace/tmp/m6-t38/export/` (52 files) and the lint proof at
+`/workspace/tmp/m6-t38/lint-proof/`, both retired at stage H. The
+membership block's files are in `.qa-scratch/t38/`.
+
+Stage B reads in ruling (j)'s order:
+1. cluster 2's six -- `code-auditor`, `mini-retro`, `futro`,
+   `session-resume`, `session-stash`, `begin-delivery`;
+2. the writing pair -- `developer-relations`, `release-notes`;
+3. the council family, read and never edited.
+
+Each skill is read first by one no-context read-only subagent (§ 5 rule 5),
+then by the lane. The rules are read at `3a9b0aec81` by `git show`, never
+from the session's loaded copy: the session loaded T5's worktree's rules at
+`52e6794ba7`, 9 files stale. Each stage-B session ends with a line recording
+`git status --short -- .claude/agents .claude/skills` empty.
+
+What the stage-A paragraph below asked:
+
+Before the first command after `cat`, the eleven keys of this
 pointer are read against the brief's § 10 table, and any that names the
 predecessor slice (T37's `feature/m6-es-recipe-684`, `m6-es-recipe-684`,
 `m6-t3-emulators`, #700, the 15 of `projects/ROCKNIX/packages/ui/**`, a
@@ -78,4 +107,4 @@ another lane's worktree or an ES checkout, or edits a rule, `CLAUDE.md`,
 
 ## Checkpoints
 
-- (none yet; the executor appends one line per stage: the stage, the tip, the time)
+- Stage A, 02:53 UTC 2026-11-01: committed on `11fa8f95b8` (the commit carrying this line; its hash is in #685's stage-A checkpoint post). The lint's Local proof PASS rc 0 and FAIL rc 1; the membership block equal to the brief's lines byte for byte; 12,734 at the P1 hash and 12,783 at the dispatch tip; the 32 issues re-read; nothing under `.claude/` edited; no line in the host file.

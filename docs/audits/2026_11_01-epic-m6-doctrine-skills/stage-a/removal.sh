@@ -1,0 +1,2 @@
+# STAGE A, after the pointer is read -- the removal check (the brief's :1221-1222), the lane's-tip placeholder filled with 87c2ab0fed, the dispatch tip (expect no line at any stage: nothing outside the 52, and nothing in the council family)
+git diff --stat 87c2ab0fed HEAD -- .claude/rules CLAUDE.md AGENTS.md NAMING.md verifier-pins.json scripts tools .claude/skills/council .claude/skills/council-research .claude/agents | tail -n 1

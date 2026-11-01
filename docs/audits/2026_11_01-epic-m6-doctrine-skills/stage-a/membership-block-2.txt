@@ -1,0 +1,139 @@
+distribution head: eb4763e3cc9bcd729830cd85f1719bbd4f28db10
+distribution merge_base: c445081a59518f37d9776e5412dd7b14910696f7
+distribution upstream: upstream/next c1f1746828ca47dfc751ffe44bb47b6b259883d7
+columns: ['tree', 'path', 'area', 'tier', 'tier_note', 'overlap', 'language', 'lines', 'patches', 'last_fork_commit', 'last_upstream_commit', 'reach', 'reachable_by', 'buildable_by', 'shadowed_by']
+mine: 52 paths.txt: 52 equal: True
+only-mine: []
+only-paths.txt: []
+lines: 12734 reach: {'n/a': 52} tier: {'fork-own': 52} lang: {'markdown': 51, 'other': 1}
+fork-own lines: 12734
+read lines: 0 of which fork-own: 0 vendor-carried lines: 0
+overlap: 0 last_upstream_commit set: 0
+TSV
+tree	path	area	tier	tier_note	overlap	language	lines	patches	last_fork_commit	last_upstream_commit	reach	reachable_by	buildable_by	shadowed_by
+distribution	.claude/agents/council-member-claude.agent.md	doctrine	fork-own	None	False	markdown	56	None	4bf31083c7 2026-10-02	None	n/a	[]	[]	None
+distribution	.claude/agents/council-member-deepseek.agent.md	doctrine	fork-own	None	False	markdown	19	None	a9af618398 2026-10-04	None	n/a	[]	[]	None
+distribution	.claude/agents/council-member-gemini.agent.md	doctrine	fork-own	None	False	markdown	50	None	4bf31083c7 2026-10-02	None	n/a	[]	[]	None
+distribution	.claude/agents/council-member-gpt.agent.md	doctrine	fork-own	None	False	markdown	49	None	4bf31083c7 2026-10-02	None	n/a	[]	[]	None
+distribution	.claude/agents/council-member-grok.agent.md	doctrine	fork-own	None	False	markdown	19	None	a9af618398 2026-10-04	None	n/a	[]	[]	None
+distribution	.claude/agents/council-member-kimi.agent.md	doctrine	fork-own	None	False	markdown	46	None	4bf31083c7 2026-10-02	None	n/a	[]	[]	None
+distribution	.claude/agents/council-member-mistral.agent.md	doctrine	fork-own	None	False	markdown	48	None	a9af618398 2026-10-04	None	n/a	[]	[]	None
+distribution	.claude/agents/council-member-muse.agent.md	doctrine	fork-own	None	False	markdown	47	None	4bf31083c7 2026-10-02	None	n/a	[]	[]	None
+distribution	.claude/skills/begin-delivery/SKILL.md	doctrine	fork-own	None	False	markdown	619	None	a9af618398 2026-10-04	None	n/a	[]	[]	None
+distribution	.claude/skills/code-auditor/SKILL.md	doctrine	fork-own	None	False	markdown	724	None	ce64fc581a 2026-10-06	None	n/a	[]	[]	None
+distribution	.claude/skills/code-auditor/references/anti-patterns.md	doctrine	fork-own	None	False	markdown	68	None	9a09b76dd9 2026-08-24	None	n/a	[]	[]	None
+distribution	.claude/skills/code-auditor/references/phases.md	doctrine	fork-own	None	False	markdown	593	None	5150320de2 2026-10-02	None	n/a	[]	[]	None
+distribution	.claude/skills/code-auditor/references/review-levels.md	doctrine	fork-own	None	False	markdown	60	None	5150320de2 2026-10-02	None	n/a	[]	[]	None
+distribution	.claude/skills/code-auditor/references/templates.md	doctrine	fork-own	None	False	markdown	331	None	5150320de2 2026-10-02	None	n/a	[]	[]	None
+distribution	.claude/skills/council-research/SKILL.md	doctrine	fork-own	None	False	markdown	561	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	.claude/skills/council-research/references/methodology-primitives.md	doctrine	fork-own	None	False	markdown	241	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	.claude/skills/council-research/references/model-roster.md	doctrine	fork-own	None	False	markdown	152	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	.claude/skills/council-research/references/orchestrator-runbook-checklist.md	doctrine	fork-own	None	False	markdown	83	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	.claude/skills/council-research/references/output-directory-structure.md	doctrine	fork-own	None	False	markdown	380	None	4bf31083c7 2026-10-02	None	n/a	[]	[]	None
+distribution	.claude/skills/council-research/references/phase-0-prior-run-evaluation.md	doctrine	fork-own	None	False	markdown	228	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	.claude/skills/council-research/references/phase-1-independent-research.md	doctrine	fork-own	None	False	markdown	301	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	.claude/skills/council-research/references/phase-2-clinical-synthesis.md	doctrine	fork-own	None	False	markdown	246	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	.claude/skills/council-research/references/phase-3-adversarial-review.md	doctrine	fork-own	None	False	markdown	594	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	.claude/skills/council-research/references/phase-4-council-deliberation.md	doctrine	fork-own	None	False	markdown	281	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	.claude/skills/council-research/references/phase-5-deliverable.md	doctrine	fork-own	None	False	markdown	218	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	.claude/skills/council-research/references/provenance-schema.md	doctrine	fork-own	None	False	markdown	865	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	.claude/skills/council/COUNCIL-BUNDLE.SHA256SUMS	doctrine	fork-own	None	False	other	94	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	.claude/skills/council/COUNCIL-BUNDLE.md	doctrine	fork-own	None	False	markdown	34	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	.claude/skills/council/IMPORTED-FROM.md	doctrine	fork-own	None	False	markdown	102	None	4bf31083c7 2026-10-02	None	n/a	[]	[]	None
+distribution	.claude/skills/council/SKILL.md	doctrine	fork-own	None	False	markdown	192	None	a9af618398 2026-10-04	None	n/a	[]	[]	None
+distribution	.claude/skills/council/references/context-loading.md	doctrine	fork-own	None	False	markdown	232	None	4bf31083c7 2026-10-02	None	n/a	[]	[]	None
+distribution	.claude/skills/council/references/member-roster.md	doctrine	fork-own	None	False	markdown	207	None	a9af618398 2026-10-04	None	n/a	[]	[]	None
+distribution	.claude/skills/council/references/model-verification.md	doctrine	fork-own	None	False	markdown	550	None	4bf31083c7 2026-10-02	None	n/a	[]	[]	None
+distribution	.claude/skills/council/references/output-conventions.md	doctrine	fork-own	None	False	markdown	479	None	4bf31083c7 2026-10-02	None	n/a	[]	[]	None
+distribution	.claude/skills/council/references/pipeline.md	doctrine	fork-own	None	False	markdown	497	None	4bf31083c7 2026-10-02	None	n/a	[]	[]	None
+distribution	.claude/skills/council/references/prompt-templates/step2-template.md	doctrine	fork-own	None	False	markdown	17	None	b3e5c92559 2026-09-05	None	n/a	[]	[]	None
+distribution	.claude/skills/council/references/prompt-templates/step3-template.md	doctrine	fork-own	None	False	markdown	15	None	b3e5c92559 2026-09-05	None	n/a	[]	[]	None
+distribution	.claude/skills/council/references/prompt-templates/step4-template.md	doctrine	fork-own	None	False	markdown	15	None	b3e5c92559 2026-09-05	None	n/a	[]	[]	None
+distribution	.claude/skills/council/references/review-formats.md	doctrine	fork-own	None	False	markdown	76	None	4bf31083c7 2026-10-02	None	n/a	[]	[]	None
+distribution	.claude/skills/council/references/tie-breaking-recursion.md	doctrine	fork-own	None	False	markdown	133	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	.claude/skills/council/references/voting-rules.md	doctrine	fork-own	None	False	markdown	82	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	.claude/skills/developer-relations/SKILL.md	doctrine	fork-own	None	False	markdown	195	None	1070d05378 2026-09-29	None	n/a	[]	[]	None
+distribution	.claude/skills/futro/SKILL.md	doctrine	fork-own	None	False	markdown	483	None	a9af618398 2026-10-04	None	n/a	[]	[]	None
+distribution	.claude/skills/futro/references/blindspot-register.md	doctrine	fork-own	None	False	markdown	105	None	437ebd09af 2026-08-19	None	n/a	[]	[]	None
+distribution	.claude/skills/futro/references/techniques.md	doctrine	fork-own	None	False	markdown	320	None	d430818548 2026-09-28	None	n/a	[]	[]	None
+distribution	.claude/skills/futro/references/template.md	doctrine	fork-own	None	False	markdown	143	None	d430818548 2026-09-28	None	n/a	[]	[]	None
+distribution	.claude/skills/mini-retro/SKILL.md	doctrine	fork-own	None	False	markdown	609	None	a9af618398 2026-10-04	None	n/a	[]	[]	None
+distribution	.claude/skills/mini-retro/references/scoped-audit.md	doctrine	fork-own	None	False	markdown	709	None	d430818548 2026-09-28	None	n/a	[]	[]	None
+distribution	.claude/skills/mini-retro/references/template.md	doctrine	fork-own	None	False	markdown	152	None	d430818548 2026-09-28	None	n/a	[]	[]	None
+distribution	.claude/skills/release-notes/SKILL.md	doctrine	fork-own	None	False	markdown	130	None	a9af618398 2026-10-04	None	n/a	[]	[]	None
+distribution	.claude/skills/session-resume/SKILL.md	doctrine	fork-own	None	False	markdown	121	None	4b0899328f 2026-10-03	None	n/a	[]	[]	None
+distribution	.claude/skills/session-stash/SKILL.md	doctrine	fork-own	None	False	markdown	163	None	4b0899328f 2026-10-03	None	n/a	[]	[]	None
+CLAIMS
+.claude/agents/council-member-claude.agent.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 56 lang markdown area doctrine reach n/a
+.claude/agents/council-member-deepseek.agent.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 19 lang markdown area doctrine reach n/a
+.claude/agents/council-member-gemini.agent.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 50 lang markdown area doctrine reach n/a
+.claude/agents/council-member-gpt.agent.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 49 lang markdown area doctrine reach n/a
+.claude/agents/council-member-grok.agent.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 19 lang markdown area doctrine reach n/a
+.claude/agents/council-member-kimi.agent.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 46 lang markdown area doctrine reach n/a
+.claude/agents/council-member-mistral.agent.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 48 lang markdown area doctrine reach n/a
+.claude/agents/council-member-muse.agent.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 47 lang markdown area doctrine reach n/a
+.claude/skills/begin-delivery/SKILL.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 619 lang markdown area doctrine reach n/a
+.claude/skills/code-auditor/SKILL.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 724 lang markdown area doctrine reach n/a
+.claude/skills/code-auditor/references/anti-patterns.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 68 lang markdown area doctrine reach n/a
+.claude/skills/code-auditor/references/phases.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 593 lang markdown area doctrine reach n/a
+.claude/skills/code-auditor/references/review-levels.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 60 lang markdown area doctrine reach n/a
+.claude/skills/code-auditor/references/templates.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 331 lang markdown area doctrine reach n/a
+.claude/skills/council-research/SKILL.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 561 lang markdown area doctrine reach n/a
+.claude/skills/council-research/references/methodology-primitives.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 241 lang markdown area doctrine reach n/a
+.claude/skills/council-research/references/model-roster.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 152 lang markdown area doctrine reach n/a
+.claude/skills/council-research/references/orchestrator-runbook-checklist.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 83 lang markdown area doctrine reach n/a
+.claude/skills/council-research/references/output-directory-structure.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 380 lang markdown area doctrine reach n/a
+.claude/skills/council-research/references/phase-0-prior-run-evaluation.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 228 lang markdown area doctrine reach n/a
+.claude/skills/council-research/references/phase-1-independent-research.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 301 lang markdown area doctrine reach n/a
+.claude/skills/council-research/references/phase-2-clinical-synthesis.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 246 lang markdown area doctrine reach n/a
+.claude/skills/council-research/references/phase-3-adversarial-review.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 594 lang markdown area doctrine reach n/a
+.claude/skills/council-research/references/phase-4-council-deliberation.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 281 lang markdown area doctrine reach n/a
+.claude/skills/council-research/references/phase-5-deliverable.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 218 lang markdown area doctrine reach n/a
+.claude/skills/council-research/references/provenance-schema.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 865 lang markdown area doctrine reach n/a
+.claude/skills/council/COUNCIL-BUNDLE.SHA256SUMS in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 94 lang other area doctrine reach n/a
+.claude/skills/council/COUNCIL-BUNDLE.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 34 lang markdown area doctrine reach n/a
+.claude/skills/council/IMPORTED-FROM.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 102 lang markdown area doctrine reach n/a
+.claude/skills/council/SKILL.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 192 lang markdown area doctrine reach n/a
+.claude/skills/council/references/context-loading.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 232 lang markdown area doctrine reach n/a
+.claude/skills/council/references/member-roster.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 207 lang markdown area doctrine reach n/a
+.claude/skills/council/references/model-verification.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 550 lang markdown area doctrine reach n/a
+.claude/skills/council/references/output-conventions.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 479 lang markdown area doctrine reach n/a
+.claude/skills/council/references/pipeline.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 497 lang markdown area doctrine reach n/a
+.claude/skills/council/references/prompt-templates/step2-template.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 17 lang markdown area doctrine reach n/a
+.claude/skills/council/references/prompt-templates/step3-template.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 15 lang markdown area doctrine reach n/a
+.claude/skills/council/references/prompt-templates/step4-template.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 15 lang markdown area doctrine reach n/a
+.claude/skills/council/references/review-formats.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 76 lang markdown area doctrine reach n/a
+.claude/skills/council/references/tie-breaking-recursion.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 133 lang markdown area doctrine reach n/a
+.claude/skills/council/references/voting-rules.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 82 lang markdown area doctrine reach n/a
+.claude/skills/developer-relations/SKILL.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 195 lang markdown area doctrine reach n/a
+.claude/skills/futro/SKILL.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 483 lang markdown area doctrine reach n/a
+.claude/skills/futro/references/blindspot-register.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 105 lang markdown area doctrine reach n/a
+.claude/skills/futro/references/techniques.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 320 lang markdown area doctrine reach n/a
+.claude/skills/futro/references/template.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 143 lang markdown area doctrine reach n/a
+.claude/skills/mini-retro/SKILL.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 609 lang markdown area doctrine reach n/a
+.claude/skills/mini-retro/references/scoped-audit.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 709 lang markdown area doctrine reach n/a
+.claude/skills/mini-retro/references/template.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 152 lang markdown area doctrine reach n/a
+.claude/skills/release-notes/SKILL.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 130 lang markdown area doctrine reach n/a
+.claude/skills/session-resume/SKILL.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 121 lang markdown area doctrine reach n/a
+.claude/skills/session-stash/SKILL.md in-T38 non-rest [('doctrine-skills', 38)] tier fork-own lines 163 lang markdown area doctrine reach n/a
+.claude/settings.json NOT IN INVENTORY; globs: [('doctrine-skills', 38, 'non-rest')]
+.claude/settings.local.json NOT IN INVENTORY; globs: [('doctrine-skills', 38, 'non-rest')]
+.claude/rules/adversarial-council.md not-in-T38 non-rest [('doctrine-rules', 4)] tier fork-own lines 124 lang markdown area doctrine reach n/a
+.claude/rules/council-substrate-integrity.md not-in-T38 non-rest [('doctrine-rules', 4)] tier fork-own lines 253 lang markdown area doctrine reach n/a
+.claude/rules/instruction-files.md not-in-T38 non-rest [('doctrine-rules', 4)] tier fork-own lines 224 lang markdown area doctrine reach n/a
+CLAUDE.md not-in-T38 non-rest [('doctrine-rules', 4)] tier fork-own lines 202 lang markdown area doctrine reach n/a
+AGENTS.md not-in-T38 non-rest [('doctrine-rules', 4)] tier fork-own lines 351 lang markdown area doctrine reach n/a
+scripts/council-invoke.ts not-in-T38 non-rest [('tooling-council', 45)] tier fork-own lines 3701 lang typescript area tooling-and-guards reach n/a
+scripts/lib/council-verification.ts not-in-T38 non-rest [('tooling-council', 45)] tier fork-own lines 431 lang typescript area tooling-and-guards reach n/a
+tools/lint-audit-artifacts not-in-T38 non-rest [('tooling-guards', 10)] tier fork-own lines 426 lang python area tooling-and-guards reach n/a
+tools/rules-check not-in-T38 non-rest [('tooling-guards', 10)] tier fork-own lines 245 lang python area tooling-and-guards reach n/a
+docs/reviews/plan-for-the-plan.md not-in-T38 rest [('doctrine-reference', 39)] tier fork-own lines 499 lang markdown area doctrine reach n/a
+.github/sessions/saved-session-state-next.md not-in-T38 non-rest [('records', 46)] tier fork-own lines 355 lang markdown area records reach n/a
+CLAUDE TREE BY SLICE
+8 paths 334 lines ('distribution', '.claude/agents', ('doctrine-skills',), 'non-rest', 'doctrine')
+30 paths 8002 lines ('distribution', '.claude/rules', ('doctrine-rules',), 'non-rest', 'doctrine')
+44 paths 12400 lines ('distribution', '.claude/skills', ('doctrine-skills',), 'non-rest', 'doctrine')
+DOCTRINE BY SLICE
+254 paths 38598 lines ('distribution', ('doctrine-reference',), 'rest')
+52 paths 12734 lines ('distribution', ('doctrine-skills',), 'non-rest')
+36 paths 11414 lines ('distribution', ('doctrine-rules',), 'non-rest')

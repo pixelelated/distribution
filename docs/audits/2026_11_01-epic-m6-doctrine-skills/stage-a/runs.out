@@ -1,0 +1,174 @@
+chunks: 22
+== chunk-01.sh begins 02:44:49: export LC_ALL=C; G=/usr/bin/grep; T=/workspace/tmp/m6-t38; X=':(exclude).claude/rules/'
+== chunk-01.sh ends 02:44:49, last command rc=0, wall 0s
+== chunk-02.sh begins 02:44:49: # the read tree, once (expect 52 -- R1 C05; R2 C1; R3 C1)
+52
+== chunk-02.sh ends 02:44:49, last command rc=0, wall 0s
+== chunk-03.sh begins 02:44:49: # L-01: the moved files' commits and the scoped-audit hunk (expect the five commits of § 2 -- R1 C0
+161effca8f 2026-10-25 skills: scoped-audit check 7 asks whether a fix's positive exercised the job the fix could break (#660)
+18747fbc52 2026-10-24 Merge fix/m6-810-lint-local-epic: the lint accepts Local depth at epic tier under D-WORKFLOW-184 (#810)
+fa6bcdafa8 2026-10-24 lint-audit-artifacts: accept Local depth at epic tier under D-WORKFLOW-184 (#810)
+0ceb2994c5 2026-10-22 council: add explicit Argon audit route and refusal diagnostics
+033eb7ed23 2026-10-22 council: stop retrying explicitly filtered responses
+21:@@ -502,6 +502,13 @@ justification.
+25:+5. For each fix that landed with a positive, ask: **did the positive
+456:### Check 7 — Harness self-coverage scan
+524:### Check 8 — Documentation & glossary freshness
+== chunk-03.sh ends 02:44:49, last command rc=0, wall 0s
+== chunk-04.sh begins 02:44:49: # front matter (expect `FRONT-MATTER 18 NONE 34` -- R3 C17: the 10 SKILL.md and the 8 agents carry i
+FRONT-MATTER 18 NONE 34
+== chunk-04.sh ends 02:44:49, last command rc=0, wall 0s
+== chunk-05.sh begins 02:44:49: # L-02: the evidence floor (expect 157 the heading, 159 `Three hard rules`, then 161, 166, 179, 186 
+157:## Evidence floor (all tiers)
+159:Three hard rules apply to every verdict at every tier:
+161:1. **Tracker state is never sole evidence.** Issue state, checked AC
+166:2. **Mechanical evidence outranks reading.** Where a check exists, RUN it and
+179:3. **Run it on a device, not on the host.** Host tools are not the tools on the
+186:4. **An assertion that cannot fail is not evidence.** Before recording a PASS,
+191:3. **Subagent output is a LEAD, never EVIDENCE.** Per scaffold's development
+== chunk-05.sh ends 02:44:49, last command rc=0, wall 0s
+== chunk-06.sh begins 02:44:49: # L-03, L-04 (expect `420:` and `711:` -- R4 C24, C26)
+420:2. **Blindspot register** — `docs/blindspot-register.md`. Twelve recorded
+711:| **The code changes**           | Git history                           | `git log`, `git diff --stat`; note the fork layout — feature branches live in `../rocknix.worktrees/` |
+== chunk-06.sh ends 02:44:49, last command rc=0, wall 0s
+== chunk-07.sh begins 02:44:49: # L-05: durations used as estimates, by the widened pattern (`~N min`, `~N hr`, `~N–N hr`, `~1 day
+.claude/skills/begin-delivery/SKILL.md:398
+.claude/skills/begin-delivery/SKILL.md:429
+.claude/skills/code-auditor/SKILL.md:3
+.claude/skills/code-auditor/SKILL.md:135
+.claude/skills/mini-retro/SKILL.md:67
+.claude/skills/mini-retro/SKILL.md:68
+.claude/skills/mini-retro/SKILL.md:69
+.claude/skills/mini-retro/SKILL.md:70
+.claude/skills/mini-retro/references/scoped-audit.md:69
+.claude/skills/mini-retro/references/scoped-audit.md:184
+10
+== chunk-07.sh ends 02:44:49, last command rc=0, wall 0s
+== chunk-08.sh begins 02:44:49: # L-06, L-07, L-08, L-20: what the skills do not name (expect no line from either, the second's rc 1
+== chunk-08.sh ends 02:44:49, last command rc=1, wall 0s
+== chunk-09.sh begins 02:44:49: # L-09 (expect 5 lines in 2 files by `state-main` -- R3 C21)
+HEAD:.claude/skills/session-resume/SKILL.md:7:  origin: Converted from .github/prompts/resume-work.prompt.md (an external prompt library). v1.2.0 (2026-06-13) — when the current branch is not `main`, the fallback file search ignores the inherited `saved-session-state-main.md`, which is branch-creation cruft (session-stash removes it on first stash there), not a real handoff for this branch.
+HEAD:.claude/skills/session-resume/SKILL.md:30:1. Any `.github/sessions/saved-session-state-*.md` — if multiple, list them and let the user pick. **When the current branch is not `main`, ignore `saved-session-state-main.md`**: on a feature branch it is almost always inherited at branch creation, not a handoff for this branch (session-stash removes it on first stash there).
+HEAD:.claude/skills/session-stash/SKILL.md:7:  origin: Converted from .github/prompts/stash-work.prompt.md (an external prompt library). v1.2.0 (2026-06-13) adds the "Shed inherited `main` state on feature branches" rule — feature branches inherit `main`'s tracked `saved-session-state-main.md` at creation and never shed it, producing a guaranteed stale/conflicting copy (observed live — an inherited copy forced a stash to switch branches). The shed is scoped to the `main` file only; dormant foreign-branch files are left alone to avoid silently propagating deletions to `main` on merge.
+HEAD:.claude/skills/session-stash/SKILL.md:36:Canonical state files are **tracked**, so every branch cut from `main` inherits `main`'s `saved-session-state-main.md` at creation — and `main` keeps editing its copy each session, so the inherited one is immediately stale and a guaranteed modify/delete merge snag. When stashing on a branch **other than `main`**, before writing the new file:
+HEAD:.claude/skills/session-stash/SKILL.md:38:- If `.github/sessions/saved-session-state-main.md` exists, `git rm` it — it is branch-creation cruft this branch never owns. Note the removal in the Step 3 summary so it rides the user-approved stash commit. On merge back to `main` this surfaces as a modify/delete conflict — never a silent loss — because `main` holds a newer copy.
+== chunk-09.sh ends 02:44:49, last command rc=0, wall 0s
+== chunk-10.sh begins 02:44:49: # L-10, L-11, L-13: the blocks and sentences a reader would act on (expect the stash and vitest line
+10:git stash
+14:npx vitest run <failing_test_files>
+19:git stash pop
+The body of a release on `pixelelated/distribution` (`tools/fork-publish-release`
+uploads the files; the note is written by hand and pasted with `gh release
+`tools/fork-publish-release --prepare <immutable-bundle>` emits a checked local
+GitHub naming/asset plan only. The old date/newest-file/clobber/undraft path is
+479:    via `gh api repos/{owner}/{repo}/issues/{number}/comments --paginate -q '.[] | {author: .user.login, body: .body[0:300]}'`.
+== chunk-10.sh ends 02:44:49, last command rc=0, wall 0s
+== chunk-11.sh begins 02:44:49: # L-23: the two texts, quoted whole into 02 (expect release-candidates.md:74-76 and review-levels.md
+4. **The full upstream audit, by two agents**: the code auditor at milestone
+   tier over everything going upstream -- the distribution's diff against
+   `upstream/next` and the EmulationStation fork's against ROCKNIX's master --
+   by Fable 5.1 and GPT-6 Astra (D-QA-048), both through the council's
+   Facilitator on OpenRouter (D-WORKFLOW-049: every council and audit seat
+   goes that way; the native harness's Fable is for the session's own work).
+| Local | Primary auditor only; no external calls | A bounded Issue/PR check during implementation. Verify code, tests and criteria and state that no independent review ran. Phase retros still use mini-retro. |
+| Independent | Primary plus one external reviewer from another lab | Default Epic/Milestone audit and routine patch-candidate review. Phase 4.6 remains required. |
+| Extended | Primary plus two external reviewers, all three labs distinct | A larger milestone, risky migration or explicitly requested extra scrutiny. The additional reviewer is a verified installed model, for example Gemini or Muse; choose and freeze it before dispatch. |
+| Full council escalation | Five external council members; the harness coordinates | A release or contested decision explicitly assigned the council workflow. Run the actual council skill and its gates on the audit's evidence, findings and unresolved choices. This is a separate deliberation, not a three-model audit renamed "council". |
+## Code audits are a separate workflow
+
+An ordinary independent code audit has the primary auditor plus one external
+reviewer from a different model lab; an explicitly extended audit adds a third
+lab. OpenAI-led audits prefer pinned Fable 5.1; Anthropic-led audits prefer
+pinned GPT-6 Astra. The two milestone passes are calls, not extra seats. Follow
+[code-auditor review levels](../skills/code-auditor/references/review-levels.md)
+and record the actual primary/reviewer identities. Unknown identity or an
+unavailable reviewer does not justify a same-lab substitution.
+
+== chunk-11.sh ends 02:44:49, last command rc=0, wall 0s
+== chunk-12.sh begins 02:44:49: # the brief's grep (expect `80` -- R1 C19)
+80
+== chunk-12.sh ends 02:44:49, last command rc=0, wall 0s
+== chunk-13.sh begins 02:44:49: # L-22 (expect `19`, `1`, and no line -- R1 C13, C19)
+19
+1
+== chunk-13.sh ends 02:44:49, last command rc=0, wall 0s
+== chunk-14.sh begins 02:44:49: # L-30, L-31, L-47: the council family's absences (expect no line; a non-zero rc; `0` -- R2 L-01, L-
+fatal: path '.claude/agents/researcher.agent.md' does not exist in 'HEAD'
+researcher agent rc=128
+0
+== chunk-14.sh ends 02:44:49, last command rc=1, wall 0s
+== chunk-15.sh begins 02:44:49: # #1044's loop over the slice, its criterion's pattern (R4 item 33): every MISSING line recorded -- 
+MISSING scripts/lint-agent-model-arrays.ts
+MISSING scripts/lint-council-research-digests.ts
+MISSING scripts/lint-council-research-gates.ts
+MISSING scripts/lint-council-research-provenance.ts
+MISSING scripts/lint-council-research-replay-metadata.ts
+MISSING scripts/summarize-council-research-lints.ts
+MISSING scripts/__tests__/council-invoke-composite-provenance.test.ts
+PRESENT scripts/__tests__/council-invoke-routing.node-test.ts
+MISSING scripts/__tests__/council-research-lint-summary.test.ts
+MISSING scripts/__tests__/lint-council-research-digests.test.ts
+PRESENT scripts/__tests__/lint-council-seat-efforts.node-test.ts
+== chunk-15.sh ends 02:44:49, last command rc=0, wall 0s
+== chunk-16.sh begins 02:44:49: # L-34: the bundle's sums against the tree (expect `BUNDLE match=52 diff=39 absent=3` -- R3 C15; R1 
+BUNDLE match=52 diff=39 absent=3
+== chunk-16.sh ends 02:44:49, last command rc=0, wall 0s
+== chunk-17.sh begins 02:44:49: # the pins, recomputed offline, never by running scripts/verify-pins.ts (expect eight MATCH lines an
+MATCH .claude/agents/council-member-claude.agent.md
+MATCH .claude/agents/council-member-deepseek.agent.md
+MATCH .claude/agents/council-member-gemini.agent.md
+MATCH .claude/agents/council-member-gpt.agent.md
+MATCH .claude/agents/council-member-grok.agent.md
+MATCH .claude/agents/council-member-kimi.agent.md
+MATCH .claude/agents/council-member-mistral.agent.md
+MATCH .claude/agents/council-member-muse.agent.md
+pins MATCH 8 of 8
+== chunk-17.sh ends 02:44:49, last command rc=0, wall 0s
+== chunk-18.sh begins 02:44:49: # the stale names (R3 C21's terms, case-insensitive; expect its table: rubber[- ]duck 0/0, copilot 4
+rubber[- ]duck: 0 lines in 0 files
+copilot: 42 lines in 12 files
+\.github/instructions: 27 lines in 17 files
+\.github/prompts: 3 lines in 3 files
+test/qa-integration: 0 lines in 0 files
+opus[- ]4[.]8|claude-opus-4: 6 lines in 2 files
+gpt-5[.]5: 2 lines in 1 files
+gpt-5[.]6: 5 lines in 3 files
+mistral: 50 lines in 13 files
+trio: 20 lines in 9 files
+rasteratops: 5 lines in 4 files
+state-main: 5 lines in 2 files
+scaffold: 83 lines in 26 files
+== chunk-18.sh ends 02:44:49, last command rc=0, wall 0s
+== chunk-19.sh begins 02:44:49: # the IDs the 52 cite (expect 16, each resolving -- R2 C24; R2's loop is not printed, so the lane's 
+16
+== chunk-19.sh ends 02:44:49, last command rc=0, wall 0s
+== chunk-20.sh begins 02:44:49: # the roster's rows in the rule (expect the Claude and GPT rows of adversarial-council.md:77-78 -- R
+| Seat | Required model | Effort | Context | Routing |
+| --- | --- | --- | ---: | --- |
+| Claude | `anthropic/claude-fable-5.1` | `xhigh` | 1,000,000 | One pinned slug; no cross-model fallback. `xhigh`, not `max`: on bounded corpora `max` over-thinks into empty envelopes |
+| GPT | `openai/gpt-6-astra` | `max` | 1,050,000 | OpenRouter provider pinned to OpenAI; `allow_fallbacks: false`. `max` is the operator's 2026-09-09 direction; `openai/gpt-6-astra-pro` is the recorded escalation |
+
+- **Deprecated:** Claude Opus 4.8 and GPT-5.5 must not occupy these seats; Claude Fable 5 and
+== chunk-20.sh ends 02:44:49, last command rc=0, wall 0s
+== chunk-21.sh begins 02:44:49: # the contract read: the lint's constants against the templates (R3 § 2.6), parsed from the lint at
+28:REQUIRED = ["01-research-notes.md", "
+30:ANALYSIS_SECTIONS = ["Executive summa
+REQUIRED 5 missing in templates.md: ['01-research-notes.md']
+ANALYSIS_SECTIONS 5 missing in templates.md: ['Acceptance-criteria scorecard', 'Coverage boundary', 'Quality self-check']
+== chunk-21.sh ends 02:44:49, last command rc=0, wall 0s
+== chunk-22.sh begins 02:44:49: # the text checks over the 52, in the hooks' own form (expect the compile rc at most 1, the planted 
+secret regex compile rc=1
+1
+0
+48
+forbidden-terms-check: 0 hits on stdin
+forbidden-terms over the 52 rc=0
+forbidden-terms-check: 0 hits on stdin
+forbidden-terms over empty input rc=0
+forbidden-terms-check: 1 line(s) on stdin carry a listed word
+forbidden-terms, a planted positive, rc=1
+hooks-test rc=0
+PASS
+box-check rc=0
+box-check: 300 issue(s), 633 open checkbox(es), 0 fail, 13 issue(s) with rows to re-derive against
+== chunk-22.sh ends 02:44:52, last command rc=0, wall 3s
