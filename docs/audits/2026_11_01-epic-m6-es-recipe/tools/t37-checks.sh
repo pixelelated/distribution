@@ -8,6 +8,11 @@
 # never printed); the last line is TOTAL. Exit 0 all PASS (WARN allowed), 1 any FAIL, 2 nothing checked
 # (a refusal: no tree, no config/options, a .git in the tree, an --out outside /workspace/tmp, a
 # missing bash, python3 or git).
+# Stage E (t37-streams.md, D-WORKFLOW-210) adds, each seen to FAIL at its edit's parent first:
+#   step 5 armsx2-vulkan-driver-filter (L-01): the recipe's ARMSX2 filter keeps the feature for a
+#     device on its keep-list (SM8550) and deletes it for one off it (H700) -- inside=1 outside=0;
+#   step 5 armsx2-filter-matches-armsx2-turnip (L-01): the keep-list equals armsx2-sa's
+#     armsx2-turnip case list (PL-05, #1384).
 set -u
 TREE= REPO= COMMIT= PIN= DEVICES= OUT= COMPARE=
 while [ $# -gt 0 ]; do
@@ -156,6 +161,34 @@ rb=$(grep '^RM_BEFORE_FILL' "$OUT/install-text.txt" | cut -d' ' -f2- | tr '\n' '
 check 5 "no-rm-before-its-directory-is-filled (L-04)" "$([ -z "$rb" ] && echo 1 || echo 0)" "${rb:+at $rb}"
 for d in $DEVICES; do d=${d%%:*}; un=$(field "$d" emulationstation UNRESOLVED_NEED_UNPACK)
   check 5 "$d PKG_NEED_UNPACK-words-are-directories (L-19)" "$([ -z "$un" ] && echo 1 || echo 0)" "${un:+unresolved: $un}"; done
+# stage E (PL-05, #1384): the recipe's ARMSX2 filter, reproduced in xml.etree (xmlstarlet is not on
+# this host) over a scratch copy of the tree's es_features.cfg for a device inside the keep-list and
+# one outside it, and the keep-list compared with armsx2-sa's own armsx2-turnip case list
+python3 -B -I - "$TREE" "$OUT" > "$OUT/armsx2.txt" <<'PY'
+import re, sys, pathlib, xml.etree.ElementTree as ET
+tree, out = pathlib.Path(sys.argv[1]), pathlib.Path(sys.argv[2])
+rec = (tree / "projects/ROCKNIX/packages/ui/emulationstation/package.mk").read_text()
+m = re.search(r"case \$\{DEVICE\} in\n\s*([A-Z0-9_|]+)\) ;;\n\s*\*\) xmlstarlet ed --inplace -d '([^']+)' \$\{INSTALL\}/usr/config/emulationstation/es_features\.cfg ;;\n\s*esac", rec)
+keep = set(m.group(1).split("|")) if m else set()
+xp = m.group(2) if m else ""
+def count(device):
+    root = ET.parse(tree / "projects/ROCKNIX/packages/ui/emulationstation/config/common/es_features.cfg").getroot()
+    q = ".//core[@name='armsx2-sa']//feature[@name='vulkan driver']"
+    if m and device not in keep and xp == '//core[@name="armsx2-sa"]//feature[@name="vulkan driver"]':
+        for parent in root.iter():
+            for ch in list(parent):
+                if ch in root.findall(q): parent.remove(ch)
+    return len(root.findall(q))
+print(f"FILTER found={1 if m else 0} inside={count('SM8550')} outside={count('H700')}")
+arm = (tree / "projects/ROCKNIX/packages/emulators/standalone/armsx2-sa/package.mk").read_text()
+t = re.search(r"\n\s*([A-Z0-9_|]+)\)\n\s*PKG_DEPENDS_TARGET\+=\" armsx2-turnip\"", arm)
+turnip = set(t.group(1).split("|")) if t else set()
+print(f"MATCH recipe={len(keep)} turnip={len(turnip)} equal={1 if keep and keep == turnip else 0}")
+PY
+rc=$?; check 5 armsx2-filter-parsed "$([ $rc = 0 ] && echo 1 || echo 0)" "rc=$rc"
+af=$(sed -n 's/^FILTER //p' "$OUT/armsx2.txt"); am=$(sed -n 's/^MATCH //p' "$OUT/armsx2.txt")
+check 5 "armsx2-vulkan-driver-filter (L-01)" "$(case "$af" in *"inside=1 outside=0") echo 1;; *) echo 0;; esac)" "$af"
+check 5 "armsx2-filter-matches-armsx2-turnip (L-01)" "$(case "$am" in *equal=1) echo 1;; *) echo 0;; esac)" "$am"
 for l in $(grep '^ORTRUE' "$OUT/install-text.txt" | cut -d' ' -f2); do warn 5 "or-true (L-07)" "$l"; done
 grep -q '^NO_CATALOG_GUARD' "$OUT/install-text.txt" && warn 5 "french-catalog-not-asserted (L-08)" "no line of the ES recipe names emulationstation2.mo"
 

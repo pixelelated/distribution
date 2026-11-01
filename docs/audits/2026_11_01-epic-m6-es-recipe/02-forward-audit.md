@@ -547,6 +547,44 @@ cited by number. S0 is record-only; S1's five recipe edits each get a row below 
   or boot path; `SYSTEM` 283,835 bytes smaller. **No screen changes** (nothing reads the file under
   `ROCKNIX`). **#585:** PL-04's line (§ The #585 lines owed).
 
+### S1 PL-05 (#1384): upstream's ARMSX2 vulkan-driver filter restored
+
+- **The checker's two new step-5 assertions** (`tools/t37-checks.sh`, named in its header):
+  `armsx2-vulkan-driver-filter (L-01)` reproduces the recipe's own ARMSX2 lines in `xml.etree`
+  (`xmlstarlet` is not on this host) over the tree's `es_features.cfg` for `SM8550` (on the
+  keep-list) and `H700` (off it), PASS only on `inside=1 outside=0`;
+  `armsx2-filter-matches-armsx2-turnip (L-01)` PASSes only when the keep-list equals
+  `armsx2-sa/package.mk`'s `armsx2-turnip` case list (the seat's G-3 answer, kept true as either
+  recipe moves). Counts only are printed.
+- **Positive before** (parent `61cc617e95`, `stage-e/s1-PL-05-before.txt`, read in full: every
+  other line equals PL-04's after, `diff` rc 0): `FAIL step 5 armsx2-vulkan-driver-filter (L-01):
+  found=0 inside=1 outside=1` and `FAIL step 5 armsx2-filter-matches-armsx2-turnip (L-01): recipe=0
+  turnip=5 equal=0`; `TOTAL: 59 of 63 assertions`.
+- **Recipe commit `e1e99c5a7e`** (`emulationstation: restore the ARMSX2 vulkan-driver filter`; the
+  recipe only): six lines after `:128`, upstream's `651150fc88:103-108` byte for byte (`diff` of the
+  two ranges empty); the recipe now 147 lines by `grep -c ''`, `armsx2` counted `2` (as upstream's);
+  `git diff -U0 651150fc88 <commit> -- <recipe> | grep -c -i armsx2` `2` at the parent, `0` at the fix.
+- **Positive after** (`stage-e/s1-PL-05-after.txt`): `PASS step 5 armsx2-vulkan-driver-filter
+  (L-01): found=1 inside=1 outside=0`, `PASS step 5 armsx2-filter-matches-armsx2-turnip (L-01):
+  recipe=5 turnip=5 equal=1`; `TOTAL: 67 of 69 assertions`, its two FAIL lines L-02 and L-03.
+- **The stamp compare:** `emulationstation` `moved=1 touched=1`; the theme and `lowerdeck`
+  `moved=0 touched=0`; both devices.
+- **Checks** (`stage-e/s1-PL-05-checks.txt`): `pkgcheck emulationstation rc=0` after its `find`
+  path (with the theme, `lowerdeck` and the control); `bash -n recipe rc=0`; six added lines,
+  non-ASCII `0`, secret `0`, forbidden `rc=0` after their positives; `:39 equal`; the pin lines `0`.
+- **`Already written:`** #1384's: the old image's catalogue carries the feature in
+  `/usr/config/emulationstation/es_features.cfg`, which `/storage/.config/emulationstation/es_features.cfg`
+  links to (`post-update:32-35`), so the next image's catalogue replaces it; a saved `vulkan_driver`
+  value stays in `system.cfg` and is harmless (the launcher ignores it wherever the bundled ICD is
+  absent); nothing in a cloud.
+- **proved:** fix-fixture. **fix-image-pending:** #1384's criterion 2 -- `0` such nodes in the
+  catalogue of an image built for a device off the keep-list, read from its `SYSTEM` on the host.
+  **The visible change** (ruling 18): one per-emulator feature row hidden on images for devices off
+  the five; it is the catalogue's row (`es_features.cfg`), not a menu row, so `docs/es-menu-map.md`
+  is unchanged; the frame is `CANNOT -- no guest carries armsx2-sa` (GENERIC_X64 ships none,
+  `virtual/emulators/package.mk:97-100`). **Time to play:** none on the launch path; one
+  `xmlstarlet` pass at build time. **#585:** none -- upstream carries the filter.
+
 ### Recorded, no stream
 
 - **PL-01** -- **Deferred to #613** (ruling 2), the M7 lane's. T37's line on #613 (comment
