@@ -26,7 +26,7 @@ STALE = [("rubber-duck", r"rubber[- ]duck"), ("copilot", r"copilot"), (".github/
          (".github/prompts", r"\.github/prompts"), ("test/qa-integration", r"test/qa-integration"),
          ("opus 4.8", r"opus[- ]4[.]8|claude-opus-4"), ("gpt-5.5", r"gpt-5[.]5"), ("fable 5", r"fable[- ]5(?![.\d])"),
          ("gpt-5.6", r"gpt-5[.]6"), ("trio-process", r"trio[- ]process"), ("trio-runs", r"trio-runs"),
-         ("state-main", r"state-main"), ("an inactive seat as current", r"council-member-(deepseek|grok|mistral)|\(Claude, Gemini, GPT, Kimi, Mistral\)")]
+         ("state-main", r"state-main"), ("begin-exploration", r"begin-exploration"), ("an inactive seat as current", r"council-member-(deepseek|grok|mistral)|\(Claude, Gemini, GPT, Kimi, Mistral\)")]
 ROOTED = r"(?<![\w./-])((?:\.claude|tools|scripts|docs|\.githooks|\.github|research|seed)/[A-Za-z0-9_./-]*[A-Za-z0-9_-])"
 base = pathlib.Path(TREE) / ".claude"
 out = pathlib.Path(OUT)

@@ -88,10 +88,8 @@ adjustments); this section is the overview / audit receipt.>
 
 <Optional section. Use when the retro, scoped audit, or phase chaining
 revealed a gap in the mini-retro / futro / begin-delivery /
-begin-exploration / code-auditor skills themselves. This is the
-recursive-improvement hook: skills evolve from within their own use. (If
-a skill named below isn't installed — e.g. begin-exploration — treat its
-mention as conditional.)
+code-auditor skills themselves. This is the
+recursive-improvement hook: skills evolve from within their own use.
 
 Examples:
 
@@ -131,7 +129,7 @@ sub-issues with measurable deliverables.
 
 ---
 
-**Phase <N> code-complete. Ready for <next phase / next action> kickoff — suggest running `begin-delivery` (if the next phase is an Execution Epic) or, if present, `begin-exploration` (if it's a Discovery Epic that invokes a substantive methodology directly). Both skills' Step 1 read this retro; `begin-delivery` then feeds the futro skill, and `begin-exploration` (where available) then verifies substrate prereqs.**
+**Phase <N> code-complete. Ready for <next phase / next action> kickoff — suggest running `begin-delivery` (if the next phase is an Execution Epic); a Discovery Epic (an audit) starts with its methodology skill directly. `begin-delivery`'s Step 1 reads this retro and then feeds the futro skill.**
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: mini-retro
-description: Run a structured phase/epic retrospective at the end of a meaningful chunk of work. Produces a four-question retro (what worked, what was hard, what we discovered, what adjustments are needed), a lightweight scoped audit (Step 2.5 — spot checks enumerated in references/scoped-audit.md, including a UI-review check for UI-touching phases if a design-review/visual-QA process is present), and a practice-adjustments subsection. Posts it to the tracker and propagates learnings to downstream issues. Use when the user says "mini retro", "end of phase retro", "wrap up this phase", "retro this work", or when a phase/epic has just completed its code work and is about to transition to the next. Reflective counterpart to the `futro` skill (anticipatory). `begin-delivery` (Execution Epics) orchestrates this retro at Epic close (as does `begin-exploration` for Discovery Epics, if present) — reflective ceremonies don't bias outcomes the way anticipatory ones do, so this skill is shared.
+description: Run a structured phase/epic retrospective at the end of a meaningful chunk of work. Produces a four-question retro (what worked, what was hard, what we discovered, what adjustments are needed), a lightweight scoped audit (Step 2.5 — spot checks enumerated in references/scoped-audit.md, including a UI-review check for UI-touching phases if a design-review/visual-QA process is present), and a practice-adjustments subsection. Posts it to the tracker and propagates learnings to downstream issues. Use when the user says "mini retro", "end of phase retro", "wrap up this phase", "retro this work", or when a phase/epic has just completed its code work and is about to transition to the next. Reflective counterpart to the `futro` skill (anticipatory). `begin-delivery` (Execution Epics) orchestrates this retro at Epic close, and a Discovery Epic (an audit) reads it from its methodology skill directly — reflective ceremonies don't bias outcomes the way anticipatory ones do, so this skill is shared.
 license: Apache-2.0
 metadata:
   execution: serial
@@ -372,7 +372,6 @@ Format on GitHub (adapt for other trackers):
 
 <Optional. Use when the scoped audit, retro process, or chaining revealed
 a gap in the mini-retro / futro / begin-delivery / code-auditor skills
-(or `begin-exploration`, if present)
 themselves. Examples: "Check 2's ESM spot-check produced no findings
 this phase AND the last two — candidate for retirement." OR "Scoped
 audit surfaced an interaction defect the futro missed; the futro
@@ -393,7 +392,7 @@ archetype." Empty is acceptable; don't invent adjustments.>
 
 ---
 
-**Phase code-complete. Ready for <next phase> kickoff — suggest running `begin-delivery` (Execution Epic) next, or `begin-exploration` (Discovery Epic) if present. `begin-delivery` retrieves this retro, invokes `futro` for anticipatory analysis, then loads tasks; a Discovery-Epic kickoff retrieves this retro, verifies substrate prereqs, then invokes the substantive methodology directly.**
+**Phase code-complete. Ready for <next phase> kickoff — suggest running `begin-delivery` (Execution Epic) next; a Discovery Epic (an audit) starts with its methodology skill directly, as every audit here has. `begin-delivery` retrieves this retro, invokes `futro` for anticipatory analysis, then loads tasks.**
 ```
 
 ### Step 5 — Propagate forward
@@ -472,8 +471,7 @@ writing a fresh retro:
 Addenda are retrieved at the
 same event-triggered points as the retro itself — `begin-delivery`
 Step 1, the `futro` skill Step 1, and this skill's own Step 1
-"read prior 3–5 phase retros" (and a Discovery-Epic kickoff's Step 1,
-if `begin-exploration` is present).
+"read prior 3–5 phase retros".
 
 ## Notes
 
@@ -486,10 +484,9 @@ if `begin-exploration` is present).
 - **Feeds the `futro` skill, invoked by `begin-delivery`.** An Execution
   Epic's kickoff (`begin-delivery`) retrieves this retro and passes it —
   including the scoped audit findings — to the `futro` skill as a primary
-  input. A Discovery Epic's kickoff (`begin-exploration`, if present)
-  retrieves this retro too but feeds it directly into substrate-prereq
-  verification and methodology invocation — the futro step is
-  intentionally absent there.
+  input. A Discovery Epic (an audit) starts with its methodology skill
+  directly, which reads this retro too — the futro step is intentionally
+  absent there.
   The retro is reflective; the futro is anticipatory; both are required.
 - **Consumed by the `code-auditor` skill at Epic / Milestone boundaries.**
   Every phase retro's scoped-audit section is input for the Epic-tier
@@ -506,14 +503,12 @@ if `begin-exploration` is present).
   promote consistently-useful checks and retire consistently-empty
   ones. The skill evolves from within its own use.
 
-## Chaining with `futro`, `begin-delivery`, `code-auditor` (and `begin-exploration`, if present)
+## Chaining with `futro`, `begin-delivery`, `code-auditor`
 
 The Mini Retro produces output that both the `futro` skill and the
 `code-auditor` skill consume. `begin-delivery` orchestrates the retro →
-futro → next-Execution-phase handoff; a Discovery-Epic kickoff
-(`begin-exploration`, if present) orchestrates
-the retro → substrate verification → methodology invocation handoff
-(no futro). `code-auditor` runs at Epic and
+futro → next-Execution-phase handoff; a Discovery Epic (an audit) goes
+from the retro to its methodology skill directly, with no futro. `code-auditor` runs at Epic and
 Milestone boundaries and consolidates findings from every phase
 retro's scoped-audit section.
 
@@ -535,7 +530,7 @@ mini-retro skill (this skill)
 Phase N+1 kickoff
    │
    ▼
-begin-delivery skill (orchestrator)   [begin-exploration for Discovery Epics, if present]
+begin-delivery skill (orchestrator)
    │
    ├──→  retrieves this retro from the tracker / spec
    │
