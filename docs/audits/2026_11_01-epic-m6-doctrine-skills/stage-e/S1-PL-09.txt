@@ -1,0 +1,26 @@
+# PL-09 (L-57), S1: code-auditor: phases.md carries the Epic tier's re-derivation quota (PL-09; Refs #685)
+parent: 3e38f1a460 (export /workspace/tmp/m6-t38/e/3e38f1a460); fix: 91f3095280 (tree aae43c0d51, export /workspace/tmp/m6-t38/e/91f3095280)
+check, run in each export's .claude/skills: echo "trust them: $(grep -c "Trust them; do not re-derive" code-auditor/references/phases.md)"; echo "the quota in phases.md: $(grep -c "re-derive at least 2" code-auditor/references/phases.md)"; echo "the quota in SKILL.md: $(grep -c "re-derive at least 2" code-auditor/SKILL.md)"
+FAIL at the parent (rc=0): trust them: 1 ; the quota in phases.md: 0 ; the quota in SKILL.md: 1
+PASS at the fix (rc=0): trust them: 0 ; the quota in phases.md: 1 ; the quota in SKILL.md: 1
+allowlists re-keyed: t38-rekey: 0 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit aae43c0d51):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       608 of 608 passed, 164 allowlisted
+ok    stale      119 of 119 passed, 118 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 57 of 57 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 18
+TOTAL: 948 of 948 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Already written: nothing inherited, argued: a session that trusted the retros at Epic tier wrote an audit record, not an artifact the fix must change; SKILL.md:110 carried the quota throughout
+import-unchanged: yes (git log -S over .claude/skills/code-auditor/references/phases.md at 3e38f1a460 prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 91f3095280:
+ .claude/skills/code-auditor/references/phases.md | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)

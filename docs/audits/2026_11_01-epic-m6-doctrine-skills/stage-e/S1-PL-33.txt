@@ -1,0 +1,42 @@
+# PL-33 (L-62), S1: code-auditor: one copy of the criterion entry format (PL-33; Refs #685)
+parent: 8277cbd08d (export /workspace/tmp/m6-t38/e/8277cbd08d); fix: f72c9cd8ba (tree dbfe84d01b, export /workspace/tmp/m6-t38/e/f72c9cd8ba)
+check, run in each export's .claude/skills: echo "$(python3 -I "$AUD/tools/t38-tables.py" q7 "$X" 2>/dev/null | grep -E "^- (one copy|two copies)")"; echo "$(python3 -I "$AUD/tools/t38-tables.py" q7 "$X" 2>&1 >/dev/null | tail -n 1)"; echo "the copy in templates.md: $(grep -c -F "### AC-NN: [Criterion Text]" code-auditor/references/templates.md)"
+FAIL at the parent (rc=0): - two copies, 9 line(s) differ: ; t38-tables: 1 failure(s) ; the copy in templates.md: 1
+PASS at the fix (rc=0): - one copy: `phases.md` § Phase 2; `templates.md` points at it ; t38-tables: 0 failure(s) ; the copy in templates.md: 0
+allowlists re-keyed: t38-rekey: 0 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit dbfe84d01b):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       612 of 612 passed, 164 allowlisted
+ok    stale      119 of 119 passed, 118 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 57 of 57 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 18
+TOTAL: 952 of 952 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+q7's pair changes in this commit (the stream brief, PL-33; D-WORKFLOW-211's shape): one copy passes, a second copy fails, the drift case is added to tools/t38-tables-drift.sh and run at this commit (stage-e/S1-PL-33.txt).
+Already written: nothing inherited: an audit's 02 that copied either form is a record; both forms carried the same fields but the command-evidence line
+import-unchanged: yes (git log -S over .claude/skills/code-auditor/references/templates.md at 8277cbd08d prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= f72c9cd8ba:
+ .../skills/code-auditor/references/templates.md    | 28 ++--------------------
+ .../tools/t38-tables-drift.sh                      |  2 ++
+ .../tools/t38-tables.py                            | 25 +++++++++++++------
+ 3 files changed, 22 insertions(+), 33 deletions(-)
+== the drift script at f72c9cd8ba
+coverage, the export                 rc=0 (want 0) 
+coverage, one file removed           rc=1 (want 1) FAIL the export holds 51 paths, not 52
+q4, the export                       rc=1 (want 0) 
+q4, one byte on an agent             rc=1 (want 1) 
+q5, the export                       rc=0 (want 0) 
+q5, a description removed            rc=1 (want 1) FAIL q5: session-resume has no description
+q6, the export                       rc=0 (want 0) 
+q6, a skill renamed                  rc=1 (want 1) FAIL q6: the skills are ['begin-delivery', 'code-auditor', 'council', 'council-research', 'developer-relations
+q7, the export                       rc=0 (want 0) 
+q7, a shared section renamed         rc=1 (want 1) FAIL q7: futro has no section '## pixelelated continuation'
+q7, a second copy of the entry       rc=1 (want 1) FAIL q7: templates.md carries a second copy of the criterion entry (PL-33: one copy)
+drift rc=0

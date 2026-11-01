@@ -1,0 +1,28 @@
+# PL-38 (L-72), S1: code-auditor: the checks that exist are instruction-files.md's table (PL-38; Refs #685)
+parent: 29b6a76b32 (export /workspace/tmp/m6-t38/e/29b6a76b32); fix: 6636d63f85 (tree d637924400, export /workspace/tmp/m6-t38/e/6636d63f85)
+check, run in each export's .claude/skills: echo "the only lint here: $(grep -c "the only lint here" code-auditor/SKILL.md)"; echo "the tool table: $(grep -c "The fork.s own tools" code-auditor/SKILL.md)"; echo "the rule holds the table: $(grep -c "^## The fork.s own tools" "$REPO/.claude/rules/instruction-files.md")"
+FAIL at the parent (rc=0): the only lint here: 1 ; the tool table: 0 ; the rule holds the table: 1
+PASS at the fix (rc=0): the only lint here: 0 ; the tool table: 1 ; the rule holds the table: 1
+allowlists re-keyed: rekeyed allow-legit.txt: .claude/skills/code-auditor/SKILL.md:724 -> :720;rekeyed allow-findings.txt: .claude/skills/code-auditor/SKILL.md:372 -> :368;t38-rekey: 2 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit d637924400):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       610 of 610 passed, 164 allowlisted
+ok    stale      119 of 119 passed, 118 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 57 of 57 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 18
+TOTAL: 950 of 950 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Already written: nothing inherited: a session that took pkgcheck for the only lint ran fewer checks; the audits it wrote are records, and each names the checks it ran
+import-unchanged: no (git log -S over .claude/skills/code-auditor/SKILL.md at 29b6a76b32 prints: 9a09b76dd9)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 6636d63f85:
+ .claude/skills/code-auditor/SKILL.md                       | 14 +++++---------
+ .../tools/allow-findings.txt                               |  2 +-
+ .../tools/allow-legit.txt                                  |  2 +-
+ 3 files changed, 7 insertions(+), 11 deletions(-)

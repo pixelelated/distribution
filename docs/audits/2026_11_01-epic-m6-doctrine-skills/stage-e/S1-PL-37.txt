@@ -1,0 +1,26 @@
+# PL-37 (L-71), S1: code-auditor: drop the closed #375's status line (PL-37; Refs #685)
+parent: 87ff559ccd (export /workspace/tmp/m6-t38/e/87ff559ccd); fix: 29b6a76b32 (tree 0bff14a2af, export /workspace/tmp/m6-t38/e/29b6a76b32)
+check, run in each export's .claude/skills: echo "for #375: $(grep -c "For #375" code-auditor/references/review-levels.md)"; echo "#375 on the tracker: $(gh issue view 375 --repo pixelelated/distribution --json state --jq .state)"
+FAIL at the parent (rc=0): for #375: 1 ; #375 on the tracker: CLOSED
+PASS at the fix (rc=0): for #375: 0 ; #375 on the tracker: CLOSED
+allowlists re-keyed: t38-rekey: 0 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit 0bff14a2af):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       612 of 612 passed, 164 allowlisted
+ok    stale      119 of 119 passed, 118 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 57 of 57 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 18
+TOTAL: 952 of 952 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Already written: nothing inherited: a status line for a closed issue; #375's own comments carry its history
+import-unchanged: no (git log -S over .claude/skills/code-auditor/references/review-levels.md at 87ff559ccd prints: 5150320de2)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 29b6a76b32:
+ .claude/skills/code-auditor/references/review-levels.md | 5 -----
+ 1 file changed, 5 deletions(-)

@@ -1,0 +1,28 @@
+# PL-50 (L-29), S1: code-auditor: the pidfile records the payload's own pid (PL-50; Refs #685)
+parent: 73de4fc76f (export /workspace/tmp/m6-t38/e/73de4fc76f); fix: 595da75108 (tree 71708fbce3, export /workspace/tmp/m6-t38/e/595da75108)
+check, run in each export's .claude/skills: echo "pidfile: $(grep -c -i pidfile code-auditor/SKILL.md)"; echo "setsid: $(grep -c setsid code-auditor/SKILL.md)"; echo "the rule half, swept in b344408e46: $(git -C "$REPO" show b344408e46:.claude/rules/engineering-practices.md | grep -c -i pidfile)"
+FAIL at the parent (rc=0): pidfile: 0 ; setsid: 0 ; the rule half, swept in b344408e46: 2
+PASS at the fix (rc=0): pidfile: 1 ; setsid: 1 ; the rule half, swept in b344408e46: 2
+allowlists re-keyed: rekeyed allow-legit.txt: .claude/skills/code-auditor/SKILL.md:725 -> :728;rekeyed allow-findings.txt: .claude/skills/code-auditor/SKILL.md:368 -> :371;t38-rekey: 2 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit 71708fbce3):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       611 of 611 passed, 164 allowlisted
+ok    stale      119 of 119 passed, 118 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 57 of 57 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 18
+TOTAL: 951 of 951 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Already written: nothing inherited: the wrapper that recorded setsid's parent was fixed to write its own $$ (the coordinator's log, 2026-11-01 :6); no live watcher of this slice depends on a pidfile
+import-unchanged: no (git log -S over .claude/skills/code-auditor/SKILL.md at 73de4fc76f prints: ce64fc581a)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 595da75108:
+ .claude/skills/code-auditor/SKILL.md                                 | 5 ++++-
+ .../2026_11_01-epic-m6-doctrine-skills/tools/allow-findings.txt      | 2 +-
+ docs/audits/2026_11_01-epic-m6-doctrine-skills/tools/allow-legit.txt | 2 +-
+ 3 files changed, 6 insertions(+), 3 deletions(-)

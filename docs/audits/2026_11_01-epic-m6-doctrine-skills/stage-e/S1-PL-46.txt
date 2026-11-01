@@ -1,0 +1,28 @@
+# PL-46 (L-85), S1: code-auditor: say the tiers, the trigger and the phase count once (PL-46; Refs #685)
+parent: 9c204cf2dc (export /workspace/tmp/m6-t38/e/9c204cf2dc); fix: f77d1c9708 (tree 60e4a9c44c, export /workspace/tmp/m6-t38/e/f77d1c9708)
+check, run in each export's .claude/skills: echo "two of the three: $(grep -c "two of the three" code-auditor/SKILL.md)"; echo "mode invoked by: $(grep -c "Mode invoked by" code-auditor/SKILL.md)"; echo "always run it: $(grep -c "Always run it for" code-auditor/SKILL.md)"; echo "P3 items: $(grep -c "P3 items" code-auditor/SKILL.md)"; echo "phases 0–7 in phases.md: $(grep -c "phases 0–7" code-auditor/references/phases.md)"; echo "unnamed passes: $(grep -c -E "passes 1–3|all three passes" code-auditor/references/phases.md)"
+FAIL at the parent (rc=0): two of the three: 1 ; mode invoked by: 1 ; always run it: 1 ; P3 items: 1 ; phases 0–7 in phases.md: 1 ; unnamed passes: 2
+PASS at the fix (rc=0): two of the three: 0 ; mode invoked by: 0 ; always run it: 0 ; P3 items: 0 ; phases 0–7 in phases.md: 0 ; unnamed passes: 0
+allowlists re-keyed: t38-rekey: 0 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit 60e4a9c44c):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       611 of 611 passed, 164 allowlisted
+ok    stale      119 of 119 passed, 118 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 57 of 57 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 18
+TOTAL: 951 of 951 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+P3's duration (<15min) is left for PL-20 (S6), which sweeps the durations.
+Already written: nothing inherited: the audits here ran the mode at Epic and Milestone scope or recorded its absence in their self-check, and the tier and phase names wrote nothing
+import-unchanged: yes (git log -S over .claude/skills/code-auditor/SKILL.md at 9c204cf2dc prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= f77d1c9708:
+ .claude/skills/code-auditor/SKILL.md             | 12 ++++++------
+ .claude/skills/code-auditor/references/phases.md |  6 +++---
+ 2 files changed, 9 insertions(+), 9 deletions(-)

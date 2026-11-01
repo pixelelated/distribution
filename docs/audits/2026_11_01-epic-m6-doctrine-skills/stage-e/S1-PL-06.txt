@@ -1,0 +1,28 @@
+# PL-06 (L-02), S1: code-auditor: number the evidence floor's five rules (PL-06; Refs #685)
+parent: 144b5bc6de (export /workspace/tmp/m6-t38/e/144b5bc6de); fix: a442eb626e (tree 395a0e1a32, export /workspace/tmp/m6-t38/e/a442eb626e)
+check, run in each export's .claude/skills: echo "rule 3 headings: $(sed -n "157,200p" code-auditor/SKILL.md | grep -c -E "^3\. \*\*")"; echo "the count: $(grep -c -E "^(Three|Five) hard rules" code-auditor/SKILL.md) $(grep -o -E "^(Three|Five) hard rules" code-auditor/SKILL.md)"; for f in code-auditor/SKILL.md code-auditor/references/phases.md; do echo "$f cites rule 3: $(grep -c "Evidence floor rule 3" "$f")"; done
+FAIL at the parent (rc=0): rule 3 headings: 2 ; the count: 1 Three hard rules ; code-auditor/SKILL.md cites rule 3: 1 ; code-auditor/references/phases.md cites rule 3: 1
+PASS at the fix (rc=0): rule 3 headings: 1 ; the count: 1 Five hard rules ; code-auditor/SKILL.md cites rule 3: 0 ; code-auditor/references/phases.md cites rule 3: 0
+allowlists re-keyed: t38-rekey: 0 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit 395a0e1a32):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       608 of 608 passed, 164 allowlisted
+ok    stale      119 of 119 passed, 118 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 2 allowlisted
+ok    allowlists 58 of 58 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 19
+TOTAL: 949 of 949 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Already written: read both: the briefs that quote the floor by its old numbering are the coordinator's records and are not edited here; a reader resolves their 'rule 3' by the rule's words, which the fix keeps (stage-e/S1-PL-06.txt lists them)
+import-unchanged: yes (git log -S over .claude/skills/code-auditor/SKILL.md at 144b5bc6de prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= a442eb626e:
+ .claude/skills/code-auditor/SKILL.md             | 6 +++---
+ .claude/skills/code-auditor/references/phases.md | 2 +-
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+docs/reviews/briefs/doctrine-skills.md:877:| L-25 | `code-auditor/SKILL.md` § Evidence floor rule 2 | the TOTAL-picker lesson (the coordinator's log 2026-11-01 

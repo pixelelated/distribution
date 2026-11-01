@@ -1,0 +1,29 @@
+# PL-01 (L-56), S1: code-auditor: Phase 4.6 names D-WORKFLOW-184's Local exception (PL-01; Refs #685, #1389)
+parent: 1275cc9571 (export /workspace/tmp/m6-t38/e/1275cc9571); fix: 09384b54fe (tree 5e13dd8b6b, export /workspace/tmp/m6-t38/e/09384b54fe)
+check, run in each export's .claude/skills: for f in code-auditor/SKILL.md code-auditor/references/phases.md code-auditor/references/review-levels.md; do printf "%s:%s\n" "$f" "$(grep -c D-WORKFLOW-184 "$f")"; done
+FAIL at the parent (rc=0): code-auditor/SKILL.md:0 ; code-auditor/references/phases.md:0 ; code-auditor/references/review-levels.md:0
+PASS at the fix (rc=0): code-auditor/SKILL.md:2 ; code-auditor/references/phases.md:2 ; code-auditor/references/review-levels.md:1
+allowlists re-keyed: t38-rekey: 0 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit 5e13dd8b6b):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       607 of 607 passed, 164 allowlisted
+ok    stale      119 of 119 passed, 118 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 2 allowlisted
+ok    allowlists 58 of 58 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 19
+TOTAL: 948 of 948 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Already written: #1389's: the eight earlier Local epic-tier folders each record Phase 4.6 as not applicable, none pending (stage-d/checks-bugs.out) -- nothing inherited
+import-unchanged: no (git log -S over .claude/skills/code-auditor/references/phases.md at 1275cc9571 prints: 6a0c433bf6)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 09384b54fe:
+ .claude/skills/code-auditor/SKILL.md                    |  4 ++--
+ .claude/skills/code-auditor/references/phases.md        | 10 ++++++++--
+ .claude/skills/code-auditor/references/review-levels.md |  2 +-
+ .claude/skills/code-auditor/references/templates.md     |  4 ++--
+ 4 files changed, 13 insertions(+), 7 deletions(-)

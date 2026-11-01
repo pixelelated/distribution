@@ -1,0 +1,27 @@
+# PL-39 (L-74), S1: code-auditor: the audit issue's checkboxes are agent-first (PL-39; Refs #685)
+parent: 6636d63f85 (export /workspace/tmp/m6-t38/e/6636d63f85); fix: 9c204cf2dc (tree 70ce54a05f, export /workspace/tmp/m6-t38/e/9c204cf2dc)
+check, run in each export's .claude/skills: echo "box-check: $(grep -c box-check code-auditor/SKILL.md)"; echo "the shape: $(grep -c -F -- "- [ ] <behaviour> -- <artifact>" code-auditor/SKILL.md)"; echo "D-QA-044: $(grep -c D-QA-044 code-auditor/SKILL.md)"
+FAIL at the parent (rc=0): box-check: 0 ; the shape: 0 ; D-QA-044: 0
+PASS at the fix (rc=0): box-check: 1 ; the shape: 1 ; D-QA-044: 1
+allowlists re-keyed: rekeyed allow-legit.txt: .claude/skills/code-auditor/SKILL.md:720 -> :725;t38-rekey: 1 entry moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit 70ce54a05f):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       611 of 611 passed, 164 allowlisted
+ok    stale      119 of 119 passed, 118 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 57 of 57 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 18
+TOTAL: 951 of 951 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Already written: nothing inherited: the audit issues on the tracker are checked by tools/box-check in the fork CI already (#268's sweep reached 0); this slice's #1394 printed 0 fail (D-04)
+import-unchanged: yes (git log -S over .claude/skills/code-auditor/SKILL.md at 6636d63f85 prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 9c204cf2dc:
+ .claude/skills/code-auditor/SKILL.md                                 | 5 +++++
+ docs/audits/2026_11_01-epic-m6-doctrine-skills/tools/allow-legit.txt | 2 +-
+ 2 files changed, 6 insertions(+), 1 deletion(-)

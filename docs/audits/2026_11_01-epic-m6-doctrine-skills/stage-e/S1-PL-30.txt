@@ -1,0 +1,28 @@
+# PL-30 (L-54), S1: code-auditor: say what a subagent has, not what it lacks (PL-30; Refs #685)
+parent: cada93dfb7 (export /workspace/tmp/m6-t38/e/cada93dfb7); fix: 641624e971 (tree e14da2257f, export /workspace/tmp/m6-t38/e/641624e971)
+check, run in each export's .claude/skills: grep -r -c -i -E "do(n.t| not) inherit terminal access" code-auditor | grep -v ":0$" | LC_ALL=C sort; echo "files: $(grep -r -l -i -E "do(n.t| not) inherit terminal access" code-auditor | wc -l)"
+FAIL at the parent (rc=0): code-auditor/SKILL.md:2 ; code-auditor/references/anti-patterns.md:1 ; code-auditor/references/phases.md:1 ; files: 3
+PASS at the fix (rc=0): files: 0
+allowlists re-keyed: t38-rekey: 0 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit e14da2257f):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       612 of 612 passed, 164 allowlisted
+ok    stale      119 of 119 passed, 118 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 57 of 57 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 18
+TOTAL: 952 of 952 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Already written: nothing inherited: the sentence explained a rule (the orchestrator runs the terminal operations), which stays; no artifact was written on its claim
+import-unchanged: yes (git log -S over .claude/skills/code-auditor/references/phases.md at cada93dfb7 prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 641624e971:
+ .claude/skills/code-auditor/SKILL.md                    | 4 ++--
+ .claude/skills/code-auditor/references/anti-patterns.md | 2 +-
+ .claude/skills/code-auditor/references/phases.md        | 2 +-
+ 3 files changed, 4 insertions(+), 4 deletions(-)
