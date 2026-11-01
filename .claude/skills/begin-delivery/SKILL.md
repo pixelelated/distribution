@@ -205,9 +205,9 @@ upward-tier audit is now due and `begin-delivery` is responsible for invoking it
 **Procedure:**
 
 1. State explicitly: "Boundary detected — prior phase closed {Epic|Milestone} {name}. Per `begin-delivery` Step 1.5, the `code-auditor` skill must run at {scope} scope before kickoff."
-2. Pause and confirm with the user before invoking. Do not auto-spend tokens on a multi-pass audit without acknowledgement — but do **not** advance to Step 2 if the user defers; instead, record the deferral in the kickoff comment and flag it as a known carry-forward risk.
+2. Pause and confirm with the user before invoking. Do not auto-spend tokens on a multi-pass audit without acknowledgement. If the user defers, record the deferral in the kickoff comment, flag it as a known carry-forward risk, and continue: Step 2's futro carries it (below).
 3. If approved, invoke `code-auditor` per its `SKILL.md`. Wait for completion.
-4. Read the resulting punch list (`logs/audits/.../05-punch-list.md`). Any P0/P1 items become **inputs to the futro in Step 2** — they directly inform what the next phase must address before its own scope.
+4. Read the resulting punch list (`logs/audits/.../05-punch-list.md`). Any Critical or High item that Step 1.6 leaves deferred becomes an **input to the futro in Step 2** — it directly informs what the next phase must address before its own scope.
 5. Open follow-up issues for punch-list items per the repo's delivery-workflow governance (`issue-tracking.md` in this repository).
 
 **If Step 1.5 is skipped under user deferral**, the futro in Step 2 must
@@ -313,7 +313,9 @@ completion breadcrumb (`mini-retro` skill Step 5).
 
 ### Step 2 — Invoke the `futro` skill
 
-Delegate the anticipatory work to the [`futro`](../futro/SKILL.md) skill.
+Delegate the anticipatory work to the [`futro`](../futro/SKILL.md) skill. For each batch, run Step 3's
+pre-futro audit (§ Upfront sub-issue decomposition) before invoking it, and the
+post-futro audit after it, before Step 3 loads tasks.
 
 **Skipping the futro is allowed in exactly one case:** the prior phase
 pre-dated the `futro` skill's adoption in the current Milestone (i.e.
@@ -390,7 +392,7 @@ For the phase about to begin:
 
 **Rule:** Every Epic's sub-issues are drafted **upfront** at Epic creation with full bodies, ACs, and dependencies. The freshness problem that lazy-drafting tried to avoid (stale import lists, dated inventory, drift between body and live state) is solved by **two bracketed audit checkpoints** at each batch start, surrounding the futro.
 
-**Supersedes** the 2026-05-11 lazy-drafting rule (this skill, v2.3.0). That rule traded forward visibility, context-resume safety, and dependency-graph clarity for the single benefit of "no stale content" — a trade the bracketed-audit cadence now achieves without the costs.
+**Supersedes** the 2026-05-11 lazy-drafting rule, proposed in the source estate and never merged here. That rule traded forward visibility, context-resume safety, and dependency-graph clarity for the single benefit of "no stale content" — a trade the bracketed-audit cadence now achieves without the costs.
 
 **Per-batch flow:**
 
@@ -467,7 +469,8 @@ Before marking any task in-progress, confirm the execution discipline with
 the user (or silently follow it if the repo's `.instructions.md` already
 codifies it):
 
-- [ ] Critical and foundational — the implications are far-reaching
+- [ ] The blast radius is stated: what the work changes, what depends on it,
+      and what a mistake would cost
 - [ ] Conformance to project's cornerstone / foundational documents — pause
       and escalate on risk of divergence, conflict, or contradiction
 - [ ] Plan each step before starting it (don't need to share the plan,
