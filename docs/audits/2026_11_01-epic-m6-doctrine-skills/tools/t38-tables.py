@@ -372,15 +372,26 @@ def q7(export):
     p = text(export, "skills/code-auditor/references/phases.md")
 
     def entry(src):
+        if "### AC-NN: [Criterion Text]" not in src:
+            return None
         i = src.index("### AC-NN: [Criterion Text]")
         return src[i:src.index("```", i)].rstrip("\n").split("\n")
-    d = [l for l in difflib.unified_diff(entry(p), entry(t), "phases.md", "templates.md", lineterm="", n=0) if not l.startswith(("---", "+++", "@@"))]
-    print("#### The criterion entry: `phases.md` § Phase 2 against `templates.md`'s *\"Reproduced here\"*\n")
-    print(f"- {len(d)} line(s) differ:")
-    for l in d:
-        print("  - `" + l[:160].replace("`", "'") + "`")
-    if not d:
-        fail("q7: the two criterion entries are identical, against the read")
+    # Stage E (PL-33): one copy. phases.md § Phase 2 holds the entry and templates.md points at it; a second
+    # copy is the drift the stage-B read found (9 lines), and fails here.
+    ep, et = entry(p), entry(t)
+    print("#### The criterion entry: `phases.md` § Phase 2, and `templates.md`'s pointer to it\n")
+    if ep is None:
+        fail("q7: phases.md has no criterion entry")
+    elif et is None:
+        print("- one copy: `phases.md` § Phase 2; `templates.md` points at it")
+        if "`phases.md` § Phase 2" not in t:
+            fail("q7: templates.md neither copies the criterion entry nor points at phases.md")
+    else:
+        d = [l for l in difflib.unified_diff(ep, et, "phases.md", "templates.md", lineterm="", n=0) if not l.startswith(("---", "+++", "@@"))]
+        print(f"- two copies, {len(d)} line(s) differ:")
+        for l in d:
+            print("  - `" + l[:160].replace("`", "'") + "`")
+        fail("q7: templates.md carries a second copy of the criterion entry (PL-33: one copy)")
     done()
 
 

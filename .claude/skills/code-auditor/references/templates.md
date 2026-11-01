@@ -275,32 +275,8 @@ punch_index:
 
 ## Criterion entry format (Phase 2)
 
-Covered in [`phases.md` § Phase 2](phases.md) as well. Reproduced here for quick reference:
-
-```markdown
-### AC-NN: [Criterion Text]
-
-**Source:** [Issue #XX / Spec Phase N / Validation Gate]
-**Verdict:** [PASS ✓ / PARTIAL ⚠ / FAIL ✗ / SKIP ○ / UNTESTABLE ?]
-
-**Evidence:**
-
-- [File path and line numbers where this is implemented]
-- [Test file that validates this, if any]
-
-**Notes:**
-
-- [What was found, any concerns, quality observations]
-
-**Refutation attempted (required for PASS):**
-
-- [What you looked for that would have proven the criterion NOT met, and why the search came up empty]
-
-**Gaps (if PARTIAL or FAIL):**
-
-- [Specific gap description]
-- [What would be needed to fully satisfy this criterion]
-```
+The criterion entry's format is [`phases.md` § Phase 2](phases.md)'s, and only there,
+so the two cannot drift; copy it from that section.
 
 ## Interaction entry format (Phase 3.5)
 
