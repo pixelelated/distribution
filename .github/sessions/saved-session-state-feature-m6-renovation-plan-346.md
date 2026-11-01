@@ -52,6 +52,7 @@ Three slices are open, each waiting on the coordinator: **T38 (#685)** has hande
 | The four harness watches (comments, host file, lane states, run ends) | none (harness Monitor tasks) | **gone** with the old harness | re-arm from `kit/monitors.md`; await an acceptance run with the `ACCEPT-RC` waiter, never a filtered tail |
 | Acceptance runs (T36 run 3 and compile run 2, T37 runs 2-4, T38 runs 1-2) | `kit/t3*-run*.pid` | all **ended**; outputs `accept-t36-run3.out`, `accept-t36-compile.out`, `accept-t37-run{3,4}.out`, `accept-t38.out` | nothing to resume |
 | Agents (subagents of the old session) | -- | all ended; **the T41 proof died** (credits) | re-issue only the T41 proof |
+| **M7's granted compile allocation** (15:10 UTC 2026-11-01, the host file's line 802) | owner `/workspace/tmp/pix-m7-audit-remediation-native-20261101-01` | **granted, not started**: a no-network container, 2 CPU / 8 GiB / no swap / 6 GiB outputs, at most 3600 s from its START; START due by **16:10 UTC** or it lapses and re-queues | M6 runs no compile and no guest until its RETURN; `compile-ack.sh` acknowledges its START and RETURN automatically |
 | M7's guest and watch-job | QEMU and `.../m7-owner-feedback-20261025/.build-runs/20261101T131302Z-151c2ffd/watch-job` | M7's, running | never touch; its RETURN is acknowledged by `compile-ack.sh` |
 
 ## The workspace: every tab (herdr workspace `wN`, "pixelelated · Codebase renovation")
