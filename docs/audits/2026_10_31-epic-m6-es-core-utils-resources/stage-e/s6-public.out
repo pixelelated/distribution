@@ -1,0 +1,6 @@
+# S6 public: run()'s wrap pin vs fixed, 2026-11-01T01:41:42Z
+/usr/bin/dash: PIN captured stderr lines=NO LOG (path split) (want 2); FIXED captured stderr lines=2
+/usr/bin/bash: PIN captured stderr lines=NO LOG (path split) (want 2); FIXED captured stderr lines=2
+# 3.5 re-run:
+seq 400 rc=0
+seq 200000 rc=141

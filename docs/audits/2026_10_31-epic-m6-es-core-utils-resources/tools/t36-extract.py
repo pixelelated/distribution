@@ -13,13 +13,13 @@ W, PIN, OUT = sys.argv[1:4]
 S = "es-core/src/"
 SPECS = [  # name, file, first, last, the first line holds, the last line holds
     # 3.7, L-13: runSystemCommand returns 0 and reads neither name nor window (a text/tree proof).
-    ("runsys", "utils/Platform.cpp", 853, 880, "int runSystemCommand(const std::string& cmd_utf8, const std::string& name, Window* window)", "}"),
+    ("runsys", "utils/Platform.cpp", 856, 883, "int runSystemCommand(const std::string& cmd_utf8, const std::string& name, Window* window)", "}"),
     # 3.9, L-06 (T26's collision control): GetShOutput drops the last byte of each chunk.
-    ("gsh", "utils/Platform.cpp", 891, 905, "std::string GetShOutput(const std::string& mStr)", "}"),
+    ("gsh", "utils/Platform.cpp", 894, 908, "std::string GetShOutput(const std::string& mStr)", "}"),
     # L-05: run()'s wrap, the literal the host runs (3.5 builds the command from these lines).
-    ("run_wrap", "utils/Platform.cpp", 162, 168, "std::string cmdOutput = \"((((\"", "return WEXITSTATUS(n);"),
+    ("run_wrap", "utils/Platform.cpp", 165, 171, "std::string cmdOutput = \"(((( {", "return WEXITSTATUS(n);"),
     # 3.24, L-18: quitES leaks the SDL_Event (recorded from the text).
-    ("quites", "utils/Platform.cpp", 216, 239, "int quitES(QuitMode mode)", "}"),
+    ("quites", "utils/Platform.cpp", 219, 242, "int quitES(QuitMode mode)", "}"),
     # 3.8, 3.16, L-07/L-08: Font's scaling and the height's growth, read as text.
     ("font_ctor_scale", "resources/Font.cpp", 93, 120, "Font::Font(int size, const std::string& path, bool menuScaling)", "}"),
     ("font_glyph_grow", "resources/Font.cpp", 422, 423, "if (glyphSize.y() > mMaxGlyphHeight", "mMaxGlyphHeight = glyphSize.y();"),
