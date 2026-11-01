@@ -36,7 +36,7 @@ retro adjustment (fix in the next phase) or a housekeeping item
 - Single-commit fixes with no new files and no new behaviour
 - Pure refactors (no semantic change, tests are green, diff is mechanical)
 - Phases where the full `code-auditor` skill is about to run anyway
-  (e.g. the final phase before PZ; don't duplicate work)
+  (e.g. the final phase before the Epic closes; don't duplicate work)
 
 For every other phase boundary, run the checks.
 
@@ -315,7 +315,7 @@ runner.**
      retro § housekeeping
    - **Pre-existing, new instance** — existed before this phase but
      the phase's changes made it more visible or touched adjacent
-     code. Documented; may warrant a P7 or punch-list entry
+     code. Documented; may warrant a housekeeping Backlog or punch-list entry
    - **NEW regression introduced by this phase** — verified by
      stashing the phase's edits and confirming the test passes
      against the base commit. **Must be fixed before retro signs off.**
@@ -516,8 +516,8 @@ FAIL if it missed the failure mode that motivated the harness's
 existence in the first place.
 
 **Finding format:** one-line per missed failure mode, with the
-fix's commit sha (if already routed Outcome A) or the tracking
-issue number (Outcome B).
+fix's commit sha (if already Resolved, in code-auditor's Phase 7 words) or
+the tracking issue number (Deferred).
 
 ---
 
@@ -573,8 +573,8 @@ docs updated but a follow-up remains; FAIL if a new noun shipped with
 no glossary entry and no tracked follow-up.
 
 **Finding format:** one-line per missing/stale artifact, with the
-update's commit sha (Outcome A) or the tracking issue number
-(Outcome B).
+update's commit sha (Resolved) or the tracking issue number
+(Deferred).
 
 ---
 
@@ -605,7 +605,7 @@ answer exists (note the gap).
    phase shipped bespoke code → FAIL. A **build** path whose required
    adoption survey (named standards evaluated + disqualifying gaps) was
    never documented → FAIL. An **extend** path whose upstream gap-filing
-   never happened → PARTIAL (file it now, Outcome A, or track it).
+   never happened → PARTIAL (file it now and resolve it, or track it as Deferred).
 3. **Check the register row freshness** (if the repo keeps a register).
    If the phase materially changed the answer (e.g. discovered an
    adoptable standard mid-build), a NEW register row records the
@@ -651,7 +651,7 @@ recommended reversing it without reading the record; the user caught it.
 authored decision-framing artifacts nor ratified anything).
 
 **Finding format:** the artifact that re-opened or under-propagated,
-the ratification record it missed, and the fix applied (Outcome A
+the ratification record it missed, and the fix applied (Resolved
 preferred: cite-and-close the framing in-session).
 
 ---
@@ -674,18 +674,18 @@ four questions:
   phase's QA punch list as deferred visual-QA (if a design-review /
   visual-QA process is present)
 - **Check 7 PARTIAL/FAIL** → retro §3 discoveries + §4 adjustments;
-  the harness extension itself is usually Outcome A (fix-now in the
+  the harness extension itself is usually Resolved (fixed in the
   same session)
 - **Check 8 PARTIAL/FAIL** → retro §3 discoveries + §4 adjustments;
-  glossary/doc updates are usually Outcome A (in-session), with a
-  tracked follow-up issue (Outcome B) only when the doc work is large
+  glossary/doc updates are usually Resolved (in-session), with a
+  tracked follow-up issue (Deferred) only when the doc work is large
   enough to warrant its own scope
 - **Check 9 PARTIAL/FAIL** → retro §3 discoveries + §4 adjustments;
   a FAIL (answer not honored, or Build without a documented survey)
   also feeds the next Epic/Milestone `code-auditor` pass, which
   adversarially reviews answer-vs-shipped at its scope
 - **Check 10 PARTIAL/FAIL** → retro §3 discoveries + §4 adjustments;
-  re-opened framings are usually Outcome A (cite the ratification and
+  re-opened framings are usually Resolved (cite the ratification and
   close the framing in-session); a missing/false Propagation section
   on a ratification artifact must be remediated before the retro
   signs off
@@ -700,7 +700,7 @@ Scoped audit findings live **inline in the retro**, under a dedicated
 own `logs/audits/` folder; that's the Epic/Milestone tier's
 responsibility.
 
-When the Epic audit runs (usually at PZ), it reads every phase
+When the Epic audit runs (usually at the Epic's close), it reads every phase
 retro's scoped-audit section and consolidates findings. The
 Milestone audit does the same at a higher level.
 

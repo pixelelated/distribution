@@ -266,7 +266,7 @@ artifacts. The scoped audit lives inline in the retro.
 - Single-commit fix with no new files and no new behaviour
 - Pure mechanical refactor (no semantic change)
 - The full `code-auditor` skill is about to run anyway (final phase
-  before PZ)
+  before the Epic closes)
 
 For all other phases, run the checks.
 

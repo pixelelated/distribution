@@ -102,7 +102,7 @@ Examples:
   archetype."
 - "The 'housekeeping items' section has accumulated 12 pre-existing
   failures across P0–P3 without anyone triaging them. Consider
-  batching into a dedicated P7 housekeeping task."
+  batching into a dedicated housekeeping Backlog."
 
 Empty is acceptable — don't invent adjustments. But if empty across
 many consecutive retros, that's itself a signal that nobody's looking

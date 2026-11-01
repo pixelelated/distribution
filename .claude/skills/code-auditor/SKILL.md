@@ -672,9 +672,9 @@ Append to `04-analysis.md` after the Risk Assessment section:
 1. {ordered list of edits the closing agent should make}
 ```
 
-### Handoff to Phase Z.6
+### Handoff to the closing agent
 
-The auditor MUST NOT make instruction-file edits itself in this mode — recommendations are inputs to Phase Z.6 (instruction-file updates), where the closing agent applies them. The auditor's deliverable is the recommendation list with sufficient detail that Z.6 can be executed without re-running the audit.
+The auditor MUST NOT make instruction-file edits itself in this mode — recommendations are inputs to the closing agent, who applies them as the Epic's instruction-file update. The auditor's deliverable is the recommendation list with sufficient detail that the update can be made without re-running the audit.
 
 ### When to skip
 
