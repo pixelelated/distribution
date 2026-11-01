@@ -1,6 +1,6 @@
 ---
 name: futro
-description: 'Run a forward-looking retrospective ("futro") before starting a phase, epic, or significant chunk of work. Anticipatory counterpart to mini-retro — uses "what if?" thought experiments and agent-execution simulation to identify traps BEFORE execution begins. Produces revised plans, investigation tasks, and flagged blindspots. Structured around Rumsfeld''s four quadrants (known/unknown knowns and unknowns) and five questions; question 4 ("what could we be missing?") is the heart of the practice. Use when the user says "futro this", "think ahead", "what are we missing", "pre-mortem this", "what if…", "before we start…", or when a phase kickoff has just retrieved a prior retro and is about to transition to execution. Pairs with mini-retro (reflective) and is invoked by begin-delivery at Execution-Epic kickoff. Note — a Discovery-Epic kickoff (e.g. begin-exploration) deliberately does NOT invoke it.'
+description: 'Run a forward-looking retrospective ("futro") before starting a phase, epic, or significant chunk of work. Anticipatory counterpart to mini-retro — uses "what if?" thought experiments and agent-execution simulation to identify traps BEFORE execution begins. Produces revised plans, investigation tasks, and flagged blindspots. Structured around Rumsfeld''s four quadrants (known/unknown knowns and unknowns) and five questions; question 4 ("what could we be missing?") is the heart of the practice. Use when the user says "futro this", "think ahead", "what are we missing", "pre-mortem this", "what if…", "before we start…", or when a phase kickoff has just retrieved a prior retro and is about to transition to execution. Pairs with mini-retro (reflective) and is invoked by begin-delivery at Execution-Epic kickoff.'
 license: Apache-2.0
 metadata:
   execution: serial
@@ -458,8 +458,8 @@ skill's folder is a starter template, for a project that has no register.
   its retro), proceed anyway — but note the absence in question 1.
 - **Invoked by `begin-delivery`.** When running `begin-delivery` for an
   Execution-Epic kickoff, this skill is the methodology for `begin-delivery`'s
-  futro step. A Discovery-Epic kickoff (e.g. `begin-exploration`, if present)
-  deliberately does NOT invoke a futro — the anticipatory ceremony's Q4/Q5
+  futro step. A Discovery Epic (an audit) starts with its methodology skill
+  directly and deliberately does NOT invoke a futro — the anticipatory ceremony's Q4/Q5
   contaminate the substantive methodology that IS the Discovery execution.
 - **Proportional planning.** Scale the futro to the work — a small reversible
   change gets a short futro; over-planning is itself an anti-pattern.
