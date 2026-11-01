@@ -1,0 +1,29 @@
+# PL-22 (L-12, L-73), S6: skills: the rule files by their names here (PL-22; Refs #685)
+parent: f5aea22c63 (export /workspace/tmp/m6-t38/e/f5aea22c63); fix: a1bc03f615 (tree 274fcce9fb, export /workspace/tmp/m6-t38/e/a1bc03f615)
+check, run in each export's .claude/skills: grep -r -c -E "\.instructions\.md|agent-terminal-safety" code-auditor mini-retro begin-delivery | grep -v ":0$" | LC_ALL=C sort; echo "files: $(grep -r -l -E "\.instructions\.md|agent-terminal-safety" code-auditor mini-retro begin-delivery | wc -l)"; echo "the successors exist: $(test -f "$REPO/.claude/rules/rclone-cloud-sync.md" && test -f "$REPO/.claude/rules/upgrade-and-install.md" && echo yes)"
+FAIL at the parent (rc=0): begin-delivery/SKILL.md:1 ; code-auditor/SKILL.md:3 ; mini-retro/references/scoped-audit.md:1 ; files: 3 ; the successors exist: yes
+PASS at the fix (rc=0): files: 0 ; the successors exist: yes
+allowlists re-keyed: rekeyed allow-findings.txt: .claude/skills/mini-retro/references/scoped-audit.md:559 -> :558;t38-rekey: 1 entry moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit 274fcce9fb):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       634 of 634 passed, 156 allowlisted
+ok    stale      112 of 112 passed, 111 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 47 of 47 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 8
+TOTAL: 957 of 957 assertions
+tools/rules-check --quiet rc=0; tools/register-check rc=0
+the wordlist over the added lines rc=0
+Already written: nothing inherited: the named files never existed in this tree under those names; a reader who followed them found the rule under .claude/rules/ or nothing, and wrote nothing
+import-unchanged: yes (git log -S over .claude/skills/code-auditor/SKILL.md at f5aea22c63 prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= a1bc03f615:
+ .claude/skills/begin-delivery/SKILL.md                              | 2 +-
+ .claude/skills/code-auditor/SKILL.md                                | 6 +++---
+ .claude/skills/mini-retro/references/scoped-audit.md                | 3 +--
+ .../2026_11_01-epic-m6-doctrine-skills/tools/allow-findings.txt     | 2 +-
+ 4 files changed, 6 insertions(+), 7 deletions(-)

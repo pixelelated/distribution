@@ -1,0 +1,37 @@
+# PL-23 (L-14, L-21), S6: skills: one sentence for the tracker tools (PL-23; Refs #685)
+parent: a1bc03f615 (export /workspace/tmp/m6-t38/e/a1bc03f615); fix: 48bfbe0eed (tree b84eb9767f, export /workspace/tmp/m6-t38/e/48bfbe0eed)
+check, run in each export's .claude/skills: S8="begin-delivery code-auditor futro mini-retro session-resume session-stash developer-relations release-notes"; echo "copilot lines: $(grep -r -i copilot $S8 | wc -l)"; echo "mcp_github_ lines: $(grep -r mcp_github_ $S8 | wc -l)"; echo "avoid gh: $(grep -r -i -E "avoid (the )?.gh" $S8 | wc -l)"; echo "the shared sentence: $(grep -r -c "every call names the repository" $S8 | awk -F: "{s+=\$2} END {print s}")"
+FAIL at the parent (rc=0): copilot lines: 5 ; mcp_github_ lines: 16 ; avoid gh: 5 ; the shared sentence: 0
+PASS at the fix (rc=0): copilot lines: 0 ; mcp_github_ lines: 0 ; avoid gh: 0 ; the shared sentence: 7
+allowlists re-keyed: dropped allow-findings.txt: .claude/skills/code-auditor/SKILL.md:371 (its line is gone);dropped allow-findings.txt: .claude/skills/code-auditor/references/phases.md:31 (its line is gone);dropped allow-findings.txt: .claude/skills/futro/references/techniques.md:31 (its line is gone);dropped allow-findings.txt: .claude/skills/futro/references/techniques.md:38 (its line is gone);dropped allow-findings.txt: .claude/skills/futro/references/template.md:72 (its line is gone);t38-rekey: 5 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit b84eb9767f):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       634 of 634 passed, 156 allowlisted
+ok    stale      107 of 107 passed, 106 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 42 of 42 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 3
+TOTAL: 947 of 947 assertions
+tools/rules-check --quiet rc=0; tools/register-check rc=0
+the wordlist over the added lines rc=0
+allow-findings.txt's L-14 and L-21 entries (code-auditor/SKILL.md, phases.md, techniques.md twice, template.md) are dropped with their lines.
+Already written: nothing inherited: an unbounded gh list printed into a session and wrote nothing; the tracker writes here named the repository already (issue-tracking.md)
+import-unchanged: yes (git log -S over .claude/skills/futro/SKILL.md at a1bc03f615 prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 48bfbe0eed:
+ .claude/skills/begin-delivery/SKILL.md                | 19 +++++++++----------
+ .claude/skills/code-auditor/SKILL.md                  |  2 +-
+ .../skills/code-auditor/references/anti-patterns.md   |  2 +-
+ .claude/skills/code-auditor/references/phases.md      |  2 +-
+ .claude/skills/futro/SKILL.md                         | 12 ++++++------
+ .claude/skills/futro/references/techniques.md         |  4 ++--
+ .claude/skills/futro/references/template.md           |  2 +-
+ .claude/skills/mini-retro/SKILL.md                    |  8 ++++----
+ .claude/skills/session-resume/SKILL.md                |  2 +-
+ .claude/skills/session-stash/SKILL.md                 |  2 +-
+ .../tools/allow-findings.txt                          |  5 -----
+ 11 files changed, 27 insertions(+), 33 deletions(-)

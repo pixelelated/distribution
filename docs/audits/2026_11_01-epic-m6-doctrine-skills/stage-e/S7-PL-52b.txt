@@ -1,0 +1,27 @@
+# PL-52 (L-27), S7: release-notes: the disclosure's ruling cited by its issues, not a row this branch lacks (PL-52; Refs #685)
+parent: 15368f6d6f (export /workspace/tmp/m6-t38/e/15368f6d6f); fix: 1279d8aad7 (tree c8b0fb1429, export /workspace/tmp/m6-t38/e/1279d8aad7)
+check, run in each export's .claude/skills: echo "D-WORKFLOW-219 in release-notes: $(grep -c D-WORKFLOW-219 release-notes/SKILL.md)"; echo "the row in this branch's register: $(grep -c D-WORKFLOW-219 "$REPO/docs/decision-register.md")"; echo "the ruling cited by its issues: $(grep -c "on #685 and #645" release-notes/SKILL.md)"
+FAIL at the parent (rc=0): D-WORKFLOW-219 in release-notes: 1 ; the row in this branch's register: 0 ; the ruling cited by its issues: 0
+PASS at the fix (rc=0): D-WORKFLOW-219 in release-notes: 0 ; the row in this branch's register: 0 ; the ruling cited by its issues: 1
+allowlists re-keyed: t38-rekey: 0 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit c8b0fb1429):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       630 of 630 passed, 156 allowlisted
+ok    stale      112 of 112 passed, 111 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 47 of 47 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 8
+TOTAL: 953 of 953 assertions
+tools/rules-check --quiet rc=0; tools/register-check rc=0
+the wordlist over the added lines rc=0
+7d1ee17849 cited D-WORKFLOW-219, which register-check could not find on this branch (the row is the coordinator's, merged at the hand-back); the citation names the ruling's issues instead.
+Already written: nothing inherited: the citation was written at 7d1ee17849 and lived three commits on the branch; no reader acted on it
+import-unchanged: no (git log -S over .claude/skills/release-notes/SKILL.md at 15368f6d6f prints: 7d1ee17849)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 1279d8aad7:
+ .claude/skills/release-notes/SKILL.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)

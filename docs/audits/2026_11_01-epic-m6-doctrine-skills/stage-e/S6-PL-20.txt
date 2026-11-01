@@ -1,0 +1,33 @@
+# PL-20 (L-05), S6: skills: durations are measurements, never estimates (PL-20; Refs #685)
+parent: 1279d8aad7 (export /workspace/tmp/m6-t38/e/1279d8aad7); fix: f5aea22c63 (tree 7f4fd0c68f, export /workspace/tmp/m6-t38/e/f5aea22c63)
+check, run in each export's .claude/skills: S8="begin-delivery code-auditor futro mini-retro session-resume session-stash developer-relations release-notes"; P5="~ ?[0-9]+((-|–)[0-9]+)? ?(min|mins|minute|minutes|hr|hrs|hour|hours|h|day|days)([^a-z]|\$)|[0-9]+ (seconds|minutes)([^a-z]|\$)"; echo "the widened pattern: $(grep -r -E "$P5" $S8 | wc -l)"; echo "<15min, 30-minute, ~30-minute: $(grep -r -E "<15 ?min|30-minute" $S8 | wc -l)"; echo "the examples (1.5×, 2× in question 1): $(grep -r -c -E "factor 1\.5×|2× in question 1" futro | awk -F: "{s+=\$2} END {print s}")"
+FAIL at the parent (rc=0): the widened pattern: 10 ; <15min, 30-minute, ~30-minute: 4 ; the examples (1.5×, 2× in question 1): 2
+PASS at the fix (rc=0): the widened pattern: 0 ; <15min, 30-minute, ~30-minute: 0 ; the examples (1.5×, 2× in question 1): 0
+allowlists re-keyed: t38-rekey: 0 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit 7f4fd0c68f):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       630 of 630 passed, 156 allowlisted
+ok    stale      112 of 112 passed, 111 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 47 of 47 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 8
+TOTAL: 953 of 953 assertions
+tools/rules-check --quiet rc=0; tools/register-check rc=0
+the wordlist over the added lines rc=0
+Description, code-auditor/SKILL.md:3: 878 -> 869 characters of the scalar (tools/t38-tables.py q5); 892 -> 883 bytes of the line (sed -n 3p | wc -c)
+D-WORKFLOW-091: work is sized by what it must prove; a duration is a measurement after the fact. #342 is answered for the fork-adapted skills by this commit and stays open for the export.
+Already written: nothing inherited: the timeboxes were never gates here (D-WORKFLOW-091); the retros and audits record what they measured
+import-unchanged: yes (git log -S over .claude/skills/mini-retro/SKILL.md at 1279d8aad7 prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= f5aea22c63:
+ .claude/skills/begin-delivery/SKILL.md                |  6 +++---
+ .claude/skills/code-auditor/SKILL.md                  |  8 ++++----
+ .claude/skills/futro/SKILL.md                         |  2 +-
+ .claude/skills/futro/references/blindspot-register.md |  7 ++++---
+ .claude/skills/mini-retro/SKILL.md                    | 14 +++++++-------
+ .claude/skills/mini-retro/references/scoped-audit.md  |  6 +++---
+ 6 files changed, 22 insertions(+), 21 deletions(-)

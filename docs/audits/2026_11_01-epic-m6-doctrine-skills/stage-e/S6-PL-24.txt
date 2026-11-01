@@ -1,0 +1,39 @@
+# PL-24 (L-15), S6: skills: this repository's checks, stacks and examples (PL-24; Refs #685)
+parent: 48bfbe0eed (export /workspace/tmp/m6-t38/e/48bfbe0eed); fix: 919a0e0014 (tree 74d008ff17, export /workspace/tmp/m6-t38/e/919a0e0014)
+check, run in each export's .claude/skills: bash "$AUD/stage-e/S6-PL-24-check.sh"
+FAIL at the parent (rc=0): provenance 4 ; the fork's own 1 ; the term cornerstone 25 ; the estate's 44
+PASS at the fix (rc=0): provenance 4 ; the fork's own 1 ; the term cornerstone 26 ; the estate's 0
+allowlists re-keyed: rekeyed allow-legit.txt: .claude/skills/code-auditor/SKILL.md:728 -> :730;rekeyed allow-legit.txt: .claude/skills/futro/SKILL.md:343 -> :342;rekeyed allow-legit.txt: .claude/skills/futro/SKILL.md:345 -> :344;rekeyed allow-legit.txt: .claude/skills/futro/SKILL.md:356 -> :355;dropped allow-findings.txt: .claude/skills/begin-delivery/SKILL.md:128 (its line is gone);dropped allow-findings.txt: .claude/skills/futro/SKILL.md:199 (its line is gone);dropped allow-findings.txt: .claude/skills/mini-retro/references/scoped-audit.md:558 (its line is gone);t38-rekey: 7 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit 74d008ff17):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       650 of 650 passed, 152 allowlisted
+ok    stale      107 of 107 passed, 106 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 39 of 39 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 0
+TOTAL: 960 of 960 assertions
+tools/rules-check --quiet rc=0; tools/register-check rc=0
+the wordlist over the added lines rc=0
+Kept and read as this repository's: the four origin notes (provenance, the import's history), code-auditor's own 'there is no docs/planning/ here', and the term cornerstone, which 15 of this repository's audits use as a section name and code-auditor § Project conformance now defines. allow-findings.txt's L-15 entries (begin-delivery:128, futro:199, scoped-audit:558) are dropped with their lines. One commit across files, the ruling's form (the brief's Figures not found, item 5).
+Already written: nothing inherited: the estate's stacks and paths named nothing this repository has; the audits here wrote docs/audits/ (not logs/audits/) and their own spot checks, so no record is rewritten
+import-unchanged: yes (git log -S over .claude/skills/mini-retro/SKILL.md at 48bfbe0eed prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 919a0e0014:
+ .claude/skills/begin-delivery/SKILL.md             | 17 ++--
+ .claude/skills/code-auditor/SKILL.md               |  6 +-
+ .claude/skills/code-auditor/references/phases.md   | 14 ++--
+ .../skills/code-auditor/references/templates.md    |  6 +-
+ .claude/skills/futro/SKILL.md                      | 11 ++-
+ .../skills/futro/references/blindspot-register.md  |  4 +-
+ .claude/skills/futro/references/techniques.md      | 14 ++--
+ .claude/skills/futro/references/template.md        |  2 +-
+ .claude/skills/mini-retro/SKILL.md                 | 21 ++---
+ .../skills/mini-retro/references/scoped-audit.md   | 96 +++++++++-------------
+ .claude/skills/mini-retro/references/template.md   |  2 +-
+ .../tools/allow-findings.txt                       |  3 -
+ .../tools/allow-legit.txt                          |  8 +-
+ 13 files changed, 95 insertions(+), 109 deletions(-)
