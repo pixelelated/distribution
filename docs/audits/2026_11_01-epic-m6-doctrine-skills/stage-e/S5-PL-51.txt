@@ -1,0 +1,26 @@
+# PL-51 (L-68), S5: session-resume: a branch's file points at the stash and carries its own state (PL-51; Refs #685)
+parent: 7d5399fdfd (export /workspace/tmp/m6-t38/e/7d5399fdfd); fix: 83891d77d9 (tree d4a9f33c53, export /workspace/tmp/m6-t38/e/83891d77d9)
+check, run in each export's .claude/skills: echo "is a pointer to it: $(grep -c "is a pointer to it" session-resume/SKILL.md)"; echo "in-flight state: $(grep -c "in-flight state" session-resume/SKILL.md)"; echo "the rule half, swept in b344408e46: $(git -C "$REPO" show b344408e46:.claude/rules/learning-capture.md | grep -c -i "state")"
+FAIL at the parent (rc=0): is a pointer to it: 1 ; in-flight state: 0 ; the rule half, swept in b344408e46: 3
+PASS at the fix (rc=0): is a pointer to it: 0 ; in-flight state: 1 ; the rule half, swept in b344408e46: 3
+allowlists re-keyed: t38-rekey: 0 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit d4a9f33c53):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       627 of 627 passed, 156 allowlisted
+ok    stale      112 of 112 passed, 111 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 47 of 47 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 8
+TOTAL: 950 of 950 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Already written: nothing inherited: the lane pointers carry state already (#1014 reads them); nothing is migrated or thinned (ruling 6)
+import-unchanged: no (git log -S over .claude/skills/session-resume/SKILL.md at 7d5399fdfd prints: d8df0877a4)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 83891d77d9:
+ .claude/skills/session-resume/SKILL.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)

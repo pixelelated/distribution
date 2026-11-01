@@ -1,0 +1,28 @@
+# PL-45 (L-84), S5: session-resume, session-stash: sentences a reader can act on (PL-45; Refs #685)
+parent: 37df2ac2b9 (export /workspace/tmp/m6-t38/e/37df2ac2b9); fix: 7d5399fdfd (tree f3170a0ab2, export /workspace/tmp/m6-t38/e/7d5399fdfd)
+check, run in each export's .claude/skills: R=session-resume/SKILL.md; echo "tofu apply: $(grep -c "tofu apply" $R)"; echo "stat the file: $(grep -c "stat. the file" $R)"; echo "staleness tier: $(grep -c "staleness tier" $R)"; echo "(if referenced): $(grep -c "(if referenced)" $R)"; echo "this repository's is the next paragraph: $(grep -c "this repository.s is the next paragraph" session-stash/SKILL.md)"
+FAIL at the parent (rc=0): tofu apply: 1 ; stat the file: 1 ; staleness tier: 1 ; (if referenced): 1 ; this repository's is the next paragraph: 0
+PASS at the fix (rc=0): tofu apply: 0 ; stat the file: 0 ; staleness tier: 0 ; (if referenced): 0 ; this repository's is the next paragraph: 1
+allowlists re-keyed: t38-rekey: 0 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit f3170a0ab2):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       627 of 627 passed, 156 allowlisted
+ok    stale      112 of 112 passed, 111 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 47 of 47 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 8
+TOTAL: 950 of 950 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+session-stash's :38 ('the user-approved stash commit') went with the main-branch section in PL-21 (9adaa017e1).
+Already written: nothing inherited: a resume writes a briefing, not an artifact; the stashes it read are unchanged
+import-unchanged: yes (git log -S over .claude/skills/session-resume/SKILL.md at 37df2ac2b9 prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 7d5399fdfd:
+ .claude/skills/session-resume/SKILL.md | 8 ++++----
+ .claude/skills/session-stash/SKILL.md  | 2 +-
+ 2 files changed, 5 insertions(+), 5 deletions(-)
