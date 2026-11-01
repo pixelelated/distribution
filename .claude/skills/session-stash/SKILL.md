@@ -127,6 +127,10 @@ After writing the file:
 5. Update and read back the live milestone's current/next work and evidence,
    following [`milestone-phase-naming.md`](../../rules/milestone-phase-naming.md).
    The checkpoint carries commands and artifacts; the milestone holds priorities.
+6. Prove the stash (D-WORKFLOW-133): give an agent with no context only the
+   repository and the stash, ask it to resume, and compare its briefing with
+   the truth. Fix each place it went wrong -- in the stash, a rule or a tool --
+   and test again (#368).
 
 ## Field-level guidance
 
