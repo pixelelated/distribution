@@ -140,7 +140,14 @@ in the device `options` file.
 - Customize via `pre_*`/`post_*` hook functions rather than replacing core build steps; branch per device with `case ${DEVICE} in ... esac`.
 - Preserve upstream JELOS/LibreELEC copyright headers and add a ROCKNIX line — this is a fork; credits must be retained.
 - Pin git sources with the **full** commit hash in `PKG_VERSION`.
-- Patches in a package's `patches/` dir auto-apply after unpack; scope per device with `patches/<DEVICE>/`. Kernel patches live under `packages/linux/patches/<DEVICE>/`; hardware quirks under `projects/ROCKNIX/packages/hardware/quirks/`.
+- Patches in a package's `patches/` dir auto-apply after unpack, and so do
+  `patches/<arch>/` (`x86` for an `x86_64` target, `scripts/unpack:127-133`)
+  and `projects/<PROJECT>/devices/<DEVICE>/patches/<pkg>/` (`:159`); a
+  per-device `patches/<DEVICE>/` inside the package applies only when the
+  recipe adds it to `PKG_PATCH_DIRS` (`:137-145`; upstream's ES recipe sets
+  `PKG_PATCH_DIRS+=" ${DEVICE}"`). Kernel patches live under
+  `packages/linux/patches/<DEVICE>/`; hardware quirks under
+  `projects/ROCKNIX/packages/hardware/quirks/`. (T37 L-18, at `2174265e9c`.)
 
 ## Commit conventions
 
