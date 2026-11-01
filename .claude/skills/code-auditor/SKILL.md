@@ -143,8 +143,9 @@ lower-tier findings differently — and the difference is intentional:
   deferred-to-next-milestone with rationale.
 
 **Tier B (design-review) findings — only if the repo has a design-review /
-visual-QA process.** scaffold has none today, so skip this unless one is
-present. Where present: phase retros record Tier B verdicts and any deferred
+visual-QA process.** This repository's is the reviewed frames an
+EmulationStation change carries (`es-ui-style-guide.md` § Keep the flow and
+its visual evidence together; `tools/vm-visual-qa`, `tools/frame-diff`). Where present: phase retros record Tier B verdicts and any deferred
 visual-QA items; both Epic and Milestone audits aggregate them into a single
 visual-QA section of `04-analysis.md` and roll remaining blocker/major/deferred
 items into `05-punch-list.md`. Do **not** re-run page-scale design reviews from
@@ -187,9 +188,8 @@ Five hard rules apply to every verdict at every tier:
    passes trivially when nothing was uploaded at all; "the marker is gone"
    passes when it was never created. If no failing input exists, the check
    proves nothing and must be strengthened or dropped (blindspots 6, 8).
-5. **Subagent output is a LEAD, never EVIDENCE.** Per scaffold's development
-   principles ("Verify sub-agent outputs against primary artifacts" — project
-   ORC-5): every fact that supports a verdict must be re-read directly from the
+5. **Subagent output is a LEAD, never EVIDENCE.** Per this repository's
+   `engineering-practices.md` § Verify the artifact, not the report: every fact that supports a verdict must be re-read directly from the
    primary artifact before the verdict is written. Fan out subagents for research;
    verify their leads yourself. For platform findings, verification means the
    orchestrator runs the exact-verb, multi-surface probe itself.
@@ -453,7 +453,7 @@ files win** — they are canonical, this is a summary.
 
 For each subsystem touched:
 
-1. **Identify interacting subsystems** — what shares state, resources, or timing? Consult the repo's shared-state register if one exists (scaffold's canonical conventions live in `.claude/rules/`; there is no separate shared-state register yet).
+1. **Identify interacting subsystems** — what shares state, resources, or timing? Consult the repo's shared-state register if one exists (this repository's conventions live in `.claude/rules/`; there is no separate shared-state register).
 2. **Check for runtime-state assumptions** — config reloads that destroy in-memory state, container restarts that reset ephemeral data, deploys that run multiple instances simultaneously, background tasks (pollers, crons) that conflict across instances.
 3. **Verify intersection testing** — was the combination specifically tested? Not "A works" and "B works", but "A works while B is also happening."
 4. **Check knowledge propagation** — did the implementer consult docs in the **interacting** subsystem, not just the one changed?
@@ -648,7 +648,7 @@ When invoked in this mode, the auditor adds a dedicated section to `04-analysis.
 
 | Category                                | What the auditor surfaces                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| **Coverage gap** — would-have-prevented | For each Phase 2/3 finding, identify the existing instruction file (if any) whose rule, if followed, would have prevented the finding. Format: `Finding F-NN → would have been caught by .claude/rules/{file}.md § {section}` (scaffold's canonical instruction home; no generated mirrors). If a finding maps to no existing instruction file, mark it **"Uncovered"**. |
+| **Coverage gap** — would-have-prevented | For each Phase 2/3 finding, identify the existing instruction file (if any) whose rule, if followed, would have prevented the finding. Format: `Finding F-NN → would have been caught by .claude/rules/{file}.md § {section}` (this repository's instruction home; no generated mirrors). If a finding maps to no existing instruction file, mark it **"Uncovered"**. |
 | **Codification gap** — needs-new-rule   | For each pattern that recurs across 3+ findings AND has no existing instruction file home, recommend either (a) extending an existing instruction file or (b) creating a new one. Format: `Pattern P-NN: {description} (3+ instances). Recommendation: {extend                                                                                                                                                                                    | new file} {target path} § {proposed section}`. Apply the 3+ instances rule — a pattern recurring across 3+ findings (not a one-off) warrants a codified rule. |
 
 ### Output format

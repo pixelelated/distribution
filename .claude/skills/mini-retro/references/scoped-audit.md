@@ -380,8 +380,9 @@ at phase close.
 user-facing UI — catching the failure mode where a phase ships visual /
 a11y / token-conformance regressions because the review was skipped.
 **Applies only if the repo has a design-review / visual-QA process.**
-scaffold today is docs + bootstrap scripts with no UI surface, so this is
-normally a SKIP.
+Here, an EmulationStation change carries its reviewed frames
+(`es-ui-style-guide.md` § Keep the flow and its visual evidence together);
+a phase with no screen change is a SKIP.
 
 **Trigger:** the phase modified any user-facing surface — a route or page
 template, a rendered component, a global token / style file, an auth-UI

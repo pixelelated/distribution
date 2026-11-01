@@ -219,8 +219,8 @@ Summary:
    findings get appended to the retro's §3 discoveries (track every
    deferral as an issue, per development-principles' *Discovered failure =
    explicit work*). Skip with an explicit "no UI surface touched" note if
-   the phase was purely backend / docs / tooling (scaffold today is docs +
-   bootstrap scripts, so this is usually a skip).
+   the phase was purely backend / docs / tooling (here, a phase that changed
+   an EmulationStation screen carries its reviewed frames, `es-ui-style-guide.md`).
 7. **Harness self-coverage scan** — if the phase shipped a new lint /
    pre-flight / test harness / deploy gate, does it cover the failure
    modes encountered while landing it?
@@ -242,9 +242,9 @@ Summary:
    bugfix / tooling phases. Findings → §4 adjustments (or a follow-up issue
    per development-principles' *Discovered failure = explicit work*).
 9. **Build-vs-adopt honor check (if the repo records build-vs-adopt
-   answers)** — scaffold's doctrine §1 (platform-first, with an escape
-   hatch) and development-principles' *Prefer adopt / extend / contribute
-   before building* are the governing rule. Did the phase honor the
+   answers)** — the source estate's adopt / extend / contribute-before-build
+   doctrine is the rule it checks; this repository records no build-vs-adopt
+   answers, so the check is usually a SKIP. Did the phase honor the
    build/adopt answer its spec / Epic recorded? A spec that said **adopt**
    but shipped bespoke code is a FAIL; a **build** path whose adoption
    survey (named standards + disqualifying gaps) was never documented is a
