@@ -91,7 +91,7 @@ artifact-contract lint now adds the columns up.
 ## Second opinion (Phase 4.6)
 
 **Primary:** [harness, model if known, developer/lab, identity source].
-**Depth:** [independent / extended]. **Perspectives:** [2 / 3 including primary].
+**Depth:** [independent / extended, or local under D-WORKFLOW-184 with Phase 4.6 not applicable]. **Perspectives:** [2 / 3 including primary].
 **External reviewers:** [1 / 2, each from a different lab]. **Calls:** [count per
 reviewer; Milestone blind then refutation, Epic refutation].
 **Run:** `tools/council/run invoke --member <member> --provider openrouter --prompt-file
@@ -161,7 +161,7 @@ primary. Model recipes come from the installed roster, never this example alone.
 | Cornerstone conformance tables present                             | present / absent (reason) |
 | Coverage Boundary present (02 + 04)                            | present / absent (reason) |
 | Finding Verification recorded for all Crit/High                | present / absent (reason) |
-| Second opinion recorded (Phase 4.6; Epic/Milestone tiers)      | present / absent (reason: the seat's prerequisite that was missing) |
+| Second opinion recorded (Phase 4.6; Epic/Milestone tiers)      | present / absent (reason: the seat's prerequisite that was missing) / not applicable (a Local plan under D-WORKFLOW-184) |
 | Instruction File Recommendations (epic/milestone)              | present / absent (reason) |
 | Tier B visual-QA consolidation present                         | present / absent (reason) |
 | Verdicts use the defined vocabulary only                       | yes / deviations listed   |

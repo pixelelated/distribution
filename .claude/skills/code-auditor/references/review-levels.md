@@ -6,7 +6,7 @@ D-WORKFLOW-137 separates this skill from the five-seat council.
 
 | Depth | Model perspectives | Appropriate use |
 | --- | --- | --- |
-| Local | Primary auditor only; no external calls | A bounded Issue/PR check during implementation. Verify code, tests and criteria and state that no independent review ran. Phase retros still use mini-retro. |
+| Local | Primary auditor only; no external calls | A bounded Issue/PR check during implementation, or an Epic-tier slice whose plan row says Local (D-WORKFLOW-184), recorded with `tier_exception` in its plan. Verify code, tests and criteria and state that no independent review ran. Phase retros still use mini-retro. |
 | Independent | Primary plus one external reviewer from another lab | Default Epic/Milestone audit and routine patch-candidate review. Phase 4.6 remains required. |
 | Extended | Primary plus two external reviewers, all three labs distinct | A larger milestone, risky migration or explicitly requested extra scrutiny. The additional reviewer is a verified installed model, for example Gemini or Muse; choose and freeze it before dispatch. |
 | Full council escalation | Five external council members; the harness coordinates | A release or contested decision explicitly assigned the council workflow. Run the actual council skill and its gates on the audit's evidence, findings and unresolved choices. This is a separate deliberation, not a three-model audit renamed "council". |

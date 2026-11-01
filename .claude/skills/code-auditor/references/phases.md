@@ -436,7 +436,7 @@ this pass was skipped).
 
 ---
 
-## Phase 4.6 — Second opinion: a different model refutes and extends (mandatory at Epic and Milestone tiers)
+## Phase 4.6 — Second opinion: a different model refutes and extends (mandatory at Epic and Milestone tiers, unless the plan is Local under D-WORKFLOW-184)
 
 Phase 4.5 is the auditing model refuting itself, and a model shares its
 blind spots with itself: the same priors about what a name means, the same
@@ -488,7 +488,13 @@ reviewer/Facilitator is unavailable or the external transfer is not authorized,
 record the blocker and keep this phase pending. Do not proceed to Phase 5 or
 substitute a same-lab reviewer. Local-only Issue audits explicitly record Phase
 4.6 as not applicable; they do not claim independent review or satisfy an
-Epic/Milestone or release gate. A full council, when selected for the release,
+Epic/Milestone or release gate. An Epic-tier slice whose plan row says Local
+(D-WORKFLOW-184: a doctrine read, a dead-end or a provenance table) is the one
+exception at Epic tier: its `second-opinions/review-plan.json` records `depth:
+local`, `reviewers: []`, `tier_exception` and `reason` (`templates.md` § Second
+opinion), it records Phase 4.6 as not applicable at Local depth, and it proceeds
+to Phase 5; `tools/lint-audit-artifacts` accepts that plan and refuses it without
+`tier_exception`. It claims no independent review. A full council, when selected for the release,
 runs its own five-seat protocol on the audit evidence; it cannot be simulated
 by extending this section's number of calls.
 

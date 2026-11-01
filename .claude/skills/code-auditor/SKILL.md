@@ -244,7 +244,7 @@ phases 6–7 close the loop into the tracker.
 | 3     | Retrospective                   | `03-retrospective.md`                 | [`references/phases.md` § Phase 3](references/phases.md)   |
 | 4     | Synthesis                       | `04-analysis.md`                      | [`references/phases.md` § Phase 4](references/phases.md)   |
 | 4.5   | Finding verification            | appended to `04-analysis.md`          | [`references/phases.md` § Phase 4.5](references/phases.md) |
-| 4.6   | Independent review (selected depth; required for Epic/Milestone) | `04-analysis.md` § Second opinion + `second-opinions/` | [`references/phases.md` § Phase 4.6](references/phases.md) |
+| 4.6   | Independent review (selected depth; required for Epic/Milestone unless the plan is Local under D-WORKFLOW-184) | `04-analysis.md` § Second opinion + `second-opinions/` | [`references/phases.md` § Phase 4.6](references/phases.md) |
 | 5     | Punch list                      | `05-punch-list.md` (+ YAML index)     | [`references/phases.md` § Phase 5](references/phases.md)   |
 | 6     | Punch-list issue                | GitHub issue (`audit`, `punch-list`)  | Phase 6 below                                              |
 | 7     | Resolution gate                 | recorded outcome per item             | Phase 7 below                                              |
@@ -505,7 +505,7 @@ from a retro summary.
 7. Risk assessment (severity × impact × mitigation)
 8. Coverage boundary (what was examined vs deliberately NOT examined, verification depth per AC, audit dimensions not exercised)
 9. Finding verification (Phase 4.5 — refutation results for every Critical/High finding)
-9a. Second opinion (Phase 4.6 — the other lab's findings and refutations, each graded against the artifact; the command, the provenance path and the served model; mandatory at Epic and Milestone tiers, fails closed without the seat)
+9a. Second opinion (Phase 4.6 — the other lab's findings and refutations, each graded against the artifact; the command, the provenance path and the served model; mandatory at Epic and Milestone tiers, fails closed without the seat; an Epic-tier plan that is Local under D-WORKFLOW-184 records it as not applicable)
 10. Quality self-check (recorded table — one row per mandatory section, present/absent-with-reason; silent section-dropping becomes visible drift)
 
 Full structure in [`references/templates.md`](references/templates.md).
