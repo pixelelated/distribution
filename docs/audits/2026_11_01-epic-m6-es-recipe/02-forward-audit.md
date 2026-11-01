@@ -585,6 +585,41 @@ cited by number. S0 is record-only; S1's five recipe edits each get a row below 
   `virtual/emulators/package.mk:97-100`). **Time to play:** none on the launch path; one
   `xmlstarlet` pass at build time. **#585:** none -- upstream carries the filter.
 
+### S1 PL-07 (#1381): the install stops when the French catalog is missing
+
+- **The checker's new step-4 assertion** `french-catalog-guard (L-08)` (named in its header): in
+  the first device's sourced environment (the export, `env -i`, `HOME` in scratch; `die` is
+  `config/functions:6`'s), each `makeinstall_target` line naming `emulationstation2.mo` runs in a
+  subshell with `INSTALL` set to a scratch tree holding a planted empty catalog and to one without;
+  PASS only when such a line exists, the first returns `0` and the second fails.
+- **Positive before** (parent `4db1e614bc`, `stage-e/s1-PL-07-before.txt`, read in full: every
+  other line equals PL-05's after, `diff` rc 0): `FAIL step 4 french-catalog-guard (L-08):
+  sourced=1 lines=0 failed-with=0 passed-without=0`; the WARN `french-catalog-not-asserted (L-08)`
+  as stage C had it; `TOTAL: 61 of 64 assertions`.
+- **Recipe commit `ce31abba74`** (`emulationstation: stop the install without the French catalog`;
+  the recipe only): one line after `:68`, `[ -f ${INSTALL}/usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo ]
+  || die "..."` with an ASCII message naming the file; 148 lines by `grep -c ''`; every later line
+  moves by one (the deferred L-03 line is now `:102`).
+- **Positive after** (`stage-e/s1-PL-07-after.txt`): `PASS step 4 french-catalog-guard (L-08):
+  sourced=1 lines=1 failed-with=0 passed-without=0`; the L-08 WARN no longer prints; `TOTAL: 68 of
+  70 assertions`, its two FAIL lines L-02 and L-03 (now `:102`).
+- **The stamp compare:** `emulationstation` `moved=1 touched=1`; the theme and `lowerdeck`
+  `moved=0 touched=0`; both devices.
+- **Checks** (`stage-e/s1-PL-07-checks.txt`): `pkgcheck emulationstation rc=0` after its `find`
+  path (with the theme, `lowerdeck` and the control); `bash -n recipe rc=0`; the added line's
+  non-ASCII `0`, secret `0`, forbidden `rc=0` after their positives; `:39 equal`; the pin lines `0`.
+- **`Already written:`** argued: the line writes nothing on a device; it decides only whether a build
+  without the catalog completes. An image built from the old recipe carried the French `.mo` on its
+  read-only system (the candidate did, G-03) or lacked it silently; the next image replaces the
+  system. **`/storage`, read both:** `/usr/share/locale` links to `/storage/.config/locale` (`:141`
+  now); `userconfig-setup:80-83` fills it at first boot and `post-update:131` rsyncs
+  `/usr/config/locale/*` over it with `--delete` at every update, so a device's copy is refreshed from
+  the next image (`git grep -n 'config/locale'` over `projects/ROCKNIX/packages`). Nothing in a cloud.
+- **proved:** fix-fixture. **fix-image-pending:** the catalog at that path on the first image built
+  from `fixed-at` (G-03's read again); a build without the gettext tools stopping at this line is
+  `CANNOT` here (it needs a build). **No screen changes.** **Time to play:** none; a build-time
+  test. **#585:** PL-07's line (§ The #585 lines owed).
+
 ### Recorded, no stream
 
 - **PL-01** -- **Deferred to #613** (ruling 2), the M7 lane's. T37's line on #613 (comment

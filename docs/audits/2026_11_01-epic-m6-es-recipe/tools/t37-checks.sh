@@ -13,6 +13,9 @@
 #     device on its keep-list (SM8550) and deletes it for one off it (H700) -- inside=1 outside=0;
 #   step 5 armsx2-filter-matches-armsx2-turnip (L-01): the keep-list equals armsx2-sa's
 #     armsx2-turnip case list (PL-05, #1384).
+#   step 4 french-catalog-guard (L-08): the recipe's makeinstall_target lines naming the French
+#     catalog, run in the sourced environment against a tree with a planted empty catalog (must
+#     pass) and one without (must fail) -- PL-07.
 set -u
 TREE= REPO= COMMIT= PIN= DEVICES= OUT= COMPARE=
 while [ $# -gt 0 ]; do
@@ -102,6 +105,21 @@ for dv in $DEVICES; do d=${dv%%:*}
   check 4 "$d emulationstation -DSCREENSCRAPER_RUNTIME_DEV_LOGIN=1" "$(field "$d" emulationstation RUNTIME_LOGIN)"
   echo "INFO step 4 $d PATCH_ARCH=$(field "$d" emulationstation PATCH_ARCH) PKG_PATCH_DIRS=[$(field "$d" emulationstation PKG_PATCH_DIRS)]"
 done
+# stage E (PL-07): the recipe's lines naming the French catalog, run in the first device's sourced
+# environment (die is config/functions') with INSTALL set to a tree holding a planted empty catalog
+# and to one without it: PASS only when such a line exists, the first returns 0 and the second fails
+dv1=${DEVICES%% *}; mkdir -p "$OUT/cat-with/usr/config/locale/fr/LC_MESSAGES" "$OUT/cat-without/usr/config/locale"
+: > "$OUT/cat-with/usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo"
+env -i HOME="$OUT/home" PATH=/usr/bin:/bin PROJECT=ROCKNIX DEVICE="${dv1%%:*}" ARCH="${dv1##*:}" bash -c '
+  cd "$1" || exit 2; . config/options emulationstation >/dev/null 2>&1 || { echo "CATALOG sourced=0"; exit 0; }
+  n=0; w=0; wo=0
+  while IFS= read -r line; do n=$((n+1))
+    ( INSTALL="$2/cat-with"; eval "$line" ) >/dev/null 2>&1 || w=$((w+1))
+    ( INSTALL="$2/cat-without"; eval "$line" ) >/dev/null 2>&1 && wo=$((wo+1))
+  done < <(awk "/^makeinstall_target\\(\\)/{f=1;next} f&&/^}/{f=0} f&&/emulationstation2\\.mo/" "$PKG_DIR/package.mk")
+  echo "CATALOG sourced=1 lines=$n failed-with=$w passed-without=$wo"' _ "$TREE" "$OUT" > "$OUT/catalog.txt" 2>&1
+cg=$(sed -n 's/^CATALOG //p' "$OUT/catalog.txt")
+check 4 "french-catalog-guard (L-08)" "$(case "$cg" in "sourced=1 lines="[1-9]*" failed-with=0 passed-without=0") echo 1;; *) echo 0;; esac)" "$cg"
 for nm in $NAMES; do
   rel=$(sed -n "s/^[^ ]* $nm PKG_DIR_REL=//p" "$OUT/fields.txt" | head -n 1)
   [ -d "$TREE/$rel/patches" ] || { echo "INFO step 4 $nm has no patches/ directory"; continue; }
