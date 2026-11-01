@@ -68,8 +68,11 @@ phase retro.)
 **Posture differs by tier** — see SKILL.md § "Tier posture differs by
 scope":
 
-- **Epic tier (consolidating):** Findings in phase retros are
-  primary inputs. Trust them; do not re-derive.
+- **Epic tier (consolidating, with a spot re-verification quota):**
+  Findings in phase retros are primary inputs. Before consolidating,
+  re-derive at least 2 randomly-chosen consolidated PASS findings from
+  primary sources; if either disagrees with the retro, that retro's
+  findings are fully re-derived.
 - **Milestone tier (independent re-audit, prior audits as ONE
   input):** Read prior Epic audits and phase retros to (a) build a
   provenance map of what was audited, (b) note where prior coverage
