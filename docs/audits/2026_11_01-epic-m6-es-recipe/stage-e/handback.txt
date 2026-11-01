@@ -1,0 +1,39 @@
+== hand-back lines at a22e13adee, 2026-11-01T03:11:30Z
+checker at the tip (export of c9e8d5a8df, --commit a22e13adee) rc=1
+FAIL step 4 patch-dir-reached patches/x86_64/ (emulationstation): reached for 0 of the listed devices
+FAIL step 5 no-link-to-${INSTALL}-target (L-03): at emulationstation/package.mk:103 
+WARN step 5 or-true (L-07): emulationstation/package.mk:75
+TOTAL: 64 of 66 assertions
+-- the recipe's lines at the tip: 149
+-- git diff --shortstat 651150fc88 a22e13adee -- <recipe>:  1 file changed, 39 insertions(+), 11 deletions(-)
+-- pin lines changed over stage E: 0
+-- git diff --stat 94d8ef8e7e a22e13adee -- packages projects tools:
+ projects/ROCKNIX/packages/ui/emulationstation/package.mk | 14 +++++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
+-- the hunks over stage E (headers only):
+@@ -14 +14 @@ PKG_DEPENDS_TARGET="boost toolchain SDL2 freetype curl freeimage bash rapidjson
+@@ -44 +44,2 @@ pre_configure_target() {
+@@ -68,0 +70 @@ makeinstall_target() {
+@@ -79 +80,0 @@ makeinstall_target() {
+@@ -82,0 +84 @@ makeinstall_target() {
+@@ -128,0 +131,6 @@ EOF
+-- stage E's added recipe lines: 11; non-ascii 0 (planted 1); secret 0 (planted 1)
+-- bash -n recipe at the tip rc=0
+-- :39 over stage E: equal
+find emulationstation: projects/ROCKNIX/packages/ui/emulationstation/package.mk 
+pkgcheck emulationstation rc=0 lines=0 FAIL-lines=0
+find es-theme-art-book-next: projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/package.mk 
+pkgcheck es-theme-art-book-next rc=0 lines=0 FAIL-lines=0
+find lowerdeck: projects/ROCKNIX/packages/ui/lowerdeck/package.mk 
+pkgcheck lowerdeck rc=0 lines=0 FAIL-lines=0
+find es-theme-no-such-package: 
+pkgcheck es-theme-no-such-package rc=0 lines=0 FAIL-lines=0
+-- D-WORKFLOW-210's read at the tip:
+a22e13adee:.github/sessions/archived/saved-session-state-next-20261011T195846Z.md:396:`/storage/.config/locale/fr/LC_MESSAGES/emulationstati
+a22e13adee:.github/sessions/archived/saved-session-state-next-20261011T202225Z.md:486:`/storage/.config/locale/fr/LC_MESSAGES/emulationstati
+a22e13adee:.github/sessions/saved-session-state-feature-m6-es-recipe-684.md:44:a fifth `HFS_DEV_LOGIN` reader. There is no ES worktree: the 
+a22e13adee:tools/last-good-scripts-test:13821:ly_run "$(ly_conf /ROCKNIX/Saves /ROCKNIX/Backups /ROCKNIX/Content)" --apply; [ "${LYRC}" = 4 
+a22e13adee:tools/pkgcheck:47:  for var in PKG_SHORTDESC PKG_LONGDESC PKG_IS_ADDON PKG_NEED_UNPACK PKG_SOURCE_NAME PKG_ADDON_IS_STANDALONE \
+a22e13adee:tools/pkginfo:19:  PKG_NEED_UNPACK PKG_DEPENDS_UNPACK \
+-- worktree build roots: 0; census: qemu 0, compilers 0
+failfirst (second run, 03:20:31-03:21:06Z, stage-e/s1-failfirst-2.txt): SUMMARY: tip exit 1; fixed fixture exit 0 then 0; 20 of 20 mutations caught; refusal exit 2

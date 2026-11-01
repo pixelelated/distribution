@@ -17,37 +17,38 @@
 
 ## Current focus
 
-**Stage D done; the pause** -- waiting for the coordinator's dispositions
-and the stage-E stream brief. The audit issue #1381 (a sub-issue of #684);
-the bugs #1382 (PL-03), #1383 (PL-04), #1384 (PL-05); T37's lines on #613
-(PL-01) and #1072 (PL-02); `05` with every item's proposed disposition (2
-Medium, 17 Low; seven proposed for stage E as edits to the ES recipe only:
-PL-01 if routed, PL-03, PL-04, PL-05, PL-06, PL-07, PL-08). Nothing changes
-under `projects/ROCKNIX/packages/ui/` before the stream brief.
-Stage C's record: the checker (tip exit 1, fixture exit 0, 15 of 15
-mutations), the packet, the probe and the refutation (two keyed invokes),
-`04` § Second opinion, the pre-issue lint PASS. Stage B's and stage A's records follow. Stage A's record: `docs/audits/2026_11_01-epic-m6-es-recipe/`
-`00-running-log.md` (the model, the effort, `reviewed-at` `9fa740a91b`, the
-host file read at 01:01:29-01:01:40 UTC, census `qemu 0, compilers 0`, the
-export `/workspace/tmp/m6-t37/export/`), `01-research-notes.md` (§ Scope
-with the block byte for byte, its sha256 `f3ef373be653546772d6f4be...`
-checked in the file; every § 5 run against its expectation; open items 2,
-3, 5, 9, 13, 15, 16 and 17, fribidi's path and L-22; the issues' states;
-the lanes' tips; the register) and `stage-a/` (each script beside its
-output). **Carry into stage B:** the mask `M` leaves `:39` unchanged, so
-every recipe read withholds `:39` by line number too (the packet at stage C
-included); T36's G-01 on the candidate image read `libfribidi` NOT linked
-although ES's plan orders fribidi first (L-09's stage-B lead);
-`tools/pixelelated-state-check` is not on the image (G-05's line, a
-question with the window request); L-22's one image read is the
-`noto-cjk` font path (a G-02 line, `candidate`); `HfsDBScraper.cpp:181` is
-a fifth `HFS_DEV_LOGIN` reader. There is no ES worktree: the pin and the
-lanes' ES branches are read by hash from `qa-integration`. Every sourced-recipe
-call runs in the scratch export `/workspace/tmp/m6-t37/export/`, never
-here, and a `build.*` root here is a stop. `.qa-scratch/` is gitignored and
-`git status --short` is read before every `git add -A`; anything temporary
-goes under `/workspace/tmp/m6-t37/`, never `/tmp`. No network is used
-except the seat's two keyed invokes.
+**Stage E done; the hand-back posted on #684; idle** until the coordinator
+accepts. Stage E ran under `docs/reviews/briefs/t37-streams.md` (S0, then
+S1), after the coordinator's `1f9327d496` was merged (`902e00987c`).
+S1's five recipe commits each changed only
+`projects/ROCKNIX/packages/ui/emulationstation/package.mk`:
+- PL-03 `c93b1cad7d` (#1382);
+- PL-04 `39863d5af3` (#1383);
+- PL-05 `e1e99c5a7e` (#1384);
+- PL-07 `ce31abba74`;
+- PL-08 `c9e8d5a8df` (the last recipe commit, `fixed-at`).
+
+Each has a record commit beside it. `fixed-at-es: none -- no ES change`.
+
+The checker at the tip reads `TOTAL: 64 of 66 assertions`. The two FAILs
+are the deferred ones: L-02 (#1072) and L-03 (#613).
+
+The FAIL-first script for stage E's set was re-run with two more
+mutations (`stage-e/s1-failfirst-2.txt`). `05` reads 5 Resolved and 14
+Deferred. #1381 has 19 of 19 checkboxes ticked; #1383 and #1384 keep
+their image checkboxes open (`fix-image-pending`).
+
+The retro is `docs/retros/2026-11-01-m6-es-recipe.md`.
+
+**Stage H, when accepted:** retire what is left under `/workspace/tmp/m6-t37/`:
+2,734,851 bytes at 03:22 UTC, in `stage-a/`, `stage-b/`, `e/` (the out
+directories) and `tmp/` (the bodies, `retirements.txt`). Record each path
+and size in `00`. Every export was retired by 03:21:44.
+
+What still binds:
+- every recipe read goes through the mask and withholds `:39`;
+- nothing is sourced in the worktree, and a `build.*` root here is a stop;
+- no compiler, build, guest or keyed call.
 
 ## Next commands
 
@@ -97,3 +98,4 @@ outside the one granted window.
 - **The window** -- START 01:42:09, the guest stopped 01:44:35, RETURN 01:46:53 UTC, at `fc6ced43f4`; the disk retired.
 - **Stage C** -- the stage-C commit over `8ce6f22b45` (its hash in the #684 checkpoint post), 02:1x UTC: the checker (tip exit 1, fixture exit 0, 15 of 15 mutations), 03-05, the packet, the probe and the refutation (two keyed invokes), 04 § Second opinion, the pre-issue lint PASS.
 - **Stage D** -- the stage-D commit over `703470bcca` (its hash in the #684 pause post), 02:2x UTC: #1381, #1382-#1384, the lines on #613 and #1072, `05`'s proposed dispositions, the lint PASS with `--issue 1381`; the pause.
+- **Stage E** -- dispatched 02:53 UTC (comment 6552560083); the merge `902e00987c`; S0 `7923d95594`; S1's recipe commits `c93b1cad7d`, `39863d5af3`, `e1e99c5a7e`, `ce31abba74`, `c9e8d5a8df` with their records `5cc3aa9911`, `61cc617e95`, `4db1e614bc`, `c6fa223e46`, `a22e13adee`; the hand-back commit over `a22e13adee` (its hash in the #684 hand-back post), 03:2x UTC: `05`'s outcomes, the checker at the tip, the FAIL-first re-run, the five checkers, the retro; census `qemu 0, compilers 0`; worktree build roots `0`; keyed invokes `0`; no guest; no compile START written.

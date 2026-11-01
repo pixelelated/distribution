@@ -667,6 +667,17 @@ cited by number. S0 is record-only; S1's five recipe edits each get a row below 
   `TOTAL: 57 of 66 assertions`, nine FAIL lines -- every new assertion but PL-08's control (the
   ARMSX2 pair, the catalog guard, the `USING:` count) and the four stage-C defects (L-02, L-03, L-04,
   L-19 twice) -- so the acceptance re-runs both directions from one script.
+- **The second run, at the hand-back** (`stage-e/s1-failfirst-2.txt`, 03:20:31-03:21:06 UTC). The
+  retro found that the three mutations above covered three of the five new assertions, one per
+  group. `using-lines-print-no-value (L-05)` had only ever PASSed. `armsx2-filter-matches-armsx2-turnip
+  (L-01)` had FAILed at its parent but had no mutation. Two mutations were added:
+  - `using-prints-value` echoes `${!key}` in the loop, and its one FAIL line reads
+    `value-occurrences=4`;
+  - `armsx2-list-differs` drops `SM8650` from the case, and its one FAIL line reads
+    `recipe=4 turnip=5 equal=0`.
+
+  `SUMMARY: tip exit 1; fixed fixture exit 0 then 0; 20 of 20 mutations caught; refusal exit 2`.
+  Every other line equals the first run's (`diff` rc 0). No assertion was changed.
 
 ### Recorded, no stream
 
@@ -723,6 +734,13 @@ cited by number. S0 is record-only; S1's five recipe edits each get a row below 
 - Six of the seven links in `makeinstall_target` and `post_install` take device paths (R17).
 - `essway.service`'s `sway-ready` wait is bounded (`TimeoutStartSec=20`) and owned by the unit
   (`:12-14`).
+- **Stage E:** every S1 edit's assertion FAILed at its parent and PASSed at its fix, each fix
+  moving the `emulationstation` stamp only (`moved=1 touched=1`; the theme and `lowerdeck`
+  `moved=0 touched=0`, both devices, five times); `pkgcheck emulationstation rc=0` after each;
+  `:39 equal` across all five; the checker at the tip `TOTAL: 64 of 66 assertions` with the two
+  deferred FAIL lines only (`stage-e/checks-at-tip.txt`); the FAIL-first script `18 of 18
+  mutations caught` (`stage-e/s1-failfirst.txt`), then `20 of 20` with a mutation for every new
+  assertion (`stage-e/s1-failfirst-2.txt`).
 
 ## The #585 lines owed
 

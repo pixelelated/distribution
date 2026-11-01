@@ -152,15 +152,39 @@ PROPOSED = {
  "PL-18": "Record: as written (upstream's legacy alias)",
  "PL-19": "Record: for upstream, a #585 line",
 }
+# Phase 7 (stage E, t37-streams.md at 1f9327d496, dispatched in #684 comment 6552560083)
+R = "#684 comment 6552560083"
+OUTCOME = {
+ "PL-01": ("Deferred", "#613 (ruling 2): the M7 lane's; the checker's L-03 FAIL kept as its guard"),
+ "PL-02": ("Deferred", "#1072 (ruling 3): after T40 corrects the GPU call; the checker's L-02 FAIL kept"),
+ "PL-03": ("Resolved", "`c93b1cad7d` (#1382): the L-19 pair FAIL then PASS; the busybox stamp pair"),
+ "PL-04": ("Resolved", "`39863d5af3` (#1383): the L-04 pair FAIL then PASS"),
+ "PL-05": ("Resolved", "`e1e99c5a7e` (#1384): the two ARMSX2 assertions FAIL then PASS"),
+ "PL-06": ("Deferred", "#1385 (ruling 4): the choice; the three reads in `02`"),
+ "PL-07": ("Resolved", "`ce31abba74` (#1381): the catalog guard's assertion FAIL then PASS"),
+ "PL-08": ("Resolved", "`c9e8d5a8df` (#1381): the USING count FAIL 3 then PASS 4"),
+ "PL-09": ("Deferred", "recorded: kept with its reason (ruling 5; " + R + "), #585 line in `02`"),
+ "PL-10": ("Deferred", "#1385 (ruling 6)"),
+ "PL-11": ("Deferred", "recorded: as written (ruling 5; " + R + "), #585 line in `02`"),
+ "PL-12": ("Deferred", "recorded: as written (ruling 5; " + R + ")"),
+ "PL-13": ("Deferred", "recorded: the dated finding, the bump the integration's under D-WORKFLOW-024 (ruling 5; " + R + ")"),
+ "PL-14": ("Deferred", "#791 and the distribution merge (ruling 7)"),
+ "PL-15": ("Deferred", "the coordinator's sweep in `1f9327d496` (ruling 8; " + R + ")"),
+ "PL-16": ("Deferred", "recorded: the tool note (ruling 5; " + R + "); its tool half #1385"),
+ "PL-17": ("Deferred", "recorded under D-INFRA-006 (ruling 5; " + R + "); its mask #1385"),
+ "PL-18": ("Deferred", "recorded: as written (ruling 5; " + R + ")"),
+ "PL-19": ("Deferred", "recorded: for upstream (ruling 5; " + R + "), #585 line in `02`"),
+}
 def build(drift):
     ITEMS.sort(key=lambda i: int(i["id"][3:]))
     ids = [i["id"] for i in ITEMS]
     assert len(ids) == len(set(ids)), "duplicate ids"
     for i in ITEMS:
-        assert i["sev"] in SEV and re.fullmatch(r"Q[1-7]", i["q"]) and i["proved"] in PROVED and i["id"] in PROPOSED, i["id"]
+        assert i["sev"] in SEV and re.fullmatch(r"Q[1-7]", i["q"]) and i["proved"] in PROVED and i["id"] in PROPOSED and i["id"] in OUTCOME, i["id"]
     out = ["# Punch list (Phases 5 and 6) — M6.P2 T37, the EmulationStation recipe and themes in the distribution (#684)", "",
-           "Written by `tools/t37-05.py` from one item table, so the sections, the Phase 7 gate and the `punch_index` agree. `question:` is the brief's § 4 numbering (Q1 the pin, Q2 the build options and install steps, Q3 the dependencies, Q4 the credentials, Q5 the themes and `lowerdeck`, Q6 the patches, Q7 currency and structure); `04` § Renovation face maps them to the plan's seven. Every disposition is proposed; the stage-D pause rules them. At Phase 7 (stage E) every item has its outcome below.", "",
-           "reviewed-at: 9fa740a91ba9fcaa21a26cc72f0b50fac10f32df", "reviewed-at-es: none -- no ES change", ""]
+           "Written by `tools/t37-05.py` from one item table, so the sections, the Phase 7 gate and the `punch_index` agree. `question:` is the brief's § 4 numbering (Q1 the pin, Q2 the build options and install steps, Q3 the dependencies, Q4 the credentials, Q5 the themes and `lowerdeck`, Q6 the patches, Q7 currency and structure); `04` § Renovation face maps them to the plan's seven. Every disposition is proposed; the stage-D pause rules them. At Phase 7 (stage E) every item has its outcome below; a record is written `**Deferred** | recorded ...` (the stream brief's ruling 11).", "",
+           "reviewed-at: 9fa740a91ba9fcaa21a26cc72f0b50fac10f32df", "reviewed-at-es: none -- no ES change",
+           "fixed-at: c9e8d5a8df (the last recipe commit of stage E; the hand-back tip adds only the record)", "fixed-at-es: none -- no ES change", ""]
     for i in ITEMS:
         out += [f"## {i['id']}: {i['title']}", "",
                 f"- **Severity:** {i['sev']}; **category:** {i['cat']}; **question:** {i['q']}",
@@ -174,15 +198,15 @@ def build(drift):
                 f"- **proved:** {i['proved']}", ""]
     gate_items = ITEMS[1:] if drift else ITEMS
     out += ["## Phase 7 resolution gate", "", "| Item | Outcome | Evidence |", "| --- | --- | --- |"]
-    out += [f"| {i['id']} | Open | before stage D's audit issue |" for i in gate_items]
+    out += [f"| {i['id']} | **{OUTCOME[i['id']][0]}** | {OUTCOME[i['id']][1]} |" for i in gate_items]
     out += ["", "## punch_index", "", "```yaml", "punch_index:"]
     for i in ITEMS:
         out += [f"- id: {i['id']}", f"  severity: \"{i['sev']}\"", f"  category: \"{i['cat']}\"", f"  question: {i['q']}",
-                f"  source_finding: \"{i['src'].replace(chr(34), chr(39))}\"", "  outcome: \"open\""]
+                f"  source_finding: \"{i['src'].replace(chr(34), chr(39))}\"", f"  outcome: \"{OUTCOME[i['id']][0].lower()}\""]
     out += ["```", ""]
     text = "\n".join(out)
     sec = re.findall(r"^## (PL-\d+):", text, re.M)
-    gate = re.findall(r"^\| (PL-\d+) \| Open \|", text, re.M)
+    gate = re.findall(r"^\| (PL-\d+) \| \*\*(?:Resolved|Deferred|Withdrawn)\*\* \|", text, re.M)
     idx = re.findall(r"^- id: (PL-\d+)$", text, re.M)
     if not (sec == gate == idx == ids):
         print(f"ASSERT FAIL: sections {len(sec)}, gate {len(gate)}, index {len(idx)}, items {len(ids)} disagree"); sys.exit(1)

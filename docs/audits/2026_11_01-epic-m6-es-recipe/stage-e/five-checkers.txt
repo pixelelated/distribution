@@ -1,0 +1,14 @@
+== the five checkers over the hand-back's working tree (a22e13adee plus the record), 2026-11-01T03:23:31Z (each rc on its own line, from the command itself)
+register-check: 714 IDs, each once; every citation in the live documents names a row
+register-check rc=0
+work-log index: current
+work-log-index --check rc=0
+rules-check --quiet rc=0
+forbidden-terms-check: 0 hits in 133643 tracked files
+forbidden-terms-check rc=0
+PASS
+.githooks/hooks-test rc=0
+PASS
+lint-audit-artifacts rc=0
+PASS
+lint-audit-artifacts --issue 1381 rc=0

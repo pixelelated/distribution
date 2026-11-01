@@ -1,9 +1,11 @@
 # Punch list (Phases 5 and 6) — M6.P2 T37, the EmulationStation recipe and themes in the distribution (#684)
 
-Written by `tools/t37-05.py` from one item table, so the sections, the Phase 7 gate and the `punch_index` agree. `question:` is the brief's § 4 numbering (Q1 the pin, Q2 the build options and install steps, Q3 the dependencies, Q4 the credentials, Q5 the themes and `lowerdeck`, Q6 the patches, Q7 currency and structure); `04` § Renovation face maps them to the plan's seven. Every disposition is proposed; the stage-D pause rules them. At Phase 7 (stage E) every item has its outcome below.
+Written by `tools/t37-05.py` from one item table, so the sections, the Phase 7 gate and the `punch_index` agree. `question:` is the brief's § 4 numbering (Q1 the pin, Q2 the build options and install steps, Q3 the dependencies, Q4 the credentials, Q5 the themes and `lowerdeck`, Q6 the patches, Q7 currency and structure); `04` § Renovation face maps them to the plan's seven. Every disposition is proposed; the stage-D pause rules them. At Phase 7 (stage E) every item has its outcome below; a record is written `**Deferred** | recorded ...` (the stream brief's ruling 11).
 
 reviewed-at: 9fa740a91ba9fcaa21a26cc72f0b50fac10f32df
 reviewed-at-es: none -- no ES change
+fixed-at: c9e8d5a8df (the last recipe commit of stage E; the hand-back tip adds only the record)
+fixed-at-es: none -- no ES change
 
 ## PL-01: The `es_systems.cfg` fallback link points at a build-host path
 
@@ -237,25 +239,25 @@ reviewed-at-es: none -- no ES change
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | before stage D's audit issue |
-| PL-02 | Open | before stage D's audit issue |
-| PL-03 | Open | before stage D's audit issue |
-| PL-04 | Open | before stage D's audit issue |
-| PL-05 | Open | before stage D's audit issue |
-| PL-06 | Open | before stage D's audit issue |
-| PL-07 | Open | before stage D's audit issue |
-| PL-08 | Open | before stage D's audit issue |
-| PL-09 | Open | before stage D's audit issue |
-| PL-10 | Open | before stage D's audit issue |
-| PL-11 | Open | before stage D's audit issue |
-| PL-12 | Open | before stage D's audit issue |
-| PL-13 | Open | before stage D's audit issue |
-| PL-14 | Open | before stage D's audit issue |
-| PL-15 | Open | before stage D's audit issue |
-| PL-16 | Open | before stage D's audit issue |
-| PL-17 | Open | before stage D's audit issue |
-| PL-18 | Open | before stage D's audit issue |
-| PL-19 | Open | before stage D's audit issue |
+| PL-01 | **Deferred** | #613 (ruling 2): the M7 lane's; the checker's L-03 FAIL kept as its guard |
+| PL-02 | **Deferred** | #1072 (ruling 3): after T40 corrects the GPU call; the checker's L-02 FAIL kept |
+| PL-03 | **Resolved** | `c93b1cad7d` (#1382): the L-19 pair FAIL then PASS; the busybox stamp pair |
+| PL-04 | **Resolved** | `39863d5af3` (#1383): the L-04 pair FAIL then PASS |
+| PL-05 | **Resolved** | `e1e99c5a7e` (#1384): the two ARMSX2 assertions FAIL then PASS |
+| PL-06 | **Deferred** | #1385 (ruling 4): the choice; the three reads in `02` |
+| PL-07 | **Resolved** | `ce31abba74` (#1381): the catalog guard's assertion FAIL then PASS |
+| PL-08 | **Resolved** | `c9e8d5a8df` (#1381): the USING count FAIL 3 then PASS 4 |
+| PL-09 | **Deferred** | recorded: kept with its reason (ruling 5; #684 comment 6552560083), #585 line in `02` |
+| PL-10 | **Deferred** | #1385 (ruling 6) |
+| PL-11 | **Deferred** | recorded: as written (ruling 5; #684 comment 6552560083), #585 line in `02` |
+| PL-12 | **Deferred** | recorded: as written (ruling 5; #684 comment 6552560083) |
+| PL-13 | **Deferred** | recorded: the dated finding, the bump the integration's under D-WORKFLOW-024 (ruling 5; #684 comment 6552560083) |
+| PL-14 | **Deferred** | #791 and the distribution merge (ruling 7) |
+| PL-15 | **Deferred** | the coordinator's sweep in `1f9327d496` (ruling 8; #684 comment 6552560083) |
+| PL-16 | **Deferred** | recorded: the tool note (ruling 5; #684 comment 6552560083); its tool half #1385 |
+| PL-17 | **Deferred** | recorded under D-INFRA-006 (ruling 5; #684 comment 6552560083); its mask #1385 |
+| PL-18 | **Deferred** | recorded: as written (ruling 5; #684 comment 6552560083) |
+| PL-19 | **Deferred** | recorded: for upstream (ruling 5; #684 comment 6552560083), #585 line in `02` |
 
 ## punch_index
 
@@ -266,113 +268,113 @@ punch_index:
   category: "Install step"
   question: Q2
   source_finding: "L-03; #613"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-02
   severity: "Medium"
   category: "Patch directories"
   question: Q6
   source_finding: "L-02; #1072"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-03
   severity: "Low"
   category: "Build order"
   question: Q3
   source_finding: "L-19"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-04
   severity: "Low"
   category: "Install step"
   question: Q2
   source_finding: "L-04"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-05
   severity: "Low"
   category: "Merge debt"
   question: Q7
   source_finding: "L-01"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-06
   severity: "Low"
   category: "Build order"
   question: Q3
   source_finding: "L-09; D-WORKFLOW-216; T36's G-01"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-07
   severity: "Low"
   category: "Guard that fails open"
   question: Q2
   source_finding: "L-08"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-08
   severity: "Low"
   category: "Guard that fails open"
   question: Q4
   source_finding: "L-05"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-09
   severity: "Low"
   category: "Install step"
   question: Q2
   source_finding: "T2 PL-029 (`deferred:#684`)"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-10
   severity: "Low"
   category: "Guard that fails open"
   question: Q7
   source_finding: "L-10, L-21"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-11
   severity: "Low"
   category: "Install step"
   question: Q2
   source_finding: "L-06"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-12
   severity: "Low"
   category: "Guard that fails open"
   question: Q2
   source_finding: "L-07"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-13
   severity: "Low"
   category: "Package currency"
   question: Q5
   source_finding: "R1 C20 (2026-10-31)"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-14
   severity: "Low"
   category: "Merge debt"
   question: Q7
   source_finding: "§ The currency (14 rows)"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-15
   severity: "Low"
   category: "Documentation"
   question: Q1
   source_finding: "L-17, L-18"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-16
   severity: "Low"
   category: "Tooling"
   question: Q4
   source_finding: "stage B (G-05's host half)"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-17
   severity: "Low"
   category: "Credentials"
   question: Q4
   source_finding: "G-6 (gpt)"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-18
   severity: "Low"
   category: "Install step"
   question: Q2
   source_finding: "G-7 (gpt)"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-19
   severity: "Low"
   category: "Guard that fails open"
   question: Q2
   source_finding: "G-8 (gpt)"
-  outcome: "open"
+  outcome: "deferred"
 ```

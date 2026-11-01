@@ -8,6 +8,9 @@
 # touched; then one mutation at a time is applied to it, the checker run, and the mutation reverted
 # (its file's sha256 checked back). Each mutation must exit 1 naming its assertion; the refusal case
 # must exit 2. Credential-shaped text is assembled at run time. Prints one line per case and SUMMARY.
+# Second run, 2026-11-01 03:2x UTC: two mutations added for the two stage-E assertions that had none
+# (using-lines-print-no-value had only ever PASSed; armsx2-filter-matches-armsx2-turnip had FAILed at
+# its parent but had no mutation). The first run's 18 lines are kept in stage-e/s1-failfirst.txt.
 set -u
 D=/workspace/repos/pixelelated/distribution.worktrees/m6-es-recipe-684
 A=$D/docs/audits/2026_11_01-epic-m6-es-recipe; C=$A/tools/t37-checks.sh
@@ -65,6 +68,8 @@ mut secret-line "$F/$U/emulationstation/sources/es_settings" "s += '# ' + '''$SE
 mut armsx2-block-removed "$E" 'import re; s, k = re.subn(r"\n  #ARMSX2.s own Turnip ships only on these devices \(see armsx2-sa\)\n  case \$\{DEVICE\} in\n.*?\n  esac\n", "\n", s, flags=re.S); assert k == 1' "armsx2-vulkan-driver-filter (L-01)"
 mut catalog-guard-removed "$E" 'import re; s, k = re.subn(r"(?m)^    \[ -f \$\{INSTALL\}/usr/config/locale/fr/LC_MESSAGES/emulationstation2\.mo \][^\n]*\n", "", s); assert k == 1' "french-catalog-guard (L-08)"
 mut hfs-removed "$E" 's = s.replace("CHEEVOS_DEV_LOGIN \\\n             HFS_DEV_LOGIN; do", "CHEEVOS_DEV_LOGIN; do", 1); assert "HFS_DEV_LOGIN; do" not in s' "using-lines-name-every-kept-credential (L-05)"
+mut using-prints-value "$E" 's = s.replace("echo \"USING: ${key} (set)\"", "echo \"USING: ${key} (${!key})\"", 1); assert "(${!key})" in s' "using-lines-print-no-value (L-05)"
+mut armsx2-list-differs "$E" 's = s.replace("    SM4450|SM6115|SM8250|SM8550|SM8650) ;;", "    SM4450|SM6115|SM8250|SM8550) ;;", 1); assert "SM8550|SM8650) ;;" not in s' "armsx2-filter-matches-armsx2-turnip (L-01)"
 # a directory reached by no glob: added, run, removed
 cases=$((cases+1)); mkdir -p "$F/$U/emulationstation/patches/nowhere"; printf '%s\n' '--- a/x' '+++ b/x' > "$F/$U/emulationstation/patches/nowhere/0001-t37-probe.patch"
 rc=$(run "$F" m-patch-dir-nowhere); rm -r -- "${F:?}/$U/emulationstation/patches/nowhere"
