@@ -4,7 +4,7 @@ description: Save a structured snapshot of the current work session so another a
 license: Apache-2.0
 metadata:
   version: 1.2.0
-  origin: Converted from .github/prompts/stash-work.prompt.md (an external prompt library). v1.2.0 (2026-06-13) adds the "Shed inherited `main` state on feature branches" rule — feature branches inherit `main`'s tracked `saved-session-state-main.md` at creation and never shed it, producing a guaranteed stale/conflicting copy (observed live — an inherited copy forced a stash to switch branches). The shed is scoped to the `main` file only; dormant foreign-branch files are left alone to avoid silently propagating deletions to `main` on merge.
+  origin: Converted from an external prompt library's stash-work prompt; its rule for a `main` branch is dropped here, where the integration branch is `next` and a working branch's file points at the canonical stash (D-WORKFLOW-133).
 ---
 
 # Session Stash
@@ -30,15 +30,6 @@ Default path: `.github/sessions/saved-session-state-{branch}.md`
 If the repo has a different convention (look for an existing `sessions/`, `handoff/`, or `.agent-state/` directory), prefer that.
 
 **In this repository (D-WORKFLOW-133, `.claude/rules/learning-capture.md` § 4):** write the full stash to `.github/sessions/saved-session-state-next.md` (committed on the working branch and integrated into `next` using the recorded safe strategy), opening with a **Start here** section for an agent new to the project; leave a pointer at each working branch's own path; then prove it by giving an agent with no context only the repository and asking it to resume.
-
-### Shed inherited `main` state on feature branches
-
-Canonical state files are **tracked**, so every branch cut from `main` inherits `main`'s `saved-session-state-main.md` at creation — and `main` keeps editing its copy each session, so the inherited one is immediately stale and a guaranteed modify/delete merge snag. When stashing on a branch **other than `main`**, before writing the new file:
-
-- If `.github/sessions/saved-session-state-main.md` exists, `git rm` it — it is branch-creation cruft this branch never owns. Note the removal in the Step 3 summary so it rides the user-approved stash commit. On merge back to `main` this surfaces as a modify/delete conflict — never a silent loss — because `main` holds a newer copy.
-- Do **not** auto-remove other branches' dormant `saved-session-state-<other>.md` files (or the legacy no-suffix `saved-session-state.md`). They are harmless here, and deleting them would propagate **silently** to `main` on merge — `main` never touched them, so git raises no conflict — wiping its handoff archive. If they clutter, list them and let the user choose.
-
-Each branch then carries only its own `saved-session-state-{branch}.md` plus its own `archived/` history.
 
 ## Workflow
 

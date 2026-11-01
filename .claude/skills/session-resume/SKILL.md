@@ -4,7 +4,7 @@ description: Resume work from a previously saved session-stash snapshot. Use whe
 license: Apache-2.0
 metadata:
   version: 1.3.0
-  origin: Converted from .github/prompts/resume-work.prompt.md (an external prompt library). v1.2.0 (2026-06-13) — when the current branch is not `main`, the fallback file search ignores the inherited `saved-session-state-main.md`, which is branch-creation cruft (session-stash removes it on first stash there), not a real handoff for this branch.
+  origin: Converted from an external prompt library's resume-work prompt; its fallback rule for a `main` branch is dropped here, where the integration branch is `next` (D-WORKFLOW-133).
 ---
 
 # Session Resume
@@ -27,7 +27,7 @@ Default path: `.github/sessions/saved-session-state-{branch}.md` where `{branch}
 
 If not found, try in this order:
 
-1. Any `.github/sessions/saved-session-state-*.md` — if multiple, list them and let the user pick. **When the current branch is not `main`, ignore `saved-session-state-main.md`**: on a feature branch it is almost always inherited at branch creation, not a handoff for this branch (session-stash removes it on first stash there).
+1. Any `.github/sessions/saved-session-state-*.md` — if multiple, list them and let the user pick.
 2. Repo-specific conventions (`sessions/`, `handoff/`, `.agent-state/`)
 3. If nothing exists, inform the user and offer to help them scope the next task from scratch
 
