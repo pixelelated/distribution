@@ -100,3 +100,28 @@ For an adopted roster change, bring the model/provider/effort recipe, member
 instructions, capacity and identity checks, tests and pins together. Record the
 decision before the next run and start a fresh genesis; do not change an anchored
 run's roster. Keep the fork's skill aligned with that selected roster.
+
+## Local retry correction — October22 (#636)
+
+The fork's Facilitator is now1.14.1-pixelelated.1. Explicit content_filter stops
+with exit8 instead of being retried as empty content; partial filtered output is
+not published. Identity/provider precedence, efforts and routes are unchanged.
+Staged capture/reconciliation/readings carry the same terminal classification.
+The imported bundle/SHA records above remain historical and unchanged; current
+verifier pins include accountable local reasons. Evidence:
+`docs/qa-logs/2026-10-22-review-filter-636/`. No newer export was available for a
+current source-estate comparison; recheck before upstreaming this candidate.
+
+## Local audit route — October22 (#638)
+
+Owner selected Gemini 4 Argon as an alternative independent code auditor.
+`council-facilitator@1.14.1-pixelelated.2` adds `--member gemini-argon`,
+OpenRouter-only, exact Argon/high, Vertex global provider pin, 65536 synchronous
+output allowance. Definitive and preliminary council profiles and their Gemini
+3.8 Flash pin are unchanged. The route is not council membership or live access
+proof. Local catalog/source/probe evidence belongs to #638.
+
+Also retain bounded generation/native-refusal diagnostics for #636; refusal text
+never becomes reviewer output. The original imported bundle and prior failed
+records remain unchanged. Reconcile these scoped changes with a newer source-
+estate export before upstream contribution; no newer export is available here.

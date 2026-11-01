@@ -1,6 +1,6 @@
 {
   "schema_version": "council-seat-efforts@1.0.0",
-  "note": "Pinned snapshot of each council seat's model and the reasoning efforts that model accepts. Refresh with `npx tsx scripts/lint-council-seat-efforts.ts --refresh` (needs OPENROUTER_API_KEY); validate with the same script (no network). Exists because the gemini seat carried effort=xhigh against a model supporting only high/medium/low from 2026-07-11 to 2026-08-27 and nothing caught it.",
+  "note": "Pinned snapshot of each council seat's model and the reasoning efforts that model accepts. Refresh with `npx tsx scripts/lint-council-seat-efforts.ts --refresh` (needs OPENROUTER_API_KEY); validate with the same script (no network). Exists because the gemini seat carried effort=xhigh against a model supporting only high/medium/low from 2026-07-11 to 2026-08-27 and nothing caught it. Argon audit-only model added from public catalog on 2026-10-22T05:12:29.913420+00:00 under pixelelated#638; older entries retain their original snapshot date.",
   "refreshed_at": "2026-09-28T05:09:37Z",
   "refreshed_from": "https://openrouter.ai/api/v1/models",
   "models": {
@@ -345,6 +345,42 @@
         {
           "tag": "wafer",
           "provider_name": "Wafer"
+        }
+      ]
+    },
+    "google/gemini-4-argon": {
+      "supported_efforts": [
+        "high",
+        "medium",
+        "low"
+      ],
+      "reasoning_mandatory": true,
+      "default_effort": "medium",
+      "max_completion_tokens": 943718,
+      "endpoints": [
+        {
+          "tag": "google-ai-studio",
+          "provider_name": "Google AI Studio"
+        },
+        {
+          "tag": "google-ai-studio/flex",
+          "provider_name": "Google AI Studio"
+        },
+        {
+          "tag": "google-ai-studio/priority",
+          "provider_name": "Google AI Studio"
+        },
+        {
+          "tag": "google-vertex/global",
+          "provider_name": "Google"
+        },
+        {
+          "tag": "google-vertex/global/priority",
+          "provider_name": "Google"
+        },
+        {
+          "tag": "google-vertex/us",
+          "provider_name": "Google"
         }
       ]
     }

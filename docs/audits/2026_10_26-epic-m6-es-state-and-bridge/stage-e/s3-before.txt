@@ -1,0 +1,20 @@
+== S3 before (the pin 16dbac5211's code and its behaviour), 2026-10-27T01:01:37Z
+-- the five sites at the pin:
+ 1528  		auto ret = executeEnumerationScript(cmd);
+ 1529  		if (ret.size() == 1 && ret.cbegin()->length() >= 32)
+ 1530  			return ret.cbegin()->substr(0, 32);
+ 1531  	}
+ 1578  		auto cmd = getSevenZipCommand() + " l -slt \"" + fileName + "\"";
+ 1579  		auto lines = executeEnumerationScript(cmd);
+ 1583  			if (idx != std::string::npos)
+ 1584  				return all.substr(idx + 6);
+ 1585  			else if (all.find(fn) == (all.size() - fn.size()) && all.length() > 8 && all[9] == ' ')
+ 1586  				return all.substr(0, 8);
+ 1660  	bool ret = executeScript(cmd);
+ 2510  	for (auto line : lines)
+ 2594  #endif
+-- the pin's form through sh -c, with a stub pdfinfo that prints its first argument (the test's own demonstration):
+  name given:     a $(echo X) b.pdf
+  child received: a X b.pdf
+  -> the substitution ran inside the double quotes (FAIL: the argument did not reach the program byte for byte)
+-- the pin's md5 reading (ApiSystem.cpp:1530-1531): any single line of 32+ characters is the hash, so md5sum over empty input, d41d8cd98f00b204e9800998ecf8427e, was stored as the game's MD5 (FAIL); the pin's getCRC32 returned an empty 'CRC = ' entry as the CRC (FAIL)

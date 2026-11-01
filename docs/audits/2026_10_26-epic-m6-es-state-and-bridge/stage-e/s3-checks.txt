@@ -1,0 +1,10 @@
+== S3 checks, 2026-10-27T01:01:37Z
+rapidjson: the recipe's tarball (sha256 = PKG_SHA256) with its four patches; document.h a8c29c92d1e89279
+build: 4 binaries built by t21-build-tests.sh; rc 0 failures
+double-quoted path at the five sites after: 0 (the pin: 5)
+shellQuote calls through ArchiveCommands in ApiSystem.cpp: 7
+non-ASCII in added lines: 0
+note: tools/t21-commands.py reads ApiSystem.cpp at the pin by design, so its row count does not move with a fix; the count above is the tree's (an erratum for the brief's acceptance line)
+ es-app/src/ApiSystem.cpp         | 31 ++++++++++++++-----------------
+ es-app/tests/unit/CMakeLists.txt |  1 +
+ 2 files changed, 15 insertions(+), 17 deletions(-)

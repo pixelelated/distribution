@@ -32,13 +32,14 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   OPENROUTER_SEATS,
+  AUDIT_OPENROUTER_SEATS,
   SHADOW_OPENROUTER_SEATS,
   admittedProviderNames,
   pinEntries,
 } from "./council-invoke.ts";
 import type { CatalogueEndpoint, OpenRouterSeat } from "./council-invoke.ts";
 
-const INSTALLED_SEATS = { ...OPENROUTER_SEATS, ...SHADOW_OPENROUTER_SEATS };
+const INSTALLED_SEATS = { ...OPENROUTER_SEATS, ...SHADOW_OPENROUTER_SEATS, ...AUDIT_OPENROUTER_SEATS };
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(HERE, "..");
 const SNAPSHOT = resolve(REPO_ROOT, "council-seat-efforts.json");

@@ -120,6 +120,9 @@ set the container TMPDIR to a writable container path (for example add
 Retain the actual container environment readback; do not infer it from the
 host variable. Config.Env may retain duplicate entries; verify the effective
 value and a real temporary-file operation inside the running container. Preserve the failed owner and submit a fresh one after correction.
+A host sandbox is the same boundary: start bubblewrap with `--clearenv` and
+pass only what the run needs, or the sandboxed script inherits the host's
+`TMPDIR` and writes outside the scratch it was given (T17's S7 fixture, #1136).
 
 ## After rebasing onto upstream
 
@@ -179,6 +182,15 @@ root hits it on a libtool bump, and CI never does because CI is always clean.
    sweep that reads only the generic file reports those as stale when they are
    working as intended, and "the compiler is stale" is exactly the kind of
    alarming false positive that stampedes a decision.
+
+   The same is true of `PKG_SHA256`, `PKG_URL` and `PKG_ARCH`: read every
+   field the build reads as the build reads it, per plan, through
+   `config/options <pkg>` with `PROJECT`, `DEVICE` and `ARCH` set. An
+   override's `case` branch can empty a checksum for some devices only
+   (`libfmt` 9.1.0, `PKG_SHA256=""` for every non-SM device; #877,
+   D-WORKFLOW-196), and an override's `PKG_ARCH` can exclude an arch the
+   plan lists (`btrfs-progs`, `aarch64` only; #879). A count over recipes is
+   a count over effective values (T7, 2026-10-24).
 
    **When core libraries are among the genuinely stale, wipe the build roots.**
    Clearing stamps individually leaves consumers linked against sysroot copies

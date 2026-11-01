@@ -3,7 +3,8 @@
 # the push guard never meets one in history (2026-09-28, #307: a fixture
 # written as a literal cost a history rewrite) -- or a word from the wordlist
 # the fork must not carry (kept outside the tree; .githooks/guard-lib says
-# where). Reads the index, not the working tree, so what is refused is exactly
+# where) -- or a leftover conflict marker, the shape two merge chains committed
+# on 2026-10-23 and 2026-10-24 (#696). Reads the index, not the working tree, so what is refused is exactly
 # what would be committed. The scans are guard-lib's and fail closed there.
 set -uo pipefail
 . "$(dirname "$(readlink -f "$0")")/guard-lib" || exit 1
@@ -17,5 +18,15 @@ fi
 status=0
 guard_scan pre-commit "${added}" "this commit would add a credential-shaped line" '' "${SECRET_PATTERNS}" redact || status=1
 guard_scan pre-commit "${added}" "this commit would add a listed word (the wordlist outside the tree; the file and line above)" -i "${FORBIDDEN_PATTERNS}" where || status=1
+# A conflict marker at the start of an added line: <<<<<<< or >>>>>>> (both are
+# always present in an unresolved merge; a bare ======= is also a Markdown
+# setext underline, so it is not matched on its own). Fails closed like the scans.
+markers="$(grep -a -n -E "^([^${guard_tab}]*${guard_tab})\+(<<<<<<< |>>>>>>> )" "${added}" 2>&1)"; rc=$?
+case "${rc}" in
+  1) ;;
+  0) echo "✖ pre-commit: this commit would add a conflict marker (a merge left unresolved; #696):" >&2
+     printf '%s\n' "${markers}" | sed -E "s/^[0-9]+://; s/${guard_tab}.*//" | head -5 | sed 's/^/    /' >&2; status=1 ;;
+  *) echo "✖ pre-commit: the scan for conflict markers could not run (grep exited ${rc}: ${markers}); nothing was scanned, so nothing is allowed" >&2; status=1 ;;
+esac
 [ "${status}" -eq 0 ] || echo "  A placeholder belongs in <angle brackets>; a scanner's fixture is built at run time (printf pieces), never written as a literal; a listed word is reworded, never exempted." >&2
 exit "${status}"
