@@ -17,16 +17,19 @@
 
 ## Current focus
 
-**Stage D is done (04:04 UTC); the lane is at the pause.** It waits for the coordinator's stream brief, `docs/reviews/briefs/t38-streams.md`, and starts stage E only on it.
+**Stage E is done (05:55 UTC) and handed back on #685.** The lane is idle until the coordinator accepts. Stage F comes next:
+- run 4 of the checker;
+- `audit-completion.json`, once #1394 is closed.
 
-What stage D produced:
-- **The bugs**, label `bug`, no milestone, not sub-issues: #1389 PL-01 (L-56), #1390 PL-02 (L-10), #1391 PL-03 (L-11), #1392 PL-04 (L-52), #1393 PL-05 (L-13). Each has its trace, its `Already written:` line and its VM line, and passes `box-check` with `0 fail`.
-- **The audit issue #1394**, `Audit: M6 T38 the skills, agents and settings -- 57 findings (0 critical, 0 high)`: labels `audit` and `punch-list`, milestone M6, a sub-issue of #685, 57 checkboxes. `box-check` gives `0 fail`, and the lint with `--phase pre-issue --issue 1394` passes.
-- **The two questions:** `begin-exploration`'s on #685 (comment `6553169705`), and `council-research`'s on #807 (comment `6553118160`, the coordinator's). Both are cited in `02` and read back.
-- **The pause post** on #685, with PL-47 to PL-52 put to the coordinator.
-- **The records:** `stage-d/` holds the bodies, the reads, the readbacks and the planted refusal. Proofs D-01 to D-08 bring the count to 50 and 50, and `04`'s scorecard stands at 12 of 22.
+Stage G, the retro, follows F.
 
-**Stage E** follows the stream brief alone. Fixes go only in the fork-adapted skills, each commit recording its acceptance line before and after and `tools/t38-checks.sh`'s exit. Nothing under `.claude/` is edited before then.
+What stage E produced, under the stream brief `docs/reviews/briefs/t38-streams.md` at `95052eaf78`:
+- **51 items in 56 fix commits** (S1 to S7), each with its check FAIL at the parent's export and PASS at the fix's, `tools/t38-checks.sh` exit 0 and `tools/rules-check --quiet` rc=0. `fixed-at` is `420b845656`, `reviewed-at` `87c2ab0fed`. The records are `stage-e/<SN>-<PL>.txt`, and the helper is `tools/t38-fix.sh`.
+- **`05`:** 51 Resolved and 6 Deferred. `tools/lint-audit-artifacts` passes on its default phase and with `--issue 1394`.
+- **The bugs #1389 to #1393:** `fixed-at` and every checkbox ticked, `box-check` 0 fail. #1394's checkboxes are the coordinator's.
+- **`allow-findings.txt`** is empty. The stale term `begin-exploration` is in the checker and counts 0 outside the export.
+- **The merge:** the coordinator's `6a12ce2d73`, merged at `916c9f9952` by the recipe; the five checkers exit 0 before and after it.
+- **The record:** 58 proofs and 58 `PROOF:` lines; `04` stands at 15 of 22.
 
 What the stage-A paragraph below asked:
 
@@ -95,3 +98,4 @@ another lane's worktree or an ES checkout, or edits a rule, `CLAUDE.md`,
 - Stage B, 03:33 UTC 2026-11-01: committed on `98019cea9f` (the commit carrying this line; its hash in #685's stage-B checkpoint post). The 52 read by a reader and the lane; `02`, `03`, `04` and `01` § Read order written; 34 proofs; nothing under `.claude/` edited.
 - Stage C, 03:52 UTC 2026-11-01: committed on `168bbba783` (the commit carrying this line; its hash is in #685's stage-C checkpoint post). Run 1 of the checker 947 of 947; FAIL-first every probe at its wanted exit after run 2a's harness fix; the withheld tip 902 of 928 at the 19 keys; `05` with 57 Open items; the pre-issue lint PASS; 42 proofs; nothing under `.claude/` edited.
 - Stage D, 04:04 UTC 2026-11-01: committed on `8c76ca62d3` (the commit carrying this line; its hash is in #685's pause post). The bugs #1389 to #1393; the audit issue #1394 under #685 with 57 checkboxes, `box-check` 0 fail, the lint `--phase pre-issue --issue 1394` PASS; the questions `6553169705` and `6553118160` read back; 50 proofs; nothing under `.claude/` edited.
+- Stage E, 05:55 UTC 2026-11-01: committed on `916c9f9952` (the merge; the commit carrying this line is named in #685's stage-E hand-back). 51 items in 56 fix commits, `fixed-at` `420b845656`; the checker at fixed-at `TOTAL: 962 of 962 assertions`; the lint PASS on its default phase and with `--issue 1394`; the coordinator's `6a12ce2d73` merged; 58 proofs.

@@ -1,0 +1,22 @@
+# T38 stage E's hand-back lines (05:54:11 UTC); fixed-at 420b845656, the merge 916c9f9952
+== the paths outside the lane, 87c2ab0fed..420b845656 (no line is the pass):
+== the skill files changed, 87c2ab0fed..420b845656:
+ 17 files changed, 514 insertions(+), 553 deletions(-)
+17
+0
+== the 52's path set: 52 at fixed-at, 52 at the dispatch tip; equal sets: yes
+== the descriptions, t38-tables.py q5 on the two exports (the scalar's characters):
+/workspace/tmp/m6-t38/export: `code-auditor` 878; `mini-retro` 985; `futro` 906; `session-resume` 299; `session-stash` 430; `begin-delivery` 909; `developer-relations` 270; `release-notes` 277; 
+/workspace/tmp/m6-t38/e/420b845656: `code-auditor` 869; `mini-retro` 923; `futro` 816; `session-resume` 299; `session-stash` 430; `begin-delivery` 890; `developer-relations` 270; `release-notes` 311; 
+== the host file: 712 lines now, 689 at stage A's read; the lines gained naming T38 or #685: 0
+== the lint:
+PASS
+PASS
+== box-check:
+#1394: box-check: 1 issue(s), 57 open checkbox(es), 0 fail, 1 issue(s) with rows to re-derive against
+#1389: box-check: 1 issue(s), 0 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+#1390: box-check: 1 issue(s), 0 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+#1391: box-check: 1 issue(s), 0 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+#1392: box-check: 1 issue(s), 0 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+#1393: box-check: 1 issue(s), 0 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+#685: box-check: 1 issue(s), 22 open checkbox(es), 0 fail, 1 issue(s) with rows to re-derive against
