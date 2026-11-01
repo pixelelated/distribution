@@ -35,10 +35,10 @@ ITEMS = [
       what="The line removes nothing, so the pin's `logo.png` ships (G-05, 283,835 bytes). Corrected after the seat: under `ROCKNIX` the default splash is `:/pixelelated-wordmark.svg` (the pin's `Splash.h:10-11`); `:/logo.png` is the `else` branch's (`:16-17`), so the shipped file is the one the line meant to drop, and nothing in the build's splash reads it.",
       disp="a contained fix for the pause: the `rm` moved after `:82` (it then does what it says and drops an unused file), or recorded as written with a #585 note",
       proved="tree"),
- dict(id="PL-05", title="Upstream's ARMSX2 *vulkan driver* block was dropped by four merges", sev="Medium", cat="Merge debt",
+ dict(id="PL-05", title="Upstream's ARMSX2 *vulkan driver* block was dropped by four merges", sev="Low", cat="Merge debt",
       q="Q7", src="L-01", lines="`emulationstation/package.mk:125-129` (`651150fc88:104-108`); `es_features.cfg:1331`, `:1333`, `:1393`",
       owner="T37",
-      what="`a06539d8ec`, `049765fba0`, `fa2990c1e7` and `f370dc8787` each had an upstream parent with the two ARMSX2 lines and a result without them (`stage-b/l01-merges.out`); the tip's catalogue keeps `armsx2-sa`'s *vulkan driver* feature on every device that ships `armsx2-sa`, so devices without ARMSX2's own Turnip offer it (RK3566 of the fork's).",
+      what="`a06539d8ec`, `049765fba0`, `fa2990c1e7` and `f370dc8787` each had an upstream parent with the two ARMSX2 lines and a result without them (`stage-b/l01-merges.out`); the tip's catalogue keeps `armsx2-sa`'s *vulkan driver* feature on every device that ships `armsx2-sa`, so devices without ARMSX2's own Turnip offer it (RK3566 of the fork's). Lowered to Low at stage D: the launcher points the loader at the bundled Turnip only when its ICD file exists (`armsx2-sa/scripts/start_armsx2.sh:215-218`), so on those devices the row's two choices change nothing -- a misleading row, not a broken launch.",
       disp="a bug candidate for the pause: upstream's five lines restored after `:128` (moves only ES's stamp). The seat's G-3 asked for the capability: upstream's list `SM4450|SM6115|SM8250|SM8550|SM8650` is exactly `armsx2-sa`'s own `armsx2-turnip` predicate (`armsx2-sa/package.mk:25-29`; SM8750 *keeps the system driver*), so the block matches the installer. The fixture with upstream's two edits in `xml.etree` at stage E",
       proved="history"),
  dict(id="PL-06", title="The candidate's ES does not link fribidi; the recipe declares it nowhere", sev="Low", cat="Build order",
@@ -127,12 +127,37 @@ ITEMS = [
       proved="tool-run"),
 ]
 
+# stage D (2026-11-01): each item's tracking and the lane's proposed Phase 7 disposition for the pause
+TRACK = {"PL-01": "#613", "PL-02": "#1072", "PL-03": "#1382", "PL-04": "#1383", "PL-05": "#1384",
+         "PL-06": "D-WORKFLOW-216; the integration's configure log", "PL-10": "a Backlog the coordinator files",
+         "PL-14": "the distribution merge; #791", "PL-15": "the coordinator's sweep"}
+PROPOSED = {
+ "PL-01": "Resolve in stage E (a contained recipe edit at `:101`, if #613 is routed here); else Defer to #613",
+ "PL-02": "Defer to #1072 (T40 corrects the patch's GPU call first; then T37's `PKG_PATCH_DIRS+=` line or T40's rename)",
+ "PL-03": "Resolve in stage E (#1382): `PKG_NEED_UNPACK=\"$(get_pkg_directory busybox)\"`",
+ "PL-04": "Resolve in stage E (#1383): the `rm` moved after `:82`",
+ "PL-05": "Resolve in stage E (#1384): upstream's five ARMSX2 lines restored after `:128`",
+ "PL-06": "Resolve in stage E: `fribidi` declared in `:13` (the seat's choice; the probe stays optional), the configure-log proof inherited by the integration",
+ "PL-07": "Resolve in stage E: a `makeinstall_target` line that fails when the French `.mo` is missing",
+ "PL-08": "Resolve in stage E: `HFS_DEV_LOGIN` added to the loop at `:42-44` (names only)",
+ "PL-09": "Record: kept with its reason, a #585 line",
+ "PL-10": "Defer to a Backlog the coordinator files",
+ "PL-11": "Record: as written, a #585 line",
+ "PL-12": "Record: as written (a best-effort cache with a fallback)",
+ "PL-13": "Record: the dated currency finding; the bump at the integration",
+ "PL-14": "Defer to the distribution merge (`release-candidates.md` step 0) and #791",
+ "PL-15": "Defer to the coordinator's doc sweep",
+ "PL-16": "Record: the tool note (`02` § What the integration inherits item 9)",
+ "PL-17": "Record under D-INFRA-006 (a mask on the verbose path is a Backlog candidate for the coordinator)",
+ "PL-18": "Record: as written (upstream's legacy alias)",
+ "PL-19": "Record: for upstream, a #585 line",
+}
 def build(drift):
     ITEMS.sort(key=lambda i: int(i["id"][3:]))
     ids = [i["id"] for i in ITEMS]
     assert len(ids) == len(set(ids)), "duplicate ids"
     for i in ITEMS:
-        assert i["sev"] in SEV and re.fullmatch(r"Q[1-7]", i["q"]) and i["proved"] in PROVED, i["id"]
+        assert i["sev"] in SEV and re.fullmatch(r"Q[1-7]", i["q"]) and i["proved"] in PROVED and i["id"] in PROPOSED, i["id"]
     out = ["# Punch list (Phases 5 and 6) — M6.P2 T37, the EmulationStation recipe and themes in the distribution (#684)", "",
            "Written by `tools/t37-05.py` from one item table, so the sections, the Phase 7 gate and the `punch_index` agree. `question:` is the brief's § 4 numbering (Q1 the pin, Q2 the build options and install steps, Q3 the dependencies, Q4 the credentials, Q5 the themes and `lowerdeck`, Q6 the patches, Q7 currency and structure); `04` § Renovation face maps them to the plan's seven. Every disposition is proposed; the stage-D pause rules them. At Phase 7 (stage E) every item has its outcome below.", "",
            "reviewed-at: 9fa740a91ba9fcaa21a26cc72f0b50fac10f32df", "reviewed-at-es: none -- no ES change", ""]
@@ -144,6 +169,8 @@ def build(drift):
                 f"- **Owner:** {i['owner']}",
                 f"- **What is wrong:** {i['what']}",
                 f"- **Proposed disposition:** {i['disp']}",
+                f"- **Tracked:** {TRACK.get(i['id'], '#1381 (this audit)')}",
+                f"- **Proposed at the pause:** {PROPOSED[i['id']]}",
                 f"- **proved:** {i['proved']}", ""]
     gate_items = ITEMS[1:] if drift else ITEMS
     out += ["## Phase 7 resolution gate", "", "| Item | Outcome | Evidence |", "| --- | --- | --- |"]

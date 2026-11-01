@@ -15,8 +15,9 @@ catches and nothing caught before**: the `es_systems.cfg` link to a build-host p
 no-op `rm` (PL-04). Beside them: **upstream's ARMSX2 block lost in four merges** (PL-05), **fribidi
 not linked in the candidate though the plan supplies it** (PL-06), two quiet guards (PL-07, PL-08),
 an inert flag (PL-09), the checkers that do not reach these recipes (PL-10), the currency and doc
-findings (PL-11 to PL-16), and three the seat added (PL-17 to PL-19). Nineteen items after the seat (3 Medium, 16 Low); every disposition is
-proposed for the stage-D pause.
+findings (PL-11 to PL-16), and three the seat added (PL-17 to PL-19). Nineteen items after the seat (2 Medium, 17 Low: PL-05 lowered at stage D, the launcher
+ignoring the row where the bundled Turnip is absent); every disposition is proposed for the
+stage-D pause.
 
 ## Acceptance-criteria scorecard
 
@@ -206,7 +207,7 @@ section was in the tree, the lane read it itself (`stage-c/verify-seat.sh`, `.ou
 | PL-02 | confirmed | agreed, with G-1 and G-2 below | holds, Medium; the fix ordered behind T40's |
 | PL-03 | confirmed with narrowing (a stamp input, not build order) | agreed; G-4 refuted below | holds, Low |
 | PL-04 | confirmed with narrowing; **the splash claim wrong** | **verified**: `Splash.h:10-11` under `ROCKNIX` is the wordmark; `:16-17` the `else` | corrected in `02` and `05`; a contained fix |
-| PL-05 | confirmed with narrowing; the whitelist needs its capability | **verified**: the list equals `armsx2-sa/package.mk:27-29`'s `armsx2-turnip` predicate, SM8750 keeping the system driver (`:25-26`) | holds, Medium; restoring upstream's block is the installer's own list |
+| PL-05 | confirmed with narrowing; the whitelist needs its capability | **verified**: the list equals `armsx2-sa/package.mk:27-29`'s `armsx2-turnip` predicate, SM8750 keeping the system driver (`:25-26`); at stage D the launcher read (`start_armsx2.sh:215-218`: the bundled ICD used only when present) | **lowered to Low at stage D** (a misleading row, not a broken launch); restoring upstream's block is the installer's own list |
 | PL-06 | confirmed with narrowing; **Low** | agreed: the fallback is designed (`CMakeLists.txt:230-233`) | lowered to Low |
 | PL-07 | confirmed with narrowing (the `i18n` target's guard not sent) | `CANNOT` here beyond the cited lines; a build's log | holds, Low |
 | PL-08 | confirmed | agreed, widened by G-5 | holds, Low |
