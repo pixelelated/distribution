@@ -102,6 +102,9 @@ against drafts, and they grow the same way (§ The loop).
 
 - An em dash or a spaced en dash used as punctuation (the site uses commas,
   a colon, or a plain hyphen with spaces in the Syncthing section's style).
+  The ` -- ` this skill file writes is the fork's ASCII double hyphen, which
+  `es-code-traps.md` asks for in comments; it is neither tell, and a page
+  uses the site's punctuation instead.
 - "delve", "leverage", "robust", "seamless", "streamline", "utilize",
   "empower", "elevate", "unlock the power", "game-changer", "supercharge",
   "best-in-class", "world-class", "cutting-edge", "state-of-the-art".
@@ -126,7 +129,6 @@ RetroAchievements page says "in order to" twice.
 - A bulleted list of more than five `**Label**: sentence` items where the
   page explains rather than lists a reference.
 - "in order to", "due to the fact that", "a number of".
-
 - "simply", "just", "easy", "easily", "quickly" in a step.
 - "ensure", "ensure that".
 - "please" outside a request for help.
@@ -175,11 +177,11 @@ Every page, in this order, and the fourth step is where the skill improves:
    name goes through `tools/png-blackout` first. Two things the first
    capture taught (2026-09-29): a row is found by its reference frame or by
    reading the source, never by counting a montage (GAME SETTINGS' ACCOUNTS
-   line is a heading, and two walks counted it as a row); and under a
-   device build the guest eats a press now and then, so a docs walk gives
+   line is a heading, and two of that capture's walks counted it as a row);
+   and, a separate fact, under a device build the guest eats a press now and then, so a docs walk gives
    each press 30 s and one re-send (`wait-for-change 30 1`, one press per
-   line). A cut without the re-send lost one press in each of three walks
-   and one of them ended on the QUIT page; the tool's re-send was never the
+   line). A cut without the re-send lost one press in each of three walks,
+   one of which ended on the QUIT page; the tool's re-send was never the
    fault, a miscount was.
 
 ## The check on this file
