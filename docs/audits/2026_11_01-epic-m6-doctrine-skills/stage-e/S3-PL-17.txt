@@ -1,0 +1,32 @@
+# PL-17 (L-08, L-20), S3: futro, mini-retro, session-stash: the artifacts go where ceremony-check reads (PL-17; Refs #685)
+parent: 0a3df2b3aa (export /workspace/tmp/m6-t38/e/0a3df2b3aa); fix: adb1c37cfc (tree 10bbefac55, export /workspace/tmp/m6-t38/e/adb1c37cfc)
+check, run in each export's .claude/skills: for s in futro mini-retro; do echo "$s names the homes and the tool: $(grep -r -c -E "docs/futros|docs/retros/|ceremony-check" $s | awk -F: "{n+=\$2} END {print n}")"; done; echo "docs/planning in session-stash: $(grep -c docs/planning session-stash/SKILL.md)"; echo "docs/planning in mini-retro SKILL.md: $(grep -c docs/planning mini-retro/SKILL.md)"; echo "the homes exist: $(test -d "$REPO/docs/futros" && test -d "$REPO/docs/retros" && echo yes)"
+FAIL at the parent (rc=0): futro names the homes and the tool: 0 ; mini-retro names the homes and the tool: 0 ; docs/planning in session-stash: 1 ; docs/planning in mini-retro SKILL.md: 1 ; the homes exist: yes
+PASS at the fix (rc=0): futro names the homes and the tool: 4 ; mini-retro names the homes and the tool: 4 ; docs/planning in session-stash: 0 ; docs/planning in mini-retro SKILL.md: 0 ; the homes exist: yes
+allowlists re-keyed: dropped allow-findings.txt: .claude/skills/mini-retro/SKILL.md:322 (its line is gone);dropped allow-findings.txt: .claude/skills/session-stash/SKILL.md:60 (its line is gone);rekeyed allow-findings.txt: .claude/skills/futro/SKILL.md:459 -> :460;t38-rekey: 3 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit 10bbefac55):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       625 of 625 passed, 161 allowlisted
+ok    stale      127 of 127 passed, 126 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 61 of 61 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 22
+TOTAL: 977 of 977 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+allow-findings.txt's two L-08 entries (mini-retro/SKILL.md:322 and session-stash/SKILL.md:60) are dropped with their lines.
+Already written: nothing inherited: docs/retros/ (7) and docs/futros/ (17) were written from ceremonies.md, which names the markers; a futro or retro written into a spec section would be a record, and none here was
+import-unchanged: yes (git log -S over .claude/skills/futro/SKILL.md at 0a3df2b3aa prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= adb1c37cfc:
+ .claude/skills/futro/SKILL.md                                     | 5 +++--
+ .claude/skills/futro/references/template.md                       | 4 ++--
+ .claude/skills/mini-retro/SKILL.md                                | 8 ++++----
+ .claude/skills/mini-retro/references/template.md                  | 4 ++--
+ .claude/skills/session-stash/SKILL.md                             | 2 +-
+ .../2026_11_01-epic-m6-doctrine-skills/tools/allow-findings.txt   | 4 +---
+ 6 files changed, 13 insertions(+), 14 deletions(-)

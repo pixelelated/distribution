@@ -1,0 +1,30 @@
+# PL-40 (L-75), S3: futro, begin-delivery: cite register entries the register holds (PL-40; Refs #685)
+parent: 1da407d664 (export /workspace/tmp/m6-t38/e/1da407d664); fix: 79102ab43a (tree 0d70a613bd, export /workspace/tmp/m6-t38/e/79102ab43a)
+check, run in each export's .claude/skills: for n in "required\[\]\`-enumeration miss" "Substrate-precondition assumption"; do echo "$n: skills $(grep -r -c -E "$n" futro begin-delivery | awk -F: "{s+=\$2} END {print s}"), docs register $(grep -c -E "$n" "$REPO/docs/blindspot-register.md"), the starter $(grep -c -E "$n" futro/references/blindspot-register.md)"; done; echo "in the change log: $(sed -n "/^## Change log/,\$p" begin-delivery/SKILL.md | grep -c "Substrate-precondition assumption")"
+FAIL at the parent (rc=0): required\[\]`-enumeration miss: skills 1, docs register 0, the starter 0 ; Substrate-precondition assumption: skills 3, docs register 0, the starter 0 ; in the change log: 1
+PASS at the fix (rc=0): required\[\]`-enumeration miss: skills 0, docs register 0, the starter 0 ; Substrate-precondition assumption: skills 1, docs register 0, the starter 0 ; in the change log: 1
+allowlists re-keyed: rekeyed allow-legit.txt: .claude/skills/futro/SKILL.md:184 -> :182;rekeyed allow-legit.txt: .claude/skills/futro/SKILL.md:348 -> :344;rekeyed allow-legit.txt: .claude/skills/futro/SKILL.md:350 -> :346;rekeyed allow-legit.txt: .claude/skills/futro/SKILL.md:361 -> :357;rekeyed allow-findings.txt: .claude/skills/begin-delivery/SKILL.md:610 -> :608;rekeyed allow-findings.txt: .claude/skills/futro/SKILL.md:201 -> :199;rekeyed allow-findings.txt: .claude/skills/futro/SKILL.md:463 -> :459;rekeyed allow-findings.txt: .claude/skills/begin-delivery/SKILL.md:558 -> :556;rekeyed allow-findings.txt: .claude/skills/begin-delivery/SKILL.md:563 -> :561;t38-rekey: 9 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit 0d70a613bd):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       629 of 629 passed, 161 allowlisted
+ok    stale      127 of 127 passed, 126 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 61 of 61 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 22
+TOTAL: 981 of 981 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+The one mention left is in begin-delivery's change log, which PL-26 (S4) moves to the commit log whole.
+Already written: nothing inherited: the cited sections are the source estate's register's; a reader who looked for them found nothing here and wrote nothing
+import-unchanged: no (git log -S over .claude/skills/begin-delivery/SKILL.md at 1da407d664 prints: nothing)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 79102ab43a:
+ .claude/skills/begin-delivery/SKILL.md                         |  2 --
+ .claude/skills/futro/SKILL.md                                  |  8 ++------
+ .../tools/allow-findings.txt                                   | 10 +++++-----
+ .../2026_11_01-epic-m6-doctrine-skills/tools/allow-legit.txt   |  8 ++++----
+ 4 files changed, 11 insertions(+), 17 deletions(-)

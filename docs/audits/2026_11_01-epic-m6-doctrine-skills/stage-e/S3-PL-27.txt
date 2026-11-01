@@ -1,0 +1,28 @@
+# PL-27 (L-17), S3: futro: the blindspot register exists at docs/blindspot-register.md (PL-27; Refs #685)
+parent: adb1c37cfc (export /workspace/tmp/m6-t38/e/adb1c37cfc); fix: 94c09ce50d (tree 5e331dfef9, export /workspace/tmp/m6-t38/e/94c09ce50d)
+check, run in each export's .claude/skills: echo "when created: $(grep -c "when created" futro/SKILL.md)"; echo "the register if one exists: $(grep -c -E "blindspot register\**,? if one exists" futro/SKILL.md)"; echo "names docs/blindspot-register.md: $(grep -c "docs/blindspot-register.md" futro/SKILL.md)"; echo "the register exists: $(test -f "$REPO/docs/blindspot-register.md" && echo yes)"
+FAIL at the parent (rc=0): when created: 1 ; the register if one exists: 2 ; names docs/blindspot-register.md: 0 ; the register exists: yes
+PASS at the fix (rc=0): when created: 0 ; the register if one exists: 0 ; names docs/blindspot-register.md: 4 ; the register exists: yes
+allowlists re-keyed: rekeyed allow-legit.txt: .claude/skills/futro/SKILL.md:183 -> :184;rekeyed allow-legit.txt: .claude/skills/futro/SKILL.md:347 -> :348;rekeyed allow-legit.txt: .claude/skills/futro/SKILL.md:349 -> :350;rekeyed allow-legit.txt: .claude/skills/futro/SKILL.md:360 -> :361;rekeyed allow-findings.txt: .claude/skills/futro/SKILL.md:200 -> :201;rekeyed allow-findings.txt: .claude/skills/futro/SKILL.md:460 -> :463;t38-rekey: 6 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit 5e331dfef9):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       629 of 629 passed, 161 allowlisted
+ok    stale      127 of 127 passed, 126 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 61 of 61 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 22
+TOTAL: 981 of 981 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Already written: nothing inherited: the futros here consulted docs/blindspot-register.md through the rules (code-auditor, ceremonies.md); none copied the starter
+import-unchanged: yes (git log -S over .claude/skills/futro/SKILL.md at adb1c37cfc prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 94c09ce50d:
+ .claude/skills/futro/SKILL.md                           | 17 ++++++++++-------
+ .../tools/allow-findings.txt                            |  4 ++--
+ .../tools/allow-legit.txt                               |  8 ++++----
+ 3 files changed, 16 insertions(+), 13 deletions(-)

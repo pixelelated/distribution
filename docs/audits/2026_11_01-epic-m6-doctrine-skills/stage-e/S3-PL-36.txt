@@ -1,0 +1,30 @@
+# PL-36 (L-67), S3: futro: five techniques, counted once (PL-36; Refs #685)
+parent: 94c09ce50d (export /workspace/tmp/m6-t38/e/94c09ce50d); fix: 1da407d664 (tree dafad3bef1, export /workspace/tmp/m6-t38/e/1da407d664)
+check, run in each export's .claude/skills: echo "q4: $(python3 -I "$AUD/tools/t38-tables.py" q4 "$X" "$REPO" 2>/dev/null | grep -F "Apply " | awk -F"|" "{gsub(/^ +| +\$/,\"\",\$3); gsub(/^ +| +\$/,\"\",\$4); gsub(/^ +| +\$/,\"\",\$5); print \$3\" stated, \"\$4\" listed, \"\$5}")"; echo "four in techniques.md: $(grep -c -i -E "^four complementary|running all four" futro/references/techniques.md)"; echo "the template lists: $(grep -o -E "Complementary: [^.]*" futro/references/template.md | tr -cd , | wc -c) commas"
+FAIL at the parent (rc=0): q4: 4 stated, 5 listed, no ; four in techniques.md: 2 ; the template lists: 1 commas
+PASS at the fix (rc=0): q4: 5 stated, 5 listed, yes ; four in techniques.md: 0 ; the template lists: 3 commas
+allowlists re-keyed: rekeyed allow-findings.txt: .claude/skills/futro/references/techniques.md:28 -> :31;rekeyed allow-findings.txt: .claude/skills/futro/references/techniques.md:35 -> :38;t38-rekey: 2 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit dafad3bef1):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       629 of 629 passed, 161 allowlisted
+ok    stale      127 of 127 passed, 126 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 61 of 61 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 22
+TOTAL: 981 of 981 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+The fifth bullet is the fork's (3624e2e329, B-22); the import's count was right for its four.
+Already written: nothing inherited: the futros here (docs/futros/, 17) list the techniques they ran; a count in the procedure wrote nothing
+import-unchanged: yes (git log -S over .claude/skills/futro/SKILL.md at 94c09ce50d prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 1da407d664:
+ .claude/skills/futro/SKILL.md                                    | 2 +-
+ .claude/skills/futro/references/techniques.md                    | 9 ++++++---
+ .claude/skills/futro/references/template.md                      | 2 +-
+ .../2026_11_01-epic-m6-doctrine-skills/tools/allow-findings.txt  | 4 ++--
+ 4 files changed, 10 insertions(+), 7 deletions(-)

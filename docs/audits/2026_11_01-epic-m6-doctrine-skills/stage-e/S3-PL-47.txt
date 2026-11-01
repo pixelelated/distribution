@@ -1,0 +1,29 @@
+# PL-47 (L-22), S3: futro: begin-exploration swept (PL-47; Refs #685)
+parent: 3109d4882b (export /workspace/tmp/m6-t38/e/3109d4882b); fix: 1355c754e5 (tree e564d5a4fe, export /workspace/tmp/m6-t38/e/1355c754e5)
+check, run in each export's .claude/skills: grep -r -c begin-exploration futro | grep -v ":0$" | LC_ALL=C sort; echo "files: $(grep -r -l begin-exploration futro | wc -l)"
+FAIL at the parent (rc=0): futro/SKILL.md:2 ; files: 1
+PASS at the fix (rc=0): files: 0
+allowlists re-keyed: dropped allow-findings.txt: .claude/skills/futro/SKILL.md:3 (its line is gone);dropped allow-findings.txt: .claude/skills/futro/SKILL.md:461 (its line is gone);t38-rekey: 2 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit e564d5a4fe):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       632 of 632 passed, 161 allowlisted
+ok    stale      125 of 125 passed, 124 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 59 of 59 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 20
+TOTAL: 980 of 980 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Description, futro/SKILL.md:3: 906 -> 816 characters of the scalar (tools/t38-tables.py q5); 931 -> 839 bytes of the line (sed -n 3p | wc -c)
+allow-findings.txt's two 'L-22 swept in S3' entries (futro/SKILL.md:3, :457) are dropped with their lines.
+Already written: nothing inherited: every line hedged, and the skill never existed in any tree (git log --all prints 0 lines)
+import-unchanged: yes (git log -S over .claude/skills/futro/SKILL.md at 3109d4882b prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 1355c754e5:
+ .claude/skills/futro/SKILL.md                                       | 6 +++---
+ .../2026_11_01-epic-m6-doctrine-skills/tools/allow-findings.txt     | 2 --
+ 2 files changed, 3 insertions(+), 5 deletions(-)

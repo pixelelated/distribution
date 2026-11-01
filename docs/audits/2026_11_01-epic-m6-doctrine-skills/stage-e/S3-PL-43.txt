@@ -1,0 +1,29 @@
+# PL-43 (L-82), S3: futro: one threshold, the commit step said, the futros' heading levels (PL-43; Refs #685)
+parent: 79102ab43a (export /workspace/tmp/m6-t38/e/79102ab43a); fix: 3109d4882b (tree 4c1cd2bbfa, export /workspace/tmp/m6-t38/e/3109d4882b)
+check, run in each export's .claude/skills: T=futro/references/template.md; echo "### N. in the template: $(grep -c -E "^### [1-5]\. " $T)"; echo "## Futro: in the template: $(grep -c "^## Futro:" $T)"; echo "promoted at 2 instances: $(grep -c "promoted at 2 instances" futro/SKILL.md)"; echo "a comment committed: $(grep -c "Epic comment MUST be committed" futro/SKILL.md)"; echo "the futros' level: $(for f in "$REPO"/docs/futros/*.md; do grep -m1 -o -E "^#{2,3} 1\." "$f"; done | sort | uniq -c | tr -s " ")"
+FAIL at the parent (rc=0): ### N. in the template: 5 ; ## Futro: in the template: 1 ; promoted at 2 instances: 1 ; a comment committed: 1 ; the futros' level:  16 ## 1.
+PASS at the fix (rc=0): ### N. in the template: 0 ; ## Futro: in the template: 0 ; promoted at 2 instances: 0 ; a comment committed: 0 ; the futros' level:  16 ## 1.
+allowlists re-keyed: rekeyed allow-legit.txt: .claude/skills/futro/SKILL.md:344 -> :343;rekeyed allow-legit.txt: .claude/skills/futro/SKILL.md:346 -> :345;rekeyed allow-legit.txt: .claude/skills/futro/SKILL.md:357 -> :356;rekeyed allow-findings.txt: .claude/skills/futro/SKILL.md:459 -> :461;t38-rekey: 4 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit 4c1cd2bbfa):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       632 of 632 passed, 161 allowlisted
+ok    stale      127 of 127 passed, 126 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 61 of 61 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 22
+TOTAL: 984 of 984 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Already written: nothing inherited: the 17 futros here already use # for the title and ## for the questions (16 carry ## 1.); the template now matches them
+import-unchanged: yes (git log -S over .claude/skills/futro/SKILL.md at 79102ab43a prints: 437ebd09af)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 3109d4882b:
+ .claude/skills/futro/SKILL.md                            | 16 +++++++++-------
+ .claude/skills/futro/references/template.md              | 12 ++++++------
+ .../tools/allow-findings.txt                             |  2 +-
+ .../tools/allow-legit.txt                                |  6 +++---
+ 4 files changed, 19 insertions(+), 17 deletions(-)
