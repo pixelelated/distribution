@@ -11,7 +11,7 @@ PKG_URL="${PKG_SITE}.git"
 # upstream's EmulationStation gained (e0e8b7ac33); the fork builds its own ES
 # from its own branch, so the clone form stays.
 PKG_DEPENDS_TARGET="boost toolchain SDL2 freetype curl freeimage bash rapidjson SDL2_mixer fping p7zip alsa vlc drm_tool poppler pugixml noto-sans-cjk zstd ${OPENGLES}"
-PKG_NEED_UNPACK="busybox"
+PKG_NEED_UNPACK="$(get_pkg_directory busybox)"
 PKG_LONGDESC="Emulationstation emulator frontend"
 PKG_BUILD_FLAGS="-gold"
 GET_HANDLER_SUPPORT="git"
