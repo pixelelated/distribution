@@ -1,6 +1,6 @@
 ---
 name: code-auditor
-description: Rigorous multi-pass code auditor that independently verifies spec conformance, acceptance-criteria completion, project-doctrine alignment (instruction files + blindspot register), cross-system interaction safety, and code quality. Runs at Epic and Milestone boundaries; the phase-tier scoped audit (spot checks, ~30 min) lives in the `mini-retro` skill and its findings feed this skill. Use when the user says "audit this work", "audit the milestone", "verify X is done", "is this really complete", "check for gaps", "run a code audit", "produce a punch list", or when a feature/epic/milestone is claimed complete and needs adversarial verification before merge or deploy. Produces dated audit artifacts (running log at milestone tier, research, forward audit, retrospective, analysis, punch list with machine-readable index) plus a GitHub issue with the prioritized punch list.
+description: Rigorous multi-pass code auditor that independently verifies spec conformance, acceptance-criteria completion, project-doctrine alignment (instruction files + blindspot register), cross-system interaction safety, and code quality. Runs at Epic and Milestone boundaries; the phase-tier scoped audit (spot checks) lives in the `mini-retro` skill and its findings feed this skill. Use when the user says "audit this work", "audit the milestone", "verify X is done", "is this really complete", "check for gaps", "run a code audit", "produce a punch list", or when a feature/epic/milestone is claimed complete and needs adversarial verification before merge or deploy. Produces dated audit artifacts (running log at milestone tier, research, forward audit, retrospective, analysis, punch list with machine-readable index) plus a GitHub issue with the prioritized punch list.
 license: Apache-2.0
 metadata:
   execution: serial
@@ -135,8 +135,8 @@ lower-tier findings differently — and the difference is intentional:
 - Prior audits feed Phase 1 (Research) — not as gospel, but as a
   **provenance map**: who audited what, what they found, what
   they deferred. Use this to know where extra adversarial scrutiny
-  is warranted (e.g., "prior audit returned all-PASS in 30 minutes
-  on a 500-line PR — re-verify carefully").
+  is warranted (e.g., "prior audit returned all-PASS on a 500-line PR
+  with no command output recorded — re-verify carefully").
 - Prior-audit punch-list items still open at Milestone close-out
   must be tracked and either (a) verified resolved by code, (b)
   carried into the Milestone punch list, or (c) explicitly marked
@@ -629,7 +629,7 @@ punch list is what everyone downstream trusts.
 - Closing the audit issue with checkboxes unticked. The Phase 6 audit
   issue stays open until every item is (a)/(b)/(c) and the checkbox is
   ticked accordingly.
-- Treating Low items as auto-deferred. Low items are usually <15min admin
+- Treating Low items as auto-deferred. Low items are usually small admin
   cleanups; resolve them in-session by default.
 
 The "complete phase → audit → resolve → begin next phase" loop is the

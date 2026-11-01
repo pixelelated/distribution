@@ -372,7 +372,7 @@ beat hand-waving.
 | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | "We need to think about concurrency" | "Known unknown: does `pg_advisory_xact_lock` release if the connection is killed mid-txn? (investigation: read postgres docs + write a probe test)"                           |
 | "Similar to what we did before"      | "Pattern: matches the example-api/secrets lifecycle work (commit `a3b1c`); applied FNV hashing + sorted lock order there too"                                                  |
-| "Might be tricky"                    | "Blindspot check: we systematically underestimate migration work (register entry #2); this touches installed_capabilities + external_capability_endpoints — factor 1.5× time" |
+| "Might be tricky"                    | "Blindspot check: we systematically underestimate migration work (register entry #2); this touches installed_capabilities + external_capability_endpoints — the migration step planned first, with its own check" |
 
 ### Step 4 — Write the artifact(s)
 

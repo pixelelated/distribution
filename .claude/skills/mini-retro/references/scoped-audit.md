@@ -5,7 +5,7 @@ The scoped audit is a lightweight adversarial check that runs as
 but before the four retro questions are answered. Its findings feed
 into questions 3 (discoveries) and 4 (adjustments) of the retro.
 
-This is **NOT** the full `code-auditor` skill. It is a ~30-minute
+This is **NOT** the full `code-auditor` skill. It is a short
 spot-check, intentionally scoped to a single phase's delta so it can
 run as part of every phase retro without grinding progress to a halt.
 The full multi-phase `code-auditor` still runs at Epic and Milestone
@@ -66,7 +66,7 @@ adding adversarial value. Origin: M22 FOUND-P4 (#2510, 2026-05-14).
 
 ## The checks
 
-Each check takes ~5 minutes. Record the verdict + optional finding
+Record the verdict + optional finding
 (one-liner with file:line reference) under each check heading in the
 retro. See `references/template.md` § "Scoped audit findings (Step 2.5)".
 
@@ -180,7 +180,7 @@ apply **only** when authoring a Capability `.kno`; for everything else those
 rows are `·`.)
 
 **Procedure:** run each of the ~5 spot checks below against the
-phase's diff. Each should take 30 seconds to 2 minutes.
+phase's diff.
 
 | Spot check                               | How to verify                                                                                                                                                                                                                  | What to look for                                                                                                                                                                                                                                                                                        |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

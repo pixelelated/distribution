@@ -74,9 +74,10 @@ rollback plans.
 **Typical consequence:** Migration phases run 50–200% over estimate and
 frequently require a follow-up patch migration.
 
-**Mitigation in futros:** If the work includes a migration, multiply the
-estimate by at least 2× in question 1. Flag "migration estimate" as an
-explicit assumption. If the migration touches a table with > 1M rows,
+**Mitigation in futros:** If the work includes a migration, plan it first
+and give it its own verification step in question 5 (realistic data
+volumes, idempotency, a rollback). Flag the migration's size as an explicit
+assumption. If the migration touches a table with > 1M rows,
 add an investigation task for perf verification at realistic scale.
 
 **Instances:**

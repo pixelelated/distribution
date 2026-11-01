@@ -254,7 +254,7 @@ complete phase  →  audit  →  create punch-list issue  →  resolve all items
 
 - Silently advancing to the next phase while the punch-list issue has unchecked boxes
 - "We'll come back to that one" without filing a follow-up issue
-- Treating P3 items as auto-deferred — they are usually <15min admin cleanups; resolve them in-session by default
+- Treating P3 items as auto-deferred — they are usually small admin cleanups; resolve them in-session by default
 - Closing the audit punch-list issue with items unresolved
 
 Phase-tier scoped-audit findings (from the prior `mini-retro` § "Scoped
@@ -398,7 +398,7 @@ For the phase about to begin:
 
 ```
 Pre-futro audit  →  Futro  →  Post-futro audit  →  Execute
-   (~10 min)              (Step 2 of this skill)    (~10 min)        (Step 4 onward)
+                          (Step 2 of this skill)                     (Step 4 onward)
 ```
 
 **Pre-futro audit checklist** (run before invoking the `futro` skill at Step 2):
@@ -429,7 +429,7 @@ Pre-futro audit  →  Futro  →  Post-futro audit  →  Execute
 | Cross-issue dependencies        | Invisible until drafted    | Visible from kickoff               |
 | Audit trail for shape changes   | None                       | Two timestamped checkpoints        |
 
-**Cost:** ~20 min/batch for the two audits. Worst case (everything stable): two short sign-off comments. Best case: catches drift that would have wasted hours mid-execution.
+**Cost:** two short audits per batch. Worst case (everything stable): two short sign-off comments. Best case: catches drift that would have wasted hours mid-execution.
 
 **Epic body MUST still carry** (used as scaffolding for the upfront-drafted bodies, not as a substitute for them):
 

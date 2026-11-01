@@ -62,12 +62,12 @@ enforcement step.
 Retros nest recursively. Each tier consumes findings from the tier below,
 so nothing is audited from scratch at higher levels.
 
-| Tier          | Trigger                                    | Artifact location                        | Audit intensity                                           | Timebox |
-| ------------- | ------------------------------------------ | ---------------------------------------- | --------------------------------------------------------- | ------- |
-| **Phase**     | End of each phase inside an Epic           | Inline in retro (tracker comment + spec) | Scoped audit (spot checks incl. a UI review for UI, if present — Step 2.5) | ~30 min |
-| **Epic**      | End of Epic (all phases code-complete)     | `logs/audits/YYYY_MM_DD-epic-*/` + retro | Full `code-auditor` skill, Epic scope                     | ~2–4 hr |
-| **Milestone** | End of Milestone (all Epics code-complete) | `logs/audits/YYYY_MM_DD-milestone-*/`    | Full `code-auditor` skill, Milestone scope                | ~4–8 hr |
-| **Project**   | Long-pause resume, re-architecture, chapter boundary | `docs/retrospective/` dated set | `retro-sweep` skill (three-movement sweep; experimental) | ~1 day  |
+| Tier          | Trigger                                    | Artifact location                        | Audit intensity                                           |
+| ------------- | ------------------------------------------ | ---------------------------------------- | --------------------------------------------------------- |
+| **Phase**     | End of each phase inside an Epic           | Inline in retro (tracker comment + spec) | Scoped audit (spot checks incl. a UI review for UI, if present — Step 2.5) |
+| **Epic**      | End of Epic (all phases code-complete)     | `logs/audits/YYYY_MM_DD-epic-*/` + retro | Full `code-auditor` skill, Epic scope                     |
+| **Milestone** | End of Milestone (all Epics code-complete) | `logs/audits/YYYY_MM_DD-milestone-*/`    | Full `code-auditor` skill, Milestone scope                |
+| **Project**   | Long-pause resume, re-architecture, chapter boundary | `docs/retrospective/` dated set | `retro-sweep` skill (three-movement sweep; experimental) |
 
 This skill covers the **Phase** tier. For **Epic** and **Milestone** tiers,
 defer to the `code-auditor` skill; this skill's output still applies
@@ -188,7 +188,7 @@ A canonical template lives at `references/template.md` in this skill's folder
 
 After Step 1 (evidence gathering) and before the four questions of
 Step 2 are answered, run a lightweight **scoped audit**; its findings
-feed questions 3 and 4. The scoped audit is a 30-minute adversarial check that catches
+feed questions 3 and 4. The scoped audit is a short adversarial check that catches
 defects the four questions don't naturally surface — AC-bullet
 drift, cornerstone violations, interaction defects, futro-prediction
 drift, pre-existing test failures, and (for UI work) visual / a11y /
