@@ -43,7 +43,12 @@ source scope to the entire distribution.
 Prefer the other lab's installed frontier pin: OpenAI primary -> Anthropic
 Fable; Anthropic primary -> OpenAI Astra. For extended depth choose a third lab,
 not a different hosting endpoint of either existing model. Use verified current
-project recipes; adopting a newer model is a deliberate roster update.
+project recipes; adopting a newer model is a deliberate roster update. The
+third lab is taken from the Facilitator's verified recipes and frozen in the
+slice's brief and plan before the audit starts (D-WORKFLOW-184 names the
+renovation's). A seat whose answer the model's output ceiling cuts is run again
+on a trimmed packet for that seat -- the same model, effort and provider, never
+a substitution (D-WORKFLOW-195).
 
 A reviewer receives the same primary evidence, names unsupported claims and
 attempts to refute the primary findings. The primary verifies every proposed
