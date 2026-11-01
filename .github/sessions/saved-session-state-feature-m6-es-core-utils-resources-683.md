@@ -15,6 +15,17 @@
 > **Register:** the rows this brief cites are on the coordinator's branch, merged here; D-CLOUD-193 D-INFRA-031 D-LAUNCH-007 D-NET-017 D-QA-063 D-RA-052 D-SYS-013 D-UI-137 D-WORKFLOW-216 are the highest rows of their areas on the coordinator's branch (computed from the decided table at `4bc59b6000`; at `acc4674006` on 2026-10-31 the brief read D-CLOUD-193, D-INFRA-031, D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-133, D-WORKFLOW-215, and the kit's read at `ea8a4f52dd` printed D-UI-137 in D-UI-133's place, T35's stage-E rows D-UI-134 to D-UI-137), with this slice's ownership row of the brief's § 1, **D-WORKFLOW-216**, written at dispatch (D-WORKFLOW-188 on the P1 branch only; the merge unites them); the four rows the brief's § 9 expects are put to the coordinator at the pause, never decided by the lane, and a row this slice forces takes an ID the coordinator assigns on #683
 > **The brief:** `docs/reviews/briefs/es-core-utils-resources.md` at `b1f34ce658` (version 2 of 2026-10-31, after a stranger's proof of version 1 -- its corrections listed under `## Corrections in version 2`, and what the proof left open under `## What version 2 does not settle`), **with its errata before dispatch at `e29a2966bc`** (`## Errata before dispatch`, eight items appended after the version line, version 2's text unchanged; where a section and that list differ, the list wins); #683's body carries its § 7 checkboxes, which the errata leave unchanged; where the two differ the body wins and the coordinator corrects the brief
 
+## Current focus (05:24 UTC 2026-11-01): ACCEPTED, stage H done -- the lane is idle
+
+**T36 (#683) is accepted (23 of 24 criteria ticked; criterion 16 -- G-03/G-04/G-10 frames beside S4's `fix-walk-pending-image` half -- is open for the integration window, the unit cases 3.13/3.26 standing in).** Stages A-H complete; the lane is idle.
+
+- **Final tips:** distribution **`fd0c1c4337`** (pushed to `origin/feature/m6-es-core-utils-resources-683`), EmulationStation **`9c1bd5f09`** (the fixes; the pin bump on `next` is the coordinator's at integration).
+- **Close-out:** `audit-completion.json` written and validated; `tools/lint-audit-artifacts` PASS plain, `--issue 1358`, and `--phase resolution`; `tools/ceremony-check --gate` rc 0; the scratch under `/workspace/tmp/m6-t36/` retired except `held/` (D-WORKFLOW-215).
+- **Open for the owner:** the two merge subjects `715ec8951d` and `af9ff5df5d` cite no `#683` -- a merge-preserving rebase + force-push, or the coordinator's reword at the integration merge; it has no checkbox among the 24.
+- **Held:** `/workspace/tmp/m6-t36/held/` (h1 #1369, h2 #1370, h3 #1371) stays, mode 600.
+
+---
+
 ## Current focus (20:59 UTC 2026-10-31 update): stage B done, the window asked for
 
 **Stage B is done; stage C next, once the coordinator answers the stage-B checkpoint on #683 (the guest waits for the grant there and in the host file).**
@@ -76,3 +87,4 @@ or a guest outside the one granted window.
 
 - stage A, 16:42 UTC 2026-10-31: the distribution at the stage-A commit (named in the checkpoint on #683; `3740ce4a0d` before it), the ES worktree at the pin `16dbac5211`, unchanged
 - stage B, 20:59 UTC 2026-10-31: the distribution at the stage-B commit (named in the checkpoint on #683), the ES worktree at the pin `16dbac5211`, unchanged; three holds at `/workspace/tmp/m6-t36/held/` (mode 600, `SHA256SUMS`)
+- stage H (close-out), 05:24 UTC 2026-11-01: accepted 23/24 (criterion 16 open for the integration window); distribution `fd0c1c4337`, ES `9c1bd5f09`; audit #1358 closed completed, `audit-completion.json` validated, the gate rc 0, the branch pushed; the lane is idle
