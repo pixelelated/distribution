@@ -444,3 +444,21 @@ PROOF: D-08 (tool-run) -- `tools/t38-punch.py` on a copy whose `bugs.tsv` lacks 
 
 No build, no compiler, no guest, no fetch, no council run, no Facilitator call, no `tools/council/run`, no `npm install`, no keyed call, no skill invoked against a provider, no held directory opened, and no line in the host file. Nothing was posted on #807, #911, #585 or #346. The tracker writes are the five bugs, #1394 with its sub-issue link, and two comments on #685: the `begin-exploration` question and, after this commit, the pause post. The tree writes are under this folder and `/workspace/tmp/m6-t38/`. Nothing under `.claude/` was edited.
 - **The last line of stage D (`date -u` 04:04:03):** `git status --short -- .claude/agents .claude/skills` printed 0 lines.
+
+### [Stage E] 04:49-04:55 — S0 opening: the stream brief read, the dispositions, the helper
+
+- **Stage E was dispatched on #685** as comment `6553579374` (04:49:37 UTC). The stream brief `docs/reviews/briefs/t38-streams.md` at `95052eaf78` (331 lines, sha256 prefix `12962b56d9737c8c`) is read by `git show` into `/workspace/tmp/m6-t38/stage-e/`.
+  - The rulings are D-WORKFLOW-219, and the rule lines are swept in `b344408e46` (`2026-11-01T04:29:44Z`).
+  - The Backlogs #1395 and #1396 are open, read back by `gh issue view`.
+  - The start is the lane's tip `e93c13457e`, with no merge before the hand-back.
+- **S0's opening dispositions in `02`:**
+  - § The streams: the brief, the pause's inputs, and *Recorded, no stream* for PL-48 and PL-53 to PL-57.
+  - § What ... inherit: the swept rule errata name `b344408e46`, with two rows added (`learning-capture.md:67`, the pidfile sentence). L-23, D-QA-040 and L-50 are *open, the coordinator's*. The Backlog row names #1395 and #1396. The questions row carries `begin-exploration`'s answer.
+- **The stage-E helper** carries § The rules every stream keeps as a procedure (`learning-capture.md` § 3): `tools/t38-fix.sh` and `tools/t38-rekey.py`.
+  - The parent and the staged tree are exported by `git archive`, never a checkout.
+  - The allowlists' exact-line entries are re-keyed by their text.
+  - The item's check is run on both exports, followed by the checker, `tools/rules-check --quiet` and the wordlist over the added lines.
+  - A commit is made only when every expectation holds. Its tree is checked against the tree that was checked, and the record is written to `stage-e/<SN>-<PL>.txt`.
+  - Its two refusals were seen first (`stage-e/S0-opening.txt`): no skill file staged gave `rc=2`; a planted line whose parent's count does not match gave `rc=1`, with nothing committed and the allowlists equal to HEAD.
+- **Before the first fix:** `git status --short -- .claude/agents .claude/skills` printed `0` lines, and HEAD is `e93c13457e`. The export `/workspace/tmp/m6-t38/e/e93c13457e` was made at 04:54:06 (`stage-e/exports.log`).
+- **Census:** no guest, no compile, no keyed call, no council call, no host-file line.

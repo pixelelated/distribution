@@ -442,9 +442,20 @@ TOTAL: 902 of 928 assertions
 
 ## The streams
 
-Written by the coordinator after stage D, from the punch list and the pause's dispositions; the lane leaves the heading.
+**The stream brief** is the coordinator's `docs/reviews/briefs/t38-streams.md` at `95052eaf78` on `feature/m6-renovation-plan-346` (331 lines; read by `git show`, sha256 prefix `12962b56d9737c8c`). It was dispatched on #685 as comment `6553579374` (04:49 UTC 2026-11-01). Its rulings are register row D-WORKFLOW-219, and the rule lines are swept in the coordinator's `b344408e46` (`2026-11-01T04:29:44Z`).
 
-**The pause's inputs (stage D, the lane's):** the audit issue #1394 (57 items, a sub-issue of #685), the bugs #1389 to #1393 (PL-01 to PL-05), and PL-47 to PL-52 put to the coordinator on #685. The stream brief `docs/reviews/briefs/t38-streams.md` is the coordinator's.
+**The pause's inputs (stage D, the lane's):** the audit issue #1394 (57 items, a sub-issue of #685), the bugs #1389 to #1393 (PL-01 to PL-05), and PL-47 to PL-52 put to the coordinator on #685.
+
+**The streams** (S0 to S7): the table is written at S0's close, one row per stream, then one row per fixed lead.
+
+**Recorded, no stream** (rulings 3 and 8):
+- **PL-48:** recorded as written. The face stays in `docs/reviews/plan-for-the-plan.md`, `code-auditor` is unchanged, and no Backlog is filed.
+- **PL-53:** #911. The list in § What ... inherit (L-30 to L-50 and L-76 to L-78) stays.
+- **PL-54:** the maintainer's answer on #807 (comment `6553118160`), then #911.
+- **PL-55:** the coordinator's sweep `b344408e46` covers the four lines ruling 8 names: the `begin-exploration` rule line, `learning-capture.md:67`, the pidfile sentence in `engineering-practices.md` § A promise is not a mechanism, and the two lost spaces. L-23, D-QA-040 and L-50 stay open, the coordinator's.
+- **PL-56:** #1373.
+- **PL-57:** #1395 (L-18) and #1396 (L-44).
+- **Withdrawn:** none so far; a stream that withdraws an item writes it here and in the gate.
 
 ## Positives
 
@@ -471,15 +482,17 @@ Each is for scaffold's next export, in the shape the lane writes. Each goes on #
 | --- | --- | --- |
 | The export's refresh list: L-30 (with #1044's loop and the absent hooks), L-31, L-33, L-34, L-35 narrowed, L-36, L-37, then L-38 to L-46, L-48, L-49, L-76, L-77, L-78 | `02` § The leads, each at its lines | #911 (PL-17) |
 | L-32 withdrawn, with its read | `council/SKILL.md:188-190` | #911, noted so it is not re-found |
-| The maintainer's two questions: `council-research` kept or retired (L-47), `begin-exploration` written or swept (L-22) | § 4 | the coordinator puts both: `council-research`'s on #807, comment `6553118160` (the coordinator's, 03:56); `begin-exploration`'s on #685, comment `6553169705` (the lane's, 04:02); each read back by `gh api repos/pixelelated/distribution/issues/comments/<id>` (`stage-d/question-readback.out`, D-06) |
-| Rule erratum: `adversarial-council.md:36-38` *"ships in the corpus"* for `begin-exploration` | L-22 | the coordinator |
-| Rule erratum: the audit-seat texts, `release-candidates.md:71-76` against `adversarial-council.md:49-58` and `review-levels.md:10` | L-23 | the coordinator |
-| Rule erratum: D-QA-040 open while `ceremonies.md` states its numbers | § 2's take-up | the coordinator |
+| The maintainer's two questions: `council-research` kept or retired (L-47), `begin-exploration` written or swept (L-22) | § 4 | the coordinator puts both: `council-research`'s on #807, comment `6553118160` (the coordinator's, 03:56); `begin-exploration`'s on #685, comment `6553169705` (the lane's, 04:02); each read back by `gh api repos/pixelelated/distribution/issues/comments/<id>` (`stage-d/question-readback.out`, D-06); `begin-exploration` answered **swept, not written** (ruling 2, D-WORKFLOW-219), open to reversal by the maintainer on #346 |
+| Rule erratum: `adversarial-council.md:36-38` *"ships in the corpus"* for `begin-exploration` | L-22 | the coordinator: swept in `b344408e46` (ruling 2, D-WORKFLOW-219) |
+| Rule erratum: `learning-capture.md:67`, a working branch's file as a pointer only | L-68 | the coordinator: swept in `b344408e46` (ruling 6) |
+| Rule erratum: the pidfile sentence in `engineering-practices.md` § A promise is not a mechanism | L-29 | the coordinator: swept in `b344408e46` (ruling 5) |
+| Rule erratum: the audit-seat texts, `release-candidates.md:71-76` against `adversarial-council.md:49-58` and `review-levels.md:10` | L-23 | open, the coordinator's (swept or given a Backlog at acceptance) |
+| Rule erratum: D-QA-040 open while `ceremonies.md` states its numbers | § 2's take-up | open, the coordinator's (swept or given a Backlog at acceptance) |
 | Rule erratum: `worktrees.md`'s legacy layout beside L-04's sentence | L-04, #640 | the coordinator |
-| Rule erratum: `council-substrate-integrity.md`'s defences *"all in place"* | L-50 | #911, the coordinator |
-| Rule erratum, met in the read: a space lost before a number in rules (`worktrees.md`'s *"October12"*, `device-builds.md`'s *"about138 GB"*), the same shape as L-78 | `instruction-files.md` § the rules | the coordinator |
+| Rule erratum: `council-substrate-integrity.md`'s defences *"all in place"* | L-50 | open, the coordinator's, with #911's re-review |
+| Rule erratum, met in the read: a space lost before a number in rules (`worktrees.md`'s *"October12"*, `device-builds.md`'s *"about138 GB"*), the same shape as L-78 | `instruction-files.md` § the rules | the coordinator: swept in `b344408e46` |
 | #1373's inputs: `t38-checks.sh`'s steps, its allowlists' classes, its fixtures; and `register-check`'s `LIVE` list naming `.claude/skills` and not `.claude/agents` (`:49`) | § 8 item 4 | #1373 |
-| Backlog leads to file: the stash archive's tool (L-18); the roster's prose copies checked against the Facilitator's table (L-44); the renovation face in `code-auditor` (L-24), if the pause rules it belongs there | § 8 item 5 | the coordinator |
+| Backlogs filed by the coordinator: the stash archive's tool (L-18) as #1395; the roster's prose copies checked against the Facilitator's table (L-44) as #1396. The renovation face (L-24) stays in the plan with no Backlog (ruling 3). | § 8 item 5 | #1395, #1396 |
 | #810 closes when `templates.md`'s fix reaches `next`; L-56 is outside its checkbox | L-01, L-56 | #810 |
 | #342 answered for the fork-adapted skills by L-05's stream; open for the export | L-05 | #342 |
 | T39 (#686): no lead reached `docs/reviews/plan-for-the-plan.md` | -- | #686, none |
