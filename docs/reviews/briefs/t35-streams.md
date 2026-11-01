@@ -610,3 +610,14 @@ Stage E adds to it in the retro, not here: the extractor's `SPECS` at the tip; t
 10. **The count of `GuiMsgBox` calls with three buttons and none named `OK` or `NO`,** in the 96 and in es-app (ruling 5's grep). The record names the drive dialogs only (`05` PL-15, `Window.cpp:1568-1578`).
 11. **The source greps the brief's Q2 and Q5 asked for.** These are `inputAction` in the distribution's `projects/` and `packages/`, and `scripts/game-start` there. The record carries G-01's image reads instead: *"The shipped file has 0 `inputAction` lines"*, *"No `/usr/bin/scripts` and no user scripts folder"*. Rulings 8, 9 and 16 rest on G-01's lines.
 12. **PL-06's two counts are two greps, not a disagreement, named so the hand-back does not mix them.** One is the 10 `createAsyncNotificationComponent` call sites in es-app (`02:204`). The other is T34's thirteen `AsyncNotificationComponent*` holder lines in six files (`t34-streams.md:25`, *"by the drafter's count over the grep's output"*).
+
+## Superseded at acceptance
+
+The readings the acceptance settled, appended by the coordinator on 2026-11-01 (the stream brief's text above stands as dispatched):
+
+- "One row per stream" counts S0 (ruling 21 made it a stream): § The streams has ten rows, S0 to S9, S0's with its floor `TOTAL:` line, `none` for its ES commit, fix and guest half, and `proved: tool-run`.
+- The hand-back's `fixed-at-es` is the ES tip; a bug's `fixed-at-es` names the commit at which its fix was complete and is accepted when it is an ancestor of the tip (#1338 to #1356 at `d0e5b3432`, the tip's parent, with S9 the one commit after).
+- The `TOTAL:` line the acceptance compares is the LAST in `02` § The runs, which keeps the stage-C and per-stream history (249/6 through 283/8) and ends in the build's own.
+- Checkbox 31's "each as a command's own output line" means quoted into § The runs; a citation to `runs.out` does not suffice.
+- Checkbox 39's rulings (a) to (i) are checked by the letter on the row; (e) `GuiLoading` and (f) `HttpReq` are recorded as outside the 96.
+- 3.1's figure is 1,496 ms (`stage-c/build-tests.out`) and 1,495 ms on S0's run; the 1,491 ms in the stage-C post, `04`, `05` and #1283's trace is the S0 erratum.
