@@ -214,7 +214,7 @@ ENTRY = [  # name, pattern of its definition, lock, what it does, its answer to 
     ("FileCache::getCacheEntry", r'static const FileCache\* getCacheEntry\(', "shared (the caller's)",
      "the key, else the parent's `/*` wildcard as a static `absent`", "a listed directory answers `absent` for every name not listed"),
     ("FileCache::fromStat64", r'static int fromStat64\(', "unique, after an unlocked `stat64`",
-     "overwrites the entry with the stat it made (`mFileCache[...] = cache`), with no `UseFileCache` gate", "the only path that refreshes an entry: `exists(p, false)` and the uncached `is*` fallbacks"),
+     "overwrites the entry with the stat it made (`mFileCache[...] = cache`), with no `UseFileCache` gate", "a refresh path (`exists(p, false)`, the uncached `is*`); `add` (`:168-180`) also overwrites, so not the only writer (04)"),
     ("FileCache::add", r'static void add\(const std::string& key, bool exists', "unique",
      "a listing's entries and its `/*` wildcard (`getDirContent`, `getDirectoryFiles`)", "a listing's snapshot; `_symlink` set only here, from `d_type`"),
     ("FileCache::remove", r'static void remove\(const std::string& key\)', "unique",

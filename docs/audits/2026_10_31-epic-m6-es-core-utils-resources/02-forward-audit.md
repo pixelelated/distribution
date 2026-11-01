@@ -151,7 +151,7 @@ generated, asserted: 26 rows (`tools/t36-tables.py --print leads`)
 
 The cache is an `unordered_map<size_t, FileCache>` keyed by `std::hash` of the generic path, under one `shared_mutex` (`FileSystemUtil.cpp:331-337`).
 - **Reads:** reads go through it only while `Settings::UseFileCache()` (`:203`). A miss is stat'ed with no lock held and stored (`:213-215`). A directory a listing has walked answers `absent` for every name it did not list, without a stat (`:277-282`, L-12).
-- **Refresh:** `exists(p, false)` and the uncached `is*` fallbacks are the one path that rewrites an entry (`fromStat64`, `:161-162`).
+- **Refresh:** `exists(p, false)` and the uncached `is*` fallbacks rewrite an entry through `fromStat64` (`:161-162`); **`FileCache::add` also overwrites an existing entry** (`:168-180`, a listing's write), and the WIN32 `fromStat64` uses `try_emplace` (no overwrite). So `fromStat64` is not the *only* writer (04 correction 2, the seat).
 - **The key:** the key is the hash, not the path. Two paths whose hashes collide share one answer. That needs a 64-bit collision; it is recorded as the contract, not as a lead.
 
 <!-- gen:filecache -->
@@ -160,7 +160,7 @@ The cache is an `unordered_map<size_t, FileCache>` keyed by `std::hash` of the g
 | `FileCache::queryCacheEntry` | `:201` | shared, then unique for the insert | a hit answered under the shared lock; a miss stat'ed with no lock (`statKey`) and stored by `insertEntry` | the entry stands until an erase or the reset: a file created, removed or rewritten outside is not seen |
 | `FileCache::insertEntry` | `:313` | unique (the caller's) | re-checks the key, then the parent's wildcard, then stores the stat | a listed parent stores `absent` without the stat it made (L-12) |
 | `FileCache::getCacheEntry` | `:268` | shared (the caller's) | the key, else the parent's `/*` wildcard as a static `absent` | a listed directory answers `absent` for every name not listed |
-| `FileCache::fromStat64` | `:138` | unique, after an unlocked `stat64` | overwrites the entry with the stat it made (`mFileCache[...] = cache`), with no `UseFileCache` gate | the only path that refreshes an entry: `exists(p, false)` and the uncached `is*` fallbacks |
+| `FileCache::fromStat64` | `:138` | unique, after an unlocked `stat64` | overwrites the entry with the stat it made (`mFileCache[...] = cache`), with no `UseFileCache` gate | a refresh path (`exists(p, false)`, the uncached `is*`); `add` (`:168-180`) also overwrites, so not the only writer (04) |
 | `FileCache::add` | `:168` | unique | a listing's entries and its `/*` wildcard (`getDirContent`, `getDirectoryFiles`) | a listing's snapshot; `_symlink` set only here, from `d_type` |
 | `FileCache::remove` | `:183` | unique | erases the key and every ancestor's `/*` wildcard | the writers below call it; nothing outside ES does |
 | `FileCache::resetCache / FileSystemCache::reset()` | `:258` | unique | clears the whole map | the only way a remembered answer about an outside write goes |
@@ -219,7 +219,7 @@ generated, asserted: 17 rows (`tools/t36-tables.py --print filecache`)
 
 - **L-19, stage B's lead (`proved: tree`; case 3.26 at stage C).**
   - **Ordering:** `removeFile` erases the path's entry (`:1067`), then asks `isDirectory(_path)` (`:1080`). That stats the still-present file through `queryCacheEntry` and stores `exists = true` (`insertEntry`). Then it unlinks (`:1084`).
-  - **Result:** after a successful `removeFile`, `exists(p)` answers `true` from the cache until the next reset. ES's own deleting writer leaves its path stale, so the brief's premise and #1263's (*"ES's own writers drop their entry, so only an outside writer is stale"*) do not hold for `removeFile`. `deleteDirectoryFiles` (`:1512-1531`) inherits it for every file it removes.
+  - **Result:** after a successful `removeFile`, `exists(p)` answers `true` from the cache until a refresh (`exists(p, false)`), an invalidation by another writer, or a reset -- ordinary cached reads do not repair it (04 correction 3, the seat: narrow the persistence wording, keep the functional priority). ES's own deleting writer leaves its path stale, so the brief's premise and #1263's (*"ES's own writers drop their entry, so only an outside writer is stale"*) do not hold for `removeFile`. `deleteDirectoryFiles` (`:1512-1531`) inherits it for every file it removes.
   - **Upstream:** ROCKNIX `f6c542872e` and batocera `b2ceb55a7e` have the same order: `FileCache::remove`, then `isDirectory(_path)` twice, then `unlink`, read by `grep -n` over each copy's `removeFile`.
   - **Fix shape (a stream's, not made here):** unlink or `rmdir` first, then erase.
 - **#1271's question** (does `isRegularFile` share `exists`'s entry and remember a miss), answered from the source (`proved: tree`; #1271 read at 20:47 UTC with no comments; its body `:38` is the question).
@@ -456,7 +456,7 @@ Slot 3, START 23:09:19 to RETURN 23:22:05 UTC, inside the bound; the detached ti
 
 - **The cache's lock discipline:** `queryCacheEntry` stats outside the lock and `insertEntry` re-checks under the unique lock, so two threads that miss together store one answer (`:200-216`, `:313-324`; `proved: tree`, 3.25's TSan program at stage C).
 - **`GetShOutputLines`** (`Platform.cpp:907-935`) accumulates a line longer than its buffer and checks `popen`, which `GetShOutput` does not.
-- **`writeAllText`, `renameFile` and `copyFile`** erase after they write. Only `removeFile` re-reads in between (L-19).
+- **`writeAllText` erases after it writes; `renameFile` and `copyFile` erase *before* the rename/copy, not after** (`:1457-1463`, `:1506-1507`; the "erase after they write" claim is withdrawn, 04 correction 1, the seat). What is unique to `removeFile` is that it **re-reads the cache between its erase and its unlink** (`isDirectory` at `:1080`), which is L-19; the other writers do not re-read in between.
 - **The battery's capacity read** is uncached.
 
 ## The #585 lines owed
