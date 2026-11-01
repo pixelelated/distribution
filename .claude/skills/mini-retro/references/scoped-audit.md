@@ -19,8 +19,8 @@ code actually does what the acceptance criteria said it should. Test
 suites and drift-guards catch a lot, but they don't catch:
 
 - AC bullets that a commit addresses in spirit but misses a detail on
-- Cornerstone violations in new files (repo-specific reflexes — e.g.
-  scaffold's `.mjs` script conventions and secret-handling discipline)
+- Cornerstone violations in new files (repo-specific reflexes — here, late
+  binding in a recipe, a guard that fails closed, the player vocabulary)
 - Interaction defects between two subsystems that each work in
   isolation
 - Housekeeping items (pre-existing failures, documentation drift,
@@ -43,7 +43,7 @@ For every other phase boundary, run the checks.
 ## Delegation (when an Epic-tier audit already covers this scope)
 
 When `code-auditor` has already produced a dated artifact under
-`logs/audits/` whose scope subsumes this phase's delta (same branch,
+`docs/audits/` whose scope subsumes this phase's delta (same branch,
 same time window, same files), an individual check MAY delegate to a
 specific row or section of that artifact instead of re-deriving.
 
@@ -51,7 +51,7 @@ specific row or section of that artifact instead of re-deriving.
 
 1. Cite the audit artifact path AND the specific row/section inline in
    the check's verdict line (e.g.
-   `PASS ✓ — see logs/audits/2026_05_14-epic-m22.../03-retrospective.md § Cornerstone Conformance row 3`).
+   `PASS ✓ — see docs/audits/<date>-epic-<scope>/03-retrospective.md § Cornerstone Conformance row 3`).
 2. The audit artifact MUST be on the same branch HEAD (no new commits
    since it ran that would change the check's evidence).
 3. Delegation is per-check, not blanket. Checks whose scope is strictly
@@ -175,23 +175,17 @@ Remediation: <which retro question this feeds into — usually §4 adjustments>
 conformance — `code-auditor`'s Phase 3.2, against this repository's
 instruction files and blindspot register — stays at Epic and Milestone
 audits. This
-check is a bounded spot-check. (The `.kno` `REQ-*` / `PRO-*` format rules
-apply **only** when authoring a Capability `.kno`; for everything else those
-rows are `·`.)
+check is a bounded spot-check.
 
-**Procedure:** run each of the ~5 spot checks below against the
-phase's diff.
+**Procedure:** run each spot check below against the phase's diff.
 
-| Spot check                               | How to verify                                                                                                                                                                                                                  | What to look for                                                                                                                                                                                                                                                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ESM-not-CJS**                          | `grep -n "^const.*require(" <new .ts files>`                                                                                                                                                                                   | Any `require(` in a new or modified `.ts` file under `services/example-api/src/` — ESM-only codebase                                                                                                                                                                                                     |
-| **postgres.camel dual-read**             | `grep -n "row\\." <new sql files>`                                                                                                                                                                                             | `row.foo_bar` without `row.foo_bar ?? row.fooBar` fallback; silent-fail pattern                                                                                                                                                                                                                         |
-| **XRI canonical form**                   | `grep -n "example://\|kno://" <new files>`                                                                                                                                                                                      | Non-canonical forms (bare slugs, `kno://capability/` instead of `example://capability/`)                                                                                                                                                                                                                 |
-| **New public APIs documented**           | Read any new exported function/type                                                                                                                                                                                            | JSDoc present; cross-references to issue; scope boundary noted                                                                                                                                                                                                                                          |
-| **Schema version lockstep**              | If a schema was bumped, grep the version string across the repo                                                                                                                                                                | Any stale pin at the old version that didn't move in the same commit                                                                                                                                                                                                                                    |
-| **Schema-rollout reality**               | If a `validation.rules.*` entry was added/edited, run the lint                                                                                                                                                                 | Any `rollout: strict` rule with non-zero baseline findings; demote or fix corpus (see #2289)                                                                                                                                                                                                            |
-| **Inverse-pattern sweep**                | If the phase fixed a contract-shape antipattern, inverse-grep the broader category in the migrated files                                                                                                                       | Any sibling-shaped defect (e.g. non-bare-but-still-incomplete envelope, raw exception in body via `_diagnostic`/`_stack`/`error.message`) that the targeted grep would not have caught. See Check 1 for origin.                                                                                         |
-| **Typed-but-operationally-unresolvable** | If the phase shipped a partner-facing error-envelope/type/shape improvement, check the PR description and code for a paired path-forward improvement (`remediation` block populated, retry succeeds, discovery surface entry). | An envelope/type improvement without a paired "and now the partner can ${verb} on retry" sentence. Improving shape without improving function. See the project's blindspot register (if it keeps one) for the "typed-but-operationally-unresolvable error responses" pattern. |
+| Spot check | How to verify | What to look for |
+| --- | --- | --- |
+| **Late binding** | `tools/pkgcheck <package>` for each recipe touched | a toolchain or path variable at global scope (`packaging-and-patches.md`) |
+| **Guards fail closed** | the guard's planted positive, recorded where it is wired | a check that passes because nothing happened, or a pipeline status taken from its last stage (`engineering-practices.md`) |
+| **Player text** | `tools/vocabulary-check`; the French catalog for a new `_("")` string | *back up* against *backup*, a tier word, a string with no French (`es-player-text.md`) |
+| **Citations** | `tools/register-check`, `tools/rules-check` | a decision ID or a rule named that no row or file holds |
+| **Credentials** | `.githooks/pre-commit` on the added lines | a credential-shaped literal, a fixture written as one |
 
 **Verdict options:** PASS / PARTIAL / FAIL overall. If any single
 spot check fails, the whole check is PARTIAL (unless multiple fail,
@@ -201,12 +195,10 @@ then FAIL).
 what the violation looks like, suggested remediation.
 
 **Adaptation:** different repos care about different patterns. The
-ones above are origin-project-specific (carried over as illustrative
-examples). For scaffold, replace them with high-signal patterns from its
-own conventions — e.g. the `.mjs` script conventions and secret-handling
-rules in `CLAUDE.md` and the fork's `.claude/rules/`, plus the rows in the
-cornerstone conformance reference. A project's blindspot register (if it
-keeps one) is another good source.
+ones above are this repository's, from its tool table
+(`instruction-files.md` § The fork's own tools); add a row when a retro
+finds a pattern the table misses. The blindspot register
+(`docs/blindspot-register.md`) is another good source.
 
 ---
 
@@ -225,26 +217,21 @@ because unit tests can't catch them.
 3. If yes, ask: was the COMBINATION tested, not just each in
    isolation?
 
-**Common risky pairs (origin-project examples — adapt to your stack):**
+**Common risky pairs (this repository's):**
 
-- Catalog filesystem writes + TerminusDB version-history writes (dual-write coordination)
-- Advisory locks (pg_advisory_xact_lock) + connection pool lifecycle (lock release on connection kill)
-- fs.watch-based cache + publish-time filesystem writes (race: watch fires before write completes)
-- Activity logging + transaction commits (activity fires before commit → duplicate on rollback)
-- OpenBao secret fetch + service restart (secret lease expiry during restart)
-- **Network ACLs as cross-layer shared state** — any compute resource
-  (VM, container, operator host, CI runner) × any data-plane resource
-  with `network_acls.ip_rules` / firewall (Key Vault, Storage, Postgres,
-  OpenBao). The shared state is "which egress IPs are admitted." Both
-  sides can pass their own audit in isolation (identity + RBAC verified
-  on the compute side; ACL non-empty on the data-plane side) while the
-  combination silently fails with `403 ForbiddenByFirewall` only at
-  runtime. The check is: trace **which host's** egress IP must reach
-  **which resource**, and verify that IP is in `ip_rules` (or a private
-  endpoint exists). Symbolic findings like "the firewall is restrictive"
-  do NOT discharge this check. Origin: an operator-host firewall RCA in a
-  sibling project, where the network axis was a known unknown that never
-  reached the simulation step.
+- A game launch + an automatic sync (two rclone writers on one remote; the
+  sync lock, `rclone-cloud-sync.md`, D-CLOUD-109)
+- A settings file rewritten in place + its boot backup (a truncated file
+  replacing its own good copy; `engineering-practices.md` § Fail gracefully)
+- A build's package stamps + a fast-forward of its worktree (a mixed image;
+  `worktrees.md`)
+- A sync card + a toast (one floating surface at a time; `es-native-ui.md`,
+  D-UI-093)
+- **Network reachability as cross-layer shared state** — a guest, the build
+  host's QA backends and a cloud remote each pass their own check while the
+  combination fails only at runtime. Trace **which host** must reach **which
+  endpoint**, and prove it from that host; a symbolic finding like "the
+  firewall is restrictive" does NOT discharge this check.
 
 **Verdict options:** PASS / PARTIAL / UNTESTABLE. Rarely FAIL
 (proving an interaction defect usually requires integration tests
@@ -540,7 +527,7 @@ disambiguation that would have forced the distinction into the open.
 - A renamed or re-scoped existing concept
 - A new public surface, API, or entity type whose docs now
   describe stale behaviour
-- A schema / `.kno` change requiring catalog or changelog reconciliation
+- A player-visible change requiring its change-log entry (`change-log.md`)
   (Capability-authoring phases only)
 
 If the phase introduced no new nouns and made no docs stale (pure
@@ -555,13 +542,12 @@ bugfix / tooling), mark **SKIP** with a one-line justification.
    glossary entry MUST state the disambiguation explicitly, not just
    define the new sense.
 2. **Stale-doc sweep.** For each surface the phase changed, grep the
-   docs that describe it (`docs/architecture/**`, `docs/design/**`,
-   relevant `README.md`, auto-applied `.claude/rules/**`). Are
+   docs that describe it (`.claude/rules/**`, `docs/es-menu-map.md`,
+   `docs/conflict-wizard-ia.md`, a relevant `README.md`). Are
    they still accurate? Update in-session or file a tracked follow-up.
-3. **Catalog / changelog reconciliation** (Capability-`.kno` phases
-   only): confirm the file-type catalog carries a row for any new
-   schema `.kno`, and that changelog surfaces are consistent (run the
-   repo's changelog lint, if it provides one).
+3. **Change-log reconciliation** (a player-visible change): confirm the
+   entry in `docs/cloud-sync-changelog.md` was written the day the change
+   landed, as claims checked against the build (`change-log.md`).
 4. **Consult the live glossary as source of truth for casing** — if the
    repo or platform keeps one.
 
@@ -694,7 +680,7 @@ questions still structure the output; scoped audit findings feed them.
 
 Scoped audit findings live **inline in the retro**, under a dedicated
 "Scoped audit findings (Step 2.5)" section. They do NOT get their
-own `logs/audits/` folder; that's the Epic/Milestone tier's
+own `docs/audits/` folder; that's the Epic/Milestone tier's
 responsibility.
 
 When the Epic audit runs (usually at the Epic's close), it reads every phase

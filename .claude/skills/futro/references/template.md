@@ -55,7 +55,7 @@ If there are no known unknowns to list: "None identified at futro time."
 
 Positive pattern-matching. Cite specific past work.
 
-- <pattern — e.g. "Matches the example-api/secrets-lifecycle work (commit `a3b1c`); same FNV hashing + sorted lock order there, worked well — apply here.">
+- <pattern — e.g. "Matches the last-good-state writers (`engineering-practices.md` § Fail gracefully); temp-and-rename there, worked well — apply here.">
 - <pattern>
 - <pattern>
 

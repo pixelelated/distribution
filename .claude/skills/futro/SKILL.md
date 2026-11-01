@@ -195,9 +195,8 @@ Before answering any of the five questions, gather:
   prior siblings' heading convention with
   `grep -nE '^#+ ' <prior-sibling>.md`. Match it. The first M64
   P1.5 futro (E2) failed markdownlint MD001 because it used
-  `### N. ...` (H3) when the project convention visible in
-  `docs/planning/m55-platform-contract-surface/futro-e2371-phase2-kickoff.md`
-  was `## N — ...` (H2 em-dash). E3 adopted the pre-grep and the
+  `### N. ...` (H3) when the convention visible in the source estate's prior
+  futro was `## N — ...` (H2 em-dash). E3 adopted the pre-grep and the
   next four futros (E3/E5/E4 + the early M64 substrate work)
   committed first-attempt with no MD001 retry. **Promoted from the
   E4 retro's threshold-met note.** Two seconds of grep prevents the
@@ -205,8 +204,8 @@ Before answering any of the five questions, gather:
   the first commit of every cluster's first futro.
 - **Base-divergence check for versioned / changelog artifacts** — when
   the work will author a **monotonic version number, sequential
-  identifier, or changelog entry** on a shared artifact (an ADR's
-  sequential number, a Capability `.kno` schema version, any file with a
+  identifier, or changelog entry** on a shared artifact (a register row's
+  ID, a version in a package recipe, any file with a
   `> **Version:**` header or a changelog the project lints for
   provable-truth), the Step-1 inputs MUST include a divergence check
   against the integration target, `next`, with no fetch: compare the
@@ -371,7 +370,7 @@ beat hand-waving.
 | ❌ Vague                             | ✓ Specific                                                                                                                                                                    |
 | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | "We need to think about concurrency" | "Known unknown: does `pg_advisory_xact_lock` release if the connection is killed mid-txn? (investigation: read postgres docs + write a probe test)"                           |
-| "Similar to what we did before"      | "Pattern: matches the example-api/secrets lifecycle work (commit `a3b1c`); applied FNV hashing + sorted lock order there too"                                                  |
+| "Similar to what we did before"      | "Pattern: matches the last-good-state writers (`engineering-practices.md` § Fail gracefully); temp-and-rename there too"                                                  |
 | "Might be tricky"                    | "Blindspot check: we systematically underestimate migration work (register entry #2); this touches installed_capabilities + external_capability_endpoints — the migration step planned first, with its own check" |
 
 ### Step 4 — Write the artifact(s)

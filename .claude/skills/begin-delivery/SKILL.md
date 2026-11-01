@@ -124,8 +124,8 @@ Phase N+1 execution
 - An active Milestone with phased Epics and issues (GitHub, Jira, Linear, etc.)
 - The previous phase is complete with a mini-retro posted (or this is the
   first phase, in which case Step 1 loads the spec instead)
-- A spec / plan document exists for the feature (e.g.
-  `docs/planning/<feature>/<feature>-spec.md`)
+- A plan exists for the feature: here, the milestone body and the issue
+  bodies (`milestone-phase-naming.md`)
 
 If the repo has a delivery / issue-workflow governance doc (in this repository,
 [`issue-tracking.md`](../../rules/issue-tracking.md) and [`fork-workflow.md`](../../rules/fork-workflow.md)),
@@ -189,8 +189,8 @@ upward-tier audit is now due and `begin-delivery` is responsible for invoking it
 
 | Boundary just crossed                | Required action                                                        | Skill scope     | Artifact location                          |
 | ------------------------------------ | ---------------------------------------------------------------------- | --------------- | ------------------------------------------ |
-| Last phase of an Epic completed      | Invoke `code-auditor` skill at **Epic** scope                          | Epic            | `logs/audits/YYYY_MM_DD-epic-{name}/`      |
-| Last Epic of a Milestone completed   | Invoke `code-auditor` skill at **Milestone** scope                     | Milestone       | `logs/audits/YYYY_MM_DD-milestone-{name}/` |
+| Last phase of an Epic completed      | Invoke `code-auditor` skill at **Epic** scope                          | Epic            | `docs/audits/YYYY_MM_DD-epic-{name}/`      |
+| Last Epic of a Milestone completed   | Invoke `code-auditor` skill at **Milestone** scope                     | Milestone       | `docs/audits/YYYY_MM_DD-milestone-{name}/` |
 | Mid-Epic phase boundary (most cases) | None — phase-tier scoped audit already ran inside the prior mini-retro | (skip Step 1.5) | (none)                                     |
 
 **Detection signals (any one is sufficient):**
@@ -205,7 +205,7 @@ upward-tier audit is now due and `begin-delivery` is responsible for invoking it
 1. State explicitly: "Boundary detected — prior phase closed {Epic|Milestone} {name}. Per `begin-delivery` Step 1.5, the `code-auditor` skill must run at {scope} scope before kickoff."
 2. Pause and confirm with the user before invoking. Do not auto-spend tokens on a multi-pass audit without acknowledgement. If the user defers, record the deferral in the kickoff comment, flag it as a known carry-forward risk, and continue: Step 2's futro carries it (below).
 3. If approved, invoke `code-auditor` per its `SKILL.md`. Wait for completion.
-4. Read the resulting punch list (`logs/audits/.../05-punch-list.md`). Any Critical or High item that Step 1.6 leaves deferred becomes an **input to the futro in Step 2** — it directly informs what the next phase must address before its own scope.
+4. Read the resulting punch list (`docs/audits/.../05-punch-list.md`). Any Critical or High item that Step 1.6 leaves deferred becomes an **input to the futro in Step 2** — it directly informs what the next phase must address before its own scope.
 5. Open follow-up issues for punch-list items per the repo's delivery-workflow governance (`issue-tracking.md` in this repository).
 
 **If Step 1.5 is skipped under user deferral**, the futro in Step 2 must
@@ -402,7 +402,7 @@ Pre-futro audit  →  Futro  →  Post-futro audit  →  Execute
 
 **Pre-futro audit checklist** (run before invoking the `futro` skill at Step 2):
 
-- [ ] **Live-state reconciliation** — re-query live state (Azure, DB, OpenBao, etc.) and reconcile against the sub-issue body. Update import command lists, inventory counts, drift assumptions.
+- [ ] **Live-state reconciliation** — re-query live state (the tree at `next`, the tracker, a build root, a guest) and reconcile against the sub-issue body. Update import command lists, inventory counts, drift assumptions.
 - [ ] **AC verifiability** — each AC must still be checkable. If tooling has changed or an artifact no longer exists, fix the AC now.
 - [ ] **Dependency check** — every issue this one depends on still exists, still scopes as expected, still ships before this batch.
 - [ ] **Scope discipline** — diff the body against the Epic's decomposition table. Anything new or missing? Surface to user before proceeding — never silently re-scope.
@@ -452,7 +452,7 @@ Task granularity guidance:
 | "Implement auth adapter interface (#381)"                    | "Work on auth"             |
 | "Add `/users/:id/export` endpoint with ZIP response (#402)"  | "Build the export feature" |
 | "Migrate 3 call sites in `api/users/` to new auth interface" | "Update callers"           |
-| "Read cornerstone doc X and note implications for issue #410" | "Review docs"              |
+| "Read rule X and note its implications for issue #410"        | "Review docs"              |
 
 Each task should:
 
@@ -470,7 +470,8 @@ codifies it):
 
 - [ ] The blast radius is stated: what the work changes, what depends on it,
       and what a mistake would cost
-- [ ] Conformance to project's cornerstone / foundational documents — pause
+- [ ] Conformance to the project's cornerstone documents (here, `.claude/rules/`
+      and the registers) — pause
       and escalate on risk of divergence, conflict, or contradiction
 - [ ] Plan each step before starting it (don't need to share the plan,
       but must think it through)

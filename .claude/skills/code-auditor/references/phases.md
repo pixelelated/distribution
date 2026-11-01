@@ -281,10 +281,10 @@ faces (see SKILL.md § Project conformance):
 
 | Check                                  | Relevance | Finding |
 | -------------------------------------- | --------- | ------- |
-| Reference Implementation (tenant zero) | [✓/⚠/✗/·] |         |
-| Schema-Before-Code                     | [✓/⚠/✗/·] |         |
-| Dogfooding Gate                        | [✓/⚠/✗/·] |         |
-| API-First                              | [✓/⚠/✗/·] |         |
+| Late binding in recipes (`tools/pkgcheck`) | [✓/⚠/✗/·] |       |
+| Upgrade and clean install (`upgrade-and-install.md`) | [✓/⚠/✗/·] | |
+| The VM question answered (`vm-first.md`) | [✓/⚠/✗/·] |         |
+| Guards fail closed (`engineering-practices.md`) | [✓/⚠/✗/·] |  |
 
 ### 3.5 Cross-system interaction audit (CRITICAL)
 
@@ -312,12 +312,12 @@ Common risky pairs:
 
 | Subsystem A             | Subsystem B           | Interaction risk                           |
 | ----------------------- | --------------------- | ------------------------------------------ |
-| Deploy scripts          | Custom domain routing | `caddy reload` wipes dynamic routes        |
+| A game launch           | An automatic sync     | Two rclone writers on one remote (the sync lock) |
 | Blue-green overlap      | Background pollers    | Duplicate pollers create conflicting state |
 | Database migrations     | Running application   | Old code + new schema (expand/contract)    |
 | Container orchestration | Connection pools      | Old containers hold DB connections         |
 | Auth provider restart   | Active user sessions  | All sessions invalidated                   |
-| Secrets manager restart | Application startup   | Apps fail if OpenBao is sealed             |
+| A build in flight       | A worktree fast-forward | A mixed image (`worktrees.md`)           |
 
 ### 3.6 What's missing?
 
@@ -329,7 +329,7 @@ Look for things that SHOULD exist but DON'T:
 - Schemas that should have been created or extended
 - Changelog entries that should exist
 - Migration files that should accompany schema changes
-- `.kno` entity files that should exist for new concepts
+- A register row or a rule that should exist for a new decision or concept
 - **Cross-system interaction tests** for infrastructure changes (3.5)
 
 **Grounding requirement (assertion-grounding):** "X does not exist" is the

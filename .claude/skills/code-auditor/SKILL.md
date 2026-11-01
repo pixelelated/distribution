@@ -416,7 +416,9 @@ See [`references/templates.md`](references/templates.md) for the full criterion-
 
 This repo has no single conformance rubric file. Its doctrine is distributed
 across three sources, and Phase 3 runs each as a face, marking every relevant
-row ✓/⚠/✗/·:
+row ✓/⚠/✗/·. Together they are what this skill's templates call
+**cornerstone conformance** (the source estate's word, kept because this
+repository's audits use it):
 
 1. **Instruction files** — `.claude/rules/*.md`. Each carries
    a `paths:` glob; the ones whose glob matches a changed path are **in scope
@@ -465,7 +467,7 @@ Common risky pairs are in [`references/phases.md` § Phase 3.5 interaction table
 Verifies the **adopt / extend / contribute-before-build** discipline (doctrine
 §1 platform-first; development-principles "Prefer adopt / extend / contribute
 before building"). **Applies only if the repo maintains a build-vs-adopt
-register** — scaffold does not yet, so treat this as advisory until one exists.
+register** — this repository does not keep one, so treat this as advisory.
 The phase-tier honor check (`mini-retro` scoped-audit, if present) verifies one
 phase; this step adversarially verifies the whole scope — both that the question
 was **answered** and that the answer was **honored**. (Numbered 3.5.5 to slot

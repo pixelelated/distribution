@@ -248,8 +248,8 @@ punch_index:
   severity: Critical
   category: Acceptance Criteria Gap
   source_finding: AC-03
-  owner_area: example-api auth
-  where: services/example-api/src/lib/foo.ts:42
+  owner_area: rclone cloud sync
+  where: projects/ROCKNIX/packages/network/rclone/sources/cloud_sync_helper:42
   acceptance: "<verifiable outcome>"
   outcome: open # open | resolved | deferred:#NNNN | withdrawn
 ```
@@ -262,7 +262,7 @@ punch_index:
 | Category                    | Description                                                 | Typical priority |
 | --------------------------- | ----------------------------------------------------------- | ---------------- |
 | **Acceptance Criteria Gap** | A spec/issue criterion was not met                          | Critical or High |
-| **Cornerstone Violation**       | Work violates a doctrine principle, an Accepted ADR, or a development principle | Critical         |
+| **Cornerstone Violation**       | Work violates a rule under `.claude/rules/`, a decided register row, or a blindspot's guard | Critical         |
 | **Interaction Defect**      | Subsystems work alone but fail at their intersection        | Critical or High |
 | **Spec Drift**              | Implementation diverged from the spec without documentation | High             |
 | **Missing Artifact**        | Expected file/test/doc doesn't exist                        | High or Medium   |

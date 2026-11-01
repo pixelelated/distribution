@@ -65,8 +65,8 @@ so nothing is audited from scratch at higher levels.
 | Tier          | Trigger                                    | Artifact location                        | Audit intensity                                           |
 | ------------- | ------------------------------------------ | ---------------------------------------- | --------------------------------------------------------- |
 | **Phase**     | End of each phase inside an Epic           | Inline in retro (tracker comment + spec) | Scoped audit (spot checks incl. a UI review for UI, if present — Step 2.5) |
-| **Epic**      | End of Epic (all phases code-complete)     | `logs/audits/YYYY_MM_DD-epic-*/` + retro | Full `code-auditor` skill, Epic scope                     |
-| **Milestone** | End of Milestone (all Epics code-complete) | `logs/audits/YYYY_MM_DD-milestone-*/`    | Full `code-auditor` skill, Milestone scope                |
+| **Epic**      | End of Epic (all phases code-complete)     | `docs/audits/YYYY_MM_DD-epic-*/` + retro | Full `code-auditor` skill, Epic scope                     |
+| **Milestone** | End of Milestone (all Epics code-complete) | `docs/audits/YYYY_MM_DD-milestone-*/`    | Full `code-auditor` skill, Milestone scope                |
 | **Project**   | Long-pause resume, re-architecture, chapter boundary | `docs/retrospective/` dated set | `retro-sweep` skill (three-movement sweep; experimental) |
 
 This skill covers the **Phase** tier. For **Epic** and **Milestone** tiers,
@@ -234,7 +234,8 @@ Summary:
    follow-up issue to add it; (b) any doc the phase made **stale**
    (architecture docs, runbooks, READMEs, instruction files describing the
    changed surface) is updated in the same session or has a tracked
-   follow-up; (c) for schema / Capability-`.kno` phases, the relevant
+   follow-up; (c) for a phase that changed a player-visible behaviour, the change log
+   (`docs/cloud-sync-changelog.md`, `change-log.md`) and the relevant
    catalog and changelog surfaces are reconciled. A new noun that ships
    without a glossary entry is a polysemy waiting to happen. Skip with an
    explicit "no new proper nouns / no docs made stale" note for pure
@@ -265,7 +266,7 @@ failures go to a dedicated § housekeeping.
 
 **Scope boundary:** the scoped audit is the **Phase-tier** audit.
 For Epic and Milestone audits, defer to the `code-auditor` skill —
-that skill produces dated `logs/audits/` folders and multi-file
+that skill produces dated `docs/audits/` folders and multi-file
 artifacts. The scoped audit lives inline in the retro.
 
 **Skip the scoped audit only if:**
@@ -279,13 +280,13 @@ For all other phases, run the checks.
 
 **Delegate (don't skip) when an Epic-tier audit already covers this scope.**
 If the `code-auditor` skill has already produced a dated artifact under
-`logs/audits/` whose scope subsumes this phase's delta (same branch, same
+`docs/audits/` whose scope subsumes this phase's delta (same branch, same
 time window, same files), an individual check MAY delegate to a specific
 row or section of that artifact instead of re-deriving. Requirements:
 
 1. The audit artifact path AND the specific row/section MUST be cited
    inline in the check's verdict line (e.g. `PASS ✓ — see
-logs/audits/2026_05_14-epic-m22.../03-retrospective.md § Cornerstone
+docs/audits/<date>-epic-<scope>/03-retrospective.md § Cornerstone
 Conformance row 3`).
 2. The audit artifact MUST be on the same branch HEAD (no new commits
    since it ran that change the check's evidence).
@@ -308,7 +309,7 @@ hand-waving. Examples from well-written retros:
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | "Testing went well"          | "Drift-guard tests (`X.test.ts`) caught Y class of regressions cheaply (< 150 LoC each)"                     |
 | "Some pre-existing failures" | "`capability-agent-cards.test.ts:296` + `route-kno-sync.test.ts` broken on `main` pre-session"               |
-| "Should fix the lockfile"    | "`vite@8.0.8` pin in `services/example-api/package-lock.json` — file opens as issue #XXXX"                    |
+| "Should fix the pin"         | "a pin in `projects/ROCKNIX/packages/<pkg>/package.mk` behind its author's release (`tools/fork-package-freshness` exit 1) — file opens as issue #XXXX" |
 | "Good tests"                 | "23 cartesian test cases covered internal lifecycle × verdict and external status × circuit × consumer-kind" |
 
 If you find yourself writing "it went well" or "no major issues", you haven't
@@ -551,7 +552,7 @@ code-auditor skill (Epic tier)
    │  Reads every phase retro's scoped-audit findings as input
    │  Runs its whole lifecycle (research / forward audit / retrospective /
    │  analysis / punch list / issue / resolution gate)
-   │  Writes to `logs/audits/YYYY_MM_DD-epic-*/`
+   │  Writes to `docs/audits/YYYY_MM_DD-epic-*/`
    │
    ▼
 Epic next → next Milestone phase … (recurse one level up) …
@@ -559,7 +560,7 @@ Epic next → next Milestone phase … (recurse one level up) …
    ▼
 code-auditor skill (Milestone tier)
    │  Reads every Epic audit + every phase retro as input
-   │  Writes to `logs/audits/YYYY_MM_DD-milestone-*/`
+   │  Writes to `docs/audits/YYYY_MM_DD-milestone-*/`
 ```
 
 **Practice-adjustments feedback loop** (recursive improvement):
@@ -605,7 +606,7 @@ Three things to note:
     phase / Epic / milestone naming in
     [`milestone-phase-naming.md`](../../rules/milestone-phase-naming.md).
   - Spec documents embed retro placeholders per phase only if the repo uses
-    product specs (scaffold does not today).
+    product specs (this repository does not).
   - The scoped audit grounds against
     [`working-principles.md`](../../rules/working-principles.md) and [`decision-register.md`](../../rules/decision-register.md)
     (see `references/scoped-audit.md` Check 2).

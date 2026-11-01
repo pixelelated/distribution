@@ -97,8 +97,8 @@ local-only shortcuts.
 developer environments that silently use different auth flows than
 production.
 
-**Mitigation in futros:** If the work touches `docker-compose.*.yml`,
-Caddyfile, or environment variables, add an investigation task to diff
+**Mitigation in futros:** If the work touches a device's options, a
+build's environment, or a config file read from `/storage`, add an investigation task to diff
 across all environment variants and document any intentional divergences.
 
 **Instances:**
