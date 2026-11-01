@@ -37,3 +37,16 @@ a22e13adee:tools/pkgcheck:47:  for var in PKG_SHORTDESC PKG_LONGDESC PKG_IS_ADDO
 a22e13adee:tools/pkginfo:19:  PKG_NEED_UNPACK PKG_DEPENDS_UNPACK \
 -- worktree build roots: 0; census: qemu 0, compilers 0
 failfirst (second run, 03:20:31-03:21:06Z, stage-e/s1-failfirst-2.txt): SUMMARY: tip exit 1; fixed fixture exit 0 then 0; 20 of 20 mutations caught; refusal exit 2
+== at the hand-back, 2026-11-01T03:34:21Z, stage-E start 902e00987c, tip 72cd62c32b (the record commits after it change no product path)
+git log -p 902e00987c..72cd62c32b -- <recipe> | grep -c -E '^[-+]PKG_(VERSION|GIT_CLONE_BRANCH)=': 0
+git diff --stat 902e00987c 72cd62c32b -- packages projects tools:
+ projects/ROCKNIX/packages/ui/emulationstation/package.mk | 14 +++++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
+hunk headers (git diff -U0 902e00987c 72cd62c32b -- <recipe> | grep '^@@', the headers only):
+@@ -14 +14 @@
+@@ -44 +44,2 @@
+@@ -68,0 +70 @@
+@@ -79 +80,0 @@
+@@ -82,0 +84 @@
+@@ -128,0 +131,6 @@
+git diff --name-only c9e8d5a8df 72cd62c32b -- packages projects tools: 0 paths

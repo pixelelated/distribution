@@ -184,7 +184,7 @@ def build(drift):
     out = ["# Punch list (Phases 5 and 6) — M6.P2 T37, the EmulationStation recipe and themes in the distribution (#684)", "",
            "Written by `tools/t37-05.py` from one item table, so the sections, the Phase 7 gate and the `punch_index` agree. `question:` is the brief's § 4 numbering (Q1 the pin, Q2 the build options and install steps, Q3 the dependencies, Q4 the credentials, Q5 the themes and `lowerdeck`, Q6 the patches, Q7 currency and structure); `04` § Renovation face maps them to the plan's seven. Every disposition is proposed; the stage-D pause rules them. At Phase 7 (stage E) every item has its outcome below; a record is written `**Deferred** | recorded ...` (the stream brief's ruling 11).", "",
            "reviewed-at: 9fa740a91ba9fcaa21a26cc72f0b50fac10f32df", "reviewed-at-es: none -- no ES change",
-           "fixed-at: c9e8d5a8df (the last recipe commit of stage E; the hand-back tip adds only the record)", "fixed-at-es: none -- no ES change", ""]
+           "fixed-at: the hand-back tip, as #684's header names it (t37-streams.md § The hand-back; the last recipe commit is c9e8d5a8df, and the commits after it change no product path)", "fixed-at-es: none -- no ES change", ""]
     for i in ITEMS:
         out += [f"## {i['id']}: {i['title']}", "",
                 f"- **Severity:** {i['sev']}; **category:** {i['cat']}; **question:** {i['q']}",

@@ -26,7 +26,7 @@ S1's five recipe commits each changed only
 - PL-04 `39863d5af3` (#1383);
 - PL-05 `e1e99c5a7e` (#1384);
 - PL-07 `ce31abba74`;
-- PL-08 `c9e8d5a8df` (the last recipe commit, `fixed-at`).
+- PL-08 `c9e8d5a8df` (the last recipe commit; `fixed-at` is the hand-back tip that #684's header names).
 
 Each has a record commit beside it. `fixed-at-es: none -- no ES change`.
 

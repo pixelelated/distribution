@@ -1,10 +1,10 @@
-== the five checkers over the hand-back's working tree (a22e13adee plus the record), 2026-11-01T03:23:31Z (each rc on its own line, from the command itself)
+== the five checkers, the lint and box-check over the hand-back's working tree (72cd62c32b plus the fixed-at correction), 2026-11-01T03:31:46Z (each rc on its own line, from the command itself); the second run on the coordinator's simulated merge is the coordinator's
 register-check: 714 IDs, each once; every citation in the live documents names a row
 register-check rc=0
 work-log index: current
 work-log-index --check rc=0
-rules-check --quiet rc=0
-forbidden-terms-check: 0 hits in 133643 tracked files
+rules-check --quiet rc=0 (lines printed: 0)
+forbidden-terms-check: 0 hits in 133650 tracked files
 forbidden-terms-check rc=0
 PASS
 .githooks/hooks-test rc=0
@@ -12,3 +12,7 @@ PASS
 lint-audit-artifacts rc=0
 PASS
 lint-audit-artifacts --issue 1381 rc=0
+box-check --issue 1381 rc=0: box-check: 1 issue(s), 0 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+box-check --issue 1382 rc=0: box-check: 1 issue(s), 0 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+box-check --issue 1383 rc=0: box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+box-check --issue 1384 rc=0: box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
