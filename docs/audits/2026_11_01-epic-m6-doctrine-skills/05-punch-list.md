@@ -676,7 +676,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Owner area:** the coordinator
 - **Where:** `session-resume/SKILL.md:26`; #1014 (lines at the dispatch tip `87c2ab0fed`)
 - **Acceptance:** the coordinator's ruling recorded, then the stream
-- **Ladder:** written -> audited by #1014's freshness check
+- **Ladder:** written -> no tool can (#1014 asks for a session-pointer freshness check; none exists yet)
 - **Proposed:** question (the pause)
 - **Phase 7:** Resolved, `83891d77d9` (S5)
 
@@ -741,7 +741,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Owner area:** #1373
 - **Where:** `tools/t38-checks.sh`, `tools/allow-*.txt`; `tools/register-check:49` (lines at the dispatch tip `87c2ab0fed`)
 - **Acceptance:** #1373 carries them
-- **Ladder:** evidenced -> audited once #1373 is wired
+- **Ladder:** evidenced -> audited by `tools/skills-check` once #1373 writes it
 - **Proposed:** inherit:#1373
 - **Phase 7:** Deferred, #1373 (`tools/skills-check`'s inputs)
 
@@ -754,7 +754,7 @@ the VM? No -- the tree, the tool or the register shows it"*. A fix lands only in
 - **Owner area:** the coordinator
 - **Where:** `session-stash/SKILL.md:28`; `council/references/member-roster.md:19-25` (lines at the dispatch tip `87c2ab0fed`)
 - **Acceptance:** the coordinator files them
-- **Ladder:** written -> audited by the tool each Backlog asks for
+- **Ladder:** written -> no tool can (#1395 and #1396 each ask for one; neither exists yet)
 - **Proposed:** inherit:coordinator
 - **Phase 7:** Deferred, #1395 (L-18), #1396 (L-44)
 

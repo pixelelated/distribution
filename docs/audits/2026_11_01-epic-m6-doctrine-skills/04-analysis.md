@@ -52,11 +52,11 @@ T38 read the 52 paths of `.claude/**` less `.claude/rules/**`: ten skills and ei
 | 17 the bugs, the ladder, the take-up rows, the rulings | PASS ✓ | #1389 to #1393, each with its trace, `Already written:` and VM line, `box-check` `0 fail` (D-01, D-02, D-07); the ladder in `05`; the take-up rows and the rulings in `02` |
 | 18 `proved:` equals `PROOF:` | PASS ✓ | `58` and `58` at this commit |
 | 19 no host-file line of this lane's | PASS ✓ | 689 lines at 02:44, `0` of this lane's; re-counted at the hand-back |
-| 20 the retro | SKIP ○ | stage G |
+| 20 the retro | PARTIAL ⚠ | `docs/retros/2026-11-01-m6-doctrine-skills.md`, written at the amendment and posted on #685 after its commit, named in the second hand-back |
 | 21 the checkers on the branch and the simulated merge | SKIP ○ | the hand-back's |
 | 22 the hand-back, one tip, `box-check --issue 685` | SKIP ○ | stage H |
 
-**Pass rate:** 15 of 22 met at stage E; 4 partial, each with its later stage named; 3 skipped as later stages' work (counted from the table by the command that wrote this line).
+**Pass rate:** 15 of 22 met at stage E's amendment; 5 partial, each with its later stage named; 2 skipped as later stages' work (counted from the table by the command that wrote this line).
 
 ## Code Quality Assessment
 

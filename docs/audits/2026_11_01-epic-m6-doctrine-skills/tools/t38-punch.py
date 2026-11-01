@@ -150,7 +150,7 @@ ITEMS = [
  ("the continuity section and the payload's pid", "Low", "Improvement", "Q2", "L-29", "the coordinator", "`code-auditor/SKILL.md:28-57`",
   "the coordinator's ruling recorded", "written -> no tool can", "question (the pause)"),
  ("a working branch's session file: pointer or state", "Low", "Spec Drift", "Q7", "L-68", "the coordinator", "`session-resume/SKILL.md:26`; #1014",
-  "the coordinator's ruling recorded, then the stream", "written -> audited by #1014's freshness check", "question (the pause)"),
+  "the coordinator's ruling recorded, then the stream", "written -> no tool can (#1014 asks for a session-pointer freshness check; none exists yet)", "question (the pause)"),
  ("#645's checkbox against D-WORKFLOW-078", "Low", "Spec Drift", "Q2", "L-27", "the coordinator", "#645 `:25`; `release-notes/SKILL.md:93-99`",
   "the coordinator's ruling on #645 recorded", "written -> no tool can", "question (the pause)"),
  ("the export's refresh list", "Low", "Improvement", "Q6", "L-30 to L-50, L-76 to L-78", "#911",
@@ -160,9 +160,9 @@ ITEMS = [
  ("the rule errata", "Low", "Spec Drift", "Q1", "L-22's rule half, L-23, L-50, D-QA-040, worktrees.md, the lost spaces", "the coordinator",
   "`02` § What ... inherit", "the coordinator's sweep", "written -> audited by `tools/archaeology --reversal`", "inherit:coordinator"),
  ("tools/skills-check's inputs", "Low", "Test Gap", "Q2", "the checker's steps; register-check's LIVE", "#1373",
-  "`tools/t38-checks.sh`, `tools/allow-*.txt`; `tools/register-check:49`", "#1373 carries them", "evidenced -> audited once #1373 is wired", "inherit:#1373"),
+  "`tools/t38-checks.sh`, `tools/allow-*.txt`; `tools/register-check:49`", "#1373 carries them", "evidenced -> audited by `tools/skills-check` once #1373 writes it", "inherit:#1373"),
  ("Backlog leads: the stash archive's tool and the roster's prose copies", "Low", "Test Gap", "Q6", "L-18, L-44", "the coordinator",
-  "`session-stash/SKILL.md:28`; `council/references/member-roster.md:19-25`", "the coordinator files them", "written -> audited by the tool each Backlog asks for", "inherit:coordinator"),
+  "`session-stash/SKILL.md:28`; `council/references/member-roster.md:19-25`", "the coordinator files them", "written -> no tool can (#1395 and #1396 each ask for one; neither exists yet)", "inherit:coordinator"),
 ]
 
 import os as _os, re as _re, sys as _sys

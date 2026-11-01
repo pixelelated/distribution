@@ -17,7 +17,7 @@
 
 ## Current focus
 
-**Stage E is done (05:55 UTC) and handed back on #685.** The lane is idle until the coordinator accepts. Stage F comes next:
+**Stage E is done and handed back twice on #685.** The first hand-back was at 05:55 UTC; the second, at the amendment of the acceptance read's eight asks (06:45), carries the retro `docs/retros/2026-11-01-m6-doctrine-skills.md`. The lane is idle until the coordinator accepts. Stage F comes next:
 - run 4 of the checker;
 - `audit-completion.json`, once #1394 is closed.
 
@@ -99,3 +99,4 @@ another lane's worktree or an ES checkout, or edits a rule, `CLAUDE.md`,
 - Stage C, 03:52 UTC 2026-11-01: committed on `168bbba783` (the commit carrying this line; its hash is in #685's stage-C checkpoint post). Run 1 of the checker 947 of 947; FAIL-first every probe at its wanted exit after run 2a's harness fix; the withheld tip 902 of 928 at the 19 keys; `05` with 57 Open items; the pre-issue lint PASS; 42 proofs; nothing under `.claude/` edited.
 - Stage D, 04:04 UTC 2026-11-01: committed on `8c76ca62d3` (the commit carrying this line; its hash is in #685's pause post). The bugs #1389 to #1393; the audit issue #1394 under #685 with 57 checkboxes, `box-check` 0 fail, the lint `--phase pre-issue --issue 1394` PASS; the questions `6553169705` and `6553118160` read back; 50 proofs; nothing under `.claude/` edited.
 - Stage E, 05:55 UTC 2026-11-01: committed on `916c9f9952` (the merge; the commit carrying this line is named in #685's stage-E hand-back). 51 items in 56 fix commits, `fixed-at` `420b845656`; the checker at fixed-at `TOTAL: 962 of 962 assertions`; the lint PASS on its default phase and with `--issue 1394`; the coordinator's `6a12ce2d73` merged; 58 proofs.
+- Stage E amendment, 2026-11-01: committed on `44626257ef`. The acceptance read's eight asks: `05`'s Ladder lines; the generated, asserted lines; four sets of lines into `02` § The runs; the per-lead inherit rows with the #585 row; the retro. The commit carrying this line is named in the second hand-back.

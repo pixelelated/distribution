@@ -257,6 +257,8 @@ state-main: 5 lines in 2 files
 scaffold: 83 lines in 26 files
 ```
 
+generated, asserted: 13 lines (`stage-a/runs.sh` chunk 18, its output `stage-a/runs.out`, copied by `tools/include.py`)
+
 **Corrected at stage C.** The sentence here said the provenance terms (`scaffold`'s 83 lines, `pfi-collaboration`, a historical roster line) would go to `tools/allow-legit.txt`. The checker does it the other way: its `stale` step checks only the defect-shaped subset of the terms (`STALE` in `tools/t38-checks.py`).
 - It leaves out `scaffold`, `rasteratops` and the bare `mistral` and `trio`, whose hits are mostly provenance.
 - It narrows `mistral` to *an inactive seat as current* and `trio` to `trio-process` and `trio-runs`.
@@ -309,13 +311,15 @@ contract: 2 allowlisted, 0 FAIL
   allow-legit.txt contract: 1
 ```
 
+generated, asserted: 32 lines (`stage-c/per-class.py stage-c/baseline`, re-run at stage E and equal)
+
 No entry of class D, H or I was needed at the tip. Run 3 withholds `allow-findings.txt` and leaves exactly that file's 19 keys failing: 26 FAIL lines (refs 12, stale 13, contract 1; `stage-c/per-class-withheld.out`). Stage F re-runs both commands after stage E, and each fix is seen as its entry excusing nothing.
 
 **After stage E** (S0's closing): § 5's counting run in stage A chunk 18's form, at `fixed-at` `420b845656` beside the dispatch tip (`stage-e/S0-closing-stale-counts.txt`):
 
 <!-- include: stage-e/S0-closing-stale-counts.txt -->
 ```text
-# the stale names after stage E (stage A chunk 18's form, R3 C21's terms, case-insensitive), over the 52 at fixed-at 9d2aa63cd1 (05:39:17 UTC), beside the dispatch tip's
+# the stale names after stage E, by stage-e/S0-closing-stale-counts.sh over the 52 at fixed-at 420b845656 (06:49:34 UTC), beside the dispatch tip 87c2ab0fed
 rubber[- ]duck: 0 lines in 0 files at the tip; 0 lines in 0 files at fixed-at, 0 of them outside the export
 copilot: 42 lines in 12 files at the tip; 37 lines in 8 files at fixed-at, 0 of them outside the export
 \.github/instructions: 27 lines in 17 files at the tip; 27 lines in 17 files at fixed-at, 0 of them outside the export
@@ -328,13 +332,15 @@ mistral: 50 lines in 13 files at the tip; 50 lines in 13 files at fixed-at, 0 of
 trio: 20 lines in 9 files at the tip; 20 lines in 9 files at fixed-at, 3 of them outside the export
 rasteratops: 5 lines in 4 files at the tip; 5 lines in 4 files at fixed-at, 0 of them outside the export
 state-main: 5 lines in 2 files at the tip; 0 lines in 0 files at fixed-at, 0 of them outside the export
-scaffold: 83 lines in 26 files at the tip; 76 lines in 26 files at fixed-at, 17 of them outside the export
+scaffold: 83 lines in 26 files at the tip; 68 lines in 24 files at fixed-at, 9 of them outside the export
 begin-exploration: 19 lines in 5 files at the tip; 1 lines in 1 files at fixed-at, 0 of them outside the export
 ```
 
+generated, asserted: 15 lines, a header and 14 terms (`bash stage-e/S0-closing-stale-counts.sh <worktree> 420b845656`, re-run and equal)
+
 - **Gone outside the export:** `copilot`, `.github/instructions`, `.github/prompts`, `state-main` and `begin-exploration` (19 -> 1, the export's `council/references/pipeline.md:497`, excused with L-22 and #911).
 - **`trio`'s 3 lines outside the export:** `futro/SKILL.md`'s literal-grep trap example, which quotes the old term on purpose; they are `allow-legit.txt`'s three provenance entries.
-- **`scaffold`'s 17 lines outside the export** are kept and read as this repository's:
+- **`scaffold`'s 9 lines outside the export** are kept and read as this repository's:
   - the four origin notes (provenance);
   - `futro/SKILL.md`'s `scaffold#246` citation;
   - the plain word *scaffolding*, four lines.
@@ -387,9 +393,11 @@ Every § 5 command, run at stage A as its own line in one shell (`stage-a/runs.s
 | the pins | -- | `pins MATCH 8 of 8` | an agent's bytes against its pin: an edit, or a pin to bytes the tree lacks |
 | the sums | -- | `BUNDLE match=52 diff=39 absent=3` | (informational, L-34) |
 | the brief's grep | -- | `80` | the cross-references moved from R1 C19's |
+| the table generators' drift (`tools/t38-tables-drift.sh`, stage B) | each at its wanted exit | five `rc=1 (want 1) FAIL ...` and five `rc=0 (want 0)`, the ten lines below (`stage-b/tables/drift.out`) | a generator that prints a drift without failing |
 | `begin-exploration` | -- | `19`, `1`, no directory | the skill written, or the references swept |
 | the cited IDs | -- | `16`, each `dec:1 open:0` (A-08) | a citation of a row that is not decided |
-| #1044's loop | -- | six `MISSING`; the three `scripts/__tests__/` files `MISSING`, two others `PRESENT` | (the export's: L-30) |
+| #1044's loop | -- | nine `MISSING` and two `PRESENT`, the eleven lines below (`stage-a/runs.out:101-111`) | (the export's: L-30) |
+| chunk 14, the council family's absences (L-30, L-31, L-47) | `rc=128`, then `rc=1` | `fatal: path '.claude/agents/researcher.agent.md' does not exist in 'HEAD'`, `researcher agent rc=128`, `0` (the lines below, `stage-a/runs.out:95-99`) | the Researcher Agent present, or a council-research run kept |
 | the secret scan | -- | `secret regex compile rc=1`, the planted positive `1`, then `0` files | a credential-shaped line in the 52, or a scan that cannot match |
 | non-ASCII | -- | `48` files | (a count, recorded under `LC_ALL=C`) |
 | `tools/forbidden-terms-check` | `rc=0`, `rc=0`, `rc=1` | `0 hits` over the 52 and over empty input; `forbidden-terms-check: 1 line(s) on stdin carry a listed word` on the planted line | a listed word in the 52, or a check that cannot fire |
@@ -398,13 +406,57 @@ Every § 5 command, run at stage A as its own line in one shell (`stage-a/runs.s
 | the removal check | -- | no line (A-06) | an edit outside the 52 or in the council family: a stop |
 | `tools/t38-checks.sh`, run 1: the tip, every allowlist | `rc=0` | `TOTAL: 947 of 947 assertions`; `allowlists 58 of 58 passed` | an assertion failing that no entry excuses, or an entry that excuses nothing |
 | run 2: the FAIL-first, a planted positive per probe | each at its wanted exit | nine probes `rc=1`, each with its FAIL line; the bundle `rc=0`, `BUNDLE match=51 diff=40`; seven refusals `rc=2` (`stage-c/run-2-firstfail.out`) | a probe at `rc=0` on its planted positive: run 2a found three, below |
-| run 3: the tip, `--withhold findings` | `rc=1` | `TOTAL: 902 of 928 assertions`; 26 FAIL lines over 19 keys, the 19 entries of `allow-findings.txt` | the record's FAIL at the tip: a finding already gone, or one with no entry |
+| run 3: the tip, `--withhold findings` | `rc=1` | `TOTAL: 902 of 928 assertions`; 26 FAIL lines over 19 keys, the 19 entries of `allow-findings.txt`: L-08 (2 refs), L-09 (3 refs, 7 stale), L-14 (2 stale), L-15 (4 refs), L-16 (2 refs, 1 stale), L-21 (3 stale), L-60 (1 contract), L-65 (1 refs), as `stage-c/per-class-baseline.out` groups them (26 lines, summed by the command that wrote this cell) | the record's FAIL at the tip: a finding already gone, or one with no entry |
 | run 4: after stage E, `--withhold findings` | -- | stage F's (with `allow-findings.txt` empty at `fixed-at`, the withheld run reads the same three files) | -- |
-| stage E: the stale term `begin-exploration`, FAIL-first | `rc=1` | a scratch copy of `tools/t38-checks.py` with the term, on the parent `5f6d68c4f6`'s export: 18 FAIL lines; the export's `council/references/pipeline.md:497` excused by its `*` entry (`stage-e/S2-stale-term-failfirst.txt`) | the term committed without its FAIL seen |
+| stage E: the stale term `begin-exploration` (L-22), FAIL-first | `rc=1` | a scratch copy of `tools/t38-checks.py` with the term, on the parent `5f6d68c4f6`'s export: 18 FAIL lines; the export's `council/references/pipeline.md:497` excused by its `*` entry (`stage-e/S2-stale-term-failfirst.txt`); futro's two and begin-delivery's five lines excused in `allow-findings.txt` as `L-22 swept in S3` / `S4` from S2 until S3 and S4 landed | the term committed without its FAIL seen |
 | stage E: every item's check, at its parent and at its fix | each FAIL then PASS | the fix table in § The streams, 60 rows (`tools/t38-streams.py fix`) | a check that passes at its parent proves nothing about its fix |
 | stage E: `tools/t38-checks.sh` at `fixed-at` `420b845656`, every allowlist | `rc=0` | `TOTAL: 962 of 962 assertions`; `allowlists 39 of 39 passed`; `allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 0` (`stage-e/S0-closing-checker-fixed-at.out`) | a finding left that no entry excuses, or an entry that excuses nothing |
 | stage E: the checker over the stage-A export with stage E's `tools/` | `rc=1` | `TOTAL: 892 of 947 assertions`: the 18 `begin-exploration` FAIL lines and the tip's findings back with their entries removed (`stage-e/S0-closing-checker-stage-a-export.out`) | the stage-E tools passing the unfixed tree: a check that cannot fail |
 | `tools/lint-audit-artifacts --phase pre-issue` | `rc=0` | `PASS pre-issue artifacts (does not certify resolution)`, `57 punch item(s)`, `0 verified external calls` | a `05` or a review plan the lint refuses |
+
+**The table generators' drift at stage B** (`stage-b/tables/drift.out`; B-19):
+
+<!-- include: stage-b/tables/drift.out -->
+```text
+coverage, the export                 rc=0 (want 0) 
+coverage, one file removed           rc=1 (want 1) FAIL the export holds 51 paths, not 52
+q4, the export                       rc=0 (want 0) 
+q4, one byte on an agent             rc=1 (want 1) FAIL pin: .claude/agents/council-member-gpt.agent.md
+q5, the export                       rc=0 (want 0) 
+q5, a description removed            rc=1 (want 1) FAIL q5: session-resume has no description
+q6, the export                       rc=0 (want 0) 
+q6, a skill renamed                  rc=1 (want 1) FAIL q6: the skills are ['begin-delivery', 'code-auditor', 'council', 'council-research', 'developer-relations
+q7, the export                       rc=0 (want 0) 
+q7, a shared section renamed         rc=1 (want 1) FAIL q7: futro has no section '## pixelelated continuation'
+```
+
+**#1044's loop** (`stage-a/runs.out:101-111`):
+
+<!-- include: stage-a/runs.out from ^MISSING scripts/lint-agent-model-arrays to ^PRESENT scripts/__tests__/lint-council-seat-efforts -->
+```text
+MISSING scripts/lint-agent-model-arrays.ts
+MISSING scripts/lint-council-research-digests.ts
+MISSING scripts/lint-council-research-gates.ts
+MISSING scripts/lint-council-research-provenance.ts
+MISSING scripts/lint-council-research-replay-metadata.ts
+MISSING scripts/summarize-council-research-lints.ts
+MISSING scripts/__tests__/council-invoke-composite-provenance.test.ts
+PRESENT scripts/__tests__/council-invoke-routing.node-test.ts
+MISSING scripts/__tests__/council-research-lint-summary.test.ts
+MISSING scripts/__tests__/lint-council-research-digests.test.ts
+PRESENT scripts/__tests__/lint-council-seat-efforts.node-test.ts
+```
+
+**Chunk 14, the council family's absences** (`stage-a/runs.out:95-99`):
+
+<!-- include: stage-a/runs.out from ^== chunk-14.sh begins to ^== chunk-14.sh ends -->
+```text
+== chunk-14.sh begins 02:44:49: # L-30, L-31, L-47: the council family's absences (expect no line; a non-zero rc; `0` -- R2 L-01, L-
+fatal: path '.claude/agents/researcher.agent.md' does not exist in 'HEAD'
+researcher agent rc=128
+0
+== chunk-14.sh ends 02:44:49, last command rc=1, wall 0s
+```
 
 **Run 1** (`stage-c/run-1-baseline.out`):
 
@@ -635,8 +687,30 @@ Each is for scaffold's next export, in the shape the lane writes. Each goes on #
 
 | Item | Lines | Owner |
 | --- | --- | --- |
-| The export's refresh list: L-30 (with #1044's loop and the absent hooks), L-31, L-33, L-34, L-35 narrowed, L-36, L-37, then L-38 to L-46, L-48, L-49, L-76, L-77, L-78 | `02` § The leads, each at its lines | #911 (PL-17) |
-| L-32 withdrawn, with its read | `council/SKILL.md:188-190` | #911, noted so it is not re-found |
+| L-30 (names what is not there) | `council-research/SKILL.md:22`, `:145`, `:190`, `:233`, `:243`, `:373`, `:392`, `:407-411`, `:539-540`; `methodology-primitives.md:224`; `phase-1-independent-research.md:142`; `phase-3-adversarial-review.md:170`; `council/references/model-verification.md:542` | #911; PL-53 |
+| L-31 (names what is not there) | `council-research/SKILL.md:13`; `model-roster.md:26-27`; `phase-2-clinical-synthesis.md:110`, `:246` | #911; PL-53 |
+| L-32 (**withdrawn**) | `council/SKILL.md:188-190` | #911, noted so it is not re-found (L-32 withdrawn at stage B: the file is council-research's, and the sentence names it); PL-53 |
+| L-33 (names what is not there) | `council-research/references/provenance-schema.md:594` | #911; PL-53 |
+| L-34 (a count true once) | `council/COUNCIL-BUNDLE.md:4`, `:9-11`; `COUNCIL-BUNDLE.SHA256SUMS:31` | #911; PL-53 |
+| L-35 (inherit) | `agents/council-member-claude.agent.md:37`; `agents/council-member-deepseek.agent.md:17`; `agents/council-member-gemini.agent.md:31`; `agents/council-member-gpt.agent.md:30`; `agents/council-member-grok.agent.md:17`; `agents/council-member-kimi.agent.md:7, :27`; `agents/council-member-mistral.agent.md:7, :29`; `agents/council-member-muse.agent.md:7, :27` (`git grep -n -F references/member-roster.md` at `87c2ab0fed`) | #911, #1373; PL-53 |
+| L-36 (inherit) | `scripts/lib/council-roster.ts:25-26`, `:35-36`, `:87-90` (T45's) | #911, T45; PL-53 |
+| L-37 (inherit) | `council/IMPORTED-FROM.md:104-127` | the coordinator, #911; PL-53 |
+| L-38 (names what is not there) | `agents/council-member-claude.agent.md:29`; `agents/council-member-gemini.agent.md:23`; `agents/council-member-gpt.agent.md:22`; `agents/council-member-kimi.agent.md:17`; `agents/council-member-mistral.agent.md:17`; `agents/council-member-muse.agent.md:17` (`git grep -n -F .github/instructions` at `87c2ab0fed`) | #911; PL-53 |
+| L-39 (a count or a name true once) | `council/SKILL.md:121-125`; `member-roster.md:84-85`; `council-research/SKILL.md:17`; `provenance-schema.md:424`, `:587`, `:640`; `model-verification.md:63-69`, `:385` | #911; PL-53 |
+| L-40 (two texts that disagree) | `council-member-gemini.agent.md:5-13` against `:15` | #911; PL-53 |
+| L-41 (a cost no use repays) | `agents/council-member-claude.agent.md:3, :4`; `agents/council-member-deepseek.agent.md:3, :4`; `agents/council-member-gemini.agent.md:3, :4`; `agents/council-member-gpt.agent.md:3, :4`; `agents/council-member-grok.agent.md:3, :4`; `agents/council-member-kimi.agent.md:3, :4`; `agents/council-member-mistral.agent.md:3, :4`; `agents/council-member-muse.agent.md:3, :4` (`git grep -n -E ^(description\|tools):` at `87c2ab0fed`) | #911; PL-53 |
+| L-42 (names what is not there) | `council-research/SKILL.md:492`; `council-research/references/output-directory-structure.md:31, :36, :53`; `council-research/references/phase-1-independent-research.md:268`; `council-research/references/phase-4-council-deliberation.md:141`; `council/references/context-loading.md:124`; `council/references/output-conventions.md:25`; `council/references/pipeline.md:82` (`git grep -n -F research/trio-runs` at `87c2ab0fed`) | #911; PL-53 |
+| L-43 (names what is not there) | `council/SKILL.md:26`, `:191-192`; `context-loading.md:47`, `:60`; `phase-5-deliverable.md:118` | #911; PL-53 |
+| L-44 (inherit) | `agents/council-member-claude.agent.md:20, :21`; `agents/council-member-deepseek.agent.md:5, :6`; `agents/council-member-gemini.agent.md:14, :15`; `agents/council-member-gpt.agent.md:13, :14`; `agents/council-member-grok.agent.md:5, :6`; `agents/council-member-kimi.agent.md:8, :9`; `agents/council-member-mistral.agent.md:8, :9`; `agents/council-member-muse.agent.md:8, :9`; `council/references/member-roster.md:21, :22, :23, :24, :25` (`git grep -n -E ^\\| `council-member-\|^model:\|^  - ` at `87c2ab0fed`) | #1373, T45; PL-53 |
+| L-45 (a count or a name true once) | `council-research/references/provenance-schema.md:24`; `council/IMPORTED-FROM.md:25, :28`; `council/SKILL.md:25`; `council/references/member-roster.md:78` (`git grep -n -i -F rasteratops` at `87c2ab0fed`) | #911; PL-53 |
+| L-46 (a cost no use repays) | `council-research/SKILL.md:21-22` | #911; PL-53 |
+| L-47 (a cost no use repays) | `council-research/**` (4,150 lines) | #807 (comment 6553118160, the maintainer's answer), then #911 (PL-54); PL-53 |
+| L-48 (inherit) | `council/IMPORTED-FROM.md:92-97` | #1045; PL-53 |
+| L-49 (read) | a positive, the 52 hold no shadow-seat instruction; the term's one line is a path in the bundle's list: `council/COUNCIL-BUNDLE.SHA256SUMS:31` (`git grep -n -i -F shadow` at `87c2ab0fed`) | #911; PL-53 |
+| L-50 (two texts that disagree) | `.claude/rules/council-substrate-integrity.md:131`; `council/IMPORTED-FROM.md:4, :17, :52, :95` (`git grep -n -i -E all in place\|adaptations` at `87c2ab0fed`) | #911's re-review; the rule half is the coordinator's open erratum (the row below); PL-53 |
+| L-76 (two texts that disagree) | `phase-1-independent-research.md:150`, `:154`; `phase-4-council-deliberation.md:59`; `phase-5-deliverable.md:172`; `council/references/output-conventions.md:452` | #911; PL-53 |
+| L-77 (two texts that disagree) | `council/references/pipeline.md:62-64`, `:155-157`, `:202-206`, `:416-417`, `:458-460`, `:468`; `voting-rules.md:57-58`; `output-conventions.md:131`; `context-loading.md:120-126` against `:198-199` | #911; PL-53 |
+| L-78 (a count or a name true once) | the export's editing artifacts: `council/SKILL.md:95-97`; `COUNCIL-BUNDLE.md:9`, `:26`; `member-roster.md:93-95`; `IMPORTED-FROM.md:104`, `:106`, `:115` | #911; PL-53 |
 | The maintainer's two questions: `council-research` kept or retired (L-47), `begin-exploration` written or swept (L-22) | § 4 | the coordinator puts both: `council-research`'s on #807, comment `6553118160` (the coordinator's, 03:56); `begin-exploration`'s on #685, comment `6553169705` (the lane's, 04:02); each read back by `gh api repos/pixelelated/distribution/issues/comments/<id>` (`stage-d/question-readback.out`, D-06); `begin-exploration` answered **swept, not written** (ruling 2, D-WORKFLOW-219), open to reversal by the maintainer on #346 |
 | Rule erratum: `adversarial-council.md:36-38` *"ships in the corpus"* for `begin-exploration` | L-22 | the coordinator: swept in `b344408e46` (ruling 2, D-WORKFLOW-219) |
 | Rule erratum: `learning-capture.md:67`, a working branch's file as a pointer only | L-68 | the coordinator: swept in `b344408e46` (ruling 6) |
@@ -648,6 +722,7 @@ Each is for scaffold's next export, in the shape the lane writes. Each goes on #
 | Rule erratum, met in the read: a space lost before a number in rules (`worktrees.md`'s *"October12"*, `device-builds.md`'s *"about138 GB"*), the same shape as L-78 | `instruction-files.md` § the rules | the coordinator: swept in `b344408e46` |
 | #1373's inputs: `t38-checks.sh`'s steps, its allowlists' classes, its fixtures; and `register-check`'s `LIVE` list naming `.claude/skills` and not `.claude/agents` (`:49`) | § 8 item 4 | #1373 |
 | Backlogs filed by the coordinator: the stash archive's tool (L-18) as #1395; the roster's prose copies checked against the Facilitator's table (L-44) as #1396. The renovation face (L-24) stays in the plan with no Backlog (ruling 3). | § 8 item 5 | #1395, #1396 |
+| The #585 lines owed: stage B's four (L-76, L-77, L-30, L-40) and stage E's twelve (PL-02, PL-08, PL-09, PL-15, PL-30, PL-32, PL-33, PL-34, PL-35, PL-43, PL-44, PL-46) | `02` § The #585 lines owed, each at its file:line | #585, by the coordinator after the initial build (D-WORKFLOW-164, -165); never sent by the lane |
 | #810 closes when `templates.md`'s fix reaches `next`; L-56 is outside its checkbox | L-01, L-56 | #810 |
 | #342 answered for the fork-adapted skills by L-05's stream; open for the export | L-05 | #342 |
 | T39 (#686): no lead reached `docs/reviews/plan-for-the-plan.md` | -- | #686, none |
