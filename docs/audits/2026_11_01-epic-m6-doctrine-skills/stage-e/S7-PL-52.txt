@@ -1,0 +1,27 @@
+# PL-52 (L-27), S7: release-notes: the PR description carries upstream's four sections, the disclosure answered Yes (PL-52; Refs #685)
+parent: 4aa143ff5d (export /workspace/tmp/m6-t38/e/4aa143ff5d); fix: 7d1ee17849 (tree c1a5ef90c1, export /workspace/tmp/m6-t38/e/7d1ee17849)
+check, run in each export's .claude/skills: N=release-notes/SKILL.md; echo "AI Assistance Disclosure: $(grep -c "AI Assistance Disclosure" $N)"; echo "the template named: $(grep -c -F "pull_request_template.md" $N)"; echo "claude lines: $(grep -c -i claude $N)"; echo "Yes ticked: $(grep -c -F -- "- [x] **Yes**" $N)"; echo "upstream's four, in order: $(git -C "$REPO" show upstream/next:.github/pull_request_template.md | grep -E "^## " | sed "s/^## //" | paste -sd"|" -)"; echo "the skill's four, in order: $(grep -o -E "^[1-4]\. .## [^:]+" $N | sed -E "s/^[1-4]\. .## //" | paste -sd"|" -)"
+FAIL at the parent (rc=0): AI Assistance Disclosure: 0 ; the template named: 0 ; claude lines: 2 ; Yes ticked: 0 ; upstream's four, in order: Summary|Testing & Verification|Additional Context & Reviewer Notes|AI Assistance Disclosure ; the skill's four, in order: 
+PASS at the fix (rc=0): AI Assistance Disclosure: 2 ; the template named: 1 ; claude lines: 2 ; Yes ticked: 1 ; upstream's four, in order: Summary|Testing & Verification|Additional Context & Reviewer Notes|AI Assistance Disclosure ; the skill's four, in order: Summary`|Testing & Verification`|Additional Context & Reviewer Notes`|AI Assistance Disclosure`
+allowlists re-keyed: t38-rekey: 0 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit c1a5ef90c1):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       630 of 630 passed, 156 allowlisted
+ok    stale      112 of 112 passed, 111 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 47 of 47 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 8
+TOTAL: 953 of 953 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+#645's checkbox was rewritten by the coordinator under D-WORKFLOW-219 before this commit (ruling 7); tools/pr-stack-check's BANNED refuses the word the template's question sentence carries, so the sentence is not copied.
+Already written: nothing inherited: the PR drafts under docs/releases/pr/ (11) were written to the old shape and none has been opened (D-WORKFLOW-165); they are rewritten when a PR is cut, not here
+import-unchanged: no (git log -S over .claude/skills/release-notes/SKILL.md at 4aa143ff5d prints: 5ec054a768)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 7d1ee17849:
+ .claude/skills/release-notes/SKILL.md | 42 +++++++++++++++++++++++++----------
+ 1 file changed, 30 insertions(+), 12 deletions(-)

@@ -1,0 +1,27 @@
+# PL-14 (L-70), S7: release-notes: the details block is the release note's (PL-14; Refs #685)
+parent: 29b6e04aec (export /workspace/tmp/m6-t38/e/29b6e04aec); fix: a8cff74210 (tree b88d821bb2, export /workspace/tmp/m6-t38/e/a8cff74210)
+check, run in each export's .claude/skills: D=$(sed -n 3p release-notes/SKILL.md); echo "details block: $(printf "%s" "$D" | grep -c "details block")"; echo "never in a PR description: $(printf "%s" "$D" | grep -c "never in a PR description")"; echo "the body forbids the plumbing in a PR: $(grep -c "The fork.s plumbing" release-notes/SKILL.md)"
+FAIL at the parent (rc=0): details block: 1 ; never in a PR description: 0 ; the body forbids the plumbing in a PR: 1
+PASS at the fix (rc=0): details block: 1 ; never in a PR description: 1 ; the body forbids the plumbing in a PR: 1
+allowlists re-keyed: t38-rekey: 0 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit b88d821bb2):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       627 of 627 passed, 156 allowlisted
+ok    stale      112 of 112 passed, 111 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 47 of 47 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 8
+TOTAL: 950 of 950 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Description, release-notes/SKILL.md:3: 277 -> 311 characters of the scalar (tools/t38-tables.py q5); 293 -> 327 bytes of the line (sed -n 3p | wc -c)
+Already written: nothing inherited: the PR drafts under docs/releases/pr/ follow the body's rules (no plumbing), and no PR has been opened (D-WORKFLOW-165)
+import-unchanged: no (git log -S over .claude/skills/release-notes/SKILL.md at 29b6e04aec prints: 9404f23c55)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= a8cff74210:
+ .claude/skills/release-notes/SKILL.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)

@@ -1,0 +1,26 @@
+# PL-42 (L-80), S7: release-notes: the tools' claims are the tools' (PL-42; Refs #685)
+parent: a8cff74210 (export /workspace/tmp/m6-t38/e/a8cff74210); fix: 4aa143ff5d (tree 0c2a027fc7, export /workspace/tmp/m6-t38/e/4aa143ff5d)
+check, run in each export's .claude/skills: N=release-notes/SKILL.md; echo "carries any of (the above): $(grep -c "carries any of$" $N)"; echo "fails a plural, unconditionally: $(grep -c -E "prose-check. fails a plural\.$" $N)"; echo "as RC1 has: $(grep -c "as RC1 has" $N)"; echo "the patterns named: $(grep -c -E "BANNED. and .PLURAL" $N)"; echo "the tools: $(grep -c "^BANNED=" "$REPO/tools/pr-stack-check") $(grep -c "^PLURAL=" "$REPO/tools/pr-stack-check") $(grep -c "docs/releases/\" in path" "$REPO/tools/prose-check")"
+FAIL at the parent (rc=0): carries any of (the above): 1 ; fails a plural, unconditionally: 1 ; as RC1 has: 1 ; the patterns named: 0 ; the tools: 1 1 1
+PASS at the fix (rc=0): carries any of (the above): 0 ; fails a plural, unconditionally: 0 ; as RC1 has: 0 ; the patterns named: 1 ; the tools: 1 1 1
+allowlists re-keyed: t38-rekey: 0 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit 0c2a027fc7):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       629 of 629 passed, 156 allowlisted
+ok    stale      112 of 112 passed, 111 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 47 of 47 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 8
+TOTAL: 952 of 952 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Already written: nothing inherited: no PR has been opened (D-WORKFLOW-165), and the release notes written under the old sentences were checked by the tools as they are
+import-unchanged: no (git log -S over .claude/skills/release-notes/SKILL.md at a8cff74210 prints: 5ec054a768)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 4aa143ff5d:
+ .claude/skills/release-notes/SKILL.md | 16 ++++++++++------
+ 1 file changed, 10 insertions(+), 6 deletions(-)

@@ -1,0 +1,26 @@
+# PL-41 (L-79), S7: developer-relations: three sentences read once (PL-41; Refs #685)
+parent: 7d1ee17849 (export /workspace/tmp/m6-t38/e/7d1ee17849); fix: 88dde804a3 (tree 0415ca4520, export /workspace/tmp/m6-t38/e/88dde804a3)
+check, run in each export's .claude/skills: D=developer-relations/SKILL.md; echo "the double hyphen said: $(grep -c "ASCII double hyphen" $D)"; echo "lists in the Warn section: $(sed -n "/^\*\*Warn\*\*/,/^## Page shapes/p" $D | awk "/^- / && !inl {n++; inl=1} !/^- / && !/^  / {inl=0} END {print n}")"; echo "two walks counted it: $(grep -c "and two walks counted it as a row" $D)"; echo "a separate fact: $(grep -c "a separate fact" $D)"
+FAIL at the parent (rc=0): the double hyphen said: 0 ; lists in the Warn section: 2 ; two walks counted it: 1 ; a separate fact: 0
+PASS at the fix (rc=0): the double hyphen said: 1 ; lists in the Warn section: 1 ; two walks counted it: 0 ; a separate fact: 1
+allowlists re-keyed: t38-rekey: 0 entries moved or dropped
+tools/t38-checks.sh exit 0 at the fix (--commit 0415ca4520):
+ok    inventory  52 of 52 passed
+ok    front      80 of 80 passed
+ok    refs       630 of 630 passed, 156 allowlisted
+ok    stale      112 of 112 passed, 111 allowlisted
+ok    roster     12 of 12 passed
+ok    pins       9 of 9 passed
+ok    contract   11 of 11 passed, 1 allowlisted
+ok    allowlists 47 of 47 passed
+info  bundle     BUNDLE match=52 diff=39 absent=3 (informational, never a FAIL)
+allowlists read: allow-legit.txt 13, allow-inherited.txt 26, allow-findings.txt 8
+TOTAL: 953 of 953 assertions
+tools/rules-check --quiet rc=0
+the wordlist over the added lines rc=0
+Already written: nothing inherited: no tool can read these sentences (05's ladder); the pages written from the skill were checked by tools/prose-check, which reads the pages, not the skill
+import-unchanged: no (git log -S over .claude/skills/developer-relations/SKILL.md at 7d1ee17849 prints: 35f22ecd90)
+time to play: untouched -- the 52 load in an agent's session, never on an image
+git show --stat --format= 88dde804a3:
+ .claude/skills/developer-relations/SKILL.md | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
