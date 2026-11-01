@@ -6,6 +6,8 @@ reviewed-at-es: 16dbac5211eea7e70db7394372033be2be7df829
 
 fixed-at-es: (pending stage E)
 
+**Filed at stage D** (2026-11-01): the audit issue #1358 (a sub-issue of #683) with the 10 punch items as its checklist; the bugs PL-01 #1362, PL-02 #1363, PL-03 #1364, PL-04 #1365, PL-05 #1366, PL-06 #1359, PL-07 #1360, PL-08 #1361, PL-09 #1367, PL-10 #1368; the three held findings as neutral public bugs #1369 (h1), #1370 (h2), #1371 (h3) — file and symptom class only, details held under D-WORKFLOW-215.
+
 **Second opinion:** independent, GPT-6 Astra at max (`04-analysis.md`, `second-opinions/gpt-audit.md`): verdict "usable as a starting punch list, not sound unchanged"; L-19 confirmed; three positives corrected in `02`; 21 missed findings (G-1..G-21), the four CONFIRMED-at-the-pin carried here as PL-06..PL-09.
 
 ## PL-01: toUpper/toLower fold a multi-byte codepoint byte-wise, and the casing tables are unsafe

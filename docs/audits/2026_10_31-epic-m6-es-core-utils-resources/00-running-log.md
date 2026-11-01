@@ -85,3 +85,11 @@
 - **`03-retrospective.md`**: a stage-C placeholder; the full retro is stage F.
 - **The pre-issue lint PASSES**: `tools/lint-audit-artifacts --phase pre-issue` -> "PASS pre-issue artifacts (does not certify resolution)". Also green: `t36-tables.py --check` (6 blocks), `forbidden-terms-check` (0/65), `register-check`, `work-log-index --check`.
 - **Still owed (stage C):** the stand-in's 4 T36 fakes + the renderers positive (`-DUSE_OPENGLES_30`). **Stage D:** file the audit issue + the bugs (incl. the three held, neutral), then the pause for the coordinator's rulings.
+
+## 2026-11-01 00:11 UTC -- stage D: the audit issue, the bugs, the held findings filed
+
+- **Audit issue #1358** (sub-issue of #683, linked by REST id), the 10 punch items its checklist.
+- **The 10 bugs** (label `bug`, each with its trace, `Already written:`, VM line, `fixed-at`/`fixed-at-es` left for stage E): PL-01 #1362, PL-02 #1363, PL-03 #1364, PL-04 #1365, PL-05 #1366, PL-06 #1359, PL-07 #1360, PL-08 #1361, PL-09 #1367, PL-10 #1368 (the grouped G-items).
+- **The three held findings as neutral public bugs** (file + symptom class only, no mechanism/input/size/shape/reproduction; "details held with the maintainer under D-WORKFLOW-215"): #1369 (archive extraction confinement, h1), #1370 (getCanonicalPath out-of-bounds write, h2), #1371 (launch-shell escaping, h3). Nothing from `held/` quoted; the posts went through (no classifier refusal).
+- **Carried, owed before the hand-back:** `es-unit-tests` retried against the build root's rapidjson (the host attempt's command, first error whole and reason are in `02` § The runs; no GENERIC_X64 build root on this host currently has rapidjson built, and M7 held a compile START at the attempt -- the retry is pending M7-clear and a built root); the stand-in's four T36 fakes and the renderers positive under `-DUSE_OPENGLES_30` (bracketed compiles, no M7 START open).
+- Next: the pause post (the punch list by item with proposed dispositions), then the coordinator's rulings and the stream brief.
