@@ -29,6 +29,8 @@ SPECS = [  # name, file, first, last, the first line holds, the last line holds
     ("cleanupvram", "resources/TextureDataManager.cpp", 135, 194, "void TextureDataManager::cleanupVRAM()", "}"),
     # 3.17, L-09: the flag glyph's width and the newline's advance, read as text.
     ("font_sizetext", "resources/Font.cpp", 714, 752, "Vector2f Font::sizeText(const std::string& text, float lineSpacing)", "}"),
+    # 3.22: secondsToString's thresholds, read as text (linking TimeUtil.cpp cascades).
+    ("secstostr", "utils/TimeUtil.cpp", 514, 612, "std::string secondsToString(const long seconds, bool asTime)", "}"),
 ]
 got = {}
 for name, f, a, b, first, last in SPECS:

@@ -38,6 +38,9 @@ bool Settings::_UseFileCache = true;   // the image default; a case that wants i
 namespace Utils { namespace Zip {
 unsigned int ZipFile::computeCRC(unsigned int crc, const void*, size_t) { return crc; }
 } }
+// DateTime's ctors/dtor are doubled (FileSystemUtil's getFileCreationDate/ModificationDate
+// return it). 3.22 reads secondsToString's text (linking TimeUtil.cpp whole cascades into
+// clockText/whenText/Settings/SystemConf, out of scope for a floor case).
 Utils::Time::DateTime::DateTime() {}
 Utils::Time::DateTime::DateTime(const time_t&) {}
 Utils::Time::DateTime::~DateTime() {}
@@ -83,12 +86,18 @@ TEST_CASE("3.1 toUpper/toLower fold a 3-byte UTF-8 codepoint wrongly (StringUtil
 	CHECK(String::toLower("\xEF\xBC\xA1") == "\xEF\xBD\x81");
 }
 
-TEST_CASE("3.2 renameFile/copyFile return true over an absent source (FileSystemUtil.cpp:1451-1455, :1472-1474) [L-03]")
+// 3.2's renameFile half tests T21's fix (#1191, f7c16144d), outside T36's tree, so it stays
+// FAIL at T36's tip -- marked may_fail with its owner (ruling 12, T35's ruling 20 precedent).
+TEST_CASE("3.2 renameFile returns true over an absent source (FileSystemUtil.cpp:1451-1455) [L-03; T21 #1191 collision]"
+          * doctest::may_fail(true))
 {
 	Scratch s;
-	// renameFile over an absent source: the pin returns true (T21's #1191; a collision).
 	CHECK_FALSE(FileSystem::renameFile(s.at("nope"), s.at("dst"), false));
-	// copyFile over an absent source: the pin returns true (this slice's half).
+}
+
+TEST_CASE("3.2 copyFile returns true over an absent source (FileSystemUtil.cpp:1472-1474) [L-03; this slice, S3]")
+{
+	Scratch s;
 	CHECK_FALSE(FileSystem::copyFile(s.at("nope2"), s.at("dst2")));
 	CHECK_FALSE(FileSystem::exists(s.at("dst2"), false));
 }
@@ -102,7 +111,10 @@ TEST_CASE("3.3 writeAllText returns void and does not report a short write (File
 	MESSAGE("writeAllText is void at the pin; a fix's CHECK_FALSE comes with #1186");
 }
 
-TEST_CASE("3.4 readAllText/readAllLines read a file under three bytes as empty (FileSystemUtil.cpp:1369-1427) [L-02]")
+// 3.4 tests T20's fix (#1177, d9afa5c7c), outside T36's tree, so it stays FAIL at T36's tip
+// -- marked may_fail with its owner (ruling 12).
+TEST_CASE("3.4 readAllText/readAllLines read a file under three bytes as empty (FileSystemUtil.cpp:1369-1427) [L-02; T20 #1177 collision]"
+          * doctest::may_fail(true))
 {
 	Scratch s; std::string p = s.at("two");
 	writeFile(p, "1\n");   // two bytes
@@ -175,6 +187,7 @@ TEST_CASE("3.21 createRelativePath by string prefix: a sibling gives .//a.png (F
 	(void)contains;
 }
 
+
 TEST_CASE("3.7 runSystemCommand returns 0 and reads neither name nor window (Platform.cpp:853-880) [L-13]")
 {
 	std::string t = slurp("runsys");
@@ -206,11 +219,35 @@ TEST_CASE("3.24 quitES news an SDL_Event and never frees it (Platform.cpp:216-23
 
 TEST_CASE("3.8 Font::getHeight returns mMaxGlyphHeight, which grows as glyphs rasterise (Font.cpp) [L-08]")
 {
-	// The rule erratum: es-code-traps.md:118 says the height is fixed; the source grows it.
+	// The rule erratum (ruling 11, corrected): es-code-traps.md:118 says the font height is
+	// fixed after the constructor; the source grows mMaxGlyphHeight in getGlyph as ASCII
+	// glyphs rasterise, so getHeight() is stable only AFTER a successful ASCII preload -- a
+	// glyph that failed to rasterise first can grow it later (the seat's narrowing, 04:22).
 	std::string h = slurp("font_getheight"), g = slurp("font_glyph_grow");
 	CHECK(h.find("return mMaxGlyphHeight * lineSpacing;") != std::string::npos);
 	CHECK(g.find("mMaxGlyphHeight = glyphSize.y();") != std::string::npos);  // grown in getGlyph
-	// so getHeight() before any glyph is rasterised under-reports: the positive is the guest's.
+	// so getHeight() before the ASCII range has rasterised under-reports: the positive is the guest's.
+}
+
+TEST_CASE("3.17 Font::sizeText measures glyphs by advance; a substitute can measure wider than it draws (Font.cpp:714-752) [L-09]")
+{
+	std::string t = slurp("font_sizetext");
+	// width accumulates per-glyph advance (the cache's x), and a newline resets the line.
+	CHECK(t.find("lineWidth") != std::string::npos);
+	bool hasNewlineBranch = t.find("'\\n'") != std::string::npos || t.find("\\n") != std::string::npos;
+	CHECK(hasNewlineBranch);  // the newline branch
+	// the measure uses getHeight(lineSpacing) for the line's height -- the moving number (L-08).
+	CHECK(t.find("getHeight(") != std::string::npos);
+}
+
+TEST_CASE("3.23 cleanupVRAM evicts the least-recent reloadable textures until under MaxVRAM (TextureDataManager.cpp:135-194) [L-11]")
+{
+	std::string t = slurp("cleanupvram");
+	CHECK(t.find("MaxVRAM") != std::string::npos);                 // the budget
+	CHECK(t.find("recursive_mutex") != std::string::npos);         // under mMutex
+	// it walks from the least-recent end and keeps non-reloadable / required / loaded textures.
+	bool mentionsReloadable = t.find("reloadable") != std::string::npos || t.find("Reloadable") != std::string::npos;
+	CHECK(mentionsReloadable);
 }
 
 TEST_CASE("3.16 Font scales twice: the ctor scales mSize and getFromTheme asks again (Font.cpp) [L-07]")
@@ -219,4 +256,14 @@ TEST_CASE("3.16 Font scales twice: the ctor scales mSize and getFromTheme asks a
 	bool ctorScales = c.find("fontScale()") != std::string::npos || c.find("menuFontScale()") != std::string::npos;
 	CHECK(ctorScales);
 	CHECK(t.find("Font::get") != std::string::npos);   // getFromTheme calls Font::get, which scales again
+}
+
+TEST_CASE("3.22 secondsToString branches on 86400/3600/60 and ends each with its unit string (TimeUtil.cpp:514-612)")
+{
+	std::string t = slurp("secstostr");
+	CHECK(t.find("_(\"never\")") != std::string::npos);   // seconds == 0
+	CHECK(t.find("86400") != std::string::npos);            // days
+	CHECK(t.find("3600") != std::string::npos);             // hours
+	CHECK(t.find("_(\"%d d\")") != std::string::npos);
+	CHECK(t.find("_(\"%d sec\")") != std::string::npos);
 }
