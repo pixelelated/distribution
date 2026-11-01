@@ -1,0 +1,3 @@
+# S1 ASan: pin order vs fixed order, 2026-11-01T01:19:15Z
+S1 pin: rc 1; ==232798==ERROR: AddressSanitizer: attempting double-free on 0x78c2531e0010 in thread T0:
+S1 tip: rc 0; no sanitizer report

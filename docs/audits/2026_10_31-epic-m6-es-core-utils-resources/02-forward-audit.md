@@ -453,6 +453,12 @@ Slot 3, START 23:09:19 to RETURN 23:22:05 UTC, inside the bound; the detached ti
 
 ## The streams
 
+One row per stream: the positive before, the ES commit, the positive after, `Already written:`, `proved:`, the guest half, and the patches/collisions/#585.
+
+| Stream | Before (pin) | ES commit | After | Already written | proved | Guest | #585 / notes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| S1 (PL-06 #1359, G-1) | `S1 pin: rc 1; ERROR: AddressSanitizer: attempting double-free` (`stage-e/s1-before.txt`; `getTextureForNewGlyph` pushed then deleted the atlas) | `4fc77caaa` | `S1 tip: rc 0; no sanitizer report` (`stage-e/s1-after.txt`; push only after `findEmpty` succeeds) | nothing on disk; a live-session memory error in the font cache (#1359) | fix-unit-test (ASan, the method lifted at pin vs tip) | none (#1359 VM line: a host ASan case) | #585 owed: `mTextures.push_back(tex)` is in ROCKNIX `f6c542872e` and batocera `b2ceb55a7e` |
+
 ## Positives
 
 - **The cache's lock discipline:** `queryCacheEntry` stats outside the lock and `insertEntry` re-checks under the unique lock, so two threads that miss together store one answer (`:200-216`, `:313-324`; `proved: tree`, 3.25's TSan program at stage C).

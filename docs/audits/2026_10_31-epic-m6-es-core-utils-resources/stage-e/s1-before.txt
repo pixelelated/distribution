@@ -1,0 +1,6 @@
+=================================================================
+==232798==ERROR: AddressSanitizer: attempting double-free on 0x78c2531e0010 in thread T0:
+    #0 0x7ca25472d89f in operator delete(void*, unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:190
+    #1 0x5f422b9c09e2 in Font::~Font() docs/audits/2026_10_31-epic-m6-es-core-utils-resources/stage-e/s1-asan.cpp:26
+    #2 0x5f422b9c0640 in main docs/audits/2026_10_31-epic-m6-es-core-utils-resources/stage-e/s1-asan.cpp:37
+    #3 0x7ca253e2a600  (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a600) (BuildId: 066527e430a32768d82741e00b81eebb1a872294)
