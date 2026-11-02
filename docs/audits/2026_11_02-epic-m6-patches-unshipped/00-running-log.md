@@ -62,3 +62,7 @@ Fresh confined plan covers889 exact roots:881 eligible and8 retained by the non-
 ## 2026-11-02T23:25:22.735364+00:00 — H actual result
 
 Committed plan fb97dd53bd8e936ff7402888c70fb6bc25f7180d preceded mutation. Actual H retirement completed:881retired,8retained,0partial. Four empty prefixes were freshly rechecked and removed by nonrecursive rmdir; their historical ownership was not upgraded. The8retained roots hit the non-symlink guard and were not deleted. Retired-root absence, retained-root presence and durable publication roots were read back.21cache metadata records match before/after; no fresh cache content hash is claimed. Original process/serialization/citation failures remain alongside corrected results. All93source-input gaps remain open; PL-001 is custody-only Resolved. Final publication receipts and exact posted retro will bind the actual tip externally; root owns acceptance/marker/closure.
+
+## 2026-11-02T23:28:51.690490+00:00 — Final prose readback correction
+
+Separated owner issue references from adjacent population counts in S1 report/addendum and retro; the machine matrix always had the correct unchanged owners. Marked the retro planning paragraph as historical so it does not contradict actual H881retired/8retained. Only narrative/binding bytes changed; no matrix/source/control/cleanup replay. Final publication will bind the corrected tip.
