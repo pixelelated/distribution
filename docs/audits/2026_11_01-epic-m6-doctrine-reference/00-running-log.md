@@ -63,3 +63,50 @@ the audit folder (`00`, `01` modified; `02` new) -- **no fix to any of the
 keyed call, no held directory opened, no `--write` of a generated file. The
 read tree is exported at `/workspace/tmp/m6-t39/export/` (254 files), retired
 at stage H. No line written to the host-coordination file or to #807.
+
+## 2026-11-02 00:10-05:21 UTC -- the model switch, and the stage-B completion
+
+**The model switch.** The stage-B acceptance was posted at 00:12 UTC (#686,
+issuecomment-6565981458), with its correction at 00:12:44
+(issuecomment-6565986529). Before that, the owner moved this session from Claude
+Code (session `33bed370-...`, which reported `claude-opus-4-8` for stages A and B)
+to the **Antigravity CLI**, conversation `1364d92f-d934-4080-ac5b-5b7ee9ff8d0a`. That
+harness's model setting reads **"Claude Opus 5.5 (High)"**, read from the harness
+itself at 00:10 UTC 2026-11-02. The coordinator's ruling: `primary.model` stays
+`anthropic/claude-opus-4-8`, because stages A and B are the reading the review rests
+on, and `identity_source` names three things:
+- the dispatch's label;
+- the A-B id;
+- the C-onward harness reading.
+
+Commits from now end with `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`.
+The session stopped on a usage quota at about 00:25 UTC with three stage-C paths
+uncommitted (`tools/`, `second-opinions/`, `stage-c/`). It resumed at 05:15 UTC on the
+owner's authorization.
+
+**The stage-B completion** (the correction's three items, one commit):
+- `03-retrospective.md`: § 3.1 to § 3.4; § 3.5's five seams (the rules, the three
+  ledger-reading tools, the issue-cited lines, upstream's copies); the futro's
+  predictions checked.
+- `04-analysis.md`: Phase 4; the 4.5 verification of every fix candidate (6 Medium
+  bugs, 11 Low); Q1 to Q7, with Q4 to Q6's tables marked as `t39-tables.py`'s at
+  stage C; the two maintainer questions; § Second opinion *not applicable at Local
+  depth*.
+- `stage-a/`: the first commands' scripts and outputs, from
+  `/workspace/tmp/m6-t39/tmp/` and `.qa-scratch/t39/`.
+- `stage-b/`: the reading notes, which are lists and hashes, from
+  `/workspace/tmp/m6-t39/stage-b/`. **`reader-digest.txt` is kept out**: it holds the
+  head of each document, so it is text of the 254. Its sha256 is in `stage-b/README.md`.
+- `02` § What the coordinator and the next slices inherit takes the R3 C24 lead at its
+  six paths, owner the coordinator, as the acceptance asked.
+
+Design-intent reads for 4.5 (`git log -S` per fix candidate, at `86ebb6dffc`) are
+tabled in `03` § 3.3. One new observation, recorded in `03` § 3.5: #1216 quotes
+`es-menu-map.md:405` as *"FINISH RESTORE PROCESS"*, and the line reads
+`### FINISH RESTORE SETUP`. That is the interface lanes' (L-32).
+
+PROOF: 05:16 UTC each fix candidate's sentence predates, or was left untouched by, the change that made it untrue (`git log -S` per lead, `03` § 3.3); proved: history
+
+`git status --short` for the 254 is empty (no fix at this stage). No build, no
+compiler, no guest, no fetch, no council or keyed call. No line was written to the
+host file.

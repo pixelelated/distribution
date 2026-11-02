@@ -1,0 +1,24 @@
+  254 .qa-scratch/t39/paths.txt
+  223 .qa-scratch/t39/text.txt
+  477 total
+distribution head: eb4763e3cc9bcd729830cd85f1719bbd4f28db10
+distribution merge_base: c445081a59518f37d9776e5412dd7b14910696f7
+distribution upstream: upstream/next c1f1746828ca47dfc751ffe44bb47b6b259883d7
+mine: 254 paths.txt: 254 equal: True
+only-mine: []
+only-paths.txt: []
+lines: 38598 reach: {'n/a': 254} tier: {'fork-own': 164, 'upstream-carried': 90}
+lang: {'markdown': 113, 'text': 78, 'image': 39, 'json': 8, 'python': 1, 'css': 1, 'none': 1, 'other': 3, 'patch': 10}
+fork-own lines: 28749 upstream-carried lines: 9849
+read lines: 190 of which fork-own: 190 read rows: [('docs/pixelelated/art/source/generate.py', 'python', 180), ('docs/pixelelated/art/source/wordmark.css', 'css', 10)]
+overlap: 0 last_upstream_commit set: 92 binary (lines None): ['docs/pixelelated/art/proofs/backgrounds.png', 'docs/pixelelated/art/proofs/boot-shutdown-640x480.png', 'docs/pixelelated/art/proofs/small
+GROUPS TOTAL 254 38598 groups 15
+.qa-scratch/t39/tree-ih.txt derived: 254 equal to mine: True only-derived: [] only-mine: []
+.qa-scratch/t39/tree-p1.txt derived: 254 equal to mine: True only-derived: [] only-mine: []
+wc -l, the text rows at the P1 hash: 38674
+grep -c, the text rows at the P1 hash: 38675
+grep -c, the text rows at the inventory head: 38598
+present at the merge base: 92
+MB..P1: 164 files changed, 28807 insertions(+), 75 deletions(-)
+IH..P1: 9 files changed, 197 insertions(+), 120 deletions(-)
+(end)

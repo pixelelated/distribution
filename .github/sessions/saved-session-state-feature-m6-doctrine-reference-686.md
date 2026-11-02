@@ -17,6 +17,33 @@
 
 ## Current focus
 
+**2026-11-02 05:21 UTC -- stage B completed; stage C in progress.** The coordinator
+accepted stage B at 00:12 UTC (#686, issuecomment-6565981458), then corrected it
+(issuecomment-6565986529): `03`, `04`, `stage-a/` and `stage-b/` were owed. They
+land as one stage-B completion commit; the checkpoint is a short post on #686.
+**The session now runs in the Antigravity CLI** (conversation
+`1364d92f-d934-4080-ac5b-5b7ee9ff8d0a`, model setting "Claude Opus 5.5 (High)").
+Stages A and B ran in Claude Code as `claude-opus-4-8`. `review-plan.json` keeps
+`primary.model: anthropic/claude-opus-4-8` with three names in `identity_source`
+(the coordinator's ruling). Commits end with
+`Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`.
+
+**Stage C, uncommitted at this checkpoint** (written 00:15-00:26 UTC, before a usage
+stop; resumed 05:15 UTC):
+- `tools/t39-checks.sh` and `.py`: 13 steps, the brief's eleven plus `leads` (the
+  § 3 check lines of the fix candidates) and `allowlists`.
+- The three allowlists: 58 legit, 4 inherited, 17 findings.
+- `second-opinions/review-plan.json`.
+- `stage-c/checks-runs.sh` and `stage-c/runs/`.
+
+The runs: (i) the baseline exits 0; (ii) every mutation exits 1 naming its step;
+(iii) the tip with findings withheld exits 1 naming 17 lines; every refusal exits 2.
+The runs are re-run on the committed bytes before the stage-C commit. Still to do:
+`tools/t39-tables.py` (§ Coverage, § Binaries, § Art bytes, Q4 to Q6) with its drift
+run, the checkers' outputs under `stage-c/`, the pre-issue lint (which needs a draft
+`05`), and the stage-C checkpoint. The issue-state snapshot for Q4 is
+`/workspace/tmp/m6-t39/tmp/issues.tsv` (read 2026-11-02 00:25:51Z, 1398 rows).
+
 **Stage A and stage B complete; the stage-B checkpoint is posted on #686 (the
 turn-ender).** The
 eleven keys were read against the brief's § 10 table and all are T39's -- none
@@ -107,3 +134,4 @@ or the pins.
 
 - Stage A -- 2026-11-01 06:36:32 UTC -- base tip 86ebb6dffc (the dispatch merge); this commit carries 00-running-log.md, 01-research-notes.md § Scope, this pointer and the #686 work-log entry, and becomes the branch tip; checkpoint posted on #686.
 - Stage B -- 2026-11-01 06:59:45 UTC -- tip 86ebb6dffc (the dispatch merge); this commit carries 02-forward-audit.md (§ The table, 46 leads; § Binaries 31; § Art bytes 18; the probes and § The runs), 01 § Read order + § The reader's pass, 00's stage-B section (8 PROOF lines) and the #686 work-log entry; no fix to any of the 254; checkpoint posted on #686.
+- Stage B completion -- 2026-11-02 05:21 UTC -- tip 2d09ed5c4d; this commit carries 03-retrospective.md, 04-analysis.md, stage-a/, stage-b/, 00's entry (the model switch), 02's R3 C24 inherited row and the #686 work-log entry; no fix to any of the 254; short checkpoint posted on #686.

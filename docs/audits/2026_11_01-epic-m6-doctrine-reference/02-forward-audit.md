@@ -243,6 +243,12 @@ Named here, read at stage A/B, never edited by the lane:
   L-25, L-27, L-28, L-29, L-31, L-33, L-34, L-35, L-36, L-37 (erratum, present),
   L-40; the R3 C24 brief-evidence erratum above; L-38's resolution (D-WORKFLOW-188
   carried by the P1 merge).
+- **coordinator (the R3 C24 lead, the acceptance of 2026-11-02 00:12 UTC):** `cloud_migrate_layout`
+  survives in 127 lines over six fork-only tools outside this slice -- `tools/cloud-pair-migration`,
+  `tools/last-good-scripts-test`, `tools/pixelelated-vm-cloud-boundaries`, `tools/rasteratops-cloud-layout-test`,
+  `tools/rasteratops-vm-cloud-epic` and `tools/vm-walks/cloud-epic/migration-protocol.sh` -- a lead for the
+  tooling slices that own them (`cloud-harness`, `tooling-state-tests`, `tooling-last-good-test`, the VM tools
+  slice); #508, which retired the automatic migration, is closed.
 - **the interface lanes (#700):** L-17 (where no decided row is contradicted),
   L-32 (the map's line-cites).
 - **#270:** L-15 (the device-facts tool and the row-against-rule).

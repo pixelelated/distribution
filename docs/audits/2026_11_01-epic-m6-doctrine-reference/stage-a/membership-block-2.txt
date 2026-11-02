@@ -1,0 +1,328 @@
+distribution head: eb4763e3cc9bcd729830cd85f1719bbd4f28db10
+distribution merge_base: c445081a59518f37d9776e5412dd7b14910696f7
+distribution upstream: upstream/next c1f1746828ca47dfc751ffe44bb47b6b259883d7
+columns: ['tree', 'path', 'area', 'tier', 'tier_note', 'overlap', 'language', 'lines', 'patches', 'last_fork_commit', 'last_upstream_commit', 'reach', 'reachable_by', 'buildable_by', 'shadowed_by']
+mine: 254 paths.txt: 254 equal: True
+only-mine: []
+only-paths.txt: []
+lines: 38598 reach: {'n/a': 254} tier: {'fork-own': 164, 'upstream-carried': 90}
+lang: {'markdown': 113, 'text': 78, 'image': 39, 'json': 8, 'python': 1, 'css': 1, 'none': 1, 'other': 3, 'patch': 10}
+fork-own lines: 28749 upstream-carried lines: 9849
+read lines: 190 of which fork-own: 190 read rows: [('docs/pixelelated/art/source/generate.py', 'python', 180), ('docs/pixelelated/art/source/wordmark.css', 'css', 10)]
+overlap: 0 last_upstream_commit set: 92 binary (lines None): ['docs/pixelelated/art/proofs/backgrounds.png', 'docs/pixelelated/art/proofs/boot-shutdown-640x480.png', 'docs/pixelelated/art/proofs/small-sizes.png', 'docs/pixelelated/art/raster/1x/dual.png', 'docs/pixelelated/art/raster/1x/monochrome-dark.png', 'docs/pixelelated/art/raster/1x/monochrome-light.png', 'docs/pixelelated/art/raster/1x/neon.png', 'docs/pixelelated/art/raster/1x/ocean.png', 'docs/pixelelated/art/raster/1x/scanline.png', 'docs/pixelelated/art/raster/1x/spectrum.png', 'docs/pixelelated/art/raster/1x/sunrise.png', 'docs/pixelelated/art/raster/2x/dual.png', 'docs/pixelelated/art/raster/2x/monochrome-dark.png', 'docs/pixelelated/art/raster/2x/monochrome-light.png', 'docs/pixelelated/art/raster/2x/neon.png', 'docs/pixelelated/art/raster/2x/ocean.png', 'docs/pixelelated/art/raster/2x/scanline.png', 'docs/pixelelated/art/raster/2x/spectrum.png', 'docs/pixelelated/art/raster/2x/sunrise.png', 'docs/pixelelated/art/raster/4x/dual.png', 'docs/pixelelated/art/raster/4x/monochrome-dark.png', 'docs/pixelelated/art/raster/4x/monochrome-light.png', 'docs/pixelelated/art/raster/4x/neon.png', 'docs/pixelelated/art/raster/4x/ocean.png', 'docs/pixelelated/art/raster/4x/scanline.png', 'docs/pixelelated/art/raster/4x/spectrum.png', 'docs/pixelelated/art/raster/4x/sunrise.png', 'docs/rasteratops/art/icon-interim-2026-10-01.png', 'docs/upstream/2026-10-15-queue-reconciliation/originals.tar.gz', 'licenses/AETHERSX2.pdf', 'licenses/DRASTIC.pdf']
+GROUPS (group: paths lines | fork-own paths lines | upstream-carried paths lines)
+  LICENSE.md                    1     18 |    1     18 |    0      0
+  README.md                     1     23 |    1     23 |    0      0
+  TRADEMARK.md                  1     38 |    1     38 |    0      0
+  docs/*                       27   9222 |   27   9222 |    0      0
+  docs/pixelelated/            50   3551 |   50   3551 |    0      0
+  docs/pr-series/               2    323 |    2    323 |    0      0
+  docs/ra-offline/              2    649 |    2    649 |    0      0
+  docs/rasteratops/            15   4906 |   15   4906 |    0      0
+  docs/releases/               23   1858 |   23   1858 |    0      0
+  docs/reviews/                11   5101 |   11   5101 |    0      0
+  docs/reviews/briefs/          1    386 |    1    386 |    0      0
+  docs/upstream/               28   2323 |   28   2323 |    0      0
+  documentation/               16   2160 |    1    128 |   15   2032
+  licenses/                    75   7817 |    0      0 |   75   7817
+  plans/                        1    223 |    1    223 |    0      0
+GROUPS TOTAL 254 38598 groups 15
+TSV
+tree	path	area	tier	tier_note	overlap	language	lines	patches	last_fork_commit	last_upstream_commit	reach	reachable_by	buildable_by	shadowed_by
+distribution	LICENSE.md	doctrine	fork-own	None	False	markdown	18	None	a9af618398 2026-10-04	f27f9088f6 2025-07-13	n/a	[]	[]	None
+distribution	README.md	doctrine	fork-own	None	False	markdown	23	None	a9af618398 2026-10-04	1f8dfb7787 2026-06-05	n/a	[]	[]	None
+distribution	TRADEMARK.md	doctrine	fork-own	None	False	markdown	38	None	a9af618398 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/backup-contents.md	doctrine	fork-own	None	False	markdown	100	None	5ca1427ab5 2026-09-12	None	n/a	[]	[]	None
+distribution	docs/cloud-save-integrity.md	doctrine	fork-own	None	False	markdown	100	None	1bd4554dc8 2026-10-08	None	n/a	[]	[]	None
+distribution	docs/cloud-sync-changelog.md	doctrine	fork-own	None	False	markdown	3581	None	3416cb4043 2026-10-15	None	n/a	[]	[]	None
+distribution	docs/cloud-vocabulary-audit.md	doctrine	fork-own	None	False	markdown	240	None	5ca1427ab5 2026-09-12	None	n/a	[]	[]	None
+distribution	docs/conflict-wizard-ia.md	doctrine	fork-own	None	False	markdown	323	None	0f073485ff 2026-10-08	None	n/a	[]	[]	None
+distribution	docs/council-limits.md	doctrine	fork-own	None	False	markdown	54	None	d430818548 2026-09-28	None	n/a	[]	[]	None
+distribution	docs/council-mistral-counter.md	doctrine	fork-own	None	False	markdown	127	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	docs/council-staged-attempts.md	doctrine	fork-own	None	False	markdown	144	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	docs/council-staged-controller.md	doctrine	fork-own	None	False	markdown	279	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	docs/council-staged-derived-packages.md	doctrine	fork-own	None	False	markdown	101	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	docs/council-staged-derived-runtime.md	doctrine	fork-own	None	False	markdown	298	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	docs/council-staged-readings.md	doctrine	fork-own	None	False	markdown	180	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	docs/council-staged-rereads.md	doctrine	fork-own	None	False	markdown	129	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	docs/council-staged-sources.md	doctrine	fork-own	None	False	markdown	151	None	5f1b343d25 2026-09-30	None	n/a	[]	[]	None
+distribution	docs/device-flashing-runbook.md	doctrine	fork-own	None	False	markdown	534	None	f7152d84a4 2026-09-20	None	n/a	[]	[]	None
+distribution	docs/device-testing-policy.md	doctrine	fork-own	None	False	markdown	122	None	3c31e2aa18 2026-10-15	None	n/a	[]	[]	None
+distribution	docs/es-menu-map.md	doctrine	fork-own	None	False	markdown	989	None	060dbde841 2026-10-16	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/README.md	doctrine	fork-own	None	False	markdown	26	None	b137d8c373 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/Tiny5-OFL.txt	doctrine	fork-own	None	False	text	93	None	a9af618398 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/pixelelated-wordmark.svg	doctrine	fork-own	None	False	image	263	None	b137d8c373 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/proofs/artifact-checks.json	doctrine	fork-own	None	False	json	326	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/proofs/backgrounds.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/proofs/boot-shutdown-640x480.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/proofs/small-sizes.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/1x/dual.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/1x/monochrome-dark.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/1x/monochrome-light.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/1x/neon.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/1x/ocean.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/1x/scanline.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/1x/spectrum.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/1x/sunrise.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/2x/dual.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/2x/monochrome-dark.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/2x/monochrome-light.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/2x/neon.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/2x/ocean.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/2x/scanline.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/2x/spectrum.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/2x/sunrise.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/4x/dual.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/4x/monochrome-dark.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/4x/monochrome-light.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/4x/neon.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/4x/ocean.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/4x/scanline.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/4x/spectrum.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/raster/4x/sunrise.png	doctrine	fork-own	None	False	image	None	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/source/font.json	doctrine	fork-own	None	False	json	10	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/source/generate.py	doctrine	fork-own	None	False	python	180	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/source/palettes.json	doctrine	fork-own	None	False	json	10	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/source/pixelelated-live-text.svg	doctrine	fork-own	None	False	image	18	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/source/wordmark.css	doctrine	fork-own	None	False	css	10	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/wordmark-system.md	doctrine	fork-own	None	False	markdown	334	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/wordmark/dual.svg	doctrine	fork-own	None	False	image	167	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/wordmark/monochrome-dark.svg	doctrine	fork-own	None	False	image	163	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/wordmark/monochrome-light.svg	doctrine	fork-own	None	False	image	163	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/wordmark/neon.svg	doctrine	fork-own	None	False	image	167	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/wordmark/ocean.svg	doctrine	fork-own	None	False	image	167	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/wordmark/scanline.svg	doctrine	fork-own	None	False	image	167	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/wordmark/spectrum.svg	doctrine	fork-own	None	False	image	167	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/art/wordmark/sunrise.svg	doctrine	fork-own	None	False	image	167	None	bd3fcfa228 2026-10-04	None	n/a	[]	[]	None
+distribution	docs/pixelelated/cloud-folder-flow-review.md	doctrine	fork-own	None	False	markdown	632	None	3fcff2e1e2 2026-10-11	None	n/a	[]	[]	None
+distribution	docs/pixelelated/cloud-folders.md	doctrine	fork-own	None	False	markdown	35	None	357d88010a 2026-10-07	None	n/a	[]	[]	None
+distribution	docs/pixelelated/rename-plan.md	doctrine	fork-own	None	False	markdown	77	None	90f9e0eafd 2026-10-07	None	n/a	[]	[]	None
+distribution	docs/pixelelated/site-dns.md	doctrine	fork-own	None	False	markdown	62	None	0f073485ff 2026-10-08	None	n/a	[]	[]	None
+distribution	docs/pixelelated/site-plan.md	doctrine	fork-own	None	False	markdown	147	None	62c382f467 2026-10-15	None	n/a	[]	[]	None
+distribution	docs/pr-series/es-review-guide.md	doctrine	fork-own	None	False	markdown	124	None	f75d680769 2026-09-29	None	n/a	[]	[]	None
+distribution	docs/pr-series/map.txt	doctrine	fork-own	None	False	text	199	None	14af21644c 2026-09-29	None	n/a	[]	[]	None
+distribution	docs/ra-offline/2026_09_13-phase-1-design-note.md	doctrine	fork-own	None	False	markdown	590	None	d40897de80 2026-09-14	None	n/a	[]	[]	None
+distribution	docs/ra-offline/rocknix-org-offline-achievements.md	doctrine	fork-own	None	False	markdown	59	None	d52e3d81c7 2026-09-24	None	n/a	[]	[]	None
+distribution	docs/rasteratops/art/README.md	doctrine	fork-own	None	False	markdown	16	None	3d7c075f63 2026-10-02	None	n/a	[]	[]	None
+distribution	docs/rasteratops/art/Tiny5-OFL.txt	doctrine	fork-own	None	False	text	93	None	3d7c075f63 2026-10-02	None	n/a	[]	[]	None
+distribution	docs/rasteratops/art/icon-interim-2026-10-01.png	doctrine	fork-own	None	False	image	None	None	a9de01d050 2026-10-01	None	n/a	[]	[]	None
+distribution	docs/rasteratops/art/rasteratops-wordmark.svg	doctrine	fork-own	None	False	image	151	None	3d7c075f63 2026-10-02	None	n/a	[]	[]	None
+distribution	docs/rasteratops/candidate-source-plan.md	doctrine	fork-own	None	False	markdown	80	None	ca5d034488 2026-10-12	None	n/a	[]	[]	None
+distribution	docs/rasteratops/cloud-folder-state-table.md	doctrine	fork-own	None	False	markdown	334	None	357d88010a 2026-10-07	None	n/a	[]	[]	None
+distribution	docs/rasteratops/cloud-layout.md	doctrine	fork-own	None	False	markdown	116	None	9bb2b42e5a 2026-10-05	None	n/a	[]	[]	None
+distribution	docs/rasteratops/cloud-provider-2026-09-30.md	doctrine	fork-own	None	False	markdown	68	None	a63b01ce14 2026-10-02	None	n/a	[]	[]	None
+distribution	docs/rasteratops/p0-read.md	doctrine	fork-own	None	False	markdown	70	None	224b73ea54 2026-09-30	None	n/a	[]	[]	None
+distribution	docs/rasteratops/p0-sweep-hits.txt	doctrine	fork-own	None	False	text	2419	None	224b73ea54 2026-09-30	None	n/a	[]	[]	None
+distribution	docs/rasteratops/p0-sweep.md	doctrine	fork-own	None	False	markdown	142	None	224b73ea54 2026-09-30	None	n/a	[]	[]	None
+distribution	docs/rasteratops/p0-updater.md	doctrine	fork-own	None	False	markdown	70	None	224b73ea54 2026-09-30	None	n/a	[]	[]	None
+distribution	docs/rasteratops/raofflineproxy-refresh.md	doctrine	fork-own	None	False	markdown	195	None	a0f60255ab 2026-10-11	None	n/a	[]	[]	None
+distribution	docs/rasteratops/release-readiness.md	doctrine	fork-own	None	False	markdown	990	None	fb932eb1fe 2026-10-16	None	n/a	[]	[]	None
+distribution	docs/rasteratops/support-matrix.md	doctrine	fork-own	None	False	markdown	162	None	fb932eb1fe 2026-10-16	None	n/a	[]	[]	None
+distribution	docs/releases/0.0.1-release-note-draft.md	doctrine	fork-own	None	False	markdown	43	None	3416cb4043 2026-10-15	None	n/a	[]	[]	None
+distribution	docs/releases/0.0.1-release-note-evidence.md	doctrine	fork-own	None	False	markdown	40	None	3416cb4043 2026-10-15	None	n/a	[]	[]	None
+distribution	docs/releases/0.0.1-release-preparation.md	doctrine	fork-own	None	False	markdown	115	None	3c31e2aa18 2026-10-15	None	n/a	[]	[]	None
+distribution	docs/releases/catalog.md	doctrine	fork-own	None	False	markdown	112	None	3d7c075f63 2026-10-02	None	n/a	[]	[]	None
+distribution	docs/releases/device-facts.md	doctrine	fork-own	None	False	markdown	31	None	fb932eb1fe 2026-10-16	None	n/a	[]	[]	None
+distribution	docs/releases/next-candidate-scope.md	doctrine	fork-own	None	False	markdown	233	None	cdd92f1060 2026-10-15	None	n/a	[]	[]	None
+distribution	docs/releases/next-candidate-work.md	doctrine	fork-own	None	False	markdown	963	None	8ebaf8daad 2026-10-17	None	n/a	[]	[]	None
+distribution	docs/releases/pr/01-build.md	doctrine	fork-own	None	False	markdown	7	None	826d52e395 2026-09-29	None	n/a	[]	[]	None
+distribution	docs/releases/pr/02-generic-x64.md	doctrine	fork-own	None	False	markdown	7	None	826d52e395 2026-09-29	None	n/a	[]	[]	None
+distribution	docs/releases/pr/03-evidence.md	doctrine	fork-own	None	False	markdown	7	None	826d52e395 2026-09-29	None	n/a	[]	[]	None
+distribution	docs/releases/pr/04-settings.md	doctrine	fork-own	None	False	markdown	7	None	826d52e395 2026-09-29	None	n/a	[]	[]	None
+distribution	docs/releases/pr/05-network.md	doctrine	fork-own	None	False	markdown	7	None	826d52e395 2026-09-29	None	n/a	[]	[]	None
+distribution	docs/releases/pr/06-retroachievements.md	doctrine	fork-own	None	False	markdown	7	None	826d52e395 2026-09-29	None	n/a	[]	[]	None
+distribution	docs/releases/pr/07-cloud-setup.md	doctrine	fork-own	None	False	markdown	7	None	826d52e395 2026-09-29	None	n/a	[]	[]	None
+distribution	docs/releases/pr/08-saves.md	doctrine	fork-own	None	False	markdown	7	None	826d52e395 2026-09-29	None	n/a	[]	[]	None
+distribution	docs/releases/pr/09-retroarch.md	doctrine	fork-own	None	False	markdown	7	None	826d52e395 2026-09-29	None	n/a	[]	[]	None
+distribution	docs/releases/pr/10-es-pin.md	doctrine	fork-own	None	False	markdown	7	None	826d52e395 2026-09-29	None	n/a	[]	[]	None
+distribution	docs/releases/pr/11-interface.md	doctrine	fork-own	None	False	markdown	13	None	a71a8f2d49 2026-09-29	None	n/a	[]	[]	None
+distribution	docs/releases/rc-accept.txt	doctrine	fork-own	None	False	text	17	None	ca5d034488 2026-10-12	None	n/a	[]	[]	None
+distribution	docs/releases/rc1-20260929-release-note.md	doctrine	fork-own	None	False	markdown	38	None	1070d05378 2026-09-29	None	n/a	[]	[]	None
+distribution	docs/releases/rc2-20260929-release-note.md	doctrine	fork-own	None	False	markdown	32	None	fcfe296258 2026-09-29	None	n/a	[]	[]	None
+distribution	docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md	doctrine	fork-own	None	False	markdown	13	None	fa935ed6ba 2026-09-29	None	n/a	[]	[]	None
+distribution	docs/releases/versioning.md	doctrine	fork-own	None	False	markdown	138	None	40bc5469b9 2026-10-11	None	n/a	[]	[]	None
+distribution	docs/reviews/README.md	doctrine	fork-own	None	False	markdown	165	None	eb4763e3cc 2026-10-23	None	n/a	[]	[]	None
+distribution	docs/reviews/areas.json	doctrine	fork-own	None	False	json	124	None	f6e1c08eb3 2026-10-22	None	n/a	[]	[]	None
+distribution	docs/reviews/assessment.md	doctrine	fork-own	None	False	markdown	108	None	a2cfa82233 2026-10-23	None	n/a	[]	[]	None
+distribution	docs/reviews/briefs/p1-survey.md	doctrine	fork-own	None	False	markdown	386	None	eb4763e3cc 2026-10-23	None	n/a	[]	[]	None
+distribution	docs/reviews/build-path-read.md	doctrine	fork-own	None	False	markdown	216	None	67bcd70dc3 2026-10-23	None	n/a	[]	[]	None
+distribution	docs/reviews/cross-reference.md	doctrine	fork-own	None	False	markdown	113	None	a2cfa82233 2026-10-23	None	n/a	[]	[]	None
+distribution	docs/reviews/inventory.md	doctrine	fork-own	None	False	markdown	1515	None	a2cfa82233 2026-10-23	None	n/a	[]	[]	None
+distribution	docs/reviews/order.md	doctrine	fork-own	None	False	markdown	806	None	eb4763e3cc 2026-10-23	None	n/a	[]	[]	None
+distribution	docs/reviews/p1-tracking.md	doctrine	fork-own	None	False	markdown	449	None	a2cfa82233 2026-10-23	None	n/a	[]	[]	None
+distribution	docs/reviews/plan-for-the-plan.md	doctrine	fork-own	None	False	markdown	499	None	080ad7c52d 2026-10-23	None	n/a	[]	[]	None
+distribution	docs/reviews/slices.json	doctrine	fork-own	None	False	json	1048	None	eb4763e3cc 2026-10-23	None	n/a	[]	[]	None
+distribution	docs/reviews/status.md	doctrine	fork-own	None	False	markdown	58	None	a2cfa82233 2026-10-23	None	n/a	[]	[]	None
+distribution	docs/rules-sweep-2026-09-12.md	doctrine	fork-own	None	False	markdown	277	None	438f14bfff 2026-09-12	None	n/a	[]	[]	None
+distribution	docs/save-history-consensus-amendment.md	doctrine	fork-own	None	False	markdown	116	None	9d6afb83cd 2026-09-12	None	n/a	[]	[]	None
+distribution	docs/save-history-gap-analysis.md	doctrine	fork-own	None	False	markdown	92	None	77e65722e9 2026-09-12	None	n/a	[]	[]	None
+distribution	docs/save-history-plan-delta.md	doctrine	fork-own	None	False	markdown	40	None	77e65722e9 2026-09-12	None	n/a	[]	[]	None
+distribution	docs/save-history-serial-model-addendum.md	doctrine	fork-own	None	False	markdown	111	None	edd06db408 2026-09-12	None	n/a	[]	[]	None
+distribution	docs/save-manifest-alignment-review.md	doctrine	fork-own	None	False	markdown	98	None	24dce33f23 2026-09-06	None	n/a	[]	[]	None
+distribution	docs/save-manifest-schema.md	doctrine	fork-own	None	False	markdown	555	None	d52e3d81c7 2026-09-24	None	n/a	[]	[]	None
+distribution	docs/savestate-compat-test.md	doctrine	fork-own	None	False	markdown	117	None	0c03ae4d83 2026-08-24	None	n/a	[]	[]	None
+distribution	docs/technical-appendix-cloud-sync-and-offline-achievements.md	doctrine	fork-own	None	False	markdown	3	None	fa935ed6ba 2026-09-29	None	n/a	[]	[]	None
+distribution	docs/upstream/2026-10-15-queue-reconciliation/README.md	doctrine	fork-own	None	False	markdown	37	None	dbc60c9828 2026-10-15	None	n/a	[]	[]	None
+distribution	docs/upstream/2026-10-15-queue-reconciliation/SHA256SUMS	doctrine	fork-own	None	False	none	5	None	dbc60c9828 2026-10-15	None	n/a	[]	[]	None
+distribution	docs/upstream/2026-10-15-queue-reconciliation/member-manifest.json	doctrine	fork-own	None	False	json	397	None	dbc60c9828 2026-10-15	None	n/a	[]	[]	None
+distribution	docs/upstream/2026-10-15-queue-reconciliation/originals.tar.gz	doctrine	fork-own	None	False	other	None	None	dbc60c9828 2026-10-15	None	n/a	[]	[]	None
+distribution	docs/upstream/2026-10-15-queue-reconciliation/publication-receipt.json	doctrine	fork-own	None	False	json	9	None	dbc60c9828 2026-10-15	None	n/a	[]	[]	None
+distribution	docs/upstream/2026-10-15-queue-reconciliation/retention-verification.json	doctrine	fork-own	None	False	json	23	None	dbc60c9828 2026-10-15	None	n/a	[]	[]	None
+distribution	docs/upstream/README.md	doctrine	fork-own	None	False	markdown	139	None	077197e6cd 2026-10-15	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/bounded-dns/README.md	doctrine	fork-own	None	False	markdown	34	None	202a40cf9d 2026-10-06	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/bounded-dns/fix.patch	doctrine	fork-own	None	False	patch	274	None	202a40cf9d 2026-10-06	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/client-errors/README.md	doctrine	fork-own	None	False	markdown	20	None	202a40cf9d 2026-10-06	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/client-errors/fix.patch	doctrine	fork-own	None	False	patch	83	None	202a40cf9d 2026-10-06	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/configured-login/README.md	doctrine	fork-own	None	False	markdown	20	None	202a40cf9d 2026-10-06	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/configured-login/fix.patch	doctrine	fork-own	None	False	patch	144	None	202a40cf9d 2026-10-06	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/contribution-map.md	doctrine	fork-own	None	False	markdown	109	None	899857b591 2026-10-14	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/early-consent/README.md	doctrine	fork-own	None	False	markdown	33	None	89e44e3f39 2026-10-06	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/early-consent/fix.patch	doctrine	fork-own	None	False	patch	81	None	e4276a6743 2026-10-06	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/image-completeness/README.md	doctrine	fork-own	None	False	markdown	24	None	202a40cf9d 2026-10-06	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/image-completeness/fix.patch	doctrine	fork-own	None	False	patch	207	None	202a40cf9d 2026-10-06	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/image-publication/README.md	doctrine	fork-own	None	False	markdown	42	None	e4276a6743 2026-10-06	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/image-publication/fix.patch	doctrine	fork-own	None	False	patch	86	None	df23faff6c 2026-10-02	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/log-consent/README.md	doctrine	fork-own	None	False	markdown	20	None	202a40cf9d 2026-10-06	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/log-consent/fix.patch	doctrine	fork-own	None	False	patch	121	None	202a40cf9d 2026-10-06	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/pixelelated-identity/README.md	doctrine	fork-own	None	False	markdown	35	None	e4276a6743 2026-10-06	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/pixelelated-identity/fix.patch	doctrine	fork-own	None	False	patch	58	None	cf511ce79b 2026-10-05	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/refresh-resilience/README.md	doctrine	fork-own	None	False	markdown	23	None	202a40cf9d 2026-10-06	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/refresh-resilience/fix.patch	doctrine	fork-own	None	False	patch	192	None	202a40cf9d 2026-10-06	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/warning-sets/README.md	doctrine	fork-own	None	False	markdown	20	None	202a40cf9d 2026-10-06	None	n/a	[]	[]	None
+distribution	docs/upstream/raofflineproxy/warning-sets/fix.patch	doctrine	fork-own	None	False	patch	87	None	202a40cf9d 2026-10-06	None	n/a	[]	[]	None
+distribution	docs/vm-qa-log.md	doctrine	fork-own	None	False	markdown	361	None	8ebaf8daad 2026-10-17	None	n/a	[]	[]	None
+distribution	documentation/PER_DEVICE_DOCUMENTATION/AMD64/SUPPORTED_EMULATORS_AND_CORES.md	doctrine	upstream-carried	None	False	markdown	137	None	None	28e750db32 2026-09-14	n/a	[]	[]	None
+distribution	documentation/PER_DEVICE_DOCUMENTATION/GENERIC_X64/SUPPORTED_EMULATORS_AND_CORES.md	doctrine	fork-own	None	False	markdown	128	None	a19831ebf6 2026-08-21	None	n/a	[]	[]	None
+distribution	documentation/PER_DEVICE_DOCUMENTATION/H700/SUPPORTED_EMULATORS_AND_CORES.md	doctrine	upstream-carried	None	False	markdown	128	None	None	727969b957 2026-10-18	n/a	[]	[]	None
+distribution	documentation/PER_DEVICE_DOCUMENTATION/RK3326/SUPPORTED_EMULATORS_AND_CORES.md	doctrine	upstream-carried	None	False	markdown	128	None	None	727969b957 2026-10-18	n/a	[]	[]	None
+distribution	documentation/PER_DEVICE_DOCUMENTATION/RK3399/SUPPORTED_EMULATORS_AND_CORES.md	doctrine	upstream-carried	None	False	markdown	133	None	None	8cf29e1d0b 2026-10-22	n/a	[]	[]	None
+distribution	documentation/PER_DEVICE_DOCUMENTATION/RK3566/SUPPORTED_EMULATORS_AND_CORES.md	doctrine	upstream-carried	None	False	markdown	134	None	1476fe68a5 2026-08-27	8cf29e1d0b 2026-10-22	n/a	[]	[]	None
+distribution	documentation/PER_DEVICE_DOCUMENTATION/RK3576/SUPPORTED_EMULATORS_AND_CORES.md	doctrine	upstream-carried	None	False	markdown	134	None	None	8cf29e1d0b 2026-10-22	n/a	[]	[]	None
+distribution	documentation/PER_DEVICE_DOCUMENTATION/RK3588/SUPPORTED_EMULATORS_AND_CORES.md	doctrine	upstream-carried	None	False	markdown	135	None	None	8cf29e1d0b 2026-10-22	n/a	[]	[]	None
+distribution	documentation/PER_DEVICE_DOCUMENTATION/S922X/SUPPORTED_EMULATORS_AND_CORES.md	doctrine	upstream-carried	None	False	markdown	134	None	None	8cf29e1d0b 2026-10-22	n/a	[]	[]	None
+distribution	documentation/PER_DEVICE_DOCUMENTATION/SDM845/SUPPORTED_EMULATORS_AND_CORES.md	doctrine	upstream-carried	None	False	markdown	130	None	None	28e750db32 2026-09-14	n/a	[]	[]	None
+distribution	documentation/PER_DEVICE_DOCUMENTATION/SM4450/SUPPORTED_EMULATORS_AND_CORES.md	doctrine	upstream-carried	None	False	markdown	140	None	None	8cf29e1d0b 2026-10-22	n/a	[]	[]	None
+distribution	documentation/PER_DEVICE_DOCUMENTATION/SM6115/SUPPORTED_EMULATORS_AND_CORES.md	doctrine	upstream-carried	None	False	markdown	135	None	None	8cf29e1d0b 2026-10-22	n/a	[]	[]	None
+distribution	documentation/PER_DEVICE_DOCUMENTATION/SM8250/SUPPORTED_EMULATORS_AND_CORES.md	doctrine	upstream-carried	None	False	markdown	141	None	None	8cf29e1d0b 2026-10-22	n/a	[]	[]	None
+distribution	documentation/PER_DEVICE_DOCUMENTATION/SM8550/SUPPORTED_EMULATORS_AND_CORES.md	doctrine	upstream-carried	None	False	markdown	141	None	None	8cf29e1d0b 2026-10-22	n/a	[]	[]	None
+distribution	documentation/PER_DEVICE_DOCUMENTATION/SM8650/SUPPORTED_EMULATORS_AND_CORES.md	doctrine	upstream-carried	None	False	markdown	141	None	None	8cf29e1d0b 2026-10-22	n/a	[]	[]	None
+distribution	documentation/PER_DEVICE_DOCUMENTATION/SM8750/SUPPORTED_EMULATORS_AND_CORES.md	doctrine	upstream-carried	None	False	markdown	141	None	None	8cf29e1d0b 2026-10-22	n/a	[]	[]	None
+distribution	licenses/0BSD.txt	doctrine	upstream-carried	None	False	text	5	None	None	ef78699297 2026-05-24	n/a	[]	[]	None
+distribution	licenses/AETHERSX2.pdf	doctrine	upstream-carried	None	False	other	None	None	None	c4d353449e 2026-10-18	n/a	[]	[]	None
+distribution	licenses/AFL-2.1.txt	doctrine	upstream-carried	None	False	text	45	None	None	dc091f5a44 2026-05-24	n/a	[]	[]	None
+distribution	licenses/Apache-2.0.txt	doctrine	upstream-carried	None	False	text	183	None	None	592b3b871e 2021-02-23	n/a	[]	[]	None
+distribution	licenses/Artistic-2.0.txt	doctrine	upstream-carried	None	False	text	85	None	None	5d574cae4d 2026-05-24	n/a	[]	[]	None
+distribution	licenses/Autoconf-exception-3.0.txt	doctrine	upstream-carried	None	False	text	26	None	None	2b6937686e 2026-05-24	n/a	[]	[]	None
+distribution	licenses/BSD-2-Clause.txt	doctrine	upstream-carried	None	False	text	9	None	None	ef78699297 2026-05-24	n/a	[]	[]	None
+distribution	licenses/BSD-3-Clause.txt	doctrine	upstream-carried	None	False	text	11	None	None	ef78699297 2026-05-24	n/a	[]	[]	None
+distribution	licenses/BSD-4-Clause.txt	doctrine	upstream-carried	None	False	text	14	None	None	ef78699297 2026-05-24	n/a	[]	[]	None
+distribution	licenses/BSL-1.0.txt	doctrine	upstream-carried	None	False	text	23	None	None	02e25ccd72 2026-05-24	n/a	[]	[]	None
+distribution	licenses/BigPEmu_ReadMe.txt	doctrine	upstream-carried	None	False	text	356	None	None	e4e132653e 2025-11-19	n/a	[]	[]	None
+distribution	licenses/Bitstream-Charter.txt	doctrine	upstream-carried	None	False	text	9	None	None	ef78699297 2026-05-24	n/a	[]	[]	None
+distribution	licenses/CC-BY-NC-SA-3.0.txt	doctrine	upstream-carried	None	False	text	360	None	None	2f1ce8b810 2026-05-24	n/a	[]	[]	None
+distribution	licenses/CC-BY-SA-4.0.txt	doctrine	upstream-carried	None	False	text	171	None	None	dc091f5a44 2026-05-24	n/a	[]	[]	None
+distribution	licenses/CDDL-1.0.txt	doctrine	upstream-carried	None	False	text	118	None	None	5e2ef102e5 2026-05-24	n/a	[]	[]	None
+distribution	licenses/ClArtistic.txt	doctrine	upstream-carried	None	False	text	61	None	None	ef78699297 2026-05-24	n/a	[]	[]	None
+distribution	licenses/Classpath-exception-2.0.txt	doctrine	upstream-carried	None	False	text	3	None	None	ef78699297 2026-05-24	n/a	[]	[]	None
+distribution	licenses/DRASTIC.pdf	doctrine	upstream-carried	None	False	other	None	None	None	03de275877 2025-11-19	n/a	[]	[]	None
+distribution	licenses/EPL-1.0.txt	doctrine	upstream-carried	None	False	text	73	None	None	ef78699297 2026-05-24	n/a	[]	[]	None
+distribution	licenses/FTL.txt	doctrine	upstream-carried	None	False	text	79	None	None	dc091f5a44 2026-05-24	n/a	[]	[]	None
+distribution	licenses/GPL-2.0-only.txt	doctrine	upstream-carried	None	False	text	311	None	None	592b3b871e 2021-02-23	n/a	[]	[]	None
+distribution	licenses/GPL-2.0-or-later.txt	doctrine	upstream-carried	None	False	text	311	None	None	592b3b871e 2021-02-23	n/a	[]	[]	None
+distribution	licenses/GPL-3.0-only.txt	doctrine	upstream-carried	None	False	text	232	None	None	ef78699297 2026-05-24	n/a	[]	[]	None
+distribution	licenses/GPL-3.0-or-later.txt	doctrine	upstream-carried	None	False	text	232	None	None	ef78699297 2026-05-24	n/a	[]	[]	None
+distribution	licenses/HPND-sell-variant.txt	doctrine	upstream-carried	None	False	text	19	None	None	ef78699297 2026-05-24	n/a	[]	[]	None
+distribution	licenses/HPND.txt	doctrine	upstream-carried	None	False	text	7	None	None	ef78699297 2026-05-24	n/a	[]	[]	None
+distribution	licenses/IJG.txt	doctrine	upstream-carried	None	False	text	38	None	None	5d574cae4d 2026-05-24	n/a	[]	[]	None
+distribution	licenses/ISC.txt	doctrine	upstream-carried	None	False	text	15	None	None	358f0bfe3e 2021-01-04	n/a	[]	[]	None
+distribution	licenses/JasPer-2.0.txt	doctrine	upstream-carried	None	False	text	17	None	None	e7d954a8a8 2026-05-24	n/a	[]	[]	None
+distribution	licenses/LGPL-2.0-only.txt	doctrine	upstream-carried	None	False	text	444	None	None	592b3b871e 2021-02-23	n/a	[]	[]	None
+distribution	licenses/LGPL-2.0-or-later.txt	doctrine	upstream-carried	None	False	text	444	None	None	592b3b871e 2021-02-23	n/a	[]	[]	None
+distribution	licenses/LGPL-2.1-only.txt	doctrine	upstream-carried	None	False	text	462	None	None	592b3b871e 2021-02-23	n/a	[]	[]	None
+distribution	licenses/LGPL-2.1-or-later.txt	doctrine	upstream-carried	None	False	text	462	None	None	592b3b871e 2021-02-23	n/a	[]	[]	None
+distribution	licenses/LGPL-3.0-only.txt	doctrine	upstream-carried	None	False	text	304	None	None	ef78699297 2026-05-24	n/a	[]	[]	None
+distribution	licenses/LGPL-3.0-or-later.txt	doctrine	upstream-carried	None	False	text	304	None	None	ef78699297 2026-05-24	n/a	[]	[]	None
+distribution	licenses/LLVM-exception.txt	doctrine	upstream-carried	None	False	text	15	None	None	ef78699297 2026-05-24	n/a	[]	[]	None
+distribution	licenses/LicenseRef-7-Zip.txt	doctrine	upstream-carried	None	False	text	146	None	None	ef78699297 2026-05-24	n/a	[]	[]	None
+distribution	licenses/LicenseRef-ARM-Mali-EULA.txt	doctrine	upstream-carried	None	False	text	194	None	None	697d112a64 2026-09-13	n/a	[]	[]	None
+distribution	licenses/LicenseRef-FLIRC.txt	doctrine	upstream-carried	None	False	text	32	None	None	e0d82af529 2026-05-24	n/a	[]	[]	None
+distribution	licenses/LicenseRef-Free-to-use.txt	doctrine	upstream-carried	None	False	text	5	None	None	66d3a6692c 2026-05-24	n/a	[]	[]	None
+distribution	licenses/LicenseRef-FreeDO.txt	doctrine	upstream-carried	None	False	text	27	None	None	e0d82af529 2026-05-24	n/a	[]	[]	None
+distribution	licenses/LicenseRef-HIDAPI-orig.txt	doctrine	upstream-carried	None	False	text	9	None	None	e0d82af529 2026-05-24	n/a	[]	[]	None
+distribution	licenses/LicenseRef-MAME.txt	doctrine	upstream-carried	None	False	text	35	None	None	e0d82af529 2026-05-24	n/a	[]	[]	None
+distribution	licenses/LicenseRef-NextPVR.txt	doctrine	upstream-carried	None	False	text	17	None	None	e0d82af529 2026-05-24	n/a	[]	[]	None
+distribution	licenses/LicenseRef-Nmap.txt	doctrine	upstream-carried	None	False	text	583	None	None	23f2169070 2026-05-24	n/a	[]	[]	None
+distribution	licenses/LicenseRef-Non-commercial.txt	doctrine	upstream-carried	None	False	text	53	None	None	e0d82af529 2026-05-24	n/a	[]	[]	None
+distribution	licenses/LicenseRef-PublicDomain.txt	doctrine	upstream-carried	None	False	text	10	None	None	2b6937686e 2026-05-24	n/a	[]	[]	None
+distribution	licenses/LicenseRef-bk-emulator.txt	doctrine	upstream-carried	None	False	text	5	None	None	e0d82af529 2026-05-24	n/a	[]	[]	None
+distribution	licenses/LicenseRef-fdk-aac.txt	doctrine	upstream-carried	None	False	text	92	None	None	e0d82af529 2026-05-24	n/a	[]	[]	None
+distribution	licenses/LicenseRef-firmware-Broadcom.txt	doctrine	upstream-carried	None	False	text	65	None	None	5d574cae4d 2026-05-24	n/a	[]	[]	None
+distribution	licenses/LicenseRef-linux-firmware.txt	doctrine	upstream-carried	None	False	text	6	None	None	66d3a6692c 2026-05-24	n/a	[]	[]	None
+distribution	licenses/LicenseRef-ngrep.txt	doctrine	upstream-carried	None	False	text	69	None	None	23f2169070 2026-05-24	n/a	[]	[]	None
+distribution	licenses/LicenseRef-nonfree.txt	doctrine	upstream-carried	None	False	text	4	None	None	66d3a6692c 2026-05-24	n/a	[]	[]	None
+distribution	licenses/MIT-CMU.txt	doctrine	upstream-carried	None	False	text	7	None	None	bbfc72eb6c 2026-05-24	n/a	[]	[]	None
+distribution	licenses/MIT-open-group.txt	doctrine	upstream-carried	None	False	text	20	None	None	a2aa1fb1af 2026-05-24	n/a	[]	[]	None
+distribution	licenses/MIT.txt	doctrine	upstream-carried	None	False	text	20	None	None	592b3b871e 2021-02-23	n/a	[]	[]	None
+distribution	licenses/MPL-1.1.txt	doctrine	upstream-carried	None	False	text	401	None	None	592b3b871e 2021-02-23	n/a	[]	[]	None
+distribution	licenses/MPL-2.0.txt	doctrine	upstream-carried	None	False	text	292	None	None	592b3b871e 2021-02-23	n/a	[]	[]	None
+distribution	licenses/NCSA.txt	doctrine	upstream-carried	None	False	text	15	None	None	ef78699297 2026-05-24	n/a	[]	[]	None
+distribution	licenses/OFL-1.1.txt	doctrine	upstream-carried	None	False	text	84	None	None	592b3b871e 2021-02-23	n/a	[]	[]	None
+distribution	licenses/PSF-2.0.txt	doctrine	upstream-carried	None	False	text	47	None	None	4e71dcbf58 2025-08-08	n/a	[]	[]	None
+distribution	licenses/SGI-B-2.0.txt	doctrine	upstream-carried	None	False	text	12	None	None	ef78699297 2026-05-24	n/a	[]	[]	None
+distribution	licenses/UnRAR.txt	doctrine	upstream-carried	None	False	text	41	None	None	91bc417542 2026-05-24	n/a	[]	[]	None
+distribution	licenses/Unicode-3.0.txt	doctrine	upstream-carried	None	False	text	39	None	None	e7d954a8a8 2026-05-24	n/a	[]	[]	None
+distribution	licenses/Unlicense.txt	doctrine	upstream-carried	None	False	text	25	None	None	309236ef4b 2023-10-21	n/a	[]	[]	None
+distribution	licenses/Vim.txt	doctrine	upstream-carried	None	False	text	76	None	None	592b3b871e 2021-02-23	n/a	[]	[]	None
+distribution	licenses/X11.txt	doctrine	upstream-carried	None	False	text	13	None	None	bbfc72eb6c 2026-05-24	n/a	[]	[]	None
+distribution	licenses/XFree86-1.1.txt	doctrine	upstream-carried	None	False	text	16	None	None	0efca64f71 2026-05-24	n/a	[]	[]	None
+distribution	licenses/Zlib.txt	doctrine	upstream-carried	None	False	text	19	None	None	592b3b871e 2021-02-23	n/a	[]	[]	None
+distribution	licenses/blessing.txt	doctrine	upstream-carried	None	False	text	5	None	None	bbfc72eb6c 2026-05-24	n/a	[]	[]	None
+distribution	licenses/bzip2-1.0.6.txt	doctrine	upstream-carried	None	False	text	15	None	None	2b6937686e 2026-05-24	n/a	[]	[]	None
+distribution	licenses/curl.txt	doctrine	upstream-carried	None	False	text	20	None	None	a2aa1fb1af 2026-05-24	n/a	[]	[]	None
+distribution	licenses/hdparm.txt	doctrine	upstream-carried	None	False	text	9	None	None	bbfc72eb6c 2026-05-24	n/a	[]	[]	None
+distribution	licenses/libpng-2.0.txt	doctrine	upstream-carried	None	False	text	33	None	None	bbfc72eb6c 2026-05-24	n/a	[]	[]	None
+distribution	licenses/libtiff.txt	doctrine	upstream-carried	None	False	text	8	None	None	69b825f14b 2026-06-03	n/a	[]	[]	None
+distribution	plans/conflict-resolution/vita-style-conflict-resolution.md	doctrine	fork-own	None	False	markdown	223	None	9267c4b9a9 2026-09-05	None	n/a	[]	[]	None
+TREE-SIDE (doctrine area by areas.json, less the doctrine non-rest slices' globs)
+.qa-scratch/t39/tree-ih.txt derived: 254 equal to mine: True only-derived: [] only-mine: []
+.qa-scratch/t39/tree-p1.txt derived: 254 equal to mine: True only-derived: [] only-mine: []
+CLAIMS
+README.md in-T39 rest [('doctrine-reference', 39)] tier fork-own lines 23 lang markdown area doctrine
+NAMING.md not-in-T39 non-rest [('doctrine-rules', 4)] tier fork-own lines 60 lang markdown area doctrine
+CLAUDE.md not-in-T39 non-rest [('doctrine-rules', 4)] tier fork-own lines 202 lang markdown area doctrine
+AGENTS.md not-in-T39 non-rest [('doctrine-rules', 4)] tier fork-own lines 351 lang markdown area doctrine
+docs/decision-register.md not-in-T39 non-rest [('doctrine-rules', 4)] tier fork-own lines 738 lang markdown area doctrine
+docs/blindspot-register.md not-in-T39 non-rest [('doctrine-rules', 4)] tier fork-own lines 1198 lang markdown area doctrine
+docs/friction-log.md not-in-T39 non-rest [('doctrine-rules', 4)] tier fork-own lines 863 lang markdown area doctrine
+docs/reviews/inventory.json not-in-T39 non-rest [('records', 46)] tier fork-own lines 134637 lang json area records
+docs/reviews/order.md in-T39 rest [('doctrine-reference', 39)] tier fork-own lines 806 lang markdown area doctrine
+docs/reviews/plan-for-the-plan.md in-T39 rest [('doctrine-reference', 39)] tier fork-own lines 499 lang markdown area doctrine
+docs/es-menu-map.md in-T39 rest [('doctrine-reference', 39)] tier fork-own lines 989 lang markdown area doctrine
+docs/vm-qa-log.md in-T39 rest [('doctrine-reference', 39)] tier fork-own lines 361 lang markdown area doctrine
+docs/releases/catalog.md in-T39 rest [('doctrine-reference', 39)] tier fork-own lines 112 lang markdown area doctrine
+docs/work-logs/INDEX.md not-in-T39 non-rest [('records', 46)] tier fork-own lines 1664 lang markdown area records
+docs/futros/2026-10-24-m6-doctrine.md NOT IN INVENTORY
+.github/sessions/saved-session-state-next.md not-in-T39 non-rest [('records', 46)] tier fork-own lines 355 lang markdown area records
+.claude/skills/futro/SKILL.md not-in-T39 non-rest [('doctrine-skills', 38)] tier fork-own lines 483 lang markdown area doctrine
+DOCS TREE BY SLICE
+27 paths 9222 lines ('docs/*', ('doctrine-reference',), 'doctrine')
+3 paths 2799 lines ('docs/*', ('doctrine-rules',), 'doctrine')
+59688 paths 16262198 lines ('docs/audits/', ('records',), 'records')
+6 paths 520 lines ('docs/futros/', ('records',), 'records')
+50 paths 3551 lines ('docs/pixelelated/', ('doctrine-reference',), 'doctrine')
+2 paths 323 lines ('docs/pr-series/', ('doctrine-reference',), 'doctrine')
+970 paths 5625 lines ('docs/qa-frames/', ('records',), 'records')
+64327 paths 6195761 lines ('docs/qa-logs/', ('records',), 'records')
+2 paths 649 lines ('docs/ra-offline/', ('doctrine-reference',), 'doctrine')
+15 paths 4906 lines ('docs/rasteratops/', ('doctrine-reference',), 'doctrine')
+23 paths 1858 lines ('docs/releases/', ('doctrine-reference',), 'doctrine')
+5 paths 415 lines ('docs/retros/', ('records',), 'records')
+1 paths 17 lines ('docs/retrospective/', ('records',), 'records')
+12 paths 5487 lines ('docs/reviews/', ('doctrine-reference',), 'doctrine')
+1 paths 134637 lines ('docs/reviews/', ('records',), 'records')
+28 paths 2323 lines ('docs/upstream/', ('doctrine-reference',), 'doctrine')
+81 paths 27812 lines ('docs/work-logs/', ('records',), 'records')
+DOCTRINE BY SLICE
+254 paths 38598 lines ('distribution', ('doctrine-reference',), 'rest')
+52 paths 12734 lines ('distribution', ('doctrine-skills',), 'non-rest')
+36 paths 11414 lines ('distribution', ('doctrine-rules',), 'non-rest')

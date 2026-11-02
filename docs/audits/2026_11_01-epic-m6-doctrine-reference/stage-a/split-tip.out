@@ -1,0 +1,53 @@
+CLASS L1-renovation-records    12 paths   5487 lines
+CLASS L2-running-records        3 paths   4054 lines
+CLASS R-fork-assets            41 paths   1765 lines
+CLASS R-fork-reference        108 paths  17443 lines
+CLASS R-upstream-carried       90 paths   9849 lines
+LEDGER 15 paths 9541 lines; REFERENCE 239 paths 29057 lines
+   L2-running-records 3581 docs/cloud-sync-changelog.md
+   L2-running-records 112 docs/releases/catalog.md
+   L1-renovation-records 165 docs/reviews/README.md
+   L1-renovation-records 124 docs/reviews/areas.json
+   L1-renovation-records 108 docs/reviews/assessment.md
+   L1-renovation-records 386 docs/reviews/briefs/p1-survey.md
+   L1-renovation-records 216 docs/reviews/build-path-read.md
+   L1-renovation-records 113 docs/reviews/cross-reference.md
+   L1-renovation-records 1515 docs/reviews/inventory.md
+   L1-renovation-records 806 docs/reviews/order.md
+   L1-renovation-records 449 docs/reviews/p1-tracking.md
+   L1-renovation-records 499 docs/reviews/plan-for-the-plan.md
+   L1-renovation-records 1048 docs/reviews/slices.json
+   L1-renovation-records 58 docs/reviews/status.md
+   L2-running-records 361 docs/vm-qa-log.md
+P1 grep -c class L1-renovation-records 5564
+P1 grep -c class L2-running-records 4054
+P1 grep -c class R-fork-assets 1765
+P1 grep -c class R-fork-reference 17443
+P1 grep -c class R-upstream-carried 9849
+P1 grep -c group L docs/* 3942
+P1 grep -c group L docs/releases/ 112
+P1 grep -c group L docs/reviews/ 5564
+P1 grep -c group R docs/* 5280
+P1 grep -c group R docs/pixelelated/ 3551
+P1 grep -c group R docs/pr-series/ 323
+P1 grep -c group R docs/ra-offline/ 649
+P1 grep -c group R docs/rasteratops/ 4906
+P1 grep -c group R docs/releases/ 1746
+P1 grep -c group R docs/upstream/ 2323
+P1 grep -c group R documentation/ 2160
+P1 grep -c group R LICENSE.md 18
+P1 grep -c group R licenses/ 7817
+P1 grep -c group R plans/ 223
+P1 grep -c group R README.md 23
+P1 grep -c group R TRADEMARK.md 38
+P1 grep -c total 38675
+tip: 86ebb6dffc
+      2 L1-renovation-records changed
+     10 L1-renovation-records same
+      3 L2-running-records same
+     41 R-fork-assets same
+    108 R-fork-reference same
+     90 R-upstream-carried same
+at the tip the selector reaches: 338 paths; added since P1: 84 ; of the 254 absent: 0
+  added under docs/reviews/briefs/: 84
+(end split)
