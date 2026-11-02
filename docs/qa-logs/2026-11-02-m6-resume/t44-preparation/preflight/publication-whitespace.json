@@ -1,0 +1,11 @@
+{
+  "time": "2026-11-02T22:13:31.219330+00:00",
+  "commit": "b419ae354c7046de5ee3ddb5d194f51c0ab4dc8e",
+  "literal_diff_check_rc": 2,
+  "literal_stdout": "docs/qa-logs/2026-11-02-m6-resume/t44-preparation/accepted-context/inputs/issue-691.json:71: new blank line at EOF.\n",
+  "unchanged_raw_receipt": "docs/qa-logs/2026-11-02-m6-resume/t44-preparation/accepted-context/inputs/issue-691.json",
+  "sha256": "44469050601dd3e10fc28ef1feb0b31b096a1b10dbfc3936b6d5089423881794",
+  "byte_equal_to_original_producer": true,
+  "all_other_paths_rc": 0,
+  "note": "One original producer JSON trailing blank line retained losslessly. The commit command had already been issued before inspecting the literal rc2; normal hooks passed. No changed source or other whitespace is excused."
+}
