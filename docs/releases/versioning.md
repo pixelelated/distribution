@@ -8,7 +8,7 @@ is selected by the words alpha, beta, rc, stable, or community.
 
 D-WORKFLOW-159 (#532) selects only **release candidates** and **releases**.
 The initial rolling sequence is `0.0.1-rc.1`, `0.0.1-rc.2`, then `0.0.1`;
-the next release target is `0.0.2`, whose RC counter starts again at1.
+the next release target is `0.0.2`, whose RC counter starts again at 1.
 No alpha/beta stage is required or accepted by the build qualifier. `dev`
 remains an internal engineering label, never a public release plan. Names
 alone confer neither RC qualification nor publication permission.

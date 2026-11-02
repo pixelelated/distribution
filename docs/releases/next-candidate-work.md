@@ -12,7 +12,8 @@ before its clean-install/upgrade checks can run; those checks hold RC designatio
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
 
-## October17 provider forms observed; GTK4 engine and input fixture compiled
+<a id="october17-provider-forms-observed-gtk4-engine-and-input-fixture-compiled"></a>
+## October 17 provider forms observed; GTK4 engine and input fixture compiled
 
 #616: the requested second provider, Google Drive, and Dropbox both load real
 sign-in forms through normal ES/rclone handoff on fresh2GiB GENERIC. HTTP200,
@@ -42,7 +43,8 @@ Compilation is not a memory improvement. Blink remains the uncompiled fallback.
 readback; no product integration/runtime proof yet. #587/#615, affected Nova
 #607–610 and separate public-release work retain their order. No job is active.
 
-## October17 GTK4 priority refinement
+<a id="october17-gtk4-priority-refinement"></a>
+## October 17 GTK4 priority refinement
 
 The owner identifies GTK4 as the likely smaller migration from GTK3. Build the
 isolated #576 dependency/API experiment first among engine alternatives; #617
@@ -54,7 +56,7 @@ replace the production engine. Preserve accepted GTK3 caches and image.
 
 D-WORKFLOW-170 schedules bounded #576 GTK4/native-input and #617 Blink/Wayland
 spikes beside #616 provider attribution. [Source/evidence and ownership](../qa-logs/2026-10-17-browser-rendering-options/README.md)
-distinguish Skia page painting from GTK/GPU integration. Runtime-UA helpers compile for GENERIC/H700;12 actual parser checks and6 direct-launch
+distinguish Skia page painting from GTK/GPU integration. Runtime-UA helpers compile for GENERIC/H700;12 actual parser checks and 6 direct-launch
 VM controls pass without an OS-image rebuild. [Original results and limits](../qa-logs/2026-10-17-browser-controls-results-616/README.md). No new renderer benchmark or
 production engine change is claimed. #587/#615 and the remaining M7 order hold.
 
@@ -72,7 +74,7 @@ work retain their order. Earlier dated next-step paragraphs below are historical
 
 [Exact-source packet](../qa-logs/2026-10-16-browser-headroom-587/README.md)
 compares four1GiB installed-browser cases on unchanged077197/ES16dbac.
-Temporary proxy stop increases available-memory condition medians by26.27MiB;
+Temporary proxy stop increases available-memory condition medians by 26.27 MiB;
 two normal restarts1.035/1.037s preserve signed queue/cache/account/settings state.
 Observer PSS7.7–7.9MiB measured, PSI unavailable; no guard/OOM. Eight reviewed
 frames show loaded synthetic pages and normal ES return. No Dropbox/H700 claim.
@@ -84,7 +86,7 @@ ready1.041s and queue empty3.841s. A safe atomic quiescence/cancellation/restora
 contract is next; unconditional stop is not adopted. D-RA-048/M7/#587/#615 current
 order and conditional #585 upstream queue updated/read back. First admission125
 and loopback port collision preserved as fixture failures. All lifecycle channels0,
-exact processes exited, admission consumed and2.41GB disposable disks retired.
+exact processes exited, admission consumed and 2.41 GB disposable disks retired.
 No product change, physical/cloud mutation or external assessment. Offline verifier
 checks originals, calculated results, negative finding, preservation and retirement.
 
@@ -93,9 +95,9 @@ checks originals, calculated results, negative finding, preservation and retirem
 [Physical investigation](../qa-logs/2026-10-16-h700-browser-exit-615/README.md):
 early Escape closes the loading window with kernel down/up and natural focus;
 its controller then fails on a duplicate timestamp argument, retained as1.
-A separate longer attempt hits the unchanged pressure guard at35.66s before
+A separate longer attempt hits the unchanged pressure guard at 35.66 s before
 Escape; minimum180.0MiB available, later PSI some26.09/full20.81 avg10. Third
-normal-close control at25s returns0 in2.211632s, observer0, no guard. No loaded
+normal-close control at 25 s returns0 in 2.211632 s, observer0, no guard. No loaded
 Dropbox frame was captured, so original loaded-page Escape remains inconclusive.
 No product fix or one-time-glitch claim. The instrumentation's overhead remains
 unattributed; next use a lean observer and per-process/page-readiness evidence.
@@ -111,12 +113,12 @@ independent order; #528 and website remain separate.
 ## 2026-10-16 05:01 UTC — Browser exit VM proof complete (#614)
 
 [Source-bound focused proof](../qa-logs/2026-10-16-browser-exit-614/README.md)
-passes four guarded cases on077197/ES16dbac: keyboard Escape, short-lived uinput,
+passes four guarded cases on 077197/ES16dbac: keyboard Escape, short-lived uinput,
 installed normal close (0.27249s), and installed phone POST handler over guest
 loopback. Same ES/boot, natural focus, observed key consumption, no guard firing,
 no leftover browser/OAuth/input; nine reviewed640×480 frames. Clean-install
 selected-state gate passes. All original host channels0, admission consumed,
-owned VM stopped and2.48GB disposable disk/firmware retired.
+owned VM stopped and 2.48 GB disposable disk/firmware retired.
 
 First observer failed on absent PSI; original service1/cleanup assertion1 and
 initial cases remain preserved/excluded from guarded qualification. Corrected
@@ -264,10 +266,10 @@ are independently verified, alongside the H700 evidence below.
 ## 2026-10-15 17:24 UTC — Native firmware refreshes accepted (#528)
 
 GENERIC, H700 DDR3/DDR4 and SM8550 now have successful canonical builds and
-independent artifact verification from077197 with timestamp20261015T161744Z.
+independent artifact verification from 077197 with timestamp20261015T161744Z.
 [H700 originals](../qa-logs/2026-10-15-zerotier-h700-refresh/README.md) retain its
 325.505s producer and independent reader. SM producer171321Z-6ff35da3 and
-reader172008Z-84c14305 passed, including exact ABL files and14 cached FEX payloads;
+reader172008Z-84c14305 passed, including exact ABL files and 14 cached FEX payloads;
 compact retention is underway. All original lifecycle channels0 and consumed.
 These are artifact checks; physical device and RC qualification remain separate.
 
@@ -386,20 +388,20 @@ and five open#528 criteria were read back unchanged in scope.
 ## 2026-10-15 13:07 UTC — shader correction and Tailscale custody accepted (#528, #604)
 
 [Shader analysis](../qa-logs/2026-10-15-shader-attribution-accepted/README.md)
-passed25 focused controls and all18,523 installed mappings. Exact source/notice
+passed25 focused controls and all 18,523 installed mappings. Exact source/notice
 references now support family-level review; heuristic misses are not automatic
 permission failures. Original duplicate-record failure remains separately retained.
 [Tailscale custody](../qa-logs/2026-10-15-tailscale-source-custody/README.md) now holds
-all89 selected dependency ZIPs and130 notices with exact component/binary maps.
+all 89 selected dependency ZIPs and 130 notices with exact component/binary maps.
 Both watched jobs passed every original channel and ordinary consumption.
 
 [FEX source/readback](../qa-logs/2026-10-15-fex-source-disposition/README.md) and
 [dependency disposition](../qa-logs/2026-10-15-fex-dependency-disposition/README.md)
-retain13 generated sources and13 header notices. Eight exact header-source archive
+retain13 generated sources and 13 header notices. Eight exact header-source archive
 acquisitions are prepared next; separately selected guest-rootfs providers and the
 compiler build closure are not treated as shipped native ARM dependencies.
 [Doom evidence](../qa-logs/2026-10-15-doom-input-disposition/README.md) retains the
-data's free-distribution notice and1.9 association, with the referenced vendor
+data's free-distribution notice and 1.9 association, with the referenced vendor
 terms question scoped to disk vending or charged bundles.
 
 Firmware and accepted engineering qualification remain unchanged. Remaining source
@@ -436,14 +438,14 @@ and publication gates. This is progress toward a candidate, not RC designation.
 ## 2026-10-15 11:50 UTC — selected notices and rclone source acquired (#528, #603)
 
 [The accepted notice supplement](../qa-logs/2026-10-15-notice-supplement/accepted/README.md)
-now covers all43 occurrences. The five-record continuation passed all original
+now covers all 43 occurrences. The five-record continuation passed all original
 result channels and ordinary consumption, within its corrected before-write
 storage bound. The earlier failed collectors remain unchanged, including the
 third attempt's305.5MB overrun. No collection was replayed merely for a summary.
 
 [Four-library disposition](../qa-logs/2026-10-15-notice-supplement/disposition/README.md)
 is accepted for current notice/source rebinding:14 profile records,57 positive
-library mappings and8 exact notice texts. Include full component source,
+library mappings and 8 exact notice texts. Include full component source,
 recipe/patch inputs and full notices for enet, libspeexdsp, libxmp-lite and
 opusfile. Consumer-link uncertainty is informational for this inclusive treatment;
 source-bundle materialization and actual notice delivery remain required.
@@ -454,7 +456,7 @@ exact official source/vendor archives are held (34,770,062B);242/242 selected
 versions match and have retained notice candidates. The exact upstream dirty-file
 list is unknown. Tailscale's selected dependency and notice reconciliation continues.
 
-The independent #603 primary audit completed all67 literal criteria without a
+The independent #603 primary audit completed all 67 literal criteria without a
 new confirmed product defect. Its fixed external packets await separately requested
 transfer approval. Record CI at a1e8 fails only that cadence; both wordlists pass.
 Remaining work is component dispositions and source delivery, then physical/native,
@@ -463,9 +465,9 @@ security, documentation and RC/publication gates in the milestone's existing ord
 ## 2026-10-15 11:22 UTC — selected source identities and notice continuation (#528)
 
 [Primary upstream evidence](../qa-logs/2026-10-15-prebuilt-source-disposition/disposition.md)
-supports rclone's release base and242 embedded dependency tuples, and Tailscale's
+supports rclone's release base and 242 embedded dependency tuples, and Tailscale's
 main-source identity. The two existing rclone source/vendor assets are the next
-bounded acquisition. Tailscale18 dependency-version exceptions and15 omitted
+bounded acquisition. Tailscale18 dependency-version exceptions and 15 omitted
 notice names need reconciliation; rclone's exact dirty-file list remains unknown.
 No universal reproducibility requirement or source-complete claim was added.
 
@@ -483,7 +485,7 @@ successful. Source and audit work continue before physical/publication handoff.
 [The exact private-copy strip proof](../qa-logs/2026-10-15-prebuilt-strip/accepted/README.md)
 passed for all nine current rclone/Tailscale binaries. All three loader checks
 and nine transformations returned zero; stripped copies equal package and staged
-bytes, protected originals remained unchanged, and387,715,376 temporary bytes
+bytes, protected originals remained unchanged, and 387,715,376 temporary bytes
 were removed after verification. The earlier loader failure and namespace-bound
 preparation failure remain recorded separately. This explains the binary changes
 without claiming a source rebuild or complete embedded dependency notices.
@@ -526,7 +528,7 @@ read-only administrator check was attempted, but sudo required terminal
 authentication: exit1,empty readback, no privileged reader execution. The installed
 swap helper supplies no dependency read. A fresh terminal-only command is ready and requested; no cleanup exception
 or deletion follows from this failure. Current
-preflight reports about2TB free. All runtime is now stopped/consumed.
+preflight reports about 2 TB free. All runtime is now stopped/consumed.
 
 ## 2026-10-15 09:57 UTC — six fixes closed after publication
 
@@ -558,7 +560,7 @@ publication and fresh tracker guards precede their actual closure.
 
 [The final five-profile inventory](../qa-logs/2026-10-15-source-custody/final-inventory-runtime/README.md)093346Z-ed162eab completed and was consumed,
 with ten original collector exits0 and no timeout or cleanup error. Component
-counts are594 GENERIC,238 H700arm,616 H700aarch64,241 SMarm and677 SMaarch64.
+counts are594 GENERIC,238 H700arm,616 H700aarch64,241 SMarm and 677 SMaarch64.
 It explicitly reports PASS_INVENTORY_WITH_PUBLICATION_GAPS. The sole reconstructed
 archive row is SM LLVM22.1.8. VM/H700f863 versus SM9aa7 remains an explicitly
 mixed engineering family with a single ABL checksum delta, not a designated RC.
@@ -573,7 +575,7 @@ by these host results.
 
 ## 2026-10-15 09:10 UTC — SM image assembled; signed-bootloader reader repair
 
-The canonical SM8550 build completed all737 packages and image creation, then
+The canonical SM8550 build completed all 737 packages and image creation, then
 its final host verifier failed because it treated the signed ABL bootloader as
 an AArch64 userland executable. #602 owns the narrow correction: the exact
 upstream member is ELF32/EM_ARM and already matches the expected digest.
@@ -581,7 +583,7 @@ Original run081827Z-07dceee9 and its1/0/1 result remain failed and ordinarily
 consumed; no successful combined producer receipt is inferred.
 
 Five assembled output identities are retained by watched hash run090643Z-2726aa32,
-all0, manifestb456c925. Fresh read-only source/installed verification and independent
+all 0, manifestb456c925. Fresh read-only source/installed verification and independent
 artifact acceptance come next; no recompilation or cache copy is indicated by
 this finding. [The reviewed Steam bridge source](../qa-logs/2026-10-15-steam-artifact-bridge-plan/README.md)
 remains unrun until actual acceptance and explicit updated input bindings, then
@@ -629,7 +631,7 @@ on the host; frozen firmware remains unchanged. Earlier launch exit 2,
 combined-producer exit 1 and selected-state acceptance exit 1 remain failed originals.
 
 SM8550 cache checks passed; main run072058Z-efba76e3 then failed2 at the stale
-ABL 1.2 checksum. #600 applies the exact upstream correction in9aa7affee9
+ABL 1.2 checksum. #600 applies the exact upstream correction in 9aa7affee9
 before a fresh reviewed build; the original failure is consumed and retained. The [source handoff](../qa-logs/2026-10-15-device-refresh/sm8550-source/README.md)
 requires the consumed H700 acceptance; its [parent-documentation continuation](../qa-logs/2026-10-15-device-refresh/sm8550-parent-source/README.md)
 retains the original preparation exit 1 before owner creation. SM8550 compilation
@@ -677,7 +679,7 @@ No product state defect, RC designation or audit completion is inferred.
 ## 2026-10-15 04:09 UTC — image built; #597 reporting recovery precedes testing
 
 Frozenf8636de1/ES16dbac completed all four canonical build stages and the original
-command/monitor/runner with0 in408.624s. Exact source and producer cleanup are
+command/monitor/runner with 0 in 408.624 s. Exact source and producer cleanup are
 verified. Root prematurely created the launcher's tool-wrapper.rc as a submission
 receipt; exclusive final publication failed and launcher-result.json is absent.
 The final launcher wait status remains unknown. #597 owns an explicit reviewed
@@ -691,7 +693,7 @@ before actual artifact readback, clean/retained checks, and native-state proof.
 All six audit findings now have resolved scoped outcomes in
 [audit checkpoint02](../audits/2026_10_14-milestone-m7-next-candidate/INTERIM-CHECKPOINT-02.md).
 Actual Wi-Fi normal exit and Back/reopen pass; Back has a measured59.06ms upper
-bound. Dolphin's intended EN/FR refusal/return is reviewed at640 and1280. ES
+bound. Dolphin's intended EN/FR refusal/return is reviewed at 640 and 1280. ES
 16dbac is published and selected by distribution342eec; Dolphin session clearing
 and Steam Python isolation are committed. Original failed fixtures and the frozen
 historical score remain unchanged. Audit completion is still false.
@@ -734,7 +736,8 @@ published; do not repeat them. Resolve #596/#590 acceptance, then H700 and SM855
 Source controls do not claim installed correction, native ARM Steam, or rendered
 UI. The current image remains engineering-only and no physical action is active.
 
-## October15 02:21 qualification update
+<a id="october15-0221-qualification-update"></a>
+## October 15 02:21 qualification update
 
 Both verified Fable passes have returned. The audit adds three concrete follow-ups:
 #593 normal-exit Wi-Fi worker cleanup, #594 clearing retained Dolphin achievement
@@ -749,7 +752,8 @@ and Dreamcast earned score164 through ordinary game saves. Supplemental byte
 readback is in progress because the exporter hit its4096-file ceiling; its failure
 stays original. Native manual/automatic state checks remain separate and partial.
 
-## October15 01:29 qualification update
+<a id="october15-0129-qualification-update"></a>
+## October 15 01:29 qualification update
 
 The new d4af5a255f / ES3178 engineering image is built and artifact-verified.
 All three build stages and the readback have original exit0 and consumed
@@ -765,12 +769,13 @@ refutation and final audit closure remain due. Affected clean/retained image
 composition follows native proof. The image remains engineering-only, with
 H700 then SM8550 after applicable qualification and audit closure.
 
-## October15 01:03 qualification update
+<a id="october15-0103-qualification-update"></a>
+## October 15 01:03 qualification update
 
 Scripts, SFTP and localS3 now pass, composing with the previous13 passing rows
-including WebDAV. The corrected frame comparator passes20 controls and all78
+including WebDAV. The corrected frame comparator passes20 controls and all 78
 retained frames without a new baseline or blanket mask. The remaining installed
-Wi-Fi backend/UI cases pass; all24 frames are reviewed. Previous fixture and
+Wi-Fi backend/UI cases pass; all 24 frames are reviewed. Previous fixture and
 harness failures remain original failures, with the narrow corrections recorded.
 
 Dolphin's missing NoGUI achievements lifecycle is fixed in source and passes a
@@ -794,7 +799,8 @@ Evidence: [Wi-Fi branches](../qa-logs/2026-10-15-wifi-remaining-result/README.md
 [Dolphin startup](../qa-logs/2026-10-15-dolphin-startup-result/README.md),
 [Steam metadata/recovery](../qa-logs/2026-10-15-steam-remaining-result/README.md).
 
-## October14 23:39 remaining qualification
+<a id="october14-2339-remaining-qualification"></a>
+## October 14 23:39 remaining qualification
 
 #572, #571 and #578 are closed after individual final-image criteria review.
 The active standard suite passed WebDAV, emulator exit and time-to-play; its
@@ -809,7 +815,8 @@ frozen fac608ff/ES3178, alongside root-owned serialized VM qualification. No
 Fable call or completed audit is claimed. H700 then SM8550 remain after relevant
 qualification and audit findings are resolved.
 
-## October14 23:20 qualification update
+<a id="october14-2320-qualification-update"></a>
+## October 14 23:20 qualification update
 
 The corrected fac608ff engineering image is built and verified. #588 is closed
 with actual installed startup/reconnect proof. #565, #566 and #567 are closed
@@ -826,7 +833,7 @@ remaining Wi-Fi criterion review identified precise gaps to verify: selection
 when a result disappears, connected/forget actions, and the corrected backend
 through the UI. Existing successful same-result refresh and route controls
 must not be overstated or unnecessarily repeated. Native gameplay/save behavior
-and14 remaining Steam recovery cases still await their serialized allocations.
+and 14 remaining Steam recovery cases still await their serialized allocations.
 
 Evidence: [corrected build/readback](../qa-logs/2026-10-14-gstnet-corrected-image/README.md),
 [fresh installed UI](../qa-logs/2026-10-14-corrected-image-ui/README.md),
@@ -847,12 +854,12 @@ pending final-image wording for those completed, explicitly named scopes.
 | Notice before offline-achievement preparation — #567 | Conditional confirmation UI and four native ES indexing API branches pass; actual preparation was represented by a controlled ctl substitute. | Final installed ES→ctl/proxy/cache/images continuation now passes: one new game, readiness1→2, old data unchanged, SQLite/queue/stamp/locks and original normal exits verified. The earlier fixture path-expectation failure and its correction remain preserved separately. |
 | Nova account/history isolation — #565 | Provenance investigation completed to available evidence; library-copy test separates ROM-only from gamelist history. Selected clean-state and payload guards have positive/negative controls. Original account entry remains unknown. | Actual final install/update payload and untouched clean boot pass selected-scope checks; no personal accounts or fabricated history found in that scope. Real retained-storage upgrade and installed default backup now pass with selected state preserved and seeded secrets excluded from the archive. Original historical account writer remains unknown. |
 | Recent default — #578 | One-literal compiled default fix and nine default/explicit-choice controls pass; imported gamelist history can populate Recent, a ROM alone cannot. | Final-source/image and selected clean/retained proof preserve explicit player choices. Historical Nova Recent entries are not evidence that this new default fix fabricated history. |
-| ScreenScraper developer provisioning — #566 | Runtime versus compiled behavior and separate player accounts are traced. The owner selected the existing shared JELOS developer identity (D-WORKFLOW-166); recipe/gate candidate19221 passes127 root-policy and4 environment-selection VM controls. Final ES3178 passes syntax checks in both credential modes and a full compiled-pair component build with EN/FR catalogs; compiled rejection guidance now addresses system access instead of hidden developer fields. | Actual small/large EN/FR frame proof is complete; ES3178 is published and selected by the recipe. Final payload, untouched clean boot, real retained upgrade and installed default backup pass. Replacement credentials are backlog #586, not a candidate dependency. Preserve unrelated private-credential protections. |
+| ScreenScraper developer provisioning — #566 | Runtime versus compiled behavior and separate player accounts are traced. The owner selected the existing shared JELOS developer identity (D-WORKFLOW-166); recipe/gate candidate19221 passes127 root-policy and 4 environment-selection VM controls. Final ES3178 passes syntax checks in both credential modes and a full compiled-pair component build with EN/FR catalogs; compiled rejection guidance now addresses system access instead of hidden developer fields. | Actual small/large EN/FR frame proof is complete; ES3178 is published and selected by the recipe. Final payload, untouched clean boot, real retained upgrade and installed default backup pass. Replacement credentials are backlog #586, not a candidate dependency. Preserve unrelated private-credential protections. |
 | Steam installation recovery — #564/#579/#580/#582 | Runtime/FEX/Proton preservation and complete synthetic caller controls pass within scope. Partial-client retry defect reproduced; real55-member client archive CRC/layout inspection passes. | Client transaction03e130 addresses both independent review findings in source; corrected full caller and fresh profile-symlink VM cases pass. Existing-profile, detached-child, census-failure, real transport-timeout, interrupted-publish, committed-self-update and CRC-retry cases now pass. The CRC fixture logging failure and correction remain recorded. The remaining14 source-chroot recovery controls, bounded installed metadata fetch and isolated Python helper controls are accepted; #582 is closed within its explicit contract. #564/#579/#580 now have the completed packaged-script VM bridge092639Z-3b69cb85, consumeddeaa4df3, binding accepted SM module1694f7a9 to installed GENERIC dependencies; the three issues are closed after publication and fresh body guards. Native ARM payload inspection and runtime qualification remain distinct device-build/publication checks; original a057 fixture failure is retained. This was found during the20261001 intake, not reported from gameplay. |
 
 Evidence: [installed setup](../qa-logs/2026-10-13-setup-qualification/installed/README.md),
 [library/preservation components](../qa-logs/2026-10-13-library-vm/README.md),
-[October14 frame completion](../qa-logs/2026-10-14-offline-components/README.md),
+[October 14 frame completion](../qa-logs/2026-10-14-offline-components/README.md),
 [RVZ/proxy/MD5 and archive results](../qa-logs/2026-10-14-rvz-proxy-components/README.md),
 [Dolphin preparation](../qa-logs/2026-10-14-dolphin-tool-preparation/README.md),
 [independent formats](../qa-logs/2026-10-14-independent-format-runtime/README.md),
@@ -875,7 +882,7 @@ receipts supply scoped completion. No failed original result is rewritten.
 
 - **Nova shutdown restarting (#558):** normal power-off requests and later boot
   are recorded; no retained crash dump or confirmed cause. Read-only triage is
-  complete. At the owner's October14 direction, await a reliable reproducer or
+  complete. At the owner's October 14 direction, await a reliable reproducer or
   useful recurrence evidence before repair work. This watch item does not block
   the candidate and is not fixed.
 - **RG SP red LED (#561):** a saved Red preference explained the observed color;
@@ -888,7 +895,7 @@ receipts supply scoped completion. No failed original result is rewritten.
   replacement ScreenScraper credentials (#586):** backlog. #568 asks whether the
   last game is active or post-game work is continuing; no owner copy choice is
   pending. A finishing label must follow actual game-processing completion.
-- **Temporary proxy shutdown during browsing (#587):** promoted to current M7.P5 by D-RA-048. The October16 VM measures headroom and normal recovery but reproduces a busy-stop timeout. Safe coordination and interruption proof are now the next investigation; no production policy is adopted.
+- **Temporary proxy shutdown during browsing (#587):** promoted to current M7.P5 by D-RA-048. The October 16 VM measures headroom and normal recovery but reproduces a busy-stop timeout. Safe coordination and interruption proof are now the next investigation; no production policy is adopted.
 - **GTK4 and lazy proxy imports (#576/#570):** diagnostic alternatives under
   D-WORKFLOW-163, not mandatory migrations for this RC. Target lazy-import savings
   were only390KiB; no GTK4 memory benefit has been measured.
@@ -918,7 +925,8 @@ complete (D-WORKFLOW-165). Keep #168's existing ten proxy drafts, new RVZ/MD5
 fixes and smaller ROCKNIX candidates visible. Submission-only standalone proof
 and PR preparation are follow-up work, not additions to the critical path.
 
-## Historical October11 working list — superseded by the review above
+<a id="historical-october11-working-list--superseded-by-the-review-above"></a>
+## Historical October 11 working list — superseded by the review above
 
 
 Recorded 2026-10-11 under #533, following the maintainer's request to document

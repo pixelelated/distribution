@@ -1,14 +1,14 @@
 # Next candidate scope — #533, 2026-10-11
 
 The [M7 body](https://github.com/pixelelated/distribution/milestone/7) owns order.
-This dated reconciliation covers all18 open M7 issues and all4 open bugs in
+This dated reconciliation covers all 18 open M7 issues and all 4 open bugs in
 the captured tracker. It is a readiness record, not an RC designation.
 The full original bodies/comments are retained in
 [the snapshot](../qa-logs/2026-10-11-candidate-scope/tracker-before.json).
 
 ## Current continuation — #563 adopts ROCKNIX 20261001
 
-October14: the [updated working list](next-candidate-work.md) reconciles all
+October 14: the [updated working list](next-candidate-work.md) reconciles all
 subsequent testing findings against their actual component evidence and remaining
 image/native gates. The live milestone owns current order. [Upstream queue#585](https://github.com/pixelelated/distribution/issues/585)
 retains contributions for after the initial current build (D-WORKFLOW-165);
@@ -33,11 +33,11 @@ The dated sections below preserve the earlier scope decisions and progress.
 Current source/VM qualification is frozen1a02664844, with complete clean/retained
 receipts under[replacement20](../qa-logs/2026-10-11-pixelelated-replacement-20/).
 #529/#530/#531/#532/#537 and the later qualification repairs are closed.
-Independent#553/#554 is complete: all13 reviewer leads adjudicated, four
+Independent#553/#554 is complete: all 13 reviewer leads adjudicated, four
 repairs delivered, valid closure marker, full ceremony and exact-head CI green.
 No confirmed product defect; #528 publication obligations remain partial.
 
-[#555 handheld refresh](../qa-logs/2026-10-11-device-refresh/README.md): Both refreshed handheld builds and independent artifact acceptance are COMPLETE, from audited bc9dfe8141 with shared identity `0.0.1-dev+20261011T222153Z.gbc9dfe8141d9`. H700 build ended0 at22:51:17UTC and acceptance04 at22:54:47UTC; both DDR variants/update and186 ARM files pass. SM8550 build05 ended0 at23:31:03UTC and acceptance05 at23:31:43UTC; raw/update equality, GPT, all five ABL package files,14 FEX outputs and188 ARM files pass. All original successful-run channels0, actual owners exited, containers removed and acceptance scratch removed. Box86 differences are bounded date/time/revision metadata only; added popt is exact from package staging through ARM and installed firmware. H700 bundle66273ff16383957687af44728a9e4e2c4bf1242c0217cf681dca8abee858d9b7; SM8550 bundlea480210cd8837f20fb67a80508c517308cc0326ed2c1544493e3f56d125f1f2f. Evidence: `docs/qa-logs/2026-10-11-device-refresh/`.
+[#555 handheld refresh](../qa-logs/2026-10-11-device-refresh/README.md): Both refreshed handheld builds and independent artifact acceptance are COMPLETE, from audited bc9dfe8141 with shared identity `0.0.1-dev+20261011T222153Z.gbc9dfe8141d9`. H700 build ended0 at 22:51:17 UTC and acceptance04 at 22:54:47 UTC; both DDR variants/update and 186 ARM files pass. SM8550 build05 ended0 at 23:31:03 UTC and acceptance05 at 23:31:43 UTC; raw/update equality, GPT, all five ABL package files,14 FEX outputs and 188 ARM files pass. All original successful-run channels0, actual owners exited, containers removed and acceptance scratch removed. Box86 differences are bounded date/time/revision metadata only; added popt is exact from package staging through ARM and installed firmware. H700 bundle66273ff16383957687af44728a9e4e2c4bf1242c0217cf681dca8abee858d9b7; SM8550 bundlea480210cd8837f20fb67a80508c517308cc0326ed2c1544493e3f56d125f1f2f. Evidence: `docs/qa-logs/2026-10-11-device-refresh/`.
 
 #556 RG35XX SP transfer and one reboot are COMPLETE and accepted. Exact installed system/kernel/DTB/DDR4 bootloader/ES/both RetroArch hashes match; queue empty, original mounts, active frontend/zero restarts. All163 protected files, three recovery entries and every current configuration/credential/path are preserved. Automatic cloud sync remains off; device returned to owner use. No screenshot/input/game/audio/cloud operation or further physical-device authority is implied.
 
@@ -45,7 +45,7 @@ No confirmed product defect; #528 publication obligations remain partial.
 
 #557 RG SP/Nova transfers, one approved reboot each and installed/preservation acceptance are complete. Both run bc9dfe8141; accepted evidence records active frontend/zero retries and automatic cloud sync off. [Device acceptance](../qa-logs/2026-10-12-owner-updates/README.md). #556 RG35XX SP remains accepted and untouched. All devices are returned to owner use; no deployment permission remains unconsumed.
 
-#558 records the owner's later Nova shutdown/restart/Linux-load observation. Read-only journals show power-off requests, a later reboot, no retained crash dump and limited SM8550 crash-log capabilities. Cause remains unknown; no device reproduction or fix is claimed. The October14 owner direction keeps #558 as a nonblocking watch awaiting a reliable reproducer or useful recurrence evidence; #561 likewise monitors LED preference preservation. [Incident evidence](../qa-logs/2026-10-12-nova-shutdown/README.md). #534's fixed red preference remains the supported LED diagnosis; no relevant H700 upstream delta was found. #559 retains reusable integration/backport procedure work; #560 fast-shutdown evaluation remains future work. #563 now adopts the new frozen base under D-WORKFLOW-161. Publication gates are unchanged; no public RC is allocated.
+#558 records the owner's later Nova shutdown/restart/Linux-load observation. Read-only journals show power-off requests, a later reboot, no retained crash dump and limited SM8550 crash-log capabilities. Cause remains unknown; no device reproduction or fix is claimed. The October 14 owner direction keeps #558 as a nonblocking watch awaiting a reliable reproducer or useful recurrence evidence; #561 likewise monitors LED preference preservation. [Incident evidence](../qa-logs/2026-10-12-nova-shutdown/README.md). #534's fixed red preference remains the supported LED diagnosis; no relevant H700 upstream delta was found. #559 retains reusable integration/backport procedure work; #560 fast-shutdown evaluation remains future work. #563 now adopts the new frozen base under D-WORKFLOW-161. Publication gates are unchanged; no public RC is allocated.
 
 ## Subsequent owner feedback — 2026-10-11
 
@@ -96,8 +96,8 @@ the next H700 and SM8550 builds. No public RC or publication clearance is implie
 | #353 (bug) | Automatic migration scope explicitly retired, not “fixed” by reviving it. Installed inclusion says `retired_migration_absent:true`; CF10 preserves selected /GAMES, custom content and explicit account-root choices. | Close not planned into completed #508/#510. Fresh post-link create/decline and explicit folder editing replace the old behavior. Personal alignment #519 already completed. |
 | #352 (bug) | Delivered selected-root behavior: replacement18 scripts.log A0/A2; explicit structured-root scans, no fallback or unrelated sibling restore. EN/FR empty guidance and positive GB-only frame directly re-reviewed. Current chooser covered by #527. | Close completed with source trace and Already written disposition. Public setup instructions transferred explicitly to #344/#511. Root Photos/Documents are no longer a pre-tier discovery input. |
 | #350 | Source scan contract and failure/status controls pass in replacement18 scripts.log `ab`; current cancellation/empty/positive/changed-config frames retained. | Keep P5: exact next-image menu→running scan→options, selected-content second scan, dead-endpoint failure→retry/close sequence in EN/FR; bind live text to current source. No automatic discovery/folder settlement. |
-| #349 | Closed completed2026-10-15: accepted same-model/foreign-only installed selection, paired640px frames, selected archive/journal and preserved settings; D-CLOUD-162/164 stays. | Public same-model/newest/disabled-state guide delivered in website PR4/main6aac689c. [Exact completion evidence](../qa-logs/2026-10-15-restoration-completion/README.md). No VM replay owed. |
-| #337 | Lowercase identity, source/defaults/boot/manual adoption and56-path disposition proved in retained candidate records; engineering deployments complete. | Keep P5 identity/publication umbrella: refresh metadata/frame checks for #530/#532; release/SSH-password/adoption/source notes and placeholder receipt, current exact asset names. No DISTRO directory rename or cloud relocation. |
+| #349 | Closed completed 2026-10-15: accepted same-model/foreign-only installed selection, paired640px frames, selected archive/journal and preserved settings; D-CLOUD-162/164 stays. | Public same-model/newest/disabled-state guide delivered in website PR4/main6aac689c. [Exact completion evidence](../qa-logs/2026-10-15-restoration-completion/README.md). No VM replay owed. |
+| #337 | Lowercase identity, source/defaults/boot/manual adoption and 56-path disposition proved in retained candidate records; engineering deployments complete. | Keep P5 identity/publication umbrella: refresh metadata/frame checks for #530/#532; release/SSH-password/adoption/source notes and placeholder receipt, current exact asset names. No DISTRO directory rename or cloud relocation. |
 | #344 | Current release contract and owner for combined qualification/publication. Historical P0–P6 sections mapped below. | Exact freeze, all remaining software checks/delta review, source/retrieval/runner-custody/notes/channel/asset gates and named publication authority. |
 | #265 | Thin policy selected; offline public-plan tool validates candidate bytes and drafts only. | Actual qualified immutable tag/assets/source release, channel separation and receipt. No publication happened. |
 
@@ -162,7 +162,7 @@ synthetic guests. No personal Dropbox fixture or owner device is needed.
    the real upgrade rehearsal proves retained payload/settings preservation.
    Recheck same-model/foreign-only settings and both scan paths from #349/#350.
 5. Capture and review current INFORMATION/Updates identity and clean/upgraded
-   frontend frames, EN/FR640×480 and1280×800 affected cloud paths, options→scan→
+   frontend frames, EN/FR640×480 and 1280×800 affected cloud paths, options→scan→
    systems/empty/failure/retry/cancel. Bind canonical menu/IA/CF references and
    frame index to exact source. Explain any diff; never widen masks to pass.
 6. Record applicable release-delta review and resolve any finding before an RC
@@ -177,7 +177,7 @@ synthetic guests. No personal Dropbox fixture or owner device is needed.
 Replacement18 source `7f58b7b1c592908dcd0ba5987955e59aaa79fe66`, bundle
 `f557176651026f59bb5931993b12491a6019c0383321fb89fa1a05a596514fe6`, retains
 its13 unaffected standard suites plus #527 corrected walks/composed78 frames,
-324 WebDAV/SFTP/S3 assertions and31 actual retained-storage upgrade checks.
+324 WebDAV/SFTP/S3 assertions and 31 actual retained-storage upgrade checks.
 The original qa21 aggregate is still1. Cloud scripts and ES pin are unchanged
 at this reference head; only ES's essway service differs in that subtree.
 The source-to-installed hash readback is in this review's evidence packet.
@@ -191,7 +191,7 @@ cases remain named checks even though archive/script controls have passed.
 
 ### Historical capacity, observation and retirement
 
-Read-only measurement: about1.31TB available. Existing allocated roots:
+Read-only measurement: about 1.31 TB available. Existing allocated roots:
 replacement18 118,307,713,024 bytes; H70002 143,922,823,168;
 SM8550_02 182,459,289,600. A conservative incremental GENERIC_X64 launch budget
 is554GiB:150 fresh root +150 temporary copy +50 source growth +40 firmware/

@@ -395,9 +395,9 @@ flowchart LR
 ```
 
 [Source-bound reviewed frames](qa-logs/2026-10-13-library-vm/dolphin-frame-index.json)
-cover French retained-state/card refusals and English fresh Wii setup at1280×800,
+cover French retained-state/card refusals and English fresh Wii setup at 1280×800,
 using complete staged90cd callers and compiled ESbb9e with recording engines.
-The [October14 component frames](qa-logs/2026-10-14-offline-components/frame-index.json) add the remaining640×480 callers. Candidate1a7714fd81 inserts a display-only break at the folder/filename boundary for known long card paths; French640 is reviewed; [updated English640](qa-logs/2026-10-14-dolphin-english640-runtime/frame-index.json) now has reviewed entry/refusal/return frames and exact retained-data preservation under the same helper. Those frame records retain their original staged-caller scope. Later [final clean/retained image evidence](qa-logs/2026-10-15-final-engineering-result/README.md) binds installed f863 scripts and ES16dbac; [ordinary-save evidence](qa-logs/2026-10-15-native-gameplay-result/README.md) remains bound to d4af, while [final native-state reconciliation](audits/2026_10_14-milestone-m7-next-candidate/phase7-final-reconciliation.json) binds the separate four-launch f863 proof. No historical recording-engine result becomes native-engine evidence.
+The [October 14 component frames](qa-logs/2026-10-14-offline-components/frame-index.json) add the remaining640×480 callers. Candidate1a7714fd81 inserts a display-only break at the folder/filename boundary for known long card paths; French640 is reviewed; [updated English640](qa-logs/2026-10-14-dolphin-english640-runtime/frame-index.json) now has reviewed entry/refusal/return frames and exact retained-data preservation under the same helper. Those frame records retain their original staged-caller scope. Later [final clean/retained image evidence](qa-logs/2026-10-15-final-engineering-result/README.md) binds installed f863 scripts and ES16dbac; [ordinary-save evidence](qa-logs/2026-10-15-native-gameplay-result/README.md) remains bound to d4af, while [final native-state reconciliation](audits/2026_10_14-milestone-m7-next-candidate/phase7-final-reconciliation.json) binds the separate four-launch f863 proof. No historical recording-engine result becomes native-engine evidence.
 The [initial failed fixture](qa-logs/2026-10-13-library-vm/dolphin-initial-frame-index.json)
 retains its own outcome; the source and screenshots are not a promoted product pin.
 
@@ -499,7 +499,7 @@ last usable rows and offers refresh. Back closes the picker safely. Its bounded
 read may finish after closure; reopening attaches to that pending read instead
 of launching a second one. No worker owns a GUI callback.
 
-[EN/FR640×480 and1280×800 UI/lifetime/route proof](qa-logs/2026-10-13-setup-qualification/installed/README.md),
+[EN/FR640×480 and 1280×800 UI/lifetime/route proof](qa-logs/2026-10-13-setup-qualification/installed/README.md),
 [compiled French hint follow-up](qa-logs/2026-10-13-library-vm/README.md), and
 [final installed backend/selection/connected/forget proof](qa-logs/2026-10-15-wifi-remaining-result/README.md)
 compose the acceptance. The final [24-frame reviewed index](qa-logs/2026-10-15-wifi-remaining-result/frame-review.json)
@@ -521,11 +521,11 @@ The final f8636de1 image with installed ES16dbac now passes both the
 [clean-install flow and four reviewed frames](qa-logs/2026-10-15-final-engineering-result/clean/README.md)
 and [retained-upgrade flow and four reviewed frames](qa-logs/2026-10-15-final-engineering-result/retained/README.md).
 The installed executable is used directly. Back restored the exact full reference
-in57.909324ms and57.258077ms respectively; reopening reused the scan and normal
+in 57.909324 ms and 57.258077 ms respectively; reopening reused the scan and normal
 exit left no survivor. Presentation is unchanged. These remain synthetic backend
 checks; they do not measure a physical radio.
 
-The [October13 baseline](qa-logs/2026-10-13-library-wifi-baseline/README.md)
+The [October 13 baseline](qa-logs/2026-10-13-library-wifi-baseline/README.md)
 retains the former external overlay, growing initial geometry and identical
 empty/error outcomes. Populated refresh retained dimmed prior rows; its alleged
 disappearance was not reproduced. Those historical defect frames stay unchanged.
@@ -765,7 +765,7 @@ not a claim of complete redirect or subframe confinement.
 <a id="pending-nonvisual-allocator-candidate-570"></a>
 ### Historical nonvisual allocator candidate (#570, closed)
 
-The cloud sign-in flow and copy remain unchanged. Candidate ESf7b71db0a adds
+The cloud sign-in flow and copy remain unchanged. Candidate ES f7b71db0a adds
 heap reclamation after frontend teardown. [Actual-source component evidence](qa-logs/2026-10-13-es-trim-product/README.md)
 and its [reviewed frame index](qa-logs/2026-10-13-es-trim-product/frames.json)
 cover640×480 native input, phone input across navigation, provider-start failure,
@@ -904,7 +904,7 @@ an additional visible title. Saved account settings, pending awards, game saves,
 and save states remain untouched. Existing INI bytes remain when publication
 fails; the launcher refuses to use them.
 
-[Exact-source EN/FR640×480 and1280×800 refusal/return evidence](qa-logs/2026-10-15-audit-ui-results/README.md)
+[Exact-source EN/FR640×480 and 1280×800 refusal/return evidence](qa-logs/2026-10-15-audit-ui-results/README.md)
 and its [reviewed frame index](qa-logs/2026-10-15-audit-ui-results/frame-index.json)
 now qualify this branch with ES16dbac and the explicit helper/launcher overlay.
 The actual API-driven walk returns to its originating Wii system carousel after
@@ -954,7 +954,7 @@ and personal account errors retain their existing routes. Both credential-mode s
 and the English/French catalogs pass. Actual EN/FR640x480/1280x800 entry,
 options, accounts, rejection and return frames are reviewed and accepted,
 with original normal case exits. The [exact-source frame index](qa-logs/2026-10-14-screenscraper-ui-runtime/frame-index.json)
-binds the executing ELF/catalogs and20primary frames; the [review record](qa-logs/2026-10-14-screenscraper-ui-runtime/README.md)
+binds the executing ELF/catalogs and 20 primary frames; the [review record](qa-logs/2026-10-14-screenscraper-ui-runtime/README.md)
 retains original failures separately. Final installed-image qualification is distinct.
 
 Qualification records: [interim provisioning](qa-logs/2026-10-14-screenscraper-provisioning/README.md)

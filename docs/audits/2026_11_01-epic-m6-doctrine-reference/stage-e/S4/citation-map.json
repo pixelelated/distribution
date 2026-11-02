@@ -1,0 +1,65 @@
+[
+  {
+    "issue": "#1100",
+    "path": "docs/releases/device-facts.md",
+    "before_line": 17,
+    "after_line": 17,
+    "before": "| SM8550 boot on the Retroid Pocket Nova | Actual Nova boot chain, storage and compositor after an in-place update | 2026-10-12 04:28 UTC: approved8b511\u2192bc9dfe update and one reboot; exact SYSTEM/kernel/ES/both RetroArch/5ABL files/both ABL slots; original mounts, empty queue and active frontend/zero restarts; credentials/paths/settings values preserved | `bc9dfe8141` | [Current deployment](../qa-logs/2026-10-12-owner-updates/README.md); original channels0/actual exits, owner use resumed, auto cloud sync off; no new frame/audio/gameplay claim | #557, #344; historical clock warning #328 |",
+    "after": "| SM8550 boot on the Retroid Pocket Nova | Actual Nova boot chain, storage and compositor after an in-place update | 2026-10-12 04:28 UTC: approved 8b511\u2192bc9dfe update and one reboot; exact SYSTEM/kernel/ES/both RetroArch/5ABL files/both ABL slots; original mounts, empty queue and active frontend/zero restarts; credentials/paths/settings values preserved | `bc9dfe8141` | [Current deployment](../qa-logs/2026-10-12-owner-updates/README.md); original channels0/actual exits, owner use resumed, auto cloud sync off; no new frame/audio/gameplay claim | #557, #344; historical clock warning #328 |",
+    "whitespace_only": true
+  },
+  {
+    "issue": "#1100",
+    "path": "docs/releases/device-facts.md",
+    "before_line": 18,
+    "after_line": 18,
+    "before": "| Nova frontend readiness after #529 | Actual SM8550 frontend service startup on the corrected image | 2026-10-12: first approved boot reaches active/idle frontend with NRestarts0; one observation, not a measured failure rate or rendering proof | `bc9dfe8141` | [Current deployment](../qa-logs/2026-10-12-owner-updates/README.md); original channels0/actual exits, owner use resumed, auto cloud sync off; no new frame/audio/gameplay claim | #529, #557 |",
+    "after": "| Nova frontend readiness after #529 | Actual SM8550 frontend service startup on the corrected image | 2026-10-12: first approved boot reaches active/idle frontend with NRestarts0; one observation, not a measured failure rate or rendering proof | `bc9dfe8141` | [Current deployment](../qa-logs/2026-10-12-owner-updates/README.md); original channels0/actual exits, owner use resumed, auto cloud sync off; no new frame/audio/gameplay claim | #529, #557 |",
+    "whitespace_only": false
+  },
+  {
+    "issue": "#1100",
+    "path": "docs/releases/device-facts.md",
+    "before_line": 19,
+    "after_line": 19,
+    "before": "| Nova shutdown and bootloader recovery | Physical SM8550 power-off/restart and pre-Linux ABL behavior | 2026-10-12 read-only: three power-off intents, later reboot; empty pstore, no matching ES quit-mode entry; no reproduced failure or established cause | `bc9dfe8141` | [Incident timeline and evidence limits](../qa-logs/2026-10-12-nova-shutdown/README.md); owner reports one recovered Linux-load error; no agent mutation | #558; keep an eye on |",
+    "after": "| Nova shutdown and bootloader recovery | Physical SM8550 power-off/restart and pre-Linux ABL behavior | 2026-10-12 read-only: three power-off intents, later reboot; empty pstore, no matching ES quit-mode entry; no reproduced failure or established cause | `bc9dfe8141` | [Incident timeline and evidence limits](../qa-logs/2026-10-12-nova-shutdown/README.md); owner reports one recovered Linux-load error; no agent mutation | #558; keep an eye on |",
+    "whitespace_only": false
+  },
+  {
+    "issue": "#1126",
+    "path": "docs/releases/device-facts.md",
+    "before_line": 31,
+    "after_line": 31,
+    "before": "| Retroid Pocket Nova: the stick LEDs | physical illumination and boot application of saved color/brightness on the Nova; VM proves eight sysfs writes, battery transitions and actual menu reselection | never for the corrected scripts; open item to test, not an unverified software criterion (D-QA-051) | -- | `docs/qa-logs/2026-10-03-led/` proves software behavior; no physical action performed | #332 |",
+    "after": "| Retroid Pocket Nova: the stick LEDs | physical illumination and boot application of saved color/brightness on the Nova; VM proves eight sysfs writes, battery transitions and actual menu reselection | never for the corrected scripts; open item to test, not an unverified software criterion (D-QA-051) | -- | `docs/qa-logs/2026-10-03-led/` proves software behavior; no physical action performed | #332 |",
+    "whitespace_only": false
+  },
+  {
+    "issue": "#682",
+    "path": "docs/es-menu-map.md",
+    "before_line": 134,
+    "after_line": 134,
+    "before": "| **CONTROLLER & BLUETOOTH** | SETTINGS \u00b7 BLUETOOTH \u00b7 DISPLAY OPTIONS \u00b7 BEHAVIOR \u00b7 PLAYER ASSIGNMENTS |",
+    "after": "| **CONTROLLER & BLUETOOTH** | SETTINGS \u00b7 BLUETOOTH \u00b7 DISPLAY OPTIONS \u00b7 BEHAVIOR \u00b7 PLAYER ASSIGNMENTS |",
+    "whitespace_only": false
+  },
+  {
+    "issue": "#1216",
+    "path": "docs/es-menu-map.md",
+    "before_line": 405,
+    "after_line": 405,
+    "before": "### FINISH RESTORE SETUP (the checklist after a settings restore)",
+    "after": "### FINISH RESTORE SETUP (the checklist after a settings restore)",
+    "whitespace_only": false
+  },
+  {
+    "issue": "#667",
+    "path": "docs/es-menu-map.md",
+    "before_line": 595,
+    "after_line": 595,
+    "before": "    PAGE --> SCAN[SCAN GAMES FOR OFFLINE ACHIEVEMENTS<br/><i>NOT SCANNED YET . N GAMES READY FOR OFFLINE PLAY</i><br/><i>LAST date - COMPLETED or COULDN'T FINISH . N GAMES READY FOR OFFLINE PLAY</i><br/><i>WHEN YOU CAME ONLINE - outcome . N GAMES READY ...</i><br/><i>SCANNING... - GAME i OF n . N GAMES READY (a scan left running with B, PL-07)</i><br/><i>SAVING GAMES FOR OFFLINE PLAY... - GAME i OF n . N GAMES READY (a top-up the ctl runs, #189; refreshed once a second)</i>]",
+    "after": "    PAGE --> SCAN[SCAN GAMES FOR OFFLINE ACHIEVEMENTS<br/><i>NOT SCANNED YET . N GAMES READY FOR OFFLINE PLAY</i><br/><i>LAST date - COMPLETED or COULDN'T FINISH . N GAMES READY FOR OFFLINE PLAY</i><br/><i>WHEN YOU CAME ONLINE - outcome . N GAMES READY ...</i><br/><i>SCANNING... - GAME i OF n . N GAMES READY (a scan left running with B, PL-07)</i><br/><i>SAVING GAMES FOR OFFLINE PLAY... - GAME i OF n . N GAMES READY (a top-up the ctl runs, #189; refreshed once a second)</i>]",
+    "whitespace_only": false
+  }
+]

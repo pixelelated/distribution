@@ -1,0 +1,82 @@
+[
+  {
+    "allowlist": "allow-legit.txt",
+    "path": "docs/pixelelated/site-plan.md",
+    "before_line": 70,
+    "after_line": 70,
+    "before": "`docs/cloud-saves-native-wizard` at `4f6df54ca16121ff2cd0620407aea6434ee59147`,",
+    "after": "`docs/cloud-saves-native-wizard` at `4f6df54ca16121ff2cd0620407aea6434ee59147`,"
+  },
+  {
+    "allowlist": "allow-legit.txt",
+    "path": "docs/technical-appendix-cloud-sync-and-offline-achievements.md",
+    "before_line": 3,
+    "after_line": 3,
+    "before": "Moved to rocknix.org's contribute section on 2026-09-29 (D-WORKFLOW-073): `docs/contribute/cloud-sync-internals.md` on the site checkout's `docs/cloud-saves-native-wizard` branch, and https://rocknix.org/contribute/cloud-sync-internals/ once the docs PR merges. The site page keeps the register citations (`D-...`) with a note pointing at `docs/decision-register.md` here. One copy, there.",
+    "after": "Moved to the `ROCKNIX/rocknix.org` repository's contribute section on 2026-09-29 (D-WORKFLOW-073): `docs/contribute/cloud-sync-internals.md` on the site checkout's `docs/cloud-saves-native-wizard` branch, and https://rocknix.org/contribute/cloud-sync-internals/ once the docs PR merges. The site page keeps the register citations (`D-...`) with a note pointing at `docs/decision-register.md` here. One copy, there."
+  },
+  {
+    "allowlist": "allow-legit.txt",
+    "path": "docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md",
+    "before_line": 5,
+    "after_line": 5,
+    "before": "**What it carries.** `docs/configure/cloud-sync.md` (the rclone section, rewritten; the Syncthing and NFS sections untouched), `docs/configure/networking.md` (the Setup section and a section on saved networks), `docs/play/retro-achievements.md` (an Offline Achievements section and two notes), `docs/configure/scraper.md` (one section appended), a new developer page `docs/contribute/cloud-sync-internals.md` in the nav (what runs beneath the two feature pages, script by script), and the screenshots under `docs/_inc/images/{cloud-sync,networking,retro-achievements}/`, each captured from the ROCKNIX image at 640x480.",
+    "after": "**What it carries in `ROCKNIX/rocknix.org`.** `docs/configure/cloud-sync.md` (the rclone section, rewritten; the Syncthing and NFS sections untouched), `docs/configure/networking.md` (the Setup section and a section on saved networks), `docs/play/retro-achievements.md` (an Offline Achievements section and two notes), `docs/configure/scraper.md` (one section appended), a new developer page `docs/contribute/cloud-sync-internals.md` in the nav (what runs beneath the two feature pages, script by script), and the screenshots under `docs/_inc/images/{cloud-sync,networking,retro-achievements}/`, each captured from the ROCKNIX image at 640x480."
+  },
+  {
+    "allowlist": "allow-legit.txt",
+    "path": "docs/ra-offline/rocknix-org-offline-achievements.md",
+    "before_line": 3,
+    "after_line": 3,
+    "before": "*Draft for the `ROCKNIX/rocknix.org` site, `docs/configure/offline-achievements.md` (or a section of `docs/configure/retroachievements.md`). Kept in the fork's `docs/` until the site PR, per `fork-workflow.md` (personal path) and `documentation-accuracy.md` (the code and the page move together). Every menu label below is the string the interface shows in the seventh candidate (`3387cf5da0`); check them against `GuiRetroAchievementsSettings.cpp` and `GuiOfflineScan.cpp` before opening the PR. Audit #186 PL-11; phase 5 #168.*",
+    "after": "*Draft for the `ROCKNIX/rocknix.org` site, `docs/configure/offline-achievements.md` (or a section of `docs/configure/retroachievements.md`). Kept in the fork's `docs/` until the site PR, per `fork-workflow.md` (personal path) and `documentation-accuracy.md` (the code and the page move together). Every menu label below is the string the interface shows in the seventh candidate (`3387cf5da0`); check them against `GuiRetroAchievementsSettings.cpp` and `GuiOfflineScan.cpp` before opening the PR. Audit #186 PL-11; phase 5 #168.*"
+  },
+  {
+    "allowlist": "allow-legit.txt",
+    "path": "docs/rasteratops/release-readiness.md",
+    "before_line": 354,
+    "after_line": 354,
+    "before": "Historical no-join02 completed23:18:40; primary23:18:52 verified allfour0/21seals and owner exits,23:18:55 verified both guests/backend/ports stopped. Actual RC2\u2192retained1ac update preserves populated ROCKNIX pointers/cloud bytes. Fresh historical1ac directly reads the earlier save with its own installed client, then its supported full scan reports current/SOURCE=-, seeding does not join any of the three earlier pointers, and successful default restore transfers0bytes without the witness. All original bytes survive. Every runtime cloud hash is independently rechecked in nojoin02-acceptance-01. This supplies the exact historical negative for I354-L66; no new Rasteratops adoption gate. Failed01 remains a fixture error under#481.",
+    "after": "Historical no-join02 completed 23:18:40; primary 23:18:52 verified allfour0/21seals and owner exits,23:18:55 verified both guests/backend/ports stopped. Actual RC2\u2192retained1ac update preserves populated ROCKNIX pointers/cloud bytes. Fresh historical1ac directly reads the earlier save with its own installed client, then its supported full scan reports current/SOURCE=-, seeding does not join any of the three earlier pointers, and successful default restore transfers0bytes without the witness. All original bytes survive. Every runtime cloud hash is independently rechecked in nojoin02-acceptance-01. This supplies the exact historical negative for I354-L66; no new Rasteratops adoption gate. Failed01 remains a fixture error under#481."
+  },
+  {
+    "allowlist": "allow-legit.txt",
+    "path": "docs/rasteratops/release-readiness.md",
+    "before_line": 846,
+    "after_line": 846,
+    "before": "| Latest VM artifact | Run 101 is the older unbranded input set. No cold RASTERATOPS build or 0.0.1 candidate exists. No build/VM job intentionally running at review. |",
+    "after": "| Latest VM artifact | Run 101 is the older unbranded input set. No cold RASTERATOPS build or 0.0.1 candidate exists. No build/VM job intentionally running at review. |"
+  },
+  {
+    "allowlist": "allow-legit.txt",
+    "path": "docs/rasteratops/release-readiness.md",
+    "before_line": 874,
+    "after_line": 874,
+    "before": "   `cloud_migrate_layout` calls `fleet_made()`, accepting any first line",
+    "after": "   `cloud_migrate_layout` calls `fleet_made()`, accepting any first line"
+  },
+  {
+    "allowlist": "allow-legit.txt",
+    "path": "docs/rasteratops/release-readiness.md",
+    "before_line": 573,
+    "after_line": 573,
+    "before": "(D-CLOUD-174). Version remains 0.0.1. Rasteratops is a character; Blitterbot",
+    "after": "(D-CLOUD-174). Version remains 0.0.1. Rasteratops is a character; Blitterbot"
+  },
+  {
+    "allowlist": "allow-legit.txt",
+    "path": "docs/rasteratops/release-readiness.md",
+    "before_line": 575,
+    "after_line": 575,
+    "before": "there are no fielded /Rasteratops systems requiring an additional gate.",
+    "after": "there are no fielded /Rasteratops systems requiring an additional gate."
+  },
+  {
+    "allowlist": "allow-findings.txt",
+    "path": "docs/pixelelated/site-plan.md",
+    "before_line": 72,
+    "after_line": 72,
+    "before": "search, navigation and screenshots. Remotes still name `maxengel/rocknix.org`",
+    "after": "search, navigation and screenshots. Remotes still name `maxengel/rocknix.org`"
+  }
+]

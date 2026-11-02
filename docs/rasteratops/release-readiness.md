@@ -14,7 +14,7 @@ tasks do not block owner-only testing merely because they are unfinished. The
 audit, code/data-safety fixes, artifact/VM proof and named device actions remain
 required. Current audit execution is recorded in
 [its running log](../audits/2026_10_15-milestone-603-completed-handoff/00-running-log.md).
-October16 private RG35XX SP transfer and one reboot are [accepted](../qa-logs/2026-10-16-rg35xxsp-private-update/README.md), with exact installed077197 bytes and163-file preservation. Authority is consumed. #613 records an unused fallback-link defect for correction before public RC; no public designation has occurred.
+October 16 private RG35XX SP transfer and one reboot are [accepted](../qa-logs/2026-10-16-rg35xxsp-private-update/README.md), with exact installed077197 bytes and 163-file preservation. Authority is consumed. #613 records an unused fallback-link defect for correction before public RC; no public designation has occurred.
 
 ## Earlier readiness - 2026-10-15 20:00 UTC (#344/#528/#603)
 
@@ -89,7 +89,7 @@ This acceptance qualifies artifacts, not a current physical boot or smoke test.
 
 SM8550 cache checks passed, then its f863 build stopped at the ABL 1.2 source
 checksum guard; no new SM8550 firmware acceptance is claimed. #600 applies
-the exact upstream checksum correction in9aa7affee9 before a fresh reviewed retry. Its [source handoff](../qa-logs/2026-10-15-device-refresh/sm8550-source/README.md)
+the exact upstream checksum correction in 9aa7affee9 before a fresh reviewed retry. Its [source handoff](../qa-logs/2026-10-15-device-refresh/sm8550-source/README.md)
 binds the accepted H700 result and the same separate host checker. The
 [exact parent-documentation continuation](../qa-logs/2026-10-15-device-refresh/sm8550-parent-source/README.md)
 preserves the first preparation exit 1 before owner creation and permits only the
@@ -341,19 +341,19 @@ The published repairs pass 376 real-rclone source cases and specific failing
 old-source controls. They still require a new engineering image and installed
 acceptance. UI04 completed, exposing a clipped French settings-read reason that remains
 PL-005. Recovery06 passes all eight EN/FR behavioral cases, with verified
-owner/guest/backend cleanup and all46 frames reviewed. Three frames retain
+owner/guest/backend cleanup and all 46 frames reviewed. Three frames retain
 reason/instruction clipping; bounded ES source fixes pass compiler/msgfmt but
 need rebuilt visual proof. Four punch findings remain open. Library01 failed its timing/isolation fixture checks and is retained under#474.
-Corrected library02 passes415 assertions with11 seals, four zero results and verified cleanup.
+Corrected library02 passes415 assertions with 11 seals, four zero results and verified cleanup.
 Boot09 and bucket02 pass with verified cleanup.
 
 Coverage05 exposes installed retry defect#479: after a real258048/8391392byte copy is killed, all original data/pointers and the recovery record survive, but actual TRY AGAIN refuses the partial destination. The exact-file resumable guard supports completed subsets, not truncated files. Allfour1/10seals and actual cleanup23:00:41/45 are retained; no retry acceptance and no data-loss claim. Repair remains within openPL003. #478 now distinguishes the successful injection from this product failure. Source repair must preserve foreign-folder refusal and original connection/pointer binding, with full regression and rebuilt16 actual interruption/UI proof.
 
-Freshroot07 completed23:08:00; primary23:08:31 allfour0/10seals,23:08:36 actual guest/backend cleanup and free ports. Actual generated settings archive, settings/content uploads, automatic save receive/send and independent backend listing pass; every retained cloud hash rechecked against runtime bytes. Installed ES restarted, exact identity/post-payload check passes, cloud bytes unchanged. Failed06 remains allfour1 with its missing ES restart under#480. #477 settings-only and all remaining coverage dispositions are now recorded; the actual partial retry remains a separate product defect#479/#478.
+Freshroot07 completed 23:08:00; primary 23:08:31 allfour0/10seals,23:08:36 actual guest/backend cleanup and free ports. Actual generated settings archive, settings/content uploads, automatic save receive/send and independent backend listing pass; every retained cloud hash rechecked against runtime bytes. Installed ES restarted, exact identity/post-payload check passes, cloud bytes unchanged. Failed06 remains allfour1 with its missing ES restart under#480. #477 settings-only and all remaining coverage dispositions are now recorded; the actual partial retry remains a separate product defect#479/#478.
 
-Historical no-join02 completed23:18:40; primary23:18:52 verified allfour0/21seals and owner exits,23:18:55 verified both guests/backend/ports stopped. Actual RC2→retained1ac update preserves populated ROCKNIX pointers/cloud bytes. Fresh historical1ac directly reads the earlier save with its own installed client, then its supported full scan reports current/SOURCE=-, seeding does not join any of the three earlier pointers, and successful default restore transfers0bytes without the witness. All original bytes survive. Every runtime cloud hash is independently rechecked in nojoin02-acceptance-01. This supplies the exact historical negative for I354-L66; no new Rasteratops adoption gate. Failed01 remains a fixture error under#481.
+Historical no-join02 completed 23:18:40; primary 23:18:52 verified allfour0/21seals and owner exits,23:18:55 verified both guests/backend/ports stopped. Actual RC2→retained1ac update preserves populated ROCKNIX pointers/cloud bytes. Fresh historical1ac directly reads the earlier save with its own installed client, then its supported full scan reports current/SOURCE=-, seeding does not join any of the three earlier pointers, and successful default restore transfers0bytes without the witness. All original bytes survive. Every runtime cloud hash is independently rechecked in nojoin02-acceptance-01. This supplies the exact historical negative for I354-L66; no new Rasteratops adoption gate. Failed01 remains a fixture error under#481.
 
-Refined partial-retry-host02 completed; primary `2026-10-06T23:22:50.529406+00:00` verifies allfour0/27seals, no owner process,22focusedPASS/398fullPASS,4old-source expectedFAIL and5oldrefusal controlsPASS. Exact tested source/tool snapshots retained. The guard requires a validated prior record and verifies every destination byte against the source prefix; unrelated/missing/changed/longer files, wrong binding, failed reads/listings and unrecorded partial destinations are refused. Content is checked before creating a record or advancing any tier. Intermediate host01 and its failing missing-record Content control stay retained. Source acceptance only: installed16 must pass actual interruption/UI retry and next backup shelf before#479/PL003 can close.
+Refined partial-retry-host02 completed; primary `2026-10-06T23:22:50.529406+00:00` verifies allfour0/27seals, no owner process,22focusedPASS/398fullPASS,4old-source expectedFAIL and 5 old refusal controlsPASS. Exact tested source/tool snapshots retained. The guard requires a validated prior record and verifies every destination byte against the source prefix; unrelated/missing/changed/longer files, wrong binding, failed reads/listings and unrecorded partial destinations are refused. Content is checked before creating a record or advancing any tier. Intermediate host01 and its failing missing-record Content control stay retained. Source acceptance only: installed16 must pass actual interruption/UI retry and next backup shelf before#479/PL003 can close.
 
 Next: integrate tested source/ES fixes and build16 → actual truncated-copy/UI retry plus affected/final installed acceptance → #471/P4 closure → capacity#461 → H700 DDR4 RG35XX SP arm, thenaarch64 → named physical/P5 gates. PL001/003/004/005 remain open. No RC designation; no pending approval. #477/#480/#481 fixture criteria verified; close after evidence publication.
 
@@ -370,23 +370,23 @@ Installed consent01 subsequently failed the positive counter control after
 invalidated observation without changing persisted consent or stored formats.
 Selected upstream879b158 changes Android only; Linux/native trees and coupled
 pins are unchanged. All16 patches apply without fuzz;818 native-enabled Linux
-tests and11 integration cases for each actual303/historical865 predecessor
+tests and 11 integration cases for each actual303/historical865 predecessor
 pass. [Source proof and failed installed run](../qa-logs/2026-10-06-proxy-consent/README.md).
 
 Replacement14 source `7afa9efcfc0c1ce4b89774b38878fc1b9a9063d2` built
-successfully at00:59:09UTC2026-10-06:642/642tasks, allfourresults0,
+successfully at 00:59:09 UTC 2026-10-06:642/642 tasks, allfourresults0,
 actual container/process exit00:59:32. Immutable bundle
 `b77e47e57a4bb35f885ba78669ee8176a9ac978b27c1cbcfaad66e18f684a9f1`
 verifies. [Build evidence](../qa-logs/2026-10-06-pixelelated-replacement-14/README.md).
 
-Installed consent02 passes all30reporting/restart cases, including the
-first granted counter at16.705487703seconds (7→8). Image14 verifies raw/update
+Installed consent02 passes all 30 reporting/restart cases, including the
+first granted counter at 16.705487703 seconds (7→8). Image14 verifies raw/update
 SYSTEM equality; inventory10 passes with the14knownP5licence gaps retained.
 
-QA18 completed01:41:30UTC with all15default suites and26actual ROCKNIX RC2
-upgrade assertions passing. All78walk frames compare with0unclaimed changes;
+QA18 completed 01:41:30 UTC with all 15 default suites and 26 actual ROCKNIX RC2
+upgrade assertions passing. All78walk frames compare with 0 unclaimed changes;
 installed virgl/Pixman and identity checks pass. Proxy14 completes22offline
-preservation checks,18native tests with0skips and four legacyCHD cases.
+preservation checks,18native tests with 0 skips and four legacyCHD cases.
 Subset11 completes35loopback HTTP preservation/refusal/retry assertions.
 Every owner has four zero results and verified process cleanup. No build or
 QA job remains active. Timing remains a single-sample smoke with its recorded
@@ -404,7 +404,7 @@ provider API and was recognized on relaunch. All four results0 and actual
 cleanup/account-clear verified. [Award evidence](../qa-logs/2026-10-06-ra-award/README.md).
 The reset is now consumed. Those exit frames remain carousel-only evidence.
 The remaining reconnect-card proof (#465) now passes separately on unchanged14:
-109 assertions,23 directly reviewed frames, EN/FR at640x480 and1280x960,
+109 assertions,23 directly reviewed frames, EN/FR at 640x480 and 1280x960,
 success/refusal/empty-repeat controls. Allfourrc0; actualcleanup07:01:20.
 [Installed UI proof](../qa-logs/2026-10-06-ra-ui/README.md) uses synthetic local
 HTTP and unchanged installed components; it does not claim another real award.
@@ -417,7 +417,7 @@ The primary audit is complete through4.5:261criteria (204PASS/36PARTIAL/3FAIL/
 18SKIP),123prior comparisons and full retrospective. External Fable5.1/xhigh
 blind and refutation calls are complete and verified: served Fable5.1/xhigh,
 no retries, all result channels0, unchanged sealed inputs and actual owner cleanup.
-All14 blind/five refutation leads are graded against primary artifacts and14
+All14 blind/five refutation leads are graded against primary artifacts and 14
 completed installed experiments. Mandatory audit#471 carries eight open findings
 (1High/6Medium/1Low); final05 and all proof/cleanup receipts are retained. No
 executable is running. Product unchanged; Phase7 fixes/requalification precede
@@ -447,7 +447,7 @@ links the new pin to the completed source suites; no test execution is invented.
 #459 completed the five approved old-tree removals: 539.34 GiB recovered,
 576.45 GiB available, reserve unchanged. [Final verification](../qa-logs/2026-10-05-build-storage/approved-cleanup-20261006/README.md)
 rehashed15,206retained files plus the19current bundle files; frozen14inputs,
-27sourcegitinputs and230surviving backingchains pass. All protected artifacts
+27sourcegitinputs and 230 surviving backingchains pass. All protected artifacts
 remain; the root watcher exited automatically. #460 fixes the cleanup helper's
 read-only-directory handling with six controls. Those owners have all exited;
 #462 owns the subsequent local-cloud QA run. This changes host cleanup, not product bytes or RC readiness.
@@ -457,7 +457,7 @@ review before the next build. The recurring planner and next cleanup batch are
 infrastructure follow-up, outside the RC gate; no further deletion occurred.
 
 #168 now has ten tested upstream drafts. Seven additional standalone drafts
-cover001/002/005/007/008/013/015:40 targeted tests and169 related-suite executions
+cover001/002/005/007/008/013/015:40 targeted tests and 169 related-suite executions
 pass, with before-fix failures and exact distributed patch hashes retained.
 [Contribution evidence](../qa-logs/2026-10-06-upstream-drafts/README.md).
 Upstream main remains879b158. API/policy-dependent proposals have explicit
@@ -482,13 +482,13 @@ failures retained.
 
 Replacement10 is frozen at that commit; manifest
 `0b24bfcd0d7dad134872b88ed6a2955ddaf9cdf9d55f8a25c17fa5e2de36ad51`.
-Build02 completed19:26:30 with all four result channels0; actual047d1c at
+Build02 completed 19:26:30 with all four result channels0; actual047d1c at
 19:26:43 proves four owner processes absent and the observed container removed.
 The installed selector/drop-in match frozen bytes. Cache checks passed2526399
 independent files. First build attempt remains failed on swap preflight before
 compilation; the installed guarded helper reclaimed swap before fresh build02.
 
-QA14 now passes all15default suites and26actualROCKNIXRC2 upgrade checks.
+QA14 now passes all 15 default suites and 26 actual ROCKNIX RC2 upgrade checks.
 Frame comparison:21expected regions,0unclaimed,0missing. All15identity frames
 were directly reviewed; installed clean/upgraded virgl and upgraded software
 Pixman proofs pass. Durable20:06:08/allfour0; actual2a3cd7 plus supplemental
@@ -496,15 +496,15 @@ cleanup confirms4owner/6guest PIDs absent. Single-sample timing smoke passes;
 the fast game-to-game sample lacks a new sync stamp and does not establish
 active-sync behavior (retained timing-review.json).
 
-Boot05 passes all four clean/actual-upgraded software boots at640/1280 with
-exact1.0matches and12negative rejections; allfourframes directly reviewed.
+Boot05 passes all four clean/actual-upgraded software boots at 640/1280 with
+exact1.0matches and 12 negative rejections; allfourframes directly reviewed.
 Installed clean software/signin14, actual-upgraded software/signin15 and
-acceleratedvirgl/signin16 each pass40checks and15directlyreviewedframes.
+acceleratedvirgl/signin16 each pass40checks and 15 directly reviewed frames.
 Allnine finishing comparisons per profile match unchanged pixels without
 runtime overrides or forced repaint. Actual terminal and cleanup receipts
 are retained under replacement10. Authenticated trust remains separate.
 
-Memory12 passes original10/10/50measured launches, all55sync stamps and both-
+Memory12 passes original10/10/50measured launches, all 55 sync stamps and both-
 profile exit/time-to-play. Growth0/224,-448/684,0/444KiB stays below unchanged
 1024/2048KiB limits. Actual owner/guest/backend cleanup verified. UI14 passes
 all 70 directly reviewed English/French frames at 640x480/1280x960 and all
@@ -542,7 +542,7 @@ QA directory. All original failures remain immutable.
 Full software/Pixman signin-ui13 PASSES: durable18:41:40/all four rc0,27checks,
 six intended frames directly reviewed, unchanged exact finishing reference,
 original HTTP/navigator Mobile UA and actual390px phone margins. Observer
-stops cleanly after354frames; public-provider peak696352KiB on8GiB. Actual
+stops cleanly after354frames; public-provider peak696352KiB on 8 GiB. Actual
 bc4afc cleanup18:42:00 confirms owner/guest absence and noQEMU. This is a
 runtime-only configuration proof, not a permanent fix or RC-wide pass.
 
@@ -582,51 +582,51 @@ At this historical checkpoint M7.P3 was current. The candidate was source `cf511
 
 Default-suite evidence is explicitly composite. QA11/tool64718 returned1 after fourteen passing suites and 16 walks/78 frames: one first-sample PREPARING region was unclaimed. Its original failure is preserved. #439 adds one measured claim; the same frames pass 20 claimed/0 unexpected/0 missing differences. Removed/narrow-claim, unrelated-screen and missing-frame controls reject. QA13/tool42880/all four rc0 verifies all 143 original artifact hashes, repeats the corrected comparison and passes all 26 actual ROCKNIX RC2 upgrade checks. The upgraded ES process survives Back/Back; all five identity frames were reviewed.
 
-Boot04/tool90675/all four rc0 passes four clean/upgraded boots at 640x480 and 1280x960. All four matches are 1.0 at the unchanged .995 threshold; all 12 negative controls reject. Actual frames reviewed. Host verification at06:46:39 found all owner and four guest processes absent. QA13's actual upgraded disk was used. Original QA12 launch refusal and boot03 dependency failure remain intact; 16 fresh successors with 139 sealed source members passed preparation and separate readback before launch (#440, #441).
+Boot04/tool90675/all four rc0 passes four clean/upgraded boots at 640x480 and 1280x960. All four matches are 1.0 at the unchanged .995 threshold; all 12 negative controls reject. Actual frames reviewed. Host verification at 06:46:39 found all owner and four guest processes absent. QA13's actual upgraded disk was used. Original QA12 launch refusal and boot03 dependency failure remain intact; 16 fresh successors with 139 sealed source members passed preparation and separate readback before launch (#440, #441).
 
-**Content qualification:** image11/tool1600 confirms identical raw-image/update SYSTEM bytes. Sweep08/tool43694 remains failed on20 previously unclassified contexts. #442 reviews15 compiler paths and5 proxy compatibility identifiers against actual bytes and consumed source. Fresh sweep09/tool81204/all four rc0 passes all20 exact contexts/60 rejecting boundary controls and ten scanner controls. Full scan57293files has zero unknown/FIX contexts and zero unclassified credentials. All851 catalogue/95 XML entries reconcile; installed theme and Tools XML pass. Actual06:52:23 sweep processes absent.
+**Content qualification:** image11/tool1600 confirms identical raw-image/update SYSTEM bytes. Sweep08/tool43694 remains failed on 20 previously unclassified contexts. #442 reviews15 compiler paths and 5 proxy compatibility identifiers against actual bytes and consumed source. Fresh sweep09/tool81204/all four rc0 passes all 20 exact contexts/60 rejecting boundary controls and ten scanner controls. Full scan57293files has zero unknown/FIX contexts and zero unclassified credentials. All851 catalogue/95 XML entries reconcile; installed theme and Tools XML pass. Actual06:52:23 sweep processes absent.
 
-**Settings qualification:** original settings10/tool97000 rejected an inherited stale expected ES hash before race mutation (#443). Fresh settings11/tool91974 derives expected hashes from the verified candidate and records observed values. All20 installed recovery-race and29 permission/refusal checks pass; settings and installed files are restored/unchanged. Original upgraded backing hash is unchanged. Actual06:55:44 all owner and guest processes absent.
+**Settings qualification:** original settings10/tool97000 rejected an inherited stale expected ES hash before race mutation (#443). Fresh settings11/tool91974 derives expected hashes from the verified candidate and records observed values. All20 installed recovery-race and 29 permission/refusal checks pass; settings and installed files are restored/unchanged. Original upgraded backing hash is unchanged. Actual06:55:44 all owner and guest processes absent.
 
-**Link-loss qualification:** link10/tool56478/all four rc0 passes all14 WebDAV/S3 interruption cases:151 PASS lines, zero failures/skips. Receiving files remain whole, markers stay correct, and plain retries complete after reconnecting. Actual07:13:44 all owner/four guest processes absent; frozen source and bundle reverified.
+**Link-loss qualification:** link10/tool56478/all four rc0 passes all 14 WebDAV/S3 interruption cases:151 PASS lines, zero failures/skips. Receiving files remain whole, markers stay correct, and plain retries complete after reconnecting. Actual07:13:44 all owner/four guest processes absent; frozen source and bundle reverified.
 
 **Cloud qualification interrupted:** guest10/tool59031 returned143; its watcher recorded runner death07:37:31. Eight cases/47 assertions passed, K was incomplete, ten cases had not started. Original missing outer/wrapper/build result files remain missing. Actual07:42:37 all seven observed owner/guest/backend PIDs absent. No product failure or signal sender is inferred. #444 preserves the original and requires a fresh complete run.
 
-**Cloud qualification passed:** fresh guest11 completed all19 cases/249 assertions/zero failures. Durable result08:25:35 and all four actual channels are0; submission497141=0 remains explicitly separate. Actual host verification eee27c=0 at08:26:26 found owner/guest processes absent and no QEMU. Source/bundle reverified;32 selected actual frames reviewed across all15 UI cases. Four protocol cases verify bytes/pointers/markers directly. All1708artifact hashes and140selected public files retained.
+**Cloud qualification passed:** fresh guest11 completed all 19 cases/249 assertions/zero failures. Durable result08:25:35 and all four actual channels are0; submission497141=0 remains explicitly separate. Actual host verification eee27c=0 at 08:26:26 found owner/guest processes absent and no QEMU. Source/bundle reverified;32 selected actual frames reviewed across all 15 UI cases. Four protocol cases verify bytes/pointers/markers directly. All1708artifact hashes and 140 selected public files retained.
 
-**Runtime qualification passed:** runtime12 durable result08:32:24/allfourrc0 passes14 actual inherited-archive,4 timing and13 installed-identity checks. Alternating five-sample medians269/245ms give24ms absolute difference against the unchanged30ms threshold; no migration journal activity. Actual08:33:00 owner/guest absent, backing/source/bundle unchanged.
+**Runtime qualification passed:** runtime12 durable result08:32:24/allfourrc0 passes14 actual inherited-archive,4 timing and 13 installed-identity checks. Alternating five-sample medians269/245ms give24ms absolute difference against the unchanged30ms threshold; no migration journal activity. Actual08:33:00 owner/guest absent, backing/source/bundle unchanged.
 
-**Proxy qualification passed:** proxy11 durable result08:41:18/allfourrc0 passes all22 unchanged installed assertions: canonical synthetic account discovery, predecessor cache/sign-in/queue reopen, base/subset mapping, original images and offline service behavior. Actual08:41:44 all owner/guest processes absent, no QEMU; source/bundle reverified. This is synthetic preservation proof, not a newly earned ordinary RA award. Original proxy10 missing-directory failure remains preserved. #445's nine fresh owners/96members and private-directory controls were independently verified and M7 read back before launch.
+**Proxy qualification passed:** proxy11 durable result08:41:18/allfourrc0 passes all 22 unchanged installed assertions: canonical synthetic account discovery, predecessor cache/sign-in/queue reopen, base/subset mapping, original images and offline service behavior. Actual08:41:44 all owner/guest processes absent, no QEMU; source/bundle reverified. This is synthetic preservation proof, not a newly earned ordinary RA award. Original proxy10 missing-directory failure remains preserved. #445's nine fresh owners/96members and private-directory controls were independently verified and M7 read back before launch.
 
-**Provider qualification passed:** optins11 durable result08:47:52/allfourrc0 passes S3 round-trip in120seconds and all42 mixed RC2/fresh migration assertions. Actualc3d137=0 at08:50:30 proves owner processes absent and no QEMU. Source/bundle reverified. Four public artifacts retained; all earlier failures remain preserved.
+**Provider qualification passed:** optins11 durable result08:47:52/allfourrc0 passes S3 round-trip in 120 seconds and all 42 mixed RC2/fresh migration assertions. Actualc3d137=0 at 08:50:30 proves owner processes absent and no QEMU. Source/bundle reverified. Four public artifacts retained; all earlier failures remain preserved.
 
-**Memory qualification passed:** memory11 durable09:04:57/allfourrc0 passes10virgl,10software and50software-with-sync measured launches after five warm-ups each. Virtual growth0KiB in all three; resident growth-208/788/624KiB, below unchanged1024/2048KiB limits. All55 sync stamps are distinct successful completions. Thirty-second sign-in page load passes with peak291924KiB; this is example.org, not provider authentication. Actualafe676=0 at09:05:33 proves all owner/guest processes absent/no QEMU; source/bundle reverified.440artifact hashes retained with raw cycle tables and stamps.
+**Memory qualification passed:** memory11 durable09:04:57/allfourrc0 passes10virgl,10software and 50 software-with-sync measured launches after five warm-ups each. Virtual growth0KiB in all three; resident growth-208/788/624KiB, below unchanged1024/2048KiB limits. All55 sync stamps are distinct successful completions. Thirty-second sign-in page load passes with peak291924KiB; this is example.org, not provider authentication. Actualafe676=0 at 09:05:33 proves all owner/guest processes absent/no QEMU; source/bundle reverified.440artifact hashes retained with raw cycle tables and stamps.
 
-**Bilingual UI qualification passed:** UI13 durable09:17:05/allfourrc0. All70 actual EN/FR640x480/1280x960 menu/Tools frames directly reviewed; all12 ES lifetime records pass, including actual Settings Back/Back save to Updates. Dimensions and intended pages pass. Actual8c4a9d=0 at09:17:24 verifies owner/guest absent/no QEMU. Source/bundle reverified;547artifact hashes/128public files retained. Boot04 supplies the separately accepted exact clean/upgraded boot matcher and negative controls. Earlier failed/interrupted UI owners remain unchanged. #422/#431 scoped closure is verified after publication.
+**Bilingual UI qualification passed:** UI13 durable09:17:05/allfourrc0. All70 actual EN/FR640x480/1280x960 menu/Tools frames directly reviewed; all 12 ES lifetime records pass, including actual Settings Back/Back save to Updates. Dimensions and intended pages pass. Actual8c4a9d=0 at 09:17:24 verifies owner/guest absent/no QEMU. Source/bundle reverified;547artifact hashes/128public files retained. Boot04 supplies the separately accepted exact clean/upgraded boot matcher and negative controls. Earlier failed/interrupted UI owners remain unchanged. #422/#431 scoped closure is verified after publication.
 
-**RC2 recovery passed:** predecessor09 durable09:19:19/allfourrc0 passes65 assertions across five states actually produced by the old RC2 migration script on the upgraded guest COW. All payloads and pointers recover; marker failure retains retry state; repeats preserve bytes. Actual81b7e2=0 at09:20:06 verifies owner/guest absent/noQEMU; original backing/source/bundle unchanged.157artifact hashes/139public files retained.
+**RC2 recovery passed:** predecessor09 durable09:19:19/allfourrc0 passes65 assertions across five states actually produced by the old RC2 migration script on the upgraded guest COW. All payloads and pointers recover; marker failure retains retry state; repeats preserve bytes. Actual81b7e2=0 at 09:20:06 verifies owner/guest absent/noQEMU; original backing/source/bundle unchanged.157artifact hashes/139public files retained.
 
-**Subset HTTP qualification passed:** subset08 durable09:21:41/allfourrc0 passes35 installed assertions. A503 subset refusal keeps the queued award; retry refreshes its own game and uploads only the refused award. No stale deletion or duplicate base upload; empty repeat makes no request. Actualba9ad7=0 at09:22:44 proves owner/guest cleanup/noQEMU; source/bundle unchanged. Six public artifacts retain both flush results and real loopback request history. Synthetic QA data, not a new ordinary account award.
+**Subset HTTP qualification passed:** subset08 durable09:21:41/allfourrc0 passes35 installed assertions. A503 subset refusal keeps the queued award; retry refreshes its own game and uploads only the refused award. No stale deletion or duplicate base upload; empty repeat makes no request. Actualba9ad7=0 at 09:22:44 proves owner/guest cleanup/noQEMU; source/bundle unchanged. Six public artifacts retain both flush results and real loopback request history. Synthetic QA data, not a new ordinary account award.
 
-**Supplemental cloud UI passed:** cloud-ui08 durable09:43:59/allfourrc0 passes32 assertions (UI17 nineteen, UI26 thirteen). Actualc230d7=0 at09:44:34 proves owner/guest absent/noQEMU. Nine selected actual failure/completion/recovery/refusal frames reviewed;154artifact hashes/53public files retained. Source/bundle reverified. Original cloud-ui07 durable1/four failures remain intact under cloud-ui-07-failed/. #446 moves volatile fault setup after reboot and adds fail-closed executable/connectivity/failure/fired controls; three fresh owners/35sealed members prepared2c6ff8, verified before launch.
+**Supplemental cloud UI passed:** cloud-ui08 durable09:43:59/allfourrc0 passes32 assertions (UI17 nineteen, UI26 thirteen). Actualc230d7=0 at 09:44:34 proves owner/guest absent/noQEMU. Nine selected actual failure/completion/recovery/refusal frames reviewed;154artifact hashes/53public files retained. Source/bundle reverified. Original cloud-ui07 durable1/four failures remain intact under cloud-ui-07-failed/. #446 moves volatile fault setup after reboot and adds fail-closed executable/connectivity/failure/fired controls; three fresh owners/35sealed members prepared2c6ff8, verified before launch.
 
-**Sign-in08 visually unaccepted:** durable09:46:40/allfourrc0 and17 commands pass; actual5960e1=0 at09:47:31 proves cleanup. All six frames reviewed; first local302 frame has incomplete repaint blocks, other five intended surfaces pass. #447 preserves command success separately from visual rejection. Public Dropbox peak706132KiB across one window/network/web process; not comparable to simple-page baseline as if equal workloads.
+**Sign-in08 visually unaccepted:** durable09:46:40/allfourrc0 and 17 commands pass; actual5960e1=0 at 09:47:31 proves cleanup. All six frames reviewed; first local302 frame has incomplete repaint blocks, other five intended surfaces pass. #447 preserves command success separately from visual rejection. Public Dropbox peak706132KiB across one window/network/web process; not comparable to simple-page baseline as if equal workloads.
 
-**Sign-in09/10 remain visually unaccepted:** both command0;09 has21 checks and10 has24. Exact finishing document and stable-screen wait do not establish the intended capture. All six original10 frames reviewed; finishing still old.10 durable10:02:16/all four rc0, actual57ee2b cleanup16:02:21 after capacity interruption. Retained signin-ui-09-unaccepted/ and signin-ui-10-unaccepted/.
+**Sign-in09/10 remain visually unaccepted:** both command0;09 has21 checks and 10 has24. Exact finishing document and stable-screen wait do not establish the intended capture. All six original10 frames reviewed; finishing still old.10 durable10:02:16/all four rc0, actual57ee2b cleanup16:02:21 after capacity interruption. Retained signin-ui-09-unaccepted/ and signin-ui-10-unaccepted/.
 
-**Render diagnosis:**01 completed16:12:09/all0, actual41e305 cleanup. Native grim shows Connected at0/5/15seconds while HMP shows old form.02 completed16:16:12/all0, actual3fe75e cleanup: one-frame VNC stale0/5 then correct15, HMP still old. All eight/eleven comparison frames directly reviewed and retained.02's post-resize HMP has mixed geometry; resize is not a remedy. No product cause established. QEMU10.2.1 refresh source plus one-frame client lifetime motivates a persistent read-only receiver control; that remains a hypothesis.
+**Render diagnosis:**01 completed 16:12:09/all 0, actual41e305 cleanup. Native grim shows Connected at 0/5/15 seconds while HMP shows old form.02 completed 16:16:12/all 0, actual3fe75e cleanup: one-frame VNC stale0/5 then correct15, HMP still old. All eight/eleven comparison frames directly reviewed and retained.02's post-resize HMP has mixed geometry; resize is not a remedy. No product cause established. QEMU10.2.1 refresh source plus one-frame client lifetime motivates a persistent read-only receiver control; that remains a hypothesis.
 
-**Preserved diagnostic failures:**03 failed import before sign-in (Pillow absent), durable16:20:00/all1; actual1daf63 cleanup.04 stdlib encoder/import controls pass, but local HTTP-UA assertion fails before finishing. Durable16:22:46/all1, actual0c8bda cleanup. The old helper wrote request evidence only after that assertion; the offending request is unavailable. Original results remain intact under signin-render-diagnostic-03-failed/ and04-failed/. No visual qualification transfers from these runs.
+**Preserved diagnostic failures:**03 failed import before sign-in (Pillow absent), durable16:20:00/all 1; actual1daf63 cleanup.04 stdlib encoder/import controls pass, but local HTTP-UA assertion fails before finishing. Durable16:22:46/all 1, actual0c8bda cleanup. The old helper wrote request evidence only after that assertion; the offending request is unavailable. Original results remain intact under signin-render-diagnostic-03-failed/ and 04-failed/. No visual qualification transfers from these runs.
 
-**Canonical sign-in accepted:** render-diagnostic05 completed16:26:31/all four rc0, actual8f03d7 cleanup; its persistent viewer did not eliminate software-host lag. Render06 changed only graphics to actual canonical virgl: all nine native/host frames agree exactly, durable16:29:54/all0, actual321973 cleanup. Fresh full signin-ui11 completed16:35:21/all four rc0/27 checks, actual061ffa cleanup16:35:39. All six intended frames directly reviewed; exact finishing pixels match the reviewed native reference; real old/partial/wrong-size controls reject; four stable receipts pass and an actual zero-exit unsettled result rejects. Public Dropbox peak662412KiB on8GiB. No authenticated trust-page claim. The software scanout discrepancy remains unresolved under #447; no product patch or waiver. Diagnostic04's missing offending UA remains a watch observation; later request evidence is saved before assertions.
+**Canonical sign-in accepted:** render-diagnostic05 completed 16:26:31/all four rc0, actual8f03d7 cleanup; its persistent viewer did not eliminate software-host lag. Render06 changed only graphics to actual canonical virgl: all nine native/host frames agree exactly, durable16:29:54/all 0, actual321973 cleanup. Fresh full signin-ui11 completed 16:35:21/all four rc0/27 checks, actual061ffa cleanup16:35:39. All six intended frames directly reviewed; exact finishing pixels match the reviewed native reference; real old/partial/wrong-size controls reject; four stable receipts pass and an actual zero-exit unsettled result rejects. Public Dropbox peak662412KiB on 8 GiB. No authenticated trust-page claim. The software scanout discrepancy remains unresolved under #447; no product patch or waiver. Diagnostic04's missing offending UA remains a watch observation; later request evidence is saved before assertions.
 
-**Actual1GiB resource checks accepted:** baseline signin-1g12 and public-provider signin-provider1g04 both complete with four matching rc0 channels. Actual QEMU allocation1024MiB and guest firmware1048576KiB are verified; Linux usable810368/810372KiB is recorded separately. Both30-second workloads load, remain responsive and have no kernel OOM. Peaks: example.org264076KiB, public Dropbox387668KiB. Actual640x480 frames reviewed. Baseline cleanup95f1c2 at16:44:23; provider cleanupa04e75 at16:51:54 proves all owner/guest processes absent and no QEMU. Provider durable result16:46:03; build-log SHA58d5bd3ff31cb3a29c05fc37f3ed44b558e9338efd961ac8a61ddc20b784b678. Original signin-1g11 rejected an invented usable-RAM floor before workload; preserve its all1 failure. Fresh controls reject actual8GiB, mismatched firmware and zero/excess usable RAM. No numerical RSS ceiling is invented; different workloads/allocations are not equal-memory comparisons.
+**Actual1GiB resource checks accepted:** baseline signin-1g12 and public-provider signin-provider1g04 both complete with four matching rc0 channels. Actual QEMU allocation1024MiB and guest firmware1048576KiB are verified; Linux usable810368/810372KiB is recorded separately. Both30-second workloads load, remain responsive and have no kernel OOM. Peaks: example.org264076KiB, public Dropbox387668KiB. Actual640x480 frames reviewed. Baseline cleanup95f1c2 at 16:44:23; provider cleanupa04e75 at 16:51:54 proves all owner/guest processes absent and no QEMU. Provider durable result16:46:03; build-log SHA58d5bd3ff31cb3a29c05fc37f3ed44b558e9338efd961ac8a61ddc20b784b678. Original signin-1g11 rejected an invented usable-RAM floor before workload; preserve its all 1 failure. Fresh controls reject actual8 GiB, mismatched firmware and zero/excess usable RAM. No numerical RSS ceiling is invented; different workloads/allocations are not equal-memory comparisons.
 
-**Published evidence:** feature `1f43880a1139f13fbf503e4990e29522b911ded0` integrated with cherry-pick -x as next `9af943c7ce7966d66bc3a85222013fb2dab16b86`; both remote heads verified16:58:51. #446 closed completed with all four criteria mapped/read back (e522bf). #351 phone-spacing criterion is ticked from actual390px/12px margin measurements; authenticated trust stays open. #362's resource proof and #356/#365's supplemental UI gap are updated; broader criteria still need exact artifact reconciliation. Fresh-context handoff proof independently verified6547product/200QA/180symlinks/14bundle files,682public artifacts and all75 recorded PIDs absent at16:57:26. Its missing-publisher and stale447 closure instructions were corrected and reverified before completion.
+**Published evidence:** feature `1f43880a1139f13fbf503e4990e29522b911ded0` integrated with cherry-pick -x as next `9af943c7ce7966d66bc3a85222013fb2dab16b86`; both remote heads verified 16:58:51. #446 closed completed with all four criteria mapped/read back (e522bf). #351 phone-spacing criterion is ticked from actual390px/12px margin measurements; authenticated trust stays open. #362's resource proof and #356/#365's supplemental UI gap are updated; broader criteria still need exact artifact reconciliation. Fresh-context handoff proof independently verified 6547 product/200 QA/180 symlinks/14 bundle files,682public artifacts and all 75 recorded PIDs absent at 16:57:26. Its missing-publisher and stale447 closure instructions were corrected and reverified before completion.
 
-**Legacy DRM diagnosis completed:** render-diagnostic07 durable17:04:04/all four rc0, actual037abe cleanup17:08:40. Actual software QEMU, llvmpipe and consumed WLR_DRM_NO_ATOMIC=1/legacy backend are recorded. Nine actual0/5/15second comparison frames reviewed: HMP/VNC still old at0/5, correct15; native correct throughout. This rejects legacy DRM as a remedy. The runtime-only override/debug wrapper exists only on this disposable guest; no product change or qualification claim. Retained122artifact hashes/118public files. Source/bundle reverified. Do not adopt this override as a fix.
+**Legacy DRM diagnosis completed:** render-diagnostic07 durable17:04:04/all four rc0, actual037abe cleanup17:08:40. Actual software QEMU, llvmpipe and consumed WLR_DRM_NO_ATOMIC=1/legacy backend are recorded. Nine actual0/5/15second comparison frames reviewed: HMP/VNC still old at 0/5, correct15; native correct throughout. This rejects legacy DRM as a remedy. The runtime-only override/debug wrapper exists only on this disposable guest; no product change or qualification claim. Retained122artifact hashes/118public files. Source/bundle reverified. Do not adopt this override as a fix.
 
-**Historical comparison complete:** the maintainer requested isolation against pre-pixelelated builds. Source comparison proves12 actual graphics/browser/VM/capture git objects unchanged between old61b648 and currentcf511ce. Old bundle87b8c01d/imagef1af3533 is verified. Fresh old-image software08 reproduces the same host-old/partial0/5→correct15 sequence while native stays correct; accelerated09 has all nine frames exactly correct. All18new comparison frames directly reviewed; actual accelerated QEMU argv old/current is identical except owner path. Software08 durable17:17:13/all0, actual2f5df8 cleanup17:17:37; accelerated09 durable17:18:48/all0, actualf4b65f cleanup17:19:03. Frozen source and both bundles unchanged. This rules out pixelelated changes as necessary to reproduce on today's host; it does not establish historical-host or physical-device behavior. Exact component cause remains open. Read historical-render-comparison/README.md before proposing another fix.
+**Historical comparison complete:** the maintainer requested isolation against pre-pixelelated builds. Source comparison proves12 actual graphics/browser/VM/capture git objects unchanged between old61b648 and currentcf511ce. Old bundle87b8c01d/imagef1af3533 is verified. Fresh old-image software08 reproduces the same host-old/partial0/5→correct15 sequence while native stays correct; accelerated09 has all nine frames exactly correct. All18new comparison frames directly reviewed; actual accelerated QEMU argv old/current is identical except owner path. Software08 durable17:17:13/all 0, actual2f5df8 cleanup17:17:37; accelerated09 durable17:18:48/all 0, actualf4b65f cleanup17:19:03. Frozen source and both bundles unchanged. This rules out pixelelated changes as necessary to reproduce on today's host; it does not establish historical-host or physical-device behavior. Exact component cause remains open. Read historical-render-comparison/README.md before proposing another fix.
 
 **Earlier investigation priority:** superseded by the latest-result section above; permanent software fallback and broader regression proof remain under447.
 
@@ -634,7 +634,7 @@ Boot04/tool90675/all four rc0 passes four clean/upgraded boots at 640x480 and 12
 
 **Remaining order:** remaining P3 software/account proofs → P4 primary OpenAI + Fable5.1/xhigh through the verified Facilitator → H700 DDR4/RG35XX SP arm, then aarch64 → separately authorized device actions/publication. Ordinary Tobu100359 is already earned; the earlier request for a reset or alternate dedicated QA account is unanswered. Authenticated Dropbox trust needs dedicated QA access; public pages/done-file stand-ins cannot replace it. Public-docs access,14P5 licence metadata gaps and #395 disconnected notification destination remain recorded. P4 has not started; no RC/device-ready claim. Can this be done on the VM? **Yes**, including all remaining software/account proofs.
 
-Published UI13/predecessor09/subset08 evidence: featuredf13f273a0745628780ef1abfaae8f8f22c55f0b → next908bc62f94d059864a0c466eedb31ac2955fa4ec; both remote heads verified09:25:37.
+Published UI13/predecessor09/subset08 evidence: featuredf13f273a0745628780ef1abfaae8f8f22c55f0b → next908bc62f94d059864a0c466eedb31ac2955fa4ec; both remote heads verified 09:25:37.
 
 Scoped #422/#431/#426 are now CLOSED completed: actual000718=0 readback verifies all criteria from published evidence. #391/#310 were already closed on earlier artifacts; their replacement09 checks are renewed evidence. Tools/status issue #416 also CLOSED completed, actual23e12e=0. No candidate-wide acceptance follows.
 
@@ -645,16 +645,16 @@ the status at that time; its instructions do not override the current order.
 
 The [M7 milestone body](https://github.com/pixelelated/distribution/milestone/7)
 is the binding running order. **Historical engineering image: replacement06**,
-frozen57cbc9b981205328444d41f6c4237dc9f5736d7f, built642/642 at22:49:13UTC
-October4. Actual28970/allrc0 and actual runner/watcher/container cleanup pass.
+frozen57cbc9b981205328444d41f6c4237dc9f5736d7f, built642/642 at 22:49:13 UTC
+October 4. Actual28970/allrc0 and actual runner/watcher/container cleanup pass.
 The immutable bundled4007387… holds image1e16122c… and update1786a568…;
 store/independent verification actual98974=0. Full inputs82764873… bind6547
-product files,180links and200QA files. Previous05cache was independently
-copied and checksum/inode verified2525217files before use. Guarded preflight
+product files,180links and 200 QA files. Previous05cache was independently
+copied and checksum/inode verified 2525217 files before use. Guarded preflight
 reclaimed swap; no helper reinstall is needed.
 
 **Verdict: completed runtime/memory/menu checks; 640x480 boot splash match blocks qualification (#433).**
-qa07 actual44253/allrc0 completed23:31UTC: all15defaults,16walks/78frames,
+qa07 actual44253/allrc0 completed 23:31 UTC: all 15 defaults,16 walks/78 frames,
 baseline21claimed/0unclaimed/0missing, actualRC2 preservation and exact clean/
 upgraded bytes/modes. Actual ES process identity and five1280x800frames in
 each phase confirm pixelelated0.0.1 and correct manual-update instructions.
@@ -664,10 +664,10 @@ Sweep04 actual4437=0:8589reviewedbrandcontexts,0FIX/UNKNOWN,70reviewedpublic
 credential-patternmatches,0unclassified,10controls,95XMLentries/0orphans.
 Settings06 actual60081=0:20realESrace/29installedmode checks on actual-upgrade
 COW, original settings/product/backing preserved, actualcleanup23:33:43.
-Link06 actual26472/allrc0 completed23:50:48UTC October4: seven WebDAV
+Link06 actual26472/allrc0 completed 23:50:48 UTC October 4: seven WebDAV
 cases PASS477s and seven S3 cases PASS459s; actual process/backend cleanup
-verified23:59:43–58. Guest06 actual67203/allrc0 completed19 cases/249PASS/0FAIL;
-33 selected frames inspected, all1467frames hashed; actual cleanup00:41:59.
+verified 23:59:43–58. Guest06 actual67203/allrc0 completed 19 cases/249PASS/0FAIL;
+33 selected frames inspected, all 1467 frames hashed; actual cleanup00:41:59.
 Originalruntime06 actual38117/allrc1 failed36ms timing and remains retained.
 #430 fixture repair verifies actual guest/host timestamp boundaries; all three
 predeclared diagnostic batches23/29/26ms pass with real transferred bytes.
@@ -684,11 +684,11 @@ for the export profile, but Git/package/guest correctlyuse0755 (#428). Fresh
 qa07 fixes only the expectation; mode controls reject644/777/600. Prior seals
 are retained for the six unstarted dependents rebound toqa07. No new rebuild.
 
-Current proxy865e21 source review:105consumed Python/native files and268
+Current proxy865e21 source review:105consumed Python/native files and 268
 Linux/native/test files excluding two unshipped bundle builders matchaec99c;
 15zero-fuzz patches, schema/coupled pins/freshness pass (#426). Installedproxy05 now passes20 preservation checks; subset02 HTTP retry
 proof still remains. Inventory04 actual53198/allrc0 proves568roots,
-547cache inputs,583components/525stamps and0errors, with currentproxy and
+547cache inputs,583components/525 stamps and 0 errors, with currentproxy and
 recoveredrclone archive verified. Fourteen licence-metadata gaps remain P5.
 Build/source receipts: `docs/qa-logs/2026-10-04-pixelelated-replacement-06/`.
 Runtime/failure receipts: `docs/qa-logs/2026-10-04-pixelelated-57cbc-qualification/`.
@@ -697,13 +697,13 @@ Optins05 actual62343/allrc0 passes S3 round-trip108s and mixed RC2/fresh
 pair42 checks; source/bundle and actual01:12:58 cleanup verified. Current
 memory05 actual34776/allrc0 passes VmSizegrowth0/0/0 and RSSgrowth-72/492/472KiB
 for virgl10/software10/software50,55 completed sync stamps. Example.org loads
-at291120KiB peak combined RSS (~284MiB). Actual01:27:37 cleanup verified.
+at 291120 KiB peak combined RSS (~284MiB). Actual01:27:37 cleanup verified.
 UI06/tool35647 was interrupted: actual143, inner/outer1, no wrapper/build
-exit record; watcher DIED at01:35:08. Partial captures and cleanup receipts
+exit record; watcher DIED at 01:35:08. Partial captures and cleanup receipts
 remain retained under ui-06, with no inferred signal sender (#431).
 UI07/tool90920 completed all four panel/language walks and all result channels0;
 42 actual menu/Tools frames reviewed, source/bundle pass. Actual01:52:41 all
-owned processes/backends absent. Separate boot matcher fails640x480 at96.1021%
+owned processes/backends absent. Separate boot matcher fails640x480 at 96.1021%
 versus unchanged99.5%;1280x960 passes99.6047%, all negative controls reject.
 All924 differing pixels are black instead of expected palette colors. #433
 owns diagnosis; console redraw/tracing effects are unproved hypotheses. No
@@ -731,7 +731,7 @@ Frozen1e6a/bundlea179bd73 built successfully and passed15defaults,actualRC2
 upgrade,16walks/78frames, image equality/content classification, installed
 settings race20/modes29, WebDAV7/S3seven interrupted cases,19cloud-state cases/
 249checks, archive14/timing4/Tools-consumer13, proxyoffline20, S3roundtrip110s/
-mixedpair42, memoryvirgl10/software10/software50+exit-sync and30sHTTPS load.
+mixedpair42, memoryvirgl10/software10/software50+exit-sync and 30 s HTTPS load.
 VmSizegrowth0KiB/RSS608,280,620KiB. Final predecessor02 passed65 checks and
 subset01 passed33 including syntheticHTTP refusal/retry/no duplicate base.
 
@@ -752,7 +752,7 @@ proved scopes. #424/#428 are now also closed from published replacement06
 proof. #422/#426 retain bilingual UI and installed proxy criteria. #427 was a
 disproved fallback-glob hypothesis, closednotplanned with no source change.
 
-The sections below retain the October2–3 review baseline and historical pins.
+The sections below retain the October 2–3 review baseline and historical pins.
 The final phase overview applies with the current candidate/order above.
 
 ## Historical execution update — 2026-10-03
@@ -771,20 +771,20 @@ and guest menu reselection pass. Process/hook controls and the six armature
 retests pass. Receipts are under `docs/qa-logs/2026-10-03-{proxy-refresh,
 dependencies,launch-memory,led,process,push-hook}/`.
 
-**Original503e evidence:** the cold engineering build completed642/642 tasks and image
+**Original503e evidence:** the cold engineering build completed 642/642 tasks and image
 assembly from frozen distribution503e24e10d. The corrected watcher recorded
 rc0. Image/update checksums and immutable candidate-store custody pass.
-**Original503e qualification:** all15 default suites have passing evidence
+**Original503e qualification:** all 15 default suites have passing evidence
 on the unchanged candidate:14 passed in the first run; #396 corrected the
 host archive-name assertion and the complete round-trip rerun passed81s.
 All16 visual walks and frame comparison pass. Source/candidate custody was
 verified before and after the default run. RC2 upgrade passed18:57UTC, S3 round-trip passed107s, and mixed-install
-pair migration passed42/42 at19:04UTC. All7 WebDAV link cases have passing evidence after host fixes #398/#399 and
+pair migration passed42/42 at 19:04 UTC. All7 WebDAV link cases have passing evidence after host fixes #398/#399 and
 strict LINK5 fixture correction #400; the corrected archive interruption/retry
 also passes S3 without skips. Full S3 link proof exposed #401: content backup
 and restore outwait an outage because they lack the saves/settings progress
 stall guard. #402 owns a scan that completed before its cut could land.
-The independently reset19-case640x480 guest matrix passed249/0 at20:31UTC.
+The independently reset19-case640x480 guest matrix passed249/0 at 20:31 UTC.
 #402's corrected S3 pagination now proves interruption and retry; its newly
 reached failure sentence is included in #401. Focused guard controls pass18/18
 on host and candidate BusyBox, and six complete-script checks pass. The full
@@ -792,7 +792,7 @@ candidate-binary host rerun passes1373 broad+322 layout checks under #403,
 0FAIL/0SKIP; its predecessor's stale assertion failure is retained. #404 corrects recorded frame counts;
 #405 corrects sign-in-tool help. Production virgl10 passes (VmSize0KiB,
 RSS+620KiB); software10 also passes (0/52KiB). Software50 with exit sync
-passes0/1228KiB with55 unique success stamps; sign-in page loading/memory
+passes0/1228KiB with 55 unique success stamps; sign-in page loading/memory
 passes30s, peak total RSS292788KiB (not provider authentication). RA award100359
 is already earned; the owner reset/alternate-QA-account question is pending.
 Evidence: `docs/qa-logs/2026-10-03-m7-qa-01/` and
@@ -809,13 +809,13 @@ All24 EN/FR640/1280 frames visually reviewed. #397/#401/#406 closed from their
 published proof. Public-site screenshot4f6df54 remains local because GitHub
 refused Blitterbot403; #327 remains open for delivery.
 
-**Replacement02 at that checkpoint (61b64817bf):** build completed642tasks23:16:46UTC,
+**Replacement02 at that checkpoint (61b64817bf):** build completed 642 tasks 23:16:46 UTC,
 immutable bundle87b8c01d65dc22b4f29049bd0d69307a59c14c16f5223534e95058b2234ca5cd.
 Includes directory-probe timing #364, root wording #407 and canonical proxy
 account discovery #408. Full source regression1373+322PASS. Installed proxy
 proof20, S3 refusal10, root transitions/sentence22 and archive writer/selected
 journal8 now PASS. Full default15/15, actual RC2 upgrade and exact clean/upgraded readbacks now
-PASS. A COW of the actual upgraded disk passes14 archive,4 timing and11
+PASS. A COW of the actual upgraded disk passes14 archive,4 timing and 11
 identity assertions. Installed legacy/current exit-sync medians264/241ms
 are23ms apart within30ms, with exact transferred bytes. All guest/backend jobs
 stopped. Receipts:2026-10-03-m7-replacement02-qualification and

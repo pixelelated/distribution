@@ -66,7 +66,7 @@ state is unknown; do not label that response as a missing or disabled site.
 The starter does not configure hosting. Check the chosen host's requirements
 for a private source repository during implementation, without changing privacy.
 
-The existing docs checkout is `/home/max/Development/rocknix.org`, clean on
+The recorded `ROCKNIX/rocknix.org` docs checkout is `/home/max/Development/rocknix.org`, clean on
 `docs/cloud-saves-native-wizard` at `4f6df54ca16121ff2cd0620407aea6434ee59147`,
 one local commit ahead of its fork remote. It uses MkDocs/Material, Markdown,
 search, navigation and screenshots. Remotes still name `maxengel/rocknix.org`
