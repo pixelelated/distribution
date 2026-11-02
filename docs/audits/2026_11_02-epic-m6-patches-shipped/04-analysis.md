@@ -97,3 +97,15 @@ Local, one actual reader: Codex / GPT-6-Astra / xhigh (OpenAI), own wN:p7 footer
 ## Quality self-check
 
 First observations preceded prior-verdict reading. Counts are machine-asserted against frozen keys, while conclusions name their evidence and limitations. The four corrupted-data controls each fail their named assertion before the positive dataset passes. The separate protected-path guard must reject both working-tree and committed fixture edits before accepting this branch. Receipt validation checks recorded output hashes and equivalent diagnostic input projections. Assertions do not prove a complete semantic audit of vendor code. The brief's final resolution/integration requirements remain pending at D, and the one product bug remains open.
+
+## E disposition and final owner actions — 2026-11-02T20:22:49.348844+00:00
+
+D-WORKFLOW-230 at `afdec2bf8b88135befcb7ec56efb3a7ea327bd73`; [explicit dispatch](https://github.com/pixelelated/distribution/issues/689#issuecomment-6587447155); retained exact disposition in stage-e/disposition.stdout.
+
+PL-01 is **Deferred to open Medium #1410**, standalone-emulator context #677. Coordinator assigns the separate future fix brief. No NKCODE_UNKNOWN/NKCODE_GUIDE choice, source fix, installed behavior, release exception or integration result is selected. The constructed sentinel result remains a mechanics-only proof.
+
+[Owner/action matrix](stage-e/owner-actions.json) preserves all 173 native limits, all 50 inherited decisions (including 22 unresolved inputs) and twelve contribution rows. Their exact actions remain with existing owners. #585 text stays unsent; class removal remains #1048/#346.
+
+G383 (SM8550-aarch64 PPSSPP) is wholly open for unknown post_unpack input, missing archive SHA and no exact cached archive. Its static stack includes context-only `projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8550/000-swap-guid-and-misc.patch`, resolved to `patches/SM8250/000-swap-guid-and-misc.patch`. The accepted group receipt includes only its six native rows and omits that context-only symlink row. No command, normal exit or application result is reconstructed for it; neither population changes. G202/G203 retain only their first recorded row and no serialized exit for the next link-producing candidate. All three gaps remain unclaimed.
+
+Accepted A–D raw receipts, producer code, tables.json and historical findings remain immutable. `stage-d/publication-1.json` observes parent `62573c216cde7ff5ff08bf12d1e8ffdb6bc742f6`; it is not a d376 publication receipt. The coordinator's dispatch independently observes D tip d376/remote/clean/current issue state with new exits. Neither set is relabelled.

@@ -894,3 +894,15 @@ The partial-failure fixture changed a candidate, kept the successful prefix unch
 ### F-T42-01 (gpt, primary Local reader)
 
 **Verdict:** **confirmed, Medium**. Seed PPSSPP 007 lines 11–16 create a nested file; lines 17–29 add the intended SDL diff as text. scripts/unpack:191–196 applies the outer file once; recipe post_unpack does not apply the nested file. The constructed fixture in stage-b/nested-patch/receipt.json returns normal rc 0, creates the nested target and leaves sentinel SDLJoystick.cpp unchanged. This is a source-format mechanism proof, not an at-pin or runtime result. Fixed upstream's direct diff uses NKCODE_GUIDE, whereas the nested seed payload uses NKCODE_UNKNOWN. Owner must resolve intended behavior in the separate fix #1410; audit #1411 / PL-01 remains open pending coordinator disposition. Source and negative duplicate searches are retained in stage-b/source-context/.
+
+## E disposition and final owner actions — 2026-11-02T20:22:49.348844+00:00
+
+D-WORKFLOW-230 at `afdec2bf8b88135befcb7ec56efb3a7ea327bd73`; [explicit dispatch](https://github.com/pixelelated/distribution/issues/689#issuecomment-6587447155); retained exact disposition in stage-e/disposition.stdout.
+
+PL-01 is **Deferred to open Medium #1410**, standalone-emulator context #677. Coordinator assigns the separate future fix brief. No NKCODE_UNKNOWN/NKCODE_GUIDE choice, source fix, installed behavior, release exception or integration result is selected. The constructed sentinel result remains a mechanics-only proof.
+
+[Owner/action matrix](stage-e/owner-actions.json) preserves all 173 native limits, all 50 inherited decisions (including 22 unresolved inputs) and twelve contribution rows. Their exact actions remain with existing owners. #585 text stays unsent; class removal remains #1048/#346.
+
+G383 (SM8550-aarch64 PPSSPP) is wholly open for unknown post_unpack input, missing archive SHA and no exact cached archive. Its static stack includes context-only `projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8550/000-swap-guid-and-misc.patch`, resolved to `patches/SM8250/000-swap-guid-and-misc.patch`. The accepted group receipt includes only its six native rows and omits that context-only symlink row. No command, normal exit or application result is reconstructed for it; neither population changes. G202/G203 retain only their first recorded row and no serialized exit for the next link-producing candidate. All three gaps remain unclaimed.
+
+Accepted A–D raw receipts, producer code, tables.json and historical findings remain immutable. `stage-d/publication-1.json` observes parent `62573c216cde7ff5ff08bf12d1e8ffdb6bc742f6`; it is not a d376 publication receipt. The coordinator's dispatch independently observes D tip d376/remote/clean/current issue state with new exits. Neither set is relabelled.

@@ -1,0 +1,5 @@
+# Preserved qualification limits
+
+G383 (SM8550-aarch64 PPSSPP) is wholly open for unknown post_unpack input, missing archive SHA and no exact cached archive. Its static stack includes context-only `projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8550/000-swap-guid-and-misc.patch`, resolved to `patches/SM8250/000-swap-guid-and-misc.patch`. The accepted group receipt includes only its six native rows and omits that context-only symlink row. No command, normal exit or application result is reconstructed for it; neither population changes. G202/G203 retain only their first recorded row and no serialized exit for the next link-producing candidate. All three gaps remain unclaimed.
+
+The original stage-b/selection.json and application/G202.json, G203.json and G383.json are unchanged. The 173 native and 22 inherited missing-input counts and their accepted owner/actions remain intact. The 21 already-carried and seven not-applicable conclusions retain their exact stated pin/feature scope. No archive, hash, hook, ambiguous member or unread URL is promoted to PASS.

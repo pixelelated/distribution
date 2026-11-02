@@ -1,10 +1,10 @@
-# T42 Stage D audit summary
+# T42 audit summary — records-only E–H
 
-Ready for coordinator stream disposition under #689; final acceptance and E–H are pending. Reviewed-at: `9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1`. Branch: `feature/m6-patches-shipped-689`; absolute worktree: `/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689`. The final #689 publication checkpoint names the clean immutable D tip and remote readback. No source-changing permission is inferred.
+D was accepted and E–H dispatched under D-WORKFLOW-230 / #689 comment 6587447155. Final acceptance/integration remain coordinator-owned. Reviewed-at: `9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1`. Branch: `feature/m6-patches-shipped-689`; absolute worktree: `/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689`. The final #689 publication checkpoint names the clean immutable D tip and remote readback. No source-changing permission is inferred.
 
 ## Result
 
-[Audit #1411](https://github.com/pixelelated/distribution/issues/1411), a real child of #689 in M6, has one Medium finding (0 Critical, 0 High): PPSSPP007 creates nested patch data without changing its intended SDL target. [Reactive bug #1410](https://github.com/pixelelated/distribution/issues/1410) has no parent/milestone and remains open. PL-01 has an Open Phase-7 outcome, not a prefilled deferral or resolution. Fixed upstream's replacement changes the requested mapping, so a future owning brief must decide intended GUIDE behavior before adopting it.
+[Audit #1411](https://github.com/pixelelated/distribution/issues/1411), a real child of #689 in M6, has one Medium finding (0 Critical, 0 High): PPSSPP007 creates nested patch data without changing its intended SDL target. [Reactive bug #1410](https://github.com/pixelelated/distribution/issues/1410) has no parent/milestone and remains open. PL-01 is Deferred to open #1410 with #677 context under the explicit disposition; the bug is not fixed. Fixed upstream's replacement changes the requested mapping, so a future owning brief must decide intended GUIDE behavior before adopting it.
 
 ## Populations and evidence
 
@@ -26,3 +26,15 @@ A binds source/seed/P1 and Local lint capability. B contains tables, source comp
 Coordinator wN:p2 owns the stream disposition: proposed separate PPSSPP fix brief for #1410 and routing of existing owner-specific inputs. T42 stops after published D. E records authorized outcomes; F performs final resolution lint; G final retro; H accepted hand-back/owned scratch retirement follow only after disposition. This D summary is not final slice acceptance, a release gate, or a source fix.
 
 Source scratch `/workspace/tmp/m6-t42/` remains retained until acceptance and the later H cleanup instruction. It contains source projections and synthetic fixtures only; no build/guest/device/cloud job or host-ledger reservation is owned by this lane. Historical launch/T38 trees remain untouched.
+
+## E disposition and final owner actions — 2026-11-02T20:22:49.348844+00:00
+
+D-WORKFLOW-230 at `afdec2bf8b88135befcb7ec56efb3a7ea327bd73`; [explicit dispatch](https://github.com/pixelelated/distribution/issues/689#issuecomment-6587447155); retained exact disposition in stage-e/disposition.stdout.
+
+PL-01 is **Deferred to open Medium #1410**, standalone-emulator context #677. Coordinator assigns the separate future fix brief. No NKCODE_UNKNOWN/NKCODE_GUIDE choice, source fix, installed behavior, release exception or integration result is selected. The constructed sentinel result remains a mechanics-only proof.
+
+[Owner/action matrix](stage-e/owner-actions.json) preserves all 173 native limits, all 50 inherited decisions (including 22 unresolved inputs) and twelve contribution rows. Their exact actions remain with existing owners. #585 text stays unsent; class removal remains #1048/#346.
+
+G383 (SM8550-aarch64 PPSSPP) is wholly open for unknown post_unpack input, missing archive SHA and no exact cached archive. Its static stack includes context-only `projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8550/000-swap-guid-and-misc.patch`, resolved to `patches/SM8250/000-swap-guid-and-misc.patch`. The accepted group receipt includes only its six native rows and omits that context-only symlink row. No command, normal exit or application result is reconstructed for it; neither population changes. G202/G203 retain only their first recorded row and no serialized exit for the next link-producing candidate. All three gaps remain unclaimed.
+
+Accepted A–D raw receipts, producer code, tables.json and historical findings remain immutable. `stage-d/publication-1.json` observes parent `62573c216cde7ff5ff08bf12d1e8ffdb6bc742f6`; it is not a d376 publication receipt. The coordinator's dispatch independently observes D tip d376/remote/clean/current issue state with new exits. Neither set is relabelled.

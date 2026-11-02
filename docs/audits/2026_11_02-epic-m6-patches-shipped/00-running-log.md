@@ -56,3 +56,15 @@ PROOF: D-01 (tracker-readback) — reactive bug #1410 filed with no parent/miles
 ### 2026-11-02T19:46:10.220313+00:00 — D required issue/new-record checks
 
 PROOF: D-02 (tool-run) — audit #1411 pre-issue lint passes with its live task list; checkbox checker reports 0 fail for #1410, #1411 and #689. Source-preserving tree/commit-path guard passes. Full tracked-tree forbidden scan and normal repository checks are retained in stage-c/checks.json; the complete current audit including new D records passes the scoped forbidden scan. Resolution lint intentionally awaits Phase-7 disposition.
+
+### 2026-11-02T20:22:49.348844+00:00 — E accepted disposition
+
+PROOF E-01 (immutable source and tracker readback): explicit #689 comment 6587447155 and coordinator afdec2bf8b88135befcb7ec56efb3a7ea327bd73 authorize records-only E–H. Actual own footer remains Codex / GPT-6-Astra / xhigh, OpenAI, session 01a19d12-3d7a-7642-9108-ae06a719cdd7, wN:p7. The pane retains its historical launch cwd; every operation uses the absolute T42 workdir. PL-01 table/index/readback agree Deferred #1410/#677 before audit criterion1 is checked. Bug body/state/three criteria are unchanged. G383 context omission is appended; accepted raw receipts/producers and all limits are preserved. No source or GUIDE choice.
+
+### 2026-11-02T20:28:18.668392+00:00 — F new resolution and final records
+
+PROOF F-01 (new tool-run): final-record-check rejects its synthetic changed identity, then reconciles immutable accepted D receipts/data/original tools and 391 current source/selector/referent identities; native384/inherited50 and 173/22 gaps unchanged. No accepted producer or mutation fixture was replayed. PROOF F-02: resolution lint PASS normally and with audit1411; only then criterion2 is checked. Current issue checks report 0 fail; criterion3, closure/completion marker remain root-owned. New path/rules/register/index/ceremony/hooks/forbidden exits are retained in stage-f/commands.json.
+
+### 2026-11-02T20:30:38.286392+00:00 — G final retro
+
+PROOF G-01 (artifact and exact tracker readback): https://github.com/pixelelated/distribution/issues/689#issuecomment-6587734065 carries docs/retros/2026-11-02-m6-patches-shipped.md SHA256 22b1b2eb6b6be46e7a5f105e6956a20c317b7a5fb9095ad47d2088553dbc24b3. One Deferred/open defect, preserved 173/22 limits, observed friction, next owners and both untouched time-to-play quantities are explicit. H cleanup has not been prefilled.

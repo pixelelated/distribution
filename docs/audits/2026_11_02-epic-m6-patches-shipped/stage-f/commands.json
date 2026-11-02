@@ -1,0 +1,200 @@
+[
+  {
+    "name": "final-record-check",
+    "utc": "2026-11-02T20:25:22.024979+00:00",
+    "argv": [
+      "python3",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/tools/final-record-check.py",
+      "--manifest",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/stage-f/accepted-manifest.json"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "rc": 0,
+    "stdout_sha256": "705a1c390a57066294718d8bc0afc95a563d4af6e403618fec69428e90809296",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "resolution",
+    "utc": "2026-11-02T20:25:22.068127+00:00",
+    "argv": [
+      "tools/lint-audit-artifacts",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "rc": 0,
+    "stdout_sha256": "1379332ac34e98fddfe7692d9b2c27c88e492d4637c29ccbae578692a9585f3d",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "resolution-with-issue",
+    "utc": "2026-11-02T20:25:22.661556+00:00",
+    "argv": [
+      "tools/lint-audit-artifacts",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped",
+      "--issue",
+      "1411"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "rc": 0,
+    "stdout_sha256": "bbc268b2a9fdeef41dc56571d22314844298c03a57107df8176c55e8525cd052",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "audit-criterion2-edit",
+    "utc": "2026-11-02T20:25:25.439254+00:00",
+    "argv": [
+      "gh",
+      "issue",
+      "edit",
+      "1411",
+      "--repo",
+      "pixelelated/distribution",
+      "--body-file",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/stage-f/audit-body-criterion2.md"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "rc": 0,
+    "stdout_sha256": "a1e63c789c50f209579e6730e5ffc6557d932a761d4386c2081f4d56ef0626f6",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "audit-criterion2-readback",
+    "utc": "2026-11-02T20:25:26.321018+00:00",
+    "argv": [
+      "gh",
+      "issue",
+      "view",
+      "1411",
+      "--repo",
+      "pixelelated/distribution",
+      "--json",
+      "body,state"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "rc": 0,
+    "stdout_sha256": "0ddf8a6bf3c67fe7e77de30484b3d978a864ae17b1a855876dcbb7bef2df080e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "checkbox-1410",
+    "utc": "2026-11-02T20:25:26.733544+00:00",
+    "argv": [
+      "tools/box-check",
+      "--issue",
+      "1410"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "rc": 0,
+    "stdout_sha256": "ba2106c8e0839eebd4c378af612a29b132b2d984183d5b62871ca20e98856945",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "checkbox-1411",
+    "utc": "2026-11-02T20:25:27.230546+00:00",
+    "argv": [
+      "tools/box-check",
+      "--issue",
+      "1411"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "rc": 0,
+    "stdout_sha256": "71f21b5f65b777c3c18799c08624626e7530b84922db3c7b7c3256eab7f277aa",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "checkbox-689",
+    "utc": "2026-11-02T20:25:27.733187+00:00",
+    "argv": [
+      "tools/box-check",
+      "--issue",
+      "689"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "rc": 0,
+    "stdout_sha256": "89574cf62c10d48bcc0aae9e2c9575dab22248ee306fc1d65a7a538ead695114",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "protected-paths",
+    "utc": "2026-11-02T20:25:28.080259+00:00",
+    "argv": [
+      "python3",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/tools/validate.py",
+      "guard",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+      "9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "rc": 0,
+    "stdout_sha256": "efe53b28a665d7dd02a5bd2e648b420184bf376bf4a5abefaf4ad49baf655e15",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "rules",
+    "utc": "2026-11-02T20:25:28.221532+00:00",
+    "argv": [
+      "tools/rules-check"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "rc": 0,
+    "stdout_sha256": "5ecec1bf185709d166b0c35447dd7ef65107be90632d41665f1d26e3bd0afbb1",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "register",
+    "utc": "2026-11-02T20:25:29.894275+00:00",
+    "argv": [
+      "tools/register-check"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "rc": 0,
+    "stdout_sha256": "d19a26d7b8d788f598d97e36c29ba1f7318204f847c64234cdf5fcca8ed22dca",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "index",
+    "utc": "2026-11-02T20:25:29.915898+00:00",
+    "argv": [
+      "tools/work-log-index",
+      "--check"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "rc": 0,
+    "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "ceremony",
+    "utc": "2026-11-02T20:25:38.527754+00:00",
+    "argv": [
+      "tools/ceremony-check",
+      "--gate"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "hooks",
+    "utc": "2026-11-02T20:25:39.275728+00:00",
+    "argv": [
+      ".githooks/hooks-test"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "rc": 0,
+    "stdout_sha256": "3402d5f59e65118cf905eb74dd1cda7660eeffd181ad248e23a56f68395e0a5c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "forbidden",
+    "utc": "2026-11-02T20:28:18.668204+00:00",
+    "argv": [
+      "tools/forbidden-terms-check"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+    "rc": 0,
+    "stdout_sha256": "dbffe93db83456398c6bca0b27a88467331fa149154479c46a4a3453869ce039",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

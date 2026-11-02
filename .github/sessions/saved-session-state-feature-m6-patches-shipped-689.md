@@ -32,3 +32,7 @@ B and C evidence complete: 384 native path/coverage rows; separate 50 inherited 
 ## Stage D hand-back — 2026-11-02T19:46:10.220313+00:00
 
 All A–D artifacts complete and checks passed; audit #1411 under #689/M6 carries one Medium finding, and reactive bug #1410 remains open without milestone/parent. 06-audit-summary.md and 07-questions-for-the-maintainer.md are the current readback. Normal clean publication/checkpoint follows this record; the #689 D comment binds its exact published tip. STOP at D for m6-coordinator wN:p2 stream disposition. Do not start E–H, edit product source, allocate runtime or answer another agent permission prompt. Existing comparison inputs keep their named owners; #585 text remains drafts. Source scratch /workspace/tmp/m6-t42 is retained until acceptance and H retirement.
+
+## Current E–H authority — 2026-11-02T20:22:49.348844+00:00
+
+This supersedes the earlier D stop: #689 comment 6587447155 and immutable coordinator afdec2bf8b88135befcb7ec56efb3a7ea327bd73, docs/qa-logs/2026-11-02-m6-resume/t42-stage-d-disposition.md (D-WORKFLOW-230), dispatch records-only E–H from d376. E records Deferred PL-01 → open #1410/#677, no GUIDE choice. Continue new F checks, final G retro and authorized H owned-scratch cleanup/publication, then stop. No accepted producer replay or merge from coordinator. Root retains final acceptance, audit criterion3/closure/completion marker. Preserve G202/G203/G383 missing evidence and 173/22 limits. Final publication receipts will live outside the observing commit and be named/hash-bound at H.

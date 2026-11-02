@@ -1,0 +1,3 @@
+# Records-only E–H tools
+
+These are new closeout checkers under D-WORKFLOW-230, not producers to replay. `final-record-check.py` reads immutable accepted D identities and current records; its synthetic wrong-identity control tests this new reader. `retire-owned-scratch.py` is the one-shot H retirement tool. It requires the F manifest committed, maps exact scratch roots to accepted receipts, rejects outside paths and live-owner control, preserves unrelated mount warnings and deletes only the enumerated paths. It cannot retire a cache, worktree, external publication directory or another lane. Its result is written after actual deletion. Original A–D tools/receipts stay byte-identical. Do not rerun accepted stages or completed cleanup.
