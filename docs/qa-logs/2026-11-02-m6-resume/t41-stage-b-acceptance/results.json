@@ -1,0 +1,147 @@
+{
+  "authority": {
+    "brief_sha256": "ff2b2ac8b06aac814a0b6b69bb5cb3d50165a30afc4a8c0a40d9d1093283b87b",
+    "erratum_sha256": "04f1b58c25d68033eeb4bb96a60a08376e6f2d77182f73b56c4f13c89215d42e",
+    "D222_row_sha256": "d43524c8d3662c8e156c6f8fb72871aeb1719aaf2fce446b9cccd1fb230b946c"
+  },
+  "historical": {
+    "unchanged": 329,
+    "manifest_sha256": "b0fb7e9c6d7b0cc55876fbea54e3f004b0a2d41ac0e89e759d686cf2307bd2c2"
+  },
+  "source": {
+    "unchanged": 107,
+    "lines": 40474,
+    "newlines": 40473,
+    "headers": [
+      87,
+      89
+    ],
+    "manifest_sha256": "1ef58635d8a1e31fd1ffd1f83c85507a4ced5cdb1095aa03c7874558444151c1",
+    "protected_subtrees_unchanged": [
+      "packages",
+      "projects",
+      "tools",
+      "scripts"
+    ],
+    "read_stdout_hashes_verified": 140,
+    "vs_base": {
+      "SAME": 106,
+      "ABSENT": 1
+    },
+    "vs_upstream": {
+      "SAME": 101,
+      "ABSENT": 2,
+      "CHANGED": 4
+    }
+  },
+  "applications": {
+    "rows": 120,
+    "paths": 106,
+    "populations": {
+      "GENERIC_X64": 8,
+      "H700": 42,
+      "SM8550": 65,
+      "UBOOT-DDR3": 2,
+      "UBOOT-DDR4": 2,
+      "FIRMWARE": 1
+    },
+    "status": {
+      "fuzz": 29,
+      "applies with offset": 48,
+      "applies": 43
+    },
+    "nonzero_normal": 0,
+    "blocked": 0,
+    "dry_disagreements": [
+      "H700-011"
+    ],
+    "chains": {
+      "GENERIC_X64": {
+        "initial": "4d011d6e31284fd021bb47cc009f09be5109256e3b7d17a010f5a2749c451619",
+        "final": "d3feba62d5f5f72780ab85a061d8ecae4da305f65f5b2e70468d3bd3ff06714a",
+        "rows": 8
+      },
+      "H700": {
+        "initial": "955828f8517ff6078354701e61eec228e36bb74abd6231dc19249f5c7f54f853",
+        "final": "99f62c45c358464f8149c04deb5a2ac904aaee9df29ce8d103c7e6a22ca82433",
+        "rows": 42
+      },
+      "SM8550": {
+        "initial": "285afa07c252560c75a31eb45631bcc931b5c7209e99c8bdf12f0f0f29c34c97",
+        "final": "90b1a10aef8e52e239cbb87afb9029c80b9f80ce8604673180e47a0c62064526",
+        "rows": 65
+      },
+      "UBOOT-DDR3": {
+        "initial": "82e93363aed5f83d9f9c337454e42f942e4c41a56f1661c86332d71b7849c29d",
+        "final": "b4e53d8424301f64e5b62cb225ecbbf67b7ead1625bfdfbfe2644450e19c6224",
+        "rows": 2
+      },
+      "UBOOT-DDR4": {
+        "initial": "82e93363aed5f83d9f9c337454e42f942e4c41a56f1661c86332d71b7849c29d",
+        "final": "b4e53d8424301f64e5b62cb225ecbbf67b7ead1625bfdfbfe2644450e19c6224",
+        "rows": 2
+      },
+      "FIRMWARE": {
+        "initial": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "final": "ca98a8271db056915e6f808c6b465d8c3a5dcb954a2c92524d187eccb646e202",
+        "rows": 1
+      }
+    },
+    "row_manifest_sha256": "5c7fc27c47631aacc4709109f9a2cf021ba6536bd3238fc020b9dc6bfa923c91"
+  },
+  "failure_guard": {
+    "result": "PASS",
+    "prefix_sha256": "0a82bca6d9a6afd0d18ea1460e8c2cbdac947d16563ada1a3aef122bd5c60343",
+    "failed_candidate_sha256": "6593d93031a4aec87d0d4d842761e7788ec6cf8c65c298b3d06b34b2ab2d225f",
+    "fixture_stdin_sha256": "abc53ed450a8dcce6edb5ac628cd229f7a58ed573c2ea1da2402ab8ddf62e5a3"
+  },
+  "archives": {
+    "linux/linux-7.1.2.tar.xz": "37198c93727be247c9fb5309bb86cd5e496c61e5322cd8c4eca9476bb0b5883f",
+    "linux/linux-7.2.tar.xz": "f9fef3d14c0df53819026f4be74459835c2a0b0dcbf5b5bbd9ea19f0829402b3",
+    "u-boot-DDR3/u-boot-DDR3-v2026.01.tar.gz": "03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654",
+    "u-boot-DDR4/u-boot-DDR4-v2026.01.tar.gz": "03bb43c58d2343ee48dd191e0f181f0108425b179d84519add3a977071c3f654",
+    "kernel-firmware/kernel-firmware-20260309.tar.gz": "28fb1b57fa9531edbd001a2462068267f10622e613abd40f952344b3f1fc5a16"
+  },
+  "tables": {
+    "provenance": 107,
+    "coverage": 107,
+    "leads": 31,
+    "rulings": 16,
+    "proofs": 12,
+    "dispositions": {
+      "keep": 101,
+      "#585": 1,
+      "upstream-changed": 4,
+      "upstream-moved": 1
+    },
+    "sections": "present; 03/04 present"
+  },
+  "negative_controls": {
+    "drop": {
+      "rc": 1,
+      "last_line": "AssertionError: membership: expected 107 rows"
+    },
+    "reach": {
+      "rc": 1,
+      "last_line": "AssertionError: reach: expected shipped 103/test 4"
+    },
+    "header": {
+      "rc": 1,
+      "last_line": "AssertionError: From header census: expected 87"
+    }
+  },
+  "producer_hashes": {
+    "apply-corrected.py": "374e774f0d6b5b05bafb0d87a7f9056121fb93365817b4b2a9360bc9c0c63914",
+    "t41-tables.py": "223fd915d159773f31934170e6eb47958c30d884f80dfbc7aeeb7d09b7732b58",
+    "verify-packet.py": "d62b21e70d85c3685307eed6ce6354d05008841924cdd26c94dcaf039c55662b"
+  },
+  "corrected_files": 432,
+  "AC17_presentation": {
+    "exact_forbidden_output_quoted_in_02": false,
+    "raw_positive_exists_in_hygiene": true,
+    "02_reference_line": 470,
+    "02_PASS_claim_line": 588
+  },
+  "limits": "Only immutable artifact bytes, hashes, digest chain consistency, and literal fixture input/prefix were independently re-derived. Production archive and candidate-tree byte hashes are retained producer/validation observations; no archive/cache/private scratch read, extraction, application, generator or historical test was executed.",
+  "result": "PASS bounded structural reconciliation; narrative/producer logic assessment in report.txt"
+}

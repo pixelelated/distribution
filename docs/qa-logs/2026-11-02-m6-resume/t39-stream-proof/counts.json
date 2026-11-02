@@ -1,0 +1,83 @@
+{
+  "candidate_sha256": "b0b063ce0d721017dc736e30019b95964c8f467d4838bf8d7aeab6fe2f6fa0fb",
+  "routing": {
+    "items": 46,
+    "unique": 46,
+    "missing": [],
+    "duplicates": []
+  },
+  "coverage_rows": 254,
+  "coverage_kinds": {
+    "text": 223,
+    "binary": 31
+  },
+  "coverage_classes": {
+    "art-bytes": 18,
+    "edit-scope": 68,
+    "edit-under-naming": 1,
+    "ledger-binary": 31,
+    "ledger-named": 6,
+    "ledger-plan": 1,
+    "ledger-reviews": 12,
+    "read-only-528": 1,
+    "read-only-585": 27,
+    "read-only-upstream": 88,
+    "tabled-generic-x64": 1
+  },
+  "q5_lower_table": {
+    "files": 33,
+    "logical_lines": 2770,
+    "classes": {
+      "edit-scope": 32,
+      "ledger-plan": 1
+    },
+    "ledger": [
+      "plans/conflict-resolution/vita-style-conflict-resolution.md"
+    ]
+  },
+  "explicit_S1_S4_paths": {
+    "README.md": "edit-scope",
+    "docs/backup-contents.md": "edit-scope",
+    "docs/cloud-save-integrity.md": "edit-scope",
+    "docs/council-mistral-counter.md": "edit-scope",
+    "docs/device-flashing-runbook.md": "edit-scope",
+    "docs/device-testing-policy.md": "edit-scope",
+    "docs/es-menu-map.md": "edit-scope",
+    "docs/pixelelated/cloud-folder-flow-review.md": "edit-scope",
+    "docs/pixelelated/cloud-folders.md": "edit-scope",
+    "docs/pixelelated/site-plan.md": "edit-scope",
+    "docs/ra-offline/rocknix-org-offline-achievements.md": "edit-scope",
+    "docs/rasteratops/cloud-layout.md": "edit-scope",
+    "docs/rasteratops/release-readiness.md": "edit-scope",
+    "docs/rasteratops/support-matrix.md": "edit-scope",
+    "docs/releases/0.0.1-release-preparation.md": "edit-scope",
+    "docs/releases/device-facts.md": "edit-scope",
+    "docs/releases/next-candidate-scope.md": "edit-scope",
+    "docs/releases/next-candidate-work.md": "edit-scope",
+    "docs/releases/pr/08-saves.md": "edit-scope",
+    "docs/releases/rc-accept.txt": "ledger-named",
+    "docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md": "edit-scope",
+    "docs/releases/versioning.md": "edit-scope",
+    "docs/technical-appendix-cloud-sync-and-offline-achievements.md": "edit-scope",
+    "docs/upstream/README.md": "read-only-585"
+  },
+  "S1_S5_unique_edit_population": 48,
+  "runbook_ROCKNIX_matching_lines": 21,
+  "runbook_ROCKNIX_occurrences": 22,
+  "map_pending_headings": [
+    [
+      758,
+      "### Pending nonvisual allocator candidate (#570)"
+    ],
+    [
+      806,
+      "## Pending allocator candidate: constrained handoff proof (#570)"
+    ],
+    [
+      817,
+      "### M7 setup candidate under qualification \u2014 October 13"
+    ]
+  ],
+  "accepted_proof_cells": 12,
+  "accepted_PROOF_lines": 12
+}

@@ -1,0 +1,59 @@
+T41 #688 Stage-B artifact acceptance support — bounded return to wN:p2
+Reader: Codex (GPT-6), harness /root; m6-t2-es-launch, wN:p5;
+session 01a19d12-1c5f-7022-8053-102f6a94b7fe.
+
+Assessment: PASS substantive Stage-B evidence. One literal documentation requirement is not met: AC17 asks for check outputs/positive-control lines in 02 itself; 02:470 instead points to the complete retained validation packet, while 02:588 calls AC17 PASS. No material application, method, source, coverage or hash defect found. Coordinator retains acceptance/planning; this is not a gate approval or a new audit.
+
+Contract read: full live #688 body and all seven comments, through 6584307783; body equals the packet's issue-688-body.txt byte for byte, SHA256 0d33ab1b0cec7e10b6adcaf54c0eff0907df71ab7dc2734ab4c3a7101ed9828b. Per-comment hashes are in live-read-hashes.json. Coordinator b6332dbc13f5929f05ec5ba23c44285c5ee56b38 and 4c8a118cfb4efa8d13c1b41b72ef7a205da5f766 carry identical brief bytes, SHA256 ff2b2ac8b06aac814a0b6b69bb5cb3d50165a30afc4a8c0a40d9d1093283b87b. Retained erratum and D222 register row match their authority.
+
+Packet: 7e5d1546712df2eb79c585fce663186770d1ceb9
+Audit root: docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/
+Source: 02aab33bd9842610b0d466c9c186454dc14373ee
+Historical receipt baseline: 3cd9ca140a0da9af447a3ee2fb9cdbbbf222a95b
+
+PASS/FAIL mapping:
+
+PASS — Membership/provenance/coverage: 107 unique rows in each table, 106 patches + one conf; 40,474 split lines / 40,473 newlines; reach 103/4; From/Subject 87/89. Generated provenance/coverage blocks occur byte-for-byte in 02. JSON application cells all name the corrected receipts. Dispositions 101 keep / 4 upstream-changed / 1 upstream-moved / 1 #585. Non-kernel owners remain T27 (four) and T11 (one).
+
+PASS — Corrected applications: 120/106; GENERIC_X64/H700/SM8550/DDR3/DDR4/firmware = 8/42/65/2/2/1. Every row equals its individual receipt; every patch SHA and all 240 raw output hashes independently match immutable bytes. Six recorded input/output digest chains are continuous; each dry diagnostic leaves the recorded input unchanged. All normal rc=0, promoted=true, zero normal FAILED and zero blocked; 43 applies / 48 offset / 29 fuzz independently classified from normal output. Exactly H700-011 dry=1/apply=0: dry hunk failed at 1154, normal succeeds at 1246 (offset 92). Its final status is fuzz because other normal hunks use fuzz.
+
+PASS — D222 producer logic: apply-corrected.py:29-47 copies successful prefix, persists diagnostic, runs complete normal application regardless of dry rc, classifies normal output, promotes only rc=0 without timeout, otherwise keeps prefix and blocks successors without command results. The same attempt() handles the fixture. Normal/diagnostic argv and timestamp fields match the receipts. The six orders retain historical C order; five archive hashes match immutable recipe literals. Missing extraction members are recorded as patch-created paths, including firmware's empty initial root.
+
+PASS — Failure guard: failed-candidate-guard.json and FIXTURE-001/002 rows agree. Fixture normal rc=1 partially changes its candidate, preserves prefix, does not promote, and marks successor blocked_by=1 with null rc/no command. Literal fixture stdin and original a/b prefix hashes independently re-derived without applying anything. Prefix SHA 0a82bca6d9a6afd0d18ea1460e8c2cbdac947d16563ada1a3aef122bd5c60343; failed candidate recorded SHA 6593d93031a4aec87d0d4d842761e7788ec6cf8c65c298b3d06b34b2ab2d225f.
+
+PASS — Generator controls/current consumers: three negative receipts each rc=1, exact raw final lines match membership 107, reach 103/4, and From 87 assertions. Assertions remain in current t41-tables.py. 00 records negatives before trusted stats/provenance/coverage/currency/json output. Generator reads only corrected/application-results.json; current 01/02/03/04, corrected README and session pointer explicitly supersede the old six H700 failures. Current 04 counts match corrected stats. Original diagnostics remain historical, not current applicability.
+
+PASS — Reports/ownership: all required Stage-B headings, 31 L-01..L-31 rows, a-p rulings, inherited-owner matrix, 12 classified proofs with 12 matching 00 entries, 03 conformance/interactions/refutation, and 04 Q1-Q7 (Q5 struck), currency and two question drafts are present. Both #585 lines are expressly never sent. Ramoops/config/unpack/source references and the retained final DRM function were read. Both 0010 paths are upstream-changed; the known High finding survives the packet's source refutation (write at 1453, assignment 1470), and belongs to later Stage-D filing/integration.
+
+PASS — Preservation: all 107 paths byte-identical at P1 2174265e9c, seed f03b64419fa656fb3af61cbc8d174284020d439c, source and packet. All 329 old stage-a/b files byte-identical to 3cd9ca140a. Protected packages/projects/tools/scripts trees equal d7dd766659. All 432 corrected files read/hash-indexed. Independently matched 140 retained git-show stdout hashes and all 107 base/upstream blob classifications (106/1 at base; 101/4/2 at upstream). Five duplicate pairs match bytes and SHA.
+
+FAIL, documentation-only — Literal AC17 inline outputs: 02:470 summarizes old baseline checks and links current validation; it does not quote the requested current hygiene output and planted-positive line. The actual evidence exists at corrected/hygiene.out:60-74 and validation.json: forbidden actual rc=0, positive rc=1; secret compile rc=1/count0, positive rc=0/count1, actual rc=1/count0. 02:588's unconditional AC17 PASS overstates literal presentation compliance. If required before advancement, copy the already-retained command/output/exit lines into 02 and clarify the scorecard. No replay, new evidence generation, private read or product change is needed. This is not a missing or failed hygiene control.
+
+Future obligations, not Stage-B defects: Stage C formal audit/tools/t41-tables.py, second-opinions/review-plan.json with actual Codex reader and empty reviewers, and pre-issue lint; Stage D 05, punch/0010 bug filing, two posted question IDs and readback; later resolution, final retro, final issue headers/merge checks, closing ledger census and Stage-H scratch retirement. The packet's 14 PASS / 14 PARTIAL is a full-issue scorecard, not a 50% Stage-B completion score. Keep the AC17 presentation qualification above separate. No early C/D artifacts requested.
+
+Limit: production archive/candidate tree hashes are preserved producer observations, supported by retained verify-packet.py/validation.json's historical recomputation. I independently verified their linkage and all committed row/log/source bytes, not the contents of another lane's scratch or archives. No extraction, patch application, generator, historical test, build/runtime, config sourcing, fetch, provider, device/cloud action or permission answer occurred. No repository/ledger/tracker/host write; historical T2 trees untouched. Only this new private /tmp directory was written; it contains derived manifests/results/script/report, no exported source tree.
+
+Selected SHA256 evidence (all remaining exact hashes in evidence.sha256 / row-hashes.json):
+application-results.json c7855adcf68ecfc30eeb00ac7ca1d2beb386bce508ad6173ee3a71c75f7f227a
+apply-corrected.py 374e774f0d6b5b05bafb0d87a7f9056121fb93365817b4b2a9360bc9c0c63914
+t41-tables.py 223fd915d159773f31934170e6eb47958c30d884f80dfbc7aeeb7d09b7732b58
+verify-packet.py d62b21e70d85c3685307eed6ce6354d05008841924cdd26c94dcaf039c55662b
+H700-011 row 75efd50d33f1b643924d3758bfeffe6a63d9bad9e3c02f5edc3305ca82003be2
+H700-011 dry 94691dbda6f72ae9b92910c032cbd702e48e045b9a77924e69af8f3966fdca0d
+H700-011 normal d0ecfc89fe4ca66d6fca7572644bee94193763b103c5bad4b1e82b9357a6fd56
+failed-candidate-guard.json 295fea16cac4d4d37de93d3ce2c3b78b518cfffef37ef384614101e45d4f1e23
+generator-fail-first.json e5eda8d8e9e1bfce60bab1bb82caca88c71e2c4ed785cd90471a58ea1612ead5
+validation.json ee935f42264e8b57eb948b204c022bec5d380e992648730d4d4ea286d26f0d0f
+hygiene.out e9d38fb8763ee77506a6e29ab2e9208cc183a54df2bca9e49eafd9eba2d289c3
+02 e7a547a9f6f058311b6b8ef09cebe7945228a6b55f0b0a0ad23109062318ee6c
+03 2ce7ba3c2a601e921fb0aef7e2f97a8f26dec4fc17985806aa2740753027b596
+04 ac9595f80a2fd269bdcfdead604aa40b4532ceca3d29a9b74c4d8110f663a550
+
+Reproducible read commands (from the historical T2 distribution worktree; no fetch):
+  git show b6332dbc13f5929f05ec5ba23c44285c5ee56b38:docs/reviews/briefs/patches-shipped-kernel.md
+  git show 4c8a118cfb4efa8d13c1b41b72ef7a205da5f766:docs/reviews/briefs/patches-shipped-kernel.md | sha256sum
+  git show 7e5d1546712df2eb79c585fce663186770d1ceb9:docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-b/corrected/application-results.json | sha256sum
+  git show 7e5d1546712df2eb79c585fce663186770d1ceb9:docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/02-forward-audit.md | sed -n '462,470p;588p'
+  git show 7e5d1546712df2eb79c585fce663186770d1ceb9:docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-b/corrected/hygiene.out | sed -n '60,74p'
+  python3 /tmp/m6-t41-stageb-support-01a19d12-kjkpnpdf/reconcile.py
+The last command runs only my independent immutable git-show/ls-tree comparisons and rewrites derived files in this private directory. It never imports/runs the packet's programs or touches another lane's working files. Script SHA256 7bb81da7b0cf2aa2a25217aa12e4bad2469b7d360dd078232f9a09c2ff48830c.
