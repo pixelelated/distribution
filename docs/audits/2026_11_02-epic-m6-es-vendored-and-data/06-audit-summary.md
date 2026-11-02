@@ -11,3 +11,5 @@ Root owns D disposition, any E–H brief, final integration/acceptance and closu
 Audit issue: https://github.com/pixelelated/distribution/issues/1413 ; exact parent691/M6 readback in stage-d/tracker/. Pre-issue PASS (pre-issue-2 and issue-lint-1); box-check1open/0fail. First lint heading failure retained under pre-issue-1; parent-response assertion failure retained under tracker/interface-note.md.
 
 D record gates: pre-issue + issue-lint, issue-check, rules, register, index, ceremony, distribution hook fixtures, syntax, whitespace and full-tree forbidden scan all rc0; stage-d/gates-summary.json binds receipts. Forbidden scan0hits/134259tracked files. Tiny Git actual source-edit/revert history refusals are stage-c/tiny-git. Final publication/ES-clean receipt is external, tip-bound.
+
+Publication correction: first d6d08bf19c manifest included one ignored bytecode file. Its immutable readback failure is retained in stage-d/publication-manifest-correction.json and the original commit. The corrected manifest is Git-keyed; ignored bytecode remains only in owned-scratch census. tools/payload-readback.py proves exact committed keys/bytes without producer replay.

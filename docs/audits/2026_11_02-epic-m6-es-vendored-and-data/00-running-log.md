@@ -35,3 +35,7 @@ Rules/register/index/ceremony/hooks/syntax gates rc0; diff first rc2 on two new 
 ## 2026-11-02T23:26:33.644334+00:00 — D record gates complete
 
 All required current D record gates rc0 (stage-d/gates-summary.json). Full-tree forbidden scan:0 hits/134259 tracked files, bounded1200s, actual timing retained. Whole ES clean at seed, table readback594x2/catalogue36/vendor7/full-code43files5467lines PASS. Normal commit/push and exact remote/status evidence follow externally; no E–H or acceptance.
+
+## 2026-11-02T23:30:12.456554+00:00 — Publication manifest correction before D return
+
+First commit d6d08bf19c was pushed clean, but immutable payload readback failed: manifest listed one ignored catalogue.cpython-314.pyc, absent from Git. Original commit/manifest/failure are preserved. Corrected manifest will enumerate tracked records only; ignored cache is receipt-bound owned scratch, not published evidence. Python -I ignores PYTHONDONTWRITEBYTECODE; -B is explicit on subsequent calls. No accepted producer rerun or source change. This is a substantive record correction before complete D handback, not a receipt-only commit loop.

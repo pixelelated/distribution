@@ -1,0 +1,11 @@
+{
+  "recorded_at": "2026-11-02T23:30:12.456554+00:00",
+  "failed_tip": "d6d08bf19c15b73cd587a1822b3ed7463f45873f",
+  "actual_exit": 1,
+  "diagnostic": "fatal: path 'docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/__pycache__/catalogue.cpython-314.pyc' exists on disk, but not in 'd6d08bf19c15b73cd587a1822b3ed7463f45873f'",
+  "old_manifest_sha256": "daf64cbaa6ecdf250aa55917ea6d60492ab709452f88a9f3e31f7b9f85bf40ec",
+  "missing_committed_paths": [
+    "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/__pycache__/catalogue.cpython-314.pyc"
+  ],
+  "explanation": "A working-directory rglob included one ignored bytecode cache; it is not a published audit input. Python -I ignores PYTHONDONTWRITEBYTECODE. Preserve the bytecode only as explicitly owned scratch; future audit tool calls use -B. No accepted producer replay or source change."
+}

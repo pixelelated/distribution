@@ -91,6 +91,13 @@
       "sha256": "9eaa0947817d68121bd94adf8501090f3cee6cb73fb58486571ca6bc39b8004d",
       "owner": "T44 current executor; small helper/script, not source export",
       "retired": false
+    },
+    {
+      "path": "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/__pycache__/catalogue.cpython-314.pyc",
+      "bytes": 9933,
+      "sha256": "4f8481b118957e19d53e7c63fc79b57adc323b8f9e9d00dd04893095479c1c52",
+      "owner": "T44 new collector Python bytecode; ignored, not a committed artifact; no source export",
+      "retired": false
     }
   ],
   "tiny_git": {
@@ -274,5 +281,6 @@
     ],
     "retired": false
   },
-  "limit": "Only named current-executor scratch, receipt-bound. No recursive census of unrelated /tmp or host. No retirement at D; E\u2013H owner disposition needed."
+  "limit": "Only named current-executor scratch, receipt-bound. No recursive census of unrelated /tmp or host. No retirement at D; E\u2013H owner disposition needed.",
+  "correction_recorded_at": "2026-11-02T23:30:12.456554+00:00"
 }

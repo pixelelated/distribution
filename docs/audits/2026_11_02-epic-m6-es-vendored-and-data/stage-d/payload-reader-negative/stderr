@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/payload-readback.py", line 9, in <module>
+    assert keys==expected,('MANIFEST_KEYSET','not_committed',sorted(expected-keys),'not_manifested',sorted(keys-expected))
+           ^^^^^^^^^^^^^^
+AssertionError: ('MANIFEST_KEYSET', 'not_committed', ['docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/__pycache__/catalogue.cpython-314.pyc'], 'not_manifested', [])

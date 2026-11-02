@@ -1,9 +1,9 @@
 {
-  "recorded_at": "2026-11-02T23:26:33.644334+00:00",
+  "recorded_at": "2026-11-02T23:30:49.962697+00:00",
   "files": {
     "00-running-log.md": {
-      "bytes": 4166,
-      "sha256": "70acba548be7999c7ec2aeab07d3caee56baed1c6510a3fd7f70504fe9abfec1"
+      "bytes": 4807,
+      "sha256": "9913560301ce413c816affb58b1b62d21f9966c8e699cf02529e606548143a59"
     },
     "01-research-notes.md": {
       "bytes": 1659,
@@ -26,8 +26,8 @@
       "sha256": "c6d78d279b0b360e43f1324af4ba4cedad51fece8a0ee4c888e844da09a11d38"
     },
     "06-audit-summary.md": {
-      "bytes": 2265,
-      "sha256": "6e1739be755d404bd71719cb3203a84283359b040d732fee5e9b96b2ab502fc0"
+      "bytes": 2645,
+      "sha256": "2de5ddec7a900620d6b3f8582942a77c9ea15880bf9fb6ad5358ed7b263e1830"
     },
     "07-questions-for-the-maintainer.md": {
       "bytes": 1365,
@@ -681,10 +681,6 @@
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
-    "stage-c/tiny-git/receipt.json": {
-      "bytes": 7602,
-      "sha256": "c477a74cc921c0c2537a36a458474b710ad75ca6c843615f73df7be94f397db4"
-    },
     "stage-c/tiny-git-driver-1/receipt.json": {
       "bytes": 1425,
       "sha256": "51032624e4c68d05fda08c5325e251323cab9273fe17722b9557becfe71e0024"
@@ -696,6 +692,10 @@
     "stage-c/tiny-git-driver-1/stdout": {
       "bytes": 293,
       "sha256": "3ecdc085e3ba29ef752ebd18b18279f082f3e45b586135d980eaf9340d8647d9"
+    },
+    "stage-c/tiny-git/receipt.json": {
+      "bytes": 7602,
+      "sha256": "c477a74cc921c0c2537a36a458474b710ad75ca6c843615f73df7be94f397db4"
     },
     "stage-d/ceremony-1/receipt.json": {
       "bytes": 1706,
@@ -745,6 +745,18 @@
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
+    "stage-d/diff-3/receipt.json": {
+      "bytes": 1688,
+      "sha256": "f80919b6503e7dde00589e217a6f257fe44380d51b62872227975c85402d9dac"
+    },
+    "stage-d/diff-3/stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stage-d/diff-3/stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
     "stage-d/document-readback.json": {
       "bytes": 2588,
       "sha256": "310b8a68102c2d64867d0b4c1b318b9bb9e6674c35e1800f27d1da1db6b69c10"
@@ -786,6 +798,18 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "stage-d/index-1/stdout": {
+      "bytes": 24,
+      "sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927"
+    },
+    "stage-d/index-2/receipt.json": {
+      "bytes": 1707,
+      "sha256": "85c526899004232a432f1d4a4890ff1c065e62119e606855e8e76e0df5445267"
+    },
+    "stage-d/index-2/stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stage-d/index-2/stdout": {
       "bytes": 24,
       "sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927"
     },
@@ -846,8 +870,20 @@
       "sha256": "d6b508f522c2a7f1220ad5e0e22979135fecb08451ba5bbee6c9c1fa3469cb73"
     },
     "stage-d/owned-scratch-census.json": {
-      "bytes": 10545,
-      "sha256": "a5864a5797c17591d1bb38fdaa315bab2efaf07c2e7ec6f4e9cb9886d71be2ac"
+      "bytes": 11048,
+      "sha256": "5104b1e2f129dc6db63deba38e10ab5e0b6a260dba38dd6a43ee7062a7520c7e"
+    },
+    "stage-d/payload-reader-negative/receipt.json": {
+      "bytes": 916,
+      "sha256": "cc0212343c5b09d09984f1d4f611a3680cdbedc407e631f3196de9f3d7edc18b"
+    },
+    "stage-d/payload-reader-negative/stderr": {
+      "bytes": 548,
+      "sha256": "4a8a59df6e740a9bf9ae7a81f4808dfa94f28db5fb96b1c1d2aa657ecf0be500"
+    },
+    "stage-d/payload-reader-negative/stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "stage-d/pre-issue-1/04-analysis.md": {
       "bytes": 6776,
@@ -880,6 +916,10 @@
     "stage-d/pre-issue-2/stdout": {
       "bytes": 964,
       "sha256": "5453ca1f12014741d476975e816ae9d238edd002c32c516866a408c2ca233081"
+    },
+    "stage-d/publication-manifest-correction.json": {
+      "bytes": 861,
+      "sha256": "f675cc7589999eaadd177834eb9eebc8bd87ec0db82cabf1b2e5b7f6d7b7c7f4"
     },
     "stage-d/register-1/receipt.json": {
       "bytes": 1692,
@@ -928,6 +968,18 @@
     "stage-d/syntax-2/stdout": {
       "bytes": 30,
       "sha256": "1a89d198c904c08e96c954282e2e5ed2b81b9e009210348db867cd1ceaf674fd"
+    },
+    "stage-d/syntax-3/receipt.json": {
+      "bytes": 1955,
+      "sha256": "58ed7c5ea04196fba219d0e39269f9418161eac5a8f69db83987be3f260ebe7c"
+    },
+    "stage-d/syntax-3/stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stage-d/syntax-3/stdout": {
+      "bytes": 30,
+      "sha256": "25c2cdb16ac7f448ffd4319528ca8d37fde46ccde82dab575123fca4ad3f5e8e"
     },
     "stage-d/tracker/1413-before-parent.json": {
       "bytes": 81971,
@@ -1005,10 +1057,6 @@
       "bytes": 43,
       "sha256": "61d262c19c7cb327e3c90b3bedfa46b4ebf749e3646d3277031e25b1de15449d"
     },
-    "tools/__pycache__/catalogue.cpython-314.pyc": {
-      "bytes": 9933,
-      "sha256": "4f8481b118957e19d53e7c63fc79b57adc323b8f9e9d00dd04893095479c1c52"
-    },
     "tools/catalogue.py": {
       "bytes": 3537,
       "sha256": "c8a615797ea39598e42f8af77f7f79100b054070ed95ee2f1f10f4c55bcf3e84"
@@ -1033,6 +1081,10 @@
       "bytes": 3414,
       "sha256": "9eaa0947817d68121bd94adf8501090f3cee6cb73fb58486571ca6bc39b8004d"
     },
+    "tools/payload-readback.py": {
+      "bytes": 1331,
+      "sha256": "3b79f4bb47a4f2c79ca5af1ee5b7ec631caf94f1879b7d5c161892e33d6ad355"
+    },
     "tools/records.py": {
       "bytes": 36769,
       "sha256": "c6bf939816cb15c0b7bb0d7a5d241ab89e70c5dcda1ea1572682ba497294db5b"
@@ -1042,5 +1094,6 @@
       "sha256": "1b5dbc4a4ee1e79b4b23a14101ae01557b1bdfe635c7443be3289d3b00c6758a"
     }
   },
-  "limit": "Precommit audit payload snapshot; this file excluded; later external tip-bound commit/push/remote receipts do not require a receipt-only commit."
+  "enumeration": "git ls-files -- exact audit root; manifest itself excluded; ignored scratch is separately censused",
+  "limit": "Corrected precommit published payload; final immutable reader asserts exact Git keyset and bytes. External final receipts do not require a receipt-only commit."
 }
