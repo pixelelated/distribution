@@ -1,0 +1,86 @@
+[
+  {
+    "label": "retained 99-line output changed",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "accepted receipt changed: stage-a/block-tip.out"
+  },
+  {
+    "label": "membership inputs changed at final tip",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "changed accepted input/program/mode: docs/reviews/slices.json (anchor 2174265e9c)"
+  },
+  {
+    "label": "selected source blob changed",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "selected immutable mode/blob changed: projects/ROCKNIX/packages/linux/patches/7.0/0000-fixture.patch"
+  },
+  {
+    "label": "membership reconciliation control",
+    "ok": true,
+    "state": "PASS",
+    "reason": "D226: 148-line retained block, identical 99-line outputs, three P1 inputs, 107 selected modes/blobs/counts reconciled; no replay"
+  },
+  {
+    "label": "historical lint program changed",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "changed accepted input/program/mode: tools/lint-audit-artifacts (anchor f03b64419fa6)"
+  },
+  {
+    "label": "later T4 edits do not rewrite the historical immutable input",
+    "ok": true,
+    "state": "PASS",
+    "reason": "D226: unchanged lint plus exact immutable T4 historical fixture, tier_exception deletion command, positive/refusal and rc receipts reconciled; no replay"
+  },
+  {
+    "label": "historical lint refusal changed",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "accepted receipt changed: stage-a/lint-local-fail.out"
+  },
+  {
+    "label": "historical Local proof reconciliation control",
+    "ok": true,
+    "state": "PASS",
+    "reason": "D226: unchanged lint plus exact immutable T4 historical fixture, tier_exception deletion command, positive/refusal and rc receipts reconciled; no replay"
+  },
+  {
+    "label": "formal program changed",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "changed accepted input/program/mode: audit/tools/t41-tables.py (anchor 94b5b1c0b983)"
+  },
+  {
+    "label": "formal output hash tamper",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "formal generator output hash differs"
+  },
+  {
+    "label": "negative command falsely passed",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "negative control command/exit differs"
+  },
+  {
+    "label": "negative ordering lost",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "three negatives must precede five positives"
+  },
+  {
+    "label": "unknown negative fixture identity never passes",
+    "ok": true,
+    "state": "Absent",
+    "reason": "D228 supplemental manifest absent; historical negative input identities remain unavailable"
+  },
+  {
+    "label": "invented identity cannot auto-approve",
+    "ok": true,
+    "state": "Absent",
+    "reason": "D228 supplemental manifest absent; historical negative input identities remain unavailable"
+  }
+]

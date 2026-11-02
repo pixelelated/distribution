@@ -1,0 +1,28 @@
+T41 bounded issue-body correction — m6-coordinator / wN:p2
+Author/executor: Codex (GPT-6), /root, wN:p5, session01a19d12-1c5f-7022-8053-102f6a94b7fe.
+Owned candidate: /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12
+
+Complete: one-line ES-header predicate correction and deterministic derivation; 28/28 pure controls PASS. Captured issue688 at exact lane e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0, coordinator afdec2bf8b88135befcb7ec56efb3a7ea327bd73, dispatch d7dd76665983cb87dba62397691500fcf409fafe now PASS.
+Exact change: replace anywhere-substring rejection with re.M line anchor, permitting horizontal whitespace and ordinary list/bold/code field prefixes, then the exact reviewed-at-es or fixed-at-es key and colon. Real ES headers refuse even when empty or non-hash-valued, including after acceptance criteria; narrative mentions pass.
+New guard: need(not re.search(r'^[ \t*`-]*(?:reviewed-at-es|fixed-at-es)[*`]*[ \t]*:',t,re.M),'ES header present')
+All title, distribution tip, dispatch, D-WORKFLOW-222, openai/gpt-6-astra and escaped-path requirements remain byte-for-byte unchanged, as do all other sections. The currently installed shared runner differs from the new generated candidate only in this same guard line (verified, no installation).
+
+Pure evidence: /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/issue-body-review/after.json SHA256 166f2b27288a0aea1606c9e2225795a47d289660509920f6bbab22eeded11982
+Both supplied issue captures are byte-identical SHA256 4145a042b705420c407ac7f8a266730d33adc4a6650e72b00a4f7dab890ef4bd. The actual supplied body names no ES header; its only ES mention is the criterion preamble. No fresh API request was made.
+Controls: captured-body/prose positives; real plain/bold/backtick/tab-indented/empty/nonhash/post-criteria headers for both ES fields; wrong current/reviewed tip, missing headers, wrong title, missing method/identity/path evidence; ordinary distribution Markdown header positive.
+Before false-positive failure retained in issue-body-review/before.json; exact old source in before-t41_checks.py; one-line patch in exact-change.diff. The actual root result, captured stdout, driver files and shared installed runner remain unchanged: all8 hashes checked before and after derivation, listed in verification.json.
+Derivation deterministic and bash -n rc0. No full final gates, integration or scans rerun; no producer replay, shared installation, tracker/repo/host/runtime/private action or permission answer. Root owns the one corrected live issue-body run and combination with its unchanged53PASS.
+
+Frozen SHA256:
+  derive-t41.py bec8edde1f1e1d716c7b39039aeb675dec13169ab067ac8a281a0db63fff1a8c
+  t41-accept.sh c77152190c8fbd0b9660b30702a9c9ca84c4a339e0eed95909220f0aa745da09
+  t41_checks.py dde98a45fca9fdf959e1c5544f81c5cdf78c7359427b57cb4474ea376be3c5da
+  test_issue_body_pure.py 5ea64286ef626ecc1b0584b5a4217a13f0713ec92bcd4b679917f5ac8161d523
+  issue-body-review/verification.json 094cd750f6fc52ce5b0def8bd9ccca463e37694aad1e5a618ca851dbdc810138
+  SHA256SUMS-issue-body 9f0287b8fd0f6e6e50811631229802bf9223cbcdf99ad65438dd65239d311c9c
+
+Reproduce pure check with a fresh output phase label:
+  python3 -I /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/test_issue_body_pure.py NEWPHASE
+  (cd /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12 && sha256sum -c SHA256SUMS-issue-body)
+
+No remaining code dependency identified in this bounded correction. Stop here; actual final execution/acceptance stays with root.

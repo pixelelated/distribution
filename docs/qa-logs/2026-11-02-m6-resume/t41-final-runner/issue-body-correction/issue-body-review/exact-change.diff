@@ -1,0 +1,11 @@
+--- before/t41_checks.py
++++ after/t41_checks.py
+@@ -208,7 +208,7 @@
+         need(sorted(C.Counter(tuple(x['reachable_by']) for x in inv).values())==sorted([4,32,56,1,4,6,4]),'reach groups differ');return '107 / 40474 / 40473; kinds, reach and groups match'
+     if s=='issue-body':
+         i=r.issues(688);t=i['body'];need('E1054/T41' in i['title'],'wrong title')
+-        need('reviewed-at-es:' not in t and 'fixed-at-es:' not in t,'ES header present')
++        need(not re.search(r'^[ \t*`-]*(?:reviewed-at-es|fixed-at-es)[*`]*[ \t]*:',t,re.M),'ES header present')
+         rev,fixed=fixed_header(t,'reviewed-at'),fixed_header(t,'fixed-at')
+         need(r.dispatch.startswith(rev) or rev.startswith(r.dispatch),'reviewed-at not dispatch')
+         need(r.tip.startswith(fixed) or fixed.startswith(r.tip),'fixed-at not submitted tip')

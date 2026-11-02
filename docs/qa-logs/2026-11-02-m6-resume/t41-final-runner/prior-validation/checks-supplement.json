@@ -1,0 +1,355 @@
+[
+  {
+    "label": "absent supplement is ABSENT",
+    "ok": true,
+    "status": "ABSENT",
+    "reason": "D228 supplemental manifest absent; historical negative input identities remain unavailable"
+  },
+  {
+    "label": "missing fixture file",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 missing committed proof artifact: fixtures/drop.json"
+  },
+  {
+    "label": "wrong schema",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 schema/authority differs"
+  },
+  {
+    "label": "wrong authority",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 schema/authority differs"
+  },
+  {
+    "label": "historical identity falsely claimed",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 must preserve the historical unknown"
+  },
+  {
+    "label": "wrong source ref",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 source/Stage-C ref differs"
+  },
+  {
+    "label": "wrong Stage-C ref",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 source/Stage-C ref differs"
+  },
+  {
+    "label": "unrelated run head",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 run_head is not an ancestor of candidate"
+  },
+  {
+    "label": "run head is not a commit",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 run_head is not a commit"
+  },
+  {
+    "label": "failed producer result",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 producer did not assert a completed PASS"
+  },
+  {
+    "label": "wrong program hash",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 exact accepted formal program hash differs"
+  },
+  {
+    "label": "wrong baseline hash",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 baseline rows hash differs"
+  },
+  {
+    "label": "accepted Stage-D receipt changed",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 accepted stage-d modes/blobs changed or absent"
+  },
+  {
+    "label": "selected source changed at run head",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 selected source mode/blob drift: projects/ROCKNIX/packages/linux/patches/7.0/0000-fixture.patch"
+  },
+  {
+    "label": "remove first row instead of last",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 deterministic drop mutation differs"
+  },
+  {
+    "label": "reordered dropped rows",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 deterministic drop mutation differs"
+  },
+  {
+    "label": "extra changed row field",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 deterministic reach mutation differs"
+  },
+  {
+    "label": "changed second shipped row",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 deterministic reach mutation differs"
+  },
+  {
+    "label": "header changed extra byte",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 header mutation changed more than the first From prefix"
+  },
+  {
+    "label": "header stripped instead of renamed prefix",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 header mutation changed more than the first From prefix"
+  },
+  {
+    "label": "wrong header source path",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 header selected a different source"
+  },
+  {
+    "label": "wrong baseline blob id",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 header baseline blob id differs"
+  },
+  {
+    "label": "wrong baseline source hash",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 header baseline hash differs"
+  },
+  {
+    "label": "wrong input hash",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 input hash differs"
+  },
+  {
+    "label": "wrong input length",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 input mode/size differs"
+  },
+  {
+    "label": "bool is not integer size",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 input mode/size differs"
+  },
+  {
+    "label": "extra overlay file",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 missing or extra fixture/overlay file"
+  },
+  {
+    "label": "extra JSON fixture",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 missing or extra fixture/overlay file"
+  },
+  {
+    "label": "symlink overlay refused",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 proof contains a symlink or nonregular artifact"
+  },
+  {
+    "label": "executable overlay refused",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 input mode/size differs"
+  },
+  {
+    "label": "parent traversal path",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 unsafe relative artifact path"
+  },
+  {
+    "label": "absolute artifact path",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 unsafe relative artifact path"
+  },
+  {
+    "label": "duplicate input kind",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 input kinds duplicated or missing"
+  },
+  {
+    "label": "non-object input refused",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 requires exactly three inputs"
+  },
+  {
+    "label": "non-object check refused",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 requires ordered drop/reach/header/stats commands only"
+  },
+  {
+    "label": "wrong command order",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 requires ordered drop/reach/header/stats commands only"
+  },
+  {
+    "label": "extra fifth command",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 requires ordered drop/reach/header/stats commands only"
+  },
+  {
+    "label": "wrong generator argv",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 command does not address the bound artifact"
+  },
+  {
+    "label": "wrong input argv",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 command does not address the bound artifact"
+  },
+  {
+    "label": "wrong header flag",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 wrong negative input flag"
+  },
+  {
+    "label": "negative rc is not exactly one",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 command rc differs"
+  },
+  {
+    "label": "bool is not integer rc",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 command rc differs"
+  },
+  {
+    "label": "non-UTC timestamp",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 timestamp must be explicit UTC"
+  },
+  {
+    "label": "new proof backdated as old",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 controls not dated as new ordered checks"
+  },
+  {
+    "label": "negative elapsed time",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 elapsed time invalid"
+  },
+  {
+    "label": "wrong raw output hash",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 raw output hash differs"
+  },
+  {
+    "label": "missing raw output",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 missing committed proof artifact: logs/drop.stderr"
+  },
+  {
+    "label": "wrong final assertion even with valid hash",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 negative final assertion differs"
+  },
+  {
+    "label": "positive differs even with valid hash",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 positive is not exact Stage-C stats/empty stderr"
+  },
+  {
+    "label": "positive stderr nonempty",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 positive is not exact Stage-C stats/empty stderr"
+  },
+  {
+    "label": "output path alias",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 output paths reused or alias an input"
+  },
+  {
+    "label": "builder missing",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 missing committed proof artifact: run.py"
+  },
+  {
+    "label": "builder changed without README binding",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 README does not bind exact builder SHA"
+  },
+  {
+    "label": "README file list missing",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 README does not bind exact builder SHA"
+  },
+  {
+    "label": "duplicate JSON manifest key",
+    "ok": true,
+    "status": "FAIL",
+    "reason": "D228 duplicate JSON key"
+  },
+  {
+    "label": "exact sealed supplement plus historical receipt control",
+    "ok": true,
+    "status": "PASS",
+    "reason": "D226 historical Stage-C program/outputs reconciled; original negative inputs remain unavailable. D228 new sealed drop/reach/header refusals plus stats positive verified; no producer invoked"
+  },
+  {
+    "label": "absolute bound command paths control",
+    "ok": true,
+    "status": "PASS",
+    "reason": "D226 historical Stage-C program/outputs reconciled; original negative inputs remain unavailable. D228 new sealed drop/reach/header refusals plus stats positive verified; no producer invoked"
+  },
+  {
+    "label": "known filename escape normalization control",
+    "ok": true,
+    "status": "PASS",
+    "reason": "D226 historical Stage-C program/outputs reconciled; original negative inputs remain unavailable. D228 new sealed drop/reach/header refusals plus stats positive verified; no producer invoked"
+  },
+  {
+    "label": "actual Git full-tree read has no empty pathspec",
+    "ok": true,
+    "status": "PASS"
+  }
+]

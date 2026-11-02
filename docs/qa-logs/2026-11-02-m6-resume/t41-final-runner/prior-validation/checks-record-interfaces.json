@@ -1,0 +1,200 @@
+[
+  {
+    "label": "marker strings inside extraction command are not delimiters",
+    "ok": true,
+    "state": "PASS",
+    "reason": ""
+  },
+  {
+    "label": "duplicate standalone marker refuses",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "membership brief standalone marker shape"
+  },
+  {
+    "label": "wrong immutable historical Local plan refuses",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "historical Local fixture has wrong plan"
+  },
+  {
+    "label": "Deferred audit outcome with Open bug evidence is disposed",
+    "ok": true,
+    "state": "PASS",
+    "reason": ""
+  },
+  {
+    "label": "Open outcome remains unresolved",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "unresolved punch outcome"
+  },
+  {
+    "label": "Deferred outcome without follow-up refuses",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "punch outcome lacks evidence/follow-up"
+  },
+  {
+    "label": "unlisted punch item refuses",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "punch outcomes missing/duplicate"
+  },
+  {
+    "label": "duplicate gate row refuses",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "punch outcomes missing/duplicate"
+  },
+  {
+    "label": "capitalized Nothing keeps same retro meaning",
+    "ok": true,
+    "state": "PASS",
+    "reason": ""
+  },
+  {
+    "label": "missing retro obligation remains refusal",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "retro obligation absent: nothing"
+  },
+  {
+    "label": "ten assignments plus five case contexts and exact source positive",
+    "ok": true,
+    "state": "PASS",
+    "reason": ""
+  },
+  {
+    "label": "nl tab delimiter preserves literal source bytes",
+    "ok": true,
+    "state": "PASS",
+    "reason": ""
+  },
+  {
+    "label": "missing numbered quotation 16",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "02 missing or changed literal numbered recipe quotation at line 16"
+  },
+  {
+    "label": "missing numbered quotation 18",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "02 missing or changed literal numbered recipe quotation at line 18"
+  },
+  {
+    "label": "missing numbered quotation 22",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "02 missing or changed literal numbered recipe quotation at line 22"
+  },
+  {
+    "label": "missing numbered quotation 23",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "02 missing or changed literal numbered recipe quotation at line 23"
+  },
+  {
+    "label": "missing numbered quotation 27",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "02 missing or changed literal numbered recipe quotation at line 27"
+  },
+  {
+    "label": "missing numbered quotation 29",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "02 missing or changed literal numbered recipe quotation at line 29"
+  },
+  {
+    "label": "missing numbered quotation 30",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "02 missing or changed literal numbered recipe quotation at line 30"
+  },
+  {
+    "label": "missing numbered quotation 36",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "02 missing or changed literal numbered recipe quotation at line 36"
+  },
+  {
+    "label": "missing numbered quotation 37",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "02 missing or changed literal numbered recipe quotation at line 37"
+  },
+  {
+    "label": "missing numbered quotation 40",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "02 missing or changed literal numbered recipe quotation at line 40"
+  },
+  {
+    "label": "missing numbered quotation 42",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "02 missing or changed literal numbered recipe quotation at line 42"
+  },
+  {
+    "label": "missing numbered quotation 43",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "02 missing or changed literal numbered recipe quotation at line 43"
+  },
+  {
+    "label": "missing numbered quotation 46",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "02 missing or changed literal numbered recipe quotation at line 46"
+  },
+  {
+    "label": "missing numbered quotation 48",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "02 missing or changed literal numbered recipe quotation at line 48"
+  },
+  {
+    "label": "missing numbered quotation 49",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "02 missing or changed literal numbered recipe quotation at line 49"
+  },
+  {
+    "label": "changed assignment quotation refuses",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "02 missing or changed literal numbered recipe quotation at line 30"
+  },
+  {
+    "label": "unselected branch must still be quoted exactly",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "02 missing or changed literal numbered recipe quotation at line 49"
+  },
+  {
+    "label": "wrong source ref refuses",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "02 must name exact recipe source ref and path"
+  },
+  {
+    "label": "extra source assignment refuses despite matching new quote",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "changed accepted input/program/mode: projects/ROCKNIX/packages/linux/package.mk (anchor 02aab33bd984)"
+  },
+  {
+    "label": "changed source byte outside quotation refuses",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "changed accepted input/program/mode: projects/ROCKNIX/packages/linux/package.mk (anchor 02aab33bd984)"
+  },
+  {
+    "label": "unselected branch pin in provenance refuses",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "invalid current pin"
+  }
+]

@@ -1,0 +1,911 @@
+[
+  {
+    "label": "lane-shaped protected patch byte",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "patch-untouched",
+        "selected source mode/blob changed"
+      ],
+      [
+        "FAIL",
+        "product-paths",
+        "selected source mode/blob changed"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 2, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "records-only lane commit",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "patch-untouched",
+        "lane-owned commits checked; no protected product edit"
+      ],
+      [
+        "PASS",
+        "product-paths",
+        "lane-owned commits checked; no protected product edit"
+      ],
+      [
+        "PASS",
+        "dist-tip",
+        "lane-owned commits checked; no protected product edit"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 3, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "wrong current pin",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "pins-read",
+        "invalid current pin"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "wrong current pin control",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "pins-read",
+        "four selected provenance pins; unchanged whole recipe and exact source ref; all ten numbered assignments and five case labels quoted"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "empty origin",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "headers",
+        "empty origin/subject"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "empty origin control",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "headers",
+        "header census 106/87/89 and explicit unknown/hand-made cells"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "superseded dry stats",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "applies-record",
+        "current stats consume superseded verdicts"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "superseded dry stats control",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "applies-record",
+        "D222 corrected rows, source/log hashes, chain, normal rc, diagnostic mismatch and prefix guard verified"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "yes applicability",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "applies-record",
+        "provenance does not consume corrected row"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "yes applicability control",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "applies-record",
+        "D222 corrected rows, source/log hashes, chain, normal rc, diagnostic mismatch and prefix guard verified"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "unsupported mainline claim",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "upstream-status",
+        "unsupported mainline claim"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "unsupported mainline claim control",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "upstream-status",
+        "101/4/2 immutable comparison and dispositions"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "mismatched recipe SHA",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "tarball-hashes",
+        "archive/sidecar/recipe hash mismatch"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "mismatched recipe SHA control",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "tarball-hashes",
+        "retained archive hashes match immutable recipe and quoted prefixes; no archive read"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "one reach group changed",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "device-groups",
+        "device group sizes differ"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "one reach group changed control",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "device-groups",
+        "seven reach groups sum to 107"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "ramoops contribution removed",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "fork-written",
+        "two never-sent contributions absent"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "ramoops contribution removed control",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "fork-written",
+        "two contribution lines with explicit unsent status"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "non-kernel mislabeled",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "non-kernel",
+        "non-kernel kind/owner wrong"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "non-kernel mislabeled control",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "non-kernel",
+        "four U-Boot T27 / firmware T11 rows"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "source scratch present",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "scratch-retired",
+        "source scratch still present"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "source scratch absent and retired",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "scratch-retired",
+        "retirement record plus source-directory absence (no contents read)"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "wrong primary harness",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "review-plan-local",
+        "primary is not Codex"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "wrong primary harness control",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "review-plan-local",
+        "actual Codex/Astra primary, historical identities, zero reviewers"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "wrong live reader",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "review-plan-local",
+        "wrong actual reader"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "wrong live reader control",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "review-plan-local",
+        "actual Codex/Astra primary, historical identities, zero reviewers"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "header negative control passed",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "checker-record",
+        "invalid negative control"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "header negative control passed control",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "checker-record",
+        "three distinct nonzero negative receipts match raw assertions; not rerun"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "coverage omitted path",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "tables",
+        "table membership differs"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "coverage omitted path control",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "tables",
+        "107 provenance and coverage rows with escaped-path normalization"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "escaped path normalization",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "tables",
+        "107 provenance and coverage rows with escaped-path normalization"
+      ],
+      [
+        "PASS",
+        "tree-counts",
+        "107 / 40474 / 40473; kinds, reach and groups match"
+      ],
+      [
+        "PASS",
+        "read-order",
+        "all six retained sequences match row order"
+      ],
+      [
+        "PASS",
+        "generated",
+        "generated table bytes and disposition total match"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 4, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "old dry result consumed",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "runs-record",
+        "current runs summary missing apply_rc=0"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "old dry result consumed control",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "runs-record",
+        "corrected run counts and AC17 actual output lines"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "AC17 line not quoted",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "runs-record",
+        "AC17 current output not quoted"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "AC17 line not quoted control",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "runs-record",
+        "corrected run counts and AC17 actual output lines"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "dry-run-authoritative promotion",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "applies-record",
+        "D222 promotion/classification mismatch"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "broken prefix chain",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "applies-record",
+        "prefix digest chain broken H700-011"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "normal failure promoted",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "applies-record",
+        "rc/log hash differs"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "misclassified normal fuzz",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "applies-record",
+        "D222 promotion/classification mismatch"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "dry=1 normal=0 positive retained",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "applies-record",
+        "D222 corrected rows, source/log hashes, chain, normal rc, diagnostic mismatch and prefix guard verified"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "historical receipt changed",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "applies-record",
+        "historical receipt changed"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "all 329 originals restored",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "applies-record",
+        "D222 corrected rows, source/log hashes, chain, normal rc, diagnostic mismatch and prefix guard verified"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "raw log tamper",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "applies-record",
+        "rc/log hash differs"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "raw log restored",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "applies-record",
+        "D222 corrected rows, source/log hashes, chain, normal rc, diagnostic mismatch and prefix guard verified"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "failed candidate contaminated prefix",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "applies-record",
+        "failed fixture contaminated prefix"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "failed prefix control restored",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "applies-record",
+        "D222 corrected rows, source/log hashes, chain, normal rc, diagnostic mismatch and prefix guard verified"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "invented blocked successor command",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "applies-record",
+        "fixture successor not blocked"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "missing future C/D artifacts",
+    "expected": "ABSENT",
+    "verdicts": [
+      [
+        "ABSENT",
+        "folder",
+        "missing audit/03-retrospective.md"
+      ],
+      [
+        "ABSENT",
+        "lint",
+        "missing audit/05-punch-list.md"
+      ],
+      [
+        "ABSENT",
+        "punch-list",
+        "missing audit/05-punch-list.md"
+      ]
+    ],
+    "rc": 2,
+    "summary": "SUMMARY: pass 0, fail 0, cannot 0, absent 3, ran 0",
+    "ok": true
+  },
+  {
+    "label": "missing future Stage-D questions",
+    "expected": "ABSENT",
+    "verdicts": [
+      [
+        "ABSENT",
+        "question-comments",
+        "two Stage-D question comments absent"
+      ]
+    ],
+    "rc": 2,
+    "summary": "SUMMARY: pass 0, fail 0, cannot 0, absent 1, ran 0",
+    "ok": true
+  },
+  {
+    "label": "missing future reader plan",
+    "expected": "ABSENT",
+    "verdicts": [
+      [
+        "ABSENT",
+        "review-plan-local",
+        "missing audit/second-opinions/review-plan.json"
+      ]
+    ],
+    "rc": 2,
+    "summary": "SUMMARY: pass 0, fail 0, cannot 0, absent 1, ran 0",
+    "ok": true
+  },
+  {
+    "label": "accepted D222 runs reconciled without replay",
+    "expected": "PASS",
+    "verdicts": [
+      [
+        "PASS",
+        "runs",
+        "D226: accepted 120/106 normal-application receipts, log/source hashes, prefix links/control and H700-011 reconciled; archive/tree digests are retained observations"
+      ]
+    ],
+    "rc": 0,
+    "summary": "SUMMARY: pass 1, fail 0, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "missing retained membership packet",
+    "expected": "ABSENT",
+    "verdicts": [
+      [
+        "ABSENT",
+        "membership",
+        "missing immutable path docs/reviews/briefs/patches-shipped-kernel.md"
+      ]
+    ],
+    "rc": 2,
+    "summary": "SUMMARY: pass 0, fail 0, cannot 0, absent 1, ran 0",
+    "ok": true
+  },
+  {
+    "label": "missing retained formal generator packet",
+    "expected": "ABSENT",
+    "verdicts": [
+      [
+        "ABSENT",
+        "checker-run",
+        "missing immutable path audit/stage-c/validation.json"
+      ]
+    ],
+    "rc": 2,
+    "summary": "SUMMARY: pass 0, fail 0, cannot 0, absent 1, ran 0",
+    "ok": true
+  },
+  {
+    "label": "retained packet absence never green",
+    "expected": "ABSENT",
+    "verdicts": [
+      [
+        "ABSENT",
+        "membership",
+        "missing immutable path docs/reviews/briefs/patches-shipped-kernel.md"
+      ],
+      [
+        "ABSENT",
+        "checker-run",
+        "missing immutable path audit/stage-c/validation.json"
+      ]
+    ],
+    "rc": 2,
+    "summary": "SUMMARY: pass 0, fail 0, cannot 0, absent 2, ran 0",
+    "ok": true
+  },
+  {
+    "label": "symlink OUT refused",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "confinement",
+        "output or fixture path is not private to the assigned directory"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "outside owned output refused",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "confinement",
+        "output or fixture path is not private to the assigned directory"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "directory OUT refused",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "confinement",
+        "output or fixture path is not private to the assigned directory"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "file ACCEPT_DIR refused",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "confinement",
+        "output or fixture path is not private to the assigned directory"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "unknown section refused",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "internal",
+        "predicate process did not finish"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "hardlink OUT refused",
+    "expected": "FAIL",
+    "verdicts": [
+      [
+        "FAIL",
+        "confinement",
+        "output or fixture path is not private to the assigned directory"
+      ]
+    ],
+    "rc": 1,
+    "summary": "SUMMARY: pass 0, fail 1, cannot 0, absent 0, ran 0",
+    "ok": true
+  },
+  {
+    "label": "changed shared source",
+    "ok": true,
+    "rc": 1,
+    "refusal": "REFUSED: changed shared-source SHA256"
+  },
+  {
+    "label": "unmatched replacement shape",
+    "ok": true,
+    "rc": 1,
+    "refusal": "REFUSED: unmatched replacement shape: 'section() { S=$1; printf \\'\\\\n== %s\\\\n\\' \"$2\"; } shape-drift'"
+  },
+  {
+    "label": "deterministic derivation",
+    "ok": true
+  },
+  {
+    "label": "shared-kit destination refused",
+    "ok": true
+  },
+  {
+    "label": "bash syntax",
+    "ok": true
+  }
+]

@@ -1,0 +1,38 @@
+T41 bounded final parser correction — handback to m6-coordinator / wN:p2
+Actual executor/author: Codex (GPT-6), /root, wN:p5, session01a19d12-1c5f-7022-8053-102f6a94b7fe.
+Owned candidate: /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12
+
+Outcome: requested code correction complete; 42 pure-parser controls PASS; 38 immutable record predicates at e481 PASS. No implementation blocker found in this bounded pass. Root retains install, real integration, executable final gates and acceptance.
+
+Change: merge_append_bytes now admits validated HH:MM UTC, YYYY-MM-DD HH:MM:SS UTC, and ISO YYYY-MM-DDTHH:MM:SS[.fraction](Z|+00:00), with 1–6 fractional digits. Invalid calendar dates, hours/minutes/seconds, non-UTC/absent/unknown offsets and malformed timestamps refuse. Header/body bytes are never normalized; existing exact base prefix, whole-entry boundaries, duplicate/conflicting headings, byte equality, per-branch order and cycle guards stay in force.
+Only this pure function and its tests changed in execution logic. read_actual_records.py adds optional --tips FULL_LANE FULL_COORD to permit named immutable readbacks while preserving its original defaults and execution-module exclusion.
+
+Actual immutable log inputs, all docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md:
+  d7dd76665983cb87dba62397691500fcf409fafe  8261 bytes  SHA256 76fa387cb11d142e743bff9ec0afd71d75135945a2b04850d1d22121cd936990
+  afdec2bf8b88135befcb7ec56efb3a7ea327bd73  30440 bytes  SHA256 3ea582cec678aa310fbb859b80a444bdd3944e89c066a0289a2ee06f1ee8814c
+  e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0  18537 bytes  SHA256 5c5429bb89ab160445d4898eb0a1e4f280bf8804d1ac1ffcf600023e4baa99d4
+Both tip logs exactly extend base d7dd76665983cb87dba62397691500fcf409fafe; git merge-base --all returns that single base.
+Pure output: 40716 bytes; 13 entries (coordinator3, lane10); SHA256 06049d878ced96160ddce89d6e28470ce62b2167c5059bb31c27588b179d2f23. Every whole original entry byte and each side’s order is independently checked. Output stayed in memory; no merged real log or checkout was written.
+
+Validation:
+- 42/42 pure-parser controls, including actual immutable bytes, calendar/leap-date/time/UTC refusals, mixed formats, exact separators, duplicate body conflicts, order cycles, base edits/removals and incomplete entries.
+- e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0 versus coordinator afdec2bf8b88135befcb7ec56efb3a7ea327bd73: 38/38 immutable receipt/record predicates PASS, including corrected pins-read and checker-run/product-paths/patch-untouched/fixes-record.
+- Selected107 source mode/blobs and329old receipts remain unchanged; D228 packet and six exact whitespace input identities remain verified in the readback.
+- Deterministic candidate derivation and bash -n PASS; shared T36 SHA remains e32e28e0145570008d08493594795a878c442e88ed9fb3aac70f95e10d6b5b1b. Historical T2 cwd status empty.
+- Before failure retained in before.json with the old function in before-function.py. Intermediate after.json retains10 test-fixture failures: the isolated namespace lacked Invalid for9 calendar/time refusals, and the duplicate-base fixture used a different dash. Only those test fixtures needed correction; after-2.json records42PASS. No full executable regression suite or actual final gate was rerun in this pass.
+
+Frozen SHA256:
+  t41-accept.sh  df37931df0fda970728af49698f189f17b263a7d5515af732f6041fdcd6efe9f
+  t41_execution.py  bab9838ac263f976ba73a73ab162614e132cf97a0dcfd8a781d1ed243e54bfd9
+  read_actual_records.py  d7f271873d804fe4b937247d669367bae7eac597674a66069aae0ad661634216
+  test_append_parser.py  fc5d42caf992fb5c3ef6b8a28318e3a2a97450c38b31295b69fcc34398ce39fa
+  append-parser-review/after-2.json  6e949dd3e8e2fd3b102f7b77f77317891264b29ce355a4b702f2228e14881d13
+  immutable-final-readback/readback-e481-parser-final.json  34fa4de3966d06ad7e55d84ed10f0c3c8a0dd9c542e12687ed03d2121ee6ccc1
+  SHA256SUMS-append-parser  e2fff8e1630a8aff45715cfd074ad60fa30dfeca6a09de749f84e1f01dff2463
+
+Reproduce without executable gates (use a fresh output phase label):
+  python3 -I /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/test_append_parser.py NEWPHASE
+  python3 -I /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/read_actual_records.py --tips e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0 afdec2bf8b88135befcb7ec56efb3a7ea327bd73 NEWPHASE checker-run product-paths patch-untouched fixes-record pins-read
+  (cd /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12 && sha256sum -c SHA256SUMS-append-parser)
+
+All writes confined to the same owned candidate. No install, actual Git integration or final gate, producer/application/generator replay, live tracker, repository/host/runtime/device/cloud/provider action, private/held read or permission answer. Bounded return complete.

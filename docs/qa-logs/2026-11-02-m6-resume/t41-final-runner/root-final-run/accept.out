@@ -1,0 +1,166 @@
+T41 D226/D228 candidate: retained producer reconciliation and executable final gates
+
+== pointer
+VERDICT PASS pointer -- eleven keys/current T41 values
+
+== folder
+VERDICT PASS folder -- required final folder entries present
+
+== dist-tip
+VERDICT PASS dist-tip -- lane-owned commits checked; no protected product edit
+
+== product-paths
+VERDICT PASS product-paths -- lane-owned commits checked; no protected product edit
+
+== membership
+VERDICT PASS membership -- D226: 148-line retained block, identical 99-line outputs, three P1 inputs, 107 selected modes/blobs/counts reconciled; no replay
+
+== tree-counts
+VERDICT PASS tree-counts -- 107 / 40474 / 40473; kinds, reach and groups match
+
+== issue-body
+VERDICT FAIL issue-body -- ES header present
+
+== bug-bodies
+VERDICT PASS bug-bodies -- filed bug trace and ownership fields present
+
+== lint
+VERDICT PASS lint -- new final lint commands completed; masked evidence /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/root-final-e481-20261102T2023/evidence/final-gates-_n6wydcg
+
+== review-plan-local
+VERDICT PASS review-plan-local -- actual Codex/Astra primary, historical identities, zero reviewers
+
+== lint-proof
+VERDICT PASS lint-proof -- D226: unchanged lint plus exact immutable T4 historical fixture, tier_exception deletion command, positive/refusal and rc receipts reconciled; no replay
+
+== punch-list
+VERDICT PASS punch-list -- punch gate/index present; final lint remains separate
+
+== ladder
+VERDICT PASS ladder -- ladder and next-tool field present
+
+== audit-boxes
+VERDICT PASS audit-boxes -- live issue criteria and executable box-check receipts retained
+
+== bug-boxes
+VERDICT PASS bug-boxes -- live issue criteria and executable box-check receipts retained
+
+== scope-record
+VERDICT PASS scope-record -- accepted membership/line records named; replay not inferred
+
+== read-order
+VERDICT PASS read-order -- all six retained sequences match row order
+
+== tables
+VERDICT PASS tables -- 107 provenance and coverage rows with escaped-path normalization
+
+== generated
+VERDICT PASS generated -- generated table bytes and disposition total match
+
+== analysis-face
+VERDICT PASS analysis-face -- seven analysis faces/current counts present
+
+== forbidden
+VERDICT PASS forbidden -- new final forbidden commands completed; masked evidence /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/root-final-e481-20261102T2023/evidence/final-gates-_n6wydcg
+
+== secret
+VERDICT PASS secret -- new final secret commands completed; masked evidence /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/root-final-e481-20261102T2023/evidence/final-gates-_n6wydcg
+
+== checker-run
+VERDICT PASS checker-run -- D226 historical Stage-C program/outputs reconciled; original negative inputs remain unavailable. D228 new sealed drop/reach/header refusals plus stats positive verified; no producer invoked
+
+== checker-record
+VERDICT PASS checker-record -- three distinct nonzero negative receipts match raw assertions; not rerun
+
+== fixes-record
+VERDICT PASS fixes-record -- lane-owned commits checked; no protected product edit
+
+== inherited-record
+VERDICT PASS inherited-record -- all leads and inherited-owner matrix
+
+== proof-lines
+VERDICT PASS proof-lines -- classified proof lines paired
+
+== lane-boxes
+VERDICT PASS lane-boxes -- live issue criteria and executable box-check receipts retained
+
+== proved
+VERDICT PASS proved -- classified proof lines paired
+
+== rulings
+VERDICT PASS rulings -- sixteen ruling rows
+
+== analysis
+VERDICT PASS analysis -- seven analysis faces/current counts present
+
+== last-comments
+VERDICT PASS last-comments -- live last comments read; content judgment remains coordinator
+
+== record-lines
+VERDICT PASS record-lines -- two contribution lines with explicit unsent status
+
+== generators
+VERDICT PASS generators -- new final generators commands completed; masked evidence /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/root-final-e481-20261102T2023/evidence/final-gates-_n6wydcg
+
+== runs-record
+VERDICT PASS runs-record -- corrected run counts and AC17 actual output lines
+
+== running-log
+VERDICT PASS running-log -- explicit command census has no prohibited invocation; prose exclusions not counted as commands
+
+== no-compile
+VERDICT PASS no-compile -- explicit command census has no prohibited invocation; prose exclusions not counted as commands
+
+== handback
+VERDICT PASS handback -- single-tip hand-back artifact references
+
+== retro
+VERDICT PASS retro -- final retro exists with owner/time-to-play text
+
+== checkers
+VERDICT PASS checkers -- new final checkers commands completed; masked evidence /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/root-final-e481-20261102T2023/evidence/final-gates-_n6wydcg
+
+== merge
+VERDICT PASS merge -- new final merge commands completed; masked evidence /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/root-final-e481-20261102T2023/evidence/final-gates-_n6wydcg
+
+== runs
+VERDICT PASS runs -- D226: accepted 120/106 normal-application receipts, log/source hashes, prefix links/control and H700-011 reconciled; archive/tree digests are retained observations
+
+== scratch
+VERDICT PASS scratch -- retirement record plus source-directory absence (no contents read)
+
+== question-comments
+VERDICT PASS question-comments -- two question comments/IDs read back
+
+== patch-untouched
+VERDICT PASS patch-untouched -- lane-owned commits checked; no protected product edit
+
+== pins-read
+VERDICT PASS pins-read -- four selected provenance pins; unchanged whole recipe and exact source ref; all ten numbered assignments and five case labels quoted
+
+== headers
+VERDICT PASS headers -- header census 106/87/89 and explicit unknown/hand-made cells
+
+== applies-record
+VERDICT PASS applies-record -- D222 corrected rows, source/log hashes, chain, normal rc, diagnostic mismatch and prefix guard verified
+
+== upstream-status
+VERDICT PASS upstream-status -- 101/4/2 immutable comparison and dispositions
+
+== tarball-hashes
+VERDICT PASS tarball-hashes -- retained archive hashes match immutable recipe and quoted prefixes; no archive read
+
+== device-groups
+VERDICT PASS device-groups -- seven reach groups sum to 107
+
+== fork-written
+VERDICT PASS fork-written -- two contribution lines with explicit unsent status
+
+== non-kernel
+VERDICT PASS non-kernel -- four U-Boot T27 / firmware T11 rows
+
+== scratch-retired
+VERDICT PASS scratch-retired -- retirement record plus source-directory absence (no contents read)
+
+SUMMARY: pass 53, fail 1, cannot 0, absent 0, ran 0; done at 20:29:27 UTC
+ACCEPT-RC 1

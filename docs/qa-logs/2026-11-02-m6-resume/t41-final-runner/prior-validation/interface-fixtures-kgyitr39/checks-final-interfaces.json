@@ -1,0 +1,204 @@
+[
+  {
+    "label": "append two independent complete entries",
+    "ok": true,
+    "state": "PASS",
+    "reason": "",
+    "details": {
+      "receipt": "/workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/interface-fixtures-kgyitr39/receipts/final-gates-k1q_3bse/append-merge.json",
+      "merged_sha256": "03695190313594a3b3b8fdfafec36d791d67512b7f23e1a8e25de552ea32c8b4"
+    }
+  },
+  {
+    "label": "append shared identical entry preserves both orders",
+    "ok": true,
+    "state": "PASS",
+    "reason": "",
+    "details": {
+      "receipt": "/workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/interface-fixtures-kgyitr39/receipts/final-gates-5hg6sl6j/append-merge.json",
+      "merged_sha256": "d6d055e517f992fbef2b37a19e8bfd3a556dce4b992bd24a3f7ae3ba3a39d18c"
+    }
+  },
+  {
+    "label": "unrelated conflict refused",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "integration conflict outside exact daily log/generated index",
+    "details": null
+  },
+  {
+    "label": "changed base body refused",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "work-log changed pre-existing bytes instead of whole append",
+    "details": null
+  },
+  {
+    "label": "partial append refused",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "append suffix lacks whole entries or exact terminal newline",
+    "details": null
+  },
+  {
+    "label": "same heading different body refused",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "same append heading has conflicting entry bytes",
+    "details": null
+  },
+  {
+    "label": "append order cycle refused",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "append entry orders conflict",
+    "details": null
+  },
+  {
+    "label": "index tool unrelated write refused",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "index generation changed other path status",
+    "details": null
+  },
+  {
+    "label": "index tool day mutation refused",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "index tool changed whole daily append entries",
+    "details": null
+  },
+  {
+    "label": "index render/write mismatch refused",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "index --write differs from its exact render",
+    "details": null
+  },
+  {
+    "label": "actual executor separate from tool author",
+    "ok": true,
+    "state": "PASS",
+    "reason": "",
+    "details": {
+      "receipt": "/workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/interface-fixtures-kgyitr39/receipts/final-gates-kjgwk3tb/0003-metadata-positive.json",
+      "sha256": "1c87df4ddb34a614ef17f9a44cb87461155a2ab5d22a289e167e2c4da8e5adbc"
+    }
+  },
+  {
+    "label": "missing executor is CANNOT",
+    "ok": true,
+    "state": "Cannot",
+    "reason": "mandatory actual executor identity missing: ACCEPT_EXECUTOR_JSON",
+    "details": null
+  },
+  {
+    "label": "root observed identity configuration only",
+    "ok": true,
+    "state": "PASS",
+    "reason": "",
+    "details": "root metadata accepted without executing a command"
+  },
+  {
+    "label": "author cannot masquerade as final executor",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "final executor differs from the observed coordinator identity",
+    "details": null
+  },
+  {
+    "label": "executor metadata missing pane refused",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "executor metadata shape differs",
+    "details": null
+  },
+  {
+    "label": "invalid executor JSON refused",
+    "ok": true,
+    "state": "JSONDecodeError",
+    "reason": "Expecting property name enclosed in double quotes: line 1 column 2 (char 1)",
+    "details": null
+  },
+  {
+    "label": "only full tree scan gets bounded 1200s",
+    "ok": true,
+    "state": "PASS",
+    "reason": "",
+    "details": {
+      "receipts": [
+        "lane-forbidden-tree",
+        "lane-forbidden-positive"
+      ]
+    }
+  },
+  {
+    "label": "unbounded timeout refused",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "command timeout must be bounded at most 1200 seconds",
+    "details": null
+  },
+  {
+    "label": "excess timeout refused",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "command timeout must be bounded at most 1200 seconds",
+    "details": null
+  },
+  {
+    "label": "timeout CANNOT retains bounded command receipt",
+    "ok": true,
+    "state": "Cannot",
+    "reason": "synthetic-timeout: command timed out; receipt /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/interface-fixtures-kgyitr39/receipts/final-gates-kjgwk3tb/0006-synthetic-timeout.json",
+    "details": null
+  },
+  {
+    "label": "six bound whitespace records retain original rc2 and other paths rc0",
+    "ok": true,
+    "state": "PASS",
+    "reason": "",
+    "details": {
+      "receipts": [
+        "/workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/interface-fixtures-kgyitr39/receipts/final-gates-e26tibmb/0032-whitespace-cached-full.json",
+        "/workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/interface-fixtures-kgyitr39/receipts/final-gates-e26tibmb/0003-whitespace-tips-full.json"
+      ],
+      "sha256": "f6f85bd6c02396ed8c0227618e81c39f85b2b5c0e268e439152797747305e019"
+    }
+  },
+  {
+    "label": "altered accepted whitespace record refused",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "whitespace accepted record changed: audit/stage-a/order.out",
+    "details": null
+  },
+  {
+    "label": "altered D228 header whitespace refused",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "whitespace input mode/blob differs",
+    "details": null
+  },
+  {
+    "label": "extra fixture whitespace refused",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "whitespace diagnostics outside exact preserved inputs",
+    "details": null
+  },
+  {
+    "label": "nonfixture whitespace refused",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "whitespace diagnostics outside exact preserved inputs",
+    "details": null
+  },
+  {
+    "label": "accepted record mode change refused",
+    "ok": true,
+    "state": "Invalid",
+    "reason": "whitespace accepted record changed: audit/stage-a/order.out",
+    "details": null
+  }
+]

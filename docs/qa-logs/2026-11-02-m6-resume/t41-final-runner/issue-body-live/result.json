@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "executor": {
+    "harness": "Codex",
+    "model": "GPT-6-Astra",
+    "effort": "xhigh",
+    "session": "01a19d11-f5c8-7bb0-80f3-49ad28732af2",
+    "pane": "wN:p2",
+    "identity_source": "observed footer"
+  },
+  "time": "2026-11-02T20:42:50.768509+00:00",
+  "tip": "e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0",
+  "coordinator": "afdec2bf8b88135befcb7ec56efb3a7ea327bd73",
+  "dispatch": "d7dd76665983cb87dba62397691500fcf409fafe",
+  "scope": "Only corrected live issue-body gate; not a new full-suite run.",
+  "section": "issue-body",
+  "state": "PASS",
+  "reason": "current issue headers/method/identity",
+  "original_runner_sha256": "df37931df0fda970728af49698f189f17b263a7d5515af732f6041fdcd6efe9f",
+  "corrected_runner_sha256": "c77152190c8fbd0b9660b30702a9c9ca84c4a339e0eed95909220f0aa745da09",
+  "all_other_predicate_code_unchanged": true,
+  "live_title_body_unchanged": true,
+  "original_full_run_rc": 1,
+  "retained_other_passes": 53,
+  "pure_controls_passed": 28,
+  "live_command": {
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/688"
+    ],
+    "start": "2026-11-02T20:42:50.190084+00:00",
+    "end": "2026-11-02T20:42:50.680522+00:00",
+    "elapsed_seconds": 0.4904161220183596,
+    "rc": 0,
+    "stdout_sha256": "4145a042b705420c407ac7f8a266730d33adc4a6650e72b00a4f7dab890ef4bd",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

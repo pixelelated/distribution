@@ -1,0 +1,272 @@
+[
+  {
+    "label": "exact first attempt lossless reconstruction",
+    "ok": true,
+    "state": "PASS",
+    "reason": ""
+  },
+  {
+    "label": "retained encoded byte damage",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 retained input invalid base64"
+  },
+  {
+    "label": "retained encoding identity mismatch",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 retained input identity differs"
+  },
+  {
+    "label": "retained wrong encoding path",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 retained encoding path/type differs"
+  },
+  {
+    "label": "retained header altered",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 retained header bytes differ"
+  },
+  {
+    "label": "retained source identity altered",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 retained source identities differ"
+  },
+  {
+    "label": "retained failed attempt identity changed",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 retained attempt identity differs: run_head"
+  },
+  {
+    "label": "retained negative falsely passed",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 command rc differs"
+  },
+  {
+    "label": "retained extra fixture",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 missing or extra fixture/overlay file"
+  },
+  {
+    "label": "retained nonserialization builder change",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 retained builder change is not the exact serialization correction"
+  },
+  {
+    "label": "retained false failure timing",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 retained failure/correction time order differs"
+  },
+  {
+    "label": "retained wrong failure disposition",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 retained failure disposition differs"
+  },
+  {
+    "label": "retained missing failure record",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 retained artifact absent/nonregular: serialization-error.json"
+  },
+  {
+    "label": "product-paths exact two validated overlays",
+    "ok": true,
+    "state": "PASS",
+    "reason": ""
+  },
+  {
+    "label": "product-paths wrong path",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: lane changed protected suffix outside the two validated D228 inputs"
+  },
+  {
+    "label": "product-paths extra fixture",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 missing or extra fixture/overlay file"
+  },
+  {
+    "label": "product-paths product edit restored at final tip",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: lane changed protected product/source path"
+  },
+  {
+    "label": "product-paths selected source edit restored at final tip",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: lane changed protected product/source path"
+  },
+  {
+    "label": "product-paths overlay edit restored at final tip",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 overlay mode/blob differs at changed commit"
+  },
+  {
+    "label": "product-paths overlay executable mode",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 overlay mode/blob differs at changed commit"
+  },
+  {
+    "label": "product-paths retained header altered",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 retained header bytes differ"
+  },
+  {
+    "label": "product-paths register line removed",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: lane removed register lines"
+  },
+  {
+    "label": "product-paths unrelated conf file",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: lane changed protected suffix outside the two validated D228 inputs"
+  },
+  {
+    "label": "patch-untouched exact two validated overlays",
+    "ok": true,
+    "state": "PASS",
+    "reason": ""
+  },
+  {
+    "label": "patch-untouched wrong path",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: lane changed protected suffix outside the two validated D228 inputs"
+  },
+  {
+    "label": "patch-untouched extra fixture",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 missing or extra fixture/overlay file"
+  },
+  {
+    "label": "patch-untouched product edit restored at final tip",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: lane changed protected product/source path"
+  },
+  {
+    "label": "patch-untouched selected source edit restored at final tip",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: lane changed protected product/source path"
+  },
+  {
+    "label": "patch-untouched overlay edit restored at final tip",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 overlay mode/blob differs at changed commit"
+  },
+  {
+    "label": "patch-untouched overlay executable mode",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 overlay mode/blob differs at changed commit"
+  },
+  {
+    "label": "patch-untouched retained header altered",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 retained header bytes differ"
+  },
+  {
+    "label": "patch-untouched register line removed",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: lane removed register lines"
+  },
+  {
+    "label": "patch-untouched unrelated conf file",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: lane changed protected suffix outside the two validated D228 inputs"
+  },
+  {
+    "label": "fixes-record exact two validated overlays",
+    "ok": true,
+    "state": "PASS",
+    "reason": ""
+  },
+  {
+    "label": "fixes-record wrong path",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: lane changed protected suffix outside the two validated D228 inputs"
+  },
+  {
+    "label": "fixes-record extra fixture",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 missing or extra fixture/overlay file"
+  },
+  {
+    "label": "fixes-record product edit restored at final tip",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: lane changed protected product/source path"
+  },
+  {
+    "label": "fixes-record selected source edit restored at final tip",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: lane changed protected product/source path"
+  },
+  {
+    "label": "fixes-record overlay edit restored at final tip",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 overlay mode/blob differs at changed commit"
+  },
+  {
+    "label": "fixes-record overlay executable mode",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 overlay mode/blob differs at changed commit"
+  },
+  {
+    "label": "fixes-record retained header altered",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: D228 retained header bytes differ"
+  },
+  {
+    "label": "fixes-record register line removed",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: lane removed register lines"
+  },
+  {
+    "label": "fixes-record unrelated conf file",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: lane changed protected suffix outside the two validated D228 inputs"
+  },
+  {
+    "label": "append-only register record stays permitted",
+    "ok": true,
+    "state": "PASS",
+    "reason": ""
+  },
+  {
+    "label": "product scope refuses another audit folder",
+    "ok": true,
+    "state": "FAIL",
+    "reason": "Invalid: outside lane records scope: docs/audits/other-epic-m6-patches-shipped-kernel/x.md"
+  }
+]

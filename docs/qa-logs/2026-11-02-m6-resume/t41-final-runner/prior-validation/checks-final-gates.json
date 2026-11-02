@@ -1,0 +1,252 @@
+[
+  {
+    "label": "lint pre-issue is not resolution",
+    "ok": true,
+    "verdicts": [
+      [
+        "FAIL",
+        "lint",
+        "lane-lint-default: required final output line absent"
+      ]
+    ],
+    "rc": 1
+  },
+  {
+    "label": "both resolution lint commands",
+    "ok": true,
+    "verdicts": [
+      [
+        "PASS",
+        "lint",
+        "new final lint commands completed; masked evidence /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/executable-runs/final-gates-afej4g96"
+      ]
+    ],
+    "rc": 0
+  },
+  {
+    "label": "syntax error refused",
+    "ok": true,
+    "verdicts": [
+      [
+        "FAIL",
+        "generators",
+        "generator-syntax: unexpected rc 1; receipt /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/executable-runs/final-gates-xgtr75ad/0008-generator-syntax.json"
+      ]
+    ],
+    "rc": 1
+  },
+  {
+    "label": "syntax only never executes raising producer",
+    "ok": true,
+    "verdicts": [
+      [
+        "PASS",
+        "generators",
+        "new final generators commands completed; masked evidence /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/executable-runs/final-gates-vyls1t2l"
+      ]
+    ],
+    "rc": 0
+  },
+  {
+    "label": "register-check fails",
+    "ok": true,
+    "verdicts": [
+      [
+        "FAIL",
+        "checkers",
+        "lane-register-check: unexpected rc 1; receipt /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/executable-runs/final-gates-19gzh6zg/0008-lane-register-check.json"
+      ]
+    ],
+    "rc": 1
+  },
+  {
+    "label": "rules-check fails",
+    "ok": true,
+    "verdicts": [
+      [
+        "FAIL",
+        "checkers",
+        "lane-rules-check: unexpected rc 1; receipt /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/executable-runs/final-gates-_ocpq3e0/0010-lane-rules-check.json"
+      ]
+    ],
+    "rc": 1
+  },
+  {
+    "label": "work-log-index fails",
+    "ok": true,
+    "verdicts": [
+      [
+        "FAIL",
+        "checkers",
+        "lane-work-log-index: unexpected rc 1; receipt /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/executable-runs/final-gates-q7e5nz4r/0009-lane-work-log-index.json"
+      ]
+    ],
+    "rc": 1
+  },
+  {
+    "label": "ceremony-check fails",
+    "ok": true,
+    "verdicts": [
+      [
+        "FAIL",
+        "checkers",
+        "lane-ceremony-check: unexpected rc 1; receipt /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/executable-runs/final-gates-xpap34ez/0011-lane-ceremony-check.json"
+      ]
+    ],
+    "rc": 1
+  },
+  {
+    "label": "hooks-test fails",
+    "ok": true,
+    "verdicts": [
+      [
+        "FAIL",
+        "checkers",
+        "lane-hooks-test: unexpected rc 1; receipt /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/executable-runs/final-gates-rxz2nl2l/0012-lane-hooks-test.json"
+      ]
+    ],
+    "rc": 1
+  },
+  {
+    "label": "all new current checkers and six AC27 interfaces",
+    "ok": true,
+    "verdicts": [
+      [
+        "PASS",
+        "checkers",
+        "new final checkers commands completed; masked evidence /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/executable-runs/final-gates-69aw1s5n"
+      ]
+    ],
+    "rc": 0
+  },
+  {
+    "label": "forbidden new record",
+    "ok": true,
+    "verdicts": [
+      [
+        "FAIL",
+        "forbidden",
+        "lane-forbidden-record-4: unexpected rc 1; receipt /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/executable-runs/final-gates-rkio0sn2/0013-lane-forbidden-record-4.json"
+      ]
+    ],
+    "rc": 1
+  },
+  {
+    "label": "forbidden public positive then current records",
+    "ok": true,
+    "verdicts": [
+      [
+        "PASS",
+        "forbidden",
+        "new final forbidden commands completed; masked evidence /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/executable-runs/final-gates-pyw8_y45"
+      ]
+    ],
+    "rc": 0
+  },
+  {
+    "label": "secret new record",
+    "ok": true,
+    "verdicts": [
+      [
+        "FAIL",
+        "secret",
+        "lane-secret-record-4: unexpected rc 0; receipt /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/executable-runs/final-gates-tm2dyh56/0014-lane-secret-record-4.json"
+      ]
+    ],
+    "rc": 1
+  },
+  {
+    "label": "secret compilation positive and current records",
+    "ok": true,
+    "verdicts": [
+      [
+        "PASS",
+        "secret",
+        "new final secret commands completed; masked evidence /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/executable-runs/final-gates-zvedx0jy"
+      ]
+    ],
+    "rc": 0
+  },
+  {
+    "label": "checkbox checker failure",
+    "ok": true,
+    "verdicts": [
+      [
+        "FAIL",
+        "lane-boxes",
+        "checkbox-688: unexpected rc 1; receipt /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/executable-runs/final-gates-tjr_9xcs/0008-checkbox-688.json"
+      ]
+    ],
+    "rc": 1
+  },
+  {
+    "label": "open inherited bug and lane are not premature closure requirements",
+    "ok": true,
+    "verdicts": [
+      [
+        "PASS",
+        "audit-boxes",
+        "live issue criteria and executable box-check receipts retained"
+      ],
+      [
+        "PASS",
+        "bug-boxes",
+        "live issue criteria and executable box-check receipts retained"
+      ],
+      [
+        "PASS",
+        "lane-boxes",
+        "live issue criteria and executable box-check receipts retained"
+      ]
+    ],
+    "rc": 0
+  },
+  {
+    "label": "unresolved audit outcome",
+    "ok": true,
+    "verdicts": [
+      [
+        "FAIL",
+        "audit-boxes",
+        "audit has unresolved outcome checkbox"
+      ]
+    ],
+    "rc": 1
+  },
+  {
+    "label": "reviewed tool changed",
+    "ok": true,
+    "verdicts": [
+      [
+        "CANNOT",
+        "lint",
+        "final executable changed from reviewed c9fe606e8d7e: tools/lint-audit-artifacts"
+      ]
+    ],
+    "rc": 2
+  },
+  {
+    "label": "live issue command rc refuses",
+    "ok": true
+  },
+  {
+    "label": "live issue malformed JSON refuses",
+    "ok": true
+  },
+  {
+    "label": "timed out command is CANNOT with receipt",
+    "ok": true
+  },
+  {
+    "label": "missing executable is CANNOT with receipt",
+    "ok": true
+  },
+  {
+    "label": "live issue/comments actual command and on-disk masking",
+    "ok": true
+  },
+  {
+    "label": "actual masked command/exit/hash and no-replay census",
+    "ok": true
+  }
+]

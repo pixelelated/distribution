@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "tool_author": {
+    "harness": "Codex",
+    "model": "GPT-6",
+    "agent": "/root",
+    "pane": "wN:p5",
+    "session": "01a19d12-1c5f-7022-8053-102f6a94b7fe"
+  },
+  "executor": {
+    "harness": "Codex",
+    "model": "GPT-6-Astra",
+    "effort": "xhigh",
+    "session": "01a19d11-f5c8-7bb0-80f3-49ad28732af2",
+    "pane": "wN:p2",
+    "identity_source": "observed footer"
+  },
+  "tip": "e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0",
+  "coordinator": "afdec2bf8b88135befcb7ec56efb3a7ea327bd73",
+  "cached": true,
+  "rc": 2,
+  "stdout_sha256": "d66d9c798dd6c10e7f3c86198f2a7d60b800068eb0cbfd4c0d9e09a1cc80f3b0",
+  "excluded": [
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/01-research-notes.md",
+      "mode_blob": "100644 blob 16beeee12d2ce7b8e1d9904be9941ddc986398c2",
+      "sha256": "a8736c3ca301cfd8c6b5502f6d88af91ae12a8027632e78a5be07c5ab451c6f1"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-a/order.out",
+      "mode_blob": "100644 blob 60c37e756fca139dbf69280329edbb95ddb54de5",
+      "sha256": "03f259cecbfc761ad778eb8071acfbd4a178244e4710f76cc35fcbda346ab229"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-a/run/stage-a-extra.out",
+      "mode_blob": "100644 blob c5e22ee604a91eec0afa5e9cfa94a162c97d80c4",
+      "sha256": "d59c85ade57114046c301530506a902304621c64aa43067a4590fcc82e0fe4b0"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-a/run/stage-a.out",
+      "mode_blob": "100644 blob 49fa5c1024b8fd260510a421e42c467aecab511e",
+      "sha256": "1cd25492ec304f7d87d1f0cb4661a2122363391feb059496adeb5a4ae17215a9"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-f/generator-input-proof-attempt-1/fixtures/bytes/projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0001-Update-dram_sun50i_h616.c.patch",
+      "mode_blob": "100644 blob 7cf03caca63ef3296f61cfef2e0512a49dd1ac17",
+      "sha256": "9ca4e15a583105223ba8737e08fcf0fa70bf655e0763cd58848836eefc33e555"
+    },
+    {
+      "path": "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-f/generator-input-proof/fixtures/bytes/projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0001-Update-dram_sun50i_h616.c.patch",
+      "mode_blob": "100644 blob 7cf03caca63ef3296f61cfef2e0512a49dd1ac17",
+      "sha256": "9ca4e15a583105223ba8737e08fcf0fa70bf655e0763cd58848836eefc33e555"
+    }
+  ],
+  "diagnostic_paths": [
+    "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/01-research-notes.md",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-a/order.out",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-a/run/stage-a-extra.out",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-a/run/stage-a.out",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-f/generator-input-proof-attempt-1/fixtures/bytes/projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0001-Update-dram_sun50i_h616.c.patch",
+    "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-f/generator-input-proof/fixtures/bytes/projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/patches/0001-Update-dram_sun50i_h616.c.patch"
+  ],
+  "remaining_rc": 0
+}

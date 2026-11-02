@@ -1,0 +1,465 @@
+{
+  "identity": "Codex (GPT-6), /root, wN:p5",
+  "session": "01a19d12-1c5f-7022-8053-102f6a94b7fe",
+  "scope": "pure parser and immutable reads only; no Git merge or final gates",
+  "phase": "after",
+  "source_sha256": "bab9838ac263f976ba73a73ab162614e132cf97a0dcfd8a781d1ed243e54bfd9",
+  "pure_function_sha256": "f8b56d83d98995a18fa0ce06b95996603e4874bdb0058b67863e4bd925211c7c",
+  "inputs": [
+    {
+      "ref": "d7dd76665983cb87dba62397691500fcf409fafe",
+      "path": "docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+      "size_bytes": 8261,
+      "sha256": "76fa387cb11d142e743bff9ec0afd71d75135945a2b04850d1d22121cd936990",
+      "base_prefix": true
+    },
+    {
+      "ref": "afdec2bf8b88135befcb7ec56efb3a7ea327bd73",
+      "path": "docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+      "size_bytes": 30440,
+      "sha256": "3ea582cec678aa310fbb859b80a444bdd3944e89c066a0289a2ee06f1ee8814c",
+      "base_prefix": true
+    },
+    {
+      "ref": "e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0",
+      "path": "docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+      "size_bytes": 18537,
+      "sha256": "5c5429bb89ab160445d4898eb0a1e4f280bf8804d1ac1ffcf600023e4baa99d4",
+      "base_prefix": true
+    }
+  ],
+  "git_reads": [
+    {
+      "argv": [
+        "merge-base",
+        "--all",
+        "afdec2bf8b88135befcb7ec56efb3a7ea327bd73",
+        "e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0"
+      ],
+      "rc": 0,
+      "stdout_sha256": "d67fc47d7272929110dc5a79dd35988deea09cd5eb3385a041f7d8b4c81ebc61",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "show",
+        "d7dd76665983cb87dba62397691500fcf409fafe:docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md"
+      ],
+      "rc": 0,
+      "stdout_sha256": "76fa387cb11d142e743bff9ec0afd71d75135945a2b04850d1d22121cd936990",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "show",
+        "afdec2bf8b88135befcb7ec56efb3a7ea327bd73:docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md"
+      ],
+      "rc": 0,
+      "stdout_sha256": "3ea582cec678aa310fbb859b80a444bdd3944e89c066a0289a2ee06f1ee8814c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "show",
+        "e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0:docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md"
+      ],
+      "rc": 0,
+      "stdout_sha256": "5c5429bb89ab160445d4898eb0a1e4f280bf8804d1ac1ffcf600023e4baa99d4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "results": [
+    {
+      "label": "actual immutable base/coordinator/lane log bytes",
+      "ok": true,
+      "state": "PASS",
+      "reason": "",
+      "details": {
+        "output_sha256": "06049d878ced96160ddce89d6e28470ce62b2167c5059bb31c27588b179d2f23",
+        "output_bytes": 40716,
+        "appended_entries": 13,
+        "coordinator_entries": 3,
+        "lane_entries": 10,
+        "entry_sequences": [
+          [
+            "45c35d15d7a4101db683509c7800f3a20a5e0f8f3809cf19f18cc613bd0cb64f",
+            "39ee374c7b2121f801ffab255fabf51774636db04fe7640b7067b326ab2a0437",
+            "cc49031d12a364d610a83e95a6251d679afd5eb53b5ead12562f680d20270663"
+          ],
+          [
+            "6d3e5e34316d3bde37832d7f3a22da5bf0626bad2b374ea821dab81dec4bac0f",
+            "2fa09fae1e7e2fb4358b3e72cae0280dedb014c67fa1b34989d3a16046effbbc",
+            "d99ff4a17e82c9c6edd929d0af2d761ba39b4a034788eaa0dab034007aa982f8",
+            "9ef97c03ecb646e84eda908bce22ac8dedf490d22c7cf4958408fc8ba7c1026b",
+            "ca80e612edba0c3d55436a3c31c8f9a36383a291015a40175dd6b12343f16cbe",
+            "6ddfbe31c3b0716fbc76afc4ad28aa281ed62f003edc452e47b489e8b351ef1d",
+            "1c1a46c34a3d9d18e2207e4a81c404cabf72550b5911b59f79c518770a9c76db",
+            "599ce98713b1ed4ef3024d1da23134ba3b8e2523b54102f251b3af8c23f1f233",
+            "3aed7bf947432dc4ebc7123afa01334f12825dc355011274a7b94d8c5c595d22",
+            "dc7b37910653388392baecd82d01c6076b5243711b188ba1662f9bd6d2f9f48c"
+          ]
+        ],
+        "all_original_entry_bytes_and_orders_preserved": true
+      }
+    },
+    {
+      "label": "valid UTC timestamp 23:59 UTC",
+      "ok": true,
+      "state": "PASS",
+      "reason": "",
+      "details": {
+        "output_sha256": "7896a43b84fdeb7f2ea93a0b78cae06ac9bdb464e863adc2ad4fc40307ed183b",
+        "sequence_lengths": [
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "label": "valid UTC timestamp 2026-11-02 19:21:17 UTC",
+      "ok": true,
+      "state": "PASS",
+      "reason": "",
+      "details": {
+        "output_sha256": "ee7afccb9673c62a86afebbb21dd6630c7aef4ba73eb8835819bf82e216a4c8a",
+        "sequence_lengths": [
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "label": "valid UTC timestamp 2026-11-02T20:04:47.930461+00:00",
+      "ok": true,
+      "state": "PASS",
+      "reason": "",
+      "details": {
+        "output_sha256": "7c9544e0095c7422480e04b3cd304c9fc10a0750f5b0d451535e579d620623bd",
+        "sequence_lengths": [
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "label": "valid UTC timestamp 2026-11-02T20:04:47+00:00",
+      "ok": true,
+      "state": "PASS",
+      "reason": "",
+      "details": {
+        "output_sha256": "ecf4ea41f57cc9550d30f73f75b12a613960e0702aec2fe1a199adbc9fbeaa48",
+        "sequence_lengths": [
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "label": "valid UTC timestamp 2026-11-02T20:04:47Z",
+      "ok": true,
+      "state": "PASS",
+      "reason": "",
+      "details": {
+        "output_sha256": "9281ea382e2863be6496b481fbcb11ead4bd938838e1070fce1bebfbd79e2566",
+        "sequence_lengths": [
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "label": "valid UTC timestamp 2024-02-29 00:00:00 UTC",
+      "ok": true,
+      "state": "PASS",
+      "reason": "",
+      "details": {
+        "output_sha256": "6428bc1bc737c793bef9c677d2cb255cfeb110fe976e10da2e08c57961c5f210",
+        "sequence_lengths": [
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "label": "mixed forms and separator bytes preserved",
+      "ok": true,
+      "state": "PASS",
+      "reason": "",
+      "details": {
+        "output_sha256": "b3e05dd547332c3ef9fce657c5aaec2c69bd1e26acc98c5ae71aaa0badd44826",
+        "sequence_lengths": [
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "label": "invalid timestamp 24:00 UTC",
+      "ok": false,
+      "state": "NameError",
+      "reason": "name 'Invalid' is not defined",
+      "details": null
+    },
+    {
+      "label": "invalid timestamp 12:60 UTC",
+      "ok": false,
+      "state": "NameError",
+      "reason": "name 'Invalid' is not defined",
+      "details": null
+    },
+    {
+      "label": "invalid timestamp 9:05 UTC",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "append entry heading/body/boundary invalid",
+      "details": null
+    },
+    {
+      "label": "invalid timestamp 2026-02-29 19:21:17 UTC",
+      "ok": false,
+      "state": "NameError",
+      "reason": "name 'Invalid' is not defined",
+      "details": null
+    },
+    {
+      "label": "invalid timestamp 2026-11-31 19:21:17 UTC",
+      "ok": false,
+      "state": "NameError",
+      "reason": "name 'Invalid' is not defined",
+      "details": null
+    },
+    {
+      "label": "invalid timestamp 0000-11-02 19:21:17 UTC",
+      "ok": false,
+      "state": "NameError",
+      "reason": "name 'Invalid' is not defined",
+      "details": null
+    },
+    {
+      "label": "invalid timestamp 2026-11-02 24:00:00 UTC",
+      "ok": false,
+      "state": "NameError",
+      "reason": "name 'Invalid' is not defined",
+      "details": null
+    },
+    {
+      "label": "invalid timestamp 2026-11-02 19:21:60 UTC",
+      "ok": false,
+      "state": "NameError",
+      "reason": "name 'Invalid' is not defined",
+      "details": null
+    },
+    {
+      "label": "invalid timestamp 2026-11-02 19:21 UTC",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "append entry heading/body/boundary invalid",
+      "details": null
+    },
+    {
+      "label": "invalid timestamp 2026-11-02T20:04:47.930461+01:00",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "append entry heading/body/boundary invalid",
+      "details": null
+    },
+    {
+      "label": "invalid timestamp 2026-11-02T20:04:47-00:00",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "append entry heading/body/boundary invalid",
+      "details": null
+    },
+    {
+      "label": "invalid timestamp 2026-11-02T20:04:47",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "append entry heading/body/boundary invalid",
+      "details": null
+    },
+    {
+      "label": "invalid timestamp 2026-11-02T20:04:47z",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "append entry heading/body/boundary invalid",
+      "details": null
+    },
+    {
+      "label": "invalid timestamp 2026-11-02T20:04:47.1234567+00:00",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "append entry heading/body/boundary invalid",
+      "details": null
+    },
+    {
+      "label": "invalid timestamp 2026-13-02T20:04:47Z",
+      "ok": false,
+      "state": "NameError",
+      "reason": "name 'Invalid' is not defined",
+      "details": null
+    },
+    {
+      "label": "invalid timestamp 2026-11-02T25:04:47Z",
+      "ok": false,
+      "state": "NameError",
+      "reason": "name 'Invalid' is not defined",
+      "details": null
+    },
+    {
+      "label": "invalid timestamp 2026-11-02 19:21:17 PST",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "append entry heading/body/boundary invalid",
+      "details": null
+    },
+    {
+      "label": "invalid timestamp not-a-timestamp",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "append entry heading/body/boundary invalid",
+      "details": null
+    },
+    {
+      "label": "invalid timestamp 00:25-05:15 UTC",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "append entry heading/body/boundary invalid",
+      "details": null
+    },
+    {
+      "label": "identical complete entry deduplicates",
+      "ok": true,
+      "state": "PASS",
+      "reason": "",
+      "details": {
+        "output_sha256": "fd5e5b108197a143b7f67806a45397669a6c76845cb0ce9dcbab3f84a299299e",
+        "sequence_lengths": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "same timestamp distinct titles preserved",
+      "ok": true,
+      "state": "PASS",
+      "reason": "",
+      "details": {
+        "output_sha256": "ea6d829d9fb733dbead34bdbff89f68f8de3b7e26fd2c0a33eb261815ce81a65",
+        "sequence_lengths": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "same heading changed body refused",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "same append heading has conflicting entry bytes",
+      "details": null
+    },
+    {
+      "label": "opposed append orders refused",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "append entry orders conflict",
+      "details": null
+    },
+    {
+      "label": "duplicate heading in same suffix refused",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "duplicate append/base heading",
+      "details": null
+    },
+    {
+      "label": "duplicate base heading refused",
+      "ok": false,
+      "state": "PASS",
+      "reason": "",
+      "details": {
+        "output_sha256": "5999ff43997b2a98e620e73177f3a193b84735cee33241e05ec9c3def557876e",
+        "sequence_lengths": [
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "label": "base byte edited refused",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "work-log changed pre-existing bytes instead of whole append",
+      "details": null
+    },
+    {
+      "label": "base entry removed refused",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "work-log changed pre-existing bytes instead of whole append",
+      "details": null
+    },
+    {
+      "label": "partial body lacks final newline refused",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "append suffix lacks whole entries or exact terminal newline",
+      "details": null
+    },
+    {
+      "label": "missing blank separator refused",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "append suffix lacks whole entries or exact terminal newline",
+      "details": null
+    },
+    {
+      "label": "bodyless entry refused",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "append suffix lacks whole entries or exact terminal newline",
+      "details": null
+    },
+    {
+      "label": "trailing unexplained blank line refused",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "append suffix lacks whole entries or exact terminal newline",
+      "details": null
+    },
+    {
+      "label": "heading without title refused",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "append entry heading/body/boundary invalid",
+      "details": null
+    },
+    {
+      "label": "no suffix on one side preserves other",
+      "ok": true,
+      "state": "PASS",
+      "reason": "",
+      "details": {
+        "output_sha256": "b4a33dd80aa474961b521e97bf85c73ab503e4e9f0ce3ece0abde9102b9f8324",
+        "sequence_lengths": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "label": "no suffix on either side preserves base",
+      "ok": true,
+      "state": "PASS",
+      "reason": "",
+      "details": {
+        "output_sha256": "20b1cd0a5f4ea4afc2a16607150a34111ba3e5dff6c542ef5c543c8a8a07d1ba",
+        "sequence_lengths": [
+          0,
+          0
+        ]
+      }
+    }
+  ]
+}

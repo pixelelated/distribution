@@ -1,6 +1,6 @@
 # Saved Session State: M6 coordinator
 
-> **Updated:** 2026-11-02T19:42:01Z. T39 is accepted and complete; T41 final handback is under coordinator acceptance; T42 has published D and is under bounded reconciliation. T2 is reconciling its acceptance reader against the real T41 packet; P1 is available.
+> **Updated:** 2026-11-02T20:36:18Z. T39 complete. T41 final run finished53PASS/1reader failure; root retains completed evidence, T2 fixes only the prose/header predicate. T42 records-only E–H is active; both resolution lints PASS. Current queue below supersedes historical sections.
 > **Branch:** `feature/m6-renovation-plan-346`
 > **Resume directory:** `/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346`
 > **Scope:** the six tabs in Herdr workspace `wN`, pixelelated · Codebase renovation.
@@ -22,9 +22,9 @@ All sessions are Codex; their own live footers report GPT-6-Astra xhigh. This is
 | `wN:p2` / `m6-coordinator` | `01a19d11-f5c8-7bb0-80f3-49ad28732af2` | this tree; accept T39/T41/T42 returns, prepare the next proved T43 brief, keep the tracker and handoff current |
 | `wN:p3` / `m6-p1-survey` | `01a19d11-dda5-72e3-86f9-416f36341c24` | T42 D bounded reconciliation complete and retained; available, no current execution slice |
 | `wN:p4` / `m6-t1-os-launch` | `01a19d12-0c07-7ba3-88b8-ab9d609f4d67` | T39 complete at `7994f760fe`, source accepted at `4eb5dfab8e` in 6586835789, final marker6586954533 verified; available in `m6-doctrine-reference-686` |
-| `wN:p5` / `m6-t2-es-launch` | `01a19d12-1c5f-7022-8053-102f6a94b7fe` | D228 consumer candidate/164 synthetic checks retained; bounded actual-packet read against `61a1a674c1`, including exact two audit fixtures; no install or final execution authority |
-| `wN:p6` / `m6-t3-emulators` | `01a19d12-29e3-7fe0-9f41-038dac0a5deb` | T41 final clean `61a1a674c1`, checkpoint 6586647714; stopped for coordinator simulated integration/acceptance in `m6-patches-shipped-kernel-688` |
-| `wN:p7` / `m6-t5-build-engine` | `01a19d12-3d7a-7642-9108-ae06a719cdd7` | T42 A–D active under 6585520800 in `m6-patches-shipped-689`, seed `9dd0716033`; D published at `d37670de31`, checkpoint 6586884409, audit1411/bug1410; stopped for coordinator stream disposition; T38 remains accepted |
+| `wN:p5` / `m6-t2-es-launch` | `01a19d12-1c5f-7022-8053-102f6a94b7fe` | T41 final runner delivered; now correcting only issue-body prose/header false positive, with pure refusal controls; no final execution or shared install authority |
+| `wN:p6` / `m6-t3-emulators` | `01a19d12-29e3-7fe0-9f41-038dac0a5deb` | T41 corrected clean `e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0`, checkpoint6587322895; stopped for coordinator acceptance in `m6-patches-shipped-kernel-688` |
+| `wN:p7` / `m6-t5-build-engine` | `01a19d12-3d7a-7642-9108-ae06a719cdd7` | T42 records-only E–H active under6587447155/D230 in `m6-patches-shipped-689`, seed `9dd0716033`; D accepted at `d37670de31`; records-only E–H dispatched6587447155, D230, observed working; audit1411/bug1410; T38 remains accepted |
 
 The pane launch directories for T1/T3/T5 are historical. Commands must target the assigned current slice tree explicitly. Agent names can clear when a fresh harness session is first detected; restore the saved name against the observed pane ID, then verify actual work/acknowledgement. Submission alone proves delivery only.
 
@@ -63,4 +63,28 @@ At61a1a674c1 the real reader passes requested product/source/D228 predicates, bu
 
 ### T42 D acceptance/disposition ready
 
-Independent support reproduces byte-equal with zero mismatches, retained under `t42-stage-d-support/`. New coordinator custody receipt proves actuald376 HEAD/remote/clean and live1411 body. D-WORKFLOW-230 and `t42-stage-d-disposition.md` are the records-only E–H route:PL01 Deferred to open1410/#677 context,173native/22inherited limits preserved, no GUIDE choice. Publish and explicitly dispatch on689; T5 then runs new resolution/records/retro/census only, with final external publication receipts bound to its handback tip. Never relabel parent62573c exits as finald376 or fill missingG202/G203/G383 results.
+Independent support reproduces byte-equal with zero mismatches, retained under `t42-stage-d-support/`. New coordinator custody receipt proves actuald376 HEAD/remote/clean and live1411 body. D-WORKFLOW-230 and `t42-stage-d-disposition.md` are the records-only E–H route:PL01 Deferred to open1410/#677 context,173native/22inherited limits preserved, no GUIDE choice. Published atafdec2bf8b88135befcb7ec56efb3a7ea327bd73; explicit dispatch6587447155 and bugroute6587447724 read back exactly. T5 observed working, runs new resolution/records/retro/census only, with final external publication receipts bound to its handback tip. Never relabel parent62573c exits as finald376 or fill missingG202/G203/G383 results.
+
+### T41 corrected handback
+
+T3 published `e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0`, checkpoint6587322895, under pins-count authority6587194285/239808e372. Root verified zero product/source/A–D/formal-program/D228 delta. T2 returned a266-test candidate, then root found actual log headings include full UTC-date/ISO-UTC formats; T2 is fixing/testing only that pure append-parser interface against immutable actual log bytes and reading the corrected e481 records. Root has not installed or executed final gates yet. Freeze coordinatorafdec2bf8b88135befcb7ec56efb3a7ea327bd73 for that simulation; later root changes are records only.
+
+### Active T41 final acceptance — 2026-11-02T20:25:57.781156+00:00
+
+Root installed reviewed frozen runnerSHA256df37931df0fda970728af49698f189f17b263a7d5515af732f6041fdcd6efe9f at `/workspace/tmp/m6-coordinator/kit/t41-accept.sh`. T2’s42pure-parser controls and38immutable e481 predicates verified. Actual full run is active under `/workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/root-final-e481-20261102T2023/`, root exec session63015; `driver-start.json` names actual root identity/configuration. `driver-result.json` is written only on real return. Lanee481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0; coordinatorafdec2bf8b88135befcb7ec56efb3a7ea327bd73; dispatchd7dd76665983cb87dba62397691500fcf409fafe. Normal new lane lints/checkers/hooks have returned0; full-tree forbidden scan in progress at last read. Do not edit running installed/candidate code, repeat accepted source producers, or infer final acceptance. Root supervises this run through completion, then reads every verdict/receipt before closure. T42 E–H is active; P1/T1/T2 are available.
+
+### Current final-gate result — 2026-11-02T20:36:18Z
+
+The full T41 run ended20:29:27UTC, rc1,53PASS/1FAIL, no CANNOT/ABSENT. There is no active root process to supervise. Original driver result and all4,892 masked command receipts are retained losslessly under `docs/qa-logs/2026-11-02-m6-resume/t41-final-runner/root-final-run/`; the JSONL envelope preserves original command JSON and output bytes/hashes. All new lane and simulated integration gates passed; append merge preserved3coordinator+10lane whole entries. Full whitespace rc2 is limited to the exact six accepted inputs; remaining paths rc0.
+
+Only `issue-body` fails: substring matching mistakes the explanatory prose “no `fixed-at-es:`” for an actual header. Live688 has distribution reviewed/fixed headers only. T2 has an explicit bounded pure-parser correction to anchor real header lines and refuse planted ES headers. Root will review it and execute only the corrected issue-body check against the same e481/afdec pins, retain the failed run unchanged, and reconcile the other53PASS by unchanged code/input identities. Do not rerun integration/scans or accepted producers. No T41 acceptance/closure yet.
+
+T42 reports both new resolution lints PASS, criteria1/2 of1411 checked, criteria3/closure/marker reserved for root. Its immutable reader reconciles3,931 accepted artifacts and391 source/selector/referent identities. The173native/22inherited limits andG202/G203/G383 gaps remain. T5 is finishing the current-record scan, retro, owned scratch retirement and one final published H tip with external final-publication receipts. P1/T1 remain available; next planned execution is T43 only after a proved coordinator brief.
+
+### T41 gate correction complete; M7 conditional grant — 20:47 UTC
+
+T2's one-line issue-header correction and28pure refusal controls verified. Root's new live issue-body gate PASS, actual body/title unchanged;53other final PASS predicates retained. Original full run remains53/1/rc1, not relabelled. `t41-final-acceptance.md` maps all28 criteria; publish it, then perform live acceptance/audit1409closure and records-only completion dispatch. High1408 stays open/unfixed.
+
+T42 final4cf8c8820791624dbddad3eb3664101a03953a82, handback6587952866. P1 is dispatched bounded E–H/publication reconciliation only; root owns final simulated integration/acceptance. External ordinary receipt directory `/workspace/tmp/m6-t42-final-publication-20261102T203040Z`, manifest62ef887c2fd2cc67c7b88ebd9c1bdb80091423596c60a1cf0e6e1cdc01dc8781. T5 idle at final boundary.
+
+Owner relayed M7's one GENERIC ES-only patch028 refresh request. Root verified latest actual RETURN20:30:47.205238UTC and appended conditional grant at20:45:50UTC, exact grant receipt retained locally in `/tmp/m6-lane-progress/m7-028-conditional-grant.json` and the shared ledger. START-BY21:30:47.205238UTC;7200s total including600s cleanup, CPUs0–7/32GiB/no swap/no network. Activation requires fresh M7 capacity/admission, full source identity1850362563, independent bound/cleanup and actual START. No M6 runtime held; use CPUs8–23 for M6 source/record checks during window. No build launched or new host monitor created; never edit the live compile-ack.sh.

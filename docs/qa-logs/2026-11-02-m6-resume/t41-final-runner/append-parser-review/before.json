@@ -1,0 +1,80 @@
+{
+  "identity": "Codex (GPT-6), /root, wN:p5",
+  "session": "01a19d12-1c5f-7022-8053-102f6a94b7fe",
+  "scope": "pure parser and immutable reads only; no Git merge or final gates",
+  "phase": "before",
+  "source_sha256": "167bcf8f3b5356fad457f9e8f5ab351f5d967f1c8a1d202c9dced39114c2f540",
+  "pure_function_sha256": "fc776968ed7249071fe89d5a0f4fc3e0dfef44aee43346ac162361c2c16139f9",
+  "inputs": [
+    {
+      "ref": "d7dd76665983cb87dba62397691500fcf409fafe",
+      "path": "docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+      "size_bytes": 8261,
+      "sha256": "76fa387cb11d142e743bff9ec0afd71d75135945a2b04850d1d22121cd936990",
+      "base_prefix": true
+    },
+    {
+      "ref": "afdec2bf8b88135befcb7ec56efb3a7ea327bd73",
+      "path": "docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+      "size_bytes": 30440,
+      "sha256": "3ea582cec678aa310fbb859b80a444bdd3944e89c066a0289a2ee06f1ee8814c",
+      "base_prefix": true
+    },
+    {
+      "ref": "e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0",
+      "path": "docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+      "size_bytes": 18537,
+      "sha256": "5c5429bb89ab160445d4898eb0a1e4f280bf8804d1ac1ffcf600023e4baa99d4",
+      "base_prefix": true
+    }
+  ],
+  "git_reads": [
+    {
+      "argv": [
+        "merge-base",
+        "--all",
+        "afdec2bf8b88135befcb7ec56efb3a7ea327bd73",
+        "e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0"
+      ],
+      "rc": 0,
+      "stdout_sha256": "d67fc47d7272929110dc5a79dd35988deea09cd5eb3385a041f7d8b4c81ebc61",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "show",
+        "d7dd76665983cb87dba62397691500fcf409fafe:docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md"
+      ],
+      "rc": 0,
+      "stdout_sha256": "76fa387cb11d142e743bff9ec0afd71d75135945a2b04850d1d22121cd936990",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "show",
+        "afdec2bf8b88135befcb7ec56efb3a7ea327bd73:docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md"
+      ],
+      "rc": 0,
+      "stdout_sha256": "3ea582cec678aa310fbb859b80a444bdd3944e89c066a0289a2ee06f1ee8814c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "show",
+        "e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0:docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md"
+      ],
+      "rc": 0,
+      "stdout_sha256": "5c5429bb89ab160445d4898eb0a1e4f280bf8804d1ac1ffcf600023e4baa99d4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "results": [
+    {
+      "label": "actual immutable base/coordinator/lane log bytes",
+      "ok": true,
+      "state": "Invalid",
+      "reason": "append entry heading/body/boundary invalid",
+      "details": null
+    }
+  ]
+}

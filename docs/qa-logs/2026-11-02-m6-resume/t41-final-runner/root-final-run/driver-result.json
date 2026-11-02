@@ -1,0 +1,32 @@
+{
+  "argv": [
+    "bash",
+    "/workspace/tmp/m6-coordinator/kit/t41-accept.sh",
+    "e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0",
+    "afdec2bf8b88135befcb7ec56efb3a7ea327bd73"
+  ],
+  "executor": {
+    "harness": "Codex",
+    "model": "GPT-6-Astra",
+    "effort": "xhigh",
+    "session": "01a19d11-f5c8-7bb0-80f3-49ad28732af2",
+    "pane": "wN:p2",
+    "identity_source": "observed footer"
+  },
+  "installed_sha256": "df37931df0fda970728af49698f189f17b263a7d5515af732f6041fdcd6efe9f",
+  "start": "2026-11-02T20:23:50.049239+00:00",
+  "status": "complete",
+  "environment_configuration": {
+    "AUDIT_ISSUE": "1409",
+    "BUGS": "1408",
+    "DISPATCH_TIP": "d7dd76665983cb87dba62397691500fcf409fafe",
+    "DIST_REPO": "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+    "ACCEPT_DIR": "/workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/root-final-e481-20261102T2023/evidence",
+    "OUT": "/workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/root-final-e481-20261102T2023/accept.out"
+  },
+  "rc": 1,
+  "end": "2026-11-02T20:29:27.570711+00:00",
+  "elapsed_seconds": 337.5214097830467,
+  "stdout_sha256": "85dd840cbff252b9c86f404faf0bc172f80fce14b8584afcdb7ff340cad1d311",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

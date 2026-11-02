@@ -1,0 +1,273 @@
+DERIVED 54 sections; source e32e28e0145570008d08493594795a878c442e88ed9fb3aac70f95e10d6b5b1b output b30755de8589bff3b16bf984d49a03569cfc480052d1f7600744acb4c51a40b4
+PASS TEST lane-shaped protected patch byte => FAIL:patch-untouched,FAIL:product-paths
+PASS TEST records-only lane commit => PASS:patch-untouched,PASS:product-paths,PASS:dist-tip
+PASS TEST wrong current pin => FAIL:pins-read
+PASS TEST wrong current pin control => PASS:pins-read
+PASS TEST empty origin => FAIL:headers
+PASS TEST empty origin control => PASS:headers
+PASS TEST superseded dry stats => FAIL:applies-record
+PASS TEST superseded dry stats control => PASS:applies-record
+PASS TEST yes applicability => FAIL:applies-record
+PASS TEST yes applicability control => PASS:applies-record
+PASS TEST unsupported mainline claim => FAIL:upstream-status
+PASS TEST unsupported mainline claim control => PASS:upstream-status
+PASS TEST mismatched recipe SHA => FAIL:tarball-hashes
+PASS TEST mismatched recipe SHA control => PASS:tarball-hashes
+PASS TEST one reach group changed => FAIL:device-groups
+PASS TEST one reach group changed control => PASS:device-groups
+PASS TEST ramoops contribution removed => FAIL:fork-written
+PASS TEST ramoops contribution removed control => PASS:fork-written
+PASS TEST non-kernel mislabeled => FAIL:non-kernel
+PASS TEST non-kernel mislabeled control => PASS:non-kernel
+PASS TEST source scratch present => FAIL:scratch-retired
+PASS TEST source scratch absent and retired => PASS:scratch-retired
+PASS TEST wrong primary harness => FAIL:review-plan-local
+PASS TEST wrong primary harness control => PASS:review-plan-local
+PASS TEST wrong live reader => FAIL:review-plan-local
+PASS TEST wrong live reader control => PASS:review-plan-local
+PASS TEST header negative control passed => FAIL:checker-record
+PASS TEST header negative control passed control => PASS:checker-record
+PASS TEST coverage omitted path => FAIL:tables
+PASS TEST coverage omitted path control => PASS:tables
+PASS TEST escaped path normalization => PASS:tables,PASS:tree-counts,PASS:read-order,PASS:generated
+PASS TEST old dry result consumed => FAIL:runs-record
+PASS TEST old dry result consumed control => PASS:runs-record
+PASS TEST AC17 line not quoted => FAIL:runs-record
+PASS TEST AC17 line not quoted control => PASS:runs-record
+PASS TEST dry-run-authoritative promotion => FAIL:applies-record
+PASS TEST broken prefix chain => FAIL:applies-record
+PASS TEST normal failure promoted => FAIL:applies-record
+PASS TEST misclassified normal fuzz => FAIL:applies-record
+PASS TEST dry=1 normal=0 positive retained => PASS:applies-record
+PASS TEST historical receipt changed => FAIL:applies-record
+PASS TEST all 329 originals restored => PASS:applies-record
+PASS TEST raw log tamper => FAIL:applies-record
+PASS TEST raw log restored => PASS:applies-record
+PASS TEST failed candidate contaminated prefix => FAIL:applies-record
+PASS TEST failed prefix control restored => PASS:applies-record
+PASS TEST invented blocked successor command => FAIL:applies-record
+PASS TEST missing future C/D artifacts => ABSENT:folder,ABSENT:lint,ABSENT:punch-list
+PASS TEST missing future Stage-D questions => ABSENT:question-comments
+PASS TEST missing future reader plan => ABSENT:review-plan-local
+PASS TEST accepted D222 runs reconciled without replay => PASS:runs
+PASS TEST missing retained membership packet => ABSENT:membership
+PASS TEST missing retained formal generator packet => ABSENT:checker-run
+PASS TEST retained packet absence never green => ABSENT:membership,ABSENT:checker-run
+PASS TEST symlink OUT refused => FAIL:confinement
+PASS TEST outside owned output refused => FAIL:confinement
+PASS TEST directory OUT refused => FAIL:confinement
+PASS TEST file ACCEPT_DIR refused => FAIL:confinement
+PASS TEST unknown section refused => FAIL:internal
+PASS TEST hardlink OUT refused => FAIL:confinement
+PASS TEST changed shared source
+PASS TEST unmatched replacement shape
+PASS TEST deterministic derivation
+PASS TEST shared-kit destination refused
+TEST SUMMARY: 65 passed, 0 failed
+PASS TEST lint pre-issue is not resolution
+PASS TEST both resolution lint commands
+PASS TEST syntax error refused
+PASS TEST syntax only never executes raising producer
+PASS TEST register-check fails
+PASS TEST rules-check fails
+PASS TEST work-log-index fails
+PASS TEST ceremony-check fails
+PASS TEST hooks-test fails
+PASS TEST all new current checkers and six AC27 interfaces
+PASS TEST forbidden new record
+PASS TEST forbidden public positive then current records
+PASS TEST secret new record
+PASS TEST secret compilation positive and current records
+PASS TEST checkbox checker failure
+PASS TEST open inherited bug and lane are not premature closure requirements
+PASS TEST unresolved audit outcome
+PASS TEST reviewed tool changed
+PASS TEST live issue command rc refuses
+PASS TEST live issue malformed JSON refuses
+PASS TEST timeout receipt
+PASS TEST missing executable
+PASS TEST live issue positive and mask
+PASS TEST actual receipt census
+FINAL-GATE TEST SUMMARY: 24 passed, 0 failed
+PASS TEST retained 99-line output changed: Invalid
+PASS TEST membership inputs changed at final tip: Invalid
+PASS TEST selected source blob changed: Invalid
+PASS TEST membership reconciliation control: PASS
+PASS TEST historical lint program changed: Invalid
+PASS TEST later T4 edits do not rewrite the historical immutable input: PASS
+PASS TEST historical lint refusal changed: Invalid
+PASS TEST historical Local proof reconciliation control: PASS
+PASS TEST formal program changed: Invalid
+PASS TEST formal output hash tamper: Invalid
+PASS TEST negative command falsely passed: Invalid
+PASS TEST negative ordering lost: Invalid
+PASS TEST unknown negative fixture identity never passes: Absent
+PASS TEST invented identity cannot auto-approve: Absent
+RECONCILIATION TEST SUMMARY: 14 passed, 0 failed
+PASS TEST absent supplement is ABSENT: ABSENT
+PASS TEST missing fixture file: FAIL
+PASS TEST wrong schema: FAIL
+PASS TEST wrong authority: FAIL
+PASS TEST historical identity falsely claimed: FAIL
+PASS TEST wrong source ref: FAIL
+PASS TEST wrong Stage-C ref: FAIL
+PASS TEST unrelated run head: FAIL
+PASS TEST run head is not a commit: FAIL
+PASS TEST failed producer result: FAIL
+PASS TEST wrong program hash: FAIL
+PASS TEST wrong baseline hash: FAIL
+PASS TEST accepted Stage-D receipt changed: FAIL
+PASS TEST selected source changed at run head: FAIL
+PASS TEST remove first row instead of last: FAIL
+PASS TEST reordered dropped rows: FAIL
+PASS TEST extra changed row field: FAIL
+PASS TEST changed second shipped row: FAIL
+PASS TEST header changed extra byte: FAIL
+PASS TEST header stripped instead of renamed prefix: FAIL
+PASS TEST wrong header source path: FAIL
+PASS TEST wrong baseline blob id: FAIL
+PASS TEST wrong baseline source hash: FAIL
+PASS TEST wrong input hash: FAIL
+PASS TEST wrong input length: FAIL
+PASS TEST bool is not integer size: FAIL
+PASS TEST extra overlay file: FAIL
+PASS TEST extra JSON fixture: FAIL
+PASS TEST symlink overlay refused: FAIL
+PASS TEST executable overlay refused: FAIL
+PASS TEST parent traversal path: FAIL
+PASS TEST absolute artifact path: FAIL
+PASS TEST duplicate input kind: FAIL
+PASS TEST non-object input refused: FAIL
+PASS TEST non-object check refused: FAIL
+PASS TEST wrong command order: FAIL
+PASS TEST extra fifth command: FAIL
+PASS TEST wrong generator argv: FAIL
+PASS TEST wrong input argv: FAIL
+PASS TEST wrong header flag: FAIL
+PASS TEST negative rc is not exactly one: FAIL
+PASS TEST bool is not integer rc: FAIL
+PASS TEST non-UTC timestamp: FAIL
+PASS TEST new proof backdated as old: FAIL
+PASS TEST negative elapsed time: FAIL
+PASS TEST wrong raw output hash: FAIL
+PASS TEST missing raw output: FAIL
+PASS TEST wrong final assertion even with valid hash: FAIL
+PASS TEST positive differs even with valid hash: FAIL
+PASS TEST positive stderr nonempty: FAIL
+PASS TEST output path alias: FAIL
+PASS TEST builder missing: FAIL
+PASS TEST builder changed without README binding: FAIL
+PASS TEST README file list missing: FAIL
+PASS TEST duplicate JSON manifest key: FAIL
+PASS TEST exact sealed supplement plus historical receipt control: PASS
+PASS TEST absolute bound command paths control: PASS
+PASS TEST known filename escape normalization control: PASS
+PASS TEST actual Git full-tree seam
+D228 SUPPLEMENT TEST SUMMARY: 59 passed, 0 failed
+PASS TEST exact first attempt lossless reconstruction: PASS
+PASS TEST retained encoded byte damage: FAIL
+PASS TEST retained encoding identity mismatch: FAIL
+PASS TEST retained wrong encoding path: FAIL
+PASS TEST retained header altered: FAIL
+PASS TEST retained source identity altered: FAIL
+PASS TEST retained failed attempt identity changed: FAIL
+PASS TEST retained negative falsely passed: FAIL
+PASS TEST retained extra fixture: FAIL
+PASS TEST retained nonserialization builder change: FAIL
+PASS TEST retained false failure timing: FAIL
+PASS TEST retained wrong failure disposition: FAIL
+PASS TEST retained missing failure record: FAIL
+PASS TEST product-paths exact two validated overlays: PASS
+PASS TEST product-paths wrong path: FAIL
+PASS TEST product-paths extra fixture: FAIL
+PASS TEST product-paths product edit restored at final tip: FAIL
+PASS TEST product-paths selected source edit restored at final tip: FAIL
+PASS TEST product-paths overlay edit restored at final tip: FAIL
+PASS TEST product-paths overlay executable mode: FAIL
+PASS TEST product-paths retained header altered: FAIL
+PASS TEST product-paths register line removed: FAIL
+PASS TEST product-paths unrelated conf file: FAIL
+PASS TEST patch-untouched exact two validated overlays: PASS
+PASS TEST patch-untouched wrong path: FAIL
+PASS TEST patch-untouched extra fixture: FAIL
+PASS TEST patch-untouched product edit restored at final tip: FAIL
+PASS TEST patch-untouched selected source edit restored at final tip: FAIL
+PASS TEST patch-untouched overlay edit restored at final tip: FAIL
+PASS TEST patch-untouched overlay executable mode: FAIL
+PASS TEST patch-untouched retained header altered: FAIL
+PASS TEST patch-untouched register line removed: FAIL
+PASS TEST patch-untouched unrelated conf file: FAIL
+PASS TEST fixes-record exact two validated overlays: PASS
+PASS TEST fixes-record wrong path: FAIL
+PASS TEST fixes-record extra fixture: FAIL
+PASS TEST fixes-record product edit restored at final tip: FAIL
+PASS TEST fixes-record selected source edit restored at final tip: FAIL
+PASS TEST fixes-record overlay edit restored at final tip: FAIL
+PASS TEST fixes-record overlay executable mode: FAIL
+PASS TEST fixes-record retained header altered: FAIL
+PASS TEST fixes-record register line removed: FAIL
+PASS TEST fixes-record unrelated conf file: FAIL
+PASS TEST append-only register record stays permitted: PASS
+PASS TEST product scope refuses another audit folder: FAIL
+RETAINED/PATH SUMMARY 45 passed, 0 failed
+PASS TEST append two independent complete entries: PASS
+PASS TEST append shared identical entry preserves both orders: PASS
+PASS TEST unrelated conflict refused: Invalid
+PASS TEST changed base body refused: Invalid
+PASS TEST partial append refused: Invalid
+PASS TEST same heading different body refused: Invalid
+PASS TEST append order cycle refused: Invalid
+PASS TEST index tool unrelated write refused: Invalid
+PASS TEST index tool day mutation refused: Invalid
+PASS TEST index render/write mismatch refused: Invalid
+PASS TEST actual executor separate from tool author: PASS
+PASS TEST missing executor is CANNOT: Cannot
+PASS TEST root observed identity configuration only: PASS
+PASS TEST author cannot masquerade as final executor: Invalid
+PASS TEST executor metadata missing pane refused: Invalid
+PASS TEST invalid executor JSON refused: JSONDecodeError
+PASS TEST only full tree scan gets bounded 1200s: PASS
+PASS TEST unbounded timeout refused: Invalid
+PASS TEST excess timeout refused: Invalid
+PASS TEST timeout CANNOT retains bounded command receipt: Cannot
+PASS TEST six bound whitespace records retain original rc2 and other paths rc0: PASS
+PASS TEST altered accepted whitespace record refused: Invalid
+PASS TEST altered D228 header whitespace refused: Invalid
+PASS TEST extra fixture whitespace refused: Invalid
+PASS TEST nonfixture whitespace refused: Invalid
+PASS TEST accepted record mode change refused: Invalid
+FINAL INTERFACES 26 passed, 0 failed /workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/interface-fixtures-kgyitr39/checks-final-interfaces.json 3d0438dfa2920ab71eab6bf544e4072b763b60566a77e80c69df34ca5e98fce1
+PASS TEST marker strings inside extraction command are not delimiters: PASS
+PASS TEST duplicate standalone marker refuses: Invalid
+PASS TEST wrong immutable historical Local plan refuses: Invalid
+PASS TEST Deferred audit outcome with Open bug evidence is disposed: PASS
+PASS TEST Open outcome remains unresolved: Invalid
+PASS TEST Deferred outcome without follow-up refuses: Invalid
+PASS TEST unlisted punch item refuses: Invalid
+PASS TEST duplicate gate row refuses: Invalid
+PASS TEST capitalized Nothing keeps same retro meaning: PASS
+PASS TEST missing retro obligation remains refusal: Invalid
+PASS TEST ten assignments plus five case contexts and exact source positive: PASS
+PASS TEST nl tab delimiter preserves literal source bytes: PASS
+PASS TEST missing numbered quotation 16: Invalid
+PASS TEST missing numbered quotation 18: Invalid
+PASS TEST missing numbered quotation 22: Invalid
+PASS TEST missing numbered quotation 23: Invalid
+PASS TEST missing numbered quotation 27: Invalid
+PASS TEST missing numbered quotation 29: Invalid
+PASS TEST missing numbered quotation 30: Invalid
+PASS TEST missing numbered quotation 36: Invalid
+PASS TEST missing numbered quotation 37: Invalid
+PASS TEST missing numbered quotation 40: Invalid
+PASS TEST missing numbered quotation 42: Invalid
+PASS TEST missing numbered quotation 43: Invalid
+PASS TEST missing numbered quotation 46: Invalid
+PASS TEST missing numbered quotation 48: Invalid
+PASS TEST missing numbered quotation 49: Invalid
+PASS TEST changed assignment quotation refuses: Invalid
+PASS TEST unselected branch must still be quoted exactly: Invalid
+PASS TEST wrong source ref refuses: Invalid
+PASS TEST extra source assignment refuses despite matching new quote: Invalid
+PASS TEST changed source byte outside quotation refuses: Invalid
+PASS TEST unselected branch pin in provenance refuses: Invalid
+RECORD INTERFACES 33 passed, 0 failed

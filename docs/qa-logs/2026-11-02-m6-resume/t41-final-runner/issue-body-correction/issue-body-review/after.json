@@ -1,0 +1,326 @@
+{
+  "identity": "Codex (GPT-6), /root, wN:p5",
+  "session": "01a19d12-1c5f-7022-8053-102f6a94b7fe",
+  "scope": "pure issue-body against supplied captured root data; not a live final gate",
+  "tip": "e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0",
+  "coordinator": "afdec2bf8b88135befcb7ec56efb3a7ea327bd73",
+  "dispatch": "d7dd76665983cb87dba62397691500fcf409fafe",
+  "source_sha256": "dde98a45fca9fdf959e1c5544f81c5cdf78c7359427b57cb4474ea376be3c5da",
+  "captured_issue_sha256": "4145a042b705420c407ac7f8a266730d33adc4a6650e72b00a4f7dab890ef4bd",
+  "root_artifacts_unchanged": [
+    {
+      "path": "/tmp/m6-lane-progress/t41-issue-live-final-gate.json",
+      "sha256": "4145a042b705420c407ac7f8a266730d33adc4a6650e72b00a4f7dab890ef4bd"
+    },
+    {
+      "path": "/workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/root-final-e481-20261102T2023/evidence/final-gates-_n6wydcg/0001-live-688.stdout",
+      "sha256": "4145a042b705420c407ac7f8a266730d33adc4a6650e72b00a4f7dab890ef4bd"
+    },
+    {
+      "path": "/workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/root-final-e481-20261102T2023/driver-result.json",
+      "sha256": "15d38f288eaeb8695ccce67e33cf938ff68e2d7aeb7f50047ab57949b929d900"
+    },
+    {
+      "path": "/workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/root-final-e481-20261102T2023/accept.out",
+      "sha256": "85dd840cbff252b9c86f404faf0bc172f80fce14b8584afcdb7ff340cad1d311"
+    },
+    {
+      "path": "/workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/root-final-e481-20261102T2023/driver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/root-final-e481-20261102T2023/driver.stdout",
+      "sha256": "85dd840cbff252b9c86f404faf0bc172f80fce14b8584afcdb7ff340cad1d311"
+    },
+    {
+      "path": "/workspace/tmp/m6-coordinator/kit/selftest/accept-t41-candidate-01a19d12/root-final-e481-20261102T2023/driver-start.json",
+      "sha256": "27c92d487a39aefa3cf1607d13137cc339c40820093fc4caa922fd2c61564a71"
+    },
+    {
+      "path": "/workspace/tmp/m6-coordinator/kit/t41-accept.sh",
+      "sha256": "df37931df0fda970728af49698f189f17b263a7d5515af732f6041fdcd6efe9f"
+    }
+  ],
+  "results": [
+    {
+      "label": "captured root issue688 at exact e481/afdec",
+      "ok": true,
+      "state": "PASS",
+      "reason": "current issue headers/method/identity",
+      "expected": "PASS",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "prose mention allowed: Prose says no reviewed-at-es: and no fixed-at-es: apply here.",
+      "ok": true,
+      "state": "PASS",
+      "reason": "current issue headers/method/identity",
+      "expected": "PASS",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "prose mention allowed: - This criterion says no `fixed-at-es:` and no `reviewed-at-es:`.",
+      "ok": true,
+      "state": "PASS",
+      "reason": "current issue headers/method/identity",
+      "expected": "PASS",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "prose mention allowed: **Prose:** no fixed-at-es: field is required.",
+      "ok": true,
+      "state": "PASS",
+      "reason": "current issue headers/method/identity",
+      "expected": "PASS",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "prose mention allowed: not-fixed-at-es: this is a different field name.",
+      "ok": true,
+      "state": "PASS",
+      "reason": "current issue headers/method/identity",
+      "expected": "PASS",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "actual ES header refused: 'reviewed-at-es: e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0'",
+      "ok": true,
+      "state": "FAIL",
+      "reason": "ES header present",
+      "expected": "FAIL",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "actual ES header refused: '- **reviewed-at-es:** `e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0`'",
+      "ok": true,
+      "state": "FAIL",
+      "reason": "ES header present",
+      "expected": "FAIL",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "actual ES header refused: '- `reviewed-at-es`: `e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0`'",
+      "ok": true,
+      "state": "FAIL",
+      "reason": "ES header present",
+      "expected": "FAIL",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "actual ES header refused: ' \\t**reviewed-at-es**:\\te481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0'",
+      "ok": true,
+      "state": "FAIL",
+      "reason": "ES header present",
+      "expected": "FAIL",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "actual ES header refused: 'reviewed-at-es:'",
+      "ok": true,
+      "state": "FAIL",
+      "reason": "ES header present",
+      "expected": "FAIL",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "actual ES header refused: 'reviewed-at-es: not-a-hash'",
+      "ok": true,
+      "state": "FAIL",
+      "reason": "ES header present",
+      "expected": "FAIL",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "actual ES header after criteria refused: reviewed-at-es",
+      "ok": true,
+      "state": "FAIL",
+      "reason": "ES header present",
+      "expected": "FAIL",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "actual ES header refused: 'fixed-at-es: e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0'",
+      "ok": true,
+      "state": "FAIL",
+      "reason": "ES header present",
+      "expected": "FAIL",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "actual ES header refused: '- **fixed-at-es:** `e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0`'",
+      "ok": true,
+      "state": "FAIL",
+      "reason": "ES header present",
+      "expected": "FAIL",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "actual ES header refused: '- `fixed-at-es`: `e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0`'",
+      "ok": true,
+      "state": "FAIL",
+      "reason": "ES header present",
+      "expected": "FAIL",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "actual ES header refused: ' \\t**fixed-at-es**:\\te481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0'",
+      "ok": true,
+      "state": "FAIL",
+      "reason": "ES header present",
+      "expected": "FAIL",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "actual ES header refused: 'fixed-at-es:'",
+      "ok": true,
+      "state": "FAIL",
+      "reason": "ES header present",
+      "expected": "FAIL",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "actual ES header refused: 'fixed-at-es: not-a-hash'",
+      "ok": true,
+      "state": "FAIL",
+      "reason": "ES header present",
+      "expected": "FAIL",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "actual ES header after criteria refused: fixed-at-es",
+      "ok": true,
+      "state": "FAIL",
+      "reason": "ES header present",
+      "expected": "FAIL",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "wrong current distribution tip remains refused",
+      "ok": true,
+      "state": "FAIL",
+      "reason": "fixed-at not submitted tip",
+      "expected": "FAIL",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "wrong reviewed dispatch remains refused",
+      "ok": true,
+      "state": "FAIL",
+      "reason": "reviewed-at not dispatch",
+      "expected": "FAIL",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "missing reviewed-at remains ABSENT",
+      "ok": true,
+      "state": "ABSENT",
+      "reason": "unfilled reviewed-at",
+      "expected": "ABSENT",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "missing fixed-at remains ABSENT",
+      "ok": true,
+      "state": "ABSENT",
+      "reason": "unfilled fixed-at",
+      "expected": "ABSENT",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "wrong slice title remains refused",
+      "ok": true,
+      "state": "FAIL",
+      "reason": "wrong title",
+      "expected": "FAIL",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "missing current requirement remains refused: D-WORKFLOW-222",
+      "ok": true,
+      "state": "FAIL",
+      "reason": "current method/reader/path criterion missing",
+      "expected": "FAIL",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "missing current requirement remains refused: openai/gpt-6-astra",
+      "ok": true,
+      "state": "FAIL",
+      "reason": "current method/reader/path criterion missing",
+      "expected": "FAIL",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "missing current requirement remains refused: \\u002d",
+      "ok": true,
+      "state": "FAIL",
+      "reason": "current method/reader/path criterion missing",
+      "expected": "FAIL",
+      "issue_calls": [
+        688
+      ]
+    },
+    {
+      "label": "ordinary bold Markdown distribution headers remain accepted",
+      "ok": true,
+      "state": "PASS",
+      "reason": "current issue headers/method/identity",
+      "expected": "PASS",
+      "issue_calls": [
+        688
+      ]
+    }
+  ]
+}
