@@ -1,0 +1,31 @@
+[
+  {
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/stage-b-FIRMWARE/linux-firmware-20260309",
+      "--dry-run"
+    ],
+    "rc": 0,
+    "start": "2026-11-02T16:50:48.577154+00:00",
+    "elapsed_seconds": 0.002,
+    "path": "projects/ROCKNIX/packages/linux-firmware/kernel-firmware/patches/kernel-firmware-02-add-brcmfmac-43xxx-configs.patch"
+  },
+  {
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/stage-b-FIRMWARE/linux-firmware-20260309"
+    ],
+    "rc": 0,
+    "start": "2026-11-02T16:50:48.578992+00:00",
+    "elapsed_seconds": 0.002,
+    "path": "projects/ROCKNIX/packages/linux-firmware/kernel-firmware/patches/kernel-firmware-02-add-brcmfmac-43xxx-configs.patch"
+  }
+]

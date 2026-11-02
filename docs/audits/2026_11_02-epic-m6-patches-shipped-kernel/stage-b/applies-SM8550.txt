@@ -1,0 +1,65 @@
+SM8550 001 projects/ROCKNIX/packages/linux/patches/mainline/0002-input-add-input-polldev-driver.patch rc=0 offset=0 fuzz=1 FAILED=0 verdict=fuzz
+SM8550 002 projects/ROCKNIX/packages/linux/patches/mainline/0003-pwm-add-pwm_set_period.patch rc=0 offset=1 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 003 projects/ROCKNIX/packages/linux/patches/mainline/0004-input-adc-keys-redirect-keycode-316-to-rocknix-joypa.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+SM8550 004 projects/ROCKNIX/packages/linux/patches/mainline/0005-Bluetooth-btrtl-Add-the-support-for-RTL8733BU.patch rc=0 offset=4 fuzz=1 FAILED=0 verdict=fuzz
+SM8550 005 projects/ROCKNIX/packages/linux/patches/7.2/0010-msm-resource-cleanup.patch rc=0 offset=12 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 006 projects/ROCKNIX/packages/linux/patches/7.2/0011-thermal-adc-tm5-drop-iio-val-int-check.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+SM8550 007 projects/ROCKNIX/packages/linux/patches/7.2/0013-drm-msm-dpu-fix-inline-rotation.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+SM8550 008 projects/ROCKNIX/packages/linux/patches/7.2/0016-drm-msm-dp-return-0-from-audio_prepare-when-cable-is-disconnected.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+SM8550 009 projects/ROCKNIX/packages/linux/patches/7.2/9998-silence-initramfs-unpack-warn.patch rc=0 offset=1 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 010 projects/ROCKNIX/packages/linux/patches/7.2/9999-fix-rust-build-error.patch rc=0 offset=1 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 011 projects/ROCKNIX/devices/SM8550/patches/linux/0001-pcie-update-sm8550-dtsi.patch rc=0 offset=5 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 012 projects/ROCKNIX/devices/SM8550/patches/linux/0002-qcom-dispcc-sm8550-Fix-disp_cc_mdss_mdp_clk_src.patch rc=0 offset=1 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 013 projects/ROCKNIX/devices/SM8550/patches/linux/0004-drm-msm-a6xx-Enable-IFPC-on-Adreno-740.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+SM8550 014 projects/ROCKNIX/devices/SM8550/patches/linux/0006-add-hw_params-callback-function-to-drm_connector_hdmi_audio_ops.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+SM8550 015 projects/ROCKNIX/devices/SM8550/patches/linux/0015-touchscreen-edt-ft5x06-allow-to-override-input-name.patch rc=0 offset=2 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 016 projects/ROCKNIX/devices/SM8550/patches/linux/0030-input-rmi4-add-reset-gpio.patch rc=0 offset=1 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 017 projects/ROCKNIX/devices/SM8550/patches/linux/0031_input--Add-driver-for-RSInput-Gamepad.patch rc=0 offset=2 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 018 projects/ROCKNIX/devices/SM8550/patches/linux/0032-rmi4-silence-spam-irq-errors.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+SM8550 019 projects/ROCKNIX/devices/SM8550/patches/linux/0033_leds--Add-driver-for-HEROIC-HTR3212.patch rc=0 offset=2 fuzz=1 FAILED=0 verdict=fuzz
+SM8550 020 projects/ROCKNIX/devices/SM8550/patches/linux/0036_ASoC--qcom--sc8280xp-Add-support-for-Primary-I2S.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+SM8550 021 projects/ROCKNIX/devices/SM8550/patches/linux/0047_ASoC--codecs--aw88166--AYN-Odin2-Specific-modifica.patch rc=0 offset=1 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 022 projects/ROCKNIX/devices/SM8550/patches/linux/0051-gpu-panel-add-Pocket-ACE-panel-driver.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+SM8550 023 projects/ROCKNIX/devices/SM8550/patches/linux/0052-gpu-panel-add-Pocket-DMG-panel-driver.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+SM8550 024 projects/ROCKNIX/devices/SM8550/patches/linux/0053-edt-ft5x06-add-no_regmap_bulk_read-option.patch rc=0 offset=1 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 025 projects/ROCKNIX/devices/SM8550/patches/linux/0053-gpu-panel-st7703-add-Pocket-DS-lower-panel.patch rc=0 offset=3 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 026 projects/ROCKNIX/devices/SM8550/patches/linux/0054-input-goodix-override-resolution-from-dt.patch rc=0 offset=2 fuzz=3 FAILED=0 verdict=fuzz
+SM8550 027 projects/ROCKNIX/devices/SM8550/patches/linux/0054_sn3112-pwm-driver.patch rc=0 offset=2 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 028 projects/ROCKNIX/devices/SM8550/patches/linux/0055_Synaptics-TD4328-LCD-panel.patch rc=0 offset=3 fuzz=1 FAILED=0 verdict=fuzz
+SM8550 029 projects/ROCKNIX/devices/SM8550/patches/linux/0056_Xm-Plus-XM91080G-panel.patch rc=0 offset=2 fuzz=1 FAILED=0 verdict=fuzz
+SM8550 030 projects/ROCKNIX/devices/SM8550/patches/linux/0057_Chipone-ICNA35XX-panel.patch rc=0 offset=2 fuzz=1 FAILED=0 verdict=fuzz
+SM8550 031 projects/ROCKNIX/devices/SM8550/patches/linux/0057_DDIC-CH13726A-panel.patch rc=0 offset=2 fuzz=2 FAILED=0 verdict=fuzz
+SM8550 032 projects/ROCKNIX/devices/SM8550/patches/linux/0058_AYN-Odin2-Mini--backlight.patch rc=0 offset=2 fuzz=1 FAILED=0 verdict=fuzz
+SM8550 033 projects/ROCKNIX/devices/SM8550/patches/linux/0059_AYN-Odin2-Mini--hynitron--cstxxx.patch rc=0 offset=4 fuzz=1 FAILED=0 verdict=fuzz
+SM8550 034 projects/ROCKNIX/devices/SM8550/patches/linux/0060-Add-Silergy-SY7758-backlight-driver.patch rc=0 offset=2 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 035 projects/ROCKNIX/devices/SM8550/patches/linux/0060-input-touchscreen-add-synaptics-dsx-driver.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+SM8550 036 projects/ROCKNIX/devices/SM8550/patches/linux/0060-input-touchscreen-add-synaptics-dsx-kconfig.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+SM8550 037 projects/ROCKNIX/devices/SM8550/patches/linux/0062-gpu-drm-panel-add-wt0630-panel.patch rc=0 offset=2 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 038 projects/ROCKNIX/devices/SM8550/patches/linux/0063-gpu-drm-panel-add-wt0600-1k-panel.patch rc=0 offset=2 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 039 projects/ROCKNIX/devices/SM8550/patches/linux/0064-gpu-drm-panel-add-ar16-4inch-panel.patch rc=0 offset=2 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 040 projects/ROCKNIX/devices/SM8550/patches/linux/0065-input-touchscreen-add-hynitron-cst66xx.patch rc=0 offset=2 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 041 projects/ROCKNIX/devices/SM8550/patches/linux/0066-drm-msm-dpu-enable-sm8550-inline-rotation.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+SM8550 042 projects/ROCKNIX/devices/SM8550/patches/linux/0067-drm-msm-dpu-enable-qseed-detail-enhancer.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+SM8550 043 projects/ROCKNIX/devices/SM8550/patches/linux/0071-HACK-fix-usb-boot-hang.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+SM8550 044 projects/ROCKNIX/devices/SM8550/patches/linux/0104-drm-panel-Add-Retroid-Pocket-6-panel.patch rc=0 offset=2 fuzz=1 FAILED=0 verdict=fuzz
+SM8550 045 projects/ROCKNIX/devices/SM8550/patches/linux/0105-drm-panel-Add-Retroid-Pocket-Nova-panel.patch rc=0 offset=2 fuzz=1 FAILED=0 verdict=fuzz
+SM8550 046 projects/ROCKNIX/devices/SM8550/patches/linux/0120-20250728_konradybcio_gpu_cc_power_requirements_reality_check.patch rc=0 offset=1 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 047 projects/ROCKNIX/devices/SM8550/patches/linux/0121-pmdomain-qcom-rpmhpd-presync-floor-gmu-rails.patch rc=0 offset=2 fuzz=1 FAILED=0 verdict=fuzz
+SM8550 048 projects/ROCKNIX/devices/SM8550/patches/linux/0122-interconnect__qcom__sm8550__Enable_QoS_configuration.patch rc=0 offset=40 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 049 projects/ROCKNIX/devices/SM8550/patches/linux/0200-ASoC-wcd938x-add-DMIC-DAPM-inputs.patch rc=0 offset=2 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 050 projects/ROCKNIX/devices/SM8550/patches/linux/0500-ROCKNIX-set-boot-fanspeed.patch rc=0 offset=1 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 051 projects/ROCKNIX/devices/SM8550/patches/linux/0501-ROCKNIX-fix-wifi-and-bt-mac.patch rc=0 offset=9 fuzz=1 FAILED=0 verdict=fuzz
+SM8550 052 projects/ROCKNIX/devices/SM8550/patches/linux/0502-wakeup-qcom-ipcc-remove-IRQF-NO-SUSPEND.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+SM8550 053 projects/ROCKNIX/devices/SM8550/patches/linux/0503-ROCKNIX-battery-name.patch rc=0 offset=1 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 054 projects/ROCKNIX/devices/SM8550/patches/linux/0504-Enable-64-bit-processes-to-use-compat-input-syscalls.patch rc=0 offset=6 fuzz=3 FAILED=0 verdict=fuzz
+SM8550 055 projects/ROCKNIX/devices/SM8550/patches/linux/0505-msm_gem-lock-before-put_iova_spaces.patch rc=0 offset=4 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 056 projects/ROCKNIX/devices/SM8550/patches/linux/0506-usbcore-add-interrupt-interval-override.patch rc=0 offset=4 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 057 projects/ROCKNIX/devices/SM8550/patches/linux/0507-wifi-ath12k-skip-11d-scan-on-ayaneo-pocket-s-mini.patch rc=0 offset=2 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 058 projects/ROCKNIX/devices/SM8550/patches/linux/0612-ROCKNIX-odin3-q6apm-start-mi2s-port-at-prepare.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+SM8550 059 projects/ROCKNIX/devices/SM8550/patches/linux/1000-add-qcom-haptics-driver.patch rc=0 offset=2 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 060 projects/ROCKNIX/devices/SM8550/patches/linux/1002-haptics-driver-support-periodic-sine-and-fixes.patch rc=0 offset=1 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 061 projects/ROCKNIX/devices/SM8550/patches/linux/1003-rsinput-add-ff.patch rc=0 offset=8 fuzz=2 FAILED=0 verdict=fuzz
+SM8550 062 projects/ROCKNIX/devices/SM8550/patches/linux/1005-input-qcom-haptics-defer-rsinput-playback.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+SM8550 063 projects/ROCKNIX/devices/SM8550/patches/linux/1020-wifi-ath12k-send-the-computed-scan-priority-to-the-f.patch rc=0 offset=1 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 064 projects/ROCKNIX/devices/SM8550/patches/linux/20260424_neil_armstrong_arm64_dts_qcom_sm8_456_50_add_missing_cx_power_domain_to_gcc.patch rc=0 offset=1 fuzz=0 FAILED=0 verdict=applies with offset
+SM8550 065 projects/ROCKNIX/devices/SM8550/patches/linux/v6_20260210_quic_utiwari_crypto_qce_add_runtime_pm_and_interconnect_bandwidth_scaling_support.patch rc=0 offset=5 fuzz=1 FAILED=0 verdict=fuzz

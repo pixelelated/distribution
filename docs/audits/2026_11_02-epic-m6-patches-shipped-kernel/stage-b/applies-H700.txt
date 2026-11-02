@@ -1,0 +1,42 @@
+H700 001 projects/ROCKNIX/packages/linux/patches/mainline/0002-input-add-input-polldev-driver.patch rc=0 offset=0 fuzz=1 FAILED=0 verdict=fuzz
+H700 002 projects/ROCKNIX/packages/linux/patches/mainline/0003-pwm-add-pwm_set_period.patch rc=0 offset=1 fuzz=0 FAILED=0 verdict=applies with offset
+H700 003 projects/ROCKNIX/packages/linux/patches/mainline/0004-input-adc-keys-redirect-keycode-316-to-rocknix-joypa.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+H700 004 projects/ROCKNIX/packages/linux/patches/mainline/0005-Bluetooth-btrtl-Add-the-support-for-RTL8733BU.patch rc=0 offset=4 fuzz=1 FAILED=0 verdict=fuzz
+H700 005 projects/ROCKNIX/packages/linux/patches/7.2/0010-msm-resource-cleanup.patch rc=0 offset=12 fuzz=0 FAILED=0 verdict=applies with offset
+H700 006 projects/ROCKNIX/packages/linux/patches/7.2/0011-thermal-adc-tm5-drop-iio-val-int-check.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+H700 007 projects/ROCKNIX/packages/linux/patches/7.2/0013-drm-msm-dpu-fix-inline-rotation.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+H700 008 projects/ROCKNIX/packages/linux/patches/7.2/0016-drm-msm-dp-return-0-from-audio_prepare-when-cable-is-disconnected.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+H700 009 projects/ROCKNIX/packages/linux/patches/7.2/9998-silence-initramfs-unpack-warn.patch rc=0 offset=1 fuzz=0 FAILED=0 verdict=applies with offset
+H700 010 projects/ROCKNIX/packages/linux/patches/7.2/9999-fix-rust-build-error.patch rc=0 offset=1 fuzz=0 FAILED=0 verdict=applies with offset
+H700 011 projects/ROCKNIX/devices/H700/patches/linux/0002-rg35xx-enable-HDMI-LCD.patch rc=1 offset=30 fuzz=2 FAILED=2 verdict=fails
+H700 012 projects/ROCKNIX/devices/H700/patches/linux/0003-Update-sun8i_tcon_top.c.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+H700 013 projects/ROCKNIX/devices/H700/patches/linux/0007-rg35xx-add-GPU-opp.patch rc=1 offset=1 fuzz=1 FAILED=3 verdict=fails
+H700 014 projects/ROCKNIX/devices/H700/patches/linux/0008-v8_20260804_james_hilliard1_introduce_allwinner_h616_pwm_controller.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+H700 015 projects/ROCKNIX/devices/H700/patches/linux/0010-rg35xx-enable-pwm-backlight.patch rc=1 offset=2 fuzz=0 FAILED=2 verdict=fails
+H700 016 projects/ROCKNIX/devices/H700/patches/linux/0040-Revert-usb-musb-Fix-hardware-lockup-on-first-Rx-endp.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+H700 017 projects/ROCKNIX/devices/H700/patches/linux/0110-v2_20250226_kikuchan98_drm_panel_add_generic_mipi_panel_driver.patch rc=0 offset=3 fuzz=1 FAILED=0 verdict=fuzz
+H700 018 projects/ROCKNIX/devices/H700/patches/linux/0111-rg35xx-2024-use-panel-mipi-dpi-spi-driver.patch rc=1 offset=0 fuzz=0 FAILED=2 verdict=fails
+H700 019 projects/ROCKNIX/devices/H700/patches/linux/0124-battery-name.patch rc=0 offset=2 fuzz=0 FAILED=0 verdict=applies with offset
+H700 020 projects/ROCKNIX/devices/H700/patches/linux/0126-20241018_macroalpha82_rg35xx_add_additional_hardware_support.patch rc=0 offset=4 fuzz=3 FAILED=0 verdict=fuzz
+H700 021 projects/ROCKNIX/devices/H700/patches/linux/0127-enable-mmc1-for-RG35XX-2024.patch rc=0 offset=2 fuzz=1 FAILED=0 verdict=fuzz
+H700 022 projects/ROCKNIX/devices/H700/patches/linux/0140-rg35xx-2024-use-rocknix-joypad-driver.patch rc=0 offset=4 fuzz=1 FAILED=0 verdict=fuzz
+H700 023 projects/ROCKNIX/devices/H700/patches/linux/0144-Update-sun50i-h700-anbernic-rg35xx-h.dts.patch rc=0 offset=1 fuzz=0 FAILED=0 verdict=applies with offset
+H700 024 projects/ROCKNIX/devices/H700/patches/linux/0150-add-forcefeedback.patch rc=0 offset=2 fuzz=1 FAILED=0 verdict=fuzz
+H700 025 projects/ROCKNIX/devices/H700/patches/linux/0151-phy-fix-OTG-host-mode.patch rc=0 offset=5 fuzz=0 FAILED=0 verdict=applies with offset
+H700 026 projects/ROCKNIX/devices/H700/patches/linux/0152-rg35xx-2024-enable-usb-otg.patch rc=0 offset=2 fuzz=1 FAILED=0 verdict=fuzz
+H700 027 projects/ROCKNIX/devices/H700/patches/linux/0153-enable-rgb-leds.patch rc=0 offset=3 fuzz=0 FAILED=0 verdict=applies with offset
+H700 028 projects/ROCKNIX/devices/H700/patches/linux/0154-rocknix-dt-id.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+H700 029 projects/ROCKNIX/devices/H700/patches/linux/0155-sun4i-set-rgb-connector-as-DSI.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+H700 030 projects/ROCKNIX/devices/H700/patches/linux/0156-rg35xx-plus-add-pcf8563-rtc.patch rc=0 offset=2 fuzz=1 FAILED=0 verdict=fuzz
+H700 031 projects/ROCKNIX/devices/H700/patches/linux/0157-input-axp20x-pek-do-not-report-the-key-press-that-woke-the-system.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+H700 032 projects/ROCKNIX/devices/H700/patches/linux/0158-mmc-sunxi-mmc-mask\u002ddata0-when-updating-the-clock-on-h616-emmc.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+H700 033 projects/ROCKNIX/devices/H700/patches/linux/0159-arm64-dts-rg35xx-2024-keep-the-second-sd-card-powered.patch rc=0 offset=1 fuzz=0 FAILED=0 verdict=applies with offset
+H700 034 projects/ROCKNIX/devices/H700/patches/linux/0160-phy-sun4i-usb-disable-the-clock-that-was-enabled.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+H700 035 projects/ROCKNIX/devices/H700/patches/linux/0161-drm-sun4i-gate-the-display-pipeline-across-system-suspend.patch rc=1 offset=9 fuzz=3 FAILED=4 verdict=fails
+H700 036 projects/ROCKNIX/devices/H700/patches/linux/0162-pinctrl-sunxi-release-the-lcd0-pads-while-the-panel-is-off.patch rc=1 offset=1 fuzz=1 FAILED=2 verdict=fails
+H700 037 projects/ROCKNIX/devices/H700/patches/linux/0163-asoc-sun4i-codec-suspend-the-codec-and-switch-the-amplifier-supply.patch rc=0 offset=2 fuzz=0 FAILED=0 verdict=applies with offset
+H700 038 projects/ROCKNIX/devices/H700/patches/linux/0200-h700-update-opps.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+H700 039 projects/ROCKNIX/devices/H700/patches/linux/0204-dts-Enable-hdmi-sound.patch rc=0 offset=2 fuzz=1 FAILED=0 verdict=fuzz
+H700 040 projects/ROCKNIX/devices/H700/patches/linux/0210-h616-cpu-opp-mark-480MHz-as-suspend-opp.patch rc=0 offset=0 fuzz=0 FAILED=0 verdict=applies
+H700 041 projects/ROCKNIX/devices/H700/patches/linux/0901-dts-rg35xx-2024-fix-led-1-color.patch rc=0 offset=1 fuzz=0 FAILED=0 verdict=applies with offset
+H700 042 projects/ROCKNIX/devices/H700/patches/linux/0950-arm64-dts-allwinner-h616-ramoops-reserved-memory.patch rc=0 offset=1 fuzz=0 FAILED=0 verdict=applies with offset

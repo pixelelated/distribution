@@ -1,0 +1,23 @@
+checking file drivers/clk/sunxi-ng/ccu-sun8i-de2.c
+Hunk #1 succeeded at 250 with fuzz 1 (offset -36 lines).
+Hunk #2 succeeded at 362 with fuzz 1 (offset -46 lines).
+Hunk #3 succeeded at 424 (offset -46 lines).
+checking file drivers/gpu/drm/sun4i/sun4i_drv.c
+checking file drivers/gpu/drm/sun4i/sun4i_drv.h
+checking file drivers/gpu/drm/sun4i/sun4i_tcon.c
+checking file drivers/gpu/drm/sun4i/sun4i_tcon.h
+Hunk #1 succeeded at 291 (offset -2 lines).
+checking file drivers/gpu/drm/sun4i/sun8i_mixer.c
+Hunk #2 succeeded at 413 (offset -1 lines).
+Hunk #3 succeeded at 691 (offset 11 lines).
+Hunk #4 succeeded at 710 with fuzz 2 (offset 11 lines).
+Hunk #5 FAILED at 724.
+Hunk #6 succeeded at 761 (offset -18 lines).
+1 out of 6 hunks FAILED
+checking file drivers/gpu/drm/sun4i/sun8i_mixer.h
+Hunk #1 succeeded at 207 (offset 1 line).
+Hunk #2 FAILED at 217.
+1 out of 2 hunks FAILED
+checking file drivers/gpu/drm/sun4i/sun8i_tcon_top.c
+checking file drivers/gpu/drm/sun4i/sun8i_tcon_top.h
+checking file drivers/gpu/drm/sun4i/sunxi_engine.h

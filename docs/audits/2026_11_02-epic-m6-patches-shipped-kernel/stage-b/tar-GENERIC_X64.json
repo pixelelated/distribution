@@ -1,0 +1,21 @@
+{
+  "command": [
+    "tar",
+    "--extract",
+    "--file",
+    "/workspace/cache/rocknix-sources/linux/linux-7.1.2.tar.xz",
+    "--directory",
+    "/workspace/tmp/m6-t41/src/stage-b-GENERIC_X64",
+    "--no-same-owner",
+    "--no-same-permissions",
+    "--verbatim-files-from",
+    "--files-from",
+    "/workspace/tmp/m6-t41/targets-GENERIC_X64.txt"
+  ],
+  "start": "2026-11-02T16:49:05.114247+00:00",
+  "elapsed_seconds": 0.521,
+  "rc": 2,
+  "plan": "GENERIC_X64",
+  "targets": 16,
+  "not_in_archive": 2
+}

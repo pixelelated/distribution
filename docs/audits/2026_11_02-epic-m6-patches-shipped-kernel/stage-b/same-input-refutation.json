@@ -1,0 +1,219 @@
+[
+  {
+    "path": "projects/ROCKNIX/packages/linux/patches/mainline/0002-input-add-input-polldev-driver.patch",
+    "patch_sha256": "aa49ec749c71cd97f02a9236ef0d42780229fcb6ee59d6b07ff8acd3abb72303",
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-same-input"
+    ],
+    "start": "2026-11-02T16:52:06.937576+00:00",
+    "elapsed_seconds": 0.009,
+    "rc": 0,
+    "before_tree_sha256": "955828f8517ff6078354701e61eec228e36bb74abd6231dc19249f5c7f54f853",
+    "after_tree_sha256": "48dc17c02c91de8eca2eb730ecca31b6b8b244f888ed75573d6371be03f9a683",
+    "output": "logs/same-input-H700-001.apply.out"
+  },
+  {
+    "path": "projects/ROCKNIX/packages/linux/patches/mainline/0003-pwm-add-pwm_set_period.patch",
+    "patch_sha256": "6f0099b67a0ed9d00e60a3f5d3000545e213ee278716054641dfe7cf28042703",
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-same-input"
+    ],
+    "start": "2026-11-02T16:52:06.948010+00:00",
+    "elapsed_seconds": 0.007,
+    "rc": 0,
+    "before_tree_sha256": "48dc17c02c91de8eca2eb730ecca31b6b8b244f888ed75573d6371be03f9a683",
+    "after_tree_sha256": "5b7a3c0464ae9e8686e262cacdebcc4cba6309be35d5c703314ea3bae74859d0",
+    "output": "logs/same-input-H700-002.apply.out"
+  },
+  {
+    "path": "projects/ROCKNIX/packages/linux/patches/mainline/0004-input-adc-keys-redirect-keycode-316-to-rocknix-joypa.patch",
+    "patch_sha256": "05f4739d632eaa375d9cab2f94cf554c1e8ad04f4a0700e9b510e031da70e29b",
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-same-input"
+    ],
+    "start": "2026-11-02T16:52:06.956727+00:00",
+    "elapsed_seconds": 0.008,
+    "rc": 0,
+    "before_tree_sha256": "5b7a3c0464ae9e8686e262cacdebcc4cba6309be35d5c703314ea3bae74859d0",
+    "after_tree_sha256": "63b457bd715fb2edbf1af9096d3282b80cf9fc9f7cab99387c721d5d8300bfb3",
+    "output": "logs/same-input-H700-003.apply.out"
+  },
+  {
+    "path": "projects/ROCKNIX/packages/linux/patches/mainline/0005-Bluetooth-btrtl-Add-the-support-for-RTL8733BU.patch",
+    "patch_sha256": "b4a9ba4cbc09e99730bbe3c40ba02b0021de61c58b2df54f2244a4c01fdb6316",
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-same-input"
+    ],
+    "start": "2026-11-02T16:52:06.966018+00:00",
+    "elapsed_seconds": 0.009,
+    "rc": 0,
+    "before_tree_sha256": "63b457bd715fb2edbf1af9096d3282b80cf9fc9f7cab99387c721d5d8300bfb3",
+    "after_tree_sha256": "7d36a4b0f3c3431402a9c7e26d291c5d3f475386d14991f85851a32bfd5f89e8",
+    "output": "logs/same-input-H700-004.apply.out"
+  },
+  {
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/0010-msm-resource-cleanup.patch",
+    "patch_sha256": "56cad9f7929bd322c8a513607d4850e53ffc75c04b02237b0ffb5a5b7cdd6d2d",
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-same-input"
+    ],
+    "start": "2026-11-02T16:52:06.975890+00:00",
+    "elapsed_seconds": 0.009,
+    "rc": 0,
+    "before_tree_sha256": "7d36a4b0f3c3431402a9c7e26d291c5d3f475386d14991f85851a32bfd5f89e8",
+    "after_tree_sha256": "c4f3c1b4fd2142a0938fbcffbf6b424c598c5fc0badd994e3c2f2bfc919c33de",
+    "output": "logs/same-input-H700-005.apply.out"
+  },
+  {
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/0011-thermal-adc-tm5-drop-iio-val-int-check.patch",
+    "patch_sha256": "3a145e30d3004aa29e40d13fda0f2c9305add4bd8953916981b9b3045ea9bdc2",
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-same-input"
+    ],
+    "start": "2026-11-02T16:52:06.986419+00:00",
+    "elapsed_seconds": 0.008,
+    "rc": 0,
+    "before_tree_sha256": "c4f3c1b4fd2142a0938fbcffbf6b424c598c5fc0badd994e3c2f2bfc919c33de",
+    "after_tree_sha256": "613e9fed8a2d8a01daade44cfb90cf374119f91ce3f3355040e4c0a3d1d6becb",
+    "output": "logs/same-input-H700-006.apply.out"
+  },
+  {
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/0013-drm-msm-dpu-fix-inline-rotation.patch",
+    "patch_sha256": "06900e2899ed9d1e3dd4549dfdb32696de7e85705b0536579b1a9831365c153d",
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-same-input"
+    ],
+    "start": "2026-11-02T16:52:06.995551+00:00",
+    "elapsed_seconds": 0.008,
+    "rc": 0,
+    "before_tree_sha256": "613e9fed8a2d8a01daade44cfb90cf374119f91ce3f3355040e4c0a3d1d6becb",
+    "after_tree_sha256": "99f0ddf69c3c6770e19bd1c95ce29b7ce21e37e29731571af3ea0a969aa6a8cc",
+    "output": "logs/same-input-H700-007.apply.out"
+  },
+  {
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/0016-drm-msm-dp-return-0-from-audio_prepare-when-cable-is-disconnected.patch",
+    "patch_sha256": "81665288adedb443e7c555e11ecf40cd05d819b10c6a5761e7326a64576d3815",
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-same-input"
+    ],
+    "start": "2026-11-02T16:52:07.005269+00:00",
+    "elapsed_seconds": 0.008,
+    "rc": 0,
+    "before_tree_sha256": "99f0ddf69c3c6770e19bd1c95ce29b7ce21e37e29731571af3ea0a969aa6a8cc",
+    "after_tree_sha256": "23c223df68ab598b0a957147058aa276fdff926b325543caa05b214ec057777e",
+    "output": "logs/same-input-H700-008.apply.out"
+  },
+  {
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/9998-silence-initramfs-unpack-warn.patch",
+    "patch_sha256": "52a542dd3845eb3ee27b79c0347ee399dad7a6c77c7e5b6445e16ef6d4693b88",
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-same-input"
+    ],
+    "start": "2026-11-02T16:52:07.014569+00:00",
+    "elapsed_seconds": 0.008,
+    "rc": 0,
+    "before_tree_sha256": "23c223df68ab598b0a957147058aa276fdff926b325543caa05b214ec057777e",
+    "after_tree_sha256": "efc0267ca654d6798afc177b36c4dcec1b9e2e63265569ca9661c6cc119c36b4",
+    "output": "logs/same-input-H700-009.apply.out"
+  },
+  {
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/9999-fix-rust-build-error.patch",
+    "patch_sha256": "cda5a402465aac67adf6f8d9afc935cd1adf7bc9e52392b0075a56644a9176c5",
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-same-input"
+    ],
+    "start": "2026-11-02T16:52:07.024099+00:00",
+    "elapsed_seconds": 0.008,
+    "rc": 0,
+    "before_tree_sha256": "efc0267ca654d6798afc177b36c4dcec1b9e2e63265569ca9661c6cc119c36b4",
+    "after_tree_sha256": "2c8679d35a8d5a9ec5e55b72c87869104581c76fd2a2a650ad7105589420abc1",
+    "output": "logs/same-input-H700-010.apply.out"
+  },
+  {
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0002-rg35xx-enable-HDMI-LCD.patch",
+    "patch_sha256": "3c368ef17a3632532da37c8a126fb82cdd6b21b83333abf2094914cce37a83db",
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-same-input",
+      "--dry-run"
+    ],
+    "start": "2026-11-02T16:52:07.033124+00:00",
+    "elapsed_seconds": 0.01,
+    "rc": 1,
+    "before_tree_sha256": "2c8679d35a8d5a9ec5e55b72c87869104581c76fd2a2a650ad7105589420abc1",
+    "after_tree_sha256": "2c8679d35a8d5a9ec5e55b72c87869104581c76fd2a2a650ad7105589420abc1",
+    "output": "logs/same-input-H700-011.dry.out"
+  },
+  {
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0002-rg35xx-enable-HDMI-LCD.patch",
+    "patch_sha256": "3c368ef17a3632532da37c8a126fb82cdd6b21b83333abf2094914cce37a83db",
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-same-input"
+    ],
+    "start": "2026-11-02T16:52:07.044389+00:00",
+    "elapsed_seconds": 0.01,
+    "rc": 0,
+    "before_tree_sha256": "2c8679d35a8d5a9ec5e55b72c87869104581c76fd2a2a650ad7105589420abc1",
+    "after_tree_sha256": "60a5cae32e6ad9f0ed0dfd52101e8ff9b61d4a54c33143877db1c7de7b7e07d2",
+    "output": "logs/same-input-H700-011.apply.out"
+  }
+]

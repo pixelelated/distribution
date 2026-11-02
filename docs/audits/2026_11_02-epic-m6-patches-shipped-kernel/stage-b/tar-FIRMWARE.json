@@ -1,0 +1,21 @@
+{
+  "command": [
+    "tar",
+    "--extract",
+    "--file",
+    "/workspace/cache/rocknix-sources/kernel-firmware/kernel-firmware-20260309.tar.gz",
+    "--directory",
+    "/workspace/tmp/m6-t41/src/stage-b-FIRMWARE",
+    "--no-same-owner",
+    "--no-same-permissions",
+    "--verbatim-files-from",
+    "--files-from",
+    "/workspace/tmp/m6-t41/targets-FIRMWARE.txt"
+  ],
+  "start": "2026-11-02T16:49:08.927660+00:00",
+  "elapsed_seconds": 4.801,
+  "rc": 2,
+  "plan": "FIRMWARE",
+  "targets": 2,
+  "not_in_archive": 2
+}

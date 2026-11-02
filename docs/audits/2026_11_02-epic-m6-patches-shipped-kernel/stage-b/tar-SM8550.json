@@ -1,0 +1,21 @@
+{
+  "command": [
+    "tar",
+    "--extract",
+    "--file",
+    "/workspace/cache/rocknix-sources/linux/linux-7.2.tar.xz",
+    "--directory",
+    "/workspace/tmp/m6-t41/src/stage-b-SM8550",
+    "--no-same-owner",
+    "--no-same-permissions",
+    "--verbatim-files-from",
+    "--files-from",
+    "/workspace/tmp/m6-t41/targets-SM8550.txt"
+  ],
+  "start": "2026-11-02T16:49:06.600656+00:00",
+  "elapsed_seconds": 0.529,
+  "rc": 2,
+  "plan": "SM8550",
+  "targets": 110,
+  "not_in_archive": 30
+}

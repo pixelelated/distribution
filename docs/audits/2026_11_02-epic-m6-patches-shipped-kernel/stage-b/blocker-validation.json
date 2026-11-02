@@ -1,0 +1,55 @@
+{
+  "time": "2026-11-02T16:56:31.403561+00:00",
+  "checks": [
+    {
+      "command": [
+        "./tools/rules-check",
+        "--quiet"
+      ],
+      "rc": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "./tools/register-check"
+      ],
+      "rc": 0,
+      "output": "register-check: 717 IDs, each once; every citation in the live documents names a row\n"
+    },
+    {
+      "command": [
+        "./tools/work-log-index",
+        "--check"
+      ],
+      "rc": 0,
+      "output": "work-log index: current\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "rc": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "./tools/forbidden-terms-check",
+        "--stdin"
+      ],
+      "rc": 0,
+      "output": "forbidden-terms-check: 0 hits on stdin\n"
+    },
+    {
+      "command": "planted FORBIDDEN_PATTERNS positive on stdin",
+      "rc": 1,
+      "output": "forbidden-terms-check: 1 line(s) on stdin carry a listed word\n"
+    },
+    {
+      "command": "hooks-form secret scan: compile; runtime-built positive; packet scan",
+      "rc": 0,
+      "output": "compile rc=1\n1\n0\n"
+    }
+  ]
+}

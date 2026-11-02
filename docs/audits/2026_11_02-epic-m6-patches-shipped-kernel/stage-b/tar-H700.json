@@ -1,0 +1,21 @@
+{
+  "command": [
+    "tar",
+    "--extract",
+    "--file",
+    "/workspace/cache/rocknix-sources/linux/linux-7.2.tar.xz",
+    "--directory",
+    "/workspace/tmp/m6-t41/src/stage-b-H700",
+    "--no-same-owner",
+    "--no-same-permissions",
+    "--verbatim-files-from",
+    "--files-from",
+    "/workspace/tmp/m6-t41/targets-H700.txt"
+  ],
+  "start": "2026-11-02T16:49:05.839508+00:00",
+  "elapsed_seconds": 0.512,
+  "rc": 2,
+  "plan": "H700",
+  "targets": 71,
+  "not_in_archive": 7
+}

@@ -1,7 +1,7 @@
 # Session pointer: M6.P2 T41, the kernel patches and kernel configurations the shipped and test images apply, tabled by provenance and currency (#688)
 
 > **Seeded:** 2026-11-02 by the coordinator (Opus 5.5 in the Antigravity CLI, lane `m6-coordinator`, D-WORKFLOW-189); the executor updates this file **at every checkpoint** (#1014)
-> **Last updated:** 2026-11-02 16:44:30 UTC by Codex / GPT-6-Astra / xhigh, session `01a19d12-29e3-7fe0-9f41-038dac0a5deb`, lane `m6-t3-emulators` (`wN:p6`). Identity observed in the live Herdr footer, not a provider-attested receipt.
+> **Last updated:** 2026-11-02 16:54:50 UTC by Codex / GPT-6-Astra / xhigh, session `01a19d12-29e3-7fe0-9f41-038dac0a5deb`, lane `m6-t3-emulators` (`wN:p6`). Identity observed in the live Herdr footer, not a provider-attested receipt.
 > **Branch (distribution):** `feature/m6-patches-shipped-kernel-688`, seed `f03b64419fa656fb3af61cbc8d174284020d439c` over coordinator `d7dd76665983cb87dba62397691500fcf409fafe`, carrying P1 `2174265e9c`. Accepted Stage-A artifact: `cffe3f869c5ced124e26befa36505350b4964f77`; the seed is historical, not the current tip.
 > **Worktree (distribution):** `/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688` -- the audit artifacts, the work log and this pointer live here; anything temporary under `/workspace/tmp/m6-t41/` after `df -i` (the tarballs' touched files under `/workspace/tmp/m6-t41/src/`), never `/tmp`, retired at stage H
 > **Worktree (EmulationStation):** **none**: nothing in the 107 is EmulationStation's
@@ -16,7 +16,7 @@
 > **Register:** the highest decided row per area read from the table at `d7dd766659` (D-CLOUD-193, D-INFRA-031, D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-137, D-WORKFLOW-221), the last of them **this slice's ownership row, D-WORKFLOW-221, written by the coordinator at dispatch** (ruling (l); 220 is T39's)
 > **The brief:** `docs/reviews/briefs/patches-shipped-kernel.md` at `9313492990` (version 2, sha256 prefix `24794608bcc7a0f9`, `2194` lines; version 1 `7d70da5972`, the stranger's proof `kit/t41-proof.md`)
 
-## Current focus (Stage A accepted; records corrected before Stage B)
+## Current focus (Stage B early blocker: dry-run contradicts complete application)
 
 Stage A is complete on `feature/m6-patches-shipped-kernel-688` over seed commit `f03b64419f` (cut from `d7dd766659`), pushed to `origin-https/feature/m6-patches-shipped-kernel-688`, and reported on `#688`. All Stage-A verification commands ran at `05:27:50Z–05:30:28Z` under `Claude Opus 5.5 (High)` before the `05:30 UTC` account usage-quota stop; after the owner switched the session model to `Gemini 4 Argon (High)` at `15:08 UTC` and asked every lane to stash cleanly for a new harness, the Stage-A artifacts (`docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/00-running-log.md`, `01-research-notes.md`, and `stage-a/`), this pointer, and the work log were written, committed, and pushed.
 
@@ -40,6 +40,12 @@ Stage A is complete on `feature/m6-patches-shipped-kernel-688` over seed commit 
 - The membership script, expected output and paths are under `stage-a/p1-qa-scratch/`; tip paths/script are under `stage-a/tip-qa-scratch/`. The combined `stage-a/run/stage-a.out` and `stage-a/run/stage-a-extra.out` contain the census and comparisons; there are no committed per-check TSVs or configuration diff files.
 - Existing scratch: `/workspace/tmp/m6-t41/` contains `stage-a-p1/`, `lint-proof/`, the three `order-<DEVICE>.txt`, `src/linux-7.2/arch/arm64/configs/defconfig`, `run/` (including `stage-a.trace`), and `tmp/` (including `block.out`, `block-tip.out`, checker outputs and `forced.txt`).
 - Gitignored `.qa-scratch/t41/` contains `block-1.txt`, `block-2.txt`, `block-expected.txt`, `block-tip.sh`, `block.sh`, `mb-compare.txt`, `membership.py`, `paths.txt`, `text.txt`, `tree-ih.txt`, and `tree-p1.txt`. The previous list of per-check TSVs, `patches.txt`, `confs.txt`, and `sm8550-*.diff` was erroneous.
+
+## Immediate next action — coordinator method ruling (2026-11-02 16:54:50 UTC)
+
+Records correction **`02aab33bd9842610b0d466c9c186454dc14373ee`** is pushed; checkpoint 6580886152 has the verified dated erratum. Stage B started, then reached the brief § 10 **two-commands-disagree** stop: H700 order 011 dry-run rc=1, complete scratch application rc=0 on identical tree/patch hashes. Read `docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/stage-b/early-blocker.md` and `same-input-refutation.json`. Six initial H700 failures are method-contaminated leads; no product bugs filed. All source-only jobs exited; no runtime or host allocation. 02/03/04 and the complete Stage-B checkpoint remain owed.
+
+Coordinator `wN:p2` owns the question: authoritative complete application in a disposable scratch copy, or another sequence-aware dry-run method. Resume after that method is specified; this is not another Stage-A approval relay. Preserve existing patched scratch and original output; use fresh named scratch for a rerun. Firmware's empty-root runner edge case was resolved with dry/apply rc=0, not a blocker.
 
 ## Next action (Stage B authorized by acceptance comment 6582546759)
 

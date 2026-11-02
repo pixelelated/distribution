@@ -1,0 +1,21 @@
+{
+  "command": [
+    "tar",
+    "--extract",
+    "--file",
+    "/workspace/cache/rocknix-sources/u-boot-DDR3/u-boot-DDR3-v2026.01.tar.gz",
+    "--directory",
+    "/workspace/tmp/m6-t41/src/stage-b-UBOOT-DDR3",
+    "--no-same-owner",
+    "--no-same-permissions",
+    "--verbatim-files-from",
+    "--files-from",
+    "/workspace/tmp/m6-t41/targets-UBOOT-DDR3.txt"
+  ],
+  "start": "2026-11-02T16:49:07.440497+00:00",
+  "elapsed_seconds": 0.396,
+  "rc": 2,
+  "plan": "UBOOT-DDR3",
+  "targets": 5,
+  "not_in_archive": 1
+}

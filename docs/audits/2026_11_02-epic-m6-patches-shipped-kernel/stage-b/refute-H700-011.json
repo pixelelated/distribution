@@ -1,0 +1,156 @@
+[
+  {
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-011"
+    ],
+    "path": "projects/ROCKNIX/packages/linux/patches/mainline/0002-input-add-input-polldev-driver.patch",
+    "rc": 0,
+    "start": "2026-11-02T16:50:48.539017+00:00",
+    "elapsed_seconds": 0.002
+  },
+  {
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-011"
+    ],
+    "path": "projects/ROCKNIX/packages/linux/patches/mainline/0003-pwm-add-pwm_set_period.patch",
+    "rc": 0,
+    "start": "2026-11-02T16:50:48.542638+00:00",
+    "elapsed_seconds": 0.002
+  },
+  {
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-011"
+    ],
+    "path": "projects/ROCKNIX/packages/linux/patches/mainline/0004-input-adc-keys-redirect-keycode-316-to-rocknix-joypa.patch",
+    "rc": 0,
+    "start": "2026-11-02T16:50:48.545584+00:00",
+    "elapsed_seconds": 0.002
+  },
+  {
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-011"
+    ],
+    "path": "projects/ROCKNIX/packages/linux/patches/mainline/0005-Bluetooth-btrtl-Add-the-support-for-RTL8733BU.patch",
+    "rc": 0,
+    "start": "2026-11-02T16:50:48.548569+00:00",
+    "elapsed_seconds": 0.002
+  },
+  {
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-011"
+    ],
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/0010-msm-resource-cleanup.patch",
+    "rc": 0,
+    "start": "2026-11-02T16:50:48.551918+00:00",
+    "elapsed_seconds": 0.003
+  },
+  {
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-011"
+    ],
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/0011-thermal-adc-tm5-drop-iio-val-int-check.patch",
+    "rc": 0,
+    "start": "2026-11-02T16:50:48.556351+00:00",
+    "elapsed_seconds": 0.002
+  },
+  {
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-011"
+    ],
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/0013-drm-msm-dpu-fix-inline-rotation.patch",
+    "rc": 0,
+    "start": "2026-11-02T16:50:48.559285+00:00",
+    "elapsed_seconds": 0.002
+  },
+  {
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-011"
+    ],
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/0016-drm-msm-dp-return-0-from-audio_prepare-when-cable-is-disconnected.patch",
+    "rc": 0,
+    "start": "2026-11-02T16:50:48.562307+00:00",
+    "elapsed_seconds": 0.002
+  },
+  {
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-011"
+    ],
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/9998-silence-initramfs-unpack-warn.patch",
+    "rc": 0,
+    "start": "2026-11-02T16:50:48.565357+00:00",
+    "elapsed_seconds": 0.002
+  },
+  {
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-011"
+    ],
+    "path": "projects/ROCKNIX/packages/linux/patches/7.2/9999-fix-rust-build-error.patch",
+    "rc": 0,
+    "start": "2026-11-02T16:50:48.568445+00:00",
+    "elapsed_seconds": 0.002
+  },
+  {
+    "command": [
+      "patch",
+      "-p1",
+      "-N",
+      "--batch",
+      "--directory",
+      "/workspace/tmp/m6-t41/src/refute-H700-011"
+    ],
+    "path": "projects/ROCKNIX/devices/H700/patches/linux/0002-rg35xx-enable-HDMI-LCD.patch",
+    "rc": 0,
+    "start": "2026-11-02T16:50:48.571770+00:00",
+    "elapsed_seconds": 0.004
+  }
+]
