@@ -1,0 +1,19 @@
+[
+  {
+    "case": "missing-exception",
+    "fail": [
+      "second-opinions/review-plan.json or its call evidence is invalid: local-only cannot satisfy Epic/Milestone"
+    ],
+    "ok": [],
+    "rc": 1
+  },
+  {
+    "case": "valid-local",
+    "fail": [],
+    "ok": [
+      "review plan: local, 1 model perspectives, 0 verified external calls",
+      "review-plan: local at epic tier under D-WORKFLOW-184 (T42 is a source provenance table under plan 6c and D-WORKFLOW-225; no independent review or runtime claim.)"
+    ],
+    "rc": 0
+  }
+]

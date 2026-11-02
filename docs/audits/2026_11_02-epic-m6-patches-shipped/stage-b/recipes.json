@@ -1,0 +1,5428 @@
+{
+  "packages/addons/addon-depends/system-tools-depends/lm_sensors/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"lm_sensors\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"3.6.2\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"c6a0587e565778a40d88891928bf8943f27d353f382d5b745a997d635978a8f0\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://github.com/groeck/lm-sensors/archive/V${PKG_VERSION//./-}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "cbe0e87e8f8ccb0bf676633d11cafec54ae053da",
+    "path": "packages/addons/addon-depends/system-tools-depends/lm_sensors/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "71fa17b07446e18a6b105d16692f680ab3c6f1be9f3336259c59fbf51af10ca2",
+    "upstream": "identical"
+  },
+  "packages/addons/addon-depends/system-tools-depends/usb-modeswitch/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"usb-modeswitch\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"2.6.2\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"f7abd337784a9d1bd39cb8a587518aff6f2a43d916145eafd80b1b8b7146db66\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"http://www.draisberghof.de/usb_modeswitch/${PKG_NAME}-${PKG_VERSION}.tar.bz2\""
+      }
+    ],
+    "includes": [],
+    "oid": "18b579432de5440a107357ca04b134c956f703c2",
+    "path": "packages/addons/addon-depends/system-tools-depends/usb-modeswitch/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "e87cdcce7106f1a2f98518bfcdf6d13a344e8b8569bea3c6258460d7da648f92",
+    "upstream": "identical"
+  },
+  "packages/audio/fluidsynth/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"fluidsynth\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"2.5.7\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"ce27840221ab00dd59bf27e85ecbba480c6c2a7c9fbec4243658f68f59c07f4a\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://github.com/FluidSynth/fluidsynth/archive/v${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "76d5d55e8c7299f8b0ce26256372587dbe6ccc69",
+    "path": "packages/audio/fluidsynth/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "5d9143a338e5c9e88597a826d6814ec868d7d6819a27353223108f05e45f68f2",
+    "upstream": "identical"
+  },
+  "packages/audio/soxr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"soxr\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"0.1.3\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"b111c15fdc8c029989330ff559184198c161100a59312f5dc19ddeb9b5a15889\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://downloads.sourceforge.net/project/soxr/${PKG_NAME}-${PKG_VERSION}-Source.tar.xz\""
+      }
+    ],
+    "includes": [],
+    "oid": "9d82b03ae7b50843d20d6085764d49e3dd0a9fce",
+    "path": "packages/audio/soxr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "2cf55d01dec0800b2e5cb4fd0312f13c0bc598d0b1266685c4ee367443c8dfc1",
+    "upstream": "identical"
+  },
+  "packages/compress/7-zip/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"7-zip\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"26.02\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"cf967c98bca02a4b8b16375f441825a8e141362f14be1969bbec8e1ca0bff9dd\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://www.7-zip.org/a/7z${PKG_VERSION/./}-src.tar.xz\""
+      },
+      {
+        "line": 14,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "31510cc10edb324a535e1af650bdce70c9341803",
+    "path": "packages/compress/7-zip/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "10526eb946611c252a1a0af284edfd0f79f2690759c6e6ce9a5390cf52d06480",
+    "upstream": "identical"
+  },
+  "packages/compress/lzo/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"lzo\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"2.10\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"c0f892943208266f9b6543b3ae308fab6284c5c90e627931446fb49b4221a072\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"http://www.oberhumer.com/opensource/lzo/download/${PKG_NAME}-${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "e7514a9681e0032e4b4f29fd9044828d040a2cd9",
+    "path": "packages/compress/lzo/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "38de70baca49cd7522b1a7da0b933dd03428b03e6e1a3f4b1b5acf47c931a265",
+    "upstream": "identical"
+  },
+  "packages/databases/sqlite/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"sqlite\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"3.53.4\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_SHA256=\"0e9483900e92cd5de8fd48d16bf9200145a61f7fd5be542a5ac81d8a9516eb9c\""
+      },
+      {
+        "line": 11,
+        "text": "PKG_URL=\"https://www.sqlite.org/2026/${PKG_NAME}-autoconf-${PKG_VERSION_SQLITE/./0}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "50a13375aabdbadf328b8513d460f255c8c0c1a6",
+    "path": "packages/databases/sqlite/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "a2a4d92b0c2bb0dcb548d1c5c946b73c4c9f8b5325aba970548aad567022c99a",
+    "upstream": "identical"
+  },
+  "packages/debug/gdb/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"gdb\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"17.2\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"1c036c0d72e4b3d1fb5c94c88632add6f9d76f4d7c4d2ea793c12a9f19a3228c\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://ftp.gnu.org/gnu/gdb/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      }
+    ],
+    "includes": [],
+    "oid": "99583268827ccf24fce86d10223e524b3d254ae6",
+    "path": "packages/debug/gdb/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "5e279df1f639b0ffc54896dd9e9025173ce73f0684fc7f04ae0aab4b344a4615",
+    "upstream": "identical"
+  },
+  "packages/debug/libunwind/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"libunwind\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1.8.3\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"21b26bc75cd37b548d7952f2794cde711efa6c6151c4147cc3c52cfedbf11df4\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://github.com/libunwind/libunwind/archive/refs/tags/v${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"autotools\""
+      }
+    ],
+    "includes": [],
+    "oid": "c050394d209debf8b0b4cf7a19f884ba19daa958",
+    "path": "packages/debug/libunwind/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "40cee4b2aacc4518e34d72fac1a5c8f9aae3ed9ac5d4462e4ec557ce2c3c8195",
+    "upstream": "identical"
+  },
+  "packages/debug/memtester/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"memtester\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"4.7.1\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"e427de663f7bd22d1ebee8af12506a852c010bd4fcbca1e0e6b02972d298b5bb\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"http://pyropus.ca/software/memtester/old-versions/memtester-${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "72f0aa29c07ac3ba1ecc30c7c49d325af48d5584",
+    "path": "packages/debug/memtester/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "fe1a5c1b48ea5268373ec6f8a7c3668a9a25d0e88bf2cf7ba188e6210771de87",
+    "upstream": "identical"
+  },
+  "packages/devel/autoconf/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"autoconf\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"2.73\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"9fd672b1c8425fac2fa67fa0477b990987268b90ff36d5f016dae57be0d6b52e\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://ftpmirror.gnu.org/autoconf/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      }
+    ],
+    "includes": [],
+    "oid": "8d9f6293fd83686b037a87ff9ad1be849bf1e784",
+    "path": "packages/devel/autoconf/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "04bfc5227d6b7aaa9d97db31ae46bb8f1cb97bb86a174ad1c6c7dc5fb20a2cd9",
+    "upstream": "identical"
+  },
+  "packages/devel/automake/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"automake\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"1.18.1\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"168aa363278351b89af56684448f525a5bce5079d0b6842bd910fdd3f1646887\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://ftpmirror.gnu.org/automake/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      }
+    ],
+    "includes": [],
+    "oid": "fe091a9d4b9e08804f75b4632620866f1bfe7b66",
+    "path": "packages/devel/automake/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "6a093383da4d01e73040183100895c11a4c198ce4e29c047eef702624a33a07d",
+    "upstream": "identical"
+  },
+  "packages/devel/binutils/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"binutils\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"2.47\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"154ab23b60070e8f27013c22977f1129425d67d1e8acd6e13010e617811e4cff\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://ftp.gnu.org/gnu/binutils/binutils-${PKG_VERSION}.tar.xz\""
+      }
+    ],
+    "includes": [],
+    "oid": "c384330e7f212ddc6d8756f51570baeb281af41f",
+    "path": "packages/devel/binutils/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 51,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "223163966645184fafd9ea7e1cf8404e880216c4857cc96766e4d5c9775e79d0",
+    "upstream": "identical"
+  },
+  "packages/devel/crossguid/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"crossguid\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"ca1bf4b810e2d188d04cb6286f957008ee1b7681\" # 2019-05-30"
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"6be27e0b3a4907f0cd3cfadec255ee1b925569e1bd06e67a4d2f4267299b69c4\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://github.com/graeme-hill/crossguid/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "b9fb9a34fe27c627db502577c8fa6ec593fa3df2",
+    "path": "packages/devel/crossguid/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "1c056a8705c95da4d1eb98808b3611c7421c0db9cd5bdee9202f27c7a67918e0",
+    "upstream": "identical"
+  },
+  "packages/devel/elfutils/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"elfutils\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"0.195\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"37629fdf7f1f3dc2818e138fca2b8094177d6c2d0f701d3bb650a561218dc026\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://sourceware.org/elfutils/ftp/${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.bz2\""
+      },
+      {
+        "line": 14,
+        "text": "PKG_TOOLCHAIN=\"autotools\""
+      }
+    ],
+    "includes": [],
+    "oid": "716760e04f852f23f2012330835fd008e67ec11d",
+    "path": "packages/devel/elfutils/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "7ffa78651cedcef8bbe2deb2b897c195bafe265af18161ea5f3f7fe160fb0e38",
+    "upstream": "identical"
+  },
+  "packages/devel/flex/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"flex\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"2.6.4\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://github.com/westes/flex/releases/download/v${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 14,
+        "text": "PKG_TOOLCHAIN=\"autotools\""
+      }
+    ],
+    "includes": [],
+    "oid": "8bccd282646cca7a6d707c8795de0c717cc1e39a",
+    "path": "packages/devel/flex/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "b8a578dd06b93a807c6986dcc93af866f82e37ee992d27015b956f05d35a4790",
+    "upstream": "identical"
+  },
+  "packages/devel/gcem/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"gcem\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1.18.0\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"8e71a9f5b62956da6c409dda44b483f98c4a98ae72184f3aa4659ae5b3462e61\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://github.com/kthohr/gcem/archive/v${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "8df111d5a300b49e84a5c37912cc4d1f6fc3bd47",
+    "path": "packages/devel/gcem/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "380adbabda7b909ae9b8ce4b5583809fc349dfbaa965b471b91ca699c718fc76",
+    "upstream": "identical"
+  },
+  "packages/devel/gettext/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"gettext\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"1.0\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"71132a3fb71e68245b8f2ac4e9e97137d3e5c02f415636eb508ae607bc01add7\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://ftp.gnu.org/pub/gnu/gettext/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      }
+    ],
+    "includes": [],
+    "oid": "74d0bb24bca90148713231aacddfc25c9a0bcd8c",
+    "path": "packages/devel/gettext/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "13a790d7096169eebbfe205e582840bf26adfc341185334a980fd965c9761c97",
+    "upstream": "identical"
+  },
+  "packages/devel/glib/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"glib\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"2.89.3\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"09fd1e99f991067749ad66090e482ec4bd6514ad53abb4e9fbbdc2a4d2753532\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://download.gnome.org/sources/glib/$(get_pkg_version_maj_min)/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      }
+    ],
+    "includes": [],
+    "oid": "684c54b45985d7a6176c477f18238598f42b8c8e",
+    "path": "packages/devel/glib/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "622528243798bc77e8f5d8af719ffc3ce284f8858ea7e09254d052e01ea5adeb",
+    "upstream": "identical"
+  },
+  "packages/devel/gmp/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"gmp\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"6.3.0\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://gmplib.org/download/gmp/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      }
+    ],
+    "includes": [],
+    "oid": "4858369919d545d9b21112e02c67f59416b48efa",
+    "path": "packages/devel/gmp/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "777b0c667f30964af00714939fc62e682f392de2ac06e3f952fc903b00c387ee",
+    "upstream": "identical"
+  },
+  "packages/devel/heimdal/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"heimdal\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"f4faaeaba371fff3f8d1bc14389f5e6d70ca8e17\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"2576c5e2d793db53c86e108fd117b278437bb02d6c6db2bec4d1b86958f1980a\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://github.com/heimdal/heimdal/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"autotools\""
+      }
+    ],
+    "includes": [],
+    "oid": "53ffe1b06d24566328fb9b55f68d200780115882",
+    "path": "packages/devel/heimdal/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "23cfb745f94396247108fe899f1a97a8ab8343dfea9ac2e58a8e079ca5a6b326",
+    "upstream": "identical"
+  },
+  "packages/devel/intltool/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"intltool\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"0.51.0\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"67c74d94196b153b774ab9f89b2fa6c6ba79352407037c8c14d5aeb334e959cd\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"http://launchpad.net/intltool/trunk/${PKG_VERSION}/+download/${PKG_NAME}-${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "876a90e0ab80b74a670bd8d36fe2cf4ac8d0e76a",
+    "path": "packages/devel/intltool/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "19252de05d8a684598fcc2b10da2c699210b0c5f89bce1b82b04af5a35dcc9be",
+    "upstream": "identical"
+  },
+  "packages/devel/libevent/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"libevent\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"2.1.13\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"f7e9383b8c0baa81b687e5b5eecc01beefaf1b19b64151d95ed61647fe7a315c\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://github.com/libevent/libevent/releases/download/release-${PKG_VERSION}-stable/libevent-${PKG_VERSION}-stable.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "ff197abb4ac9c7df44b43b4b579ed83fdc673116",
+    "path": "packages/devel/libevent/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "3a611d6677a6443ec5842097c6b5839ecd5328028a1645cb9891ea83134afd3c",
+    "upstream": "identical"
+  },
+  "packages/devel/libffi/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"libffi\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"3.8.0\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"7da3e2d9a171eb0a038f592ecad3ff2bb2550f3496d87b3b29ad0cf4430c0db4\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://github.com/libffi/libffi/releases/download/v${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 14,
+        "text": "PKG_TOOLCHAIN=\"autotools\""
+      }
+    ],
+    "includes": [],
+    "oid": "88bacd89a7ee2b6ff7688d91bf822e9c058c88cb",
+    "path": "packages/devel/libffi/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "9145c6d33b32343af890af1615b6e499a77a567fe992ba2f3c55a97913768079",
+    "upstream": "identical"
+  },
+  "packages/devel/libtool/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"libtool\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"2.6.2\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"2ef1067c16c97db930fd740cc9bc3d3ba9a583804ae5ac42cc3e8719e49e191e\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://ftpmirror.gnu.org/libtool/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      },
+      {
+        "line": 14,
+        "text": "PKG_TOOLCHAIN=\"autotools\""
+      }
+    ],
+    "includes": [],
+    "oid": "057c84f4e6cff7dfb675d9f247fbd52c99775e0a",
+    "path": "packages/devel/libtool/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 19,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "8713690b5f5641f3f87f359cbd30326839966b5c17f5d42ca530d3eba202c93e",
+    "upstream": "identical"
+  },
+  "packages/devel/pkg-config/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"pkg-config\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"0.29.2\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"6fc69c01688c9458a57eb9a1664c9aba372ccda420a02bf4429fe610e7e7d591\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"http://pkg-config.freedesktop.org/releases/${PKG_NAME}-${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "9d19aa65e5d7a83a97bd18ea8ebf027668b90de7",
+    "path": "packages/devel/pkg-config/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "91d8b5a3b80deb1af9dbb47c25c4627713d2576285636aff6921c08027340985",
+    "upstream": "identical"
+  },
+  "packages/devel/readline/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"readline\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"8.3\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"fe5383204467828cd495ee8d1d3c037a7eba1389c22bc6a041f627976f9061cc\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://ftpmirror.gnu.org/readline/${PKG_NAME}-${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "1adbfa2a285e38c2a80ccb3ac32b8e38dd72af74",
+    "path": "packages/devel/readline/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "3cbb8a9605368d845cf0ef88229da9cd5db985ff422a633637511551d7aedb24",
+    "upstream": "identical"
+  },
+  "packages/graphics/vulkan/vkmark/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"vkmark\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"2025.01\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"1ae362844344d0f9878b7a3f13005f77eae705108892a4e8abf237d452d37edc\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://github.com/vkmark/vkmark/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "d550260fe429b85d662597aa75ab203b1bcbbcfe",
+    "path": "packages/graphics/vulkan/vkmark/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "68a3d0be07cf2e33552d2288a51f2f49dd85289bcb3e3ed3a735d5cf3288fc40",
+    "upstream": "identical"
+  },
+  "packages/graphics/woff2/package.mk": {
+    "base": "absent",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"woff2\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1.0.2\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"add272bb09e6384a4833ffca4896350fdb16e0ca22df68c0384773c67a175594\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://github.com/google/woff2/archive/v${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"cmake\""
+      }
+    ],
+    "includes": [],
+    "oid": "7be2aaa056294bb74242f4386b15e3e55c6b6762",
+    "path": "packages/graphics/woff2/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "1a69c647444cd0bbe313cbe67e9669bd8ed6a7cfab1bd740444a9815dcc5c0c8",
+    "upstream": "absent"
+  },
+  "packages/lang/Python3/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"Python3\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"3.14.7\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"3b48dac8fb59f62eaa67ac83c1eb12bda1b7a08406dd286e252c11a66be27f81\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://www.python.org/ftp/python/${PKG_VERSION}/${PKG_NAME::-1}-${PKG_VERSION}.tar.xz\""
+      },
+      {
+        "line": 15,
+        "text": "PKG_TOOLCHAIN=\"autotools\""
+      }
+    ],
+    "includes": [],
+    "oid": "e514f16c90c7d8acd6d842b58915965049c0c456",
+    "path": "packages/lang/Python3/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "41bc2960664a6d3b2a7643f0d145ce343f0bf0d585614856f0e750190d8aa295",
+    "upstream": "identical"
+  },
+  "packages/lang/gcc/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"gcc\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"16.2.0\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"e6738e29597f733270731aa90600f37ffdc045079dfc27ec7e8192cc81085c3e\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://ftpmirror.gnu.org/gnu/gcc/${PKG_NAME}-${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      }
+    ],
+    "includes": [],
+    "oid": "799088f83fda3245a0f72b433ed69d716824b2a9",
+    "path": "packages/lang/gcc/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "15c25564870e1eaa487b2e209285a331939a67f3a43efebbf518703865c69958",
+    "upstream": "identical"
+  },
+  "packages/print/freetype/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"freetype\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"2.14.3\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"36bc4f1cc413335368ee656c42afca65c5a3987e8768cc28cf11ba775e785a5f\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://download.savannah.gnu.org/releases/freetype/freetype-${PKG_VERSION}.tar.xz\""
+      },
+      {
+        "line": 14,
+        "text": "PKG_TOOLCHAIN=\"configure\""
+      }
+    ],
+    "includes": [],
+    "oid": "3c8eac5c97d8985e02f8c33af5a7f2fd9eeab5dc",
+    "path": "packages/print/freetype/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "d08944637fcc182bf9f2cfc2d5131b719e6e17a9bab7909f6e275a0eb7a372de",
+    "upstream": "identical"
+  },
+  "packages/security/libgcrypt/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"libgcrypt\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"1.12.2\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"7ce33c2492221a0436f96a8500215e9f3e3dcb5fd26a757cd415e7a843babd5e\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://www.gnupg.org/ftp/gcrypt/libgcrypt/${PKG_NAME}-${PKG_VERSION}.tar.bz2\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"autotools\""
+      }
+    ],
+    "includes": [],
+    "oid": "91aad6a003c2bd8baf578a9d38c2a1365c6738d9",
+    "path": "packages/security/libgcrypt/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "c2db6cb99959ba3cec14da97c527d6222e1fa028a8f448be32959459d6f20c14",
+    "upstream": "identical"
+  },
+  "packages/security/libxcrypt/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"libxcrypt\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"4.5.2\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"71513a31c01a428bccd5367a32fd95f115d6dac50fb5b60c779d5c7942aec071\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://github.com/besser82/libxcrypt/releases/download/v${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      }
+    ],
+    "includes": [],
+    "oid": "89b2a9453e462b4a07d3d440c9a1dbb3a0165a7e",
+    "path": "packages/security/libxcrypt/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "f38b7aae2d17e86252041b62275675d3f7bbb31e9643d5f21962f5819f5e3b14",
+    "upstream": "identical"
+  },
+  "packages/security/nss/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"nss\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"3.126\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"c95a4cf93d6939000642254422d71dffccb5c017d0f40733d3e2be18aa93f1be\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://ftp.mozilla.org/pub/security/nss/releases/NSS_${PKG_VERSION//./_}_RTM/src/nss-${PKG_VERSION}-with-nspr-$(get_pkg_version nspr).tar.gz\""
+      },
+      {
+        "line": 14,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "7690102c16e4409c95fe8ac3241dbddf3a83e84e",
+    "path": "packages/security/nss/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "689c57ff12b03378e32ce57885178559a1529d7f6423a165a0ac3c34a258a180",
+    "upstream": "identical"
+  },
+  "packages/sysutils/dosfstools/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"dosfstools\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"4.2\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"64926eebf90092dca21b14259a5301b7b98e7b1943e8a201c7d726084809b527\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://github.com/dosfstools/dosfstools/releases/download/v${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "3909537065e1e445853ef193a27a006987cbe829",
+    "path": "packages/sysutils/dosfstools/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "57e7b9316518b1fdb15ad203f14e86d731bbb6286f9d1bbff4a54c858005ef6f",
+    "upstream": "identical"
+  },
+  "packages/sysutils/fuse/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"fuse\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"5a43d0f724c56f8836f3f92411e0de1b5f82db32\" # 2.9.9+"
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"1df88a204e1673e29112f1ee4efe6b3cd4de2ae78945838e406ead0fe24ec5f1\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://github.com/libfuse/libfuse/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"autotools\""
+      }
+    ],
+    "includes": [],
+    "oid": "e9947860caad2e5e685f10b966a9250287392705",
+    "path": "packages/sysutils/fuse/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "d2009b569286c9bb7afa0a0a7b1d3305bddf17622959127cc04e0933f4a716f4",
+    "upstream": "identical"
+  },
+  "packages/sysutils/keyutils/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"keyutils\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"1.6.3\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"a61d5706136ae4c05bd48f86186bcfdbd88dd8bd5107e3e195c924cfc1b39bb4\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/snapshot/${PKG_NAME}-${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "104f311a27f6c7862a5c1302662bd30bf8b745cc",
+    "path": "packages/sysutils/keyutils/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "c8e0e1321c62802fd1f09bd2b4027a6ea833dc3dd5abbf296a522da8ccb31863",
+    "upstream": "identical"
+  },
+  "packages/sysutils/pciutils/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"pciutils\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"3.15.0\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"c02940f430841ecf158d5d9a50007afc4d5353c8678a2455003ca0b2c4e9f5ff\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://www.kernel.org/pub/software/utils/pciutils/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      }
+    ],
+    "includes": [],
+    "oid": "230badc0335940be2839185f141c675b33b4b891",
+    "path": "packages/sysutils/pciutils/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "14f1fe2f563e96045e0e6e76981a7e1a31a566768246941a6ec07c58e01ecfba",
+    "upstream": "identical"
+  },
+  "packages/textproc/itstool/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"itstool\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"2.0.7\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"6b9a7cd29a12bb95598f5750e8763cee78836a1a207f85b74d8b3275b27e87ca\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"http://files.itstool.org/itstool/itstool-${PKG_VERSION}.tar.bz2\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"autotools\""
+      }
+    ],
+    "includes": [],
+    "oid": "b5ddf0590e707202512ccb6df9824b95eba74ff3",
+    "path": "packages/textproc/itstool/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "f6fee9bf700b3267afcd1ed537f754adda432f8d6894743e3a05e8c27d68f982",
+    "upstream": "identical"
+  },
+  "packages/textproc/pugixml/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"pugixml\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1.16\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"357bcab8877dc9943f355d3a72daba1b053238ba955f50fa81586afb65090219\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://github.com/zeux/pugixml/archive/v${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "9f0516e11b71dd97b0ea391eb18611059b784b95",
+    "path": "packages/textproc/pugixml/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "ae113f79550d110be37020e115de2153c07aa7ee2a12039d168b4e68e2e4d73f",
+    "upstream": "identical"
+  },
+  "packages/textproc/xmlstarlet/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"xmlstarlet\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"1.6.1\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"15d838c4f3375332fd95554619179b69e4ec91418a3a5296e7c631b7ed19e7ca\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://github.com/xmlstarlet/xmlstarlet/releases/download/${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "813df34e38ab8208f2784b741540daec385d29e0",
+    "path": "packages/textproc/xmlstarlet/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "ca3882a8f4a642229148741e778c5b49b7a22d2f9ae60384a0381356ed085bd9",
+    "upstream": "identical"
+  },
+  "packages/tools/mtools/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"mtools\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"4.0.49\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"6fe5193583d6e7c59da75e63d7234f76c0b07caf33b103894f46f66a871ffc9f\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://ftpmirror.gnu.org/${PKG_NAME}/${PKG_NAME}-${PKG_VERSION}.tar.bz2\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"autotools\""
+      }
+    ],
+    "includes": [],
+    "oid": "be70acd70781c71fef5161b9b80a16139ffc59eb",
+    "path": "packages/tools/mtools/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "e7e6bf80c4a73688828b4f9ad0572b5850ffca299de79976b2e3df031a76aab2",
+    "upstream": "identical"
+  },
+  "packages/tools/syslinux/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"syslinux\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"6.03\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"26d3986d2bea109d5dc0e4f8c4822a459276cf021125e8c9f23c3cca5d8c850e\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_ARCH=\"x86_64\""
+      },
+      {
+        "line": 11,
+        "text": "PKG_URL=\"http://www.kernel.org/pub/linux/utils/boot/${PKG_NAME}/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      }
+    ],
+    "includes": [],
+    "oid": "7a65cfdc5d5df2010cb5b6f4cc207640e031919b",
+    "path": "packages/tools/syslinux/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "8e867053750a3b6bfb9423f2a92adad3dd7675329f3cfab64ba7551acbcffcc0",
+    "upstream": "changed"
+  },
+  "packages/wayland/wayland-protocols/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"wayland-protocols\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1.49\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"ec4c8f74942d6dff7ace8b4ce4764f0ef9ff618a935d974ea77edee2ad240b14\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://gitlab.freedesktop.org/wayland/${PKG_NAME}/-/releases/${PKG_VERSION}/downloads/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      }
+    ],
+    "includes": [],
+    "oid": "06e0b679f08d75a74095a37c819ab57c4e16109e",
+    "path": "packages/wayland/wayland-protocols/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "85e3c74d9947ee3edfe813f0c4ca6662a782c312fb9542e56ebf20c7b80a5dd6",
+    "upstream": "identical"
+  },
+  "packages/web/webkitgtk/package.mk": {
+    "base": "absent",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"webkitgtk\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"2.54.1\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"ea0bbb02dbdbc596874a4e7ad35b66645b3e0a232bd0e4081de5ed92eb0a397d\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://webkitgtk.org/releases/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      },
+      {
+        "line": 17,
+        "text": "PKG_TOOLCHAIN=\"cmake\""
+      }
+    ],
+    "includes": [],
+    "oid": "eb94b26e14035b7e26420e5181901895fc129228",
+    "path": "packages/web/webkitgtk/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "2de4b96cb16e942ce7699b5529b9949c2c52cf5a8c6661cbaee55f226b94bd4e",
+    "upstream": "absent"
+  },
+  "packages/x11/lib/libX11/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"libX11\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"1.8.13\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"69606f485c2c07c14ef64f75b7bb326d48587af33795d9ab3e607c0b5f94f11c\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://xorg.freedesktop.org/archive/individual/lib/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"autotools\""
+      }
+    ],
+    "includes": [],
+    "oid": "a5a4bffa6453c47515be74cb9d10daecb00ea534",
+    "path": "packages/x11/lib/libX11/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "f37c4e9679a9c1d20b97e2b585347ebe26df68d921c28e7ec4f1635aa40d4b29",
+    "upstream": "identical"
+  },
+  "packages/x11/util/xorg-launch-helper/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"xorg-launch-helper\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"4\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"a7f8809a1810212506893ac5c62d8d17fee7a980fb10d59d1bef36f694767be5\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"http://foo-projects.org/~sofar/${PKG_NAME}/${PKG_NAME}-${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"autotools\""
+      }
+    ],
+    "includes": [],
+    "oid": "9c199ae078e15d2f1bd4f8511b22abd05d40ba8f",
+    "path": "packages/x11/util/xorg-launch-helper/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "1c57690fee0b498034f7edbe50878eff6d534fa5bf6af4ad186cc86b9bb01c26",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/devices/H700/packages/u-boot/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"u-boot\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1.0\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"\""
+      },
+      {
+        "line": 11,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "ac45a454770f4e79a6aad6cd572ffa55fe3a39b7",
+    "path": "projects/ROCKNIX/devices/H700/packages/u-boot/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "020d07bc7de8aa3b47cbbbb42b045f2f9ddc6ffa8c266c3793d987d861d2eaaa",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/apps/gamepadtester/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"gamepadtester\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"dcba71ac2e673b7714a6cac12661d56e61a2eb861136bf7d74a42165d6a69be6\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"cmake\""
+      }
+    ],
+    "includes": [],
+    "oid": "3272cd956c5432ef08168f6c5449c6b01e52daf5",
+    "path": "projects/ROCKNIX/packages/apps/gamepadtester/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "f5a5aed95afec1a87cdab04aee65c2f41060c7053e71cf90fe61b0b5d85debe2",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/apps/gamescope/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"gamescope\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"fa0b4d3342078f01eadff0193e09c3b561f40c03\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_GIT_CLONE_BRANCH=\"master\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      },
+      {
+        "line": 15,
+        "text": "PKG_TOOLCHAIN=\"meson\""
+      }
+    ],
+    "includes": [],
+    "oid": "b894d46c9ea24f6586d830882373d44715168fd0",
+    "path": "projects/ROCKNIX/packages/apps/gamescope/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "0423fe070b4f6c9ceacf16664245e988a1430a64654983ca4f925b3d9904e358",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/apps/jstest-sdl/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"jstest-sdl\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"f4fdf6daae687d19b303d8ba8809ff5a68bc33a4\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"4eaef6eebb5f370b89fa320225ecdb2941cfe5604fe4dc59ef7e4335c68fa4be\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "4e1262500de93f9152fbf141dbf24293e86087b9",
+    "path": "projects/ROCKNIX/packages/apps/jstest-sdl/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "44b5b231ea20d7fabc917efb3b23a54e8f4c8025ada20e5eac57711b6a725777",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/apps/m8c/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"m8c\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"v1.7.10\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"c0e046fccbff27b5bfde552d7944f6a0317d386d4f6a816838b5249e58cece49\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/refs/tags/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"cmake\""
+      }
+    ],
+    "includes": [],
+    "oid": "3e7fb3d915c66433d9872ba400b710d7979d6725",
+    "path": "projects/ROCKNIX/packages/apps/m8c/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "c3ae86a2121076df1b066403f0d0550caee180fd4cc2b6fd1b7ece5536ff0844",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/apps/mako-osd/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"mako-osd\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"b131bc143f6b0f24d650f16bb88a11c7cb011c20\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"f1d6f8d7fec785a49698543cf812589bc014caa410c82c21773595e8785ab842\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"meson\""
+      }
+    ],
+    "includes": [],
+    "oid": "91642c728d188f0867a3c28594c66fb6768f837b",
+    "path": "projects/ROCKNIX/packages/apps/mako-osd/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "76da373565f5d7f7ab03e37a4be0b9ab91760cbe55c45b47b0dcdfe5fb39e461",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/apps/mangohud/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"mangohud\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"992103e4fb744897826de04ea00a2f71e7018214\" # v0.8.4"
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"edd61f4716710681a9e3b535556831ee0c6187b7b6f90d29f8d8ac234448f4a5\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "c100110fac64c41a81e6ba5499d21e8287e62923",
+    "path": "projects/ROCKNIX/packages/apps/mangohud/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "eedb1ec41c904ed890d50d67f8a9dd922ff188e4dff32c80cca94230367cf826",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/apps/moonlight/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"moonlight\""
+      },
+      {
+        "line": 15,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      },
+      {
+        "line": 16,
+        "text": "PKG_VERSION=\"8a87a09947f27dd2fe4bee7ae9faabe86873a5c4\""
+      },
+      {
+        "line": 18,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      },
+      {
+        "line": 33,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      },
+      {
+        "line": 34,
+        "text": "PKG_VERSION=\"a6bf7154a743d4f74a1b377e730f188352a1b80c\""
+      },
+      {
+        "line": 35,
+        "text": "PKG_TOOLCHAIN=\"cmake\""
+      }
+    ],
+    "includes": [],
+    "oid": "6ba88ec92522cc52d488e895949ae760ee6d647e",
+    "path": "projects/ROCKNIX/packages/apps/moonlight/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "020a346598ef7f054af0ecc2b78fb6efc4b2e30e2814b40c2cd070d22afaff40",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/apps/oga_controls/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"oga_controls\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1604ee24150c1c5bb7c66bc4670919c2ad8f0064\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"cdfa89581e3494220ef1d91246376179947bdd2ba1dd084249c224cc9ce0d8f4\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "1f91a51c5303a3200277b22a725aea3c3adde889",
+    "path": "projects/ROCKNIX/packages/apps/oga_controls/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "b944c747ad9a98edfd3892461182a0f2267d8561249ff9af566f7d4b2fe6d5cb",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/apps/qterminal/lxqt-build-tools/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"lxqt-build-tools\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"2.2.0\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"ecee3248c9435580e9eec844d8b2a989bbf1472cc292a04bc4f8708127fea1c5\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"cmake\""
+      }
+    ],
+    "includes": [],
+    "oid": "5f9dbf4cbce1ed797557c9cbd33bc1d45845bc10",
+    "path": "projects/ROCKNIX/packages/apps/qterminal/lxqt-build-tools/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "5d29108efb434a09ee2454b3621b2c0965e02b2450a213f13b776dddcbfbba12",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/apps/qterminal/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"qterminal\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"2.2.1\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"1dd4865460ea03ccd68354bd1be823818162c1cf1ab4f6240003df0156e6939f\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"cmake\""
+      }
+    ],
+    "includes": [],
+    "oid": "32eb55d99d8d23331706e00eee5353d24bae4e0d",
+    "path": "projects/ROCKNIX/packages/apps/qterminal/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "f4974250eaf8253776d4cc7a93e983052d27da4b4a16384c5b8064e5fe684ffb",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/apps/qterminal/qtermwidget/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"qtermwidget\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"2.2.0\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"9f212697d578d6a4eb49d21530c2280a953a80a3798bc4190b8d15abd03647be\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"cmake\""
+      }
+    ],
+    "includes": [],
+    "oid": "4c1e093a95918d71be01e38ae83805c1106d4741",
+    "path": "projects/ROCKNIX/packages/apps/qterminal/qtermwidget/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "aaa825bc70d1d7707c58de5d318a42fab1733253d6a24dce6df917546e638f6e",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/apps/rocknix-touchscreen-keyboard/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"rocknix-touchscreen-keyboard\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"v0.17\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"e3f82302367cdacf7a0c59d6d1bb4f5140083da1b3083da7c835dab0c250034c\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "26352bc42ed92cd4f602c158d45cfdd6160d09db",
+    "path": "projects/ROCKNIX/packages/apps/rocknix-touchscreen-keyboard/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "9d12da4b318b925cf84731fe62fb2fb113dff33eab31b61adfe7606ae4cc5095",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/apps/sdltouchtest/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"sdltouchtest\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"b62dae0d6233869a4c70a9472bc1e93dec391f94\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"aac50a5a38f8be042ae9210a235e672c1fb9c90b7fc96af72b9554d3e94c2ef9\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "1832085e4a7e061440ebd3bdc4fa4b0533e14d08",
+    "path": "projects/ROCKNIX/packages/apps/sdltouchtest/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "d93d50ca3623998746a41a71e34c2855263170bfb929864dc05e76a969ede0ba",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-lib/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"alsa-lib\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"1.2.14\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"be9c88a0b3604367dd74167a2b754a35e142f670292ae47a2fdef27a2ee97a32\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://www.alsa-project.org/files/pub/lib/alsa-lib-${PKG_VERSION}.tar.bz2\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"autotools\""
+      }
+    ],
+    "includes": [],
+    "oid": "7322d484db4532fa69f14a505b1858d71472ce63",
+    "path": "projects/ROCKNIX/packages/audio/alsa-lib/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "592f3654b64cdf1a1b9140d1c0fd28195c80f70cbfb9c3274a49c032839b22ab",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-ucm-conf/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"alsa-ucm-conf\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1.2.13\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"4483b6e3983cca08fd326a73fbae449b5036e444fb1a07c0dee74b504b7ab5af\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://www.alsa-project.org/files/pub/lib/alsa-ucm-conf-${PKG_VERSION}.tar.bz2\""
+      },
+      {
+        "line": 11,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "1da5bd9c45b9a56f41932da0c6363dc7a18448bb",
+    "path": "projects/ROCKNIX/packages/audio/alsa-ucm-conf/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "fae1706ea36634a04b80a0f747dfcb383c6e410073a728faad7027e9c795b66e",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/audio/espeak/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"espeak\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1.48.04-source\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"bf9a17673adffcc28ff7ea18764f06136547e97bbd9edf2ec612f09b207f0659\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"http://sourceforge.net/projects/espeak/files/espeak/espeak-1.48/${PKG_NAME}-${PKG_VERSION}.zip\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "6249c5f7a36f47183c36d81e6c25ef38645726ae",
+    "path": "projects/ROCKNIX/packages/audio/espeak/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "c88aadc260dab4807c4952c6973ec807993131fb9aeb9b6a1dd3c24c85d32d47",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/audio/fluidsynth/package.mk": {
+    "base": "identical",
+    "fields": [],
+    "includes": [
+      {
+        "line": 4,
+        "text": ". ${ROOT}/packages/audio/fluidsynth/package.mk"
+      }
+    ],
+    "oid": "51a263feddc0f840456b4bf6dd1c3ea6623bad61",
+    "path": "projects/ROCKNIX/packages/audio/fluidsynth/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "ceca8100165fb660629b04698588ff8cdb84c2fdcea8e49d688b99cd35ef5141",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/audio/libsndfile/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 6,
+        "text": "PKG_NAME=\"libsndfile\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_VERSION=\"e486f20\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_SHA256=\"1227bc78df8eece089e6b984ba7c32e74e210f146d2bac1b76bd218baaf35ce5\""
+      },
+      {
+        "line": 11,
+        "text": "PKG_URL=\"https://github.com/libsndfile/libsndfile/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "50451a63eb411ecfe4b57fa6c835870bdd3609b5",
+    "path": "projects/ROCKNIX/packages/audio/libsndfile/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "999f40705a12abe17a04cb34c4199e3751cf681d470301edd271d8b814835417",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/audio/pipewire/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"pipewire\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1.2.6\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"8d9b4e95dba33d218c760fecbb71672c86a56917f803e96fe6c3af62fa783a95\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://github.com/PipeWire/pipewire/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "bcbdf5cc51b2099e272eb4d4768cc2e4e345c202",
+    "path": "projects/ROCKNIX/packages/audio/pipewire/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "ab5dc61a2e91e9bb5018911684a21cd03d349be242c47b84b3cab0816c54596c",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/audio/pulseaudio/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"pulseaudio\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"17.0\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"053794d6671a3e397d849e478a80b82a63cb9d8ca296bd35b73317bb5ceb87b5\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"http://www.freedesktop.org/software/pulseaudio/releases/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      }
+    ],
+    "includes": [],
+    "oid": "5af8b90b3f15c41f8603d424d25cd22da9daf8e4",
+    "path": "projects/ROCKNIX/packages/audio/pulseaudio/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "c4f185666bc59df1b241f26bc8f18ec650248fbe27dc3a54322fa7f2bc2d9cdc",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/audio/wireplumber/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"wireplumber\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"0.5.7\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"8cd43a582f68368ee5a915e97bf9dadc44d2dfe8c7bb4f96bb7b40ea2ed7848f\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "2a819a4f96aaa68d8e7871af70648043001915a1",
+    "path": "projects/ROCKNIX/packages/audio/wireplumber/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "99772147bdb6dd0cbf1c1dbb2c954f1c38b483af7dd2799dbcee3316b1ce7a9d",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/compat/fex-emu/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"fex-emu\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"e869aa644a16e4332cdc15c1ea0b4d13d482385d\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"https://github.com/FEX-Emu/FEX.git\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [
+      {
+        "line": 75,
+        "text": ". \"${HOME}/.nix-profile/etc/profile.d/nix.sh\""
+      }
+    ],
+    "oid": "ba6541009b69863478e4bb6774f01c257640a3f3",
+    "path": "projects/ROCKNIX/packages/compat/fex-emu/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "428430a76277b24fc5e4a69889da0045431d7c71caee35cc64a57fabf25db3ec",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/compress/p7zip/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"p7zip\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"16.02\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"5eb20ac0e2944f6cb9c2d51dd6c4518941c185347d4089ea89087ffdd6e2341f\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"http://downloads.sourceforge.net/project/p7zip/p7zip/${PKG_VERSION}/p7zip_${PKG_VERSION}_src_all.tar.bz2\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "cabab8410b3e710255116770ed8e44d2277d6016",
+    "path": "projects/ROCKNIX/packages/compress/p7zip/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "4806a865f36385c9774148f578f7ae73d91387ef6701a6c3a3b58b8a191771e3",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/compress/xz/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 6,
+        "text": "PKG_NAME=\"xz\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_VERSION=\"5.8.1\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_SHA256=\"0b54f79df85912504de0b14aec7971e3f964491af1812d83447005807513cd9e\""
+      },
+      {
+        "line": 11,
+        "text": "PKG_URL=\"https://github.com/tukaani-project/xz/releases/download/v${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      },
+      {
+        "line": 16,
+        "text": "PKG_TOOLCHAIN=\"configure\""
+      }
+    ],
+    "includes": [],
+    "oid": "f156fe0f747be95d01b83facce759feedf8a0440",
+    "path": "projects/ROCKNIX/packages/compress/xz/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "4afd4676dc69ba516b99c8c3349659892ce5ba22e86c14cb3da1b338bbecae03",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/compress/zip/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"zip\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"3.0\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"f0e8bb1f9b7eb0b01285495a2699df3a4b766784c1765a8f1aeedf63c0806369\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${SOURCEFORGE_SRC}/infozip/Zip%203.x%20%28latest%29/3.0/${PKG_NAME}${PKG_VERSION/./}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "65483815ad1ded8ead0b3db11c75e5be62cc43c9",
+    "path": "projects/ROCKNIX/packages/compress/zip/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "626e95b4cb61bd864922f85f4d120f00259bdb3abc4ddfc0f5096b6054fbbb18",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/devel/glib/package.mk": {
+    "base": "identical",
+    "fields": [],
+    "includes": [
+      {
+        "line": 4,
+        "text": ". ${ROOT}/packages/devel/glib/package.mk"
+      }
+    ],
+    "oid": "095a1e369a470b72b3e3d5cea1f26fec6fb0d86d",
+    "path": "projects/ROCKNIX/packages/devel/glib/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "0840113c9154822bc013ce21dc7e7d70ef399810071a744b7b1866150e8edd65",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/devel/glibc/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"glibc\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"2.41\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"a5a26b22f545d6b7d7b3dd828e11e428f24f4fac43c934fb071b6a7d0828e901\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://ftp.gnu.org/pub/gnu/glibc/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      },
+      {
+        "line": 27,
+        "text": "PKG_PATCH_DIRS=\"widevine-arm\""
+      }
+    ],
+    "includes": [],
+    "oid": "7dc225296b1b943f3e648f530b97c7ee368c06f3",
+    "path": "projects/ROCKNIX/packages/devel/glibc/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 58,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "75ca74000d712cdf023868c0969fd7a9d567e9b17cb10e64f9f72373858a201e",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/devel/make/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"make\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"4.4.1\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"dd16fb1d67bfab79a72f5e8390735c49e3e8e70b4945a15ab1f81ddb78658fb3\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://ftpmirror.gnu.org/make/${PKG_NAME}-${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "95aed5e9f1a110245901fa601e4e5d7f4e01b5f2",
+    "path": "projects/ROCKNIX/packages/devel/make/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "1bf015e59c38cdd748a189eb0632fc0c8f698cdd503a477fe13020e02592b083",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/devel/ncurses/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 6,
+        "text": "PKG_NAME=\"ncurses\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_VERSION=\"6.5\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_SHA256=\"136d91bc269a9a5785e5f9e980bc76ab57428f604ce3e5a5a90cebc767971cc6\""
+      },
+      {
+        "line": 11,
+        "text": "PKG_URL=\"http://invisible-mirror.net/archives/ncurses/ncurses-${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "4024b2925862eee4b37ba7c2391891fdf3e6bb08",
+    "path": "projects/ROCKNIX/packages/devel/ncurses/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "5009acebadd3b2f37e172075d65d03be3aeddc32b1e215497d6f0319f3aaa88c",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/devel/rapidjson/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"rapidjson\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1.1.0\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"bf7ced29704a1e696fbccf2a2b4ea068e7774fa37f6d7dd4039d0787f8bed98e\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://github.com/miloyip/rapidjson/archive/v${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "bfaf3a9b7e297d3b48157b5988b5f2339f081771",
+    "path": "projects/ROCKNIX/packages/devel/rapidjson/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "94edbed8647b727acffa186c4254377d2946e8724421ec37ef1439bbc22d4e4b",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/devel/readline/package.mk": {
+    "base": "identical",
+    "fields": [],
+    "includes": [
+      {
+        "line": 4,
+        "text": ". ${ROOT}/packages/devel/readline/package.mk"
+      }
+    ],
+    "oid": "367454ad1467c6dbd6868af289d9764f699591ac",
+    "path": "projects/ROCKNIX/packages/devel/readline/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "2cb10378a5d80f065e381a7a5c57ec17aaf010842889a7b02e454f695382905b",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/bsnes-hd-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"bsnes-hd-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"fc26b25ea236f0f877f0265d2a2c37dfd93dfde9\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"0cf48d8ef4846ce2b0b26fac4068cfbe2ab4c90794ede1af66c343fbfe079b2f\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "2e25da11ad03da9afdfdc15e53436a65a61d6fe5",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/bsnes-hd-lr/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 16,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "3388ef593e7d3f8f147b6a0ed1f71578d9860d741ef5acda0b0d190771e6556d",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/crocods-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"crocods-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"a9c63b29443715ae2add392010fca4eae7f93e67\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"e2d2ce649fa390e277ea7db15d376027b1f69b42c4767c5551e972015c6d2768\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "1b2833f630b397cd5e94902059d376dfa28c5d46",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/crocods-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "addfa46cb75ae05c7b92437f8916bdd6ee235b54153f26bf1f3d3f7014597ef6",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/desmume-lr/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"desmume-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"8f6b32cb9a5e310bd38520e7087ce7fa14765f15\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"8e6291e9c25b3c677644b101d8919ee3b64532be035a456cc4be2f2e7919484e\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "ab3b10fc340f65e08a07c237f5983da5cd7ebfd3",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/desmume-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "b4717088d4df7127fff58a54e768e453be57cc30fa3845cddd9f799425ec4c40",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/dosbox-core-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"dosbox-core-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"7bcf083e8309660e2c598d6f7d5982d3851f2178\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"adf88f729b3240d9dc979cc41f0f111559663a86e5e3be200e8b0d36d166eb79\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "388a03264c25dbc80bbc8be60d6694c1262f6319",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/dosbox-core-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "0ea97d3a8459540829434ef3760ba8f21bf1225fcb6308218a73faf2c5e4847b",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/duckstation-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"duckstation-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"24c373245ebdab946f11627520edea76e1f23b8e\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"a716d0caa55c24cfa23495d46bf5268a58fec0055e23df41caa7239d7da28fa4\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "2088167869151956baa1369adcfa9d0e142a801f",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/duckstation-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "5ca6a6e3f4da7331dd158ae7c7bb6d5cc9ee668bdcc08efc414158c486115784",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/emuscv-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"emuscv-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"dfce10df090ce3f5eb23bdbee289702ec1478246\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"f94c59fc91baa4dc8e96233bf0ec710fe1aaf79baa35c0b5af7fe42f73754fec\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/-/archive/${PKG_VERSION}/libretro-emuscv-${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "bbc4759b741d854bc1eddc80f8194cd49bd790e2",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/emuscv-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "a253f270934ae15761bacf788d925d8bcc405e762cdcdfca9b062a04b8dae8f6",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/flycast-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"flycast-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"c3763d8fc4208dd6f8f0bc456383543b8406a8a0\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      }
+    ],
+    "includes": [],
+    "oid": "215675b22e0346cc4cb961ad88079c1ada79f50e",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/flycast-lr/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 39,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "6b9f3b06f4b948a38bdcf09b4eac9618445793a12e9f8877ef31752334af02b0",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/flycast2021-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"flycast2021-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"603814c9f73b773c455d9a497f389d2f93a257fd\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"8aa94bdd669bab05a10ff03c8a977eccd41a30063271da3f81a7a50b1a72f4ca\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "726962a4b70eb133716d5338b152485c8a3bee93",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/flycast2021-lr/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 27,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "6974896ea87e61b671826ed37e54729e4923cff801d41e20cd6cfff848ec6ff7",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/geolith-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"geolith-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"20aa7cd25d1d0e053f9a363275c96bde9658e36d\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"6dbfa296f444a8d9ba690fad2ae9bec89d36b23d68c6bebd9902abd022e0b7d8\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "f9262fdf93a11d9c2785532cd6957600db9ec13e",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/geolith-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "11577ff244f0650db496617031fd4b17f928dd0fed905d8afa80f891e45fa262",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/gpsp-lr/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"gpsp-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"8d268a6bb2cd799f8f2791ebb544a7ef550cfc6f\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"0b7833468c5fee9da7dcb433de0c11701fbb0734dba2c8b3630bd054d607e004\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "1f85fa347e55d53083161928b343ca529a73d5a6",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/gpsp-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "543cd2a06bc6c880240403d20391afd278a6fe3e696d2c13a6aadd73dd3b6855",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/handy-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"handy-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"bc55d462f0b2d6b073ea93dc552ebd73cec60fd1\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"65ad333df22aab7f3c8156c21ffd0b8da1ef09c7a7f1775df964b89986aa7324\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "edc90729374d9d37c1abc83daa5134022397c0bc",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/handy-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "8d9a13cb3a07107c22f9c292dfa9a45b075ef4817ddb8e386f673712f1c525d1",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/kronos-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"kronos-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"46e687cb07f4bf8cb1717b0a7b4b48d208d20bb6\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"d9f495763ef000d2ddbb71956b56cd1aff67c3c4f8b54bfdbbc7ce2f8d9b1033\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "8b169ce34d7b0be64f733663de2baa99f32045b0",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/kronos-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "add5a80f6e3adf8d553a6010dc11ee9bc97238ae5395ea9016f0b4c56aa47da2",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/mame-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"mame-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"24cffe763621b164fc10be2ae3660f140be25182\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"4867bee5dbd4129e6eea095fe8f8e9725563998710cc9620190e90529ef8931b\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://github.com/libretro/mame/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "dcc7d4de7e40dd400f89d34673469040398b1d5e",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/mame-lr/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 50,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "3a512de15a89cc951c1fa55facdc26ea65dfd080e547ca37ce6349c9bcf9462d",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/mame2010-lr/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"mame2010-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"484456818393505dd4367e6e4c116c573c04a1ec\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"2c00d52864e1ae4b0eb3335de89f29b1a8ebfe173c9e6910b302e379e92594a8\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "00e29d7c6992bafcaeacff65031c296d35725cbd",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/mame2010-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "b0d3ad86c46fbb277101fc0b48a2c6662ea235afd8e56ac0d2601fcaa9b6dcfb",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/mupen64plus-lr/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"mupen64plus-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"ab8134ac90a567581df6de4fc427dd67bfad1b17\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"98e197cdcac64c0e08eda91a6d63b637c3f151066bede25766e62bc1a59552a0\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "9ba2d84bc02b8414c9a0885ffe1b7f0c1c6901fd",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/mupen64plus-lr/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 33,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "fa92a8534ad6d66479fd06361eb15c273286c7993e097fd2c179661e955ade4b",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/mupen64plus-nx-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"mupen64plus-nx-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"f275caf4b2bfa1e6d1c51636746ea793f3d80320\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"1810b7bbdc4abfdeee8a9f7f99c4a91dab601a228935802317c25a43d7cf9dbb\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "e4c5e1c0cdef98b9940a03bb3dd1b47351e7f257",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/mupen64plus-nx-lr/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 27,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "445eb8249897175cd728c3ed7fd5c9906b7469645412788b3e5cd9b02fe072fa",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/parallel-n64-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"parallel-n64-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"f8605345e13c018a30c8f4ed03c05d8fc8f70be8\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      },
+      {
+        "line": 11,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "ee783c17c937b71d8e30672506f7af15ffa48171",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/parallel-n64-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "c631c3eb7cf550cbff51862012035dd7c1efde1ec54abc009d6f82e1eb7b44d5",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/pcsx_rearmed-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"pcsx_rearmed-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"da2cb8ecd17fd0932ab6d94774c0522beebce6e3\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"ff191a349aa88b7156f2c40ae32b7144884eec921542f07508d88715105d175e\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "a8c9b89c1dd09b5c446181226e6c33fe96b3822c",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/pcsx_rearmed-lr/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 16,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "3538ac62760fb2df7cdf824d0fea09e064c37c0b928c1c7aca6927964040f75d",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/ppsspp-lr/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"ppsspp-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"fa50bb1976065c4f8b1b47af227d367fe9771555\" # v1.20.4"
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      }
+    ],
+    "includes": [],
+    "oid": "87b67546d3529878b55c05a8332fbfaa24208330",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/ppsspp-lr/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 72,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "2edd6d1c5f78f4a70642191988f9fbfb2e1943d154416b339757a752041cc8a2",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/same_cdi-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"same_cdi-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"7ee1d8e9cb4307b7cd44ee1dd757e9b3f48f41d5\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"3f3193561e6f58640ed6818b5c51fd7e3706083e9f211eb9f2282f12d189e5d4\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "c80c03a4f2b5e54f3cbe43963c2432e518c8f39d",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/same_cdi-lr/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 36,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "5b291ef8f5602a5855fc1771e4e9ded273fb94c6fdb62bfbc32edbbcddeb6c0b",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/scummvm-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"scummvm-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"292e409938384ac0b3819a336c61fbb71dcbb9c3\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"1027995a51a1eb429249c3afb6e6b438897652909a9384a82a539716b1d5182e\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "c5274215b6213ff20bd6437d379cc34741e85965",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/scummvm-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "f702f62bfcff9a1a7ba21ddc66716b1c1477024fa55ca34ee2139ac3f71847e5",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/snes9x2005_plus-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"snes9x2005_plus-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"deb49d80d1836e3e737480a326e31a54c46c04ae\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"ebdce1e07e839702ef094b9edaac226c8b02abba9224a859ff18e2a28a09483a\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "b393f5f2f790910a763bc22d7a0b2002297537fe",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/snes9x2005_plus-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "73219809f6fd0fcc66428dee692bb8a19fd13579842403160526e88de4870237",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/snes9x2010-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"snes9x2010-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"7db129b1ecdccb38cb4d7184bcbed39beed79656\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"7443623d5c8a098fd20cf46dab29dbe8c7504f05d8a3aaa1a10f6d5d6a9d8d88\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "caaacd14a1bfd34bdb829aace8104554b19365c5",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/snes9x2010-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "6bf54596ed13d2f7f68b3a25575c54691d0a2386f85cce04f013e01979b8e5b1",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/stella-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"stella-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"c1ffb833c8b180433b0cad76bb6b55f8dfbc46ee\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"bd515308f726ac06a6f6e50fa6919ed093a44406a096c6c79b09d4dd1fe872e4\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "4426f3b87f5500d772ac06b5683ac1dfc986cca2",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/stella-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "9a2b5f1025579d8f686116e04e13daebdeeeb325e16e25952570ce79ed5ee1b8",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/vice-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"vice-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"91d0d4d884acd44b5240dfcdbd8bdc2f0f757dfd\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"bb2d86206c7890fe036be79ecbf75cb83051e01ecf6b5b140f4950c0e6304356\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "dfe56d739ee10c19629360dffaa12ca33c031130",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/vice-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "fbed048c4035158905d4878f1ca87388f083f989bcc3585edd9262634d1f8309",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/vircon32-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"vircon32-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"3a1b4ae3fb75c1216fab9cc8715e9a122c461a3a\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"38afe3e43949ab45ee2afae22c76260cac5473016969a421c0eee7d7b2739619\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"cmake-make\""
+      }
+    ],
+    "includes": [],
+    "oid": "cad38823f378628bbeed9ca869c66e384018873e",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/vircon32-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "fb6b9cfa4fe14ea112946e6428d41574121b1fb99bb2f29cf4633c1475ebfe06",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"vitaquake2-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"59a511555106eef7156c1f34d1ee6c47d11cc4ee\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"7d70a312da16e93ec5a764c95fa1ffe42f484432b9b0ca8f83550874ed1c8725\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"$PKG_SITE/archive/$PKG_VERSION.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "44293ecfc18e1d54a7c7a72305b85a8e6508c198",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "520ca33e23d612d30c92f6b4b6514a733eb4f6a1798189db05683d5170488473",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-rogue-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"vitaquake2-rogue-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"$(get_pkg_version vitaquake2-lr)\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"$(get_pkg_sha256 vitaquake2-lr)\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "689e0078993b7416f51c0475467aa21d4a2a0e4a",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-rogue-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "32cb5517bebe3839e3d207165c3134c93e87b4a337c4360217c66ec25431bdf2",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-xatrix-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"vitaquake2-xatrix-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"$(get_pkg_version vitaquake2-lr)\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"$(get_pkg_sha256 vitaquake2-lr)\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "dd32093c8899558f8b43a074d7e40b6569f56a5c",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-xatrix-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "1c4fdff903890db4bb754dec5873b4d909f0be766e61fb9a0ea9f0c0f0c975df",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-zaero-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"vitaquake2-zaero-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"$(get_pkg_version vitaquake2-lr)\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"$(get_pkg_sha256 vitaquake2-lr)\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "a57b9439f64fcaa17db16082e706c53f320e80a4",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-zaero-lr/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "6b26cf9cecc23920d1e19715c88abfe319e50ad4ba82654972cec36ad569fc85",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/yabasanshiro-lr/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"yabasanshiro-lr\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"39535a6abcad5abf9f71c8b2a7975f005ee12ed6\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      },
+      {
+        "line": 11,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "28719d26937ab68a6707b03e6f80b567b71c9528",
+    "path": "projects/ROCKNIX/packages/emulators/libretro/yabasanshiro-lr/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 23,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "6a1f5f54001a6d0456980b3b8bc5ceff4f5a1c2c79c0c4095f3e4a815b254804",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/amiberry/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"amiberry\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"5c54536997c0039aaa72bb0552cefdc3c967ad8d\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      },
+      {
+        "line": 16,
+        "text": "PKG_ARCH=\"aarch64\""
+      },
+      {
+        "line": 18,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "80df966b61b99d6abd0375a07092051076937ac1",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/amiberry/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 26,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "bed3c25b3996cbdb1ee7ff3a828ea5a7067e64ba682dd0cdbf9db52f00d2369c",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/ares-sa/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"ares-sa\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"0aafd85789215e84e1e43415c07d4c88461b7899\" #v148"
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"34df540c29913755f6ad522451a0a84174142b3b2240f72508f63d6bcc103129\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "af1fb551a6bafcdf0b1975be3b89e23e233a7c2a",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/ares-sa/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "11a32231bec5f5588ad25ed74ff3a70921f2506a49881ac3a22ea66572b5489d",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/armsx2-sa/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"armsx2-sa\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"19c83bf065ed21a19d8c46a1f578e37d2dab8efd\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"361b98beb943976f6c0ec5494eba26ded04abcd41683149c74317e089b3ff860\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "85d62de09316325452d55624a195ffbacbac5c92",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/armsx2-sa/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "6d4ba66af0b3fce58582924ab33e8ca6defd042bd1c2f3af1cf52bda34855939",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/azahar-sa/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"azahar-sa\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"fbd3fb02f71e5f9ed5134037fd59bad96c7d2b8a\" # tag 2126.0"
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      }
+    ],
+    "includes": [],
+    "oid": "fe3df77ba575fd89d63d52ae9151f468aee9cc91",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/azahar-sa/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "52df4bbce8456c27b864970520a911b3363102a58c666e2f99c0bbca6c274c70",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/cemu-sa/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"cemu-sa\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"6f6c1299e29fa6e1062ae283a035b4ef787cc397\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      }
+    ],
+    "includes": [],
+    "oid": "c90bc5d9f0497201c1e1111f9c8a29508455d3b1",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/cemu-sa/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 43,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "4079a71dab50661c8abe5bd1b804ef3684f70c9ed6f41d26c3df8827da7c42d8",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/daedalusx64-sa/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"daedalusx64-sa\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"f17e9ed86f3806fadeb69abd29c9526ab2d4bd1b\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"6a2fd0ac8cb17678ca1f1fd58a8e6cab536c76552e711fb4a1d8fe3941e82b19\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 14,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      },
+      {
+        "line": 16,
+        "text": "PKG_TOOLCHAIN=\"cmake\""
+      }
+    ],
+    "includes": [],
+    "oid": "ac3bcc0975cefc357f8b57555267b15c7b728add",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/daedalusx64-sa/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 25,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "a48d5112328b3bea3f146f07e6579d246de716a7b7701a8b64b248a9e222bea8",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"dolphin-sa\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4\" #2606"
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      }
+    ],
+    "includes": [],
+    "oid": "039b58a85c689f9d39af9a590e25aad118cd3953",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 78,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "cc4e7458e99329518b30b7f78aa38e149d083427f3c8b7e22d7f5e1090d2479b",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"flycast-sa\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"5aa091fde632fb332c8d8c34e280d62dc951954c\" #v2.7"
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      }
+    ],
+    "includes": [],
+    "oid": "4a0829507d8ed505537b87b74742113c5f9d5ae3",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 31,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "9f5805ef01db4d757e0e58d3ed029669cb1a0063e7f86af877c6ae892af28ca2",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/gopher64-sa/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"gopher64-sa\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"ca4a20f52403bb14f819db53f1cb161d41894666\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      },
+      {
+        "line": 11,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "3ba389170aadca16d522c7545a96033579217e99",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/gopher64-sa/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "2448bce2b59964b707f5de345ba5fdf9d28b74a94844cc25529e740255f2f214",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/gzdoom-sa/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"gzdoom-sa\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"g4.14.2\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"2c4fbb0c5b06787c8a2ade9fbbbe2fa5eaa7c49cf7f62a73627c381f8f890156\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/refs/tags/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"cmake-make\""
+      }
+    ],
+    "includes": [],
+    "oid": "5cf42ca4e06cd1e107e14235e1a9477c3cf56e1d",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/gzdoom-sa/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "9ef88b1a59e36c9fe844e55ae299caf64bc01c1408e2dbe0313443b28b3f439d",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/hypseus-singe/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"hypseus-singe\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"b353e1728bf56d8b6c6fb606df78b7296a203702\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      },
+      {
+        "line": 11,
+        "text": "PKG_TOOLCHAIN=\"cmake\""
+      }
+    ],
+    "includes": [],
+    "oid": "e7cd4aa0e13fcebaa0579cb028653f3323f6078d",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/hypseus-singe/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "03d46cb72764a288b095df7a0fb6d48e59e0069f21cdde42acb5615c36d0d1e6",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/mednafen/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"mednafen\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1.32.1\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"00cdcf02e83072d1d0e861b61e86d1d12eac18accc03cfa161e84bd3744b0137\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"https://github.com/sydarn/mednafen/archive/refs/tags/1.32.1-chd.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "9d631ae8ba42fb9b9087e851f99923d7fbf821b1",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/mednafen/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "3a2d9c2e0ad6f34176b011ff53530442508b4a76cc74a108aa2415e69b4670af",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/melonds-sa/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"melonds-sa\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"906e9ebb27da8c6a715cd7abab4abfe8a8d29427\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"5edcd49fe593df24e47f29eb27636c8c4d3698dc21ac224697708a8fcd9ea262\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "8ef0cd5dce11c618fdf1c5a66a9a0f1ceec0349a",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/melonds-sa/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "e797a763361851f04139297e304f147f5872059e304925a320d269686f494f7c",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/mupen64plus-sa/mupen64plus-sa-simplecore/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"mupen64plus-sa-simplecore\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"5340dafcc0f5e8284057ab931dd5c66222d3d49e\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"04a3b14a82182b8f54f88b52585e27b91d37335f87393537332ce94c28037f6b\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "3a3bdcc8a7469381cdd7c65e376f7c3931a5c37c",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/mupen64plus-sa/mupen64plus-sa-simplecore/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 25,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "8173b968adfceee40459a489682df6271f36029b7c8648b2b851d117c4010a37",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/mupen64plus-sa/mupen64plus-sa-video-gliden64/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"mupen64plus-sa-video-gliden64\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"85bdd452d7090f78a0f76d02121fa59ad079b7f6\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "d3c8b16020c5f23729ccd299914f952ccf925143",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/mupen64plus-sa/mupen64plus-sa-video-gliden64/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 32,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "87a282ca3a900ae91f476de77fd4e0359a3e2180535c6da8990ece1700bda600",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/mupen64plus-sa/mupen64plus-sa-video-rice/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"mupen64plus-sa-video-rice\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"470865c6c64bdb44645faa88eae59cd87ce561b6\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"baa1fc034cc27d6c178d014794f8171817b9c96db5317feaede0d0d22e898676\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "37a2108835aeece9001e03a6b431fe25865e2653",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/mupen64plus-sa/mupen64plus-sa-video-rice/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 33,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "44540bae8d477eaecc0d0383bc7fbc75122f22d1369bd9e2b997b4100136463a",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/nanoboyadvance-sa/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"nanoboyadvance-sa\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"3bb6f478f977dbfd3106508536e5fbce90d1898b\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      }
+    ],
+    "includes": [],
+    "oid": "76d3ae238d2584c0a3a484b0ce676ee742c81ab5",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/nanoboyadvance-sa/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "262bebe57afe37035e410d96826034baabbf3dee75e0e8949eee0e690acc1adb",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/openbor/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"openbor\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"b8303cce992a0db93c3a465df3c943942fe322f8\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_SHA256=\"8a21e40b31bf04fd5212d1bb86452f1843fcd0e8a54d073e474e51f4fc130973\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "712827506c83039df1e48a58031948fcd22a2de8",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/openbor/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 15,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "0c39bd459461a4dd494614adccfe408b202865fd12be5d4010ca32a5af13577d",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"ppsspp-sa\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"afbc66a318b86432642b532c575241f3716642ef\" # v1.20.2"
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      }
+    ],
+    "includes": [],
+    "oid": "f6e971e701d1b2d89cfb7a9fbfa492eaf05f832c",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 67,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "a27682013e91d2fa8f63fe7f06aa64ebc0e35449eacb30d712302ef66642f52a",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/rpcs3-sa/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"rpcs3-sa\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"2f4034590f261cc2aafbc10139744c68a146b5a4\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      }
+    ],
+    "includes": [],
+    "oid": "0b3209028eeb6a5687ff73f0dc2b17903786a5c0",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/rpcs3-sa/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "a942da071ce7808554206c97ded1c3c03fdf07de08d4f86bf878bc220899efbe",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/supermodel-sa/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"supermodel-sa\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"b13fdd5029a246e8f90a1d70e2ed000779fee4f1\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"ff4a925fdf739da08b4e8dd19e09d0a81dda0801fe2d276acf7905073bfa8b96\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "2f974b912d3c90caa735e9f8b7f23067a380c1d1",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/supermodel-sa/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 15,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "26ae1bb4ee71d28cf1a3b2e8b3081dc7063abd578d1ed656784f579cdba25898",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/touchhle-sa/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"touchhle-sa\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"3c5850585ba55615b17a58c58331b6d6f52d4a9d\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      },
+      {
+        "line": 11,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "7b963a24f105007b068e6bbc27dc38eb8014ad09",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/touchhle-sa/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 13,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "758d58ba0c1704742bccb711880cc5e201f80bcd1a42fb93c086adcbbd91c54e",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/vita3k-sa/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"vita3k-sa\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"ba5c2029c96a08db63cfe04736156af481d9c137\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      }
+    ],
+    "includes": [],
+    "oid": "68054168a20fe603f521531ca09b052fa309c15f",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/vita3k-sa/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 40,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "286be2b30389c87777e43bebbc194f7070697ee246aeca9a05c6ce6b4cebd762",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/xemu-sa/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"xemu-sa\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"cbffb57d084c70351a596e99e32a8b73e0c5eabf\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"fe6bfb3f1e2e3b4ed4cb028e637a530f0e813440dd4fa39c1f597c3ec08407d3\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "d6f06da027246c4df5a86d1b294d67880039d965",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/xemu-sa/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 29,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "cceeb22476428a2bbdfe9c5d8562332157035e3ba104313e4e77e27d2df39207",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/yabasanshiro-sa/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"yabasanshiro-sa\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"a40dace1ae0af3ebd45848549fdf396f40e3930f\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      },
+      {
+        "line": 19,
+        "text": "PKG_ARCH=\"aarch64\""
+      },
+      {
+        "line": 21,
+        "text": "PKG_TOOLCHAIN=\"cmake-make\""
+      }
+    ],
+    "includes": [],
+    "oid": "bb14198f16363bc6b2be1dbbb83e2b5f10fd0936",
+    "path": "projects/ROCKNIX/packages/emulators/standalone/yabasanshiro-sa/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 47,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "70645ba5e1d4c5b0f9b0e28bdd99bc8f2f7bfef412670224e8bdf37928c2854c",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/fonts/spleen-font/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"spleen-font\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"2.0.0\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"778778b35dd48701b803db247a6ac8759154ce5fc3abd5cc0b6db98a44ba5a0c\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/releases/download/${PKG_VERSION}/spleen-${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 14,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "1416e5a9f8bb16f2b25796c1e5cd2ce3f7d41fc2",
+    "path": "projects/ROCKNIX/packages/fonts/spleen-font/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "76b51850bd5e8299b9df1e04f4ba41e2d7f816abca8de7edf763bf5624ac3ccc",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/graphics/SDL2/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"SDL2\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"2.32.10\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"5f5993c530f084535c65a6879e9b26ad441169b3e25d789d83287040a9ca5165\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://www.libsdl.org/release/SDL2-${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "fd045fdbc050c85054c00ab077bd123097fe309c",
+    "path": "projects/ROCKNIX/packages/graphics/SDL2/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "30903b5957624fd07fdd0672350b277e62da20d4106bebbf79f4e40cf0aaf4c4",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/graphics/SDL3/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"SDL3\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"3.4.10\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"12b34280415ec8418c864408b93d008a20a6530687ee613d60bfbd20411f2785\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://www.libsdl.org/release/SDL3-${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 15,
+        "text": "PKG_TOOLCHAIN=\"cmake\""
+      }
+    ],
+    "includes": [],
+    "oid": "c9dd4990a6472dfc0e7a9b7d6a97ee5d42188d50",
+    "path": "projects/ROCKNIX/packages/graphics/SDL3/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "9a8c21f215a9c63963dc9d11bbc434b9d2012ecb3fa87cf949645da2702eed4a",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/graphics/glew/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"glew\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"2.2.0\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"d4fc82893cfb00109578d0a1a2337fb8ca335b3ceccf97b97e5cc7f08e4353e1\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${SOURCEFORGE_SRC}/glew/glew/${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tgz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"cmake\""
+      }
+    ],
+    "includes": [],
+    "oid": "97772276d030ea808c745eba759b4674081259e7",
+    "path": "projects/ROCKNIX/packages/graphics/glew/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "1b6f067518c78bae0c8d4bdf6547b3318ac7b629bb2804fd42633a446fb43f5e",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/graphics/glslang/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 6,
+        "text": "PKG_NAME=\"glslang\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_VERSION=\"16.6.0\""
+      },
+      {
+        "line": 11,
+        "text": "PKG_SHA256=\"9c09b901149c729df745057dafa815278aaa101b84d2b6e14f16a42de52f97f2\""
+      },
+      {
+        "line": 14,
+        "text": "PKG_URL=\"https://github.com/KhronosGroup/glslang/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "9f434a8af9dd191829c8f1012f944999d196c8a4",
+    "path": "projects/ROCKNIX/packages/graphics/glslang/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 29,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "8a4aeac1a9fce37af68d4ed6964f1c80c545179780ec552635040c45a5b4ea50",
+    "upstream": "absent"
+  },
+  "projects/ROCKNIX/packages/graphics/grim/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"grim\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1.4.1\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"5ed8e70fcd83a7e203e92d34dbb82a1342d3f13ad98a6b0310cc97e1a9342ded\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://git.sr.ht/~emersion/grim/archive/v${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "9c905469378f6c374dc53995b2a3eefd465af6e3",
+    "path": "projects/ROCKNIX/packages/graphics/grim/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "35eaa24d6c31287458d37ae82deb37f10d77046cd48e755f2db5f51999955638",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/graphics/gtk2/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"gtk2\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"2.24.33\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"ac2ac757f5942d318a311a54b0c80b5ef295f299c2a73c632f6bfb1ff49cc6da\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://ftp.gnome.org/pub/gnome/sources/gtk+/${PKG_VERSION:0:4}/gtk+-${PKG_VERSION}.tar.xz\""
+      }
+    ],
+    "includes": [],
+    "oid": "ffd614633da3186e76c5e3b139c93795a9e39854",
+    "path": "projects/ROCKNIX/packages/graphics/gtk2/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "28db3abda43815d3db8ed43571e779b54c276f1796a79808e16c08a79f7ae1f1",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/graphics/mesa-demos/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"mesa-demos\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"9.0.0\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"3046a3d26a7b051af7ebdd257a5f23bfeb160cad6ed952329cdff1e9f1ed496b\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://archive.mesa3d.org/demos/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      }
+    ],
+    "includes": [],
+    "oid": "ea517d4d6040e998b16b753aa8725d1ab2a3613a",
+    "path": "projects/ROCKNIX/packages/graphics/mesa-demos/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "15a75f8e301b627609e88850d0a294ce2ca29a070f7ee76109e1beb838b2f94d",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/graphics/mesa/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"mesa\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"26.2.2\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"9b6850189d4b4a595b1718d57d462412090fab820d3e235e2c1d122c1cf9e9bc\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://gitlab.freedesktop.org/mesa/mesa/-/archive/mesa-${PKG_VERSION}/mesa-mesa-${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "a770defd3ec334ca8f72fec9d6115cfdba60962b",
+    "path": "projects/ROCKNIX/packages/graphics/mesa/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "ac5dca86bde7cfb9287542d201d53a757fb6f0d5f4842dd9f53013bf3f3f48cc",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/graphics/shaderc/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"shaderc\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"2025.3\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"a8e4a25e5c2686fd36981e527ed05e451fcfc226bddf350f4e76181371190937\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/refs/tags/v${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"cmake\""
+      }
+    ],
+    "includes": [],
+    "oid": "82b883a5be3efcaab74028d5ce398bb38ca5b8e6",
+    "path": "projects/ROCKNIX/packages/graphics/shaderc/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 15,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "df63e957d01b5a2c34c025558c1c2af1e38b2cf008be20385cf2dc9db8410093",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/graphics/vulkan/vulkan-tools/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"vulkan-tools\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"1.4.347\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"4ed73bd973069633ef2b830c7b9f3ebcb7bc8aaac5783b9e5aa36c888e687a78\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://github.com/KhronosGroup/Vulkan-tools/archive/v${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "f839a7c512e3a4c021d81837deb48ec68b1c31d3",
+    "path": "projects/ROCKNIX/packages/graphics/vulkan/vulkan-tools/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "136e094caa0f846bfb044616c8c60cb50bba82d5ca1f3df44a803633420c80f4",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/lang/gcc/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"15.2.0\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"438fd996826b0c82485a29da03a72d71d6e3541a83ec702df4271f6fe025d24e\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"https://ftpmirror.gnu.org/gcc/${PKG_NAME}-${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      }
+    ],
+    "includes": [
+      {
+        "line": 4,
+        "text": ". ${ROOT}/packages/lang/gcc/package.mk"
+      }
+    ],
+    "oid": "72c38951014aa4c6e0abb8464f2abaa1ca869da1",
+    "path": "projects/ROCKNIX/packages/lang/gcc/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "d5c2cfe2dd8c91ac028c50e5808166f8a76a56fbf8556a11194ef14d8ec57d08",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/lang/go/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"go\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"1.21.4\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"13b2395f666e77234d0731ec82c008a584ef0408ca32e52fe95b98f02f32db17\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://github.com/golang/go/archive/${PKG_NAME}${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "89bb8fb4dff0a039b843929b0b8d81edbdcd7ec4",
+    "path": "projects/ROCKNIX/packages/lang/go/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "90ef65d9101bf936155c06398e370497eaaeb9db85357900b866e1e149ee129a",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/lang/llvm/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"llvm\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"22.1.8\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"922f1817a0df7b1489272d18134ee0087a8b068828f87ac63b9861b1a9965888\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://github.com/llvm/llvm-project/releases/download/llvmorg-${PKG_VERSION}/llvm-project-${PKG_VERSION/-/}.src.tar.xz\""
+      },
+      {
+        "line": 14,
+        "text": "PKG_TOOLCHAIN=\"cmake\""
+      }
+    ],
+    "includes": [],
+    "oid": "3f1bb3a1966a566571dc01dbaef33680978d4711",
+    "path": "projects/ROCKNIX/packages/lang/llvm/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 50,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "98c9ba28dcf9a54bbb8dd06d61a0393fb404b5efbef5b54bad626f01f5e9c85e",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/lang/luajit/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"luajit\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1edc3e52b67eaf6ce5f809be8e17d6862594b8bc\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"85497ea149d136afbe2d7ef222e08849248e52cecc6dc8deefd8588e551e4e00\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "4ac19823330be899d86d7a55ce3ba30b3ff18a49",
+    "path": "projects/ROCKNIX/packages/lang/luajit/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "79e62ac38b05899034fb805192007b5bd7b3d9ce307a426f14e92f2463cdc403",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/lang/nasm/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"nasm\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"2.16.01\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"c77745f4802375efeee2ec5c0ad6b7f037ea9c87c92b149a9637ff099f162558\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://gstreamer.freedesktop.org/src/mirror/nasm-${PKG_VERSION}.tar.xz\""
+      }
+    ],
+    "includes": [],
+    "oid": "b698b773db57c8663d4b153c108929e184fb19a5",
+    "path": "projects/ROCKNIX/packages/lang/nasm/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "1545a2b516dc4fb9419446572e0b4d4bcbad5f0e5ac00d24eea5c6ebeceb190d",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/multimedia/ffmpeg/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"ffmpeg\""
+      },
+      {
+        "line": 11,
+        "text": "PKG_VERSION=\"7.1.1\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_SHA256=\"733984395e0dbbe5c046abda2dc49a5544e7e0e1e2366bba849222ae9e3a03b1\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_URL=\"http://ffmpeg.org/releases/ffmpeg-${PKG_VERSION}.tar.xz\""
+      },
+      {
+        "line": 14,
+        "text": "PKG_PATCH_DIRS=\"libreelec\""
+      }
+    ],
+    "includes": [],
+    "oid": "aaf495c8c26a3503a67cf1e64146b82737187100",
+    "path": "projects/ROCKNIX/packages/multimedia/ffmpeg/package.mk",
+    "pre_patch_hooks": [
+      {
+        "line": 18,
+        "text": "post_unpack() {"
+      }
+    ],
+    "sha256": "f893b3c33bb3a69286ec2ee7d7e8365118f8bf76d643c32d6bc41e2fb0dd4922",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/multimedia/gmu/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"gmu\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"3aed18be8a50873ccfb31d2b135b0d22442ded59\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"${PKG_SITE}.git\""
+      },
+      {
+        "line": 11,
+        "text": "PKG_TOOLCHAIN=\"configure\""
+      }
+    ],
+    "includes": [],
+    "oid": "9fcac4a2652e854f2e5a7a87800e325f479245ff",
+    "path": "projects/ROCKNIX/packages/multimedia/gmu/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "ffcc20fdba3b67e467291c0df8050853eae8ae4fbc0b2aa5b5fa32f4e3f8e508",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/multimedia/vlc/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"vlc\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"3.0.23\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"e891cae6aa3ccda69bf94173d5105cbc55c7a7d9b1d21b9b21666e69eff3e7e0\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://mirror.netcologne.de/videolan.org/${PKG_NAME}/${PKG_VERSION}/$PKG_NAME-${PKG_VERSION}.tar.xz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"autotools\""
+      }
+    ],
+    "includes": [],
+    "oid": "0e42a6061fc32b462a04b590dbfc9366d3823c36",
+    "path": "projects/ROCKNIX/packages/multimedia/vlc/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "af8e20324b226b38401bc96faa10e0cc7a69821f007f2d92fc71eb2a5c92756a",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/network/avahi/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"avahi\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"0.8\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"c15e750ef7c6df595fb5f2ce10cac0fee2353649600e6919ad08ae8871e4945f\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://github.com/lathiat/avahi/archive/v${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"configure\""
+      }
+    ],
+    "includes": [],
+    "oid": "fe45040e9f64d21f34cf0b0d4fc67465f0cf6543",
+    "path": "projects/ROCKNIX/packages/network/avahi/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "f83f4632f156d9089af9bca1b61b3975dff08b8c8124705baba2c36263fbefc4",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/network/bluez/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"bluez\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"5.83\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"108522d909d220581399bfec93daab62035539ceef3dda3e79970785c63bd24c\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://www.kernel.org/pub/linux/bluetooth/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"autotools\""
+      }
+    ],
+    "includes": [],
+    "oid": "5845b6042dabf4ee170329bc3c99f20c6e617373",
+    "path": "projects/ROCKNIX/packages/network/bluez/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "4d46c96a7c702da463e230d03a798a8e7c474ec88f07570cb654da9d3b6dc89b",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/network/libpcap/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"libpcap\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1.10.4\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"ed19a0383fad72e3ad435fd239d7cd80d64916b87269550159d20e47160ebe5f\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"http://www.tcpdump.org/release/libpcap-${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"configure\""
+      }
+    ],
+    "includes": [],
+    "oid": "fbc970249ddb9b19f5214f4ac29fc6f669298422",
+    "path": "projects/ROCKNIX/packages/network/libpcap/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "dbc69b7df235c682e3bf7eb8a96823f3c0bb2031cd4f26c73be08cd4f3fea1d5",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/network/networkmanager/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"networkmanager\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1.51.4\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"865a7cc5686a51d7efe81d7dcb3c5246bfa3b996a58629135354972804ff4d3c\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://download.gnome.org/sources/NetworkManager/1.51/NetworkManager-${PKG_VERSION}.tar.xz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"meson\""
+      }
+    ],
+    "includes": [],
+    "oid": "0563a1797b4ccb929297b067a1e083f34c671fb5",
+    "path": "projects/ROCKNIX/packages/network/networkmanager/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "21bcc894beefc0bc2fb7b92740fa4feac16dfefa398c208bea8d43ca550176a5",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/network/openssh/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"openssh\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"9.8p1\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"dd8bd002a379b5d499dfb050dd1fa9af8029e80461f4bb6c523c49973f5a39f3\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/${PKG_NAME}-${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"autotools\""
+      }
+    ],
+    "includes": [],
+    "oid": "ad0b402d0c0b5504f35a7038cfa5aeb9e82a831a",
+    "path": "projects/ROCKNIX/packages/network/openssh/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "64e19cbe6ce59ab3b763b776f34d0386a9904a38334bb39e35af8698f0a87027",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/network/samba/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"samba\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"4.21.0\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"09bb56db4ce003cafdbebe9bad368c4f4ff1945f732d18077d52f36ab20cef88\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://download.samba.org/pub/samba/stable/${PKG_NAME}-${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "c09e609398338e8050d21507fd717ef34c5eaa2e",
+    "path": "projects/ROCKNIX/packages/network/samba/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "3b7c503feb120edd68692b34b487a1d58fd86c9a4c97e478fba42fb1c4b388de",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/network/syncthing/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"syncthing\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"2.0.13\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"fd7c93e01a6d61faa84adda8b22479dd7fd106144fbbb2eb15d773707d8a382e\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://github.com/syncthing/syncthing/releases/download/v${PKG_VERSION}/syncthing-source-v${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "45ec4d07243b657bd567967cc6ba3c460d4aac52",
+    "path": "projects/ROCKNIX/packages/network/syncthing/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "785470cba53d95742fb91d40df370301160ea61ba6a3e89ab35d722721899654",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/network/zerotier-one/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 6,
+        "text": "PKG_NAME=\"zerotier-one\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_VERSION=\"1.16.0\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_SHA256=\"aa9de313d365bf0efb3871aaa56f2d323a08f46df47b627c4eff4f4203fa7fc5\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_URL=\"https://github.com/zerotier/ZeroTierOne/archive/refs/tags/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 15,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "1555b438dd8242240efed34c3ad3c1356b6a9b3f",
+    "path": "projects/ROCKNIX/packages/network/zerotier-one/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "b876990db897995a230330a78704e16ad881e5424f6ff172fee9d7f2203a1aba",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/rust/rust/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"rust\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1.94.1\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"4c142a625f12e3cdf716c68ae19f4f60d98ad1482627b08579b15838e95ad514\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://static.rust-lang.org/dist/rustc-${PKG_VERSION}-src.tar.gz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "548ed3f6297590d97e4a7e30d06c539d75dbddba",
+    "path": "projects/ROCKNIX/packages/rust/rust/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "e09d560e20f12856244bc99d90f45081d1b412e78e1466145ede03e6012e34b0",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/sysutils/avfs/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"avfs\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1.1.5\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_URL=\"${PKG_SITE}/files/avfs/1.1.5/avfs-${PKG_VERSION}.tar.bz2\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_SHA256=\"ad9f3b64104d6009a058c70f67088f799309bf8519b14b154afad226a45272cf\""
+      },
+      {
+        "line": 14,
+        "text": "PKG_TOOLCHAIN=\"configure\""
+      }
+    ],
+    "includes": [],
+    "oid": "b59f2489fad1944b90e15747c6623e49a6a1f646",
+    "path": "projects/ROCKNIX/packages/sysutils/avfs/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "d0b05f6eef7bf62d56c967a3e23d865cf221f057184ea05695e962ce25ec8c70",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/sysutils/busybox/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 6,
+        "text": "PKG_NAME=\"busybox\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_VERSION=\"1.36.1\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_SHA256=\"b8cc24c9574d809e7279c3be349795c5d5ceb6fdf19ca709f80cde50e47de314\""
+      },
+      {
+        "line": 11,
+        "text": "PKG_URL=\"http://busybox.net/downloads/${PKG_NAME}-${PKG_VERSION}.tar.bz2\""
+      }
+    ],
+    "includes": [],
+    "oid": "61908ab399589c87752008e6e7772478f7cafd54",
+    "path": "projects/ROCKNIX/packages/sysutils/busybox/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "a4e1e75fad75a785e773f3aa05556026014ccf95cd2fef50a572ccf80a9a87b5",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/sysutils/drm_tool/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"drm_tool\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1cb5b10b7d529105e33f27388519671ee7ce46f3\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"0813a8cf04091b171ffd8c89461f2774d10e13a06694224d205c7cffb0c7f536\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "321c0d310984d807f5e825a6a2c2560c8e0a290f",
+    "path": "projects/ROCKNIX/packages/sysutils/drm_tool/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "11b1d4a63d1ff5f9640182017512d3ddf504e5556ac1a164f86cbf46c805ecc7",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/sysutils/file/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"file\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"c5eb6d6\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"94df886d24a3ae1c550b436da395ba1d79ab32991bc8e1a3cdf14ce106b3d6ef\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://github.com/file/file/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 14,
+        "text": "PKG_TOOLCHAIN=\"autotools\""
+      }
+    ],
+    "includes": [],
+    "oid": "54198c80e4bda9ff6b04f42e97329e25bfdea9d5",
+    "path": "projects/ROCKNIX/packages/sysutils/file/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "30e956b718800cb6ef74856d8fee784a18bef17b9a2aba7a4c5b1cc8f136873e",
+    "upstream": "absent"
+  },
+  "projects/ROCKNIX/packages/sysutils/fuse2/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 6,
+        "text": "PKG_NAME=\"fuse2\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_VERSION=\"2.9.9\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_SHA256=\"d0e69d5d608cc22ff4843791ad097f554dd32540ddc9bed7638cc6fea7c1b4b5\""
+      },
+      {
+        "line": 11,
+        "text": "PKG_URL=\"https://github.com/libfuse/libfuse/releases/download/fuse-${PKG_VERSION}/fuse-${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 17,
+        "text": "PKG_TOOLCHAIN=\"autotools\""
+      }
+    ],
+    "includes": [],
+    "oid": "eae883d0ec065594edeac7466fd59cd36366ae0f",
+    "path": "projects/ROCKNIX/packages/sysutils/fuse2/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "00d5624b20a4cc83c9cb7d1605f343cdfb6394c772c61be90d11a58561c16630",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/sysutils/i2c-tools/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"i2c-tools\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"4.3\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"1f899e43603184fac32f34d72498fc737952dbc9c97a8dd9467fadfdf4600cf9\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://www.kernel.org/pub/software/utils/i2c-tools/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      }
+    ],
+    "includes": [],
+    "oid": "6a81a42cb7586604eab7aee3c5348d265cc36787",
+    "path": "projects/ROCKNIX/packages/sysutils/i2c-tools/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "caa989fe790959b62a53ead49261d1773ee8b5bc50626ba999f429763097fc6e",
+    "upstream": "absent"
+  },
+  "projects/ROCKNIX/packages/sysutils/kmod/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"kmod\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"34.2\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"5a5d5073070cc7e0c7a7a3c6ec2a0e1780850c8b47b3e3892226b93ffcb9cb54\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://www.kernel.org/pub/linux/utils/kernel/kmod/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      }
+    ],
+    "includes": [],
+    "oid": "83f100298fd50f467373162725ab48b35e975ba7",
+    "path": "projects/ROCKNIX/packages/sysutils/kmod/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "9ace53df987da46691281848bf77fc6a55fc276cbe4c3f0a816f805d58685c5a",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/sysutils/libiio/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"libiio\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"v0.26\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"fb445fb860ef1248759f45d4273a4eff360534480ec87af64c6b8db3b99be7e5\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/refs/tags/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"cmake\""
+      }
+    ],
+    "includes": [],
+    "oid": "77d0a72d970980647127268a36c3141db328297c",
+    "path": "projects/ROCKNIX/packages/sysutils/libiio/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "231be2c18869c0f1a995c27ac47d3ead4da88fc56a4c73342eb3295b354f7a15",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/sysutils/systemd/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"systemd\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"255.8\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"e770b9c4b5e36c1badf94444a27c9cd427931251009e4363f3239ad45ff75f3d\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://github.com/systemd/systemd-stable/archive/v${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "82906434e07def9c92dd5ea638e83663ce228e31",
+    "path": "projects/ROCKNIX/packages/sysutils/systemd/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "06aad226fd1e6ac5bd55f7cde48d8925d5f1f9a557ada41779ce8aac0053e5db",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/sysutils/usb-modeswitch/package.mk": {
+    "base": "identical",
+    "fields": [],
+    "includes": [
+      {
+        "line": 3,
+        "text": ". ${ROOT}/packages/addons/addon-depends/system-tools-depends/usb-modeswitch/package.mk"
+      }
+    ],
+    "oid": "b5a4775c80e9d91be2f740e7a3a4597ed331252c",
+    "path": "projects/ROCKNIX/packages/sysutils/usb-modeswitch/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "e46b40723a0e6d390fda9dc31123e5d573013ccec97eb3765226dbe377569e7b",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/sysutils/util-linux/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 6,
+        "text": "PKG_NAME=\"util-linux\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_VERSION=\"2.39.2\""
+      },
+      {
+        "line": 8,
+        "text": "PKG_SHA256=\"87abdfaa8e490f8be6dde976f7c80b9b5ff9f301e1b67e3899e1f05a59a1531f\""
+      },
+      {
+        "line": 10,
+        "text": "PKG_URL=\"https://www.kernel.org/pub/linux/utils/util-linux/v$(get_pkg_version_maj_min)/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      },
+      {
+        "line": 15,
+        "text": "PKG_TOOLCHAIN=\"autotools\""
+      }
+    ],
+    "includes": [],
+    "oid": "cd31c5f3f6b3fb37822941da87eedabf6e7158f8",
+    "path": "projects/ROCKNIX/packages/sysutils/util-linux/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "963064b5bc9aee03fb88c2d26d5d2b95bee839470a045bdecdf2ee1317322f30",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/textproc/icu/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"icu\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"74.1\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"86ce8e60681972e60e4dcb2490c697463fcec60dd400a5f9bffba26d0b52b8d0\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://github.com/unicode-org/icu/releases/download/release-${PKG_VERSION//./-}/icu4c-${PKG_VERSION//./_}-src.tgz\""
+      },
+      {
+        "line": 13,
+        "text": "PKG_TOOLCHAIN=\"configure\""
+      }
+    ],
+    "includes": [],
+    "oid": "132f2de5b667da43fe6a75a483a68f5c390f2aa1",
+    "path": "projects/ROCKNIX/packages/textproc/icu/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "289f95eacaab71de144c9d6ab9f504b1a16d76bb984489d1900f2f4b32f2e6fc",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/tools/atf/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 5,
+        "text": "PKG_NAME=\"atf\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_ARCH=\"arm aarch64\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      },
+      {
+        "line": 17,
+        "text": "PKG_VERSION=\"2.12.0\""
+      },
+      {
+        "line": 23,
+        "text": "PKG_VERSION=\"2.10.0\""
+      },
+      {
+        "line": 24,
+        "text": "PKG_SHA256=\"696b8e53923aac4474532da7dd681f0bd044b329732facd65aeabea3e61adca9\""
+      },
+      {
+        "line": 28,
+        "text": "PKG_URL=\"https://github.com/ARM-software/arm-trusted-firmware/archive/v${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "87f59f453edf320b614a1167e9acd45f6cb3a2de",
+    "path": "projects/ROCKNIX/packages/tools/atf/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "c71f0a30925468574ffa9c3bc971bb8b08382535e1bc3cf69fbaaf112db73fc0",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/tools/batteryplus/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"batteryplus\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"1c31e89ec1828d51710ad35a607bdfad7e18464e\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"1619da9e945746ea589edb70efd1095b07d21207be3fa43a4c1598be5c2a2089\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"${PKG_SITE}/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"make\""
+      }
+    ],
+    "includes": [],
+    "oid": "f03a220b4879802672e2bc0efff4880755dc83be",
+    "path": "projects/ROCKNIX/packages/tools/batteryplus/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "821c7bed6e6629dea3812dc1471dfcc2e3e2a1241091ea6091d9497d375e6861",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/tools/freeimage/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"freeimage\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"3180\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"f41379682f9ada94ea7b34fe86bf9ee00935a3147be41b6569c9605a53e438fd\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"$SOURCEFORGE_SRC/${PKG_NAME}/FreeImage${PKG_VERSION}.zip\""
+      }
+    ],
+    "includes": [],
+    "oid": "9ca0d88039abe4f2184669ce9de8642bcfa69f46",
+    "path": "projects/ROCKNIX/packages/tools/freeimage/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "e2c56a189153864d6785db908f7bfa3ea770adee002896a1c1cdda37ab1160c6",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/tools/mkbootimg/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"mkbootimg\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"d2bb0af5ba6d3198a3e99529c97eda1be0b5a093\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"418bb875c03d5c5844d6d289956d8294ae6a2bd5be78c7d912d797e7826ca3d9\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://github.com/jbeich/platform_system_tools_mkbootimg/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 11,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "b2a27170e8ff8fd0592aa27a0b6b86f5770c4d85",
+    "path": "projects/ROCKNIX/packages/tools/mkbootimg/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "3c3a0a9595a523501bf4bc71e4b686432e9c9671cb7895bf0979736033107ac9",
+    "upstream": "absent"
+  },
+  "projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"es-theme-art-book-next\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"9a50ef366e750aabfab29e6915a2867607212971\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"7ee1e93f2c4e4f7385b78680ecfa3828acf12bc616e2111d23cc66a524231125\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://github.com/anthonycaccese/art-book-next-es/archive/${PKG_VERSION}.tar.gz\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_TOOLCHAIN=\"manual\""
+      }
+    ],
+    "includes": [],
+    "oid": "f649b076a4a11145fbf324d5cb22571ccf099d78",
+    "path": "projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "a13f826ed67d0abccb258b24cc9d5254e4ce1e998d559bcc788bc78a1919d4d0",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/wayland/compositor/sway/package.mk": {
+    "base": "changed",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"sway\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_TOOLCHAIN=\"meson\""
+      },
+      {
+        "line": 14,
+        "text": "PKG_VERSION=\"1.9\""
+      },
+      {
+        "line": 15,
+        "text": "PKG_URL=\"https://github.com/swaywm/sway/archive/${PKG_VERSION}.zip\""
+      },
+      {
+        "line": 18,
+        "text": "PKG_VERSION=\"1.11\""
+      },
+      {
+        "line": 19,
+        "text": "PKG_SHA256=\"0e37a55b7c3379230e97e1ad982542b75016a0c7d6676198604e557f9b373dae\""
+      },
+      {
+        "line": 20,
+        "text": "PKG_URL=\"https://github.com/swaywm/sway/releases/download/${PKG_VERSION}/sway-${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "87558f1c8c3c3a9fa18b3825cc3340459470bc80",
+    "path": "projects/ROCKNIX/packages/wayland/compositor/sway/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "aff81d13319752e24ff0c77e3da8120cdd2253cf31a95a96a3f1ec4ff342792a",
+    "upstream": "changed"
+  },
+  "projects/ROCKNIX/packages/wayland/lib/seatd/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"seatd\""
+      },
+      {
+        "line": 5,
+        "text": "PKG_VERSION=\"0.9.0\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_SHA256=\"4276d1380c67e30a63c289b35f7bf955e126e6daf3596cd5aa6080670aa1214c\""
+      },
+      {
+        "line": 9,
+        "text": "PKG_URL=\"https://github.com/kennylevinsen/seatd/archive/refs/tags/${PKG_VERSION}.tar.gz\""
+      }
+    ],
+    "includes": [],
+    "oid": "46e25357011ec93bc9fd6f0f538b7ac60a463fc2",
+    "path": "projects/ROCKNIX/packages/wayland/lib/seatd/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "3303a05253c1ce4a55c9fc72b4e45d404a4429376d5dea423b1db0e6d54a02e9",
+    "upstream": "identical"
+  },
+  "projects/ROCKNIX/packages/x11/xserver/xwayland/package.mk": {
+    "base": "identical",
+    "fields": [
+      {
+        "line": 4,
+        "text": "PKG_NAME=\"xwayland\""
+      },
+      {
+        "line": 6,
+        "text": "PKG_VERSION=\"24.1.13\""
+      },
+      {
+        "line": 7,
+        "text": "PKG_SHA256=\"173aea3d6f79609164c04528e1c8e4c9b60fcd59391c3c9dad4667297d727fb6\""
+      },
+      {
+        "line": 12,
+        "text": "PKG_URL=\"https://www.x.org/releases/individual/xserver/${PKG_NAME}-${PKG_VERSION}.tar.xz\""
+      }
+    ],
+    "includes": [],
+    "oid": "779daab20accfa84f17c8f8d3c4aff47666356be",
+    "path": "projects/ROCKNIX/packages/x11/xserver/xwayland/package.mk",
+    "pre_patch_hooks": [],
+    "sha256": "5b8806d547be3718cf25bce0cf75fa42257180f369cc5e6e1a073aef7282287c",
+    "upstream": "identical"
+  }
+}

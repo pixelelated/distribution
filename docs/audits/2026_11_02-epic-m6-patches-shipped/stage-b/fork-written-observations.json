@@ -1,0 +1,134 @@
+[
+  {
+    "path": "packages/graphics/woff2/patches/woff2-0001-include-cstdint.patch",
+    "read_lines": "1-108",
+    "logical_lines": 108,
+    "patch_sha256": "1cf04e2fad9306f390e0bb44aad83c6409c731f6568ed58cdf93f70076103e5d",
+    "reading": "Nine explicit cstdint includes replace transitive-header dependence; all nine hunks read. Build-only interface correction; no new runtime measurement.",
+    "owner": "woff2 package owner; contribution draft #585",
+    "reader": "openai/gpt-6-astra",
+    "utc": "2026-11-02T19:00:33.280175+00:00",
+    "application": "pending source qualification"
+  },
+  {
+    "path": "packages/web/webkitgtk/patches/webkitgtk-0001-DocumentLoader-include-EventLoop.patch",
+    "read_lines": "1-23",
+    "logical_lines": 23,
+    "patch_sha256": "09fbc3a52f3e523d04c1683377b14fdc35083a9ef4a81b9f4ba7359028e0a7fd",
+    "reading": "DocumentLoader queues a task and needs the EventLoop definition; header distinguishes 2.52.6 discovery from later carry. Current pin is 2.54.1, so dated 2.54.0 application is historical.",
+    "owner": "WebKit owner #228/#576; contribution draft #585",
+    "reader": "openai/gpt-6-astra",
+    "utc": "2026-11-02T19:00:33.280198+00:00",
+    "application": "pending source qualification"
+  },
+  {
+    "path": "packages/web/webkitgtk/patches/webkitgtk-0002-WebKit-includes-WebCore-platform-graphics-for-GStreamer-GL.patch",
+    "read_lines": "1-20",
+    "logical_lines": 20,
+    "patch_sha256": "ad2472978425b735c3d76e38f4b359de6f0ab2d7bde5fb5f1716f8f866141a6b",
+    "reading": "Adds the graphics include directory for the GStreamer-GL/WebGL-off option seam. Header claims the earlier 2.54.0 fix; no current upstream application claim.",
+    "owner": "WebKit owner #228/#576; contribution draft #585",
+    "reader": "openai/gpt-6-astra",
+    "utc": "2026-11-02T19:00:33.280201+00:00",
+    "application": "pending source qualification"
+  },
+  {
+    "path": "projects/ROCKNIX/packages/compat/fex-emu/patches/0006-guest-thunks-exclude-rebased-system-headers.patch",
+    "read_lines": "1-23",
+    "logical_lines": 23,
+    "patch_sha256": "badd7856d8b2edb277f5d13d33c83ec4ffe63d4f249e943ae7c60fc792f7ea76",
+    "reading": "Removes both literal and sysroot-rebased standard headers from guest thunk includes, retaining dependency-specific paths. Empty sysroot merely duplicates the existing exclusion.",
+    "owner": "FEX recipe owner / #492; contribution draft #585",
+    "reader": "openai/gpt-6-astra",
+    "utc": "2026-11-02T19:00:33.280206+00:00",
+    "application": "pending source qualification"
+  },
+  {
+    "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/018-nogui-achievements-lifecycle.patch",
+    "read_lines": "1-35",
+    "logical_lines": 35,
+    "patch_sha256": "bc1d04f688f85ff3fc49a81fa40625d08c8f7839aa81e46baee6b50b443ee5f0",
+    "reading": "AchievementManager include/init/shutdown are gated by USE_RETRO_ACHIEVEMENTS; the scope guard covers early return, explicit Exit precedes platform reset after Core shutdown. Validate actual ScopeGuard Exit semantics and pin context before claiming lifecycle correctness.",
+    "owner": "Dolphin standalone owner / M7 qualification; contribution draft #585",
+    "reader": "openai/gpt-6-astra",
+    "utc": "2026-11-02T19:00:33.280212+00:00",
+    "application": "pending source qualification"
+  },
+  {
+    "path": "projects/ROCKNIX/packages/graphics/SDL2/patches/0010-release-display-modes-on-display-removal.patch",
+    "read_lines": "1-25",
+    "logical_lines": 25,
+    "patch_sha256": "b869280edca225965ed01bf376962ec61dc4987133d377cc6f5bf80819f0bcc3",
+    "reading": "Reset display modes and free/null desktop driverdata before display removal; historical 768-byte LSan figure is a header claim, not a fresh result. Check ownership and duplicate-free context at source pin.",
+    "owner": "SDL2 / #310; contribution draft #585",
+    "reader": "openai/gpt-6-astra",
+    "utc": "2026-11-02T19:00:33.280216+00:00",
+    "application": "pending source qualification"
+  },
+  {
+    "path": "projects/ROCKNIX/packages/graphics/mesa/patches/001-rtasm-release-executable-heap-on-unload.patch",
+    "read_lines": "1-69",
+    "logical_lines": 69,
+    "patch_sha256": "d2e933063184d546d98695586f033bca7896618a913a19d82d6794bd76dd1c98",
+    "reading": "Publishes the executable heap after successful mmap/bookkeeping, unwinds failures and registers atexit cleanup; inspect full allocator lock/lifetime contract before any runtime claim. MAP_FAILED returns before heap publication; later calls retry.",
+    "owner": "Mesa / #310; contribution draft #585",
+    "reader": "openai/gpt-6-astra",
+    "utc": "2026-11-02T19:00:33.280217+00:00",
+    "application": "pending source qualification"
+  },
+  {
+    "path": "projects/ROCKNIX/packages/graphics/mesa/patches/002-virgl-release-empty-screen-cache.patch",
+    "read_lines": "1-46",
+    "logical_lines": 46,
+    "patch_sha256": "a987913efbbbf351f1d152638c28448ac7553c9ff0524c61587277184322bc84",
+    "reading": "Destroy only a non-null empty fd table while existing mutex is held, at teardown and failed probe unlock. Live entries retain sharing. Historical 592-byte claim remains attributed.",
+    "owner": "Mesa / #310; contribution draft #585",
+    "reader": "openai/gpt-6-astra",
+    "utc": "2026-11-02T19:00:33.280218+00:00",
+    "application": "pending source qualification"
+  },
+  {
+    "path": "projects/ROCKNIX/packages/graphics/shaderc/patches/001-fix-overwriting-dependencies.patch",
+    "read_lines": "1-26",
+    "logical_lines": 26,
+    "patch_sha256": "0ddeddd9b2a8a428f032123716feecb3a29786a4dd56a637f7d5409dabc6ebb3",
+    "reading": "Comments out third_party and build-version dependencies. Recipe pre-patch transforms and external SPIR-V sources determine whether dependency targets exist; cannot assess as an isolated pristine CMake edit.",
+    "owner": "shaderc recipe owner / dependency qualification; contribution draft #585",
+    "reader": "openai/gpt-6-astra",
+    "utc": "2026-11-02T19:00:33.280219+00:00",
+    "application": "pending source qualification"
+  },
+  {
+    "path": "projects/ROCKNIX/packages/network/zerotier-one/patches/001-client-without-nonfree-headers.patch",
+    "read_lines": "1-81",
+    "logical_lines": 81,
+    "patch_sha256": "5fe6dcc77910a0faf40fa2e9bcb09e918632d0ed2880fd7b30efdeb335c34ad5",
+    "reading": "Adds standard C++ headers and guards nonfree controller includes, members, initializers and deletes by feature macros. Nonfree separation is a source/licence-custody concern under #528; no new legal opinion.",
+    "owner": "ZeroTier / #528; contribution draft #585",
+    "reader": "openai/gpt-6-astra",
+    "utc": "2026-11-02T19:00:33.280222+00:00",
+    "application": "pending source qualification"
+  },
+  {
+    "path": "projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/patches/001-pixelelated-splash.patch",
+    "read_lines": "1-31",
+    "logical_lines": 31,
+    "patch_sha256": "c40173e7b13b18b982e4ee217f050a90d6974848a7d9d4b0f0195ad46255fb6c",
+    "reading": "Keeps distribution setting value rocknix while changing displayed brand and default splash geometry/path; custom splash branch remains. Wordmark installation is a recipe seam.",
+    "owner": "theme/identity owner #337; fork-specific carry, no automatic upstream submission",
+    "reader": "openai/gpt-6-astra",
+    "utc": "2026-11-02T19:00:33.280225+00:00",
+    "application": "pending source qualification"
+  },
+  {
+    "path": "projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/patches/001-tools-always-show-image.patch",
+    "read_lines": "1-11",
+    "logical_lines": 11,
+    "patch_sha256": "0bcdb45370d4f7890978ecb5a593043647ce97813d7c4ebac7d865967264eefc",
+    "reading": "Overrides artwork path only for tools system so script icon remains visible across artwork selections. Theme parser/order and frames are existing UI-owner evidence, not remeasured here.",
+    "owner": "theme/UI owner; fork-specific carry, contribution considered via #585",
+    "reader": "openai/gpt-6-astra",
+    "utc": "2026-11-02T19:00:33.280226+00:00",
+    "application": "pending source qualification"
+  }
+]

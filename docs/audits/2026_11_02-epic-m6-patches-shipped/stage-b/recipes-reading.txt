@@ -1,0 +1,1026 @@
+packages/addons/addon-depends/system-tools-depends/lm_sensors/package.mk
+4: PKG_NAME="lm_sensors"
+5: PKG_VERSION="3.6.2"
+6: PKG_SHA256="c6a0587e565778a40d88891928bf8943f27d353f382d5b745a997d635978a8f0"
+9: PKG_URL="https://github.com/groeck/lm-sensors/archive/V${PKG_VERSION//./-}.tar.gz"
+packages/addons/addon-depends/system-tools-depends/usb-modeswitch/package.mk
+4: PKG_NAME="usb-modeswitch"
+5: PKG_VERSION="2.6.2"
+6: PKG_SHA256="f7abd337784a9d1bd39cb8a587518aff6f2a43d916145eafd80b1b8b7146db66"
+9: PKG_URL="http://www.draisberghof.de/usb_modeswitch/${PKG_NAME}-${PKG_VERSION}.tar.bz2"
+packages/audio/fluidsynth/package.mk
+5: PKG_NAME="fluidsynth"
+6: PKG_VERSION="2.5.7"
+7: PKG_SHA256="ce27840221ab00dd59bf27e85ecbba480c6c2a7c9fbec4243658f68f59c07f4a"
+10: PKG_URL="https://github.com/FluidSynth/fluidsynth/archive/v${PKG_VERSION}.tar.gz"
+packages/audio/soxr/package.mk
+5: PKG_NAME="soxr"
+6: PKG_VERSION="0.1.3"
+7: PKG_SHA256="b111c15fdc8c029989330ff559184198c161100a59312f5dc19ddeb9b5a15889"
+10: PKG_URL="https://downloads.sourceforge.net/project/soxr/${PKG_NAME}-${PKG_VERSION}-Source.tar.xz"
+packages/compress/7-zip/package.mk
+4: PKG_NAME="7-zip"
+5: PKG_VERSION="26.02"
+6: PKG_SHA256="cf967c98bca02a4b8b16375f441825a8e141362f14be1969bbec8e1ca0bff9dd"
+9: PKG_URL="https://www.7-zip.org/a/7z${PKG_VERSION/./}-src.tar.xz"
+14: PKG_TOOLCHAIN="manual"
+packages/compress/lzo/package.mk
+5: PKG_NAME="lzo"
+6: PKG_VERSION="2.10"
+7: PKG_SHA256="c0f892943208266f9b6543b3ae308fab6284c5c90e627931446fb49b4221a072"
+10: PKG_URL="http://www.oberhumer.com/opensource/lzo/download/${PKG_NAME}-${PKG_VERSION}.tar.gz"
+packages/databases/sqlite/package.mk
+5: PKG_NAME="sqlite"
+6: PKG_VERSION="3.53.4"
+8: PKG_SHA256="0e9483900e92cd5de8fd48d16bf9200145a61f7fd5be542a5ac81d8a9516eb9c"
+11: PKG_URL="https://www.sqlite.org/2026/${PKG_NAME}-autoconf-${PKG_VERSION_SQLITE/./0}.tar.gz"
+packages/debug/gdb/package.mk
+5: PKG_NAME="gdb"
+6: PKG_VERSION="17.2"
+7: PKG_SHA256="1c036c0d72e4b3d1fb5c94c88632add6f9d76f4d7c4d2ea793c12a9f19a3228c"
+10: PKG_URL="https://ftp.gnu.org/gnu/gdb/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+packages/debug/libunwind/package.mk
+4: PKG_NAME="libunwind"
+5: PKG_VERSION="1.8.3"
+6: PKG_SHA256="21b26bc75cd37b548d7952f2794cde711efa6c6151c4147cc3c52cfedbf11df4"
+9: PKG_URL="https://github.com/libunwind/libunwind/archive/refs/tags/v${PKG_VERSION}.tar.gz"
+13: PKG_TOOLCHAIN="autotools"
+packages/debug/memtester/package.mk
+4: PKG_NAME="memtester"
+5: PKG_VERSION="4.7.1"
+6: PKG_SHA256="e427de663f7bd22d1ebee8af12506a852c010bd4fcbca1e0e6b02972d298b5bb"
+9: PKG_URL="http://pyropus.ca/software/memtester/old-versions/memtester-${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="manual"
+packages/devel/autoconf/package.mk
+5: PKG_NAME="autoconf"
+6: PKG_VERSION="2.73"
+7: PKG_SHA256="9fd672b1c8425fac2fa67fa0477b990987268b90ff36d5f016dae57be0d6b52e"
+10: PKG_URL="https://ftpmirror.gnu.org/autoconf/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+packages/devel/automake/package.mk
+5: PKG_NAME="automake"
+6: PKG_VERSION="1.18.1"
+7: PKG_SHA256="168aa363278351b89af56684448f525a5bce5079d0b6842bd910fdd3f1646887"
+10: PKG_URL="https://ftpmirror.gnu.org/automake/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+packages/devel/binutils/package.mk
+5: PKG_NAME="binutils"
+6: PKG_VERSION="2.47"
+7: PKG_SHA256="154ab23b60070e8f27013c22977f1129425d67d1e8acd6e13010e617811e4cff"
+10: PKG_URL="https://ftp.gnu.org/gnu/binutils/binutils-${PKG_VERSION}.tar.xz"
+51: post_unpack() {
+packages/devel/crossguid/package.mk
+5: PKG_NAME="crossguid"
+6: PKG_VERSION="ca1bf4b810e2d188d04cb6286f957008ee1b7681" # 2019-05-30
+7: PKG_SHA256="6be27e0b3a4907f0cd3cfadec255ee1b925569e1bd06e67a4d2f4267299b69c4"
+10: PKG_URL="https://github.com/graeme-hill/crossguid/archive/${PKG_VERSION}.tar.gz"
+packages/devel/elfutils/package.mk
+5: PKG_NAME="elfutils"
+6: PKG_VERSION="0.195"
+7: PKG_SHA256="37629fdf7f1f3dc2818e138fca2b8094177d6c2d0f701d3bb650a561218dc026"
+10: PKG_URL="https://sourceware.org/elfutils/ftp/${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.bz2"
+14: PKG_TOOLCHAIN="autotools"
+packages/devel/flex/package.mk
+5: PKG_NAME="flex"
+6: PKG_VERSION="2.6.4"
+7: PKG_SHA256="e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995"
+10: PKG_URL="https://github.com/westes/flex/releases/download/v${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.gz"
+14: PKG_TOOLCHAIN="autotools"
+packages/devel/gcem/package.mk
+4: PKG_NAME="gcem"
+5: PKG_VERSION="1.18.0"
+6: PKG_SHA256="8e71a9f5b62956da6c409dda44b483f98c4a98ae72184f3aa4659ae5b3462e61"
+9: PKG_URL="https://github.com/kthohr/gcem/archive/v${PKG_VERSION}.tar.gz"
+packages/devel/gettext/package.mk
+5: PKG_NAME="gettext"
+6: PKG_VERSION="1.0"
+7: PKG_SHA256="71132a3fb71e68245b8f2ac4e9e97137d3e5c02f415636eb508ae607bc01add7"
+10: PKG_URL="https://ftp.gnu.org/pub/gnu/gettext/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+packages/devel/glib/package.mk
+5: PKG_NAME="glib"
+6: PKG_VERSION="2.89.3"
+7: PKG_SHA256="09fd1e99f991067749ad66090e482ec4bd6514ad53abb4e9fbbdc2a4d2753532"
+10: PKG_URL="https://download.gnome.org/sources/glib/$(get_pkg_version_maj_min)/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+packages/devel/gmp/package.mk
+5: PKG_NAME="gmp"
+6: PKG_VERSION="6.3.0"
+7: PKG_SHA256="a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898"
+10: PKG_URL="https://gmplib.org/download/gmp/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+packages/devel/heimdal/package.mk
+5: PKG_NAME="heimdal"
+6: PKG_VERSION="f4faaeaba371fff3f8d1bc14389f5e6d70ca8e17"
+7: PKG_SHA256="2576c5e2d793db53c86e108fd117b278437bb02d6c6db2bec4d1b86958f1980a"
+10: PKG_URL="https://github.com/heimdal/heimdal/archive/${PKG_VERSION}.tar.gz"
+13: PKG_TOOLCHAIN="autotools"
+packages/devel/intltool/package.mk
+5: PKG_NAME="intltool"
+6: PKG_VERSION="0.51.0"
+7: PKG_SHA256="67c74d94196b153b774ab9f89b2fa6c6ba79352407037c8c14d5aeb334e959cd"
+10: PKG_URL="http://launchpad.net/intltool/trunk/${PKG_VERSION}/+download/${PKG_NAME}-${PKG_VERSION}.tar.gz"
+packages/devel/libevent/package.mk
+4: PKG_NAME="libevent"
+5: PKG_VERSION="2.1.13"
+6: PKG_SHA256="f7e9383b8c0baa81b687e5b5eecc01beefaf1b19b64151d95ed61647fe7a315c"
+9: PKG_URL="https://github.com/libevent/libevent/releases/download/release-${PKG_VERSION}-stable/libevent-${PKG_VERSION}-stable.tar.gz"
+packages/devel/libffi/package.mk
+5: PKG_NAME="libffi"
+6: PKG_VERSION="3.8.0"
+7: PKG_SHA256="7da3e2d9a171eb0a038f592ecad3ff2bb2550f3496d87b3b29ad0cf4430c0db4"
+10: PKG_URL="https://github.com/libffi/libffi/releases/download/v${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.gz"
+14: PKG_TOOLCHAIN="autotools"
+packages/devel/libtool/package.mk
+5: PKG_NAME="libtool"
+6: PKG_VERSION="2.6.2"
+7: PKG_SHA256="2ef1067c16c97db930fd740cc9bc3d3ba9a583804ae5ac42cc3e8719e49e191e"
+10: PKG_URL="https://ftpmirror.gnu.org/libtool/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+14: PKG_TOOLCHAIN="autotools"
+19: post_unpack() {
+packages/devel/pkg-config/package.mk
+5: PKG_NAME="pkg-config"
+6: PKG_VERSION="0.29.2"
+7: PKG_SHA256="6fc69c01688c9458a57eb9a1664c9aba372ccda420a02bf4429fe610e7e7d591"
+10: PKG_URL="http://pkg-config.freedesktop.org/releases/${PKG_NAME}-${PKG_VERSION}.tar.gz"
+packages/devel/readline/package.mk
+5: PKG_NAME="readline"
+6: PKG_VERSION="8.3"
+7: PKG_SHA256="fe5383204467828cd495ee8d1d3c037a7eba1389c22bc6a041f627976f9061cc"
+10: PKG_URL="https://ftpmirror.gnu.org/readline/${PKG_NAME}-${PKG_VERSION}.tar.gz"
+packages/graphics/vulkan/vkmark/package.mk
+4: PKG_NAME="vkmark"
+5: PKG_VERSION="2025.01"
+6: PKG_SHA256="1ae362844344d0f9878b7a3f13005f77eae705108892a4e8abf237d452d37edc"
+9: PKG_URL="https://github.com/vkmark/vkmark/archive/${PKG_VERSION}.tar.gz"
+packages/graphics/woff2/package.mk
+4: PKG_NAME="woff2"
+5: PKG_VERSION="1.0.2"
+6: PKG_SHA256="add272bb09e6384a4833ffca4896350fdb16e0ca22df68c0384773c67a175594"
+9: PKG_URL="https://github.com/google/woff2/archive/v${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="cmake"
+packages/lang/Python3/package.mk
+4: PKG_NAME="Python3"
+6: PKG_VERSION="3.14.7"
+7: PKG_SHA256="3b48dac8fb59f62eaa67ac83c1eb12bda1b7a08406dd286e252c11a66be27f81"
+10: PKG_URL="https://www.python.org/ftp/python/${PKG_VERSION}/${PKG_NAME::-1}-${PKG_VERSION}.tar.xz"
+15: PKG_TOOLCHAIN="autotools"
+packages/lang/gcc/package.mk
+5: PKG_NAME="gcc"
+6: PKG_VERSION="16.2.0"
+7: PKG_SHA256="e6738e29597f733270731aa90600f37ffdc045079dfc27ec7e8192cc81085c3e"
+10: PKG_URL="https://ftpmirror.gnu.org/gnu/gcc/${PKG_NAME}-${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+packages/print/freetype/package.mk
+5: PKG_NAME="freetype"
+6: PKG_VERSION="2.14.3"
+7: PKG_SHA256="36bc4f1cc413335368ee656c42afca65c5a3987e8768cc28cf11ba775e785a5f"
+10: PKG_URL="https://download.savannah.gnu.org/releases/freetype/freetype-${PKG_VERSION}.tar.xz"
+14: PKG_TOOLCHAIN="configure"
+packages/security/libgcrypt/package.mk
+5: PKG_NAME="libgcrypt"
+6: PKG_VERSION="1.12.2"
+7: PKG_SHA256="7ce33c2492221a0436f96a8500215e9f3e3dcb5fd26a757cd415e7a843babd5e"
+10: PKG_URL="https://www.gnupg.org/ftp/gcrypt/libgcrypt/${PKG_NAME}-${PKG_VERSION}.tar.bz2"
+13: PKG_TOOLCHAIN="autotools"
+packages/security/libxcrypt/package.mk
+4: PKG_NAME="libxcrypt"
+5: PKG_VERSION="4.5.2"
+6: PKG_SHA256="71513a31c01a428bccd5367a32fd95f115d6dac50fb5b60c779d5c7942aec071"
+9: PKG_URL="https://github.com/besser82/libxcrypt/releases/download/v${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+packages/security/nss/package.mk
+5: PKG_NAME="nss"
+6: PKG_VERSION="3.126"
+7: PKG_SHA256="c95a4cf93d6939000642254422d71dffccb5c017d0f40733d3e2be18aa93f1be"
+10: PKG_URL="https://ftp.mozilla.org/pub/security/nss/releases/NSS_${PKG_VERSION//./_}_RTM/src/nss-${PKG_VERSION}-with-nspr-$(get_pkg_version nspr).tar.gz"
+14: PKG_TOOLCHAIN="manual"
+packages/sysutils/dosfstools/package.mk
+5: PKG_NAME="dosfstools"
+6: PKG_VERSION="4.2"
+7: PKG_SHA256="64926eebf90092dca21b14259a5301b7b98e7b1943e8a201c7d726084809b527"
+10: PKG_URL="https://github.com/dosfstools/dosfstools/releases/download/v${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.gz"
+packages/sysutils/fuse/package.mk
+5: PKG_NAME="fuse"
+6: PKG_VERSION="5a43d0f724c56f8836f3f92411e0de1b5f82db32" # 2.9.9+
+7: PKG_SHA256="1df88a204e1673e29112f1ee4efe6b3cd4de2ae78945838e406ead0fe24ec5f1"
+10: PKG_URL="https://github.com/libfuse/libfuse/archive/${PKG_VERSION}.tar.gz"
+13: PKG_TOOLCHAIN="autotools"
+packages/sysutils/keyutils/package.mk
+5: PKG_NAME="keyutils"
+6: PKG_VERSION="1.6.3"
+7: PKG_SHA256="a61d5706136ae4c05bd48f86186bcfdbd88dd8bd5107e3e195c924cfc1b39bb4"
+10: PKG_URL="https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/snapshot/${PKG_NAME}-${PKG_VERSION}.tar.gz"
+packages/sysutils/pciutils/package.mk
+5: PKG_NAME="pciutils"
+6: PKG_VERSION="3.15.0"
+7: PKG_SHA256="c02940f430841ecf158d5d9a50007afc4d5353c8678a2455003ca0b2c4e9f5ff"
+10: PKG_URL="https://www.kernel.org/pub/software/utils/pciutils/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+packages/textproc/itstool/package.mk
+4: PKG_NAME="itstool"
+5: PKG_VERSION="2.0.7"
+6: PKG_SHA256="6b9a7cd29a12bb95598f5750e8763cee78836a1a207f85b74d8b3275b27e87ca"
+9: PKG_URL="http://files.itstool.org/itstool/itstool-${PKG_VERSION}.tar.bz2"
+13: PKG_TOOLCHAIN="autotools"
+packages/textproc/pugixml/package.mk
+4: PKG_NAME="pugixml"
+5: PKG_VERSION="1.16"
+6: PKG_SHA256="357bcab8877dc9943f355d3a72daba1b053238ba955f50fa81586afb65090219"
+9: PKG_URL="https://github.com/zeux/pugixml/archive/v${PKG_VERSION}.tar.gz"
+packages/textproc/xmlstarlet/package.mk
+5: PKG_NAME="xmlstarlet"
+6: PKG_VERSION="1.6.1"
+7: PKG_SHA256="15d838c4f3375332fd95554619179b69e4ec91418a3a5296e7c631b7ed19e7ca"
+10: PKG_URL="https://github.com/xmlstarlet/xmlstarlet/releases/download/${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.gz"
+packages/tools/mtools/package.mk
+5: PKG_NAME="mtools"
+6: PKG_VERSION="4.0.49"
+7: PKG_SHA256="6fe5193583d6e7c59da75e63d7234f76c0b07caf33b103894f46f66a871ffc9f"
+10: PKG_URL="https://ftpmirror.gnu.org/${PKG_NAME}/${PKG_NAME}-${PKG_VERSION}.tar.bz2"
+13: PKG_TOOLCHAIN="autotools"
+packages/tools/syslinux/package.mk
+5: PKG_NAME="syslinux"
+6: PKG_VERSION="6.03"
+7: PKG_SHA256="26d3986d2bea109d5dc0e4f8c4822a459276cf021125e8c9f23c3cca5d8c850e"
+8: PKG_ARCH="x86_64"
+11: PKG_URL="http://www.kernel.org/pub/linux/utils/boot/${PKG_NAME}/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+packages/wayland/wayland-protocols/package.mk
+4: PKG_NAME="wayland-protocols"
+5: PKG_VERSION="1.49"
+6: PKG_SHA256="ec4c8f74942d6dff7ace8b4ce4764f0ef9ff618a935d974ea77edee2ad240b14"
+9: PKG_URL="https://gitlab.freedesktop.org/wayland/${PKG_NAME}/-/releases/${PKG_VERSION}/downloads/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+packages/web/webkitgtk/package.mk
+4: PKG_NAME="webkitgtk"
+5: PKG_VERSION="2.54.1"
+6: PKG_SHA256="ea0bbb02dbdbc596874a4e7ad35b66645b3e0a232bd0e4081de5ed92eb0a397d"
+9: PKG_URL="https://webkitgtk.org/releases/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+17: PKG_TOOLCHAIN="cmake"
+packages/x11/lib/libX11/package.mk
+5: PKG_NAME="libX11"
+6: PKG_VERSION="1.8.13"
+7: PKG_SHA256="69606f485c2c07c14ef64f75b7bb326d48587af33795d9ab3e607c0b5f94f11c"
+10: PKG_URL="https://xorg.freedesktop.org/archive/individual/lib/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+13: PKG_TOOLCHAIN="autotools"
+packages/x11/util/xorg-launch-helper/package.mk
+5: PKG_NAME="xorg-launch-helper"
+6: PKG_VERSION="4"
+7: PKG_SHA256="a7f8809a1810212506893ac5c62d8d17fee7a980fb10d59d1bef36f694767be5"
+10: PKG_URL="http://foo-projects.org/~sofar/${PKG_NAME}/${PKG_NAME}-${PKG_VERSION}.tar.gz"
+13: PKG_TOOLCHAIN="autotools"
+projects/ROCKNIX/devices/H700/packages/u-boot/package.mk
+4: PKG_NAME="u-boot"
+5: PKG_VERSION="1.0"
+8: PKG_URL=""
+11: PKG_TOOLCHAIN="manual"
+projects/ROCKNIX/packages/apps/gamepadtester/package.mk
+4: PKG_NAME="gamepadtester"
+5: PKG_VERSION="6ac49e67aa98fe3dd5c27f73306d65d4b7a82daa"
+6: PKG_SHA256="dcba71ac2e673b7714a6cac12661d56e61a2eb861136bf7d74a42165d6a69be6"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="cmake"
+projects/ROCKNIX/packages/apps/gamescope/package.mk
+4: PKG_NAME="gamescope"
+5: PKG_VERSION="fa0b4d3342078f01eadff0193e09c3b561f40c03"
+6: PKG_GIT_CLONE_BRANCH="master"
+9: PKG_URL="${PKG_SITE}.git"
+15: PKG_TOOLCHAIN="meson"
+projects/ROCKNIX/packages/apps/jstest-sdl/package.mk
+5: PKG_NAME="jstest-sdl"
+6: PKG_VERSION="f4fdf6daae687d19b303d8ba8809ff5a68bc33a4"
+7: PKG_SHA256="4eaef6eebb5f370b89fa320225ecdb2941cfe5604fe4dc59ef7e4335c68fa4be"
+10: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+13: PKG_TOOLCHAIN="make"
+projects/ROCKNIX/packages/apps/m8c/package.mk
+4: PKG_NAME="m8c"
+5: PKG_VERSION="v1.7.10"
+6: PKG_SHA256="c0e046fccbff27b5bfde552d7944f6a0317d386d4f6a816838b5249e58cece49"
+9: PKG_URL="${PKG_SITE}/archive/refs/tags/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="cmake"
+projects/ROCKNIX/packages/apps/mako-osd/package.mk
+4: PKG_NAME="mako-osd"
+5: PKG_VERSION="b131bc143f6b0f24d650f16bb88a11c7cb011c20"
+6: PKG_SHA256="f1d6f8d7fec785a49698543cf812589bc014caa410c82c21773595e8785ab842"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="meson"
+projects/ROCKNIX/packages/apps/mangohud/package.mk
+4: PKG_NAME="mangohud"
+5: PKG_VERSION="992103e4fb744897826de04ea00a2f71e7018214" # v0.8.4
+6: PKG_SHA256="edd61f4716710681a9e3b535556831ee0c6187b7b6f90d29f8d8ac234448f4a5"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/apps/moonlight/package.mk
+4: PKG_NAME="moonlight"
+15: PKG_URL="${PKG_SITE}.git"
+16: PKG_VERSION="8a87a09947f27dd2fe4bee7ae9faabe86873a5c4"
+18: PKG_TOOLCHAIN="manual"
+33: PKG_URL="${PKG_SITE}.git"
+34: PKG_VERSION="a6bf7154a743d4f74a1b377e730f188352a1b80c"
+35: PKG_TOOLCHAIN="cmake"
+projects/ROCKNIX/packages/apps/oga_controls/package.mk
+4: PKG_NAME="oga_controls"
+5: PKG_VERSION="1604ee24150c1c5bb7c66bc4670919c2ad8f0064"
+6: PKG_SHA256="cdfa89581e3494220ef1d91246376179947bdd2ba1dd084249c224cc9ce0d8f4"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="make"
+projects/ROCKNIX/packages/apps/qterminal/lxqt-build-tools/package.mk
+4: PKG_NAME="lxqt-build-tools"
+5: PKG_VERSION="2.2.0"
+6: PKG_SHA256="ecee3248c9435580e9eec844d8b2a989bbf1472cc292a04bc4f8708127fea1c5"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="cmake"
+projects/ROCKNIX/packages/apps/qterminal/package.mk
+4: PKG_NAME="qterminal"
+5: PKG_VERSION="2.2.1"
+6: PKG_SHA256="1dd4865460ea03ccd68354bd1be823818162c1cf1ab4f6240003df0156e6939f"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="cmake"
+projects/ROCKNIX/packages/apps/qterminal/qtermwidget/package.mk
+4: PKG_NAME="qtermwidget"
+5: PKG_VERSION="2.2.0"
+6: PKG_SHA256="9f212697d578d6a4eb49d21530c2280a953a80a3798bc4190b8d15abd03647be"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="cmake"
+projects/ROCKNIX/packages/apps/rocknix-touchscreen-keyboard/package.mk
+4: PKG_NAME="rocknix-touchscreen-keyboard"
+5: PKG_VERSION="v0.17"
+6: PKG_SHA256="e3f82302367cdacf7a0c59d6d1bb4f5140083da1b3083da7c835dab0c250034c"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="make"
+projects/ROCKNIX/packages/apps/sdltouchtest/package.mk
+4: PKG_NAME="sdltouchtest"
+5: PKG_VERSION="b62dae0d6233869a4c70a9472bc1e93dec391f94"
+6: PKG_SHA256="aac50a5a38f8be042ae9210a235e672c1fb9c90b7fc96af72b9554d3e94c2ef9"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="make"
+projects/ROCKNIX/packages/audio/alsa-lib/package.mk
+5: PKG_NAME="alsa-lib"
+6: PKG_VERSION="1.2.14"
+7: PKG_SHA256="be9c88a0b3604367dd74167a2b754a35e142f670292ae47a2fdef27a2ee97a32"
+10: PKG_URL="https://www.alsa-project.org/files/pub/lib/alsa-lib-${PKG_VERSION}.tar.bz2"
+13: PKG_TOOLCHAIN="autotools"
+projects/ROCKNIX/packages/audio/alsa-ucm-conf/package.mk
+4: PKG_NAME="alsa-ucm-conf"
+5: PKG_VERSION="1.2.13"
+6: PKG_SHA256="4483b6e3983cca08fd326a73fbae449b5036e444fb1a07c0dee74b504b7ab5af"
+9: PKG_URL="https://www.alsa-project.org/files/pub/lib/alsa-ucm-conf-${PKG_VERSION}.tar.bz2"
+11: PKG_TOOLCHAIN="manual"
+projects/ROCKNIX/packages/audio/espeak/package.mk
+4: PKG_NAME="espeak"
+5: PKG_VERSION="1.48.04-source"
+6: PKG_SHA256="bf9a17673adffcc28ff7ea18764f06136547e97bbd9edf2ec612f09b207f0659"
+9: PKG_URL="http://sourceforge.net/projects/espeak/files/espeak/espeak-1.48/${PKG_NAME}-${PKG_VERSION}.zip"
+12: PKG_TOOLCHAIN="manual"
+projects/ROCKNIX/packages/audio/fluidsynth/package.mk
+4: . ${ROOT}/packages/audio/fluidsynth/package.mk
+projects/ROCKNIX/packages/audio/libsndfile/package.mk
+6: PKG_NAME="libsndfile"
+7: PKG_VERSION="e486f20"
+8: PKG_SHA256="1227bc78df8eece089e6b984ba7c32e74e210f146d2bac1b76bd218baaf35ce5"
+11: PKG_URL="https://github.com/libsndfile/libsndfile/archive/${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/audio/pipewire/package.mk
+4: PKG_NAME="pipewire"
+5: PKG_VERSION="1.2.6"
+6: PKG_SHA256="8d9b4e95dba33d218c760fecbb71672c86a56917f803e96fe6c3af62fa783a95"
+9: PKG_URL="https://github.com/PipeWire/pipewire/archive/${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/audio/pulseaudio/package.mk
+5: PKG_NAME="pulseaudio"
+6: PKG_VERSION="17.0"
+7: PKG_SHA256="053794d6671a3e397d849e478a80b82a63cb9d8ca296bd35b73317bb5ceb87b5"
+10: PKG_URL="http://www.freedesktop.org/software/pulseaudio/releases/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+projects/ROCKNIX/packages/audio/wireplumber/package.mk
+4: PKG_NAME="wireplumber"
+5: PKG_VERSION="0.5.7"
+6: PKG_SHA256="8cd43a582f68368ee5a915e97bf9dadc44d2dfe8c7bb4f96bb7b40ea2ed7848f"
+9: PKG_URL="https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/compat/fex-emu/package.mk
+4: PKG_NAME="fex-emu"
+5: PKG_VERSION="e869aa644a16e4332cdc15c1ea0b4d13d482385d"
+8: PKG_URL="https://github.com/FEX-Emu/FEX.git"
+12: PKG_TOOLCHAIN="manual"
+75: . "${HOME}/.nix-profile/etc/profile.d/nix.sh"
+projects/ROCKNIX/packages/compress/p7zip/package.mk
+4: PKG_NAME="p7zip"
+5: PKG_VERSION="16.02"
+6: PKG_SHA256="5eb20ac0e2944f6cb9c2d51dd6c4518941c185347d4089ea89087ffdd6e2341f"
+9: PKG_URL="http://downloads.sourceforge.net/project/p7zip/p7zip/${PKG_VERSION}/p7zip_${PKG_VERSION}_src_all.tar.bz2"
+13: PKG_TOOLCHAIN="manual"
+projects/ROCKNIX/packages/compress/xz/package.mk
+6: PKG_NAME="xz"
+7: PKG_VERSION="5.8.1"
+8: PKG_SHA256="0b54f79df85912504de0b14aec7971e3f964491af1812d83447005807513cd9e"
+11: PKG_URL="https://github.com/tukaani-project/xz/releases/download/v${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+16: PKG_TOOLCHAIN="configure"
+projects/ROCKNIX/packages/compress/zip/package.mk
+4: PKG_NAME="zip"
+5: PKG_VERSION="3.0"
+6: PKG_SHA256="f0e8bb1f9b7eb0b01285495a2699df3a4b766784c1765a8f1aeedf63c0806369"
+9: PKG_URL="${SOURCEFORGE_SRC}/infozip/Zip%203.x%20%28latest%29/3.0/${PKG_NAME}${PKG_VERSION/./}.tar.gz"
+12: PKG_TOOLCHAIN="manual"
+projects/ROCKNIX/packages/devel/glib/package.mk
+4: . ${ROOT}/packages/devel/glib/package.mk
+projects/ROCKNIX/packages/devel/glibc/package.mk
+5: PKG_NAME="glibc"
+6: PKG_VERSION="2.41"
+7: PKG_SHA256="a5a26b22f545d6b7d7b3dd828e11e428f24f4fac43c934fb071b6a7d0828e901"
+10: PKG_URL="https://ftp.gnu.org/pub/gnu/glibc/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+27: PKG_PATCH_DIRS="widevine-arm"
+58: post_unpack() {
+projects/ROCKNIX/packages/devel/make/package.mk
+5: PKG_NAME="make"
+6: PKG_VERSION="4.4.1"
+7: PKG_SHA256="dd16fb1d67bfab79a72f5e8390735c49e3e8e70b4945a15ab1f81ddb78658fb3"
+10: PKG_URL="https://ftpmirror.gnu.org/make/${PKG_NAME}-${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/devel/ncurses/package.mk
+6: PKG_NAME="ncurses"
+7: PKG_VERSION="6.5"
+8: PKG_SHA256="136d91bc269a9a5785e5f9e980bc76ab57428f604ce3e5a5a90cebc767971cc6"
+11: PKG_URL="http://invisible-mirror.net/archives/ncurses/ncurses-${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/devel/rapidjson/package.mk
+4: PKG_NAME="rapidjson"
+5: PKG_VERSION="1.1.0"
+6: PKG_SHA256="bf7ced29704a1e696fbccf2a2b4ea068e7774fa37f6d7dd4039d0787f8bed98e"
+9: PKG_URL="https://github.com/miloyip/rapidjson/archive/v${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/devel/readline/package.mk
+4: . ${ROOT}/packages/devel/readline/package.mk
+projects/ROCKNIX/packages/emulators/libretro/bsnes-hd-lr/package.mk
+4: PKG_NAME="bsnes-hd-lr"
+5: PKG_VERSION="fc26b25ea236f0f877f0265d2a2c37dfd93dfde9"
+6: PKG_SHA256="0cf48d8ef4846ce2b0b26fac4068cfbe2ab4c90794ede1af66c343fbfe079b2f"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="make"
+16: post_unpack() {
+projects/ROCKNIX/packages/emulators/libretro/crocods-lr/package.mk
+4: PKG_NAME="crocods-lr"
+5: PKG_VERSION="a9c63b29443715ae2add392010fca4eae7f93e67"
+6: PKG_SHA256="e2d2ce649fa390e277ea7db15d376027b1f69b42c4767c5551e972015c6d2768"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/emulators/libretro/desmume-lr/package.mk
+4: PKG_NAME="desmume-lr"
+5: PKG_VERSION="8f6b32cb9a5e310bd38520e7087ce7fa14765f15"
+6: PKG_SHA256="8e6291e9c25b3c677644b101d8919ee3b64532be035a456cc4be2f2e7919484e"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="make"
+projects/ROCKNIX/packages/emulators/libretro/dosbox-core-lr/package.mk
+4: PKG_NAME="dosbox-core-lr"
+5: PKG_VERSION="7bcf083e8309660e2c598d6f7d5982d3851f2178"
+6: PKG_SHA256="adf88f729b3240d9dc979cc41f0f111559663a86e5e3be200e8b0d36d166eb79"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+13: PKG_TOOLCHAIN="make"
+projects/ROCKNIX/packages/emulators/libretro/duckstation-lr/package.mk
+4: PKG_NAME="duckstation-lr"
+5: PKG_VERSION="24c373245ebdab946f11627520edea76e1f23b8e"
+6: PKG_SHA256="a716d0caa55c24cfa23495d46bf5268a58fec0055e23df41caa7239d7da28fa4"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/emulators/libretro/emuscv-lr/package.mk
+4: PKG_NAME="emuscv-lr"
+5: PKG_VERSION="dfce10df090ce3f5eb23bdbee289702ec1478246"
+6: PKG_SHA256="f94c59fc91baa4dc8e96233bf0ec710fe1aaf79baa35c0b5af7fe42f73754fec"
+9: PKG_URL="${PKG_SITE}/-/archive/${PKG_VERSION}/libretro-emuscv-${PKG_VERSION}.tar.gz"
+13: PKG_TOOLCHAIN="make"
+projects/ROCKNIX/packages/emulators/libretro/flycast-lr/package.mk
+4: PKG_NAME="flycast-lr"
+5: PKG_VERSION="c3763d8fc4208dd6f8f0bc456383543b8406a8a0"
+8: PKG_URL="${PKG_SITE}.git"
+39: post_unpack() {
+projects/ROCKNIX/packages/emulators/libretro/flycast2021-lr/package.mk
+4: PKG_NAME="flycast2021-lr"
+5: PKG_VERSION="603814c9f73b773c455d9a497f389d2f93a257fd"
+6: PKG_SHA256="8aa94bdd669bab05a10ff03c8a977eccd41a30063271da3f81a7a50b1a72f4ca"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+27: post_unpack() {
+projects/ROCKNIX/packages/emulators/libretro/geolith-lr/package.mk
+4: PKG_NAME="geolith-lr"
+5: PKG_VERSION="20aa7cd25d1d0e053f9a363275c96bde9658e36d"
+6: PKG_SHA256="6dbfa296f444a8d9ba690fad2ae9bec89d36b23d68c6bebd9902abd022e0b7d8"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="make"
+projects/ROCKNIX/packages/emulators/libretro/gpsp-lr/package.mk
+4: PKG_NAME="gpsp-lr"
+5: PKG_VERSION="8d268a6bb2cd799f8f2791ebb544a7ef550cfc6f"
+6: PKG_SHA256="0b7833468c5fee9da7dcb433de0c11701fbb0734dba2c8b3630bd054d607e004"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/emulators/libretro/handy-lr/package.mk
+4: PKG_NAME="handy-lr"
+5: PKG_VERSION="bc55d462f0b2d6b073ea93dc552ebd73cec60fd1"
+6: PKG_SHA256="65ad333df22aab7f3c8156c21ffd0b8da1ef09c7a7f1775df964b89986aa7324"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/emulators/libretro/kronos-lr/package.mk
+4: PKG_NAME="kronos-lr"
+5: PKG_VERSION="46e687cb07f4bf8cb1717b0a7b4b48d208d20bb6"
+6: PKG_SHA256="d9f495763ef000d2ddbb71956b56cd1aff67c3c4f8b54bfdbbc7ce2f8d9b1033"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="make"
+projects/ROCKNIX/packages/emulators/libretro/mame-lr/package.mk
+4: PKG_NAME="mame-lr"
+5: PKG_VERSION="24cffe763621b164fc10be2ae3660f140be25182"
+6: PKG_SHA256="4867bee5dbd4129e6eea095fe8f8e9725563998710cc9620190e90529ef8931b"
+9: PKG_URL="https://github.com/libretro/mame/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="make"
+50: post_unpack() {
+projects/ROCKNIX/packages/emulators/libretro/mame2010-lr/package.mk
+4: PKG_NAME="mame2010-lr"
+5: PKG_VERSION="484456818393505dd4367e6e4c116c573c04a1ec"
+6: PKG_SHA256="2c00d52864e1ae4b0eb3335de89f29b1a8ebfe173c9e6910b302e379e92594a8"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/emulators/libretro/mupen64plus-lr/package.mk
+4: PKG_NAME="mupen64plus-lr"
+5: PKG_VERSION="ab8134ac90a567581df6de4fc427dd67bfad1b17"
+6: PKG_SHA256="98e197cdcac64c0e08eda91a6d63b637c3f151066bede25766e62bc1a59552a0"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+33: post_unpack() {
+projects/ROCKNIX/packages/emulators/libretro/mupen64plus-nx-lr/package.mk
+4: PKG_NAME="mupen64plus-nx-lr"
+5: PKG_VERSION="f275caf4b2bfa1e6d1c51636746ea793f3d80320"
+6: PKG_SHA256="1810b7bbdc4abfdeee8a9f7f99c4a91dab601a228935802317c25a43d7cf9dbb"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+27: post_unpack() {
+projects/ROCKNIX/packages/emulators/libretro/parallel-n64-lr/package.mk
+4: PKG_NAME="parallel-n64-lr"
+5: PKG_VERSION="f8605345e13c018a30c8f4ed03c05d8fc8f70be8"
+8: PKG_URL="${PKG_SITE}.git"
+11: PKG_TOOLCHAIN="make"
+projects/ROCKNIX/packages/emulators/libretro/pcsx_rearmed-lr/package.mk
+4: PKG_NAME="pcsx_rearmed-lr"
+5: PKG_VERSION="da2cb8ecd17fd0932ab6d94774c0522beebce6e3"
+6: PKG_SHA256="ff191a349aa88b7156f2c40ae32b7144884eec921542f07508d88715105d175e"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="make"
+16: post_unpack() {
+projects/ROCKNIX/packages/emulators/libretro/ppsspp-lr/package.mk
+4: PKG_NAME="ppsspp-lr"
+5: PKG_VERSION="fa50bb1976065c4f8b1b47af227d367fe9771555" # v1.20.4
+8: PKG_URL="${PKG_SITE}.git"
+72: post_unpack() {
+projects/ROCKNIX/packages/emulators/libretro/same_cdi-lr/package.mk
+4: PKG_NAME="same_cdi-lr"
+5: PKG_VERSION="7ee1d8e9cb4307b7cd44ee1dd757e9b3f48f41d5"
+6: PKG_SHA256="3f3193561e6f58640ed6818b5c51fd7e3706083e9f211eb9f2282f12d189e5d4"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="make"
+36: post_unpack() {
+projects/ROCKNIX/packages/emulators/libretro/scummvm-lr/package.mk
+4: PKG_NAME="scummvm-lr"
+5: PKG_VERSION="292e409938384ac0b3819a336c61fbb71dcbb9c3"
+6: PKG_SHA256="1027995a51a1eb429249c3afb6e6b438897652909a9384a82a539716b1d5182e"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="make"
+projects/ROCKNIX/packages/emulators/libretro/snes9x2005_plus-lr/package.mk
+4: PKG_NAME="snes9x2005_plus-lr"
+5: PKG_VERSION="deb49d80d1836e3e737480a326e31a54c46c04ae"
+6: PKG_SHA256="ebdce1e07e839702ef094b9edaac226c8b02abba9224a859ff18e2a28a09483a"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/emulators/libretro/snes9x2010-lr/package.mk
+4: PKG_NAME="snes9x2010-lr"
+5: PKG_VERSION="7db129b1ecdccb38cb4d7184bcbed39beed79656"
+6: PKG_SHA256="7443623d5c8a098fd20cf46dab29dbe8c7504f05d8a3aaa1a10f6d5d6a9d8d88"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/emulators/libretro/stella-lr/package.mk
+4: PKG_NAME="stella-lr"
+5: PKG_VERSION="c1ffb833c8b180433b0cad76bb6b55f8dfbc46ee"
+6: PKG_SHA256="bd515308f726ac06a6f6e50fa6919ed093a44406a096c6c79b09d4dd1fe872e4"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="make"
+projects/ROCKNIX/packages/emulators/libretro/vice-lr/package.mk
+4: PKG_NAME="vice-lr"
+5: PKG_VERSION="91d0d4d884acd44b5240dfcdbd8bdc2f0f757dfd"
+6: PKG_SHA256="bb2d86206c7890fe036be79ecbf75cb83051e01ecf6b5b140f4950c0e6304356"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/emulators/libretro/vircon32-lr/package.mk
+4: PKG_NAME="vircon32-lr"
+5: PKG_VERSION="3a1b4ae3fb75c1216fab9cc8715e9a122c461a3a"
+6: PKG_SHA256="38afe3e43949ab45ee2afae22c76260cac5473016969a421c0eee7d7b2739619"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="cmake-make"
+projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/package.mk
+4: PKG_NAME="vitaquake2-lr"
+5: PKG_VERSION="59a511555106eef7156c1f34d1ee6c47d11cc4ee"
+6: PKG_SHA256="7d70a312da16e93ec5a764c95fa1ffe42f484432b9b0ca8f83550874ed1c8725"
+9: PKG_URL="$PKG_SITE/archive/$PKG_VERSION.tar.gz"
+projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-rogue-lr/package.mk
+4: PKG_NAME="vitaquake2-rogue-lr"
+5: PKG_VERSION="$(get_pkg_version vitaquake2-lr)"
+6: PKG_SHA256="$(get_pkg_sha256 vitaquake2-lr)"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-xatrix-lr/package.mk
+4: PKG_NAME="vitaquake2-xatrix-lr"
+5: PKG_VERSION="$(get_pkg_version vitaquake2-lr)"
+6: PKG_SHA256="$(get_pkg_sha256 vitaquake2-lr)"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-zaero-lr/package.mk
+4: PKG_NAME="vitaquake2-zaero-lr"
+5: PKG_VERSION="$(get_pkg_version vitaquake2-lr)"
+6: PKG_SHA256="$(get_pkg_sha256 vitaquake2-lr)"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/emulators/libretro/yabasanshiro-lr/package.mk
+4: PKG_NAME="yabasanshiro-lr"
+5: PKG_VERSION="39535a6abcad5abf9f71c8b2a7975f005ee12ed6"
+8: PKG_URL="${PKG_SITE}.git"
+11: PKG_TOOLCHAIN="make"
+23: post_unpack() {
+projects/ROCKNIX/packages/emulators/standalone/amiberry/package.mk
+4: PKG_NAME="amiberry"
+5: PKG_VERSION="5c54536997c0039aaa72bb0552cefdc3c967ad8d"
+8: PKG_URL="${PKG_SITE}.git"
+16: PKG_ARCH="aarch64"
+18: PKG_TOOLCHAIN="make"
+26: post_unpack() {
+projects/ROCKNIX/packages/emulators/standalone/ares-sa/package.mk
+4: PKG_NAME="ares-sa"
+5: PKG_VERSION="0aafd85789215e84e1e43415c07d4c88461b7899" #v148
+6: PKG_SHA256="34df540c29913755f6ad522451a0a84174142b3b2240f72508f63d6bcc103129"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/emulators/standalone/armsx2-sa/package.mk
+4: PKG_NAME="armsx2-sa"
+5: PKG_VERSION="19c83bf065ed21a19d8c46a1f578e37d2dab8efd"
+6: PKG_SHA256="361b98beb943976f6c0ec5494eba26ded04abcd41683149c74317e089b3ff860"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="manual"
+projects/ROCKNIX/packages/emulators/standalone/azahar-sa/package.mk
+4: PKG_NAME="azahar-sa"
+5: PKG_VERSION="fbd3fb02f71e5f9ed5134037fd59bad96c7d2b8a" # tag 2126.0
+8: PKG_URL="${PKG_SITE}.git"
+projects/ROCKNIX/packages/emulators/standalone/cemu-sa/package.mk
+4: PKG_NAME="cemu-sa"
+5: PKG_VERSION="6f6c1299e29fa6e1062ae283a035b4ef787cc397"
+8: PKG_URL="${PKG_SITE}.git"
+43: post_unpack() {
+projects/ROCKNIX/packages/emulators/standalone/daedalusx64-sa/package.mk
+4: PKG_NAME="daedalusx64-sa"
+5: PKG_VERSION="f17e9ed86f3806fadeb69abd29c9526ab2d4bd1b"
+6: PKG_SHA256="6a2fd0ac8cb17678ca1f1fd58a8e6cab536c76552e711fb4a1d8fe3941e82b19"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+14: PKG_TOOLCHAIN="manual"
+16: PKG_TOOLCHAIN="cmake"
+25: post_unpack() {
+projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk
+4: PKG_NAME="dolphin-sa"
+5: PKG_VERSION="6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4" #2606
+8: PKG_URL="${PKG_SITE}.git"
+78: post_unpack() {
+projects/ROCKNIX/packages/emulators/standalone/flycast-sa/package.mk
+4: PKG_NAME="flycast-sa"
+5: PKG_VERSION="5aa091fde632fb332c8d8c34e280d62dc951954c" #v2.7
+8: PKG_URL="${PKG_SITE}.git"
+31: post_unpack() {
+projects/ROCKNIX/packages/emulators/standalone/gopher64-sa/package.mk
+4: PKG_NAME="gopher64-sa"
+6: PKG_VERSION="ca4a20f52403bb14f819db53f1cb161d41894666"
+8: PKG_URL="${PKG_SITE}.git"
+11: PKG_TOOLCHAIN="manual"
+projects/ROCKNIX/packages/emulators/standalone/gzdoom-sa/package.mk
+4: PKG_NAME="gzdoom-sa"
+5: PKG_VERSION="g4.14.2"
+6: PKG_SHA256="2c4fbb0c5b06787c8a2ade9fbbbe2fa5eaa7c49cf7f62a73627c381f8f890156"
+9: PKG_URL="${PKG_SITE}/archive/refs/tags/${PKG_VERSION}.tar.gz"
+13: PKG_TOOLCHAIN="cmake-make"
+projects/ROCKNIX/packages/emulators/standalone/hypseus-singe/package.mk
+4: PKG_NAME="hypseus-singe"
+5: PKG_VERSION="b353e1728bf56d8b6c6fb606df78b7296a203702"
+8: PKG_URL="${PKG_SITE}.git"
+11: PKG_TOOLCHAIN="cmake"
+projects/ROCKNIX/packages/emulators/standalone/mednafen/package.mk
+4: PKG_NAME="mednafen"
+5: PKG_VERSION="1.32.1"
+6: PKG_SHA256="00cdcf02e83072d1d0e861b61e86d1d12eac18accc03cfa161e84bd3744b0137"
+8: PKG_URL="https://github.com/sydarn/mednafen/archive/refs/tags/1.32.1-chd.tar.gz"
+projects/ROCKNIX/packages/emulators/standalone/melonds-sa/package.mk
+4: PKG_NAME="melonds-sa"
+5: PKG_VERSION="906e9ebb27da8c6a715cd7abab4abfe8a8d29427"
+6: PKG_SHA256="5edcd49fe593df24e47f29eb27636c8c4d3698dc21ac224697708a8fcd9ea262"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/emulators/standalone/mupen64plus-sa/mupen64plus-sa-simplecore/package.mk
+4: PKG_NAME="mupen64plus-sa-simplecore"
+5: PKG_VERSION="5340dafcc0f5e8284057ab931dd5c66222d3d49e"
+6: PKG_SHA256="04a3b14a82182b8f54f88b52585e27b91d37335f87393537332ce94c28037f6b"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="manual"
+25: post_unpack() {
+projects/ROCKNIX/packages/emulators/standalone/mupen64plus-sa/mupen64plus-sa-video-gliden64/package.mk
+4: PKG_NAME="mupen64plus-sa-video-gliden64"
+5: PKG_VERSION="85bdd452d7090f78a0f76d02121fa59ad079b7f6"
+8: PKG_URL="${PKG_SITE}.git"
+12: PKG_TOOLCHAIN="manual"
+32: post_unpack() {
+projects/ROCKNIX/packages/emulators/standalone/mupen64plus-sa/mupen64plus-sa-video-rice/package.mk
+4: PKG_NAME="mupen64plus-sa-video-rice"
+5: PKG_VERSION="470865c6c64bdb44645faa88eae59cd87ce561b6"
+6: PKG_SHA256="baa1fc034cc27d6c178d014794f8171817b9c96db5317feaede0d0d22e898676"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+13: PKG_TOOLCHAIN="manual"
+33: post_unpack() {
+projects/ROCKNIX/packages/emulators/standalone/nanoboyadvance-sa/package.mk
+4: PKG_NAME="nanoboyadvance-sa"
+5: PKG_VERSION="3bb6f478f977dbfd3106508536e5fbce90d1898b"
+8: PKG_URL="${PKG_SITE}.git"
+projects/ROCKNIX/packages/emulators/standalone/openbor/package.mk
+4: PKG_NAME="openbor"
+5: PKG_VERSION="b8303cce992a0db93c3a465df3c943942fe322f8"
+8: PKG_SHA256="8a21e40b31bf04fd5212d1bb86452f1843fcd0e8a54d073e474e51f4fc130973"
+10: PKG_URL="${PKG_SITE}.git"
+13: PKG_TOOLCHAIN="make"
+15: post_unpack() {
+projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/package.mk
+4: PKG_NAME="ppsspp-sa"
+5: PKG_VERSION="afbc66a318b86432642b532c575241f3716642ef" # v1.20.2
+9: PKG_URL="${PKG_SITE}.git"
+67: post_unpack() {
+projects/ROCKNIX/packages/emulators/standalone/rpcs3-sa/package.mk
+4: PKG_NAME="rpcs3-sa"
+5: PKG_VERSION="2f4034590f261cc2aafbc10139744c68a146b5a4"
+8: PKG_URL="${PKG_SITE}.git"
+projects/ROCKNIX/packages/emulators/standalone/supermodel-sa/package.mk
+4: PKG_NAME="supermodel-sa"
+5: PKG_VERSION="b13fdd5029a246e8f90a1d70e2ed000779fee4f1"
+6: PKG_SHA256="ff4a925fdf739da08b4e8dd19e09d0a81dda0801fe2d276acf7905073bfa8b96"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+15: post_unpack() {
+projects/ROCKNIX/packages/emulators/standalone/touchhle-sa/package.mk
+4: PKG_NAME="touchhle-sa"
+6: PKG_VERSION="3c5850585ba55615b17a58c58331b6d6f52d4a9d"
+8: PKG_URL="${PKG_SITE}.git"
+11: PKG_TOOLCHAIN="manual"
+13: post_unpack() {
+projects/ROCKNIX/packages/emulators/standalone/vita3k-sa/package.mk
+4: PKG_NAME="vita3k-sa"
+5: PKG_VERSION="ba5c2029c96a08db63cfe04736156af481d9c137"
+8: PKG_URL="${PKG_SITE}.git"
+40: post_unpack() {
+projects/ROCKNIX/packages/emulators/standalone/xemu-sa/package.mk
+4: PKG_NAME="xemu-sa"
+5: PKG_VERSION="cbffb57d084c70351a596e99e32a8b73e0c5eabf"
+6: PKG_SHA256="fe6bfb3f1e2e3b4ed4cb028e637a530f0e813440dd4fa39c1f597c3ec08407d3"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="make"
+29: post_unpack() {
+projects/ROCKNIX/packages/emulators/standalone/yabasanshiro-sa/package.mk
+4: PKG_NAME="yabasanshiro-sa"
+5: PKG_VERSION="a40dace1ae0af3ebd45848549fdf396f40e3930f"
+8: PKG_URL="${PKG_SITE}.git"
+19: PKG_ARCH="aarch64"
+21: PKG_TOOLCHAIN="cmake-make"
+47: post_unpack() {
+projects/ROCKNIX/packages/fonts/spleen-font/package.mk
+4: PKG_NAME="spleen-font"
+5: PKG_VERSION="2.0.0"
+6: PKG_SHA256="778778b35dd48701b803db247a6ac8759154ce5fc3abd5cc0b6db98a44ba5a0c"
+9: PKG_URL="${PKG_SITE}/releases/download/${PKG_VERSION}/spleen-${PKG_VERSION}.tar.gz"
+14: PKG_TOOLCHAIN="manual"
+projects/ROCKNIX/packages/graphics/SDL2/package.mk
+5: PKG_NAME="SDL2"
+6: PKG_VERSION="2.32.10"
+7: PKG_SHA256="5f5993c530f084535c65a6879e9b26ad441169b3e25d789d83287040a9ca5165"
+10: PKG_URL="https://www.libsdl.org/release/SDL2-${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/graphics/SDL3/package.mk
+5: PKG_NAME="SDL3"
+6: PKG_VERSION="3.4.10"
+7: PKG_SHA256="12b34280415ec8418c864408b93d008a20a6530687ee613d60bfbd20411f2785"
+10: PKG_URL="https://www.libsdl.org/release/SDL3-${PKG_VERSION}.tar.gz"
+15: PKG_TOOLCHAIN="cmake"
+projects/ROCKNIX/packages/graphics/glew/package.mk
+4: PKG_NAME="glew"
+5: PKG_VERSION="2.2.0"
+6: PKG_SHA256="d4fc82893cfb00109578d0a1a2337fb8ca335b3ceccf97b97e5cc7f08e4353e1"
+9: PKG_URL="${SOURCEFORGE_SRC}/glew/glew/${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tgz"
+12: PKG_TOOLCHAIN="cmake"
+projects/ROCKNIX/packages/graphics/glslang/package.mk
+6: PKG_NAME="glslang"
+10: PKG_VERSION="16.6.0"
+11: PKG_SHA256="9c09b901149c729df745057dafa815278aaa101b84d2b6e14f16a42de52f97f2"
+14: PKG_URL="https://github.com/KhronosGroup/glslang/archive/${PKG_VERSION}.tar.gz"
+29: post_unpack() {
+projects/ROCKNIX/packages/graphics/grim/package.mk
+4: PKG_NAME="grim"
+5: PKG_VERSION="1.4.1"
+6: PKG_SHA256="5ed8e70fcd83a7e203e92d34dbb82a1342d3f13ad98a6b0310cc97e1a9342ded"
+9: PKG_URL="https://git.sr.ht/~emersion/grim/archive/v${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/graphics/gtk2/package.mk
+5: PKG_NAME="gtk2"
+6: PKG_VERSION="2.24.33"
+7: PKG_SHA256="ac2ac757f5942d318a311a54b0c80b5ef295f299c2a73c632f6bfb1ff49cc6da"
+10: PKG_URL="https://ftp.gnome.org/pub/gnome/sources/gtk+/${PKG_VERSION:0:4}/gtk+-${PKG_VERSION}.tar.xz"
+projects/ROCKNIX/packages/graphics/mesa-demos/package.mk
+4: PKG_NAME="mesa-demos"
+5: PKG_VERSION="9.0.0"
+6: PKG_SHA256="3046a3d26a7b051af7ebdd257a5f23bfeb160cad6ed952329cdff1e9f1ed496b"
+9: PKG_URL="https://archive.mesa3d.org/demos/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+projects/ROCKNIX/packages/graphics/mesa/package.mk
+5: PKG_NAME="mesa"
+6: PKG_VERSION="26.2.2"
+7: PKG_SHA256="9b6850189d4b4a595b1718d57d462412090fab820d3e235e2c1d122c1cf9e9bc"
+10: PKG_URL="https://gitlab.freedesktop.org/mesa/mesa/-/archive/mesa-${PKG_VERSION}/mesa-mesa-${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/graphics/shaderc/package.mk
+4: PKG_NAME="shaderc"
+5: PKG_VERSION="2025.3"
+6: PKG_SHA256="a8e4a25e5c2686fd36981e527ed05e451fcfc226bddf350f4e76181371190937"
+9: PKG_URL="${PKG_SITE}/archive/refs/tags/v${PKG_VERSION}.tar.gz"
+13: PKG_TOOLCHAIN="cmake"
+15: post_unpack() {
+projects/ROCKNIX/packages/graphics/vulkan/vulkan-tools/package.mk
+5: PKG_NAME="vulkan-tools"
+6: PKG_VERSION="1.4.347"
+7: PKG_SHA256="4ed73bd973069633ef2b830c7b9f3ebcb7bc8aaac5783b9e5aa36c888e687a78"
+10: PKG_URL="https://github.com/KhronosGroup/Vulkan-tools/archive/v${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/lang/gcc/package.mk
+6: PKG_VERSION="15.2.0"
+7: PKG_SHA256="438fd996826b0c82485a29da03a72d71d6e3541a83ec702df4271f6fe025d24e"
+8: PKG_URL="https://ftpmirror.gnu.org/gcc/${PKG_NAME}-${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+4: . ${ROOT}/packages/lang/gcc/package.mk
+projects/ROCKNIX/packages/lang/go/package.mk
+5: PKG_NAME="go"
+6: PKG_VERSION="1.21.4"
+7: PKG_SHA256="13b2395f666e77234d0731ec82c008a584ef0408ca32e52fe95b98f02f32db17"
+10: PKG_URL="https://github.com/golang/go/archive/${PKG_NAME}${PKG_VERSION}.tar.gz"
+13: PKG_TOOLCHAIN="manual"
+projects/ROCKNIX/packages/lang/llvm/package.mk
+5: PKG_NAME="llvm"
+6: PKG_VERSION="22.1.8"
+7: PKG_SHA256="922f1817a0df7b1489272d18134ee0087a8b068828f87ac63b9861b1a9965888"
+10: PKG_URL="https://github.com/llvm/llvm-project/releases/download/llvmorg-${PKG_VERSION}/llvm-project-${PKG_VERSION/-/}.src.tar.xz"
+14: PKG_TOOLCHAIN="cmake"
+50: post_unpack() {
+projects/ROCKNIX/packages/lang/luajit/package.mk
+4: PKG_NAME="luajit"
+5: PKG_VERSION="1edc3e52b67eaf6ce5f809be8e17d6862594b8bc"
+6: PKG_SHA256="85497ea149d136afbe2d7ef222e08849248e52cecc6dc8deefd8588e551e4e00"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+13: PKG_TOOLCHAIN="manual"
+projects/ROCKNIX/packages/lang/nasm/package.mk
+5: PKG_NAME="nasm"
+6: PKG_VERSION="2.16.01"
+7: PKG_SHA256="c77745f4802375efeee2ec5c0ad6b7f037ea9c87c92b149a9637ff099f162558"
+10: PKG_URL="https://gstreamer.freedesktop.org/src/mirror/nasm-${PKG_VERSION}.tar.xz"
+projects/ROCKNIX/packages/multimedia/ffmpeg/package.mk
+5: PKG_NAME="ffmpeg"
+11: PKG_VERSION="7.1.1"
+12: PKG_SHA256="733984395e0dbbe5c046abda2dc49a5544e7e0e1e2366bba849222ae9e3a03b1"
+13: PKG_URL="http://ffmpeg.org/releases/ffmpeg-${PKG_VERSION}.tar.xz"
+14: PKG_PATCH_DIRS="libreelec"
+18: post_unpack() {
+projects/ROCKNIX/packages/multimedia/gmu/package.mk
+4: PKG_NAME="gmu"
+5: PKG_VERSION="3aed18be8a50873ccfb31d2b135b0d22442ded59"
+8: PKG_URL="${PKG_SITE}.git"
+11: PKG_TOOLCHAIN="configure"
+projects/ROCKNIX/packages/multimedia/vlc/package.mk
+5: PKG_NAME="vlc"
+6: PKG_VERSION="3.0.23"
+7: PKG_SHA256="e891cae6aa3ccda69bf94173d5105cbc55c7a7d9b1d21b9b21666e69eff3e7e0"
+10: PKG_URL="https://mirror.netcologne.de/videolan.org/${PKG_NAME}/${PKG_VERSION}/$PKG_NAME-${PKG_VERSION}.tar.xz"
+13: PKG_TOOLCHAIN="autotools"
+projects/ROCKNIX/packages/network/avahi/package.mk
+5: PKG_NAME="avahi"
+6: PKG_VERSION="0.8"
+7: PKG_SHA256="c15e750ef7c6df595fb5f2ce10cac0fee2353649600e6919ad08ae8871e4945f"
+10: PKG_URL="https://github.com/lathiat/avahi/archive/v${PKG_VERSION}.tar.gz"
+13: PKG_TOOLCHAIN="configure"
+projects/ROCKNIX/packages/network/bluez/package.mk
+5: PKG_NAME="bluez"
+6: PKG_VERSION="5.83"
+7: PKG_SHA256="108522d909d220581399bfec93daab62035539ceef3dda3e79970785c63bd24c"
+10: PKG_URL="https://www.kernel.org/pub/linux/bluetooth/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+13: PKG_TOOLCHAIN="autotools"
+projects/ROCKNIX/packages/network/libpcap/package.mk
+4: PKG_NAME="libpcap"
+5: PKG_VERSION="1.10.4"
+6: PKG_SHA256="ed19a0383fad72e3ad435fd239d7cd80d64916b87269550159d20e47160ebe5f"
+9: PKG_URL="http://www.tcpdump.org/release/libpcap-${PKG_VERSION}.tar.gz"
+13: PKG_TOOLCHAIN="configure"
+projects/ROCKNIX/packages/network/networkmanager/package.mk
+4: PKG_NAME="networkmanager"
+5: PKG_VERSION="1.51.4"
+6: PKG_SHA256="865a7cc5686a51d7efe81d7dcb3c5246bfa3b996a58629135354972804ff4d3c"
+9: PKG_URL="https://download.gnome.org/sources/NetworkManager/1.51/NetworkManager-${PKG_VERSION}.tar.xz"
+12: PKG_TOOLCHAIN="meson"
+projects/ROCKNIX/packages/network/openssh/package.mk
+5: PKG_NAME="openssh"
+6: PKG_VERSION="9.8p1"
+7: PKG_SHA256="dd8bd002a379b5d499dfb050dd1fa9af8029e80461f4bb6c523c49973f5a39f3"
+10: PKG_URL="https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/${PKG_NAME}-${PKG_VERSION}.tar.gz"
+13: PKG_TOOLCHAIN="autotools"
+projects/ROCKNIX/packages/network/samba/package.mk
+5: PKG_NAME="samba"
+6: PKG_VERSION="4.21.0"
+7: PKG_SHA256="09bb56db4ce003cafdbebe9bad368c4f4ff1945f732d18077d52f36ab20cef88"
+10: PKG_URL="https://download.samba.org/pub/samba/stable/${PKG_NAME}-${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/network/syncthing/package.mk
+5: PKG_NAME="syncthing"
+6: PKG_VERSION="2.0.13"
+7: PKG_SHA256="fd7c93e01a6d61faa84adda8b22479dd7fd106144fbbb2eb15d773707d8a382e"
+10: PKG_URL="https://github.com/syncthing/syncthing/releases/download/v${PKG_VERSION}/syncthing-source-v${PKG_VERSION}.tar.gz"
+13: PKG_TOOLCHAIN="manual"
+projects/ROCKNIX/packages/network/zerotier-one/package.mk
+6: PKG_NAME="zerotier-one"
+7: PKG_VERSION="1.16.0"
+10: PKG_SHA256="aa9de313d365bf0efb3871aaa56f2d323a08f46df47b627c4eff4f4203fa7fc5"
+12: PKG_URL="https://github.com/zerotier/ZeroTierOne/archive/refs/tags/${PKG_VERSION}.tar.gz"
+15: PKG_TOOLCHAIN="manual"
+projects/ROCKNIX/packages/rust/rust/package.mk
+4: PKG_NAME="rust"
+5: PKG_VERSION="1.94.1"
+6: PKG_SHA256="4c142a625f12e3cdf716c68ae19f4f60d98ad1482627b08579b15838e95ad514"
+9: PKG_URL="https://static.rust-lang.org/dist/rustc-${PKG_VERSION}-src.tar.gz"
+13: PKG_TOOLCHAIN="manual"
+projects/ROCKNIX/packages/sysutils/avfs/package.mk
+4: PKG_NAME="avfs"
+5: PKG_VERSION="1.1.5"
+8: PKG_URL="${PKG_SITE}/files/avfs/1.1.5/avfs-${PKG_VERSION}.tar.bz2"
+9: PKG_SHA256="ad9f3b64104d6009a058c70f67088f799309bf8519b14b154afad226a45272cf"
+14: PKG_TOOLCHAIN="configure"
+projects/ROCKNIX/packages/sysutils/busybox/package.mk
+6: PKG_NAME="busybox"
+7: PKG_VERSION="1.36.1"
+8: PKG_SHA256="b8cc24c9574d809e7279c3be349795c5d5ceb6fdf19ca709f80cde50e47de314"
+11: PKG_URL="http://busybox.net/downloads/${PKG_NAME}-${PKG_VERSION}.tar.bz2"
+projects/ROCKNIX/packages/sysutils/drm_tool/package.mk
+4: PKG_NAME="drm_tool"
+5: PKG_VERSION="1cb5b10b7d529105e33f27388519671ee7ce46f3"
+6: PKG_SHA256="0813a8cf04091b171ffd8c89461f2774d10e13a06694224d205c7cffb0c7f536"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/sysutils/file/package.mk
+5: PKG_NAME="file"
+6: PKG_VERSION="c5eb6d6"
+7: PKG_SHA256="94df886d24a3ae1c550b436da395ba1d79ab32991bc8e1a3cdf14ce106b3d6ef"
+10: PKG_URL="https://github.com/file/file/archive/${PKG_VERSION}.tar.gz"
+14: PKG_TOOLCHAIN="autotools"
+projects/ROCKNIX/packages/sysutils/fuse2/package.mk
+6: PKG_NAME="fuse2"
+7: PKG_VERSION="2.9.9"
+8: PKG_SHA256="d0e69d5d608cc22ff4843791ad097f554dd32540ddc9bed7638cc6fea7c1b4b5"
+11: PKG_URL="https://github.com/libfuse/libfuse/releases/download/fuse-${PKG_VERSION}/fuse-${PKG_VERSION}.tar.gz"
+17: PKG_TOOLCHAIN="autotools"
+projects/ROCKNIX/packages/sysutils/i2c-tools/package.mk
+4: PKG_NAME="i2c-tools"
+5: PKG_VERSION="4.3"
+6: PKG_SHA256="1f899e43603184fac32f34d72498fc737952dbc9c97a8dd9467fadfdf4600cf9"
+9: PKG_URL="https://www.kernel.org/pub/software/utils/i2c-tools/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+projects/ROCKNIX/packages/sysutils/kmod/package.mk
+4: PKG_NAME="kmod"
+5: PKG_VERSION="34.2"
+6: PKG_SHA256="5a5d5073070cc7e0c7a7a3c6ec2a0e1780850c8b47b3e3892226b93ffcb9cb54"
+9: PKG_URL="https://www.kernel.org/pub/linux/utils/kernel/kmod/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+projects/ROCKNIX/packages/sysutils/libiio/package.mk
+4: PKG_NAME="libiio"
+5: PKG_VERSION="v0.26"
+6: PKG_SHA256="fb445fb860ef1248759f45d4273a4eff360534480ec87af64c6b8db3b99be7e5"
+9: PKG_URL="${PKG_SITE}/archive/refs/tags/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="cmake"
+projects/ROCKNIX/packages/sysutils/systemd/package.mk
+5: PKG_NAME="systemd"
+6: PKG_VERSION="255.8"
+7: PKG_SHA256="e770b9c4b5e36c1badf94444a27c9cd427931251009e4363f3239ad45ff75f3d"
+10: PKG_URL="https://github.com/systemd/systemd-stable/archive/v${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/sysutils/usb-modeswitch/package.mk
+3: . ${ROOT}/packages/addons/addon-depends/system-tools-depends/usb-modeswitch/package.mk
+projects/ROCKNIX/packages/sysutils/util-linux/package.mk
+6: PKG_NAME="util-linux"
+7: PKG_VERSION="2.39.2"
+8: PKG_SHA256="87abdfaa8e490f8be6dde976f7c80b9b5ff9f301e1b67e3899e1f05a59a1531f"
+10: PKG_URL="https://www.kernel.org/pub/linux/utils/util-linux/v$(get_pkg_version_maj_min)/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+15: PKG_TOOLCHAIN="autotools"
+projects/ROCKNIX/packages/textproc/icu/package.mk
+4: PKG_NAME="icu"
+5: PKG_VERSION="74.1"
+6: PKG_SHA256="86ce8e60681972e60e4dcb2490c697463fcec60dd400a5f9bffba26d0b52b8d0"
+9: PKG_URL="https://github.com/unicode-org/icu/releases/download/release-${PKG_VERSION//./-}/icu4c-${PKG_VERSION//./_}-src.tgz"
+13: PKG_TOOLCHAIN="configure"
+projects/ROCKNIX/packages/tools/atf/package.mk
+5: PKG_NAME="atf"
+7: PKG_ARCH="arm aarch64"
+12: PKG_TOOLCHAIN="manual"
+17: PKG_VERSION="2.12.0"
+23: PKG_VERSION="2.10.0"
+24: PKG_SHA256="696b8e53923aac4474532da7dd681f0bd044b329732facd65aeabea3e61adca9"
+28: PKG_URL="https://github.com/ARM-software/arm-trusted-firmware/archive/v${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/tools/batteryplus/package.mk
+4: PKG_NAME="batteryplus"
+5: PKG_VERSION="1c31e89ec1828d51710ad35a607bdfad7e18464e"
+6: PKG_SHA256="1619da9e945746ea589edb70efd1095b07d21207be3fa43a4c1598be5c2a2089"
+9: PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="make"
+projects/ROCKNIX/packages/tools/freeimage/package.mk
+4: PKG_NAME="freeimage"
+5: PKG_VERSION="3180"
+6: PKG_SHA256="f41379682f9ada94ea7b34fe86bf9ee00935a3147be41b6569c9605a53e438fd"
+9: PKG_URL="$SOURCEFORGE_SRC/${PKG_NAME}/FreeImage${PKG_VERSION}.zip"
+projects/ROCKNIX/packages/tools/mkbootimg/package.mk
+4: PKG_NAME="mkbootimg"
+5: PKG_VERSION="d2bb0af5ba6d3198a3e99529c97eda1be0b5a093"
+6: PKG_SHA256="418bb875c03d5c5844d6d289956d8294ae6a2bd5be78c7d912d797e7826ca3d9"
+9: PKG_URL="https://github.com/jbeich/platform_system_tools_mkbootimg/archive/${PKG_VERSION}.tar.gz"
+11: PKG_TOOLCHAIN="manual"
+projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/package.mk
+4: PKG_NAME="es-theme-art-book-next"
+5: PKG_VERSION="9a50ef366e750aabfab29e6915a2867607212971"
+6: PKG_SHA256="7ee1e93f2c4e4f7385b78680ecfa3828acf12bc616e2111d23cc66a524231125"
+9: PKG_URL="https://github.com/anthonycaccese/art-book-next-es/archive/${PKG_VERSION}.tar.gz"
+12: PKG_TOOLCHAIN="manual"
+projects/ROCKNIX/packages/wayland/compositor/sway/package.mk
+4: PKG_NAME="sway"
+9: PKG_TOOLCHAIN="meson"
+14: PKG_VERSION="1.9"
+15: PKG_URL="https://github.com/swaywm/sway/archive/${PKG_VERSION}.zip"
+18: PKG_VERSION="1.11"
+19: PKG_SHA256="0e37a55b7c3379230e97e1ad982542b75016a0c7d6676198604e557f9b373dae"
+20: PKG_URL="https://github.com/swaywm/sway/releases/download/${PKG_VERSION}/sway-${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/wayland/lib/seatd/package.mk
+4: PKG_NAME="seatd"
+5: PKG_VERSION="0.9.0"
+6: PKG_SHA256="4276d1380c67e30a63c289b35f7bf955e126e6daf3596cd5aa6080670aa1214c"
+9: PKG_URL="https://github.com/kennylevinsen/seatd/archive/refs/tags/${PKG_VERSION}.tar.gz"
+projects/ROCKNIX/packages/x11/xserver/xwayland/package.mk
+4: PKG_NAME="xwayland"
+6: PKG_VERSION="24.1.13"
+7: PKG_SHA256="173aea3d6f79609164c04528e1c8e4c9b60fcd59391c3c9dad4667297d727fb6"
+12: PKG_URL="https://www.x.org/releases/individual/xserver/${PKG_NAME}-${PKG_VERSION}.tar.xz"

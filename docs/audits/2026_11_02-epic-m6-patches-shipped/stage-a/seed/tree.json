@@ -1,0 +1,1922 @@
+{
+  "packages/addons/addon-depends/system-tools-depends/lm_sensors/patches/0001-link-static.patch": {
+    "mode": "100644",
+    "oid": "e5a819f13544bbc005711d91424e36b5df7cb73d",
+    "type": "blob"
+  },
+  "packages/audio/soxr/patches/0001-build-with-cmake-4.0.0.patch": {
+    "mode": "100644",
+    "oid": "e94a3df9d827a12d29716d8b9a0fdc9865c7f039",
+    "type": "blob"
+  },
+  "packages/compress/7-zip/patches/0008-Fix-Globally-suppress-GCC-16-Warray-bounds-false-pos.patch": {
+    "mode": "100644",
+    "oid": "e98bd438092e2ce1f2b5a749e578a7e720dd0ed1",
+    "type": "blob"
+  },
+  "packages/compress/lzo/patches/0001-build-with-cmake-4.0.0.patch": {
+    "mode": "100644",
+    "oid": "54bcd18f2b0856cd3c7bf9d7616d4b880cd9d3b4",
+    "type": "blob"
+  },
+  "packages/databases/sqlite/patches/0001-always-use-memory-for-tempfiles.patch": {
+    "mode": "100644",
+    "oid": "52245ce31176ae8abce8b844f9915ac02ce7495a",
+    "type": "blob"
+  },
+  "packages/debug/gdb/patches/0001-gdbserver-ctrl-c-handling.patch": {
+    "mode": "100644",
+    "oid": "6ef9957fb20cbe46459cb2d0295635f11caa7aad",
+    "type": "blob"
+  },
+  "packages/debug/gdb/patches/0002-remove-tex-dependencies.patch": {
+    "mode": "100644",
+    "oid": "f9ff8355feb67d7c900c47fe0e4d7b23e59de08f",
+    "type": "blob"
+  },
+  "packages/debug/libunwind/patches/0001-fix-multiple-definition.patch": {
+    "mode": "100644",
+    "oid": "68eb5f70a07bfc75ebffcd83ada3bc21687f1321",
+    "type": "blob"
+  },
+  "packages/debug/libunwind/patches/0002-add-dependant-static-libraries.patch": {
+    "mode": "100644",
+    "oid": "4377945656b3f46297993d4ec7756f110d9606aa",
+    "type": "blob"
+  },
+  "packages/debug/memtester/patches/0001-cross-compile.patch": {
+    "mode": "100644",
+    "oid": "9ed58265eda9cf5f2e5cc175713252b7084864ee",
+    "type": "blob"
+  },
+  "packages/devel/autoconf/patches/0001-man-exclude.patch": {
+    "mode": "100644",
+    "oid": "7858a4fb207174b7f3287726ad2a16384ed5710c",
+    "type": "blob"
+  },
+  "packages/devel/automake/patches/0001-fix-help2man.patch": {
+    "mode": "100644",
+    "oid": "594e8673c0596764fbcfdf5f3f1a3afece31280d",
+    "type": "blob"
+  },
+  "packages/devel/binutils/patches/0001-warn-for-uses-of-system-directories-when-link.patch": {
+    "mode": "100644",
+    "oid": "6ca32e473e2370c3770b510f85266df24c4041c8",
+    "type": "blob"
+  },
+  "packages/devel/binutils/patches/0002-binutils-2-39-dont-error-on-missing-makeinfo.patch": {
+    "mode": "100644",
+    "oid": "9abbcf272bcfe892c67fc121cd5411b4f2d4bd7a",
+    "type": "blob"
+  },
+  "packages/devel/binutils/patches/0003-libctf-gcc-16.patch": {
+    "mode": "100644",
+    "oid": "cfea64f141003d0f5a8458a7e216ec5ec6f85ed4",
+    "type": "blob"
+  },
+  "packages/devel/crossguid/patches/0001-pr67-include-missing-cstdint.patch": {
+    "mode": "100644",
+    "oid": "36176b9a834ccc263449cf999d09ff5d722e68fb",
+    "type": "blob"
+  },
+  "packages/devel/elfutils/patches/0001-make-executables-optional.patch": {
+    "mode": "100644",
+    "oid": "66a93a94474d0db7e18ca0d014f58c53d283939f",
+    "type": "blob"
+  },
+  "packages/devel/flex/patches/0001-use-flex-host-for-target-cross-compile.patch": {
+    "mode": "100644",
+    "oid": "4ca583b1fc539234d5c9e397982176414e5fb2d7",
+    "type": "blob"
+  },
+  "packages/devel/flex/patches/0002-nocrap.patch": {
+    "mode": "100644",
+    "oid": "41d863bb95267230679f66a82df5484026ae525c",
+    "type": "blob"
+  },
+  "packages/devel/flex/patches/0262-AC-USE-SYSTEM-EXTENSIONS-in-configure-ac.patch": {
+    "mode": "100644",
+    "oid": "bd08cc3b47270b1b64b95281cd6c7c78f2eed662",
+    "type": "blob"
+  },
+  "packages/devel/flex/patches/0674-Match--malloc--signature-to-its-use.patch": {
+    "mode": "100644",
+    "oid": "9742b2317eadd35d6cc077855ada6829a3e319a0",
+    "type": "blob"
+  },
+  "packages/devel/gcem/patches/0054-fix-cmake-minimum~required.patch": {
+    "mode": "100644",
+    "oid": "39abefb4a5eb2093c398724bbe886e216d00d0db",
+    "type": "blob"
+  },
+  "packages/devel/gettext/patches/0001-non-interactive.patch": {
+    "mode": "100644",
+    "oid": "038c9e173deb31ebb775ba766b19184f068f4f4b",
+    "type": "blob"
+  },
+  "packages/devel/gettext/patches/0002-dont-build-docs-and-examples.patch": {
+    "mode": "100644",
+    "oid": "8608103bbdf1199a03e28196c258102693cd424b",
+    "type": "blob"
+  },
+  "packages/devel/gmp/patches/0001-acinclude.m4-fix-std-c23-build-failure.patch": {
+    "mode": "100644",
+    "oid": "70ee4a1fe466e45d949f78bcee089803f85e0d61",
+    "type": "blob"
+  },
+  "packages/devel/heimdal/patches/1229-cf-largefile.m4-Fix-build-with-autoconf-2.72.patch": {
+    "mode": "100644",
+    "oid": "c785ecdad64ee38ca91ecf04a6d4b57626374c54",
+    "type": "blob"
+  },
+  "packages/devel/intltool/patches/0001-fix-regex-expressions.patch": {
+    "mode": "100644",
+    "oid": "c98c800339c16445c664200434bb4df839a6718e",
+    "type": "blob"
+  },
+  "packages/devel/libevent/patches/0001-build-with-cmake-4.0.0.patch": {
+    "mode": "100644",
+    "oid": "f05079e043ebaae8c6fc70035ab7d0e57af8af20",
+    "type": "blob"
+  },
+  "packages/devel/libevent/patches/0002-build-with-cmake-4.0.0.patch": {
+    "mode": "100644",
+    "oid": "4d6d713abef47407d92d6d73f56e39041947d416",
+    "type": "blob"
+  },
+  "packages/devel/libevent/patches/0003-build-with-cmake-4.0.0.patch": {
+    "mode": "100644",
+    "oid": "ad99234fb7a1edb27f846f8f384f6fd7f193c9d4",
+    "type": "blob"
+  },
+  "packages/devel/libevent/patches/0004-build-with-cmake-4.0.0.patch": {
+    "mode": "100644",
+    "oid": "04b2d02bb57a0516343504a462b3faefcf82e62c",
+    "type": "blob"
+  },
+  "packages/devel/libffi/patches/0001-Fix-installation-location-of-libffi.patch": {
+    "mode": "100644",
+    "oid": "8a86439277411fa3d044301d9e578a6f300c351b",
+    "type": "blob"
+  },
+  "packages/devel/libffi/patches/0002-fix-pkgconf.patch": {
+    "mode": "100644",
+    "oid": "7d9aa7536f007b5f9653a49c0895b5eb5c843e8a",
+    "type": "blob"
+  },
+  "packages/devel/libtool/patches/0001-prevent-libtool-to-linking-against-host-libs-on-make.patch": {
+    "mode": "100644",
+    "oid": "8420a8a7bb9357c9e12d0dbc5c501304580b6a3e",
+    "type": "blob"
+  },
+  "packages/devel/pkg-config/patches/0001-Add-support-for-multiple-sysroots.patch": {
+    "mode": "100644",
+    "oid": "61403a4c85e573ea7a9201ea317ed679a55d8f4c",
+    "type": "blob"
+  },
+  "packages/devel/pkg-config/patches/0002-Do-not-use-bool-as-a-field-name.patch": {
+    "mode": "100644",
+    "oid": "bcb7e94d69b0e459647417a4b99f4734388977a8",
+    "type": "blob"
+  },
+  "packages/graphics/vulkan/vkmark/patches/0001-fix-sysroot.patch": {
+    "mode": "100644",
+    "oid": "d974cc7d1aca4567a1cbc0976e0d103ee9427880",
+    "type": "blob"
+  },
+  "packages/graphics/woff2/patches/woff2-0001-include-cstdint.patch": {
+    "mode": "100644",
+    "oid": "6d3d4150126ab11e2de02a16ec64d44f539cf9d4",
+    "type": "blob"
+  },
+  "packages/lang/Python3/patches/0001-default-is-optimized.patch": {
+    "mode": "100644",
+    "oid": "12f59b2a2f383b7c8516956b810b8016db68d522",
+    "type": "blob"
+  },
+  "packages/lang/Python3/patches/0002-Make-the-build-of-pyc-files-conditional.patch": {
+    "mode": "100644",
+    "oid": "4825968085cfdacd53058384494c439cabe7af37",
+    "type": "blob"
+  },
+  "packages/lang/Python3/patches/0003-Disable-buggy-getaddrinfo-configure-test-when-cross-.patch": {
+    "mode": "100644",
+    "oid": "d92754287dea8c37ea12c449772a2be654da22fe",
+    "type": "blob"
+  },
+  "packages/lang/Python3/patches/0004-Add-an-option-to-disable-pydoc.patch": {
+    "mode": "100644",
+    "oid": "28c9ff7faf223756c3c0db0d73b5bde3973829bf",
+    "type": "blob"
+  },
+  "packages/lang/Python3/patches/0005-Add-an-option-to-disable-IDLE.patch": {
+    "mode": "100644",
+    "oid": "a13a791422699e289a14055e51d8f760e83caeae",
+    "type": "blob"
+  },
+  "packages/lang/Python3/patches/0006-configure.ac-move-PY-STDLIB-MOD-SET-NA-further-up.patch": {
+    "mode": "100644",
+    "oid": "7cc94169c15f0a160628d2d4d840f9ae4a1dfdaa",
+    "type": "blob"
+  },
+  "packages/lang/Python3/patches/0007-Add-option-to-disable-the-sqlite3-module.patch": {
+    "mode": "100644",
+    "oid": "4c581844e4409b80ce6e3d19e6a07372b19800a1",
+    "type": "blob"
+  },
+  "packages/lang/Python3/patches/0008-Add-an-option-to-disable-the-tk-module.patch": {
+    "mode": "100644",
+    "oid": "de2c22388a5c19ed211b4e133efddf6d064e6337",
+    "type": "blob"
+  },
+  "packages/lang/Python3/patches/0009-Add-an-option-to-disable-the-curses-module.patch": {
+    "mode": "100644",
+    "oid": "cc8fbcc33a210416f8c88fcdf6462bad106cd2dc",
+    "type": "blob"
+  },
+  "packages/lang/Python3/patches/0010-Add-an-option-to-disable-expat.patch": {
+    "mode": "100644",
+    "oid": "cb59b0f3278414162e6c78f6e1cba74f2a2749e6",
+    "type": "blob"
+  },
+  "packages/lang/Python3/patches/0011-configure.ac-fixup-CC-print-multiarch-output-for-mus.patch": {
+    "mode": "100644",
+    "oid": "14fc2789a265d6f61600d8d56a9aa33be80b534c",
+    "type": "blob"
+  },
+  "packages/lang/Python3/patches/0300-generate-legacy-pyc-bytecode.patch": {
+    "mode": "100644",
+    "oid": "cf677984d6258dffcd6884ef1b31c03d488bdda2",
+    "type": "blob"
+  },
+  "packages/print/freetype/patches/0001-fix-pkgconf.patch": {
+    "mode": "100644",
+    "oid": "114622efcbb5106ae1ade85e2af826f233265a41",
+    "type": "blob"
+  },
+  "packages/security/libgcrypt/patches/0001-add-patch-so-sed-will-not-replace-parts-of-paths.patch": {
+    "mode": "100644",
+    "oid": "dbad2ed8ca3ca30e0404012b6b17547213d33c2b",
+    "type": "blob"
+  },
+  "packages/security/libgcrypt/patches/0002-dont-build-tests.patch": {
+    "mode": "100644",
+    "oid": "a8e39856936216a4658f79a23a4c317d9e0e8f35",
+    "type": "blob"
+  },
+  "packages/security/libxcrypt/patches/0001-fix-Werror-discarded-qualifiers.patch": {
+    "mode": "100644",
+    "oid": "09c72f08ce132478e616bde2f3f459925896b289",
+    "type": "blob"
+  },
+  "packages/security/nss/patches/0001-3.15.5-standalone-1.patch": {
+    "mode": "100644",
+    "oid": "14f47d74839e4087d7053d1e018c43bc5cb80a8c",
+    "type": "blob"
+  },
+  "packages/security/nss/patches/0002-skip-shlibsign.patch": {
+    "mode": "100644",
+    "oid": "00be63ecfe5cf903dc8ec9fe4150a2333e1cc6cd",
+    "type": "blob"
+  },
+  "packages/security/nss/patches/0003-disable-host-cflags.patch": {
+    "mode": "100644",
+    "oid": "75890b64dbedb619116598dfa67cb18410e26f2e",
+    "type": "blob"
+  },
+  "packages/security/nss/patches/0004-fix-build-of-cmd-with-nssutil.patch": {
+    "mode": "100644",
+    "oid": "a55920a3c7ae743b732b13278cc935d89200ef93",
+    "type": "blob"
+  },
+  "packages/sysutils/dosfstools/patches/0001-silence-backup-boot-sector-diff.patch": {
+    "mode": "100644",
+    "oid": "3f3480878f05aec37a37cbcb0c1551842d4fe103",
+    "type": "blob"
+  },
+  "packages/sysutils/fuse/patches/0001-aarch64-support.patch": {
+    "mode": "100644",
+    "oid": "539323201506585f9b43008988a0cd6ae9f0671d",
+    "type": "blob"
+  },
+  "packages/sysutils/fuse/patches/0002-dont-run-update-rc.d.patch": {
+    "mode": "100644",
+    "oid": "dd226ce1eadbe0a26d2eed041a42813fce6ceef4",
+    "type": "blob"
+  },
+  "packages/sysutils/fuse/patches/0003-fix-configure-ac.patch": {
+    "mode": "100644",
+    "oid": "4946ea3163da43a55b30db1a1e4e0e6aaf7b83ee",
+    "type": "blob"
+  },
+  "packages/sysutils/keyutils/patches/0001-cflags.patch": {
+    "mode": "100644",
+    "oid": "49d1bfadce37710e3c8c0bb1cd14e228119ea4c5",
+    "type": "blob"
+  },
+  "packages/sysutils/pciutils/patches/0001-fix-pkgconf.patch": {
+    "mode": "100644",
+    "oid": "cee1da50948c8050dc67fb8e9ebcad006481a2b4",
+    "type": "blob"
+  },
+  "packages/textproc/itstool/patches/0001-Fix-insufficiently-quoted-regular-expressions.patch": {
+    "mode": "100644",
+    "oid": "7cffcbd1752bd4a36b9fb2b6b399c75a58b7cbd6",
+    "type": "blob"
+  },
+  "packages/textproc/itstool/patches/0057-use-lxml-not-libxml2.patch": {
+    "mode": "100644",
+    "oid": "f8033ea97d6fc00af8c7e2abe218a9b78573660a",
+    "type": "blob"
+  },
+  "packages/textproc/xmlstarlet/patches/0001-usage2c.awk-fix-wrong-basename-regexp.patch": {
+    "mode": "100644",
+    "oid": "cb3ad334c9a165b0827076acaf68d187b86b35fc",
+    "type": "blob"
+  },
+  "packages/textproc/xmlstarlet/patches/0246-fix-compile-with-libxml-2-12-0.patch": {
+    "mode": "100644",
+    "oid": "36abe641d02e7f231bae1b804ecdf032f458fe9d",
+    "type": "blob"
+  },
+  "packages/textproc/xmlstarlet/patches/0900-fix-compile-with-libxml-2-14-0.patch": {
+    "mode": "100644",
+    "oid": "209bdf56b3847f0149c385a6c0f0be030199a848",
+    "type": "blob"
+  },
+  "packages/tools/mtools/patches/0001-fix-install.patch": {
+    "mode": "100644",
+    "oid": "1885f94439f7d05cb2ef236ba937ac8098b68ac5",
+    "type": "blob"
+  },
+  "packages/tools/syslinux/patches/0001-fix-build-with-glibc-2.28.patch": {
+    "mode": "100644",
+    "oid": "a39019e6109548ac615b8c93f637123fd10cef9b",
+    "type": "blob"
+  },
+  "packages/tools/syslinux/patches/0002-fix-build-with-glibc-2.36.patch": {
+    "mode": "100644",
+    "oid": "fed94919e9a8d057ecad9f5b94f9ba060d2a3167",
+    "type": "blob"
+  },
+  "packages/wayland/wayland-protocols/patches/0001-build-add-Cflags-to-pkg-config-when-headers-are-inst.patch": {
+    "mode": "100644",
+    "oid": "03ea5b1a3492e934de08d59b0905ef2f3a35cc02",
+    "type": "blob"
+  },
+  "packages/web/webkitgtk/patches/webkitgtk-0001-DocumentLoader-include-EventLoop.patch": {
+    "mode": "100644",
+    "oid": "8551678a0e5f5f3f2258f3fe72b94f0268bf8832",
+    "type": "blob"
+  },
+  "packages/web/webkitgtk/patches/webkitgtk-0002-WebKit-includes-WebCore-platform-graphics-for-GStreamer-GL.patch": {
+    "mode": "100644",
+    "oid": "4e9b757b6209caff5a38f3c43a2a5693385493ff",
+    "type": "blob"
+  },
+  "packages/x11/lib/libX11/patches/0001-disable-nls-tests.patch": {
+    "mode": "100644",
+    "oid": "702907aa1bd414b50874f6f94cbed11e2b9bdc62",
+    "type": "blob"
+  },
+  "packages/x11/util/xorg-launch-helper/patches/0001-automake-1.14.patch": {
+    "mode": "100644",
+    "oid": "2c94bdbbdcdb2355472347f5e645b78710980f4c",
+    "type": "blob"
+  },
+  "packages/x11/util/xorg-launch-helper/patches/0002-dont-check-for-libsystemd-daemon.patch": {
+    "mode": "100644",
+    "oid": "fbb869151cf591dee1e80c9aa51fdad379e0afcb",
+    "type": "blob"
+  },
+  "packages/x11/util/xorg-launch-helper/patches/0003-increase-timeout.patch": {
+    "mode": "100644",
+    "oid": "77dbc10a39b267a53c6907d53e5e0daff2c65ef8",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/gamepadtester/patches/xbox/000-gamepad-tester.patch": {
+    "mode": "100644",
+    "oid": "a303cc4f92c0bdf7a7bc5dd5214a84a1f84cb5f8",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/gamescope/patches/0001-WaylandBackend-wire-up-wl_touch-implementation.patch": {
+    "mode": "100644",
+    "oid": "4542978927dc5b0d5df32b40338ac1eb209ce224",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/gamescope/patches/0004-DRMBackend-Add-GAMESCOPE_FAKE_OUTPUT_MM-env-to-set-c.patch": {
+    "mode": "100644",
+    "oid": "b4c4a713146531d854f5080cd4819dad7a2a34b7",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/gamescope/patches/0005-steamcontrolled-steam-focus-fallback.patch": {
+    "mode": "100644",
+    "oid": "0314f96ad96820c7defe60e99b14bdaf52736c9c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/gamescope/patches/0006-steamcompmgr-fix-gamepad-cursor-sprite-frozen-via-XTest.patch": {
+    "mode": "100644",
+    "oid": "bfe3de25350ffaf73daecdf8bd820826fe5c0abc",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/gamescope/patches/0007-gamescope-add-snapdragon-gsr1.patch": {
+    "mode": "100644",
+    "oid": "7b656ede16b3741a5f4ceddcd2c2285880591d4d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/gamescope/patches/0008-DRMBackend-add-rotated-output-max-height.patch": {
+    "mode": "100644",
+    "oid": "2c28e1859d4d24fbf8bf1a47dcc4d7bebbedce30",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/jstest-sdl/patches/001-fix-building-with-gcc15.patch": {
+    "mode": "100644",
+    "oid": "b2ae8cf39050064d311aafc40c07b239709754b7",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/m8c/patches/0001-update-defaults-config.patch": {
+    "mode": "100644",
+    "oid": "f19292482132d42f0c179c2df5ab9283c97adcce",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/m8c/patches/0002-fix-building-with-gcc15.patch": {
+    "mode": "100644",
+    "oid": "1a5918406ffac1000ebe608564aee6f10ece9dd5",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/mako-osd/patches/000-disable-placeholder-text.patch": {
+    "mode": "100644",
+    "oid": "f1497c23416d137fe83503c4b026c73912c3b4a7",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/mangohud/patches/SM8550/0001-SM8550-GPU.patch": {
+    "mode": "100644",
+    "oid": "6dcf5fbf282e9a3e64f5ab3f04b4a95af114cadd",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/mangohud/patches/SM8550/0002-SM8750-Battery.patch": {
+    "mode": "120000",
+    "oid": "77f00f11a744931e14787c8d7f033a8cab866229",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/mangohud/patches/common/0001-No-static-lib.patch": {
+    "mode": "100644",
+    "oid": "2c20c13641064d6de7b69ac3cac196f7911ee7d0",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/mangohud/patches/common/0002-Battery-name.patch": {
+    "mode": "100644",
+    "oid": "c6c27bebc5c06842b213c031b8ccb3c46a6f61b2",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/mangohud/patches/common/0003-RAM-name.patch": {
+    "mode": "100644",
+    "oid": "fd5449291bb6a1d20d0a2ffb01423b422d748091",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/mangohud/patches/qualcomm/0001-Qualcomm-GPU-support.patch": {
+    "mode": "100644",
+    "oid": "f0b19d05b6779f10910941011e1b73564a68e91b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/mangohud/patches/qualcomm/0002-Qualcomm-battery-power_now.patch": {
+    "mode": "100644",
+    "oid": "1a89bbcb837cf1edbd2461334f26d531e9d712ef",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/moonlight/patches/moonlight-0001-fix-touchscreen-without-native-touch.patch": {
+    "mode": "100644",
+    "oid": "0bb6c37ae08711c124b55af53154dc7c74186d46",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/oga_controls/patches/000-fix-libevdev.patch": {
+    "mode": "100644",
+    "oid": "d719f6acb4557ae5b9e5f1601df07519bdc74b18",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/qterminal/lxqt-build-tools/patches/000-fix-build.patch": {
+    "mode": "100644",
+    "oid": "2d6de3c8d65d0db97bf643524b48ecd6edbb0715",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/qterminal/patches/000-build-fixes.patch": {
+    "mode": "100644",
+    "oid": "2744c1230deda4a6542d6e68d269eacddace4541",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/qterminal/patches/001-fullscreen.patch": {
+    "mode": "100644",
+    "oid": "e3e1d00ffef761676181ed90bcdff00945745655",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/qterminal/patches/002-font-and-theme.patch": {
+    "mode": "100644",
+    "oid": "69956f0b68a6521cf2190d43f615edc1c3149d53",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/qterminal/qtermwidget/patches/000-fix-build.patch": {
+    "mode": "100644",
+    "oid": "44c5817d9313313d4c52416abf83d60702482396",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/rocknix-touchscreen-keyboard/patches/000-remove-scdoc-dependency.patch": {
+    "mode": "100644",
+    "oid": "d69c2fd02e3c3c223cf0ff57c508b1e4ce7ce7fd",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/rocknix-touchscreen-keyboard/patches/001-fix-special-chars.patch": {
+    "mode": "100644",
+    "oid": "02adaa45b7db0af7cc971ea4bf50c764205f0af4",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/rocknix-touchscreen-keyboard/patches/002-Add-pin-keyboard-to-specific-output.patch": {
+    "mode": "100644",
+    "oid": "4ba3fe926f68d409380edb1709ad784b7b549cb9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/rocknix-touchscreen-keyboard/patches/003-no-hover.patch": {
+    "mode": "100644",
+    "oid": "820d7bd04f27aeff12ddbc060064cba7bb51f223",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/rocknix-touchscreen-keyboard/patches/004-full-layout-terminal-friendly.patch": {
+    "mode": "100644",
+    "oid": "12fd1a8a55a2a5aa6099877128d35d3668c92038",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/apps/sdltouchtest/patches/000-sdltouchtest.patch": {
+    "mode": "100644",
+    "oid": "19f125800d30496aad65ab4fc4eceb9673228e79",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-lib/patches/001-silence-underruns.patch": {
+    "mode": "100644",
+    "oid": "bf4253550c2ec1bdebd9f06ed22c76ea9fccc763",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-lib/patches/SM8550/0001-Enabled-extended-namehints-in-alsa.conf.patch": {
+    "mode": "100644",
+    "oid": "aeba6d016f85e67a54e8c3444c5f323e8e9e4358",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-lib/patches/alsa-lib-asound.conf_configdir.patch": {
+    "mode": "100644",
+    "oid": "efe2f1ae7c7120e5f7e883ce7a4c6ed3631e1b16",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/001-steamdeck.patch": {
+    "mode": "100644",
+    "oid": "1f232c2d06a4fe57ae94b7187bcf7abe2ed40fc2",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/H700/0002_Add-Allwinner-H616-configuration.patch": {
+    "mode": "100644",
+    "oid": "f6b824464eec05bd8ec322d225ed54d587d0dd5e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0001_Add-AYN-Odin2.patch": {
+    "mode": "100644",
+    "oid": "4c3b6b75499dba9efd63587602e8ed0e9707a8da",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0002_AYN-Odin2---Add-EFI-boot-compatibility.patch": {
+    "mode": "100644",
+    "oid": "7b5f549c0897720cd186355371bcbb2a57e09a9b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0003_Add-AYANEO-Pocket-ACE.patch": {
+    "mode": "100644",
+    "oid": "594ec59f9880bb0c56a09218728ca8c7c86de322",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0004_AYANEO-Pocket-ACE---Add-EFI-boot-compatibility.patch": {
+    "mode": "100644",
+    "oid": "344f64107e2322716b31ac358b10fd2d36138459",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0004_AYANEO-Pocket-DMG---Add-EFI-boot-compatibility.patch": {
+    "mode": "100644",
+    "oid": "962bf8c5566f0496b661ec84e9ff06aa04388a61",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0004_AYANEO-Pocket-DS---Add-EFI-boot-compatibility.patch": {
+    "mode": "100644",
+    "oid": "54b574b1251d2c27a085cee76107609680286140",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0004_AYANEO-Pocket-EVO---Add-EFI-boot-compatibility.patch": {
+    "mode": "100644",
+    "oid": "d3173ebcdb2a19f6e46b25bc8855d041dea56932",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0005_Add-AYN-Thor.patch": {
+    "mode": "100644",
+    "oid": "cb270d35f545f75d69858e557e394d1b58d3eabc",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/espeak/patches/espeak-1.47-ftbs-ld-libm.patch": {
+    "mode": "100644",
+    "oid": "446493fb40e5645c25cf9a26edfa5286ef9c59f5",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/espeak/patches/espeak-1.47-wav-close.patch": {
+    "mode": "100644",
+    "oid": "d0550d945874ecf5dd617a6346e6a5913d82c102",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/espeak/patches/espeak-1.48-gcc-6-fix.patch": {
+    "mode": "100644",
+    "oid": "6e59c7892ff1dbdd939979f1b3814e586fe98b00",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/libsndfile/patches/libsndfile-add-required-static-libraries-to-pkg-config.patch": {
+    "mode": "100644",
+    "oid": "e5220c098d93cf3c927573dfe0d4a752cbff5b85",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/pipewire/patches/001-pipewire-pulse.patch": {
+    "mode": "100644",
+    "oid": "bb7a5af626430f737625a0f31736ea2514e2ef65",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/pipewire/patches/SM8550/001-increase-pulse-buffer-size.patch": {
+    "mode": "100644",
+    "oid": "e4c8cdb343e21432f69d49610ac7f8e62952adbd",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/pipewire/patches/SM8550/002-increase-pipewire-buffer-size.patch": {
+    "mode": "100644",
+    "oid": "cb77ba5f20583a32379282f627c3b527bef932d9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/pulseaudio/patches/pulseaudio-100.01-never-append-dirty-to-server-module-version.patch": {
+    "mode": "100644",
+    "oid": "8bea8d95fba4d9d9b087577c2575b2ce2e6adc64",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/pulseaudio/patches/pulseaudio-100.02-check_uid.patch": {
+    "mode": "100644",
+    "oid": "df927508904ecb10f8609267b62b2c694ddb1389",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/audio/wireplumber/patches/001-fix-service.patch": {
+    "mode": "100644",
+    "oid": "33c3234aba58d47886b7ff5c21287fd333868fc2",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/compat/fex-emu/patches/0002-split-thunk-build-thunkgen-only.patch": {
+    "mode": "100644",
+    "oid": "4bc466da8747e68fe75f014fe826792f9241a920",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/compat/fex-emu/patches/0003-hostlibs-use-sysroot-deps.patch": {
+    "mode": "100644",
+    "oid": "97278b01a64dd9540b4bba79d398087676ff562e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/compat/fex-emu/patches/0004-nix-clang-use-wrapper-binaries.patch": {
+    "mode": "100644",
+    "oid": "bf32bb09378001f113ce0422a87ebfabfe0d6fe1",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/compat/fex-emu/patches/0005-host-thunks-aarch64-char-signed-char.patch": {
+    "mode": "100644",
+    "oid": "a1f02bfea6e237e8cea32e3661fe80088c85b977",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/compat/fex-emu/patches/0005-thunkgen-clang22-vfs-identity.patch": {
+    "mode": "100644",
+    "oid": "7a15e4c889f07f175c09244dcc17928463245705",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/compat/fex-emu/patches/0006-guest-thunks-exclude-rebased-system-headers.patch": {
+    "mode": "100644",
+    "oid": "9b3b2440165209665cb4ea42b0b0ee65191be213",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/compress/p7zip/patches/p7zip-0100-CVE-2016-9296.patch": {
+    "mode": "100644",
+    "oid": "773f92a46e0e4fb429db9fa9891b660effd492a5",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/compress/p7zip/patches/p7zip-0200-CVE-2017-17969.patch": {
+    "mode": "100644",
+    "oid": "ebc0ac93ef85cea6a3f039aac7958fd84d395c3f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/compress/p7zip/patches/p7zip-0300-CVE-2018-5996.patch": {
+    "mode": "100644",
+    "oid": "6733bff918956c426bb7e329c5a0bf0fbe3abb47",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/compress/p7zip/patches/p7zip-0400-CVE-2018-10115.patch": {
+    "mode": "100644",
+    "oid": "7d9c4bf81f000a50e65eb442b159d73f96b799ea",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/compress/p7zip/patches/p7zip-0500-gcc10-build-fix.patch": {
+    "mode": "100644",
+    "oid": "45f9f84af4e365e544f4de55af52e4d837e0a1d2",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/compress/p7zip/patches/p7zip-0501-change-numMethods-from-bool-to-unsigned.patch": {
+    "mode": "100644",
+    "oid": "93eb0588c038920bae206ba9867bb6393d7b7644",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/compress/xz/patches/xz-01-init-uninitialized-variables.patch": {
+    "mode": "100644",
+    "oid": "0d88880702a2d4a33546a06a893df2cd2361c9e7",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/compress/zip/patches/fix-compile-with-gcc14.patch": {
+    "mode": "100644",
+    "oid": "2b2ce346c17e82f07cd25a777f051f49862d2393",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/devel/glib/patches/001-frexpl.patch": {
+    "mode": "100644",
+    "oid": "bee2df918a92a19aecd1c88fc849bb8f77a322fd",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/devel/glibc/patches/aarch64/001-guard-off-vector-types.patch": {
+    "mode": "100644",
+    "oid": "84cc9c44ea782553914b92cb13939b53e36e84ea",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/devel/glibc/patches/glibc-0002-Linux--Only-define-OPEN_TREE_.patch": {
+    "mode": "100644",
+    "oid": "36ae724365fcb75dcab505a5429db8f1e50aa82e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/devel/glibc/patches/glibc-fix-dns-with-broken-routers.patch": {
+    "mode": "100644",
+    "oid": "d2ac670853005b208b2e72dd019912501c875826",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/devel/make/patches/make-02-fix-large-command-line-on-POSIX-systems.patch": {
+    "mode": "100644",
+    "oid": "12ac8b767a22a338ade3e42a5aeea66295821830",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/devel/ncurses/patches/ncurses-001-terminfo-xterm.patch": {
+    "mode": "100644",
+    "oid": "f90b8d73a75ab732c3b4fb447e05a820490fe3ff",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/devel/ncurses/patches/ncurses-002-alloc-fallbacks.patch": {
+    "mode": "100644",
+    "oid": "eaf093adb5ffc4071e42da4b91d4fc10574e77c1",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/devel/ncurses/patches/ncurses-003-fix_hints.patch": {
+    "mode": "100644",
+    "oid": "84623048674f8666f8a935295c6824d3c7e342bb",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/devel/ncurses/patches/ncurses-004-fix_configure_pkgconfig.patch": {
+    "mode": "100644",
+    "oid": "9328063900a2ced7792ec1c01b2e7a2c3e79d7a1",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/devel/rapidjson/patches/rapidjson-0001-remove_custom_cxx_flags.patch": {
+    "mode": "100644",
+    "oid": "51434ff52eee74330be1119342bd8abd3dc29a87",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/devel/rapidjson/patches/rapidjson-0002-Removed-non-compiling-assignment-operator.-Fixed-718.patch": {
+    "mode": "100644",
+    "oid": "ab02199bafbab73797f5861dc9fd96883f7fcc82",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/devel/rapidjson/patches/rapidjson-0003-Explicitly-disable-copy-assignment-operator.patch": {
+    "mode": "100644",
+    "oid": "4a3670d376ba6a09e8c8f37487a5dd55020800e9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/devel/rapidjson/patches/rapidjson-0004-build-with-cmake-4.0.0.patch": {
+    "mode": "100644",
+    "oid": "7be5078c0c83ce876fb353eb6671f64d37839b26",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/devel/readline/patches/01-fix-iwd.patch": {
+    "mode": "100644",
+    "oid": "7458dd454557c596dd6ddc7393f42be7ce94bc75",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/bsnes-hd-lr/patches/makefile-remove-build-flags.patch": {
+    "mode": "100644",
+    "oid": "95a690148715513a949e384a2cdeb67366df2401",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/crocods-lr/patches/001-keyboard.patch": {
+    "mode": "100644",
+    "oid": "aad705c4244570a89eb3699f9e1174646a1388c0",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/desmume-lr/patches/gles/000-enable-gles.patch": {
+    "mode": "100644",
+    "oid": "98eff2bdc13e6904ad42c3cef11157a270b97ece",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/dosbox-core-lr/patches/001-fix-pkgconfig-abuse-issue.patch": {
+    "mode": "100644",
+    "oid": "5e5808083736cc46c7ab5d3ae7b6acde86d1a32d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/dosbox-core-lr/patches/002-fix-cmake-build.patch": {
+    "mode": "100644",
+    "oid": "ee51233868be0ad135372eeeb9ff6c4580bd3653",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/duckstation-lr/patches/000-hide-cache-dir.patch": {
+    "mode": "100644",
+    "oid": "2e909636f932b28ca9709b4da6f29c4454d60f1e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/duckstation-lr/patches/001-fix-gcc13-compile.patch": {
+    "mode": "100644",
+    "oid": "90428ab9a50a04308a17addc70cccc73cc615bd1",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/emuscv-lr/patches/emuscv_platform.patch": {
+    "mode": "100644",
+    "oid": "96cac8656d4a1e99afb9b490b01dc4377e5b59a1",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/flycast-lr/patches/001-fix-building-with-gcc15.patch": {
+    "mode": "100644",
+    "oid": "84157201e57fba7a71cbe258cd4fb2b03e448b6b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/flycast2021-lr/patches/01-fix-gcc14.patch": {
+    "mode": "100644",
+    "oid": "6b5bf785ae623b0a177027f8b395a27ce3057372",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/flycast2021-lr/patches/aarch64/000-platform.patch": {
+    "mode": "100644",
+    "oid": "8afa29d92a390b68ca56c2ce5b24d51d3f5bf69a",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/geolith-lr/patches/000-platform.patch": {
+    "mode": "100644",
+    "oid": "367b6d29c4649a242700d591400917e5ea479324",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/gpsp-lr/patches/000-platform.patch": {
+    "mode": "100644",
+    "oid": "47e5d2cd358c4a077e5bfe33120c1501a83f1ffd",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/handy-lr/patches/aarch64/handy-01-add-emuelec.patch": {
+    "mode": "100644",
+    "oid": "e1975cbc691c8226c848a18458381354b4638f02",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/kronos-lr/patches/001-ygl-width.patch": {
+    "mode": "100644",
+    "oid": "3c4d276ef350e7141b99accbab45018fee0c0562",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/mame-lr/patches/mame-crosscompile.patch": {
+    "mode": "100644",
+    "oid": "c100e31b2798d8d0c274743c1e807059b89ba277",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/mame2010-lr/patches/01-fix-parallel-build.patch": {
+    "mode": "100644",
+    "oid": "cf4ad55ca665c5da4d582c5b49eb7cf4392f68a4",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/mupen64plus-lr/patches/AMD64/001-optimizations.patch": {
+    "mode": "100644",
+    "oid": "9822f46940cd5eb6c1e5f326e816d8820e9eaa7b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/mupen64plus-lr/patches/aarch64/001-optimizations.patch": {
+    "mode": "100644",
+    "oid": "f8afa9d65169d61e8534cb71ba86371516452372",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/mupen64plus-lr/patches/mupen64plus-fixdouble.patch": {
+    "mode": "100644",
+    "oid": "64070b5d25ae96958a446a47339f3ede2df79719",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/mupen64plus-lr/patches/mupen64plus-inc-string.patch": {
+    "mode": "100644",
+    "oid": "5c85488abe4dbce46b5b0a4d30dc31d04ab58f19",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/mupen64plus-nx-lr/patches/000-platform.patch": {
+    "mode": "100644",
+    "oid": "63b65da618314c01cf6a552b575b194b830d572a",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/mupen64plus-nx-lr/patches/001-fix-building-with-gcc15.patch": {
+    "mode": "100644",
+    "oid": "12ba64fbb37d848f71b3c43c1b4c05eccff9711d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/parallel-n64-lr/patches/001-gcc-13.patch": {
+    "mode": "100644",
+    "oid": "6f599d2b8d37c0f12be6d06adfec5030152ea674",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/parallel-n64-lr/patches/002-platform.patch": {
+    "mode": "100644",
+    "oid": "a0896ac1d23d3661b28616aeec67de2b787ad0e0",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/parallel-n64-lr/patches/003-libretro-cleanup.patch": {
+    "mode": "100644",
+    "oid": "f02b641b54726f8341b7ac6f9edc25367a8623cf",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/pcsx_rearmed-lr/patches/aarch64/pcsx_rearmed-add_platform.patch": {
+    "mode": "100644",
+    "oid": "e14f8bcf3ca207433513bc5735e898a1181744f8",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/pcsx_rearmed-lr/patches/aarch64/pcsx_rearmed-patch-enable-threaded-rendering.patch": {
+    "mode": "100644",
+    "oid": "d69f1c880aa3291a333323c9aff8d28ea2fe2581",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/pcsx_rearmed-lr/patches/arm/pcsx_rearmed-add_platform.patch": {
+    "mode": "100644",
+    "oid": "524aca8bab6067681bf668514f8283318cea2de0",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/pcsx_rearmed-lr/patches/arm/pcsx_rearmed-patch-enable-threaded-rendering.patch": {
+    "mode": "100644",
+    "oid": "d69f1c880aa3291a333323c9aff8d28ea2fe2581",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/ppsspp-lr/patches/000-armv8-build-fix.patch": {
+    "mode": "100644",
+    "oid": "f59ce50a92dfda5878af6bb6614f467bd9e1e5a5",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/ppsspp-lr/patches/001-x86_64-build-fix.patch": {
+    "mode": "100644",
+    "oid": "e4aec51babe5ee221650478a2e55e620b59342a1",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/ppsspp-lr/patches/002-psp-path.patch": {
+    "mode": "100644",
+    "oid": "e874b35d841d6f7ae841dc7810f1796dae5d9eba",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/ppsspp-lr/patches/004-build-flags.patch": {
+    "mode": "100644",
+    "oid": "5d404f39dc2ea1d65bf91e077323beb98dd32db0",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/ppsspp-lr/patches/005-fix-atomics-arm64.patch": {
+    "mode": "100644",
+    "oid": "47aa78410c64a85dd03d56b9e1d0330cdfa81426",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/ppsspp-lr/patches/006-fix-ffmpeg-atomics.patch": {
+    "mode": "100644",
+    "oid": "e5577de6e2c56dbe75a5f7a6eed1c72733090c49",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/ppsspp-lr/patches/007-fix-vulkan-on-libmali.patch": {
+    "mode": "100644",
+    "oid": "9f5ab2b0c0cfde83ceef38837f42b9ce58071f8c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/same_cdi-lr/patches/001-gcc13-fix.patch": {
+    "mode": "100644",
+    "oid": "d2a6c8c43f9bccf7487d7e1662de87d5a1a1a8d8",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/same_cdi-lr/patches/002-fix-building-with-gcc15.patch": {
+    "mode": "100644",
+    "oid": "3894a8a80e1479f16e9c98f39e8fe9e5cba1c40f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/same_cdi-lr/patches/mame-crosscompile.patch": {
+    "mode": "100644",
+    "oid": "49f1ff3763f0d074d8bd2d61c5af6e7e0ec27a6e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/scummvm-lr/patches/001-fix-building-with-gcc15.patch": {
+    "mode": "100644",
+    "oid": "8447e5ef4d53eec87de2c74bdeebdfa3dfdaa258",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/snes9x2005_plus-lr/patches/01-snes9x2005_plux-01-fix-fpic.patch": {
+    "mode": "100644",
+    "oid": "3868c0280e41be4107fa465d9458b176904e8dc1",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/snes9x2010-lr/patches/snes9x2010-add-oga.patch": {
+    "mode": "100644",
+    "oid": "dff83e877086ab5f68fbb55e53b7f58a813f62de",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/stella-lr/patches/001-aarch64.patch": {
+    "mode": "100644",
+    "oid": "f4cabd311968695a424bc7c4e8df3ad56034fad2",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/vice-lr/patches/001-revert-makefile.patch": {
+    "mode": "100644",
+    "oid": "855ea82355a457465a226253d3ac769d629264a5",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/vircon32-lr/patches/0000-fix-opengl.patch": {
+    "mode": "100644",
+    "oid": "fd717489b6ddb796ceb769ee17ab3ce5ff34211a",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/patches/aarch64/001-set-platform.patch": {
+    "mode": "100644",
+    "oid": "3afc5021aacb74a248b524bf58aa5061f1fd5587",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-rogue-lr/patches/aarch64/001-set-platform.patch": {
+    "mode": "120000",
+    "oid": "77bcdfd1045c139b0ba2467295f36070b0e33ffd",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-xatrix-lr/patches/aarch64/001-set-platform.patch": {
+    "mode": "120000",
+    "oid": "77bcdfd1045c139b0ba2467295f36070b0e33ffd",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-zaero-lr/patches/aarch64/001-set-platform.patch": {
+    "mode": "120000",
+    "oid": "77bcdfd1045c139b0ba2467295f36070b0e33ffd",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/libretro/yabasanshiro-lr/patches/aarch64/01-optimization.patch": {
+    "mode": "100644",
+    "oid": "bae9d1126e366ab941fecbacab741faa73a50520",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/amiberry/patches/01-platform.patch": {
+    "mode": "100644",
+    "oid": "a10f040c4aa0158e14b554d5554773c226aedd7f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/amiberry/patches/02-fix-building-with-gcc15.patch": {
+    "mode": "100644",
+    "oid": "4ccf4cc912eb785f3a3346da1d0f59b2eb773352",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/amiberry/patches/opengl/001-fix-sdl.patch": {
+    "mode": "100644",
+    "oid": "61b4f77186d491c35b47ffd8ded5202f4ef20324",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/ares-sa/patches/000-cmake-sourcery-only.patch": {
+    "mode": "100644",
+    "oid": "c641cfaa56d23a1b2da6516591ffd734ceddc5e4",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/ares-sa/patches/001-fix-sourcery-cmake.patch": {
+    "mode": "100644",
+    "oid": "304caa93e40cd3a1f840fb73294a8d92d6c60c4f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/armsx2-sa/patches/000-fix-arm-compilation.patch": {
+    "mode": "100644",
+    "oid": "ada598647c8deace540cf069dd3761d6b99de8a1",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/azahar-sa/patches/0001-common-file-paths.patch": {
+    "mode": "100644",
+    "oid": "4db0cfa969d1eb7bbf49a1e711dcd7c819465135",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/azahar-sa/patches/0003-vulkan-release-native-surface-before-destruction.patch": {
+    "mode": "100644",
+    "oid": "11e5274adcb7da1ccae752d9e21fd686cf14c52c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/cemu-sa/patches/000-build-fixes.patch": {
+    "mode": "100644",
+    "oid": "c3b931acf7098bb38516189bca47e9c5fc45ae5b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/cemu-sa/patches/002-opt-seeprom-mlc01-keys-dir.patch": {
+    "mode": "100644",
+    "oid": "e5a927ceeac714ee71c6f58b7b00aad1fa80320d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/cemu-sa/patches/003-disable-cmake-interprocedural-optimization.patch": {
+    "mode": "100644",
+    "oid": "dcebbf60b66b0e1c0fb67e146c3ac30c841e3a74",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/daedalusx64-sa/patches/000-input.patch": {
+    "mode": "100644",
+    "oid": "e4d59f795e8c468130589f6edc48fa4cafb2d96d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/000-hotkeys.patch": {
+    "mode": "100644",
+    "oid": "f4fb78a1bd0d16db5004ff5d6d2cff54a401af86",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/001-padorder.patch": {
+    "mode": "100644",
+    "oid": "187a57efcaea70b636611634de85223c0e813b7e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/002-savestate-names.patch": {
+    "mode": "100644",
+    "oid": "e87521b4e338310da9d0770f8acef17b6621c0ad",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/003-hide-osd-msg.patch": {
+    "mode": "100644",
+    "oid": "8da14f392264a9d936c5b185ee8731894cd4dd4e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/004-enable-240p-res.patch": {
+    "mode": "100644",
+    "oid": "e566c0f014a64f598b2b855738e1f46f4d7739fb",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/005-set-defaults.patch": {
+    "mode": "100644",
+    "oid": "37106e7e1aa8bf9f0f84be990ad917dcd03776e0",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/006-dolphin-version.patch": {
+    "mode": "100644",
+    "oid": "4a4a3fab69f414964163d071be812721878a1d82",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/008-bios-dir.patch": {
+    "mode": "100644",
+    "oid": "d9be1c4668b935d45522e610713a30b194f0eee5",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/009-supress-warnings.patch": {
+    "mode": "100644",
+    "oid": "d330842e2a435244282d2fc7a44cd20f68896418",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/010-codehandlers-bin-path.patch": {
+    "mode": "100644",
+    "oid": "847cdc319c12d050a4ee6dc7f6ff8e00d37e7db7",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/011-wayland-cmake.patch": {
+    "mode": "100644",
+    "oid": "6c74769de6245710ebd8e29aacb77a0dbb61a315",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/012-wayland-surface-dimensions.patch": {
+    "mode": "100644",
+    "oid": "0cf0039b30c7fa87a783206d43463e1a47d90478",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/013-wayland-egl.patch": {
+    "mode": "100644",
+    "oid": "0e3486a25b7e353bc5eaa9eb89a36f19280643d0",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/014-wayland-vulkan.patch": {
+    "mode": "100644",
+    "oid": "e5bf155c3b87a68ad4e3d205c673fd87adda3333",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/015-wayland-nogui-platform.patch": {
+    "mode": "100644",
+    "oid": "ba5b4cf292d2e60401788ce427f8978c53f929c9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/016-wayland-qt-platform.patch": {
+    "mode": "100644",
+    "oid": "256160fbefc54329b728a1385d908e80890d26b9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/018-nogui-achievements-lifecycle.patch": {
+    "mode": "100644",
+    "oid": "16d034580b060de5e669e8edf7a4aba7d4805f27",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/patches/000-conf-dir.patch": {
+    "mode": "100644",
+    "oid": "171694b7b56291931e0b3b4a6f368c27407e2452",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/patches/001-fix-building-with-gcc15.patch": {
+    "mode": "100644",
+    "oid": "84157201e57fba7a71cbe258cd4fb2b03e448b6b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/patches/003-fix-sdl-controller.patch": {
+    "mode": "100644",
+    "oid": "acdf902ef036ae4f39f014389f8ebc32c152c7f6",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/gopher64-sa/patches/000-disable-flto-thin.patch": {
+    "mode": "100644",
+    "oid": "7bd434868a189ea4f8a4c678ea53388f1f6f0a77",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/gopher64-sa/patches/001-gamepad-hotkeys.patch": {
+    "mode": "100644",
+    "oid": "f7dd28a621736113f1825a2c2819bd98b6c45059",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/gopher64-sa/patches/002-use-rust-1.94.1.patch": {
+    "mode": "100644",
+    "oid": "aa2943d9a5e00d4ec97aaf01c568f0cf1e7fed11",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/gopher64-sa/patches/003-fix-crash-on-null-load-state.patch": {
+    "mode": "100644",
+    "oid": "02476c95e45de80e7ce4218658e44ce06bc36827",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/gzdoom-sa/patches/000-fix-build.patch": {
+    "mode": "100644",
+    "oid": "4d6d089da2e1280341acffcaedeb6c381933645d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/hypseus-singe/patches/hypseus-singe-001-buildfix.patch": {
+    "mode": "100644",
+    "oid": "3e8887f1254bf61e00afe153555d3b6790b9c78e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/hypseus-singe/patches/hypseus-singe-002-headersfix.patch": {
+    "mode": "100644",
+    "oid": "55a74a2f882264fecb457cf56f116b5d299d06e4",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/mednafen/patches/0001-list-joysticks.patch": {
+    "mode": "100644",
+    "oid": "56c281a4a11344e1c4017fb438042778b58345b9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/mednafen/patches/sdl-input/001-force-sdl-joystick.patch": {
+    "mode": "100644",
+    "oid": "3c872a7d7ee4a56e607e43b0e4294b039993ad41",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/melonds-sa/patches/000-retro-achievements.patch": {
+    "mode": "100644",
+    "oid": "0ecd7c886a27f98dba707a2fa9c445c09004a3b2",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/melonds-sa/patches/001-default-config.patch": {
+    "mode": "100644",
+    "oid": "03dbc8de7d652d63c781df5717e5761f2ba8fff7",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/melonds-sa/patches/002-enable-dual-screen-fullscreen.patch": {
+    "mode": "100644",
+    "oid": "7c46523df036cafd1ddcf374b2ed2cde944ee0b3",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/melonds-sa/patches/003-hotkeys.patch": {
+    "mode": "100644",
+    "oid": "653c60375c3aa6528445a8efad81f8a770352fe0",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/mupen64plus-sa/mupen64plus-sa-simplecore/patches/000-cross-compile.patch": {
+    "mode": "100644",
+    "oid": "b10ab24c59686562a203dfb75ec4e459e75d1e4e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/mupen64plus-sa/mupen64plus-sa-simplecore/patches/001-librename.patch": {
+    "mode": "100644",
+    "oid": "5d8947b77278f17b48664adb444aba795af7e1fe",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/mupen64plus-sa/mupen64plus-sa-video-gliden64/patches/001-txfilter-stub-fix.patch": {
+    "mode": "100644",
+    "oid": "513e8201bb6e21266355091a62e112ceb5bcd458",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/mupen64plus-sa/mupen64plus-sa-video-gliden64/patches/002-fix-no-video.patch": {
+    "mode": "100644",
+    "oid": "5b410a631795734605ef9ae7e74cb83158f06233",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/mupen64plus-sa/mupen64plus-sa-video-rice/patches/mupen-rice.patch": {
+    "mode": "100644",
+    "oid": "ad551d706579dc7063d1db3c0df2b726bf80c07f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/nanoboyadvance-sa/patches/000-config-path.patch": {
+    "mode": "100644",
+    "oid": "dd43f200e3a56ecb7b5a8962d6fcd2b36b528934",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/nanoboyadvance-sa/patches/001-rework-dma-interleave.patch": {
+    "mode": "100644",
+    "oid": "4121b652ee0f96925c0d8f16f5b85ed033fb6057",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/openbor/patches/openbor-02-addplatform.patch": {
+    "mode": "100644",
+    "oid": "50473bdfaf02395c68b77b943a5d5b5dcf425e20",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/001-do-not-mute.patch": {
+    "mode": "100644",
+    "oid": "8a0700bcde9af7f392b8144f8908e9fc83850a1d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/002-fullscreen-drm.patch": {
+    "mode": "100644",
+    "oid": "d194f6bc368d39e23373a8bb75f56e2fe30564f9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/003-disable-mouse.patch": {
+    "mode": "100644",
+    "oid": "8bb2544ed3bb345d21ff5dad7228f504128652c4",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/004-set-paths.patch": {
+    "mode": "100644",
+    "oid": "d31dce81b542d2062acd82a0376c89e28236bf72",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/005-hide-unsupported-ui-items.patch": {
+    "mode": "100644",
+    "oid": "2eb9bf1708465057e962f2b92183b9a9879303a9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/007-disable-home-pause.patch": {
+    "mode": "100644",
+    "oid": "d20f15fb027fa03a5afba56f9169d5c8f86c54d0",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/rpcs3-sa/patches/rpcs3-sa-002-glew-egl-no-glx.patch": {
+    "mode": "100644",
+    "oid": "9a7e22c425e83aeb19135a7dbfdaef916f4124d9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/rpcs3-sa/patches/rpcs3-sa-003-respect-external-march.patch": {
+    "mode": "100644",
+    "oid": "47bb8aa30e22cf0b17a947730f59e65a065413f2",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/supermodel-sa/patches/02-cross-compile-build-fix.patch": {
+    "mode": "100644",
+    "oid": "dca4824d08ae7fecf7785feebea39120b2ddea96",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/supermodel-sa/patches/03-fix-gcc14.patch": {
+    "mode": "100644",
+    "oid": "2955921b38ea6a530f2059c716eb271a19852040",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/supermodel-sa/patches/04-fix-gcc14.patch": {
+    "mode": "100644",
+    "oid": "096d4c39c23b4c0fc5d6da8e44e64415034f810d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/supermodel-sa/patches/05-fix-building-with-gcc15.patch": {
+    "mode": "100644",
+    "oid": "01b4c3fc818b2c346d741e15f74f4779baebc001",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/supermodel-sa/patches/06-fix-parallel-build.patch": {
+    "mode": "100644",
+    "oid": "64940ddf7a15bf95c305ba6321fa57b6f358fb5b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/touchhle-sa/patches/000-set-paths.patch": {
+    "mode": "100644",
+    "oid": "aaac71e595034ac6a9cb78c950f8e3c1c46c40e7",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/touchhle-sa/patches/001-fix-app-picker.patch": {
+    "mode": "100644",
+    "oid": "c8ab9c3549845d38c76ed1a23c1e08217b71fe37",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/vita3k-sa/patches/001-set-paths.patch": {
+    "mode": "100644",
+    "oid": "60ebd9d5930725e1717a2a97b126e1ae7508543b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/vita3k-sa/patches/002-fix-link-error.patch": {
+    "mode": "100644",
+    "oid": "ef81a14c4a8ace09e7c0e9df149e922619d40886",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/vita3k-sa/patches/003-add-exit-on-close.patch": {
+    "mode": "100644",
+    "oid": "6a0f334645fb4c08bbe4f824368d84020800124a",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/xemu-sa/patches/000-use-xemu-glslang.patch": {
+    "mode": "100644",
+    "oid": "bd4372e426413552d0a8fe3b4385e0f6c3ade59a",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/xemu-sa/patches/001-cpu-display-speed.patch": {
+    "mode": "100644",
+    "oid": "7694ed7d1623d7de627798a617e4a2edc3753ac8",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/xemu-sa/patches/002-integer-scaling.patch": {
+    "mode": "100644",
+    "oid": "aa9f62afa89527baec0abcf171b7967095d816a2",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/yabasanshiro-sa/patches/02-yabasanshiroSA-use-system-libpng.patch": {
+    "mode": "100644",
+    "oid": "f0e83e26305812d24ddec0fa0b66636036787158",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/yabasanshiro-sa/patches/04-yabasanshiroSA-use-paths.patch": {
+    "mode": "100644",
+    "oid": "045abed6d481af5d188630aad61ae8a1bc69dee7",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/emulators/standalone/yabasanshiro-sa/patches/05-cmake-fixes.patch": {
+    "mode": "100644",
+    "oid": "666fa1426f811bf3ed3f8d989fc9dd161b88c745",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/fonts/spleen-font/patches/001-add-block.patch": {
+    "mode": "100644",
+    "oid": "9ec92a559c60607f546a38fc315ca35085f6f5e9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/SDL2/patches/0006-drm-resolution.patch": {
+    "mode": "100644",
+    "oid": "475cfdc1d9ad16c926e06c8b5d1590fa105eac1d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/SDL2/patches/0007-Support-building-without-hacky-libmali-headers.patch": {
+    "mode": "100644",
+    "oid": "cd9f80d4ef8bd31ee29e1bf4a2f05506bc8c1dcd",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/SDL2/patches/0008-shutdown-audio-streams-immediately.patch": {
+    "mode": "100644",
+    "oid": "a00e338beb8b7ebd17f7caca245cc5bbe0ee75cf",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/SDL2/patches/0009-fix-snd-pcm-build.patch": {
+    "mode": "100644",
+    "oid": "5a12d3d2c9346a5840efe4cc4dd66d08b8f6ffc9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/SDL2/patches/0010-release-display-modes-on-display-removal.patch": {
+    "mode": "100644",
+    "oid": "26bccfd511a3c194914202df717ef24eb56b0404",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/SDL3/patches/0006-drm-resolution.patch": {
+    "mode": "100644",
+    "oid": "1bf9af90e28d2beb918adee871d607657c1e4bfc",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/SDL3/patches/0007-Support-building-without-hacky-libmali-headers.patch": {
+    "mode": "100644",
+    "oid": "4bbbb29a2cacf6617c41f8b32b8fca857a7a7bea",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/glew/patches/glew-01-fix-pkgconf.patch": {
+    "mode": "100644",
+    "oid": "30c38f8199374f83c3c79fe97329989f56a84340",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/glslang/patches/glslang-100.01-build-static-spirv-tools.patch": {
+    "mode": "100644",
+    "oid": "ab3ac57c9acaee97b1ca1be08fe3dde28a92d977",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/grim/patches/001-fix-warning.patch": {
+    "mode": "100644",
+    "oid": "a59a0881fd5bccf8f4985e31217a21fb3320b563",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/gtk2/patches/001-no-demos.patch": {
+    "mode": "100644",
+    "oid": "0121b86bd8fc4dc8fb642acde3ec2af12c8bc8d0",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/gtk2/patches/002-gentoo-fix-casts.patch": {
+    "mode": "100644",
+    "oid": "4ee55d277f3afb728f1b573584c348cae7c1f654",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/gtk2/patches/003-fix-building-with-gcc15.patch": {
+    "mode": "100644",
+    "oid": "7c95975bf17156db6c52aa1fafb7ff406e3078d9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/mesa-demos/patches/vkcube.patch": {
+    "mode": "100644",
+    "oid": "8ffff23168f2a9b8649989e8d8c92b83fec50c5e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/mesa/patches/001-rtasm-release-executable-heap-on-unload.patch": {
+    "mode": "100644",
+    "oid": "51176f6c4f27ab666487212638221e2579770ccc",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/mesa/patches/002-virgl-release-empty-screen-cache.patch": {
+    "mode": "100644",
+    "oid": "9c729f3824a6af98b01867afe2f4d3f9b6058b0e",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/graphics/shaderc/patches/001-fix-overwriting-dependencies.patch": {
+    "mode": "100644",
+    "oid": "87cc8cbc54d46b52b8073ab7a982e24689675aeb",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/lang/go/patches/go-0001-add-ca-cert-location.patch": {
+    "mode": "100644",
+    "oid": "d8cff9ffd12cbb4e3a3e108d622ec4a5cc120234",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/lang/llvm/patches/llvm-22.1.8-csr-subreg-double-count.patch": {
+    "mode": "100644",
+    "oid": "5504049e8deef30b22d0536cf1e6618ccda94bbc",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/lang/llvm/patches/llvm-22.1.8-preserve-all-csr-pair-offset.patch": {
+    "mode": "100644",
+    "oid": "a3b48c3f4dd6dead88a91e527e4701fb07f317b4",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/lang/luajit/patches/luajit-crosscompile.patch": {
+    "mode": "100644",
+    "oid": "5b28226f46dedb49556094f17b8e8e9db4489351",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/lang/nasm/patches/nasm-0001-Make--handle-warning-files-while-building-in-a-directory.patch": {
+    "mode": "100644",
+    "oid": "b8c97e93d90b1e33d270bb8c02a426a6bcdcf73b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/multimedia/ffmpeg/patches/libreelec/ffmpeg-001-libreelec.patch": {
+    "mode": "100644",
+    "oid": "ba2c73b8a986cf029a45e15a3313638021ac4d99",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/multimedia/ffmpeg/patches/v4l2-drmprime/ffmpeg-001-v4l2-drmprime.patch": {
+    "mode": "100644",
+    "oid": "4a2f18f4800a9c1a00d40860f716eda7b3ecb0ee",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/multimedia/ffmpeg/patches/v4l2-request/ffmpeg-001-v4l2-request.patch": {
+    "mode": "100644",
+    "oid": "663d4edcd41f8631b5bc97fcf76dece5368c4e63",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/multimedia/gmu/patches/001-fix-linking.patch": {
+    "mode": "100644",
+    "oid": "969ca3a50f9ed6b2c359cdddefd7899848ec2579",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/multimedia/gmu/patches/002-no-input-path.patch": {
+    "mode": "100644",
+    "oid": "383e026112491d7be7ae160c847adb6563289255",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/multimedia/gmu/patches/003-fix-building-with-gcc15.patch": {
+    "mode": "100644",
+    "oid": "3e1b72c06de331c4704c84cb5676a57ce624035b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/multimedia/gmu/patches/vulkan/001-fix-sdl.patch": {
+    "mode": "100644",
+    "oid": "44a3664c8701eb217a050b8ccf0e6b432984da68",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/multimedia/vlc/patches/0001-fix-circular-dependency.patch": {
+    "mode": "100644",
+    "oid": "9ab96c49a160bf56bd83b534e801de0c3a0150c1",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/multimedia/vlc/patches/0010-opengl-missing-library-check.patch": {
+    "mode": "100644",
+    "oid": "0ef02e9a84b101f1a1138b1f29987eddadbace26",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/network/bluez/patches/bluez-01_add-obexd-policy.patch": {
+    "mode": "100644",
+    "oid": "6fd94b998e8cfc27bd21c8eb5e3b82921ff742cd",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/network/bluez/patches/bluez-03_storagedir.patch": {
+    "mode": "100644",
+    "oid": "6bad3b146ffac210beeae691a1e104c7060e6197",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/network/bluez/patches/bluez-11_sixaxis-fix-PID-navigation-controller.patch": {
+    "mode": "100644",
+    "oid": "d3de493f2e9b5c26b18aaedde14e12b968785a3c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/network/bluez/patches/bluez-12-fix-obexd-after-5_73.patch": {
+    "mode": "100644",
+    "oid": "4023c97bd5d99f73d05d1b51a33941b7e1d9fc06",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/network/libpcap/patches/remove-manpages.patch": {
+    "mode": "100644",
+    "oid": "aef4ad67e900a3d3c4d54b495a2e9584452ef68f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/network/networkmanager/patches/networkmanager-100-nmcli-link-curses-after-readline.patch": {
+    "mode": "100644",
+    "oid": "3fc13080a964f1d7218f853b5c82e8078096c825",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/network/openssh/patches/openssh-8.9p1-keydir.patch": {
+    "mode": "100644",
+    "oid": "58502295339f6b52fae676df6e687d9f313bf059",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/network/openssh/patches/openssh-silence-missing-identity-error.patch": {
+    "mode": "100644",
+    "oid": "e7b01daf6aee4c1ea2f6b52ab53afe0348ad7738",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/network/openssh/patches/openssh-source-etc-environment.patch": {
+    "mode": "100644",
+    "oid": "b23ee72b8e622be33112d48f48c551a78cf98ece",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/network/samba/patches/samba-200-4.11-fix-ASN1-bso14164.patch": {
+    "mode": "100644",
+    "oid": "195528f2244032c0280dc4d638ce14e4e32112ff",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/network/samba/patches/samba-950-no-man.patch": {
+    "mode": "100644",
+    "oid": "79f0c560cf8d21088a89d80cd991b04adbdaaf03",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/network/samba/patches/samba-951-no-man-4.16.patch": {
+    "mode": "100644",
+    "oid": "0a20aef158e931d1982edb06af7a6986ea9abf85",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/network/syncthing/patches/001-no-root-warning.patch": {
+    "mode": "100644",
+    "oid": "ec8edb3b9239991ef0b32289f3edb78fda34f3b3",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/network/syncthing/patches/002-fix-default-path.patch": {
+    "mode": "100644",
+    "oid": "306ea063dd333a806b68e13d037695362995f1df",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/network/zerotier-one/patches/001-client-without-nonfree-headers.patch": {
+    "mode": "100644",
+    "oid": "c29838fed95846c83db225d7268e02113b275b89",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/avfs/patches/001-silent-extfs-ini-failure.patch": {
+    "mode": "100644",
+    "oid": "875588905a6a691403dc938acefbe1c68cf97dd2",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/busybox/patches/busybox-00_halt_no_init.patch": {
+    "mode": "100644",
+    "oid": "ce454f4c07b8fc189c2db23b22550eb6c7572d86",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/busybox/patches/busybox-02_silence-crond-startup-logging.patch": {
+    "mode": "100644",
+    "oid": "30105bdb185f1c97e3339f5610a1bba33bdad47d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/busybox/patches/busybox-03-make_unicode_printable.patch": {
+    "mode": "100644",
+    "oid": "ec7354f6d419496104b394a8fde08f91e111e0e3",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/busybox/patches/busybox-04-revert-dd-fsync-change.patch": {
+    "mode": "100644",
+    "oid": "e5dabec86a4f94f4d8e94eb97e51ee393eac8957",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/busybox/patches/busybox-05-update-shadow-or-passwd-not-both.patch": {
+    "mode": "100644",
+    "oid": "b2698c9808c96dd5eac5fd7dfd01331fcdc487f5",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/busybox/patches/busybox-06-prevent-root-weak-passwd.patch": {
+    "mode": "100644",
+    "oid": "a8e5c706cff0f7513e412a8a4cf8f605527b06c6",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/busybox/patches/busybox-10-add-MS_BIND-option-when-remouting-bind-mount.patch": {
+    "mode": "100644",
+    "oid": "2fc431716627d94f9378d0d91947702e40b08cf0",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/drm_tool/patches/001-strip-flags.patch": {
+    "mode": "100644",
+    "oid": "2df1252d1be59b9b81a582ecf4ea0262e52a6a02",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/file/patches/file-move-magic.mgc-to-addon-data.patch": {
+    "mode": "100644",
+    "oid": "d0a72d7612272a9d9b2001caf75bcc964f3d242f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/fuse2/patches/fuse-0001_aarch64-support.patch": {
+    "mode": "100644",
+    "oid": "050d1146a9aa5ff20e919e3eb8592405ef3caa36",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/fuse2/patches/fuse-0002-dont-run-update-rc.d.patch": {
+    "mode": "100644",
+    "oid": "d89103eca065a6f920dfb924b2366ca660f7c4f3",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/fuse2/patches/fuse-0003-build-with-glibc-2.34.patch": {
+    "mode": "100644",
+    "oid": "beb8d51da1eeaf790a60de4721cbbe3fd4626dcf",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/fuse2/patches/fuse-0004-fix-configure-ac-gettext.patch": {
+    "mode": "100644",
+    "oid": "43e261250c1c53f9b1f0a4440f7964f833f7e441",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/i2c-tools/patches/pyinstalldir.patch": {
+    "mode": "100644",
+    "oid": "07ee55d27f0ad4e260f532b7b145fbf2ca7a751b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/kmod/patches/kmod-02_fix-pkgconf.patch": {
+    "mode": "100644",
+    "oid": "8614e475cd9e78afdd7b9f7f0e707834d56d55dc",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/libiio/patches/0001-bindings-python-fix-library-loading.patch": {
+    "mode": "100644",
+    "oid": "2d1f25ee55bf0474846076f192836efd501eddbf",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/systemd/patches/systemd-0001-move-etc-systemd-system-to-storage-.config-system.d.patch": {
+    "mode": "100644",
+    "oid": "9a2d176ad78e591be60612ecf3275ab03b05a2a6",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/systemd/patches/systemd-0002-move-hwdb.bin-to-run.patch": {
+    "mode": "100644",
+    "oid": "ac11b21fd335c1c98842041c697e335693b7b5a8",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/systemd/patches/systemd-0003-remove-nonexistant-dependency.patch": {
+    "mode": "100644",
+    "oid": "43f31b28ea9b9323c393db8d6a24be389f01dcbf",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/systemd/patches/systemd-0004-dont-show-machineid-error-on-first-boot.patch": {
+    "mode": "100644",
+    "oid": "63bcaf326946eae5905634887e932bf415b8d1e5",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/systemd/patches/systemd-0005-dont-provision-nonexistant-dirs.patch": {
+    "mode": "100644",
+    "oid": "5b608ff2ef37a3ed433adf38eb295aee22e11237",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/systemd/patches/systemd-0200-persist-persistent-timer-stamps.patch": {
+    "mode": "100644",
+    "oid": "d7990a0dc538ed828b0fb7fd2cc802cfa2ff9169",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/systemd/patches/systemd-0300-config-env-unhide-cursor.patch": {
+    "mode": "100644",
+    "oid": "17da76545a10582b2ee3c189e24cd02fe57f00a9",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/systemd/patches/systemd-0400-hide-useless-shutdown-log-message.patch": {
+    "mode": "100644",
+    "oid": "ab5b238cfc95ba132e8fc0aab314eecb8c3115cf",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/systemd/patches/systemd-0500-Add-working-directory-storage-for-debug-shell.patch": {
+    "mode": "100644",
+    "oid": "e64752d74ef0e2c2686914c075071da903b28be8",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/systemd/patches/systemd-0600-timedated-use-run-rocknix-localtime.patch": {
+    "mode": "100644",
+    "oid": "3f826f5e276047f4f5854e6b07610f1ec28e2c31",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/systemd/patches/systemd-0601-get-timezone-follow-indirect-symlinks.patch": {
+    "mode": "100644",
+    "oid": "e08377ed78074b580f996245851e76fd0e285280",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/systemd/patches/systemd-501-Start-debug-service-after-locale-to-ensure-file-syst.patch": {
+    "mode": "100644",
+    "oid": "1acb836ed1edda7b5d093aea0b4983c505c7071c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/systemd/patches/systemd-errno-list-filter-out-EFSBADCRC-and-EFSCORRUPTED.patch": {
+    "mode": "100644",
+    "oid": "cc5acfa5d7dac0785e1fe877f0c3e5527deb69ab",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/systemd/patches/systemd-ignore-sdcardfs-from-linux.patch": {
+    "mode": "100644",
+    "oid": "3f08845ec2eb965909e882e646820adc693c0971",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/usb-modeswitch/patches/001-usb-modeswitch-no-extras.patch": {
+    "mode": "100644",
+    "oid": "db367db5cbf531b897d1b8d48c8ea6b112cb103f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/util-linux/patches/util-linux-01-fix-pkgconf.patch": {
+    "mode": "100644",
+    "oid": "7515acbc7ffdcd24a801f3fb828cba91bf0c0f25",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/sysutils/util-linux/patches/util-linux-02-enable-blkdiscard.patch": {
+    "mode": "100644",
+    "oid": "f7820b15ea00aa1c4a34b046f78a68ed44839b5d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/tools/atf/patches/H700/000-use-gcc-for-asm.patch": {
+    "mode": "100644",
+    "oid": "cdbe9eafc5cb307a16e2fac172be3128cce4b38f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/tools/atf/patches/H700/001-allwinner-h616-psci-system-suspend.patch": {
+    "mode": "100644",
+    "oid": "893192095616b0f0f0fb6105952bf998cc42629d",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/tools/batteryplus/patches/0001-discover-voltage_avg-fallback.patch": {
+    "mode": "100644",
+    "oid": "d04f9f9b211d6a87f8f6720211430fd48dcf2fbd",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/tools/batteryplus/patches/0002-pmic-mode-snap-visible-percent-on-resume.patch": {
+    "mode": "100644",
+    "oid": "77978eae7cebc4a588fd64eed2c9bc0504d45449",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/tools/batteryplus/patches/0003-seed-the-voltage-anchors-from-the-battery-driver.patch": {
+    "mode": "100644",
+    "oid": "d8ea4d81e712221c08186bace5fc1d3dd6dbbb1c",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/tools/freeimage/patches/01-make.patch": {
+    "mode": "100644",
+    "oid": "3f996ed35dff518decda1f819aab02e0ee48ee5f",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/patches/0001-system-style-the-logo-text-for-fullscreen-artwork.patch": {
+    "mode": "100644",
+    "oid": "759051b112a39cf7b2abf01939de9f8dea429e73",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/patches/001-pixelelated-splash.patch": {
+    "mode": "100644",
+    "oid": "f0689a5e3118d7614cecc931cf0f286ee7b0f314",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next/patches/001-tools-always-show-image.patch": {
+    "mode": "100644",
+    "oid": "0ac7bd7d6498abb738a73ad2cf998bc7b25045db",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/wayland/compositor/sway/patches/sway-100.01-static-ipc-socket.patch": {
+    "mode": "100644",
+    "oid": "cf95985129e544de0bf063dbbfd7b365ee8288f0",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/packages/x11/xserver/xwayland/patches/000-fix-armfh-build.patch": {
+    "mode": "100644",
+    "oid": "c213c59bc4a311fe213bb19d96dfa598bbe1389b",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/patches/gcc/libsanitizer-Fix_up_build_against_latest_kernel_headers.patch": {
+    "mode": "100644",
+    "oid": "ec0c3516f111ebc284fc2257a95129b2dc397cff",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/patches/pugixml/001-fix-for-emulationstation.patch": {
+    "mode": "100644",
+    "oid": "52c5cdbc9a9be7ca66cf1ed398089e4933424457",
+    "type": "blob"
+  },
+  "projects/ROCKNIX/patches/vkmark/vkmark-0002-fix-custom-dispatchers.patch": {
+    "mode": "100644",
+    "oid": "c6470df34e0b09e2d3d183f8691ab92eb5caceae",
+    "type": "blob"
+  }
+}

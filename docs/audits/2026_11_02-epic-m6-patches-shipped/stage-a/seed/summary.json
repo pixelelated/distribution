@@ -1,0 +1,51 @@
+{
+  "bytes": 3809748,
+  "fork_written_lines": 498,
+  "fork_written_paths": 12,
+  "logical_lines": 71387,
+  "newlines": 71378,
+  "p1": "2174265e9cc1b248c0fbe27fa101875984d46d6b",
+  "path_list_sha256": "91e980f455611fa81bc84c8ff5548abd05437452d02038cc5595f5c1521e5f07",
+  "paths": 384,
+  "reach": {
+    "shipped": 379,
+    "test": 5
+  },
+  "ref": "9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1",
+  "regular": 380,
+  "selector_sha256": {
+    "docs/reviews/areas.json": "985f742cfd4a2138339f1ed41bd5f5f9e3755fe69b309ff3ddb10d1466fced90",
+    "docs/reviews/inventory.json": "d17b9cac4b2c2245b7d924036a9402b2cfd066811a7ea3fc7502a380418cb2fc",
+    "docs/reviews/inventory.md": "05f32dce9bb943ce31075ca5eea8e2b355baec2ef3157d84a780af2524c343e6",
+    "docs/reviews/order.md": "d5b76af6f0865d1ce5b6f8ab36fe1e5fa33478d16033833c048fae0abfde4c18",
+    "docs/reviews/slices.json": "49bc2745664e52f4abb9037746d003fab54e21fde74f6308a81bf20ed00f12c6",
+    "tools/renovation-inventory": "e3d2cbc8743e328e20a2b9ca10b8bf2264efd5d25bdecb8e0bd3bb306117bf0b"
+  },
+  "symlink_count": 4,
+  "symlinks": [
+    {
+      "path": "projects/ROCKNIX/packages/apps/mangohud/patches/SM8550/0002-SM8750-Battery.patch",
+      "resolved": "projects/ROCKNIX/packages/apps/mangohud/patches/SM8750/0002-SM8750-Battery.patch",
+      "sha256": "97220df99329d8b1976aa9a84f0843999b5ae9a47fdaac6da61bedad68e34a84",
+      "target": "../SM8750/0002-SM8750-Battery.patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-rogue-lr/patches/aarch64/001-set-platform.patch",
+      "resolved": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/patches/aarch64/001-set-platform.patch",
+      "sha256": "e9f9beb6d3b2eccf1ce6bc3df10331c39f2feddb1928dfc1f8c1ca0692584a6a",
+      "target": "../../../patches/aarch64/001-set-platform.patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-xatrix-lr/patches/aarch64/001-set-platform.patch",
+      "resolved": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/patches/aarch64/001-set-platform.patch",
+      "sha256": "e9f9beb6d3b2eccf1ce6bc3df10331c39f2feddb1928dfc1f8c1ca0692584a6a",
+      "target": "../../../patches/aarch64/001-set-platform.patch"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/vitaquake2-zaero-lr/patches/aarch64/001-set-platform.patch",
+      "resolved": "projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/patches/aarch64/001-set-platform.patch",
+      "sha256": "e9f9beb6d3b2eccf1ce6bc3df10331c39f2feddb1928dfc1f8c1ca0692584a6a",
+      "target": "../../../patches/aarch64/001-set-platform.patch"
+    }
+  ]
+}
