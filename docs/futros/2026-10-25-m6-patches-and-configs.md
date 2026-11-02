@@ -219,3 +219,42 @@ Written for version 2 of the brief; the corrections from the stranger's proof of
 ### 2026-11-02T17:10:18Z — T41 Stage-B method erratum
 
 D-WORKFLOW-222 refines the kickoff's dry-run assumption after #688 comment 6583064842: H700 order 011 applies normally to the identical input on which its dry run fails. Keep the original receipts; the appended brief erratum specifies fresh disposable candidates, complete application as the verdict, promotion only on rc=0, and explicit blocked successors after a real failure. Re-establish all 120 plan applications in the incomplete Stage-B packet; use actual-application offset/fuzz counts. Prove the failed-candidate guard and preserve the existing same-input refutation. This adds no product edits or runtime allocation.
+
+
+## T42 kickoff addendum — 2026-11-02T18:44:04Z
+
+**Plan:** T42, the remaining shipped/test patches, is a Local provenance table
+under #689. D-WORKFLOW-225 preserves the canonical 384 native rows and adds
+no path ownership for the separate 50 inherited questions / 26 overrides.
+T5 executes the proved brief in a new named worktree after explicit dispatch;
+T41 continues in parallel on its disjoint scope. No product edit or runtime.
+
+**Assumptions exposed:** a vendor-carried tier can include fork-written work
+(twelve paths / 498 lines); a Git symlink's one-line blob is not its referent;
+accepted recipe currency is not patch-adoption evidence; four area tables
+sum to 1,701 rows, with 41 explicit-owner rows completing the 1,742 total.
+A header's external link is not evidence that its contents were read.
+
+**Known unknowns:** availability and exact identity of each cached source,
+static resolution of plan/feature values and pre-patch hooks, whole-patch
+supersession and runtime effects. Missing inputs get named open items; no
+fetch, arbitrary recipe execution, build or guest fills these gaps here.
+
+**Patterns:** wrong denominators, duplicated T40 leads, symlink ownership
+leaks, copying an accepted recipe verdict onto missing patch adoption, and
+trusting normal application of unrendered placeholders. The actual build
+renders DEVICE/TARGET_CPU and may select a different application backend.
+
+**Simulation:** an executor uses 434 as native coverage, silently adopts the
+50 generic patches, treats wrapper version 1.0 as U-Boot source, passes a raw
+DEVICE placeholder into source, or tests the wrong state before a recipe
+hook. The brief prohibits those shortcuts and records selected inputs or
+their precise absence. T43's shared referent remains source context only.
+
+**Adjustments from the proof:** corrected the renovation question labels,
+required rendered bytes and backend/hook semantics, and widened input guards
+to selector files and all referents. Both new guards have concrete failing
+fixtures before the positive source run. The proof is retained under
+`docs/qa-logs/2026-11-02-m6-resume/t42-brief-proof/`; it is handoff feasibility,
+not audit/application acceptance. The area criterion is corrected in #1054
+without recutting membership.

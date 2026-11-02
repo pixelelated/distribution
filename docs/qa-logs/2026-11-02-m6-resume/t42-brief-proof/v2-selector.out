@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346/docs/qa-logs/2026-11-02-m6-resume/t42-brief-inputs.py", line 55, in <module>
+    assert original==current_bytes, 'selector/input bytes drift: '+path
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: selector/input bytes drift: tools/renovation-inventory
