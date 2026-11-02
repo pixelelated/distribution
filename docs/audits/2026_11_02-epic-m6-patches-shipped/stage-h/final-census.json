@@ -1,0 +1,23 @@
+{
+  "utc": "2026-11-02T20:34:58.656055+00:00",
+  "argv": [
+    "ps",
+    "-eo",
+    "pid,ppid,comm"
+  ],
+  "rc": 0,
+  "stdout_sha256": "5dad056b3c6cac20ffd5491e4267b7eef3d81bbcbdd679bc685cd75e4389cd43",
+  "current_worktree": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+  "historical_launch_tree": "untouched; pane cwd does not select commands",
+  "held_runtime": false,
+  "source_producer_replays": 0,
+  "source_extractions": 0,
+  "source_applications": 0,
+  "retired_owned_roots": 522,
+  "logical_file_bytes_retired": 502085226,
+  "preserved_cached_archives": 129,
+  "retained_empty_source_root": "/workspace/tmp/m6-t42",
+  "external_final_publication_receipts": "/workspace/tmp/m6-t42-final-publication-20261102T203040Z",
+  "live_owner_proof": "cleanup-commands.json pre-delete-owned-source and pre-delete-owned-text-export: actual lsof rc1 with empty stdout/stderr; live-owner negative control rejected",
+  "scope": "Process names only, no arguments/private contents. No host-ledger write, build, guest, device/cloud/provider or permission action."
+}

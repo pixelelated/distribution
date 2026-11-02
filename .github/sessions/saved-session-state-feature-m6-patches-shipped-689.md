@@ -1,3 +1,17 @@
+# Current T42 hand-off — 2026-11-02T20:34:58.656055+00:00
+
+Start here: records-only E–H under #689 comment 6587447155 / D-WORKFLOW-230 is ready for final clean publication. Actual final tip and publication receipt hash are supplied by the H comment on #689; read it before doing any new work. Root retains final acceptance/integration, audit1411 criterion3/closure/completion marker. PL-01 is Deferred to open bug1410 / #677 context; no GUIDE/source change is chosen.
+
+Use only absolute workdir `/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689`, branch feature/m6-patches-shipped-689. Reviewed-at remains 9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1; accepted D was d37670de318eb428604e4442f95defe10eade173. Read audit 06/07, stage-e disposition/owner matrix, stage-f new resolution checks, the final retro and stage-h custody records. Preserve native384 versus inherited50, all 173/22 limits and missing G202/G203/G383 evidence. Accepted producers are never a resume task.
+
+H cleanup completed: 522 exact owned roots removed; `/workspace/tmp/m6-t42` remains empty, 129 cached archives and all durable receipts retained. No runtime or producer is held. External final-publication receipt directory: `/workspace/tmp/m6-t42-final-publication-20261102T203040Z`; actual command exits are written after their calls and bound to the final tip. No extra receipt-only commit loop or coordinator merge is authorized. After the clean H handback, STOP and remain available. No device/cloud/provider/private/host-ledger/permission action or historical launch/T38 change.
+
+Actual reader/lane: Codex / GPT-6-Astra / xhigh, OpenAI; m6-t5-build-engine wN:p7, session 01a19d12-3d7a-7642-9108-ae06a719cdd7. Pane launch cwd is historical, not the command workdir.
+
+---
+
+The earlier checkpoints below are historical; the current authority above and final #689 H comment supersede their next-action text.
+
 # Saved Session State: T42 patches-shipped (#689)
 
 Updated 2026-11-02T18:51:28Z. Coordinator seed for the existing T5 lane; work begins on the explicit #689 dispatch, which names this pointer commit.

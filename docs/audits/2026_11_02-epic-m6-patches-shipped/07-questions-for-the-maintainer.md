@@ -9,3 +9,7 @@ The [final owner/action matrix](stage-e/owner-actions.json) retains the 173 nati
 G383 (SM8550-aarch64 PPSSPP) is wholly open for unknown post_unpack input, missing archive SHA and no exact cached archive. Its static stack includes context-only `projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8550/000-swap-guid-and-misc.patch`, resolved to `patches/SM8250/000-swap-guid-and-misc.patch`. The accepted group receipt includes only its six native rows and omits that context-only symlink row. No command, normal exit or application result is reconstructed for it; neither population changes. G202/G203 retain only their first recorded row and no serialized exit for the next link-producing candidate. All three gaps remain unclaimed.
 
 E–H may finish records, checks, retro and bounded owned-scratch retirement. Root retains final acceptance/integration, audit criterion3, issue closure and completion marker. No producer replay, source change, runtime allocation or another agent permission response is authorized.
+
+## H custody completed
+
+The authorized owned-scratch retirement is complete: 522 exact roots, accepted receipts preserved, 129 cache archives untouched, no live owner found in the bounded pre-delete census. The H publication receipt directory is `/workspace/tmp/m6-t42-final-publication-20261102T203040Z`. Its actual final tip/hash will be named in the handback. No new preference or permission question is created; root retains acceptance/integration and future fix dispatch.

@@ -1,0 +1,728 @@
+    PID    PPID COMMAND
+      1       0 systemd
+      2       0 kthreadd
+      3       2 pool_workqueue_release
+      4       2 kworker/R-rcu_gp
+      5       2 kworker/R-sync_wq
+      6       2 kworker/R-kvfree_rcu_reclaim
+      7       2 kworker/R-slub_flushwq
+      8       2 kworker/R-netns
+     10       2 kworker/0:0H-kblockd
+     13       2 kworker/R-mm_percpu_wq
+     14       2 ksoftirqd/0
+     15       2 rcu_preempt
+     16       2 rcu_exp_par_gp_kthread_worker/1
+     17       2 rcu_exp_gp_kthread_worker
+     18       2 migration/0
+     19       2 kprobe-optimizer
+     20       2 idle_inject/0
+     21       2 cpuhp/0
+     22       2 cpuhp/1
+     23       2 idle_inject/1
+     24       2 migration/1
+     25       2 ksoftirqd/1
+     27       2 kworker/1:0H-kblockd
+     28       2 cpuhp/2
+     29       2 idle_inject/2
+     30       2 migration/2
+     31       2 ksoftirqd/2
+     33       2 kworker/2:0H-kblockd
+     34       2 cpuhp/3
+     35       2 idle_inject/3
+     36       2 migration/3
+     37       2 ksoftirqd/3
+     39       2 kworker/3:0H-kblockd
+     40       2 cpuhp/4
+     41       2 idle_inject/4
+     42       2 migration/4
+     43       2 ksoftirqd/4
+     45       2 kworker/4:0H-kblockd
+     46       2 cpuhp/5
+     47       2 idle_inject/5
+     48       2 migration/5
+     49       2 ksoftirqd/5
+     51       2 kworker/5:0H-kblockd
+     52       2 cpuhp/6
+     53       2 idle_inject/6
+     54       2 migration/6
+     55       2 ksoftirqd/6
+     57       2 kworker/6:0H-kblockd
+     58       2 cpuhp/7
+     59       2 idle_inject/7
+     60       2 migration/7
+     61       2 ksoftirqd/7
+     63       2 kworker/7:0H-kblockd
+     64       2 cpuhp/8
+     65       2 idle_inject/8
+     66       2 migration/8
+     67       2 ksoftirqd/8
+     69       2 kworker/8:0H-kblockd
+     70       2 cpuhp/9
+     71       2 idle_inject/9
+     72       2 migration/9
+     73       2 ksoftirqd/9
+     75       2 kworker/9:0H-kblockd
+     76       2 cpuhp/10
+     77       2 idle_inject/10
+     78       2 migration/10
+     79       2 ksoftirqd/10
+     81       2 kworker/10:0H-kblockd
+     82       2 cpuhp/11
+     83       2 idle_inject/11
+     84       2 migration/11
+     85       2 ksoftirqd/11
+     87       2 kworker/11:0H-kblockd
+     88       2 cpuhp/12
+     89       2 idle_inject/12
+     90       2 migration/12
+     91       2 ksoftirqd/12
+     93       2 kworker/12:0H-kblockd
+     94       2 rcu_exp_par_gp_kthread_worker/2
+     95       2 cpuhp/13
+     96       2 idle_inject/13
+     97       2 migration/13
+     98       2 ksoftirqd/13
+    100       2 kworker/13:0H-kblockd
+    101       2 cpuhp/14
+    102       2 idle_inject/14
+    103       2 migration/14
+    104       2 ksoftirqd/14
+    106       2 kworker/14:0H-kblockd
+    107       2 cpuhp/15
+    108       2 idle_inject/15
+    109       2 migration/15
+    110       2 ksoftirqd/15
+    112       2 kworker/15:0H-kblockd
+    113       2 cpuhp/16
+    114       2 idle_inject/16
+    115       2 migration/16
+    116       2 ksoftirqd/16
+    118       2 kworker/16:0H-kblockd
+    119       2 cpuhp/17
+    120       2 idle_inject/17
+    121       2 migration/17
+    122       2 ksoftirqd/17
+    124       2 kworker/17:0H-kblockd
+    125       2 cpuhp/18
+    126       2 idle_inject/18
+    127       2 migration/18
+    128       2 ksoftirqd/18
+    130       2 kworker/18:0H-kblockd
+    131       2 cpuhp/19
+    132       2 idle_inject/19
+    133       2 migration/19
+    134       2 ksoftirqd/19
+    136       2 kworker/19:0H-kblockd
+    137       2 cpuhp/20
+    138       2 idle_inject/20
+    139       2 migration/20
+    140       2 ksoftirqd/20
+    142       2 kworker/20:0H-kblockd
+    143       2 cpuhp/21
+    144       2 idle_inject/21
+    145       2 migration/21
+    146       2 ksoftirqd/21
+    148       2 kworker/21:0H-kblockd
+    149       2 cpuhp/22
+    150       2 idle_inject/22
+    151       2 migration/22
+    152       2 ksoftirqd/22
+    154       2 kworker/22:0H-kblockd
+    155       2 cpuhp/23
+    156       2 idle_inject/23
+    157       2 migration/23
+    158       2 ksoftirqd/23
+    160       2 kworker/23:0H-kblockd
+    161       2 kdevtmpfs
+    162       2 kworker/R-inet_frag_wq
+    163       2 rcu_tasks_kthread
+    164       2 rcu_tasks_rude_kthread
+    165       2 kauditd
+    166       2 khungtaskd
+    167       2 oom_reaper
+    169       2 kworker/R-writeback
+    171       2 kcompactd0
+    172       2 ksmd
+    173       2 khugepaged
+    174       2 kworker/R-kblockd
+    175       2 kworker/R-blkcg_punt_bio
+    176       2 kworker/R-kintegrityd
+    178       2 irq/9-acpi
+    182       2 kworker/R-tpm_dev_wq
+    183       2 kworker/R-ata_sff
+    184       2 kworker/R-md_bitmap
+    185       2 kworker/R-md_llbitmap_io
+    186       2 kworker/R-md_llbitmap_unplug
+    187       2 kworker/R-edac-poller
+    188       2 kworker/R-devfreq_wq
+    189       2 watchdogd
+    191       2 kworker/R-quota_events_unbound
+    192       2 irq/122-dmar0-perf
+    193       2 irq/123-dmar1-perf
+    195       2 kswapd0
+    196       2 ecryptfs-kthread
+    197       2 kworker/R-kthrotld
+    198       2 irq/124-aerdrv
+    199       2 irq/125-aerdrv
+    200       2 irq/126-aerdrv
+    201       2 irq/127-aerdrv
+    202       2 kworker/R-acpi_thermal_pm
+    204       2 hwrng
+    205       2 kworker/R-hfi-updates
+    206       2 kworker/R-mld
+    207       2 kworker/R-ipv6_addrconf
+    208       2 kworker/R-kstrp
+    218       2 kworker/u97:0-rb_allocator
+    231       2 kworker/R-charger_manager
+    540       2 kworker/R-nvme-wq
+    541       2 kworker/R-nvme-reset-wq
+    542       2 kworker/R-nvme-delete-wq
+    543       2 kworker/R-nvme-auth-wq
+    602       2 kworker/R-kdmflush/252:0
+    635       2 kworker/12:1H-kblockd
+    636       2 kworker/1:1H-kblockd
+    670       2 jbd2/dm-0-8
+    671       2 kworker/R-ext4-rsv-conversion
+    775       1 systemd-journal
+    777       2 kworker/8:1H-kblockd
+    804       2 kworker/R-kmpathd
+    805       2 kworker/R-kmpath_handlerd
+    814       1 multipathd
+    819       1 systemd-resolve
+    822       2 kworker/20:1H-kblockd
+    826       1 systemd-udevd
+    827       2 kworker/22:1H-kblockd
+    839       2 kworker/23:1H-kblockd
+    842       2 psimon
+    934       2 kworker/2:1H-kblockd
+    950       2 kworker/10:1H-kblockd
+    951       2 kworker/14:1H-kblockd
+    952       2 kworker/13:1H-kblockd
+    953       2 kworker/7:1H-kblockd
+   1171       2 kworker/R-cfg80211
+   1187       2 irq/179-mei_me
+   1340       2 irq/180-iwlwifi:default_queue
+   1341       2 irq/181-iwlwifi:queue_1
+   1342       2 irq/182-iwlwifi:queue_2
+   1343       2 irq/183-iwlwifi:queue_3
+   1344       2 irq/184-iwlwifi:queue_4
+   1345       2 irq/185-iwlwifi:queue_5
+   1346       2 irq/186-iwlwifi:queue_6
+   1347       2 irq/187-iwlwifi:queue_7
+   1348       2 irq/188-iwlwifi:queue_8
+   1349       2 irq/189-iwlwifi:queue_9
+   1350       2 irq/190-iwlwifi:queue_10
+   1351       2 irq/191-iwlwifi:queue_11
+   1352       2 irq/192-iwlwifi:queue_12
+   1353       2 irq/193-iwlwifi:queue_13
+   1354       2 irq/194-iwlwifi:queue_14
+   1355       2 irq/195-iwlwifi:exception
+   1365       2 nv_queue
+   1366       2 nv_mem_pool_scrubber_queue
+   1367       2 nv_mem_pool_scrubber_queue
+   1368       2 nv_mem_pool_scrubber_queue
+   1369       2 nv_queue
+   1370       2 nv_open_q
+   1372       2 kworker/0:1H-kblockd
+   1399       2 nvidia-modeset/kthread_q
+   1400       2 nvidia-modeset/deferred_close_kthread_q
+   1402       2 kworker/R-ttm
+   1403       2 irq/196-nvidia
+   1404       2 nvidia
+   1405       2 nv_queue
+   1406       2 irq/16-processor_thermal_device_pci
+   1408       2 card1-crtc0
+   1409       2 card1-crtc1
+   1410       2 card1-crtc2
+   1411       2 card1-crtc3
+   1422       2 kworker/18:1H-kblockd
+   1423       2 jbd2/nvme0n1p2-8
+   1424       2 kworker/R-ext4-rsv-conversion
+   1425       2 kworker/11:1H-kblockd
+   1429       2 kworker/16:1H-kblockd
+   1435       2 kworker/21:1H-kblockd
+   1438       2 kworker/19:1H-kblockd
+   1444       2 kworker/3:1H-kblockd
+   1445       2 kworker/4:1H-kblockd
+   1564       2 jbd2/nvme1n1-8
+   1565       2 kworker/R-ext4-rsv-conversion
+   1784       1 wpa_supplicant
+   1786       1 systemd-network
+   1821       2 kworker/17:1H-kblockd
+   1830       1 accounts-daemon
+   1831       1 avahi-daemon
+   1833       1 chronyd-starter
+   1834       1 dbus-daemon
+   1843       1 networkd-dispat
+   1848       1 polkitd
+   1861       1 snapd
+   1863       1 systemd-logind
+   1864       1 tailscaled
+   1865       1 thermald
+   1867       1 udisksd
+   1887    1831 avahi-daemon
+   1969       1 wpa_supplicant
+   1971    1833 chronyd
+   1972       2 kworker/15:1H-kblockd
+   1973    1971 chronyd
+   1978       1 rsyslogd
+   2013       2 kworker/5:1H-kblockd
+   2056       1 unattended-upgr
+   2058       1 xrdp-sesman
+   2088       1 ModemManager
+   2111       2 UVM global queue
+   2113       2 UVM deferred release queue
+   2117       2 UVM Tools Event Queue
+   2162       1 nvidia-persiste
+   2259       1 upowerd
+   2279       1 containerd
+   2339       2 kworker/6:1H-kblockd
+   2368       2 kworker/9:1H-kblockd
+   2377       1 dockerd
+   2380       1 cron
+   2383       1 xrdp
+   2387       1 lightdm
+   2389       1 systemd
+   2399    2387 Xorg
+   2406       1 agetty
+   2408    2389 (sd-pam)
+   2474    2389 moshi-hook
+   2475    2389 pulseaudio
+   2517       1 rtkit-daemon
+   2576    2389 dbus-daemon
+   2685    2387 lightdm
+   2720       1 systemd
+   2722    2720 (sd-pam)
+   2741    2720 pulseaudio
+   2743    2685 lightdm-greeter
+   2744    2743 lightdm-gtk-gre
+   2746    2720 dbus-daemon
+   2751    2720 at-spi-bus-laun
+   2760    2751 dbus-daemon
+   2771    2720 gvfsd
+   2833    2720 gvfsd-metadata
+   3112    2387 lightdm
+   3115    2720 at-spi2-registr
+   4157       1 gnome-keyring-d
+   4487       1 containerd-shim
+   4488       1 containerd-shim
+   4489       1 containerd-shim
+   4490       1 containerd-shim
+   4502       1 containerd-shim
+   4505       1 containerd-shim
+   4530       1 containerd-shim
+   4656       1 containerd-shim
+   4676       1 containerd-shim
+   4703       1 containerd-shim
+   4739       1 containerd-shim
+   4768       1 containerd-shim
+   4771    4488 postgres
+   4789    4487 postgres
+   4795       1 containerd-shim
+   4802    4505 postgres
+   4818    4530 postgres
+   4841    4489 postgres
+   4849       1 containerd-shim
+   4854    4502 postgres
+   4879       1 containerd-shim
+   4883    4490 postgres
+   4923       1 containerd-shim
+   4937    4676 postgres
+   4944    4656 postgres
+   4964    4703 postgres
+   4990       1 containerd-shim
+   5011    4795 postgres
+   5026    4768 postgres
+   5042       1 containerd-shim
+   5044    4739 postgres
+   5063       1 containerd-shim
+   5090    4879 postgres
+   5099    4849 postgres
+   5114       1 containerd-shim
+   5136    4923 postgres
+   5146       1 containerd-shim
+   5184       1 containerd-shim
+   5236    5114 postgres
+   5244    4990 postgres
+   5250    5146 postgres
+   5255    5042 postgres
+   5256    5063 postgres
+   5267    5184 postgres
+   5389    2377 docker-proxy
+   5508    2377 docker-proxy
+   5629    2377 docker-proxy
+   5655    2377 docker-proxy
+   5691    2377 docker-proxy
+   5825    5011 postgres
+   5826    4854 postgres
+   5827    5011 postgres
+   5828    4854 postgres
+   5831    4818 postgres
+   5832    4818 postgres
+   5837    5026 postgres
+   5838    4937 postgres
+   5839    5026 postgres
+   5840    4937 postgres
+   5874       1 sshd
+   5928    2377 docker-proxy
+   5982    2377 docker-proxy
+   6014    2377 docker-proxy
+   6049    2377 docker-proxy
+   6085    2377 docker-proxy
+   6135    2377 docker-proxy
+   6181    2377 docker-proxy
+   6227    2377 docker-proxy
+   6248    5244 postgres
+   6249    5244 postgres
+   6252    5136 postgres
+   6253    5136 postgres
+   6277    2377 docker-proxy
+   6316    2377 docker-proxy
+   6336    5250 postgres
+   6337    5250 postgres
+   6349    4789 postgres
+   6351    4789 postgres
+   6382    2377 docker-proxy
+   6396    4771 postgres
+   6397    4771 postgres
+   6440    5267 postgres
+   6441    5267 postgres
+   6442    2377 docker-proxy
+   6466    4802 postgres
+   6467    4802 postgres
+   6496    2377 docker-proxy
+   6531    2377 docker-proxy
+   6563    4944 postgres
+   6564    4944 postgres
+   6576    2377 docker-proxy
+   6589    4841 postgres
+   6590    4841 postgres
+   6598    4883 postgres
+   6599    4883 postgres
+   6689    5044 postgres
+   6690    4964 postgres
+   6691    5044 postgres
+   6692    4964 postgres
+   6695    5256 postgres
+   6696    5256 postgres
+   6698    5236 postgres
+   6699    5236 postgres
+   6701    5255 postgres
+   6702    5255 postgres
+   6704    5099 postgres
+   6705    5099 postgres
+   6707    5090 postgres
+   6708    5090 postgres
+   6714       1 stacker
+   6958    5011 postgres
+   6959    5011 postgres
+   6960    5011 postgres
+   6961    5236 postgres
+   6962    5236 postgres
+   6963    5236 postgres
+   6966    4937 postgres
+   6967    4937 postgres
+   6968    4937 postgres
+   6971    4883 postgres
+   6972    4883 postgres
+   6973    4883 postgres
+   6975       1 herdr
+   7001    6975 bash
+   7004    6975 bash
+   7007    6975 bash
+   7013    6975 bash
+   7033    6975 bash
+   7041    6975 bash
+   7504    5136 postgres
+   7505    5136 postgres
+   7506    5136 postgres
+   7507    4771 postgres
+   7508    4771 postgres
+   7509    4771 postgres
+   7510    4789 postgres
+   7511    4789 postgres
+   7512    4789 postgres
+   7520    4802 postgres
+   7521    4802 postgres
+   7522    4802 postgres
+   7523    5044 postgres
+   7524    5044 postgres
+   7525    5044 postgres
+   7528    5255 postgres
+   7529    5255 postgres
+   7530    5255 postgres
+   7531    5099 postgres
+   7532    5099 postgres
+   7533    5099 postgres
+   7546    4818 postgres
+   7547    4818 postgres
+   7548    4818 postgres
+   7551    5244 postgres
+   7552    5244 postgres
+   7553    5244 postgres
+   7554    5250 postgres
+   7555    5250 postgres
+   7556    5250 postgres
+   7559    4964 postgres
+   7560    4964 postgres
+   7561    4964 postgres
+   7562    5026 postgres
+   7563    5026 postgres
+   7564    5026 postgres
+   7567    4854 postgres
+   7568    4854 postgres
+   7569    4854 postgres
+   7570    5090 postgres
+   7571    5090 postgres
+   7572    5090 postgres
+   7575    5267 postgres
+   7576    5267 postgres
+   7577    5267 postgres
+   7578    5256 postgres
+   7579    5256 postgres
+   7580    5256 postgres
+   7583    4841 postgres
+   7584    4841 postgres
+   7585    4841 postgres
+   7586    4944 postgres
+   7587    4944 postgres
+   7588    4944 postgres
+   7591    6975 bash
+   7668    6975 bash
+   7748    6975 bash
+   7829    6975 bash
+   7916    6975 bash
+   8002    6975 bash
+   8120    6975 bash
+   8252    6975 bash
+   8397    8252 claude
+   8458    6975 bash
+   8559    8458 claude
+   8588    6975 bash
+   8723    8588 claude
+   8853    6975 bash
+   9020    8853 claude
+   9093    6975 bash
+   9282    9093 claude
+   9329   14436 herdr
+   9349    6975 bash
+   9525    9349 claude
+   9581    6975 bash
+   9701    9581 claude
+   9723    6975 bash
+   9838    9723 claude
+   9868    6975 bash
+  10023    9868 claude
+  10801    9282 npm exec @sentr
+  10802    9282 npm exec @sentr
+  10819    9020 npm exec @sentr
+  10820    9020 npm exec @sentr
+  11037   10023 npm exec @sentr
+  11038   10023 npm exec @sentr
+  11210   10819 sh
+  11215   11210 MainThread
+  11249   11037 sh
+  11250   11249 MainThread
+  11269   11038 sh
+  11270   11269 MainThread
+  11283   10820 sh
+  11284   11283 MainThread
+  11371   10802 sh
+  11372   11371 MainThread
+  11564    8397 npm exec @sentr
+  11577    8397 npm exec @sentr
+  11704   10801 sh
+  11709   11704 MainThread
+  11827    8723 npm exec @sentr
+  11832    8723 npm exec @sentr
+  11861    8559 npm exec @sentr
+  11862    8559 npm exec @sentr
+  12061    9525 npm exec @sentr
+  12065    9525 npm exec @sentr
+  12085   11564 sh
+  12086   12085 MainThread
+  12113    9701 npm exec @sentr
+  12118    9701 npm exec @sentr
+  12232   11577 sh
+  12233   12232 MainThread
+  12259    9838 npm exec @sentr
+  12262    9838 npm exec @sentr
+  12268   11827 sh
+  12269   12268 MainThread
+  12308   11832 sh
+  12309   12308 MainThread
+  12358   11861 sh
+  12361   12358 MainThread
+  12402   12061 sh
+  12403   12402 MainThread
+  12405   11862 sh
+  12407   12405 MainThread
+  12433   12113 sh
+  12434   12433 MainThread
+  12449   12118 sh
+  12450   12449 MainThread
+  12469   12262 sh
+  12470   12469 MainThread
+  12479   12259 sh
+  12480   12479 MainThread
+  12488   12065 sh
+  12489   12488 MainThread
+  14100    5874 sshd-session
+  14436   14100 sshd-session
+ 360608       2 kworker/u96:2-events_unbound
+ 368589       2 kworker/3:1-events
+ 376170       2 kworker/9:1-events
+ 401924       2 kworker/0:0-events
+ 406799       2 kworker/21:0-events
+ 470025       2 kworker/20:2-events
+ 518003       2 kworker/5:2-events
+ 525688       2 kworker/15:2-mm_percpu_wq
+ 533564       2 kworker/14:0-events
+ 556840       2 kworker/10:1-events
+ 568725       2 kworker/6:1-mm_percpu_wq
+ 573851       2 kworker/23:1-events
+ 581515       2 kworker/17:0-events
+ 589594       2 kworker/2:2-events
+ 590856       1 mosh-server
+ 590857  590856 herdr
+ 596895       2 kworker/12:2-events
+ 600306       2 kworker/u96:5-events_unbound
+ 606067       2 kworker/18:2-events
+ 610292       2 kworker/22:0-events
+ 612134       2 kworker/13:0-events
+ 619529       2 kworker/16:1-events
+ 619681       2 kworker/14:2-events
+ 620874       2 kworker/8:2-events
+ 623016       2 kworker/1:1-events
+ 624793       2 kworker/23:0-events
+ 625472       2 kworker/11:1-events
+ 627951       2 kworker/7:0-mm_percpu_wq
+ 629874       2 kworker/17:2-events
+ 633126       2 kworker/19:2-events
+ 639597       2 kworker/12:1-events
+ 656816       2 kworker/u96:3-events_unbound
+ 673674       2 kworker/15:0-events
+ 683941       2 kworker/3:0-events
+ 684186       2 kworker/20:0-events
+ 694579       2 kworker/21:1-events
+ 770490       2 kworker/18:1-events
+ 794753       2 kworker/10:2-events
+ 859483       2 kworker/5:1-events
+ 935487       2 kworker/22:1-events
+ 977843       2 kworker/0:1-events
+1017229       2 kworker/13:2-events
+1092114       2 kworker/u96:7-events_unbound
+1121721    7591 codex
+1125929 1121721 codex-code-mode
+1135914    7001 codex
+1138059    7004 codex
+1141306    7007 codex
+1142498 1135914 codex-code-mode
+1145220 1138059 codex-code-mode
+1148033 1141306 codex-code-mode
+1153852    2389 gcr-ssh-agent
+1153856 1153852 ssh-agent
+1154825       1 uuidd
+1191421       2 kworker/14:1-mm_percpu_wq
+1191432       2 kworker/8:1-events
+1209851       2 kworker/16:0-events
+1230731       1 bash
+1230737 1230731 bash
+1230738 1230737 tail
+1399147       2 kworker/11:2-mm_percpu_wq
+1408090       2 kworker/17:1-events
+1418661       2 kworker/6:0-events
+1418926       2 kworker/7:1-events
+1451362       2 kworker/2:1-mm_percpu_wq
+1483338       2 kworker/19:0-events
+1528516       2 kworker/4:1-events
+1529870       2 kworker/12:0-events
+1530413       2 kworker/9:2-events
+1534277       2 kworker/20:1-events
+1534287       2 kworker/14:3
+1534754       2 kworker/23:2-events
+1536216       2 kworker/18:0-mm_percpu_wq
+1536840       2 kworker/10:0-events
+1538016       2 kworker/21:2-events
+1538653       2 kworker/3:2-events
+1541705       2 kworker/17:3
+1542902       2 kworker/5:0-events
+1543567       2 kworker/1:2-events
+1544114       2 kworker/15:1-events
+1544241       2 kworker/18:3
+1547776       2 kworker/22:2-events
+1548414       2 kworker/13:1-events
+1552127    7748 codex
+1552853    7668 codex
+1553626    7829 codex
+1554314    7916 codex
+1555017    8002 codex
+1555780    8120 codex
+1556532       2 kworker/16:2-events
+1559039       2 kworker/12:3
+1559965 1552853 codex-code-mode
+1560806       2 kworker/6:2-events
+1563324       2 kworker/7:2-events
+1563902       2 kworker/0:2-events
+1566673       2 kworker/3:3
+1567211       2 kworker/2:0-events
+1567428       2 kworker/19:1-mm_percpu_wq
+1568137       2 kworker/11:0-events
+1570047 1555780 python3
+1570063 1570047 ps
+1581139 1553626 codex-code-mode
+1581842 1555017 codex-code-mode
+1582826 1555780 codex-code-mode
+1590340 1554314 codex-code-mode
+1591761 1552127 codex-code-mode
+1643012       2 kworker/u97:2-rb_allocator
+2098183       1 fwupd
+2236717       1 containerd-shim
+2236740 2236717 postgres
+2236823    2377 docker-proxy
+2236872       1 containerd-shim
+2236905 2236872 postgres
+2236940    2377 docker-proxy
+2237114 2236740 postgres
+2237115 2236740 postgres
+2237117 2236740 postgres
+2237118 2236740 postgres
+2237119 2236740 postgres
+2237122 2236905 postgres
+2237123 2236905 postgres
+2237125 2236905 postgres
+2237126 2236905 postgres
+2237127 2236905 postgres
+2575048       1 containerd-shim
+2575073 2575048 postgres
+2575155    2377 docker-proxy
+2575192       1 containerd-shim
+2575231 2575192 postgres
+2575268    2377 docker-proxy
+2575430 2575231 postgres
+2575431 2575231 postgres
+2575433 2575231 postgres
+2575434 2575231 postgres
+2575435 2575231 postgres
+2575438 2575073 postgres
+2575439 2575073 postgres
+2575441 2575073 postgres
+2575442 2575073 postgres
+2575443 2575073 postgres
+2819901       2 psimon
+3502737       2 kworker/1:0-events
+3568313       2 kworker/4:2-mm_percpu_wq
+3599490       2 kworker/u96:0-events_power_efficient
+3901453       1 mosh-server
+3901454 3901453 herdr
+3922063    6975 bash
+3922716 3922063 claude
+3922817 3922716 npm exec @sentr
+3922818 3922716 npm exec @sentr
+3922912 3922818 sh
+3922913 3922912 MainThread
+3922923 3922817 sh
+3922924 3922923 MainThread
+4011249   14436 herdr
+4102297       1 mosh-server
+4102298 4102297 herdr

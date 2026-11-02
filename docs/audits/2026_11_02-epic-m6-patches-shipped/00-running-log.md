@@ -68,3 +68,13 @@ PROOF F-01 (new tool-run): final-record-check rejects its synthetic changed iden
 ### 2026-11-02T20:30:38.286392+00:00 — G final retro
 
 PROOF G-01 (artifact and exact tracker readback): https://github.com/pixelelated/distribution/issues/689#issuecomment-6587734065 carries docs/retros/2026-11-02-m6-patches-shipped.md SHA256 22b1b2eb6b6be46e7a5f105e6956a20c317b7a5fb9095ad47d2088553dbc24b3. One Deferred/open defect, preserved 173/22 limits, observed friction, next owners and both untouched time-to-play quantities are explicit. H cleanup has not been prefilled.
+
+### 2026-11-02T20:34:58.656055+00:00 — H bounded retirement and custody
+
+PROOF H-01 (new guard/tool-run): committed F manifest and accepted raw-receipt diff matched; outside-path and live-owner controls rejected; bounded pre-delete lsof checks found no live owner with rc1/empty stdout/stderr after explicit unrelated filesystem exclusions. Retired 522 exact receipt-bound roots, 502,085,226 logical bytes; 129 cache archive metadata records unchanged. Empty T42 scratch root retained. No accepted producer replay, runtime allocation or another lane path deletion. Actual result and command receipts in stage-h/.
+
+Final publication commands/exits will be retained externally at /workspace/tmp/m6-t42-final-publication-20261102T203040Z and bound to the returned tip; no receipt-only commit loop. Root retains final integration/acceptance, audit criterion3/closure/completion marker.
+
+### 2026-11-02T20:39:17.176751+00:00 — H final current-record checks
+
+PROOF H-02: new current-record reconciliation and source/commit-path guard pass; final resolution lint passes normally and with1411. Bug1410 body/three criteria/open state/no milestone/no parent are unchanged (the parent endpoint returns the expected404, not a failed test). Audit1411 has two checked criteria and one root-owned open criterion. Current-record forbidden scan and index check pass. All exits are in stage-h/final-checks.json. Final commit/push/remote/status receipts will be external at /workspace/tmp/m6-t42-final-publication-20261102T203040Z; the actual tip/hash are supplied only after successful commands.
