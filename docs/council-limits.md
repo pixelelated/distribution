@@ -1,3 +1,5 @@
+> **Historical council limits audit — 2026-09-03.** Status reviewed 2026-11-02. The seat names, limits and repairs below describe that run. Current review routing is governed by [the adversarial-review rule](../.claude/rules/adversarial-council.md). No runtime or historical test claim was revalidated by this status review.
+
 # Council limits audit (2026-09-03)
 
 Owner direction during the founder-goal-alignment run: quality outranks time and token spend, and

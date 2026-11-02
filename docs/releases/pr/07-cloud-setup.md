@@ -1,3 +1,5 @@
+> **Historical PR draft — 2026-09-29.** Status reviewed 2026-11-02. The first-person changes and proof below belong to the September candidate and were not rerun here. #585 owns review against the integrated source before any contribution; #344 owns release status. No runtime or historical test claim was revalidated by this status review.
+
 Title: rclone: cloud storage set up on the device, with a sign-in window
 
 Cloud storage can now be set up from the couch. CONNECT OR REPAIR CLOUD STORAGE lists the providers rclone supports with a recommended shortlist first; a form asks each provider's questions in plain words; Dropbox, Google Drive and OneDrive sign in on the provider's own page in a single-purpose web view that refuses to leave the provider's host, typed on the on-screen keyboard or from the player's phone through a QR code, where the phone is only a keyboard and never where the sign-in happens; and the connection is kept only once the provider answers. A remote left behind by an abandoned sign-in is removed. Each device gets a stable name in the cloud, so two devices never overwrite one another's backups.

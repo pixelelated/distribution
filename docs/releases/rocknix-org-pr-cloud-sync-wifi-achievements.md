@@ -1,3 +1,5 @@
+> **Historical public-documentation PR draft — 2026-09-29.** Status reviewed 2026-11-02. The menu and screenshot claims below belong to the September candidate. #585 owns review against the integrated source before publication to ROCKNIX/rocknix.org. No runtime or historical test claim was revalidated by this status review.
+
 Title: docs: cloud sync on the device, the Wi-Fi picker, offline achievements
 
 Players set up cloud storage on the device now, with the controller, and the cloud-sync page still teaches the SSH workflow that setup replaced. This rewrites the page's rclone section around what the device shows: the hub under `Game Settings` > `Manage Cloud Storage`, the provider list and the phone sign-in, the tick page behind `Back Up to the Cloud`, the saves rows and their toggles, and the one action that deletes. The networking page's setup steps follow the Wi-Fi picker, saved networks and `Manage Saved Networks`; the RetroAchievements page gains an Offline Achievements (Beta) section; the scraper page a note on the developer pair for builds without one built in.

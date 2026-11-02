@@ -1,3 +1,5 @@
+> **Historical superseded plan delta — 2026-09-12.** Status reviewed 2026-11-02. The existing supersession notice below remains authoritative for this document: #134 and [the consensus amendment](save-history-consensus-amendment.md) replaced this proposal. No runtime or historical test claim was revalidated by this status review.
+
 # Save history: the delta to the council-derived #11 plan
 
 > **Superseded 2026-09-12** by the council's consensus plan and its by-hand amendment, applied to #134 and its children (`research/council-runs/2026-09-11-save-history-one-home/`, `docs/save-history-consensus-amendment.md`). Kept as the record of how the design was reached.

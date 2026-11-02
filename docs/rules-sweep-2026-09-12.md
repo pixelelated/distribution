@@ -1,3 +1,5 @@
+> **Historical instruction-file sweep — 2026-09-12.** Status reviewed 2026-11-02. The file counts and rule coverage below are the September audit. [The instruction-file index](../.claude/rules/instruction-files.md) identifies the current rule sources. No runtime or historical test claim was revalidated by this status review.
+
 # Instruction-file sweep, 2026-09-12
 
 **Maintainer, 2026-09-12 (#147):** *"We should make sure that our instruction files

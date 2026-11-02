@@ -1,3 +1,5 @@
+> **Retained protocol reference — reviewed 2026-11-02.** This protocol was written on August 24, 2026. This review checks its date and scope only; it supplies no compatibility results or device permission. Any execution must first follow [the current device-testing policy](device-testing-policy.md) and #19 scope.
+
 # Savestate compatibility — hardware test protocol (#19)
 
 A ~1 hour protocol for the three devices, written to be run once and answer the

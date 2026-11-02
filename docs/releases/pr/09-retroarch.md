@@ -1,3 +1,5 @@
+> **Historical PR draft — 2026-09-29.** Status reviewed 2026-11-02. The first-person changes and proof below belong to the September candidate and were not rerun here. #585 owns review against the integrated source before any contribution; #344 owns release status. No runtime or historical test claim was revalidated by this status review.
+
 Title: retroarch: readable notifications, and rotation tables from the source
 
 RetroArch's on-screen notifications drew at a size no 3.5-inch panel could read. The face is now 13 px and the backdrop follows the font, the message queue keeps its floor and its place, and the font sizes are ones FreeType renders sharply. The rotation tables for the FBA and MAME cores are generated from the cores' own source at build time by two scripts that skip disabled code and strings and refuse to guess, so a vertical game turns the right way on every device instead of on the ones somebody had listed.

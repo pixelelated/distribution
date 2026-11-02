@@ -1,3 +1,5 @@
+> **Historical PR draft — 2026-09-29.** Status reviewed 2026-11-02. The first-person changes and proof below belong to the September candidate and were not rerun here. #585 owns review against the integrated source before any contribution; #344 owns release status. No runtime or historical test claim was revalidated by this status review.
+
 Title: rocknix: saved Wi-Fi networks, and a device name mDNS answers to
 
 NETWORK SETTINGS now reads the truth from NetworkManager instead of a setting that could disagree with it. WI-FI NETWORK names the network in use, the picker lists what is around with the ones you have joined marked SAVED and the current one CONNECTED, a saved network can be joined with the key NetworkManager holds or forgotten, and MANAGE SAVED NETWORKS lists everything kept. wifictl gains current, saved, join and forget, keeps a typed key in the network's profile, brings a saved profile up as it is, and never deletes one to reconnect. The device's name is owned by one setting, NetworkManager leaves it alone, and the mDNS responder comes up after the device has its name, so name.local answers.

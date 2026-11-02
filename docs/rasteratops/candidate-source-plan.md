@@ -1,3 +1,5 @@
+> **Historical candidate source dispositions — 2026-10-12.** Status reviewed 2026-11-02. The October pins and qualification statements below retain their original evidence. The [live M7 milestone](https://github.com/pixelelated/distribution/milestone/7) owns the current candidate and order. No runtime or historical test claim was revalidated by this status review.
+
 # 0.0.1 source dispositions (#361, #362, #383, #384, #386)
 
 Updated 2026-10-03 under D-WORKFLOW-138. The owner selects current upstream

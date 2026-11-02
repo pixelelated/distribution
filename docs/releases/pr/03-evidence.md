@@ -1,3 +1,5 @@
+> **Historical PR draft — 2026-09-29.** Status reviewed 2026-11-02. The first-person changes and proof below belong to the September candidate and were not rerun here. #585 owns review against the integrated source before any contribution; #344 owns release status. No runtime or historical test claim was revalidated by this status review.
+
 Title: rocknix: persistent logs, a watchdog and a crash store on handhelds
 
 When a handheld misbehaved, the reboot that followed used to take the evidence with it: /var/log was tmpfs and the journal went with it. Logs now persist under /storage, a hardware watchdog restarts a hung device and records that it did, kernel panics land in pstore, and a bounded ring of core dumps is kept so the next crash can be read. One script collects all of it into an archive on a timer, and another arms the core store when asked.

@@ -1,3 +1,5 @@
+> **Historical PR draft — 2026-09-29.** Status reviewed 2026-11-02. The first-person changes and proof below belong to the September candidate and were not rerun here. #585 owns review against the integrated source before any contribution; #344 owns release status. No runtime or historical test claim was revalidated by this status review.
+
 Title: es: bump to the interface PR's commit; save-state config, a theme patch
 
 This moves the EmulationStation pin to the commit the interface work lands as on this project's emulationstation-next, which carries the cloud pages, the save-state manager, the offline RetroAchievements pages, the Wi-Fi picker and the settings work the changes before this one back. The art-book-next theme's tools system always shows its image, and the save-state configuration names the contract the launcher reads.

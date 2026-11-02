@@ -1,3 +1,5 @@
+> **Historical provider comparison — 2026-09-30.** Status reviewed 2026-11-02. The comparison was read on September 30 and last updated on October 2, 2026. It is not current pricing or an allocation request; #347/#348 retain the named work. Any future purchasing issue must obtain fresh facts. No runtime or historical test claim was revalidated by this status review.
+
 # The cloud provider and the network for the fork's small machines (read 2026-09-30)
 
 Maintainer, 2026-09-30: *"I'd rather go with what we think is the best longer term cloud provider. I'd never used Hostinger until yesterday, and so if you'd like to research the two and what would be best for our longer term needs as well between Vulture and Hostinger, let's pick between those two."* And: *"we could create another one for the agent, and we could lock this all down inside of a tailnet, or if it's easy enough to do, a headscale."*

@@ -1,3 +1,5 @@
+> **Historical phase-1 design note — 2026-09-13.** Status reviewed 2026-11-02. The upstream read, open-question wording and proposals below belong to phase 1. [The decision register](../decision-register.md) owns later decisions; #585 owns contribution follow-through. No runtime or historical test claim was revalidated by this status review.
+
 # RA offline, phase 1: RAOfflineProxy's Linux/ROCKNIX side, read
 
 Phase 1 of the Offline RetroAchievements milestone (#4): epic #163, issue #164,

@@ -1,3 +1,5 @@
+> **Historical manifest alignment review — 2026-09-05.** Status reviewed 2026-11-02. The corpus, absence-of-skill statement and verdict below describe the September 5 read, with vocabulary edits through September 6. [The manifest schema](save-manifest-schema.md) and [decision register](decision-register.md) own the design record; this is not a current corpus audit. No runtime or historical test claim was revalidated by this status review.
+
 # Save manifest — alignment review against all cloud-sync work (2026-09-05)
 
 Requested by the maintainer on signing off the manifest shape (D-CLOUD-031):

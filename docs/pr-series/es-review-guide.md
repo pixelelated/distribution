@@ -1,3 +1,5 @@
+> **Historical interface PR review guide — 2026-09-29.** Status reviewed 2026-11-02. The counts, base and proof below belong to the named September candidate. #585 owns the contribution follow-through; this is not the current integration qualification. No runtime or historical test claim was revalidated by this status review.
+
 # The interface PR, read by bucket
 
 The EmulationStation side goes upstream as **one PR** to `ROCKNIX/emulationstation-next`

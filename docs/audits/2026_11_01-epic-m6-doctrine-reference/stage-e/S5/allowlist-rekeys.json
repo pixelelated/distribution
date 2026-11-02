@@ -1,0 +1,158 @@
+[
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/technical-appendix-cloud-sync-and-offline-achievements.md:3 external L-13: a rocknix.org page on the site checkout's branch, named so on the line",
+    "after": "docs/technical-appendix-cloud-sync-and-offline-achievements.md:5 external L-13: a rocknix.org page on the site checkout's branch, named so on the line",
+    "same_evidence": "Moved to the `ROCKNIX/rocknix.org` repository's contribute section on 2026-09-29 (D-WORKFLOW-073): `docs/contribute/cloud-sync-internals.md` on the site checkout's `docs/cloud-saves-native-wizard` branch, and https://rocknix.org/contribute/cloud-sync-internals/ once the docs PR merges. The site page keeps the register citations (`D-...`) with a note pointing at `docs/decision-register.md` here. One copy, there."
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md:5 external L-13: five pages of ROCKNIX/rocknix.org, the PR this draft describes",
+    "after": "docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md:7 external L-13: five pages of ROCKNIX/rocknix.org, the PR this draft describes",
+    "same_evidence": "**What it carries in `ROCKNIX/rocknix.org`.** `docs/configure/cloud-sync.md` (the rclone section, rewritten; the Syncthing and NFS sections untouched), `docs/configure/networking.md` (the Setup section and a section on saved networks), `docs/play/retro-achievements.md` (an Offline Achievements section and two notes), `docs/configure/scraper.md` (one section appended), a new developer page `docs/contribute/cloud-sync-internals.md` in the nav (what runs beneath the two feature pages, script by script), and the screenshots under `docs/_inc/images/{cloud-sync,networking,retro-achievements}/`, each captured from the ROCKNIX image at 640x480."
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/ra-offline/rocknix-org-offline-achievements.md:3 external L-13: two pages of ROCKNIX/rocknix.org, the line names the site",
+    "after": "docs/ra-offline/rocknix-org-offline-achievements.md:5 external L-13: two pages of ROCKNIX/rocknix.org, the line names the site",
+    "same_evidence": "*Draft for the `ROCKNIX/rocknix.org` site, `docs/configure/offline-achievements.md` (or a section of `docs/configure/retroachievements.md`). Kept in the fork's `docs/` until the site PR, per `fork-workflow.md` (personal path) and `documentation-accuracy.md` (the code and the page move together). Every menu label below is the string the interface shows in the seventh candidate (`3387cf5da0`); check them against `GuiRetroAchievementsSettings.cpp` and `GuiOfflineScan.cpp` before opening the PR. Audit #186 PL-11; phase 5 #168.*"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/ra-offline/2026_09_13-phase-1-design-note.md:62 external the RAOfflineProxy repository's documentation path (the design note reads that repository)",
+    "after": "docs/ra-offline/2026_09_13-phase-1-design-note.md:64 external the RAOfflineProxy repository's documentation path (the design note reads that repository)",
+    "same_evidence": "the **Tools** menu (`docs/linux-support/installation.md:118-140`). It is verified"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/ra-offline/2026_09_13-phase-1-design-note.md:65 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)",
+    "after": "docs/ra-offline/2026_09_13-phase-1-design-note.md:67 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)",
+    "same_evidence": "- **Install** (`scripts/install.sh`): stops a running older proxy first and"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/ra-offline/2026_09_13-phase-1-design-note.md:73 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)",
+    "after": "docs/ra-offline/2026_09_13-phase-1-design-note.md:75 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)",
+    "same_evidence": "- **The Tools entry** (`scripts/tool-launcher.sh`): sources `/etc/profile`,"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/ra-offline/2026_09_13-phase-1-design-note.md:114 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)",
+    "after": "docs/ra-offline/2026_09_13-phase-1-design-note.md:116 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)",
+    "same_evidence": "- **Uninstall** (`scripts/uninstall.sh`): stop, remove the boot hook, `pkill -f"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/ra-offline/2026_09_13-phase-1-design-note.md:132 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)",
+    "after": "docs/ra-offline/2026_09_13-phase-1-design-note.md:134 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)",
+    "same_evidence": "| `scripts/install.sh`, `scripts/uninstall.sh` | \u00a7 2. |"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/ra-offline/2026_09_13-phase-1-design-note.md:133 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)",
+    "after": "docs/ra-offline/2026_09_13-phase-1-design-note.md:135 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)",
+    "same_evidence": "| `scripts/launcher-raofflineproxy` | Sets `HOME=/storage`, `XDG_CONFIG_HOME=/storage/.config`, `LD_LIBRARY_PATH` to the bundle's `lib`, `MALLOC_ARENA_MAX=2` (measured: 32 -> 19 MB RSS on a 103 MB device, `:10-14`), `PYTHONPATH` to `app`; `exec /usr/bin/python3 -m raofflineproxy.{boot,main}`. The system Python, never a bundled one. |"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/ra-offline/2026_09_13-phase-1-design-note.md:134 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)",
+    "after": "docs/ra-offline/2026_09_13-phase-1-design-note.md:136 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)",
+    "same_evidence": "| `scripts/launcher-raofflineproxy-uninstall` | `exec` of the extracted bundle's `uninstall.sh`. |"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/ra-offline/2026_09_13-phase-1-design-note.md:135 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)",
+    "after": "docs/ra-offline/2026_09_13-phase-1-design-note.md:137 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)",
+    "same_evidence": "| `scripts/tool-launcher.sh` | \u00a7 2, the SDL driver/preload matrix. |"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/ra-offline/2026_09_13-phase-1-design-note.md:136 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)",
+    "after": "docs/ra-offline/2026_09_13-phase-1-design-note.md:138 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)",
+    "same_evidence": "| `scripts/sdl-doctor.sh`, `scripts/sdl_probe.py` | Optional second Tools entry (`INSTALL_SDL_DOCTOR=true`) that runs window creation across SDL configurations and writes `sdl-doctor.log` with dmesg for the developer. Diagnostic only. |"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/ra-offline/2026_09_13-phase-1-design-note.md:258 external the RAOfflineProxy repository's docs/ (the design note reads that repository)",
+    "after": "docs/ra-offline/2026_09_13-phase-1-design-note.md:260 external the RAOfflineProxy repository's docs/ (the design note reads that repository)",
+    "same_evidence": "until someone stops it; `docs/caveats.md:28-32` says as much for Android), and"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/ra-offline/2026_09_13-phase-1-design-note.md:265 external the RAOfflineProxy repository's docs/ (the design note reads that repository)",
+    "after": "docs/ra-offline/2026_09_13-phase-1-design-note.md:267 external the RAOfflineProxy repository's docs/ (the design note reads that repository)",
+    "same_evidence": "(`docs/linux-support/cfg-patching.md:88`, `docs/cfg-patching.md:125-136`). A"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/ra-offline/2026_09_13-phase-1-design-note.md:317 external the RAOfflineProxy repository's docs/ (the design note reads that repository)",
+    "after": "docs/ra-offline/2026_09_13-phase-1-design-note.md:319 external the RAOfflineProxy repository's docs/ (the design note reads that repository)",
+    "same_evidence": "   (`docs/linux-hash-chain.md:26-28`). Legacy rows without a hash are skipped"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/ra-offline/2026_09_13-phase-1-design-note.md:332 external the RAOfflineProxy repository's docs/ (the design note reads that repository)",
+    "after": "docs/ra-offline/2026_09_13-phase-1-design-note.md:334 external the RAOfflineProxy repository's docs/ (the design note reads that repository)",
+    "same_evidence": "   `docs/hash-chain.md:56`). User-Agent is the emulator's original plus"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/ra-offline/2026_09_13-phase-1-design-note.md:341 external the RAOfflineProxy repository's docs/ (the design note reads that repository)",
+    "after": "docs/ra-offline/2026_09_13-phase-1-design-note.md:343 external the RAOfflineProxy repository's docs/ (the design note reads that repository)",
+    "same_evidence": "   (`docs/pending-awards.md:39`); the Linux code does not do that."
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/ra-offline/2026_09_13-phase-1-design-note.md:350 external the RAOfflineProxy repository's docs/ (the design note reads that repository)",
+    "after": "docs/ra-offline/2026_09_13-phase-1-design-note.md:352 external the RAOfflineProxy repository's docs/ (the design note reads that repository)",
+    "same_evidence": "key; upstream says exactly that (`docs/linux-hash-chain.md:38-42`,"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/ra-offline/2026_09_13-phase-1-design-note.md:351 external the RAOfflineProxy repository's docs/ (the design note reads that repository)",
+    "after": "docs/ra-offline/2026_09_13-phase-1-design-note.md:353 external the RAOfflineProxy repository's docs/ (the design note reads that repository)",
+    "same_evidence": "`docs/hash-chain.md:58-66`). It does not make casual awards trustworthy in the"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/ra-offline/2026_09_13-phase-1-design-note.md:410 external the RAOfflineProxy repository's docs/ (the design note reads that repository)",
+    "after": "docs/ra-offline/2026_09_13-phase-1-design-note.md:412 external the RAOfflineProxy repository's docs/ (the design note reads that repository)",
+    "same_evidence": "The project's privacy policy (`docs/privacy-policy.md`) is written for Android"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/ra-offline/2026_09_13-phase-1-design-note.md:489 external the RAOfflineProxy repository's docs/ (the design note reads that repository)",
+    "after": "docs/ra-offline/2026_09_13-phase-1-design-note.md:491 external the RAOfflineProxy repository's docs/ (the design note reads that repository)",
+    "same_evidence": "   drop it and correct `docs/pending-awards.md:39`. And a flush retry while"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/save-manifest-alignment-review.md:13 external a path on the branch rclone-bisync-beta, named with its branch on the line",
+    "after": "docs/save-manifest-alignment-review.md:15 external a path on the branch rclone-bisync-beta, named with its branch on the line",
+    "same_evidence": "`plans/bisync/rclone-bisync-planning.md` (branch `rclone-bisync-beta`);"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/rasteratops/p0-read.md:11 historical L-20: packages/rocknix in a dated P0 record, which does not present itself as current",
+    "after": "docs/rasteratops/p0-read.md:13 historical L-20: packages/rocknix in a dated P0 record, which does not present itself as current",
+    "same_evidence": "| Code-level rename | **Retained** (D-WORKFLOW-085). The tree's own paths (`projects/ROCKNIX`, `distributions/ROCKNIX`, `packages/rocknix`, the `rocknix-*` package and script names, the `-rocknix-linux-gnu` toolchain triple) are class 2 and stay; nothing player-visible depends on them. | `config/path:17` (`TARGET_NAME=$TARGET_GCC_ARCH-rocknix-linux-gnu`); `p0-sweep-hits.txt` class 2 (561 lines, all KEEP) |"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/rasteratops/p0-sweep.md:39 historical L-20: packages/rocknix in a dated P0 record, which does not present itself as current",
+    "after": "docs/rasteratops/p0-sweep.md:41 historical L-20: packages/rocknix in a dated P0 record, which does not present itself as current",
+    "same_evidence": "| `tree-path` | 2 | 67 | paths inside this tree (`projects/ROCKNIX`, `distributions/ROCKNIX`, `packages/rocknix`, `build.${DISTRO}-\u2026`) |"
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/cloud-vocabulary-audit.md:189 historical L-04's other hits: the 2026-09-06 audit records the scripts it read, the migration script among them",
+    "after": "docs/cloud-vocabulary-audit.md:191 historical L-04's other hits: the 2026-09-06 audit records the scripts it read, the migration script among them",
+    "same_evidence": "`cloud_migrate_layout` and the allowlist."
+  },
+  {
+    "allowlist": "docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/allow-legit.txt",
+    "before": "docs/rasteratops/candidate-source-plan.md:71 historical the October candidate plan's build name, under docs/rasteratops/ (NAMING.md)",
+    "after": "docs/rasteratops/candidate-source-plan.md:73 historical the October candidate plan's build name, under docs/rasteratops/ (NAMING.md)",
+    "same_evidence": "Build cold under the RASTERATOPS name; never rename the warm ROCKNIX root."
+  }
+]

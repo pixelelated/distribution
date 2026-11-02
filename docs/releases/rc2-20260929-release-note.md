@@ -1,3 +1,5 @@
+> **Historical RC2 release-note draft — 2026-09-29.** Status reviewed 2026-11-02. The second-candidate and test claims below belong to the September candidate. #344 owns current release status; this draft does not establish an available qualified release. No runtime or historical test claim was revalidated by this status review.
+
 The second release candidate of the fork's cloud sync, offline achievements and Wi-Fi work, for anyone with an RG35XX SP, an RG SP, a Retroid Pocket Nova or an RG353M. It is RC1 with the five things I found play-testing RC1 fixed, built for all three devices from one tree.
 
 ### What's fixed

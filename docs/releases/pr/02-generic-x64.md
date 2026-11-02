@@ -1,3 +1,5 @@
+> **Historical PR draft — 2026-09-29.** Status reviewed 2026-11-02. The first-person changes and proof below belong to the September candidate and were not rerun here. #585 owns review against the integrated source before any contribution; #344 owns release status. No runtime or historical test claim was revalidated by this status review.
+
 Title: GENERIC_X64: a virtual machine build target for QA on a desktop
 
 This adds a build target that runs ROCKNIX as a QEMU or VirtualBox guest: the same busybox, the same scripts, the same EmulationStation binary and the same 640x480 panel size as a handheld, with software GL, a serial root shell on the virtual machine only, and per-device emulator configurations that name no handheld's hardware. It is where I proved every change in this series before a handheld saw it, and I would like other people to be able to do the same.

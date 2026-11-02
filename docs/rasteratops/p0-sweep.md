@@ -1,3 +1,5 @@
+> **Historical P0 identity sweep — 2026-09-30.** Status reviewed 2026-11-02. The counts and classifications below apply to the named September source. [NAMING.md](../../NAMING.md) owns current identity rules; this is not a new whole-tree identity census. No runtime or historical test claim was revalidated by this status review.
+
 # P0: the identity sweep report (#344, base plan §1.15, 2026-09-30)
 
 The base plan's command, run on `next` at `51f78ac5b4` from the tree root:

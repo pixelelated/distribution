@@ -1,3 +1,5 @@
+> **Historical public-documentation draft — 2026-09-24.** Status reviewed 2026-11-02. The labels and testing claims below belong to the seventh candidate named in the draft. #585 owns review against the integrated source before publication. No runtime or historical test claim was revalidated by this status review.
+
 # Offline achievements (beta)
 
 *Draft for the `ROCKNIX/rocknix.org` site, `docs/configure/offline-achievements.md` (or a section of `docs/configure/retroachievements.md`). Kept in the fork's `docs/` until the site PR, per `fork-workflow.md` (personal path) and `documentation-accuracy.md` (the code and the page move together). Every menu label below is the string the interface shows in the seventh candidate (`3387cf5da0`); check them against `GuiRetroAchievementsSettings.cpp` and `GuiOfflineScan.cpp` before opening the PR. Audit #186 PL-11; phase 5 #168.*

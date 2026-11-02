@@ -1,3 +1,5 @@
+> **Historical serial-use design addendum — 2026-09-12.** Status reviewed 2026-11-02. The proposals below record the September deliberation. #134 and [the consensus amendment](save-history-consensus-amendment.md) record the resulting design; [the decision register](decision-register.md) owns later decisions. No runtime or historical test claim was revalidated by this status review.
+
 # Save history under the serial-use model -- what D-CLOUD-102 changes
 
 Maintainer, 2026-09-12: *"we can assume that sync is never happening between two

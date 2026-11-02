@@ -1,3 +1,5 @@
+> **Historical vocabulary audit — 2026-09-06.** Status reviewed 2026-11-02. The shipped-tree statements below describe the September audit. Current player vocabulary is governed by [the player-text rule](../.claude/rules/es-player-text.md). No runtime or historical test claim was revalidated by this status review.
+
 # Cloud vocabulary audit
 
 Ordered by the maintainer, 2026-09-06, after two settings whose names suggested

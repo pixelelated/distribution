@@ -1,3 +1,5 @@
+> **Historical PR draft — 2026-09-29.** Status reviewed 2026-11-02. The first-person changes and proof below belong to the September candidate and were not rerun here. #585 owns review against the integrated source before any contribution; #344 owns release status. No runtime or historical test claim was revalidated by this status review.
+
 Title: rocknix: the last good system.cfg, and backups without a sign-in
 
 A system.cfg cut short by a power loss used to reset a device to defaults, because the file was backed up at every clean shutdown with whatever it held, so the truncated copy replaced its own good one. chksysconfig now writes the backup only from a file that has just been checked, and the verify at boot takes the live file, then the record, then the defaults, and says which it took. No shell writer completes a cut file any more.
