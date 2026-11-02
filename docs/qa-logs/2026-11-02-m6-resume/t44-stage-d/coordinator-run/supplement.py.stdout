@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "companion_external_tree": "03e88868d18b35b057a4de88d66b73c1f3703587",
+    "companions_bound": 4,
+    "doctest_import": "324f9c483d9b4a11249c47888b40fb5cc691be7f",
+    "doctest_unchanged": true
+  },
+  "manifest_failure": {
+    "original_record_lacks_full_argv_times_raw_streams": true,
+    "subsequent_bound_negative_rc": 1,
+    "negative_program_sha256": "3b79f4bb47a4f2c79ca5af1ee5b7ec631caf94f1879b7d5c161892e33d6ad355",
+    "negative_stderr_sha256": "4a8a59df6e740a9bf9ae7a81f4808dfa94f28db5fb96b1c1d2aa657ecf0be500"
+  },
+  "gate_output_scope": {
+    "pre-issue-2": "== /workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data\n  ok    01-research-notes.md\n  ok    02-forward-audit.md\n  ok    03-retrospective.md\n  ok    04-analysis.md\n  ok    05-punch-list.md\n  ok    04 \u00a7 Executive summary\n  ok    04 \u00a7 Acceptance-criteria scorecard\n  ok    04 \u00a7 Risk assessment\n  ok    04 \u00a7 Coverage boundary\n  ok    04 \u00a7 Quality self-check\n  ok    review plan: local, 1 model perspectives, 0 verified external calls\n  ok    review-plan: local at epic tier under D-WORKFLOW-184 (T44 table under plan section6c, proved v2/D-WORKFLOW-232; actual primary only, no independent reviewer or provider call.)\n  ok    1 punch item(s): PL-001\n  ok    PL-001 explicitly open; resolution remains required\n  ok    PL-001 index and table agree (open)\n  ok    04 \u00a7 Renovation face answers Q1 to Q7\n  ok    PL-001 answers Q4\n\nPASS pre-issue artifacts (does not certify resolution)\n",
+    "issue-lint-1": "== /workspace/repos/pixelelated/distribution.worktrees/m6-es-vendored-and-data-691/docs/audits/2026_11_02-epic-m6-es-vendored-and-data\n  ok    01-research-notes.md\n  ok    02-forward-audit.md\n  ok    03-retrospective.md\n  ok    04-analysis.md\n  ok    05-punch-list.md\n  ok    04 \u00a7 Executive summary\n  ok    04 \u00a7 Acceptance-criteria scorecard\n  ok    04 \u00a7 Risk assessment\n  ok    04 \u00a7 Coverage boundary\n  ok    04 \u00a7 Quality self-check\n  ok    review plan: local, 1 model perspectives, 0 verified external calls\n  ok    review-plan: local at epic tier under D-WORKFLOW-184 (T44 table under plan section6c, proved v2/D-WORKFLOW-232; actual primary only, no independent reviewer or provider call.)\n  ok    1 punch item(s): PL-001\n  ok    PL-001 explicitly open; resolution remains required\n  ok    PL-001 index and table agree (open)\n  ok    04 \u00a7 Renovation face answers Q1 to Q7\n  ok    PL-001 answers Q4\n  ok    issue #1413 carries a task list (1 items)\n  ok    issue #1413 references PL-001\n\nPASS pre-issue artifacts (does not certify resolution)\n",
+    "issue-check-1": "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against\n",
+    "forbidden-1": "forbidden-terms-check: 0 hits in 134259 tracked files\n",
+    "index-2": "work-log index: current\n",
+    "syntax-3": "PASS syntax 9 new audit tools\n",
+    "diff-3": ""
+  },
+  "current_document_bound_gates": [
+    "index-2",
+    "syntax-3",
+    "diff-3"
+  ],
+  "historical_consumer_binding": {
+    "old": "6858cf1cb719839b3d0e16c9976c847e0abbe3c07e2797abeab0931fdaeb2cee",
+    "current": "c6bf939816cb15c0b7bb0d7a5d241ab89e70c5dcda1ea1572682ba497294db5b",
+    "only_heading_correction": true
+  },
+  "review_plan": {
+    "schema_version": 1,
+    "depth": "local",
+    "primary": {
+      "harness": "Codex",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "xhigh",
+      "identity_source": "Own visible Herdr footer GPT-6-Astra xhigh; UI observation, not provider attestation",
+      "session": "01a19d12-1c5f-7022-8053-102f6a94b7fe",
+      "lane": "m6-t2-es-launch",
+      "pane": "wN:p5"
+    },
+    "reviewers": [],
+    "tier_exception": "D-WORKFLOW-184",
+    "reason": "T44 table under plan section6c, proved v2/D-WORKFLOW-232; actual primary only, no independent reviewer or provider call."
+  },
+  "scratch_census_shape": {
+    "keys": [
+      "recorded_at",
+      "files",
+      "tiny_git",
+      "limit",
+      "correction_recorded_at"
+    ],
+    "files": 14,
+    "all_paths_left_unread": true
+  },
+  "errors": []
+}

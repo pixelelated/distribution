@@ -1,0 +1,129 @@
+{
+  "external_files": {
+    "listed_files": 63,
+    "total_files_including_SHA256SUMS": 64,
+    "pinned": {
+      "RETURN.md": "fd8c630739847ee0400b60cdd711ed58dd8776f29437ad4398c7f4eb501339b4",
+      "SHA256SUMS": "6c643a2060231c0582ee53296a842e0853fb3a9ad1450c07b4a41e1e23991c24",
+      "final-readback.json": "0c67162d42e04884f7b4addbef71bd5ae31b95afbfead4bfadbe5b580fedf13c"
+    }
+  },
+  "payload": {
+    "final_files": 274,
+    "final_entries": 273,
+    "final_manifest_sha256": "67b7001b027e7ffbaa9afa840b0554bb391de2c07459d33808119bc1c5d08509",
+    "first_tip": "d6d08bf19c15b73cd587a1822b3ed7463f45873f",
+    "first_audit_files": 260,
+    "first_manifest_entries": 260,
+    "first_manifest_sha256": "daf64cbaa6ecdf250aa55917ea6d60492ab709452f88a9f3e31f7b9f85bf40ec",
+    "first_missing_paths": [
+      "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/__pycache__/catalogue.cpython-314.pyc"
+    ],
+    "first_failure": {
+      "recorded_at": "2026-11-02T23:30:12.456554+00:00",
+      "failed_tip": "d6d08bf19c15b73cd587a1822b3ed7463f45873f",
+      "actual_exit": 1,
+      "diagnostic": "fatal: path 'docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/__pycache__/catalogue.cpython-314.pyc' exists on disk, but not in 'd6d08bf19c15b73cd587a1822b3ed7463f45873f'",
+      "old_manifest_sha256": "daf64cbaa6ecdf250aa55917ea6d60492ab709452f88a9f3e31f7b9f85bf40ec",
+      "missing_committed_paths": [
+        "docs/audits/2026_11_02-epic-m6-es-vendored-and-data/tools/__pycache__/catalogue.cpython-314.pyc"
+      ],
+      "explanation": "A working-directory rglob included one ignored bytecode cache; it is not a published audit input. Python -I ignores PYTHONDONTWRITEBYTECODE. Preserve the bytecode only as explicitly owned scratch; future audit tool calls use -B. No accepted producer replay or source change."
+    }
+  },
+  "scope": {
+    "commits": [
+      {
+        "commit": "d6d08bf19c15b73cd587a1822b3ed7463f45873f",
+        "parent": "48a335700d05a733703e1b58536877b91b921259",
+        "changed_paths": 263,
+        "outside_audit": [
+          ".github/sessions/saved-session-state-feature-m6-es-vendored-and-data-691.md",
+          "docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+          "docs/work-logs/INDEX.md"
+        ]
+      },
+      {
+        "commit": "923dd5371ded83fa965449a83f7a16d15a174772",
+        "parent": "d6d08bf19c15b73cd587a1822b3ed7463f45873f",
+        "changed_paths": 20,
+        "outside_audit": [
+          "docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+          "docs/work-logs/INDEX.md"
+        ]
+      }
+    ],
+    "es_commit": "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+    "es_tree": "64b90eb8cb07bdfcd690c74ff6bc980ae490657c",
+    "protected_distribution_paths_unchanged": true
+  },
+  "populations": {
+    "native": 594,
+    "changed": 40,
+    "unchanged": 554,
+    "inventory_lines": 374547,
+    "survey_text_lines": 374546,
+    "primary_text_lines": 374720,
+    "supplemental_lines": 450,
+    "modes": {
+      "100755": 10,
+      "100644": 583,
+      "160000": 1
+    },
+    "kinds": {
+      "text": 543,
+      "binary": 50,
+      "gitlink": 1
+    },
+    "tiers": {
+      "fork-own": 51,
+      "upstream-carried": 543
+    },
+    "reading_files": {
+      "native-fork-code": 40,
+      "supplemental": 3
+    },
+    "reading_lines": {
+      "native-fork-code": 5017,
+      "supplemental": 450
+    },
+    "fork_modified_deltas": 5,
+    "companion_refs": [
+      "3ae9610b0f3fb61d23eb6a2c3459ad19f962e2b1",
+      "52f0ff5128cf96bfcdec9082ded75347ecea11e6",
+      "b7fdb3a24c859ce91f9fd381bb0956901b8d23cb",
+      "9c1bd5f093cfc1ccd42640282226b7b970442ef1"
+    ]
+  },
+  "consumer_bindings_not_in_audit": [],
+  "catalogue_and_vendor": {
+    "pl024_files": 37,
+    "pl024_PO": 35,
+    "pl024_replacements": 38,
+    "French_additions": {
+      "T2": 3,
+      "T21": 6,
+      "T34": 1,
+      "T35": 1,
+      "T36": 0
+    },
+    "French_source_calls": 11,
+    "catalogue_rows": 36,
+    "XML_rows": 77,
+    "vendor_groups": 7,
+    "collector_commands": 704
+  },
+  "errors": [],
+  "limits": [
+    {
+      "kind": "historical_consumer_binding",
+      "path": "stage-c/consumer-input-bindings.json",
+      "entry": "tools/records.py",
+      "recorded_sha256": "6858cf1cb719839b3d0e16c9976c847e0abbe3c07e2797abeab0931fdaeb2cee",
+      "current_sha256": "c6bf939816cb15c0b7bb0d7a5d241ab89e70c5dcda1ea1572682ba497294db5b",
+      "retained_original": "stage-d/pre-issue-1/records.py",
+      "difference": "one Acceptance-criteria scorecard heading correction"
+    }
+  ]
+}
+RECEIPTS 56 EXTERNAL COMMANDS 18 GATE DRIFT 14 MISSING FIELDS [{'receipt': 'stage-d/worklog-index-write.receipt.json', 'missing_field': 'stderr_sha256'}]
