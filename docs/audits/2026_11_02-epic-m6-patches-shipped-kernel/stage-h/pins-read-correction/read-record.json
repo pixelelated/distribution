@@ -1,0 +1,71 @@
+{
+  "result": "PASS",
+  "source_ref": "02aab33bd9842610b0d466c9c186454dc14373ee",
+  "prior_tip": "61a1a674c10d520f9d93748c5a73deaadb08b158",
+  "source_path": "projects/ROCKNIX/packages/linux/package.mk",
+  "source_sha256": "652202f2efead36a6c0d3d6a95d55efb4e2cd799cd9ca1ccafd5907e25b26faa",
+  "numbered_sha256": "d7a0c73ab02122990188d556c37be716ffe2c85143b9845503546f367c308e48",
+  "version_lines": [
+    23,
+    30,
+    37,
+    43,
+    49
+  ],
+  "anchored_dirs_lines": [
+    16,
+    27,
+    40,
+    46
+  ],
+  "conditional_dirs_lines": [
+    18
+  ],
+  "case_label_lines": [
+    22,
+    29,
+    36,
+    42,
+    48
+  ],
+  "checks": [
+    {
+      "label": "source",
+      "argv": [
+        "git",
+        "show",
+        "02aab33bd9842610b0d466c9c186454dc14373ee:projects/ROCKNIX/packages/linux/package.mk"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "start": "2026-11-02T20:04:47.914997+00:00",
+      "end": "2026-11-02T20:04:47.916820+00:00",
+      "elapsed_seconds": 0.001811,
+      "rc": 0,
+      "stdout": "source.git-show.json",
+      "stderr": "source.git-show.err",
+      "stdout_sha256": "652202f2efead36a6c0d3d6a95d55efb4e2cd799cd9ca1ccafd5907e25b26faa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_encoding": "JSON object stdout string, encode UTF-8 to recover exact producer bytes"
+    },
+    {
+      "label": "handback",
+      "argv": [
+        "git",
+        "show",
+        "61a1a674c10d520f9d93748c5a73deaadb08b158:projects/ROCKNIX/packages/linux/package.mk"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "start": "2026-11-02T20:04:47.916855+00:00",
+      "end": "2026-11-02T20:04:47.918360+00:00",
+      "elapsed_seconds": 0.001508,
+      "rc": 0,
+      "stdout": "handback.git-show.json",
+      "stderr": "handback.git-show.err",
+      "stdout_sha256": "652202f2efead36a6c0d3d6a95d55efb4e2cd799cd9ca1ccafd5907e25b26faa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_encoding": "JSON object stdout string, encode UTF-8 to recover exact producer bytes"
+    }
+  ],
+  "builder_sha256": "daffee4b1449c208bfcb3193c4f5a5e759fff4d432e693b97f91a777809b7405",
+  "scope": "New records; read Git bytes only; no accepted execution replay"
+}

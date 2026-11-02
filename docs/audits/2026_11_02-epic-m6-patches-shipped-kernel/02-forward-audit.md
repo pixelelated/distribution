@@ -715,3 +715,39 @@ Authority: [comment 6585897242](https://github.com/pixelelated/distribution/issu
 - Question 2 (6585347732): D-SYS-004 confirms ROCKNIX's distribution layer for the ramoops draft. No reversal, mainline submission or new physical-retention claim. Both #585 contribution lines remain drafts, never sent.
 
 All 31 lead owners remain in 02, including firmware T11 and separate T42/T43 populations. No source edit, runtime, external review, permission answer or other-owner change. Continue E–H without another stage relay. D226 preserves accepted executions; only new final records and gates are checked. The coordinator alone performs final simulated integration, acceptance and audit closure.
+
+## Pins-read presentation correction — 2026-11-02T20:04:47.930461+00:00
+
+New records under D-WORKFLOW-226's failed-predicate rule, explicitly dispatched by the coordinator before final acceptance. This corrects the base brief §10 count/presentation gap only. The old “5 PKG_VERSION / 2 PKG_PATCH_DIRS” count is not the whole recipe: the command-derived census is:
+
+PKG_VERSION assignments 5; anchored PKG_PATCH_DIRS assignments 4; separate conditional PKG_PATCH_DIRS append 1; assignments total 10; case labels 5
+
+Source: 02aab33bd9842610b0d466c9c186454dc14373ee:projects/ROCKNIX/packages/linux/package.mk. The same complete recipe bytes were read at prior hand-back 61a1a674c10d520f9d93748c5a73deaadb08b158; both raw git-show outputs, exact argv/cwd/UTC/exit and SHA256 are retained in stage-h/pins-read-correction/. Whole-recipe SHA256: 652202f2efead36a6c0d3d6a95d55efb4e2cd799cd9ca1ccafd5907e25b26faa. Read-only commands were git show with those exact immutable ref:path arguments; no shell evaluation, recipe sourcing or configuration helper ran.
+
+The following fifteen numbered lines are copied literally, in source order, from that immutable recipe. They include all ten assignments (five versions, four anchored patch-directory assignments and the separate conditional append) plus all five case labels:
+
+```text
+    16	PKG_PATCH_DIRS="${LINUX} mainline ${DEVICE} default"
+    18	[[ "${DEVICE}" == RK* ]] && PKG_PATCH_DIRS+=" mainline-rockchip"
+    22	  RK3588)
+    23	    PKG_VERSION="b8e62bed74766b6c8c423a767b35495e78b64caf"
+    27	    PKG_PATCH_DIRS="${LINUX} ${DEVICE} default"
+    29	  H700|SM4450|SM6115|SM8250|SM8550|SM8650|SM8750)
+    30	    PKG_VERSION="7.2"
+    36	  RK3326|AMD64|GENERIC_X64)
+    37	    PKG_VERSION="7.1.2"
+    40	    PKG_PATCH_DIRS+=" 7.0"
+    42	  RK3576|RK3566)
+    43	    PKG_VERSION="7.0.2"
+    46	    PKG_PATCH_DIRS+=" 7.0"
+    48	  S922X|RK3399)
+    49	    PKG_VERSION="6.18.49"
+```
+
+**Whole-recipe context versus selected T41 pins.** RK3588's full commit pin at line23, RK3576/RK3566's 7.0.2 at line43, and S922X/RK3399's 6.18.49 at line49 are recipe context only; they add no selected T41 row or application. H700 and SM8550 select the 7.2 branch at line30; GENERIC_X64 selects 7.1.2 at line37. The four selected current pins across T41 remain 7.2, 7.1.2, v2026.01 (the four H700 U-Boot rows), and 20260309 (the firmware row). U-Boot and firmware pins belong to their own recipes, not this Linux case. The 7.0 values at lines40/46 are patch-directory additions, not a new selected current kernel version.
+
+Line16 is the default directory assignment; line18 conditionally appends mainline-rockchip for RK devices; line27 replaces directories in RK3588's case; lines40/46 append 7.0 in their respective cases. These literal lines describe the whole recipe without evaluating its variables or widening T41's selected-source scope.
+
+Membership stays 107 paths (106 patches/one configuration), selected pins and 120 accepted application records unchanged. All accepted A–D artifacts, the formal generator, and both final/first-attempt D228 packets remain byte-identical to the prior published tip. No application, generator, accepted control, extraction, source/config evaluation, merge, runtime/host/provider/device/cloud action or permission answer is authorized or performed by this correction.
+
+Published authority read in full: #688 comment 6587194285 and the Pins-read count correction appended at immutable coordinator 239808e3724ba9ead52fd92d5d5e0c517f0cedf1, docs/reviews/briefs/patches-shipped-kernel.md. The prior 61a hand-back remains FAIL for this quotation predicate until this correction is accepted; no final acceptance is inferred here.

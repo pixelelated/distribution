@@ -1,0 +1,177 @@
+{
+  "result": "PASS",
+  "start": "2026-11-02T20:06:03.845064+00:00",
+  "end": "2026-11-02T20:06:18.119301+00:00",
+  "script_sha256": "00494ad78fe09b3d760a8719cd53a8267ad315631517d07b3516f6031da650e4",
+  "prior_tip": "61a1a674c10d520f9d93748c5a73deaadb08b158",
+  "immutable_recipe_sha256": "652202f2efead36a6c0d3d6a95d55efb4e2cd799cd9ca1ccafd5907e25b26faa",
+  "frozen_audit_files_unchanged": 917,
+  "selected_source_paths": 107,
+  "all_product_source_unchanged": true,
+  "literal_assignments": 10,
+  "literal_case_labels": 5,
+  "accepted_execution_replayed": false,
+  "scope": "Only new pins-read records and current resolution/record checks",
+  "checks": [
+    {
+      "name": "resolution",
+      "argv": [
+        "tools/lint-audit-artifacts",
+        "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "start": "2026-11-02T20:06:05.348379+00:00",
+      "end": "2026-11-02T20:06:05.387608+00:00",
+      "elapsed_seconds": 0.039229,
+      "rc": 0,
+      "stdout": "checkers/resolution.out",
+      "sha256": "23577f4c5fc220793ff515b3d239d2cb0e964524771636add58909194f6acfbd"
+    },
+    {
+      "name": "resolution-issue",
+      "argv": [
+        "tools/lint-audit-artifacts",
+        "docs/audits/2026_11_02-epic-m6-patches-shipped-kernel",
+        "--issue",
+        "1409"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "start": "2026-11-02T20:06:05.387735+00:00",
+      "end": "2026-11-02T20:06:05.868435+00:00",
+      "elapsed_seconds": 0.480706,
+      "rc": 0,
+      "stdout": "checkers/resolution-issue.out",
+      "sha256": "7e7959b1b40b809c95ed856293f2437a016b42914c90c6704c78541938355f58"
+    },
+    {
+      "name": "lane-box",
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "688"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "start": "2026-11-02T20:06:05.868581+00:00",
+      "end": "2026-11-02T20:06:06.320834+00:00",
+      "elapsed_seconds": 0.452262,
+      "rc": 0,
+      "stdout": "checkers/lane-box.out",
+      "sha256": "d1242aa24e224101f417e56ea2aa23b23cc0860d69421d520295a7903754e355"
+    },
+    {
+      "name": "audit-box",
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "1409"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "start": "2026-11-02T20:06:06.321021+00:00",
+      "end": "2026-11-02T20:06:06.773737+00:00",
+      "elapsed_seconds": 0.452728,
+      "rc": 0,
+      "stdout": "checkers/audit-box.out",
+      "sha256": "7ae8534fd7d26020a8b0e7221cf3313b595e275a0fea6a8adb4568b7e135a317"
+    },
+    {
+      "name": "rules",
+      "argv": [
+        "tools/rules-check",
+        "--quiet"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "start": "2026-11-02T20:06:06.773968+00:00",
+      "end": "2026-11-02T20:06:06.793017+00:00",
+      "elapsed_seconds": 0.019055,
+      "rc": 0,
+      "stdout": "checkers/rules.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "register",
+      "argv": [
+        "tools/register-check"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "start": "2026-11-02T20:06:06.793192+00:00",
+      "end": "2026-11-02T20:06:08.059013+00:00",
+      "elapsed_seconds": 1.265823,
+      "rc": 0,
+      "stdout": "checkers/register.out",
+      "sha256": "28031585dc3847e47fe4fb4e7257532763929f76143fb5451ebb4087efb759e6"
+    },
+    {
+      "name": "index",
+      "argv": [
+        "tools/work-log-index",
+        "--check"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "start": "2026-11-02T20:06:08.059212+00:00",
+      "end": "2026-11-02T20:06:08.080682+00:00",
+      "elapsed_seconds": 0.021476,
+      "rc": 0,
+      "stdout": "checkers/index.out",
+      "sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927"
+    },
+    {
+      "name": "ceremony",
+      "argv": [
+        "tools/ceremony-check",
+        "--gate"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "start": "2026-11-02T20:06:08.080864+00:00",
+      "end": "2026-11-02T20:06:18.073569+00:00",
+      "elapsed_seconds": 9.992712,
+      "rc": 0,
+      "stdout": "checkers/ceremony.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "whitespace",
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "61a1a674c10d520f9d93748c5a73deaadb08b158"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "start": "2026-11-02T20:06:18.073777+00:00",
+      "end": "2026-11-02T20:06:18.110425+00:00",
+      "elapsed_seconds": 0.036659,
+      "rc": 0,
+      "stdout": "checkers/whitespace.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "forbidden-new-records",
+      "argv": [
+        "tools/forbidden-terms-check",
+        "--stdin"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "start": "2026-11-02T20:06:18.110965+00:00",
+      "end": "2026-11-02T20:06:18.115852+00:00",
+      "elapsed_seconds": 0.004888,
+      "rc": 0,
+      "stdout": "checkers/forbidden-new-records.out",
+      "sha256": "ae7d101f07c8c55bfd82db597d8d383d0f9c1102459a98a228136f4248a15379"
+    },
+    {
+      "name": "secret-new-records",
+      "argv": [
+        "bash",
+        "-c",
+        ". .githooks/secret-patterns; grep -a -c -E -e \"${SECRET_PATTERNS}\""
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "start": "2026-11-02T20:06:18.116021+00:00",
+      "end": "2026-11-02T20:06:18.119137+00:00",
+      "elapsed_seconds": 0.003125,
+      "rc": 1,
+      "stdout": "checkers/secret-new-records.out",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  ]
+}

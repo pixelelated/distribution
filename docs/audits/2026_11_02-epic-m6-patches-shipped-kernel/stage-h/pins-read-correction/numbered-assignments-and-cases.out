@@ -1,0 +1,15 @@
+    16	PKG_PATCH_DIRS="${LINUX} mainline ${DEVICE} default"
+    18	[[ "${DEVICE}" == RK* ]] && PKG_PATCH_DIRS+=" mainline-rockchip"
+    22	  RK3588)
+    23	    PKG_VERSION="b8e62bed74766b6c8c423a767b35495e78b64caf"
+    27	    PKG_PATCH_DIRS="${LINUX} ${DEVICE} default"
+    29	  H700|SM4450|SM6115|SM8250|SM8550|SM8650|SM8750)
+    30	    PKG_VERSION="7.2"
+    36	  RK3326|AMD64|GENERIC_X64)
+    37	    PKG_VERSION="7.1.2"
+    40	    PKG_PATCH_DIRS+=" 7.0"
+    42	  RK3576|RK3566)
+    43	    PKG_VERSION="7.0.2"
+    46	    PKG_PATCH_DIRS+=" 7.0"
+    48	  S922X|RK3399)
+    49	    PKG_VERSION="6.18.49"
