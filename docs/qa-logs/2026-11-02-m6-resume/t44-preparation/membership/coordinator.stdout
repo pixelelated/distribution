@@ -1,0 +1,674 @@
+{
+  "totals": {
+    "paths": 594,
+    "inventory_lines": 374547,
+    "text_logical_lines": 374546,
+    "bytes": 40988941,
+    "text_newlines": 374530,
+    "read_formula_lines": 143710,
+    "fork_own_read_formula_lines": 11989,
+    "tier": {
+      "fork-own": 51,
+      "upstream-carried": 543
+    },
+    "kind": {
+      "text": 543,
+      "binary": 50,
+      "gitlink": 1
+    },
+    "mode": {
+      "100755": 10,
+      "100644": 583,
+      "160000": 1
+    }
+  },
+  "tier_base_states": {
+    "added-since-merge-base": {
+      "paths": 46,
+      "inventory_lines": 11946,
+      "text_logical_lines": 11946,
+      "bytes": 543701,
+      "text_newlines": 11946,
+      "read_formula_lines": 11372,
+      "fork_own_read_formula_lines": 11372,
+      "tier": {
+        "fork-own": 46
+      },
+      "kind": {
+        "text": 46
+      },
+      "mode": {
+        "100755": 5,
+        "100644": 41
+      }
+    },
+    "changed-since-merge-base": {
+      "paths": 5,
+      "inventory_lines": 15779,
+      "text_logical_lines": 15779,
+      "bytes": 333519,
+      "text_newlines": 15779,
+      "read_formula_lines": 617,
+      "fork_own_read_formula_lines": 617,
+      "tier": {
+        "fork-own": 5
+      },
+      "kind": {
+        "text": 5
+      },
+      "mode": {
+        "100644": 5
+      }
+    },
+    "same-as-merge-base": {
+      "paths": 543,
+      "inventory_lines": 346822,
+      "text_logical_lines": 346821,
+      "bytes": 40111721,
+      "text_newlines": 346805,
+      "read_formula_lines": 131721,
+      "fork_own_read_formula_lines": 0,
+      "tier": {
+        "upstream-carried": 543
+      },
+      "kind": {
+        "text": 492,
+        "binary": 50,
+        "gitlink": 1
+      },
+      "mode": {
+        "100644": 537,
+        "100755": 5,
+        "160000": 1
+      }
+    }
+  },
+  "discrepancies": [],
+  "interface_partition_ambiguities": [],
+  "naive_non_app_core_paths": 603,
+  "excluded_by_nonrest": [
+    {
+      "path": "external/libcheevos/CMakeLists.txt",
+      "owner": [
+        "es-achievements-pages"
+      ],
+      "tier": "fork-own",
+      "lines": 245
+    },
+    {
+      "path": "external/libcheevos/LICENSE.rvz-padding",
+      "owner": [
+        "es-achievements-pages"
+      ],
+      "tier": "fork-own",
+      "lines": 29
+    },
+    {
+      "path": "external/libcheevos/RVZ-NOTICES.md",
+      "owner": [
+        "es-achievements-pages"
+      ],
+      "tier": "fork-own",
+      "lines": 29
+    },
+    {
+      "path": "external/libcheevos/cheevos.cpp",
+      "owner": [
+        "es-achievements-pages"
+      ],
+      "tier": "fork-own",
+      "lines": 193
+    },
+    {
+      "path": "external/libcheevos/cheevos.h",
+      "owner": [
+        "es-achievements-pages"
+      ],
+      "tier": "fork-own",
+      "lines": 8
+    },
+    {
+      "path": "external/libcheevos/libretro-common/src/utils/md5.c",
+      "owner": [
+        "es-achievements-pages"
+      ],
+      "tier": "fork-own",
+      "lines": 304
+    },
+    {
+      "path": "external/libcheevos/rcheevos/src/rhash/hash_disc.c",
+      "owner": [
+        "es-achievements-pages"
+      ],
+      "tier": "fork-own",
+      "lines": 1352
+    },
+    {
+      "path": "external/libcheevos/rvz_hash.cpp",
+      "owner": [
+        "es-achievements-pages"
+      ],
+      "tier": "fork-own",
+      "lines": 389
+    },
+    {
+      "path": "external/libcheevos/rvz_hash.h",
+      "owner": [
+        "es-achievements-pages"
+      ],
+      "tier": "fork-own",
+      "lines": 7
+    }
+  ],
+  "neighbor_boundaries": {
+    "20": {
+      "id": "es-achievements-pages",
+      "select": [
+        {
+          "globs": [
+            "es:es-app/src/{RetroAchievements,OfflineAchievements,ThreadedHasher,OfflineScanJob}.*",
+            "es:es-app/src/guis/Gui{RetroAchievements,OfflineScan,GameAchievements}*"
+          ]
+        },
+        {
+          "globs": [
+            "es:external/libcheevos/**"
+          ],
+          "tier": [
+            "fork-own"
+          ]
+        }
+      ],
+      "paths": 25,
+      "lines": 7485,
+      "intersection": []
+    },
+    "21": {
+      "id": "es-state-and-bridge",
+      "select": {
+        "globs": [
+          "es:es-app/src/ApiSystem.*",
+          "es:es-app/src/guis/GuiWifi.*",
+          "es:es-app/src/scrapers/ScreenScraper.*",
+          "es:es-core/src/{Settings,SystemConf,HttpReq}.*",
+          "es:es-core/src/utils/AtomicFileUtil.*"
+        ]
+      },
+      "paths": 14,
+      "lines": 9249,
+      "intersection": []
+    },
+    "34": {
+      "id": "es-core-components",
+      "select": {
+        "globs": [
+          "es:es-core/src/components/**"
+        ]
+      },
+      "paths": 80,
+      "lines": 21984,
+      "intersection": []
+    },
+    "35": {
+      "id": "es-core-window-input",
+      "select": {
+        "globs": [
+          "es:es-core/**"
+        ],
+        "rest": true
+      },
+      "paths": 96,
+      "lines": 22575,
+      "intersection": []
+    },
+    "36": {
+      "id": "es-core-utils-resources",
+      "select": {
+        "globs": [
+          "es:es-core/src/{utils,resources,renderers}/**",
+          "!es:es-core/src/utils/AtomicFileUtil.*"
+        ]
+      },
+      "paths": 58,
+      "lines": 50840,
+      "intersection": []
+    },
+    "37": {
+      "id": "es-recipe",
+      "select": {
+        "globs": [
+          "projects/ROCKNIX/packages/ui/**"
+        ]
+      },
+      "paths": 15,
+      "lines": 4561,
+      "intersection": []
+    }
+  },
+  "path_list_sha256": "1478e929343f7b2e82aaa3972573809ca8c0ad9e0eb4d5973fb1ec0542d9e345",
+  "manifest_sha256": "16b1da3ad4a7e4b3c7a6aadbd901c2502c940d20da697136babc27474d767965"
+}
+GROUPS {
+ "(root)": {
+  "paths": 17,
+  "inventory_lines": 3408,
+  "text_logical_lines": 3408,
+  "bytes": 139064,
+  "text_newlines": 3406,
+  "read_formula_lines": 668,
+  "fork_own_read_formula_lines": 617,
+  "tier": {
+   "fork-own": 4,
+   "upstream-carried": 13
+  },
+  "kind": {
+   "text": 17
+  },
+  "mode": {
+   "100644": 15,
+   "100755": 2
+  }
+ },
+ ".githooks": {
+  "paths": 6,
+  "inventory_lines": 526,
+  "text_logical_lines": 526,
+  "bytes": 30989,
+  "text_newlines": 526,
+  "read_formula_lines": 414,
+  "fork_own_read_formula_lines": 414,
+  "tier": {
+   "fork-own": 6
+  },
+  "kind": {
+   "text": 6
+  },
+  "mode": {
+   "100755": 5,
+   "100644": 1
+  }
+ },
+ ".github/ISSUE_TEMPLATE": {
+  "paths": 2,
+  "inventory_lines": 73,
+  "text_logical_lines": 73,
+  "bytes": 2997,
+  "text_newlines": 72,
+  "read_formula_lines": 0,
+  "fork_own_read_formula_lines": 0,
+  "tier": {
+   "upstream-carried": 2
+  },
+  "kind": {
+   "text": 2
+  },
+  "mode": {
+   "100644": 2
+  }
+ },
+ "CMake/Packages": {
+  "paths": 14,
+  "inventory_lines": 1332,
+  "text_logical_lines": 1332,
+  "bytes": 45477,
+  "text_newlines": 1330,
+  "read_formula_lines": 1332,
+  "fork_own_read_formula_lines": 0,
+  "tier": {
+   "upstream-carried": 14
+  },
+  "kind": {
+   "text": 14
+  },
+  "mode": {
+   "100644": 14
+  }
+ },
+ "CMake/Utils": {
+  "paths": 1,
+  "inventory_lines": 164,
+  "text_logical_lines": 164,
+  "bytes": 6216,
+  "text_newlines": 163,
+  "read_formula_lines": 164,
+  "fork_own_read_formula_lines": 0,
+  "tier": {
+   "upstream-carried": 1
+  },
+  "kind": {
+   "text": 1
+  },
+  "mode": {
+   "100644": 1
+  }
+ },
+ "external/CMakeLists.txt": {
+  "paths": 1,
+  "inventory_lines": 10,
+  "text_logical_lines": 10,
+  "bytes": 312,
+  "text_newlines": 10,
+  "read_formula_lines": 10,
+  "fork_own_read_formula_lines": 0,
+  "tier": {
+   "upstream-carried": 1
+  },
+  "kind": {
+   "text": 1
+  },
+  "mode": {
+   "100644": 1
+  }
+ },
+ "external/doctest": {
+  "paths": 1,
+  "inventory_lines": 7134,
+  "text_logical_lines": 7134,
+  "bytes": 323200,
+  "text_newlines": 7134,
+  "read_formula_lines": 7134,
+  "fork_own_read_formula_lines": 7134,
+  "tier": {
+   "fork-own": 1
+  },
+  "kind": {
+   "text": 1
+  },
+  "mode": {
+   "100644": 1
+  }
+ },
+ "external/id3v2lib": {
+  "paths": 60,
+  "inventory_lines": 4682,
+  "text_logical_lines": 4682,
+  "bytes": 19222802,
+  "text_newlines": 4681,
+  "read_formula_lines": 4340,
+  "fork_own_read_formula_lines": 0,
+  "tier": {
+   "upstream-carried": 60
+  },
+  "kind": {
+   "text": 56,
+   "binary": 4
+  },
+  "mode": {
+   "100644": 60
+  }
+ },
+ "external/libcheevos/libretro-common": {
+  "paths": 199,
+  "inventory_lines": 86913,
+  "text_logical_lines": 86913,
+  "bytes": 3126477,
+  "text_newlines": 86913,
+  "read_formula_lines": 86913,
+  "fork_own_read_formula_lines": 0,
+  "tier": {
+   "upstream-carried": 199
+  },
+  "kind": {
+   "text": 199
+  },
+  "mode": {
+   "100644": 199
+  }
+ },
+ "external/libcheevos/rcheevos": {
+  "paths": 67,
+  "inventory_lines": 32771,
+  "text_logical_lines": 32771,
+  "bytes": 1170856,
+  "text_newlines": 32770,
+  "read_formula_lines": 32195,
+  "fork_own_read_formula_lines": 0,
+  "tier": {
+   "upstream-carried": 67
+  },
+  "kind": {
+   "text": 67
+  },
+  "mode": {
+   "100644": 67
+  }
+ },
+ "external/nanosvg": {
+  "paths": 5,
+  "inventory_lines": 4480,
+  "text_logical_lines": 4480,
+  "bytes": 118788,
+  "text_newlines": 4480,
+  "read_formula_lines": 4462,
+  "fork_own_read_formula_lines": 0,
+  "tier": {
+   "upstream-carried": 5
+  },
+  "kind": {
+   "text": 5
+  },
+  "mode": {
+   "100644": 5
+  }
+ },
+ "external/pugixml": {
+  "paths": 1,
+  "inventory_lines": 1,
+  "text_logical_lines": 0,
+  "bytes": 0,
+  "text_newlines": 0,
+  "read_formula_lines": 0,
+  "fork_own_read_formula_lines": 0,
+  "tier": {
+   "upstream-carried": 1
+  },
+  "kind": {
+   "gitlink": 1
+  },
+  "mode": {
+   "160000": 1
+  }
+ },
+ "locale/CMakeLists.txt": {
+  "paths": 1,
+  "inventory_lines": 52,
+  "text_logical_lines": 52,
+  "bytes": 1865,
+  "text_newlines": 52,
+  "read_formula_lines": 52,
+  "fork_own_read_formula_lines": 0,
+  "tier": {
+   "upstream-carried": 1
+  },
+  "kind": {
+   "text": 1
+  },
+  "mode": {
+   "100644": 1
+  }
+ },
+ "locale/checkLocale.sh": {
+  "paths": 1,
+  "inventory_lines": 10,
+  "text_logical_lines": 10,
+  "bytes": 202,
+  "text_newlines": 10,
+  "read_formula_lines": 10,
+  "fork_own_read_formula_lines": 0,
+  "tier": {
+   "upstream-carried": 1
+  },
+  "kind": {
+   "text": 1
+  },
+  "mode": {
+   "100755": 1
+  }
+ },
+ "locale/emulationstation2.pot": {
+  "paths": 1,
+  "inventory_lines": 4036,
+  "text_logical_lines": 4036,
+  "bytes": 53837,
+  "text_newlines": 4036,
+  "read_formula_lines": 0,
+  "fork_own_read_formula_lines": 0,
+  "tier": {
+   "fork-own": 1
+  },
+  "kind": {
+   "text": 1
+  },
+  "mode": {
+   "100644": 1
+  }
+ },
+ "locale/lang": {
+  "paths": 35,
+  "inventory_lines": 154595,
+  "text_logical_lines": 154595,
+  "bytes": 3151852,
+  "text_newlines": 154595,
+  "read_formula_lines": 0,
+  "fork_own_read_formula_lines": 0,
+  "tier": {
+   "upstream-carried": 33,
+   "fork-own": 2
+  },
+  "kind": {
+   "text": 35
+  },
+  "mode": {
+   "100644": 35
+  }
+ },
+ "resources/(root)": {
+  "paths": 60,
+  "inventory_lines": 67465,
+  "text_logical_lines": 67465,
+  "bytes": 13286153,
+  "text_newlines": 67458,
+  "read_formula_lines": 43,
+  "fork_own_read_formula_lines": 0,
+  "tier": {
+   "upstream-carried": 58,
+   "fork-own": 2
+  },
+  "kind": {
+   "binary": 24,
+   "text": 36
+  },
+  "mode": {
+   "100644": 58,
+   "100755": 2
+  }
+ },
+ "resources/battery": {
+  "paths": 6,
+  "inventory_lines": 337,
+  "text_logical_lines": 337,
+  "bytes": 14613,
+  "text_newlines": 337,
+  "read_formula_lines": 0,
+  "fork_own_read_formula_lines": 0,
+  "tier": {
+   "upstream-carried": 6
+  },
+  "kind": {
+   "text": 6
+  },
+  "mode": {
+   "100644": 6
+  }
+ },
+ "resources/flags": {
+  "paths": 22,
+  "inventory_lines": 0,
+  "text_logical_lines": 0,
+  "bytes": 43247,
+  "text_newlines": 0,
+  "read_formula_lines": 0,
+  "fork_own_read_formula_lines": 0,
+  "tier": {
+   "upstream-carried": 22
+  },
+  "kind": {
+   "binary": 22
+  },
+  "mode": {
+   "100644": 22
+  }
+ },
+ "resources/help": {
+  "paths": 38,
+  "inventory_lines": 569,
+  "text_logical_lines": 569,
+  "bytes": 43541,
+  "text_newlines": 568,
+  "read_formula_lines": 0,
+  "fork_own_read_formula_lines": 0,
+  "tier": {
+   "upstream-carried": 38
+  },
+  "kind": {
+   "text": 38
+  },
+  "mode": {
+   "100644": 38
+  }
+ },
+ "resources/services": {
+  "paths": 2,
+  "inventory_lines": 252,
+  "text_logical_lines": 252,
+  "bytes": 5600,
+  "text_newlines": 252,
+  "read_formula_lines": 252,
+  "fork_own_read_formula_lines": 0,
+  "tier": {
+   "upstream-carried": 2
+  },
+  "kind": {
+   "text": 2
+  },
+  "mode": {
+   "100644": 2
+  }
+ },
+ "resources/shaders": {
+  "paths": 19,
+  "inventory_lines": 1913,
+  "text_logical_lines": 1913,
+  "bytes": 47589,
+  "text_newlines": 1913,
+  "read_formula_lines": 1897,
+  "fork_own_read_formula_lines": 0,
+  "tier": {
+   "upstream-carried": 19
+  },
+  "kind": {
+   "text": 19
+  },
+  "mode": {
+   "100644": 19
+  }
+ },
+ "tests": {
+  "paths": 35,
+  "inventory_lines": 3824,
+  "text_logical_lines": 3824,
+  "bytes": 153264,
+  "text_newlines": 3824,
+  "read_formula_lines": 3824,
+  "fork_own_read_formula_lines": 3824,
+  "tier": {
+   "fork-own": 35
+  },
+  "kind": {
+   "text": 35
+  },
+  "mode": {
+   "100644": 35
+  }
+ }
+}

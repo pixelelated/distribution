@@ -1,0 +1,15 @@
+usage: t44-brief-inputs.py [-h] --repo REPO --ref REF --es-repo ES_REPO
+                           [--es-ref ES_REF] --out OUT
+
+T44 immutable input binding. Reads Git objects; writes metadata, never
+sources. Selector grammar independently reproduced by P1's retained derive.py.
+This reader does not execute renovation-inventory, a recipe, or an accepted
+test.
+
+options:
+  -h, --help         show this help message and exit
+  --repo REPO
+  --ref REF
+  --es-repo ES_REPO
+  --es-ref ES_REF
+  --out OUT

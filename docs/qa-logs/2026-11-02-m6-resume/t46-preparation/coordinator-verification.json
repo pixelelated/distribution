@@ -1,0 +1,22 @@
+{
+  "checked_at": "2026-11-02T22:04:17.436832+00:00",
+  "kind": "independent immutable metadata derivation, not T46 execution",
+  "source_files": {
+    "report.md": "e56777b71e7a4b236bef318317e1d0e0e3e7a0f0e27d6896760fcd24728feb10",
+    "report.json": "713f999d552cdacce9e59bd062ac7b410b11ce26bf427860412b09de185a0b98",
+    "derive-metadata.py": "1eea99da03a27a158fc987677618b4b0de0ee55e27356cca233792b6b0583d94",
+    "api-source-digests.json": "0e8ac3c018e85c3ca0d1c88e0a9707afdcf0c249a9bd9f73443842fa047688e3"
+  },
+  "script_rc": 0,
+  "stdout_sha256": "957f929de9b13c099afd222233075d5e8e3a8f4c8d157217b9c52fd9a0f3d54b",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "comparison": "all JSON fields equal except created_at",
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346",
+  "command": [
+    "taskset",
+    "-c",
+    "8-23",
+    "python3",
+    "/tmp/m6-lane-progress/t46-independent/derive-metadata.py"
+  ]
+}

@@ -1,6 +1,6 @@
 # M6 coordinator current handoff
 
-Updated 2026-11-02T21:49:00.973509+00:00 by Codex / GPT-6-Astra / xhigh (own observed footer, not provider-attested), session01a19d11-f5c8-7bb0-80f3-49ad28732af2, wN:p2.
+Updated 2026-11-02T22:12:19.059811+00:00 by Codex / GPT-6-Astra / xhigh (own observed footer, not provider-attested), session01a19d11-f5c8-7bb0-80f3-49ad28732af2, wN:p2.
 
 ## Resume here
 
@@ -10,19 +10,19 @@ Worktree `/workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan
 
 | Lane | Current outcome | Next useful action |
 | --- | --- | --- |
-| P1 wN:p3 | Working T44 immutable membership/tier/group/boundary prep, #691comment6589185959 | Bounded factual report; root chooses baseline/brief |
-| T1 wN:p4 | T43 executing, reports A matched432rows/Local controls, continuing B | Continuous A–D, clean published D then root disposition |
-| T2 wN:p5 | Working T44 accepted catalogue/import/history context, #691comment6589185959 | Bounded report separate from P1; no execution-pin choice |
-| T3 wN:p6 | Working T46 frozen metadata cost/entrypoint prep, #693comment6589213896 | Bounded planning report only; T46 remains last |
-| T5 wN:p7 | T42 accepted4cf8; completion0eeaa4c9a6d384f57e0017c0be75673eb872f2db verified | Available after completed assignment; no new source slice |
+| P1 wN:p3 | T44 membership return retained/reproduced exactly, #691comment6589185959 | Available for next bounded assignment |
+| T1 wN:p4 | T43 preparing D after B/C report:432keys,600native applies/333paths;93paths with open plans | Continuous A–D, clean published D then root disposition |
+| T2 wN:p5 | T44 accepted-context return retained/reproduced; intended T44 executor | Await proved brief and exact dispatch; no execution yet |
+| T3 wN:p6 | T46 frozen metadata return retained/reproduced, #693comment6589213896 | Available; T46 remains last, no final recut |
+| T5 wN:p7 | T42 accepted4cf8; completion0eeaa4c9a6d384f57e0017c0be75673eb872f2db verified | Next: bounded T44 v1 stranger proof once candidate published; no execution dispatch |
 
 Use only existing wN lanes; verify HERDR_ENV=1. Actual work/acknowledgments observed for these assignments; no other pane's permission prompt may be answered. Historical launch, T39/T41/T38 trees stay untouched. Completed lane availability is truthful, not a reason to invent duplicate work.
 
 ## Immediate next actions
 
 1. Receive T43's complete D packet under #690comment6589165585. Exact worktree `/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690`, branch `feature/m6-patches-unshipped-690`, published seed601e4694f9726b2228d3571efdb5cfc061c6d442, parent92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1. Brief v2 SHAa73aef709a5902a7cbbb7ba0409d1128f855a3fe7e70430c010ef0fa9047dcbf; helperSHA5e8f14567bf8cb6e0916b7a7d3cc67f9dfd899b38c9d38ff6a2d37a3ff88191f. D231/20criteria/kickoff6589101024 and seed proof are complete. A–D has no new stage gates; root disposition follows D. The report of A is not a root re-audit or acceptance.
-2. Consume P1/T2's bounded T44 reports and author the next brief. Distribution frozen92e8/P12174265; ES store `/home/max/Development/emulationstation-next`, survey16dbac5211eea7e70db7394372033be2be7df829 and accepted T2 ES55158d2a64c69fe295fb4e67fd174424a71b1b4d exist. Read full691/shared-catalogue comment6375264017 and700; later accepted catalogue/ES changes must inform the source baseline. The coordinator recipe's historical16dbac pin is not proof that accepted later edits are included. No T44 execution or pin choice has been dispatched.
-3. Consume T3's bounded T46 snapshot, not a final membership recut. Frozen source-only inventory/path/mode/blob/size metadata and named entrypoints; no raw audit-log body sweep, cleanup or deletion choice. T46 remains after T44. User-selected monthly indexes/individual33document retirement review stay in milestone Backlog1407/D223/D224, not an invented new choice.
+2. T44 v1 candidate and immutable helper are now at docs/reviews/briefs/es-vendored-and-data.md and docs/qa-logs/2026-11-02-m6-resume/t44-brief-inputs.py. Preparation retained under t44-preparation and independently reproduced. Next publish candidate, send existing T5 a bounded stranger proof, append v2 corrections, then root chooses final baseline/criteria and dispatch after T43. Candidate uses accepted T2 ES primary plus separate 3 later tests and 4 accepted companion branch records; it creates no integrated tree. No T44 execution yet. Original input orientation: Distribution frozen92e8/P12174265; ES store `/home/max/Development/emulationstation-next`, survey16dbac5211eea7e70db7394372033be2be7df829 and accepted T2 ES55158d2a64c69fe295fb4e67fd174424a71b1b4d exist. Read full691/shared-catalogue comment6375264017 and700; later accepted catalogue/ES changes must inform the source baseline. The coordinator recipe's historical16dbac pin is not proof that accepted later edits are included. No T44 execution or pin choice has been dispatched.
+3. T3 T46 report and immutable derivation retained at docs/qa-logs/2026-11-02-m6-resume/t46-preparation, independently equal except created_at. No final membership recut. Frozen source-only inventory/path/mode/blob/size metadata and named entrypoints; no raw audit-log body sweep, cleanup or deletion choice. T46 remains after T44. User-selected monthly indexes/individual33document retirement review stay in milestone Backlog1407/D223/D224, not an invented new choice.
 4. T42 acceptance6588933395 and completion6589236996 are complete. Source4cf8 headers unchanged; marker0eeaa4c9 verified15hashes,4056accepted audit files unchanged,20newcommand bindings,39externalpublicationfiles. Audit1411closed,689open20checked, Medium1410open3unchecked/no parent/milestone. Actual area integration and slice closure remain future root obligations.
 
 ## Evidence and limits

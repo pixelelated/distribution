@@ -1,0 +1,16 @@
+Immutable read-only examples; run from any directory. Do not run audit producers.
+
+taskset -c 8-23 git -C /home/max/Development/emulationstation-next show --no-ext-diff --no-textconv --format=fuller a1cbc0ccd96cbd95f3355375609f71f1b50c7113 -- locale es-app/src/FileData.cpp
+taskset -c 8-23 git -C /home/max/Development/emulationstation-next diff --no-ext-diff --no-textconv 16dbac5211eea7e70db7394372033be2be7df829 55158d2a64c69fe295fb4e67fd174424a71b1b4d -- locale tests
+taskset -c 8-23 git -C /home/max/Development/emulationstation-next diff --no-ext-diff --no-textconv 16dbac5211eea7e70db7394372033be2be7df829 3ae9610b0f3fb61d23eb6a2c3459ad19f962e2b1 -- locale
+taskset -c 8-23 git -C /home/max/Development/emulationstation-next diff --no-ext-diff --no-textconv 16dbac5211eea7e70db7394372033be2be7df829 52f0ff5128cf96bfcdec9082ded75347ecea11e6 -- locale
+taskset -c 8-23 git -C /home/max/Development/emulationstation-next diff --no-ext-diff --no-textconv 16dbac5211eea7e70db7394372033be2be7df829 b7fdb3a24c859ce91f9fd381bb0956901b8d23cb -- locale
+taskset -c 8-23 git -C /home/max/Development/emulationstation-next ls-tree 16dbac5211eea7e70db7394372033be2be7df829 -- external/pugixml
+taskset -c 8-23 git -C /home/max/Development/emulationstation-next show 16dbac5211eea7e70db7394372033be2be7df829:external/libcheevos/rcheevos/src/rc_version.h
+taskset -c 8-23 git -C /home/max/Development/emulationstation-next show 16dbac5211eea7e70db7394372033be2be7df829:external/libcheevos/rcheevos/src/rcheevos/rc_version.h
+taskset -c 8-23 git -C /workspace/repos/pixelelated/distribution.worktrees/m6-es-launch-path-649 show 7041b0d710363ddac7ae1b047ebae3e182548631:docs/audits/2026_10_23-epic-m6-es-launch-path/00-running-log.md
+taskset -c 8-23 git -C /workspace/repos/pixelelated/distribution.worktrees/m6-es-launch-path-649 show 7041b0d710363ddac7ae1b047ebae3e182548631:docs/audits/2026_10_23-epic-m6-es-launch-path/05-punch-list.md
+taskset -c 8-23 git -C /workspace/repos/pixelelated/distribution.worktrees/m6-es-launch-path-649 show 2174265e9cc1b248c0fbe27fa101875984d46d6b:docs/reviews/slices.json
+taskset -c 8-23 git -C /workspace/repos/pixelelated/distribution.worktrees/m6-es-launch-path-649 show 92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1:projects/ROCKNIX/packages/ui/emulationstation/package.mk
+
+readback.py is the executed private reader, not an audit/acceptance producer. It logs commands in commands.json and writes its own private readback.json only. Do not rerun to preserve this frozen packet's timestamp/hash; inspect its source and use the above immutable reads as needed.

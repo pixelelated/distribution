@@ -1,0 +1,92 @@
+{
+  "source": "2174265e9cc1b248c0fbe27fa101875984d46d6b:docs/reviews/slices.json",
+  "source_sha256": "49bc2745664e52f4abb9037746d003fab54e21fde74f6308a81bf20ed00f12c6",
+  "rows": [
+    {
+      "k": 18,
+      "id": "es-cloud-pages",
+      "select": {
+        "globs": [
+          "es:es-app/src/{CloudText,ThreadedCloudSync,CloudTransferJob}.*",
+          "es:es-app/src/guis/GuiCloud*",
+          "es:es-app/tests/**"
+        ]
+      }
+    },
+    {
+      "k": 20,
+      "id": "es-achievements-pages",
+      "select": [
+        {
+          "globs": [
+            "es:es-app/src/{RetroAchievements,OfflineAchievements,ThreadedHasher,OfflineScanJob}.*",
+            "es:es-app/src/guis/Gui{RetroAchievements,OfflineScan,GameAchievements}*"
+          ]
+        },
+        {
+          "globs": [
+            "es:external/libcheevos/**"
+          ],
+          "tier": [
+            "fork-own"
+          ]
+        }
+      ]
+    },
+    {
+      "k": 21,
+      "id": "es-state-and-bridge",
+      "select": {
+        "globs": [
+          "es:es-app/src/ApiSystem.*",
+          "es:es-app/src/guis/GuiWifi.*",
+          "es:es-app/src/scrapers/ScreenScraper.*",
+          "es:es-core/src/{Settings,SystemConf,HttpReq}.*",
+          "es:es-core/src/utils/AtomicFileUtil.*"
+        ]
+      }
+    },
+    {
+      "k": 34,
+      "id": "es-core-components",
+      "select": {
+        "globs": [
+          "es:es-core/src/components/**"
+        ]
+      }
+    },
+    {
+      "k": 35,
+      "id": "es-core-window-input",
+      "select": {
+        "globs": [
+          "es:es-core/**"
+        ],
+        "rest": true
+      }
+    },
+    {
+      "k": 36,
+      "id": "es-core-utils-resources",
+      "select": {
+        "globs": [
+          "es:es-core/src/{utils,resources,renderers}/**",
+          "!es:es-core/src/utils/AtomicFileUtil.*"
+        ]
+      }
+    },
+    {
+      "k": 44,
+      "id": "es-vendored-and-data",
+      "select": {
+        "globs": [
+          "es:**",
+          "!es:es-app/**",
+          "!es:es-core/**"
+        ],
+        "rest": true
+      }
+    }
+  ],
+  "limits": "Selector reads only: no membership/count derivation or ownership recut."
+}

@@ -1,0 +1,3586 @@
+[
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113^"
+    ],
+    "rc": 0,
+    "stdout_sha256": "46cf1c8f4f72b3b4a4fc7c77ae881a93c4471acdedf3bd2645b2b76097baf54a",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "diff",
+      "--name-only",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113"
+    ],
+    "rc": 0,
+    "stdout_sha256": "2991972011cff223047fb60b6e11ebc813d8b8674e2612b312965dc3818077e0",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:es-app/src/FileData.cpp"
+    ],
+    "rc": 0,
+    "stdout_sha256": "19d2d7225688903a913a0978385754f8846b623b729ef87cfb19209abacef26a",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:es-app/src/FileData.cpp"
+    ],
+    "rc": 0,
+    "stdout_sha256": "7079bbbd7d22ebb67655d53b3e88f23d1c428c1a82c2eb4c2694afd8e797fc08",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:es-app/src/FileData.cpp"
+    ],
+    "rc": 0,
+    "stdout_sha256": "5de91e89b5ba784a36d67ae1b8e81a9ab4a1f075544cff6685d7f35db0b31c2b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:es-app/src/FileData.cpp"
+    ],
+    "rc": 0,
+    "stdout_sha256": "6547deea005d0dc772509bf47da04442dbc75e072cb2c2965b784cc52ed72ee8",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/emulationstation2.pot"
+    ],
+    "rc": 0,
+    "stdout_sha256": "5da9772d4bcd9bec2df4d5b9ab5ef3beb1fd460cf8cdee7112a6d927db30e480",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/emulationstation2.pot"
+    ],
+    "rc": 0,
+    "stdout_sha256": "12f77301256c390c16c70077ae0d95a10f6b436d85e1caee4d4faa6a7b551684",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/emulationstation2.pot"
+    ],
+    "rc": 0,
+    "stdout_sha256": "43cbe00a318c17105ff4d2aeb61d6987667ef0714930980f2bd9100309f22843",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/emulationstation2.pot"
+    ],
+    "rc": 0,
+    "stdout_sha256": "3704ed8c82b95404deca802dadaa02e06c0ef203ee3fbe5ad2bdf4c9dac4b286",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/ar/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "c1c53040c80ee9281432dd5adc163ade9f3c347a690f1c35ec3b93380cd6eecb",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/ar/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "481a492e512b193a516108e0c4f92e61fb6425f0aafb811945f6c0695dcd94d2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/ar/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "481a492e512b193a516108e0c4f92e61fb6425f0aafb811945f6c0695dcd94d2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/ar/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "481a492e512b193a516108e0c4f92e61fb6425f0aafb811945f6c0695dcd94d2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/ar/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "2bf21c244f951cf8202f9c6b714415e3f3b3bb0880fd16cc47adeca23859eff4",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/ar/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e9764c53e8c23dc5b0f921badfb0ba65463a3e683359eb0a7e8a9056eb42d0f2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/ca/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "711f09c53cb0f2f626aba511546c7b1fc51d08f6d7d56648528298cfe6528b64",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/ca/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "ca05d3958da44720ba204ba481b81865de3c5b40118724cd8d390336eb8234c7",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/ca/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "ca05d3958da44720ba204ba481b81865de3c5b40118724cd8d390336eb8234c7",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/ca/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "ca05d3958da44720ba204ba481b81865de3c5b40118724cd8d390336eb8234c7",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/ca/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "f5546339388ee328b7dc33156eddecddbd31568b5c5d76efcfec4a2314b3d453",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/ca/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "0b8f0e81e002bdf00b34b46d6f47ebfeef021b1c13ae44a345fb8c3508a60cd7",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/cs_CZ/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "3d57159975a5237df98cdf359383934911fdacca1a98f8112d40e07ef09e9c46",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/cs_CZ/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e677db210ecc2c0b220cab64e9b4a070261dbcd822a455772118838a9a10311e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/cs_CZ/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e677db210ecc2c0b220cab64e9b4a070261dbcd822a455772118838a9a10311e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/cs_CZ/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e677db210ecc2c0b220cab64e9b4a070261dbcd822a455772118838a9a10311e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/cs_CZ/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "a8a789904b9d060708997998434c060b256c95b6f51e7d29a25cf018afb8ebdb",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/cs_CZ/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "d8d2901feb3ce2164c4bf96c49bb0750abfebbba4f1124915290ad1b2465e73c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/cy_GB/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "b869706230dfd41b1dd90c4ab3b4c5c912f940aa58061494e230d3210eafa485",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/cy_GB/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "32b9765cd067881c3be5eebac70675355679faa81e9a665649521edae076fbcc",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/cy_GB/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "32b9765cd067881c3be5eebac70675355679faa81e9a665649521edae076fbcc",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/cy_GB/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "32b9765cd067881c3be5eebac70675355679faa81e9a665649521edae076fbcc",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/cy_GB/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "8a855ac3d9147295fc4ab9ee2a1d8bc6d96c10fb166d35380544463bb9ed58ef",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/cy_GB/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "2c4472b42c3e0b6996e590f9afb07b3c94f5c1e109bb9d6dcd2b8157b47d17e2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/de/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "68f9c41f404d4b50cef9176134da0ffe288354e23f04bc5aca4e5c80a5819d2f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/de/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "b88f84327b29af1002b4d9f70a47cd186e26296d0dfcb37d77f4c179b7c6fdd2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/de/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "b88f84327b29af1002b4d9f70a47cd186e26296d0dfcb37d77f4c179b7c6fdd2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/de/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "b88f84327b29af1002b4d9f70a47cd186e26296d0dfcb37d77f4c179b7c6fdd2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/de/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "ff1dd706b0c8a5031b37dbb727bf50ebabd22e8a2410bfc451bdabe0f12cee08",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/de/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "f99d8a0470c7491506525b1abb2254020487762ddf4efde8640f457e59a01007",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/el/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "fd95f109e64429aec6e9dde91fda11d63eb929dfabd70942ab13a8b938dda600",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/el/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "363d51538a0262e5d3c4abfd252ed44f7c22cfffaf19fa89723847a0f8aaebe1",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/el/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "363d51538a0262e5d3c4abfd252ed44f7c22cfffaf19fa89723847a0f8aaebe1",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/el/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "363d51538a0262e5d3c4abfd252ed44f7c22cfffaf19fa89723847a0f8aaebe1",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/el/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "ae0987475fd81001ae9f9a7cc2e0554e144b69e80ba74792bf46811c1b7b3fce",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/el/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "de54d169fedaa8c7fb369f8ba114ec2e126f16d075f5aa61a871dfc960fb9f32",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/en_GB/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "fa79bb0fb507e4da883623108c49b3b8b39e4e9f6a98b4e495cd01b287f1a958",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/en_GB/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "ac1ed98feb40b33bf2b86e3f114f3e768303c12398cd4edbb8bd225f15c8be56",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/en_GB/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "ac1ed98feb40b33bf2b86e3f114f3e768303c12398cd4edbb8bd225f15c8be56",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/en_GB/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "ac1ed98feb40b33bf2b86e3f114f3e768303c12398cd4edbb8bd225f15c8be56",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/en_GB/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "0c73c92ecfd506804fcb1b084168ecbb9434bb64b9dae0635a6dbb0fb872f749",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/en_GB/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "20c55514a74c29d97464663b1022ab8048b87142ef3c3ed3ec19c8265a3723b7",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/es/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "bfa85a25180aef4ede9fc460e65b5d5afb63121546374e71f1eb6f5d774259a3",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/es/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "3ae50e26e880a405ca0b6521e76f8e0b0d3fd7358372f675e06362e699d617ca",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/es/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "3ae50e26e880a405ca0b6521e76f8e0b0d3fd7358372f675e06362e699d617ca",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/es/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "3ae50e26e880a405ca0b6521e76f8e0b0d3fd7358372f675e06362e699d617ca",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/es/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "1869ee77896d866f8ca767bd1b8af887ecbb04716a82a648dd4ae7eb3fde81b6",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/es/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "3a41bf998852715e5e47420490d24a66a36c0e0992da4cbe521acd2f9fd7f118",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/es_MX/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "36508673b4c2718d5c95c2c67586142e4bdbde39313cbc954659a30a1fb16470",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/es_MX/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "c92af1c673b3435c2242c6dcd5a2058a6d92a3f4a397b3bfba4242192afd2204",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/es_MX/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "c92af1c673b3435c2242c6dcd5a2058a6d92a3f4a397b3bfba4242192afd2204",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/es_MX/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "c92af1c673b3435c2242c6dcd5a2058a6d92a3f4a397b3bfba4242192afd2204",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/es_MX/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "cc2db1ce3e4795415e05827ad2f896e9bc0fa49385f94e8871ca67414ed6364d",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/es_MX/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "990968d385242f00e6a943572ca2e99ada561ed2172bc4ee1c6a4d2794778101",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/eu_ES/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "c0dbf53fa88f54812a4243baf257e7543b8f6d929cbe21f74ae61e57cccd732d",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/eu_ES/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "d7fff690a71c7ce738ac9b0c7271c40150b53713d856caf855b72e8b73b9b7e6",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/eu_ES/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "d7fff690a71c7ce738ac9b0c7271c40150b53713d856caf855b72e8b73b9b7e6",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/eu_ES/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "d7fff690a71c7ce738ac9b0c7271c40150b53713d856caf855b72e8b73b9b7e6",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/eu_ES/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "9fb53bfdaea1460da0743ebf2092e806b809a912c6efd709598c9fc89a769b1a",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/eu_ES/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "13b5ccdd8822ec1f815a0df842a969403c8fea9e81334b640ba87ae1a0d208e3",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/fi_FI/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "d39048e6e745af2da2264a998fb15ee8d8f04d2026b9576cf782899b6fc96d33",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/fi_FI/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "92775c4195594c800ec02162096fb580cfbf7a62750de596123b643d8dbbee52",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/fi_FI/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "92775c4195594c800ec02162096fb580cfbf7a62750de596123b643d8dbbee52",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/fi_FI/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "92775c4195594c800ec02162096fb580cfbf7a62750de596123b643d8dbbee52",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/fi_FI/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "6c1013ca8b04048ff921c3ca9cc0f3936d76ef45726ac24e68efc09cffae8d3b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/fi_FI/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "97ff87412968fafacd7fb1a74ff1376917c91342fe492105acf16c0602b34cdc",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "848dc7f9985834b388cb12930e4e62bb034b8bf5b05b1700d6c0de3b0ad11722",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e1746cd885ce3117790bb179a0f089e38cc989f056069cf8b378fb90d90ff9ed",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e1746cd885ce3117790bb179a0f089e38cc989f056069cf8b378fb90d90ff9ed",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e1746cd885ce3117790bb179a0f089e38cc989f056069cf8b378fb90d90ff9ed",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "811e2077eca63a8800f59647793571d13e579a7f42f693051854effa6424ed62",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "2cbfa6f11675b1ea581ae7ff61c2737db3555c20d428eca0f84b0d8135205250",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/gl_ES/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "02eacd4af4d2c67bc1aff10c944cdb38fa36930a8ecb074ed1c285edded91850",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/gl_ES/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "694160af6c80970ed76377fe44c81667e1cf6ae0fba4925604f01780d670d35b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/gl_ES/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "694160af6c80970ed76377fe44c81667e1cf6ae0fba4925604f01780d670d35b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/gl_ES/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "694160af6c80970ed76377fe44c81667e1cf6ae0fba4925604f01780d670d35b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/gl_ES/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "9f575b06e4d979e2d7ae039ba5e54d3eb27a74846e8d7a1ef0b1264e3077c09c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/gl_ES/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "cfa562df9654b1670c9a4d0f5fd0be91fe4c9c29478a9149ac24cc626dfa062c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/he/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "2638acac5f969a97305bd47da917b356c2f85281c25b0eb7581d8dfb50c1ed40",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/he/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "15d36a3b873ba7631c1318e8626c2633a987f2b739fd47da51d8c5f9a54bf313",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/he/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "15d36a3b873ba7631c1318e8626c2633a987f2b739fd47da51d8c5f9a54bf313",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/he/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "15d36a3b873ba7631c1318e8626c2633a987f2b739fd47da51d8c5f9a54bf313",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/he/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e2dda63064f74045108a6bfeae4637ee402deecd52e51cfbacbde8d543bab399",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/he/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "7f0796baec04373498b3133e2f7208585f7410586365c8ae99cff05a915e9302",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/hu/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "18aa6c6be6b0158bf9e77c67f277a958605e3e74f2d33a42204a299133f7887a",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/hu/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "2b1a8852befdc98e8d3f529e53b0780786da3751d22a82b8bab0479a24980d2e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/hu/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "2b1a8852befdc98e8d3f529e53b0780786da3751d22a82b8bab0479a24980d2e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/hu/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "2b1a8852befdc98e8d3f529e53b0780786da3751d22a82b8bab0479a24980d2e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/hu/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e167d6aee5fdd4c1a86e831144d0389f18496be04bb3749f9a6828af2f4bdb12",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/hu/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "67a2fed03da1445b14869e277b51d1b8c6e44b755b07e8a0d3c95d6d6ddda0f0",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/id_ID/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "ab9f8cfb9e2f347fa16ac1648c25845f429d8705b9e32e041aa886ce6277fd80",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/id_ID/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "5c1445b1199d2f8b6809d96799e8a3d1b49c92fcd225e27c0535f2f578077df8",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/id_ID/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "5c1445b1199d2f8b6809d96799e8a3d1b49c92fcd225e27c0535f2f578077df8",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/id_ID/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "5c1445b1199d2f8b6809d96799e8a3d1b49c92fcd225e27c0535f2f578077df8",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/id_ID/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "bb63d7d59d0c1734a05b59ecf332272f659c4c2e63b3a135978c70cdacfa101b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/id_ID/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "788e63b33448d8b8bd785c9b8e015dfbcd13ef2052579786beef7e2242f70780",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/it/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "891bdd7607d5caa1afd87283612b0c36a3e40ab8e44edb1b7ab2b73ced03e9a9",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/it/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "fc00725634114216457c86c6a63c662b5fc9074f04e0b083c85d8dbfadcf56ec",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/it/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "fc00725634114216457c86c6a63c662b5fc9074f04e0b083c85d8dbfadcf56ec",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/it/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "fc00725634114216457c86c6a63c662b5fc9074f04e0b083c85d8dbfadcf56ec",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/it/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "3f633566c1a1909f67b2806c28707fa836423853f95fa1f0fc6104e146fa55bc",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/it/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "2314ae415e17c66443518e120362fd67b07d55907680e9297b1909fbb729a100",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/ja_JP/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "42ff4322d8202c3defa12922a4cc0566427d20a9791d7300b0343c646013389a",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/ja_JP/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "dc69e1a5891deb3f07899055a1628551e2636f58c1d863ad65becdffae20d947",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/ja_JP/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "dc69e1a5891deb3f07899055a1628551e2636f58c1d863ad65becdffae20d947",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/ja_JP/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "dc69e1a5891deb3f07899055a1628551e2636f58c1d863ad65becdffae20d947",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/ja_JP/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "805281226928e9a5e9e8cbcdecce4a44bdc5a3e5764535fbdd068605f729d3c6",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/ja_JP/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "bcc2b6ed1f9c34dd91761ffcbc9fa5007c9c2b891a42c7bda4debbb2fdeeb99f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/ko/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "142fb099df82a7b6e549c497323ed4d3bb4b24ae31c19cc7a4f672c16c1d8160",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/ko/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "21a0aabddaa2639bdfdf547f50f10c4ca76dadb650f10672fe2c81ebb13d3336",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/ko/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "21a0aabddaa2639bdfdf547f50f10c4ca76dadb650f10672fe2c81ebb13d3336",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/ko/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "21a0aabddaa2639bdfdf547f50f10c4ca76dadb650f10672fe2c81ebb13d3336",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/ko/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "afff0033dfb9f828dea28c3c9048dce3e07bd3d2677c3dc46ec8a9a6cbe0e4c4",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/ko/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "d6724b5dc5dd3e2e0f01ef0bbf2d2a2e8869d2bc775df1aa6084d714430a8a2a",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/nb_NO/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "c4db33395e5a6c87f1cb81e772101046f32f70e9987af6e70aae73cf9a0e28b2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/nb_NO/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "5b08e8f7d40cf108844eb97ad14f81be1bfa4a625c7ab228373349eec3c0a62b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/nb_NO/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "5b08e8f7d40cf108844eb97ad14f81be1bfa4a625c7ab228373349eec3c0a62b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/nb_NO/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "5b08e8f7d40cf108844eb97ad14f81be1bfa4a625c7ab228373349eec3c0a62b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/nb_NO/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "dc46c011c268e02a427b08447adf87f684bb6bc1d4bf84ccc51ce90523339b3f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/nb_NO/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "7f3e6536b8073d7f318db72331c6cf2ced05b90e59f6b4e891735f4677aec538",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/nl/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "45c2ad0542e75587f0c3874244c9945214d419fb88dc59e221fcf9b0b8f27708",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/nl/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "f2ea296f72eb181116606f725d9692c98bf016def26795251fa2817a683a418f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/nl/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "f2ea296f72eb181116606f725d9692c98bf016def26795251fa2817a683a418f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/nl/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "f2ea296f72eb181116606f725d9692c98bf016def26795251fa2817a683a418f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/nl/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "28767ed35e27213d959dd374f51b2cfc14a683220797305ff6ebf9e94faa1ce4",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/nl/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "18c81c59f7ee78552c12c84b356e68b07ab463dc83cb1e9217920c3779bc066d",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/nn_NO/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "1002630ec38e4f1188c408ad9a8289bdd73d2b2aa83d19da93119b5a6d0026b1",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/nn_NO/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "d882408f84126a4f6854ccd5c2802b358694b66c5e80386fe405cf88b2f0f694",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/nn_NO/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "d882408f84126a4f6854ccd5c2802b358694b66c5e80386fe405cf88b2f0f694",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/nn_NO/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "d882408f84126a4f6854ccd5c2802b358694b66c5e80386fe405cf88b2f0f694",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/nn_NO/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "19ad6ac716bf1d32b2ab0363a4e84a8b40b857ae82ff6148cce7e5a5c2cf7b79",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/nn_NO/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "6cda61680d31ea1b3fbba93d6134da5329857ee9045e067b933f1f3d51336df1",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/oc_FR/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "5b562d84021bbd9010d3a5377980ede03c97147fed05a670a51bda9ab6b76d08",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/oc_FR/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "820d2cd783ccc4cd6c0506712b9edc05ba43294909e2bbe17cc4fc18df53e5e4",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/oc_FR/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "820d2cd783ccc4cd6c0506712b9edc05ba43294909e2bbe17cc4fc18df53e5e4",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/oc_FR/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "820d2cd783ccc4cd6c0506712b9edc05ba43294909e2bbe17cc4fc18df53e5e4",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/oc_FR/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "327fb2b225c2596c6ada7a19cb530f8d906f47f43d6ab42d3086e628dcba4a22",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/oc_FR/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "aefc503ad49032962951ca939f0ec40b187332e538f026379ff691e36b98353a",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/pl/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "6ca65ec9142b881a5a22a35634b66574f48ddf5fdde2f5f9b41ff3a129451b06",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/pl/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "677a23ddf42fd39c24ea6b1440ccb05e093b6191b5854bef2f25cc5c170998fb",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/pl/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "677a23ddf42fd39c24ea6b1440ccb05e093b6191b5854bef2f25cc5c170998fb",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/pl/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "677a23ddf42fd39c24ea6b1440ccb05e093b6191b5854bef2f25cc5c170998fb",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/pl/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "c1f28fd558878a828ba4f40e74d547be8ce1ee92dd54ed4af9bd625b0a4bf0e5",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/pl/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "f625ae9c609233505d0bb7176902a8a50ea526dcb70a3d0703245c13c88ef640",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/pt_BR/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "16d4bfbc7943f58e43456d11bb2ffd7fdcdc58517bf2771cf5ef60c3e2c98c64",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/pt_BR/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "df9ea77b8d9b028d296ddc750ab76d9a5f2e63f9abea3e63b2c03d5fec59e5d0",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/pt_BR/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "df9ea77b8d9b028d296ddc750ab76d9a5f2e63f9abea3e63b2c03d5fec59e5d0",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/pt_BR/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "df9ea77b8d9b028d296ddc750ab76d9a5f2e63f9abea3e63b2c03d5fec59e5d0",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/pt_BR/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "be6a4e3bd7d721020fc30d8b64bd5b54f29553ad8b29fe9d0b9fdc6b1e008764",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/pt_BR/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "20bd8e43c18ba7ce9c72f0db558a12d0cef7722c8760c3351441eec37723307a",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/pt_PT/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "3a0c2adb9792dc4303efd9e327e8731053f95079febd8a93336b4d9efe62f1b6",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/pt_PT/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "782d816350b2cae932348d4cce75052ab7c86926dc9f9c101255bcddc18d92cb",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/pt_PT/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "782d816350b2cae932348d4cce75052ab7c86926dc9f9c101255bcddc18d92cb",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/pt_PT/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "782d816350b2cae932348d4cce75052ab7c86926dc9f9c101255bcddc18d92cb",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/pt_PT/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "8f94e21f9adca4e9aa8b0ad6447f6ee8db570135e9873436ceccdcc9065d97a5",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/pt_PT/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "1436dcbd6bbb06c627f04d7fc8ae4d73ebb12bb363c58d6b45604e313e81e6ee",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/ro_RO/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "3e7aa7526bc5e7607db454523980483062cc3f9f332016f0d9cf2b7647d3f86b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/ro_RO/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "de8ae7ddedbda5af56fe9a315c59d69aa8f07e5c422a4b98d0926196cebc3324",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/ro_RO/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "de8ae7ddedbda5af56fe9a315c59d69aa8f07e5c422a4b98d0926196cebc3324",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/ro_RO/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "de8ae7ddedbda5af56fe9a315c59d69aa8f07e5c422a4b98d0926196cebc3324",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/ro_RO/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "583a07879cc957272707f096b284ba252a65a03023f471bb7dea07163882f6e9",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/ro_RO/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "7dccfcbe197103b5a846f45eb7ecfcdf8035d35dc1be52bad0a732767ec251b9",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/ru_RU/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "44a218c2ff692eb6fe344d963d0189de6edb3b29cffb174eb2227e655d5e30e3",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/ru_RU/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "a1527a6ce4370c194626da2181178a6edd4bea514b96b28bc25383707b1e1f59",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/ru_RU/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "a1527a6ce4370c194626da2181178a6edd4bea514b96b28bc25383707b1e1f59",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/ru_RU/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "a1527a6ce4370c194626da2181178a6edd4bea514b96b28bc25383707b1e1f59",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/ru_RU/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "3c154c065a5402de54328efeea18c3b009a5b57995b6804d748e7187872de75f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/ru_RU/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "4fc97fd48cefa4d714bf3049097cbf541b9ed91a6cdc4a680a428413b3f73492",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/sk_SK/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "d65557def498ad58d8217990ccdefd909db9df96ffd7c8dd0e33b4e8690129d3",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/sk_SK/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "39b2ec11933f10049423fb567c738990db57b860b568067b009535caf602e1b9",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/sk_SK/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "39b2ec11933f10049423fb567c738990db57b860b568067b009535caf602e1b9",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/sk_SK/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "39b2ec11933f10049423fb567c738990db57b860b568067b009535caf602e1b9",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/sk_SK/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "26e2999487ef2913c026dcea1e416da5b68503b445c8b6f2c29fe8c8b071399b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/sk_SK/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "9c46c66df57a59138003142d5cdee71e6d757e0e72e4921eec9dcbeb3a2825ab",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/sv_SE/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "1bdc2712f925cfaf7fcf010180b05ce0712ea7841369d5523d5986c8e5ecc0b0",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/sv_SE/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "ac7b3a8ae0e136d9a39a898079f4dfbb24489c8092232a88935f6eebf6d234c7",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/sv_SE/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "ac7b3a8ae0e136d9a39a898079f4dfbb24489c8092232a88935f6eebf6d234c7",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/sv_SE/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "ac7b3a8ae0e136d9a39a898079f4dfbb24489c8092232a88935f6eebf6d234c7",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/sv_SE/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "18d49c0b8706454e921358551dca9a82248755d1fbea83120f9355e1856d7774",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/sv_SE/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "ac963f46971446e0d25052a306d19c06304d46d425e4affe4e6d7d6cb64d5efa",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/tr/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "981a6e347f9a36f69f5adf2117ccd589637703ff2fb818bc9cf383fc5de00107",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/tr/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "658b401ce5536959bb9314720d5384a25f7b483dc36b3f7341e88fff1f7bc54c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/tr/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "658b401ce5536959bb9314720d5384a25f7b483dc36b3f7341e88fff1f7bc54c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/tr/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "658b401ce5536959bb9314720d5384a25f7b483dc36b3f7341e88fff1f7bc54c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/tr/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "a862b3949975ef4c5e4935504292b16fc22f9a1f1f467428c233511f22612370",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/tr/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "4822125cdf4776ca943264198c003ee1543a6a91e1879cfe178396149723afd3",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/uk_UA/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "3d964cad262f2e5a7559227378a0d9ffbf20ef769f908eb342cf250c5d1e9a5c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/uk_UA/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "da33d8e55feedd489ec6010a10c2fe9f34fcb6e563b60c084a4eec3e8be160d2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/uk_UA/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "da33d8e55feedd489ec6010a10c2fe9f34fcb6e563b60c084a4eec3e8be160d2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/uk_UA/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "da33d8e55feedd489ec6010a10c2fe9f34fcb6e563b60c084a4eec3e8be160d2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/uk_UA/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "4fd20f2f90b7e138449854f2675bf38b1315b13336b4f30c10040f048e7131a8",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/uk_UA/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "6ea5940e6154ab17938a9de802629efd6e3a14542f24b86f556ba6fad6cc5661",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/vi_VN/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "6c9512c16a8acdd1ce687c2b56625b33b71c1d555aabd57be3260bc5e8325583",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/vi_VN/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "bde67ba8f28769789da8c75a52e4e62807be2c42d6a722493f17a6f51af1c1fc",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/vi_VN/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "bde67ba8f28769789da8c75a52e4e62807be2c42d6a722493f17a6f51af1c1fc",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/vi_VN/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "bde67ba8f28769789da8c75a52e4e62807be2c42d6a722493f17a6f51af1c1fc",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/vi_VN/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "75d61dfd6caf5a3bd26459a11c598a4361300e87d910eb00af3302ad892d6459",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/vi_VN/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "19d831cce5666e2c23a2d5ace77cd1af47dc7d21813baf9e3b5fd554d7ad24ff",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/zh_CN/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "437c9a389a335cc828aff8b6e936c2462da9905bf1d62d0a55e3edfe76c3325b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/zh_CN/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "a332c35e74f00f7774d3375f48473f74e379e8a09097814c7dfc154cf2687735",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/zh_CN/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "a332c35e74f00f7774d3375f48473f74e379e8a09097814c7dfc154cf2687735",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/zh_CN/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "a332c35e74f00f7774d3375f48473f74e379e8a09097814c7dfc154cf2687735",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/zh_CN/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "5e4337431704f6c7189be89dc0fa78e60cb091483505ddda137e83ee545602cf",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/zh_CN/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "f036961bcb2a0d1bf9e353c754a1ba69bfdf996b48ae2e6eb3fab4d6f81ada4e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/zh_TW/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "eafdf99429ebcf7aaa07355e8b524318f22caa135cc2214490681bc10e8c20ca",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/zh_TW/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "b1e0d8b9ddba2803272a6ed1449c98d10444155728c4f4e6c4058e20ca9a17bd",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/zh_TW/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "b1e0d8b9ddba2803272a6ed1449c98d10444155728c4f4e6c4058e20ca9a17bd",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/zh_TW/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "b1e0d8b9ddba2803272a6ed1449c98d10444155728c4f4e6c4058e20ca9a17bd",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "ede4ae1d66ff65fd749e575ee104d047697d8fa3:locale/lang/zh_TW/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "d95dd1e46110a34bd45f5685c123b1511783025a33747d58047f87a97be50eb2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "a1cbc0ccd96cbd95f3355375609f71f1b50c7113:locale/lang/zh_TW/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "d3324bf09e0ddae6947d988618b8403dc0df4fc578f863be878806d1c6c8ecbd",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "cat-file",
+      "-e",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d^{commit}"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "diff",
+      "--name-status",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+      "--",
+      ".",
+      ":(exclude)es-app/**",
+      ":(exclude)es-core/**"
+    ],
+    "rc": 0,
+    "stdout_sha256": "87833962ff32f937ba6cf5bf388cff37793cc373d5afe09f7fa546fa2da8e691",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "diff",
+      "--no-ext-diff",
+      "--no-textconv",
+      "--unified=2",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+      "--",
+      "locale"
+    ],
+    "rc": 0,
+    "stdout_sha256": "05612472ab311857a7d577cedeb5c2a25f49d447cea9e5a02b44b837b3785b3e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "log",
+      "--format=%H %s",
+      "16dbac5211eea7e70db7394372033be2be7df829..55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+      "--",
+      "locale"
+    ],
+    "rc": 0,
+    "stdout_sha256": "ae689a64ff473b0823547b2385f206562f8d458615a7f22d069d6336de047a47",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "merge-base",
+      "--is-ancestor",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d"
+    ],
+    "rc": 0
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d:locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e1746cd885ce3117790bb179a0f089e38cc989f056069cf8b378fb90d90ff9ed",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "diff",
+      "--name-only",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+      "--",
+      "external"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "cat-file",
+      "-e",
+      "3ae9610b0f3fb61d23eb6a2c3459ad19f962e2b1^{commit}"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "diff",
+      "--name-status",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "3ae9610b0f3fb61d23eb6a2c3459ad19f962e2b1",
+      "--",
+      ".",
+      ":(exclude)es-app/**",
+      ":(exclude)es-core/**"
+    ],
+    "rc": 0,
+    "stdout_sha256": "7c9e89d00565f341664f1ada989429f54e4b331d42a287c9734338680f216ffc",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "diff",
+      "--no-ext-diff",
+      "--no-textconv",
+      "--unified=2",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "3ae9610b0f3fb61d23eb6a2c3459ad19f962e2b1",
+      "--",
+      "locale"
+    ],
+    "rc": 0,
+    "stdout_sha256": "c16fd861411360a4b039a9eed9b2a9756d86cdf5f1ef8d5440cf83358328e285",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "log",
+      "--format=%H %s",
+      "16dbac5211eea7e70db7394372033be2be7df829..3ae9610b0f3fb61d23eb6a2c3459ad19f962e2b1",
+      "--",
+      "locale"
+    ],
+    "rc": 0,
+    "stdout_sha256": "97439894fcc1fd68078dbdc71adbf3c3a6f655de7b785fbb7cb19e9644a99248",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "merge-base",
+      "--is-ancestor",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+      "3ae9610b0f3fb61d23eb6a2c3459ad19f962e2b1"
+    ],
+    "rc": 1
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "3ae9610b0f3fb61d23eb6a2c3459ad19f962e2b1:locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "d44e12528725640e42d44d6f0adbd8ef436c4c7683ff93f5afa969655500af13",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "diff",
+      "--name-only",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "3ae9610b0f3fb61d23eb6a2c3459ad19f962e2b1",
+      "--",
+      "external"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "cat-file",
+      "-e",
+      "52f0ff5128cf96bfcdec9082ded75347ecea11e6^{commit}"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "diff",
+      "--name-status",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "52f0ff5128cf96bfcdec9082ded75347ecea11e6",
+      "--",
+      ".",
+      ":(exclude)es-app/**",
+      ":(exclude)es-core/**"
+    ],
+    "rc": 0,
+    "stdout_sha256": "7c9e89d00565f341664f1ada989429f54e4b331d42a287c9734338680f216ffc",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "diff",
+      "--no-ext-diff",
+      "--no-textconv",
+      "--unified=2",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "52f0ff5128cf96bfcdec9082ded75347ecea11e6",
+      "--",
+      "locale"
+    ],
+    "rc": 0,
+    "stdout_sha256": "4919c0c4a553466a27f8bdc84aa4f82b8d1db185f992a11db51f61d7089f1b59",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "log",
+      "--format=%H %s",
+      "16dbac5211eea7e70db7394372033be2be7df829..52f0ff5128cf96bfcdec9082ded75347ecea11e6",
+      "--",
+      "locale"
+    ],
+    "rc": 0,
+    "stdout_sha256": "da942a9c71acff99e39b9040f539f71aec86bb13759277919dbcfe5831954ae2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "merge-base",
+      "--is-ancestor",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+      "52f0ff5128cf96bfcdec9082ded75347ecea11e6"
+    ],
+    "rc": 1
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "52f0ff5128cf96bfcdec9082ded75347ecea11e6:locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "12714f0ca5259b664f7ec603ff185d88bb86e3148d6ce38760597324b787ee2f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "diff",
+      "--name-only",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "52f0ff5128cf96bfcdec9082ded75347ecea11e6",
+      "--",
+      "external"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "cat-file",
+      "-e",
+      "b7fdb3a24c859ce91f9fd381bb0956901b8d23cb^{commit}"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "diff",
+      "--name-status",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "b7fdb3a24c859ce91f9fd381bb0956901b8d23cb",
+      "--",
+      ".",
+      ":(exclude)es-app/**",
+      ":(exclude)es-core/**"
+    ],
+    "rc": 0,
+    "stdout_sha256": "7c9e89d00565f341664f1ada989429f54e4b331d42a287c9734338680f216ffc",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "diff",
+      "--no-ext-diff",
+      "--no-textconv",
+      "--unified=2",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "b7fdb3a24c859ce91f9fd381bb0956901b8d23cb",
+      "--",
+      "locale"
+    ],
+    "rc": 0,
+    "stdout_sha256": "68c14862b7c4c7960e8975de55d6326fa531c40d51741d2d977cec4464a168e0",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "log",
+      "--format=%H %s",
+      "16dbac5211eea7e70db7394372033be2be7df829..b7fdb3a24c859ce91f9fd381bb0956901b8d23cb",
+      "--",
+      "locale"
+    ],
+    "rc": 0,
+    "stdout_sha256": "46d122ef44369d22f0b269f9d33ce3c05f401e6d1b98271ef5414e86990025f1",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "merge-base",
+      "--is-ancestor",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+      "b7fdb3a24c859ce91f9fd381bb0956901b8d23cb"
+    ],
+    "rc": 1
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "b7fdb3a24c859ce91f9fd381bb0956901b8d23cb:locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "f547329a120a5cbd608916161167e128d5817bae55fd3f973181f0105ecaaa29",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "diff",
+      "--name-only",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "b7fdb3a24c859ce91f9fd381bb0956901b8d23cb",
+      "--",
+      "external"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "cat-file",
+      "-e",
+      "9c1bd5f093cfc1ccd42640282226b7b970442ef1^{commit}"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "diff",
+      "--name-status",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "9c1bd5f093cfc1ccd42640282226b7b970442ef1",
+      "--",
+      ".",
+      ":(exclude)es-app/**",
+      ":(exclude)es-core/**"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "diff",
+      "--no-ext-diff",
+      "--no-textconv",
+      "--unified=2",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "9c1bd5f093cfc1ccd42640282226b7b970442ef1",
+      "--",
+      "locale"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "log",
+      "--format=%H %s",
+      "16dbac5211eea7e70db7394372033be2be7df829..9c1bd5f093cfc1ccd42640282226b7b970442ef1",
+      "--",
+      "locale"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "merge-base",
+      "--is-ancestor",
+      "55158d2a64c69fe295fb4e67fd174424a71b1b4d",
+      "9c1bd5f093cfc1ccd42640282226b7b970442ef1"
+    ],
+    "rc": 1
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "9c1bd5f093cfc1ccd42640282226b7b970442ef1:locale/lang/fr/LC_MESSAGES/emulationstation2.po"
+    ],
+    "rc": 0,
+    "stdout_sha256": "b197ed5c800f5d52e6e1cdb3050116df439699d633ac5a00d57ced75615a4e38",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "diff",
+      "--name-only",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "9c1bd5f093cfc1ccd42640282226b7b970442ef1",
+      "--",
+      "external"
+    ],
+    "rc": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "16dbac5211eea7e70db7394372033be2be7df829:external/doctest/doctest.h"
+    ],
+    "rc": 0,
+    "stdout_sha256": "94029a7d32da24a56249658147dbd2b33ff0b9ed665295cbbaf19aafff5b0ced",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "16dbac5211eea7e70db7394372033be2be7df829:external/doctest/doctest.h"
+    ],
+    "rc": 0,
+    "stdout_sha256": "0db7f4e69dc97aead9a39eabf41d2740677ccd74d9e5f8c90083b458baca467f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "log",
+      "-1",
+      "--format=%H %aI %s",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "--",
+      "external/doctest/doctest.h"
+    ],
+    "rc": 0,
+    "stdout_sha256": "07a1e8225185870f623d04f58ebaf1b9b31491dd309a88a27649ed66009418d3",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "16dbac5211eea7e70db7394372033be2be7df829:external/libcheevos/rcheevos/src/rc_version.h"
+    ],
+    "rc": 0,
+    "stdout_sha256": "73bab746178630f6e9fdce6303ed6ac603e40d511858d4dcae3b5c982e26bc25",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "16dbac5211eea7e70db7394372033be2be7df829:external/libcheevos/rcheevos/src/rc_version.h"
+    ],
+    "rc": 0,
+    "stdout_sha256": "f8d1fdb316930b05ee437a29fb7cfb369c17d4ccbe5a6b11980e98708d7a130b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "log",
+      "-1",
+      "--format=%H %aI %s",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "--",
+      "external/libcheevos/rcheevos/src/rc_version.h"
+    ],
+    "rc": 0,
+    "stdout_sha256": "0852f2f0ede9255625d56f756b9b24724e6153558cd37cb3f4803233b5212d12",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "16dbac5211eea7e70db7394372033be2be7df829:external/libcheevos/rcheevos/src/rcheevos/rc_version.h"
+    ],
+    "rc": 0,
+    "stdout_sha256": "4bb00071cbcc7a776c807ea99a20e1822b178384134746de4e20eda524a0e551",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "16dbac5211eea7e70db7394372033be2be7df829:external/libcheevos/rcheevos/src/rcheevos/rc_version.h"
+    ],
+    "rc": 0,
+    "stdout_sha256": "88ca6d74261860782031b787ac27a064d5118f557bf96bee118df3d55ef6e049",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "log",
+      "-1",
+      "--format=%H %aI %s",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "--",
+      "external/libcheevos/rcheevos/src/rcheevos/rc_version.h"
+    ],
+    "rc": 0,
+    "stdout_sha256": "37f1ec2810587720b8bc2b9c5e970ab1362aa6ff533cc60064d393d812443563",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "16dbac5211eea7e70db7394372033be2be7df829:external/libcheevos/rcheevos/CHANGELOG.md"
+    ],
+    "rc": 0,
+    "stdout_sha256": "70ad1b439d1d90fde0124f9611622b10970b03e15875853cc3ba61cc8d76f152",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "16dbac5211eea7e70db7394372033be2be7df829:external/libcheevos/rcheevos/CHANGELOG.md"
+    ],
+    "rc": 0,
+    "stdout_sha256": "319b28c3751a674fc8ff02f3ad0b7ec3e8f7378b6b507fb841955065910bc938",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "log",
+      "-1",
+      "--format=%H %aI %s",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "--",
+      "external/libcheevos/rcheevos/CHANGELOG.md"
+    ],
+    "rc": 0,
+    "stdout_sha256": "0852f2f0ede9255625d56f756b9b24724e6153558cd37cb3f4803233b5212d12",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "16dbac5211eea7e70db7394372033be2be7df829:external/id3v2lib/CMakeLists.txt"
+    ],
+    "rc": 0,
+    "stdout_sha256": "0b6bea218d89b98800ebf2f5a5aaf10533a50a9239ee238b9e9b7682273b3c03",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "16dbac5211eea7e70db7394372033be2be7df829:external/id3v2lib/CMakeLists.txt"
+    ],
+    "rc": 0,
+    "stdout_sha256": "24579ff3a8de8580677c6b1ba8dba340519dad353f76ddac4766fc92eab02296",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "log",
+      "-1",
+      "--format=%H %aI %s",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "--",
+      "external/id3v2lib/CMakeLists.txt"
+    ],
+    "rc": 0,
+    "stdout_sha256": "54f43c1b63df8965f2414ba21ef02b50b06014770f758b6792a151ddb5e4fd10",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "16dbac5211eea7e70db7394372033be2be7df829:external/nanosvg/nanosvg.h"
+    ],
+    "rc": 0,
+    "stdout_sha256": "3ea128531e6e05e0fba5f11cc646aab8fdf7bb73f8d58494a4087aafc38643ff",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "16dbac5211eea7e70db7394372033be2be7df829:external/nanosvg/nanosvg.h"
+    ],
+    "rc": 0,
+    "stdout_sha256": "64252323679d15daf939b3f152b1108dafe411445daa15d917af5303d0e522d5",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "log",
+      "-1",
+      "--format=%H %aI %s",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "--",
+      "external/nanosvg/nanosvg.h"
+    ],
+    "rc": 0,
+    "stdout_sha256": "cd841d4159aceb2457d444b9c2f84ffd2253f127d0de85b5171e0555b57eea3d",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "16dbac5211eea7e70db7394372033be2be7df829:external/libcheevos/libretro-common/src/7zip/7zVersion.h"
+    ],
+    "rc": 0,
+    "stdout_sha256": "93a08d32277fb672e833aedbbf19aadbfd09a9a67b0167ac0c8f49443e682534",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "16dbac5211eea7e70db7394372033be2be7df829:external/libcheevos/libretro-common/src/7zip/7zVersion.h"
+    ],
+    "rc": 0,
+    "stdout_sha256": "dec7ed29e627a836f0a7408b517be173ced431f991f70e7bb5dc3e3fad9f521d",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "log",
+      "-1",
+      "--format=%H %aI %s",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "--",
+      "external/libcheevos/libretro-common/src/7zip/7zVersion.h"
+    ],
+    "rc": 0,
+    "stdout_sha256": "09cec2d0259c1e90e39df43f34cb9631e8c097f65d882dc28d9a0eb32380ea5b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "16dbac5211eea7e70db7394372033be2be7df829:.gitmodules"
+    ],
+    "rc": 0,
+    "stdout_sha256": "b2527aa77642e378b73c546f499ede03071d73b4bc62d95df864da2f7d219a0f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "16dbac5211eea7e70db7394372033be2be7df829:.gitmodules"
+    ],
+    "rc": 0,
+    "stdout_sha256": "74c3843f29b771925517f662b73a5e3aee7c9fca7d18503b80d8956326d959fc",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "log",
+      "-1",
+      "--format=%H %aI %s",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "--",
+      ".gitmodules"
+    ],
+    "rc": 0,
+    "stdout_sha256": "f898998ca1a89f95ae3f38ed05d1da794d4cd9d87dcbdaad9de2876b453e6e1c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "16dbac5211eea7e70db7394372033be2be7df829:external/CMakeLists.txt"
+    ],
+    "rc": 0,
+    "stdout_sha256": "980a44bd539736cc6addd771127f641e2d345b46d1d81e3380e9e0d5ae100043",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "rev-parse",
+      "16dbac5211eea7e70db7394372033be2be7df829:external/CMakeLists.txt"
+    ],
+    "rc": 0,
+    "stdout_sha256": "5b1584e6e5bfd22109eda6916f5198dad82c83bd2dfd6ff5477e70107f7c558c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "log",
+      "-1",
+      "--format=%H %aI %s",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "--",
+      "external/CMakeLists.txt"
+    ],
+    "rc": 0,
+    "stdout_sha256": "3204f00ed833c8966ce2bf9a2ef9ef6080e667ab9df96107d3e1ce9e04fce44e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "324f9c483d9b4a11249c47888b40fb5cc691be7f:external/doctest/doctest.h"
+    ],
+    "rc": 0,
+    "stdout_sha256": "94029a7d32da24a56249658147dbd2b33ff0b9ed665295cbbaf19aafff5b0ced",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "16dbac5211eea7e70db7394372033be2be7df829:external/doctest/doctest.h"
+    ],
+    "rc": 0,
+    "stdout_sha256": "94029a7d32da24a56249658147dbd2b33ff0b9ed665295cbbaf19aafff5b0ced",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-es-launch-path-649",
+      "show",
+      "7041b0d710363ddac7ae1b047ebae3e182548631:projects/ROCKNIX/packages/ui/emulationstation/package.mk"
+    ],
+    "rc": 0,
+    "stdout_sha256": "1d91f4a72032c67b89c0d986d26b728cf501f11bb9de891c168eb4f3f37d2719",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-es-launch-path-649",
+      "show",
+      "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1:projects/ROCKNIX/packages/ui/emulationstation/package.mk"
+    ],
+    "rc": 0,
+    "stdout_sha256": "1d91f4a72032c67b89c0d986d26b728cf501f11bb9de891c168eb4f3f37d2719",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "ls-tree",
+      "16dbac5211eea7e70db7394372033be2be7df829",
+      "--",
+      "external/pugixml"
+    ],
+    "rc": 0,
+    "stdout_sha256": "7f5c4045db6617a44aeb091dff4b3402244b996183d6797ef204a07d8b97aa50",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

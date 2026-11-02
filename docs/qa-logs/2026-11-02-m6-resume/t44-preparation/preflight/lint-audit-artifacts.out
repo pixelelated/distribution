@@ -1,0 +1,14 @@
+usage: lint-audit-artifacts [-h] [--issue ISSUE] [--repo REPO]
+                            [--phase {pre-issue,resolution}]
+                            folder
+
+positional arguments:
+  folder
+
+options:
+  -h, --help            show this help message and exit
+  --issue ISSUE         audit issue number to check the task list
+  --repo REPO
+  --phase {pre-issue,resolution}
+                        pre-issue validates open review artifacts; default
+                        resolution requires every outcome

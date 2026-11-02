@@ -1,0 +1,1342 @@
+{
+  "api_sources": {
+    "authority": {
+      "body_utf8_sha256": "51efd8f976d5c2d4b21af7037ce577a529b2a2a1d79f2f48d2b606fc87c6bd45",
+      "id": 6589213896,
+      "url": "https://github.com/pixelelated/distribution/issues/693#issuecomment-6589213896"
+    },
+    "backlog": {
+      "body_utf8_sha256": "8e6a54b905e2732dc771c29e0147aa02ee59eef86e080114dfd6d5940464515c",
+      "state": "open",
+      "title": "Backlog: index dated documentation and review rarely linked references",
+      "updated_at": "2026-11-02T17:58:39Z",
+      "url": "https://github.com/pixelelated/distribution/issues/1407"
+    },
+    "issue": {
+      "body_utf8_sha256": "f2366fe65ebd8e432ec117986f105e27608dcf6abbe65b4e44f443c11e61f821",
+      "state": "open",
+      "title": "M6.P2 E339/T46: records: the records",
+      "updated_at": "2026-11-02T21:43:28Z",
+      "url": "https://github.com/pixelelated/distribution/issues/693"
+    }
+  },
+  "checks": {
+    "all_selected_objects_are_blobs": true,
+    "all_survey_paths_resolve_P1_without_decode": true,
+    "inventory_counts_exact": true,
+    "raw_metadata_diff_matches_two_trees": true,
+    "selectors_and_generator_unchanged": true
+  },
+  "commands": {
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+    "git_argv": [
+      [
+        "git",
+        "show",
+        "2174265e9cc1b248c0fbe27fa101875984d46d6b:docs/reviews/inventory.json"
+      ],
+      [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "2174265e9cc1b248c0fbe27fa101875984d46d6b",
+        "--",
+        "docs/reviews/inventory.json"
+      ],
+      [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+        "--",
+        "docs/reviews/inventory.json"
+      ],
+      [
+        "git",
+        "show",
+        "2174265e9cc1b248c0fbe27fa101875984d46d6b:docs/reviews/areas.json"
+      ],
+      [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "2174265e9cc1b248c0fbe27fa101875984d46d6b",
+        "--",
+        "docs/reviews/areas.json"
+      ],
+      [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+        "--",
+        "docs/reviews/areas.json"
+      ],
+      [
+        "git",
+        "show",
+        "2174265e9cc1b248c0fbe27fa101875984d46d6b:docs/reviews/slices.json"
+      ],
+      [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "2174265e9cc1b248c0fbe27fa101875984d46d6b",
+        "--",
+        "docs/reviews/slices.json"
+      ],
+      [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+        "--",
+        "docs/reviews/slices.json"
+      ],
+      [
+        "git",
+        "show",
+        "2174265e9cc1b248c0fbe27fa101875984d46d6b:tools/renovation-inventory"
+      ],
+      [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "2174265e9cc1b248c0fbe27fa101875984d46d6b",
+        "--",
+        "tools/renovation-inventory"
+      ],
+      [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+        "--",
+        "tools/renovation-inventory"
+      ],
+      [
+        "git",
+        "ls-tree",
+        "-r",
+        "-l",
+        "-z",
+        "2174265e9cc1b248c0fbe27fa101875984d46d6b",
+        "--",
+        "docs/qa-logs",
+        "docs/qa-frames",
+        "docs/audits",
+        "docs/work-logs",
+        "docs/retros",
+        "docs/retrospective",
+        "docs/futros",
+        "research",
+        ".github/sessions",
+        "docs/reviews/inventory.json"
+      ],
+      [
+        "git",
+        "ls-tree",
+        "-r",
+        "-l",
+        "-z",
+        "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+        "--",
+        "docs/qa-logs",
+        "docs/qa-frames",
+        "docs/audits",
+        "docs/work-logs",
+        "docs/retros",
+        "docs/retrospective",
+        "docs/futros",
+        "research",
+        ".github/sessions",
+        "docs/reviews/inventory.json"
+      ],
+      [
+        "git",
+        "diff-tree",
+        "--no-commit-id",
+        "-r",
+        "--raw",
+        "--no-abbrev",
+        "-z",
+        "--no-renames",
+        "2174265e9cc1b248c0fbe27fa101875984d46d6b",
+        "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+        "--",
+        "docs/qa-logs",
+        "docs/qa-frames",
+        "docs/audits",
+        "docs/work-logs",
+        "docs/retros",
+        "docs/retrospective",
+        "docs/futros",
+        "research",
+        ".github/sessions",
+        "docs/reviews/inventory.json"
+      ],
+      [
+        "git",
+        "rev-parse",
+        "2174265e9cc1b248c0fbe27fa101875984d46d6b^{commit}"
+      ],
+      [
+        "git",
+        "rev-parse",
+        "2174265e9cc1b248c0fbe27fa101875984d46d6b^{tree}"
+      ],
+      [
+        "git",
+        "rev-parse",
+        "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1^{commit}"
+      ],
+      [
+        "git",
+        "rev-parse",
+        "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1^{tree}"
+      ],
+      [
+        "git",
+        "rev-parse",
+        "7994f760fe1f4df6744844e80433bc49295cb94e^{commit}"
+      ],
+      [
+        "git",
+        "rev-parse",
+        "7994f760fe1f4df6744844e80433bc49295cb94e^{tree}"
+      ],
+      [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+        "--",
+        "docs/reviews/README.md"
+      ],
+      [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+        "--",
+        "docs/reviews/order.md"
+      ],
+      [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+        "--",
+        "docs/reviews/plan-for-the-plan.md"
+      ],
+      [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+        "--",
+        "docs/audits/README.md"
+      ],
+      [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+        "--",
+        "docs/retros/README.md"
+      ],
+      [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+        "--",
+        "docs/futros/README.md"
+      ],
+      [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+        "--",
+        "docs/work-logs/INDEX.md"
+      ],
+      [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+        "--",
+        "docs/decision-register.md"
+      ],
+      [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+        "--",
+        ".github/sessions/saved-session-state-feature-m6-renovation-plan-346.md"
+      ],
+      [
+        "git",
+        "ls-tree",
+        "-l",
+        "-z",
+        "7994f760fe1f4df6744844e80433bc49295cb94e",
+        "--",
+        ".github/sessions/saved-session-state-feature-m6-doctrine-reference-686.md"
+      ]
+    ],
+    "not_run": [
+      "renovation-inventory",
+      "renovation-status",
+      "renovation-drift",
+      "accepted controls",
+      "git archive",
+      "git diff --numstat",
+      "source/config evaluation"
+    ],
+    "wrapper": "taskset -c 8-23 python3 /workspace/tmp/m6-t46-t3-20261102-planning/derive-metadata.py"
+  },
+  "cpu_affinity": "8-23, inherited by child commands",
+  "created_at": "2026-11-02T21:54:55.923154+00:00",
+  "delta": {
+    "added": 522,
+    "added_by_subfolder_top25_plus_remainder": {
+      ".github/sessions/archived": {
+        "logical_bytes": 201538,
+        "paths": 3
+      },
+      "docs/audits/2026_10_26-epic-m6-es-state-and-bridge": {
+        "logical_bytes": 83500,
+        "paths": 5
+      },
+      "docs/futros/2026-10-23-m6-interface.md": {
+        "logical_bytes": 164146,
+        "paths": 1
+      },
+      "docs/futros/2026-10-23-m6-os-scripts-and-launch.md": {
+        "logical_bytes": 30461,
+        "paths": 1
+      },
+      "docs/futros/2026-10-24-m6-build-engine.md": {
+        "logical_bytes": 29493,
+        "paths": 1
+      },
+      "docs/futros/2026-10-24-m6-doctrine.md": {
+        "logical_bytes": 59905,
+        "paths": 1
+      },
+      "docs/futros/2026-10-24-m6-emulators-and-cores.md": {
+        "logical_bytes": 39187,
+        "paths": 1
+      },
+      "docs/futros/2026-10-24-m6-generic-packages.md": {
+        "logical_bytes": 34096,
+        "paths": 1
+      },
+      "docs/futros/2026-10-24-m6-tooling-and-guards.md": {
+        "logical_bytes": 57827,
+        "paths": 1
+      },
+      "docs/futros/2026-10-25-m6-cloud-sync-and-saves.md": {
+        "logical_bytes": 22010,
+        "paths": 1
+      },
+      "docs/futros/2026-10-25-m6-devices.md": {
+        "logical_bytes": 23305,
+        "paths": 1
+      },
+      "docs/futros/2026-10-25-m6-patches-and-configs.md": {
+        "logical_bytes": 22049,
+        "paths": 1
+      },
+      "docs/futros/2026-10-26-m6-offline-achievements.md": {
+        "logical_bytes": 14458,
+        "paths": 1
+      },
+      "docs/qa-logs/2026-10-22-argon-audit-lint-638": {
+        "logical_bytes": 3662,
+        "paths": 3
+      },
+      "docs/qa-logs/2026-10-22-argon-audit-route-638": {
+        "logical_bytes": 42240,
+        "paths": 14
+      },
+      "docs/qa-logs/2026-10-22-review-filter-636": {
+        "logical_bytes": 25616,
+        "paths": 13
+      },
+      "docs/qa-logs/2026-10-24-lint-local-epic": {
+        "logical_bytes": 1869,
+        "paths": 1
+      },
+      "docs/qa-logs/2026-10-31-lint-held": {
+        "logical_bytes": 20614,
+        "paths": 2
+      },
+      "docs/qa-logs/2026-11-02-m6-resume": {
+        "logical_bytes": 34361042,
+        "paths": 455
+      },
+      "docs/retros/2026-10-26-m6-coordinator.md": {
+        "logical_bytes": 14680,
+        "paths": 1
+      },
+      "docs/retros/2026-11-01-m6-coordinator.md": {
+        "logical_bytes": 18991,
+        "paths": 1
+      },
+      "docs/work-logs/2026_10-work_logs": {
+        "logical_bytes": 608501,
+        "paths": 11
+      },
+      "docs/work-logs/2026_11-work_logs": {
+        "logical_bytes": 122377,
+        "paths": 2
+      }
+    },
+    "blob_changed": 3,
+    "changed": 3,
+    "changed_paths": [
+      {
+        "P1": {
+          "blob": "c6fdcdd3bc7701765fa3bbf9dbb4a414078e067c",
+          "bytes": 9287,
+          "mode": "100644",
+          "type": "blob"
+        },
+        "coordinator": {
+          "blob": "e227602db6f6e990b1d181299409b49e9dc04976",
+          "bytes": 6762,
+          "mode": "100644",
+          "type": "blob"
+        },
+        "path": ".github/sessions/saved-session-state-feature-m6-renovation-plan-346.md"
+      },
+      {
+        "P1": {
+          "blob": "1a971ac39f12a5ed37393a3a7a051537c10e91a4",
+          "bytes": 21465,
+          "mode": "100644",
+          "type": "blob"
+        },
+        "coordinator": {
+          "blob": "db1042ec7a191fcf6fddcbbb212c221ecb0b9b4b",
+          "bytes": 59423,
+          "mode": "100644",
+          "type": "blob"
+        },
+        "path": "docs/work-logs/2026_10-work_logs/2026_10_23-work_log.md"
+      },
+      {
+        "P1": {
+          "blob": "6390534d4940459367a4cab06dec139b7644e526",
+          "bytes": 123674,
+          "mode": "100644",
+          "type": "blob"
+        },
+        "coordinator": {
+          "blob": "2598315a4af5ae8ed2c382ffa7b07f0c60598a39",
+          "bytes": 164129,
+          "mode": "100644",
+          "type": "blob"
+        },
+        "path": "docs/work-logs/INDEX.md"
+      }
+    ],
+    "deleted": 2,
+    "deleted_metadata_sha256": "a7db15ecb2f8e97beeb0f2c84dd758420937072be171a5d67894c29dad72bd8f",
+    "deletion_note": "Two existing deletions under research/council-runs/verification have credential-labelled filenames. Only path/mode/blob/size metadata observed; no content read/recovery, exported path list or proposed cleanup.",
+    "logical_byte_delta": 36077325,
+    "mode_changed": 0,
+    "raw_diff_matches_tree_comparison": true,
+    "raw_diff_sha256": "d5f951839720859ac4651a9740adde492e09f520a26fa763382af8a899a6a70f",
+    "rename_detection": false,
+    "unchanged": 126145
+  },
+  "derivation_script_sha256": "1eea99da03a27a158fc987677618b4b0de0ee55e27356cca233792b6b0583d94",
+  "entrypoints": [
+    {
+      "blob": "e0d2de71d89ffbdf49ee8d9f6b7b7e902a8858f0",
+      "bytes": 10994,
+      "mode": "100644",
+      "path": "docs/reviews/README.md",
+      "read_scope": "1-45; ownership and inventory conventions",
+      "ref": "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+      "type": "blob"
+    },
+    {
+      "blob": "07a9ae945c6d486e3bcf1460b63dfba702b50856",
+      "bytes": 80983,
+      "mode": "100644",
+      "path": "docs/reviews/order.md",
+      "read_scope": "1-29; 673-681 T39; 743-751 T46",
+      "ref": "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+      "type": "blob"
+    },
+    {
+      "blob": "f48d2e4f3bf90f066feb5e687d1a8d1af7b8a77c",
+      "bytes": 47208,
+      "mode": "100644",
+      "path": "docs/reviews/plan-for-the-plan.md",
+      "read_scope": "sections 5, 6b, 7, 8 and 9",
+      "ref": "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+      "type": "blob"
+    },
+    {
+      "blob": "129a331b82383350e4878f8e7bec91f7e53851b1",
+      "bytes": 666,
+      "mode": "100644",
+      "path": "docs/audits/README.md",
+      "read_scope": "all 20 lines; placement convention",
+      "ref": "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+      "type": "blob"
+    },
+    {
+      "blob": "471d76cf690b1154990c1720e3055f16babe1827",
+      "bytes": 204,
+      "mode": "100644",
+      "path": "docs/retros/README.md",
+      "read_scope": "all 3 lines; placement convention",
+      "ref": "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+      "type": "blob"
+    },
+    {
+      "blob": "6fc187b52be03521cb2262e561dc3f5cd1ae8155",
+      "bytes": 194,
+      "mode": "100644",
+      "path": "docs/futros/README.md",
+      "read_scope": "all 3 lines; placement convention",
+      "ref": "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+      "type": "blob"
+    },
+    {
+      "blob": "2598315a4af5ae8ed2c382ffa7b07f0c60598a39",
+      "bytes": 164129,
+      "mode": "100644",
+      "path": "docs/work-logs/INDEX.md",
+      "read_scope": "1-45; generated-index convention/current month; no day-file body sweep",
+      "ref": "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+      "type": "blob"
+    },
+    {
+      "blob": "ba29f8a512baef6eb73b7b7cecbdaf95b333f73f",
+      "bytes": 645768,
+      "mode": "100644",
+      "path": "docs/decision-register.md",
+      "read_scope": "D-WORKFLOW-223 and D-WORKFLOW-224 only",
+      "ref": "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+      "type": "blob"
+    },
+    {
+      "blob": "e227602db6f6e990b1d181299409b49e9dc04976",
+      "bytes": 6762,
+      "mode": "100644",
+      "path": ".github/sessions/saved-session-state-feature-m6-renovation-plan-346.md",
+      "read_scope": "current short pointer; named accepted T39 source/completion",
+      "ref": "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+      "type": "blob"
+    },
+    {
+      "blob": "91859063e40d341dcee909262fac64aefe4538f6",
+      "bytes": 27614,
+      "mode": "100644",
+      "path": ".github/sessions/saved-session-state-feature-m6-doctrine-reference-686.md",
+      "read_scope": "Current focus and completion boundary; historical commands not executed",
+      "ref": "7994f760fe1f4df6744844e80433bc49295cb94e",
+      "type": "blob"
+    }
+  ],
+  "frozen_metadata": {
+    "P1": {
+      "canonical_metadata_sha256": "2d1f67803b5bdc0409b0d4d6693fdb76abda8558d161ffd7c6d2eba5762b2313",
+      "git_types": {
+        "blob": 126150
+      },
+      "logical_bytes": 2137588288,
+      "modes": {
+        "100644": 96707,
+        "100755": 29443
+      },
+      "paths": 126150,
+      "raw_ls_tree_sha256": "e9116491df36a939e0cc1c50127c031ebeace88e362c0070deff9ca99600b6f2",
+      "unique_blob_logical_bytes": 1032903648,
+      "unique_blobs": 37343
+    },
+    "by_filename_suffix_top25_plus_remainder": {
+      "(no suffix)": {
+        "added": 14,
+        "c_bytes": 752225156,
+        "c_paths": 34383,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 752191449,
+        "p1_paths": 34369
+      },
+      "(remaining 79 groups)": {
+        "added": 68,
+        "c_bytes": 48266445,
+        "c_paths": 1598,
+        "changed": 0,
+        "deleted": 2,
+        "p1_bytes": 32609213,
+        "p1_paths": 1532
+      },
+      ".conf": {
+        "added": 0,
+        "c_bytes": 7682521,
+        "c_paths": 4122,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 7682521,
+        "p1_paths": 4122
+      },
+      ".defaults": {
+        "added": 0,
+        "c_bytes": 8059267,
+        "c_paths": 1606,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 8059267,
+        "p1_paths": 1606
+      },
+      ".err": {
+        "added": 9,
+        "c_bytes": 2,
+        "c_paths": 385,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 2,
+        "p1_paths": 376
+      },
+      ".exit-sync": {
+        "added": 0,
+        "c_bytes": 10235,
+        "c_paths": 445,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 10235,
+        "p1_paths": 445
+      },
+      ".gb": {
+        "added": 0,
+        "c_bytes": 138849,
+        "c_paths": 413,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 138849,
+        "p1_paths": 413
+      },
+      ".gz": {
+        "added": 16,
+        "c_bytes": 271910934,
+        "c_paths": 1264,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 271873626,
+        "p1_paths": 1248
+      },
+      ".json": {
+        "added": 177,
+        "c_bytes": 314741099,
+        "c_paths": 22183,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 297950513,
+        "p1_paths": 22006
+      },
+      ".lock": {
+        "added": 0,
+        "c_bytes": 0,
+        "c_paths": 904,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 0,
+        "p1_paths": 904
+      },
+      ".log": {
+        "added": 0,
+        "c_bytes": 75567574,
+        "c_paths": 19567,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 75567574,
+        "p1_paths": 19567
+      },
+      ".md": {
+        "added": 62,
+        "c_bytes": 58695369,
+        "c_paths": 2415,
+        "changed": 3,
+        "deleted": 0,
+        "p1_bytes": 56873256,
+        "p1_paths": 2353
+      },
+      ".path": {
+        "added": 0,
+        "c_bytes": 32581,
+        "c_paths": 337,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 32581,
+        "p1_paths": 337
+      },
+      ".pid": {
+        "added": 0,
+        "c_bytes": 10396,
+        "c_paths": 1343,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 10396,
+        "p1_paths": 1343
+      },
+      ".png": {
+        "added": 0,
+        "c_bytes": 600279930,
+        "c_paths": 7092,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 600279930,
+        "p1_paths": 7092
+      },
+      ".py": {
+        "added": 70,
+        "c_bytes": 15446875,
+        "c_paths": 3548,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 14582181,
+        "p1_paths": 3478
+      },
+      ".rc": {
+        "added": 2,
+        "c_bytes": 21242,
+        "c_paths": 10610,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 21238,
+        "p1_paths": 10608
+      },
+      ".sh": {
+        "added": 17,
+        "c_bytes": 4402202,
+        "c_paths": 1979,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 4024019,
+        "p1_paths": 1962
+      },
+      ".sha256": {
+        "added": 3,
+        "c_bytes": 3008662,
+        "c_paths": 622,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 2821174,
+        "p1_paths": 619
+      },
+      ".srm": {
+        "added": 0,
+        "c_bytes": 57130,
+        "c_paths": 2725,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 57130,
+        "p1_paths": 2725
+      },
+      ".start": {
+        "added": 0,
+        "c_bytes": 11979,
+        "c_paths": 427,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 11979,
+        "p1_paths": 427
+      },
+      ".status": {
+        "added": 0,
+        "c_bytes": 826437,
+        "c_paths": 982,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 826437,
+        "p1_paths": 982
+      },
+      ".stderr": {
+        "added": 22,
+        "c_bytes": 340665,
+        "c_paths": 1019,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 340665,
+        "p1_paths": 997
+      },
+      ".stdout": {
+        "added": 24,
+        "c_bytes": 1145597,
+        "c_paths": 1006,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 1020206,
+        "p1_paths": 982
+      },
+      ".steps": {
+        "added": 0,
+        "c_bytes": 187252,
+        "c_paths": 976,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 187252,
+        "p1_paths": 976
+      },
+      ".txt": {
+        "added": 38,
+        "c_bytes": 10597214,
+        "c_paths": 4719,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 10416595,
+        "p1_paths": 4681
+      }
+    },
+    "by_folder": {
+      ".github/sessions": {
+        "added": 3,
+        "c_bytes": 6070426,
+        "c_paths": 356,
+        "changed": 1,
+        "deleted": 0,
+        "p1_bytes": 5871413,
+        "p1_paths": 353
+      },
+      "docs/audits": {
+        "added": 5,
+        "c_bytes": 865462622,
+        "c_paths": 59693,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 865379122,
+        "p1_paths": 59688
+      },
+      "docs/futros": {
+        "added": 11,
+        "c_bytes": 539514,
+        "c_paths": 17,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 42577,
+        "p1_paths": 6
+      },
+      "docs/qa-frames": {
+        "added": 0,
+        "c_bytes": 45454208,
+        "c_paths": 970,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 45454208,
+        "p1_paths": 970
+      },
+      "docs/qa-logs": {
+        "added": 488,
+        "c_bytes": 1195841646,
+        "c_paths": 64815,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 1161386603,
+        "p1_paths": 64327
+      },
+      "docs/retros": {
+        "added": 2,
+        "c_bytes": 75531,
+        "c_paths": 8,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 41860,
+        "p1_paths": 6
+      },
+      "docs/retrospective": {
+        "added": 0,
+        "c_bytes": 992,
+        "c_paths": 1,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 992,
+        "p1_paths": 1
+      },
+      "docs/reviews": {
+        "added": 0,
+        "c_bytes": 33229468,
+        "c_paths": 1,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 33229468,
+        "p1_paths": 1
+      },
+      "docs/work-logs": {
+        "added": 13,
+        "c_bytes": 3104518,
+        "c_paths": 94,
+        "changed": 2,
+        "deleted": 0,
+        "p1_bytes": 2295227,
+        "p1_paths": 81
+      },
+      "research/council-runs": {
+        "added": 0,
+        "c_bytes": 23743238,
+        "c_paths": 658,
+        "changed": 0,
+        "deleted": 2,
+        "p1_bytes": 23743368,
+        "p1_paths": 660
+      },
+      "research/preliminary-reviews": {
+        "added": 0,
+        "c_bytes": 92862,
+        "c_paths": 24,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 92862,
+        "p1_paths": 24
+      },
+      "research/seat-probes": {
+        "added": 0,
+        "c_bytes": 50588,
+        "c_paths": 33,
+        "changed": 0,
+        "deleted": 0,
+        "p1_bytes": 50588,
+        "p1_paths": 33
+      }
+    },
+    "canonical_encoding": "sort by raw path bytes; each entry path NUL mode NUL type NUL blob_oid NUL decimal_size NUL; SHA256 concatenation. Raw digest covers exact ls-tree -r -l -z output for ordered ROOTS.",
+    "coordinator": {
+      "canonical_metadata_sha256": "682fd3e788257e60f8cfb50ba4b0132a52db6fa7bdfdc6a5e8f3ae4fa570c1b8",
+      "git_types": {
+        "blob": 126670
+      },
+      "logical_bytes": 2173665613,
+      "modes": {
+        "100644": 97225,
+        "100755": 29445
+      },
+      "paths": 126670,
+      "raw_ls_tree_sha256": "a5080d8cf9218a60e7885e5f2f3abd55c417f647350f9ad78a76bc0f11b4c0d3",
+      "unique_blob_logical_bytes": 1068422827,
+      "unique_blobs": 37761
+    }
+  },
+  "future_inputs_not_decisions": [
+    "Compact binding option: pin inventory/areas/slices blobs and source commits; retain the survey path-set digest and frozen metadata digests with the stated NUL-safe encoding. Root chooses whether original survey or integrated additions form final membership.",
+    "Keep stored survey, later P1 additions and frozen coordinator delta separate. Use fixed input commits before output generation. This preparation does not regenerate inventory/order or receipt programs.",
+    "Avoid recursive self-counting: prior inventory self-row is historical (134637 stored lines); new report output stays outside the measured input tree. Bind a future census to its input commit rather than its own output. Label generated indexes without silently excluding their paths.",
+    "Candidate substantive reader routes: reviews README to plan/order and source maps, audit/retro/futro conventions, generated work-log index to selected days, and current coordinator/producer pointers. Root selects paths and acceptance criteria; this is not a link or factual-currency audit.",
+    "Metadata now measures paths/modes, inventory language/line totals, logical bytes, unique blobs, frozen additions/deletions/changes and group distributions. Suffixes label filenames, not semantic purpose.",
+    "Later authorized proof is needed for reader use/value, currency versus history, path/anchor/line-citation resolution, full integrated population, packed/disk costs and runtime costs. Repeated blob references or large byte totals are not retirement evidence.",
+    "#1407 owns monthly-index organization and individual rarely linked reference dispositions, preserving dates/content, provenance and caller/anchor/line mappings. Future T46 ownership must not duplicate completed T39 corrections or preempt the backlog."
+  ],
+  "identity": {
+    "basis": "actual harness identity recovered in this session; not provider attestation",
+    "effort_label": "xhigh",
+    "harness": "Codex",
+    "lane": "m6-t3-emulators",
+    "model_label": "GPT-6-Astra",
+    "pane": "wN:p6",
+    "recipient": "m6-coordinator wN:p2",
+    "session": "01a19d12-29e3-7fe0-9f41-038dac0a5deb"
+  },
+  "immutable_input_files": {
+    "docs/reviews/areas.json": {
+      "blob": "ed033ea67c1ed0d147afbfcf1ab691aa46a5d8aa",
+      "bytes": 4975,
+      "identical_at_both_pins": true,
+      "mode": "100644",
+      "path": "docs/reviews/areas.json",
+      "sha256": "985f742cfd4a2138339f1ed41bd5f5f9e3755fe69b309ff3ddb10d1466fced90",
+      "type": "blob"
+    },
+    "docs/reviews/inventory.json": {
+      "blob": "9133125cd2d28180aafdfda79668241943bf9e3d",
+      "bytes": 33229468,
+      "identical_at_both_pins": true,
+      "mode": "100644",
+      "path": "docs/reviews/inventory.json",
+      "sha256": "d17b9cac4b2c2245b7d924036a9402b2cfd066811a7ea3fc7502a380418cb2fc",
+      "type": "blob"
+    },
+    "docs/reviews/slices.json": {
+      "blob": "e64965a5493ebd1da3829069e98a845a96de5b26",
+      "bytes": 52223,
+      "identical_at_both_pins": true,
+      "mode": "100644",
+      "path": "docs/reviews/slices.json",
+      "sha256": "49bc2745664e52f4abb9037746d003fab54e21fde74f6308a81bf20ed00f12c6",
+      "type": "blob"
+    },
+    "tools/renovation-inventory": {
+      "blob": "af18e40cf8cb75496e7bb00b4059daed4792c94a",
+      "bytes": 85435,
+      "identical_at_both_pins": true,
+      "mode": "100755",
+      "path": "tools/renovation-inventory",
+      "sha256": "e3d2cbc8743e328e20a2b9ca10b8bf2264efd5d25bdecb8e0bd3bb306117bf0b",
+      "type": "blob"
+    }
+  },
+  "limits": [
+    "Only new private report scratch is written; no repository/tracker/kit edit, commit, push, merge, checkout, tree export, live worktree scan, cleanup or final membership recut.",
+    "No audit-log body sweep, held/private directory or credential-content read, host/cache/process inspection, runtime/build/guest, fetch/provider/device/cloud action, accepted replay or permission answer.",
+    "Complete metadata path lists exist only in memory. No 120000 symlinks or 160000 gitlinks in either frozen selected set; no target resolution or broad Markdown link traversal.",
+    "Coordinator snapshot is not the integrated final tree. Accepted T39/T41 references are not inferred merged content. No lane-branch union measured.",
+    "Inventory is hosted at P1 but describes eb4763e3cc9bcd729830cd85f1719bbd4f28db10. Stored lines, languages and reach are survey facts; not new source semantic or execution findings.",
+    "Logical bytes and unique-blob logical bytes do not measure pack/disk use, compression, runtime cost or attainable deletion savings.",
+    "Plan/register/reviews README context paths outside records remain context, not added members. Generated inventory and work-log index remain members; source links remain separate and untraversed.",
+    "T39 completed corrections remain complete. D223/D224 and #1407 reserve later monthly indexing and individual Q5 disposition: 33 documents/2770 lines, 32 T39 scope plus one table-only plan. Low links are not nonuse.",
+    "T46 stays last. Root retains scope, final baseline/membership, brief, criteria, dispatch, dispositions and integration. Frozen pointer state text cannot substitute for live root scheduling."
+  ],
+  "pins": {
+    "P1": "2174265e9cc1b248c0fbe27fa101875984d46d6b",
+    "T39_accepted_source": "4eb5dfab8e745914a55e7de3e5a43c5b91ebc608",
+    "T39_completion": "7994f760fe1f4df6744844e80433bc49295cb94e",
+    "T41_accepted_source_unchanged": "e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0",
+    "T41_completion_unchanged": "83304388db49e24231158380910067c47ead3f12",
+    "coordinator_frozen": "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1",
+    "inventory_distribution_source": "eb4763e3cc9bcd729830cd85f1719bbd4f28db10",
+    "inventory_generation_fields": {
+      "generated": "2026-10-23T02:20:48Z"
+    },
+    "root_trees": {
+      "2174265e9cc1b248c0fbe27fa101875984d46d6b": "cfda7cb901a9e628af5d5839ec0302cc7a91244a",
+      "7994f760fe1f4df6744844e80433bc49295cb94e": "d68c747e20079cb7480d4d8ab27ea2edb6f5a884",
+      "92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1": "2868d1db6e0a8171a9cd988d98ad2f8de382f67d"
+    }
+  },
+  "purpose": "Bounded T3 T46 #693 planning inputs; not an execution baseline, audit, final population recut, brief or disposition",
+  "reconciliation": {
+    "P1_outside_survey": 1,
+    "P1_outside_survey_paths": [
+      "docs/retros/2026-10-23-m6-p1-survey.md"
+    ],
+    "coordinator_outside_survey": 523,
+    "equation": "126149 survey +1 later P1 retro =126150 P1; +522 adds -2 deletions =126670 coordinator. 3 changes do not change path count. Coordinator retained survey=126147, outside survey=523.",
+    "survey_absent_P1": 0,
+    "survey_absent_coordinator": 2
+  },
+  "schema": 1,
+  "selector": {
+    "area": {
+      "area": "records",
+      "epic": null,
+      "globs": [
+        "docs/{qa-logs,qa-frames,audits,work-logs,retros,retrospective,futros}/**",
+        "research/**",
+        ".github/sessions/**",
+        "docs/reviews/inventory.json"
+      ]
+    },
+    "interpretation": "inventory area == records; empty slice selector adds no reach/tier/glob filter. Expanded roots implement the unchanged records area globs as an observational frozen metadata boundary, not a final population decision.",
+    "metadata_root_arguments": [
+      "docs/qa-logs",
+      "docs/qa-frames",
+      "docs/audits",
+      "docs/work-logs",
+      "docs/retros",
+      "docs/retrospective",
+      "docs/futros",
+      "research",
+      ".github/sessions",
+      "docs/reviews/inventory.json"
+    ],
+    "slice": {
+      "area": "records",
+      "closing": "one row per misleading record found, with its correction; audit folder, lint PASS",
+      "depth": "Local",
+      "depth_reason": "a table",
+      "id": "records",
+      "interacting": "--",
+      "k": 46,
+      "kind": "table",
+      "lens": "cost against value",
+      "read_before": null,
+      "select": {},
+      "title": "the records",
+      "why": "reviewed only where a record misleads a reader today (plan \u00a7 5): the records the doctrine, the READMEs and the indexes link to are read; the rest are tabled by folder. Last, because the slices before it write records. Its read count is an artefact (QA logs and dumps classify as code) and is not a session size"
+    }
+  },
+  "survey": {
+    "CODE": [
+      "assembly",
+      "c",
+      "c++",
+      "c++-header",
+      "c-header",
+      "cmake",
+      "css",
+      "docker",
+      "go",
+      "html",
+      "javascript",
+      "kconfig",
+      "lua",
+      "make",
+      "perl",
+      "python",
+      "recipe",
+      "rust",
+      "script",
+      "shader",
+      "shell",
+      "systemd",
+      "typescript",
+      "udev"
+    ],
+    "by_folder": {
+      ".github/sessions": {
+        "generated_read_lines": 0,
+        "inventory_lines": 84435,
+        "paths": 353
+      },
+      "docs/audits": {
+        "generated_read_lines": 14857286,
+        "inventory_lines": 16262198,
+        "paths": 59688
+      },
+      "docs/futros": {
+        "generated_read_lines": 0,
+        "inventory_lines": 520,
+        "paths": 6
+      },
+      "docs/qa-frames": {
+        "generated_read_lines": 183,
+        "inventory_lines": 5625,
+        "paths": 970
+      },
+      "docs/qa-logs": {
+        "generated_read_lines": 530839,
+        "inventory_lines": 6195761,
+        "paths": 64327
+      },
+      "docs/retros": {
+        "generated_read_lines": 0,
+        "inventory_lines": 415,
+        "paths": 5
+      },
+      "docs/retrospective": {
+        "generated_read_lines": 0,
+        "inventory_lines": 17,
+        "paths": 1
+      },
+      "docs/reviews": {
+        "generated_read_lines": 0,
+        "inventory_lines": 134637,
+        "paths": 1
+      },
+      "docs/work-logs": {
+        "generated_read_lines": 0,
+        "inventory_lines": 27812,
+        "paths": 81
+      },
+      "research/council-runs": {
+        "generated_read_lines": 4353,
+        "inventory_lines": 270364,
+        "paths": 660
+      },
+      "research/preliminary-reviews": {
+        "generated_read_lines": 0,
+        "inventory_lines": 1278,
+        "paths": 24
+      },
+      "research/seat-probes": {
+        "generated_read_lines": 0,
+        "inventory_lines": 1520,
+        "paths": 33
+      }
+    },
+    "by_language": {
+      "c": {
+        "generated_read_lines": 10572,
+        "inventory_lines": 10572,
+        "paths": 35
+      },
+      "c++": {
+        "generated_read_lines": 25610,
+        "inventory_lines": 25610,
+        "paths": 44
+      },
+      "c++-header": {
+        "generated_read_lines": 448,
+        "inventory_lines": 448,
+        "paths": 2
+      },
+      "c-header": {
+        "generated_read_lines": 5490,
+        "inventory_lines": 5490,
+        "paths": 13
+      },
+      "cmake": {
+        "generated_read_lines": 2491,
+        "inventory_lines": 2491,
+        "paths": 13
+      },
+      "config": {
+        "generated_read_lines": 0,
+        "inventory_lines": 162594,
+        "paths": 4247
+      },
+      "data": {
+        "generated_read_lines": 0,
+        "inventory_lines": 1281,
+        "paths": 48
+      },
+      "go": {
+        "generated_read_lines": 322,
+        "inventory_lines": 322,
+        "paths": 3
+      },
+      "html": {
+        "generated_read_lines": 2074,
+        "inventory_lines": 2074,
+        "paths": 12
+      },
+      "image": {
+        "generated_read_lines": 0,
+        "inventory_lines": 15,
+        "paths": 7107
+      },
+      "javascript": {
+        "generated_read_lines": 147,
+        "inventory_lines": 147,
+        "paths": 3
+      },
+      "json": {
+        "generated_read_lines": 0,
+        "inventory_lines": 5419774,
+        "paths": 22006
+      },
+      "log": {
+        "generated_read_lines": 0,
+        "inventory_lines": 669516,
+        "paths": 19567
+      },
+      "make": {
+        "generated_read_lines": 2577,
+        "inventory_lines": 2577,
+        "paths": 34
+      },
+      "markdown": {
+        "generated_read_lines": 0,
+        "inventory_lines": 680157,
+        "paths": 2352
+      },
+      "none": {
+        "generated_read_lines": 0,
+        "inventory_lines": 99686,
+        "paths": 9287
+      },
+      "other": {
+        "generated_read_lines": 0,
+        "inventory_lines": 342375,
+        "paths": 26104
+      },
+      "patch": {
+        "generated_read_lines": 0,
+        "inventory_lines": 30021,
+        "paths": 96
+      },
+      "python": {
+        "generated_read_lines": 2815020,
+        "inventory_lines": 2815020,
+        "paths": 5191
+      },
+      "recipe": {
+        "generated_read_lines": 978,
+        "inventory_lines": 978,
+        "paths": 14
+      },
+      "shell": {
+        "generated_read_lines": 12526323,
+        "inventory_lines": 12526323,
+        "paths": 24936
+      },
+      "systemd": {
+        "generated_read_lines": 609,
+        "inventory_lines": 609,
+        "paths": 344
+      },
+      "text": {
+        "generated_read_lines": 0,
+        "inventory_lines": 156431,
+        "paths": 4672
+      },
+      "translation": {
+        "generated_read_lines": 0,
+        "inventory_lines": 28107,
+        "paths": 9
+      },
+      "xml": {
+        "generated_read_lines": 0,
+        "inventory_lines": 1912,
+        "paths": 9
+      },
+      "yaml": {
+        "generated_read_lines": 0,
+        "inventory_lines": 52,
+        "paths": 1
+      }
+    },
+    "generated_read_lines": 15392661,
+    "generated_read_predicate": "language in CODE and tier != vendor-carried and reach != unreached; sum (lines or 0)",
+    "inventory_lines": 22984582,
+    "inventory_self_row": {
+      "area": "records",
+      "buildable_by": [],
+      "language": "json",
+      "last_fork_commit": "a2cfa82233 2026-10-23",
+      "last_upstream_commit": null,
+      "lines": 134637,
+      "overlap": false,
+      "patches": null,
+      "path": "docs/reviews/inventory.json",
+      "reach": "n/a",
+      "reachable_by": [],
+      "shadowed_by": null,
+      "tier": "fork-own",
+      "tier_note": null,
+      "tree": "distribution"
+    },
+    "inventory_total_rows": 134634,
+    "line_origin": "Stored inventory column: generator line_counts uses git diff-tree --numstat EMPTY_TREE HEAD; binary - becomes null. Not re-counted here.",
+    "null_line_rows": 8135,
+    "path_set_sha256": "7a730b9a5ddfd2d5614696ed7a0435c49c785e465a9215f4fe9277c1c6f89744",
+    "reach_counts": {
+      "n/a": 126149
+    },
+    "selected_rows": 126149,
+    "table_budget": "table kind has no code-read line bound; order displays -- (126149 rows)",
+    "tier_counts": {
+      "fork-own": 126149
+    },
+    "tree_counts": {
+      "distribution": 126149
+    },
+    "unique_selected_paths": 126149
+  }
+}

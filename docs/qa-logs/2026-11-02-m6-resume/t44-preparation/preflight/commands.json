@@ -1,0 +1,47 @@
+[
+  {
+    "argv": [
+      "python3",
+      "docs/qa-logs/2026-11-02-m6-resume/t44-brief-inputs.py",
+      "--help"
+    ],
+    "start": "2026-11-02T22:10:38.885643+00:00",
+    "end": "2026-11-02T22:10:38.920457+00:00",
+    "rc": 0,
+    "stdout_sha256": "df9bfa5c2bc75a689b3fc98cdf84db6e79513342d79d641c47c5b2e3a47e0484",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "tools/lint-audit-artifacts",
+      "--help"
+    ],
+    "start": "2026-11-02T22:10:38.920485+00:00",
+    "end": "2026-11-02T22:10:38.958508+00:00",
+    "rc": 0,
+    "stdout_sha256": "3519e0a8e1255b379a83dce5b5cc66e12f00338642cb0fb9cdeb673ffdd9a1f2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "argv": [
+      "tools/box-check",
+      "--help"
+    ],
+    "start": "2026-11-02T22:10:38.958532+00:00",
+    "end": "2026-11-02T22:10:39.021972+00:00",
+    "rc": 1,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "9ca4749789bf3443e6230401ebb42eef3cbc9c98ec9d8cbec8668e4c07619089"
+  },
+  {
+    "argv": [
+      "tools/forbidden-terms-check",
+      "--help"
+    ],
+    "start": "2026-11-02T22:10:39.022003+00:00",
+    "end": "2026-11-02T22:10:39.027664+00:00",
+    "rc": 2,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "40c83aedea5d4111502b409cbdfc84f1bc896fce8cef6825d79e4fc8388e58a2"
+  }
+]

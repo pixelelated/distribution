@@ -1,0 +1,41 @@
+{
+  "report_json_sha256": "11364b4e1a34dc0183fbb8944a63827bb5693979d09864fe54e45b6de5bec664",
+  "script_sha256": "1eea99da03a27a158fc987677618b4b0de0ee55e27356cca233792b6b0583d94",
+  "report_bytes": 39013,
+  "P1": {
+    "paths": 126150,
+    "logical_bytes": 2137588288,
+    "unique_blobs": 37343,
+    "unique_blob_logical_bytes": 1032903648,
+    "modes": {
+      "100644": 96707,
+      "100755": 29443
+    },
+    "git_types": {
+      "blob": 126150
+    }
+  },
+  "coordinator": {
+    "paths": 126670,
+    "logical_bytes": 2173665613,
+    "unique_blobs": 37761,
+    "unique_blob_logical_bytes": 1068422827,
+    "modes": {
+      "100644": 97225,
+      "100755": 29445
+    },
+    "git_types": {
+      "blob": 126670
+    }
+  },
+  "delta": {
+    "added": 522,
+    "deleted": 2,
+    "changed": 3,
+    "unchanged": 126145,
+    "logical_byte_delta": 36077325
+  },
+  "inventory_generation": {
+    "generated": "2026-10-23T02:20:48Z"
+  }
+}

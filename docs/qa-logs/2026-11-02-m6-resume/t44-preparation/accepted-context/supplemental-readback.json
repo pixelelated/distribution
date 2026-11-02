@@ -1,0 +1,565 @@
+[
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-es-launch-path-649",
+      "rev-parse",
+      "82c67e99c5^{commit}"
+    ],
+    "rc": 0,
+    "stdout_sha256": "5f439b6216a66020539c3a9fdd80fa67ef6c3d261155a6f14bbafe8cebea92b4",
+    "stdout": "82c67e99c5726e6980605790642e798c196e421c\n"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-es-launch-path-649",
+      "rev-parse",
+      "49c6b43f27^{commit}"
+    ],
+    "rc": 0,
+    "stdout_sha256": "170e7949d29fa7cbb82be0a8d75d7503dd79cd1f625ea2af0ab631ee3b42793f",
+    "stdout": "49c6b43f2708f46c9d2f147c609d7d9f702c2557\n"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-es-launch-path-649",
+      "rev-parse",
+      "64f36e0bab^{commit}"
+    ],
+    "rc": 0,
+    "stdout_sha256": "7f686ae354360434f025f5e4a614502523da906e07b788f6ea993b13af0e1f87",
+    "stdout": "64f36e0bab2ab9c01e8462a45f294fc778595b97\n"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-es-launch-path-649",
+      "rev-parse",
+      "d828355e0a^{commit}"
+    ],
+    "rc": 0,
+    "stdout_sha256": "ed7c7d914041f0afe12bb35d47f32653e18aad3253a48153987827ace2970046",
+    "stdout": "d828355e0ac3b9c639c394adbcf9aeb65c0db22c\n"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-es-launch-path-649",
+      "rev-parse",
+      "fd0c1c4337^{commit}"
+    ],
+    "rc": 0,
+    "stdout_sha256": "37ccc3434d365cc74e2f4f66345f2b5e1db76002d396c151a05d118082809afd",
+    "stdout": "fd0c1c43371018aed1aa32142d7c80ea9561b229\n"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-es-launch-path-649",
+      "rev-parse",
+      "4127382d34^{commit}"
+    ],
+    "rc": 0,
+    "stdout_sha256": "6cc1546af380298fc68afc177d0614fec5296ccd807fe09c49318996487127f2",
+    "stdout": "4127382d34db90298a9fd1e0c2ef185ad03b84ea\n"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "ls-tree",
+      "72609fc9d4882aa3541ff89720901303680d8630",
+      "--",
+      "external/id3v2lib"
+    ],
+    "rc": 0,
+    "stdout_sha256": "7e38e0c9e243c4c4d98b1194c1f4889031695e78a533aa83b06646d94267714f",
+    "stdout": "160000 commit 141ffb8e61abd736d7074e89d70b805b2fb5f6ed\texternal/id3v2lib\n"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "--no-ext-diff",
+      "--no-textconv",
+      "--format=fuller",
+      "--stat",
+      "96787a5970a03633e1fd6bd4f50e1d2a62528f0a"
+    ],
+    "rc": 0,
+    "stdout_sha256": "437bf6d5430d522f0651b00085d6e94f12ecdfe1f4b54cdf15748686ee227142",
+    "stdout": "commit 96787a5970a03633e1fd6bd4f50e1d2a62528f0a\nAuthor:     Fabrice CARUSO <fabrice.caruso@free.fr>\nAuthorDate: Sat Jul 18 17:31:37 2026 +0200\nCommit:     Fabrice CARUSO <fabrice.caruso@free.fr>\nCommitDate: Sat Jul 18 17:31:37 2026 +0200\n\n    [id3v2lib] add as non module\n\n external/id3v2lib/.clang-format                    |  12 +\n external/id3v2lib/.gitignore                       |  19 +\n external/id3v2lib/CMakeLists.txt                   |   9 +\n external/id3v2lib/LICENSE                          |  22 +\n external/id3v2lib/README.md                        | 289 +++++++++++\n external/id3v2lib/include/id3v2lib.compat.h        | 129 +++++\n external/id3v2lib/include/id3v2lib.h               |  45 ++\n external/id3v2lib/include/modules/frame.h          |  28 +\n external/id3v2lib/include/modules/frame_header.h   |  25 +\n external/id3v2lib/include/modules/frame_ids.h      |  25 +\n external/id3v2lib/include/modules/frame_list.h     |  33 ++\n .../id3v2lib/include/modules/frames/apic_frame.h   |  36 ++\n .../include/modules/frames/comment_frame.h         |  32 ++\n .../id3v2lib/include/modules/frames/text_frame.h   |  28 +\n external/id3v2lib/include/modules/picture_types.h  |  35 ++\n external/id3v2lib/include/modules/tag.h            | 138 +++++\n external/id3v2lib/include/modules/tag_header.h     |  33 ++\n external/id3v2lib/include/modules/utils.h          |  35 ++\n external/id3v2lib/logo.png                         | Bin 0 -> 18562 bytes\n external/id3v2lib/src/CMakeLists.txt               |  72 +++\n external/id3v2lib/src/id3v2lib.c                   | 165 ++++++\n external/id3v2lib/src/id3v2lib.compat.c            | 453 +++++++++++++++++\n external/id3v2lib/src/modules/char_stream.c        |  91 ++++\n .../id3v2lib/src/modules/char_stream.private.h     |  33 ++\n external/id3v2lib/src/modules/frame.c              | 108 ++++\n external/id3v2lib/src/modules/frame.private.h      |  21 +\n external/id3v2lib/src/modules/frame_header.c       |  91 ++++\n .../id3v2lib/src/modules/frame_header.private.h    |  30 ++\n external/id3v2lib/src/modules/frame_list.c         | 175 +++++++\n external/id3v2lib/src/modules/frame_list.private.h |  26 +\n external/id3v2lib/src/modules/frames/apic_frame.c  | 141 ++++++\n .../src/modules/frames/apic_frame.private.h        |  38 ++\n .../id3v2lib/src/modules/frames/comment_frame.c    | 127 +++++\n .../src/modules/frames/comment_frame.private.h     |  34 ++\n external/id3v2lib/src/modules/frames/text_frame.c  |  91 ++++\n .../src/modules/frames/text_frame.private.h        |  25 +\n external/id3v2lib/src/modules/tag.c                | 563 +++++++++++++++++++++\n external/id3v2lib/src/modules/tag.private.h        |  20 +\n external/id3v2lib/src/modules/tag_header.c         |  87 ++++\n external/id3v2lib/src/modules/tag_header.private.h |  27 +\n external/id3v2lib/src/modules/utils.c              | 161 ++++++\n external/id3v2lib/src/modules/utils.private.h      |  24 +\n external/id3v2lib/test/CMakeLists.txt              |  41 ++\n external/id3v2lib/test/assertion_utils.c           | 121 +++++\n external/id3v2lib/test/assertion_utils.h           |  27 +\n external/id3v2lib/test/compat_test.c               | 111 ++++\n external/id3v2lib/test/compat_test.h               |  15 +\n external/id3v2lib/test/delete_test.c               |  78 +++\n external/id3v2lib/test/delete_test.h               |  15 +\n external/id3v2lib/test/extra/album_cover.png       | Bin 0 -> 2935656 bytes\n external/id3v2lib/test/extra/empty.mp3             |   0\n external/id3v2lib/test/extra/file.mp3              | Bin 0 -> 9538842 bytes\n external/id3v2lib/test/extra/no_tag.mp3            | Bin 0 -> 6600621 bytes\n external/id3v2lib/test/get_test.c                  | 184 +++++++\n external/id3v2lib/test/get_test.h                  |  15 +\n external/id3v2lib/test/main_test.c                 |  23 +\n external/id3v2lib/test/set_test.c                  | 257 ++++++++++\n external/id3v2lib/test/set_test.h                  |  15 +\n external/id3v2lib/test/test_utils.c                | 169 +++++++\n external/id3v2lib/test/test_utils.h                |  35 ++\n 60 files changed, 4682 insertions(+)\n"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/home/max/Development/emulationstation-next",
+      "show",
+      "--no-ext-diff",
+      "--no-textconv",
+      "--format=fuller",
+      "--stat",
+      "a72d8b8e4a8159496710b4bdec2e3309a368c68e"
+    ],
+    "rc": 0,
+    "stdout_sha256": "d1a3fb0fc2313bf24da5d22e32556c6887ad465932bdb9da50f6007ff05a13e3",
+    "stdout": "commit a72d8b8e4a8159496710b4bdec2e3309a368c68e\nAuthor:     Fabrice CARUSO <fabrice.caruso@free.fr>\nAuthorDate: Sat Jul 18 17:32:19 2026 +0200\nCommit:     Fabrice CARUSO <fabrice.caruso@free.fr>\nCommitDate: Sat Jul 18 17:32:19 2026 +0200\n\n    [id3v2lib] Fix & reactivate for Windows\n\n CMakeLists.txt               | 11 ++-----\n es-core/src/AudioManager.cpp | 77 +++++++++++++-------------------------------\n external/CMakeLists.txt      |  5 +--\n 3 files changed, 27 insertions(+), 66 deletions(-)\n"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-es-launch-path-649",
+      "show",
+      "2174265e9cc1b248c0fbe27fa101875984d46d6b:docs/reviews/briefs/p1-survey.md"
+    ],
+    "rc": 0,
+    "stdout_sha256": "0cf9131bb99d9bc2620a0688950ba4c5ccecf8677587d17daa53a8042d1136b5",
+    "stdout": "# Brief: M6.P1, the survey (#641)\n\nA session with no other context runs this brief start to finish. It is the\nunit of handoff the plan defines (`docs/reviews/plan-for-the-plan.md` § 7);\nread that document whole before the first command. Every section below is\nmandatory; a section that does not apply says so and why. Where this brief\nand the checklist on #641 differ, #641 wins and the brief is corrected in the\nsame session. Version 3: version 2 answered the first stranger's sixteen\nquestions; a second stranger reached the first inventory commit without a\nquestion and raised thirteen more, answered below (the runner's install, the\n32-bit plan root, `--repo` on every `gh` call, the unnamed roots, the\nreview's place before the pass-7 post). Version 3.2 (2026-10-23): the\nslice issues leave P1's outputs for the coordinator lane (D-WORKFLOW-189:\nplanning, the division of work and the definition of work items are the\ncoordinator's; a work lane executes); P1 hands back the inventory and the\norder, and its renderer is what the coordinator files from.\n\n## 1. Identity\n\n- **Issue:** #641 `M6.P1 E339: The survey`. **Epic:** #339. **Milestone:**\n  M6 (`M6: Codebase renovation`); its body holds the live order, read it\n  first and update it last. **Predecessor:** #346 (M6.P0, the plan); its\n  order-and-method criteria are carried into #641 and must be met here.\n- **Branch and worktree:** `feature/m6-p1-survey-641` at\n  `/workspace/repos/pixelelated/distribution.worktrees/m6-p1-survey-641`,\n  already created by the planner, **stacked on `feature/m6-renovation-plan-346`**\n  (the P0 branch) rather than on `next`, because the maintainer chose not to\n  wait for the release candidate (D-WORKFLOW-182): P0 is not on `next` yet,\n  and the merge order after the candidate is P0, then this branch. Its\n  rules are `next`'s (P0 touched none). The primary checkout is\n  `/workspace/repos/pixelelated/distribution` (D-INFRA-025). **`worktrees.md`,\n  `device-builds.md`, `CLAUDE.md` and `AGENTS.md` still name the legacy\n  layout (`/workspace/repos/rocknix`, `rocknix.worktrees/`); D-INFRA-025 and\n  #640 supersede them for this lane, and this brief's paths are the ones to\n  use.** The legacy checkout is another lane's: read from it, never write to\n  it.\n- **Model and effort:** the ones the maintainer selected on #641 when\n  dispatching; absent a selection, Opus 5.5 at high effort. Record what\n  actually ran in the tracking file's header.\n- **Review depth:** Local for the survey's own analysis (an inventory is\n  checked by its counts, not by a reviewer). The **order** gets the advisory\n  three-model preliminary review exactly as\n  `.claude/skills/council/references/review-formats.md` § Preliminary-review\n  procedure prescribes: its seats are Claude, Gemini and GPT, fixed by\n  `readPreliminaryReviewContract()`; the contract is written to\n  `research/preliminary-reviews/<run-id>/review-contract.json` and validated\n  with `assertPreliminaryReviewContract()`; each seat is called through\n  `tools/council/run invoke --member <claude|gemini|gpt> --provider openrouter\n  --prompt-file <brief> --output <file> --source-manifest <manifest>`\n  (D-WORKFLOW-049; the key is sourced from `~/.config/council/env`, never\n  printed); the served model of each call is verified from its provenance\n  file before the next call. **The runner's dependencies are not in the\n  fresh clone**: `tools/council/run` execs `tools/council/node_modules/.bin/tsx`,\n  and `node_modules/` is gitignored, installed so far only in the legacy\n  checkout. Install once, before the review, with `npm install --prefix\n  tools/council` (a gitignored write; network to the npm registry; no\n  lockfile is committed, so record the installed `tsx` version in the\n  tracking file); an install that fails is the recorded reason for `order:\n  unreviewed`. The `--source-manifest` names, with their blob hashes in the\n  form `review-formats.md` step 1 prescribes, `docs/reviews/order.md`,\n  `docs/reviews/inventory.md`, `docs/reviews/areas.json` and\n  `docs/reviews/plan-for-the-plan.md`. **The review runs at the end of pass 6,\n  before the pass-7 post** (§ 8), so the maintainer reads an order whose\n  objections are already answered; the dispatch of this phase on #641 is the\n  authorization for provider use that `review-formats.md` step 1 records, for\n  exactly one preliminary review of the order. An objection the maintainer's\n  yes then overrules is noted in `order.md`; nothing is re-reviewed. It is advisory: no vote, no approval, not an\n  audit, not a council. The executor's lab is not excluded here, because the\n  format fixes the seats (plan § 6c); D-WORKFLOW-137's exclusion applies to\n  the slices' audits. **Fail closed, never substitute:** a seat that is\n  unavailable or fails verification is not replaced and the roster is not\n  shrunk (`adversarial-council.md` rule 4); record in `order.md` that the\n  review did not run and why, mark `order: unreviewed` in `status.md`, and\n  continue the survey (#346's third criterion allows a recorded reason); the\n  first slice's dispatch then waits for the maintainer's word on #641.\n\nFirst commands:\n\n```bash\ncd /workspace/repos/pixelelated/distribution.worktrees/m6-p1-survey-641\ngit fetch origin && git fetch upstream --no-tags\ngit branch --show-current                                   # feature/m6-p1-survey-641\ntest -f docs/reviews/plan-for-the-plan.md || { echo \"the plan is not in this tree: stop\"; exit 1; }\ngit merge-base --is-ancestor origin/feature/m6-renovation-plan-346 HEAD || echo \"not stacked on P0: stop\"\ngit diff --quiet next -- .claude CLAUDE.md AGENTS.md || echo STALE   # must print nothing\ncat .github/sessions/saved-session-state-feature-m6-p1-survey-641.md   # the lane's seeded stash\n```\n\nIf `next` moves while the phase runs, merge `next` into this branch (never\nanother lane's feature branch) and re-read the rules; the counts of § 2 are\nre-derived at the new `HEAD` and the tracking file records both.\n\n## 2. Scope\n\nTwo trees, read at recorded hashes; the survey touches every tracked path\nof both and reads none of them line by line.\n\n**Hashes to record** in the tracking file's header before anything else:\nthe worktree `HEAD`; `upstream/next`; the merge base of `next` and\n`upstream/next`; the EmulationStation pin; `rocknix/master`;\n`batocera/master`; the merge base of the pin and `rocknix/master`; the\nmodel and effort actually running.\n\n**The distribution.** Re-derive these at the start and write them beside\nthe recorded values. **A count that differs from the recorded one is not a\nstop**: record yours, the recorded one and the delta, and go on. The stop is\na count that cannot be produced, or two commands for the same quantity that\ndisagree with each other. Recorded at `8ebaf8daad` on 2026-10-22 in the\nfresh clone:\n\n```bash\ngit rev-parse HEAD\ngit ls-files | wc -l                                   # 133,465 (this branch adds its own files)\nfind packages projects -name package.mk | wc -l        # 1,607 (1,040 under packages/, 567 under projects/)\nfind packages projects -name '*.patch' | wc -l         # 1,709\ngit rev-parse --short upstream/next                    # 03d71e3217 at the clone's fetch of 2026-10-22; moves with every fetch\nMB=$(git merge-base next upstream/next); echo $MB      # c445081a59\ngit diff --name-only $MB next | wc -l                  # 126,855 fork-own, of which 125,225 under docs/\ngit diff --name-only $MB upstream/next | wc -l         # 912 upstream-only since the merge base\n```\n\n**Provenance tiers** (plan § 2), a three-way split from the merge base,\nnever the two-way `upstream/next..next` (which would label the 912\nupstream-only paths fork-own):\n\n- fork-own: `git diff --name-only $MB next`; a path also in `git diff\n  --name-only $MB upstream/next` stays fork-own with `overlap: true`;\n- upstream-carried: every other tracked path, the 912 upstream-only ones\n  included;\n- vendor-carried: every `*.patch` and every kernel `*.conf` under\n  `packages/` and `projects/`, whichever tier the diff puts it in (a\n  fork-written patch is vendor-carried with `tier_note: fork-written`).\n\n**The interface** (EmulationStation) at the pin `PKG_VERSION` in\n`projects/ROCKNIX/packages/ui/emulationstation/package.mk`\n(`16dbac5211eea7e70db7394372033be2be7df829` on 2026-10-22). The checkout on\nthis host is `/home/max/Development/emulationstation-next` (`origin` =\n`pixelelated/emulationstation`; `rocknix` = `ROCKNIX/emulationstation-next`,\nthe fork's upstream; `batocera` = the vendor base, recorded for provenance\nonly). Read it from a detached worktree of its own, never from that\ncheckout's current branch; its tiers are fork-own and upstream-carried only\n(ES carries no patches):\n\n```bash\nES=/home/max/Development/emulationstation-next\nPIN=$(sed -n 's/^PKG_VERSION=\"\\(.*\\)\"/\\1/p' projects/ROCKNIX/packages/ui/emulationstation/package.mk)\ngit -C $ES cat-file -t $PIN                            # \"commit\"; else: git -C $ES fetch origin\ngit -C $ES remote get-url rocknix >/dev/null 2>&1 || git -C $ES remote add rocknix https://github.com/ROCKNIX/emulationstation-next.git\ngit -C $ES fetch rocknix --no-tags\ngit -C $ES worktree add --detach $ES.worktrees/m6-p1-survey $PIN\ngit -C $ES.worktrees/m6-p1-survey ls-files | wc -l                               # 1,114 at the pin\nfind $ES.worktrees/m6-p1-survey/es-app/src $ES.worktrees/m6-p1-survey/es-core/src -type f | wc -l   # 486\nEMB=$(git -C $ES merge-base rocknix/master $PIN); git -C $ES diff --name-only $EMB $PIN | wc -l      # 236 fork-own\n```\n\nAt the end, the ES worktree is removed with `git -C $ES worktree remove\n$ES.worktrees/m6-p1-survey` (an ES worktree holds no build output;\n`tools/fork-worktree` is the distribution's tool and only reads its own\nrepository).\n\n**Reachability** (the inventory's column that feeds the dead-end lens).\nThe build system computes which packages a device image builds:\n`config/multithread` pipes `scripts/pkgjson` into `scripts/genbuildplan.py`,\nand `tools/viewplan [package]` is the read-only form of the same pipe\n(default `image`). It sources every `package.mk` and compiles nothing. Run\nit once per device and architecture the `Makefile` builds: all fifteen of\nits device targets (`world` builds twelve of them; run all fifteen), with\nall three variables set explicitly every time, because `config/options`\n**defaults `DEVICE=SM8550` when it is unset** and a forgotten variable\nsilently gives another device's plan; the inventory tool asserts all three\nbefore sourcing anything. **The 64-bit and 32-bit plans have different\nroots:** `scripts/build_distro` runs `make image` for `aarch64`/`x86_64`, but\nfor `arm` it runs `scripts/build_compat arm`, whose plan is rooted at the\nvirtual package `arm` (`projects/ROCKNIX/packages/virtual/arm`), and only\nwhere the device's effective `ENABLE_32BIT` is true (`distributions/ROCKNIX/options`\ndefaults it on; `GENERIC_X64`, `AMD64`, `SM8650` and `SM8750` turn it off).\nSo:\n\n```bash\nPROJECT=ROCKNIX DEVICE=H700 ARCH=aarch64 tools/viewplan image > <scratch>/plan-H700-aarch64.txt\nPROJECT=ROCKNIX DEVICE=H700 ARCH=arm     tools/viewplan arm   > <scratch>/plan-H700-arm.txt   # skipped where ENABLE_32BIT is off\n```\n\nTwenty-six plans in all (fifteen 64-bit, eleven 32-bit).\n\n\"Devices we ship\" was `device-builds.md` § Our devices: `RK3566`, `H700`,\n`RK3326`, `SM8550`, `GENERIC_X64`. The maintainer's answer at pass 7\n(D-WORKFLOW-185, 2026-10-23) made it `H700` and `SM8550`, with `GENERIC_X64`\nthe test image, so the inventory gained a `test` value. A package in a\nshipped device's plan is `shipped`; one in the test image's plan and no\nshipped device's is `test`; both are `reachable_by: [<device>-<arch>, ...]`.\nOne only in other devices' plans is `buildable_by: [...]` and `unshipped`;\none in no plan is `unreached`. A\nscript, unit or overlay file is reached when its package is. Run every\ndevice's plans; if the runs exceed ten minutes in all, record the time and\nthe devices done and continue with those. Do not build.\n\n**Out of scope for reading:** `docs/`, `research/`, `.github/sessions/` are\ninventoried (they are tracked paths and the counts must match) and assigned\nto the \"records\" area; nothing in them is read for content.\n\n## 3. Read first\n\nFrom `next`, in this order, before any analysis:\n\n- `.github/sessions/saved-session-state-next.md` (the M7 lane's canonical\n  checkpoint; read for what runs on this host, not for a work queue) and\n  this lane's own pointer when it exists.\n- Rules: `engineering-practices.md` (verify the artifact, guards fail\n  closed, never edit a tool in flight), `worktrees.md` (its removal rules;\n  its layout is superseded for this lane, § 1), `fork-workflow.md` (the\n  personal-paths list the three new tools join), `issue-tracking.md`\n  (agent-first criteria, sub-issues, D-WORKFLOW-132),\n  `milestone-phase-naming.md` (titles, the closed sub-id set, the milestone\n  body), `learning-capture.md` and `ceremonies.md` (what this phase owes),\n  `decision-register.md`, `vm-first.md`, `packaging-and-patches.md` (what a\n  recipe and a patch directory are), `instruction-files.md` § The fork's own\n  tools (a new tool is added to its table too), `adversarial-council.md` and\n  `council-substrate-integrity.md` (the preliminary review's only route).\n  Known stale facts in the rules and tools, so they do not cost an hour\n  (all on #640): `device-builds.md` § Iterating on EmulationStation names an\n  old `origin` for the ES checkout (the brief's is current);\n  `instruction-files.md`, `AGENTS.md` and `tools/fork-worktree`'s hint still\n  print `/workspace/repos/rocknix`; the ES checkout also carries an\n  `upstream` remote that is a stale duplicate of `rocknix` (use `rocknix`).\n  `device-builds.md` § Our devices is the shipped list and is current.\n- `docs/blindspot-register.md` whole, once; entries 13 (assumed done), 51\n  (an open checkbox is a claim) and 64 (read the cause before lengthening a\n  wait) are the ones a survey repeats.\n- `docs/audits/` folder names and each `05-punch-list.md` header, as\n  provenance only: which paths have been audited, when, at what tier\n  (`2026_09_10-graceful-degradation/` has no punch list; its README is the\n  record). Do not transcribe verdicts; the slice audits sequester them.\n- Decisions by ID, cited and not re-argued: D-WORKFLOW-083, -102, -181 (the\n  program), -137 (depth), -139 (the milestone body), -132 and D-QA-012 (an\n  issue first, the maintainer's words quoted), -133 (a stash a stranger can\n  resume), -149 (a checkpoint is not a stop), -050 (`Already written:`),\n  -049 (every seat through the Facilitator), -005 (worktree removal),\n  D-INFRA-022 and -025 (what stays on disk, where the lane lives), D-QA-044\n  and -045 (criteria an agent can tick; say checkbox).\n- `docs/reviews/plan-for-the-plan.md` § 2, § 5, § 6, § 6a: the first-cut\n  areas, the slicing bounds, the six steps and the six lenses this phase\n  executes.\n- The maintainer's multi-pass pattern: the seven passes, rigour levels and\n  tracking-file template are summarised in plan § 6 (P1); the full text is\n  kept outside the tree at `~/.config/rocknix/mpia.instructions.md`. Read it\n  there; never copy it into the tree or name its origin. Its pass 7 is\n  interactive by its own rule; § 8 below says where that pause falls.\n\n## 4. The questions\n\nP1 answers none of the seven slice questions (Q1 to Q7) for any file; that\nis the slices' work. P1 scores every **area** on the six ordering lenses of\nplan § 6a. At survey depth the accepted evidence is a search, not a\nreading; the slice read is where a score is confirmed or overturned:\n\n| Lens | Evidence the score cites |\n| --- | --- |\n| Security | a token grep over the area, the token list recorded in the tracking file (at least: `password`, `token`, `secret`, `key=`, `rclone.conf`, `curl`, `wget`, `tar x`, `unzip`, `chmod`, `sudo`, `systemctl`, `nc -l`, `http.server`, `/dev/`), with the matching paths listed by name and their count |\n| Brittleness | `docs/blindspot-register.md` and `docs/friction-log.md` entries per path; closed `bug` issues per path (`gh issue list --repo pixelelated/distribution --label bug --state closed --limit 500 --json number,title,body`, grepped for the area's path prefixes); `git log --since=2026-06-01 --format=%h -- <paths> \\| wc -l` |\n| Nearest new functionality | `git diff --stat $MB next -- <paths>` totals (the merge base, § 2) |\n| Nearest planned change | #336, #576, #509, #585 and any open issue whose body names the paths (`gh issue list --repo pixelelated/distribution --state open --limit 300 --json number,body` grepped). **Every `gh` call carries `--repo pixelelated/distribution`**: the fresh clone has no default repository set (`issue-tracking.md`) |\n| Cost against value | lines to read from the inventory; callers as `grep -rlF '<unit or script name>' packages projects scripts tools \\| wc -l`; position in the build (the engine first) |\n| Reachability | the inventory's `reachable_by` and `buildable_by` columns; the `unreached` and `unshipped` sets are their own early slices |\n\nQ6 (dead ends) is the one question P1 partly answers, because reachability\nis produced here: the unreached and unshipped sets are listed in\n`inventory.md` with their line counts, and `order.md` places them as table\nslices early (plan § 6a).\n\n## 5. The evidence floor\n\nThe code-auditor skill's evidence floor applies to every number in this\nphase, all five rules: tracker state is never sole evidence; a mechanical\ncheck that exists is run and its output recorded; a claim about device\nbehaviour is a lead, not evidence (no device behaviour is claimed in P1); an\nassertion that cannot fail is not evidence (what input would make\n`unassigned: 0` fail? a path matching no glob; prove the tool reports one\nwith a fixture before trusting its zero); subagent output is a lead,\nre-derived by the orchestrator before it enters a file. Every count in the tracking file is\nthe output of a command written beside it.\n\nNever, in this phase: build an image or a package; touch a device, a cloud\nor a QA guest; edit a tool while any run of it is in flight; `pkill -f`\nanything; `git worktree remove --force` or `rm -rf` a worktree (the\ndistribution's worktrees go through `tools/fork-worktree remove`; the ES\nworktree through `git -C $ES worktree remove`); bare `git stash` (the stash\nstack is shared); call a model outside `tools/council/run`; print a\ncredential or the wordlist; merge another lane's feature branch to refresh\nrules (read them from `next`); write to `/workspace/repos/rocknix` or to the\nES checkout's current branch; edit\n`.github/sessions/saved-session-state-next.md` while the M7 lane owns it\n(keep this lane's state in\n`.github/sessions/saved-session-state-feature-m6-p1-survey-641.md`); read\n`docs/`, `research/` or `.github/sessions/` for content; answer Q1 to Q7 for\nany file.\n\n## 6. Outputs\n\nAll under the worktree, committed on the branch with messages that cite\n#641; each of the three tools is fork-only and joins, in the commit that\nadds it, the three places a fork tool must appear: `.claude/rules/fork-workflow.md`\n§ Personal paths, `PERSONAL_PATTERNS` in `.githooks/pre-push`, and the table\nin `.claude/rules/instruction-files.md` § The fork's own tools (its \"Detail\nin\" column names `docs/reviews/README.md`, which documents the three);\n`.githooks/hooks-test` and `tools/rules-check --quiet` pass after each.\n\n| Output | Path | Shape |\n| --- | --- | --- |\n| Tracking file | `docs/reviews/p1-tracking.md` | the multi-pass template: the header of § 2's hashes and the model/effort run; progress per pass with counts; the item table; relationships discovered; opened before pass 1, updated after every pass |\n| Futro | `docs/futros/<yyyy-mm-dd>-m6-p1-survey.md`, and the same text as a comment on #641 | the futro skill's template; written before the first inventory commit |\n| Area map (the one hand-written input) | `docs/reviews/areas.json` | `[{\"area\": \"...\", \"epic\": null, \"globs\": [\"...\"]}]`, first cut from plan § 5 with two changes: \"doctrine and records\" is split into **doctrine** (`.claude/`, `CLAUDE.md`, `AGENTS.md`, the registers, the indexes, `docs/*.md` at the top level) and **records** (`docs/qa-logs/`, `docs/qa-frames/`, `docs/audits/`, `docs/work-logs/`, `docs/retros/`, `docs/futros/`, `research/`, `.github/sessions/`), so records do not dominate every total; and the roots plan § 5 does not name are placed: the council toolchain (`scripts/council-*`, `scripts/lib/council-*`, `scripts/lint-council-*`, `scripts/build-council-prompt.ts`, `scripts/write-step-seal.ts`, `scripts/verify-*.ts`, `scripts/check-stale-blob-drift.ts`, `scripts/setup-council-mistral-tokenizer.mjs`, `scripts/forge-write-status.mjs`, `scripts/owner-queue-lint.mjs`, `scripts/__tests__/`, `seed/`, `verifier-pins.json`, `council-seat-efforts.json`; 45 of the 76 tracked `scripts/` files), `.github/workflows/fork-*` and `.github/scripts/` under **tooling and guards**; the rest of `scripts/`, `config/`, `distributions/`, `Makefile`, `Dockerfile`, `.gitignore`, `.merge-head`, upstream's `.github/workflows/*`, `.github/ISSUE_TEMPLATE/` and the PR template under **build engine**; `README.md`, `NAMING.md`, `TRADEMARK.md`, `LICENSE.md`, `licenses/`, `documentation/`, `plans/` under **doctrine**. Every tracked path matches exactly one area's globs, and the tool proves the check can fail with a fixture path that matches none |\n| Inventory tool | `tools/renovation-inventory` | `tools/renovation-inventory [--distribution DIR] [--es DIR] [--areas docs/reviews/areas.json] [--plans DIR] [--out docs/reviews/inventory.json] [--markdown docs/reviews/inventory.md]`; asserts `PROJECT`, `DEVICE`, `ARCH` before any `viewplan` run it makes; prints `paths: N (git ls-files: N)`, `es-paths: N (git ls-files: N)`, `patches: N (find: N)`, `unassigned: N`; exits 1 when any pair differs or `unassigned` is not 0 |\n| Inventory | `docs/reviews/inventory.json` | a header (both hashes, the merge bases, the pin, `rocknix/master`, `batocera/master`, the generation time) and one record per tracked path: `tree`, `path`, `area`, `tier`, `overlap`, `language`, `lines` (null for a binary: git's numstat `-`), `patches` (for a directory of patches), `last_fork_commit`, `last_upstream_commit` (null for a path upstream never had; \"upstream\" is `upstream/next` for the distribution and `rocknix/master` for ES), `reachable_by`, `buildable_by`. Last-commit columns come from one pass over `git log --format=%H%x09%ct --name-only` per tree and per side, never one `git log` per path |\n| Inventory summary | `docs/reviews/inventory.md` | per-area totals (paths, lines by tier, patches, binaries, unreached, unshipped), the unreached and unshipped sets with line counts, the overlap count |\n| Order | `docs/reviews/order.md` | per slice, in order: number `k`, area, the lens that placed it, paths with line counts, the reading-order prerequisite it carries or none (the renovation gates no release, D-WORKFLOW-187), depth with reason, interacting subsystems, closing evidence; the security, state-preservation and launch-path file list the drift tool reads; then the preliminary review's status (`reviewed` with the run-id, or `unreviewed` with the reason), its objections and the answers by name |\n| Status tool and table | `tools/renovation-status`, `docs/reviews/status.md` | a row `order: reviewed\\|unreviewed`, then one row per slice: `k`, area, lines, depth, state (`unreviewed`, `reading`, `remediating`, `closed`, `drifted`), `reviewed-at`, `fixed-at`, drift since; reads `order.md` and the slice issues (`gh ... --json`, bounded with `--limit`) |\n| Drift tool | `tools/renovation-drift [--write docs/reviews/drift.md]` | for every slice with a `fixed-at`: `git diff --stat <fixed-at>..next -- <paths>`, the percentage of the slice's lines, and whether a file on `order.md`'s security/state/launch-path list is touched; prints the table and exits 1 when any slice crosses plan § 8's thresholds |\n| Lint face | `tools/lint-audit-artifacts` | for a folder named `*-epic-m6-*`: every item in `05-punch-list.md`'s YAML index carries `question: Q1..Q7` or `question: none` with a reason, and `04-analysis.md` has a `## Renovation face` section with one subsection per question; a fixture folder under `tools/test-fixtures/` proves the lint fails without them and passes with them |\n| Slice issues | GitHub, sub-issues of #339, `--milestone \"M6: Codebase renovation\"`, no label | **the coordinator's, not P1's, since 2026-10-23 (D-WORKFLOW-189)**: P1's part is `tools/renovation-inventory --slice-issues DIR`, which renders every slice's title and body from `slices.json`; the coordinator runs it, reads each body, adds the slice's specific criteria with its brief before dispatch, and files. What is filed: only after the pass-7 gate (§ 8); title `M6.P2 E339/T<k>: <area>: <slice>` (all slices are phase P2, ordered by `order.md`; `T` from the closed sub-id set; re-parented and retitled `E<epic>/T<k>` when the area epic is filed at first dispatch); body: paths, tier, line count, lens, interacting subsystems, depth, release gate, `reviewed-at:` and `fixed-at:` empty, and the acceptance checklist (the audit folder `docs/audits/<date>-epic-m6-<slice>/` with the five files the lint requires, `01-research-notes.md` to `05-punch-list.md`, plus the `00-running-log.md` plan § 6b opens at stage A; `tools/lint-audit-artifacts` PASS including the renovation face, the punch-list issue with every item at a Phase 7 outcome, `reviewed-at` and `fixed-at` set); attached with `gh api -X POST repos/pixelelated/distribution/issues/339/sub_issues -F sub_issue_id=<REST id>` |\n| Area epics | GitHub, label `epic` | **not filed in P1**: an area's epic is filed when its first slice is dispatched, so each owes its futro at its own kickoff (`ceremonies.md`) |\n| Register row | `docs/decision-register.md` | the chosen order, citing #641 and #346. The ID: one above the highest `D-WORKFLOW` on `next`, on every pushed branch (`git grep -ho 'D-WORKFLOW-[0-9]*' $(git branch -r --format='%(refname)') -- docs/decision-register.md`), and in the M7 lane's unpushed worktree (`grep -o 'D-WORKFLOW-[0-9]*' /workspace/repos/rocknix.worktrees/m7-player-setup/docs/decision-register.md \\| sort -t- -k3 -n \\| tail -1`); on 2026-10-22 that is **D-WORKFLOW-184** (182 is the stacked start, 183 the lane structure, both on the P0 branch) |\n| Lane stash | `.github/sessions/saved-session-state-feature-m6-p1-survey-641.md` | seeded by the planner; the executor updates it at every checkpoint: start here, current focus, the pass reached, next commands, merge notes |\n| Milestone body | M6 on GitHub | current/next moved to the first slice; read back after the write |\n| #339 body | GitHub | a line linking `docs/reviews/order.md` |\n| Work log | `docs/work-logs/<yyyy_mm>-work_logs/<yyyy_mm_dd>-work_log.md` (the session's own month), then `tools/work-log-index --write` | an entry per session headed `#641` and the thing decided |\n\n## 7. Acceptance\n\nThe checklist on #641 is the contract and is identical to this list. Each\nitem names the artifact that ticks it.\n\n- [ ] `docs/futros/<date>-m6-p1-survey.md` exists, its adding commit precedes the first inventory commit (`git log --format=%cI --diff-filter=A -- <each>`), and the same text is a comment on #641.\n- [ ] `tools/renovation-inventory` exists, is listed in the three places of § 6, and its four printed counts match (`git ls-files` on both trees, `find` for patches, `unassigned: 0`); the commands and outputs pasted on #641.\n- [ ] `docs/reviews/inventory.md` lists every area with its totals and the unreached and unshipped sets with line counts.\n- [ ] `docs/reviews/p1-tracking.md` carries the header hashes and the model/effort run, shows all seven passes complete with counts, and the cross-reference pass records at least one edge per area.\n- [ ] `docs/reviews/order.md` has every slice with the fields of § 6; the first three slices are each under about 12,000 read lines or one package group; Tier 1's launch, control and state slice and the interface's launch-path slice are among the first three; the review status line is present.\n- [ ] The proposed order and slice list were posted on #641, and the maintainer's yes is recorded there and in the order's register row before any slice issue was filed (the row's date and the first slice issue's creation time, read back).\n- [ ] `tools/renovation-inventory --slice-issues <dir>` renders one title and one body per slice from `slices.json` (its `wrote N slice issue bodies` line, N equal to the slice count, pasted on #641); the filing of the slice issues is the coordinator's (D-WORKFLOW-189) and not a P1 criterion.\n- [ ] The preliminary review ran per `review-formats.md` (the contract under `research/preliminary-reviews/<run-id>/`, three seats verified) or `order.md` records why not and `status.md` shows `order: unreviewed`; each material objection is answered by name.\n- [ ] `tools/renovation-drift` and `tools/renovation-status` exist, are listed in the three places, and `docs/reviews/status.md` has the `order:` row and one `unreviewed` row per slice.\n- [ ] `tools/lint-audit-artifacts` carries the renovation face check and its fixture proves it fails a folder without the seven questions and passes one with them.\n- [ ] The register row exists with the ID rule of § 6 followed; #339 links `order.md`; the M6 body names the first slice as NEXT, read back.\n- [ ] `tools/register-check`, `tools/work-log-index --check`, `tools/rules-check --quiet`, `tools/forbidden-terms-check` and `.githooks/hooks-test` pass on the branch; the five exit codes pasted on #641.\n\n## 8. Stop conditions\n\nStop only on: every item of § 7 ticked and the branch pushed; the **pass-7\ngate** (passes 1 to 6, the preliminary review included, are authorized by\nthe dispatch; before the order's register row, and before the coordinator\nfiles the slice issues (D-WORKFLOW-189), post on #641 the proposed order with each slice's fields, the slice list\nwith its titles, the inventory's four counts with their commands, the\nunreached and unshipped sets and the review's status, and wait for the\nmaintainer's yes, building the status and drift tools and the lint face\nmeanwhile; a yes that moves a slice renumbers `T<k>` in `slices.json` before\nthe coordinator files anything); an explicit maintainer pause on #641; a\nblocker, named on #641 with what is needed (a count that cannot be produced\nor two commands that disagree, a rule that forbids a step); or an execution\nlimit, stated as such with the tracking file current. A checkpoint is not a\nstop (D-WORKFLOW-149): write it and take the next pass. A seat failing\nverification is not a stop (§ 1). An idle session says it is idle.\n\n## 9. Ceremonies owed\n\n- The futro before pass 1 (§ 6), in the file and on #641.\n- A work-log entry per session, headed by #641; `tools/work-log-index\n  --write` after it; the weekly summary if the lane's week falls due\n  (`ceremonies.md`).\n- A friction line in `docs/friction-log.md` the moment something slows,\n  with `issue: #641` or the guard.\n- The mini-retro skill at the phase's close, posted on #641, with its scoped\n  audit; findings that recur become a rule edit, a tool or a blindspot entry\n  with its guard.\n- The register row for the order (§ 6); any other decision the phase forces\n  gets its row the same session.\n- `tools/ceremony-check` before the push; what it reports as owed by this\n  lane is paid before the push, what the other lane owes is noted on #641.\n- Commit messages: the fork's style (`docs: ...`, `tools: ...`), `Refs\n  #641` while any criterion is open, never a closing keyword.\n\n## 10. Hand-back\n\nThe planner accepts P1 by reading, in this order, without re-running the\nsurvey: the M6 body (current/next moved); `docs/reviews/status.md` (the\n`order:` row and one row per slice, all `unreviewed`); `docs/reviews/order.md`\n(the first three slices and their reading order); the four counts and the five\nchecker exit codes pasted on #641; the tracking file's header and seven\npasses; the retro's four answers. The slice issues are not part of the\nhand-back: the coordinator files them from P1's renderer (D-WORKFLOW-189). A brief that needed the planner's help\nmid-phase is a defect in this brief: log the friction, and the planner fixes\nthe template in plan § 7 before the next brief is written.\n"
+  },
+  {
+    "ref": "7041b0d710363ddac7ae1b047ebae3e182548631",
+    "path": "docs/audits/2026_10_23-epic-m6-es-launch-path/02-forward-audit.md",
+    "sha256": "ee206c10013cf8e6d8ddd23dc55c029cd8cfb4bc1259b6950b1e5404006e571d",
+    "selected_lines": [
+      [
+        282,
+        "| W-19 | PL-024 | a custom template whose command writes a 1000-character `/tmp/launch_error.log` and exits 250, and one that exits 230 | a launch of each | the error box in a 640x480 frame shows the text cut at 300 bytes with `...`, and the 230 box shows the fallback. The fallback's spelling waits for the coordinator's call | proved: fix-walk-pending-image |"
+      ],
+      [
+        352,
+        "**Examined:** all 20 paths, line by line, at the pin, by reading (`git show $PIN:<path>` through `awk`). Context reads outside the slice, each named where used: `es-core/src/Scripting.cpp` (FD-9), `GuiCloudTransfer.cpp:315-345` (FD-8), `HttpServerThread.cpp:615-630`, `CMakeLists.txt` (the defines), the distribution's `config/functions:128`, `virtual/emulators/package.mk:1735-1739`, `start_es.sh`, `es_savestates.cfg`, and `ApiSystem.cpp`'s support switch."
+      ]
+    ]
+  },
+  {
+    "ref": "49c6b43f27",
+    "path": "docs/audits/2026_10_30-epic-m6-es-core-components/02-forward-audit.md",
+    "sha256": "0d5c0705b4c749166b7da936444ddd3417b523f05b49d3d340fd83bfbc7f0d47",
+    "selected_lines": [
+      [
+        16,
+        "| `es-core/src/components/AsyncNotificationComponent.h` | 78 | fork-own | fork-modified | 23/2 | - |"
+      ],
+      [
+        151,
+        "| **3.26** | `MenuComponent.cpp:543-562`; `ButtonComponent.cpp:10` | a house constant a surface does not keep | T34 | FAIL candidate: five 128 px buttons at 640 overhang (L-04) | tool-run; stage D: FAIL at the pin, `710.4 <= 576` (four buttons fit); PL-14 recorded, not fixed; `doctest::may_fail` with PL-14 named since the hand-back (ruling 9) | Q2 |"
+      ],
+      [
+        174,
+        "| (j) the two lanes' `AsyncNotificationComponent.h` doubles | § The structure: a header change in T34 is named as a collision at the hand-back; the fakes are not the lane's |"
+      ],
+      [
+        424,
+        "- **`es-core/CMakeLists.txt`:** every one of the 80 named exactly once and unconditionally: the 42 headers at `:49-90`, the 38 sources at `:186-223`; `if(` only at `:278` and `:287`."
+      ],
+      [
+        428,
+        "Generated, asserted by `tools/t34-includes.py`: 352 quoted include lines over 91 headers, 37 angle, 1 to es-app; 274 outside lines in 112 files; the 80 each named once in `es-core/CMakeLists.txt`, `if(` at 278 and 287; 13 gate lines; 1 non-ASCII line."
+      ],
+      [
+        434,
+        "- **The two lanes' `AsyncNotificationComponent.h` doubles** (`tests/app-unit/fakes/components/AsyncNotificationComponent.h`, T18's; T33's build names the same fake): a header change in this slice is named as a collision at the hand-back. The fakes are not this lane's to edit (§ 1 j)."
+      ],
+      [
+        451,
+        "| `tests/app-unit/fakes/components/AsyncNotificationComponent.h` | T18 | a collision only if a holder's tests reach `handle()`: the fake gains it then | named, no patch |"
+      ],
+      [
+        489,
+        "| the unit build | at the pin (stage D): `TOTAL: 246 test cases in 6 binaries`, `components-tests` 7 cases, 2 passed, 5 failed, and the seven FAIL-at-pin leads: 3.4 FAIL (`0.986957` and `1.01304 == Approx(1)`), 3.6 FAIL (`80 == 60`), 3.7 FAIL (`Auto == AUTO`), 3.8 PASS (every loop type lands in range: PL-24 refuted), 3.16 FAIL (`0 == 1` for `haut/bas`), 3.21 (its first half PASS at the pin; the second, PL-13's uncached state, FAIL at S5's before-run), 3.26 FAIL (`710.4 <= 576`); the sanitizers `tsan-card` rc 66, `asan-textedit` rc 1, `asan-popup` rc 0. At the ES tip `52f0ff512`: `TOTAL: 285 test cases in 6 binaries`, the script's rc 0, 0 failed test cases in every binary, `components-tests` 46 cases, 46 passed, 0 failed with two `may_fail` (3.26 for PL-14, 3.14's PL-40 half), all four sanitizers rc 0 | a pure seam's defect | `stage-d/build-tests.txt`; `stage-e/handback-build.txt` |"
+      ],
+      [
+        520,
+        "| S0 | 3.11, 3.14, 3.15, 3.29 (floor) | at the pin: all PASS but 3.14's PL-40 half | none (`2568e64dc6`, record only) | - | - | - | PL-40's half `may_fail` at the hand-back |"
+      ],
+      [
+        563,
+        "The floor's 34 rows each carry their stage-E line in § The leads. 3.26 (PL-14) and 3.14's PL-40 half are `doctest::may_fail`, failing as recorded."
+      ]
+    ]
+  },
+  {
+    "ref": "d828355e0a",
+    "path": "docs/audits/2026_10_31-epic-m6-es-core-window-input/02-forward-audit.md",
+    "sha256": "595f2fdc9341dafc6c393576c3bcac0b88de9e4c3c2d9dd1986c480624196fdf",
+    "selected_lines": [
+      [
+        11,
+        "| `es-core/CMakeLists.txt` | 303 | fork-modified | fork-own | +7/-0 | the build lists | tree |"
+      ],
+      [
+        141,
+        "| L-26 | `es-core/CMakeLists.txt` at T21's `3ae9610b0` | structure | the integration (§ 1 h) | **confirmed:** five added lines in four hunks; named in the hand-back | -- | tree |"
+      ],
+      [
+        663,
+        "**The CMake lists:** every `.cpp` of the 96 is named once in `es-core/CMakeLists.txt` (44 of 44); the headers it does not list: `es-core/src/HelpPrompt.h`, `es-core/src/Scripting.h`; 9 lines carry a trailing `# batocera`, 7 of them naming a path of the 96 (`:19`, `:20`, `:96`, `:98`, `:160`, `:229`, `:231`); the lists are unconditional but for the two `if(` blocks at `:278` (the GLES renderer pair) and `:287` (`MSVC`'s source groups). **T21's hunk** (the pin to T21's tip `3ae9610b0`): 5 added lines -- `HttpText.h`, `RecoveryOutcome.h` (`@@ -9`), `utils/DownloadFile.h` (`@@ -124`), `HttpText.cpp` (`@@ -151`), `utils/DownloadFile.cpp` (`@@ -259`); the integration's, named in the hand-back (§ 1 h, L-26). `proved: tool-run`."
+      ],
+      [
+        686,
+        "| (h) | T21's `3ae9610b0` adds five registrations to `es-core/CMakeLists.txt`: the integration's, not the lane's | § The merge debt; no stream touches the file (`stage-e/handback2-checks.txt`: `es-core/CMakeLists.txt lines changed pin..tip: 0`) | tool-run |"
+      ],
+      [
+        691,
+        "`cada856d86` is the merge base against `rocknix/master` (`f6c542872e`), and `bccd715707` is its parent and the stale `upstream/master` (2026-09-22). Upstream has **0** commits on the 96 since the base (14 on any path; numstat 0), **96 of 96** blobs are identical between the base and master, and **83 of 96** between the pin and master. Batocera's **twelve** commits since `1750dded8c` touch **nine** files, six of them fork-modified (`GunManager.cpp`, `InputManager.cpp`, `Log.cpp`, `Window.cpp`, `Window.h`, `guis/GuiMsgBox.cpp`): the reconciliation list only. T21's `3ae9610b0` hunk in `es-core/CMakeLists.txt` (five added lines, § The structure) is the integration's (§ 1 (h)). **T34's ES tip, read at stage B:** local `568ef099d` and `origin` `a9017ff50` at 06:29:09Z (`git -C <W> rev-parse`/`diff --name-only`): **empty inside the 96** (19 and 18 files on other paths). The first read, at 06:08:37Z, was local `db12b1598a` and `origin` `2cbb62d7bd`, also empty inside the 96; the hand-back reads it a third time. **Stage E adds:** `stage-e/s3-pages.patch`, the fourth-tier pages' screensaver hold for T18 (`GuiCloudTransfer.h`, `GuiOfflineScan.h`, #665) and T31 (`GuiScraperRun.h`, #678), applying clean at their tips `d55235d4b` and `95852f873`; it needs T35's `GuiComponent.h` (S3) first. L-25's footnote: `guis/GuiTextEditPopupKeyboard.h` carries a fork commit in the inventory and is byte-identical to the base. `proved: tool-run` (stage A's run 5, `stage-a/runs.out`)."
+      ],
+      [
+        702,
+        "| 4 | the fork's delta | 0 | 0 s | `13 files changed, 247 insertions(+), 71 deletions(-); 13 files changed, 247 insertions(+), 71 deletions(-); 13 files changed, 247 insertions(+), 71 deletions(-); 1; added rc=0; 7\t0\tes-core/CMakeLists.txt; 2\t0\tes-core/src/GunManager.cpp; 8\t1\tes-core/src/InputConfig.cpp; 5\t2\tes-core/src/InputManager.cpp; 19\t40\tes-core/src/Log.cpp; 3\t3\tes-core/src/Scripting.cpp; 4\t1\tes-core/src/Splash.h; 49\t6\tes-core/src/Window.cpp; 2\t0 ...` | the fork changed the slice since the brief: the 13 are re-read | tool-run |"
+      ],
+      [
+        709,
+        "| 11 | the writes | 0 | 0 s | `es-core/CMakeLists.txt:122 es-core/CMakeLists.txt:257 es-core/src/AudioManager.cpp:539 es-core/src/AudioManager.cpp:610 es-core/src/FavoriteMusicManager.cpp:71 es-core/src/FavoriteMusicManager.cpp:115 es-core/src/InputManager.cpp:1225 es-core/src/InputManager.cpp:1232 es-core/src/Log.cpp:179; 9; 0; atomic rc=1` | a write was added: § The input's base | tool-run |"
+      ],
+      [
+        729,
+        "| `tools/t35-coverage.py` | 0 | `generated, asserted: 96 rows, 22575 lines (grep -c rule); read tiers fork-added 1 / fork-modified 12 / upstream-carried 83; inventory fork-own 13 / upstream-carried 83` | `rows=95` -> 1: `FAIL t35-coverage: rows 96, expected 95` | without `Window.cpp` -> 1: `FAIL t35-coverage: rows 95, expected 96` | at `bccd715707` -> 1: `FAIL t35-coverage: es-core/CMakeLists.txt: 296 lines at bccd715707, inventory 303` | tool-run |"
+      ],
+      [
+        743,
+        "| the stand-in over the 44 (`stage-a/syntax-check.sh`, the fakes under `stage-a/fakes/`, the pugixml root and rapidjson; udev, pulse, TTS, CEC and WIN32 not parsed) | 0 | 11 s | `t35-syntax-check: 44 file(s) checked, 44 rc 0, 0 not` | the first run (`syntax-check-first.out`) printed `37 rc 0, 7 not`: the seven stopped at the fakes' gaps, closed by `t35-sdl-more.h` and the T35 sections |"
+      ],
+      [
+        756,
+        "| S0: the unit build at the pin (`stage-e/s0-floor.txt`) | 1 (window-input-tests' seven candidates, by design) | 49 s | `TOTAL: 260 test cases in 7 binaries` | the rapidjson root re-made from the source cache's tarball with the package's two header patches (document.h a8c29c92d1e89279, stage C's); the pugixml root printed |"
+      ],
+      [
+        768,
+        "| S5 after (`stage-e/s5-after.txt`, at the tip c0ab63bf2, after the fix, 3.5 may_fail (rulings 9, 20), ES `c0ab63bf2`) | 1 | in the build | `window-input-tests`: `25 cases, 22 passed, 3 failed`; `TOTAL: 275 test cases in 7 binaries` | the stream's cases all pass; 3.4 an argument reaches the shell quoted; S5 an argument that starts with a double quote; S5 the script path and the event name no longer fail; `SAN tsan-posts` rc 0; `SAN tsan-watchers` rc 0; `SAN asan-watchers` rc 0 |"
+      ],
+      [
+        789,
+        "**Five counts as their commands' own lines** (copied from `stage-a/runs.out` by line number, the coordinator's acceptance read of #682, comment 6550615915; the commands are `stage-a/runs.sh`'s): `.detach(` is `runs.out:100` (`runs.sh:49`'s `git grep -n -F '.detach('` count); `AtomicFile::` is `:113` (`runs.sh:59`'s `git grep -n -F 'AtomicFile::'` count, `atomic rc=1` beside it); `FileSystem::exists(` is `:118` (`runs.sh:64`'s first count, `uncached rc=1` beside it); the SDL angle includes are `:151` (`runs.sh:79`'s first count); `if(` at `:278`/`:287` is `:164` (`runs.sh:79`'s last command, the `if (` lines of `es-core/CMakeLists.txt`)."
+      ],
+      [
+        795,
+        "stage-a/runs.out:110: # the writes (expect 9 lines -- R2 cmd 13's seven write sites, InputManager.cpp:1225 :1232 save_file; FavoriteMusicManager.cpp:71 :115 ofstream; Log.cpp:179; AudioManager.cpp:539 :610 fopen; plus es-core/CMakeLists.txt:122 :257, the `AtomicFileUtil` registrations the alternation matches (the proof); AtomicFile:: 0 rc=1)"
+      ],
+      [
+        845,
+        "| S5 | PL-03, #1339 (rule 6; PL-17 and PL-18 recorded, rulings 8 and 9; § 1 (d): `Scripting` is T35's) | at S4's tip: 3.4 (`'/storage/roms/nes/a$(id)b.zip'` and `` 'x`id`y.zip' `` not found), `:104`'s case (`\"abc` lost its `c`) and the path-and-name case (`'/s/my hook$(id).sh' 'game-start' ` not the line's start) FAIL; the recorded-shapes case PASS with the pin's shapes; `window-input-tests` 25 cases, 7 failed | `c0ab63bf2` (`Scripting.cpp`, 24 insertions, 1 deletion) | 25 cases, 3 failed (3.10, 3.11, 3.19) and `may_fail: 1` (3.5, PL-18 recorded, rulings 9 and 20); 3.4 and both S5 cases PASS; the recorded shapes now `'/s/hook.sh' 'game-start' 'a b.zip'`, `... 'a\"b.zip'`, `... 'it'\\''s.zip'` (D-WORKFLOW-211); `floor-tests` 11 of 11 (3.6's lift moved +23); the stand-in 44 of 44 | #1339's: nothing inherited -- the command line is built per event and kept nowhere; the hooks' own logs are rewritten by the next run | `fix-unit-test` | `fix-walk-pending-image`: a hook in `/storage/.config/emulationstation/scripts/game-start/` writing its argv to a file, for a game whose name holds shell metacharacters, its contents quoted in the issue, the hook removed after (the flow step: none on screen). The helper is es-core's own `Utils::String::shellQuote` (T36's, used, never changed). WIN32 keeps its double-quote form (its `ProcessStartInfo` does not read single quotes), with `:104`'s `endsWith` only. No patch |"
+      ],
+      [
+        846,
+        "| S6 | PL-04 #1340, PL-08 #1348, PL-09 #1349, PL-10 #1350 (rulings 7 and 15) | at S5's tip: 3.10 (no device named), 3.11 reshaped through the lifted `writeDeviceConfig` (two pads configured after a startup miss: `values: CHECK( 1 == 2 )`), PL-08's polling reader (`13321 reads, 3838 of a short file`) FAIL; PL-08's bytes case PASS (the format's guard); `SAN lsan-f4 (-fsanitize=address): rc 1; SUMMARY: AddressSanitizer: 24 byte(s) leaked in 3 allocation(s).`; `window-input-tests` 27 cases, 4 failed | `f5a698915` (`InputManager.cpp`, `guis/GuiDetectDevice.cpp`; 27 insertions, 11 deletions) | 27 cases, 1 failed (3.19) and `may_fail: 1` (3.5): 3.10, 3.11 and both PL-08 cases PASS (`110283 reads, 0 of a short file`; the bytes equal `save_file`'s); `SAN lsan-f4 (-fsanitize=address): rc 0; no sanitizer report`; `floor-tests` 11 of 11 after 3.13's `exists` double took the flag (D-WORKFLOW-211); `AtomicFileUtil.*` byte-identical (used, never changed); the stand-in 44 of 44 | `es_input.cfg`: read both -- a device whose file was absent at startup may hold only the last of two configurations, and a cut file already there reads as a parse error and is rewritten at the next save with what pugixml salvaged plus this device; the fix writes the same bytes, whole, and repairs neither. `es_last_input.cfg`: nothing reads it back. PL-09, PL-10: nothing inherited (a log line, an event in memory) | `fix-unit-test` | `fix-walk-pending-image`: `rm /storage/.config/emulationstation/es_input.cfg`, restart, configure through CONTROLLER MAPPING with the monitor hold (G-08); the file's `<inputConfig` count and the journal line quoted (the flow step: the configuration's save). G-10 `CANNOT` for a pad and a hot-plug, so the `writeText` fsyncs on a hot-plug are priced on the integration image. The detect page's first-run skip (`GuiDetectDevice.cpp:127`) reads uncached too. No patch |"
+      ],
+      [
+        848,
+        "| S8 | PL-11 #1351, PL-12 #1352, PL-16 #1353 (rulings 3, 4, 14) | at S7's tip: 3.19 re-shaped under ruling 3 (one definition, MenuComponent.cpp's; the keyboard's value kept), the three CLEAR/x cases (the text popup's CLEAR button, the keyboard's x and CLEAR key, each lifted into a popup double: the OK callback called with `\"\"` and the popup deleted), and 3.21 (the subtitle lifted as text: no `getDeviceName()`) FAIL; `window-input-tests` 31 cases, 5 failed | `d0e5b3432` (`guis/GuiTextEditPopupKeyboard.cpp`, `guis/GuiTextEditPopup.cpp`, `guis/GuiInputConfig.cpp`, the French catalog; 19 insertions, 8 deletions) | 31 cases, 0 failed, `may_fail: 1` (3.5); **the whole unit build `rc=0`**: every binary 0 failed, every `SAN` line `rc 0; no sanitizer report`, `TOTAL: 283 test cases in 8 binaries`; `es-untranslated` 707 and 704 with French, 0 without (`GAMEPAD` -> `MANETTE` added); `es-menu-map-check`: `55 screen(s) at d0e5b3432, 31 in the map, 24 declared unmapped, 0 missing`; the stand-in 44 of 44 | PL-11, PL-16: nothing inherited (a padding and a subtitle are drawn, not stored). PL-12: read both -- a value an earlier CLEAR committed (an emptied folder, host name or Wi-Fi key) is in the settings as the player left it; the fix changes what the next CLEAR does | `fix-unit-test` | `fix-walk-pending-image`: G-06's walk to the cloud folder editor, the keyboard's CLEAR key pressed, a frame with the field empty and the keyboard open, then OK commits (640x480 and 1280x800, English and French, `EFFACER`); the key gap measured from that frame (the brief's figure 4); the detect page's hold (G-08) to CONFIGURING with a frame of the subtitle in English and French (the flow steps: CLEAR on the keyboard; the configuring page's subtitle). Merge debt: T34's `MenuComponent.cpp:9-10` sentence about the keyboard's second copy is now false (ruling 3). No patch |"
+      ],
+      [
+        869,
+        "- The logger and the watcher thread are joined (`Log.cpp:76-77` from `onExit`; `WatchersManager.cpp:154` from `stop()`). Every `.cpp` of the 96 is registered once in `es-core/CMakeLists.txt`. `proved: tree`."
+      ],
+      [
+        874,
+        "- At S8's tip the whole unit build exits 0: `TOTAL: 283 test cases in 8 binaries`, every binary's test-case summary at 0 failed, `may_fail: 1` (3.5, PL-18 recorded under rulings 9 and 20), and every `SAN` line `rc 0; no sanitizer report` -- `tsan-posts`, `tsan-watchers`, `asan-watchers`, `lsan-f4`, `tsan-log-close`, `tsan-log-flush` (`stage-e/s8-after.txt`). `proved: fix-unit-test`."
+      ],
+      [
+        875,
+        "- The seven candidates' FAIL lines at the pin (3.1, 3.4, 3.5, 3.10, 3.11, 3.14, 3.19) each have their PASS (or 3.5's `may_fail`) in a stream's after-file; 3.11 and 3.19 were reshaped, each record saying so; 3.27 stays FAIL with its reason (ruling 12, `stage-e/s3-pl25.txt`). `proved: fix-unit-test`."
+      ],
+      [
+        876,
+        "- The build script refuses to build against stale extracts (seen to fire, `stage-e/s2-guard-proof.txt`) and lists a failed case only under an `ERROR` line and an allowed one apart (`may_fail case:`). `proved: tool-run`."
+      ]
+    ]
+  },
+  {
+    "ref": "4127382d34",
+    "path": "docs/audits/2026_10_31-epic-m6-es-core-utils-resources/02-forward-audit.md",
+    "sha256": "acd8f9682a3d04111776a05a7e5750ebb21f247f118e61c75ba1cd1e39d900b9",
+    "selected_lines": [
+      [
+        73,
+        "| `es-core/src/utils/han.h` | 20923 | upstream-carried | upstream-carried | yes | 0 | the structure (reading scope) |"
+      ],
+      [
+        76,
+        "| `es-core/src/utils/zip_file.hpp` | 10011 | upstream-carried | upstream-carried | yes | 0 | the writes and reads; the structure (reading scope) |"
+      ],
+      [
+        393,
+        "| `ZipFile.cpp:259` | `ZipFile::extract` | built | miniz `MZ_FOPEN(..., \"wb\")` (`zip_file.hpp:6634`) | **no** | a partial member | miniz's status |"
+      ],
+      [
+        436,
+        "- **`han.h` (20,923 lines) and `zip_file.hpp` (10,011 lines):** read only where a lead reaches them. `zip_file.hpp`'s provenance and licence notice belong to #256's vendored-header PR bucket."
+      ],
+      [
+        459,
+        "  - **The figures `stage-a/runs.out` names, quoted:** scope 58 (cpp 25, h 32, hpp 1; renderers 14, resources 11, utils 33); lines `wc -l 50827`, `grep -c 50840`, no-trailing-newline 13 files, `han.h + zip_file.hpp grep -c 30934`; the fork delta `15 files changed, 1032 insertions(+), 60 deletions(-)`; the angle-include count 241 (non-standard 41); `_(\" lines TOTAL 11 in 2 files` (occurrences 12); `LOG(Log lines TOTAL 99 in 16 files`; threads 10, `.detach(` 1 (`FileSystemUtil.cpp:1797`); locks 63; `spawn count: 16` (all in `Platform.cpp`); the `fopen(... \"w\"` writes `FileSystemUtil.cpp:1432 :1434 :1490 :1492` (6 with `zip_file.hpp`); the helpers' reach (`runSystemCommand\\(` 80, `ProcessStartInfo` 13, `GetShOutput\\(` 27, `GetShOutputLines\\(` 9, `writeAllText\\(` 27, `renameFile\\(` 17, `copyFile\\(` 12, `readAllText\\(` 38, `readAllLines\\(` 5, `AtomicFile::` 41); the gates `0` `ROCKNIX` (`ROCKNIX gates rc=1`, none found) and `GLES3 macro rc=0`; the three files with a non-ASCII byte (`FileSystemUtil.cpp`, `StringUtil.cpp`, `StringUtil.h`) and `0` non-ASCII comments before a `_(`; and 3.5's two host rcs `seq 400 rc=0` / `seq 200000 rc=141`."
+      ],
+      [
+        467,
+        "  - **`es-unit-tests` (the slice's StringUtil/TimeText/OfflineProxyUrl):** retried at stage E (S0, ruling 13) with rapidjson 1.1.0 from the sources cache (`/workspace/tmp/m6-t36/rj`). `-Wno-error` does not build it (the `-Wtemplate-body` on `rapidjson/document.h:319` is a g++ 15 default-error, not `-Werror`-promoted); **`-Wno-template-body` builds it: `RUN es-unit-tests: rc 0; [doctest] test cases: 185 | 185 passed | 0 failed`.** So the slice's three linked files pass, and `es-unit-tests` joins the `TOTAL:` line (the build script carries `-Wno-template-body`). **At the amended tip `t36-build-tests.sh` prints `TOTAL: 208 test cases in 2 binaries`** (es-unit-tests 185/185, utils-resources-tests 23/23, 0 failed cases; `SAN asan-preload`/`tsan-cache` rc 0), with the include order that links the real `FileSystemUtil.cpp`: `-I <build>/x -I <W>/es-core/src -I <W>/external` (`stage-c/build-tests.out:5`)."
+      ]
+    ]
+  },
+  {
+    "ref": "82c67e99c5726e6980605790642e798c196e421c",
+    "path": "docs/audits/2026_10_26-epic-m6-es-state-and-bridge/02-forward-audit.md",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-es-launch-path-649",
+      "show",
+      "82c67e99c5726e6980605790642e798c196e421c:docs/audits/2026_10_26-epic-m6-es-state-and-bridge/02-forward-audit.md"
+    ],
+    "rc": 0,
+    "sha256": "abe7dfe706fc428f7985228db1907a9ffc279353eda80390f67545dd75ad6869",
+    "selected_lines": [
+      [
+        622,
+        "| S12 | PL-18 (#1206), and the certificate sentence (D-NET-017) | `stage-e/s12-before.txt`: seven cases FAIL -- every recovery said RESTORED, 501 to 504 and the transport failures read as offline | `e38dcdefd` | `stage-e/s12-after.txt`: 274 cases pass; HttpReq, ScreenScraper, Scraper and main pass the syntax check; the four sentences and their French are in neither untranslated list | Nothing inherited: an outcome is the start's own | fix-unit-test |"
+      ],
+      [
+        623,
+        "| S10, follow-up | PL-14 (#1202): the BIOS check's callers | `stage-e/s10b-before.txt`: the page sentence's case FAILs at S12's tree | `a73ed9efc` | `stage-e/s10b-after.txt`: 275 cases pass; GuiBios and ViewController pass the syntax check; the sentence and its French in neither untranslated list | Nothing inherited | fix-unit-test |"
+      ]
+    ]
+  },
+  {
+    "ref": "7041b0d710363ddac7ae1b047ebae3e182548631",
+    "path": "docs/audits/2026_10_23-epic-m6-es-launch-path/00-running-log.md",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-es-launch-path-649",
+      "show",
+      "7041b0d710363ddac7ae1b047ebae3e182548631:docs/audits/2026_10_23-epic-m6-es-launch-path/00-running-log.md"
+    ],
+    "rc": 0,
+    "sha256": "902c4c03ab2de30580a8127fd1400dcf9fa8e6ed4718dd44a0504edc52ea6873",
+    "selected_lines": [
+      [
+        424,
+        "  - `archaeology --reversal` (21:31:51) finds no line in the ES tree; its 11 lines are the audit's own records. ES `d4917f9a2`. #790's line is ticked."
+      ],
+      [
+        425,
+        "- **The menu map** gained \"Boot dialogs and the launch error box\", the four dialogs' flow with their evidence owed to the image. `es-menu-map-check --ref feature/m6-es-launch-path-649`: 55 screens, 0 missing."
+      ],
+      [
+        426,
+        "- **PL-010, the test first.** `LaunchTemplate::netplayArguments`. Four cases against the pin's ROCKNIX strings (21:34:13): 3 failed (the spectator mode, the session, the default port). Fixed (21:34:31): 4 of 4."
+      ],
+      [
+        427,
+        "  - Both ROCKNIX branches use it. `credential-quoting.py`: 9 quoted, 0 bare. ES `62bc22ae7`."
+      ],
+      [
+        428,
+        "  - The contract's \"writes the password setting\": GUI NETPLAY never asks for a password, so `netplayClientPassword` is always empty. The setting the launcher reads is the player's own, so ES has nothing to write. Said in the commit and to the coordinator."
+      ],
+      [
+        429,
+        "- **PL-006, the test first.** `refreshBootCommand`. Five cases against the replay stand-in (21:35:12): 3 failed, 6 assertions. Fixed (21:35:30): 5 of 5."
+      ],
+      [
+        430,
+        "  - `launchStartupGame` refreshes the command and logs each change. `es-unit-tests` 220 passed; syntax-only compile `PASS`. ES `ede4ae1d6`. Option (b)'s row is in 04 § Q7."
+      ],
+      [
+        431,
+        "- The walks W-16 to W-21 are in 02."
+      ],
+      [
+        432,
+        "- **S5 ends at ES `ede4ae1d6`.**"
+      ],
+      [
+        433,
+        ""
+      ],
+      [
+        434,
+        "### [Stage F, host-free part] 21:49-21:52 — under the M7 window: no compile, no guest"
+      ],
+      [
+        435,
+        ""
+      ],
+      [
+        436,
+        "- **The coordinator's answers (#649 21:39).** PL-024's spelling is renamed in every catalogue. PL-010's password half is withdrawn as not applicable, the reading its artifact. Stage F's host-free parts now; the compile and the guest wait for \"resource return\"."
+      ],
+      [
+        437,
+        "- **PL-024's spelling**, ES `a1cbc0ccd`. The source's `_(\"UKNOWN ERROR\")` and the same `msgid` in **35** catalogues are renamed, each `msgstr` kept, along with `en_GB`'s `msgstr` and the `.pot` template: 37 lines."
+      ],
+      [
+        438,
+        "  - **A correction, mine:** I wrote \"36 catalogues\" and \"35 other catalogues besides French\" on #649. There are 35 catalogues in all (French and 34 others). The 36 was a line count that included `en_GB`'s `msgstr`."
+      ],
+      [
+        439,
+        "  - `es-untranslated` before (21:49:45): 705 fork strings, 0 without; after (21:49:56): 706, 0 without. `vocabulary-check` 0 wrong. `git grep UKNOWN`: none."
+      ],
+      [
+        440,
+        "  - **The syntax-only compile of `FileData.cpp` is owed until resource return.**"
+      ],
+      [
+        441,
+        "- **The Phase 7 outcomes.**"
+      ],
+      [
+        442,
+        "  - PL-024 is Resolved. PL-028 is resolved by its row in 04 § Q6 (both upstreams still declare `isSaveStateInfoTemporary`: `git grep -c -w` 2 at HEAD, `batocera/master` and `rocknix/master`), with a line on #585."
+      ],
+      [
+        443,
+        "  - PL-029 is Deferred to #684 (rule 2). PL-033 is Deferred to #791 (rule 1; `d17cf003e` was picked). PL-010's password half is withdrawn."
+      ]
+    ]
+  },
+  {
+    "ref": "7041b0d710363ddac7ae1b047ebae3e182548631",
+    "path": "docs/audits/2026_10_23-epic-m6-es-launch-path/05-punch-list.md",
+    "argv": [
+      "git",
+      "-C",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-es-launch-path-649",
+      "show",
+      "7041b0d710363ddac7ae1b047ebae3e182548631:docs/audits/2026_10_23-epic-m6-es-launch-path/05-punch-list.md"
+    ],
+    "rc": 0,
+    "sha256": "3be7369a1b11d06f08a54484cf4e99eb8a79109f8e046a5bec2554cc3bdc97f9",
+    "selected_lines": [
+      [
+        641,
+        "| PL-012 | Resolved | ES `2e6fe8bf1` (S2): an unopenable lock is given up after 10 polls and the deletion is not made; the `bookkeeper-tests` case failed then passed; #778 |"
+      ],
+      [
+        642,
+        "| PL-013 | Resolved | ES `05c8e4b5e` (S4): `std::atomic<FileData*>`; the syntax compile of the readers, `proxycards-tests` and `es-unit-tests` pass; #779 |"
+      ],
+      [
+        643,
+        "| PL-014 | Resolved | ES `d7c27172f` (S4): the gates ask from `ViewController::launch` before the transition (`launchGatesClear`), and a refusal after it shows the view again; walk W-12 `fix-walk-pending-image`; #780 stays open for it. The three batocera commits PL-033 put first are deferred to #791 under rule 1 |"
+      ],
+      [
+        644,
+        "| PL-015 | Resolved | ES `a585d7d1f` (S3), the fork's way (the coordinator's answer (a) on #649): the newest time of the scanned folders, and multi-disc content hidden in the fresh tree; unit case failed then passed; walk W-11 `fix-walk-pending-image`; #781 stays open for it |"
+      ],
+      [
+        645,
+        "| PL-016 | Resolved | ES `f11e7528a` (S2): `copyToSlot` and `remove` return what the file operations did (`SaveStateFiles`); unit cases failed then passed; walk W-5 `fix-walk-pending-image`. The manager's message to the player is `GuiSaveState`'s, a lead for #678; #782 stays open |"
+      ],
+      [
+        646,
+        "| PL-017 | Resolved | ES `29de9d910` (S2): `onGameEnded` restores the parked auto save for slot -2; walk W-6 `fix-walk-pending-image`; #783 stays open for it |"
+      ],
+      [
+        647,
+        "| PL-018 | Resolved | ES `12d32c372` (S4): PLAY NOW's answer in `LaunchGameOptions`; the new `launch-play-through.py` failed on the pin, then passed; #784 |"
+      ],
+      [
+        648,
+        "| PL-019 | Resolved | ES `ae34e6c0c` (S4): the end time taken as the command returns; walk W-15 `fix-walk-pending-image`; #785 stays open for it |"
+      ],
+      [
+        649,
+        "| PL-020 | Resolved | ES `01274da50` (S3): the key checked before the folder is made (freeing it after its scan would leave map entries to freed games); its AddressSanitizer acceptance needs a `SystemData` harness no target has, put to the coordinator on #649; #786 stays open |"
+      ],
+      [
+        650,
+        "| PL-021 | Resolved | ES `3872afe5a` (S1): the value unquoted, an explicit empty value present; the `runemu` stand-in at fe3e832e4a's reading; unit cases failed then passed; #787 stays open until its criteria are ticked |"
+      ],
+      [
+        651,
+        "| PL-022 | Resolved | ES `dce0b9b6b` (S4): the posted function asks again whether the screen is free; the `proxycards-tests` case failed, then passed; #788 |"
+      ],
+      [
+        652,
+        "| PL-023 | Resolved | ES `4d8a695b5` (S2): the cache keyed by the system's emulators, cores and defaults, under its own lock; walk W-7 `fix-walk-pending-image`; the file now diverges from both upstreams (#585); #789 stays open for it |"
+      ],
+      [
+        653,
+        "| PL-024 | Resolved | ES `6461c4dc3` (S5: the bound and the uncached read) and `a1cbc0ccd` (stage F: UNKNOWN ERROR in the source and all 35 catalogues, each msgstr kept, at the coordinator's call); `es-untranslated` 0 without; walk W-19 `fix-walk-pending-image` |"
+      ],
+      [
+        654,
+        "| PL-025 | Resolved | ES `4d4ae7060` (S5): the serial box and the systems errors through `_()` with French; `es-untranslated` 703 then 706, 0 without; walk W-20 `fix-walk-pending-image` |"
+      ],
+      [
+        655,
+        "| PL-026 | Resolved | ES `502a2b12e` (S5): the earlier build's prompt uses restore and its sibling's tiers, matching what runs; `es-untranslated` and `vocabulary-check` pass; walk W-21 `fix-walk-pending-image` |"
+      ],
+      [
+        656,
+        "| PL-027 | Resolved | ES `e88ce097d`: kept, with a one-line comment citing D-UI-069 and the upstream callers (the coordinator's answer on #649); the row in `04-analysis.md` § Q6; the line on #585 |"
+      ],
+      [
+        657,
+        "| PL-028 | Resolved | by the row in `04-analysis.md` § Q6 (brief rule 3): both upstreams still declare the fields, so nothing is removed; the line on #585 |"
+      ],
+      [
+        658,
+        "| PL-029 | Deferred | #684 (T37, the recipe's `start_es.sh`), by brief rule 2; its lead is on the list |"
+      ],
+      [
+        659,
+        "| PL-030 | Resolved | ES `d4917f9a2` (S5): four comments corrected; `archaeology --reversal` finds none of the old phrases in the ES tree |"
+      ],
+      [
+        660,
+        "| PL-031 | Deferred | #678 (T31): stopping the builder's write alone empties the NICKNAME rows of `GuiNetPlaySettings`/`GuiGameOptions` and SystemData's export on a fresh device, so the default moves to where those pages load, outside the twenty; the row in 04 § Q7 and a lead on #649 |"
+      ],
+      [
+        661,
+        "| PL-032 | Deferred | #794, the Backlog issue the coordinator filed at acceptance (with PL-006 option b); the row with the proposed split is in `04-analysis.md` § Q7 (S4, brief rule 4) |"
+      ],
+      [
+        662,
+        "| PL-033 | Deferred | #791 (the ES upstream sync), by brief rule 1: `d17cf003e` was picked with `-x` (ES `2e4877066`, S3); `b69fb143c` and the three `ViewController` commits conflict with fork-own lines (the coordinator's 20:45 ruling), and `13e21d420`/`195a517ef` serve no stream's item |"
+      ],
+      [
+        663,
+        "| PL-034 | Resolved | ES `2f26f410f` (S1): `configureEmulators` only when the controllers are wanted and the template names the placeholder; walk W-3 `fix-walk-pending-image` (02) |"
+      ],
+      [
+        664,
+        "| PL-035 | Resolved | ES `f2758b145` (S2, `setupSaveState`'s one arm), `2f881879c` (S4, `ViewController::launch`'s one end callback) and `55158d2a6` (stage F, the `ProxyCards` comments rule first, at the coordinator's answer on #649 21:53); the syntax compile and `es-unit-tests` pass at the tip |"
+      ],
+      [
+        665,
+        "| PL-036 | Resolved | ES `c2e75868a` (S3's tail): the asset test asked before the object is made (`FileData::isArcadeAssetPath`); `system-scan-assets.py` failed on the pin, then passed; #792 |"
+      ],
+      [
+        666,
+        ""
+      ],
+      [
+        667,
+        "## Machine-readable index"
+      ],
+      [
+        668,
+        ""
+      ],
+      [
+        669,
+        "```yaml"
+      ],
+      [
+        670,
+        "punch_index:"
+      ]
+    ]
+  }
+]

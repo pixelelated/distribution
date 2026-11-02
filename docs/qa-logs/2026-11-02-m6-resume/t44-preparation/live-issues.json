@@ -1,0 +1,101 @@
+{
+  "note": "Read-only preparation capture; no criteria or dispatch changes yet.",
+  "issue": {
+    "url": "https://github.com/pixelelated/distribution/issues/691",
+    "title": "M6.P2 E339/T44: interface: EmulationStation's vendored libraries, translations and build files",
+    "issue_number": 691,
+    "body": "Slice T44 of the renovation order: `docs/reviews/order.md` § T44, id `es-vendored-and-data` in `docs/reviews/slices.json`. Phase M6.P2, under epic #339 until this area's epic is filed at its first dispatch (then re-parented and retitled `E<epic>/T44`, `milestone-phase-naming.md`). Proposed by the survey (#641); the order is D-WORKFLOW-188 (the fourth version, 2026-10-23). Run under the per-slice procedure of `docs/reviews/plan-for-the-plan.md` § 6b, from the brief the planner writes before dispatch (§ 7).\n\n## Scope\n\n- **Area:** interface; **kind:** table; **lens:** reachability, package currency\n- **Why here:** `external/` (libretro-common, rcheevos, doctest, nanosvg, id3v2lib) by provenance and version; the translations and resources by coverage; its table separates fork-added libraries (doctest, 7,134 lines, imported unchanged) from fork-modified ones (libcheevos's fork-touched files, read in `es-achievements-pages`), by comparison with the imported version\n- **Paths:** areas `interface`; globs `es:**`, `!es:es-app/**`, `!es:es-core/**`; the rest of these areas. 594 paths, 374,547 lines; 143,710 lines read, 11,989 of them fork-own (inventory at `eb4763e3cc`). The exact list is `tools/renovation-inventory --order`'s membership of `es-vendored-and-data`.\n- **Provenance tiers:** fork-own 51, upstream-carried 543\n- **Read before:** none (the renovation gates no release, D-WORKFLOW-187)\n- **Review depth:** Local -- a provenance table\n- **Interacting subsystems (read-only context):** the proxy's own rcheevos (`offline-achievements`)\n\nreviewed-at:\nfixed-at:\n\nCan this be done on the VM? No test is proposed: a table slice is host analysis of the tree; a removal it proposes is proven on the GENERIC_X64 guest before it is a punch item.\n\n## Acceptance criteria\n\nFiled by the coordinator lane (D-WORKFLOW-189): a slice issue is a work item, and work items are the coordinator's. The five criteria below are plan § 6b's contract for every slice; this slice's specific criteria are added here by the coordinator with its brief before dispatch (plan § 7), and the slice is not dispatched before they are.\n\n- [ ] `docs/audits/<date>-epic-m6-es-vendored-and-data/` holds `00-running-log.md` and `01-research-notes.md` to `05-punch-list.md`.\n- [ ] `tools/lint-audit-artifacts docs/audits/<date>-epic-m6-es-vendored-and-data/` prints `PASS`, the renovation face included: Q1 to Q7 answered in `04-analysis.md`, and every punch item's `question:` in the index.\n- [ ] The review depth is recorded as Local in `second-opinions/review-plan.json` (no reviewer: the lint and the counts are the check, plan § 6c).\n- [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue, or withdrawn with its reason.\n- [ ] `reviewed-at:` and `fixed-at:` above carry the commits the read and the fixes were made at (with `fixed-at-es:` for EmulationStation paths), and `tools/renovation-status` lists this slice as `closed`.\n",
+    "state": "open",
+    "user": {
+      "login": "blitterbot",
+      "name": "blitterbot",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/335883270?v=4",
+      "id": 335883270
+    },
+    "assignees": null,
+    "labels": null,
+    "milestone": 6,
+    "state_reason": null,
+    "comments": 2,
+    "created_at": "2026-10-23T05:17:48Z",
+    "updated_at": "2026-11-02T21:42:10Z",
+    "closed_at": null,
+    "display_url": "https://github.com/pixelelated/distribution/issues/691",
+    "display_title": "M6.P2 E339/T44: interface: EmulationStation's vendored libraries, translations and build files"
+  },
+  "comments": [
+    {
+      "url": "https://github.com/pixelelated/distribution/issues/691#issuecomment-6375264017",
+      "body": "**A shared-path note from the coordinator, 2026-10-23.** `locale/lang/**` is this slice's path in `slices.json`. T2 (#649, PL-024) renames one misspelt `msgid` in all 36 catalogues in one mechanical commit, keeping every `msgstr` (and correcting `en_GB`'s, which repeats the misspelling), because correcting the English source and the French alone would drop 34 languages to English for that string. T2's commit lands before this slice starts (plan § 8); when T44 reads the catalogues, that rename is part of what it reads. Recorded on #649 too.",
+      "user": {
+        "login": "blitterbot",
+        "name": "blitterbot",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/335883270?v=4",
+        "id": 335883270
+      },
+      "id": 6375264017,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null
+    },
+    {
+      "url": "https://github.com/pixelelated/distribution/issues/691#issuecomment-6589185959",
+      "body": "## Bounded T44 preparation while T43 executes — 2026-11-02\n\nT43 is now dispatched under #690 comment6589165585. T44 remains next in the milestone order; this is factual preparation under plan §8, not execution or a new source baseline decision.\n\n- **P1, existing wN:p3:** derive exact `es-vendored-and-data` membership from immutable P1 selectors/inventory at2174265e9cc1b248c0fbe27fa101875984d46d6b, compare selector records with coordinator92e8d07b6163ec5ddd3e9b67f1c42a472b2911d1, and verify path/mode/blob/line/group/tier quantities against ES survey pin16dbac5211eea7e70db7394372033be2be7df829. Separate vendored code, fork-added imports, fork-modified code, catalogues/resources/build files and binary/other paths; report boundary seams with T21/T34/T35/T36. The generated594/374547/51/543/read counts are claims to reconcile, not assumptions. Return precise source/selector commands and immutable manifest hashes; no ownership recut or audit verdict.\n- **T2, existing wN:p5:** reconcile the complete shared-catalogue note6375264017 with accepted T2 ES55158d2a64c69fe295fb4e67fd174424a71b1b4d and its immutable distribution handback7041b0d710363ddac7ae1b047ebae3e182548631. Map accepted later ES owner commits affecting T44 paths where named by existing issues/records (T21/T34/T35/T36), vendored-library import/version evidence and inherited findings/owners. Establish what a future T44 read must include; do not select/merge an execution pin, change catalogues, re-audit or redo the earlier ownership survey. Distinguish an immutable accepted source from a moving integration branch or M7 candidate.\n\nUse read-only Git objects in distribution and `/home/max/Development/emulationstation-next` (confirmed local store; both named ES pins exist). Read full #691 thread, #700 and relevant complete owning issues before using their evidence. The coordinator recipe still names16dbac; its historical pin is not evidence that later accepted catalogue edits are integrated. Record discrepancies for root's brief choice.\n\nSmall private text/JSON scratch only, CPU affinity8–23. No checkout/export, source extraction, build/guest, fetch, config execution, external provider/council, physical/cloud/host-ledger action, tracker/repository/kit writes, accepted producer replay or permission answers. Historical worktrees remain untouched. Return a concise report with commands/hashes, exact unresolved factual inputs and limits to wN:p2, then stop. Root retains brief, criteria, ownership, baseline choice and dispatch.\n\nCan this be done on the VM? These are immutable source/selector/history reads; no runtime behavior is measured or claimed.",
+      "user": {
+        "login": "blitterbot",
+        "name": "blitterbot",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/335883270?v=4",
+        "id": 335883270
+      },
+      "id": 6589185959,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null
+    }
+  ],
+  "epic": {
+    "url": "https://github.com/pixelelated/distribution/issues/700",
+    "title": "M6.P2 E339: Area epic: the interface, EmulationStation (T2, T18, T20, T21, T26, T31 to T37, T44)",
+    "issue_number": 700,
+    "body": "The area epic for **the interface** (`interface` in `docs/reviews/areas.json`): the EmulationStation fork, `pixelelated/emulationstation` at the pin `projects/ROCKNIX/packages/ui/emulationstation/package.mk` names (`16dbac5211eea7e70db7394372033be2be7df829`, the tip of `test/qa-integration`, 2026-10-15), read in an EmulationStation worktree with the distribution checkout's rules (D-WORKFLOW-010; plan § 11 item 4), plus the recipe and themes in the distribution (T37). Filed by the coordinator at the area's first dispatch, as plan § 5 says (`docs/reviews/plan-for-the-plan.md`; D-WORKFLOW-189: the definition of work items is the coordinator's). Parent: #339, the renovation epic (D-WORKFLOW-181). The order is `docs/reviews/order.md`, the fourth version (its row is on the P1 branch); the maintainer's call of 2026-10-23 is that slices in different areas run beside each other (D-WORKFLOW-190), so this area's first slice runs beside #695's T1.\n\n**The maintainer's goal, 2026-10-22 (D-WORKFLOW-181, quoted on #339):** *\"modernize the codebase; ensure we're adhering to best practices, coding standards, and more; identify bugs; look for where packages may need to be updated; look for where there's room for efficiency in how it works (that's computational, memory management, user experience, etc.); find dead ends; make sure the code itself is clear, well structured, etc.; in general, try to streamline and improve the operating system top to bottom.\"* This area is what the player sees and presses: the launch path (what a press costs in time to play, D-CLOUD-098), the cloud and achievements pages, the state primitives and the bridge to the OS, and the four hundred-odd upstream files the fork carries. Its first slice is the order's second because the interface's launch path is read before #336 Step 1 replaces what sits under it (D-WORKFLOW-187's reading order).\n\n## The slices, in execution order\n\n| Order | Slice | Issue | Depth | Paths |\n| --- | --- | --- | --- | --- |\n| T2 | EmulationStation's launch path | #649 | Extended | `es:es-app/src/{FileData,SystemData,LaunchCommand,ProxyCards}.*`, `main.cpp`, `SaveState*`, `views/ViewController.*` (20 paths) |\n| T18 | EmulationStation's cloud pages, cards and text, with their unit tests | #665 | Extended | `es-cloud-pages` (30 paths) |\n| T20 | EmulationStation's RetroAchievements and offline pages | #667 | Extended | `es-achievements-pages` (25 paths) |\n| T21 | EmulationStation's state primitives and its bridge to the OS | #668 | Extended | `es-state-and-bridge` (14 paths) |\n| T26 | EmulationStation's main menu (GuiMenu) | #673 | Independent | `es-guimenu` (2 paths) |\n| T31 | EmulationStation's other pages | #678 | Independent | `es-pages` (76 paths) |\n| T32 | EmulationStation's game list views, scrapers and services | #679 | Independent | `es-app-views-scrapers` (42 paths) |\n| T33 | EmulationStation's system layer: ApiSystem, game lists, collections, metadata | #680 | Independent | `es-app-system` (77 paths) |\n| T34 | EmulationStation's core components | #681 | Independent | `es-core-components` (80 paths) |\n| T35 | EmulationStation's window, input, settings and the rest of es-core | #682 | Independent | `es-core-window-input` (96 paths) |\n| T36 | EmulationStation's utilities, resources and renderers | #683 | Independent | `es-core-utils-resources` (58 paths) |\n| T37 | the EmulationStation recipe and themes in the distribution | #684 | Independent | `es-recipe` (15 paths) |\n| T44 | EmulationStation's vendored libraries, translations and build files | #691 | Local | `es-vendored-and-data` (594 paths) |\n\nThe exact membership of each is `tools/renovation-inventory --order` on the P1 tip (`2174265e9c`); the id in the Paths column is the slice's id in `docs/reviews/slices.json`. Each slice runs under plan § 6b from the brief the coordinator writes before its dispatch (`docs/reviews/briefs/<slice>.md`); each child is re-parented under this epic and retitled `M6.P2 E<this>/T<k>` at its dispatch. The futro for this epic is run by the coordinator before T2's first audit commit and posted here. Two things every slice of this area shares: an EmulationStation worktree of its own at the pin (`/home/max/Development/emulationstation-next.worktrees/m6-<slice>-<issue>`, branch `feature/m6-<slice>-<issue>` from the pin; the primary ES checkout is somebody else's branch and is never checked out), and a `fixed-at-es:` line beside `fixed-at:` at hand-back, because the fixes land in the ES repository and reach the distribution as a pin bump the coordinator makes at integration (`docs/reviews/README.md`, the drift tool's `es=` hash).\n\nCan this be done on the VM? Yes for every behaviour claim: the GENERIC_X64 image runs the same EmulationStation binary and 640x480 panel as a handheld (`vm-first.md`); reading, the unit tests (`es-app/tests/unit`, doctest, built with the toolchain's cmake on the host) and the syntax-only compile need no guest. Nothing in this epic builds an image: a fix is proven on the guest at the first image that carries it, which is the coordinator's integration build, and until then by the unit tests, the syntax check and the walk written for that image.\n\n## Acceptance criteria\n\n- [ ] `docs/futros/<date>-m6-interface.md` exists and the same text is a comment on this issue, its adding commit dated before T2's first audit commit (`git log --format=%cI --diff-filter=A -- <each>`).\n- [ ] Each of the thirteen slice issues above is closed completed with `reviewed-at:`, `fixed-at:` and, where an ES path changed, `fixed-at-es:` set in its body, and `docs/reviews/status.md` lists the thirteen slices as `closed`.\n- [ ] `tools/renovation-drift` reports no closed slice of this area with an unreviewed change at the time the last of the thirteen closes (its output pasted here).\n- [ ] Each slice's audit folder `docs/audits/<date>-epic-m6-<slice>/` passes `tools/lint-audit-artifacts` with the renovation face, and each slice's retro exists under `docs/retros/`.\n- [ ] The pin in `projects/ROCKNIX/packages/ui/emulationstation/package.mk` on `next` names a commit that carries every slice's fixes, and `tools/es-menu-map-check` passes at that pin.\n",
+    "state": "open",
+    "user": {
+      "login": "blitterbot",
+      "name": "blitterbot",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/335883270?v=4",
+      "id": 335883270
+    },
+    "assignees": null,
+    "labels": [
+      {
+        "name": "epic",
+        "color": "7B4EA3",
+        "description": "Parent issue coordinating a set of child issues"
+      }
+    ],
+    "milestone": 6,
+    "state_reason": null,
+    "comments": 1,
+    "created_at": "2026-10-23T16:40:49Z",
+    "updated_at": "2026-10-23T16:56:29Z",
+    "closed_at": null,
+    "display_url": "https://github.com/pixelelated/distribution/issues/700",
+    "display_title": "M6.P2 E339: Area epic: the interface, EmulationStation (T2, T18, T20, T21, T26, T31 to T37, T44)"
+  }
+}
