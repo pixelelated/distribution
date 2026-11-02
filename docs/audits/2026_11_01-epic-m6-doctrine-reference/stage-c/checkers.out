@@ -1,0 +1,63 @@
+== at 3f241300f0, 2026-11-02T05:29:37Z
+rules-check                  rc=0  rules-check: 30 rule files, every one front-mattered and indexed
+register-check               rc=0  register-check: 716 IDs, each once; every citation in the live documents names a row
+es-menu-map-check            rc=0  55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing
+release-catalog              rc=0  release-catalog: current (99 cuts)
+work-log-index               rc=0  work-log index: current
+prose-check                  rc=0  self-test: PASS
+ceremony-check               rc=0  nothing overdue.
+hooks-test                   rc=0  PASS
+box-check                    rc=0  box-check: 300 issue(s), 626 open checkbox(es), 0 fail, 13 issue(s) with rows to re-derive against
+== the byte identity of the 254 against the merge base and upstream (R1 C12)
+    162 vs c445081a59 absent
+      2 vs c445081a59 differs
+     90 vs c445081a59 identical
+    163 vs 651150fc88 absent
+     15 vs 651150fc88 differs
+     76 vs 651150fc88 identical
+== the identity words over the 223, lines and files (case-sensitive)
+Rasteratops lines 27 files 11
+rasteratops lines 31 files 20
+RASTERATOPS lines 4 files 4
+ROCKNIX lines 3297 files 57
+rocknix lines 1000 files 46
+maxengel lines 28 files 6
+JELOS lines 7 files 7
+pixelelated lines 243 files 51
+Pixelelated lines 0 files 0
+PIXELELATED lines 0 files 0
+== the retired names over the 223 (case-insensitive)
+cloud_migrate_layout lines 21
+migrate.?layout lines 21
+rebase --onto lines 2
+rclonectl lines 0
+\.github/instructions lines 0
+copilot lines 0
+rubber[- ]duck lines 1
+\brclone config\b lines 2
+rocknix\.worktrees lines 4
+== the secret scan in the hooks' form (compile rc at most 1, the runtime-built positive 1, then files with a hit)
+secret regex compile rc=1
+1
+0
+== non-ASCII files over the 223
+86
+== forbidden-terms over the 223, over empty input, and over a planted positive
+forbidden-terms-check: 0 hits on stdin
+over the 223 rc=0
+forbidden-terms-check: 0 hits on stdin
+over empty input rc=0
+forbidden-terms-check: 1 line(s) on stdin carry a listed word
+a planted positive rc=1
+== the licence files against #359's recorded bytes (L-45)
+LICENSE.md 1a277de267611abc4242e6a1e08ac2abac54316e7abcbf8ae7afd0a1dc98ec6c
+TRADEMARK.md d46db25cb845b021cd7f1c13dabcd98d04e77d89a45968527e58abc9e3788761
+== the releases a reader of README.md finds (L-02)
+ROCKNIX RC1 (2026-09-29): cloud sync, offline achievements, Wi-Fi	Pre-release	rc1-20260929	2026-09-29T10:14:30Z
+ROCKNIX dev build — 20260827	Latest	dev-20260827	2026-08-27T20:47:51Z
+RK3326 build — 20260819	Pre-release	dev-rk3326-20260819	2026-08-21T05:52:15Z
+== the removal check and the registers' removed lines, 86ebb6dffc to HEAD (expect no line, then 0)
+0
+== the host file: lines since the dispatch's 712, this lane's (the coordinator's own block excluded)
+0
+(end)

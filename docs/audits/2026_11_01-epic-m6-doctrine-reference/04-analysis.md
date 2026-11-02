@@ -301,52 +301,343 @@ Everything else is a punch item, an inherited item or a ledger row.
 
 ### Q4 Currency
 
-**Its tables are `tools/t39-tables.py`'s, written at stage C:**
-- the decision IDs with their rows' state;
-- the tools named with their existence;
-- the issues cited with their states;
-- the paths named with their class;
-- the counts and baselines with their artifact;
-- the line numbers issues cite, with the line.
+Written at stage C by `tools/t39-tables.py q4` (`stage-c/tables/q4.md`; its line: `Q4 ids 442 (decided 435, open 7, unresolved 0); tools 69 (absent 2); issues 617; path references 2060`) from the
+checker's read of the 223 (`stage-c/probes/read-*.tsv`, cross-checked against the export: the export's
+citations equal the checker's) and the issue-state snapshot `stage-c/issues-snapshot.tsv` (read
+2026-11-02 00:25:51Z, 1398 rows). What they show: **no reference document proper cites an open-decision
+row as settled** -- the seven open rows cited are in the dated rules sweep and three ledger rows; **every
+tool named exists** but the splash repositories' two (L-14, L-19, `external`); every dead path is classed;
+the leads' baselines and counts read as § 3 says; the issue-cited lines hold, #1216's quoted label aside
+(`03` § 3.5). The issues table counts states only: a closed issue cited as open is found by the leads
+(L-03, L-06, L-08), not by this table, which is the boundary (no tool reads a sentence's tense).
 
-Stage B's figures, which those tables re-derive:
-- 442 distinct IDs, 0 unresolved, against 716 rows;
-- the § 3 item 9 issues: 36 OPEN and 6 CLOSED (`stage-a/issue-states.txt`);
-- the issue-cited lines in `03` § 3.5.
+#### (a) The decision IDs the 223 cite, with their rows' state
+
+| area | distinct IDs cited | decided | open | unresolved | citations |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| CLOUD | 137 | 135 | 2 | 0 | 357 |
+| INFRA | 10 | 10 | 0 | 0 | 26 |
+| LAUNCH | 6 | 6 | 0 | 0 | 10 |
+| NET | 9 | 8 | 1 | 0 | 11 |
+| QA | 33 | 33 | 0 | 0 | 94 |
+| RA | 38 | 37 | 1 | 0 | 90 |
+| SYS | 12 | 11 | 1 | 0 | 17 |
+| UI | 94 | 93 | 1 | 0 | 271 |
+| WORKFLOW | 103 | 102 | 1 | 0 | 396 |
+| **Total** | 442 | 435 | 7 | 0 | 1272 |
+
+The IDs cited whose rows sit under `## Open decisions` (a document citing one as settled would mislead):
+
+| ID | cited by |
+| --- | --- |
+| D-CLOUD-051 | `docs/rules-sweep-2026-09-12.md`, `docs/vm-qa-log.md` |
+| D-CLOUD-122 | `docs/rules-sweep-2026-09-12.md` |
+| D-NET-012 | `docs/cloud-sync-changelog.md` |
+| D-RA-006 | `docs/vm-qa-log.md` |
+| D-SYS-006 | `docs/rules-sweep-2026-09-12.md` |
+| D-UI-120 | `docs/cloud-sync-changelog.md` |
+| D-WORKFLOW-191 | `docs/reviews/plan-for-the-plan.md` |
+
+#### (b) Every `tools/<name>` the 223 name, with its existence at the tip
+
+| tool | exists | named by (files) |
+| --- | --- | ---: |
+| `tools/box-check` | yes | 3 |
+| `tools/build-identity-test` | yes | 2 |
+| `tools/ceremony-check` | yes | 2 |
+| `tools/cloud-capture-stamp-test` | yes | 2 |
+| `tools/cloud-census` | yes | 1 |
+| `tools/cloud-connections-test` | yes | 1 |
+| `tools/cloud-input-test` | yes | 1 |
+| `tools/cloud-pair-migration` | yes | 3 |
+| `tools/cloud-round-trip` | yes | 9 |
+| `tools/cloud-save-integrity` | yes | 2 |
+| `tools/cloud-save-integrity-test` | yes | 2 |
+| `tools/cloud-test-backend` | yes | 6 |
+| `tools/council` | yes | 4 |
+| `tools/device-act` | yes | 2 |
+| `tools/distro-tool` | yes | 2 |
+| `tools/emulator-exit-test` | yes | 3 |
+| `tools/es-launch-memory` | yes | 1 |
+| `tools/es-menu-map-check` | yes | 4 |
+| `tools/es-syntax-check` | yes | 4 |
+| `tools/es-untranslated` | yes | 2 |
+| `tools/find_build_warnings.sh` | yes | 1 |
+| `tools/fixlecode.py` | yes | 1 |
+| `tools/font-stems` | yes | 1 |
+| `tools/forbidden-terms-check` | yes | 3 |
+| `tools/fork-package-freshness` | yes | 5 |
+| `tools/fork-publish-release` | yes | 1 |
+| `tools/fork-worktree` | yes | 3 |
+| `tools/frame-diff` | yes | 2 |
+| `tools/host-maintenance` | yes | 3 |
+| `tools/last-good-scripts-test` | yes | 10 |
+| `tools/lint-audit-artifacts` | yes | 6 |
+| `tools/mkpkg` | yes | 3 |
+| `tools/mtstats.py` | yes | 1 |
+| `tools/pixelelated-state-check` | yes | 1 |
+| `tools/pixelelated-state-check-test` | yes | 1 |
+| `tools/pixelelated-vm-cloud-boundaries` | yes | 1 |
+| `tools/pixelelated-wordmark` | **no** | 1 |
+| `tools/pkgcheck` | yes | 7 |
+| `tools/pr-stack-check` | yes | 2 |
+| `tools/qa-accounts` | yes | 2 |
+| `tools/ra-offline-test` | yes | 3 |
+| `tools/ra-ui-test` | yes | 2 |
+| `tools/rasteratops-cloud-layout-test` | yes | 3 |
+| `tools/rasteratops-vm-cloud-epic` | yes | 1 |
+| `tools/rasteratops-wordmark` | **no** | 1 |
+| `tools/rc-preflight` | yes | 4 |
+| `tools/register-check` | yes | 3 |
+| `tools/release-catalog` | yes | 1 |
+| `tools/renovation-drift` | yes | 4 |
+| `tools/renovation-inventory` | yes | 9 |
+| `tools/renovation-status` | yes | 4 |
+| `tools/retroarch-wrapper-test` | yes | 3 |
+| `tools/rules-check` | yes | 1 |
+| `tools/signin-memory` | yes | 2 |
+| `tools/test-fixtures` | yes | 4 |
+| `tools/time-to-play` | yes | 4 |
+| `tools/update-scan` | yes | 1 |
+| `tools/viewplan` | yes | 5 |
+| `tools/vm-pair` | yes | 3 |
+| `tools/vm-qa` | yes | 11 |
+| `tools/vm-serial` | yes | 1 |
+| `tools/vm-upgrade-rehearsal` | yes | 3 |
+| `tools/vm-visual-qa` | yes | 5 |
+| `tools/vm-walks` | yes | 3 |
+| `tools/vocabulary-check` | yes | 2 |
+| `tools/wait-lock-test` | yes | 2 |
+| `tools/watch-build` | yes | 4 |
+| `tools/watch-job` | yes | 2 |
+| `tools/work-log-index` | yes | 2 |
+
+#### (c) The issues the reference documents cite, against their state (snapshot of 2026-11-02 00:25:51Z)
+
+| state | distinct numbers |
+| --- | ---: |
+| absent absent | 3 |
+| closed issue | 369 |
+| closed pr | 1 |
+| open issue | 244 |
+| **Total** | 617 |
+
+Open issues cited by a reference document proper: 94 (#7, #10, #11, #12, #14, #15, #18, #19, #21, #22, #23, #24, #26, #33, #34, #35, #37, #42, #51, #54, #55, #63, #64, #65, #88, #104, #120, #133, #134, #135, #163, #168, #191, #192, #196, #201, #236, #251, #255, #265, #268, #292, #293, #309, #322, #323, #324, #328, #330, #331, #333, #336, #337, #338, #341, #344, #345, #346, #347, #348, #355, #359, #378, #387, #395, #432, #463, #464, #493, #509, #511, #516, #518, #528, #555, #558, #559, #560, #561, #562, #563, #568, #576, #585, #586, #587, #605, #607, #609, #613, #615, #616, #617, #665).
+
+#### (d) The backticked repository paths, resolved, in the `paths` step's classes
+
+| class | references |
+| --- | ---: |
+| external | 33 |
+| historical | 5 |
+| pattern | 1 |
+| resolves | 2021 |
+| **Total** | 2060 |
+
+#### (e) Every baseline, catalog row or count a lead names, against its artifact
+
+| lead | the statement | the artifact, read now |
+| --- | --- | --- |
+| L-09 | `next-candidate-work.md:4-5`: `0.0.1-dev+20261011T222153Z.gbc9dfe8141d9` (#555–#557). This does not relabel it as | `device-facts.md` records the 2026-10-16 transfer to `077197` |
+| L-15 | `device-facts.md:7`: the cuts are in `catalog.md` | `bc9dfe8141` 0, `077197` 0, `8b511` 0, `a0f60255ab` 0 occurrences in the catalog |
+| L-26 | `rc-accept.txt`: the acceptances stay as the record | 9 non-comment lines |
+| L-41 | the per-device tables | 13 of 15 upstream-carried tables differ from `upstream/next` `651150fc88` |
+
+#### (f) Every line number an issue cites in a reference document, against the line
+
+| issue | cites | the line at the tip |
+| --- | --- | --- |
+| #1100 | `docs/releases/device-facts.md:17` | \| SM8550 boot on the Retroid Pocket Nova \| Actual Nova boot chain, storage and compositor after an in-place up |
+| #1100 | `docs/releases/device-facts.md:18` | \| Nova frontend readiness after #529 \| Actual SM8550 frontend service startup on the corrected image \| 2026-10 |
+| #1100 | `docs/releases/device-facts.md:19` | \| Nova shutdown and bootloader recovery \| Physical SM8550 power-off/restart and pre-Linux ABL behavior \| 2026- |
+| #1126 | `docs/releases/device-facts.md:31` | \| Retroid Pocket Nova: the stick LEDs \| physical illumination and boot application of saved color/brightness o |
+| #682 | `docs/es-menu-map.md:134` | \| **CONTROLLER & BLUETOOTH** \| SETTINGS · BLUETOOTH · DISPLAY OPTIONS · BEHAVIOR · PLAYER ASSIGNMENTS \| |
+| #1216 | `docs/es-menu-map.md:405` | ### FINISH RESTORE SETUP (the checklist after a settings restore) |
+| #667 | `docs/es-menu-map.md:595` | PAGE --> SCAN[SCAN GAMES FOR OFFLINE ACHIEVEMENTS<br/><i>NOT SCANNED YET . N GAMES READY FOR OFFLINE PLAY</i>< |
 
 ### Q5 Efficiency (the lens)
 
-**Its table is `tools/t39-tables.py`'s, written at stage C.** It has one row per
-reference document proper (69), with:
-- lines and last commit;
-- the R/O/D/W inbound counts;
-- role, reader and verdict.
+Written at stage C by `tools/t39-tables.py q5` (`stage-c/tables/q5.md`; its line: `Q5 rows 69; LOW-INBOUND files=33 lines=2770; population 70`): one row
+per reference document proper (69). **R/O/D/W** are the inbound names, in files: `.claude/**` (R), the
+root documents (O), the 254's text rows outside the ledgers (D, by path, distinctive file name, a named
+parent directory, or a relative link that resolves to it) and the October work logs (W). **The low-inbound
+line differs from R2 C26's and is recorded beside it, not argued:** 33 files, 2,770 lines against
+`files=17 lines=2135`. The 33 contain all 17 of R2's list (the plan, the backup reference, the save
+reviews, the rules sweep, the appendix, the council limits, the rc1 note, the rocknix.org stubs, the review
+guide, the candidate plan, the proxy design note and the cloud layout) plus 16 R2's method counted as
+named: the eleven seven-line PR descriptions under `docs/releases/pr/`, the rc2 note, the vocabulary audit,
+the 2026-09-30 provider note and the two P0 records. R2's population and matching rule are not in the
+tree; this generator's are its docstring. The heavy end and the upstream-carried cost are as stage B wrote
+(the changelog 3,581, the map 989, `release-readiness.md` 990, `next-candidate-work.md` 963; `licenses/`
+7,817 and `documentation/` 2,160 by `grep -c`).
 
-It also carries the low-inbound line re-derived against R2 C26's `files=17 lines=2135`.
+| document | lines | last commit | R | O | D | W | role | read by | verdict |
+| --- | ---: | --- | ---: | ---: | ---: | ---: | --- | --- | --- |
+| `README.md` | 23 | a9af618398 2026-10-04 | 14 | 2 | 32 | 7 | the front page | the rules, the root documents, other documents, the October logs | keep; fix L-02 |
+| `TRADEMARK.md` | 38 | a9af618398 2026-10-04 | 0 | 2 | 9 | 3 | a redistributor's notice | the root documents, other documents, the October logs | keep |
+| `docs/backup-contents.md` | 100 | 5ca1427ab5 2026-09-12 | 0 | 0 | 0 | 0 | a reference document | nobody named | § 4 question 2: date its first line or retire |
+| `docs/cloud-save-integrity.md` | 100 | 1bd4554dc8 2026-10-08 | 2 | 0 | 1 | 0 | a cloud reference | the rules, other documents | keep; fix L-06 |
+| `docs/cloud-vocabulary-audit.md` | 240 | 5ca1427ab5 2026-09-12 | 0 | 0 | 1 | 0 | a cloud reference | other documents | § 4 question 2: date its first line or retire |
+| `docs/conflict-wizard-ia.md` | 323 | 0f073485ff 2026-10-08 | 2 | 2 | 4 | 0 | an interface reference | the rules, the root documents, other documents | keep |
+| `docs/council-limits.md` | 54 | d430818548 2026-09-28 | 0 | 0 | 0 | 0 | a council note | nobody named | § 4 question 2: date its first line or retire |
+| `docs/council-mistral-counter.md` | 127 | 5f1b343d25 2026-09-30 | 1 | 0 | 2 | 0 | a council note | the rules, other documents | keep; fix L-12 |
+| `docs/council-staged-attempts.md` | 144 | 5f1b343d25 2026-09-30 | 1 | 0 | 3 | 0 | a council note | the rules, other documents | keep |
+| `docs/council-staged-controller.md` | 279 | 5f1b343d25 2026-09-30 | 1 | 0 | 3 | 0 | a council note | the rules, other documents | keep |
+| `docs/council-staged-derived-packages.md` | 101 | 5f1b343d25 2026-09-30 | 1 | 0 | 2 | 0 | a council note | the rules, other documents | keep |
+| `docs/council-staged-derived-runtime.md` | 298 | 5f1b343d25 2026-09-30 | 1 | 0 | 3 | 0 | a council note | the rules, other documents | keep |
+| `docs/council-staged-readings.md` | 180 | 5f1b343d25 2026-09-30 | 1 | 0 | 1 | 0 | a council note | the rules, other documents | keep |
+| `docs/council-staged-rereads.md` | 129 | 5f1b343d25 2026-09-30 | 1 | 0 | 1 | 0 | a council note | the rules, other documents | keep |
+| `docs/council-staged-sources.md` | 151 | 5f1b343d25 2026-09-30 | 1 | 0 | 4 | 0 | a council note | the rules, other documents | keep |
+| `docs/device-flashing-runbook.md` | 534 | f7152d84a4 2026-09-20 | 1 | 2 | 2 | 0 | a device procedure | the rules, the root documents, other documents | keep; fix L-05 |
+| `docs/device-testing-policy.md` | 122 | 3c31e2aa18 2026-10-15 | 3 | 2 | 1 | 0 | a device procedure | the rules, the root documents, other documents | keep; fix L-03, L-16 |
+| `docs/es-menu-map.md` | 989 | 060dbde841 2026-10-16 | 4 | 2 | 3 | 0 | an interface reference | the rules, the root documents, other documents | keep; fix L-08, L-11 |
+| `docs/pixelelated/art/README.md` | 26 | b137d8c373 2026-10-04 | 0 | 2 | 2 | 0 | the art's reference | the root documents, other documents | keep |
+| `docs/pixelelated/art/wordmark-system.md` | 334 | bd3fcfa228 2026-10-04 | 0 | 2 | 3 | 0 | the art's reference | the root documents, other documents | keep |
+| `docs/pixelelated/cloud-folder-flow-review.md` | 632 | 3fcff2e1e2 2026-10-11 | 0 | 0 | 2 | 1 | identity and the site | other documents, the October logs | keep; fix L-11 |
+| `docs/pixelelated/cloud-folders.md` | 35 | 357d88010a 2026-10-07 | 0 | 1 | 2 | 1 | identity and the site | the root documents, other documents, the October logs | keep; fix L-10 |
+| `docs/pixelelated/rename-plan.md` | 77 | 90f9e0eafd 2026-10-07 | 0 | 2 | 0 | 0 | identity and the site | the root documents | keep |
+| `docs/pixelelated/site-dns.md` | 62 | 0f073485ff 2026-10-08 | 0 | 0 | 1 | 1 | identity and the site | other documents, the October logs | keep |
+| `docs/pixelelated/site-plan.md` | 147 | 62c382f467 2026-10-15 | 0 | 0 | 0 | 1 | identity and the site | the October logs | keep; fix L-13, L-22 |
+| `docs/pr-series/es-review-guide.md` | 124 | f75d680769 2026-09-29 | 0 | 0 | 1 | 0 | a reference document | other documents | § 4 question 2: date its first line or retire |
+| `docs/ra-offline/2026_09_13-phase-1-design-note.md` | 590 | d40897de80 2026-09-14 | 0 | 0 | 0 | 0 | offline achievements design | nobody named | § 4 question 2: date its first line or retire |
+| `docs/ra-offline/rocknix-org-offline-achievements.md` | 59 | d52e3d81c7 2026-09-24 | 0 | 0 | 0 | 0 | offline achievements design | nobody named | § 4 question 2: date its first line or retire |
+| `docs/rasteratops/art/README.md` | 16 | 3d7c075f63 2026-10-02 | 0 | 0 | 0 | 1 | a dated record under the retired folder | the October logs | keep |
+| `docs/rasteratops/candidate-source-plan.md` | 80 | ca5d034488 2026-10-12 | 0 | 0 | 0 | 0 | a dated record under the retired folder | nobody named | § 4 question 2: date its first line or retire |
+| `docs/rasteratops/cloud-folder-state-table.md` | 334 | 357d88010a 2026-10-07 | 0 | 0 | 1 | 1 | a dated record under the retired folder | other documents, the October logs | keep |
+| `docs/rasteratops/cloud-layout.md` | 116 | 9bb2b42e5a 2026-10-05 | 0 | 0 | 1 | 0 | a dated record under the retired folder | other documents | § 4 question 2: date its first line or retire |
+| `docs/rasteratops/cloud-provider-2026-09-30.md` | 68 | a63b01ce14 2026-10-02 | 0 | 0 | 0 | 0 | a dated record under the retired folder | nobody named | § 4 question 2: date its first line or retire |
+| `docs/rasteratops/p0-read.md` | 70 | 224b73ea54 2026-09-30 | 0 | 0 | 1 | 0 | a dated record under the retired folder | other documents | § 4 question 2: date its first line or retire |
+| `docs/rasteratops/p0-sweep.md` | 142 | 224b73ea54 2026-09-30 | 0 | 0 | 1 | 0 | a dated record under the retired folder | other documents | § 4 question 2: date its first line or retire |
+| `docs/rasteratops/p0-updater.md` | 70 | 224b73ea54 2026-09-30 | 0 | 0 | 2 | 0 | a dated record under the retired folder | other documents | keep |
+| `docs/rasteratops/raofflineproxy-refresh.md` | 195 | a0f60255ab 2026-10-11 | 0 | 0 | 2 | 0 | a dated record under the retired folder | other documents | keep |
+| `docs/rasteratops/release-readiness.md` | 990 | fb932eb1fe 2026-10-16 | 0 | 0 | 2 | 2 | a dated record under the retired folder | other documents, the October logs | keep; fix L-11 |
+| `docs/rasteratops/support-matrix.md` | 162 | fb932eb1fe 2026-10-16 | 0 | 0 | 5 | 0 | a dated record under the retired folder | other documents | keep; fix L-11 |
+| `docs/releases/0.0.1-release-note-draft.md` | 43 | 3416cb4043 2026-10-15 | 0 | 0 | 3 | 0 | a release record | other documents | keep |
+| `docs/releases/0.0.1-release-note-evidence.md` | 40 | 3416cb4043 2026-10-15 | 0 | 0 | 3 | 0 | a release record | other documents | keep |
+| `docs/releases/0.0.1-release-preparation.md` | 115 | 3c31e2aa18 2026-10-15 | 0 | 0 | 4 | 0 | a release record | other documents | keep; fix L-11 |
+| `docs/releases/device-facts.md` | 31 | fb932eb1fe 2026-10-16 | 2 | 0 | 3 | 0 | a release record | the rules, other documents | keep; fix L-11, L-15 |
+| `docs/releases/next-candidate-scope.md` | 233 | cdd92f1060 2026-10-15 | 0 | 0 | 3 | 1 | a release record | other documents, the October logs | keep; fix L-11 |
+| `docs/releases/next-candidate-work.md` | 963 | 8ebaf8daad 2026-10-17 | 0 | 0 | 3 | 1 | a release record | other documents, the October logs | keep; fix L-09, L-11 |
+| `docs/releases/pr/01-build.md` | 7 | 826d52e395 2026-09-29 | 0 | 0 | 0 | 0 | a dated PR description | nobody named | § 4 question 2: date its first line or retire |
+| `docs/releases/pr/02-generic-x64.md` | 7 | 826d52e395 2026-09-29 | 0 | 0 | 0 | 0 | a dated PR description | nobody named | § 4 question 2: date its first line or retire |
+| `docs/releases/pr/03-evidence.md` | 7 | 826d52e395 2026-09-29 | 0 | 0 | 0 | 0 | a dated PR description | nobody named | § 4 question 2: date its first line or retire |
+| `docs/releases/pr/04-settings.md` | 7 | 826d52e395 2026-09-29 | 0 | 0 | 0 | 0 | a dated PR description | nobody named | § 4 question 2: date its first line or retire |
+| `docs/releases/pr/05-network.md` | 7 | 826d52e395 2026-09-29 | 0 | 0 | 0 | 0 | a dated PR description | nobody named | § 4 question 2: date its first line or retire |
+| `docs/releases/pr/06-retroachievements.md` | 7 | 826d52e395 2026-09-29 | 0 | 0 | 0 | 0 | a dated PR description | nobody named | § 4 question 2: date its first line or retire |
+| `docs/releases/pr/07-cloud-setup.md` | 7 | 826d52e395 2026-09-29 | 0 | 0 | 0 | 0 | a dated PR description | nobody named | § 4 question 2: date its first line or retire |
+| `docs/releases/pr/08-saves.md` | 7 | 826d52e395 2026-09-29 | 0 | 0 | 0 | 0 | a dated PR description | nobody named | § 4 question 2: date its first line or retire |
+| `docs/releases/pr/09-retroarch.md` | 7 | 826d52e395 2026-09-29 | 0 | 0 | 0 | 0 | a dated PR description | nobody named | § 4 question 2: date its first line or retire |
+| `docs/releases/pr/10-es-pin.md` | 7 | 826d52e395 2026-09-29 | 0 | 0 | 0 | 0 | a dated PR description | nobody named | § 4 question 2: date its first line or retire |
+| `docs/releases/pr/11-interface.md` | 13 | a71a8f2d49 2026-09-29 | 0 | 0 | 0 | 0 | a dated PR description | nobody named | § 4 question 2: date its first line or retire |
+| `docs/releases/rc1-20260929-release-note.md` | 38 | 1070d05378 2026-09-29 | 0 | 0 | 0 | 0 | a release record | nobody named | § 4 question 2: date its first line or retire |
+| `docs/releases/rc2-20260929-release-note.md` | 32 | fcfe296258 2026-09-29 | 0 | 0 | 0 | 0 | a release record | nobody named | § 4 question 2: date its first line or retire |
+| `docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md` | 13 | fa935ed6ba 2026-09-29 | 0 | 0 | 0 | 0 | a release record | nobody named | § 4 question 2: date its first line or retire |
+| `docs/releases/versioning.md` | 138 | 40bc5469b9 2026-10-11 | 2 | 1 | 0 | 0 | a release record | the rules, the root documents | keep; fix L-11 |
+| `docs/rules-sweep-2026-09-12.md` | 277 | 438f14bfff 2026-09-12 | 0 | 0 | 0 | 0 | a reference document | nobody named | § 4 question 2: date its first line or retire |
+| `docs/save-history-consensus-amendment.md` | 116 | 9d6afb83cd 2026-09-12 | 0 | 0 | 4 | 0 | a save-format reference | other documents | keep |
+| `docs/save-history-gap-analysis.md` | 92 | 77e65722e9 2026-09-12 | 0 | 0 | 1 | 0 | a save-format reference | other documents | § 4 question 2: date its first line or retire |
+| `docs/save-history-plan-delta.md` | 40 | 77e65722e9 2026-09-12 | 0 | 0 | 0 | 0 | a save-format reference | nobody named | § 4 question 2: date its first line or retire |
+| `docs/save-history-serial-model-addendum.md` | 111 | edd06db408 2026-09-12 | 0 | 0 | 0 | 0 | a save-format reference | nobody named | § 4 question 2: date its first line or retire |
+| `docs/save-manifest-alignment-review.md` | 98 | 24dce33f23 2026-09-06 | 0 | 0 | 1 | 0 | a save-format reference | other documents | § 4 question 2: date its first line or retire |
+| `docs/save-manifest-schema.md` | 555 | d52e3d81c7 2026-09-24 | 1 | 0 | 1 | 0 | a save-format reference | the rules, other documents | keep |
+| `docs/savestate-compat-test.md` | 117 | 0c03ae4d83 2026-08-24 | 0 | 0 | 0 | 0 | a save-format reference | nobody named | § 4 question 2: date its first line or retire |
+| `docs/technical-appendix-cloud-sync-and-offline-achievements.md` | 3 | fa935ed6ba 2026-09-29 | 0 | 0 | 0 | 0 | a reference document | nobody named | § 4 question 2: date its first line or retire |
 
-**The heavy end** (lines at the tip):
+`LOW-INBOUND files=33 lines=2770` over R2's reference population (70 documents); R2 C26 printed `files=17 lines=2135`.
 
-| Document | Lines | Note |
-| --- | ---: | --- |
-| `docs/cloud-sync-changelog.md` | 3,581 | a ledger row |
-| `docs/es-menu-map.md` | 989 | 279 of them the journal |
-| `docs/rasteratops/release-readiness.md` | 990 | -- |
-| `docs/releases/next-candidate-work.md` | 963 | -- |
-
-`licenses/` (7,817 lines) and `documentation/` (2,160) are upstream's. They cost a
-reader nothing except through L-41, L-43 and L-44.
+| low-inbound document | lines | class | R | O | D | W |
+| --- | ---: | --- | ---: | ---: | ---: | ---: |
+| `docs/backup-contents.md` | 100 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/cloud-vocabulary-audit.md` | 240 | edit-scope | 0 | 0 | 1 | 0 |
+| `docs/council-limits.md` | 54 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/pr-series/es-review-guide.md` | 124 | edit-scope | 0 | 0 | 1 | 0 |
+| `docs/ra-offline/2026_09_13-phase-1-design-note.md` | 590 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/ra-offline/rocknix-org-offline-achievements.md` | 59 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/rasteratops/candidate-source-plan.md` | 80 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/rasteratops/cloud-layout.md` | 116 | edit-scope | 0 | 0 | 1 | 0 |
+| `docs/rasteratops/cloud-provider-2026-09-30.md` | 68 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/rasteratops/p0-read.md` | 70 | edit-scope | 0 | 0 | 1 | 0 |
+| `docs/rasteratops/p0-sweep.md` | 142 | edit-scope | 0 | 0 | 1 | 0 |
+| `docs/releases/pr/01-build.md` | 7 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/releases/pr/02-generic-x64.md` | 7 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/releases/pr/03-evidence.md` | 7 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/releases/pr/04-settings.md` | 7 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/releases/pr/05-network.md` | 7 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/releases/pr/06-retroachievements.md` | 7 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/releases/pr/07-cloud-setup.md` | 7 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/releases/pr/08-saves.md` | 7 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/releases/pr/09-retroarch.md` | 7 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/releases/pr/10-es-pin.md` | 7 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/releases/pr/11-interface.md` | 13 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/releases/rc1-20260929-release-note.md` | 38 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/releases/rc2-20260929-release-note.md` | 32 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md` | 13 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/rules-sweep-2026-09-12.md` | 277 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/save-history-gap-analysis.md` | 92 | edit-scope | 0 | 0 | 1 | 0 |
+| `docs/save-history-plan-delta.md` | 40 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/save-history-serial-model-addendum.md` | 111 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/save-manifest-alignment-review.md` | 98 | edit-scope | 0 | 0 | 1 | 0 |
+| `docs/savestate-compat-test.md` | 117 | edit-scope | 0 | 0 | 0 | 0 |
+| `docs/technical-appendix-cloud-sync-and-offline-achievements.md` | 3 | edit-scope | 0 | 0 | 0 | 0 |
+| `plans/conflict-resolution/vita-style-conflict-resolution.md` | 223 | ledger-plan | 0 | 0 | 1 | 0 |
 
 ### Q6 Dead ends
 
-**Its table is `tools/t39-tables.py`'s, written at stage C**, from the `paths` and
-`tools` steps and the inbound columns. Stage B's candidates:
-- the dead paths: `packages/rocknix` (L-20);
-- the external names: `tools/pixelelated-wordmark`, `tools/rasteratops-wordmark` and
-  `docs/cloud-saves-native-wizard` (L-13, L-14, L-19);
-- the two deleted map paths (L-27);
-- the document two open issues cite (L-33);
-- the generator-less GENERIC_X64 table (L-31);
-- the documents nobody names (L-18).
+Written at stage C by `tools/t39-tables.py q6` (`stage-c/tables/q6.md`; its line: `Q6 dead 41 (paths and tools) plus 3 inherited; rows 44`): every
+backticked path and `tools/` name the 223 point at that the tip lacks, each re-checked absent at the tip
+and found at its line in the export, with its allowlist class and reason (an unclassed one fails the
+generator), then the three inherited absences (L-27's two map paths, L-33's document). None is an
+unclassed finding: the real absent in-tree path `packages/rocknix` is L-20's dated record; the rest name
+another repository (the splash tools, the site's pages and branch, RAOfflineProxy's paths, the bisync
+branch) or are an install output. The documents nobody names are Q5's LOW-INBOUND set; the
+generator-less GENERIC_X64 table is L-31's.
+
+| what the document points at | where | resolves at the tip | class | reason |
+| --- | --- | --- | --- | --- |
+| `docs/cloud-saves-native-wizard` | `docs/pixelelated/site-plan.md:70` | no | external | L-13: docs/cloud-saves-native-wizard is a branch of the rocknix.org site checkout (X02) |
+| `docs/linux-support/installation.md` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:62` | no | external | the RAOfflineProxy repository's documentation path (the design note reads that repository) |
+| `scripts/install.sh` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:65` | no | external | the RAOfflineProxy repository's scripts/ (the design note reads that repository) |
+| `scripts/tool-launcher.sh` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:73` | no | external | the RAOfflineProxy repository's scripts/ (the design note reads that repository) |
+| `scripts/uninstall.sh` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:114` | no | external | the RAOfflineProxy repository's scripts/ (the design note reads that repository) |
+| `scripts/install.sh` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:132` | no | external | the RAOfflineProxy repository's scripts/ (the design note reads that repository) |
+| `scripts/uninstall.sh` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:132` | no | external | the RAOfflineProxy repository's scripts/ (the design note reads that repository) |
+| `scripts/launcher-raofflineproxy` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:133` | no | external | the RAOfflineProxy repository's scripts/ (the design note reads that repository) |
+| `scripts/launcher-raofflineproxy-uninstall` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:134` | no | external | the RAOfflineProxy repository's scripts/ (the design note reads that repository) |
+| `scripts/tool-launcher.sh` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:135` | no | external | the RAOfflineProxy repository's scripts/ (the design note reads that repository) |
+| `scripts/sdl-doctor.sh` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:136` | no | external | the RAOfflineProxy repository's scripts/ (the design note reads that repository) |
+| `scripts/sdl_probe.py` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:136` | no | external | the RAOfflineProxy repository's scripts/ (the design note reads that repository) |
+| `docs/caveats.md` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:258` | no | external | the RAOfflineProxy repository's docs/ (the design note reads that repository) |
+| `docs/linux-support/cfg-patching.md` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:265` | no | external | the RAOfflineProxy repository's docs/ (the design note reads that repository) |
+| `docs/cfg-patching.md` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:265` | no | external | the RAOfflineProxy repository's docs/ (the design note reads that repository) |
+| `docs/linux-hash-chain.md` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:317` | no | external | the RAOfflineProxy repository's docs/ (the design note reads that repository) |
+| `docs/hash-chain.md` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:332` | no | external | the RAOfflineProxy repository's docs/ (the design note reads that repository) |
+| `docs/pending-awards.md` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:341` | no | external | the RAOfflineProxy repository's docs/ (the design note reads that repository) |
+| `docs/linux-hash-chain.md` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:350` | no | external | the RAOfflineProxy repository's docs/ (the design note reads that repository) |
+| `docs/hash-chain.md` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:351` | no | external | the RAOfflineProxy repository's docs/ (the design note reads that repository) |
+| `docs/privacy-policy.md` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:410` | no | external | the RAOfflineProxy repository's docs/ (the design note reads that repository) |
+| `docs/pending-awards.md` | `docs/ra-offline/2026_09_13-phase-1-design-note.md:489` | no | external | the RAOfflineProxy repository's docs/ (the design note reads that repository) |
+| `docs/configure/offline-achievements.md` | `docs/ra-offline/rocknix-org-offline-achievements.md:3` | no | external | L-13: two pages of ROCKNIX/rocknix.org, the line names the site |
+| `docs/configure/retroachievements.md` | `docs/ra-offline/rocknix-org-offline-achievements.md:3` | no | external | L-13: two pages of ROCKNIX/rocknix.org, the line names the site |
+| `packages/rocknix` | `docs/rasteratops/p0-read.md:11` | no | historical | L-20: packages/rocknix in a dated P0 record, which does not present itself as current |
+| `packages/rocknix` | `docs/rasteratops/p0-sweep.md:39` | no | historical | L-20: packages/rocknix in a dated P0 record, which does not present itself as current |
+| `docs/configure/cloud-sync.md` | `docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md:5` | no | external | L-13: five pages of ROCKNIX/rocknix.org, the PR this draft describes |
+| `docs/configure/networking.md` | `docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md:5` | no | external | L-13: five pages of ROCKNIX/rocknix.org, the PR this draft describes |
+| `docs/play/retro-achievements.md` | `docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md:5` | no | external | L-13: five pages of ROCKNIX/rocknix.org, the PR this draft describes |
+| `docs/configure/scraper.md` | `docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md:5` | no | external | L-13: five pages of ROCKNIX/rocknix.org, the PR this draft describes |
+| `docs/contribute/cloud-sync-internals.md` | `docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md:5` | no | external | L-13: five pages of ROCKNIX/rocknix.org, the PR this draft describes |
+| `tools/council/node_modules/.bin/tsx` | `docs/reviews/briefs/p1-survey.md:53` | no | pattern | tools/council/node_modules/.bin/tsx is npm's install output, gitignored (.gitignore:66), named as what tools/council/run execs |
+| `docs/es-ui-style-guide.md` | `docs/rules-sweep-2026-09-12.md:13` | no | historical | a dated sweep of the rules as they stood on 2026-09-12 (its paths, names and retired recipes are that day's) |
+| `docs/es-ui-style-guide.md` | `docs/rules-sweep-2026-09-12.md:41` | no | historical | a dated sweep of the rules as they stood on 2026-09-12 (its paths, names and retired recipes are that day's) |
+| `packages/readme.md` | `docs/rules-sweep-2026-09-12.md:218` | no | historical | a dated sweep of the rules as they stood on 2026-09-12 (its paths, names and retired recipes are that day's) |
+| `plans/bisync/rclone-bisync-planning.md` | `docs/save-manifest-alignment-review.md:13` | no | external | a path on the branch rclone-bisync-beta, named with its branch on the line |
+| `docs/contribute/cloud-sync-internals.md` | `docs/technical-appendix-cloud-sync-and-offline-achievements.md:3` | no | external | L-13: a rocknix.org page on the site checkout's branch, named so on the line |
+| `docs/cloud-saves-native-wizard` | `docs/technical-appendix-cloud-sync-and-offline-achievements.md:3` | no | external | L-13: a rocknix.org page on the site checkout's branch, named so on the line |
+| `.github/workflows/tests.yml` | `docs/upstream/raofflineproxy/contribution-map.md:59` | no | external | the RAOfflineProxy repository's CI workflow (#585's queue, read-only) |
+| `tools/pixelelated-wordmark` | `docs/pixelelated/art/README.md:21` | no | external | L-14: pixelelated/splash's tools/pixelelated-wordmark, named with its repository (X02) |
+| `tools/rasteratops-wordmark` | `docs/rasteratops/art/README.md:8` | no | external | L-19: rasteratops/splash's tools/rasteratops-wordmark, named with its repository (X02) |
+| `projects/ROCKNIX/packages/network/rclone/sources/post-update` | docs/pr-series/map.txt:112 | no | L-27 | inherited:coordinator |
+| `projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout` | docs/pr-series/map.txt:174 | no | L-27 | inherited:coordinator |
+| `docs/graphics-memory-testing.md` | #576 :7, #620 :16 | no | L-33 | inherited:coordinator |
 
 ### Q7 Clarity
 

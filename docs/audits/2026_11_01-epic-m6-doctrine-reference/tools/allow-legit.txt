@@ -1,0 +1,66 @@
+# allow-legit.txt (T39, #686): what is not a defect. `<path>:<line> <class> <reason>`; the classes and the steps
+# each covers are in t39-checks.py's docstring. Lines are --tree's at the dispatch tip 86ebb6dffc.
+# external: another repository's path, page, branch or tool (X02)
+docs/pixelelated/art/README.md:21 external L-14: pixelelated/splash's tools/pixelelated-wordmark, named with its repository (X02)
+docs/rasteratops/art/README.md:8 external L-19: rasteratops/splash's tools/rasteratops-wordmark, named with its repository (X02)
+docs/pixelelated/site-plan.md:70 external L-13: docs/cloud-saves-native-wizard is a branch of the rocknix.org site checkout (X02)
+docs/technical-appendix-cloud-sync-and-offline-achievements.md:3 external L-13: a rocknix.org page on the site checkout's branch, named so on the line
+docs/releases/rocknix-org-pr-cloud-sync-wifi-achievements.md:5 external L-13: five pages of ROCKNIX/rocknix.org, the PR this draft describes
+docs/ra-offline/rocknix-org-offline-achievements.md:3 external L-13: two pages of ROCKNIX/rocknix.org, the line names the site
+docs/ra-offline/2026_09_13-phase-1-design-note.md:62 external the RAOfflineProxy repository's documentation path (the design note reads that repository)
+docs/ra-offline/2026_09_13-phase-1-design-note.md:65 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)
+docs/ra-offline/2026_09_13-phase-1-design-note.md:73 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)
+docs/ra-offline/2026_09_13-phase-1-design-note.md:114 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)
+docs/ra-offline/2026_09_13-phase-1-design-note.md:132 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)
+docs/ra-offline/2026_09_13-phase-1-design-note.md:133 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)
+docs/ra-offline/2026_09_13-phase-1-design-note.md:134 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)
+docs/ra-offline/2026_09_13-phase-1-design-note.md:135 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)
+docs/ra-offline/2026_09_13-phase-1-design-note.md:136 external the RAOfflineProxy repository's scripts/ (the design note reads that repository)
+docs/ra-offline/2026_09_13-phase-1-design-note.md:258 external the RAOfflineProxy repository's docs/ (the design note reads that repository)
+docs/ra-offline/2026_09_13-phase-1-design-note.md:265 external the RAOfflineProxy repository's docs/ (the design note reads that repository)
+docs/ra-offline/2026_09_13-phase-1-design-note.md:317 external the RAOfflineProxy repository's docs/ (the design note reads that repository)
+docs/ra-offline/2026_09_13-phase-1-design-note.md:332 external the RAOfflineProxy repository's docs/ (the design note reads that repository)
+docs/ra-offline/2026_09_13-phase-1-design-note.md:341 external the RAOfflineProxy repository's docs/ (the design note reads that repository)
+docs/ra-offline/2026_09_13-phase-1-design-note.md:350 external the RAOfflineProxy repository's docs/ (the design note reads that repository)
+docs/ra-offline/2026_09_13-phase-1-design-note.md:351 external the RAOfflineProxy repository's docs/ (the design note reads that repository)
+docs/ra-offline/2026_09_13-phase-1-design-note.md:410 external the RAOfflineProxy repository's docs/ (the design note reads that repository)
+docs/ra-offline/2026_09_13-phase-1-design-note.md:489 external the RAOfflineProxy repository's docs/ (the design note reads that repository)
+docs/upstream/raofflineproxy/contribution-map.md:59 external the RAOfflineProxy repository's CI workflow (#585's queue, read-only)
+docs/save-manifest-alignment-review.md:13 external a path on the branch rclone-bisync-beta, named with its branch on the line
+# pattern: an illustrative path, not a claim it exists in the tree
+docs/reviews/briefs/p1-survey.md:53 pattern tools/council/node_modules/.bin/tsx is npm's install output, gitignored (.gitignore:66), named as what tools/council/run execs
+# historical: a dated record keeps its names and paths (NAMING.md:47-51)
+docs/rasteratops/p0-read.md:11 historical L-20: packages/rocknix in a dated P0 record, which does not present itself as current
+docs/rasteratops/p0-sweep.md:39 historical L-20: packages/rocknix in a dated P0 record, which does not present itself as current
+docs/rules-sweep-2026-09-12.md:* historical a dated sweep of the rules as they stood on 2026-09-12 (its paths, names and retired recipes are that day's)
+docs/cloud-sync-changelog.md:* historical a ledger row (ruling (a)): the running change log's dated entries keep that day's names and links (L-23)
+docs/rasteratops/p0-sweep-hits.txt:* historical a ledger row (ruling (a), open item 25): the P0 sweep's hits as it found them, NAMING.md:30's baseline
+docs/vm-qa-log.md:75 historical a ledger row (ruling (a)): a dated VM QA row of 2026-09-13
+docs/cloud-vocabulary-audit.md:189 historical L-04's other hits: the 2026-09-06 audit records the scripts it read, the migration script among them
+docs/rasteratops/cloud-folder-state-table.md:38 historical L-21: a dated state table's notation, under docs/rasteratops/ (NAMING.md)
+docs/rasteratops/cloud-folder-state-table.md:46 historical L-04's other hits: a line-cited read of the script at its date
+docs/rasteratops/cloud-folder-state-table.md:61 historical L-04's other hits: a line-cited read of the script at its date
+docs/rasteratops/cloud-folder-state-table.md:306 historical L-21: the dated table records the old ROCKNIX-to-Rasteratops folder move
+docs/rasteratops/candidate-source-plan.md:71 historical the October candidate plan's build name, under docs/rasteratops/ (NAMING.md)
+docs/rasteratops/raofflineproxy-refresh.md:180 historical L-21: a record of its date, past tense, under docs/rasteratops/ (NAMING.md)
+docs/rasteratops/raofflineproxy-refresh.md:188 historical L-21: a record of its date, under docs/rasteratops/ (NAMING.md)
+docs/rasteratops/release-readiness.md:354 historical a line the document itself marks Historical (a past run's record)
+docs/rasteratops/release-readiness.md:846 historical the review baseline's artifact row of its date (no cold RASTERATOPS build existed)
+docs/rasteratops/release-readiness.md:874 historical L-04's other hits: the section is headed "review baseline" and records #356's gap (#356 CLOSED 2026-10-05)
+docs/reviews/briefs/p1-survey.md:318 historical the P1 brief (2026-10-23) names the M7 lane's legacy worktree path as it stood
+# character: the character and the handle keep their names (NAMING.md:19)
+LICENSE.md:7 character the marks name the character Rasteratops
+TRADEMARK.md:3 character the marks name the character Rasteratops
+docs/pixelelated/cloud-folders.md:29 character the guide says Rasteratops is a character
+docs/rasteratops/release-readiness.md:573 character the line says Rasteratops is a character
+# provenance: the record of where a thing came from
+docs/pixelelated/art/wordmark-system.md:331 provenance the art system it extends was supplied as the Rasteratops/Blitterbot one
+docs/pixelelated/rename-plan.md:8 provenance the rename plan records the retired name it replaces
+docs/pixelelated/rename-plan.md:14 provenance the rename plan records that no system uses the retired folder
+docs/pixelelated/rename-plan.md:15 provenance the rename plan records the adoption flow and the retired name
+docs/pixelelated/rename-plan.md:67 provenance the rename plan records the decision to remove the retired name
+docs/rasteratops/release-readiness.md:575 provenance the line records that no fielded system used the retired folder
+docs/upstream/raofflineproxy/pixelelated-identity/README.md:15 provenance #585's draft records the rejected identity (read-only)
+docs/upstream/raofflineproxy/pixelelated-identity/README.md:23 provenance #585's draft records the rejected identity (read-only)
+# interim-name: `rasteratops-*` tools and `RASTERATOPS_*` variables, retired in reviewed batches (#509)
+docs/pixelelated/rename-plan.md:60 interim-name the interim helpers and variables #509 retires in reviewed batches

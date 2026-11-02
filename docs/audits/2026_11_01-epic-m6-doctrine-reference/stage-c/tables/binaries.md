@@ -1,0 +1,33 @@
+| path | size | sha256 at the dispatch tip | sha256 at fixed-at |
+| --- | ---: | --- | --- |
+| `docs/pixelelated/art/proofs/backgrounds.png` | 25167 | `19e30291d51ffeab673a1b344c4a402f0f97f83a2e53c73b6088ce77291d3672` | (stage E) |
+| `docs/pixelelated/art/proofs/boot-shutdown-640x480.png` | 1393 | `a3211e6206231751725e3aaa0f4dbcdc9e9071529c45dc5f00a9f42b9fe7f504` | (stage E) |
+| `docs/pixelelated/art/proofs/small-sizes.png` | 10195 | `596f6de6772b4cfdf8415cb7f25081135d40fa6a95ebde378d1cc14f6e457f2d` | (stage E) |
+| `docs/pixelelated/art/raster/1x/dual.png` | 676 | `9fe50cf05c01a428c066d683075162aef291a02bd00e2f53f057f3c79399284e` | (stage E) |
+| `docs/pixelelated/art/raster/1x/monochrome-dark.png` | 542 | `4771c7673637a78514ce78968cdb2e344f3a832dd77aa674c50a6c29729e1b7c` | (stage E) |
+| `docs/pixelelated/art/raster/1x/monochrome-light.png` | 531 | `f59f0c98256912583298aa838cc86844873b04bca5fb455888482407c6d218e9` | (stage E) |
+| `docs/pixelelated/art/raster/1x/neon.png` | 712 | `b1e993ec24beb2920694721f47c7a72d35e2e17524a2fa4b768076287853b160` | (stage E) |
+| `docs/pixelelated/art/raster/1x/ocean.png` | 693 | `5fde4a652c49d024e944362c6236234b5812c7c66821ac1cc265376d2bdfe2fb` | (stage E) |
+| `docs/pixelelated/art/raster/1x/scanline.png` | 653 | `b85abe09b8ea11593a8e3cf246de450be893fe1683a8fa375d4dda856d382aef` | (stage E) |
+| `docs/pixelelated/art/raster/1x/spectrum.png` | 696 | `b43c4eeb8db061c4a75db7f7576e8ae403cb2c9a8b7c56d636b10456be0690ff` | (stage E) |
+| `docs/pixelelated/art/raster/1x/sunrise.png` | 710 | `86ceca6c48315efd45ca32289ad9f2c4b4332046a88922770195f48efa005057` | (stage E) |
+| `docs/pixelelated/art/raster/2x/dual.png` | 1589 | `7c39c02af9ed1fb11766181c47fabdae9c3e6b502102ca062e22093813f477df` | (stage E) |
+| `docs/pixelelated/art/raster/2x/monochrome-dark.png` | 1293 | `c5ef49a820e21a055d58125e1e8371adeeacaac79934a93bcc71fb5d766ada37` | (stage E) |
+| `docs/pixelelated/art/raster/2x/monochrome-light.png` | 1269 | `b0bea5b35c8a0d6ffb63402800e1cd0b814ad7a44bf73e136c66623533fe2a2c` | (stage E) |
+| `docs/pixelelated/art/raster/2x/neon.png` | 1473 | `69345e13666ab714b2917506c1456b5ab4effa20f9f06b95475d2e53806bb418` | (stage E) |
+| `docs/pixelelated/art/raster/2x/ocean.png` | 1467 | `411877033bb998babb5194018345cbb50155178fabcb0b936c6bb18777e0f414` | (stage E) |
+| `docs/pixelelated/art/raster/2x/scanline.png` | 1384 | `a38293cae2957b2c74d45b475c61c869a9017be58fc5548df1e1235b030d896a` | (stage E) |
+| `docs/pixelelated/art/raster/2x/spectrum.png` | 1450 | `0379e2602a68a3f289d9e7667fbf398e3716328fcf390f8737a589f135fb427d` | (stage E) |
+| `docs/pixelelated/art/raster/2x/sunrise.png` | 1472 | `b7a09bb72fcb2c21a9c6d503fc0601536cbb2ce570b4ea47cba79e7c782c6bd9` | (stage E) |
+| `docs/pixelelated/art/raster/4x/dual.png` | 4095 | `da6c65fe17397ca2c7183aac16044b53082e7adf9096f4192c6671668a6e977e` | (stage E) |
+| `docs/pixelelated/art/raster/4x/monochrome-dark.png` | 3836 | `d14d7c953a42e71e759f7f200271fb0299ae9846d5f8995899787c8be1562761` | (stage E) |
+| `docs/pixelelated/art/raster/4x/monochrome-light.png` | 3814 | `0ccbe161b9d815414615628a05d8639d94f58177c6f2ad5b280038549ecdb5c9` | (stage E) |
+| `docs/pixelelated/art/raster/4x/neon.png` | 4112 | `98d4df292b81a8907b97e6d83546d367aab41fdfb2517b95b148591569946e82` | (stage E) |
+| `docs/pixelelated/art/raster/4x/ocean.png` | 4092 | `979ecb9d6c729e0b56c2ea3c35e3067b86bd675ea679b719a7f25890e67c7de3` | (stage E) |
+| `docs/pixelelated/art/raster/4x/scanline.png` | 3944 | `48d8dbd4b043940a662906a76a28549f9176054be3e3fb96cb32e61a0a830ace` | (stage E) |
+| `docs/pixelelated/art/raster/4x/spectrum.png` | 4102 | `00a70a9a1943b8eb96237e5aba92bfeb6867ee90a73b30157c8ee536a42c6ef6` | (stage E) |
+| `docs/pixelelated/art/raster/4x/sunrise.png` | 4102 | `23745b792dc63cd34feeaa74aa05d72f7a7bff095e508b7c076c09871b9e3ccb` | (stage E) |
+| `docs/rasteratops/art/icon-interim-2026-10-01.png` | 718 | `1c7f06f8c28de2acb323940165bc1405e128139bcc34f5963e37521219398675` | (stage E) |
+| `docs/upstream/2026-10-15-queue-reconciliation/originals.tar.gz` | 57557 | `88e015409159c98e6052252ee4bb429875d288e2907a7d3b785a1e6079c015d9` | (stage E) |
+| `licenses/AETHERSX2.pdf` | 1005740 | `25bca10c4ceaf24d9bbf6148e8a5333afb4966550c4f002e0bc520c7dd0aab44` | (stage E) |
+| `licenses/DRASTIC.pdf` | 239739 | `697815a8d51d416deb7e5e83ba763e8fb9dae0f7f6f74de12ca2a88a554f4e0a` | (stage E) |

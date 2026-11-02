@@ -1,0 +1,53 @@
+== (i) the baseline: the export at the dispatch tip, all three allowlists
+i-baseline                         rc=0  TOTAL: 13 of 13 steps
+== (ii) one mutation per step; each stub is first checked against the unfixed text (it must print 0 there)
+ii-inventory                       rc=1  TOTAL: 12 of 13 steps
+    FAIL  inventory  508 of 510 assertions; paths 254 text 222 binary 31
+stub check: the python above asserted licenses/0BSD.txt's tier at HEAD is upstream-carried before the flip, rc=0
+ii-scope                           rc=1  TOTAL: 12 of 13 steps
+    FAIL  scope      9 of 11 assertions; CARVE art-bytes 18 edit-scope 69 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 87 tabled-generic-x64 1 total 254
+stub check: README.md carries docs/no-such.md 0 times (expect 0)
+ii-links                           rc=1  TOTAL: 12 of 13 steps
+    FAIL  links      511 of 512 assertions; 512 relative links
+stub check: docs/releases/versioning.md carries no-such-dir 0 times (expect 0)
+ii-paths                           rc=1  TOTAL: 12 of 13 steps
+    FAIL  paths      2060 of 2061 assertions; 39 allowlisted; 2061 backticked repository paths
+stub check: docs/releases/versioning.md carries no-such-tool 0 times (expect 0)
+ii-tools                           rc=1  TOTAL: 12 of 13 steps
+    FAIL  tools      366 of 367 assertions; 2 allowlisted; 367 tools/ names
+stub check: README.md carries Pixelelated 0 and Rasteratops OS 0 times (expect 0 and 0)
+ii-identity                        rc=1  TOTAL: 12 of 13 steps
+    FAIL  identity   58 of 60 assertions; 58 allowlisted
+stub check: docs/pixelelated/cloud-folders.md carries rebase --onto 0 and cloud_migrate_layout 0 times (expect 0 and 0)
+ii-retired                         rc=1  TOTAL: 12 of 13 steps
+    FAIL  retired    51 of 54 assertions; 51 allowlisted
+stub check: the register at HEAD has D-CLOUD-9999 0 times (expect 0)
+ii-cites                           rc=1  TOTAL: 12 of 13 steps
+    FAIL  cites      1272 of 1273 assertions; register IDs 716, citations 1273
+ii-untouched-order                 rc=1  TOTAL: 12 of 13 steps
+    FAIL  untouched  3 of 4 assertions; 1 non-merge commits since 3f241300f03d32c25283cb2c18c36d04baefa66d
+ii-untouched-licence               rc=1  TOTAL: 12 of 13 steps
+    FAIL  untouched  3 of 4 assertions; 1 non-merge commits since 3f241300f03d32c25283cb2c18c36d04baefa66d
+ii-generated-commit                rc=1  TOTAL: 11 of 13 steps
+    FAIL  untouched  3 of 4 assertions; 1 non-merge commits since 3f241300f03d32c25283cb2c18c36d04baefa66d
+    FAIL  generated  2 of 3 assertions
+ii-generated-tree                  rc=1  TOTAL: 12 of 13 steps
+    FAIL  generated  2 of 3 assertions
+ii-binaries                        rc=1  TOTAL: 12 of 13 steps
+    FAIL  binaries   97 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)
+ii-leads                           rc=1  TOTAL: 12 of 13 steps
+    FAIL  leads      16 of 17 assertions; 16 allowlisted; 13 lead checks, 13 printing a defect
+== (iii) the tip with allow-findings.txt withheld: exit 1, naming each of the slice's own findings
+iii-tip-withheld                   rc=1  TOTAL: 10 of 13 steps
+    FAIL  identity   57 of 58 assertions; 57 allowlisted
+    FAIL  retired    49 of 51 assertions; 49 allowlisted
+    FAIL  leads      0 of 16 assertions; 13 lead checks, 13 printing a defect
+== refusals: exit 2, nothing checked
+refuse-no-tree                     rc=2  t39-checks: refused: no --tree; nothing checked
+refuse-checkout                    rc=2  t39-checks: refused: --tree /workspace/tmp/m6-t39/stage-c/mut/checkout is a checkout (it holds .git); nothing checked
+refuse-no-paths                    rc=2  t39-checks: refused: --paths absent; nothing checked
+refuse-paths-253                   rc=2  t39-checks: refused: --paths /workspace/tmp/m6-t39/stage-c/paths-253.txt has 253 lines, not 254; nothing checked
+refuse-no-python3                  rc=2  t39-checks: refused: python3 missing; nothing checked
+refuse-register                    rc=2  t39-checks: refused: the register is unreadable at 651150fc88; nothing checked
+refuse-entry-no-reason             rc=2  t39-checks: refused: allow-legit.txt:67 is not `<path>:<line> <class> <reason>` (a class and a reason are required); nothing checked
+(end)

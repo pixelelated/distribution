@@ -1,0 +1,12 @@
+coverage, the export                     rc=0 (want 0) 
+coverage, one document removed           rc=1 (want 1) FAIL  docs/council-limits.md is absent from --export
+binaries, the export                     rc=0 (want 0) 
+binaries, one byte on a PNG              rc=1 (want 1) FAIL  docs/pixelelated/art/raster/2x/neon.png in --export differs from its blob at HEAD
+art, the export                          rc=0 (want 0) 
+art, one byte on an SVG                  rc=1 (want 1) FAIL  docs/pixelelated/art/wordmark/neon.svg in --export differs from its blob at HEAD
+q4, the export                           rc=0 (want 0) 
+q4, a planted unresolved ID              rc=1 (want 1) FAIL  docs/releases/versioning.md in --export differs from its blob at HEAD
+q5, the export                           rc=0 (want 0) 
+q5, one reference document removed       rc=1 (want 1) FAIL  docs/savestate-compat-test.md is absent from --export
+q6, the export                           rc=0 (want 0) 
+q6, a dead path's line moved             rc=1 (want 1) FAIL  docs/pixelelated/art/README.md in --export differs from its blob at HEAD

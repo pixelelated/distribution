@@ -43,7 +43,7 @@ PROOF: 06:58 UTC the carve classifier on `block-2.txt` prints edit-scope 68, edi
 PROOF: 06:58 UTC 0 dead relative Markdown links over 511 scanned, resolved against the worktree; proved: tree
 PROOF: 06:58 UTC decision IDs: register 716, cited distinct 442, 0 unresolved (L-38; D-WORKFLOW-188 carried by the P1 merge); proved: tool-run
 PROOF: 06:58 UTC Pixelelated/PIXELELATED capitalised 0 (D-WORKFLOW-144 holds); proved: tree
-PROOF: 06:58 UTC each of the 46 leads prints its defect at the tip (see `02` § The table); proved: tree/tool-run/record
+PROOF: 06:58 UTC each of the 46 leads prints its defect at the tip (see `02` § The table); proved: tool-run
 PROOF: 06:58 UTC the 31 binaries and 18 art text files carry their recorded sha256 at the tip (ruling (o)); proved: tree
 PROOF: 06:58 UTC none of the 254 is modified; the removal check vs `86ebb6dffc` is empty (rulings (a),(k),(n),(o)); proved: tree
 
@@ -110,3 +110,46 @@ PROOF: 05:16 UTC each fix candidate's sentence predates, or was left untouched b
 `git status --short` for the 254 is empty (no fix at this stage). No build, no
 compiler, no guest, no fetch, no council or keyed call. No line was written to the
 host file.
+
+## 2026-11-02 00:15-05:30, 15:08-15:18 UTC -- stage C (the checker, the table generator, the pre-issue lint, and the session stash)
+
+### 1. `tools/t39-checks.sh` and `tools/t39-checks.py`, with the three allowlists
+- Implemented `docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh` and `t39-checks.py`: 13 steps (`inventory`, `scope`, `links`, `paths`, `tools`, `identity`, `retired`, `cites`, `untouched`, `generated`, `binaries`, `leads`, `allowlists`), writing per-step reports plus `probes.tsv` and `read-{paths,tools,identity,retired,cites}.tsv` under `--out`.
+- Wrote the three allowlists under `docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/`:
+  - `allow-legit.txt`: 58 entries (`<path>:<line> <class> <reason>`).
+  - `allow-inherited.txt`: 4 entries (`docs/pr-series/map.txt:112`, `docs/pr-series/map.txt:174`, `docs/releases/rc-accept.txt:13`, `docs/reviews/rules-sweep-2026-09-12.md:99`).
+  - `allow-findings.txt`: 17 entries (the slice's own findings at the tip across `identity`, `retired`, and the 13 `leads` checks).
+- Ran `stage-c/checks-runs.sh` at `3f241300f0` (`stage-c/checks-runs.out` and `stage-c/runs/*.out`):
+  - **(i) baseline (`i-baseline.out`):** `rc=0`, `TOTAL: 13 of 13 steps` (`allowlists read: allow-legit.txt 58, allow-inherited.txt 4, allow-findings.txt 17`).
+  - **(ii) 14 step mutations (`ii-inventory` .. `ii-leads`):** each stub checked against the unfixed text first (`0` matches), each mutation exiting `rc=1` naming its own step (`TOTAL: 12 of 13 steps`, and `TOTAL: 11 of 13 steps` for `ii-generated-commit`, which both `untouched` and `generated` fail on).
+  - **(iii) the tip with `--withhold findings` (`iii-tip-withheld.out`):** `rc=1`, `TOTAL: 10 of 13 steps`, failing `identity` (`57 of 58 assertions`), `retired` (`49 of 51 assertions`), and `leads` (`0 of 16 assertions; 13 lead checks, 13 printing a defect`).
+  - **(iv) refusals (`refuse-no-tree`, `refuse-checkout`, `refuse-no-paths`, `refuse-paths-253`, `refuse-no-python3`, `refuse-register`, `refuse-entry-no-reason`):** all 7 exit `rc=2` with `t39-checks: refused: ...; nothing checked`.
+
+PROOF: 05:25 UTC `t39-checks.sh` exits 0 on the baseline (`TOTAL: 13 of 13 steps`), 1 on each of the 14 step mutations (stubs checked against unfixed text first), 1 on the tip with `allow-findings.txt` withheld (`TOTAL: 10 of 13 steps`, naming all 17 finding assertions), and 2 on all 7 refusals (`stage-c/checks-runs.out`); proved: fixture
+
+### 2. `tools/t39-tables.py`, the six generated tables, and the drift verification
+- Captured the issue-state snapshot at `2026-11-02T00:25:51Z` (`stage-c/issues-snapshot.tsv`, 1398 issues/PRs) and the baseline probes under `stage-c/probes/`.
+- Implemented `docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-tables.py` and `t39-tables-drift.sh`, generating `stage-c/tables/{coverage,binaries,art,q4,q5,q6}.{md,err}` and splicing them into `02-forward-audit.md` (§ Coverage 254 rows, § Binaries 31 rows, § Art bytes 18 rows) and `04-analysis.md` (§ Q4 Currency, § Q5 Efficiency, § Q6 Dead ends):
+  - `coverage`: `rc=0`, `COUNTS DISPOSITIONS #528 2 #585 3 fix 34 inherited 20 ledger 50 none 145 total 254`
+  - `binaries`: `rc=0`, `COUNTS BINARIES 31`
+  - `art`: `rc=0`, `COUNTS ART 18`
+  - `q4`: `rc=0`, `COUNTS Q4 ids 442 (decided 435, open 7, unresolved 0); tools 69 (absent 2); issues 617; path references 2060`
+  - `q5`: `rc=0`, `COUNTS Q5 rows 69; LOW-INBOUND files=33 lines=2770; population 70`
+  - `q6`: `rc=0`, `COUNTS Q6 dead 41 (paths and tools) plus 3 inherited; rows 44`
+- Verified every table's FAIL-first on a constructed drift and a missing-row mutation (`stage-c/tables/drift.out`): each exits `rc=1` with `FAIL`.
+
+PROOF: 05:27 UTC `t39-tables.py` exits 0 on all 6 tables (`coverage` 254, `binaries` 31, `art` 18, `q4`, `q5` 69, `q6` 44) and exits 1 with `FAIL` on each constructed export drift and missing-row mutation (`stage-c/tables/drift.out`); proved: fixture
+
+### 3. The § 5 checkers (`stage-c/checkers.out`), `05-punch-list.md`, `review-plan.json`, and the `--phase pre-issue` lint
+- Re-ran the repository checkers and § 5 baseline runs at `3f241300f0` (`stage-c/checkers.sh` -> `stage-c/checkers.out` and `stage-c/checkers/*.out`): `rules-check` `rc=0` (30 rule files, no evidence for the 254), `register-check` `rc=0` (716 IDs), `es-menu-map-check` `rc=0` (`55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing`), `release-catalog --check` `rc=0` (99 cuts), `work-log-index --check` `rc=0`, `prose-check --self-test` `rc=0`, `ceremony-check` `rc=0`, `.githooks/hooks-test` `rc=0`, `box-check` `rc=0` (0 fail); byte identity vs `c445081a59` (90 identical) and `651150fc88` (76 identical, 15 differs); secret scan (`compile rc=1`, positive `1`, files `0`); non-ASCII `86`; `forbidden-terms-check` (`rc=0` over the 223, `rc=0` over empty input, `rc=1` over planted positive); `#359` hashes equal; `gh release list` 3 rows; removal check empty and register removed lines `0`; host file lines from this lane `0`.
+- Generated `05-punch-list.md` (`tools/t39-punch.py`, 46 items `PL-01` to `PL-46` matching `L-01` to `L-46`, 6 Medium bugs and 40 Low, with `punch_index` YAML carrying `question:` on every item and `outcome: "open"` for pre-issue phase).
+- Wrote `second-opinions/review-plan.json` (Local depth, `primary.model: "anthropic/claude-opus-4-8"`, `reviewers: []`, `tier_exception: "D-WORKFLOW-184"`, `ls second-opinions/` listing `review-plan.json` alone).
+- Ran `tools/lint-audit-artifacts docs/audits/2026_11_01-epic-m6-doctrine-reference --phase pre-issue` (`stage-c/lint-pre-issue.out`): `rc=0`, `PASS pre-issue artifacts (does not certify resolution)` (155 `ok` lines, 0 failures).
+
+PROOF: 05:30 UTC `tools/lint-audit-artifacts docs/audits/2026_11_01-epic-m6-doctrine-reference --phase pre-issue` exits 0 (`PASS pre-issue artifacts (does not certify resolution)`, `stage-c/lint-pre-issue.out`); proved: tool-run
+
+### 4. The 05:30 UTC quota stop and the 15:08 UTC model switch for the stage-C stash
+- A usage quota stopped the Claude Opus 5.5 (High) session at ~05:30 UTC right after `lint-pre-issue.out` completed.
+- At 15:08 UTC 2026-11-02, the owner switched the Antigravity CLI harness model to **Gemini 4 Argon (High)** (read from the harness itself) and asked every lane to stash all work cleanly in git and push to `origin` so sessions can resume in a new harness.
+- Updated `second-opinions/review-plan.json` (`harness` and `identity_source` recording the 15:08 UTC switch to Gemini 4 Argon (High)), `02-forward-audit.md` (§ The table's `COUNTS TABLE` line, § The identity words, § The retired names, § The runs, § Proofs with 12 `proved:` cells matching the 12 `^PROOF:` lines here, § The § 1 rulings `(a)` to `(q)`, and § What the coordinator and the next slices inherit), this running log, the archived/updated session pointer, and the 2026-11-02 work log.
+- **Stage-C census:** `git status --short` for the 254 is empty (no fix to any of the 254 at stage C). No build, no compiler, no guest, no fetch, no council, Facilitator or keyed call, no held directory opened, no `--write` of a generated file (`tools/work-log-index --write` excepted). The export `/workspace/tmp/m6-t39/export/` (254 files) remains intact for stages D-H and is retired at stage H. No line written to `/workspace/tmp/m7-m6-host-coordination.txt` or to #807.

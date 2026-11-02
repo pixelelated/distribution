@@ -1,0 +1,19 @@
+ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31
+FAIL  scope      9 of 11 assertions; CARVE art-bytes 18 edit-scope 69 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 87 tabled-generic-x64 1 total 254
+      FAIL -:0 CARVE edit-scope 69, expected 68
+      FAIL -:0 CARVE read-only-upstream 87, expected 88
+ok    links      511 of 511 assertions; 511 relative links
+ok    paths      2060 of 2060 assertions; 39 allowlisted; 2060 backticked repository paths
+ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names
+ok    identity   58 of 58 assertions; 58 allowlisted
+ok    retired    51 of 51 assertions; 51 allowlisted
+ok    cites      1272 of 1272 assertions; register IDs 716, citations 1272
+ok    untouched  3 of 3 assertions; 0 non-merge commits since 3d57f4f77b95b5b336dc900cea205373bfe292dd
+ok    generated  3 of 3 assertions
+ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)
+ok    leads      16 of 16 assertions; 16 allowlisted; 13 lead checks, 13 printing a defect
+ok    allowlists 79 of 79 assertions
+allowlists read: allow-legit.txt 58, allow-inherited.txt 4, allow-findings.txt 17
+TOTAL: 12 of 13 steps
+rc=1
+wall=2.84s

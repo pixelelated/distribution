@@ -1,0 +1,6 @@
+# allow-inherited.txt (T39, #686): a finding owned elsewhere, never edited by this lane. `<path>:<line> L-NN <owner and reason>`;
+# the owner is one of brief § 6's set. Lines are --tree's at the dispatch tip 86ebb6dffc.
+docs/releases/rc-accept.txt:13 L-25 inherited:coordinator, the RC ledger calls 0.0.1 the first Rasteratops release (ruling (l))
+docs/pr-series/map.txt:174 L-27 inherited:coordinator, the upstream-series map names the deleted migration script (ruling (e))
+docs/upstream/raofflineproxy/image-completeness/fix.patch:64 L-23 #585, the queue's prepared patch names the fork under its old owner (kept; X12)
+docs/reviews/briefs/p1-survey.md:33 L-40 inherited:coordinator, the P1 brief names the rules' legacy layout, which the coordinator's L-40 ruling settles

@@ -17,32 +17,38 @@
 
 ## Current focus
 
-**2026-11-02 05:21 UTC -- stage B completed; stage C in progress.** The coordinator
-accepted stage B at 00:12 UTC (#686, issuecomment-6565981458), then corrected it
-(issuecomment-6565986529): `03`, `04`, `stage-a/` and `stage-b/` were owed. They
-land as one stage-B completion commit; the checkpoint is a short post on #686.
-**The session now runs in the Antigravity CLI** (conversation
-`1364d92f-d934-4080-ac5b-5b7ee9ff8d0a`, model setting "Claude Opus 5.5 (High)").
-Stages A and B ran in Claude Code as `claude-opus-4-8`. `review-plan.json` keeps
-`primary.model: anthropic/claude-opus-4-8` with three names in `identity_source`
-(the coordinator's ruling). Commits end with
-`Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`.
+**2026-11-02 15:18 UTC -- stage C complete and stashed; ready for stage D on resume.**
+Prior pointer archived at `.github/sessions/archived/saved-session-state-feature-m6-doctrine-reference-686-20261102T052127Z.md`.
+- **Model & harness history:**
+  - Stages A and B ran in Claude Code (`claude-opus-4-8`).
+  - Stage-B completion (`3f241300f0`, checkpoint [issuecomment-6569745378](https://github.com/pixelelated/distribution/issues/686#issuecomment-6569745378)) and Stage-C execution (00:10-05:30 UTC 2026-11-02) ran in the Antigravity CLI (conversation `1364d92f-d934-4080-ac5b-5b7ee9ff8d0a`, model setting "Claude Opus 5.5 (High)") until a usage quota stopped the session at ~05:30 UTC.
+  - At 15:08 UTC 2026-11-02, the owner switched the Antigravity CLI model to **Gemini 4 Argon (High)** to stash all work cleanly in git and post the Stage-C checkpoint so the lane can resume in a new harness.
+  - Per the coordinator's ruling on `#686` (`issuecomment-6565981458` / `issuecomment-6565986529`), `second-opinions/review-plan.json` keeps `"model": "anthropic/claude-opus-4-8"` and records the readings and the 15:08 UTC stash switch in `identity_source`.
 
-**Stage C, uncommitted at this checkpoint** (written 00:15-00:26 UTC, before a usage
-stop; resumed 05:15 UTC):
-- `tools/t39-checks.sh` and `.py`: 13 steps, the brief's eleven plus `leads` (the
-  § 3 check lines of the fix candidates) and `allowlists`.
-- The three allowlists: 58 legit, 4 inherited, 17 findings.
-- `second-opinions/review-plan.json`.
-- `stage-c/checks-runs.sh` and `stage-c/runs/`.
+**Stage C complete (committed and pushed at this checkpoint):**
+- `tools/t39-checks.sh` and `tools/t39-checks.py`: 13 steps (`inventory`, `scope`, `links`, `paths`, `tools`, `identity`, `retired`, `cites`, `untouched`, `generated`, `binaries`, `leads`, `allowlists`), with `tools/allow-legit.txt` (58 entries), `tools/allow-inherited.txt` (4 entries), and `tools/allow-findings.txt` (17 entries).
+- `stage-c/checks-runs.sh` and `stage-c/checks-runs.out` (`stage-c/runs/*.out`):
+  - (i) baseline: `rc=0`, `TOTAL: 13 of 13 steps`
+  - (ii) 14 step mutations (stubs checked against unfixed text first, `0` matches): each `rc=1` naming its own step (`TOTAL: 12 of 13 steps`; `11 of 13 steps` for `ii-generated-commit`)
+  - (iii) tip with `--withhold findings`: `rc=1`, `TOTAL: 10 of 13 steps` (failing `identity`, `retired`, `leads` on all 17 finding assertions)
+  - (iv) 7 refusals: each `rc=2` (`nothing checked`)
+- `tools/t39-tables.py`, `tools/t39-tables-drift.sh`, `stage-c/probes/`, `stage-c/issues-snapshot.tsv` (read `2026-11-02T00:25:51Z`, 1398 rows), and `stage-c/tables/`:
+  - `coverage`: `rc=0`, `COUNTS DISPOSITIONS #528 2 #585 3 fix 34 inherited 20 ledger 50 none 145 total 254` (spliced into `02` § Coverage, 254 rows)
+  - `binaries`: `rc=0`, `COUNTS BINARIES 31` (spliced into `02` § Binaries, 31 rows)
+  - `art`: `rc=0`, `COUNTS ART 18` (spliced into `02` § Art bytes, 18 rows)
+  - `q4`: `rc=0`, `COUNTS Q4 ids 442 (decided 435, open 7, unresolved 0); tools 69 (absent 2); issues 617; path references 2060` (spliced into `04` § Q4 Currency)
+  - `q5`: `rc=0`, `COUNTS Q5 rows 69; LOW-INBOUND files=33 lines=2770; population 70` (spliced into `04` § Q5 Efficiency)
+  - `q6`: `rc=0`, `COUNTS Q6 dead 41 (paths and tools) plus 3 inherited; rows 44` (spliced into `04` § Q6 Dead ends)
+  - Constructed export-drift and missing-row checks (`stage-c/tables/drift.out`): all exit `rc=1` with `FAIL`.
+- `stage-c/checkers.sh` and `stage-c/checkers.out` (`stage-c/checkers/*.out`): all § 5 baseline checks re-run and quoted in `02` § The runs.
+- `tools/t39-punch.py` and `05-punch-list.md`: 46 items (`PL-01` to `PL-46` matching `L-01` to `L-46`, 6 Medium bugs and 40 Low), with `question:` on every item in `punch_index`.
+- `second-opinions/review-plan.json` and `stage-c/lint-pre-issue.out`: `tools/lint-audit-artifacts docs/audits/2026_11_01-epic-m6-doctrine-reference --phase pre-issue` exits `rc=0` (`PASS pre-issue artifacts (does not certify resolution)`).
+- **No fix touched any of the 254.**
 
-The runs: (i) the baseline exits 0; (ii) every mutation exits 1 naming its step;
-(iii) the tip with findings withheld exits 1 naming 17 lines; every refusal exits 2.
-The runs are re-run on the committed bytes before the stage-C commit. Still to do:
-`tools/t39-tables.py` (§ Coverage, § Binaries, § Art bytes, Q4 to Q6) with its drift
-run, the checkers' outputs under `stage-c/`, the pre-issue lint (which needs a draft
-`05`), and the stage-C checkpoint. The issue-state snapshot for Q4 is
-`/workspace/tmp/m6-t39/tmp/issues.tsv` (read 2026-11-02 00:25:51Z, 1398 rows).
+**Next is stage D (after the coordinator's stage-C acceptance on #686):**
+1. File the audit punch-list sub-issue of `#686` (`Audit: M6 T39 the reference documents -- 46 findings (0 critical, 0 high)`, labels `audit`, `punch-list`, milestone `M6: Codebase renovation`) and run `tools/box-check --issue <audit_issue>` (`0 fail`).
+2. File the 6 `bug` issues (`L-02`, `L-03`, `L-04`, `L-05`, `L-07`, `L-16`: label `bug`, milestone-less, not sub-issues, each with its code-trace shape, VM line, agent-verifiable criterion, and `Already written:` line) and run `tools/box-check --issue <bug_issue>` on each.
+3. Post `04` § Maintainer questions (question 1 on `docs/es-menu-map.md`'s dated journal, question 2 on the low-inbound reference documents) and the Stage-D pause comment on `#686` naming the audit issue and the 6 bug issues, record the comment IDs in `02`, and pause for the coordinator's stream brief `docs/reviews/briefs/t39-streams.md`.
 
 **Stage A and stage B complete; the stage-B checkpoint is posted on #686 (the
 turn-ender).** The
@@ -135,3 +141,4 @@ or the pins.
 - Stage A -- 2026-11-01 06:36:32 UTC -- base tip 86ebb6dffc (the dispatch merge); this commit carries 00-running-log.md, 01-research-notes.md § Scope, this pointer and the #686 work-log entry, and becomes the branch tip; checkpoint posted on #686.
 - Stage B -- 2026-11-01 06:59:45 UTC -- tip 86ebb6dffc (the dispatch merge); this commit carries 02-forward-audit.md (§ The table, 46 leads; § Binaries 31; § Art bytes 18; the probes and § The runs), 01 § Read order + § The reader's pass, 00's stage-B section (8 PROOF lines) and the #686 work-log entry; no fix to any of the 254; checkpoint posted on #686.
 - Stage B completion -- 2026-11-02 05:21 UTC -- tip 2d09ed5c4d; this commit carries 03-retrospective.md, 04-analysis.md, stage-a/, stage-b/, 00's entry (the model switch), 02's R3 C24 inherited row and the #686 work-log entry; no fix to any of the 254; short checkpoint posted on #686.
+- Stage C (and session stash) -- 2026-11-02 15:18 UTC -- base tip 3f241300f0; this commit carries tools/{t39-checks.sh,t39-checks.py,t39-tables.py,t39-tables-drift.sh,t39-punch.py,allow-legit.txt,allow-inherited.txt,allow-findings.txt}, second-opinions/review-plan.json, stage-c/, 02-forward-audit.md (§ Coverage 254, § Binaries 31, § Art bytes 18, § The identity words, § The retired names, § The runs, § Proofs 12 rows, § The § 1 rulings (a)-(q), § What the coordinator and the next slices inherit), 04-analysis.md (§ Q4, § Q5, § Q6), 05-punch-list.md (46 items), 00's stage-C section, the archived and updated session pointer, and the #686 work-log entry; no fix to any of the 254; checkpoint posted on #686.
