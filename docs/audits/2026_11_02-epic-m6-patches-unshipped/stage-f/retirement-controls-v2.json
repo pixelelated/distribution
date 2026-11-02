@@ -1,0 +1,266 @@
+{
+  "program_sha256": "91f7df3fc72031937c136ec15f407b000dc24b03cd4d0c77595e61bd6b0577d9",
+  "scope_program_sha256": "5f36320f13d441f4e98e558e59b83371dcc3146d4d352ed9d37f63fca2e8f34a",
+  "controller_sha256": "5355d711d0bff1416b2e47a76bf33fb46e9e489740a03583e8dbe727f0707ec0",
+  "records": [
+    {
+      "name": "changed-content",
+      "started": "2026-11-02T23:18:27.241447+00:00",
+      "finished": "2026-11-02T23:18:27.241581+00:00",
+      "actual_exception": "AssertionError",
+      "actual_message": "content snapshot mismatch",
+      "expected_refusal": "content snapshot mismatch",
+      "inputs": null,
+      "passed": true
+    },
+    {
+      "name": "symlink-substitution",
+      "started": "2026-11-02T23:18:27.245823+00:00",
+      "finished": "2026-11-02T23:18:27.245866+00:00",
+      "actual_exception": "AssertionError",
+      "actual_message": "symlink or special-file substitution",
+      "expected_refusal": "symlink or special-file substitution",
+      "inputs": null,
+      "passed": true
+    },
+    {
+      "name": "mount-crossing-metadata",
+      "started": "2026-11-02T23:18:27.245980+00:00",
+      "finished": "2026-11-02T23:18:27.246012+00:00",
+      "actual_exception": "AssertionError",
+      "actual_message": "mount crossing",
+      "expected_refusal": "mount crossing",
+      "inputs": null,
+      "passed": true
+    },
+    {
+      "name": "owner-mismatch-metadata",
+      "started": "2026-11-02T23:18:27.246085+00:00",
+      "finished": "2026-11-02T23:18:27.246112+00:00",
+      "actual_exception": "AssertionError",
+      "actual_message": "owner mismatch",
+      "expected_refusal": "owner mismatch",
+      "inputs": null,
+      "passed": true
+    },
+    {
+      "name": "changed-identity",
+      "started": "2026-11-02T23:18:27.246297+00:00",
+      "finished": "2026-11-02T23:18:27.246345+00:00",
+      "actual_exception": "AssertionError",
+      "actual_message": "fresh identity/metadata changed",
+      "expected_refusal": "fresh identity/metadata changed",
+      "inputs": null,
+      "passed": true
+    },
+    {
+      "name": "unknown-root",
+      "started": "2026-11-02T23:18:27.246421+00:00",
+      "finished": "2026-11-02T23:18:27.246436+00:00",
+      "actual_exception": "AssertionError",
+      "actual_message": "unknown or unconfined path",
+      "expected_refusal": "unknown or unconfined path",
+      "inputs": null,
+      "passed": true
+    },
+    {
+      "name": "durable-root",
+      "started": "2026-11-02T23:18:27.246573+00:00",
+      "finished": "2026-11-02T23:18:27.246590+00:00",
+      "actual_exception": "AssertionError",
+      "actual_message": "cache/receipt path protected",
+      "expected_refusal": "cache/receipt path protected",
+      "inputs": null,
+      "passed": true
+    },
+    {
+      "name": "actual-own-fd",
+      "started": "2026-11-02T23:18:27.246799+00:00",
+      "finished": "2026-11-02T23:18:27.246895+00:00",
+      "actual_exception": "AssertionError",
+      "actual_message": "known own cwd/fd reference",
+      "expected_refusal": "known own cwd/fd reference",
+      "inputs": {
+        "root": "/workspace/tmp/m6-t43/f-retirement-controls-ptbi39_f",
+        "completion": {
+          "receipt": "stage-b/application-run.json",
+          "sha256": "234b4c7d4336a8bb63cdb90a2ce97f0e00ad554ccf36e4ee265a21e5f1ca5f47",
+          "argv": [
+            "python3",
+            "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/apply.py"
+          ],
+          "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690",
+          "started": "2026-11-02T21:55:16.978706+00:00",
+          "finished": "2026-11-02T21:56:27.388227+00:00",
+          "exit": 0,
+          "termination": "returned",
+          "pid_recorded": false,
+          "child_accounting": "synchronous source/control implementation; no persistent child or handoff"
+        },
+        "known_jobs": [
+          {
+            "pid": 824218,
+            "uid": 1000,
+            "start_ticks": "51365626",
+            "role": "current metadata/deletion observer",
+            "state": "active-observer"
+          }
+        ],
+        "actual_fd": 3
+      },
+      "passed": true
+    },
+    {
+      "name": "missing-own-completion",
+      "started": "2026-11-02T23:18:27.246992+00:00",
+      "finished": "2026-11-02T23:18:27.246999+00:00",
+      "actual_exception": "AssertionError",
+      "actual_message": "missing or ambiguous own completion",
+      "expected_refusal": "missing or ambiguous own completion",
+      "inputs": {
+        "receipt": "stage-b/application-run.json",
+        "sha256": "234b4c7d4336a8bb63cdb90a2ce97f0e00ad554ccf36e4ee265a21e5f1ca5f47",
+        "argv": [
+          "python3",
+          "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/apply.py"
+        ],
+        "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690",
+        "started": "2026-11-02T21:55:16.978706+00:00",
+        "finished": null,
+        "exit": 0,
+        "termination": "returned",
+        "pid_recorded": false,
+        "child_accounting": "synchronous source/control implementation; no persistent child or handoff"
+      },
+      "passed": true
+    },
+    {
+      "name": "ambiguous-known-identity",
+      "started": "2026-11-02T23:18:27.247089+00:00",
+      "finished": "2026-11-02T23:18:27.247139+00:00",
+      "actual_exception": "AssertionError",
+      "actual_message": "ambiguous known owner identity",
+      "expected_refusal": "ambiguous known owner identity",
+      "inputs": {
+        "pid": 824218,
+        "uid": 1000,
+        "start_ticks": "51365627",
+        "role": "current metadata/deletion observer",
+        "state": "active-observer"
+      },
+      "passed": true
+    },
+    {
+      "name": "actual-inaccessible-known-owner",
+      "started": "2026-11-02T23:18:27.270071+00:00",
+      "finished": "2026-11-02T23:18:27.270136+00:00",
+      "actual_exception": "AssertionError",
+      "actual_message": "inaccessible or ambiguous known owner: PermissionError",
+      "expected_refusal": "inaccessible or ambiguous known owner",
+      "inputs": {
+        "argv": [
+          "/usr/bin/python3",
+          "-c",
+          "import ctypes,os,sys,json\nassert ctypes.CDLL(None).prctl(4,0,0,0,0)==0\nprint(json.dumps({'pid':os.getpid(),'uid':os.getuid(),'restricted_own_visibility':True}),flush=True)\nsys.stdin.buffer.readline()\n"
+        ],
+        "announcement": {
+          "pid": 824219,
+          "uid": 1000,
+          "restricted_own_visibility": true
+        },
+        "known_jobs": [
+          {
+            "pid": 824219,
+            "uid": 1000,
+            "start_ticks": "51365629",
+            "role": "known F control child",
+            "state": "live"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "scoped-positive-after-fd-close",
+      "finished": "2026-11-02T23:18:27.273423+00:00",
+      "passed": true,
+      "scope": {
+        "scope": "completed named T43 producer plus explicit current known T43 jobs only",
+        "completion": {
+          "receipt": "stage-b/application-run.json",
+          "sha256": "234b4c7d4336a8bb63cdb90a2ce97f0e00ad554ccf36e4ee265a21e5f1ca5f47",
+          "argv": [
+            "python3",
+            "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/apply.py"
+          ],
+          "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690",
+          "started": "2026-11-02T21:55:16.978706+00:00",
+          "finished": "2026-11-02T21:56:27.388227+00:00",
+          "exit": 0,
+          "termination": "returned",
+          "pid_recorded": false,
+          "child_accounting": "synchronous source/control implementation; no persistent child or handoff"
+        },
+        "known_jobs": [
+          {
+            "pid": 824218,
+            "uid": 1000,
+            "start_ticks": "51365626",
+            "role": "current metadata/deletion observer",
+            "state": "active-observer",
+            "references_to_root": []
+          }
+        ],
+        "global_no_reference_assertion": false,
+        "unknown_process_visibility_limit": "Original all-same-UID attempt could not read /proc/2389/cwd. Its owner/references remain unknown; this module does not inspect it or claim it unrelated. No all-same-UID/global no-reference assertion is available."
+      },
+      "observation": {
+        "nodes": {
+          ".": {
+            "dev": 66304,
+            "ino": 70448250,
+            "mode": 448,
+            "uid": 1000,
+            "gid": 1000,
+            "size": 4096,
+            "mtime_ns": 1793661507245931290,
+            "ctime_ns": 1793661507245931290,
+            "kind": "dir"
+          },
+          "a.txt": {
+            "dev": 66304,
+            "ino": 70448251,
+            "mode": 436,
+            "uid": 1000,
+            "gid": 1000,
+            "size": 16,
+            "mtime_ns": 1793661507245976064,
+            "ctime_ns": 1793661507245976064,
+            "kind": "file"
+          }
+        },
+        "content_snapshot_sha256": "663894b505ead4d29909bdb92ca39fd122ae1696a1bac71c0ab5865f12bd397e",
+        "files": 1,
+        "bytes": 16
+      },
+      "out_of_scope_failure_cannot_imply_global_clean": true
+    }
+  ],
+  "known_children": [
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "-c",
+        "import ctypes,os,sys,json\nassert ctypes.CDLL(None).prctl(4,0,0,0,0)==0\nprint(json.dumps({'pid':os.getpid(),'uid':os.getuid(),'restricted_own_visibility':True}),flush=True)\nsys.stdin.buffer.readline()\n"
+      ],
+      "pid": 824219,
+      "started": "2026-11-02T23:18:27.247527+00:00",
+      "finished": "2026-11-02T23:18:27.273080+00:00",
+      "exit": 0,
+      "stdout": "{\"pid\": 824219, \"uid\": 1000, \"restricted_own_visibility\": true}\n",
+      "stderr": "",
+      "joined": true
+    }
+  ],
+  "scope": "new record controls only; no production path mutation; no unrelated-process inspection"
+}

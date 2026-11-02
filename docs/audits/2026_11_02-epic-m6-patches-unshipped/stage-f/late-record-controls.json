@@ -1,0 +1,40 @@
+{
+  "fixture_sha256": "2c5cf8ed26985a8475c642033e480efa628d2c492ee088b416b32660670ba6c5",
+  "program_sha256": "0d9aed11d6053c20d10f95075d9dc12b6177b9dfa80e459c5ec92450668f23a8",
+  "unaccounted_child_refusal": "unaccounted F control child",
+  "actual_child_positive": {
+    "receipt": "stage-f/retirement-controls-v2-run.json",
+    "sha256": "b15a074534933cc63d9f39dd9b7ef49c74d289661e767dc4f2816e6646ca7a0c",
+    "argv": [
+      "python3",
+      "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement-controls.py"
+    ],
+    "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690",
+    "started": "2026-11-02T23:18:27.217556+00:00",
+    "finished": "2026-11-02T23:18:27.278376+00:00",
+    "exit": 0,
+    "termination": "returned",
+    "pid_recorded": false,
+    "accounted_known_children": [
+      {
+        "argv": [
+          "/usr/bin/python3",
+          "-c",
+          "import ctypes,os,sys,json\nassert ctypes.CDLL(None).prctl(4,0,0,0,0)==0\nprint(json.dumps({'pid':os.getpid(),'uid':os.getuid(),'restricted_own_visibility':True}),flush=True)\nsys.stdin.buffer.readline()\n"
+        ],
+        "pid": 824219,
+        "started": "2026-11-02T23:18:27.247527+00:00",
+        "finished": "2026-11-02T23:18:27.273080+00:00",
+        "exit": 0,
+        "stdout": "{\"pid\": 824219, \"uid\": 1000, \"restricted_own_visibility\": true}\n",
+        "stderr": "",
+        "joined": true
+      }
+    ],
+    "child_accounting": "synchronous source/control implementation; no persistent child or handoff"
+  },
+  "original_plan_parse_failure": "Extra data: line 1019790 column 2 (char 29043831)",
+  "corrected_json_roundtrip": true,
+  "plan_sha256": "9f006406f7e3ab4668418ddc31a72cd0d808161cf1a15748e419b254b5871590",
+  "unchanged_root_records": 889
+}

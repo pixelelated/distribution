@@ -1,0 +1,47 @@
+[
+  {
+    "name": "scan-missing",
+    "argv": [
+      "python3",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-scan.py",
+      "validate",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/scan-missing.json"
+    ],
+    "exit": 1,
+    "fixture_sha256": "f2e7ddb31103c2abe7b0584f43be83f00cccc5b39e66ac161cb5698762516c2e",
+    "reader_sha256": "4e1f1575a008bbb9fdc74dabcb3dcdd17fe2825a3e5979b77cc8b44c5a0ab074",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e79fbcf323555688d27344b0e05ec0f5c7279af5bad2a2474b2c3be94ca5a038",
+    "expected_refusal": "scan membership mismatch"
+  },
+  {
+    "name": "scan-changed",
+    "argv": [
+      "python3",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-scan.py",
+      "validate",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/scan-changed.json"
+    ],
+    "exit": 1,
+    "fixture_sha256": "680651efbf92b7f4f43b060c527d2fb6d6c3817c84f5377eb719845a20f7a37b",
+    "reader_sha256": "4e1f1575a008bbb9fdc74dabcb3dcdd17fe2825a3e5979b77cc8b44c5a0ab074",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "2eb53c8c3be194c42e944501c01bcb433ac2766b4413ceade0436fb0c24ce3d3",
+    "expected_refusal": "scan byte identity mismatch"
+  },
+  {
+    "name": "scan-positive",
+    "argv": [
+      "python3",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-scan.py",
+      "validate",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/scan-positive.json"
+    ],
+    "exit": 0,
+    "fixture_sha256": "8af7aa7368c4a281aac5c93d1980151d6729802f3ed2c3144266ca35ad7599cf",
+    "reader_sha256": "4e1f1575a008bbb9fdc74dabcb3dcdd17fe2825a3e5979b77cc8b44c5a0ab074",
+    "stdout_sha256": "6676588d6d2079cb9eac79650747ee6e4e2d58ef953ca11ec199b270c008f083",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "expected_refusal": null
+  }
+]

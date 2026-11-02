@@ -1,0 +1,15 @@
+{
+  "root": "/workspace/tmp/m6-t43/f-retirement-controls-_hg5mhtk",
+  "creation_receipt": "stage-f/retirement-control-creation.json",
+  "final_snapshot": {
+    "a.txt": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "552a6a731b7d19ff117b40d3754f786f1244a4977ed755fb7424feef3f35888a",
+      "bytes": 16
+    }
+  },
+  "at": "2026-11-02T23:13:57.560109+00:00",
+  "qualification": "Current observation after the failed controller, not an invented successful control result. Original controller failed at inaccessible process observation, before production deletion. Tiny root remains retained.",
+  "retirement": "Any later retirement still requires committed receipts and authorized fresh ownership checks."
+}

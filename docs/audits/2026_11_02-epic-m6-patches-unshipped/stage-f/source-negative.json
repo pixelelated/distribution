@@ -1,0 +1,38 @@
+{
+  "argv": [
+    "python3",
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+    "--fixture",
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/source-negative.json"
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690",
+  "started": "2026-11-02T23:04:04.470827+00:00",
+  "finished": "2026-11-02T23:04:04.533613+00:00",
+  "exit": 1,
+  "affinity": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "locale": "C",
+  "program_and_direct_inputs": {
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py": "45612b79bd6971cd453c44a0a98212d90f7bbfd6a27b6c0d1d729af005b87969",
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/source-negative.json": "6931f018abfe75dba7abef1772c36398739fe452335346ce5290651e556792a4"
+  },
+  "producer_sha256": "9f7aa2b1f299e6b3ba03cbaba9312240b3a750f51014fbd53e7a959b654553fb",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "c1d64221d9b18017d69e1343dcc45ddd64f28b3a793373f7753e0093094e8103"
+}

@@ -1,0 +1,70 @@
+{
+  "at": "2026-11-02T23:21:59.771051+00:00",
+  "plan_sha256": "9f006406f7e3ab4668418ddc31a72cd0d808161cf1a15748e419b254b5871590",
+  "roots": 889,
+  "eligible": 881,
+  "retained": {
+    "/workspace/tmp/m6-t43/G029-002-candidate-fgmacmf7": {
+      "status": "retained",
+      "reason": "symlink or special-file substitution",
+      "evidence": "stage-b/application-overlay/G029.json",
+      "producer": "stage-b/application-overlay-run.json"
+    },
+    "/workspace/tmp/m6-t43/G029-003-candidate-b53jjc_q": {
+      "status": "retained",
+      "reason": "symlink or special-file substitution",
+      "evidence": "stage-b/application-overlay/G029.json",
+      "producer": "stage-b/application-overlay-run.json"
+    },
+    "/workspace/tmp/m6-t43/G030-002-candidate-u5a65a8u": {
+      "status": "retained",
+      "reason": "symlink or special-file substitution",
+      "evidence": "stage-b/application-overlay/G030.json",
+      "producer": "stage-b/application-overlay-run.json"
+    },
+    "/workspace/tmp/m6-t43/G030-003-candidate-hjfx_ay_": {
+      "status": "retained",
+      "reason": "symlink or special-file substitution",
+      "evidence": "stage-b/application-overlay/G030.json",
+      "producer": "stage-b/application-overlay-run.json"
+    },
+    "/workspace/tmp/m6-t43/G031-003-candidate-r8btd6bw": {
+      "status": "retained",
+      "reason": "symlink or special-file substitution",
+      "evidence": "stage-b/application-overlay/G031.json",
+      "producer": "stage-b/application-overlay-run.json"
+    },
+    "/workspace/tmp/m6-t43/G031-002-candidate-4qkix3ox": {
+      "status": "retained",
+      "reason": "symlink or special-file substitution",
+      "evidence": "stage-b/application-overlay/G031.json",
+      "producer": "stage-b/application-overlay-run.json"
+    },
+    "/workspace/tmp/m6-t43/G032-003-candidate-vv3mfixq": {
+      "status": "retained",
+      "reason": "symlink or special-file substitution",
+      "evidence": "stage-b/application-overlay/G032.json",
+      "producer": "stage-b/application-overlay-run.json"
+    },
+    "/workspace/tmp/m6-t43/G032-002-candidate-lac0z4sq": {
+      "status": "retained",
+      "reason": "symlink or special-file substitution",
+      "evidence": "stage-b/application-overlay/G032.json",
+      "producer": "stage-b/application-overlay-run.json"
+    }
+  },
+  "four_empty_prefixes": [
+    "/workspace/tmp/m6-t43/G029-prefix-42enpova",
+    "/workspace/tmp/m6-t43/G030-prefix-2ggn9ugi",
+    "/workspace/tmp/m6-t43/G031-prefix-hwtjss09",
+    "/workspace/tmp/m6-t43/G032-prefix-tcxi8jlr"
+  ],
+  "authority": "#690 comment6590887584",
+  "global_no_reference_assertion": false,
+  "cache_evidence": "Metadata observed only; original21 content-hash pairs retained at D; no new content-hash claim",
+  "durable_receipts_preserved": [
+    "stage-d-publication",
+    "eh-publication"
+  ],
+  "required_next": "Commit exact plan/guard/receipt evidence, then fresh recheck before each authorized deletion"
+}

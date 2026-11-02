@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-scan.py", line 25, in <module>
+    validate(json.loads(pathlib.Path(sys.argv[2]).read_text()));print('PASS exact enumerated scan manifest');sys.exit(0)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-record-scan.py", line 18, in validate
+    expected=paths(m['mode'],m['ref']);assert set(expected)==set(m['files']) and m['count']==len(expected),'scan membership mismatch'
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: scan membership mismatch

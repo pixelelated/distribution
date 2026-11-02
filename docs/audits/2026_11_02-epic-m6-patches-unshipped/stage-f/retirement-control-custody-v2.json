@@ -1,0 +1,44 @@
+{
+  "root": "/workspace/tmp/m6-t43/f-retirement-controls-ptbi39_f",
+  "creation_receipt": "stage-f/retirement-control-creation-v2.json",
+  "final_snapshot": {
+    "a.txt": {
+      "type": "file",
+      "mode": "0o664",
+      "sha256": "552a6a731b7d19ff117b40d3754f786f1244a4977ed755fb7424feef3f35888a",
+      "bytes": 16
+    }
+  },
+  "observed": {
+    "nodes": {
+      ".": {
+        "dev": 66304,
+        "ino": 70448250,
+        "mode": 448,
+        "uid": 1000,
+        "gid": 1000,
+        "size": 4096,
+        "mtime_ns": 1793661507245931290,
+        "ctime_ns": 1793661507245931290,
+        "kind": "dir"
+      },
+      "a.txt": {
+        "dev": 66304,
+        "ino": 70448251,
+        "mode": 436,
+        "uid": 1000,
+        "gid": 1000,
+        "size": 16,
+        "mtime_ns": 1793661507245976064,
+        "ctime_ns": 1793661507245976064,
+        "kind": "file"
+      }
+    },
+    "content_snapshot_sha256": "663894b505ead4d29909bdb92ca39fd122ae1696a1bac71c0ab5865f12bd397e",
+    "files": 1,
+    "bytes": 16
+  },
+  "child_termination_evidence": "stage-f/retirement-controls-v2.json",
+  "all_known_children_joined": true,
+  "retirement": "Only after creation/content/actual termination receipts are committed"
+}

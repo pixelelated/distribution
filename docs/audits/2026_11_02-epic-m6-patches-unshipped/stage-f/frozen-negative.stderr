@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py", line 27, in <module>
+    check_paths(json.loads(pathlib.Path(sys.argv[sys.argv.index('--fixture')+1]).read_text()));print('PASS new confinement fixture');sys.exit(0)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py", line 11, in check_paths
+    bad=[p for p in paths if not allowed(p)];assert not bad,'frozen or out-of-scope path: '+repr(bad)
+                                                    ^^^^^^^
+AssertionError: frozen or out-of-scope path: ['docs/audits/2026_11_02-epic-m6-patches-unshipped/02-forward-audit.md']

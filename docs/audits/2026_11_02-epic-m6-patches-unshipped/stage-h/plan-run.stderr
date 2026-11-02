@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement.py", line 31, in live_references
+    try:target=os.readlink(link)
+               ~~~~~~~~~~~^^^^^^
+PermissionError: [Errno 13] Permission denied: '/proc/2389/cwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement.py", line 166, in <module>
+    if sys.argv[1]=='plan':plan()
+                           ~~~~^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement.py", line 141, in plan
+    roots=expected_roots();live=live_references(roots);result={'at':now(),'uid':os.getuid(),'authority':'#690 comments6590563116/6590591845','producer_completion':producer_completion(),'live_owner_scope':'Same-UID process cwd/fd pointers into exact authorized roots; no cmdline/host-log/private contents read. Original own producer exits retained separately. This is not a host-wide no-process claim.','live_references':live,'cache_metadata_before':caches(),'roots':{},'preserved':['/workspace/cache/rocknix-sources','/workspace/tmp/m6-t43/stage-d-publication','/workspace/tmp/m6-t43/eh-publication']}
+                                ~~~~~~~~~~~~~~~^^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement.py", line 37, in live_references
+    except PermissionError as e:raise AssertionError('cannot establish same-UID live-owner check: '+str(e))
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: cannot establish same-UID live-owner check: [Errno 13] Permission denied: '/proc/2389/cwd'

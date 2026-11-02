@@ -42,3 +42,19 @@ The normal commit hook refused the one known public SM6115 source filename. Orig
 ## 2026-11-02T23:00:18.042796+00:00 — S1 exact outcome custody
 
 Read full #690 dispatch6590563116 and placement erratum6590591845. Exact clean D start676115; immutable stream/report hashes verified. New reader's seven specific faults refuse, then production93-key matrix passes, with188 open consumer entries and36 retained positive entries across6 mixed rows. Original owners/text/receipt identities preserved; all93 gaps remain open. Formal PL-001 custody-only resolution follows the actual S1 commit, no future hash invented. No originalA–D program/receipt/19-artifact change or producer replay. Own footer still Codex / GPT-6-Astra / xhigh, OpenAI; CPUs8–23.
+
+## 2026-11-02T23:02:10.852000+00:00 — S1 committed; custody-only resolution
+
+Actual S1 commit d4a25244a80c6459b22e044f6ae6d1e5dc946886 passed normal hooks. PL-001 now Resolved solely for exact93-key outcome custody in05/YAML/Phase7 and linked02 addendum/04/06/07. All93 input gaps remain open. Root erratum6590591845 preserves02 and all19 original stored artifacts. Final tracker readback and F gates follow; no audit closure/marker.
+
+## 2026-11-02T23:13:57.560109+00:00 — F gates and H observation blocker
+
+Default and issue resolution lints first refused the unformatted actual commit citation; adding code formatting to the existing S1 hash made both pass. Original two failures remain. Rules/register/index/ceremony/hooks/issue checks pass; whole-tree forbidden receipt externally records0hits in136972tracked files. New confinement rejects frozen/source path inputs then verifies2923frozen artifacts and432sources/31recipes/6selectors unchanged. New scan membership/byte negatives and positive pass.
+
+H guard/controller failed closed on inaccessible same-UID /proc/2389/cwd, before any production deletion. Exact failed programs and receipts retained; tiny F control creation/current custody recorded. Root informed via Herdr; no silent ownership-guard weakening. Continue independent records while preserving all production projections and caches.
+
+## 2026-11-02T23:21:59.771051+00:00 — Scoped H plan and new controls
+
+Read full clarification6590887584. Original all-UID refusal remains; PID2389 identity/references are unknown and were not inspected again. Explicit own-lane scope binds completed named producer commands, current known observer identity, and actual joined F child. New guard has11 specific refusals including actual own-FD, missing completion, ambiguous identity and actual inaccessible known child; positive follows FD close, child joins exit0. No global-clean assertion. The added child-completion binding has its own refusal/positive; unchanged guard functions bind to tested code.
+
+Fresh confined plan covers889 exact roots:881 eligible and8 retained by the non-symlink guard. Four empty initial prefixes remain current-state-only/nonrecursive. No production deletion yet. First planner appended a literal backslash-n; original bytes/program and parse failure retained, only final suffix corrected with identical889 root records and separate raw/stored hashes. No source/plan predicate replay. Commit this exact plan before mutation.

@@ -1,0 +1,38 @@
+{
+  "argv": [
+    "python3",
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py",
+    "--fixture",
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/frozen-negative.json"
+  ],
+  "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690",
+  "started": "2026-11-02T23:04:02.425953+00:00",
+  "finished": "2026-11-02T23:04:02.488549+00:00",
+  "exit": 1,
+  "affinity": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "locale": "C",
+  "program_and_direct_inputs": {
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/final-confinement.py": "45612b79bd6971cd453c44a0a98212d90f7bbfd6a27b6c0d1d729af005b87969",
+    "docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-f/fixtures/frozen-negative.json": "02f048cf03598939889dfaa928844adffcc322acbf9c0b37444da02cdca6cb5c"
+  },
+  "producer_sha256": "9f7aa2b1f299e6b3ba03cbaba9312240b3a750f51014fbd53e7a959b654553fb",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "0654a68f0bf929dce69bbbdf35a791b25bced3146174f6f996b7287f8d573d12"
+}

@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement.py", line 31, in live_references
+    try:target=os.readlink(link)
+               ~~~~~~~~~~~^^^^^^
+PermissionError: [Errno 13] Permission denied: '/proc/2389/cwd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement-controls.py", line 28, in <module>
+    live=m.live_references(allowed);assert any(x['pid']==os.getpid() for x in live)
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/retirement.py", line 37, in live_references
+    except PermissionError as e:raise AssertionError('cannot establish same-UID live-owner check: '+str(e))
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: cannot establish same-UID live-owner check: [Errno 13] Permission denied: '/proc/2389/cwd'

@@ -1,6 +1,6 @@
 # Punch list — T43 patches-unshipped
 
-Generated from the actual source/receipt census. **1 finding:0 Critical,0 High,0 Medium,1 Low.** Zero new reactive bugs. Stage D only; Phase7 remains open until coordinator disposition. Source audit:04-analysis.md. Tracker is added after pre-issue lint.
+Generated from the actual source/receipt census. **1 finding:0 Critical,0 High,0 Medium,1 Low.** Zero new reactive bugs. The finding description below preserves the D-stage investigation. Current PL-001 outcome: **Resolved for outcome custody only**, at S1 commit d4a25244a80c6459b22e044f6ae6d1e5dc946886. All93 source-input gaps remain open (87 wholly open/6 mixed); no applicability or correctness upgrade. Source audit: preserved02 plus [outcome addendum](stage-e/02-outcome-addendum.md), and04-analysis.md.
 
 ## PL-001 — Give the93 native source-input gaps explicit outcome custody
 
@@ -38,13 +38,14 @@ punch_index:
   owner_area: T43 record custody with existing source owners
   where: stage-b/open-inputs.json
   acceptance: "Exactly93 native keys retain per-plan evidence limits, owners and next mechanisms; mixed6 rows preserve both results; tracker/index/table agree."
-  outcome: open
+  outcome: resolved
+  evidence: d4a25244a80c6459b22e044f6ae6d1e5dc946886; stage-e/owner-outcomes.json; stage-e/owner-outcome-controls.json
 ```
 
 ## Phase 7 resolution gate
 
 | Item | Outcome | Evidence / next action |
 | --- | --- | --- |
-| PL-001 | Open | Await coordinator Stage-E stream disposition; stage-b/open-inputs.json and exact group receipts retained |
+| PL-001 | Resolved | Outcome custody only, commit `d4a25244a80c6459b22e044f6ae6d1e5dc946886`; stage-e/owner-outcomes.json and owner-outcome-controls.json (seven specific refusals then positive). All93 source-input gaps remain open with existing owners; no product fix or new application. |
 
-Audit tracker: [#1412](https://github.com/pixelelated/distribution/issues/1412), M6 child of #690. Stage-D PL-001 remains Open.
+Audit tracker: [#1412](https://github.com/pixelelated/distribution/issues/1412), M6 child of #690. At D, PL-001 was Open. Current custody-only resolution is recorded above; the audit itself remains open for root final acceptance.
