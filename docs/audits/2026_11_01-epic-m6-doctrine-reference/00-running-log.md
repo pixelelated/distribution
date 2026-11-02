@@ -189,3 +189,20 @@ The 46-entry disposition-plan.json is intended routing, not completed outcomes. 
 Can this be done on the VM? No -- source text, pinned source, the register and synthetic local fixtures establish these corrections. Correction proofs are new; accepted-stage suites are not replayed.
 
 Next: S1-S5 corrected sources with green candidate and committed harness receipts, then S6/F/G/H records and one hand-back. Coordinator retains final acceptance/closure.
+
+## Stage E/F correction records — 2026-11-02T19:02:55Z
+
+Current observed identity: Codex / GPT-6-Astra / xhigh; session 01a19d12-0c07-7ba3-88b8-ab9d609f4d67; T1 wN:p4. Prior A–D identities and receipts remain historical. No build, compiler, guest, fetch, provider call, held-directory access, physical/cloud action or host-ledger write occurred. Only the authorized work-log index was regenerated; no catalog/production generated source was written.
+
+PROOF: 2026-11-02T19:02:55Z E01: S1 candidate/commit harness; 21 runbook lines classified, fenced commands unchanged; evidence stage-e/S1/result.json; stage-e/S1/focused-checks.out; proved: tree
+PROOF: 2026-11-02T19:02:55Z E02: Literal canonical mask synthetic control and corrected mask; evidence stage-e/S1/mask-fixture.out; proved: fixture
+PROOF: 2026-11-02T19:02:55Z E03: S2 pinned labels and historical contract byte comparison; evidence stage-e/S2/result.json; stage-e/S2/pin-labels.json; stage-e/S2/focused-checks.out; proved: tree
+PROOF: 2026-11-02T19:02:55Z E04: S3 dated headings, canonical prefix, historical aliases and seven cited targets; evidence stage-e/S3/result.json; stage-e/S3/citation-map.json; stage-e/S3/menu-map-check.out; proved: tree
+PROOF: 2026-11-02T19:02:55Z E05: S4 bounded prose hit classification and external repository assertions; evidence stage-e/S4/prose-hit-table.json; stage-e/S4/result.json; stage-e/S4/citation-map.json; proved: tree
+PROOF: 2026-11-02T19:02:55Z E06: S5 exact accepted 33/2770 membership and 29 body-preserving notices, three reused statuses, plan unchanged; evidence stage-e/S5/dispositions.json; stage-e/S5/result.json; proved: tree
+PROOF: 2026-11-02T19:02:55Z F01: Final-source and --withhold findings harness both 13/13, rc=0; evidence stage-f/final-source/harness.out; stage-f/withheld-findings/harness.out; proved: tool-run
+PROOF: 2026-11-02T19:02:55Z F02: git show SHA256 comparison of original/current 31 binary and 18 art rows; source-diff manifest; evidence stage-f/binary-art-comparisons.json; stage-f/source-diff-manifest.json; proved: tree
+PROOF: 2026-11-02T19:02:55Z F03: grep identity/retired counts and exact current allowlist locations; findings empty; evidence stage-f/term-counts.json; stage-f/allowlist-locations.json; proved: tool-run
+PROOF: 2026-11-02T19:02:55Z F04: 46 dispositions under owner dispatch and open owner-issue readbacks; no downstream completion asserted; evidence stage-f/outcomes.json; stage-f/inherited-issue-readback.json; stage-e/inputs/t39-streams-v2.md; proved: design
+PROOF: 2026-11-02T19:06:35Z F05: Resolution lint default/--issue 1406; rules/register/index/ceremony/forbidden/hooks/menu-map and eight issue checkbox checks all rc=0; evidence stage-f/checks/; stage-f/audit-1406-body.md (exact live readback, open); proved: tool-run
+PROOF: 2026-11-02T19:06:35Z F06: New-record guard rejects five in-memory missing/drift controls before accepting the records; evidence stage-f/record-check.py; stage-f/checks/record-check.out; proved: fixture

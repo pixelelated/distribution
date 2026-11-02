@@ -1,0 +1,20 @@
+$ bash /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools/t39-checks.sh --tree /workspace/tmp/m6-t39/export-1e12e8e0662b-candidate --repo /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686 --commit 1e12e8e0662bbfa120ea65202259e62cdd9eec19 --since 86ebb6dffc --paths /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-a/paths.txt --allow /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/tools --out /workspace/repos/pixelelated/distribution.worktrees/m6-doctrine-reference-686/docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-e/S2/candidate/steps
+started_at=2026-11-02T18:47:20Z
+ok    inventory  510 of 510 assertions; paths 254 text 223 binary 31
+ok    scope      11 of 11 assertions; CARVE art-bytes 18 edit-scope 68 edit-under-naming 1 ledger-binary 31 ledger-named 6 ledger-plan 1 ledger-reviews 12 read-only-528 1 read-only-585 27 read-only-upstream 88 tabled-generic-x64 1 total 254
+ok    links      512 of 512 assertions; 512 relative links
+ok    paths      2061 of 2061 assertions; 39 allowlisted; 2061 backticked repository paths
+ok    tools      366 of 366 assertions; 2 allowlisted; 366 tools/ names
+ok    identity   58 of 58 assertions; 58 allowlisted
+ok    retired    51 of 51 assertions; 51 allowlisted
+ok    cites      1273 of 1273 assertions; register IDs 716, citations 1273
+ok    untouched  213 of 213 assertions; 10 non-merge commits since 86ebb6dffc
+ok    generated  3 of 3 assertions
+ok    binaries   98 of 98 assertions; held 49 (ledger-binary 31, art-bytes 18)
+ok    leads      15 of 15 assertions; 7 allowlisted; 13 lead checks, 5 printing a defect
+FAIL  allowlists 71 of 72 assertions
+      FAIL docs/releases/pr/08-saves.md:14 allow-legit.txt:68 (historical) excused nothing
+allowlists read: allow-legit.txt 60, allow-inherited.txt 4, allow-findings.txt 8
+TOTAL: 12 of 13 steps
+
+rc=1

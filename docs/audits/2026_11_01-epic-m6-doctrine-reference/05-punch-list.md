@@ -4,6 +4,8 @@
 - **6 Medium**, each a `bug` filed at stage D: PL-02, PL-03, PL-04, PL-05, PL-07, PL-16.
 - **40 Low**: the remaining fix candidates, and the ledger, inherited, #528 and #585 items, each with its owner.
 
+The opening item descriptions below preserve the Stage-D state. Current Stage-F outcomes are in the resolution gate and stage-f/outcomes.json.
+
 Each item gives the rung of `working-principles.md`'s ladder its statement sits at (*written*: the sentence exists) and the tool that would hold it at the next rung, or *no tool can*. **Nothing in the 254 is changed here.** Every edit waits for the stage-D pause's stream brief (`docs/reviews/briefs/t39-streams.md`, the coordinator's). Audit [#1406](https://github.com/pixelelated/distribution/issues/1406) is a sub-issue of #686; the six reactive bugs are linked below. Drafted at Stage C and tracked at Stage D. Outcomes remain open until the later resolution stage.
 
 ---
@@ -617,7 +619,7 @@ punch_index:
   source_finding: "L-01"
   disposition: "ledger: resolved at dispatch"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-02
   severity: Medium
   category: Bug
@@ -625,7 +627,7 @@ punch_index:
   source_finding: "L-02"
   disposition: "fix"
   tracked: "#1406; #1400"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-03
   severity: Medium
   category: Bug
@@ -633,7 +635,7 @@ punch_index:
   source_finding: "L-03"
   disposition: "fix"
   tracked: "#1406; #1401"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-04
   severity: Medium
   category: Bug
@@ -641,7 +643,7 @@ punch_index:
   source_finding: "L-04"
   disposition: "fix"
   tracked: "#1406; #1402"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-05
   severity: Medium
   category: Bug
@@ -649,7 +651,7 @@ punch_index:
   source_finding: "L-05"
   disposition: "fix where NAMING.md decides the word"
   tracked: "#1406; #1403"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-06
   severity: Low
   category: Code Quality
@@ -657,7 +659,7 @@ punch_index:
   source_finding: "L-06"
   disposition: "fix"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-07
   severity: Medium
   category: Bug
@@ -665,7 +667,7 @@ punch_index:
   source_finding: "L-07"
   disposition: "fix"
   tracked: "#1406; #1404"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-08
   severity: Low
   category: Code Quality
@@ -673,7 +675,7 @@ punch_index:
   source_finding: "L-08"
   disposition: "fix: the headings only"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-09
   severity: Low
   category: Code Quality
@@ -681,7 +683,7 @@ punch_index:
   source_finding: "L-09"
   disposition: "fix"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-10
   severity: Low
   category: Code Quality
@@ -689,7 +691,7 @@ punch_index:
   source_finding: "L-10"
   disposition: "fix"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-11
   severity: Low
   category: Code Quality
@@ -697,7 +699,7 @@ punch_index:
   source_finding: "L-11"
   disposition: "fix in the edit scope"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-12
   severity: Low
   category: Renovation
@@ -705,7 +707,7 @@ punch_index:
   source_finding: "L-12"
   disposition: "fix: a banner"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-13
   severity: Low
   category: Code Quality
@@ -713,7 +715,7 @@ punch_index:
   source_finding: "L-13"
   disposition: "fix: the repository named beside each page"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-14
   severity: Low
   category: Renovation
@@ -721,7 +723,7 @@ punch_index:
   source_finding: "L-14"
   disposition: "withdrawn as a defect: a Coverage `none`"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-15
   severity: Low
   category: Code Quality
@@ -729,7 +731,7 @@ punch_index:
   source_finding: "L-15"
   disposition: "fix the pointer without moving a cited row"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-16
   severity: Medium
   category: Bug
@@ -737,7 +739,7 @@ punch_index:
   source_finding: "L-16"
   disposition: "fix"
   tracked: "#1406; #1405"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-17
   severity: Low
   category: Code Quality
@@ -745,7 +747,7 @@ punch_index:
   source_finding: "L-17"
   disposition: "fix where a sentence contradicts a decided row and no screen change owns it"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-18
   severity: Low
   category: Renovation
@@ -753,7 +755,7 @@ punch_index:
   source_finding: "L-18"
   disposition: "fix: a dated first line where a record presents itself as current"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-19
   severity: Low
   category: Renovation
@@ -761,7 +763,7 @@ punch_index:
   source_finding: "L-19"
   disposition: "ledger"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-20
   severity: Low
   category: Renovation
@@ -769,7 +771,7 @@ punch_index:
   source_finding: "L-20"
   disposition: "ledger"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-21
   severity: Low
   category: Renovation
@@ -777,7 +779,7 @@ punch_index:
   source_finding: "L-21"
   disposition: "ledger"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-22
   severity: Low
   category: Code Quality
@@ -785,7 +787,7 @@ punch_index:
   source_finding: "L-22"
   disposition: "fix where it misstates the present"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-23
   severity: Low
   category: Renovation
@@ -793,7 +795,7 @@ punch_index:
   source_finding: "L-23"
   disposition: "ledger"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-24
   severity: Low
   category: Renovation
@@ -801,7 +803,7 @@ punch_index:
   source_finding: "L-24"
   disposition: "ledger: one historical-plan row naming the superseding row"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-25
   severity: Low
   category: Renovation
@@ -809,7 +811,7 @@ punch_index:
   source_finding: "L-25"
   disposition: "inherit:coordinator"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-26
   severity: Low
   category: Renovation
@@ -817,7 +819,7 @@ punch_index:
   source_finding: "L-26"
   disposition: "ledger"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-27
   severity: Low
   category: Renovation
@@ -825,7 +827,7 @@ punch_index:
   source_finding: "L-27"
   disposition: "inherit:coordinator"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-28
   severity: Low
   category: Renovation
@@ -833,7 +835,7 @@ punch_index:
   source_finding: "L-28"
   disposition: "inherit:coordinator"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-29
   severity: Low
   category: Renovation
@@ -841,7 +843,7 @@ punch_index:
   source_finding: "L-29"
   disposition: "inherit:coordinator"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-30
   severity: Low
   category: Renovation
@@ -849,7 +851,7 @@ punch_index:
   source_finding: "L-30"
   disposition: "inherit:#509"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-31
   severity: Low
   category: Renovation
@@ -857,7 +859,7 @@ punch_index:
   source_finding: "L-31"
   disposition: "inherit:coordinator: a Backlog candidate, generate or drop"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-32
   severity: Low
   category: Renovation
@@ -865,7 +867,7 @@ punch_index:
   source_finding: "L-32"
   disposition: "inherit:the interface lanes"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-33
   severity: Low
   category: Renovation
@@ -873,7 +875,7 @@ punch_index:
   source_finding: "L-33"
   disposition: "inherit:coordinator"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-34
   severity: Low
   category: Renovation
@@ -881,7 +883,7 @@ punch_index:
   source_finding: "L-34"
   disposition: "inherit:coordinator"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-35
   severity: Low
   category: Renovation
@@ -889,7 +891,7 @@ punch_index:
   source_finding: "L-35"
   disposition: "inherit:coordinator"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-36
   severity: Low
   category: Renovation
@@ -897,7 +899,7 @@ punch_index:
   source_finding: "L-36"
   disposition: "inherit:coordinator"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-37
   severity: Low
   category: Renovation
@@ -905,7 +907,7 @@ punch_index:
   source_finding: "L-37"
   disposition: "inherit:coordinator: the erratum is present"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-38
   severity: Low
   category: Renovation
@@ -913,7 +915,7 @@ punch_index:
   source_finding: "L-38"
   disposition: "inherit:#947"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-39
   severity: Low
   category: Renovation
@@ -921,7 +923,7 @@ punch_index:
   source_finding: "L-39"
   disposition: "inherit:#1013"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-40
   severity: Low
   category: Renovation
@@ -929,7 +931,7 @@ punch_index:
   source_finding: "L-40"
   disposition: "inherit:coordinator"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-41
   severity: Low
   category: Renovation
@@ -937,7 +939,7 @@ punch_index:
   source_finding: "L-41"
   disposition: "inherit:the next upstream base merge"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-42
   severity: Low
   category: Renovation
@@ -945,7 +947,7 @@ punch_index:
   source_finding: "L-42"
   disposition: "inherit:coordinator"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-43
   severity: Low
   category: Renovation
@@ -953,7 +955,7 @@ punch_index:
   source_finding: "L-43"
   disposition: "inherit:#528"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-44
   severity: Low
   category: Renovation
@@ -961,7 +963,7 @@ punch_index:
   source_finding: "L-44"
   disposition: "inherit:#528"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-45
   severity: Low
   category: Renovation
@@ -969,7 +971,7 @@ punch_index:
   source_finding: "L-45"
   disposition: "inherit:#528"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-46
   severity: Low
   category: Renovation
@@ -977,58 +979,58 @@ punch_index:
   source_finding: "L-46"
   disposition: "inherit:#585"
   tracked: "#1406"
-  outcome: "open"
+  outcome: "deferred"
 ```
 
 ## Phase 7 resolution gate
 
-Every item is **Open** at the pre-issue lint; the outcomes are written at stage F from the streams' commits and the owners' issues.
+Historical Stage-D state: every item was Open. Stage-F outcomes below were derived from immutable stream commits and live owner-issue readbacks on 2026-11-02T19:02:55Z. Resolved means the scoped source correction is committed and checked, not integrated/shipped or coordinator-accepted. Mixed inherited halves remain named below; #1406 and bugs #1400–#1405 stay open for normal acceptance/integration.
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | stage D/E |
-| PL-02 | Open | stage D/E |
-| PL-03 | Open | stage D/E |
-| PL-04 | Open | stage D/E |
-| PL-05 | Open | stage D/E |
-| PL-06 | Open | stage D/E |
-| PL-07 | Open | stage D/E |
-| PL-08 | Open | stage D/E |
-| PL-09 | Open | stage D/E |
-| PL-10 | Open | stage D/E |
-| PL-11 | Open | stage D/E |
-| PL-12 | Open | stage D/E |
-| PL-13 | Open | stage D/E |
-| PL-14 | Open | stage D/E |
-| PL-15 | Open | stage D/E |
-| PL-16 | Open | stage D/E |
-| PL-17 | Open | stage D/E |
-| PL-18 | Open | stage D/E |
-| PL-19 | Open | stage D/E |
-| PL-20 | Open | stage D/E |
-| PL-21 | Open | stage D/E |
-| PL-22 | Open | stage D/E |
-| PL-23 | Open | stage D/E |
-| PL-24 | Open | stage D/E |
-| PL-25 | Open | stage D/E |
-| PL-26 | Open | stage D/E |
-| PL-27 | Open | stage D/E |
-| PL-28 | Open | stage D/E |
-| PL-29 | Open | stage D/E |
-| PL-30 | Open | stage D/E |
-| PL-31 | Open | stage D/E |
-| PL-32 | Open | stage D/E |
-| PL-33 | Open | stage D/E |
-| PL-34 | Open | stage D/E |
-| PL-35 | Open | stage D/E |
-| PL-36 | Open | stage D/E |
-| PL-37 | Open | stage D/E |
-| PL-38 | Open | stage D/E |
-| PL-39 | Open | stage D/E |
-| PL-40 | Open | stage D/E |
-| PL-41 | Open | stage D/E |
-| PL-42 | Open | stage D/E |
-| PL-43 | Open | stage D/E |
-| PL-44 | Open | stage D/E |
-| PL-45 | Open | stage D/E |
-| PL-46 | Open | stage D/E |
+| PL-01 | Withdrawn | recorded design; accepted 15-name dispatch evidence  See `stage-f/outcomes.json`. |
+| PL-02 | Resolved | `de40e931a469f6aa6889f08ec9d4d31266f4c6d4`; README no longer promises attached instructions for an existing release; #344 remains the release-status authority.  See `stage-f/outcomes.json`. |
+| PL-03 | Resolved | `de40e931a469f6aa6889f08ec9d4d31266f4c6d4`; D-QA-016 is described as decided on 2026-09-13. Existing per-action boundaries remain. Remaining inherited rule counterpart: coordinator #346 must reconcile vm-first.md. See `stage-f/outcomes.json`. |
+| PL-04 | Resolved | `424eea28ecbfaa8fbbe49cdee6c99750becd13cf`; Both old migration documents carry historical/retired notices, D-CLOUD-175 and current selected-folder policy; original record text preserved.  See `stage-f/outcomes.json`. |
+| PL-05 | Resolved | `de40e931a469f6aa6889f08ec9d4d31266f4c6d4`; All 21 original ROCKNIX lines classified; current OS prose corrected and all fenced command bytes unchanged.  See `stage-f/outcomes.json`. |
+| PL-06 | Resolved | `895b90abcf44e62d3aa7339eba043cfe01e9b98e`; The old order is dated 2026-10-08; the live M7 milestone supplies current order.  See `stage-f/outcomes.json`. |
+| PL-07 | Resolved | `424eea28ecbfaa8fbbe49cdee6c99750becd13cf`; Four labels mapped to exact ES source at 16dbac5211eea7e70db7394372033be2be7df829; backup semantics/stored archive names retained.  See `stage-f/outcomes.json`. |
+| PL-08 | Resolved | `895b90abcf44e62d3aa7339eba043cfe01e9b98e`; Journal remains in place, three status headings corrected, historical anchor aliases retained; canonical menu prefix unchanged.  See `stage-f/outcomes.json`. |
+| PL-09 | Resolved | `895b90abcf44e62d3aa7339eba043cfe01e9b98e`; The exact 20261011 build remains the baseline of the dated October reconciliation.  See `stage-f/outcomes.json`. |
+| PL-10 | Resolved | `424eea28ecbfaa8fbbe49cdee6c99750becd13cf`; Guide ends with player guidance; removed internal publication note retained in S2 audit evidence.  See `stage-f/outcomes.json`. |
+| PL-11 | Resolved | `a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89`; 223 bounded hits classified, 189 ordinary prose hits corrected, identifiers retained; only whitespace plus old-heading aliases changed. Remaining inherited upstream README prose: #585; rc-accept.txt remains a historical ledger. See `stage-f/outcomes.json`. |
+| PL-12 | Resolved | `895b90abcf44e62d3aa7339eba043cfe01e9b98e`; Historical/retired-seat notice cites scaffold#915; original counter description and verified:false limits retained.  See `stage-f/outcomes.json`. |
+| PL-13 | Resolved | `a2d4a33d4aa310d78c1b5c23b5bcdcd93f8ffe89`; External repository named in three paths; the fourth already names it and was unchanged in S4.  See `stage-f/outcomes.json`. |
+| PL-14 | Withdrawn | splash repository already named; accepted X02  See `stage-f/outcomes.json`. |
+| PL-15 | Resolved | `895b90abcf44e62d3aa7339eba043cfe01e9b98e`; Catalog generated scope stated; exact row Evidence links remain; S3 fact-table bytes unchanged, S4 spacing separately recorded. Remaining inherited catalog/tool work: #964/#270; no catalog regeneration here. See `stage-f/outcomes.json`. |
+| PL-16 | Resolved | `de40e931a469f6aa6889f08ec9d4d31266f4c6d4`; Canonical literal mask hides 24 synthetic values; assignment-only control leaks eight space-separated flags; benign text preserved.  See `stage-f/outcomes.json`. |
+| PL-17 | Deferred | #23 interface owners: unverified/conditional IA claim  See `stage-f/outcomes.json`. |
+| PL-18 | Resolved | `de11515859d231a82a511c3867e12211190041a2`; Exactly 33/2770 accepted rows tabled: 29 additive notices, three S2 notices reused, one ledger-plan unchanged. #1407 owns later review. Later compact index, nested monthly storage and individual purpose/replacement review: #1407. See `stage-f/outcomes.json`. |
+| PL-19 | Withdrawn | recorded design: dated historical evidence; no current instructions claim  See `stage-f/outcomes.json`. |
+| PL-20 | Withdrawn | recorded design: dated historical evidence; no current instructions claim  See `stage-f/outcomes.json`. |
+| PL-21 | Withdrawn | recorded design: dated historical evidence; no current instructions claim  See `stage-f/outcomes.json`. |
+| PL-22 | Deferred | #511 current remote/checkout fact remains unestablished  See `stage-f/outcomes.json`. |
+| PL-23 | Withdrawn | recorded design: dated historical evidence; no current instructions claim  See `stage-f/outcomes.json`. |
+| PL-24 | Withdrawn | historical ledger-plan; table-only; later review #1407  See `stage-f/outcomes.json`. |
+| PL-25 | Deferred | #346 coordinator: preserve exact inherited action in 02  See `stage-f/outcomes.json`. |
+| PL-26 | Withdrawn | recorded design: dated historical evidence; no current instructions claim  See `stage-f/outcomes.json`. |
+| PL-27 | Deferred | #346 coordinator: preserve exact inherited action in 02  See `stage-f/outcomes.json`. |
+| PL-28 | Deferred | #346 coordinator: preserve exact inherited action in 02  See `stage-f/outcomes.json`. |
+| PL-29 | Deferred | #346 coordinator: preserve exact inherited action in 02  See `stage-f/outcomes.json`. |
+| PL-30 | Deferred | #509 reviewed rename batch  See `stage-f/outcomes.json`. |
+| PL-31 | Deferred | #346 coordinator: preserve exact inherited action in 02  See `stage-f/outcomes.json`. |
+| PL-32 | Deferred | #1216 interface owners; return line mapping  See `stage-f/outcomes.json`. |
+| PL-33 | Deferred | #346 coordinator: preserve exact inherited action in 02  See `stage-f/outcomes.json`. |
+| PL-34 | Deferred | #346 coordinator: preserve exact inherited action in 02  See `stage-f/outcomes.json`. |
+| PL-35 | Deferred | #346 coordinator: preserve exact inherited action in 02  See `stage-f/outcomes.json`. |
+| PL-36 | Deferred | #346 coordinator: preserve exact inherited action in 02  See `stage-f/outcomes.json`. |
+| PL-37 | Withdrawn | erratum already present at dispatch; accepted case-insensitive readback  See `stage-f/outcomes.json`. |
+| PL-38 | Deferred | #947 citation-check coverage  See `stage-f/outcomes.json`. |
+| PL-39 | Deferred | #1013 versioning criterion  See `stage-f/outcomes.json`. |
+| PL-40 | Deferred | #346 coordinator: preserve exact inherited action in 02  See `stage-f/outcomes.json`. |
+| PL-41 | Deferred | #563/#559 next upstream base merge  See `stage-f/outcomes.json`. |
+| PL-42 | Deferred | #346 coordinator: preserve exact inherited action in 02  See `stage-f/outcomes.json`. |
+| PL-43 | Deferred | #528 licensing/source publication; no legal interpretation or byte edit  See `stage-f/outcomes.json`. |
+| PL-44 | Deferred | #528 licensing/source publication; no legal interpretation or byte edit  See `stage-f/outcomes.json`. |
+| PL-45 | Deferred | #528 licensing/source publication; no legal interpretation or byte edit  See `stage-f/outcomes.json`. |
+| PL-46 | Deferred | #585 contribution queue; drafts never sent  See `stage-f/outcomes.json`. |

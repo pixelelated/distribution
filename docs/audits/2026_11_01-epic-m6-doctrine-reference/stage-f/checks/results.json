@@ -1,0 +1,130 @@
+[
+  {
+    "name": "lint",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/checks/lint.out",
+    "tail": [
+      "PASS"
+    ],
+    "initial_failure": "3 mixed-half Deferred words in evidence cells overrode the Resolved outcome; retained lint-initial.out/lint-issue-initial.out. Changed evidence wording to Remaining inherited; no route changed."
+  },
+  {
+    "name": "lint-issue",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/checks/lint-issue.out",
+    "tail": [
+      "PASS"
+    ],
+    "initial_failure": "3 mixed-half Deferred words in evidence cells overrode the Resolved outcome; retained lint-initial.out/lint-issue-initial.out. Changed evidence wording to Remaining inherited; no route changed."
+  },
+  {
+    "name": "rules",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/checks/rules.out",
+    "tail": []
+  },
+  {
+    "name": "register",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/checks/register.out",
+    "tail": [
+      "register-check: 716 IDs, each once; every citation in the live documents names a row"
+    ]
+  },
+  {
+    "name": "index",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/checks/index.out",
+    "tail": [
+      "work-log index: current"
+    ]
+  },
+  {
+    "name": "ceremony",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/checks/ceremony.out",
+    "tail": []
+  },
+  {
+    "name": "hooks",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/checks/hooks.out",
+    "tail": [
+      "  ok    a tip this clone does not have: refused",
+      "PASS"
+    ]
+  },
+  {
+    "name": "menu-map",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/checks/menu-map.out",
+    "tail": [
+      "55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing"
+    ]
+  },
+  {
+    "name": "box-686",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/checks/box-686.out",
+    "tail": [
+      "note  #686: 27 open checkbox(es); decided rows cite it: D-WORKFLOW-220 -- re-derive against them",
+      "box-check: 1 issue(s), 27 open checkbox(es), 0 fail, 1 issue(s) with rows to re-derive against"
+    ]
+  },
+  {
+    "name": "box-1406",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/checks/box-1406.out",
+    "tail": [
+      "box-check: 1 issue(s), 22 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+    ]
+  },
+  {
+    "name": "box-1400",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/checks/box-1400.out",
+    "tail": [
+      "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+    ]
+  },
+  {
+    "name": "box-1401",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/checks/box-1401.out",
+    "tail": [
+      "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+    ]
+  },
+  {
+    "name": "box-1402",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/checks/box-1402.out",
+    "tail": [
+      "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+    ]
+  },
+  {
+    "name": "box-1403",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/checks/box-1403.out",
+    "tail": [
+      "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+    ]
+  },
+  {
+    "name": "box-1404",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/checks/box-1404.out",
+    "tail": [
+      "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+    ]
+  },
+  {
+    "name": "box-1405",
+    "rc": 0,
+    "receipt": "docs/audits/2026_11_01-epic-m6-doctrine-reference/stage-f/checks/box-1405.out",
+    "tail": [
+      "box-check: 1 issue(s), 1 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against"
+    ]
+  }
+]

@@ -73,3 +73,8 @@ Can this be done on the VM? No -- the tree, the tool or the register shows it. N
 All new issue bodies matched their submitted files on readback. Audit #1406 is an M6 child of #686; the six bug issues have no milestone or parent. All seven box-check runs exit 0 (six one-checkbox bugs and the 46-checkbox audit; 0 fail). The updated packet pre-issue lint with --issue 1406 exits 0: PASS pre-issue artifacts (does not certify resolution). rules-check (30 files), register-check (716 IDs), work-log-index --check, ceremony-check --gate and git diff --check all exit 0. Commands and timestamps: stage-d/validation.json; individual outputs: stage-d/checkers/.
 
 The Stage-D diff-scope check permits only 00/02/04/05/review-plan tracking, 06/07 and stage-d/, the session pointer and this lane's work-log/index update. It passes; all 46 outcomes remain open and historical primary.model remains anthropic/claude-opus-4-8. No A-C receipt or audit tool changed. Commit hooks and push will validate the final staged packet; the checkpoint records their result.
+
+
+## Stage-F correction status — 2026-11-02T19:06:35Z
+
+The five source streams are committed and checked; stage-f/summary.json records 48 edited source paths, 15 scoped Resolved, 22 Deferred and nine Withdrawn outcomes. The full before/after, commit, Already written and proof-class rows are appended to 02; phase-7 YAML/table and live #1406 agree. The six reactive bugs remain open for acceptance/integration. All 31 binaries and 18 art rows remain unchanged; all 33 accepted Q5 rows remain, with the plan table-only. Final source normal and withheld-findings harnesses pass 13/13. Stage G and the authorized Stage-H merge are next; audit-completion.json is intentionally absent until coordinator acceptance.

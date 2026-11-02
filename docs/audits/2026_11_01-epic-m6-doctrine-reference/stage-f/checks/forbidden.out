@@ -1,0 +1,4 @@
+$ authorized source/new-record bytes | tools/forbidden-terms-check --stdin
+forbidden-terms-check: 0 hits on stdin
+
+rc=0
