@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/check-owner-outcomes.py", line 36, in <module>
+    if __name__=='__main__':check(sys.argv[1])
+                            ~~~~~^^^^^^^^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/check-owner-outcomes.py", line 33, in check
+    assert c['evidence']==want_c['evidence'] and c['plan_binding']==want_c['plan_binding'],'bound receipt identity'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: bound receipt identity

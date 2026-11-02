@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/check-owner-outcomes.py", line 36, in <module>
+    if __name__=='__main__':check(sys.argv[1])
+                            ~~~~~^^^^^^^^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/check-owner-outcomes.py", line 12, in check
+    actual=json.loads(pathlib.Path(path).read_text(),object_pairs_hook=pairs);expected,inputs=m.contract()
+  File "/usr/lib/python3.14/json/__init__.py", line 365, in loads
+    return cls(**kw).decode(s)
+           ~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/json/decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+  File "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/check-owner-outcomes.py", line 8, in pairs
+    assert k not in out,'duplicate key: '+k
+           ^^^^^^^^^^^^
+AssertionError: duplicate key: projects/ROCKNIX/devices/AMD64/packages/ayn-platform/patches/001-build.patch

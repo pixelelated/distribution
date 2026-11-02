@@ -1,0 +1,146 @@
+[
+  {
+    "name": "missing-key",
+    "argv": [
+      "python3",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/check-owner-outcomes.py",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/missing-key.json"
+    ],
+    "started": "2026-11-02T22:59:02.007907+00:00",
+    "finished": "2026-11-02T22:59:02.187469+00:00",
+    "exit": 1,
+    "fixture_sha256": "c1f8fec8c675a674cbebcc7b154038e843ab61b320c61d251c1032e2f2c09858",
+    "reader_sha256": "6d365f9fc4b662c94f59d2ca089ff2525ddd685f9710aa9781a51e01b37c074e",
+    "input_reader_sha256": "e9e614472271fdbf5fa73d9e7d093c3250e9871c6dcd12943606822336a70886",
+    "immutable_input_manifest_sha256": "9b50195663fdae40d41f745e82cec4f68b5a970340bda87de07c428ac6a5684b",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "88c69e5a50abd2890ad96368640520afbf12bdc3003454a1a731c222b2b21fec",
+    "expected_refusal": "native key membership"
+  },
+  {
+    "name": "duplicate-key",
+    "argv": [
+      "python3",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/check-owner-outcomes.py",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/duplicate-key.json"
+    ],
+    "started": "2026-11-02T22:59:02.187788+00:00",
+    "finished": "2026-11-02T22:59:02.252082+00:00",
+    "exit": 1,
+    "fixture_sha256": "9d5542467efe8ea1022298e060f4caeb358eaa36026a8034fbbff2e43dc75e3e",
+    "reader_sha256": "6d365f9fc4b662c94f59d2ca089ff2525ddd685f9710aa9781a51e01b37c074e",
+    "input_reader_sha256": "e9e614472271fdbf5fa73d9e7d093c3250e9871c6dcd12943606822336a70886",
+    "immutable_input_manifest_sha256": "9b50195663fdae40d41f745e82cec4f68b5a970340bda87de07c428ac6a5684b",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "244d3d23cdbd88a1fd30a51feae823e6809de0013897a6b673c1407593df35f5",
+    "expected_refusal": "duplicate key:"
+  },
+  {
+    "name": "changed-owner",
+    "argv": [
+      "python3",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/check-owner-outcomes.py",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/changed-owner.json"
+    ],
+    "started": "2026-11-02T22:59:02.252445+00:00",
+    "finished": "2026-11-02T22:59:02.431767+00:00",
+    "exit": 1,
+    "fixture_sha256": "3f2c869c64e9df2138210f03dc7c5ed977d7fdf8a6774b3bfa357d23348dc419",
+    "reader_sha256": "6d365f9fc4b662c94f59d2ca089ff2525ddd685f9710aa9781a51e01b37c074e",
+    "input_reader_sha256": "e9e614472271fdbf5fa73d9e7d093c3250e9871c6dcd12943606822336a70886",
+    "immutable_input_manifest_sha256": "9b50195663fdae40d41f745e82cec4f68b5a970340bda87de07c428ac6a5684b",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "586041c6dc72373a3078a2e24009b03f76cca87141fc0a406a773d80fd14a6e4",
+    "expected_refusal": "original owner changed"
+  },
+  {
+    "name": "lost-open-consumer",
+    "argv": [
+      "python3",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/check-owner-outcomes.py",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/lost-open-consumer.json"
+    ],
+    "started": "2026-11-02T22:59:02.432147+00:00",
+    "finished": "2026-11-02T22:59:02.612506+00:00",
+    "exit": 1,
+    "fixture_sha256": "f9f35e00ba5791dec30cb1c54d79d9f099b5d1a65ba5bb32c233d26fa2cf967f",
+    "reader_sha256": "6d365f9fc4b662c94f59d2ca089ff2525ddd685f9710aa9781a51e01b37c074e",
+    "input_reader_sha256": "e9e614472271fdbf5fa73d9e7d093c3250e9871c6dcd12943606822336a70886",
+    "immutable_input_manifest_sha256": "9b50195663fdae40d41f745e82cec4f68b5a970340bda87de07c428ac6a5684b",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "f508abead3f6184652e4ec295dded3776285a036e4aa89fd5925f12089005296",
+    "expected_refusal": "open consumer membership lost"
+  },
+  {
+    "name": "lost-positive-consumer",
+    "argv": [
+      "python3",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/check-owner-outcomes.py",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/lost-positive-consumer.json"
+    ],
+    "started": "2026-11-02T22:59:02.612936+00:00",
+    "finished": "2026-11-02T22:59:02.792178+00:00",
+    "exit": 1,
+    "fixture_sha256": "dc645bd3c9afb17040939efb40da23e8cfdd8355713d10ba7431df23c6d8d5a2",
+    "reader_sha256": "6d365f9fc4b662c94f59d2ca089ff2525ddd685f9710aa9781a51e01b37c074e",
+    "input_reader_sha256": "e9e614472271fdbf5fa73d9e7d093c3250e9871c6dcd12943606822336a70886",
+    "immutable_input_manifest_sha256": "9b50195663fdae40d41f745e82cec4f68b5a970340bda87de07c428ac6a5684b",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "19bf96afcac8d7d26964a69b38807d96d988ccfd6b7b4b3b39e9dac5295b58da",
+    "expected_refusal": "positive consumer membership lost"
+  },
+  {
+    "name": "invented-success",
+    "argv": [
+      "python3",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/check-owner-outcomes.py",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/invented-success.json"
+    ],
+    "started": "2026-11-02T22:59:02.792560+00:00",
+    "finished": "2026-11-02T22:59:02.972026+00:00",
+    "exit": 1,
+    "fixture_sha256": "5c2380a8d27621c1068411449cd3660f97244ef00c13376ee94e533682d9ec90",
+    "reader_sha256": "6d365f9fc4b662c94f59d2ca089ff2525ddd685f9710aa9781a51e01b37c074e",
+    "input_reader_sha256": "e9e614472271fdbf5fa73d9e7d093c3250e9871c6dcd12943606822336a70886",
+    "immutable_input_manifest_sha256": "9b50195663fdae40d41f745e82cec4f68b5a970340bda87de07c428ac6a5684b",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "77d054aeb647e3d9bdaedd53ee4586cf5c8a9de1f317518eedfbb8b3c21acc5e",
+    "expected_refusal": "missing input must remain open"
+  },
+  {
+    "name": "changed-receipt",
+    "argv": [
+      "python3",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/check-owner-outcomes.py",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/fixtures/changed-receipt.json"
+    ],
+    "started": "2026-11-02T22:59:02.972427+00:00",
+    "finished": "2026-11-02T22:59:03.152364+00:00",
+    "exit": 1,
+    "fixture_sha256": "90cd5c4c521a5898c9c186fabb0f5829801d1fca7805c80f28b40471a39e916f",
+    "reader_sha256": "6d365f9fc4b662c94f59d2ca089ff2525ddd685f9710aa9781a51e01b37c074e",
+    "input_reader_sha256": "e9e614472271fdbf5fa73d9e7d093c3250e9871c6dcd12943606822336a70886",
+    "immutable_input_manifest_sha256": "9b50195663fdae40d41f745e82cec4f68b5a970340bda87de07c428ac6a5684b",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "84b2e592f7f5b401fa06f25a6e0f539057c912354d3aabb10e195737b8831430",
+    "expected_refusal": "bound receipt identity"
+  },
+  {
+    "name": "positive",
+    "argv": [
+      "python3",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/check-owner-outcomes.py",
+      "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-unshipped-690/docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-e/owner-outcomes.json"
+    ],
+    "started": "2026-11-02T22:59:03.153963+00:00",
+    "finished": "2026-11-02T22:59:03.293842+00:00",
+    "exit": 0,
+    "fixture_sha256": "49e9b15056cb2641b243ddf4c515d8187d4bc599748cd32f155f1cfe2327452e",
+    "reader_sha256": "6d365f9fc4b662c94f59d2ca089ff2525ddd685f9710aa9781a51e01b37c074e",
+    "input_reader_sha256": "e9e614472271fdbf5fa73d9e7d093c3250e9871c6dcd12943606822336a70886",
+    "immutable_input_manifest_sha256": "9b50195663fdae40d41f745e82cec4f68b5a970340bda87de07c428ac6a5684b",
+    "stdout_sha256": "c7fe7101b73a6200370b5fc17f86333e72c0581467ed8520fa505b65c6891d6a",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "expected_refusal": null
+  }
+]

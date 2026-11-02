@@ -1,0 +1,52 @@
+› T1: Stage D676115 accepted within stated limits; explicit continuous records-only E–H dispatch is #690 comment6590563116. Read FULL comment and immu…
+
+• Ran taskset -c 8-23 git show f50c6f937a7f2f0cf8850bd12f297085a4d3d54b:docs/qa-logs/2026-11-02-m6-resume/t43-stage-d-support/report.md
+  └ | commands.jsonl | f5fa05eff642e47d435958506476e6b03142077212b28407eb9cf15bca176e59 |
+
+    Stop at this bounded return to wN:p2. No acceptance, stream disposition or dispatch verdict.
+    + 36 lines (^t to expand)
+
+• Ran taskset -c 8-23 python3 -c 'import subprocess,hashlib; ref="f50c6f937a7f2f0cf8850bd12f297085a4d3d54b";p="docs/reviews/briefs/t43-streams.md";b=su…
+  └ brief SHA256 86731838d5fc5d6033d5c8b119af145c709170c9a865be9dd289fc7c3d78819c
+    | D-WORKFLOW-233 | 2026-11-02 | **T43 D676115 is accepted within its recorded source-input and custody limits; E–H is records-only.** PL-001 may be…
+    + 1 line (^t to expand)
+
+• Ran taskset -c 8-23 cat docs/audits/2026_11_02-epic-m6-patches-unshipped/stage-a/identity.json
+  └   "stdout_sha256": "ff5b57408a55fbf6606cbd10b60e18cbb3b5c0c5f3ac804be8a50a27b1808e9d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+    + 31 lines (^t to expand)
+
+• Ran taskset -c 8-23 herdr agent prompt m6-coordinator 'T43 E–H acknowledged: read FULL dispatch6590563116, immutable t43-streams.md at f50c6f937a7f2f…
+  └ {"id":"cli:agent:prompt","result":{"agent":{"agent":"codex","agent_session":{"agent":"codex","kind":"id","source":"herdr:codex","value":"01a19d11-f…
+    + 1 line (^t to expand)
+
+• Ran taskset -c 8-23 python3 -c 'import pathlib,json; r=pathlib.Path("docs/audits/2026_11_02-epic-m6-patches-unshipped");plans=json.loads((r/"stage-b/…
+  └ }
+    overlay plans list
+    mixed example {'path': 'projects/ROCKNIX/packages/linux/patches/mainline-rockchip/001-power-supply-rk817-charger-Fix-NVRAM-SoC-Value.patch', 'owner…
+    + 93 lines (^t to expand)
+
+• Ran taskset -c 8-23 sed -n '1,200p' docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/prepare-table.py
+  └  out.append(x)
+    ns['assert_input'](out);(C/'table-input.json').write_text(json.dumps(out,indent=2)+'\n');stats={'at':datetime.datetime.now(datetime.timezone.utc).i…
+    (C/'open-inputs.json').write_text(json.dumps([{'path':x['path'],'owner':x['next_owner'],'application':x['application'],'receipts':x['receipts']} fo…
+    + 32 lines (^t to expand)
+
+• Ran taskset -c 8-23 python3 -c 'import json,pathlib,collections;r=pathlib.Path("docs/audits/2026_11_02-epic-m6-patches-unshipped"); …
+  └ application-overlay 20 {'applies': 20}
+    custody 811
+    prefix keys dict_keys(['at', 'records', 'limit'])
+    + 1 line (^t to expand)
+
+• Running taskset -c 8-23 python3 docs/audits/2026_11_02-epic-m6-patches-unshipped/tools/record.py docs/audits/2026_11_02-epic-m6-patches-unshipped/sta…
+    + Show details
+
+• Working (56s • esc to interrupt)
+  └ Tip: Run /review to get a code review of your current changes.
+
+
+› Ask Codex to do anything
+
+  GPT-6-Astra xhigh · /workspace/repos/pixelelated/distribution.worktrees/m6-os-launch-control-state-648 · Resume M6 coordinator work
+  ? for shortcuts
