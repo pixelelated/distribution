@@ -17,11 +17,18 @@
 
 ## Current focus
 
-**Stage E is done and handed back twice on #685.** The first hand-back was at 05:55 UTC; the second, at the amendment of the acceptance read's eight asks (06:45), carries the retro `docs/retros/2026-11-01-m6-doctrine-skills.md`. The lane is idle until the coordinator accepts. Stage F comes next:
-- run 4 of the checker;
+**Idle (2026-11-02 05:20 UTC): T38 is accepted 21 of 22 (#685 comment 6566095780), and stages F and H are done.**
+- **Stage F (`a2ef0cb8f2`):** `audit-completion.json` written from #1394's closed readback.
+- **The merge (`8256afed64`):** the coordinator's `019e826315`, with both sides of the day log united in time order and `INDEX.md` regenerated.
+- **The checks:** the six checks on the merged tip exit 0.
+- **Stage H:** the export and the lint proofs are retired. The stage-H post on #685 names the merged tip and the pushed tip.
+- **What the lane waits for:** nothing that is its own. The coordinator re-runs the merge section, ticks checkbox 21, closes #685 and verifies the close-out from a `git archive` export. The rest of `/workspace/tmp/m6-t38/` waits on the coordinator's word, asked in the stage-H post. Nothing runs in this lane.
+
+Before the acceptance, the stage-E focus was this. Stage E was handed back twice on #685: the first hand-back at 05:55 UTC, the second at the amendment of the acceptance read's eight asks (06:45), carrying the retro `docs/retros/2026-11-01-m6-doctrine-skills.md`. Stage F was then to follow:
+- run 4 of the checker, which the acceptance proved on its own run, so the lane was not asked for it;
 - `audit-completion.json`, once #1394 is closed.
 
-Stage G, the retro, follows F.
+The retro was owed at the hand-back and was posted then (the acceptance's ruling 8).
 
 What stage E produced, under the stream brief `docs/reviews/briefs/t38-streams.md` at `95052eaf78`:
 - **51 items in 56 fix commits** (S1 to S7), each with its check FAIL at the parent's export and PASS at the fix's, `tools/t38-checks.sh` exit 0 and `tools/rules-check --quiet` rc=0. `fixed-at` is `420b845656`, `reviewed-at` `87c2ab0fed`. The records are `stage-e/<SN>-<PL>.txt`, and the helper is `tools/t38-fix.sh`.
@@ -102,3 +109,5 @@ another lane's worktree or an ES checkout, or edits a rule, `CLAUDE.md`,
 - Stage E amendment, 2026-11-01: committed on `44626257ef`. The acceptance read's eight asks: `05`'s Ladder lines; the generated, asserted lines; four sets of lines into `02` § The runs; the per-lead inherit rows with the #585 row; the retro. The commit carrying this line is named in the second hand-back.
 - Acceptance, 00:21 UTC 2026-11-02: the coordinator ticked 21 of 22 (comment 6566095780); #1394 closed as completed at 00:19.
 - Stage F, 00:23 UTC 2026-11-02: `audit-completion.json` written by `tools/t38-completion.py` from #1394's closed readback (`completed_at` `2026-11-02T00:23:01.200276+00:00`). `ceremony-check`'s validator rc=0, and rc=1 on a planted one-byte change to `04`. The lint `PASS` on its default phase, with `--issue 1394` and with `--phase resolution`. 59 proofs. The commit carrying this line is named in the stage-H post.
+- The merge, 00:24 UTC 2026-11-02: `8256afed64`, the coordinator's `019e826315`. The session's quota stopped it at ~00:25; the coordinator resumed it at 05:15.
+- Stage H, 05:20 UTC 2026-11-02: the six checks on `8256afed64` each rc=0 (`stage-h/merged-checks.out`). `/workspace/tmp/m6-t38/export/`, `lint-proof/` and `lint-proof-e/` retired, with their paths and sizes in `00`'s census. 60 proofs. The commit carrying this line, the pushed tip, is named in the stage-H post.

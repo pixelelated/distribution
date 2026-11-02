@@ -1,0 +1,24 @@
+HEAD 8256afed64, status lines 1
+05:16:05 tools/register-check
+    register-check: 716 IDs, each once; every citation in the live documents names a row
+    rc=0
+05:16:07 tools/work-log-index --check
+    work-log index: current
+    rc=0
+05:16:07 tools/rules-check --quiet
+    rc=0
+05:16:07 tools/forbidden-terms-check
+    forbidden-terms-check: 0 hits in 133752 tracked files
+    rc=0
+05:18:39 .githooks/hooks-test
+      ok    a tip this clone does not have: refused
+    PASS
+    rc=0
+05:18:40 tools/lint-audit-artifacts docs/audits/2026_11_01-epic-m6-doctrine-skills
+    
+    PASS
+    rc=0
+05:18:40 tools/lint-audit-artifacts docs/audits/2026_11_01-epic-m6-doctrine-skills --issue 1394
+    
+    PASS
+    rc=0
