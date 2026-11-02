@@ -20,7 +20,7 @@ All sessions are Codex; their own live footers report GPT-6-Astra xhigh. This is
 | Pane / name | Session | Current task and boundary |
 | --- | --- | --- |
 | `wN:p2` / `m6-coordinator` | `01a19d11-f5c8-7bb0-80f3-49ad28732af2` | this tree; accept T39/T41/T42 returns, prepare the next proved T43 brief, keep the tracker and handoff current |
-| `wN:p3` / `m6-p1-survey` | `01a19d11-dda5-72e3-86f9-416f36341c24` | T42 D bounded immutable support active at `d37670de31`; T39 support complete; no acceptance/dispatch authority |
+| `wN:p3` / `m6-p1-survey` | `01a19d11-dda5-72e3-86f9-416f36341c24` | T42 D bounded reconciliation complete and retained; available, no current execution slice |
 | `wN:p4` / `m6-t1-os-launch` | `01a19d12-0c07-7ba3-88b8-ab9d609f4d67` | T39 complete at `7994f760fe`, source accepted at `4eb5dfab8e` in 6586835789, final marker6586954533 verified; available in `m6-doctrine-reference-686` |
 | `wN:p5` / `m6-t2-es-launch` | `01a19d12-1c5f-7022-8053-102f6a94b7fe` | D228 consumer candidate/164 synthetic checks retained; bounded actual-packet read against `61a1a674c1`, including exact two audit fixtures; no install or final execution authority |
 | `wN:p6` / `m6-t3-emulators` | `01a19d12-29e3-7fe0-9f41-038dac0a5deb` | T41 final clean `61a1a674c1`, checkpoint 6586647714; stopped for coordinator simulated integration/acceptance in `m6-patches-shipped-kernel-688` |
@@ -60,3 +60,7 @@ A pending owner input in the coordinator pane can make Herdr reject worker notif
 ### T41 final-reader correction in flight
 
 At61a1a674c1 the real reader passes requested product/source/D228 predicates, but pins-read FAILs a genuine quotation omission and incorrect brief count. Base brief now states5version assignments23/30/37/43/49,4anchored dirs16/27/40/46,conditional18; all10 literal numbered lines pluscase labels owed in02. T3 is explicitly dispatched records-only correction/newtip; T2 updates strict predicate. No final acceptance yet. Exact two-fixture clarification published at3099d69fcc, #688comment6587020176.
+
+### T42 D acceptance/disposition ready
+
+Independent support reproduces byte-equal with zero mismatches, retained under `t42-stage-d-support/`. New coordinator custody receipt proves actuald376 HEAD/remote/clean and live1411 body. D-WORKFLOW-230 and `t42-stage-d-disposition.md` are the records-only E–H route:PL01 Deferred to open1410/#677 context,173native/22inherited limits preserved, no GUIDE choice. Publish and explicitly dispatch on689; T5 then runs new resolution/records/retro/census only, with final external publication receipts bound to its handback tip. Never relabel parent62573c exits as finald376 or fill missingG202/G203/G383 results.

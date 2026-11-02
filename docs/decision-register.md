@@ -794,6 +794,8 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 
 | D-WORKFLOW-229 | 2026-11-02 | **T39 final acceptance distinguishes the exact authorized coordinator integration from lane ownership, without widening source scope.** Refine D-WORKFLOW-220 and criteria 5/12 with exact K ancestry exclusion plus independent final mode/blob equality and edit-refusal controls; criterion 24 counts lane actions with attributed coordinator mentions retained. Original unfiltered failures remain recorded. Reconcile accepted immutable receipts under the stream brief's no-replay instruction; execute new disposable integration/record gates. The dated final contract replaces the old blanket-replay procedure, not the evidence obligations; missing evidence blocks acceptance. | #686; #346; D-WORKFLOW-220; `docs/qa-logs/2026-11-02-m6-resume/t39-final-acceptance-contract.md`; hand-back 6586260088 |
 
+| D-WORKFLOW-230 | 2026-11-02 | **T42 closes its bounded source table through records-only E–H; PL-01 is Deferred to open Medium #1410 under the standalone-emulator implementation context #677.** A separate owning fix brief must establish intended GUIDE behavior and exact-pin/installed evidence; no mapping or product change is selected by this disposition. Preserve 173 native qualification limits and 22 inherited missing inputs with their named owners, all excluded populations and unrecorded exits. Reuse accepted receipts; execute new final record/integration gates under D-WORKFLOW-225. Audit disposition is not a bug fix or release exception. | #689; #1410; #1411; #677; D-WORKFLOW-225; `docs/qa-logs/2026-11-02-m6-resume/t42-stage-d-disposition.md` |
+
 ## Open decisions
 
 

@@ -1,0 +1,35 @@
+{
+  "url": "https://github.com/pixelelated/distribution/issues/1411",
+  "title": "Audit: M6 T42 patches shipped - 1 finding (0 critical, 0 high)",
+  "issue_number": 1411,
+  "body": "Local audit of T42 #689, M6.P2 under area #1054. **1 finding: 0 Critical, 0 High, 1 Medium.** The native 384-path provenance/coverage population is separate from the 50 inherited comparisons / 26 overrides.\n\nPrimary reader: Codex / GPT-6-Astra / xhigh, OpenAI, T5 wN:p7, session 01a19d12-3d7a-7642-9108-ae06a719cdd7. Reviewers: []; Local under D-WORKFLOW-184/225. reviewed-at: 9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1. No external review or runtime result.\n\nArtifact root: `docs/audits/2026_11_02-epic-m6-patches-shipped/` on `feature/m6-patches-shipped-689`; the clean immutable D tip will be linked in the #689 publication checkpoint. 02 carries all tables/receipts; 03 conformance and refutation; 04 Q1–Q7 and final-criteria limits; 05 punch details; 06/07 D summary and owner choices.\n\n## Finding and route proposed\n\nPL-01 / F-T42-01: Q3, Bug, Medium. PPSSPP007 outer diff adds a nested .patch; its intended SDL hunk remains text. Source trace: seed patch lines 11–29, recipe post_unpack and scripts/unpack:191–196. Constructed fixture normal rc 0 creates the nested file with unchanged SDL sentinel; this is not an application-at-pin or runtime claim. Reactive bug **#1410** holds the exact trace and observable criteria; it has no milestone/parent and remains open.\n\nAlready written: the selected outer patch leaves the original SDL mapping and an inert file in build source; it does not write player settings or cloud data. A future correction rebuilds the affected binary while preserving `/storage`.\n\nCan this be done on the VM? Source/format facts are host source-fixture facts. Later input behavior can be exercised in GENERIC_X64 without a named physical exception; no runtime is allocated here.\n\nEnforcement ladder: written/routed patch intent → audited source-target regression. Next mechanism: coordinator assigns a separate PPSSPP fix brief that first fails on the wrapper, then proves the selected direct source change and no nested target. Fixed upstream maps GUIDE to NKCODE_GUIDE while the nested seed payload requests NKCODE_UNKNOWN; the owner must resolve that intent before importing it. A narrow product-patch target guard can cover siblings with intentional exceptions. No production guard or source fix is made by this audit.\n\n## Acceptance criteria\n\n- [ ] PL-01 has a coordinator-approved Phase-7 disposition with evidence and owner in 05's table and matching punch_index; #1410 retains its truthful state until its own implementation/acceptance completes.\n- [ ] Final resolution `tools/lint-audit-artifacts` passes normally and with this audit issue, with actual outputs retained after disposition.\n- [ ] The coordinator verifies the clean published source-preserving packet and records #689's acceptance under its integration convention.\n\n## Bounded results\n\nNative worst-per-plan application: 151 applies, 38 offset, 22 fuzz, 173 explicit open items. 760 recorded normal/diagnostic pairs and 116 safe cached-source target projections are checked; two link-creating UCM candidate exits were not serialized and are unclaimed. No whole-component/runtime/efficiency PASS. Inherited: 21 already-carried, seven not-applicable with individual reasons, 22 owner-specific missing inputs. Those existing comparison questions are not extra bugs. All twelve fork-written members / 498 lines were read; #585 contributions remain drafts in the packet.\n\nFour table-corruption controls fail their own assertions; working and committed-then-reverted source edits fail protected-path fixtures. Literal pre-issue result before filing: `PASS pre-issue artifacts (does not certify resolution)`. Stage D stops for coordinator disposition; no E–H or source remediation is assumed.\n\n```yaml\npunch_index:\n- id: PL-01\n  title: PPSSPP outer patch creates a nested patch instead of changing SDL\n  severity: Medium\n  category: Bug\n  question: Q3\n  source_finding: F-T42-01\n  ladder: written-and-routed to audited source-target regression\n  next_mechanism: PPSSPP owning fix brief with exact-pin source regression and separately authorized VM evidence\n  owner: 'coordinator #689 routes to standalone-emulator implementation owner'\n  outcome: open\n```\n",
+  "state": "open",
+  "user": {
+    "login": "blitterbot",
+    "name": "blitterbot",
+    "email": null,
+    "avatar_url": "https://avatars.githubusercontent.com/u/335883270?v=4",
+    "id": 335883270
+  },
+  "assignees": null,
+  "labels": [
+    {
+      "name": "audit",
+      "color": "5319e7",
+      "description": ""
+    },
+    {
+      "name": "punch-list",
+      "color": "5319e7",
+      "description": ""
+    }
+  ],
+  "milestone": 6,
+  "state_reason": null,
+  "comments": 0,
+  "created_at": "2026-11-02T19:42:17Z",
+  "updated_at": "2026-11-02T19:44:44Z",
+  "closed_at": null,
+  "display_url": "https://github.com/pixelelated/distribution/issues/1411",
+  "display_title": "Audit: M6 T42 patches shipped - 1 finding (0 critical, 0 high)"
+}

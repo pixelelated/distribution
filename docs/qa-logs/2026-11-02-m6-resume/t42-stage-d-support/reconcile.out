@@ -1,0 +1,134 @@
+{
+  "errors": [],
+  "counts": {
+    "native": {
+      "applies": 151,
+      "open-item": 173,
+      "fuzz": 22,
+      "offset": 38
+    },
+    "inherited": {
+      "unresolved-with-specific-evidence-needed": 22,
+      "already-carried": 21,
+      "not-applicable-with-reason": 7
+    }
+  },
+  "identity_comparisons": {
+    "2174265e9cc1b248c0fbe27fa101875984d46d6b": {
+      "paths": 391,
+      "changed": []
+    },
+    "b6332dbc13f5929f05ec5ba23c44285c5ee56b38": {
+      "paths": 391,
+      "changed": []
+    },
+    "9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1": {
+      "paths": 391,
+      "changed": []
+    }
+  },
+  "native_modes": {
+    "100644": 380,
+    "120000": 4
+  },
+  "fork_readings": {
+    "paths": 12,
+    "lines": 498,
+    "dolphin": [
+      "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/018-nogui-achievements-lifecycle.patch"
+    ]
+  },
+  "changed_path_count": 3940,
+  "commits": [
+    {
+      "commit": "d37670de318eb428604e4442f95defe10eade173",
+      "changed_paths": 1
+    },
+    {
+      "commit": "62573c216cde7ff5ff08bf12d1e8ffdb6bc742f6",
+      "changed_paths": 3902
+    },
+    {
+      "commit": "35a3eaa13a08842b7d7242467464f13248fd3e86",
+      "changed_paths": 44
+    }
+  ],
+  "live_issues": {
+    "1410": {
+      "body_matches_retained": true,
+      "live_body_sha256": "9229e0ada6de0e5fc6270f986ef7958c1c43e2fe829b7442a83819971f7624de",
+      "state": "open",
+      "milestone": null,
+      "labels": [
+        "bug"
+      ]
+    },
+    "1411": {
+      "body_matches_retained": true,
+      "live_body_sha256": "5d66f4f0c02bba1870c192505f7dfbc3bc0c2ab10a78b3dc11bf2c6d5d04826f",
+      "state": "open",
+      "milestone": 6,
+      "labels": [
+        "audit",
+        "punch-list"
+      ]
+    }
+  },
+  "brief_sha256": "6601d6f9c6e2c548ee5c6d23a274169ccd3077923bc6fd0eb5e37aee59ada67a"
+}
+APPLICATION {
+  "groups": 542,
+  "pairs": 760,
+  "output_hashes": 3040,
+  "hash_manifest_sha256": "730ca49e6ab1a34b773e3443cbda5e96a05c0d1a1bdaba8b5bd287c285ab802d",
+  "archive_projection_receipts": 116,
+  "retained_prefix_continuities": 359,
+  "row_statuses": {
+    "applies": 547,
+    "open-item": 406,
+    "offset": 135,
+    "fuzz": 78
+  },
+  "missing_selected_rows": [
+    {
+      "group": "G202",
+      "recorded": 1,
+      "selected": 9,
+      "missing": [
+        "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0001_Add-AYN-Odin2.patch",
+        "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0002_AYN-Odin2---Add-EFI-boot-compatibility.patch",
+        "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0003_Add-AYANEO-Pocket-ACE.patch",
+        "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0004_AYANEO-Pocket-ACE---Add-EFI-boot-compatibility.patch",
+        "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0004_AYANEO-Pocket-DMG---Add-EFI-boot-compatibility.patch",
+        "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0004_AYANEO-Pocket-DS---Add-EFI-boot-compatibility.patch",
+        "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0004_AYANEO-Pocket-EVO---Add-EFI-boot-compatibility.patch",
+        "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0005_Add-AYN-Thor.patch"
+      ]
+    },
+    {
+      "group": "G203",
+      "recorded": 1,
+      "selected": 9,
+      "missing": [
+        "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0001_Add-AYN-Odin2.patch",
+        "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0002_AYN-Odin2---Add-EFI-boot-compatibility.patch",
+        "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0003_Add-AYANEO-Pocket-ACE.patch",
+        "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0004_AYANEO-Pocket-ACE---Add-EFI-boot-compatibility.patch",
+        "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0004_AYANEO-Pocket-DMG---Add-EFI-boot-compatibility.patch",
+        "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0004_AYANEO-Pocket-DS---Add-EFI-boot-compatibility.patch",
+        "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0004_AYANEO-Pocket-EVO---Add-EFI-boot-compatibility.patch",
+        "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0005_Add-AYN-Thor.patch"
+      ]
+    },
+    {
+      "group": "G383",
+      "recorded": 6,
+      "selected": 7,
+      "missing": [
+        "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8550/000-swap-guid-and-misc.patch"
+      ]
+    }
+  ]
+}
+COMMAND RECEIPTS 40
+RESULT_SHA256 0bca9c623375a3962cc72dd6f631a23f656b9b0e67464823d97c6330e28381a3

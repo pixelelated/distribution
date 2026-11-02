@@ -342,3 +342,7 @@ own 1,701 rows / 758,285 lines. The other explicit owners hold 41 rows /
 19,256 lines, giving the unchanged 1,742 / 777,541 area total. No membership
 or owner changes. Published dispatch provides the exact seed and final helper
 identity; the future seed is checked independently of this baseline proof.
+
+## Stage-D disposition — 2026-11-02
+
+D-WORKFLOW-230 records the accepted bounded D packet at `d37670de318eb428604e4442f95defe10eade173` and the records-only E–H disposition in `docs/qa-logs/2026-11-02-m6-resume/t42-stage-d-disposition.md`. The live #689 comment explicitly dispatches it. The PPSSPP bug remains open for a separately scoped implementation; source application limitations and inherited inputs retain their owners. New final records execute their checks; accepted producers are not replayed. No product behavior or source scope changes.

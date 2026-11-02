@@ -1,0 +1,662 @@
+{
+  "application": {
+    "archive_projection_receipts": 116,
+    "groups": 542,
+    "hash_manifest_sha256": "730ca49e6ab1a34b773e3443cbda5e96a05c0d1a1bdaba8b5bd287c285ab802d",
+    "missing_selected_rows": [
+      {
+        "group": "G202",
+        "missing": [
+          "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0001_Add-AYN-Odin2.patch",
+          "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0002_AYN-Odin2---Add-EFI-boot-compatibility.patch",
+          "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0003_Add-AYANEO-Pocket-ACE.patch",
+          "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0004_AYANEO-Pocket-ACE---Add-EFI-boot-compatibility.patch",
+          "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0004_AYANEO-Pocket-DMG---Add-EFI-boot-compatibility.patch",
+          "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0004_AYANEO-Pocket-DS---Add-EFI-boot-compatibility.patch",
+          "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0004_AYANEO-Pocket-EVO---Add-EFI-boot-compatibility.patch",
+          "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0005_Add-AYN-Thor.patch"
+        ],
+        "recorded": 1,
+        "selected": 9
+      },
+      {
+        "group": "G203",
+        "missing": [
+          "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0001_Add-AYN-Odin2.patch",
+          "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0002_AYN-Odin2---Add-EFI-boot-compatibility.patch",
+          "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0003_Add-AYANEO-Pocket-ACE.patch",
+          "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0004_AYANEO-Pocket-ACE---Add-EFI-boot-compatibility.patch",
+          "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0004_AYANEO-Pocket-DMG---Add-EFI-boot-compatibility.patch",
+          "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0004_AYANEO-Pocket-DS---Add-EFI-boot-compatibility.patch",
+          "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0004_AYANEO-Pocket-EVO---Add-EFI-boot-compatibility.patch",
+          "projects/ROCKNIX/packages/audio/alsa-ucm-conf/patches/SM8550/0005_Add-AYN-Thor.patch"
+        ],
+        "recorded": 1,
+        "selected": 9
+      },
+      {
+        "group": "G383",
+        "missing": [
+          "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/patches/SM8550/000-swap-guid-and-misc.patch"
+        ],
+        "recorded": 6,
+        "selected": 7
+      }
+    ],
+    "output_hashes": 3040,
+    "pairs": 760,
+    "retained_prefix_continuities": 359,
+    "row_statuses": {
+      "applies": 547,
+      "fuzz": 78,
+      "offset": 135,
+      "open-item": 406
+    }
+  },
+  "artifact_sha256": {
+    "05-punch-list.md": "8b2247a5eebfe335feb0cc640a58b7aec7a2a9d5cec387181053764a7246058b",
+    "06-audit-summary.md": "c2ea2feb9bd1a006ce1bf87236de2da3fa3c911956d732e6210da4319137272d",
+    "07-questions-for-the-maintainer.md": "5917f0c287b882ad3febac709e84ca6788aa647cbc8020825b42f88951e540b9",
+    "stage-a/seed/summary.json": "b03e3dab383b3fa2a6fb72371750f631f603978cbd5dfe4a4e4c060ad3de5d76",
+    "stage-a/source/summary.json": "76dacf84008fa0661c3abea7713572e7a99ce50e83595cce50d0a308552de9f2",
+    "stage-b/application/partial-failure-control.json": "cd4ae55c856129c6e95fce3d38ed99649cb40c1fca40ff6902661238d7a07c3b",
+    "stage-b/inherited-decisions.json": "ed7054691ddddd08afebbbaaa233cc6936ca0f7cd8b3c365b5fbe74aac66ca03",
+    "stage-b/nested-patch/receipt.json": "9ae9bb1d86d8880c6dd2b4f390a93f30889d7e3f215dd46451ab5f9df0090883",
+    "stage-b/selection.json": "56e0540efee78ee62ea97f6eb7e5f2a05f9cb521f3567d5799a6d3fff290faf3",
+    "stage-b/table-counts.json": "0a9c5d0240f800132eae6173fcdc76a7f5a19361b490c84a4d2e8e49863781cc",
+    "stage-b/tables.json": "6e125aa1d48d7bf97e23e0cb427a0fc87becb8325aa6ed476ab7f623e33e6694",
+    "stage-c/negative-controls.json": "cafae64cedca2c7b03300273f19315c09a3d9a8fae004d1d689ac0b7a8b6d211",
+    "stage-c/protected-path-controls.json": "ac492887dee8e65ab14cb27e4216251b3bcdd621ba50e4b028090dfe0773528d",
+    "stage-c/receipt-validation.json": "a4fa5b2f7a4e07b8bf4b2d94b56ecb713b51944b6226cbd7388eba61a3e2862a",
+    "stage-d/checks.json": "5cc5307241e619f4e5366a54866781263540211c80dc8f4c6f99aee49e8db485",
+    "stage-d/issue-commands.json": "526dd0bc5c97324a13ab4d379a830dd87c37b58cc8798e2b36fb1c27401bd951",
+    "stage-d/publication-1.json": "dc929d6de3de06d3d8110c03d0e183c2f6bdd1d6c026219624d4eff32eaa59af",
+    "tools/apply-stacks.py": "15175570bfcda98d422fa10c36e918f189f111b52769e1fdcbfea06f403e3935",
+    "tools/nested-probe.py": "0c7711abb518f93b40e1461eec1b3e3dfdb20c6b0bf364f2d576daf65815eeee",
+    "tools/tables.py": "e9fef3354b1a70e9a6621db2af857ec398c6dbdb690bf4cd2a451c24f714a9d1",
+    "tools/validate.py": "edea4cfecdfb8473f6577929e033afa8a82562006f0ec1d0bf31a70ddb1d1495"
+  },
+  "brief_sha256": "6601d6f9c6e2c548ee5c6d23a274169ccd3077923bc6fd0eb5e37aee59ada67a",
+  "changed_path_count": 3940,
+  "command_receipts": [
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "docs/qa-logs/2026-11-02-m6-resume/t42-brief-inputs.py",
+        "--repo",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+        "--ref",
+        "b6332dbc13f5929f05ec5ba23c44285c5ee56b38",
+        "--out",
+        "/tmp/m6-t42-inputs.8whm3634/source"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "f3ade2038dc6451fbdc8f6a0ff73e1ba37b496ace47b705abdf16295794ac146",
+      "stem": "stage-a/source"
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "docs/qa-logs/2026-11-02-m6-resume/t42-brief-inputs.py",
+        "--repo",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+        "--ref",
+        "9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1",
+        "--out",
+        "/tmp/m6-t42-inputs.8whm3634/seed"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "9358642989100b7ab6720111aa5b203796eeed1a86c6b06760b7190aa8407bb5",
+      "stem": "stage-a/seed"
+    },
+    {
+      "output_sha256": "5ecec1bf185709d166b0c35447dd7ef65107be90632d41665f1d26e3bd0afbb1",
+      "rc": 0,
+      "stem": "stage-a/rules-check"
+    },
+    {
+      "output_sha256": "d19a26d7b8d788f598d97e36c29ba1f7318204f847c64234cdf5fcca8ed22dca",
+      "rc": 0,
+      "stem": "stage-a/register-check"
+    },
+    {
+      "output_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+      "rc": 0,
+      "stem": "stage-a/work-log-index"
+    },
+    {
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rc": 0,
+      "stem": "stage-a/ceremony-check"
+    },
+    {
+      "output_sha256": "ee8de0c5efef37d21b9b1d76334e068b6ec86a814b312b96b004256834198aeb",
+      "rc": 0,
+      "stem": "stage-a/forbidden-terms-check"
+    },
+    {
+      "output_sha256": "3402d5f59e65118cf905eb74dd1cda7660eeffd181ad248e23a56f68395e0a5c",
+      "rc": 0,
+      "stem": "stage-a/hooks-test"
+    },
+    {
+      "argv": [
+        "tools/rules-check"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "5ecec1bf185709d166b0c35447dd7ef65107be90632d41665f1d26e3bd0afbb1",
+      "stem": "stage-c/rules"
+    },
+    {
+      "argv": [
+        "tools/register-check"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "d19a26d7b8d788f598d97e36c29ba1f7318204f847c64234cdf5fcca8ed22dca",
+      "stem": "stage-c/register"
+    },
+    {
+      "argv": [
+        "tools/work-log-index",
+        "--check"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+      "stem": "stage-c/index"
+    },
+    {
+      "argv": [
+        "tools/ceremony-check",
+        "--gate"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stem": "stage-c/ceremony"
+    },
+    {
+      "argv": [
+        "tools/forbidden-terms-check"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "239dba3633fe024251606e736eba0e1a2a074b3767ce7ff726b345452221980c",
+      "stem": "stage-c/forbidden"
+    },
+    {
+      "argv": [
+        ".githooks/hooks-test"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "3402d5f59e65118cf905eb74dd1cda7660eeffd181ad248e23a56f68395e0a5c",
+      "stem": "stage-c/hooks"
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/tools/tables.py"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "fef2e11c59d3e6b723bb4dff7e7c940aec0d9006ed765197bf29c040715df7dc",
+      "stem": "stage-c/table-validation"
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/tools/validate.py"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "26a1eedbcc9f19cca93b265f38b673e1abf66e3ea4f3334d3d916aca66b096fd",
+      "stem": "stage-c/receipt-validation"
+    },
+    {
+      "argv": [
+        "tools/lint-audit-artifacts",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped",
+        "--phase",
+        "pre-issue"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c5e0186b3bbb2ee4dafcf65c937466f30e0321b63243d123af9c88feb4d7dd4d",
+      "stem": "stage-c/pre-issue-lint"
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/tools/tables.py"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "fef2e11c59d3e6b723bb4dff7e7c940aec0d9006ed765197bf29c040715df7dc",
+      "stem": "stage-d/table-final"
+    },
+    {
+      "argv": [
+        "gh",
+        "issue",
+        "edit",
+        "1411",
+        "--repo",
+        "pixelelated/distribution",
+        "--body-file",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/stage-d/audit-body.md"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "a1e63c789c50f209579e6730e5ffc6557d932a761d4386c2081f4d56ef0626f6",
+      "stem": "stage-d/audit-body-update"
+    },
+    {
+      "argv": [
+        "tools/lint-audit-artifacts",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped",
+        "--phase",
+        "pre-issue",
+        "--issue",
+        "1411"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "baa3d3cbbd03aae4e37f73afd13a01fe3b35067ac4665a08709ffd4bda94d4b1",
+      "stem": "stage-d/audit-issue-lint"
+    },
+    {
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "1410"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ba2106c8e0839eebd4c378af612a29b132b2d984183d5b62871ca20e98856945",
+      "stem": "stage-d/checkbox-1410"
+    },
+    {
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "1411"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ba2106c8e0839eebd4c378af612a29b132b2d984183d5b62871ca20e98856945",
+      "stem": "stage-d/checkbox-1411"
+    },
+    {
+      "argv": [
+        "tools/box-check",
+        "--issue",
+        "689"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "89574cf62c10d48bcc0aae9e2c9575dab22248ee306fc1d65a7a538ead695114",
+      "stem": "stage-d/checkbox-689"
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/tools/validate.py",
+        "guard",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+        "9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "efe53b28a665d7dd02a5bd2e648b420184bf376bf4a5abefaf4ad49baf655e15",
+      "stem": "stage-d/protected-paths"
+    },
+    {
+      "argv": [
+        "tools/forbidden-terms-check",
+        "--stdin"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ae7d101f07c8c55bfd82db597d8d383d0f9c1102459a98a228136f4248a15379",
+      "stem": "stage-d/forbidden-audit-current"
+    },
+    {
+      "argv": [
+        "tools/work-log-index",
+        "--write"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "b57bdee56a853b5e8b133ecf565bbad31d6db0b6ca7b5c2c9992768612f41ee1",
+      "stem": "stage-d/final-index-write"
+    },
+    {
+      "argv": [
+        "tools/work-log-index",
+        "--check"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "232b345c76ad64a47de4d43e62d9aeb4f2850472cde78ddd1b1e56d72103d927",
+      "stem": "stage-d/final-index-check"
+    },
+    {
+      "argv": [
+        "gh",
+        "issue",
+        "list",
+        "--repo",
+        "pixelelated/distribution",
+        "--state",
+        "all",
+        "--search",
+        "\"007-disable-home-pause\" in:body",
+        "--json",
+        "number,title,state"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "stem": "stage-d/duplicate-search"
+    },
+    {
+      "argv": [
+        "gh",
+        "issue",
+        "create",
+        "--repo",
+        "pixelelated/distribution",
+        "--title",
+        "ppsspp-sa: home-pause patch creates a nested patch instead of changing SDL",
+        "--label",
+        "bug",
+        "--body-file",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/stage-d/bug-body.md"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "034c11284dd0f9890a332fc63ea48f5bec19b332c770441267bcfd20e24d939c",
+      "stem": "stage-d/create-bug"
+    },
+    {
+      "argv": [
+        "gh",
+        "issue",
+        "create",
+        "--repo",
+        "pixelelated/distribution",
+        "--title",
+        "Audit: M6 T42 patches shipped - 1 finding (0 critical, 0 high)",
+        "--label",
+        "audit",
+        "--label",
+        "punch-list",
+        "--milestone",
+        "M6: Codebase renovation",
+        "--body-file",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/stage-d/audit-body.md"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "a1e63c789c50f209579e6730e5ffc6557d932a761d4386c2081f4d56ef0626f6",
+      "stem": "stage-d/create-audit"
+    },
+    {
+      "argv": [
+        "gh",
+        "api",
+        "repos/pixelelated/distribution/issues/1411"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "13ef05dab0c5c8f0d83ad08fd890fbef95c5927e814c7123c2bd8988ddb79aca",
+      "stem": "stage-d/audit-rest"
+    },
+    {
+      "argv": [
+        "gh",
+        "api",
+        "-X",
+        "POST",
+        "repos/pixelelated/distribution/issues/689/sub_issues",
+        "-F",
+        "sub_issue_id=6169691166"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "72be6f8e067defff594bd933325e1e2fff3beee447c4cb3a621c415afe216dde",
+      "stem": "stage-d/attach-audit"
+    },
+    {
+      "argv": [
+        "gh",
+        "api",
+        "repos/pixelelated/distribution/issues/1411"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c43d9a0eb5cd9323b1db6e2093f68c906c5e472c39bd1b50622ad5fcb20d2d84",
+      "stem": "stage-d/audit-readback"
+    },
+    {
+      "argv": [
+        "gh",
+        "api",
+        "repos/pixelelated/distribution/issues/1410"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ffa6b1301f456da26edb68cbd4108af931a2438b380491200f46627c022ffe0f",
+      "stem": "stage-d/bug-readback"
+    },
+    {
+      "argv": [
+        "gh",
+        "api",
+        "repos/pixelelated/distribution/issues/1411/parent"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "72be6f8e067defff594bd933325e1e2fff3beee447c4cb3a621c415afe216dde",
+      "stem": "stage-d/audit-parent"
+    },
+    {
+      "argv": [
+        "gh",
+        "api",
+        "repos/pixelelated/distribution/issues/1410/parent"
+      ],
+      "rc": 1,
+      "stderr_sha256": "00e190220cf8c7763d83286d47b3e1247e2e06959ff5500d507e393e5272d0ad",
+      "stdout_sha256": "6d7731a82b4347d24f537948ae6df0a1d1489a21b8f13d6fec56c206fadaee74",
+      "stem": "stage-d/bug-parent"
+    },
+    {
+      "argv": [
+        "patch",
+        "-p1",
+        "-N",
+        "--batch"
+      ],
+      "rc": 1,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "d90de3de3593ce5d81db3724cbb797106efbfac4e053714062ed3c3fe2be3b1e",
+      "stem": "stage-b/application/runner-fixture-1-normal"
+    },
+    {
+      "argv": [
+        "patch",
+        "--dry-run",
+        "-p1",
+        "-N",
+        "--batch"
+      ],
+      "rc": 1,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "b12841d6f9dc2cd8e02035f864d39488f43d6b87362e271bfb61a8f13c563d63",
+      "stem": "stage-b/application/runner-fixture-1-diagnostic"
+    },
+    {
+      "argv": [
+        "patch",
+        "-p1",
+        "-N",
+        "--batch",
+        "--dry-run"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "407d4617d6dc679bdce58e56aaf27e0999563bdc1b3b54df1b809cd60eb95995",
+      "stem": "stage-b/nested-patch/diagnostic"
+    },
+    {
+      "argv": [
+        "patch",
+        "-p1",
+        "-N",
+        "--batch"
+      ],
+      "rc": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "5a85f84b8facdb9fce8c13804092fb8166f75460d724de0e8bf1a57db219dcc2",
+      "stem": "stage-b/nested-patch/normal"
+    }
+  ],
+  "commits": [
+    {
+      "changed_paths": 1,
+      "commit": "d37670de318eb428604e4442f95defe10eade173"
+    },
+    {
+      "changed_paths": 3902,
+      "commit": "62573c216cde7ff5ff08bf12d1e8ffdb6bc742f6"
+    },
+    {
+      "changed_paths": 44,
+      "commit": "35a3eaa13a08842b7d7242467464f13248fd3e86"
+    }
+  ],
+  "counts": {
+    "inherited": {
+      "already-carried": 21,
+      "not-applicable-with-reason": 7,
+      "unresolved-with-specific-evidence-needed": 22
+    },
+    "native": {
+      "applies": 151,
+      "fuzz": 22,
+      "offset": 38,
+      "open-item": 173
+    }
+  },
+  "errors": [],
+  "fork_readings": {
+    "dolphin": [
+      "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/018-nogui-achievements-lifecycle.patch"
+    ],
+    "lines": 498,
+    "paths": 12
+  },
+  "identity": "Codex / OpenAI; session 01a19d11-dda5-72e3-86f9-416f36341c24; wN:p3 m6-p1-survey",
+  "identity_comparisons": {
+    "2174265e9cc1b248c0fbe27fa101875984d46d6b": {
+      "changed": [],
+      "paths": 391
+    },
+    "9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1": {
+      "changed": [],
+      "paths": 391
+    },
+    "b6332dbc13f5929f05ec5ba23c44285c5ee56b38": {
+      "changed": [],
+      "paths": 391
+    }
+  },
+  "live_issues": {
+    "1410": {
+      "body_matches_retained": true,
+      "labels": [
+        "bug"
+      ],
+      "live_body_sha256": "9229e0ada6de0e5fc6270f986ef7958c1c43e2fe829b7442a83819971f7624de",
+      "milestone": null,
+      "state": "open"
+    },
+    "1411": {
+      "body_matches_retained": true,
+      "labels": [
+        "audit",
+        "punch-list"
+      ],
+      "live_body_sha256": "5d66f4f0c02bba1870c192505f7dfbc3bc0c2ab10a78b3dc11bf2c6d5d04826f",
+      "milestone": 6,
+      "state": "open"
+    }
+  },
+  "native_modes": {
+    "100644": 380,
+    "120000": 4
+  },
+  "publication": {
+    "events": [
+      {
+        "name": "stage",
+        "rc": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "path-guard",
+        "rc": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "efe53b28a665d7dd02a5bd2e648b420184bf376bf4a5abefaf4ad49baf655e15"
+      },
+      {
+        "name": "commit",
+        "rc": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "tip",
+        "rc": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c6a6e68a8370ffe9d27e913fc5dc61fd568ec67803dc21ea952f8af1d785859d"
+      },
+      {
+        "name": "clean-before-push",
+        "rc": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "push",
+        "rc": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "remote-readback",
+        "rc": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "28784dee6a6a1549803edf744a39fe618c7ff39b8b23fd71e8d22ffd72e2d260"
+      },
+      {
+        "name": "committed-path-guard",
+        "rc": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "efe53b28a665d7dd02a5bd2e648b420184bf376bf4a5abefaf4ad49baf655e15"
+      }
+    ],
+    "note": "Actual publication receipts. A final receipt-only commit and normal push will be named in the #689 D checkpoint; this receipt does not claim its own containing commit was already pushed.",
+    "receipt_tip": "62573c216cde7ff5ff08bf12d1e8ffdb6bc742f6"
+  },
+  "scope": "Immutable metadata and retained-output reconciliation only; no producer or source execution; no private/cache/archive reads.",
+  "seed": "9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1",
+  "tip": "d37670de318eb428604e4442f95defe10eade173"
+}
