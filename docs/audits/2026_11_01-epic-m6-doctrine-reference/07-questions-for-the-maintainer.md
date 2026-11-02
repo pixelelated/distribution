@@ -37,3 +37,10 @@ Codex / GPT-6-Astra / xhigh; session 01a19d12-0c07-7ba3-88b8-ab9d609f4d67; Herdr
 ## Status
 
 Both questions are posted. Awaiting coordinator dispositions and `docs/reviews/briefs/t39-streams.md`; no Stage E action starts at this checkpoint.
+
+
+## Owner dispositions and execution dispatch -- 2026-11-02T18:40:21Z
+
+Both questions are settled: [6584515739](https://github.com/pixelelated/distribution/issues/686#issuecomment-6584515739). D-WORKFLOW-223/-224 at immutable coordinator b6332dbc13f5929f05ec5ba23c44285c5ee56b38 retain the journal in place with historical status/corrected headings and retain documents with dates/status. #1407 owns later indexed monthly storage and individual purpose/replacement review. Q5 remains 33 files / 2,770 lines: 32 editable, one ledger-plan table-only.
+
+[Dispatch 6585180759](https://github.com/pixelelated/distribution/issues/686#issuecomment-6585180759) authorizes S0-S6 and F/G/H under [stream brief v2](https://github.com/pixelelated/distribution/blob/7f25f9f78b3da3a6b2c893397b58a3ce5a04be75/docs/reviews/briefs/t39-streams.md). The original questions/readbacks above are preserved; these are answers and execution scope, not acceptance of corrections.

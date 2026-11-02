@@ -749,3 +749,10 @@ Audit: [#1406](https://github.com/pixelelated/distribution/issues/1406), real su
 | L-22 | #511 readback through comment 6129207059 describes private design planning, not current remotes; remains conditional for the stream brief / #511 owner |
 
 Question IDs and exact posted bodies were read back through the GitHub comments API and retained in stage-d/question-readbacks.json. 06/07 and stage-d/ hold the filing/checkpoint records; they do not replace the 12 accepted A–C proofs or claim a fix. Stage D's checks validate the new records only.
+
+
+## Owner dispositions and execution dispatch -- 2026-11-02T18:40:21Z
+
+Both questions are settled: [6584515739](https://github.com/pixelelated/distribution/issues/686#issuecomment-6584515739). D-WORKFLOW-223/-224 at immutable coordinator b6332dbc13f5929f05ec5ba23c44285c5ee56b38 retain the journal in place with historical status/corrected headings and retain documents with dates/status. #1407 owns later indexed monthly storage and individual purpose/replacement review. Q5 remains 33 files / 2,770 lines: 32 editable, one ledger-plan table-only.
+
+[Dispatch 6585180759](https://github.com/pixelelated/distribution/issues/686#issuecomment-6585180759) authorizes S0-S6 and F/G/H under [stream brief v2](https://github.com/pixelelated/distribution/blob/7f25f9f78b3da3a6b2c893397b58a3ce5a04be75/docs/reviews/briefs/t39-streams.md). The original questions/readbacks above are preserved; these are answers and execution scope, not acceptance of corrections.

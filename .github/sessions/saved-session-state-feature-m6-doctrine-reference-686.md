@@ -17,6 +17,8 @@
 
 ## Current focus
 
+**2026-11-02T18:40:21Z -- S0-S6 / F-G-H dispatched by #686 comment 6585180759.** Read immutable stream brief 7f25f9f78b3da3a6b2c893397b58a3ce5a04be75; execute in this tree from 96ef183aae with no pre-E merge. Current execution record: audit stage-e/00-opening.md and disposition-plan.json. D-WORKFLOW-223/224 settled; #1407 owns later restructuring. Continue continuously to one clean hand-back; no accepted-stage replay or runtime action. Historical pause text below is superseded by this dispatch.
+
 **2026-11-02 16:47 UTC -- Stage D packet complete; pause for the coordinator's stream brief.**
 
 - Stage C accepted at c61bcdcb5f2de47dfa35ac25776965e77f962914 by comment 6582545265; historical checkpoint 6580794498. No A-C replay.
