@@ -1,0 +1,54 @@
+[
+  {
+    "label": "BACK UP SETTINGS TO THIS DEVICE",
+    "pin": "16dbac5211eea7e70db7394372033be2be7df829",
+    "source": "es-app/src/guis/GuiMenu.cpp",
+    "lines": [
+      [
+        400,
+        "s->addEntry(_(\"BACK UP SETTINGS TO THIS DEVICE\"), true, [window] {"
+      ]
+    ]
+  },
+  {
+    "label": "RESTORE SETTINGS FROM THIS DEVICE",
+    "pin": "16dbac5211eea7e70db7394372033be2be7df829",
+    "source": "es-app/src/guis/GuiMenu.cpp",
+    "lines": [
+      [
+        412,
+        "s->addEntry(_(\"RESTORE SETTINGS FROM THIS DEVICE\"), true, [window] {"
+      ]
+    ]
+  },
+  {
+    "label": "BACK UP TO THE CLOUD",
+    "pin": "16dbac5211eea7e70db7394372033be2be7df829",
+    "source": "es-app/src/guis/GuiMenu.cpp",
+    "lines": [
+      [
+        4844,
+        "auto s = new GuiSettings(window, backup ? _(\"BACK UP TO THE CLOUD\") : _(\"RESTORE FROM THE CLOUD\"));"
+      ],
+      [
+        5612,
+        "cloudAddTransferRow(s, window, configured, rows->backup, _(\"BACK UP TO THE CLOUD\"),"
+      ]
+    ]
+  },
+  {
+    "label": "RESTORE FROM THE CLOUD",
+    "pin": "16dbac5211eea7e70db7394372033be2be7df829",
+    "source": "es-app/src/guis/GuiMenu.cpp",
+    "lines": [
+      [
+        4844,
+        "auto s = new GuiSettings(window, backup ? _(\"BACK UP TO THE CLOUD\") : _(\"RESTORE FROM THE CLOUD\"));"
+      ],
+      [
+        5615,
+        "cloudAddTransferRow(s, window, configured, rows->restore, _(\"RESTORE FROM THE CLOUD\"),"
+      ]
+    ]
+  }
+]

@@ -29,7 +29,5 @@ ROCKNIX identifiers for compatibility; the displayed project name is
 pixelelated. Blitterbot remains the developer account, and Rasteratops is a
 character rather than the distribution name.
 
-This is prepared release documentation for #508 (D-CLOUD-175), replacing
-the migration instructions from #409. Publish it with the qualified build
-that includes manual cloud setup. The accepted H700 and SM8550 artifacts
-from earlier on 2026-10-07 still contain the previous migration flow.
+Keep your existing folder selection until you have arranged your files and
+chosen the folder you want each device to use.

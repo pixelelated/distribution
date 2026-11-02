@@ -1,8 +1,14 @@
-# What the settings backup contains
+# Settings backup reference — label review 2026-11-02
 
-Reference for `backuptool` (ES: **BACKUP CONFIGURATIONS** / **RESTORE FROM BACKUP**,
-and the cloud **BACK UP / RESTORE EVERYTHING** actions). Source of truth for the
-user-facing docs on rocknix.org (fork issues #18 P4, #32).
+Reference for `backuptool`. The pinned EmulationStation labels are
+**BACK UP SETTINGS TO THIS DEVICE** and **RESTORE SETTINGS FROM THIS DEVICE**;
+the cloud pages are **BACK UP TO THE CLOUD** and **RESTORE FROM THE CLOUD**,
+where the player selects the settings tier. These label literals were read at
+pin `16dbac5211eea7e70db7394372033be2be7df829` in `es-app/src/guis/GuiMenu.cpp`
+(lines 400, 412, 4844, 5612, and 5615) in the separate EmulationStation repository.
+This is a label/source review; the backup behavior recorded below was not
+requalified by a runtime test. Public documentation follow-through is tracked
+through #585 (original scope #18 P4, #32).
 
 The archive is `/storage/roms/backup/ROCKNIX_BACKUP.zip`. It matches the cloud
 allowlist (`backup/*.zip`), so **it can be uploaded to a cloud provider** — every
