@@ -588,5 +588,26 @@ PROOF: F-01 (tool-run) -- 00:23:15 `tools/ceremony-check`'s `completed_audit_mar
   - the lint proof `/workspace/tmp/m6-t38/lint-proof/`: 672,359 bytes, 32 files;
   - stage E's repeat of the lint proof `/workspace/tmp/m6-t38/lint-proof-e/` (`stage-e/S0-closing-a01.txt`): 1,105,720 bytes, 239 files.
 - **Kept:** the acceptance lists only the export and the lint proof, so the rest of `/workspace/tmp/m6-t38/` stays for the coordinator's word. That covers the checker runs, the drift and mutation copies, `e/`, `h/`, `stage-a/`, `stage-e/`, `tmp/`, `inc-test/` and the saved tracker reads. Stage A's census promised them for stage H too, so I put the question in the stage-H post. Every figure the record cites from them is already quoted in the committed records.
+- **The rest retired, on the coordinator's word (#685, 05:21:38 UTC).** After `df -i` and a size read at 05:21:50, 21,385,910 bytes by `du -sb` over 20 entries, each was deleted by `rm -rf` on its literal path in its own command (05:21:53-05:22:11). All 20 read back absent at 05:22:15, and the directory, then empty, went by `rmdir`. `/workspace/tmp/m6-t38/` read back absent. The stage-H tool outputs cited above under `/workspace/tmp/m6-t38/h/` went with it; their lines are quoted in `stage-h/merged-checks.out` and in this log. The entries:
+  - `/workspace/tmp/m6-t38/685-comments-20261102.json`: 95758 bytes
+  - `/workspace/tmp/m6-t38/accept-6566095780.txt`: 2872 bytes
+  - `/workspace/tmp/m6-t38/checks-baseline/`: 44930 bytes, 8 files
+  - `/workspace/tmp/m6-t38/checks-fixed-at/`: 42589 bytes, 8 files
+  - `/workspace/tmp/m6-t38/checks-raw/`: 36231 bytes, 8 files
+  - `/workspace/tmp/m6-t38/checks-stage-a-export/`: 46079 bytes, 8 files
+  - `/workspace/tmp/m6-t38/checks-withheld/`: 44159 bytes, 8 files
+  - `/workspace/tmp/m6-t38/drift/`: 3849667 bytes, 260 files
+  - `/workspace/tmp/m6-t38/drift-e/`: 4582812 bytes, 312 files
+  - `/workspace/tmp/m6-t38/e/`: 812115 bytes, 60 files
+  - `/workspace/tmp/m6-t38/h/`: 42923 bytes, 13 files
+  - `/workspace/tmp/m6-t38/inc-test/`: 347 bytes, 7 files
+  - `/workspace/tmp/m6-t38/index-write.out`: 43 bytes
+  - `/workspace/tmp/m6-t38/lint-f2.out`: 9996 bytes
+  - `/workspace/tmp/m6-t38/lint-f.out`: 7836 bytes
+  - `/workspace/tmp/m6-t38/merge.out`: 362 bytes
+  - `/workspace/tmp/m6-t38/mut/`: 8981601 bytes, 663 files
+  - `/workspace/tmp/m6-t38/stage-a/`: 732558 bytes, 46 files
+  - `/workspace/tmp/m6-t38/stage-e/`: 188020 bytes, 16 files
+  - `/workspace/tmp/m6-t38/tmp/`: 1865012 bytes, 81 files
 
 PROOF: H-01 (tool-run) -- 05:16:05-05:18:40, the six checks on the merged tip `8256afed64`: `tools/register-check` rc=0, `tools/work-log-index --check` rc=0, `tools/rules-check --quiet` rc=0, `tools/forbidden-terms-check` `0 hits in 133752 tracked files` rc=0, `.githooks/hooks-test` `PASS` rc=0, `tools/lint-audit-artifacts` `PASS` rc=0 at its default phase and with `--issue 1394` (`stage-h/merged-checks.out`). A FAIL would have been any nonzero exit. In particular: a register ID twice after the two registers' union, the index stale after the day log's union, a listed word in a merged file, or the marker's evidence changed by the merge.

@@ -22,7 +22,7 @@
 - **The merge (`8256afed64`):** the coordinator's `019e826315`, with both sides of the day log united in time order and `INDEX.md` regenerated.
 - **The checks:** the six checks on the merged tip exit 0.
 - **Stage H:** the export and the lint proofs are retired. The stage-H post on #685 names the merged tip and the pushed tip.
-- **What the lane waits for:** nothing that is its own. The coordinator re-runs the merge section, ticks checkbox 21, closes #685 and verifies the close-out from a `git archive` export. The rest of `/workspace/tmp/m6-t38/` waits on the coordinator's word, asked in the stage-H post. Nothing runs in this lane.
+- **What the lane waits for:** nothing that is its own. The coordinator re-runs the merge section, ticks checkbox 21, closes #685 and verifies the close-out from a `git archive` export. The rest of `/workspace/tmp/m6-t38/` was retired on the coordinator's word (05:21), and the directory itself is gone (`00` § Stage H census). Nothing runs in this lane.
 
 Before the acceptance, the stage-E focus was this. Stage E was handed back twice on #685: the first hand-back at 05:55 UTC, the second at the amendment of the acceptance read's eight asks (06:45), carrying the retro `docs/retros/2026-11-01-m6-doctrine-skills.md`. Stage F was then to follow:
 - run 4 of the checker, which the acceptance proved on its own run, so the lane was not asked for it;
