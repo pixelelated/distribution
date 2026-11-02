@@ -1,0 +1,50 @@
+slices: 46
+rows: 134634 (inventory: 134634)
+unassigned: 0
+ambiguous: 0
+  1 os-launch-control-state            os-scripts-and-launch      83 paths    13,327 lines   11,560 read    7,441 fork-own        0 patch  read    
+  2 es-launch-path                     interface                  20 paths    11,287 lines   11,287 read   10,804 fork-own        0 patch  read    
+  3 emulators-libretro                 emulators-and-cores       344 paths    31,961 lines   10,185 read    5,519 fork-own    1,670 patch  currency
+  4 doctrine-rules                     doctrine                   36 paths    11,414 lines        0 read        0 fork-own        0 patch  prose   
+  5 build-engine                       build-engine              242 paths    13,910 lines    6,776 read    2,419 fork-own        0 patch  read    
+  6 build-engine-upstream-tools        build-engine              135 paths     7,369 lines    5,552 read      169 fork-own        0 patch  table   
+  7 generic-packages-reached           generic-packages          266 paths     7,612 lines    7,081 read      483 fork-own        0 patch  table   
+  8 image-packages                     generic-packages          485 paths    20,644 lines   13,145 read    2,179 fork-own        0 patch  currency
+  9 tooling-build-supervision          tooling-and-guards         18 paths     3,795 lines    3,384 read    3,384 fork-own        0 patch  read    
+ 10 tooling-guards                     tooling-and-guards         31 paths     6,676 lines    6,400 read    6,014 fork-own        0 patch  read    
+ 11 device-generic-x64-and-kernel      devices                    58 paths    10,418 lines    1,820 read    1,421 fork-own    7,754 patch  read    
+ 12 tooling-vm-harness                 tooling-and-guards         60 paths     8,790 lines    7,140 read    7,140 fork-own        0 patch  read    
+ 13 cloud-harness                      cloud-sync-and-saves        9 paths    10,165 lines   10,165 read   10,165 fork-own        0 patch  read    
+ 14 tooling-state-tests                tooling-and-guards         32 paths     6,911 lines    6,807 read    6,807 fork-own        0 patch  read    
+ 15 tooling-last-good-test             tooling-and-guards          1 paths    14,238 lines   14,238 read   14,238 fork-own        0 patch  read      OVER 12,000
+ 16 cloud-sync-core                    cloud-sync-and-saves       14 paths     8,316 lines    7,827 read    7,827 fork-own        0 patch  read    
+ 17 cloud-setup-content                cloud-sync-and-saves       14 paths    11,180 lines   11,180 read   11,180 fork-own        0 patch  read    
+ 18 es-cloud-pages                     interface                  30 paths    11,193 lines   11,116 read   11,116 fork-own        0 patch  read    
+ 19 offline-achievements               offline-achievements       27 paths     5,369 lines    3,656 read    3,656 fork-own    1,703 patch  read    
+ 20 es-achievements-pages              interface                  25 paths     7,485 lines    7,427 read    7,416 fork-own        0 patch  read    
+ 21 es-state-and-bridge                interface                  14 paths     9,249 lines    9,249 read    9,249 fork-own        0 patch  read    
+ 22 os-system-services                 os-scripts-and-launch     422 paths    16,604 lines   10,898 read    3,002 fork-own        0 patch  read    
+ 23 packages-dead-ends                 generic-packages         1604 paths    95,892 lines      955 read        0 fork-own        0 patch  table   
+ 24 emulators-dead-ends                emulators-and-cores        86 paths     2,399 lines       51 read        0 fork-own        0 patch  table   
+ 25 devices-unshipped                  devices                   397 paths    49,555 lines    3,619 read        0 fork-own        0 patch  table   
+ 26 es-guimenu                         interface                   2 paths    11,883 lines   11,883 read   11,883 fork-own        0 patch  read    
+ 27 device-h700                        devices                    28 paths    12,901 lines      327 read        0 fork-own    8,129 patch  currency
+ 28 device-sm8550                      devices                    29 paths    28,053 lines      118 read        0 fork-own        0 patch  currency
+ 29 os-device-quirks                   os-scripts-and-launch     333 paths    10,175 lines    9,327 read      389 fork-own        0 patch  currency
+ 30 emulators-standalone               emulators-and-cores       543 paths   157,365 lines   10,695 read    3,104 fork-own        0 patch  currency
+ 31 es-pages                           interface                  76 paths    15,537 lines   15,537 read    4,230 fork-own        0 patch  currency
+ 32 es-app-views-scrapers              interface                  42 paths    17,311 lines   17,311 read    4,005 fork-own        0 patch  currency
+ 33 es-app-system                      interface                  77 paths    16,276 lines   16,210 read    4,522 fork-own        0 patch  currency
+ 34 es-core-components                 interface                  80 paths    21,984 lines   21,984 read    9,541 fork-own        0 patch  currency
+ 35 es-core-window-input               interface                  96 paths    22,575 lines   22,575 read    6,759 fork-own        0 patch  currency
+ 36 es-core-utils-resources            interface                  58 paths    50,840 lines   50,840 read    6,212 fork-own        0 patch  currency
+ 37 es-recipe                          interface                  15 paths     4,561 lines      327 read      190 fork-own        0 patch  read    
+ 38 doctrine-skills                    doctrine                   52 paths    12,734 lines        0 read        0 fork-own        0 patch  prose     OVER 12,000
+ 39 doctrine-reference                 doctrine                  254 paths    38,598 lines      190 read      190 fork-own        0 patch  table   
+ 40 patches-dead                       patches-and-configs       778 paths   317,908 lines        0 read        0 fork-own  317,908 patch  table   
+ 41 patches-shipped-kernel             patches-and-configs       107 paths    40,474 lines        0 read        0 fork-own   40,474 patch  table   
+ 42 patches-shipped                    patches-and-configs       384 paths    71,387 lines        0 read        0 fork-own   71,387 patch  table   
+ 43 patches-unshipped                  patches-and-configs       432 paths   328,516 lines        0 read        0 fork-own  328,516 patch  table   
+ 44 es-vendored-and-data               interface                 594 paths   374,547 lines  143,710 read   11,989 fork-own        0 patch  table   
+ 45 tooling-council                    tooling-and-guards         52 paths    25,848 lines   24,508 read   24,508 fork-own        0 patch  table   
+ 46 records                            records                126149 paths 22,984,582 lines 15,392,661 read 15,392,661 fork-own        0 patch  table   

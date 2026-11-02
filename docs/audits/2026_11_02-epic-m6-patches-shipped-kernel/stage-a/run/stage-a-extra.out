@@ -1,0 +1,48 @@
+2026-11-02T05:29:48Z
+#688 OPEN c=2 M6.P2 E1054/T41: patches-and-configs: kernel patches and configurations the shipped and test images apply
+#1054 OPEN c=3 M6.P2 E339: Area epic: the patches and kernel configurations (T40, T41, T42, T43)
+#687 OPEN c=8 M6.P2 E1054/T40: patches-and-configs: patches and kernel configurations no plan applies
+#346 OPEN c=70 M6.P0 E339: The plan for the plan: the survey method, the slicing and the order for the whole-codebase renovat
+#1048 OPEN c=1 Backlog: T23's four dead-end decisions -- the upstream-carried class (the maintainer's, #346), cbindgen's remov
+#1049 OPEN c=0 Bug: renovation-inventory's reach does not follow PKG_DEPENDS_UNPACK, so five units every image unpacks read un
+#1056 OPEN c=0 Bug: renovation-inventory does not resolve a symlinked patches directory, so four generic patches every image a
+#1086 OPEN c=0 Bug: renovation-inventory reads rkhelper and six overlay sources as reached by shipped devices that never read 
+#1101 OPEN c=0 Backlog: the inventory's reach misses the kernel recipe's unpack edges (intel-ucode reached for GENERIC_X64 thr
+#879 OPEN c=0 Backlog: renovation-inventory's reach ignores PKG_ARCH, so an aarch64-only package reads as shipped on GENERIC_
+#1053 OPEN c=0 Backlog: a build plan generated on the host silently lacks H700's bootloader chain when xmlstarlet is absent (S
+#1050 OPEN c=0 Bug: pkgcheck exits 0 when an argument matches no recipe, so a full-path run checks nothing and reads as clean
+#1051 OPEN c=0 Bug: mesa-reusable's recipe runs curl at global scope, so every plan generation and build reaches the network
+#328 OPEN c=0 SM8550: 'disp_cc_mdss_mdp_clk_src: rcg didn't update its configuration' once per boot at dispcc probe (upstream
+#369 OPEN c=0 Parked: offer the fork's generic fixes to their own projects (RetroArch, RAOfflineProxy, the H616 kernel)
+#104 OPEN c=5 Handhelds keep no evidence across a power cycle: persistent logs, watchdog, crash store
+#44 OPEN c=4 H700: nothing tells a downloader whether their board is DDR3 or DDR4
+#1084 OPEN c=0 Backlog: regenerate GENERIC_X64's kernel configuration at the kernel the recipe builds (7.1.2) from the Generic
+#1083 OPEN c=0 Backlog: the QA guest installs all of linux-firmware (6,158 files, 2.9 GB staged) because GENERIC_X64 has no co
+#836 OPEN c=1 Bug: a device-level file that find_file_path reads is outside the package stamp
+#796 OPEN c=0 Backlog: a Wi-Fi radio on the GENERIC_X64 guest (mac80211_hwsim), so wifictl flows are proved on the VM
+#1099 OPEN c=2 Backlog: the next base merge brings upstream's Qualcomm boot change (BLS entries, openabl, no mkbootimg) onto t
+#1100 OPEN c=1 Backlog: docs/device-flashing-runbook.md has no SM8550 (Retroid Pocket Nova) section; the only written flash pr
+#1110 OPEN c=0 M7.P5: Investigate RG35XX SP crash when changing charger cables
+#563 OPEN c=1 M7.P5: Adopt ROCKNIX 20261001 as the candidate foundation
+#559 OPEN c=0 Backlog: Define ROCKNIX integration and selective backport procedure
+#585 OPEN c=29 Standing: Queue upstream contributions after the initial build
+#1071 OPEN c=0 Bug: vitaquake2-lr's patches/x86_64 is never applied (PATCH_ARCH=x86), and its recipe passes platform= only on 
+#1072 OPEN c=1 Bug: EmulationStation's cpugov.patch is never applied (patches/x86_64), and its GPU governor list calls the CPU
+--- slice tips
+feature/m6-device-generic-x64-658 ed8c48f3cd
+feature/m6-device-h700-674 0ac98afe43
+feature/m6-device-sm8550-675 5a60d1c825
+feature/m6-devices-unshipped-672 9b9be6a948
+feature/m6-patches-dead-687 bf3409ea18
+47672fe4a0 commit
+78579255e4 commit
+5a60d1c825 commit
+9b9be6a948 commit
+bf3409ea18 commit
+e863379cec commit
+--- rules at the tip
+.claude/rules/packaging-and-patches.md:91:Kernel patches live under `packages/linux/patches/<DEVICE>/` — that is where a
+CLAUDE.md:149:  `packages/linux/patches/<DEVICE>/`; hardware quirks under
+AGENTS.md:159:  `packages/linux/patches/<DEVICE>/`; hardware quirks under
+ ...-state-feature-m6-patches-shipped-kernel-688.md | 43 ++++++++++++++++++++++
+ 1 file changed, 43 insertions(+)

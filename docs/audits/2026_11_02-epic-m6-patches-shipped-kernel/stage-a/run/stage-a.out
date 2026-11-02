@@ -1,0 +1,357 @@
+=== STAGE A begin 2026-11-02T05:28:27Z
+# Session pointer: M6.P2 T41, the kernel patches and kernel configurations the shipped and test images apply, tabled by provenance and currency (#688)
+
+> **Seeded:** 2026-11-02 by the coordinator (Opus 5.5 in the Antigravity CLI, lane `m6-coordinator`, D-WORKFLOW-189); the executor updates this file **at every checkpoint** (#1014)
+> **Branch (distribution):** `feature/m6-patches-shipped-kernel-688`, cut from `feature/m6-renovation-plan-346` at `d7dd766659`, which carries `feature/m6-p1-survey-641` (`2174265e9c`) since `6a12ce2d73`; no merge commit; the lane's tip at stage A is this pointer's seed commit, the one commit over `d7dd766659` that adds this file (`git log -1 --format=%h` prints it; the dispatch comment names it) -- the brief's § 10 reads `d7dd766659` there, which the seed commit corrects (an erratum at acceptance)
+> **Worktree (distribution):** `/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688` -- the audit artifacts, the work log and this pointer live here; anything temporary under `/workspace/tmp/m6-t41/` after `df -i` (the tarballs' touched files under `/workspace/tmp/m6-t41/src/`), never `/tmp`, retired at stage H
+> **Worktree (EmulationStation):** **none**: nothing in the 107 is EmulationStation's
+> **Primary checkout:** `/workspace/repos/pixelelated/distribution` on `next` (D-INFRA-025); its object store is the coordinator's and every upstream read (`651150fc88`, `c445081a59`) goes there by `git -C ... show|diff|log|ls-tree <hash>`, never a fetch; the legacy `/workspace/repos/rocknix` and every `rocknix.worktrees/*` are the M7 lane's: read only, no process started there; the P1 research clone `/workspace/tmp/m6-coordinator/t11-research/tree` is § 2's block's `W`, read by `git -C` only
+> **Repository:** `pixelelated/distribution`; every `gh` call carries `--repo pixelelated/distribution`
+> **Executor:** Opus 5.5 at high effort, in the T3 session `m6-t3-emulators` (ruling (m)); record the model id your harness reports, never this line's label
+> **Epic:** #1054 (`M6.P2 E339: Area epic: the patches and kernel configurations (T40, T41, T42, T43)`); T40 (#687) accepted at `e863379cec`, closed out at `bf3409ea18`, #687 still open; T42 (#689) and T43 (#690) after
+> **Depth:** **Local -- a provenance table**: the executor alone; `review-plan.json` with reviewers `[]` and `tier_exception` D-WORKFLOW-184; no seat, no packet, no keyed call; the lint's Local proof at stage A
+> **The lens:** package currency over the 107 of `patches-shipped-kernel` -- the kernel patches and configurations the shipped (H700, SM8550) and test (GENERIC_X64) images apply, 106 `.patch` and 1 `.conf`, 40,474 lines by the inventory and by `grep -c`, 40,473 by `wc -l`, five rows `non-kernel`; per row the target version, the pin, applies-at-pin, upstream status, backport status, the fork's reason
+> **The rule:** **the lane edits none of the 107, no recipe, no tool, no script**; its commits touch only its audit folder, its retro, its pointer and its log entries; no `scripts/unpack`, `kconfig-*`, `adjust_kernel_config`, `check_kernel_config`, `kernel_make`, `config/options`; no fetch; no council, Facilitator or keyed call; a tarball extracted file by file into `/workspace/tmp/m6-t41/src/` only; a carried patch found wrong is a `bug` naming upstream's fix, never an edit (rulings (c), (g), (i))
+> **The host:** **none**: no guest window and no compile; the host file `/workspace/tmp/m7-m6-host-coordination.txt` read once at stage A for its protocol and its line count (`1045` at dispatch); no START, RETURN or compile line of this lane's in it at any stage (ruling (h))
+> **Register:** the highest decided row per area read from the table at `d7dd766659` (D-CLOUD-193, D-INFRA-031, D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-137, D-WORKFLOW-221), the last of them **this slice's ownership row, D-WORKFLOW-221, written by the coordinator at dispatch** (ruling (l); 220 is T39's)
+> **The brief:** `docs/reviews/briefs/patches-shipped-kernel.md` at `9313492990` (version 2, sha256 prefix `24794608bcc7a0f9`, `2194` lines; version 1 `7d70da5972`, the stranger's proof `kit/t41-proof.md`)
+
+## State at seeding
+
+Dispatched 2026-11-02 05:26:00 UTC by the coordinator's comment on #688. Nothing has run. Stage A is next: the eleven keys above read against T40's and T39's values (any that names a predecessor is reported on #688 before going on), then the brief's § 5 `# STAGE A` block in order -- the lint's Local proof first (ruling (i)), § 2's block extracted from the brief at `9313492990` by its markers and never retyped (sha256 prefix `4d300124a6bf116f`), its 99 expected lines at P1 and at the tip, both line figures, the host file's protocol and line count, `00-running-log.md`'s header (the model your harness reports, the effort, the session, `reviewed-at` the tip with `2174265e9c` and `d7dd766659` beside it), `01-research-notes.md` § Scope, this pointer updated, and the day's work-log entry headed `#688`. **Every upstream command names `651150fc88`, never the ref `upstream/next`, which moves** (version 2, proof X01); stage A records the ref's value as information only.
+
+## Next commands
+
+```bash
+D=/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688
+cd "$D"   # no fetch of any kind: every hash the brief names is already in the repository
+git branch --show-current                                                            # feature/m6-patches-shipped-kernel-688
+git merge-base --is-ancestor 2174265e9c HEAD && echo carries-p1
+git merge-base --is-ancestor d7dd766659 HEAD && echo cut-from-the-coordinator
+git rev-list --count d7dd766659..HEAD                                                # 1 at stage A: the seed commit
+/usr/bin/grep -c -E '__[A-Z0-9_]+__' .github/sessions/saved-session-state-feature-m6-patches-shipped-kernel-688.md   # 0
+git show 9313492990:docs/reviews/briefs/patches-shipped-kernel.md | sha256sum | cut -c1-16   # 24794608bcc7a0f9
+date -u +%H:%M:%S; /usr/bin/grep -c '' /workspace/tmp/m7-m6-host-coordination.txt; tail -n 6 /workspace/tmp/m7-m6-host-coordination.txt | cut -c1-200   # the protocol and the line count only; this slice writes no line there
+sed -n '1,120p' docs/reviews/briefs/patches-shipped-kernel.md                         # the opening, then § 1 and § 5 in full before the first STAGE A command
+```
+
+## Merge notes
+
+The merge order is the coordinator's, named at acceptance. When `next` moves, the **coordinator** merges `next` into this branch, never between stage A and stage D; the coordinator's branch is merged into this one at hand-back, by the lane on the coordinator's word, before the last criterion's checkers run (T38's day-log conflict: keep both sides' entries in time order, regenerate the index). Never merge another lane's feature branch here. Every lane appends to `docs/decision-register.md`, the day's work log and `docs/work-logs/INDEX.md`: keep every append, regenerate the index, never edit another lane's rows. Nothing here builds, sources `config/options`, runs a guest, a council call or a skill against a provider, touches a device, a cloud account, a key file, the host's swap, another lane's worktree or an ES checkout, or edits any of the 107, a recipe, a tool, a rule, `CLAUDE.md`, `AGENTS.md` or `NAMING.md`.
+
+## Checkpoints
+
+- (none yet; the executor appends one line per stage: the stage, the tip, the time)
+/dev/nvme1n1   244195328 67067226 177128102   28% /workspace
+2026-11-02T05:28:27Z
+feature/m6-patches-shipped-kernel-688
+0
+f03b64419f
+carries-p1
+next-is-here
+50433c03cc
+49bc2745664e52f4
+d17b9cac4b2c2245
+985f742cfd4a2138
+clone-here
+T4 folder: docs/audits/2026_10_24-epic-m6-doctrine-rules
+t4 plan: local D-WORKFLOW-184 0
+lint, a Local plan, rc=0
+  ok    PL-25 answers Q4
+
+PASS
+lint, tier_exception removed, rc=1
+12:  FAIL  second-opinions/review-plan.json or its call evidence is invalid: local-only cannot satisfy Epic/Milestone
+91:1 CONTRACT FAILURE(S)
+brief read rc=0
+4d300124a6bf116f
+.qa-scratch/t41/block.sh:148
+.qa-scratch/t41/block-expected.txt:99
+block rc=0
+block = the brief's expected lines
+1
+block at the tip rc=0
+the same lines at the tip
+05:28:36
+1045
+2026-11-02T01:20:43.258080+00:00 M7 RETURN SM8550 /workspace/tmp/pix-m7-027-sm8550-build-20261102-01 three stages0/all outer originals0, 326.772s; exact3containersabsent/groups empty, noOOM, oldfirmwa
+== M6 coordinator — 01:20 UTC (2026-11-02): acknowledged M7 RETURN 2026-11-02T01:20:43.258080+00:00 -- automatic read acknowledgement by kit/compile-ack.sh (pid 1230737); no M7 START is open after t
+2026-11-02T01:21:13.545406+00:00 M7 START SM8550-027 independent readback /workspace/tmp/pix-m7-027-sm8550-readback-root-20261102-01 admission0281c1a3d8914c70b3a8f61cb9ec203e; standing900s4CPU12GiB/no
+== M6 coordinator — 01:21 UTC (2026-11-02): acknowledged M7 START 2026-11-02T01:21:13.545406+00:00 -- automatic read acknowledgement by kit/compile-ack.sh (pid 1230737); this START is open on the ho
+2026-11-02T01:22:14.426038+00:00 M7 RETURN SM8550027 independent packaged readback PASS; original reader/watch/slot0, exactgroup absent/noOOM, consumed0281c1a3d8914c70b3a8f61cb9ec203e, scratch removed
+== M6 coordinator — 01:22 UTC (2026-11-02): acknowledged M7 RETURN 2026-11-02T01:22:14.426038+00:00 -- automatic read acknowledgement by kit/compile-ack.sh (pid 1230737); no M7 START is open after t
+=== STAGE A end / RUNS begin 2026-11-02T05:28:36Z
+1
+renovation-inventory --order rc=0 lines=50
+slices: 46
+rows: 134634 (inventory: 134634)
+unassigned: 0
+ambiguous: 0
+ 41 patches-shipped-kernel             patches-and-configs       107 paths    40,474 lines        0 read        0 fork-own   40,474 patch  table   
+1
+16:PKG_PATCH_DIRS="${LINUX} mainline ${DEVICE} default"
+22:  RK3588)
+23:    PKG_VERSION="b8e62bed74766b6c8c423a767b35495e78b64caf"
+24:    PKG_SHA256="0e0fe5a2f108d525a044e190c3f23a4603cdbf8d54bc1cc488d6ee04b9fc5b3a"
+27:    PKG_PATCH_DIRS="${LINUX} ${DEVICE} default"
+29:  H700|SM4450|SM6115|SM8250|SM8550|SM8650|SM8750)
+30:    PKG_VERSION="7.2"
+31:    PKG_SHA256="f9fef3d14c0df53819026f4be74459835c2a0b0dcbf5b5bbd9ea19f0829402b3"
+37:    PKG_VERSION="7.1.2"
+38:    PKG_SHA256="37198c93727be247c9fb5309bb86cd5e496c61e5322cd8c4eca9476bb0b5883f"
+40:    PKG_PATCH_DIRS+=" 7.0"
+42:  RK3576|RK3566)
+43:    PKG_VERSION="7.0.2"
+44:    PKG_SHA256="53591a03294527a48ccb0b9e559e922df8a38554745a1206827ca751d2ca7662"
+46:    PKG_PATCH_DIRS+=" 7.0"
+48:  S922X|RK3399)
+49:    PKG_VERSION="6.18.49"
+50:    PKG_SHA256="ae826f33111fea6f1d279dde7299d7463c8dfd204aeb75a8fb5432bc60a28191"
+    # Note that the patch dir 7.2 is automatically added as it matches the
+    # version. When we move past 7.2, remember to add 7.2 to patch dirs.
+H700:25:    KERNEL_TARGET="Image"
+SM8550:25:    KERNEL_TARGET="Image"
+GENERIC_X64:10:        TARGET_KERNEL_PATCH_ARCH="x86_64"
+GENERIC_X64:24:    KERNEL_TARGET="bzImage"
+    TARGET_KERNEL_PATCH_ARCH="aarch64"
+    if [ "${TARGET_ARCH}" = "x86_64" ]; then
+      PATCH_ARCH="x86"
+    elif [ "${PKG_IS_KERNEL_PKG}" = "yes" ]; then
+      PATCH_ARCH="${TARGET_KERNEL_PATCH_ARCH:-${TARGET_ARCH}}"
+    else
+      PATCH_ARCH="${TARGET_PATCH_ARCH:-${TARGET_ARCH}}"
+    fi
+
+    PATCH_DIRS_PKG=""
+    PATCH_DIRS_PRJ=""
+    if [ -n "${PKG_PATCH_DIRS}" ]; then
+      for patch_dir in ${PKG_PATCH_DIRS}; do
+        if [[ ${patch_dir} =~ ^/ ]]; then
+          [ -f ${patch_dir} ] && PATCH_DIRS_PKG+=" ${patch_dir}"
+          [ -d ${patch_dir} ] && PATCH_DIRS_PKG+=" ${patch_dir}/*.patch"
+        else
+          [ -d ${PKG_DIR}/patches/${patch_dir} ] && PATCH_DIRS_PKG+=" ${PKG_DIR}/patches/${patch_dir}/*.patch"
+          [ -d ${PROJECT_DIR}/${PROJECT}/patches/${PKG_NAME}/${patch_dir} ] && PATCH_DIRS_PRJ+=" ${PROJECT_DIR}/${PROJECT}/patches/${PKG_NAME}/${patch_dir}/*.patch"
+          [ -d ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/patches/${PKG_NAME}/${patch_dir} ] && PATCH_DIRS_PRJ+=" ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/patches/${PKG_NAME}/${patch_dir}/*.patch"
+        fi
+      done
+    fi
+
+    for i in ${PKG_DIR}/patches/*.patch \
+      ${PKG_DIR}/patches/${PATCH_ARCH}/*.patch \
+      ${PATCH_DIRS_PKG} \
+      ${PKG_DIR}/patches/${PKG_VERSION}/*.patch \
+      ${PKG_DIR}/patches/${PKG_VERSION}/${PATCH_ARCH}/*.patch \
+      ${PROJECT_DIR}/${PROJECT}/patches/${PKG_NAME}/*.patch \
+      ${PROJECT_DIR}/${PROJECT}/patches/${PKG_NAME}/${PATCH_ARCH}/*.patch \
+      ${PATCH_DIRS_PRJ} \
+      ${PROJECT_DIR}/${PROJECT}/patches/${PKG_NAME}/${PKG_VERSION}/*.patch \
+      ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/patches/${PKG_NAME}/*.patch; do
+GENERIC_X64 total: 8
+H700 total: 42
+SM8550 total: 65
+7.0: 4
+7.2: 6
+mainline: 4
+H700: 32 patches, 1 disabled
+SM8550: 55 patches, 1 disabled
+absent patches/H700
+absent patches/SM8550
+absent patches/GENERIC_X64
+absent patches/default
+absent patches/aarch64
+absent patches/x86
+absent patches/7.1.2
+patches 106 with From: 87 with Subject: 89
+projects/ROCKNIX/devices/H700/patches/linux/0160-phy-sun4i-usb-disable-the-clock-that-was-enabled.patch:11:Link: https://lists.infradead.org/pipermail/linux-arm
+projects/ROCKNIX/devices/SM8550/patches/linux/0006-add-hw_params-callback-function-to-drm_connector_hdmi_audio_ops.patch:35:Link: https://patch.msgid.link/20250
+projects/ROCKNIX/packages/linux/patches/7.2/0011-thermal-adc-tm5-drop-iio-val-int-check.patch:19:Link: https://patch.msgid.link/20260724-adc-tm5-drop-iio-val-in
+projects/ROCKNIX/packages/linux/patches/7.2/0016-drm-msm-dp-return-0-from-audio_prepare-when-cable-is-disconnected.patch:12:Upstream-Status: Backport [https://l
+      1 vs c445081a59 ABSENT
+    106 vs c445081a59 SAME
+      2 vs 651150fc88 ABSENT
+      4 vs 651150fc88 CHANGED
+    101 vs 651150fc88 SAME
+     12 A
+      1 D
+      4 M
+M	projects/ROCKNIX/devices/SM8550/linux/linux.aarch64.conf
+M	projects/ROCKNIX/devices/SM8550/patches/linux/0104-drm-panel-Add-Retroid-Pocket-6-panel.patch
+M	projects/ROCKNIX/packages/linux/patches/7.0/0010-msm-resource-cleanup.patch
+M	projects/ROCKNIX/packages/linux/patches/7.2/0010-msm-resource-cleanup.patch
+D	projects/ROCKNIX/packages/linux/patches/mainline/0002-input-add-input-polldev-driver.patch
+A	projects/ROCKNIX/devices/SM8550/patches/linux/0508-ROCKNIX-rp6-panel-frame-length-calibration.patch
+A	projects/ROCKNIX/devices/SM8550/patches/linux/0509-ROCKNIX-thor-panel-frame-length-calibration.patch
+A	projects/ROCKNIX/packages/linux/patches/7.2.6/0010-msm-resource-cleanup.patch
+A	projects/ROCKNIX/packages/linux/patches/7.2.6/0013-drm-msm-dpu-fix-inline-rotation.patch
+A	projects/ROCKNIX/packages/linux/patches/7.2.6/9998-silence-initramfs-unpack-warn.patch
+A	projects/ROCKNIX/packages/linux/patches/7.2.6/9999-fix-rust-build-error.patch
+A	projects/ROCKNIX/packages/linux/patches/7.2/0011-drm-msm-signal-hw_done-before-the-flip-event.patch
+A	projects/ROCKNIX/packages/linux/patches/7.2/0012-drm-msm-dpu-qos-lut-for-scaled-compressed-fetch.patch
+A	projects/ROCKNIX/packages/linux/patches/7.2/0014-drm-msm-dpu-scaled-fetch-line-width.patch
+A	projects/ROCKNIX/packages/linux/patches/7.2/0015-drm-msm-dpu-sm8250-linear-danger-lut.patch
+A	projects/ROCKNIX/packages/linux/patches/7.2/0017-clk-qcom-blank-dsi-panels-before-dispcc-park.patch
+A	projects/ROCKNIX/packages/linux/patches/7.2/0018-drm-msm-dpu-preload-seven-pixels-in-qseed4-behind-the-inline-rotator.patch
+ 5 files changed, 36 insertions(+), 515 deletions(-)
+dcafa74090 2026-10-22 linux: kernel config
+6fbefc45c6 2026-10-18 linux: kernel config
+70912f0377 2026-10-10 Merge pull request #3479 from hackbar/joypad
+abfdcfb57f 2026-10-10 SM8550/SM8750: add RP6 and Odin 3 display refresh rate calibration
+fe5216ff69 2026-10-09 rocknix-joypad: update version
+9416eec2c2 2026-10-06 kernel: msm dp resource cleanup patch fix uninit pointer
+5f56cd5150 2026-10-04 linux: skip the RAID6 algorithm benchmark at boot
+c0980b2b71 2026-10-02 linux: kernel config
+ 2 files changed, 28 insertions(+), 22 deletions(-)
+PKG_PATCH_DIRS="${LINUX} mainline ${DEVICE} default"
+
+[[ "${DEVICE}" =~ "RK3326|RK3399|S922X|H700" ]] && PKG_PATCH_DIRS+=" rocknix-joypad"
+[[ "${DEVICE}" == RK* ]] && PKG_PATCH_DIRS+=" mainline-rockchip"
+
+    PKG_GIT_CLONE_BRANCH="rk-6.1-rkr3"
+    PKG_PATCH_DIRS="${LINUX} ${DEVICE} default"
+    ;;
+  RK3566|RK3576|S922X)
+    PKG_VERSION="7.2.11"
+    PKG_SHA256="fd0fc479f983a8c05313f13e9c36330fe6651cf725396748c40d5cd93fa1e6a4"
+    PKG_URL="https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+    PKG_PATCH_DIRS+=" 7.2.6"
+    ;;
+  H700|SM4450|SM6115|SM8250|SM8550|SM8650|SM8750)
+    PKG_VERSION="7.2"
+    PKG_SHA256="f9fef3d14c0df53819026f4be74459835c2a0b0dcbf5b5bbd9ea19f0829402b3"
+    PKG_URL="https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+    # Note that the patch dir 7.2 is automatically added as it matches the
+    # version. When we move past 7.2, remember to add 7.2 to patch dirs.
+    ;;
+  RK3326|AMD64)
+    PKG_VERSION="7.1.2"
+    PKG_SHA256="37198c93727be247c9fb5309bb86cd5e496c61e5322cd8c4eca9476bb0b5883f"
+    PKG_URL="https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+    PKG_PATCH_DIRS+=" 7.0"
+    ;;
+  RK3399)
+    PKG_VERSION="6.18.54"
+    PKG_SHA256="9df30b02dd8102bbd0be52556288ef6889ddbe7f1ddb96fbf847d0becf3eacac"
+    PKG_URL="https://www.kernel.org/pub/linux/kernel/v${PKG_VERSION/.*/}.x/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+    ;;
+esac
+RK3326 no-match
+RK3399 no-match
+S922X no-match
+H700 no-match
+SM8550 no-match
+1
+f370dc8787 2026-10-12 blitterbot distribution: merge ROCKNIX 20261001 for M7 qualification
+049765fba0 2026-09-29 Max Engel Merge remote-tracking branch 'upstream/next' into next
+4497f291bd 2026-09-25 Max Engel Merge remote-tracking branch 'upstream/next' into next
+7bd7f31312 2026-09-19 Max Engel Merge remote-tracking branch 'upstream/next' into next
+cbf75c0b06 2026-09-10 Max Engel Handhelds keep their evidence across a power cycle: persistent logs, a watchdog, a crash
+7650de7dd6 2026-09-04 Max Engel Merge upstream/next (133 commits, base 2026-08-18)
+cbf75c0b06 2026-09-10 Max Engel Handhelds keep their evidence across a power cycle: persistent logs, a watchdog, a crash
+3d7c075f63 2026-10-02 identity: prepare Rasteratops 0.0.1 source inputs (#337, #383)
+dc948f59aa 2026-08-21 GENERIC_X64 - give the VM device a kernel version
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+64
+identical 7.0/7.2 0010-msm-resource-cleanup.patch
+identical 7.0/7.2 9998-silence-initramfs-unpack-warn.patch
+identical 7.0/7.2 9999-fix-rust-build-error.patch
+identical DDR3/DDR4 0001-Update-dram_sun50i_h616.c.patch
+identical DDR3/DDR4 0002-sunxi-axp717-charge-only-boot.patch
+projects/ROCKNIX/devices/RK3566/filesystem/usr/share/alsa/ucm2/conf.d/aw88166/aw88166.conf
+projects/ROCKNIX/devices/RK3566/filesystem/usr/share/alsa/ucm2/conf.d/simple-card/rk817_hp.conf
+projects/ROCKNIX/devices/SM8750/filesystem/usr/share/alsa/ucm2/conf.d/sm8750/SM8750-KONKR.conf
+cbf75c0b06 2026-09-10 Max Engel Handhelds keep their evidence across a power cycle: persistent logs, a watchdog, a crash
+38
+From: ROCKNIX fork <noreply@rocknix.org>
+Subject: [PATCH] arm64: dts: allwinner: h616: reserve 1 MiB for ramoops on every H700 board
+not-in-upstream
+0
+7292:# CONFIG_PSTORE_RAM is not set
+3656:CONFIG_WATCHDOG_SYSFS=y
+7290:CONFIG_PSTORE_CONSOLE=y
+7292:CONFIG_PSTORE_RAM=y
+7975:CONFIG_SOFTLOCKUP_DETECTOR=y
+7978:CONFIG_DETECT_HUNG_TASK=y
+7979:CONFIG_DEFAULT_HUNG_TASK_TIMEOUT=120
+# Linux/arm64 7.2.0 Kernel Configuration
+0
+7	7	projects/ROCKNIX/devices/SM8550/linux/linux.aarch64.conf
+-CONFIG_CC_VERSION_TEXT="aarch64-rocknix-linux-gnu-gcc-15.2.0 (GCC) 15.2.0"
+-CONFIG_GCC_VERSION=150200
+-CONFIG_RUSTC_VERSION=109801
+-CONFIG_RUSTC_LLVM_VERSION=220108
+-CONFIG_RUSTC_LLVM_MAJOR_VERSION=22
+-# CONFIG_INPUT_POLLDEV is not set
+-CONFIG_RAID6_PQ_BENCHMARK=y
+2609
+defconfig extract rc=0
+3827
+17
+CONFIG_CFG80211 1
+CONFIG_CFG80211_REQUIRE_SIGNED_REGDB 1
+CONFIG_CIFS 1
+CONFIG_DEFAULT_HOSTNAME 1
+CONFIG_DRM_LIMA 1
+CONFIG_DRM_PANFROST 1
+CONFIG_EXTRA_FIRMWARE 1
+CONFIG_EXTRA_FIRMWARE_DIR 0
+CONFIG_INITRAMFS_SOURCE 1
+CONFIG_ISCSI_BOOT_SYSFS 1
+CONFIG_ISCSI_IBFT 1
+CONFIG_ISCSI_IBFT_FIND 0
+CONFIG_ISCSI_TCP 1
+CONFIG_NFS_FS 1
+CONFIG_SCSI_ISCSI_ATTRS 1
+CONFIG_SWAP 1
+CONFIG_WIREGUARD 1
+# Linux/arm64 7.2.0 Kernel Configuration
+linux-7.2.tar.xz = its .sha256 (f9fef3d14c0df538)
+linux-7.1.2.tar.xz = its .sha256 (37198c93727be247)
+24:    PKG_SHA256="0e0fe5a2f108d525a044e190c3f23a4603cdbf8d5
+31:    PKG_SHA256="f9fef3d14c0df53819026f4be74459835c2a0b0dc
+38:    PKG_SHA256="37198c93727be247c9fb5309bb86cd5e496c61e53
+44:    PKG_SHA256="53591a03294527a48ccb0b9e559e922df8a385547
+50:    PKG_SHA256="ae826f33111fea6f1d279dde7299d7463c8dfd204
+/workspace/cache/rocknix-sources/kernel-firmware:
+kernel-firmware-20260309.tar.gz
+kernel-firmware-20260309.tar.gz.sha256
+kernel-firmware-20260309.tar.gz.url
+
+/workspace/cache/rocknix-sources/u-boot-DDR3:
+u-boot-DDR3-v2026.01.tar.gz
+u-boot-DDR3-v2026.01.tar.gz.sha256
+u-boot-DDR3-v2026.01.tar.gz.url
+
+/workspace/cache/rocknix-sources/u-boot-DDR4:
+u-boot-DDR4-v2026.01.tar.gz
+u-boot-DDR4-v2026.01.tar.gz.sha256
+u-boot-DDR4-v2026.01.tar.gz.url
+0
+0
+rules-check rc=0
+rules-check: 30 rule files, every one front-mattered and indexed
+register-check rc=0
+register-check: 717 IDs, each once; every citation in the live documents names a row
+work-log-index rc=0
+work-log index: current
+ceremony-check rc=0
+nothing overdue.
+box-check rc=0
+box-check: 300 issue(s), 626 open checkbox(es), 0 fail, 13 issue(s) with rows to re-derive against
+hooks-test rc=0
+PASS
+M6.P2 E1054/T41: patches-and-configs: kernel patches and configurations the shipped and test images apply
+OPEN
+52
+#328 OPEN SM8550: 'disp_cc_mdss_mdp_clk_src: rcg didn't update its configuration' once per boot at dispcc probe (up
+#369 OPEN Parked: offer the fork's generic fixes to their own projects (RetroArch, RAOfflineProxy, the H616 kernel)
+#104 OPEN Handhelds keep no evidence across a power cycle: persistent logs, watchdog, crash store
+#44 OPEN H700: nothing tells a downloader whether their board is DDR3 or DDR4
+#1056 OPEN Bug: renovation-inventory does not resolve a symlinked patches directory, so four generic patches every i
+#1049 OPEN Bug: renovation-inventory's reach does not follow PKG_DEPENDS_UNPACK, so five units every image unpacks r
+#1086 OPEN Bug: renovation-inventory reads rkhelper and six overlay sources as reached by shipped devices that never
+#1084 OPEN Backlog: regenerate GENERIC_X64's kernel configuration at the kernel the recipe builds (7.1.2) from the G
+#563 OPEN M7.P5: Adopt ROCKNIX 20261001 as the candidate foundation
+#559 OPEN Backlog: Define ROCKNIX integration and selective backport procedure
+#585 OPEN Standing: Queue upstream contributions after the initial build
+=== RUNS end 2026-11-02T05:29:21Z

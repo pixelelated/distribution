@@ -1,12 +1,13 @@
 # Session pointer: M6.P2 T41, the kernel patches and kernel configurations the shipped and test images apply, tabled by provenance and currency (#688)
 
 > **Seeded:** 2026-11-02 by the coordinator (Opus 5.5 in the Antigravity CLI, lane `m6-coordinator`, D-WORKFLOW-189); the executor updates this file **at every checkpoint** (#1014)
+> **Last updated:** 2026-11-02T15:19:00Z by the T3 executor (`m6-t3-emulators`, Stage A completed and stashed after the 05:30 UTC quota stop and 15:08 UTC model switch to Gemini 4 Argon (High); prior seeded version archived at `.github/sessions/archived/saved-session-state-feature-m6-patches-shipped-kernel-688-20261102T052600Z.md`)
 > **Branch (distribution):** `feature/m6-patches-shipped-kernel-688`, cut from `feature/m6-renovation-plan-346` at `d7dd766659`, which carries `feature/m6-p1-survey-641` (`2174265e9c`) since `6a12ce2d73`; no merge commit; the lane's tip at stage A is this pointer's seed commit, the one commit over `d7dd766659` that adds this file (`git log -1 --format=%h` prints it; the dispatch comment names it) -- the brief's § 10 reads `d7dd766659` there, which the seed commit corrects (an erratum at acceptance)
 > **Worktree (distribution):** `/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688` -- the audit artifacts, the work log and this pointer live here; anything temporary under `/workspace/tmp/m6-t41/` after `df -i` (the tarballs' touched files under `/workspace/tmp/m6-t41/src/`), never `/tmp`, retired at stage H
 > **Worktree (EmulationStation):** **none**: nothing in the 107 is EmulationStation's
 > **Primary checkout:** `/workspace/repos/pixelelated/distribution` on `next` (D-INFRA-025); its object store is the coordinator's and every upstream read (`651150fc88`, `c445081a59`) goes there by `git -C ... show|diff|log|ls-tree <hash>`, never a fetch; the legacy `/workspace/repos/rocknix` and every `rocknix.worktrees/*` are the M7 lane's: read only, no process started there; the P1 research clone `/workspace/tmp/m6-coordinator/t11-research/tree` is § 2's block's `W`, read by `git -C` only
 > **Repository:** `pixelelated/distribution`; every `gh` call carries `--repo pixelelated/distribution`
-> **Executor:** Opus 5.5 at high effort, in the T3 session `m6-t3-emulators` (ruling (m)); record the model id your harness reports, never this line's label
+> **Executor:** Opus 5.5 at high effort, in the T3 session `m6-t3-emulators` (ruling (m)); record the model id your harness reports, never this line's label (Stage-A commands ran under `Claude Opus 5.5 (High)` at `05:27–05:30 UTC` before the account quota stop; switched by the owner at `15:08 UTC` to `Gemini 4 Argon (High)` to write and stash Stage A cleanly for resumption in the new harness)
 > **Epic:** #1054 (`M6.P2 E339: Area epic: the patches and kernel configurations (T40, T41, T42, T43)`); T40 (#687) accepted at `e863379cec`, closed out at `bf3409ea18`, #687 still open; T42 (#689) and T43 (#690) after
 > **Depth:** **Local -- a provenance table**: the executor alone; `review-plan.json` with reviewers `[]` and `tier_exception` D-WORKFLOW-184; no seat, no packet, no keyed call; the lint's Local proof at stage A
 > **The lens:** package currency over the 107 of `patches-shipped-kernel` -- the kernel patches and configurations the shipped (H700, SM8550) and test (GENERIC_X64) images apply, 106 `.patch` and 1 `.conf`, 40,474 lines by the inventory and by `grep -c`, 40,473 by `wc -l`, five rows `non-kernel`; per row the target version, the pin, applies-at-pin, upstream status, backport status, the fork's reason
@@ -15,24 +16,46 @@
 > **Register:** the highest decided row per area read from the table at `d7dd766659` (D-CLOUD-193, D-INFRA-031, D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-137, D-WORKFLOW-221), the last of them **this slice's ownership row, D-WORKFLOW-221, written by the coordinator at dispatch** (ruling (l); 220 is T39's)
 > **The brief:** `docs/reviews/briefs/patches-shipped-kernel.md` at `9313492990` (version 2, sha256 prefix `24794608bcc7a0f9`, `2194` lines; version 1 `7d70da5972`, the stranger's proof `kit/t41-proof.md`)
 
-## State at seeding
+## Current focus (Stage A complete and stashed for resumption in the new harness)
 
-Dispatched 2026-11-02 05:26:00 UTC by the coordinator's comment on #688. Nothing has run. Stage A is next: the eleven keys above read against T40's and T39's values (any that names a predecessor is reported on #688 before going on), then the brief's § 5 `# STAGE A` block in order -- the lint's Local proof first (ruling (i)), § 2's block extracted from the brief at `9313492990` by its markers and never retyped (sha256 prefix `4d300124a6bf116f`), its 99 expected lines at P1 and at the tip, both line figures, the host file's protocol and line count, `00-running-log.md`'s header (the model your harness reports, the effort, the session, `reviewed-at` the tip with `2174265e9c` and `d7dd766659` beside it), `01-research-notes.md` § Scope, this pointer updated, and the day's work-log entry headed `#688`. **Every upstream command names `651150fc88`, never the ref `upstream/next`, which moves** (version 2, proof X01); stage A records the ref's value as information only.
+Stage A is complete on `feature/m6-patches-shipped-kernel-688` over seed commit `f03b64419f` (cut from `d7dd766659`), pushed to `origin-https/feature/m6-patches-shipped-kernel-688`, and reported on `#688`. All Stage-A verification commands ran at `05:27:50Z–05:30:28Z` under `Claude Opus 5.5 (High)` before the `05:30 UTC` account usage-quota stop; after the owner switched the session model to `Gemini 4 Argon (High)` at `15:08 UTC` and asked every lane to stash cleanly for a new harness, the Stage-A artifacts (`docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/00-running-log.md`, `01-research-notes.md`, and `stage-a/`), this pointer, and the work log were written, committed, and pushed.
 
-## Next commands
+### Stage-A findings summary
+
+- **Pointer 11-key check:** `0` unfilled placeholders, `0` seeding errors (`D-WORKFLOW-221` present at `docs/decision-register.md:2089`).
+- **Local lint proof (ruling (i)):** `tools/lint-audit-artifacts` on T4's finished Local folder (`6ec78bbf8c`) returned `rc=0` (`PASS`), and with `tier_exception` removed returned `rc=1` (`12:  FAIL  second-opinions/review-plan.json or its call evidence is invalid: local-only cannot satisfy Epic/Milestone`, `91:1 CONTRACT FAILURE(S)`).
+- **Membership & carve (§ 2 block `4d300124a6bf116f`):** `99` output lines at P1 (`2174265e9c`) and at the tip (`f03b64419f`) match `block-expected.txt` byte-for-byte (`diff` empty). `107` paths (`106` `.patch`, `1` `kernel-config`), `40,474` lines by inventory and `/usr/bin/grep -c ''`, `40,473` by `wc -l` (`0004-drm-msm-a6xx-Enable-IFPC-on-Adreno-740.patch` has no trailing newline: `32` vs `33`). Reach `shipped: 103`, `test: 4`; 9 groups; 7 `reachable_by` tuples (`4, 32, 56, 1, 4, 6, 4`, sum `107`).
+- **Host file (`ruling (h)`):** read once at `05:28:36 UTC` (`1045` lines, matching dispatch); `0` lines written by this lane.
+- **Patch application orders:** `GENERIC_X64` `8`, `H700` `42`, `SM8550` `65`.
+- **Header census (`106` `.patch`):** `87` with `From:`, `89` with `Subject:`, `4` with `Link:` or `Upstream-Status:`.
+- **Byte identity & upstream `c445081a59..651150fc88`:** `106 SAME` / `1 ABSENT` (`0950` ramoops) vs `c445081a59`; `101 SAME` / `4 CHANGED` / `2 ABSENT` vs `651150fc88`; `12 A`, `1 D`, `4 M` across the 4 shipped kernel dirs; `5 files changed, 36 insertions(+), 515 deletions(-)` on the 107; both `0010` copies `2 files changed, 28 insertions(+), 22 deletions(-)`; L-02 quoted `=~` test five `no-match`; `rocknix-joypad/` count at `651150fc88` = `1` (the driver recipe `projects/ROCKNIX/packages/linux-drivers/rocknix-joypad/package.mk`, not a patch dir).
+- **Four `SM8550/linux/linux.aarch64.conf` counts:** `(a)` `2609` diff lines vs H700's conf, `(b)` `3827` diff lines vs `linux-7.2/arch/arm64/configs/defconfig` (extracted to `/workspace/tmp/m6-t41/src/linux-7.2/arch/arm64/configs/defconfig`), `(c)` `17` forced/disabled symbols in `packages/linux/package.mk:146-335` (`15` present in SM8550's `.conf`, `2` absent: `CONFIG_EXTRA_FIRMWARE_DIR 0`, `CONFIG_ISCSI_IBFT_FIND 0`), `(d)` `7 7` numstat vs `651150fc88` (header `# Linux/arm64 7.2.0 Kernel Configuration` at both).
+- **Tarball sha256 verification:** `linux-7.2.tar.xz` (`f9fef3d14c0df538`) and `linux-7.1.2.tar.xz` (`37198c93727be247`) match their `.sha256` sidecars and `packages/linux/package.mk:9-19`.
+- **Baseline checkers at `f03b64419f`:** `rules-check rc=0`, `register-check rc=0` (`717 IDs`), `work-log-index rc=0` (`current`), `ceremony-check rc=0` (`nothing overdue.`), `box-check rc=0` (`300 issue(s), 626 open checkbox(es), 0 fail`), `hooks-test rc=0` (`PASS`).
+- **Important `.githooks/secret-patterns` collision note for Stage B:** H700 patch #32 (`projects/ROCKNIX/devices/H700/patches/linux/0158-mmc-sunxi-mmc-mask\u002ddata0-when-updating-the-clock-on-h616-emmc.patch`) has a filename substring starting at the last two letters of `mask` that matches `sk-[A-Za-z0-9_-]{24,}` in `.githooks/secret-patterns` (which is why `docs/reviews/inventory.json` records it in `escaped_rows` with `\u002d`, `tools/renovation-inventory:633-642`). In the 11 committed files under `stage-a/` that list this path, that hyphen is escaped as `\u002d`; the unescaped copies remain in `/workspace/tmp/m6-t41/` and gitignored `.qa-scratch/t41/`. Reported on `#688` at the Stage-A checkpoint so Stage B's `02-forward-audit.md` table respects both Criterion 9 and Criterion 17.
+
+### What is preserved on disk for Stage B
+
+- **Committed in worktree (`docs/audits/2026_11_02-epic-m6-patches-shipped-kernel/`):** `00-running-log.md`, `01-research-notes.md`, and `stage-a/` (36 files).
+- **Uncommitted scratch (outside git or gitignored, preserved across harness switch):**
+  - `/workspace/tmp/m6-t41/` — holds `stage-a-p1/`, `lint-proof/`, `order-GENERIC_X64.txt`, `order-H700.txt`, `order-SM8550.txt`, `src/linux-7.2/arch/arm64/configs/defconfig`, `run/` (including `stage-a.trace`), and `tmp/`.
+  - `/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688/.qa-scratch/t41/` (gitignored by `.gitignore:29`) — holds the unescaped Stage-A outputs (`paths.txt`, `patches.txt`, `confs.txt`, `lines-grep.tsv`, `lines-wc.tsv`, `headers.tsv`, `vs-mergebase.tsv`, `vs-upstream-next.tsv`, `block.sh`, `block.out`, `block-tip.out`, `sm8550-*.diff`, `linux-pkg-forced-configs.txt`).
+
+## Next commands (Stage B in the new harness, after coordinator's Stage-A checkpoint reply on `#688`)
 
 ```bash
 D=/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688
-cd "$D"   # no fetch of any kind: every hash the brief names is already in the repository
-git branch --show-current                                                            # feature/m6-patches-shipped-kernel-688
-git merge-base --is-ancestor 2174265e9c HEAD && echo carries-p1
-git merge-base --is-ancestor d7dd766659 HEAD && echo cut-from-the-coordinator
-git rev-list --count d7dd766659..HEAD                                                # 1 at stage A: the seed commit
-/usr/bin/grep -c -E '__[A-Z0-9_]+__' .github/sessions/saved-session-state-feature-m6-patches-shipped-kernel-688.md   # 0
-git show 9313492990:docs/reviews/briefs/patches-shipped-kernel.md | sha256sum | cut -c1-16   # 24794608bcc7a0f9
-date -u +%H:%M:%S; /usr/bin/grep -c '' /workspace/tmp/m7-m6-host-coordination.txt; tail -n 6 /workspace/tmp/m7-m6-host-coordination.txt | cut -c1-200   # the protocol and the line count only; this slice writes no line there
-sed -n '1,120p' docs/reviews/briefs/patches-shipped-kernel.md                         # the opening, then § 1 and § 5 in full before the first STAGE A command
+cd "$D"
+git status --porcelain                                                               # empty
+git log -n 2 --oneline                                                               # Stage-A commit over f03b64419f
+gh --repo pixelelated/distribution issue view 688 --comments | tail -n 80            # check coordinator reply on Stage-A checkpoint
+sed -n '985,1275p' docs/reviews/briefs/patches-shipped-kernel.md                     # read § 5 # STAGE B in full before running Stage-B dry-runs
 ```
+
+Stage B tasks (once the coordinator acknowledges Stage A on `#688`):
+1. Read `0950-arm64-dts-qcom-qcs6490-ayn-odin2-reserve-ramoops.patch` and the 31 leads (`L-01`..`L-31`) line by line against their upstream trees and recipes.
+2. Extract only the touched target files from the cached tarballs (`linux-7.1.2.tar.xz`, `linux-7.2.tar.xz`, U-Boot `v2024.01` / `bf6b6fb6a92`, and `linux-firmware-c988fb50a862eb556ce9fcbeab1ec6ebd7fbfc25.tar.gz`) into `/workspace/tmp/m6-t41/src/` after checking `df -i /workspace/tmp`, and run the `patch --dry-run` sequences for `GENERIC_X64:7.1.2` (8 patches), `H700:7.2` (42 patches), `SM8550:7.2` (65 patches), and the 5 `non-kernel` rows (3 U-Boot, 1 ATF `N/A`, 1 firmware).
+3. Write `02-forward-audit.md` (§ The 107, § The application order, § The non-kernel five, § The config pair, § The fork's own row, § Upstream's 651150fc88 delta, § The findings table), `03-retrospective.md`, `04-analysis.md`, and `stage-b/`, then commit, push to `origin-https`, and post the Stage-B checkpoint on `#688`.
 
 ## Merge notes
 
@@ -40,4 +63,4 @@ The merge order is the coordinator's, named at acceptance. When `next` moves, th
 
 ## Checkpoints
 
-- (none yet; the executor appends one line per stage: the stage, the tip, the time)
+- **Stage A** (`2026-11-02T15:19Z`, over seed `f03b64419f` cut from `d7dd766659`): 11 pointer keys verified (`0` errors, `D-WORKFLOW-221` present); Local lint proof PASS (`rc=0`) and FAIL-first (`rc=1`); § 2 membership block `4d300124a6bf116f` (`99` lines identical at P1 `2174265e9c` and tip `f03b64419f`); host ledger read once (`1045` lines, `0` written); Stage-A orders (`8`/`42`/`65`), header census (`106`/`87`/`89`/`4`), byte comparisons (`106/1` vs `c445081a59`, `101/4/2` vs `651150fc88`), four `SM8550` `.conf` counts (`2609`, `3827`, `17` forced with `2` absent, `7/7`), tarball sha256s, and six checkers (`rc=0`) recorded in `00-running-log.md`, `01-research-notes.md`, and `stage-a/`; stashed cleanly after the `05:30Z` quota stop and `15:08Z` switch to `Gemini 4 Argon (High)`.
