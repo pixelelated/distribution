@@ -1,0 +1,163 @@
+{
+  "commands": [
+    {
+      "label": "audit-1409",
+      "argv": [
+        "gh",
+        "api",
+        "repos/pixelelated/distribution/issues/1409"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "cpu_affinity": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "start": "2026-11-02T21:02:29.856628+00:00",
+      "end": "2026-11-02T21:02:30.452638+00:00",
+      "elapsed_seconds": 0.596001,
+      "rc": 0,
+      "stdout": "audit-1409.stdout",
+      "stderr": "audit-1409.stderr",
+      "stdout_sha256": "b4897ae5fdee2edb35f1be20171ac9252fa17fdd40e46ab475e19e6a776869c3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "lane-688",
+      "argv": [
+        "gh",
+        "api",
+        "repos/pixelelated/distribution/issues/688"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "cpu_affinity": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "start": "2026-11-02T21:02:30.453054+00:00",
+      "end": "2026-11-02T21:02:30.927307+00:00",
+      "elapsed_seconds": 0.474263,
+      "rc": 0,
+      "stdout": "lane-688.stdout",
+      "stderr": "lane-688.stderr",
+      "stdout_sha256": "eaf98b5338bf735ebe466c14adca63875e0a25049da6f9b91f3c5085228a7f07",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "bug-1408",
+      "argv": [
+        "gh",
+        "api",
+        "repos/pixelelated/distribution/issues/1408"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "cpu_affinity": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "start": "2026-11-02T21:02:30.927678+00:00",
+      "end": "2026-11-02T21:02:31.356576+00:00",
+      "elapsed_seconds": 0.428908,
+      "rc": 0,
+      "stdout": "bug-1408.stdout",
+      "stderr": "bug-1408.stderr",
+      "stdout_sha256": "520a644e6e3ac809b72ff1f107c42aa424de1aff5e9d3cafca1bdabdf3c021d0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "coordinator-acceptance",
+      "argv": [
+        "git",
+        "show",
+        "8b83e452459f6696ac959b4e4e5494701d5d2f93:docs/qa-logs/2026-11-02-m6-resume/t41-final-acceptance.md"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688",
+      "cpu_affinity": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "start": "2026-11-02T21:02:31.357633+00:00",
+      "end": "2026-11-02T21:02:31.359977+00:00",
+      "elapsed_seconds": 0.002349,
+      "rc": 0,
+      "stdout": "coordinator-acceptance.stdout",
+      "stderr": "coordinator-acceptance.stderr",
+      "stdout_sha256": "7e2fda4a0a922f5c573022125888bd494e1dab8ab6f6393eb4011cda903bea99",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "produced_at": "2026-11-02T21:02:31.360339+00:00",
+  "cpu_affinity": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ]
+}

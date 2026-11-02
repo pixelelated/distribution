@@ -1,7 +1,7 @@
 # Session pointer: M6.P2 T41, the kernel patches and kernel configurations the shipped and test images apply, tabled by provenance and currency (#688)
 
 > **Seeded:** 2026-11-02 by the coordinator (Opus 5.5 in the Antigravity CLI, lane `m6-coordinator`, D-WORKFLOW-189); the executor updates this file **at every checkpoint** (#1014)
-> **Last updated:** 2026-11-02T20:04:47.930461+00:00 by Codex / GPT-6-Astra / xhigh, T3 wN:p6, session 01a19d12-29e3-7fe0-9f41-038dac0a5deb; observed footer, not provider-attested.
+> **Last updated:** 2026-11-02T21:02:31.360915+00:00 by Codex / GPT-6-Astra / xhigh, T3 wN:p6; observed footer, not provider-attested.
 > **Branch (distribution):** `feature/m6-patches-shipped-kernel-688`, seed `f03b64419fa656fb3af61cbc8d174284020d439c` over coordinator `d7dd76665983cb87dba62397691500fcf409fafe`, carrying P1 `2174265e9c`. Accepted Stage-A artifact: `cffe3f869c5ced124e26befa36505350b4964f77`; the seed is historical, not the current tip.
 > **Worktree (distribution):** `/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-kernel-688` -- the audit artifacts, the work log and this pointer live here; anything temporary under `/workspace/tmp/m6-t41/` after `df -i` (the tarballs' touched files under `/workspace/tmp/m6-t41/src/`), never `/tmp`, retired at stage H
 > **Worktree (EmulationStation):** **none**: nothing in the 107 is EmulationStation's
@@ -16,7 +16,7 @@
 > **Register:** the highest decided row per area read from the table at `d7dd766659` (D-CLOUD-193, D-INFRA-031, D-LAUNCH-007, D-NET-017, D-QA-063, D-RA-052, D-SYS-013, D-UI-137, D-WORKFLOW-221), the last of them **this slice's ownership row, D-WORKFLOW-221, written by the coordinator at dispatch** (ruling (l); 220 is T39's)
 > **The brief:** `docs/reviews/briefs/patches-shipped-kernel.md` at `9313492990` (version 2, sha256 prefix `24794608bcc7a0f9`, `2194` lines; version 1 `7d70da5972`, the stranger's proof `kit/t41-proof.md`)
 
-## Current focus — bounded pins-read quotation correction; coordinator acceptance pending
+## Current focus — T41 accepted; publish completion record then stop
 
 The corrected packet under `stage-b/corrected/` and reports `02-forward-audit.md`, `03-retrospective.md`, `04-analysis.md` complete Stage B. Full normal application in a fresh disposable candidate is authoritative under D-WORKFLOW-222 at immutable coordinator `4c8a118cfb4efa8d13c1b41b72ef7a205da5f766` and full comment 6583428757. All 120 applications over 106 patch paths succeeded: 8/42/65/2/2/1 by plan, 43 applies / 48 offsets / 29 fuzz, zero true failures or blocked production rows. Only H700 011 has dry_rc=1/apply_rc=0. The engine's deliberate partial-failure fixture leaves the successful prefix unchanged and blocks the successor. All earlier receipts remain unchanged.
 
@@ -51,15 +51,13 @@ Stage A is complete on `feature/m6-patches-shipped-kernel-688` over seed commit 
 
 Records correction **`02aab33bd9842610b0d466c9c186454dc14373ee`** is pushed; checkpoint 6580886152 has the verified dated erratum. Blocker commit **`3cd9ca140a0da9af447a3ee2fb9cdbbbf222a95b`** and comment 6583064842 preserve the first packet and same-input refutation. Its six initial H700 failures were method-contaminated leads. They are refuted by the corrected complete sequence, not product bugs. The coordinator resolved the method in comment 6583428757 and D-WORKFLOW-222; no additional approval relay was required.
 
-## Immediate next action — publish bounded pins-read records correction, then idle
+## Immediate next action — completion-record publication, then stop
 
-E/F completed at 9ae1b29fecc28e73f7bd3da444cbf993eb08a17f. PL-001 is Deferred to open High #1408/integration #563/#559; audit #1409's permitted deferral criterion is checked after exact readback and box-check, but the audit remains open. Bug #1408 is unchanged with two unchecked source-fix criteria. G retro is posted as #688 comment 6586365365, including the candid D228 addendum.
+T41 is accepted at e481e4a4a5c296c8f12e9654b6a45c4fb27bd3b0 by full #688 comment6588269141, with immutable coordinator evidence 8b83e452459f6696ac959b4e4e5494701d5d2f93:docs/qa-logs/2026-11-02-m6-resume/t41-final-acceptance.md. Audit #1409 is closed/completed; exact verified readback and schema1 marker are at the audit root. The completion packet is under completion/, with current check receipts at completion/validation.json.
 
-D228 at 10e055e3043b7bd41f9dcca3e04abce9d979817e / comment 6586375296 authorizes exactly four NEW generator input controls. stage-f/generator-input-proof/manifest.json records PASS, negatives1/1/1 and stats0; positive stdout equals retained C stats. Historical negative input identities remain unavailable and are not retroactively certified. No application/extraction/whole-stage replay. Accepted formal program and all A–D bytes stay unchanged.
+New completion-record checks PASS: schema1 validator, both resolution lints and full/gate ceremony rc0; 955 accepted audit files and107 source paths unchanged. Commit/push normally and return one clean records-only completion tip/checkpoint to m6-coordinator wN:p2. Keep #688 open and preserve its accepted seed/e481 header pins. After publication stop: actual ordered integration and #688 closure remain coordinator-owned. The full acceptance run remains53 PASS/one reader FAIL/rc1; the separately corrected issue-body gate PASS reconciles that one predicate, not a second full-suite run.
 
-Stage H retired only /workspace/tmp/m6-t41/src and /workspace/tmp/m6-t41/lint-proof after receipt preservation; literal ls diagnostics and closing ledger/churn census are under stage-h/. Other owned tmp/records/fixtures remain. Final check output is stage-h/validation.json. The single published H tip and exact reviewed-at/fixed-at are in #688's final header/hand-back, avoiding a self-referential commit hash in this pointer.
-
-Prior H hand-back 6586647714 published clean tip 61a1a674c10d520f9d93748c5a73deaadb08b158. The explicitly dispatched pins-read presentation correction appends all ten literal assignments and five case labels to 02, with new immutable git-show receipts in stage-h/pins-read-correction. Whole-recipe context is distinguished from selected T41 pins; counts/source unchanged. Current new-record checks and both resolution lints PASS; stage-h/pins-read-correction/validation.json records all exits and 917 unchanged prior audit files. Commit/push this bounded correction, update #688 final header/checkpoint to one clean tip and return to wN:p2; then idle for coordinator acceptance. Do not close the audit, tick/close #688, create audit-completion.json or change source. After acceptance the coordinator prompts any completion receipt owed. T11/#658 retains duplicate storage choice, D-SYS-004 the never-sent distribution-layer ramoops draft. No runtime/host/private/provider/device/cloud action or permission answer. If Herdr is blocked, retain result on #688 and leave owner input untouched.
+No source/program/accepted A–H receipt or historical-identity change. No accepted replay/new merge/host/runtime/provider/device/cloud/other-owner action or permission answer. All local commands pinned CPUs8–23 for the separate M7 window. PL-001 remains Deferred; High #1408 open/unfixed with two unchecked fix criteria, integration #563/#559 owns uptake. T11 storage decision and never-sent distribution-layer ramoops draft persist. If Herdr is blocked, retain the result on #688 and leave owner input untouched.
 
 ## Merge notes
 
@@ -78,3 +76,5 @@ The merge order is the coordinator's, named at acceptance. When `next` moves, th
 - **Stages E–H** (2026-11-02 19:29:56 UTC): records-only D227 deferral, both resolution lints PASS, G retro 6586365365, D228 four new controls PASS, closing census and two owned scratch roots retired. Final tip/header/hand-back published on #688; coordinator acceptance remains owed.
 
 - **Pins-read correction** (2026-11-02T20:07:40.683958+00:00): full authority6587194285 at coordinator239808e3724ba9ead52fd92d5d5e0c517f0cedf1 read; ten literal assignment lines and five case labels appended to02 with exact immutable output/hash receipts. Both current resolution lints PASS; selected pins/source/counts unchanged, no replay. Final current tip is the issue header/correction checkpoint.
+
+- **Accepted completion record** (2026-11-02T21:02:31.360915+00:00): #1409 closed/completed readback and real schema1 evidence hashes retained; #688 all28checked/open with accepted seed/e481 headers unchanged. Completion-only publication, then stop for root-owned integration.

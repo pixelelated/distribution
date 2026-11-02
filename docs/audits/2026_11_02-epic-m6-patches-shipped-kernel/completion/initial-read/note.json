@@ -1,0 +1,6 @@
+{
+  "recorded_at": "2026-11-02T21:02:29.369311+00:00",
+  "failure": "New completion producer incorrectly expected the current closed audit body to equal the historical Stage-E body. Coordinator closure correctly updated two acceptance paragraphs. No marker was written before the assertion.",
+  "retained": "Original producer and three actual read outputs/error streams; per-command times were not persisted before the assertion and are not invented.",
+  "correction": "Compare the exact current closed audit body against the independent connector readback. Persist each subsequent command record immediately. No accepted producer replay."
+}
