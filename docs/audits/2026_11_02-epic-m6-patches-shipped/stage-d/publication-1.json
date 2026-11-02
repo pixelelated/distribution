@@ -1,0 +1,127 @@
+{
+  "tip": "62573c216cde7ff5ff08bf12d1e8ffdb6bc742f6",
+  "clean_before_push": true,
+  "events": [
+    {
+      "name": "stage",
+      "utc": "2026-11-02T19:47:18.082755+00:00",
+      "argv": [
+        "git",
+        "add",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped",
+        ".github/sessions/saved-session-state-feature-m6-patches-shipped-689.md",
+        "docs/work-logs/2026_11-work_logs/2026_11_02-work_log.md",
+        "docs/work-logs/INDEX.md"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+      "rc": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "path-guard",
+      "utc": "2026-11-02T19:47:18.208277+00:00",
+      "argv": [
+        "python3",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/tools/validate.py",
+        "guard",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+        "9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+      "rc": 0,
+      "stdout": "PASS source-preserving tree and commit paths\n",
+      "stderr": ""
+    },
+    {
+      "name": "commit",
+      "utc": "2026-11-02T19:47:18.530677+00:00",
+      "argv": [
+        "git",
+        "commit",
+        "-q",
+        "-F",
+        "/tmp/m6-t42-commit-message.txt"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+      "rc": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "tip",
+      "utc": "2026-11-02T19:47:21.179256+00:00",
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+      "rc": 0,
+      "stdout": "62573c216cde7ff5ff08bf12d1e8ffdb6bc742f6\n",
+      "stderr": ""
+    },
+    {
+      "name": "clean-before-push",
+      "utc": "2026-11-02T19:47:21.180364+00:00",
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+      "rc": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "push",
+      "utc": "2026-11-02T19:47:21.411503+00:00",
+      "argv": [
+        "git",
+        "-c",
+        "credential.helper=",
+        "-c",
+        "credential.helper=!gh auth git-credential",
+        "push",
+        "-q",
+        "origin-https",
+        "feature/m6-patches-shipped-689:feature/m6-patches-shipped-689"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+      "rc": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "remote-readback",
+      "utc": "2026-11-02T19:47:48.986738+00:00",
+      "argv": [
+        "git",
+        "ls-remote",
+        "origin-https",
+        "refs/heads/feature/m6-patches-shipped-689"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+      "rc": 0,
+      "stdout": "62573c216cde7ff5ff08bf12d1e8ffdb6bc742f6\trefs/heads/feature/m6-patches-shipped-689\n",
+      "stderr": ""
+    },
+    {
+      "name": "committed-path-guard",
+      "utc": "2026-11-02T19:47:49.221506+00:00",
+      "argv": [
+        "python3",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689/docs/audits/2026_11_02-epic-m6-patches-shipped/tools/validate.py",
+        "guard",
+        "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+        "9dd0716033f8831ffbd0b5ee8efbb5e5a066cfb1"
+      ],
+      "cwd": "/workspace/repos/pixelelated/distribution.worktrees/m6-patches-shipped-689",
+      "rc": 0,
+      "stdout": "PASS source-preserving tree and commit paths\n",
+      "stderr": ""
+    }
+  ],
+  "note": "Actual publication receipts. A final receipt-only commit and normal push will be named in the #689 D checkpoint; this receipt does not claim its own containing commit was already pushed."
+}
